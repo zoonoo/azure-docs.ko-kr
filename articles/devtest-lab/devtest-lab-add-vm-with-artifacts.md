@@ -1,141 +1,149 @@
 <properties
-	pageTitle="아티팩트를 사용하여 Azure DevTest Labs의 랩에 VM 추가 | Microsoft Azure"
-	description="Azure DevTest Labs에서 아티팩트를 사용하여 VM을 추가하는 방법 알아보기"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Add a VM with artifacts to a lab in Azure DevTest Labs | Microsoft Azure"
+    description="Learn how to add a VM with artifacts in Azure DevTest Labs"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/30/2016"
+    ms.author="tarcher"/>
 
-# 아티팩트를 사용하여 Azure DevTest Labs의 랩에 VM 추가
+
+# <a name="add-a-vm-with-artifacts-to-a-lab-in-azure-devtest-labs"></a>Add a VM with artifacts to a lab in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
-[사용자 지정 이미지](./devtest-lab-create-template.md), [수식](./devtest-lab-manage-formulas.md), 또는 [마켓플레이스 이미지](./devtest-lab-configure-marketplace-images.md) 등을 *기본*으로 사용하여 랩에 VM을 만듭니다.
+You create a VM in a lab from a *base* that is either a [custom image](./devtest-lab-create-template.md), [formula](./devtest-lab-manage-formulas.md), or [Marketplace image](./devtest-lab-configure-marketplace-images.md).
 
-DevTest Lab *아티팩트*를 통해 VM을 만들 때 수행하는 *작업*을 지정할 수 있습니다.
+DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is created. 
 
-아티팩트 작업은 Windows Powershell 스크립트 실행, Bash 명령 실행 및 소프트웨어 설치와 같은 절차를 수행할 수 있습니다.
+Artifact actions can perform procedures such as running Windows PowerShell scripts, running Bash commands, and installing software. 
 
-아티팩트 *매개 변수*를 통해 특정 시나리오에 대한 아티팩트를 사용자 지정할 수 있습니다.
+Artifact *parameters* let you customize the artifact for your particular scenario.
 
-이 문서에서는 아티팩트를 사용하여 랩에 VM을 만드는 방법을 보여 줍니다.
+This article shows you how to create a VM in your lab with artifacts.
 
-## 아티팩트를 사용하여 VM 추가
+## <a name="add-a-vm-with-artifacts"></a>Add a VM with artifacts
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. **서비스 더 보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
-1. 랩 목록에서 VM을 만들려는 랩을 선택합니다.
+1. From the list of labs, select the lab in which you want to create the VM.  
 
-1. 랩의 **개요** 블레이드에서 **+ 가상 컴퓨터**를 선택합니다. ![VM 단추 추가](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+1. On the lab's **Overview** blade, select **+ Virtual Machine**.  
+    ![Add VM button](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
-1. **기본 선택** 블레이드에서 VM의 기본을 선택합니다.
+1. On the **Choose a base** blade, select a base for the VM.
 
-1. **가상 컴퓨터** 블레이드의 **가상 컴퓨터 이름** 텍스트 상자에 새 가상 컴퓨터의 이름을 입력합니다.
+1. On the **Virtual machine** blade, enter a name for the new virtual machine in the **Virtual machine name** text box.
 
-	![랩 VM 블레이드](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
+    ![Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
 
-1. 가상 컴퓨터에서 관리자 권한이 부여된 **사용자 이름**을 입력합니다.
+1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
-1. *암호 저장소*에 저장된 암호를 사용하려는 경우 **내 암호 저장소의 암호 사용**을 선택하고 암호에 해당하는 키 값을 지정합니다. 그렇지 않으면 **값 입력** 텍스트 필드에 암호를 입력하면 됩니다.
+1. If you want to use a password stored in your *secret store*, select **Use secrets from my secret store**, and specify a key value that corresponds to your secret (password). Otherwise, simply enter a password in the text field labeled **Type a value**.
  
-1. **가상 컴퓨터 크기**를 선택하고 만들려는 프로세서 코어, RAM 크기 및 VM의 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다.
+1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 
-1. **가상 네트워크**를 누르고 원하는 가상 네트워크를 선택합니다.
+1. Select **Virtual network** and select the desired virtual network.
 
-1. **서브넷**을 누르고 서브넷을 선택합니다.
+1. Select **Subnet** and select subnet.
 
-1. 선택한 서브넷에 공용 IP 주소를 허용하도록 랩 정책이 설정되어 있으면 **예** 또는 **아니요**를 선택하여 IP 주소를 공용으로 할 것인지 지정합니다. 그렇지 않으면 이 옵션이 비활성화되고 **아니요**가 선택됩니다.
+1. If the lab policy is set to allow public IP addresses for the selected subnet, specify whether you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**. 
 
-1. **아티팩트**를 선택하고 아티팩트 목록에서 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다. **참고:** DevTest Lab을 처음 접하거나 아티팩트를 구성 중인 경우 [VM에 기존 아티팩트 추가](#add-an-existing-artifact-to-a-vm) 섹션으로 건너뛴 다음 완료되면 여기로 돌아옵니다.
+1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. 
+**Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, and then return here when finished.
 
-1. Azure Resource Manager 템플릿을 보거나 복사하려면 [Azure Resource Manager 템플릿 저장](#save-arm-template) 섹션으로 건너뛰어 원하는 작업을 마친 후에 여기로 다시 돌아옵니다.
+1. If you want to view or copy the Azure Resource Manager template, skip to the [Save Azure Resource Manager template](#save-arm-template) section, and return here when finished.
 
-1. **만들기**를 누르고 지정된 VM을 랩에 추가합니다.
+1. Select **Create** to add the specified VM to the lab.
 
-1. 랩 블레이드는 VM의 만들기 상태를 표시합니다. 처음에는 **만드는 중**이 표시되고 VM이 시작하면 **실행 중**으로 표시됩니다.
+1. The lab blade displays the status of the VM's creation; first as **Creating**, then as **Running** after the VM has been started.
 
-1. [다음 단계](#next-steps) 섹션으로 이동합니다.
+1. Go to the [Next Steps](#next-steps) section. 
 
-## VM에 기존 아티팩트 추가
+## <a name="add-an-existing-artifact-to-a-vm"></a>Add an existing artifact to a VM
 
-VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 랩에는 공용 DevTest Lab 아티팩트 리포지토리의 아티팩트 및 사용자가 만들어서 사용자 고유 아티팩트 리포지토리에 추가한 아티팩트가 포함되어 있습니다. 아티팩트를 만드는 방법을 알아보려면 [DevTest Labs와 함께 사용할 사용자 고유의 아티팩트를 저작하는 방법 알아보기](devtest-lab-artifact-author.md) 문서를 참조하세요.
+While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Labs Artifact Repository as well as artifacts that you've created and added to your own Artifact Repository.
+To discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
 
-1. **가상 컴퓨터** 블레이드에서 **아티팩트**를 선택합니다.
+1. On the **Virtual machine** blade, select **Artifacts**. 
 
-1. **아티팩트 추가** 블레이드에서 원하는 아티팩트를 선택합니다.
+1. On the **Add artifacts** blade, select the desired artifact.  
 
-	![아티팩트 추가 블레이드](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
+    ![Add Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
-1. 필수 매개 변수 값 및 필요한 선택적 매개 변수를 입력합니다.
+1. Enter the required parameter values and any optional parameters that you need.  
 
-1. **추가**를 선택하여 아티팩트를 추가하고 **아티팩트 추가** 블레이드로 돌아갑니다.
+1. Select **Add** to add the artifact and return to the **Add Artifacts** blade.
 
-1. VM에 필요한 만큼 계속해서 아티팩트를 추가합니다.
+1. Continue adding artifacts as needed for your VM.
 
-1. 아티팩트를 추가한 후에는 [아티팩트가 실행되는 순서를 변경](#change-the-order-in-which-artifacts-are-run)할 수 있습니다. 뒤로 돌아가서 [아티팩트를 확인 또는 수정](#view-or-modify-an-artifact)할 수도 있습니다.
+1. Once you've added your artifacts, you can [change the order in which the artifacts are run](#change-the-order-in-which-artifacts-are-run). You can also go back to [view or modify an artifact](#view-or-modify-an-artifact).
 
-## 아티팩트가 실행되는 순서 변경
+## <a name="change-the-order-in-which-artifacts-are-run"></a>Change the order in which artifacts are run
 
-기본적으로 아티팩트 작업은 VM에 추가된 순서로 실행됩니다. 다음 단계에서는 아티팩트가 실행되는 순서를 변경하는 방법을 보여 줍니다.
+By default, the actions of the artifacts are executed in the order in which they are added to the VM. The following steps illustrate how to change the order in which the artifacts are run.
 
-1. **아티팩트 추가** 블레이드의 맨 위에서 VM에 추가된 아티팩트 수를 나타내는 링크를 선택합니다.
+1. At the top of the **Add Artifacts** blade, select the link indicating the number of artifacts that have been added to the VM.
 
-    ![VM에 추가된 아티팩트의 수](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. 아티팩트가 실행되는 순서를 지정하려면 아티팩트를 원하는 순서로 끌어서 놓습니다. **참고:** 아티팩트를 끌어 놓는 데 문제가 있으면 아티팩트의 왼쪽에서 끌어 놓으세요.
+1. To specify the order in which the artifacts are run, drag and drop the artifacts into the desired order. **Note:** If you have having trouble dragging the artifact, make sure that you are dragging from the left side of the artifact. 
 
-1. 완료되면 **확인**을 선택합니다.
+1. Select **OK** when done.  
 
-## 아티팩트 확인 또는 수정
+## <a name="view-or-modify-an-artifact"></a>View or modify an artifact
 
-다음 단계에서는 아티팩트의 매개 변수를 확인 또는 수정하는 방법을 보여 줍니다.
+The following steps illustrate how to view or modify the parameters of an artifact:
 
-1. **아티팩트 추가** 블레이드의 맨 위에서 VM에 추가된 아티팩트 수를 나타내는 링크를 선택합니다.
+1. At the top of the **Add Artifacts** blade, select the link indicating the number of artifacts that have been added to the VM.
 
-    ![VM에 추가된 아티팩트의 수](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. **선택한 아티팩트** 블레이드에서 확인 또는 편집하려는 아티팩트를 선택합니다.
+1. On the **Selected Artifacts** blade, select the artifact that you want to view or edit.  
 
-1. **아티팩트 추가** 블레이드에서 필요한 부분을 변경하고 **확인**을 선택하여 **아티팩트 추가** 블레이드를 닫습니다.
+1. On the **Add Artifact** blade, make any needed changes, and select **OK** to close the **Add Artifact** blade.
 
-1. **확인**을 선택하여 **선택한 아티팩트** 블레이드를 닫습니다.
+1. Select **OK** to close the **Selected Artifacts** blade.
 
-## Azure Resource Manager 템플릿 저장
+## <a name="save-azure-resource-manager-template"></a>Save Azure Resource Manager template
 
-Azure Resource Manager 템플릿을 사용하면 반복 가능한 배포를 선언적으로 정의할 수 있습니다. 다음 단계는 생성 중인 VM에 대한 Azure Resource Manager 템플릿을 저장하는 방법을 설명합니다. 저장한 Azure Resource Manager 템플릿은 [Azure PowerShell로 새 VM을 배포](../resource-group-overview.md#template-deployment)하는 데 사용할 수 있습니다.
+An Azure Resource Manager template provides a declarative way to define a repeatable deployment. The following steps explain how to save the Azure Resource Manager template for the VM being created.
+Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../resource-group-overview.md#template-deployment).
 
-1. **가상 컴퓨터** 블레이드에서 **ARM 템플릿 보기**를 선택합니다.
+1. On the **Virtual machine** blade, select **View ARM Template**.
 
-1. **Azure Resource Manager 템플릿 보기** 블레이드에서 템플릿 텍스트를 선택합니다.
+1. On the **View Azure Resource Manager Template blade**, select the template text.
 
-1. 선택한 텍스트를 클립보드에 복사합니다.
+1. Copy the selected text to the clipboard.
 
-1. **확인**을 선택하여 **Azure Resource Manager 템플릿 블레이드 보기**를 닫습니다.
+1. Select **OK** to close the **View Azure Resource Manager Template blade**.
 
-1. 텍스트 편집기를 엽니다.
+1. Open a text editor.
 
-1. 클립보드의 템플릿 텍스트를 붙여넣습니다.
+1. Paste in the template text from the clipboard.
 
-1. 나중에 사용할 수 있도록 파일을 저장합니다.
+1. Save the file for later use.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- VM을 만든 후에는 해당 VM의 블레이드에서 **연결**을 선택하여 VM에 연결할 수 있습니다.
-- [DevTest Labs VM용 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md) 방법을 알아봅니다.
-- [DevTest Labs ARM 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)를 살펴봅니다.
+- Once the VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
+- Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
+- Explore the [DevTest Labs ARM QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

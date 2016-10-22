@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure 포털을 사용하여 DNS 레코드 집합 및 레코드 관리 | Microsoft Azure"
-   description="Azure DNS에서 도메인을 호스트하는 경우 DNS 레코드 집합 및 레코드를 관리합니다."
+   pageTitle="Manage DNS record sets and records using the Azure portal | Microsoft Azure"
+   description="Managing DNS record sets and records when hosting your domain on Azure DNS."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,123 +15,128 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
-# Azure 포털을 사용하여 DNS 레코드 및 레코드 집합 관리
+
+# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Manage DNS records and record sets by using the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Azure 포털](dns-operations-recordsets-portal.md)
+- [Azure Portal](dns-operations-recordsets-portal.md)
 - [Azure CLI](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
 
-이 문서는 Azure 포털을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여줍니다.
+This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
 
-DNS 레코드 집합과 개별 DNS 레코드 사이의 차이를 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 DNS 레코드 컬렉션입니다. 자세한 내용은 [Azure 포털을 사용하여 DNS 레코드 집합 및 레코드 만들기](dns-getstarted-create-recordset-portal.md)를 참조하세요.
+It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
-## 새 레코드 집합 및 레코드 만들기
+## <a name="create-a-new-record-set-and-record"></a>Create a new record set and record
 
-Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하여 DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md)를 참조하세요.
-
-
-## 레코드 집합 보기
-
-1. Azure 포털에서 **DNS 영역** 블레이드로 이동합니다.
-
-2. 레코드 집합을 검색한 후 선택합니다. 레코드 집합 속성이 열립니다.
-
-	![레코드 집합 검색](./media/dns-operations-recordsets-portal/searchset500.png)
+To create a record set in the Azure portal, see [Create DNS records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
 
-## 레코드 집합에 새 레코드 추가
+## <a name="view-a-record-set"></a>View a record set
 
-레코드 집합에 최대 20개의 레코드를 추가할 수 있습니다. 레코드 집합에는 두 개의 동일한 레코드가 포함될 수 없습니다. 빈 레코드 집합(0개 레코드 포함)을 만들 수 있지만 Azure DNS 이름 서버에는 표시되지 않습니다. CNAME 형식의 레코드 집합은 최대 하나의 레코드를 포함할 수 있습니다.
+1. In the Azure portal, go to the **DNS zone** blade.
 
+2. Search for the record set and select it. This opens the record set properties.
 
-1. DNS 영역에 대한 **레코드 설정 속성** 블레이드에서 레코드를 추가하려는 레코드 집합을 클릭합니다.
-
-	![레코드 집합 선택](./media/dns-operations-recordsets-portal/selectset500.png)
-
-2. 필드에 입력하여 레코드 집합 속성을 지정합니다.
-
-	![레코드 추가](./media/dns-operations-recordsets-portal/addrecord500.png)
-
-2. 블레이드의 맨 위에서 **저장**을 클릭하여 설정을 저장합니다. 그런 다음 블레이드를 닫습니다.
-
-3. 가장자리에 레코드가 저장되는 것이 표시됩니다.
-
-	![레코드 집합 저장](./media/dns-operations-recordsets-portal/saving150.png)
-
-레코드가 저장된 후 **DNS 영역** 블레이드의 값은 새 레코드를 반영합니다.
+    ![Search for a record set](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## 레코드 업데이트
+## <a name="add-a-new-record-to-a-record-set"></a>Add a new record to a record set
 
-기존 레코드 집합에서 레코드를 업데이트할 때 업데이트할 수 있는 필드는 사용하는 레코드의 유형에 따라 다릅니다.
-
-1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 레코드를 검색합니다.
-
-2. 레코드를 수정합니다. 레코드를 수정할 때 레코드에 대해 사용 가능한 설정을 변경할 수 있습니다. 다음 예제에서는 **IP 주소** 필드가 선택되고 IP 주소는 수정되는 중입니다.
-
-	![레코드 수정](./media/dns-operations-recordsets-portal/modifyrecord500.png)
-
-3. 블레이드의 맨 위에서 **저장**을 클릭하여 설정을 저장합니다. 오른쪽 위 모서리에서 레코드가 저장되었다는 알림을 볼 수 있습니다.
-
-	![저장된 레코드 집합](./media/dns-operations-recordsets-portal/saved150.png)
+You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers. Record sets of type CNAME can contain one record at most.
 
 
-레코드가 저장된 후 **DNS 영역** 블레이드의 레코드 집합에 대한 값은 업데이트된 레코드를 반영합니다.
+1. On the **Record set properties** blade for your DNS zone, click the record set that you want to add a record to.
+
+    ![Select a record set](./media/dns-operations-recordsets-portal/selectset500.png)
+
+2. Specify the record set properties by filling in the fields.
+
+    ![Add a record](./media/dns-operations-recordsets-portal/addrecord500.png)
+
+2. Click **Save** at the top of the blade to save your settings. Then close the blade.
+
+3. In the corner, you will see that the record is saving.
+
+    ![Saving record set](./media/dns-operations-recordsets-portal/saving150.png)
+
+After the record has been saved, the values on the **DNS zone** blade will reflect the new record.
 
 
-## 레코드 집합에서 레코드 제거
+## <a name="update-a-record"></a>Update a record
 
-Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 있습니다. 레코드 집합에서 마지막 레코드를 제거해도 레코드 집합은 삭제되지 않습니다.
+When you update a record in an existing record set, the fields you can update depend on the type of record you're working with.
 
-1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 레코드를 검색합니다.
+1. On the **Record set properties** blade for your record set, search for the record.
 
-2. 제거하려는 레코드를 클릭합니다. 그런 후 **제거**를 선택합니다.
+2. Modify the record. When you modify a record, you can change the available settings for the record. In the following example, the **IP address** field is selected, and the IP address is in the process of being modified.
 
-	![레코드 제거](./media/dns-operations-recordsets-portal/removerecord500.png)
+    ![Modify a record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. 블레이드의 맨 위에서 **저장**을 클릭하여 설정을 저장합니다.
+3. Click **Save** at the top of the blade to save your settings. In the upper right corner, you'll see the notification that the record has been saved.
 
-3. 레코드가 제거된 후 **DNS 영역** 블레이드의 레코드 값에 제거 결과가 반영됩니다.
-
-
-## <a name="delete"></a>레코드 집합 삭제
-
-1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 **삭제**를 클릭합니다.
-
-	![레코드 집합 삭제](./media/dns-operations-recordsets-portal/deleterecordset500.png)
-
-2. 레코드 집합을 삭제할지 묻는 메시지가 표시됩니다.
-
-3. 이름이 삭제하려는 레코드 집합과 일치하는지 확인한 다음 **예**를 클릭합니다.
-
-4. **DNS 영역** 블레이드에서 레코드 집합을 더 이상 볼 수 없는지 확인합니다.
+    ![Saved record set](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-## NS 및 SOA 레코드 작업
+After the record has been saved, the values for the record set on the **DNS zone** blade will reflect the updated record.
 
-자동으로 생성되는 NS 및 SOA 레코드는 다른 레코드 유형과 다르게 관리됩니다.
 
-### SOA 레코드 수정
+## <a name="remove-a-record-from-a-record-set"></a>Remove a record from a record set
 
-영역 루트(이름 = “@”)에 설정된 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가 또는 제거할 수는 없습니다. 그러나 SOA 레코드 내의 매개 변수("Host" 제외) 및 레코드 집합 TTL을 수정할 수 있습니다.
+You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set.
 
-### 영역 루트의 NS 레코드 수정
+1. On the **Record set properties** blade for your record set, search for the record.
 
-영역 루트(이름 = “@”)에 자동으로 생성된 NS 레코드 집합에서 레코드를 추가, 제거 또는 수정할 수는 없습니다. 레코드 집합 TTL을 수정하는 변경 작업만 허용됩니다.
+2. Click the record that you want to remove. Then select **Remove**.
 
-### SOA 또는 NS 레코드 집합 삭제
+    ![Remove a record](./media/dns-operations-recordsets-portal/removerecord500.png)
 
-영역을 만들 때 자동으로 생성된 영역 루트(이름 = '@')의 SOA 및 NS 레코드 집합은 삭제할 수 없습니다. 영역을 삭제하면 자동으로 삭제됩니다.
+3. Click **Save** at the top of the blade to save your settings.
 
-## 다음 단계
+3. After the record has been removed, the values for the record on the **DNS zone** blade will reflect the removal.
 
--   Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요.
--   DNS 자동화에 대한 자세한 내용은 [.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기](dns-sdk.md)를 참조하세요.
--   역방향 DNS 레코드에 대한 자세한 내용은 [PowerShell을 사용하여 서비스에 대한 역방향 DNS 레코드를 관리하는 방법](dns-reverse-dns-record-operations-ps.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+## <a name="<a-name="delete"></a>delete-a-record-set"></a><a name="delete"></a>Delete a record set
+
+1. On the **Record set properties** blade for your record set, click **Delete**.
+
+    ![Delete a record set](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+
+2. A message appears asking if you want to delete the record set.
+
+3. Verify that the name matches the record set that you want to delete, and then click **Yes**.
+
+4. On the **DNS zone** blade, verify that the record set is no longer visible.
+
+
+## <a name="work-with-ns-and-soa-records"></a>Work with NS and SOA records
+
+NS and SOA records that are automatically created are managed differently from other record types.
+
+### <a name="modify-soa-records"></a>Modify SOA records
+
+You cannot add or remove records from the automatically created SOA record set at the zone apex (name = "@"). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
+
+### <a name="modify-ns-records-at-the-zone-apex"></a>Modify NS records at the zone apex
+
+You cannot add to, remove, or modify the records in the automatically created NS record set at the zone apex (name = "@"). The only change that's permitted is to modify the record set TTL.
+
+### <a name="delete-soa-or-ns-record-sets"></a>Delete SOA or NS record sets
+
+You cannot delete the SOA and NS record sets at the zone apex (name = "@") that are created automatically when the zone is created. They are deleted automatically when you delete the zone.
+
+## <a name="next-steps"></a>Next steps
+
+-   For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
+-   For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
+-   For more information about reverse DNS records, see [How to manage reverse DNS records for your services using PowerShell](dns-reverse-dns-record-operations-ps.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

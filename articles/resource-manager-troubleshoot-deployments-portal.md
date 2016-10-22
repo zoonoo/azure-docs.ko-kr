@@ -1,6 +1,6 @@
 <properties
-   pageTitle="포털을 통해 배포 작업 보기 | Microsoft Azure"
-   description="Azure 포털을 사용하여 리소스 관리자 배포의 오류를 감지하는 방법에 대해 설명합니다."
+   pageTitle="View deployment operations with portal | Microsoft Azure"
+   description="Describes how to use the Azure portal to detect errors from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,94 +17,99 @@
    ms.date="06/15/2016"
    ms.author="tomfitz"/>
 
-# Azure 포털을 통해 배포 작업 보기
+
+# <a name="view-deployment-operations-with-azure-portal"></a>View deployment operations with Azure Portal
 
 > [AZURE.SELECTOR]
-- [포털](resource-manager-troubleshoot-deployments-portal.md)
+- [Portal](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 중에 오류가 나타날 때 작업을 보는 데 가장 많은 관심을 가질 수 있으므로 이 문서에서는 실패한 작업을 보는 것에 대해 중점적으로 설명합니다. 포털은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 인터페이스를 제공합니다.
+You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-## 배포 작업을 사용하여 문제 해결
+## <a name="use-deployment-operations-to-troubleshoot"></a>Use deployment operations to troubleshoot
 
-배포 작업을 확인하려면 다음 단계를 사용합니다.
+To see the deployment operations, use the following steps:
 
-1. 배포에 관련된 리소스 그룹에 대해 마지막 배포의 상태를 확인합니다. 이 상태를 선택하여 자세한 내용을 확인할 수 있습니다.
+1. For the resource group involved in the deployment, notice the status of the last deployment. You can select this status to get more details.
 
-    ![배포 상태](./media/resource-manager-troubleshoot-deployments-portal/deployment-status.png)
+    ![deployment status](./media/resource-manager-troubleshoot-deployments-portal/deployment-status.png)
 
-2. 최근 배포 기록이 표시됩니다. 실패한 배포를 선택합니다.
+2. You will see the recent deployment history. Select the deployment that failed.
 
-    ![배포 상태](./media/resource-manager-troubleshoot-deployments-portal/select-deployment.png)
+    ![deployment status](./media/resource-manager-troubleshoot-deployments-portal/select-deployment.png)
 
-3. **실패했습니다. 자세한 내용을 보려면 여기를 클릭하세요.**를 선택하여 배포에 실패한 이유에 대한 설명을 볼 수 있습니다. 아래 이미지에서 DNS 레코드는 고유하지 않습니다.
+3. Select **Failed. Click here for details** to see a description of why the deployment failed. In the image below, the DNS record is not unique.  
 
-    ![실패한 배포 보기](./media/resource-manager-troubleshoot-deployments-portal/view-error.png)
+    ![view failed deployment](./media/resource-manager-troubleshoot-deployments-portal/view-error.png)
 
-    이 오류 메시지는 문제 해결을 시작하는 데 충분합니다. 그러나 어떤 작업이 완료되었는지에 대한 추가 정보가 필요한 경우 다음 단계에 표시된 대로 작업을 볼 수 있습니다.
+    This error message should be enough for you to begin troubleshooting. However, if you need more details about which tasks were completed, you can view the operations as shown in the following steps.
 
-4. **배포** 블레이드에서 모든 배포 작업을 볼 수 있습니다. 보다 자세한 정보를 확인하려면 원하는 작업을 선택합니다.
+4. You can view all of the deployment operations in the **Deployment** blade. Select any operation to see more details.
 
-    ![작업 보기](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
+    ![view operations](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
 
-    이 경우 저장소 계정, 가상 네트워크 및 가용성 집합이 성공적으로 만들어진 것을 확인할 수 있습니다. 공용 IP 주소가 실패했고 다른 리소스를 시도하지 않았습니다.
+    In this case, you see that the storage account, virtual network, and availability set were successfully created. The public IP address failed, and other resources were not attempted.
 
-5. **이벤트**를 선택하여 배포에 대한 이벤트를 볼 수 있습니다.
+5. You can view events for the deployment by selecting **Events**.
 
-    ![이벤트 보기](./media/resource-manager-troubleshoot-deployments-portal/view-events.png)
+    ![view events](./media/resource-manager-troubleshoot-deployments-portal/view-events.png)
 
-6. 배포에 대한 모든 이벤트가 표시되면 하나 이상의 세부 정보를 선택합니다.
+6. You see all of the events for the deployment and select any one for more details.
 
-    ![이벤트 보기](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
+    ![see events](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
 
-## 감사 로그를 사용하여 문제 해결
+## <a name="use-audit-logs-to-troubleshoot"></a>Use audit logs to troubleshoot
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-배포 오류를 확인하려면 다음 단계를 사용합니다.
+To see errors for a deployment, use the following steps:
 
-1. **감사 로그**를 선택하여 리소스 그룹에 대한 감사 로그를 봅니다.
+1. View the audit logs for a resource group by selecting **Audit Logs**.
 
-    ![감사 로그 선택](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
+    ![select audit logs](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
 
-2. **감사 로그** 블레이드에서 구독의 모든 리소스 그룹에 대한 최근 작업의 요약을 볼 수 있습니다. 여기에는 그래픽으로 나타낸 작업의 시간/상태와 작업 목록이 포함되어 있습니다.
+2. In the **Audit Logs** blade, you will see a summary of recent operations for all of the resource groups in your subscription. It includes a graphical representation of the time and status of the operations, as well as a list of the operations.
 
-    ![작업 표시](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
+    ![show actions](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
 
-3. 감사 로그 보기를 필터링하여 특정 조건을 집중적으로 확인할 수 있습니다. **감사 로그** 블레이드 위쪽의 **필터**를 선택합니다.
+3. You can filter your view of the audit logs to focus on particular conditions. Select **Filter** at the top of the **Audit logs** blade.
 
-    ![로그 필터링](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
+    ![filter logs](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
 
-4. **필터** 블레이드에서 조건을 선택하여 원하는 작업만 표시하도록 감사 로그 보기를 제한할 수 있습니다. 예를 들어 리소스 그룹에 대한 오류만 표시하도록 작업을 필터링할 수 있습니다.
+4. From the **Filter** blade, select conditions to restrict your view of the audit logs to only those operations you want to see. For example, you can filter operations to only display errors for the resource group.
 
-    ![필터 옵션 설정](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
+    ![set filter options](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
 
-5. 시간 범위를 설정하여 작업을 좀 더 필터링할 수 있습니다. 다음 이미지는 보기를 특정 20분의 시간 범위로 필터링합니다.
+5. You can further filter operations by setting a time span. The following image filters the view to a particular 20-minute timespan.
 
-    ![시간 설정](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
+    ![set time](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
 
-6. 목록에서 작업 중 하나를 선택할 수 있습니다. 조사하려는 오류가 포함된 작업을 선택합니다.
+6. You can select any of the operations in the list. Pick the operation that contains the error you wish to research.
 
-    ![작업 선택](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
+    ![select operation](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
   
-7. 해당 작업에 대한 모든 이벤트를 표시합니다. 요약에서 **상관 관계 ID**를 확인합니다. 이 ID는 관련 이벤트를 추적하는 데 사용됩니다. 기술 지원과 함께 문제를 해결하면 유용할 수 있습니다. 이벤트에 대한 자세한 내용을 보려면 이벤트 중 하나를 선택하면 됩니다.
+7. You will see all of the events for that operation. Notice the **Correlation IDS** in the summary. This ID is used to track related events. It can be helpful when working with technical support to troubleshoot an issue. You can select any of event to see details about the event.
 
-    ![이벤트 선택](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
+    ![select event](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
 
-8. 이벤트에 대한 세부 정보가 표시됩니다. 특히 오류에 대한 정보를 얻으려면 **속성**을 집중적으로 확인하세요.
+8. You will see details about the event. In particular, pay attention to the **Properties** for information about the error.
 
-    ![감사 로그 세부 정보 표시](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
+    ![show audit log details](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
 
-감사 로그에 적용한 필터는 다음 번에 감사 로그를 볼 때도 그대로 유지되므로 작업 보기를 넓히려면 이러한 값을 변경해야 할 수 있습니다.
+The filter you applied to the audit log is retained the next time you view it, so you may need to change those values to broaden your view of the operations.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- 특정 배포 오류에 대한 도움말은 [ Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
-- 감사 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법을 알아보려면 [Resource Manager를 사용하여 작업 감사](resource-group-audit.md)를 참조하세요.
-- 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

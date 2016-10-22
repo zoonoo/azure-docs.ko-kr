@@ -1,16 +1,18 @@
-트리거를 추가해 보겠습니다.
+Let's add a trigger.
 
-1. 논리 앱 디자이너의 검색 상자에 *sftp*를 입력한 후 **SFTP - 파일을 추가하거나 수정할 때** 트리거를 선택합니다.  
-![SFTP 트리거 이미지 1](./media/connectors-create-api-sftp/trigger-1.png)  
-- **파일을 추가하거나 수정할 때** 컨트롤이 열립니다.  
-![SFTP 트리거 이미지 2](./media/connectors-create-api-sftp/trigger-2.png)  
-- 컨트롤의 오른쪽에 있는 **...**를 선택합니다. 이렇게 하면 폴더 선택 컨트롤이 열립니다.  
-![SFTP 트리거 이미지 3](./media/connectors-create-api-sftp/action-1.png)  
-- **SFTP**를 선택하여 새롭거나 수정된 파일을 모니터링할 폴더로 루트 폴더를 선택합니다. 이제 루트 폴더는 **폴더** 컨트롤에 표시됩니다.  
-![SFTP 트리거 이미지 4](./media/connectors-create-api-sftp/action-2.png)  
+1. Enter *sftp* in the search box on the logic apps designer then select the **SFTP - When a file is added or modified**  trigger   
+![SFTP trigger image 1](./media/connectors-create-api-sftp/trigger-1.png)  
+- The **When a file is added or modified** control opens up  
+![SFTP trigger image 2](./media/connectors-create-api-sftp/trigger-2.png)  
+- Select the **...** located on the right side of the control. This opens the folder picker control  
+![SFTP trigger image 3](./media/connectors-create-api-sftp/action-1.png)  
+- Select the **SFTP** to select the root folder as the folder to monitor for new or modified files. Notice the root folder is now displayed in the **Folder** control.  
+![SFTP trigger image 4](./media/connectors-create-api-sftp/action-2.png)   
 
-이제, 논리 앱은 파일이 특정 SFTP 폴더에서 수정되거나 만들어질 때 워크플로의 다른 트리거 및 동작의 실행을 시작하는 트리거로 구성되었습니다.
+At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
 
->[AZURE.NOTE]논리 앱이 작동하려면 하나 이상의 트리거와 동작이 있어야 합니다. 다음 섹션의 단계에 따라 동작을 추가합니다.
+>[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

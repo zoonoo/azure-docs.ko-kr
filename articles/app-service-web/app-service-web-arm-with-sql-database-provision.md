@@ -1,89 +1,90 @@
 <properties 
-	pageTitle="SQL 데이터베이스를 사용하는 웹앱을 프로비전" 
-	description="SQL 데이터베이스가 포함된 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Provision a web app that uses a SQL Database" 
+    description="Use an Azure Resource Manager template to deploy a web app that includes a SQL Database." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="cephalin"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="04/27/2016" 
+    ms.author="cephalin"/>
 
-# SQL 데이터베이스를 사용하는 웹앱을 프로비전
 
-이 항목에서는 웹앱 및 SQL 데이터베이스를 배포하는 Azure 리소스 관리자 템플릿을 만드는 방법을 배웁니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+# <a name="provision-a-web-app-with-a-sql-database"></a>Provision a web app with a SQL Database
 
-템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요.
+In this topic, you will learn how to create an Azure Resource Manager template that deploys a web app and SQL Database. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-앱 배포에 대한 자세한 내용은 [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md)를 참조하세요.
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-전체 서식 파일을 보려면 [SQL 데이터베이스 템플릿을 사용하는 웹앱](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json)을 참조하세요.
+For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+For the complete template, see [Web App With SQL Database template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
-## 배포할 내용
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
-이 서식 파일에서 다음을 배포합니다:
+## <a name="what-you-will-deploy"></a>What you will deploy
 
-- 웹앱
-- SQL 데이터베이스 서버
-- SQL 데이터베이스
-- 자동 크기 조정 설정
-- 경고 규칙
+In this template, you will deploy:
+
+- a web app
+- SQL Database server
+- SQL Database
+- AutoScale settings
+- Alert rules
 - App Insights
 
-배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
+To run the deployment automatically, click the following button:
 
-[![Azure에 배포](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)로 바꿉니다.
+[![Deploy to Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## 지정할 매개변수
+## <a name="parameters-to-specify"></a>Parameters to specify
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### administratorLogin
+### <a name="administratorlogin"></a>administratorLogin
 
-데이터베이스 서버 관리자에 사용할 계정 이름입니다.
+The account name to use for the database server administrator.
 
     "administratorLogin": {
       "type": "string"
     }
 
-### administratorLoginPassword
+### <a name="administratorloginpassword"></a>administratorLoginPassword
 
-데이터베이스 서버 관리자에 사용할 암호입니다.
+The password to use for the database server administrator.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
-### databaseName
+### <a name="databasename"></a>databaseName
 
-만들려는 새 데이터베이스의 이름입니다.
+The name of the new database to create.
 
     "databaseName": {
       "type": "string",
       "defaultValue": "sampledb"
     }
 
-### collation
+### <a name="collation"></a>collation
 
-문자의 적절한 사용을 제어하기 위해 사용하는 데이터베이스 데이터 정렬입니다.
+The database collation to use for governing the proper use of characters.
 
     "collation": {
       "type": "string",
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     }
 
-### edition
+### <a name="edition"></a>edition
 
-만들려는 데이터베이스의 형식입니다.
+The type of database to create.
 
     "edition": {
       "type": "string",
@@ -98,18 +99,18 @@
       }
     }
 
-### maxSizeBytes
+### <a name="maxsizebytes"></a>maxSizeBytes
 
-(바이트)는 데이터베이스의 최대 크기입니다.
+The maximum size, in bytes, for the database.
 
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
-### requestedServiceObjectiveName
+### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
 
-버전에 대한 성능 수준에 해당하는 이름입니다.
+The name corresponding to the performance level for edition. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -128,9 +129,9 @@
       }
     }
 
-## 이름에 대한 변수
+## <a name="variables-for-names"></a>Variables for names
 
-이 템플릿에는 템플릿에 사용되는 이름을 생성하는 변수가 포함되어 있습니다. 변수 값은 **uniqueString** 함수를 사용하여 리소스 그룹 id의 이름을 생성합니다.
+This template includes variables that construct names used in the template. The variable values use the **uniqueString** function to generate a name from the resource group id.
 
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -139,11 +140,11 @@
     },
 
 
-## 배포할 리소스
+## <a name="resources-to-deploy"></a>Resources to deploy
 
-### SQL Server 및 데이터베이스
+### <a name="sql-server-and-database"></a>SQL Server and Database
 
-새 SQL Server 및 데이터베이스를 만듭니다. 서버 이름은 **serverName** 매개 변수에 지정되고 위치는 **serverLocation** 매개변수에 지정됩니다. 새 서버를 만들 때 데이터베이스 서버 관리자용 로그인 이름 및 암호를 제공해야 합니다.
+Creates a new SQL Server and database. The name of the server is specified in the **serverName** parameter and the location specified in the **serverLocation** parameter. When creating the new server, you must provide a login name and password for the database server administrator. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -195,7 +196,7 @@
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### 웹앱
+### <a name="web-app"></a>Web app
 
     {
       "apiVersion": "2015-08-01",
@@ -232,7 +233,7 @@
     },
 
 
-### 자동 크기 조정
+### <a name="autoscale"></a>AutoScale
 
     {
       "apiVersion": "2014-04-01",
@@ -302,7 +303,7 @@
     },
 
 
-### 경고는 상태 코드 403 및 500's, 높은 CPU 사용률 및 HTTP 큐 길이를 규정해야 합니다. 
+### <a name="alert-rules-for-status-codes-403-and-500's,-high-cpu,-and-http-queue-length"></a>Alert rules for status codes 403 and 500's, High CPU, and HTTP Queue Length 
 
     {
       "apiVersion": "2014-04-01",
@@ -441,7 +442,7 @@
       }
     },
     
-### App Insights
+### <a name="app-insights"></a>App Insights
 
     {
       "apiVersion": "2014-04-01",
@@ -460,19 +461,23 @@
       }
     }
 
-## 배포 실행 명령
+## <a name="commands-to-run-deployment"></a>Commands to run deployment
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

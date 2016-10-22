@@ -1,94 +1,98 @@
 <properties 
-	pageTitle="논리 앱에 대한 API 만들기" 
-	description="논리 앱과 함께 사용할 사용자 지정 API 만들기" 
-	authors="jeffhollan" 
-	manager="dwrede" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="Create an API for Logic Apps" 
+    description="Creating a custom API to use with Logic Apps" 
+    authors="jeffhollan" 
+    manager="dwrede" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"	
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="jehollan"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na" 
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="jehollan"/>
     
-# 논리 앱과 함께 사용할 사용자 지정 API 만들기
 
-논리 앱 플랫폼을 확장하려는 경우 여러 가지 방법으로 수많은 기본 커넥터 중 하나로 제공되지 않는 API 또는 시스템을 호출할 수 있습니다. 이러한 방법 중 하나는 논리 앱 워크플로 내에서 호출할 수 있는 API 앱을 만드는 것입니다.
+# <a name="creating-a-custom-api-to-use-with-logic-apps"></a>Creating a custom API to use with Logic Apps
 
-## 유용한 도구
+If you want to extend the Logic Apps platform, there are many ways you can call into APIs or systems that aren't available as one of our many out-of-the-box connectors.  One of those ways to create an API App you can call from within a Logic App workflow.
 
-논리 앱에 가장 잘 작동하는 API를 위해 API에 지원되는 작업 및 매개 변수를 자세히 설명하는 [swagger](http://swagger.io) doc를 생성하는 것이 좋습니다. 사용자를 위해 swagger를 자동으로 생성하는 수많은 라이브러리(예: [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle))가 있습니다. 또한 논리 앱과 잘 작동하도록 swagger에 주석 추가하는 데 [TRex](https://github.com/nihaue/TRex)를 사용할 수도 있습니다(표시 이름, 속성 형식 등). 논리 앱에 기본 제공되는 API 앱의 몇 가지 샘플은 [GitHub 리포지토리](http://github.com/logicappsio) 또는 [블로그](http://aka.ms/logicappsblog)를 확인합니다.
+## <a name="helpful-tools"></a>Helpful Tools
 
-## 동작
+For APIs to work best with Logic Apps, we recommend generating a [swagger](http://swagger.io) doc detailing the supported operations and parameters for your API.  There are many libraries (like [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)) that will automatically generate the swagger for you.  You can also use [TRex](https://github.com/nihaue/TRex) to help annotate the swagger to work well with Logic Apps (display names, property types, etc.).  For some samples of API Apps built for Logic Apps, be sure to check out our [GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).
 
-논리 앱에 대한 기본 동작은 HTTP 요청을 수락하고 응답(일반적으로 200)을 반환하는 컨트롤러입니다. 그러나 다양한 패턴에 따라 필요에 따라 동작을 확장할 수 있습니다.
+## <a name="actions"></a>Actions
 
-기본적으로 논리 앱 엔진은 1분 후 시간 초과됩니다. 그러나 아래 자세히 설명된 비동기 또는 webhook 패턴을 따라 시간이 오래 걸리는 동작에 API를 실행하고 동작이 완료될 때까지 엔진이 기다리도록 할 수 있습니다.
+The basic action for a Logic App is a controller that will accept an HTTP Request and return a response (usually 200).  However there are different patterns you can follow to extend actions based on your needs.
 
-표준 작업의 경우, swagger를 통해 노출되는 API에서 HTTP 요청 메서드를 작성하면 됩니다. [GitHub 리포지토리](https://github.com/logicappsio)에서 논리 앱과 함께 작동하는 API 앱의 샘플을 볼 수 있습니다. 다음은 사용자 지정 커넥터를 사용하는 일반적인 패턴을 수행하는 방법입니다.
+By default the Logic App engine will timeout a request after 1 minute.  However, you can have your API execute on actions that take longer, and have the engine wait for completion, by following either an async or webhook pattern detailed below.
 
-### 장기 실행 동작 - 비동기 패턴
+For standard actions, simply write an HTTP request method in your API which is exposed via swagger.  You can see samples of API apps that work with Logic Apps in our [GitHub repository](https://github.com/logicappsio).  Below are ways to accomplish common patterns with a custom connector.
 
-긴 단계 또는 작업을 실행할 때 가장 먼저 해야 할 일은 엔진이 사용자가 시간 초과되지 않았음을 알고 있는지 확인하는 것입니다. 또한 작업이 완료된 것을 어떻게 파악할지 엔진과 통신해야 하며 마지막으로 관련 데이터를 엔진에 반환하여 워크플로를 계속 진행할 수 있도록 해야 합니다. 아래 흐름에 따라 API를 통해 완료할 수 있습니다. 이러한 단계는 사용자 지정 API의 관점에서 설명한 것입니다.
+### <a name="long-running-actions---async-pattern"></a>Long Running Actions - Async Pattern
 
-1. 요청을 받으면 (작업이 완료되기 전에) 즉시 응답을 반환합니다. 이 응답은 `202 ACCEPTED` 응답으로 사용자가 데이터를 받았고 페이로드를 수락했으며 지금 처리 중임을 엔진에 알려줍니다. 202 응답에는 메서드에는 다음 헤더가 포함되어야 합니다.
- * `location` 헤더(필수): 작업 상태를 확인하는 데 사용할 수 있는 URL 논리 앱에 대한 절대 경로입니다.
- * `retry-after`(선택 사항, 작업에 대한 기본값은 20). 상태를 확인하기 위해 위치 헤더 URL을 폴링할 때까지 엔진이 대기할 시간(초)입니다.
+When running a long step or task, the first thing you need to do is make sure the engine knows you haven’t timed out. You also need to communicate with the engine how it will know when you are finished with the task, and finally, you need to return relevant data to the engine so it can continue with the workflow. You can complete that via an API by following the flow below. These steps are from the point-of-view of the custom API:
 
-2. 작업 상태를 확인했으면 다음 확인을 수행합니다.
- * 작업을 완료한 경우: 응답 페이로드와 함께 `200 OK` 응답을 반환합니다.
- * 작업이 아직 처리 중인 경우: 초기 응답과 동일한 헤더와 함께 다른 `202 ACCEPTED` 응답을 반환합니다.
+1. When a request is received, immediately return a response (before work is done). This response will be a `202 ACCEPTED` response, letting the engine know you got the data, accepted the payload, and are now processing. The 202 response should contain the following headers: 
+ * `location` header (required): This is an absolute path to the URL Logic Apps can use to check the status of the job.
+ * `retry-after` (optional, will default to 20 for actions). This is the number of seconds the engine should wait before polling the location header URL to check status.
 
-이 패턴을 사용하면 사용자 지정 API의 스레드 내에서 매우 긴 작업을 실행할 수 있지만 논리 앱 엔진과 활성 연결을 유지하므로 시간 초과되지 않으며 작업을 완료하기 전에 진행하지 않습니다. 논리 앱에 패턴을 추가할 때는 논리 앱에 대한 정의에서 폴링 및 상태 확인을 진행하기 위해 어떠한 작업도 수행하지 않아도 된다는 점에 유의해야 합니다. 엔진은 유효한 위치 헤더와 함께 202 수락됨 응답을 확인하는 즉시 비동기 패턴을 적용하고 202가 아닌 응답이 반환될 때까지 위치 헤더를 계속해서 폴링합니다.
+2. When a job status is checked, perform the following checks: 
+ * If the job is done: return a `200 OK` response, with the response payload.
+ * If the job is still processing: return another `202 ACCEPTED` response, with the same headers as the initial response
 
-이 패턴에 대한 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppsAsyncResponseSample)에서 볼 수 있습니다.
+This pattern allows you to run extremely long tasks within a thread of your custom API, but keep an active connection alive with the Logic Apps engine so it doesn’t timeout or continue before work is completed. When adding this into your Logic App, it’s important to note you do not need do anything in your definition for the Logic App to continue to poll and check the status. As soon as the engine sees a 202 ACCEPTED response with a valid location header, it will honor the async pattern and continue to poll the location header until a non-202 is returned.
 
-### Webhook 동작
+You can see a sample of this pattern in GitHub [here](https://github.com/jeffhollan/LogicAppsAsyncResponseSample)
 
-워크플로 중에 논리 앱을 일시 중지하고 "콜백"이 진행되기를 기다릴 수 있습니다. 이 콜백은 HTTP POST 형태로 제공됩니다. 이 패턴을 구현하려면 컨트롤러에서 구독 및 구독 취소라는 두 개의 끝점을 제공해야 합니다.
+### <a name="webhook-actions"></a>Webhook Actions
 
-'구독'에서 논리 앱은 API가 HTTP POST로 쉽게 저장 및 콜백할 수 있는 콜백 URL을 만들고 등록합니다. 모든 콘텐츠/헤더는 논리 앱으로 전달되고 워크플로의 나머지 부분 내에서 사용할 수 있습니다. 논리 앱 엔진은 해당 단계에 도달하는 즉시 실행 중 구독 지점을 호출합니다.
+During your workflow, you can have the Logic App pause and wait for a "callback" to continue.  This callback comes in the form of an HTTP POST.  To implement this pattern, you need to provide two endpoints on your controller: subscribe and unsubscribe.
 
-실행이 취소되었으면 논리 앱 엔진은 '구독 취소' 끝점을 호출합니다. 그러면 API로 필요에 따라 콜백 URL을 등록 취소할 수 있습니다.
+On 'subscribe', the Logic App will create and register a callback URL which your API can store and callback with ready as an HTTP POST.  Any content/headers will be passed into the Logic App and can be used within the remainder of the workflow.  The Logic App engine will call the subscribe point on execution as soon as it hits that step.
 
-현재는 논리 앱 디자이너에서 swagger를 통한 webhook 끝점 검색을 지원하지 않으므로 이러한 유형의 동작을 사용하려면 "Webhook" 동작을 추가하고 URL, 헤더 및 요청 본문을 지정해야 합니다. 필요에 따라 콜백 URL을 전달하기 위해 일부 필드에 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
+If the run was cancelled, the Logic App engine will make a call to the 'unsubscribe' endpoint.  Your API can then unregister the callback URL as needed.
 
-웹후크 패턴에 대한 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)에서 볼 수 있습니다.
+Currently the Logic App Designer doesn't support discovering a webhook endpoint through swagger, so to use this type of action you must add the "Webhook" action and specify the URL, headers, and body of your request.  You can use the `@listCallbackUrl()` workflow function in any of those fields as needed to pass in the callback URL.
 
-## 트리거
+You can see a sample of a webhook pattern in GitHub [here](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)
 
-동작 외에도 논리 앱에 대한 트리거로 작동하는 사용자 지정 API를 포함할 수 있습니다. 논리 앱을 트리거하는 데 다음 두 가지 패턴을 따를 수 있습니다.
+## <a name="triggers"></a>Triggers
 
-### 폴링 트리거
+In addition to actions, you can have your custom API act as a trigger to a Logic App.  There are two patterns you can follow below to trigger a Logic App:
 
-폴링 트리거는 위에서 설명한 장기 실행 비동기와 비슷하게 작동합니다. 논리 앱 엔진은 특정 기간이 경과한 후 트리거 끝점을 호출합니다(SKU에 따라 다름, 프리미엄의 경우 15초, 표준의 경우 1분, 무료인 경우 1시간).
+### <a name="polling-triggers"></a>Polling Triggers
 
-사용 가능한 데이터가 없는 경우 트리거는 `202 ACCEPTED` 응답을 `location` 및 `retry-after` 헤더와 함께 반환합니다. 그러나 트리거의 경우 `location` 헤더에 `triggerState`의 쿼리 매개 변수를 포함하는 것이 좋습니다. 논리 앱이 마지막으로 수행된 경우 API에서 알아야 할 일부 식별자입니다. 사용 가능한 데이터가 있는 경우 트리거는 `200 OK` 응답을 콘텐츠 페이로드와 함께 반환합니다. 그러면 논리 앱이 수행됩니다.
+Polling triggers act much like the Long Running Async actions above.  The Logic App engine will call the trigger endpoint after a certain period of time elapsed (dependent on SKU, 15 seconds for Premium, 1 minute for Standard, and 1 hour for Free).
 
-예를 들어 파일을 사용할 수 있는지 확인하기 위해 폴링한다면 다음을 수행하는 폴링 트리거를 작성할 수 있습니다.
+If there is no data available, the trigger returns a `202 ACCEPTED` response, with a `location` and `retry-after` header.  However, for triggers it is recommended the `location` header contains a query parameter of `triggerState`.  This is some identifier for your API to know when the last time the Logic App fired.  If there is data available, the trigger returns a `200 OK` response with the content payload.  This will fire the Logic App.
 
-* triggerState 없이 요청을 수신한 경우 API는 현재 시간의 triggerState와 15의 `retry-after`를 포함하는 `location` 헤더와 함께 `202 ACCEPTED`를 반환합니다.
-* triggerState와 함께 요청을 수신한 경우:
- * triggerState DateTime 이후 파일이 추가되었는지 확인합니다.
-  * 1개 파일이 있는 경우 콘텐츠 페이로드와 함께 `200 OK` 응답을 반환하고 triggerState를 반환한 파일의 DateTime으로 증가시킨 후 `retry-after`를 15로 설정합니다.
-  * 파일이 여러 개 있는 경우 `200 OK`와 함께 한 번에 1개를 반환하고 `location` 헤더에서 내 triggerState를 증가시키며 `retry-after`를 0으로 설정할 수 있습니다. 이렇게 하면 엔진은 사용할 수 있는 데이터가 더 많다는 것을 알고 지정된 `location` 헤더에서 데이터를 즉시 요청합니다.
-  * 사용 가능한 파일이 없는 경우 `202 ACCEPTED` 응답을 반환하고 `location` triggerState는 동일하게 유지합니다. `retry-after`를 15로 설정합니다.
+For example if I was polling to see if a file was available, you could build a polling trigger that would do the following:
 
-폴링 트리거의 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)에서 볼 수 있습니다.
+* If a request was received with no triggerState the API would return a `202 ACCEPTED` with a `location` header that has a triggerState of the current time and a `retry-after` of 15.
+* If a request was received with a triggerState:
+ * Check to see if any files were added after the triggerState DateTime. 
+  * If there is 1 file, return a `200 OK` response with the content payload, increment the triggerState to the DateTime of the file I returned, and set the `retry-after` to 15.
+  * If there are multiple files, I can return 1 at a time with a `200 OK`, increment my triggerState in the `location` header, and set `retry-after` to 0.  This will let the engine know there is more data available and it will immediately request it at the `location` header specified.
+  * If there are no files available, return a `202 ACCEPTED` response, and leave the `location` triggerState the same.  Set `retry-after` to 15.
 
-### Webhook 트리거
+You can see a sample of a polling trigger in GitHub [here](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
 
-Webhook 트리거는 위의 Webhook 동작과 비슷하게 작동합니다. 논리 앱 엔진은 webhook 트리거가 추가 및 저장될 때마다 '구독' 끝점을 호출합니다. API로 webhook URL을 등록하고 HTTP POST를 통해 데이터가 사용 가능할 때마다 호출할 수 있습니다. 콘텐츠 페이로드 및 헤더는 논리 앱 실행에 전달됩니다.
+### <a name="webhook-triggers"></a>Webhook Triggers
 
-Webhook 트리거가 삭제되는 경우(논리 앱 전체 또는 webhook 트리거만) 엔진은 '구독 취소' URL을 호출하고 여기에서 API는 콜백 URL을 등록 취소하고 필요에 따라 모든 프로세스를 중지할 수 있습니다.
+Webhook triggers act much like Webhook Actions above.  The Logic App engine will call the 'subscribe' endpoint whenever a webhook trigger is added and saved.  Your API can register the webhook URL and call it via HTTP POST whenever data is available.  The content payload and headers will be passed into the Logic App run.
 
-현재는 논리 앱 디자이너에서 swagger를 통한 webhook 트리거 검색을 지원하지 않으므로 이러한 유형의 동작을 사용하려면 "Webhook" 트리거를 추가하고 URL, 헤더 및 요청 본문을 지정해야 합니다. 필요에 따라 콜백 URL을 전달하기 위해 일부 필드에 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
+If a webhook trigger is ever deleted (either the Logic App entirely, or just the webhook trigger), the engine will make a call to the 'unsubscribe' URL where your API can unregister the callback URL and stop any processes as needed.
 
-웹후크 트리거의 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)에서 볼 수 있습니다.
+Currently the Logic App Designer doesn't support discovering a webhook trigger through swagger, so to use this type of action you must add the "Webhook" trigger and specify the URL, headers, and body of your request.  You can use the `@listCallbackUrl()` workflow function in any of those fields as needed to pass in the callback URL.
 
-<!---HONumber=AcomDC_0803_2016-->
+You can see a sample of a webhook trigger in GitHub [here](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

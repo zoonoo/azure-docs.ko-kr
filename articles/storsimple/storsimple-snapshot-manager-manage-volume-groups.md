@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자 볼륨 그룹 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨 그룹을 만들고 관리하는 방법을 설명합니다."
+   pageTitle="StorSimple Snapshot Manager volume groups | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage volume groups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,136 +15,141 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리
 
-## 개요
+# <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use StorSimple Snapshot Manager to create and manage volume groups
 
-**범위** 창에서 **볼륨 그룹** 노드를 사용하면 볼륨 그룹에 볼륨을 할당하고 볼륨 그룹에 대한 정보를 확인하고 백업을 예약하고 볼륨 그룹을 편집할 수 있습니다.
+## <a name="overview"></a>Overview
 
-볼륨 그룹은 백업이 응용 프로그램에 일관됨을 보장하는 데 사용되는 관련 볼륨들의 풀입니다. 자세한 내용은 [볼륨 및 볼륨 그룹](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups)과 [Windows 볼륨 섀도 복사본 서비스와의 통합](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)을 참조하세요.
+You can use the **Volume Groups** node on the **Scope** pane to assign volumes to volume groups, view information about a volume group, schedule backups, and edit volume groups. 
+
+Volume groups are pools of related volumes used to ensure that backups are application-consistent. For more information, see [Volumes and volume groups](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) and [Integration with Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
 >[AZURE.IMPORTANT] 
 >
-> * 볼륨 그룹의 모든 볼륨은 단일 클라우드 서비스 공급자에서 가져와야 합니다.
+> * All volumes in a volume group must come from a single cloud service provider.
 > 
-> * 볼륨 그룹을 구성할 때는 클러스터 공유 볼륨(CSV)과 비 CSV를 동일한 볼륨 그룹에 혼합하지 않도록 합니다. StorSimple 스냅숏 관리자는 동일한 스냅숏에 혼합되어 있는 CSV와 비 CSV를 지원하지 않습니다.
+> * When you configure volume groups, do not mix cluster-shared volumes (CSVs) and non-CSVs in the same volume group. StorSimple Snapshot Manager does not support a mix of CSVs and non-CSVs in the same snapshot.
  
-![볼륨 그룹 노드](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
+![Volume groups node](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**그림 1: StorSimple 스냅숏 관리자 볼륨 그룹 노드**
+**Figure 1: StorSimple Snapshot Manager Volume Groups node** 
 
-이 자습서에서는 StorSimple 스냅숏 관리자를 사용하여 다음 작업을 수행하는 방법을 설명합니다.
+This tutorial explains how you can use StorSimple Snapshot Manager to:
 
-- 볼륨 그룹에 대한 정보 보기 
-- 볼륨 그룹 만들기
-- 볼륨 그룹 백업
-- 볼륨 그룹 편집
-- 볼륨 그룹 삭제
+- View information about your volume groups 
+- Create a volume group
+- Back up a volume group
+- Edit a volume group
+- Delete a volume group
 
-이러한 모든 작업을 **작업** 창에서도 사용할 수 있습니다.
+All of these actions are also available on the **Actions** pane.
  
-## 볼륨 그룹 보기
+## <a name="view-volume-groups"></a>View volume groups
 
-**볼륨 그룹** 노드를 클릭하면 선택한 열에 따라 **결과** 창에 각 볼륨 그룹에 대해 다음 정보가 표시됩니다. **결과** 창의 열은 구성할 수 있습니다. (**볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 선택한 다음 **열 추가/제거**를 선택합니다.)
+If you click the **Volume Groups** node, the **Results** pane shows the following information about each volume group, depending on the column selections you make. (The columns in the **Results** pane are configurable. Right-click the **Volumes** node, select **View**, and then select **Add/Remove Columns**.)
 
-결과 열 | 설명 
+Results column | Description 
 :--------------|:------------ 
-이름 | **이름** 열에는 볼륨 그룹의 이름이 포함됩니다.
-응용 프로그램 | **응용 프로그램** 열은 Windows 호스트에 현재 설치되어 실행 중인 VSS 기록기의 수를 표시합니다.
-선택 | **선택** 열은 볼륨 그룹에 포함된 볼륨의 수를 표시합니다. 0이면 볼륨 그룹의 볼륨에 연결된 응용 프로그램이 없음을 나타냅니다.
-가져옴 | **가져옴** 열은 가져온 볼륨의 수를 표시합니다. 이 열이 **True**로 설정되면 볼륨 그룹을 Azure 클래식 포털에서 가져왔으며 StorSimple 스냅숏 관리자에서 만들지 않았음을 나타냅니다.
+Name           | The **Name** column contains the name of the volume group.
+Application    | The **Applications** column shows the number of VSS writers currently installed and running on the Windows host.
+Selected       | The **Selected** column shows the number of volumes that are contained in the volume group. A zero (0) indicates that no application is associated with the volumes in the volume group.
+Imported       | The **Imported** column shows the number of imported volumes. When set to **True**, this column indicates that a volume group was imported from the Azure classic portal and was not created in StorSimple Snapshot Manager.
  
->[AZURE.NOTE] StorSimple 스냅숏 관리자 볼륨 그룹은 Azure 클래식 포털의 **백업 정책** 탭에도 표시됩니다.
+>[AZURE.NOTE] StorSimple Snapshot Manager volume groups are also displayed on the **Backup Policies** tab in the Azure classic portal.
  
-## 볼륨 그룹 만들기
+## <a name="create-a-volume-group"></a>Create a volume group
 
-다음 절차에 따라 볼륨 그룹을 만들 수 있습니다.
+Use the following procedure to create a volume group.
 
-#### 볼륨 그룹을 만들려면
+#### <a name="to-create-a-volume-group"></a>To create a volume group
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. **범위** 창에서 **볼륨 그룹**을 마우스 오른쪽 단추로 클릭한 다음 **볼륨 그룹 만들기**를 클릭합니다.
+2. In the **Scope** pane, right-click **Volume Groups**, and then click **Create Volume Group**. 
 
-    ![볼륨 그룹 만들기](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
+    ![Create volume group](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
  
-    **볼륨 그룹 만들기** 대화 상자가 나타납니다.
+    The **Create a volume group** dialog box appears. 
 
-    ![볼륨 그룹 만들기 대화 상자](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
+    ![Create a volume group dialog](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png) 
 
-3.  다음 정보를 입력합니다.
+3.  Enter the following information: 
 
-    1. **이름** 상자에 새 볼륨 그룹에 대해 고유한 이름을 입력합니다. 
+    1. In the **Name** box, type a unique name for the new volume group. 
 
-    2. **응용 프로그램** 상자에서 볼륨 그룹에 추가할 볼륨과 연결된 응용 프로그램을 선택합니다.
+    2. In the **Applications** box, select applications associated with the volumes that you will be adding to the volume group. 
 
-        **응용 프로그램** 상자에는 StorSimple 볼륨을 사용하고 VSS 기록기를 사용하도록 설정된 응용 프로그램만 나열됩니다. VSS 기록기는 기록기가 인식하는 모든 볼륨이 StorSimple 볼륨인 경우에만 활성화됩니다. 응용 프로그램 상자가 비어 있으면 Azure StorSimple 볼륨을 사용하고 VSS 기록기를 지원하는 응용 프로그램이 설치되어 있지 않습니다. (현재 Azure StorSimple은 Microsoft Exchange 및 SQL Server를 지원합니다.) VSS 기록기에 대한 자세한 내용은 [Windows 볼륨 섀도 복사본 서비스와의 통합](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)을 참조하세요.
+        The **Applications** box lists only those applications that use StorSimple volumes and have VSS writers enabled for them. A VSS writer is enabled only if all the volumes that the writer is aware of are StorSimple volumes. If the Applications box is empty, then no applications that use Azure StorSimple volumes and have supported VSS writers are installed. (Currently, Azure StorSimple supports Microsoft Exchange and SQL Server.) For more information about VSS writers, see [Integration with Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
-        응용 프로그램을 선택하면 연결된 모든 볼륨이 자동으로 선택됩니다. 반대로, 특정 응용 프로그램과 연결된 볼륨을 선택하면 **응용 프로그램** 상자에서 해당 응용 프로그램이 자동으로 선택됩니다.
+        If you select an application, all volumes associated with it are automatically selected. Conversely, if you select volumes associated with a specific application, the application is automatically selected in the **Applications** box. 
 
-    3. **볼륨** 상자에서 볼륨 그룹에 추가할 StorSimple 볼륨을 선택합니다.
+    3. In the **Volumes** box, select StorSimple volumes to add to the volume group. 
 
-      - 단일 또는 다중 파티션이 있는 볼륨을 포함할 수 있습니다. (다중 파티션 볼륨은 다중 파티션이 있는 기본 디스크 또는 동적 디스크일 수 있습니다.) 다중 파티션이 포함된 볼륨은 단일 단위로 취급됩니다. 따라서 파티션 중 하나만 볼륨 그룹에 추가해도 다른 모든 파티션이 해당 볼륨 그룹에 동시에 자동으로 추가됩니다. 볼륨 그룹에 다중 파티션 볼륨을 추가한 후에도 해당 다중 파티션 볼륨은 계속 단일 단위로 취급됩니다.
+      - You can include volumes with single or multiple partitions. (Multiple partition volumes can be dynamic disks or basic disks with multiple partitions.) A volume that contains multiple partitions is treated as a single unit. Consequently, if you add only one of the partitions to a volume group, all the other partitions are automatically added to that volume group at the same time. After you add a multiple partition volume to a volume group, the multiple partition volume continues to be treated as a single unit.
 
-      - 볼륨을 할당하지 않으면 빈 볼륨 그룹을 만들 수 있습니다.
+      - You can create empty volume groups by not assigning any volumes to them. 
 
-      - 클러스터 공유 볼륨(CSV)과 비 CSV를 동일한 볼륨 그룹에 혼합하지 않도록 합니다. StorSimple 스냅숏 관리자는 동일한 스냅숏에 혼합되어 있는 CSV 볼륨과 비 CSV 볼륨을 지원하지 않습니다.
+      - Do not mix cluster-shared volumes (CSVs) and non-CSVs in the same volume group. StorSimple Snapshot Manager does not support a mix of CSV volumes and non-CSV volumes in the same snapshot. 
 
-4. **확인**을 클릭하여 볼륨 그룹을 저장합니다.
+4. Click **OK** to save the volume group.
 
-## 볼륨 그룹 백업
+## <a name="back-up-a-volume-group"></a>Back up a volume group
 
-다음 절차에 따라 볼륨 그룹을 백업할 수 있습니다.
+Use the following procedure to back up a volume group.
 
-#### 볼륨 그룹을 백업하려면
+#### <a name="to-back-up-a-volume-group"></a>To back up a volume group
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **볼륨 그룹** 노드를 확장하고 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭한 다음 **백업 수행**을 클릭합니다.
+2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Take Backup**. 
 
-    ![볼륨 그룹 즉시 백업](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
+    ![Back up volume group immediately](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
 
-3. **백업 수행** 대화 상자에서 **로컬 스냅숏** 또는 **클라우드 스냅숏**를 선택한 다음 **만들기**를 클릭합니다.
+3. In the **Take Backup** dialog box, select **Local Snapshot** or **Cloud Snapshot**, and then click **Create**. 
 
-    ![백업 수행 대화 상자](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
+    ![Take backup dialog](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png) 
 
-4. 백업이 실행되고 있는지 확인하려면 **작업** 노드를 확장한 다음 **실행 중**을 클릭합니다. 백업이 나열됩니다.
+4. To confirm that the backup is running, expand the **Jobs** node, and then click **Running**. The backup should be listed.
 
-5. 완료된 스냅숏을 보려면 **백업 카탈로그** 노드를 확장하고 볼륨 그룹 이름을 확장한 다음 **로컬 스냅숏** 또는 **클라우드 스냅숏**을 클릭합니다. 성공적으로 완료되면 백업이 나열됩니다.
+5. To view the completed snapshot, expand the **Backup Catalog** node, expand the volume group name, and then click **Local Snapshot** or **Cloud Snapshot**. The backup will be listed if it finished successfully. 
 
-## 볼륨 그룹 편집
+## <a name="edit-a-volume-group"></a>Edit a volume group
 
-다음 절차에 따라 볼륨 그룹을 편집할 수 있습니다.
+Use the following procedure to edit a volume group.
 
-#### 볼륨 그룹을 편집하려면
+#### <a name="to-edit-a-volume-group"></a>To edit a volume group
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **볼륨 그룹** 노드를 확장하고 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭한 다음 **편집**을 클릭합니다.
+2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Edit**. 
 
-3. **볼륨 그룹 만들기** 대화 상자가 나타납니다. **이름**, **응용 프로그램** 및 **볼륨** 항목을 변경할 수 있습니다.
+3. The **Create a volume group **dialog box appears. You can change the **Name**, **Applications**, and **Volumes** entries. 
 
-4. **확인**을 클릭하여 변경 내용을 저장합니다.
+4. Click **OK** to save your changes.
 
-## 볼륨 그룹 삭제
+## <a name="delete-a-volume-group"></a>Delete a volume group
 
-다음 절차에 따라 볼륨 그룹을 삭제할 수 있습니다.
+Use the following procedure to delete a volume group. 
 
->[AZURE.WARNING] 이 작업을 수행하면 볼륨 그룹에 연결된 모든 백업이 함께 삭제됩니다.
+>[AZURE.WARNING] This also deletes all the backups associated with the volume group.
 
-#### 볼륨 그룹을 삭제하려면
+#### <a name="to-delete-a-volume-group"></a>To delete a volume group
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. **범위** 창에서 **볼륨 그룹** 노드를 확장하고 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭한 다음 **삭제**를 클릭합니다.
+2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Delete**. 
 
-3. **볼륨 그룹 삭제** 대화 상자가 나타납니다. 텍스트 상자에 **Confirm**을 입력한 다음 **확인**을 클릭합니다.
+3. The **Delete Volume Group** dialog box appears. Type **Confirm** in the text box, and then click **OK**. 
 
-    삭제한 볼륨 그룹이 **결과** 창의 목록에서 사라지고 해당 볼륨 그룹에 연결된 모든 백업이 백업 카탈로그에서 삭제됩니다.
+    The deleted volume group vanishes from the list in the **Results** pane and all backups that are associated with that volume group are deleted from the backup catalog.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
-- [StorSimple 스냅숏 관리자를 사용하여 백업 정책을 만들고 관리](storsimple-snapshot-manager-manage-backup-policies.md)하는 방법을 알아봅니다.
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

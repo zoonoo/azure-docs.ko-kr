@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure 포털에서 DNS 영역을 만들고 관리하는 방법 | Microsoft Azure"
-   description="Azure DNS에 대한 DNS 영역을 만드는 방법을 알아봅니다. 이는 첫 번째 DNS를 만들고 관리하며 Azure 포털을 사용하여 DNS 도메인 호스팅을 시작하는 방법에 대한 단계별 가이드입니다."
+   pageTitle="How to create and manage a DNS zone in the Azure portal | Microsoft Azure"
+   description="Learn how to create DNS zones for Azure DNS. This is a Step-by-step guide to create and manage your first DNS and start hosting your DNS domain using the Azure portal."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,115 +15,120 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
-# Azure 포털에서 DNS 영역 만들기
+
+# <a name="create-a-dns-zone-in-the-azure-portal"></a>Create a DNS zone in the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Azure 포털](dns-getstarted-create-dnszone-portal.md)
+- [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 
 
-이 문서에서는 Azure 포털을 사용하여 DNS 영역을 만드는 단계를 안내합니다. PowerShell 또는 CLI를 사용하여 DNS 영역을 만들 수도 있습니다.
+This article will walk you through the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
 
 [AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
-### Azure DNS에 대한 태그 정보
+### <a name="about-tags-for-azure-dns"></a>About Tags for Azure DNS
 
 
-태그는 이름-값 쌍의 목록으로, Azure Resource Manager에서 대금 청구 또는 그룹화를 위해 리소스에 레이블을 지정하는 데 사용됩니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md) 문서를 참조하세요.
+Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about Tags, see the article [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
-Azure 포털에서 DNS 영역에 대한 **설정** 블레이드를 사용하여 태그를 추가할 수 있습니다.
-
-
-## DNS 영역 만들기
-
-1. Azure 포털에 로그인합니다.
-
-2. 허브 메뉴에서 **새로 만들기 > 네트워킹**을 클릭한 다음 **DNS 영역**을 클릭하여 DNS 영역 블레이드를 엽니다.
- 
-	![DNS 영역](./media/dns-getstarted-create-dnszone-portal/openzone650.png)
-
-3. **DNS 영역** 블레이드의 아래쪽에서 **만들기**를 클릭합니다. 이렇게 하면 **DNS 영역 만들기** 블레이드가 열립니다.
-
-	![영역 만들기](./media/dns-getstarted-create-dnszone-portal/newzone250.png)
-
-4. **DNS 영역 만들기** 블레이드에서 DNS 영역의 이름을 지정합니다. 예를 들어 *contoso.com*입니다. 위 섹션에서 [DNS 영역 이름 정보](#names)를 참조하세요.
-
-5. 다음으로, 사용할 리소스 그룹을 지정합니다. 새 리소스 그룹을 만들거나 이미 있는 리소스 그룹을 선택할 수 있습니다.
-
-6. **위치** 드롭다운에서 리소스 그룹의 위치를 지정합니다. 이 설정은 DNS 영역의 위치가 아니라 리소스 그룹의 위치를 나타냅니다. 실제 DNS 영역 리소스는 자동으로 "전역"으로 설정되므로 포털에서 지정할 필요가 없거나 지정할 수 있는 항목이 아닙니다.
-
-7. 대시보드에서 새 영역을 쉽게 찾으려는 경우 **대시보드에 고정** 확인란을 선택된 상태로 그대로 둘 수 있습니다. 그런 다음 **Create**를 클릭합니다.
-
-	![대시보드에 고정](./media/dns-getstarted-create-dnszone-portal/pindashboard150.png)
-
-8. 만들기를 클릭하면 대시보드에 새 영역이 구성되고 있는 것을 볼 수 있습니다.
-
-	![만드는 중](./media/dns-getstarted-create-dnszone-portal/creating150.png)
-
-9. 새 영역이 만들어지면 대시보드에서 새 영역에 대한 블레이드가 열립니다.
+You can add Tags in the Azure portal by using the **Settings** blade for your DNS zone.
 
 
-## 레코드 보기
+## <a name="create-a-dns-zone"></a>Create a DNS zone
 
-DNS 영역을 만들면 다음 레코드도 생성됩니다.
+1. Sign in to the Azure portal
 
-- “SOA(권한 시작)” 레코드. SOA는 각 DNS 영역의 루트에 있습니다.
-- 권한이 있는 NS(이름 서버) 레코드. 영역을 호스트하는 이름 서버를 보여 줍니다. Azure DNS는 이름 서버 풀을 사용하므로 Azure DNS의 각 영역에 다른 이름 서버가 할당될 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
+2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the DNS zone blade.
 
-Azure 포털에서 레코드를 볼 수 있습니다.
+    ![DNS zone](./media/dns-getstarted-create-dnszone-portal/openzone650.png)
 
-1. **DNS 영역** 블레이드에서 **모든 설정**을 클릭하여 DNS 영역에 대한 **설정 블레이드**를 엽니다.
+3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade.
 
-	![영역](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
+    ![Create zone](./media/dns-getstarted-create-dnszone-portal/newzone250.png)
 
+4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. See [About DNS Zone Names](#names) in the section above.
 
-2. Essentials 창의 아래쪽에서 DNS 영역에 대한 레코드 집합을 볼 수 있습니다.
+5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists.
 
+6. From the **Location** dropdown, specify the location of the resource group. Note that this setting refers to the location of the resource group, not the location for DNS zone. The actual DNS zone resource is automatically "global" and is not something that you can (or need to) specify in the portal.
 
-	![영역](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
+7. You can leave the **Pin to dashboard** checkbox selected if you want to easily locate your new zone on your dashboard. Then click **Create**.
 
-## 테스트
+    ![Pin to dashboard](./media/dns-getstarted-create-dnszone-portal/pindashboard150.png)
 
-nslookup, dig 또는 [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx)과 같은 DNS 도구를 사용하여 DNS 영역을 테스트할 수 있습니다.
+8. After you click Create, you'll see your new zone being configured on the dashboard.
 
-Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 않은 경우 DNS 쿼리를 영역에 대한 이름 서버 중 하나로 직접 보내야 합니다. 사용자의 영역에 대한 이름 서버는 `Get-AzureRmDnsRecordSet`을 통해 나열된 것처럼 NS 레코드에 제공됩니다. 아래 명령을 사용자 영역의 올바른 값으로 대체해야 합니다.
+    ![Creating](./media/dns-getstarted-create-dnszone-portal/creating150.png)
 
-	nslookup
-	> set type=SOA
-	> server ns1-01.azure-dns.com
-	> contoso.com
-
-	Server: ns1-01.azure-dns.com
-	Address:  208.76.47.1
-
-	contoso.com
-        	primary name server = ns1-01.azure-dns.com
-        	responsible mail addr = msnhst.microsoft.com
-        	serial  = 1
-        	refresh = 900 (15 mins)
-        	retry   = 300 (5 mins)
-        	expire  = 604800 (7 days)
-        	default TTL = 300 (5 mins)
+9. When your new zone has been created, the blade for your new zone will open on the dashboard.
 
 
+## <a name="view-records"></a>View records
 
-## DNS 영역 삭제
+Creating a DNS zone also creates the following records:
 
-포털에서 직접 DNS 영역을 삭제할 수 있습니다. Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으로 생성된, 영역 루트에 있는 NS 및 SOA 레코드를 제외한 모든 레코드 집합을 삭제해야 합니다.
+- The "Start of Authority" (SOA) record. The SOA is present at the root of every DNS zone.
+- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
-1. 삭제할 영역에 대한 **DNS 영역** 블레이드를 찾은 후 블레이드 위쪽에 있는 **삭제**를 클릭합니다.
- 
-2. 자동으로 생성된 NS 및 SOA 레코드를 제외하고 모든 레코드 집합을 삭제해야 함을 알려 주는 메시지가 표시됩니다. 레코드 집합을 삭제한 경우 **예**를 클릭합니다. 포털에서 DNS 영역을 삭제하는 경우 해당 DNS 영역과 연관된 리소스 그룹은 삭제되지 않습니다.
+You can view the records from the Azure portal
+
+1. From your **DNS zone** blade, click on **All settings** to open the **Settings blade** for the DNS zone.
+
+    ![zone](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
 
-## 다음 단계
+2. In the lower part of the Essentials pane, you can see the record sets for the DNS zone.
 
-DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset-portal.md)를 만들어 인터넷 도메인에 대한 이름 확인을 시작해야 합니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+    ![zone](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
+
+## <a name="test"></a>Test
+
+You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
+
+If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by `Get-AzureRmDnsRecordSet` above. Be sure the substitute the correct values for your zone into the command below.
+
+    nslookup
+    > set type=SOA
+    > server ns1-01.azure-dns.com
+    > contoso.com
+
+    Server: ns1-01.azure-dns.com
+    Address:  208.76.47.1
+
+    contoso.com
+            primary name server = ns1-01.azure-dns.com
+            responsible mail addr = msnhst.microsoft.com
+            serial  = 1
+            refresh = 900 (15 mins)
+            retry   = 300 (5 mins)
+            expire  = 604800 (7 days)
+            default TTL = 300 (5 mins)
+
+
+
+## <a name="delete-a-dns-zone"></a>Delete a DNS zone
+
+You can delete the DNS zone directly from the portal. Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created.
+
+1. Locate the **DNS zone** blade for the zone you want to delete, then click **Delete** at the top of the blade.
+
+2. A message will appear letting you know that you must delete all records sets, except the NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.
+
+
+## <a name="next-steps"></a>Next steps
+
+After creating a DNS zone, create [record sets and records](dns-getstarted-create-recordset-portal.md) to start resolving names for your Internet domain.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

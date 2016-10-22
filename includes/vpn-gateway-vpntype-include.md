@@ -1,9 +1,11 @@
-- **정책 기반**: 정책 기반 VPN은 이전에 호출된 클래식 배포 모델에서 고정 라우팅 게이트웨이였습니다. 정책 기반 VPN은 온-프레미스 네트워크와 Azure VNet 간의 주소 접두사의 조합으로 구성된 IPsec 정책에 따라 IPsec 터널을 통해 패킷을 암호화하고 전달합니다. 정책(또는 트래픽 선택기)는 일반적으로 VPN 장치 구성에서 액세스 목록으로 정의됩니다. 정책 기반 VPN 유형에 대한 값은 *PolicyBased*입니다. PolicyBased VPN을 사용할 때는 다음과 같은 제한에 유의하세요.
+- **PolicyBased:** PolicyBased VPNs were previously called static routing gateways in the classic deployment model. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies configured with the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration. The value for a PolicyBased VPN type is *PolicyBased*. When using a PolicyBased VPN, keep in mind the following limitations:
 
-	- PolicyBased VPN은 기본 게이트웨이 SKU에서**만** 사용할 수 있습니다. 이 VPN 유형은 다른 게이트웨이 SKU와 호환되지 않습니다.
-	- PolicyBased VPN을 사용하는 경우 터널 1개만 허용됩니다.
-	- S2S 연결 및 특정 구성에 대해서만 PolicyBased VPN을 사용할 수 있습니다. 대부분의 VPN 게이트웨이 구성에는 RouteBased VPN이 필요합니다.
+    - PolicyBased VPNs can **only** be used on the Basic gateway SKU. This VPN type is not compatible with other gateway SKUs.
+    - You can have only 1 tunnel when using a PolicyBased VPN.
+    - You can only use PolicyBased VPNs for S2S connections, and only for certain configurations. Most VPN Gateway configurations require a RouteBased VPN.
 
-- **경로 기반**: 경로 기반 VPN은 이전에 호출된 클래식 배포 모델에서 동적 라우팅 게이트웨이였습니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책(또는 트래픽 선택기)은 임의 또는 와일드카드로 구성됩니다. 경로 기반 VPN 유형에 대한 값은 *RouteBased*입니다.
+- **RouteBased**: RouteBased VPNs were previously called dynamic routing gateways in the classic deployment model. RouteBased VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for RouteBased VPNs are configured as any-to-any (or wild cards). The value for a RouteBased VPN type is *RouteBased*.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

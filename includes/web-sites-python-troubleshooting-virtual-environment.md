@@ -1,24 +1,27 @@
-배포 스크립트는 호환 가상 환경이 이미 존재하는 것을 감지하면 Azure에서 가상 환경 만들기를 건너뜁니다. 이렇게 하면 배포 속도를 상당히 높일 수 있습니다. 이미 설치된 패키지를 pip가 건너뜁니다.
+The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
 
-특정 상황에서 해당 가상 환경을 강제로 삭제해야 할 수 있습니다. 리포지토리 일부로 가상 환경을 포함하려는 경우 이 과정이 필요합니다. 특정 패키지를 삭제하거나 requirements.txt 변경 사항을 테스트해야 하는 경우에도 이 과정이 필요할 수 있습니다.
+In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
 
-Azure에서 기존 가상 환경을 관리하는 몇 가지 옵션이 있습니다.
+There are a few options to manage the existing virtual environment on Azure:
 
-### 옵션 1: FTP 사용
+### <a name="option-1:-use-ftp"></a>Option 1: Use FTP
 
-FTP 클라이언트를 사용하여 서버에 연결하면 env 폴더를 삭제할 수 있습니다. 일부 FTP 클라이언트(예: 웹 브라우저)는 읽기 전용일 수 있으며 이런 경우 사용자가 폴더를 삭제할 수 없습니다. 따라서 해당 기능이 있는 FTP 클라이언트를 사용하는지 확인해야 합니다. FTP 호스트 이름 및 사용자는 [Azure 포털](https://portal.azure.com)의 웹앱 블레이드에 표시됩니다.
+With an FTP client, connect to the server and you'll be able to delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in your web app's blade on the [Azure Portal](https://portal.azure.com).
 
-### 옵션 2: 런타임 설정/해제
+### <a name="option-2:-toggle-runtime"></a>Option 2: Toggle runtime
 
-배포 스크립트는 원하는 Python 버전과 일치하지 않으면 env 환경을 삭제한다는 점을 활용한 대체 옵션입니다. 이 옵션은 실질적으로 기존 환경을 삭제하고 새로운 환경을 만듭니다.
+Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python.  This will effectively delete the existing environment, and create a new one.
 
-1. Python의 다른 버전으로 전환(runtime.txt 또는 Azure 포털의 **응용 프로그램 설정** 블레이드)하려면
-1. 일부 변경 사항에 대해 git push 처리(있는 경우 모든 pip 설치 오류 무시)
-1. Python 초기 버전으로 다시 전환
-1. 일부 변경 사항에 대해 다시 git push 처리
+1. Switch to a different version of Python (via runtime.txt or the **Application Settings** blade in the Azure Portal)
+1. git push some changes (ignore any pip install errors if any)
+1. Switch back to initial version of Python
+1. git push some changes again
 
-### 옵션 3: 배포 스크립트 사용자 지정
+### <a name="option-3:-customize-deployment-script"></a>Option 3: Customize deployment script
 
-배포 스크립트를 사용자 지정한 경우 env 폴더를 삭제하도록 deploy.cmd의 코드를 변경할 수 있습니다.
+If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
 
-<!---HONumber=AcomDC_1125_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

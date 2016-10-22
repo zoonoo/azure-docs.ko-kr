@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 클러스터 리소스 관리자 소개 | Microsoft Azure"
-   description="서비스 패브릭 클러스터 리소스 관리자를 소개합니다."
+   pageTitle="Introducing the Service Fabric Cluster Resource Manager | Microsoft Azure"
+   description="An introduction to the Service Fabric Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,44 +16,49 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# 서비스 패브릭 클러스터 리소스 관리자 소개
-일반적으로 IT 시스템 또는 일련의 서비스를 관리하는 작업은 해당 특정 서비스 또는 시스템 전용인 몇 대의 물리적 또는 가상 컴퓨터를 가져오는 것입니다. 대부분의 주요 서비스는 캐시와 같은 몇 가지 기타 특별한 구성 요소와 함께 "웹" 계층 및 "데이터" 또는 "저장소" 계층으로 나뉩니다. 다른 유형의 응용 프로그램에는 요청이 이동하는 메시징 계층이 있으며 메시징의 일부로 필요한 분석 또는 변환을 위한 작업 계층에 연결됩니다. 각 워크로드 형식에 특정 컴퓨터가 전용으로 지정되어 있습니다. 데이터베이스에도 전용으로 사용하는 컴퓨터가 몇 대 있고 웹 서버에도 몇 대가 있습니다. 특정 형식의 워크로드를 실행하는 컴퓨터가 너무 뜨거워지면 해당 워크로드를 실행하도록 구성된 형식의 워크로드가 있는 컴퓨터를 추가하거나 일부 컴퓨터를 더 큰 컴퓨터로 바꿉니다. 간편성. 컴퓨터에 오류가 발생한 경우 컴퓨터를 복원할 수 있을 때까지 전체 응용 프로그램 중 해당 부분은 낮은 최대 용량으로 실행합니다. (재미는 없더라도)아직 상당히 쉽습니다.
 
-그러나 이제 규모를 확장하고 컨테이너 및/또는 마이크로 서비스 플런지를 사용해야 한다고 가정하겠습니다. 그러면 HA(고가용성)를 위해 각각 하나 이상의 인스턴스 또는 복제본이 있는 수십 대, 수백 대 또는 수천 대의 컴퓨터, 수십 개의 형식이 다른 서비스, 수백 개의 해당 서비스에 대한 인스턴스가 있습니다.
+# <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introducing the Service Fabric cluster resource manager
+Traditionally managing IT systems or a set of services meant getting a few physical or virtual machines dedicated to those specific services or systems. Many major services were broken down into a “web” tier and a “data” or “storage” tier, maybe with a few other specialized components like a cache. Other types of applications would have a messaging tier where requests flowed in and out, connected to a work tier for any analysis or transformation necessary as a part of the messaging. Each type of workload got a specific machines dedicated to it: the database got a couple machines dedicated to it, the web servers a few. If a particular type of workload caused the machines it was on to run too hot, then you added more machines with that type of workload configured to run on it, or replaced a few of the machines with larger machines. Easy. If a machine failed, that part of the overall application ran at lower capacity until the machine could be restored. Still fairly easy (if not necessarily fun).
 
-갑자기 환경을 관리하는 작업은 단일 유형의 워크로드에 전용으로 사용하는 몇 대의 컴퓨터를 관리하는 것만큼 간단하지 않습니다. 서버는 가상이며 이름이 없습니다(결국 [애완 동물에서 가축으로](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) 사고방식을 *전환*). 구성은 컴퓨터에 대해서가 아니라 서비스 자체에 대한 것입니다. 전용 하드웨어는 과거의 방식이며, 서비스는 더 작은 상용 하드웨어 부분에 걸쳐 있는 작은 분산 시스템이 되었습니다.
+Now however, let’s say you’ve found a need to scale out and have taken the containers and/or microservice plunge. Suddenly you find yourself with tens, hundreds, or even thousands of machines, dozens of different types of services, perhaps hundreds of different instances of those services, each with one or more instances or replicas for High Availability (HA).
 
-이전의 모놀리식 계층화된 앱을 상용 하드웨어에서 실행되는 별도 서비스로 나누는 과정에서 이제 다루어야 할 더 많은 조합이 만들어졌습니다. 어떤 형식의 워크로드가 어떤 하드웨어에서 또는 몇 개의 하드웨어에서 실행될 수 있는지를 누가 결정하나요? 어떤 워크로드는 동일한 하드웨어에서 제대로 작동하고 어떤 워크로드는 충돌하나요? 컴퓨터가 중단되는 경우...무엇이 실행되나요? 워크로드가 다시 실행되기 시작하는지는 누가 확인하나요? 다시 (가상) 컴퓨터가 돌아오기를 기다리거나 워크로드가 다른 컴퓨터로 자동으로 장애 조치되고 계속 실행되나요? 사람의 개입이 필요하나요? 이러한 종류의 환경에서 업그레이드는 어떤가요?
+Suddenly managing your environment is not so simple as managing a few machines dedicated to single types of workloads. Your servers are virtual and no longer have names (you *have* switched mindsets from [pets to cattle](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) after all). Configuration is less about the machines and more about the services themselves. Dedicated hardware is a thing of the past, and services have become small distributed systems, spanning multiple smaller pieces of commodity hardware.
 
-이러한 종류의 세계에서 살아가는 개발자 및 작업자라면 이 복잡성을 관리하는 도움말을 통해 여러 가지 기능을 제공하고 사람들과 복잡한 문제를 해결하려고 하는 것이 정답이 아니라는 사실을 이해하게 될 것입니다.
+As a consequence of breaking your formerly monolithic, tiered app into separate services running on commodity hardware, you now have many more combinations to deal with. Who decides what types of workloads can run on which hardware, or how many? Which workloads work well on the same hardware, and which conflict? When a machine goes down… what was even running there? Who is in charge of making sure that workload starts running again? Do you wait for the (virtual?) machine to come back or do your workloads automatically fail over to other machines and keep running? Is human intervention required? What about upgrades in this sort of environment?
 
-그렇다면 어떻게 해야 할까요?
+As developers and operators living in this sort of world, we’re going to need some help managing this complexity, and you get the sense that a hiring binge and trying to paper over the complexity with people is not the right answer.
 
-## Orchestrator 소개
-"Orchestrator"는 관리자가 이러한 형식의 환경을 관리하는 데 도움이 되는 소프트웨어에 대한 일반 용어입니다. Orchestrator는 "내 환경에서 실행되는 이 서비스의 복사본 5개가 필요합니다"와 같이 요청하고 실현하며 그대로 유지하(려)는 구성 요소입니다.
+What to do?
 
-Orchestrator(사람 아님)는 컴퓨터가 실패하거나 예기치 않은 이유로 워크로드를 종료하는 경우 행동에 옮깁니다. 대부분의 Orchestrator는 새 배포를 지원하고 업그레이드를 처리하며 리소스 소비를 다루는 등 실패를 다루는 작업 이상을 수행하지만 모두가 기본적으로 환경에서 원하는 구성의 상태를 유지 관리하는 작업과 관련됩니다. Orchestrator가 어려운 작업을 수행하게 하도록 요청할 수 있습니다. Mesos, Fleet, Swarm, Kubernetes 및 서비스 패브릭의 Chronos 또는 Marathon은 모두 Orchestrator의 예이거나 Orchestrator를 기본 제공합니다. 다른 유형의 환경 및 조건에서 실제 배포를 관리하는 경우 복잡성이 증가하고 변경되면서 더 많이 생성됩니다.
+## <a name="introducing-orchestrators"></a>Introducing orchestrators
+An “Orchestrator” is the general term for a piece of software that helps administrators manage these types of environments. Orchestrators are the components that take in requests like “I would like 5 copies of this service running in my environment”, make it true, and then (try) to keep it that way.
 
-## 서비스인 Orchestration
-서비스 패브릭 클러스터 내의 Orchestrator 작업은 클러스터 리소스 관리자가 기본적으로 처리합니다. 서비스 패브릭 클러스터 리소스 관리자는 서비스 패브릭 내의 시스템 서비스 중 하나이며 각 클러스터 내에서 자동으로 시작됩니다. 일반적으로 클러스터 Resource Manager의 작업은 세 부분으로 나뉩니다.
+Orchestrators (not humans) are what swing into action when a machine fails or a workload terminates for some unexpected reason. Most Orchestrators do more than just deal with failure, such as helping with new deployments, handling upgrades, and dealing with resource consumption, but all are fundamentally about maintaining some desired state of configuration in the environment. You want to be able to tell an Orchestrator what you want and have it do the heavy lifting. Chronos or Marathon on top of Mesos, Fleet, Swarm, Kubernetes, and Service Fabric are all examples of Orchestrators (or have them built in). More are being created all the time as the complexities of managing real world deployments in different types of environments and conditions grow and change.
 
-1. 규칙 적용
-2. 환경 최적화
-3. 기타 프로세스에서 지원
+## <a name="orchestration-as-a-service"></a>Orchestration as a service
+The job of the Orchestrator within a Service Fabric cluster is handled primarily by the Cluster Resource Manager. The Service Fabric Cluster Resource Manager is one of the System Services within Service Fabric and is automatically started up within each cluster.  Generally, the Cluster Resource Manager’s job is broken down into three parts:
 
-### 잘못된 정의
-일반적인 N 계층 웹 앱에는 네트워킹 스택에서 위치에 따라 일반적으로 네트워크 부하 분산 장치(NLB) 또는 응용 프로그램 부하 분산 장치(ALB)라고 하는 "부하 분산 장치"의 일부 개념이 있습니다. 일부 부하 분산 장치는 F5의 BigIP 제품과 같은 하드웨어 기반이며 나머지는 Microsoft의 NLB와 같은 소프트웨어 기반입니다. 다른 환경에서는 이 역할에서 HAProxy와 같은 항목을 확인할 수 있습니다. 이러한 아키텍처에서 부하 분산 작업은 다른 상태 비저장 프런트 엔드 컴퓨터 또는 클러스터의 다른 컴퓨터가 개략적으로 동일한 양의 작업을 수신하도록 합니다. 예상된 비용 및 현재 컴퓨터 부하에 따라 다른 서버, 세션 고정/인력, 실제 추정 및 호출 할당에 각각 다른 호출을 보내어 이에 대한 전략이 달라집니다.
+1. Enforcing Rules
+2. Optimizing Your Environment
+3. Assisting in Other Processes
 
-웹 계층이 개략적으로 부하를 분산한 상태로 유지되도록 하기 위한 가장 좋은 메커니즘입니다. 데이터 계층을 분산하기 위한 전략은 서로 완전히 다르며 데이터 저장소 메커니즘에 따라 다르며 일반적으로 데이터 분할, 캐싱, 데이터베이스 관리된 뷰 및 저장 프로시저 등에 집중합니다.
+### <a name="what-it-isn’t"></a>What it isn’t
+In traditional N tier web-apps there was always some notion of a “Load Balancer”, usually referred to as a Network Load Balancer (NLB) or an Application Load Balancer (ALB) depending on where it sat in the networking stack. Some load balancers are Hardware based like F5’s BigIP offering, others are software based such as Microsoft’s NLB. In other environments you might see something like HAProxy in this role. In these architectures the job of load balancing is to make sure that all of the different stateless front end machines or the different machines in the cluster receive (roughly) the same amount of work. Strategies for this varied, from sending each different call to a different server, to session pinning/stickiness, to actual estimation and call allocation based on its expected cost and current machine load.
 
-이러한 전략 중 일부는 흥미롭지만 서비스 패브릭 클러스터 리소스 관리자는 네트워크 부하 분산 장치 또는 캐시와 전혀 다릅니다. 네트워크 부하 분산 장치는 서비스가 실행되는 위치에 트래픽을 이동하여 프런트 엔드의 부하를 분산하도록 합니다. 반면 서비스 패브릭 클러스터 Resource Manager는 완전히 다른 전략을 수행하며 기본적으로 서비스 패브릭은 *서비스*를 가장 합리적인 위치로 이동시킵니다(그리고 뒤따를 트래픽 또는 부하 예상). 예를 들어 여기 위치하는 서비스가 현재 많은 작업을 수행하지 않기 때문에 현재 콜드이거나 삭제 또는 이동된 노드일 수 있습니다. 또 다른 예로, 클러스터 Resource Manager는 업그레이드될 예정이거나 실행되던 서비스의 급격한 증가로 인해 오버로드되는 컴퓨터에서 다른 위치로 서비스를 이동할 수도 있습니다. 클러스터 Resource Manager는 서비스를 이동하는 일을 담당하므로(서비스가 이미 있는 위치로 네트워크 트래픽을 전달하지 않음) 네트워크 부하 분산 장치에서 찾을 수 있는 기능과 비교할 때 크게 다른 기능 집합을 포함하며, 클러스터의 하드웨어 리소스가 잘 활용되도록 하기 위해 기본적으로 다른 전략을 사용합니다.
+Note that this was at best the mechanism for ensuring that the web tier remained roughly balanced. Strategies for balancing the data tier were completely different and depended on the data storage mechanism, usually centering around data sharding, caching, database managed views and stored procedures, etc.
 
-## 다음 단계
-- 클러스터 Resource Manager 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
-- 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
-- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
-- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
-- 클러스터 리소스 관리자는 서비스 패브릭의 관리 기능으로 작동합니다. 해당 통합에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md)를 참조하세요.
-- 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
+While some of these strategies are interesting, the Service Fabric Cluster Resource Manager is not anything like a network load balancer or a cache. While a Network Load Balancer ensures that the front ends are balanced by moving traffic to where the services are running, the Service Fabric Cluster Resource Manager takes a completely different strategy – fundamentally, Service Fabric moves *services* to where they make the most sense (and expects traffic or load to follow). This can be, for example, nodes which are currently cold because the services which are there are not doing a lot of work right now, or which were deleted or moved elsewhere. As another example the Cluster Resource Manager could also move a service away from a machine which is about to be upgraded or which is overloaded due to a spike in consumption by the services which were running on it. Because the Cluster Resource Manager is responsible for moving services around (not delivering network traffic to where services already are), it contains a significantly different feature set compared to what you would find in a network load balancer, and employs fundamentally different strategies for ensuring that the hardware resources in the cluster are well utilized.
 
-<!---HONumber=AcomDC_0824_2016-->
+## <a name="next-steps"></a>Next steps
+- For information on the architecture and information flow within the Cluster Resource manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](service-fabric-cluster-resource-manager-metrics.md)
+- The Cluster Resource Manager works with Service Fabric's management capabilities. To find out more about that integration, read [this article](service-fabric-cluster-resource-manager-management-integration.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

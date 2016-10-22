@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 장치 컨트롤러 교체 | Microsoft Azure"
-   description="StorSimple 장치에서 하나 또는 두 개의 컨트롤러 모듈을 모두 꺼내고 교체하는 방법을 설명합니다."
+   pageTitle="Replace a StorSimple device controller | Microsoft Azure"
+   description="Explains how to remove and replace one or both controller modules on your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,255 +15,260 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# StorSimple 장치의 컨트롤러 모듈 교체
 
-## 개요
+# <a name="replace-a-controller-module-on-your-storsimple-device"></a>Replace a controller module on your StorSimple device
 
-이 자습서에서는 StorSimple 장치에서 하나 또는 두 개의 컨트롤러 모듈을 모두 꺼내고 교체하는 방법을 설명합니다. 단일 및 이중 컨트롤러 교체 시나리오에 대한 기본 논리에 대해서도 설명합니다.
+## <a name="overview"></a>Overview
 
->[AZURE.NOTE] 컨트롤러 교체를 수행하기 전에 항상 컨트롤러 펌웨어를 최신 버전으로 업데이트하는 것이 좋습니다.
+This tutorial explains how to remove and replace one or both controller modules in a StorSimple device. It also discusses the underlying logic for the single and dual controller replacement scenarios.
+
+>[AZURE.NOTE] Prior to performing a controller replacement, we recommend that you always update your controller firmware to the latest version.
 >
->StorSimple 장치의 손상을 방지하려면 LED가 다음 중 하나로 표시될 때까지 컨트롤러를 꺼내지 마세요.
+>To prevent damage to your StorSimple device, do not eject the controller until the LEDs are showing as one of the following:
 >
->- 모든 표시등이 OFF입니다.
->- LED 3, ![녹색 확인 표시 아이콘](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png) 및 ![빨간색 십자 아이콘](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png)은 깜박이고, LED 0 및 LED 7은 **ON**입니다.
+>- All lights are OFF.
+>- LED 3, ![Green check icon](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png), and ![Red cross icon](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) are flashing, and LED 0 and LED 7 are **ON**.
 
-다음 표에서는 지원되는 컨트롤러 교체 시나리오를 보여 줍니다.
+The following table shows the supported controller replacement scenarios.
 
-|사례|교체 시나리오|해당 절차|
+|Case|Replacement scenario|Applicable procedure|
 |:---|:-------------------|:-------------------|
-|1|한 컨트롤러는 실패 상태이고 다른 컨트롤러는 정상 활성 상태입니다.|[단일 컨트롤러 교체를 지원하는 논리](#single-controller-replacement-logic) 및 [교체 단계](#single-controller-replacement-steps)를 설명하는 [단일 컨트롤러 교체](#replace-a-single-controller)|
-|2|두 컨트롤러에서 모두 오류가 발생했으며 교체해야 합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다.|[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers) |
-|3|동일한 장치 또는 서로 다른 장치의 컨트롤러를 교환합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다.|슬롯 불일치 경고 메시지가 표시됩니다.|
-|4|한 컨트롤러는 없고 다른 컨트롤러에서는 오류가 발생합니다.|[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers)|
-|5|하나 또는 두 개의 컨트롤러에서 모두 오류가 발생했습니다. 직렬 콘솔 또는 Windows PowerShell 원격을 통해 장치에 액세스할 수 없습니다.|수동 컨트롤러 교체 절차에 대해서는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.|
-|6|컨트롤러의 빌드 버전이 서로 다르며, 다음과 같은 이유 때문일 수 있습니다.<ul><li>컨트롤러의 소프트웨어 버전이 서로 다릅니다.</li><li>컨트롤러의 펌웨어 버전이 서로 다릅니다.</li></ul>|컨트롤러 소프트웨어 버전이 서로 다른 경우 교체 논리에서 이를 감지하고 교체 컨트롤러의 소프트웨어 버전을 업데이트합니다.<br><br>컨트롤러 펌웨어 버전이 서로 다르고 이전 펌웨어 버전을 자동으로 업그레이드할 수 **없는** 경우 Azure 클래식 포털에 경고 메시지가 표시됩니다. 업데이트를 검색하고 펌웨어 업데이트를 설치해야 합니다.</br></br>컨트롤러 펌웨어 버전이 서로 다르고 이전 펌웨어 버전을 자동으로 업그레이드할 수 있는 경우 컨트롤러 교체 논리에서 이를 감지하고 컨트롤러가 시작된 후 펌웨어가 자동으로 업데이트됩니다.|
+|1|One controller is in a failed state, the other controller is healthy and active.|[Single controller replacement](#replace-a-single-controller), which describes the [logic behind a single controller replacement](#single-controller-replacement-logic), as well as the [replacement steps](#single-controller-replacement-steps).|
+|2|Both the controllers have failed and require replacement. The chassis, disks, and.disk enclosure are healthy.|[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps). |
+|3|Controllers from the same device or from different devices are swapped. The chassis, disks, and disk enclosures are healthy.|A slot mismatch alert message will appear.|
+|4|One controller is missing and the other controller fails.|[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps).|
+|5|One or both controllers have failed. You cannot access the device through the serial console or Windows PowerShell remoting.|[Contact Microsoft Support](storsimple-contact-microsoft-support.md) for a manual controller replacement procedure.|
+|6|The controllers have a different build version, which may be due to:<ul><li>Controllers have a different software version.</li><li>Controllers have a different firmware version.</li></ul>|If the controller software versions are different, the replacement logic detects that and updates the software version on the replacement controller.<br><br>If the controller firmware versions are different and the old firmware version is **not** automatically upgradeable, an alert message will appear in the Azure classic portal. You should scan for updates and install the firmware updates.</br></br>If the controller firmware versions are different and the old firmware version is automatically upgradeable, the controller replacement logic will detect this, and after the controller starts, the firmware will be automatically updated.|
 
-오류가 발생한 경우 컨트롤러 모듈을 꺼내야 합니다. 하나 또는 두 개의 컨트롤러 모듈에서 모두 오류가 발생할 수 있으며, 단일 컨트롤러 교체 또는 이중 컨트롤러 교체가 요구될 수 있습니다. 교체 절차 및 지원 논리는 다음을 참조하세요.
+You need to remove a controller module if it has failed. One or both the controller modules can fail, which can result in a single controller replacement or dual controller replacement. For replacement procedures and the logic behind them, see the following:
 
-- [단일 컨트롤러 교체](#replace-a-single-controller)
-- [두 컨트롤러 모두 교체](#replace-both-controllers)
-- [컨트롤러 꺼내기](#remove-a-controller)
-- [컨트롤러 삽입](#insert-a-controller)
-- [장치의 활성 컨트롤러 식별](#identify-the-active-controller-on-your-device)
+- [Replace a single controller](#replace-a-single-controller)
+- [Replace both controllers](#replace-both-controllers)
+- [Remove a controller](#remove-a-controller)
+- [Insert a controller](#insert-a-controller)
+- [Identify the active controller on your device](#identify-the-active-controller-on-your-device)
 
->[AZURE.IMPORTANT] 컨트롤러를 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
+>[AZURE.IMPORTANT] Before removing and replacing a controller, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-## 단일 컨트롤러 교체
+## <a name="replace-a-single-controller"></a>Replace a single controller
 
-Microsoft Azure StorSimple 장치의 두 컨트롤러 중 하나에서 오류가 발생했거나 오작동하거나 없는 경우 단일 컨트롤러를 교체해야 합니다.
+When one of the two controllers on the Microsoft Azure StorSimple device has failed, is malfunctioning, or is missing, you need to replace a single controller. 
 
-### 단일 컨트롤러 교체 논리
+### <a name="single-controller-replacement-logic"></a>Single controller replacement logic
 
-단일 컨트롤러 교체에서는 오류가 발생한 컨트롤러를 먼저 제거해야 합니다. 장치의 나머지 컨트롤러가 활성 컨트롤러가 됩니다. 교체 컨트롤러를 삽입하면 다음 동작이 발생합니다.
+In a single controller replacement, you should first remove the failed controller. (The remaining controller in the device is the active controller.) When you insert the replacement controller, the following actions occur:
 
-1. 교체 컨트롤러가 즉시 StorSimple 장치와 통신을 시작합니다.
+1. The replacement controller immediately starts communicating with the StorSimple device.
 
-2. 활성 컨트롤러에 대한 VHD(가상 하드 디스크)의 스냅숏이 교체 컨트롤러에 복사됩니다.
+2. A snapshot of the virtual hard disk (VHD) for the active controller is copied on the replacement controller.
 
-3. 교체 컨트롤러가 이 VHD에서 시작될 때 대기 컨트롤러로 인식되도록 스냅숏이 수정됩니다.
+3. The snapshot is modified so that when the replacement controller starts from this VHD, it will be recognized as a standby controller.
 
-4. 수정이 완료되면 교체 컨트롤러가 대기 컨트롤러로 시작됩니다.
+4. When the modifications are complete, the replacement controller will start as the standby controller.
 
-5. 두 컨트롤러가 모두 실행되고 있으면 클러스터가 온라인 상태가 됩니다.
+5. When both the controllers are running, the cluster comes online.
 
-### 단일 컨트롤러 교체 단계
+### <a name="single-controller-replacement-steps"></a>Single controller replacement steps
 
-Microsoft Azure StorSimple 장치의 컨트롤러 중 하나에서 오류가 발생하는 경우 다음 단계를 따르세요. 다른 컨트롤러는 활성화되고 실행 중이어야 합니다. 두 컨트롤러에서 모두 오류가 발생하거나 오작동하는 경우 [이중 컨트롤러 교체 단계](#dual-controller-replacement-steps)로 이동합니다.
+Complete the following steps if one of the controllers in your Microsoft Azure StorSimple device fails. (The other controller must be active and running. If both controllers fail or malfunction, go to [dual controller replacement steps](#dual-controller-replacement-steps).)
 
->[AZURE.NOTE] 컨트롤러가 다시 시작되고 단일 컨트롤러 교체 절차에서 완전히 복구되는 데 30-45분이 걸릴 수 있습니다. 케이블 연결을 포함하여 전체 절차의 총 시간은 약 2시간입니다.
+>[AZURE.NOTE] It can take 30 – 45 minutes for the controller to restart and completely recover from the single controller replacement procedure. The total time for the entire procedure, including attaching the cables, is approximately 2 hours.
 
-#### 오류가 발생한 단일 컨트롤러 모듈을 꺼내려면
+#### <a name="to-remove-a-single-failed-controller-module"></a>To remove a single failed controller module
 
-1. Azure 클래식 포털에서 StorSimple Manager 서비스로 이동하고 **장치** 탭을 클릭한 다음 모니터링하려는 장치의 이름을 클릭합니다.
+1. In the Azure classic portal, go to the StorSimple Manager service, click the **Devices** tab, and then click the name of the device that you want to monitor.
 
-2. **유지 관리 > 하드웨어 상태**로 이동합니다. 컨트롤러 0 또는 컨트롤러 1의 상태가 오류를 나타내는 빨강이어야 합니다.
+2. Go to **Maintenance > Hardware Status**. The status of either Controller 0 or Controller 1 should be red, which indicates a failure.
 
-    >[AZURE.NOTE] 단일 컨트롤러 교체에서 오류가 발생한 컨트롤러는 항상 대기 컨트롤러입니다.
+    >[AZURE.NOTE] The failed controller in a single controller replacement is always a standby controller.
 
-3. 그림 1과 다음 표를 사용하여 오류가 발생한 컨트롤러 모듈을 찾습니다.
+3. Use Figure 1 and the following table to locate the failed controller module.  
 
-    ![장치 기본 엔클로저 모듈의 백플레인](./media/storsimple-controller-replacement/IC740994.png)
+    ![Backplane of device primary enclosure modules](./media/storsimple-controller-replacement/IC740994.png)
 
-    **그림 1** StorSimple 장치 뒷면
+    **Figure 1** Back of StorSimple device
 
-    |레이블|설명|
-    |:----|:----------|
-    |1|PCM 0|
-    |2|PCM 1|
-    |3|컨트롤러 0|
-    |4|컨트롤러 1|
+  	|Label|Description|
+  	|:----|:----------|
+  	|1|PCM 0|
+  	|2|PCM 1|
+  	|3|Controller 0|
+  	|4|Controller 1|
 
-4. 오류가 발생한 컨트롤러의 데이터 포트에서 연결된 네트워크 케이블을 모든 뺍니다. 8600 모델을 사용하는 경우 컨트롤러를 EBOD 컨트롤러에 연결하는 SAS 케이블도 뺍니다.
+4. On the failed controller, remove all the connected network cables from the data ports. If you are using an 8600 model, also remove the SAS cables that connect the controller to the EBOD controller.
 
-5. [컨트롤러 제거](#remove-a-controller)의 단계에 따라 오류가 발생한 컨트롤러를 제거합니다.
+5. Follow the steps in [remove a controller](#remove-a-controller) to remove the failed controller. 
 
-6. 오류가 발생한 컨트롤러를 꺼낸 슬롯과 동일한 슬롯에 팩터리 교체를 설치합니다. 이렇게 하면 단일 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [단일 컨트롤러 교체 논리](#single-controller-replacement-logic)를 참조하세요.
+6. Install the factory replacement in the same slot from which the failed controller was removed. This triggers the single controller replacement logic. For more information, see [single controller replacement logic](#single-controller-replacement-logic).
 
-7. 단일 컨트롤러 교체 논리가 백그라운드에서 진행되는 동안 케이블을 다시 연결합니다. 교체 전에 연결된 것과 동일한 방식으로 모든 케이블을 연결해야 합니다.
+7. While the single controller replacement logic progresses in the background, reconnect the cables. Take care to connect all the cables exactly the same way that they were connected before the replacement.
 
-8. 컨트롤러가 다시 시작된 후 Azure 클래식 포털에서 **컨트롤러 상태** 및 **클러스터 상태**를 검사하여 컨트롤러가 다시 정상 상태로 돌아갔으며 대기 모드에 있는지 확인합니다.
+8. After the controller restarts, check the **Controller status** and the **Cluster status** in the Azure classic portal to verify that the controller is back to a healthy state and is in standby mode.
 
->[AZURE.NOTE] 직렬 콘솔을 통해 장치를 모니터링하는 경우 컨트롤러가 교체 절차에서 복구되는 동안 여러 번 다시 시작되는 것을 확인할 수 있습니다. 직렬 콘솔 메뉴가 표시되면 교체가 완료된 것입니다. 컨트롤러 교체를 시작한 후 2시간 내에 메뉴가 표시되지 않는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
+>[AZURE.NOTE] If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the serial console menu is presented, then you know that the replacement is complete. If the menu does not appear within two hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
-## 두 컨트롤러 모두 교체
+## <a name="replace-both-controllers"></a>Replace both controllers
 
-Microsoft Azure StorSimple 장치의 두 컨트롤러에서 모두 오류가 발생했거나 오작동하거나 없는 경우 두 컨트롤러를 모두 교체해야 합니다.
+When both controllers on the Microsoft Azure StorSimple device have failed, are malfunctioning, or are missing, you need to replace both controllers. 
 
-### 이중 컨트롤러 교체 논리
+### <a name="dual-controller-replacement-logic"></a>Dual controller replacement logic
 
-이중 컨트롤러 교체에서는 먼저 오류가 발생한 두 컨트롤러를 모두 제거하고 교체를 삽입합니다. 두 교체 컨트롤러를 삽입하면 다음 동작이 발생합니다.
+In a dual controller replacement, you first remove both failed controllers and then insert replacements. When the two replacement controllers are inserted, the following actions occur:
 
-1. 슬롯 0의 교체 컨트롤러가 다음을 확인합니다.
+1. The replacement controller in slot 0 checks the following:
  
-   1. 최신 버전의 펌웨어 및 소프트웨어를 사용하고 있나요?
+   1. Is it using current versions of the firmware and software?
 
-   2. 클러스터의 일부인가요?
+   2. Is it a part of the cluster?
 
-   3. 피어 컨트롤러가 실행 중이며 클러스터되었나요?
-							
-    이러한 조건이 모두 true가 아니면 컨트롤러가 최근 매일 백업을 찾습니다(S 드라이브의 **nonDOMstorage**에 있음). 컨트롤러가 백업에서 VHD의 최신 스냅숏을 복사합니다.
+   3. Is the peer controller running and is it clustered?
+                            
+    If none of these conditions are true, the controller looks for the latest daily backup (located in the **nonDOMstorage** on drive S). The controller copies the latest snapshot of the VHD from the backup.
 
-2. 슬롯 0의 컨트롤러가 스냅숏을 사용하여 자체 이미지를 작성합니다.
+2. The controller in slot 0 uses the snapshot to image itself.
 
-3. 한편, 슬롯 1의 컨트롤러는 컨트롤러 0이 이미징을 완료하고 시작될 때까지 기다립니다.
+3. Meanwhile, the controller in slot 1 waits for controller 0 to complete the imaging and start.
 
-4. 컨트롤러 0이 시작된 후 컨트롤러 1이 컨트롤러 0에서 만든 클러스터를 검색하며, 이로 인해 단일 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [단일 컨트롤러 교체 논리](#single-controller-replacement-logic)를 참조하세요.
+4. After controller 0 starts, controller 1 detects the cluster created by controller 0, which triggers the single controller replacement logic. For more information, see [single controller replacement logic](#single-controller-replacement-logic).
 
-5. 그 후에는 두 컨트롤러가 모두 실행되고 클러스터가 온라인 상태가 됩니다.
+5. Afterwards, both controllers will be running and the cluster will come online.
 
->[AZURE.IMPORTANT] 이중 컨트롤러 교체 다음에는 StorSimple 장치가 구성된 후 반드시 장치를 수동으로 백업해야 합니다. 24시간이 경과할 때까지 일별 장치 구성 백업이 트리거되지 않습니다. [Microsoft 지원](storsimple-contact-microsoft-support.md)의 도움을 받아 장치를 수동으로 백업하세요.
+>[AZURE.IMPORTANT] Following a dual controller replacement, after the StorSimple device is configured, it is essential that you take a manual backup of the device. Daily device configuration backups are not triggered until after 24 hours have elapsed. Work with [Microsoft Support](storsimple-contact-microsoft-support.md) to make a manual backup of your device.
 
-### 이중 컨트롤러 교체 단계
+### <a name="dual-controller-replacement-steps"></a>Dual controller replacement steps
 
-이 워크플로는 Microsoft Azure StorSimple 장치의 두 컨트롤러에서 모두 오류가 발생한 경우에 필요합니다. 이러한 상황은 냉각 시스템 작동이 중지되어 짧은 기간 내에 두 컨트롤러에서 모두 오류가 발생하는 데이터 센터에서 발생할 수 있습니다. StorSimple 장치가 켜져 있는지 여부 및 8600 또는 8100 모델을 사용하는지에 따라 다른 일련의 단계가 필요합니다.
+This workflow is required when both of the controllers in your Microsoft Azure StorSimple device have failed. This could happen in a datacenter in which the cooling system stops working, and as a result, both the controllers fail within a short period of time. Depending on whether the StorSimple device is turned off or on, and whether you are using an 8600 or an 8100 model, a different set of steps is required.
 
->[AZURE.IMPORTANT] 컨트롤러가 다시 시작되고 이중 컨트롤러 교체 절차에서 완전히 복구되는 데 45분-1시간이 걸릴 수 있습니다. 케이블 연결을 포함하여 전체 절차의 총 시간은 약 2.5시간입니다.
+>[AZURE.IMPORTANT] It can take 45 minutes to 1 hour for the controller to restart and completely recover from a dual controller replacement procedure. The total time for the entire procedure, including attaching the cables, is approximately 2.5 hours.
 
-#### 두 컨트롤러 모듈을 모두 교체하려면
+#### <a name="to-replace-both-controller-modules"></a>To replace both controller modules
 
-1. 장치가 꺼져 있는 경우 이 단계를 건너뛰고 다음 단계로 진행합니다. 장치가 켜져 있는 경우 장치를 끕니다.
-										
-    1. 8600 모델을 사용하는 경우 기본 엔클로저를 먼저 끈 다음 EBOD 엔클로저를 끕니다.
+1. If the device is turned off, skip this step and proceed to the next step. If the device is turned on, turn off the device.
+                                        
+    1. If you are using an 8600 model, turn off the primary enclosure first, and then turn off the EBOD enclosure.
 
-    2. 장치가 완전히 종료될 때까지 기다립니다. 장치 뒷면의 모든 LED가 꺼집니다.
+    2. Wait until the device has shut down completely. All the LEDs in the back of the device will be off.
 
-2. 데이터 포트에 연결된 모든 네트워크 케이블을 뺍니다. 8600 모델을 사용하는 경우 기본 엔클로저를 EBOD 엔클로저에 연결하는 SAS 케이블도 제거합니다.
+2. Remove all the network cables that are connected to the data ports. If you are using an 8600 model, also remove the SAS cables that connect the primary enclosure to the EBOD enclosure.
 
-3. StorSimple 장치에서 두 컨트롤러를 모두 꺼냅니다. 자세한 내용은 [컨트롤러 제거](#remove-a-controller)를 참조하세요.
+3. Remove both controllers from the StorSimple device. For more information, see [remove a controller](#remove-a-controller).
 
-4. 컨트롤러 0에 대한 팩터리 교체를 먼저 삽입하고 컨트롤러 1을 삽입합니다. 자세한 내용은 [컨트롤러 삽입](#insert-a-controller)을 참조하세요. 이렇게 하면 이중 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [이중 컨트롤러 교체 논리](#dual-controller-replacement-logic)를 참조하세요.
+4. Insert the factory replacement for Controller 0 first, and then insert Controller 1. For more information, see [insert a controller](#insert-a-controller). This triggers the dual controller replacement logic. For more information, see [dual controller replacement logic](#dual-controller-replacement-logic).
 
-5. 컨트롤러 교체 논리가 백그라운드에서 진행되는 동안 케이블을 다시 연결합니다. 교체 전에 연결된 것과 동일한 방식으로 모든 케이블을 연결해야 합니다. [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md) 또는 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)의 장치를 케이블로 연결 섹션에서 모델에 대한 자세한 지침을 참조하세요.
+5. While the controller replacement logic progresses in the background, reconnect the cables. Take care to connect all the cables exactly the same way that they were connected before the replacement. See the detailed instructions for your model in the Cable your device section of [install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
-6. StorSimple 장치를 켭니다. 8600 모델을 사용하는 경우:
+6. Turn on the StorSimple device. If you are using an 8600 model:
 
-    1. EBOD 엔클로저가 먼저 켜지는지 확인합니다.
+    1. Make sure that the EBOD enclosure is turned on first.
 
-    2. EBOD 엔클로저가 실행될 때까지 기다립니다.
+    2. Wait until the EBOD enclosure is running.
 
-    3. 기본 엔클로저를 켭니다.
+    3. Turn on the primary enclosure.
 
-    4. 첫 번째 컨트롤러가 다시 시작되고 정상 상태이면 시스템이 실행됩니다.
+    4. After the first controller restarts and is in a healthy state, the system will be running.
 
-    >[AZURE.NOTE] 직렬 콘솔을 통해 장치를 모니터링하는 경우 컨트롤러가 교체 절차에서 복구되는 동안 여러 번 다시 시작되는 것을 확인할 수 있습니다. 직렬 콘솔 메뉴가 표시되면 교체가 완료된 것입니다. 컨트롤러 교체를 시작한 후 2.5시간 내에 메뉴가 표시되지 않는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
+    >[AZURE.NOTE] If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the serial console menu appears, then you know that the replacement is complete. If the menu does not appear within 2.5 hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
-## 컨트롤러 꺼내기
+## <a name="remove-a-controller"></a>Remove a controller
 
-StorSimple 장치에서 결함이 있는 컨트롤러 모듈을 꺼내려면 다음 절차를 따르세요.
+Use the following procedure to remove a faulty controller module from your StorSimple device.
 
->[AZURE.NOTE] 다음 그림은 컨트롤러 0에 해당합니다. 컨트롤러 1의 경우 반대가 됩니다.
+>[AZURE.NOTE] The following illustrations are for controller 0. For controller 1, these would be reversed.
 
-#### 컨트롤러 모듈을 꺼내려면
+#### <a name="to-remove-a-controller-module"></a>To remove a controller module
 
-1. 엄지와 집게 손가락으로 모듈 래치를 잡습니다.
+1. Grasp the module latch between your thumb and forefinger.
 
-2. 엄지와 집게 손가락을 부드럽게 눌러 컨트롤러 래치를 해제합니다.
+2. Gently squeeze your thumb and forefinger together to release the controller latch.
 
-    ![컨트롤러 래치 해제](./media/storsimple-controller-replacement/IC741047.png)
+    ![Releasing controller latch](./media/storsimple-controller-replacement/IC741047.png)
 
-    **그림 2** 컨트롤러 래치 해제
+    **Figure 2** Releasing controller latch
 
-2. 래치를 핸들로 사용하여 컨트롤러를 섀시 밖으로 밉니다.
+2. Use the latch as a handle to slide the controller out of the chassis.
 
-    ![섀시 밖으로 컨트롤러 밀기](./media/storsimple-controller-replacement/IC741048.png)
+    ![Sliding controller out of chassis](./media/storsimple-controller-replacement/IC741048.png)
 
-    **그림 3** 섀시 밖으로 컨트롤러 밀기
+    **Figure 3** Sliding the controller out of the chassis
 
-## 컨트롤러 삽입
+## <a name="insert-a-controller"></a>Insert a controller
 
-StorSimple 장치에서 결함이 있는 모듈을 꺼낸 후 팩터리 제공 컨트롤러 모듈을 설치하려면 다음 절차를 따르세요.
+Use the following procedure to install a factory-supplied controller module after you remove a faulty module from your StorSimple device.
 
-#### 컨트롤러 모듈을 설치하려면
+#### <a name="to-install-a-controller-module"></a>To install a controller module
 
-1. 인터페이스 커넥터에 손상된 부분이 있는지 확인합니다. 커넥터 핀이 손상되었거나 구부러진 경우 모듈을 설치하지 마세요.
+1. Check to see if there is any damage to the interface connectors. Do not install the module if any of the connector pins are damaged or bent.
 
-2. 래치가 완전히 해제된 동안 컨트롤러 모듈을 섀시에 밀어넣습니다.
+2. Slide the controller module into the chassis while the latch is fully released. 
 
-    ![섀시 안으로 컨트롤러 밀기](./media/storsimple-controller-replacement/IC741053.png)
+    ![Sliding controller into chassis](./media/storsimple-controller-replacement/IC741053.png)
 
-    **그림 4** 섀시에 컨트롤러 밀어넣기
+    **Figure 4** Sliding controller into the chassis
 
-3. 컨트롤러 모듈을 삽입한 후 컨트롤러 모듈을 섀시 안으로 계속 누르면서 래치를 닫습니다. 래치가 걸려 컨트롤러를 제자리로 안내합니다.
+3. With the controller module inserted, begin closing the latch while continuing to push the controller module into the chassis. The latch will engage to guide the controller into place.
 
-    ![컨트롤러 래치 닫기](./media/storsimple-controller-replacement/IC741054.png)
+    ![Closing controller latch](./media/storsimple-controller-replacement/IC741054.png)
 
-    **그림 5** 컨트롤러 래치 닫기
+    **Figure 5** Closing the controller latch
 
-4. 래치가 제자리에 놓이면 작업을 완료했습니다. 이제 **OK** LED가 켜집니다.
+4. You're done when the latch snaps into place. The **OK** LED should now be on.  
 
-    >[AZURE.NOTE] 컨트롤러 및 LED가 활성화되는 데 최대 5분 정도 걸릴 수 있습니다.
+    >[AZURE.NOTE] It can take up to 5 minutes for the controller and the LED to activate.
 
-5. 교체에 성공했는지 확인하려면 Azure 클래식 포털에서 **장치** > **유지 관리** > **하드웨어 상태**로 이동한 다음 컨트롤러 0과 컨트롤러 1이 모두 정상(녹색 상태)인지 확인합니다.
+5. To verify that the replacement is successful, in the Azure classic portal, go to **Devices** > **Maintenance** > **Hardware Status**, and make sure that both controller 0 and controller 1 are healthy (status is green).
 
-## 장치의 활성 컨트롤러 식별
+## <a name="identify-the-active-controller-on-your-device"></a>Identify the active controller on your device
 
-처음 장치를 등록하거나 컨트롤러를 교체하는 경우와 같이 StorSimple 장치에서 활성 컨트롤러를 찾아야 하는 경우가 많습니다. 활성 컨트롤러는 모든 디스크 펌웨어 및 네트워킹 작업을 처리합니다. 다음 방법 중 하나를 사용하여 활성 컨트롤러를 식별할 수 있습니다.
+There are many situations, such as first-time device registration or controller replacement, that require you to locate the active controller on a StorSimple device. The active controller processes all the disk firmware and networking operations. You can use any of the following methods to identify the active controller:
 
-- [Azure 클래식 포털을 사용하여 활성 컨트롤러 식별](#use-the-azure-classic-portal-to-identify-the-active-controller)
+- [Use the Azure classic portal to identify the active controller](#use-the-azure-classic-portal-to-identify-the-active-controller)
 
-- [StorSimple용 Windows PowerShell을 사용하여 활성 컨트롤러 식별](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
+- [Use Windows PowerShell for StorSimple to identify the active controller](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
 
-- [물리적 장치를 검사하여 활성 컨트롤러 식별](#check-the-physical-device-to-identify-the-active-controller)
+- [Check the physical device to identify the active controller](#check-the-physical-device-to-identify-the-active-controller)
 
-아래에서는 이러한 각 절차에 대해 설명합니다.
+Each of these procedures is described next.
 
-### Azure 클래식 포털을 사용하여 활성 컨트롤러 식별
+### <a name="use-the-azure-classic-portal-to-identify-the-active-controller"></a>Use the Azure classic portal to identify the active controller
 
-Azure 클래식 포털에서 **장치** > **유지 관리**로 이동한 다음 **컨트롤러** 섹션으로 스크롤합니다. 여기서 활성 컨트롤러를 확인할 수 있습니다.
+In the Azure classic portal, navigate to **Devices** > **Maintenance**, and scroll to the **Controllers** section. Here you can verify which controller is active.
 
-![Azure 클래식 포털에서 활성 컨트롤러 식별](./media/storsimple-controller-replacement/IC752072.png)
+![Identify active controller in Azure classic portal](./media/storsimple-controller-replacement/IC752072.png)
 
-**그림 6** Azure 클래식 포털을 사용하여 활성 컨트롤러 식별
+**Figure 6** Azure classic portal showing the active controller
 
-### StorSimple용 Windows PowerShell을 사용하여 활성 컨트롤러 식별
+### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>Use Windows PowerShell for StorSimple to identify the active controller
 
-직렬 콘솔을 통해 장치에 액세스하는 경우 배너 메시지가 표시됩니다. 배너 메시지에는 모델, 이름, 설치된 소프트웨어 버전 및 액세스 중인 컨트롤러의 상태와 같은 기본 장치 정보가 포함되어 있습니다. 다음 그림은 배너 메시지의 예를 보여 줍니다.
+When you access your device through the serial console, a banner message is presented. The banner message contains basic device information such as the model, name, installed software version, and status of the controller you are accessing. The following image shows an example of a banner message:
 
-![직렬 배너 메시지](./media/storsimple-controller-replacement/IC741098.png)
+![Serial banner message](./media/storsimple-controller-replacement/IC741098.png)
 
-**그림 7** 컨트롤러 0을 활성으로 표시하는 배너 메시지
+**Figure 7** Banner message showing controller 0 as Active
 
-배너 메시지를 사용하여 연결된 컨트롤러가 활성 또는 수동인지 확인할 수 있습니다.
+You can use the banner message to determine whether the controller you are connected to is active or passive.
 
-### 물리적 장치를 검사하여 활성 컨트롤러 식별
+### <a name="check-the-physical-device-to-identify-the-active-controller"></a>Check the physical device to identify the active controller
 
-장치의 활성 컨트롤러를 식별하려면 기본 엔클로저 뒷면에서 DATA 5 포트 위의 파란색 LED를 찾습니다.
+To identify the active controller on your device, locate the blue LED above the DATA 5 port on the back of the primary enclosure.
 
-이 LED가 깜박이면 컨트롤러가 활성 상태이며 다른 컨트롤러는 대기 모드에 있습니다. 다음 다이어그램과 표를 보조 도구로 사용합니다.
+If this LED is blinking, the controller is active and the other controller is in standby mode. Use the following diagram and table as an aid.
 
-![데이터 포트가 있는 장치 기본 인클로저 백플레인](./media/storsimple-controller-replacement/IC741055.png)
+![Device primary enclosure backplane with dataports](./media/storsimple-controller-replacement/IC741055.png)
 
-**그림 8** 데이터 포트와 모니터링 LED가 있는 기본 엔클로저 뒷면
+**Figure 8** Back of primary enclosure with data ports and monitoring LEDs
 
-|레이블|설명|
+|Label|Description|
 |:----|:----------|
-|1-6|DATA 0 - 5 네트워크 포트|
-|7|파란색 LED|
+|1-6|DATA 0 – 5 network ports|
+|7|Blue LED|
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
+Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

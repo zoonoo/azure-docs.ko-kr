@@ -1,134 +1,141 @@
 <properties
-	pageTitle="Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포 | Microsoft Azure"
-	description="이 문서에서는 고가용성을 위해 Azure에서 AD FS를 배포하는 방법을 알아봅니다."
-    keywords="Azure Traffic Manager를 포함한 AD FS, Azure Traffic Manager를 포함한 ADFS, 지리적, 다중 데이터 센터, 지리적 데이터 센터, 다중 지리적 데이터 센터, Azure에서 AD FS 배포, Azure ADFS 배포, Azure ADFS, Azure AD FS,ADFS 배포, AD FS 배포, Azure에서 ADFS, Azure에서 ADFS 배포, Azure에서 AD FS 배포, ADFS Azure, AD FS 소개, Azure, Azure에서 AD FS, IaaS, ADFS, Azure에 ADFS 이동"
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="femila"
-	editor=""/>
+    pageTitle="High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager | Microsoft Azure"
+    description="In this document you will learn how to deploy AD FS in Azure for high availablity."
+    keywords="Ad fs with Azure traffic manager, adfs with Azure Traffic Manager,geographic, multi datacenter, geographic datacenters, multi geographic datacenters, deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure"
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/01/2016"
-	ms.author="anandy;billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
+    ms.author="anandy;billmath"/>
     
-#Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포
 
-[Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)는 Azure의 조직에 대한 간단한 AD FS 인프라를 배포할 수 있는 방법으로 단계별 지침을 제공합니다. 이 문서에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 Azure AD FS에서 교차 지리적 배포를 만드는 다음 단계를 제공합니다. Azure Traffic Manager는 인프라에서 서로 다른 요구 사항에 맞게 사용할 수 있는 라우팅 방법의 범위를 사용하여 조직에 대해 지리적으로 분배된 고가용성 및 고성능 AD FS 인프라를 만들 수 있도록 합니다.
+#<a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager
 
-항상 사용 가능한 교차 지리적 AD FS 인프라에서는 다음을 수행할 수 있습니다.
+[AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md) provides step-by-step guideline as to how you can deploy a simple AD FS infrastructure for your organization in Azure. This article provides the next steps to create a cross-geographic deployment of AD FS in Azure using [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager helps create a geographically spread high availability and high-performance AD FS infrastructure for your organization by making use of range of routing methods available to suit different needs from the infrastructure.
 
-* **단일 실패 지점 제거:** Azure Traffic Manager의 장애 조치 기능을 사용하여 전 세계에 있는 데이터 센터 중 하나가 중단되더라도 AD FS 인프라를 항상 사용 가능하도록 만들 수 있습니다.
-* **향상된 성능:** 이 문서에 제안된 배포를 사용하여 더 빠르게 사용자를 인증할 수 있는 고성능 AD FS 인프라를 제공할 수 있습니다.
+A highly available cross-geographic AD FS infrastructure enables:
 
-##디자인 원칙
+* **Elimination of single point of failure:** With failover capabilities of Azure Traffic Manager, you can achieve a highly available AD FS infrastructure even when one of the data centers in a part of the globe goes down
+* **Improved performance:** You can use the suggested deployment in this article to provide a high-performance AD FS infrastructure that can help users authenticate faster. 
 
-![전체 디자인](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
+##<a name="design-principles"></a>Design principles
 
-기본 디자인 원칙은 Azure의 AD FS 배포 문서에 있는 디자인 원칙에 나열된 것과 동일합니다. 위의 다이어그램에서는 다른 지역에 대한 기본 배포의 단순한 확장을 보여 줍니다. 새 지역으로 배포를 확장하는 경우 고려할 사항은 다음과 같습니다.
+![Overall design](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
 
-* **가상 네트워크:** 추가 AD FS 인프라를 배포하려는 지역에서 새 가상 네트워크를 만들어야 합니다. 위의 다이어그램에서 각 지역에 두 개의 가상 네트워크인 Geo1 VNET과 Geo2 VNET이 표시됩니다.
+The basic design principles will be same as listed in Design principles in the article AD FS deployment in Azure. The diagram above shows a simple extension of the basic deployment to another geographical region. Below are some points to consider when extending your deployment to new geographical region
 
-* **새 지역 VNET에서 도메인 컨트롤러 및 AD FS 서버:** 새 지역에 있는 AD FS 서버가 멀리 있는 다른 네트워크의 도메인 컨트롤러에 연결하지 않아도 인증을 완료하여 성능이 향상되도록 새 지역에서 도메인 컨트롤러를 배포하는 것이 좋습니다.
+* **Virtual network:** You should create a new virtual network in the geographical region you want to deploy additional AD FS infrastructure. In the diagram above you see Geo1 VNET and Geo2 VNET as the two virtual networks in each geographical region.
 
-* **저장소 계정:** 저장소 계정은 지역과 연결됩니다. 새 지역에 컴퓨터를 배포했기 때문에 지역에서 사용할 새 저장소 계정을 만들어야 합니다.
+* **Domain controllers and AD FS servers in new geographical VNET:** It is recommended to deploy domain controllers in the new geographical region so that the AD FS servers in the new region do not have to contact a domain controller in another far away network to complete an authentication and thereby improving the performance.
 
-* **네트워크 보안 그룹:** 지역에서 만든 네트워크 보안 그룹을 다른 지역에서 저장소 계정으로 사용할 수 없습니다. 따라서 새 지역에서 INT 및 DMZ 서브넷에 대한 첫 번째 지역의 네트워크 보안 그룹과 비슷한 새 네트워크 보안 그룹을 만들어야 합니다.
+* **Storage accounts:** Storage accounts are associated with a region. Since you will be deploying machines in a new geographic region, you will have to create new storage accounts to be used in the region.  
 
-* **공용 IP 주소에 대한 DNS 레이블:** Azure Traffic Manager는 DNS 레이블을 통해서만 끝점을 참조할 수 있습니다. 따라서 외부 부하 분산 장치의 공용 IP 주소에 대한 DNS 레이블을 만들어야 합니다.
+* **Network Security Groups:** As storage accounts, Network Security Groups created in a region cannot be used in another geographical region. Therefore, you will need to create new network security groups similar to those in the first geographical region for INT and DMZ subnet in the new geographical region.
 
-* **Azure Traffic Manager:** Microsoft Azure Traffic Manager를 사용하면 전 세계 여러 데이터 센터에서 실행 중인 서비스 끝점에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Azure Traffic Manager는 DNS 수준에서 작동합니다. 이 관리자는 DNS 응답을 사용하여 전역으로 분산된 끝점으로 최종 사용자 트래픽을 보냅니다. 그러면 클라이언트는 해당 끝점에 직접 연결됩니다. 성능, 가중치 적용 및 우선 순위 등의 라우팅 옵션을 사용하여 조직의 요구 사항에 가장 적합한 라우팅 옵션을 쉽게 선택할 수 있습니다.
+* **DNS Labels for public IP addresses:** Azure Traffic Manager can refer to endpoints ONLY via DNS labels. Therefore, you are required to create DNS labels for the External Load Balancers’ public IP addresses.
 
-* **두 지역에 있는 VNet 간 연결:** 가상 네트워크 자체 간을 연결할 필요가 없습니다. 각 가상 네트워크가 도메인 컨트롤러에 액세스하고 자체에 AD FS 및 WAP 서버를 가지고 있기 때문에 다른 지역에 있는 가상 네트워크 간의 연결 없이 작업할 수 있습니다.
+* **Azure Traffic Manager:** Microsoft Azure Traffic Manager allows you to control the distribution of user traffic to your service endpoints running in different datacenters around the world. Azure Traffic Manager works at the DNS level. It uses DNS responses to direct end-user traffic to globally-distributed endpoints. Clients then connect to those endpoints directly. With different routing options of Performance, Weighted and Priority, you can easily choose the routing option best suited for your organization’s needs. 
 
-##Azure Traffic Manager를 통합하는 단계
+* **V-net to V-net connectivity between two regions:** You do not need to have connectivity between the virtual networks itself. Since each virtual network has access to domain controllers and has AD FS and WAP server in itself, they can work without any connectivity between the virtual networks in different regions. 
 
-###새 지역에서 AD FS 배포
-[Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)의 단계와 지침에 따라 새 지역에 동일한 토폴로지를 배포합니다.
+##<a name="steps-to-integrate-azure-traffic-manager"></a>Steps to integrate Azure Traffic Manager
 
-###인터넷 연결 (공용) 부하 분산 장치의 공용 IP 주소에 대한 DNS 레이블
-위에서 언급한 대로 Azure Traffic Manager는 DNS 레이블을 끝점으로 참조할 수 있으며 따라서 외부 부하 분산 장치의 공용 IP 주소에 대한 DNS 레이블을 만드는 것이 중요합니다. 아래 스크린샷에서는 공용 IP 주소에 대한 DNS 레이블을 구성하는 방법을 보여 줍니다.
+###<a name="deploy-ad-fs-in-the-new-geographical-region"></a>Deploy AD FS in the new geographical region
+Follow the steps and guidelines in [AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md) to deploy the same topology in the new geographical region.
 
-![DNS 레이블](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
+###<a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-(public)-load-balancers"></a>DNS labels for public IP addresses of the Internet Facing (public) Load Balancers
+As mentioned above, the Azure Traffic Manager can only refer to DNS labels as endpoints and therefore it is important to create DNS labels for the External Load Balancers’ public IP addresses. Below screenshot shows how you can configure your DNS label for the public IP address. 
 
-###Azure Traffic Manager 배포
+![DNS Label](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
 
-아래 단계를 따라 Traffic Manager 프로필을 만듭니다. 자세한 내용은 [Azure Traffic Manager 프로필 관리](../traffic-manager/traffic-manager-manage-profiles.md)를 참조할 수도 있습니다.
+###<a name="deploying-azure-traffic-manager"></a>Deploying Azure Traffic Manager
 
-1. **Traffic Manager 프로필 만들기:** Traffic Manager 프로필에 고유한 이름을 지정합니다. 이 프로필의 이름은 DNS 이름의 일부이며 Traffic Manager 도메인 이름 레이블에 대한 접두사의 역할을 담당합니다. 이름/접두사를 .trafficmanager.net에 추가하여 Traffic Manager에 대한 DNS 레이블을 만듭니다. 아래 스크린샷에서는 mysts로 설정되고 그 결과 DNS 레이블이 mysts.trafficmanager.net인 Traffic Manager DNS 접두사를 보여 줍니다.
+Follow the steps below to create a traffic manager profile. For more information, you can also refer to [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md).
 
-    ![Traffic Manager 프로필 만들기](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)
+1. **Create a Traffic Manager profile:** Give your traffic manager profile a unique name. This name of the profile is part of the DNS name and acts as a prefix for the Traffic Manager domain name label. The name / prefix is added to .trafficmanager.net to create a DNS label for your traffic manager. The screenshot below shows the traffic manager DNS prefix being set as mysts and resulting DNS label will be mysts.trafficmanager.net. 
+
+    ![Traffic Manager profile creation](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)
  
-2. **트래픽 라우팅 방법:** Traffic Manager에서 사용할 수 있는 세 가지 트래픽 라우팅이 있습니다.
+2. **Traffic routing method:** There are three routing options available in traffic manager:
 
-    * 우선 순위
-    * 성능
-    * 가중치 적용
+    * Priority 
+    * Performance
+    * Weighted
     
-    **성능**은 응답성이 높은 AD FS 인프라를 달성하기 위해 권장된 옵션입니다. 그러나 배포 요구 사항에 가장 적합한 라우팅 방법을 선택할 수 있습니다. AD FS 기능은 선택된 라우팅 옵션의 영향을 받지 않습니다. 자세한 내용은 [Traffic Manager 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 참조하세요. 위의 샘플 스크린샷에서 선택한 **성능** 메서드를 확인할 수 있습니다.
+    **Performance** is the recommended option to achieve highly responsive AD FS infrastructure. However, you can choose any routing method best suited for your deployment needs. The AD FS functionality is not impacted by the routing option selected. See [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) for more information. In the sample screenshot above you can see the **Performance** method selected.
    
-3.	**끝점 구성:** Traffic Manager 페이지에서 끝점을 클릭하고 추가를 선택합니다. 아래 스크린샷과 유사한 추가 끝점 페이지가 열립니다.
+3.  **Configure endpoints:** In the traffic manager page, click on endpoints and select Add. This will open an Add endpoint page similar to the screenshot below
  
-    ![끝점 구성](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfsendpoint.png)
+    ![Configure endpoints](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfsendpoint.png)
  
-    다른 입력의 경우 아래 지침을 따르세요.
+    For the different inputs, follow the guideline below:
 
-    **형식:** Azure 공용 IP 주소를 가리키는 것처럼 Azure 끝점을 선택합니다.
+    **Type:** Select Azure endpoint as we will be pointing to an Azure public IP address.
 
-    **이름:** 끝점과 연결하려는 이름을 만듭니다. DNS 이름이 아니며 DNS 레코드는 관련이 없습니다.
+    **Name:** Create a name that you want to associate with the endpoint. This is not the DNS name and has no bearing on DNS records.
 
-    **대상 리소스 유형:** 공용 IP 주소를 이 속성에 대한 값으로 선택합니다.
+    **Target resource type:** Select Public IP address as the value to this property. 
 
-    **대상 리소스:** 이렇게 하면 구독에서 사용할 수 있는 다른 DNS 레이블에서 선택할 수 있는 옵션이 제공됩니다. DNS 레이블을 선택합니다.
+    **Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label for to.
 
-    Azure Traffic Manager에서 트래픽을 라우팅하려는 지역에 대한 끝점을 추가합니다. Traffic Manager에서 끝점을 추가/구성하는 방법에 대한 자세한 내용 및 단계는 [끝점 추가, 사용 안 함, 사용 또는 삭제](../traffic-manager/traffic-manager-endpoints.md)를 참조하세요.
+    Add endpoint for each geographical region you want the Azure Traffic Manager to route traffic to.
+    For more information and detailed steps on how to add / configure endpoints in traffic manager, refer to [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md)
     
-4. **프로브 구성:** Traffic Manager 페이지에서 구성을 클릭합니다. 구성 페이지에서 HTTP 포트 80 및 상대 경로인 /adfs/probe의 프로브에 대한 모니터링 설정을 변경해야 합니다.
+4. **Configure probe:** In the traffic manager page, click on Configuration. In the configuration page, you need to change the monitor settings to probe at HTTP port 80 and relative path /adfs/probe
 
-    ![프로브 구성](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png)
+    ![Configure probe](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png) 
 
-    >[AZURE.NOTE] **구성이 완료되면 끝점의 상태가 온라인인지 확인합니다**. 모든 끝점이 '성능이 저하된' 상태인 경우 Azure Traffic Manager는 진단이 올바르지 않고 모든 끝점에 도달 가능하다고 가정하는 트래픽을 라우트하려고 최대한 노력합니다.
+    >[AZURE.NOTE] **Ensure that the status of the endpoints is ONLINE once the configuration is complete**. If all endpoints are in ‘degraded’ state, Azure Traffic Manager will do a best attempt to route the traffic assuming that the diagnostics is incorrect and all endpoints are reachable.
 
-5. **Azure Traffic Manager에 대한 DNS 레코드 수정:** 페더레이션 서비스는 Azure Traffic Manager DNS 이름에 대한 CNAME이어야 합니다. 페더레이션 서비스에 도달하려고 하는 모든 사용자가 실제로 Azure Traffic Manager에 도달하도록 공용 DNS 레코드에서 CNAME을 만듭니다.
+5. **Modifying DNS records for Azure Traffic Manager:** Your federation service should be a CNAME to the Azure Traffic Manager DNS name. Create a CNAME in the public DNS records so that whoever is trying to reach the federation service actually reaches the Azure Traffic Manager.
 
-    예를 들어 Traffic Manager에 대한 페더레이션 서비스 fs.fabidentity.com을 가리키려면 DNS 리소스 레코드를 다음과 같이 업데이트해야 합니다.
+    For example, to point the federation service fs.fabidentity.com to the Traffic Manager, you would need to update your DNS resource record to be the following:
 
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-##라우팅 및 AD FS 로그인 테스트   
+##<a name="test-the-routing-and-ad-fs-sign-in"></a>Test the routing and AD FS sign-in   
 
-###테스트 라우팅
+###<a name="routing-test"></a>Routing test
 
-라우팅에 대한 기본 테스트는 각 지역에 있는 컴퓨터에서 페더레이션 서비스 DNS 이름을 ping하는 것입니다. 선택한 라우팅 방법에 따라 실제로 ping한 끝점은 ping 디스플레이에 반영됩니다. 예를 들어 성능 라우팅을 선택한 경우 클라이언트 영역에 가장 가까운 끝점에 도달하게 됩니다. 아래는 두 개의 다른 지역 클라이언트 컴퓨터에서 동아시아 지역 및 미국 서부에 각각 하나씩 있는 두 ping의 스냅숏입니다.
+A very basic test for the routing would be to try ping the federation service DNS name from a machine in each geographic region. Depending on the routing method chosen, the endpoint it actually pings will be reflected in the ping display. For example, if you selected the performance routing, then the endpoint nearest to the region of the client will be reached. Below is the snapshot of two pings from two different region client machines, one in EastAsia region and one in West US. 
 
-![테스트 라우팅](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
+![Routing test](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-###AD FS 로그인 테스트
+###<a name="ad-fs-sign-in-test"></a>AD FS sign-in test
 
-AD FS를 테스트하는 가장 쉬운 방법은 IdpInitiatedSignon.aspx 페이지를 사용하는 것입니다. 이렇게 하려면 AD FS 속성에 IdpInitiatedSignOn을 사용해야 합니다. AD FS 설치를 확인하려면 다음 단계를 수행합니다.
+The easiest way to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup
  
-1. 아래 AD FS 서버의 cmdlet을 실행하고 PowerShell을 사용하여 사용하도록 설정합니다. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
-2. 외부 컴퓨터 액세스 https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx에서
-3. 아래와 같은 AD FS 페이지를 참조해야 합니다.
+1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
+2. From any external machine access https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
+3. You should see the AD FS page like below:
 
-    ![ADFS 테스트 - 인증 질문](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)
+    ![ADFS test - authentication challenge](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)
 
-    그리고 성공적으로 로그인하면 아래와 같은 성공 메시지가 표시됩니다.
+    and on successful sign-in, it will provide you with a success message as shown below:
 
-    ![ADFS 테스트 - 인증 성공](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
+    ![ADFS test - authentication success](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
  
-##관련 링크
-* [Azure에서 기본 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
+##<a name="related-links"></a>Related links
+* [Basic AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
-* [트래픽 관리자 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)
+* [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md)
 
-##다음 단계
-* [Azure 트래픽 관리자 프로필 관리](../traffic-manager/traffic-manager-manage-profiles.md)
-* [끝점 추가, 사용 안 함, 사용 또는 삭제](../traffic-manager/traffic-manager-endpoints.md)
+##<a name="next-steps"></a>Next steps
+* [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md)
+* [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md) 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

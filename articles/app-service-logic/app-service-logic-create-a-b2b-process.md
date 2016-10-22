@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure 앱 서비스에서 B2B 프로세스 만들기 | Microsoft Azure" 
-   description="B2B 프로세스를 만드는 방법에 대한 개요" 
+   pageTitle="Creating a B2B process in Azure App Service | Microsoft Azure" 
+   description="Overview of how to create a Business-to-Business Process" 
    services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -16,52 +16,54 @@
    ms.date="04/20/2016"
    ms.author="rajram"/>
 
-# B2B 프로세스 만들기
+
+# <a name="creating-a-b2b-process"></a>Creating a B2B process
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 
-## 비즈니스 시나리오 
-Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)가 AS2와 같은 업계 수준 전송을 통해 Northwind(공급자)로 구매 주문서를 보냅니다. Northwind는 들어오는 모든 주문을 클라우드 저장소에 저장합니다. 구매 주문서는 두 파트너 간의 XML 메시지입니다. 메시지가 Northwind의 클라우드 저장소에 저장되면 Northwind의 내부 프로세스가 해당 지점에서 주문을 처리합니다.
+## <a name="business-scenario"></a>Business Scenario 
+Contoso and Northwind are two business partners. Contoso (the retailer) sends purchase orders to Northwind (the supplier) over an industry level transport such as AS2. Northwind stores all incoming orders in its Cloud storage. The purchase orders are XML messages between these two partners. Once the message is stored in Northwind's cloud storage then Northwind's internal processes handle the order from that point on.
  
-이 자습서의 목표는 Northwind에서 비즈니스 프로세스를 설정하는 방법을 확립하는 것입니다. 여기서 비즈니스 프로세스는 파트너인 Contoso에서 AS2를 통해 메시지(XML의 구매 주문서)를 수신하고 클라우드 저장소에 저장하는 데 사용됩니다.
+The objective of this tutorial is to establish how Northwind can establish a business process via which it can receive messages (purchase orders in XML) from its partner Contoso over AS2 and then persist it in its Cloud storage.
 
 
-## 기능 시연 
-이 자습서를 통해 다음과 같은 기능을 소개합니다.
+## <a name="capabilities-demonstrated"></a>Capabilities demonstrated 
+This tutorial helps showcase the following capabilities: 
 
-- **메시지 전송**: 소매점과 공급자는 서로 다른 플랫폼에 있을 수 있지만 둘 간의 통신을 계속 수행할 수 있습니다. 이 자습서에서는 AS2(Applicability Statement 2)를 통해 통신합니다. AS2는 B2B 통신에서 거래 업체 간에 데이터를 전송하는 데 널리 사용되는 방법입니다.
-- **데이터 지속성**: AS2를 통해 메시지를 받은 후 Northwind는 추가 처리 전에 유지하길 원합니다. 커넥터를 사용하여 클라우드 저장소에서 메시지를 유지할 수 있습니다. 이 자습서에서는 Azure Blob이 Northwind용 클라우드 저장소로 활용되고 있습니다.
-- **비즈니스 프로세스 만들기**: 흐름에서 여러 API 앱이 함께 연결되어 여기에 설명된 대로 비즈니스 결과를 달성할 수 있습니다.
-
-
-## 시작하기 전에
-이 자습서에서는 Azure 앱 서비스에 대한 기본적인 이해가 있고, API 앱을 만들고 흐름을 함께 연결하는 방법을 알고 있다고 가정합니다.
+- **Message transportation**: The retailer and supplier can be on different platforms but they can still achieve communication between the two. In this tutorial they are communicating over AS2 (Applicability Statement 2). AS2 is a popular way to transport data between trading partners in business-to-business communications.
+- **Data persistence**: Once the message has been received over AS2 then Northwind wants to persist it before further processing. It can use a connector to persist messages in its Cloud storage. In this tutorial Azure Blobs is being leveraged as the cloud storage for Northwind.
+- **Creating a business process**: In a flow, multiple API apps can be stitched together to achieve a business outcome as demonstrated here.
 
 
-## 비즈니스 시나리오를 달성하는 단계
-**필수 API 앱 만들기 및 구성**
-
-1. **Azure 저장소 Blob 커넥터**의 인스턴스를 만듭니다. 이 작업에는 Azure 저장소 계정에 대한 자격 증명이 필요합니다. 인스턴스 만들기를 시작하기 전에 준비가 되어 있는지 확인합니다.
-2. **BizTalk 거래 업체 관리**의 인스턴스를 만듭니다. 그렇게 하려면 빈 SQL 데이터베이스가 기능해야 합니다. 인스턴스 만들기를 시작하기 전에 준비가 되어 있는지 확인합니다.
-3. **AS2 커넥터**의 인스턴스를 만듭니다. 그렇게 하려면 빈 SQL 데이터베이스가 기능해야 합니다. 인스턴스 만들기를 시작하기 전에 준비가 되어 있는지 확인합니다. 또한 AS2의 일부로 메시지를 보관하려는 경우 만드는 동안 Azure Blob에 자격 증명을 제공할 수 있습니다.
-4. 생성된 TPM(거래 업체 관리) 서비스를 구성합니다.
-	1. 위의 단계의 일부로 만들어진 TPM 서비스의 인스턴스를 찾습니다.
-	2. *구성 요소*에서 **파트너** 옵션을 사용하여 **Contoso**라는 새 파트너를 **추가**하고 해당 프로필에서 필수 AS2 ID를 추가합니다.
-	3. *구성 요소*에서 **파트너** 옵션을 사용하여 **Northwind**라는 새 파트너를 **추가**하고 해당 프로필에서 필수 AS2 ID를 추가합니다.
-	4. *구성 요소*에서 **규약** 옵션을 사용하여 Contoso와 Northwind 간의 새로운 AS2 규약을 **추가**합니다. 여기서 Northwind는 호스트된 파트너이고 Contoso는 게스트 파트너입니다. 적절한 경우 규약을 생성하는 동안 서명, 암호화, 압축 및 승인을 구성합니다. 인증서를 사용해야 하는 경우 생성된 TPM 서비스를 검색할 때 **인증서** 옵션을 통해 업로드할 수 있습니다.
+## <a name="before-you-begin"></a>Before you begin
+This tutorial assumes that you have a basic understanding of Azure App Services, know how to create API apps, and stitch a flow together.
 
 
-## 흐름/비즈니스 프로세스 만들기
-1. 첫 번째 단계가 AS2인 새 흐름을 만듭니다. **AS2 커넥터**를 끌어서 놓고 이미 생성된 인스턴스를 선택합니다. 기능으로 트리거를 선택합니다. ![][1]
-2. 그런 다음 **Azure 저장소 Blob 커넥터**를 끌어서 놓고 이미 생성된 인스턴스를 선택합니다. 기능으로 작업을 선택하고 그 안에서 필요한 기능으로 **Blob 업로드**를 선택합니다. 필요에 따라 구성합니다.
-3. 이제 흐름을 만들거나 배포합니다.
+## <a name="steps-to-achieve-the-business-scenario"></a>Steps to achieve the business scenario
+**Create and configure the required API apps**
+
+1. Create an instance of the **Azure Storage Blob Connector**. This requires the credentials to an Azure Storage account. Ensure that it is ready before you start creating this.
+2. Create an instance of the **BizTalk Trading Partner Management**. This requires a blank SQL Database to function. Make sure that it is ready before you start creating this.
+3. Create an instance of the **AS2 Connector**. This also requires a blank SQL Database to function. Make sure that it is ready before you start creating this. Additionally, if you want to archive messages as part of AS2 processing, you may provide credentials to an Azure Blob during its creation.
+4. Configure the TPM (Trading Partner Management) service that is created:  
+    1. Browse to the instance of the TPM service created as part of the above steps.
+    2. Use the **Partners** option under *Components* to **Add** a new partner named **Contoso** and in its profile add the required AS2 identity.
+    3. Use the **Partners** option under *Components* to **Add** a new partner named **Northwind** and in its profile add the required AS2 identity.
+    4. Use the **Agreements** option under *Components* to **Add** a new AS2 agreement between Northwind and Contoso. Northwind will be the hosted partner here, and Contoso will be the guest partner. As appropriate configure signing, encryption, compression, and acknowledgements during this agreement creation. In case certificates need to be used, they can be uploaded via the **Certificates** option when browsing the TPM service that is created.
 
 
-## 메시지 처리 및 문제 해결
-1. 배포한 흐름을 테스트할 차례입니다. 생성된 AS2Connector 인스턴스에 의해 표시되는 AS2 끝점에 AS2로 래핑된 XML 메시지를 보냅니다(위에서 생성된 AS2 규약에 따라). 공개적으로 액세스할 수 있도록 끝점에 대한 인증을 구성해야 합니다.
-2. 흐름으로 이동한 후 실행된 흐름 인스턴스를 한 단계씩 코드 실행하여 흐름에 대한 실행 정보를 표시합니다.
-3. AS2 처리 정보의 경우 관련된 AS2Connector 인스턴스로 이동한 다음 추적 파트를 한 단계씩 실행하여 수행합니다. 관련된 필터를 사용하여 보기를 원하는 정보로 제한할 수 있습니다.
+## <a name="create-a-flow-/-business-process"></a>Create a flow / business process
+1. Create a new flow in which the first step is AS2. Drag and drop the **AS2 Connector** and choose the instance already created. Choose trigger as the functionality:  
+    ![][1]  
+2. Next drag and drop **Azure Storage Blob Connector** and choose the instance already created. Choose action as the functionality and within that, select **Upload Blob** as the desired functionality. Configure as appropriate.
+3. Now create/deploy the flow.
+
+
+## <a name="message-processing-&-troubleshooting"></a>Message Processing & Troubleshooting
+1. It is time to test out the flow we have deployed. Send XML messages wrapped in AS2 (as per the AS2 agreement created above) to the AS2 endpoint surfaced by the AS2Connector instance that you created. You may need to configure the authentication for the endpoint so that it is publicly accessible.
+2. Execution information about the flow is surfaced by browsing to the flow and then stepping into the flow instance which got executed
+3. For AS2 processing information, browse to the AS2Connector instance involved, and then follow by stepping into the Tracking part. You can use the filters involved to restrict the view to the information that is desired.
 
 ![][2]
 
@@ -70,4 +72,8 @@ Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)�
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

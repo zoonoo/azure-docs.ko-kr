@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Security Center에서 유형별 보안 경고 | Microsoft Azure"
-   description="이 문서를 통해 Azure Security Center에서 사용할 수 있는 보안 경고의 종류를 이해할 수 있습니다."
+   pageTitle="Security alerts by Type in Azure Security Center | Microsoft Azure"
+   description="This document helps to understand the type of security alerts available in Azure Security Center."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,209 +16,215 @@
    ms.date="09/20/2016"
    ms.author="yurid"/>
 
-# Azure Security Center에서 유형별 보안 경고
-이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고를 이해할 수 있습니다. 경고를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참고하세요.
 
-> [AZURE.NOTE] 고급 감지를 사용하도록 설정하려면 Azure 보안 센터 표준으로 업그레이드합니다. 무료 90일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+# <a name="security-alerts-by-type-in-azure-security-center"></a>Security Alerts by Type in Azure Security Center
+This document helps you to understand the different types of security alerts available in Azure Security Center. Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to manage alerts.
 
-
-## 어떤 유형의 경고를 사용할 수 있습니까?
-Azure Security Center는 사이버 kill 체인의 모든 단계에 맞는 다양한 경고를 제공합니다. 아래 그림에서는 이러한 단계 중 일부와 관련된 다양한 경고의 몇 가지 예를 제공합니다.
-
-![Kill 체인](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
+> [AZURE.NOTE] To enable advanced detections, upgrade to Azure Security Center Standard. A free 90-day trial is available. To upgrade, select Pricing Tier in the [Security Policy](security-center-policies.md). See the [pricing page](https://azure.microsoft.com/pricing/details/security-center/) to learn more.
 
 
-**대상 및 공격**
+## <a name="what-type-of-alerts-are-available?"></a>What type of alerts are available?
+Azure Security Center provides a variety of alerts that align with the stages of the cyber kill chain. The figure below provides some examples of various alerts as they relate to some of these stages.
 
-- 인바운드 RDP/SSH 공격
-- 응용 프로그램 및 DDoS 공격(WAF 파트너)
-- 침입 감지(NG Firewall 파트너)
+![Kill chain](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
 
-**설치 및 악용**
 
-- 알려진 맬웨어 서명(AM 파트너)
-- 메모리 내 맬웨어 및 악용 시도
-- 의심스러운 프로세스 실행
-- 검색을 방지하는 회피적인 전략
-- 수평 이동
-- 내부 정찰
-- 의심스러운 PowerShell 활동
+**Target & Attack**
 
-**게시 위반**
+- Inbound RDP/SSH attacks
+- Application and DDoS attacks (WAF partners)
+- Intrusion detection (NG Firewall partners)
 
-- 알려진 악의적인 IP(데이터 탈출 또는 명령 및 컨트롤)에 대한 통신
-- 손상된 리소스를 사용하여 추가 공격 탑재(RDP/SSH 무차별 암호 대입 공격 및 스팸을 스캔하는 아웃바운드 포트)
+**Install & Exploit**
 
-다른 종류의 공격은 각 단계와 연결되고 다른 하위 시스템을 대상으로 합니다. 이러한 단계에서 공격을 해결하려면 Security Center에는 세 가지 범주의 경고가 발생합니다.
+- Known malware signatures (AM partners)
+- In-memory malware & exploit attempts
+- Suspicious process execution
+- Evasive maneuvers to avoid discovery
+- Lateral movement
+- Internal reconnaissance
+- Suspicious PowerShell activity
 
-- VMBA(가상 컴퓨터 동작 분석)
-- 네트워크 분석
-- 리소스 분석
+**Post Breach**  
 
-## VMBA(가상 컴퓨터 동작 분석)
+- Communication to a known malicious IP (data exfiltration or command & control)
+- Using compromised resources to mount additional attacks (outbound port scanning RDP/SSH brute force attacks, and spam)
 
-Azure Security Center는 동작 분석을 사용하여 가상 컴퓨터 이벤트 로그(예: 프로세스 만들기 이벤트, 로그인 이벤트 등)의 분석에 따라 손상된 리소스를 식별할 수 있습니다. 또한 광범위한 캠페인의 증거 지원을 확인하는 다른 신호와의 상관 관계가 있습니다.
+Different types of attacks are associated with each stage and they target different subsystems. To address attacks during these stages, Security Center has three categories of alerts:
 
-> [AZURE.NOTE] 보안 센터 감지 기능이 작동하는 방법에 대한 자세한 내용은 [Azure 보안 센터 감지 기능](security-center-detection-capabilities.md)을 참고하세요.
+- Virtual Machine Behavioral Analysis (VMBA)
+- Network Analysis
+- Resource Analysis
 
-### 충돌 분석
+## <a name="virtual-machine-behavioral-analysis"></a>Virtual machine behavioral analysis
 
-크래시 덤프 메모리 분석은 기존 보안 솔루션을 피할 수 있는 정교한 맬웨어를 감지하는 데 사용되는 방법입니다. 다양한 형식의 맬웨어는 디스크에 작성하지 않거나 디스크에 작성된 소프트웨어 구성 요소를 암호화하여 바이러스 백신 제품에서 탐지되지 않으려 합니다. 따라서 맬웨어는 기존 맬웨어 방지 방법을 사용하여 감지하기 어렵게 됩니다. 그러나 이러한 맬웨어가 작동하기 위해서는 메모리에 추적을 남겨야 하므로 메모리 분석을 사용하여 맬웨어를 감지할 수 있습니다.
+Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine event logs, for example: Process Creation Events, Login Events, etc.). In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign.
 
-소프트웨어가 충돌할 때 크래시 덤프는 충돌 시 메모리의 일부를 캡처합니다. 충돌은 맬웨어, 일반 응용 프로그램 또는 시스템 문제로 인해 발생할 수 있습니다. 크래시 덤프의 메모리를 분석하여 Security Center는 소프트웨어에서 취약점을 악용하고 기밀 데이터에 액세스하고 손상된 컴퓨터에서 은밀하게 유지하는 데 사용되는 기술을 감지할 수 있습니다. 분석이 Security Center 백 엔드에 의해 수행되므로 호스트에 대한 최소 성능에 영향을 주게 됩니다.
+> [AZURE.NOTE] For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
 
-다음 필드는 아래에 나열된 크래시 덤프 분석 경고에 공통적으로 적용됩니다.
+### <a name="crash-analysis"></a>Crash analysis
 
-- DUMPFILE: 크래시 덤프 파일의 이름
-- PROCESSNAME: 충돌하는 프로세스의 이름
-- PROCESSVERSION: 충돌하는 프로세스의 버전
+Crash dump memory analysis is a method used to detect sophisticated malware that is able to evade traditional security solutions. Various forms of malware try to reduce the chance of being detected by anti-virus products by never writing to disk or by encrypting software components written to disk. This makes the malware difficult to detect using traditional antimalware approaches. However, such malware can be detected using memory analysis, as malware must leave traces in memory in order to function.
 
-### Shellcode 검색
+When software crashes, a crash dump captures a portion of memory at the time of the crash. The crash may be caused by malware, general application or system issues. By analyzing the memory in the crash dump, Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist with-in a compromised machine. This is accomplished with minimum performance impact to hosts as the analysis is performed by the Security Center back-end.
 
-Shellcode는 맬웨어가 소프트웨어 취약점을 악용한 후에 실행되는 페이로드입니다. 이 경고는 크래시 덤프 분석이 악의적인 페이로드에서 일반적으로 수행하는 동작을 표시하는 실행 코드를 감지했음을 나타냅니다. 악의적이지 않은 소프트웨어가 이 동작을 수행할 수 있지만 보통 소프트웨어 개발 방법으로서는 일반적이지 않습니다.
+The following fields are common to crash dump analysis alerts listed below:
 
-이 경고는 다음과 같은 추가 필드를 제공합니다.
+- DUMPFILE: Name of the crash dump file
+- PROCESSNAME: Name of the crashing process
+- PROCESSVERSION: Version of the crashing process
 
-- ADDRESS: shellcode의 메모리에 있는 위치
+### <a name="shellcode-discovered"></a>Shellcode discovered
 
-이러한 유형의 경고 예제는 다음과 같습니다.
+Shellcode is the payload that is run after malware has exploited a software vulnerability. This alert indicates that crash dump analysis has detected executable code exhibiting behavior commonly performed by malicious payloads. Although non-malicious software may perform this behavior, it is not typical of normal software development practices.
 
-![Shellcode 경고](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
+This alert provides the following additional field:
 
-### 모듈 하이재킹 검색
+- ADDRESS: The location in memory of the shellcode
 
-Windows는 DLL(동적 링크 라이브러리)에 따라 소프트웨어가 일반적인 Windows 시스템 기능을 활용할 수 있도록 합니다. DLL 하이재킹은 맬웨어가 DLL 로드 순서를 변경시켜 악의적인 페이로드를 임의 코드를 실행할 수 있는 메모리에 로드할 때 발생합니다. 크래시 덤프 분석이 비슷한 이름의 모듈을 서로 다른 두 경로에서 로드한다는 것을 감지하면 이 경고가 발생하며 로드된 경로 중 하나는 Windows 시스템 이진 위치에서 비롯됩니다.
+This is an example of this type of alert:
 
-합법적인 소프트웨어 개발자는 종종 Windows OS 또는 Windows 응용 프로그램을 조율하거나 확장하는 등 악의적이지 않은 이유로 DLL 로드 순서를 변경합니다. DLL 로드 순서에 대한 악의적인 변경 내용과 잠재적으로 심각하지 않은 변경 내용을 구분하기 위해 Azure 보안 센터는 로드된 모듈이 의심스러운 프로필을 준수하는지를 확인합니다. 이 검사의 결과는 경고의 "서명" 필드에 의해 나타나고 경고, 경고 설명 및 경고 문제 해결 단계의 심각도에 반영됩니다. 파일 디지털 서명을 확인하거나 바이러스 백신 스캔을 실행하여 하이재킹 모듈의 온 디스크 복사본을 분석하면 하이재킹 모듈의 합법적인 또는 악의적인 특성에 대한 자세한 정보를 제공할 수 있습니다.
+![Shellcode alert](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
 
-이 경고는 위의 "Shellcode 검색" 섹션에서 설명한 공통 필드 외에 다음과 같은 필드를 제공합니다.
+### <a name="module-hijacking-discovered"></a>Module hijacking discovered
 
-- SIGNATURE: 하이재킹 모듈이 의심스러운 동작의 프로필을 준수한다는 표시
-- HIJACKEDMODULE: 하이재킹된 Windows 시스템 모듈의 이름
-- HIJACKEDMODULEPATH: 하이재킹된 Windows 시스템 모듈의 경로
-- HIJACKINGMODULEPATH: 하이재킹된 모듈의 경로
+Windows relies on Dynamic Link Libraries (DLLs) to allow software to utilize common Windows system functionality. DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates the crash dump analysis has detected a similarly named module is loaded from two different paths, where one of the loaded paths comes from a common Windows system binary location.
 
-이러한 유형의 경고 예제는 다음과 같습니다.
+Legitimate software developers occasionally change the DLL load order for non-malicious reasons, such as instrumenting, extending the Windows OS or Windows applications. To help differentiate between malicious and potentially benign changes to the DLL load order, Azure Security Center checks whether or not a loaded module conforms to a suspicious profile. The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps. Analyzing the on disk copy of the hijacking module, such as by verifying the files digital signature or running an anti-virus scan, may provide more information as to the legitimate or malicious nature of the hijacking module.
 
-![모듈 하이재킹 경고](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
+In addition to the common fields described in the “Shellcode Discovered” section above, this alert provides the following fields:
 
-### 위장 Windows 모듈 감지
+- SIGNATURE: Indicates if the hijacking module conforms to a profile of suspicious behavior
+- HIJACKEDMODULE: The name of the hijacked Windows system module
+- HIJACKEDMODULEPATH: The path of the hijacked Windows system module
+- HIJACKINGMODULEPATH: The path of the hijacking module
 
-맬웨어는 시스템 관리자로부터 악성 소프트웨어의 특성을 "섞고" 가리기 위해 Windows 시스템 이진 파일(예: SVCHOST.EXE) 또는 모듈(예: NTDLL.DLL)의 일반적인 이름을 사용할 수 있습니다. 이 경고는 크래시 덤프 파일이 Windows 시스템 모듈 이름을 사용하는 모듈을 포함하지만 Windows 모듈의 일반적인 다른 조건을 만족하지 않는다는 점을 크래시 덤프 분석에서 감지했음을 나타냅니다. 위장 모듈의 온 디스크 복사본에 대해 분석하면 모듈의 합법적인 또는 악의적인 특성에 대한 자세한 정보를 제공할 수 있습니다. 분석은 다음을 포함할 수 있습니다.
+This is an example of this type of alert:
 
-- 문제의 파일이 합법적인 소프트웨어 패키지의 일부로 제공되고 있는지 확인합니다.
-- 파일의 디지털 서명을 확인합니다.
-- 파일에 바이러스 백신 검사를 실행합니다.
+![Module hijacking alert](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
 
-이 경고는 위의 "Shellcode 검색" 섹션에서 설명한 공통 필드 외에 다음과 같은 추가 필드를 제공합니다.
+### <a name="masquerading-windows-module-detected"></a>Masquerading Windows module detected
 
-- DETAILS: 모듈 메타데이터가 유효한지와 모듈이 시스템 경로에서 로드 여부 설명
-- NAME: 위장 Windows 모듈의 이름
-- PATH: 위장 Windows 모듈의 경로
+Malware may use common names of Windows system binaries (e.g., SVCHOST.EXE) or modules (e.g., NTDLL.DLL) in order to “blend-in” and obscure the nature of the malicious software from system administrators. This alert indicates the crash dump analysis has detected that the crash dump file contains modules that use Windows system module names, but do not satisfy other criteria that are typical of Windows modules. Analyzing the on disk copy of the masquerading module may provide more information as to the legitimate or malicious nature of this module. Analysis may include:
 
-또한 이 경고는 "CHECKSUM" 및 "TIMESTAMP"와 같은 모듈의 PE 헤더에서 특정 필드를 추출하고 표시합니다. 이러한 필드는 모듈에 있는 경우에만 표시됩니다. 이러한 필드에 대한 자세한 내용은 [Microsoft PE 및 COFF 사양](https://msdn.microsoft.com/windows/hardware/gg463119.aspx)을 참조하세요.
+- Confirm that the file in question is shipped as part of a legitimate software package
+- Verify the file’s digital signature
+- Run an anti-virus scan on the file
 
-이러한 유형의 경고 예제는 다음과 같습니다.
+In addition to the common fields described in the “Shellcode Discovered” section above, this alert provides the following additional fields:
 
-![가상 Windows 경고](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
+- DETAILS: Describes whether the modules metadata is valid and whether the module was loaded from a system path.
+- NAME: The name of the masquerading Windows module
+- PATH: The path to the masquerading Windows module.
 
-### 수정된 시스템 이진 파일 검색
+This alert also extracts and displays the certain fields, from the module’s PE header, such as “CHECKSUM” and “TIMESTAMP”. These fields are only displayed if the fields are present in the module. See the [Microsoft PE and COFF Specification](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) for details on these fields.
 
-맬웨어는 은밀하게 데이터에 액세스하거나 손상된 시스템 상에 몰래 지속되기 위해 핵심 시스템 이진 파일을 수정할 수 있습니다. 이 경고는 핵심 Windows OS 이진 파일이 메모리나 디스크에서 수정된 것을 크래시 덤프 분석에서 감지했음을 나타냅니다. 때때로 합법적인 소프트웨어 개발자는 Detours 등 응용 프로그램 호환성을 위해 악의적이지 않은 이유로 메모리에서 자유롭게 시스템 모듈을 수정합니다. 악의적인 모듈과 잠재적으로 합법적인 모듈을 구분하기 위해 Azure 보안 센터는 수정된 모듈이 의심스러운 프로필을 준수하는지를 확인합니다. 이 검사의 결과는 경고, 경고 설명 및 경고 문제 해결 단계의 심각도 별로 표시됩니다.
+This is an example of this type of alert:
 
-이 경고는 위의 "Shellcode 검색" 섹션에서 설명한 공통 필드 외에 다음과 같은 추가 필드를 제공합니다.
+![Masquerading Windows alert](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
 
-- MODULENAME: 수정된 시스템 이진 파일의 이름
-- MODULEVERSION: 수정된 시스템 이진 파일의 버전
+### <a name="modified-system-binary-discovered"></a>Modified system binary discovered
 
-이러한 유형의 경고 예제는 다음과 같습니다.
+Malware may modify core system binaries in order to covertly access data or surreptitiously persist on a compromised system. This alert indicates the crash dump analysis has detected that core Windows OS binaries have been modified in memory or on disk.
+Legitimate software developers occasionally modify system modules in memory for non-malicious reasons, such as Detours or for application compatibility. To help differentiate between malicious and potentially legitimate modules, Azure Security Center checks whether or not the modified module conforms to a suspicious profile. The result of this check is indicated by the severity of the alert, alert description, and alert remediation steps.
 
-![시스템 이진 경고](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
+In addition to the common fields described in the “Shellcode Discovered” section above, this alert provides the following additional fields:
 
-### 의심스러운 프로세스 실행
+- MODULENAME: Name of the modified system binary
+- MODULEVERSION: Version of the modified system binary
 
-Security Center는 대상 가상 컴퓨터에서 실행되는 의심스러운 프로세스를 식별하고 경고를 트리거합니다. 감지는 특정 이름이 아닌 해당 매개 변수를 찾습니다. 따라서 공격자가 실행 파일의 이름을 다시 지정하더라도 Security Center에서 감지할 수 있습니다.
+This is an example of this type of alert:
+
+![System binary alert](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
+
+### <a name="suspicious-process-executed"></a>Suspicious process executed
+
+Security Center identifies suspicious process in execution in the target virtual machine and trigger an alert. The detection doesn’t look for the specific name, but by its parameter, therefore even if the attacker renames the executable, Security Center still be able to detect.
  
-이러한 유형의 경고 예제는 다음과 같습니다.
+This is an example of this type of alert:
 
-![의심스러운 프로세스 경고](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
+![Suspicious process alert](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### 여러 도메인 계정 쿼리
+### <a name="multiple-domain-accounts-queried"></a>Multiple domain accounts queried
 
-Security Center는 도메인 계정을 쿼리하는 여러 시도를 감지할 수 있으며 이는 일반적으로 네트워크 정찰 중에 공격자에 의해 발생합니다. 공격자는 이 기술을 활용하여 사용자가 누구인지, 도메인 관리자 계정이 무엇인지, 어떤 컴퓨터가 도메인 컨트롤러이고 다른 도메인과 잠재적인 도메인 트러스트 관계가 있는지를 식별하는 도메인을 쿼리할 수 있습니다.
+Security Center can detect multiple attempts to query domain accounts, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the domain to identify who are the users, what are the domain admin accounts, which computers are Domain Controllers and also potential domain trust relationship with other domains.
 
-이러한 유형의 경고 예제는 다음과 같습니다.
+This is an example of this type of alert:
 
-![여러 도메인 계정 경고](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+![Multiple domains account alert](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
-## 네트워크 분석
+## <a name="network-analysis"></a>Network analysis
 
-Security Center 네트워크 위협 감지는 Azure IPFIX(인터넷 프로토콜 흐름 정보 내보내기)에서 보안 정보를 자동으로 수집하여 작동합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다.
+Security Center network threat detection works by automatically collecting security information from your Azure IPFIX (Internet Protocol Flow Information Export) traffic. It analyzes this information, often correlating information from multiple sources, to identify threats.
 
-### 의심스러운 나가는 트래픽 감지
+### <a name="suspicious-outgoing-traffic-detected"></a>Suspicious outgoing traffic detected
 
-다른 유형의 시스템과 거의 동일한 방법으로 네트워크 장치를 검색하고 프로파일링할 수 있습니다. 공격자는 일반적으로 포트 검색/포트 비우기를 시작합니다. 아래 예제에서는 외부 리소스에 대한 SSH 무차별 암호 대입(brute force) 또는 포트 비우기 공격을 수행할 수 있는 VM에서 의심스러운 SSH 트래픽이 발견됩니다.
+Network devices can be discovered and profiled in much the same way as other types of systems. Attackers usually start with port scanning / port sweeping. In the example below you have a suspicious SSH traffic from a VM that can be performing a SSH brute force or port sweeping attack against an external resource.
 
-![의심스러운 나가는 트래픽 경고](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
+![Suspicious outgoing traffic alert](./media/security-center-alerts-type/security-center-alerts-type-fig8.png) 
 
-이 경고는 이 공격을 시작하는 데 사용된 리소스, 손상된 컴퓨터, 감지 시간, 프로토콜 및 사용된 포트를 식별할 수 있는 정보를 제공합니다. 이 블레이드는 이 문제를 완화하기 위해 사용할 수 있는 수정 단계 목록도 제공합니다.
+This alert gives information that enables you to identify the resource that was used to initiate this attack, the compromised machine, the detection time, the protocol and port that was used. This blade also gives you a list of remediation steps that can be used to mitigate this issue.
 
-### 악의적인 컴퓨터와 네트워크 통신
+### <a name="network-communication-with-a-malicious-machine"></a>Network communication with a malicious machine
 
-Azure 보안 센터는 많은 경우 명령 및 제어 센터에서 Microsoft 위협 인텔리전스 피드를 활용하여 악성 IP 주소와 통신하는 손상된 컴퓨터를 검색할 수 있습니다. 이 경우에 Azure 보안 센터는 Pony Loader 맬웨어([Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)라고도 함)를 사용하여 실행된 통신을 감지했습니다.
+By leveraging Microsoft threat intelligence feeds, Azure Security Center can detect compromised machines that are communicating with malicious IP addresses, in many cases a command and control center. In this case Azure Security Center detected that the communication was done using Pony Loader malware (also known as [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
 
-![네트워크 통신 경고](./media/security-center-alerts-type/security-center-alerts-type-fig9.png)
+![network communication alert](./media/security-center-alerts-type/security-center-alerts-type-fig9.png)
 
-이 경고는 이 공격을 시작하는 데 사용된 리소스, 공격을 받는 리소스, 공격 대상 IP, 공격자 IP 및 감지 시간을 식별할 수 있는 정보를 제공합니다.
+This alert gives information that enables you to identify the resource that was used to initiate this attack, the attacked resource, the victim IP, the attacker IP and the detection time.
 
-[AZURE.NOTE] 라이브 IP 주소는 개인 정보 보호 목적을 위해이 스크린샷에서 제거되었습니다.
+[AZURE.NOTE] Live IP addresses were removed from this screenshot for privacy purpose.
 
 
-### 가능한 발신 서비스 거부 공격 감지
+### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Possible outgoing denial-of-service attack detected
 
-하나의 가상 컴퓨터에서 시작된 비정상적인 네트워크 트래픽으로 인해 Security Center에서 잠재적 서비스 거부 유형의 공격을 트리거할 수 있습니다.
+Anomalous network traffic originated from one virtual machine can lead Security Center to trigger a potential denial-of-service type of attack.
  
-이러한 유형의 경고 예제는 다음과 같습니다.
+This is an example of this type of alert:
 
-![발신 DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
+![Outgoing DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
-## 리소스 분석
+## <a name="resource-analysis"></a>Resource analysis
 
-Security Center 리소스 분석은 [Azure SQL DB 위협 요소 탐지](../sql-database/sql-database-threat-detection-get-started.md) 기능과의 통합과 같은 PaaS 서비스에 집중합니다. 이러한 영역에서 분석의 결과에 따라 Security Center는 리소스 관련 경고를 트리거합니다.
+Security Center resource analysis focuses in PaaS services, such as the integration with [Azure SQL Db Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) feature. Based on the analysis’s results from these areas, Security Center triggers a resource related alert.
 
-### 잠재적인 SQL 삽입
+### <a name="potential-sql-injection"></a>Potential SQL injection
 
-SQL 삽입은 구문 분석 및 실행을 위해 나중에 SQL Server의 인스턴스로 전달된 문자열에 악성 코드를 삽입한 공격입니다. SQL Server가 수신하는 모든 구문상 유효한 쿼리를 실행하기 때문에 SQL 문을 생성하는 모든 프로시저에 삽입 취약성이 있는지 검토해야 합니다. SQL 위협 요소 탐지는 기계 학습, 동작 분석 및 이상 탐지를 사용하여 Azure SQL Databases에서 발생할 수 있는 의심스러운 이벤트를 확인합니다. 예:
+SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server executes all syntactically valid queries that it receives. SQL Threat Detection uses machine learning, behavioral analysis and anomaly detection to determine suspicious events that might be taking place in your Azure SQL Databases. For example:
 
-- 이전 직원이 데이터베이스 액세스 시도
-- SQL 삽입 공격
-- 집에 있는 사용자로부터 프로덕션 데이터베이스에 대한 비정상적인 액세스
+- Attempted database access by a former employee 
+- SQL injection attacks 
+- Unusual access to production database from a user at home
 
-![잠재적인 SQL 삽입 경고](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
+![Potential SQL Injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
 
-이 경고는 공격을 받는 리소스, 감지 시간, 공격의 상태를 식별할 수 있는 정보를 제공하고 또한 추가 조사 단계에 대한 링크를 제공합니다.
+This alert gives information that enables you to identify the attacked resource, the detection time, the state of the attack and it also provides a link to further investigation steps.
 
-### SQL 삽입에 대한 취약점
+### <a name="vulnerability-to-sql-injection"></a>Vulnerability to SQL Injection
 
-SQL 삽입 공격에 발생할 수 있는 취약점을 나타낼 수 있는 데이터베이스에서 응용 프로그램 오류를 감지하는 경우 이 경고가 트리거됩니다.
+This alert is triggered when an application error has been detected on a database which may indicate a possible vulnerability to SQL injection attacks.
 
-![잠재적인 SQL 삽입 경고](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)
+![Potential SQL Injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)
 
-### 알 수 없는 위치에서 비정상적인 액세스
+### <a name="unusual-access-from-unfamiliar-location"></a>Unusual access from unfamiliar location
 
-알 수 없는 IP 주소에서 액세스가 서버에서 감지된 경우 이 경고가 트리거될 수 있으며 이는 마지막 기간에서는 확인할 수 없습니다.
+This alert is triggered when an access from an unfamiliar IP address was detected on server, which was not seen in the last period.
 
-![비정상적인 액세스 경고](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
 
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-이 문서에서는 Security Center에서 발생하는 다양한 종류의 보안 경고에 대해 알아보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+In this document, you learned about the different types of security alerts in Security Center. To learn more about Security Center, see the following:
 
-- [Azure 보안 센터에서 보안 인시던트 처리](security-center-incident.md)
-- [Azure 보안 센터 감지 기능](security-center-detection-capabilities.md)
-- [Azure 보안 센터 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
-- [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답 찾기
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
+- [Handling Security Incident in Azure Security Center](security-center-incident.md)
+- [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
+- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

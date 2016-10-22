@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 앱 서비스 로컬 캐시 개요 | Microsoft Azure"
-   description="이 문서에서는 Azure 앱 서비스 로컬 캐시 기능을 사용하도록 설정하고, 크기를 조정하고, 상태를 쿼리하는 방법을 설명합니다."
+   pageTitle="Azure App Service Local Cache overview | Microsoft Azure"
+   description="This article describes how to enable, resize, and query the status of the Azure App Service Local Cache feature"
    services="app-service"
    documentationCenter="app-service"
    authors="SyntaxC4"
@@ -18,48 +18,49 @@
    ms.date="03/04/2016"
    ms.author="cfowler"/>
 
-# Azure 앱 서비스 로컬 캐시 개요
 
-Azure 웹앱의 콘텐츠는 Azure 저장소에 저장되며 영구적 방식으로 콘텐츠 공유로 표시됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.
+# <a name="azure-app-service-local-cache-overview"></a>Azure App Service Local Cache overview
 
-* 콘텐츠는 웹앱의 여러 VM(가상 컴퓨터) 인스턴스 간에 공유됩니다.
-* 콘텐츠는 영구적이며 웹앱을 실행하여 수정할 수 있습니다.
-* 동일한 공유 콘텐츠 폴더 아래에서 로그 파일 및 진단 데이터 파일을 사용할 수 있습니다.
-* 새 콘텐츠를 직접 게시하면 콘텐츠 폴더가 업데이트됩니다. SCM 웹 사이트 및 실행 중인 웹앱을 통해 동일한 콘텐츠를 즉시 볼 수 있습니다. 일반적으로 ASP.NET과 같은 일부 기술은 몇 가지 파일 변경 내용에 대해 웹앱을 다시 시작하여 최신 콘텐츠를 가져옵니다.
+Azure web app content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
 
-많은 웹앱에서 이러한 기능 중 하나 또는 모두를 사용하지만 일부 웹앱에서는 고가용성으로 실행할 수 있는 읽기 전용 콘텐츠 저장소 성능만 뛰어나면 됩니다. 이러한 앱은 특정 로컬 캐시의 VM 인스턴스 이점을 활용할 수 있습니다.
+* The content is shared across multiple virtual machine (VM) instances of the web app.
+* The content is durable and can be modified by running web apps.
+* Log files and diagnostic data files are available under the same shared content folder.
+* Publishing new content directly updates the content folder. You can immediately view the same content through the SCM website and the running web app (typically some technologies such as ASP.NET do initiate a web app restart on some file changes to get the latest content).
 
-Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제공합니다. 이 콘텐츠는 사이트 시작 시 비동기적으로 만들어지는 저장소 콘텐츠의 쓰기-삭제(write-but-discard) 캐시입니다. 캐시가 준비되면 캐시된 콘텐츠에 대해 실행되도록 사이트가 전환됩니다. 로컬 캐시에서 실행되는 웹앱은 다음과 같은 이점이 있습니다.
+While many web apps use one or all of these features, some web apps just need a high-performance, read-only content store that they can run from with high availability. These apps can benefit from a VM instance of a specific local cache.
 
-* Azure 저장소의 콘텐츠에 액세스할 때 발생하는 대기 시간의 영향을 받지 않습니다.
-* 콘텐츠 공유를 지원하는 서버에서 발생하는 계획된 업그레이드 또는 계획되지 않은 가동 중지 시간 및 그 밖의 Azure 저장소 중단에 영향을 받지 않습니다.
-* 저장소 공유 변경으로 인해 다시 시작되는 앱이 더 적습니다.
+The Azure App Service Local Cache feature provides a web role view of your content. This content is a write-but-discard cache of your storage content that is created asynchronously on site startup. When the cache is ready, the site is switched to run against the cached content. Web apps that run on Local Cache have the following benefits:
 
-## 로컬 캐시가 앱 서비스 동작을 변경하는 방식
+* They are immune to latencies that occur when they access content on Azure Storage.
+* They are immune to the planned upgrades or unplanned downtimes and any other disruptions with Azure Storage that occur on servers that serve the content share.
+* They have fewer app restarts due to storage share changes.
 
-* 로컬 캐시는 웹앱의 /site 및 /siteextensions 폴더의 복사본입니다. 웹앱 시작 시 로컬 VM 인스턴스에서 만들어집니다. 웹앱당 로컬 캐시의 크기는 기본적으로 300MB로 제한되지만 최대 1GB로 증가될 수 있습니다.
-* 로컬 캐시는 읽기/쓰기가 가능합니다. 그러나 웹앱이 가상 컴퓨터를 이동하거나 다시 시작된 경우 모든 수정 내용이 삭제됩니다. 중요 업무용 데이터를 콘텐츠 저장소에 저장하는 앱에 로컬 캐시를 사용해서는 안 됩니다.
-* 웹앱은 현재와 마찬가지로 로그 파일 및 진단 데이터를 계속 기록할 수 있습니다. 그러나 로그 파일 및 데이터는 VM에 로컬로 저장됩니다. 그런 다음 공유 콘텐츠 저장소에 주기적으로 복사됩니다. 공유 콘텐츠 저장소로의 복사는 최상의 시나리오를 전제로 하기 때문에 VM 인스턴스의 갑작스러운 작동 중단으로 인해 나중 쓰기가 손실될 수 있습니다.
-* 로컬 캐시를 사용하는 웹앱의 경우 LogFiles 및 Data 폴더의 폴더 구조가 변경되었습니다. 이제 저장소 "LogFiles" 및 "Data" 폴더에 "고유 식별자" + 타임스탬프 명명 패턴을 따르는 하위 폴더가 있습니다. 각 하위 폴더는 웹앱을 실행 중이거나 실행한 VM 인스턴스에 해당합니다.  
-* 게시 메커니즘 중 하나를 통해 웹앱에 대한 변경 내용을 게시할 경우 공유 콘텐츠 저장소에 게시됩니다. 이는 게시된 콘텐츠를 영구적으로 유지하기 위해 의도된 것입니다. 웹앱의 로컬 캐시를 새로 고치려면 다시 시작해야 합니다. 지나친 단계인 것 같나요? 수명 주기를 원활하게 하려면 이 문서의 뒷부분에 나오는 정보를 참조하세요.
-* D:\\Home은 로컬 캐시를 가리킵니다. D:\\local은 임시 VM 관련 저장소를 계속 가리킵니다.
-* SCM 사이트의 기본 콘텐츠 보기는 공유 콘텐츠 저장소의 기본 콘텐츠 보기로 유지됩니다.
+## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>How Local Cache changes the behavior of App Service
 
-## 앱 서비스에서 로컬 캐시 사용
+* The local cache is a copy of the /site and /siteextensions folders of the web app. It is created on the local VM instance on web app startup. The size of the local cache per web app is limited to 300 MB by default, but you can increase it up to 1 GB.
+* The local cache is read-write. However, any modifications will be discarded when the web app moves virtual machines or gets restarted. You should not use Local Cache for apps that store mission-critical data in the content store.
+* Web apps can continue to write log files and diagnostic data as they do currently. Log files and data, however, are stored locally on the VM. Then they are copied over periodically to the shared content store. The copy to the shared content store is a best-case effort--write backs could be lost due to a sudden crash of a VM instance.
+* There is a change in the folder structure of the LogFiles and Data folders for web apps that use Local Cache. There are now subfolders in the storage LogFiles and Data folders that follow the naming pattern of "unique identifier" + time stamp. Each of the subfolders corresponds to a VM instance where the web app is running or has run.  
+* Publishing changes to the web app through any of the publishing mechanisms will publish to the shared content store. This is by design because we want the published content to be durable. To refresh the local cache of the web app, it needs to be restarted. Does this seem like an excessive step? To make the lifecycle seamless, see the information later in this article.
+* D:\Home will point to the local cache. D:\local will continue pointing to the temporary VM specific storage.
+* The default content view of the SCM site will continue to be that of the shared content store.
 
-로컬 캐시는 예약된 앱 설정 조합을 사용하여 구성됩니다. 다음과 같은 방법으로 이러한 앱 설정을 구성할 수 있습니다.
+## <a name="enable-local-cache-in-app-service"></a>Enable Local Cache in App Service
 
-* [Azure 포털](#Configure-Local-Cache-Portal)
-* [Azure 리소스 관리자](#Configure-Local-Cache-ARM)
+You configure Local Cache by using a combination of reserved app settings. You can configure these app settings by using the following methods:
 
-### 방법: Azure 포털을 사용하여 로컬 캐시 구성
+* [Azure portal](#Configure-Local-Cache-Portal)
+* [Azure Resource Manager](#Configure-Local-Cache-ARM)
+
+### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configure Local Cache by using the Azure portal
 <a name="Configure-Local-Cache-Portal"></a>
 
-앱 설정 `WEBSITE_LOCAL_CACHE_OPTION` = `Always`를 사용하여 웹앱별로 로컬 캐시를 사용할 수 있습니다.
+You enable Local Cache on a per-web-app basis by using this app setting: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Azure 포털 앱 설정: 로컬 캐시](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
+![Azure portal app settings: Local Cache](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
 
-### 방법: Azure Resource Manager를 사용하여 로컬 캐시 구성
+### <a name="configure-local-cache-by-using-azure-resource-manager"></a>Configure Local Cache by using Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
@@ -81,40 +82,44 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 ...
 ```
 
-## 로컬 캐시에서 크기 설정 변경
+## <a name="change-the-size-setting-in-local-cache"></a>Change the size setting in Local Cache
 
-기본적으로 로컬 캐시 크기는 **300MB**입니다. 여기에는 Site 폴더, 콘텐츠 저장소에서 복사된 SiteExtensions 폴더, 로컬로 만든 모든 로그 및 데이터 폴더가 포함됩니다. 이 한도를 늘리려면 앱 설정 `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용합니다. 웹앱당 최대 **1GB**(1000MB)로 늘릴 수 있습니다.
+By default, the local cache size is **300 MB**. This includes the /site and /siteextensions folders that are copied from the content store, as well as any locally created logs and data folders. To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to **1 GB** (1000 MB) per web app.
 
-## 앱 서비스 로컬 캐시 사용에 대한 모범 사례
+## <a name="best-practices-for-using-app-service-local-cache"></a>Best practices for using App Service Local Cache
 
-로컬 캐시는 [스테이징 환경](../app-service-web/web-sites-staged-publishing.md) 기능과 함께 사용하는 것이 좋습니다.
+We recommend that you use Local Cache in conjunction with the [Staging Environments](../app-service-web/web-sites-staged-publishing.md) feature.
 
-* 값이 `Always`인 _고정_ 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`을 **프로덕션** 슬롯에 추가합니다. `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용하는 경우 이것도 프로덕션 슬롯에 고정 설정으로 추가합니다.
-* **스테이징** 슬롯을 만들고 사용자의 스테이징 슬롯에 게시합니다. 스테이징 슬롯은 프로덕션 슬롯에 대한 로컬 캐시의 이점을 활용하지만 일반적으로 스테이징 중 원활한 빌드-배포-테스트 수명 주기를 지원하기 위해 로컬 캐시를 사용하지는 않습니다.
-*	스테이징 슬롯에 대해 사이트를 테스트합니다.  
-*	준비가 되면 스테이징 슬롯과 프로덕션 슬롯 간의 [교환 작업](../app-service-web/web-sites-staged-publishing.md#to-swap-deployment-slots)을 실행합니다.  
-*	고정 설정은 이름 순이며, 슬롯에 고정됩니다. 스테이징 슬롯이 프로덕션으로 교환되면 로컬 캐시 앱 설정을 상속합니다. 새로 교환된 프로덕션 슬롯은 몇 분 후 로컬 캐시에 대해 실행되며, 교환 후 슬롯 준비의 일부로 준비됩니다. 따라서 슬롯 교환이 완료되면 프로덕션 슬롯이 로컬 캐시에 대해 실행됩니다.
+* Add the _sticky_ app setting `WEBSITE_LOCAL_CACHE_OPTION` with the value `Always` to your **Production** slot. If you're using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also add it as a sticky setting to your Production slot.
+* Create a **Staging** slot and publish to your Staging slot. You typically don't set the staging slot to use Local Cache to enable a seamless build-deploy-test lifecycle for staging if you get the benefits of Local Cache for the production slot.
+*   Test your site against your Staging slot.  
+*   When you are ready, issue a [swap operation](../app-service-web/web-sites-staged-publishing.md#to-swap-deployment-slots) between your Staging and Production slots.  
+*   Sticky settings include name and sticky to a slot. So when the Staging slot gets swapped into Production, it will inherit the Local Cache app settings. The newly swapped Production slot will run against the local cache after a few minutes and will be warmed up as part of slot warmup after swap. So when the slot swap is complete, your Production slot will be running against the local cache.
 
-## 질문과 대답(FAQ)
+## <a name="frequently-asked-questions-(faq)"></a>Frequently asked questions (FAQ)
 
-### 내 웹앱에 로컬 캐시가 적용되는지 어떻게 알 수 있나요?
+### <a name="how-can-i-tell-if-local-cache-applies-to-my-web-app?"></a>How can I tell if Local Cache applies to my web app?
 
-웹앱에 높은 성능의 안정적인 콘텐츠 저장소가 필요하지만 콘텐츠 저장소를 사용하여 런타임에 중요한 데이터를 기록하지 않고 총 크기가 1GB 미만인 경우에는 적용할 수 있습니다. /site 및 /siteextensions 폴더의 총 크기를 확인하려면 사이트 확장 "Azure 웹앱 디스크 사용량"을 사용하면 됩니다.
+If your web app needs a high-performance, reliable content store, does not use the content store to write critical data at runtime, and is less than 1 GB in total size, then the answer is "yes"! To get the total size of your /site and /siteextensions folders, you can use the site extension "Azure Web Apps Disk Usage".  
 
-### 사이트가 로컬 캐시를 사용하도록 전환되었는지 어떻게 알 수 있나요?
+### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache?"></a>How can I tell if my site has switched to using Local Cache?
 
-스테이징 환경에서 로컬 캐시 기능을 사용하는 경우 로컬 캐시가 준비될 때까지 교환 작업이 완료되지 않습니다. 사이트가 로컬 캐시에 대해 실행되고 있는지 알아보려면 작업자 프로세스 환경 변수 `WEBSITE_LOCALCACHE_READY`를 확인하세요. [작업자 프로세스 환경 변수](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) 페이지의 지침을 사용하여 여러 인스턴스에서 작업자 프로세스 환경 변수에 액세스할 수 있습니다.
+If you're using the Local Cache feature with Staging Environments, the swap operation will not complete until Local Cache is warmed up. To check if your site is running against Local Cache, you can check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. Use the instructions on the [worker process environment variable](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) page to access the worker process environment variable on multiple instances.  
 
-### 방금 새 변경 내용을 게시했지만 웹앱에 없는 것 같습니다. 그 이유는
+### <a name="i-just-published-new-changes,-but-my-web-app-does-not-seem-to-have-them.-why?"></a>I just published new changes, but my web app does not seem to have them. Why?
 
-웹앱에서 로컬 캐시를 사용하는 경우 최신 변경 내용을 가져오려면 사이트를 다시 시작해야 합니다. 프로덕션 사이트에 변경 내용을 게시하고 싶지 않으신가요? 이전 모범 사례 섹션에서 슬롯 옵션을 참조하세요.
+If your web app uses Local Cache, then you need to restart your site to get the latest changes. Don’t want to publish changes to a production site? See the slot options in the previous best practices section.
 
-### 로그는 어디에 있습니까?
+### <a name="where-are-my-logs?"></a>Where are my logs?
 
-로컬 캐시를 사용하는 경우 로그 폴더와 데이터 폴더가 서로 약간 다르게 표시됩니다. 그러나 하위 폴더의 구조는 하위 폴더가 "고유한 VM 식별자" + 타임스탬프 형식의 하위 폴더 아래에 중첩된다는 점을 제외하고는 동일하게 유지됩니다.
+With Local Cache, your logs and data folders do look a little different. However, the structure of your subfolders remains the same, except that the subfolders are nestled under a subfolder with the format "unique VM identifier" + time stamp.
 
-### 로컬 캐시를 사용하도록 설정했지만 웹앱이 여전히 다시 시작됩니다. 그 이유는 무엇입니까? 로컬 캐시는 빈번한 앱 다시 시작에 도움이 된다고 생각했습니다.
+### <a name="i-have-local-cache-enabled,-but-my-web-app-still-gets-restarted.-why-is-that?-i-thought-local-cache-helped-with-frequent-app-restarts."></a>I have Local Cache enabled, but my web app still gets restarted. Why is that? I thought Local Cache helped with frequent app restarts.
 
-로컬 캐시는 저장소 관련 웹앱 다시 시작을 방지하는 데 도움이 됩니다. 그러나 VM의 계획된 인프라 업그레이드 중에는 웹앱이 여전히 다시 시작될 수 있습니다. 로컬 캐시를 사용하는 경우에 발생하는 전체 앱 다시 시작은 횟수가 줄어야 합니다.
+Local Cache does help prevent storage-related web app restarts. However, your web app could still undergo restarts during planned infrastructure upgrades of the VM. The overall app restarts that you experience with Local Cache enabled should be fewer.
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
