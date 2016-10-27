@@ -1,60 +1,67 @@
 <properties
-	pageTitle=" Azure 포털을 사용하여 미디어 처리 크기 조정 | Microsoft Azure"
-	description="이 자습서에서는 Azure 포털을 사용하여 미디어 처리의 크기를 조정하는 단계를 안내합니다."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle=" Scale Media Processing using the Azure portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of scaling Media Processing using the Azure portal."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="juliako"/>
 
-# 예약 단위 유형 변경
+
+# <a name="change-the-reserved-unit-type"></a>Change the reserved unit type
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
-- [포털](media-services-portal-scale-media-processing.md)
-- [REST (영문)](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Portal](media-services-portal-scale-media-processing.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-## 개요
+## <a name="overview"></a>Overview
 
->[AZURE.IMPORTANT] 미디어 처리 크기 조정에 대해 자세히 알아보려면 이 [개요](media-services-scale-media-processing-overview.md) 항목을 참조하세요.
+>[AZURE.IMPORTANT] Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
 
-## 미디어 처리 크기 조정
+## <a name="scale-media-processing"></a>Scale media processing
 
-예약 단위 유형 및 예약 단위 수를 변경하려면 다음을 수행합니다.
+To change the reserved unit type and the number of reserved units, do the following:
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. Log in at the [Azure portal](https://portal.azure.com/).
 
-2. **설정** 창에서 **미디어 예약 단위**를 선택합니다.
+2. In the **Settings** window, select **Media reserved units**.
 
-	선택한 예약 단위 유형의 예약 단위 수를 변경하려면 **미디어 예약 단위** 슬라이더를 사용합니다.
+    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider.
 
-	**예약 단위 형식**을 변경하려면 S1, S2 또는 S3을 누릅니다.
+    To change the **RESERVED UNIT TYPE**, press S1, S2, or S3.
 
-	![프로세서 페이지](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
+    ![Processors page](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 
-3. 저장 단추를 눌러 변경 내용을 저장합니다.
+3. Press the SAVE button to save your changes.
 
-	저장을 누르면 새 예약 단위가 할당됩니다.
+    The new reserved units are allocated when you press SAVE.
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-미디어 서비스 학습 경로를 검토합니다.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

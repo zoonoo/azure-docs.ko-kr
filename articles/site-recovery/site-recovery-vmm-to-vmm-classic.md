@@ -1,384 +1,389 @@
 <properties
-	pageTitle="보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제 | Microsoft Azure"
-	description="이 문서에서는 Azure Site Recovery로 보조 VMM 사이트에 VMM 클라우드의 Hyper-V VM을 복제하는 방법을 설명합니다."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site | Microsoft Azure"
+    description="This article describes how to replicate Hyper-V VMs in VMM clouds to a secondary VMM site with Azure Site Recovery."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="site-recovery"
-	ms.workload="backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="raynew"/>
+    ms.service="site-recovery"
+    ms.workload="backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/23/2016"
+    ms.author="raynew"/>
 
-# 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
+
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site
 
 > [AZURE.SELECTOR]
-- [Azure 포털](site-recovery-vmm-to-vmm.md)
-- [클래식 포털](site-recovery-vmm-to-vmm-classic.md)
+- [Azure portal](site-recovery-vmm-to-vmm.md)
+- [Classic portal](site-recovery-vmm-to-vmm-classic.md)
 - [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 
-Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
-## 개요
+## <a name="overview"></a>Overview
 
-이 문서에서는 Azure Site Recovery를 사용하여 VMM 클라우드에서 관리되는 Hyper-V 호스트 서버의 Hyper-V 가상 컴퓨터를 보조 VMM 사이트에 복제하는 방법을 설명합니다.
+This article describes how to replicate Hyper-V virtual machines on Hyper-V host servers that are managed in VMM clouds to secondary VMM site using Azure Site Recovery.
 
-문서에는 필수 조건이 포함되어 있으며, 사이트 복구 자격 증명 모음을 설정하고, 원본 및 대상 VMM 서버에 Azure Site Recovery 공급자를 설치하며, 서버를 자격 증명 모음에 등록하고, VMM 클라우드에 대한 보호 설정을 구성하며, Hyper-V VM에 대해 보호를 사용하도록 설정하는 방법을 보여줍니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다.
+The article includes prerequisites, shows you how to set up a Site Recovery vault, install the Azure Site Recovery Provider on source and target VMM servers, register the servers in the vault, configure protection settings for VMM clouds, and then enable protection for Hyper-V VMs. Finish up by testing the failover to make sure everything's working as expected.
 
-이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## 아키텍처
+## <a name="architecture"></a>Architecture
 
-아래 그림에서는 조정 및 복제를 위해 Azure Site Recovery에서 사용되는 다양한 통신 채널을 보여줍니다.
+The picture below shows the different communication channels and ports used by Azure Site Recovery for orchestration and replication
 
-![E2E 토폴로지](./media/site-recovery-vmm-to-vmm-classic/e2e-topology.png)
+![E2E Topology](./media/site-recovery-vmm-to-vmm-classic/e2e-topology.png)
 
-## 시작하기 전에
+## <a name="before-you-start"></a>Before you start
 
-다음 필수 조건이 충족되었는지 확인합니다.
+Make sure you have these prerequisites in place:
 
-**필수 구성 요소** | **세부 정보**
+**Prerequisites** | **Details**
 --- | ---
-**Azure**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. Site Recovery 가격 책정에 대해 [자세히 알아봅니다](https://azure.microsoft.com/pricing/details/site-recovery/).
-**VMM** | 하나 이상의 VMM 서버가 필요합니다.<br/><br/>VMM 서버에서 최신 누적 업데이트를 포함하는 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/>단일 VMM 서버에 보호를 설정하려는 경우 서버에 두 개 이상의 클라우드를 구성해야 합니다.<br/><br/>두 VMM 서버에 보호를 배포하려는 경우 각 서버에 보호하려는 기본 VMM 서버에 하나 이상의 클라우드를 구성해야 하고 보호 및 복구에 사용하려는 보조 VMM 서버에 하나의 클라우드를 구성해야 합니다.<br/><br/>모든 VMM 클라우드에 Hyper-V 용량 프로필을 설정해야 합니다.<br/><br/>보호할 원본 클라우드에는 하나 이상의 VMM 호스트 그룹이 포함되어야 합니다.<br/><br/>Keith Mayer 블로그의 [연습: System Center 2012 SP1 VMM에서 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 VMM 클라우드 설정에 대해 자세히 알아봅니다.
-**Hyper-V** | 기본 및 보조 VMM 호스트 그룹에서 하나 이상의 Hyper-V 호스트 서버가 필요하고 각 Hyper-V 호스트 서버에 하나 이상의 가상 컴퓨터가 필요합니다.<br/><br/>호스트 및 대상 Hyper-V 서버는 Hyper-V 역할을 하는 Windows Server 2012 이상을 실행해야 하고 최신 업데이트가 설치되어 있어야 합니다.<br/><br/>VM이 포함된 보호하려는 모든 Hyper-V 서버는 VMM 클라우드에 있어야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행하고 있다면 고정 IP 주소 기반 클러스터가 있는 경우 클러스터 broker가 자동으로 만들어지지 않습니다. 클러스터 broker를 수동으로 구성해야 합니다. Aidan Finn의 블로그 항목에서 [자세한 정보](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters)를 확인해 보세요.
-**네트워크 매핑** | 장애 조치(Failover) 후에 복제된 가상 컴퓨터가 보조 Hyper-V 호스트 서버에 최적으로 배치되고 적절한 VM 네트워크에 연결할 수 있도록 네트워크 매핑을 구성할 수 있습니다. 네트워크 매핑을 구성하지 않으면 장애 조치(failover) 후 복제본 VM이 네트워크에 연결되지 않습니다.<br/><br/>배포 중에 네트워크 매핑을 설정하려면 원본 Hyper-V 호스트 서버의 가상 컴퓨터가 VMM VM 네트워크에 연결되어 있는지 확인합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.<br/<br/>복구에 사용하는 보조 VMM 서버의 대상 클라우드에 해당 VM 네트워크가 구성되어 있어야 하며, 이 네트워크는 다시 대상 클라우드와 연결된 해당 논리 네트워크에 연결되어야 합니다.<br/><br/>네트워크 매핑과 관련된 [자세한 정보](site-recovery-network-mapping.md)를 확인해 보세요.
-**저장소 매핑** | 기본적으로 원본 Hyper-V 호스트 서버의 가상 컴퓨터를 대상 Hyper-V 호스트 서버로 복제하는 경우 복제된 데이터가 Hyper-V 관리자에서 대상 Hyper-V 호스트에 대해 표시된 기본 위치에 저장됩니다. 복제된 데이터가 저장된 위치에 대해 더 제어하려면 저장소 매핑을 구성할 수 있습니다<br/><br/> 저장소 매핑을 구성하려면 배포를 시작하기 전에 원본 및 대상 VMM 서버에서 저장소 분류를 설정해야 합니다. [자세히 알아봅니다](site-recovery-storage-mapping.md).
+**Azure**| You need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing.
+**VMM** | You need at least one VMM server.<br/><br/>The VMM server should be running at least System Center 2012 SP1 with the latest cumulative updates.<br/><br/>If you want to set up protection with a single VMM server, you need at least two clouds configured on the server.<br/><br/>If you want to deploy protection with two VMM servers, each server must have at least one cloud configured on the primary VMM server you want to protect, and one cloud configured on the secondary VMM server you want to use for protection and recovery<br/><br/>All VMM clouds must have the Hyper-V capability profile set.<br/><br/>The source cloud that you want to protect must contain one or more VMM host groups.<br/><br/>Learn more about setting up VMM clouds in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) on Keith Mayer's blog.
+**Hyper-V** | You need one or more Hyper-V host servers in the primary and secondary VMM host groups, and one or more virtual machines on each Hyper-V host server.<br/><br/>The host and target Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role and have the latest updates installed.<br/><br/>Any Hyper-V server containing VMs you want to protect must be located in a VMM cloud.<br/><br/>If you're running Hyper-V in a cluster, note that cluster broker isn't created automatically if you have a static IP address-based cluster. You need to configure the cluster broker manually. [Learn more](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) in Aidan Finn's blog entry.
+**Network mapping** | You can configure network mapping to make sure that replicated virtual machines are optimally placed on secondary Hyper-V host servers after failover, and that they can connect to appropriate VM networks. If you don't configure network mapping, replica VMs won't be connected to any network after failover.<br/><br/>To set up network mapping during deployment, make sure that the virtual machines on the source Hyper-V host server are connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.<br/<br/>The target cloud on the secondary VMM server that you use for recovery should have a corresponding VM network configured, and it in turn should be linked to a corresponding logical network that is associated with the target cloud.<br/><br/>[Learn more](site-recovery-network-mapping.md) about network mapping.
+**Storage mapping** | By default when you replicate a virtual machine on a source Hyper-V host server to a target Hyper-V host server, replicated data is stored in the default location that’s indicated for the target Hyper-V host in Hyper-V Manager. For more control over where replicated data is stored, you can configure storage mapping<br/><br/> To configure storage mapping, you need to set up storage classifications on the source and target VMM servers before you begin deployment. [Learn more](site-recovery-storage-mapping.md).
 
 
-## 1단계: 사이트 복구 자격 증명 모음 만들기
+## <a name="step-1:-create-a-site-recovery-vault"></a>Step 1: Create a Site Recovery vault
 
-1. 등록할 VMM 서버에서 [관리 포털](https://portal.azure.com)에 로그인합니다.
+1. Sign in to the [Management Portal](https://portal.azure.com) from the VMM server you want to register.
 
-2. **데이터 서비스** > **복구 서비스**를 확장하고 **사이트 복구 자격 증명 모음**을 클릭합니다.
+2. Expand **Data Services** > **Recovery Services** and click **Site Recovery Vault**.
 
-3. **새로 만들기** > **빠른 생성**을 클릭합니다.
+3. Click **Create New** > **Quick Create**.
 
-4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
+4. In **Name**, enter a friendly name to identify the vault.
 
-5. **하위 지역**에서 자격 증명 모음에 대한 지리적 하위 지역을 선택합니다. 지원되는 하위 지역을 확인하려면 [Azure Site Recovery 가격 정보](http://go.microsoft.com/fwlink/?LinkId=389880)에서 지리적 가용성을 참조하세요.
+5. In **Region** select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](http://go.microsoft.com/fwlink/?LinkId=389880).
 
-6. **자격 증명 모음 만들기**를 클릭합니다.
+6. Click **Create vault**.
 
-	![자격 증명 모음 만들기](./media/site-recovery-vmm-to-vmm-classic/create-vault.png)
+    ![Create vault](./media/site-recovery-vmm-to-vmm-classic/create-vault.png)
 
-상태 표시줄에서 자격 증명 모음이 만들어진 것을 확인합니다. 자격 증명 모음은 기본 복구 서비스 페이지에서 **활성**으로 나열됩니다.
+Check in the status bar that the vault was created. The vault will be listed as **Active** on the main Recovery Services page.
 
-## 2단계: 자격 증명 모음 등록 키 생성
+## <a name="step-2:-generate-a-vault-registration-key"></a>Step 2: Generate a vault registration key
 
-자격 증명 모음에 등록 키를 생성합니다. Azure Site Recovery 공급자를 다운로드하고 VMM 서버에 설치한 후 이 키를 사용하여 VMM 서버를 자격 증명 모음에 등록합니다.
+Generate a registration key in the vault. After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.
 
-1. **복구 서비스** 페이지에서 자격 증명 모음을 클릭하여 빠른 시작 페이지를 엽니다. 빠른 시작은 언제든지 아이콘을 사용하여 열 수도 있습니다.
+1. In the **Recovery Services** page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
-	![빠른 시작 아이콘](./media/site-recovery-vmm-to-vmm-classic/quick-start-icon.png)
+    ![Quick Start Icon](./media/site-recovery-vmm-to-vmm-classic/quick-start-icon.png)
 
-2. 드롭다운 목록에서 **두 개의 온-프레미스 VMM 사이트 간**을 선택합니다.
-3. **VMM 서버 준비**에서 **등록 키 파일 생성**을 클릭합니다. 키 파일은 자동으로 생성되고 생성된 날부터 5일간 유효합니다. VMM 서버에서 Azure 포털에 액세스하지 않는 경우 이 파일을 서버로 복사해야 합니다.
+2. In the dropdown list, select **Between two on-premises VMM sites**.
+3. In **Prepare VMM Servers**, click **Generate registration key file**. The key file is generated automatically and is valid for 5 days after it's generated. If you're not accessing the Azure portal from the VMM server you need to copy this file to the server.
 
-	![등록 키](./media/site-recovery-vmm-to-vmm-classic/register-key.png)
+    ![Registration key](./media/site-recovery-vmm-to-vmm-classic/register-key.png)
 
-## 3단계: Azure Site Recovery 공급자 설치
+## <a name="step-3:-install-the-azure-site-recovery-provider"></a>Step 3: Install the Azure Site Recovery Provider
 
-4. **빠른 시작** 페이지의 **VMM 서버 준비**에서 **VMM 서버에 설치할 Microsoft Azure 사이트 복구 공급자 다운로드**를 클릭하여 최신 버전의 공급자 설치 파일을 받습니다.
+4. On the **Quick Start** page, in **Prepare VMM servers**, click **Download Microsoft Azure Site Recovery Provider for installation on VMM servers** to obtain the latest version of the Provider installation file.
 
-2. 원본 VMM 서버에서 이 파일을 실행합니다.
+2. Run this file on the source VMM server.
 
-	>[AZURE.NOTE] VMM이 클러스터에 배포되고 공급자를 처음 설치하는 경우 활성 노드에 설치하고 설치를 완료하여 VMM 서버를 자격 증명 모음에 등록합니다. 그런 후에 다른 노드에 공급자를 설치합니다. 공급자를 업그레이드하는 경우 모두 동일한 공급자 버전을 실행해야 하므로 모든 노드에서 업그레이드해야 합니다.
+    >[AZURE.NOTE] If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault. Then install the Provider on the other nodes. Note that if you're upgrading the Provider you need to upgrade on all nodes because they should all be running the same Provider version.
 
-3. 설치 관리자는 몇 가지 **사전 요구 사항 확인**을 수행하고 공급자 설정을 시작하기 위해 VMM 서비스를 중지하는 권한을 요청합니다. 설정이 완료되면 VMM 서비스가 자동으로 다시 시작됩니다. VMM 클러스터에 설치하는 경우 클러스터 역할을 중지하라는 메시지가 표시됩니다.
+3. The Installer does a few **Pre-requirements Check** and requests permission to stop the VMM service to begin Provider setup. The VMM Service will be restarted automatically when setup finishes. If you're installing on a VMM cluster you'll be prompted to stop the Cluster role.
 
-4. **Microsoft 업데이트**에서 업데이트를 선택할 수 있습니다. 이 설정이 사용되면 공급자가 Microsoft 업데이트 정책에 따라 설치됩니다.
+4. In **Microsoft Update** you can opt in for updates. With this setting enabled Provider updates will be installed according to your Microsoft Update policy.
 
-	![Microsoft 업데이트](./media/site-recovery-vmm-to-vmm-classic/ms-update.png)
+    ![Microsoft Updates](./media/site-recovery-vmm-to-vmm-classic/ms-update.png)
 
-5. 설치 위치는 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**으로 설정됩니다. 공급자 설치를 시작하려면 설치 단추를 클릭합니다.
+5. The install location is set to **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Click on the Install button to start installing the Provider.
 
-	![InstallLocation](./media/site-recovery-vmm-to-vmm-classic/install-location.png)
+    ![InstallLocation](./media/site-recovery-vmm-to-vmm-classic/install-location.png)
 
-6. 공급자가 설치된 후 **등록**을 클릭하여 자격 증명 모음에 서버를 등록합니다.
+6. After the Provider is installed click **Register** to register the server in the vault.
 
-	![InstallComplete](./media/site-recovery-vmm-to-vmm-classic/install-complete.png)
-9. **자격 증명 모음 이름**에서 서버를 등록할 자격 증명 모음의 이름을 확인합니다. *다음*을 클릭합니다.
+    ![InstallComplete](./media/site-recovery-vmm-to-vmm-classic/install-complete.png)
+9. In **Vault name**, verify the name of the vault in which the server will be registered. Click *Next*.
 
-	![서버 등록](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
+    ![Server registration](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 
-7. VMM 서버에서 실행 중인 공급자를 인터넷에 연결하는 방법을 **인터넷 연결**에서 지정합니다. 서버에 구성되어 있는 기본 인터넷 연결 설정을 사용하려면 **기존 프록시 설정과 연결**을 선택합니다.
+7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select **Connect with existing proxy settings** to use the default Internet connection settings configured on the server.
 
-	![인터넷 설정](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
+    ![Internet Settings](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
 
-	- 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하면 테스트가 실행되어 프록시 연결을 확인합니다.
-	- 사용자 지정 프록시를 사용하지 않거나 기본 프록시에 인증이 필요한 경우 프록시 주소와 포트를 비롯한 프록시 정보를 입력해야 합니다.
-	- 다음 URL은 VMM 서버 및 Hyper-V 호스트에서 액세스할 수 있어야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
-	- 사용자 지정 프록시를 사용하는 경우 지정된 프록시 자격 증명을 사용하여 VMM 실행 계정(DRAProxyAccount)이 자동으로 만들어집니다. 이 계정이 성공적으로 인증될 수 있도록 프록시 서버를 구성합니다. VMM 콘솔에서 VMM 실행 계정 설정을 수정할 수 있습니다. 이렇게 하려면 **설정** 작업 영역을 열고 **보안**을 확장한 다음 **실행 계정**을 클릭하고 DRAProxyAccount의 암호를 수정합니다. 이 설정이 적용되도록 VMM 서비스를 다시 시작해야 합니다.
+    - If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
+    - If you do use a custom proxy, or your default proxy requires authentication you need to enter the proxy details, including the proxy address and port.
+    - Following urls should be accessible from the VMM Server and the Hyper-v hosts
+        - *.hypervrecoverymanager.windowsazure.com
+        - *.accesscontrol.windows.net
+        - *.backup.windowsazure.com
+        - *.blob.core.windows.net
+        - *.store.core.windows.net
+    - Allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
+    - If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. To do this, open the **Settings** workspace, expand **Security**, click **Run As Accounts**, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 
 
-8. **등록 키**에서 Azure Site Recovery에서 다운로드하고 VMM 서버에 복사한 키를 선택합니다.
+8. In **Registration Key**, select the key that you downloaded from Azure Site Recovery and copied to the VMM server.
 
 
-10.  암호화 설정은 VMM 클라우드의 Hyper-V VM을 Azure에 복제하는 경우에 사용됩니다. 보조 사이트에 복제하는 경우 사용되지 않습니다.
+10.  The encryption setting is only used when you're replicating Hyper-V VMs in VMM clouds to Azure. If you're replicating to a secondary site it's not used.
 
-11.  자격 증명 모음에서 VMM 서버를 식별하기 위한 이름을 **서버 이름**에서 지정합니다. 클러스터 구성에서 VMM 클러스터 역할 이름을 지정합니다.
-12.  **클라우드 메타데이터 동기화**에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다.
+11.  In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
+12.  In **Synchronize cloud metadata** select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
 
-13.  **다음**을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **VMM 서버** > **서버**에 표시됩니다.
+13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed in **VMM Servers** > **Servers** in the vault.
 
-	![서버](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
+    ![Servers](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
-### 명령줄 설치
+### <a name="command-line-installation"></a>Command line installation
 
-또한 다음 명령줄에서 Azure Site Recovery 공급자를 설치할 수 있습니다. 이 방법은 Windows Server 2012 R2용 Server CORE에 대한 공급자를 설치하는 데 사용할 수 있습니다.
+The Azure Site Recovery Provider can also be installed from the command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2.
 
-1. 공급자 설치 파일 및 등록 키를 폴더로 다운로드합니다. 예: C:\\ASR.
-2. System Center Virtual Machine Manager 서비스 중지
-3. **관리자** 권한으로 명령 프롬프트에서 다음 명령을 실행하여 공급자 설치 관리자를 추출합니다.
+1. Download the Provider installation file and registration key to a folder. For example C:\ASR.
+2. Stop the System Center Virtual Machine Manager Service
+3. Extract the Provider installer by running these commands from a command prompt with **Administrator** privileges:
 
-    	C:\Windows\System32> CD C:\ASR
-    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+        C:\Windows\System32> CD C:\ASR
+        C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 
-4. 다음을 실행하여 공급자를 설치합니다.
+4. Install the provider by running:
 
-    	C:\ASR> setupdr.exe /i
+        C:\ASR> setupdr.exe /i
 
-5. 다음을 실행하여 공급자를 등록합니다.
+5. Register the provider by running:
 
-    	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
+        CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
 
-매개 변수는 다음에 위치합니다.
+Where the parameters are:
 
- - **/Credentials**: 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.
- - **/FriendlyName**: Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
- - **/EncryptionEnabled**: Azure에서 미사용 중인 가상 컴퓨터를 암호화해야 하는 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지 확인합니다.
- - **/proxyAddress**: 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
- - **/proxyport**: 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
- - **/proxyUsername**: (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
- - **/proxyPassword**: (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
+ - **/Credentials**: Mandatory parameter that specifies the location in which the registration key file is located  
+ - **/FriendlyName**: Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
+ - **/EncryptionEnabled**: Optional Parameter that you need to use only in the VMM to Azure Scenario if you need encryption of your virtual machines at at rest in Azure. Please ensure that the name of the file you provide has a **.pfx** extension.
+ - **/proxyAddress**: Optional parameter that specifies the address of the proxy server.
+ - **/proxyport**: Optional parameter that specifies the port of the proxy server.
+ - **/proxyUsername**: Optional parameter that specifies the Proxy user name (if proxy requires authentication).
+ - **/proxyPassword**: Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).  
 
-## 4단계: 클라우드 보호 설정 구성
+## <a name="step-4:-configure-cloud-protection-settings"></a>Step 4: Configure cloud protection settings
 
-VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니다. 공급자를 설치할 때 **클라우드 데이터를 자격 증명 모음과 동기화** 옵션을 사용하도록 설정한 경우 VMM 서버의 모든 클라우드가 자격 증명 모음의 **보호된 항목** 탭에 표시됩니다. 그렇지 않은 경우 VMM 콘솔에서 클라우드 속성 페이지의 **일반** 탭을 통해 특정 클라우드를 Azure Site Recovery와 동기화할 수 있습니다.
+After VMM servers are registered, you can configure cloud protection settings. If you enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the **Protected Items** tab in the vault. If you didn't you can synchronize a specific cloud with Azure Site Recovery in the **General** tab of the cloud properties page in the VMM console.
 
-![게시된 클라우드](./media/site-recovery-vmm-to-vmm-classic/clouds-list.png)
+![Published Cloud](./media/site-recovery-vmm-to-vmm-classic/clouds-list.png)
 
-1. 빠른 시작 페이지에서 **VMM 클라우드에 대해 보호 설정**을 클릭합니다.
-2. **VMM 클라우드** 탭에서 구성할 클라우드를 선택하고 **구성** 탭으로 이동합니다.
-3. **대상**에서 **VMM**을 선택합니다.
-4. **대상 위치**에서 복구에 사용할 클라우드를 관리하는 온-사이트 VMM 서버를 선택합니다.
-4. **대상 클라우드**에서 원본 클라우드의 가상 컴퓨터 장애 조치(Failover)에 사용할 대상 클라우드를 선택합니다. 다음 사항에 유의하세요.
+1. On the Quick Start page, click **Set up protection for VMM clouds**.
+2. On the **VMM Clouds** tab, select the cloud that you want to configure and go to the **Configuration** tab.
+3. In **Target**, select **VMM**.
+4. In **Target location**, select the on-site VMM server that manages the cloud you want to use for recovery.
+4. In **Target cloud**, select the target cloud you want to use for failover of virtual machines in the source cloud. Note that:
 
-	- 보호할 가상 컴퓨터의 복구 요구 사항을 충족하는 대상 클라우드를 선택하는 것이 좋습니다.
-	- 클라우드는 단일 클라우드 쌍에 기본 클라우드 또는 대상 클라우드로만 속할 수 있습니다.
+    - We recommend that you select a target cloud that meets recovery requirements for the virtual machines you'll protect.
+    - A cloud can only belong to a single cloud pair — either as a primary or a target cloud.
 
-5. **복사 빈도**에서 원본 위치와 대상 위치 간에 데이터를 동기화해야 하는 빈도를 지정합니다. 이 설정은 Hyper-V 호스트가 Windows Server 2012 R2에서 실행되는 경우에만 관련이 있습니다. 다른 서버의 경우에는 기본 설정인 5분이 사용됩니다.
-6. **추가 복구 지점**에서 추가 복구 지점을 만들지 여부를 지정합니다. 기본값인 0은 주 가상 컴퓨터의 가장 최근 복구 지점만 복제본 호스트 서버에 저장됨을 나타냅니다. 여러 복구 지점을 사용하도록 설정하려면 각 복구 지점에 저장되는 스냅숏을 위한 추가 저장소가 필요합니다. 기본적으로 복구 지점은 매시간마다 만들어지므로 각 복구 지점에는 1시간 동안의 데이터가 포함됩니다. VMM 콘솔에서 가상 컴퓨터에 대해 할당하는 복구 지점 값은 Azure Site Recovery 콘솔에서 할당한 값보다 크거나 같아야 합니다.
-7. **응용 프로그램 일치 스냅숏 빈도**에서 응용 프로그램 일치 스냅숏을 만드는 빈도를 지정합니다. Hyper-V는 두 가지 유형의 스냅숏, 즉 전체 가상 컴퓨터의 증분 스냅숏을 제공하는 표준 스냅숏과 가상 컴퓨터 내 응용 프로그램 데이터의 지정 시간 스냅숏을 만드는 응용 프로그램 일치 스냅숏을 사용합니다. 응용 프로그램 일치 스냅숏은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 스냅숏을 만들 때 응용 프로그램이 일관된 상태가 되도록 합니다. 응용 프로그램 일치 스냅숏을 사용하도록 설정하면 원본 가상 컴퓨터에서 실행되는 응용 프로그램의 성능에 영향을 줍니다. 구성하는 추가 복구 지점 수보다 작은 값을 설정해야 합니다.
+5. In **Copy frequency**, specify how often data should be synchronized between 5he source and target locations. Note that this setting is only relevant when the Hyper-V host is running Windows Server 2012 R2. For other servers a default setting of five minutes is used.
+6. In **Additional recovery points**, specify whether you want to create additional recovery points.The default zero value indicates that only the latest recovery point for a primary virtual machine is stored on a replica host server. Note that enabling multiple recovery points requires additional storage for the snapshots that are stored at each recovery point. By default, recovery points are created every hour, so that each recovery point contains an hour’s worth of data. The recovery point value that you assign for the virtual machine in the VMM console should not be less than the value that you assign in the Azure Site Recovery console.
+7. In **Frequency of application-consistent snapshots**, specify how often to create application-consistent snapshots. Hyper-V uses two types of snapshots — a standard snapshot that provides an incremental snapshot of the entire virtual machine, and an application-consistent snapshot that takes a point-in-time snapshot of the application data inside the virtual machine. Application-consistent snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken. Note that if you enable application-consistent snapshots, it will affect the performance of applications running on source virtual machines. Ensure that the value you set is less than the number of additional recovery points you configure.
 
-	![보호 설정 구성](./media/site-recovery-vmm-to-vmm-classic/cloud-settings.png)
+    ![Configure protection settings](./media/site-recovery-vmm-to-vmm-classic/cloud-settings.png)
 
-8. **데이터 전송 압축**에서 전송되는 복제된 데이터를 압축할지 여부를 지정합니다.
-9. **인증**에서 기본 및 복구 Hyper-V 호스트 서버 간에 트래픽을 인증하는 방법을 지정합니다. 작동하는 Kerberos 환경이 구성되어 있지 않으면 HTTPS를 선택합니다. Azure Site Recovery가 HTTPS 인증을 위한 인증서를 자동으로 구성합니다. 수동으로 구성할 필요가 없습니다. Kerberos를 선택하면 호스트 서버의 상호 인증에 Kerberos 티켓이 사용됩니다. 기본적으로 Hyper-V 호스트 서버의 Windows 방화벽에서 포트 8083과 8084(인증서용)가 열립니다. 이 설정은 Windows Server 2012 R2에서 실행 중인 Hyper-V 호스트 서버와만 관련이 있습니다.
-10. **포트**에서 원본 및 대상 호스트 컴퓨터가 복제 트래픽을 수신하는 포트 번호를 수정합니다. 예를 들어 복제 트래픽에 대해 QoS(서비스 품질) 네트워크 대역폭 제한을 적용하려는 경우 설정을 수정할 수 있습니다. 포트가 다른 응용 프로그램에서 사용되지 않는지, 그리고 방화벽 설정에서 열려 있는지 확인합니다.
-11. **복제 방법**에서 정기 복제가 시작되기 전에 소스 위치에서 대상 위치로 데이터의 초기 복제를 처리할 방법을 지정합니다.
+8. In **Data transfer compression**, specify whether replicated data that is transferred should be compressed.
+9. In **Authentication**, specify how traffic is authenticated between the primary and recovery Hyper-V host servers. Select HTTPS unless you have a working Kerberos environment configured. Azure Site Recovery will automatically configure certificates for HTTPS authentication. No manual configuration is required. If you do select Kerberos, a Kerberos ticket will be used for mutual authentication of the host servers. By default, port 8083 and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers. Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.
+10. In **Port**, modify the port number on which the source and target host computers listen for replication traffic. For example, you might modify the setting if you want to apply Quality of Service (QoS) network bandwidth throttling for replication traffic. Check that the port isn’t used by any other application and that it’s open in the firewall settings.
+11. In **Replication method**, specify how the initial replication of data from source to target locations will be handled, before regular replication starts:
 
-	- **네트워크 이용**—네트워크를 이용하여 데이터를 복사하면 시간이 많이 걸리고 리소스가 많이 필요할 수 있습니다. 클라우드에 상대적으로 하드 디스크가 작은 가상 컴퓨터가 포함된 경우와 기본 사이트가 넓은 대역폭을 사용하여 보조 사이트에 연결된 경우 이 옵션을 사용하는 것이 좋습니다. 복사를 즉시 시작하도록 지정하거나 시간을 선택할 수 있습니다. 네트워크 복제를 사용하는 경우 사용률이 낮은 시간에 예약하는 것이 좋습니다.
-	- **오프라인**—이 방법은 외부 미디어를 사용하여 초기 복제를 수행하도록 지정합니다. 이 방법은 네트워크 성능 저하를 방지하려는 경우나 지리적으로 멀리 떨어진 위치에 유용합니다. 이 방법을 사용하려면 원본 클라우드에서 내보내기 위치를 지정하고 대상 클라우드에서 가져오기 위치를 지정합니다. 가상 컴퓨터에 대한 보호를 설정할 때 가상 하드 디스크가 지정된 내보내기 위치에 복사됩니다. 이 하드 디스크를 대상 사이트에 보내고 가져오기 위치에 복사합니다. 시스템에서는 가져온 정보를 복제본 가상 컴퓨터에 복사합니다.
+    - **Over network**—Copying data over the network can be time-consuming and resource-intensive. We recommend that you use this option if the cloud contains virtual machines with relatively small virtual hard disks, and if the primary site is connected to the secondary site over a connection with wide bandwidth. You can specify that the copy should start immediately, or select a time. If you use network replication, we recommend that you schedule it during off-peak hours.
+    - **Offline**—This method specifies that the initial replication will be performed using external media. It's useful if you want to avoid degradation in network performance, or for geographically remote locations. To use this method you specify the export location on the source cloud, and the import location on the target cloud. When you enable protection for a virtual machine, the virtual hard disk is copied to the specified export location. You send it to the target site, and copy it to the import location. The system copies the imported information to the replica virtual machines.
 
-12. 클라우드 속성의 가상 컴퓨터 탭에서 **가상 컴퓨터 보호 삭제** 옵션을 선택하여 가상 컴퓨터의 보호를 중지할 경우 복제 가상 컴퓨터가 삭제되도록 지정하려면 **복제 가상 컴퓨터 삭제**를 선택합니다. 이 설정이 사용되면 보호를 사용하지 않을 때 가상 컴퓨터가 Azure Site Recovery에서 제거되고, 가상 컴퓨터의 사이트 복구 설정이 VMM 콘솔에서 제거되고, 복제본이 삭제됩니다.
+12. Select **Delete Replica Virtual Machine** to specify that the replica virtual machine should be deleted if you stop protecting the virtual machine by selecting the **Delete protection for the virtual machine** option on the Virtual Machines tab of the cloud properties. With this setting enabled, when you disable protection the virtual machine is removed from Azure Site Recovery, the Site Recovery settings for the virtual machine are removed in the VMM console, and the replica is deleted.
 
-	![보호 설정 구성](./media/site-recovery-vmm-to-vmm-classic/cloud-settings-replica.png)
+    ![Configure protection settings](./media/site-recovery-vmm-to-vmm-classic/cloud-settings-replica.png)
 
-설정을 저장하고 나면 작업이 생성되고 **작업** 탭에서 모니터링할 수 있습니다. VMM 원본 클라우드에 있는 모든 Hyper-V 호스트 서버가 복제 대상으로 구성됩니다. 클라우드 설정은 **구성** 탭에서 수정할 수 있습니다. 대상 위치 또는 대상 클라우드를 수정하려면 클라우드 구성을 제거한 후 클라우드를 다시 구성해야 합니다.
+After you save the settings a job will be created and can be monitored on the **Jobs** tab. All Hyper-V host servers in the VMM source cloud will be configured for replication. Cloud settings can be modified on the **Configure** tab. If you want to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.
 
-### 오프라인 초기 복제 준비
+### <a name="prepare-for-offline-initial-replication"></a>Prepare for offline initial replication
 
-오프라인 초기 복제를 준비하려면 다음 작업을 수행해야 합니다.
+You’ll need to do the following actions to prepare for initial replication offline:
 
-- 원본 서버에서 데이터 내보내기가 수행되는 경로 위치를 지정합니다. NTFS에 대해 모든 권한을 할당하고 내보내기 경로의 VMM 서비스에 공유 권한을 할당합니다. 대상 서버에서 데이터 가져오기가 수행되는 경로 위치를 지정합니다. 이 가져오기 경로에 동일한 사용 권한을 할당합니다.
-- 가져오기 또는 내보내기 경로가 공유되는 경우 공유가 있는 원격 컴퓨터의 VMM 서비스 계정에 대해 Administrator, Power User, Print Operator 또는 Server Operator 그룹 구성원 자격을 할당합니다.
-- 실행 계정을 사용하여 호스트를 추가하는 경우 가져오기 및 내보내기 경로에서 VMM의 실행 계정에 읽기 및 쓰기 권한을 할당합니다.
-- Hyper-V는 루프백 구성을 지원하지 않으므로 Hyper-V 호스트 서버로 사용되는 컴퓨터에는 가져오기 및 내보내기 공유가 있으면 안 됩니다.
-- 보호할 가상 컴퓨터를 포함하는 Active Directory의 각 Hyper-V 호스트 서버에서 다음과 같이 제한 위임을 사용하도록 설정하고 가져오기 및 내보내기 경로가 있는 원격 컴퓨터를 신뢰하도록 구성합니다.
-	1. 도메인 컨트롤러에서 **Active Directory 사용자 및 컴퓨터**를 엽니다.
-	2. 콘솔 트리에서 **DomainName** > **컴퓨터**를 클릭합니다.
-	3. Hyper-V 호스트 서버 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
-	4. **위임** 탭에서 **지정한 서비스에 대한 위임용으로만 이 컴퓨터 트러스트**를 클릭합니다.
-	5. **모든 인증 프로토콜 사용**을 클릭합니다.
-	6. **추가** > **사용자 및 컴퓨터**를 클릭합니다.
-	7. 내보내기 경로를 호스트하는 컴퓨터의 이름을 입력하고 **확인**을 클릭합니다. 사용 가능한 서비스 목록에서 Ctrl 키를 누른 채 **cifs** > **확인**을 클릭합니다. 가져오기 경로를 호스트하는 컴퓨터 이름에 대해 반복합니다. 필요에 따라 추가 Hyper-V 호스트 서버에 대해 반복합니다.
+- On the source server, you’ll specify a path location from which the data export will take place. Assign Full Control for NTFS and Share permissions to the VMM service on the export path. On the target server, you’ll specify a path location from which the data import will occur. Assign the same permissions on this import path.
+- If the import or export path is shared, assign Administrator, Power User, Print Operator, or Server Operator group membership for the VMM service account on the remote computer on which the shared is located.
+- If you are using any Run As accounts to add hosts, on the import and export paths, assign read and write permissions to the Run As accounts in VMM.
+- The import and export shares should not be located on any computer used as a Hyper-V host server, because loopback configuration is not supported by Hyper-V.
+- In Active Directory, on each Hyper-V host server that contains virtual machines you want to protect, enable and configure constrained delegation to trust the remote computers on which the import and export paths are located, as follows:
+    1. On the domain controller, open **Active Directory Users and Computers**.
+    2. In the console tree click **DomainName** > **Computers**.
+    3. Right-click the Hyper-V host server name > **Properties**.
+    4. On the **Delegation** tab click T**rust this computer for delegation to specified services only**.
+    5. Click **Use any authentication protocol**.
+    6. Click **Add** > **Users and Computers**.
+    7. Type the name of the computer that hosts the export path > **OK**.From the list of available services, hold down the CTRL key and click **cifs** > **OK**. Repeat for the name of the computer that hosts the import path. Repeat as necessary for additional Hyper-V host servers.
 
-## 5단계: 네트워크 매핑 구성
-1. 퀵스타트 페이지에서 **네트워크 매핑**을 클릭합니다.
-2. 네트워크를 매핑할 원본 VMM 서버를 선택한 다음 네트워크를 매핑할 대상 VMM 서버를 선택합니다. 원본 네트워크 및 연결된 대상 네트워크의 목록이 표시됩니다. 현재 매핑되지 않은 네트워크에 대해서는 빈 값이 표시됩니다.
-3. **원본 네트워크**에서 네트워크를 선택하고 **매핑**을 클릭합니다. 서비스에서 대상 서버의 VM 네트워크를 감지하고 표시합니다. 원본 및 대상 네트워크 이름 옆에 있는 정보 아이콘을 클릭하여 각 네트워크의 서브넷을 확인합니다.
+## <a name="step-5:-configure-network-mapping"></a>Step 5: Configure network mapping
+1. On the Quick Start page, click **Map networks**.
+2. Select the source VMM server from which you want to map networks, and then the target VMM server to which the networks will be mapped. The list of source networks and their associated target networks are displayed. A blank value is shown for networks that are not currently mapped.
+3. Select a network in **Network on source** > **Map**. The service detects the VM networks on the target server and displays them. Click the information icon next to the source and target network names to view the subnets for each network.
 
-	![네트워크 매핑 구성](./media/site-recovery-vmm-to-vmm-classic/network-mapping1.png)
+    ![Configure network mapping](./media/site-recovery-vmm-to-vmm-classic/network-mapping1.png)
 
-4. 대화 상자에서 대상 VMM 서버의 VM 네트워크 중 하나를 선택합니다.
+4. In the dialog box select one of the VM networks from the target VMM server.
 
-	![대상 네트워크 선택](./media/site-recovery-vmm-to-vmm-classic/network-mapping2.png)
+    ![Select a target network](./media/site-recovery-vmm-to-vmm-classic/network-mapping2.png)
 
-5. 대상 네트워크를 선택하면 원본 네트워크를 사용하는 보호된 클라우드가 표시됩니다. 보호에 사용되는 클라우드와 연결된 사용 가능한 대상 네트워크도 표시됩니다. 보호에 사용 중인 모든 클라우드에 사용할 수 있는 대상 네트워크를 선택하는 것이 좋습니다. 또는 VMM 서버로 가서 클라우드 속성을 수정하여 선택하려는 VM 네트워크에 해당하는 논리 네트워크를 추가합니다.
-6. 확인 표시를 클릭하여 매핑 프로세스를 완료합니다. 매핑 프로세스를 추적하는 작업이 시작됩니다. **작업** 탭에서 작업을 확인할 수 있습니다.
+5. When you select a target network, the protected clouds that use the source network are displayed. Available target networks that are associated with the clouds used for protection are also displayed. We recommend that you select a target network that is available to all the clouds you are using for protection. Or you can also go to the VMM Server and modify the cloud properties to add the logical network corresponding to the vm network that you want to choose.
+6. Click the check mark to complete the mapping process. A job starts to track the mapping progress. You can view it on the **Jobs** tab.
 
 
-## 6단계: 저장소 매핑 구성
-기본적으로 원본 Hyper-V 호스트 서버의 가상 컴퓨터를 대상 Hyper-V 호스트 서버로 복제하는 경우 복제된 데이터가 Hyper-V 관리자에서 대상 Hyper-V 호스트에 대해 표시된 기본 위치에 저장됩니다. 복제된 데이터가 저장되는 위치를 제어하려는 경우 다음과 같이 저장소 매핑을 구성할 수 있습니다.
+## <a name="step-6:-configure-storage-mapping"></a>Step 6: Configure storage mapping
+By default when you replicate a virtual machine on a source Hyper-V host server to a target Hyper-V host server, replicated data is stored in the default location that’s indicated for the target Hyper-V host in Hyper-V Manager. For more control over where replicated data is stored, you can configure storage mappings as follows:
 
 
 
-1. 원본 및 대상 VMM 서버 둘 다에서 저장소 분류를 정의합니다. [자세히 알아봅니다](https://technet.microsoft.com/library/gg610685.aspx). 원본 및 대상 클라우드의 Hyper-V 호스트 서버에서 분류를 사용할 수 있어야 합니다. 분류의 저장소 유형이 같을 필요는 없습니다. 예를 들어 SMB 공유가 포함된 원본 분류를 CSV가 포함된 대상 분류에 매핑할 수 있습니다.
-2. 분류가 구현되었으면 매핑을 만들 수 있습니다. 이 작업을 수행하려면 **빠른 시작** 페이지 > **저장소 매핑**에서.
-3. **저장소 탭** > **저장소 분류 매핑**을 클릭합니다.
-4. **저장소 분류 매핑** 탭에서 원본 및 대상 VMM 서버의 분류를 선택합니다. 설정을 저장합니다.
+1. Define storage classifications on both the source and target VMM servers. [Learn more](https://technet.microsoft.com/library/gg610685.aspx). Classifications must be available to the Hyper-V host servers in source and target clouds. Classifications don’t need to have the same type of storage. For example you can map a source classification that contains SMB shares to a target classification that contains CSVs.
+2. After classifications are in place you can create mappings. To do this, on the **Quick Start** page > **Map storage**.
+3. Click the **Storage** tab > **Map storage classifications**.
+4. On the **Map storage classifications** tab, select classifications on the source and target VMM servers. Save your settings.
 
-	![대상 네트워크 선택](./media/site-recovery-vmm-to-vmm-classic/storage-mapping.png)
+    ![Select a target network](./media/site-recovery-vmm-to-vmm-classic/storage-mapping.png)
 
 
-## 7단계: 가상 컴퓨터 보호 사용
-서버, 클라우드 및 네트워크가 제대로 구성되었으면 클라우드에서 가상 컴퓨터에 대한 보호를 설정할 수 있습니다.
+## <a name="step-7:-enable-virtual-machine-protection"></a>Step 7: Enable virtual machine protection
+After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud.
 
-1. 가상 컴퓨터가 있는 클라우드의 **가상 컴퓨터** 탭에서 **보호 사용** > **가상 컴퓨터 추가**를 클릭합니다.
-2. 클라우드에 있는 가상 컴퓨터의 목록에서 보호할 가상 컴퓨터를 선택합니다.
+1. On the **Virtual Machines** tab in the cloud in which the virtual machine is located, click **Enable protection** > **Add virtual machines**.
+2. From the list of virtual machines in the cloud, select the one you want to protect.
 
-	![가상 컴퓨터 보호 사용](./media/site-recovery-vmm-to-vmm-classic/enable-protection.png)
+    ![Enable virtual machine protection](./media/site-recovery-vmm-to-vmm-classic/enable-protection.png)
 
-3. **작업** 탭에서 초기 복제를 비롯하여 보호 사용 작업의 진행 상태를 추적합니다. 보호 완료 작업이 실행된 후에는 가상 컴퓨터가 장애 조치(Failover)를 수행할 준비가 되어 있습니다. 보호를 사용하도록 설정하고 가상 컴퓨터가 복제되고 나면 Azure에서 가상 컴퓨터를 볼 수 있습니다.
+3. Track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and virtual machines are replicated, you’ll be able to view them in Azure.
 
-	![가상 컴퓨터 보호 작업](./media/site-recovery-vmm-to-vmm-classic/vm-jobs.png)
+    ![Virtual machine protection job](./media/site-recovery-vmm-to-vmm-classic/vm-jobs.png)
 
->[AZURE.NOTE] 또한 VMM 콘솔에서 가상 컴퓨터에 대해 보호를 사용하도록 설정할 수 있습니다. 가상 컴퓨터 속성의 **Azure Site Recovery** 탭에 있는 도구 모음에서 **보호 사용**을 클릭합니다.
+>[AZURE.NOTE] You can also enable protection for virtual machines in the VMM console. Click **Enable Protection** on the toolbar in the **Azure Site Recovery** tab in the virtual machine properties.
 
-### 기존 가상 컴퓨터 등록
+### <a name="on-board-existing-virtual-machines"></a>On-board existing virtual machines
 
-Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM에 있는 경우 Azure Site Recovery 보호를 위해 다음과 같이 등록해야 합니다.
+If you have existing virtual machines in VMM that are replicating with Hyper-V Replica you’ll need to onboard them for Azure Site Recovery protection as follows:
 
-1. 기본 클라우드와 보조 클라우드가 있는지 확인합니다. 기존 가상 컴퓨터를 호스트하는 Hyper-V 서버가 기본 클라우드에 있고 복제본 가상 컴퓨터를 호스트하는 Hyper-V 서버가 보조 클라우드에 있는지 확인합니다. 클라우드에 대한 보호 설정을 구성했는지 확인합니다. 이 설정은 현재 Hyper-V 복제본에 대해 구성된 설정과 일치해야 합니다. 그렇지 않으면 가상 컴퓨터 복제가 예상대로 작동하지 않을 수 있습니다.
-2. 그런 다음 주 가상 컴퓨터에 보호를 사용하도록 설정합니다. Azure Site Recovery 및 VMM에서 동일한 복제본 호스트와 가상 컴퓨터가 검색되는지 확인하고, Azure Site Recovery에서 클라우드 구성 중 구성된 설정을 사용하여 복제를 다시 사용하고 설정합니다.
+1. Verify you have primary and secondary clouds. Ensure that the Hyper-V server hosting the existing virtual machine is located in the primary cloud and that the Hyper-V server hosting the replica virtual machine is located in the secondary cloud. Make sure you’ve configured protection settings for the clouds. The settings should match those currently configured for Hyper-V Replica. Otherwise virtual machine replication might not work as expected.
+2. Then enable protection for the primary virtual machine. Azure Site Recovery and VMM will ensure that the same replica host and virtual machine is detected, and Azure Site Recovery will reuse and reestablish replication using the settings configured during cloud configuration.
 
 
-## 배포 테스트
+## <a name="test-your-deployment"></a>Test your deployment
 
-배포를 테스트하려면 단일 가상 컴퓨터에 대한 테스트 장애 조치(Failover)를 실행하거나, 여러 개의 가상 컴퓨터로 구성된 복구 계획을 만들고 이 계획에 대한 테스트 장애 조치(Failover)를 실행하면 됩니다. 테스트 장애 조치(Failover)에서는 격리된 네트워크에서 장애 조치(Failover) 및 복구 메커니즘을 시뮬레이션합니다.
+To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan.  Test failover simulates your failover and recovery mechanism in an isolated network.
 
-### 복구 계획 만들기
+### <a name="create-a-recovery-plan"></a>Create a recovery plan
 
-1. **복구 계획** 탭에서 **복구 계획 만들기**를 클릭합니다.
-2. 복구 계획 이름, 원본 및 대상 VMM 서버를 지정합니다. 원본 서버에 장애 조치(Failover) 및 복구를 사용하도록 설정한 가상 컴퓨터가 있어야 합니다. **Hyper-V**를 선택하여 Hyper-V 복제가 구성된 클라우드만 표시합니다.
+1. On the **Recovery Plans** tab, click **Create Recovery Plan**.
+2. Specify a name for the recovery plan, and source and target VMM servers. The source server must have virtual machines that are enabled for failover and recovery. Select **Hyper-V** to view only clouds that are configured for Hyper-V replication.
 
-	![복구 계획 만들기](./media/site-recovery-vmm-to-vmm-classic/recovery-plan1.png)
+    ![Create recovery plan](./media/site-recovery-vmm-to-vmm-classic/recovery-plan1.png)
 
-3. **가상 컴퓨터 선택**에서 복제 그룹을 선택합니다. 복제 그룹과 연관된 모든 가상 컴퓨터가 선택되고 복구 계획에 추가됩니다. 이러한 가상 컴퓨터는 복구 계획 기본 그룹인 그룹 1에 추가됩니다. 필요한 경우 그룹을 추가할 수 있습니다. 복제 후 가상 컴퓨터가 복구 계획 그룹의 순서에 따라 시작됩니다.
+3. In **Select Virtual Machine**, select replication groups. All virtual machines associated with the replication group will be selected and added to the recovery plan. These virtual machines are added to the recovery plan default group—Group 1. you can add more groups if required. Note that after replication virtual machines will start up in accordance with the order of the recovery plan groups.
 
-	![가상 컴퓨터 추가](./media/site-recovery-vmm-to-vmm-classic/recovery-plan2.png)
+    ![Add virtual machines](./media/site-recovery-vmm-to-vmm-classic/recovery-plan2.png)
 
-만든 복구 계획은 **복구 계획** 탭의 목록에 표시됩니다.
+After a recovery plan has been created, it appears in the list on the **Recovery Plans** tab.
 
-###테스트 장애 조치(Failover) 실행
+###<a name="run-a-test-failover"></a>Run a test failover
 
-1. **복구 계획** 탭에서 계획을 선택하고 **테스트 장애 조치**를 클릭합니다.
-2. **테스트 장애 조치(Failover) 확인** 페이지에서 **없음**을 선택합니다. 이 옵션을 사용하도록 설정하면 장애 조치(Failover)된 복제본 가상 컴퓨터가 네트워크에 연결되지 않습니다. 여기서는 가상 컴퓨터가 올바로 장애 조치(Failover)되는지 테스트하지만 복제 네트워크 환경을 테스트하지는 않습니다. 다양한 네트워킹 옵션을 사용하는 방법에 대한 자세한 내용은 [테스트 장애 조치(failover) 실행](site-recovery-failover.md#run-a-test-failover) 방법을 참조하세요.
-3. 테스트 가상 컴퓨터는 복제본 가상 컴퓨터가 있는 호스트와 동일한 호스트에 생성됩니다. 복제본 가상 컴퓨터가 있는 동일한 클라우드에 추가됩니다.
+1. On the **Recovery Plans** tab, select the plan and click **Test Failover**.
+2. On the **Confirm Test Failover** page, select **None**. Note that with this option enabled the failed over replica virtual machines won't be connected to any network. This will test that the virtual machine fails over as expected but does not test your replication network environment. Look at how to [run a test failover](site-recovery-failover.md#run-a-test-failover) for more details about how to use different networking options.
+3. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It is added to the same cloud in which the replica virtual machine is located.
 
-### 복구 계획 실행
-복제 후에 복제본 가상 컴퓨터의 IP 주소는 주 가상 컴퓨터의 IP 주소와 동일하지 않을 수 있습니다. 가상 컴퓨터가 시작되면 사용 중인 DNS 서버가 업데이트됩니다. 또한 DNS 서버를 업데이트하는 스크립트를 추가하여 시기 적절한 업데이트를 보장할 수 있습니다.
+### <a name="run-a-recovery-plan"></a>Run a recovery plan
+After replication the replica virtual machine might not have an IP address that's the same as the IP address of the primary virtual machine. Virtual machines will update the DNS server that they are using after they start. You can also add a script to update the DNS Server to ensure a timely update.
 
-#### IP 주소를 검색할 스크립트
-다음 샘플 스크립트를 실행하여 IP 주소를 검색합니다.
+#### <a name="script-to-retrieve-the-ip-address"></a>Script to retrieve the IP address
+Run this sample script to retrieve the IP address.
 
-    	$vm = Get-SCVirtualMachine -Name <VM_NAME>
-		$na = $vm[0].VirtualNetworkAdapters>
-		$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-		$ip.address  
+        $vm = Get-SCVirtualMachine -Name <VM_NAME>
+        $na = $vm[0].VirtualNetworkAdapters>
+        $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+        $ip.address  
 
-#### DNS를 업데이트할 스크립트
-다음 샘플 스크립트에서 이전 샘플 스크립트를 사용하여 검색한 IP 주소를 지정하고 실행하여 DNS를 업데이트합니다.
+#### <a name="script-to-update-dns"></a>Script to update DNS
+Run this sample script to update DNS, specifying the IP address you retrieved using the previous sample script.
 
-		string]$Zone,
-		[string]$name,
-		[string]$IP
-		)
-		$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-		$newrecord = $record.clone()
-		$newrecord.RecordData[0].IPv4Address  =  $IP
-		Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+        string]$Zone,
+        [string]$name,
+        [string]$IP
+        )
+        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+        $newrecord = $record.clone()
+        $newrecord.RecordData[0].IPv4Address  =  $IP
+        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 
 
-## 사이트 복구에 대한 개인 정보 보호
+## <a name="privacy-information-for-site-recovery"></a>Privacy information for Site Recovery
 
-이 섹션에서는 Microsoft Azure Site Recovery 서비스("서비스")에 대한 추가 개인 정보 보호를 설명합니다. Microsoft Azure 서비스에 대한 개인 정보 취급 방침을 보려면 [Microsoft Azure 개인 정보 취급 방침](http://go.microsoft.com/fwlink/?LinkId=324899)을 참조하세요.
+This section provides additional privacy information for the Microsoft Azure Site Recovery service (“Service”). To view the privacy statement for Microsoft Azure services, see the [Microsoft Azure Privacy Statement](http://go.microsoft.com/fwlink/?LinkId=324899)
 
-**기능: 등록**
+**Feature: Registration**
 
-- **수행하는 작업**: 가상 컴퓨터를 보호할 수 있도록 서버를 서비스에 등록합니다.
-- **수집 정보**: 등록되면 서비스가 VMM 서버의 서비스 이름과 VMM 서버의 가상 컴퓨터 클라우드의 이름을 사용하여 재해 복구를 제공하도록 지정된 VMM 서버에서 관리 인증서 정보를 수집, 처리, 전송합니다.
-- **정보 사용**:
-	- 관리 인증서 - 등록된 VMM 서버를 식별하고 서비스에 액세스할 수 있도록 인증하는 데 사용됩니다. 서비스는 인증서의 공개 키 부분을 사용하여 등록된 VMM 서버만 액세스할 수 있는 토큰을 보호합니다. 서버는 서비스 기능에 액세스하기 위해 이 토큰을 사용해야 합니다.
-	- VMM 서버 이름 - VMM 서버 이름은 클라우드가 있는 해당 VMM 서버를 식별하고 통신하는 데 필요합니다.
-	- VMM 서버의 클라우드 이름 - 클라우드 이름은 아래에 설명된 서비스 클라우드 연결/연결 해제 기능을 사용할 때 필요합니다. 기본 데이터 센터의 클라우드를 복구 데이터 센터의 다른 클라우드와 연결하는 경우 복구 데이터 센터의 모든 클라우드 이름이 제공됩니다.
+- **What it does**: Registers server with service so that virtual machines can be protected
+- **Information collected**: After registering the Service collects, processes and transmits management certificate information from the VMM server that’s designated to provide disaster recovery using the Service name of the VMM server, and the name of virtual machine clouds on your VMM server.
+- **Use of information**:
+    - Management certificate—This is used to help identify and authenticate the registered VMM server for access to the Service. The Service uses the public key portion of the certificate to secure a token that only the registered VMM server can gain access to. The server needs to use this token to gain access to the Service features.
+    - Name of the VMM server—The VMM server name is required to identify and communicate with the appropriate VMM server on which the clouds are located.
+    - Cloud names from the VMM server—The cloud name is required when using the Service cloud pairing/unpairing feature described below. When you decide to pair your cloud from a primary data center with another cloud in the recovery data center, the names of all the clouds from the recovery data center are presented.
 
-- **선택**: 이 정보는 사용자와 서비스가 Azure Site Recovery 보호를 제공할 VMM 서버를 식별하고 등록된 올바른 VMM 서버를 식별하는 데 도움이 되기 때문에 서비스 등록 프로세스의 핵심 부분입니다. 이 정보를 서비스로 보내지 않으려면 이 서비스를 사용하지 마세요. 서버를 등록한 후 나중에 등록 취소하려는 경우 서비스 포털(Azure 포털)에서 VMM 서버 정보를 삭제하면 됩니다.
+- **Choice**: This information is an essential part of the Service registration process because it helps you and the Service to identify the VMM server for which you want to provide Azure Site Recovery protection, as well as to identify the correct registered VMM server. If you don’t want to send this information to the Service, do not use this Service. If you register your server and then later want to unregister it, you can do so by deleting the VMM server information from the Service portal (which is the Azure portal).
 
-**기능: Azure Site Recovery 보호 사용**
+**Feature: Enable Azure Site Recovery protection**
 
-- **수행하는 작업**: VMM 서버에 설치된 Azure Site Recovery 공급자는 서비스와 통신하기 위한 통로입니다. 공급자는 VMM 프로세스에 호스트된 DLL(동적 연결 라이브러리)입니다. 공급자를 설치하면 VMM 관리자 콘솔에서 "데이터 센터 복구" 기능을 사용할 수 있습니다. 클라우드의 모든 새 가상 컴퓨터나 기존 가상 컴퓨터에서 가상 컴퓨터 보호에 도움이 되도록 "데이터 센터 복구"라는 속성을 사용하도록 설정할 수 있습니다. 이 속성이 설정되면 공급자가 가상 컴퓨터의 이름과 ID를 서비스로 보냅니다. 가상 보호는 Windows Server 2012 또는 Windows Server 2012 R2 Hyper-V 복제 기술을 통해 사용할 수 있습니다. 일반적으로 서로 다른 "복구" 데이터 센터에 있는 Hyper-V 호스트 간에 가상 컴퓨터 데이터가 복제됩니다.
+- **What it does**: The Azure Site Recovery Provider installed on the VMM server is the conduit for communicating with the Service. The Provider is a dynamic-link library (DLL) hosted in the VMM process. After the Provider is installed, the “Datacenter Recovery” feature gets enabled in the VMM administrator console. Any new or existing virtual machines in a cloud can enable a property called “Datacenter Recovery” to help protect the virtual machine. Once this property is set, the Provider sends the name and ID of the virtual machine to the Service. The virtual protection is enabled by Windows Server 2012 or Windows Server 2012 R2 Hyper-V replication technology. The virtual machine data gets replicated from one Hyper-V host to another (typically located in a different “recovery” data center).
 
-- **수집 정보**: 서비스는 이름, ID, 가상 네트워크 및 가상 컴퓨터가 속하는 클라우드의 이름을 포함하는 가상 컴퓨터 메타데이터를 수집, 처리 및 전송합니다.
+- **Information collected**: The Service collects, processes, and transmits metadata for the virtual machine, which includes the name, ID, virtual network, and the name of the cloud to which it belongs.
 
-- **정보 사용**: 서비스는 위 정보를 사용하여 서비스 포털에 가상 컴퓨터 정보를 채웁니다.
+- **Use of information**: The Service uses the above information to populate the virtual machine information on your Service portal.
 
-- **선택**: 이 정보는 서비스의 핵심 부분이며 해제할 수 없습니다. 이 정보를 서비스로 보내지 않으려면 가상 컴퓨터에 대해 Azure Site Recovery 보호를 사용하도록 설정하지 마세요. 공급자가 서비스로 보내는 모든 데이터는 HTTPS를 통해 전송됩니다.
+- **Choice**: This is an essential part of the service and can’t be turned off. If you don’t want this information sent to the Service, don’t enable Azure Site Recovery protection for any virtual machines. Note that all data sent by the Provider to the Service is sent over HTTPS.
 
-**기능: 복구 계획**
+**Feature: Recovery plan**
 
-- **수행하는 작업**: 이 기능은 "복구" 데이터 센터에 대한 오케스트레이션 계획을 작성하는 데 도움이 됩니다. 복구 사이트에서 가상 컴퓨터 또는 가상 컴퓨터 그룹이 시작되는 순서를 정의할 수 있습니다. 각 가상 컴퓨터를 복구할 때 실행할 자동화된 스크립트나 수행할 수동 작업을 지정할 수도 있습니다. 다음 섹션에서 설명하는 장애 조치(Failover)는 일반적으로 조정된 복구에 대한 복구 계획 수준에서 트리거됩니다.
+- **What it does**: This feature helps you to build an orchestration plan for the “recovery” data center. You can define the order in which the virtual machines or a group of virtual machines should be started at the recovery site. You can also specify any automated scripts to be run, or any manual action to be taken, at the time of recovery for each virtual machine. Failover (covered in the next section) is typically triggered at the Recovery Plan level for coordinated recovery.
 
-- **수집 정보**: 서비스는 가상 컴퓨터 메타데이터, 자동화 스크립트 및 수동 작업 노트의 메타데이터 등을 포함하여 복구 계획에 대한 메타데이터를 수집, 처리 및 전송합니다.
+- **Information collected**: The Service collects, processes, and transmits metadata for the recovery plan, including virtual machine metadata, and metadata of any automation scripts and manual action notes.
 
-- **정보 사용**: 위에서 설명한 메타데이터는 서비스 포털에서 복구 계획을 작성하는 데 사용됩니다.
+- **Use of information**: The metadata described above is used to build the recovery plan in your Service portal.
 
-- **선택**: 이 정보는 서비스의 핵심 부분이며 해제할 수 없습니다. 이 정보를 서비스로 보내지 않으려면 이 서비스에서 복구 계획을 작성하지 마세요.
+- **Choice**: This is an essential part of the service and can’t be turned off. If you don’t want this information sent to the Service, don’t build Recovery Plans in this Service.
 
-**기능: 네트워크 매핑**
+**Feature: Network mapping**
 
-- **수행하는 작업**: 이 기능을 사용하면 기본 데이터 센터에서 복구 데이터 센터로 네트워크 정보를 매핑할 수 있습니다. 복구 사이트에서 가상 컴퓨터를 복구할 때 이 매핑은 네트워크 연결을 설정하는 데 도움이 됩니다.
+- **What it does**: This feature allows you to map network information from the primary data center to the recovery data center. When the virtual machines are recovered on the recovery site, this mapping helps in establishing network connectivity for them.
 
-- **수집 정보**: 네트워크 매핑 기능의 일부로 서비스는 각 사이트(기본 사이트 및 데이터 센터)에 대한 논리적 네트워크의 메타데이터를 수집, 처리 및 전송합니다.
+- **Information collected**: As part of the network mapping feature, the Service collects, processes, and transmits the metadata of the logical networks for each site (primary and datacenter).
 
-- **정보 사용**: 서비스는 메타데이터를 사용하여 서비스 포털을 채우고, 여기서 네트워크 정보를 매핑할 수 있습니다.
+- **Use of information**: The Service uses the metadata to populate your Service portal where you can map the network information.
 
-- **선택**: 이 정보는 서비스의 핵심 부분이며 해제할 수 없습니다. 이 정보를 서비스로 보내지 않으려면 네트워크 매핑 기능을 사용하지 마세요.
+- **Choice**: This is an essential part of the Service and can’t be turned off. If you don’t want this information sent to the Service, don’t use the network mapping feature.
 
-**기능: 장애 조치(Failover) - 계획됨, 계획되지 않음, 테스트**
+**Feature: Failover - planned, unplanned, test**
 
-- **수행하는 작업:** 이 기능은 VMM 관리되는 데이터 센터 간의 가상 컴퓨터 장애 조치(failover)에 도움이 됩니다. 장애 조치(Failover) 작업은 서비스 포털에서 사용자가 트리거합니다. 장애 조치(Failover)의 가능한 이유로 계획되지 않은 이벤트(예: 자연재해), 계획된 이벤트(예: 데이터 센터 부하 분산), 테스트 장애 조치(Failover)(예: 복구 계획 예행연습) 등이 있습니다.
+- **What it does**: This feature helps failover of a virtual machine from one VMM managed data center to another VMM managed data center. The failover action is triggered by the user on their Service portal. Possible reasons for a failover include an unplanned event (for example in the case of a natural disaster0; a planned event (for example datacenter load balancing); a test failover (for example a recovery plan rehearsal).
 
-VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 VMM 인터페이스를 통해 Hyper-V 호스트에서 장애 조치(Failover) 작업을 실행합니다. 일반적으로 서로 다른 "복구" 데이터 센터에서 실행되는 Hyper-V 호스트 간의 실제 가상 컴퓨터 장애 조치(Failover)는 Windows Server 2012 또는 Windows Server 2012 R2 Hyper-V 복제 기술을 통해 처리됩니다. 장애 조치(Failover)가 완료되면 "복구" 데이터 센터의 VMM 서버에 설치된 공급자가 성공 정보를 서비스로 보냅니다.
+The Provider on the VMM server gets notified of the event from the Service, and executes a failover action on the Hyper-V host through VMM interfaces. Actual failover of the virtual machine from one Hyper-V host to another (typically running in a different “recovery” data center) is handled by the Windows Server 2012 or Windows Server 2012 R2 Hyper-V replication technology. After the failover is complete, the Provider installed on the VMM server of the “recovery” data center sends the success information to the Service.
 
-- **수집 정보**: 서비스는 위 정보를 사용하여 서비스 포털에 장애 조치(failover) 작업 상태 정보를 채웁니다.
+- **Information collected**: The Service uses the above information to populate the status of the failover action information on your Service portal.
 
-- **정보 사용**: 서비스는 위 정보를 다음과 같이 사용합니다.
+- **Use of information**: The Service uses the above information as follows:
 
-	- 관리 인증서 - 등록된 VMM 서버를 식별하고 서비스에 액세스할 수 있도록 인증하는 데 사용됩니다. 서비스는 인증서의 공개 키 부분을 사용하여 등록된 VMM 서버만 액세스할 수 있는 토큰을 보호합니다. 서버는 서비스 기능에 액세스하기 위해 이 토큰을 사용해야 합니다.
-	- VMM 서버 이름 - VMM 서버 이름은 클라우드가 있는 해당 VMM 서버를 식별하고 통신하는 데 필요합니다.
-	- VMM 서버의 클라우드 이름 - 클라우드 이름은 아래에 설명된 서비스 클라우드 연결/연결 해제 기능을 사용할 때 필요합니다. 기본 데이터 센터의 클라우드를 복구 데이터 센터의 다른 클라우드와 연결하는 경우 복구 데이터 센터의 모든 클라우드 이름이 제공됩니다.
+    - Management certificate—This is used to help identify and authenticate the registered VMM server for access to the Service. The Service uses the public key portion of the certificate to secure a token that only the registered VMM server can gain access to. The server needs to use this token to gain access to the Service features.
+    - Name of the VMM server—The VMM server name is required to identify and communicate with the appropriate VMM server on which the clouds are located.
+    - Cloud names from the VMM server—The cloud name is required when using the Service cloud pairing/unpairing feature described below. When you decide to pair your cloud from a primary data center with another cloud in the recovery data center, the names of all the clouds from the recovery data center are presented.
 
-- **선택**: 이 정보는 서비스의 핵심 부분이며 해제할 수 없습니다. 이 정보를 서비스로 보내지 않으려면 이 서비스를 사용하지 마세요.
+- **Choice**: This is an essential part of the service and can’t be turned off. If you don’t want this information sent to the Service, don’t use this Service.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-환경이 예상대로 작동 중인지 확인하기 위해 테스트 장애 조치(failover)를 실행한 후에 여러 형식의 장애 조치(failover)에 대해 [알아봅니다](site-recovery-failover.md).
+After you've run a test failover to check your environment is working as expected, [learn about](site-recovery-failover.md) different types of failovers.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

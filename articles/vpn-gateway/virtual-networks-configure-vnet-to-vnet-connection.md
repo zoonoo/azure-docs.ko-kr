@@ -1,6 +1,6 @@
 <properties
-   pageTitle="클래식 배포 모델에 대한 VNet 간 연결 구성 | Microsoft Azure"
-   description="PowerShell 및 Azure 클래식 포털을 사용하여 Azure 가상 네트워크를 함께 연결하는 방법에 대해 설명합니다."
+   pageTitle="Configure a VNet-to-VNet connection for the classic deployment model| Microsoft Azure"
+   description="How to connect Azure virtual networks together using PowerShell and the Azure classic portal."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -18,225 +18,227 @@
    ms.author="cherylmc"/>
 
 
-# 클래식 배포 모델에 대한 VNet 간 연결 구성
+
+# <a name="configure-a-vnet-to-vnet-connection-for-the-classic-deployment-model"></a>Configure a VNet-to-VNet connection for the classic deployment model
 
 > [AZURE.SELECTOR]
-- [Azure 클래식 포털](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell - Azure 리소스 관리자](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 
 
-이 문서에서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 가상 네트워크를 만들어 하나로 연결하는 과정을 안내합니다. 다음 단계에서는 Azure 클래식 포털을 사용하여 VNet 및 게이트웨이를 만들고 PowerShell을 사용하여 VNet-VNet 연결을 구성합니다. 포털에서 연결을 구성할 수는 없습니다.
 
-![VNet 간 연결 다이어그램](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)
+This article walks you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The following steps use the Azure classic portal to create the VNets and gateways, and PowerShell to configure the VNet-to-VNet connection. You cannot configure the connection in the portal.
+
+![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)
 
 
-### VNet 간 배포 모델 및 도구
+### <a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Deployment models and methods for VNet-to-VNet
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-두 배포 모델에서 여러 다양한 도구를 사용하여 VNet 간 연결을 구성할 수 있습니다. 자세한 내용은 다음 테이블을 참조하세요. 이 구성에 사용할 수 있게 된 새 문서, 새로운 배포 모델 및 추가 도구로 이 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
+A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. We update the following table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-## VNet 간 연결 정보
+## <a name="about-vnet-to-vnet-connections"></a>About VNet-to-VNet connections
 
-가상 네트워크를 다른 가상 네트워크에 연결(VNet 간)하는 것은 가상 네트워크를 온-프레미스 사이트 위치에 연결하는 것과 유사합니다. 두 연결 유형 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다.
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. 
 
-연결하는 VNet은 서로 다른 구독 및 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수 있습니다. 이렇게 하면 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
-
-
-### 가상 네트워크에 연결하는 이유
-
-다음과 같은 이유로 가상 네트워크에 연결할 수 있습니다.
-
-- **지역 간 지리적 중복 및 지리적 상태**
-	- 인터넷 연결 끝점으로 이동하지 않고도 보안 연결을 통해 지역에서 복제 또는 동기화를 직접 설정할 수 있습니다.
-	- Azure 부하 분산 장치 및 Microsoft 또는 타사 클러스터링 기술을 사용하여 여러 Azure 지역 간의 지리적 중복을 통해 워크로드의 가용성을 높게 설정할 수 있습니다. 이러한 작업의 한 가지 주요 예는 여러 Azure 지역에 분산된 가용성 그룹을 사용하여 SQL AlwaysOn을 설정하는 것입니다.
-
-- **분리 경계가 뚜렷한 지역별 다중 계층 응용 프로그램**
-	- 같은 지역 내에서 뚜렷한 경계를 적용해 여러 VNet이 함께 연결된 다중 계층 응용 프로그램을 설정하고 계층 간 통신을 보호할 수 있습니다.
-
-- **Azure의 구독 간/조직 간 통신**
-	- Azure 구독이 여러 개인 경우 이제 가상 네트워크 간에 여러 구독의 작업을 안전하게 연결할 수 있습니다.
-	- 엔터프라이즈 또는 서비스 공급자의 경우 이제 Azure 내의 보안 VPN 기술을 사용하여 조직 간 통신을 사용하도록 설정할 수 있습니다.
-
-### 클래식 VNet에 대한 VNet-VNet FAQ
-
-- 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다.
-
-- 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
-
-- 클라우드 서비스 또는 부하 분산 끝점은 연결되어 있더라도 여러 가상 네트워크에 분산될 수 없습니다.
-
-- 여러 가상 네트워크를 연결할 때 VPN 장치는 필요하지 않습니다.
-
-- VNet 간 연결은 Azure 가상 네트워크 연결을 지원합니다. 그러나 가상 네트워크에 배포되지 않은 가상 컴퓨터 또는 클라우드 서비스 연결은 지원하지 않습니다.
-
-- VNet-VNet을 위해서는 동적 라우팅 게이트웨이가 필요합니다. Azure 정적 라우팅 게이트웨이는 지원되지 않습니다.
-
-- 가상 네트워크 연결을 다중 사이트 VPN과 동시에 사용할 수 있습니다. 가상 네트워크 VPN 게이트웨이당 최대 10개의 VPN 터널을 다른 가상 네트워크 또는 온-프레미스 사이트에 연결할 수 있습니다.
-
-- 가상 네트워크 및 온-프레미스 로컬 네트워크 사이트의 주소 공간이 겹쳐서는 안 됩니다. 주소 공간이 겹치면 가상 네트워크 만들기 또는 netcfg 구성 파일 업로드가 실패합니다.
-
-- 가상 네트워크 한 쌍 간의 중복 터널은 지원되지 않습니다.
-
-- P2S VPN을 비롯한 VNet의 모든 VPN 터널은 VPN 게이트웨이의 사용 가능한 대역폭 및 Azure의 동일 VPN 게이트웨이 작동 시간 SLA를 공유합니다.
-
-- VNet-VNet 트래픽은 Azure 백본 전체에서 이동됩니다.
+The VNets you connect can be in different subscriptions and different regions. You can combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
 
-## <a name="step1"></a>1단계 - IP 주소 범위 계획
+### <a name="why-connect-virtual-networks?"></a>Why connect virtual networks?
 
-가상 네트워크를 구성하는 데 사용할 범위를 결정하는 것이 중요합니다. 이 구성의 경우 VNet 범위가 서로 간에 또는 연결된 로컬 네트워크와 겹치지 않는지 확인해야 합니다.
+You may want to connect virtual networks for the following reasons:
 
-다음 테이블에는 VNet을 정의하는 방법의 예가 나와 있습니다. 범위는 지침으로만 참고하고, 실제 가상 네트워크에 사용할 범위를 기록합니다. 이 정보는 이후 단계에서 필요합니다.
+- **Cross region geo-redundancy and geo-presence**
+    - You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
+    - With Azure Load Balancer and Microsoft or third-party clustering technology, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
 
-**예제 설정**
+- **Regional multi-tier applications with strong isolation boundary**
+    - Within the same region, you can set up multi-tier applications with multiple VNets connected together with strong isolation and secure inter-tier communication.
 
-|가상 네트워크 |주소 공간 |지역 |로컬 네트워크 사이트에 연결|
+- **Cross subscription, inter-organization communication in Azure**
+    - If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
+    - For enterprises or service providers, you can enable cross-organization communication with secure VPN technology within Azure.
+
+### <a name="vnet-to-vnet-faq-for-classic-vnets"></a>VNet-to-VNet FAQ for classic VNets
+
+- The virtual networks can be in the same or different subscriptions.
+
+- The virtual networks can be in the same or different Azure regions (locations).
+
+- A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
+
+- Connecting multiple virtual networks together doesn't require any VPN devices.
+
+- VNet-to-VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services that are not deployed to a virtual network.
+
+- VNet-to-VNet requires dynamic routing gateways. Azure static routing gateways are not supported.
+
+- Virtual network connectivity can be used simultaneously with multi-site VPNs. There is a maximum of 10 VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks, or on-premises sites.
+
+- The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of virtual networks or uploading netcfg configuration files to fail.
+
+- Redundant tunnels between a pair of virtual networks are not supported.
+
+- All VPN tunnels for the VNet, including P2S VPNs, share the available bandwidth for the VPN gateway, and the same VPN gateway uptime SLA in Azure.
+
+- VNet-to-VNet traffic travels across the Azure backbone.
+
+
+## <a name="<a-name="step1"></a>step-1---plan-your-ip-address-ranges"></a><a name="step1"></a>Step 1 - Plan your IP address ranges
+
+It’s important to decide the ranges that you’ll use to configure your virtual networks. For this configuration, you must make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
+
+The following table shows an example of how to define your VNets. Use the ranges as a guideline only. Write down the ranges for your virtual networks. You need this information for later steps.
+
+**Example settings**
+
+|Virtual Network  |Address Space               |Region      |Connects to local network site|
 |:----------------|:---------------------------|:-----------|:-----------------------------|
-|VNet1 |VNet1(10.1.0.0/16) |미국 서부 |VNet2Local(10.2.0.0/16) |
-|VNet2 |VNet2(10.2.0.0/16) |일본 동부 |VNet1Local(10.1.0.0/16) |
+|VNet1            |VNet1 (10.1.0.0/16)         |US West     |VNet2Local (10.2.0.0/16)      |
+|VNet2            |VNet2 (10.2.0.0/16)         |Japan East  |VNet1Local (10.1.0.0/16)      |
   
-## 2단계 - VNet1 만들기
+## <a name="step-2---create-vnet1"></a>Step 2 - Create VNet1
 
-이 예제에서는 VNet1을 만듭니다. 예제를 사용하는 경우 사용자 고유의 값으로 대체해야 합니다. VNet이 이미 있으면 이 단계를 수행할 필요가 없습니다. 하지만 IP 주소 범위가 보조 VNet의 범위 또는 연결하려는 다른 VNet과 겹치지 않는지 확인해야 합니다.
+In this step, we create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But, you do need to verify that the IP address ranges don't overlap with the ranges for your second VNet, or with any of the other VNets to which you want to connect.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다. 필요한 구성 설정 중 일부를 Azure 포털에서 아직 사용할 수 없으므로 이 문서에서는 클래식 포털을 사용합니다.
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com). In this article, we use the classic portal because some of the required configuration settings are not yet available in the Azure portal.
 
-2. 화면 왼쪽 아래에서 **새로 만들기** > **네트워크 서비스** > **가상 네트워크** > **사용자 지정 만들기**를 차례로 클릭하여 구성 마법사를 시작합니다. 마법사를 따라 이동하면서 지정된 값을 각 페이지에 추가합니다.
+2. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network** > **Custom Create** to begin the configuration wizard. As you navigate through the wizard, add the specified values to each page.
 
-### 가상 네트워크 세부 정보
+### <a name="virtual-network-details"></a>Virtual Network Details
 
-가상 네트워크 정보 페이지에서 다음 정보를 입력합니다.
+On the Virtual Network Details page, enter the following information:
 
-  ![가상 네트워크 세부 정보](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
+  ![Virtual Network Details](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
-  - **이름** - 가상 네트워크의 이름을 지정합니다. 예를 들면 VNet1이 있습니다.
-  - **위치** – 가상 네트워크를 만들 때 Azure 위치(지역)와 연결합니다. 예를 들어 실제로 West US에 배치할 가상 네트워크에 VM을 배포하려는 경우 해당 위치를 선택합니다. 가상 네트워크를 만든 후에는 가상 네트워크에 연결된 위치를 변경할 수 없습니다.
+  - **Name** - Name your virtual network. For example, VNet1.
+  - **Location** – When you create a virtual network, you associate it with an Azure location (region). For example, if you want your VMs that are deployed to your virtual network to be physically located in West US, select that location. You can’t change the location associated with your virtual network after you create it.
 
-### DNS 서버 및 VPN 연결
+### <a name="dns-servers-and-vpn-connectivity"></a>DNS Servers and VPN Connectivity
 
-DNS 서버 및 VPN 연결 페이지에서 다음 정보를 입력한 후 오른쪽 아래에서 다음 화살표를 클릭합니다.
+On the DNS Servers and VPN Connectivity page, enter the following information, and then click the next arrow on the lower right.
 
-  ![DNS 서버 및 VPN 연결](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
+  ![DNS Servers and VPN Connectivity](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)  
 
-- **DNS 서버** - DNS 서버 이름 및 IP 주소를 입력하거나 드롭다운에서 이전에 등록된 DNS 서버를 선택합니다. 이 설정은 DNS 서버를 만들지 않습니다. 이렇게 하면 이 가상 네트워크에 대한 이름 확인에 사용하려는 DNS 서버를 지정할 수 있습니다. 가상 네트워크 간에 이름 확인을 사용하려면 Azure에서 제공하는 이름 확인 기능을 사용하는 대신 고유한 DNS 서버를 구성해야 합니다.
-- P2S 또는 S2S 연결에 대한 확인란은 선택하지 않습니다. 오른쪽 아래의 화살표를 클릭하여 다음 화면으로 이동합니다.
+- **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to have name resolution between your virtual networks, you have to configure your own DNS server, rather than using the name resolution that is provided by Azure.
+- Don’t select any of the checkboxes for P2S or S2S connectivity. Click the arrow on the lower right to move to the next screen.
 
-### 가상 네트워크 주소 공간
+### <a name="virtual-network-address-spaces"></a>Virtual Network Address Spaces
 
-가상 네트워크 주소 공간 페이지에서 가상 네트워크에 사용할 주소 범위를 지정합니다. 이 범위의 DIPS(동적 IP 주소)가 해당 가상 네트워크에 배포하는 VM 및 기타 역할 인스턴스에 할당됩니다.
+On the Virtual Network Address Spaces page, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network. 
 
-온-프레미스 네트워크에도 연결되는 VNet을 만드는 경우 온-프레미스 네트워크에 사용되는 범위와 겹치지 않는 범위를 선택하는 것이 특히 중요합니다. 해당 경우 네트워크 관리자와 조정해야 합니다. 네트워크 관리자가 VNet에 사용할 온-프레미스 네트워크 주소 공간에서 일정 범위의 IP 주소를 지정해야 할 수 있습니다.
+If you are creating a VNet that will also have a connection to your on-premises network, it's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. In that case, you need to coordinate with your network administrator. Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your VNet.
 
-  ![가상 네트워크 주소 공간 페이지](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
+  ![Virtual Network Address Spaces page](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
-  - **주소 공간** - 시작 IP 및 주소 수를 포함합니다. 지정한 주소 공간이 온-프레미스 네트워크에 가지고 있는 주소 공간과 겹치지 않는지 확인하세요. 이 예제에서는 VNet1에 대해 10.1.0.0/16을 사용합니다.
-  - **서브넷 추가** - 시작 IP 및 주소 수를 포함합니다. 추가 서브넷은 필요하지 않지만 고정 DIPS가 있는 VM에 대해 별도의 서브넷을 만들 수 있습니다. 또는 기타 역할 인스턴스와 별도의 서브넷에 VM을 배치할 수 있습니다.
+  - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap with any of the address spaces that you have on your on-premises network. For this example, we use 10.1.0.0/16 for VNet1.
+  - **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
  
-페이지 오른쪽 아래에 있는 **확인 표시를 클릭하면** 가상 네트워크 만들기가 시작됩니다. 완료되면 네트워크 페이지에 있는 상태에 "생성됨"이 표시됩니다.
+**Click the checkmark** on the lower right of the page and your virtual network will begin to create. When it completes, you will see "Created" listed under Status on the Networks page.
 
-## 3단계 - VNet2 만들기
+## <a name="step-3---create-vnet2"></a>Step 3 - Create VNet2
 
-다음으로, 이전 단계를 반복하여 다른 VNet을 만듭니다. 이후 단계에서는 두 VNet을 연결합니다. 1단계의 [예제 설정](#step1)을 참조할 수 있습니다. VNet이 이미 있으면 이 단계를 수행할 필요가 없습니다. 하지만 IP 주소 범위가 연결하려는 다른 VNet 또는 온-프레미스 네트워크와 겹치지 않는지 확인해야 합니다.
+Next, repeat the preceding steps to create another VNet. In later steps, you will connect the two VNets. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. However, you need to verify that the IP address ranges don't overlap with any of the other VNets or on-premises networks that you want to connect to.
 
-## 4단계 - 로컬 네트워크 사이트 추가
+## <a name="step-4---add-the-local-network-sites"></a>Step 4 - Add the local network sites
 
-VNet-VNet 구성을 만들 경우 포털의 **로컬 네트워크** 페이지에 표시되는 로컬 네트워크 사이트를 구성해야 합니다. Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 VNet 간에 트래픽을 라우팅하는 방법을 결정합니다. 각 로컬 네트워크 사이트를 참조하는 데 사용할 이름을 확인합니다. 이후 단계에서 드롭다운 목록의 값을 선택할 때 설명이 포함된 이름을 사용하는 것이 가장 좋습니다.
+When you create a VNet-to-VNet configuration, you need to configure local network sites, which are shown in the **Local Networks** page of the portal. Azure uses the settings specified in each local network site to determine how to route traffic between the VNets. You determine the name you want to use to refer to each local network site. It's best to use something descriptive, as you select the value from a dropdown list in later steps.
 
-예를 들어 VNet1은 "VNet2Local" 이름으로 만드는 로컬 네트워크 사이트에 연결됩니다. VNet2Local에 대한 설정에는 VNet2에 대한 주소 접두사와 VNet2 게이트웨이에 대한 공용 IP 주소가 포함됩니다. VNet2는 VNet1에 대한 주소 접두사와 VNet1 게이트웨이에 대한 공용 IP 주소를 포함하는 "VNet1Local"이라는 로컬 네트워크 사이트에 연결됩니다.
+For example, VNet1 connects to a local network site that you create named "VNet2Local". The settings for VNet2Local contain the address prefixes for VNet2, and a public IP address for the VNet2 gateway. VNet2 connects to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
 
-### <a name="localnet"></a>로컬 네트워크 사이트 VNet1Local 추가
+### <a name="<a-name="localnet"></a>add-the-local-network-site-vnet1local"></a><a name="localnet"></a>Add the local network site VNet1Local
 
-1. 화면 왼쪽 아래에서 **새로 만들기** > **네트워크 서비스** > **가상 네트워크** > **로컬 네트워크 추가**를 차례로 클릭합니다.
+1. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network** > **Add Local Network**.
 
-2. **로컬 네트워크 세부 정보 지정** 페이지의 **이름**에 연결하려는 네트워크를 나타내는 데 사용할 이름을 입력합니다. 이 예제에서는 VNet1에 대한 IP 주소 범위 및 게이트웨이를 나타내도록 "VNet1Local"을 사용할 수 있습니다.
+2. On the **Specify your local network details** page, for **Name**, enter a name that you want to use to represent the network that you want to connect to. In this example, you can use "VNet1Local" to refer to the IP address ranges and gateway for VNet1.
 
-3. **VPN 장치 IP 주소(선택 사항)**에 유효한 공용 IP 주소를 입력합니다. 일반적으로는 VPN 장치의 실제 외부 IP 주소를 사용합니다. VNet-VNet 구성의 경우 VNet에 대한 게이트웨이에 할당된 공용 IP 주소를 사용합니다. 그러나 게이트웨이를 아직 만들지 않은 경우 자리 표시자로 유효한 공용 IP 주소를 지정할 수 있습니다. 이 구성에서는 선택 사항이 아니므로 이 항목은 비워두면 안 됩니다. 이후 단계에서 Azure가 해당하는 게이트웨이 IP 주소를 생성하고 나면 이 설정으로 돌아와서 IP 주소를 구성합니다. 화살표를 클릭하여 다음 화면으로 이동합니다.
+3. For **VPN Device IP address (optional)**, specify any valid public IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet-to-VNet configurations, you use the public IP address that is assigned to the gateway for your VNet. But, given that you’ve not yet created the gateway, you can specify any valid public IP address as a placeholder. Don't leave this blank - it's not optional for this configuration. In a later step, you go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it. Click the arrow to advance to the next screen.
 
-4. **주소 지정 페이지**에서 VNet1의 IP 주소 범위와 주소 수를 입력합니다. 이 범위는 앞에서 VNet1에 대해 구성한 범위와 정확하게 일치해야 합니다. Azure는 사용자가 지정한 IP 주소 범위를 사용하여 VNet1으로 예정된 트래픽을 라우팅합니다. 확인 표시를 클릭하여 로컬 네트워크를 만듭니다.
+4. On the **Specify the address page**, enter the IP address range and address count for VNet1. This must correspond exactly to the range that is configured for VNet1. Azure uses the IP address ranges that you specify to route the traffic intended for VNet1. Click the checkmark to create the local network.
 
-### 로컬 네트워크 사이트 VNet2Local 추가
+### <a name="add-the-local-network-site-vnet2local"></a>Add the local network site VNet2Local
 
-위 단계를 사용하여 로컬 네트워크 사이트 "VNet2Local"을 만듭니다. 필요한 경우 1단계의 [예제 설정](#step1)에 사용된 값을 참조할 수 있습니다.
+Use the steps above to create the local network site "VNet2Local". You can refer to the values in the [example settings](#step1) in Step 1, if necessary.
 
-### 각 VNet을 로컬 네트워크를 가리키도록 구성
+### <a name="configure-each-vnet-to-point-to-a-local-network"></a>Configure each VNet to point to a local network
 
-각 VNet은 트래픽을 라우팅하려는 각 로컬 네트워크를 가리켜야 합니다.
+Each VNet must point to the respective local network that you want to route traffic to. 
 
-#### VNet1의 경우
+#### <a name="for-vnet1"></a>For VNet1
 
-1. 가상 네트워크 **VNet1**에 대한 **구성** 페이지로 이동합니다.
-2. 사이트 간 연결에서 "로컬 네트워크에 연결"을 선택한 다음 드롭다운에서 **VNet2Local**을 로컬 네트워크로 선택합니다.
-3. 설정을 저장합니다.
+1. Navigate to the **Configure** page for virtual network **VNet1**. 
+2. Under site-to-site connectivity, select "Connect to the local network", and then select **VNet2Local** as the local network from the dropdown. 
+3. Save your settings.
 
-#### VNet2의 경우
+#### <a name="for-vnet2"></a>For VNet2
 
-1. 가상 네트워크 **VNet2**에 대한 **구성** 페이지로 이동합니다.
-2. 사이트 간 연결에서 "로컬 네트워크에 연결"을 선택한 다음 드롭다운에서 **VNet1Local**을 로컬 네트워크로 선택합니다.
-3. 설정을 저장합니다.
+1. Navigate to the **Configure** page for virtual network **VNet2**. 
+2. Under site-to-site connectivity, select "Connect to the local network", then select **VNet1Local** from the dropdown as the local network. 
+3. Save your settings.
 
-## 5단계 - 각 VNet에 대한 게이트웨이 구성
+## <a name="step-5---configure-a-gateway-for-each-vnet"></a>Step 5 - Configure a gateway for each VNet
 
-각 가상 네트워크에 대한 동적 라우팅 게이트웨이 구성 이 구성은 고정 라우팅 게이트웨이를 지원하지 않습니다. 이전에 구성되었으며 동적 라우팅 게이트웨이가 이미 있는 VNet을 사용하는 경우 이 단계를 수행할 필요가 없습니다. 게이트웨이가 정적 라우팅인 경우 삭제한 후 동적 라우팅 게이트웨이로 다시 만들어야 합니다. 게이트웨이를 삭제하는 경우 할당된 공용 IP 주소가 해제되므로 돌아가서 새 게이트웨이에 대한 새 공용 IP 주소를 사용하여 로컬 네트워크 및 VPN 장치를 다시 구성해야 합니다.
+Configure a Dynamic Routing gateway for each virtual network. This configuration does not support Static Routing gateways. If you are using VNets that were previously configured and that already have Dynamic Routing gateways, you don't need to do this step. If your gateways are Static Routing, you need to delete them and recreate them as Dynamic Routing gateways. If you delete a gateway, the public IP address assigned to it gets released, and you need to go back and reconfigure any of your local networks and VPN devices with the new public IP address for the new gateway.
 
-1. **네트워크** 페이지에서 가상 네트워크의 상태 열이 **생성됨**인지 확인합니다.
+1. On the **Networks** page, verify that the status column for your virtual network is **Created**.
 
-2. **이름** 열에서 가상 네트워크의 이름을 클릭합니다. 이 예제에서는 "VNet1"을 사용합니다.
+2. In the **Name** column, click the name of your virtual network. For this example, we use "VNet1".
 
-3. **대시보드** 페이지에서 이 VNet에 게이트웨이가 아직 구성되지 않은 것을 볼 수 있습니다. 게이트웨이 구성 단계를 진행할 때 이 상태 변경 내용이 표시됩니다.
+3. On the **Dashboard** page, notice that this VNet doesn’t have a gateway configured yet. You’ll see this status change as you go through the steps to configure your gateway.
 
-4. 페이지 아래쪽에서 **게이트웨이 만들기** 및 **동적 라우팅**을 클릭합니다. 시스템에서 게이트웨이 만들 것인지 확인하는 메시지를 표시하면 예를 클릭합니다.
+4. At the bottom of the page, click **Create Gateway** and **Dynamic Routing**. When the system prompts you to confirm that you want the gateway created, click Yes.
 
-  	![게이트웨이 유형](./media/virtual-networks-configure-vnet-to-vnet-connection/IC717026.png)
+    ![Gateway type](./media/virtual-networks-configure-vnet-to-vnet-connection/IC717026.png)  
 
-5. 게이트웨이를 만들 때 페이지의 게이트웨이 그래픽이 노란색으로 변경되고 "게이트웨이를 만드는 중"이 표시됩니다. 일반적으로 게이트웨이를 만드는 데 약 30분이 소요됩니다.
+5. When your gateway is creating, notice the gateway graphic on the page changes to yellow and says "Creating Gateway". It typically takes about 30 minutes for the gateway to create.
 
-6. VNet2에 대해 동일한 단계를 반복합니다. 첫 번째 VNet 게이트웨이 만들기가 완료되지 않아도 다른 VNet의 게이트웨이 만들기를 시작할 수 있습니다.
+6. Repeat the same steps for VNet2. You don’t need the first VNet gateway to complete before you begin to create the gateway for your other VNet.
 
-7. 게이트웨이 상태가 "연결 중"으로 변경되면 각 게이트웨이의 공용 IP 주소가 대시보드에 표시됩니다. 혼합되지 않도록 주의하여 각 VNet에 해당하는 IP 주소를 적어 둡니다. 이는 각 로컬 네트워크의 VPN 장치에 대한 자리 표시자 IP 주소를 편집할 때 사용되는 IP 주소입니다.
+7. When the gateway status changes to "Connecting", the public IP address for each gateway is visible in the Dashboard. Write down the IP address that corresponds to each VNet, taking care not to mix them up. These are the IP addresses that are used when you edit your placeholder IP addresses for the VPN Device for each local network.
 
-## 6단계 - 로컬 네트워크 편집
+## <a name="step-6---edit-the-local-network"></a>Step 6 - Edit the local network
 
-1. **로컬 네트워크** 페이지에서 편집할 로컬 네트워크 이름을 클릭하고 페이지 아래쪽에서 **편집**을 클릭합니다. **VPN 장치 IP 주소**의 경우 VNet에 해당하는 게이트웨이의 IP 주소를 입력합니다. 예를 들어 VNet1Local의 경우 VNet1에 할당한 게이트웨이 IP 주소를 입력합니다. 그런 다음 페이지 아래쪽의 화살표를 클릭합니다.
+1. On the **Local Networks** page, click the name of the Local Network name that you want to edit, then click **Edit** at the bottom of the page. For **VPN Device IP address**, input the IP address of the gateway that corresponds to the VNet. For example, for VNet1Local, put in the gateway IP address assigned to VNet1. Then click the arrow at the bottom of the page.
 
-2. **주소 공간 지정** 페이지에서 아무 것도 변경하지 않고 오른쪽 아래의 확인 표시를 클릭합니다.
+2. On the **Specify the address space** page, click the checkmark on the lower right without making any changes.
 
-## 7단계 - VPN 연결 만들기
+## <a name="step-7---create-the-vpn-connection"></a>Step 7 - Create the VPN connection
 
-위의 모든 단계를 완료한 후에는 IPsec/IKE 사전 공유 키를 설정하고 연결을 만듭니다. 이러한 단계는 PowerShell을 사용하며, 포털에서는 구성할 수 없습니다. Azure PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 최신 버전의 SM(서비스 관리) cmdlet을 다운로드해야 합니다.
+When all the previous steps have been completed, set the IPsec/IKE pre-shared keys and create the connection. This set of steps uses PowerShell and cannot be configured in the portal. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
 
-1. Windows PowerShell을 열고 로그인합니다.
+1. Open Windows PowerShell and log in.
 
-		Add-AzureAccount
+        Add-AzureAccount
 
-2. Vnet이 상주하는 구독을 선택합니다.
+2. Select the subscription that your VNets reside in.
 
-		Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
-		Select-AzureSubscription -SubscriptionName "<Subscription Name>"
+        Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
+        Select-AzureSubscription -SubscriptionName "<Subscription Name>"
 
-3. 연결을 만듭니다. 아래 예제에서 공유 키가 정확히 동일한지 확인합니다. 공유 키는 항상 일치해야 합니다.
+3. Create the connections. In the examples, notice that the shared key is exactly the same. The shared key must always match.
 
 
-	VNet1-VNet2 연결
+    VNet1 to VNet2 connection
 
-		Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2Local -SharedKey A1b2C3D4
+        Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2Local -SharedKey A1b2C3D4
 
-	VNet2-VNet1 연결
+    VNet2 to VNet1 connection
 
-		Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
+        Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
 
-4. 연결이 초기화될 때까지 기다립니다. 게이트웨이가 초기화되면 다음 그림과 같아집니다.
+4. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
 
-	![게이트웨이 상태 - 연결됨](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)
+    ![Gateway Status - Connected](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
 
-	[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+    [AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
+You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more information.
 
 
 
@@ -244,4 +246,8 @@ VNet-VNet 구성을 만들 경우 포털의 **로컬 네트워크** 페이지에
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

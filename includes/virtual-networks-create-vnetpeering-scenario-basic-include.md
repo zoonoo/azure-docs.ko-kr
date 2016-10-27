@@ -1,9 +1,11 @@
-## 동일한 구독에 있는 피어링 VNet
+## <a name="peering-vnets-in-the-same-subscription"></a>Peering VNets in the same subscription
 
-이 시나리오에서는 동일한 구독에 속한 **VNet1** 및 **VNet2**라는 두 개의 VNet 간에 피어링을 만듭니다.
+In this scenario you will create a peering between two VNets named **VNet1** and **VNet2** belonging to the same subscription. 
 
-![기본 시나리오](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
+![Basic scenario](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
 
-VNet 피어링을 사용하면 피어링된 가상 네트워크의 전체 주소 공간 간에 완벽한 연결이 가능합니다.
+VNet peering will allow full connectivity between the entire address space of peered virtual networks.    
 
-<!---HONumber=AcomDC_0803_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

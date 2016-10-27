@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure Active Directory와 응용 프로그램 통합 | Microsoft Azure"
-   description="Azure Active Directory(Azure AD)에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법을 보여줍니다."
+   pageTitle="Integrating Applications with Azure Active Directory | Microsoft Azure"
+   description="Details on how to add, update, or remove an application in Azure Active Directory (Azure AD)."
    services="active-directory"
    documentationCenter=""
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor="mbaldwin" />
 <tags
@@ -12,343 +12,351 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/25/2016"
+   ms.date="10/11/2016"
    ms.author="mbaldwin;bryanla" />
 
-# Azure Active Directory와 응용 프로그램 통합
+
+# <a name="integrating-applications-with-azure-active-directory"></a>Integrating applications with Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-엔터프라이즈 개발자 및 소프트웨어 SaaS(software-as-a-service) 공급자는 Azure AD(Azure Active directory)와 함께 통합되어 보안 로그인 및 해당 서비스에 대한 인증을 제공하는 상용 클라우드 서비스 또는 업무용 응용 프로그램 제품군을 개발할 수 있습니다. 응용프로그램 또는 서비스를 Azure AD와 통합하려면 개발자가 먼저 Azure 클래식 포털을 통해 Azure AD와 응용프로그램에 대한 자세한 내용을 등록해야 합니다.
+Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services. To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD through the Azure classic portal.
 
-이 문서에서는 Azure AD에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법을 보여줍니다. Azure AD와 통합할 수 있는 다양한 유형의 응용프로그램, 웹 API 등과 같은 기타 리소스에 액세스하도록 응용프로그램을 구성하는 방법에 대해 알아봅니다.
+This article shows you how to add, update, or remove an application in Azure AD. You will learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as Web APIs, and more.
 
-등록된 응용프로그램과 두 Azure AD 개체 간의 관계를 나타내는 두 Azure AD 개체에 대해 자세히 알아보려면 [응용프로그램 개체 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하고, Azure Active Directory로 응용프로그램 개발 시 사용해야 하는 브랜딩 지침에 대해 자세히 알아보려면 [통합 앱에 대한 브랜드 지침](active-directory-branding-guidelines.md)을 참조하세요.
+To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application Objects and Service Principal Objects](active-directory-application-objects.md); to learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md).
 
-## 응용 프로그램 추가
+## <a name="adding-an-application"></a>Adding an application
 
-Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 응용 프로그램에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
+Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it’s located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
 
-Azure AD 내 사용자에 대해 로그인만 지원해야 하는 웹 응용프로그램을 만든다면 아래 지침만 따르면 됩니다. 응용프로그램이 웹 API에 액세스해야 하거나 다중 테넌트인 응용프로그램을 통해 다른 Azure AD 테넌트의 사용자가 웹 API에 액세스하도록 하려는 경우, [응용프로그램 업데이트](#updating-an-application) 섹션을 읽고 응용프로그램을 계속 구성해 나가야 합니다.
+If you’re building a Web application that just needs to support sign-in for users in Azure AD, you can simply follow the instructions below. If your application needs access to a Web API, or you want to enable your application as multi-tenant to allow users from other Azure AD tenants to access it, you’ll need to continue reading the [Updating an Application](#updating-an-application) section to continue configuring your application.
 
-### Azure 클래식 포털에서 새로운 응용프로그램을 등록하려면
+### <a name="to-register-a-new-application-in-the-azure-classic-portal"></a>To register a new application in the Azure classic portal
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
-1. 왼쪽 메뉴에 있는 Active Directory 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
+1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
-1. 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. 디렉터리에 추가한 앱이 없는 경우,이 페이지는 앱 추가 링크만 표시합니다. 이 링크를 클릭하거나 명령 모음에서 **추가** 단추를 클릭할 수 있습니다.
+1. On the top menu, click **Applications**. If no apps have been added to your directory, this page will only show the Add an App link. Click on the link, or alternatively you can click on the **Add** button on the command bar.
 
-1. 무엇을 하고 싶나요 페이지에서 **조직에서 개발 중인 응용 프로그램 추가** 링크를 클릭합니다.
+1. On the What do you want to do page, click on the link to **Add an application my organization is developing**.
 
-1. 응용 프로그램에 대하여 알려주세요 페이지에서 자신의 응용 프로그램의 이름을 지정하고 Azure AD로 등록하는 응용 프로그램 유형을 나타내야 합니다. 웹 응용 프로그램 및/또는 Web API(기본값, OAuth2에서는 기밀 클라이언트라고 함) 또는 전화나 컴퓨터(OAuth2에서는 공용 클라이언트라고 함)와 같은 장치에 설치된 응용 프로그램을 나타내는 네이티브 클라이언트 응용 프로그램 중에서 선택할 수 있습니다. 완료하면 페이지 오른쪽 아래 모서리에 있는 화살표 아이콘을 클릭합니다.
+1. On the Tell us about your application page, you must specify a name for your application as well as indicate the type of application you are registering with Azure AD.  You can choose from a Web application and/or Web API (default, known as a confidential client in OAuth2) or Native client application which represents an application that is installed on a device such as a phone or computer (known as a public client in OAuth2). Once finished, click the arrow icon on the bottom-right corner of the page.
 
-1. 응용 프로그램 속성 페이지에서 로그온 URL 및 앱 ID URI(웹 응용 프로그램을 등록하는 경우) 또는 네이티브 클라이언트 응용 프로그램에 대한 리디렉션 URI를 제공하고 페이지의 맨 아래 오른쪽 모서리에 있는 확인란을 클릭합니다.
+1. On the App properties page, provide the Sign-on URL and App ID URI if you’re registering a Web application or just the Redirect URI for a Native client application, then click the checkbox in the bottom-right hand corner of the page.
 
-1. 그러면 응용 프로그램이 추가되고 응용 프로그램의 빠른 시작 페이지로 이동합니다. 응용프로그램이 웹 또는 네이티브 응용프로그램인지에 따라 응용프로그램에 기능을 추가하는 옵션이 다릅니다. 일단 응용프로그램이 추가되면 사용자가 다른 응용프로그램에서 로그인하고 웹 API에 액세스하거나 다중 테넌트 응용프로그램을 구성할 수 있도록(다른 조직이 자신의 응용프로그램에 액세스할 수 있도록 허용) 응용프로그램의 업데이트를 시작할 수 있습니다.
+1. Your application has been added, and you will be taken to the Quick Start page for your application. Depending on whether your application is a Web or Native application, you will see different options on how to add additional capabilities to your application. Once your application has been added, you can begin updating your application to enable users to sign in, access Web APIs in other applications, or configure multi-tenant application (which allows other organizations to access your application).
 
->[AZURE.NOTE] 기본적으로 새로 만든 응용 프로그램의 등록은 여러분의 디렉터리로부터 사용자가 여러분의 응용 프로그램에 로그인할 수 있도록 구성됩니다.
+>[AZURE.NOTE] By default, the newly created application registration is configured to allow users from your directory to sign in to your application.
 
-## 응용 프로그램 업데이트
+## <a name="updating-an-application"></a>Updating an application
 
-응용프로그램이 Azure AD와 등록되면 웹 API에 액세스를 제공하도록 업데이트하고 다른 조직에서 사용할 수 있게 만드는 등, 기타 작업이 필요할 수도 있습니다. 이 섹션은 응용 프로그램을 추가로 구성하는 데 필요한 다양한 방법을 설명합니다. 먼저, 동의 프레임워크에 대해 설명하겠습니다. 자신의 조직이나 다른 조직에서 개발한 클라이언트 응용 프로그램에서 사용할 리소스/API 응용 프로그램을 빌드하고 있는 분은 동의 프레임워크를 이해하는 것이 중요합니다.
+Once your application has been registered with Azure AD, it may need to be updated to provide access to Web APIs, be made available in other organizations, and more. This section describes various ways in which you may need to configure your application further. First we will start with an overview of the Consent Framework, which is important to understand if you are building resource/API applications that will be consumed by client applications built by developers in your organization or another organization.
 
-Azure AD에서 인증이 작동하는 방식에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
+For more information on the way authentication works in Azure AD, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
-### 동의 프레임워크의 개요
+### <a name="overview-of-the-consent-framework"></a>Overview of the consent framework
 
-Azure AD의 동의 프레임워크는 클라이언트 응용프로그램이 등록된 것과 달리 Azure AD 테넌트로 보호되는 웹 API에 액세스해야 하는 다중 테넌트 웹 및 네이티브 클라이언트 응용프로그램 개발을 용이하게 해줍니다. 이러한 웹 API에는 자신의 웹 API 이외에도 Graph API, Office 365 및 기타 Microsoft 서비스가 포함됩니다. 이 프레임워크는 응용프로그램을 자신의 디렉토리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 이 때 디렉토리 데이터 액세스가 필요할 수도 있습니다.
+Azure AD’s consent framework makes it easy to develop multi-tenant Web and Native client applications that need to access Web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These Web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own Web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data.
 
-예를 들어, 웹 클라이언트 응용프로그램이 사용자에 대한 일정 정보를 읽기 위해 Office 365의 웹 API/리소스 응용프로그램을 호출해야 하는 경우 해당 사용자가 클라이언트 응용프로그램에 동의해야 합니다. 동의하면 해당 클라이언트 응용프로그램이 사용자를대신해서 Office 365 웹 API를 호출하고 필요한 대로 일정 정보를 사용할 수 있습니다.
+For example, if a Web client application needs to call an Office 365 Web API/resource application to read calendar information about the user, that user will be required to consent to the client application. After consent is given, the client application will be able to call the Office 365 Web API on behalf of the user, and use the calendar information as needed.
 
-동의 프레임워크는 공용 또는 기밀 클라이언트를 사용하여 인증 코드 부여 및 클라이언트 자격 증명 부여와 같은 다양한 흐름 및 OAuth 2.0을 기반으로 작성됩니다. OAuth 2.0을 사용하여 Azure AD는 전화기, 태블릿, 서버 또는 웹 응용프로그램과 같은 다양한 유형의 클라이언트 응용프로그램을 작성하고 필요한 리소스에 액세스할 수 잇습니다.
+The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications, such as on a phone, tablet, server, or a Web application, and gain access to the required resources.
 
-동의 프레임워크에 대한 자세한 정보는 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Azure AD 인증 시나리오](active-directory-authentication-scenarios.md) 및 Office 365 항목 [ Office 365 API를 통한 인증 이해](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks)를 참조하세요.
+For more detailed information about the consent framework, see [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md), and Office 365 topic [Understanding authentication with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks).
 
-#### 승인 환경 예
+#### <a name="example-of-the-consent-experience"></a>Example of the consent experience
 
-다음 단계는 응용 프로그램 개발자와 사용자 모두에 대해 동의 경험이 어떻게 작동하는지를 보여줍니다.
+The following steps will show you how the consent experience works for both the application developer and user.
 
-1. Azure 클래식 포털에 있는 웹 클라이언트 응용프로그램의 구성 페이지에서 다른 응용프로그램 제어에 대한 사용 권한에 있는 드롭다운 메뉴를 사용하여 응용프로그램에 필요한 사용 권한을 설정합니다.
+1. On your Web client application’s configuration page in the Azure classic portal, set the permissions your application requires by using the drop-down menus in the Permissions to other applications control.
 
-    ![다른 응용 프로그램에 대한 권한](./media/active-directory-integrating-applications/permissions.png)
+    ![Permissions to other applications](./media/active-directory-integrating-applications/permissions.png)
 
-1. 응용 프로그램의 사용 권한이 업데이트되었고 응용 프로그램이 실행 중이며 사용자가 처음으로 사용하는 것임을 고려하세요. 응용 프로그램이 아직 액세스나 새로고침 토큰을 입수하지 않은 경우 응용 프로그램이 Azure AD의 권한 부여 끝점으로 이동하여 새로운 액세스와 새로고침 토큰을 얻는 데 사용할 수 있는 권한 부여 코드를 입수해야 합니다.
+1. Consider that your application’s permissions have been updated, the application is running, and a user is about to use it for the first time. If the application has not already acquired an access or refresh token, the application needs to go to Azure AD’s authorization endpoint to obtain an authorization code that can be used to acquire a new access and refresh token.
 
-1. 사용자가 아직 인증되지 않았다면 Azure AD에 로그인하라는 메시지가 나타납니다.
+1. If the user is not already authenticated, they’ll be asked to sign in to Azure AD.
 
-    ![사용자 또는 관리자가 Azure AD에 로그인](./media/active-directory-integrating-applications/useradminsignin.png)
+    ![User or administrator sign in to Azure AD](./media/active-directory-integrating-applications/useradminsignin.png)
 
-1. 사용자가 로그인한 후 Azure AD는 사용자를 동의 페이지에 표시해야 하는지 여부를 결정합니다. 이 결정은 사용자(또는 해당 조직의 관리자)가 응용 프로그램 동의를 부여했는지 여부에 따라 다릅니다. 아직 동의가 부여되지 않았다면 Azure AD는 사용자에게 동의 여부를 묻는 메시지를 표시하며 작동에 필요한 사용 권한을 표시합니다. 동의 대화 상자에 표시되는 사용 권한 집합은 Azure 클래식 포털에서 다른 응용프로그램 제어에 대한 사용 권한에 선택된 것과 동일합니다.
+1. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD will prompt the user for consent and will display the required permissions it needs to function. The set of permissions that is displayed in the consent dialog are the same as what was selected in the Permissions to other applications control in the Azure classic portal.
 
-    ![사용자 동의 경험](./media/active-directory-integrating-applications/userconsent.png)
+    ![User consent experience](./media/active-directory-integrating-applications/userconsent.png)
 
-1. 사용자가 동의를 부여하면 인증 코드가 응용 프로그램에 반환되며, 이것을 교환하여 액세스 토큰 및 새로고침 토큰을 획득할 수 있습니다. 이 흐름에 대한 자세한 내용은 [Azure AD 인증 시나리오](active-directory-authentication-scenarios.md)의 [웹 응용 프로그램-Web API 섹션](active-directory-authentication-scenarios.md#web-application-to-web-api)을 참조하세요.
+1. After the user grants consent, an authorization code is returned to your application, which can be redeemed to acquire an access token and refresh token. For more information about this flow, see the [Web Application to Web API section](active-directory-authentication-scenarios.md#web-application-to-web-api) section in [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
-### 웹 API에 액세스하는 클라이언트 응용프로그램 구성
+### <a name="configuring-a-client-application-to-access-web-apis"></a>Configuring a client application to access Web APIs
 
-리소스 응용프로그램에 의해 노출되는 웹 API에 액세스하기 위해 클라이언트 응용프로그램을 구성하는 경우(예: Azure AD Graph API), 위에서 설명한 동의 프레임워크는 요청된 권한에 따라 클라이언트가 필요한된 권한을 획득하도록 합니다. 기본적으로 모든 응용 프로그램은 Azure AD "로그인 사용 및 사용자 프로필 읽기" 권한이 기본적으로 선택된 상태로 Azure Active Directory(그래프 API) 및 Azure 서비스 관리 API에서 사용 권한을 선택할 수 있습니다. 클라이언트 응용프로그램을 Office 365 Azure AD 테넌트에 등록하는 경우, SharePoint 및 Exchange Online의 웹 API 및 권한도 선택할 수 있습니다. 원하는 웹 API 옆에 있는 드롭다운 메뉴에서 다음 두 가지 유형의 사용 권한 중에서 선택할 수 있습니다.
+When a client application is configured to access a Web API exposed by a resource application (ie: Azure AD Graph API), the consent framework described above will ensure the client obtains the permission grant required, based on the permissions requested. By default, all applications can choose permissions from Azure Active Directory (Graph API) and Azure Service Management API, with the Azure AD “Enable sign on and read user’s profile” permission already selected by default. If your client application is being registered in an Office 365 Azure AD tenant, Web APIs and permissions for SharePoint and Exchange Online will also be available for selection. You can select from two types of permissions in the drop-down menus next to the desired Web API:
 
-- 응용프로그램 사용 권한: 클라이언트 응용프로그램이 자체적으로(사용자 컨텍스트 없음) 직접 웹 API에 액세스해야 합니다. 이 유형의 권한은 관리자의 동의가 필요하며 네이티브 클라이언트 응용프로그램에 대해 사용할 수 없습니다.
+- Application Permissions: Your client application needs to access the Web API directly as itself (no user context). This type of permission requires administrator consent and is also not available for Native client applications.
 
-- 위임된 권한: 클라이언트 응용프로그램이 로그인된 사용자로 웹 API에 액세스해야 하지만 선택한 사용 권한에 의해 액세스가 제한됩니다. 이 유형의 사용 권한은 관리자의 동의를 필요로 하지 않는 한 사용자가 부여할 수있습니다.
+- Delegated Permissions: Your client application needs to access the Web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission is configured as requiring administrator consent.
 
-#### 웹 API에 대한 액세스를 추가하려면
+#### <a name="to-add-access-to-web-apis"></a>To add access to Web APIs
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 
-1. 왼쪽 메뉴에 있는 Active Directory 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
+1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
-1. 위쪽 메뉴에서 **응용 프로그램**을 클릭하고 구성하려는 응용 프로그램을 클릭합니다. 빠른 시작 페이지가 단일 로그인 및 기타 구성 정보와 함께 나타납니다.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. 빠른 시작의 다른 응용 프로그램 섹션에서 액세스 웹 API를 확장하고 사용 권한 선택 섹션 아래에 있는 **지금 구성** 링크를 클릭합니다. 응용 프로그램 속성 페이지가 나타납니다.
+1. Expand the Access Web APIs in Other Applications section of the Quick Start, and then click the **Configure it now** link under the Select permissions section. The application properties page will appear.
 
-1. 아래에 있는 다른 응용 프로그램에 대한 권한 섹션으로 스크롤합니다. 첫 번째 열에서는 웹 API를 노출하는 디렉토리에서 사용 가능한 리소스 응용프로그램 중에서 선택할 수 있습니다. 선택되면 해당 웹 API가 노출하는 응용프로그램 및 위임 권한을 선택할 수도 있습니다.
+1. Scroll down to the Permissions to other applications section. The first column allows you to select from the available resource applications in your directory that expose a Web API.  Once selected, you may select application and delegation permissions that the Web API exposes.
 
-1. 선택되면 명령 모음에 있는 **저장** 단추를 클릭합니다.
+1. Once selected, click the **Save** button on the command bar.
 
->[AZURE.NOTE] 저장 단추를 클릭해도 구성한 다른 응용 프로그램에 대한 권한을 기반으로 디렉토리 내 응용 프로그램에 대한 사용 권한이 자동으로 설정됩니다. 응용 프로그램 속성 탭에서 이러한 응용 프로그램 사용 권한을 확인할 수 있습니다.
+>[AZURE.NOTE] Clicking the Save button also automatically sets the permissions for your application in your directory based on the Permissions to other applications that you configured.  You can view these application permissions by looking at the application Properties tab.
 
-### 웹 API를 노출하는 리소스 응용프로그램 구성
+### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configuring a resource application to expose Web APIs
 
-웹 API를 개발하고 액세스 범위를 노출함으로써 이를 클라이언트 응용 프로그램에 대해 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다. 응용 프로그램의 ID 구성을 나타내는 JSON 파일인 응용 프로그램 매니페스트를 통해 액세스 범위가 노출됩니다. Azure 클래식 포털에서 해당 응용 프로그램으로 찾아가고 명령 모음에 있는 응용 프로그램 매니페스트 단추를 클릭하여 범위를 노출할 수 있습니다.
+You can develop a Web API and make it available to client applications by exposing access scopes. A correctly configured Web API is made available just like the other Microsoft Web APIs, including the Graph API and the Office 365 APIs. Access scopes are exposed through your application's manifest, which is a JSON file that represents your application’s identity configuration. You can expose your scopes by navigating to your application in the Azure classic portal and clicking on the Application Manifest button on the command bar.  
 
-#### 리소스 응용 프로그램에 액세스 범위 추가
+#### <a name="adding-access-scopes-to-your-resource-application"></a>Adding access scopes to your resource application
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
-1. 왼쪽 메뉴에 있는 Active Directory 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
+1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
-1. 최상위 메뉴에서 **응용 프로그램**을 클릭한 다음 구성하려는 리소스 응용 프로그램을 클릭합니다. 빠른 시작 페이지가 단일 로그인 및 기타 구성 정보와 함께 나타납니다.
+1. On the top menu, click **Applications**, and then click the resource application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. 명령 모음에서 **매니페스트 관리** 단추를 클릭하고 **매니페스트 다운로드**를 선택합니다.
+1. Click on the **Manage manifest** button in the command bar, and select **Download manifest**.
 
-1. JSON 응용 프로그램 매니페스트 파일을 열고 다음 JSON 조각으로 "oauth2Permissions" 노드를 바꿉니다. 이 코드 조각은 “사용자 가장"이란 범위를 노출하는 방법의 예시입니다. “사용자 가장"을 사용하면 리소스 소유자가 클라이언트 응용 프로그램에 리소스에 대한 일종의 위임된 액세스 권한을 부여할 수 있습니다. 응용프로그램의 텍스트와 값을 변경했는지 확인합니다.
+1. Open the JSON application manifest file and replace “oauth2Permissions” node with the following JSON snippet. This snippet is an example of how to expose a scope known as "user impersonation", which allows a resource owner to give a client application a type of delegated access to a resource. Make sure that you change the text and values for your own application:
 
-		"oauth2Permissions": [
-		{
-			"adminConsentDescription": "Allow the application full access to the Todo List service on behalf of the signed-in 	user",
-			"adminConsentDisplayName": "Have full access to the Todo List service",
-			"id": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
-			"isEnabled": true,
-			"type": "User",
-			"userConsentDescription": "Allow the application full access to the todo service on your behalf",
-			"userConsentDisplayName": "Have full access to the todo service",
-			"value": "user_impersonation"
-			}
-		],
+        "oauth2Permissions": [
+        {
+            "adminConsentDescription": "Allow the application full access to the Todo List service on behalf of the signed-in   user",
+            "adminConsentDisplayName": "Have full access to the Todo List service",
+            "id": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
+            "isEnabled": true,
+            "type": "User",
+            "userConsentDescription": "Allow the application full access to the todo service on your behalf",
+            "userConsentDisplayName": "Have full access to the todo service",
+            "value": "user_impersonation"
+            }
+        ],
 
-    ID 값은 [GUID 생성 도구](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)를 사용하거나 프로그래밍 방식으로 만드는 새롭게 생성된 GUID여야 합니다. 이것은 웹 API에 의해 노출되는 사용 권한을 위한 고유한 식별자를 나타냅니다. 클라이언트가 웹 API에 대한 액세스를 요청하도록 적절하게 구성되고 웹 API를 호출하면 범위(scp) 클레임이 위 값으로 설정된 OAuth 2.0 JWT 토큰을 나타내며 이 경우에는 user\_impersonation입니다.
+    The id value must be a new generated GUID that you create by using a [GUID generation tool](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) or programmatically. It represents a unique identifier for the permission that is exposed by the Web API. Once your client is appropriately configured to request access to your Web API and calls the Web API, it will present an OAuth 2.0 JWT token that has the scope (scp) claim set to the value above, which in this case is user_impersonation.
 
-	>[AZURE.NOTE] 추가 범위를 나중에 필요한 대로 노출할 수 있습니다. 웹 API가 다양한 기능과 관련된 여러 범위를 노출할 수도 있음을 고려하세요. 이제 수신된 OAuth 2.0 JWT 토큰에서 범위(scp) 클레임을 사용하여 웹 API에 대한 액세스를 제어할 수 있습니다.
+    >[AZURE.NOTE] You can expose additional scopes later as necessary. Consider that your Web API might expose multiple scopes associated with a variety of different functions. Now you can control access to the Web API by using the scope (scp) claim in the received OAuth 2.0 JWT token.
 
-1. 업데이트된 JSON 파일을 저장한 다음 명령 모음에 있는 **매니페스트 관리** 단추를 클릭하고 **매니페스트 업로드**를 선택한 후 업데이트된 매니페스트 파일을 찾아 선택하여 업로드합니다. 파일이 업로드되면 웹 API가 이제 디렉토리 내 다른 응용프로그램에 의해 사용되도록 구성됩니다.
+1. Save the updated JSON file and upload it by clicking the **Manage manifest** button in the command bar, selecting **Upload manifest**, browsing to your updated manifest file and then selecting it. Once uploaded, your Web API is now configured to be used by other applications in your directory.
 
-#### 웹 API가 디렉토리의 다른 응용프로그램에 노출되었는지 확인하려면
+#### <a name="to-verify-the-web-api-is-exposed-to-other-applications-in-your-directory"></a>To verify the Web API is exposed to other applications in your directory
 
-1. 최상위 메뉴에서 **응용 프로그램**을 클릭하고 원하는 클라이언트 응용 프로그램을 선택하여 웹 API에 대한 액세스를 구성한 다음 **구성**을 클릭합니다.
+1. On the top menu, click **Applications**, select the desired client application you want to configure access to the Web API, and then click **Configure**.
 
-1. 아래에 있는 다른 응용 프로그램에 대한 권한 섹션으로 스크롤합니다. 응용프로그램 선택 드롭다운 메뉴를 클릭하고 방금 사용 권한을 노출한 웹 API를 선택할 수 있습니다. 위임된 권한 드롭다운 메뉴에서 새 사용 권한을 선택합니다.
+1. Scroll down to the permissions to other applications section. Click on the Select application drop-down menu and you will be able to select the Web API that you just exposed a permission for. From the Delegated Permissions drop-down menu, select the new permission.
 
-![해야 할 일 목록 권한이 표시됨](./media/active-directory-integrating-applications/listpermissions.png)
+![Todo List permissions are shown](./media/active-directory-integrating-applications/listpermissions.png)
 
-#### 응용프로그램 매니페스트에 대한 추가 정보
-응용 프로그램 매니페스트는 실제로 설명한 API 액세스 범위를 포함하여, Azure AD 응용 프로그램의 ID 구성의 모든 특성을 정의하는 응용 프로그램 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 응용 프로그램 엔터티에 대한 자세한 내용은 [Graph API 응용 프로그램 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요. 여기에서 API에 대한 사용 권한을 지정하는 데 사용되는 응용프로그램 엔터티 멤버에 관한 전체 참조 정보를 찾아볼 수 있습니다.
+#### <a name="more-on-the-application-manifest"></a>More on the application manifest
+The application manifest actually serves as a mechanism for updating the Application entity, which defines all attributes of an Azure AD application's identity configuration, including the API access scopes we discussed. For more information on the Application entity, please see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). In it, you will find complete reference information on the Application entity members used to specify permissions for your API:  
 
-- 웹 API에 대해 **응용 프로그램 사용 권한**을 정의하는 데 사용할 수 있는 [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) 엔터티의 컬렉션인 appRoles 멤버
-- 웹 API에 대해 **위임된 사용 권한**을 정의하는 데 사용할 수 있는 [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) 엔터티의 컬렉션인 oauth2Permissions 멤버
+- the appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities that can be used to define the **Application Permissions** for a Web API  
+- the oauth2Permissions member, which is a collection of  [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities that can be used to define the **Delegated Permissions** for a Web API
 
-일반적인 응용 프로그램 매니페스트 개념에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)를 참조하세요.
+For more information on application manifest concepts in general, please refer to [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
 
-### Azure AD Graph 및 Office 365 API에 액세스
+### <a name="accessing-the-azure-ad-graph-and-office-365-apis"></a>Accessing the Azure AD Graph and Office 365 APIs
 
-앞서 설명한 대로 리소스 응용프로그램에서 API 노출/액세스 외에도 Microsoft 리소스에 의해 노출된 API에 액세스하기 위해 클라이언트 응용프로그램을 업데이트할 수도 있습니다. 다른 응용프로그램에 대한 사용 권한 목록 중에서 "Azure Active Directory"라고 하는 Azure AD Graph API는 Azure AD에 등록된 모든 응용프로그램에서 기본으로 사용할 수 있습니다. Office 365에서 프로비전된 Azure AD 테넌트의 클라이언트 응용프로그램을 등록하는 경우, API에 의해 다양한 Office 365 리소스에 노출된 모든 사용 권한을 액세스할 수 있습니다.
+As mentioned earlier, in addition to exposing/accessing APIs on your own resource applications, you can also update your client application to access APIs exposed by Microsoft resources.  The Azure AD Graph API, which is called “Azure Active Directory” in the list of Permissions to other applications, is available by default for all applications that are registered with Azure AD. If you are registering your client application in an Azure AD tenant that was provisioned by Office 365, you can also access all of the permissions exposed by the APIs to various Office 365 resources.
 
-액세스 범위에 대한 자세한 내용
+For a complete discussion on access scopes exposed by:  
 
-- Azure AD Graph API에 의해 노출되는 경우 [사용 권한 범위 | Graph API 개념](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) 문서를 참조하세요.
-- Office 365 API에 의해 노출되는 경우 [공통 동의 프레임워크를 사용한 인증 및 권한 부여](https://msdn.microsoft.com/office/office365/howto/application-manifest) 문서를 참조하세요. Office 365 API와 통합되는 클라이언트 응용 프로그램을 작성하는 방법에 대한 개괄적인 설명은 [Office 365 개발 환경 설정](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment)을 참조하세요.
+- Azure AD Graph API, please see the [Permission scopes | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) article.
+- Office 365 APIs, please see the [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/office/office365/howto/application-manifest) article. See [Set up your Office 365 development environment](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) for the larger discussion on how to build a client app that integrates with Office 365 APIs.
 
->[AZURE.NOTE] 현재 제한으로 인해 네이티브 클라이언트 응용프로그램이 “조직의 디렉토리 액세스” 권한을 사용하는 경우 Azure AD Graph API만 호출할 수 있습니다. 이 제한은 웹 응용프로그램에는 적용되지 않습니다.
+>[AZURE.NOTE] Due to a current limitation, Native client applications can only call into the Azure AD Graph API if they use the “Access your organization's directory” permission.  This restriction does not apply for Web applications.
 
-### 다중 테넌트 응용 프로그램 구성
+### <a name="configuring-multi-tenant-applications"></a>Configuring multi-tenant applications
 
-Azure AD에 응용 프로그램을 추가하는 경우 조직 내의 사용자만 해당 응용 프로그램에 액세스할 수 있도록 제한하는 것이 좋습니다. 또는 외부 조직의 사용자가 응용 프로그램에 액세스할 수 있게 만들 수도 있습니다. 이러한 두 응용 프로그램 종류를 단일 테넌트 및 다중 테넌트 응용 프로그램이라고 합니다. 단일 테넌트 응용 프로그램의 구성을 다중 테넌트 응용 프로그램으로 수정할 수 있습니다. 이 섹션에서 아래와 같이 설명합니다.
+When adding an application to Azure AD, you may want your application to be accessed only by users in your organization. Alternatively, you may want your application to be accessed by users in external organizations. These two application types are called single tenant and multi-tenant applications. You can modify the configuration of a single tenant application to make it a multi-tenant application, which this section discusses below.
 
-단일 테넌트와 다중 테넌트 응용프로그램 사이의 차이점을 인식하는 것이 중요합니다.
+It’s important to note the differences between a single tenant and multi-tenant application:  
 
-- 단일 테넌트 응용 프로그램은 단일 조직에서 사용하기 위한 것입니다. 일반적으로 엔터프라이즈 개발자가 작성한 LoB(기간 업무) 응용 프로그램이 이에 해당합니다. 단일 테넌트 응용 프로그램은 하나의 디렉터리에 있는 사용자들만 액세스해야 하므로 하나의 디렉터리에서만 프로비전해야 합니다.
-- 다중 테넌트 응용 프로그램은 여러 조직에서 사용하기 위한 것입니다. 일반적으로 ISV(Independent Software Vendor)가 작성한SaaS(Software-as-a-Service) 웹 응용프로그램이 이에 해당합니다. 다중 테넌트 응용프로그램은 사용될 각 디렉토리에서 프로비저닝해야 하며, 그러려면 사용자나 관리자가 등록에 동의해야 하며, Azure AD 동의 프레임워크를 통해 지원되어야 합니다. 모든 네이티브 클라이언트 응용프로그램은 기본적으로 리소스 소유자의 장치에 설치된 다중 테넌트입니다. 동의 프레임워크에 대한 자세한 내용은 위의 동의 프레임워크 개요 섹션을 참조하십시오.
+- A single tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.
+- A multi-tenant application intended for use in many organizations. They are a software-as-a-service (SaaS) Web application typically written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them, supported via the Azure AD consent framework. Note that all Native client applications are multi-tenant by default as they are installed on the resource owner's device. See the Overview of the Consent Framework section above for more details on the consent framework.
 
-#### 외부 사용자가 리소스에 응용 프로그램 액세스 권한을 부여하도록 허용
+#### <a name="enabling-external-users-to-grant-your-application-access-to-their-resources"></a>Enabling external users to grant your application access to their resources
 
-고객이나 조직 외부의 파트너가 사용할 수 있는 응용프로그램을 작성 중인 경우 Azure 클래식 포털에서 응용프로그램의 정의를 업데이트해야 합니다.
+If you are writing an application that you want to make available to your customers or partners outside of your organization, you will need to update the application definition in the Azure classic portal.
 
->[AZURE.NOTE] 다중 테넌트를 사용하도록 설정하면 응용프로그램의 앱 ID URI가 확인된 도메인에 속하도록 해야 합니다. 또한 반환 URL이 https://로 시작해야 합니다. 자세한 내용은 [응용 프로그램 개체 및 서비스 사용자 개체](active-directory-application-objects.md)를 참조하세요.
+>[AZURE.NOTE] When enabling multi-tenant, you must ensure that your application’s App ID URI belongs in a verified domain. Additionally, the Return URL must begin with https://. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 
-외부 사용자의 앱 액세스를 허용하려면:
+To enable access to your app for external users: 
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 
-1. 왼쪽 메뉴에 있는 Active Directory 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
+1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
-1. 위쪽 메뉴에서 **응용 프로그램**을 클릭하고 구성하려는 응용 프로그램을 클릭합니다. 빠른 시작 페이지가 구성 옵션과 함께 표시됩니다.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with configuration options.
 
-1. 빠른 시작의 **다중 테넌트 응용 프로그램 구성** 섹션을 확장한 다음 액세스 사용 섹션에 있는 **지금 구성** 링크를 클릭합니다. 응용 프로그램 속성 페이지가 나타납니다.
+1. Expand the **Configure Multi-tenant Application** section of the Quick Start, then click the **Configure it now** link in the Enable Access section. The application properties page will appear.
 
-1. 응용 프로그램이 다중 테넌트입니다 옆에 있는 **예** 단추를 클릭한 다음 명령 모음에 있는 **저장** 단추를 클릭합니다.
+1. Click the **Yes** button next to Application is multi-tenant, then click the **Save** button on the command bar.
 
-여기까지 변경했다면 다른 조직 내의 사용자와 관리자가 자신의 디렉터리 및 기타 데이터에 응용 프로그램 액세스를 부여할 수 있습니다.
+Once you have made the change above, users and administrators in other organizations will be able to grant your application access to their directory and other data.
 
-#### 런타임 시 Azure AD 동의 프레임워크 트리거
+#### <a name="triggering-the-azure-ad-consent-framework-at-runtime"></a>Triggering the Azure AD consent framework at runtime
 
-동의 프레임워크를 사용하려면 다중 테넌트 클라이언트 응용프로그램이 OAuth 2.0을 사용하여 권한 부여를 요청해야 합니다. [코드 샘플](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant)은 웹 응용 프로그램, 네이티브 응용 프로그램 또는 서버/디먼 응용 프로그램이 어떻게 웹 API 호출을 위한 액세스 토큰 및 권한 부여 코드를 요청하는지를 보여 줍니다.
+To use the consent framework, multi-tenant client applications must request authorization using OAuth 2.0. [Code samples](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) are available to show you how a Web application, Native application, or server/daemon application requests authorization codes and access tokens to call Web APIs.
 
-웹 응용프로그램이 사용자를 위해 등록 경험을 제공할 수도 있습니다. 등록 경험을 제공하는 경우 사용자가 등록 단추를 클릭하면 브라우저가 Azure AD OAuth2.0 권한 부여 끝점 또는 OpenID Connect userinfo 끝점으로 리디렉션됩니다. 이러한 끝점은 id\_token을 검사하여 응용 프로그램이 새 사용자에 대한 정보를 얻을 수 있도록 지원합니다. 등록 단계를 따라 동의 프레임워크 개요 섹션에 위에 표시된 것과 유사한 동의 프롬프트가 표시됩니다.
+Your Web application may also offer a sign-up experience for users. If you do offer a sign-up experience, it is expected that the user will click on a sign up button that will redirect the browser to the Azure AD OAuth2.0 authorize endpoint or an OpenID Connect userinfo endpoint. These endpoints allow the application to get information about the new user by inspecting the id_token. Following the sign-up phase the user will be presented with a consent prompt similar to the one shown above in the Overview of the Consent Framework section.
 
-또는 웹 응용프로그램에서 관리자가 "우리 회사에 등록"할 수 있는 경험을 제공하기도 있습니다. 이러한 경험은 또한 사용자를 Azure AD OAuth 2.0 권한 부여 끝점으로 리디렉션합니다. 이 경우 prompt=admin\_consent 매개 변수를 관리자가 자신의 조직을 대신해서 동의를 허용할 관리자 동의 경험에 적용할 인증 끝점에 전달합니다. 전역 관리자 역할에 속해 있는 계정으로 인증하는 사용자만이 동의를 제공할 수 있으며, 다른 사용자에게는 오류가 발생합니다. 동의에 성공하면 응답에 admin\_consent=true가 포함됩니다. 액세스 토큰을 교환하는 경우 해당 응용 프로그램에 등록한 조직 및 관리자에 대한 정보를 제공하는 id\_token도 받게 됩니다.
+Alternatively, your Web application may also offer an experience that allows administrators to “sign up my company”. This experience would also redirect the user to the Azure AD OAuth 2.0 authorize endpoint. In this case though, you pass a prompt=admin_consent parameter to the authorize endpoint to force the administrator consent experience, where the administrator will grant consent on behalf of their organization. Only a user that authenticates with an account that belongs to the Global Admin role can provide consent; others will receive an error. On successful consent, the response will contain admin_consent=true. When redeeming an access token, you’ll also receive an id_token that will provide information on the organization and the administrator that signed up for your application.
 
-### 단일 페이지 응용 프로그램에 OAuth 2.0 암시적 허용 사용
+### <a name="enabling-oauth-2.0-implicit-grant-for-single-page-applications"></a>Enabling OAuth 2.0 implicit grant for Single Page Applications
 
-SPA(단일 페이지 응용프로그램)는 일반적으로 브라우저에서 실행되는 JavaScript 기반 프런트 엔드로 구성됩니다. 이러한 프런트 엔드는 응용프로그램의 웹 API를 다시 호출하여 비즈니스 논리를 수행합니다. Azure AD에서 호스트되는 SPA의 경우, OAuth 2.0 암시적 허용을 사용하여 Azure AD에서 사용자를 인증하고, 응용프로그램의 JavaScript 클라이언트에서 해당 백 엔드 웹 API로의 보안 호출을 사용할 수 있는 토큰을 가져옵니다. 사용자가 동의하면 이 동일한 인증 프로토콜을 사용하여 클라이언트와 응용프로그램에 대해 구성된 다른 웹 API 리소스 간의 보안 호출을 위해 토큰을 가져올 수 있습니다. 암시적 권한 부여에 관한 자세한 내용을 확인하고 자신의 응용 프로그램 시나리오에 적절한지 판단하려면 [Azure Active Directory에서 OAuth2 암시적 권한 부여 흐름 이해](active-directory-dev-understanding-oauth2-implicit-grant.md)를 참조하세요.
+Single Page Application’s (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s Web API back end to perform its business logic. For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back end Web API. After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other Web API resources configured for the application. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory ](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
-기본적으로 응용 프로그램에 대해 OAuth 2.0 암시적 허용이 사용되지 않도록 설정됩니다. 응용 프로그램의 ID 구성을 나타내는 JSON 파일인 해당 [응용 프로그램 매니페스트](active-directory-application-manifest.md)에서 `oauth2AllowImplicitFlow`”` 값을 설정하여 응용 프로그램에 대해 OAuth 2.0 암시적 허용을 사용하도록 설정할 수 있습니다.
+By default, OAuth 2.0 implicit Grant is disabled for applications. You can enable OAuth 2.0 Implicit Grant for your application by setting the `oauth2AllowImplicitFlow`”` value in its [application manifest](active-directory-application-manifest.md), which is a JSON file that represents your application's identity configuration.
 
-#### OAuth 2.0 암시적 허용을 사용하도록 설정하려면 
+#### <a name="to-enable-oauth-2.0-implicit-grant"></a>To enable OAuth 2.0 implicit grant 
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-1. 왼쪽 메뉴에서 **Active Directory** 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
-1. 위쪽 메뉴에서 **응용 프로그램**을 클릭하고 구성하려는 응용 프로그램을 클릭합니다. 빠른 시작 페이지가 단일 로그인 및 기타 구성 정보와 함께 나타납니다.
-1. 명령 모음에서 **매니페스트 관리** 단추를 클릭하고 **매니페스트 다운로드**를 선택합니다. JSON 응용 프로그램 매니페스트 파일을 열고 "oauth2AllowImplicitFlow" 값 "true"로 설정합니다. 기본적으로 “false”입니다.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
+1. Click on the **Active Directory** icon on the left menu, then click on the desired directory.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
+1. Click on the **Manage manifest** button in the command bar, and select **Download manifest**.
+Open the JSON application manifest file and set the “oauth2AllowImplicitFlow” value to “true”. By default, it is “false”.
 
     `"oauth2AllowImplicitFlow": true,`
 
-1. 업데이트된 JSON 파일을 저장한 다음 명령 모음에 있는 **매니페스트 관리** 단추를 클릭하고 **매니페스트 업로드**를 선택한 후 업데이트된 매니페스트 파일을 찾아 선택하여 업로드합니다. 업로드가 되면 웹 API는 이제 OAuth 2.0 암시적 허용을 사용하여 사용자를 인증하도록 구성된 것입니다.
+1. Save the updated JSON file and upload it by clicking the **Manage manifest** button in the command bar, selecting **Upload manifest**, browsing to your updated manifest file and then selecting it. Once uploaded, your Web API is now configured to use OAuth 2.0 Implicit Grant to authenticate users.
 
 
-### 액세스 권한 부여에 대한 레거시 경험
+### <a name="legacy-experiences-for-granting-access"></a>Legacy experiences for granting access
 
-이 섹션에서는 2014년 3월 12일 이전 레거시 동의 경험에 대해 설명합니다. 이 경험은 여전히 지원되며 아래에서 설명합니다. 새로운 기능 이전에는 다음 사용 권한만 부여할 수 있습니다.
+This section describes the legacy consent experience prior to March 12, 2014. This experience is still supported, and is described below. Prior to the new functionality, you could only grant the following permissions:
 
-- 조직에서 사용자 로그인
+- Sign on users from their organization
 
-- 사용자 로그인 및 조직의 디렉터리 데이터 읽기(응용 프로그램으로만)
+- Sign on users and read the their organization’s directory data (as the application only)
 
-- 사용자 로그인 및 조직의 디렉터리 데이터 읽기/쓰기(응용 프로그램으로만)
+- Sign on users and read and write their organization’s directory data (as the application only)
 
-[Azure AD를 사용하여 다중 테넌트 웹 응용 프로그램 개발](https://msdn.microsoft.com/library/azure/dn151789.aspx)의 단계를 따라 Azure AD에 등록된 새 응용 프로그램에 액세스 권한을 부여할 수 있습니다. 새 동의 프레임워크가 훨씬 더 강력한 응용 프로그램을 지원하며 관리자 대신에 사용자가 이러한 응용 프로그램에 동의할 수 있게 해준다는 사실을 알고 있어야 합니다.
+You can follow the steps in the [Developing Multi-Tenant Web Applications with Azure AD](https://msdn.microsoft.com/library/azure/dn151789.aspx) to grant access for new applications registered in Azure AD. It’s important to note that the new consent framework allows much more powerful applications, and also enables users to consent to these applications instead of just administrators.
 
-#### 외부 사용자에 대한 액세스를 허용하는 링크 작성(레거시)
+#### <a name="building-the-link-that-grants-access-for-external-users-(legacy)"></a>Building the link that grants access for external users (Legacy)
 
-외부 사용자가 조직 계정을 사용하여 해당 앱에 등록할 수 있게 하려면 액세스 권한을 부여할 수 있는 Azure AD 상의 페이지로 연결되는 단추를 표시하도록 앱을 업데이트해야 합니다. 이 등록 버튼에 대한 브랜딩 지침은 [통합된 응용 프로그램에 대한 브랜딩 지침](active-directory-branding-guidelines.md) 항목에 있습니다. 사용자가 액세스 권한을 부여 또는 거부하면 Azure AD 권한 부여 액세스 페이지가 응답과 함께 브라우저를 해당 앱으로 다시 리디렉션합니다. 응용 프로그램 속성에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 원칙](active-directory-application-objects.md)을 참조하세요.
+In order for external users to sign up for your app using their organizational accounts, you’ll need to update your app to show a button that links to the page on Azure AD that enables them to grant access. Branding guidance for this sign up button is discussed in the [Branding Guidelines for Integrated Applications](active-directory-branding-guidelines.md) topic. After the user either grants or denies access, the Azure AD grant access page will redirect the browser back to your app with a response. For more information about application properties, see [Application Objects and Service Principles](active-directory-application-objects.md).
 
-권한 부여 액세스 페이지는 Azure AD에서 생성하며, Azure 클래식 포털 내 앱의 구성 페이지에서 링크를 찾을 수 있습니다. 구성 페이지로 이동하려면 Azure AD 테넌트의 최상위 메뉴에 있는 **응용 프로그램** 링크를 클릭하고 구성하려는 앱을 클릭한 다음, 빠른 시작 페이지의 최상단 메뉴에서 **구성**을 클릭합니다.
+The grant access page is created by Azure AD, and you can find a link to it in your app’s Configuration page in the Azure classic portal. To get to the Configuration page, click on the **Applications** link in the top menu of your Azure AD tenant, click the app you want to configure, then click on **Configure** from the top menu of the Quick Start page.
 
-해당 응용 프로그램에 대한 링크는 다음과 같습니다. `http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`. 다음 표에서는 해당 링크의 파트에 대해 설명합니다.
+The link for your application will look like this: `http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`. The following table describes the parts of the link:
 
-|매개 변수|설명|
+|Parameter|Description|
 |---|---|
-|clientid|필수입니다. 응용 프로그램 추가의 일부로 얻은 클라이언트 ID입니다.|
-|RequestedPermissions|선택 사항입니다. 응용 프로그램이 요청하는 액세스 수준으로 앱 액세스 권한을 부여하는 사용자에게 표시됩니다. 지정하지 않으면 요청된 액세스 수준이 단일 로그인만으로 기본 설정됩니다. 기타 옵션은 DirectoryReaders 및 DirectoryWriters입니다. 이러한 액세스 수준에 대한 자세한 내용은 응용 프로그램 액세스 수준을 참조하세요.|
-|ConsentReturnUrl|선택 사항입니다. 액세스 권한 부여 응답을 반환하고자 하는 URL입니다. 이 값은 URL 인코딩이어야 하며, 앱 정의에서 구성된 회신 URL과 동일한 도메인 하에 있어야 합니다. 공급되지 않으면 액세스 권한 부여 응답이 구성된 회신 URL로 리디렉션됩니다.|
+|ClientId|Required. The Client ID you obtained as part of adding your app.|
+|RequestedPermissions|Optional. Access level that your app is requesting, that will be displayed to the user granting your app access. If not specified, the requested access level will default to single sign-on only. The other options are DirectoryReaders and DirectoryWriters. See Application Access Levels for more details on these access levels.|
+|ConsentReturnUrl|Optional. The URL that you want the grant access response returned to. This value must be URL-encoded and must be under the same domain as the Reply URL configured in your app definition. If not supplied, the grant access response will be redirected to your configured Reply URL.|
 
-ConsentReturnUrl을 회신 URL과 별도로 지정하면 앱이 회신 URL(일반적으로 로그인을 위해 SAML 토큰을 처리)로부터 다른 URL에 대한 응답을 처리할 수 있는 별도의 논리를 구현할 수 있게 됩니다. ConsentReturnURL 인코딩된 URL에 추가 매개 변수를 지정할 수도 있습니다. 이러한 매개 변수는 리디렉션 시 해당 앱에 쿼리 문자열로 다시 전달됩니다. 이 메커니즘을 사용하여 추가 정보를 유지하거나 앱의 액세스 권한 요청을 Azure AD의 응답에 연결할 수 있습니다.
+Specifying a ConsentReturnUrl separate from the Reply URL will allow your app to implement separate logic that can process the response on a different URL from the Reply URL (which normally processes SAML tokens for sign on). You may also specify additional parameters in the ConsentReturnURL encoded URL; these will be passed back as query string parameters to your app upon redirection.  This mechanism can be used to maintain additional info or to tie your app’s request for an access grant to the response from Azure AD.
 
-#### 액세스 허용 사용자 환경 및 응답(레거시)
+#### <a name="grant-access-user-experience-and-response-(legacy)"></a>Grant access user experience and response (Legacy)
 
-응용 프로그램이 액세스 권한 부여 링크로 리디렉션되면 다음 이미지에서 사용자가 무엇을 경험할 것인지를 보여줍니다.
+When an application redirects to the grant access link, the following images demonstrate what the user will experience.
 
-사용자가 아직 로그인하지 않은 경우에는 로그인할 것을 요청하는 메시지가 표시됩니다.
+If the user is not already signed in, they will be prompted to do so:
 
-![AAD에 로그인](./media/active-directory-integrating-applications/signintoaad.png)
+![Sign in to AAD](./media/active-directory-integrating-applications/signintoaad.png)
 
-사용자가 인증되면 Azure AD가 사용자를 액세스 권한 부여 페이지로 리디렉션합니다.
+Once the user is authenticated, Azure AD will redirect the user to the grant access page:
 
-![액세스 권한 부여](./media/active-directory-integrating-applications/grantaccess.png)
+![Grant Access](./media/active-directory-integrating-applications/grantaccess.png)
 
->[AZURE.NOTE] 조직 외부의 회사 관리자만 해당 응용 프로그램에 대한 액세스 권한을 부여할 수 있습니다. 사용자가 회사 관리자가 아니라면 이 앱에 액세스 권한 부여를 요청하기 위해 자사의 관리자에게 메일을 보낼 수 있는 옵션이 제공됩니다
+>[AZURE.NOTE] Only the company administrator of the external organization can grant access to your app. If the user is not a company administrator, they will be given the option to send mail to their company administrator to request that this app be granted access.
 
-고객이 액세스 권한 부여를 클릭하여 해당 앱에 대한 액세스 권한을 부여한 후에 또는 취소를 클릭하여 액세스 권한을 거부한 경우 Azure AD는 ConsentReturnUrl 또는 구성된 회신 URL에 응답을 보냅니다. 이 응답에는 다음 매개 변수가 포함됩니다.
+After the customer has granted access for your app by clicking Grant Access, or if they have denied access by clicking Cancel, Azure AD sends a response to the ConsentReturnUrl or to your configured Reply URL. This response contains the following parameters:
 
-|매개 변수|설명|
+|Parameter|Description|
 |---|---|
-|TenantId|해당 응용 프로그램에 액세스 권한을 부여한 Azure AD 내 조직의 고유한 ID입니다. 이 매개 변수는 고객이 액세스 권한을 부여한 경우에만 지정됩니다.|
-|동의|응용 프로그램에 액세스 권한이 부여된 경우 이 값은 부여됨으로 설정되며 요청이 거부된 경우에는 거부됨으로 설정됩니다.|
+|TenantId|The unique ID of the organization in Azure AD that has granted access for your app. This parameter will only be specified if the customer granted access.|
+|Consent|The value will be set to Granted if the app was granted access, or Denied if the request was rejected.|
 
-추가 매개 변수는 ConsentReturnUrl 인코딩 URL의 일부로 지정된 경우 해당 앱으로 반환됩니다. 다음은 응용 프로그램이 인증되었음을 나타내는 액세스 권한 부여 요청에 대한 응답의 예로, 액세스 권한 부여 요청에서 공급된 ContextID를 포함합니다. `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Granted&TenantId=f03dcba3-d693-47ad-9983-011650e64134`.
+Additional parameters will be returned to the app if they were specified as part of the ConsentReturnUrl encoded URL. The following is an example response to a grant access request that indicates the application has been authorized, and it includes a ContextID that was supplied in the grant access request: `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Granted&TenantId=f03dcba3-d693-47ad-9983-011650e64134`.
 
->[AZURE.NOTE] 액세스 권한 부여 응답에는 해당 사용자에 대한 보안 토큰이 포함되지 않으며, 해당 앱에서 사용자를 별도로 로그인시켜야 합니다.
+>[AZURE.NOTE] The access grant response will not contain a security token for the user; the app must sign the user in separately.
 
-다음은 거부된 액세스 권한 부여 요청에 대한 응답 예입니다. `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Denied`
+The following is an example response to an access grant request that was denied: `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Denied`
 
-#### 중단 없는 Graph API 액세스를 위해 앱 키 롤링(레거시)
+#### <a name="rolling-app-keys-for-uninterrupted-access-to-the-graph-api-(legacy)"></a>Rolling app keys for uninterrupted access to the Graph API (Legacy)
 
-앱의 수명 중에, 그래프 API를 호출하는 액세스 토큰을 입수하기 위해 Azure AD를 호출할 때 사용하는 키를 변경해야 할 수도 있습니다. 일반적으로 키를 변경하는 것은 두 가지 범주로 나뉘는데, 하나는 키가 손상된 긴급 롤오버이며 다른 하나는 현재 키가 곧 만료되는 롤오버입니다. 키를 새로 고치는 동안 (주로 두번째 경우) 중단된 액세스를 앱에 제공하려면 다음 절차를 따라야 합니다.
+During the lifetime of your app, you may need to change the keys that you use when you call into Azure AD to acquire an access token to call the Graph API.  Generally changing keys falls into two categories: emergency roll over where your key has been compromised or a roll over when your current key is about to expire. The following procedure should be followed to provide your app with uninterrupted access while you refresh your keys (primarily for the second case).
 
-1. Azure 클래식 포털에서 해당 디렉터리 테넌트를 클릭하고 최상위 메뉴에서 **응용 프로그램**을 클릭한 다음 구성할 앱을 클릭합니다. 빠른 시작 페이지가 단일 로그인 및 기타 구성 정보와 함께 나타납니다.
+1. In the Azure classic portal, click on your directory tenant, click **Applications** from the top menu, then click the app you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. 최상위 메뉴에 있는 **구성**을 클릭하여 해당 앱의 속성 목록을 표시하고 키 목록을 볼 수 있습니다.
+1. Click on **Configure** in the top menu to see a list of your app’s properties, and you’ll see a list of your keys.
 
-1. 키 아래에 있는 **기간 선택** 드롭다운 메뉴에서 1년 또는 2년을 선택하고 명령 모음에 있는 **저장**을 클릭합니다. 그러면 해당 응용 프로그램에 대해 새 암호 키가 생성됩니다. 이 새 암호 키를 복사합니다. 이 시점에서 응용 프로그램이 기존 및 새 키를 모두 사용하여 Azure AD에서 액세스 토큰을 가져올 수 있습니다.
+1. Under Keys, click on the drop down that says **Select duration** and pick 1 or 2 years, and then click **Save** in the command bar. This generates a new password key for your app. Copy this new password key. At this point both the existing and new key can be used by your app to obtain an access token from Azure AD.
 
-1. 해당 앱으로 돌아가서 새 암호 키를 사용하여 시작할 구성을 업데이트합니다. 이 업데이트를 수행해야 하는 위치의 예는 [Graph API를 사용하여 Azure AD 쿼리](https://msdn.microsoft.com/library/azure/dn151791.aspx)를 참조하세요.
+1. Go back to your app and update the configuration to start using the new password key. See [Using the Graph API to Query Azure AD](https://msdn.microsoft.com/library/azure/dn151791.aspx) for an example of where this update should happen.
 
-1. 이제 이 변경 사항을 프로덕션 환경에 걸쳐 구현해야 합니다. 먼저 하나의 서비스 노드에서 확인한 다음 나머지 전체로 확장합니다.
+1. You should now roll this change out across your production environment – verifying it first on one service node, before rolling it out across the rest.
 
-1. 프로덕션 배포에 업데이트가 완료되면 언제든지 Azure 클래식 포털로 돌아와서 기존 키를 제거할 수 있습니다.
+1. Once the update is complete across your production deployment, you are free to come back to the Azure classic portal and remove the old key.
 
-#### 액세스를 사용하도록 설정한 후 응용 프로그램 속성 변경(레거시)
+#### <a name="changing-app-properties-after-enabling-access-(legacy)"></a>Changing app properties after enabling access (Legacy)
 
-일단 외부 사용자가 응용프로그램에 액세스할 수 있도록 허용하면 Azure 클래식 포털에서 해당 앱의 속성을 계속해서 변경할 수도 있습니다. 그러나 앱을 변경하기 전에 이미 해당 앱에 대한 액세스 권한을 부여 받은 고객은 Azure 클래식 포털에서 해당 앱에 대한 세부 정보를 볼 때 이러한 변경 사항이 반영되지 않은 것으로 나타납니다. 일단 고객이 앱을 사용할 수 있게 된 후에는 변경을 할 때 매우 유의해야 합니다. 예를 들어, 앱 ID URI를 업데이트하는 경우 이 변경 전에 액세스 권한을 부여한 기존 고객은 자사 또는 학교 계정을 사용하여 앱에 로그인할 수 없게 됩니다.
+Once you enable access for external users to your app, you may still continue to make changes to your app’s properties in the Azure classic portal. However, customers who have already granted access to your app before you made app changes will not see those changes reflected when viewing details about your app in the Azure classic portal. Once the app is made available to customers, you need to be very careful when making certain changes. For example, if you update the App ID URI, then your existing customers who granted access before this change will be unable to log in to your app using their company or school accounts.
 
-더 높은 액세스 수준을 요청하기 위해 RequestedPermissions를 변경하는 경우 이제 향상된 액세스 수준을 사용하여 새 API 호출을 활용하는 앱의 기능을 사용하는 기존 고객이 그래프 API로부터 액세스 거부 응답을 받을 수도 있습니다. 앱은 이러한 경우를 처리하고 고객에게 향상된 액세스 수준 요청과 함께 앱에 대한 액세스 권한을 부여할 것을 요청해야 합니다.
+If you make a change to the RequestedPermissions to request a greater access level, existing customers using app functionality that now leverages new API calls using this increased access level may get an access denied response from the Graph API.  Your app should handle these cases and ask the customer to grant access to your app with the request for an increased access level.
 
-## 응용 프로그램 제거
+## <a name="removing-an-application"></a>Removing an application
 
-이 섹션에서는 Azure AD 테넌트에서 응용프로그램을 제거하는 방법을 설명합니다.
+This section describes how to remove an application from your Azure AD tenant.
 
-### 조직이 작성한 응용프로그램 제거
-이들은 Azure AD 테넌트에 대 한 기본 "응용프로그램" 페이지에서 "회사가 보유한 응용프로그램" 필터에서 표시되는 응용프로그램입니다. 기술적 측면에서 이들은 Azure 클래식 포털을 통해 수동으로 또는 PowerShell 또는 Graph API를 통해 프로그래밍 방식으로 등록한 응용 프로그램입니다. 구체적으로 말하면, 테넌트의 응용프로그램 및 서비스 주체 개체 모두에 의해 제공됩니다. 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
+### <a name="removing-an-application-authored-by-your-organization"></a>Removing an application authored by your organization
+These are the applications that show under the "Applications my company owns" filter on the main "Applications" page for your Azure AD tenant. In technical terms, these are applications you registered either manually via the Azure classic portal, or programmatically via PowerShell or the Graph API. More specifically, they are represented by both an Application and Service Principal object in your tenant. See [Application Objects and Service Principal Objects](active-directory-application-objects.md) for more information.
 
-#### 디렉터리에서 단일 테넌트 응용 프로그램을 제거하려면
+#### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>To remove a single tenant application from your directory
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 
-1. 왼쪽 메뉴에 있는 Active Directory 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
+1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
-1. 위쪽 메뉴에서 **응용 프로그램**을 클릭하고 구성하려는 응용 프로그램을 클릭합니다. 빠른 시작 페이지가 단일 로그인 및 기타 구성 정보와 함께 나타납니다.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. 명령 모음에서 **삭제** 단추를 클릭합니다.
+1. Click on the **Delete** button in the command bar.
 
-1. 확인 메시지에서 **예**를 클릭합니다.
+1. Click **Yes** in the confirmation message.
 
-#### 디렉터리에서 다중 테넌트 응용 프로그램을 제거하려면
+#### <a name="to-remove-a-multi-tenant-application-from-your-directory"></a>To remove a multi-tenant application from your directory
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 
-1. 왼쪽 메뉴에 있는 Active Directory 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
+1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
-1. 위쪽 메뉴에서 **응용 프로그램**을 클릭하고 구성하려는 응용 프로그램을 클릭합니다. 빠른 시작 페이지가 단일 로그인 및 기타 구성 정보와 함께 나타납니다.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. 응용 프로그램이 다중 테넌트입니다 섹션에서 **아니요**를 클릭합니다. 그러면 응용 프로그램이 단일 테넌트로 전환되지만 계속해서 이미 동의를 표시한 조직에 남게 됩니다.
+1. On the Application is multi-tenant section, click **No**. This converts your application to be single tenant, but the application will still remain in an organization who has already consented to it.
 
-1. 명령 모음에서 **삭제** 단추를 클릭합니다.
+1. Click on the **Delete** button in the command bar.
 
-1. 확인 메시지에서 **예**를 클릭합니다.
+1. Click **Yes** in the confirmation message.
 
-### 다른 조직이 권한을 부여한 다중 테넌트 응용프로그램 제거
-이들은 특히 "회사가 보유한 응용프로그램" 목록 아래에 나열되지 않은 Azure AD 테넌트에 대해 기본 "응용프로그램" 페이지에서 "회사가 보유한 응용프로그램" 필터 아래에 표시되는 응용프로그램의 하위 집합입니다. 기술적 측면에서 이들은 동의 프로세스 중에 등록되는 다중 테넌트 응용프로그램입니다. 구체적으로 말하면, 테넌트의 서비스 주체 개체에 의해서만 제공됩니다. 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
+### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Removing a multi-tenant application authorized by another organization
+These are a subset of the applications that show under the "Applications my company uses" filter on the main "Applications" page for your Azure AD tenant, specifically the ones that are not listed under the "Applications my company owns" list. In technical terms, these are multi-tenant applications registered during the consent process. More specifically, they are represented by only a Service Principal object in your tenant. See [Application Objects and Service Principal Objects](active-directory-application-objects.md) for more information.
 
-자사의 디렉토리에 대해 다중 테넌트 응용프로그램 액세스 권한을 제거하려면(동의를 표시한 후에) 회사 관리자는 Azure 구독이 있어야 Azure 클래식 포털을 통해 액세스 권한을 제거할 수 있습니다. 간단히 응용프로그램의 구성 페이지로 이동하고 맨 아래에 "액세스 관리" 단추를 클릭합니다. 또는 회사 관리자는 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 액세스를 제거할 수 있습니다.
+In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure classic portal. You simply navigate to the application's configuration page, and click the "Manage Access" button at the bottom. Alternatively, the company administrator can use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [통합 앱을 위한 브랜딩 지침](active-directory-branding-guidelines.md)을 참조하세요.
+- See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md) for tips on visual guidance for your app.
 
-- [응용 프로그램 개체 및 서비스 사용자 개체](active-directory-application-objects.md)에 대해 알아보세요.
+- For more details on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 
-- [Azure Active Directory 응용 프로그램 매니페스트](active-directory-application-manifest.md) 이해
+- To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
 
-- [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 확인하세요.
+- See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
 
-<!---HONumber=AcomDC_0727_2016-->
+- Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer related content.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

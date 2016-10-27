@@ -1,6 +1,6 @@
 <properties
- pageTitle="Linux VM에서 HPC 팩으로 STAR-CCM+ 실행 | Microsoft Azure"
- description="Azure에서 Microsoft HPC Pack 클러스터를 배포하고 RDMA 네트워크 간의 여러 Linux 계산 노드에서 STAR-CCM+ 작업을 실행합니다."
+ pageTitle="Run STAR-CCM+ with HPC Pack on Linux VMs | Microsoft Azure"
+ description="Deploy a Microsoft HPC Pack cluster on Azure and run an STAR-CCM+ job on multiple Linux compute nodes across an RDMA network."
  services="virtual-machines-linux"
  documentationCenter=""
  authors="xpillons"
@@ -16,29 +16,30 @@
  ms.date="09/13/2016"
  ms.author="xpillons"/>
 
-# Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩으로 STAR-CCM+ 실행
-이 문서에서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 InfiniBand와 상호 연결된 여러 Linux 계산 노드에서 [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) 작업을 실행하는 방법을 보여 줍니다.
+
+# <a name="run-star-ccm+-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Run STAR-CCM+ with Microsoft HPC Pack on a Linux RDMA cluster in Azure
+This article shows you how to deploy a Microsoft HPC Pack cluster on Azure and run a [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) job on multiple Linux compute nodes that are interconnected with InfiniBand.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
+Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. HPC Pack also supports running Linux HPC applications on Linux compute-node VMs that are deployed in an HPC Pack cluster. For an introduction to using Linux compute nodes with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-## HPC 팩 클러스터 설정
-[다운로드 센터](https://www.microsoft.com/ko-KR/download/details.aspx?id=44949)에서 HPC 팩 IaaS 배포 스크립트를 다운로드하고 로컬로 추출합니다.
+## <a name="set-up-an-hpc-pack-cluster"></a>Set up an HPC Pack cluster
+Download the HPC Pack IaaS deployment scripts from the [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=44949) and extract them locally.
 
-Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 구성되지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서를 참조하세요.
+Azure PowerShell is a prerequisite. If PowerShell is not configured on your local machine, please read the article [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-이 문서를 작성할 당시 Azure 마켓플레이스의 Linux 이미지(Azure용 InfiniBand 포함)는 SLES 12, CentOS 6.5, CentOS 7.1용입니다. 이 문서는 SLES 12 사용을 기반으로 합니다. 마켓플레이스에서 HPC를 지원하는 모든 Linux 이미지의 이름을 검색하려면 다음 PowerShell 명령을 실행합니다.
+At the time of this writing, the Linux images from the Azure Marketplace (which contains the InfiniBand drivers for Azure) are for SLES 12, CentOS 6.5, and CentOS 7.1. This article is based on the usage of SLES 12. To retrieve the name of all Linux images that support HPC in the Marketplace, you can run the following PowerShell command:
 
 ```
     get-azurevmimage | ?{$_.ImageName.Contains("hpc") -and $_.OS -eq "Linux" }
 ```
 
-출력에는 이러한 이미지를 사용할 수 있는 위치와 향후 배포 템플릿에 사용할 이미지 이름(**ImageName**)이 나열됩니다.
+The output lists the location in which these images are available and the image name (**ImageName**) to be used in the deployment template later.
 
-클러스터를 배포하기 전에 HPC 팩 배포 템플릿 파일을 작성해야 합니다. 소규모 클러스터를 대상으로 하기 때문에 헤드 노드는 도메인 컨트롤러가 되며 로컬 SQL 데이터베이스를 호스팅합니다.
+Before you deploy the cluster, you have to build an HPC Pack deployment template file. Because we're targeting a small cluster, the head node will be the domain controller and host a local SQL database.
 
-아래 템플릿은 이러한 헤드 노드를 배포하고 **MyCluster.xml**이라는 XML 파일을 만들고 **SubscriptionId**, **StorageAccount**, **Location**, **VMName**, **ServiceName** 값을 사용하는 값으로 바꿉니다.
+The following template will deploy such a head node, create an XML file named **MyCluster.xml**, and replace the values of **SubscriptionId**, **StorageAccount**, **Location**, **VMName**, and **ServiceName** with yours.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
@@ -74,98 +75,99 @@ Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 �
       </LinuxComputeNodes>
     </IaaSClusterConfig>
 
-관리자 권한 명령 프롬프트에서 PowerShell 명령을 실행하여 헤드 노드 만들기를 시작합니다.
+Start the head-node creation by running the PowerShell command in an elevated command prompt:
 
 ```
     .\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml
 ```
 
-20~30분 후에 헤드 노드가 준비됩니다. 가상 컴퓨터의 **연결** 아이콘을 클릭하여 Azure 포털에서 헤드 노드에 연결할 수 있습니다.
+After 20 to 30 minutes, the head node should be ready. You can connect to it from the Azure portal by clicking the **Connect** icon of the virtual machine.
 
-최종적으로 DNS 전달자를 수정해야 할 수 있습니다. 이 작업을 위해 DNS 관리자를 시작합니다.
+You might eventually have to fix the DNS forwarder. To do so, start DNS Manager.
 
-1.  DNS 관리자에서 서버 이름을 마우스 오른쪽 단추로 클릭하고 **속성**, **전달자** 탭을 차례대로 선택합니다.
+1.  Right-click the server name in DNS Manager, select **Properties**, and then click the **Forwarders** tab.
 
-2.  **편집** 단추를 클릭하여 모든 전달자를 제거한 다음 **확인**을 클릭합니다.
+2.  Click the **Edit** button to remove any forwarders, and then click **OK**.
 
-3.  **전달자를 사용할 수 없으면 루트 힌트 사용** 확인란이 선택되어 있는지 확인하고 **확인**을 클릭합니다.
+3.  Make sure that the **Use root hints if no forwarders are available** check box is selected, and then click **OK**.
 
-## Linux 계산 노드 설정
-헤드 노드를 만들 때 사용한 것과 동일한 배포 템플릿을 사용하여 Linux 계산 노드를 배포합니다.
+## <a name="set-up-linux-compute-nodes"></a>Set up Linux compute nodes
+You deploy the Linux compute nodes by using the same deployment template that you used to create the head node.
 
-로컬 컴퓨터에서 헤드 노드로 **MyCluster.xml** 파일을 복사하고 배포하려는 노드 수(20 이하)로 **NodeCount** 태그를 업데이트합니다. 구독에서 각 A9 인스턴스는 16개의 코어를 사용하므로 Azure 할당량에 사용할 수 있는 코어가 충분해야 합니다. 동일한 예산으로 더 많은 VM을 사용하려는 경우 A9 대신 A8 인스턴스(8개 코어)를 사용할 수 있습니다.
+Copy the file **MyCluster.xml** from your local machine to the head node, and update the **NodeCount** tag with the number of nodes that you want to deploy (<=20). Be careful to have enough available cores in your Azure quota, because each A9 instance will consume 16 cores in your subscription. You can use A8 instances (8 cores) instead of A9 if you want to use more VMs in the same budget.
 
-헤드 노드에서 HPC 팩 IaaS 배포 스크립트를 복사합니다.
+On the head node, copy the HPC Pack IaaS deployment scripts.
 
-관리자 권한 명령 프롬프트에서 다음의 Azure PowerShell 명령을 실행합니다.
+Run the following Azure PowerShell commands in an elevated command prompt:
 
-1.  **Add-AzureAccount**를 실행하여 Azure 구독을 연결합니다.
+1.  Run **Add-AzureAccount** to connect to your Azure subscription.
 
-2.  여러 구독이 있는 경우 **Get-AzureSubscription**을 실행하여 나열합니다.
+2.  If you have multiple subscriptions, run **Get-AzureSubscription** to list them.
 
-3.  **Select-AzureSubscription -SubscriptionName xxxx -Default** 명령을 실행하여 기본 구독을 설정합니다.
+3.  Set a default subscription by running the **Select-AzureSubscription -SubscriptionName xxxx -Default** command.
 
-4.  **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml**을 실행하여 Linux 계산 노드 배포를 시작합니다.
+4.  Run **.\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** to start deploying Linux compute nodes.
 
-    ![헤드 노드 배포 작업][hndeploy]
+    ![Head-node deployment in action][hndeploy]
 
-HPC 팩 클러스터 관리자 도구를 엽니다. 몇 분 후에 클러스터 계산 노드 목록에 Linux 계산 노드가 정기적으로 나타납니다. 클래식 배포 모드에서는 IaaS VM이 순차적으로 생성됩니다. 따라서 노드 수가 중요할 경우 전체를 배포하려면 많은 시간이 소요될 수 있습니다.
+Open the HPC Pack Cluster Manager tool. After few minutes, Linux compute nodes will regularly appear in list of cluster compute nodes. With the classic deployment mode, IaaS VMs are created sequentially. So if the number of nodes is important, getting them all deployed can take a significant amount of time.
 
-![HPC 팩 클러스터 관리자의 Linux 노드][clustermanager]
+![Linux nodes in HPC Pack Cluster Manager][clustermanager]
 
-이제 모든 노드가 클러스터에서 실행 중이며 추가 인프라 설정을 수행해야 합니다.
+Now that all nodes are up and running in the cluster, there are additional infrastructure settings to make.
 
-## Windows 및 Linux 노드에 대한 Azure 파일 공유 설정
-Azure 파일 서비스를 사용하여 스크립트, 응용 프로그램 패키지, 데이터 파일을 저장할 수 있습니다. Azure 파일은 Azure Blob 저장소를 영구 저장소로 사용하면서 CIFS 기능을 제공합니다. 이것이 가장 확장성 있는 솔루션은 아니지만 가장 간단하며 전용 VM이 필요하지 않습니다.
+## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Set up an Azure File share for Windows and Linux nodes
+You can use the Azure File service to store scripts, application packages, and data files. Azure File provides CIFS capabilities on top of Azure Blob storage as a persistent store. Be aware that this is not the most scalable solution, but it is the simplest one and doesn’t require dedicated VMs.
 
-[Windows에서 Azure 파일 저장소 시작](..\storage\storage-dotnet-how-to-use-files.md) 문서의 지침에 따라 Azure 파일 공유를 만듭니다.
+Create an Azure File share by following the instructions in the article [Get started with Azure File storage on Windows](..\storage\storage-dotnet-how-to-use-files.md).
 
-저장소 계정 이름 **saname**, 파일 공유 이름 **sharename** 및 저장소 계정 키 **sakey**를 유지합니다.
+Keep the name of your storage account as **saname**, the file share name as **sharename**, and the storage account key as **sakey**.
 
-### 헤드 노드에 Azure 파일 공유 탑재
-로컬 컴퓨터 자격 증명 모음에 자격 증명을 저장하려면 관리자 권한 명령 프롬프트를 열고 다음 명령을 실행합니다.
+### <a name="mount-the-azure-file-share-on-the-head-node"></a>Mount the Azure File share on the head node
+Open an elevated command prompt and run the following command to store the credentials in the local machine vault:
 
 ```
     cmdkey /add:<saname>.file.core.windows.net /user:<saname> /pass:<sakey>
 ```
 
-그런 다음 Azure 파일 공유를 탑재하려면 다음을 실행합니다.
+Then, to mount the Azure File share, run:
 
 ```
-    net use Z: \<saname>.file.core.windows.net<sharename> /persistent:yes
+    net use Z: \\<saname>.file.core.windows.net\<sharename> /persistent:yes
 ```
 
-### Linux 계산 노드에 Azure 파일 공유 탑재
-HPC 팩에는 clusrun이라는 유용한 도구가 기본 제공됩니다. 이 명령줄 도구를 사용하여 계산 노드 집합에서 동일한 명령을 동시에 실행할 수 있습니다. 여기서는 Azure 파일 공유를 탑재하고 다시 부팅 후에도 탑재 공유를 유지하기 위해 사용합니다. 헤드 노드의 관리자 권한 명령 프롬프트에서 다음 명령을 실행합니다.
+### <a name="mount-the-azure-file-share-on-linux-compute-nodes"></a>Mount the Azure File share on Linux compute nodes
+One useful tool that comes with HPC Pack is the clusrun tool. You can use this command-line tool to run the same command simultaneously on a set of compute nodes. In our case, it's used to mount the Azure File share and persist it to survive reboots.
+In an elevated command prompt on the head node, run the following commands.
 
-탑재 디렉터리를 만들려면
+To create the mount directory:
 
 ```
     clusrun /nodegroup:LinuxNodes mkdir -p /hpcdata
 ```
 
-Azure 파일 공유를 탑재하려면
+To mount the Azure File share:
 
 ```
     clusrun /nodegroup:LinuxNodes mount -t cifs //<saname>.file.core.windows.net/<sharename> /hpcdata -o vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777
 ```
 
-탑재 공유를 유지하려면
+To persist the mount share:
 
 ```
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## STAR-CCM+ 설치
-Azure VM 인스턴스 A8 및 A9는 InfiniBand 지원 및 RDMA 기능을 제공합니다. 이러한 기능을 구현하는 커널 드라이버는 Azure 마켓플레이스에서 Windows Server 2012 R2, SUSE 12, CentOS 6.5, CentOS 7.1 이미지에 사용할 수 있습니다. Microsoft MPI 및 Intel MPI(릴리스 5.x)는 Azure에서 해당 드라이버를 지원하는 두 MPI 라이브러리입니다.
+## <a name="install-star-ccm+"></a>Install STAR-CCM+
+Azure VM instances A8 and A9 provide InfiniBand support and RDMA capabilities. The kernel drivers that enable those capabilities are available for Windows Server 2012 R2, SUSE 12, CentOS 6.5, and CentOS 7.1 images in the Azure Marketplace. Microsoft MPI and Intel MPI (release 5.x) are the two MPI libraries that support those drivers in Azure.
 
-CD-adapco STAR-CCM+ 릴리스 11.x 이상은 Intel MPI 버전 5.x와 함께 제공되므로 Azure에 대한 InfiniBand 지원이 포함됩니다.
+CD-adapco STAR-CCM+ release 11.x and later is bundled with Intel MPI version 5.x, so InfiniBand support for Azure is included.
 
-[CD-adapco 포털](https://steve.cd-adapco.com)에서 Linux64 STAR-CCM+ 패키지를 다운로드합니다. 이 경우에는 혼합 정밀도의 버전 11.02.010을 사용했습니다.
+Get the Linux64 STAR-CCM+ package from the [CD-adapco portal](https://steve.cd-adapco.com). In our case, we used version 11.02.010 in mixed precision.
 
-헤드 노드의 **/hpcdata** Azure 파일 공유에서 다음 내용이 포함된 **setupstarccm.sh**라는 셸 스크립트를 만듭니다. 이 스크립트는 STAR-CCM+를 로컬로 설정하기 위해 각 계산 노드에서 실행합니다.
+On the head node, in the **/hpcdata** Azure File share, create a shell script named **setupstarccm.sh** with the following content. This script will be run on each compute node to set up STAR-CCM+ locally.
 
-#### 샘플 setupstarcm.sh 스크립트
+#### <a name="sample-setupstarcm.sh-script"></a>Sample setupstarcm.sh script
 ```
     #!/bin/bash
     # setupstarcm.sh to set up STAR-CCM+ locally
@@ -186,35 +188,35 @@ CD-adapco STAR-CCM+ 릴리스 11.x 이상은 Intel MPI 버전 5.x와 함께 제�
     echo "*               hard    memlock         unlimited" >> /etc/security/limits.conf
     echo "*               soft    memlock         unlimited" >> /etc/security/limits.conf
 ```
-이제 모든 Linux 계산 노드에 STAR-CCM+를 설정하기 위해 관리자 권한 명령 프롬프트를 열고 다음 명령을 실행합니다.
+Now, to set up STAR-CCM+ on all your Linux compute nodes, open an elevated command prompt and run the following command:
 
 ```
     clusrun /nodegroup:LinuxNodes bash /hpcdata/setupstarccm.sh
 ```
 
-명령이 실행되는 동안 클러스터 관리자의 열 지도를 사용하여 CPU 사용량을 모니터링할 수 있습니다. 몇 분 후 모든 노드가 올바르게 설정됩니다.
+While the command is running, you can monitor the CPU usage by using the heat map of Cluster Manager. After few minutes, all nodes should be correctly set up.
 
-## STAR-CCM+ 작업 실행
-HPC 팩은 STAR-CCM+ 작업을 실행하기 위한 작업 스케줄러 기능에 사용합니다. 이렇게 하려면 작업을 시작하고 STAR-CCM+를 실행하는데 사용되는 몇 가지 스크립트에 대한 지원이 필요합니다. 입력 데이터는 편의상 Azure 파일 공유에 먼저 저장됩니다.
+## <a name="run-star-ccm+-jobs"></a>Run STAR-CCM+ jobs
+HPC Pack is used for its job scheduler capabilities in order to run STAR-CCM+ jobs. To do so, we need the support of a few scripts that are used to start the job and run STAR-CCM+. The input data is kept on the Azure File share first for simplicity.
 
-다음 PowerShell 스크립트는 STAR-CCM+ 작업을 큐에 대기시키는 데 사용하며 3가지 인수를 사용합니다.
+The following PowerShell script is used to queue a STAR-CCM+ job. It takes three arguments:
 
-*  모델 이름
+*  The model name
 
-*  사용할 노드 수
+*  The number of nodes to be used
 
-*  각 노드에 사용할 코어 수
+*  The number of cores on each node to be used
 
-STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 적은 코어를 사용하고 새 노드를 추가하는 것이 좋습니다. 정확한 노드당 코어 수는 프로세서 제품군 및 상호 연결 속도에 따라 달라집니다.
+Because STAR-CCM+ can fill the memory bandwidth, it's usually better to use fewer cores per compute nodes and add new nodes. The exact number of cores per node will depend on the processor family and the interconnect speed.
 
-노드는 작업에 단독으로 할당되며 다른 작업과 공유할 수 없습니다. 이 작업은 MPI 작업으로 직접 시작되지 않습니다. **runstarccm.sh** 셸 스크립트에서 MPI 시작 관리자를 시작합니다.
+The nodes are allocated exclusively for the job and can’t be shared with other jobs. The job is not started as an MPI job directly. The **runstarccm.sh** shell script will start the MPI launcher.
 
-입력 모델 및 **runstarccm.sh** 스크립트는 이전에 탑재된 **/hpcdata** 공유에 저장됩니다.
+The input model and the **runstarccm.sh** script are stored in the **/hpcdata** share that was previously mounted.
 
-로그 파일은 작업 ID로 이름이 지정되고 STAR-CCM+ 출력 파일과 함께 **/hpcdata 공유**에 저장됩니다.
+Log files are named with the job ID and are stored in the **/hpcdata share**, along with the STAR-CCM+ output files.
 
 
-#### 샘플 SubmitStarccmJob.ps1 스크립트
+#### <a name="sample-submitstarccmjob.ps1-script"></a>Sample SubmitStarccmJob.ps1 script
 ```
     Add-PSSnapin Microsoft.HPC -ErrorAction silentlycontinue
     $scheduler="headnodename"
@@ -229,7 +231,7 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
     $jobId = [String]$job.Id
 
     #---------------------------------------------------------------------------------------------------------
-    # Submit the job 	
+    # Submit the job    
     $workdir =  "/hpcdata"
     $execName = "$nbCoresPerNode runner.java $modelName.sim"
 
@@ -238,9 +240,9 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
 
     Submit-HpcJob -Job $job -Scheduler $scheduler
 ```
-**runner.java**를 원하는 STAR-CCM+ java 모델 시작 관리자와 로깅 코드로 바꿉니다.
+Replace **runner.java** with your preferred STAR-CCM+ Java model launcher and logging code.
 
-#### 샘플 runstarccm.sh 스크립트
+#### <a name="sample-runstarccm.sh-script"></a>Sample runstarccm.sh script
 ```
     #!/bin/bash
     echo "start"
@@ -267,82 +269,86 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
     NBNODES=0
     while [ ${I} -lt ${COUNT} ]
     do
-    	echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
-    	let "I=${I}+2"
-    	let "NBNODES=${NBNODES}+1"
+        echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
+        let "I=${I}+2"
+        let "NBNODES=${NBNODES}+1"
     done
     let "NBCORES=${NBNODES}*${NBCORESPERNODE}"
 
     # Run STAR-CCM with the hostfile argument
     #  
     ${STARCCM} -np ${NBCORES} -machinefile ${NODELIST_PATH} \
-    	-power -podkey "<yourkey>" -rsh ssh \
-    	-mpi intel -fabric UDAPL -cpubind bandwidth,v \
-    	-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
-    	-batch $2 $3
+        -power -podkey "<yourkey>" -rsh ssh \
+        -mpi intel -fabric UDAPL -cpubind bandwidth,v \
+        -mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
+        -batch $2 $3
     RTNSTS=$?
     rm -f ${NODELIST_PATH}
 
     exit ${RTNSTS}
 ```
 
-이 테스트에서는 Power-On-Demand 라이선스 토큰을 사용했습니다. 이 테스트에서는 **$CDLMD\_LICENSE\_FILE** 환경 변수를 **1999@flex.cd-adapco.com**으로 설정하고 명령줄의 **-podkey** 옵션에 키를 설정해야 합니다.
+In our test, we used a Power-On-Demand license token. For that token, you have to set the **$CDLMD_LICENSE_FILE** environment variable to **1999@flex.cd-adapco.com** and the key in the **-podkey** option of the command line.
 
-일부 초기화 후에는 스크립트가 (HPC 팩이 설정하는 **$CCP\_NODES\_CORES** 환경 변수에서) 노드 목록을 추출하여 MPI 시작 관리자가 사용하는 hostfile을 작성합니다. 이 hostfile에는 작업에 사용된 계산 노드 이름의 목록이 포함되며, 한 줄당 하나의 이름이 포함됩니다.
+After some initialization, the script extracts--from the **$CCP_NODES_CORES** environment variables that HPC Pack set--the list of nodes to build a hostfile that the MPI launcher uses. This hostfile will contain the list of compute node names that are used for the job, one name per line.
 
-**$CCP\_NODES\_CORES**의 형식은 다음 패턴을 따릅니다.
+The format of **$CCP_NODES_CORES** follows this pattern:
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
 ```
 
-여기서,
+Where:
 
-* `<Number of nodes>`는 이 작업에 할당된 노드 수입니다.
+* `<Number of nodes>` is the number of nodes allocated to this job.
 
-* `<Name of node_n_...>`은 이 작업에 할당된 각 노드의 이름입니다.
+* `<Name of node_n_...>` is the name of each node allocated to this job.
 
-* `<Cores of node_n_...>`은 이 작업에 할당된 노드의 코어 수입니다.
+* `<Cores of node_n_...>` is the number of cores on the node allocated to this job.
 
-코어 수(**$NBCORES**)도 노드 수(**$NBNODES**) 및 노드당 코어 수(매개 변수 **$NBCORESPERNODE**로 제공)를 기준으로 계산됩니다.
+The number of cores (**$NBCORES**) is also calculated based on the number of nodes (**$NBNODES**) and the number of cores per node (provided as parameter **$NBCORESPERNODE**).
 
-Azure에서 Intel MPI와 함께 사용하는 MPI 옵션은 다음과 같습니다.
+For the MPI options, the ones that are used with Intel MPI on Azure are:
 
-*   Intel MPI를 지정하는 `-mpi intel`.
+*   `-mpi intel` to specify Intel MPI.
 
-*   Azure InfiniBand 동사를 사용하기 위한 `-fabric UDAPL`.
+*   `-fabric UDAPL` to use Azure InfiniBand verbs.
 
-*   STAR-CCM+를 사용하는 MPI의 대역폭을 최적화하기 위한 `-cpubind bandwidth,v`.
+*   `-cpubind bandwidth,v` to optimize bandwidth for MPI with STAR-CCM+.
 
-*   Intel MPI가 Azure InfiniBand에서 작동하고 노드당 필요한 코어 수를 설정하기 위한 `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`.
+*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` to make Intel MPI work with Azure InfiniBand, and to set the required number of cores per node.
 
-*   UI를 사용하지 않고 배치 모드에서 STAR-CCM+를 시작하기 위한 `-batch`.
+*   `-batch` to start STAR-CCM+ in batch mode with no UI.
 
 
-마지막으로 작업을 시작하려면 노드가 실행 중이고 클러스터 관리자에서 온라인 상태인지 확인합니다. 그런 다음 PowerShell 명령 창에서 다음을 실행합니다.
+Finally, to start a job, make sure that your nodes are up and running and are online in Cluster Manager. Then from a PowerShell command prompt, run this:
 
 ```
     .\ SubmitStarccmJob.ps1 <model> <nbNodes> <nbCoresPerNode>
 ```
 
-## 노드 중지
-나중에 테스트를 완료한 후 다음 HPC 팩 PowerShell 명령을 사용하여 노드를 중지하거나 시작할 수 있습니다.
+## <a name="stop-nodes"></a>Stop nodes
+Later on, after you're done with your tests, you can use the following HPC Pack PowerShell commands to stop and start nodes:
 
 ```
     Stop-HPCIaaSNode.ps1 -Name <prefix>-00*
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
 ```
 
-## 다음 단계
-다른 Linux 워크로드를 실행해 봅니다. 예를 들어 다음을 참조하세요.
+## <a name="next-steps"></a>Next steps
+Try running other Linux workloads. For example, see:
 
-* [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
+* [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
 
-* [Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFOAM 실행](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+* [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

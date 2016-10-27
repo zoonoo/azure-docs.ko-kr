@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Jobscience와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Jobscience를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with Jobscience | Microsoft Azure" 
+    description="Learn how to use Jobscience with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,192 +11,197 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: Jobscience와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-jobscience"></a>Tutorial: Azure Active Directory integration with Jobscience
   
-이 자습서는 Azure와 Jobscience의 통합을 보여 주기 위한 것입니다.  
-이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and Jobscience.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Jobscience Single Sign-On이 가능하도록 설정된 구독
+-   A valid Azure subscription
+-   A Jobscience Single Sign-On enabled subscription
   
-이 자습서를 완료하면 Jobscience에 할당한 Azure AD 사용자가 Jobscience 회사 사이트(서비스 공급자가 제공한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On으로 로그인할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to Jobscience will be able to single sign into the application at your Jobscience company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Jobscience에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Jobscience
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-jobscience-tutorial/IC784341.png "시나리오")
-##Jobscience에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-jobscience-tutorial/IC784341.png "Scenario")
+##<a name="enabling-the-application-integration-for-jobscience"></a>Enabling the application integration for Jobscience
   
-이 섹션에서는 Jobscience에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명합니다.
+The objective of this section is to outline how to enable the application integration for Jobscience.
 
-###Jobscience에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-jobscience,-perform-the-following-steps:"></a>To enable the application integration for Jobscience, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-jobscience-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-jobscience-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-jobscience-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-jobscience-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-jobscience-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-jobscience-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-jobscience-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **Jobscience**를 입력합니다.
+6.  In the **search box**, type **jobscience**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-jobscience-tutorial/IC784342.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-jobscience-tutorial/IC784342.png "Application Gallery")
 
-7.  결과 창에서 **Jobscience**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Jobscience**, and then click **Complete** to add the application.
 
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jobscience에 인증할 수 있게 하는 방법을 간략하게 설명합니다.  
-Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.  
-이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+The objective of this section is to outline how to enable users to authenticate to Jobscience with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Jobscience requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Jobscience 회사 사이트에 관리자 권한으로 로그인합니다.
+1.  Log in to your Jobscience company site as an administrator.
 
-2.  **설정**으로 이동합니다.
+2.  Go to **Setup**.
 
-    ![설정](./media/active-directory-saas-jobscience-tutorial/IC784358.png "설정")
+    ![Setup](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Setup")
 
-3.  왼쪽 탐색창의 **관리** 섹션에서 **도메인 관리**를 클릭해 관련된 섹션을 확장한 다음 **내 도메인**을 클릭해 **내 도메인** 페이지를 엽니다.
+3.  On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
 
-    ![내 도메인](./media/active-directory-saas-jobscience-tutorial/IC767825.png "내 도메인")
+    ![My Domain](./media/active-directory-saas-jobscience-tutorial/IC767825.png "My Domain")
 
-4.  도메인이 올바르게 설정되었는지 확인하기 위해 “**4단계 사용자에게 배포**”에 있는지 확인하고 “**내 도메인 설정**”을 검토합니다.
+4.  To verify that your domain has been setup correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
 
-    ![사용자에게 배포된 도메인](./media/active-directory-saas-jobscience-tutorial/IC784377.png "사용자에게 배포된 도메인")
+    ![Doman Deployed to User](./media/active-directory-saas-jobscience-tutorial/IC784377.png "Doman Deployed to User")
 
-5.  다른 웹 브라우저 창에서 Azure 클래식 포털에 로그인합니다.
+5.  In a different web browser window, log in to your Azure classic portal.
 
-6.  **Jobscience** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+6.  On the **Jobscience** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-jobscience-tutorial/IC784360.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784360.png "Configure Single Sign-On")
 
-7.  **Jobscience에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+7.  On the **How would you like users to sign on to Jobscience** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Configure Single Sign-On")
 
-8.  **앱 URL 구성** 페이지의 **Jobscience 로그인 URL** 텍스트 상자에 다음 패턴 "*http://company.my.salesforce.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+8.  On the **Configure App URL** page, in the **Jobscience Sign In URL** textbox, type your URL using the following pattern "*http://company.my.salesforce.com*", and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-jobscience-tutorial/IC784362.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-jobscience-tutorial/IC784362.png "Configure App URL")
 
-9.  **Jobscience에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
+9.  On the **Configure single sign-on at Jobscience** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-jobscience-tutorial/IC784363.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784363.png "Configure Single Sign-On")
 
-10. Jobscience 회사 사이트에서 **보안 제어**를 클릭한 다음 **Single Sign-On 설정**을 클릭합니다.
+10. On the Jobscience company site, click **Security Controls**, and then click **Single Sign-On Settings**.
 
-    ![보안 제어](./media/active-directory-saas-jobscience-tutorial/IC784364.png "보안 제어")
+    ![Security Controls](./media/active-directory-saas-jobscience-tutorial/IC784364.png "Security Controls")
 
-11. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
+11. In the **Single Sign-On Settings** section, perform the following steps:
 
-    ![Singl Sign-On 설정](./media/active-directory-saas-jobscience-tutorial/IC781026.png "Singl Sign-On 설정")
+    ![Single Sign-On Settings](./media/active-directory-saas-jobscience-tutorial/IC781026.png "Single Sign-On Settings")
 
-    1.  **SAML 사용**을 선택합니다.
-    2.  **새로 만들기**를 클릭합니다.
+    1.  Select **SAML Enabled**.
+    2.  Click **New**.
 
-12. **SAML Single Sign-On 설정 편집** 대화 상자에서 다음 단계를 수행합니다.
+12. On the **SAML Single Sign-On Setting Edit** dialog, perform the following steps:
 
-    ![SAML Single Sign-On 설정](./media/active-directory-saas-jobscience-tutorial/IC784365.png "SAML Single Sign-On 설정")
+    ![SAML Single Sign-On Setting](./media/active-directory-saas-jobscience-tutorial/IC784365.png "SAML Single Sign-On Setting")
 
-    1.  **이름** 텍스트 상자에 구성할 이름을 입력합니다.
-    2.  Azure 클래식 포털의 **Jobscience에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
-    3.  **엔터티 ID** 텍스트 상자에 **https://salesforce-jobscience.com**를 입력합니다.
-    4.  **찾아보기**를 클릭하여 Azure AD 인증서를 업로드합니다.
-    5.  **SAML ID 형식**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
-    6.  **SAML ID 위치**에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
-    7.  Azure 클래식 포털의 **Jobscience에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    8.  Azure 클래식 포털의 **Jobscience에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-    9.  **Save**를 클릭합니다.
+    1.  In the **Name** textbox, type a name for your configuration.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox
+    3.  In the **Entity Id** textbox, type **https://salesforce-jobscience.com**
+    4.  Click **Browse** to upload your Azure AD certificate.
+    5.  As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**.
+    6.  As **SAML Identity Location**, select **Identity is in the NameIdentfier element of the Subject statement**.
+    7.  In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox
+    8.  In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Identity Provider Logout URL** textbox
+    9.  Click **Save**.
 
-13. 왼쪽 탐색창의 **관리** 섹션에서 **도메인 관리**를 클릭해 관련된 섹션을 확장한 다음 **내 도메인**을 클릭해 **내 도메인** 페이지를 엽니다.
+13. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
 
-    ![내 도메인](./media/active-directory-saas-jobscience-tutorial/IC767825.png "내 도메인")
+    ![My Domain](./media/active-directory-saas-jobscience-tutorial/IC767825.png "My Domain")
 
-14. **내 도메인** 페이지의 **로그인 페이지 브랜딩** 섹션에서 **편집**을 클릭합니다.
+14. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
 
-    ![로그인 페이지 브랜딩](./media/active-directory-saas-jobscience-tutorial/IC767826.png "로그인 페이지 브랜딩")
+    ![Login Page Branding](./media/active-directory-saas-jobscience-tutorial/IC767826.png "Login Page Branding")
 
-15. **로그인 페이지 브랜딩** 페이지의 **인증 서비스** 섹션에 **SAML SSO 설정** 이름이 표시됩니다. 이름을 선택하고 **저장**을 클릭합니다.
+15. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
 
-    ![로그인 페이지 브랜딩](./media/active-directory-saas-jobscience-tutorial/IC784366.png "로그인 페이지 브랜딩")
+    ![Login Page Branding](./media/active-directory-saas-jobscience-tutorial/IC784366.png "Login Page Branding")
 
-16. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+16. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-jobscience-tutorial/IC784367.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784367.png "Configure Single Sign-On")
   
-서비스 공급자가 제공한 Single Sign-On URL을 가져오려면 **보안 제어** 메뉴 섹션의 **Single Sign On 설정**을 클릭합니다.
+To get the SP initiated Single Sign on Login URL click on the **Single Sign On settings** in the **Security Controls** menu section.
 
-![보안 제어](./media/active-directory-saas-jobscience-tutorial/IC784368.png "보안 제어")
+![Security Controls](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Security Controls")
   
-위 단계에서 만든 SSO 프로필을 클릭합니다.  
-이 페이지에 회사의 Single Sign-On URL(예: *https://companyname.my.salesforce.com?so=companyid*)이 표시됩니다.
-##사용자 프로비전 구성
+Click the SSO profile you have created in the step above.  
+This page shows the Single Sign on URL for your company (e.g. *https://companyname.my.salesforce.com?so=companyid*).
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscience로 프로비저닝되어야 합니다. Jobscience의 경우 프로비저닝은 수동 작업입니다.
+In order to enable Azure AD users to log into Jobscience, they must be provisioned into Jobscience.  
+In the case of Jobscience, provisioning is a manual task.
 
-###사용자 프로비저닝을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  **Jobscience** 회사 사이트에 관리자 권한으로 로그인합니다.
+1.  Log in to your **Jobscience** company site as administrator.
 
-2.  설정으로 이동합니다.
+2.  Go to Setup
 
-    ![설정](./media/active-directory-saas-jobscience-tutorial/IC784358.png "설정")
+    ![Setup](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Setup")
 
-3.  **사용자 관리 > 사용자**로 이동합니다.
+3.  Go to **Manage Users \> Users**.
 
-    ![사용자](./media/active-directory-saas-jobscience-tutorial/IC784369.png "사용자")
+    ![Users](./media/active-directory-saas-jobscience-tutorial/IC784369.png "Users")
 
-4.  **새 사용자**를 클릭합니다.
+4.  Click **New User**.
 
-    ![모든 사용자](./media/active-directory-saas-jobscience-tutorial/IC784370.png "모든 사용자")
+    ![All Users](./media/active-directory-saas-jobscience-tutorial/IC784370.png "All Users")
 
-5.  **사용자 편집** 대화 상자에서 다음 단계를 수행합니다.
+5.  On the **Edit User** dialog, perform the following steps:
 
-    ![사용자 편집](./media/active-directory-saas-jobscience-tutorial/IC784371.png "사용자 편집")
+    ![User Edit](./media/active-directory-saas-jobscience-tutorial/IC784371.png "User Edit")
 
-    1.  프로비저닝하려는 Azure AD 사용자의 이름, 성, 별칭, 전자 메일, 애칭 속성을 해당하는 텍스트 상자에 입력합니다.
-    2.  **Save**를 클릭합니다.
+    1.  Type the first name, last name, alias, email, user name and nickname properties of the Azure AD user you want to provision into the related textboxes.
+    2.  Click **Save**.
 
-    >[AZURE.NOTE] Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
+    >[AZURE.NOTE] The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
 
->[AZURE.NOTE] 다른 Jobscience 사용자 계정 생성 도구 또는 Jobscience가 제공한 API를 사용하여 AAD 사용자 계정을 프로비저닝할 수 있습니다.
+>[AZURE.NOTE] You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Jobscience에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-jobscience,-perform-the-following-steps:"></a>To assign users to Jobscience, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Jobscience** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Jobscience **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-jobscience-tutorial/IC784372.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-jobscience-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-jobscience-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

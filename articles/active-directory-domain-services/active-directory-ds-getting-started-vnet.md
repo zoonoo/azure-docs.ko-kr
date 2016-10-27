@@ -1,72 +1,77 @@
 <properties
-	pageTitle="Azure AD 도메인 서비스: 가상 네트워크 만들기 또는 선택 | Microsoft Azure"
-	description="Azure Active Directory 도메인 서비스 시작"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Domain Services: Create or select a virtual network | Microsoft Azure"
+    description="Getting started with Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/03/2016"
-	ms.author="maheshu"/>
-
-# Azure AD 도메인 서비스의 가상 네트워크 만들기 또는 선택
-
-## Azure 가상 네트워크 선택 지침
-> [AZURE.NOTE] **시작하기 전에**: [Azure AD 도메인 서비스의 네트워킹 고려 사항](active-directory-ds-networking.md)을 참조하세요.
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/03/2016"
+    ms.author="maheshu"/>
 
 
-## 작업 2: Azure 가상 네트워크 만들기
-다음 구성 작업은 Azure Virtual Network를 만들고 그 안에 서브넷을 만드는 것입니다. 가상 네트워크 내에서 이 서브넷의 Azure AD 도메인 서비스를 사용하도록 설정합니다. 사용하고 싶은 기존 가상 네트워크가 이미 있는 경우 이 단계를 건너뛸 수 있습니다.
+# <a name="create-or-select-a-virtual-network-for-azure-ad-domain-services"></a>Create or select a virtual network for Azure AD Domain Services
 
-> [AZURE.NOTE] 만들거나 Azure AD 도메인 서비스와 함께 사용하도록 선택하는 Azure 가상 네트워크가 Azure AD 도메인 서비스에서 지원하는 Azure 지역에 속하는지 확인합니다. Azure AD 도메인 서비스를 사용할 수 있는 Azure 지역을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
+## <a name="guidelines-to-select-an-azure-virtual-network"></a>Guidelines to select an Azure virtual network
+> [AZURE.NOTE] **Before you begin**: Refer to [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md).
 
-후속 구성 단계에서 Azure AD 도메인 서비스를 사용하도록 설정할 때 올바른 가상 네트워크를 선택할 수 있도록 가상 네트워크의 이름을 기록해 둡니다.
 
-Azure AD 도메인 서비스를 사용하도록 설정할 Azure 가상 네트워크를 만들려면 다음 구성 단계를 수행합니다.
+## <a name="task-2:-create-an-azure-virtual-network"></a>Task 2: Create an Azure virtual network
+The next configuration task is to create an Azure virtual network and a subnet within it. You enable Azure AD Domain Services in this subnet within your virtual network. If you already have an existing virtual network you’d prefer to use, you can skip this step.
 
-1. **Azure 클래식 포털**([https://manage.windowsazure.com](https://manage.windowsazure.com))로 이동합니다.
+> [AZURE.NOTE] Ensure that the Azure virtual network you create or choose to use with Azure AD Domain Services belongs to an Azure region that is supported by Azure AD Domain Services. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
 
-2. 왼쪽 창에서 **네트워크** 노드를 선택합니다.
+Note down the name of the virtual network so you select the right virtual network when enabling Azure AD Domain Services in a subsequent configuration step.
 
-    ![네트워크 노드](./media/active-directory-domain-services-getting-started/networks-node.png)
+Perform the following configuration steps to create an Azure virtual network in which you’d like to enable Azure AD Domain Services.
 
-3. 페이지 아래쪽의 작업창에서 **새로 만들기**를 클릭합니다.
+1. Navigate to the **Azure classic portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
 
-    ![가상 네트워크 노드](./media/active-directory-domain-services-getting-started/virtual-networks.png)
+2. Select the **Networks** node on the left pane.
 
-4. **네트워크 서비스** 노드에서 **가상 네트워크**를 선택합니다.
+    ![Networks node](./media/active-directory-domain-services-getting-started/networks-node.png)
 
-5. 가상 네트워크를 만들기 위해 **빠른 생성**을 클릭합니다.
+3. Click **NEW** on the task pane at the bottom of the page.
 
-    ![가상 네트워크 - 빠른 생성](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
+    ![Virtual networks node](./media/active-directory-domain-services-getting-started/virtual-networks.png)
 
-6. 가상 네트워크의 **이름**을 지정합니다. 이 네트워크의 **주소 공간** 또는 **최대 VM 수**를 구성하도록 선택할 수도 있습니다. 지금은 **DNS 서버** 설정을 ‘없음’으로 설정된 상태로 둘 수 있습니다. DNS 서버 설정은 Azure AD 도메인 서비스를 사용하도록 설정한 후에 업데이트할 수 있습니다.
+4. In the **Network Services** node, select **Virtual Network**.
 
-7. **위치** 드롭다운에서 지원되는 Azure 지역을 선택해야 합니다. Azure AD 도메인 서비스를 사용할 수 있는 Azure 지역을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
+5. Click **Quick Create** to create a virtual network.
 
-8. **Virtual Network 만들기** 단추를 클릭하여 가상 네트워크를 만듭니다.
+    ![Virtual network - quick create](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 
-    ![Azure AD 도메인 서비스에 대한 가상 네트워크를 만듭니다.](./media/active-directory-domain-services-getting-started/create-vnet.png)
+6. Specify a **Name** for your virtual network. You may also choose to configure the **Address space** or **Maximum VM count** for this network. You can leave the **DNS server** setting set to 'None' for now. You can update the DNS server setting after your enable Azure AD Domain Services.
 
-9. 가상 네트워크를 만든 후에 가상 네트워크를 선택하고 **구성** 탭을 클릭합니다.
+7. Ensure that you select a supported Azure region in the **Location** dropdown. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
 
-    ![서브넷 만들기](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
+8. To create your virtual network, click the **Create a Virtual Network** button.
 
-10. **가상 네트워크 주소 공간** 섹션으로 이동합니다. **서브넷 추가**를 클릭하여 **AaddsSubnet**이라는 이름으로 서브넷을 지정합니다. **저장**을 클릭하여 서브넷을 만듭니다.
+    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet.png)
 
-    ![Azure AD 도메인 서비스에 대한 서브넷을 만듭니다.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
+9. After the virtual network is created, select the virtual network and click the **CONFIGURE** tab.
+
+    ![Create a subnet](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
+
+10. Navigate to the **virtual network address spaces** section. Click **add subnet** and specify a subnet with the name **AaddsSubnet**. Click **Save** to create the subnet.
+
+    ![Create a subnet for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
 
 
 <br>
 
-## 작업 3 - Azure AD 도메인 서비스 활성화
-다음 구성 태스크는 [Azure AD 도메인 서비스를 활성화](active-directory-ds-getting-started-enableaadds.md)하는 것입니다.
+## <a name="task-3---enable-azure-ad-domain-services"></a>Task 3 - Enable Azure AD Domain Services
+The next configuration task is to [enable Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md).
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

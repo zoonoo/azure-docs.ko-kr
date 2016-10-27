@@ -1,10 +1,13 @@
 
-* Xcode에서 **실행**을 눌러 시뮬레이터에서가 아니라 iOS 장치에서 해당 앱을 시작합니다. **확인**을 클릭하여 푸시 알림을 허용합니다. 이 요청은 처음 앱을 실행할 때 발생합니다.
+* In Xcode, press **Run** and start the app on an iOS device (not the simulator.) Click **OK** to accept push notifications; this request occurs the first time the app runs.
 
-* 앱에서 새 항목을 추가하고 **+**를 클릭합니다.
+* In the app, add a new item and click **+**.
 
-* 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다. 이제 이 자습서를 성공적으로 완료했습니다.
+* Verify that a notification is received, then click **OK** to dismiss the notification. You have now successfully completed this tutorial.
 
-  	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
+    ![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

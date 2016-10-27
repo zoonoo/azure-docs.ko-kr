@@ -1,81 +1,86 @@
 <properties
-	pageTitle="SQL Server 백업 및 복원에 Azure 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Azure 저장소에 SQL Server를 백업하는 방법에 알아봅니다. Azure 저장소에 SQL 데이터베이스를 백업할 때의 이점에 대해 설명합니다."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="MikeRayMSFT"
-	manager="jhubbard"
-	tags="azure-service-management"/>
+    pageTitle="How to use Azure storage for SQL Server backup and restore | Microsoft Azure"
+    description="Learn how to back up SQL Server to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="MikeRayMSFT"
+    manager="jhubbard"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2016"
-	ms.author="mikeray"/>
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="07/22/2016"
+    ms.author="mikeray"/>
 
-# SQL Server 백업 및 복원에 Azure 저장소 사용
 
-## 개요
+# <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Use Azure Storage for SQL Server Backup and Restore
 
-SQL Server 2012 SP1 CU2부터는 Azure Blob 저장소 서비스에 직접 SQL Server 백업을 쓸 수 있습니다. 이 기능을 사용하여 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server 데이터베이스를 사용하여 Azure Blob 서비스에 백업하고 Azure Blob 서비스에서 복원할 수 있습니다. 클라우드로 백업하면 가용성, 무제한으로 지역에서 복제되는 오프사이트 저장소, 클라우드로/에서 쉬운 데이터 마이그레이션 등의 이점이 있습니다. Transact-SQL 또는 SMO를 사용하여 BACKUP 또는 RESTORE 문을 실행할 수 있습니다.
+## <a name="overview"></a>Overview
 
-SQL Server 2016에는 여러 새 기능이 포함되어 있습니다. [파일-스냅숏 백업](http://msdn.microsoft.com/library/mt169363.aspx)을 사용하여 거의 즉시 백업을 수행하고 매우 빠르게 복원할 수 있습니다.
+Starting with SQL Server 2012 SP1 CU2, you can now write SQL Server backups directly to the Azure Blob storage service. You can use this functionality to back up to and restore from the Azure Blob service with an on-premises SQL Server database or a SQL Server database in an Azure virtual machine. Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud. You can issue BACKUP or RESTORE statements by using Transact-SQL or SMO.
 
-이 항목에서는 SQL 백업을 위해 Azure Storage를 사용하도록 선택하는 이유와 관련 구성 요소에 대해 설명합니다. 문서 끝에 제공되는 리소스를 사용하여 연습 과정 및 SQL Server 백업에서 이 서비스를 사용하기 위한 추가 정보에 액세스할 수 있습니다.
+SQL Server 2016 introduces new capabilities; you can use [file-snapshot backup](http://msdn.microsoft.com/library/mt169363.aspx) to perform nearly instantaneous backups and incredibly quick restores.
 
-## SQL Server 백업에 Azure Blob 서비스를 사용할 경우의 이점
+This topic explains why you might choose to use Azure storage for SQL backups and then describes the components involved. You can use the resources provided at the end of the article to access walkthroughs and additional information to start using this service with your SQL Server backups.
 
-SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 같습니다. 여기에는 저장소 관리, 저장소 오류 위험, 오프사이트 저장소에 대한 액세스, 하드웨어 구성 등이 포함됩니다. 이러한 문제 대부분은 SQL Server 백업을 위해 Azure Blob 저장소 서비스를 사용하여 지정됩니다. 다음과 같은 이점을 고려합니다.
+## <a name="benefits-of-using-the-azure-blob-service-for-sql-server-backups"></a>Benefits of Using the Azure Blob Service for SQL Server Backups
 
-- **사용 편의성**: Azure Blob 서비스에 백업을 저장하면 오프사이트 옵션에 쉽고 간편하며 유연하게 액세스할 수 있습니다. SQL Server 백업을 위한 오프사이트 저장소를 만들 때 **BACKUP TO URL** 구문을 사용하면 기존 스크립트/작업을 수정하는 것만큼 쉽습니다. 오프사이트와 프로덕션 데이터베이스 위치 둘 다에 영향을 줄 수 있는 단일 재해를 방지하려면 오프사이트 저장소는 일반적으로 프로덕션 데이터베이스 위치와 충분히 멀리 떨어져 있어야 합니다. [Azure Blob에 대해 지역에서 복제](../storage/storage-redundancy.md)를 선택하면 전 지역에 영향을 줄 수 있는 재해가 발생하는 경우에도 추가적인 보호 방법을 확보할 수 있습니다.
-- **백업 보관**: Azure Blob 저장소 서비스는 백업을 보관하는 데 흔히 사용되는 테이프 옵션보다 탁월한 대안을 제공합니다. 테이프 저장소를 사용하려면 미디어를 보호하기 위해 오프사이트 시설 및 수단까지 테이프를 물리적으로 운반해야 할 수 있습니다. Azure Blob 저장소에 백업 저장은 즉각적이고 내구성 있는 고가용성 보관 옵션을 제공합니다.
-- **관리되는 하드웨어**: Azure 서비스를 사용하면 하드웨어 관리의 오버헤드가 없습니다. Azure 서비스에서 하드웨어를 관리하며 하드웨어 오류 방지와 중복을 위해 지역에서 복제 옵션을 제공합니다.
-- **무제한 저장소**: Azure Blob에 직접 백업할 수 있도록 설정하면 무제한 저장소에 가상으로 액세스할 수 있습니다. 또는 Azure 가상 컴퓨터 디스크로 백업하면 컴퓨터 크기에 따라 제한이 적용됩니다. 백업을 위해 Azure 가상 컴퓨터에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 매우 큰 인스턴스의 경우 16개의 디스크로 제한되고 작은 인스턴스의 경우에는 디스크의 수가 더 적습니다.
-- **백업 가용성**: Azure Blob에 저장된 백업은 데이터베이스 연결/분리 또는 VHD 다운로드 및 연결 과정 없이도 언제 어디서나 사용 가능하며 온-프레미스 SQL Server 또는 Azure 가상 컴퓨터에서 실행되는 다른 SQL Server에 대한 복원을 위해 쉽게 액세스할 수 있습니다.
-- **비용**: 사용하는 서비스에 대해서만 결제합니다. 오프사이트 및 백업 보관 옵션으로 비용 효율성을 추구할 수 있습니다. 자세한 내용은[ Azure 가격 계산기](http://go.microsoft.com/fwlink/?LinkId=277060 "Azure 가격 계산기") 및 [Azure 가격 책정 문서](http://go.microsoft.com/fwlink/?LinkId=277059 "가격 책정 문서")를 참조하세요.
-- **스냅숏 저장소**: 데이터베이스 파일이 Azure Blob에 저장되고 SQL Server 2016을 사용하는 경우 [파일-스냅숏 백업](http://msdn.microsoft.com/library/mt169363.aspx)을 사용하여 거의 즉각적인 백업 및 매우 빠른 복원을 수행할 수 있습니다.
+There are several challenges that you face when backing up SQL Server. These challenges include storage management, risk of storage failure, access to off-site storage, and hardware configuration. Many of these challenges are addressed by using the Azure Blob store service for SQL Server backups. Consider the following benefits:
 
-자세한 내용은 [Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](http://go.microsoft.com/fwlink/?LinkId=271617)을 참조하십시오.
+- **Ease of use**: Storing your backups in Azure blobs can be a convenient, flexible, and easy to access off-site option. Creating off-site storage for your SQL Server backups can be as easy as modifying your existing scripts/jobs to use the **BACKUP TO URL** syntax. Off-site storage should typically be far enough from the production database location to prevent a single disaster that might impact both the off-site and production database locations. By choosing to [geo-replicate your Azure blobs](../storage/storage-redundancy.md), you have an extra layer of protection in the event of a disaster that could affect the whole region.
+- **Backup archive**: The Azure Blob Storage service offers a better alternative to the often used tape option to archive backups. Tape storage might require physical transportation to an off-site facility and measures to protect the media. Storing your backups in Azure Blob Storage provides an instant, highly available, and a durable archiving option.
+- **Managed hardware**: There is no overhead of hardware management with Azure services. Azure services manage the hardware and provide geo-replication for redundancy and protection against hardware failures.
+- **Unlimited storage**: By enabling a direct backup to Azure blobs, you have access to virtually unlimited storage. Alternatively, backing up to an Azure virtual machine disk has limits based on machine size. There is a limit to the number of disks you can attach to an Azure virtual machine for backups. This limit is 16 disks for an extra large instance and fewer for smaller instances.
+- **Backup availability**: Backups stored in Azure blobs are available from anywhere and at any time and can easily be accessed for restores to either an on-premises SQL Server or another SQL Server running in an Azure Virtual Machine, without the need for database attach/detach or downloading and attaching the VHD.
+- **Cost**: Pay only for the service that is used. Can be cost-effective as an off-site and backup archive option. See the [Azure pricing calculator](http://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator"), and the [Azure Pricing article](http://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article") for more information.
+- **Storage snapshots**: When database files are stored in an Azure blob and you are using SQL Server 2016, you can use [file-snapshot backup](http://msdn.microsoft.com/library/mt169363.aspx) to perform nearly instantaneous backups and incredibly quick restores.
 
-다음 두 섹션에서는 필수 SQL Server 구성 요소를 포함하여 Azure Blob 저장소 서비스를 소개합니다. Azure Blob 저장소 서비스로 백업하거나 서비스에서 복원하기 위해서는 구성 요소와 구성 요소 간 조작에 대해 이해하는 것이 중요합니다.
+For more details, see [SQL Server Backup and Restore with Azure Blob Storage Service](http://go.microsoft.com/fwlink/?LinkId=271617).
 
-## Azure Blob 저장소 서비스 구성 요소
+The following two sections introduce the Azure Blob storage service, including the required SQL Server components. It is important to understand the components and their interaction to successfully use backup and restore from the Azure Blob storage service.
 
-다음 Azure 구성 요소는 Azure Blob 저장소 서비스로 백업할 때 사용됩니다.
+## <a name="azure-blob-storage-service-components"></a>Azure Blob Storage Service Components
 
-| 구성 요소 | 설명 |
+The following Azure components are used when backing up to the Azure Blob storage service.
+
+| Component               | Description                          |
 |---------------------|-------------------------------|
-| **저장소 계정** | 저장소 계정은 모든 저장소 서비스를 사용하기 위한 출발점입니다. Azure Blob 저장소 서비스에 액세스하려면 먼저 Azure 저장소 계정을 만드세요. Azure Blob 저장소 서비스에 대한 자세한 내용은 [Azure Blob 저장소 서비스를 사용하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)(영문)을 참조하십시오. |
-| **컨테이너** | 컨테이너는 Blob 집합의 그룹화를 제공하며 Blob을 개수에 제한 없이 저장할 수 있습니다. SQL Server 백업을 Azure Blob 서비스에 쓰려면 최소한 루트 컨테이너를 만들어야 합니다. |
-| **Blob** | 임의 형식 및 크기의 파일입니다. Blob은 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다. **https://[storage account].blob.core.windows.net/[container]/[blob]**. 페이지 Blob에 대한 자세한 내용은 [블록 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요. |
+| **Storage Account** | The storage account is the starting point for all storage services. To access an Azure Blob Storage service, first create an Azure Storage account. For more information about Azure Blob storage service, see [How to use the Azure Blob Storage Service](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
+| **Container** | A container provides a grouping of a set of blobs, and can store an unlimited number of Blobs. To write a SQL Server backup to an Azure Blob service, you must have at least the root container created. |
+| **Blob** | A file of any type and size. Blobs are addressable using the following URL format: **https://[storage account].blob.core.windows.net/[container]/[blob]**. For more information about page Blobs, see [Understanding Block and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
-## SQL Server 구성 요소
+## <a name="sql-server-components"></a>SQL Server Components
 
-다음 SQL Server 구성 요소는 Azure Blob 저장소 서비스로 백업할 때 사용됩니다.
+The following SQL Server components are used when backing up to the Azure Blob storage service.
 
-| 구성 요소 | 설명 |
+| Component               | Description                          |
 |---------------------|-------------------------------|
-| **URL** | URL은 고유한 백업 파일에 대한 URI(Uniform Resource Identifier)를 지정합니다. URL은 SQL Server 백업 파일의 위치 및 이름을 지정하는 데 사용합니다. URL은 컨테이너가 아닌 실제 Blob을 가리켜야 합니다. Blob이 없는 경우 새로 만듭니다. 기존 Blob이 지정된 경우 > WITH FORMAT 옵션을 지정하지 않으면 BACKUP이 실패합니다. 다음은 BACKUP 명령에 지정하는 URL 예제입니다. **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS는 필수가 아니지만 사용하는 것이 좋습니다. |
-| **자격 증명** | Azure Blob 저장소 서비스에 연결하고 인증하는 데 필요한 정보는 자격 증명으로 저장됩니다. SQL Server가 백업을 Azure Blob에 쓰거나 Azure Blob에서 복원하려면 SQL Server 자격 증명을 만들어야 합니다. 자세한 내용은 [SQL Server 자격 증명](https://msdn.microsoft.com/library/ms189522.aspx)을 참조하세요. |
+| **URL** | A URL specifies a Uniform Resource Identifier (URI) to a unique backup file. The URL is used to provide the location and name of the SQL Server backup file. The URL must point to an actual blob, not just a container. If the blob does not exist, it is created. If an existing blob is specified, BACKUP fails, unless the > WITH FORMAT option is specified. The following is an example of the URL you would specify in the BACKUP command: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS is recommended but not required. |
+| **Credential** | The information that is required to connect and authenticate to Azure Blob storage service is stored as a Credential.  In order for SQL Server to write backups to an Azure Blob or restore from it, a SQL Server credential must be created. For more information, see [SQL Server Credential](https://msdn.microsoft.com/library/ms189522.aspx). |
 
-> [AZURE.NOTE] Azure Blob 저장소 서비스로 백업 파일을 복사하고 업로드하도록 선택한 경우 이 파일을 복원 작업에 사용하려면 저장소 옵션으로 페이지 Blob 유형을 사용해야 합니다. 블록 Blob 유형에서 RESTORE를 사용하면 오류를 일으키며 실패합니다.
+> [AZURE.NOTE] If you choose to copy and upload a backup file to the Azure Blob storage service, you must use a page blob type as your storage option if you are planning to use this file for restore operations. RESTORE from a block blob type will fail with an error.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-1. 아직 Azure 계정이 없는 경우 새로 하나 만듭니다. Azure를 평가하는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 고려하세요.
+1. Create an Azure account if you don't already have one. If you are evaluating Azure, consider the [free trial](https://azure.microsoft.com/free/).
 
-1. 저장소 계정을 만들고 복원을 수행하는 과정을 안내하는 다음 자습서 중 하나를 진행합니다.
+1. Then go through one of the following tutorials that walk you through creating a storage account and performing a restore.
 
-	- **SQL Server 2014**: [자습서: Microsoft Azure Blob 저장소 서비스로 SQL Server 2014 백업 및 복원](https://msdn.microsoft.com/library/jj720558(v=sql.120).aspx)
-	- **SQL Server 2016**: [자습서:SQL Server 2016 데이터베이스에서 Microsoft Azure Blob 저장소 서비스 사용](https://msdn.microsoft.com/library/dn466438.aspx)
+    - **SQL Server 2014**: [Tutorial: SQL Server 2014 Backup and Restore to Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+    - **SQL Server 2016**: [Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx)
 
-1. [Microsoft Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx)부터 시작해서 추가 설명서를 검토하세요.
+1. Review additional documentation starting with [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx).
 
-문제가 발생하는 경우 [URL에 대한 SQL Server 백업 - 최상의 방법 및 문제 해결](https://msdn.microsoft.com/library/jj919149.aspx) 항목을 검토하세요.
+If you have any problems, review the topic [SQL Server Backup to URL Best Practices and Troubleshooting](https://msdn.microsoft.com/library/jj919149.aspx).
 
-기타 SQL Server 백업 및 복원 옵션에 대해서는 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md)을 참조하세요.
+For other SQL Server backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

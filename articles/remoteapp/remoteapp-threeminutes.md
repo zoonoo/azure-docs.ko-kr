@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="3분 내로 장치에서 Azure RemoteApp 사용해 보기 | Microsoft Azure"
-    description="서비스를 설치하지 않고 Azure RemoteApp 기능을 시험 사용합니다."
+    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less | Microsoft Azure"
+    description="Test drive Azure RemoteApp functionality without installing the service."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,24 +18,29 @@
 
 
 
-# 3분 내로 장치에서 Azure RemoteApp 사용해 보기
+
+# <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Try Azure RemoteApp on your device in 3 minutes or less
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-장치에서 Azure RemoteApp을 볼까요? Microsoft 계정으로 액세스되어 있는 한 10분 동안 데모 배포에 액세스할 수 있습니다. Office 및 몇몇 다른 응용 프로그램을 사용할 수 있습니다. 3분 이내에 사용자의 Azure RemoteApp 환경을 시험 사용해 볼 수 있는 훌륭한 방법입니다.
+Want to see Azure RemoteApp on your device? You can access our demo deployment for 10 minutes, as long as you have a Microsoft account. We have Office and a few other applications available. This is a great way to test drive the user experience for Azure RemoteApp in less than 3 minutes.
 
-관심이 있나요?
+Interested?
 
-1. [http://remoteapp.azure.com](http://remoteapp.azure.com)으로 이동하세요.
-2. 오른쪽 위 모퉁이에서 **클라이언트 설치**를 클릭합니다.
-3. 시스템은 자동으로 장치를 검색하고 장치에 대한 클라이언트로 이동합니다. 클라이언트를 설치합니다.
-4. [http://remoteapp.azure.com](http://remoteapp.azure.com)으로 다시 이동하고 Microsoft 계정으로 로그인합니다.
+1. Go to to [http://remoteapp.azure.com](http://remoteapp.azure.com).
+2. Click **Install Client** in the upper right corner.  
+3. The system automatically detects your device and will take you to the client for your device. Install the client.
+4. Go back [http://remoteapp.azure.com](http://remoteapp.azure.com) and  sign in with your Microsoft account.
 
-이제 Azure RemoteApp에서 실시간으로 실행 중인 응용 프로그램에 액세스할 수 있습니다.
+You can now access applications running in real time on Azure RemoteApp.
 
-여러분의 의견은 소중합니다. 각 세션이 끝날 때 여러분의 피드백을 입력할 수 있는 대화 상자가 나타납니다. 시간이 있으시면, 여러분을 생각을 입력하시고 Microsoft에서 사용자에게 연락하여 추가 정보를 문의할 수 있는지 여부를 알려주세요.
+Your opinion matters. At the end of each session, you will see a dialog box for your feedback. If you have a minute, tell us your thoughts and let us know whether you would like Microsoft to contact you for additional information.
 
->[AZURE.NOTE] 데모 사용에 대해서는 제어된 환경이기 때문에 게시된 데모 응용 프로그램에서 외부 인터넷 액세스를 설정하지 않았습니다. 이 때문에 OneDrive와 같은 서비스에 액세스할 수 없습니다. 또한, 클립보드 공유(복사 및 붙여넣기) 및 USB와 프린터 리디렉션은 비활성화됩니다.
+>[AZURE.NOTE] Because this is a controlled environment for demo use, we have not enabled external internet access from the published demo applications. Because of this, services like OneDrive are not accessible. Also, clipboard sharing (Copy & Paste) and USB and printer redirection are disabled.  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

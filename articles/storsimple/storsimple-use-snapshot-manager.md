@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자 사용자 인터페이스 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자 사용자 인터페이스와, 해당 인터페이스를 백업 작업 및 백업 카탈로그 관리에 사용하는 방법을 설명합니다."
+   pageTitle="StorSimple Snapshot Manager user interface | Microsoft Azure"
+   description="Describes the StorSimple Snapshot Manager user interface and explains how to use it to manage backup jobs and the backup catalog."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,505 +15,510 @@
    ms.date="04/25/2016"
    ms.author="v-sharos" />
 
-# StorSimple 스냅숏 관리자 사용자 인터페이스
 
-## 개요
+# <a name="storsimple-snapshot-manager-user-interface"></a>StorSimple Snapshot Manager user interface
 
-StorSimple Snapshot Manager는 백업을 가져오고 관리하는 데 사용할 수 있는 직관적인 사용자 인터페이스입니다. 이 자습서는 사용자 인터페이스를 소개하고, 각 구성 요소의 사용 방법을 설명합니다. StorSimple 스냅숏 관리자에 대한 자세한 설명은 [StorSimple 스냅숏 관리자란?](storsimple-what-is-snapshot-manager.md)을 참조하세요.
+## <a name="overview"></a>Overview
 
-### 콘솔 설명
+The StorSimple Snapshot Manager has an intuitive user interface that you can use to take and manage backups. This tutorial provides an introduction to the user interface, and then explains how to use each of the components. For a detailed description of the StorSimple Snapshot Manager, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-사용자 인터페이스를 보려면 바탕 화면에서 StorSimple 스냅숏 관리자 아이콘을 클릭합니다. 다음 그림과 같이 콘솔 창이 표시됩니다.
+### <a name="console-description"></a>Console description
 
-![StorSimple 스냅숏 관리자 창](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
+To view the user interface, click the StorSimple Snapshot Manager icon on your desktop. The console window appears, as shown in the following illustration.
 
-콘솔 창에는 5개의 주요 요소가 있습니다. 각 요소의 전체 설명을 보려면 해당 링크를 클릭합니다.
+![StorSimple Snapshot Manager panes](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
 
-- [메뉴 모음](#menu-bar) 
-- [도구 모음](#tool-bar) 
-- [범위 창](#scope-pane) 
-- [결과 창](#results-pane) 
-- [작업 창](#actions-pane) 
+The console window has five major elements. Click the appropriate link for a complete description of each element.
 
-또한, StorSimple 스냅숏 관리자는[키보드 탐색 및 다양한 바로 가기](#keyboard-navigation-and-shortcuts)를 지원합니다.
+- [Menu bar](#menu-bar) 
+- [Tool bar](#tool-bar) 
+- [Scope pane](#scope-pane) 
+- [Results pane](#results-pane) 
+- [Actions pane](#actions-pane) 
 
-### 콘솔의 내게 필요한 옵션
+Additionally, the StorSimple Snapshot Manager supports [keyboard navigation and a number of shortcuts](#keyboard-navigation-and-shortcuts).
 
-StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체제 및 Microsoft Management Console(MMC)에서 지원하는 내게 필요한 옵션 기능과, 몇 가지 StorSimple 스냅숏 관리자 특정 키보드 바로 가기를 지원합니다.
+### <a name="console-accessibility"></a>Console accessibility
 
-- Windows 내게 필요한 옵션 기능에 대한 설명은 [Windows의 키보드 바로 가기](https://support.microsoft.com/kb/126449)에서 제공합니다. 
+The StorSimple Snapshot Manager user interface supports the accessibility features provided by the Windows operating system and the Microsoft Management Console (MMC), as well as some StorSimple Snapshot Manager–specific keyboard shortcuts. 
 
-- MMC 내게 필요한 옵션 기능에 대한 설명은 [MMC 3.0의 내게 필요한 옵션](https://technet.microsoft.com/library/cc766075.aspx)에서 제공합니다.
+- For a description of the Windows accessibility features, go to [Keyboard shortcuts for Windows](https://support.microsoft.com/kb/126449). 
 
-- StorSimple 스냅숏 관리자 내게 필요한 옵션에 대한 설명은 [키보드 탐색 및 바로 가기](#keyboard-navigation-and-shortcuts)에서 제공합니다.
+- For a description of the MMC accessibility features, go to [Accessibility for MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
 
-## 메뉴 모음
+- For a description of the StorSimple Snapshot Manager accessibility features, go to [Keyboard navigation and shortcuts](#keyboard-navigation-and-shortcuts).
 
-콘솔 창의 위쪽에 있는 메뉴 모음에는 [파일](#file-menu), [동작](#action-menu), [보기](#view-menu), [즐겨찾기](#favorites-menu), [창](#window-menu) 및 [도움말](#help-menu) 메뉴가 있습니다.
+## <a name="menu-bar"></a>Menu bar
 
-해당 메뉴에서 사용할 수 있는 명령 목록을 보려면 메뉴 모음에서 항목을 클릭합니다. 다음 예에서는 메뉴 모음에서 선택한 **보기** 메뉴를 보여 줍니다.
+The menu bar at the top of the console window contains [File](#file-menu), [Action](#action-menu), [View](#view-menu), [Favorites](#favorites-menu), [Window](#window-menu), and [Help](#help-menu) menus.
 
-![보기 메뉴 선택](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
+Click any item on the menu bar to see a list of available commands on that menu. The following example shows the **View** menu selected on the menu bar.
 
-### 파일 메뉴
+![View menu selected](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**파일** 메뉴에는 표준 Microsoft Management Console(MMC) 명령이 있습니다.
+### <a name="file-menu"></a>File menu
 
-#### 메뉴 액세스
+The **File** menu contains standard Microsoft Management Console (MMC) commands.
 
-**파일** 메뉴를 보려면 메뉴 모음에서 **파일**을 클릭합니다. 다음과 같은 메뉴가 나타납니다.
+#### <a name="menu-access"></a>Menu access
 
-![StorSimple 스냅숏 관리자 파일 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png)
+To view the **File** menu, click **File** on the menu bar. The following menu appears.
 
-#### 메뉴 설명
+![StorSimple Snapshot Manager File menu](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png) 
 
-다음 표에서는 **파일** 메뉴에 표시되는 항목을 설명합니다.
+#### <a name="menu-description"></a>Menu description
 
-| 메뉴 항목 | 설명 |
+The following table describes items that appear on the **File** menu.
+
+| Menu item | Description |
 |:----------|:-------------|
-| 새로 만들기 | **새로 만들기**를 클릭하면 StorSimple 스냅숏 관리자를 기반으로 새 콘솔을 만듭니다. |
-| 열기 | **열기**를 클릭하면 기존 콘솔을 엽니다. |
-| 저장 | **저장**을 클릭하면 현재 콘솔을 저장합니다. |
-| 다른 이름으로 저장 | **다른 이름으로 저장**을 클릭하면 현재 콘솔의 새 인스턴스를 다른 이름으로 만듭니다. **다른 이름으로 저장** 옵션은 보기를 사용자 지정하고 나중에 검색할 수 있게 저장할 때 사용합니다. 예를 들어, 특정 서버를 가리키는 StorSimple 스냅숏 관리자 스냅인을 만들 수 있습니다. |
-| 스냅인 추가/제거 | **스냅인 추가/제거**를 클릭하면 스냅인을 추가 또는 제거하거나 **범위** 창에 노드를 정렬할 수 있습니다. 자세한 내용은 [MMC 3.0에서의 스냅인 추가, 제거 및 구성](https://technet.microsoft.com/library/cc722035.aspx)에서 제공합니다. |
-| 옵션 | **옵션**을 클릭하면 콘솔 아이콘을 변경하거나, 사용자 액세스 모드와 권한을 지정하거나, 콘솔 파일을 삭제하여 사용 가능한 디스크 공간을 늘릴 수 있습니다. |
-| 파일 경로 목록 | 번호가 매겨진 목록에서 경로를 클릭하면 최근에 연 파일을 다시 엽니다. |
-| 끝내기 | **끝내기**를 클릭하면 **파일** 메뉴가 닫힙니다. |
+| New       | Click **New** to create a new console based on the StorSimple Snapshot Manager. |
+| Open      | Click **Open** to open an existing console. |
+| Save      | Click **Save** to save the current console. |
+| Save as   | Click **Save As** to create a new, renamed instance of the current console. Use the **Save As** option to customize a view and save it for later retrieval. For example, you could create StorSimple Snapshot Manager snap-ins that point to specific servers. |
+| Add/Remove Snap-in | Click **Add/Remove Snap-in** to add or remove snap-ins and to organize nodes in the **Scope** pane. For more information, go to [Add, Remove, and Organize Snap-ins and Extensions in MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Options   | Click **Options** to change the console icon, specify user access modes and permissions, or delete console files to increase available disk space. |
+| List of file paths | Click a path in the numbered list to reopen a file that you recently opened. |
+| Exit      | Click **Exit** to close the **File** menu. |
  
-### 동작 메뉴
+### <a name="action-menu"></a>Action menu
 
-**동작** 메뉴를 사용하여 사용 가능한 동작을 선택합니다. 사용 가능한 항목은 **범위** 창 또는**결과** 창에서 지정한 선택에 따라 달라집니다.
+Use the **Action** menu to select from available actions. The items available to you depend on the selection you make in the **Scope** pane or **Results** pane.
 
-#### 메뉴 액세스
+#### <a name="menu-access"></a>Menu access
 
-**동작** 메뉴를 보려면 다음 중 하나를 수행합니다.
+To view the **Action** menu, do one of the following:
 
-- **범위** 창 또는 **결과** 창의 항목을 마우스 오른쪽 단추로 클릭합니다.
+- Right-click an item in the **Scope** pane or **Results** pane.
 
-- **범위** 창 또는 **결과** 창의 항목을 선택한 다음 메뉴 모음에서 **동작**을 클릭합니다.
+- Select an item in the **Scope** pane or **Results** pane, and then click **Action** on the menu bar. 
 
-예를 들어 **범위** 창에서 최상위 노드를 선택하고 마우스 오른쪽 단추를 클릭하거나, 메뉴 모음에서 **동작**을 클릭하면 다음 메뉴가 표시됩니다.
+For example, if you select the top node in the **Scope** pane, and then right-click or click **Action** in the menu bar, the following menu appears.
  
-![StorSimple 스냅숏 관리자 동작 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
+![StorSimple Snapshot Manager Action menu](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-**동작** 창(콘솔 오른쪽)에는 **동작** 메뉴와 동일한 목록이 있습니다. 또한 **작업** 창에는 **보기** 메뉴 옵션이 있어 **결과** 창의 사용자 지정 보기를 만들 수 있습니다.
+The **Actions** pane (on the right of the console) contains the same list of actions as the **Action** menu. Additionally, the **Actions** pane contains the **View** menu options, which enable you to create a custom view of the **Results** pane.
 
-![보기 메뉴가 열린 작업 창](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+![Actions pane with View menu open](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
-#### 메뉴 설명
+#### <a name="menu-description"></a>Menu description
 
-다음 표에서는 사전순으로 StorSimple 스냅숏 관리자 동작 목록을 제공합니다.
+The following table contains an alphabetical list of StorSimple Snapshot Manager actions. 
 
-- **동작** 열은 노드와 결과에 대해 수행할 수 있는 동작 목록을 나열합니다. 
+- The **Action** column lists actions that you can perform on nodes and results. 
 
-- **탐색** 열은 동작을 선택할 수 있게 적합한 **동작** 메뉴 표시 방법을 설명합니다. 일부 동작에는 여러 **동작** 메뉴가 있습니다. 이 동작의 경우 글머리 기호가 있는 목록에서 **탐색** 옵션 하나를 선택합니다.
+- The **Navigation** column explains how to display the appropriate **Action** menu so that you can select the action. Some actions appear in multiple **Action** menus. For these actions, select one **Navigation** option from the bulleted list. 
 
-- **설명** 열에서는 **동작** 메뉴의 각 동작 또는 작업 창 사용 방법과 그 기능에 대해 설명합니다.
+- The **Description** column describes how to use each action on the **Action** menu or Actions pane, and explains what it does.
 
->[AZURE.NOTE] **작업** 창 및 **동작** 메뉴에는 **보기**, **여기에서 창 새로 만들기**, **새로 고침**, **목록 내보내기** 및 **도움말** 등과 같은 추가 옵션이 있습니다. 이러한 옵션은 MMC의 일부로 제공되며 StorSimple 스냅숏 관리자 특정 메뉴가 아닙니다. 표에서는 이 옵션에 대해 설명합니다.
+>[AZURE.NOTE] The **Actions** pane and **Action** menus contain additional options, such as **View**, **New Window from here**, **Refresh**, **Export List**, and **Help**. These options are available as a part of the MMC, and are not specific to StorSimple Snapshot Manager. The table includes descriptions of these options.
  
-| 작업 | 탐색 | 설명 |
+| Action  | Navigation  | Description  |
 |:--------|:------------|:-------------|
-| 인증 | **장치** 노드를 클릭하고 **결과** 창에서 장치를 마우스 오른쪽 단추로 클릭합니다. | **인증**을 클릭하여 해당 장치에 대해 구성한 암호를 입력합니다. |
-| 복제 | **백업 카탈로그**, **클라우드 스냅숏**을 확장하고 날짜가 지정된 백업을 클릭한 다음 **결과** 창에서 볼륨을 선택합니다. | **복제**를 클릭하여 클라우드 스냅숏의 복사본을 만들고 사용자가 지정한 위치에 저장합니다. |
-| 장치 구성 | **장치** 노드를 마우스 오른쪽 단추로 클릭합니다. | **장치 구성**을 클릭하여 Windows 호스트에 연결할 단일 장치 또는 여러 장치를 구성합니다. |
-| 백업 정책 만들기 | 다음 중 하나를 수행합니다. <ul><li>**백업 정책**을 마우스 오른쪽 단추로 클릭합니다.</li><li>**볼륨 그룹**을 마우스 오른쪽 단추로 클릭하거나 확장한 다음 볼륨 그룹을 클릭합니다.</li><li>**백업 카탈로그**를 클릭하거나 확장한 다음 볼륨 그룹을 마우스 오른쪽 단추로 클릭합니다.</li></ul> | **백업 정책 만들기**를 클릭하여 볼륨 그룹의 예약된 백업을 구성합니다. |
-| 볼륨 그룹 만들기 | 다음 중 하나를 수행합니다. <ul><li>**볼륨** 노드를 클릭한 다음 **결과** 창에서 볼륨을 마우스 오른쪽 단추로 클릭합니다. </li><li>**볼륨 그룹** 노드를 마우스 오른쪽 단추로 클릭합니다.</li></ul> | **볼륨 그룹 만들기**를 클릭하여 볼륨 그룹에 볼륨을 지정합니다. |
-| 삭제 | 노드 또는 결과(여러 **동작** 메뉴 및 **작업** 창에 표시되는 항목)를 클릭합니다. | **삭제**를 클릭하여 선택한 노드나 결과를 삭제합니다. 확인 대화 상자가 나타나면 삭제를 확인하거나 취소합니다. |
-| 세부 정보 | **장치** 노드를 클릭한 다음 **결과** 창의 장치를 마우스 오른쪽 단추로 클릭합니다. | **세부 정보**를 클릭하여 장치의 구성 세부 정보를 확인합니다. |
-| 편집 | **백업 정책**을 클릭한 다음 **결과** 창에서 정책을 마우스 오른쪽 단추로 클릭합니다. | **편집**을 클릭하여 볼륨 그룹의 백업 일정을 변경합니다. |
-| 목록 내보내기 | 노드 또는 결과(모든 **동작** 메뉴 및 **작업** 창에 표시되는 항목)를 클릭합니다. | **목록 내보내기**를 클릭하여 쉼표로 구분한 값(CSV) 파일로 목록을 저장합니다. 그런 다음 분석을 위해 이 파일을 스프레드시트 응용 프로그램으로 내보낼 수 있습니다. |
-| 도움말 | 노드 또는 결과를 클릭합니다. 이 항목은 모든 **동작** 메뉴 및 **작업** 창에 나타납니다. | **도움말**을 클릭하여 별도의 브라우저 창에 온라인 도움말을 엽니다. |
-| 여기에서 창 새로 만들기 | 노드 또는 결과(모든 **동작** 메뉴 및 **작업** 창에 표시되는 항목)를 클릭합니다. | **여기에서 창 새로 만들기**를 클릭하여 새 StorSimple 스냅숏 관리자 창을 엽니다.|
-| 새로 고침 | 노드 또는 결과(모든 **동작** 메뉴 및 **작업** 창에 표시되는 항목)를 클릭합니다. | **새로 고침**을 클릭하여 현재 표시된 StorSimple 스냅숏 관리자 창을 업데이트합니다. |
-| 장치 새로 고침 | **장치** 노드를 클릭하고 **결과** 창에서 장치를 마우스 오른쪽 단추로 클릭합니다. | **장치 새로 고침**을 클릭하여 특정 연결 장치를 StorSimple 스냅숏 관리자와 동기화합니다. |
-| 장치 새로 고침 | **장치** 노드를 마우스 오른쪽 단추로 클릭합니다. | **장치 새로 고침**을 클릭하여 연결 장치 목록을 StorSimple 스냅숏 관리자와 동기화합니다. |
-| 볼륨 다시 검사 | **볼륨** 노드를 마우스 오른쪽 단추로 클릭합니다. | **볼륨 다시 검사**를 클릭하여 **결과** 창에 표시되는 볼륨 목록을 업데이트합니다. |
-| 복원 | **백업 카탈로그**, 볼륨 그룹, **로컬 스냅숏** 또는 **클라우드 스냅숏**을 차례로 확장한 다음 백업을 마우스 오른쪽 단추로 클릭합니다. | **복원**을 클릭하여 현재 볼륨 그룹 데이터를 선택한 백업의 데이터로 대체합니다. |
-| 백업 수행 | 다음 중 하나를 수행합니다.<ul><li>**볼륨 그룹**을 확장하고 마우스 오른쪽 단추로 볼륨 그룹을 클릭합니다.</li><li>**백업 카탈로그**를 확장하고 마우스 오른쪽 단추로 볼륨 그룹을 클릭합니다.</li></ul> | **백업**을 클릭하여 즉시 백업 작업을 시작합니다. |
-| 가져오기 표시 토글 | **범위** 창의 최상위 노드를 마우스 오른쪽 단추로 클릭합니다(예에서는 **StorSimple 스냅숏 관리자** 노드). | **가져오기 표시 토글**을 클릭하여 볼륨 그룹과, StorSimple 관리자 서비스 대시보드에서 가져온 연결된 백업을 숨기거나 표시합니다. |
+| Authenticate | Click the **Devices** node, and right-click a device in the **Results** pane. | Click **Authenticate** to enter the password that you configured for the device. |
+| Clone  | Expand **Backup Catalog**, expand **Cloud Snapshots**, click a dated backup, and then select a volume in the **Results** pane. | Click **Clone** to create a copy of a cloud snapshot and store it in a location that you designate. |
+| Configure a Device | Right-click the **Devices** node. | Click **Configure a Device** to configure a single device or multiple devices to connect to the Windows host. |
+| Create Backup Policy | Do one of the following:<ul><li>Right-click **Backup Policies**.</li><li>Click or expand **Volume Groups**, and then right-click a volume group.</li><li>Click or expand **Backup Catalog**, and then right-click a volume group.</li></ul> | Click **Create Backup Policy** to configure a scheduled backup for a volume group. |
+| Create Volume Group | Do one of the following:<ul><li>Click the **Volumes** node, and then right-click a volume in the **Results** pane.</li><li>Right-click the **Volume Groups** node.</li></ul> | Click **Create Volume Group** to assign volumes to a volume group. |
+| Delete | Click a node or result (This item appears on many **Action** menus and  **Actions** panes.) | Click **Delete** to delete the node or result that you selected. When the confirmation dialog box appears, confirm or cancel the deletion. |
+| Details | Click the **Devices** node, and then right-click a device in the **Results** pane. | Click **Details** to see the configuration details for a device. |
+| Edit | Click **Backup Policies**, and then right-click a policy in the **Results** pane. | Click **Edit** to change the backup schedule for a volume group. |
+| Export List | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **Export List** to save a list in a comma-separated value (CSV) file. You can then import this file into a spreadsheet application for analysis. |
+| Help | Click any node or result. (This item appears on all **Action** menus and **Actions** panes.) | Click **Help** to open online Help in a separate browser window. |
+| New Window from Here | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **New Window from Here** to open a new StorSimple Snapshot Manager window.|
+| Refresh | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **Refresh** to update the currently displayed StorSimple Snapshot Manager window. |
+| Refresh Device | Click the **Devices** node, and right-click a device in the **Results** pane. | Click **Refresh Device** to synchronize a specific connected device with StorSimple Snapshot Manager. |
+| Refresh Devices | Right-click the **Devices** node. | Click **Refresh Devices** to synchronize your list of connected devices with StorSimple Snapshot Manager. |
+| Rescan volumes | Right-click the **Volumes** node. | Click **Rescan volumes** to update the list of volumes that appears in the **Results** pane. |
+| Restore | Expand **Backup Catalog**, expand a volume group, expand **Local Snapshots** or **Cloud Snapshots**, and then right-click a backup. | Click **Restore** to replace the current volume group data with the data from the selected backup. |
+| Take Backup | Do one of the following:<ul><li>Expand **Volume Groups**, and then right-click a volume group.</li><li>Expand **Backup Catalog**, and then right-click a volume group.</li></ul> | Click **Take Backup** to start a backup job immediately. |
+| Toggle Imports Display | Right-click the top node in the **Scope** pane (the **StorSimple Snapshot Manager** node in the examples). | Click **Toggle Imports Display** to show or hide the volume groups and associated backups that were imported from the StorSimple Manager service dashboard. |
 
-### 보기 메뉴
+### <a name="view-menu"></a>View menu
 
-**보기** 메뉴를 사용하여 **결과**창 내용의 사용자 지정 보기를 만듭니다. **보기** 메뉴에는 **열 추가/제거** 및 **사용자 지정** 옵션이 있습니다.
+Use the **View** menu to create a custom view of the **Results** pane contents. The **View** menu contains **Add/Remove Columns** and **Customize** options.
 
-#### 메뉴 액세스
+#### <a name="menu-access"></a>Menu access
 
-메뉴 모음이나 **작업**창에서 **보기** 메뉴에 액세스할 수 있습니다.
+You can access the **View** menu on the menu bar or in the **Actions** pane.
 
-![StorSimple 스냅숏 관리자 보기 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
+![StorSimple Snapshot Manager View menu](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png) 
 
-#### 메뉴 설명
+#### <a name="menu-description"></a>Menu description
 
-다음 표에서는 **보기** 메뉴에 표시되는 항목을 설명합니다.
+The following table describes items that appear on the **View** menu.
 
-| 메뉴 항목 | 설명 |
+| Menu item  | Description |
 |:-----------|:-------------|
-| 열 추가/제거 | **열 추가/제거**를 클릭하여 **결과** 창에서 열을 추가하거나 제거합니다. |
-| 사용자 지정 | **사용자 지정**을 클릭하면 StorSimple 스냅숏 관리자 콘솔 창에 항목을 표시하거나 숨깁니다. |
+| Add/Remove Columns | Click **Add/Remove Columns** to add or remove columns in the **Results** pane. |
+| Customize | Click **Customize** to show or hide items in the StorSimple Snapshot Manager console window. |
 
-### 즐겨찾기 메뉴
+### <a name="favorites-menu"></a>Favorites menu
 
-**즐겨찾기** 메뉴를 사용하여 자주 사용하는 페이지 보기 및 작업을 추가, 제거 및 정리합니다.
+Use the **Favorites** menu to add, remove, and organize page views and tasks that you use frequently. 
 
-#### 메뉴 액세스
+#### <a name="menu-access"></a>Menu access
 
-메뉴 모음에서 **즐겨찾기** 메뉴에 액세스할 수 있습니다.
+You can access the **Favorites** menu on the menu bar.
 
-![StorSimple 스냅숏 관리자 즐겨찾기 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
+![StorSimple Snapshot Manager Favorites menu](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
-#### 메뉴 설명
+#### <a name="menu-description"></a>Menu description
 
-다음 표에서는 **즐겨찾기** 메뉴에 표시되는 항목을 설명합니다.
+The following table describes items that appear on the **Favorites** menu.
 
-| 메뉴 항목 | 설명 |
+| Menu item |  Description |
 |:----------|:-------------|
-| 즐겨찾기에 추가 | **즐겨찾기에 추가**를 클릭하여 즐겨찾기 목록에 현재 보기를 추가합니다. |
-| 즐겨찾기 구성 | **즐겨찾기 구성**을 클릭하여 즐겨찾기 폴더의 내용을 구성합니다. |
+| Add to Favorites | Click **Add to Favorites** to add the current view to your list of favorites. |
+| Organize Favorites | Click **Organize Favorites** to organize the contents of your Favorites folder. |
 
-### 창 메뉴
+### <a name="window-menu"></a>Window menu
 
-**창** 메뉴를 사용하여 StorSimple 스냅숏 관리자 콘솔 창을 추가하고 다시 정렬합니다.
+Use the **Window** menu to add and rearrange StorSimple Snapshot Manager console windows.
 
-#### 메뉴 액세스
+#### <a name="menu-access"></a>Menu access
 
-메뉴 모음에서 **창** 메뉴에 액세스할 수 있습니다.
+You can access the **Window** menu on the menu bar.
 
-![StorSimple 스냅숏 관리자 창 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
+![StorSimple Snapshot Manager Window menu](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
 
-메뉴 하단에 있는 번호가 매겨진 목록은 현재 열린 창을 보여줍니다. 이 목록에서 아무 창이나 클릭하면 해당 창이 포그라운드로 옵니다.
+The numbered list at the bottom of the menu shows the windows that are currently open. Click any window in that list to bring the window into the foreground. 
 
-#### 메뉴 설명
+#### <a name="menu-description"></a>Menu description
 
-다음 표에서는 창 메뉴에 표시되는 항목을 설명합니다.
+The following table describes the items that appear on the Window menu.
 
-| 메뉴 항목 | 설명 |
+| Menu item  | Description |
 |:-----------|:-------------|
-| 새 창 | **새 창**을 클릭하여 새 콘솔 창(기존 창과 함께)을 엽니다. |
-| 계단식 배열 | **계단식 배열**을 클릭하면 열려 있는 콘솔 창을 계단식으로 표시합니다. |
-| 가로 바둑판식 배열 | **가로 바둑판식 배열**을 클릭하면 열려 있는 콘솔 창을 바둑판(또는 그리드) 형식으로 표시합니다. |
-| 아이콘 정렬 | 여러 콘솔 창이 바탕화면에 흩어져 있는 경우, 해당 창을 최소화한 다음 **아이콘 정렬**을 클릭하면 화면 아래쪽에 가로 행으로 창을 정렬합니다. |
+| New Window | Click **New Window** to open a new console window (in addition to the existing window). |
+| Cascade   | Click **Cascade** to display the open console windows in a cascading style. |
+| Tile Horizontally | Click **Tile Horizontally** to display the open console windows in a tile (or grid) format. |
+| Arrange Icons | If you have multiple console windows open and scattered over your desktop, minimize them and then click **Arrange Icons** to arrange them in a horizontal row on the bottom of your screen. |
 
-### 도움말 메뉴
+### <a name="help-menu"></a>Help menu
 
-**도움말** 메뉴를 사용하여 StorSimple 스냅숏 관리자 및 MMC에 사용 가능한 온라인 도움말을 확인합니다. 현재 시스템에 설치되어 있는 MMC 및 StorSimple 스냅숏 관리자 소프트웨어 버전에 대한 정보를 볼 수도 있습니다.
+Use the **Help** menu to view available online help for StorSimple Snapshot Manager and the MMC. You can also view information about the MMC and StorSimple Snapshot Manager software versions that are currently installed on your system. 
 
-메뉴 모음에서 **도움말** 메뉴에 액세스할 수 있습니다. **작업** 창에서 StorSimple 스냅숏 관리자 도움말 항목에 액세스할 수도 있습니다.
+You can access the **Help** menu on the menu bar. You can also access StorSimple Snapshot Manager help topics from the **Actions** pane.
 
-![StorSimple 스냅숏 관리자 도움말 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
+![StorSimple Snapshot Manager Help menu](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
 
-#### 메뉴 설명
+#### <a name="menu-description"></a>Menu description
 
-다음 표에서 도움말 메뉴에 표시 되는 항목을 설명 합니다.
+The following table describes items that appear on the Help menu.
 
-| 메뉴 항목 | 설명 |
+| Menu item  | Description  |
 |:-----------|:-------------|
-| StorSimple 스냅숏 관리자 도움말 | **StorSimple 스냅숏 관리자 도움말**을 클릭하면 별도 창에 StorSimple 스냅숏 관리자 도움말이 열립니다. |
-| 도움말 항목 |**도움말 항목**을 클릭하면 별도 창에서 MMC 온라인 도움말이 열립니다. |
-| TechCenter 웹 사이트 | **TechCenter 웹 사이트**를 클릭하면 별도 창에서 Microsoft TechNet TechCenter 홈 페이지가 열립니다. |
-| Microsoft Management Console 정보 | **Microsoft Management Console 정보**를 클릭하여 시스템에 설치된 Microsoft Management Console의 버전을 확인합니다. |
-| StorSimple 스냅숏 관리자 정보 | **StorSimple 스냅숏 관리자 정보**를 클릭하여 시스템에 설치된 스냅인 버전을 확인합니다. |
+| Help on StorSimple Snapshot Manager | Click **Help on StorSimple Snapshot Manager** to open StorSimple Snapshot Manager help in a separate window. |
+| Help Topics |Click **Help Topics** to open MMC online help in a separate window. |
+| TechCenter Web Site | Click **TechCenter Web Site** to open the Microsoft TechNet Tech Center home page in a separate window. |
+| About Microsoft Management Console | Click **About Microsoft Management Console** to see which version of the Microsoft Management Console is installed on your system. |
+| About StorSimple Snapshot Manager | Click **About StorSimple Snapshot Manager** to see which version of the snap-in is installed on your system. |
 
-## 도구 모음
+## <a name="tool-bar"></a>Tool bar
 
-메뉴 모음 아래에 있는 도구 모음에는 탐색 및 작업 아이콘이 있습니다. 각 아이콘은 특정 작업에 대한 바로 가기입니다.
+The tool bar, located below the menu bar, contains navigation and task icons. Each icon is a shortcut to a specific task.
 
-### 아이콘 설명
+### <a name="icon-descriptions"></a>Icon descriptions
 
-다음 표에서는 도구 모음에 표시되는 아이콘을 설명합니다.
+The following table describes the icons that appear on the tool bar. 
 
-| 아이콘 | 설명 |
+| Icon  | Description  |
 |:------|:-------------| 
-| ![왼쪽 화살표](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) | 왼쪽 화살표 아이콘을 클릭하면 이전 페이지로 돌아갑니다. |
-| ![오른쪽 화살표](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | 오른쪽 화살표를 클릭하면 다음 페이지로 이동합니다(화살표가 회색으로 표시된 경우 이 작업을 사용할 수 없음). |
-| ![위로 아이콘](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) | 위로 아이콘을 클릭하면 콘솔 트리에서 한 단계 위로 이동합니다(**범위** 창). |
-| ![콘솔 트리 표시/숨기기](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) | 콘솔 트리 표시/숨기기 아이콘을 클릭하면 **범위** 창을 표시하거나 숨깁니다. |
-| ![목록 내보내기](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) | 목록 내보내기 아이콘을 클릭하면 목록을 지정한 CSV 파일로 내보냅니다. |
-| ![도움말 아이콘](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png) |온라인 MMC 도움말 항목을 열려면 도움말 아이콘을 클릭합니다. |
-| ![작업 창 표시/숨기기](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) | **작업** 창 표시/숨기기 아이콘을 클릭하면 **작업** 창을 표시하거나 숨깁니다. 
+| ![Left arrow](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) | Click the left arrow icon to return to the previous page. |
+| ![Right arrow](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | Click the right arrow to go to the next page (if the arrow is gray, the action is unavailable). |
+| ![Up icon](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) | Click the up icon to go up one level in the console tree (the **Scope** pane). |
+| ![Show/hide console tree](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) | Click the show/hide console tree icon to show or hide the **Scope** pane. |
+| ![Export list](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) | Click the export list icon to export a list to a CSV file that you specify. |
+| ![Help icon](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png)  |Click the help icon to open an online MMC help topic. |
+| ![Show/hide Actions pane](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) | Click the show/hide **Actions** pane icon to show or hide the **Actions** pane. 
  
-## 범위 창
+## <a name="scope-pane"></a>Scope pane
 
-**범위** 창은 StorSimple Snapshot Manager UI에서 가장 왼쪽 창입니다. 이 창은 콘솔(또는 노드) 트리를 포함하며 StorSimple 스냅숏 관리자의 기본 탐색 방법입니다.
+The **Scope** pane is the leftmost pane in the StorSimple Snapshot Manager UI. It contains the console (or node) tree and is the primary navigation mechanism for StorSimple Snapshot Manager. 
  
-### 범위 창 구조
+### <a name="scope-pane-structure"></a>Scope pane structure
 
-**범위** 창에는 트리 구조로 정리된 여러 클릭 가능한 개체(노드)가 있습니다.
+The **Scope** pane contains a series of clickable objects (nodes) organized in a tree structure. 
 
-![범위 창](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png)
+![Scope pane](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png) 
 
-- 노드를 확장하거나 축소하려면 노드 이름 옆의 화살표 아이콘을 클릭합니다.
+- To expand or collapse a node, click the arrow icon next to the node name.
 
-- 노드의 상태 또는 콘텐츠를 보려면 노드 이름을 클릭합니다. **결과** 창에 정보가 표시됩니다.
+- To view the status or contents of a node, click the node name. The information appears in the **Results** pane. 
 
-**범위** 창에는 다음 노드가 있습니다.
+The **Scope** pane contains the following nodes: 
 
-- [장치 노드](#devices-node) 
-- [볼륨 노드](#volumes-node) 
-- [볼륨 그룹 노드](#volume-groups-node) 
-- [백업 정책 노드](#backup-policies-node) 
-- [백업 카탈로그 노드](#backup-catalog-node) 
-- [작업 노드](#jobs-node) 
+- [Devices node](#devices-node) 
+- [Volumes node](#volumes-node) 
+- [Volume Groups node](#volume-groups-node) 
+- [Backup Policies node](#backup-policies-node) 
+- [Backup Catalog node](#backup-catalog-node) 
+- [Jobs node](#jobs-node) 
 
-### 범위 창 작업
+### <a name="scope-pane-tasks"></a>Scope pane tasks
 
-**범위** 창을 사용하여 특정 노드에 대한 작업을 완료할 수 있습니다. 작업을 선택하려면 다음 중 하나를 수행합니다.
+You can use the **Scope** pane to complete an action on a specific node. To select a task, do one of the following:
 
-- 노드를 마우스 오른쪽 단추로 클릭 하고 나타나는 메뉴에서 작업을 선택합니다.
+- Right-click the node, and then select the task from the menu that appears.
 
-- 노드를 클릭한 다음 메뉴 모음에서 **동작**을 클릭합니다. 나타나는 메뉴에서 작업을 선택합니다.
+- Click the node, and then click **Action** on the menu bar. Select the task from the menu that appears.
 
-- 노드를 클릭한 다음 **작업** 창에서 동작을 선택합니다.
+- Click the node, and then select the action in the **Actions** pane.
 
-노드를 선택하고 이 방법 중 하나를 사용하여 작업 목록을 볼 때는 해당 노드에서 수행할 수 있는 동작만 표시됩니다.
+When you select a node and use any of these methods to see a task list, only those actions that can be performed on that node are shown.
 
-### 장치 노드
+### <a name="devices-node"></a>Devices node
 
-**장치** 노드는 StorSimple 스냅숏 관리자에 연결된 StorSimple 장치 및 StorSimple 가상 장치를 나타냅니다. 이 노드를 선택하여 장치를 연결 및 구성하고 연결된 볼륨, 볼륨 그룹, 기존 백업 사본을 가져옵니다. 여러 장치를 단일 호스트에 연결할 수 있습니다.
+The **Devices** node represents the StorSimple devices and StorSimple virtual devices that are connected to StorSimple Snapshot Manager. Select this node to connect and configure a device, and import its associated volumes, volumes groups, and existing backup copies. Multiple devices can be connected to a single host.
 
-- 노드를 확장하려면 **장치** 옆에 있는 화살표 아이콘을 클릭합니다.
+- To expand the node, click the arrow icon next to **Devices**.
 
-- 사용 가능한 동작 메뉴를 보려면 **장치** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
+- To see a menu of available actions, right-click the **Devices** node or right-click any of the nodes that appear in the expanded view.
 
-- 구성된 장치 목록을 보려면 **범위** 창에서 **장치**를 클릭합니다. 장치 목록과 각 장치 관련 정보가 **결과** 창에 나타납니다.
+- To see a list of configured devices, click **Devices** in the **Scope** pane. The list of devices, together with information about each device, appears in the **Results** pane.
 
-### 볼륨 노드
+### <a name="volumes-node"></a>Volumes node
 
-**볼륨** 노드는 호스트에서 마운트한 볼륨에 해당하는 드라이버를 나타내며, 여기에는 iSCSI를 통해 발견된 장치와 장치를 통해 발견된 장치가 포함됩니다. 이 노드를 사용하여 사용 가능한 볼륨 목록을 확인하고 개별 볼륨을 볼륨 그룹에 할당합니다.
+The **Volumes** node represents the drives that correspond to the volumes mounted by the host, including those discovered through iSCSI and those discovered through a device. Use this node to view the list of available volumes and assign individual volumes to volume groups.
 
-- 노드를 확장하려면 **볼륨** 옆의 화살표 아이콘을 클릭합니다.
+- To expand the node, click the arrow icon next to **Volumes**.
 
-- 사용 가능한 동작 메뉴를 보려면 **볼륨** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
+- To see a menu of available actions, right-click the **Volumes** node or right-click any of the nodes that appear in the expanded view.
 
-- 볼륨 목록을 보려면 **범위** 창에서 **볼륨**을 클릭합니다. 볼륨 목록과 각 볼륨 관련 정보가 **결과** 창에 나타납니다.
+- To see a list of volumes, click **Volumes** in the **Scope** pane. The list of volumes, together with information about each volume, appears in the **Results** pane.
 
-### 볼륨 그룹 노드
+### <a name="volume-groups-node"></a>Volume Groups node
 
-볼륨 그룹은 일관성 그룹이라고도 합니다. 각 볼륨 그룹은 백업 작업 중 응용 프로그램 일관성의 일관성 유지를 지원하는 응용 프로그램 관련 볼륨의 풀입니다. **볼륨 그룹** 노드를 사용하여 이 그룹을 구성하고 대화형 백업을 수행 하거나 백업 일정을 만들 수 있습니다.
+Volume groups are also known as consistency groups. Each volume group is a pool of application-related volumes that helps to ensure application consistency during backup operations. Use the **Volume Groups** node to configure these groups and to take interactive backups or create backup schedules. 
 
-- 노드를 확장하려면 **볼륨 그룹** 옆의 화살표 아이콘을 클릭합니다.
+- To expand the node, click the arrow icon next to **Volume Groups**.
 
-- 사용 가능한 동작 메뉴를 보려면 **볼륨 그룹** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
+- To see a menu of available actions, right-click the **Volume Groups** node or right-click any of the nodes that appear in the expanded view.
 
-- 볼륨 그룹 목록을 보려면 **범위** 창에서 **볼륨 그룹**을 클릭합니다. 볼륨 그룹 목록과 각 볼륨 그룹 관련 정보가 **결과** 창에 나타납니다.
+- To see a list of volume groups, click **Volume Groups** in the **Scope** pane. The list of volume groups, together with information about each volume group, appears in the **Results** pane.
 
-### 백업 정책 노드
+### <a name="backup-policies-node"></a>Backup Policies node
 
-백업 정책은 로컬 및 클라우드 스냅숏의 작업 일정입니다. **백업 정책** 노드를 사용하여 백업을 만드는 간격과 백업을 유지하는 기간을 지정합니다.
+Backup policies are job schedules for local and cloud snapshots. Use the **Backup Policies** node to specify how often a backup is created and how long a backup should be retained. 
 
-- 노드를 확장하려면 **백업 정책** 옆의 화살표 아이콘을 클릭합니다.
+- To expand the node, click the arrow icon next to **Backup Policies**.
 
-- 사용 가능한 동작 메뉴를 보려면 **백업 정책** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
+- To see a menu of available actions, right-click the **Backup Policies** node or right-click any of the nodes that appear in the expanded view.
 
-- 백업 정책 목록을 보려면 **범위**에서 **백업 정책**을 클릭합니다. 백업 정책과 각 정책 관련 정보가 **결과** 창에 나타납니다.
+- To see a list of backup policies, click **Backup Policies** in the **Scope** pane. The list of backup policies, together with information about each policy, appears in the **Results** pane.
 
->[AZURE.NOTE] 최대 64개의 백업을 유지할 수 있습니다.
+>[AZURE.NOTE] You can retain a maximum of 64 backups.
 
 
-### 백업 카탈로그 노드
+### <a name="backup-catalog-node"></a>Backup Catalog node
 
-**백업 카탈로그** 노드에는 Azure StorSimple 볼륨의 온사이트 및 오프사이트 백업 목록이 있습니다. 이 노드는 볼륨 그룹별로 구성되며 각 볼륨 그룹 컨테이너에는 로컬 스냅숏(**로컬 스냅숏** 노드)과 클라우드 스냅숏(**클라우드 스냅숏** 노드)에 대해 별도의 구조가 포함되어 있습니다. 확장하면 각 볼륨 그룹 컨테이너가 대화형으로 또는 구성 정책에 따라 수행한 모든 성공한 백업 목록을 표시합니다.
+The **Backup Catalog** node contains lists of on-site and off-site backups of Azure StorSimple volumes. This node is organized by volume group, and each volume group container contains separate structures for local snapshots (the **Local Snapshot**s node) and cloud snapshots (the **Cloud Snapshots** node). When expanded, each volume group container lists all the successful backups that were taken interactively or by a configured policy.
 
-- 노드를 확장하려면 **백업 카탈로그** 옆의 화살표 아이콘을 클릭합니다.
+- To expand the node, click the arrow icon next to **Backup Catalog**.
 
-- 사용 가능한 동작 메뉴를 보려면 **백업 카탈로그** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
+- To see a menu of available actions, right-click the **Backup Catalog** node or right-click any of the nodes that appear in the expanded view.
 
-- 백업 정책 목록을 보려면 **범위**에서 **백업 카탈로그**를 클릭합니다. 스냅숏 목록과 각 스냅숏 관련 정보가 **결과** 창에 나타납니다.
+- To see a list of backup snapshots, click **Backup Catalog** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### 로컬 스냅숏 노드
+### <a name="local-snapshots-node"></a>Local Snapshots node
 
-**로컬 스냅숏** 노드는 특정 볼륨 그룹의 로컬 스냅숏을 나열합니다. 이 노드는 **범위** 창의 **백업 카탈로그** 노드 아래에 있습니다. 로컬 스냅숏은 Azure StorSimple 장치에 저장된 볼륨 데이터의 지정 시간 사본입니다. 일반적으로 이러한 유형의 백업은 신속하게 만들고 복원할 수 있습니다. 로컬 스냅숏은 로컬 백업 사본처럼 사용할 수 있습니다.
+The **Local Snapshots** node lists local snapshots for a specific volume group. The node is located under the **Backup Catalog** node in the **Scope** pane. Local snapshots are point-in-time copies of volume data that are stored on the Azure StorSimple device. Typically, this type of backup can be created and restored quickly. You can use a local snapshot as you would a local backup copy.
 
-- 노드를 확장하려면 **로컬 스냅숏** 옆의 화살표 아이콘을 클릭합니다.
+- To expand the node, click the arrow icon next to **Local Snapshots**.
 
-- 사용 가능한 동작 메뉴를 보려면 **로컬 스냅숏** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
+- To see a menu of available actions, right-click the **Local Snapshots** node or right-click any of the nodes that appear in the expanded view.
 
-- 로컬 스냅숏 목록을 보려면 **범위** 창에서 **로컬 스냅숏**을 클릭합니다. 스냅숏 목록과 각 스냅숏 관련 정보가 **결과** 창에 나타납니다.
+- To see a list of local snapshots, click **Local Snapshots** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### 클라우드 스냅숏 노드
+### <a name="cloud-snapshots-node"></a>Cloud Snapshots node
 
-**클라우드 스냅숏** 노드는 특정 볼륨 그룹의 클라우드 스냅숏을 나열합니다. 이 노드는 **범위** 창의 **백업 카탈로그** 노드 아래에 있습니다. 클라우드 스냅숏은 클라우드에 저장된 볼륨 데이터의 지정 시간 사본입니다. 클라우드 스냅숏은 다른 오프 사이트 저장소 시스템에 복제된 스냅숏과 같습니다. 클라우드 스냅숏은 특히 재해 복구 상황에서 유용합니다.
+The **Cloud Snapshots** node lists cloud snapshots for a specific volume group. The node is located under the **Backup Catalog** node in the **Scope** pane. Cloud snapshots are point-in-time copies of volume data that are stored in the cloud. A cloud snapshot is equivalent to a snapshot replicated on a different, off-site storage system. Cloud snapshots are particularly useful in disaster recovery scenarios.
 
-- 노드를 확장하려면 **클라우드 스냅숏** 옆의 화살표 아이콘을 클릭합니다.
+- To expand the node, click the arrow icon next to **Cloud Snapshots**.
 
-- 사용 가능한 동작 메뉴를 보려면 **클라우드 스냅숏** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
+- To see a menu of available actions, right-click the **Cloud Snapshots** node or right-click any of the nodes that appear in the expanded view.
 
-- 로컬 스냅숏 목록을 보려면 **범위** 창에서 **클라우드 스냅숏**을 클릭합니다. 스냅숏 목록과 각 스냅숏 관련 정보가 **결과** 창에 나타납니다.
+- To see a list of cloud snapshots, click **Cloud Snapshots** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### 작업 노드
+### <a name="jobs-node"></a>Jobs node
 
-**작업** 노드에는 예약, 실행 및 최근 완료 백업 작업에 대한 정보가 들어 있습니다.
+The **Jobs** node contains information about scheduled, running, and recently completed backup jobs. 
 
-- 노드를 확장하려면 **작업** 옆에 있는 화살표 아이콘을 클릭합니다.
+- To expand the node, click the arrow icon next to **Jobs**.
 
-- 사용 가능한 동작 메뉴를 보려면 **작업** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
+- To see a menu of available actions, right-click the **Jobs** node or right-click any of the nodes that appear in the expanded view.
 
-- 예약 작업의 목록을 보려면 **작업** 노드를 확장한 다음 **예약**을 클릭합니다. 이전에 구성한 작업과 각 작업에 대 한 정보 목록이 **결과** 창에 표시됩니다.
+- To see a list of scheduled jobs, expand the **Jobs** node, and then click **Scheduled**. The list of previously configured jobs and information about each job appears in the **Results** pane. 
 
-- 최근에 완료된 작업의 목록을 보려면 **작업** 노드를 확장한 다음 **최근 24시간**을 클릭합니다. 최근 24시간 동안 완료된 작업 목록이 **결과** 창에 표시됩니다. **결과** 창에는 완료된 각각의 작업에 대한 정보도 들어 있습니다.
+- To see a list of recently completed jobs, expand the **Jobs** node, and then click **Last 24 Hours**. A list of jobs that were completed in the last 24 hours appears in the **Results** pane. The **Results** pane also contains information about each completed job.
 
-- 현재 실행 중인 작업 목록을 보려면 **작업** 노드를 확장한 다음 **실행**을 클릭합니다. 현재 실행 중인 작업과 각 작업의 정보 목록이 **결과** 창에 표시됩니다.
+- To see a list of jobs that are currently running, expand the **Jobs** node, and then click **Running**. The list of currently running jobs and information about each job appears in the **Results** pane.
 
-## 결과 창
+## <a name="results-pane"></a>Results pane
 
-**결과** 창은 StorSimple 스냅숏 관리자 UI의 가운데 창입니다. 여기에는 **범위** 창에서 선택한 노드에 대한 목록과 상세 상태 정보가 들어 있습니다.
+The **Results** pane is the center pane in the StorSimple Snapshot Manager UI. It contains lists and detailed status information for the node you selected in the **Scope** pane.
 
-### 예
+### <a name="example"></a>Example
 
-다음 예를 보려면 **범위** 창에서 **볼륨 그룹** 노드를 클릭합니다. **결과** 창에서 각 그룹에 대한 세부 정보와 볼륨 그룹 목록을 표시합니다.
+To see the following example, click the **Volume Groups** node in the **Scope** pane. The **Results** pane displays a list of volume groups with details about each group.
 
-![결과 창](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png)
+![Results pane](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
 
-**결과** 창에 표시되는 세부 정보를 구성할 수 있습니다. **범위** 창의 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 클릭한 다음 **열 추가/제거**를 클릭합니다.
+You can configure the details shown in the **Results** pane: right-click a node in the **Scope** pane, click **View**, and then click **Add/Remove Columns**.
 
-## 작업 창
+## <a name="actions-pane"></a>Actions pane
 
-**작업** 창은 StorSimple 스냅숏 관리자 UI의 오른쪽 창입니다. 여기에는 **범위** 창 또는 **결과** 창에서 선택한 노드, 보기 또는 데이터에 대해 수행 가능한 작업 메뉴가 들어 있습니다. **작업** 창에는 **범위** 창 및 **결과** 창의 항목에 사용 가능한 것과 동일한 **동작** 메뉴가 들어 있습니다. 각 동작에 대한 설명은 **동작** 메뉴의 섹션을 참조하세요.
+The **Actions** pane is the right pane in the StorSimple Snapshot Manager UI. It contains a menu of operations that you can perform on the node, view, or data that you select in the **Scope** pane or **Results** pane. The **Actions** pane contains the same commands as the **Action** menus that are available for items in the **Scope** pane and **Results** pane. For a description of each action, see the table in the **Action** menu section.
 
-### 예
+### <a name="examples"></a>Examples
 
-다음 예를 보려면 **범위** 창에서 **작업** 노드를 확장하고 **예약**을 클릭합니다. **작업** 창에 **예약** 노드에 사용 가능한 동작이 표시됩니다.
+To see the following example, in the **Scope** pane, expand the **Jobs** node and click **Scheduled**. The **Actions** pane displays the available actions for the **Scheduled** node.
 
-![작업 창 예약 작업 예제](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png)
+![Actions pane scheduled jobs example](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png) 
 
-다른 옵션을 보려면 **범위** 창에서 **작업** 노드를 확장하고, **예약**을 클릭한 다음 **결과** 창에서 예약된 작업을 클릭합니다. **작업** 창은 예약 작업에 사용 가능한 동작을 다음 예에서와 같이 표시합니다.
+To see more options, in the **Scope** pane, expand the **Jobs** node, click **Scheduled**, and then click a scheduled job in the **Results** pane. The **Actions** pane displays the available actions for the scheduled job, as shown in the following example.
 
-![작업 창 작업 동작 예제](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+![Actions pane job actions example](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
-## 키보드 탐색 및 바로 가기
+## <a name="keyboard-navigation-and-shortcuts"></a>Keyboard navigation and shortcuts
 
-StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 운영 체제의 내게 필요한 옵션 기능을 활성화합니다. 또한 다음 섹션에서 설명한 대로 StorSimple 스냅숏 관리자에 특정한 몇 가지 키보드 탐색 기능과 바로 가기가 포함되어 있습니다.
+StorSimple Snapshot Manager enables the accessibility features of the Windows operating system and the Microsoft Management Console (MMC). It also includes some keyboard navigation features and shortcuts that are specific to the StorSimple Snapshot Manager, as described in the following sections.
  
-- [키보드 탐색 키](#keyboard-navigation-keys) 
-- [메뉴 모음 바로 가기 키](#menu-bar-shortcut-keys) 
-- [범위 창 바로 가기 키](#scope-pane-shortcut-keys) 
+- [Keyboard navigation keys](#keyboard-navigation-keys) 
+- [Menu bar shortcut keys](#menu-bar-shortcut-keys) 
+- [Scope pane shortcut keys](#scope-pane-shortcut-keys) 
 
-### 키보드 탐색 키
+### <a name="keyboard-navigation-keys"></a>Keyboard navigation keys
 
-다음 표에서는 StorSimple 스냅숏 관리자 사용자 인터페이스 탐색에 사용할 수 있는 키를 설명합니다.
+The following table describes the keys that you can use to navigate the StorSimple Snapshot Manager user interface. 
 
-| 탐색 키 | 작업 |
+| Navigation key  | Action  |
 |:----------------|:--------| 
-| 아래쪽 화살표 키 | 아래쪽 화살표 키를 사용하여 메뉴 또는 창에서 상하 방향의 다음 항목으로 이동합니다. |
-| Enter | Enter 키를 누르면 특정 동작을 완료 한 후 다음 단계를 진행합니다. 예를 들어, Enter를 눌러 **다음**, **확인** 또는 **만들기**를 선택한 다음 마법사의 다음 단계로 이동할 수 있습니다.|
-| Esc | ESC 키를 누르면 메뉴가 닫히거나 페이지가 취소되어 닫힙니다.|
-| F1 | F1 키를 누르면 현재 활성 창의 도움말 항목이 표시됩니다.|
-| F5 | F5 키를 누르면 노드를 새로 고칩니다. |
-| F6 | F6 키를 눌러서 **범위** 창에서 **결과** 창으로 이동합니다.|
-| F10 | F10 키를 누르면 메뉴 모음으로 이동 합니다. |
-| 왼쪽 화살표 키 | 왼쪽 화살표 키를 사용하여 메뉴 모음에서 가로 방향으로 앞에 있는 옵션으로 이동합니다. 메뉴 모음에서 이전 항목으로 이동하면 이전 항목에 대한 동작(또는 상황에 맞는 항목) 메뉴가 나타납니다. |
-| 오른쪽 화살표 키 | 오른쪽 화살표 키를 사용하여 한 메뉴 모음 옵션에서 가로 방향으로 다음에 있는 옵션으로 이동합니다. 메뉴 모음에서 다음 항목으로 이동하면 다음 항목에 대한 동작(또는 상황에 맞는 항목) 메뉴가 나타납니다.
-| Tab 키 | 탭 키를 사용하여 콘솔의 다음 창이나, 페이지의 다음 선택 또는 텍스트 상자로 이동합니다. |
-| 위쪽 화살표 키 | 위쪽 화살표 키를 사용하여 메뉴나 창에서 세로 방향으로 이전에 있는 항목으로 이동합니다. |
+| Down arrow key | Use the down arrow key to move vertically to the next item in a menu or pane. |
+| Enter | Press the Enter key to complete an action and then proceed to the next step. For example, you can press Enter to select **Next**, **OK**, or **Create**, and then go to the next step in a wizard.|
+| Esc | Press the Esc key to close a menu or to cancel and close a page.|
+| F1 | Press the F1 key to view a help topic for the currently active window.|
+| F5 | Press the F5 key to refresh a node. |
+| F6 | Press the F6 key to move from the **Scope** pane to the **Results** pane.|
+| F10 | Press the F10 key to go to the menu bar. |
+| Left arrow key | Use the left arrow key to move horizontally from a menu bar option to the previous option. When you move to the previous item on the menu bar, the action (or context) menu for the previous item appears. |
+| Right arrow key | Use the right arrow key to move horizontally from one menu bar option to the next. When you move to the next item on the menu bar, the action (or context) menu for the new item appears.
+| Tab key | Use the Tab key to move to the next pane on the console or to the next selection or text box in a page. |
+| Up arrow key | Use the up arrow key to move vertically to the previous item on a menu or pane. |
 
-### 메뉴 모음 바로 가기 키
+### <a name="menu-bar-shortcut-keys"></a>Menu bar shortcut keys
 
-다음 표에서는 메뉴 모음의 바로 가기 키 조합을 설명합니다. 바로 가기 키를 눌러 메뉴가 열리면 메뉴 바로 가기 키(메뉴에서 밑줄 표시된 키)를 사용할 수 있습니다. 메뉴 모음에 대한 자세한 내용은 [메뉴 모음](#menu-bar)을 참조하십시오.
+The following table describes the shortcut key combinations for the menu bar. After you press the shortcut keys and the menu opens, you can use menu shortcut keys (the underlined keys on the menu). For more information about the menu bar, go to [Menu bar](#menu-bar).
 
-| 바로 가기 | 결과 | 메뉴 바로 가기 키 | 결과 |
+| Shortcut | Result                    | Menu Shortcut Key | Result          |
 |:---------|:--------------------------|:------------------|:----------------|
-| ALT + F | **파일** 메뉴를 엽니다. | N | 새 콘솔 인스턴스를 엽니다. |
-| | | O | **관리 도구** 페이지를 엽니다. |
-| | | S | StorSimple 스냅숏 관리자 콘솔을 저장합니다.|
-| | | A | **다른 이름으로 저장** 페이지가 열립니다. |
-| | | M | **스냅인 추가/제거** 페이지를 엽니다.|
-| | | P | **옵션** 페이지를 엽니다. |
-| | | H | 온라인 도움말을 엽니다.|
-| ALT + A | **동작** 메뉴를 엽니다.| I | 가져오기 표시 옵션을 설정 및 해제합니다.|
-| | | W | 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
-| | | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
-| | | L | **목록 내보내기** 페이지를 엽니다. 
-| | | H | 온라인 도움말을 엽니다.|
-| ALT + V | **보기** 메뉴가 열립니다. | A | **열 추가/제거** 페이지를 엽니다. |
-| | | U | **보기 사용자 지정** 페이지를 엽니다. |
-| ALT + O | **즐겨찾기** 메뉴를 엽니다. | A | **즐겨찾기에 추가** 페이지를 엽니다. |
-| | | O | **즐겨찾기 구성** 페이지를 엽니다.|
-| ALT + W | **창** 메뉴가 열립니다.| N | 다른 StorSimple 스냅숏 관리자 창이 열립니다.|
-| | | C | 모든 열려 있는 콘솔 창을 계단식으로 표시합니다.|
-| | | T | 모든 열려 있는 콘솔 창을 그리드 모양으로 표시합니다. |
-| | | I | 화면 아래쪽에서 가로 행으로 아이콘을 정렬합니다.|
-| ALT + H | **도움말** 메뉴를 엽니다. | H | 온라인 도움말을 엽니다.|
-| | | T | Microsoft TechNet Tech Center 웹 페이지가 열립니다.|
-| | | A | **Microsoft Management Console 정보** 페이지를 엽니다. |
+| ALT+F    | Opens the **File** menu.  | N | Opens a new console instance.   |
+|          |                           | O | Opens the **Administrative Tools** page. |
+|          |                           | S | Saves the StorSimple Snapshot Manager console.|
+|          |                           | A | Opens the **Save As** page. |
+|          |                           | M | Opens the **Add/Remove Snap-in** page.|
+|          |                           | P | Opens the **Options** page. |
+|          |                           | H | Opens online Help.|
+| ALT+A    | Opens the **Action** menu.| I | Turns the import display option on and off.|
+|          |                           | W | Opens a new StorSimple Snapshot Manager console.|
+|          |                           | F | Updates the StorSimple Snapshot Manager console.|
+|          |                           | L | Opens the **Export List** page. 
+|          |                           | H | Opens online Help.|
+| ALT+V    | Opens the **View** menu.  | A | Opens the **Add/Remove Columns** page. |
+|          |                           | U | Opens the **Customize View** page. |
+| ALT+O    | Opens the **Favorites** menu. | A | Opens the **Add to Favorites** page. |
+|          |                           | O | Opens the **Organize Favorites** page.|
+| ALT+W    | Opens the **Window** menu.| N | Opens another StorSimple Snapshot Manager window.|
+|          |                           | C | Displays all open console windows in a cascading style.|
+|          |                           | T | Displays all open console windows in a grid pattern. |
+|          |                           | I | Arranges icons in a horizontal row at the bottom of your screen.|
+| ALT+H    | Opens the **Help** menu.  | H | Opens online Help.|
+|          |                           | T | Opens the Microsoft TechNet Tech Center web page.|
+|          |                           | A | Opens the **About Microsoft Management Console** page. |
  
-### 범위 창 바로 가기 키
+### <a name="scope-pane-shortcut-keys"></a>Scope pane shortcut keys
 
-다음 표는 **범위** 창의 각 노드에 대한 바로 가기 키 조합을 보여 줍니다.
+The following tables show the shortcut key combinations for each node in the **Scope** pane. 
 
-- [장치 노드 바로 가기 키](#devices-node-shortcut-keys)
-- [볼륨 노드 바로 가기 키](#volumes-node-shortcut-keys)
-- [볼륨 그룹 노드 바로 가기 키](#volume-groups-node-shortcut-keys)
-- [백업 정책 노드 바로 가기 키](#backup-policies-node-shortcut-keys)
-- [백업 카탈로그 노드 바로 가기 키](#backup-catalog-node-shortcut-keys)
-- [작업 노드 바로 가기 키](#jobs-node-shortcut-keys)
+- [Devices node shortcut keys](#devices-node-shortcut-keys)
+- [Volumes node shortcut keys](#volumes-node-shortcut-keys)
+- [Volume Groups node shortcut keys](#volume-groups-node-shortcut-keys)
+- [Backup Policies node shortcut keys](#backup-policies-node-shortcut-keys)
+- [Backup Catalog node shortcut keys](#backup-catalog-node-shortcut-keys)
+- [Jobs node shortcut keys](#jobs-node-shortcut-keys)
 
-#### 장치 노드 바로 가기 키
+#### <a name="devices-node-shortcut-keys"></a>Devices node shortcut keys
 
-| 메뉴 바로 가기 | 결과 |
+| Menu Shortcut | Result                               |
 |:--------------|:-------------------------------------|
-| C | **장치 구성** 페이지를 엽니다. |
-| D | 장치 및 장치 세부 정보 목록을 새로 고칩니다.|
-| V | **보기** 메뉴가 열립니다. |
-| W | **세부 정보** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다. |
-| F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다. |
-| L | **목록 내보내기** 페이지를 엽니다. 
-| H | 온라인 도움말을 엽니다.|
+| C             | Opens the **Configure a Device** page. |
+| D             | Refreshes the list of devices and device details.|
+| V             | Opens the **View** menu. |
+| W             | Opens a new StorSimple Snapshot Manager console focused on the **Details** node. |
+| F             | Updates the StorSimple Snapshot Manager console. |
+| L             | Opens the **Export List** page. 
+| H             | Opens online Help.|
  
 
-#### 볼륨 노드 바로 가기 키
+#### <a name="volumes-node-shortcut-keys"></a>Volumes node shortcut keys
 
-| 메뉴 바로 가기 | 결과 |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| V | 볼륨 목록을 업데이트합니다. |
-| V(두 번 누르기) | **보기** 메뉴가 열립니다. |
-| W | **볼륨** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
-| F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
-| L | **목록 내보내기** 페이지를 엽니다. 
-| H | 온라인 도움말을 엽니다.|
+| V               | Updates the list of volumes.        |
+| V (press twice) | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volumes** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List** page. 
+| H               | Opens online Help.|
  
-#### 볼륨 그룹 노드 바로 가기 키
+#### <a name="volume-groups-node-shortcut-keys"></a>Volume Groups node shortcut keys
 
-| 메뉴 바로 가기 | 결과 |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| G | **볼륨 그룹 만들기** 페이지를 엽니다. |
-| V | **보기** 메뉴가 열립니다. |
-| W | **볼륨 그룹** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
-| F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다. |
-| L | **목록 내보내기** 페이지를 엽니다. |
-| H | 온라인 도움말을 엽니다.|
+| G               | Opens the **Create a Volume Group** page. |
+| V               | Opens the **View** menu. |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node.|
+| F               | Updates the StorSimple Snapshot Manager console. |
+| L               | Opens the **Export List** page. |
+| H               | Opens online Help.|
 
-#### 백업 정책 노드 바로 가기 키
+#### <a name="backup-policies-node-shortcut-keys"></a>Backup Policies node shortcut keys
 
-| 메뉴 바로 가기 | 결과 |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| B | **정책 만들기** 페이지를 엽니다. |
-| V | **보기** 메뉴가 열립니다. |
-| W | **볼륨 그룹** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
-| F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
-| L | **목록 내보내기** 페이지가 열립니다.
-| H | 온라인 도움말을 엽니다.|
+| B               | Opens the **Create a Policy** page. |
+| V               | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List **page. 
+| H               | Opens online Help.|
  
-#### 백업 카탈로그 노드 바로 가기 키
+#### <a name="backup-catalog-node-shortcut-keys"></a>Backup Catalog node shortcut keys
 
-| 메뉴 바로 가기 | 결과 |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| W | **볼륨 그룹** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다. |
-| F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다. |
-| H | 온라인 도움말을 엽니다.|
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node. |
+| F               | Updates the StorSimple Snapshot Manager console. |
+| H               | Opens online Help.|
  
-#### 작업 노드 바로 가기 키
+#### <a name="jobs-node-shortcut-keys"></a>Jobs node shortcut keys
 
-| 메뉴 바로 가기 | 결과 |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| V | **보기** 메뉴가 열립니다. |
-| W | **작업** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
-| F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
-| L | **목록 내보내기** 페이지를 엽니다. |
-| H | 온라인 도움말을 엽니다. |
+| V               | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Jobs** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List** page.     |
+| H               | Opens online Help                   |
  
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
-- [StorSimple 스냅숏 관리자를 사용하여 장치를 연결 및 관리하는 방법](storsimple-snapshot-manager-manage-devices.md)을 학습합니다.
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to connect and manage devices](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

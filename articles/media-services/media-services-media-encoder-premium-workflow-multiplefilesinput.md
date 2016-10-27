@@ -1,24 +1,25 @@
 <properties
-	pageTitle="프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용 | Microsoft Azure"
-	description="이 항목에서는 setRuntimeProperties를 사용하여 여러 입력 파일을 사용하고 사용자 지정 데이터를 미디어 인코더 Premium 워크플로 미디어 프로세서에 전달하는 방법을 설명합니다."
-	services="media-services"
-	documentationCenter=""
-	authors="xpouyat"
-	manager="erikre"
-	editor=""/>
+    pageTitle="프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용 | Microsoft Azure"
+    description="이 항목에서는 setRuntimeProperties를 사용하여 여러 입력 파일을 사용하고 사용자 지정 데이터를 미디어 인코더 Premium 워크플로 미디어 프로세서에 전달하는 방법을 설명합니다."
+    services="media-services"
+    documentationCenter=""
+    authors="xpouyat"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"  
-	ms.author="xpouyat;anilmur;juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"  
+    ms.author="xpouyat;anilmur;juliako"/>
 
-# 프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
 
-## 개요
+# <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
+
+## <a name="overview"></a>개요
 
 **미디어 인코더 프리미엄 워크플로** 미디어 프로세서로 작업을 제출할 때 구성 요소 속성을 사용자 지정하고 클립 목록 XML 콘텐츠를 지정하거나 여러 입력 파일을 전송해야 하는 시나리오가 있습니다. 일부 사례:
 
@@ -29,7 +30,7 @@
 작업을 만들거나 여러 입력 파일을 전송할 때 **미디어 인코더 프리미엄 워크플로**에 사용자가 워크플로의 일부 속성을 변경하고 있음을 알리려면 **setRuntimeProperties** 및/또는 **transcodeSource**를 포함하는 구성 문자열을 사용해야 합니다. 이 항목에서는 이를 사용하는 방법을 설명합니다.
 
 
-## 구성 문자열 구문
+## <a name="configuration-string-syntax"></a>구성 문자열 구문
 
 인코딩 작업에서 설정할 구성 문자열은 다음과 같은 XML 문서를 사용합니다.
 
@@ -54,14 +55,14 @@
                                                   AssetCreationOptions.None);
 
 
-## 구성 요소 속성 사용자 지정  
+## <a name="customizing-component-properties"></a>구성 요소 속성 사용자 지정  
 
-### 간단한 값이 있는 속성
+### <a name="property-with-a-simple-value"></a>간단한 값이 있는 속성
 일부 경우 구성 요소 속성을 미디어 인코더 Premium 워크플로에서 실행할 워크플로 파일과 함께 사용자 지정하는 것이 좋습니다.
 
 비디오에 텍스트를 오버레이하는 워크플로를 지정했고 텍스트(예: 현재 날짜)가 런타임에 설정된다고 가정합니다. 인코딩 작업에서 오버레이 구성 요소의 텍스트 속성에 대한 새 값으로 설정할 텍스트를 전송하여 이 작업을 수행할 수 있습니다. 이 메커니즘을 사용하여 워크플로 구성 요소의 다른 속성(예: 오버레이의 위치 또는 색, AVC 인코더의 비트 전송률 등)을 변경할 수 있습니다.
 
-워크플로의 구성 요소에서 속성을 재정의하는 데 **setRuntimeProperties**가 사용됩니다.
+**setRuntimeProperties** 가 사용됩니다.
 
 예제:
 
@@ -76,7 +77,7 @@
     </transcodeRequest>
 
 
-### XML 값이 있는 속성
+### <a name="property-with-an-xml-value"></a>XML 값이 있는 속성
 
 XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용하여 캡슐화하세요.
 
@@ -112,9 +113,10 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 >[AZURE.NOTE]`<![CDATA[` 바로 뒤에 캐리지 리턴을 두지 마세요.
 
 
-### propertyPath 값
+### <a name="propertypath-value"></a>propertyPath 값
 
-이전 예제에서 propertyPath는 "/Media File Input/filename", "/inactiveTimeout", "clipListXml"였습니다. 일반적으로 구성 요소의 이름과 속성의 이름입니다. 경로는 "/primarySourceFile"(속성이 워크플로의 루트에 있으므로) 또는 "/Video Processing/Graphic Overlay/Opacity"(오버레이가 그룹에 있으므로)처럼 더 많거나 적은 수준을 포함할 수 있습니다.
+이전 예제에서 propertyPath는 "/Media File Input/filename", "/inactiveTimeout", "clipListXml"였습니다.
+일반적으로 구성 요소의 이름과 속성의 이름입니다. 경로는 "/primarySourceFile"(속성이 워크플로의 루트에 있으므로) 또는 "/Video Processing/Graphic Overlay/Opacity"(오버레이가 그룹에 있으므로)처럼 더 많거나 적은 수준을 포함할 수 있습니다.    
 
 경로 및 속성 이름을 확인하려면 각 속성 바로 옆의 동작 버튼을 사용합니다. 이 동작 버튼을 클릭하고 **편집**을 선택합니다. 그러면 속성의 실제 이름이 네임스페이스 바로 위에 표시됩니다.
 
@@ -122,24 +124,24 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 ![속성](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
-## 여러 입력 파일
+## <a name="multiple-input-files"></a>여러 입력 파일
 
-**미디어 인코더 Premium 워크플로**에 제출하는 각 작업에는 두 개의 자산이 필요합니다.
+**미디어 인코더 Premium 워크플로** 에 제출하는 각 작업에는 두 개의 자산이 필요합니다.
 
-- 첫 번째 자산은 워크플로 파일을 포함하는 *워크플로 자산*입니다. [워크플로 디자이너](media-services-workflow-designer.md)를 사용하여 워크플로 파일을 디자인할 수 있습니다.
-- 두 번째 자산은 인코딩할 미디어 파일을 포함하는 *미디어 자산*입니다.
+- 첫 번째 자산은 워크플로 파일을 포함하는 *워크플로 자산* 입니다. [워크플로 디자이너](media-services-workflow-designer.md)를 사용하여 워크플로 파일을 디자인할 수 있습니다.
+- 두 번째 자산은 인코딩할 미디어 파일을 포함하는 *미디어 자산* 입니다.
 
 여러 미디어 파일을 **미디어 인코더 Premium 워크플로** 인코더에 전송하는 경우 다음 제약 조건이 적용됩니다.
 
 - 모든 미디어 파일이 동일한 *미디어 자산*이어야 합니다. 여러 미디어 자산의 사용은 지원되지 않습니다.
 - 이 미디어 자산에서 기본 파일을 설정해야 합니다(이상적으로 인코더가 처리를 요청하는 기본 비디오 파일).
 - **setRuntimeProperties** 및/또는 **transcodeSource** 요소를 포함하는 구성 데이터를 프로세서에 전달하는 데 필요합니다.
-  - 워크플로의 구성 요소에서 파일 이름 속성 또는 다른 속성을 재정의하는 데 **setRuntimeProperties**가 사용됩니다.
-  - 클립 목록 XML 콘텐츠를 지정하는 데 **transcodeSource**가 사용됩니다.
+  - **setRuntimeProperties** 가 사용됩니다.
+  - **transcodeSource** 가 사용됩니다.
 
 워크플로에서 연결:
 
- - 하나 이상의 미디어 파일 입력 구성 요소를 사용하고 파일 이름을 지정하는 데 **setRuntimeProperties**를 사용할 계획인 경우 여기에 기본 파일 구성 요소 PIN을 연결하지 마세요. 기본 파일 개체와 미디어 파일 입력 간에 연결이 없는지 확인하세요.
+ - 하나 이상의 미디어 파일 입력 구성 요소를 사용하고 파일 이름을 지정하는 데 **setRuntimeProperties** 를 사용할 계획인 경우 여기에 기본 파일 구성 요소 PIN을 연결하지 마세요. 기본 파일 개체와 미디어 파일 입력 간에 연결이 없는지 확인하세요.
  - 클립 목록 XML과 하나의 미디어 원본 구성 요소를 사용하려는 경우 둘 다를 함께 연결할 수 있습니다.
 
 ![기본 원본 파일에서 미디어 파일 입력으로 연결 없음](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
@@ -151,8 +153,8 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 *클립 목록 XML을 미디어 원본에 연결하고 transcodeSource를 사용할 수 있습니다.*
 
 
-### 클립 목록 XML 사용자 지정
-구성 문자열 XML에서 **transcodeSource**를 사용하여 워크플로에서 런타임에 클립 목록 XML을 지정할 수 있습니다. 이를 위해서는 클립 목록 XML 핀을 워크플로에서 미디어 원본 구성 요소에 연결해야 합니다.
+### <a name="clip-list-xml-customization"></a>클립 목록 XML 사용자 지정
+구성 문자열 XML에서 **transcodeSource** 를 사용하여 워크플로에서 런타임에 클립 목록 XML을 지정할 수 있습니다. 이를 위해서는 클립 목록 XML 핀을 워크플로에서 미디어 원본 구성 요소에 연결해야 합니다.
 
     <?xml version="1.0" encoding="utf-16"?>
       <transcodeRequest>
@@ -245,7 +247,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
       </transcodeRequest>
 
 
-## 예
+## <a name="example"></a>예
 
 비디오를 인코딩하는 동안 로고 이미지를 입력 비디오에 오버레이하는 예를 살펴보겠습니다. 이 예에서는 입력 비디오의 이름을 "MyInputVideo.mp4"로 지정하고 로고 이름을 "MyLogo.png"로 지정합니다. 다음 단계를 수행해야 합니다.
 
@@ -270,7 +272,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 >[AZURE.NOTE]비디오 파일 이름은 primarySourceFile 속성에 전송됩니다. 그 이유는 예를 들어 Expressions를 사용하여 올바른 출력 파일 이름을 작성하기 위해 워크플로에서 이 속성을 사용해야 하기 때문입니다.
 
 
-### 비디오 맨 위의 로고를 오버레이하는 단계별 워크플로 만들기     
+### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>비디오 맨 위의 로고를 오버레이하는 단계별 워크플로 만들기     
 
 입력으로 두 개의 파일(비디오 및 이미지)을 사용하는 워크플로를 만드는 단계는 다음과 같습니다. 비디오 맨 위에서 이미지를 오버레이합니다.
 
@@ -280,7 +282,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 - 기본 원본 파일
 - 클립 목록 XML
-- 출력 파일/자산
+- 출력 파일/자산  
 
 ![새 인코딩 워크플로](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
 
@@ -296,7 +298,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 *기본 파일 원본*
 
 
-다음으로, 미디어 파일 입력 구성 요소에서 비디오 파일을 지정합니다.
+다음으로, 미디어 파일 입력 구성 요소에서 비디오 파일을 지정합니다.   
 
 ![미디어 파일 입력 원본](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
 
@@ -331,7 +333,8 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 *오버레이 위치*
 
 
-비디오 스트림을 H.264로 인코딩하려면 AVC 비디오 인코더 및 AAC 인코더 구성 요소를 디자이너 화면에 추가합니다. 핀을 연결합니다. AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)을 선택합니다.
+비디오 스트림을 H.264로 인코딩하려면 AVC 비디오 인코더 및 AAC 인코더 구성 요소를 디자이너 화면에 추가합니다. 핀을 연결합니다.
+AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)을 선택합니다.
 
 ![오디오 및 비디오 인코더](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -357,7 +360,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 완료되면 Azure 미디어 서비스에서 실행할 수 있습니다.
 
-먼저 Azure 미디어 서비스에서 안에 두 파일(비디오 파일 및 로고)이 있는 자산을 준비합니다. .NET 또는 REST API를 사용하여 이 작업을 수행할 수 있습니다. 또한 Azure 포털이나 [AMSE(Azure 미디어 서비스 탐색기)](https://github.com/Azure/Azure-Media-Services-Explorer)를 사용하여 수행할 수도 있습니다.
+먼저 Azure 미디어 서비스에서 안에 두 파일(비디오 파일 및 로고)이 있는 자산을 준비합니다. .NET 또는 REST API를 사용하여 이 작업을 수행할 수 있습니다. 또한 Azure 포털이나 [AMSE(Azure 미디어 서비스 탐색기)](https://github.com/Azure/Azure-Media-Services-Explorer) 를 사용하여 수행할 수도 있습니다.
 
 이 자습서에는 AMSE를 사용하여 자산을 관리하는 방법을 보여 줍니다. 두 가지 방법으로 자산에 파일을 추가합니다.
 
@@ -410,7 +413,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/)에서 샘플 워크플로를 다운로드할 수 있습니다.
 
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 
 - [Azure 미디어 서비스의 프리미엄 인코딩 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
@@ -424,12 +427,16 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 - [Azure 미디어 서비스 탐색기 도구](http://aka.ms/amse)
 
-## 미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## 피드백 제공
+## <a name="provide-feedback"></a>피드백 제공
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,507 +1,512 @@
 <properties 
-	pageTitle="PowerShell을 사용하여 Azure 미디어 서비스 계정 관리" 
-	description="PowerShell cmdlet를 사용하여 Azure 미디어 서비스 계정을 관리하는 방법에 대해 알아봅니다." 
-	authors="Juliako" 
-	manager="erikre" 
-	editor="" 
-	services="media-services" 
-	documentationCenter=""/>
+    pageTitle="Manage Azure Media Services Accounts with PowerShell" 
+    description="Learn how to manage Azure Media Services accounts with PowerShell cmdlets." 
+    authors="Juliako" 
+    manager="erikre" 
+    editor="" 
+    services="media-services" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2016"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/03/2016"
+    ms.author="juliako"/>
 
 
-#PowerShell을 사용하여 Azure 미디어 서비스 계정 관리
+
+#<a name="manage-azure-media-services-accounts-with-powershell"></a>Manage Azure Media Services Accounts with PowerShell
 
 > [AZURE.SELECTOR]
-- [포털](media-services-portal-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST (영문)](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
-> [AZURE.NOTE] Azure 미디어 서비스 계정을 만들려면 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.NOTE] To be able to create an Azure Media Services account, you must have an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
-##개요 
+##<a name="overview"></a>Overview 
 
-이 문서는 Azure Resource Manager 프레임워크의 AMS(Azure 미디어 서비스)에 대한 Azure PowerShell cmdlet을 나열합니다. Cmdlet는 **Microsoft.Azure.Commands.Media** 네임스페이스에 존재합니다.
+This article lists the Azure PowerShell cmdlets for Azure Media Services (AMS) in the Azure Resource Manager framework. The cmdlets exist in the **Microsoft.Azure.Commands.Media** namespace.
 
-## 버전
+## <a name="versions"></a>Versions
 
-**ApiVersion**: "2015-10-01"
+**ApiVersion**:   "2015-10-01"
                
 
-## New-AzureRmMediaService
+## <a name="new-azurermmediaservice"></a>New-AzureRmMediaService
 
-미디어 서비스를 만듭니다.
+Creates a media service.
 
-### 구문
+### <a name="syntax"></a>Syntax
 
-매개 변수 집합: StorageAccountIdParamSet
+Parameter Set: StorageAccountIdParamSet
 
-	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
+    New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
 
-매개 변수 집합: StorageAccountsParamSet
+Parameter Set: StorageAccountsParamSet
 
-	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
+    New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
-### 매개 변수
+### <a name="parameters"></a>Parameters
 
 **-ResourceGroupName &lt;String&gt;**
 
-이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+Specifies the name of the resource group to which this media service belongs.
 
-Aliases | 없음
+Aliases | none
 ---|---
-Required? | true
-Position? | 0
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Required?   |  true
+Position?   |  0
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters?  |false
 
 **-AccountName &lt;String&gt;**
 
-미디어 서비스의 이름을 지정합니다.
+Specifies the name of the media service.
 
 Aliases |Name
 ---|---
 Required? |true
 Position? |1
-기본값 |없음
-Accept Pipeline Input? |false
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
 **-Location &lt;String&gt;**
 
-미디어 서비스의 리소스 위치를 지정합니다.
+Specifies the resource location of the media service.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
 Position? |2
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value  |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-StorageAccountId &lt;String&gt;**
 
-미디어 서비스와 연결된 기본 저장소 계정을 지정합니다.
+Specifies a primary storage account that associated with the media service.
 
-- (리소스 관리자 API로 만든) 새 저장소 계정 만 지원함.
+- New storage account (created with the Resource Manager API) supported only.
 
-- 저장소 계정이 존재하며 미디어 서비스와 동일한 위치에 있어야 합니다.
+- The storage account must exist and has the same location with the media service.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
 Position? |3
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-매개 변수 집합 이름 |StorageAccountIdParamSet
-Accept Wildcard Characters?|false
+Default value  |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name |StorageAccountIdParamSet
+Accept wildcard characters?|false
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-미디어 서비스와 연결된 저장소 계정을 지정합니다.
+Specifies storage accounts that associated with the media service.
 
-- (리소스 관리자 API로 만든) 새 저장소 계정 만 지원함.
+- New storage account (created with the Resource Manager API) supported only.
 
-- 저장소 계정이 존재하며 미디어 서비스와 동일한 위치에 있어야 합니다.
+- The storage account must exist and has the same location with the media service.
 
-- 단 하나의 저장소 계정 만을 기본으로 지정할 수 있습니다.
+- Only one storage account can be specified as primary.
 
-Aliases |없음
+Aliases |none
 ---|---
-Required? |true
-Position? |3
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-매개 변수 집합 이름 |StorageAccountsParamSet
-Accept Wildcard Characters? |false
+Required?  |true
+Position?  |3
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name |StorageAccountsParamSet
+Accept wildcard characters? |false
 
 **-Tags &lt;Hashtable&gt;**
 
-미디어 서비스와 연결된 태그의 해시 테이블을 지정합니다.
+Specifies a hash table of the tags that are associated with the media service.
 
-- 예: @{"tag1"="value1";" tag2"=: value2"}
+- Example: @{"tag1"="value1";"tag2"=:value2"}
 
-Aliases |없음
+Aliases |none
 ---|---
-Required? |false
-Position? |named
-기본값 |없음
-Accept Pipeline Input? |false
-Accept Wildcard Characters? |false
+Required?  |false
+Position?  |named
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
-이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### 입력
+### <a name="inputs"></a>Inputs
 
-입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### 출력
+### <a name="outputs"></a>Outputs
 
-출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+The output type is the type of the objects that the cmdlet emits.
 
-## Set-AzureRmMediaService
+## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 
-미디어 서비스를 만듭니다.
+Updates a media service.
 
-### 구문
+### <a name="syntax"></a>Syntax
 
-	Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+    Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
 
-### 매개 변수
+### <a name="parameters"></a>Parameters
 
 **-ResourceGroupName &lt;String&gt;**
 
-이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+Specifies the name of the resource group to which this media service belongs.
 
-Aliases |없음
+Aliases |none
 ---|---
-Required? |true
-Position? |0
-기본값 |없음
+Required?  |true
+Position?  |0
+Default Value |none
 Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
-미디어 서비스의 이름을 지정합니다.
+Specifies the name of the media service.
 
 Aliases |Name
 ---|---
 Required? |True
 Position? |1
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |False
+Default value |None
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |False
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-미디어 서비스와 연결된 저장소 계정을 지정합니다.
+Specifies storage accounts that associated with the media service.
 
-- (리소스 관리자 API로 만든) 새 저장소 계정 만 지원함.
+- New storage account (created with the Resource Manager API) supported only.
 
-- 저장소 계정이 존재하며 미디어 서비스와 동일한 위치에 있어야 합니다.
+- The storage account must exist and has the same location with the media service.
 
-- 단 하나의 저장소 계정 만을 기본으로 지정할 수 있습니다.
+- Only one storage account can be specified as primary.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |false
-Position? |named
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-매개 변수 집합 이름 |StorageAccountsParamSet
-Accept Wildcard Characters? |false
+Position? |Named
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name |StorageAccountsParamSet
+Accept wildcard characters? |false
 
 **-Tags &lt;Hashtable&gt;**
 
-이 미디어 서비스와 연결된 태그의 해시 테이블을 지정합니다.
+Specifies a hash table of the tags that are associated with this media service.
 
-- 미디어 서비스와 연결된 태그가 고객이 지정한 값으로 대체됩니다.
+- The tags that are associated with the media service are replaced with value specified by the customer.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |False
-Position? |named
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Position?  |Named
+Default value |None
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
-이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### 입력
+### <a name="inputs"></a>Inputs
 
-입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### 출력
+### <a name="outputs"></a>Outputs
 
-출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+The output type is the type of the objects that the cmdlet emits.
 
-## Remove-AzureRmMediaService
+## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 
-미디어 서비스를 제거합니다.
+Removes a media service.
 
-### 구문
+### <a name="syntax"></a>Syntax
 
-	Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+    Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### 매개 변수
+### <a name="parameters"></a>Parameters
 
 **-ResourceGroupName &lt;String&gt;**
 
-이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+Specifies the name of the resource group to which this media service belongs.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
 Position? |0
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
-미디어 서비스의 이름을 지정합니다.
+Specifies the name of the media service.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
 Position? |2
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |False
+Default value |None
+Accept pipeline input?  |true(ByPropertyName)
+Accept wildcard characters? |False
 
 **&lt;CommandParameters&gt;**
 
-이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### 입력
+### <a name="inputs"></a>Inputs
 
-입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### 출력
+### <a name="outputs"></a>Outputs
 
-출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+The output type is the type of the objects that the cmdlet emits.
 
-## Get-AzureRmMediaService
+## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 
-지정된 이름으로 리소스 그룹 또는 미디어 서비스에 있는 모든 미디어 서비스를 가져옵니다.
+Gets all media services in a resource group or a media service with a given name.
 
-### 구문
+### <a name="syntax"></a>Syntax
 
 ParameterSet: ResourceGroupParameterSet
 
-	Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+    Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>] 
 
 ParameterSet: AccountNameParameterSet
 
-	Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+    Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### 매개 변수
+### <a name="parameters"></a>Parameters
 
 **-ResourceGroupName &lt;String&gt;**
 
-이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+Specifies the name of the resource group to which this media service belongs.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
-Position? |0
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-매개 변수 집합 이름 |ResourceGroupParameterSet, AccountNameParameterSet
-Accept wildcard characters? false
+Position?  |0
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name |ResourceGroupParameterSet, AccountNameParameterSet
+Accept wildcard characters?   false
 
 **-AccountName &lt;String&gt;**
 
-미디어 서비스의 이름을 지정합니다.
+Specifies the name of the media service.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
-Position? |1
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-매개 변수 집합 이름 |AccountNameParameterSet
-Accept Wildcard Characters? |false
+Position?  |1
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name  |AccountNameParameterSet
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
-이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### 입력
+### <a name="inputs"></a>Inputs
 
-입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### 출력
+### <a name="outputs"></a>Outputs
 
-출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+The output type is the type of the objects that the cmdlet emits.
 
-## Get-AzureRmMediaServiceKeys
+## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 
-미디어 서비스의 키를 가져옵니다.
+Gets keys of a media service.
 
-### 구문
+### <a name="syntax"></a>Syntax
 
-	Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+    Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### 매개 변수
+### <a name="parameters"></a>Parameters
 
 **-ResourceGroupName &lt;String&gt;**
 
-이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+Specifies the name of the resource group to which this media service belongs.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
-Position? |0
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Position?  |0
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
-미디어 서비스의 이름을 지정합니다.
+Specifies the name of the media service.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
 Position? |1
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
-이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### 입력
+### <a name="inputs"></a>Inputs
 
-입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### 출력
+### <a name="outputs"></a>Outputs
 
-출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+The output type is the type of the objects that the cmdlet emits.
 
-## Set-AzureRmMediaServiceKey
+## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 
-미디어 서비스의 기본 또는 보조 키를 다시 생성합니다.
+Regenerates a primary or secondary key of a media service.
 
-### 구문
+### <a name="syntax"></a>Syntax
 
-	Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+    Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
 
-### 매개 변수
+### <a name="parameters"></a>Parameters
 
 **-ResourceGroupName &lt;String&gt;**
 
-이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+Specifies the name of the resource group to which this media service belongs.
 
-Aliases |없음
+Aliases |none
 ---|---
-Required? |true
-Position? |0
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Required?  |true
+Position?  |0
+Default value |none
+Accept pipeline input?  |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
-미디어 서비스의 이름을 지정합니다.
+Specifies the name of the media service.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
-Position? |1
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Position?  |1
+Default value |none
+Accept pipeline input?   |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-KeyType &lt;KeyType&gt;**
 
-미디어 서비스의 키 유형을 지정합니다.
+Specifies the key type of the media service.
 
-- 기본 또는 보조
+- Primary or Secondary
 
-Aliases |없음
+Aliases |none
 ---|---
-Required? |true
-Position? |2
-기본값 |없음
-Accept Pipeline Input? |false
-Accept Wildcard Characters? |false
+Required?  |true
+Position?  |2
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
-이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### 입력
+### <a name="inputs"></a>Inputs
 
-입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### 출력
+### <a name="outputs"></a>Outputs
 
-출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+The output type is the type of the objects that the cmdlet emits.
 
-## Sync-AzureRmMediaServiceStorageKeys
+## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
 
-미디어 서비스와 연결된 저장소 계정에 대한 저장소 계정 키를 동기화합니다.
+Synchronizes storage account keys for a storage account associated with the media service.
 
-### 구문
+### <a name="syntax"></a>Syntax
 
-	Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+    Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
 
-### 매개 변수
+### <a name="parameters"></a>Parameters
 
 **-ResourceGroupName &lt;String&gt;**
 
-이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+Specifies the name of the resource group to which this media service belongs.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
 Position? |0
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
-미디어 서비스의 이름을 지정합니다.
+Specifies the name of the media service.
 
-Aliases |없음
+Aliases |none
 ---|---
 Required? |true
 Position? |1
-기본값 |없음
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-StorageAccountId &lt;String&gt;**
 
-미디어 서비스와 연결된 저장소 계정을 지정합니다.
+Specifies the storage account associated with the media service.
 
 Aliases |Id
 ---|---
 Required? |true
-Position? |2
-기본값 |없음
-Accept Pipeline Input? | true(ByPropertyName)
-Accept Wildcard Characters? |false
+Position?  |2
+Default value |none
+Accept pipeline input? |      true(ByPropertyName)
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
-이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### 입력
+### <a name="inputs"></a>Inputs
 
-입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### 출력
+### <a name="outputs"></a>Outputs
 
-출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+The output type is the type of the objects that the cmdlet emits.
 
-## 다음 단계 
+## <a name="next-step"></a>Next step 
 
-미디어 서비스 학습 경로를 확인하세요.
+Check out Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

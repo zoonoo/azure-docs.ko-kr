@@ -1,62 +1,63 @@
 <properties
-	pageTitle="Linux 기반 HDInsight에서 Hadoop Sqoop 사용 | Microsoft Azure"
-	description="HDInsight 클러스터의 Linux 기반 Hadoop과 Azure SQL 데이터베이스 사이에서 Sqoop 가져오기/내보내기를 실행하는 방법을 알아봅니다."
-	editor="cgronlun"
-	manager="jhubbard"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	tags="azure-portal"/>
+    pageTitle="Use Hadoop Sqoop in Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to run Sqoop import and export between a Linux-based Hadoop on HDInsight cluster and an Azure SQL database."
+    editor="cgronlun"
+    manager="jhubbard"
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="larryfr"/>
 
-#HDInsight에서 Hadoop과 Sqoop 사용(SSH)
 
-[AZURE.INCLUDE [sqoop 선택기](../../includes/hdinsight-selector-use-sqoop.md)]
+#<a name="use-sqoop-with-hadoop-in-hdinsight-(ssh)"></a>Use Sqoop with Hadoop in HDInsight (SSH)
 
-Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL 서버 데이터베이스 사이에서 가져오기 및 내보내기하는 방법을 알아봅니다.
+[AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-> [AZURE.NOTE] 이 문서 내의 단계는 SSH를 사용하여 Linux 기반의 HDInsight 클러스터에 연결합니다. Windows 클라이언트는 Linux 기반 클러스터에서 Sqoop으로 작업하는 데 Azure PowerShell 및 HDInsight .NET SDK를 사용할 수도 있습니다. 탭 선택기를 사용하여 해당 문서를 엽니다.
+Learn how to use Sqoop to import and export between a Linux-based HDInsight cluster and Azure SQL Database or SQL Server database.
 
-##필수 조건
+> [AZURE.NOTE] The steps in this article use SSH to connect to a Linux-based HDInsight cluster. Windows clients can also use Azure PowerShell and HDInsight .NET SDK to work with Sqoop on Linux-based clusters. Use the tab selector to open those articles.
 
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
+##<a name="prerequisites"></a>Prerequisites
 
-- **HDInsight의 Hadoop 클러스터** 및 __Azure SQL 데이터베이스__: 이 문서의 단계는 [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database) 문서를 사용하여 만든 클러스터 및 데이터베이스를 기준으로 합니다. HDInsight 클러스터 및 SQL 데이터베이스가 이미 있는 경우 이 문서에 사용된 값으로 대체할 수 있습니다.
-- **워크스테이션**: SSH 클라이언트가 있는 컴퓨터입니다.
+Before you begin this tutorial, you must have the following:
 
-##FreeTDS 설치
+- **A Hadoop cluster in HDInsight** and an __Azure SQL Database__: The steps in this document are based on the cluster and database created using the [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database) document. If you already have an HDInsight cluster and SQL Database, you can substitute those for the values used in this document.
+- **Workstation**: A computer with an SSH client.
 
-1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. 연결 시 사용할 주소는 `CLUSTERNAME-ssh.azurehdinsight.net`이며 포트는 `22`입니다.
+##<a name="install-freetds"></a>Install FreeTDS
 
-	SSH를 사용한 HDInsight 연결에 대한 자세한 내용은 다음 문서를 참조합니다.
+1. Use SSH to connect to the Linux-based HDInsight cluster. The address to use when connecting is `CLUSTERNAME-ssh.azurehdinsight.net` and the port is `22`.
 
-    * **Linux, Unix 또는 OS X 클라이언트**: [Linux, OS X 또는 Unix로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)을 참조합니다.
+    For more information on using SSH to connect to HDInsight, see the following documents:
 
-    * **Windows 클라이언트**: [Windows로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)을 참조합니다.
+    * **Linux, Unix or OS X clients**: See [Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
 
-3. 다음 명령을 사용하여 FreeTDS:를 설치합니다.
+    * **Windows clients**: See [Connect to a Linux-based HDInsight cluster from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
+
+3. Use the following command to install FreeTDS:
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-    FreeTDS는 SQL 데이터베이스에 연결하기 위해 여러 단계에서 사용됩니다.
+    FreeTDS will be used in several steps to connect to SQL Database.
 
-##SQL 데이터베이스에 테이블 만들기
+##<a name="create-the-table-in-sql-database"></a>Create the table in SQL Database
 
-> [AZURE.IMPORTANT] [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md)의 단계를 사용하여 만든 HDInsight 클러스터 및 SQL 데이터베이스를 사용하는 경우 데이터베이스 및 테이블이 해당 문서의 단계 일부로 만들어졌으므로 이 섹션의 단계를 무시하세요.
+> [AZURE.IMPORTANT] If you are using an HDInsight cluster and SQL Database created using the steps in [Create cluster and SQL database](hdinsight-use-sqoop.md), ignore the steps in this section as the database and table were created as part of the steps in that document.
 
-1. SSH - HDInsight 연결에서 다음 명령을 사용하여 SQL 데이터베이스 서버에 연결하고 다음 단계 나머지 부분에서 사용될 테이블을 만듭니다.
+1. From the SSH connection to HDInsight, use the following command to connect to the SQL Database server and crete the table that will be used in the remainder of these steps:
 
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 
-    다음과 유사한 출력이 표시됩니다.
+    You will receive output similar to the following:
 
         locale is "en_US.UTF-8"
         locale charset is "UTF-8"
@@ -64,7 +65,7 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
         Default database being set to sqooptest
         1>
 
-5. `1>` 프롬프트에 다음 행을 입력합니다.
+5. At the `1>` prompt, enter the following lines:
 
         CREATE TABLE [dbo].[mobiledata](
         [clientid] [nvarchar](50),
@@ -82,79 +83,78 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
         CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
         GO
 
-    `GO` 명령문을 입력하면 이전 명령문이 평가됩니다. 먼저 **mobiledata** 테이블이 생성된 다음 클러스터형 인덱스가 추가됩니다(SQL 데이터베이스에 필수).
+    When the `GO` statement is entered, the previous statements will be evaluated. First, the **mobiledata** table is created, then a clustered index is added to it (required by SQL Database.)
 
-    다음을 사용하여 테이블이 생성되었는지 확인합니다.
+    Use the following to verify that the table has been created:
 
         SELECT * FROM information_schema.tables
         GO
 
-    다음과 비슷한 결과가 나타나야 합니다.
+    You should see output similar to the following:
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         sqooptest       dbo     mobiledata      BASE TABLE
 
-8. `1>` 프롬프트에서 `exit`를 입력하여 tsql 유틸리티를 종료합니다.
+8. Enter `exit` at the `1>` prompt to exit the tsql utility.
 
-##Sqoop 내보내기
+##<a name="sqoop-export"></a>Sqoop export
 
-3. SSH - HDInsight 연결에서 다음 명령을 사용하여 Sqoop이 SQL 데이터베이스를 볼 수 있는지 확인합니다.
+3. From the SSH connection to HDInsight, se the following command to verify that Sqoop can see your SQL Database:
 
         sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
 
-    그러면 앞에서 만든 **sqooptest** 데이터베이스를 포함한 데이터베이스 목록이 반환됩니다.
+    This should return a list of databases, including the **sqooptest** database that you created earlier.
 
-4. 다음 명령을 사용하여 **hivesampletable**에서 **mobiledata** 테이블로 데이터를 내보냅니다.
+4. Use the following command to export data from **hivesampletable** to the **mobiledata** table:
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 **wasbs:///hive/warehouse/hivesampletable**(*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
+    This instructs Sqoop to connect to SQL Database, to the **sqooptest** database, and export data from the **wasbs:///hive/warehouse/hivesampletable** (physical files for the *hivesampletable*,) to the **mobiledata** table.
 
-5. 명령이 완료되면 다음을 통해 TSQL을 사용하여 데이터베이스에 연결합니다.
+5. After the command completes, use the following to connect to the database using TSQL:
 
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 
-    연결되면 다음 명령문을 사용하여 데이터가 **mobiledata** 테이블로 내보내기되었는지 확인합니다.
+    Once connected, use the following statements to verify that the data was exported to the **mobiledata** table:
 
         SELECT * FROM mobiledata
         GO
 
-    테이블에 데이터 목록이 표시됩니다. `exit`를 입력하여 tsql 유틸리티를 종료합니다.
+    You should see a listing of data in the table. Type `exit` to exit the tsql utility.
 
-##Sqoop 가져오기
+##<a name="sqoop-import"></a>Sqoop import
 
-1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 **wasbs:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
+1. Use the following to import data from the **mobiledata** table in SQL Database, to the **wasbs:///tutorials/usesqoop/importeddata** directory on HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
-    가져온 데이터에는 탭 문자로 구분된 필드가 있으며 줄이 새로운 줄 문자로 종료됩니다.
+    The imported data will have fields that are separated by a tab character, and the lines will be terminated by a new-line character.
 
-2. 가져오기가 완료되면 다음 명령을 사용하여 새로운 디렉터리에 데이터를 나열합니다.
+2. Once the import has completed, use the following command to list out the data in the new directory:
 
         hadoop fs -text wasbs:///tutorials/usesqoop/importeddata/part-m-00000
 
-##SQL Server 사용하기
+##<a name="using-sql-server"></a>Using SQL Server
 
-또한 Sqoop을 사용하여 데이터 센터 내 또는 Azure에 호스팅된 가상 컴퓨터에서 SQL Server로부터 데이터를 가져오기/내보내기할 수 있습니다. SQL 데이터베이스와 SQL Server의 차이점은 다음과 같습니다.
+You can also use Sqoop to import and export data from SQL Server, either in your data center or on a Virtual Machine hosted in Azure. The differences between using SQL Database and SQL Server are:
 
-* HDInsight와 SQL Server가 모두 동일한 Azure 가상 네트워크에 있어야 합니다.
+* Both HDInsight and the SQL Server must be on the same Azure Virtual Network
 
-    > [AZURE.NOTE] HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
+    > [AZURE.NOTE] HDInsight supports only location-based virtual networks, and it does not currently work with affinity group-based virtual networks.
 
-    데이터 센터에서 SQL Server를 사용할 때는 가상 네트워크를 *사이트 간* 또는 *지점 및 사이트 간*으로 구성해야 합니다.
+    When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
 
-    > [AZURE.NOTE] **지점 및 사이트 간** 가상 네트워크의 경우 SQL Server가 VPN 클라이언트 구성 응용 프로그램을 실행해야 합니다. 이 응용 프로그램은 Azure 가상 네트워크 구성의 **대시보드**에서 사용 가능합니다.
+    > [AZURE.NOTE] For **point-to-site** virtual networks, SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure virtual network configuration.
 
-    가상 네트워크 만들기 및 구성에 대한 자세한 내용은 [가상 네트워크 구성 작업](../services/virtual-machines/)을 참조하십시오.
+    For more information Azure Virtual Network, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
-* SQL Server는 SQL 인증을 허용하도록 구성되어야 합니다. 자세한 내용은 [인증 모드 선택](https://msdn.microsoft.com/ms144284.aspx)을 참조하십시오.  
+* SQL Server must be configured to allow SQL authentication. For more information, see [Choose an Authentication Mode](https://msdn.microsoft.com/ms144284.aspx)
 
+* You may have to configure SQL Server to accept remote connections. See [How to troubleshoot connecting to the SQL Server database engine](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) for more information
 
-* SQL Server를 원격 연결을 허용하도록 구성해야 할 수 있습니다. 자세한 내용은 [SQL Server 데이터베이스 엔진에 연결하는 문제를 해결하는 방법](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)을 참조하십시오.
+* You must create the **sqooptest** database in SQL Server using a utility such as **SQL Server Management Studio** or **tsql** - the steps for using the Azure CLI only work for Azure SQL Database
 
-* **SQL Server Management Studio** 또는 **tsql**과 같은 유틸리티를 사용하여 SQL Server 내에 **sqooptest** 데이터베이스를 만들어야 합니다. Azure CLI 사용 단계는 Azure SQL 데이터베이스에만 적용됩니다.
-
-    **mobiledata** 테이블을 만드는 TSQL 명령문은 SQL 데이터베이스에 사용되는 명령문과 유사합니다. 단, 클러스터형 인덱스 생성은 예외입니다. 이것은 SQL Server에 필요하지 않습니다.
+    The TSQL statements to create the **mobiledata** table are similar those used for SQL Database, with the exception of creating a clusterd index - this is not required for SQL Server:
 
         CREATE TABLE [dbo].[mobiledata](
         [clientid] [nvarchar](50),
@@ -169,27 +169,27 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
         [sessionid] [bigint],
         [sessionpagevieworder] [bigint])
 
-* HDInsight로부터 SQL Server에 연결할 때는 Azure 가상 네트워크에서 이름을 확인하도록 도메인 이름 시스템(DNS)을 구성하지 않은 한, SQL Server의 IP 주소를 사용해야 할 수도 있습니다. 예:
+* When connecting to the SQL Server from HDInsight, you may have to use the IP address of the SQL Server unless you have configured a Domain Name System (DNS) to resolve names on the Azure Virtual Network. For example:
 
         sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
-##제한 사항
+##<a name="limitations"></a>Limitations
 
-* 대량 내보내기 - Linux 기반 HDInsight와 함께 Microsoft SQL Server 또는 Azure SQL 데이터베이스에 데이터를 내보내는 데 사용된 Sqoop 커넥터도 현재 대량 삽입을 지원하지 않습니다.
+* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
 
-* 배치 - Linux 기반 HDInsight와 함께 삽입을 수행할 때 `-batch` 스위치를 사용하는 경우 Sqoop는 삽입 작업을 일괄 처리하는 대신 여러 삽입 작업을 수행합니다.
+* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching the insert operations.
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
+Now you have learned how to use Sqoop. To learn more, see:
 
-- [HDInsight와 함께 Oozie 사용][hdinsight-use-oozie]\: Oozie 워크플로에서 Sqoop 작업을 사용합니다.
-- [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]\: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
-- [HDInsight에 데이터 업로드][hdinsight-upload-data]\: HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
+- [Use Oozie with HDInsight][hdinsight-use-oozie]: Use Sqoop action in an Oozie workflow.
+- [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]: Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
+- [Upload data to HDInsight][hdinsight-upload-data]: Find other methods for uploading data to HDInsight/Azure Blob storage.
 
 
 
-[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
@@ -207,4 +207,8 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

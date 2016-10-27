@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Services 시작 |Microsoft Azure "
-   description="상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개"
+   pageTitle="Get started with Reliable Services | Microsoft Azure"
+   description="Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,36 +13,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="09/25/2016"
    ms.author="vturecek"/>
 
-# 서비스 패브릭 Reliable Services 시작
 
-Azure 서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 서비스 패브릭 응용 프로그램을 만드는 방법을 보여 줍니다.
+# <a name="get-started-with-reliable-services"></a>Get started with Reliable Services
 
-## 상태 비저장 서비스 만들기
+> [AZURE.SELECTOR]
+- [C# on Windows](service-fabric-reliable-services-quick-start.md)
+- [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 
-상태 비저장 서비스는 현재 클라우드 응용 프로그램에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
+An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-관리자 권한으로 Visual Studio 2015를 시작하고 *HelloWorld*라는 새로운 서비스 패브릭 응용 프로그램 프로젝트를 만듭니다.
+## <a name="basic-concepts"></a>Basic concepts
+To get started with Reliable Services, you only need to understand a few basic concepts:
 
-![새 프로젝트 대화 상자를 사용하여 새 서비스 패브릭 응용 프로그램 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+ - **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
 
-그런 다음 *HelloWorldStateless*라는 상태 비저장 서비스 프로젝트를 만듭니다.
+ - **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
 
-![두 번째 대화 상자에서 상태 비저장 서비스 프로젝트 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+ - **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
 
-이제 솔루션에는 2개의 프로젝트가 있습니다.
+ - **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
 
- - *HelloWorld*. *서비스*가 포함된 *응용 프로그램* 프로젝트입니다. 또한 응용 프로그램을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 응용 프로그램을 설명하는 응용 프로그램 매니페스트가 포함되어 있습니다.
- - *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.
+## <a name="create-a-stateless-service"></a>Create a stateless service
+
+A stateless service is a type of service that is currently the norm in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
+
+Launch Visual Studio 2015 as an administrator, and create a new Service Fabric application project named *HelloWorld*:
+
+![Use the New Project dialog box to create a new Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+
+Then create a stateless service project named *HelloWorldStateless*:
+
+![In the second dialog box, create a stateless service project](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+Your solution now contains two projects:
+
+ - *HelloWorld*. This is the *application* project that contains your *services*. It also contains the application manifest that describes the application, as well as a number of PowerShell scripts that help you to deploy your application.
+ - *HelloWorldStateless*. This is the service project. It contains the stateless service implementation.
 
 
-## 서비스 구현
+## <a name="implement-the-service"></a>Implement the service
 
-서비스 프로젝트에서 **HelloWorldStateless.cs** 파일을 엽니다. 서비스 패브릭에서 서비스는 모든 비즈니스 논리를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
+Open the **HelloWorldStateless.cs** file in the service project. In Service Fabric, a service can run any business logic. The service API provides two entry points for your code:
 
- - 장기 실행 계산 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 *RunAsync*라는 개방형 진입점 메서드.
+ - An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads, including long-running compute workloads.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -51,7 +67,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
- - ASP.NET Web API와 같이 원하는 통신 스택을 연결할 수 있는 통신 진입점. 사용자 및 다른 서비스에서 요청을 수신하도록 시작할 수 있습니다.
+ - A communication entry point where you can plug in your communication stack of choice, such as ASP.NET Web API. This is where you can start receiving requests from users and other services.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -60,12 +76,13 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-이 자습서에서는 `RunAsync()` 진입점 메서드에 집중합니다. 바로 코드를 실행하기 시작할 수 있습니다. 프로젝트 템플릿에는 롤링 횟수를 증분하는 `RunAsync()`의 샘플 구현이 포함됩니다.
+In this tutorial, we will focus on the `RunAsync()` entry point method. This is where you can immediately start running your code.
+The project template includes a sample implementation of `RunAsync()` that increments a rolling count.
 
-> [AZURE.NOTE] 통신 스택을 사용하는 방법에 대한 자세한 내용은 [OWIN 자체 호스팅으로 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)를 참조하세요.
+> [AZURE.NOTE] For details about how to work with a communication stack, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
 
-### RunAsync
+### <a name="runasync"></a>RunAsync
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -86,38 +103,38 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-서비스의 인스턴스가 배치되어 실행할 준비가 되면 플랫폼이 이 메서드를 호출합니다. 상태 비저장 서비스의 경우 이는 간단히 말해 서비스 인스턴스가 열릴 때를 의미합니다. 서비스 인스턴스를 종료해야 하는 경우 취소 토큰이 제공됩니다. 서비스 패브릭에서 서비스 인스턴스의 열림-닫힘 주기는 서비스의 수명 동안 전체적으로 여러 번 발생할 수 있습니다. 다음을 포함하여 여러 가지 이유로 발생할 수 있습니다.
+The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
-- 시스템은 리소스 분산을 위해 서비스 인스턴스를 이동시킵니다.
-- 오류는 코드에서 발생합니다.
-- 응용 프로그램 또는 시스템 업그레이드됩니다.
-- 기본 하드웨어가 중단됩니다.
+- The system moves your service instances for resource balancing.
+- Faults occur in your code.
+- The application or system is upgraded.
+- The underlying hardware experiences an outage.
 
-이러한 오케스트레이션은 서비스의 가용성을 높게 유지하고 제대로 균형을 유지하기 위해 시스템에 의해 관리됩니다.
+This orchestration is managed by the system to keep your service highly available and properly balanced.
 
-`RunAsync()`는 자체 태스크에서 실행됩니다. 위의 코드 조각에서 *while* 루프로 바로 이동합니다. 워크로드에 대한 별도 작업을 예약하지 않아도 됩니다. 워크로드 취소는 제공된 취소 토큰에 의해 조정된 공동의 노력입니다. 시스템은 계속하기 전에 태스크가 종료(성공적인 완료, 취소 또는 오류에 의해)될 때까지 기다립니다. 시스템이 취소를 요청할 때 가능한 한 빨리 취소 토큰을 받아들이고 작업을 마치며 `RunAsync()`를 종료하는 것이 중요합니다.
+`RunAsync()` is executed in its own task. Note that in the code snippet above, we jumped right into a *while* loop. There is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `RunAsync()` as quickly as possible when the system requests cancellation.
 
-이 상태 비저장 서비스 예에서는 개수가 로컬 변수에 저장됩니다. 하지만 이는 상태 비저장 서비스이므로 저장되는 값은 해당 서비스 인스턴스의 현재 주기에만 존재합니다. 서비스가 이동하거나 다시 시작되면 값이 손실됩니다.
+In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
 
-## 상태 저장 서비스 만들기
+## <a name="create-a-stateful-service"></a>Create a stateful service
 
-서비스 패브릭은 상태 저장하는 서비스의 새로운 종류를 도입합니다. 상태 저장 서비스는 서비스를 사용하는 코드와 함께 위치한 서비스 자체 내에서 안정적으로 상태를 유지할 수 있습니다. 외부 저장소에 상태를 유지하지 않고도 서비스 패브릭에서 상태는 높은 가용성을 가집니다.
+Service Fabric introduces a new kind of service that is stateful. A stateful service can maintain state reliably within the service itself, co-located with the code that's using it. State is made highly available by Service Fabric without the need to persist state to an external store.
 
-서비스가 이동하거나 다시 시작하는 경우에도 카운터 값을 상태 비저장에서 항상 사용 가능하고 지속되게 만들려면 상태 저장 서비스가 필요합니다.
+To convert a counter value from stateless to highly available and persistent, even when the service moves or restarts, you need a stateful service.
 
-동일한 *HelloWorld* 응용 프로그램에서 응용 프로그램 프로젝트의 서비스 참조를 마우스 오른쪽 단추로 클릭하고 **추가 -> 새 서비스 패브릭 서비스**를 선택하여 새 서비스를 추가할 수 있습니다.
+In the same *HelloWorld* application, you can add a new service by right-clicking on the Services references in the application project and selecting **Add ->  New Service Fabric Service**.
 
-![서비스 패브릭 응용 프로그램에 서비스 추가](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
+![Add a service to your Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-**상태 저장 서비스**를 선택하고 *HelloWorldStateful*이라는 이름을 지정합니다. **확인**을 클릭합니다.
+Select **Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
 
-![새 프로젝트 대화 상자를 사용하여 새 서비스 패브릭 상태 저장 서비스 만들기](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Use the New Project dialog box to create a new Service Fabric stateful service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-응용 프로그램에 이제 상태 비저장 서비스 *HelloWorldStateless* 및 상태 저장 서비스 *HelloWorldStateful*의 두 서비스가 있어야 합니다.
+Your application should now have two services: the stateless service *HelloWorldStateless* and the stateful service *HelloWorldStateful*.
 
-상태 저장 서비스에는 상태 비저장 서비스와 동일한 진입점이 있습니다. 주요 차이점은 상태를 안정적으로 저장할 수 있는 *상태 제공자*의 가용성입니다. 서비스 패브릭은 신뢰할 수 있는 상태 관리자를 통해 복제된 데이터 구조를 만들 수 있는 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)이라는 상태 제공자 구현과 함께 제공됩니다. 상태 저장 Reliable Service는 기본적으로 이 상태 제공자를 사용합니다.
+A stateful service has the same entry points as a stateless service. The main difference is the availability of a *state provider* that can store state reliably. Service Fabric comes with a state provider implementation called [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), which lets you create replicated data structures through the Reliable State Manager. A stateful Reliable Service uses this state provider by default.
 
-다음 RunAsync 메서드를 포함하는 *HelloWorldStateful*에서 **HelloWorldStateful.cs**를 엽니다.
+Open **HelloWorldStateful.cs** in *HelloWorldStateful*, which contains the following RunAsync method:
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -149,29 +166,29 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     }
 ```
 
-### RunAsync
+### <a name="runasync"></a>RunAsync
 
-`RunAsync()`은 상태 저장 및 상태 비저장 서비스에서 비슷하게 작동합니다. 그러나 상태 저장 서비스에서 플랫폼은 `RunAsync()`을 실행하기 전에 사용자 대신 추가 작업을 수행합니다. 이 작업은 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션을 사용할 준비가 되도록 포함할 수 있습니다.
+`RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the Reliable State Manager and Reliable Collections are ready to use.
 
-### 신뢰할 수 있는 컬렉션 및 신뢰할 수 있는 상태 관리자
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>Reliable Collections and the Reliable State Manager
 
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx)는 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. 서비스 패브릭 및 신뢰할 수 있는 컬렉션을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본*을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
+[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. Reliable Collections make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
-신뢰할 수 있는 컬렉션은 사용자 지정 형식을 포함하여 모든 .NET 유형을 저장할 수 있습니다. 단, 몇 가지 주의 사항이 있습니다.
+Reliable Collections can store any .NET type, including your custom types, with a couple of caveats:
 
- - 서비스 패브릭은 노드의 상태를 *복제*하고 신뢰할 수 있는 컬렉션은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 컬렉션에 저장된 모든 항목이 *직렬화 가능* 상태가 됩니다. 신뢰할 수 있는 컬렉션은 기본적으로 [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx)를 사용하여 직렬화를 수행하므로 기본 직렬 변환기를 사용할 때 해당 유형이 [데이터 계약 직렬 변환기에서 지원되는지](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) 확인하는 것이 중요합니다.
+ - Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Collections store your data to local disk on each replica. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when you use the default serializer.
 
- - 신뢰할 수 있는 컬렉션의 트랜잭션을 커밋하면 고가용성을 위해 개체가 복제됩니다. 신뢰할 수 있는 컬렉션에 저장된 개체는 서비스의 로컬 메모리에 유지됩니다. 즉, 개체에 대한 로컬 참조가 있습니다.
+ - Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
 
-    트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 디렉터리에 다시 삽입하거나 디렉터리의 *update* 메서드 중 하나를 사용해야 합니다.
+    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
 
-신뢰할 수 있는 상태 관리자는 사용자에 대한 신뢰할 수 있는 컬렉션을 관리합니다. 언제든지 서비스의 어느 위치에서든 신뢰할 수 있는 컬렉션에 대한 신뢰할 수 있는 상태 관리자를 단순히 요청할 수 있습니다. 신뢰할 수 있는 상태 관리자는 참조를 다시 가져오도록 합니다. 클래스 멤버 변수 또는 속성에서 신뢰할 수 있는 컬렉션 인스턴스에 대한 참조를 저장하는 것이 좋습니다. 서비스 수명 주기에서 항상 참조가 인스턴스로 설정되어 있도록 특별히 주의해야 합니다. 신뢰할 수 있는 상태 관리자는 사용자를 위해 이 작업을 처리하고 반복 방문에 최적화됩니다.
+The Reliable State Manager manages Reliable Collections for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
 
-### 트랜잭션 및 비동기 작업
+### <a name="transactional-and-asynchronous-operations"></a>Transactional and asynchronous operations
 
 ```C#
 using (ITransaction tx = this.StateManager.CreateTransaction())
@@ -184,33 +201,37 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-신뢰할 수 있는 컬렉션에는 LINQ를 제외하고 해당 `System.Collections.Generic` 및 `System.Collections.Concurrent` 항목이 수행하는 동일한 작업이 많이 있습니다. 신뢰할 수 있는 컬렉션의 작업은 비동기적입니다. 신뢰할 수 있는 컬렉션을 사용한 쓰기 작업에서는 I/O 작업을 수행하여 데이터를 복제하고 디스크에 보존하기 때문입니다.
+Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except LINQ. Operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
 
-신뢰할 수 있는 컬렉션 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 컬렉션 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 큐에서 작업 항목을 제거하고, 작업을 수행하고, 신뢰할 수 있는 사전의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
+Reliable Collection operations are *transactional*, so that you can keep state consistent across multiple Reliable Collections and operations. For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
-## 응용 프로그램 실행
+## <a name="run-the-application"></a>Run the application
 
-*HelloWorld* 응용 프로그램으로 돌아갑니다. 이제 서비스를 빌드하고 배포할 수 있습니다. **F5** 키를 누르면 응용 프로그램이 빌드되고 로컬 클러스터에 배포됩니다.
+We now return to the *HelloWorld* application. You can now build and deploy your services. When you press **F5**, your application will be built and deployed to your local cluster.
 
-서비스가 실행되기 시작한 후에 **진단 이벤트** 창에서 생성된 ETW(Windows용 이벤트 추적) 이벤트를 볼 수 있습니다. 응용 프로그램의 상태 비저장 서비스 및 상태 저장 서비스 모두에서 이벤트가 표시됩니다. **일시 중지** 단추를 클릭하여 스트림을 일시 중지할 수 있습니다. 그런 다음 해당 메시지를 확장하여 메시지의 세부 정보를 검사할 수 있습니다.
+After the services start running, you can view the generated Event Tracing for Windows (ETW) events in a **Diagnostic Events** window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
 
->[AZURE.NOTE] 응용 프로그램을 실행하기 전에 로컬 개발 클러스터가 실행 중인지 확인합니다. 로컬 환경 설정의 자세한 내용은 [시작 가이드](service-fabric-get-started.md)를 확인합니다.
+>[AZURE.NOTE] Before you run the application, make sure that you have a local development cluster running. Check out the [getting started guide](service-fabric-get-started.md) for information on setting up your local environment.
 
-![Visual Studio에서 진단 이벤트 보기](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
+![View Diagnostic Events in Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
+[Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
 
-[시작: OWIN 자체 호스팅을 사용하는 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)
+[Get started: Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
-[신뢰할 수 있는 컬렉션에 대한 자세한 정보](service-fabric-reliable-services-reliable-collections.md)
+[Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
-[응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+[Deploy an application](service-fabric-deploy-remove-applications.md)
 
-[응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+[Application upgrade](service-fabric-application-upgrade.md)
 
-[신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+[Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

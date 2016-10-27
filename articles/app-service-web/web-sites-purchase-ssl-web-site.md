@@ -1,212 +1,225 @@
 <properties
-	pageTitle="Azure 앱 서비스에 대한 SSL 인증서 구입 및 구성"
-	description="Azure 앱 서비스에 대한 SSL 인증서 구입 및 구성 방법을 알아봅니다."
-	services="app-service"
-	documentationCenter=".net"
-	authors="apurvajo"
-	manager="stefsch"
-	editor="cephalin"
-	tags="buy-ssl-certificates"/>
+    pageTitle="Buy and Configure an SSL Certificate for your Azure App Service"
+    description="Learn how to Buy and Configure an SSL Certificate for your Azure App Service."
+    services="app-service"
+    documentationCenter=".net"
+    authors="apurvajo"
+    manager="stefsch"
+    editor="cephalin"
+    tags="buy-ssl-certificates"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/01/2016"
-	ms.author="apurvajo"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="apurvajo"/>
 
-#Azure 앱 서비스에 대한 SSL 인증서 구입 및 구성
+
+#<a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Buy and Configure an SSL Certificate for your Azure App Service
 
 > [AZURE.SELECTOR]
-- [Azure에서 SSL 인증서 구입](web-sites-purchase-ssl-web-site.md)
-- [다른 곳에서 SSL 인증서 사용](web-sites-configure-ssl-certificate.md)
+- [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
+- [Use SSL cert from elsewhere](web-sites-configure-ssl-certificate.md)
 
-기본적으로 **[Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)**는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 웹앱에 대해 HTTPS를 사용하도록 설정합니다. 사용자 지정 도메인을 구성하지 않으려는 경우 기본 HTTPS 인증서를 활용할 수 있습니다. 그러나 *[모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다. 이제 Azure 앱 서비스는 Azure 포털에서 포털을 종료하지 않고 SSL 인증서를 구입 및 관리하는 매우 간단한 방법을 제공합니다. 이 문서에서는 간단한 3단계로 **[Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)**에 대한 SSL 인증서를 구입 및 구성하는 방법을 설명합니다.
+By default, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** already enables HTTPS for your web app with a wildcard certificate for the *.azurewebsites.net domain. If you don't plan to configure a custom domain, then you can benefit from the default HTTPS certificate. However, like all *[wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), it is not as secure as using a custom domain with your own certificate. Azure App Service now provides you a really simplified way to purchase and manage an SSL certificate right from Azure Portal without ever leaving the portal.  
+This article explains how to buy and configure an SSL Certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** in 3 simple steps. 
 
 > [AZURE.NOTE]
-사용자 지정 도메인 이름에 대한 SSL 인증서는 무료 및 공유 웹앱과 함께 사용할 수 없습니다. 기본, 표준 또는 프리미엄 모드에 대해 웹앱을 구성해야 하지만 구독의 결제 비용이 달라질 수 있습니다. 자세한 내용은 **[웹앱 가격 책정 정보](https://azure.microsoft.com/pricing/details/web-sites/)**를 참조하세요.
+> SSL Certificates for Custom domain names cannot be used with Free and Shared web app. You must configure your web app for Basic, Standard or Premium mode, which may change how much you are billed for your subscription. See **[Web Apps Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/)** for more information.
 
 
 
-##<a name="bkmk_Overview"></a>개요
+##<a name="<a-name="bkmk_overview"></a>overview"></a><a name="bkmk_Overview"></a>Overview
 > [AZURE.NOTE]
-연결된 활성 신용 카드가 없는 구독을 사용하여 SSL 인증서를 구입하지 않도록 합니다. 구독을 사용할 수 없게 될 수 있습니다.
+> Please do not attempt to purchase an SSL Certificate using a subscription that does not have an Active Credit Card associated with it. This could result in your subscription being disabled. 
 
-##<a> 사용자 지정 도메인에 대한 SSL 인증서 구입, 저장 및 할당 </a>
-contoso.com과 같은 사용자 지정 도메인에 대해 HTTPS를 사용하도록 설정하려면 먼저 **[Azure 앱 서비스에서 사용자 지정 도메인 이름을 구성](web-sites-custom-domain-name.md)**해야 합니다.
+##<a name="<a>-purchase,-store-and-assign-an-ssl-certificate-for-your-custom-domain-</a>"></a><a> Purchase, Store and Assign an SSL Certificate for your custom domain </a>
+To enable HTTPS for a custom domain, such as contoso.com, you must first **[configure a custom domain name in Azure App Service.](web-sites-custom-domain-name.md)**
 
-SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도메인 이름을 결정해야 합니다. 받아야 하는 인증서 유형이 결정됩니다. contoso.com 또는 www.contoso.com과 같은 단일 도메인 이름의 보안을 설정해야 하는 경우 표준(기본) 인증서로 충분합니다. contoso.com, www.contoso.com 및 mail.contoso.com과 같은 여러 도메인 이름의 보안을 설정해야 하는 경우, **[와일드카드 인증서](http://en.wikipedia.org/wiki/Wildcard_certificate)**를 가져올 수 있습니다.
+Before requesting an SSL certificate, you must first determine which domain names will be secured by the certificate. This will determine what type of certificate you must obtain. If you just need to secure a single domain name such as contoso.com or www.contoso.com a Standard (basic) certificate is sufficient. If you need to secure multiple domain names, such as contoso.com, www.contoso.com, and mail.contoso.com, then you can get a **[wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate)**
 
-##<a name="bkmk_purchasecert"></a>0단계: SSL 인증서 주문 입력
+##<a name="<a-name="bkmk_purchasecert"></a>step-0:-place-an-ssl-certificate-order"></a><a name="bkmk_purchasecert"></a>Step 0: Place an SSL certificate order
 
-이 단계에서는 사용자가 선택한 SSL 인증서에 대한 주문을 입력하는 방법을 배웁니다.
+In this Step, you will learn how to place an Order for an SSL Certificate of your choice.
 
-1.	**[Azure 포털](https://portal.azure.com/)**에서 찾아보기를 클릭하고 검색 표시줄에 "앱 서비스 인증서"를 입력하고 결과에서 "앱 서비스 인증서"를 선택한 후 추가를 클릭합니다.
+1.  In the **[Azure Portal](https://portal.azure.com/)**, click Browse and Type “App Service Certificates” in search bar and select “App Service Certificates” from the result and Click Add. 
 
-    ![찾아보기를 사용하여 만들기의 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
+    ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
 
-    ![찾아보기를 사용하여 만들기의 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/add.jpg)
+    ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/add.jpg)
 
-2.	SSL 인증서에 대한 **이름**을 입력합니다.
+2.  Enter **friendly name** for your SSL Certificate.
 
-3.	**호스트 이름**을 입력합니다.
+3.  Enter **Host Name**
 > [AZURE.NOTE]
-    구매 프로세스의 가장 중요한 부분 중 하나입니다. 이 인증서로 보호하려면 올바른 호스트 이름(사용자 지정 도메인)을 입력 해야 합니다. WWW와 함께 호스트 이름을 추가하지 **마세요**. 예를 들어 사용자 지정 도메인 이름이 www.contoso.com이면 호스트 이름 필드에 contoso.com을 입력하면 해당 인증서가 www 및 루트 도메인 모두 보호합니다.
+    This is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with WWW. For example, if your custom domain name is www.contoso.com then just enter contoso.com in the Host Name field, the certificate in question will protect both www and root domains. 
     
-4.	**구독**을 선택합니다.
+4.  Select your **subscription**. 
 
-    구독이 여러 개인 경우 사용자 지정 도메인 또는 해당 웹앱에 사용된 동일한 구독에 SSL 인증서를 만들어야 합니다.
+    If you have multiple subscriptions, then make sure to create an SSL Certificate in the same subscription that you have used for your custom domain or Web App in question.
        
-5.	**리소스 그룹**을 선택하거나 만듭니다.
+5.  Select or create a **resource group**.
 
-    리소스 그룹을 통해 관련 Azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대해 역할 기반 액세스 제어(RBAC) 규칙을 설정할 때 유용합니다. 자세한 내용은 Azure 리소스 관리를 참조하세요.
+    Resource groups enable you to manage related Azure resources as a unit and are useful when establishing role-based access control (RBAC) rules for your apps. For more information, see Managing your Azure resources.
      
-6.	**인증서 SKU**를 선택합니다.
+6.  Select the **Certificate SKU** 
 
-    마지막으로, 요구 사항에 맞는 인증서 SKU를 선택하고 만들기를 클릭합니다. 오늘날 Azure 앱 서비스를 사용하면 두 가지 다른 SKU를 구입할 수 있습니다. • S1 – 유효 기간이 1년이고 자동 갱신되는 표준 인증서 • W1 – 유효 기간이 1년이고 자동 갱신되는 와일드카드 인증서. 자세한 내용은 **[웹앱 가격 책정 정보](https://azure.microsoft.com/pricing/details/web-sites/)**를 참조하세요.
+    Finally, select the certificate SKU that fits your need and click Create. Today, Azure App Service allows you to purchase two different SKUs •    S1 – Standard Certificate with 1-year validity and auto renewal  
+           •    W1 – Wild card Certificate with 1-year validity and auto renewal      
+    See **[Web Apps Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/)** for more information.
 
-![인증서 SKU의 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
+![insert image of certificate SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
 
 > [AZURE.NOTE]
-SSL 인증서 만들기는 어디서나 1-10분 정도 소요될 수 있습니다. 이 프로세스는 백그라운드에서 여러 단계를 수행하며 그렇지 않고 수동으로 수행할 경우 매우 번거로울 수 있습니다.
+> SSL Certificate creation will take anywhere from 1 – 10 minutes. This process performs multiple steps in background that are otherwise very cumbersome to perform manually.  
 
-##<a name="bkmk_StoreKeyVault"></a>1단계: Azure 주요 자격 증명 모음에 인증서 저장
+##<a name="<a-name="bkmk_storekeyvault"></a>step-1:-store-the-certificate-in-azure-key-vault"></a><a name="bkmk_StoreKeyVault"></a>Step 1: Store the certificate in Azure Key Vault
 
-이 단계에서는 사용자가 선택한 Azure 키 자격 증명 모음에 구입한 SSL 인증서를 저장하는 방법을 배웁니다.
+In this Step, you will learn how to place an Store an SSL Certificate that you purchased to Azure Key Vault of your choice.
 
-1.	SSL 인증서 구입을 완료했으면 다시 탐색하여 **앱 서비스 인증서** 리소스 블레이드를 수동으로 열어야 합니다(위의 1단계 참조).
+1.  Once the SSL Certificate purchase is complete You will need to manually open **App Service Certificates** Resource blade by browsing to it again (See Step 1 above)   
 
-    ![KV에 저장할 준비 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
+    ![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
 
-    이 인증서를 사용하려면 몇 가지 추가 단계를 완료해야 하므로 인증서 상태가 **"발급 보류 중"**으로 표시됩니다.
+    You will notice that Certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificates.
  
-2. 인증서 속성 블레이드 안에서 **"인증서 구성"**을 클릭하고 **"1단계 저장"**을 클릭하여 이 인증서를 Azure 주요 자격 증명 모음에 저장합니다.
+2. Click on **“Certificate Configuration”** inside Certificate Properties blade and Click on **“Step 1: Store”** to store this certificate in Azure Key Vault.
 
-3.	**"키 자격 증명 모음 상태"** 블레이드에서 **"키 자격 증명 모음 리포지토리"** 를 클릭하여 이 인증서를 저장할 기존 키 자격 증명 모음을 선택하거나 **"새 키 자격 증명 모음 만들기"** 로 동일한 구독 및 리소스 그룹 내에 새 키 자격 증명 모음을 만듭니다.
+3.  From **“Key Vault Status”** Blade click on **“Key Vault Repository”** to choose an existing Key Vault to store this certificate **OR “Create New Key Vault”** to create new Key Vault inside same subscription and resource group.
  
-    ![새 KV 만들기 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
+    ![insert image of create new KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
     > [AZURE.NOTE]
-    Azure 키 자격 증명 모음의 경우 이 인증서를 저장하는 데 약간의 요금이 부과됩니다. 자세한 내용은 **[Azure 주요 자격 증명 모음 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)**를 참조하세요.
+    Azure Key Vault has very minimal charges for storing this certificate. See **[Azure Key Vault Pricing Details](https://azure.microsoft.com/pricing/details/key-vault/)** for more information.
 
-4. 이 인증서를 저장할 키 자격 증명 모음 리포지토리를 선택했으면 계속해서 **"키 자격 증명 모음 상태"** 블레이드 맨 위에 있는 **"저장"** 단추를 클릭하여 저장합니다.
+4. Once you have selected the Key Vault Repository to store this certificate in, go ahead and store it by clicking on **“Store”** button at the top of **“Key Vault Status”** blade.  
 
-    그러면 사용자가 선택한 Azure 키 자격 증명 모음으로 구입한 인증서를 저장하는 단계가 완료됩니다. 블레이드를 새로 고치면 이 단계에 대해서도 녹색 확인 표시가 표시됩니다.
+    This should complete step to storing the Certificate you purchased with Azure Key Vault of your choice. Upon refreshing the Blade, you should see Green Check mark against this step as well.
     
-##<a name="bkmk_VerifyOwnership"></a>2단계: 도메인 소유권 확인
+##<a name="<a-name="bkmk_verifyownership"></a>step-2:-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Step 2: Verify the Domain Ownership
 
-이 단계에서는 방금 주문한 SSL 인증서에 대한 도메인 소유권 확인을 수행하는 방법을 배웁니다.
+In this Step, you will learn how to perform Domain Ownership Verification for an SSL Certificate that you just placed an order for. 
 
-1.	**"인증서 구성"** 블레이드에서 **"2단계: 확인"** 단계를 클릭합니다. 앱 서비스 인증서에서 지원되는 4가지 유형의 도메인 확인이 있습니다.
+1.  Click on **“Step 2: Verify”** Step from the **“Certificate Configuration”** Blade. There are 4 types of domain Verification supported by App Service Certificates.
 
-    * **앱 서비스 확인**
+    * **App Service Verification** 
     
-        * **앱 서비스 앱에 사용자 지정 도메인이 이미 할당되어 있는 경우** 가장 간단한 프로세스입니다. 이 방법은 이 조건을 충족하는 모든 앱 서비스 앱을 모두 나열합니다. 예를 들어,이 경우 **contosocertdemo.com**은 **"ContosoCertDemo"**라는 앱 서비스 앱에 할당된 사용자 지정 도메인이므로 앱 서비스 앱만 여기에 나열됩니다. 다중 지역 배포인 경우 지역 간 모든 항목을 나열합니다.
+        * This is the most convenient process if you already have **your custom domain assigned to the App Service Apps.** This method will list out all the App Service Apps that meet this criteria. 
+           For example, in this case, **contosocertdemo.com** is a custom domain assigned to App Service App called **“ContosoCertDemo”** and hence that’s the only App Service App listed here. If there were multi-region deployment, then it would list them all across the regions.
         
-           확인 방법은 표준(기본) 인증서 구입에 대해서만 사용할 수 있습니다. 와일드카드 인증서인 경우 건너뛰고 아래 옵션 B, C 또는 D로 이동합니다.
-        * **"확인"** 단추를 클릭하고 이 단계를 완료합니다.
-        * 확인이 끝났으면 **"새로 고침"**을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+           The verification method is ONLY available for Standard (Basic) certificate purchases. For Wild Card Certificates, please skip and move to option B, C or D below.
+        * Click on **“Verify”** button to complete this step.
+        * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
         
-        ![앱 서비스 확인 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
+        ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
 
-    * **도메인 확인**
+    * **Domain Verification** 
 
-        * **[Azure 앱 서비스에서 사용자 지정 도메인을 구입](custom-dns-web-site-buydomains-web-app.md)**한 **경우에만** 가장 간단한 프로세스입니다.
+        * This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
         
-        * **"확인"** 단추를 클릭하고 이 단계를 완료합니다.
+        * Click on **“Verify”** button to complete this step.
         
-        * 확인이 끝났으면 **"새로 고침"**을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+        * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
 
-    * **메일 확인**
+    * **Mail Verification**
         
-        * 확인 전자 메일이 이 사용자 지정 도메인과 연결된 전자 메일 주소로 이미 전송되었습니다.
+        * Verification email has already been sent to the Email Address(es) associated with this custom domain.
          
-        * 전자 메일을 열고 확인 링크를 클릭하여 전자 메일 확인 단계를 완료합니다.
+        * Open the email and Click on the verification link to complete the Email Verification step. 
         
-        * 확인 전자 메일을 다시 전송해야 하는 경우 **"전자 메일 다시 보내기"** 단추를 클릭합니다.
+        * If you need to resend the verification email, Click on the **"Resend Email"** button.
          
-    * **수동 확인**
+    * **Manual Verification**    
                  
-        1. **HTML 웹 페이지 확인**
+        1. **HTML Web Page Verification**
         
-            * **{Domain Verification Token}**.html이라는 HTML 파일을 만듭니다(도메인 확인 상태 블레이드에서 토큰을 복사할 수 있음).
+            * Create an HTML file named **{Domain Verification Token}**.html (You can copy the token from he Domain Verification Status Blade)
             
-            * 이 파일의 내용은 **도메인 확인 토큰**의 이름과 정확히 같아야 합니다.
+            * Content of this file should be the exact same name of **Domain Verification Token**.
             
-            * 이 파일을 도메인을 호스팅하는 웹 서버의 루트에서 업로드합니다.
+            * Upload this file at the root of the web server hosting your domain.
             
-            * 확인이 끝났으면 **"새로 고침"**을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+            * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
             
-            예를 들어 도메인 확인 토큰 **'cAGgQrKc'**로 contosocertdemo.com에 대한 표준 인증서를 구입하는 경우 **'http://contosocertdemo.com/cAGgQrKc.html'**에 대한 웹 요청은 **cAGgQrKc**를 반환합니다.
-        2. **DNS TXT 레코드 확인**
+            For example, if you are buying a standard certificate for contosocertdemo.com with Domain Verification Token **‘cAGgQrKc’** then a web request made to **‘http://contosocertdemo.com/cAGgQrKc.html’** should return **cAGgQrKc.**
+        2. **DNS TXT Record Verification**
 
-            * DNS 관리자를 사용하여 **'DZC'** 하위 도메인에 값이 **도메인 확인 토큰**과 같은 TXT 레코드를 만듭니다.
+            * Using your DNS manager, Create a TXT record on the **‘DZC’** subdomain with value equal to the **Domain Verification Token.**
             
-            * 확인이 끝났으면 **"새로 고침"**을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+            * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
                               
-            예를 들어 호스트 이름 ***.contosocertdemo.com** 또는 ***.subdomain.contosocertdemo.com**, 도메인 확인 토큰 **cAGgQrKc**로 와일드카드 인증서에 대한 확인을 수행하려면 dzc.contosocertdemo.com에 값이 **cAGgQrKc**인 TXT 레코드를 만들어야 합니다.
+            For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **cAGgQrKc**, you need to create a TXT record on dzc.contosocertdemo.com with value **cAGgQrKc.**     
 
 
-##<a name="bkmk_AssignCertificate"></a>3단계: 앱 서비스 앱에 인증서 할당
+##<a name="<a-name="bkmk_assigncertificate"></a>step-3:-assign-certificate-to-app-service-app"></a><a name="bkmk_AssignCertificate"></a>Step 3: Assign Certificate to App Service App
 
-이 단계에서는 앱 서비스 앱에 새로 구입한 인증서를 할당하는 방법에 대해 알아봅니다.
+In this Step, you will learn how to assign this newly purchased certificate to your App Service Apps. 
 
 > [AZURE.NOTE]
-이 섹션의 단계를 수행하기 전에 사용자 지정 도메인 이름을 앱과 연결한 상태여야 합니다. 자세한 내용은 **[웹앱에 대한 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)**을 참조하세요.
+> Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see **[Configuring a custom domain name for a web app.](web-sites-custom-domain-name.md)**
 
-1.	브라우저에서 **[Azure 포털](https://portal.azure.com/)**을 엽니다.
-2.	페이지의 왼쪽에서 **앱 서비스** 옵션을 클릭합니다.
-3.	이 인증서를 할당하려는 앱의 이름을 클릭합니다.
-4.	**설정**에서 **SSL 인증서**를 클릭합니다.
-5.	**앱 서비스 인증서 가져오기**를 클릭하고 방금 구입한 인증서를 선택합니다.
+1.  In your browser, open the **[Azure Portal.](https://portal.azure.com/)**
+2.  Click the **App Service** option on the left side of the page.
+3.  Click the name of your app to which you want to assign this certificate. 
+4.  In the **Settings**, Click **SSL certificates**
+5.  Click **Import App Service Certificate** and select the Certificate that you just purchased
 
-    ![인증서 가져오기 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
+    ![insert image of Import Certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-6. **ssl 바인딩** 섹션에서 **바인딩 추가**를 클릭합니다.
-7. **ssl bindings** 블레이드에서 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. **[SNI(서버 이름 표시)](http://en.wikipedia.org/wiki/Server_Name_Indication)**를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
+6. In the **ssl bindings** section Click on **Add bindings**
+7. In the **Add SSL Binding** blade use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
 
-    ![SSL 바인딩 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+    ![insert image of SSL Bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
-       • IP 기반 SSL은 서버의 전용 공용 IP 주소를 도메인 이름에 매핑하여 인증서를 도메인 이름과 연결합니다. 이렇게 하려면 서비스와 연결된 각 도메인 이름(contoso.com, fabricam.com 등)에 전용 IP 주소가 있어야 합니다. 이 방법은 SSL 인증서를 웹 서버와 연결하는 일반적인 방법입니다. • SNI 기반 SSL은 SSL 및 TLS(**[전송 계층 보안](http://en.wikipedia.org/wiki/Transport_Layer_Security)**)에 대한 확장으로, 각 도메인에 별도의 보안 인증서를 사용하여 여러 도메인이 동일한 IP 주소를 공유할 수 있게 해 줍니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원하지만 이전 브라우저는 SNI를 지원하지 않을 수도 있습니다. SNI에 대한 자세한 내용은 Wikipedia의 **[서버 이름 표시](http://en.wikipedia.org/wiki/Server_Name_Indication)** 문서를 참조하세요.
+       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
+       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
        
-7. **바인딩 추가**를 클릭하여 변경 내용을 저장하고 SSL을 사용하도록 설정합니다.
+7. Click **Add Binding** to save the changes and enable SSL.
 
 
 
-**IP 기반 SSL**을 선택했으며 사용자 지정 도메인이 A 레코드를 사용하여 구성된 경우 다음과 같은 추가 단계를 수행해야 합니다.
+If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
 
-* IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다. **외부 IP 주소**로 나열됩니다.
+* After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
     
-    ![IP SSL 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
+    ![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
-    이 IP 주소는 이전에 도메인에 대한 A 레코드를 구성하는 데 사용된 가상 IP 주소와 다릅니다. SNI 기반 SSL을 사용하도록 구성되었거나 SSL을 사용하도록 구성되지 않은 경우에는 이 항목에 대한 주소가 표시되지 않습니다.
+    Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
     
-2. 도메인 이름 등록 기관에서 제공한 도구를 사용하여 이전 단계의 IP 주소를 가리키도록 사용자 지정 도메인 이름에 대한 A 레코드를 수정합니다. 이 시점에서 HTTP:// 대신 HTTPS://를 사용하여 앱에 방문하여 인증서가 올바르게 구성 되었는지 확인할 수 있습니다.
+2. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
+At this point, you should be able to visit your app using HTTPS:// instead of HTTP:// to verify that the certificate has been configured correctly.
 
 
-##<a name="bkmk_Rekey"></a>인증서 키 다시 생성 및 동기화
+##<a name="<a-name="bkmk_rekey"></a>rekey-and-sync-the-certificate"></a><a name="bkmk_Rekey"></a>Rekey and Sync the Certificate
 
-1. 보안상의 이유로 인증서 키를 다시 생성하려면 **"인증서 속성"** 블레이드에서 **"키 다시 생성 및 동기화"** 옵션을 선택하면 됩니다.
+1. For security reasons, if you ever need to Rekey your certificate then simply select **"Rekey and Sync"** option from **"Certificate Properties"** Blade. 
 
-2. 프로세스를 시작하려면 **"키 다시 생성"** 단추를 클릭합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다.
+2. Click on **"Rekey"** Button to initiate the process. This process can take 1-10 minutes to complete. 
 
-    ![SSL 키 다시 생성 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
+    ![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
-3. 인증서 키를 다시 생성하면 인증서가 인증 기관에서 발급한 새 인증서로 롤링됩니다.
-4. 인증서의 수명 동안에는 키를 다시 생성하는 데 비용이 청구되지 않습니다.
-5. 인증서 키를 다시 생성하면 발급 보류 중 상태를 통과합니다.
-6. 인증서가 준비되면 이 인증서를 사용하여 리소스를 동기화하고 서비스가 중단되지 않도록 해야 합니다.
-7. 동기화 옵션은 웹앱에 아직 할당되지 않은 인증서에는 사용할 수 없습니다.
+3. Rekeying your certificate will roll the certificate with a new certificate issued from the certificate authority.
+4. You will not be charged for the Rekeying for the lifetime of the certificate. 
+5. Rekeying your certificate will go through Pending Issuance state. 
+6. Once the certificate is ready make sure you sync your resources using this certificate to prevent disruption to the service.
+7. Sync option is not available for Certificates that are not yet assigned to the Web App. 
 
-## 추가 리소스 ##
-- [Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정](web-sites-configure-ssl-certificate.md)
-- [Azure 앱 서비스에서 사용자 지정 도메인 이름 구입 및 구성](custom-dns-web-site-buydomains-web-app.md)
-- [Microsoft Azure 보안 센터](/support/trust-center/security/)
-- [Azure 웹 사이트에서 잠금 해제된 구성 옵션](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Azure 관리 포털](https://manage.windowsazure.com)
+## <a name="more-resources"></a>More Resources ##
+- [Enable HTTPS for an app in Azure App Service](web-sites-configure-ssl-certificate.md)
+- [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
+- [Microsoft Azure Trust Center](/support/trust-center/security/)
+- [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+- [Azure Management Portal](https://manage.windowsazure.com)
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

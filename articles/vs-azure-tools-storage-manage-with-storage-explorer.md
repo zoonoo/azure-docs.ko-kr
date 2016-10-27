@@ -1,212 +1,213 @@
 <properties
-	pageTitle="저장소 탐색기(미리 보기) 시작 | Microsoft Azure"
-	description="저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리"
-	services="storage"
-	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
-	editor="" />
+    pageTitle="Getting started with Storage Explorer (Preview) | Microsoft Azure"
+    description="Manage Azure storage resources with Storage Explorer (Preview)"
+    services="storage"
+    documentationCenter="na"
+    authors="TomArcher"
+    manager="douge"
+    editor="" />
 
  <tags
-	ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/17/2016"
-	ms.author="tarcher" />
+    ms.service="storage"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="08/17/2016"
+    ms.author="tarcher" />
 
-# 저장소 탐색기(미리 보기) 시작
 
-## 개요 
+# <a name="getting-started-with-storage-explorer-(preview)"></a>Getting started with Storage Explorer (Preview)
 
-Microsoft Azure Storage 탐색기(미리 보기)는 Windows, OS X 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다. 이 문서에서 Azure 저장소 계정에 연결하고 관리하는 다양한 방법을 알아봅니다.
+## <a name="overview"></a>Overview 
 
-![Microsoft Azure Storage 탐색기(미리 보기)][15]
+Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, OS X, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
 
-## 필수 조건
+![Microsoft Azure Storage Explorer (Preview)][15]
 
-- [저장소 탐색기(미리 보기) 다운로드 및 설치](http://www.storageexplorer.com)
+## <a name="prerequisites"></a>Prerequisites
 
-## 저장소 계정 또는 서비스에 연결
+- [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
 
-저장소 탐색기(미리 보기)는 저장소 계정에 연결하는 다양한 방법을 제공합니다. Azure 구독에 연결된 저장소 계정에 연결, 다른 Azure 구독에서 공유 되는 저장소 계정 및 서비스에 연결, Azure Storage 에뮬레이터를 사용하여 로컬 저장소에 연결 및 관리를 포함합니다.
+## <a name="connect-to-a-storage-account-or-service"></a>Connect to a storage account or service
 
-- [Azure 구독에 연결](#connect-to-an-azure-subscription) - Azure 구독에 속한 저장소 리소스를 관리합니다.
-- [로컬 개발 저장소로 작업](#work-with-local-development-storage) - Azure Storage 에뮬레이터를 사용하여 로컬 저장소를 관리합니다.
-- [외부 저장소에 연결](#attach-or-detach-an-external-storage-account) - 저장소 계정의 계정 이름 및 키를 사용하여 다른 Azure 구독에 속하는 저장소 리소스를 관리합니다.
-- [SAS를 사용하여 저장소 계정 연결](#attach-storage-account-using-sas) - SAS를 사용하여 다른 Azure 구독에 속하는 저장소 리소스를 관리합니다.
-- [SAS를 사용하여 서비스 연결](#attach-service-using-sas) - SAS를 사용하여 다른 Azure 구독에 속하는 특정 저장소 서비스(Blob 컨테이너, 큐 또는 테이블)를 관리합니다.
+Storage Explorer (Preview) provides a myriad ways to connect to storage accounts. This includes connecting to storage accounts associated with your Azure subscriptions, connecting to storage accounts and services shared from other Azure subscriptions, and even connecting to and managing local storage using the Azure Storage Emulator:
 
-## Azure 구독에 연결
+- [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscription.
+- [Work with local development storage](#work-with-local-development-storage) - Manage local storage using the Azure Storage Emulator. 
+- [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription using the storage account's account name and key.
+- [Attach storage account using SAS](#attach-storage-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
+- [Attach service using SAS](#attach-service-using-sas) - Manage a specific storage service (blob container, queue, or table) belonging to another Azure subscription using a SAS.
 
-> [AZURE.NOTE] Azure 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+## <a name="connect-to-an-azure-subscription"></a>Connect to an Azure subscription
 
-1. 저장소 탐색기(미리 보기)에서 **Azure 계정 설정**을 선택합니다.
+> [AZURE.NOTE] If you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-	![Azure 계정 설정][0]
+1. In Storage Explorer (Preview), select **Azure Account settings**. 
 
-1. 왼쪽 창에 로그인한 모든 Microsoft 계정이 표시됩니다. 다른 계정에 연결하려면 **계정 추가**를 선택하고 대화 상자를 따라서 하나 이상의 활성 Azure 구독에 연결된 Microsoft 계정을 사용하여 로그인합니다.
+    ![Azure account settings][0]
 
-	![계정 추가][1]
+1. The left pane will now display all the Microsoft accounts you've logged into. To connect to another account, select **Add an account**, and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
 
-1. Microsoft 계정으로 성공적으로 로그인하면 왼쪽 창이 해당 계정과 연결된 Azure 구독으로 채워집니다. 작업하려는 Azure 구독을 선택한 후 **적용**을 선택합니다. (나열된 Azure 구독을 모두 선택하거나 하나도 선택하지 않는 **모든 구독** 토글을 선택합니다.)
+    ![Add an account][1]
 
-	![Azure 구독 선택][3]
+1. Once you successfully sign in with a Microsoft account, the left pane will populate with the Azure subscriptions associated with that account. Select the Azure subscriptions with which you want to work, and then select **Apply**. (Selecting **All subscriptions** toggles selecting all or none of the listed Azure subscriptions.)
 
-1. 왼쪽 창은 선택한 Azure 구독과 연결된 저장소 계정을 표시합니다.
+    ![Select Azure subscriptions][3]
 
-	![선택한 Azure 구독][4]
+1. The left pane will now display the storage accounts associated with the selected Azure subscriptions.
 
-## 로컬 개발 저장소로 작업
+    ![Selected Azure subscriptions][4]
 
-저장소 탐색기(미리 보기)를 사용하면 Azure 저장소 에뮬레이터를 사용하여 로컬 저장소에서 작동할 수 있습니다. Azure에 배포된 저장소 계정 없이 저장소에 대한 코드를 작성하고 테스트할 수 있습니다(저장소 계정은 Azure 저장소 에뮬레이터에서 에뮬레이트되므로).
+## <a name="work-with-local-development-storage"></a>Work with local development storage
 
->[AZURE.NOTE] Azure 저장소 에뮬레이터는 현재 Windows에 대해서만 지원됩니다.
+Storage Explorer (Preview) enables you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
 
-1. 저장소 탐색기(미리 보기)의 왼쪽 창에서 **(로컬 및 연결된** > **저장소 계정** > **(개발)** 노드를 확장합니다.
+>[AZURE.NOTE] The Azure Storage Emulator is currently supported only for Windows. 
 
-	![로컬 개발 노드][21]
+1. In the left pane of Storage Explorer (Preview), expand the **(Local and Attached** > **Storage Accounts** > **(Development)** node.
 
-1. Azure 저장소 에뮬레이터를 아직 설치 하지 않은 경우 정보 표시줄을 통해 작업을 수행하라는 메시지가 표시됩니다. 정보 표시줄이 표시되면 **최신 버전 다운로드**를 선택하고 에뮬레이터를 설치합니다.
+    ![Local development node][21]
 
-	![Azure Storage 에뮬레이터 프롬프트 다운로드][22]
+1. If you have not yet installed the Azure Storage Emulator, you'll be prompted to do so via an infobar. If the infobar is displayed, select **Download the latest version**, and install the emulator. 
 
-1. 에뮬레이터가 설치되면 로컬 Blob, 큐 및 테이블을 만들고 사용할 수 있습니다. 각 저장소 계정 유형으로 작업하는 방법을 알아보려면 아래의 해당 링크를 선택합니다.
+    ![Download Azure Storage Emulator prompt][22]
 
-	- [Azure Blob 저장소 리소스 관리](./vs-azure-tools-storage-explorer-blobs.md)
-	- Azure 파일 공유 저장소 리소스 관리 - *서비스 예정*
-	- Azure 큐 저장소 리소스 관리 - *서비스 예정*
-	- Azure 테이블 저장소 리소스 관리 - *서비스 예정*
+1. Once the emulator is installed, you'll have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, select on the appropriate link below:
 
-## 외부 저장소 계정 연결 또는 분리
+    - [Manage Azure blob storage resources](./vs-azure-tools-storage-explorer-blobs.md)
+    - Manage Azure file share storage resources - *Coming soon*
+    - Manage Azure queue storage resources - *Coming soon*
+    - Manage Azure table storage resources - *Coming soon*
 
-저장소 탐색기(미리 보기)는 저장소 계정을 쉽게 공유할 수 있도록 외부 저장소 계정에 연결하는 기능을 제공합니다. 이 섹션은 외부 저장소 계정에 연결(및 분리)하는 방법을 설명합니다.
+## <a name="attach-or-detach-an-external-storage-account"></a>Attach or detach an external storage account
 
-### 저장소 계정 자격 증명 가져오기
+Storage Explorer (Preview) provides the ability to attach to external storage accounts so that storage accounts can be easily shared. This section explains how to attach to (and detach from) external storage accounts.
 
-외부 저장소 계정을 공유하기 위해 해당 계정의 소유자는 먼저 계정에 대한 자격 증명(계정 이름 및 키)을 가져온 다음 해당 정보를 해당(외부) 계정에 연결하려는 사용자와 공유해야 합니다. 다음 단계를 수행하여 Azure 포털을 통해 저장소 계정 자격 증명을 가져올 수 있습니다.
+### <a name="get-the-storage-account-credentials"></a>Get the storage account credentials
 
-1.	[Azure 포털](https://portal.azure.com)에 로그인합니다.
-1.	**찾아보기**를 선택합니다.
-1.	**저장소 계정**을 선택합니다.
-1.	**저장소 계정** 블레이드에서 원하는 저장소 계정을 선택합니다.
-1.	선택한 저장소 계정에 대한 **설정** 블레이드에서 **액세스 키**를 선택합니다.
+In order to share an external storage account, the owner of that account must first get the credentials - account name and key - for the account and then share that information with the person wanting to attach to that (external) account. Obtaining the storage account credentials can be done via the Azure portal by following these steps: 
 
-	![액세스 키 옵션][5]
-	
-1.	**액세스 키** 블레이드에서 저장소 계정에 연결할 때 사용할 **저장소 계정 이름** 및 **키 1** 값을 복사합니다.
+1.  Sign in to the [Azure portal](https://portal.azure.com).
+1.  Select **Browse**.
+1.  Select **Storage Accounts**.
+1.  In the **Storage Accounts** blade, select the desired storage account.
+1.  In the **Settings** blade for the selected storage account, select **Access keys**.
 
-	![액세스 키][6]
+    ![Access Keys option][5]
+    
+1.  In the **Access keys** blade, copy the **STORAGE ACCOUNT NAME** and **KEY 1** values for use when attaching to the storage account. 
 
-### 외부 저장소 계정에 연결
-외부 저장소 계정에 연결하려면 계정의 이름 및 키가 필요합니다. *저장소 계정 자격 증명 가져오기* 섹션은 Azure 포털에서 이러한 값을 가져오는 방법을 설명합니다. 그러나 포털에서 계정 키는 "키 1"이라고 하므로 저장소 탐색기(미리 보기)가 계정 키를 묻는 곳에 "키 1" 값을 입력(또는 붙여 넣기)합니다.
+    ![Access keys][6]
+
+### <a name="attach-to-an-external-storage-account"></a>Attach to an external storage account
+To attach to an external storage account, you'll need the account's name and key. The section *Get the storage account credentials* explains how to obtain these values from the Azure portal. However, note that in the portal, the account key is called "key 1" so where the Storage Explorer (Preview) asks for an account key, you'll enter (or paste) the "key 1" value. 
  
-1.	저장소 탐색기(미리 보기)에서 **Azure Storage에 연결**을 선택합니다.
+1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
 
-	![Azure Storage 옵션에 연결][23]
+    ![Connect to Azure storage option][23]
 
-1.	**Azure Storage에 연결** 대화 상자에서 계정 키(Azure 포털에서 "키 1" 값)를 지정한 후 **다음**을 선택합니다.
+1.  On the **Connect to Azure Storage** dialog, specify the account key ("key 1" value from the Azure portal), and then select **Next**.
 
-	![Azure Storage 대화 상자에 연결][24]
+    ![Connect to Azure storage dialog][24] 
 
-1.	**외부 저장소 연결** 대화 상자에서 **계정 이름** 상자에 저장소 계정 이름을 입력하고 다른 원하는 설정을 지정하고 완료되면 **다음**을 선택합니다.
+1.  In the **Attach External Storage** dialog, enter the storage account name in the **Account name** box, specify any other desired settings, and select **Next** when done. 
 
-	![외부 저장소 연결 대화 상자][8]
+    ![Attach external storage dialog][8]
 
-1.	**연결 요약** 대화 상자에서 정보를 확인합니다. 변경하려는 경우 **뒤로**를 선택하고 원하는 설정을 다시 입력합니다. 완료되면 **연결**을 선택합니다.
+1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
 
-1.	연결되면 외부 저장소 계정이 저장소 계정 이름에 추가된 텍스트 **(외부)**와 함께 표시됩니다.
+1.  Once connected, the external storage account will be displayed with the text **(External)** appended to the storage account name. 
 
-	![외부 저장소 계정 연결 결과][9]
+    ![Result of connecting to an external storage account][9]
 
-### 외부 저장소 계정에서 분리
+### <a name="detach-from-an-external-storage-account"></a>Detach from an external storage account
 
-1. 	상황에 맞는 메뉴에서 분리하려는 외부 저장소 계정을 마우스 오른쪽 단추로 클릭하고 **분리**를 선택합니다.
+1.  Right-click the external storage account you want to detach, and - from the context menu - select **Detach**.
 
-	![저장소 옵션에서 분리][10]
+    ![Detach from storage option][10]
 
-1.	확인 메시지 상자가 나타나면 **예**를 선택하여 외부 저장소 계정에서 분리를 확인합니다.
+1.  When the confirmation message box appears, select **Yes** to confirm the detachment from the external storage account.
 
-## SAS를 사용하여 저장소 계정 연결
+## <a name="attach-storage-account-using-sas"></a>Attach storage account using SAS
 
-[SAS(공유 액세스 서명)](storage/storage-dotnet-shared-access-signature-part-1.md)는 Azure 구독 관리자에게 해당 Azure 구독 자격 증명을 제공할 필요 없이 임시 기반으로 저장소 계정에 대한 액세스를 부여할 수 있도록 합니다.
+A [SAS (Shared Access Signature)](storage/storage-dotnet-shared-access-signature-part-1.md) gives the admin of an Azure subscription the ability to grant access to a storage account on a temporary basis without having to provide their Azure subscription credentials. 
 
-이를 설명하기 위해 Azure 구독의 관리자인 사용자 A는 사용자 B가 특정 권한으로 제한된 시간에 저장소 계정에 액세스할 수 있도록 한다고 가정해 보겠습니다.
+To illustrate this, let's say UserA is an admin of an Azure subscription, and UserA wants to allow UserB to access a storage account for a limited time with certain permissions:
 
-1. 사용자 A는 특정 기간 동안 원하는 사용 권한으로 SAS(저장소 계정에 대한 연결 문자열로 구성)를 생성합니다.
-1. 사용자 A는 저장소 계정에 액세스하려는 사용자(이 예에서 사용자 B)와 SAS를 공유합니다.
-1. 사용자 B는 저장소 탐색기(미리 보기)를 사용하여 제공된 SAS를 사용하여 사용자 A에 속한 계정에 연결합니다.
+1. UserA generates a SAS (consisting of the connection string for the storage account) for a specific time period and with the desired permissions.
+1. UserA shares the SAS with the person wanting access to the storage account - UserB, in our example.  
+1. UserB uses Storage Explorer (Preview) to attach to the account belonging to UserA using the supplied SAS. 
 
-### 공유하려는 계정에 대한 SAS 가져오기
+### <a name="get-a-sas-for-the-account-you-want-to-share"></a>Get a SAS for the account you want to share
 
-1.	저장소 탐색기(미리 보기)의 상황에 맞는 메뉴에서 공유하려는 저장소 계정을 마우스 오른쪽 단추로 클릭하고 **공유 액세스 서명 가져오기**를 선택합니다.
+1.  In Storage Explorer (Preview), right-click the storage account you want share, and - from the context menu - select **Get Shared Access Signature**.
 
-	![SAS 상황에 맞는 메뉴 옵션 가져오기][13]
+    ![Get SAS context menu option][13]
 
-1. **공유 액세스 서명** 대화 상자에서 계정에 대해 원하는 시간 프레임 및 권한을 지정하고 **만들기**를 선택합니다.
+1. On the **Shared Access Signature** dialog, specify the time frame and permissions you want for the account, and select **Create**.
 
-	![SAS 대화 가져오기][14]
+    ![Get SAS dialog][14]
  
-1. 두 번째 **공유 액세스 서명** 대화 상자가 SAS 표시를 나타냅니다. **연결 문자열** 옆의 **복사**를 선택하여 클립보드에 복사합니다. **닫기**를 선택하여 대화 상자를 닫습니다.
+1. A second **Shared Access Signature** dialog will appear displaying the SAS. Select **Copy** next to the **Connection String** to copy it to the clipboard. Select **Close** to dismiss the dialog.
 
-### SAS를 사용하여 공유 계정에 연결
+### <a name="attach-to-the-shared-account-using-the-sas"></a>Attach to the shared account using the SAS
 
-1.	저장소 탐색기(미리 보기)에서 **Azure Storage에 연결**을 선택합니다.
+1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
 
-	![Azure Storage 옵션에 연결][23]
+    ![Connect to Azure storage option][23]
 
-1.	**Azure Storage에 연결** 대화 상자에서 연결 문자열을 지정한 후 **다음**을 선택합니다.
+1.  On the **Connect to Azure Storage** dialog, specify the connection string, and then select **Next**.
 
-	![Azure Storage 대화 상자에 연결][24]
+    ![Connect to Azure storage dialog][24] 
 
-1.	**연결 요약** 대화 상자에서 정보를 확인합니다. 변경하려는 경우 **뒤로**를 선택하고 원하는 설정을 다시 입력합니다. 완료되면 **연결**을 선택합니다.
+1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
 
-1.	연결되면 저장소 계정이 제공한 계정 이름에 추가된 텍스트(SAS)와 함께 표시됩니다.
+1.  Once attached, the storage account will be displayed with the text (SAS) appended to the account name you supplied.
 
-	![SAS를 사용한 계정 연결 결과][17]
+    ![Result of attached to an account using SAS][17]
 
-## SAS를 사용하여 서비스 연결
+## <a name="attach-service-using-sas"></a>Attach service using SAS
 
-[SAS를 사용하여 저장소 계정 연결](#attach-storage-account-using-sas) 섹션에서는 Azure 구독 관리자가 저장소 계정에 대한 SAS를 생성(및 공유)하여 저장소 계정에 대한 임시 액세스를 부여할 수 있는 방법을 보여 줍니다. 마찬가지로, SAS는 저장소 계정 내에서 특정 서비스(Blob 컨테이너, 큐 또는 테이블)에 대해 생성될 수 있습니다.
+The section [Attach storage account using SAS](#attach-storage-account-using-sas) illustrates how an Azure subscription admin can grant temporary access to a storage account by generating (and sharing) a SAS for the storage account. Similarly, a SAS can be generated for a specific service (blob container, queue, or table) within a storage account.  
 
-### 공유하려는 서비스에 대한 SAS 생성
+### <a name="generate-a-sas-for-the-service-you-want-to-share"></a>Generate a SAS for the service you want to share
 
-이 컨텍스트에서 서비스는 Blob 컨테이너, 큐 또는 테이블일 수 있습니다. 다음 섹션은 나열된 서비스에 대한 SAS를 생성하는 방법을 설명합니다.
+In this context, a service can be a blob container, queue, or table. The following sections explain how to generate the SAS for the listed service:
 
-- [Blob 컨테이너에 대한 SAS 가져오기](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-- 파일 공유에 대한 SAS 가져오기 - *서비스 예정*
-- 큐에 대한 SAS 가져오기 - *서비스 예정*
-- 테이블에 대한 SAS 가져오기 - *서비스 예정*
+- [Get the SAS for a blob container](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+- Get the SAS for a file share - *Coming soon*
+- Get the SAS for a queue - *Coming soon*
+- Get the SAS for a table - *Coming soon*
 
-### SAS를 사용하여 공유 계정 서비스에 연결
+### <a name="attach-to-the-shared-account-service-using-the-sas"></a>Attach to the shared account service using the SAS
 
-1.	저장소 탐색기(미리 보기)에서 **Azure Storage에 연결**을 선택합니다.
+1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
 
-	![Azure Storage 옵션에 연결][23]
+    ![Connect to Azure storage option][23]
 
-1.	**Azure Storage에 연결** 대화 상자에서 SAS URI를 지정한 후 **다음**을 선택합니다.
+1.  On the **Connect to Azure Storage** dialog, specify the SAS URI, and then select **Next**.
 
-	![Azure Storage 대화 상자에 연결][24]
+    ![Connect to Azure storage dialog][24] 
 
-1.	**연결 요약** 대화 상자에서 정보를 확인합니다. 변경하려는 경우 **뒤로**를 선택하고 원하는 설정을 다시 입력합니다. 완료되면 **연결**을 선택합니다.
+1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
 
-1.	연결되면 새로 연결된 서비스가 **(서비스 SAS)** 노드 아래에 표시됩니다.
+1.  Once attached, the newly attached service will be displayed under the **(Service SAS)** node.
 
-	![SAS를 사용한 공유 서비스 연결 결과][20]
+    ![Result of attaching to a shared service using SAS][20]
 
-## 저장소 계정 검색
+## <a name="search-for-storage-accounts"></a>Search for storage accounts
 
-저장소 계정 목록이 긴 경우 특정 저장소 계정을 찾는 빠른 방법은 왼쪽 창 맨 위에 있는 검색 상자를 사용하는 것입니다.
+If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box at the top of the left pane. 
 
-검색 상자에 내용을 입력하면 왼쪽 창에 해당 시점에 입력한 검색 값과 일치하는 저장소 계정만 표시됩니다. 다음 스크린샷은 저장소 계정 이름이 "tarcher" 텍스트를 포함하는 모든 저장소 계정에 대해 검색한 위치의 예를 보여 줍니다.
+As you are typing into the search box, the left pane will display only the storage accounts that match the search value you've entered up to that point. The following screen shot illustrates an example where I've searched for all storage accounts where the storage account name contains the text "tarcher".
 
-![저장소 계정 검색][11]
-	
-검색을 지우려면 검색 상자의 **x** 단추를 선택합니다.
+![Storage account search][11]
+    
+To clear the search, select the **x** button in the search box.
 
-## 다음 단계
-- [저장소 탐색기(미리 보기)를 사용하여 Azure Blob 저장소 리소스 관리](./vs-azure-tools-storage-explorer-blobs.md)
+## <a name="next-steps"></a>Next steps
+- [Manage Azure blob storage resources with Storage Explorer (Preview)](./vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -229,4 +230,8 @@ Microsoft Azure Storage 탐색기(미리 보기)는 Windows, OS X 및 Linux에�
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

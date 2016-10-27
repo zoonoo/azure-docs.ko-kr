@@ -1,243 +1,248 @@
 <properties 
-	pageTitle="Azure Media Services를 사용하여 Azure Portal로 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행하는 방법 | Microsoft Azure" 
-	description="이 자습서에서는 Azure 포털을 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="anilmur" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal | Microsoft Azure" 
+    description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="anilmur" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article"
-	ms.date="09/06/2016"
-	ms.author="juliako;juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article"
+    ms.date="09/06/2016"
+    ms.author="juliako;juliako"/>
 
 
-#Azure Media Services를 사용하여 Azure Portal로 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행하는 방법
+
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal
 
 > [AZURE.SELECTOR]
-- [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널**을 만드는 단계를 안내합니다.
+This tutorial walks you through the steps of creating a **Channel** that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
 
->[AZURE.NOTE]라이브 인코딩에 대해 사용할 수 있는 채널과 관련하여 더욱 개념적인 정보는 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+>[AZURE.NOTE]For more conceptual information related to Channels that are enabled for live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 
-##일반적인 라이브 스트리밍 시나리오
+##<a name="common-live-streaming-scenario"></a>Common Live Streaming Scenario
 
-다음은 일반적인 라이브 스트리밍 응용 프로그램을 만드는 일반적인 단계입니다.
+The following are general steps involved in creating common live streaming applications.
 
->[AZURE.NOTE] 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 amslived@microsoft.com으로 문의하세요.
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
 
-1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나에서 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
-	
-	이 단계는 채널을 만든 후에도 수행할 수 있습니다.
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+    
+    This step could also be performed after you create your Channel.
 
-1. 채널을 만들고 시작합니다.
+1. Create and start a Channel. 
 
-1. 채널 수집 URL을 검색합니다.
+1. Retrieve the Channel ingest URL. 
 
-	수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
-1. 채널 미리 보기 URL을 검색합니다.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
+1. Retrieve the Channel preview URL. 
 
-	이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
+    Use this URL to verify that your channel is properly receiving the live stream.
 
-3. 이벤트/프로그램을 만듭니다(자산도 만들어짐).
-1. 이벤트를 게시합니다(연결된 자산에 대한 주문형 로케이터가 만들어짐).
+3. Create an event/program (that will also create an asset). 
+1. Publish the event (that will create an  OnDemand locator for the associated asset).  
 
-	콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
-1. 스트리밍 및 보관을 시작할 준비가 되었으면 이벤트를 시작합니다.
-2. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
-1. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트를 중지합니다.
-1. 이벤트를 삭제하고 필요에 따라 자산을 삭제합니다.
+    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+1. Start the event when you are ready to start streaming and archiving.
+2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
+1. Stop the event whenever you want to stop streaming and archiving the event.
+1. Delete the event (and optionally delete the asset).   
 
-##자습서 내용
+##<a name="in-this-tutorial"></a>In this tutorial
 
-이 자습서에서는 Azure 포털을 사용하여 다음 작업을 수행합니다.
+In this tutorial, the Azure portal is used to accomplish the following tasks: 
 
-2.  스트리밍 끝점을 구성합니다.
-3.  라이브 인코딩을 수행할 수 있는 채널 만들기
-1.  라이브 인코더에 제공하기 위해 수집 URL 가져오기. 라이브 인코더는 이 URL을 사용하여 스트림을 채널에 수집합니다.
-1.  이벤트/프로그램(및 자산)을 만듭니다.
-1.  자산을 게시하고 스트리밍 URL 가져오기
-1.  콘텐츠 재생
-2.  정리
+2.  Configure streaming endpoints.
+3.  Create a channel that is enabled to perform live encoding.
+1.  Get the Ingest URL in order to supply it to live encoder. The live encoder will use this URL to ingest the stream into the Channel. .
+1.  Create an event/program (and an asset)
+1.  Publish the asset and get streaming URLs  
+1.  Play your content 
+2.  Cleaning up
 
-##필수 조건
-자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
+##<a name="prerequisites"></a>Prerequisites
+The following are required to complete the tutorial.
 
-- 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
-- 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
+- To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+- A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
+- A webcam and an encoder that can send a single bitrate live stream.
 
-##스트리밍 끝점 구성 
+##<a name="configure-streaming-endpoints"></a>Configure streaming endpoints 
 
-미디어 서비스는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍 또는 HDS)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다. 동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
+Media Services provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
 
-동적 패키징을 이용하려면 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 스트리밍 단위를 하나 이상 가져와야 합니다.
+To take advantage of dynamic packaging, you need to get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.  
 
-스트리밍 예약 단위의 수를 만들고 변경하려면 다음을 수행합니다.
+To create and change the number of streaming reserved units, do the following:
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-1. **설정** 창에서 **스트리밍 끝점**을 클릭합니다.
+1. Log in at the [Azure portal](https://portal.azure.com/).
+1. In the **Settings** window, click **Streaming endpoints**. 
 
-2. 기본 스트리밍 끝점을 클릭합니다.
+2. Click on the default streaming endpoint. 
 
-	**기본 스트리밍 끝점 세부 정보** 창이 나타납니다.
+    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
 
-3. 스트리밍 단위 수를 지정하려면 **스트리밍 단위** 슬라이더를 밉니다.
+3. To specify the number of streaming units, slide the **Streaming units** slider.
 
-	![스트리밍 단위](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
+    ![Streaming units](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
 
-4. **저장** 단추를 클릭하여 변경 내용을 저장합니다.
+4. Click the **Save** button to save your changes.
 
-	>[AZURE.NOTE]새 단위를 할당하는 작업은 완료하는 데 최대 20분까지 소요될 수 있습니다.
+    >[AZURE.NOTE]The allocation of any new units can take up to 20 minutes to complete.
 
-##채널 만들기
+##<a name="create-a-channel"></a>Create a CHANNEL
 
-1. [Azure Portal](https://portal.azure.com/)에서 Media Services를 클릭한 후 Media Services 계정 이름을 클릭합니다.
-2. **라이브 스트리밍**을 선택합니다.
-3. **사용자 지정 만들기**를 선택합니다. 이 옵션을 통해 Live Encoding에 사용할 수 있는 채널을 만들 수 있습니다.
+1. In the [Azure portal](https://portal.azure.com/), click Media Services and then click on the Media Services account name.
+2. Select **Live Streaming**.
+3. Select **Custom create**. This option will let you create a channel that is enabled for live encoding.
 
-	![채널 만들기](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
-	
-4. **설정**을 클릭합니다.
-	
-	1.  **Live Encoding** 채널 형식을 선택합니다. 이 형식은 라이브 인코딩에 사용할 수 있는 채널을 만들도록 지정합니다. 즉, 들어오는 단일 비트 전송률 스트림이 채널로 전송되고 지정한 라이브 인코더 설정을 사용하여 다중 비트 전송률 스트림으로 인코딩됩니다. 자세한 내용은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요. 확인을 클릭합니다.
-	2. 채널의 이름을 지정합니다.
-	3. 화면 아래쪽에서 확인을 클릭합니다.
-	
-5. **수집** 탭을 선택합니다.
+    ![Create a channel](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+    
+4. Click on **Settings**.
+    
+    1.  Choose the **Live Encoding** channel type. This type specifies that you want to create a Channel that is enabled for live encoding. That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings. For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md). Click OK.
+    2. Specify a channel's name.
+    3. Click OK at the bottom of the screen.
+    
+5. Select the **Ingest** tab.
 
-	1. 이 페이지에서는 스트리밍 프로토콜을 선택할 수 있습니다. **Live Encoding** 채널 형식의 경우 올바른 프로토콜 옵션은 다음과 같습니다.
-		
-		- 단일 비트 전송률 조각화된 MP4(부드러운 스트리밍)
-		- 단일 비트 전송률 RTMP
-		- RTP(MPEG-TS): RTP를 통한 MPEG-2 전송 스트림
-		
-		각 프로토콜에 대한 자세한 설명은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
-	
-		채널 또는 연결된 이벤트/프로그램이 실행 중인 동안에는 프로토콜 옵션을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 스트리밍 프로토콜에 대한 개별 채널을 만들어야 합니다.
+    1. On this page, you can select a streaming protocol. For the **Live Encoding** channel type, valid protocol options are:
+        
+        - Single bitrate Fragmented MP4 (Smooth Streaming)
+        - Single bitrate RTMP
+        - RTP (MPEG-TS): MPEG-2 Transport Stream over RTP.
+        
+        For detailed explanation about each protocol, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+    
+        You cannot change the protocol option while the Channel or its associated events/programs are running. If you require different protocols, you should create separate channels for each streaming protocol.  
 
-	2. 수집에 대한 IP 제한을 적용할 수 있습니다.
-	
-		이 채널에 비디오를 수집하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소와 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22'), 또는 IP 주소와 점으로 구분된 10진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)').
+    2. You can apply IP restriction on the ingest. 
+    
+        You can define the IP addresses that are allowed to ingest a video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (e.g. '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (e.g. '10.0.0.1(255.255.252.0)').
 
-		IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.
+        If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
-6. **미리 보기** 탭에서 미리 보기에 대한 IP 제한을 적용합니다.
-7. **인코딩** 탭에서 인코딩 사전 설정을 지정합니다.
+6. On the **Preview** tab, apply IP restriction on the preview.
+7. On the **Encoding** tab, specify the encoding preset. 
 
-	현재 선택할 수 있는 유일한 시스템 기본 설정은 **기본 720p**입니다. 사용자 지정 사전 설정을 지정하려면 Microsoft 지원 티켓을 엽니다. 그런 다음 만들어진 기본 설정의 이름을 입력합니다.
+    Currently, the only system preset you can select is **Default 720p**. To specify a custom preset, open a Microsoft support ticket. Then, enter the name of the preset created for you. 
 
->[AZURE.NOTE] 현재 채널 시작에는 30분 이상 걸릴 수 있습니다. 채널 다시 설정에는 최대 5분까지 걸릴 수 있습니다.
+>[AZURE.NOTE] Currently, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
 
-채널을 만든 후 채널을 클릭하여 채널 구성을 볼 수 있는 **설정**을 선택합니다.
+Once you created the Channel, you can click on the channel and select **Settings** where you can view your channels configurations. 
 
-자세한 내용은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##수집 URL 가져오기
+##<a name="get-ingest-urls"></a>Get ingest URLs
 
-채널을 만든 후 라이브 인코더에 제공할 수집 URL을 가져올 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.
+Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##이벤트 만들기 및 관리
+##<a name="create-and-manage-events"></a>Create and manage events
 
-###개요
+###<a name="overview"></a>Overview
 
-채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어할 수 있는 이벤트/프로그램과 연결되어 있습니다. 채널은 이벤트/프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
+A channel is associated with events/programs that enable you to control the publishing and storage of segments in a live stream. Channels manage events/programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
 
-**보관 창** 길이를 설정하여 이벤트에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 이벤트는 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
+You can specify the number of hours you want to retain the recorded content for the event by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Events can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
-각 이벤트는 자산에 연결됩니다. 이벤트를 게시하려면 연결된 자산에 대한 주문형 로케이터를 만들어야 합니다. 이 로케이터가 있으면 클라이언트에 제공할 수 있는 스트리밍 URL을 작성할 수 있습니다.
+Each event is associated with an Asset. To publish the event you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
 
-채널은 동시 실행 이벤트를 최대 세 개까지 지원하므로 동일한 들어오는 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항에 따라 6시간의 이벤트를 보관하고 마지막 10분만 브로드캐스트해야 합니다. 이렇게 하려면 두 개의 동시 실행되는 이벤트를 만들어야 합니다. 한 이벤트는 6시간의 이벤트를 보관하도록 설정하고 프로그램은 게시하지 않습니다. 다른 이벤트는 10분 동안을 보관하도록 설정하고 프로그램을 게시합니다.
+A channel supports up to three concurrently running events so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of an event, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running event. One event is set to archive 6 hours of the event but the program is not published. The other event is set to archive for 10 minutes and this program is published.
 
-새 이벤트에 기존 프로그램을 다시 사용할 수 없습니다. 대신, 각 이벤트에 대해 새 프로그램을 만들고 시작합니다.
+You should not reuse existing programs for new events. Instead, create and start a new program for each event.
 
-스트리밍 및 보관을 시작할 준비가 되었으면 이벤트/프로그램을 시작합니다. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트를 중지합니다.
+Start an event/program when you are ready to start streaming and archiving. Stop the event whenever you want to stop streaming and archiving the event. 
 
-보관된 콘텐츠를 삭제하려면 이벤트를 중단 및 삭제한 다음 연결된 자산을 삭제합니다. 자산을 이벤트에서 사용하는 경우 삭제할 수 없습니다. 이벤트를 먼저 삭제해야 합니다.
+To delete archived content, stop and delete the event and then delete the associated asset. An asset cannot be deleted if it is used by the event; the event must be deleted first. 
 
-이벤트를 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있습니다.
+Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
 
-보관된 콘텐츠를 보관하려는데 스트리밍에 사용할 수 있는 콘텐츠가 없는 경우 스트리밍 로케이터를 삭제합니다.
+If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
 
-###이벤트 만들기/시작/중지
+###<a name="create/start/stop-events"></a>Create/start/stop events
 
-채널로 들어오는 스트림이 있으면 자산, 프로그램 및 스트리밍 로케이터를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 이렇게 하면 스트림이 보관되고 스트리밍 끝점을 통해 시청자가 스트림을 사용할 수 있게 됩니다.
+Once you have the stream flowing into the Channel you can begin the streaming event by creating an Asset, Program, and Streaming Locator. This will archive the stream and make it available to viewers through the Streaming Endpoint. 
 
-이벤트를 시작하는 방법에는 다음 두 가지가 있습니다.
+There are two ways to start event: 
 
-1. **채널** 페이지에서 **라이브 이벤트**를 눌러 새 이벤트를 추가합니다.
+1. From the **Channel** page, press **Live Event** to add a new event.
 
-	이벤트 이름, 자산 이름, 보관 창 및 암호화 옵션을 지정합니다.
-	
-	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-	
-	**지금 이 라이브 이벤트 게시**를 선택한 상태로 두면 이벤트 게시 URL이 만들어집니다.
-	
-	이벤트를 스트리밍할 준비가 되면 언제든지 **시작**을 누르면 됩니다.
+    Specify: event name, asset name, archive window, and encryption option.
+    
+    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    
+    If you left **Publish this live event now** checked, the event the PUBLISHING URLs will get created.
+    
+    You can press **Start**, whenever you are ready to stream the event.
 
-	이벤트를 시작하면 **시청**을 눌러 콘텐츠 재생을 시작할 수 있습니다.
+    Once you start the event, you can press **Watch** to start playing the content.
 
-2. 또는 바로 가기를 사용하고 **채널** 페이지에서 **가동 중** 단추를 누를 수 있습니다. 그러면 기본 자산, 프로그램 및 스트리밍 로케이터가 만들어집니다.
+2. Alternatively, you can use a shortcut and press **Go Live** button on the **Channel** page. This will create a default Asset, Program, and Streaming Locator.
 
-	이벤트의 이름은 **default**로 지정되고 보관 창은 8시간으로 설정됩니다.
+    The event is named **default** and the archive window is set to 8 hours.
 
-**라이브 이벤트** 페이지에서 게시된 이벤트를 볼 수 있습니다.
+You can watch the published event from the **Live event** page. 
 
-**가동 안 함**을 클릭하면 라이브 이벤트를 모두 중지합니다.
+If you click **Off Air**, it will stop all live events. 
 
 
-##이벤트 보기
+##<a name="watch-the-event"></a>Watch the event
 
-이벤트를 보려면 Azure 포털에서 **조사식**을 클릭하거나 스트리밍 URL을 복사하고 선택한 플레이어를 사용합니다.
+To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
  
-![작성자](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![Created](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
-라이브 이벤트가 중지되면 이벤트를 주문형 콘텐츠로 자동으로 변환합니다.
+Live event automatically converts events to on-demand content when stopped.
 
-##정리
+##<a name="clean-up"></a>Clean up
 
-스트리밍 이벤트를 완료하고 이전에 프로비전된 리소스를 정리하려면 다음 절차를 수행합니다.
+If you are done streaming events and want to clean up the resources provisioned earlier, follow the following procedure.
 
-- 인코더에서 스트림의 푸시를 중지합니다.
-- 채널을 중지합니다. 채널이 중지되면 채널에 대한 요금이 발생하지 않습니다. 채널을 다시 시작해야 하는 경우 채널의 수집 URL은 동일하므로 인코더를 다시 구성하지 않아도 됩니다.
-- 라이브 이벤트의 보관 파일을 주문형 스트림으로 계속 제공하지 않으려면 스트리밍 끝점을 중지할 수 있습니다. 채널이 중지된 상태이면 채널에 대한 요금이 발생하지 않습니다.
+- Stop pushing the stream from the encoder.
+- Stop the channel. Once the Channel is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
+- You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the channel is in stopped state, it will not incur any charges.
   
-##보관된 콘텐츠 보기
+##<a name="view-archived-content"></a>View archived content
 
-이벤트를 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있습니다. 자산을 이벤트에서 사용하는 경우 삭제할 수 없습니다. 이벤트를 먼저 삭제해야 합니다.
+Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
 
-자산을 관리하려면 **설정**을 선택하고 **자산**을 클릭합니다.
+To manage your assets select **Setting** and click **Assets**.
 
-![자산](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
-##고려 사항
+##<a name="considerations"></a>Considerations
 
-- 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 amslived@microsoft.com으로 문의하세요.
-- 콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
+- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
+- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 
-##다음 단계
+##<a name="next-step"></a>Next step
 
-미디어 서비스 학습 경로를 검토합니다.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

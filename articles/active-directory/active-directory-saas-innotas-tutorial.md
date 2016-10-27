@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Innotas와 Azure Active Directory 통합 | Microsoft Azure"
-    description="Azure Active Directory에서 Innotas를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with Innotas | Microsoft Azure"
+    description="Learn how to use Innotas with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,103 +11,110 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: Innotas와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-innotas"></a>Tutorial: Azure Active Directory integration with Innotas
   
-이 자습서는 Azure와 Innotas의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and Innotas.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Innotas 테넌트
+-   A valid Azure subscription
+-   A Innotas tenant
   
-이 자습서를 완료하면 Innotas에 할당한 Azure AD 사용자가 Innotas 회사 사이트(서비스 공급자가 제공한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On으로 로그인할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to Innotas will be able to single sign into the application at your Innotas company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Innotas에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Innotas
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-innotas-tutorial/IC777331.png "시나리오")
-##Innotas에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-innotas-tutorial/IC777331.png "Scenario")
+##<a name="enabling-the-application-integration-for-innotas"></a>Enabling the application integration for Innotas
   
-이 섹션은 Innotas에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for Innotas.
 
-###Innotas에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-innotas,-perform-the-following-steps:"></a>To enable the application integration for Innotas, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-innotas-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-innotas-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-innotas-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-innotas-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-innotas-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-innotas-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-innotas-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **Innotas**를 입력합니다.
+6.  In the **search box**, type **Innotas**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-innotas-tutorial/IC777332.png "응용 프로그램 갤러리")
+    ![Application gallery](./media/active-directory-saas-innotas-tutorial/IC777332.png "Application gallery")
 
-7.  결과 창에서 **Innotas**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Innotas**, and then click **Complete** to add the application.
 
     ![Innotas](./media/active-directory-saas-innotas-tutorial/IC777333.png "Innotas")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Innotas에 인증할 수 있게 하는 방법을 간략하게 설명합니다.
+The objective of this section is to outline how to enable users to authenticate to Innotas with their account in Azure AD using federation based on the SAML protocol.
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Innotas** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Innotas** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-innotas-tutorial/IC777334.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configure single sign-on")
 
-2.  **Innotas에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to Innotas** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-innotas-tutorial/IC777335.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777335.png "Configure single sign-on")
 
-3.  **앱 URL 구성** 페이지의 **Innotas 로그인 URL** 텍스트 상자에 다음 패턴 "*https://\<tenant-name>.Innotas.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  On the **Configure App URL** page, in the **Innotas Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Innotas.com*", and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-innotas-tutorial/IC777336.png "앱 URL 구성")
+    ![Configure app URL](./media/active-directory-saas-innotas-tutorial/IC777336.png "Configure app URL")
 
-4.  **Innotas에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 데이터 파일을 **c:\\InnotasMetaData.xml**에 로컬로 저장합니다.
+4.  On the **Configure single sign-on at Innotas** page, to download your metadata, click **Download metadata**, and then the data file locally as **c:\\InnotasMetaData.xml**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-innotas-tutorial/IC777337.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configure single sign-on")
 
-5.  Innotas 지원 팀에 해당 메타데이터 파일을 전달합니다. 지원 팀이 Single Sign-On을 구성합니다.
+5.  Forward that metadata file to Innotas support team. The support team needs configures single sign-on for you.
 
-6.  Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+6.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-innotas-tutorial/IC777338.png "Single Sign-On 구성")
-##사용자 프로비저닝 구성
+    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Innotas를 프로비저닝하는 사용자를 구성할 작업 항목이 없습니다. 할당된 사용자가 액세스 패널을 사용하여 Innotas에 로그인하려는 경우 Innotas는 사용자가 존재하는지 확인합니다. 사용할 수 있는 사용자 계정이 없으면 자동으로 Innotas에 의해 생성됩니다.
-##사용자 할당
+There is no action item for you to configure user provisioning to Innotas.  
+When an assigned user tries to log into Innotas using the access panel, Innotas checks whether the user exists.  
+If there is no user account available yet, it is automatically created by Innotas.
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Innotas에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-innotas,-perform-the-following-steps:"></a>To assign users to Innotas, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Innotas** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Innotas **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-innotas-tutorial/IC777339.png "사용자 할당")
+    ![Assign users](./media/active-directory-saas-innotas-tutorial/IC777339.png "Assign users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-innotas-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-innotas-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

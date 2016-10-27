@@ -1,83 +1,88 @@
 <properties 
-	pageTitle="웹앱 및 모바일 앱에 대한 Azure 앱 서비스 | Microsoft Azure" 
-	description="Azure 앱 서비스를 사용하여 웹 및 모바일 앱을 개발, 배포 및 관리하는 방법을 알아봅니다." 
-	keywords="앱 서비스, Azure 앱 서비스, 앱 서비스 비용, 규모, 확장성, 앱 배포, Azure 앱 배포, PaaS, Platform-as-a-Service "
-	services="app-service" 
-	documentationCenter="" 
-	authors="omarkmsft" 
-	manager="dwrede" 
-	editor="jimbe"/>
+    pageTitle="Azure App Service for web apps and mobile apps | Microsoft Azure" 
+    description="Learn how Azure App Service helps you develop, deploy, and manage web and mobile apps." 
+    keywords="app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment, paas, platform-as-a-service"
+    services="app-service" 
+    documentationCenter="" 
+    authors="omarkmsft" 
+    manager="dwrede" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/25/2016" 
-	ms.author="omark"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="05/25/2016" 
+    ms.author="omark"/>
 
-# Azure 앱 서비스 정의
 
-*앱 서비스* 는 Microsoft Azure의 PaaS ([platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service)) 제품입니다. 플랫폼 및 장치에 웹 및 모바일 앱을 만듭니다. SaaS 솔루션과 앱을 통합하고 온-프레미스 응용 프로그램을 사용하여 연결하고 비즈니스 프로세스를 자동화합니다. Azure는 공유 VM 리소스 또는 전용 VM을 선택하여 완전히 관리되는 VM (가상 컴퓨터) 에서 앱을 실행합니다.
+# <a name="what-is-azure-app-service?"></a>What is Azure App Service?
 
-앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure 모바일 서비스로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. 단일 통합 서비스인 앱 서비스를 통해 웹 사이트, 모바일 앱 백 엔드, RESTful API 및 비즈니스 프로세스 등 다양한 구성 요소를 단일 솔루션으로 작성할 수 있습니다.
+*App Service* is a [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure. Create web and mobile apps for any platform or device. Integrate your apps with SaaS solutions, connect with on-premises applications, and automate your business processes. Azure runs your apps on fully managed virtual machines (VMs), with your choice of shared VM resources or dedicated VMs. 
 
-다음 4분 비디오에서는 앱 서비스와 이전 Azure 제품의 연결점 및 새로운 기능에 대한 간략한 설명을 제공합니다.
+App Service includes the web and mobile capabilities that we previously delivered separately as Azure Websites and Azure Mobile Services.  It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service lets you compose various components -- websites, mobile app back ends, RESTful APIs, and business processes -- into a single solution.
 
-\+[AZURE.VIDEO app-service-history-lesson] 
+The following 4-minute video provides a brief explanation of how App Service relates to earlier Azure offerings and what's new in it.
 
-## 앱 서비스를 사용하는 이유는 무엇인가요?
++[AZURE.VIDEO app-service-history-lesson] 
 
-다음은 앱 서비스의 몇 가지 주요 기능입니다.
+## <a name="why-use-app-service?"></a>Why use App Service?
 
-- **여러 언어 및 프레임워크** - 앱 서비스에서는 ASP.NET, Node.js, Java, PHP 및 Python을 최고 수준으로 지원합니다. 앱 서비스 VM에서 [Windows PowerShell 및 기타 스크립트 또는 실행 파일](../app-service-web/web-sites-create-web-jobs.md)을 실행할 수도 있습니다.
+Here are some key features and capabilities of App Service: 
 
-- **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](../app-service-web/app-service-continuous-deployment.md)를 설정합니다. [테스트 및 스테이징 환경](../app-service-web/web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](../app-service-web/app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](../powershell-install-configure.md) 또는 [플랫폼 간 CLI\(명령줄 인터페이스\)](../xplat-cli-install.md)를 사용하여 앱 서비스에서 앱을 관리합니다.
+- **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [Windows PowerShell and other scripts or executables](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs.
+
+- **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continuous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md). Manage your apps in App Service by using [Azure PowerShell](../powershell-install-configure.md) or the [cross-platform command-line interface (CLI)](../xplat-cli-install.md).
  
-- **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](../app-service-web/web-sites-scale.md) 또는 [확장](../azure-portal/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 앱 서비스 [SLA](https://azure.microsoft.com/support/legal/sla/app-service/)를 사용하면 고가용성이 보장됩니다.
+- **Global scale with high availability** - Scale [up](../app-service-web/web-sites-scale.md) or [out](../azure-portal/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 
-- **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템\(예: SAP, Siebel 및 Oracle\), SaaS 서비스\(예: Salesforce 및 Office 365\), 인기 있는 인터넷 서비스\(예: Facebook 및 Twitter\) 등을 위한 50개 이상의 [커넥터](../connectors/apis-list.md)에서 선택합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure 가상 네트워크](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
+- **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP, Siebel, and Oracle), SaaS services (such as Salesforce and Office 365), and internet services (such as Facebook and Twitter). Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 
-- **보안 및 규정 준수** - 앱 서비스는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)입니다.
+- **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
 
-- **응용 프로그램 템플릿** - WordPress, Joomla, Drupal 등의 인기 있는 오픈 소스 소프트웨어를 설치하는 마법사를 사용할 수 있는 [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/)의 광범위한 응용 프로그램 템플릿 목록에서 선택합니다.
+- **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla, and Drupal.
 
-- **Visual Studio 통합** - Visual Studio의 전용 도구는 생성, 배포, 디버깅 작업을 간소화합니다.
+- **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 
-## 앱 서비스의 앱 유형
+## <a name="app-types-in-app-service"></a>App types in App Service
 
-앱 서비스는 여러 *앱 형식*을 제공하며 각각은 특정 종류의 워크로드를 호스트하도록 계획되었습니다.
+App Service offers several *app types*, each of which is  intended to host a specific kind of workload:
 
-- [**웹앱**](../app-service-web/app-service-web-overview.md) - 웹 사이트와 웹 응용 프로그램을 호스팅합니다.
+- [**Web Apps**](../app-service-web/app-service-web-overview.md) - For hosting websites and web applications.
 
-- [**모바일 앱**](../app-service-mobile/app-service-mobile-value-prop.md) 모바일 앱 백 엔드를 호스팅합니다.
+- [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) For hosting mobile app back ends.
    
-- [**API 앱**](../app-service-api/app-service-api-apps-why-best-platform.md) - 클라우드 API를 호스팅합니다.
+- [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - For hosting cloud APIs. 
  
-- [**논리 앱**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - 코드를 작성하지 않고 클라우드 간의 데이터 액세스 및 사용을 자동화합니다.
+- [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating the access and use of data across clouds without writing code.
 
-여기서 *앱*이라는 단어는 워크로드를 전용으로 실행하는 호스팅 리소스를 의미합니다. 예를 들어 "웹앱"의 경우 함께 브라우저에 대한 기능을 제공하는 계산 리소스와 응용 프로그램 코드를 모두 웹앱으로 생각하는 것이 익숙할 것입니다. 하지만 앱 서비스에서 *웹앱*은 Azure에서 응용 프로그램 코드를 호스팅하기 위해 제공하는 계산 리소스입니다. 응용 프로그램이 웹 프런트 엔드 및 RESTful API 백 엔드로 구성된 경우 웹앱에 모두를 배포하거나 웹앱에 프런트 엔드 코드 및 API 앱에 백 엔드 코드를 배포할 수 있습니다. 응용 프로그램은 다른 종류의 여러 앱 서비스 앱으로 구성될 수 있습니다.
+The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front-end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
 
-## 앱 서비스 계획
+## <a name="app-service-plans"></a>App Service Plans
 
-[앱 서비스 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)은 앱에서 실행되는 계산 리소스의 종류를 지정합니다. 트래픽 부하가 가벼운 경우 공유 VM\(가상 컴퓨터\)을 사용할 수 있습니다. 대량 로드의 경우 전용 VM을 여러 가지 크기 중에서 선택할 수 있습니다. 여러 앱 서비스 앱은 동일한 계획을 공유할 수 있고 계획을 사용하여 규모를 확장하고 축소합니다.
+[App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) specify the kind of compute resources that your apps run on. If you expect light traffic loads, you can use shared virtual machines (VMs). For higher loads, you can choose from several sizes of dedicated VMs. Multiple App Service apps can share the same plan, and they scale up and down together with the plan.
 
-확장성 및 네트워크 격리가 필요한 경우 [앱 서비스 환경](../app-service-web/app-service-app-service-environment-intro.md)에서 앱을 실행할 수 있습니다.
+If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md). 
 
-## 가격
+## <a name="pricing"></a>Pricing
 
-앱 서비스 비용에 대한 정보는 [앱 서비스 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
+For information about how much App Service costs, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/). 
 
-## 앱 서비스 시작
+## <a name="get-started-with-app-service"></a>Get Started with App Service
 
-신용 카드 없이도 약정이나 복잡한 과정을 거치지 않고 무료로 즉시 [임시 웹앱, 모바일 앱 또는 논리 앱을 만듭니다](http://go.microsoft.com/fwlink/?LinkId=523751).
+[Create a temporary web app, mobile app, or logic app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free, with no credit card required, no commitments, no hassles.
 
-또는 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 열고 시작 자습서 중 하나를 사용해 봅니다.
+Or open a [free Azure account](https://azure.microsoft.com/pricing/free-trial/), and try one of our getting-started tutorials:
 
-* [자습서: 웹앱 만들기](../app-service-web/app-service-web-get-started.md)
-* [자습서: 모바일 앱 만들기](../app-service-mobile/app-service-mobile-android-get-started.md)
-* [자습서: API 앱 만들기](../app-service-api/app-service-api-dotnet-get-started.md)
-* [자습서: 논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Tutorial: Create a web app](../app-service-web/app-service-web-get-started.md)
+* [Tutorial: Create a mobile app](../app-service-mobile/app-service-mobile-android-get-started.md)
+* [Tutorial: Create an API app](../app-service-api/app-service-api-dotnet-get-started.md)
+* [Tutorial: Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!-----HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

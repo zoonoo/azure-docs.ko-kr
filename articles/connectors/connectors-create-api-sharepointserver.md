@@ -1,6 +1,6 @@
 <properties
-pageTitle="논리 앱에서 SharePoint Online 커넥터 사용| Microsoft Azure"
-description="논리 앱에서 Azure 앱 서비스 SharePoint Online 커넥터 사용을 시작합니다."
+pageTitle="Use the SharePoint Online Connector in your Logic Apps | Microsoft Azure"
+description="Get started using the Azure App Service SharePoint Online Connector  in your Logic apps."
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,485 +17,490 @@ ms.workload="na"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# SharePoint Online 커넥터 시작 
 
-SharePoint 커넥터는 SharePoint에서 목록으로 작업하기 위한 방법을 제공합니다.
+# <a name="get-started-with-the-sharepoint-online-connector"></a>Get started with the SharePoint Online Connector 
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+The SharePoint Connector provides an way to work with Lists on SharePoint.
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## 트리거 및 작업에 대한 정보
+## <a name="let's-talk-about-triggers-and-actions"></a>Let's talk about triggers and actions
 
-SharePoint 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+The SharePoint Connector  can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-SharePoint 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
+The SharePoint Connector  has the following action(s) and/or trigger(s) available:
 
-### SharePoint 작업
-다음 작업을 수행할 수 있습니다.
+### <a name="sharepoint-actions"></a>SharePoint actions
+You can take these action(s):
 
-|작업|설명|
+|Action|Description|
 |--- | ---|
-|GetFileMetadata|문서 라이브러리에서 파일 메타데이터를 가져옵니다.|
-|UpdateFile|문서 라이브러리에서 파일을 업데이트합니다.|
-|DeleteFile|문서 라이브러리에서 파일을 삭제합니다.|
-|GetFileMetadataByPath|문서 라이브러리에서 파일 메타데이터를 가져옵니다.|
-|GetFileContentByPath|문서 라이브러리에서 파일을 가져옵니다.|
-|GetFileContent|문서 라이브러리에서 파일을 가져옵니다.|
-|CreateFile|문서 라이브러리에서 파일을 업로드합니다.|
-|CopyFile|문서 라이브러리에서 파일을 복사합니다.|
-|ExtractFolderV2|문서 라이브러리에서 폴더를 추출합니다.|
-|PostItem|SharePoint 목록에서 새 항목을 만듭니다.|
-|GetItem|SharePoint 목록에서 단일 항목을 검색합니다.|
-|DeleteItem|SharePoint 목록에서 항목을 삭제합니다.|
-|PatchItem|SharePoint 목록에서 항목을 업데이트합니다.|
-### SharePoint 트리거
-다음 이벤트를 수신할 수 있습니다.
+|GetFileMetadata|Used for getting a file metadata on Document Library|
+|UpdateFile|Used for updating a file on Document Library|
+|DeleteFile|Used for deleting a file on Document Library|
+|GetFileMetadataByPath|Used for getting a file metadata on Document Library|
+|GetFileContentByPath|Used for getting a file on Document Library|
+|GetFileContent|Used for getting a file on Document Library|
+|CreateFile|Used for uploading a file on Document Library|
+|CopyFile|Used for copying a file on Document Library|
+|ExtractFolderV2|Used for extracting a folder on Document Library|
+|PostItem|Creates a new item in a SharePoint list|
+|GetItem|Retrieves a single item from a SharePoint list|
+|DeleteItem|Deletes an item from a SharePoint list|
+|PatchItem|Updates an item in a SharePoint list|
+### <a name="sharepoint-triggers"></a>SharePoint triggers
+You can listen for these event(s):
 
-|트리거 | 설명|
+|Trigger | Description|
 |--- | ---|
-|OnNewFile|SharePoint 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.|
-|OnUpdatedFile|SharePoint 폴더에서 파일을 수정할 때 흐름을 트리거합니다.|
-|GetOnNewItems|SharePoint 목록에서 새 항목을 만들 때 사용됩니다.|
-|GetOnUpdatedItems|SharePoint 목록에서 기존 항목을 수정할 때 사용됩니다.|
+|OnNewFile|Triggers a flow when a new file is created in a SharePoint folder|
+|OnUpdatedFile|Triggers a flow when a file is modified in a SharePoint folder|
+|GetOnNewItems|When a new item is created in a SharePoint list|
+|GetOnUpdatedItems|When an existing item is modified in a SharePoint list|
 
 
-## SharePoint에 대한 연결 만들기
-SharePoint 커넥터를 사용하려면 먼저 **연결**을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다.
+## <a name="create-a-connection-to-sharepoint"></a>Create a connection to SharePoint
+To use the SharePoint Connector , you first create a **connection** then provide the details for these properties: 
 
-|속성| 필수|설명|
+|Property| Required|Description|
 | ---|---|---|
-|위임|예|SharePoint 자격 증명 제공|
+|Token|Yes|Provide SharePoint Credentials|
 
-**SharePoint Online**에 연결하려면 SharePoint Online에 ID(사용자 이름 및 암호, 스마트 카드 자격 증명 등)를 제공해야 합니다. 인증되면 논리 앱에서 SharePoint Online 커넥터를 계속 사용할 수 있습니다.
+In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online Connector  in your logic app. 
 
-논리 앱 디자이너에 있는 동안 다음 단계를 따라 SharePoint에 로그인하여 논리 앱에서 사용할 연결 **연결**을 만듭니다.
+While on the designer of your logic app, follow these steps to sign into SharePoint to create the connection **connection** for use in your logic app:
 
-1. 검색 상자에 SharePoint를 입력하고 이름에 SharePoint가 있는 모든 항목이 반환될 때까지 검색을 기다립니다. ![SharePoint 구성][1]
-2. **SharePoint Online - 파일을 만들 때**를 선택합니다.
-3. **SharePoint Online에 로그인**을 선택합니다. ![SharePoint 구성][2]
-4. SharePoint 자격 증명을 제공하여 로그인하고 SharePoint에 권한을 부여합니다. ![SharePoint 구성][3]
-5. 인증이 완료된 후 SharePoint의 **파일을 만들 때** 대화 상자를 구성하여 완료하기 위해 논리 앱으로 리디렉션됩니다. ![SharePoint 구성][4]
-6. 그런 다음 논리 앱을 완료하는 데 필요한 다른 트리거 및 작업을 추가할 수 있습니다.
-7. 위의 메뉴 모음에서 **저장**을 선택하여 작업을 저장합니다.
-
-
-## SharePoint REST API 참조
-#### 이 문서 적용 버전: 1.0
-
-
-### 문서 라이브러리에서 파일 메타데이터를 가져옵니다.
-**```GET: /datasets/{dataset}/files/{id}```**로 바꿉니다.
+1. Enter SharePoint in the search box and wait for the search to return all entries with SharePoint in the name:   
+![Configure SharePoint][1]  
+2. Select **SharePoint Online - When a file is created**   
+3. Select **Sign in to SharePoint Online**:   
+![Configure SharePoint][2]    
+4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
+![Configure SharePoint][3]     
+5. After the authentication completes you'll be redirected to your logic app to complete it by configuring SharePoint's **When a file is created** dialog.          
+![Configure SharePoint][4]  
+6. You can then add other triggers and actions that you need to complete your logic app.   
+7. Save your work by selecting **Save** on the menu bar above.  
 
 
+## <a name="sharepoint-rest-api-reference"></a>SharePoint REST API reference
+#### <a name="this-documentation-is-for-version:-1.0"></a>This documentation is for version: 1.0
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+
+### <a name="used-for-getting-a-file-metadata-on-document-library"></a>Used for getting a file metadata on Document Library
+**```GET: /datasets/{dataset}/files/{id}```** 
+
+
+
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|없음|파일의 고유 식별자|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|id|string|yes|path|none|Unique identifier of the file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### 문서 라이브러리에서 파일을 업데이트합니다.
-**```PUT: /datasets/{dataset}/files/{id}```**로 바꿉니다.
+### <a name="used-for-updating-a-file-on-document-library"></a>Used for updating a file on Document Library
+**```PUT: /datasets/{dataset}/files/{id}```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|없음|파일의 고유 식별자|
-|body| |yes|body|없음|파일의 콘텐츠|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|id|string|yes|path|none|Unique identifier of the file|
+|body| |yes|body|none|The Content of the file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### 문서 라이브러리에서 파일을 삭제합니다.
-**```DELETE: /datasets/{dataset}/files/{id}```**로 바꿉니다.
+### <a name="used-for-deleting-a-file-on-document-library"></a>Used for deleting a file on Document Library
+**```DELETE: /datasets/{dataset}/files/{id}```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|없음|파일의 고유 식별자|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|id|string|yes|path|none|Unique identifier of the file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### 문서 라이브러리에서 파일 메타데이터를 가져옵니다.
-**```GET: /datasets/{dataset}/GetFileByPath```**로 바꿉니다.
+### <a name="used-for-getting-a-file-metadata-on-document-library"></a>Used for getting a file metadata on Document Library
+**```GET: /datasets/{dataset}/GetFileByPath```** 
 
 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|path|string|yes|쿼리|없음|파일의 경로|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|path|string|yes|query|none|Path of the file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### 문서 라이브러리에서 파일을 가져옵니다.
-**```GET: /datasets/{dataset}/GetFileContentByPath```**로 바꿉니다.
+### <a name="used-for-getting-a-file-on-document-library"></a>Used for getting a file on Document Library
+**```GET: /datasets/{dataset}/GetFileContentByPath```** 
 
 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|path|string|yes|쿼리|없음|파일의 경로|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|path|string|yes|query|none|Path of the file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### 문서 라이브러리에서 파일을 가져옵니다.
-**```GET: /datasets/{dataset}/files/{id}/content```**로 바꿉니다.
+### <a name="used-for-getting-a-file-on-document-library"></a>Used for getting a file on Document Library
+**```GET: /datasets/{dataset}/files/{id}/content```** 
 
 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|없음|파일의 고유 식별자|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|id|string|yes|path|none|Unique identifier of the file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### 문서 라이브러리에서 파일을 업로드합니다.
-**```POST: /datasets/{dataset}/files```**로 바꿉니다.
+### <a name="used-for-uploading-a-file-on-document-library"></a>Used for uploading a file on Document Library
+**```POST: /datasets/{dataset}/files```** 
 
 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|folderPath|string|yes|쿼리|없음|파일에 대한 경로|
-|name|string|yes|쿼리|없음|파일의 이름|
-|body| |yes|body|없음|파일의 콘텐츠|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|folderPath|string|yes|query|none|The path to the folder|
+|name|string|yes|query|none|Name of the file|
+|body| |yes|body|none|The Content of the file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### 문서 라이브러리에서 파일을 복사합니다.
-**```POST: /datasets/{dataset}/copyFile```**로 바꿉니다.
+### <a name="used-for-copying-a-file-on-document-library"></a>Used for copying a file on Document Library
+**```POST: /datasets/{dataset}/copyFile```** 
 
 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|원본|string|yes|쿼리|없음|원본 파일에 대한 경로|
-|destination|string|yes|쿼리|없음|대상 파일에 대한 경로|
-|overwrite|부울|no|쿼리|false|기존 파일을 덮어쓸 것인지 여부|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|source|string|yes|query|none|Path to the source file|
+|destination|string|yes|query|none|Path to the destination file|
+|overwrite|boolean|no|query|false|Whether or not to overwrite an existing file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### SharePoint 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.
-**```GET: /datasets/{dataset}/triggers/onnewfile```**로 바꿉니다.
+### <a name="triggers-a-flow-when-a-new-file-is-created-in-a-sharepoint-folder"></a>Triggers a flow when a new file is created in a SharePoint folder
+**```GET: /datasets/{dataset}/triggers/onnewfile```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL|
-|folderId|string|yes|쿼리|없음|SharePoint 폴더의 고유 식별자|
+|dataset|string|yes|path|none|SharePoint site url|
+|folderId|string|yes|query|none|Unique identifier of the folder in SharePoint|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### SharePoint 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
-**```GET: /datasets/{dataset}/triggers/onupdatedfile```**로 바꿉니다.
+### <a name="triggers-a-flow-when-a-file-is-modified-in-a-sharepoint-folder"></a>Triggers a flow when a file is modified in a SharePoint folder
+**```GET: /datasets/{dataset}/triggers/onupdatedfile```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL|
-|folderId|string|yes|쿼리|없음|SharePoint 폴더의 고유 식별자|
+|dataset|string|yes|path|none|SharePoint site url|
+|folderId|string|yes|query|none|Unique identifier of the folder in SharePoint|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### 문서 라이브러리에서 폴더를 추출합니다.
-**```POST: /datasets/{dataset}/extractFolderV2```**로 바꿉니다.
+### <a name="used-for-extracting-a-folder-on-document-library"></a>Used for extracting a folder on Document Library
+**```POST: /datasets/{dataset}/extractFolderV2```** 
 
 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|원본|string|yes|쿼리|없음|원본 파일에 대한 경로|
-|destination|string|yes|쿼리|없음|대상 폴더에 대한 경로|
-|overwrite|부울|no|쿼리|false|기존 파일을 덮어쓸 것인지 여부|
+|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
+|source|string|yes|query|none|Path to the source file|
+|destination|string|yes|query|none|Path to the destination folder|
+|overwrite|boolean|no|query|false|Whether or not to overwrite an existing file|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### SharePoint 목록에서 새 항목을 만들 때 사용됩니다.
-**```GET: /datasets/{dataset}/tables/{table}/onnewitems```**로 바꿉니다.
+### <a name="when-a-new-item-is-created-in-a-sharepoint-list"></a>When a new item is created in a SharePoint list
+**```GET: /datasets/{dataset}/tables/{table}/onnewitems```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|none|SharePoint list name|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### SharePoint 목록에서 기존 항목을 수정할 때 사용됩니다.
-**```GET: /datasets/{dataset}/tables/{table}/onupdateditems```**로 바꿉니다.
+### <a name="when-an-existing-item-is-modified-in-a-sharepoint-list"></a>When an existing item is modified in a SharePoint list
+**```GET: /datasets/{dataset}/tables/{table}/onupdateditems```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|none|SharePoint list name|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### SharePoint 목록에서 새 항목을 만듭니다.
-**```POST: /datasets/{dataset}/tables/{table}/items```**로 바꿉니다.
+### <a name="creates-a-new-item-in-a-sharepoint-list"></a>Creates a new item in a SharePoint list
+**```POST: /datasets/{dataset}/tables/{table}/items```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|항목| |yes|body|없음|만들 항목|
+|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|none|SharePoint list name|
+|item| |yes|body|none|Item to create|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### SharePoint 목록에서 단일 항목을 검색합니다.
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
+### <a name="retrieves-a-single-item-from-a-sharepoint-list"></a>Retrieves a single item from a SharePoint list
+**```GET: /datasets/{dataset}/tables/{table}/items/{id}```** 
 
 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|id|정수|yes|path|없음|검색할 항목의 고유 식별자|
+|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|none|SharePoint list name|
+|id|integer|yes|path|none|Unique identifier of item to be retrieved|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### SharePoint 목록에서 항목을 삭제합니다.
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
+### <a name="deletes-an-item-from-a-sharepoint-list"></a>Deletes an item from a SharePoint list
+**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|id|정수|yes|path|없음|삭제할 항목의 고유 식별자|
+|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|none|SharePoint list name|
+|id|integer|yes|path|none|Unique identifier of item to be deleted|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-### SharePoint 목록에서 항목을 업데이트합니다.
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
+### <a name="updates-an-item-in-a-sharepoint-list"></a>Updates an item in a SharePoint list
+**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```** 
 
 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|id|정수|yes|path|없음|업데이트할 항목의 고유 식별자|
-|항목| |yes|body|없음|변경된 속성을 가진 항목|
+|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|none|SharePoint list name|
+|id|integer|yes|path|none|Unique identifier of item to be updated|
+|item| |yes|body|none|Item with changed properties|
 
 
-### 다음은 가능한 응답입니다.
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 ------
 
 
 
-## 개체 정의: 
+## <a name="object-definition(s):"></a>Object definition(s): 
 
  **DataSetsMetadata**:
 
-DataSetsMetadata에 대한 필수 속성:
+Required properties for DataSetsMetadata:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| Name | 데이터 형식 |
+| Name | Data Type |
 |---|---|
-|tabular|정의되지 않음|
-|Blob|정의되지 않음|
+|tabular|not defined|
+|blob|not defined|
 
 
 
  **TabularDataSetsMetadata**:
 
-TabularDataSetsMetadata에 대한 필수 속성:
+Required properties for TabularDataSetsMetadata:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| 이름 | 데이터 형식 |
+| Name | Data Type |
 |---|---|
-|원본|string|
+|source|string|
 |displayName|string|
 |urlEncoding|string|
 |tableDisplayName|string|
@@ -505,18 +510,18 @@ TabularDataSetsMetadata에 대한 필수 속성:
 
  **BlobDataSetsMetadata**:
 
-BlobDataSetsMetadata에 대한 필수 속성:
+Required properties for BlobDataSetsMetadata:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| Name | 데이터 형식 |
+| Name | Data Type |
 |---|---|
-|원본|string|
+|source|string|
 |displayName|string|
 |urlEncoding|string|
 
@@ -524,25 +529,25 @@ BlobDataSetsMetadata에 대한 필수 속성:
 
  **BlobMetadata**:
 
-BlobMetadata에 대한 필수 속성:
+Required properties for BlobMetadata:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| 이름 | 데이터 형식 |
+| Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
@@ -550,52 +555,52 @@ BlobMetadata에 대한 필수 속성:
 
  **Object**:
 
-Object에 대한 필수 속성:
+Required properties for Object:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| 이름 | 데이터 형식 |
+| Name | Data Type |
 |---|---|
 
 
 
  **TableMetadata**:
 
-TableMetadata에 대한 필수 속성:
+Required properties for TableMetadata:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| 이름 | 데이터 형식 |
+| Name | Data Type |
 |---|---|
 |name|string|
 |title|string|
 |x-ms-permission|string|
-|schema|정의되지 않음|
+|schema|not defined|
 
 
 
  **DataSetsList**:
 
-DataSetsList에 대한 필수 속성:
+Required properties for DataSetsList:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| Name | 데이터 형식 |
+| Name | Data Type |
 |---|---|
 |value|array|
 
@@ -603,52 +608,52 @@ DataSetsList에 대한 필수 속성:
 
  **DataSet**:
 
-DataSet에 대한 필수 속성:
+Required properties for DataSet:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| 이름 | 데이터 형식 |
+| Name | Data Type |
 |---|---|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 
 
 
- **테이블**:
+ **Table**:
 
-Table에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
+Required properties for Table:
 
 
-**모든 속성**:
+None of the properties are required. 
 
 
-| 이름 | 데이터 형식 |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 
 
 
  **Item**:
 
-Item에 대한 필수 속성:
+Required properties for Item:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| 이름 | 데이터 형식 |
+| Name | Data Type |
 |---|---|
 |ItemInternalId|string|
 
@@ -656,16 +661,16 @@ Item에 대한 필수 속성:
 
  **ItemsList**:
 
-ItemsList에 대한 필수 속성:
+Required properties for ItemsList:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| Name | 데이터 형식 |
+| Name | Data Type |
 |---|---|
 |value|array|
 
@@ -673,27 +678,31 @@ ItemsList에 대한 필수 속성:
 
  **TablesList**:
 
-TablesList에 대한 필수 속성:
+Required properties for TablesList:
 
 
-필수 속성이 없습니다.
+None of the properties are required. 
 
 
-**모든 속성**:
+**All properties**: 
 
 
-| 이름 | 데이터 형식 |
+| Name | Data Type |
 |---|---|
 |value|array|
 
 
-## 다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 
-[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
+[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
+[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 
 [3]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig3.png
 [4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

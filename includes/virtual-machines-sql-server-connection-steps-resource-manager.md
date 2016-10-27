@@ -1,37 +1,40 @@
-### 공용 IP 주소에 대한 DNS 레이블 구성
+### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configure a DNS Label for the public IP address
 
-인터넷에서 SQL Server 데이터베이스 엔진에 연결하려면 먼저 공용 IP 주소에 대한 DNS 레이블을 구성합니다.
+To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
 
-> [AZURE.NOTE] 동일한 가상 네트워크 내에서 또는 로컬로 SQL Server 인스턴스에 연결하려는 경우 DNS 레이블이 필요하지 않습니다.
+> [AZURE.NOTE] DNS Labels are not required if you plan to only connect to the SQL Server instance within the same Virtual Network or only locally.
 
-DNS 레이블을 만들려면 먼저 포털에서 **가상 컴퓨터**를 선택합니다. SQL Server VM을 선택하여 속성을 가져옵니다.
+To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
 
-1. 가상 컴퓨터 블레이드에서 **공용 IP 주소**를 선택합니다.
+1. In the virtual machine blade, select your **Public IP address.**
 
-	![공용 IP 주소](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
+    ![public ip address](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
-2. 공용 IP 주소에 대한 속성에서 **구성**을 확장합니다.
+2. In the properties for your Public IP address, expand **Configuration**.
 
-3. DNS 레이블 이름을 입력합니다. 이 이름은 IP 주소로 직접 연결하는 대신 이름으로 SQL Server VM에 연결하는 데 사용할 수 있는 A 레코드입니다.
+3. Enter a DNS Label name. This name is an A Record that can be used to connect to your SQL Server VM by name instead of by IP Address directly.
 
-4. **저장** 단추를 클릭합니다.
+4. Click the **Save** button.
 
-	![dns 레이블](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
+    ![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### 다른 컴퓨터에서 데이터베이스 엔진에 연결
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
 
-1. 인터넷에 연결된 컴퓨터에서 SSMS(SQL Server Management Studio)를 엽니다.
+1. On a computer connected to the internet, open SQL Server Management Studio (SSMS).
 
-2. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자에서 **서버 이름** 값을 편집합니다. 가상 컴퓨터의 전체 DNS 이름을 입력합니다(이전 작업에서 확인).
+2. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter the full DNS name of the virtual machine (determined in the previous task).
 
-3. **인증** 상자에 **SQL Server 인증**을 선택합니다.
+3. In the **Authentication** box, select **SQL Server Authentication**.
 
-5. **로그인** 상자에 올바른 SQL 로그인 이름을 입력합니다.
+5. In the **Login** box, type the name of a valid SQL login.
 
-6. **암호** 상자에 로그인 암호를 입력합니다.
+6. In the **Password** box, type the password of the login.
 
-7. **Connect**를 클릭합니다.
+7. Click **Connect**.
 
-	![ssms 연결](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+    ![ssms connect](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

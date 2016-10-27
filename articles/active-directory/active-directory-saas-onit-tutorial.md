@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Onit과 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Onit을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with Onit | Microsoft Azure" 
+    description="Learn how to use Onit with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,175 +11,185 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: Onit과 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-onit"></a>Tutorial: Azure Active Directory integration with Onit
   
-이 자습서는 Azure 및 Onit의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and Onit.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Onit Single Sign-On이 설정된 구독
+-   A valid Azure subscription
+-   An Onit single sign-on enabled subscription
   
-이 자습서를 완료한 후 Onit에 할당한 Azure AD 사용자가 Onit 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to Onit will be able to single sign into the application at your Onit company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Onit에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Onit
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-onit-tutorial/IC791166.png "시나리오")
-##Onit에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-onit-tutorial/IC791166.png "Scenario")
+##<a name="enabling-the-application-integration-for-onit"></a>Enabling the application integration for Onit
   
-이 섹션은 Onit에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for Onit.
 
-###Onit에 응용 프로그램 통합을 사용하도록 설정하려면
+###<a name="to-enable-the-application-integration-for-onit,-perform-the-following-steps:"></a>To enable the application integration for Onit, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-onit-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-onit-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-onit-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-onit-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-onit-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-onit-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-onit-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **Onit**를 입력합니다.
+6.  In the **search box**, type **Onit**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-onit-tutorial/IC791167.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-onit-tutorial/IC791167.png "Application Gallery")
 
-7.  결과 창에서 **Onit**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Onit**, and then click **Complete** to add the application.
 
     ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Onit에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. Onit에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+The objective of this section is to outline how to enable users to authenticate to Onit with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Onit requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
   
-Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+Your Onit application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
+The following screenshot shows an example for this.
 
-![SSO(Single sign-on)](./media/active-directory-saas-onit-tutorial/IC791168.png "SSO(Single sign-on)")
+![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791168.png "Single Sign-On")
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Onit** 응용 프로그램 통합 페이지에 있는 상단의 메뉴에서 **특성**을 클릭하여 **SAML 토큰 특성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Onit** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
-    ![특성](./media/active-directory-saas-onit-tutorial/IC791169.png "특성")
+    ![Attributes](./media/active-directory-saas-onit-tutorial/IC791169.png "Attributes")
 
-2.  필요한 특성 매핑을 추가하려면 다음 단계를 수행합니다.
+2.  To add the required attribute mappings, perform the following steps:
 
     
-    |특성 이름|특성 값|
-	|---|---|
-	|name|User.userprincipalname|
-    |email|User.mail|
+  	|Attribute Name|Attribute Value|
+  	|---|---|
+  	|name|User.userprincipalname|
+  	|email|User.mail|
 
-    1.  위의 테이블의 각 데이터 행에서 **사용자 특성 추가**를 클릭합니다.
-    2.  **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
-    3.  **특성 값** 목록에서 해당 행에 표시된 특성 값을 선택합니다.
-    4.  **완료**를 클릭합니다.
+    1.  For each data row in the table above, click **add user attribute**.
+    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
+    3.  From the **Attribute Value** list, select the attribute value shown for that row.
+    4.  Click **Complete**.
 
-3.  **변경 내용 적용**을 클릭합니다.
+3.  Click **Apply Changes**.
 
-4.  브라우저에서 **뒤로**를 클릭하여 **빠른 시작** 대화 상자를 다시 엽니다.
+4.  In your browser, click **Back** to open the **Quick Start** dialog again.
 
-5.  **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-onit-tutorial/IC791170.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791170.png "Configure Single Sign-On")
 
-6.  **Onit에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+6.  On the **How would you like users to sign on to Onit** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-onit-tutorial/IC791171.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791171.png "Configure Single Sign-On")
 
-7.  **앱 URL 구성** 페이지의 **Onit 로그온 URL** 텍스트 상자에 Onit 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL(예: "*https://ms-sso-test.onit.com*”)을 입력한 후 **다음**을 클릭합니다.
+7.  On the **Configure App URL** page, in the **Onit Sign On URL** textbox, type the URL used by your users to sign on to your Onit application (e.g.: "*https://ms-sso-test.onit.com*”), and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-onit-tutorial/IC791172.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-onit-tutorial/IC791172.png "Configure App URL")
 
-8.  **Onit에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
+8.  On the **Configure single sign-on at Onit** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-onit-tutorial/IC791173.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791173.png "Configure Single Sign-On")
 
-9.  다른 웹 브라우저 창에서 Onit 회사 사이트에 관리자로 로그인합니다.
+9.  In a different web browser window, log into your Onit company site as an administrator.
 
-10. 위쪽의 메뉴에서 **관리**를 클릭합니다.
+10. In the menu on the top, click **Administration**.
 
-    ![관리](./media/active-directory-saas-onit-tutorial/IC791174.png "관리")
+    ![Administration](./media/active-directory-saas-onit-tutorial/IC791174.png "Administration")
 
-11. **회사 편집**을 클릭합니다.
+11. Click **Edit Corporation**.
 
-    ![회사 편집](./media/active-directory-saas-onit-tutorial/IC791175.png "회사 편집")
+    ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791175.png "Edit Corporation")
 
-12. **보안** 탭을 클릭합니다.
+12. Click the **Security** tab.
 
-    ![회사 정보 편집](./media/active-directory-saas-onit-tutorial/IC791176.png "회사 정보 편집")
+    ![Edit Company Information](./media/active-directory-saas-onit-tutorial/IC791176.png "Edit Company Information")
 
-13. **보안** 탭에서 다음 단계를 수행합니다.
+13. On the **Security** tab, perform the following steps:
 
-    ![SSO(Single sign-on)](./media/active-directory-saas-onit-tutorial/IC791177.png "SSO(Single sign-on)")
+    ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
 
-    1.  **인증 전략**으로 **Single Sign On 및 암호**를 선택합니다.
-    2.  Azure 클래식 포털의 **Onit에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **Idp 대상 URL** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 클래식 포털의 **Onit에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **Idp 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-    4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **Idp 인증서 지문(SHA1)** 텍스트 상자에 붙여 넣습니다.
+    1.  As **Authentication Strategy**, select **Single Sign On and Password**.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Idp logout URL** textbox.
+    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Idp Cert Fingerprint (SHA1)** textbox.  
 
-        >[AZURE.TIP] 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+        >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    5.  **SSO 형식**으로 **SAML**을 선택합니다.
-    6.  **SSO 로그인 단추 텍스트** 텍스트 상자에 원하는 단추 텍스트를 입력합니다.
-    7.  **SSO을 사용하여 로그인: 다음 도메인/사용자에게 필요**를 선택하고, 관련된 텍스트 상자에 테스트 사용자의 이메일 주소를 입력한 다음, **업데이트**를 클릭합니다. ![회사 편집](./media/active-directory-saas-onit-tutorial/IC791178.png "회사 편집")
+    5.  As **SSO Type**, select **SAML**.
+    6.  In the **SSO login button text** textbox, type a button text you like.
+    7.  Select **Login with SSO: Required for the following domains/users**, type the email address of a test user into the related textbox, and then click **Update**.
+        ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.png "Edit Corporation")
 
-14. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+14. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-onit-tutorial/IC791179.png "Single Sign-On 구성")
-##사용자 프로비전 구성
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791179.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 Onit에 로그인할 수 있도록 하려면 Onit으로 프로비전되어야 합니다. Onit의 경우 프로비전은 수동 작업입니다.
+In order to enable Azure AD users to log into Onit, they must be provisioned into Onit.  
+In the case of Onit, provisioning is a manual task.
 
-###사용자 프로비전을 구성하려면
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  **Onit** 회사 사이트에 관리자 권한으로 로그인합니다.
+1.  Sign on to your **Onit** company site as an administrator.
 
-2.  **사용자 추가**를 클릭합니다.
+2.  Click **Add User**.
 
-    ![관리](./media/active-directory-saas-onit-tutorial/IC791180.png "관리")
+    ![Administration](./media/active-directory-saas-onit-tutorial/IC791180.png "Administration")
 
-3.  **사용자 추가** 대화 상자 페이지에서 다음 단계를 수행합니다.
+3.  On the **Add User** dialog page, perform the following steps:
 
-    ![사용자 추가](./media/active-directory-saas-onit-tutorial/IC791181.png "사용자 추가")
+    ![Add User](./media/active-directory-saas-onit-tutorial/IC791181.png "Add User")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름** 및 **이메일 주소**를 입력합니다.
-    2.  **만들기**를 클릭합니다.
+    1.  Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
+    2.  Click **Create**.  
 
-        >[AZURE.NOTE] 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다.
+        >[AZURE.NOTE] The account owner will get an email including a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] 다른 Onit 사용자 계정 생성 도구 또는 Onit이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] You can use any other Onit user account creation tools or APIs provided by Onit to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Onit에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-onit,-perform-the-following-steps:"></a>To assign users to Onit, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Onit** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Onit **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-onit-tutorial/IC791182.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-onit-tutorial/IC791182.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-onit-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-onit-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,117 +1,122 @@
 
 <properties
-	pageTitle="AD FS와 함께 Azure AD Connect Health 사용 | Microsoft Azure"
-	description="온-프레미스 AD FS 인프라를 모니터링하는 방법에 대한 Azure AD Connect Health 페이지입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="karavar"
-	manager="femila"
-	editor="karavar"/>
+    pageTitle="Using Azure AD Connect Health with AD FS | Microsoft Azure"
+    description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure."
+    services="active-directory"
+    documentationCenter=""
+    authors="karavar"
+    manager="femila"
+    editor="karavar"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="vakarand"/>
-
-# AD FS와 함께 Azure AD Connect Health 사용
-다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory 도메인 서비스를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
-
-## AD FS의 경고
-Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다. 각 경고에는 관련 정보, 해결 단계 및 관련된 설명서 링크가 포함됩니다.
-
-활성 또는 해결된 경고를 두 번 클릭하면 추가 정보, 경고를 해결하기 위해 취할 수 있는 단계와 적절한 설명서 링크가 포함된 새 블레이드가 표시됩니다. 과거에 해결된 경고에 대한 기록 데이터도 볼 수 있습니다.
-
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/alert2.png)
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/30/2016"
+    ms.author="vakarand"/>
 
 
+# <a name="using-azure-ad-connect-health-with-ad-fs"></a>Using Azure AD Connect Health with AD FS
+The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md). 
 
-## AD FS의 사용량 분석
-Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 인증 트래픽을 분석합니다. 사용 현황 분석 상자를 두 번 클릭하면, 몇 가지 메트릭 및 그룹화를 보여주는 사용 현황 분석 블레이드가 열립니다.
+## <a name="alerts-for-ad-fs"></a>Alerts for AD FS
+The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. 
 
->[AZURE.NOTE] AD FS와 사용 현황 분석을 사용하려면 AD FS 감사가 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [AD FS 감사 사용](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오.
+You can double-click an active or resolved alert, to open a new blade with additional information, steps you can take to resolve the alert, and links to relevant documentation. You can also view historical data on alerts that were resolved in the past.
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/report1.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/alert2.png)
 
-추가 메트릭을 선택하거나, 시간 범위를 지정하거나, 그룹화를 변경하려면 사용 현황 분석 차트를 마우스 오른쪽 단추로 클릭하고 차트 편집을 선택합니다. 그런 다음 시간 범위를 지정하고 다른 메트릭을 선택하고 그룹화를 변경할 수 있습니다. 다음 테이블에 설명된 다양한 “메트릭”을 기반으로 인증 트래픽 배포를 볼 수 있고 적절한 “그룹화 기준” 매개 변수를 사용하여 각 메트릭을 그룹화할 수 있습니다.
 
-| 메트릭 | 그룹화 기준 | 그룹화의 의미 및 그룹화가 유용한 이유 |
+
+## <a name="usage-analytics-for-ad-fs"></a>Usage Analytics for AD FS
+Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. You can double-click the usage analytics box, to open the usage analytics blade, which shows you several metrics and groupings.
+
+>[AZURE.NOTE] To use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/report1.png)
+
+To select additional metrics, specify a time range, or to change the grouping, right-click on the usage analytics chart and select Edit Chart. Then you can specify the time range, select a different metric, and change the grouping. You can view the distribution of the authentication traffic based on different "metrics" and group each metric using relevant "group by" parameters described in the following table:
+
+| Metric | Group By | What the grouping means and why it's useful? |
 | ------ | -------- | -------------------------------------------- |
-| 전체 요청: 페더레이션 서비스에서 처리하는 전체 요청 수 | 모두 | 그룹화하지 않은 전체 요청 수를 표시합니다. |
-| | 응용 프로그램 | 대상 신뢰 당사자를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 전체 트래픽 중 응용 프로그램이 수신하는 트래픽의 비율을 이해하는 데 유용합니다. |
-| | 서버 | 요청을 처리한 서버를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 전체 트래픽의 부하 분포를 이해하는 데 유용합니다. |
-| | 작업 공간 연결 | 작업 공간이 연결된(알려진) 장치의 요청인지 여부를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 ID 인프라에 알려지지 않은 장치를 사용하여 리소스에 액세스하는 경우를 이해하는 데 유용합니다. |
-| | 인증 방법 | 인증에 사용된 인증 방법을 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 인증에 사용되는 일반적인 인증 방법을 이해하는 데 유용합니다. 가능한 인증 방법은 다음과 같습니다. <ol> <li>Windows 통합 인증(Windows)</li> <li>양식 기반 인증(양식)</li> <li>SSO(Single Sign On)</li> <li>X509 인증서 인증(인증서)</li> <br>페더레이션 서버가 SSO 쿠키와 함께 요청을 수신하면 해당 요청은 SSO(Single Sign On)로 계산됩니다. 이 경우 쿠키가 유효하면 사용자는 자격 증명을 입력할 필요 없이 효율적으로 응용 프로그램에 액세스할 수 있습니다. 페더레이션 서버에서 여러 신뢰 당사자를 보호하는 경우 일반적으로 사용되는 동작입니다. |
-| | 네트워크 위치 | 사용자의 네트워크 위치를 기반으로 전체 요청을 그룹화합니다. 네트워크 위치는 인트라넷 또는 엑스트라넷이 될 수 있습니다. 이 그룹화는 인트라넷 트래픽과 엑스트라넷 트래픽의 비율을 파악하는 데 유용합니다. |
-| 전체 실패한 요청: 페더레이션 서비스에서 처리하는 전체 실패한 요청 수 <br> (이 메트릭은 Windows Server 2012 R2 용 AD FS에서만 사용할 수 있습니다.)| 오류 유형 | 미리 정의된 오류 유형을 기반으로 오류의 수를 표시합니다. 이 그룹화는 오류의 일반적인 유형을 이해하는 데 유용합니다. <ul><li>잘못된 사용자 이름 또는 암호: 잘못된 사용자 이름 또는 암호로 인해 발생하는 오류입니다.</li> <li>"엑스트라넷 잠김": 엑스트라넷에서 잠겨 있는 사용자로부터 요청을 수신하여 발생하는 오류입니다. </li><li> "만료된 암호": 사용자가 만료된 암호로 로그인을 시도하여 발생하는 오류입니다.</li><li>"사용하지 않는 계정": 사용자가 사용하지 않는 계정으로 로그인을 시도하여 발생하는 오류입니다.</li><li>"장치 인증": 사용자가 장치 인증으로 인증을 받지 못하여 발생하는 오류입니다.</li><li>"사용자 인증서 인증": 사용자가 잘못된 인증서로 인해 인증에 실패하여 발생하는 오류입니다.</li><li>"MFA": 사용자가 Multi-Factor Authentication으로 인증을 받지 못하여 발생하는 오류입니다.</li><li>"기타 자격 증명": "발급 권한 부여": 권한 부여 실패로 인해 발생하는 오류입니다.</li><li>"발급 위임": 발급 위임 오류로 인해 발생하는 오류입니다.</li><li>"토큰 수용": ADFS가 타사 ID 공급자의 토큰을 거부해서 발생하는 오류입니다.</li><li>"프로토콜": 프로토콜 오류로 인해 발생하는 오류입니다.</li><li>"알 수 없음": 포괄적인 오류입니다. 정의된 카테고리에 맞지 않는 다른 모든 오류입니다.</li> |
-| | 서버 | 서버를 기반으로 오류를 그룹화합니다. 이 그룹화는 서버 전반의 오류 분포를 파악하는 데 유용합니다. 분포가 균일하지 않으면 특정 서버에 문제가 있음을 나타낼 수 있습니다. |
-| | 네트워크 위치 | 요청의 네트워크 위치(인트라넷 및 엑스트라넷)를 기반으로 오류를 그룹화합니다. 이 그룹화는 실패하는 요청의 유형을 파악하는 데 유용합니다. |
-| | 응용 프로그램 | 대상 응용 프로그램(신뢰 당사자)을 기반으로 오류를 그룹화합니다. 이 그룹화는 가장 많은 수의 오류가 발생하는 대상 응용 프로그램을 파악하는 데 유용합니다. |
-| 사용자 수: 시스템에서 활성 상태인 고유 사용자 수 평균 | 모두 | 이 메트릭은 선택한 시간 조각에서 페더레이션 서비스를 사용하는 평균 사용자 수를 제공합니다. 사용자가 그룹화되지 않습니다. <br>평균은 선택한 시간 조각에 따라 달라집니다. |
-| | 응용 프로그램 | 대상 응용 프로그램(신뢰 당사자)을 기반으로 평균 사용자 수를 그룹화합니다. 이 그룹화는 특정 응용 프로그램을 사용하는 사용자의 수를 파악하는 데 유용합니다. |
+| Total Requests: The total number of requests processed by the federation service | All | Shows the count of total number of requests without grouping. |
+|  | Application | Groups the total requests based on the targeted relying party. This grouping is useful to understand which application is receiving how much percentage of the total traffic. |
+|  | Server | Groups the total requests based on the server that processed the request. This grouping is useful to understand the load distribution of the total traffic. |
+|  | Workplace Join | Groups the total requests based on whether they are coming from devices that are workplace joined (known). This grouping is useful to understand if your resources are accessed using devices that are unknown to the identity infrastructure. |
+|  | Authentication Method | Groups the total requests based on the authentication method used for authentication. This grouping is useful to understand the common authentication method that gets used for authentication. Following are the possible authentication methods <ol> <li>Windows Integrated Authentication (Windows)</li> <li>Forms Based Authentication (Forms)</li> <li>SSO (Single Sign On)</li> <li>X509 Certificate Authentication (Certificate)</li> <br>If the federation servers receive the request with an SSO Cookie, that request is counted as SSO (Single Sign On). In such cases, if the cookie is valid, the user is not asked to provide credentials and gets seamless access to the application. This behavior is common if you have multiple relying parties protected by the federation servers. |
+|  | Network Location | Groups the total requests based on the network location of the user. It can be either intranet or extranet. This grouping is useful to know what percentage of the traffic is coming from the intranet versus extranet. |
+| Total Failed Requests: The total number failed requests processed by the federation service. <br> (This metric is only available on AD FS for Windows Server 2012 R2)| Error Type | Shows the number of errors based on predefined error types. This grouping is useful to understand the common types of errors. <ul><li>Incorrect Username or Password: Errors due to incorrect username or password.</li> <li>"Extranet Lockout": Failures due to the requests received from a user that was locked out from extranet </li><li> "Expired Password": Failures due to users logging in with an expired password.</li><li>"Disabled Account": Failures due to users logging with a disabled account.</li><li>"Device Authentication": Failures due to users failing to authenticate using Device Authentication.</li><li>"User Certificate Authentication": Failures due to users failing to authenticate because of an invalid certificate.</li><li>"MFA": Failures due to user failing to authenticate using Multi-Factor Authentication.</li><li>"Other Credential": "Issuance Authorization": Failures due to authorization failures.</li><li>"Issuance Delegation": Failures due to issuance delegation errors.</li><li>"Token Acceptance": Failures due to ADFS rejecting the token from a third-party Identity Provider.</li><li>"Protocol": Failure due to protocol errors.</li><li>"Unknown": Catch all. Any other failures that do not fit into the defined categories.</li> |
+|  | Server | Groups the errors based on the server. This grouping is useful to understand the error distribution across servers. Uneven distribution could be an indicator of a server in a faulty state. |
+|  | Network Location | Groups the errors based on the network location of the requests (intranet vs extranet). This grouping is useful to understand the type of requests that are failing. |
+|  | Application | Groups the failures based on the targeted application (relying party). This grouping is useful to understand which targeted application is seeing most number of errors. |
+| User Count: Average number of unique users active in the system | All | This metric provides a count of average number of users using the federation service in the selected time slice. The users are not grouped. <br>The average depends on the time slice selected. |
+|  | Application | Groups the average number of users based on the targeted application (relying party). This grouping is useful to understand how many users are using which application. |
 
 
-## AD FS의 모니터링 성능
-Azure AD Connect Health 성능 모니터링은 메트릭에 대한 모니터링 정보를 제공합니다. 모니터링 상자를 선택하면 메트릭에 대한 자세한 정보가 포함된 새 블레이드가 열립니다.
+## <a name="performance-monitoring-for-ad-fs"></a>Performance Monitoring for AD FS
+Azure AD Connect Health Performance Monitoring provides monitoring information on metrics. Selecting the Monitoring box, opens a new blade with detailed information on the metrics.
 
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/perf1.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/perf1.png)
 
 
-블레이드 맨 위의 옵션을 선택하여 서버별로 필터링하면 개별 서버의 메트릭을 확인할 수 있습니다. 메트릭을 변경하려면 모니터링 블레이드 아래 모니터링 차트를 마우스 오른쪽 단추로 클릭하고 차트 편집을 선택합니다. 그런 다음 열리는 새 블레이드의 드롭다운에서 추가 메트릭을 선택하여 성능 데이터를 볼 시간 범위를 지정할 수 있습니다.
+By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metrics, right-click on the monitoring chart under the monitoring blade and select Edit Chart. Then, from the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
-## AD FS에 대한 보고서
-Azure AD Connect Health는 AD FS의 활동 및 성능에 대한 보고서를 제공합니다. 이러한 보고서는 관리자가 AD FS 서버의 활동을 파악하는 데 도움이 됩니다.
+## <a name="reports-for-ad-fs"></a>Reports for AD FS
+Azure AD Connect Health provides reports about activity and performance of AD FS. These reports help administrators gain insight into activities on their AD FS servers.
 
-### 사용자 이름/암호 로그인이 실패한 상위 사용자 50명
+### <a name="top-50-users-with-failed-username/password-logins"></a>Top 50 Users with failed Username/Password logins
 
-AD FS 서버에서 인증 요청이 실패하는 일반적인 이유 중 하나는 잘못된 자격 증명, 다시 말해서 사용자 이름 또는 암호가 올바르지 않은 것입니다. 일반적으로 복잡한 암호, 잊어버린 암호 또는 오타로 인해 사용자에게 발생합니다.
+One of the common reasons for a failed authentication request on an AD FS server is a request with invalid credentials, that is, a wrong username or password. Usually happens to users due to complex passwords, forgotten passwords, or typos.
 
-하지만, 응용 프로그램이 사용자 자격 증명을 캐시했는데 자격 증명이 만료되었거나 일련의 잘 알려진 암호를 사용하여 계정에 로그인을 시도하는 악의적인 사용자와 같은 다른 이유로 인해 AD FS 서버에서 처리되는 예상치 못한 요청 수가 발생할 수 있습니다. 이러한 두 가지 예는 요청의 급증을 유발할 수 있는 유효한 원인입니다.
+But there are other reasons that can result in an unexpected number of requests being handled by your AD FS servers, such as: An application that caches user credentials and the credentials expire or a malicious user attempting to sign into an account with a series of well-known passwords. These two examples are valid reasons that could lead to a surge in requests.
 
-Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되어 로그인 시도가 실패한 상위 사용자 50명에 대한 보고서를 제공합니다. 이 보고서는 팜의 모든 AD FS 서버에서 생성한 감사 이벤트를 처리하여 작성됩니다.
+Azure AD Connect Health for ADFS provides a report about top 50 Users with failed login attempts due to invalid username or password. This report is achieved by processing the audit events generated by all the AD FS servers in the farms
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health-adfs/report1a.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
-이 보고서 내에서 다음 정보에 간편하게 액세스할 수 있습니다.
+Within this report you have easy access to the following pieces of information:
 
-- 지난 30일 동안 잘못된 사용자 이름/암호를 사용하여 실패한 요청 수
-- 잘못된 사용자 이름/암호로 로그인하여 실패한 일별 평균 사용자 수
+- Total # of failed requests with wrong username/password in the last 30 days
+- Average # of users that failed with a bad username/password login per day.
 
-이 부분을 클릭하면 추가 세부 정보를 제공하는 주 보고서 블레이드로 이동합니다. 이 블레이드는 잘못된 사용자 이름이나 암호를 사용하는 요청에 대한 기준을 설정하는 데 도움이 되는 추세 정보가 있는 그래프를 포함합니다. 또한, 실패한 시도 횟수와 상위 50명의 사용자 목록을 제공합니다.
+Clicking this part takes you to the main report blade that provides additional details. This blade includes a graph with trending information to help establish a baseline about requests with wrong username or password. Additionally, it provides the list of top 50 users with the number of failed attempts.
 
-이 그래프는 다음 정보를 제공합니다.
+The graph provides the following information:
 
-- 잘못된 사용자 이름/암호로 인해 실패한 일별 총 로그인 수
-- 로그인에 실패한 일별 총 고유 사용자 수
+- The total # of failed logins due to a bad username/password on a per-day basis.
+- The total # of unique users that failed logins on a per-day basis.
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health-adfs/report2a.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report2a.png)
 
-이 보고서는 다음 정보를 제공합니다.
+The report provides the following information:
 
-| 보고서 항목 | 설명
+| Report Item | Description
 | ------ | -------- |
-|사용자 ID| 사용된 사용자 ID를 표시합니다. 이것은 사용자가 입력한 값이며, 잘못된 사용자 ID가 사용되는 경우도 있습니다.|
-|실패한 시도| 특정 사용자 ID에 대한 총 실패 횟수를 보여 줍니다. 테이블은 가장 높은 실패 횟수부터 내림차순으로 정렬됩니다.|
-|마지막 실패| 마지막 실패가 발생한 타임 스탬프를 보여 줍니다.
+|User ID| Shows the user ID that was used. This value is what the user typed, which in some cases is the wrong user ID being used.|
+|Failed Attempts| Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order.|
+|Last Failure| Shows the time stamp when the last failure occurred.
 
 
 
->[AZURE.NOTE] 이 보고서는 해당 시간 내에 수집된 새 정보를 사용하여 2시간 후마다 자동으로 업데이트됩니다. 따라서 마지막 2시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
+>[AZURE.NOTE] This report is automatically updated after every two hours with the new information collected within that time. As a result, login attempts within the last two hours may not be included in the report.
 
 
 
-## 관련 링크
+## <a name="related-links"></a>Related links
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
-* [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
-* [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
+* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
+* [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

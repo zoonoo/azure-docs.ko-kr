@@ -1,159 +1,160 @@
 <properties 
-	pageTitle="프리미엄 Azure Redis Cache에 Redis 클러스터링을 구성하는 방법 | Microsoft Azure" 
-	description="프리미엄 계층 Azure Redis Cache 인스턴스에 대해 Redis 클러스터링을 만들고 관리하는 방법에 대해 알아봅니다." 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="How to configure Redis clustering for a Premium Azure Redis Cache | Microsoft Azure" 
+    description="Learn how to create and manage Redis clustering for your Premium tier Azure Redis Cache instances" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/15/2016" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/15/2016" 
+    ms.author="sdanie"/>
 
-# 프리미엄 Azure Redis Cache에 Redis 클러스터링을 구성하는 방법
-Azure Redis Cache에는 새 프리미엄 계층을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다.
 
-Azure Redis Cache 프리미엄 계층에는 클러스터링, 지속성 및 가상 네트워크 지원 등의 기능이 포함됩니다. 이 문서에서는 프리미엄 Azure Redis Cache에서 클러스터링을 구성하는 방법을 설명합니다.
+# <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>How to configure Redis clustering for a Premium Azure Redis Cache
+Azure Redis Cache has different cache offerings, which provide flexibility in the choice of cache size and features, including the new Premium tier.
 
-다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Redis Cache 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
+The Azure Redis Cache premium tier includes features such as clustering, persistence, and virtual network support. This article describes how to configure clustering in a premium Azure Redis Cache instance.
 
-## Redis 클러스터란?
-Azure Redis Cache는 [Redis에서 구현된 형태의](http://redis.io/topics/cluster-tutorial) Redis 클러스터를 제공합니다. Redis 클러스터를 사용하면 다음과 같은 이점을 얻을 수 있습니다.
+For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
--	여러 노드 간에 자동으로 데이터 세트를 분할하는 기능.
--	노드의 하위 집합에서 오류가 발생하거나 나머지 클러스터와 통신할 수 없더라도 작업을 계속하는 기능.
--	처리량 증대: 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다.
--	메모리 크기 증대: 분할된 데이터베이스(노드) 수를 늘림에 따라 선형으로 늘어납니다.
+## <a name="what-is-redis-cluster?"></a>What is Redis Cluster?
+Azure Redis Cache offers Redis cluster as [implemented in Redis](http://redis.io/topics/cluster-tutorial). With Redis Cluster, you get the following benefits. 
 
-프리미엄 캐시에서의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
+-   The ability to automatically split your dataset among multiple nodes. 
+-   The ability to continue operations when a subset of the nodes is experiencing failures or are unable to communicate with the rest of the cluster. 
+-   More throughput: Throughput increases linearly as you increase the number of shards. 
+-   More memory size: Increases linearly as you increase the number of shards.  
 
-Azure에서 Redis 클러스터는 각각의 분할된 데이터베이스가 복제본이 있는 주/복제본 쌍을 갖는 주/복제본 모델 형태로 제공됩니다. 여기서는 Azure Redis Cache 서비스가 복제본을 관리합니다.
+See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches. 
 
-## 클러스터링
-클러스터링은 캐시를 만드는 중에 **새 Redis 캐시** 블레이드에서 사용하도록 설정됩니다.
+In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication where the replication is managed by Azure Redis Cache service. 
+
+## <a name="clustering"></a>Clustering
+Clustering is enabled on the **New Redis Cache** blade during cache creation. 
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-클러스터링은 **Redis 클러스터** 블레이드에 구성됩니다.
+Clustering is configured on the **Redis Cluster** blade.
 
-![클러스터링][redis-cache-clustering]
+![Clustering][redis-cache-clustering]
 
-클러스터에서 최대 10개의 분할된 데이터베이스를 사용할 수 있습니다. **사용**을 클릭하고 슬라이더를 밀거나 **분할 개수**에 1에서 10 사이의 숫자를 입력하고 **확인**을 클릭합니다.
+You can have up to 10 shards in the cluster. Click **Enabled** and slide the slider or type a number between 1 and 10 for **Shard count** and click **OK**.
 
-각각의 분할된 데이터베이스는 Azure에서 관리하는 주/복제본 캐시 쌍이며, 캐시의 총 크기는 분할된 데이텁베이스 수에 가격 책정 계층에서 선택한 캐시 크기를 곱하여 산출합니다.
+Each shard is a primary/replica cache pair managed by Azure, and the total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier. 
 
-![클러스터링][redis-cache-clustering-selected]
+![Clustering][redis-cache-clustering-selected]
 
-캐시가 생성되면 캐시에 연결하여 비 클러스터 캐시처럼 사용할 수 있으며 Redis가 데이터를 캐시 분할 데이터베이스 전체에 배포합니다. 진단을 [사용](cache-how-to-monitor.md#enable-cache-diagnostics)하면 메트릭은 각 분할에 대해 개별적으로 캡처되며 Redis Cache 블레이드에서 [볼](cache-how-to-monitor.md) 수 있습니다.
+Once the cache is created you connect to it and use it just like a non-clustered cache, and Redis will distribute the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in the Redis Cache blade. 
 
-StackExchange.Redis 클라이언트를 통해 클러스터링으로 작업하는 샘플 코드의 경우 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 부분을 참조하세요.
+For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
 <a name="cluster-size"></a>
-## 실행 중인 프리미엄 캐시의 클러스터 크기 변경
+## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>Change the cluster size on a running premium cache
 
-클러스터링이 사용하도록 설정되어 있는 실행 중인 프리미엄 캐시에서 클러스터 크기를 변경하려면 **설정** 블레이드에서 **(미리 보기) Redis 클러스터 크기**를 클릭합니다.
+To change the cluster size on a running premium cache with clustering enabled, click **(PREVIEW) Redis Cluster Size** from the **Settings** blade.
 
->[AZURE.NOTE] Azure Redis Cache 프리미엄 계층은 일반 공급으로 출시된 반면 Redis 클러스터 크기 기능은 현재 미리 보기 상태입니다.
+>[AZURE.NOTE] Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
 
-![Redis 클러스터 크기][redis-cache-redis-cluster-size]
+![Redis cluster size][redis-cache-redis-cluster-size]
 
-클러스터 크기를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력하고 **확인**을 클릭하여 저장합니다.
+To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
-## 클러스터링 FAQ
+## <a name="clustering-faq"></a>Clustering FAQ
 
-다음 목록에는 Azure Redis Cache 클러스터링에 대해 일반적으로 묻는 질문과 답변이 들어 있습니다.
+The following list contains answers to commonly asked questions about Azure Redis Cache clustering.
 
--	[클라이언트 응용 프로그램에 변경 사항이 필요하여 클러스터링을 사용해야 합니까?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
--	[클러스터에서 키를 분산하는 방법](#how-are-keys-distributed-in-a-cluster)
--	[만들 수 있는 최대 캐시 크기는?](#what-is-the-largest-cache-size-i-can-create)
--	[모든 Redis 클라이언트가 클러스터링을 지원하나요?](#do-all-redis-clients-support-clustering)
--	[클러스터링을 사용할 때 캐시에 어떻게 연결하나요?](#how-do-i-connect-to-my-cache-when-clustering-is-enabled)
--	[내 케시의 분할된 데이터베이스에 직접 연결할 수 있나요?](#can-i-directly-connect-to-the-individual-shards-of-my-cache)
--	[이전에 만든된 캐시에 대해 클러스터링을 구성할 수 있나요?](#can-i-configure-clustering-for-a-previously-created-cache)
--	[기본 또는 표준 캐시에 클러스터링을 구성할 수 있나요?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
--	[Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있나요?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
--	[StackExchange.Redis를 사용하고 클러스터링을 수행할 때 MOVE 예외가 발생합니다. 어떻게 해야 하나요?](#i-am-getting-move-exceptions-whko-KRing-stackexchangeredis-and-clustering-what-should-i-do)
+-   [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+-   [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
+-   [What is the largest cache size I can create?](#what-is-the-largest-cache-size-i-can-create)
+-   [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
+-   [How do I connect to my cache when clustering is enabled?](#how-do-i-connect-to-my-cache-when-clustering-is-enabled)
+-   [Can I directly connect to the individual shards of my cache?](#can-i-directly-connect-to-the-individual-shards-of-my-cache)
+-   [Can I configure clustering for a previously created cache?](#can-i-configure-clustering-for-a-previously-created-cache)
+-   [Can I configure clustering for a basic or standard cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
+-   [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+-   [I am getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 
-### 클라이언트 응용 프로그램에 변경 사항이 필요하여 클러스터링을 사용해야 합니까?
+### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering?"></a>Do I need to make any changes to my client application to use clustering?
 
--	클러스터링 사용하는 경우 데이터베이스 0만을 사용할 수 있습니다. 클라이언트 응용 프로그램이 여러 데이터베이스를 사용하고 0이 아닌 데이터베이스에 읽기 또는 쓰기를 시도하는 경우 다음과 같은 예외가 발생합니다. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+-   When clustering is enabled, only database 0 is available. If your client application uses multiple databases and it tries to read or write to a database other than 0, the following exception is thrown. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
 
-    자세한 내용은 [Redis 클러스터 사양 - 구현된 하위 집합](http://redis.io/topics/cluster-spec#implemented-subset)을 참조하세요.
+    For more information, see [Redis Cluster Specification - Implemented subset](http://redis.io/topics/cluster-spec#implemented-subset).
 
--	[StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)를 사용하는 경우 1.0.481 이상을 사용해야 합니다. 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [끝점, 포트 및 키](cache-configure.md#properties)를 사용하여 캐시에 연결합니다. 유일한 차이점은 데이터베이스 0에 모든 읽기 및 쓰기를 수행해야 한다는 점입니다.
-	-	다른 클라이언트는 다른 요구 사항이 있을 수 있습니다. [모든 Redis 클라이언트가 클러스터링을 지원하나요?](#do-all-redis-clients-support-clustering)를 참조하세요.
--	응용 프로그램이 단일 명령으로 배치되는 다중 키 작업을 사용하면 동일한 분할에 모든 키가 위치해야 합니다. 그러려면 [클러스터에서 키를 분산하는 방법](#how-are-keys-distributed-in-a-cluster)을 참조하세요.
--	Redis ASP.NET 세션 상태 제공자를 사용하는 경우 2.0.1 이상을 사용해야 합니다. [Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있나요?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)를 참조하세요.
+-   If you are using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache that does not have clustering enabled. The only difference is that all reads and writes must be done to database 0.
+    -   Other clients may have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
+-   If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To accomplish this, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
+-   If you are using Redis ASP.NET Session State provider you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
-### 클러스터에서 키를 분산하는 방법
+### <a name="how-are-keys-distributed-in-a-cluster?"></a>How are keys distributed in a cluster?
 
-Redis 단위당 [키 배포 모델](http://redis.io/topics/cluster-spec#keys-distribution-model) 설명서: 키 공간은 16384 슬롯으로 분할됩니다. 각 키는 이러한 슬롯 중 하나에 해시되고 할당되며 클러스터의 노드에 분산됩니다. 키의 어느 부분이 해시되는지 구성하여 여러 키가 해시 태그를 사용하여 동일한 분할에 위치하도록 합니다.
+Per the Redis [Keys distribution model](http://redis.io/topics/cluster-spec#keys-distribution-model) documentation: The key space is split into 16384 slots. Each key is hashed and assigned to one of these slots, which are distributed across the nodes of the cluster. You can configure which part of the key is hashed to ensure that multiple keys are located in the same shard using hash tags.
 
--	해시 태그가 있는 키 - 키의 모든 부분이 `{` 및 `}`로 묶인 경우 키의 해당 부분에만 키의 해시 슬롯을 결정하는 용도로 해시됩니다. 예를 들어 다음 3개의 키는 동일한 분할에 위치합니다. 이름의 `key` 부분이 해시되기 때문에 `{key}1`, `{key}2` 및 `{key}3`입니다. 키 해시 태그 사양의 전체 목록은 [키 해시 태그](http://redis.io/topics/cluster-spec#keys-hash-tags)를 참조하세요.
--	해시 태그 없는 키 - 전체 키 이름은 해시하는 데 사용됩니다. 그러면 캐시의 분할에 통계적으로 균일하게 배포됩니다.
+-   Keys with a hash tag - if any part of the key is enclosed in `{` and `}`, only that part of the key is hashed for the purposes of determining the hash slot of a key. For example, the following 3 keys would be located in the same shard: `{key}1`, `{key}2`, and `{key}3` since only the `key` part of the name is hashed. For a complete list of keys hash tag specifications, see [Keys hash tags](http://redis.io/topics/cluster-spec#keys-hash-tags).
+-   Keys without a hash tag - the entire key name is used for hashing. This results in a statistically even distribution across the shards of the cache.
 
-최상의 성능 및 처리량의 경우 키를 고르게 분산하는 것이 좋습니다. 해시 태그로 키를 사용하는 경우 키가 균등하게 분산되도록 하는 것은 응용 프로그램이 담당합니다.
+For best performance and throughput, we recommend distributing the keys evenly. If you are using keys with a hash tag it is the application's responsibility to ensure the keys are distributed evenly.
 
-자세한 내용은 [키 배포 모델](http://redis.io/topics/cluster-spec#keys-distribution-model), [Redis 클러스터 데이터 분할](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding) 및 [키 해시 태그](http://redis.io/topics/cluster-spec#keys-hash-tags)를 참조하세요.
+For more information, see [Keys distribution model](http://redis.io/topics/cluster-spec#keys-distribution-model), [Redis Cluster data sharding](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding), and [Keys hash tags](http://redis.io/topics/cluster-spec#keys-hash-tags).
 
-StackExchange.Redis 클라이언트를 통해 동일한 분할된 데이터베이스에서 키를 클러스터링하고 찾아서 작업하는 샘플 코드의 경우 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 부분을 참조하세요.
+For sample code on working with clustering and locating keys in the same shard with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-### 만들 수 있는 최대 캐시 크기는?
+### <a name="what-is-the-largest-cache-size-i-can-create?"></a>What is the largest cache size I can create?
 
-가장 큰 프리미엄 캐시 크기는 53GB입니다. 최대 10개의 분할된 데이터베이스를 만들 수 있으므로 530GB의 최대 크기를 제공합니다. 더 큰 크기가 필요한 경우 [추가 요청](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)이 가능합니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
+The largest premium cache size is 53 GB. You can create up to 10 shards giving you a maximum size of 530 GB. If you need a larger size you can [request more](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
 
-### 모든 Redis 클라이언트가 클러스터링을 지원하나요?
+### <a name="do-all-redis-clients-support-clustering?"></a>Do all Redis clients support clustering?
 
-현재 일부 클라이언트가 Redis 클러스터링을 지원합니다. 이를 지원하는 클라이언트는 StackExchange.Redis입니다. 다른 클라이언트에 대한 자세한 내용은 [Redis 클러스터 자습서](http://redis.io/topics/cluster-tutorial)의 [클러스터 작업](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 섹션을 참조하세요.
+At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
->[AZURE.NOTE] StackExchange.Redis를 클라이언트로 사용하는 경우 클러스터링이 제대로 작동할 수 있게 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 이상의 최신 버전을 사용합니다. move 예외에 문제가 있을 경우 자세한 내용은 [move 예외](#move-exceptions)를 참조하세요.
+>[AZURE.NOTE] If you are using StackExchange.Redis as your client, ensure you are using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. If you have any issues with move exceptions, see [move exceptions](#move-exceptions) for more information.
 
-### 클러스터링을 사용할 때 캐시에 어떻게 연결하나요?
+### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled?"></a>How do I connect to my cache when clustering is enabled?
 
-클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [끝점, 포트 및 키](cache-configure.md#properties)를 사용하여 캐시에 연결할 수 있습니다. Redis가 백엔드에서 클러스터링을 관리하므로 클라이언트에서의 관리가 필요하지 않습니다.
+You can connect to your cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache that does not have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
 
-### 내 케시의 분할된 데이터베이스에 직접 연결할 수 있나요?
+### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache?"></a>Can I directly connect to the individual shards of my cache?
 
-공식적으로는 지원되지 않습니다. 즉 분할된 각각의 데이터베이스는 통틀어 캐시 인스턴스라고 하는 주/복제본 캐시로 구성되어 있습니다. GitHub에서 Redis 리포지토리의 [불안정한](http://redis.io/download) 분기에서 redis-cli 유틸리티를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다. 이 버전에는 `-c` 스위치로 시작한 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터 자습서](http://redis.io/topics/cluster-tutorial)의 [http://redis.io](http://redis.io)에서 [클러스터 작업](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)을 참조하세요.
+This is not officially supported. With that said, each shard consists of a primary/replica cache pair that are collectively known as a cache instance. You can connect to these cache instances using the redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
-비 SSL은 다음 명령을 사용합니다.
+For non-ssl, use the following commands.
 
-	Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
-	Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
-	Redis-cli.exe –h <<cachename>> -p 13002 (to connect to instance 2)
-	...
-	Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
+    Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
+    Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
+    Redis-cli.exe –h <<cachename>> -p 13002 (to connect to instance 2)
+    ...
+    Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-SSL에서는 `1300N`을 `1500N`으로 대체합니다.
+For ssl, replace `1300N` with `1500N`.
 
-### 이전에 만든된 캐시에 대해 클러스터링을 구성할 수 있나요?
+### <a name="can-i-configure-clustering-for-a-previously-created-cache?"></a>Can I configure clustering for a previously created cache?
 
-현재 캐시를 만들 때만 클러스터링을 사용하도록 설정할 수 있습니다. 캐시를 만든 후 분할된 클러스터 크기를 변경할 수 있지만 캐시를 만든 후 프리미엄 캐시에 클러스터링을 추가하거나 프리미엄 캐시에서 클러스터링을 제거할 수는 없습니다. 클러스터링이 사용하도록 설정되고 분할된 데이터베이스가 하나뿐인 프리미엄 캐시는 클러스터링이 없는 동일한 크기의 프리미엄 캐시와 다릅니다.
+Currently you can only enable clustering when you create a cache. You can change the cluster size after the cache is created, but you can't add clustering to a premium cache or remove clustering from a premium cache after the cache is created. A premium cache with clustering enabled and only one shard is different than a premium cache of the same size with no clustering.
 
-### 기본 또는 표준 캐시에 클러스터링을 구성할 수 있나요?
+### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache?"></a>Can I configure clustering for a basic or standard cache?
 
-클러스터링은 프리미엄 캐시에만 사용할 수 있습니다.
+Clustering is only available for premium caches.
 
-### Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있나요?
+### <a name="can-i-use-clustering-with-the-redis-asp.net-session-state-and-output-caching-providers?"></a>Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?
 
--	**Redis 출력 캐시 공급자** - 변경이 필요하지 않습니다.
--	**Redis 세션 상태 제공자** -클러스터링을 사용하기 위해 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 발생합니다. 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요.
+-   **Redis Output Cache provider** - no changes required.
+-   **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 <a name="move-exceptions"></a>
-### StackExchange.Redis를 사용하고 클러스터링을 수행할 때 MOVE 예외가 발생합니다. 어떻게 해야 하나요?
+### <a name="i-am-getting-move-exceptions-when-using-stackexchange.redis-and-clustering,-what-should-i-do?"></a>I am getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 
-StackExchange.Redis를 사용하고 있으며 클러스터링을 사용할 때 `MOVE` 예외가 발생하는 경우 [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) 이상을 사용하고 있는지 확인합니다. StackExchange.Redis를 사용하도록 .NET 응용 프로그램을 구성하는 방법에 대한 자세한 내용은 [캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)을 참조하세요.
+If you are using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you are using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-## 다음 단계
-더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
+## <a name="next-steps"></a>Next steps
+Learn how to use more premium cache features.
 
--	[Azure Redis Cache 프리미엄 계층 소개](cache-premium-tier-intro.md)
+-   [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md)
   
 <!-- IMAGES -->
 
@@ -163,4 +164,15 @@ StackExchange.Redis를 사용하고 있으며 클러스터링을 사용할 때 `
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

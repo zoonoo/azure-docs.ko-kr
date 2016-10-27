@@ -1,45 +1,46 @@
 <properties 
-	pageTitle="새 스키마 버전 2015-08-01-preview" 
-	description="최신 버전의 논리 앱에 대한 JSON 정의 작성 방법 알아보기" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="New schema version 2015-08-01-preview" 
+    description="Learn how to write the JSON definition for the latest version of Logic apps" 
+    authors="stepsic-microsoft-com" 
+    manager="dwrede" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="stepsic"/>
-	
-# 새 스키마 버전 2015-08-01-preview
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/31/2016"
+    ms.author="stepsic"/>
+    
 
-논리 앱에 대한 새 스키마 및 API 버전에 논리 앱의 안정성 및 사용 편의성을 개선하는 다양한 향상된 기능이 있습니다. 4개의 주요 차이점이 있습니다.
+# <a name="new-schema-version-2015-08-01-preview"></a>New schema version 2015-08-01-preview
 
-1. **APIApp** 동작 유형이 새로운 **APIConnection** 동작 유형으로 업데이트되었습니다.
-2. **Repeat**의 이름이 **Foreach**로 바뀌었습니다.
-3. **HTTP 수신기** API 앱은 더 이상 필요하지 않습니다.
-4. 하위 워크플로 호출에 새 스키마를 사용합니다.
+The new schema and API version for Logic apps has a number of improvements which improve the reliability and ease-of-use of Logic apps. There are 4 key differences:
 
-## 1\. API 연결로 이동
+1. The **APIApp** action type has been updated to a new **APIConnection** action type.
+2. **Repeat** has been renamed to **Foreach**.
+3. The **HTTP Listener** API app is no longer required.
+4. Calling child workflows uses a new schema.
 
-가장 큰 변화는 API를 사용하기 위해 API 앱을 Azure 구독에 더 이상 배포하지 않아도 된다는 점입니다. 2가지 방법으로 API를 사용할 수 있습니다.
-* 관리 API
-* 사용자 지정 Web API
+## <a name="1.-moving-to-api-connections"></a>1. Moving to API connections
 
-이들 각각은 관리 및 호스팅 모델이 다르므로 약간 다르게 처리됩니다. 이 모델의 장점은 사용자의 리소스 그룹에 배포되는 리소스로 더 이상 제약되지 않는다는 점입니다.
+The biggest change is that you no longer need to deploy API apps into your Azure Subscription to use API's. There are 2 ways you can use APIs:
+* Managed API's
+* Your custom Web API's
 
-### 관리되는 API
+Each of these is handled slightly differently because their management and hosting models are different. One advantage of this model is you're no longer constrained to resources that are deployed in your Resource Group. 
 
-Office 365, Salesforce, Twitter, FTP 등 Microsoft가 사용자를 대신하여 관리하는 여러 API가 있습니다. 이러한 일부 관리 API는 Bing Translate처럼 있는 그대로 사용할 수 있는 반면 구성이 필요한 것도 있습니다. 이 구성을 *연결*이라고 합니다.
+### <a name="managed-apis"></a>Managed APIs
 
-예를 들어 Office 365를 사용하는 경우 Office 365 로그인 토큰을 포함하는 연결을 만들어야 합니다. 이 토큰은 논리 앱에서 항상 Office 365 API를 호출할 수 있도록 안전하게 저장되어 새로 고침됩니다. 또는 SQL이나 FTP 서버에 연결하려는 경우 연결 문자열이 있는 연결을 만들어야 합니다.
+There are a number of API's that are managed by Microsoft on your behalf, such as Office 365, Salesforce, Twitter, FTP etc.... Some of these managed API's can be used as-is, such as Bing Translate, while others require configuration. This configuration is called a *connection*.
 
-정의 내에서 이러한 작업을 `APIConnection`이라고 합니다. 다음은 전자 메일을 보내도록 Office 365를 호출하는 연결에 대한 예입니다.
+For example, when you use Office 365, you need to create a connection that contains your Office 365 sign-in token. This token will be securely stored and refreshed so that your Logic app can always call the Office 365 API. Alternatively, if you want to connect to your SQL or FTP server, you need to create a connection that has the connection string. 
+
+Inside of the definition these actions are called `APIConnection`. Here is an example of a connection that calls Office 365 to send an email:
 
 ```
 {
@@ -68,17 +69,17 @@ Office 365, Salesforce, Twitter, FTP 등 Microsoft가 사용자를 대신하여 
 }
 ```
 
-API 연결에 고유한 입력 부분은 `host` 개체입니다. 여기에는 `api` 및 `connection`의 두 부분이 포함됩니다.
+The portion of the inputs that is unique to API connections is the `host` object. This contains two parts: `api` and `connection`.
 
-`api`에는 관리 API가 호스팅되는 런타임 URL이 포함됩니다. `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`를 호출하여 사용 가능한 모든 관리 API를 볼 수 있습니다.
+The `api` has the runtime URL of where that managed API is hosted. You can see all of the available managed APIs for you by calling `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-API를 사용하는 경우 **연결 매개 변수**가 정의되어 있거나 그렇지 않을 수 있습니다. 정의되지 않은 경우 **연결**이 필요하지 않습니다. 정의된 경우 연결을 만들어야 합니다. 해당 연결을 만들 때 선택한 이름을 포함한 후 `host` 개체 내부 `connection` 개체에서 참조합니다. 리소스 그룹에서 연결을 만들려면 다음을 호출합니다.
+When you use an API, it may or may not have any **connection parameters** defined. If it doesn't then no **connection** is required. If it does, then you will have to create a connection. When you create that connection it'll have the name you choose, and then you reference that in the `connection` object inside the `host` object. To create a connection in a resource group, call:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
 ```
 
-다음 본문을 포함합니다.
+With the following body:
 
 
 ```
@@ -87,114 +88,114 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
     "api": {
       "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
     },
-	"parameterValues" : {
-		"accountName" : "{The name of the storage account -- the set of parameters is different for each API}"
-	}
+    "parameterValues" : {
+        "accountName" : "{The name of the storage account -- the set of parameters is different for each API}"
+    }
   },
   "location" : "{Logic app's location}"
 }
 ```
 
-### Azure Resource Manager 템플릿에서 관리 API 배포
+### <a name="deploying-managed-apis-in-an-azure-resource-manager-template"></a>Deploying managed APIs in an Azure Resource manager template
 
-대화형 로그인이 필요하지 않다면 ARM 템플릿에서 전체 응용 프로그램을 만들 수 있습니다. 로그인이 필요한 경우 ARM 템플릿을 사용하여 모든 항목을 설정할 수 있지만 포털에 방문하여 연결에 권한을 부여해야 합니다.
+You can create a full application in an ARM template as long as it doesn’t require interactive sign-in. If it requires sign-in, you can set everything up with the ARM template, but will still have to visit the portal to authorize the connections. 
 
 ```
-	"resources": [{
-		"apiVersion": "2015-08-01-preview",
-		"name": "azureblob",
-		"type": "Microsoft.Web/connections",
-		"location": "[resourceGroup().location]",
-		"properties": {
-			"api": {
-				"id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-			},
-			"parameterValues": {
-				"accountName": "[parameters('storageAccountName')]",
-				"accessKey": "[parameters('storageAccountKey')]"
-			}
-		}
-	}, {
-		"type": "Microsoft.Logic/workflows",
-		"apiVersion": "2015-08-01-preview",
-		"name": "[parameters('logicAppName')]",
-		"location": "[resourceGroup().location]",
-		"dependsOn": [
-			"[resourceId('Microsoft.Web/connections', 'azureblob')]"
-		],
-		"properties": {
-			"sku": {
-				"name": "[parameters('sku')]",
-				"plan": {
-					"id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
-				}
-			},
-			"definition": {
-				"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-				"actions": {
-					"Create_file": {
-						"type": "apiconnection",
-						"inputs": {
-							"host": {
-								"api": {
-									"runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
-								},
-								"connection": {
-									"name": "@parameters('$connections')['azureblob']['connectionId']"
-								}
-							},
-							"method": "post",
-							"queries": {
-								"folderPath": "[concat('/',parameters('containerName'))]",
-								"name": "helloworld.txt"
-							},
-							"body": "@decodeDataUri('data:,Hello+world!')",
-							"path": "/datasets/default/files"
-						},
-						"conditions": []
-					}
-				},
-				"contentVersion": "1.0.0.0",
-				"outputs": {},
-				"parameters": {
-					"$connections": {
-						"defaultValue": {},
-						"type": "Object"
-					}
-				},
-				"triggers": {
-					"recurrence": {
-						"type": "Recurrence",
-						"recurrence": {
-							"frequency": "Day",
-							"interval": 1
-						}
-					}
-				}
-			},
-			"parameters": {
-				"$connections": {
-					"value": {
-						"azureblob": {
-							"connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
-							"connectionName": "azureblob",
-							"id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-						}
+    "resources": [{
+        "apiVersion": "2015-08-01-preview",
+        "name": "azureblob",
+        "type": "Microsoft.Web/connections",
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "api": {
+                "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+            },
+            "parameterValues": {
+                "accountName": "[parameters('storageAccountName')]",
+                "accessKey": "[parameters('storageAccountKey')]"
+            }
+        }
+    }, {
+        "type": "Microsoft.Logic/workflows",
+        "apiVersion": "2015-08-01-preview",
+        "name": "[parameters('logicAppName')]",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', 'azureblob')]"
+        ],
+        "properties": {
+            "sku": {
+                "name": "[parameters('sku')]",
+                "plan": {
+                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
+                }
+            },
+            "definition": {
+                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+                "actions": {
+                    "Create_file": {
+                        "type": "apiconnection",
+                        "inputs": {
+                            "host": {
+                                "api": {
+                                    "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+                                },
+                                "connection": {
+                                    "name": "@parameters('$connections')['azureblob']['connectionId']"
+                                }
+                            },
+                            "method": "post",
+                            "queries": {
+                                "folderPath": "[concat('/',parameters('containerName'))]",
+                                "name": "helloworld.txt"
+                            },
+                            "body": "@decodeDataUri('data:,Hello+world!')",
+                            "path": "/datasets/default/files"
+                        },
+                        "conditions": []
+                    }
+                },
+                "contentVersion": "1.0.0.0",
+                "outputs": {},
+                "parameters": {
+                    "$connections": {
+                        "defaultValue": {},
+                        "type": "Object"
+                    }
+                },
+                "triggers": {
+                    "recurrence": {
+                        "type": "Recurrence",
+                        "recurrence": {
+                            "frequency": "Day",
+                            "interval": 1
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "$connections": {
+                    "value": {
+                        "azureblob": {
+                            "connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
+                            "connectionName": "azureblob",
+                            "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+                        }
 
-					}
-				}
-			}
-		}
-	}]
+                    }
+                }
+            }
+        }
+    }]
 ```
 
-이 예에서 해당 연결은 리소스 그룹에서 작동하는 일반 리소스일 뿐임을 알 수 있습니다. 연결은 구독에서 사용할 수 있는 관리 API를 참조합니다.
+You can see in this example that the connections are just normal resources that live in your resource group. They reference the managedAPIs available to you in your subscription.
 
-### 사용자 지정 Web API
+### <a name="your-custom-web-apis"></a>Your custom Web APIs
 
-사용자 고유의 API(특히, Microsoft 관리 항목)를 사용하는 경우 기본 제공 **HTTP** 작업을 사용하여 호출해야 합니다. 이상적인 환경을 위해서는 API에 대한 swagger 끝점을 노출해야 합니다. 이렇게 하면 논리 앱 디자이너가 API에 대한 입력 및 출력을 렌더링할 수 있습니다. swagger가 없는 경우 디자이너는 입력 및 출력을 불투명 JSON 개체로 표시할 수 있게 됩니다.
+If you use your own API's (specifically, not Microsoft-managed ones), then you should use the built-in **HTTP** action to call them. In order to have an ideal experience, you should expose a swagger endpoint for your API. This will enable the Logic app designer to render the inputs and outputs for your API. Without a swagger, the designer will only be able to show the inputs and outputs as opaque JSON objects.
 
-다음은 새 `metadata.apiDefinitionUrl` 속성을 보여 주는 예입니다.
+Here is an example showing the new `metadata.apiDefinitionUrl` property:
 ```
 {
    "actions": {
@@ -212,13 +213,13 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-**앱 서비스**에서 Web API를 호스팅하는 경우 디자이너에서 사용 가능한 작업 목록이 자동으로 표시됩니다. 그렇지 않으면 URL에 직접 붙여넣어야 합니다. Swagger에서 지원되는 어떤 방법으로든 API 자체를 보호할 수 있지만 Swagger 끝점을 논리 앱 디자이너 내부에서 사용할 수 없도록 하려면 끝점을 인증하지 않아야 합니다.
+If you host your Web API on **App Service** then it will automatically show up in the list of actions available in the designer. If not, you'll have to paste in the URL directly. The swagger endpoint must be unauthenticated in order to be usable inside of the Logic apps designer (although you may secure the API itself with whatever methods are supported in the Swagger).
 
-### 2015-08-01-preview와 함께 이미 배포된 API 앱 사용
+### <a name="using-your-already-deployed-api-apps-with-2015-08-01-preview"></a>Using your already deployed API apps with 2015-08-01-preview
 
-이전에 API 앱을 배포한 경우 **HTTP** 작업을 통해 호출할 수 있습니다.
+If you previously deployed an API app, you can call it via the **HTTP** action.
 
-예를 들어 Dropbox를 사용하여 파일을 나열하는 경우 **2014-12-01-preview** 스키마 버전 정의에 다음과 같은 항목이 포함될 수 있습니다.
+For example, if you use Dropbox to list files, you may have something like this in your **2014-12-01-preview** schema version definition:
 
 ```
 {
@@ -259,7 +260,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-아래와 같은 동등한 HTTP 작업을 생성할 수 있습니다(논리 앱 정의의 매개 변수 섹션은 변경되지 않고 유지됩니다).
+You can construct the equivalent HTTP action like below (the parameters section of the Logic app definition remains unchanged):
 
 ```
 {
@@ -286,22 +287,22 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-이러한 속성을 하나씩 연습합니다.
+Walking through these properties one-by-one:
 
-| 작업 속성 | 설명 |
+| Action property |  Description |
 | --------------- | -----------  |
-| `type` | `APIapp` 대신 `Http` |
-| `metadata.apiDefinitionUrl` | 논리 앱 디자이너에서 이 작업을 사용하려는 경우 메타데이터 끝점을 포함하려고 합니다. 다음에서 생성됩니다. `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
-| `inputs.uri` | 다음에서 생성됩니다. `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
-| `inputs.method` | 항상 `POST` |
-| `inputs.body` | api 앱 매개 변수와 동일 | 
-| `inputs.authentication` | api 앱 인증과 동일 |
+| `type` | `Http` instead of `APIapp` |
+| `metadata.apiDefinitionUrl` | If you want to use this action in the Logic apps designer, you'll want to include the metadata endpoint. This is constructed from: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `inputs.uri` | This is constructed from: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
+| `inputs.method` | Always `POST` |
+| `inputs.body` | Identical to the api app parameters | 
+| `inputs.authentication` | Identical to the api app authentication |
 
-이 방법은 모든 API 앱 작업에 대해 작동합니다. 그러나 이러한 이전 API 앱은 더 이상 지원되지 않으며 위의 다른 두 옵션 중 하나로 전환해야 함을 유의하세요(관리 API 또는 사용자 지정 Web API 호스팅).
+This approach should work for all API app actions. However, please keep in mind that these previous API apps are no longer supported, and you should move to one of the two other options above (either a managed API or hosting your custom Web API).
 
-## 2\. Repeat가 Foreach로 이름 변경됨
+## <a name="2.-repeat-renamed-to-foreach"></a>2. Repeat renamed to Foreach
 
-이전 스키마 버전에서 **Repeat**가 혼동되고 실제로 for each loop인지 제대로 포착되지 않는다는 의견을 많이 받았습니다. 따라서 **Foreach**로 이름을 변경하였습니다. 예:
+For the previous schema version we received a lot of customer feedback that **Repeat** was confusing and didn't properly capture that it was really a for each loop. As a result, we have renamed it to **Foreach**. For example:
 
 ```
 {
@@ -318,7 +319,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-이제 다음과 같이 작성합니다.
+Would now be written as:
 
 ```
 {
@@ -335,10 +336,10 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-이전에 함수 `@repeatItem()`은 반복되는 현재 항목을 참조하는 데 사용되었습니다. 이것이 `@item()`으로 간소화되었습니다.
+Previously the function `@repeatItem()` was used to reference the current item being iterated over. This has been simplified to just `@item()`. 
 
-### Foreach의 출력 참조
-더욱 간소화하기 위해 **Foreach** 작업의 출력은 **repeatItems**라는 개체에 래핑되지 않습니다. 따라서 위의 repeat 출력은 다음과 같지만
+### <a name="referencing-the-outputs-of-the-foreach"></a>Referencing the outputs of the Foreach
+To further simplify, the outputs of **Foreach** actions will not be wrapped in an object called **repeatItems**. This means, whereas the outputs of the above repeat were:
 
 ```
 {
@@ -351,7 +352,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
             },
             "outputs": {
                 "headers": { },
-                "body": "<!DOCTYPE html><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:Web="http://schemas.live.com/Web/">...</html>"
+                "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
             }
             "status": "Succeeded"
         }
@@ -359,7 +360,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-이제 다음과 같습니다.
+Now it will be:
 
 ```
 [
@@ -371,14 +372,14 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
         },
         "outputs": {
             "headers": { },
-            "body": "<!DOCTYPE html><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:Web="http://schemas.live.com/Web/">...</html>"
+            "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
         }
         "status": "Succeeded"
     }
 ]
 ```
 
-이러한 출력을 참조할 때 작업 본문을 가져오려면 다음을 수행해야 했습니다.
+When referencing these outputs, to get to the body of the action you'd have to do:
 
 ```
 {
@@ -396,7 +397,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-이제 대신 다음을 수행하면 됩니다.
+Now you can do instead:
 
 ```
 {
@@ -414,16 +415,16 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-이러한 변경으로 함수 `@repeatItem()`, `@repeatBody()` 및 `@repeatOutputs()`가 제거됩니다.
+With these changes, the functions `@repeatItem()`, `@repeatBody()` and `@repeatOutputs()` are removed.
 
-## 3\. 네이티브 HTTP 수신기 
-HTTP 수신기 기능은 기본 제공되므로 더 이상 HTTP 수신기 API 앱을 배포할 필요가 없습니다. [논리 앱 끝점을 호출 가능한 상태로 만드는 방법에 대한 자세한 내용은 여기](app-service-logic-http-endpoint.md)를 읽어 보세요.
+## <a name="3.-native-http-listener"></a>3. Native HTTP listener 
+The HTTP Listener capabilities are now built-in, so you no longer need to deploy an HTTP Listener API app. Read about [the full details for how to make your Logic app endpoint callable here](app-service-logic-http-endpoint.md). 
 
-이러한 변경으로 함수 `@accessKeys()`가 제거되고 끝점을 가져오기 위해 `@listCallbackURL()` 함수로 대체되었습니다(필요한 경우). 또한 이제 논리 앱에서 트리거를 하나 이상 정의해야 합니다. 워크플로를 `/run`하려는 경우 `manual`, `apiConnectionWebhook` 또는 `httpWebhook` 트리거 중 하나를 포함해야 합니다.
+With these changes, the function `@accessKeys()` is removed and has been replaced with the `@listCallbackURL()` function for the purposes of getting the endpoint (when needed). In addition, you now must define at least one trigger in your Logic app now. If you want to `/run` the workflow, you'll need to have one of a `manual`, `apiConnectionWebhook` or `httpWebhook` triggers. 
 
-## 4\. 하위 워크플로 호출
+## <a name="4.-calling-child-workflows"></a>4. Calling child workflows
 
-이전에는 하위 워크플로를 호출하려면 해당 워크플로로 이동하여 액세스 토큰을 가져온 후 해당 하위를 호출하려는 논리 앱 정의에 붙여넣어야 했습니다. 새 스키마 버전을 사용할 경우 논리 앱 엔진은 런타임에 하위 워크플로에 대한 SAS를 자동으로 생성합니다. 따라서 정의에 어떠한 암호도 붙여넣을 필요가 없습니다. 다음은 예제입니다.
+Previously, calling child workflows required going to that workflow, getting the access token, and then pasting that in to the definition of the Logic app that you want to call that child. With the new schema version, the Logic apps engine will automatically generate a SAS at runtime for the child workflow, which means that you don't have to paste any secrets into the definition.  Here is an example:
 
 ```
 "mynestedwf" : {
@@ -449,19 +450,23 @@ HTTP 수신기 기능은 기본 제공되므로 더 이상 HTTP 수신기 API �
 }
 ```
 
-두 번째 향상된 내용은 들어오는 요청에 대한 전체 액세스 권한을 하위 워크플로에 부여하는 것입니다. 따라서 *queries* 섹션 및 *headers* 개체에서 매개 변수를 전달할 수 있으며 전체 본문을 완전히 정의할 수 있습니다.
+A second improvement is we will be giving the child workflows full access to the incoming request. That means that you can pass parameters in the *queries* section and in the *headers* object and that you can fully define the entire body.
 
-마지막으로, 하위 워크플로에 필요한 변경 내용이 있습니다. 이전에는 하위 워크플로를 직접 호출할 수 있었지만 이제는 상위에서 호출할 워크플로에 트리거 끝점을 정의해야 합니다. 일반적으로 **manual** 유형의 트리거를 추가한 후 상위 정의에 사용합니다. 특히 호출 중인 트리거를 항상 지정해야 하므로 `host` 속성은 `triggerName`을 포함합니다.
+Finally, there are required changes to the child workflow. Whereas before you could just call a child workflow directly; now, you’ll need to define a trigger endpoint in the workflow for the parent to call. Generally, this means you’ll add a trigger of type **manual** and then use that in the parent definition. Note that the `host` property specifically has a `triggerName`, because you must always specify which trigger you are invoking.
 
-## 기타 변경 내용
+## <a name="other-changes"></a>Other changes
 
-### 새 쿼리 속성
-이제 모든 작업 유형에서 **queries**라는 새 입력을 지원합니다. 문자열을 직접 조합하는 대신 구조화된 개체일 수 있습니다.
+### <a name="new-queries-property"></a>New queries property
+All action types now support a new input called **queries**. This can be a structured object rather than you having to assemble the string by hand.
 
-### parse() 함수 이름 변경됨
-곧 더 많은 콘텐츠 유형이 추가될 예정이므로 `parse()` 함수의 이름이 `json()`으로 변경되었습니다.
+### <a name="parse()-function-renamed"></a>parse() function renamed
+As we will soon be adding more content types, the `parse()` function has been renamed to `json()`.
 
-## 서비스 예정: 엔터프라이즈 통합 API
-현재는 관리된 버전의 엔터프라이즈 통합 API가 아직 없습니다(예: AS2). [로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)에 나와 있는 대로 곧 서비스 예정입니다. 그 동안은 위의 "이미 배포된 API 앱 사용"에 설명된 대로 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용하면 됩니다.
+## <a name="coming-soon:-enterprise-integration-apis"></a>Coming soon: Enterprise Integration APIs
+At this point in time, we do not yet have managed versions of the Enterprise Integration APIs available (such as AS2). These will be coming soon as covered in the [roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). In the meanwhile, you can use your existing deployed BizTalk APIs via the HTTP action, as covered above in "Using your already deployed API apps."
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

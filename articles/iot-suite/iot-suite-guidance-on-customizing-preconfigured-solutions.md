@@ -1,12 +1,12 @@
 <properties
-	pageTitle="미리 구성된 솔루션 사용자 지정 | Microsoft Azure"
-	description="미리 구성된 Azure IoT Suite 솔루션을 사용자 지정하는 방법에 대한 지침을 제공합니다."
-	services=""
+    pageTitle="Customizing preconfigured solutions | Microsoft Azure"
+    description="Provides guidance on how to customize the Azure IoT Suite preconfigured solutions."
+    services=""
     suite="iot-suite"
-	documentationCenter=".net"
-	authors="stevehob"
-	manager="timlt"
-	editor=""/>
+    documentationCenter=".net"
+    authors="aguilaaj"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-suite"
@@ -14,107 +14,108 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/27/2016"
-     ms.author="stevehob"/>
+     ms.date="10/11/2016"
+     ms.author="aguilaaj"/>
 
-# 미리 구성된 솔루션 사용자 지정
 
-Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내에서 함께 협력하는 서비스를 보여주어 종단간 솔루션을 제공합니다. 이 시작 지점에서 특정 시나리오에 대한 솔루션을 확장하고 사용자 지정할 수 있는 다양한 위치가 있습니다. 다음 섹션에서는 이러한 일반적인 사용자 지정 위치를 설명합니다.
+# <a name="customize-a-preconfigured-solution"></a>Customize a preconfigured solution
 
-## 소스 코드 찾기
+The preconfigured solutions provided with the Azure IoT Suite demonstrate the services within the suite working together to deliver an end-to-end solution. From this starting point, there are a variety of places in which you can extend and customize the solution for specific scenarios. The following sections describe these common customization points.
 
-미리 구성된 솔루션에 대한 소스 코드는 다음 리포지토리의 GitHub에서 사용할 수 있습니다.
+## <a name="finding-the-source-code"></a>Finding the source code
 
-- 원격 모니터링: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
-- 예측 유지 관리: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
+The source code for the preconfigured solutions is available on GitHub in the following repositories:
 
-미리 구성된 솔루션에 대한 소스 코드는 패턴과 Azure IoT Suite를 사용하여 IoT 솔루션의 종단 간 기능을 구현하는 데 사용하는 작업 방식과 패턴을 보여 주기 위해 제공됩니다. GitHub 리포지토리에서 솔루션을 빌드 및 배포하는 방법에 대한 자세한 내용을 확인할 수 있습니다.
+- Remote Monitoring: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
+- Predictive Maintenance: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-## 미리 구성된 규칙 변경
+The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. You can find more information about how to build and deploy the solutions in the GitHub repositories.
 
-원격 모니터링 솔루션은 솔루션에 대해 표시되는 장치 정보, 원격 분석 및 규칙 논리를 구현하는 세 개의 [Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 작업을 포함합니다.
+## <a name="changing-the-preconfigured-rules"></a>Changing the preconfigured rules
 
-세 개의 스트림 분석 작업 및 해당 구문은 [원격 모니터링 미리 구성된 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)에 자세히 설명되어 있습니다.
+The remote monitoring solution includes three [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobs to implement device information, telemetry and rules logic displayed  for the solution.
 
-논리를 변경하거나 시나리오에 관련된 논리를 추가하도록 이러한 작업을 직접 편집할 수 있습니다. 다음과 같이 스트림 분석 작업을 찾을 수 있습니다.
+The three stream analytics jobs and their syntax is described in depth in the [Remote monitoring preconfigured solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md). 
+
+You can edit these jobs directly to alter the logic, or add logic specific to your scenario. You can find the Stream Analytics jobs as follows:
  
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. IoT 솔루션과 이름이 동일한 새 리소스 그룹으로 이동합니다.
-3. 수정하려는 Azure 스트림 분석 작업을 선택합니다.
-4. 명령 집합에서 **중지**를 선택하여 작업을 중지합니다.
-5. 입력, 쿼리 및 출력을 편집합니다.
+1. Go to [Azure portal](https://portal.azure.com).
+2. Navigate to the resource group with the same name as your IoT solution. 
+3. Select the Azure Stream Analytics job you'd like to modify. 
+4. Stop the job by selecting **Stop**in the set of commands. 
+5. Edit the inputs, query, and outputs.
 
-    수정을 간편하게 수행하려면 **">"** 대신 **"<"**를 사용하도록 **규칙** 작업에 대한 쿼리를 변경합니다. 규칙을 편집할 때 솔루션 포털에는 계속 **">"**가 표시되지만 기본 작업이 변경되어 동작이 반대로 수행됩니다.
+    A simple modification is to change the query for the **Rules** job to use a **"<"** instead of a **">"**. The solution portal will still show **">"** when you edit a rule, but you'll notice the behavior is flipped due to the change in the underlying job.
 
-6. 작업 시작
+6. Start the job
 
-> [AZURE.NOTE] 원격 모니터링 대시보드는 특정 데이터에 따라 달라지므로 작업 변경은 대시보드 실패를 일으킬 수 있습니다.
+> [AZURE.NOTE] The remote monitoring dashboard depends on specific data, so altering the jobs can cause the dashboard to fail.
 
-## 사용자 고유 규칙 추가
+## <a name="adding-your-own-rules"></a>Adding your own rules
 
-미리 구성된 Azure 스트림 분석 작업 변경 외에도 Azure 포털을 사용하여 새 작업을 추가하거나 기존 작업에 새 쿼리를 추가할 수 있습니다.
+In addition to changing the preconfigured Azure Stream Analytics jobs, you can use the Azure portal to add new jobs or add new queries to existing jobs.
 
-## 장치 사용자 지정
+## <a name="customizing-devices"></a>Customizing devices
 
-가장 일반적인 확장 작업 중 하나는 시나리오와 관련된 장치를 사용하는 것입니다. 장치를 사용하는 여러 방법이 있습니다. 이 방법은 해당 시나리오에 맞게 시뮬레이션된 장치를 변경하거나 [IoT 장치 SDK][]를 사용하여 솔루션에 대한 실제 장치에 연결하는 것이 포함됩니다.
+One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the [IoT Device SDK][] to connect your physical device to the solution.
 
-미리 구성된 원격 모니터링 솔루션에 장치를 추가하기 위한 단계별 가이드는 [Iot Suite 연결 장치](iot-suite-connecting-devices.md) 및 미리 구성된 원격 모니터링 솔루션과 함께 사용하도록 디자인된 [원격 모니터링 C SDK 샘플](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring)을 참조하세요.
+For a step-by-step guide to adding devices to the remote monitoring preconfigured solution, see [Iot Suite Connecting Devices](iot-suite-connecting-devices.md) and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
 
-### 고유한 시뮬레이션된 장치 만들기
+### <a name="creating-your-own-simulated-device"></a>Creating your own simulated device
 
-.NET 시뮬레이터는 원격 모니터링 솔루션 소스 코드(위 참조)에 포함되어 있습니다. 이 시뮬레이터는 솔루션의 일부로 프로비전되었으며 다른 메타데이터, 원격 분석을 보내거나 다른 명령에 응답하도록 변경될 수 있습니다.
+Included in the remote monitoring solution source code (referenced above), is a .NET simulator. This simulator is the one provisioned as part of the solution and can be altered to send different metadata, telemetry or respond to different commands.
 
-원격 모니터링 미리 구성된 솔루션에서 미리 구성된 시뮬레이터는 온도 및 습도 원격 분석을 내보내는 냉각 장치이며 GitHub 리포지토리를 분기한 경우 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 프로젝트에서 시뮬레이터를 수정할 수 있습니다.
+The preconfigured simulator in the remote monitoring preconfigured solution is a cooler device that emits temperature and humidity telemetry, you can modify the simulator in the [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) project when you've forked the GitHub repository.
 
-### 시뮬레이션된 장치에 사용 가능한 위치
+### <a name="available-locations-for-simulated-devices"></a>Available locations for simulated devices
 
-위치의 기본 집합은 시애틀/레드먼드, 워싱턴, 미국입니다. [SampleDeviceFactory.cs][lnk-sample-device-factory]에서 이러한 위치를 변경할 수 있습니다.
+The default set of locations is in Seattle/Redmond, Washington, United States of America. You can change these locations in [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
 
-### 고유한 (물리적) 장치 빌드 및 사용
+### <a name="building-and-using-your-own-(physical)-device"></a>Building and using your own (physical) device
 
-[Azure IoT SDK](https://github.com/Azure/azure-iot-sdks)는 IoT 솔루션으로 다양한 장치 유형(언어 및 운영 체제)를 연결하기 위한 라이브러리를 제공합니다.
+The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries for connecting numerous device types (languages and operating systems) into IoT solutions.
 
-## 대시보드 제한 수정
+## <a name="modifying-dashboard-limits"></a>Modifying dashboard limits
 
-### 대시보드 드롭다운에 표시되는 장치 수
+### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>Number of devices displayed in dashboard dropdown
 
-기본값은 200입니다. [DashboardController.cs][lnk-dashboard-controller]에서 이 수를 변경할 수 있습니다.
+The default is 200. You can change this number in [DashboardController.cs][lnk-dashboard-controller].
 
-### Bing 지도 컨트롤에 표시할 핀 수
+### <a name="number-of-pins-to-display-in-bing-map-control"></a>Number of pins to display in Bing Map control
 
-기본값은 200입니다. [TelemetryApiController.cs][lnk-telemetry-api-controller-01]에서 이 수를 변경할 수 있습니다.
+The default is 200. You can change this number in [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
-### 원격 분석 그래프의 시간 간격
+### <a name="time-period-of-telemetry-graph"></a>Time period of telemetry graph
 
-기본값은 10분입니다. [TelmetryApiController.cs][lnk-telemetry-api-controller-02]에서 이를 변경할 수 있습니다.
+The default is 10 minutes. You can change this in [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## 수동으로 응용 프로그램 역할 설정
+## <a name="manually-setting-up-application-roles"></a>Manually setting up application roles
 
-다음 절차에서는 미리 구성된 솔루션에 **Admin** 및 **ReadOnly** 응용 프로그램 역할을 추가하는 방법을 설명합니다. azureiotsuite.com 사이트에서 프로비전되는 미리 구성된 솔루션에는 **Admin** 및 **ReadOnly** 역할이 이미 포함되어 있습니다.
+The following procedure describes how to add **Admin** and **ReadOnly** application roles to a preconfigured solution. Note that preconfigured solutions provisioned from the azureiotsuite.com site already include the **Admin** and **ReadOnly** roles.
 
-**ReadOnly** 역할의 구성원은 대시보드 및 장치 목록을 볼 수는 있지만 장치를 추가하거나 장치 특성을 변경하거나 명령을 전송할 수는 없습니다. **Admin** 역할의 구성원에게는 솔루션의 모든 기능에 대한 모든 권한이 있습니다.
+Members of the **ReadOnly** role can see the dashboard and the device list, but are not allowed to add devices, change device attributes, or send commands.  Members of the **Admin** role have full access to all the functionality in the solution.
 
-1. [Azure 클래식 포털][lnk-classic-portal]로 이동합니다.
+1. Go to the [Azure classic portal][lnk-classic-portal].
 
-2. **Active Directory**를 선택합니다.
+2. Select **Active Directory**.
 
-3. 솔루션을 프로비전할 때 사용한 AAD 테넌트의 이름을 클릭합니다.
+3. Click the name of the AAD tenant you used when you provisioned your solution.
 
-4. **응용 프로그램**을 클릭합니다.
+4. Click **Applications**.
 
-5. 미리 구성된 솔루션 이름과 일치하는 응용 프로그램의 이름을 클릭합니다. 목록에 응용 프로그램이 표시되지 않으면 **표시** 드롭다운에서 **회사가 보유한 응용 프로그램**을 선택하고 확인 표시를 클릭합니다.
+5. Click the name of the application that matches your preconfigured solution name. If you don't see your application in the list, select **Applications my company owns** in the **Show** drop down and click the check mark.
 
-6.  페이지의 아래쪽에서 **매니페스트 관리**와 **매니페스트 다운로드**를 차례로 클릭합니다.
+6.  At the bottom of the page, click **Manage Manifest** and then **Download Manifest**.
 
-7. 그러면 .json 파일이 로컬 컴퓨터에 다운로드됩니다. 이 파일을 편집할 수 있도록 원하는 텍스트 편집기에서 엽니다.
+7. This downloads a .json file to your local machine.  Open this file for editing in a text editor of your choice.
 
-8. .json 파일의 세 번째 줄에는 다음 코드가 있습니다.
+8. On the third line of the .json file, you will find:
 
   ```
   "appRoles" : [],
   ```
-  이 코드를 아래 코드로 바꿉니다.
+  Replace this with the following:
 
   ```
   "appRoles": [
@@ -140,36 +141,40 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
   } ],
   ```
 
-9. 업데이트한 .json 파일을 저장합니다. 기존 파일을 덮어쓰면 됩니다.
+9. Save the updated .json file (you can overwrite the existing file).
 
-10.  Azure 관리 포털 페이지 아래쪽에서 **매니페스트 관리**와 **매니페스트 업로드**를 차례로 클릭하여 이전 단계에서 저장한 .json 파일을 업로드합니다.
+10.  In the Azure Management Portal, at the bottom of the page, select **Manage Manifest** then **Upload Manifest** to upload the .json file you saved in the previous step.
 
-11. 이제 **Admin** 및 **ReadOnly** 역할이 응용 프로그램에 추가되었습니다.
+11. You have now added the **Admin** and **ReadOnly** roles to your application.
 
-12. 이러한 역할 중 하나를 디렉터리의 사용자에게 할당하려면 [azureiotsuite.com 사이트의 권한][lnk-permissions]을 참조하세요.
+12. To assign one of these roles to a user in your directory, see [Permissions on the azureiotsuite.com site][lnk-permissions].
 
-## 사용자 의견
+## <a name="feedback"></a>Feedback
 
-이 문서에서 포함했으면 하는 사용자 지정이 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 추가하거나 이 문서에 대한 의견을 아래쪽에 입력해 주시기 바랍니다.
+Do you have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article below. 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-미리 구성된 솔루션을 사용자 지정하기 위한 옵션에 대한 자세한 내용은 다음을 참조하세요.
+To learn more about the options for customizing the preconfigured solutions, see:
 
-- [미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 논리 앱 연결][lnk-logicapp]
-- [원격 모니터링 사전 구성 솔루션으로 동적 원격 분석 사용][lnk-dynamic]
-- [미리 구성된 원격 모니터링 솔루션의 장치 정보 메타데이터][lnk-devinfo]
+- [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapp]
+- [Use dynamic telemetry with the remote monitoring preconfigured solution][lnk-dynamic]
+- [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo]
 
 [lnk-logicapp]: iot-suite-logic-apps-tutorial.md
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[IoT 장치 SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
-[lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25
+[lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

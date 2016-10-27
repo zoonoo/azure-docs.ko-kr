@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="기계 학습 라이브 채팅 지원에서 도움 받기 | Microsoft Azure" 
-    description="클라우드에서 라이브 채팅 지원 기능을 사용하여 기계 학습에 대한 실시간 도움을 받으세요." 
+    pageTitle="Get help from Machine Learning Live Chat Support | Microsoft Azure" 
+    description="Get real-time help for Machine Learning in the cloud with the Live Chat Support feature." 
     services="machine-learning" 
     documentationCenter="" 
-    authors="olgali" 
+    authors="garyericson" 
     manager="opapel" 
     editor="cgronlun"/>
 <tags 
@@ -12,23 +12,28 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/16/2016" 
-    ms.author="olgali"/>
-#기계 학습 라이브 채팅 지원에서 도움 받기
+    ms.date="09/29/2016" 
+    ms.author="garye"/>
 
-[Azure 기계 학습 스튜디오](machine-learning-what-is-ml-studio.md)에서는 기계 학습 모델을 작성하는 직관적인 인터페이스를 제공합니다. [갤러리](machine-learning-gallery-how-to-use-contribute-publish.md)와 [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)에서 안내를 제공합니다.
+#<a name="get-help-from-machine-learning-live-chat-support"></a>Get help from Machine Learning Live Chat Support
 
-그러나 풀리지 않는 문제를 해결하기 위해 빠른 질문을 해야 하는 경우도 있습니다. [스튜디오](machine-learning-what-is-ml-studio.md)의 맨 위 탐색 모음에서 채팅 아이콘을 찾아보세요. 이 아이콘이 표시되면 제품 팀의 구성원이 실시간으로 도움을 주기 위해 온라인 상태임을 나타냅니다.
+[Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) provides an intuitive interface for building machine learning models. There is a [Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) and [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) to guide you along that way. 
 
-![Azure 기계 학습 채팅](./media/machine-learning-live-chat/AzureMLChatNavBar.png)
+But sometimes you just need to ask a quick question to unblock you. In [Studio](machine-learning-what-is-ml-studio.md) look for the chat icon in the top navigation.  If you see this icon, that means a member of the product team is online to help you in real time.
 
-질문을 입력하고 답변을 얻으세요!
+![Azure ML Chat](./media/machine-learning-live-chat/AzureMLChatNavBar.png)
 
-![Azure 기계 학습 채팅 대화 상자](./media/machine-learning-live-chat/AzureMLChat.png)
+Type in your question and get your answers!
 
-## 라이브 채팅 아이콘이 보이지 않으세요?
-팀의 구성원은 실제로 질문에 대답하고 있습니다. 라이브 채팅 아이콘이 보이지 않는다면 업무 외 시간에는 표시되지 않기 때문일 수 있습니다.
+![Azure ML Chat Dialog](./media/machine-learning-live-chat/AzureMLChat.png)
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+## <a name="don't-see-the-live-chat-icon?"></a>Don't see the Live Chat Icon?
+Members of the team are actually answering your question. If you don't see the live chat icon it is because it is not visible outside of working hours. 
 
-<!---HONumber=AcomDC_0525_2016-->
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

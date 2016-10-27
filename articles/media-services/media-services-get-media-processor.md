@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="미디어 프로세서를 만드는 방법 | Microsoft Azure" 
-	description="Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="미디어 프로세서를 만드는 방법 | Microsoft Azure" 
+    description="Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016" 
+    ms.author="juliako"/>
 
 
-#방법: 미디어 프로세서 인스턴스 가져오기
+
+#<a name="how-to:-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 가져오기
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-get-media-processor.md)
 - [REST (영문)](media-services-rest-get-media-processor.md)
 
 
-##개요
+##<a name="overview"></a>개요
 
 미디어 서비스에서 미디어 프로세서는 미디어 콘텐츠 인코딩, 형식 변환, 암호화 또는 암호 해독과 같은 특정 처리 작업을 다루는 구성 요소입니다. 일반적으로 미디어 콘텐츠 인코드, 암호화 또는 형식 변환 작업을 만들 때 미디어 프로세서를 만듭니다.
 
@@ -41,32 +42,38 @@ Azure 미디어 인코더|사용 중단됨
 Azure Media Packager|사용 중단됨|
 Azure Media Encryptor|사용 중단됨|
 
-##미디어 프로세서 가져오기
+##<a name="get-media-processor"></a>미디어 프로세서 가져오기
 
-다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **\_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 미디어 서비스에 연결](media-services-dotnet-connect-programmatically.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
+다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 Media Services에 연결](media-services-dotnet-connect-programmatically.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
 
-	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-	{
-		var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-		ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-		
-		if (processor == null)
-		throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-		
-		return processor;
-	}
+    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+        
+        if (processor == null)
+        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+        
+        return processor;
+    }
 
 
-##미디어 서비스 학습 경로
+##<a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>피드백 제공
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##다음 단계
+##<a name="next-steps"></a>다음 단계
 
 미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Media Encoder Standard를 사용하여 자산을 인코딩하는 방법을 보여 주는 [자산을 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md) 토픽으로 이동합니다.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

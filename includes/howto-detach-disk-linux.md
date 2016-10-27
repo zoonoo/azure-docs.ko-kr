@@ -1,99 +1,95 @@
-VM(가상 컴퓨터)에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 VM에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다. 디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 VM에 다시 연결할 수 있습니다.
+When you no longer need a data disk that's attached to a virtual machine (VM), you can easily detach it. This removes the disk from the VM, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same VM, or another one.  
 
-> [AZURE.NOTE] Azure의 VM은 운영 체제 디스크, 로컬 임시 디스크, 선택적 데이터 디스크 등 다양한 유형의 디스크를 사용합니다. 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md)를 참조하십시오. 또한 VM을 삭제하지 않는 한 운영 체제 디스크를 분리할 수 없습니다.
+> [AZURE.NOTE] A VM in Azure uses different types of disks - an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). You can not detach an operating system disk unless you also delete the VM.
 
 
-## 디스크 찾기
+## <a name="find-the-disk"></a>Find the disk
 
-VM에서 디스크를 분리하기 전에 분리할 디스크에 대한 식별자인 LUN 번호를 확인해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
+Before you can detach a disk from a VM you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
 
-1. 	Azure CLI를 열고 [Azure 구독에 연결](../articles/xplat-cli-connect.md)합니다. Azure 서비스 관리 모드(`azure config mode asm`)에 있는지 확인합니다.
+1.  Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
-2. 	`azure vm disk list <virtual-machine-name>`를 사용하여 디스크가 VM에 연결되어 있는지 확인합니다.
+2.  Find out which disks are attached to your VM by using `azure vm disk list <virtual-machine-name>`:
 
-		$azure vm disk list UbuntuVM
-		info:    Executing command vm disk list
-		+ Fetching disk images
-		+ Getting virtual machines
-		+ Getting VM disks
-		data:    Lun  Size(GB)  Blob-Name                         OS
-		data:    ---  --------  --------------------------------  -----
-		data:         30        ubuntuVM-2645b8030676c8f8.vhd  Linux
-		data:    1    10        test.VHD
-		data:    0    30        ubuntuVM-76f7ee1ef0f6dddc.vhd
-		info:    vm disk list command OK
+        $azure vm disk list UbuntuVM
+        info:    Executing command vm disk list
+        + Fetching disk images
+        + Getting virtual machines
+        + Getting VM disks
+        data:    Lun  Size(GB)  Blob-Name                         OS
+        data:    ---  --------  --------------------------------  -----
+        data:         30        ubuntuVM-2645b8030676c8f8.vhd  Linux
+        data:    1    10        test.VHD
+        data:    0    30        ubuntuVM-76f7ee1ef0f6dddc.vhd
+        info:    vm disk list command OK
 
-3. 	분리하려는 디스크에 대한 LUN 또는 **논리 단위 번호**를 확인합니다.
+3.  Note the LUN or the **logical unit number** for the disk that you want to detach.
 
-## 디스크에 대한 운영 체제 참조 제거
+## <a name="remove-operating-system-references-to-the-disk"></a>Remove operating system references to the disk
 
-Linux 게스트에서 디스크를 분리하기 전에 디스크의 모든 파티션이 사용되고 있지는 않은지 확인해야 합니다. 다시 부팅한 후에 운영 체제가 파티션을 다시 탑재하려고 하지 않는지 확인합니다. 다음 단계를 수행하면 디스크를 [연결](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md)할 때 만들어질 수 있는 구성이 실행 취소됩니다.
+Before detaching the disk from the Linux guest, you should make sure that all partitions on the disk are not in use. Ensure that the operating system does not attempt to remount them after a reboot. These steps undo the configuration you likely created when [attaching](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md) the disk.
 
-1. `lsscsi` 명령을 사용하여 디스크 식별자를 검색합니다. `lsscsi`는 `yum install lsscsi`(Red Hat 기반 배포) 또는 `apt-get install lsscsi`(Debian 기반 배포)를 통해 설치할 수 있습니다. LUN 번호를 사용하여 원하는 디스크 식별자를 찾을 수 있습니다. 각 행의 튜플에 있는 마지막 숫자는 LUN입니다. 아래 예제에서 LUN 0은 _/dev/sdc_에 매핑됩니다.
+1. Use the `lsscsi` command to discover the disk identifier. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk identifier you are looking for by using the LUN number. The last number in the tuple in each row is the LUN. In the example below LUN 0 maps to _/dev/sdc_
 
-			ops@TestVM:~$ lsscsi
-			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
-			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
-			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
-			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
-			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+            ops@TestVM:~$ lsscsi
+            [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+            [2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+            [3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+            [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+            [5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
 
-2. `fdisk -l <disk>`를 사용하여 분리하려는 디스크와 연결된 파티션을 검색합니다.
+2. Use `fdisk -l <disk>` to discovery the partitions associated with the disk to be detached.
 3. 
-			$ sudo fdisk -l /dev/sdc
-			Disk /dev/sdc: 1098.4 GB, 1098437885952 bytes, 2145386496 sectors
-			Units = sectors of 1 * 512 = 512 bytes
-			Sector size (logical/physical): 512 bytes / 512 bytes
-			I/O size (minimum/optimal): 512 bytes / 512 bytes
-			Disk label type: dos
-			Disk identifier: 0x5a1d2a1a
+            $ sudo fdisk -l /dev/sdc          Disk /dev/sdc: 1098.4 GB, 1098437885952 bytes, 2145386496 sectors          Units = sectors of 1 * 512 = 512 bytes          Sector size (logical/physical): 512 bytes / 512 bytes          I/O size (minimum/optimal): 512 bytes / 512 bytes          Disk label type: dos          Disk identifier: 0x5a1d2a1a
 
-			   Device Boot      Start         End      Blocks   Id  System
-			/dev/sdc1            2048  2145386495  1072692224   83  Linux
+               Device Boot      Start         End      Blocks   Id  System
+            /dev/sdc1            2048  2145386495  1072692224   83  Linux
 
-3. 디스크에 대해 나열된 각 파티션을 분리합니다. 이 예제에서는 `$ sudo umount /dev/sdc1`입니다.
-4. `blkid` 명령을 사용하여 모든 파티션에 대한 UUID 검색
+3. Unmount each partition listed for the disk. In this example: `$ sudo umount /dev/sdc1`
+4. Use the `blkid` command to discovery the UUIDs for all partitions
 
-			$ sudo blkid
-			/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
-			/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
-			/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
-			/dev/sdd1: UUID="44444444-4b4b-4c4c-4d4d-4e4e4e4e4e4e" TYPE="ext4
-			
-5. **/etc/fstab** 파일에서 장치 경로 또는 분리할 디스크에 대한 모든 파티션의 UUID와 연결된 항목을 제거합니다. 이 예제에서는 해당 항목이 다음과 같을 수 있습니다.
+            $ sudo blkid
+            /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
+            /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
+            /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+            /dev/sdd1: UUID="44444444-4b4b-4c4c-4d4d-4e4e4e4e4e4e" TYPE="ext4
+            
+5. Remove entries in the **/etc/fstab** file associated with either the device paths or UUIDs for all partitions for the disk to be detached.  Entries for this example might be:
 
-		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
-또는
+        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
+or
 
-		/dev/sdc1   /datadrive   ext4   defaults   1   2
+        /dev/sdc1   /datadrive   ext4   defaults   1   2
 
 
-## 디스크 분리
+## <a name="detach-the-disk"></a>Detach the disk
 
-디스크의 LUN 번호를 찾은 후에 운영 체제 참조를 제거했으면 분리할 준비가 된 것입니다.
+After you find the LUN number of the disk and removed the operating system references, you're ready to detach it:
 
-1. 	`azure vm disk detach
- 	<virtual-machine-name> <LUN>` 명령을 실행하여 가상 컴퓨터에서 선택된 디스크를 분리합니다.
+1.  Detach the selected disk from the virtual machine by running the command `azure vm disk detach
+    <virtual-machine-name> <LUN>`:
 
-		$azure vm disk detach UbuntuVM 0
-		info:    Executing command vm disk detach
-		+ Getting virtual machines
-		+ Removing Data-Disk
-		info:    vm disk detach command OK
+        $azure vm disk detach UbuntuVM 0
+        info:    Executing command vm disk detach
+        + Getting virtual machines
+        + Removing Data-Disk
+        info:    vm disk detach command OK
 
-2. 	이 명령을 실행하여 디스크가 분리되었는지 확인할 수 있습니다.
+2.  You can check if the disk got detached by running this command:
 
-		$azure vm disk list UbuntuVM
-		info:    Executing command vm disk list
-		+ Fetching disk images
-		+ Getting virtual machines
-		+ Getting VM disks
-		data:    Lun  Size(GB)  Blob-Name                         OS
-		data:    ---  --------  --------------------------------  -----
-		data:         30        ubuntuVM-2645b8030676c8f8.vhd  Linux
-		data:    1    10        test.VHD
-		info:    vm disk list command OK
+        $azure vm disk list UbuntuVM
+        info:    Executing command vm disk list
+        + Fetching disk images
+        + Getting virtual machines
+        + Getting VM disks
+        data:    Lun  Size(GB)  Blob-Name                         OS
+        data:    ---  --------  --------------------------------  -----
+        data:         30        ubuntuVM-2645b8030676c8f8.vhd  Linux
+        data:    1    10        test.VHD
+        info:    vm disk list command OK
 
-분리된 디스크가 저장소에 남아 있지만 더 이상 가상 컴퓨터에 연결되지 않습니다.
+The detached disk remains in storage but is no longer attached to a virtual machine.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

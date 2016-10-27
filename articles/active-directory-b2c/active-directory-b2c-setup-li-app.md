@@ -1,53 +1,58 @@
 <properties
-	pageTitle="Azure Active Directory B2C: LinkedIn 구성 | Microsoft Azure"
-	description="소비자에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 LinkedIn 계정으로 등록 및 로그인 제공"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: LinkedIn configuration | Microsoft Azure"
+    description="Provide sign-up and sign-in to consumers with LinkedIn accounts in your applications that are secured by Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: 고객에게 LinkedIn 계정으로 등록 및 로그인 제공
 
-## LinkedIn 응용 프로그램 만들기
+# <a name="azure-active-directory-b2c:-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Provide sign-up and sign-in to consumers with LinkedIn accounts
 
-Azure Active Directory(Azure AD) B2C에서 LinkedIn을 ID 공급자로 사용하려면 LinkedIn 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. 이 작업을 수행하려면 LinkedIn 계정이 필요합니다. 계정이 없는 경우 [https://www.linkedin.com/](https://www.linkedin.com/)에서 가져올 수 있습니다.
+## <a name="create-a-linkedin-application"></a>Create a LinkedIn application
 
-1. [LinkedIn 개발자 웹 사이트](https://www.developer.linkedin.com/)로 이동한 다음 LinkedIn 계정 자격 증명으로 로그인합니다.
-2. 맨 위의 메뉴 모음에서 **내 앱**, **응용 프로그램 만들기**를 차례로 클릭합니다.
+To use LinkedIn as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a LinkedIn application and supply it with the right parameters. You need a LinkedIn account to do this. If you don’t have one, you can get it at [https://www.linkedin.com/](https://www.linkedin.com/).
 
-    ![LinkedIn - 새 앱](./media/active-directory-b2c-setup-li-app/linkedin-new-app.png)
+1. Go to the [LinkedIn Developers website](https://www.developer.linkedin.com/) and sign in with your LinkedIn account credentials.
+2. Click **My Apps** in the top menu bar and then click **Create Application**.
 
-3. **새 응용 프로그램 만들기** 양식에서 관련 정보를 입력합니다.(**회사 이름**, **이름**, **설명**, **응용 프로그램 로고 URL**, **응용 프로그램 사용**, **웹 사이트 URL**, **비즈니스 전자 메일** 및 **회사 전화**)
-4. **LinkedIn API 사용 조건**에 동의하고 **제출**을 클릭합니다.
+    ![LinkedIn - New app](./media/active-directory-b2c-setup-li-app/linkedin-new-app.png)
 
-    ![LinkedIn - 앱 등록](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
+3. In the **Create a New Application** form, fill in the relevant information (**Company Name**, **Name**, **Description**, **Application Logo URL**, **Application Use**, **Website URL**, **Business Email** and **Business Phone**).
+4. Agree to the **LinkedIn API Terms of Use** and click **Submit**.
 
-5. **클라이언트 ID** 및 **클라이언트 암호** 값을 복사합니다. (**인증 키** 아래에서 찾을 수 있습니다.) 테넌트에서 LinkedIn을 ID 공급자로 구성하려면 둘 다 필요합니다.
+    ![LinkedIn - Register app](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-	>[AZURE.NOTE] **클라이언트 암호**는 중요한 보안 자격 증명입니다.
+5. Copy the values of **Client ID** and **Client Secret**. (You can find them under **Authentication Keys**.) You will need both of them to configure LinkedIn as an identity provider in your tenant.
 
-6. **권한이 부여된 리디렉션 URL** 필드에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`을 입력합니다(**OAuth 2.0**). **{tenant}**를 사용자의 테넌트 이름(예: contoso.onmicrosoft.com)으로 바꿉니다. **추가**를 클릭한 후 **업데이트**를 클릭합니다. **{tenant}** 값은 대/소문자를 구분합니다.
+    >[AZURE.NOTE] **Client Secret** is an important security credential.
 
-    ![LinkedIn - 앱 설정](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
+6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized Redirect URLs** field (under **OAuth 2.0**). Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Add**, and then click **Update**. The **{tenant}** value is case-sensitive.
 
-## 테넌트에서 LinkedIn을 ID 공급자로 구성
+    ![LinkedIn - Setup app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
-3. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
-4. ID 공급자 구성에 친숙한 **이름**을 제공합니다. 예를 들어 "LI"를 입력합니다.
-5. **ID 공급자 형식**을 클릭하고 **LinkedIn**을 선택한 다음 **확인**을 클릭합니다.
-6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 LinkedIn 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 입력합니다.
-7. **확인**, **만들기**를 차례로 클릭하여 LinkedIn 구성을 저장합니다.
+## <a name="configure-linkedin-as-an-identity-provider-in-your-tenant"></a>Configure LinkedIn as an identity provider in your tenant
 
-<!---HONumber=AcomDC_0727_2016-->
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+2. On the B2C features blade, click **Identity providers**.
+3. Click **+Add** at the top of the blade.
+4. Provide a friendly **Name** for the identity provider configuration. For example, enter "LI".
+5. Click **Identity provider type**, select **LinkedIn**, and click **OK**.
+6. Click **Set up this identity provider** and enter the client ID and client secret of the LinkedIn application that you created earlier.
+7. Click **OK** and then click **Create** to save your LinkedIn configuration.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

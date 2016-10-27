@@ -1,82 +1,83 @@
 <properties
-	pageTitle="Azure AD v2.0 NodeJS 웹 API | Microsoft Azure"
-	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 NodeJS Web API를 빌드하는 방법입니다."
-	services="active-directory"
-	documentationCenter="nodejs"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD v2.0 NodeJS Web API | Microsoft Azure"
+    description="How to build a NodeJS Web API accepts tokens from both personal Microsoft Account and work or school accounts."
+    services="active-directory"
+    documentationCenter="nodejs"
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="brandwe"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="09/16/2016"
+    ms.author="brandwe"/>
 
-# node.js를 사용하여 Web API 보안 유지
+
+# <a name="secure-a-web-api-using-node.js"></a>Secure a Web API using node.js
 
 > [AZURE.NOTE]
-	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+    Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-Azure Active Directory v2.0 끝점을 사용하면 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 액세스 토큰을 사용하여 Web API를 보호함으로써 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 가진 사용자가 Web API에 안전하게 액세스할 수 있도록 합니다.
+With Azure Active Directory the v2.0 endpoint, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
 
-**Passport**는 Node.js에 대한 인증 미들웨어입니다. 매우 유연한 모듈식 Passport는 어떤 Express 기반 또는 Resitify 웹 응용 프로그램에도 원활하게 추가할 수 있습니다. 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 등을 사용하는 인증을 지원합니다. Microsoft는 Microsoft Azure Active Directory에 대한 전략을 개발했습니다. 여기서는 이 모듈을 설치하고 Microsoft Azure Active Directory `passport-azure-ad` 플러그 인을 추가하겠습니다.
+**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We will install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
-## 다운로드
-이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
+## <a name="download"></a>Download
+The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) or clone the skeleton:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
+The completed application is provided at the end of this tutorial as well.
 
 
-## 1. 앱 등록
-[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
+## <a name="1.-register-an-app"></a>1. Register an app
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
-- 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
-- 앱용 **Mobile** 플랫폼을 추가합니다.
-- 포털에서 **Redirect URI**를 복사합니다. `urn:ietf:wg:oauth:2.0:oob`의 기본값을 사용해야 합니다.
+- Copy down the **Application Id** assigned to your app, you'll need it soon.
+- Add the **Mobile** platform for your app.
+- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2: 사용자 플랫폼을 위한 node.js 다운로드
-이 샘플을 사용하려면 작동하는 Node.js 설치가 있어야 합니다.
+## <a name="2:-download-node.js-for-your-platform"></a>2: Download node.js for your platform
+To successfully use this sample, you must have a working installation of Node.js.
 
-[http://nodejs.org](http://nodejs.org)에서 Node.js를 설치합니다.
+Install Node.js from [http://nodejs.org](http://nodejs.org).
 
-## 3: 사용 중인 플랫폼에 MongoDB 설치
+## <a name="3:-install-mongodb-on-to-your-platform"></a>3: Install MongoDB on to your platform
 
-이 샘플을 사용하려면 작동하는 MongoDB 설치가 있어야 합니다. MongoDB를 사용하여 REST API가 서버 인스턴스 간에 지속되도록 할 것입니다.
+To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
 
-[http://mongodb.org](http://www.mongodb.org)에서 MongoDB를 설치합니다.
+Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] 이 연습에서는 연습 과정을 작성할 때의 MongoDB에 대한 기본 설치 및 서버 끝점인 mongodb://localhost을(를) 사용한다고 가정합니다.
+> [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
 
-## 4: Web API에 Restify 모듈 설치
+## <a name="4:-install-the-restify-modules-in-to-your-web-api"></a>4: Install the Restify modules in to your Web API
 
-Resitfy를 사용하여 REST API를 작성할 것입니다. Restify는 Connect 위에 REST API를 구축하기 위한 강력한 기능 집합이 있는 Express에서 파생된 유연한 최소 Node.js 응용 프로그램 프레임워크입니다.
+We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
 
-### Restify 설치
+### <a name="install-restify"></a>Install Restify
 
-명령줄에서 디렉터리를 azuread 디렉터리로 변경합니다. **azuread** 디렉터리가 없으면 만듭니다.
+From the command-line, change directories to the azuread directory. If the **azuread** directory does not exist, create it.
 
-`cd azuread` - 또는- `mkdir azuread;`
+`cd azuread` - or- `mkdir azuread;`
 
-다음 명령을 입력합니다.
+Type the following command:
 
 `npm install restify`
 
-이 명령은 Restify를 설치합니다.
+This command installs Restify.
 
-#### 오류가 발생했나요?
+#### <a name="did-you-get-an-error?"></a>Did you get an error?
 
-일부 운영 체제에서 rpm을 사용할 때 Error: EPERM, chmod '/usr/local/bin/..' 오류 메시지와 관리자 계정으로 실행하라는 요청이 표시될 수 있습니다. 이런 경우 sudo 명령을 사용하여 더 높은 권한 수준으로 npm을 실행하세요.
+When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..' and a request to try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
 
-#### DTrace 관련 오류가 발생했나요?
+#### <a name="did-you-get-an-error-regarding-dtrace?"></a>Did you get an error regarding DTrace?
 
-Restify를 설치할 때 다음과 같은 내용이 표시될 수 있습니다.
+You may see something like this when installing Restify:
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -96,63 +97,63 @@ npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 ```
 
 
-Restify는 DTrace를 사용하여 REST 호출을 추적하는 강력한 메커니즘을 제공합니다. 그러나 대부분의 운영 체제에서는 DTrace를 사용할 수 없습니다. 이러한 오류는 무시해도 됩니다.
+Restify provides a powerful mechanism to trace REST calls using DTrace. However, many operating systems do not have DTrace available. You can safely ignore these errors.
 
 
-이 명령의 출력은 다음과 유사합니다.
+The output of this command should appear similar to the following:
 
 
-	restify@2.6.1 node_modules/restify
-	├── assert-plus@0.1.4
-	├── once@1.3.0
-	├── deep-equal@0.0.0
-	├── escape-regexp-component@1.0.2
-	├── qs@0.6.5
-	├── tunnel-agent@0.3.0
-	├── keep-alive-agent@0.0.1
-	├── lru-cache@2.3.1
-	├── node-uuid@1.4.0
-	├── negotiator@0.3.0
-	├── mime@1.2.11
-	├── semver@2.2.1
-	├── spdy@1.14.12
-	├── backoff@2.3.0
-	├── formidable@1.0.14
-	├── verror@1.3.6 (extsprintf@1.0.2)
-	├── csv@0.3.6
-	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0(mv@0.0.5)
+    restify@2.6.1 node_modules/restify
+    ├── assert-plus@0.1.4
+    ├── once@1.3.0
+    ├── deep-equal@0.0.0
+    ├── escape-regexp-component@1.0.2
+    ├── qs@0.6.5
+    ├── tunnel-agent@0.3.0
+    ├── keep-alive-agent@0.0.1
+    ├── lru-cache@2.3.1
+    ├── node-uuid@1.4.0
+    ├── negotiator@0.3.0
+    ├── mime@1.2.11
+    ├── semver@2.2.1
+    ├── spdy@1.14.12
+    ├── backoff@2.3.0
+    ├── formidable@1.0.14
+    ├── verror@1.3.6 (extsprintf@1.0.2)
+    ├── csv@0.3.6
+    ├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
+    └── bunyan@0.22.0(mv@0.0.5)
 
 
-## 5: Web API에 Passport.js 설치
+## <a name="5:-install-passport.js-into-your-web-api"></a>5: Install Passport.js into your Web API
 
-[Passport](http://passportjs.org/)는 Node.js에 대한 인증 미들웨어입니다. 매우 유연한 모듈식 Passport는 어떤 Express 기반 또는 Resitify 웹 응용 프로그램에도 원활하게 추가할 수 있습니다. 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 등을 사용하는 인증을 지원합니다. Microsoft는 Azure Active Directory에 대한 전략을 개발했습니다. 여기서는 이 모듈을 설치하고 Azure Active Directory 전략 플러그 인을 추가해 보겠습니다.
+[Passport](http://passportjs.org/) is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory. We will install this module and then add the Azure Active Directory strategy plug-in.
 
-명령줄에서 디렉터리를 azuread 디렉터리로 변경합니다.
+From the command-line, change directories to the azuread directory.
 
-다음 명령을 입력하여 passport.js를 설치합니다.
+Enter the following command to install passport.js
 
 `npm install passport`
 
-이 명령의 출력은 다음과 유사하게 표시됩니다.
+The output of the commadn should appear similar to the following:
 
-	passport@0.1.17 node_modules\passport
-	├── pause@0.0.1
-	└── pkginfo@0.2.3
+    passport@0.1.17 node_modules\passport
+    ├── pause@0.0.1
+    └── pkginfo@0.2.3
 
-## 6: Web API에 Passport-Azure-AD 추가
+## <a name="6:-add-passport-azure-ad-to-your-web-api"></a>6: Add Passport-Azure-AD to your Web API
 
-Passport와 Azure Active Directory를 연결하는 전략 모음인 passport-azuread를 사용하여 OAuth 전략을 추가하겠습니다. 이 Rest API 샘플에서는 이 전략을 전달자 토큰으로 사용합니다.
+Next, we will add the OAuth strategy, using passport-azuread, a suite of strategies that connect Azure Active Directory with  Passport. We will use this strategy for Bearer Tokens in this Rest API sample.
 
-> [AZURE.NOTE] OAuth2는 알려진 모든 토큰 유형이 발급될 수 있는 프레임워크를 제공하지만 특정 토큰 유형만 일반적으로 사용할 수 있습니다. 끝점 보호를 위해 이러한 토큰 유형은 전달자 토큰으로 확인되었습니다. 전달자 토큰은 OAuth2에서 가장 널리 발급되는 토큰 유형이며 많은 구현에서는 발급되는 유일한 토큰 유형이 전달자 토큰이라고 가정합니다.
+> [AZURE.NOTE] Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained wide-spread use. For protecting endpoints, that has turned out to be Bearer Tokens. Bearer tokens are the most widely issued type of token in OAuth2, and many implementations assume that bearer tokens are the only type of token issued.
 
-명령줄에서 디렉터리를 azuread 디렉터리로 변경합니다.
+From the command-line, change directories to the azuread directory
 
-다음 명령을 입력하여 Passport.js passport-azure-ad 모듈을 설치합니다.
+Type the following command to install Passport.js passport-azure-ad module:
 
 `npm install passport-azure-ad`
 
-이 명령의 출력은 다음과 유사하게 표시됩니다.
+The output of the command should appear similar to the following:
 
 ``
 passport-azure-ad@1.0.0 node_modules/passport-azure-ad
@@ -169,25 +170,25 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
 ``
 
-## 7: Web API에 MongoDB 모듈 추가
+## <a name="7:-add-mongodb-modules-to-your-web-api"></a>7: Add MongoDB modules to your Web API
 
-MongoDB를 데이터 저장소로 사용할 예정입니다. 따라서 널리 사용되는 두 플러그 인을 설치해야 합니다. 하나는 모델 및 스키마를 관리하기 위한 Mongoose 플러그 인이고 다른 하나는 MongoDB용 데이터베이스 드라이버인 MongoDB 플러그 인입니다.
+We will be using MongoDB as our datastore For that reason, we need to install both the widely used plug-in to manage models and schemas called Mongoose, as well as the database driver for MongoDB, also called MongoDB.
 
 
 * `npm install mongoose`
 * `npm install mongodb`
 
-## 8: 추가 모듈 설치
+## <a name="8:-install-additional-modules"></a>8: Install additional modules
 
-다음에는 나머지 필수 모듈을 설치합니다.
+Next, we'll install the remaining required modules.
 
 
-아직 디렉터리를 변경하지 않았으면 명령줄에서 디렉터리를 **azuread** 폴더로 변경합니다.
+From the command-line, change directories to the **azuread** folder if not already there:
 
 `cd azuread`
 
 
-다음 명령을 입력하여 node\_modules 디렉터리에 다음 모듈을 설치합니다.
+Enter the following commands to install the following modules in your node_modules directory:
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -210,15 +211,15 @@ MongoDB를 데이터 저장소로 사용할 예정입니다. 따라서 널리 �
 * `npm update`
 
 
-## 9: 종속성을 적용하여 server.js 만들기
+## <a name="9:-create-a-server.js-with-your-dependencies"></a>9: Create a server.js with your dependencies
 
-server.js 파일이 Web API 서버의 기능 대부분을 제공하게 됩니다. 이 파일에 대부분의 코드를 추가할 것입니다. 프로덕션 목적으로, 기능을 별도 경로 및 컨트롤러와 같은 좀 더 작은 파일로 리팩터링합니다. 이 데모의 목적에 맞게 이 기능을 위해 server.js를 사용합니다.
+The server.js file will be providing the majority of our functionality for our Web API server. We will be adding most of our code to this file. For production purposes you would refactor the functionality in to smaller files, such as separate routes and controllers. For the purpose of this demo we will use server.js for this functionality.
 
-아직 디렉터리를 변경하지 않았으면 명령줄에서 디렉터리를 **azuread** 폴더로 변경합니다.
+From the command-line, change directories to the **azuread** folder if not already there:
 
 `cd azuread`
 
-즐겨 사용하는 편집기에서 `server.js` 파일을 만들고 다음 정보를 추가합니다.
+Create a `server.js` file in our favorite editor and add the following information:
 
 ```Javascript
 'use strict';
@@ -235,18 +236,18 @@ var passport = require('passport');
 var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
 ```
 
-파일을 저장합니다. 잠시 후에 이 파일로 다시 돌아갈 것입니다.
+Save the file. We will return to it shortly.
 
-## 10: Azure AD 설정을 저장하기 위한 구성 파일 만들기
+## <a name="10:-create-a-config-file-to-store-your-azure-ad-settings"></a>10: Create a config file to store your Azure AD settings
 
-이 코드 파일은 Azure Active Directory 포털의 구성 매개 변수를 Passport.js에 전달합니다. 이 연습의 첫 번째 부분에서 포털에 Web API를 추가했을 때 이러한 구성 값을 만들었습니다. 코드를 복사한 후에 이러한 매개 변수 값에 추가할 항목에 대해 설명할 것입니다.
+This code file passes the configuration parameters from your Azure Active Directory Portal to Passport.js. You created these configuration values when you added the Web API to the portal in the first part of the walkthrough. We will explain what to put in the values of these parameters after you've copied the code.
 
 
-아직 디렉터리를 변경하지 않았으면 명령줄에서 디렉터리를 **azuread** 폴더로 변경합니다.
+From the command-line, change directories to the **azuread** folder if not already there:
 
 `cd azuread`
 
-즐겨 사용하는 편집기에서 `config.js` 파일을 만들고 다음 정보를 추가합니다.
+Create a `config.js` file in our favorite editor and add the following information:
 
 ```Javascript
 // Don't commit this file to your public repos. This config is for first-run
@@ -261,30 +262,30 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 
 
-### 필요한 값
+### <a name="required-values"></a>Required Values
 
-*IdentityMetadata*: passport-azure-ad는 여기서 IdP에 대한 구성 데이터와 JWT 토큰의 유효성을 검사할 키를 찾습니다. Azure Active Directory를 사용하는 경우 이 값을 변경하지 않는 것이 좋습니다.
+*IdentityMetadata*: This is where passport-azure-ad will look for your configuration data for the IdP as well as the keys to validate the JWT tokens. You probably do not want to change this if using Azure Active Directory.
 
-*audience*: 포털에서의 리디렉션 URI입니다.
+*audience*: Your redirect URI from the portal.
 
 > [AZURE.NOTE]
-키는 자주 롤링됩니다. 항상 "openid\_keys" URL에서 끌어오고 있으며 앱에서 인터넷에 액세스할 수 있는지 확인하세요.
+We roll our keys at frequent intervals. Please ensure that you are always pulling from the "openid_keys" URL and that the app can access the internet.
 
 
-## 11: server.js 파일에 구성 추가
+## <a name="11:-add-configuration-to-your-server.js-file"></a>11: Add configuration to your server.js file
 
-응용 프로그램에서 방금 만든 구성 파일로부터 이러한 값을 읽어야 합니다. 이를 위해 응용 프로그램에 필수 리소스로 .config 파일을 추가하고 전역 변수를 config.js 문서의 변수로 설정합니다.
+We need to read these values from the Config file you just created across our application. To do this, we simply add the .config file as a required resource in our application and then set the global variables to those in the config.js document
 
-아직 디렉터리를 변경하지 않았으면 명령줄에서 디렉터리를 **azuread** 폴더로 변경합니다.
+From the command-line, change directories to the **azuread** folder if not already there:
 
 `cd azuread`
 
-즐겨 사용하는 편집기에서 `server.js` 파일을 열고 다음 정보를 추가합니다.
+Open your `server.js` file in our favorite editor and add the following information:
 
 ```Javascript
 var config = require('./config');
 ```
-그 다음에 다음 코드를 사용하여 `server.js`에 새 섹션을 추가합니다.
+Then, add a new section to `server.js` with the following code:
 
 ```Javascript
 // We pass these options in to the ODICBearerStrategy.
@@ -303,36 +304,36 @@ name: 'Microsoft Azure Active Directory Sample'
 });
 ```
 
-## 12단계: Moongoose를 사용하여 MongoDB 모델 및 스키마 정보 추가
+## <a name="step-12:-add-the-mongodb-model-and-schema-information-using-moongoose"></a>Step 12: Add The MongoDB Model and Schema Information using Moongoose
 
-이제 이러한 세 개의 파일이 하나의 REST API 서비스에 통합되었으므로 이러한 모든 준비 과정을 마무리할 때가 되었습니다.
+Now all this preparation is going to start paying off as we wind these three files together in to a REST API service.
 
-이 연습에서는 ***4단계***에 설명된 것처럼 MongoDB를 사용하여 작업을 저장할 것입니다.
+For this walkthrough we will be using MongoDB to store our Tasks as discussed in ***Step 4***.
 
-11단계에서 만든 config.js 파일에서 기억할 수 있는 것처럼 mogoose\_auth\_local 연결 URL의 끝에 추가했던 데이터베이스 *tasklist*를 호출했습니다. 서버 응용 프로그램을 처음 실행할 때 생성되므로(존재하지 않을 경우) MongoDB에서 이 데이터베이스를 미리 만들 필요는 없습니다.
+If you recall from the config.js file we created in Step 11, we called our database *tasklist*, as that was what we put at the end of our mogoose_auth_local connection URL. You don't need to create this database beforehand in MongoDB, it will create this for us on first run of our server application (assuming it does not already exist).
 
-사용하려는 MongoDB 데이터베이스를 서버에 알렸으므로 일부 추가 코드를 작성하여 서버 작업에 대한 모델 및 스키마를 만들어야 합니다.
+Now that we've told the server what MongoDB database we'd like to use, we need to write some additional code to create the model and schema for our server's Tasks.
 
-#### 모델에 대한 논의
+#### <a name="discussion-of-the-model"></a>Discussion of the model
 
-스키마 모델은 매우 간단하며 필요에 따라 확장할 수 있습니다.
+Our Schema model is very simple, and you expand it as required.
 
-NAME - 작업에 할당된 사람의 이름입니다. ***String***
+NAME - The name of who is assigned to the task. A ***String***
 
-TASK - 작업 자체입니다. ***String***
+TASK - The task itself. A ***String***
 
-DATE - 작업이 만료되는 날짜입니다. ***DATETIME***
+DATE - The date that the task is due. A ***DATETIME***
 
-COMPLETED - 작업이 완료되었는지 여부입니다. ***BOOLEAN***
+COMPLETED - If the Task is completed or not. A ***BOOLEAN***
 
-#### 코드에 스키마 만들기
+#### <a name="creating-the-schema-in-the-code"></a>Creating the schema in the code
 
 
-아직 디렉터리를 변경하지 않았으면 명령줄에서 디렉터리를 **azuread** 폴더로 변경합니다.
+From the command-line, change directories to the **azuread** folder if not already there:
 
 `cd azuread`
 
-즐겨 사용하는 편집기에서 `server.js` 파일을 열고 구성 항목 아래에 다음 정보를 추가합니다.
+Open your `server.js` file in our favorite editor and add the following information below the configuration entry:
 
 ```Javascript
 // MongoDB setup
@@ -344,11 +345,11 @@ global.db = mongoose.connect(serverURI);
 var Schema = mongoose.Schema;
 log.info('MongoDB Schema loaded');
 ```
-이렇게 하면 MongoDB 서버에 연결되고 스키마 개체가 다시 전달됩니다.
+This will connect to the MongoDB server and hand back a Schema object to us.
 
-#### 스키마를 사용하여 코드에서 모델 만들기
+#### <a name="using-the-schema,-create-our-model-in-the-code"></a>Using the Schema, create our model in the code
 
-위에서 작성한 코드 아래에 다음 코드를 추가합니다.
+Below the code you wrote above, add the following code:
 
 ```Javascript
 // Here we create a schema to store our tasks and users. Pretty simple schema for now.
@@ -362,17 +363,17 @@ date: Date
 mongoose.model('Task', TaskSchema);
 var Task = mongoose.model('Task');
 ```
-코드에서 알 수 있듯이 스키마를 만든 다음, ***Routes***를 정의할 때 코드 전체에서 데이터를 저장하는 데 사용할 모델 개체를 만듭니다.
+As you can tell from the code, we create our Schema and then create a model object we will use to store our data throughout the code when we define our ***Routes***.
 
-## 13단계: Task REST API 서버에 대한 경로 추가
+## <a name="step-13:-add-our-routes-for-our-task-rest-api-server"></a>Step 13: Add our Routes for our Task REST API server
 
-작업할 데이터베이스 모델이 준비되었으므로 REST API 서버에 사용할 경로를 추가하겠습니다.
+Now that we have a database model to work with, let's add the routes we will use for our REST API server.
 
-### Restify의 경로 정보
+### <a name="about-routes-in-restify"></a>About Routes in Restify
 
-경로는 Express 스택을 사용할 때와 정확히 동일한 방식으로 Restify에서 작동합니다. 클라이언트 응용 프로그램이 호출할 것으로 예상하는 URI를 사용하여 경로를 정의합니다. 일반적으로 경로는 별도 파일에 정의합니다. 여기서는 경로를 server.js 파일에 저장할 것입니다. 프로덕션 사용을 위해서는 자체 파일에서 이러한 경로를 팩터링하는 것이 좋습니다.
+Routes work in Restify in the exact same way they do using the Express stack. You define routes using the URI that you expect the client applicaitons to call. Usually, you define your routes in a separate file. For our purposes, we will put our routes in the server.js file. We recommend you factor these in to their own file for production use.
 
-Restify 경로의 일반적인 패턴:
+A typical pattern for a Restify Route is:
 
 ```Javascript
 function createObject(req, res, next) {
@@ -386,17 +387,17 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 ```
 
 
-가장 기본적인 수준의 패턴입니다. Resitfy(및 Express)는 응용 프로그램 유형 정의 및 여러 다른 끝점에서 복잡한 라우팅 수행 등의 훨씬 더 수준 높은 기능을 제공합니다. 여기서는 이러한 경로를 매우 간단하게 유지할 것입니다.
+This is the pattern at the most basic level. Resitfy (and Express) provide much deeper functionaltiy such as defining application types and doing complex routing across different endpoints. For our purposes, we will keep these routes very simply.
 
-#### 서버에 기본 경로 추가
+#### <a name="add-default-routes-to-our-server"></a>Add default routes to our server
 
-이제 만들기, 검색, 업데이트 및 삭제의 기본 CRUD 경로를 추가할 것입니다.
+We will now add the basic CRUD routes of Create, Retrieve, Update, and Delete.
 
-아직 디렉터리를 변경하지 않았으면 명령줄에서 디렉터리를 **azuread** 폴더로 변경합니다.
+From the command-line, change directories to the **azuread** folder if not already there:
 
 `cd azuread`
 
-즐겨 사용하는 편집기에서 `server.js` 파일을 열고 위에서 작성한 데이터베이스 항목 아래에 다음 정보를 추가합니다.
+Open your `server.js` file in our favorite editor and add the following information below the database entries you made above:
 
 ```Javascript
 /**
@@ -498,11 +499,11 @@ return next();
 }
 ```
 
-### 경로에 대한 일부 오류 처리 추가
+### <a name="add-some-error-handling-for-the-routes"></a>Add some error handling for the routes
 
-발생한 문제를 클라이언트가 이해할 수 있는 방식으로 다시 전달할 수 있도록 일부 오류 처리를 추가할 수 있습니다.
+It makes sense to add some error handling so we can communicate back to the client the problem we encountered in a way it can understand.
 
-위에서 작성한 코드 아래에 다음 코드를 추가합니다.
+Add the following code underneath the code you've written above:
 
 ```Javascript
 ///--- Errors for communicating something interesting back to the client
@@ -541,11 +542,11 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-## 14단계: 서버 만들기
+## <a name="step-14:-create-your-server!"></a>Step 14: Create your Server!
 
-데이터베이스를 정의했으며 경로가 올바르게 지정되었으므로 마지막으로 호출을 관리하는 서버 인스턴스를 추가할 것입니다.
+We have our database defined, we have our routes in place, and the last thing to do is add our server instance that will manage our calls.
 
-Restify(및 Express)는 REST API 서버에 대해 사용자가 수행할 수 있는 고급 사용자 지정 기능을 많이 제공하지만 여기서는 가장 기본적인 설정만 사용할 것입니다.
+Restify (and Express) have a lot of deep customization you can do for a REST API server, but again we will use the most basic setup for our purposes.
 
 ```Javascript
 /**
@@ -578,7 +579,7 @@ server.use(restify.bodyParser({
 mapParams: true
 }));
 ```
-## 15: 경로 추가(지금은 인증 없이)
+## <a name="15:-adding-the-routes-(without-authentication-for-now)"></a>15: Adding the routes (without authentication for now)
 
 ```Javascript
 /// Now the real handlers. Here we just CRUD
@@ -629,23 +630,24 @@ consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? 
 consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 });
 ```
-## 16: OAuth 지원을 추가하기 전에 서버를 실행하겠습니다.
+## <a name="16:-before-we-add-oauth-support,-let's-run-the-server."></a>16: Before we add OAuth support, let's run the server.
 
-인증을 추가하기 전에 서버 테스트
+Test out your server before we add authentication
 
-이를 위한 가장 쉬운 방법은 명령줄에서 durl을 사용하는 것입니다. 이 작업을 수행하기 전에 JSON처럼 출력을 구문 분석할 수 있도록 하는 간단한 유틸리티가 필요합니다. 이를 위해 json 도구를 설치합니다. 이 도구는 아래의 모든 예제에서 사용됩니다.
+The easiest way to do this is by using curl in a command line. Before we do that, we need a simple utility that allows us to parse output as JSON. To do that, install the json tool as all the examples below use that.
 
 `$npm install -g jsontool`
 
-이렇게 하면 JSON 도구가 전역적으로 설치됩니다. 이 작업은 완료했으므로 서버 작업을 진행하겠습니다.
+This installs the JSON tool globally. Now that we’ve accomplished that – let’s play with the server:
 
-먼저 monogoDB 인스턴스가 실행되고 있는지 확인합니다.
+First, make sure that your monogoDB isntance is running..
 
 `$sudo mongod`
 
-그런 다음 해당 디렉터리로 변경하고 curl을 시작합니다.
+Then, change to the directory and start curling..
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread`
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -666,11 +668,11 @@ Date: Tue, 14 Jul 2015 05:43:38 GMT
 ]
 ```
 
-그런 다음 다음과 같은 방식으로 작업을 추가할 수 있습니다.
+Then, we can add a task this way:
 
 `$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`
 
-응답은 다음과 같습니다.
+The response should be:
 
 ```Shell
 HTTP/1.1 201 Created
@@ -682,27 +684,27 @@ Content-Length: 5
 Date: Tue, 04 Feb 2014 01:02:26 GMT
 Hello
 ```
-또한 다음 방식으로 Brandon에 대한 작업을 나열할 수 있습니다.
+And we can list tasks for Brandon this way:
 
 `$ curl -isS http://127.0.0.1:8080/tasks/brandon/`
 
-이러한 모든 작업이 수행되면 REST API 서버에 OAuth를 추가할 준비가 완료된 것입니다.
+If all this works out, we are ready to add OAuth to the REST API server.
 
-**MongoDB를 사용하는 REST API 서버가 완료되었습니다.**
+**You have a REST API server with MongoDB!**
 
-## 17: REST API 서버에 인증 추가
+## <a name="17:-add-authentication-to-our-rest-api-server"></a>17: Add Authentication to our REST API Server
 
-작동하는 REST API를 만들었으므로 이제 Azure AD에서 유용하게 사용할 수 있게 만들어 보겠습니다.
+Now that we have a running REST API (congrats, btw!) let's get to making it useful against Azure AD.
 
-아직 디렉터리를 변경하지 않았으면 명령줄에서 디렉터리를 **azuread** 폴더로 변경합니다.
+From the command-line, change directories to the **azuread** folder if not already there:
 
 `cd azuread`
 
-### 1: passport-azure-ad에 포함된 oidcbearerstrategy 사용
+### <a name="1:-use-the-oidcbearerstrategy-that-is-included-with-passport-azure-ad"></a>1: Use the oidcbearerstrategy that is included with passport-azure-ad
 
-지금까지 권한 부여 없이 일반적인 REST TODO 서버를 빌드했습니다. 이 지점에서 통합 작업을 시작합니다.
+So far we have built a typical REST TODO server without any kind of authorization. This is where we start putting that together.
 
-먼저, Passport를 사용하도록 지정해야 합니다. 다른 서버 구성 바로 뒤에 이 코드를 추가합니다.
+First, we need to indicate that we want to use Passport. Put this right after your other server configuration:
 
 ```Javascript
 // Let's start using Passport.js
@@ -712,9 +714,9 @@ server.use(passport.session()); // Provides session support
 ```
 
 > [AZURE.TIP]
-API를 작성하는 경우 항상 사용자가 스푸핑할 수 없는 토큰의 고유한 항목에 데이터를 연결해야 합니다. 이 서버는 TODO 항목을 저장할 때 "owner" 필드에 넣은 토큰의 사용자 구독 ID(token.sub라고 함)를 기준으로 항목을 저장합니다. 이렇게 하면 해당 사용자만 자신의 TODO에 액세스할 수 있고 다른 사용자는 입력된 TODO에 액세스할 수 없습니다. API에 "owner"가 노출되지 않으므로 외부 사용자가 인증된 경우에도 다른 사용자의 TODO를 요청할 수 있습니다.
+When writing APIs you should always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the subscription ID of the user in the token (called through token.sub) which we put in the “owner” field. This ensures that only that user can access his TODOs and no one else can access the TODOs entered. There is no exposure in the API of “owner” so an external user can request other’s TODOs even if they are authenticated.
 
-다음에는 passport-azure-ad에 포함된 Open ID Connect 전달자 전략을 사용하겠습니다. 지금은 코드만 살펴보고 곧 설명하겠습니다. 위에서 붙여 넣은 코드 뒤에 이 코드를 넣습니다.
+Next, let’s use the Open ID Connect Bearer strategy that comes with passport-azure-ad. Just look at the code for now, I’ll explain it shortly. Put this after what you pated above:
 
 ```Javascript
 /**
@@ -759,16 +761,16 @@ return done(null, user, token);
 passport.use(oidcStrategy);
 ```
 
-Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 전략(Twitter, Facebook 등)에 대해 사용합니다. 전략을 보면 토큰 및 완료가 매개 변수로 포함된 function()이 전달되는 것을 확인할 수 있습니다. 전략은 모든 작업을 수행한 후 돌아옵니다. 전략이 돌아오면 사용자를 저장하고 토큰을 다시 요청할 필요가 없도록 보관하려 합니다.
+Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, etc.) that all Strategy writers adhere to. Looking at the strategy you see we pass it a function() that has a token and a done as the parameters. The strategy will dutifully come back to us once it does all it’s work. Once it does we’ll want to store the user and stash the token so we won’t need to ask for it again.
 
 > [AZURE.IMPORTANT]
-위 코드는 서버에 인증하는 모든 사용자를 사용합니다. 이를 자동 등록이라고 합니다. 프로덕션 서버에서는 결정한 등록 프로세스를 먼저 통과해야만 사용자 액세스를 허용하려 합니다. 일반적으로 이는 Facebook으로 등록할 수 있도록 하지만 추가 정보를 입력하도록 요구하는 소비자 앱에서 나타나는 패턴입니다. 명령줄 프로그램이 아니라면 반환된 토큰 개체에서 메일을 추출하고 추가 정보를 입력하도록 요구할 수 있습니다. 테스트 서버이므로 메모리 내 데이터베이스에 추가합니다.
+The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command line program, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
 
-### 2. 마지막으로 일부 끝점 보호
+### <a name="2.-finally,-protect-some-endpoints"></a>2. Finally, protect some endpoints
 
-사용하려는 프로토콜을 통해 passport.authenticate() 호출을 지정하여 끝점을 보호합니다.
+You protect endpoints by specifying the passport.authenticate() call with the protocol you wish to use.
 
-서버 코드에서 경로를 편집하여 좀더 흥미로운 작업을 수행해 보겠습니다.
+Let’s edit our route in our server code to do something more interesting:
 
 ```Javascript
 server.get('/tasks', passport.authenticate('oidc-bearer', {
@@ -806,20 +808,20 @@ next();
 });
 ```
 
-## 18: 서버 응용 프로그램을 다시 실행하고 사용자를 거부하는지 확인
+## <a name="18:-run-your-server-application-again-and-ensure-it-rejects-you"></a>18: Run your server application again and ensure it rejects you
 
-`curl`을 다시 사용하여 끝점에 대해 OAuth2 보호가 적용되는지 확인해 보겠습니다. 이 끝점에 대해 클라이언트 SDK 중 하나를 실행하기 전에 이 작업을 수행할 것입니다. 반환되는 헤더에는 올바른 경로를 따르고 있음을 알려줄 수 있는 충분한 정보가 포함되어야 합니다.
+Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We will do this before runnning any of our client SDKs against this endpoint. The headers returned should be enough to tell us we are down the right path.
 
-먼저 monogoDB 인스턴스가 실행되고 있는지 확인합니다.
+First, make sure that your monogoDB isntance is running..
 
-	$sudo mongod
+    $sudo mongod
 
-그런 다음 해당 디렉터리로 변경하고 curl을 시작합니다.
+Then, change to the directory and start curling..
 
-	$ cd azuread
-	$ node server.js
+    $ cd azuread
+    $ node server.js
 
-기본 POST를 시도합니다.
+Try a basic POST:
 
 `$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
@@ -831,31 +833,35 @@ Date: Tue, 14 Jul 2015 05:45:03 GMT
 Transfer-Encoding: chunked
 ```
 
-여기서 찾아야 하는 응답은 원하던 것처럼 Passport 계층이 끝점을 인증하기 위해 리디렉션하려고 함을 나타내는 401입니다.
+A 401 is the response you are looking for here, as that indicates that the Passport layer is trying to redirect to the authorize endpoint, which is exactly what you want.
 
 
-## 축하합니다. OAuth2를 사용하는 REST API Service가 완료되었습니다.
+## <a name="congratulations!-you-have-a-rest-api-service-using-oauth2!"></a>Congratulations! You have a REST API Service using OAuth2!
 
-OAuth2 호환 클라이언트를 사용하지 않고 이 서버로 수행할 수 있는 작업은 모두 완료했습니다. 이제 추가 연습 과정을 진행해야 합니다.
+You've went as far as you can with this server without using an OAuth2 compatible client. You will need to go through an additional walkthrough.
 
-Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정보만 원한다면 지금까지 제공된 코드만으로도 서비스를 계속 개발하고 이 예제의 빌드 방법을 계속 배울 수 있습니다.
+If you were just looking for information on how to implement a REST API using Restify and OAuth2, you have more than enough code to keep developing your service and learning how to build on this example.
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
+For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip), or you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-이제 좀 더 고급 항목으로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다.
+You can now move onto more advanced topics.  You may want to try:
 
-[V 2.0 끝점을 사용하여 Node.js 웹앱의 보안 유지 >>](active-directory-v2-devquickstarts-node-web.md)
+[Secure a Node.js web app using the v2.0 endpoint >>](active-directory-v2-devquickstarts-node-web.md)
 
-추가 리소스는 다음을 확인해보세요.
-- [개발자 가이드 v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+For additional resources, check out:
+- [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## 당사 제품에 대한 보안 업데이트 가져오기
+## <a name="get-security-updates-for-our-products"></a>Get security updates for our products
 
-[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

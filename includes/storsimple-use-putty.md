@@ -1,33 +1,35 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### 직렬 콘솔을 통해 연결하려면
+#### <a name="to-connect-through-the-serial-console"></a>To connect through the serial console
 
-1. 직렬 케이블을 직접 장치에 연결하거나 USB 직렬 어댑터를 통해 연결합니다.
+1. Connect your serial cable to the device (directly or through a USB-serial adapter).
 
-2. **제어판**, **장치 관리자**를 차례로 엽니다.
+2. Open the **Control Panel**, and then open the **Device Manager**.
 
-3. 다음 그림에 표시된 대로 COM 포트를 식별합니다.
+3. Identify the COM port as shown in the following illustration.
 
-     ![직렬 콘솔을 통해 연결](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Connecting through serial console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
-4. PuTTY를 시작합니다.
+4. Start PuTTY. 
 
-5. 오른쪽 창에서 **연결 유형**을 **직렬**로 변경합니다.
+5. In the right pane, change the **Connection type** to **Serial**.
 
-6. 오른쪽 창에 적절한 COM 포트를 입력합니다. 직렬 구성 매개 변수가 아래와 같이 설정되었는지 확인합니다.
-  - 속도: 115,200
-  - 데이터 비트: 8
-  - 정지 비트: 1
-  - 패리티: 없음
-  - 흐름 제어: 없음
+6. In the right pane, type the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
+  - Speed: 115,200
+  - Data bits: 8
+  - Stop bits: 1
+  - Parity: None
+  - Flow control: None
 
-    다음 그림에 이러한 설정이 나와 있습니다.
+    These settings are shown in the following illustration.
 
-     ![PuTTY 설정](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
+     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
-    > [AZURE.NOTE]기본 흐름 제어 설정이 작동하지 않으면 흐름 제어를 XON/XOFF로 설정합니다.
+    > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
 
-7. **열기**를 클릭하여 직렬 세션을 시작합니다.
+7. Click **Open** to start a serial session.
  
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

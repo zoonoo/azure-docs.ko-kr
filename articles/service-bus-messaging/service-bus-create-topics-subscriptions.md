@@ -1,29 +1,30 @@
 <properties 
     pageTitle="Service Bus 토픽 및 구독을 사용하는 응용 프로그램 만들기 | Microsoft Azure"
     description="Service Bus 토픽 및 구독에서 제공하는 게시-구독 기능 소개입니다."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/21/2016"
+    ms.date="10/04/2016"
     ms.author="sethm" />
 
-# Service Bus 토픽 및 구독을 사용하는 응용 프로그램 만들기
+
+# <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독을 사용하는 응용 프로그램 만들기
 
 Azure 서비스 버스는 신뢰할 수 있는 메시지 큐 및 지속형 게시/구독 메시징을 포함하여 클라우드 기반, 메시지 지향 미들웨어 기술 집합을 지원합니다. 이 문서는 [Service Bus 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서 제공한 정보를 바탕으로 하며 Service Bus 토픽에서 제공하는 게시/구독 기능을 소개합니다.
 
-## 유통업 확장 시나리오
+## <a name="evolving-retail-scenario"></a>유통업 확장 시나리오
 
-이 문서에서는 [서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서 사용한 유통업 시나리오를 계속 사용합니다. 개별 POS 터미널의 판매 데이터가 재고 관리 시스템으로 전달되어 재고 보충 시점을 판단하는 데 사용되는 상황을 다시 떠올려 보겠습니다. 각 POS 터미널은 **DataCollectionQueue** 큐에 메시지를 보내 판매 데이터를 보고합니다. 아래와 같이 재고 관리 시스템에서 수신할 때까지 이 큐에 남아 있게 됩니다.
+이 문서에서는 [Service Bus 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서 사용한 유통업 시나리오를 계속 사용합니다. 개별 POS 터미널의 판매 데이터가 재고 관리 시스템으로 전달되어 재고 보충 시점을 판단하는 데 사용되는 상황을 다시 떠올려 보겠습니다. 각 POS 터미널은 **DataCollectionQueue** 큐에 메시지를 보내 판매 데이터를 보고합니다. 아래와 같이 인벤토리 관리 시스템에서 수신할 때까지 이 큐에 남아 있게 됩니다.
 
-![Service-Bus1](./media/service-bus-create-topics-subscriptions/IC657161.gif)
+![Service Bus 1](./media/service-bus-create-topics-subscriptions/IC657161.gif)
 
 이 시나리오를 확대하기 위해 새로운 요구 사항을 시스템에 추가했습니다. 즉 매장 소유자가 실시간으로 매장 운영을 모니터링하고자 합니다.
 
@@ -35,25 +36,25 @@ Azure 서비스 버스는 신뢰할 수 있는 메시지 큐 및 지속형 게�
 
 유통업 시나리오를 다시 생각해보면 큐를 토픽이 대체하며, 재고 관리 시스템 구성 요소에서 사용할 수 있는 구독을 추가할 수 있습니다. 이제 시스템은 다음과 같이 나타납니다.
 
-![Service-Bus2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
+![Service Bus 2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
-여기서의 구성은 이전 큐 기반 디자인과 동일하게 수행됩니다. 즉, 토픽에 보내는 메시지가 **재고** 구독으로 전달되어 **재고 관리 시스템**에서 이를 소비하게 됩니다.
+여기서의 구성은 이전 큐 기반 디자인과 동일하게 수행됩니다. 즉, 토픽에 보내는 메시지가 **재고** 구독으로 전달되어 **인벤토리 관리 시스템**에서 이를 소비하게 됩니다.
 
 관리 대시보드를 지원하기 위해 다음과 같이 토픽에 두 번째 구독을 만듭니다.
 
-![Service-Bus3](./media/service-bus-create-topics-subscriptions/IC657166.gif)
+![Service Bus 3](./media/service-bus-create-topics-subscriptions/IC657166.gif)
 
 이 구성에서는 POS 터미널로부터의 각 메시지가 **대시보드** 및 **인벤토리** 구독에서 사용할 수 있게 됩니다.
 
-## 코드 표시
+## <a name="show-me-the-code"></a>코드 표시
 
-[서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서는 Azure 계정에 등록하고 서비스 네임스페이스를 만드는 방법을 설명합니다. 서비스 버스 네임스페이스를 사용하려면 특히 Microsoft.ServiceBus.dll 등, 응용 프로그램이 서비스 버스 어셈블리를 참조해야 합니다. 서비스 버스 종속성을 참조하는 가장 쉬운 방법은 서비스 버스 [Nuget 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)를 설치하는 것입니다. 또한 Azure SDK의 일부로 어셈블리를 찾을 수 있습니다. 이 다운로드는 [Azure SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 제공합니다.
+[Service Bus 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서는 Azure 계정에 등록하고 서비스 네임스페이스를 만드는 방법을 설명합니다. 서비스 버스 네임스페이스를 사용하려면 특히 Microsoft.ServiceBus.dll 등, 응용 프로그램이 서비스 버스 어셈블리를 참조해야 합니다. Service Bus 종속성을 참조하는 가장 쉬운 방법은 Service Bus [Nuget 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)를 설치하는 것입니다. 또한 Azure SDK의 일부로 어셈블리를 찾을 수 있습니다. 이 다운로드는 [Azure SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 제공합니다.
 
-### 토픽 및 구독 만들기
+### <a name="create-the-topic-and-subscriptions"></a>토픽 및 구독 만들기
 
-Service Bus 메시징 엔터티(큐 및 토픽 게시/구독)에 대한 관리 작업은 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 통해 수행됩니다. 특정 네임스페이스에 대한 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 인스턴스를 만들려면 적합한 자격 증명이 필요합니다. 서비스 버스는 [SAS(공유 액세스 서명) 기반](../service-bus/service-bus-sas-overview.md) 보안 모델을 사용합니다. [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) 클래스는 잘 알려진 일부 토큰 공급자를 반환하는 기본 제공 팩터리 메서드를 사용하여 보안 토큰 공급자를 나타냅니다. [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) 메서드를 사용하여 SAS 자격 증명을 유지할 것입니다. 그러면 서비스 버스 네임스페이스와 토큰 공급자의 기본 주소를 통해 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 인스턴스가 생성됩니다.
+Service Bus 메시징 엔터티(큐 및 토픽 게시/구독)에 대한 관리 작업은 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 통해 수행됩니다. 특정 네임스페이스에 대한 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 인스턴스를 만들려면 적합한 자격 증명이 필요합니다. Service Bus는 [SAS(공유 액세스 서명)](service-bus-sas-overview.md) 기반 보안 모델을 사용합니다. [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) 클래스는 잘 알려진 일부 토큰 공급자를 반환하는 기본 제공 팩터리 메서드를 사용하여 보안 토큰 공급자를 나타냅니다. [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) 메서드를 사용하여 SAS 자격 증명을 유지할 것입니다. 그러면 Service Bus 네임스페이스와 토큰 공급자의 기본 주소를 통해 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 인스턴스가 생성됩니다.
 
-[NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스는 메시징 엔터티를 만들고 열거 및 삭제하기 위한 메서드를 제공합니다. 여기에 표시된 코드는 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 인스턴스가 생성되어 **DataCollectionTopic** 토픽을 만드는 데 사용되는 방법을 보여줍니다.
+[NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스는 메시징 엔터티를 만들고 열거 및 삭제하기 위한 메서드를 제공합니다. 여기에 표시된 코드는 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 인스턴스를 생성하여 **DataCollectionTopic** 토픽을 만드는 데 사용하는 방법을 보여 줍니다.
 
 ```
 Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "test-blog", string.Empty);
@@ -66,16 +67,16 @@ NamespaceManager namespaceManager = new NamespaceManager(uri, tokenProvider);
 namespaceManager.CreateTopic("DataCollectionTopic");
 ```
 
-토픽 속성의 설정을 구현하는 [CreateTopic](https://msdn.microsoft.com/library/azure/hh293080.aspx) 메서드의 오버로드가 있습니다. 예를 들어, 토픽에 전송된 메시지에 적용할 기본 TTL(Time-to-Live) 값을 설정할 수 있습니다. 다음으로 **인벤토리** 및 **대시보드** 구독을 추가합니다.
+토픽의 속성을 설정하도록 하는 [CreateTopic](https://msdn.microsoft.com/library/azure/hh293080.aspx) 메서드의 오버로드가 있습니다. 예를 들어, 토픽에 전송된 메시지에 적용할 기본 TTL(Time-to-Live) 값을 설정할 수 있습니다. 다음으로 **인벤토리** 및 **대시보드** 구독을 추가합니다.
 
 ```
 namespaceManager.CreateSubscription("DataCollectionTopic", "Inventory");
 namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 ```
 
-### 토픽에 메시지 보내기
+### <a name="send-messages-to-the-topic"></a>토픽에 메시지 보내기
 
-서비스 버스 엔터티의 런타임 작업(예: 메시지 송수신)을 위해서는 응용 프로그램이 먼저[MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) 개체를 만들어야 합니다. [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스와 유사하게 [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) 인스턴스는 서비스 네임스페이스와 토큰 공급자의 기본 주소로부터 생성됩니다.
+Service Bus 엔터티의 런타임 작업(예: 메시지 송수신)을 위해서는 응용 프로그램이 먼저[MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) 개체를 만들어야 합니다. [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스와 유사하게 [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) 인스턴스는 서비스 네임스페이스와 토큰 공급자의 기본 주소로부터 생성됩니다.
 
 ```
 MessagingFactory factory = MessagingFactory.Create(uri, tokenProvider);
@@ -97,11 +98,11 @@ MessageSender sender = factory.CreateMessageSender("DataCollectionTopic");
 sender.Send(bm);
 ```
 
-### 구독에서 메시지 받기
+### <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
 
-큐 사용과 유사하게, 구독에서 메시지를 수신하기 위해 [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx)를 사용하여 [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx)로부터 직접 만든 [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) 개체를 사용할 수 있습니다. [서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서 설명한 것처럼 두 가지 수신 모드(**ReceiveAndDelete** 및 **PeekLock**) 중 하나를 사용할 수 있습니다.
+큐 사용과 유사하게, 구독에서 메시지를 수신하기 위해 [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx)를 사용하여 [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx)로부터 직접 만든 [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) 개체를 사용할 수 있습니다. [Service Bus 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서 설명한 것처럼 두 가지 수신 모드(**ReceiveAndDelete** 및 **PeekLock**) 중 하나를 사용할 수 있습니다.
 
-구독에 대해 [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx)를 만들 경우 *entityPath* 매개 변수는 `topicPath/subscriptions/subscriptionName` 형태입니다. 따라서 **DataCollectionTopic** 토픽의 **Inventory** 구독에 대해 [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx)를 만들려면 *entityPath*를 `DataCollectionTopic/subscriptions/Inventory`로 설정해야 합니다. 코드는 다음과 같이 나타납니다.
+구독에 대해 [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx)를 만들 경우 *entityPath* 매개 변수는 `topicPath/subscriptions/subscriptionName` 형태입니다. 따라서 **DataCollectionTopic** 토픽의 **인벤토리** 구독에 대해 [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx)를 만들려면 *entityPath*를 `DataCollectionTopic/subscriptions/Inventory`로 설정해야 합니다. 코드는 다음과 같이 나타납니다.
 
 ```
 MessageReceiver receiver = factory.CreateMessageReceiver("DataCollectionTopic/subscriptions/Inventory");
@@ -117,11 +118,11 @@ catch (Exception e)
 }
 ```
 
-## 구독 필터
+## <a name="subscription-filters"></a>구독 필터
 
-지금까지 이 시나리오에서는 토픽에 보낸 모든 메시지를 모든 등록된 구독에서 사용할 수 있었습니다. 여기서 핵심은 "사용할 수 있다"는 것입니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 작업은 구독 *필터*를 사용하여 수행합니다. 구독을 만들 때 메시지 속성(예: [레이블](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx))과 응용 프로그램 속성(예: 이전 예제에서의 **StoreName**)에 모두 적용되는 SQL92 스타일 조건자 형태로 필터 식을 제공할 수 있습니다.
+지금까지 이 시나리오에서는 토픽에 보낸 모든 메시지를 모든 등록된 구독에서 사용할 수 있었습니다. 여기서 핵심은 "사용할 수 있다"는 것입니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 작업은 구독 *필터*를 사용하여 수행합니다. 구독을 만들 때 메시지 속성(예: [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx))과 응용 프로그램 속성(예: 이전 예제에서의 **StoreName**)에 모두 적용되는 SQL92 스타일 조건자 형태로 필터 식을 제공할 수 있습니다.
 
-이를 설명하기 위해 시나리오를 확장해 보겠습니다. 즉 두 번째 매장을 유통업 시나리오에 추가합니다. 여전히 두 매장의 모든 POS 터미널에서 판매 데이터를 중앙 집중식 재고 관리 시스템에 전달해야 하지만 대시보드 도구를 사용하는 매장 관리자는 해당 매장의 성과에만 관심이 있습니다. 이를 위해 구독 필터링을 사용할 수 있습니다. POS 터미널이 메시지를 게시할 때는 메시지에 대해 **StoreName** 응용 프로그램 속성을 설정합니다. 두 매장이 **레드몬드**와 **시애틀**이라고 하면 레드몬드 매장의 POS 터미널은 판매 데이터 메시지에 **StoreName**을 **Redmond**라고 표시하며 시애틀 매장의 POS 터미널은 **StoreName**을 **Seattle**이라고 표시합니다. Redmond 매장의 매장 관리자는 자신의 POS 터미널의 데이터만 보고자 합니다. 시스템은 다음과 같이 나타납니다.
+이를 설명하기 위해 시나리오를 확장해 보겠습니다. 즉 두 번째 매장을 유통업 시나리오에 추가합니다. 여전히 두 매장의 모든 POS 터미널에서 판매 데이터를 중앙 집중식 재고 관리 시스템에 전달해야 하지만 대시보드 도구를 사용하는 매장 관리자는 해당 매장의 성과에만 관심이 있습니다.   이를 위해 구독 필터링을 사용할 수 있습니다. POS 터미널이 메시지를 게시할 때는 메시지에 대해 **StoreName** 응용 프로그램 속성을 설정합니다. 두 매장이 **레드몬드**와 **시애틀**이라고 하면 레드몬드 매장의 POS 터미널은 판매 데이터 메시지에 **StoreName**을 **Redmond**라고 표시하며 시애틀 매장의 POS 터미널은 **StoreName**을 **Seattle**이라고 표시합니다. Redmond 매장의 매장 관리자는 자신의 POS 터미널의 데이터만 보고자 합니다. 시스템은 다음과 같이 나타납니다.
 
 ![Service-Bus4](./media/service-bus-create-topics-subscriptions/IC657167.gif)
 
@@ -134,7 +135,7 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 이 구독 필터를 사용하면 **StoreName** 속성이 **Redmond**로 설정된 메시지만 **대시보드** 구독의 가상 큐에 복사됩니다. 이 밖에도 구독 필터링에는 여러 기능이 있습니다. 응용 프로그램은 구독의 가상 큐에 전달되는 메시지 속성을 수정할 수 있을 뿐 아니라 구독마다 여러 필터링 규칙을 적용할 수 있습니다.
 
-## 요약
+## <a name="summary"></a>요약
 
 [Service Bus 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서 설명한 큐를 사용하는 모든 이유가 토픽에도 적용됩니다. 특히 다음 내용이 그렇습니다.
 
@@ -146,8 +147,11 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 - 느슨한 결합 – 기존 끝점에 미치는 영향 없이 메시징 네트워크를 확장할 수 있습니다. 예를 들어, 토픽에 대한 구독을 추가하거나 필터를 변경하여 새 소비자를 허용합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
-POS 유통업 시나리오에서 큐를 사용하는 방법에 대한 정보는 [서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)를 참조하세요.
+POS 유통업 시나리오에서 큐를 사용하는 방법에 대한 정보는 [Service Bus 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

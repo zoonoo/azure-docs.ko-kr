@@ -1,154 +1,165 @@
 <properties 
-	pageTitle="Azure 포털을 사용하여 Azure 리소스 관리 | Microsoft Azure" 
-	description="Azure 포털 및 Azure 리소스 관리자를 사용하여 리소스를 관리합니다. 대시보드를 사용하여 리소스를 모니터링하는 방법을 보여줍니다." 
-	services="azure-resource-manager,azure-portal" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="timlt" 
-	editor="tysonn"/>
+    pageTitle="Use Azure portal to manage Azure resources | Microsoft Azure" 
+    description="Use Azure portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources." 
+    services="azure-resource-manager,azure-portal" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="timlt" 
+    editor="tysonn"/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/12/2016" 
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/12/2016" 
+    ms.author="tomfitz"/>
 
-# 포털을 통해 Azure 리소스 관리
+
+# <a name="manage-azure-resources-through-portal"></a>Manage Azure resources through portal
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
 - [Azure CLI](../xplat-cli-azure-resource-manager.md)
-- [포털](resource-group-portal.md)
+- [Portal](resource-group-portal.md) 
 - [REST API](../resource-manager-rest-api.md)
 
-이 토픽에서는 [Azure Resource Manager](../resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여 줍니다. 포털을 통해 리소스를 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
+This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](../resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 
-현재 일부 서비스에서만 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [클래식 포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/)를 참조하세요.
+Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
-## 리소스 그룹 관리
+## <a name="manage-resource-groups"></a>Manage resource groups
 
-1. 구독에서 모든 리소스 그룹을 보려면 **리소스 그룹**을 참조하세요.
+1. To see all the resource groups in your subscription, select **Resource groups**.
 
-    ![리소스 그룹 찾아보기](./media/resource-group-portal/browse-groups.png)
+    ![browse resource groups](./media/resource-group-portal/browse-groups.png)
 
-1. 빈 리소스 그룹을 만들려면 **추가**를 선택합니다.
+1. To create an empty resource group, select **Add**.
 
-    ![리소스 그룹 추가](./media/resource-group-portal/add-resource-group.png)
+    ![add resource group](./media/resource-group-portal/add-resource-group.png)
 
-1. 새 리소스 그룹에 대한 이름 및 위치를 제공합니다. **만들기**를 선택합니다.
+1. Provide a name and location for the new resource group. Select **Create**.
 
-    ![리소스 그룹 만들기](./media/resource-group-portal/create-empty-group.png)
+    ![create resource group](./media/resource-group-portal/create-empty-group.png)
 
-1. 최근에 만든 리소스 그룹을 보려면 **새로 고침**을 선택해야 할 수 있습니다.
+1. You may need to select **Refresh** to see the recently created resource group.
 
-    ![리소스 그룹 새로 고침](./media/resource-group-portal/refresh-resource-groups.png)
+    ![refresh resource group](./media/resource-group-portal/refresh-resource-groups.png)
 
-1. 리소스 그룹에 대해 표시된 정보를 사용자 지정하려면 **열**을 선택합니다.
+1. To customize the information displayed for your resource groups, select **Columns**.
 
-    ![열 사용자 지정](./media/resource-group-portal/select-columns.png)
+    ![customize columns](./media/resource-group-portal/select-columns.png)
 
-1. 추가할 열을 선택한 후 **업데이트**를 선택합니다.
+1. Select the columns to add, and then select **Update**.
 
-    ![열 추가](./media/resource-group-portal/add-columns.png)
+    ![add columns](./media/resource-group-portal/add-columns.png)
 
-1. 리소스를 새 리소스 그룹에 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
+1. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 
-1. 리소스 그룹에 대한 빠른 액세스의 경우 대시보드에 블레이드를 고정할 수 있습니다.
+1. For quick access to a resource group, you can pin the blade to your dashboard.
 
-    ![리소스 그룹 고정](./media/resource-group-portal/pin-group.png)
+    ![pin resource group](./media/resource-group-portal/pin-group.png)
 
-1. 대시보드에 리소스 그룹과 해당 리소스가 표시됩니다. 리소스 그룹 또는 해당 리소스를 선택하여 항목을 탐색할 수 있습니다.
+1. The dashboard displays the resource group and its resources. You can select either the resource groups or any of its resources to navigate to the item.
 
-    ![리소스 그룹 고정](./media/resource-group-portal/show-resource-group-dashboard.png)
+    ![pin resource group](./media/resource-group-portal/show-resource-group-dashboard.png)
 
-## 리소스 태그 지정
+## <a name="tag-resources"></a>Tag resources
 
-리소스 그룹 및 리소스에 태그를 적용하여 논리적으로 자산을 구성할 수 있습니다. 태그 사용에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md)을 참조하세요.
+You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
 [AZURE.INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
-## 리소스 모니터링
+## <a name="monitor-resources"></a>Monitor resources
 
-리소스를 선택하면 리소스 종류를 모니터링하기 위한 기본 그래프 및 표가 리소스 블레이드에 표시됩니다.
+When you select a resource, the resource blade presents default graphs and tables for monitoring that resource type.
 
-1. 리소스를 선택하고 **모니터링** 섹션을 살펴봅니다. 이 섹션에는 리소스 유형과 관련된 그래프가 포함되어 있습니다. 다음은 저장소 계정의 기본 모니터링 데이터를 보여주는 이미지입니다.
+1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
 
-    ![모니터링 표시](./media/resource-group-portal/show-monitoring.png)
+    ![show monitoring](./media/resource-group-portal/show-monitoring.png)
 
-1. 섹션 위에 줄임표(...)를 선택하여 대시보드에 블레이드의 한 섹션을 고정할 수 있습니다. 블레이드의 섹션 크기를 사용자 지정하거나 완전히 제거할 수도 있습니다. 다음 이미지는 CPU 및 메모리 섹션을 고정, 사용자 지정 또는 제거하는 방법을 보여 줍니다.
+1. You can pin a section of the blade to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section in the blade or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
 
-    ![선택 고정](./media/resource-group-portal/pin-cpu-section.png)
+    ![pin section](./media/resource-group-portal/pin-cpu-section.png)
 
-1. 대시보드에 섹션을 고정하면 대시보드에 요약이 표시됩니다. 그리고 즉시 선택하면 데이터에 대한 세부 정보로 이동합니다.
+1. After pinning the section to the dashboard, you will see the summary on the dashboard. And, selecting it immediately takes you to more details about the data.
 
-    ![대시보드 보기](./media/resource-group-portal/view-startboard.png)
+    ![view dashboard](./media/resource-group-portal/view-startboard.png)
 
-1. 포털을 통해 모니터링하는 데이터를 완전히 사용자 지정하려면 기본 대시보드로 이동한 후 **새 대시보드**를 선택합니다.
+1. To completely customize the data you monitor through the portal, navigate to your default dashboard, and select **New dashboard**.
 
     ![dashboard](./media/resource-group-portal/dashboard.png)
 
-1. 새 대시보드의 이름을 지정하고 타일을 대시보드로 끌어 놓습니다. 타일은 다양한 옵션을 통해 필터링됩니다.
+1. Give your new dashboard a name and drag tiles onto the dashboard. The tiles are filtered by different options.
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-     대시보드를 사용하는 방법을 알아보려면 [Azure 포털에서 대시보드 만들기 및 공유](azure-portal-dashboards.md)를 참조하세요.
+     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md).
 
-## 리소스 관리
+## <a name="manage-resources"></a>Manage resources
 
-리소스에 대한 블레이드에는 리소스 관리 옵션이 표시됩니다. 포털에는 해당 리소스 유형의 관리 옵션이 있습니다. 리소스 블레이드 상단과 왼쪽에는 관리 명령이 표시됩니다.
+In the blade for a resource, you see the options for managing the resource. The portal presents management options for that particular resource type. You see the management commands across the top of the resource blade and on the left side.
 
-![리소스 관리](./media/resource-group-portal/manage-resources.png)
+![manage resources](./media/resource-group-portal/manage-resources.png)
 
-이러한 옵션에서 가상 컴퓨터를 시작 및 중지하거나 가상 컴퓨터의 속성을 다시 구성하는 등의 작업을 수행할 수 있습니다.
+From these options, you can perform operations such as starting and stopping a virtual machine, or reconfiguring the properties of the virtual machine.
 
-## 리소스 이동
+## <a name="move-resources"></a>Move resources
 
-다른 리소스 그룹 또는 다른 구독으로 리소스를 이동해야 하는 경우에는 [새 리소스 그룹 또는 구독으로 리소스 이동](../resource-group-move-resources.md)을 참조하세요.
+If you need to move resources to another resource group or another subscription, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
 
-## 리소스 잠금
+## <a name="lock-resources"></a>Lock resources
 
-구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 할 수 있게 합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../resource-group-lock-resources.md)를 참조하세요.
+You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
 
 [AZURE.INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
-## 구독 및 비용 보기
+## <a name="view-your-subscription-and-costs"></a>View your subscription and costs
 
-모든 리소스에 대한 롤업 비용 및 구독에 대한 정보를 볼 수 있습니다. **구독**을 선택한 다음 보고 싶은 구독을 선택합니다. 선택할 구독이 하나만 있을 수 있습니다.
+You can view information about your subscription and the rolled-up costs for all your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
 
 ![subscription](./media/resource-group-portal/select-subscription.png)
 
-구독 블레이드 내에 진행 속도가 표시됩니다.
+Within the subscription blade, you see a burn rate.
 
-![진행 속도](./media/resource-group-portal/burn-rate.png)
+![burn rate](./media/resource-group-portal/burn-rate.png)
 
-그리고 리소스 유형별 비용 분석이 표시됩니다.
+And, a breakdown of costs by resource type.
 
-![리소스 비용](./media/resource-group-portal/cost-by-resource.png)
+![resource cost](./media/resource-group-portal/cost-by-resource.png)
 
-## 템플릿 내보내기
+## <a name="export-template"></a>Export template
 
-리소스 그룹을 설정한 후에는 리소스 그룹에 대한 Resource Manager 템플릿을 살펴볼 수 있습니다. 템플릿을 내보내면 다음과 같은 두 가지 이점이 있습니다.
+After setting up your resource group, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
 
-1. 템플릿에 모든 인프라가 포함되어 있기 때문에 향후 솔루션 배포를 간단하게 자동화할 수 있습니다.
+1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
 
-2. 솔루션을 나타내는 JSON(JavaScript Object Notation)을 살펴보면서 템플릿 구문에 익숙해질 수 있습니다.
+2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
-단계별 지침은 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](../resource-manager-export-template.md)를 참조하세요.
+For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](../resource-manager-export-template.md).
 
-## 리소스 그룹 또는 리소스 삭제
+## <a name="delete-resource-group-or-resources"></a>Delete resource group or resources
 
-리소스 그룹을 삭제하면 그 안에 포함된 모든 리소스가 삭제됩니다. 리소스 그룹 내부의 개별 리소스를 삭제할 수도 있습니다. 삭제하려는 리소스 그룹에 다른 리소스 그룹의 리소스가 링크되었을 수 있으므로 리소스 그룹을 삭제할 때는 주의해야 합니다. Resource Manager는 링크된 리소스를 삭제하지 않지만 예상된 리소스가 없는 경우 올바르게 작동하지 않을 수 있습니다.
+Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you delete a resource group because there might be resources in other resource groups that are linked to it. Resource Manager does not delete linked resources, but they may not operate correctly without the expected resources.
 
-![그룹 삭제](./media/resource-group-portal/delete-group.png)
+![delete group](./media/resource-group-portal/delete-group.png)
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- 감사 로그를 보려면 [Resource Manager로 작업 감사](../resource-group-audit.md)를 참조하세요.
-- 배포 오류를 해결하려면 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
-- 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
-- 리소스에 대한 액세스를 관리하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+- To view audit logs, see [Audit operations with Resource Manager](../resource-group-audit.md).
+- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
+- To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+- To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

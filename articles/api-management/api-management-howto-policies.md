@@ -1,146 +1,147 @@
 <properties 
-	pageTitle="Azure API 관리의 정책 | Microsoft Azure" 
-	description="API 관리에서 정책을 만들고 편집하고 구성하는 방법에 대해 알아봅니다." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Policies in Azure API Management | Microsoft Azure" 
+    description="Learn how to create, edit, and configure policies in API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="sdanie"/>
 
 
-#Azure API 관리의 정책
 
-Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변경할 수 있도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출의 양을 제한하는 호출 비율 제한 등이 포함됩니다. 다양한 다른 정책도 바로 사용할 수 있습니다.
+#<a name="policies-in-azure-api-management"></a>Policies in Azure API Management
 
-정책 명령문 및 설정의 전체 목록은 [정책 참조][]를 참조하세요.
+In Azure API Management, policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.
 
-정책은 API 소비자와 관리되는 API 간에 있는 게이트웨이 내에서 적용됩니다. 게이트웨이는 모든 요청을 수신하고 보통 변경하지 않은 상태로 기본 API에 전달합니다. 그러나 정책은 인바운드 요청과 아웃바운드 응답 모두에 변경 내용을 적용할 수 있습니다.
+See the [Policy Reference][] for a full list of policy statements and their settings.
 
-정책이 다르게 지정하지 않는 한 정책 식은 어떤 API 관리 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름][] 및 [변수 설정][] 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책][] 및 [정책 식][]을 참조하세요.
+Policies are applied inside the gateway which sits between the API consumer and the managed API. The gateway receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
-## <a name="scopes"> </a>정책을 구성하는 방법
-정책을 글로벌로 구성하거나 [제품][], [API][] 또는 [작업][] 범위로 구성할 수 있습니다. 정책을 구성하려면 게시자 포털의 정책 편집기로 이동합니다.
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][].
 
-![정책 메뉴][policies-menu]
+## <a name="<a-name="scopes">-</a>how-to-configure-policies"></a><a name="scopes"> </a>How to configure policies
+Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the publisher portal.
 
-정책 편집기는 정책 범위(위쪽), 정책이 편집되는 정책 정의(왼쪽), 설명 목록(오른쪽)의 세 가지 주 섹션으로 이루어져 있습니다.
+![Policies menu][policies-menu]
 
-![정책 편집기][policies-editor]
+The policies editor consists of three main sections: the policy scope (top), the policy definition where policies are edited (left) and the statements list (right):
 
-정책을 구성하려면 먼저 정책을 적용할 범위를 선택해야 합니다. 아래 스크린샷에서는 **Starter** 제품이 선택되어 있습니다. 정책 이름 옆의 사각형 기호는 정책이 이 수준에서 이미 적용되었음을 나타냅니다.
+![Policies editor][policies-editor]
 
-![범위][policies-scope]
+To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the **Starter** product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
 
-정책이 이미 적용되었으므로 구성은 정의 뷰에 표시됩니다.
+![Scope][policies-scope]
 
-![구성][policies-configure]
+Since a policy has already been applied, the configuration is shown in the definition view.
 
-정책은 처음에 읽기 전용으로 표시됩니다. 정의를 편집하려면 **정책 구성** 작업을 클릭합니다.
+![Configure][policies-configure]
 
-![편집][policies-edit]
+The policy is displayed read-only at first. In order to edit the definition click the **Configure Policy** action.
 
-정책 정의는 일련의 인바운드 및 아웃바운드 명령문을 설명하는 단순한 XML 문서입니다. 정의 창에서 XML을 직접 편집할 수 있습니다. 명령문 목록이 오른쪽에 제공되고 현재 범위에 적용할 수 있는 명령문이 사용 가능해지며 강조 표시됩니다. 위의 스크린샷에서는 **호출 비율 제한** 문이 표시되어 있습니다.
+![Edit][policies-edit]
 
-사용할 수 있는 명령문을 클릭하면 정의 뷰에서 커서의 위치에 적절한 XML이 추가됩니다.
+The policy definition is a simple XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. A list of statements is provided to the right and statements applicable to the current scope are enabled and highlighted; as demonstrated by the **Limit Call Rate** statement in the screenshot above.
 
->[AZURE.NOTE] 추가하려는 정책이 활성화되지 않는 경우 해당 정책의 올바른 범위에 속하는지 확인하세요. 각 정책 문은 특정 범위 및 정책 섹션에서 사용하도록 되어 있습니다. 정책의 정책 섹션 및 범위를 검토하려면 [정책 참조][]에서 해당 정책에 대한 **사용** 섹션을 확인하세요.
+Clicking an enabled statement will add the appropriate XML at the location of the cursor in the definition view. 
 
-정책 명령문 및 설정의 전체 목록은 [정책 참조][]에서 확인할 수 있습니다.
+>[AZURE.NOTE] If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section for that policy in the [Policy Reference][].
 
-예를 들어 들어오는 요청을 지정된 IP 주소로 제한하는 새로운 문을 추가하려면 `inbound` XML 요소의 콘텐츠 바로 안에 커서를 놓고 **호출자 IP 제한** 문을 클릭합니다.
+A full list of policy statements and their settings are available in the [Policy Reference][].
 
-![제한 정책][policies-restrict]
+For example, to add a new statement to restrict incoming requests to specified IP addresses, place the cursor just inside the content of the `inbound` XML element and click the **Restrict caller IPs** statement.
 
-그러면 명령문을 구성하는 방법에 대한 참고 자료를 제공하는 XML 코드 조각이 `inbound` 요소에 추가됩니다.
+![Restriction policies][policies-restrict]
 
-	<ip-filter action="allow | forbid">
-		<address>address</address>
-		<address-range from="address" to="address"/>
-	</ip-filter>
+This will add an XML snippet to the `inbound` element that provides guidance on how to configure the statement.
 
-인바운드 요청을 제한하여 1.2.3.4의 IP 주소에서 들어오는 요청만 허용하려면 다음과 같이 XML을 수정하세요.
+    <ip-filter action="allow | forbid">
+        <address>address</address>
+        <address-range from="address" to="address"/>
+    </ip-filter>
 
-	<ip-filter action="allow">
-		<address>1.2.3.4</address>
-	</ip-filter>
+To limit inbound requests and accept only those from an IP address of 1.2.3.4 modify the XML as follows:
 
-![저장][policies-save]
+    <ip-filter action="allow">
+        <address>1.2.3.4</address>
+    </ip-filter>
 
-정책에 대한 명령문을 구성한 후에는 **저장**을 클릭합니다. 그러면 변경 내용이 바로 API 관리 게이트웨이에 전파됩니다.
+![Save][policies-save]
 
-##<a name="sections"> </a>정책 구성 이해
+When complete configuring the statements for the policy, click **Save** and the changes will be propagated to the API Management gateway immediately.
 
-정책은 요청 및 응답의 순서로 실행되는 일련의 명령문입니다. 다음 구성에서 표시된 대로 `inbound`, `backend`, `outbound` 및 `on-error` 섹션으로 적절히 구성을 나눕니다.
+##<a name="<a-name="sections">-</a>understanding-policy-configuration"></a><a name="sections"> </a>Understanding policy configuration
 
-	<policies>
-	  <inbound>
-	    <!-- statements to be applied to the request go here -->
-	  </inbound>
-	  <backend>
-	    <!-- statements to be applied before the request is forwarded to 
-	         the backend service go here -->
-	  </backend>
-	  <outbound>
-	    <!-- statements to be applied to the response go here -->
-	  </outbound>
-	  <on-error>
-	    <!-- statements to be applied if there is an error condition go here -->
-	  </on-error>
-	</policies> 
+A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into `inbound`, `backend`, `outbound`, and `on-error` sections as shown in the following configuration.
 
-요청을 처리하는 동안 오류가 발생하는 경우 `inbound`, `backend` 또는 `outbound` 섹션에 남아 있는 모든 단계를 건너뛰고 `on-error` 섹션의 문을 바로 실행합니다. `on-error` 섹션에 정책 문을 배치하면 `context.LastError` 속성을 사용하여 오류를 검토할 수 있으며 `set-body` 정책을 사용하여 오류 응답을 검사하고 사용자 지정할 수 있습니다. 그리고 오류가 발생하면 수행할 작업을 구성할 수 있습니다. 기본 제공 단계에 대한 오류 코드와 정책 문을 처리하는 동안 발생할 수 있는 오류에 대한 오류 코드가 있습니다. 자세한 내용은 [API 관리 정책에서 오류 처리](https://msdn.microsoft.com/library/azure/mt629506.aspx)를 참조하세요.
+    <policies>
+      <inbound>
+        <!-- statements to be applied to the request go here -->
+      </inbound>
+      <backend>
+        <!-- statements to be applied before the request is forwarded to 
+             the backend service go here -->
+      </backend>
+      <outbound>
+        <!-- statements to be applied to the response go here -->
+      </outbound>
+      <on-error>
+        <!-- statements to be applied if there is an error condition go here -->
+      </on-error>
+    </policies> 
 
-정책은 여러 수준(전역, 제품, api 및 작업)으로 지정할 수 있으므로, 구성을 통해 부모 정책과 관련하여 정책 정의의 명령문이 실행되는 순서를 지정할 수 있습니다.
+If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-정책 범위는 다음 순서로 평가됩니다.
+Since policies can be specified at different levels (global, product, api and operation) the configuration provides a way for you to specify the order in which the policy definition's statements execute with respect to the parent policy. 
 
-1. 전역 범위
-2. 제품 범위
-3. API 범위
-4. 작업 범위
+Policy scopes are evaluated in the following order.
 
-정책 범위 내의 문은 `base` 요소(있는 경우)의 위치에 따라 평가됩니다.
+1. Global scope
+2. Product scope
+3. API scope
+4. Operation scope
 
-예를 들어 글로벌 수준의 정책 및 API에 대해 구성된 정책이 있는 경우 특정 API가 사용될 때마다 두 정책이 모두 적용됩니다. API 관리는 기본 요소를 통해 결합된 정책 명령문의 결정적인 순서를 허용합니다.
+The statements within them are evaluated according to the placement of the `base` element, if it is present.
 
-	<policies>
-    	<inbound>
-        	<cross-domain />
-        	<base />
-        	<find-and-replace from="xyz" to="abc" />
-    	</inbound>
-	</policies>
+For example, if you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
 
-위의 정책 정의 예제에서는 상위 정책 전에 `cross-domain` 문이 실행된 다음 `find-and-replace` 정책이 실행됩니다.
+    <policies>
+        <inbound>
+            <cross-domain />
+            <base />
+            <find-and-replace from="xyz" to="abc" />
+        </inbound>
+    </policies>
 
-동일한 정책이 정책 문에 두 번 표시되는 경우 가장 최근에 평가된 정책이 적용됩니다. 이를 통해 상위 범위에서 정의된 정책을 재정의할 수 있습니다. 정책 편집기에서 현재 범위의 정책을 보려면 **Recalculate effective policy for selected scope**(선택한 범위에 대한 실제 정책 다시 계산)을 클릭합니다.
+In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy.
 
-글로벌 정책에는 부모 정책이 없으며 해당 정책 안의 `<base>` 요소를 사용해도 아무 효과가 없습니다.
+If the same policy appears twice in the policy statement, the most recently evaluated policy is applied. You can use this to override policies that are defined at a higher scope. To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
-## 다음 단계
+Note that global policy has no parent policy and using the `<base>` element in it has no effect. 
 
-다음과 같은 정책 식 관련 비디오를 확인하세요.
+## <a name="next-steps"></a>Next steps
+
+Check out following video on policy expressions.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
-[정책 참조]: api-management-policy-reference.md
-[제품]: api-management-howto-add-products.md
-[API]: api-management-howto-add-products.md#add-apis
-[작업]: api-management-howto-add-operations.md
+[Policy Reference]: api-management-policy-reference.md
+[Product]: api-management-howto-add-products.md
+[API]: api-management-howto-add-products.md#add-apis 
+[Operation]: api-management-howto-add-operations.md
 
-[고급 정책]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[제어 흐름]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[변수 설정]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[정책 식]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
+[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
+[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
+[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
@@ -150,4 +151,8 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

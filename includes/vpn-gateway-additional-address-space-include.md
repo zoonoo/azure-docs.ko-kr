@@ -1,18 +1,21 @@
-### 주소 공간을 추가하려면
+### <a name="to-add-address-space"></a>To add address space
 
-1. 추가 주소 공간을 추가하려면 **모든 설정**을 클릭하여 **설정** 블레이드를 엽니다. 
+1. To add additional address space, click **All settings** to open the **Settings** blade. 
 
-2. **설정** 블레이드에서 **주소 공간**을 클릭하여 주소 공간 블레이드를 엽니다. 이 블레이드에서 추가 주소 공간을 추가한 다음 블레이드의 맨 위에 있는 **저장**을 클릭합니다.
+2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
 
-	![주소 공간 추가](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### 서브넷을 추가하려면 
+### <a name="to-add-subnets"></a>To add subnets 
 
-1. 사용자 주소 공간에 추가 서브넷을 추가하려면 **설정** 블레이드에서 **서브넷**을 클릭하여 **서브넷** 블레이드를 엽니다. 
+1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
 
-2. **서브넷** 블레이드에서 추가를 클릭하여 **서브넷 추가** 블레이드를 엽니다. 새 서브넷의 이름을 지정하고 주소 범위를 지정한 다음 블레이드의 맨 아래에 있는 **확인**을 클릭합니다. 서브넷을 만들면 서브넷 블레이드를 사용하여 VNet에 대한 모든 서브넷을 볼 수 있습니다.
+2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
 
 
-	![서브넷 설정](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)
+    ![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
 
-<!-----HONumber=AcomDC_0406_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

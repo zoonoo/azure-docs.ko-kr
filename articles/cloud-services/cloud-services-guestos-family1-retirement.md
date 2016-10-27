@@ -1,9 +1,9 @@
 <properties
-   pageTitle="게스트 OS 제품군 1 사용 중지 알림 | Microsoft Azure"
-   description="Azure 게스트 OS 제품군 1 사용 중지가 발생한 시기 및 적용되는 지를 확인하는 방법에 대한 정보를 제공합니다."
+   pageTitle="Guest OS family 1 retirement notice | Microsoft Azure"
+   description="Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if you are affected"
    services="cloud-services"
    documentationCenter="na"
-   authors="yuemlu"
+   authors="raiye"
    manager="timlt"
    editor=""/>
 
@@ -13,33 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/10/2016"
-   ms.author="yuemlu"/>
-
-
-
-# 게스트 OS 제품군 1 사용 중지 확인
-
-OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습니다.
-
-**2014 년 9월 2일** Windows Server 2008 운영 체제에 기반을 둔 Azure 게스트 운영 체제(게스트 OS) 제품군 1.x가 공식적으로 사용 중지되었습니다. 게스트 OS 제품군 1이 사용 중지된 것을 알리는 오류 메시지와 함께 새 서비스를 배포하거나 제품군 1을 사용하여 기존 서비스를 업그레이드 하려는 모든 시도가 실패했습니다.
-
-**2014년 11월 3일** 게스트 OS 제품군 1에 대한 연장 지원이 종료되어 완전히 사용 중지됩니다. 제품군 1의 모든 서비스에 적용됩니다. 언제든지 이러한 서비스를 중지할 수 있습니다. 수동으로 직접 업그레이드하지 않으면 서비스가 계속된다는 보장이 없습니다.
-
-추가 질문이 있으면 [클라우드 서비스 포럼](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc)을 방문하거나 [Azure 지원에 문의하세요](https://azure.microsoft.com/support/options/).
+   ms.date="10/24/2016"
+   ms.author="raiye"/>
 
 
 
 
-## 영향을 받나요?
+# <a name="guest-os-family-1-retirement-notice"></a>Guest OS Family 1 retirement notice
 
-다음 중 하나에 적용되는 경우 클라우드 서비스에 영향을 받습니다.
+The retirement of OS Family 1 was first announced on June 1, 2013.
 
-1. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 "osFamily ="1"의 값이 있습니다.
-2. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 osFamily의 값이 없습니다. 현재, 이 경우 시스템은 "1"의 기본값을 사용합니다.
-3. Azure 클래식 포털은 게스트 운영 체제 제품군 값을 "Windows Server 2008"로 표시합니다.
+**Sept 2, 2014** The Azure Guest operating system (Guest OS) Family 1.x, which is based on the Windows Server 2008 operating system, was officially retired. All attempts to deploy new services or upgrade existing services using Family 1 will fail with an error message informing you that the Guest OS Family 1 has been retired.
 
-어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 아래 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](../powershell-install-configure.md) 합니다. 스크립트에 대한 추가 세부 정보는 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)을 참조하십시오.
+**November 3, 2014** Extended support for Guest OS Family 1 ended and it is fully retired. All services still on Family 1 will be impacted. We may stop those services at any time. There is no guarantee your services will continue to run unless you manually upgrade them yourself.
+
+If you have additional questions, please visit the [Cloud Services Forums](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) or [contact Azure support](https://azure.microsoft.com/support/options/).
+
+
+
+
+## <a name="are-you-affected?"></a>Are you affected?
+
+Your Cloud Services are affected if any one of the following applies:
+
+1. You have a value of "osFamily = "1" explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.
+2. You do not have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. Currently, the system uses the default value of "1" in this case.
+3. The Azure classic portal lists your Guest Operating System family value as "Windows Server 2008".
+
+To find which of your cloud services are running which OS Family, you can run the script below in Azure PowerShell, though you must [set up Azure PowerShell](../powershell-install-configure.md) first. For additional details on the script, see [Azure Guest OS Family 1 End of Life: June 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -51,34 +52,38 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-스크립트 출력의 osFamily 열이 비어 있거나 "1"을 포함하는 경우 클라우드 서비스는 OS 제품군 1 사용 중지의 영향을 받습니다.
+Your cloud services will be impacted by OS Family 1 retirement if the osFamily column in the script output is empty or contains a "1".
 
-## 영향을 받는 경우 권장 사항
+## <a name="recommendations-if-you-are-affected"></a>Recommendations if you are affected
 
-지원되는 게스트 OS 제품군 중 하나에 클라우드 서비스 역할을 마이그레이션하는 것이 좋습니다.
+We recommend you migrate your Cloud Service roles to one of the supported Guest OS Families:
 
-**게스트 OS 제품군 4.x** -Windows Server 2012 R2 *(권장)*
+**Guest OS family 4.x** - Windows Server 2012 R2 *(recommended)*
 
-1. 응용 프로그램이.NET framework 4.0, 4.5 또는 4.5.1과 함께 SDK 2.1 이상을 사용 중이어야 합니다.
-2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "4"으로 설정하고 클라우드 서비스를 다시 배포합니다.
-
-
-**게스트 OS 제품군 3.x** -Windows Server 2012
-
-1. 응용 프로그램이.NET framework 4.0 또는 4.5와 함께 SDK 1.8 이상을 사용 중이어야 합니다.
-2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "3"으로 설정하고 클라우드 서비스를 다시 배포합니다.
+1. Ensure that your application is using SDK 2.1 or later with .NET framework 4.0, 4.5 or 4.5.1.
+2. Set the osFamily attribute to “4” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 
-**게스트 OS 제품군 2.x** -Windows Server 2008 R2
+**Guest OS family 3.x** - Windows Server 2012
 
-1. 응용 프로그램이.NET framework 3.5 또는 4.0과 함께 SDK 1.3 이상을 사용 중이어야 합니다.
-2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "2"로 설정하고 클라우드 서비스를 다시 배포합니다.
+1. Ensure that your application is using SDK 1.8 or later with .NET framework 4.0 or 4.5.
+2. Set the osFamily attribute to “3” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 
-## 게스트 OS 제품군 1에 대한 연장된 지원이 2014년 11월 3일에 종료되었습니다.
-게스트 OS 제품군 1에서 클라우드 서비스는 더 이상 지원 되지 않습니다. 서비스 중단을 방지하려면 가능한 빨리 제품군 1을 마이그레이션 해제하십시오.
+**Guest OS family 2.x** - Windows Server 2008 R2
 
-## 다음 단계
-최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
+1. Ensure that your application is using SDK 1.3 and above with .NET framework 3.5 or 4.0.
+2. Set the osFamily attribute to "2" in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
-<!---HONumber=AcomDC_0615_2016-->
+
+## <a name="extended-support-for-guest-os-family-1-ended-nov-3,-2014"></a>Extended Support for Guest OS Family 1 ended Nov 3, 2014
+Cloud services on Guest OS family 1 are no longer supported. Please migrate off family 1 as soon as possible to avoid service disruption.  
+
+## <a name="next-steps"></a>Next steps
+Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,201 +1,206 @@
 <properties
-	pageTitle="Azure CDN 고급 HTTP 보고서 | Microsoft Azure"
-	description="Microsoft Azure CDN에서 고급 HTTP 보고서입니다. 이러한 보고서는 CDN 활동에 대한 자세한 정보를 제공합니다."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Azure CDN Advanced HTTP Reports | Microsoft Azure"
+    description="Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-# Microsoft Azure CDN에서 고급 HTTP 보고서
 
-## 개요
+# <a name="advanced-http-reports-in-microsoft-azure-cdn"></a>Advanced HTTP reports in Microsoft Azure CDN
 
-이 문서에서는 Microsoft Azure CDN에서 고급 HTTP 보고에 대해 설명합니다. 이러한 보고서는 CDN 활동에 대한 자세한 정보를 제공합니다.
+## <a name="overview"></a>Overview
+
+This document explains advanced HTTP reporting in Microsoft Azure CDN. These reports provide detailed information on CDN activity.
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## 고급 HTTP 보고서 액세스
+## <a name="accessing-advanced-http-reports"></a>Accessing advanced HTTP reports
 
-1. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
+1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN 프로필 블레이드 관리 단추](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
 
-	CDN 관리 포털이 열립니다.
+    The CDN management portal opens.
 
-2. **분석** 탭을 마우스로 가리킨 후 **고급 HTTP 보고서** 플라이아웃을 마우스로 가리킵니다. **HTTP 큰 플랫폼**을 클릭합니다.
+2. Hover over the **Analytics** tab, then hover over the **Advanced HTTP Reports** flyout.  Click on **HTTP Large Platform**.
 
-	![CDN 관리 포털 - 고급 보고서 메뉴](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
+    ![CDN management portal - Advanced Reports menu](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
 
-	보고서 옵션이 표시됩니다.
+    Report options are displayed.
 
-## 지리 보고서(맵 기반)
+## <a name="geography-reports-(map-based)"></a>Geography Reports (Map-Based)
 
-콘텐츠가 요청되는 지역을 나타내는 맵을 활용하는 5가지 보고서가 있습니다. 이러한 보고서는 전 세계 맵, 미국 맵, 캐나다 맵, 유럽 맵 및 아시아 태평양 맵입니다.
+There are five reports that take advantage of a map to indicate the regions from which your content is being requested. These reports are World Map, United States Map, Canada Map, Europe Map, and Asia Pacific Map.
 
-각 맵 기반 보고서는 해당 지역에서 발생하는 적중 항목의 백분율에 따라 지리적 엔터티(예: 국가, 주 및 시/도)의 순위를 지정합니다. 또한 해당 콘텐츠가 요청되는 위치를 시각화하는 데 도움이 되는 맵이 제공됩니다. 해당 지역에 나타난 요구량에 따라 지역별로 색으로 지정하여 이 작업을 수행할 수 있습니다. 밝게 음영 처리된 지역은 콘텐츠에 대한 요구가 낮은 반면, 어둡게 음영 처리된 지역은 콘텐츠에 대한 요구 수준이 높습니다.
+Each map-based report ranks geographic entities (i.e., countries, states, and provinces) according to the percentage of hits that originated from that region. Additionally, a map is provided to help you visualize the locations from which your content is being requested. It is able to do so by color-coding each region according to the amount of demand experienced in that region. Lighter shaded regions indicate lower demand for your content, while darker regions indicate higher levels of demand for your content.
 
-각 지역에 대한 트래픽 및 대역폭 세부 정보는 맵 바로 아래 제공됩니다. 여기에서 총 적중 횟수, 적중 횟수의 백분율, 전송된 총 데이터 양(기가바이트) 및 각 지역에 대해 전송된 데이터 백분율을 확인할 수 있습니다. 이러한 각 메트릭에 대한 설명을 확인합니다. 마지막으로, 지역(예: 국가, 주 및 시/도)을 마우스로 가리키면 해당 지역에서 발생한 적중 항목의 이름 및 백분율이 도구 설명으로 표시됩니다.
+Detailed traffic and bandwidth information for each region is provided directly below the map. This allows you to view the total number of hits, the percentage of hits, the total amount of data transferred (in gigabytes), and the percentage of data transferred for each region. View a description for each of these metrics. Finally, when you hover over a region (i.e., country, state, or province), the name and the percentage of hits that occurred in the region will be displayed as a tooltip.
 
-맵 기반 지리 보고서의 각 유형에 대한 간략한 설명이 아래에 제공됩니다.
+A brief description is provided below for each type of map-based geography report.
 
-보고서 이름 | 설명
+Report Name | Description
 ------------|------------
-전 세계 맵 | 이 보고서를 사용하면 CDN 콘텐츠에 대한 전 세계 수요를 볼 수 있습니다. 전 세계 맵에 각 국가가 색으로 지정되어 해당 지역에서 발생한 적중 항목의 백분율을 나타냅니다.
-미국 맵 | 이 보고서를 사용하면 미국에서 CDN 콘텐츠에 대한 수요를 볼 수 있습니다. 각 주가 이 맵에 색으로 지정되어 해당 지역에서 발생한 적중 항목의 백분율을 나타냅니다.
-캐나다 맵 | 이 보고서를 사용하면 캐나다에서 CDN 콘텐츠에 대한 수요를 볼 수 있습니다. 각 시/도가 이 맵에 색으로 지정되어 해당 지역에서 발생한 적중 항목의 백분율을 나타냅니다.
-유럽 맵 | 이 보고서를 사용하면 유럽에서 CDN 콘텐츠에 대한 수요를 볼 수 있습니다. 이 맵에 각 국가가 색으로 지정되어 해당 지역에서 발생한 적중 항목의 백분율을 나타냅니다.
-아시아 태평양 맵 | 이 보고서를 사용하면 아시아에서 CDN 콘텐츠에 대한 수요를 볼 수 있습니다. 이 맵에 각 국가가 색으로 지정되어 해당 지역에서 발생한 적중 항목의 백분율을 나타냅니다.
+World Map | This report allows you to view the worldwide demand for your CDN content. Each country is color-coded on the world map to indicate the percentage of hits that originated from that region.
+United States Map | This report allows you to view the demand for your CDN content in the United States. Each state is color-coded on this map to indicate the percentage of hits that originated from that region.
+Canada Map | This report allows you to view the demand for your CDN content in Canada. Each province is color-coded on this map to indicate the percentage of hits that originated from that region.
+Europe Map | This report allows you to view the demand for your CDN content in Europe. Each country is color-coded on this map to indicate the percentage of hits that originated from that region.
+Asia Pacific Map | This report allows you to view the demand for your CDN content in Asia. Each country is color-coded on this map to indicate the percentage of hits that originated from that region.
 
-## 지리 보고서(가로 막대형 차트)
+## <a name="geography-reports-(bar-charts)"></a>Geography Reports (Bar Charts)
 
-지리에 따른 통계 정보를 제공하는 두 개의 추가 보고서로 상위 도시 및 상위 국가가 있습니다. 이러한 보고서는 각각 해당 지역에서 발생한 적중 항목 수에 따라 도시 및 국가의 순위를 지정합니다. 이러한 유형의 보고서를 생성하면 가로 막대형 차트는 특정 플랫폼을 통해 콘텐츠를 요청한 상위 10개 도시 또는 국가를 나타냅니다. 이 막대형 차트를 사용하면 해당 콘텐츠에 대해 가장 많은 수의 요청을 생성하는 지역을 신속하게 평가할 수 있습니다.
+There are two additional reports that provide statistical information according to geography, which are Top Cities and Top Countries. These reports rank cities and countries, respectively, according to the number of hits that originated from those regions. Upon generating this type of report, a bar chart will indicate the top 10 cities or countries that requested content over a specific platform. This bar chart allows you to quickly assess the regions that generate the highest number of requests for your content.
 
-그래프의 왼쪽(Y축)은 지정된 지역에서 발생한 적중 수를 나타냅니다. 그래프 바로 아래(X축)에서 상위 10개 지역 각각에 대한 레이블을 찾을 수 있습니다.
+The left-hand side of the graph (y-axis) indicates how many hits occurred in the specified region. Directly below the graph (x-axis), you will find a label for each of the top 10 regions.
 
-### 가로 막대형 차트 사용
+### <a name="using-the-bar-charts"></a>Using the bar charts
 
-* 막대를 마우스로 가리키면 해당 지역에서 발생한 적중 항목의 이름 및 총 횟수가 도구 설명으로 표시됩니다.
-* 상위 도시 보고서에 대한 도구 설명은 도시를 이름, 주/시/도 및 국가 약어로 식별합니다.
-* 요청이 발생한 도시 또는 지역(즉, 주/시/도)을 확인할 수 없는 경우 알 수 없음으로 표시됩니다. 국가를 알 수 없는 경우 두 개의 물음표(??)가 표시됩니다.
-* 보고서에는 "유럽" 또는 "아시아/태평양 지역"에 대한 메트릭이 포함될 수 있습니다. 이러한 항목이 해당 지역에서 모든 IP 주소에 대한 통계 정보를 제공하는 것은 아닙니다. 그보다는, 특정 도시 또는 국가 대신 유럽 또는 아시아/태평양 전반에 걸친 IP 주소에서 발생한 요청만 해당합니다.
+* If you hover over a bar, the name and the total number of hits that occurred in the region will be displayed as a tooltip.
+* The tooltip for the Top Cities report identifies a city by its name, state/province, and country abbreviation.
+* If the city or region (i.e., state/province) from which a request originated could not be determined, then it will indicate that they are unknown. If the country is unknown, then two question marks (i.e., ??) will be displayed.
+* A report may include metrics for "Europe" or the "Asia/Pacific Region." Those items are not meant to provide statistical information on all IP addresses in those regions. Rather, they only apply to requests that originate from IP addresses that are spread out over Europe or Asia/Pacific instead of to a specific city or country.
 
-가로 막대형 차트를 생성하는 데 사용된 데이터는 아래에서 확인할 수 있습니다. 여기에서 총 적중 횟수, 적중 횟수의 백분율, 전송된 총 데이터 양(기가바이트) 및 상위 250개 지역에 대해 전송된 데이터 백분율을 확인할 수 있습니다. 이러한 각 메트릭에 대한 설명을 확인합니다.
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred for the top 250 regions. View a description for each of these metrics.
 
-아래에서 두 가지 유형의 보고서에 대한 간략한 설명을 제공합니다.
+A brief description is provided for both types of reports below.
 
-보고서 이름 | 설명
+Report Name | Description
 ------------|------------
-상위 도시 | 이 보고서는 해당 지역에서 발생한 적중 횟수에 따라 도시의 순위를 매깁니다.
-상위 국가 | 이 보고서는 해당 지역에서 발생한 적중 횟수에 따라 국가의 순위를 매깁니다.
+Top Cities | This report ranks cities according to the number of hits that originated from that region.
+Top Countries | This report ranks countries according to the number of hits that originated from that region.
 
-## 일일 요약
+## <a name="daily-summary"></a>Daily Summary
 
-일일 요약 보고서를 사용하면 총 적중 횟수와 특정 플랫폼을 통해 전송되는 데이터를 일 단위로 볼 수 있습니다. 이 정보는 CDN 활동 패턴을 신속하게 파악하는 데 사용할 수 있습니다. 예를 들어 이 보고서를 통해 트래픽이 예상보다 높거나 낮게 발생한 날짜를 감지할 수 있습니다.
+The Daily Summary report allows you to view the total number of hits and data transferred over a particular platform on a daily basis. This information can be used to quickly discern CDN activity patterns. For example, this report can help you detect which days experienced higher or lower than expected traffic.
 
-이러한 유형의 보고서를 생성하면 가로 막대형 차트는 보고서에 나와 있는 기간 동안 발생한 플랫폼별 요구량에 대한 시각적 표시를 일 단위로 제공합니다. 보고서의 각 날짜에 대한 막대를 표시하여 이를 수행합니다. 예를 들어 "지난 주"라는 기간을 선택하면 7개의 막대가 있는 가로 막대형 차트를 생성합니다. 각 막대는 해당 날짜에 발생한 총 적중 횟수를 나타냅니다.
+Upon generating this type of report, a bar chart will provide a visual indication as to the amount of platform-specific demand experienced on a daily basis over the time period covered by the report. It will do so by displaying a bar for each day in the report. For example, selecting the time period called "Last Week" will generate a bar chart with seven bars. Each bar will indicate the total number of hits experienced on that day.
 
-그래프의 왼쪽(Y축)은 지정된 날짜에 발생한 적중 수를 나타냅니다. 그래프 바로 아래(X축)에서 보고서에 포함된 각 일에 대한 날짜(형식: YYYY-MM-DD)를 나타내는 레이블을 찾을 수 있습니다.
+The left-hand side of the graph (y-axis) indicates how many hits occurred on the specified date. Directly below the graph (x-axis), you will find a label that indicates the date (Format: YYYY-MM-DD) for each day included in the report.
 
-> [AZURE.TIP] 막대를 마우스로 가리키면 해당 날짜에 발생한 총 적중 횟수가 도구 설명으로 표시됩니다.
+> [AZURE.TIP] If you hover over a bar, the total number of hits that occurred on that date will be displayed as a tooltip.
 
-가로 막대형 차트를 생성하는 데 사용된 데이터는 아래에서 확인할 수 있습니다. 여기에서 총 적중 횟수 및 보고서에 나와 있는 각 날짜에 대한 전송된 총 데이터 양(기가바이트)을 확인할 수 있습니다.
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits and the amount of data transferred (in gigabytes) for each day covered by the report.
 
-## 시간별
+## <a name="by-hour"></a>By Hour
 
-시간별 보고서를 사용하면 총 적중 횟수와 특정 플랫폼을 통해 전송되는 데이터를 시간 단위로 볼 수 있습니다. 이 정보는 CDN 활동 패턴을 신속하게 파악하는 데 사용할 수 있습니다. 예를 들어 이 보고서를 통해 트래픽이 예상보다 높거나 낮게 발생한 날짜 동안의 기간을 감지할 수 있습니다.
+The By Hour report allows you to view the total number of hits and data transferred over a particular platform on an hourly basis. This information can be used to quickly discern CDN activity patterns. For example, this report can help you detect the time periods during the day that experience higher or lower than expected traffic.
 
-이러한 유형의 보고서를 생성하면 가로 막대형 차트는 보고서에 나와 있는 기간 동안 발생한 플랫폼별 요구량에 대한 시각적 표시를 시간 단위로 제공합니다. 보고서에 나와 있는 각 시간에 대한 막대를 표시하여 이를 수행합니다. 예를 들어 24시간 기간을 선택하면 24개의 막대로 가로 막대형 차트를 생성합니다. 각 막대는 해당 시간 동안 발생한 총 적중 횟수를 나타냅니다.
+Upon generating this type of report, a bar chart will provide a visual indication as to the amount of platform-specific demand experienced on an hourly basis over the time period covered by the report. It will do so by displaying a bar for each hour covered by the report. For example, selecting a 24 hour time period will generate a bar chart with twenty four bars. Each bar will indicate the total number of hits experienced during that hour.
 
-그래프의 왼쪽(Y축)은 지정된 시간에 발생한 적중 수를 나타냅니다. 그래프 바로 아래(X축)에서 보고서에 포함된 각 시간에 대한 날짜(형식: YYYY-MM-DD hh:mm)를 나타내는 레이블을 찾을 수 있습니다. 시간은 24시간 형식을 사용하여 보고되며 UTC/GMT 표준 시간대를 사용하여 지정됩니다.
+The left-hand side of the graph (y-axis) indicates how many hits occurred on the specified hour. Directly below the graph (x-axis), you will find a label that indicates the date/time (Format: YYYY-MM-DD hh:mm) for each hour included in the report. Time is reported using 24 hour format and it is specified using the UTC/GMT time zone.
 
-> [AZURE.TIP] 막대를 마우스로 가리키면 해당 시간 중에 발생한 총 적중 횟수가 도구 설명으로 표시됩니다.
+> [AZURE.TIP] If you hover over a bar, the total number of hits that occurred during that hour will be displayed as a tooltip.
 
-가로 막대형 차트를 생성하는 데 사용된 데이터는 아래에서 확인할 수 있습니다. 여기에서 총 적중 횟수 및 보고서에 나와 있는 각 시간에 대한 전송된 총 데이터 양(기가바이트)을 확인할 수 있습니다.
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits and the amount of data transferred (in gigabytes) for each hour covered by the report.
 
-## 파일별
+## <a name="by-file"></a>By File
 
-파일별 보고서를 사용하면 가장 많이 요청된 자산에 대해 특정 플랫폼을 통해 발생한 트래픽과 요구량을 볼 수 있습니다. 이러한 유형의 보고서를 생성하면 지정된 기간 동안 상위 10개의 가장 많이 요청된 자산에 대해 가로 막대형 차트가 생성됩니다.
+The By File report allows you to view the amount of demand and the traffic incurred over a particular platform for the most requested assets. Upon generating this type of report, a bar chart will be generated on the top 10 most requested assets over the specified time period.
 
-> [AZURE.NOTE] 이 보고서의 목적은 에지 CNAME URL을 동등한 CDN URL로 변환하는 것입니다. 이렇게 하면 요청에 CDN 또는 에지 CNAME URL을 사용했는지에 관계 없이 자산과 관련된 총 적중 횟수를 정확히 표시할 수 있습니다.
+> [AZURE.NOTE] For the purposes of this report, edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for the total number of hits associated with an asset regardless of the CDN or edge CNAME URL used to request it.
 
-그래프의 왼쪽(Y축)은 지정된 시간 동안 각 자산에 대한 요청 수를 나타냅니다. 그래프 바로 아래(X축)에서 상위 10개 요청된 자산 각각에 대한 파일 이름을 나타내는 레이블을 찾을 수 있습니다.
+The left-hand side of the graph (y-axis) indicates the number of requests for each asset over the specified time period. Directly below the graph (x-axis), you will find a label that indicates the file name for each of the top 10 requested assets.
 
-가로 막대형 차트를 생성하는 데 사용된 데이터는 아래에서 확인할 수 있습니다. 여기에서 상위 250개 요청된 자산 각각에 대해 상대 경로, 총 적중 횟수, 적중 횟수의 백분율, 전송된 데이터 양(기가바이트), 전송된 데이터 백분율 등의 정보를 확인할 수 있습니다.
+The data that was used to generate the bar chart can be viewed below it. There you will find the following information for each of the top 250 requested assets: relative path, the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred.
 
-## 파일 정보별
+## <a name="by-file-detail"></a>By File Detail
 
-파일 정보별 보고서를 사용하면 특정 자산에 대해 특정 플랫폼을 통해 발생한 트래픽과 요구량을 볼 수 있습니다. 이 보고서의 맨 위에는 파일 정보 옵션이 있습니다. 이 옵션은 선택한 플랫폼에서 가장 많이 요청된 자산 목록을 제공합니다. 파일 정보별 보고서를 생성하려면 파일 정보 옵션에서 원하는 자산을 선택해야 합니다. 그러면 가로 막대형 차트는 지정된 기간 동안 생성된 일일 요구량을 나타냅니다.
+The By File Detail report allows you to view the amount of demand and the traffic incurred over a particular platform for a specific asset. At the very top of this report is the File Details For option. This option provides a list of your most requested assets on the selected platform. In order to generate a By File Detail report, you will need to select the desired asset from the File Details For option. After which, a bar chart will indicate the amount of daily demand that it generated over the specified time period.
 
-그래프의 왼쪽(Y축)은 특정 일에 발생한 자산에 대한 총 요청 수를 나타냅니다. 그래프 바로 아래(X축)에서 해당 자산에 대해 보고된 CDN 요구에 대한 날짜(형식: YYYY-MM-DD)를 나타내는 레이블을 찾을 수 있습니다.
+The left-hand side of the graph (y-axis) indicates the total number of requests that an asset experienced on a particular day. Directly below the graph (x-axis), you will find a label that indicates the date (Format: YYYY-MM-DD) for which CDN demand for the asset was reported.
 
-가로 막대형 차트를 생성하는 데 사용된 데이터는 아래에서 확인할 수 있습니다. 여기에서 총 적중 횟수 및 보고서에 나와 있는 각 날짜에 대한 전송된 총 데이터 양(기가바이트)을 확인할 수 있습니다.
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits and the amount of data transferred (in gigabytes) for each day covered by the report.
 
-## 파일 형식별
+## <a name="by-file-type"></a>By File Type
 
-파일 형식별 보고서를 사용하면 파일 형식별로 발생한 트래픽과 요구량을 볼 수 있습니다. 이러한 유형의 보고서를 생성하면 도넛형 차트가 상위 10개 파일 형식별로 생성된 적중 항목의 백분율을 나타냅니다.
+The By File Type report allows you to view the amount of demand and the traffic incurred by file type. Upon generating this type of report, a donut chart will indicate the percentage of hits generated by the top 10 file types.
 
-> [AZURE.TIP] 도넛형 차트를 마우스로 가리키면 해당 파일 형식의 인터넷 미디어 형식이 도구 설명으로 표시됩니다.
+> [AZURE.TIP] If you hover over a slice in the donut chart, the Internet media type of that file type will be displayed as a tooltip.
 
-도넛형 차트를 생성하는 데 사용된 데이터는 아래에서 확인할 수 있습니다. 여기에서 파일 이름 확장명/인터넷 미디어 형식, 총 적중 횟수, 적중 횟수의 백분율, 전송된 데이터 양(기가바이트), 상위 250개 파일 형식 각각에 대해 전송된 데이터 백분율을 확인할 수 있습니다.
+The data that was used to generate the donut chart can be viewed below it. There you will find the file name extension/Internet media type, the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred for each of the top 250 file types.
 
-## 디렉터리별
+## <a name="by-directory"></a>By Directory
 
-디렉터리별 보고서를 사용하면 특정 디렉터리의 콘텐츠에 대해 특정 플랫폼을 통해 발생한 트래픽과 요구량을 볼 수 있습니다. 이러한 유형의 보고서를 생성하면 가로 막대형 차트가 상위 10개 디렉터리의 콘텐츠별로 생성된 총 적중 항목 수를 나타냅니다.
+The By Directory report allows you to view the amount of demand and the traffic incurred over a particular platform for content from a specific directory. Upon generating this type of report, a bar chart will indicate the total number of hits generated by content in the top 10 directories.
 
-### 가로 막대형 차트 사용
+### <a name="using-the-bar-chart"></a>Using the bar chart
 
-* 막대를 마우스로 가리키면 해당 디렉터리에 대한 상대 경로가 표시됩니다.
-* 디렉터리의 하위 폴더에 저장된 콘텐츠는 디렉터리별로 요구량을 계산할 때 포함되지 않습니다. 이 계산에서는 실제 디렉터리에 저장된 콘텐츠에 대해 생성된 요청 수만 사용합니다.
-* 이 보고서의 목적은 에지 CNAME URL을 동등한 CDN URL로 변환하는 것입니다. 이렇게 하면 요청에 CDN 또는 에지 CNAME URL을 사용했는지에 관계 없이 자산과 관련된 모든 통계를 정확히 표시할 수 있습니다.
+* Hover over a bar to view the relative path to the corresponding directory.
+* Content stored in a subfolder of a directory does not count when calculating demand by directory. This calculation relies solely on the number of requests generated for content stored in the actual directory.
+* For the purposes of this report, edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for all statistics associated with an asset regardless of the CDN or edge CNAME URL used to request it.
 
-그래프의 왼쪽(Y축)은 상위 10개 디렉터리에 저장된 콘텐츠에 대한 총 요청 수를 나타냅니다. 차트의 각 막대는 디렉터리를 나타냅니다. 상위 250개 전체 디렉터리 섹션에 나열된 디렉터리와 막대가 일치하도록 색으로 지정된 구성표를 사용합니다.
+The left-hand side of the graph (y-axis) indicates the total number of requests for the content stored in your top 10 directories. Each bar on the chart represents a directory. Use the color-coding scheme to match up a bar to a directory listed in the Top 250 Full Directories section.
 
-가로 막대형 차트를 생성하는 데 사용된 데이터는 아래에서 확인할 수 있습니다. 여기에서 상위 250개 디렉터리 각각에 대해 상대 경로, 총 적중 횟수, 적중 횟수의 백분율, 전송된 데이터 양(기가바이트), 전송된 데이터 백분율 등의 정보를 확인할 수 있습니다.
+The data that was used to generate the bar chart can be viewed below it. There you will find the following information for each of the top 250 directories: relative path, the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred.
 
-## 브라우저별
+## <a name="by-browser"></a>By Browser
 
-브라우저별 보고서를 사용하면 콘텐츠를 요청하는 데 사용한 브라우저를 볼 수 있습니다. 이러한 유형의 보고서를 생성하면 원형 차트가 상위 10개 브라우저별로 처리된 요청의 백분율을 나타냅니다.
+The By Browser report allows you to view which browsers were used to request content. Upon generating this type of report, a pie chart will indicate the percentage of requests handled by the top 10 browsers.
 
-### 원형 차트 사용
+### <a name="using-the-pie-chart"></a>Using the pie chart
 
-* 원형 차트의 조각을 마우스로 가리키면 브라우저의 이름 및 버전이 표시됩니다.
-* 이 보고서의 목적은 서로 다른 브라우저의 각각 고유한 브라우저/버전 조합을 고려하는 것입니다.
-* "기타"라는 조각은 모든 기타 브라우저 및 버전에서 처리하는 요청의 백분율을 나타냅니다.
+* Hover over a slice in the pie chart to view a browser's name and version.
+* For the purposes of this report, each unique browser/version combination is considered a different browser.
+* The slice called "Other" indicates the percentage of requests handled by all other browsers and versions.
 
-원형 차트를 생성하는 데 사용된 데이터는 그 아래에서 확인할 수 있습니다. 여기에서 상위 250개 브라우저 각각에 대한 브라우저 형식/버전 번호, 총 적중 횟수 및 적중 횟수의 백분율을 확인할 수 있습니다.
+The data that was used to generate the pie chart can be viewed below it. There you will find the browser type/version number, the total number of hits and the percentage of hits for each of the top 250 browsers.
 
-## 참조 페이지별
+## <a name="by-referrer"></a>By Referrer
 
-참조 페이지별 보고서를 사용하면 선택한 플랫폼에서 콘텐츠에 대한 상위 참조 페이지를 볼 수 있습니다. 참조 페이지는 요청이 생성된 호스트 이름을 나타냅니다. 이러한 유형의 보고서를 생성하면 가로 막대형 차트가 상위 10개 참조 페이지별로 생성된 요구량(예: 적중 항목)을 나타냅니다.
+The By Referrer report allows you to view the top referrers to content on the selected platform. A referrer indicates the hostname from which a request was generated. Upon generating this type of report, a bar chart will indicate the amount of demand (i.e., hits) generated by the top 10 referrers.
 
-그래프의 왼쪽(Y축)은 각 참조 페이지에 발생한 자산에 대한 총 요청 수를 나타냅니다. 차트의 각 막대는 참조 페이지를 나타냅니다. 상위 250개 참조 페이지 섹션에 나열된 참조 페이지와 막대가 일치하도록 색으로 지정된 구성표를 사용합니다.
+The left-hand side of the graph (y-axis) indicates the total number of requests that an asset experienced for each referrer. Each bar on the chart represents a referrer. Use the color-coding scheme to match up a bar to a referrer listed in the Top 250 Referrer section.
 
-가로 막대형 차트를 생성하는 데 사용된 데이터는 아래에서 확인할 수 있습니다. 여기에서 URL, 총 적중 횟수 및 상위 250개 참조 페이지에서 생성되는 적중 항목의 백분율을 확인할 수 있습니다.
+The data that was used to generate the bar chart can be viewed below it. There you will find the URL, the total number of hits, and the percentage of hits generated from each of the top 250 referrers.
 
-## 다운로드별
+## <a name="by-download"></a>By Download
 
-다운로드별 보고서를 사용하면 가장 많이 요청된 콘텐츠의 다운로드 패턴을 분석할 수 있습니다. 보고서의 맨 위에 상위 10개 요청된 자산에 대해 시도된 다운로드와 완료한 다운로드를 비교하는 가로 막대형 차트가 포함됩니다. 각 막대는 시도된 다운로드(파란색)인지 완료된 다운로드(녹색)인지에 따라 색이 지정됩니다.
+The By Download report allows you to analyze download patterns for your most requested content. The top of the report contains a bar chart that compares attempted downloads with completed downloads for the top 10 requested assets. Each bar is color-coded according to whether it is an attempted download (blue) or a completed download (green).
 
-> [AZURE.NOTE] 이 보고서의 목적은 에지 CNAME URL을 동등한 CDN URL로 변환하는 것입니다. 이렇게 하면 요청에 CDN 또는 에지 CNAME URL을 사용했는지에 관계 없이 자산과 관련된 모든 통계를 정확히 표시할 수 있습니다.
+> [AZURE.NOTE] For the purposes of this report, edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for all statistics associated with an asset regardless of the CDN or edge CNAME URL used to request it.
 
-그래프의 왼쪽(Y축)은 상위 10개 요청된 각 자산에 대한 파일 이름을 나타냅니다. 그래프 바로 아래(X축)에서 시도/완료된 총 다운로드 수를 나타내는 레이블을 찾을 수 있습니다.
+The left-hand side of the graph (y-axis) indicates the file name for each of the top 10 requested assets. Directly below the graph (x-axis), you will find labels that indicate the total number of attempted/completed downloads.
 
-가로 막대형 차트 바로 아래에는 상위 250개 요청된 자산에 대해 상대 경로(파일 이름 포함), 다운로드가 완료된 횟수, 요청된 횟수, 다운로드 완료가 발생한 요청의 백분율 등의 정보가 나열됩니다.
+Directly below the bar chart, the following information will be listed for the top 250 requested assets: relative path (including file name), the number of times that it was downloaded to completion, the number of times that it was requested, and the percentage of requests that resulted in a complete download.
 
-> [AZURE.TIP] 자산이 완전히 다운로드된 경우 CDN은 HTTP 클라이언트(예: 브라우저)에 의해 알려지지 않습니다. 따라서 자산이 완전히 다운로드되었는지 여부를 상태 코드 및 바이트 범위 요청에 따라 계산해야 합니다. 이 계산을 수행할 때 확인할 첫 번째 항목은 요청 결과가 200 OK 상태 코드인지 여부입니다. 그렇다면 바이트 범위 요청을 확인하여 전체 자산을 포함하는지 확인합니다. 마지막으로, 전송된 데이터 양과 요청된 자산이 크기를 비교합니다. 전송된 데이터가 파일 크기보다 크거나 같고 바이트 범위 요청이 해당 자산에 적절한 경우 이 적중 항목은 완료 다운로드로 계산됩니다.
+> [AZURE.TIP] Our CDN is not informed by an HTTP client (i.e. browser) when an asset has been completely downloaded. As a result, we have to calculate whether an asset has been completely downloaded according to status codes and byte-range requests. The first thing we look for when making this calculation is whether the request results in a 200 OK status code. If so, then we look at byte-range requests to ensure that they cover the entire asset. Finally, we compare the amount of data transferred to the size of the requested asset. If the data transferred is equal to or greater than the file size and the byte-range requests are appropriate for that asset, then the hit will be counted as a complete download.
 >
->이 보고서의 해석적인 특성으로 인해 이 보고서의 일관성 및 정확성을 수정할 수 있는 다음 사항을 유념해야 합니다.
+>Due to the interpretive nature of this report, you should keep in mind the following points that may alter the consistency and accuracy of this report.
 >
->* 사용자 에이전트가 다르게 동작하는 경우 트래픽 패턴을 정확하게 예측할 수 없습니다. 따라서 100%를 초과하는 완료된 다운로드 결과를 생성할 수 있습니다.
->* HTTP 점진적 다운로드를 활용하는 자산은 이 보고서에서 정확하게 표현되지 않을 수 있습니다. 사용자가 비디오에서 다른 위치를 검색하기 때문입니다.
+>* Traffic patterns cannot be accurately predicted when user-agents behave differently. This may produce completed download results that are greater than 100%.
+>* Assets that take advantage of HTTP Progressive Download may not be accurately represented by this report. This is due to users seeking to different positions in a video.
 
-## 404 오류별
+## <a name="by-404-errors"></a>By 404 Errors
 
-404 오류별 보고서를 사용하면 가장 많은 수의 404 찾을 수 없음 상태 코드를 생성하는 콘텐츠 유형을 식별할 수 있습니다. 보고서의 맨 위에는 404 찾을 수 없음 상태 코드가 반환된 상위 10개 자산에 대한 가로 막대형 차트가 포함됩니다. 이 막대형 차트는 이러한 자산에 대해 404 찾을 수 없음 상태 코드가 발생하는 요청과 총 요청 수를 비교합니다. 각 막대는 색으로 지정됩니다. 노란색 막대는 404 찾을 수 없음 상태 코드가 발생하는 요청을 나타내는 데 사용됩니다. 빨간색 막대는 자산에 대한 총 요청 수를 나타내는 데 사용됩니다.
+The By 404 Errors report allows you to identify the type of content that generates the most number of 404 Not Found status codes. The top of the report contains a bar chart for the top 10 assets for which a 404 Not Found status code was returned. This bar chart compares the total number of requests with requests that resulted in a 404 Not Found status code for those assets. Each bar is color-coded. A yellow bar is used to indicate that the request resulted in a 404 Not Found status code. A red bar is used to indicate the total number of requests for the asset.
 
-> [AZURE.NOTE] 이 보고서의 목적에 따라 다음 사항을 유의하세요.
+> [AZURE.NOTE] For the purposes of this report, note the following:
 >
->* 적중 항목은 상태 코드에 관계 없이 자산에 대한 모든 요청을 나타냅니다.
->* 에지 CNAME URL은 동등한 CDN URL로 변환됩니다. 이렇게 하면 요청에 CDN 또는 에지 CNAME URL을 사용했는지에 관계 없이 자산과 관련된 모든 통계를 정확히 표시할 수 있습니다.
+>* A hit represents any request for an asset regardless of status code.
+>* Edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for all statistics associated with an asset regardless of the CDN or edge CNAME URL used to request it.
 
-그래프의 왼쪽(Y축)은 404 찾을 수 없음 상태 코드가 발생한 상위 10개 요청된 각 자산에 대한 파일 이름을 나타냅니다. 그래프 바로 아래(X축)에서 404 찾을 수 없음 상태 코드가 발생한 요청 수와 총 요청 수를 나타내는 레이블을 찾을 수 있습니다.
+The left-hand side of the graph (y-axis) indicates the file name for each of the top 10 requested assets that resulted in a 404 Not Found status code. Directly below the graph (x-axis), you will find labels that indicate the total number of requests and the number of requests that resulted in a 404 Not Found status code.
 
-가로 막대형 차트 바로 아래에는 상위 250개 요청된 자산에 대해 상대 경로(파일 이름 포함), 404 찾을 수 없음 상태 코드가 발생한 요청 수, 자산이 요청된 총 횟수, 404 찾을 수 없음 상태 코드가 발생한 요청의 백분율 등의 정보가 나열됩니다.
+Directly below the bar chart, the following information will be listed for the top 250 requested assets: relative path (including file name), the number of requests that resulted in a 404 Not Found status code, the total number of times that the asset was requested, and the percentage of requests that resulted in a 404 Not Found status code.
 
-## 참고 항목
-* [Azure CDN 개요](cdn-overview.md)
-* [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
-* [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
-* [에지 성능 분석](cdn-edge-performance.md)
+## <a name="see-also"></a>See also
+* [Azure CDN Overview](cdn-overview.md)
+* [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
+* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
+* [Analyze Edge Performance](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

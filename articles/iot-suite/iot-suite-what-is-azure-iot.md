@@ -1,6 +1,6 @@
 <properties
- pageTitle="사물 인터넷에 대한 Azure 솔루션 | Microsoft Azure"
- description="샘플 솔루션 아키텍처 및 이를 Azure IoT Suite 및 미리 구성된 솔루션과 연결하는 방법을 포함한 Azure IoT 개요"
+ pageTitle="Azure solutions for Internet of Things | Microsoft Azure"
+ description="A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,32 +17,36 @@
  ms.date="08/09/2016"
  ms.author="dobett"/>
 
+
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## Azure IoT Suite
+## <a name="azure-iot-suite"></a>Azure IoT Suite
 
-Microsoft Azure IoT Suite는 [원격 모니터링][lnk-preconfigured-solutions] 및 [예측 유지 관리][lnk-predictive-maintenance]와 같이 일반적인 IoT 시나리오를 해결하는 일련의 미리 구성된 확장 가능 솔루션을 통해 빠르게 시작할 수 있는 엔터프라이즈급 솔루션입니다. 이러한 솔루션은 이 문서에서 설명한 IoT 솔루션 아키텍처의 구현입니다.
+The Microsoft Azure IoT Suite is an enterprise-grade solution that enables you to get started quickly through a set of extensible preconfigured solutions that address common IoT scenarios, such as [remote monitoring][lnk-preconfigured-solutions] and [predictive maintenance][lnk-predictive-maintenance]. These solutions are implementations of the IoT solution architecture outlined in this article.
 
-미리 구성된 솔루션은 [Azure IoT Hub][], [Azure 이벤트 허브][], [Azure 스트림 분석][], [Azure 기계 학습][], [Azure Storage][] 및 솔루션 특정 관리 콘솔과 같은 미리 구성된 Azure 서비스를 시작하는 시뮬레이션된 장치를 포함한 완전히 작동하는 종단 간 솔루션입니다. 미리 구성된 솔루션은 프로덕션에 사용할 준비가 된 입증된 코드를 포함하며 이 코드는 고유한 특정 IoT 시나리오를 구현하도록 사용자 지정하고 확장할 수 있습니다.
+The preconfigured solutions are complete, working, end-to-end solutions that include simulated devices to get you started, preconfigured Azure services such as [Azure IoT Hub][], [Azure Event Hubs][], [Azure Stream Analytics][], [Azure Machine Learning][], and [Azure storage][], and solution specific management consoles. The preconfigured solutions contain proven, production-ready code that you can customize and extend to implement your own specific IoT scenarios.
 
-다수의 미리 구성된 솔루션이 사용하는 [Azure IoT Hub][] 서비스에 관심이 있을 수 있습니다. [Azure IoT Hub][]는 미리 구성된 솔루션 아키텍처에서 사용되는 장치 및 클라우드 간에 안전하고 신뢰할 수 있는 양방향 통신을 제공합니다.
+You may also be interested in the [Azure IoT Hub][] service that many of the preconfigured solutions use. [Azure IoT Hub][] provides the secure and reliable bi-directional communications between devices and the cloud used in the preconfigured solution architecture.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-IoT Suite 및 미리 구성된 솔루션에 대해 계속 알아보려면 다음 리소스를 탐색합니다.
+Explore these resources to continue learning about IoT Suite and the preconfigured solutions:
 
-- [Azure IoT Suite란?][lnk-whatissuite]
-- [미리 구성된 Azure IoT Suite 솔루션은 무엇입니까?][lnk-whatarepreconfigured]
+- [What is Azure IoT Suite?][lnk-whatissuite]
+- [What are the Azure IoT Suite preconfigured solutions?][lnk-whatarepreconfigured]
 
 [lnk-whatissuite]: iot-suite-overview.md
 [lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
 
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
 [Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[Azure 이벤트 허브]: https://azure.microsoft.com/documentation/services/event-hubs/
-[Azure 스트림 분석]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[Azure 기계 학습]: https://azure.microsoft.com/documentation/services/machine-learning/
+[Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
+[Azure Stream Analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

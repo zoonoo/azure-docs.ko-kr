@@ -1,6 +1,6 @@
 <properties
-   pageTitle="자동 크기 조정 지침 | Microsoft Azure"
-   description="자동 크기 조정이 응용 프로그램에 필요한 리소스를 동적으로 할당하는 방법에 대한 지침입니다."
+   pageTitle="Autoscaling guidance | Microsoft Azure"
+   description="Guidance on how to autoscale to dynamically allocate resources required by an application."
    services=""
    documentationCenter="na"
    authors="dragon119"
@@ -17,97 +17,103 @@
    ms.date="07/13/2016"
    ms.author="masashin"/>
 
-# 자동 크기 조정 지침
+
+# <a name="autoscaling-guidance"></a>Autoscaling guidance
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## 개요
-자동 크기 조정은 런타임 비용을 최소화하면서 성능 요구 사항 및 SLA(서비스 수준 계약)에 맞는 응용 프로그램에 필요한 리소스를 동적으로 할당하는 프로세스입니다. 작업량이 증가하면 적시에 작업을 수행할 수 있도록 응용 프로그램에 추가 리소스가 필요할 수 있습니다. 요구가 완화되면 리소스의 할당을 취소하여 여전히 적절한 성능을 유지하면서 SLA를 충족하는 상태로 비용을 최소화할 수 있습니다. 자동 크기 조정은 관리 부담을 완화하면서 클라우드에 호스트된 환경의 탄력성을 이용합니다. 이렇게 하려면 운영자가 시스템 성능을 지속적으로 모니터링하고 리소스 추가 또는 제거를 결정할 필요성을 줄이면 됩니다.
->[AZURE.NOTE] 자동 크기 조정은 계산 리소스뿐 아니라 응용 프로그램에 사용되는 모든 리소스에 적용됩니다. 예를 들어 사용자의 시스템이 메시지 큐를 사용하여 정보를 송수신하면 규모에 따라 추가 큐를 만들 수 있습니다.
+## <a name="overview"></a>Overview
+Autoscaling is the process of dynamically allocating the resources required by an application to match performance requirements and satisfy service-level agreements (SLAs), while minimizing runtime costs. As the volume of work grows, an application may require additional resources to enable it to perform its tasks in a timely manner. As demand slackens, resources can be de-allocated to minimize costs, while still maintaining adequate performance and meeting SLAs.
+Autoscaling takes advantage of the elasticity of cloud-hosted environments while easing management overhead. It does so by reducing the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
+>[AZURE.NOTE] Autoscaling applies to all of the resources used by an application, not just the compute resources. For example, if your system uses message queues to send and receive information, it could create additional queues as it scales.
 
-## 크기 조정 유형
-크기 조정은 일반적으로 다음 두 가지 형식 중 하나를 사용합니다.
+## <a name="types-of-scaling"></a>Types of scaling
+Scaling typically takes one of the following two forms:
 
-- **수직**(_규모 확장 또는 축소_라고도 함). 이 형식을 사용하려면 하드웨어를 수정(용량 및 성능 확장 또는 감소)하거나 적절한 용량 및 성능의 대체 하드웨어를 사용하는 솔루션을 다시 배포해야 합니다. 클라우드 환경에서는 하드웨어 플랫폼이 일반적으로 수직화된 환경입니다. 원래 하드웨어가 실질적으로 과하게 프로비전되지 않은 이상, 이에 따른 선행 경비를 사용하여 이 환경에서 수직으로 규모를 강화하면 더 강력한 리소스를 프로비저닝하게 되고, 이 새 리소스에 시스템을 이동하게 됩니다. 수직 크기 조정은 종종 재배포되는 동안 해당 시스템을 일시적으로 사용할 수 없게 해야 하는 중단 프로세스입니다. 새 하드웨어가 프로비전되고 온라인 상태인 동안 원래 시스템을 실행하도록 유지할 수는 있지만, 기존 환경에서 새 환경으로 전환하는 처리 중에는 일부 중단이 발생할 수 있습니다. 자동 크기 조정을 사용하여 수직 크기 조정 전략을 구현하는 것은 일반적이지 않습니다.
-- **수평**(_규모 확장 또는 감축_이라고도 함). 이 형식을 사용하려면 일반적으로 고성능 시스템이 아닌 상용 리소스인 더 많거나 더 적은 리소스에 솔루션을 배포해야 합니다. 이 솔루션은 해당 리소스가 프로비전되는 동안 중단 없이 계속 실행할 수 있습니다. 프로비전 프로세스가 완료되면 솔루션을 구성하는 요소의 사본이 이 추가 리소스에 배포되고 사용할 수 있게 됩니다. 필요가 없어지면 추가 리소스는 이를 사용하는 요소들이 완전히 종료된 후 회수될 수 있습니다. Microsoft Azure를 포함한 많은 클라우드 기반 시스템이 이 크기 조정 형식의 자동화를 지원합니다.
+- **Vertical** (often referred to as _scaling up and down_). This form requires that you modify the hardware (expand or reduce its capacity and performance), or redeploy the solution using alternative hardware that has the appropriate capacity and performance. In a cloud environment, the hardware platform is typically a virtualized environment. Unless the original hardware was substantially overprovisioned, with the consequent upfront capital expense, vertically scaling up in this environment involves provisioning more powerful resources, and then moving the system onto these new resources. Vertical scaling is often a disruptive process that requires making the system temporarily unavailable while it is being redeployed. It may be possible to keep the original system running while the new hardware is provisioned and brought online, but there will likely be some interruption while the processing transitions from the old environment to the new one. It is uncommon to use autoscaling to implement a vertical scaling strategy.
+- **Horizontal** (often referred to as _scaling out and in_). This form requires deploying the solution on additional or fewer resources, which are typically commodity resources rather than high-powered systems. The solution can continue running without interruption while these resources are provisioned. When the provisioning process is complete, copies of the elements that comprise the solution can be deployed on these additional resources and made available. If demand drops, the additional resources can be reclaimed after the elements using them have been shut down cleanly. Many cloud-based systems, including Microsoft Azure, support automation of this form of scaling.
 
-## 자동 크기 조정 전략 구현
-자동 크기 조정 전략의 구현은 일반적으로 다음 구성 요소 및 프로세스를 동반합니다.
+## <a name="implement-an-autoscaling-strategy"></a>Implement an autoscaling strategy
+Implementing an autoscaling strategy typically involves the following components and processes:
 
-- 응용 프로그램, 서비스 및 인프라 수준의 계측 및 모니터링 시스템 이 시스템에서 응답 시간, 큐 길이, CPU 사용률, 메모리 사용량 등의 주요 메트릭 캡처
-- 미리 정의된 시스템 임계값이나 일정에 대해 모니터링된 크기 조정 요인을 계산하고 크기를 조정할지 여부에 관한 결정을 내릴 수 있는 의사 결정 논리
-- 리소스 프로비전 또는 프로비전 해제와 같은 시스템 크기 조정과 관련된 작업을 수행하는 일을 담당하는 구성 요소
-- 자동 크기 조정 전략을 테스트, 모니터링, 조정하여 예상대로 작동하는지 확인
+- Instrumentation and monitoring systems at the application, service, and infrastructure levels. These systems capture key metrics, such as response times, queue lengths, CPU utilization, and memory usage.
+- Decision-making logic that can evaluate the monitored scaling factors against predefined system thresholds or schedules, and make decisions regarding whether to scale or not.
+- Components that are responsible for carrying out tasks associated with scaling the system, such as provisioning or de-provisioning resources.
+- Testing, monitoring, and tuning of the autoscaling strategy to ensure that it functions as expected.
 
-Azure 등의 대부분 클라우드 기반 환경에서는 일반적인 시나리오를 처리하는 기본 제공 자동 크기 조정 메커니즘을 제공합니다. 사용하는 환경이나 서비스가 필요한 자동 크기 조정 기능을 제공하지 않거나 용량 이상으로 극단적인 자동 크기 조정이 필요한 경우, 사용자 지정 구현이 필요할 수 있습니다. 이 사용자 지정 구현을 사용하여 운영 및 시스템 메트릭을 수집하고, 관련 데이터를 분석하여 파악하고, 이에 따라 리소스의 크기를 조정합니다.
+Most cloud-based environments, such as Azure, provide built-in autoscaling mechanisms that address common scenarios. If the environment or service you use doesn't provide the necessary automated scaling functionality, or if you have extreme autoscaling requirements beyond its capabilities, a custom implementation may be necessary. Use this customized implementation to collect operational and system metrics, analyze them to identify relevant data, and then scale resources accordingly.
 
 
-## Azure 솔루션에 대한 자동 크기 조정 구성
-Azure 솔루션에 대해 자동 크기 조정을 구성하는 여러 옵션이 있습니다.
+## <a name="configure-autoscaling-for-an-azure-solution"></a>Configure autoscaling for an Azure solution
+There are several options for configuring autoscaling for your Azure solutions:
 
-- **Azure 자동 크기 조정**은 일정을 기반으로 하는 가장 일반적인 크기 조정 시나리오 및 프로세서 사용률, 큐 길이, 또는 기본 제공 및 사용자 지정 카운터와 같은 런타임 메트릭에 기반을 둔 트리거된 크기 조정(옵션)을 지원합니다. Azure 포털을 사용하여 솔루션에 대한 간단한 자동 크기 조정 정책을 빠르고 쉽게 구성할 수 있습니다. 더욱 세분화된 제어를 위해 [Azure 서비스 관리 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 또는 [Azure Resource Manager REST API](https://msdn.microsoft.com//library/azure/dn790568.aspx)를 사용할 수 있습니다. [Azure 모니터링 서비스 관리 라이브러리](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) 및 [Microsoft Insights 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Insights/)(미리 보기)는 다른 리소스에서 메트릭 수집을 허용하고 REST API를 사용하여 자동 크기 조정을 수행하는 SDK입니다. Azure 리소스 관리자 지원을 사용할 수 없는 리소스의 경우 또는 클라우드 서비스를 사용하고 있는 경우 Azure 서비스 관리 REST API를 자동 크기 조정에 사용할 수 있습니다. 다른 경우에는 모두 Azure 리소스 관리자를 사용하세요.
-- **사용자 지정 솔루션**. Azure의 관리 기능 및 응용 프로그램의 계측을 기반으로 합니다. 예를 들어 Azure 진단 또는 응용 프로그램에서 다른 계측 방법을 사용자 지정 코드와 함께 사용하여 응용 프로그램의 메트릭을 지속적으로 모니터링하고 내보낼 수 있습니다. 이러한 메트릭에서 작동하는 사용자 지정 규칙이 있을 수 있으며 자동 크기 조정을 트리거하는 데 서비스 관리 또는 리소스 관리자 REST API를 사용할 수 있습니다. 크기 조정 작업을 트리거하는 메트릭은 내장 또는 사용자 지정 카운터나 응용 프로그램 내에 구현한 다른 계측 중 무엇이든 될 수 있습니다. 그러나 사용자 지정 솔루션을 구현하는 것은 간단하지 않으며 이전 방법 중 요구 사항을 충족하는 것이 없는 경우에만 고려해야 합니다. [자동 크기 조정 응용 프로그램 블록](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx)에서 이 방법을 사용합니다.
-- [Paraleap AzureWatch](http://www.paraleap.com/AzureWatch)와 같은 **타사 서비스**를 사용하면 일정, 서비스 부하와 시스템 성능 지표, 사용자 지정 규칙 및 서로 다른 규칙의 조합을 기반으로 하는 솔루션의 크기를 조정할 수 있습니다.
+- **Azure Autoscale** supports the most common scaling scenarios based on a schedule and, optionally, triggered scaling operations based on runtime metrics (such as processor utilization, queue length, or built-in and custom counters). You can configure simple autoscaling policies for a solution quickly and easily by using the Azure portal. For more detailed control, you can make use of the [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) or the [Azure Resource Manager REST API](https://msdn.microsoft.com//library/azure/dn790568.aspx). The [Azure Monitoring Service Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/) (in preview) are SDKs that allow collecting metrics from different resources, and perform autoscaling by making use of the REST APIs. For resources where Azure Resource Manager support isn't available, or if you are using Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Azure Resource Manager.
+- **A custom solution**, based on your instrumentation on the application, and management features of Azure, can be useful. For example, you could use Azure diagnostics or other methods of instrumentation in your application, along with custom code to continually monitor and export metrics of the application. You could have custom rules that work on these metrics, and make use of the Service Management or Resource Manager REST API's to trigger autoscaling. The metrics for triggering a scaling operation can be any built-in or custom counter, or other instrumentation you implement within the application. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements. The [Autoscaling Application Block](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx) makes use of this approach.
+- **Third-party services**, such as [Paraleap AzureWatch](http://www.paraleap.com/AzureWatch), enable you to scale a solution based on schedules, service load and system performance indicators, custom rules, and combinations of different types of rules.
 
-채택할 자동 크기 조정 솔루션을 선택할 때는 다음 사항을 고려하십시오.
+When choosing which autoscaling solution to adopt, consider the following points:
 
-- 요구 사항을 충족하는 경우 플랫폼의 기본 제공 자동 조정 기능을 사용합니다. 그렇지 않으면 더 복잡한 크기 조정 기능이 정말로 필요한지 신중하게 고려하십시오. 일부 추가 요구 사항의 예는 더 세분화된 제어, 다른 방식의 크기 조정에 대한 트리거 이벤트 감지, 구독 전체의 크기 조정, 다른 리소스 유형의 크기 조정 등을 포함할 수 있습니다.
-- 예정된 자동 크기 조정(인스턴스를 추가 및 제거하여 수요가 예상되는 피크를 충족)에 따라서만 충분한 정확도로 응용 프로그램의 부하를 예상할 수 있는 경우에 고려하십시오. 이것이 불가능한 경우에는 런타임에서 수집된 메트릭을 기반으로 하는 반응 자동 크기 조정을 사용하여 응용 프로그램이 수요를 예측할 수 없는 변화를 처리하게 합니다. 일반적으로 이 방법들을 결합할 수 있습니다. 예를 들어, 응용 프로그램이 가장 바쁠 것을 아는 시간 일정을 기반으로 하여 계산, 저장소 및 큐와 같은 리소스를 추가하는 전략을 만듭니다. 이는 새 인스턴스를 시작할 때 지연이 발생하지 않고 필요할 때 용량을 사용할 수 있게 하는 데 도움을 줍니다. 또한 각 예정된 규칙에 대해 해당 기간 동안 반응 자동 크기 조정을 할 수 있게 하는 메트릭을 정의하여 응용 프로그램이 지속적이면서 수요를 예측할 수 없는 피크를 처리할 수 있게 합니다.
-- 종종 메트릭과 용량 요구 사항의 관계를 이해하기는 어려우며, 특히 응용 프로그램이 초기에 배포된 경우에 그렇습니다. 처음에 약간의 추가 용량을 프로비전한 후 자동 크기 조정 규칙을 모니터링하고 조정하여 용량을 실제 부하에 더 근접하게 하는 것이 바람직합니다.
+- Use the built-in autoscaling features of the platform, if they can meet your requirements. If not, carefully consider whether you really do need more complex scaling features. Some examples of additional requirements may include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
+- Consider if you can predict the load on the application with sufficient accuracy to depend only on scheduled autoscaling (adding and removing instances to meet anticipated peaks in demand). Where this isn't possible, use reactive autoscaling based on metrics collected at runtime, to allow the application to handle unpredictable changes in demand. Typically, you can combine these approaches. For example, create a strategy that adds resources such as compute, storage, and queues, based on a schedule of the times when you know the application is most busy. This helps to ensure that capacity is available when required, without the delay encountered when starting new instances. In addition, for each scheduled rule, define metrics that allow reactive autoscaling during that period to ensure that the application can handle sustained but unpredictable peaks in demand.
+- It's often difficult to understand the relationship between metrics and capacity requirements, especially when an application is initially deployed. Prefer to provision a little extra capacity at the beginning, and then monitor and tune the autoscaling rules to bring the capacity closer to the actual load.
 
-### Azure 자동 크기 조정 사용
-자동 크기 조정을 사용하면 솔루션에 대해 규모 확장 및 규모 감축을 구성할 수 있습니다. 자동 크기 조정은 Azure 클라우드 서비스 웹 및 작업자 역할의 인스턴스, Azure 모바일 서비스, Azure 앱 서비스의 웹앱 기능을 자동으로 추가 및 제거할 수 있습니다. 또한 Azure 가상 컴퓨터의 인스턴스를 시작하거나 중지하여 자동으로 크기 조정할 수도 있습니다. Azure 자동 크기 조정 전략에는 다음 두 가지 요인 집합이 포함됩니다.
+### <a name="use-azure-autoscale"></a>Use Azure Autoscale
+Autoscale enables you to configure scale out and scale in options for a solution. Autoscale can automatically add and remove instances of Azure Cloud Services web and worker roles, Azure Mobile Services, and Web Apps feature in Azure App Service. It can also enable automatic scaling by starting and stopping instances of Azure Virtual Machines. An Azure autoscaling strategy includes two sets of factors:
 
-- 일정 기반 자동 크기 조정은 예상되는 사용 피크와 추가 인스턴스가 일치하게 하고, 피크 시간이 지나가면 일단 규모 감축할 수 있게 합니다. 이로서 시스템이 부하에 반응하기를 기다리지 않고 이미 실행 중인 인스턴스가 충분한지 확인할 수 있습니다.
-- 메트릭 기반 자동 크기 조정은 지난 시간의 평균 CPU 사용률이나, Azure 저장소 또는 Azure 서비스 버스 큐에서 솔루션이 처리되고 있다는 메시지의 백로그와 같은 사항에 반응합니다. 이로서 응용 프로그램이 예정된 자동 크기 조정 규칙과 독립적으로 반응할 수 있어서 계획되지 않거나 예기치 못한 수요 변화에 대응할 수 있습니다.
+- Schedule-based autoscaling that can ensure additional instances are available to coincide with an expected peak in usage, and can scale in once the peak time has passed. This enables you to ensure that you have sufficient instances already running, without waiting for the system to react to the load.
+- Metrics-based autoscaling that reacts to factors such as average CPU utilization over the last hour, or the backlog of messages that the solution is processing in an Azure storage or Azure Service Bus queue. This allows the application to react separately from the scheduled autoscaling rules to accommodate unplanned or unforeseen changes in demand.
 
-자동 크기 조정을 사용하는 경우에는 다음 사항을 고려하세요.
+Consider the following points when using Autoscale:
 
-- 사용자의 자동 크기 조정 전략은 일정 기반 및 메트릭 기반 크기 조정을 모두 포함합니다. 서비스에 대한 두 가지 유형의 규칙을 모두 지정할 수 있습니다.
-- 자동 크기 조정 규칙을 구성하고 시간 경과에 따른 응용 프로그램의 성능 변화를 모니터링해야 합니다. 이 모니터링 결과를 사용하여 필요한 경우 시스템 크기 조정 방법을 조정합니다. 그러나 자동 크기 조정은 즉각적인 프로세스가 아님을 명심하세요. 지정된 임계값을 초과하는(또는 미달하는) 평균 CPU 사용률과 같은 메트릭에 반응하는 데에는 시간이 걸립니다.
-- 측정된 트리거 특성(CPU 사용량이나 큐 길이 등)을 기반으로 하는 감지 메커니즘을 사용하는 자동 크기 조정 규칙은 즉각적인 값보다는 시간 경과에 따라 집계되는 값을 사용하여 자동 크기 조정 작업을 트리거합니다. 기본적으로 집계는 값의 평균입니다. 이는 시스템이 너무 신속하게 반응하거나 빠른 진동을 일으키는 것을 방지합니다. 또한 자동으로 시작된 새 인스턴스가 실행 모드로 안정되는 시간을 허용하여 새 인스턴스가 시작되는 동안 추가 자동 크기 조정 작업이 발생하는 것을 방지합니다. Azure 클라우드 서비스 및 Azure 가상 컴퓨터의 경우 집계에 대한 기본 기간은 45분이므로, 수요 급증에 응답하여 자동 크기 조정을 트리거하는 메트릭에 대해 이 기간을 확보할 수 있습니다. SDK를 사용하여 집계 기간을 변경할 수 있지만 25분 미만의 기간은 예기치 않은 결과를 초래할 수 있음에 주의하세요([Azure 모니터링 서비스 관리 라이브러리를 사용하여 CPU 비율로 클라우드 서비스 자동 크기 조정](http://rickrainey.com/2013/12/15/auto-scaling-cloud-services-on-cpu-percentage-with-the-windows-azure-monitoring-services-management-library/) 참조). 웹앱의 경우, 평균 기간은 더 짧아서 평균 트리거 측정값을 변경한 후 약 5분 후에 새 인스턴스를 사용할 수 있습니다.
-- 웹 포털 대신 SDK를 사용하여 자동 크기 조정을 구성하면 규칙이 활성화된 동안 더 상세한 일정을 지정할 수 있습니다. 또한 고유의 메트릭을 만들고 사용자의 자동 크기 조정 규칙에 존재하는 내용과 함께 또는 별도로 사용할 수도 있습니다. 예를 들어, 초당 요청 수나 평균 메모리 가용성과 같은 대체 카운터를 사용하거나 특정 비즈니스 프로세스를 측정하는 사용자 지정 카운터를 사용하고자 할 수 있습니다.
-- Azure 가상 컴퓨터를 자동 크기 조정하는 경우, 자동 크기 조정을 시작하도록 할 최대 수와 동일한 가상 컴퓨터의 인스턴스 수를 배포해야 합니다. 이 인스턴스는 동일한 가용성 집합의 일부여야 합니다. 가상 컴퓨터 자동 크기 조정 메커니즘은 가상 컴퓨터의 인스턴스를 만들거나 삭제하지 않습니다. 그 대신 사용자가 구성하는 자동 크기 조정 규칙이 이 인스턴스의 적절한 수를 시작하고 중지합니다. 자세한 내용은 [웹 역할, 작업자 역할, 또는 가상 컴퓨터를 실행 중인 응용 프로그램의 크기 자동 조정](./cloud-services/cloud-services-how-to-scale.md)을 참조하십시오.
-- 아마도 구독의 최대값에 도달했거나 시작 도중에 오류가 발생하여 새 인스턴스를 사용할 수 없는 경우, 포털은 자동 크기 조정 작업에 성공했다고 표시할 수 있습니다. 그러나 포털에 표시되는 이후의 **ChangeDeploymentConfiguration** 이벤트는 서비스 시작이 요청되었음만을 표시하고 성공적으로 완료된 이벤트는 표시되지 않습니다.
-- 웹 포털 UI를 사용하여 SQL 데이터베이스 인스턴스 및 큐와 같은 리소스를 계산 서비스 인스턴스에 연결할 수 있습니다. 따라서 연결된 각 리소스에 대한 별도의 수동 및 자동 크기 조정 구성 옵션에 더 쉽게 액세스할 수 있습니다. 자세한 내용은 [방법: 클라우드 서비스에 리소스 연결](cloud-services-how-to-manage.md#linkresources) 및 [응용 프로그램의 크기를 조정하는 방법](./cloud-services/cloud-services-how-to-scale.md)을 참조하세요.
-- 복수의 정책 및 규칙을 구성하는 경우, 서로 충돌할 수 있습니다. 자동 크기 조정은 다음 충돌 해결 규칙을 사용하여 언제나 충분한 수의 인스턴스가 실행되도록 합니다.
-  - 규모 확장 작업은 언제나 규모 감축 작업보다 우선됩니다.
-  - 규모 확장 작업이 충돌하는 경우, 인스턴스 수가 가장 많이 증가되는 규칙이 우선됩니다.
-  - 규모 감축 작업이 충돌하는 경우, 인스턴스 수가 가장 적게 감소되는 규칙이 우선됩니다.
+- Your autoscaling strategy combines both scheduled and metrics-based scaling. You can specify both types of rules for a service.
+- You should configure the autoscaling rules, and then monitor the performance of your application over time. Use the results of this monitoring to adjust the way in which the system scales if necessary. However, keep in mind that autoscaling is not an instantaneous process. It takes time to react to a metric such as average CPU utilization exceeding (or falling below) a specified threshold.
+- Autoscaling rules that use a detection mechanism based on a measured trigger attribute (such as CPU usage or queue length) use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. By default, the aggregate is an average of the values. This prevents the system from reacting too quickly, or causing rapid oscillation. It also allows time for new instances that are auto-started to settle into running mode, preventing additional autoscaling actions from occurring while the new instances are starting up. For Azure Cloud Services and Azure Virtual Machines, the default period for the aggregation is 45 minutes, so it can take up to this period of time for the metric to trigger autoscaling in response to spikes in demand. You can change the aggregation period by using the SDK, but be aware that periods of fewer than 25 minutes may cause unpredictable results (for more information, see [Auto Scaling Cloud Services on CPU Percentage with the Azure Monitoring Services Management Library](http://rickrainey.com/2013/12/15/auto-scaling-cloud-services-on-cpu-percentage-with-the-windows-azure-monitoring-services-management-library/)). For Web Apps, the averaging period is much shorter, allowing new instances to be available in about five minutes after a change to the average trigger measure.
+- If you configure autoscaling using the SDK rather than the web portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters that measure specific business processes.
+- When autoscaling Azure Virtual Machines, you must deploy a number of instances of the virtual machine that is equal to the maximum number you will allow autoscaling to start. These instances must be part of the same availability set. The Virtual Machines autoscaling mechanism does not create or delete instances of the virtual machine; instead, the autoscaling rules you configure will start and stop an appropriate number of these instances. For more information, see [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](./cloud-services/cloud-services-how-to-scale.md).
+- If new instances cannot be started, perhaps because the maximum for a subscription has been reached or an error occurs during startup, the portal may show that an autoscaling operation succeeded. However, subsequent **ChangeDeploymentConfiguration** events displayed in the portal will show only that a service startup was requested, and there will be no event to indicate it was successfully completed.
+- You can use the web portal UI to link resources such as SQL Database instances and queues to a compute service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](cloud-services-how-to-manage.md#linkresources) and [How to Scale an Application](./cloud-services/cloud-services-how-to-scale.md).
+- When you configure multiple policies and rules, they could conflict with each other. Autoscale uses the following conflict resolution rules to ensure that there is always a sufficient number of instances running:
+  - Scale out operations always take precedence over scale in operations.
+  - When scale out operations conflict, the rule that initiates the largest increase in the number of instances takes precedence.
+  - When scale in operations conflict, the rule that initiates the smallest decrease in the number of instances takes precedence.
 
 <a name="the-azure-monitoring-services-management-library"></a>
 
-## 자동 크기 조정 구현에 대한 응용 프로그램 디자인 고려 사항
-자동 크기 조정은 인스턴트 솔루션이 아닙니다. 그저 리소스를 시스템에 추가하거나 프로세스의 더 많은 인스턴스를 추가하기만 해서는 시스템 성능의 향상이 보장되지 않습니다. 자동 크기 조정 전략을 디자인할 때 다음 사항을 고려하십시오.
+## <a name="application-design-considerations-for-implementing-autoscaling"></a>Application design considerations for implementing autoscaling
+Autoscaling isn't an instant solution. Simply adding resources to a system or running more instances of a process doesn't guarantee that the performance of the system will improve. Consider the following points when designing an autoscaling strategy:
 
-- 시스템은 수평 확장이 가능하도록 디자인해야 합니다. 인스턴스 선호도를 가정하지 마십시오. 프로세스의 특정 인스턴스에서 항상 실행되는 코드가 필요한 솔루션을 디자인하지 마십시오. 클라우드 서비스나 웹 사이트를 수평으로 크기 조정하는 경우, 항상 동일한 인스턴스에 라우팅되는 동일한 소스로부터의 일련의 요청을 가정하지 마세요. 같은 이유로 서비스를 상태 비저장으로 디자인하여 항상 서비스의 동일한 인스턴스에 라우팅되는 응용 프로그램으로부터의 일련의 요청을 방지하십시오. 큐에서 메시지를 읽고 처리하는 서비스를 디자인하는 경우 특정 메시지를 처리하는 서비스의 인스턴스를 가정하지 마세요. 큐 길이가 늘어나면 자동 크기 조정이 서비스의 추가 인스턴스를 시작할 수 있습니다. [경쟁 소비자 패턴](http://msdn.microsoft.com/library/dn568101.aspx)에서 이 시나리오를 처리하는 방법을 설명합니다.
-- 솔루션이 장기 실행 작업을 구현하는 경우, 이 작업이 규모 확장 및 규모 감축을 모두 지원하도록 디자인하십시오. 기한에 상관 없이, 이러한 작업은 시스템이 규모 감축되었을 때 프로세스의 인스턴스가 완전히 종료되는 것을 방지할 수 있으며, 그러지 않으면 프로세스가 강제로 종료되었을 때 데이터가 손상될 수 있습니다. 이상적으로는 장기 실행 작업을 리팩터링하고 더 작고 이스크리트된 청크로 수행하는 처리를 중단합니다. [파이프 및 필터 패턴](http://msdn.microsoft.com/library/dn568100.aspx)에서는 이렇게 할 수 있는 방법의 예를 제공합니다.
-- 또는 정기적으로 작업에 관한 상태 정보를 기록하고 이 상태를 작업을 실행하는 프로세스의 모든 인스턴스에서 액세스할 수 있는 영구 저장소에 저장하는 검사점 메커니즘을 구현할 수 있습니다. 이런 식으로, 프로세스가 종료되면 수행 중이던 작업은 다른 인스턴스를 사용하여 마지막 검사점에서 다시 시작할 수 있습니다.
-- 백그라운드 작업이 별도 계산 인스턴스에서 실행되는 경우, 클라우드 서비스에 호스트된 응용 프로그램의 작업자 역할에서와 같이 서로 다른 크기 조정 정책을 사용하는 응용 프로그램의 서로 다른 부분을 크기 조정해야 할 수 있습니다. 예를 들어 백그라운드 계산 인스턴스의 수를 증가시키지 않고 추가 UI(사용자 인터페이스) 계산 인스턴스를 배포하거나 그 반대로 해야 할 수 있습니다. 서로 다른 수준의 서비스(기본 및 고급 서비스 패키지 등)를 제공하는 경우, SLA를 충족시키기 위해 기본 서비스 패키지에 대한 계산 리소스보다 고급 서비스 패키지에 대한 계산 리소스를 더 적극적으로 규모 확장해야 할 수 있습니다.
-- UI 및 백그라운드 계산 인스턴스가 자동 크기 전략에 대한 기준으로 통신하는 큐의 길이를 사용하는 것이 좋습니다. 이는 현재 로드와 백그라운드 작업의 처리 능력 간의 불균형 및 차이를 가장 잘 나타내는 지표입니다.
-- 시간당 명령 수나 복잡한 트랜잭션의 평균 실행 시간과 같은 비즈니스 프로세스를 측정하는 카운터의 자동 크기 조정 전략에 기반하는 경우, 이 카운터 유형의 결과와 실제 계산 용량 요구 간의 관계를 제대로 이해했는지 확인하십시오. 하나 이상의 구성 요소의 크기를 조정하거나 비즈니스 프로세스 카운터에서 변경한 내용에 대한 응답의 단위를 계산해야 할 수도 있습니다.
-- 시스템이 과도하게 규모 확장되려는 것을 방지하고 수많은 인스턴스를 실행함으로 인한 비용 발생을 회피하기 위해 자동으로 추가될 수 있는 인스턴스의 최대 수를 제한하는 것이 좋습니다. 대부분의 자동 크기 조정 메커니즘을 사용하면 규칙에 대한 인스턴스의 최소 및 최대 수를 지정할 수 있습니다. 또한 인스턴스의 최대 수가 배포되고 시스템이 여전히 오버로드된 경우 시스템이 제공하는 기능을 적절하게 저하시키는 것이 좋습니다.
-- 자동 크기 조정은 갑작스런 워크로드 버스트를 처리하기에 가장 적합한 메커니즘이 아닐 수도 있다는 점을 명심하십시오. 서비스의 새 인스턴스를 프로비전하고 시작하거나 시스템에 리소스를 추가하는 데에는 시간이 걸리며, 이러한 추가 리소스를 사용할 수 있게 된 무렵에는 피크 수요가 이미 지나갔을 수 있습니다. 이 시나리오에서는 서비스를 제한하는 것이 더 나을 수 있습니다. 자세한 내용은 [제한 패턴](http://msdn.microsoft.com/library/dn589798.aspx)을 참조하세요.
-- 반대로, 볼륨이 급속하게 증가될 때 모든 요청을 처리할 용량이 필요하고 비용은 주요 고려 사항이 아닌 경우, 추가 인스턴스를 더 빠르게 시작하는 적극적인 자동 크기 조정 전략을 사용하는 것이 좋습니다. 해당 부하가 예상되기 전에 최대 부하에 적합한 충분한 수의 인스턴스를 시작하는 일정 정책을 사용할 수도 있습니다.
-- 자동 크기 조정 메커니즘은 자동 크기 조정 프로세스를 모니터링하고 각 자동 크기 조정 이벤트의 세부 정보(언제 어떻게 트리거되고 어떤 리소스가 추가 또는 제거되었는지)를 기록해야 합니다. 사용자 지정 자동 크기 조정 메커니즘을 만든 경우, 이 기능이 통합되어 있는지 확인하십시오. 정보를 분석하면 자동 크기 조정 전략의 효율성을 측정하고 필요한 경우 조정하는 데 도움이 될 수 있습니다. 단기적으로는 더 명확해지는 사용 패턴, 장기적으로는 사업 확장이나 응용 프로그램 요구 사항의 진화에 따라 둘 다 조정할 수 있습니다. 또한 응용 프로그램이 자동 크기 조정에 대해 정의된 상한에 도달하면 메커니즘은 필요한 경우 추가 리소스를 수동으로 시작할 수 있는 운영자에게 알립니다. 이 상황에서 운영자는 워크로드를 완화한 후 이 리소스를 수동으로 제거할 수도 있습니다.
+- The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity; do not design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or web site horizontally, don't assume that a series of requests from the same source will always be routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start additional instances of a service as the queue length grows. The [Competing Consumers Pattern](http://msdn.microsoft.com/library/dn568101.aspx) describes how to handle this scenario.
+- If the solution implements a long-running task, design this task to support both scaling out and scaling in. Without due care, such a task could prevent an instance of a process from being shut down cleanly when the system scales in, or it could lose data if the process is forcibly terminated. Ideally, refactor a long-running task and break up the processing that it performs into smaller, discrete chunks. The [Pipes and Filters Pattern](http://msdn.microsoft.com/library/dn568100.aspx) provides an example of how you can achieve this.
+- Alternatively, you can implement a checkpoint mechanism that records state information about the task at regular intervals, and save this state in durable storage that can be accessed by any instance of the process running the task. In this way, if the process is shutdown, the work that it was performing can be resumed from the last checkpoint by using another instance.
+- When background tasks run on separate compute instances, such as in worker roles of a cloud services hosted application, you may need to scale different parts of the application using different scaling policies. For example, you may need to deploy additional user interface (UI) compute instances without increasing the number of background compute instances, or the opposite of this. If you offer different levels of service (such as basic and premium service packages), you may need to scale out the compute resources for premium service packages more aggressively than those for basic service packages in order to meet SLAs.
+- Consider using the length of the queue over which UI and background compute instances communicate as a criterion for your autoscaling strategy. This is the best indicator of an imbalance or difference between the current load and the processing capacity of the background task.
+- If you base your autoscaling strategy on counters that measure business processes, such as the number of orders placed per hour or the average execution time of a complex transaction, ensure that you fully understand the relationship between the results from these types of counters and the actual compute capacity requirements. It may be necessary to scale more than one component or compute unit in response to changes in business process counters.  
+- To prevent a system from attempting to scale out excessively, and to avoid the costs associated with running many thousands of instances, consider limiting the maximum number of instances that can be automatically added. Most autoscaling mechanisms allow you to specify the minimum and maximum number of instances for a rule. In addition, consider gracefully degrading the functionality that the system provides if the maximum number of instances have been deployed, and the system is still overloaded.
+- Keep in mind that autoscaling might not be the most appropriate mechanism to handle a sudden burst in workload. It takes time to provision and start new instances of a service or add resources to a system, and the peak demand may have passed by the time these additional resources have been made available. In this scenario, it may be better to throttle the service. For more information, see the [Throttling Pattern](http://msdn.microsoft.com/library/dn589798.aspx).
+- Conversely, if you do need the capacity to process all requests when the volume fluctuates rapidly, and cost isn't a major contributing factor, consider using an aggressive autoscaling strategy that starts additional instances more quickly. You can also use a scheduled policy that starts a sufficient number of instances to meet the maximum load before that load is expected.
+- The autoscaling mechanism should monitor the autoscaling process, and log the details of each autoscaling event (what triggered it, what resources were added or removed, and when). If you create a custom autoscaling mechanism, ensure that it incorporates this capability. Analyze the information to help measure the effectiveness of the autoscaling strategy, and tune it if necessary. You can tune both in the short term, as the usage patterns become more obvious, and over the long term, as the business expands or the requirements of the application evolve. If an application reaches the upper limit defined for autoscaling, the mechanism might also alert an operator who could manually start additional resources if necessary. Note that, under these circumstances, the operator may also be responsible for manually removing these resources after the workload eases.
 
-## 관련 패턴 및 지침
-자동 크기 조정을 구현할 때 다음 패턴 및 지침도 시나리오와 관련이 있을 수 있습니다.
+## <a name="related-patterns-and-guidance"></a>Related patterns and guidance
+The following patterns and guidance may also be relevant to your scenario when implementing autoscaling:
 
-- [패턴 제한](http://msdn.microsoft.com/library/dn589798.aspx) 이 패턴에서는 수요 증가가 리소스에 극단적인 부하를 배치한 경우에 응용 프로그램이 계속 기능하고 SLA를 충족시킬 수 있는 방법을 설명합니다. 시스템을 규모 확장하는 동안 자동 크기 조정에 제한을 사용하여 시스템 과부하를 방지할 수 있습니다.
-- [경쟁 소비자 패턴](http://msdn.microsoft.com/library/dn568101.aspx) 이 패턴에서는 모든 응용 프로그램 인스턴스로부터의 메시지를 처리할 수 있는 서비스 인스턴스 풀을 구현하는 방법을 설명합니다. 서비스 인스턴스 시작 및 중지에 자동 크기 조정을 사용하여 예상된 워크로드에 맞출 수 있습니다. 이 방법을 사용하면 시스템에서 여러 메시지를 동시에 처리하여 처리량을 최적화하고 확장성 및 가용성을 향상시키며 워크로드를 분산시킬 수 있습니다.
-- [계측 및 원격 분석 지침](http://msdn.microsoft.com/library/dn589775.aspx) 계측 및 원격 분석은 자동 크기 조정 프로세스를 수행할 수 있는 정보를 수집하기 위해 중요합니다.
+- [Throttling Pattern](http://msdn.microsoft.com/library/dn589798.aspx). This pattern describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
+- [Competing Consumers Pattern](http://msdn.microsoft.com/library/dn568101.aspx). This pattern describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
+- [Instrumentation and Telemetry Guidance](http://msdn.microsoft.com/library/dn589775.aspx). Instrumentation and telemetry are vital for gathering the information that can drive the autoscaling process.
 
-## 자세한 정보
-- [응용 프로그램의 크기를 조정하는 방법](./cloud-services/cloud-services-how-to-scale.md)
-- [웹 역할, 작업자 역할 또는 가상 컴퓨터를 실행 중인 응용 프로그램의 크기 자동 조정](cloud-services-how-to-manage.md#linkresources)
-- [방법: 클라우드 서비스에 리소스 연결](cloud-services-how-to-manage.md#linkresources)
-- [연결된 리소스 크기 조정](./cloud-services/cloud-services-how-to-scale.md#scale-link-resources)
-- [Azure 모니터링 서비스 관리 라이브러리](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)
-- [Azure 서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)
-- [Azure 리소스 관리자 REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)
-- [Microsoft Insights 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Insights/)
-- [자동 크기 조정에 대한 작업](http://msdn.microsoft.com/library/azure/dn510374.aspx)
+## <a name="more-information"></a>More information
+- [How to Scale an Application](./cloud-services/cloud-services-how-to-scale.md)
+- [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](cloud-services-how-to-manage.md#linkresources)
+- [How to: Link a resource to a cloud service](cloud-services-how-to-manage.md#linkresources)
+- [Scale linked resources](./cloud-services/cloud-services-how-to-scale.md#scale-link-resources)
+- [Azure Monitoring Services Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)
+- [Azure Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)
+- [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)
+- [Microsoft Insights library](https://www.nuget.org/packages/Microsoft.Azure.Insights/)
+- [Operations on Autoscaling](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

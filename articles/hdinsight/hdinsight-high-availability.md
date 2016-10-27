@@ -1,111 +1,116 @@
 <properties
-	pageTitle="HDInsight의 Hadoop 클러스터 가용성 | Microsoft Azure"
-	description="HDInsight는 추가 헤드 노드와 함께 항상 사용 가능하고 안정적인 클러스터를 배포합니다."
-	services="hdinsight"
-	tags="azure-portal"
-	editor="cgronlun"
-	manager="jhubbard"
-	authors="mumian"
-	documentationCenter=""/>
+    pageTitle="Availability of Hadoop clusters in HDInsight | Microsoft Azure"
+    description="HDInsight deploys highly available and reliable clusters with an addtional head node."
+    services="hdinsight"
+    tags="azure-portal"
+    editor="cgronlun"
+    manager="jhubbard"
+    authors="mumian"
+    documentationCenter=""/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="jgao"/>
-
-
-#HDInsight에서 Windows 기반 Hadoop 클러스터의 가용성 및 안정성
-
-
->[AZURE.NOTE] 이 문서에서 사용한 단계는 Windows 기반 HDInsight 클러스터를 대상으로 합니다. Linux 기반 클러스터를 사용하는 경우 Linux 관련 정보는 [HDInsight에서 Linux 기반 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
-
-HDInsight를 사용하면 고객이 서로 다른 데이터 분석 작업을 위한 다양한 클러스터 형식을 배포할 수 있습니다. 현재 제공되는 클러스터 유형은 쿼리 및 분석 작업을 위한 Hadoop 클러스터, NoSQL 작업을 위한 HBase 클러스터 및 실시간 이벤트 처리 작업을 위한 Storm 클러스터입니다. 지정된 클러스터 유형 내에서는 다양한 노드에 대해 여러 역할이 존재합니다. 예:
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="07/25/2016"
+    ms.author="jgao"/>
 
 
 
-- HDInsight용 Hadoop 클러스터는 두 가지 역할로 배포됩니다.
-	- 헤드 노드(노드 2개)
-	- 데이터 노드(노드 1개 이상)
-
-- HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다.
-	- 헤드 서버(노드 2개)
-	- 지역 서버(노드 1개 이상)
-	- 마스터/Zookeeper 노드(노드 3개)
-
-- HDInsight용 Storm 클러스터는 세 역할과 함께 배포됩니다.
-	- Nimbus 노드(노드 2개)
-	- 감독자 서버(노드 1개 이상)
-	- Zookeeper 노드(노드 3개)
-
-일반적으로 표준 방식으로 구현된 Hadoop 클러스터에는 헤드 노드가 1개뿐입니다. HDInsight는 보조 헤드 노드/헤드 서버/Nimbus 노드를 추가하여 단일 실패 지점을 제거하며 작업 관리에 필요한 서비스의 가용성 및 안정성을 향상합니다. 이러한 헤드 노드/헤드 서버/Nimbus 노드는 작업자 노드의 실패를 원활하게 관리하도록 디자인되었지만 헤드 노드에서 실행되는 마스터 서비스가 작동 중단되면 클러스터 작동이 중단될 수 있습니다.
+#<a name="availability-and-reliability-of-windows-based-hadoop-clusters-in-hdinsight"></a>Availability and reliability of Windows-based Hadoop clusters in HDInsight
 
 
-ZK([ZooKeeper](http://zookeeper.apache.org/)) 노드가 추가되었으며 헤드 노드의 리더 선택을 위해, 그리고 활성 헤드 노드(헤드 노드 0)가 비활성화될 때 보조 헤드 노드(헤드 노드 1)로 장애 조치(failover)될 때 작업자 노드 및 GW(게이트웨이)에서 알 수 있도록 하는 데 사용됩니다.
+>[AZURE.NOTE] The steps used in this document are specific to Windows-based HDInsight clusters. If you are using a Linux-based cluster, see [Availability and reliability of Linux-based Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) for Linux-specific information.
 
-![HDInsight Hadoop 구현의 매우 안정적인 헤드 노드의 다이어그램](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
+HDInsight allows customers to deploy a variety of cluster types, for different data analytics workloads. Cluster types offered today are Hadoop clusters for query and analysis workloads, HBase clusters for NoSQL workloads, and Storm clusters for real time event processing workloads. Within a given cluster type, there are different roles for the various nodes. For example:
 
 
 
+- Hadoop clusters for HDInsight are deployed with two roles:
+    - Head node (2 nodes)
+    - Data node (at least 1 node)
 
-## 활성 헤드 노드의 서비스 상태 확인
-활성 상태인 헤드 노드를 확인하고 해당 헤드 노드에서 실행되는 서비스의 상태를 확인하기 위해서는 RDP(원격 데스크톱 프로토콜)를 사용하여 Hadoop 클러스터에 연결해야 합니다. RDP 지침의 경우 [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)를 참조하세요. 클러스터에 원격으로 연결한 경우 바탕 화면에 있는 **Hadoop 서비스 사용 가능** 아이콘을 두 번 클릭하여 Namenode, Jobtracker, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스에서 실행 중인 헤드 노드에 대한 상태를 표시하고, HDI 3.0의 경우에는 Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스에서 실행 중인 헤드 노드에 대한 상태를 표시합니다.
+- HBase clusters for HDInsight are deployed with three roles:
+    - Head servers (2 nodes)
+    - Region servers (at least 1 node)
+    - Master/Zookeeper nodes (3 nodes)
+
+- Storm clusters for HDInsight are deployed with three roles:
+    - Nimbus nodes (2 nodes)
+    - Supervisor servers (at least 1 node)
+    - Zookeeper nodes (3 nodes)
+
+Standard implementations of Hadoop clusters typically have a single head node. HDInsight removes this single point of failure with the addition of a secondary head node /head server/Nimbus node to increase the availability and reliability of the service needed to manage workloads. These head  nodes/head servers/Nimbus nodes are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the head node would cause the cluster to cease to work.
+
+
+[ZooKeeper](http://zookeeper.apache.org/ ) nodes (ZKs) have been added and are used for leader election of head nodes and to insure that worker nodes and gateways (GWs) know when to fail over to the secondary head node (Head Node1) when the active head node (Head Node0) becomes inactive.
+
+![Diagram of the highly reliable head nodes in the HDInsight Hadoop implementation.](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
+
+
+
+
+## <a name="check-active-head-node-service-status"></a>Check active head node service status
+To determine which head node is active and to check on the status of the services running on that head node, you must connect to the Hadoop cluster by using the Remote Desktop Protocol (RDP). For the RDP instructions, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Once you have remoted into the cluster, double-click on the **Hadoop Service Available ** icon located on the desktop to obtain status about which head node the Namenode, Jobtracker, Templeton, Oozieservice, Metastore, and Hiveserver2 services are running, or for HDI 3.0, the Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore, and Hiveserver2 services.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
-스크린샷에서는 활성 헤드 노드가 *headnode0*입니다.
+On the screenshot, the active head node is *headnode0*.
 
-## 보조 헤드 노드의 로그 파일 액세스
+## <a name="access-log-files-on-the-secondary-head-node"></a>Access log files on the secondary head node
 
-보조 헤드 노드가 활성 헤드 노드가 될 경우 이 노드의 작업 로그에 액세스하려는 경우 기본 활성 노드에서와 같이 JobTracker UI를 사용하면 됩니다. JobTracker에 액세스하려면 이전 섹션에 설명된 것처럼 RDP를 사용하여 Hadoop 클러스터에 연결해야 합니다. 클러스터에 원격으로 연결한 경우 바탕 화면에 있는 **Hadoop 이름 노드 상태** 아이콘을 두 번 클릭한 후 **NameNode 로그**를 클릭하여 보조 헤드 노드의 로그 디렉터리로 이동합니다.
+To access job logs on the secondary head node in the event that it has become the active head node, browsing the JobTracker UI still works as it does for the primary active node. To access JobTracker, you must connect to the Hadoop cluster by using RDP as described in the previous section. Once you have remoted into the cluster, double-click on the **Hadoop Name Node Status** icon located on the desktop and then click on the **NameNode logs** to get to the directory of logs on the secondary head node.
 
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
 
-## 헤드 노드 크기 구성
-헤드 노드는 기본적으로 대형 VM(가상 컴퓨터)으로 할당됩니다. 이 크기는 클러스터에서 실행되는 대부분의 Hadoop 작업의 관리에 적합합니다. 그렇지만 초대형 VM이 헤드 노드에 필요할 수 있는 시나리오가 있습니다. 한 가지 예로 클러스터가 많은 수의 소형 Oozie 작업을 관리해야 하는 경우를 들 수 있습니다.
+## <a name="configure-head-node-size"></a>Configure head node size
+The head nodes are allocated as large virtual machines (VMs) by default. This size is adequate for the management of most Hadoop jobs run on the cluster. But there are scenarios that may require extra-large VMs for the head nodes. One example is when the cluster has to manage a large number of small Oozie jobs.
 
-초대형 VM은 Azure PowerShell cmdlet 또는 HDInsight SDK를 사용하여 구성할 수 있습니다.
+Extra-large VMs can be configured by using either Azure PowerShell cmdlets or the HDInsight SDK.
 
-Azure PowerShell을 사용하는 클러스터의 생성 및 프로비전은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)에 설명되어 있습니다. 초대형 헤드 노드를 구성하려면 `-HeadNodeVMSize ExtraLarge` 매개 변수를 이 코드에 사용되는 `New-AzureRmHDInsightcluster` cmdlet에 추가해야 합니다.
+The creation and provisioning of a cluster by using Azure PowerShell is documented in [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). The configuration of an extra-large head node requires the addition of the `-HeadNodeVMSize ExtraLarge` parameter to the `New-AzureRmHDInsightcluster` cmdlet used in this code.
 
     # Create a new HDInsight cluster in Azure PowerShell
-	# Configured with an ExtraLarge head-node VM
+    # Configured with an ExtraLarge head-node VM
     New-AzureRmHDInsightCluster `
-				-ResourceGroupName $resourceGroupName `
-				-ClusterName $clusterName ` 
-				-Location $location `
-				-HeadNodeVMSize ExtraLarge `
-				-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-				-DefaultStorageAccountKey $storageAccountKey `
-				-DefaultStorageContainerName $containerName  `
-				-ClusterSizeInNodes $clusterNodes
+                -ResourceGroupName $resourceGroupName `
+                -ClusterName $clusterName ` 
+                -Location $location `
+                -HeadNodeVMSize ExtraLarge `
+                -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+                -DefaultStorageAccountKey $storageAccountKey `
+                -DefaultStorageContainerName $containerName  `
+                -ClusterSizeInNodes $clusterNodes
 
-SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터의 생성 및 프로비전은 [HDInsight .NET SD 사용](hdinsight-provision-clusters.md#sdk)에 설명되어 있습니다. 초대형 헤드 노드를 구성하려면 `HeadNodeSize = NodeVMSize.ExtraLarge` 매개 변수를 이 코드에 사용되는 `ClusterCreateParameters()` 메서드에 추가해야 합니다.
+For the SDK, the story is similar. The creation and provisioning of a cluster by using the SDK is documented in [Using HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk). The configuration of an extra-large head node requires the addition of the `HeadNodeSize = NodeVMSize.ExtraLarge` parameter to the `ClusterCreateParameters()` method used in this code.
 
     # Create a new HDInsight cluster with the HDInsight SDK
-	# Configured with an ExtraLarge head-node VM
+    # Configured with an ExtraLarge head-node VM
     ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
     {
-		Name = clustername,
-		Location = location,
-		HeadNodeSize = NodeVMSize.ExtraLarge,
-		DefaultStorageAccountName = storageaccountname,
-		DefaultStorageAccountKey = storageaccountkey,
-		DefaultStorageContainer = containername,
-		UserName = username,
-		Password = password,
-		ClusterSizeInNodes = clustersize
+        Name = clustername,
+        Location = location,
+        HeadNodeSize = NodeVMSize.ExtraLarge,
+        DefaultStorageAccountName = storageaccountname,
+        DefaultStorageAccountKey = storageaccountkey,
+        DefaultStorageContainer = containername,
+        UserName = username,
+        Password = password,
+        ClusterSizeInNodes = clustersize
     };
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- [Apache ZooKeeper](http://zookeeper.apache.org/)
-- [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)
-- [HDInsight .NET SDK 사용](hdinsight-provision-clusters.md#sdk)
+- [Apache ZooKeeper](http://zookeeper.apache.org/ )
+- [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp)
+- [Using HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure TSQL에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정 | Microsoft Azure"
-   description="Azure TSQL에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정"
+   pageTitle="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL | Microsoft Azure"
+   description="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL"
    services="sql-server-stretch-database"
    documentationCenter=""
    authors="douglaslMS"
@@ -16,61 +16,66 @@
    ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
-# Azure에서 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)
+
+# <a name="enable-transparent-data-encryption-(tde)-for-stretch-database-on-azure-(transact-sql)"></a>Enable Transparent Data Encryption (TDE) for Stretch Database on Azure (Transact-SQL)
 > [AZURE.SELECTOR]
-- [Azure 포털](sql-server-stretch-database-encryption-tde.md)
+- [Azure portal](sql-server-stretch-database-encryption-tde.md)
 - [TSQL](sql-server-stretch-database-tde-tsql.md)
 
-TDE(투명한 데이터 암호화)는 응용 프로그램에 대한 변경 요구 없이 데이터베이스, 연결된 백업 및 저장된 트랜잭션 로그 파일에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호합니다.
+Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
 
-TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다. 데이터베이스 암호화 키는 기본 제공 서버 인증서에 의해 보호됩니다. 기본 제공 서버 인증서는 각 Azure 서버에 대해 고유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전합니다. TDE에 대한 일반적인 설명은 [투명한 데이터 암호화(TDE)]를 참조하세요.
+TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. The database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each Azure server. Microsoft automatically rotates these certificates at least every 90 days. For a general description of TDE, see [Transparent Data Encryption (TDE)].
 
-##암호화 설정
+##<a name="enabling-encryption"></a>Enabling Encryption
 
-스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대해 TDE를 사용하도록 설정하려면 다음을 수행합니다.
+To enable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. master 데이터베이스에서**dbmanager** 역할의 관리자 또는 멤버인 로그인을 사용하여 데이터베이스를 호스트하는 서버의 *master* 데이터베이스에 연결
-2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
+1. Connect to the *master* database on the Azure server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
-##암호화 비활성화
+##<a name="disabling-encryption"></a>Disabling Encryption
 
-스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대해 TDE를 사용하지 않도록 설정하려면 다음을 수행합니다.
+To disable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. 마스터 데이터베이스에서**dbmanager** 역할의 관리자 또는 멤버인 로그인을 사용하여 *마스터* 데이터베이스에 연결
-2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
+1. Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
-##암호화 확인
+##<a name="verifying-encryption"></a>Verifying Encryption
 
-스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대한 암호화 상태를 확인하려면 다음을 수행합니다.
+To verify encryption status for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. 마스터 데이터베이스에서**dbmanager** 역할의 관리자 또는 멤버인 로그인을 사용하여 *마스터* 또는 인스턴스 데이터베이스에 연결
-2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
+1. Connect to the *master* or instance database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 SELECT
-	[name],
-	[is_encrypted]
+    [name],
+    [is_encrypted]
 FROM
-	sys.databases;
+    sys.databases;
 ```
 
-```1```의 결과는 암호화된 데이터베이스를 나타내고 ```0```은(는) 암호화되지 않은 데이터베이스를 나타냅니다.
+A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.
 
 
 <!--Anchors-->
-[투명한 데이터 암호화(TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

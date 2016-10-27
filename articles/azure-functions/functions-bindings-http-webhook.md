@@ -1,50 +1,51 @@
 <properties
-	pageTitle="Azure Functions HTTP 및 WebHook 바인딩 | Microsoft Azure"
-	description="Azure Functions에서 HTTP와 WebHook 트리거 및 바인딩을 사용하는 방법을 파악합니다."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
+    pageTitle="Azure Functions HTTP and webhook bindings | Microsoft Azure"
+    description="Understand how to use HTTP and webhook triggers and bindings in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande"/>
 
-# Azure Functions HTTP 및 WebHook 바인딩
+
+# <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP and webhook bindings
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-이 문서에서는 Azure Functions에서 HTTP와 WebHook 트리거 및 바인딩을 구성하고 코딩하는 방법을 설명합니다.
+This article explains how to configure and code HTTP and webhook triggers and bindings in Azure Functions. 
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-## HTTP 및 WebHook 바인딩에 대한 function.json
+## <a name="function.json-for-http-and-webhook-bindings"></a>function.json for HTTP and webhook bindings
 
-*function.json* 파일은 요청 및 응답 둘 다에 속하는 속성을 제공합니다.
+The *function.json* file provides properties that pertain to both the request and response.
 
-HTTP 요청에 대한 속성:
+Properties for the HTTP request:
 
-- `name`: 요청 개체(또는 Node.js 함수의 경우 요청 본문)에 대한 함수 코드에 사용되는 변수 이름입니다.
-- `type`: *httpTrigger*로 설정되어 있어야 합니다.
-- `direction`: *in*으로 설정해야 합니다.
-- `webHookType`: WebHook 트리거의 경우 유효한 값은 *github*, *slack* 및 *genericJson*입니다. WebHook이 아닌 HTTP 트리거의 경우 이 속성을 빈 문자열로 설정합니다. WebHook에 대한 자세한 내용은 다음 [WebHook 트리거](#webhook-triggers) 섹션을 참조하세요.
-- `authLevel`: WebHook 트리거에 적용되지 않습니다. "함수"가 API 키를 요구하도록 설정하거나 "익명"이 API 키 요구 사항을 삭제하도록 설정하거나 "관리자"가 마스터 API 키를 요구하도록 설정합니다. 자세한 내용은 아래 [API 키](#apikeys)를 참조하세요.
+- `name` : Variable name used in function code for the request object (or the request body in the case of Node.js functions).
+- `type` : Must be set to *httpTrigger*.
+- `direction` : Must be set to *in*. 
+- `webHookType` : For WebHook triggers, valid values are *github*, *slack*, and *genericJson*. For an HTTP trigger that isn't a WebHook, set this property to an empty string. For more information on WebHooks, see the following [WebHook triggers](#webhook-triggers) section.
+- `authLevel` : Doesn't apply to WebHook triggers. Set to "function" to require the API key, "anonymous" to drop the API key requirement, or "admin" to require the master API key. See [API keys](#apikeys) below for more information.
 
-HTTP 응답에 대한 속성:
+Properties for the HTTP response:
 
-- `name`: 응답 개체에 대한 함수 코드에 사용되는 변수 이름입니다.
-- `type`: *http*로 설정해야 합니다.
-- `direction`: *out*으로 설정해야 합니다.
+- `name` : Variable name used in function code for the response object.
+- `type` : Must be set to *http*.
+- `direction` : Must be set to *out*. 
  
-예제 *function.json*:
+Example *function.json*:
 
 ```json
 {
@@ -66,29 +67,29 @@ HTTP 응답에 대한 속성:
 }
 ```
 
-## WebHook 트리거
+## <a name="webhook-triggers"></a>WebHook triggers
 
-WebHook 트리거는 WebHook을 위해 디자인된 다음과 같은 기능을 포함하는 HTTP 트리거입니다.
+A WebHook trigger is an HTTP trigger that has the following features designed for WebHooks:
 
-* 특정 WebHook 공급자(현재 GitHub와 Slack 지원)의 경우 함수 런타임은 공급자 서명의 유효성을 검사합니다.
-* Node.js 함수의 경우 함수 런타임은 요청 개체 대신 요청 본문을 제공합니다. 매개 변수 형식을 지정하여 제공되는 항목을 제어하기 때문에 C# 함수에 대한 특별한 처리가 없습니다. `HttpRequestMessage`를 지정하는 경우 요청 개체를 가져옵니다. POCO 형식을 지정하는 경우 함수 런타임은 요청 본문에서 JSON 개체를 구문 분석하려고 시도하여 개체 속성을 채웁니다.
-* WebHook 함수를 트리거하려면 HTTP 요청이 API 키를 포함해야 합니다. WebHook HTTP가 아닌 트리거의 경우 이 요구 사항은 선택 사항입니다.
+* For specific WebHook providers (currently GitHub and Slack are supported), the Functions runtime validates the provider's signature.
+* For Node.js functions, the Functions runtime provides the request body instead of the request object. There is no special handling for C# functions, because you control what is provided by specifying the parameter type. If you specify `HttpRequestMessage` you get the request object. If you specify a POCO type, the Functions runtime tries to parse a JSON object in the body of the request to populate the object properties.
+* To trigger a WebHook function the HTTP request must include an API key. For non-WebHook HTTP triggers,  this requirement is optional.
 
-GitHub WebHook을 설정하는 방법에 대한 내용은 [GitHub 개발자 - WebHook 만들기](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409)를 참조하세요.
+For information about how to set up a GitHub WebHook, see [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409).
 
-## 함수를 트리거하는 URL
+## <a name="url-to-trigger-the-function"></a>URL to trigger the function
 
-함수를 트리거하려면 함수 앱 URL 및 함수 이름을 조합한 URL에 HTTP 요청을 보냅니다.
+To trigger a function, you send an HTTP request to a URL that is a combination of the function app URL and the function name:
 
 ```
  https://{function app name}.azurewebsites.net/api/{function name} 
 ```
 
-## API 키
+## <a name="api-keys"></a>API keys
 
-기본적으로 API 키는 HTTP 또는 WebHook 함수를 트리거하는 HTTP 요청에 포함되어야 합니다. 키는 `code`이라는 쿼리 문자열 변수에 포함되거나 `x-functions-key` HTTP 헤더에 포함될 수 있습니다. WebHook이 아닌 함수의 경우 `authLevel` 속성을 *function.json* 파일의 "익명"으로 설정하여 API 키가 필요하지 않음을 알릴 수 있습니다.
+By default, an API key must be included with an HTTP request to trigger an HTTP or WebHook function. The key can be included in a query string variable named `code`, or it can be included in an `x-functions-key` HTTP header. For non-WebHook functions, you can indicate that an API key is not required by setting the `authLevel` property to "anonymous" in the *function.json* file.
 
-API 키 값을 함수 앱에 있는 파일 시스템의 *D:\\home\\data\\Functions\\secrets* 폴더에서 찾을 수 있습니다. 마스터 키 및 함수 키는 이 예제에 표시된 대로 *host.json* 파일에서 설정됩니다.
+You can find API key values in the *D:\home\data\Functions\secrets* folder in the file system of the function app.  The master key and function key are set in the *host.json* file, as shown in this example. 
 
 ```json
 {
@@ -97,9 +98,9 @@ API 키 값을 함수 앱에 있는 파일 시스템의 *D:\\home\\data\\Functio
 }
 ```
 
-*host.json*에서 기능 키는 모든 함수를 트리거하는 데 사용할 수 있지만 사용하지 않는 함수를 트리거하지 않습니다. 마스터 키는 모든 함수를 트리거하는 데 사용할 수 있고 사용하지 않는 경우에도 함수를 트리거합니다. `authLevel` 속성을 "관리자"로 설정하여 마스터 키를 요청하는 함수를 구성할 수 있습니다.
+The function key from *host.json* can be used to trigger any function but won't trigger a disabled function. The master key can be used to trigger any function and will trigger a function even if it's disabled. You can configure a function to require the master key by setting the `authLevel` property to "admin". 
 
-*비밀* 폴더가 함수와 동일한 이름을 가진 JSON 파일을 포함하는 경우 해당 파일의 `key` 속성은 함수를 트리거하는 데에도 사용할 수 있고 이 키는 참조하는 함수에서만 작동합니다. 예를 들어 `HttpTrigger`이라는 함수에 대한 API 키는 *비밀* 폴더의 *HttpTrigger.json*에 지정됩니다. 다음은 예제입니다.
+If the *secrets* folder contains a JSON file with the same name as a function, the `key` property in that file can also be used to trigger the function, and this key will only work with the function it refers to. For example, the API key for a function named `HttpTrigger` is specified in *HttpTrigger.json* in the *secrets* folder. Here is an example:
 
 ```json
 {
@@ -107,11 +108,11 @@ API 키 값을 함수 앱에 있는 파일 시스템의 *D:\\home\\data\\Functio
 }
 ```
 
-> [AZURE.NOTE] WebHook 트리거를 설정할 경우 마스터 키를 WebHook 공급자와 공유하지 마세요. WebHook을 처리하는 함수로만 작동하는 키를 사용합니다. 마스터 키는 사용하지 않는 함수를 포함한 모든 함수를 트리거하는 데 사용할 수 있습니다.
+> [AZURE.NOTE] When you're setting up a WebHook trigger, don't share the master key with the WebHook provider. Use a key that will only work with the function that processes the WebHook.  The master key can be used to trigger any function, even disabled functions.
 
-## HTTP 트리거 함수에 대한 예제 C# 코드 
+## <a name="example-c#-code-for-an-http-trigger-function"></a>Example C# code for an HTTP trigger function 
 
-예제 코드는 쿼리 문자열 또는 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
+The example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```csharp
 using System.Net;
@@ -138,9 +139,9 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 ```
 
-## HTTP 트리거 함수에 대한 예제 F# 코드
+## <a name="example-f#-code-for-an-http-trigger-function"></a>Example F# code for an HTTP trigger function
 
-예제 코드는 쿼리 문자열 또는 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
+The example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```fsharp
 open System.Net
@@ -164,7 +165,7 @@ let Run(req: HttpRequestMessage) =
     } |> Async.StartAsTask
 ```
 
-다음과 같이 NuGet을 사용하여 `FSharp.Interop.Dynamic` 및 `Dynamitey` 어셈블리를 참조하는 `project.json` 파일이 필요합니다.
+You will need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, like this:
 
 ```json
 {
@@ -179,11 +180,11 @@ let Run(req: HttpRequestMessage) =
 }
 ```
 
-그러면 NuGet을 사용하여 종속성을 가져오고 스크립트에서 해당 항목을 참조하게 됩니다.
+This will use NuGet to fetch your dependencies and will reference them in your script.
 
-## HTTP 트리거 함수에 대한 예제 Node.js 코드 
+## <a name="example-node.js-code-for-an-http-trigger-function"></a>Example Node.js code for an HTTP trigger function 
 
-이 예제 코드는 쿼리 문자열 또는 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
+This example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```javascript
 module.exports = function(context, req) {
@@ -205,9 +206,9 @@ module.exports = function(context, req) {
 };
 ```
 
-## GitHub WebHook 함수에 대한 예제 C# 코드 
+## <a name="example-c#-code-for-a-github-webhook-function"></a>Example C# code for a GitHub WebHook function 
 
-이 예제 코드는 GitHub 문제 설명을 기록합니다.
+This example code logs GitHub issue comments.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -230,9 +231,9 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 }
 ```
 
-## GitHub WebHook 함수에 대한 예제 F# 코드
+## <a name="example-f#-code-for-a-github-webhook-function"></a>Example F# code for a GitHub WebHook function
 
-이 예제 코드는 GitHub 문제 설명을 기록합니다.
+This example code logs GitHub issue comments.
 
 ```fsharp
 open System.Net
@@ -255,9 +256,9 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     } |> Async.StartAsTask
 ```
 
-## GitHub WebHook 함수에 대한 예제 Node.js 코드 
+## <a name="example-node.js-code-for-a-github-webhook-function"></a>Example Node.js code for a GitHub WebHook function 
 
-이 예제 코드는 GitHub 문제 설명을 기록합니다.
+This example code logs GitHub issue comments.
 
 ```javascript
 module.exports = function (context, data) {
@@ -267,8 +268,12 @@ module.exports = function (context, data) {
 };
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

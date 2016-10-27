@@ -1,67 +1,73 @@
 <properties writer="cynthn" editor="tysonn" manager="timlt" />
 
-1. [Azure 클래식 포털](http://manage.windowsazure.com)에 로그인합니다.  
 
-2. 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
+1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
 
-3. **계산**에서 **가상 컴퓨터**를 클릭한 후 **갤러리에서**를 클릭합니다.
+2. On the command bar at the bottom of the window, click **New**.
 
-	![새 가상 컴퓨터 만들기][Image1]
+3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
 
-4. **SUSE** 그룹에서 OpenSUSE 가상 컴퓨터 이미지를 선택하고 화살표를 클릭하여 계속합니다.
+    ![Create a New Virtual Machine][Image1]
 
-5. 첫 번째 **가상 컴퓨터 구성** 페이지에서:
+4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.
 
-	- **가상 컴퓨터 이름**(예: "testlinuxvm")을 입력합니다. 이름은 3~15자를 포함해야 하며, 문자/숫자/하이픈만 포함할 수 있습니다. 또한 문자로 시작해서 문자나 숫자로 끝나야 합니다.
+5. On the first **Virtual machine configuration** page:
 
-	- **계층**을 확인하고 **크기**를 선택합니다. 계층에 따라 선택할 수 있는 크기가 결정됩니다. 크기는 사용 비용과 구성 옵션(예: 연결할 수 있는 데이터 디스크 수)에 영향을 미칩니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines-linux-sizes.md)를 참조하세요.
-	- **새 사용자 이름**을 입력하거나 기본값 **azureuser**를 적용합니다. 이 이름은 Sudoers 목록 파일에 추가 됩니다.
-	- 사용할 **인증** 형식을 결정합니다. 일반적인 암호 지침은 [강력한 암호](http://msdn.microsoft.com/library/ms161962.aspx)를 참조하세요.
+    - Type a **Virtual Machine Name**, such as "testlinuxvm". The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.
 
-6. 다음 **가상 컴퓨터 구성** 페이지에서:
+    - Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from. The size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines-linux-sizes.md).
+    - Type a **New User Name**, or accept the default, **azureuser**. This name is added to the Sudoers list file.
+    - Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
 
-	- 기본 **새 클라우드 서비스 만들기**를 사용합니다.
-	- **DNS 이름** 상자에 주소의 일부로 사용할 고유한 DNS 이름(예: "testlinuxvm")을 입력합니다.
-	- **Region/Affinity Group/Virtual Network** 상자에서 이 가상 이미지를 호스트할 영역을 선택합니다.
-	- **끝점**아래에서 SSH 끝점을 유지합니다. 지금 다른 사용자를 추가하거나 가상 컴퓨터를 만든 후 추가, 변경 또는 삭제할 수 있습니다.
+6. On the next **Virtual machine configuration** page:
 
-	>[AZURE.NOTE] 가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 **반드시** 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터를 가상 네트워크를 추가할 수 없습니다. 자세한 내용은 [가상 네트워크 개요(영문)](virtual-networks-overview.md)를 참조하세요.
+    - Use the default **Create a new cloud service**.
+    - In the **DNS Name** box, type a unique DNS name to use as part of the address, such as "testlinuxvm".
+    - In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
+    - Under **Endpoints**, keep the SSH endpoint. You can add others now, or add, change, or delete them after the virtual machine is created.
 
-7.	마지막 **가상 컴퓨터 구성** 페이지에서 기본 설정을 유지하고 확인 표시를 클릭하여 완료합니다.
+    >[AZURE.NOTE] If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't add a virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview](virtual-networks-overview.md).
 
-포털에서 **가상 컴퓨터** 아래에 새 가상 컴퓨터를 나열합니다. 상태가 **(프로비전 중)**으로 보고되는 동안 가상 컴퓨터가 설정되고 있습니다. 상태가 **실행 중**으로 보고되는 경우 다음 단계로 이동할 수 있습니다.
+7.  On the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish.
 
-##가상 컴퓨터에 연결
+The portal lists the new virtual machine under **Virtual Machines**. While the status is reported as **(Provisioning)**, the virtual machine is being set up. When the status is reported as **Running**, you can move on to the next step.
 
-연결할 컴퓨터의 운영 체제에 따라 SSH 또는 PuTTY를 사용하여 가상 컴퓨터에 연결합니다.
+##<a name="connect-to-the-virtual-machine"></a>Connect to the Virtual Machine
 
-- Linux를 실행하는 컴퓨터에서 SSH를 사용합니다. 명령 프롬프트에 다음을 입력합니다.
+You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system on the computer you'll connect from:
 
-	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
+- From a computer running Linux, use SSH. At the command prompt, type:
 
-	사용자의 암호를 입력합니다.
+    `$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 
-- Windows를 실행하는 컴퓨터에서 PuTTY를 사용합니다. 설치하지 않은 경우 [PuTTY 다운로드 페이지][PuTTYDownload]에서 다운로드합니다.
+    Type the user's password.
 
-	**putty.exe**를 컴퓨터의 디렉터리에 저장합니다. 명령 프롬프트에서 해당 폴더로 이동한 다음 **putty.exe**를 실행합니다.
+- From a computer running Windows, use PuTTY. If you don't have it installed, download it from the [PuTTY Download Page][PuTTYDownload].
 
-	호스트 이름(예: "testlinuxvm.cloudapp.net")을 입력하고 **포트**에 대해 "22"를 입력합니다.
+    Save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and run **putty.exe**.
 
-	![PuTTY 화면][Image6]
+    Type the host name, such as "testlinuxvm.cloudapp.net", and type "22" for the **Port**.
 
-##가상 컴퓨터 업데이트(옵션)
+    ![PuTTY Screen][Image6]  
 
-1. 가상 컴퓨터에 연결한 후 선택적으로 시스템 업데이트와 패치를 설치할 수 있습니다. 업데이트를 실행하려면 다음을 입력합니다.
+##<a name="update-the-virtual-machine-(optional)"></a>Update the Virtual Machine (optional)
 
-	`$ sudo zypper update`
+1. After you're connected to the virtual machine, you can optionally install system updates and patches. To run the update, type:
 
-2. **소프트웨어**, **온라인 업데이트**를 차례로 선택하여 사용 가능한 업데이트를 나열합니다. **동의함**을 선택하여 설치를 시작하고 사용 가능한 새 패치를 모두 적용합니다(선택적 패치 제외).
+    `$ sudo zypper update`
 
-3. 설치가 완료되면 **마침**을 선택합니다. 이제 시스템이 최신 상태입니다.
+2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones).
+
+3. After installation is done, select **Finish**.  Your system is now up to date.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 
 [Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
+
+
+
+<!--HONumber=Oct16_HO2-->
+
 

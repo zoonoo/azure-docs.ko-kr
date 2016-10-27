@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 장치에 대한 웹 프록시 설정 | Microsoft Azure"
-   description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 대한 웹 프록시 설정을 구성하는 방법을 알아봅니다."
+   pageTitle="Set up web proxy for a StorSimple device | Microsoft Azure"
+   description="Learn how to use Windows PowerShell for StorSimple to configure web proxy settings for your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,140 +15,145 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# StorSimple 장치에 대한 웹 프록시 구성
 
-## 개요
+# <a name="configure-web-proxy-for-your-storsimple-device"></a>Configure web proxy for your StorSimple device
 
-이 자습서에서는 StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 대한 웹 프록시 설정을 구성하고 보는 방법을 설명합니다. 클라우드와 통신할 때 StorSimple 장치에서 웹 프록시 설정을 사용합니다. 웹 프록시 서버를 사용하여 보안, 필터 콘텐츠, 캐시의 다른 계층을 추가함으로써 대역폭 요구 사항 또는 분석을 돕습니다.
+## <a name="overview"></a>Overview
 
-웹 프록시는 StorSimple 장치에 대한 선택적 구성입니다. StorSimple용 Windows PowerShell을 통해서만 웹 프록시를 구성할 수 있습니다. 구성은 다음과 같은 2단계 프로세스입니다.
+This tutorial describes how to use Windows PowerShell for StorSimple to configure and view web proxy settings for your StorSimple device. The web proxy settings are used by the StorSimple device when communicating with the cloud. A web proxy server is used to add another layer of security, filter content, cache to ease bandwidth requirements or even help with analytics.
 
-1. 먼저 StorSimple cmdlet용 설치 마법사 또는 Windows PowerShell을 통해 웹 프록시 설정을 구성합니다.
+Web proxy is an optional configuration for your StorSimple device. You can configure web proxy only via Windows PowerShell for StorSimple. The configuration is a two-step process as follows:
 
-2. 그런 다음 StorSimple cmdlet용 Windows PowerShell을 통해 구성된 웹 프록시 설정을 사용합니다.
+1. You first configure web proxy settings through the setup wizard or Windows PowerShell for StorSimple cmdlets.
 
-웹 프록시 구성을 완료한 후에 Microsoft Azure StorSimple 관리자 서비스 및 StorSimple용 Windows PowerShell에서 구성된 웹 프록시 설정을 볼 수 있습니다.
+2. You then enable the configured web proxy settings via Windows PowerShell for StorSimple cmdlets.
 
-이 자습서를 읽은 후에 다음을 수행할 수 있습니다.
+After the web proxy configuration is complete, you can view the configured web proxy settings in both the Microsoft Azure StorSimple Manager service and the Windows PowerShell for StorSimple. 
 
-- 설치 마법사 및 cmdlet을 사용하여 웹 프록시 구성
-- Cmdlet을 사용하여 웹 프록시 활성화
-- Azure 클래식 포털에서 웹 프록시 설정 보기
-- 웹 프록시 구성하는 동안 오류 해결
+After reading this tutorial, you will be able to:
+
+- Configure web proxy by using setup wizard and cmdlets
+- Enable web proxy by using cmdlets
+- View web proxy settings in the Azure classic portal
+- Troubleshoot errors during web proxy configuration
 
 
-## StorSimple용 Windows PowerShell을 통해 웹 프록시 구성
+## <a name="configure-web-proxy-via-windows-powershell-for-storsimple"></a>Configure web proxy via Windows PowerShell for StorSimple
 
-웹 프록시 설정을 구성하려면 다음 중 하나를 사용합니다.
+You use either of the following to configure web proxy settings:
 
-- 설치 마법사는 구성 단계를 안내합니다.
+- Setup wizard to guide you through the configuration steps.
 
-- StorSimple용 Windows PowerShell에서 Cmdlet
+- Cmdlets in Windows PowerShell for StorSimple.
 
-이러한 각 메서드는 다음 섹션에서 설명합니다.
+Each of these methods is discussed in the following sections.
 
-## 설치 마법사를 통해 웹 프록시 구성
+## <a name="configure-web-proxy-via-the-setup-wizard"></a>Configure web proxy via the setup wizard
 
-웹 프록시를 구성하기 위한 단계를 안내하는 설치 마법사를 사용할 수 있습니다. 다음 단계를 수행하여 장치에 웹 프록시를 구성합니다.
+You can use the setup wizard to guide you through the steps for web proxy configuration. Perform the following steps to configure web proxy on your device.
 
-#### 설치 마법사를 통해 웹 프록시를 구성하려면
+#### <a name="to-configure-web-proxy-via-the-setup-wizard"></a>To configure web proxy via the setup wizard
 
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택하고 **장치 관리자 암호**를 제공합니다. 설치 마법사 세션을 시작하려면 다음 명령을 입력합니다.
+1. In the serial console menu, choose option 1, **Log in with full access** and provide the **device administrator password**. Type the following command to start a setup wizard session:
 
     `Invoke-HcsSetupWizard`
 
-2. 처음으로 장치 등록을 위해 설치 마법사를 사용하면 웹 프록시를 구성할 때까지 모든 필요한 네트워크 설정을 구성해야 합니다. 장치가 이미 등록되어 있다면 웹 프록시를 구성할 때까지 모든 구성된 네트워크 설정을 적용할 수 있습니다. 설치 마법사에서 웹 프록시 설정을 구성하는 메시지가 표시되면 **예**를 입력합니다.
+2. If this is the first time that you have used the setup wizard for device registration, you will need to configure all the required network settings until you reach the web proxy configuration. If your device is already registered, you can accept all the configured network settings until you reach the web proxy configuration. In the setup wizard, when prompted to configure web proxy settings, type **Yes**.
 
-3. **웹 프록시 URL**에 대해 웹 프록시 서버의 IP 주소 또는 정규화된 도메인 이름(FQDN) 및 클라우드와 통신할 때 사용하려는 장치인 TCP 포트 번호 장치를 지정합니다. 이때 다음 형식을 사용합니다.
+3. For the **Web Proxy URL**, specify the IP address or the fully qualified domain name (FQDN) of your web proxy server and the TCP port number that you would like your device to use when communicating with the cloud. Use the following format:
 
-	`http://<IP address or FQDN of the web proxy server>:<TCP port number>`
+    `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
 
-	기본적으로 TCP 포트 번호 8080가 지정됩니다.
+    By default, TCP port number 8080 is specified.
 
-4. 인증 유형으로 **NTLM**, **기본** 또는 **없음**을 선택합니다. 기본은 프록시 서버 구성에 대한 최소한의 보안 인증입니다. NT LAN 관리자(NTLM)는 3방향 메시징 시스템을 사용(추가 무결성이 필요하면 4방향)하여 사용자를 인증하는 안전하고 복잡한 인증 프로토콜입니다. 기본 인증은 NTLM입니다. 자세한 내용은 [기본](http://hc.apache.org/httpclient-3.x/authentication.html) 및 [NTLM 인증](http://hc.apache.org/httpclient-3.x/authentication.html)을 참조하세요.
+4. Choose the authentication type as **NTLM**, **Basic**, or **None**. Basic is the least secure authentication for the proxy server configuration. NT LAN Manager (NTLM) is a highly secure and complex authentication protocol that uses a three-way messaging system (sometimes four if additional integrity is required) to authenticate a user. The default authentication is NTLM. For more information, see [Basic](http://hc.apache.org/httpclient-3.x/authentication.html) and [NTLM authentication](http://hc.apache.org/httpclient-3.x/authentication.html). 
 
-	> [AZURE.IMPORTANT] **StorSimple 관리자 서비스에서 해당 장치에 대한 프록시 서버 구성에서 기본 또는 NTLM 인증이 사용되면 장치 모니터링 차트가 동작하지 않습니다. 작업할 차트를 모니터링하기 위해 인증이 NONE으로 설정되어 있는지 확인해야 합니다.**
+    > [AZURE.IMPORTANT] **In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device. For the monitoring charts to work, you will need to ensure that authentication is set to NONE.**
 
-5. 인증을 사용하면 **웹 프록시 사용자 이름** 및 **웹 프록시 암호**를 제공합니다. 암호를 확인해야 합니다.
+5. If you are using authentication, supply a **Web Proxy Username** and a **Web Proxy Password**. You will also need to confirm the password.
 
-	![StorSimple 장치1에서 웹 프록시 구성](./media/storsimple-configure-web-proxy/IC751830.png)
+    ![Configure Web Proxy On StorSimple Device1](./media/storsimple-configure-web-proxy/IC751830.png)
 
-처음으로 장치를 등록하는 경우 등록을 계속합니다. 이미 장치가 등록된 경우 마법사가 종료됩니다. 구성된 설정은 저장됩니다.
+If you are registering your device for the first time, continue with the registration. If your device was already registered, the wizard will exit. The configured settings will be saved.
 
-웹 프록시를 사용할 수 있습니다. [웹 프록시 활성화](#enable-web-proxy) 단계를 건너 뛰고 [Azure 클래식 포털에서 웹 프록시 설정 보기](#view-web-proxy-settings-in-the-azure-classic-portal)로 바로 이동할 수 있습니다.
+Web proxy will now also be enabled. You can skip the [Enable web proxy](#enable-web-proxy) step and go directly to [View web proxy settings in the Azure classic portal](#view-web-proxy-settings-in-the-azure-classic-portal).
 
 
-## StorSimple cmdlet용 Windows PowerShell을 통해 웹 프록시 구성
+## <a name="configure-web-proxy-via-windows-powershell-for-storsimple-cmdlets"></a>Configure web proxy via Windows PowerShell for StorSimple cmdlets
 
-웹 프록시 설정을 구성하는 다른 방법은 StorSimple cmdlet용 Windows PowerShell을 통한 방법입니다. 다음 단계를 수행하여 웹 프록시를 구성합니다.
+An alternate way to configure web proxy settings is via the Windows PowerShell for StorSimple cmdlets. Perform the following steps to configure web proxy.
 
-#### cmdlet를 통해 웹 프록시를 구성하려면
+#### <a name="to-configure-web-proxy-via-cmdlets"></a>To configure web proxy via cmdlets
 
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **장치 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
+1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is `Password1`.
 
-2. 명령 프롬프트에 다음을 입력합니다.
+2. At the command prompt, type:
 
-	`Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
+    `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
 
-	아래와 같이 메시지가 표시되면 암호를 제공하고 확인합니다.
+    Provide and confirm the password when prompted, as shown below.
 
-	![StorSimple 장치3에서 웹 프록시 구성](./media/storsimple-configure-web-proxy/IC751831.png)
+    ![Configure Web Proxy On StorSimple Device3](./media/storsimple-configure-web-proxy/IC751831.png)
 
-웹 프록시를 구성하고 사용할 수 있어야 합니다.
+The web proxy is now configured and needs to be enabled.
 
-## 웹 프록시 활성화
+## <a name="enable-web-proxy"></a>Enable web proxy
 
-웹 프록시는 기본적으로 사용하지 않도록 설정되어 있습니다. StorSimple 장치에서 웹 프록시 설정을 구성한 후에 StorSimple용 Windows PowerShell을 사용하여 웹 프록시 설정을 활성화해야 합니다.
+Web proxy is disabled by default. After you configure the web proxy settings on your StorSimple device, you need to use the Windows PowerShell for StorSimple to enable the web proxy settings.
 
-> [AZURE.NOTE] **설치 마법사를 사용하여 웹 프록시를 구성하는 경우 이 단계가 필요하지 않습니다. 웹 프록시는 설치 마법사 세션 후 기본적으로 자동으로 사용하도록 설정됩니다.**
+> [AZURE.NOTE] **This step will not be required if you used the setup wizard to configure web proxy. Web proxy is automatically enabled by default after a setup wizard session.**
 
-장치에서 웹 프록시를 사용하려면 StorSimple용 Windows PowerShell에서 다음 단계를 수행합니다.
+Perform the following steps in Windows PowerShell for StorSimple to enable web proxy on your device:
 
-#### 웹 프록시를 활성화하려면
+#### <a name="to-enable-web-proxy"></a>To enable web proxy
 
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **장치 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
+1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is `Password1`.
 
-2. 명령 프롬프트에 다음을 입력합니다.
+2. At the command prompt, type:
 
-	`Enable-HcsWebProxy`
+    `Enable-HcsWebProxy`
 
-	StorSimple 장치에서 웹 프록시 구성을 사용하도록 설정합니다.
+    You have now enabled the web proxy configuration on your StorSimple device.
 
-	![StorSimple 장치4에서 웹 프록시 구성](./media/storsimple-configure-web-proxy/IC751832.png)
+    ![Configure Web Proxy On StorSimple Device4](./media/storsimple-configure-web-proxy/IC751832.png)
 
-## Azure 클래식 포털에서 웹 프록시 설정 보기
+## <a name="view-web-proxy-settings-in-the-azure-classic-portal"></a>View web proxy settings in the Azure classic portal
 
-웹 프록시 설정은 Windows PowerShell 인터페이스를 통해 구성되고 클래식 포털 내에서 변경할 수 없습니다. 그러나 클래식 포털에서 이러한 구성된 설정을 볼 수 있습니다. 다음 단계를 수행하여 웹 프록시를 봅니다.
+The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the classic portal. You can, however, view these configured settings in the classic portal. Perform the following steps to view web proxy.
 
-#### 웹 프록시 설정을 보려면
-1. **StorSimple 관리자 서비스 > 장치**로 이동합니다. 장치를 선택하고 클릭한 다음 **구성**으로 이동합니다.
-1. **구성** 페이지에서 **웹 프록시 설정** 섹션으로 아래로 스크롤합니다. 아래와 같이 StorSimple 장치에서 구성된 웹 프록시 설정을 볼 수 있습니다.
+#### <a name="to-view-web-proxy-settings"></a>To view web proxy settings
+1. Navigate to **StorSimple Manager service > Devices**. Select and click a device and then go to **Configure**.
+1. Scroll down on the **Configure** page to **Web proxy settings** section. You can view the configured web proxy settings on your StorSimple device as shown below.
 
-	![관리 포털에서 웹 프록시 보기](./media/storsimple-configure-web-proxy/ViewWebProxyPortal_M.png)
+    ![View Web Proxy in Management Portal](./media/storsimple-configure-web-proxy/ViewWebProxyPortal_M.png)
  
-## 웹 프록시 구성하는 동안 오류
+## <a name="errors-during-web-proxy-configuration"></a>Errors during web proxy configuration
 
-웹 프록시 설정이 제대로 구성되지 않으면 StorSimple용 Windows PowerShell에서 사용자에게 오류 메시지가 표시됩니다. 다음 테이블에서 이러한 오류 메시지, 가능한 원인 및 권장되는 작업 중 일부를 설명합니다.
+If the web proxy settings have been configured incorrectly, error messages will be displayed to the user in Windows PowerShell for StorSimple. The following table explains some of these error messages, their probable causes, and recommended actions.
 
-|일련 번호|HRESULT 오류 코드|가능한 근본 원인|권장 작업|
+|Serial no.|HRESULT error Code|Possible root cause|Recommended action|
 |:---|:---|:---|:---|
-|1\.|0x80070001|명령은 수동 컨트롤러에서 실행되고 활성 컨트롤러와 통신할 수 없습니다.|활성 컨트롤러에서 이 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려면 수동에서 활성 컨트롤러로 연결을 수정해야 합니다. 이 연결이 끊어진 경우 Microsoft 지원과 연계해야 합니다.|
-|2\.|0x800710dd - 작업 식별자가 유효하지 않습니다.|프록시 설정은 StorSimple 가상 장치에서 지원되지 않습니다.|프록시 설정은 StorSimple 가상 장치에서 지원되지 않습니다. 물리적 StorSimple 장치에만 구성할 수 있습니다.|
-|3\.|0x80070057 - 잘못된 매개 변수|프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다.|URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용하세요. `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
-|4\.|0x800706ba - RPC 서버를 사용할 수 없음|근본 원인은 다음 중 하나입니다. </br></br>클러스터가 작동하지 않습니다.</br></br>데이터 경로 서비스가 작동하지 않습니다.</br></br>수동 컨트롤러에서 명령이 실행되고 활성 컨트롤러와 통신할 수 없습니다.|클러스터가 작동하고 데이터 경로 서비스가 실행 중인지 확인하려면 Microsoft 지원 서비스와 연계하세요.</br></br>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊어진 경우 Microsoft 지원과 연계해야 합니다.|
-|5\.|0x800706be - RPC 호출 실패|클러스터의 작동이 중단되었습니다.|Microsoft 지원과 연계하여 클러스터가 작동하는지 확인합니다.|
-|6\.|0x8007138f - 클러스터 리소스를 찾을 수 없음|플랫폼 서비스 클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다.|장치에서 공장 재설정을 수행해야 합니다. 플랫폼 리소스를 만들어야 할 수 있습니다. 다음 단계는 Microsoft 지원에 문의하세요.|
-|7\.|0x8007138c - 클러스터 리소스는 온라인 상태가 아님|플랫폼 또는 데이터 경로 클러스터 리소스는 온라인 상태가 아닙니다.|데이터 경로 및 플랫폼 서비스 리소스가 온라인 상태인지 확인하려면 Microsoft 지원에 문의하세요.|
+|1.|0x80070001|Command is run from the passive controller and it is not able to communicate with the active controller.|Run the command on the active controller. To run the command from the passive controller, you will need to fix the connectivity from passive to active controller. You will need to engage Microsoft Support if this connectivity is broken.|
+|2.|0x800710dd - The operation identifier is not valid|Proxy settings are not supported on StorSimple virtual device.|Proxy settings are not supported on StorSimple virtual device. These can only be configured on a StorSimple physical device.|
+|3.|0x80070057 - Invalid parameter|One of the parameters provided for the proxy settings is not valid.|The URI is not provided in correct format. Use the following format: `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
+|4.|0x800706ba - RPC server not available|The root cause is one of the following:</br></br>Cluster is not up.</br></br>Datapath service is not running.</br></br>The command is run from passive controller and it is not able to communicate with the active controller.|Please engage Microsoft Support to ensure that the cluster is up and datapath service is running.</br></br>Run the command from the active controller. If you want to run the command from the passive controller, you will need to ensure the passive controller can communicate with the active controller. You will need to engage Microsoft Support if this connectivity is broken.|
+|5.|0x800706be - RPC call failed|Cluster is down.|Please engage Microsoft Support to ensure that the cluster is up.|
+|6.|0x8007138f - Cluster resource not found|Platform service cluster resource is not found. This can happen when the installation was not proper.|You may need to perform a factory reset on your device. You may need to create a platform resource. Please contact Microsoft Support for next steps.|
+|7.|0x8007138c - Cluster resource not online|Platform or datapath cluster resources are not online.|Please contact Microsoft Support to help ensure that the datapath and platform service resource are online.|
 
 > [AZURE.NOTE] 
 > 
-> -  위의 오류 메시지 목록은 전체 목록이 아닙니다.
-> - 웹 프록시 설정에 관련된 오류는 StorSimple 관리자 서비스의 Azure 클래식 포털에 나타나지 않습니다. 구성이 완료된 후에 웹 프록시에 문제가 있다면 클래식 포털에서 장치 상태가 **오프라인**으로 변경됩니다. |
+> -  The above list of error messages is not exhaustive. 
+> - Errors related to web proxy settings will not be displayed in the Azure classic portal in your StorSimple Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the classic portal.|
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- 장치를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
+- If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshoot your StorSimple device deployment](storsimple-troubleshoot-deployment.md).
 
-- StorSimple Manager 서비스를 사용하는 방법을 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
+- To learn how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

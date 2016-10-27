@@ -1,25 +1,26 @@
 <properties 
-	pageTitle="클라우드 서비스에 대해 SSL 구성 | Microsoft Azure" 
-	description="웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="클라우드 서비스에 대해 SSL 구성 | Microsoft Azure" 
+    description="웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다." 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/05/2016"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/04/2016"
+    ms.author="adegeo"/>
 
 
 
 
-# Azure에서 응용 프로그램에 대한 SSL 구성
+
+# <a name="configuring-ssl-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대한 SSL 구성
 
 > [AZURE.SELECTOR]
 - [Azure 포털](cloud-services-configure-ssl-certificate-portal.md)
@@ -29,13 +30,13 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 > [AZURE.NOTE] 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스에 대해서는 [이 항목](../app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
 
-이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 자세한 내용은 이 토픽의 끝 부분에서 제공됩니다.
+이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 정보는 이 항목의 끝에 제공됩니다.
 
 클라우드 서비스를 아직 만들지 않은 경우 먼저 [이 문서를](cloud-services-how-to-create-deploy-portal.md) 읽어보세요.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-## 1단계: SSL 인증서 다운로드
+## <a name="step-1:-get-an-ssl-certificate"></a>1단계: SSL 인증서 다운로드
 
 응용 프로그램에 대해 SSL을 구성하려면 먼저 이 목적으로 인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명한 SSL 인증서를 가져와야 합니다. 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
 
@@ -51,7 +52,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 다음으로 인증서에 대한 정보를 서비스 정의 및 서비스 구성 파일에 포함해야 합니다.
 
 <a name="modify"> </a>
-## 2단계: 서비스 정의 및 구성 파일 수정
+## <a name="step-2:-modify-the-service-definition-and-configuration-files"></a>2단계: 서비스 정의 및 구성 파일 수정
 
 인증서를 사용하도록 응용 프로그램을 구성하고 HTTPS 끝점을 추가해야 합니다. 따라서 서비스 정의 및 서비스 구성 파일을 업데이트해야 합니다.
 
@@ -61,8 +62,8 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
         ...
             <Certificates>
                 <Certificate name="SampleCertificate" 
-							 storeLocation="LocalMachine" 
-                    		 storeName="My"
+                             storeLocation="LocalMachine" 
+                             storeName="My"
                              permissionLevel="limitedOrElevated" />
                 <!-- IMPORTANT! Unless your certificate is either
                 self-signed or signed directly by the CA root, you
@@ -83,10 +84,10 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
     
     권한(`permisionLevel` 특성)은 다음 중 하나로 설정될 수 있습니다.
 
-    | 권한 값 | 설명 |
-    | ----------------  | ----------- |
-    | limitedOrElevated | **(기본값)** 모든 역할 프로세스는 개인 키에 액세스할 수 있습니다. |
-    | elevated | 승격된 프로세스만 개인 키에 액세스할 수 있습니다.|
+  	| 권한 값  | 설명 |
+  	| ----------------  | ----------- |
+  	| limitedOrElevated | **(기본값)** 모든 역할 프로세스는 개인 키에 액세스할 수 있습니다. |
+  	| elevated          | 승격된 프로세스만 개인 키에 액세스할 수 있습니다.|
 
 2.  서비스 정의 파일에서 **끝점** 섹션 내에 **InputEndpoint** 요소를 추가하여 HTTPS를 사용하도록 설정합니다.
 
@@ -130,29 +131,25 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
         ...
         </Role>
 
-위 예제에서는 지문 알고리즘에 **sha1**을 사용합니다. 인증서의 지문 알고리즘에 적합한 값을 지정하세요.
+위 예제에서는 지문 알고리즘에 **sha1** 을 사용합니다. 인증서의 지문 알고리즘에 적합한 값을 지정하세요.
 
 서비스 정의 및 서비스 구성 파일이 업데이트되었으므로 Azure에 업로드할 배포를 패키지합니다. **cspack**를 사용하는 경우 **/generateConfigurationFile** 플래그를 사용하지 않도록 하세요. 이 플래그는 방금 삽입한 인증서 정보를 덮어씁니다.
 
-## 3단계: 인증서 업로드
+## <a name="step-3:-upload-a-certificate"></a>3단계: 인증서 업로드
 
 포털에 연결하고 다음을 수행합니다.
 
-1. 포털에서 클라우드 서비스를 선택하고 **클라우드 서비스**를 선택합니다. (**모든 리소스** 섹션에 있음)
+1. 포털에서 클라우드 서비스를 선택하고 **클라우드 서비스**를 선택합니다. (**모든 리소스** 섹션에 있음) 
     
     ![클라우드 서비스 게시](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
-3. 클라우드 서비스의 **설정**을 엽니다.
-
-    ![설정 열기](media/cloud-services-configure-ssl-certificate-portal/all-settings.png)
-
-4. **인증서**를 클릭합니다.
+2. **인증서**를 클릭합니다.
 
     ![인증서 아이콘 클릭](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-4. **파일**, **암호**를 제공한 다음 **업로드**를 클릭합니다.
+3. **파일**, **암호**를 제공한 다음 **업로드**를 클릭합니다.
 
-## 4단계: HTTPS를 사용하여 역할 인스턴스에 연결
+## <a name="step-4:-connect-to-the-role-instance-by-using-https"></a>4단계: HTTPS를 사용하여 역할 인스턴스에 연결
 
 이제 Azure에서 배포가 실행되고 있으므로 HTTPS를 사용하여 연결할 수 있습니다.
     
@@ -166,15 +163,19 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
     ![사이트 미리 보기](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[AZURE.TIP] 프로덕션 배포가 아닌 스테이징 배포에 SSL을 사용하려면 먼저 스테이징 배포에 사용된 URL을 확인해야 합니다. 클라우드 서비스가 배포되면 `https://deployment-id.cloudapp.net/` 형식의 **배포 ID** GUID에 따라 스테이징 환경에 대한 URL이 결정됩니다.
+    >[AZURE.TIP] 프로덕션 배포가 아닌 스테이징 배포에 SSL을 사용하려면 먼저 스테이징 배포에 사용된 URL을 확인해야 합니다. 클라우드 서비스가 배포되면 `https://deployment-id.cloudapp.net/` 형식의 **배포 ID** GUID에 따라 스테이징 환경에 대한 URL이 결정됩니다.  
       
-    >GUID 기반 URL(예: **328187776e774ceda8fc57609d404462.cloudapp.net**)과 동일한 CN(일반 이름)을 사용하여 인증서를 만들고, 포털을 사용하여 스테이징된 클라우드 서비스에 인증서를 추가하고, 인증서 정보를 CSDEF 및 CSCFG 파일에 추가하고, 응용 프로그램을 다시 패키지하고, 새 패키지 및 CSCFG 파일을 사용하도록 스테이징된 배포를 업데이트합니다.
+    >GUID 기반 URL과 같은 CN(일반 이름)으로 인증서를 만듭니다(예: **328187776e774ceda8fc57609d404462.cloudapp.net**). 스테이징된 클라우드 서비스에 인증서를 추가하려면 포털을 사용합니다. 그런 다음 인증서 정보를 CSDEF 및 CSCFG 파일에 추가하고 응용 프로그램을 다시 패키지하고 스테이징된 배포를 업데이트하여 새 패키지를 사용합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

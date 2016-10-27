@@ -1,36 +1,37 @@
 <properties
-	pageTitle="Azure 주요 자격 증명 모음에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 | Microsoft Azure"
-	description="Azure 주요 자격 증명 모음에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다."
-	services="key-vault"
-	documentationCenter=""
-	authors="adamglick"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="What to do in the event of an Azure service disruption that impacts Azure Key Vault | Microsoft Azure"
+    description="Learn what to do in the event of an Azure service disruption that impacts Azure Key Vault."
+    services="key-vault"
+    documentationCenter=""
+    authors="adamglick"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="key-vault"
-	ms.workload="key-vault"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2016"
-	ms.author="sumedhb;aglick"/>
+    ms.service="key-vault"
+    ms.workload="key-vault"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/26/2016"
+    ms.author="sumedhb;aglick"/>
 
 
-# Azure 주요 자격 증명 모음 가용성 및 중복성
 
-Azure 주요 자격 증명 모음에는 서비스의 개별 구성 요소가 실패해도 응용 프로그램에서 키 및 암호를 사용할 수 있도록 해주는 여러 계층의 중복성이 있습니다.
+# <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault availability and redundancy
 
-주요 자격 증명 모음의 내용은 지역 내에는 물론 동일한 지리 내에 150마일 이상 떨어진 보조 지역에도 복제됩니다. 따라서 키와 암호의 내구성이 매우 높습니다.
+Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
-주요 자격 증명 모음 서비스 내에서 개별 구성 요소가 실패하면 기능이 저하되지 않도록 하기 위해 해당 지역 내의 대체 구성 요소가 요청을 처리하도록 개입됩니다. 이 트리거에 어떤 조치도 취할 필요가 없습니다. 자동으로 발생하고 투명하게 보일 것입니다.
+The contents of your key vault are replicated within the region as well as to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets.
 
-전체 Azure 지역을 사용할 수 없는 드문 경우, 해당 지역에 Azure 주요 자격 증명 모음을 활용하는 요청이 보조 지역으로 자동 라우팅("장애 조치")됩니다. 기본 지역을 다시 사용할 수 있는 경우 요청은 주 지역으로 다시 라우팅("장애 복구(failback)")됩니다. 다시 한 번 말씀드리지만, 이 작업은 자동으로 이루어지므로 어떤 조치도 필요하지 않습니다.
+If individual components within the Key Vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It will happen automatically and will be transparent to you.
 
-여러분이 알고 있어야 하는 몇 가지 주의 사항이 있습니다.
+In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (“failed over”) to a secondary region. When the primary region is available again, requests are routed back (“failed back”) to the primary region. Again, you do not need to take any action because this will happen automatically.
 
-* 지역 장애 조치 시 서비스를 장애 조치하는 데 몇 분 정도 걸릴 수 있습니다. 이 시간 중에 이루어진 요청은 장애 조치가 완료될 때까지 실패할 수 있습니다.
-* 장애 조치가 완료되면 주요 자격 증명 모음은 ___읽기 전용___ 모드입니다. 이 모드에서 지원되는 요청은 다음과 같습니다.
+There are a few caveats that you should be aware of:
+
+* In the event of a region fail-over, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the fail-over completes.
+* After a fail-over is complete, your key vault is in ___read-only___ mode. Requests that are supported in this mode are:
  * list key vaults
  * get properties of key vaults
  * list secrets
@@ -44,6 +45,10 @@ Azure 주요 자격 증명 모음에는 서비스의 개별 구성 요소가 실
  * verify
  * sign
  * backup
-* 장애 조치가 장애 복구되면 모든 요청 유형(즉, 읽기 ___및___ 쓰기 요청)을 사용할 수 있습니다.
+* After a failover is failed back, all request types (i.e. read ___and___ write requests) are available.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

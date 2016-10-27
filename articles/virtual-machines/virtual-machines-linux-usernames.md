@@ -1,40 +1,41 @@
 <properties 
-	pageTitle="Linux용 사용자 이름 선택 | Microsoft Azure" 
-	description="Azure에서 Linux 가상 컴퓨터의 사용자 이름을 선택하는 방법에 대해 알아봅니다." 
-	services="virtual-machines-linux" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor=""
-	tags="azure-service-management,azure-resource-manager" />
+    pageTitle="Selecting User Names for Linux | Microsoft Azure" 
+    description="Learn how to select user names for a Linux virtual machine in Azure." 
+    services="virtual-machines-linux" 
+    documentationCenter="" 
+    authors="szarkos" 
+    manager="timlt" 
+    editor=""
+    tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines-linux" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2016" 
-	ms.author="szark"/>
+    ms.service="virtual-machines-linux" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="vm-linux" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/17/2016" 
+    ms.author="szark"/>
 
 
 
-#Azure에서 Linux용 사용자 이름 선택#
+
+#<a name="selecting-user-names-for-linux-on-azure#"></a>Selecting User Names for Linux on Azure#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그인에 사용할 수 있는 루트가 아닌 사용자의 이름을 지정해야 합니다. 새 사용자의 이름을 선택할 수 있습니다. 또는 Azure 클래식 포털을 통해 프로비전하는 경우 기본 이름인 "azureuser"를 사용할 수 있습니다.
+When you provision a Linux virtual machine on Azure you must specify the name of a non-root user that you can later use to log into the VM. You may choose the name of the new user, or if provisioning via the Azure classic portal you can accept the default name "azureuser".
 
-대부분의 경우 이러한 사용자는 기본 이미지에 존재하지 않으며 프로비전 프로세스 중에 생성됩니다. 사용자가 이미 기본 VM 이미지에 존재하는 경우 Azure Linux 에이전트가 VM을 만들 때 사용자가 지정한 정보를 토대로 해당 사용자에 대한 암호 및/또는 SSH 키를 구성합니다.
+In most cases this user won't exist on the base image and will be created during the provisioning process. If the user exists on the base VM image, then the Azure Linux agent simply configures the password and/or SSH key for that user based on the information you specified when creating the VM.
 
-**그러나** Linux에서는 사용해서는 안 되는 일련의 사용자 이름을 정의합니다. UID가 0-99인 사용자로 정의된 기존 시스템 사용자를 사용하여 Linux VM을 프로비전하려고 하면 프로비전 프로세스가 **실패**합니다. 전형적인 예로는 UID가 0인 `root` 사용자가 있습니다.
+**However**, Linux defines a set of user names that should not be used. The provisioning process will **fail** if you try to provision a Linux VM using an existing system user, which is defined as a user with UID 0-99. A typical example is the `root` user, which has UID 0.
 
- - 참고 항목: [Linux 표준 기반 - 사용자 ID 범위](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
+ - See also: [Linux Standard Base - User ID Ranges](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-다음은 Azure에서 Linux 가상 컴퓨터를 프로비전할 때 사용하지 말아야 할 Ubuntu 및 CentOS에 대한 일반적인 기본 제공 시스템 사용자 목록입니다. 이 목록은 예로 든 것일 뿐입니다. 선택한 사용자 이름이 기존 시스템 사용자와 충돌하지 않는지 확인하기 위해 배포에 대한 설명서를 참조하세요.
+The following is a list of common built-in system users for CentOS and Ubuntu that you should avoid using when provisioning a Linux virtual machine on Azure. This list is just an example, please refer to the documentation for your distribution to ensure that the username you choose does not conflict with an existing system user.
 
 
-## CentOS
+## <a name="centos"></a>CentOS
 - abrt
 - adm
 - audio
@@ -91,7 +92,7 @@ Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그
 - wheel
 
 
-## Ubuntu
+## <a name="ubuntu"></a>Ubuntu
 - adm
 - admin
 - audio
@@ -148,4 +149,7 @@ Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

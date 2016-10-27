@@ -1,8 +1,8 @@
 <properties
-    pageTitle="PowerShell 사용한 새 SQL 데이터베이스 설치 | Microsoft Azure"
-    description="PowerShell을 사용하여 SQL 데이터베이스를 만드는 방법에 대해 알아봅니다. PowerShell cmdlet을 통해 일반적인 데이터베이스 설치 작업을 관리할 수 있습니다."
-    keywords="새 sql 데이터베이스 만들기, 데이터베이스 설치"
-	services="sql-database"
+    pageTitle="New SQL Database setup with PowerShell | Microsoft Azure"
+    description="Learn now to create a SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets."
+    keywords="create new sql database,database setup"
+    services="sql-database"
     documentationCenter=""
     authors="stevestein"
     manager="jhubbard"
@@ -17,68 +17,69 @@
     ms.date="08/19/2016"
     ms.author="sstein"/>
 
-# PowerShell cmdlet을 사용하여 SQL 데이터베이스 만들기 및 일반적인 데이터베이스 설치 작업 수행하기
+
+# <a name="create-a-sql-database-and-perform-common-database-setup-tasks-with-powershell-cmdlets"></a>Create a SQL database and perform common database setup tasks with PowerShell cmdlets
 
 
 > [AZURE.SELECTOR]
-- [Azure 포털](sql-database-get-started.md)
+- [Azure portal](sql-database-get-started.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 - [C#](sql-database-get-started-csharp.md)
 
 
 
-PowerShell cmdlet을 사용하여 SQL 데이터베이스를 만드는 방법을 알아봅니다. (탄력적 데이터베이스를 만드는 방법은 [PowerShell을 사용하여 새 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-powershell.md)를 참조하세요.)
+Learn how to create a SQL database by using PowerShell cmdlets. (For creating elastic databases, see [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md).)
 
 
-[AZURE.INCLUDE [PowerShell 세션 시작](../../includes/sql-database-powershell.md)]
+[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## 데이터베이스 설치: 리소스 그룹, 서버, 방화벽 규칙 만들기
+## <a name="database-setup:-create-a-resource-group,-server,-and-firewall-rule"></a>Database setup: Create a resource group, server, and firewall rule
 
-선택한 Azure 구독에 대해 cmdlet을 실행하도록 액세스하게 되면 다음 단계는 데이터베이스를 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location**을 실행하여 유효한 위치의 목록을 가져옵니다.
+Once you have access to run cmdlets against your selected Azure subscription, the next step is establishing the resource group that contains the server where the database will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** to get a list of valid locations.
 
-다음 명령을 실행하여 리소스 그룹을 만듭니다.
+Run the following command to create a resource group:
 
-	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
-
-
-### 서버 만들기
-
-SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에 만들어집니다. **New-AzureRmSqlServer**를 실행하여 서버를 만듭니다. 서버의 이름은 모든 Azure SQL 데이터베이스 서버에 대해 고유해야 합니다. 이미 사용한 서버 이름인 경우 오류가 발생합니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 명령을 편집하여 선택한 유효한 위치를 사용할 수 있지만 이전 단계에서 만든 리소스 그룹에 사용한 동일한 위치를 사용해야 합니다.
-
-	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
-
-이 명령을 실행하면 사용자 이름과 암호를 묻는 메시지가 나타납니다. Azure 자격 증명을 입력하지 않습니다. 대신, 사용자 이름 및 암호를 입력하여 서버 관리자로 만듭니다. 이 문서의 맨 아래에 있는 스크립트에서는 코드에서 서버 자격 증명을 설정하는 방법을 보여 줍니다.
-
-서버가 성공적으로 생성된 후 서버 세부 정보가 표시됩니다.
-
-### 서버에 대한 액세스를 허용할 수 있도록 서버 방화벽 규칙 구성
-
-서버에 액세스하려면 방화벽 규칙을 설정해야 합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다.
-
-	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
-
-규칙이 성공적으로 생성된 후 방화벽 규칙 세부 정보가 표시됩니다.
-
-다른 Azure 서비스의 서버 액세스를 허용하려면 방화벽 규칙을 추가하고 StartIpAddress와 EndIpAddress를 모두 0.0.0.0으로 설정합니다. 이 규칙을 사용하면 Azure 구독의 Azure 트래픽이 서버에 액세스할 수 있습니다.
-
-자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
+    New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
 
 
-## SQL 데이터베이스 만들기
+### <a name="create-a-server"></a>Create a server
 
-리소스 그룹, 서버, 방화벽 규칙을 구성했으므로 이제 서버에 액세스할 수 있습니다.
+SQL databases are created inside Azure SQL Database servers. Run **New-AzureRmSqlServer** to create a server. The name for your server must be unique to all Azure SQL Database servers. If the server name is already taken, you get an error. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose, but you should use the same location you used for the resource group created in the previous step.
 
-다음 명령은 표준 서비스 계층에서 S1 성능 수준인 (비어 있는) SQL 데이터베이스를 만듭니다.
+    New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
+
+When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials. Instead, enter the user name and password to create as the server administrator. The script at the bottom of this article shows how to set the server credentials in code.
+
+The server details appear after the server is successfully created.
+
+### <a name="configure-a-server-firewall-rule-to-allow-access-to-the-server"></a>Configure a server firewall rule to allow access to the server
+
+To access the server, you need to establish a firewall rule. Run the following command, replacing the start and end IP addresses with valid values for your computer.
+
+    New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
+
+The firewall rule details appear after the rule is successfully created.
+
+To allow other Azure services to access the server, add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. This rule allows Azure traffic from any Azure subscription to access the server.
+
+For more information, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
 
 
-	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
+## <a name="create-a-sql-database"></a>Create a SQL database
+
+Now you have a resource group, a server, and a firewall rule configured so you can access the server.
+
+The following command creates a (blank) SQL database at the Standard service tier, with an S1 performance level:
 
 
-데이터베이스가 성공적으로 생성된 후 데이터베이스 세부 정보가 표시됩니다.
+    New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
-## SQL 데이터베이스 PowerShell 스크립트 만들기
 
-다음 PowerShell 스크립트는 SQL 데이터베이스 및 모든 종속 리소스를 만듭니다. 모든 `{variables}`을 구독 및 리소스에 지정된 값으로 바꿉니다(값을 설정한 경우 **{}**을 삭제함).
+The database details appear after the database is successfully created.
+
+## <a name="create-a-sql-database-powershell-script"></a>Create a SQL database PowerShell script
+
+The following PowerShell script creates a SQL database and all its dependent resources. Replace all `{variables}` with values specific to your subscription and resources (remove the **{}** when you set your values).
 
     # Sign in to Azure and set the subscription to work with
     $SubscriptionId = "{subscription-id}"
@@ -129,15 +130,19 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에 만들�
 
 
 
-## 다음 단계
-SQL 데이터베이스를 만들고 기본 데이터베이스 설치 작업을 수행하면 다음을 수행할 준비가 되었습니다.
+## <a name="next-steps"></a>Next steps
+After you create a SQL database and perform basic database setup tasks, you're ready for the following:
 
-- [PowerShell을 사용하여 SQL 데이터베이스 관리](sql-database-manage-powershell.md)
-- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
+- [Manage SQL Database with PowerShell](sql-database-manage-powershell.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 
-## 추가 리소스
+## <a name="additional-resources"></a>Additional Resources
 
-- [Azure SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

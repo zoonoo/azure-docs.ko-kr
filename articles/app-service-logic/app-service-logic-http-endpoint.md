@@ -1,6 +1,6 @@
 <properties
-   pageTitle="호출 가능 끝점인 논리 앱"
-   description="트리거 끝점을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   pageTitle="Logic apps as callable endpoints"
+   description="How to create and configure trigger endpoints and use them in a Logic app in Azure App Service"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -17,48 +17,49 @@
    ms.author="jehollan"/>
 
 
-# 호출 가능 끝점인 논리 앱
 
-논리 앱은 기본적으로 동기 HTTP 끝점을 트리거로 노출할 수 있습니다. 또한 호출 가능한 끝점 패턴을 사용하여 논리 앱의 "워크플로" 작업을 통해 중첩된 워크플로로 논리 앱을 호출할 수 있습니다.
+# <a name="logic-apps-as-callable-endpoints"></a>Logic apps as callable endpoints
 
-요청을 받을 수 있는 트리거에는 3가지 유형이 있습니다.
+Logic Apps natively can expose a synchronous HTTP endpoint as a trigger.  You can also use the pattern of callable endpoints to invoke Logic Apps as a nested workflow through the "workflow" action in a Logic App.
 
-* 요청
+There are 3 types of triggers that can receive requests:
+
+* Request
 * ApiConnectionWebhook
 * HttpWebhook
 
-문서의 나머지 부분에서는 **request**를 예로 사용하지만 모든 주체는 다른 두 가지 유형의 트리거에 동일하게 적용합니다.
+For the remainder of the article, we will use **request** as the example, but all of the principles apply identically to the other 2 types of triggers.
 
-## 정의에 트리거 추가
-첫 번째 단계는 들어오는 요청을 받을 수 있는 논리 앱 정의에 트리거를 추가하는 것입니다. 디자이너에서 "HTTP 요청"을 검색하여 트리거 카드를 추가할 수 있습니다. 요청 본문 JSON 스키마를 정의하면 디자이너는 사용자가 워크플로를 통해 manual 트리거의 데이터를 구분 분석하고 전달할 수 있도록 토큰을 생성합니다. [jsonschema.net](http://jsonschema.net) 같은 도구를 사용하여 샘플 본문 페이로드의 JSON 스키마를 생성하는 것이 좋습니다.
+## <a name="adding-a-trigger-to-your-definition"></a>Adding a trigger to your definition
+The first step is to add a trigger to your Logic app definition that can receive incoming requests.  You can search in the designer for "HTTP Request" to add the trigger card. You can define a request body JSON Schema and the designer will generate tokens to help you parse and pass data from the manual trigger through the workflow.  I recommend using a tool like [jsonschema.net](http://jsonschema.net) to generate a JSON schema from a sample body payload.
 
-![요청 트리거 카드][2]
+![Request Trigger Card][2]
 
-논리 앱 정의를 저장하면 다음과 비슷한 콜백 URL이 생성됩니다.
+After you save your Logic App definition, a callback URL will be generated similar to this one:
  
 ``` text
 https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
 ```
 
-이 URL은 인증에 사용되는 SAS 키를 쿼리 매개 변수에 포함합니다.
+This URL contains a SAS key in the query parameters used for authentication.
 
-Azure 포털에서도 이 끝점을 가져올 수 있습니다.
+You can also get this endpoint in the Azure portal:
 
 ![][1]
 
-또는 다음을 호출합니다.
+Or, by calling:
 
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
 
-## 논리 앱 트리거의 끝점 호출
+## <a name="calling-the-logic-app-trigger's-endpoint"></a>Calling the Logic app trigger's endpoint
 
-트리거의 끝점을 만든 후 `POST`를 통해 전체 URL로 트리거할 수 있습니다. 추가 헤더 및 모든 콘텐츠를 본문에 포함할 수 있습니다.
+Once you have created the endpoint for your trigger, you can trigger it via a `POST` to the full URL. You can include additional headers, and any content in the body.
 
-content-type이 `application/json`이면 요청 내에서 속성을 참조할 수 있습니다. 이 형식이 아니면 다른 API에 전달할 수 있지만 콘텐츠 변환 없이는 워크플로 내부에서 참조할 수 없는 단일 이진 단위로 처리됩니다. 예를 들어 `application/xml` 콘텐츠를 전달하는 경우 `@xpath()`를 사용하여 xpath 추출을 수행하거나 `@json()`를 사용하여 XML에서 JSON으로 변환할 수 있습니다. 콘텐츠 형식 사용에 대한 자세한 내용은 [여기에서 확인](app-service-logic-content-type.md)알 수 있습니다.
+If the content-type is `application/json` then you will be able to reference properties from inside the request. Otherwise, it will be treated as a single binary unit that can be passed to other APIs but cannot be referenced inside the workflow without converting the content.  For example, if you pass `application/xml` content you could use `@xpath()` to do an xpath extraction, or `@json()` to convert from XML to JSON.  More information on working with content types [can be found here](app-service-logic-content-type.md)
 
-뿐만 아니라 정의에서 JSON 스키마를 지정할 수 있습니다. 이렇게 하면 디자이너에서 단계에 전달할 수 있는 토큰을 생성합니다. 예를 들어 다음은 디자이너에서 사용할 수 있는 `title` 및 `name` 토큰을 만듭니다.
+In addition, you can specify a JSON schema in the definition. This causes the designer to generate tokens that you can then pass into steps.  For example the following will make a `title` and `name` token available in the designer:
 
 ```
 {
@@ -78,9 +79,9 @@ content-type이 `application/json`이면 요청 내에서 속성을 참조할 �
 }
 ```
 
-## 들어오는 요청의 콘텐츠 참조
+## <a name="referencing-the-content-of-the-incoming-request"></a>Referencing the content of the incoming request
 
-`@triggerOutputs()` 함수는 들어오는 요청의 콘텐츠를 출력합니다. 예를 들어 다음과 같습니다.
+The `@triggerOutputs()` function will output the contents of the incoming request. For example, it would look like:
 
 ```
 {
@@ -93,13 +94,13 @@ content-type이 `application/json`이면 요청 내에서 속성을 참조할 �
 }
 ```
 
-특히 `body` 속성에 액세스하는 데 `@triggerBody()` 바로 가기를 사용할 수 있습니다.
+You can use the `@triggerBody()` shortcut to access the `body` property specifically. 
 
-## 요청에 응답
+## <a name="responding-to-the-request"></a>Responding to the request
 
-논리 앱을 시작하는 일부 요청의 경우 일부 콘텐츠를 사용하여 호출자에게 응답할 수 있습니다. 응답에 대한 상태 코드, 본문 및 헤더를 생성하는 데 사용할 수 있는 **response**라는 새 동작 유형이 있습니다. **response** 셰이프가 없는 경우 논리 앱 끝점은 **202 수락됨**으로 *즉시* 응답합니다.
+For some requests that start a Logic app, you may want to respond with some content to the caller. There is a new action type called **response** that can be used to construct the status code, body and headers for your response. Note that if no **response** shape is present, the Logic app endpoint will *immediately* respond with **202 Accepted**.
 
-![HTTP 응답 동작][3]
+![HTTP Response Action][3]
 
 ``` json
 "Response": {
@@ -118,41 +119,45 @@ content-type이 `application/json`이면 요청 내에서 속성을 참조할 �
         }
 ```
 
-응답은 다음과 같습니다.
+Responses have the following:
 
-| 속성 | 설명 |
+| Property | Description |
 | -------- | ----------- |
-| statusCode | 들어오는 요청에 응답하는 HTTP 상태 코드입니다. 2xx, 4xx 또는 5xx로 시작하는 모든 유효한 상태 코드가 될 수 있습니다. 3xx 상태 코드는 허용되지 않습니다. | 
-| body | 문자열, JSON 개체 또는 이전 단계에서 참조한 이진 콘텐츠일 수도 있는 본문 개체입니다. | 
-| headers | 응답에 포함될 헤더의 수를 정의할 수 있습니다. | 
+| statusCode | The HTTP status code to respond to the incoming request. It can be any valid status code that starts with 2xx, 4xx, or 5xx. 3xx status codes are not permitted. | 
+| body | A body object that can be a string, a JSON object, or even binary content referenced from a previous step. | 
+| headers | You can define any number of headers to be included in the response | 
 
-**워크플로가 중첩 논리 앱으로 호출되지 않는 경우**, 원래 요청이 응답을 받으려면 응답에 필요한 논리 앱의 모든 단계가 *60초* 이내에 완료되어야 합니다. 60초 내에 도달하는 응답 작업이 없으면 들어오는 요청은 시간 초과되어 **408 클라이언트 시간 제한** HTTP 응답을 수신합니다. 중첩 논리 앱의 경우 부모 논리 앱은 소요되는 시간에 관계없이 응답이 완료될 때까지 계속 기다립니다.
+All of the steps in the Logic app that are required for the response must complete within *60 seconds* for the original request to receive the response **unless the workflow is being called as a nested Logic App**. If no response action is reached within 60 seconds then the incoming request will time out and receive a **408 Client timeout** HTTP response.  For nested Logic Apps, the parent Logic App will continue to wait for a response until completed, regardless of the amount of time it takes.
 
-## 고급 끝점 구성
+## <a name="advanced-endpoint-configuration"></a>Advanced endpoint configuration
 
-논리 앱은 직접 액세스 끝점에 대한 지원이 내장되어 있으며 항상 `POST` 메서드를 사용하여 논리 앱을 실행합니다. 또한 **HTTP 수신기** API 앱은 이전에 URL 세그먼트 및 HTTP 메서드 변경을 지원했습니다. API 앱 호스트(API 앱을 호스트하는 웹앱)에 추가하여 추가 보안 또는 사용자 지정 도메인을 설정할 수도 있습니다.
+Logic apps have built in support for the direct access endpoint and always use the `POST` method to start a run of the Logic app. The **HTTP Listener** API app previously also supported changing the URL segments and the HTTP method. You could even set up additional security or a custom domain by adding it to the API app host (the Web app that hosted the API app). 
 
-이 기능은 **API 관리**를 통해 사용할 수 있습니다.
-* [요청 방법 변경](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
-* [요청의 URL 세그먼트 변경](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
-* 클래식 Azure 포털의 **구성** 탭에서 API 관리 도메인 설정
-* 기본 인증을 확인하는 정책 설정(**링크 필요**)
+This functionality is available through **API management**:
+* [Change the method of the request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
+* [Change the URL segments of the request](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
+* Set up your API management domains on the **Configure** tab in the classic Azure portal
+* Set up policy to check for Basic authentication (**link needed**)
 
-## 2014-12-01-preview에서 마이그레이션 요약
+## <a name="summary-of-migration-from-2014-12-01-preview"></a>Summary of migration from 2014-12-01-preview
 
-| 2014-12-01-preview | 2016-06-01 |
+|  2014-12-01-preview | 2016-06-01 |
 |---------------------|--------------------|
-| **HTTP 수신기** API 앱 클릭 | **수동 트리거** 클릭(API 앱 필요 없음) |
-| HTTP 수신기 설정 "*자동으로 응답 보내기*" | **response** 작업 포함 또는 워크플로 정의에 없음 |
-| 기본 또는 OAuth 인증 구성 | API 관리를 통해 |
-| HTTP 메서드 구성 | API 관리를 통해 |
-| 상대 경로 구성 | API 관리를 통해 |
-| `@triggerOutputs().body.Content`를 통해 들어오는 본문 참조 | `@triggerOutputs().body`를 통해 참조 |
-| HTTP 수신기에서 **HTTP 응답 보내기** 작업 | **HTTP 요청에 응답** 클릭(API 앱 필요 없음)
+| Click on **HTTP Listener** API app | Click on **Manual trigger** (no API app required) |
+| HTTP Listener setting "*Sends response automatically*" | Either include a **response** action or not in the workflow definition |
+| Configure basic or OAuth authentication | via API management |
+| Configure HTTP method | via API management |
+| Configure relative path | via API management |
+| Reference the incoming body via  `@triggerOutputs().body.Content` | Reference via `@triggerOutputs().body` |
+| **Send HTTP response** action on the HTTP Listener | Click on **Respond to HTTP request** (no API app required)
 
 
 [1]: ./media/app-service-logic-http-endpoint/manualtriggerurl.png
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

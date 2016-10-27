@@ -1,20 +1,23 @@
-Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 끝점을 만들어야 합니다. 여러 지역에 복제본이 있는 경우 해당 지역에 대한 각 복제본은 동일한 VNet의 동일한 클라우드 서비스에 있어야 합니다. 여러 Azure 지역에 걸쳐 있는 가용성 그룹 복제본을 만들려면 여러 VNet을 구성해야 합니다. VNet 간 연결 구성에 대한 자세한 내용은 [VNet 간 연결 구성](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
+You must create a load-balanced endpoint for each VM hosting an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same VNet. Creating Availability Group replicas that span multiple Azure regions requires configuring multiple VNets. For more information on configuring cross VNet connectivity, see  [Configure VNet to VNet Connectivity](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-1. Azure 포털에서 복제본을 호스트하는 각 VM으로 이동하고 세부 정보를 봅니다.
+1. In the Azure portal, navigate to each VM hosting a replica and view the details.
 
-1. 각 VM에 대한 **끝점** 탭을 클릭합니다.
+1. Click the **Endpoints** tab for each of the VMs.
 
-1. 사용할 수신기 끝점의 **이름** 및 **공용 포트**가 사용 중이지 않은지 확인합니다. 아래 예제에서는 이름이 "MyEndpoint"이고 포트는 "1433"입니다.
+1. Verify that the **Name** and **Public Port** of the listener endpoint you want to use is not already in use. In the example below, the name is “MyEndpoint” and the port is “1433”.
 
-1. 로컬 클라이언트에서 [최신 PowerShell 모듈](https://azure.microsoft.com/downloads/)을 다운로드하고 설치합니다.
+1. On your local client, download and install [the latest PowerShell module](https://azure.microsoft.com/downloads/).
 
-1. **Azure PowerShell**을 시작합니다. 새 PowerShell 세션이 Azure 관리 모듈이 로드된 상태로 열립니다.
+1. Launch **Azure PowerShell**. A new PowerShell session is opened with the Azure administrative modules loaded.
 
-1. **Get-AzurePublishSettingsFile**을 실행합니다. 이 cmdlet은 게시 설정 파일을 로컬 디렉터리에 다운로드하도록 브라우저로 안내합니다. Azure 구독에 대한 로그인 자격 증명을 묻는 메시지가 표시될 수 있습니다.
+1. Run **Get-AzurePublishSettingsFile**. This cmdlet directs you to a browser to download a publish settings file to a local directory. You may be prompted for your log-in credentials for your Azure subscription.
 
-1. 다운로드한 게시 설정 파일의 경로와 함께 **Import-AzurePublishSettingsFile** 명령을 사용합니다.
+1. Run the **Import-AzurePublishSettingsFile** command with the path of the publish settings file that you downloaded:
 
-		Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
-	게시 설정 파일을 가져오면 PowerShell 세션에서 Azure 구독을 관리할 수 있습니다.
-<!----HONumber=AcomDC_0128_2016-->
+    Once the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.
+
+<!--HONumber=Oct16_HO2-->
+
+

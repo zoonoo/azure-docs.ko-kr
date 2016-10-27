@@ -1,25 +1,27 @@
-#### VPN 유형 - Resource Manager 배포 모델
+#### <a name="vpn-type---resource-manager-deployment-model"></a>VPN type - Resource Manager deployment model
 
-| | **경로 기반** | **정책 기반** |
+|      | **RouteBased**    | **PolicyBased** |
 |-----------------------------------|-------------|------------------|
-| **사이트 간** | 지원됨 | 지원됨 |
-| **VNet-VNet** | 지원됨 | 지원되지 않음 |
-| **다중 사이트** | 지원됨 | 지원되지 않음 |
-| **S2S 및 Express 경로 공존** | 지원됨 | 지원되지 않음 |
-| **지점 및 사이트 간** | 지원됨 | 지원되지 않음 |
-| **클래식 - 리소스 관리자** | 지원됨 | 지원되지 않음 |
+| **Site-to-Site**                  | Supported   | Supported        |
+| **VNet-to-VNet**                  | Supported   | Not Supported    |
+| **Multi-Site**                    | Supported   | Not Supported    |
+| **S2S and ExpressRoute coexist**  | Supported   | Not Supported    |
+| **Point-to-Site**                 | Supported   | Not Supported    |
+| **Classic to Resource Manager**   | Supported   | Not Supported    |
 
 
-#### VPN 유형 - 클래식 배포 모델
+#### <a name="vpn-type---classic-deployment-model"></a>VPN type - classic deployment model
 
 
-| | **동적** | **정적** |
+|       | **Dynamic**        | **Static**   |
 |---------------------------------------------|--------------|--------------|
-| **사이트 간** | 지원됨 | 지원됨 |
-| **VNet-VNet** | 지원됨 | 지원되지 않음 |
-| **다중 사이트** | 지원됨 | 지원되지 않음 |
-| **S2S 및 Express 경로 공존** | 지원됨 | 지원되지 않음 |
-| **지점 및 사이트 간** | 지원됨 | 지원되지 않음 |
-| **클래식 - 리소스 관리자** | 지원됨 | 지원되지 않음 |
+| **Site-to-Site**                            | Supported    | Supported      |
+| **VNet-to-VNet**                            | Supported    | Not Supported  |
+| **Multi-Site**                              | Supported    | Not Supported  |
+| **S2S and ExpressRoute coexist**            | Supported    | Not Supported  |
+| **Point-to-Site**                           | Supported    | Not Supported  |
+| **Classic to Resource Manager**             | Supported    | Not Supported  |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

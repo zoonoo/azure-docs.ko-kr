@@ -1,53 +1,52 @@
 <properties
-	pageTitle="Resource Manager에 대한 보안 고려 사항 | Microsoft Azure"
-	description="키 및 암호, 역할 기반 액세스 및 네트워크 보안 그룹을 사용하여 리소스를 보호하기 위해 Azure 리소스 관리자에서 권장되는 방식을 보여줍니다."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="george-moore"
-	manager="georgem"
-	editor="tysonn"/>
+    pageTitle="Security considerations for Resource Manager | Microsoft Azure"
+    description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="george-moore"
+    manager="georgem"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/01/2016"
-	ms.author="georgem;tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/01/2016"
+    ms.author="georgem;tomfitz"/>
 
 
-# Azure 리소스 관리자에 대한 보안 고려 사항
 
-Azure 리소스 관리자 템플릿에 대한 보안 측면을 살펴보면, 키 및 암호, 역할 기반 액세스 제어 및 네트워크 보안 그룹 등 고려해야 할 여러 영역이 있습니다.
+# <a name="security-considerations-for-azure-resource-manager"></a>Security considerations for Azure Resource Manager
 
-이 항목에서는 Azure 리소스 관리자의 역할 기반 액세스 제어(RBAC)에 대해 잘 알고 있다고 가정합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
+When looking at aspects of security for your Azure Resource Manager templates, there are several areas to consider – keys and secrets, role-based access control, and network security groups.
 
-이 항목은 더 큰 백서의 일부입니다. 전체 문서를 읽으려면 [세계적 수준의 ARM 템플릿 고려 사항 및 입증된 사례](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)를 다운로드합니다.
+This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azure Resource Manager. For more information, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-## 암호 및 인증서
+This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
-Azure 가상 컴퓨터, Azure 리소스 관리자 및 Azure 키 자격 증명 모음이 완전히 통합되어 VM에 배포되는 인증서의 안전한 처리를 위한 지원을 제공합니다. 리소스 관리자와 함께 Azure 키 자격 증명 모음을 활용하여 VM 암호와 인증서를 오케스트레이션하고 저장하는 것이 가장 좋은 방법으로, 다음과 같은 이점이 있습니다.
+## <a name="secrets-and-certificates"></a>Secrets and certificates
 
-- 템플릿에만 암호에 대한 URI 참조가 포함되므로 코드, 구성 또는 소스 코드 리포지토리에는 실제 암호가 없게 됩니다. 따라서 GitHub의 harvest-bots 등과 같은 내부 또는 외부 리포지토리에 대한 키 피싱 공격을 차단할 수 있습니다.
-- 키 자격 증명 모음에 저장된 암호는 신뢰할 수 있는 작업자의 완전한 RBAC 제어 하에 있습니다. 신뢰할 수 있는 작업자가 퇴사하거나 회사 내 다른 그룹으로 이동하는 경우에는 자격 증명 모음에 생성된 키에 대한 더 이상의 액세스 권한이 부여되지 않습니다.
-- 모든 자산에 대한 완벽한 구획화:
-      - 키를 배포하는 템플릿
-      - 키에 대한 참조를 사용하여 VM을 배포하는 템플릿
-      - 자격 증명 모음의 실제 키 자료 각 템플릿(및 작업)은 직무를 완전히 분리하기 위해 여러 RBAC 역할 하에 있도록 할 수 있습니다.
-- 배포 시 VM으로의 암호 로드는 Microsoft 데이터 센터 범위 내에서 Azure 패브릭 및 키 자격 증명 모음 간의 직접 채널을 통해 수행됩니다. 키가 키 자격 증명 모음에 들어가면 데이터 센터 외부에 있는 신뢰할 수 없는 채널을 통해서는 절대 '드러나지' 않습니다.
-- 키 자격 증명 모음은 항상 지역 단위이므로 암호는 항상 VM에서 지역성(및 독립성)을 갖습니다. 전역 키 자격 증명 모음은 없습니다.
+Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are to be deployed in the VM.  Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and provides the following advantages:
 
-### 배포에서 키 분리
+- The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source code repositories. This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
+- Secrets stored in the Key Vault are under full RBAC control of a trusted operator.  If the trusted operator leaves the company or transfers within the company to a new group, they no longer have access to the keys they created in the Vault.
+- Full compartmentalization of all assets: - the templates to deploy the keys - the templates to deploy a VM with references to the keys - the actual key materials in the Vault.  
+  Each template (and action) can be under different RBAC roles for full separation of duties.
+- The loading of secrets into a VM at deployment time occurs via direct channel between the Azure Fabric and the Key Vault within the confines of the Microsoft datacenter.  Once the keys are in the Key Vault, they never see 'daylight' over an untrusted channel outside of the datacenter.  
+- Key Vaults are always regional, so the secrets always have locality (and sovereignty) with the VMs. There are no global Key Vaults.
 
-가장 좋은 방법은 별도의 템플릿을 유지 관리하는 것입니다.
+### <a name="separation-of-keys-from-deployments"></a>Separation of keys from deployments
 
-1.	자격 증명 모음(키 자료가 포함되는 곳) 만들기
-2.	VM 배포(자격 증명 모음에 포함된 키에 대한 URI 참조)
+A best practice is to maintain separate templates for:
 
-일반적인 엔터프라이즈 시나리오는 VM 배포를 작성 또는 업데이트할 수 있는 광범위한 개발자/작업자와 더불어, 배포된 워크로드 내의 중요한 비밀에 액세스할 수 있는 소규모의 신뢰할 수 있는 작업자 그룹을 만드는 것입니다. 아래 예제에는 Azure Active Directory에서 현재 인증된 사용자 ID의 컨텍스트에서 새 자격 증명 모음을 생성 및 구성하는 ARM 템플릿이 나와 있습니다. 이 사용자는 이 새 키 자격 증명 모음에 있는 공용 키의 절반에 대해 만들기, 삭제, 나열, 업데이트, 백업, 복원 및 가져오기 작업을 수행할 수 있는 기본 권한을 갖습니다.
+1.  Creation of vaults (which will contain the key material)
+2.  Deployment of the VMs (with URI references to the keys contained in the vaults)
 
-이 템플릿의 필드 대부분이 따로 설명이 필요 없는 반면, **enableVaultForDeployment** 설정은 더 자세한 설명이 필요합니다. 자격 증명 모음은 다른 Azure 인프라 구성 요소에 의한 기본적인 고정 액세스 권한이 없습니다. 이 값을 설정하면 Azure 계산 인프라 구성 요소에서 특정하게 명명된 이 자격 증명 모음에 읽기 전용으로 액세스할 수 있습니다. 따라서 더 좋은 방법은 가상 컴퓨터 비밀과 동일한 자격 증명 모음에 중요한 회사 기밀 데이터를 함께 두지 않는 것입니다.
+A typical enterprise scenario is to have a small group of Trusted Operators who have access to critical secrets within the deployed workloads, with a broader group of dev/ops personnel who can create or update VM deployments.  Below is an example ARM template which creates and configures a new vault in the context of the currently authenticated user's identity in Azure Active Directory.  This user would have the default permission to create, delete, list, update, backup, restore, and get the public half of keys in this new key vault.
+
+While most of the fields in this template should be self-explanatory, the **enableVaultForDeployment** setting deserves more background: vaults do not have any default standing access by any other Azure infrastructure component. By setting this value, it allows the Azure Compute infrastructure components read-only access to this specific named vault. Therefore, a further best practice is to not comingle corporate sensitive data in the same vault as virtual machine secrets.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -117,9 +116,9 @@ Azure 가상 컴퓨터, Azure 리소스 관리자 및 Azure 키 자격 증명 �
         }]
     }
 
-자격 증명 모음을 만든 후 다음 단계는 새 VM의 배포 템플릿에 있는 해당 자격 증명 모음을 참조하는 것입니다. 위에서 설명한 것처럼 가장 좋은 방법은 VM 배포를 관리하는 서로 다른 개발자/작업자 그룹을 만들어, 이 그룹은 해당 그룹 자격 증명 모음에 저장된 키에 직접 액세스할 수 없도록 하는 것입니다.
+Once the vault is created, the next step is to reference that vault in the deployment template of a new VM.  As mentioned above, a best practice is to have a different dev/ops group manage VM deployments, with that group having no direct access to the keys as stored in the vault.
 
-아래 템플릿 조각은 높은 순서의 배포 구성으로 통합되며, 매우 중요한 비밀 정보를 안전하게 참조하는 것은 작업자가 직접 제어할 수 없습니다.
+The below template fragment would be composed into higher order deployment constructs, each safely and securely referencing highly-sensitive secrets which are not under the direct control of the operator.
 
     "vaultName": {
         "type": "string",
@@ -147,196 +146,205 @@ Azure 가상 컴퓨터, Azure 리소스 관리자 및 Azure 키 자격 증명 �
         }
     }
 
-템플릿을 배포하는 동안 키 자격 증명 모음의 값을 매개 변수로 전달하려면 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
+To pass a value from a key vault as a parameter during deployment of a template, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
-## 구독 간 상호 작용에 대한 서비스 주체
+## <a name="service-principals-for-cross-subscription-interactions"></a>Service principals for cross-subscription interactions
 
-서비스 ID는 Active Directory에서 서비스 주체로 표시됩니다. 서비스 주체는 엔터프라이즈 IT 조직, 시스템 통합 업체(SI) 및 클라우드 서비스 공급 업체(CSV)에 대한 주요 시나리오를 사용할 때 중심이 됩니다. 특히, 사용 사례 중 이러한 조직 중 하나가 고객 중 하나의 구독에 대해 상호 작용해야 하는 경우가 있습니다.
+Service identities are represented by service principals in Active Directory. Service principals will be at the center of enabling key scenarios for Enterprise IT organizations, System Integrators (SI), and Cloud Service Vendors (CSV). Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.  
 
-조직은 고객 환경 및 구독에 배포되는 솔루션을 모니터링하는 제품을 제공할 수 있습니다. 이 경우 모니터링 솔루션에서 사용할 수 있도록 고객 계정 내 로그 및 다른 데이터에 대한 액세스 권한을 얻어야 합니다. 기업 IT 조직이나 시스템 통합 업체의 경우 제품이 고객 소유 구독에 상주하는 데이터 분석 플랫폼과 같이 기능을 배포 및 관리하는 제품을 고객에게 제공할 수 있습니다.
+Your organization could provide an offering that will monitor a solution deployed in your customers environment and subscription. In this case, you will need to get access to logs and other data within a customers account so that you can utilize it in your monitoring solution. If you're a corporate IT organization, a systems integrator, you may provide an offering to a customer where you will deploy and manage a capability for them, such as a data analytics platform, where the offering resides in the customers own subscription.
 
-이러한 사용 사례에서 조직은 고객 구독의 컨텍스트 내에서 이러한 작업을 수행하는 데 필요한 액세스 권한을 얻기 위해 ID가 있어야 합니다.
+In these use cases, your organization would require an identity that could be given access to perform these actions within the context of a customer subscription.  
 
-이러한 시나리오는 고객에 대해 고려할 사항이 무엇인지 알려줍니다.
+These scenarios bring with them a certain set of considerations for your customer:
 
--	보안상의 이유로 액세스 범위를 읽기 전용 액세스 등과 같은 특정 유형의 작업으로 지정해야 할 수 있습니다.
--	배포된 리소스가 유상으로 제공되면 재정적 이유로 액세스에 비슷한 제약 조건이 필요할 수 있습니다.
--	보안상의 이유로 특정 리소스(저장소 계정 또는 환경이나 솔루션이 포함된 리소스 그룹)만으로 액세스 범위를 제한해야 할 수도 있습니다.
--	공급 업체와의 관계가 변할 수 있으므로 고객이 SI 또는 CSV에 대한 액세스를 활성화/비활성화하는 기능을 원할 수도 있습니다.
--	이 계정에 대한 작업에 요금이 청구되면 고객은 요금 청구에 대한 감사 가능성 및 책임에 대한 지원 기능을 원하게 됩니다.
--	규정 준수 관점에서 고객은 자신의 환경 내에서 사용자의 동작을 감사할 수 있는 기능을 원하게 됩니다.
+-   For security reasons, access may need to be scoped to certain types of actions, e.g. read only access.
+-   As deployed resources are provided at a cost, there may be similar constraints on access required for financial reasons.
+-   For security reasons, access may need to be scoped only to a specific resource (storage accounts) or resources (resource group containing an environment or solution)
+-   As a relationship with a vendor may change, the customer will want to have the ability to enable/disable access to SI or CSV
+-   As actions against this account having billing implications, the customer desires support for auditability and accountability for billing.
+-   From a compliance perspective, the customer will want to be able to audit your behavior within their environment
 
-서비스 주체와 RBAC를 결합하여 이러한 요구 사항을 해결하는 데 사용할 수 있습니다.
+A combination of a service principal and RBAC can be used to address these requirements.
 
-## 네트워크 보안 그룹
+## <a name="network-security-groups"></a>Network security groups
 
-많은 시나리오에서 가상 네트워크에 있는 하나 이상의 VM 인스턴스에 대해 트래픽을 제어하는 방법을 지정하는 요구 사항을 나타나게 됩니다. 네트워크 보안 그룹(NSG)를 사용하면 ARM 템플릿 배포의 일부로 이 작업을 수행할 수 있습니다.
+Many scenarios will have requirements that specify how traffic to one or more VM instances in your virtual network is controlled. You can use a Network Security Group (NSG) to do this as part of an ARM template deployment.
 
-네트워크 보안 그룹은 구독과 연결된 최상위 개체입니다. NSG에는 VM 인스턴스에 대한 트래픽을 허용하거나 거부할 수 있는 액세스 제어 규칙이 포함됩니다. NSG의 규칙은 언제든지 변경할 수 있으며, 변경 내용은 연결된 모든 인스턴스에 적용됩니다. NSG를 사용하려면 지역(위치)과 연결된 가상 네트워크가 있어야 합니다. NSG는 선호도 그룹과 연결된 가상 네트워크와는 호환되지 않습니다. 지역 가상 네트워크가 없고 끝점에 대한 트래픽을 제어하려는 경우 [네트워크 ACL(액세스 제어 목록) 정보](./virtual-network/virtual-networks-acl.md)를 참조하세요.
+A network security group is a top-level object that is associated with your subscription. An NSG contains access control rules that allow or deny traffic to VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a virtual network that is associated with a region (location). NSGs are not compatible with virtual networks that are associated with an affinity group. If you don’t have a regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](./virtual-network/virtual-networks-acl.md).
 
-NSG를 VM에 연결하거나 가상 네트워크 내에 있는 서브넷에 연결할 수 있습니다. NSG가 VM과 연결된 경우 VM 인스턴스에서 보내고 받는 모든 트래픽에 적용됩니다. NSG가 가상 네트워크 내에 있는 서브넷에 적용된 경우 서브넷의 모든 VM 인스턴스에서 보내고 받는 모든 트래픽에 적용됩니다. VM 또는 서브넷은 오직 1개의 NSG와 연결될 수 있지만 각 NSG에는 규칙이 200개까지 포함될 수 있습니다. 구독당 100개의 NSG가 있을 수 있습니다.
+You can associate an NSG with a VM, or to a subnet within a virtual network. When associated with a VM, the NSG applies to all the traffic that is sent and received by the VM instance. When applied to a subnet within your virtual network, it applies to all the traffic that is sent and received by all the VM instances in the subnet. A VM or subnet can be associated with only 1 NSG, but each NSG can contain up to 200 rules. You can have 100 NSGs per subscription.
 
->[AZURE.NOTE]  끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](./virtual-network/virtual-networks-acl-powershell.md)를 참조하세요.
+>[AZURE.NOTE]  Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](./virtual-network/virtual-networks-acl-powershell.md).
 
-### 네트워크 보안 그룹의 작동 방법
+### <a name="how-network-security-groups-work"></a>How network security groups work
 
-네트워크 보안 그룹은 끝점 기반 ACL과 다릅니다. 끝점 ACL은 입력 끝점을 통해 노출되는 공용 포트에서만 작동합니다. NSG는 하나 이상의 VM 인스턴스에서 작동하며 VM의 모든 인바운드 및 아웃바운드 트래픽을 제어합니다.
+Network security groups are different than endpoint-based ACLs. Endpoint ACLs work only on the public port that is exposed through the Input endpoint. An NSG works on one or more VM instances and controls all the traffic that is inbound and outbound on the VM.
 
-네트워크 보안 그룹에는 *이름*이 있으며 *지역*(지원되는 Azure 위치 중 하나)에 연결되며 설명 레이블이 있습니다. 그리고 인바운드 및 아웃바운드 유형의 규칙이 포함되어 있습니다. 인바운드 규칙은 VM으로 들어오는 패킷에 적용되며, 아웃바운드 규칙은 VM에서 나가는 패킷에 적용됩니다. 규칙은 VM이 있는 서버 컴퓨터에서 적용됩니다. 들어오는 패킷이나 나가 패킷은 허용 규칙이 동일하게 허용되어야 하며, 그렇지 않은 경우 패킷이 삭제됩니다.
+A network security group has a *Name*, is associated with a *Region* (one of the supported Azure locations), and has a descriptive label. It contains two types of rules, Inbound and Outbound. The Inbound rules are applied on the incoming packets to a VM and the Outbound rules are applied to the outgoing packets from the VM.
+The rules are applied at the server machine where the VM is located. An incoming or outgoing packet must match an Allow rule to be permitted; otherwise, it’s dropped.
 
-규칙은 우선 순위에 따라 처리됩니다. 예를 들어 낮은 우선 순위 번호(예: 100)를 가진 규칙이 더 높은 우선 순위 번호(예: 200)를 가진 규칙보다 먼저 처리됩니다. 일치하는 항목이 발견되면 추가 규칙은 처리되지 않습니다.
+Rules are processed in the order of priority. For example, a rule with a lower priority number such as 100 is processed before rules with a higher priority numbers such as 200. Once a match is found, no more rules are processed.
 
-규칙에서는 다음을 지정합니다.
+A rule specifies the following:
 
--	이름: 규칙의 고유 식별자
--	유형: 인바운드/아웃바운드
--	우선 순위: 100과 4096 사이의 정수(규칙은 낮은 순위에서 높은 순위로 처리됩니다.)
--	원본 IP 주소: 원본 IP 범위의 CIDR
--	원본 포트 범위: 0과 65536 사이의 정수 또는 범위
--	대상 IP 범위: 대상 IP 범위의 CIDR
--	대상 포트 범위: 0과 65536 사이의 정수 또는 범위
--	프로토콜: TCP, UDP 또는 ‘*’
--	액세스: 허용/거부
+-   Name: A unique identifier for the rule
+-   Type: Inbound/Outbound
+-   Priority: An integer between 100 and 4096 (rules processed from low to high)
+-   Source IP Address: CIDR of source IP range
+-   Source Port Range: An integer or range between 0 and 65536
+-   Destination IP Range: CIDR of the destination IP Range
+-   Destination Port Range: An integer or range between 0 and 65536
+-   Protocol: TCP, UDP or ‘\*’
+-   Access: Allow/Deny
 
-### 기본 규칙
+### <a name="default-rules"></a>Default rules
 
-NSG에는 기본 규칙이 있습니다. 기본 규칙은 삭제할 수 없지만, 가장 낮은 우선순위가 할당되기 때문에 직접 만든 규칙으로 재정의할 수 있습니다. 기본 규칙은 플랫폼에서 권장하는 기본 설정을 설명합니다. 아래 기본 규칙에 설명된 대로, 가상 네트워크에서 시작하고 끝나는 트래픽은 인바운드와 아웃바운드 방향 둘 다에서 허용됩니다.
+An NSG contains default rules. The default rules can't be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. The default rules describe the default settings recommended by the platform. As illustrated by the default rules below, traffic originating and ending in a virtual network is allowed both in Inbound and Outbound directions.
 
-인터넷에 대한 연결은 아웃바운드 방향에 대해 허용되지만, 기본적으로 인바운드 방향에 대해서는 차단됩니다. 기본 규칙을 사용하면 Azure 부하 분산 장치에서 VM의 상태를 검색할 수 있습니다. NSG의 VM 또는 VM 집합이 부하 분산된 집합에 참여하지 않는 경우 이 규칙을 재정의할 수 있습니다.
+While connectivity to the Internet is allowed for outbound direction, it is by default blocked for inbound direction. A default rule allows the Azure load balancer to probe the health of a VM. You can override this rule if the VM or set of VMs under the NSG does not participate in the load balanced set.
 
-기본 규칙은 아래 표에 나와 있습니다.
+The default rules are shown in the tables below.
 
-**인바운드 기본 규칙**
+**Inbound default rules**
 
-이름 |	우선 순위 |	원본 IP |	원본 포트 |	대상 IP |	대상 포트 |	프로토콜 |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-VNET 인바운드 허용 | 65000 | VIRTUAL\_NETWORK |	* |	VIRTUAL\_NETWORK | * |	* | 허용
-AZURE 부하 분산 장치 인바운드 허용 | 65001 | AZURE\_LOADBALANCER | * | * | * | * | 허용
-모든 인바운드 거부 | 65500 | * | * | * | * | * | 거부
+ALLOW VNET INBOUND  | 65000 | VIRTUAL_NETWORK | \* |    VIRTUAL_NETWORK | \* |  \*  | ALLOW
+ALLOW AZURE LOAD BALANCER INBOUND   | 65001 | AZURE_LOADBALANCER    | \*    | \*    | \*    | \*    | ALLOW
+DENY ALL INBOUND    | 65500 | \*    | \*    | \*    | \*    | \*    | DENY
 
-**아웃바운드 기본 규칙**
+**Outbound default rules**
 
-이름 |	우선 순위 |	원본 IP |	원본 포트 |	대상 IP |	대상 포트 |	프로토콜 |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-VNET 아웃바운드 허용 | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | 허용
-인터넷 아웃바운드 허용 | 65001 | * | * | 인터넷 | * | * | 허용
-모든 아웃바운드 거부 | 65500 | * | * | * | * | * | 거부
+ALLOW VNET OUTBOUND | 65000 | VIRTUAL_NETWORK   | \*    | VIRTUAL_NETWORK   | \*    | \*    | ALLOW
+ALLOW INTERNET OUTBOUND | 65001 | \*    | \*    | INTERNET  | \*    | \*    | ALLOW
+DENY ALL OUTBOUND   | 65500 | \*    | \*    | \*    | \*    | \*    | DENY
 
-### 특별 인프라 규칙
+### <a name="special-infrastructure-rules"></a>Special infrastructure rules
 
-NSG 규칙은 명시적입니다. NSG 규칙에서 지정한 트래픽 이외의 트래픽은 허용되거나 거부되지 않습니다. 그러나 네트워크 보안 그룹 사양과 관계없이 항상 허용되는 트래픽 유형이 두 가지 있습니다. 이러한 프로비전은 인프라를 지원하도록 구성되었습니다.
+NSG rules are explicit. No traffic is allowed or denied beyond what is specified in the NSG rules. However, two types of traffic are always allowed regardless of the Network Security group specification. These provisions are made to support the infrastructure:
 
-- **호스트 노드의 가상 IP:** DHCP, DNS 및 상태 모니터링과 같은 기본 인프라 서비스는 168.63.129.16의 가상화된 호스트 IP 주소를 통해 제공됩니다. 이 공용 IP 주소는 Microsoft에 속하며, 이 목적을 위해 모든 지역에서 유일하게 사용되는 가상화된 IP 주소입니다. 이 IP 주소는 VM을 호스트하는 서버 컴퓨터(호스트 노드)의 실제 IP 주소에 매핑됩니다. 호스트 노드는 DHCP 릴레이, DNS 재귀 확인자, 부하 분산 장치 상태 검색 및 컴퓨터 상태 검색에 대한 검색 소스 등의 역할을 합니다. 이 IP 주소에 대한 통신은 공격으로 간주되지 않아야 합니다.
-- **라이선싱(키 관리 서비스)**: VM에서 실행되는 Windows 이미지는 사용이 허가되어 있어야 합니다. 사용 허가를 위해 라이선싱 요청이 해당 쿼리를 처리하는 키 관리 서비스 호스트 서버로 전송됩니다. 그리고 이 통신은 항상 아웃바운드 포트 1688을 사용합니다.
+- **Virtual IP of the Host Node**: Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. This IP address maps to the physical IP address of the server machine (host node) hosting the VM. The host node acts as the DHCP relay, the DNS recursive resolver, and the probe source for the load balancer health probe and the machine health probe. Communication to this IP address should not be considered as an attack.
+- **Licensing (Key Management Service)**: Windows images running in the VMs should be licensed. To do this, a licensing request is sent to the Key Management Service host servers that handle such queries. This will always be on outbound port 1688.
 
-### 기본 태그
+### <a name="default-tags"></a>Default tags
 
-기본 태그는 IP 주소의 범주를 다루기 위해 시스템에서 제공한 식별자입니다. 기본 태그는 사용자 정의 규칙에서 지정할 수 있습니다.
+Default tags are system-provided identifiers to address a category of IP addresses. Default tags can be specified in user-defined rules.
 
-**NSG의 기본 태그**
+**Default tags for NSGs**
 
-태그 |	설명
+Tag |   Description
 --- | ---
-VIRTUAL\_NETWORK |	모든 네트워크 주소 공간을 나타냅니다. 여기에는 연결된 모든 온-프레미스 주소 공간(로컬 네트워크)뿐만 아니라 가상 네트워크 주소 공간(Azure의 IP CIDR)도 포함됩니다. 또한 가상 네트워크 간 공간도 포함됩니다.
-AZURE\_LOADBALANCER | Azure 인프라 부하 분산 장치를 나타내며 Azure의 상태 검색이 시작되는 Azure 데이터 센터 IP로 변환됩니다. 이 기본 태그는 NSG와 연결된 VM 또는 VM 집합에서 부하 분산된 집합에 참여하는 경우에만 필요합니다.
-인터넷 | 가상 네트워크 외부에 있으며 공용 인터넷에서 연결할 수 있는 IP 주소 공간을 표시합니다. 이 범위에는 Azure 소유의 공용 IP 공간도 포함됩니다.
+VIRTUAL_NETWORK |   Denotes all of your network address space. It includes the virtual network address space (IP CIDR in Azure) as well as all connected on-premises address space (Local Networks). This also includes virtual network-to-virtual network address spaces.
+AZURE_LOADBALANCER | Denotes the Azure Infrastructure load balancer and will translate to an Azure datacenter IP where Azure’s health probes will originate. This is needed only if the VM or set of VMs associated with the NSG is participating in a load balanced set.
+INTERNET | Denotes the IP address space that is outside the virtual network and can be reached by public Internet. This range includes Azure-owned public IP space as well.
 
-### 포트 및 포트 범위
+### <a name="ports-and-port-ranges"></a>Ports and port ranges
 
-NSG 규칙은 단일 원본 또는 대상 포트, 혹은 포트 범위에서 지정할 수 있습니다. 이 방식은 FTP와 같은 응용 프로그램을 위해 다양한 범위의 포트를 열려는 경우에 특히 유용합니다. 범위는 순차적이어야 하며, 개별 포트 사양과 혼합할 수 없습니다. 포트의 범위를 지정하려면 하이픈(–) 문자를 사용하세요. 예: **100-500**
+NSG rules can be specified on a single source or destination port, or on a port range. This approach is particularly useful when you want to open a wide range of ports for an application, such as FTP. The range must be sequential and can't be mixed with individual port specifications.
+To specify a range of ports, use the hyphen (–) character. For example, **100-500**.
 
-### ICMP 트래픽
+### <a name="icmp-traffic"></a>ICMP traffic
 
-현재 NSG 규칙을 사용하여 TCP 또는 UDP를 프로토콜로 지정할 수 있지만 ICMP은 지정할 수 있습니다. 그러나 ICMP 트래픽은 기본적으로 가상 네트워크 내에서 모든 포트 및 프로토콜(*) 간의 트래픽을 지원하는 인바운드 규칙을 통해 가상 네트워크 내에서 허용됩니다.
+With the current NSG rules, you can specify TCP or UDP as protocols but not ICMP. However, ICMP traffic is allowed within a virtual network by default through the Inbound rules that support traffic from and to any port and protocol (\*) within the virtual network.
 
-### VM과 NSG 연결
+### <a name="associating-an-nsg-with-a-vm"></a>Associating an NSG with a VM
 
-NSG가 VM에 직접 연결된 경우 NSG의 네트워크 액세스 규칙은 VM에 전송되는 모든 트래픽에 직접 적용됩니다. 규칙 변경을 위해 NSG가 업데이트될 때마다 몇 분 내에 업데이트가 트래픽 처리에 반영됩니다. VM에서 NSG를 연결 해제하면 상태가 이전 NSG 상태 즉, NSG를 도입하기 전의 시스템 기본 상태로 돌아갑니다.
+When an NSG is directly associated with a VM, the network access rules in the NSG are directly applied to all traffic that is destined to the VM. Whenever the NSG is updated for rule changes, the traffic handling reflects the updates within minutes. When the NSG is disassociated from the VM, the state reverts to its pre-NSG condition—that is, to the system defaults before the NSG was introduced.
 
-### 서브넷과 NSG 연결
+### <a name="associating-an-nsg-with-a-subnet"></a>Associating an NSG with a subnet
 
-NSG가 서브넷에 연결된 경우 NSG의 네트워크 액세스 규칙이 서브넷의 모든 VM에 적용됩니다. NSG의 액세스 규칙이 업데이트될 때마다 변경 내용이 몇 분 내에 서브넷에 있는 모든 VM에 적용됩니다.
+When an NSG is associated with a subnet, the network access rules in the NSG are applied to all the VMs in the subnet. Whenever the access rules in the NSG are updated, the changes are applied to all VMs in the subnet within minutes.
 
-### 서브넷 및 VM과 NSG 연결
+### <a name="associating-an-nsg-with-a-subnet-and-a-vm"></a>Associating an NSG with a subnet and a VM
 
-VM과 한 NSG를 연결하고 해당 VM이 있는 서브넷과 다른 NSG를 연결할 수 있습니다. 이 시나리오는 VM에 두 개의 보호 계층을 제공하기 위해 지원됩니다. 인바운드 트래픽의 경우 패킷은 서브넷에 지정된 액세스 규칙을 따른 다음 VM의 규칙을 따릅니다. 아웃바운드인 경우 패킷은 아래와 같이 먼저 VM에 지정된 규칙을 따른 다음 서브넷에 지정된 규칙을 따릅니다.
+You can associate one NSG with a VM and another NSG with the subnet where the VM resides. This scenario is supported to provide the VM with two layers of protection.
+On the inbound traffic, the packet follows the access rules specified in the subnet, followed by rules in the VM. When outbound, the packet follows the rules specified in the VM first, then follows the rules specified in the subnet as shown below.
 
-![서브넷 및 VM에 NSG 연결](./media/best-practices-resource-manager-security/nsg-subnet-vm.png)
+![Associating an NSG to a subnet and a VM](./media/best-practices-resource-manager-security/nsg-subnet-vm.png)
 
-NSG가 VM 또는 서브넷과 연결된 경우 네트워크 액세스 제어 규칙은 매우 명시적이 됩니다. 플랫폼은 특정 포트에 대한 트래픽을 허용하는 어떠한 암시적 규칙도 삽입하지 않습니다. 이 경우에 VM의 끝점을 만들면 인터넷에서의 트래픽을 허용하는 규칙도 만들어야 합니다. 이렇게 하지 않으면 외부에서 *VIP:{Port}*에 액세스할 수 없습니다.
+When an NSG is associated with a VM or subnet, the network access control rules become very explicit. The platform will not insert any implicit rule to allow traffic to a particular port. In this case, if you create an endpoint in the VM, you must also create a rule to allow traffic from the Internet. If you don't do this, the *VIP:{Port}* can't be accessed from outside.
 
-예를 들어 새 VM 및 NSG를 만들 수 있습니다. 그런 다음, NSG와 VM을 연결합니다. VM은 VNET 인바운드 허용 규칙을 통해 가상 네트워크에 있는 다른 VM과 통신할 수 있습니다. 또한 VM은 인터넷 아웃바운드 허용 규칙을 사용하여 인터넷에 아웃바운드 연결할 수도 있습니다. 나중에 포트 80에 끝점을 만들어 VM에서 실행 중인 웹사이트에 대한 트래픽을 수신합니다. 다음 표와 비슷한 규칙을 NSG에 추가할 때까지 인터넷에서 VIP(공용 가상 IP 주소)의 포트 80에 보내는 패킷은 VM에 도달하지 않습니다.
+For example, you can create a new VM and a new NSG. You associate the NSG with the VM. The VM can communicate with other VMs in the virtual network through the ALLOW VNET INBOUND rule. The VM can also make outbound connections to the Internet using the ALLOW INTERNET OUTBOUND rule. Later, you create an endpoint on port 80 to receive traffic to your website running in the VM. Packets destined to port 80 on the VIP (public Virtual IP address) from the Internet will not reach the VM until you add a rule similar to the following table to the NSG.
 
-**특정 포트에 대한 트래픽을 허용하는 명시적 규칙**
+**Explicit rule allowing traffic to a particular port**
 
-이름 |	우선 순위 |	원본 IP |	원본 포트 |	대상 IP |	대상 포트 |	프로토콜 |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-웹 | 100 | 인터넷 | * | * | 80 | TCP | 허용
+WEB | 100   | INTERNET | *  | * | 80    | TCP   | ALLOW
 
-## 사용자 정의 경로
+## <a name="user-defined-routes"></a>User-defined routes
 
-Azure에서는 경로 테이블을 사용하여 각 패킷의 대상에 따라 IP 트래픽을 전달하는 방법을 결정합니다. Azure에서는 가상 네트워크 설정에 따라 기본 경로 테이블을 제공하지만 해당 테이블에 사용자 지정 경로를 추가해야 할 수도 있습니다.
+Azure uses a route table to decide how to forward IP traffic based on the destination of each packet. Although Azure provides a default route table based on your virtual network settings, you may need to add custom routes to that table.
 
-경로 테이블에 사용자 지정 항목이 필요한 가장 일반적인 경우는 Azure 환경에서 가상 어플라이언스를 사용하는 경우입니다. 아래 그림에 나와 있는 시나리오를 살펴보겠습니다. 프런트 엔드 서브넷에서 시작되어 중간 계층 이하의 서브넷으로 전달되는 모든 트래픽이 가상 방화벽 어플라이언스를 통과하는지 확인하려는 경우를 가정해 보겠습니다. 어플라이언스를 가상 네트워크에 추가하고 다른 서브넷에 연결하는 것만으로는 이 기능이 제공되지 않습니다. 서브넷에 적용된 라우팅 테이블을 변경하여 패킷이 가상 방화벽 어플라이언스로 전달되도록 해야 합니다.
+The most common need for a custom entry in the route table is the use of a virtual appliance in your Azure environment. Take into account the scenario shown in the Figure below. Suppose you want to ensure that all traffic directed to the mid-tier and backed subnets initiated from the front end subnet go through a virtual firewall appliance. Simply adding the appliance to your virtual network and connecting it to the different subnets will not provide this functionality.
+You must also change the routing table applied to your subnet to ensure packets are forwarded to the virtual firewall appliance.
 
-Azure 가상 네트워크와 인터넷 간의 트래픽을 제어하기 위해 가상 NAT 어플라이언스를 구현한 경우도 마찬가지입니다. 가상 어플라이언스를 사용하려면 인터넷으로 전달되는 모든 트래픽이 가상 어플라이언스로 전달되도록 지정하는 경로를 만들어야 합니다.
+The same would be true if you implemented a virtual NAT appliance to control traffic between your Azure virtual network and the Internet. To ensure the virtual appliance is used you have to create a route specifying that all traffic destined to the Internet must be forwarded to the virtual appliance.
 
-### 라우팅
+### <a name="routing"></a>Routing
 
-패킷은 물리적 네트워크의 각 노드에 정의된 경로 테이블을 기반으로 TCP/IP 네트워크를 통해 라우팅됩니다. 경로 테이블은 대상 IP 주소에 따라 패킷을 전달할 위치를 결정하는 데 사용되는 개별 경로의 컬렉션입니다. 경로는 다음으로 구성됩니다.
+Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network. A route table is a collection of individual routes used to decide where to forward packets based on the destination IP address. A route consists of the following:
 
-- 주소 접두사. 경로가 적용되는 대상 CIDR(예: 10.1.0.0/16)입니다.
-- 다음 홉 유형. 패킷을 전송해야 하는 대상 Azure 홉의 유형입니다. 가능한 값은 다음과 같습니다.
-  - 로컬. 로컬 가상 네트워크를 나타냅니다. 예를 들어 10.1.0.0/16 및 10.2.0.0/16의 두 서브넷이 같은 가상 네트워크에 있는 경우 경로 테이블의 각 서브넷에 대한 경로는 다음 홉 값이 로컬로 설정됩니다.
-  - VPN 게이트웨이. Azure S2S VPN 게이트웨이를 나타냅니다.
-  - 인터넷. Azure 인프라에서 제공하는 기본 인터넷 게이트웨이를 나타냅니다.
-  - 가상 어플라이언스. Azure 가상 네트워크에 추가한 가상 어플라이언스를 나타냅니다.
-  - NULL. 블랙 홀을 나타냅니다. 블랙 홀로 전달된 패킷은 아무 곳에도 전달되지 않습니다.
--	다음 홉 값. 다음 홉 값에는 패킷을 전달해야 하는 IP 주소가 포함됩니다. 다음 홉 값은 다음 홉 유형이 *가상 어플라이언스*인 경로에서만 허용됩니다. 다음 홉은 원격 서브넷이 아닌 서브넷(네트워크 ID에 따른 가상 어플라이언스의 로컬 인터페이스) 상에 있어야 합니다.
+- Address Prefix. The destination CIDR to which the route applies, such as 10.1.0.0/16.
+- Next hop type. The type of Azure hop the packet should be sent to. Possible values are:
+  - Local. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of Local.
+  - VPN Gateway. Represents an Azure S2S VPN Gateway.
+  - Internet. Represents the default Internet gateway provided by the Azure Infrastructure
+  - Virtual Appliance. Represents a virtual appliance you added to your Azure virtual network.
+  - NULL. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
+-   Nexthop Value. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*. The next hop needs to be on the subnet (the local interface of the virtual appliance according to the network ID), not a remote subnet.
 
-![라우팅](./media/best-practices-resource-manager-security/routing.png)
+![Routing](./media/best-practices-resource-manager-security/routing.png)
 
-### 기본 경로
+### <a name="default-routes"></a>Default routes
 
-가상 네트워크에서 생성된 모든 서브넷은 다음 기본 경로 규칙을 포함하는 경로 테이블과 자동으로 연결됩니다.
+Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:
 
-- 로컬 Vnet 규칙:이 규칙은 가상 네트워크에 있는 모든 서브넷에 대해 자동으로 생성됩니다. VNet의 VM들이 직접 연결되어 있으며 다음 홉으로 연결되는 매개가 없음을 명시합니다. 이렇게 하면 동일한 서브넷의 VM은(VM이 존재하는 네트워크 ID에 상관없이) 기본 게이트웨이 주소를 요구하지 않고 서로 통신할 수 있게 됩니다.
-- 온-프레미스 규칙: 이 규칙은 온-프레미스 주소 범위로 전달되는 모든 트래픽에 적용되며, VPN 게이트웨이를 다음 홉 대상으로 사용합니다.
-- 인터넷 규칙: 이 규칙은 공용 인터넷에 유입되는 모든 트래픽을 처리하며 인프라 인터넷 게이트웨이를 인터넷에 유입되는 모든 트래픽에 대한 다음 홉으로 사용합니다.
+- Local VNet Rule: This rule is automatically created for every subnet in a virtual network. It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop. This enables the VMs on the same subnet, regardless of the network ID that the VMs exist in, to communicate with each other without requiring a default gateway address.
+- On-premises Rule: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
+- Internet Rule: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
-### BGP 경로
+### <a name="bgp-routes"></a>BGP routes
 
-이 내용을 작성할 당시에는 Azure 리소스 관리자의 [네트워크 리소스 공급자](./virtual-network/resource-groups-networking.md)에서 [Express 경로](./expressroute/expressroute-introduction.md)가 아직 지원되지 않습니다. 온-프레미스 네트워크와 Azure 간에 ExpressRoute 연결이 있는 경우 BGP를 사용하도록 설정하여 ExpressRoute가 NRP에서 지원되고 나서 온-프레미스 네트워크에서 Azure로 경로를 전파할 수 있습니다. 이러한 BGP 경로는 각 Azure 서브넷의 사용자 정의 경로 및 기본 경로와 동일한 방식으로 사용됩니다. 자세한 내용은 [ExpressRoute 소개](./expressroute/expressroute-introduction.md)를 참조하세요.
+At the time of this writing, [ExpressRoute](./expressroute/expressroute-introduction.md) is not yet supported in the [Network Resource Provider](./virtual-network/resource-groups-networking.md) for Azure Resource Manager.  If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure once ExpressRoute is supported in the NRP. These BGP routes are used in the same way as default routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](./expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE] NRP에서 Express 경로가 지원되는 경우 VPN 게이트웨이를 다음 홉으로 사용하는 서브넷 0.0.0.0/0에 대한 사용자 정의 경로를 만들어 온-프레미스 네트워크를 통한 강제 터널링을 사용하도록 Azure 환경을 구성할 수 있습니다. 그러나 이 구성은 VPN 게이트웨이를 사용하는 경우에만 작동하고 ExpressRoute를 사용하는 경우에는 작동하지 않습니다. ExpressRoute의 경우 강제 터널링은 BGP를 통해 구성됩니다.
+>[AZURE.NOTE] When ExpressRoute on NRP is supported, you will be able to configure your Azure environment to use forced tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
 
-### 사용자 정의 경로
+### <a name="user-defined-routes"></a>User-defined routes
 
-Azure 환경에서는 위에서 지정한 기본 경로를 볼 수 없으며, 대부분의 환경에는 이러한 경로만 있으면 됩니다. 그러나 다음과 같은 특정한 경우에는 경로 테이블을 만들고 하나 이상의 경로를 추가해야 할 수 있습니다.
+You cannot view the default routes specified above in your Azure environment, and for most environments, those are the only routes you will need.
+However, you may need to create a route table and add one or more routes in specific cases, such as:
 
--	온-프레미스 네트워크를 통해 인터넷으로 강제 터널링하는 경우
--	Azure 환경에서 가상 어플라이언스를 사용하는 경우
+-   Forced tunneling to the Internet via your on-premises network.
+-   Use of virtual appliances in your Azure environment.
 
-위 시나리오에서는 경로 테이블을 만들어 사용자 정의 경로를 추가해야 합니다. 여러 경로 테이블을 만들 수 있으며, 동일한 경로 테이블을 하나 이상의 서브넷에 연결할 수 있습니다. 또한 각 서브넷은 단일 경로 테이블에만 연결할 수 있습니다. 서브넷의 모든 VM 및 클라우드 서비스는 해당 서브넷에 연결된 경로 테이블을 사용합니다.
+In the scenarios above, you will have to create a route table and add user defined routes to it. You can have multiple route tables, and the same route table can be associated to one or more subnets. And each subnet can only be associated to a single route table. All VMs and cloud services in a subnet use the route table associated to that subnet.
 
-경로 테이블이 서브넷에 연결될 때까지 서브넷은 기본 경로에 의존합니다. 연결이 설정되면 사용자 정의 경로 및 기본 경로 간에 [LPM(가장 긴 접두사 일치)](https://en.wikipedia.org/wiki/Longest_prefix_match)을 기반으로 라우팅이 수행됩니다. LPM 일치가 동일한 경로가 두 개 이상 있으면 다음 순서대로 해당 원점에 따라 경로가 선택됩니다.
+Subnets rely on default routes until a route table is associated to the subnet. Once an association exists, routing is done based on [Longest Prefix Match (LPM)](https://en.wikipedia.org/wiki/Longest_prefix_match) among both user defined routes and default routes. If there is more than one route with the same LPM match then a route is selected based on its origin in the following order:
 
-1.	사용자 정의 경로
-2.	BGP 경로(ExpressRoute를 사용하는 경우)
-3.	기본 경로
+1.  User defined route
+2.  BGP route (when ExpressRoute is used)
+3.  Default route
 
->[AZURE.NOTE] 사용자 정의 경로는 Azure VM 및 클라우드 서비스에만 적용됩니다. 예를 들어 온-프레미스 네트워크와 Azure 간에 방화벽 가상 어플라이언스를 추가하려면 온-프레미스 주소 공간으로 이동하는 모든 트래픽을 가상 어플라이언스로 전달하는 Azure 경로 테이블에 대한 사용자 정의 경로를 만들어야 합니다. 그러나 온-프레미스 주소 공간에서 들어오는 트래픽은 가상 어플라이언스를 우회하여 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 Azure 환경으로 직접 이동합니다.
+>[AZURE.NOTE] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 
-### IP 전달
+### <a name="ip-forwarding"></a>IP forwarding
 
-위에서 설명한 것처럼 사용자 정의 경로를 만드는 주된 이유 중 하나는 트래픽을 가상 어플라이언스로 전달하기 위한 것입니다. 가상 어플라이언스는 방화벽이나 NAT 장치와 같이 네트워크 트래픽을 처리하는 데 사용되는 응용 프로그램을 실행하는 VM일 뿐입니다.
+As described above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance. A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.
 
-이 가상 어플라이언스 VM은 주소가 자신으로 지정되지 않은 들어오는 트래픽을 받을 수 있어야 합니다. VM이 다른 대상으로 주소가 지정된 트래픽을 받을 수 있도록 하려면 해당 VM에서 IP 전달을 사용하도록 설정해야 합니다.
+This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding in the VM.
 
-## 다음 단계
-- 조직에서 리소스로 작업하는 데 필요한 정확한 액세스 권한으로 보안 주체를 설정하는 방법을 알아보려면 [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
-- 리소스에 대한 액세스를 잠가야 하는 경우 관리 잠금을 사용할 수 있습니다. [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
-- 라우팅 및 IP 전달을 구성하려면 [템플릿을 사용하여 리소스 관리자에서 UDR(사용자 정의 경로) 만들기](./virtual-network/virtual-network-create-udr-arm-template.md)를 참조하세요.
-- 역할 기반 액세스 제어에 대한 개요는 [Microsoft Azure 포털에서 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
+## <a name="next-steps"></a>Next steps
+- To understand how to set up security principals with the correct access to work with resources in your organization, see [Authenticating a Service Principal with Azure Resource Manager](resource-group-authenticate-service-principal.md)
+- If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](resource-group-lock-resources.md)
+- To configure routing and IP forwarding, see [Create User Defined Routes (UDR) in Resource Manager by using a template](./virtual-network/virtual-network-create-udr-arm-template.md)
+- For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](./active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

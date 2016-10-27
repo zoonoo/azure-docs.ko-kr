@@ -1,122 +1,126 @@
 <properties
-	pageTitle="클라우드 서비스를 만들고 배포하는 방법 | Microsoft Azure"
-	description="Azure 포털을 사용하여 클라우드 서비스를 만들고 배포하는 방법을 알아봅니다."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+    pageTitle="How to create and deploy a cloud service | Microsoft Azure"
+    description="Learn how to create and deploy a cloud service using the Azure portal."
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="adegeo"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/11/2016"
+    ms.author="adegeo"/>
 
 
 
 
-# 클라우드 서비스를 만들고 배포하는 방법
+
+# <a name="how-to-create-and-deploy-a-cloud-service"></a>How to create and deploy a cloud service
 
 > [AZURE.SELECTOR]
-- [Azure 포털](cloud-services-how-to-create-deploy-portal.md)
-- [Azure 클래식 포털](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
-Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.
+The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
 
-이 문서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 사용자 지정 만들기를 사용하여 동시에 둘 다를 수행할 수 있습니다.
+This article explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using Custom Create.
 
-> [AZURE.NOTE] VSTS(Visual Studio Team Services)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 Azure 빠른 시작 또는 대시보드에서 VSTS 게시를 설정합니다. 자세한 내용은 [Visual Studio Team Services를 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService]을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
+> [AZURE.NOTE] If you plan to publish your cloud service from Visual Studio Team Services (VSTS), use Quick Create, and then set up VSTS publishing from the Azure Quickstart or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
-## 개념
-Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다음과 같은 세 가지 구성 요소가 필요합니다.
+## <a name="concepts"></a>Concepts
+Three components are required to deploy an application as a cloud service in Azure:
 
-- **서비스 정의**  
-  클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
+- **Service Definition**  
+  The cloud service definition file (.csdef) defines the service model, including the number of roles.
 
-- **서비스 구성**  
-  클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
+- **Service Configuration**  
+  The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
 
-- **서비스 패키지**  
-  서비스 패키지(.cspkg)에는 응용 프로그램 코드와 구성 및 서비스 정의 파일이 포함됩니다.
+- **Service Package**  
+  The service package (.cspkg) contains the application code and configurations and the service definition file.
 
-이러한 구성 요소에 대한 자세한 내용과 패키지를 만드는 방법은 [여기](cloud-services-model-and-package.md)에서 볼 수 있습니다.
+You can learn more about these and how to create a package [here](cloud-services-model-and-package.md).
 
-## 앱 준비
-클라우드 서비스를 배포하려면 먼저 응용 프로그램 코드 및 클라우드 서비스 구성 파일(.cscfg)에서 클라우드 서비스 패키지(.cspkg)를 만들어야 합니다. Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 응용 프로그램 코드를 개발하려는 언어로 SDK를 설치할 수 있습니다.
+## <a name="prepare-your-app"></a>Prepare your app
+Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](https://azure.microsoft.com/downloads/) page, in the language in which you prefer to develop your application code.
 
-세 가지 클라우드 서비스 기능은 서비스 패키지를 내보내기 전에 특별히 구성해야 합니다.
+Three cloud service features require special configurations before you export a service package:
 
-- 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 [응용 프로그램을 구성](cloud-services-configure-ssl-certificate-portal.md#modify)합니다.
+- If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, [configure your application](cloud-services-configure-ssl-certificate-portal.md#modify) for SSL.
 
-- 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop.md)합니다. 이 클래식 포털에서 수행할 수 있습니다.
+- If you want to configure Remote Desktop connections to role instances, [configure the roles](cloud-services-role-enable-remote-desktop.md) for Remote Desktop. This can only be done in the classic portal.
 
-- 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *세부 정보 표시 모니터링* 에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
+- If you want to configure verbose monitoring for your cloud service, enable Azure Diagnostics for the cloud service. *Minimal monitoring* (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines). *Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing. To find out how to enable Azure Diagnostics, see [Enabling diagnostics in Azure](cloud-services-dotnet-diagnostics.md).
 
-웹 역할 또는 작업자 역할 배포를 통해 클라우드 서비스를 만들려면 [서비스 패키지를 만들어야](cloud-services-model-and-package.md#servicepackagecspkg) 합니다.
+To create a cloud service with deployments of web roles or worker roles, you must [create the service package](cloud-services-model-and-package.md#servicepackagecspkg).
 
-## 시작하기 전에
+## <a name="before-you-begin"></a>Before you begin
 
-- Azure SDK를 설치하지 않은 경우 **Azure SDK 설치**를 클릭하여 [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)를 열고 코드를 개발하려는 언어의 SDK를 다운로드합니다. 이 작업은 나중에 수행할 수 있습니다.
+- If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](https://azure.microsoft.com/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
 
-- 역할 인스턴스에 인증서가 필요한 경우 인증서를 만듭니다. 클라우드 서비스에는 개인 키가 포함된 .pfx 파일이 필요합니다. 클라우드 서비스를 만들고 배포할 때 [Azure에 인증서를 업로드]()할 수 있습니다.
+- If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. [You can upload the certificates to Azure]() as you create and deploy the cloud service.
 
-- 클라우드 서비스를 선호도 그룹에 배포하려면 선호도 그룹을 만듭니다. 선호도 그룹을 사용하면 클라우드 서비스 및 다른 Azure 서비스를 지역의 동일한 위치에 배포할 수 있습니다. 선호도 그룹은 Azure 클래식 포털의 **네트워크** 영역에 있는 **선호도 그룹** 페이지에서 만들 수 있습니다.
-
-
-## 만들기 및 배포
-
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **새로 만들기 > 가상 컴퓨터**를 클릭한 후 아래로 스크롤하여 **클라우드 서비스**를 클릭합니다.
-
-    ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-
-3. 표시 되는 정보 페이지의 아래쪽에서 **만들기**를 클릭합니다.
-4. 새 **클라우드 서비스** 블레이드에서 **DNS 이름**의 값을 입력합니다.
-5. 새 **리소스 그룹**을 만들거나 기존 항목을 선택합니다.
-6. **위치**를 선택합니다.
-7. **패키지**를 클릭합니다. 그러면 **패키지 업로드** 블레이드가 열립니다. 필수 필드를 입력합니다.
-
-     역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.**가 선택되어 있어야 합니다.
-
-8. **배포 시작**이 선택되어 있는지 확인합니다.
-9. **확인**을 클릭하면 **패키지 업로드** 블레이드가 닫힙니다.
-10. 추가할 인증서가 없는 경우 **만들기**를 클릭합니다.
-
-    ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/select-package.png)
-
-## 인증서 업로드
-
-배포 패키지가 [인증서를 사용하도록 구성되었으면](cloud-services-configure-ssl-certificate-portal.md#modify) 이제 인증서를 업로드할 수 있습니다.
-
-1. **인증서**를 선택하고 **인증서 추가** 블레이드에서 SSL 인증서 .pfx 파일을 선택한 다음 인증서에 대한 **암호**를 제공합니다.
-2. **인증서 첨부**를 클릭한 다음 **인증서 추가** 블레이드에서 **확인**을 클릭합니다.
-3. **클라우드 서비스** 블레이드에서 **만들기**를 클릭합니다. 배포가 **준비** 상태에 도달하면 다음 단계로 진행할 수 있습니다.
-
-    ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure classic portal, on the **Affinity Groups** page.
 
 
-## 배포가 완료되었는지 확인
+## <a name="create-and-deploy"></a>Create and deploy
 
-1. 클라우드 서비스 인스턴스를 클릭합니다.
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Click **New > Virtual Machines**, and then scroll down to and click **Cloud Service**.
 
-	서비스가 **실행 중** 상태로 표시됩니다.
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
-2. **Essentials**에서 **사이트 URL**을 클릭하여 웹 브라우저에서 클라우드 서비스를 엽니다.
+3. At the bottom of the information page that displays, click **Create**. 
+4. In the new **Cloud Service** blade, enter a value for the **DNS name**.
+5. Create a new **Resource Group** or select an existing one.
+6. Select a **Location**.
+7. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields.  
 
-    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+     If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
+
+8. Make sure that **Start deployment** is selected.
+9. Click **OK** which will close the **Upload a package** blade.
+10. If you do not have any certificates to add, click **Create**.
+
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+
+## <a name="upload-a-certificate"></a>Upload a certificate
+
+If your deployment package was [configured to use certificates](cloud-services-configure-ssl-certificate-portal.md#modify), you can upload the certificate now.
+
+1. Select **Certificates**, and on the **Add certificates** blade, select the SSL certificate .pfx file, and then provide the **Password** for the certificate,
+2. Click **Attach certificate**, and then click **OK** on the **Add certificates** blade.
+3. Click **Create** on the **Cloud Service** blade. When the deployment has reached the **Ready** status, you can proceed to the next steps.
+
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+
+
+## <a name="verify-your-deployment-completed-successfully"></a>Verify your deployment completed successfully
+
+1. Click the cloud service instance.
+
+    The status should show that the service is **Running**.
+
+2. Under **Essentials**, click the **Site URL** to open your cloud service in a web browser.
+
+    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-* [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
-* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md) 구성
-* [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
-* [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md) 구성
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

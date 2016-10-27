@@ -1,10 +1,10 @@
 <properties
-pageTitle="논리 앱에서 SharePoint Online 커넥터 사용 방법 알아보기 | Microsoft Azure"
-description="SharePoint Online 커넥터를 사용하여 논리 앱을 만들고 SharePoint에서 목록을 관리합니다."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Learn how to use the SharePoint Online connector in logic apps | Microsoft Azure"
+description="Create logic apps with the SharePoint Online connector to mange lists on SharePoint."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,639 +17,640 @@ ms.workload="integration"
 ms.date="07/19/2016"
 ms.author="deonhe"/>
 
-# SharePoint Online 커넥터 시작
 
-SharePoint Online 커넥터를 사용하여 SharePoint 목록을 관리합니다.
+# <a name="get-started-with-the-sharepoint-online-connector"></a>Get started with the SharePoint Online connector
 
-[커넥터](./apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../app-service-logic/app-service-logic-create-a-logic-app.md) 시작할 수 있습니다.
+Use the SharePoint Online connector to manage SharePoint lists.  
 
-## SharePoint Online에 연결
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](./connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.
+## <a name="connect-to-sharepoint-online"></a>Connect to SharePoint Online
 
-### SharePoint Online에 대한 연결 만들기
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
->[AZURE.INCLUDE [SharePoint에 대한 연결을 만드는 단계](../../includes/connectors-create-api-sharepointonline.md)]
+### <a name="create-a-connection-to-sharepoint-online"></a>Create a connection to SharePoint Online
 
-## SharePoint Online 트리거 사용
+>[AZURE.INCLUDE [Steps to create a connection to SharePoint](../../includes/connectors-create-api-sharepointonline.md)]
 
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+## <a name="use-a-sharepoint-online-trigger"></a>Use a SharePoint Online trigger
 
->[AZURE.INCLUDE [SharePoint Online 트리거를 만드는 단계](../../includes/connectors-create-api-sharepointonline-trigger.md)]
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-## SharePoint Online 작업 사용
+>[AZURE.INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+## <a name="use-a-sharepoint-online-action"></a>Use a SharePoint Online action
 
->[AZURE.INCLUDE [SharePoint Online 작업을 만드는 단계](../../includes/connectors-create-api-sharepointonline-action.md)]
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-## 기술 세부 정보
+>[AZURE.INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 
-이 연결에서 지원하는 트리거, 작업 및 응답에 대한 세부 정보는 다음과 같습니다.
+## <a name="technical-details"></a>Technical Details
 
-## SharePoint Online 트리거
+Here are the details about the triggers, actions and responses that this connection supports:
 
-SharePoint에는 다음과 같은 트리거가 있습니다.
+## <a name="sharepoint-online-triggers"></a>SharePoint Online triggers
 
-|트리거 | 설명|
+SharePoint has the following trigger(s):  
+
+|Trigger | Description|
 |--- | ---|
-|[파일을 만들 때](connectors-create-api-sharepointonline.md#when-a-file-is-created)|이 작업은 SharePoint 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.|
-|[파일을 수정할 때](connectors-create-api-sharepointonline.md#when-a-file-is-modified)|이 작업은 SharePoint 폴더에서 파일을 수정할 때 흐름을 트리거합니다.|
-|[새 항목을 만든 경우](connectors-create-api-sharepointonline.md#when-a-new-item-is-created)|이 작업은 SharePoint 목록에서 새 항목을 만들 때 흐름을 트리거합니다.|
-|[기존 항목을 수정할 때](connectors-create-api-sharepointonline.md#when-an-existing-item-is-modified)|이 작업은 SharePoint 목록에서 기존 항목을 수정할 때 흐름을 트리거합니다.|
+|[When a file is created](connectors-create-api-sharepointonline.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a SharePoint folder.|
+|[When a file is modified](connectors-create-api-sharepointonline.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a SharePoint folder.|
+|[When a new item is created](connectors-create-api-sharepointonline.md#when-a-new-item-is-created)|This operation triggers a flow when a new item is created in a SharePoint list.|
+|[When an existing item is modified](connectors-create-api-sharepointonline.md#when-an-existing-item-is-modified)|This operation triggers a flow when an existing item is modified in a SharePoint list.|
 
 
-## SharePoint Online 작업
+## <a name="sharepoint-online-actions"></a>SharePoint Online actions
 
-SharePoint에는 다음과 같은 작업이 있습니다.
+SharePoint has the following actions:
 
 
-|작업|설명|
+|Action|Description|
 |--- | ---|
-|[파일 메타데이터 가져오기](connectors-create-api-sharepointonline.md#get-file-metadata)|이 작업은 파일 ID를 사용하여 파일 메타데이터를 가져옵니다.|
-|[파일 업데이트](connectors-create-api-sharepointonline.md#update-file)|이 작업은 파일 콘텐츠를 업데이트합니다.|
-|[파일 삭제](connectors-create-api-sharepointonline.md#delete-file)|이 작업은 파일을 삭제합니다.|
-|[경로를 사용하여 파일 메타데이터 가져오기](connectors-create-api-sharepointonline.md#get-file-metadata-using-path)|이 작업은 파일 경로를 사용하여 파일 메타데이터를 가져옵니다.|
-|[경로를 사용하여 파일 콘텐츠 가져오기](connectors-create-api-sharepointonline.md#get-file-content-using-path)|이 작업은 파일 경로를 사용하여 파일 콘텐츠를 가져옵니다.|
-|[파일 콘텐츠 가져오기](connectors-create-api-sharepointonline.md#get-file-content)|이 작업은 파일 ID를 사용하여 파일 콘텐츠를 가져옵니다.|
-|[파일 만들기](connectors-create-api-sharepointonline.md#create-file)|이 작업은 SharePoint 사이트에 파일을 업로드합니다.|
-|[파일 복사](connectors-create-api-sharepointonline.md#copy-file)|이 작업은 SharePoint 사이트에 파일을 복사합니다.|
-|[폴더 나열](connectors-create-api-sharepointonline.md#list-folder)|이 작업은 SharePoint 폴더에 포함된 파일을 가져옵니다.|
-|[루트 폴더 나열](connectors-create-api-sharepointonline.md#list-root-folder)|이 작업은 루트 SharePoint 폴더의 파일을 가져옵니다.|
-|[폴더 추출](connectors-create-api-sharepointonline.md#extract-folder)|이 작업은 보관 파일을 SharePoint 폴더로 추출합니다(예: .zip).|
-|[항목 가져오기](connectors-create-api-sharepointonline.md#get-items)|이 작업은 SharePoint 목록에서 항목을 가져옵니다.|
-|[항목 만들기](connectors-create-api-sharepointonline.md#create-item)|이 작업은 SharePoint 목록에서 새 항목을 만듭니다.|
-|[항목 가져오기](connectors-create-api-sharepointonline.md#get-item)|이 작업은 SharePoint 목록에서 ID로 단일 항목을 가져옵니다.|
-|[항목 삭제](connectors-create-api-sharepointonline.md#delete-item)|이 작업은 SharePoint 목록에서 항목을 삭제합니다.|
-|[항목 업데이트](connectors-create-api-sharepointonline.md#update-item)|이 작업은 SharePoint 목록에서 항목을 업데이트합니다.|
-|[엔터티 값 가져오기](connectors-create-api-sharepointonline.md#get-entity-values)|이 작업은 SharePoint 엔터티에서 가능한 값을 가져옵니다.|
-|[목로 가져오기](connectors-create-api-sharepointonline.md#get-lists)|이 작업은 사이트에서 SharePoint 목록을 가져옵니다.|
-### 작업 세부 정보
+|[Get file metadata](connectors-create-api-sharepointonline.md#get-file-metadata)|This operation gets file metadata using the file id.|
+|[Update file](connectors-create-api-sharepointonline.md#update-file)|This operation updates file content.|
+|[Delete file](connectors-create-api-sharepointonline.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-sharepointonline.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
+|[Get file content using path](connectors-create-api-sharepointonline.md#get-file-content-using-path)|This operation gets file contents using the file path.|
+|[Get file content](connectors-create-api-sharepointonline.md#get-file-content)|This operation gets file content using the file id.|
+|[Create file](connectors-create-api-sharepointonline.md#create-file)|This operation uploads a file to a SharePoint site.|
+|[Copy file](connectors-create-api-sharepointonline.md#copy-file)|This operation copies a file to a SharePoint site.|
+|[List folder](connectors-create-api-sharepointonline.md#list-folder)|This operation gets files contained in a SharePoint folder.|
+|[List root folder](connectors-create-api-sharepointonline.md#list-root-folder)|This operaiton gets the files in the root SharePoint folder.|
+|[Extract folder](connectors-create-api-sharepointonline.md#extract-folder)|This operation extracts an archive file into a SharePoint folder (example: .zip).|
+|[Get items](connectors-create-api-sharepointonline.md#get-items)|This operation gets items from a SharePoint list.|
+|[Create item](connectors-create-api-sharepointonline.md#create-item)|This operation creates a new item in a SharePoint list.|
+|[Get item](connectors-create-api-sharepointonline.md#get-item)|This operation gets a single item by its id from a SharePoint list.|
+|[Delete item](connectors-create-api-sharepointonline.md#delete-item)|This operation deletes an item from a SharePoint list.|
+|[Update item](connectors-create-api-sharepointonline.md#update-item)|This operation updates an item in a SharePoint list.|
+|[Get entity values](connectors-create-api-sharepointonline.md#get-entity-values)|This operation gets possible values for a SharePoint entity.|
+|[Get lists](connectors-create-api-sharepointonline.md#get-lists)|This operation gets SharePoint lists from a site.|
+### <a name="action-details"></a>Action details
 
-이 커넥터에 대한 작업 및 트리거 세부 정보와 해당 응답은 다음과 같습니다.
-
-
-
-### 파일 메타데이터 가져오기
-이 작업은 파일 ID를 사용하여 파일 메타데이터를 가져옵니다.
+Here are the details for the actions and triggers for this connector, along with their responses:
 
 
-|속성 이름| 표시 이름|설명|
+
+### <a name="get-file-metadata"></a>Get file metadata
+This operation gets file metadata using the file id. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|id*|파일 식별자|파일 선택|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Select a file|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### 파일 업데이트
-이 작업은 파일 콘텐츠를 업데이트합니다.
+### <a name="update-file"></a>Update file
+This operation updates file content. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|id*|파일 식별자|파일 선택|
-|body*|File Content(파일 내용)|파일 콘텐츠|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Select a file|
+|body*|File Content|Content of the file|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### 파일 삭제
-이 작업은 파일을 삭제합니다.
+### <a name="delete-file"></a>Delete file
+This operation deletes a file. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|id*|파일 식별자|파일 선택|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Select a file|
 
-*는 필수 속성을 나타냅니다.
-
-
+An * indicates that a property is required
 
 
-### 경로를 사용하여 파일 메타데이터 가져오기
-이 작업은 파일 경로를 사용하여 파일 메타데이터를 가져옵니다.
 
 
-|속성 이름| 표시 이름|설명|
+### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+This operation gets file metadata using the file path. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|path*|파일 경로|파일 선택|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|path*|File path|Select a file|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### 경로를 사용하여 파일 콘텐츠 가져오기
-이 작업은 파일 경로를 사용하여 파일 콘텐츠를 가져옵니다.
+### <a name="get-file-content-using-path"></a>Get file content using path
+This operation gets file contents using the file path. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|path*|파일 경로|파일 선택|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|path*|File path|Select a file|
 
-*는 필수 속성을 나타냅니다.
-
-
+An * indicates that a property is required
 
 
-### 파일 콘텐츠 가져오기
-이 작업은 파일 ID를 사용하여 파일 콘텐츠를 가져옵니다.
 
 
-|속성 이름| 표시 이름|설명|
+### <a name="get-file-content"></a>Get file content
+This operation gets file content using the file id. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|id*|파일 식별자|파일 선택|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Select a file|
 
-*는 필수 속성을 나타냅니다.
-
-
+An * indicates that a property is required
 
 
-### 파일 만들기
-이 작업은 SharePoint 사이트에 파일을 업로드합니다.
 
 
-|속성 이름| 표시 이름|설명|
+### <a name="create-file"></a>Create file
+This operation uploads a file to a SharePoint site. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|folderPath*|폴더 경로|파일 선택|
-|name*|파일 이름|파일의 이름|
-|body*|File Content(파일 내용)|파일 콘텐츠|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|folderPath*|Folder Path|Select a file|
+|name*|File name|Name of the file|
+|body*|File Content|Content of the file|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### 파일 복사
-이 작업은 SharePoint 사이트에 파일을 복사합니다.
+### <a name="copy-file"></a>Copy file
+This operation copies a file to a SharePoint site. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|source*|원본 파일 경로|원본 파일에 대한 경로|
-|destination*|대상 파일 경로|대상 파일에 대한 경로|
-|overwrite|덮어쓰기 플래그|대상 파일을 덮어쓸지 여부(있는 경우)|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|source*|Source file Path|Path to the source file|
+|destination*|Destination file path|Path to the destination file|
+|overwrite|Overwrite flag|Whether or not to overwrite the destination file if it exists|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### 파일을 만들 때
-이 작업은 SharePoint 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.
+### <a name="when-a-file-is-created"></a>When a file is created
+This operation triggers a flow when a new file is created in a SharePoint folder. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL|
-|folderId*|폴더 ID|폴더 선택|
+|dataset*|Site URL|SharePoint site url|
+|folderId*|Folder Id|Select a folder|
 
-*는 필수 속성을 나타냅니다.
-
-
+An * indicates that a property is required
 
 
-### 파일을 수정할 때
-이 작업은 SharePoint 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
 
 
-|속성 이름| 표시 이름|설명|
+### <a name="when-a-file-is-modified"></a>When a file is modified
+This operation triggers a flow when a file is modified in a SharePoint folder. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL|
-|folderId*|폴더 ID|폴더 선택|
+|dataset*|Site URL|SharePoint site url|
+|folderId*|Folder Id|Select a folder|
 
-*는 필수 속성을 나타냅니다.
-
-
+An * indicates that a property is required
 
 
-### 폴더 나열
-이 작업은 SharePoint 폴더에 포함된 파일을 가져옵니다.
 
 
-|속성 이름| 표시 이름|설명|
+### <a name="list-folder"></a>List folder
+This operation gets files contained in a SharePoint folder. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|id*|파일 식별자|폴더의 고유 식별자|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Unique identifier of the folder|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
 
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### 루트 폴더 나열
-이 작업은 루트 SharePoint 폴더의 파일을 가져옵니다.
+### <a name="list-root-folder"></a>List root folder
+This operaiton gets the files in the root SharePoint folder. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
 
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### 폴더 추출
-이 작업은 보관 파일을 SharePoint 폴더로 추출합니다(예: .zip).
+### <a name="extract-folder"></a>Extract folder
+This operation extracts an archive file into a SharePoint folder (example: .zip). 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
-|source*|원본 파일 경로|원본 파일에 대한 경로|
-|destination*|대상 폴더 경로|대상 폴더에 대한 경로|
-|overwrite|덮어쓰기 플래그|대상 파일을 덮어쓸지 여부(있는 경우)|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|source*|Source file Path|Path to the source file|
+|destination*|Destination folder path|Path to the destination folder|
+|overwrite|Overwrite flag|Whether or not to overwrite the destination file if it exists|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
 
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### 새 항목을 만든 경우
-이 작업은 SharePoint 목록에서 새 항목을 만들 때 흐름을 트리거합니다.
+### <a name="when-a-new-item-is-created"></a>When a new item is created
+This operation triggers a flow when a new item is created in a SharePoint list. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|table*|목록 이름|SharePoint 목록 이름|
-|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
-|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
-|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 ItemsList
 
 
-| 속성 이름 | 데이터 형식 | 
+| Property Name | Data Type | 
 |---|---|
 |value|array|
 
 
 
 
-### 기존 항목을 수정할 때
-이 작업은 SharePoint 목록에서 기존 항목을 수정할 때 흐름을 트리거합니다.
+### <a name="when-an-existing-item-is-modified"></a>When an existing item is modified
+This operation triggers a flow when an existing item is modified in a SharePoint list. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|table*|목록 이름|SharePoint 목록 이름|
-|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
-|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
-|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 ItemsList
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
 
 
 
-### 항목 가져오기
-이 작업은 SharePoint 목록에서 항목을 가져옵니다.
+### <a name="get-items"></a>Get items
+This operation gets items from a SharePoint list. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|table*|목록 이름|SharePoint 목록 이름|
-|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
-|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
-|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 ItemsList
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
 
 
 
-### 항목 만들기
-이 작업은 SharePoint 목록에서 새 항목을 만듭니다.
+### <a name="create-item"></a>Create item
+This operation creates a new item in a SharePoint list. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|table*|목록 이름|SharePoint 목록 이름|
-|item*|항목|만들 항목|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|item*|Item|Item to create|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
-항목
+Item
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |ItemInternalId|string|
 
 
 
 
-### 항목 가져오기
-이 작업은 SharePoint 목록에서 ID로 단일 항목을 가져옵니다.
+### <a name="get-item"></a>Get item
+This operation gets a single item by its id from a SharePoint list. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|table*|목록 이름|SharePoint 목록 이름|
-|id*|Id|검색할 항목의 고유 식별자|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|id*|Id|Unique identifier of item to be retrieved|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
-항목
+Item
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |ItemInternalId|string|
 
 
 
 
-### 항목 삭제
-이 작업은 SharePoint 목록에서 항목을 삭제합니다.
+### <a name="delete-item"></a>Delete item
+This operation deletes an item from a SharePoint list. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|table*|목록 이름|SharePoint 목록 이름|
-|id*|Id|삭제할 항목의 고유 식별자|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|id*|Id|Unique identifier of item to be deleted|
 
-*는 필수 속성을 나타냅니다.
-
-
+An * indicates that a property is required
 
 
-### 항목 업데이트
-이 작업은 SharePoint 목록에서 항목을 업데이트합니다.
 
 
-|속성 이름| 표시 이름|설명|
+### <a name="update-item"></a>Update item
+This operation updates an item in a SharePoint list. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|table*|목록 이름|SharePoint 목록 이름|
-|id*|Id|업데이트할 항목의 고유 식별자|
-|item*|항목|변경된 속성을 가진 항목|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|id*|Id|Unique identifier of item to be updated|
+|item*|Item|Item with changed properties|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
-항목
+Item
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |ItemInternalId|string|
 
 
 
 
-### 엔터티 값 가져오기
-이 작업은 SharePoint 엔터티에서 가능한 값을 가져옵니다.
+### <a name="get-entity-values"></a>Get entity values
+This operation gets possible values for a SharePoint entity. 
 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|SharePoint 사이트 URL|SharePoint 사이트 URL|
-|table*|테이블 이름|테이블 이름|
-|id*|엔터티 ID|엔터티 ID|
+|dataset*|SharePoint site url|SharePoint site url|
+|table*|table name|table name|
+|id*|entity id|entity id|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
-
-
+#### <a name="output-details"></a>Output Details
 
 
 
-### 목로 가져오기
-이 작업은 사이트에서 SharePoint 목록을 가져옵니다.
 
 
-|속성 이름| 표시 이름|설명|
+### <a name="get-lists"></a>Get lists
+This operation gets SharePoint lists from a site. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
-#### 출력 세부 정보
+#### <a name="output-details"></a>Output Details
 
 TablesList
 
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
 
 
-## HTTP 응답
+## <a name="http-responses"></a>HTTP responses
 
-위의 작업 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다.
+The actions and triggers above can return one or more of the following HTTP status codes: 
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|202|수락됨|
-|400|잘못된 요청|
-|401|권한 없음|
-|403|사용할 수 없음|
-|404|찾을 수 없음|
-|500|내부 서버 오류. 알 수 없는 오류 발생.|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
+|default|Operation Failed.|
 
 
 
@@ -665,7 +666,10 @@ TablesList
 
 
 
-## 다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

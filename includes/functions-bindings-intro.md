@@ -1,7 +1,10 @@
-이는 Azure Functions 개발자에 대한 참조 정보입니다. Azure Functions를 처음 접하는 경우 다음 리소스부터 시작합니다.
+This is reference information for Azure Functions developers. If you're new to Azure Functions, start with the following resources:
 
-* [첫 번째 Azure Function 만들기](../articles/azure-functions/functions-create-first-azure-function.md)
-* [Azure Functions 개발자 참조](../articles/azure-functions/functions-reference.md)
-* [C#](../articles/azure-functions/functions-reference-csharp.md), [F#](../articles/azure-functions/functions-reference-fsharp.md) 또는 [Node](../articles/azure-functions/functions-reference-node.md) 개발자 참조
+* [Create your first Azure Function](../articles/azure-functions/functions-create-first-azure-function.md)
+* [Azure Functions developer reference](../articles/azure-functions/functions-reference.md)
+* [C#](../articles/azure-functions/functions-reference-csharp.md), [F#](../articles/azure-functions/functions-reference-fsharp.md), or [Node](../articles/azure-functions/functions-reference-node.md) developer reference
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

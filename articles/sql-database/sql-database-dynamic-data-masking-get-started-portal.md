@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 클래식 포털)"
-   description="Azure 클래식 포털에서 SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법"
+   pageTitle="Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)"
+   description="How to get started with SQL Database Dynamic Data Masking in the Azure Classic Portal"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -16,88 +16,93 @@
    ms.date="07/10/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
-# SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 클래식 포털)
+
+# <a name="get-started-with-sql-database-dynamic-data-masking-(azure-classic-portal)"></a>Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)
 
 > [AZURE.SELECTOR]
-- [동적 데이터 마스킹-Azure 포털](sql-database-dynamic-data-masking-get-started.md)
+- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 
-## 개요
+## <a name="overview"></a>Overview
 
-SQL 데이터베이스 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. Azure SQL 데이터베이스의 V12 버전에서는 동적 데이터 마스킹을 지원합니다.
+SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking is supported for the V12 version of Azure SQL Database.
 
-동적 데이터 마스킹을 수행하면 고객이 응용 프로그램 레이어에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다.
+Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
-예를 들어 콜 센터 서비스 상담원은 주민 등록 번호나 신용 카드 번호 중 몇 자리로 발신자를 식별할 수 있지만 이러한 데이터 항목이 서비스 상담원에게 완전히 노출되어서는 안 됩니다. 모든 쿼리의 결과 집합에서 주민 등록 번호 또는 신용 카드 번호의 마지막 4자리를 제외한 모든 숫자를 마스킹하도록 마스킹 규칙을 정의할 수 있습니다. 또 다른 예로, 적합한 데이터 마스크를 정의하여 PII(개인 식별이 가능한 정보) 데이터를 보호하여 준수 규정을 위반하지 않고 문제 해결을 위해 프로덕션 환경을 쿼리할 수 있습니다.
+For example, a service representative at a call center may identify callers by several digits of their social security number or credit card number, but those data items should not be fully exposed to the service representative. A masking rule can be defined that masks all but the last four digits of any social security number or credit card number in the result set of any query. As another example, an appropriate data mask can be defined to protect personally identifiable information (PII) data, so that a developer can query production environments for troubleshooting purposes without violating compliance regulations.
 
-## SQL 데이터베이스 동적 데이터 마스킹 관련 기본 사항
+## <a name="sql-database-dynamic-data-masking-basics"></a>SQL Database Dynamic Data Masking basics
 
-데이터베이스에 대한 Azure 클래식 포털의 감사 및 보안 탭에서 동적 데이터 마스킹 정책을 설정합니다.
-
-
-> [AZURE.NOTE] Azure 포털에서 동적 데이터 마스킹을 설정하려면 [SQL 데이터베이스 동적 데이터 마스킹(Azure 포털)](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
+You set up dynamic data masking policy in the Azure Classic Portal under the Auditing & Security tab for your database.
 
 
-### 동적 데이터 마스킹 사용 권한
+> [AZURE.NOTE] To set up dynamic data masking in the Azure Portal, see [Get started with SQL Database Dynamic Data Masking (Azure Portal)](sql-database-dynamic-data-masking-get-started.md).
 
-Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역할이 동적 데이터 마스킹을 구성할 수 있습니다.
 
-### 동적 데이터 마스킹 정책
+### <a name="dynamic-data-masking-permissions"></a>Dynamic data masking permissions
 
-* **마스킹에서 제외되는 SQL 사용자** - SQL 쿼리 결과에서 마스킹되지 않은 데이터를 가져오는 SQL 사용자 또는 ADD ID 집합입니다. 관리자 권한이 있는 사용자는 항상 마스킹에서 제외되며 마스크 없이 원본 데이터를 보게 됩니다.
+Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.
 
-* **마스킹 규칙** - 마스킹하도록 지정되는 필드와 사용할 마스킹 기능을 정의하는 규칙 집합입니다. 데이터베이스 스키마 이름, 테이블 이름 및 열 이름을 사용하여 마스킹하도록 지정되는 필드를 정의할 수 있습니다.
+### <a name="dynamic-data-masking-policy"></a>Dynamic data masking policy
 
-* **마스킹 함수** - 각 시나리오에서 데이터 표시를 제어하는 메서드 집합입니다.
+* **SQL users excluded from masking** - A set of SQL users or AAD identities that will get unmasked data in the SQL query results. Note that users with administrator privileges will always be excluded from masking, and will see the original data without any mask.
 
-| 마스킹 기능 | 마스킹 논리 |
+* **Masking rules** - A set of rules that define the designated fields to be masked and the masking function that will be used. The designated fields can be defined using a database schema name, table name and column name.
+
+* **Masking functions** - A set of methods that control the exposure of data for different scenarios.
+
+| Masking Function | Masking Logic |
 |----------|---------------|
-| **기본값** |**지정된 필드의 데이터 형식에 따른 전체 마스킹**<br/><br/>• 문자열 데이터 형식(nchar, ntext, nvarchar)의 필드 크기가 4자 미만이면 XXXX개 혹은 그 이하의 X를 사용합니다.<br/>• 숫자 데이터 형식(bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real)의 경우 0 값을 사용합니다.<br/>• 날짜/시간 데이터 형식(date, datetime2, datetime, datetimeoffset, smalldatetime, time)의 경우 01-01-1900을 사용합니다.<br/>• SQL 변형의 경우 현재 형식의 기본값이 사용됩니다.<br/>XML의 경우 <masked/> 문서가 사용됩니다.<br/>• 특수 데이터 형식(타임스탬프 테이블, hierarchyid, GUID, 이진, 이미지, varbinary 공간 형식)의 경우 빈 값을 사용합니다.
-| **신용 카드** |**지정된 필드의 마지막 4자리를 표시**하고 신용 카드 형식의 접두사로 상수 문자열을 추가하는 마스킹 메서드입니다.<br/><br/>XXXX-XXXX-XXXX-1234|
-| **주민등록 번호** |**지정된 필드의 마지막 4자리를 표시**하고 주민 등록 번호 형식의 접두사로 상수 문자열을 추가하는 마스킹 메서드입니다.<br/><br/>XXX-XX-1234 |
-| **Email** | 메일 주소 형식의 상수 문자열 접두사를 사용하여 **첫 글자를 표시하고 도메인을 XXX.com으로 바꾸는 마스킹 메서드**입니다.<br/><br/>aXX@XXXX.com |
-| **난수** | 선택한 경계 및 실제 데이터 형식에 따라 **난수를 생성하는 마스킹 메서드**입니다. 지정된 경계가 같으면 마스킹 함수로 상수가 사용됩니다.<br/><br/>![탐색 창](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
-| **사용자 지정 텍스트** | **첫 문자와 마지막 문자를 표시**하고 가운데에 사용자 지정 패딩 문자열을 추가하는 마스킹 메서드입니다. 원래 문자열이 노출된 접두사 및 접미사보다 짧은 경우 패딩 문자열만 사용됩니다.<br/>prefix[padding]suffix<br/><br/>![탐색 창](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
+| **Default**  |**Full masking according to the data types  of the designated fields**<br/><br/>• Use XXXX or fewer Xs if the size of the field is less than 4 characters for string data types (nchar, ntext, nvarchar).<br/>• Use a zero value for numeric data types (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 for date/time data types (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• For SQL variant, the default value of the current type is used.<br/>• For XML the document <masked/> is used.<br/>• Use an empty value for special data types (timestamp  table, hierarchyid, GUID, binary, image, varbinary spatial types).
+| **Credit card** |**Masking method which exposes the last four digits of the designated fields** and adds a constant string as a prefix in the form of a credit card.<br/><br/>XXXX-XXXX-XXXX-1234|
+| **Social security number** |**Masking method which exposes the last four digits of the designated fields** and adds a constant string as a prefix in the form of an American social security number.<br/><br/>XXX-XX-1234 |
+| **Email** | **Masking method which exposes the first letter and replaces the domain with XXX.com** using a constant string prefix in the form of an email address.<br/><br/>aXX@XXXX.com |
+| **Random number** | **Masking method which generates a random number** according to the selected boundaries and actual data types. If the designated boundaries are equal, then the masking function will be a constant number.<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
+| **Custom text** | **Masking method which exposes the first and last characters** and adds a custom padding string in the middle. If the original string is shorter than the exposed prefix and suffix, only the padding string will be used.<br/>prefix[padding]suffix<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
 
 
 <a name="Anchor1"></a>
 
-## Azure 클래식 포털을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
+## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-classic-portal"></a>Set up dynamic data masking for your database using the Azure Classic Portal
 
-1. [https://manage.windowsazure.com](https://manage.windowsazure.com)에서 기존 Azure 클래식 포털을 시작합니다.
+1. Launch the Azure Classic Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).
 
-2. 마스킹할 데이터베이스를 클릭하고 **감사 및 보안** 탭을 클릭합니다.
+2. Click the database you want to mask, and then click the **AUDITING & SECURITY** tab.
 
-3. **동적 데이터 마스킹**에서 **사용**을 클릭하여 동적 데이터 마스킹 기능을 사용하도록 설정합니다.
+3. Under **dynamic data masking**, click **ENABLED** to enable the dynamic data masking feature.  
 
-4. 마스킹에서 제외되며 마스크되지 않은 중요 데이터에 액세스할 수 있는 SQL 사용자 또는 AAD ID를 입력합니다. 세미콜론으로 구분된 사용자 목록이어야 합니다. 관리자 권한이 있는 사용자는 항상 원래의 마스킹되지 않은 데이터에 액세스할 수 있습니다.
+4. Type the SQL users or AAD identities that should be excluded from masking, and have access to the unmasked sensitive data. This should be a semicolon-separated list of users. Note that users with administrator privileges always have access to the original unmasked data.
 
-	>[AZURE.TIP] 응용 프로그램 계층에서 권한이 있는 응용 프로그램 사용자에 대해 중요한 데이터를 표시할 수 있도록 지정하려면 응용 프로그램이 데이터베이스 쿼리에 사용할 SQL 사용자나 AAD ID를 추가합니다. 중요한 데이터의 노출을 최소화하려면 권한이 있는 사용자 수를 최소한으로 이 목록에 포함하는 것이 좋습니다.
+    >[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
 
-	![탐색 창](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
+    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
-5. 페이지 아래쪽의 메뉴 모음에서 **마스크 추가**를 클릭하여 마스킹 규칙 구성 창을 엽니다.
+5. At the bottom of the page in the menu bar, click **Add MASK** to open the masking rule configuration window.
 
-6. 드롭다운 목록에서 **스키마**, **테이블** 및 **열**을 선택하여 마스킹하도록 지정되는 필드를 정의합니다.
+6. Select the **Schema**, **Table** and **Column** from the dropdown lists to define the designated fields that will be masked.
 
-7. 중요한 데이터 마스킹 범주 목록에서 **마스킹 함수**를 선택합니다.
+7. Choose a **MASKING FUNCTION** from the list of sensitive data masking categories.
 
-	![탐색 창](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
+    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
 
-8. 데이터 마스킹 규칙 창에서 **확인**을 클릭하여 동적 데이터 마스킹 정책의 마스킹 규칙 집합을 업데이트합니다.
+8. Click **OK** in the data masking rule window to update the set of masking rules in the dynamic data masking policy.
 
-9. **저장**을 클릭하여 신규 또는 업데이트된 마스킹 정책을 저장합니다.
+9. Click **SAVE** to save the new or updated masking policy.
 
 
-## Transact-SQL 문을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
+## <a name="set-up-dynamic-data-masking-for-your-database-using-transact-sql-statements"></a>Set up dynamic data masking for your database using Transact-SQL statements
 
-[동적 데이터 마스킹](https://msdn.microsoft.com/library/mt130841.aspx)을 참조하세요.
+See [Dynamic Data Masking](https://msdn.microsoft.com/library/mt130841.aspx).
 
-## PowerShell cmdlet을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Set up dynamic data masking for your database using Powershell cmdlets
 
-[Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)을 참조하세요.
+See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx).
 
-## REST API를 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
+## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Set up dynamic data masking for your database using REST API
 
-[Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
+See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

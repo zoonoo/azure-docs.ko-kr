@@ -1,86 +1,91 @@
 <properties
-	pageTitle="스트레치 지원 데이터베이스 복원 | Microsoft Azure"
-	description="스트레치 지원 데이터베이스를 복원하는 방법을 알아봅니다."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Restore Stretch-enabled databases | Microsoft Azure"
+    description="Learn how to restore Stretch\-enabled databases."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager=""
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/01/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/01/2016"
+    ms.author="douglasl"/>
 
-# 스트레치 지원 데이터베이스 복원
 
-다양한 유형의 실패, 오류 및 재해로부터 복구하는 데 필요할 경우 백업한 데이터베이스를 복원합니다.
+# <a name="restore-stretch-enabled-databases"></a>Restore Stretch-enabled databases
 
-백업에 대한 자세한 내용은 [스트레치 지원 데이터베이스 백업](sql-server-stretch-database-backup.md)을 참조하세요.
+Restore a backed up database when necessary to recover from many types of failures, errors, and disasters.
 
->   [AZURE.NOTE] 백업은 전체 고가용성 및 비즈니스 연속성 솔루션의 한 부분입니다. 고가용성에 대한 자세한 내용은 [고가용성 솔루션](https://msdn.microsoft.com/library/ms190202.aspx)을 참조하세요.
+For more info about backup, see [Backup Stretch-enabled databases](sql-server-stretch-database-backup.md).
 
-## SQL Server 데이터 복원
-하드웨어 오류 또는 손상으로부터 복구하려면 백업에서 스트레치 지원 SQL Server 데이터베이스를 복원합니다. 현재 사용하는 SQL Server 복원 메서드를 계속 사용할 수 있습니다. 자세한 내용은 [복원 및 복구 개요](https://msdn.microsoft.com/library/ms191253.aspx)를 참조하세요.
+>   [AZURE.NOTE] Backup is only one part of a complete high availability and business continuity solution. For more info about high availability, see [High Availability Solutions](https://msdn.microsoft.com/library/ms190202.aspx).
 
-SQL Server 데이터베이스를 복원한 후에는 저장 프로시저 **sys.sp\_rda\_reauthorize\_db**를 실행하여 스트레치 지원 SQL Server 데이터베이스와 원격 Azure 데이터베이스 간에 연결을 다시 설정해야 합니다. 자세한 내용은 [SQL Server 데이터베이스와 원격 Azure 데이터베이스 간 연결 복원](#restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database)을 참조하세요.
+## <a name="restore-your-sql-server-data"></a>Restore your SQL Server data
+To recover from hardware failure or corruption, restore the Stretch\-enabled SQL Server database from a backup. You can continue to use the SQL Server restore methods that you currently use. For more info, see [Restore and Recovery Overview](https://msdn.microsoft.com/library/ms191253.aspx).
 
-## 원격 Azure 데이터 복원
+After you restore the SQL Server database, you have to run the stored procedure **sys.sp_rda_reauthorize_db** to re-establish the connection between the Stretch\-enabled SQL Server database and the remote Azure database. For more info, see [Restore the connection between the SQL Server database and the remote Azure database](#restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database).
 
-### 라이브 Azure 데이터베이스 복구
-Azure의 SQL Server 스트레치 데이터베이스 서비스는 Azure 저장소 스냅숏을 사용하여 적어도 8시간마다 모든 라이브 데이터의 스냅숏을 만듭니다. 이러한 스냅숏은 7일 동안 유지됩니다. 이를 통해 지난 7일 내에 적어도 21개의 특정 시점 중 하나로 마지막 스냅숏 작업 시까지 데이터를 복원할 수 있습니다.
+## <a name="restore-your-remote-azure-data"></a>Restore your remote Azure data
 
-Azure 포털을 사용하여 Azure 데이터베이스를 이전 시점으로 복원하려면 다음을 수행합니다.
+### <a name="recover-a-live-azure-database"></a>Recover a live Azure database
+The SQL Server Stretch Database service on Azure snapshots all live data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows you to restore the data to one of at least 21 points in time within the past 7 days up to the time when the last snapshot was taken.
 
-1. Azure 포털에 로그인합니다.
-2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 데이터베이스**를 선택합니다.
-3. 사용자의 데이터베이스로 이동한 후 선택합니다.
-4. 데이터베이스 블레이드의 위쪽에서 **복원**을 클릭합니다.
-5. 새 **데이터베이스 이름**을 지정하고 **복원 지점**을 선택한 다음 **만들기**를 클릭합니다.
-6. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
+To restore a live Azure database to an earlier point in time by using the Azure portal, do the following things.
 
-### 삭제된 Azure 데이터베이스 복구
-Azure의 SQL Server 스트레치 데이터베이스 서비스는 데이터베이스가 삭제되기 전에 데이터베이스 스냅숏을 생성하여 7일 동안 유지합니다. 이 작업이 발생하면 라이브 데이터베이스에서 스냅숏을 더 이상 유지하지 않습니다. 이렇게 하면 삭제된 지점으로 삭제된 데이터베이스를 복원할 수 있습니다.
+1. Log in to the Azure portal.
+2. On the left side of the screen select **BROWSE** and then select **SQL Databases**.
+3. Navigate to your database and select it.
+4. At the top of the database blade, click **Restore**.
+5. Specify a new **Database name**, select a **Restore Point** and then click **Create**.
+6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
 
-Azure 포털을 사용하여 Azure 데이터베이스를 삭제되었던 시점으로 복원하려면 다음을 수행합니다.
+### <a name="recover-a-deleted-azure-database"></a>Recover a deleted Azure database
+The SQL Server Stretch Database service on Azure takes a database snapshot before a database is dropped and retains it for 7 days. After this occurs, it no longer retains snapshots from the live database. This lets you restore a deleted database to the point when it was deleted.
 
-1. Azure 포털에 로그인합니다.
-2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 서버**를 선택합니다.
-3. 사용자의 서버로 이동한 후 선택합니다.
-4. 서버 블레이드에서 작업까지 아래로 스크롤하여 **삭제된 데이터베이스** 타일을 클릭합니다.
-5. 복원할 삭제된 데이터베이스를 선택합니다.
-5. 새 **데이터베이스 이름**을 지정하고 **만들기**를 클릭합니다.
-6. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
+To restore a deleted Azure database to the point when it was deleted by using the Azure portal, do the following things.
 
-## SQL Server 데이터베이스와 원격 Azure 데이터베이스 간 연결 복원
+1. Log in to the Azure portal.
+2. On the left side of the screen select **BROWSE** and then select **SQL Servers**.
+3. Navigate to your server and select it.
+4. Scroll down to Operations on your server's blade, click the **Deleted Databases** tile.
+5. Select the deleted database you want to restore.
+5. Specify a new **Database name** and click **Create**.
+6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
 
-1.  다른 이름을 사용하거나 다른 지역에 있는 복원된 Azure 데이터베이스에 연결하려는 경우 저장 프로시저 [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx)를 실행하여 이전 Azure 데이터베이스에서의 연결을 끊습니다.
+## <a name="restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database"></a>Restore the connection between the SQL Server database and the remote Azure database
 
-2.  저장 프로시저 [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx)를 실행하여 로컬 스트레치 지원 데이터베이스를 Azure 데이터베이스에 다시 연결합니다.
+1.  If you're going to connect to a restored Azure database with a different name or in a different region, run the stored procedure [sys.sp_rda_deauthorize_db](https://msdn.microsoft.com/library/mt703716.aspx) to disconnect from the previous Azure database.  
 
-	-   기존 데이터베이스 범위 자격 증명을 sysname 또는 varchar(128) 값으로 제공합니다. varchar(max)를 사용하지 마세요. **sys.database\_scoped\_credentials** 뷰에서 자격 증명 이름을 조회할 수 있습니다.
+2.  Run the stored procedure [sys.sp_rda_reauthorize_db](https://msdn.microsoft.com/library/mt131016.aspx) to reconnect the local Stretch\-enabled database to the Azure database.  
 
-	-   원격 데이터의 복사본을 만들고 복사본에 연결할 것인지 지정합니다(권장).
+    -   Provide the existing database scoped credential as a sysname or a varchar\(128\) value. \(Don't use varchar\(max\).\) You can look up the credential name in the view **sys.database\_scoped\_credentials**.  
+
+    -   Specify whether to make a copy of the remote data and connect to the copy (recommended).  
 
     ```tsql  
     USE <Stretch-enabled database name>;
-	GO
-	EXEC sp_rda_reauthorize_db
-	    @credential = N'<existing_database_scoped_credential_name>',
-		@with_copy = 1 ;  
-	GO
-	```  
+    GO
+    EXEC sp_rda_reauthorize_db
+        @credential = N'<existing_database_scoped_credential_name>',
+        @with_copy = 1 ;  
+    GO
+    ```  
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-[스트레치 데이터베이스 관리 및 문제 해결](sql-server-stretch-database-manage.md)
+[Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
-[sys.sp\_rda\_reauthorize\_db(Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+[sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
 
-[SQL Server 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/ms187048.aspx)
+[Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="응용 프로그램에 대한 브랜딩 지침 | Microsoft Azure"
-   description="Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드"
+   pageTitle="Branding Guidelines for Applications | Microsoft Azure"
+   description="A comprehensive guide to developer-oriented resources for Azure Active Directory"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -17,80 +17,85 @@
    ms.author="mbaldwin"/>
 
 
-# 응용 프로그램에 대한 브랜딩 지침
+
+# <a name="branding-guidelines-for-applications"></a>Branding Guidelines for Applications
 
 
-이 항목에서는 Azure Active Directory(Azure AD)를 사용해 응용 프로그램을 개발할 때 사용해야 하는 브랜딩 지침에 대해 설명합니다. 이 지침은 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 응용 프로그램을 등록하고 로그인하는 데 사용하려는 고객을 안내하는 데 도움이 됩니다.
+This topic discusses the branding guidelines you should use when developing applications with Azure Active Directory (Azure AD). These guidelines will help direct your customers when they want to use their work or school account, managed in Azure AD, or their personal account for sign-up and sign-in to your application.
 
-## Microsoft의 개인 계정과 회사 또는 학교 계정
+## <a name="personal-accounts-vs.-work-or-school-accounts-from-microsoft"></a>Personal accounts vs. work or school accounts from Microsoft
 
-Microsoft는 두 종류의 사용자 계정을 관리합니다.
+Microsoft manages two kinds of user accounts:
 
-- **개인 계정**(이전의 Windows Live ID). 이 계정은 *개인* 사용자와 Microsoft 사이의 관계를 나타내며 Microsoft의 소비자 장치 및 서비스에 액세스하는 데 사용됩니다. 이 계정은 개인적인 용도를 위한 것입니다.
+- **Personal accounts** (formerly known as Windows Live ID). These accounts represent the relationship between *individual* users and Microsoft, and are used to access consumer devices and services from Microsoft. These accounts are intended for personal use.
 
-- **회사 또는 학교 계정.** 이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이 계정은 Office 365 및 Microsoft의 다른 비즈니스 서비스에 로그인하는 데 사용됩니다.
+- **Work or school accounts.** These accounts are managed by Microsoft on behalf of organizations that use Azure Active Directory. These accounts are used to sign in to Office 365 and other business services from Microsoft.
 
-Microsoft 회사 또는 학교 계정은 일반적으로 회사, 학교, 정부 기관 등의 조직이 직원, 학생, 연방 직원 등의 최종 사용자에게 할당합니다. 이 계정은 Azure AD 플랫폼을 통해 클라우드에서 직접 마스터되거나 온-프레미스 디렉터리(예: Windows Server Active Directory)에서 Azure AD로 동기화됩니다. Microsoft는 회사 또는 학교 계정의 *보유자*이지만, 이 계정을 소유하고 제어하는 것은 조직입니다.
+Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are either mastered directly in the cloud, in the Azure AD platform, or synced to Azure AD from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
 
-## 응용 프로그램에서 Azure AD 계정 언급
+## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Referring to Azure AD accounts in your application
 
-Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자를 노출하지 않으며 이 규칙을 강제합니다.
+Microsoft doesn’t expose end-users to the Azure or the Active Directory brand names, and neither should you.
 
-- 사용자가 로그인되어 있으면 가능한 한 조직의 이름 및 로고를 사용해야 합니다. 이것이 "조직"과 같은 일반적인 용어를 사용하는 것보다 좋습니다.
+- Once users are signed in, you should use the organization’s name and logo as much as possible. This is better than using generic terms like “your organization”.
 
-- 사용자가 로그인되어 있지 않으면 사용자의 계정을 “회사 또는 학교 계정”으로 언급하고 이 계정을 Microsoft가 관리한다는 것을 전달하기 위해 Microsoft 로고를 사용해야 합니다. 사용자에게 혼동을 줄 수 있는 "엔터프라이즈 계정", "비즈니스 계정" 또는 "회사 계정"과 같은 용어는 사용하지 마세요.
+- When users are not signed in, you should refer to their accounts as “Work or school accounts” and use the Microsoft logo to convey that these accounts are managed by Microsoft. Don’t use terms like “enterprise account”, “business account” or “corporate account” which create user confusion.
 
-## 사용자 계정 픽토그램
-이 지침의 이전 버전에서는 "파란색 배지" 픽토그램을 사용하도록 권장했습니다. 사용자와 개발자의 의견을 반영하여 이제 그 대신 Microsoft 로고를 사용할 것을 권장합니다. 그러면 사용자들이 Office 365 또는 기타 Microsoft 비즈니스 서비스에 사용하는 계정을 앱 로그인에 다시 사용할 수 있다는 점을 이해하는 데 도움이 됩니다.
+## <a name="user-account-pictogram"></a>User account pictogram
+In an earlier version of these guidelines, we recommended using a “blue badge” pictogram. Based on user and developer feedback, we now recommend the use of the Microsoft logo instead. This will help users understand that they can reuse the account they use with Office 365 or other Microsoft business services to sign in to your app.
 
-## Azure AD를 사용한 등록 및 로그인
+## <a name="signing-up-and-signing-in-with-azure-ad"></a>Signing up and signing in with Azure AD
 
-앱의 등록 경로와 로그인 경로가 별도로 제공될 수 있으며, 다음 섹션에서는 두 시나리오에 대한 시각적인 지침을 제공합니다.
+Your app may present separate paths for sign-up and sign-in and the following sections provide visual guidance for both scenarios.
 
-**최종 사용자 등록을 지원하는 앱의 경우(예: 무료 평가판 또는 프리미엄(freemium) 모델)**: 사용자가 회사 또는 개인 계정을 사용하여 앱에 액세스하는 데 사용할 수 있는 **로그인** 단추를 표시할 수 있습니다. 사용자가 처음으로 앱에 액세스할 때 Azure AD에서 동의하도록 요구하는 메시지가 표시됩니다.
+**If your app supports end user sign up (e.g. free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD will show a consent prompt the first time they access your app.
 
-**관리자만 동의할 수 있는 권한을 요구하는 앱 또는 조직 라이선스가 필요한 앱의 경우**: 관리 취득과 사용자 로그인을 분리해야 합니다. **"이 앱 가져오기" 단추**는 관리자에게 로그인하도록 리디렉션한 다음 조직의 사용자를 대신하여 동의하도록 요청합니다. 이 기능은 최종 사용자 동의를 요청하는 메시지를 표시하지 않게 하는 기능을 앱에 추가합니다.
+**If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: You should separate admin acquisition from user sign in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization. This has the added benefit of suppressing end users consent prompts to your app.
 
-## 앱 구입에 대한 시각적 지침
+## <a name="visual-guidance-for-app-acquisition"></a>Visual guidance for app acquisition
 
-"앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md) 항목에서 설명합니다.
+Your “get the app” link must redirect the user to the Azure AD grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data that is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md) article.
 
-관리자가 앱에 동의한 후에는 사용자의 Office 365 앱 시작 관리자 환경(와플 및 [https://portal.office.com/myapps](https://portal.office.com/myapps)에서 액세스 가능)에 앱을 추가할 수 있습니다. 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음과 같은 단추를 표시할 수 있습니다.
+After admins consent to your app, they can choose to add it to their users’ Office 365 app launcher experience (accessible from the waffle and from [https://portal.office.com/myapps](https://portal.office.com/myapps)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like this:
 
-![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/add-to-my-org.png)
+![Application Types and scenarios](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예:
-> *미 Office 365 또는Microsoft의 다른 비즈니스 서비스를 사용하는 경우 조직의 데이터에 대한 <your\_app\_name> 액세스 권한을 부여하면 됩니다. 이렇게 하면 사용자들이 기존 회사 계정으로 <your\_app\_name>에 액세스할 수 있습니다.*
+However, we recommend that you write explanatory text instead of relying on buttons. For example:
+> *If you already use Office 365 or other business service from Microsoft, you can simply grant <your_app_name> access to your organization’s data. This will allow your users to access <your_app_name> with their existing work accounts.*
 
 
-## 로그인에 대한 시각적 지침
-앱은 Azure AD와 통합하는 데 사용하는 프로토콜에 해당하는 로그인 끝점으로 사용자를 리디렉션하는 로그인 단추를 표시해야 합니다. 다음 섹션에서는 이 단추의 모양을 자세히 설명합니다.
+## <a name="visual-guidance-for-sign-in"></a>Visual guidance for sign-in
+Your app should display a sign in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Azure AD. The following section provides details on what that button should look like.
 
-### 픽토그램 및 “Microsoft 로그인”
-Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD를 고유하게 나타내는 “Microsoft 로그인”이라는 일반 용어를 결합한 것입니다. 공간이 부족하여 "Microsoft 로그인"을 사용할 수 없는 경우에는 "로그인"으로 줄여도 됩니다.
+### <a name="pictogram-and-“sign-in-with-microsoft”"></a>Pictogram and “Sign in with Microsoft”
+It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represents Azure AD amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in”.
 
-![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
+![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
-![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/sign-in-light.png)
+![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-light.png)
 
-단추에 어두운 색 구성표를 사용할 수 있습니다.
+You can also use a dark color scheme for the buttons.
 
-![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
 
-![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/sign-in-dark.png)
+![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
-## 브랜딩 관련 할 일과 하지 말아야 할 일
+## <a name="branding-do’s-and-don’ts"></a>Branding Do’s and Don’ts
 
-**권장** 최종 사용자가 단추를 사용할 수 있는지 여부를 인식할 수 있도록, 추가 설명을 제공하기 위해 "회사 또는 학교 계정"을 "Microsoft 로그인" 단추와 함께 사용합니다. **권장 안 함** "엔터프라이즈 계정", "비즈니스 계정" 또는 "회사 계정"과 같은 다른 용어는 사용하지 않습니다.
+**DO** use “work or school account” in combination with the "Sign in with Microsoft" button to provide additional explanation to help end-users recognize whether they can use it. **DON’T** use other terms such as “enterprise account”, “business account” or “corporate account.”
 
-**권장 안 함** “Office 365 ID” 또는 “Azure ID”를 사용하지 않습니다. Office 365는 인증을 위해 Azure AD를 사용하지 않는 Microsoft 소비자 서비스의 이름이기도 합니다.
+**DON’T** use “Office 365 ID” or “Azure ID”. Office 365 is also the name of a consumer offering from Microsoft which doesn’t use Azure AD for authentication.
 
-**권장 안 함** Microsoft 로고를 변경하지 않습니다.
+**DON’T** alter the Microsoft logo.
 
-**장 안 함** Azure 또는 Active Directory에 최종 사용자를 노출하지 않습니다. 그러나 개발자, IT 전문가, 관리자에 대해서는 이 용어를 사용해도 됩니다.
+**DON’T** expose end-users to the Azure or Active Directory brands. It’s ok however to use these terms with developers, IT pros and admins.
 
-## 탐색 관련 할 일과 하지 말아야 할 일
+## <a name="navigation-do’s-and-don’ts"></a>Navigation Do’s and Don’ts
 
-**권장** 사용자가 로그아웃한 후 다른 사용자 계정으로 전환하는 방법을 제공합니다. 대부분의 사람들은 Microsoft/Facebook/Google/Twitter의 단일 개인 계정을 가지고 있지만, 사람들은 종종 여러 조직과 연결됩니다. 여러 명의 로그인한 사용자에 대한 지원이 곧 제공됩니다.
+**DO** provide a way for users to sign out and switch to another user account. While most people have a single personal account from Microsoft/Facebook/Google/Twitter, people are often associated with more than one organization. Support for multiple signed-in users is coming soon.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

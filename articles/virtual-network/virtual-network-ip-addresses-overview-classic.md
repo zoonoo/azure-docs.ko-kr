@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure에서 공용 및 개인 IP 주소 지정(클래식) | Microsoft Azure"
-   description="Azure에서 공용 및 개인 IP 주소 지정 방법에 대해 알아보기"
+   pageTitle="Public and private IP addressing (classic) in Azure | Microsoft Azure"
+   description="Learn about public and private IP addressing in Azure"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -16,154 +16,159 @@
    ms.date="02/11/2016"
    ms.author="jdial" />
 
-# Azure의 IP 주소(기본)
-다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
 
-공용 IP 주소는 Azure 공용 웹 서비스를 포함한 인터넷과의 통신에 사용됩니다.
+# <a name="ip-addresses-(classic)-in-azure"></a>IP addresses (classic) in Azure
+You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure: public and private.
 
-개인 IP 주소는 VPN 게이트웨이 또는 Express 경로 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet), 클라우드 서비스 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
+Public IP addresses are used for communication with the Internet, including Azure public-facing services.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 배포 모델을 사용하여 이러한 단계를 수행](virtual-network-ip-addresses-overview-arm.md)하는 방법을 알아봅니다.
+Private IP addresses are used for communication within an Azure virtual network (VNet), a cloud service, and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
 
-## 공용 IP 주소
-공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/), [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md) 및 [Azure 저장소](../storage/storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
-공용 IP 주소는 다음 리소스 유형과 연결됩니다.
+## <a name="public-ip-addresses"></a>Public IP addresses
+Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
 
-- 클라우드 서비스
-- IaaS VM(가상 컴퓨터)
-- PaaS 역할 인스턴스
-- VPN 게이트웨이
-- 응용 프로그램 게이트웨이
+A public IP address is associated with the following resource types:
 
-### 할당 방법
-공용 IP 주소를 Azure 리소스에 할당해야 하는 경우 리소스가 생성된 위치 내 사용 가능한 공용 IP 주소 풀에서 *동적으로* 할당됩니다. 이 IP 주소는 리소스가 중지되면 해제됩니다. 클라우드 서비스의 경우 모든 역할 인스턴스가 중지되면 이러한 상황이 발생하며, *정적* (예약된) IP 주소를 사용하면 이를 방지할 수 있습니다.([클라우드 서비스](#Cloud-services) 참조)
+- Cloud services
+- IaaS Virtual Machines (VMs)
+- PaaS role instances
+- VPN gateways
+- Application gateways
 
->[AZURE.NOTE] 공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
+### <a name="allocation-method"></a>Allocation method
+When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. In case of a cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#Cloud-services)).
 
-### DNS 호스트 이름 확인
-클라우드 서비스 또는 IaaS VM을 만들 때는 Azure의 모든 리소스에서 고유한 클라우드 서비스 DNS 이름을 제공해야 합니다. 이는 Azure 관리 DNS 서버에서 *dnsname*.cloudapp.net과 리소스의 공용 IP 주소에 대한 매핑을 만듭니다. 예를 들어, **contoso**라는 클라우드 서비스 DNS 이름으로 클라우드 서비스를 만들면 정규화된 도메인 이름(FQDN) **contoso.cloudapp.net**이 클라우드 서비스의 공용 IP 주소(VIP)로 확인됩니다. 이 FQDN을 사용하여 Azure의 공용 IP 주소를 가리키는 사용자 지정 도메인 CNAME 레코드를 만들 수 있습니다.
+>[AZURE.NOTE] The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### 클라우드 서비스
-클라우드 서비스에는 항상 가상 IP 주소(VIP)라고 하는 공용 IP 주소가 있습니다. 클라우드 서비스 내에 끝점을 만들어 VIP의 여러 포트를 클라우드 서비스 내 VM 및 역할 인스턴스의 내부 포트로 연결할 수 있습니다.
+### <a name="dns-hostname-resolution"></a>DNS hostname resolution
+When you create a cloud service or an IaaS VM, you need to provide a cloud service DNS name which is unique across all resources in Azure. This creates a mapping in the Azure-managed DNS servers for *dnsname*.cloudapp.net to the public IP address of the resource. For instance, when you create a cloud service with a cloud service DNS name of **contoso**, the fully-qualified domain name (FQDN) **contoso.cloudapp.net** will resolve to a public IP address (VIP) of the cloud service. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
 
-클라우드 서비스에는 여러 IaaS VM, PaaS 역할 인스턴스가 포함될 수 있으며 모두 동일한 클라우드 서비스 VIP를 통해 노출됩니다. [클라우드 서비스에 여러 VIP](../load-balancer/load-balancer-multivip.md)를 할당하고, SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 다중 VIP 시나리오를 구현할 수 있습니다.
+### <a name="cloud-services"></a>Cloud services
+A cloud service always has a public IP address referred to as a virtual IP address (VIP). You can create endpoints in a cloud service to associate different ports in the VIP to internal ports on VMs and role instances within the cloud service. 
 
-[예약된 IP](virtual-networks-reserved-public-ip.md)라고 하는 *정적* 공용 IP 주소를 사용하면 모든 역할 인스턴스가 중지되더라도 클라우드 서비스의 공용 IP 주소를 동일하게 유지할 수 있습니다. 특정 위치에 정적(예약된) IP 리소스를 만들고 해당 위치의 클라우드 서비스에 할당할 수 있습니다. 예약된 IP의 실제 IP 주소는 지정할 수 없습니다. 이는 생성된 위치에서 사용 가능한 IP 주소 풀에서 할당됩니다. 이 IP 주소는 명시적으로 삭제될 때까지 해제되지 않습니다.
+A cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP. You can also assign [multiple VIPs to a cloud service](../load-balancer/load-balancer-multivip.md), which enables multi-VIP scenarios like multi-tenant environment with SSL-based websites.
 
-정적(예약된) 공용 IP 주소는 일반적으로 클라우드 서비스가 다음과 같은 시나리오에서 사용됩니다.
+You can ensure the public IP address of a cloud service remains the same, even when all the role instances are stopped, by using a *static* public IP address, referred to as [Reserved IP](virtual-networks-reserved-public-ip.md). You can create a static (reserved) IP resource in a specific location and assign it to any cloud service in that location. You cannot specify the actual IP address for the reserved IP, it is allocated from pool of available IP addresses in the location it is created. This IP address is not released until you explicitly delete it.
 
-- 최종 사용자가 방화벽 규칙을 설정해야 하는 경우
-- 외부 DNS 이름 확인에 따라 달라지며, 동적 IP를 위해 A 레코드 업데이트가 필요한 경우
-- IP 기반 보안 모델을 사용하는 외부 웹 서비스를 사용하는 경우
-- IP 주소에 연결된 SSL 인증서를 사용하는 경우
+Static (reserved) public IP addresses are commonly used in the scenarios where a cloud service:
 
->[AZURE.NOTE] 클래식 VM을 만들 때 컨테이너 *클라우드 서비스*가 Azure에 의해 만들어지며 VIP(가상 IP 주소)를 포함합니다. 포털을 통해 작성을 완료하는 경우 기본 RDP 또는 SSH *끝점*이 포털에 의해 구성되어 클라우드 서비스 VIP를 통해 VM에 연결할 수 있습니다. 이 클라우드 서비스 VIP는 예약할 수 있으며 VM에 연결하는 데 예약된 IP 주소를 효과적으로 제공하도록 합니다. 더 많은 끝점을 구성하여 추가 포트를 열 수 있습니다.
+- requires firewall rules to be setup by end-users.
+- depends on external DNS name resolution, and a dynamic IP would require updating A records.
+- consumes external web services which use IP based security model.
+- uses SSL certificates linked to an IP address.
 
-### IaaS VM 및 PaaS 역할 인스턴스
-클라우드 서비스 내에 있는 IaaS [VM](../virtual-machines/virtual-machines-linux-about.md) 또는 PaaS 역할 인스턴스에 공용 IP 주소를 직접 할당할 수 있습니다. 이를 인스턴스 수준 공용 IP 주소([ILPIP](virtual-networks-instance-level-public-ip.md))라고 합니다. 이 공용 IP 주소는 동적 방식만 가능합니다.
+>[AZURE.NOTE] When you create a classic VM, a container *cloud service* is created by Azure, which has a virtual IP address (VIP). When the creation is done through portal, a default RDP or SSH *endpoint* is configured by the portal so you can connect to the VM through the cloud service VIP. This cloud service VIP can be reserved, which effectively provides a reserved IP address to connect to the VM. You can open additional ports by configuring more endpoints.
 
->[AZURE.NOTE] 클라우드 서비스에는 여러 IaaS VM, PaaS 역할 인스턴스가 포함될 수 있으며 모두 동일한 클라우드 서비스 VIP를 통해 노출되기 때문에 IaaS VMs 또는 PaaS 역할 인스턴스에 대한 컨테이너인 클라우드 서비스의 VIP와는 다릅니다.
+### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VMs and PaaS role instances
+You can assign a public IP address directly to an IaaS [VM](../virtual-machines/virtual-machines-linux-about.md) or PaaS role instance within a cloud service. This is referred to as an instance-level public IP address ([ILPIP](virtual-networks-instance-level-public-ip.md)). This public IP address can be dynamic only.
 
-### VPN 게이트웨이
-[VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)는 Azure VNet를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니다. VPN 게이트웨이는 공용 IP 주소가 *동적으로*할당되며, 원격 네트워크와의 통신을 지원합니다.
+>[AZURE.NOTE] This is different from the VIP of the cloud service, which is a container for IaaS VMs or PaaS role instances, since a cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP.
 
-### 응용 프로그램 게이트웨이
-Azure [응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)는 HTTP 기반 네트워크 트래픽을 라우팅하는 Layer7 부하 분산에 사용할 수 있습니다. 응용 프로그램 게이트웨이에는 부하 분산된 VIP 역할을 하는 공용 IP 주소가 *동적으로* 할당됩니다.
+### <a name="vpn-gateways"></a>VPN gateways
+A [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) can be used to connect an Azure VNet to other Azure VNets or on-premises networks. A VPN gateway is assigned a public IP address *dynamically*, which enables communication with the remote network.
 
-### 개요
-아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 공용 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
+### <a name="application-gateways"></a>Application gateways
+An Azure [Application gateway](../application-gateway/application-gateway-introduction.md) can be used for Layer7 load-balancing to route network traffic based on HTTP. Application gateway is assigned a public IP address *dynamically*, which serves as the load-balanced VIP.
 
-|리소스|동적|정적|여러 IP 주소|
+### <a name="at-a-glance"></a>At a glance
+The table below shows each resource type with the possible allocation methods (dynamic/static), and ability to assign multiple public IP addresses.
+
+|Resource|Dynamic|Static|Multiple IP addresses|
 |---|---|---|---|
-|클라우드 서비스|예|예|예|
-|IaaS VM 또는 PaaS 역할 인스턴스|예|아니요|아니요|
-|VPN 게이트웨이|예|아니요|아니요|
-|응용 프로그램 게이트웨이|예|아니요|아니요|
+|Cloud service|Yes|Yes|Yes|
+|IaaS VM or PaaS role instance|Yes|No|No|
+|VPN gateway|Yes|No|No|
+|Application gateway|Yes|No|No|
 
-## 개인 IP 주소
-개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 Express 경로 회로를 통해 클라우드 서비스 또는 [가상 네트워크](virtual-networks-overview.md)(VNet) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
+## <a name="private-ip-addresses"></a>Private IP addresses
+Private IP addresses allow Azure resources to communicate with other resources in a cloud service or a [virtual network](virtual-networks-overview.md)(VNet), or to on-premises network (through a VPN gateway or ExpressRoute circuit), without using an Internet-reachable IP address.
 
-Azure 클래식 배포 모델에서 개인 IP 주소는 다음의 Azure 리소스에 할당될 수 있습니다.
+In Azure classic deployment model, a private IP address can be assigned to the following Azure resources:
 
-- IaaS VM 및 PaaS 역할 인스턴스
-- 내부 부하 분산 장치
-- 응용 프로그램 게이트웨이
+- IaaS VMs and PaaS role instances
+- Internal load balancer
+- Application gateway
 
-### IaaS VM 및 PaaS 역할 인스턴스
-클래식 배포 모델을 사용하여 만든 가상 컴퓨터(VM)는 항상 PaaS 역할 인스턴스와 유사한 클라우드 서비스에 배치됩니다. 따라서 개인 IP 주소의 동작은 이러한 리소스와 비슷합니다.
+### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VMs and PaaS role instances
+Virtual machines (VMs) created with the classic deployment model are always placed in a cloud service, similar to PaaS role instances. The behavior of private IP addresses are thus similar for these resources.
 
-클라우드 서비스를 배포할 수 있는 방법이 두 가지라는 점을 알아두는 것이 중요합니다.
+It is important to note that a cloud service can be deployed in two ways:
 
-- 가상 네트워크 내에 있지 않은 *독립 실행형* 클라우드 서비스로 배포
-- 가상 네트워크의 일부로 배포
+- As a *standalone* cloud service, where it is not within a virtual network.
+- As part of a virtual network.
 
-#### 할당 방법
-*독립 실행형* 클라우드 서비스의 경우 리소스가 Azure 데이터 센터의 개인 IP 주소 범위에서 *동적으로* 할당된 개인 IP 주소를 가져옵니다. 동일한 클라우드 서비스 내 다른 VM과의 통신에만 사용할 수 있습니다. 이 IP 주소는 리소스를 중지하고 시작할 때 변경될 수 있습니다.
+#### <a name="allocation-method"></a>Allocation method
+In case of a *standalone* cloud service, resources get a private IP address allocated *dynamically* from the Azure datacenter private IP address range. It can be used only for communication with other VMs within the same cloud service. This IP address can change when the resource is stopped and started.
 
-가상 네트워크 내에 배포되는 클라우드 서비스의 경우 리소스가 (네트워크 구성에 지정된 대로) 할당된 서브넷의 주소 범위에서 할당된 개인 IP 주소를 가져옵니다. 이 개인 IP 주소는 VNet 내 모든 VM 간의 통신에 사용할 수 있습니다.
+In case of a cloud service deployed within a virtual network, resources get private IP address(es) allocated from the address range of the associated subnet(s) (as specified in its network configuration). This private IP address(es) can be used for communication between all VMs within the VNet.
 
-또한 VNet 내 클라우드 서비스의 경우 기본적으로 개인 IP 주소가 (DHCP를 사용하여) *동적으로* 할당됩니다. 이는 리소스를 중지 및 시작할 때 변경될 수 있습니다. IP 주소가 동일하게 유지되려면 할당 방법을*정적*으로 설정하고 해당 주소 범위 내에서 유효한 IP 주소를 제공해야 합니다.
+Additionally, in case of cloud services within a VNet, a private IP address is allocated *dynamically* (using DHCP) by default. It can change when the resource is stopped and started. To ensure the IP address remains the same, you need to set the allocation method to *static*, and provide a valid IP address within the corresponding address range.
 
-정적 개인 IP 주소가 일반적으로 사용되는 대상은 다음과 같습니다.
+Static private IP addresses are commonly used for:
 
- - 도메인 컨트롤러 또는 DNS 서버 역할을 하는 VM
- - IP 주소를 사용하는 방화벽 규칙이 필요한 VM
- - IP 주소를 통해 다른 앱에서 액세스하는 서비스를 실행 중인 VM
+ - VMs that act as domain controllers or DNS servers.
+ - VMs that require firewall rules using IP addresses.
+ - VMs running services accessed by other apps through an IP address.
 
-#### 내부 DNS 호스트 이름 확인
-모든 Azure VM 및 PaaS 역할 인스턴스는 명시적으로 사용자 지정 DNS 서버를 구성하지 않으면 기본적으로 [Azure 관리 DNS 서버](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)로 구성됩니다. 이러한 DNS 서버는 동일한 VNet 또는 클라우드 서비스 내에 있는 VM 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다.
+#### <a name="internal-dns-hostname-resolution"></a>Internal DNS hostname resolution
+All Azure VMs and PaaS role instances are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs and role instances that reside within the same VNet or cloud service.
 
-VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관리 DNS 서버에 추가됩니다. 다중 NIC VM의 경우 기본 NIC의 개인 IP 주소에 호스트 이름이 매핑됩니다. 그러나 이 매핑 정보는 동일한 클라우드 서비스 또는 VNet 내에 있는 리소스로 제한됩니다.
+When you create a VM, a mapping for the hostname to its private IP address is added to the Azure-managed DNS servers. In case of a multi-NIC VM, the hostname is mapped to the private IP address of the primary NIC. However, this mapping information is restricted to resources within the same cloud service or VNet.
 
-*독립 실행형* 클라우드 서비스의 경우 동일한 클라우드 서비스 내에 있는 모든 VM/역할 인스턴스의 호스트 이름만 확인할 수 있습니다. VNet 내에 있는 클라우드 서비스의 경우 VNet 내에 있는 모든 VM/역할 인스턴스의 호스트 이름을 확인할 수 있습니다.
+In case of a *standalone* cloud service, you will be able to resolve hostnames of all VMs/role instances within the same cloud service only. In case of a cloud service within a VNet, you will be able to resolve hostnames of all the VMs/role instances within the VNet.
 
-### ILB(내부 부하 분산 장치) 및 응용 프로그램 게이트웨이
-[Azure 내부 부하 분산 장치](../load-balancer/load-balancer-internal-overview.md)(ILB) 또는 [Azure 응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 끝점으로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다. 또한 여러 개인 IP 주소를 할당하여 다중 vip 시나리오를 구현할 수도 있습니다.
+### <a name="internal-load-balancers-(ilb)-&-application-gateways"></a>Internal load balancers (ILB) & Application gateways
+You can assign a private IP address to the **front end** configuration of an [Azure Internal Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) or an [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). This private IP address serves as an internal endpoint, accessible only to the resources within its virtual network (VNet) and the remote networks connected to the VNet. You can assign either a dynamic or static private IP address to the front end configuration. You can also assign multiple private IP addresses to enable multi-vip scenarios.
 
-### 개요
-아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 개인 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
+### <a name="at-a-glance"></a>At a glance
+The table below shows each resource type with the possible allocation methods (dynamic/static), and ability to assign multiple private IP addresses.
 
-|리소스|동적|정적|여러 IP 주소|
+|Resource|Dynamic|Static|Multiple IP addresses|
 |---|---|---|---|
-|VM(*독립 실행형* 클라우드 서비스 내)|예|예|예|
-|PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 내)|예|아니요|예|
-|VM 또는 PaaS 역할 인스턴스(VNet 내)|예|예|예|
-|내부 부하 분산 장치 프런트 엔드|예|예|예|
-|응용 프로그램 게이트웨이 프런트 엔드|예|예|예|
+|VM (in a *standalone* cloud service)|Yes|Yes|Yes|
+|PaaS role instance (in a *standalone* cloud service)|Yes|No|Yes|
+|VM or PaaS role instance (in a VNet)|Yes|Yes|Yes|
+|Internal load balancer front end|Yes|Yes|Yes|
+|Application gateway front end|Yes|Yes|Yes|
 
-## 제한
+## <a name="limits"></a>Limits
 
-아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
 
-||기본 제한|최대 제한|
+||Default limit|Maximum limit|
 |---|---|---|
-|공용 IP 주소(동적)|5|지원에 문의|
-|예약된 공용 IP 주소|20|지원에 문의|
-|배포당 공용 VIP(클라우드 서비스)|5|지원에 문의|
-|배포당 개인 VIP(ILB)(클라우드 서비스)|1|1|
+|Public IP addresses (dynamic)|5|contact support|
+|Reserved public IP addresses|20|contact support|
+|Public VIP per deployment (cloud service)|5|contact support|
+|Private VIP (ILB) per deployment (cloud service)|1|1|
 
-Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits)에 대한 전체 내용을 확인해야 합니다.
+Make sure you read the full set of [limits for Networking](azure-subscription-service-limits.md#networking-limits) in Azure.
 
-## 가격
+## <a name="pricing"></a>Pricing
 
-대부분의 경우에 공용 IP 주소는 무료입니다. 추가 및/또는 정적 공용 IP 주소를 사용하는 데 명목 요금이 있습니다. [공용 IP에 대한 가격 책정 구조](https://azure.microsoft.com/pricing/details/ip-addresses/)를 이해하도록 합니다.
+In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
-## 리소스 관리자와 클래식 배포 간 차이점
-아래는 리소스 관리자와 클래식 배포 모델의 IP 주소 기능을 비교한 것입니다.
+## <a name="differences-between-resource-manager-and-classic-deployments"></a>Differences between Resource Manager and classic deployments
+Below is a comparison of IP addressing features in Resource Manager and the classic deployment model.
 
-||리소스|클래식|리소스 관리자|
+||Resource|Classic|Resource Manager|
 |---|---|---|---|
-|**공용 IP 주소**|VM|ILPIP(동적 전용)로 참조|공용 IP(동적 또는 정적)로 참조|
-|||IaaS VM 또는 PaaS 역할 인스턴스에 할당|VM의 NIC에 연결|
-||인터넷 연결 부하 분산 장치|VIP(동적) 또는 예약된 IP(정적)로 참조|공용 IP(동적 또는 정적)로 참조|
-||||클라우드 서비스에 할당|부하 분산 장치의 프런트 엔드 구성에 연결|
+|**Public IP Address**|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
+|||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
+||Internet facing load balancer|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
+|||Assigned to a cloud service|Associated to the load balancer's front end config|
 ||||
-|**개인 IP 주소**|VM|DIP로 참조|개인 IP 주소로 참조|
-|||IaaS VM 또는 PaaS 역할 인스턴스에 할당|VM의 NIC에 할당|
-||ILB(내부 부하 분산 장치)|ILB(동적 또는 정적)에 할당|ILB의 프런트 엔드 구성(동적 또는 정적)에 할당|
+|**Private IP Address**|VM|Referred to as a DIP|Referred to as a private IP address|
+|||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
+||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end configuration (dynamic or static)|
 
-## 다음 단계
-- 클래식 포털을 사용하여 [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-classic-pportal.md)합니다.
+## <a name="next-steps"></a>Next steps
+- [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the classic portal.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

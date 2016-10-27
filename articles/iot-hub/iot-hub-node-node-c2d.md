@@ -1,11 +1,11 @@
 <properties
-	pageTitle="IoT Hub를 사용하여 클라우드-장치 메시지 보내기 | Microsoft Azure"
-	description="이 자습서에 따라 Java에서 Azure IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법을 알아봅니다."
-	services="iot-hub"
-	documentationCenter="nodejs"
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="IoT Hub를 사용하여 클라우드-장치 메시지 보내기 | Microsoft Azure"
+    description="이 자습서에 따라 Java에서 Azure IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법을 알아봅니다."
+    services="iot-hub"
+    documentationCenter="nodejs"
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -16,11 +16,12 @@
      ms.date="09/23/2016"
      ms.author="dobett"/>
 
-# 자습서: IoT Hub 및 Node.js를 사용하여 클라우드-장치 메시지를 보내는 방법
+
+# <a name="tutorial:-how-to-send-cloud-to-device-messages-with-iot-hub-and-node.js"></a>자습서: IoT Hub 및 Node.js를 사용하여 클라우드-장치 메시지를 보내는 방법
 
 [AZURE.INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-## 소개
+## <a name="introduction"></a>소개
 
 Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작] 자습서에서 IoT Hub를 만들어 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이트된 장치를 코딩하는 방법을 볼 수 있습니다.
 
@@ -41,13 +42,13 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ Node.js 버전 0.12.x 이상 <br/> [개발 환경 준비][lnk-dev-setup]는 Windows 또는 Linux에서 이 자습서에 대한 Node.js을 설치하는 방법을 설명합니다.
++ Node.js 버전 0.10.x 이상
 
-+ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][lnk-free-trial]을 참조하세요.
++ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
 
-## 시뮬레이션된 장치에서 메시지 받기
+## <a name="receive-messages-on-the-simulated-device"></a>시뮬레이션된 장치에서 메시지 받기
 
-이 섹션에서는 [IoT Hub 시작]에서 만든 시뮬레이트된 장치 응용 프로그램을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
+이 섹션에서는 [IoT Hub 시작] 에서 만든 시뮬레이트된 장치 응용 프로그램을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
 
 1. 텍스트 편집기를 사용하여 SimulatedDevice.js 파일을 엽니다.
 
@@ -75,9 +76,9 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
     };
     ```
 
-    > [AZURE.NOTE] 전송으로 AMQP 대신 HTTP/1을 사용하는 경우 **DeviceClient** 인스턴스는 IoT Hub의 메시지를 자주(25분 미만 간격으로) 확인합니다. AMQP와 HTTP/1 지원 간의 차이점 및 IoT Hub 제한에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
+    > [AZURE.NOTE] 전송으로 AMQP 또는 MQTT 대신 HTTP/1을 사용하는 경우 **DeviceClient** 인스턴스는 IoT Hub의 메시지를 자주(25분 미만 간격으로) 확인합니다. AMQP, MQTT 및 HTTP/1 지원 간의 차이점 및 IoT Hub 제한에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
 
-## 클라우드-장치 메시지 보내기
+## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
 
 이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [IoT Hub] 자습서에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal]에서 찾을 수 있는 IoT Hub에 대한 연결 문자열도 필요합니다.
 
@@ -155,7 +156,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 7. **SendCloudToDeviceMessage.js** 파일을 저장한 후 닫습니다.
 
-## 응용 프로그램 실행
+## <a name="run-the-applications"></a>응용 프로그램 실행
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
@@ -177,9 +178,9 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
     > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다.
+이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다. 
 
 IoT Hub를 사용하는 전체 종단 간 솔루션의 예를 보려면 [Azure IoT Suite]를 참조하세요.
 
@@ -187,20 +188,21 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-node-node-c2d/receivec2d.png
-[img-send-command]: media/iot-hub-node-node-c2d/sendc2d.png
+[img-send-command]:  media/iot-hub-node-node-c2d/sendc2d.png
 
 <!-- Links -->
 
-[IoT Hub]: iot-hub-node-node-getstarted.md
 [IoT Hub 시작]: iot-hub-node-node-getstarted.md
-[IoT Hub 시작하기]: iot-hub-node-node-getstarted.md
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

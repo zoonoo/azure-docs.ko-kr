@@ -1,10 +1,13 @@
 
-| 리소스 | 기본 제한 
+| Resource  | Default limit 
 --- | ---
-| 구독당 영역 | 100 <sup>1</sup>
-| 영역당 레코드 집합| 5000 <sup>1</sup>
-| 레코드 집합당 레코드| 20
+| Zones per subscription | 100 <sup>1</sup>
+| Record sets per zone| 5000 <sup>1</sup>
+| Records per record set| 20
 
-<sup>1</sup> 이러한 제한을 늘려야 하는 경우 Azure 지원에 문의하세요.
+<sup>1</sup> Contact Azure Support in case you need to increase these limits.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

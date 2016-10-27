@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 가상 장치 업데이트 2 | Microsoft Azure"
-   description="Microsoft Azure 가상 네트워크에서 StorSimple 가상 장치를 만들고 배포 및 관리하는 방법을 알아봅니다. StorSimple 업데이트 2에 적용됩니다."
+   pageTitle="StorSimple virtual device Update 2| Microsoft Azure"
+   description="Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple Update 2)."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,283 +15,290 @@
    ms.date="09/23/2016"
    ms.author="alkohli" />
 
-# Azure에서 StorSimple 가상 장치 배포 및 관리
+
+# <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Deploy and manage a StorSimple virtual device in Azure
 
 
-##개요
-StorSimple 8000 시리즈 가상 장치는 Microsoft Azure StorSimple 솔루션과 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다. 이 자습서는 Azure에서 가상 장치를 배포하고 관리하는 방법을 설명하고 소프트웨어 버전 업데이트 2 이하를 실행하는 모든 가상 장치에 적용할 수 있습니다.
+##<a name="overview"></a>Overview
+The StorSimple 8000 series virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. This tutorial describes how to deploy and manage a virtual device in Azure and is applicable to all the virtual devices running software version Update 2 and lower.
 
 
-#### 가상 장치 모델 비교
+#### <a name="virtual-device-model-comparison"></a>Virtual device model comparison
 
-StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010(이전의 1100) 및 프리미엄 8020(업데이트 2에 도입된)으로 사용할 수 있습니다. 두 가지 모델에 대한 비교가 아래 표로 정리되어 있습니다.
+The StorSimple virtual device is available in two models, a standard 8010 (formerly known as the 1100) and a premium 8020 (introduced in Update 2). A comparison of the two models is tabulated below.
 
 
-| 장치 모델 | 8010<sup>1</sup> | 8020 |
+| Device model          | 8010<sup>1</sup>                                                                     | 8020                                                                                                                               |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **최대 용량** | 30TB | 64TB |
-| **Azure VM** | Standard\_A3(4 코어, 7GB 메모리) | Standard\_DS3 (4 코어, 14GB 메모리) |
-| **버전 호환성** | 사전 업데이트 2 이상을 실행하는 버전 | 업데이트 2 이상을 실행하는 버전 |
-| **지역 가용성** | 모든 Azure 지역 | 프리미엄 저장소를 지원하는 Azure 지역<br></br>하위 지역 목록은 [8020에 대해 지원되는 하위 지역](#supported-regions-for-8020)을 참조하세요. |
-| **저장소 유형** | 로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는]() 방법 알아보기 | 로컬 디스크<sup>2</sup>에 Azure 프리미엄 저장소 사용 <br></br>[프리미엄 저장소 계정을 만드는](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) 방법 알아보기 |
-| **워크로드 지침** | 백업으로부터 항목 수준 파일 읽어오기 | 클라우드 개발 및 테스트 시나리오, 짧은 대기 시간, 높은 성능 워크로드 <br></br>재해 복구용 보조 장치 |
+| **Maximum capacity**      | 30 TB                                                                     | 64 TB                                                                                                                                |
+| **Azure VM**              | Standard_A3 (4 cores, 7 GB memory)                                                                      | Standard_DS3 (4 cores, 14 GB memory)                                                                                                                          |
+| **Version compatibility** | Versions running pre-Update 2 or later                                             | Versions running Update 2 or later                                                                                                  |
+| **Region availability**   | All Azure regions                                                         | Azure regions that support Premium Storage<br></br>For a list of regions, see [supported regions for 8020](#supported-regions-for-8020) |
+| **Storage type**          | Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account]() | Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
+| **Workload guidance**     | Item level retrieval of files from backups                                              | Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery                                                                                            |
  
-<sup>1</sup> *이전에 1100로 알려짐*.
+<sup>1</sup> *Formerly known as the 1100*.
 
-<sup>2</sup> *8010와 8020은 모두 클라우드 계층에 Azure 표준 저장소를 사용합니다. 차이점은 장치* 내의 로컬 계층에만 존재한다는 것입니다.
+<sup>2</sup> *Both the 8010 and 8020 use Azure Standard Storage for the cloud tier. The difference only exists in the local tier within the device*.
 
-#### 8020에 대해 지원되는 하위 지역
+#### <a name="supported-regions-for-8020"></a>Supported regions for 8020
 
-8020에 대해 현재 지원되는 프리미엄 저장소 하위 지역은 아래 표로 정리되어 있습니다. 더 많은 하위 지역에서 프리미엄 저장소가 제공됨에 따라 이 목록은 계속해서 업데이트됩니다.
+The Premium Storage regions that are currently supported for 8020 are tabulated below. This list will be continuously updated as Premium Storage becomes available in more regions. 
 
-| 번호 | 하위 지역에서 현재 지원됨 |
+| S. no.                                                  | Currently supported in regions |
 |---------------------------------------------------------|--------------------------------|
-| 1 | 미국 중부 |
-| 2 | 미국 동부 |
-| 3 | 미국 동부 2 |
-| 4 | 미국 서부 |
-| 5 | 북유럽 |
-| 6 | 서유럽 |
-| 7 | 동남아시아 |
-| 8 | 일본 동부 |
-| 9 | 일본 서부 |
-| 10 | 오스트레일리아 동부 |
-| 11 | 오스트레일리아 남동부* |
-| 12 | 동아시아* |
-| 13 | 미국 중남부* |
+| 1                                                       | Central US                     |
+| 2                                                       |  East US                       |
+| 3                                                       |  East US 2                     |
+| 4                                                       | West US                        |
+| 5                                                       | North Europe                   |
+| 6                                                       | West Europe                    |
+| 7                                                       | Southeast Asia                 |
+| 8                                                       | Japan East                     |
+| 9                                                       | Japan West                     |
+| 10                                                      | Australia East                 |
+| 11                                                      | Australia Southeast*           |
+| 12                                                      | East Asia*                     |
+| 13                                                      | South Central US*              |
 
-*프리미엄 저장소가 최근에 해당 지역에서 출시되었습니다.
+*Premium Storage was launched recently in these geos.
 
-이 문서는 Azure에서 StorSimple 가상 장치를 배포하는 단계별 프로세스를 설명합니다. 이 문서를 읽고 나면:
+This article describes the step-by-step process of deploying a StorSimple virtual device in Azure. After reading this article, you will:
 
-- 가상 장치와 물리적 장치의 차이를 이해하게 됩니다.
+- Understand how the virtual device differs from the physical device.
 
-- 가상 장치를 만들고 구성할 수 있게 됩니다.
+- Be able to create and configure the virtual device.
 
-- 가상 장치에 연결합니다.
+- Connect to the virtual device.
 
-- 가상 장치로 작업하는 방법을 알아봅니다.
+- Learn how to work with the virtual device.
 
-이 자습서는 업데이트 2 이상을 실행하는 모든 StorSimple 가상 장치에 적용됩니다.
+This tutorial applies to all the StorSimple virtual devices running Update 2 and higher. 
 
-## 가상 장치와 물리적 장치의 차이
+## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>How the virtual device differs from the physical device
 
-StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에서 실행되는 StorSimple의 소프트웨어 전용 버전입니다. 가상 장치는 물리적 장치를 사용할 수 없는 재해 복구 시나리오를 지원하며, 백업으로부터 항목 수준 읽어오기, 온-프레미스 재해 복구, 클라우드 개발 및 테스트 시나리오에 사용하기에 적합합니다.
+The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in item-level retrieval from backups, on-premises disaster recovery, and cloud dev and test scenarios.
 
-#### 물리적 장치와의 차이점
+#### <a name="differences-from-the-physical-device"></a>Differences from the physical device
 
-다음 테이블은 StorSimple 가상 장치와 StorSimple 물리적 장치 간의 몇 가지 주요 차이점을 보여줍니다
+The following table shows some key differences between the StorSimple virtual device and the StorSimple physical device.
 
-| | 물리적 장치 | 가상 장치 |
+|                             | Physical device                                          | Virtual device                                                                            |
 |-----------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| **위치** | 데이터 센터에 상주합니다. | Azure에서 실행됩니다. |
-| **네트워크 인터페이스** | 네트워크 인터페이스가 여섯 개(DATA 0에서 DATA 5까지 ) 있습니다. | 네트워크 인터페이스가 하나만(DATA 0) 있습니다. |
-| **등록** | 구성 단계 중에 등록됩니다. | 등록은 별도의 작업입니다. |
-| **서비스 데이터 암호화 키** | 물리적 장치에서 다시 생성된 후 새 키로 가상 장치를 업데이트합니다. | 가상 장치에서 다시 생성할 수 없습니다. |
+| **Location**                    | Resides in the datacenter.                               | Runs in Azure.                                                                            |
+| **Network interfaces**          | Has six network interfaces: DATA 0 through DATA 5.                  | Has only one network interface: DATA 0.                                        |
+| **Registration**                | Registered during the configuration step.                | Registration is a separate task.                                                          |
+| **Service data encryption key** | Regenerate on the physical device and then update the virtual device with the new key.           | Cannot regenerate from the virtual device. |
 
 
-## 가상 장치에 대한 필수 구성 요소
+## <a name="prerequisites-for-the-virtual-device"></a>Prerequisites for the virtual device
 
-다음 섹션에서는 StorSimple 가상 장치에 대한 구성 필수 구성 요소를 설명합니다. 가상 장치를 배포하기 전에 [가상 장치를 사용하기 위한 보안 고려 사항](storsimple-security.md#storsimple-virtual-device-security)을 참조하세요.
+The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-security.md#storsimple-virtual-device-security).
 
-#### Azure 요구 사항
+#### <a name="azure-requirements"></a>Azure requirements
 
-가상 장치를 프로비전하기 전에 Azure 환경에서 다음 준비를 확인해야 합니다.
+Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- 가상 장치의 경우, [Azure에서 가상 네트워크를 구성합니다](../virtual-network/virtual-networks-create-vnet-classic-portal.md). 프리미엄 저장소를 사용하는 경우 프리미엄 저장소를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. 자세한 내용은 [현재 8020에 대해 지원되는 하위 지역](#supported-regions-for-8020)을 참조하세요.
-- 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 유효하지 않거나 DNS 서버가 IP 주소를 제대로 확인할 수 없으면 가상 장치 만들기에 실패합니다.
-- 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다.
-- 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-linux-about.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.
-	- iSCSI 초기자 소프트웨어가 설치된 Windows 또는 Linux VM입니다.
-	- 가상 장치와 동일한 가상 네트워크에서 실행 중입니다.
-	- 가상 장치의 내부 IP 주소를 통해 가상 장치의 iSCSI 대상에 연결할 수 없습니다.
+- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that are currently supported for 8020](#supported-regions-for-8020).
+- It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
+- Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
+- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                            
+    - Be Windows or Linux VMs with iSCSI Initiator software installed.
+    - Be running in the same virtual network as the virtual device.
+    - Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
 
-- 동일한 가상 네트워크에서 iSCSI 및 클라우드 트래픽에 대한 지원을 구성했는지 확인합니다.
+- Make sure you have configured support for iSCSI and cloud traffic on the same virtual network.
 
 
-#### StorSimple 요구 사항
+#### <a name="storsimple-requirements"></a>StorSimple requirements
 
-가상 장치를 만들기 전에 Azure StorSimple 서비스에 대한 다음 업데이트를 확인합니다.
+Make the following updates to your Azure StorSimple service before you create a virtual device:
 
 
-- 가상 장치에 대해 호스트 서버가 될 VM에 대해 [액세스 제어 레코드](storsimple-manage-acrs.md)를 추가합니다.
+- Add [access control records](storsimple-manage-acrs.md) for the VMs that are going to be host servers for your virtual device.
 
-- 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account)을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 프리미엄 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정]() 또는 [프리미엄 저장소 계정](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 만드는 방법을 참조하세요.
+- Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account]() or a [Premium Storage account](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 
-- 데이터에 사용된 계정이 아닌 가상 장치 생성을 위해 다른 저장소 계정을 사용합니다. 동일한 저장소 계정을 사용하면 성능이 저하될 수 있습니다.
+- Use a different storage account for virtual device creation from the one used for your data. Using the same storage account may result in poor performance.
 
-시작하기 전에 다음 정보가 있는지 확인합니다.
+Make sure that you have the following information before you begin:
 
-- 액세스 자격 증명이 있는 Azure 클래식 포털 계정
+- Your Azure classic portal account with access credentials.
 
-- 물리적 장치의 서비스 데이터 암호화 키의 복사본
+- A copy of the service data encryption key from your physical device.
 
 
-## 가상 장치 만들기 및 구성
+## <a name="create-and-configure-the-virtual-device"></a>Create and configure the virtual device
 
-이러한 절차를 수행하기 전에 [가상 장치에 대한 필수 구성 요소](#prerequisites-for-the-virtual-device)를 충족하는지 확인합니다.
+Before performing these procedures, make sure that you have met the [Prerequisites for the virtual device](#prerequisites-for-the-virtual-device). 
 
-가상 네트워크를 만들고, StorSimple 관리자 서비스를 구성하고 해당 서비스로 물리적 StorSimple 장치를 등록한 후, 다음 단계에 따라 StorSimple 가상 장치를 만들고 구성할 수 있습니다.
+After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create and configure a StorSimple virtual device. 
 
-### 1단계: 가상 장치 만들기
+### <a name="step-1:-create-a-virtual-device"></a>Step 1: Create a virtual device
 
-다음 단계에 따라 StorSimple 가상 장치를 만듭니다.
+Perform the following steps to create the StorSimple virtual device.
 
-[AZURE.INCLUDE [가상 장치 만들기](../../includes/storsimple-create-virtual-device-u2.md)]
+[AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
 
-이 단계에서 가상 장치 만들기에 실패하는 경우 인터넷에 연결되지 않을 수 있습니다. 자세한 내용은 가상 장치를 만들 때 [인터넷 연결 오류 문제 해결](#troubleshoot-internet-connectivity-errors)로 이동하세요.
+If the creation of the virtual device fails in this step, you may not have connectivity to the Internet. For more information, go to [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors) when creatig a virtual device.
 
 
-### 2단계: 가상 장치 구성 및 등록
+### <a name="step-2:-configure-and-register-the-virtual-device"></a>Step 2: Configure and register the virtual device
 
-이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 첫번째 StorSimple 장치를 구성하고 안전한 위치에 저장하도록 명령한 경우, 서비스 데이터 암호화 키가 만들어집니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
+Before starting this procedure, make sure that you have a copy of the service data encryption key. The service data encryption key was created when you configured your first StorSimple device and you were instructed to save it in a secure location. If you do not have a copy of the service data encryption key, you must contact Microsoft Support for assistance.
 
-다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다. [AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
+Perform the following steps to configure and register your StorSimple virtual device.
+[AZURE.INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
 
-### 3단계: (선택 사항) 장치 구성 설정 수정
+### <a name="step-3:-(optional)-modify-the-device-configuration-settings"></a>Step 3: (Optional) Modify the device configuration settings
 
-다음 섹션에서는 CHAP 또는 StorSimple 스냅숏 관리자를 사용하거나 장치 관리자 암호를 변경하려는 경우 StorSimple 가상 장치에 필요한 장치 구성 설정을 설명합니다.
+The following section describes the device configuration settings needed for the StorSimple virtual device if you want to use CHAP, StorSimple Snapshot Manager or change the Device Administrator password.
 
-#### CHAP 시작자 구성
+#### <a name="configure-the-chap-initiator"></a>Configure the CHAP initiator
 
-이 매개 변수는 볼륨 액세스를 시도 중인 초기자(서버)에서 가상 장치(대상)가 예상하는 자격 증명을 포함합니다. 초기자는 CHAP 사용자 이름 및 CHAP 암호를 제공하여 인증 중 장치를 자체적으로 식별합니다. 자세한 단계를 보려면 [장치에 CHAP 구성](storsimple-configure-chap.md#unidirectional-or-one-way-authentication)으로 이동합니다.
+This parameter contains the credentials that your virtual device (target) expects from the initiators (servers) that are attempting to access the volumes. The initiators will provide a CHAP user name and a CHAP password to identify themselves to your device during this authentication. For detailed steps, go to [Configure CHAP for your device](storsimple-configure-chap.md#unidirectional-or-one-way-authentication).
 
-#### CHAP 대상 구성
+#### <a name="configure-the-chap-target"></a>Configure the CHAP target
 
-이 매개 변수는 CHAP 지원 초기자가 상호 또는 양방향 인증을 요청하면 가상 장치를 사용하는 자격 증명을 포함합니다. 가상 장치는 이 인증 프로세스 중 시작자에게 자체 식별을 위해 역방향 CHAP 사용자 이름 및 역방향 CHAP 암호를 사용합니다. CHAP 대상 설정은 전역 설정입니다. 이 설정을 적용하면 저장소 가상 장치에 연결된 모든 볼륨이 CHAP 인증을 사용합니다. 자세한 단계를 보려면 [장치에 CHAP 구성](storsimple-configure-chap.md#bidirectional-or-mutual-authentication)으로 이동합니다.
+This parameter contains the credentials that your virtual device uses when a CHAP-enabled initiator requests mutual or bi-directional authentication. Your virtual device will use a Reverse CHAP user name and Reverse CHAP password to identify itself to the initiator during this authentication process. Note that CHAP target settings are global settings. When these are applied, all the volumes connected to the storage virtual device will use CHAP authentication. For detailed steps, go to [Configure CHAP for your device](storsimple-configure-chap.md#bidirectional-or-mutual-authentication).
 
-#### StorSimple 스냅숏 관리자 암호 구성
+#### <a name="configure-the-storsimple-snapshot-manager-password"></a>Configure the StorSimple Snapshot Manager password
 
-StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬 및 클라우드 스냅숏의 형태로 StorSimple 장치의 백업을 관리할 수 있습니다.
+StorSimple Snapshot Manager software resides on your Windows host and allows administrators to manage backups of your StorSimple device in the form of local and cloud snapshots.
 
->[AZURE.NOTE] 가상 장치의 경우, Windows 호스트는 Azure 가상 컴퓨터입니다.
+>[AZURE.NOTE] For the virtual device, your Windows host is an Azure virtual machine.
 
-StorSimple 스냅숏 관리자에서 장치를 구성하면, StorSimple 장치 IP 주소 및 암호를 입력하여 저장소 장치를 인증하라는 메시지가 표시됩니다. 자세한 단계를 보려면 [StorSimple 스냅숏 관리자 암호 구성](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)으로 이동합니다.
+When configuring a device in the StorSimple Snapshot Manager, you will be prompted to provide the StorSimple device IP address and password to authenticate your storage device. For detailed steps, go to [Configure StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
-#### 장치 관리자 암호 구성 
+#### <a name="change-the-device-administrator-password"></a>Change the device administrator password 
 
-Windows PowerShell 인터페이스를 사용하여 가상 장치에 액세스할 때 장치 관리자 암호를 입력해야 합니다. 데이터의 보안을 위해, 가상 장치를 사용하려면 먼저 이 암호를 변경해야 합니다. 자세한 단계를 보려면 [장치 관리자 암호 구성](storsimple-change-passwords.md#change-the-device-administrator-password)으로 이동합니다.
+When you use the Windows PowerShell interface to access the virtual device, you will be required to enter a device administrator password. For the security of your data, you are required to change this password before the virtual device can be used. For detailed steps, go to [Configure device administrator password](storsimple-change-passwords.md#change-the-device-administrator-password).
 
-## 가상 장치에 원격으로 연결
-Windows PowerShell 인터페이스를 통해 가상 장치에 대한 원격 액세스를 기본적으로 사용할 수 없습니다. 먼저, 가상 장치에서 원격 관리를 사용한 다음 가상 장치에 액세스하는데 사용할 클라이언트에서 사용하도록 설정해야 합니다.
+## <a name="connect-remotely-to-the-virtual-device"></a>Connect remotely to the virtual device
+Remote access to your virtual device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the virtual device first, and then enable it on the client that will be used to access your virtual device.
 
-원격으로 연결하는 두 단계 프로세스가 아래 설명되어 있습니다.
+The two-step process to connect remotely is detailed below.
 
-### 1단계: 원격 관리 구성
+### <a name="step-1:-configure-remote-management"></a>Step 1: Configure remote management
 
-다음 단계에 따라 StorSimple 가상 장치에 대한 원격 관리를 구성합니다.
+Perform the following steps to configure remote management for your StorSimple virtual device.
 
-[AZURE.INCLUDE [가상 장치에 대해 HTTP를 통해 원격 관리 구성](../../includes/storsimple-configure-remote-management-http-device.md)]
+[AZURE.INCLUDE [Configure remote management via HTTP for virtual device](../../includes/storsimple-configure-remote-management-http-device.md)]
 
-### 2단계: 가상 장치에 원격으로 액세스
+### <a name="step-2:-remotely-access-the-virtual-device"></a>Step 2: Remotely access the virtual device
 
-StorSimple 장치 구성 페이지에서 원격 관리를 활성화한 후, Windows PowerShell 원격을 사용하여 동일한 가상 네트워크 내 다른 가상 컴퓨터에서 가상 장치에 연결할 수 있습니다. 예를 들어, iSCSI에 연결하도록 구성되고 사용된 호스트 VM에서 연결할 수 있습니다. 대부분의 배포에서는 가상 장치에 액세스하기 위해 사용할 수 있는 호스트 VM에 액세스하기 위해 이미 공용 끝점이 열려 있습니다.
+After you have enabled remote management on the StorSimple device configuration page, you can use Windows PowerShell remoting to connect to the virtual device from another virtual machine inside the same virtual network; for example, you can connect from the host VM that you configured and used to connect iSCSI. In most deployments, you will have already opened a public endpoint to access your host VM that you can use for accessing the virtual device.
 
->[AZURE.WARNING] **보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.**
+>[AZURE.WARNING] **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
 
-[StorSimple 장치에 원격으로 연결](storsimple-remote-connect.md)의 절차에 따라 가상 장치에 대한 원격 서비스를 설정해야 합니다.
+You should follow the procedures in [Connecting remotely to your StorSimple device](storsimple-remote-connect.md) to set up remoting for your virtual device.
 
-## 가상 장치에 직접 연결
+## <a name="connect-directly-to-the-virtual-device"></a>Connect directly to the virtual device
 
-가상 장치에 직접 연결할 수도 있습니다. Microsoft Azure 환경 외부 또는 가상 네트워크 외부의 다른 컴퓨터에서 가상 장치에 직접 연결하려는 경우 다음 절차에서 설명한 대로 추가 끝점을 만들어야 합니다.
+You can also connect directly to the virtual device. If you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure. 
 
-가상 장치에 공용 끝점을 만들려면 다음 단계를 수행합니다.
+Perform the following steps to create a public endpoint on the virtual device.
 
-[AZURE.INCLUDE [가상 장치에 공용 끝점 만들기](../../includes/storsimple-create-public-endpoints-virtual-device.md)]
+[AZURE.INCLUDE [Create public endpoints on a virtual device](../../includes/storsimple-create-public-endpoints-virtual-device.md)]
 
-가상 네트워크의 공용 끝점의 수를 최소화하기 때문에 동일한 가상 네트워크 내 다른 가상 컴퓨터에서 연결하는 것이 좋습니다. 이 메서드를 사용하면, 원격 데스크톱 세션을 통해 연결한 다음 로컬 네트워크의 다른 Windows 클라이언트와 같이 가상 컴퓨터를 사용하도록 구성하면 됩니다. 포트를 이미 알 수 있으므로 공용 포트 번호를 추가할 필요가 없습니다.
+We recommend that you connect from another virtual machine inside the same virtual network because this practice minimizes the number of public endpoints on your virtual network. When you use this method, you simply connect to the virtual machine through a Remote Desktop session and then configure that virtual machine for use as you would any other Windows client on a local network. You do not need to append the public port number because the port will already be known.
 
-## StorSimple 가상 장치 작업
+## <a name="work-with-the-storsimple-virtual-device"></a>Work with the StorSimple virtual device
 
-StorSimple 가상 장치를 만들고 구성했으므로 작업을 시작할 준비가 되었습니다. 물리적 StorSimple 장치에서와 같이 가상 장치에서 볼륨 컨테이너, 볼륨 및 백업 정책을 작업할 수 있습니다. 유일한 차이점은 장치 목록에서 가상 장치를 선택했는지 확인해야 한다는 것입니다. 가상 장치에 대한 다양한 관리 작업의 단계별 절차는 [StorSimple 관리자 서비스를 사용하여 가상 장치 관리](storsimple-manager-service-administration.md)를 참조하세요.
+Now that you have created and configured the StorSimple virtual device, you are ready to start working with it. You can work with volume containers, volumes, and backup policies on a virtual device just as you would on a physical StorSimple device; the only difference is that you need to make sure that you select the virtual device from your device list. Refer to [use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md) for step-by-step procedures of the various management tasks for the virtual device.
 
-다음 섹션에서는 가상 장치를 작업할 때 발생하는 차이점 중 일부에 대해 설명합니다.
+The following sections discuss some of the differences you will encounter when working with the virtual device.
 
-### StorSimple 가상 장치 유지 관리
+### <a name="maintain-a-storsimple-virtual-device"></a>Maintain a StorSimple virtual device
 
-소프트웨어 전용 장치이기 때문에 물리적 장치에 대한 유지 관리와 비교할 때 가상 장치의 유지 관리는 최소입니다. 다음 옵션이 있습니다.
+Because it is a software-only device, maintenance for the virtual device is minimal when compared to maintenance for the physical device. You have the following options:
 
-- **소프트웨어 업데이트** – 업데이트 상태 메시지와 함께 소프트웨어가 마지막으로 업데이트된 날짜를 볼 수 있습니다. 새 업데이트를 확인하려는 경우 수동 검사를 수행하려면 페이지 맨 아래에 있는 **업데이트 검색** 단추를 사용할 수 있습니다. 업데이트를 사용할 수 있는 경우 **업데이트 설치**를 클릭하여 설치합니다. 가상 장치에는 단일 인터페이스만 있기 때문에 업데이트 적용 시 약간의 서비스가 중단됨을 의미합니다. 가상 장치가 자동으로 종료되고 다시 시작되어(필요한 경우) 출시된 업데이트를 적용합니다. 단계별 절차를 보려면 [장치 업데이트](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal)로 이동하세요.
-- **지원 패키지** – 지원 패키지를 만들고 업데이트하여 Microsoft 지원이 가상 장치의 문제를 해결할 수 있도록 합니다. 단계별 절차를 보려면 [지원 패키지 만들기 및 관리](storsimple-create-manage-support-package.md)로 이동하세요.
+- **Software updates** – You can view the date that the software was last updated, together with any update status messages. You can use the **Scan updates** button at the bottom of the page to perform a manual scan if you want to check for new updates. If updates are available, click **Install Updates** to install. Because there is only a single interface on the virtual device, this means that there will be a slight service interruption when updates are applied. The virtual device will shut down and restart (if necessary) to apply any updates that have been released. For a step-by-step procedure, go to [update your device](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).
+- **Support package** – You can create and upload a support package to help Microsoft Support troubleshoot issues with your virtual device. For a step-by-step procedure, go to [create and manage a support package](storsimple-create-manage-support-package.md).
 
-### 가상 장치에 대한 저장소 계정
+### <a name="storage-accounts-for-a-virtual-device"></a>Storage accounts for a virtual device
 
-저장소 계정은 StorSimple Manager 서비스, 가상 장치 및 물리적 장치에서 사용하기 위해 만듭니다. 저장소 계정을 만들면 영역은 모든 시스템 구성 요소 전체에 걸쳐 일관성을 보장 하도록 친숙한 이름의 지역 식별자를 사용하는 것이 좋습니다. 가상 장치의 경우, 성능 문제를 방지하도록 모든 구성 요소가 동일한 영역에 있는 것이 중요합니다.
+Storage accounts are created for use by the StorSimple Manager service, by the virtual device, and by the physical device. When you create your storage accounts, we recommend that you use a region identifier in the friendly name to help ensure that the region is consistent throughout all of the system components. For a virtual device, it is important that all of the components be in the same region to prevent performance issues.
 
-단계별 절차를 보려면 [저장소 계정 추가](storsimple-manage-storage-accounts.md#add-a-storage-account)로 이동하세요.
+For a step-by-step procedure, go to [add a storage account](storsimple-manage-storage-accounts.md#add-a-storage-account).
 
-### StorSimple 가상 장치 비활성화
+### <a name="deactivate-a-storsimple-virtual-device"></a>Deactivate a StorSimple virtual device
 
-가상 장치를 비활성화하면 프로비전 시 만들어진 VM 및 리소스를 삭제합니다. 가상 장치가 비활성화된 후 이전 상태로 복원할 수 없습니다. 가상 장치를 비활성화하기 전에 가상 장치에 의존하는 클라이언트와 호스트를 중지하거나 삭제했는지 확인합니다.
+Deactivating a virtual device deletes the VM and the resources created when it was provisioned. After the virtual device is deactivated, it cannot be restored to its previous state. Before you deactivate the virtual device, make sure to stop or delete clients and hosts that depend on it.
 
-가상 장치를 비활성화하면 다음 작업이 수행됩니다.
+Deactivating a virtual device results in the following actions:
 
-- 가상 장치가 제거됩니다.
+- The virtual device is removed.
 
-- OS 디스크 및 가상 장치에 대해 만든 데이터 디스크가 제거됩니다.
+- The OS disk and data disks created for the virtual device are removed.
 
-- 프로비전 중 호스티드 서비스 및 가상 네트워크가 유지됩니다. 사용하지 않는 경우 수동으로 삭제해야 합니다.
+- The hosted service and virtual network created during provisioning are retained. If you are not using them, you should delete them manually.
 
-- 가상 장치에 대해 생성된 클라우드 스냅숏이 보존됩니다.
+- Cloud snapshots created for the virtual device are retained.
 
-단계별 절차는 [StorSimple 장치 비활성화 및 삭제](storsimple-deactivate-and-delete-device.md)를 참조하세요.
+For a step-by-step procedure, go to [Deactivate and delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
 
-장치가 StorSimple 관리자 서비스 페이지에서 비활성화로 표시되는 즉시, **장치** 페이지의 장치 목록에서 가상 장치를 삭제할 수 있습니다.
+As soon as the virtual device is shown as deactivated on the StorSimple Manager service page, you can delete the virtual device from device list on the **Devices** page.
 
 
-### 가상 장치 시작, 중지 및 다시 시작
-StorSimple 물리적 장치와 달리, StorSimple 가상 장치에서 누를 전원 켜짐 또는 꺼짐 단추가 없습니다. 그러나 가상 장치를 중지하고 다시 시작해야 하는 경우가 있을 수 있습니다. 예를 들어, 일부 업데이트에서는 VM을 다시 시작해야 업데이트 프로세스를 완료할 수 있습니다. 가상 장치를 가장 쉽게 시작, 중지 및 다시 시작할 수 있는 방법은 가상 컴퓨터 관리 콘솔을 사용하는 것입니다.
+### <a name="start,-stop-and-restart-a-virtual-device"></a>Start, stop and restart a virtual device
+Unlike the StorSimple physical device, there is no power on or power off button to push on a StorSimple virtual device. However, there may be occasions where you need to stop and restart the virtual device. For example, some updates might require that the VM be restarted to finish the update process. The easiest way for you to start, stop, and restart a virtual device is to use the Virtual Machines Management Console.
 
-관리 콘솔을 보면 가상 장치가 생성된 후 시작되기 때문에 상태는 **실행 중**입니다. 언제든지 가상 컴퓨터를 시작하고 중지하고 다시 시작할 수 있습니다.
+When you look at the Management Console, the virtual device status is **Running** because it is started by default after it is created. You can start, stop, and restart a virtual machine at any time.
 
-[AZURE.INCLUDE [가상 장치 중지 및 다시 시작](../../includes/storsimple-stop-restart-virtual-device.md)]
+[AZURE.INCLUDE [Stop and restart virtual device](../../includes/storsimple-stop-restart-virtual-device.md)]
 
-### 공장 기본값으로 재설정
+### <a name="reset-to-factory-defaults"></a>Reset to factory defaults
 
-가상 장치로 다시 시작하려는 지를 결정한 경우 비활성화하고 삭제한 다음 새 가상 장치를 만들면 됩니다. 물리적 장치를 재설정할 때와 마찬가지로, 새 가상 장치에는 설치된 업데이트가 없으므로 사용하기 전에 업데이트를 확인해야 합니다.
+If you decide that you just want to start over with your virtual device, simply deactivate and delete it and then create a new one. Just like when your physical device is reset, your new virtual device will not have any updates installed; therefore, make sure to check for updates before using it.
 
 
-## 가상 장치에 대한 장애 조치
+## <a name="fail-over-to-the-virtual-device"></a>Fail over to the virtual device
 
-DR(재해 복구)는 StorSimple 가상 장치가 설계된 주요 시나리오 중 하나입니다. 이 시나리오에서는 물리적 StorSimple 장치 또는 전체 데이터 센터를 사용하지 못할 수 있습니다. 다행스럽게도 가상 장치를 사용하여 다른 위치에서 작업을 복원할 수 있습니다. DR 중, 원본 장치의 볼륨 컨테이너는 소유권을 변경하고 가상 장치로 전송됩니다. DR에 대한 필수 구성 요소는 가상 장치가 작성되고 구성되었는지, 볼륨 컨테이너 내의 모든 볼륨을 오프라인으로 전환했는지 및 볼륨 컨테이너에 연결된 클라우드 스냅숏이 있는지 입니다.
+Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual device was designed for. In this scenario, the physical StorSimple device or entire datacenter might not be available. Fortunately, you can use a virtual device to restore operations in an alternate location. During DR, the volume containers from the source device change ownership and are transferred to the virtual device. The prerequisites for DR are that the virtual device has been created and configured, all the volumes within the volume container have been taken offline, and the volume container has an associated cloud snapshot.
 
 >[AZURE.NOTE] 
 >
-> - DR에 대한 보조 장치로 가상 장치를 사용하는 경우에는 8010에 30TB의 표준 저장소가 있고 8020에 64TB의 프리미엄 저장소가 있다는 것을 기억합니다. 높은 용량의 8020 가상 장치가 DR 시나리오에 보다 적합할 수 있습니다.
-> - 업데이트 2를 실행하는 장치에서 사전 업데이트 1 소프트웨어를 실행하는 장치로 장애 조치 또는 복제할 수 없습니다. 하지만 업데이트 2를 실행하는 장치에서 업데이트 1(1.1 또는 1.2)을 실행하는 장치로 장애 조치는 가능합니다.
+> - When using a virtual device as the secondary device for DR, keep in mind that the 8010 has 30 TB of Standard Storage and 8020 has 64 TB of Premium Storage. The higher capacity 8020 virtual device may be more suited for a DR scenario.
+> - You cannot failover or clone from a device running Update 2 to a device running pre-Update 1 software. You can however fail over a device running Update 2 to a device running Update 1 (1.1 or 1.2)
 
-단계별 절차를 보려면 [가상 장치로 장애 조치](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device)로 이동합니다.
+For a step-by-step procedure, go to [failover to a virtual device](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
  
 
-## 가상 장치를 종료하거나 삭제합니다.
+## <a name="shut-down-or-delete-the-virtual-device"></a>Shut down or delete the virtual device
 
-StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도에 맞게 계산 비용 발생을 중지하려는 경우, 가상 장치를 종료할 수 있습니다. 가상 장치를 종료해도 저장소에서 해당 운영 체제 또는 데이터 디스크를 삭제하지 않습니다. 구독에 발생하는 요금은 중단되지만 OS 및 데이터 디스크에 대한 저장소 비용은 계속 청구됩니다.
+If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device. Shutting down the virtual device doesn’t delete its operating system or data disks in storage. It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.
 
-가상 장치를 삭제하거나 종료하는 경우 StorSimple Manager 서비스의 장치 페이지에 **오프라인**으로 표시됩니다. 가상 장치에서 만든 백업도 삭제하려는 경우, 장치를 삭제하거나 비활성화하도록 선택할 수 있습니다. 자세한 내용은 [StorSimple 장치 비활성화 및 삭제](storsimple-deactivate-and-delete-device.md)를 참조하세요.
+If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate or delete the device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate and delete a StorSimple device](storsimple-deactivate-and-delete-device.md).
 
-[AZURE.INCLUDE [가상 장치 종료](../../includes/storsimple-shutdown-virtual-device.md)]
+[AZURE.INCLUDE [Shut down a virtual device](../../includes/storsimple-shutdown-virtual-device.md)]
 
-[AZURE.INCLUDE [가상 장치 삭제](../../includes/storsimple-delete-virtual-device.md)]
+[AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
    
-## 인터넷 연결 오류 문제 해결 
+## <a name="troubleshoot-internet-connectivity-errors"></a>Troubleshoot Internet connectivity errors 
 
-가상 장치를 만드는 동안 인터넷에 연결되지 않은 경우 생성 단계가 실패합니다. 이 오류가 인터넷 연결 때문에 발생하는 경우 문제를 해결하려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
+During the creation of a virtual device, if there is no connectivity to the Internet, the creation step will fail. To troubleshoot if the failure is because of Internet connectivity, perform the following steps in the Azure classic portal:
 
-1. Azure에서 Windows Server 2012 가상 컴퓨터를 만듭니다. 이 가상 컴퓨터는 가상 장치에서 사용한 동일한 저장소 계정, VNet 및 서브넷을 사용해야 합니다. Azure에서 동일한 저장소 계정, VNet 및 서브넷을 사용하는 기존 Windows Server 호스트가 이미 있는 경우 인터넷 연결 문제를 해결하는 데 사용할 수 있습니다.
-2. 이전 단계에서 만든 가상 컴퓨터에 원격 로그인합니다.
-3. 가상 컴퓨터 내의 명령 창을 엽니다(Win + R 및 `cmd`을 입력).
-4. 프롬프트에서 다음 cmd를 실행합니다.
+1. Create a Windows server 2012 virtual machine in Azure. This virtual machine should use the same storage account, VNet and subnet as used by your virtual device. If you already have an existing Windows Server host in Azure using the same storage account, Vnet and subnet, you can also use it to troubleshoot the Internet connectivity.
+2. Remote log into the virtual machine created in the preceding step. 
+3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
+4. Run the following cmd at the prompt.
 
-	`nslookup windows.net`
+    `nslookup windows.net`
 
-5. `nslookup`이 실패하는 경우 인터넷 연결 실패로 인해 가상 장치를 StorSimple Manager 서비스에 등록하지 못하게 됩니다.
-6. 가상 네트워크에 필요한 변경 사항을 수행하여 가상 장치가 "windows.net"과 같은 Azure 사이트에 액세스할 수 있도록 합니다.
+5. If `nslookup` fails, then Internet connectivity failure is preventing the virtual device from registering to the StorSimple Manager service. 
+6. Make the required changes to your virtual network to ensure that the virtual device is able to access Azure sites such as “windows.net”.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [StorSimple Manager 서비스를 사용하여 가상 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
+- Learn how to [use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md).
  
-- [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
+- Understand how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md). 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

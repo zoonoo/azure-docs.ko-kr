@@ -1,11 +1,13 @@
-| 리소스 | 제한 |
+| Resource                          | Limit                                    |
 |-----------------------------------|------------------------------------------|
-| API 호출(배율 단위 기준) | 하루 3천2백만<sup>1</sup> |
-| 데이터 전송(배율 단위 기준) | 하루 161GB<sup>1</sup> |
-| 캐시 | 5GB<sup>1</sup> |
-| 배율 단위 | 무제한<sup>1</sup> |
-| Azure Active Directory 통합| 무제한 사용자 계정<sup>1</sup> |
+| API Calls (per unit of scale)     | 32 million per day<sup>1</sup>            |
+| Data transfer (per unit of scale) | 161 GB per day<sup>1</sup> |
+| Cache                             | 5 GB<sup>1</sup> |
+| Units of scale                    | Unlimited<sup>1</sup> |
+| Azure Active Directory Integration| Unlimited User Accounts<sup>1</sup> |
 
-<sup>1</sup>각 가격 책정 계층에 따라 API 관리 제한이 서로 다릅니다. 가격 책정 계층 및 해당 제한과 배율 옵션을 확인하려면 [API 관리 가격 책정](https://azure.microsoft.com/pricing/details/api-management/)을 참조하세요.
+<sup>1</sup>API Management limits are different for each pricing tier. To see the pricing tiers and their associated limits and scaling options, see [API Management Pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

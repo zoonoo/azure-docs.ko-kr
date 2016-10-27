@@ -1,74 +1,75 @@
 <properties
-	pageTitle="ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정하는 방법 | Microsoft Azure"
-	description="ADAL SDK의 기능을 사용하여 응용 프로그램에서 Single Sign On을 활성화하는 방법입니다. "
-	services="active-directory"
-	documentationCenter=""
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="How to enable cross-app SSO on Android using ADAL | Microsoft Azure"
+    description="How to use the features of the ADAL SDK to enable Single Sign On across your applications. "
+    services="active-directory"
+    documentationCenter=""
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="brandwe"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="09/16/2016"
+    ms.author="brandwe"/>
 
 
-# ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정하는 방법
+
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>How to enable cross-app SSO on Android using ADAL
 
 
-사용자가 자격 증명을 한 번만 입력하고 응용 프로그램에서 자동으로 작동되도록 SSO(Single Sign-on)를 제공하는 것은 이제 고객에게 필요합니다. 종종 전화 통화 또는 문자로 전송하는 코드와 같은 추가 요소(2FA)로 결합된 작은 화면에서 자신의 사용자 이름 및 암호를 입력하는 어려움은 사용자가 제품에 대해 이를 한 번 이상 수행해야 하는 경우 빠른 불만족을 가져 옵니다.
+Providing Single Sign-On (SSO) so that users only need to enter their credentials once and have those credentials automatically work across applications is now expected by customers. The difficulty in entering their username and password on a small screen, often times combined with an additional factor (2FA) like a phone call or a texted code, results in quick dissatisfaction if a user has to do this more than one time for your product. 
 
-또한 다른 응용 프로그램이 office365에서 Microsoft 계정 또는 회사 계정을 사용할 수 있는 ID 플랫폼을 활용하는 경우 고객은 공급 업체에 관계 없이 모든 응용 프로그램에서 자격 증명을 사용할 수 있기를 기대합니다.
+In addition, if you leverage an identity platform that other applications may use such as Microsoft Accounts or a work account from Office365, customers expect that those credentials to be available to use across all their applications no matter the vendor. 
 
-Microsoft ID SDK와 함께 Microsoft ID 플랫폼은 이 모든 어려운 작업을 수행하며 자체 응용 프로그램 제품 내의 SSO 또는 전체 장치에서 브로커 기능 및 Authenticator 응용 프로그램으로 고객을 만족시키는 기능을 제공합니다.
+The Microsoft Identity platform, along with our Microsoft Identity SDKs, does all of this hard work for you and gives you the ability to delight your customers with SSO either within your own suite of applications or, as with our broker capability and Authenticator applications, across the entire device.
 
-이 연습에서는 고객에게 이 혜택을 제공하도록 응용 프로그램 내에서 SDK를 구성하는 방법을 알려줍니다.
+This walkthrough will tell you how to configure our SDK within your application to provide this benefit to your customers.
 
-이 연습은 다음에 적용됩니다.
+This walkthrough applies to:
 
 * Azure Active Directory
 * Azure Active Directory B2C
 * Azure Active Directory B2B
-* Azure Active Directory 조건부 액세스
+* Azure Active Directory Conditional Access
 
-아래 문서는 [Azure Active Directory에 대한 레거시 포털에서 응용 프로그램을 프로비전](active-directory-how-to-integrate.md)하는 방법을 알고 있으며 응용 프로그램을 [Microsoft ID Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android)와 통합했다고 가정합니다.
+Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](active-directory-how-to-integrate.md) as well as have integrated your application with the [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
-## Microsoft ID 플랫폼의 SSO 개념
+## <a name="sso-concepts-in-the-microsoft-identity-platform"></a>SSO Concepts in the Microsoft Identity Platform
 
-### Microsoft ID Broker
+### <a name="microsoft-identity-brokers"></a>Microsoft Identity Brokers
 
-Microsoft는 다른 공급 업체의 응용 프로그램에서 자격 증명의 브리징을 제공할 뿐만 아니라 자격 증명을 확인하는 위치에서 단일 보안 위치가 필요한 특수한 향상된 기능을 허용하는 모든 모바일 플랫폼에 대한 응용 프로그램을 제공합니다. 이를 **브로커**라고 합니다. iOS 및 Android에서 고객이 독립적으로 설치하거나 해당 직원에 대한 일부 또는 모든 장치를 관리하는 회사에서 장치에 푸시할 수 있는 다운로드 가능한 응용 프로그램을 통해 제공됩니다. 이러한 브로커는 일부 응용 프로그램 또는 IT 관리자가 원하는 기능에 따라 전체 장치에 대해서만 보안 관리를 지원합니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다.
+Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors as well as allows for special enhanced features that require a single secure place from where to validate credentials. We call these **brokers**. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. These brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
 
-이러한 브로커를 사용하는 방법 및 고객이 Microsoft ID 플랫폼에 대한 로그인 흐름에서 이를 보는 방법을 이해하려면 자세한 내용을 읽어 보세요.
+To understand how we use these brokers and how your customers might see them in their login flow for the Microsoft Identity platform read on for more information.
 
-### 모바일 장치에 로그인하기 위한 패턴
+### <a name="patterns-for-logging-in-on-mobile-devices"></a>Patterns for logging in on mobile devices
 
-장치에서 자격 증명에 대한 액세스는 Microsoft ID 플랫폼에 대해 두 가지 기본 패턴을 따릅니다.
+Access to credentials on devices follow two basic patterns for the Microsoft Identity platform: 
 
-* 비 브로커 지원 로그인
-* 브로커 지원 로그인
+* Non-broker assisted logins
+* Broker assisted logins
 
-#### 비 브로커 지원 로그인
+#### <a name="non-broker-assisted-logins"></a>Non-broker assisted logins
 
-비 브로커 지원 로그인은 응용 프로그램과 함께 인라인을 발생하고 해당 응용 프로그램에 대한 장치에서 로컬 저장소를 사용하는 로그인 환경입니다. 이 저장소는 응용 프로그램 간에 공유될 수 있지만 자격 증명은 해당 자격 증명을 사용하는 앱 또는 앱의 제품군에 밀접하게 바인딩됩니다. 이는 응용 프로그램 자체 내에서 사용자 이름 및 암호를 입력하는 많은 모바일 응용 프로그램에서 경험할 가능성이 가장 큰 환경입니다.
+Non-broker assisted logins are login experiences that happen inline with the application and use the local storage on the device for that application. This storage may be shared across applications but the credentials are tightly bound to the app or suite of apps using that credential. This is the experience you've most likely experienced in many mobile applications where you enter a username and password within the application itself.
 
-이러한 로그인은 다음과 같은 이점이 있습니다.
+These logins have the following benefits:
 
--  사용자 환경은 응용 프로그램 내에 완전히 존재합니다.
--  응용 프로그램 제품군에 Single Sign-On 환경을 제공하여 동일한 인증서로 서명하는 응용 프로그램에서 자격 증명을 공유할 수 있습니다.
--  로그인 환경 주위의 제어는 로그인 이전 및 이후에 응용 프로그램에 제공됩니다.
+-  User experience exists entirely within the application.
+-  Credentials can be shared across applications that are signed by the same certificate, providing a single sign-on experience to your suite of applications. 
+-  Control around the experience of logging in is provided to the application before and after sign-in.
 
-이러한 로그인은 다음과 같은 단점이 있습니다.
+These logins have the following drawbacks:
 
-- 사용자는 Microsoft ID를 사용하는 모든 앱이 아닌 응용 프로그램이 소유하고 구성한 해당 Microsoft ID 간에서만 Single Sign-On을 경험할 수 있습니다.
-- 조건부 액세스와 같은 고급 비즈니스 기능과 함께 응용 프로그램을 사용하거나 InTune 제품군을 사용할 수 없습니다.
-- 응용 프로그램은 비즈니스 사용자에 대한 인증서 기반 인증을 지원할 수 없습니다.
+- User cannot experience single-sign on across all apps that use a Microsoft Identity, only across those Microsoft Identities that are your application owns and have configured.
+- Your application can not be used with more advanced business features such as Conditional Access or use the InTune suite of products.
+- Your application can't support certificate based authentication for business users.
 
-Microsoft ID SDK가 응용 프로그램의 공유 저장소와 작업하여 SSO를 활성화하는 방법에 대한 표현은 다음과 같습니다.
+Here is a representation of how the Microsoft Identity SDKs work with the shared storage of your applications to enable SSO:
 
 ```
 +------------+ +------------+  +-------------+
@@ -84,35 +85,35 @@ Microsoft ID SDK가 응용 프로그램의 공유 저장소와 작업하여 SSO�
 +--------------------------------------------+
 ```
 
-#### 브로커 지원 로그인
+#### <a name="broker-assisted-logins"></a>Broker assisted logins
 
-브로커 지원 로그인은 브로커 응용 프로그램 내에서 발생하고 Microsoft ID 플랫폼을 활용하는 장치의 모든 응용 프로그램에서 자격 증명을 공유하도록 브로커의 저장소와 보안을 사용하는 로그인 환경입니다. 즉, 응용 프로그램은 사용자가 로그인할 수 있도록 브로커를 사용합니다. iOS 및 Android에서 고객이 독립적으로 설치하거나 사용자에 대한 장치를 관리하는 회사에서 장치에 푸시할 수 있는 다운로드 가능한 응용 프로그램을 통해 제공됩니다. 이 응용 프로그램 유형의 예는 iOS에서 Azure Authenticator 응용 프로그램입니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다. 환경은 플랫폼별로 다르며 올바르게 관리되지 않는 경우 사용자에게 작업 중단이 발생할 수 있습니다. Facebook 응용 프로그램을 설치하고 다른 응용 프로그램에서 Facebook 로그인 기능을 사용하는 경우 아마도 이 패턴과 가장 친숙할 것입니다. Microsoft ID 플랫폼은 동일한 패턴을 활용합니다.
+Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that leverage the Microsoft Identity platform. This means that your applications will rely on the broker in order to sign users in. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of application is the Azure Authenticator application on iOS. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker. The experience varies by platform and can sometimes be disruptive to users if not managed correctly. You're probably most familiar with this pattern if you have the Facebook application installed and use Facebook Login functionality in another application. The Microsoft Identity platform leverages the same pattern.
 
-iOS의 경우 이는 Azure Authenticator 응용 프로그램이 사용자가 로그인하려는 계정을 선택하도록 포그라운드로 오는 동안 응용 프로그램이 백그라운드로 전송되는 "전환" 애니메이션이 됩니다.
+For iOS this leads to a "transition" animation where your application is sent to the background while the Azure Authenticator applications comes to the foreground for the user to select which account they would like to sign in with.  
 
-Android 및 Windows의 경우 계정 선택기가 사용자에게 덜 방해가 되는 응용 프로그램 맨 위에 표시됩니다.
+For Android and Windows the account chooser is displayed on top of your application which is less disruptive to the user.
 
-#### 브로커를 호출하는 방법
+#### <a name="how-the-broker-gets-invoked"></a>How the broker gets invoked
 
-호환되는 브로커가 Azure Authenticator 응용 프로그램과 마찬가지로 장치에 설치된 경우 Microsoft ID SDK는 사용자가 Microsoft ID 플랫폼에서 계정을 사용하여 로그인하려는 것을 나타내는 경우 브로커 호출 작업을 자동으로 수행합니다. 이는 개인 Microsoft 계정, 회사 또는 학교 계정 또는 B2C 및 B2B 제품을 사용하여 Azure에 제공 및 호스트하는 계정일 수 있습니다. 매우 안전한 알고리즘 및 암호화를 사용하여 안전한 방법으로 응용 프로그램에 자격 증명이 요청되고 다시 제공됩니다. 이러한 메커니즘의 정확한 기술적인 세부 사항은 게시되지 않지만 Apple 및 Google과 공동 작업으로 개발되었습니다.
+If a compatible broker is installed on the device, like the Azure Authenticator application, the Microsoft Identity SDKs will automatically do the work of invoking the broker for you when a user indicates they wish to log in using any account from the Microsoft Identity platform. This could be an a personal Microsoft Account, a work or school account, or an account that you provide and host in Azure using our B2C and B2B products. By using extremely secure algorithms and encryption we ensure that the credentials are asked for and delivered back to your application in a secure manner. The exact technical detail of these mechanisms is not published but have been developed with collaboration by Apple and Google.
 
-**개발자는 Microsoft ID SDK가 브로커를 호출할지 비 브로커 지원 흐름을 사용할지를 선택할 수 있습니다.** 그러나 개발자가 브로커 지원 흐름을 사용하지 않도록 선택하는 경우 사용자가 장치에 이미 추가했을 뿐만 아니라 조건부 액세스, Intune 관리 기능 및 인증서 기반 인증과 같은 Microsoft가 고객에게 제공하는 비즈니스 기능으로 응용 프로그램이 사용되는 것을 예방하는 SSO 자격 증명 활용의 이점을 잃게 됩니다.
+**The developer has the choice of if the Microsoft Identity SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of leveraging SSO credentials that the user may have already added on the device as well as prevents their application from being used with business features Microsoft provides its customers such as Conditional Access, Intune Management capabilities, and certificate based authentication. 
 
-이러한 로그인은 다음과 같은 이점이 있습니다.
+These logins have the following benefits:
 
--  사용자는 공급 업체에 관계 없이 모든 응용 프로그램에서 SSO를 경험합니다.
--  응용 프로그램은 조건부 액세스와 같은 고급 비즈니스 기능을 활용하거나 InTune 제품군을 사용할 수 있습니다.
--  응용 프로그램은 비즈니스 사용자에 대한 인증서 기반 인증을 지원할 수 있습니다.
-- 응용 프로그램 및 사용자의 ID로서 더 안전한 로그인 환경은 추가 보안 알고리즘 및 암호화로 브로커 응용 프로그램에 의해 확인됩니다.
+-  User experiences SSO across all their applications no matter the vendor.
+-  Your application can leverage more advanced business features such as Conditional Access or use the InTune suite of products.
+-  Your application can support certificate based authentication for business users.
+- Much more secure sign-in experience as the identity of the application and the user are verified by the broker application with additional security algorithms and encryption.
 
-이러한 로그인은 다음과 같은 단점이 있습니다.
+These logins have the following drawbacks:
 
-- iOS에서 사용자는 자격 증명을 선택하는 동안 응용 프로그램의 환경 밖으로 전환됩니다.
-- 응용 프로그램 내에서 고객에 대한 로그인 환경을 관리하는 기능이 손실됩니다.
+- In iOS the user is transitioned out of your application's experience while credentials are chosen.
+- Loss of the ability to manage the login experience for your customers within your application.
 
 
 
-Microsoft ID SDK가 브로커 응용 프로그램과 작업하여 SSO를 활성화하는 방법에 대한 표현은 다음과 같습니다.
+Here is a representation of how the Microsoft Identity SDKs work with the broker applications to enable SSO:
 
 ```
 +------------+ +------------+   +-------------+
@@ -139,42 +140,42 @@ Microsoft ID SDK가 브로커 응용 프로그램과 작업하여 SSO를 활성�
 
 ```
               
-이 배경 정보를 사용하여 Microsoft ID 플랫폼 및 SDK를 사용하여 응용 프로그램 내에서 SSO를 더 잘 이해하고 구현할 수 있어야 합니다.
+Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
 
 
-## ADAL을 사용하여 앱 간 SSO 활성화
+## <a name="enabling-cross-app-sso-using-adal"></a>Enabling cross-app SSO using ADAL
 
-여기에서 ADAL Android SDK를 사용하여 다음 작업을 수행합니다.
+Here we'll use the ADAL Android SDK to:
 
-- 앱 제품군에 대한 비 브로커 지원 SSO 설정
-- 브로커 지원 SSO에 대한 지원 설정
+- Turn on non-broker assisted SSO for your suite of apps
+- Turn on support for broker-assisted SSO
 
 
-### 비 브로커 지원 SSO에 대한 SSO 설정
+### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Turning on SSO for non-broker assisted SSO
 
-응용 프로그램에서 비 브로커 지원 SSO의 경우 Microsoft ID SDK는 SSO의 복잡성을 관리합니다. 캐시에서 올바른 사용자를 찾고 쿼리할 로그인된 사용자의 목록을 유지 관리하는 것을 포함합니다.
+For non-broker assisted SSO across applications the Microsoft Identity SDKs manage much of the complexity of SSO for you. This includes finding the right user in the cache and maintaining a list of logged in users for you to query. 
 
-소유하고 있는 응용 프로그램에서 SSO를 활성화하려면 다음을 수행해야 합니다.
+To enable SSO across applications you own you need to do the following:
 
-1. 모든 응용 프로그램 사용자가 동일한 클라이언트 ID 또는 응용 프로그램 ID인지 확인합니다.
-* 모든 응용 프로그램이 동일한 SharedUserID 집합을 포함하는지 확인합니다.
-* 모든 응용 프로그램이 저장소를 공유할 수 있도록 Google Play 스토어에서 동일한 서명 인증서를 공유하는지 확인합니다.
+1. Ensure all your applications user the same Client ID or Application ID. 
+* Ensure all your applications have the same SharedUserID set.
+* Ensure that all of your applications share the same signing certificate from the Google Play store so that you can share storage.
 
-#### 1단계: 앱 제품군에서 모든 응용 프로그램에 대한 동일한 클라이언트 ID / 응용 프로그램 ID 사용
+#### <a name="step-1:-using-the-same-client-id-/-application-id-for-all-the-applications-in-your-suite-of-apps"></a>Step 1: Using the same Client ID / Application ID for all the applications in your suite of apps
 
-Microsoft ID 플랫폼이 응용 프로그램에서 토큰을 공유하도록 허용하는지 알려면 각 응용 프로그램은 동일한 클라이언트 ID 또는 응용 프로그램 ID를 공유해야 합니다. 포털에 첫 번째 응용 프로그램을 등록했던 경우에 제공된 고유 식별자입니다.
+In order for the Microsoft Identity platform to know that it's allowed to share tokens across your applications, each of your applications will need to share the same Client ID or Application ID. This is the unique identifier that was provided to you when you registered your first application in the portal. 
 
-동일한 응용 프로그램 ID를 사용하는 경우 다른 앱을 Microsoft ID 서비스에 식별하는 방법을 궁금해 할 수 있습니다. **리디렉션 URI**를 사용하면 됩니다. 각 응용 프로그램에는 등록 포털에 등록한 여러 개의 리디렉션 URI가 있을 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 표시되는 모양의 예는 다음과 같습니다.
+You may be wondering how you will identify different apps to the Microsoft Identity service if it uses the same Application ID. The answer is with the **Redirect URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. An example of how this looks is below:
 
-App1 리디렉션 URI: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
+App1 Redirect URI: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
-App2 리디렉션 URI: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
+App2 Redirect URI: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
 
-App3 리디렉션 URI: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
+App3 Redirect URI: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
 
 ....
 
-이는 동일한 클라이언트 ID / 응용 프로그램 ID 아래에 중첩되며 SDK 구성에서 우리에게 반환하는 리디렉션 URI에 따라 조회됩니다.
+These are nested under the same client ID / application ID and looked up based on the redirect URI you return to us in your SDK configuration. 
 
 ```
 +-------------------+
@@ -200,57 +201,57 @@ App3 리디렉션 URI: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%
 ```
 
 
-*이러한 리디렉션 URI의 형식은 아래에 설명되어 있습니다. 브로커를 지원하려고 하는 한 모든 리디렉션 URI를 사용할 수 있습니다. 이 경우 위와 같이 표시되어야 합니다.*
+*Note that the format of these Redirect URIs are explained below. You may use any Redirect URI unless you wish to support the broker, in which case they must look something like the above*
 
 
-#### 2단계: Android에서 공유 저장소 구성
+#### <a name="step-2:-configuring-shared-storage-in-android"></a>Step 2: Configuring shared storage in Android
 
-`SharedUserID` 설정은 이 문서의 범위를 벗어나지만 [매니페스트](http://developer.android.com/guide/topics/manifest/manifest-element.html)의 Google Android 설명서를 참조하여 학습할 수 있습니다. 중요한 것은 사용자가 sharedUserID가 불리는 이름을 결정하는 것과 모든 응용 프로그램에서 이를 사용하는 것입니다.
+Setting the `SharedUserID` is beyond the scope of this document but can be learned by reading the Google Android documentation on the [Manifest](http://developer.android.com/guide/topics/manifest/manifest-element.html). What is important is that you decide what you want your sharedUserID will be called and use that across all your applications. 
 
-모든 응용 프로그램에 `SharedUserID`가 있으면 SSO를 사용할 준비가 되었습니다.
+Once you have the `SharedUserID` in all your applications you are ready to use SSO.
 
 > [AZURE.WARNING] 
-응용 프로그램에서 저장소를 공유하는 경우 모든 응용 프로그램은 사용자를 삭제하거나 더 심한 경우 응용 프로그램에서 모든 토큰을 삭제할 수 있습니다. 백그라운드 작업을 하기 위해 토큰을 사용하는 응용 프로그램이 있는 경우에 특히 미치는 영향이 커집니다. 저장소를 공유하면 Microsoft ID SDK를 통한 모든 제거 작업에 특히 주의해야 합니다.
+When you share a storage across your applications any application can delete users, or worse delete all the tokens across your application. This is particularly disastrous if you have applications that rely on the tokens to do background work. Sharing storage means that you must be very careful in any and all remove operations through the Microsoft Identity SDKs.
 
-이것으로 끝입니다. 이제 Microsoft ID SDK는 모든 응용 프로그램에서 자격 증명을 공유합니다. 사용자 목록도 응용 프로그램 인스턴스 간에 공유됩니다.
+That's it! The Microsoft Identity SDK will now share credentials across all your applications. The user list will also be shared across application instances.
 
-### 브로커 지원 SSO에 대한 SSO 설정
+### <a name="turning-on-sso-for-broker-assisted-sso"></a>Turning on SSO for broker assisted SSO
 
-장치에 설치되어 있는 모든 브로커를 사용하는 응용 프로그램에 대한 기능은 **기본적으로 해제되어** 있습니다. 브로커와 함께 응용 프로그램을 사용하려면 몇 가지 추가 구성을 수행하고 응용 프로그램에 코드를 추가해야 합니다.
+The ability for an application to use any broker that is installed on the device is **turned off by default**. In order to use your application with the broker you must do some additional configuration and add some code to your application.
 
-수행할 단계는 다음과 같습니다.
+The steps to follow are:
 
-1. MS SDK에 대한 응용 프로그램 코드의 호출에서 브로커 모드 활성화
-2. 새 리디렉션 URI 설정 및 앱과 앱 등록에 이를 제공
-3. Android 매니페스트에서 올바른 사용 권한 설정
+1. Enable broker mode in your application code's call to the MS SDK
+2. Establish a new redirect URI and provide that to both the app and your app registration
+3. Setting up the correct permissions in the Android manifest
 
 
-#### 1단계: 응용 프로그램에서 브로커 모드 활성화
-"설정" 또는 인증 인스턴스의 초기 설정을 만들 때 브로커를 사용하는 응용 프로그램에 대한 기능은 설정되어 있습니다. 코드에서 ApplicationSettings 형식을 설정하여 이 작업을 수행합니다.
+#### <a name="step-1:-enable-broker-mode-in-your-application"></a>Step 1: Enable broker mode in your application
+The ability for your application to use the broker is turned on when you create the "settings" or initial setup of your Authentication instance. You do this by setting your ApplicationSettings type in your code:
 
 ```
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
 
-#### 2단계: URL 구성표와 함께 새 리디렉션 URI 설정
+#### <a name="step-2:-establish-a-new-redirect-uri-with-your-url-scheme"></a>Step 2: Establish a new redirect URI with your URL Scheme
 
-올바른 응용 프로그램에 자격 증명 토큰을 항상 반환하는지 확인하려면 Android 운영 체제에서 확인할 수 있는 방식으로 응용 프로그램에 다시 호출하는지 확인해야 합니다. Android 운영 체제는 Google Play 스토어에서 인증서의 해시를 사용합니다. 불량 응용 프로그램에서 이를 스푸핑할 수 없습니다. 따라서 토큰이 올바른 응용 프로그램에 반환되는지 확인하도록 브로커 응용 프로그램의 URI와 함께 활용합니다. 이 고유한 리디렉션 URI를 응용 프로그램 및 개발자 포털에서 리디렉션 URI로 설정해야 합니다.
+In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the URI of our broker application to ensure that the tokens are returned to the correct application. We require you to establish this unique redirect URI both in your application and set as a Redirect URI in our developer portal. 
 
-리디렉션 URI는 다음의 적절한 형식이어야 합니다.
+Your redirect URI must be in the proper form of:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-예: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
+ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-[Azure 클래식 포털](https://manage.windowsazure.com/)을 사용하여 앱 등록에 이 리디렉션 URI를 지정해야 합니다. Azure AD 앱 등록에 대한 자세한 내용은 [Azure Active Directory와 통합](active-directory-how-to-integrate.md)을 참조하세요.
+This Redirect URI needs to be specified in your app registration using the [Azure classic portal](https://manage.windowsazure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
 
 
-#### 3단계: 응용 프로그램에 올바른 사용 권한 설정
+#### <a name="step-3:-set-up-the-correct-permissions-in-your-application"></a>Step 3: Set up the correct permissions in your application
 
-Android에서 브로커 응용 프로그램은 Android OS의 계정 관리자 기능을 사용하여 응용 프로그램 간에 자격 증명을 관리합니다. Android에서 브로커를 사용하려면 앱 매니페스트에 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. 이 부분은 [여기의 계정 관리자에 대한 Google 설명서](http://developer.android.com/reference/android/accounts/AccountManager.html)에서 자세히 설명합니다.
+Our broker application in Android uses the Accounts Manager feature of the Android OS to manage credentials across applications. In order to use the broker in Android your app manifest must have permissions to use AccountManager accounts. This is discussed in detail in the [Google documentation for Account Manager here] (http://developer.android.com/reference/android/accounts/AccountManager.html)
 
-특히 이러한 사용 권한은 다음과 같습니다.
+In particular, these permissions are:
 
 ```
 GET_ACCOUNTS
@@ -258,8 +259,21 @@ USE_CREDENTIALS
 MANAGE_ACCOUNTS
 ```
 
-### SSO를 구성했습니다.
+### <a name="you've-configured-sso!"></a>You've configured SSO!
 
-이제 Microsoft ID SDK는 자동으로 응용 프로그램에서 자격 증명을 공유하고 장치에 있는 경우 브로커를 호출합니다.
+Now the Microsoft Identity SDK will automatically both share credentials across your applications and invoke the broker if it's present on their device.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO4-->
+
+

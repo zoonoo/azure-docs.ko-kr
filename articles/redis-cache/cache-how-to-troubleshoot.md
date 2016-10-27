@@ -1,126 +1,127 @@
 <properties 
-	pageTitle="Azure Redis Cache 문제를 해결하는 방법 | Microsoft Azure" 
-	description="Azure Redis Cache와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다." 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="How to troubleshoot Azure Redis Cache | Microsoft Azure" 
+    description="Learn how to resolve common issues with Azure Redis Cache." 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
-
-# Azure Redis Cache 문제를 해결하는 방법
-
-이 문서에서는 다음 범주의 Azure Redis Cache 문제를 해결하는 것에 대한 지침을 제공합니다.
-
--	[클라이언트 쪽 문제 해결](#client-side-troubleshooting) - 이 섹션에서는 Azure Redis Cache에 연결하는 응용 프로그램으로 인해 발생하는 문제를 파악하고 해결하는 것에 대한 지침을 제공합니다.
--	[서버 쪽 문제 해결](#server-side-troubleshooting) - 이 섹션에서는 Azure Redis Cache 서버 쪽에서 일어난 문제를 파악하고 해결하는 것에 대한 지침을 제공합니다.
--	[StackExchange.Redis 시간 제한 예외 조사](#stackexchangeredis-timeout-exceptions) -이 섹션에서는 StackExchange.Redis 클라이언트를 사용할 때의 문제 해결에 관한 정보를 제공합니다.
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="sdanie"/>
 
 
->[AZURE.NOTE] 이 가이드에 나오는 문제 해결 단계 중 몇 가지는 Redis 명령을 실행하고 다양한 성능 메트릭을 모니터링하는 것을 포함합니다. 자세한 내용 및 지침은 [추가 정보](#additional-information) 섹션의 문서를 참조합니다.
+# <a name="how-to-troubleshoot-azure-redis-cache"></a>How to troubleshoot Azure Redis Cache
 
-## 클라이언트 쪽 문제 해결
+This article provides guidance for troubleshooting the following categories of Azure Redis Cache issues.
 
-
-이 섹션에서는 클라이언트 응용 프로그램에 부가된 조건 때문에 발생하는 문제 해결에 대해 알아봅니다.
-
--	[클라이언트 쪽의 메모리 부족](#memory-pressure-on-the-client)
--	[트래픽 폭주](#burst-of-traffic)
--	[클라이언트의 높은 CPU 사용량](#high-client-cpu-usage)
--	[클라이언트 쪽 대역폭 초과](#client-side-bandwidth-exceeded)
--	[큰 요청/응답 크기](#large-requestresponse-size)
--	[내 Redis 데이터에서 무엇이 변경되었나요?](#what-happened-to-my-data-in-redis)
-
-### 클라이언트 쪽의 메모리 부족
-
-#### 문제
-
-클라이언트 컴퓨터의 메모리 부족은 Redis 인스턴스에서 지연없이 보낸 데이터 처리를 지연시킬 수 있는 온갖 종류의 성능 문제를 일으킵니다. 메모리가 부족해지면 시스템은 일반적으로 데이터를 실제 메모리로부터 디스크에 있는 가상 메모리로 페이지합니다. 이 *페이지 폴트*가 시스템이 크게 느려진 원인입니다.
-
-#### 측정 
-
-1.	사용 가능한 메모리를 초과하지 않는지 확인하기 위해 컴퓨터에서의 메모리 사용량을 모니터링합니다.
-2.	`Page Faults/Sec` 성능 카운터를 모니터링합니다. 대부분의 시스템은 정상 작동을 하는 중에도 약간의 페이지 폴트가 있으므로 시간 제한에 해당하는 이 페이지 폴트 성능 카운터에서의 급증을 확인합니다.
-
-#### 해결 방법
-
-클라이언트를 더 많은 메모를 가진 더 큰 클라이언트 VM 크기로 그레이드하거나 메모리 소비를 줄이기 위해 메모리 사용 패턴을 자세히 알아봅니다.
+-   [Client side troubleshooting](#client-side-troubleshooting) - This section provides guidelines on identifying and resolving issues caused by the application connecting to Azure Redis Cache.
+-   [Server side troubleshooting](#server-side-troubleshooting) - This section provides guidelines on identifying and resolving issues caused on the Azure Redis Cache server side.
+-   [StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions) - This section provides information on troubleshooting issues when using the StackExchange.Redis client.
 
 
-### 트래픽 폭주
+>[AZURE.NOTE] Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
 
-#### 문제
+## <a name="client-side-troubleshooting"></a>Client side troubleshooting
 
-나쁜 `ThreadPool` 설정과 결합된 트래픽 폭주는 Redis 서버에서 이미 보냈으나 클라이언트 쪽에서 아직 소비되지 않은 데이타의 처리 지연이 발생할 수 있습니다.
 
-#### 측정 
+This section discusses troubleshooting issues that occur because of a condition on the client application.
 
-[다음과 같은](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs) 코드를 사용할 때 `ThreadPool` 통계가 시간에 따라 어떻게 바뀌는지 모니터링합니다. 또한 StackExchange.Redis에서 `TimeoutException` 메시지를 살펴볼 수 있습니다. 다음은 예제입니다:
+-   [Memory pressure on the client](#memory-pressure-on-the-client)
+-   [Burst of traffic](#burst-of-traffic)
+-   [High client CPU usage](#high-client-cpu-usage)
+-   [Client Side Bandwidth Exceeded](#client-side-bandwidth-exceeded)
+-   [Large Request/Response Size](#large-requestresponse-size)
+-   [What happened to my data in Redis?](#what-happened-to-my-data-in-redis)
+
+### <a name="memory-pressure-on-the-client"></a>Memory pressure on the client
+
+#### <a name="problem"></a>Problem
+
+Memory pressure on the client machine leads to all kinds of performance problems that can delay processing of data that was sent by the Redis instance without any delay. When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk. This *page faulting* causes the system to slow down significantly.
+
+#### <a name="measurement"></a>Measurement 
+
+1.  Monitor memory usage on machine to make sure that it does not exceed available memory. 
+2.  Monitor the `Page Faults/Sec` performance counter. Most systems will have some page faults even during normal operation, so watch for spikes in this page faults performance counter which correspond with timeouts.
+
+#### <a name="resolution"></a>Resolution
+
+Upgrade your client to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consuption.
+
+
+### <a name="burst-of-traffic"></a>Burst of traffic
+
+#### <a name="problem"></a>Problem
+
+Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
+
+#### <a name="measurement"></a>Measurement 
+
+Monitor how your `ThreadPool` statistics change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can also look at the `TimeoutException` message from StackExchange.Redis. Here is an example :
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-위의 메시지에는 몇 가지 흥미로운 문제가 있습니다.
+In the above message, there are several issues that are interesting:
 
- 1. `IOCP` 섹션과 `WORKER` 섹션에 `Min` 값보다 큰 `Busy` 값이 있습니다. 이는 `ThreadPool` 설정이 조정을 필요로 한다는 의미입니다.
- 2. 또한 `in: 64221`도 볼 수 있습니다: 이는 64211 바이트를 커널 소켓 계층에서 받았지만 응용 프로그램 (예: StackExchange.Redis)에서 아직 읽지 않았음을 나타냅니다. 이는 일반적으로 응용 프로그램이 데이터를 서버에서 보내는 만큼 빠르게 서버로부터 읽지 못하고 있음을 의미합니다.
+ 1. Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This means that your `ThreadPool` settings need adjusting.
+ 2. You can also see `in: 64221`. This indicates that 64211 bytes have been received at the kernel socket layer but haven't yet been read by the application (e.g. StackExchange.Redis). This typically means that your application isn't reading data from the network as quickly as the server is sending it to you.
 
-#### 해결 방법
+#### <a name="resolution"></a>Resolution
 
-버스트 시나리오 하에서 스레드 풀이 신속하게 규모 확장을 하도록 [스레드 풀 설정](https://gist.github.com/JonCole/e65411214030f0d823cb)을 구성합니다.
-
-
-### 클라이언트의 높은 CPU 사용량
-
-#### 문제
-
-클라이언트 쪽에서의 높은 CPU 사용량은 수행하도록 요청된 작업을 시스템이 처리할 수 없음을 나타냅니다. 이는 Redis가 응답을 매우 신속하게 전송하더라도 클라이언트가 Redis의 응답을 적시에 처리하지 못할 수도 있음을 의미합니다.
-
-#### 측정
-
-Azure 포털을 통해 또는 연결된 성능 카운터를 통해 시스템 전반 CPU 사용량을 모니터링합니다. 단일 프로세스는 CUP 사용량이 낮은 동시에 전체 시스템 CPU 사룡량을 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다. [트래픽 폭주](#burst-of-traffic) 섹션에서 설명한 대로 높은 CPU 사용량의 결과, `TimeoutException` 오류 메시지에서 높은 `in: XXX` 값을 보게 될 것입니다.
-
->[AZURE.NOTE] StackExchange.Redis 1.1.603 이상은 `TimeoutException` 오류 메시지에 `local-cpu` 매트릭을 포함합니다. [StackExchange.Redis NuGet 패키지](https://www.nuget.org/packages/StackExchange.Redis/) 최신 버전을 사용 중인지 확인합니다. 제한 시간에 더욱 견고하도록 만들기 위해 코드 속의 버그를 지속적으로 수정하고 있으므로 최신 버전을 갖는 것이 중요합니다.
-
-#### 해결 방법
-
-더 많은 CPU 용량을 가진 더 큰 VM 크기로 업그레이드하거나 CPU 스파이크의 원인이 무엇인지 확인합니다.
+Configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool will scale up quickly under burst scenarios.
 
 
+### <a name="high-client-cpu-usage"></a>High client CPU usage
 
-### 클라이언트 쪽 대역폭 초과
+#### <a name="problem"></a>Problem
 
-#### 문제
+High CPU usage on the client is an indication that the system cannot keep up with the work that it has been asked to perform. This means that the client may fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
 
-크기가 다른 클라이언트 컴퓨터는 어느 정도의 네트워크 대역폭을 사용할 수 있는지에 제한이 있습니다. 클라이언트가 사용 가능한 대역폭을 초과하면 서버에서 보내는 만큼 신속하게 클라이언트 쪽에서 데이터가 처리되지 않습니다. 이 때문에 시간 제한에 걸릴 수 있습니다.
+#### <a name="measurement"></a>Measurement
 
-#### 측정
+Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. As a result of high CPU, you may also see high `in: XXX` values in `TimeoutException` error messages as described in the [Burst of traffic](#burst-of-traffic) section.
 
-[다음과 같은](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs) 코드를 사용할 때 대역폭 사용량이 시간에 따라 어떻게 바뀌는지 모니터링합니다. 이 코드는 (Azure 웹 사이트와 같이) 권한이 제한된 일부 환경에서 성공적으로 실행되지 않을 수도 있습니다.
+>[AZURE.NOTE] StackExchange.Redis 1.1.603 and later includes the `local-cpu` metric in `TimeoutException` error messages. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
 
-#### 해결 방법 
+#### <a name="resolution"></a>Resolution
 
-클라이언트 VM 크기를 늘리거나 네트워크 대역폭 사용량을 줄입니다.
+Upgrade to a larger VM size with more CPU capacity or investigate what is causing CPU spikes. 
 
 
-### 큰 요청/응답 크기
 
-#### 문제
+### <a name="client-side-bandwidth-exceeded"></a>Client side bandwidth exceeded
 
-큰 요청/응답으로 시간 초과가 발생할 수 있습니다. 예를 들어 클라이언트에 구성된 시간 제한 값이 1초라고 가정합시다. 응용 프로그램이 (동일한 실제 네트워크 연결을 사용하여) 동시에 두 키(예:'A'와 'B')를 요청합니다 대부분 클라이언트는 두 요청 ‘A’와 ‘B’를 응답을 기다리지 않고 연달아 서버에 전송되는 것과 같은 요청 “파이프라인”을 지원합니다. 서버는 응답을 동일한 순서로 전송합니다. 응답 'A'가 큰 경우 후속 요청을 위한 제한 시간 대부분을 다 써버릴 수 있습니다.
+#### <a name="problem"></a>Problem
 
-다음 예제에서는 이 시나리오를 보여 줍니다. 이 시나리오에서는 요청 'A'와 'B'가 신속하게 전송되고, 서버가 응답 'A'와 'B'를 신속하게 보내기 시작하지만, 데이터 전송 시간 때문에 서버가 신속하게 응답했어도 'B'가 다른 요청 뒤에 갇혀 꼼짝 못하고 시간이 초과되어 버립니다.
+Different sized client machines have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth, then data will not be processed on the client side as quickly as the server is sending it. This can lead to timeouts.
 
-    |-------- 1 Second Timeout (A)----------|
-    |-Request A-|
+#### <a name="measurement"></a>Measurement
+
+Monitor how your Bandwidth usage change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Note that this code may not run successfully in some environments with restricted permissions (like Azure web sites).
+
+#### <a name="resolution"></a>Resolution 
+
+Increase Client VM size or reduce network bandwidth consumption.
+
+
+### <a name="large-request/response-size"></a>Large Request/Response Size
+
+#### <a name="problem"></a>Problem
+
+A large request/response can cause timeouts. As an example, Suppose your timeout value configured on your client is 1 second. Your application requests two keys (e.g. 'A' and 'B') at the same time (using the same physical network connection). Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses. The server will send the responses back in the same order. If response 'A' is large enough it can eat up most of the timeout for subsequent requests. 
+
+The following example demonstrates this scenario. In this scenario, Request 'A' and 'B' are sent quickly, the server starts sending responses 'A' and 'B' quickly, but because of data transfer times, 'B' get stuck behind the other request and times out even though the server responded quickly.
+
+  	|-------- 1 Second Timeout (A)----------|
+  	|-Request A-|
          |-------- 1 Second Timeout (B) ----------|
          |-Request B-|
                 |- Read Response A --------|
@@ -128,173 +129,187 @@ Azure 포털을 통해 또는 연결된 성능 카운터를 통해 시스템 전
 
 
 
-#### 측정
+#### <a name="measurement"></a>Measurement
 
-이것은 측정하기 어렵습니다. 기본적으로 큰 요청 및 응답을 추적하도록 클라이언트 코드를 계측해야 합니다.
+This is a difficult one to measure. You basically have to instrument your client code to track large requests and responses. 
 
-#### 해결 방법
+#### <a name="resolution"></a>Resolution
 
-1.	Redis는 몇 개의 큰 값보다는 많은 수의 작은 값에 대해 최적화됩니다. 선호하는 해결 방법은 데이터를 더 작은 값으로 분할하는 것입니다. 왜 더 작은 값이 추천되는지에 대한 상세한 내용은 [redis를 위한 이상적인 값 크기 범위는 무엇입니까? 100KB는 너무 큽니다?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)게시물을 참조하세요.
-2.	더 높은 대역폭 기능을 얻어 더 큰 응답에 대한 데이터 전송 시간을 줄이기 위해 (클라이언트와 Redis 캐시 서버에 대해) VM의 크기를 늘립니다. 서버에만 또는 클라이언트에만 대역폭을 늘리는 것은 충분하지 않을 수도 있음을 유의하세요. 대역폭 사용량을 측정하고 현재 VM 크기의 용량과 비교합니다.
-3.	사용하는 `ConnectionMultiplexer` 개체의 수와 다른 연결을 통해 라운드 로빈 요청을 늘립니다.
-
-
-### 내 Redis 데이터에서 무엇이 변경되었나요?
-
-#### 문제
-
-특정 데이터가 Azure Redis Cache 인스턴스에 있을 것이라 예상했지만 그곳에 없는 듯이 보입니다.
-
-##### 해결 방법
-
-가능한 원인 및 해결 방법은 [내 Redis 데이터에서 무엇이 변경되었나요?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)를 참조하세요.
+1.  Redis is optimized for a large number of small values, rather than a few large values. The preferred solution is to break up your data into related smaller values. See the [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details around why smaller values are recommended.
+2.  Increase the size of your VM (for client and Redis Cache Server), to get higher bandwidth capabilities, reducing data transfer times for larger responses. Note that getting more bandwidth on just the server or just on the client may not be enough. Measure your bandwidth usage and compare it to the capabilities of the size of VM you currently have.
+3.  Increase the number of `ConnectionMultiplexer` objects you use and round-robin requests over different connections.
 
 
-## 서버 쪽 문제 해결
+### <a name="what-happened-to-my-data-in-redis?"></a>What happened to my data in Redis?
 
-이 섹션에서는 캐시 서버에 부가된 조건 때문에 발생하는 문제 해결에 대해 알아봅니다.
+#### <a name="problem"></a>Problem
 
--	[서버 쪽의 메모리 부족](#memory-pressure-on-the-server)
--	[높은 CPU 사용량 / 서버 부하](#high-cpu-usage-server-load)
--	[서버 쪽 대역폭 초과](#server-side-bandwidth-exceeded)
+I expected for certain data to be in my Azure Redis Cache instance but it didn't seem to be there.
 
-### 서버 쪽의 메모리 부족
+##### <a name="resolution"></a>Resolution
 
-#### 문제
-
-서버 쪽의 메모리 부족은 요청 처리를 지연시킬 수 있는 온갖 종류의 성능 문제를 일으킵니다. 메모리가 부족해지면 시스템은 일반적으로 데이터를 실제 메모리로부터 디스크에 있는 가상 메모리로 페이지합니다. 이 *페이지 폴트*가 시스템이 크게 느려진 원인입니다. 이 메모리 부족의 몇 가지 가능한 원인은 다음과 같습니다.
-
-1.	캐시를 데이터로 최대 용량까지 채웠습니다.
-2.	Redis가 높은 메모리 조각화를 보입니다-큰 개체 저장이 원인이 되어 일어나는 경우가 가장 많습니다.(Redis 작은 개체에 대해 최적화됩니다-상세한 내용은 [redis를 위한 이상적인 값 크기 범위는 무엇입니까? 100KB는 너무 큽니다?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)게시물을 참조하세요)
-
-#### 측정
-
-Redis는 이 문제를 식별하는 데 도움이 되는 두 개의 메트릭을 노출합니다. 첫째는 `used_memory`이고 다른 하나는 `used_memory_rss`입니다. [이러한 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)은 Azure 포털에서 또는 [Redis INFO](http://redis.io/commands/info) 명령을 통해 사용할 수 있습니다.
-
-#### 해결 방법
-
-메모리 사용량의 정상 유지를 위해 몇 가지 가능한 변경은 다음과 같습니다.
-
-1. [메모리 정책을 구성](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)하고 키에 만료 시간을 설정합니다. 조각화가 있을 경우 이것으로는 부족할 수 있습니다.
-2. 메모리 조각화를 보완하기 위해 충분히 큰 [maxmemory-reserved 값을 구성합니다](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
-3. 크게 캐시된 개체를 더 작은 관련 개체로 분할합니다.
-4. 더 큰 캐시 크기로 [확장합니다](cache-how-to-scale.md).
-5. [Redis 클러스터를 사용할 수 있는 프리미엄 캐시](cache-how-to-premium-clustering.md)를 사용하고 있다면, [분할된 데이터베이스 수를 늘릴](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache) 수 있습니다.
-
-### 높은 CPU 사용량 / 서버 부하
-
-#### 문제
-
-높은 CPU 사용량은 Redis가 응답을 매우 신속하게 전송하더라도 클라이언트 쪽이 Redis의 응답을 적시에 처리하지 못할 수도 있음을 의미할 수 있습니다.
-
-#### 측정
-
-Azure 포털을 통해 또는 연결된 성능 카운터를 통해 시스템 전반 CPU 사용량을 모니터링합니다. 단일 프로세스는 CUP 사용량이 낮은 동시에 전체 시스템 CPU 사룡량을 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다.
-
-#### 해결 방법
-
-더 많은 CPU 용량을 가진 더 큰 캐시 계층으로 [확장](cache-how-to-scale.md)하거나 CPU 스파이크의 원인이 무엇인지 확인합니다.
-
-### 서버 쪽 대역폭 초과
-
-#### 문제
-
-크기가 다른 캐시 인스턴스는 어느 정도의 네트워크 대역폭을 사용할 수 있는지에 제한이 있습니다. 서버가 사용 가능한 대역폭을 초과하면 데이터가 클라이언트에게 신속하게 전송되지 않습니다. 이 때문에 시간 제한에 걸릴 수 있습니다.
-
-#### 측정
-
-지정한 보고 간격 동안 캐시에서 읽은 초당 메가바이트(MB/s) 단위의 데이터 양인 `Cache Read` 메트릭을 모니터링할 수 있습니다. 이 값은 캐시에서 사용되는 네트워크 대역폭에 해당합니다. 서버 쪽 네트워크 대역폭 제한에 대한 경고를 설정하려면, `Cache Read` 카운터를 사용하여 경고를 생성합니다. 여러분의 판독값을 다양한 캐시 가격 책정 계층 및 크기에 대해 관찰된 대역폭 제한은 [이 테이블](cache-faq.md#cache-performance)의 값과 비교합니다.
-
-#### 해결 방법
-
-가격 책정 계층과 캐시 크기에 대해 관찰된 최대 대역폭에 지속적으로 접근한다면 [이 테이블](cache-faq.md#cache-performance)의 값을 가이드로 사용하여 더 큰 네트워크 대역폭을 가진 가격 책정 계층 또는 크기로 [확장](cache-how-to-scale.md) 하는 것을 고려합니다.
+See [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) for possible causes and resolutions.
 
 
-## StackExchange.Redis 시간 제한 예외
+## <a name="server-side-troubleshooting"></a>Server side troubleshooting
 
-StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeout`이라는 이름의 구성 설정을 사용합니다. 동기 호출이 규정된 시간 내에 완료되지 않으면, StackExchange.Redis 클라이언트는 다음 예제와 유사하게 시간 초과 오류 메시지를 냅니다.
+This section discusses troubleshooting issues that occur because of a condition on the cache server.
 
-	System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+-   [Memory Pressure on the server](#memory-pressure-on-the-server)
+-   [High CPU usage / Server Load](#high-cpu-usage-server-load)
+-   [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded)
+
+### <a name="memory-pressure-on-the-server"></a>Memory Pressure on the server
+
+#### <a name="problem"></a>Problem
+
+Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk. This *page faulting* causes the system to slow down significantly. There are several possible causes of this memory pressure: 
+
+1.  You have filled the cache to full capacity with data. 
+2.  Redis is seeing high memory fragmentation - most often caused by storing large objects (Redis is optimized for a small objects - See the [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details). 
+
+#### <a name="measurement"></a>Measurement
+
+Redis exposes two metrics that can help you identify this issue. The first is `used_memory` and the other is `used_memory_rss`. [These metrics](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) are available in the Azure Portal or through the [Redis INFO](http://redis.io/commands/info) command.
+
+#### <a name="resolution"></a>Resolution
+
+There are several possible changes that you can make to help keep memory usage healthy:
+
+1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. Note that this may not be sufficient if you have fragmentation.
+2. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
+3. Break up your large cached objects into smaller related objects.
+4. [Scale](cache-how-to-scale.md) to a larger cache size.
+5. If you are using a [premium cache with Redis cluster enabled](cache-how-to-premium-clustering.md) you can [increase the number of shards](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
+
+### <a name="high-cpu-usage-/-server-load"></a>High CPU usage / Server Load
+
+#### <a name="problem"></a>Problem
+
+High CPU usage can mean that the client side can fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
+
+#### <a name="measurement"></a>Measurement
+
+Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts.
+
+#### <a name="resolution"></a>Resolution
+
+[Scale](cache-how-to-scale.md) to a larger cache tier with more CPU capacity or investigate what is causing CPU spikes. 
+
+### <a name="server-side-bandwidth-exceeded"></a>Server Side Bandwidth Exceeded
+
+#### <a name="problem"></a>Problem
+
+Different sized cache instances have limitations on how much network bandwidth they have available. If the server exceeds the available bandwidth, then data will not be sent to the client as quickly. This can lead to timeouts.
+
+#### <a name="measurement"></a>Measurement
+
+You can monitor the `Cache Read` metric, which is the amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, you can create them using this `Cache Read` counter. Compare your readings with the values in [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
+
+#### <a name="resolution"></a>Resolution
+
+If you are consistently near the observed maximum bandwidth for your pricing tier and cache size, consider [scaling](cache-how-to-scale.md) to a pricing tier or size that has greater network bandwidth, using the values in [this table](cache-faq.md#cache-performance) as a guide.
 
 
-이 오류 메시지에는 문제의 원인과 가능한 해결로 이끌 메트릭이 들어 있습니다. 다음 테이블에는 오류 메시지 메트릭에 대한 세부 정보가 있습니다.
+## <a name="stackexchange.redis-timeout-exceptions"></a>StackExchange.Redis timeout exceptions
 
-| 오류 메시지 메트릭 | 세부 정보 |
+StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations which has a default value  of 1000 ms. If a synchronous call doesn’t complete in the stipulated time, the StackExchange.Redis client throws a timeout error similar to the following example.
+
+    System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+
+
+This error message contains metrics that can help point you to the cause and possible resolution of the issue. The following table contains details about the error message metrics.
+
+| Error message metric | Details                                                                                                                                                                                                                                          |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| inst | 마지막 시간 조각에서: 0 명령이 발급되었습니다 |
-| mgr | 소켓 관리자가 OS에게 해야 할 일이 있는 소켓을 나타내게 하고자 `socket.select`을 수행합니다. 기본적으로: 판독기는 해야 할 일이 없다고 생각하기 때문에 네트워크에서 적극적으로 읽지 않습니다. |
-| 큐 | 진행 중인 작업이 총 73건 있습니다. |
-| qu | 진행 중인 작업의 6건이 보내지 않은 큐에 있고 아직 아웃바운드 네트워크에 작성되지 않았습니다. |
-| qs | 진행 중인 작업의 67건은 서버로 보내졌지만 아직 응답이 없습니다. 응답은 `Not yet sent by the server` 또는 `sent by the server but not yet processed by the client.`일 수 있습니다. |
-| qc | 진행 중인 작업의 0건이 응답을 보았으나 완료 루프에서 대기하는 까닭에 아직 완료로 표시되지 않았습니다. |
-| wr | 활성 기록기가 있습니다(보내지 않은 요청 6건이 무시되지 않았음을 의미합니다)바이트/activewriters |
-| in | 활성 판독기가 없으며 NIC 바이트/activereaders에서 판독하는 데 사용 가능한 바이트는 0입니다. |
+| inst       | In the last time slice: 0 commands have been issued                                                                                                                                                                                              |
+| mgr        | The socket manager is performing `socket.select` which means it is asking the OS to indicate a socket that has something to do; basically: the reader is not actively reading from the network because it doesn't think there is anything to do |
+| queue      | There are 73 total in-progress operations                                                                                                                                                                                                        |
+| qu         | 6 of the in-progress operations are in the unsent queue and have not yet been written to the outbound network                                                                                                                                                           |
+| qs         | 67 of he in-progress operations have been sent to the server but a response is not yet available. The response could be `Not yet sent by the server` or `sent by the server but not yet processed by the client.`                                                   |
+| qc         | 0 of the in-progress operations have seen replies but have not yet been marked as complete due to waiting on the completion loop                                                                                                                                      |
+| wr         | There is an active writer (meaning the 6 unsent requests are not being ignored) bytes/activewriters                                                                                                                                                   |
+| in         | There are no active readers and zero bytes are available to be read on the NIC bytes/activereaders                                                                                                                                               |
 
 
-### 조사 단계
+### <a name="steps-to-investigate"></a>Steps to investigate
 
-1. 모범 사례로 StackExchange.Redis 클리이언트를 사용할 때 연결하기 위해 다음 패턴을 사용하는지 확인합니다.
-
-
-	    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	    {
-	        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-	
-	    });
-	
-	    public static ConnectionMultiplexer Connection
-	    {
-	        get
-	        {
-	            return lazyConnection.Value;
-	        }
-	    }
+1. As a best practice make sure you are using the following pattern to connect when using the StackExchange.Redis client.
 
 
-    자세한 내용은 [StackExchange.Redis를 사용하여 캐시에 연결](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)을 참조하세요.
+        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+        {
+            return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+    
+        });
+    
+        public static ConnectionMultiplexer Connection
+        {
+            get
+            {
+                return lazyConnection.Value;
+            }
+        }
 
-2. Azure Redis Cache와 클라이언트 응용 프로그램이 Azure에서 동일한 지역에 있는지 확인합니다. 예를 들어 캐시는 미국 동부에 있는 반면에 클라이언트는 미국 서부에 있고 요청이 `synctimeout` 간격 내에 완료되지 않을 때 시간 초과가 일어날 수 있거나 또는 로컬 개발 컴퓨터에서 디버깅을 할 때 시관 초과가 일어날 수 있습니다.
 
-    동일한 Azure 지역에 캐시와 클라이언트를 두도록 하는 것이 좋습니다. 지역 간 호출을 포함하는 시나리오가 있다면, `synctimeout` 속성을 연결 문자열에 포함함으로써 `synctimeout` 간격을 기본값인 1000ms 간격보다 높은 값에 설정해야 합니다. 다음 예제는 StackExchange.Redis 캐시 연결 문자열을 2000ms의 `synctimeout`과 연결하는 코드 조각을 보여줍니다.
+    For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+
+2. Ensure that your Azure Redis Cache and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you are debugging from your local development machine. 
+
+    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000 ms interval by including a `synctimeout` property in the connection string. The following example shows a StackExchange.Redis cache connection string snippet with a `synctimeout` of 2000 ms.
 
         synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
 
-3. [StackExchange.Redis NuGet 패키지](https://www.nuget.org/packages/StackExchange.Redis/) 최신 버전을 사용 중인지 확인합니다. 제한 시간에 더욱 견고하도록 만들기 위해 코드 속의 버그를 지속적으로 수정하고 있으므로 최신 버전을 갖는 것이 중요합니다.
+3. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
 
-4. 서버나 클라이언트에 걸린 대역폭 제한에 묶인 요청이 있다면, 완료하는 데 더 많은 시간이 걸려 시간 초과의 원인이 됩니다. 시간 초과가 서버의 네트워크 대역폭 때문인지 보려면 [서버 쪽 대역폭 초과](#server-side-bandwidth-exceeded)를 참조하세요. 시간 초과가 클라이언트 네트워크 대역폭 때문인지 보려면 [클라이언트 쪽 대역폭 초과](#client-side-bandwidth-exceeded)를 참조하세요.
+4. If there are requests that are getting bound by bandwidth limitations on the server or client, it will take longer for them to complete and thereby cause timeouts. To see if your timeout is due to network bandwidth on the server, see [Server side bandwidth exceeded](#server-side-bandwidth-exceeded). To see if your timeout is due to client network bandwidth, see [Client side bandwidth exceeded](#client-side-bandwidth-exceeded).
 
-6. CPU가 서버 또는 클라이언트에 바인딩됩니까?
-	-	CPU가 클라이언트에 바인딩되어 요청이 `synctimeout` 간격 내에 처리될 수가 없게 되어 시간 초과가 일어나는지 확인합니다. 더 큰 클라이언트 크기로 이동하거나 부하를 분산한다면 이것을 제어하는데 도움이 됩니다.
-	-	서버에서 CPU가 서버에 바인딩되는지 `CPU` [캐시 성능 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 모니터링하여 확인합니다. Redis가 CPU에 바인딩된 동안 들어오는 요청은 시간 초과를 초래할 수 있습니다. 이 문제를 해결하기 위해 부하를 프리미엄 캐시에서 여러 분할된 데이터베이스로 분산하거나 더 큰 크기나 가격 책정 계층으로 업그레이드할 수 있습니다. 자세한 내용은 [서버 쪽 대역폭 초과](#server-side-bandwidth-exceeded)를 참조합니다.
+6. Are you getting CPU bound on the server or on the client?
+    -   Check if you are getting bound by CPU on your client which could cause the request to not be processed within the `synctimeout` interval, thus causing a timeout. Moving to a larger client size or distributing the load can help to control this. 
+    -   Check if you are getting CPU bound on the server by monitoring the `CPU` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Requests coming in while Redis is CPU bound can cause those requests to timeout. To address this you can distribute the load across multiple shards in a premium cache, or upgrade to a larger size or pricing tier. For more information, see [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded).
 
-7. 서버에서 처리하는데 시간이 오래 걸리는 명령이 있습니까? Redis 서버에서 처리하는 데 시간이 오래 걸리는 장기 실행 명령은 시간 초과의 원인이 될 수 있습니다. 장기 실행 명령의 몇 가지 예로 다수의 키 작동을 요하는 `mget`, `keys *` 또는 형편없게 짜여진 lua 스크립트 등이 있습니다. 예상보다 오래 걸리는 요청이 있는지 확인하기 위해 Redis cli 클라이언트를 사용 하여 Azure Redis Cache 인스턴스에 연결하거나 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 [SlowLog](http://redis.io/commands/slowlog) 명령을 실행할 수 있습니다. Redis 서버와 StackExchange.Redis는 작은 수의 큰 요청보다 많은 수의 작은 요청을 위해 최적화되어 있습니다. 데이터를 더 작은 청크로 분할한다면 다음을 향상시킵니다.
+7. Are there commands taking long time to process on the server? Long running commands that are taking long time to process on the redis-server can cause timeouts. Some examples of long running commands are `mget` with large numbers of keys, `keys *` or poorly written lua scripts. You can connect to your Azure Redis Cache instance using the redis-cli client or use the [Redis Console](cache-configure.md#redis-console) and run the [SlowLog](http://redis.io/commands/slowlog) command to see if there are requests taking longer than expected. Redis Server and StackExchange.Redis are optimized for many small requests rather than fewer large requests. Splitting your data into smaller chunks may improve things here. 
 
-    Redis cli 및 stunnel를 사용하여 Azure Redis 캐시 SSL 끝점에 연결 하는 방법에 대한 자세한 내용은 [Redis용 ASP.NET 세션 상태 공급자 미리 보기 릴리스 발표](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물을 참조하세요. 자세한 내용은 [SlowLog](http://redis.io/commands/slowlog)를 참조하세요.
+    For information on connecting to the Azure Redis Cache SSL endpoint using redis-cli and stunnel, see the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post. For more information, see [SlowLog](http://redis.io/commands/slowlog).
 
-8. 높은 Redis 서버 부하로 시간 초과가 발생할 수 있습니다. `Redis Server Load` [캐시 성능 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 모니터링함으로써 서버 부하를 모니터링할 수 있습니다. 100(최대 값)이란 서버 부하는 redis 서버가 요청을 처리하느라 유휴 시간이 전혀 없이 사용 중이었음을 나타냅니다. 특정 요청이 서버 기능의 전부를 차지하는지 확인하려면 이전 단락에서 설명한 대로 SlowLog 명령을 실행합니다. 자세한 내용은 [높은 CPU 사용량/서버 로드](#high-cpu-usage-server-load)를 참조하세요.
+8. High Redis server load can cause timeouts. You can monitor the server load by monitoring the `Redis Server Load` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). A server load of 100 (maximum value) signifies that the redis server has been busy, with no idle time, processing requests. To see if certain requests are taking up all of the server capability, run the SlowLog command, as described in the previous paragraph. For more information, see [High CPU usage / Server Load](#high-cpu-usage-server-load).
 
-9. 클라이언트 쪽에서 네트워크 문제를 일으킬 만한 이벤트가 있었습니까? 클라이언트 인스턴스 수를 위아래로 조정하거나, 클라이언트 새 버전을 배포하거나, 자동 크기 조정을 사용하도록 설정되었는지 클라이언트(웹, 작업자 역할 또는 Iaas VM)를 확인합니다.우리 테스트에서 자동 크기 조정이나 위/아래 크기 조정을 하면 아웃바운드 네트워크 연결이 몇초간 끊어진다는 점이 밝혀졌습니다. StackExchange.Redis 코드는 이러한 이벤트에 복원력이 있어 다시 연결합니다. 다시 연결되는 이 시간 동안 큐에 있는 모든 요청은 시간 초과될 수 있습니다.
+9. Was there any other event on the client side that could have caused a network blip? Check on the client (web, worker role or an Iaas VM) if there was an event like scaling the number of client instances up or down, or deploying a new version of the client or auto-scale is enabled?In our testing we have found that autoscale or scaling up/down can cause outbound network connectivity can be lost for several seconds. StackExchange.Redis code is resilient to such events and will reconnect. During this time of re-connection any requests in the queue can time out.
 
-10. 시간 초과한 Redis 캐시에 여러 작은 요청에 앞서 큰 요청이 있었습니까? 오류 메시지에 있는 매개 변수 `qs`는 클라이언트에서 서버로 요청은 보내졌으나 아직 응답 처리가 되지 않은 경우가 얼마나 많은지 알려줍니다. StackExchange.Redis는 하나의 TCP 연결을 사용하고 한 번에 하나의 응답만 읽을 수 있기 때문에 이 값은 계속 증가할 수 있습니다. 첫 번째 작업이 시간 초과하더라도, 서버와 데이터를 주고 받는 일이 중단되지 않으며, 다른 요청은 이 일이 끝날 때까지 차단되기 때문에 시간 초과가 일어납니다. 하나의 솔루션은 워크로드를 감당할 수 있게 캐시를 충분히 크게 하고 큰 값을 작은 청크로 분할하여 시간 초과의 가능성을 최소화하는 것입니다. 또 다른 가능한 솔루션은 클라이언트에서 `ConnectionMultiplexer` 개체 풀을 사용하고, 새 요청을 보낼 때 부하가 최소인 `ConnectionMultiplexer`을 선택합니다, 이렇게 하면 단일 시간 초과가 다른 요청들도 또한 시간 초과되게 하는 것을 막습니다.
+10. Was there a big request preceding several small requests to the Redis Cache that timed out? The parameter `qs` in the error message tells you how many requests were sent from the client to the server, but have not yet processed a response. This value can keep growing because StackExchange.Redis uses a single TCP connection and can only read one response at a time. Even though the first operation timed out, it does not stop the data being sent to/from the server, and other requests are blocked until this is finished, causing time outs. One solution is to minimize the chance of timeouts by ensuring that your cache is large enough for your workload and splitting large values into smaller chunks. Another possible solution is to use a pool of `ConnectionMultiplexer` objects in your client, and choose the least loaded `ConnectionMultiplexer` when sending a new request. This should prevent a single timeout from causing other requests to also timeout.
 
-11. `RedisSessionStateprovider`을 사용하는 경우, 재시도 시간 제한을 올바르게 설정했는지 확인합니다.`retrytimeoutInMilliseconds`는 `operationTimeoutinMilliseonds`보다 높아야 합니다. 그렇지 않으면 재시도가 발생하지 않습니다. 다음 예제에서 `retrytimeoutInMilliseconds`가 3000으로 설정됩니다. 자세한 내용은 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md) 및 [세션 상태 공급자와 출력 캐시 공급자의 구성 매개 변수를 사용하는 방법](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration)을 참조하세요.
-
-
-	<add name="AFRedisCacheSessionStateProvider" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="enbwcache.redis.cache.windows.net" port="6380" accessKey="…" ssl="true" databaseId="0" applicationName="AFRedisCacheSessionState" connectionTimeoutInMilliseconds = "5000" operationTimeoutInMilliseconds = "1000" retryTimeoutInMilliseconds="3000" />
+11. If you are using `RedisSessionStateprovider`, ensure you have set the retry timeout correctly. `retrytimeoutInMilliseconds` should be higher than `operationTimeoutinMilliseonds`, otherwise no retries will occur. In the following example `retrytimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
 
-12. `Used Memory RSS`와 `Used Memory`을 [모니터링](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)하여Azure Redis Cache 서버에서의 메모리 사용량을 확인합니다. 제거 정책이 구현되었다면, `Used_Memory`가 캐시 크기에 도달할 때 Redis는 제거 키를 작동합니다. 이상적으로 `Used Memory RSS`는 `Used memory`보다 약간만 높아야 합니다. 큰 차이는 메모리 조각화 (내부 또는 외부)가 심함을 의미합니다. `Used Memory RSS`이 `Used Memory`보다 작다면, 운영 체제가 캐시 메모리의 일부를 스왑했음을 의미합니다. 이 경우 일부 상당한 대기 시간을 예상할 수 있습니다. Redis는 할당이 메모리 페이지에 매핑되는 방법을 제어하지 않기 때문에 높은 `Used Memory RSS`은 흔히 메모리 사용량에서 스파이크의 결과로 나타납니다. Redis가 메모리를 놓아주면, 메모리는 할당자에게 돌아가고, 할당자는 메모리를 시스템에 돌려주거나 그러지 않을 수 있습니다. 운영 체제가 보고하는 `Used Memory`값과 메모리 소비량 사이에 차이가 있을 수 있습니다. Redis가 메모리를 사용되고 사용하고 놓아줬지만 시스템으로 돌려지지 않았습니다. 메모리 문제를 완화하려면 다음 방법들을 수행할 수 있습니다.
-    -	캐시를 더 큰 크기로 업그레이드하여 시스템에서 메모리 제한을 겪지 않도록 합니다.
-    -	키에 만료 시간을 설정하여 이전 값이 사전에 제거되게 합니다.
-    -	`used_memory_rss` 캐시 메트릭을 모니터링합니다. 이 값이 해당 캐시의 크기에 가까워질 때 성능 문제가 나타나는 것을 보기 시작할 가능성이 있습니다. 프리미엄 캐시를 사용하거나 더 큰 캐시 크기로 업그레이드 하는 경우, 데이터를 여러 분할된 데이터베이스에 배포합니다.
+    <add
+      name="AFRedisCacheSessionStateProvider"
+      type="Microsoft.Web.Redis.RedisSessionStateProvider"
+      host="enbwcache.redis.cache.windows.net"
+      port="6380"
+      accessKey="…"
+      ssl="true"
+      databaseId="0"
+      applicationName="AFRedisCacheSessionState"
+      connectionTimeoutInMilliseconds = "5000"
+      operationTimeoutInMilliseconds = "1000"
+      retryTimeoutInMilliseconds="3000" />
 
-    자세한 내용은 [서버 쪽의 메모리 부족](#memory-pressure-on-the-server)을 참조하세요.
 
-## 추가 정보
+12. Check memory usage on the Azure Redis Cache server by [monitoring](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` and `Used Memory`. If an eviction policy is in place, Redis starts evicting keys when `Used_Memory` reaches the cache size. Ideally, `Used Memory RSS` should be only slightly higher than `Used memory`. A large difference means there is memory fragmentation (internal or external. When `Used Memory RSS` is less than `Used Memory`, it means part of the cache memory has been swapped  by the operating system. If this occurs you can expect some significant latencies. Because Redis does not have control over how its allocations are mapped to memory pages, high `Used Memory RSS` is often the result of a spike in memory usage. When Redis frees memory, the memory is given back to the allocator, and the allocator may or may not give the memory back to the system. There may be a discrepancy between the `Used Memory` value and memory consumption as reported by the operating system. It may be due to the fact memory has been used and released by Redis, but not given back to the system. To help mitigate memory issues you can perform the following steps.
+    -   Upgrade the cache to a larger size so that you are not running up against memory limitations on the system.
+    -   Set expiration times on the keys so that older values are evicted proactively.
+    -   Monitor the the `used_memory_rss` cache metric. When this value approaches the size of their cache, you are likely to start seeing performance issues. Distribute the data across multiple shards if you are using a premium cache, or upgrade to a larger cache size.
 
--	[어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
--	[내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
--	[어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)
--	[Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md)
+    For more information, see [Memory Pressure on the server](#memory-pressure-on-the-server).
 
-<!---HONumber=AcomDC_0810_2016-->
+## <a name="additional-information"></a>Additional information
+
+-   [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+-   [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-   [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
+-   [How to monitor Azure Redis Cache](cache-how-to-monitor.md)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

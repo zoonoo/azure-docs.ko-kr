@@ -1,126 +1,131 @@
 <properties 
-	pageTitle="Azure 포털을 통해 스트리밍 끝점 관리 | Microsoft Azure" 
-	description="이 항목에서는 Azure 포털을 사용하여 스트리밍 끝점을 관리하는 방법을 설명합니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	writer="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Manage streaming endpoints with the Azure portal | Microsoft Azure" 
+    description="This topic shows how to manage streaming endpoints with the Azure portal." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    writer="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
 
-#Azure 포털을 통해 스트리밍 끝점 관리
 
-## 개요
+#<a name="manage-streaming-endpoints-with-the-azure-portal"></a>Manage streaming endpoints with the Azure portal
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+## <a name="overview"></a>Overview
 
-Microsoft Azure 미디어 서비스에서 **스트리밍 끝점**은 추가 배포를 위해 CDN(콘텐츠 배달 네트워크) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. 미디어 서비스는 매끄러운 Azure CDN 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 라이브 스트림이거나 미디어 서비스 계정의 주문형 비디오 자산일 수 있습니다.
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-또한 스트리밍 단위를 조정하여 증가하는 대역폭 요구를 처리하기 위해 스트리밍 끝점 서비스의 용량을 제어할 수 있습니다. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다. 스트리밍 단위는 200Mbps 단위로 구입할 수 있는 전용 송신 용량 및 [동적 패키징](media-services-dynamic-packaging-overview.md), CDN 통합, 고급 구성을 포함하는 추가 기능을 모두 제공합니다.
+In Microsoft Azure Media Services, a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.
 
->[AZURE.NOTE]스트리밍 끝점이 실행 중인 상태일 때만 요금이 청구됩니다.
+In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming units. It is recommended to allocate one or more scale units for applications in production environment. Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality, which includes: [dynamic packaging](media-services-dynamic-packaging-overview.md), CDN integration, and advanced configuration.
 
-이 항목에서는 스트리밍 끝점이 제공하는 기본 기능을 간략하게 설명합니다. 또한 Azure 포털을 사용하여 스트리밍 끝점을 관리하는 방법도 설명합니다. 스트리밍 끝점의 크기를 조정하는 방법에 대한 자세한 내용은 [이 항목](media-services-portal-scale-streaming-endpoints.md)을 참조하세요.
+>[AZURE.NOTE]You are only billed when your Streaming Endpoint is in running state.
 
-## 스트리밍 끝점 관리 시작
+This topic gives an overview of the main functionalities that are provided by Streaming Endpoints. The topic also shows how to use the Azure portal to manage streaming endpoints. For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.
 
-계정의 스트리밍 끝점 관리를 시작하려면 다음을 수행합니다.
+## <a name="start-managing-streaming-endpoints"></a>Start managing streaming endpoints
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **설정** 창에서 **스트리밍 끝점**을 선택합니다.
+To start managing streaming endpoints for your account, do the following.
 
-	![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. In the **Settings** window, select **Streaming endpoints**.
 
-##스트리밍 끝점 추가/삭제
+    ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
-Azure 포털을 사용하여 스트리밍 끝점을 추가/삭제하려면 다음을 수행합니다.
+##<a name="add/delete-a-streaming-endpoint"></a>Add/delete a streaming endpoint
 
-1. 스트리밍 끝점을 추가하려면 페이지 위쪽의 **+ 끝점**을 클릭합니다.
-2. 스트리밍 끝점을 삭제하려면 **삭제** 단추를 누릅니다.
+To add/delete streaming endpoint using the Azure portal, do the following:
 
-	기본 스트리밍 끝점은 삭제할 수 없습니다.
-2. 스트리밍 끝점을 시작하려면 **시작** 단추를 클릭합니다.
+1. To add a streaming endpoint, click the **+ Endpoint** at the top of the page. 
+2. To delete a streaming endpoint, press **Delete** button. 
 
-	![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    The default streaming endpoint cannot be deleted.
+2. Click the **Start** button to start the streaming endpoint.
 
-기본적으로 최대 2개의 스트리밍 끝점을 가질 수 있습니다. 더 많이 요청해야 하는 경우 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
-	
-##<a id="configure_streaming_endpoints"></a>스트리밍 끝점 구성
+    ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
-스트림이 끝점을 사용하면 최소 1개의 크기 조정 단위가 있을 때 다음 속성을 구성할 수 있습니다.
+By default you can have up to two streaming endpoints. If you need to request more, see [Quotas and limitations](media-services-quotas-and-limitations.md).
+    
+##<a name="<a-id="configure_streaming_endpoints"></a>configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuring the Streaming Endpoint
 
-- 액세스 제어
-- 캐시 제어
-- 교차 사이트 액세스 정책
+Streaming Endpoint enables you to configure the following properties when you have at least 1 scale unit: 
 
-이러한 속성에 대한 자세한 정보는 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx)를 참조하세요.
+- Access control
+- Cache control
+- Cross site access policies
 
-다음을 수행하여 스트리밍 끝점을 구성할 수 있습니다.
+For detailed information about these properties, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-1. 구성하려는 스트리밍 끝점을 선택합니다.
-1. **설정**을 클릭합니다.
+You can configure streaming endpoint by doing the following:
+
+1. Select the streaming endpoint that you want to configure.
+1. Click **Settings**.
   
-필드에 대한 간략한 설명은 다음과 같습니다.
+A brief description of the fields follows.
 
-![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
   
-1. 최대 캐시 정책: 이 스트리밍 끝점을 통해 제공되는 자산의 캐시 수명 주기를 구성하는 데 사용됩니다. 값을 설정하지 않으면 기본값이 사용됩니다. Azure Storage에서 기본값을 직접 정의할 수도 있습니다. 스트리밍 끝점에 대해 Azure CDN을 사용하도록 설정한 경우에는 캐시 정책 값을 600초보다 작게 설정하면 안 됩니다.
+1. Maximum cache policy: used to configure cache lifetime for assets served through this streaming endpoint. If no value is set, the default is used. The default values can also be defined directly in Azure storage. If Azure CDN is enabled for the streaming endpoint, you should not set the cache policy value to less than 600 seconds.  
 
-2. 허용된 IP 주소: 게시된 스트리밍 끝점에 연결할 수 있는 IP 주소를 지정하는 데 사용됩니다. IP 주소를 지정하지 않은 경우 모든 IP 주소에서 연결할 수 있습니다. IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.255.0)')로 지정할 수 있습니다.
+2. Allowed IP addresses: used to specify IP addresses that would be allowed to connect to the published streaming endpoint. If no IP addresses specified, any IP address would be able to connect. IP addresses can be specified as either a single IP address (for example, '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.255.0)').
 
-3. Akamai 서명 헤더 인증에 대한 구성: Akamai 서버의 서명 헤더 인증 요청을 구성하는 방법을 지정하는 데 사용됩니다. 만료 시간은 UTC 단위입니다.
+3. Configuration for Akamai signature header authentication: used to specify how signature header authentication request from Akamai servers is configured. Expiration is in UTC.
 
 
 
-##<a id="enable_cdn"></a>Azure CDN 통합 사용
+##<a name="<a-id="enable_cdn"></a>enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Enable Azure CDN integration
 
-스트리밍 끝점에 Azure CDN 통합을 사용하도록 지정할 수 있습니다(기본 설정은 사용 안 함).
+You can specify to enable the Azure CDN integration for a Streaming Endpoint (it is disabled by default.)
 
-Azure CDN 통합을 true로 설정하는 방법:
+To set the Azure CDN integration to true:
 
-- 스트리밍 끝점에는 하나 이상의 스트리밍 단위가 있어야 합니다. 나중에 크기 조정 단위를 0으로 설정하려는 경우 먼저 CDN 통합을 사용 안 함으로 설정해야 합니다. 기본적으로 새 스트리밍 끝점을 만들 때 한 스트리밍 단위가 자동으로 설정됩니다.
+- The streaming endpoint must have at least one streaming unit. If later you want to set scale units to 0, you must first disable the CDN integration. By default when you create a new streaming endpoint one streaming unit is automatically set.
 
-- 스트리밍 끝점은 중지된 상태에 있어야 합니다. CDN을 사용함으로 설정하면 스트림이 끝점을 시작할 수 있습니다.
+- The streaming endpoint must be in a stopped state. Once the CDN gets enabled, you can start the streaming endpoint. 
 
-Azure CDN 통합을 사용함으로 설정하는 데에는 최대 90분 가량 소요될 수 있습니다. 모든 CDN POP에서 변경 내용이 활성화되는 데는 최대 두 시간이 걸립니다.
+It could take up to 90 min for the Azure CDN integration to get enabled.  It takes up to two hours for the changes to be active across all the CDN POPs.
 
-CDN 통합은 모든 Azure 데이터 센터(미국 서부, 미국 동부, 북유럽, 서유럽, 일본 서부, 일본 동부, 동남 아시아 및 동아시아)에서 사용하도록 설정됩니다.
+CDN integration is enabled in all the Azure data centers: US West, US East, North Europe, West Europe, Japan West, Japan East, South East Asia, and East Asia.
 
-CDN 통합을 사용하도록 설정하면 **액세스 제어** 구성은 사용할 수 없게 됩니다.
+Once it is enabled, the **Access Control** configuration gets disabled.
 
-![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints5.png)
+![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints5.png)
 
->[AZURE.IMPORTANT] Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN**에서 구현됩니다. Azure Media Services에 **Akamai의 Azure CDN**을 사용하려면 [끝점을 수동으로 구성](../cdn/cdn-create-new-endpoint.md)해야 합니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](../cdn/cdn-overview.md)를 참조하세요.
+>[AZURE.IMPORTANT] Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon**.  If you wish to use **Azure CDN from Akamai** for Azure Media Services, you must [configure the endpoint manually](../cdn/cdn-create-new-endpoint.md).  For more information about Azure CDN features, see the [CDN overview](../cdn/cdn-overview.md).
 
-###추가 고려 사항
+###<a name="additional-considerations"></a>Additional considerations
 
-- 스트리밍 끝점에 CDN이 사용되면 클라이언트에서는 원점으로부터 직접 콘텐츠를 요청할 수 없습니다. CDN을 사용하거나 사용하지 않고 콘텐츠를 테스트하는 기능이 필요하면 CDN이 사용하도록 설정되지 않은 또 다른 스트리밍 끝점을 만들 수 있습니다.
-- 스트리밍 끝점 호스트 이름은 CDN을 사용하도록 설정한 후에도 동일하게 유지됩니다. CDN을 사용하도록 설정한 후 미디어 서비스 워크플로에 변경 내용을 적용할 필요가 없습니다. 예를 들어 스트리밍 끝점 호스트 이름이 strasbourg.streaming.mediaservices.windows.net이면 CDN을 사용하도록 설정한 후에 똑같은 호스트 이름이 사용됩니다.
-- 새 스트리밍 끝점의 경우 새 끝점을 만들어서 CDN을 사용하도록 설정할 수 있습니다. 기본 스트리밍 끝점의 경우 먼저 끝점을 중지하고 CDN을 사용하도록 설정해야 합니다.
+- When CDN is enabled for a streaming endpoint, clients cannot request content directly from the origin. If you need the ability to test your content with or without CDN, you can create another streaming endpoint that isn't CDN enabled.
+- Your streaming endpoint hostname remains the same after enabling CDN. You don’t need to make any changes to your media services workflow after CDN is enabled. For example, if your streaming endpoint hostname is strasbourg.streaming.mediaservices.windows.net, after enabling CDN, the exact same hostname is used.
+- For new streaming endpoints, you can enable CDN simply by creating a new endpoint; for existing streaming endpoints, you need to first stop the endpoint and then enable the CDN.
  
 
-자세한 내용은 [Azure CDN(콘텐츠 배달 네트워크)과 Azure 미디어 서비스 통합 발표](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/)(영문)를 참조하세요.
+For more information see, [Announcing Azure Media Services integration with Azure CDN (Content Delivery Network)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
 
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-미디어 서비스 학습 경로를 검토합니다.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

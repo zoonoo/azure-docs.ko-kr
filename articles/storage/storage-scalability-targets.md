@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Azure 저장소 확장성 및 성능 목표 | Microsoft Azure"
-	description="표준 및 프리미엄 저장소 계정에 대한 용량, 요청 속도 및 인바운드 및 아웃 바운드 대역폭을 포함한 Azure 저장소의 확장성 및 성능 목표를 알아보세요. Azure 저장소 서비스 각각의 파티션에 대한 성능 목표를 이해해 보세요."
-	services="storage"
-	documentationCenter="na"
-	authors="robinsh"
-	manager="carmonm"
-	editor="tysonn" />
+    pageTitle="Azure 저장소 확장성 및 성능 목표 | Microsoft Azure"
+    description="표준 및 프리미엄 저장소 계정에 대한 용량, 요청 속도 및 인바운드 및 아웃 바운드 대역폭을 포함한 Azure 저장소의 확장성 및 성능 목표를 알아보세요. Azure 저장소 서비스 각각의 파티션에 대한 성능 목표를 이해해 보세요."
+    services="storage"
+    documentationCenter="na"
+    authors="robinsh"
+    manager="carmonm"
+    editor="tysonn" />
 <tags
-	ms.service="storage"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage"
-	ms.date="08/03/2016"
-	ms.author="jahogg;robinsh" />
+    ms.service="storage"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage"
+    ms.date="08/03/2016"
+    ms.author="robinsh" />
 
-# Azure 저장소 확장성 및 성능 목표
 
-## 개요
+# <a name="azure-storage-scalability-and-performance-targets"></a>Azure 저장소 확장성 및 성능 목표
+
+## <a name="overview"></a>개요
 
 이 항목에서는 Microsoft Azure 저장소에 대한 확장성 및 성능을 설명합니다. 기타 Azure 제한 사항에 대한 요약은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
@@ -27,36 +28,36 @@
 
 >응용 프로그램이 파티션의 작업 처리 가능한 제한에 도달하면 Azure 저장소는 오류 코드 503 (서버 작업 중) 또는 오류 코드 500 (작업 시간 초과) 응답을 반송하기 시작합니다. 이런 경우 응용 프로그램은 재시도를 위한 지수 백오프 정책을 사용해야 합니다. 지수 백오프는 파티션에 대한 부하를 감소시키고 해당 파티션에 트래픽의 급증을 완화할 수 있습니다.
 
-응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다. 볼륨 가격에 대한 자세한 내용은 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다. 볼륨 가격에 대한 자세한 내용은 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
 
 
-## Blob, 큐, 테이블 및 파일에 대한 확장성 목표
+## <a name="scalability-targets-for-blobs,-queues,-tables,-and-files"></a>Blob, 큐, 테이블 및 파일에 대한 확장성 목표
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## 가상 컴퓨터 디스크에 대한 확장성 목표
+## <a name="scalability-targets-for-virtual-machine-disks"></a>가상 컴퓨터 디스크에 대한 확장성 목표
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
 자세한 내용은 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
-### 표준 저장소 계정
+### <a name="standard-storage-accounts"></a>표준 저장소 계정
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
 
-### 프리미엄 저장소 계정
+### <a name="premium-storage-accounts"></a>프리미엄 저장소 계정
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## Azure 리소스 관리자에 대한 확장성 목표
+## <a name="scalability-targets-for-azure-resource-manager"></a>Azure 리소스 관리자에 대한 확장성 목표
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-## Azure 저장소의 파티션
+## <a name="partitions-in-azure-storage"></a>Azure 저장소의 파티션
 
 Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터를 보유한 모든 개체는 파티션에 속하며 파티션 키로 식별됩니다. 파티션은 Azure 저장소 부하가 어떻게 서버의 blob, 메시지, 엔터티 및 파일을 해당 개체의 트래픽 요구를 충족하도록 분산할지 결정합니다. 파티션 키는 고유하며 blob, 메시지 또는 엔터티를 찾는 데 사용됩니다.
 
-위의 테이블에 표시된 [표준 저장소 계정의 확장성 목표](#standard-storage-accounts)는 각 서비스에 대한 단일 파티션의 성능 목표를 나열합니다.
+위의 테이블에 표시된 [표준 저장소 계정의 확장성 목표](#standard-storage-accounts) 는 각 서비스에 대한 단일 파티션의 성능 목표를 나열합니다.
 
 파티션은 각 저장소 서비스의 부하 분산 및 확장성에 다음과 같은 방식으로 영향을 줍니다:
 
@@ -66,15 +67,15 @@ Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터�
 
 - **메시지**: 메시지의 파티션 키는 계정 이름 + 큐 이름이므로 큐에 있는 모든 메시지를 단일 파티션으로 그룹화하고 단일 서버를 통해 제공합니다. 서로 다른 큐는 부하를 분산하는 다른 서버에 의해 처리될 수 있지만 하나의 저장소 계정은 다수의 큐를 가질 수 있습니다.
 
-- **엔터티**: 엔터티의 파티션 키는 계정 이름 + 테이블 이름 + 파티션 키이며, 여기서 파티션 키는 사용자 정의가 필요한 **PartitionKey** 속성의 값입니다. 동일한 파티션 키 값을 가진 모든 엔터티는 같은 파티션으로 그룹화 되며 같은 파티션 서버에 의해 처리됩니다. 이는 응용 프로그램 디자인에서 이해해야 할 중요한 사항입니다. 응용 프로그램은 엔터티를 단일 파티션으로 그룹화하는 데이터 액세스 이점과 여러 파티션에서 엔터티를 분산시키는 경우의 확장성 이점을 조정해야 합니다.
+- **엔터티**: 엔터티의 파티션 키는 계정 이름 + 테이블 이름 + 파티션 키이며, 여기서 파티션 키는 사용자 정의가 필요한 **PartitionKey** 속성의 값입니다. 동일한 파티션 키 값을 가진 모든 엔터티는 같은 파티션으로 그룹화 되며 같은 파티션 서버에 의해 처리됩니다. 이는 응용 프로그램 디자인에서 이해해야 할 중요한 사항입니다. 응용 프로그램은 엔터티를 단일 파티션으로 그룹화하는 데이터 액세스 이점과 여러 파티션에서 엔터티를 분산시키는 경우의 확장성 이점을 조정해야 합니다.  
 
-테이블의 엔터티 그룹을 단일 파티션으로 그룹화하는 경우 가장 큰 장점은 하나의 파티션이 단일 서버에 존재하므로 동일한 파티션의 엔터티에서 원자성 배치 작업을 수행할 수 있다는 점입니다. 따라서 엔터티 그룹에 대해 배치 작업을 수행하려는 경우 동일한 파티션 키를 가진 엔터티를 그룹화하는 것이 좋습니다.
+테이블의 엔터티 그룹을 단일 파티션으로 그룹화하는 경우 가장 큰 장점은 하나의 파티션이 단일 서버에 존재하므로 동일한 파티션의 엔터티에서 원자성 배치 작업을 수행할 수 있다는 점입니다. 따라서 엔터티 그룹에 대해 배치 작업을 수행하려는 경우 동일한 파티션 키를 가진 엔터티를 그룹화하는 것이 좋습니다. 
 
 반면, 동일한 테이블에 있지만 파티션 키가 서로 다른 엔터티는 서로 다른 서버에 부하를 분산시켜 확장성을 높일 수 있습니다.
 
 테이블 분할 전략 디자인에 대한 자세한 권장 사항은 [여기](https://msdn.microsoft.com/library/azure/hh508997.aspx)에서 확인할 수 있습니다.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 
 - [저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)
@@ -83,4 +84,8 @@ Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터�
 - [Microsoft Azure 저장소 성능 및 확장성 검사 목록](storage-performance-checklist.md)
 - [Microsoft Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

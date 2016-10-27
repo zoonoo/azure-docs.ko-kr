@@ -1,50 +1,57 @@
 <properties
-	pageTitle="Azure 앱 서비스에 대한 모범 사례"
-	description="Azure 앱 서비스에 대한 모범 사례 및 문제 해결에 대해 알아봅니다."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Best Practices for Azure App Service"
+    description="Learn best practices and troubleshooting for Azure App Service."
+    services="app-service"
+    documentationCenter=""
+    authors="dariagrigoriu"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="dariagrigoriu"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/30/2016"
+    ms.author="dariagrigoriu"/>
     
-# Azure 앱 서비스에 대한 모범 사례
 
-이 문서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다.
+# <a name="best-practices-for-azure-app-service"></a>Best Practices for Azure App Service
 
-## <a name="colocation"></a>공동 배치
-웹앱과 같은 솔루션을 작성하는 Azure 리소스와 데이터베이스가 다른 지역에 있는 경우 다음과 같은 영향이 있습니다.
+This article summarizes best practices for using [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
 
-*  리소스 간 통신에 대한 대기 시간 증가
-*  [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-transfers)에서 설명한 것과 같이 지역 간 아웃바운드 데이터 전송에 대한 금전적인 청구
+## <a name="<a-name="colocation"></a>colocation"></a><a name="colocation"></a>Colocation
+When Azure resources composing a solution such as a web app and a database are located in different regions the effects can include the following:
 
-동일한 지역의 공동 배치는 웹앱과 같은 솔루션과 콘텐츠 또는 데이터를 저장하는 데 사용되는 데이터베이스 또는 저장소 계정을 작성하는 Azure 리소스에 가장 적합합니다. 리소스를 만들 때 동일한 Azure 지역에 있어서는 안 되는 특정 비즈니스 또는 디자인 사유가 없는 한 동일한 Azure 지역에 있어야 합니다. 프리미엄 앱 서비스 계획 앱에서 현재 사용할 수 있는 [앱 서비스 복제 기능](app-service-web-app-cloning-portal.md)을 활용하여 앱 서비스 앱을 데이터베이스와 동일한 지역으로 이동할 수 있습니다.
+*  Increased latency in communication between resources
+*  Monetary charges for outbound data transfer cross-region as noted on the [Azure pricing page](https://azure.microsoft.com/pricing/details/data-transfers).
 
-## <a name="memoryresources"></a>앱에서 예상보다 더 많은 메모리를 사용하는 경우
-앱에서 모니터링 또는 서비스 권장 사항을 통해 표시된 대로 예상보다 더 많은 메모리를 사용하는 경우 [앱 서비스 자동 복구 기능](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites)을 고려합니다. 자동 복구 기능에 대한 옵션 중 하나는 메모리 임계값을 기반으로 하는 사용자 지정 작업을 수행하는 것입니다. 작업은 작업자 프로세스를 재활용하여 자리 완화에 대한 메모리 덤프를 통해 전자 메일 알림에서 조사로 범위를 확장합니다. 자동 복구는 [앱 서비스 지원 사이트 확장](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps)에 대한 이 블로그 게시물에 설명된 대로 web.config 및 친숙한 사용자 인터페이스를 통해 구성될 수 있습니다.
+Colocation in the same region is best for Azure resources composing a solution such as a web app and a database or storage account used to hold content or data. When creating resources you should make sure they are in the same Azure region unless you have specific business or design reason for them not to be. You can move an App Service app to the same region as your database by leveraging the [App Service cloning feature](app-service-web-app-cloning-portal.md) currently available for Premium App Service Plan apps.   
 
-## <a name="CPUresources"></a>앱에서 예상보다 더 많은 CPU를 사용하는 경우
-앱에서 모니터링 또는 서비스 권장 사항을 통해 표시된 대로 예상보다 더 많은 CPU를 사용하거나 반복되는 CPU 스파이크를 경험하는 경우 앱 서비스 계획 강화 또는 확장을 고려합니다. 응용 프로그램이 상태 저장인 경우 강화가 유일한 옵션인 반면 응용 프로그램이 상태 비저장인 경우 확장을 통해 더 많은 유연성 및 더 높은 확장 가능성을 줍니다.
+## <a name="<a-name="memoryresources"></a>when-apps-consume-more-memory-than-expected"></a><a name="memoryresources"></a>When apps consume more memory than expected
+When you notice an app consumes more memory than expected as indicated via monitoring or service recommendations consider the [App Service Auto-Healing feature](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). One of the options for the Auto-Healing feature is taking custom actions based on a memory threshold. Actions span the spectrum from email notifications to investigation via memory dump to on-the-spot mitigation by recycling the worker process. Auto-healing can be configured via web.config and via a friendly user interface as described at in this blog post for the [App Service Support Site Extension](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
 
-"상태 저장" 및 "상태 비저장" 응용 프로그램 비교에 대한 자세한 내용은 [Microsoft Azure 웹앱에서 확장 가능한 종단 간 다중 계층 응용 프로그램 계획](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) 비디오를 시청할 수 있습니다. 앱 서비스 크기 조정 및 자동 크기 조정 옵션에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 크기 조정](web-sites-scale.md)을 참조하세요.
+## <a name="<a-name="cpuresources"></a>when-apps-consume-more-cpu-than-expected"></a><a name="CPUresources"></a>When apps consume more CPU than expected
+When you notice an app consumes more CPU than expected or experiences repeated CPU spikes as indicated via monitoring or service recommendations consider scaling up or scaling out the App Service plan. If your application is statefull, scaling up is the only option, while if your application is stateless, scaling out will give you more flexibility and higher scale potential. 
 
-## <a name="socketresources"></a>소켓 리소스를 모두 사용한 경우
-아웃바운드 TCP 연결을 소모하는 일반적인 이유는 TCP 연결을 다시 사용하도록 구현되지 않는 클라이언트 라이브러리의 사용 또는 활용되지 않는 HTTP(활성 유지)와 같은 높은 수준의 프로토콜의 경우입니다. 효율적인 아웃바운드 재사용에 대한 코드에서 구성 또는 액세스할 수 있도록 앱 서비스 계획의 앱에서 참조하는 각 라이브러리에 대한 설명서를 검토하세요. 또한 연결 누수를 방지하도록 올바른 생성 및 릴리스 또는 정리에 대한 라이브러리 설명서 지침을 따릅니다. 이러한 클라이언트 라이브러리 조사 진행 중 여러 인스턴스로 확장하여 영향을 완화할 수 있습니다.
+For more information about “statefull” vs “stateless” applications you can watch this video: [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). For more information about App Service scaling and autoscaling options read: [Scale a Web App in Azure App Service](web-sites-scale.md).  
 
-## <a name="appbackup"></a>앱 백업이 실패하는 경우
-앱 백업이 실패하는 가장 일반적인 이유는 잘못된 저장소 설정 및 잘못된 데이터베이스 구성 등 두 가지가 있습니다. 이러한 오류는 일반적으로 저장소 또는 데이터베이스 리소스를 변경하거나 이러한 리소스에 액세스하는 방법을 변경하는 경우에 발생합니다(예: 백업 설정에서 선택한 데이터베이스가 업데이트된 자격 증명). 백업은 일반적으로 일정에 따라 실행하게 되고 저장소(백업된 파일을 출력하는 경우) 및 데이터베이스(백업에 포함될 콘텐츠를 복사하고 읽는 경우)에 대한 액세스 권한이 필요합니다. 이러한 리소스 중 하나에 액세스하는 데 실패하면 일관된 백업 실패가 발생합니다.
+## <a name="<a-name="socketresources"></a>when-socket-resources-are-exhausted"></a><a name="socketresources"></a>When socket resources are exhausted
+A common reason for exhausting outbound TCP connections is the use of client libraries which are not implemented to reuse TCP connections, or in the case of a higher level protocol such as HTTP - Keep-Alive not being leveraged. Please review the documentation for each of the libraries referenced by the apps in your App Service Plan to ensure they are configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such client libraries investigations are in progress impact may be mitigated by scaling out to multiple instances.  
 
-백업 실패가 발생하는 경우 가장 최근의 결과를 검토하여 어떤 유형의 오류가 발생하는지를 이해해 주시기 바랍니다. 저장소 액세스 실패의 경우 백업 구성에 사용된 저장소 설정을 검토하고 업데이트하세요. 데이터베이스 액세스에 실패한 경우 연결 문자열을 앱 설정의 일부로 검토하고 업데이트합니다. 백업 구성을 업데이트하도록 진행하여 필요한 데이터베이스를 적절히 포함합니다. 앱 백업에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 백업](web-sites-backup.md) 설명서를 참조하세요.
+## <a name="<a-name="appbackup"></a>when-your-app-backup-starts-failing"></a><a name="appbackup"></a>When your app backup starts failing
+The two most common reasons why app backup fails are: invalid storage settings and invalid database configuration. These failures typically happen when there are changes to storage or database resources, or changes for how to access these resources (e.g. credentials updated for the database selected in the backup settings). Backups typically run on a schedule and require access to storage (for outputting the backed up files) and databases (for copying and reading contents to be included in the backup). The result of failing to access either of these resources would be consistent backup failure. 
 
-## <a name="nodejs"></a>새 Node.js 앱이 Azure 앱 서비스에 배포되는 경우
-Node.js 앱에 대한 Azure 앱 서비스 기본 구성은 가장 일반적인 앱 요구에 가장 적합하게 지정되었습니다. Node.js 앱 구성이 개별화된 조정부터 성능 향상, CPU/메모리/네트워크 리소스에 대한 리소스 사용 최적화 등의 다양한 이점을 얻을 수 있는 경우 모범 사례 및 문제 해결 단계를 검토할 수 있습니다. [Azure 앱 서비스의 Node 응용 프로그램에 대한 모범 사례 및 문제 해결 가이드](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md) 설명서에서는 Node.js 앱에 대해 구성해야 하는 iisnode 설정에 대해 설명하고, 앱이 직면할 수 있는 다양한 시나리오 또는 문제에 대해 설명하고, 이러한 문제를 해결하는 방법을 보여 줍니다.
+When backup failures happen, please review most recent results to understand which type of failure is happening. In the case of storage access failures, please review and update the storage settings used in the backup configuration. In the case of database access failures, please review and update your connections strings as part of app settings; then proceed to update your backup configuration to properly include the required databases. For more information on app backup please see the [Back up a web app in Azure App Service](web-sites-backup.md) documentation.
 
-<!---HONumber=AcomDC_0713_2016-->
+## <a name="<a-name="nodejs"></a>when-new-node.js-apps-are-deployed-to-azure-app-service"></a><a name="nodejs"></a>When new Node.js apps are deployed to Azure App Service
+Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If configuration for your Node.js app would benefit from personalized tuning to improve performance or optimize resource usage for CPU/memory/network resources, you could review our best practices and troubleshooting steps. This documentation article describes the iisnode settings you may need to configure for your Node.js app, describes the various scenarios or issues that your app may be facing, and shows how to address these issues: [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md).   
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

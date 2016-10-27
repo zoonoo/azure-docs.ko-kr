@@ -1,60 +1,65 @@
 <properties
-	pageTitle="Azure Active Directory 미리 보기에서 엔터프라이즈 앱에 사용자 또는 그룹 할당 | Microsoft Azure"
-	description="Azure Active Directory에서 사용자 또는 그룹을 할당할 엔터프라이즈 앱을 선택하는 방법"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Assign a user or group to an enterprise app in Azure Active Directory preview | Microsoft Azure"
+    description="How to select an enterprise app to assign a user or group to it in Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="curtand"/>
 
-# Azure Active Directory 미리 보기에서 엔터프라이즈 앱에 사용자 또는 그룹 할당
 
-Azure Active Directory(Azure AD) 미리 보기에서 엔터프라이즈 응용 프로그램에 사용자 또는 그룹을 할당하는 것은 쉽습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 엔터프라이즈 앱을 관리하려면 적절한 권한이 있어야 합니다. 현재 미리 보기에서 디렉터리에 대한 전역 관리자여야 합니다.
+# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory-preview"></a>Assign a user or group to an enterprise app in Azure Active Directory preview
 
-## 엔터프라이즈 앱에 사용자 액세스를 어떻게 할당하나요?
+It's easy to assign a user or a group to your enterprise applications in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) You must have the appropriate permissions to manage the enterprise app. In the current preview, you must be global admin for the directory.
 
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+## <a name="how-do-i-assign-user-access-to-an-enterprise-app?"></a>How do I assign user access to an enterprise app?
 
-2. **더 많은 서비스**를 선택하고 텍스트 상자에 Azure Active Directory를 입력한 다음 **Enter**를 선택합니다.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-3. **Azure Active Directory - *directoryname*** 블레이드(즉, 관리 중인 디렉터리에 대한 Azure AD 블레이드)에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
+2. Select **More services**, enter Azure Active Directory in the text box, and then select **Enter**.
 
-  ![엔터프라이즈 앱 열기](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
+3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
 
-4. **엔터프라이즈 응용 프로그램** 블레이드에서 **모든 응용 프로그램**을 선택합니다. 관리할 수 있는 앱의 목록이 표시됩니다.
+    ![Opening Enterprise apps](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
 
-5. **엔터프라이즈 응용 프로그램 - 모든 응용 프로그램** 블레이드에서 앱을 선택합니다.
+4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
 
-6. ***appname*** 블레이드(즉, 제목에서 선택된 앱의 이름을 가진 블레이드)에서 **사용자 및 그룹**을 선택합니다.
+5. On the **Enterprise applications - All applications** blade, select an app.
 
-  ![모든 응용 프로그램 명령 선택](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
+6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Users & Groups**.
 
-7. ***appname*** **- 사용자 및 그룹 할당** 블레이드에서 **추가** 명령을 선택합니다.
+    ![Selecting the all applications command](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
 
-8. **할당 추가** 블레이드에서 **사용자 및 그룹**을 선택합니다.
+7. On the ***appname*** **- User & Group Assignment** blade, select the **Add** command.
 
-  ![앱에 사용자 또는 그룹 할당](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
+8. On the **Add Assignment** blade, select **Users and groups**.
 
-9. **사용자 및 그룹** 블레이드의 목록에서 하나 이상의 사용자 또는 그룹을 선택한 다음 블레이드 맨 아래의 **선택** 단추를 선택합니다.
+    ![Assign a user or group to the app](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
 
-10. **할당 추가** 블레이드에서 **역할**을 선택합니다. 그런 다음 **역할 선택** 블레이드에서 선택한 사용자 또는 그룹에 적용할 역할을 선택한 다음 블레이드 맨 아래의 **확인** 단추를 선택합니다.
+9. On the **Users and groups** blade, select one or more users or groups from the list and then select the **Select** button at the bottom of the blade.
 
-11. **할당 추가** 블레이드에서 블레이드 맨 아래의 **할당** 단추를 선택합니다. 할당된 사용자 또는 그룹은 이 엔터프라이즈 앱에 대한 선택된 역할로 정의된 사용 권한을 갖습니다.
+10. On the **Add Assignment** blade, select **Role**. Then, on the **Select Role** blade, select a role to apply to the selected users or groups, and then select the **OK** button at the bottom of the blade.
 
-## 다음 단계
+11. On the **Add Assignment** blade, select the **Assign** button at the bottom of the blade. The assigned users or groups will have the permissions defined by the selected role for this enterprise app.
 
-- [내 그룹 모두 보기](active-directory-groups-view-azure-portal.md)
-- [엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거](active-directory-coreapps-remove-assignment-user-azure-portal.md)
-- [엔터프라이즈 앱에 대한 사용자 로그인 비활성화](active-directory-coreapps-disable-app-azure-portal.md)
-- [엔터프라이즈 앱의 이름 또는 로고 변경](active-directory-coreapps-change-app-logo-azure-portal.md)
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0914_2016-->
+- [See all of my groups](active-directory-groups-view-azure-portal.md)
+- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
+- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
+- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

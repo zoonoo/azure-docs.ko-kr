@@ -1,6 +1,6 @@
 <properties
-   pageTitle="역할에 대한 기본 TEMP 폴더 크기가 너무 작습니다. | Microsoft Azure"
-   description="클라우드 서비스 역할에는 TEMP 폴더에 대한 공간이 제한되어 있습니다. 이 문서에서는 공간 부족을 방지하는 방법을 몇 가지 제안합니다."
+   pageTitle="Default TEMP folder size is too small for a role | Microsoft Azure"
+   description="A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space."
    services="cloud-services"
    documentationCenter=""
    authors="simonxjx"
@@ -13,28 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/19/2016"
+   ms.date="10/12/2016"
    ms.author="v-six" />
 
-# 클라우드 서비스 웹/작업자 역할에서 기본 TEMP 폴더 크기가 너무 작습니다.
 
-클라우드 서비스 작업자 또는 웹 역할의 기본 임시 디렉터리에는 최대 100MB 크기의 공간이 있으며 특정 시점에 꽉 찰 수도 있습니다. 이 문서는 임시 디렉터리에 대한 공간 부족을 방지하는 방법을 설명합니다.
+# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-web/worker-role"></a>Default TEMP folder size is too small on a cloud service web/worker role
+
+The default temporary directory of a cloud service worker or web role has a maximum size of 100 MB, which may become full at some point. This article describes how to avoid running out of space for the temporary directory.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## 공간이 부족한 이유는 무엇인가요?
+## <a name="why-do-i-run-out-of-space?"></a>Why do I run out of space?
 
-표준 Windows 환경 변수 TEMP 및 TMP는 응용 프로그램에서 실행되는 코드에 사용할 수 있습니다. TEMP와 TMP는 모두 최대 크기가 100MB인 단일 디렉터리를 가리킵니다. 이 디렉터리에 저장된 모든 데이터는 클라우드 서비스의 수명 주기 전체에 지속되지 않습니다. 클라우드 서비스의 역할 인스턴스가 재활용되면 디렉터리가 지워집니다.
+The standard Windows environment variables TEMP and TMP are available to code that is running in your application. Both TEMP and TMP point to a single directory that has a maximum size of 100 MB. Any data that is stored in this directory is not persisted across the lifecycle of the cloud service; if the role instances in a cloud service are recycled, the directory is cleaned.
 
-## 문제를 해결하려는 제안
+## <a name="suggestion-to-fix-the-problem"></a>Suggestion to fix the problem
 
-다음 대안 중 하나를 구현합니다.
+Implement one of the following alternatives:
 
-- 로컬 저장소 리소스를 구성하고 TEMP 또는 TMP를 사용하는 대신 직접 액세스합니다. 응용 프로그램 내에서 실행되는 코드에서 로컬 저장소 리소스에 액세스하려면 [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) 메서드를 호출합니다.
+- Configure a local storage resource, and access it directly instead of using TEMP or TMP. To access a local storage resource from code that is running within your application, call the [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) method. 
 
-- 로컬 저장소 리소스를 구성하고 TEMP 및 TMP 디렉터리를 카리켜서 로컬 저장소 리소스의 경로를 가리키도록 합니다. 이 수정 작업은 [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) 메서드 내에서 수행되어야 합니다.
+- Configure a local storage resource, and point the TEMP and TMP directories to point to the path of the local storage resource. This modification should be performed within the [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) method.
 
-다음 코드 예제에서는 OnStart 메서드 내에서 TEMP 및 TMP에 대한 대상 디렉터리를 수정하는 방법을 보여줍니다.
+The following code example shows how to modify the target directories for TEMP and TMP from within the OnStart method:
 
 
 ```csharp
@@ -69,12 +70,16 @@ namespace WorkerRole1
 }
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[Azure 웹 역할 ASP.NET 임시 폴더의 크기를 늘리는 방법](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)을 설명하는 블로그를 읽으세요.
+Read a blog that describes [How to increase the size of the Azure Web Role ASP.NET Temporary Folder](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
-클라우드 서비스에 대한 [문제해결 문서](/?tag=top-support-issue&product=cloud-services)를 더 봅니다.
+View more [troubleshooting articles](/?tag=top-support-issue&product=cloud-services) for cloud services.
 
-Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
+To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, view [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

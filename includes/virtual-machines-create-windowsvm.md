@@ -1,35 +1,38 @@
-1. [클래식 포털](http://manage.windowsazure.com)에 로그인 합니다. 
+1. Sign in to the [classic portal](http://manage.windowsazure.com). 
 
-2. 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
+2. On the command bar at the bottom of the window, click **New**.
 
-3. **계산**에서 **가상 컴퓨터**를 클릭한 후 **갤러리에서**를 클릭합니다.
+3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
 
-	![명령 모음의 갤러리에서로 이동](./media/virtual-machines-create-WindowsVM/fromgallery.png)
+    ![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
-4. 이렇게 한 후 첫 번째 화면의 사용 가능한 이미지 목록에서 가상 컴퓨터의 **이미지를 선택**할 수 있습니다. 갤러리에서 이미지를 선택하거나 업로드한 이미지 및 디스크에서 선택할 수 있습니다. 사용 가능한 이미지는 사용 중인 구독에 따라 달라집니다.
+4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. You can choose an image from the gallery or select from images and disks that you have uploaded. The available images may differ depending on the subscription you're using.
 
-5. 두 번째 화면에서는 컴퓨터 이름, 크기 및 관리자 사용자 이름과 암호를 선택할 수 있습니다. 앱 또는 워크로드를 실행하는 데 필요한 계층과 크기를 사용합니다. 다음은 몇 가지 팁입니다.
+5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some tips:
 
-	- **가상 컴퓨터 이름**에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 또한 문자로 시작해야 하고 문자 또는 숫자로 끝나야 합니다.
-	- **새 사용자 이름**은 서버를 관리하는 데 사용하는 관리 계정을 나타냅니다. 암호의 길이는 8-123자여야 하며 소문자, 대문자, 숫자 및 특수 문자 중 적어도 3가지를 포함해야 합니다. **가상 컴퓨터에 연결하고 로그온하는 데 이 사용자 이름과 암호가 필요합니다**.
-	- 가상 컴퓨터의 크기는 사용 비용과 구성 옵션(예: 연결할 수 있는 데이터 디스크 수)에 영향을 미칩니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md)를 참조하세요.
+    - **Virtual Machine Name** can only contain letters, numbers and hypens. It also must start with a letter and end with a letter or a number.
+    - **New User Name** refers to the administrative account that you use to manage the server. The password must be 8-123 characters long and have at least three of the following: lower case character, upper case character, number, and a special character. **You'll need the user name and password to connect and log on to the virtual machine**.
+    - A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md).
 
-6. 세 번째 화면에서는 네트워킹, 저장소 및 가용성에 대한 리소스를 구성할 수 있습니다. 다음은 몇 가지 팁입니다.
+6. The third screen lets you configure resources for networking, storage, and availability. Here are some tips:
 
-	- **클라우드 서비스 DNS 이름**은 가상 컴퓨터에 연결하는 데 사용되는 URI의 일부가 되는 전역 DNS 이름입니다. 이 이름은 Azure에서 고유해야 하므로 자체 클라우드 서비스 이름을 새로 만들어야 합니다. 클라우드 서비스는 [여러 가상 컴퓨터](virtual-machines-windows-classic-connect-vms.md)를 사용하는 시나리오에서 중요합니다.
+    - The **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that's used to contact the virtual machine. You'll need to come up with your own cloud service name because it must be unique in Azure. Cloud services are important for scenarios using [multiple virtual machines](virtual-machines-windows-classic-connect-vms.md).
 
-	- **지역/선호도 그룹/가상 네트워크**에는 사용자 위치에 해당하는 지역을 사용합니다. 대신 가상 네트워크를 지정하도록 선택할 수도 있습니다.
+    - For **Region/Affinity Group/Virtual Network**, use a region that's appropriate to your location. You can also choose to specify a virtual network instead.
 
-	- 가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 **반드시** 가상 네트워크를 지정해야 합니다. VM을 만든 후에는 가상 컴퓨터를 가상 네트워크에 가입할 수 없습니다. 자세한 내용은 [Azure 가상 네트워크 개요](virtual-networks-overview.md)(영문)를 참조하세요.
-	
-	- 끝점을 구성하는 방법에 대한 지침은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)(영문)을 참조하세요.
+    - If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview](virtual-networks-overview.md).
+    
+    - For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
 
-7. 네 번째 구성 화면에서는 VM 에이전트를 설치하고 사용 가능한 확장 중 일부를 구성할 수 있습니다.
+7. The fourth configuration screen lets you install the VM Agent and configure some of the available extensions.
 
-	>[AZURE.NOTE] VM 에이전트는 가상 컴퓨터를 조작 또는 관리하는 데 유용한 확장을 설치하기 위한 환경을 제공합니다. 자세한 내용은 [VM 에이전트 및 확장 정보](virtual-machines-windows-classic-agents-and-extensions.md)를 참조하세요.
+    >[AZURE.NOTE] The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine. For details, see [About the VM agent and extensions](virtual-machines-windows-classic-agents-and-extensions.md).  
 
-8. 가상 컴퓨터가 만들어지면 클래식 포털의 **가상 컴퓨터** 아래에 새 가상 컴퓨터가 나열됩니다. 해당 클라우드 서비스 및 저장소 계정도 만들어진 후 해당 섹션에 나열됩니다. 가상 컴퓨터와 클라우드 서비스가 둘 다 자동으로 시작되고 해당 상태가 **실행 중**으로 나열됩니다.
+8. After the virtual machine is created, the classic portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account also are created and are listed in those sections. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
-	![가상 컴퓨터의 VM 에이전트 및 끝점 구성](./media/virtual-machines-create-WindowsVM/vmcreated.png)
+    ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

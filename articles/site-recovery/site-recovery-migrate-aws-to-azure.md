@@ -1,59 +1,64 @@
 <properties
-	pageTitle="Site Recovery를 사용하여 Amazon Web Services의 Windows 가상 컴퓨터를 Azure로 마이그레이션 | Microsoft Azure"
-	description="이 문서에서는 Azure Site Recovery를 사용하여 Amazon 웹 서비스(AWA)를 실행하는 Windows 가상 컴퓨터를 Azure로 마이그레이션하는 방법을 설명합니다."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Migrate Windows virtual machines from Amazon Web Services to Azure with Site Recovery | Microsoft Azure"
+    description="This article describes how to migrate Windows virtual machines running in Amazon Web Services (AWA) to Azure using Azure Site Recovery."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="site-recovery"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="backup-recovery"
-	ms.date="08/22/2016"
-	ms.author="raynew"/>
-
-#  Azure Site Recovery를 사용하여 AWS(Amazon Web Services)의 Windows 가상 컴퓨터를 Azure로 마이그레이션
-
-## 개요
-
-Azure Site Recovery에 오신 것을 환영합니다. 이 문서에서는 Site Recovery를 사용하여 AWS에서 실행 중인 Windows 인스턴스를 Azure로 마이그레이션합니다. 시작하기 전에 다음 사항에 주의하세요.
-
-- Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 Azure Resource Manager 배포 모델과 클래식 배포 모델이 있습니다. 또한 Azure에는 두 가지 포털이 있는데, 하나는 클래식 배포 모델을 지원하는 Azure 클래식 포털이고 다른 하나는 두 가지 배포 모델을 모두 지원하는 Azure 포털입니다. Resource Manager 또는 클래식 중 어느 곳에서 Site Recovery를 구성하든 마이그레이션의 기본 단계는 동일합니다. 그러나 이 문서의 UI 지침과 스크린샷은 Azure 포털과 관련된 것입니다.
-- **현재 AWS에서 Azure로만 마이그레이션할 수 있습니다. AWS에서 Azure로 장애 조치(failover)할 수 있으나 다시 장애 복구(failback)할 수 없습니다. 진행 중인 복제가 없습니다.**
-- 이 문서의 마이그레이션 지침은 물리적 컴퓨터를 Azure에 복제하기 위한 지침을 기준으로 합니다. 여기에는 Azure 포털의 물리적 서버 복제 방법을 설명하는 [VMware VM 또는 물리적 서버를 Azure로 복제](site-recovery-vmware-to-azure.md)에 나오는 단계에 대한 링크가 포함됩니다.
-- 클래식 포털에서 Site Recovery를 설정하는 경우 [이 문서](site-recovery-vmware-to-azure-classic.md)의 자세한 지침을 따르세요. 이 [레거시 문서](site-recovery-vmware-to-azure-classic-legacy.md)의 지침은 **더 이상 사용하지 마세요**.
-
-이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="backup-recovery"
+    ms.date="08/22/2016"
+    ms.author="raynew"/>
 
 
-## 필수 조건
+#  <a name="migrate-windows-virtual-machines-in-amazon-web-services-(aws)-to-azure-with-azure-site-recovery"></a>Migrate Windows virtual machines in Amazon Web Services (AWS) to Azure with Azure Site Recovery
 
-이 배포에 대해 필요한 사항은 다음과 같습니다.
+## <a name="overview"></a>Overview
 
-- **구성 서버**: 구성 서버 역할을 하는 Windows Server 2012 R2를 실행 중인 온-프레미스 VM입니다. 이 VM에 다른 Site Recovery 구성 요소(프로세스 서버 및 마스터 대상 서버 포함)도 설치합니다. 자세한 내용은 [시나리오 아키텍처](site-recovery-vmware-to-azure.md#scenario-architecture) 및 [구성 서버 필수 구성 요소](site-recovery-vmware-to-azure.md#configuration-server-prerequisites)를 참조하세요.
-- **EC2 VM 인스턴스**: 마이그레이션하려는 Windows를 실행하는 인스턴스입니다.
+Welcome to Azure Site Recovery. Use this article to migrate Windows instances running in AWS to Azure with Site Recovery. Before you start, note that:
 
-## 배포 단계
+- Azure has two different deployment models for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. The basic steps for migration are the same whether you're configuring Site Recovery in Resource Manager or in classic.However the UI instructions and screenshots in this article are relevant for the Azure portal.
+- **Currently you can only migrate from AWS to Azure. You can fail over VMs from AWS to Azure, but you can't fail them back again. There's no ongoing replication.**
+- The migration instructions in this article are based on the instructions for replicating a physical machine to Azure. It includes links to the steps in [Replicate VMware VMs or physical servers to Azure](site-recovery-vmware-to-azure.md), which describes how to replicate a physical server in the Azure portal.
+- If you're setting up Site Recovery in the classic portal, follow the detailed instructions in [this article](site-recovery-vmware-to-azure-classic.md). **You should no longer use** the instructions in this [legacy article](site-recovery-vmware-to-azure-classic-legacy.md).
 
-이 섹션에서는 새 Azure 포털의 배포 단계를 설명합니다. 클래식 포털에서 Site Recovery에 대해 이러한 배포 단계가 필요한 경우 [이 문서](site-recovery-vmware-to-azure-classic.md)를 참조하세요.
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-1. [자격 증명 모음을 만듭니다](site-recovery-vmware-to-azure.md#create-a-recovery-services-vault).
-2. [구성 서버를 배포합니다](site-recovery-vmware-to-azure.md#step-2-set-up-the-source-environment).
-3. 배포한 후에 구성 서버가 마이그레이션할 VM과 통신할 수 있는지 유효성을 검사합니다.
-4. [복제 설정을 지정합니다](site-recovery-vmware-to-azure.md#step-4-set-up-replication-settings). 복제 정책을 만들고 구성 서버에 할당합니다.
-5. [모바일 서비스를 설치합니다](site-recovery-vmware-to-azure.md#step-6-replication-application). 보호하려는 각 VM은 모바일 서비스가 설치되어야 합니다. 이 서비스는 프로세스 서버에 데이터를 보냅니다. 모바일 서비스를 수동으로 설치 또는 푸시하고 VM에 대한 보호를 사용하는 경우 프로세스 서버에서 자동으로 설치합니다. EC2 인스턴스에서 마이그레이션할 방화벽 규칙을 구성하여 이 서비스의 강제 설치를 허용해야 합니다. EC2 인스턴스에 대한 보안 그룹에는 다음과 같은 규칙이 있어야 합니다.
 
-	![방화벽 규칙](./media/site-recovery-migrate-aws-to-azure/migrate-firewall.png)
+## <a name="prerequisites"></a>Prerequisites
 
-6. [복제를 활성화합니다](site-recovery-vmware-to-azure.md#enable-replication). 마이그레이션할 VM에 대해 복제를 사용하도록 설정합니다. EC2 콘솔에서 얻을 수 있는 개인 IP 주소를 사용하여 EC2 인스턴스를 검색할 수 있습니다.
-7. [계획되지 않은 장애 조치를 실행합니다](site-recovery-failover.md#run-an-unplanned-failover). 초기 복제가 완료된 후 각 VM에 대해 AWS에서 Azure로 계획되지 않은 장애 조치를 실행할 수 있습니다. 선택적으로 복구 계획을 만들고 장애 조치를 실행하여 AWS에서 Azure에 여러 가상 컴퓨터를 마이그레이션할 수 있습니다. 복구 계획을 [자세히 알아봅니다](site-recovery-create-recovery-plans.md).
+Here's what you need for this deployment
 
-## 다음 단계
+- **Configuration server**: An on-premises VM running Windows Server 2012 R2 that acts as the configuration server. You install the other Site Recovery components (including the process server and master target server) on this VM too. Read more in [scenario architecture](site-recovery-vmware-to-azure.md#scenario-architecture) and [configuration server prerequisites](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).
+- **EC2 VM instances**: The instances running Windows you want to migrate.
 
-[Azure Site Recovery란?](site-recovery-overview.md)의 다른 복제 시나리오에 대해 알아봅니다.
+## <a name="deployment-steps"></a>Deployment steps
 
-<!---HONumber=AcomDC_0824_2016-->
+This section describes the deployment steps in the new Azure portal. If you need these deployment steps for Site Recovery in the classic portal, refer to [this article](site-recovery-vmware-to-azure-classic.md).
+
+1. [Create a vault](site-recovery-vmware-to-azure.md#create-a-recovery-services-vault).
+2. [Deploy a configuration server](site-recovery-vmware-to-azure.md#step-2-set-up-the-source-environment).
+3. After you've deployed the configuration server, validate that it can communicate with the VMs that you want to migrate.
+4. [Set up replication settings](site-recovery-vmware-to-azure.md#step-4-set-up-replication-settings). Create a replication policy and assign to the configuration server.
+5. [Install the Mobility service](site-recovery-vmware-to-azure.md#step-6-replication-application). Each VM you want to protect needs the Mobility service installed. This service sends data to the process server. The Mobility service can be installed manually or pushed and installed automatically by the process server when protection for the VM is enabled. Firewall rules on EC2 instances that you want to migrate should be configured to allow push installation of this service. The security group for EC2 instances should have the following rules:
+
+    ![firewall rules](./media/site-recovery-migrate-aws-to-azure/migrate-firewall.png)
+
+6. [Enable replication](site-recovery-vmware-to-azure.md#enable-replication). Enable replication for the VMs you want to migrate. You can discover the EC2 instances using the private IP addresses, which you can get from the EC2 console.
+7. [ Run an unplanned failover](site-recovery-failover.md#run-an-unplanned-failover). After initial replication is complete, you can run an unplanned failover from AWS to Azure for each VM. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines from AWS to Azure. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
+
+## <a name="next-steps"></a>Next steps
+
+Learn more about other replication scenarios in [What is Azure Site Recovery?](site-recovery-overview.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

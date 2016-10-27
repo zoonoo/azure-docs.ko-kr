@@ -1,6 +1,6 @@
 <properties
-   pageTitle="논리 앱 예제 및 시나리오 | Microsoft Azure"
-   description="일반적인 논리 앱 예제를 참조하고 일반적인 시나리오를 구현하는 방법에 대해 알아봅니다."
+   pageTitle="Logic Apps Examples and Scenarios | Microsoft Azure"
+   description="See common Logic apps examples and learn how to implement common scenarios"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -13,70 +13,74 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/11/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
-# 논리 앱 예제 및 일반적인 시나리오
 
-이 문서는 논리 앱을 사용하여 비즈니스 프로세스를 자동화할 수 있는 방법을 이해할 수 있도록 일반적인 시나리오 및 예제를 자세히 설명합니다.
+# <a name="logic-apps-examples-and-common-scenarios"></a>Logic Apps Examples and Common Scenarios
 
-## 사용자 지정 트리거 및 동작
+This document details common scenarios and examples to help you to understand some of the ways you can use Logic apps to automate business processes. 
 
-몇 가지 방법으로 다른 앱에서 논리 앱을 트리거할 수 있습니다. 몇 가지 일반적인 예는 다음과 같습니다.
+## <a name="custom-triggers-and-actions"></a>Custom Triggers and Actions
 
-- [사용자 지정 트리거 또는 작업 만들기](app-service-logic-create-api-app.md)
-- [장기 실행 작업](app-service-logic-create-api-app.md)
-- [HTTP 요청 트리거(POST)](app-service-logic-http-endpoint.md)
-- [Webhook 트리거 및 작업](app-service-logic-create-api-app.md)
-- [폴링 트리거](app-service-logic-create-api-app.md)
+There are several ways you can trigger a Logic app from another app. Here's a few common examples:
 
-### 시나리오
+- [Creating a custom trigger or action](app-service-logic-create-api-app.md)
+- [Long-running actions](app-service-logic-create-api-app.md)
+- [HTTP request trigger (POST)](app-service-logic-http-endpoint.md)
+- [Webhook triggers and actions](app-service-logic-create-api-app.md)
+- [Polling triggers](app-service-logic-create-api-app.md)
 
-- [요청 동기 응답](app-service-logic-http-endpoint.md)
-- [SMS로 요청 응답](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+### <a name="scenarios"></a>Scenarios
 
-## 오류 처리 및 로깅
+- [Request synchronous response](app-service-logic-http-endpoint.md)
+- [Request Response with SMS](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
-- [예외 및 오류 처리](app-service-logic-exception-handling.md)
-- [Azure 경고 및 진단 구성](app-service-logic-monitor-your-logic-apps.md)
+## <a name="error-handling-and-logging"></a>Error handling and logging
 
-### 시나리오
+- [Exception and error handling](app-service-logic-exception-handling.md)
+- [Configure Azure Alerts and diagnostics](app-service-logic-monitor-your-logic-apps.md)
 
-- [사용 사례: 오류 및 예외 처리](app-service-logic-scenario-error-and-exception-handling.md)
+### <a name="scenarios"></a>Scenarios
 
-## 배포 및 관리
+- [Use Case: Error and exception handling](app-service-logic-scenario-error-and-exception-handling.md)
 
-- [자동화된 배포 만들기](app-service-logic-create-deploy-template.md)
-- [Visual Studio의 논리 앱 빌드 및 배포](app-service-logic-deploy-from-vs.md)
-- [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)
+## <a name="deploying-and-managing"></a>Deploying and managing
 
-## 콘텐츠 형식, 변환 및 변형
+- [Create an automated deployment](app-service-logic-create-deploy-template.md)
+- [Build and deploy logic apps from Visual Studio](app-service-logic-deploy-from-vs.md)
+- [Monitor logic apps](app-service-logic-monitor-your-logic-apps.md)
 
-논리 앱 [워크플로 정의 언어](http://aka.ms/logicappsdocs)에는 여러 다른 콘텐츠 형식을 변환하고 사용할 수 있도록 하는 많은 함수가 포함되어 있습니다. 또한 엔진은 워크플로를 통해 데이터가 흐를 때 콘텐츠 형식을 보존하기 위해 할 수 있는 모든 작업을 수행합니다.
+## <a name="content-types,-conversions,-and-transformations"></a>Content types, conversions, and transformations
 
-- [콘텐츠 형식 처리](app-service-logic-content-type.md)(예: application/json, application/xml 및 일반/텍스트)
-- [워크플로 정의 작성](app-service-logic-author-definitions.md)
-- [워크플로 정의 언어 참조](http://aka.ms/logicappsdocs)
+The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) contains many functions to allow you to convert and work with different content types.  In addition the engine will do all it can to preserve content-types as data flows through the workflow.
 
-## 배치 및 반복
+- [Handling of content-types](app-service-logic-content-type.md) like application/json, application/xml, and plain/text
+- [Authoring workflow definitions](app-service-logic-author-definitions.md)
+- [Workflow definition language reference](http://aka.ms/logicappsdocs)
+
+## <a name="batches-and-looping"></a>Batches and looping
 
 - [SplitOn](app-service-logic-loops-and-scopes.md)
 - [ForEach](app-service-logic-loops-and-scopes.md)
 - [Until](app-service-logic-loops-and-scopes.md)
 
-## Azure Functions와 통합
+## <a name="integrating-with-azure-functions"></a>Integrating with Azure Functions
 
-- [Azure Functions 통합](app-service-logic-azure-functions.md)
+- [Azure Functions integration](app-service-logic-azure-functions.md)
 
-### 시나리오
+### <a name="scenarios"></a>Scenarios
 
-- [서비스 버스 트리거인 Azure Function](app-service-logic-scenario-function-sb-trigger.md)
+- [Azure Function as a Service Bus trigger](app-service-logic-scenario-function-sb-trigger.md)
 
-## HTTP, REST 및 SOAP
+## <a name="http,-rest,-and-soap"></a>HTTP, REST, and SOAP
 
- - [SOAP 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+ - [Calling SOAP](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 
-이 문서에 예제 및 시나리오를 추가할 예정입니다. 아래의 의견 섹션을 사용하여 여기에서 보고 싶은 예제 또는 시나리오를 알려주세요.
+We will keep adding examples and scenarios to this document. Use the comments section below to let us know what examples or scenarios you'd like to see here.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,34 +1,40 @@
-1. 포털에서 **새로 만들기**로 이동합니다. 검색에 "가상 네트워크 게이트웨이"를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 블레이드가 열립니다.
-2. **가상 네트워크 게이트웨이** 블레이드 하단에서 **만들기**를 클릭합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 블레이드가 열립니다. 가상 네트워크 게이트웨이에 대한 값을 채웁니다.
+1. In the portal, go to **New**. Type "Virtual Network Gateway" in search. Locate **Virtual network gateway** in the search return and click the entry. This opens the **Create virtual network gateway** blade.
+2. Click **Create** at the bottom of the **Virtual network gateway** blade. The **Create virtual network gateway** blade will open. Fill in the values for your virtual network gateway.
 
-	![가상 네트워크 게이트웨이 블레이드 필드 만들기](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "가상 네트워크 게이트웨이 블레이드 필드 만들기")
+    ![Create virtual network gateway blade fields](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Create virtual network gateway blade fields")
 
-3. **이름**: 게이트웨이 이름을 지정합니다. 이는 게이트웨이 서브넷 이름 지정과 동일하지는 않습니다. 만드는 게이트웨이 개체의 이름입니다.
+3. **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
 
-4. **게이트웨이 유형**: **VPN**을 선택합니다. VPN 게이트웨이는 가상 네트워크 게이트웨이 유형 **VPN**을 사용합니다.
+4. **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**. 
 
-5. **VPN 유형**: 구성에 대해 지정된 VPN 유형을 선택합니다. 대부분의 구성에는 경로 기반 VPN 유형이 필요합니다.
+5. **VPN type**: Select the VPN type that is specified for your configuration. Most configurations require a Route-based VPN type.
 
-6. **SKU**: 드롭다운에서 게이트웨이 SKU를 선택합니다. 드롭다운에 나열되는 SKU는 선택하는 VPN 유형에 따라 달라집니다.
+6. **SKU**: Select the gateway SKU from the dropdown. The SKUs listed in the dropdown depend on the VPN type you select.
 
-7. **위치**: 가상 네트워크가 있는 위치를 가리키도록 **위치** 필드를 조정합니다.
+7. **Location**: Adjust the **Location** field to point to the location where your virtual network is located.
  
-8. 이 게이트웨이를 추가할 가상 네트워크를 선택합니다. **가상 네트워크**를 클릭하여 **가상 네트워크 선택** 블레이드를 엽니다. VNet을 선택합니다. VNet이 보이지 않으면 **위치** 필드가 가상 네트워크가 있는 지역을 가리키고 있는지 확인합니다.
+8. Choose the virtual network to which you want to add this gateway. Click **Virtual network** to open the **Choose a virtual network** blade. Select the VNet. If you don't see your VNet, make sure the **Location** field is pointing to the region in which your virtual network is located.
 
-9. 공용 IP 주소를 선택합니다. **공용 IP 주소**를 클릭하여 **공용 IP 주소 블레이드 선택**을 엽니다. **+새로 만들기**를 클릭하여 **공용 IP 주소 블레이드 만들기**를 엽니다. 공용 IP 주소의 이름을 입력합니다. 이 블레이드는 공용 IP 주소가 동적으로 할당되는 공용 IP 주소 개체를 만듭니다.<br> **확인**을 클릭하여 이 블레이드에 변경 내용을 저장합니다.
+9. Choose a public IP address. Click **Public IP address** to open the **Choose public IP address** blade. Click **+Create New** to open the **Create public IP address blade**. Input a name for your public IP address. This blade creates a public IP address object to which a public IP address will be dynamically assigned.<br>Click **OK** to save your changes to this blade.
 
-10. **구독**: 올바른 구독을 선택하는지 확인합니다.
+10. **Subscription**: Verify that the correct subscription is selected.
 
-11. **리소스 그룹**: 이 설정은 선택한 Virtual Network에 의해 결정됩니다.
+11. **Resource group**: This setting is determined by the Virtual Network that you select. 
 
-12. 앞의 설정을 지정한 후에는 **위치**를 조정하지 않습니다.
+12. Don't adjust the **Location** after you've specified the previous settings.
 
-13. 설정을 확인합니다. 게이트웨이를 대시보드에 표시하려는 경우 블레이드의 맨 아래에서 **대시보드에 고정**을 선택할 수 있습니다.
+13. Verify the settings. You can select **Pin to dashboard** at the bottom of the blade if you want your gateway to appear on the dashboard.
 
-14. **만들기**를 클릭하여 게이트웨이 만들기를 시작합니다. 설정을 확인하면 대시보드에 "가상 네트워크 게이트웨이 배포" 타일이 표시됩니다. 하나의 게이트웨이를 만드는 데 최대 45분이 걸릴 수 있습니다. 완료 상태를 확인하기 위해 포털 페이지를 새로 고쳐야 할 수 있습니다.
+14. Click **Create** to begin creating the gateway. The settings will be validated and you'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
-	![가상 네트워크 게이트웨이 배포](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "가상 네트워크 게이트웨이 배포")
+    ![Deploying Virtual network gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Deploying Virtual network gateway")
 
-11. 게이트웨이를 만든 후 포털에서 가상 네트워크를 살펴보면 게이트웨이에 할당된 IP 주소를 볼 수 있습니다. 게이트웨이가 연결된 장치로 표시됩니다. 연결된 장치(가상 네트워크 게이트웨이)를 클릭하여 자세한 내용을 볼 수 있습니다.
+11. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway will appear as a connected device. You can click the connected device (your virtual network gateway) to view more information.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

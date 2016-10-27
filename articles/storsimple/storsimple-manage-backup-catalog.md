@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 백업 카탈로그 관리 | Microsoft Azure"
-   description="StorSimple 관리자 서비스 백업 카탈로그 페이지를 사용하여 볼륨에 대한 백업 세트를 나열, 선택 및 삭제하는 방법을 설명합니다."
+   pageTitle="Manage your StorSimple backup catalog | Microsoft Azure"
+   description="Explains how to use the StorSimple Manager service Backup Catalog page to list, select, and delete backup sets for a volume."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,106 +15,111 @@
    ms.date="04/28/2016"
    ms.author="v-sharos" />
 
-# StorSimple 관리자 서비스를 사용하여 백업 카탈로그 관리
 
-## 개요
+# <a name="use-the-storsimple-manager-service-to-manage-your-backup-catalog"></a>Use the StorSimple Manager service to manage your backup catalog
 
-StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또는 예약된 백업을 수행할 때 생성되는 모든 백업 세트를 표시합니다. 이 페이지를 사용하여 백업 정책 또는 볼륨에 대한 모든 백업을 나열하거나, 백업을 선택 또는 삭제하거나 백업을 사용하여 볼륨을 복원 또는 복제할 수 있습니다.
+## <a name="overview"></a>Overview
 
-이 자습서에서는 백업 세트를 표시하고 선택하고 삭제하는 방법을 설명합니다. 백업에서 장치를 복원하는 방법을 알아보려면[백업 세트에서 장치 복원](storsimple-restore-from-backup-set.md)으로 이동합니다. 볼륨 복제 방법을 알아보려면 [StorSimple 볼륨 복제](storsimple-clone-volume.md)로 이동합니다.
+The StorSimple Manager service **Backup Catalog** page displays all the backup sets that are created when manual or scheduled backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
-![백업 카탈로그](./media/storsimple-manage-backup-catalog/backupcatalog.png)
+This tutorial explains how to list, select, and delete a backup set. To learn how to restore your device from backup, go to [Restore your device from a backup set](storsimple-restore-from-backup-set.md). To learn how to clone a volume, go to [Clone a StorSimple volume](storsimple-clone-volume.md).
 
-**백업 카탈로그** 페이지는 백업 세트 선택 범위를 좁힐 수 있는 쿼리를 제공합니다. 다음 매개 변수를 기반으로 검색되는 백업 세트를 필터링 할 수 있습니다.
+![Backup catalog](./media/storsimple-manage-backup-catalog/backupcatalog.png) 
 
-- **장치** – 백업 세트를 만든 장치입니다.
+The **Backup Catalog** page provides a query to narrow your backup set selection. You can filter the backup sets that are retrieved, based on the following parameters:
 
-- **백업 정책 또는 볼륨** – 백업 정책 또는 이 백업 세트와 연결된 볼륨입니다.
+- **Device** – The device on which the backup set was created.
 
-- **시작 및 종료** – 백업 세트를 만든 날짜 및 시간 범위입니다.
+- **Backup Policy or Volume** – The backup policy or volume associated with this backup set.
 
-그런 다음 필터링된 백업 세트는 다음 특성을 기반으로 표로 정리됩니다.
+- **From and To** – The date and time range when the backup set was created.
 
-- **이름** – 백업 정책 또는 이 백업 세트와 연결된 볼륨입니다.
+The filtered backup sets are then tabulated based on the following attributes:
 
-- **크기** – 백업 세트의 실제 크기입니다.
+- **Name** – The name of the backup policy or volume associated with the backup set.
 
-- **만든 날짜** – 백업이 만들어진 날짜 및 시간입니다.
+- **Size** – The actual size of the backup set.
 
-- **유형** – 백업 세트는 로컬 스냅숏 또는 클라우드 스냅숏일 수입니다. 로컬 스냅숏은 장치에 로컬로 저장된 모든 볼륨 데이터의 백업인 반면 클라우드 스냅숏은 클라우드에 상주하는 볼륨 데이터의 백업을 참조합니다. 로컬 스냅숏은 데이터 복구 기능으로 클라우드 스냅숏을 선택하는 반면 빠른 액세스를 제공합니다.
+- **Created On** – The date and time when the backups were created. 
 
-- **시작 기준** – 일정에 따라 자동으로 또는 사용자가 수동으로 백업을 시작할 수 있습니다. 백업을 예약하기 위해 백업 정책을 사용할 수 있습니다. 또는 **백업 수행** 옵션을 사용하여 수동 백업을 수행할 수 있습니다.
+- **Type** – Backup sets can be local snapshots or cloud snapshots. A local snapshot is a backup of all your volume data stored locally on the device, whereas a cloud snapshot refers to the backup of volume data residing in the cloud. Local snapshots provide faster access, whereas cloud snapshots are chosen for data resiliency.
 
-## 볼륨에 대한 목록 백업 세트
+- **Initiated By** – The backups can be initiated automatically by a schedule or manually by a user. You can use a backup policy to schedule backups. Alternatively, you can use the **Take backup** option to take a manual backup.
+
+## <a name="list-backup-sets-for-a-volume"></a>List backup sets for a volume
  
-볼륨에 대한 모든 백업을 나열하려면 다음 단계를 완료 합니다.
+Complete the following steps to list all the backups for a volume.
 
-#### 백업 세트를 나열하려면
+#### <a name="to-list-backup-sets"></a>To list backup sets
 
-1. StorSimple 관리자 서비스 페이지에서 **백업 카탈로그** 탭을 클릭합니다.
+1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-2. 다음과 같이 선택 항목을 필터링합니다.
+2. Filter the selections as follows:
 
-    1. 해당 장치를 선택합니다.
+    1. Select the appropriate device.
 
-    2. 드롭다운 목록에서 해당 볼륨을 선택하여 백업을 봅니다.
+    2. In the drop-down list, choose a volume to view the corresponding the backups.
 
-    3. 시간 범위를 지정합니다.
+    3. Specify the time range.
 
-    4. 확인 아이콘![확인 아이콘](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)을 클릭하여 이 쿼리를 실행 합니다.
+    4. Click the check icon ![Check icon](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) to execute this query.
  
-    선택한 볼륨과 연결된 백업이 백업 세트의 목록에 나타나야 합니다.
+    The backups associated with the selected volume should appear in the list of backup sets.
 
-## 백업 세트를 선택합니다.
+## <a name="select-a-backup-set"></a>Select a backup set
 
-볼륨 또는 백업 정책에 백업 세트를 선택 하려면 다음 단계를 완료 합니다.
+Complete the following steps to select a backup set for a volume or backup policy.
 
-#### 백업 세트를 선택하려면
+#### <a name="to-select-a-backup-set"></a>To select a backup set
 
-1. StorSimple 관리자 서비스 페이지에서 **백업 카탈로그** 탭을 클릭합니다.
+1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-2. 다음과 같이 선택 항목을 필터링합니다.
+2. Filter the selections as follows:
 
-    1. 해당 장치를 선택합니다.
+    1. Select the appropriate device.
 
-    2. 드롭다운 목록에서 선택하려는 백업에 대 한 볼륨 또는 백업 정책을 선택합니다.
+    2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
 
-    3. 시간 범위를 지정합니다.
+    3. Specify the time range.
 
-    4. 확인 아이콘![확인 아이콘](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)을 클릭하여 이 쿼리를 실행 합니다.
+    4. Click the check icon ![Check icon](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) to execute this query.
 
-    선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
+    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-3. 백업 세트를 선택하고 확장합니다. **복원** 및 **삭제** 옵션이 페이지의 맨 아래에 표시됩니다. 선택한 백업 세트에 이러한 동작 중 하나를 수행할 수 있습니다.
+3. Select and expand a backup set. The **Restore** and **Delete** options are displayed at the bottom of the page. You can perform either of these actions on the backup set that you selected.
 
-## 백업 세트 삭제
+## <a name="delete-a-backup-set"></a>Delete a backup set
 
-백업에 연결된 데이터를 더이상 보존하고 싶지 않은 경우 백업을 삭제 합니다. 백업 세트를 삭제하려면 다음 단계를 수행합니다.
+Delete a backup when you no longer wish to retain the data associated with it. Perform the following steps to delete a backup set.
 
-#### 백업 세트를 삭제 하려면
+#### <a name="to-delete-a-backup-set"></a>To delete a backup set
 
-1. StorSimple 관리자 서비스 페이지에서 **백업 카탈로그** 탭을 클릭합니다.
+1. On the StorSimple Manager service page, click the **Backup Catalog tab**.
 
-2. 다음과 같이 선택 항목을 필터링합니다.
+2. Filter the selections as follows:
 
-    1. 해당 장치를 선택합니다.
+    1. Select the appropriate device.
 
-    2. 드롭다운 목록에서 선택하려는 백업에 대 한 볼륨 또는 백업 정책을 선택합니다.
+    2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
 
-    3. 시간 범위를 지정합니다.
+    3. Specify the time range.
 
-    4. 확인 아이콘![확인 아이콘](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)을 클릭하여 이 쿼리를 실행 합니다.
+    4. Click the check icon ![Check icon](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) to execute this query.
 
-    선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
+    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-3. 백업 세트를 선택하고 확장합니다. **복원** 및 **삭제** 옵션이 페이지의 맨 아래에 표시됩니다. **삭제**를 클릭합니다.
+3. Select and expand a backup set. The **Restore** and **Delete** options are displayed at the bottom of the page. Click **Delete**.
 
-4. 삭제가 진행 중일 때와 삭제가 완료되었을 때 알림이 표시됩니다. 삭제를 완료 한 후 이 페이지의 쿼리를 새로 고칩니다. 삭제 된 백업 세트는 백업 세트의 목록에 더이상 나타나지 않습니다.
+4. You will be notified when the deletion is in progress and when it has successfully finished. After the deletion is done, refresh the query on this page. The deleted backup set will no longer appear in the list of backup sets.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- 백업 카탈로그를 사용하여 [백업 세트에서 장치를 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
+- Learn how to [use the backup catalog to restore your device from a backup set](storsimple-restore-from-backup-set.md).
 
-- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

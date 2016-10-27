@@ -1,59 +1,64 @@
 <properties
-	pageTitle="Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Azure"
-	description="Azure Active Directory B2C에서 보호하는 소비자 지향 응용 프로그램에서 Multi-Factor Authentication을 사용하는 방법"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Azure"
+    description="How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: 소비자 지향 응용 프로그램에서 Multi-Factor Authentication 사용
 
-Azure Active Directory(Azure AD) B2C는 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)에 직접 통합하여 소비자 지향 응용 프로그램에서 등록 및 로그인하는 데 두 번째 보안 계층을 추가할 수 있습니다. 이 작업을 한 줄의 코드도 작성하지 않고 수행할 수 있습니다. 현재 전화 통화 및 문자 메시지를 확인을 지원합니다. 이미 등록 및 로그인 정책을 만든 경우에도 다단계 인증을 사용할 수 있습니다.
+# <a name="azure-active-directory-b2c:-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: Enable Multi-Factor Authentication in your consumer-facing applications
+
+Azure Active Directory (Azure AD) B2C integrates directly with [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message verification. If you already created sign-up and sign-in policies, you can still enable Multi-Factor Authentication.
 
 > [AZURE.NOTE]
-단지 기존 정책을 편집하지 않고 등록 및 로그인 정책을 만들 때 다단계 인증을 사용할 수도 있습니다.
+Multi-Factor Authentication can also be enabled when you create sign-up and sign-in policies, not just by editing existing policies.
 
-이 기능은 응용 프로그램에서 다음과 같은 시나리오를 처리하는 데 도움이 됩니다.
+This feature helps applications handle scenarios such as the following:
 
-- 하나의 응용 프로그램에 액세스하려는 경우 다단계 인증이 필요하지 않지만 다른 응용 프로그램에 액세스하려면 다단계 인증이 필요합니다. 예를 들어 소비자는 소셜 또는 로컬 계정을 사용하여 자동차 보험 응용 프로그램에 로그인할 수 있지만 동일한 디렉터리에 등록된 주택 보험 응용 프로그램에 액세스하기 전에 전화번호를 확인해야 합니다.
-- 일반적으로 응용 프로그램에 액세스하는 데 다단계 인증이 필요하지 않지만 그 안에 중요한 부분에 액세스하하려면 다단계 인증이 필요합니다. 예를 들어 소비자는 소셜 또는 로컬 계정으로 은행 응용 프로그램에 로그인하고 계정 잔액을 확인할 수 있지만 유선 전송을 시도하기 전에 전화번호를 확인해야 합니다.
+- You don't require Multi-Factor Authentication to access one application, but you do require it to access another one. For example, the consumer can sign into an auto insurance application with a social or local account, but must verify the phone number before accessing the home insurance application registered in the same directory.
+- You don't require Multi-Factor Authentication to access an application in general, but you do require it to access the sensitive portions within it. For example, the consumer can sign in to a banking application with a social or local account and check account balance, but must verify the phone number before attempting a wire transfer.
 
-## 다단계 인증을 사용하도록 등록 정책을 수정합니다
+## <a name="modify-your-sign-up-policy-to-enable-multi-factor-authentication"></a>Modify your sign-up policy to enable Multi-Factor Authentication
 
-1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. **등록 정책**을 클릭합니다.
-3. 사용자의 등록 정책(예: "B2C\_1\_SiUp")을 클릭하여 엽니다.
-4. **Multi-Factor Authentication**을 클릭하고 **상태**를 **켜기**로 바꿉니다. **확인**을 클릭합니다.
-5. 블레이드 위쪽에서 **저장**을 클릭합니다.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Sign-up policies**.
+3. Click your sign-up policy (for example, "B2C_1_SiUp") to open it.
+4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
+5. Click **Save** at the top of the blade.
 
-정책에서 "지금 실행" 기능을 사용하여 고객 환경을 확인할 수 있습니다. 다음을 확인합니다.
+You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 
-다단계 인증 단계가 실행되기 전에 사용자의 디렉터리에 소비자 계정이 생성됩니다. 이 단계에서 소비자에게 자신의 전화 번호를 제공하고 확인하라는 메시지가 표시됩니다. 확인에 성공한 경우 전화번호는 나중에 사용하도록 소비자 계정에 연결됩니다. 소비자가 취소 또는 삭제하더라도 다음에 로그인하는 동안 다시 전화 번호를 확인하도록 요청할 수 있습니다(다단계 인증을 사용하도록 설정한 경우).
+A consumer account gets created in your directory before the Multi-Factor Authentication step occurs. During the step, the consumer is asked to provide his or her phone number and verify it. If verification is successful, the phone number is attached to the consumer account for later use. Even if the consumer cancels or drops out, he or she can be asked to verify a phone number again during the next sign-in (with Multi-Factor Authentication enabled).
 
-## 다단계 인증을 사용하도록 로그인 정책 수정
+## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>Modify your sign-in policy to enable Multi-Factor Authentication
 
-1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. **로그인 정책**을 클릭합니다.
-3. 사용자의 로그인 정책(예: "B2C\_1\_SiUp")을 클릭하여 엽니다. 블레이드 위쪽에서 **편집**을 클릭합니다.
-4. **Multi-Factor Authentication**을 클릭하고 **상태**를 **켜기**로 바꿉니다. **확인**을 클릭합니다.
-5. 블레이드 위쪽에서 **저장**을 클릭합니다.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Sign-in policies**.
+3. Click your sign-in policy (for example, "B2C_1_SiIn") to open it. Click **Edit** at the top of the blade.
+4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
+5. Click **Save** at the top of the blade.
 
-정책에서 "지금 실행" 기능을 사용하여 고객 환경을 확인할 수 있습니다. 다음을 확인합니다.
+You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 
-소비자가 (소셜 또는 로컬 계정을 사용하여)로그인할 때 확인된 전화번호가 소비자 계정에 연결된 경우 확인하도록 요청을 받습니다. 전화 번호가 연결되지 않은 경우 소비자에게 전화 번호를 제공하고 확인하라는 메시지가 표시됩니다. 확인에 성공한 경우 전화번호는 나중에 사용하도록 소비자 계정에 연결됩니다.
+When the consumer signs in (using a social or local account), if a verified phone number is attached to the consumer account, he or she is asked to verify it. If no phone number is attached, the consumer is asked to provide one and verify it. On successful verification, the phone number is attached to the consumer account for later use.
 
-## 기타 정책에서 Multi-Factor Authentication
+## <a name="multi-factor-authentication-on-other-policies"></a>Multi-Factor Authentication on other policies
 
-위의 등록 및 로그인 정책에 설명한 대로 등록 또는 로그인 정책과 암호 재설정 정책에 Multi-Factor Authentication을 사용하도록 설정할 수 있습니다. 정책을 편집하는 프로필에서 곧 지원됩니다.
+As described for sign-up & sign-in policies above, it is also possible to enable multi-factor authentication on sign-up or sign-in policies and password reset policies. It will be available soon on profile editing policies.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

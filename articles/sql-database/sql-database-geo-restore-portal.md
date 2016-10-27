@@ -1,50 +1,55 @@
 <properties
-	pageTitle="지역 중복 백업에서 Azure SQL 데이터베이스 복원(Azure 포털) | Microsoft Azure"
-	description="지역 중복 백업에서 Azure SQL 데이터베이스 지역 복원(Azure 포털)"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Restore an Azure SQL Database from a geo-redundant backup (Azure Portal) | Microsoft Azure"
+    description="Geo-Restore an Azure SQL Database from a geo-redundant backup (Azure Portal)."
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="07/17/2016"
-	ms.author="sstein"
-	ms.workload="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="07/17/2016"
+    ms.author="sstein"
+    ms.workload="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
-# Azure 포털을 사용하여 지역 중복 백업에서 Azure SQL 데이터베이스 지역 복원
+
+# <a name="geo-restore-an-azure-sql-database-from-a-geo-redundant-backup-using-the-azure-portal"></a>Geo-Restore an Azure SQL Database from a geo-redundant backup using the Azure Portal
 
 
 > [AZURE.SELECTOR]
-- [개요](sql-database-recovery-using-backups.md)
-- [지리적 복원: PowerShell](sql-database-geo-restore-powershell.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Geo-Restore: PowerShell](sql-database-geo-restore-powershell.md)
 
-이 문서에서는 Azure 포털을 사용하여 지리적 복원을 사용하는 새 서버에 데이터베이스를 복원하는 방법을 보여 줍니다.
+This article shows you how to restore your database into a new server using Geo-Restore using the Azure Portal.
 
-## 복원할 데이터베이스를 선택합니다.
+## <a name="select-the-database-to-restore"></a>Select the database to restore
 
-Azure 포털에서 Azure SQL 데이터베이스를 복원하려면 다음을 수행합니다.
+To restore a database in the Azure Portal do the following:
 
-1.	[Azure 포털](https://portal.azure.com)을 엽니다.
-2.  화면 왼쪽에서 **새로 만들기** > **데이터 및 저장소** > **SQL 데이터베이스**를 선택합니다.
-3.  원본으로 **백업**을 선택한 다음 복구에 사용할 지역 중복 백업을 선택합니다.
+1.  Open the [Azure portal](https://portal.azure.com).
+2.  On the left side of the screen select **New** > **Data and Storage** > **SQL Database**.
+3.  Select **Backup** as the source and then select the geo-redundant backup you want to recover from.
 
-    ![Azure SQL 데이터베이스 복원](./media/sql-database-geo-restore-portal/geo-restore.png)
+    ![Restore an Azure SQL database](./media/sql-database-geo-restore-portal/geo-restore.png)
 
-4.  데이터베이스 이름, 데이터베이스를 복원하려는 서버를 지정한 다음 만들기를 클릭합니다.
+4.  Specify a database name, a server you want to restore the database into and then click Create:
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
-- Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
-- 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
-- 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
-- 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

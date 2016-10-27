@@ -1,68 +1,69 @@
 <properties
-	pageTitle="Xamarin Android에서 모바일 앱에 대한 인증 시작"
-	description="모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Android 앱 사용자를 인증하는 방법을 알아봅니다."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="mattchenderson"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with authentication for Mobile Apps in Xamarin Android"
+    description="Learn how to use Mobile Apps to authenticate users of your Xamarin Android app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Xamarin Android 앱에 인증 추가
+
+# <a name="add-authentication-to-your-xamarin.android-app"></a>Add authentication to your Xamarin.Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-이 항목에서는 클라이언트 응용 프로그램에서 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 Azure 모바일 앱이 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
+This topic shows you how to authenticate users of a Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Azure Mobile Apps. After being successfully authenticated and authorized in the Mobile App, the user ID value is displayed.
 
-이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 또한 [Xamarin Android 앱 만들기] 자습서를 먼저 완료해야 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Create a Xamarin.Android app]. If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##<a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
+##<a name="<a-name="register"></a>register-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Register your app for authentication and configure App Services
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+##<a name="<a-name="permissions"></a>restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 이 예외는 앱이 인증되지 않은 사용자로 모바일 앱 백 엔드에 액세스하려고 시도합니다. *TodoItem* 테이블에서 이제 인증을 요구합니다.
+In Visual Studio or Xamarin Studio, run the client project on a device or emulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because the app attempts to access your Mobile App backend as an unauthenticated user. The *TodoItem* table now requires authentication.
 
-다음으로 클라이언트 앱을 업데이트하여 모바일 앱 백엔드에서 인증된 된 사용자를 사용하여 리소스를 요청합니다.
+Next, you will update the client app to request resources from the Mobile App backend with an authenticated user.
 
-##<a name="add-authentication"></a>앱에 인증 추가
+##<a name="<a-name="add-authentication"></a>add-authentication-to-the-app"></a><a name="add-authentication"></a>Add authentication to the app
 
-앱은 데이터가 표시되기 전에 사용자가 **로그인** 단추를 탭하고 인증하는 것을 요구하도록 업데이트되었습니다.
+The app is updated to require users to tap the **Sign in** button and authenticate before data is displayed.
 
-1. **TodoActivity** 클래스에 다음 코드를 추가합니다.
+1. Add the following code to the **TodoActivity** class:
 
-	    // Define a authenticated user.
-	    private MobileServiceUser user;
-	    private async Task<bool> Authenticate()
-	    {
-	            var success = false;
-	            try
-	            {
-	                // Sign in with Facebook login using a server-managed flow.
-	                user = await client.LoginAsync(this,
-	                    MobileServiceAuthenticationProvider.Facebook);
-	                CreateAndShowDialog(string.Format("you are now logged in - {0}",
-	                    user.UserId), "Logged in!");
+        // Define a authenticated user.
+        private MobileServiceUser user;
+        private async Task<bool> Authenticate()
+        {
+                var success = false;
+                try
+                {
+                    // Sign in with Facebook login using a server-managed flow.
+                    user = await client.LoginAsync(this,
+                        MobileServiceAuthenticationProvider.Facebook);
+                    CreateAndShowDialog(string.Format("you are now logged in - {0}",
+                        user.UserId), "Logged in!");
 
-	                success = true;
-	            }
-	            catch (Exception ex)
-	            {
-	                CreateAndShowDialog(ex, "Authentication failed");
-	            }
-	            return success;
-	    }
+                    success = true;
+                }
+                catch (Exception ex)
+                {
+                    CreateAndShowDialog(ex, "Authentication failed");
+                }
+                return success;
+        }
 
         [Java.Interop.Export()]
         public async void LoginUser(View view)
@@ -78,33 +79,37 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
             }
         }
 
-    이렇게 하면 사용자를 인증하는 새 메서드와 새 **로그인** 단추에 대한 메서드 처리기가 생성됩니다. 위 예제 코드의 사용자는 Facebook 로그인을 사용하여 인증됩니다. 대화 상자는 한 번 인증된 사용자 ID를 표시하는 데 사용됩니다.
+    This creates a new method to authenticate a user and a method handler for a new **Sign in** button. The user in the example code above is authenticated by using a Facebook login. A dialog is used to display the user ID once authenticated.
 
-    > [AZURE.NOTE] Facebook 이외의 ID 공급자를 사용하는 경우, 위의 **LoginAsync**에 전달된 값을 _MicrosoftAccount_, _Twitter_, _Google_ 또는 _WindowsAzureActiveDirectory_ 중 하나로 변경합니다.
+    > [AZURE.NOTE] If you are using an identity provider other than Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-3. **OnCreate** 메서드에서 다음 코드 줄을 삭제하거나 주석으로 처리합니다.
+3. In the **OnCreate** method, delete or comment-out the following line of code:
 
-		OnRefreshItemsSelected ();
+        OnRefreshItemsSelected ();
 
-4. Activity\_To\_Do.axml 파일에서 기존의 *AddItem* 단추 전에 다음 *LoginUser* 단추 정의를 추가합니다.
+4. In the Activity_To_Do.axml file, add the following *LoginUser* button definition before the existing *AddItem* button:
 
-      	<Button
+        <Button
             android:id="@+id/buttonLoginUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
 
-5. Strings.xml 리소스 파일에 다음 요소를 추가합니다.
+5. Add the following element to the Strings.xml resources file:
 
-		<string name="login_button_text">Sign in</string>
+        <string name="login_button_text">Sign in</string>
 
-6. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다.
+6. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider.
 
-   	성공적으로 로그인하면 앱이 로그인 ID 및 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
+    When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
 
 
 <!-- URLs. -->
-[Xamarin Android 앱 만들기]: app-service-mobile-xamarin-android-get-started.md
+[Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

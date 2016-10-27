@@ -1,66 +1,73 @@
 <properties
-	pageTitle=" Azure 포털을 통해 스트리밍 끝점 크기 조정 | Microsoft Azure"
-	description="이 자습서에서는 Azure 포털을 사용하여 스트리밍 끝점의 크기를 조정하는 단계를 안내합니다."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle=" Scale streaming endpoints with the Azure portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of scaling streaming endpoints with the Azure portal."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
 
-# Azure 포털을 통해 스트리밍 끝점 크기 조정
 
-##개요
+# <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Scale streaming endpoints with the Azure portal
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+##<a name="overview"></a>Overview
 
-Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 통해 비디오를 제공하는 것입니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-미디어 서비스는 적응 비트 전송률 MP4 인코딩 콘텐츠를 미디어 서비스에서 적시에 지원되는 각 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍, HDS)의 다시 패키징된 버전을 저장하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
+When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
-동적 패키징을 이용하려면 다음을 수행해야 합니다.
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
-- mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).
-- 콘텐츠를 배달하는 출발점이 될 *스트리밍 끝점*에 하나 이상의 스트리밍 단위를 만듭니다. 아래 단계는 스트리밍 단위의 수를 변경하는 방법을 보여 줍니다.
+To take advantage of dynamic packaging, you need to do the following:
 
-동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
+- Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
 
-또한 스트리밍 단위를 조정하여 증가하는 대역폭 요구를 처리하기 위해 스트리밍 끝점 서비스의 용량을 제어할 수 있습니다. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다. 스트리밍 단위는 200Mbps 단위로 구입할 수 있는 전용 송신 용량 및 [동적 패키징](media-services-dynamic-packaging-overview.md), CDN 통합, 고급 구성을 포함하는 추가 기능을 모두 제공합니다. 자세한 내용은 [Azure 포털을 통해 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
+With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
 
-## 스트리밍 끝점 크기 조정
+In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming units. It is recommended to allocate one or more scale units for applications in production environment. Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which functionality which includes: [dynamic packaging](media-services-dynamic-packaging-overview.md), CDN integration, and advanced configuration. For more information, see [Manage streaming endpoints with the Azure portal](media-services-portal-manage-streaming-endpoints.md).
 
-스트리밍 예약 단위의 수를 만들고 변경하려면 다음을 수행합니다.
+## <a name="scale-streaming-endpoints"></a>Scale streaming endpoints
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **설정** 창에서 **스트리밍 끝점**을 선택합니다.
-3. 크기를 조정할 스트리밍 끝점을 클릭합니다.
-4. 슬라이더를 이동하여 스트리밍 단위 수를 지정합니다.
+To create and change the number of streaming reserved units, do the following:
+
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. In the **Settings** window, select **Streaming endpoints**.
+3. Click on the streaming endpoint that you want to scale. 
+4. Move the slider to specify the number of streaming units
  
-![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
+![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
-고려 사항은 다음과 같습니다.
+The following considerations apply:
 
-- 새 스트리밍 단위를 할당하는 작업은 완료하는 데 20분 정도 걸릴 수 있습니다.
-- 현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 주문형 스트리밍을 사용하지 않을 수 있습니다.
-- 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
+- The allocation of any new streaming units can take around 20 minutes to complete. 
+- Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
+- The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-미디어 서비스 학습 경로를 검토합니다.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

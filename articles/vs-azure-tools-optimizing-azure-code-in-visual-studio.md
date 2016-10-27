@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visual Studio | Microsoft Azure에서 Azure 코드 최적화"
-   description="Visual Studio에서 Azure 코드 최적화 도구를 사용하여 더욱 강력하고 성능이 뛰어난 코드를 만드는 방법에 대해 알아보세요."
+   pageTitle="Optimizing your Azure code in Visual Studio | Microsoft Azure"
+   description="Learn about how Azure code optimization tools in Visual Studio help make your code more robust and better-performing."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,57 +15,58 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Azure 코드 최적화
 
-Microsoft Azure를 사용하는 앱을 프로그래밍할 경우 클라우드 환경에서 앱 안정성, 동작 및 성능 문제를 방지하기 위해 몇 가지 코딩 방법을 따라야 합니다. Microsoft는 이와 같이 자주 발생하는 문제를 인식 및 식별하고 해결해 주는 Azure 코드 분석 도구를 제공합니다. 이 도구는 Visual Studio에서 NuGet을 통해 다운로드할 수 있습니다.
+# <a name="optimizing-your-azure-code"></a>Optimizing Your Azure Code
 
-## Azure 코드 분석 규칙
+When you’re programming apps that use Microsoft Azure, there are some coding practices you should follow to help avoid problems with app scalability, behavior and performance in a cloud environment. Microsoft provides an Azure Code Analysis tool that recognizes and identifies several of these commonly-encountered issues and helps you resolve them. You can download the tool in Visual Studio via NuGet.
 
-Azure 코드 분석 도구는 성능에 영향을 미치는 알려진 문제를 발견할 경우 Azure 코드에 자동으로 플래그를 표시하는 다음과 같은 규칙을 사용합니다. 감지된 문제는 경고 또는 컴파일러 오류로 나타납니다. 경고 또는 오류를 해결하기 위한 코드 수정 사항 또는 제안은 일반적으로 전구 아이콘을 통해 제공됩니다.
+## <a name="azure-code-analysis-rules"></a>Azure Code Analysis rules
 
-## 기본(In-Process) 세션 상태 모드 방지
+The Azure Code Analysis tool uses the following rules to automatically flag your Azure code when it finds known performance-impacting issues. Detected issues appear as a warnings or compiler errors. Code fixes or suggestions to resolve the warning or error are often provided through a light bulb icon.
 
-### ID
+## <a name="avoid-using-default-(in-process)-session-state-mode"></a>Avoid using default (in-process) session state mode
+
+### <a name="id"></a>ID
 
 AP0000
 
-### 설명
+### <a name="description"></a>Description
 
-클라우드 응용 프로그램에 대해 기본(In-Process) 세션 상태 모드를 사용할 경우 세션 상태가 끊어질 수 있습니다.
+If you use the default (in-process) session state mode for cloud applications, you can lose session state.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-기본적으로 web.config 파일에 지정된 세션 상태 모드는 In-Process입니다. 또한 구성 파일에 지정된 항목이 없을 경우 세션 상태 모드가 기본 설정인 In-Process로 설정됩니다. In-Process 모드는 웹 서버의 메모리에 세션 상태를 저장합니다. 인스턴스를 다시 시작하거나 부하 분산 또는 장애 조치(Failover)를 위해 새 인스턴스를 사용할 웹 서버의 메모리에 저장된 세션 상태가 저장되지 않습니다. 이 상황에서는 클라우드에서 응용 프로그램이 확장되지 않습니다.
+By default, the session state mode specified in the web.config file is in-process. Also, if no entry specified in the configuration file, the Session State mode defaults to in-process. The in-process mode stores session state in memory on the web server. When an instance is restarted or a new instance is used for load balancing or failover support, the session state stored in memory on the web server isn’t saved. This situation prevents the application from being scalable on the cloud.
 
-ASP.NET 세션 상태는 세션 상태 데이터에 대해 다양한 저장소 옵션(InProc, StateServer, SQLServer, 사용자 지정, 해제)을 지원합니다. [Redis용 Azure 세션 상태 제공자](http://go.microsoft.com/fwlink/?LinkId=401521)와 같은 사용자 지정 모드를 사용하여 외부 세션 상태 저장소에 데이터를 호스팅하는 것이 좋습니다.
+ASP.NET session state supports several different storage options for session state data: InProc, StateServer, SQLServer, Custom, and Off. It’s recommended that you use Custom mode to host data on an external Session State store, such as [Azure Session State provider for Redis](http://go.microsoft.com/fwlink/?LinkId=401521).
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-관리되는 캐시 서비스에 세션 상태를 저장하는 것도 한 가지 권장할 만한 해결 방법입니다. [Redis용 Azure 세션 상태 제공자](http://go.microsoft.com/fwlink/?LinkId=401521)를 사용하여 세션 상태를 저장하는 방법에 대해 알아보세요. 또한 클라우드에서 응용 프로그램을 확장할 수 있도록 다른 위치에도 세션 상태를 저장할 수 있습니다. 다른 해결 방법을 보려면 [세션 상태 모드](https://msdn.microsoft.com/library/ms178586)를 참조하세요.
+One recommended solution is to store session state on a managed cache service. Learn how to use [Azure Session State provider for Redis](http://go.microsoft.com/fwlink/?LinkId=401521) to store your session state. You can also store session state in other places to ensure your application is scalable on the cloud. To learn more about alternative solutions please read [Session State Modes](https://msdn.microsoft.com/library/ms178586).
 
-## 실행 메서드는 비동기가 아니어야 함
+## <a name="run-method-should-not-be-async"></a>Run method should not be async
 
-### ID
+### <a name="id"></a>ID
 
 AP1000
 
-### 설명
+### <a name="description"></a>Description
 
-[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드 밖에 비동기 메서드(예: [await](https://msdn.microsoft.com/library/hh156528.aspx))를 만든 다음 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)에서 비동기 메서드를 호출합니다. [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드를 비동기로 선언하면 작업자 역할이 재시작 루트로 전환됩니다.
+Create asynchronous methods (such as [await](https://msdn.microsoft.com/library/hh156528.aspx)) outside of the [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method and then call the async methods from [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx). Declaring the [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method as async causes the worker role to enter a restart loop.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드 내에서 비동기 메서드를 호출하면 클라우드 서비스 런타임이 작업자 역할을 재순환합니다. 작업자 역할이 시작되면 모든 프로그램 실행이 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드 내에서 수행됩니다. 기존 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드에서는 작업자 역할이 다시 시작됩니다. 작업자 역할 런타임이 비동기 메서드를 만나면 비동기 메서드 이후에 모든 작업이 디스패치된 다음 반환됩니다. 그러면 [[[[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드에서 작업자 역할이 종료되고 다시 시작됩니다. 다음에 실행 반복이 발생할 경우 작업자 역할이 다시 비동기 메서드를 만나면 작업자 역할이 다시 재순환됩니다.
+Calling async methods inside the [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method causes the cloud service runtime to recycle the worker role. When a worker role starts, all program execution takes place inside the [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method. Exiting the [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method causes the worker role to restart. When the worker role runtime hits the async method, it dispatches all operations after the async method and then returns. This causes the worker role to exit from the [[[[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method and restart. In the next iteration of execution, the worker role hits the async method again and restarts, causing the worker role to recycle again as well.
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-모든 비동기 작업을 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드 밖에 배치합니다. 그런 다음 RunAsync().wait과 같은 [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드 안에서 리팩터링된 비동기 메서드를 호출합니다. Azure 코드 분석 도구로 이 문제를 해결할 수 있습니다.
+Place all async operations outside of the [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method. Then, call the refactored async method from inside the [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method, such as RunAsync().wait. The Azure Code Analysis tool can help you fix this issue.
 
-다음 코드 조각은 이 문제의 코드 수정 사항을 보여 줍니다.
+The following code snippet demonstrates the code fix for this issue:
 
 ```
 public override void Run()
@@ -95,25 +96,25 @@ public async Task RunAsync()
 }
 ```
 
-## 서비스 버스 공유 액세스 서명 인증 사용
+## <a name="use-service-bus-shared-access-signature-authentication"></a>Use Service Bus Shared Access Signature authentication
 
-### ID
+### <a name="id"></a>ID
 
 AP2000
 
-### 설명
+### <a name="description"></a>Description
 
-인증에 SAS(공유 액세스 서명)를 사용합니다. 서비스 버스 인증에 ACS(액세스 제어 서비스)를 사용 중입니다.
+Use Shared Access Signature (SAS) for authentication. Access Control Service (ACS) is being deprecated for service bus authentication.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-보안 강화를 위해 Azure Active Directory에서 ACS 인증을 SAS 인증으로 대체합니다. 전환 계획에 대한 자세한 내용은 [Azure Active Directory가 ACS의 미래](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx)를 참조하세요.
+For enhanced security, Azure Active Directory is replacing ACS authentication with SAS authentication. See [Azure Active Directory is the future of ACS](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) for information on the transition plan.
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-앱에 SAS 인증을 사용합니다. 다음 예제는 기존 SAS 토큰을 사용하여 서비스 버스 네임스페이스 또는 엔터티에 액세스하는 방법을 보여 줍니다.
+Use SAS authentication in your apps. The following example shows how to use an existing SAS token to access a service bus namespace or entity.
 
 ```
 MessagingFactory listenMF = MessagingFactory.Create(endpoints, new StaticSASTokenProvider(subscriptionToken));
@@ -121,41 +122,41 @@ SubscriptionClient sc = listenMF.CreateSubscriptionClient(topicPath, subscriptio
 BrokeredMessage receivedMessage = sc.Receive();
 ```
 
-자세한 내용은 다음 항목을 참조하세요.
+See the following topics for more information.
 
-- 개요를 보려면 [서비스 버스를 사용한 공유 액세스 서명 인증](https://msdn.microsoft.com/library/dn170477.aspx)을 참조하세요.
+- For an overview, see [Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/dn170477.aspx)
 
-- [서비스 버스를 사용한 공유 액세스 서명 인증을 사용하는 방법](https://msdn.microsoft.com/library/dn205161.aspx)
+- [How to use Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/dn205161.aspx)
 
-- 샘플 프로젝트를 보려면 [서비스 버스를 사용한 SAS(공유 액세스 서명) 인증 사용](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)을 참조하세요.
+- For a sample project, see [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
 
-## OnMessage 메시지를 사용하여 "수신 루프"를 방지합니다.
+## <a name="consider-using-onmessage-method-to-avoid-"receive-loop""></a>Consider using OnMessage method to avoid "receive loop"
 
-### ID
+### <a name="id"></a>ID
 
 AP2002
 
-### 설명
+### <a name="description"></a>Description
 
-"수신 루프"로 전환되지 않기 위해서는 **Receive** 메서드를 호출하는 것보다 **OnMessage** 메시지를 호출하는 것이 메시지 수신에 더 효과적인 해결 방법입니다. 하지만 반드시 **Receive** 메서드를 사용하고 기본값 이외의 서버 대기 시간을 지정해야 할 경우 서버 대기 시간을 1분을 초과하도록 설정합니다.
+To avoid going into a "receive loop," calling the **OnMessage** method is a better solution for receiving messages than calling the **Receive** method. However, if you must use the **Receive** method, and you specify a non-default server wait time, make sure the server wait time is more than one minute.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-**OnMessage**를 호출하면 클라이언트가 큐 또는 구독을 지속적으로 폴링하는 내부 메시지 펌프를 시작합니다. 이 메시지 펌프에는 메시지 수신을 위한 호출을 실행하는 무한 루프가 포함되어 있습니다. 호출 시간이 초과되면 새 호출을 실행합니다. 시간 초과 간격은 사용 중인 [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx)의 [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) 속성 값으로 결정됩니다.
+When calling **OnMessage**, the client starts an internal message pump that constantly polls the queue or subscription. This message pump contains an infinite loop that issues a call to receive messages. If the call times out, it issues a new call. The timeout interval is determined by the value of the [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) property of the [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx)that’s being used.
 
-**Receive**에 비해 **OnMessage**를 사용하는 이점은 사용자가 수동으로 메시지 폴링, 예외 처리, 여러 메시지 병렬 처리, 메시지 완료를 수동으로 수행하지 않아도 된다는 점입니다.
+The advantage of using **OnMessage** compared to **Receive** is that users don’t have to manually poll for messages, handle exceptions, process multiple messages in parallel, and complete the messages.
 
-기본값을 사용하지 않고 **Receive**를 호출할 경우 *ServerWaitTime* 값을 1분 이내로 설정하십시오. *ServerWaitTime*을 1분을 초과하여 설정하면 메시지가 완전히 수신되기 전에 서버 시간 초과가 발생하지 않습니다.
+If you call **Receive** without using its default value, be sure the *ServerWaitTime* value is more than one minute. Setting *ServerWaitTime* to more than one minute prevents the server from timing out before the message is fully received.
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-다음 코드 예제에서 권장 사용법을 참조하세요. 자세한 내용은 [QueueClient.OnMessage 메서드(Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.onmessage.aspx) 및 [QueueClient.Receive 메서드(Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.receive.aspx)를 참조하세요.
+Please see the following code examples for recommended usages. For more details, see [QueueClient.OnMessage Method (Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.onmessage.aspx)and [QueueClient.Receive Method (Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.receive.aspx).
 
-Azure 메시징 인프라의 성능을 개선하려면 [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx) 디자인 패턴을 참조하세요.
+To improve the performance of the Azure messaging infrastructure, see the design pattern [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx).
 
-다음은 **OnMessage**를 사용하여 메시지를 수신하는 예입니다.
+The following is an example of using **OnMessage** to receive messages.
 
 ```
 void ReceiveMessages()
@@ -176,7 +177,7 @@ void ReceiveMessages()
     Console.ReadKey();
 ```
 
-다음은 기본 서버 대기 시간을 적용하여 **Receive**를 사용하는 예입니다.
+The following is an example of using **Receive** with the default server wait time.
 
 ```
 string connectionString =  
@@ -209,7 +210,7 @@ while (true)
    }
 ```
 
-다음은 기본값이 아닌 서버 대기 시간을 적용하여 **Receive**를 사용하는 예입니다.
+The following is an example of using **Receive** with a non-default server wait time.
 
 ```
 while (true)  
@@ -237,47 +238,47 @@ while (true)
    }
 }
 ```
-## 비동기 서비스 버스 메서드 사용 고려
+## <a name="consider-using-asynchronous-service-bus-methods"></a>Consider using asynchronous Service Bus methods
 
-### ID
+### <a name="id"></a>ID
 
 AP2003
 
-### 설명
+### <a name="description"></a>Description
 
-조정된 메시지의 성능을 개선하려면 비동기 서비스 버스 메서드를 사용합니다.
+Use asynchronous Service Bus methods to improve performance with brokered messaging.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-비동기 메서드를 사용하면 호출을 실행할 때마다 메인 스레드가 차단되지 않으므로 응용 프로그램 동시성이 지원됩니다. 서비스 버스 메시징 메서드를 사용할 때 작업(보내기, 받기, 삭제 등)을 수행하면 다소 시간이 소요됩니다. 이 시간에는 요청 및 응답 지연 시간과 서비스 버스 서비스의 작업 처리가 포함됩니다. 시간당 작업 수를 늘리려면 작업이 동시에 실행되어야 합니다. 자세한 내용을 보려면 [서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례](https://msdn.microsoft.com/library/azure/hh528527.aspx)를 참조하세요.
+Using asynchronous methods enables application program concurrency because executing each call doesn’t block the main thread. When using Service Bus messaging methods, performing an operation (send, receive, delete, etc.) takes time. This time includes the processing of the operation by the Service Bus service in addition to the latency of the request and the reply. To increase the number of operations per time, operations must execute concurrently. For more information please refer to [Best Practices for Performance Improvements Using Service Bus Brokered Messaging](https://msdn.microsoft.com/library/azure/hh528527.aspx).
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-권장 비동기 메서드를 사용하는 방법은 [QueueClient 클래스(Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.aspx)를 참조하세요.
+See [QueueClient Class (Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.aspx) for information about how to use the recommended asynchronous method.
 
-Azure 메시징 인프라의 성능을 개선하려면 [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx) 디자인 패턴을 참조하세요.
+To improve the performance of the Azure messaging infrastructure, see the design pattern [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx).
 
-## 서비스 버스 큐 및 토픽 분할 고려
+## <a name="consider-partitioning-service-bus-queues-and-topics"></a>Consider partitioning Service Bus queues and topics
 
-### ID
+### <a name="id"></a>ID
 
 AP2004
 
-### 설명
+### <a name="description"></a>Description
 
-서비스 버스 메시징에서 성능을 향상하려면 서비스 버스 큐와 토픽을 분할합니다.
+Partition Service Bus queues and topics for better performance with Service Bus messaging.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-서비스 버스 큐와 토픽을 분할하면 분할된 큐 또는 토픽이 더 이상 단일 메시지 브로커 또는 메시징 스토어의 성능으로 제한되지 않으므로 성능 처리량과 서비스 가용성이 향상됩니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 토픽을 계속 사용할 수 있습니다. 자세한 내용은 [메시징 엔터티 분할](https://msdn.microsoft.com/library/azure/dn520246.aspx)을 참조하세요.
+Partitioning Service Bus queues and topics increases performance throughput and service availability because the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store doesn’t make a partitioned queue or topic unavailable. For more information, see [Partitioning Messaging Entities](https://msdn.microsoft.com/library/azure/dn520246.aspx).
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-다음 코드 조각은 메시징 엔터티를 분할하는 방법을 보여 줍니다.
+The following code snippet shows how to partition messaging entities.
 
 ```
 // Create partitioned topic.
@@ -287,31 +288,31 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-자세한 내용은 [분할된 서비스 버스 큐 및 토픽 | Microsoft Azure 블로그](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) 및 [Microsoft Azure 서비스 버스 분할 큐](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) 샘플을 참조하세요.
+For more information, see [Partitioned Service Bus Queues and Topics | Microsoft Azure Blog](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) and check out the [Microsoft Azure Service Bus Partitioned Queue](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) sample.
 
-## SharedAccessStartTime을 설정하지 마십시오.
+## <a name="do-not-set-sharedaccessstarttime"></a>Do not set SharedAccessStartTime
 
-### ID
+### <a name="id"></a>ID
 
 AP3001
 
-### 설명
+### <a name="description"></a>Description
 
-공유 액세스 정책을 즉시 시작하기 위해 SharedAccessStartTimeset을 현재 시간으로 설정하지 마십시오. 이 속성은 나중에 공유 액세스 정책을 시작하려는 경우에만 설정해야 합니다.
+You should avoid using SharedAccessStartTimeset to the current time to immediately start the Shared Access policy. You only need to set this property if you want to start the Shared Access policy at a later time.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-클록 동기화는 데이터 센터 간 약간의 시간 차이를 발생시킵니다. 예를 들어 DateTime.Now 또는 유사한 메서드를 사용하여 저장소 SAS 정책의 시작 시간을 현재 시간으로 설정하면 SAS 정책이 즉시 적용된다고 생각하는 것이 일반적입니다. 하지만 데이터 센터 사이에는 약간의 시간 차이가 있으며 시작 시간보다 약간 빠르거나 느린 데이터 센터가 있을 수 있기 때문에 문제가 발생할 수 있습니다. 그 결과, 정책 수명을 너무 짧게 설정할 경우 SAS 정책이 빠르게 또는 즉시 만료될 수 있습니다.
+Clock synchronization causes a slight time difference among datacenters. For example, you would logically think setting the start time of a storage SAS policy as the current time by using DateTime.Now or a similar method will cause the SAS policy to take effect immediately. However, the slight time differences between datacenters can cause problems with this since some datacenter times might be slightly later than the start time, while others ahead of it. As a result, the SAS policy can expire quickly (or even immediately) if the policy lifetime is set too short.
 
-Azure 저장소에서 공유 액세스 서명을 사용하는 방법에 대한 지침은 [테이블 SAS(공유 액세스 서명), 큐 SAS, Blob SAS 업데이트 소개 - Microsoft Azure 저장소 팀 블로그 - 사이트 홈 - MSDN 블로그](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)를 참조하세요.
+For more guidance on using Shared Access Signature on Azure storage, see [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS - Microsoft Azure Storage Team Blog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx).
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-공유 액세스 정책의 시작 시간을 설정하는 문을 제거합니다. Azure 코드 분석 도구는 이 문제에 대한 해결 방법을 제공합니다. 보안 관리에 대한 자세한 내용은 디자인 패턴 [Valet 주요 패턴](https://msdn.microsoft.com/library/dn568102.aspx)을 참조하세요.
+Remove the statement that sets the start time of the shared access policy. The Azure Code Analysis tool provides a fix for this issue. For more information on security management, please see the design pattern [Valet Key Pattern](https://msdn.microsoft.com/library/dn568102.aspx).
 
-다음 코드 조각은 이 문제의 코드 수정 사항을 보여 줍니다.
+The following code snippet demonstrates the code fix for this issue.
 
 ```
 // The shared access policy provides  
@@ -326,29 +327,29 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 });
 ```
 
-## 공유 액세스 정책 만료 시간은 5분을 초과해야 합니다.
+## <a name="shared-access-policy-expiry-time-must-be-more-than-five-minutes"></a>Shared Access Policy expiry time must be more than five minutes
 
-### ID
+### <a name="id"></a>ID
 
 AP3002
 
-### 설명
+### <a name="description"></a>Description
 
-"클록 스큐"라고 하는 상태로 인해 다른 위치에 있는 데이터 센터 사이에 최대 5분의 클록 차이가 발생할 수 있습니다. SAS 정책 토큰이 계획보다 빨리 만료되지 않도록 하려면 만료 시간을 5분을 초과하여 설정합니다.
+There can be as much as a five minute difference in clocks among datacenters at different locations due to a condition known as "clock skew." To prevent the SAS policy token from expiring earlier than planned, set the expiry time to be more than five minutes.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-전 세계 다른 위치에 있는 데이터 센터는 클록 신호를 기준으로 동기화됩니다. 클록 신호가 다른 위치로 이동하려면 시간이 소요되므로 모든 항목이 동기화된 상태가 정상인 것으로 가정할 경우에도 다양한 지리적 위치에서 데이터 센터 간 시간 차이가 발생할 수 있습니다. 이 시간 차이는 공유 액세스 정책 시작 시간 및 만료 간격에 영향을 미칠 수 있습니다. 따라서 공유 액세스 정책을 즉시 적용하기 위해서는 시작 시간을 지정하지 마십시오. 또한 시간 초과가 빨리 발생하지 않도록 만료 시간을 5분을 초과하도록 설정하십시오.
+Datacenters at different locations around the world synchronize by a clock signal. Because it takes time for clock signal to travel to different locations, there can be a time variance between datacenters at different geographical locations although everything is supposedly synchronized. This time difference can affect the Shared Access policy start time and expiration interval. Therefore, to ensure Shared Access policy takes effect immediately, don’t specify the start time. In addition, make sure the expiration time is more than 5 minutes to prevent early timeout.
 
-Azure 저장소에서 공유 액세스 서명을 사용하는 방법은 [테이블 SAS(공유 액세스 서명), 큐 SAS, Blob SAS 업데이트 소개 - Microsoft Azure 저장소 팀 블로그 - 사이트 홈 - MSDN 블로그](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)를 참조하세요.
+For more information about using Shared Access Signature on Azure storage, see [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS - Microsoft Azure Storage Team Blog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx).
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-보안 관리에 대한 자세한 내용은 [Valet 주요 패턴](https://msdn.microsoft.com/library/dn568102.aspx) 디자인 패턴을 참조하세요.
+For more information on security management, see the design pattern [Valet Key Pattern](https://msdn.microsoft.com/library/dn568102.aspx).
 
-다음은 공유 액세스 정책의 시작 시간을 지정하지 않은 예입니다.
+The following is an example of not specifying a Shared Access policy start time.
 
 ```
 // The shared access policy provides  
@@ -363,7 +364,7 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 });
 ```
 
-다음은 공유 액세스 정책 시작 시간을 지정하면서 정책 만료 시간을 5분을 초과하도록 지정한 예입니다.
+The following is an example of specifying a Shared Access policy start time with a policy expiration duration greater than five minutes.
 
 ```
 // The shared access policy provides  
@@ -379,39 +380,39 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 });
 ```
 
-자세한 내용은 [공유 액세스 서명 만들기 및 사용](https://msdn.microsoft.com/library/azure/jj721951.aspx)을 참조하세요.
+For more information, see [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
-## CloudConfigurationManager 사용
+## <a name="use-cloudconfigurationmanager"></a>Use CloudConfigurationManager
 
-### ID
+### <a name="id"></a>ID
 
 AP4000
 
-### 설명
+### <a name="description"></a>Description
 
-Azure 웹 사이트, Azure 모바일 서비스 등의 프로젝트에 [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) 클래스를 사용하면 런타임 문제가 발생하지 않습니다. 하지만 모든 Azure 클라우드 응용 프로그램에서 단일화된 구성 관리 방법으로 Cloud[ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx)를 사용하는 것이 좋습니다.
+Using the [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) class for projects such as Azure Website and Azure mobile services won't introduce runtime issues. As a best practice, however, it's a good idea to use Cloud[ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) as a unified way of managing configurations for all Azure Cloud applications.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-CloudConfigurationManager는 응용 프로그램 환경에 적합한 구성 파일을 읽습니다.
+CloudConfigurationManager reads the configuration file appropriate to the application environment.
 
 [CloudConfigurationManager](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx)
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-[CloudConfigurationManager 클래스](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx)를 사용하도록 코드를 리팩터링합니다. Azure 코드 분석 도구에서 이 문제에 대한 코드 수정 사항을 보여 줍니다.
+Refactor your code to use the [CloudConfigurationManager Class](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx). A code fix for this issue is provided by the Azure Code Analysis tool.
 
-다음 코드 조각은 이 문제의 코드 수정 사항을 보여 줍니다. Replace
+The following code snippet demonstrates the code fix for this issue. Replace
 
 `var settings = ConfigurationManager.AppSettings["mySettings"];`
 
-다음으로 바꿀 수 있습니다.
+with
 
 `var settings = CloudConfigurationManager.GetSetting("mySettings");`
 
-다음 예제는 App.config 또는 Web.config 파일에서 구성 파일을 저장하는 방법을 보여 줍니다. 구성 파일의 appSettings 섹션에 설정을 추가합니다. 다음은 이전 코드 예제에 대한 Web.config 파일입니다.
+Here's an example of how to store the configuration setting in a App.config or Web.config file. Add the settings to the appSettings section of the configuration file. The following is the Web.config file for the previous code example.
 
 ```
 <appSettings>
@@ -423,88 +424,88 @@ CloudConfigurationManager는 응용 프로그램 환경에 적합한 구성 파�
   </appSettings>  
 ```
 
-## 하드 코드된 연결 문자열을 사용하지 마십시오.
+## <a name="avoid-using-hard-coded-connection-strings"></a>Avoid using hard-coded connection strings
 
-### ID
+### <a name="id"></a>ID
 
 AP4001
 
-### 설명
+### <a name="description"></a>Description
 
-하드 코드 연결 문자열을 사용하면서 나중에 업데이트가 필요할 경우 소스 코드를 변경하고 응용 프로그램을 다시 컴파일해야 합니다. 하지만 연결 문자열을 구성 파일에 저장하면 구성 파일만 업데이트하여 변경할 수 있습니다.
+If you use hard-coded connection strings and you need to update them later, you’ll have to make changes to your source code and recompile the application. However, if you store your connection strings in a configuration file, you can change them later by simply updating the configuration file.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-연결 문자열을 하드 코드할 경우 연결 문자열을 급히 변경해야 할 때 문제가 될 수 있으므로 좋은 방법이 아닙니다. 또한 프로젝트를 소스 제어에 체크인해야 할 경우 문자열을 소스 코드에서 볼 수 있으므로 하드 코드 연결 문자열이 보안에 취약해집니다.
+Hard-coding connection strings is a bad practice because it introduces problems when connection strings need to be changed quickly. In addition, if the project needs to be checked in to source control, hard-coded connection strings introduce security vulnerabilities since the strings can be viewed in the source code.
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-연결 문자열을 구성 파일 또는 Azure 환경에 저장합니다.
+Store connection strings in the configuration files or Azure environments.
 
-- 독립 실행형 응용 프로그램의 경우 app.config를 사용하여 연결 문자열 설정을 저장합니다.
+- For standalone applications, use app.config to store connection string settings.
 
-- IIS에서 호스팅되는 응용 프로그램의 경우 web.config를 사용하여 연결 문자열 설정을 저장합니다.
+- For IIS-hosted web applications, use web.config to store connection strings.
 
-- ASP.NET vNext 응용 프로그램의 경우 configuration.json을 사용하여 연결 문자열을 저장합니다.
+- For ASP.NET vNext applications, use configuration.json to store connection strings.
 
-web.config 또는 app.config와 같은 구성 파일을 사용하는 방법은 [ASP.NET 웹 구성 지침](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx))을 참조하세요. Azure 환경 변수의 작동 방식에 대해서는 [Azure 웹 사이트: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요. 연결 문자열을 소스 제어에 저장하는 방법에 대한 자세한 내용은 [연결 문자열과 같은 민감한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)을 참조하세요.
+For information on using configurations files such as web.config or app.config, see [ASP.NET Web Configuration Guidelines](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). For information on how Azure environment variables work, see [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). For information on storing connection string in source control, see [avoid putting sensitive information such as connection strings in files that are stored in source code repository](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
 
-## 진단 구성 파일 사용
+## <a name="use-diagnostics-configuration-file"></a>Use diagnostics configuration file
 
-### ID
+### <a name="id"></a>ID
 
 AP5000
 
-### 설명
+### <a name="description"></a>Description
 
-Microsoft.WindowsAzure.Diagnostics 프로그래밍 API를 사용하는 등의 방법으로 코드에 진단 설정을 구성하는 대신 diagnostics.wadcfg 파일에 진단 설정을 구성해야 합니다. Azure SDK 2.5를 사용하는 경우에는 diagnostics.wadcfgx를 사용합니다. 그러면 코드를 다시 컴파일하지 않고도 진단 설정을 변경할 수 있습니다.
+Instead of configuring diagnostics settings in your code such as by using the Microsoft.WindowsAzure.Diagnostics programming API, you should configure diagnostics settings in the diagnostics.wadcfg file. (Or, diagnostics.wadcfgx if you use Azure SDK 2.5). By doing this, you can change diagnostics settings without having to recompile your code.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-Azure SDK 2.5(Azure 진단 1.3 사용) 전에는 저장소의 구성 Blob에 추가하거나 명령적 코드, 선언적 구성 또는 기본 구성을 사용하는 등의 다양한 방법을 사용하여 Azure 진단(WAD)을 구성할 수 있었습니다. 하지만 응용 프로그램 프로젝트에 XML 구성 파일(SDK 2.5 이상에서 diagnostics.wadcfg 또는 diagnositcs.wadcfgx)을 사용하여 진단을 구성하는 것이 더 좋은 방법입니다. 이 방식에서는 diagnostics.wadcfg 파일로 구성을 완전히 정의하며 언제든지 업데이트 및 재배포할 수 있습니다. diagnostics.wadcfg 구성 파일을 사용하면서 [DiagnosticMonitor](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.diagnosticmonitor.aspx) 또는 [RoleInstanceDiagnosticManager](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.management.roleinstancediagnosticmanager.aspx) 클래스를 사용하여 프로그래밍 방법으로 구성을 설정할 경우 혼란스러울 수 있습니다. 자세한 내용은 [Azure 진단 구성 초기화 또는 변경](https://msdn.microsoft.com/library/azure/hh411537.aspx)을 참조하세요.
+Before Azure SDK 2.5 (which uses Azure diagnostics 1.3), Azure Diagnostics (WAD) could be configured by using several different methods: adding it to the configuration blob in storage, by using imperative code, declarative configuration, or the default configuration. However, the preferred way to configure diagnostics is to use an XML configuration file (diagnostics.wadcfg or diagnositcs.wadcfgx for SDK 2.5 and later) in the application project. In this approach, the diagnostics.wadcfg file completely defines the configuration and can be updated and redeployed at will. Mixing the use of the diagnostics.wadcfg configuration file with the programmatic methods of setting configurations by using the [DiagnosticMonitor](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.diagnosticmonitor.aspx)or [RoleInstanceDiagnosticManager](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.management.roleinstancediagnosticmanager.aspx)classes can lead to confusion. See [Initialize or Change Azure Diagnostics Configuration](https://msdn.microsoft.com/library/azure/hh411537.aspx) for more information.
 
-WAD 1.3(Azure SDK 2.5에 기본 제공)부터 코드를 사용하여 진단을 구성할 수 없습니다. 그 결과 진단 확장을 적용 또는 업데이트할 경우에만 구성을 제공할 수 있습니다.
+Beginning with WAD 1.3 (included with Azure SDK 2.5), it’s no longer possible to use code to configure diagnostics. As a result, you can only provide the configuration when applying or updating the diagnostics extension.
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-진단 구성 디자이너를 사용하여 진단 설정을 진단 구성 파일(SDK 2.5 이상에서 diagnositcs.wadcfg 또는 diagnositcs.wadcfgx)로 이동합니다. 또한 [Azure SDK 2.5](http://go.microsoft.com/fwlink/?LinkId=513188)를 설치하고 최신 진단 기능을 사용하는 것이 좋습니다.
+Use the diagnostics configuration designer to move diagnostic settings to the diagnostics configuration file (diagnositcs.wadcfg or diagnositcs.wadcfgx for SDK 2.5 and later). It’s also recommended that you install [Azure SDK 2.5](http://go.microsoft.com/fwlink/?LinkId=513188) and use the latest diagnostics feature.
 
-1. 구성하려는 역할에 대한 바로 가기 메뉴에서 속성을 선택한 다음 구성 탭을 선택합니다.
+1. On the shortcut menu for the role that you want to configure, choose Properties, and then choose the Configuration tab.
 
-1. **진단** 섹션에서 **진단 사용** 확인란이 선택되어 있는지 확인합니다.
+1. In the **Diagnostics** section, make sure that the **Enable Diagnostics** check box is selected.
 
-1. **구성** 단추를 선택합니다.
+1. Choose the **Configure** button.
 
-  ![진단 사용 옵션에 액세스](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
+  ![Accessing the Enable Diagnostics option](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
 
-  자세한 내용은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)을 참조하세요.
+  See [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) for more information.
 
 
-## DbContext 개체를 정적으로 선언하지 마십시오
+## <a name="avoid-declaring-dbcontext-objects-as-static"></a>Avoid declaring DbContext objects as static
 
-### ID
+### <a name="id"></a>ID
 
 AP6000
 
-### 설명
+### <a name="description"></a>Description
 
-메모리를 절약하기 위해 DbContext 개체를 정적으로 선언하지 마십시오.
+To save memory, avoid declaring DBContext objects as static.
 
-[Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
+Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
-### 이유
+### <a name="reason"></a>Reason
 
-DBContext 개체는 각 호출의 쿼리 결과를 보관합니다. 정적 DBContext 개체는 응용 프로그램 도메인이 언로드될 때까지 삭제되지 않습니다. 따라서 정적 DBContext 개체는 많은 양의 메모리를 사용할 수 있습니다.
+DBContext objects hold the query results from each call. Static DBContext objects are not disposed until the application domain is unloaded. Therefore, a static DBContext object can consume large amounts of memory.
 
-### 해결 방법
+### <a name="solution"></a>Solution
 
-DBContext를 지역 변수 또는 비정적 인스턴스 필드로 선언하고 작업에 사용한 다음 사용 후 삭제되도록 합니다.
+Declare DBContext as a local variable or non-static instance field, use it for a task, and then let it be disposed of after use.
 
-다음 예제의 MVC 컨트롤러 클래스는 DBContext 개체를 사용하는 방법을 보여 줍니다.
+The following example MVC controller class shows how to use the DBContext object.
 
 ```
 public class BlogsController : Controller
@@ -528,8 +529,12 @@ public class BlogsController : Controller
     }
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-Azure 앱 최적화 및 문제 해결에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
+To learn more about optimzing and troubleshooting Azure apps, see [Troubleshoot a web app in Azure App Service using Visual Studio](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

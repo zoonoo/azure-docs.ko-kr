@@ -1,20 +1,26 @@
-#### 필수 조건
-- Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
-- [Office 365](https://office365.com) 계정
+#### <a name="prerequisites"></a>Prerequisites
+- An Azure account; you can create a [free account](https://azure.microsoft.com/free)
+- An [Office 365](https://office365.com) account  
 
-논리 앱에서 Office 365 계정을 사용하기 전에 Office 365 계정에 연결하도록 논리 앱에 권한을 부여합니다. Azure 포털의 논리 앱 내에서 이 작업을 쉽게 수행할 수 있습니다.
+Before using your Office 365 account in a logic app, authorize the logic app to connect to your Office 365 account. You can do this easily within your logic app on the Azure portal.  
 
-다음 단계를 사용하여 Office 365 계정에 연결하도록 논리 앱에 권한을 부여합니다.
+Authorize your logic app to connect to your Office 365 account using the following steps:
 
-1. 논리 앱을 만듭니다. 논리 앱 디자이너의 드롭다운 목록에서 **Microsoft 관리되는 API 표시**를 선택한 다음 검색 상자에 "office 365"를 입력합니다. 트리거 또는 동작 중 하나를 선택합니다. ![Office 365 연결 만들기 단계](./media/connectors-create-api-office365-outlook/office365-sendemail.png)
+1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "office 365" in the search box. Select one of the triggers or actions:  
+    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-sendemail.png)  
 
-2. 이전에 Office 365에 대한 연결을 만들지 않은 경우 Office 365 자격 증명을 사용하여 로그인하라는 메시지가 표시됩니다. ![Office 365 연결 만들기 단계](./media/connectors-create-api-office365-outlook/office365-signin.png)
+2. If you haven't previously created any connections to Office 365, you are prompted to sign in using your Office 365 credentials:  
+    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-signin.png)  
 
-3. **로그인**을 선택하고 사용자 이름 및 암호를 입력합니다. **로그인**을 선택합니다. ![Office 365 연결 만들기 단계](./media/connectors-create-api-office365-outlook/office365-usernamepassword.png)
+3. Select **Sign in**, and enter your user name and password. Select **Sign in**:  
+    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-usernamepassword.png)
 
-	이러한 자격 증명을 사용하여 Office 365 계정에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다.
+    These credentials are used to authorize your logic app to connect to, and access your Office 365 account. 
 
-4. 연결이 만들어졌는지 확인합니다. 이제 논리 앱의 다른 단계를 진행합니다. ![Office 365 연결 만들기 단계](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)
+4. Notice the connection has been created. Now, proceed with the other steps in your logic app:   
+    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
   
 
-<!---HONumber=AcomDC_0727_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

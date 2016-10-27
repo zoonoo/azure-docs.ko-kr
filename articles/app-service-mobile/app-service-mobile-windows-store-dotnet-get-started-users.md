@@ -1,46 +1,47 @@
 <properties
-	pageTitle="UWP(유니버설 Windows 플랫폼) 앱에 인증 추가 | Azure 모바일 앱"
-	description="Azure 앱 서비스 모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 사용해서 UWP(유지버설 Windows 플랫폼) 앱 사용자를 인증하는 방법을 알아봅니다."
-	services="app-service\mobile"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Add authentication to your Universal Windows Platform (UWP) app | Azure Mobile Apps"
+    description="Learn how to use Azure App Service Mobile Apps to authenticate users of your Universal Windows Platform (UWP) app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="windows"
+    authors="adrianhall"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="05/14/2016"
-	ms.author="glenga"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Windows 앱에 인증 추가
+
+# <a name="add-authentication-to-your-windows-app"></a>Add authentication to your Windows app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-이 항목에서는 모바일 앱에 클라우드 기반 인증을 추가하는 방법을 보여줍니다. 이 자습서에서는 Azure 앱 서비스가 지원하는 ID 공급자를 사용하여 모바일 앱용 UWP(유니버설 Windows 플랫폼) 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱 백 엔드에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
+This topic shows you how to add cloud-based authentication to your mobile app. In this tutorial, you add authentication to the Universal Windows Platform (UWP) quickstart project for Mobile Apps using an identity provider that is supported by Azure App Service. After being successfully authenticated and authorized by your Mobile App backend, the user ID value is displayed.
 
-이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 먼저 [모바일 앱 시작](app-service-mobile-windows-store-dotnet-get-started.md) 자습서를 완료해야 합니다.
+This tutorial is based on the Mobile Apps quickstart. You must first complete the tutorial [Get started with Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
 
-##<a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
+##<a name="<a-name="register"></a>register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Register your app for authentication and configure the App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+##<a name="<a-name="permissions"></a>restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-이제 백 엔드에 대한 익명 액세스가 비활성화되었는지 확인할 수 있습니다. 시작 프로젝트로 설정된 UWP 앱 프로젝트를 사용하여 앱을 배포하고 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 이 예외는 앱이 인증되지 않은 사용자로 모바일 앱 코드에 액세스하려고 시도하는데 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
+Now, you can verify that anonymous access to your backend has been disabled. With the UWP app project set as the start-up project, deploy and run the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
-다음에는 앱 서비스에서 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
+Next, you will update the app to authenticate users before requesting resources from your App Service.
 
-##<a name="add-authentication"></a>앱에 인증 추가
+##<a name="<a-name="add-authentication"></a>add-authentication-to-the-app"></a><a name="add-authentication"></a>Add authentication to the app
 
-1. UWP 프로젝트 파일 MainPage.cs에서 MainPage 클래스에 다음 코드 조각을 추가합니다.
-	
-		// Define a member variable for storing the signed-in user. 
+1. In the UWP app project file MainPage.cs and add the following code snippet to the MainPage class:
+    
+        // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
 
         // Define a method that performs the authentication process
@@ -71,29 +72,29 @@
             return success;
         }
 
-    이 코드는 Facebook 로그인으로 사용자를 인증합니다. Facebook 이외의 ID 공급자를 사용하는 경우 위의 **MobileServiceAuthenticationProvider** 값을 공급자에 대한 값으로 변경합니다.
+    This code authenticates the user with a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
 
-3. 기존 **OnNavigatedTo** 메서드 재정의에서 **ButtonRefresh\_Click** 메서드(또는 **InitLocalStoreAsync** 메서드)에 대한 호출을 주석 처리하거나 삭제합니다. 그러면 사용자가 인증되기 전에 데이터가 로드되지 않습니다. 다음으로, 인증을 트리거하는 앱에 **로그인** 단추를 추가합니다.
+3. Comment-out or delete the call to the **ButtonRefresh_Click** method (or the **InitLocalStoreAsync** method) in the existing **OnNavigatedTo** method override. This prevents the data from being loaded before the user is authenticated. Next, you will add a **Sign in** button to the app that triggers authentication.
 
-4. MainPage 클래스에 다음 코드 조각을 추가합니다.
+4. Add the following code snippet to the MainPage class:
 
-	    private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
-	    {
-	        // Login the user and then load data from the mobile app.
-	        if (await AuthenticateAsync())
-	        {
-	            // Switch the buttons and load items from the mobile app.
-	            ButtonLogin.Visibility = Visibility.Collapsed;
-	            ButtonSave.Visibility = Visibility.Visible;
-	            //await InitLocalStoreAsync(); //offline sync support.
-	            await RefreshTodoItems();
-	        }
-	    }
-		
-5. MainPage.xaml 프로젝트 파일을 열고 **저장** 단추를 정의하는 요소를 찾아서 다음 코드로 바꿉니다.
+        private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            // Login the user and then load data from the mobile app.
+            if (await AuthenticateAsync())
+            {
+                // Switch the buttons and load items from the mobile app.
+                ButtonLogin.Visibility = Visibility.Collapsed;
+                ButtonSave.Visibility = Visibility.Visible;
+                //await InitLocalStoreAsync(); //offline sync support.
+                await RefreshTodoItems();
+            }
+        }
+        
+5. Open the MainPage.xaml project file, locate the element that defines the **Save** button and replace it with the following code:
 
         <Button Name="ButtonSave" Visibility="Collapsed" Margin="0,8,8,0" 
-				Click="ButtonSave_Click">
+                Click="ButtonSave_Click">
             <StackPanel Orientation="Horizontal">
                 <SymbolIcon Symbol="Add"/>
                 <TextBlock Margin="5">Save</TextBlock>
@@ -107,27 +108,34 @@
             </StackPanel>
         </Button>
 
-9. F5 키를 눌러 앱을 실행하고 **로그인** 단추를 클릭한 다음 선택한 ID 공급자로 앱에 로그인합니다. 성공적으로 로그인되고 나면 앱이 오류 없이 실행되고 백 엔드를 쿼리하여 데이터를 업데이트할 수 있습니다.
+9. Press the F5 key to run the app, click the **Sign in** button, and sign into the app with your chosen identity provider. After your sign-in is successful, the app runs without errors and you are able to query your backend and make updates to data.
 
 
-##<a name="tokens"></a>클라이언트에 인증 토큰 저장
+##<a name="<a-name="tokens"></a>store-the-authentication-token-on-the-client"></a><a name="tokens"></a>Store the authentication token on the client
 
-이전 예제에서는 앱이 시작될 때마다 클라이언트가 ID 공급자와 앱 서비스 둘 다에 접근해야 하는 표준 로그인을 보여 주었습니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 더 나은 접근 방법은 앱 서비스에서 반환된 권한 부여 토큰을 캐시한 다음 공급자 기반 로그인을 사용하기 전에 이 토큰을 먼저 사용하는 것입니다.
+The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the App Service every time that the app starts. Not only is this method inefficient, you can run into usage-relates issues should many customers try to start you app at the same time. A better approach is to cache the authorization token returned by your App Service and try to use this first before using a provider-based sign-in.
 
->[AZURE.NOTE]클라이언트 관리 인증 또는 서비스 관리 인증을 사용하는지에 관계없이 앱 서비스에서 발급된 토큰을 캐시할 수 있습니다. 이 자습서에서는 서비스 관리 인증을 사용합니다.
+>[AZURE.NOTE]You can cache the token issued by App Services regardless of whether you are using client-managed or service-managed authentication. This tutorial uses service-managed authentication.
 
 [AZURE.INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-이 기본 인증 자습서를 완료했으므로 다음 자습서 중 하나를 계속하는 것을 고려해보세요.
+Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md) 앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure 알림 허브를 사용하는 방법을 알아봅니다.
++ [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
+  Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-+ [앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) 모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다.
++ [Enable offline sync for your app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

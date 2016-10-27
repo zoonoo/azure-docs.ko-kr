@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 재해 복구 | Microsoft Azure"
-   description="Azure 서비스 패브릭은 모든 유형의 재해를 처리하는 데 필요한 기능을 제공합니다. 이 문서에서는 발생할 수 있는 재해의 유형과 처리하는 방법을 설명합니다."
+   pageTitle="Azure Service Fabric disaster recovery | Microsoft Azure"
+   description="Azure Service Fabric offers the capabilities necessary to deal with all types of disasters. This article describes the types of disasters that can occur and how to deal with them."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -16,65 +16,66 @@
    ms.date="08/10/2016"
    ms.author="seanmck"/>
 
-# Azure 서비스 패브릭에서 재해 복구
 
-고가용성 클라우드 응용 프로그램을 제공하는 중요한 부분은 통제 범위를 벗어난 오류를 비롯하여 모든 형식의 오류를 극복할 수 있는 것입니다. 이 문서는 잠재적 재해의 맥락에서 Azure 서비스 패브릭 클러스터의 물리적 레이아웃을 설명하고 가동 중지 시간 또는 데이터 손실의 위험을 제한하거나 제거하기 위해 이러한 재해를 처리하는 방법에 대한 지침을 제공합니다.
+# <a name="disaster-recovery-in-azure-service-fabric"></a>Disaster recovery in Azure Service Fabric
 
-## Azure에서 서비스 패브릭 클러스터의 물리적 레이아웃
+A critical part of delivering a high-availability cloud application is ensuring that it can survive all different types of failures, including those that are outside of your control. This article describes the physical layout of an Azure Service Fabric cluster in the context of potential disasters and provides guidance on how to deal with such disasters to limit or eliminate the risk of downtime or data loss.
 
-다양한 유형의 오류가 발생시키는 위험을 이해하려면 Azure에서 클러스터를 물리적으로 레이아웃하는 방법을 아는 것이 유용합니다.
+## <a name="physical-layout-of-service-fabric-clusters-in-azure"></a>Physical layout of Service Fabric clusters in Azure
 
-Azure에서 서비스 패브릭 클러스터를 만들 때 호스트될 지역을 선택해야 합니다. 그러면 Azure 인프라는 요청된 VM(가상 컴퓨터)의 수와 같은 가장 주목할 만한 사항을 비롯하여 지역 내에서 해당 클러스터에 대한 리소스를 프로비전합니다. 해당 VM을 프로비전하는 방법 및 위치를 더 자세히 살펴보겠습니다.
+To understand the risk posed by different types of failures, it is useful to know how clusters are physically laid out in Azure.
 
-### 장애 도메인
+When you create a Service Fabric cluster in Azure, you are required to choose a region where it will be hosted. The Azure infrastructure then provisions the resources for that cluster within the region, most notably the number of virtual machines (VMs) requested. Let's look more closely at how and where those VMs are provisioned.
 
-기본적으로 클러스터의 VM은 FD(장애 도메인)라는 논리 그룹 간에 균등하게 분산되며 이는 호스트 하드웨어에서 오류가 발생할 가능성에 따라 컴퓨터를 분할합니다. 특히, 두 대의 VM이 다른 두 개의 FD에 위치하는 경우 동일한 전력 공급 또는 네트워크 스위치를 공유하지 않도록 할 수 있습니다. 결과적으로, VM 한 대에 영향을 미치는 로컬 네트워크 또는 전력 공급 오류는 다른 컴퓨터에 영향을 주지 않으며 이는 서비스 패브릭이 클러스터 내에서 응답하지 않는 컴퓨터의 작업 부하를 다시 분산할 수 있도록 합니다.
+### <a name="fault-domains"></a>Fault domains
 
-[서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)에 제공된 클러스터 맵을 사용하여 장애 도메인에 클러스터의 레이아웃을 시각화할 수 있습니다.
+By default, the VMs in the cluster are evenly spread across logical groups known as fault domains (FDs), which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct FDs, you can be sure that they do not share the same power source or network switch. As a result, a local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine within the cluster.
 
-![노드는 서비스 패브릭 탐색기에서 장애 도메인에 분산됩니다.][sfx-cluster-map]
+You can visualize the layout of your cluster across fault domains using the cluster map provided in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
->[AZURE.NOTE] 클러스터 맵의 른 축에서는 계획된 유지 관리 작업에 따라 노드를 논리적으로 그룹화하는 업그레이드 도메인을 보여줍니다. Azure의 서비스 패브릭 클러스터는 항상 5개의 업그레이드 도메인에 걸쳐 레이아웃됩니다.
+![Nodes spread across fault domains in Service Fabric Explorer][sfx-cluster-map]
 
-### 지리적 배포
+>[AZURE.NOTE] The other axis in the cluster map shows upgrade domains, which logically group nodes based on planned maintenance activities. Service Fabric clusters in Azure are always laid out across five upgrade domains.
 
-[전 세계에 걸쳐 현재 26개의 Azure 지역][azure-regions]이 있으며 추가로 지역을 발표했습니다. 개별 지역은 다른 요소 중에서 적합한 위치의 수요 및 가용성에 따라 하나 이상의 물리적 데이터 센터를 포함할 수 있습니다. 단, 여러 물리적 데이터 센터를 포함하는 지역이라도 클러스터의 VM이 해당하는 물리적 위치에 균일하게 분산된다는 보장은 없습니다. 실제로 현재 지정된 클러스터에 대한 모든 VM은 단일 물리적 사이트 내에서 프로비전됩니다.
+### <a name="geographic-distribution"></a>Geographic distribution
 
-## 오류 처리
+There are currently [26 Azure regions throughout the world][azure-regions], with several more announced. An individual region can contain one or more physical data centers depending on demand and the availability of suitable locations, among other factors. Note, however, that even in regions that contain multiple physical data centers, there is no guarantee that your cluster's VMs will be evenly spread across those physical locations. Indeed, currently, all VMs for a given cluster are provisioned within a single physical site.
 
-자체 해결 방법으로 각 클러스터에 영향을 줄 수 있는 오류의 몇 가지 유형이 있습니다. 해당 작업이 발생한 순서에 따라 살펴보도록 하겠습니다.
+## <a name="dealing-with-failures"></a>Dealing with failures
 
-### 개별 컴퓨터 오류
+There are several types of failures that can impact your cluster, each with its own mitigation. We will look at them in order of likelihood to occur.
 
-앞서 언급했듯이 VM 내에서 발생한 개별 컴퓨터 오류나 장애 도메인 내에서 VM을 호스팅하는 하드웨어 또는 소프트웨어에서 발생한 개별 컴퓨터 오류 자체는 위험하지 않습니다. 서비스 패브릭에서는 일반적으로 몇 초 내에 오류를 검색하고 클러스터의 상태에 따라 적절하게 응답합니다. 예를 들어 노드가 파티션에 기본 복제본을 호스팅하는 경우 파티션의 보조 복제본에서 새로운 기본 복제본을 선택합니다. Azure에서 실패한 컴퓨터를 백업할 경우 클러스터를 자동으로 다시 연결하고 다시 워크로드의 공유를 수행합니다.
+### <a name="individual-machine-failures"></a>Individual machine failures
 
-### 여러 컴퓨터 동시 오류
+As mentioned, individual machine failures, either within the VM or in the hardware or software hosting it within a fault domain, pose no risk on their own. Service Fabric will typically detect the failure within seconds and respond accordingly based on the state of the cluster. For instance, if the node was hosting the primary replicas for a partition, a new primary is elected from the partition's secondary replicas. When Azure brings the failed machine back up, it will rejoin the cluster automatically and once again take on its share of the workload.
 
-장애 도메인이 컴퓨터 동시 오류의 위험을 크게 줄이는 반면 여러 가지 임의 오류로 인해 클러스터의 몇몇 컴퓨터를 동시에 종료시킬 가능성이 있습니다.
+### <a name="multiple-concurrent-machine-failures"></a>Multiple concurrent machine failures
 
-일반적으로 대부분의 노드가 사용할 수 있는 상태로 남아 있는 한, 적은 수의 컴퓨터 집합 및 상태 비저장 인스턴스에 압축된 상태 저장 복제본이 부하 분산에 사용할 수 있는 만큼 용량이 적더라도 클러스터는 계속 작동합니다.
+While fault domains significantly reduce the risk of concurrent machine failures, there is always the potential for multiple random failures to bring down several machines in a cluster simultaneously.
 
-#### 쿼럼 손실
+In general, as long as a majority of the nodes remain available, the cluster will continue to operate, albeit at lower capacity as stateful replicas get packed into a smaller set of machines and fewer stateless instances are available to spread load.
 
-상태 저장 서비스의 파티션에 대한 다수의 복제본이 작동을 멈추면 해당 파티션은 "쿼럼 손실"이라는 상태를 입력합니다. 이 시점에서 서비스 패브릭은 상태가 일관적이고 신뢰할 수 있게 유지되도록 해당 파티션에 쓰기를 허용하지 않습니다. 사용할 수 없는 기간을 수용하도록 선택하여 데이터가 실제로 저장되지 않았을 때 클라이언트에 해당 데이터가 저장되었다고 전하지 않아야 합니다. 해당 상태 저장 서비스에 대한 보조 복제본에서 읽기를 허용하도록 옵트인한 경우 이 상태에서 해당 읽기 작업을 계속 수행할 수 있습니다. 복제본의 충분한 수가 돌아올 때 또는 클러스터 관리자가 [Repair-ServiceFabricPartition API][repair-partition-ps]를 사용하여 시스템을 진행하도록 강제할 때까지 파티션은 쿼럼 손실에 남아 있습니다.
+#### <a name="quorum-loss"></a>Quorum loss
 
->[AZURE.WARNING] 기본 복제본이 종료되는 경우 이 작업을 수행하면 데이터 손실이 발생합니다.
+If a majority of the replicas for a stateful service's partition go down, that partition enters a state known as "quorum loss." At this point, Service Fabric stops allowing writes to that partition to ensure that its state remains consistent and reliable. In effect, we are choosing to accept a period of unavailability to ensure that clients are not told that their data was saved when in fact it was not. Note that if you have opted in to allowing reads from secondary replicas for that stateful service, you can continue to perform those read operations while in this state. A partition remains in quorum loss until a sufficient number of replicas come back or until the cluster administrator forces the system to move on using the [Repair-ServiceFabricPartition API][repair-partition-ps].
 
-또한 시스템 서비스에서 쿼럼 손실이 발생할 수 있으며 이 영향으로 서비스에 특정되는지가 불확실해 집니다. 예를 들어 장애 조치(Failover) 관리자 서비스의 쿼럼 손실이 새 서비스 만들기 및 장애 조치를 차단하는 반면 서비스 명명의 쿼럼 손실은 이름 확인에 영향을 줍니다. 고유한 서비스와 달리 시스템 서비스를 복구하는 시도는 권장되지 *않습니다*. 대신, 중지된 복제본이 돌아올 때까지 대기하는 것이 좋습니다.
+>[AZURE.WARNING] Performing a repair action while the primary replica is down will result in data loss.
 
-#### 쿼럼 손실의 위험 최소화
+System services can also suffer quorum loss, with the impact being specific to the service in question. For instance, quorum loss in the naming service will impact name resolution, whereas quorum loss in the failover manager service will block new service creation and failovers. Note that unlike for your own services, attempting to repair system services is *not* recommended. Instead, it is preferable to simply wait until the down replicas return.
 
-서비스에 대해 대상 복제본 세트 크기를 늘려 쿼럼 손실의 위험을 최소화할 수 있습니다. 한 번에 허용할 수 있는 사용할 수 있는 노드 수의 면에서 필요한 복제본의 수를 생각하는 것이 유용합니다. 나머지가 쓰기에 사용할 수 있는 반면 해당 응용 프로그램 또는 클러스터 업그레이드로 인해 하드웨어 오류 뿐만 아니라 노드를 일시적으로 사용할 수 없게 만들 수 있습니다.
+#### <a name="minimizing-the-risk-of-quorum-loss"></a>Minimizing the risk of quorum loss
 
-다음 예제에서는 프로덕션 서비스에 대한 최소 권장 수인 세 개의 MinReplicaSetSize를 서비스가 포함하도록 구성했다고 가정합니다. 세 개(한 개는 기본, 두 개는 보조)의 TargetReplicaSetSize를 사용하여 업그레이드 중에(두 개의 복제본 중지) 발생한 하드웨어 오류는 쿼럼 손실로 이어지고 서비스는 읽기 전용으로 설정됩니다. 또는 5개의 복제본이 있으면 나머지 두 개의 복제본이 여전히 최소 복제본 세트 내에서 쿼럼을 구성할 수 있기에 업그레이드 중에(세 개의 복제본 중지) 두 개의 오류가 발생해도 문제가 발생하지 않을 수 있습니다.
+You can minimize your risk of quorum loss by increasing the target replica set size for your service. It is helpful to think of the number of replicas you need in terms of the number of unavailable nodes you can tolerate at once while remaining available for writes, keeping in mind that application or cluster upgrades can make nodes temporarily unavailable, in addition to hardware failures.
 
-### 데이터 센터 중단 또는 소멸
+Consider the following examples assuming that you've configured your services to have a MinReplicaSetSize of three, the smallest number recommended for production services. With a TargetReplicaSetSize of three (one primary and two secondaries), a hardware failure during an upgrade (two replicas down) will result in quorum loss and your service will become read-only. Alternatively, if you have five replicas, you would be able to withstand two failures during upgrade (three replicas down) as the remaining two replicas can still form a quorum within the minimum replica set.
 
-드문 경우지만 실제 데이터 센터가 전원 또는 네트워크 연결의 손실로 인해 일시적으로 사용할 수 없게 될 수 있습니다. 이러한 경우에 서비스 패브릭 클러스터와 응용 프로그램은 마찬가지로 사용할 수 없게 되지만 데이터는 유지됩니다. Azure에서 실행 중인 클러스터의 경우 [Azure 상태 페이지][azure-status-dashboard]의 가동 중단에 대한 업데이트를 확인할 수 있습니다.
+### <a name="data-center-outages-or-destruction"></a>Data center outages or destruction
 
-발생할 가능성이 거의 없는 전체 물리적 데이터 센터가 소멸되는 이벤트에서 호스팅되는 서비스 패브릭 클러스터는 상태와 함께 손실됩니다.
+In rare cases, physical data centers can become temporarily unavailable due to loss of power or network connectivity. In these cases, your Service Fabric clusters and applications will likewise be unavailable but your data will be preserved. For clusters running in Azure, you can view updates on outages on the [Azure status page][azure-status-dashboard].
 
-이러한 가능성을 방지하기 위해 주기적으로 지리적 중복 저장소에 [상태를 백업](service-fabric-reliable-services-backup-restore.md)하고 이를 복원하는 유효한 기능이 있는지 확인합니다. 백업을 수행하는 빈도는 RPO(복구 지점 목표)에 따라 다릅니다. 백업을 완벽히 구현하고 복원하지 못했더라도 다음과 같은 상황이 발생한 경우 기록할 수 있도록 `OnDataLoss` 이벤트에 대한 처리기를 구현해야 합니다.
+In the highly unlikely event that an entire physical data center is destroyed, any Service Fabric clusters hosted there will be lost, along with their state.
+
+To protect against this possibility, it is critically important to periodically [backup your state](service-fabric-reliable-services-backup-restore.md) to a geo-redundant store and ensure that you have validated the ability to restore it. How often you perform a backup will be dependent on your recovery point objective (RPO). Even if you have not fully implemented backup and restore yet, you should implement a handler for the `OnDataLoss` event so that you can log when it occurs as follows:
 
 ```c#
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
@@ -85,23 +86,23 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 ```
 
 
-### 소프트웨어 오류 및 데이터 손실의 기타 소스
+### <a name="software-failures-and-other-sources-of-data-loss"></a>Software failures and other sources of data loss
 
-서비스의 코드 오류, 인적 작동 오류 및 보안 위반은 광범위한 데이터 센터 오류보다 일반적인 데이터 손실의 발생 원인입니다. 그러나, 모든 경우에 복구 전략은 동일하게 모든 상태 저장 서비스의 정기 백업을 수행하고 해당 상태를 복원하는 기능을 실행하는 것입니다.
+As a cause of data loss, code defects in services, human operational errors, and security breaches are more common than widespread data center failures. However, in all cases, the recovery strategy is the same: take regular backups of all stateful services and exercise your ability to restore that state.
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- [테스트 용이성 프레임워크](service-fabric-testability-overview.md)를 사용하여 다양한 오류를 시뮬레이션하는 방법 알아보기
-- 다른 재해 복구 및 고가용성 리소스를 참고합니다. Microsoft는 이 항목에 많은 양의 지침을 게시했습니다. 이러한 문서 중 일부가 다른 제품에서 사용하는 특정 기술을 가리키지만 서비스 패브릭 컨텍스트에서 적용할 수 있는 많은 일반적인 모범 사례를 포함합니다.
- - [가용성 검사 목록](../best-practices-availability-checklist.md)
- - [재해 복구 훈련 수행](../sql-database/sql-database-disaster-recovery-drills.md)
- - [Azure 응용 프로그램에 대한 재해 복구 및 고가용성][dr-ha-guide]
+- Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
+- Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
+ - [Availability checklist](../best-practices-availability-checklist.md)
+ - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
+ - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
 
 
 <!-- External links -->
 
 [repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
-[azure-status-dashboard]: https://azure.microsoft.com/status/
+[azure-status-dashboard]:https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
 [dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
 
@@ -110,4 +111,8 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="리소스 관리자 아키텍처 | Microsoft Azure"
-   description="서비스 패브릭 클러스터 리소스 관리자의 아키텍처 개요"
+   pageTitle="Resource Manager Architecture | Microsoft Azure"
+   description="An architectural overview of Service Fabric Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,27 +16,32 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# 클러스터 리소스 관리자 아키텍처 개요
-클러스터의 리소스를 관리하려면 서비스 패브릭 클러스터 Resource Manager에게 일부 정보가 있어야 합니다. 현재 존재하는 서비스와 서비스를 소비하는 리소스의 현재(또는 기본) 양을 알아야 합니다. 클러스터에서 노드의 실제 용량과 클러스터에서 특정 노드의 전체 용량과 나머지 용량에 대해 사용할 수 있는 리소스 양을 알아야 합니다. 주어진 서비스의 리소스 소모량은 지남에 따라 변할 수 있으며, 서비스는 일반적으로 여러 리소스를 관리한다는 사실도 다루어야 합니다. 다른 많은 서비스 중에, 메모리 및 디스크 소비량과 같은 메트릭으로 측정 및 보고되는 물리적 리소스와, "WorkQueueDepth" 또는 "TotalRequests" 등과 같은 논리적 메트릭(더 일반적임)으로 측정되는 서비스도 있을 수 있습니다. 이러한 논리적 메트릭 및 실제 메트릭은 모두 다양한 형식의 여러 서비스에서 사용되거나 몇 가지 서비스에서만 한정적으로 사용될 수도 있습니다.
 
-## 기타 고려 사항
-클러스터의 소유자와 연산자는 종종 서비스 작성자와 다를 수 있거나 같은 사람이 다른 모자를 쓸 수 있습니다. 가령 어떤 리소스가 필요한지와 여러 구성 요소가 이상적으로 배포되는 방식에 대해 다소 알고 있지만, 수행해야 할 다른 작업이 있고 다른 도구가 필요한 프로덕션 환경에서 해당 서비스에 대한 라이브 사이트 문제를 처리하는 사람으로서 서비스를 개발하는 경우입니다. 또한 클러스터나 서비스가 정적으로 구성되지 않으면, 클러스터의 노드 수가 증가 및 감소할 수 있고, 다양한 크기의 노드가 이동될 수 있으며, 즉석에서 서비스를 생성, 제거할 수 있고 원하는 리소스 할당을 변경할 수 있습니다. 업그레이드 또는 기타 관리 작업은 클러스터에서 실행될 수 있으며, 또 언제든지 작업이 실패할 수도 있습니다.
+# <a name="cluster-resource-manager-architecture-overview"></a>Cluster resource manager architecture overview
+In order to manage the resources in your cluster, the Service Fabric Cluster Resource Manager must have several pieces of information. It has to know which services currently exist and the current (or default) amount of resources that those services are consuming. It has to know the actual capacity of the nodes in the cluster, and thus the amount of resources available both in the cluster as a whole and remaining on a particular node. The resource consumption of a given service can change over time, as well as the fact that services, in reality, usually care about more than one resource. Across many different services there may be both real physical resources being measured and reported as metrics like memory and disk consumption, as well as (and actually more commonly) logical metrics - things like "WorkQueueDepth" or "TotalRequests". Both logical and physical metrics may be used across many different types of services or maybe specific to only a couple services.
 
-## 클러스터 리소스 관리자 구성 요소 및 데이터 흐름
-클러스터 Resource Manager는 전체 클러스터뿐만 아니라 이러한 클러스터를 구성하는 개별 서비스, 상태 비저장 인스턴스 또는 상태 저장 복제본의 요구 사항을 비롯한 많은 사항을 파악해야 합니다. 이를 수행하기 위해, 개별 노드에서 로컬 리소스 사용 정보를 집계하기 위해 실행되는 클러스터 Resource Manager 에이전트와 서비스 및 클러스터에 대한 모든 정보를 집계하고 현재 구성에 따라 반응하는 중앙 집중식 내결함성 클러스터 Resource Manager 서비스가 있습니다. 클러스터 Resource Manager 서비스(및 다른 모든 시스템 서비스)에 대한 내결함성은 서비스에 사용하는 정확히 동일한 메커니즘(즉, 보통 7개에 해당하는 클러스터의 일부 복제본 할당량에 서비스의 상태를 복제함)을 통해 구현됩니다.
+## <a name="other-considerations"></a>Other considerations
+The owners and operators of the cluster are occasionally different from the service authors, or at a minimum are the same people wearing different hats; for example when developing your service you know a few things about what it requires in terms of resources and how the different components should ideally be deployed, but as the person handling a live-site incident for that service in production you have a different job to do, and require different tools. In addition, neither the cluster nor the services themselves are a statically configured: the number of nodes in the cluster can grow and shrink, nodes of different sizes can come and go, and services can be created, removed, and change their desired resource allocations on the fly. Upgrades or other management operations can roll through the cluster, and of course things can fail at any time.
 
-![리소스 분산 아키텍처][Image1]
+## <a name="cluster-resource-manager-components-and-data-flow"></a>Cluster resource manager components and data flow
+The Cluster Resource Manager will have to know many things about the overall cluster, as well as the requirements of individual services and the stateless instances or stateful replicas that make it up. To accomplish this, we have agents of the Cluster Resource Manager that run on individual nodes in order to aggregate local resource consumption information, and a centralized, fault-tolerant Cluster Resource Manager service that aggregates all of the information about the services and the cluster and reacts based on its current configuration. The fault tolerance for the Cluster Resource Manager service (and all other system services) is achieved via exactly the same mechanisms that we use for your services, namely replication of the service’s state to quorums of some number of replicas in the cluster (usually 7).
 
-위 다이어그램을 예로 살펴보겠습니다. 런타임 도중 수많은 변경 사항이 발생할 수 있습니다. 예를 들어, 리소스 서비스 소비량, 일부 서비스 실패, 일부 노드의 클러스터 가입 또는 탈퇴 등 몇 가지 변경 사항이 있다고 합시다. 특정 노드에 대한 모든 변경 사항은 집계되어 클러스터 Resource Manager 서비스(1, 2)로 정기적으로 전송되고, 여기서 다시 집계되고 분석되고 저장됩니다. 해당 서비스에서 몇 초마다 모든 변경 사항을 보고 필요한 작업이 있는지 판단합니다(3). 예를 들어 노드가 클러스터에 추가되고 비워지고 일부 서비스는 해당 노드로 이동되었는지 알 수 있습니다. 또한 특정 노드의 오버로드되었거나 특정 서비스가 실패하여(또는 삭제됨) 다른 노드의 리소스를 확보되었는지 확인할 수도 있습니다.
+![Resource Balancer Architecture][Image1]
 
-다음 다이어그램을 살펴보고 그 다음에 어떤 결과가 발생하는지 알아보겠습니다. 클러스터 Resource Manager에서 변경이 필요한지 판단한다고 가정합니다. 이는 다른 시스템 서비스(특히 장애 조치 관리자)와 함께 필요한 변경을 수행합니다. 그런 다음 변경 요청은 적절한 노드(4)로 전송됩니다. 이 경우 리소스 관리자는 노드 5가 오버로드되어 서비스 B가 N5에서 N4로 이동하기로 결정했다고 가정합니다. 재구성(5)이 마무리되면 클러스터는 다음과 같이 됩니다.
+Let’s take a look at this diagram above as an example. During runtime there are a whole bunch of changes which could happen: For example, let’s say there are some changes in the amount of resources services consume, some service failures, some nodes join and leave the cluster, etc. All the changes on a specific node are aggregated and periodically sent to the Cluster Resource Manager service (1,2) where they are aggregated again, analyzed, and stored. Every few seconds that service looks at all of the changes, and determines if there are any actions necessary (3). For example, it could notice that nodes have been added to the cluster and are empty, and decide to move some services to those nodes. It could also notice that a particular node is overloaded, or that certain services have failed (or been deleted), freeing up resources on other nodes.
 
-![리소스 분산 아키텍처][Image2]
+Let’s take a look at the following diagram and see what happens next. Let’s say that the Cluster Resource Manager determines that changes are necessary. It coordinates with other system services (in particular the Failover Manager) to make the necessary changes. Then the change requests are sent to the appropriate nodes (4). In this case, we presume that the Resource Manager noticed that Node 5 was overloaded, and so decided to move service B from N5 to N4. At the end of the reconfiguration (5), the cluster looks like this:
 
-## 다음 단계
-- 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
+![Resource Balancer Architecture][Image2]
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
+## <a name="next-steps"></a>Next steps
+- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+[Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
+[Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

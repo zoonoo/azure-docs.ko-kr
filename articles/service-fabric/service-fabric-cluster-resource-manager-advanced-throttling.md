@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 클러스터 리소스 관리자의 제한 | Microsoft Azure"
-   description="서비스 패브릭 클러스터 리소스 관리자에서 제공하는 제한을 구성하는 방법을 설명합니다."
+   pageTitle="Throttling in the Service Fabric cluster resource manager | Microsoft Azure"
+   description="Learn to configure the throttles provided by the Service Fabric Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -17,16 +17,17 @@
    ms.author="masnider"/>
 
 
-# 서비스 패브릭 클러스터 Resource Manager의 동작 제한
-클러스터 Resource Manager를 올바르게 구성한 경우에도 클러스터가 중단될 수 있습니다. 예를 들어 동시 노드 또는 장애 도메인 오류가 있을 수 있습니다. 업그레이드 중에 이러한 문제가 발생하면 어떻게 하나요? Resource Manager에서 이러한 문제를 수정하기 위해 최선을 다하겠지만 이러한 경우 클러스터 자체에서 안정화(노드 다시 작동, 네트워크 상태 정상화, 수정된 비트 배포)되도록 방어벽을 고려해 보려고 할 수 있습니다. 이러한 상황을 위해 서비스 패브릭 클러스터 Resource Manager는 여러 가지 제한을 포함합니다. 이러한 제한은 작업을 중단할 수 있으므로 클러스터에서 실제로 수행할 수 있는 병렬 작업의 양을 신중히 계산할 뿐만 아니라 계획되지 않은 거시적 재구성 이벤트(즉, "매우 좋지 않은 날")에 자주 응답해야 하는 경우에만 사용해야 합니다.
 
-일반적으로 자체적으로 수정할 때 클러스터를 제한하여 리소스 사용을 금지하는 대신 다른 옵션(정규 코드 업데이트 및 시작할 클러스터의 예정 시간 초과 방지)을 통해 매우 나쁜 날을 방지하는 것이 좋습니다. 이러한 제한은 경험을 통해 문제가 없는 것으로 확인된 기본값을 갖지만, 예상되는 실제 부하에 맞게 조정할 수도 있습니다. 클러스터를 과도하게 제한하거나 과부하를 부여하지 않는 것이 가장 좋은 방법이지만 클러스터가 안정화되는 데 더 오랜 시간이 걸리더라도 수정될 때까지 몇 가지 제한을 설정해야 하는 경우가 있습니다.
+# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>Throttling the behavior of the Service Fabric Cluster Resource Manager
+Even if you’ve configured the Cluster Resource Manager correctly, the cluster can get disrupted. For example there could be simultaneous node or fault domain failures - what would happen if that occurred during an upgrade? The Resource Manager will try its best to fix everything, but in times like this you may want to consider a backstop so that the cluster itself has a chance to stabilize (the nodes which are going to come back do, the network conditions heal themselves, corrected bits get deployed). To help with these sorts of situations, the Service Fabric Cluster Resource Manager does include several throttles. Note that these throttles are fairly disruptive and generally shouldn’t be used unless there’s been some careful math done around the amount of parallel work that can actually be done in the cluster, as well as a frequent need to respond to these sorts of (ahem) unplanned macroscopic reconfiguration events (AKA: “Very Bad Days”).
 
-##제한 구성
-기본적으로 포함된 제한은 다음과 같습니다.
+Generally, we recommend avoiding very bad days through other options (like regular code updates and avoiding overscheduling the cluster to begin with) rather than throttling your cluster to prevent it from using resources when it is trying to fix itself). The throttles do have default values that we've found through experience to be ok defaults, but you should probably take a look and tune them to your expected actual load. While not overly constraining or loading the cluster is a best practice you may determine that there are cases which (until you can remedy them) where you need to have a couple of throttles in place, even if it means the cluster will take longer to stabilize.
 
--	GlobalMovementThrottleThreshold – 일정 시간 동안 클러스터 내에서 발생하는 총 이동 수를 제어합니다(GlobalMovementThrottleCountingInterval, 값(초)으로 정의).
--	MovementPerPartitionThrottleThreshold – 일정 시간 동안 서비스 파티션에 대해 발생하는 총 이동 수를 제어합니다(MovementPerPartitionThrottleCountingInterval, 값(초))
+##<a name="configuring-the-throttles"></a>Configuring the throttles
+The throttles that are included by default are:
+
+-   GlobalMovementThrottleThreshold – this controls the total number of movements in the cluster over some time (defined as the GlobalMovementThrottleCountingInterval, value in seconds)
+-   MovementPerPartitionThrottleThreshold – this controls the total number of movements for any service partition over some time (the MovementPerPartitionThrottleCountingInterval, value in seconds)
 
 ``` xml
 <Section Name="PlacementAndLoadBalancing">
@@ -37,10 +38,14 @@
 </Section>
 ```
 
-대부분의 경우 고객이 이미 리소스 제한 환경에 있기 때문에(예: 네트워크 대역폭이 적용되는 병렬 복제본 빌드의 요구 사항과 관련이 없는 개별 노드 또는 디스크로 제한됨) 이러한 제한을 사용한다는 것을 알고 있습니다. 즉, 이러한 작업은 성공하지 못하거나 느려질 수 있습니다. 이러한 상황에서 고객은 제한된 동안 전반적인 실행 안정성이 떨어질 수 있다는 사실을 이해하는 것은 물론, 클러스터가 안정적인 상태가 될 때까지 걸리는 시간을 연장할 수 있다는 사실을 통해 안심하고 작업할 수 있었습니다.
+Be aware that most of the time we’ve seen customers use these throttles it has been because they were already in a resource constrained environment (such as limited network bandwidth into individual nodes or disks which weren't up to the requirements of parallel replica builds which were being placed on them) which meant that such operations wouldn’t succeed or would be slow anyway.  In these situations customers were comfortable knowing that they were potentially extending the amount of time it would take the cluster to reach a stable state, including knowing that they could end up running at lower overall reliability while they were throttled.
 
-## 다음 단계
-- 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
-- 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
+## <a name="next-steps"></a>Next steps
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

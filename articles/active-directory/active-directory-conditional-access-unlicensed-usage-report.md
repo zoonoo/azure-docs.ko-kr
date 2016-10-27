@@ -1,49 +1,56 @@
 <properties
-	pageTitle="허가되지 않은 사용 현황 보고서 | Microsoft Azure"
-	description="허가되지 않은 사용 현황 보고서를 사용하면 유료 Azure AD 기능을 사용하는 허가되지 않은 사용자를 식별할 수 있습니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Unlicensed Usage Report | Microsoft Azure"
+    description="The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features."
+    services="active-directory"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2016"
+    ms.author="markvi"/>
 
-# 허가되지 않은 사용 현황 보고서
 
-허가되지 않은 사용 현황 보고서를 사용하면 유료 Azure AD 기능을 사용하는 허가되지 않은 사용자를 식별할 수 있습니다. 이를 통해 구매한 라이선스를 더 잘 활용할 수 있도록 해주고 추가 라이선스가 필요할 때를 알려줍니다.
+# <a name="unlicensed-usage-report"></a>Unlicensed usage report
 
-보고서는 지난 30 일 동안 유료 기능의 실제 사용 현황을 보여줍니다.
+The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features. This allows you to make better use of licenses that you have purchased and to identify you know when you may need additional licenses. 
 
-## 보고서 구조
+The report shows active usage of the paid features in the last 30 days. 
+
+## <a name="report-structure"></a>Report structure
  
-| 열 이름 |	설명 |
+| Column name          |    Description |
 | :--                  | :--         |
-| 허가되지 않은 사용자 |	사용자의 이름 |
-| 기능 | 기능 이름 예: 조건부 액세스 |
-| 액세스한 응용 프로그램 | 기능에 액세스하는 응용 프로그램의 이름입니다. 예: Office 365 SharePoint Online |
+| Unlicensed User      |    Name of the user |
+| Feature              | The feature name. For example: conditional access |
+| Application Accessed | The name of the application that is being accessed with the feature. For example: Office 365 SharePoint Online |
 
  
-> [AZURE.NOTE] 사용자 계정이 삭제된 경우 ‘허가되지 않은 사용자’ 열은 1003000090D8B285와 같은 ID로 채워집니다.
+> [AZURE.NOTE] If a user account has been deleted the ‘Unlicensed User’ column will be populated with an ID, like 1003000090D8B285
 
 
-## 조건부 액세스 기능
+## <a name="conditional-access-feature"></a>Conditional access feature
 
-Azure AD Premium 라이선스가 없는 경우에 적용되는 조건부 액세스 정책이 있는 서비스에 허가되지 않은 사용자가 액세스하면 플래그가 지정됩니다.
+Unlicensed users will be flagged when they access a service that has conditional access policy applied if they do not have an Azure AD Premium license. 
 
-이는 MFA/위치 정책뿐만 아니라 Intune을 사용하는 장치 정책에 적용됩니다.
+This applies to MFA / Location policies as well as device polices that use Intune.
  
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-- [Office 365 및 기타 Azure Active Directory 연결 앱과 함께 조건부 액세스 사용](active-directory-conditional-access.md)
-- [Azure AD 조건부 액세스 시작하기](active-directory-conditional-access-azuread-connected-apps.md)
+- [Using Conditional Access with Office 365 and other Azure Active Directory connected apps](active-directory-conditional-access.md)
+- [Getting started with conditional access to Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

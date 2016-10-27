@@ -1,6 +1,6 @@
 <properties
-   pageTitle="콘텐츠 배달 네트워크(CDN) 지침 | Microsoft Azure"
-   description="Azure에서 호스팅되는 고대역폭 콘텐츠를 제공하는 콘텐츠 배달 네트워크(CDN)에 대한 지침을 제공합니다."
+   pageTitle="Content Delivery Network (CDN) guidance | Microsoft Azure"
+   description="Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure."
    services="cdn"
    documentationCenter="na"
    authors="dragon119"
@@ -14,226 +14,227 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/17/2016"
+   ms.date="09/30/2016"
    ms.author="masashin"/>
 
-# 콘텐츠 배달 네트워크(CDN) 지침
+
+# <a name="content-delivery-network-(cdn)-guidance"></a>Content Delivery Network (CDN) guidance
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## 개요
-Microsoft Azure 콘텐츠 배달 네트워크(CDN)는 개발자에게 Azure 또는 기타 위치에서 호스트되는 고대역폭 콘텐츠를 제공하기 위한 글로벌 솔루션을 제공합니다. CDN을 사용하여 Azure Blob 저장소, 웹 응용 프로그램, 가상 컴퓨터, 응용 프로그램 폴더 또는 기타 HTTP/HTTPS 위치에서 로드된 공개적으로 사용 가능한 개체를 캐시할 수 있습니다. 전략적 위치에 CDN 캐시를 보유하여 사용자에게 콘텐츠를 배달하기 위해 최대 대역폭을 제공할 수 있습니다. CDN은 일반적으로 이미지, 스타일 시트, 문서, 파일, 클라이언트쪽 스크립트 및 HTML 페이지와 같은 정적 콘텐츠를 제공하기 위해 사용됩니다.
+## <a name="overview"></a>Overview
+The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using the CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location. The CDN cache can be held at strategic locations to provide maximum bandwidth for delivering content to users. The CDN is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
 
-또한 지정된 입력을 기반으로 하는 PDF 보고서 또는 그래프와 같은 동적 콘텐츠를 제공하기 위해 CDN을 캐시로 사용할 수 있습니다. 여러 사용자가 동일한 입력 값을 제공하는 경우 결과는 동일해야 합니다.
+You can also use the CDN as a cache for serving dynamic content, such as a PDF report or graph based on specified inputs; if the same input values are provided by different users the result should be the same.
 
-CDN을 사용하는 주요 이점은 대기 시간이 짧고 응용 프로그램이 호스팅되는 데이터 센터와 관련하여 지리적 위치에 관계 없이 사용자에게 콘텐츠를 빠르게 제공할 수 있다는 점입니다.
+The major advantages of using the CDN are lower latency and faster delivery of content to users irrespective of their geographical location in relation to the datacenter where the application is hosted.  
 
-![CDN 다이어그램](./media/best-practices-cdn/CDN.png)
+![CDN diagram](./media/best-practices-cdn/CDN.png)
 
-CDN를 사용하면 콘텐츠에 액세스하고 콘텐츠를 전달하는 데 필요한 프로세스를 줄여주므로 응용 프로그램에 대한 부하를 줄입니다. 이렇게 부하가 감소하므로 특정 수준의 성능 및 가용성을 달성하는 데 필요한 처리 리소스를 줄여 호스팅 비용을 최소화할 뿐만 아니라 응용 프로그램의 성능과 확장성도 높일 수 있습니다.
+Using the CDN should also help to reduce the load on on application because it is relieved of the processing required to access and deliver the content. This reduction in load can help to increase the performance and scalability of the application, as well as minimizing hosting costs by reducing the processing resources required to achieve a specific level of performance and availability.
 
-## CDN 사용 방법 및 사용 이유
+## <a name="how-and-why-a-cdn-is-used"></a>How and why a CDN is used
 
-일반적인 CDN의 용도는 다음과 같습니다.
+Typical uses for a CDN include:  
 
-+ 웹 사이트에서 종종 클라이언트 응용 프로그램에 대한 정적 리소스를 제공합니다. 이미지, 스타일 시트, 문서, 파일, 클라이언트쪽 스크립트, HTML 페이지, HTML 조각 또는 서버가 각 요청에 대해 수정할 필요가 없는 기타 콘텐츠 등이 이러한 리소스에 해당할 수 있습니다. 응용 프로그램이 런타임 시 항목을 만들고 CDN에서 사용할 수 있게 만들 수 있지만(현재 뉴스 헤드라인 목록 작성을 통해) 각 요청에 대해서는 그렇게 할 수 없습니다.
++ Delivering static resources for client applications, often from a website. These resources can be images, style sheets, documents, files, client-side scripts, HTML pages, HTML fragments, or any other content that the server does not need to modify for each request. The application can create items at runtime and make them available to the CDN (for example, by creating a list of current news headlines), but it does not do so for each request.
 
-+ 휴대폰 및 태블릿 컴퓨터와 같은 장치에 공용 정적 및 공유 콘텐츠를 전달합니다. 응용 프로그램 자체는 다양한 장치에서 실행되는 클라이언트에 API를 제공하는 웹 서비스입니다. 또한 클라이언트가 CDN 클라이언트 UI를 생성하는 데 사용할 정적 데이터 집합을 (웹 서비스를 통해) 제공할 수 있습니다. 예를 들어, CDN은 JSON 또는 XML 문서를 배포하는 데 사용할 수 있습니다.
++ Delivering public static and shared content to devices such as mobile phones and tablet computers. The application itself is a web service that offers an API to clients running on the various devices. The CDN can also deliver static datasets (via the web service) for the clients to use, perhaps to generate the client UI. For example, the CDN could be used to distribute JSON or XML documents.
 
-+ 어떠한 전용 계산 리소스 필요 없이 공용 정적 콘텐츠만으로 구성된 전체 웹 사이트를 클라이언트에 제공합니다.
++ Serving entire websites that consist of only public static content to clients, without requiring any dedicated compute resources.
 
-+ 주문 시 비디오 파일을 클라이언트에 스트리밍합니다. 비디오는 CDN 연결을 제공하는 전역적으로 위치한 데이터 센터에서 짧은 대기 시간 및 안정적인 연결 이점을 얻을 수 있습니다.
++ Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections.
 
-+ 일반적으로 사용자, 특히 응용 프로그램을 호스팅하는 데이터 센터에서 멀리 떨어진 사용자의 환경을 개선합니다. 이러한 사용자는 대기 시간이 길어지는 문제가 생길 수 있습니다. 웹 응용 프로그램에 있는 콘텐츠의 총 크기에서 상당 부분이 정적으로, 여러 데이터 센터에 응용 프로그램을 배포하기 위한 요구 사항을 제거하면서 성능 및 전반적인 사용자 환경을 유지 관리하는 데 CDN 사용이 도움이 됩니다.
++ Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise suffer higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple data centers.
 
-+ IoT(사물 인터넷) 솔루션을 지원하는 응용 프로그램에 대한 부하 증가를 처리합니다. 응용 프로그램이 각 장치에 대해 브로드캐스트 메시지를 처리하고 펌웨어 업데이트 배포를 직접 관리해야 하는 경우 관련된 수많은 장치 및 어플라이언스의 해당 응용 프로그램에 과부하가 걸릴 수 있습니다.
++ Handling the growing load on applications that support IoT (Internet of Things) solutions. The huge numbers of such devices and appliances involved could easily overwhelm an application if it was required to process broadcast messages and manage firmware update distribution directly to each device.
 
-+ 응용 프로그램을 확장할 필요 없이 필요 시 최대치 및 급격한 증가에 대처하여 그에 따른 실행 비용의 증가를 방지합니다. 예를 들어 특정 라우터 모델과 같은 하드웨어 장치 또는 스마트 TV와 같은 소비자 장치에 대한 운영 체제 업데이트를 릴리스할 때는 짧은 기간 동안 수백만 명의 사용자 및 장치가 이를 다운로드하므로 최고치의 수요가 발생하게 됩니다.
++ Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increased running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
 
-다음 목록에서는 여러 지리적 위치에서 첫 번째 바이트까지의 중간 시간 값의 예를 보여줍니다. 대상 웹 역할은 Azure West US에 배포됩니다. CDN으로 인한 대폭적인 증가와 CDN 노드까지의 근접도 간에는 큰 상관관계가 있습니다. Azure CDN 노드 위치의 전체 목록은 [Azure CDN(콘텐츠 배달 네트워크) 노드 위치](./cdn/cdn-pop-locations.md/)를 참조하세요.
+The following list shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure West US. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A complete list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](./cdn/cdn-pop-locations.md).
 
 
-|| 첫 번째 바이트(원점)까지 시간(ms) | 첫 번째(CDN)까지 시간(ms) |%CDN 시간 개선|
+|| Time (ms) to First Byte (Origin) | Time (ms) to First (CDN) |%CDN time improvement|
 |-------------|------------------------|--------------------|------------------|
-|\*산호세, 캘리포니아| 47\.5 | 46\.5 | 2% |
-|\*\*덜레스, 버지니아| 109 | 40\.5 | 169% |
-|부에노스아이레스, AR| 210 | 151 | 39%|
-|*런던, 영국| 195 | 44 | 343%|
-|상하이, 중국| 242 | 206 | 17% |
-|*싱가포르 | 214 | 74 | 189% |
-|*도쿄, 일본 | 163 | 48 | 204% |
-|서울, 한국| 190 | 190 | 0% |
+|\*San Jose, CA|  47.5                  | 46.5               |         2 %  |
+|\*\*Dulles, VA|     109   |     40.5   |       169% |
+|Buenos Aires, AR| 210 | 151 | 39%|
+|\*London, UK| 195   | 44 | 343%|
+|Shanghai, CN| 242  | 206    | 17%   |
+|\*Singapore | 214    | 74       | 189 %  |
+|\*Tokyo, JP  |  163 |    48    |     204 %   |
+|Seoul, KR|  190      |    190    |     0%   |
 
 
-\* 같은 도시에서는 Azure CDN 노드를 가집니다.  
-\*\*인접한 도시에서는 Azure CDN 노드를 가집니다.  
+\* Has an Azure CDN node in the same city.  
+\*\* Has an Azure CDN node in a neighboring city.  
 
-## 과제  
+## <a name="challenges"></a>Challenges  
 
-CDN을 사용하려고 계획할 때 고려해야 할 몇 가지 과제가 있습니다.
+There are several challenges to take into account when planning to use the CDN:  
 
-+ **배포** CDN이 콘텐츠를 가져올 원본 위치 및 둘 이상의 저장소 시스템에 콘텐츠를 배포해야 하는지 여부(예: CDN과 대체 위치)를 결정해야 합니다 .
++ **Deployment**. You must decide the origin from which the CDN will fetch the content, and whether you need to deploy the content in more than one storage system (such as in the CDN and an alternative location).
 
-  응용 프로그램 배포 메커니즘은 ASPX 페이지 등과 같은 응용 프로그램 파일 배포 뿐만 아니라 정적 콘텐츠 및 리소스 배포를 위한 프로세스도 고려해야 합니다. 예를 들어 Azure Blob 저장소에 콘텐츠를 로드하는 별도의 단계를 구현해야 할 수 있습니다.
+  Your application deployment mechanism must take into account the process for deploying static content and resources as well as deploying the application files, such as ASPX pages. For example, you may need to implement a separate step to load content into Azure blob storage.
 
-+ **버전 관리 및 캐시 제어**. 정적 콘텐츠를 업데이트하고 새 버전을 배포하는 방법을 고려해야 합니다. 새 버전의 자산을 사용할 수 있게 되면 Azure 포털을 사용하여 CDN 콘텐츠를 [삭제](./cdn/cdn-purge-endpoint.md)할 수 있습니다. 이는 웹 브라우저에서 발생하는 것과 같이 클라이언트 쪽 캐싱을 관리하는 작업과 비슷한 문제입니다.
++ **Versioning and cache-control**. You must consider how you will update static content and deploy new versions. The CDN content may be [purged](./cdn/cdn-purge-endpoint.md) using the Azure Portal when new versions of your assets are available. This is a similar challenge to managing client side caching, such as that which occurs in a web browser.
 
-+ **테스트**. 로컬로 또는 스테이징 환경에서 응용 프로그램을 개발하고 테스트를 수행할 때 CDN 설정의 로컬 테스트를 수행하는 것은 어려울 수 있습니다.
++ **Testing**. It can be difficult to perform local testing of your CDN settings when developing and testing an application locally or in a staging environment.
 
-+ **검색 엔진 최적화(SEO)**. CDN을 사용하는 경우 이미지 및 문서와 같은 콘텐츠는 다른 도메인에서 제공됩니다. 이 콘텐츠에 대한 SEO에 영향을 미칠 수 있습니다.
++ **Search engine optimisation (SEO)**. Content such as images and documents are served from a different domain when you use the CDN. This can have an effect on SEO for this content.
 
-+ **콘텐츠 보안**. Azure CDN 등의 많은 CDN 서비스가 현재 콘텐츠에 대해 모든 종류의 액세스 제어를 제공하는 것은 아닙니다.
++ **Content security**. Many CDN services such as Azure CDN do not currently offer any type of access control for the content.
 
-+ **클라이언트 보안**. 클라이언트가 CDN의 리소스에 대한 액세스를 허용하지 않는 환경에서 연결될 수 있습니다. 알려진 원본 집합만 액세스하도록 제한되거나, 페이지 원본 이외의 위치에서는 리소스를 로드할 수 없는 제한된 보안 환경일 수 있습니다. 이러한 경우를 처리하는 데 대체 구현이 필요합니다.
++ **Client security**. Clients might connect from an environment that does not allow access to resources on the CDN. This could be a security-constrained environment that limits access to only a set of known sources, or one that prevents loading of resources from anything other than the page origin. A fallback implementation is required to handle these cases.
 
-+ **복원력**. CDN은 응용 프로그램에 대한 단일 오류 지점이 될 수 있습니다. 가용성 SLA가 BLOB 저장소(콘텐츠를 직접 제공하는 데 사용 가능)보다 더 낮기 때문에 중요한 콘텐츠에 대해 대체 메커니즘을 구현하는 것을 고려해야 할 수 있습니다.
++ **Resilience**. The CDN is a potential single point of failure for an application. It has a lower availability SLA than blob storage (which can be used to deliver content directly) so you may need to consider implementing a fallback mechanism for critical content.
 
-  Azure 포털 사이트에서 [실시간](./cdn/cdn-real-time-stats.md)으로 [집계 보고서](./cdn/cdn-analyze-usage-patterns.md)를 통해 CDN 콘텐츠 가용성, 대역폭, 전송된 데이터, 적중 항목, 캐시 적중률 및 캐시 메트릭을 모니터링할 수 있습니다.
+  You can monitor your CDN content availability, bandwidth, data transferred, hits, cache hit ratio and cache metrics from the Azure Portal in [real-time](./cdn/cdn-real-time-stats.md) and [aggregate reports](./cdn/cdn-analyze-usage-patterns.md).
 
-다음과 같은 시나리오에서는 CDN이 그다지 유용하지 않을 수 있습니다.
+Scenarios where CDN may be less useful include:  
 
-+ 콘텐츠에 적중률이 낮으면 유효할 동안 몇 번만 액세스될 수 있습니다.(TTL(Time-To-Live) 설정에 따라 결정됨) 항목을 처음 다운로드하면 원본에서 CDN까지, 그리고 CDN에서 고객까지 두 개의 트래잭션 비용이 발생합니다.
++ If the content has a low hit rate it might be accessed only few times while it is valid (determined by its time-to-live setting). The first time an item is downloaded you incur two transaction charges from the origin to the CDN, and then from the CDN to the customer.
 
-+ 대기업 또는 공급망 에코시스템 등과 같이 데이터가 비공개인 경우입니다.
-
-
-## 일반적인 지침과 모범 사례
-
-CDN 사용은 응용 프로그램에 대한 부하를 최소화하고 가용성과 성능을 극대화하는 좋은 방법입니다. 따라서 응용 프로그램이 사용하는 모든 적절한 콘텐츠 및 리소스에서 이 전략을 채택할지를 고려해야 합니다. CDN을 사용하는 전략을 설계할 때 다음 섹션에 있는 요소를 고려합니다.
++ If the data is private, such as for large enterprises or supply chain ecosystems.
 
 
-### 원본
+## <a name="general-guidelines-and-good-practices"></a>General guidelines and good practices
 
-CDN을 통해 콘텐츠를 배포하려면 CDN 서비스가 콘텐츠에 액세스하고 콘텐츠를 캐시하는 데 사용하는 HTTP 및/또는 HTTPS 끝점을 지정해야 합니다.
+Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. You should consider adopting this strategy for all of the appropriate content and resources you application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
 
-끝점은 CDN을 통해 전달하려는 정적 콘텐츠를 보유하는 Azure Blob 저장소 컨테이너를 지정할 수 있습니다. 컨테이너는 공용으로 표시되어야 합니다. 공용 읽기 액세스 권한이 있는 공용 컨테이너의 BLOB만 CDN을 통해 사용할 수 있습니다.
 
-끝점은 응용 프로그램의 계산 계층(예: 웹 역할 또는 가상 컴퓨터) 중 하나의 루트에 **cdn**이라는 폴더를 지정할 수 있습니다. ASPX 페이지 등의 동적 리소스를 포함한 리소스에 대한 요청의 결과가 CDN에 캐시됩니다. 캐시 시간은 최소 300초입니다. 시간이 짧아지면 콘텐츠가 CDN에 배포되지 않도록 방지합니다.(자세한 내용은 [캐시 제어](#cache-control) 섹션을 참조하세요)
+### <a name="origin"></a>Origin
 
-Azure 웹앱을 사용하는 경우 CDN 인스턴스를 만들 때 사이트를 선택하면 해당 사이트의 루트 폴더로 끝점이 설정됩니다. 사이트의 모든 콘텐츠는 CDN을 통해 사용할 수 있습니다.
+Deploying content through the CDN simply requires you to specify an HTTP and/or HTTPS endpoint that the CDN service will use to access and cache the content.
 
-대부분의 경우 응용 프로그램의 계산 계층 중 하나에 있는 폴더의 CDN 끝점을 가리키면 더 많은 유연성과 제어 기능이 제공됩니다. 예를 들어, 현재와 미래의 라우팅 요구 사항을 쉽게 관리할 수 있게 해주며 축소판 이미지와 같은 정적 콘텐츠를 동적으로 생성할 수 있습니다.
+The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access will be available through the CDN.
 
-ASPX 페이지와 같은 동적 소스에서 콘텐츠를 제공할 때 캐시에서 개체를 구별하기 위해 [쿼리 문자열](./cdn/cdn-query-string)을 사용할 수 있습니다. 그러나 이 동작은 CDN 끝점을 지정할 때 Azure 포털에서 설정을 통해 비활성화할 수 있습니다. BLOB 저장소에서 콘텐츠를 제공하는 경우 쿼리 문자열은 문자열 리터럴로 처리됩니다. 따라서 이름이 같지만 쿼리 문자열이 서로 다른 두 항목은 CDN에 개별 항목으로 저장됩니다.
+The endpoint can specify a folder named **cdn** in the root of one of application’s compute layers (such as a web role or a virtual machine). The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN. The minimum cache period is 300 seconds. Any shorter period will prevent the content from being deployed to the CDN (see the heading *Cache control* below for more information).
 
-스크립트 및 기타 콘텐츠 등의 리소스에 대한 URL 다시 쓰기를 활용하면 CDN 원본 폴더에 파일이 이동되지 않도록 할 수 있습니다.
+If you are using Azure Web Apps, the endpoint is set to the root folder of the site by selecting the site when creating the CDN instance. All of the content for the site will be available through the CDN.
 
-Azure 저장소 BLOB을 사용하여 CDN에 사용할 콘텐츠를 보관하면 BLOB에 있는 리소스의 URL은 컨테이너 및 BLOB 이름에 대해 대/소문자를 구분합니다.
+In most cases, pointing your CDN endpoint at a folder within one of the compute layers of your application will offer more flexibility and control. For instance, it makes it easier to manage current and future routing requirements, and dynamically generate static content such as image thumbnails.
 
-사용자 지정 원본 또는 Azure 웹앱을 사용하는 경우 리소스에 대한 링크에서 CDN 인스턴스의 경로를 지정합니다. 예를 들어, 다음은 CDN을 통해 제공될 사이트의 **Images** 폴더에 있는 이미지 파일을 지정합니다.
+You can use [query strings](./cdn/cdn-query-string.md) to differentiate objects in the cache when content is delivered from dynamic sources, such as ASPX pages. However, this behavior can be disabled by a setting in the Azure Portal when you specify the CDN endpoint. When delivering content from blob storage, query strings are treated as string literals so two items that have the same name but different query strings will be stored as separate items on the CDN.
+
+You can utilize URL rewriting for resources, such as scripts and other content, to avoid moving your files to the CDN origin folder.
+
+When using Azure storage blobs to hold content for the CDN, the URL of the resources in blobs is case sensitive for the container and blob name.
+
+When using custom origins or Azure Web Apps, you specify the path to the CDN instance in the links to resources. For example, the following specifies an image file in the **Images** folder of the site that will be delivered through the CDN:
 
 ```XML
 <img src="http://[your-cdn-endpoint].azureedge.net/Images/image.jpg" />
 ```
 
-### 배포
+### <a name="deployment"></a>Deployment
 
-정적 콘텐츠가 응용 프로그램 배포 패키지 또는 프로세스에 포함되지 않은 경우 응용 프로그램과 별도로 프로비전 및 배포해야 할 수 있습니다. 따라서 이 작업이 응용 프로그램 구성 요소와 정적 리소스 콘텐츠를 관리하는 데 사용할 버전 관리 방법에 어떤 영향을 주게 될지 고려해야 합니다.
+Static content may need to be provisioned and deployed independently from the application if you do not include it in the application deployment package or process. Consider how this will affect the versioning approach you use to manage both the application components and the static resource content.
 
-스크립트 및 CSS 파일에 대한 묶음(파일 하나에 여러 파일 결합) 및 축소(공백, 줄바꿈 문자, 설명 및 기타 문자 등의 불필요한 문자 제거)를 처리하는 방법을 고려해야 합니다. 클라이언트에서 로드 시간을 줄일 수 있으며 CDN을 통한 콘텐츠 제공과 호환되는 일반적으로 사용되는 기법입니다. 자세한 내용은 [묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)를 참조하세요.
+Consider how bundling (combining several files into one file) and minification (removing unnecessary characters such as white space, new line characters, comments, and other characters) for script and CSS files will be handled. These are commonly used techniques that can reduce load times for clients, and are compatible with delivering content through the CDN. For more information, see [Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification).
 
-추가적인 위치에 콘텐츠를 배포해야 하는 경우이 작업이 배포 프로세스의 추가 단계가 됩니다. 일정한 간격으로 또는 이벤트에 대한 응답으로 응용 프로그램이 CDN에 대해 콘텐츠를 업데이트하는 경우 CDN의 끝점을 비롯한 추가적인 위치에 업데이트된 콘텐츠를 저장해야 합니다.
+If you need to deploy the content to an additional location, this will be an extra step in the deployment process. If the application updates the content for the CDN, perhaps at regular intervals or in response to an event, it must store the updated content in any additional locations as well as the endpoint for the CDN.
 
-Visual Studio의 로컬 Azure 에뮬레이터에 있는 응용 프로그램에는 CDN 끝점을 설정할 수 없습니다. 이 제한은 단위 테스트, 기능 테스트 및 최종 배포 전 테스트에 적용됩니다. 따라서 대체 메커니즘을 구현하여 이를 허용해야 합니다. 예를 들어 사용자 지정 응용 프로그램 또는 유틸리티를 사용하여 CDN에 콘텐츠를 미리 배포하고 캐시된 기간 동안 테스트를 수행할 수 있습니다. 또는 컴파일 지시문이나 전역 상수를 사용하여 응용 프로그램이 리소스를 로드하는 위치를 제어합니다. 예를 들어, 디버그 모드에서 실행 중일 때는 클라이언트 쪽 스크립트 번들 또는 로컬 폴더의 기타 콘텐츠 등과 같은 로컬 리소스를 로드하고 릴리스 모드에서 실행 중일 때는 CDN을 사용할 수 있습니다.
+You cannot set up a CDN endpoint for an application in the local Azure emulator in Visual Studio. This restriction will affect unit testing, functional testing, and final pre-deployment testing. You must allow for this by implementing an alternative mechanism. For example, you could pre-deploy the content to the CDN using a custom application or utility, and perform testing during the period in which it is cached. Alternatively, use compile directives or global constants to control from where the application loads the resources. For example, when running in debug mode it could load resources such as client-side script bundles and other content from a local folder, and use the CDN when running in release mode.
 
-CDN이 지원하기를 원하는 압축 방식을 고려합니다.
+Consider which compression approach you want your CDN to support:
 
-+ 원본 서버에서 [압축을 사용하도록 설정](./cdn/cdn-improve-performance)할 수 있습니다. 이 경우 CDN이 기본적으로 압축을 지원하며 클라이언트에 zip 또는 gzip 형식으로 압축된 콘텐츠를 전달합니다. 응용 프로그램 폴더를 CDN 끝점으로 사용할 때 서버는 자동으로 웹 브라우저 또는 다른 유형의 클라이언트에 직접 제공할 때와 동일한 방식으로 일부 콘텐츠를 압축할 수 있습니다. 형식은 클라이언트에서 보낸 요청의 **Accept-Encoding** 헤더 값에 따라 다릅니다. Azure에서 기본 메커니즘은 CPU 사용률이 50% 미만일 때 자동으로 콘텐츠를 압축하는 것입니다. 클라우드 서비스를 사용하여 응용 프로그램을 호스트하는 경우 설정을 변경하면 IIS에서 동적 출력의 압축을 사용하는 시작 작업을 사용해야 할 수 있습니다. 자세한 내용은 [웹 역할을 통해 Microsoft Azure CDN에서 gzip 압축 사용](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx)을 참조하세요.
++ You can [enable compression](./cdn/cdn-improve-performance.md) on your origin server, in which case the CDN will support compression by default and deliver compressed content to clients in a format such as zip or gzip. When using an application folder as the CDN endpoint, the server may compress some content automatically in the same way as when delivering it directly to a web browser or other type of client. The format depends on the value of the **Accept-Encoding** header in the request sent by the client. In Azure the default mechanism is to automatically compress content when CPU utilization is below 50%. If you are using a cloud service to host the application, changing the settings may require using a startup task to turn on compression of dynamic output in IIS. See [Enabling gzip compression with Microsoft Azure CDN through a Web Role](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx) for more information.
 
-+ CDN 에지 서버에서 직접 압축을 사용하도록 설정할 수 있습니다. 이 경우 CDN이 파일을 압축하여 최종 사용자에게 제공합니다. 자세한 내용은 [Azure CDN 압축](./cdn/cdn-improve-performance.md/)을 참조하십시오.
++ You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users. For more information, see [Azure CDN Compression](./cdn/cdn-improve-performance.md).
 
-### 라우팅 및 버전 관리
+### <a name="routing-and-versioning"></a>Routing and versioning
 
-다양한 시간에 여러 CDN 인스턴스를 사용해야 합니다. 예를 들어 응용 프로그램의 새 버전을 배포할 때 새 CDN을 사용하고 이전 버전에 대한 이전 CDN(이전 형식의 콘텐츠 포함)를 유지하려 할 수 있습니다. Azure BLOB 저장소를 콘텐츠 원본으로 사용하는 경우 간단하게 별도의 저장소 계정 또는 컨테이너를 만들고 CDN 끝점이 이를 가리키도록 할 수 있습니다. 응용 프로그램 내에서 *cdn* 루트 폴더를 CDN 끝점으로 사용하는 경우 URL 다시 쓰기 기술을 사용하여 다른 폴더로 요청을 지정할 수 있습니다.
+You may need to use different CDN instances at various times. For example, when you deploy a new version of the application you may want to use a new CDN and retain the old CDN (holding content in an older format) for previous versions. If you use Azure blob storage as the content origin, you can simply create a separate storage account or a separate container and point the CDN endpoint to it. If you use the *cdn* root folder within the application as the CDN endpoint you can use URL rewriting techniques to direct requests to a different folder.
 
-Azure Blob 저장소에서 콘텐츠를 검색할 때 쿼리 문자열이 리소스 이름(Blob 이름)의 일부이므로 CDN의 리소스에 대한 링크에서 응용 프로그램의 서로 다른 버전을 표시하기 위해 쿼리 문자열을 사용하지 않습니다. 이 방법은 클라이언트가 리소스를 캐시하는 방법에도 영향을 줄 수 있습니다.
+Do not use the query string to denote different versions of the application in links to resources on the CDN because, when retrieving content from Azure blob storage, the query string is part of the resource name (the blob name). This approach can also affect how the client caches resources.
 
-CDN에 이전 리소스가 캐시된 경우에는 응용 프로그램을 업데이트할 때 정적 콘텐츠의 새 버전을 배포하는 것이 어려울 수 있습니다. 자세한 내용은 [캐시 제어](#cache-control") 섹션을 참조하세요.
+Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN. For more information, see the section [cache control](#cache-control").
 
-국가별로 CDN 콘텐츠 액세스를 제한하는 것이 좋습니다. Azure CDN을 사용하면 원본의 국가에 따라 요청을 필터링하고 전달되는 내용을 제한할 수 있습니다. 자세한 내용은 [국가별로 콘텐츠에 대한 액세스 제한](./cdn/cdn-restrict-access-by-country/)을 참조하세요.
+Consider restricting the CDN content access by country. Azure CDN allows you to filter requests based on the country of origin and restrict the content delivered. For more information, see [Restrict access to your content by country](./cdn/cdn-restrict-access-by-country.md).
 
-###캐시 제어
+###<a name="cache-control"></a>Cache control
 
-시스템 내에서 캐싱을 관리하는 방법을 고려합니다. 예를 들어, 폴더를 CDN 원점으로 사용하는 경우 콘텐츠를 생성하는 페이지의 캐시 가능성 및 특정 폴더의 모든 리소스에 대해 콘텐츠 만료 시간을 지정할 수 있습니다. 표준 HTTP 헤더를 사용하여 CDN 및 클라이언트에 대한 캐시 속성을 지정할 수도 있습니다. 서버와 클라이언트에서 이미 캐싱을 관리 중이어도 CDN을 사용하면 콘텐츠 캐시 방법과 위치를 더 잘 파악하는 데 도움이 됩니다.
+Consider how to manage caching within the system. For example, when using a folder as the CDN origin you can specify the cacheability of pages that generate the content, and the content expiry time for all the resources in a specific folder. You can also specify cache properties for the CDN, and for the client using standard HTTP headers. Although you should already be managing caching on the server and client, using the CDN will help to make you more aware of how your content is cached, and where.
 
-개체를 CDN에서 사용할 수 없도록 하려면 원본(Blob 컨테이너 또는 응용 프로그램 *cdn* 루트 폴더)에서 삭제하거나 CDN 끝점을 제거 또는 삭제하거나, Blob 저장소인 경우 컨테이너 또는 Blob를 비공개로 만들 수 있습니다. 그러나 항목은 해당 TTL(Time-to-Live)이 만료된 경우에만 CDN에서 제거됩니다. 캐시 만료 시간을 지정하지 않으면(예: Blob 저장소에서 콘텐츠를 로드할 때) 최대 7일 동안 CDN에 캐시됩니다. 수동으로 [CDN 끝점을 삭제](./cdn/cdn-purge-endpoint.md)할 수도 있습니다.
+To prevent objects from being available on the CDN you can delete them from the origin (blob container or application *cdn* root folder), remove or delete the CDN endpoint, or, in the case of blob storage, make the container or blob private. However, items will be removed from the CDN only when their time-to-live expires. If no cache expiry period is specified (such as when content is loaded from blob storage), it will be cached on the CDN for up to 7 days.  You can also manually [purge a CDN endpoint](./cdn/cdn-purge-endpoint.md).
 
-웹 응용 프로그램에서 web.config 파일의 *system.webServer/staticContent* 섹션에 있는 *clientCache* 요소를 사용하여 모든 콘텐츠에 대한 캐싱 및 만료를 설정할 수 있습니다. 폴더에 web.config 파일을 배치하면 해당 폴더의 파일 및 모든 하위 폴더의 파일에 적용됩니다.
+In a web application, you can set the caching and expiry for all content by using the *clientCache* element in the *system.webServer/staticContent* section of the web.config file. Remember that when you place a web.config file in a folder it affects the files in that folder and all subfolders.
 
-동적으로 CDN에 대한 콘텐츠를 만드는 경우(예를 들어 응용 프로그램 코드에서) 각 페이지에서 *Cache.SetExpires* 속성을 지정하도록 합니다. CDN은 *공용*의 기본 캐시 가능성 설정을 사용하는 페이지의 출력을 캐시하지 않습니다. 콘텐츠가 취소되지 않고 아주 짧은 간격으로 응용 프로그램에서 다시 로드되지 않도록 캐시 만료 기간을 적절한 값으로 설정합니다.
+If you create the content for the CDN dynamically (in your application code for example), ensure that you specify the *Cache.SetExpires* property on each page. The CDN will not cache the output from pages that use the default cacheability setting of *public*.  Set the cache expiry period to a suitable value to ensure that the content is not discarded and reloaded from the application at very short intervals.  
 
-### 보안
+### <a name="security"></a>Security
 
-CDN은 CDN에서 제공하는 인증서를 사용하여 HTTPS(SSL)를 통해 콘텐츠를 제공할 수 있지만 HTTP를 통해서도 가능합니다. CDN의 항목에 대한 HTTP 액세스를 차단할 수 없습니다. HTTPS를 통해 로드된 페이지에 표시되는 정적 콘텐츠(예: 장바구니)를 요청하려면 혼합 콘텐츠에 대한 브라우저 경고를 방지하기 위해 HTTPS를 사용해야 할 수 있습니다.
+The CDN can deliver content over HTTPS (SSL) using the certificate provided by the CDN, but it will also be available over HTTP as well. You cannot block HTTP access to items in the CDN. You may need to use HTTPS to request static content that is displayed in pages loaded through HTTPS (such as a shopping cart) to avoid browser warnings about mixed content.
 
-Azure CDN은 액세스 제어를 위한 기능을 제공하지 않아서 콘텐츠에 대한 액세스를 보호합니다. CDN에서 공유 액세스 서명(SAS)을 사용할 수 없습니다.
+The Azure CDN does not provide any facilities for access control to secure access to  content. You cannot use Shared Access Signatures (SAS) with the CDN.
 
-CDN을 사용하여 클라이언트쪽 스크립트를 제공하는 경우 이러한 스크립트에서 *XMLHttpRequest* 호출을 사용하여 다른 도메인에 있는 데이터, 이미지 또는 글꼴 등과 같은 다른 리소스에 대한 HTTP 요청을 수행하면 문제가 발생할 수 있습니다. 적절한 응답 헤더를 설정하도록 웹 서버를 구성하지 않으면 많은 웹 브라우저에서 크로스-원본 자원 공유(CORS)를 차단합니다. CORS를 지원하도록 CDN을 구성할 수 있습니다.
+If you deliver client-side scripts using the CDN, you may encounter issues if these scripts use an *XMLHttpRequest* call to make HTTP requests for other resources such as data, images, or fonts in a different domain. Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers. You can configure the CDN to support CORS:
 
-+ 콘텐츠를 제공하고 있는 원본이 Azure Blob 저장소인 경우 *CorsRule*을 서비스 속성에 추가할 수 있습니다. 규칙에서는 CORS 요청에 허용되는 원본, GET 등의 허용되는 메서드 및 규칙의 최대 보존 기간(초) (클라이언트가 원본 콘텐츠를 로드한 후 연결된 리소스를 요청해야 하는 기간)을 지정할 수 있습니다. 자세한 내용은 [Azure 저장소 서비스에 대한 크로스-원본 자원 공유(CORS) 지원](http://msdn.microsoft.com/library/azure/dn535601.aspx)을 참조하세요.
++ If the origin from which you are delivering content is Azure blob storage, you can add a *CorsRule* to the service properties. The rule can specify the allowed origins for CORS requests, the allowed methods such as GET, and the maximum age in seconds for the rule (the period within which the client must request the linked resources after loading the original content). For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
-+ 콘텐츠를 제공하고 있는 원본이 *cdn* 루트 폴더 등과 같이 응용 프로그램 내의 폴더인 경우, 응용 프로그램 구성 파일에서 *Access-Control-Allow-Origin* 헤더를 설정하는 아웃바운드 규칙을 구성할 수 있습니다. 다시 쓰기 규칙 사용에 대한 자세한 내용은 [URL 다시 쓰기 모듈](http://www.iis.net/learn/extensions/url-rewrite-module)을 참조하세요. Azure 웹 사이트를 사용할 때는 이 기술을 사용할 수 없습니다.
++ If the origin from which you are delivering content is a folder within the application, such as the *cdn* root folder, you can configure outbound rules in the application configuration file to set an *Access-Control-Allow-Origin* header on all responses. For more information about using rewrite rules, see [URL Rewrite Module](http://www.iis.net/learn/extensions/url-rewrite-module). Note that this technique is not possible when using Azure Web Sites.
 
-### 사용자 지정 도메인
+### <a name="custom-domains"></a>Custom domains
 
-Azure CDN을 사용하면 [사용자 지정 도메인 이름](./cdn/cdn-map-content-to-custom-domain.md)을 지정하고 그 이름을 사용하여 CDN을 통해 리소스에 액세스할 수 있습니다. 또한 DNS에서 *CNAME* 레코드를 사용하여 사용자 지정 하위 도메인 이름을 설정할 수도 있습니다. 이 방법을 사용하면 추가적인 계층을 추상화 및 제어할 수 있습니다.
+The Azure CDN allows you to specify a [custom domain name](./cdn/cdn-map-content-to-custom-domain.md) nd use it to access resources through the CDN. You can also set up a custom subdomain name using a *CNAME* record in your DNS. Using this approach can provide an additional layer of abstraction and control.
 
-*CNAME*을 사용하는 경우 CDN이 자체 단일 SSL 인증서를 사용하기 때문에 SSL을 사용할 수 없고 이 인증서는 사용자 지정 도메인/하위 도메인 이름이 일치하지 않습니다.
+If you use a *CNAME*, you cannot use SSL because the CDN uses its own single SSL certificate, and this certificate will not match your custom domain/subdomain names.
 
-### CDN 대체
+### <a name="cdn-fallback"></a>CDN fallback
 
-응용 프로그램이 CDN의 오류 또는 일시적인 중단에 대처하는 방법을 고려해야 합니다. 클라이언트 응용 프로그램은 이전 요청 중에 로컬로 캐시(클라이언트에)된 리소스의 복사본을 사용하거나, CDN을 사용할 수 없는 경우 오류를 감지하고 대신 원본(리소스가 있는 응용 프로그램 폴더 또는 Azure Blob 컨테이너)의 리소스를 요청하는 코드를 포함할 수 있습니다.
+You should consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
 
-### 검색 엔진 최적화
+### <a name="search-engine-optimisation"></a>Search engine optimisation
 
-SEO가 응용 프로그램에서 중요하게 여겨지는 경우 다음 작업을 수행합니다.
+If SEO is an important consideration in your application, perform the following tasks:
 
-+ 각 페이지 또는 리소스에 *Rel* canonical 헤더를 포함합니다.
++ Include a *Rel* canonical header in each page or resource.
 
-+ *CNAME* 하위 도메인 레코드를 사용하고 이 이름을 사용하여 리소스에 액세스합니다.
++ Use a *CNAME* subdomain record and access the resources using this name.
 
-+ 응용 프로그램 자체의 국가 또는 지역과 다른 CDN의 IP 주소가 미치는 영향을 고려해야 합니다.
++ Consider the impact of the fact that the IP address of the CDN may be a country or region that differs from that of the application itself.
 
-+ Azure BLOB 저장소를 원본으로 사용하는 경우 CDN의 리소스를 응용 프로그램 폴더에 있는 것과 동일한 파일 구조로 유지합니다.
-
-
-### 모니터링 및 로깅
-
-CDN을 응용 프로그램 모니터링 전략의 일부로 포함시켜 오류 또는 대기 시간 연장 문제의 발생을 감지 및 측정합니다. 모니터링은 Azure 포털 사이트에 있는 CDN 프로필 관리자에서 사용할 수 있습니다.
-
-CDN에 로깅을 사용하고 이 로그를 일상적인 작업의 일부로 모니터링합니다.
-
-사용 패턴에 대한 CDN 트래픽을 분석하는 것이 좋습니다. Azure 포털은 다음을 모니터링할 수 있는 도구를 제공합니다.
-+ 대역폭,
-+ 전송된 데이터,
-+ 적중 횟수(상태 코드),
-+ 캐시 상태,
-+ 캐시 적중률 및
-+ IPV4/IPV6 요청 비율
-
-자세한 내용은 [CDN 사용 패턴 분석](./cdn/cdn-analyze-usage-patterns.md/)을 참조하세요.
-
-### 비용 영향
-
-CDN에서의 아웃바운드 데이터 전송 요금이 청구됩니다. 또한 Blob 저장소를 사용하여 자산을 호스트하는 경우 CDN이 응용 프로그램에서 데이터를 로드할 때 저장소 트랜잭션에 대한 요금이 청구됩니다. 콘텐츠의 유효성을 보장할 수 있는 현실적인 캐시 만료 기간을 설정해야 하지만 기간이 너무 짧아서 응용 프로그램 또는 BLOB 저장소에서 CDN으로 콘텐츠를 반복적으로 다시 로드하지 않도록 해야 합니다.
-
-거의 다운로드하지 않는 항목은 서버 부하가 눈에 띄게 감소되지 않으면서 두 개의 트랜잭션 비용이 발생하게 됩니다.
-
-### 묶음 및 축소
-
-묶음 및 축소를 사용하여 CDN에 저장된 JavaScript 코드 및 HTML 페이지와 같은 리소스의 크기를 줄입니다. 이 전략은 클라이언트에 이러한 항목을 다운로드하는 데 걸리는 시간을 줄이는 데 도움이 됩니다.
-
-묶음 및 축소는 ASP.NET을 통해 처리할 수 있습니다. MVC 프로젝트에서 *BundleConfig.cs*에 번들을 정의합니다. 축소된 스크립트 번들에 대한 참조는 일반적으로 뷰 클래스의 코드에 있는 *Script.Render* 메서드를 호출하여 작성합니다. 이 참조에는 번들의 콘텐츠를 바탕으로 하는 해시가 포함된 쿼리 문자열이 들어 있습니다. 번들 콘텐츠가 변경되면 생성된 해시도 변경됩니다.
-
-기본적으로 Azure CDN 인스턴스는 *쿼리 문자열 상태* 설정이 비활성화되어 있습니다. 업데이트된 스크립트 번들을 CDN에서 적절히 처리하도록 하기 위해서는 CDN 인스턴스에 대해 *쿼리 문자열 상태* 설정을 사용해야 합니다. 설정이 적용되기 전에 한 시간 이상이 걸릴 수 있습니다.
++ When using Azure blob storage as the origin, maintain the same file structure for resources on the CDN as in the application folders.
 
 
-## 예제 코드
-이 섹션에는 CDN을 사용하는 데 필요한 코드 및 기술에 대한 몇 가지 예가 나와 있습니다.
+### <a name="monitoring-and-logging"></a>Monitoring and logging
+
+Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.  Monitoring is available from the CDN profile manager located on the Azure portal site
+
+Enable logging for the CDN and monitor this log as part of your daily operations.
+
+Consider analyzing the CDN traffic for usage patterns. The Azure portal provides tools that enable you to monitor:
++ Bandwidth,
++ Data Transferred,
++ Hits (status codes),
++ Cache Status,
++ Cache HIT Ratio, and
++ Ratio of IPV4/IPV6 requests.
+
+For more information, see [Analyze CDN usage patterns](./cdn/cdn-analyze-usage-patterns.md).
+
+### <a name="cost-implications"></a>Cost implications
+
+You are charged for outbound data transfers from the CDN.  Additionally, if you're using blob storage to host your assets, you are charged for storage transactions when the CDN loads data from your application. You should set realistic cache expiry periods for content to ensure freshness, but not so short as to cause repeated reloading of content from the application or blob storage to the CDN.
+
+Items that are rarely downloaded will incur the two transaction charges without providing any significant reduction in server load.
+
+### <a name="bundling-and-minification"></a>Bundling and minification
+
+Use bundling and minification to reduce the size of resources such as JavaScript code and HTML pages stored in the CDN. This strategy can help to reduce the time taken to download these items to the client.
+
+Bundling and minification can be handled by ASP.NET. In an MVC project, you define your bundles in *BundleConfig.cs*. A reference to the minified script bundle is created by calling the *Script.Render* method, typically in code in the view class. This reference contains a query string that includes a hash, which is based on the content of the bundle. If the bundle contents change, the generated hash will also change.  
+
+By default, Azure CDN instances have the *Query String Status* setting disabled. In order for updated script bundles to be handled properly by the CDN, you must enable the *Query String Status* setting for the CDN instance. Note that it may take an hour or more before the setting takes effect.
 
 
-### URL 다시 쓰기
-아래에서는 클라우드 서비스 호스팅 응용 프로그램의 루트에 있는 Web.config 파일 외에 CDN을 사용할 때 [URL 다시 쓰기](https://technet.microsoft.com/library/ee215194.aspx)를 수행하는 방법을 보여줍니다. 캐시된 콘텐츠에 대한 CDN의 요청은 리소스 유형(예: 스크립트 및 이미지)에 따라 응용 프로그램 루트 내의 특정 폴더로 리디렉션됩니다.
+## <a name="example-code"></a>Example code
+This section contains some examples of code and techniques for working with the CDN.  
+
+
+### <a name="url-rewriting"></a>URL rewriting
+The following excerpt from a Web.config file in the root of a Cloud Services hosted application demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
 
 
 ```XML
@@ -267,21 +268,25 @@ CDN에서의 아웃바운드 데이터 전송 요금이 청구됩니다. 또한 
 </system.webServer>
 ```
 
-다시 쓰기 규칙은 다음 리디렉션을 수행합니다.
+These rewrite rules perform the following redirections:
 
-+ 첫 번째 규칙을 사용하면 리소스의 파일 이름에 버전을 포함할 수 있으며, 그런 다음 이 이름은 무시됩니다. 예를 들어 *Filename\_v123.jpg *를 *Filename.jpg*로 다시 씁니다.
++ The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg *is rewritten as *Filename.jpg*.
 
-+ 다음 4개의 규칙에서는 웹 역할의 루트에 있는 *cdn** 폴더에 리소스를 저장하지 않을 경우 요청을 리디렉션하는 방법을 보여줍니다. 규칙이 *cdn/Images*, *cdn/Content*, *cdn/Scripts*, *cdn/bundles* URL을 웹 역할의 해당 루트 폴더에 매핑합니다.
++ The next four rules show how to redirect requests if you do not want to store the resources in a folder named *cdn** in the root of the web role. The rules map the *cdn/Images*, *cdn/Content*, *cdn/Scripts*, and *cdn/bundles* URLs to their respective root folders in the web role.
 
-URL 다시 쓰기를 사용하면 리소스 묶음에 대한 변경을 수행해야 합니다.
+Note that using URL rewriting requires you to make some changes to the bundling of resources.   
 
-## 자세한 정보
+## <a name="more-information"></a>More information
 
 
 + [Azure CDN](https://azure.microsoft.com/services/cdn/)
-+ [Azure 콘텐츠 배달 네트워크(CDN) 설명서](https://azure.microsoft.com/documentation/services/cdn/)
-+ [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](./cdn/cdn-serve-content-from-cdn-in-your-web-application/)
-+ [Azure CDN과 클라우드 서비스 통합](./cdn/cdn-cloud-service-with-cdn.md/)
-+ [Microsoft Azure 콘텐츠 배달 네트워크 모범 사례](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Azure Content Delievery Network (CDN) Documentation](https://azure.microsoft.com/documentation/services/cdn/)
++ [Using Azure CDN](./cdn/cdn-create-new-endpoint.md)
++ [Integrate a cloud service with Azure CDN](./cdn/cdn-cloud-service-with-cdn.md)
++ [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

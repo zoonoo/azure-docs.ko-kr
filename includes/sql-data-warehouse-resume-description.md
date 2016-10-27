@@ -10,11 +10,15 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-powershell
 articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 -->
-데이터베이스를 다시 시작하면
+When you resume a database:
 
-- SQL 데이터 웨어하우스가 DWU 설정으로부터 계산 및 메모리 리소스를 획득합니다.
-- DWU에 대한 계산 요금 청구가 다시 시작됩니다.
-- 데이터를 사용할 수 있습니다.
-- 워크로드 쿼리를 다시 시작해야 합니다.
+- SQL Data Warehouse acquires compute and memory resources for your DWU setting.
+- Compute charges for your DWUs resume.
+- Your data will be available.
+- You will need to restart your workload queries.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

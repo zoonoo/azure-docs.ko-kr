@@ -1,117 +1,118 @@
 <properties 
-	pageTitle="작성자 논리 앱 정의 | Microsoft Azure" 
-	description="논리 앱에 대한 JSON 정의 작성 방법을 알아봅니다." 
-	authors="jeffhollan" 
-	manager="erikre" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="Author Logic App definitions | Microsoft Azure" 
+    description="Learn how to write the JSON definition for Logic apps" 
+    authors="jeffhollan" 
+    manager="erikre" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="jehollan"/>
-	
-# 작성자 논리 앱 정의
-이 항목에서는 간단하고 선언적인 JSON 언어인 [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) 정의를 사용하는 방법을 설명합니다. 아직 [새 논리 앱 만드는 방법](app-service-logic-create-a-logic-app.md)을 확인하지 않았다면 먼저 확인하십시오. [MSDN 정의 언어의 전체 참조 자료](http://aka.ms/logicappsdocs)를 읽을 수도 있습니다.
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/25/2016"
+    ms.author="jehollan"/>
+    
 
-## 목록에서 반복되는 여러 단계
+# <a name="author-logic-app-definitions"></a>Author Logic App definitions
+This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
 
-[foreach 형식](app-service-logic-loops-and-scopes.md) 항목을 활용하여 최대 10,000개의 항목 배열을 반복하고 각각에 대해 작업을 수행할 수 있습니다.
+## <a name="several-steps-that-repeat-over-a-list"></a>Several steps that repeat over a list
 
-## 문제가 발생한 경우의 오류 처리 단계
+You can leverage the [foreach type](app-service-logic-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.
 
-일반적으로 하나 이상의 호출이 실패한 **경우에 한해** 일부 논리를 실행하는 *재구성 단계*를 쓸 수 있기를 원합니다. 이 예제에서는 다양한 위치에서 데이터를 가져오지만 호출이 실패한 경우에는 나중에 오류를 추적할 수 있는 곳에 메시지를 게시하고자 합니다.
+## <a name="a-failure-handling-step-if-something-goes-wrong"></a>A failure-handling step if something goes wrong
 
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://myurl"
-			}
-		},
-		"postToErrorMessageQueue": {
-			"type": "ApiConnection",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Failed"]
-			}
-		}
-	},
-	"outputs": {}
-}
-```
-
-`runAfter` 속성을 이용하여 지정할 수 있으며, `postToErrorMessageQueue`은(는) `readData`이(가) **실패**한 이후에만 실행해야 합니다. 또한 이는 가능한 값의 목록이 될 수 있기 때문에 `runAfter`은(는) `["Succeeded", "Failed"]`이(가) 될 수 있습니다.
-
-마지막으로, 이제 오류를 처리했으므로 더 이상 실행을 **실패**로 표시하지 않습니다. 여기서 볼 수 있듯이, 비록 하나의 단계가 실패했더라도 이 오류를 처리하는 단계를 작성했기 때문에 이 실행은 **성공**했습니다.
-
-## 병렬로 실행하는 둘 이상의 단계
-
-여러 작업을 병렬로 실행하려면 `runAfter` 속성은 런타임 시 동일해야 합니다.
+You commonly want to be able to write a *remediation step* — some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later:  
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://myurl"
-			}
-		},
-		"branch1": {
-			"type": "Http",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Succeeded"]
-			}
-		},
-		"branch2": {
-			"type": "Http",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Succeeded"]
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            }
+        },
+        "postToErrorMessageQueue": {
+            "type": "ApiConnection",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Failed"]
+            }
+        }
+    },
+    "outputs": {}
 }
 ```
 
-모두 위의 예에서 볼 수 있듯이 `branch1` 및 `branch2`은(는) `readData` 이후 실행되도록 설정되어 있습니다. 결과적으로 이 분기들은 모두 병렬로 실행됩니다.
+You can make use of the `runAfter` property to specify the `postToErrorMessageQueue` should only run after `readData` is **Failed**.  This could also be a list of possible values, so `runAfter` could be `["Succeeded", "Failed"]`.
 
-![병렬](./media/app-service-logic-author-definitions/parallel.png)
+Finally, because you have now handled the error, we no longer mark the run as **Failed**. As you can see here, this run is **Succeeded** even though one step Failed, because I wrote the step to handle this failure.
 
-두 분기에 대한 타임 스탬프는 동일함을 볼 수 있습니다.
+## <a name="two-(or-more)-steps-that-execute-in-parallel"></a>Two (or more) steps that execute in parallel
 
-## 두 병렬 분기의 조인
+To have multiple actions execution in parallel, the `runAfter` property must be equivalent at runtime. 
 
-위와 유사한 `runAfter` 속성에 항목을 추가하여 병렬로 실행하도록 설정된 두 가지 작업을 조인할 수 있습니다.
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            }
+        },
+        "branch1": {
+            "type": "Http",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Succeeded"]
+            }
+        },
+        "branch2": {
+            "type": "Http",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Succeeded"]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+As you can see in the example above, both `branch1` and `branch2` are set to run after `readData`. As a result, both of these branches will run in parallel:
+
+![Parallel](./media/app-service-logic-author-definitions/parallel.png)
+
+You can see the timestamp for both branches is identical. 
+
+## <a name="join-two-parallel-branches"></a>Join two parallel branches
+
+You can join two actions that were set to execute in parallel by adding items to the `runAfter` property similar to above.
 
 ```
 {
@@ -180,203 +181,203 @@
 }
 ```
 
-![병렬](./media/app-service-logic-author-definitions/join.png)
+![Parallel](./media/app-service-logic-author-definitions/join.png)
 
-## 일부 다른 구성에는 목록에서 항목 매핑
+## <a name="mapping-items-in-a-list-to-some-different-configuration"></a>Mapping items in a list to some different configuration
 
-다음으로 속성의 값에 따라 완전히 다른 콘텐츠를 가져오는 경우를 다루겠습니다. 매개 변수를 대상으로 하는 값의 맵을 만들 수 있습니다.
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"specialCategories": {
-			"defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
-			"type": "Array"
-		},
-		"destinationMap": {
-			"defaultValue": {
-				"science": "http://www.nasa.gov",
-				"microsoft": "https://www.microsoft.com/ko-KR/default.aspx",
-				"google": "https://www.google.com",
-				"robots": "https://en.wikipedia.org/wiki/Robot",
-				"NSA": "https://www.nsa.gov/"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"getArticles": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
-			},
-			"conditions": []
-		},
-		"getSpecialPage": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
-			},
-			"conditions": [{
-				"expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
-			}],
-			"forEach": "@body('getArticles').responseData.feed.entries"
-		}
-	}
-}
-```
-
-이 경우, 먼저 문서 목록을 가져온 후 매개 변수로 정의된 카테고리에 기반하여 두 번째 단계가 맵에서 콘텐츠를 가져 올 URL을 조회합니다.
-
-여기서는 다음 두 항목에 주의해야 합니다. [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 함수는 카테고리가 정의된 알려진 카테고리 중 하나에 일치하는지 확인하는 데 사용됩니다. 둘째로 일단 카테고리를 가져오면 대괄호를 사용하여 맵의 항목을 끌어올 수 있습니다: `parameters[...]`
-
-## 문자열을 사용한 작업
-
-문자열을 조작하는 데 사용할 수 있는 다양한 기능이 있습니다. 시스템에 전달하고자 하는 문자열이 있지만 문자 인코딩이 적절하게 처리될지 확신할 수 없는 경우를 예로 들어 봅니다. 하나의 옵션은 이 문자열을 base64 인코딩하는 것입니다. 그러나 URL에서 이스케이프를 방지하기 위해 몇 문자를 대체할 것입니다.
-
-또한 첫 5개 문자는 사용되지 않으므로 명령 이름의 하위 문자열을 원합니다.
+Next, let's say that we want to get completely different content depending on a value of a property. We can create a map of values to destinations as a parameter:  
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1",
-				"orderer": "NAME=Stèphén__Šīçiłianö"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"order": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "specialCategories": {
+            "defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
+            "type": "Array"
+        },
+        "destinationMap": {
+            "defaultValue": {
+                "science": "http://www.nasa.gov",
+                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
+                "google": "https://www.google.com",
+                "robots": "https://en.wikipedia.org/wiki/Robot",
+                "NSA": "https://www.nsa.gov/"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "getArticles": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+            },
+            "conditions": []
+        },
+        "getSpecialPage": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
+            },
+            "conditions": [{
+                "expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
+            }],
+            "forEach": "@body('getArticles').responseData.feed.entries"
+        }
+    }
 }
 ```
 
-안팎을 뒤집어 작업하기:
+In this case, we first get a list of articles, and then the second step looks up in a map, based on the category that was defined as a parameter, which URL to get the content from. 
 
-1. 명령자 이름의 [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)을(를) 가져오면 전체 문자 수를 다시 반환합니다.
+Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
 
-2. (더 짧은 문자열을 원하므로) 5 빼기
+## <a name="working-with-strings"></a>Working with Strings
 
-3. 실제로 [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring)을(를) 가져옵니다. 인덱스 `5`에서 시작하여 문자열의 나머지로 이동합니다.
+There are variety of functions that can be used to manipulate string. Let's take an example where we have a string that we want to pass to a system, but we are not confident that character encoding will be handled properly. One option is to base64 encode this string. However, to avoid escaping in a URL we are going to replace a few characters. 
 
-4. 이 하위 문자열을 [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) 문자열로 변환
-
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 모든 `+` 문자를 `-`(으)로
-
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 모든 `/` 문자를 `_`(으)로
-
-## 날짜 시간을 사용한 작업
-
-날짜 시간은 자연스럽게 **트리거**를 지원하지 않는 데이터 소스에서 데이터를 가져오려고 할 때 특히 유용할 수 있습니다. 날짜 시간은 다양한 단계에 소용되는 시간을 파악하는 데에도 사용할 수 있습니다.
+We also want a substring of the the order's name because the first 5 characters are not used.
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"order": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?id=@{parameters('order').id}"
-			}
-		},
-		"timingWarning": {
-			"actions" {
-				"type": "Http",
-				"inputs": {
-					"method": "GET",
-					"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-				},
-				"runAfter": {}
-			}
-			"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1",
+                "orderer": "NAME=Stèphén__Šīçiłianö"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "order": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
+            }
+        }
+    },
+    "outputs": {}
 }
 ```
 
-이 예제에서는 이전 단계의 `startTime`을(를) 추출합니다. 그 후에 현재 시간 및 1초를 뺀 시간을 가져옵니다: [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds)(`minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있음) 마지막으로 이 두 값을 비교할 수 있습니다. 첫 번째 값이 두 번째보다 작은 경우에는 명령이 첫 번째 위치으면 1초 이상의 시간이 경과되었음을 의미합니다.
+Working from the inside out:
 
-문자열 포맷터를 사용하여 날짜를 포맷할 수 있음도 기억하십시오. 쿼리 스트링에서는 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)을(를) 사용하여 RFC1123을 가져왔습니다. 전체 데이터 포맷은 [MSDN에 설명되어 있습니다](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
+1. Get the [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)  of the orderer's name, this returns back the total number of characters
 
-## 다른 환경에 대해 배포 시 매개 변수 사용
+2. Subtract 5 (because we'll want a shorter string)
 
-배포 환경, 스테이징 환경 및 프로덕션 환경을 가지는 배포 주기가 있는 것이 일반적입니다. 이 모두에서 예를 들어, 동일한 정의를 원하지만 다른 데이터베이스를 사용할 수 있습니다. 마찬가지로, 높은 가용성을 위해 많은 다양한 하위 지역에 걸쳐 동일한 정의를 사용하고자 하지만 해당 하위 지역의 데이터베이스와 통신하는 각각의 논리 앱 인스턴스를 원할 수 있습니다.
+3. Actually take the [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) . We start at index `5` and go the remainder of the string.
 
-이는 위와 같이 호출하여 사용해야 하는 `trigger()` 함수에 대해 *런타임*에 다른 매개 변수를 가져오는 것과는 다름을 기억하십시오.
+4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) string
 
-다음과 같은 매우 단순한 정의로 시작할 수 있습니다.
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)  all of the `+` characters with `-`
+
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all of the `/` characters with `_`
+
+## <a name="working-with-date-times"></a>Working with Date Times
+
+Date Times can be useful, particularly when you are trying to pull data from a data source that doesn't naturally support **Triggers**.  You can also use Date Times to figure out how long various steps are taking. 
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"uri": {
-			"type": "string"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@parameters('uri')"
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "order": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?id=@{parameters('order').id}"
+            }
+        },
+        "timingWarning": {
+            "actions" {
+                "type": "Http",
+                "inputs": {
+                    "method": "GET",
+                    "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+                },
+                "runAfter": {}
+            }
+            "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
+        }
+    },
+    "outputs": {}
 }
 ```
 
-그 후 논리 앱에 대한 실제 `PUT` 요청에서 매개 변수 `uri`를 제공할 수 있습니다. 더 이상의 기본값이 없으면 이 매개 변수는 논리 앱 페이로드에 필요하다는 점을 기억하십시오.
+In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
+
+Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+
+## <a name="using-deployment-time-parameters-for-different-environments"></a>Using deployment-time parameters for different environments
+
+It is common to have a deployment lifecycle where you have a development environment, a staging environment, and then a production environment. In all of these you may want the same definition, but use different databases, for example. Likewise, you may want to use the same definition across many different regions for high availability, but want each Logic app instance to talk to that region's database. 
+
+Note that this is different from taking different parameters at *runtime*, for that you should use the `trigger()` function as called out above. 
+
+You can start with a very simplistic definition like this one:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "uri": {
+            "type": "string"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('uri')"
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+Then, in the actual `PUT` request for the Logic app you can provide the parameter `uri`. Note, as there is no longer a default value this parameter is required in the Logic app payload:
 
 ```
 {
@@ -394,8 +395,12 @@
 }
 ``` 
 
-그러면 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다.
+In each environment you can then provide a different value for the `connection` parameter. 
 
-논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/mt643787.aspx)를 참조하십시오.
+See the [REST API documentation](https://msdn.microsoft.com/library/azure/mt643787.aspx) for all of the options you have for creating and managing Logic apps. 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

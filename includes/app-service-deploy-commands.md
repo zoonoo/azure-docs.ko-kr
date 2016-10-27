@@ -1,9 +1,12 @@
 
-리소스를 Azure에 배포하려면 Azure 계정dmfh 로그인해야 하고 Azure 리소스 관리자 모듈을 사용해야 합니다. Azure PowerShell 또는 Azure CLI과 함께 Azure 리소스 관리자를 사용하는 방법을 알아보려면 참조하십시오.
+To deploy the resources to Azure, you must be logged in to your Azure account and you must use the Azure Resource Manager module. To learn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, see:
 
-- [Azure 리소스 관리자로 Azure PowerShell 사용](../articles/powershell-azure-resource-manager.md)
-- [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md).
+- [Using Azure PowerShell with Azure Resource Manager](../articles/powershell-azure-resource-manager.md)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../articles/xplat-cli-azure-resource-manager.md).
 
-다음 예제에서는 지정된 이름을 가진 계정에 리소스 그룹을 이미 보유했다고 가정합니다.
+The following examples assume you already have a resource group in your account with the specified name. 
 
-<!---HONumber=AcomDC_0420_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

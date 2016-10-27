@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: SimpleNexus와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 SimpleNexus를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with SimpleNexus | Microsoft Azure" 
+    description="Learn how to use SimpleNexus with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,103 +14,109 @@
     ms.date="09/19/2016" 
     ms.author="jeedes" />
 
-#자습서: SimpleNexus와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-simplenexus"></a>Tutorial: Azure Active Directory integration with SimpleNexus
   
-이 자습서는 Azure 및 SimpleNexus의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and SimpleNexus.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   SimpleNexus Single Sign-On이 설정된 구독
+-   A valid Azure subscription
+-   A SimpleNexus single sign-on enabled subscription
   
-이 자습서를 완료한 후 SimpleNexus에 할당한 Azure AD 사용자가 SimpleNexus 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to SimpleNexus will be able to single sign into the application at your SimpleNexus company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  SimpleNexus에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for SimpleNexus
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-simplenexus-tutorial/IC785893.png "시나리오")
-##SimpleNexus에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-simplenexus-tutorial/IC785893.png "Scenario")
+##<a name="enabling-the-application-integration-for-simplenexus"></a>Enabling the application integration for SimpleNexus
   
-이 섹션은 SimpleNexus에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for SimpleNexus.
 
-###SimpleNexus에 응용 프로그램 통합을 사용하도록 설정하려면
+###<a name="to-enable-the-application-integration-for-simplenexus,-perform-the-following-steps:"></a>To enable the application integration for SimpleNexus, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **simple nexus**를 입력합니다.
+6.  In the **search box**, type **simple nexus**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Application Gallery")
 
-7.  결과 창에서 **SimpleNexus**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **SimpleNexus**, and then click **Complete** to add the application.
 
-    ![간단한 Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "간단한 Nexus")
-##Single Sign-On 구성
+    ![Simple Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 SimpleNexus에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable users to authenticate to SimpleNexus with their account in Azure AD using federation based on the SAML protocol.
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **SimpleNexus** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **SimpleNexus** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configure Single Sign-On")
 
-2.  **SimpleNexus에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to SimpleNexus** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configure Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **SimpleNexus Sign-on URL** 텍스트 상자에 다음 패턴 " *https://simplenexus.com/CompanyName\_login*"을 사용하여 URL을 입력한 다음 *다음*을 클릭합니다**.
+3.  On the **Configure App URL** page, in the **SimpleNexus Sign In URL** textbox, type your URL using the following pattern "*https://simplenexus.com/CompanyName\_login*", and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configure App URL")
 
-4.  **SimpleNexus에서 Single Sign-On 구성 ** 페이지에서 **메타데이터 다운로드**를 클릭하고 메타데이터 파일을 SimpleNexus 지원 팀에 전달하십시오.
+4.  On the **Configure single sign-on at SimpleNexus** page, click **Download metadata**, and then forward the metadata file to the SimpleNexus support team.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configure Single Sign-On")
 
-    >[AZURE.NOTE] Single Sign-On은 SimpleNexus 지원 팀에서 사용할 수 있어야 합니다.
+    >[AZURE.NOTE] Single sign-on needs to be enabled by the SimpleNexus support team.
 
-5.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+5.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Single Sign-On 구성")
-##사용자 프로비전 구성
+    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 SimpleNexus에 로그인할 수 있도록 하려면 SimpleNexus로 프로비전되어야 합니다. SimpleNexus의 경우 프로비전은 테넌트 관리자가 수행하는 수동 작업입니다.
+In order to enable Azure AD users to log into SimpleNexus, they must be provisioned into SimpleNexus.  
+In the case of SimpleNexus, provisioning is a manual task performed by the tenant administrator.
 
->[AZURE.NOTE] 다른 SimpleNexus 사용자 계정 생성 도구 또는 SimpleNexus가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] You can use any other SimpleNexus user account creation tools or APIs provided by SimpleNexus to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###SimpleNexus에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-simplenexus,-perform-the-following-steps:"></a>To assign users to SimpleNexus, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **SimpleNexus** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **SimpleNexus **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

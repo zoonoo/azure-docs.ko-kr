@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 클러스터에서 지원되는 보안 연결 구성 | Microsoft Azure"
-   description="Visual Studio를 사용하여 Azure 서비스 패브릭 클러스터에서 지원하는 보안 연결을 구성하는 방법에 대해 알아봅니다."
+   pageTitle="Configure secure connections supported by the Service Fabric cluster | Microsoft Azure"
+   description="Learn how to use Visual Studio to configure secure connections that are supported by the Azure Service Fabric cluster."
    services="service-fabric"
    documentationCenter="na"
    authors="cawaMS"
@@ -16,45 +16,46 @@
    ms.date="10/08/2015"
    ms.author="cawaMS" />
 
-# Visual Studio에서 서비스 패브릭 클러스터에 대한 보안 연결 구성
 
-액세스 제어 정책이 구성되어 있는 Azure 서비스 패브릭 클러스터에 안전하게 액세스하기 위해 Visual Studio를 사용하는 방법에 대해 알아봅니다.
+# <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configure secure connections to a Service Fabric cluster from Visual Studio
 
-## 클러스터 연결 유형
+Learn how to use Visual Studio to securely access an Azure Service Fabric cluster with access control policies configured.
 
-Azure 서비스 패브릭 클러스터에서 지원되는 2가지 연결 형식: **비보안** 연결과 **x509 인증서 기반** 보안 연결입니다. (온-프레미스에 호스트된 서비스 패브릭 클러스터의 경우 **Windows** 및 **dSTS** 인증도 지원됩니다.) 클러스터를 만들 때 클러스터 연결 형식을 구성해야 합니다. 만든 후에는 연결 형식을 변경할 수 없습니다.
+## <a name="cluster-connection-types"></a>Cluster connection types
 
-Visual Studio 서비스 패브릭 도구는 게시할 클러스터에 연결하기 위한 모든 인증 형식을 지원합니다. 보안 서비스 패브릭 클러스터를 설정하는 방법에 대한 지침은 [Azure 포털에서 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-portal.md)을 참조하세요.
+Two types of connections are supported by the Azure Service Fabric cluster: **non-secure** connections and **x509 certificate-based** secure connections. (For Service Fabric clusters hosted on-premises, **Windows** and **dSTS** authentications are also supported.) You have to configure the cluster connection type when the cluster is being created. Once it's created, the connection type can’t be changed.
 
-## 게시 프로필에서 클러스터 연결 구성
+The Visual Studio Service Fabric tools support all authentication types for connecting to a cluster for publishing. See [Setting up a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for instructions on how to set up a secure Service Fabric cluster.
 
-Visual Studio에서 서비스 패브릭 프로젝트를 게시하는 경우 **서비스 패브릭 응용 프로그램 게시** 대화 상자에서 **연결 끝점** 섹션에 있는 **선택** 단추를 클릭하여 Azure 서비스 패브릭 클러스터를 선택할 수 있습니다. Azure 계정에 로그인한 다음 구독에서 기존 클러스터를 선택할 수 있습니다.
+## <a name="configure-cluster-connections-in-publish-profiles"></a>Configure cluster connections in publish profiles
 
-![**서비스 패브릭 응용 프로그램 게시** 대화 상자를 사용하여 서비스 패브릭 연결을 구성합니다.][publishdialog]
+If you publish a Service Fabric project from Visual Studio, use the **Publish Service Fabric Application** dialog box to choose an Azure Service Fabric cluster by clicking the **Select** button in **Connection endpoint** section. You can sign in to your Azure account and then select an existing cluster under your subscriptions.
 
-**Select Service Fabric Cluster**(서비스 패브릭 클러스터 선택) 대화 상자에서 자동으로 클러스터 연결의 유효성을 검사합니다. 유효성 검사에 통과하면 시스템에 클러스터를 안전하게 연결하기 위한 올바른 인증서가 설치되어 있거나 클러스터가 비보안이라는 것을 의미합니다. 네트워크 문제가 있거나 시스템이 보안 클러스터에 연결하도록 올바르게 구성되지 않으면 유효성 검사가 실패할 수 있습니다.
+![The **Publish Service Fabric Application** dialog box is used to configure a Service Fabric connection.][publishdialog]
 
-![**서비스 패브릭 클러스터 선택** 대화 상자에서 기존 서비스 패브릭 클러스터 연결을 구성하거나 새 클러스터 연결을 만들고 구성할 수 있습니다.][selectsfcluster]
+The **Select Service Fabric Cluster** dialog box automatically validates the cluster connection. If validation passes, it means that your system has the correct certificates installed to connect to the cluster securely, or your cluster is non-secure. Validation failures can be caused by network issues or by not having your system correctly configured to connect to a secure cluster.
 
-### 보안 클러스터에 연결하려면
+![In the **Select Service Fabric Cluster** dialog box, you can configure an existing Service Fabric cluster connection or create and configure a new cluster connection.][selectsfcluster]
 
-1.	대상 클러스터에서 신뢰하는 클라이언트 인증서 중 하나에 액세스할 수 있는지 확인합니다. 인증서는 일반적으로 개인 정보 교환(.pfx) 파일로 공유됩니다. 클라이언트에 액세스를 허용하도록 서버를 구성하는 방법은 [Azure 포털에서 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-portal.md)을 참조하세요.
+### <a name="to-connect-to-a-secure-cluster"></a>To connect to a secure cluster
 
-2.	신뢰할 수 있는 인증서를 설치합니다. 이를 위해 .pfx 파일을 두 번 클릭하거나 PowerShell 스크립트 Import-PfxCertificate를 사용하여 인증서를 가져옵니다. 인증서를 **Cert:\\LocalMachine\\My**에 설치합니다. 인증서를 가져오는 동안 모든 기본 설정을 수락할 수 있습니다.
+1.  Make sure you can access one of the client certificates that the destination cluster trusts. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Setting up a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for how to configure the server to grant access to a client.
 
-3.	프로젝트의 바로 가기 메뉴에서 **게시...** 명령을 선택하여 **Azure 응용 프로그램 게시** 대화 상자를 연 다음 대상 클러스터를 선택합니다. 도구가 자동으로 연결을 확인한 다음 게시 프로필에 보안 연결 매개 변수를 저장합니다.
+2.  Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates. Install the certificate to **Cert:\LocalMachine\My**. It's OK to accept all default settings while importing the certificate.
 
-4.	[옵션]: 게시 프로필을 편집하여 보안 클러스터 연결을 지정할 수 있습니다.
+3.  Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
 
-    게시 프로필 XML 파일을 수동으로 편집하여 인증서 정보를 지정하므로 인증서 저장소 이름, 저장소 위치 및 인증서 지문을 적어 두어야 합니다. 인증서 저장소 이름 및 저장소 위치에 이러한 값을 제공해야 합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx)을 참조하세요.
+4.  [Optional]: You can edit the publish profile to specify a secure cluster connection.
 
-    *ClusterConnectionParameters* 매개 변수를 사용하여 서비스 패브릭 클러스터에 연결할 때 사용할 PowerShell 매개 변수를 지정할 수 있습니다. 유효한 매개 변수는 Connect-ServiceFabricCluster cmdlet에서 허용하는 모든 매개 변수입니다. 사용 가능한 매개 변수 목록은 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx)를 참조하세요.
+    Since you're manually editing the Publish Profile XML file to specify the certificate information, be sure to note the certificate store name, store location, and certificate thumbprint. You'll need to provide these values for the certificate's store name and store location. See [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) for more information.
 
-    원격 클러스터에 게시하는 경우 해당 특정 클러스터에 적절한 매개 변수를 지정해야 합니다. 다음은 비보안 클러스터에 연결하기 위한 예제입니다.
+    You can use the *ClusterConnectionParameters* parameters to specify the PowerShell parameters to use when connecting to the Service Fabric cluster. Valid parameters are any that are accepted by the Connect-ServiceFabricCluster cmdlet. See [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) for a list of available parameters.
+
+    If you’re publishing to a remote cluster, you need to specify the appropriate parameters for that specific cluster. The following is an example of connecting to a non-secure cluster:
 
     `<ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000" />`
 
-    다음은 x509 인증서 기반 보안 클러스터에 연결하기 위한 예제입니다.
+    Here’s an example for connecting to an x509 certificate-based secure cluster:
 
     ```
     <ClusterConnectionParameters
@@ -67,13 +68,17 @@ Visual Studio에서 서비스 패브릭 프로젝트를 게시하는 경우 **�
     StoreName="My" />
     ```
 
-5.	업그레이드 매개 변수 및 응용 프로그램 매개 변수 파일 위치와 같이 필요한 다른 설정을 편집한 다음 Visual Studio의 **서비스 패브릭 응용 프로그램 게시** 대화 상자에서 응용 프로그램을 게시합니다.
+5.  Edit any other necessary settings, such as upgrade parameters and Application Parameter file location, and then publish your application from the **Publish Service Fabric Application** dialog box in Visual Studio.
 
-## 다음 단계
-서비스 패브릭 클러스터에 액세스하는 방법에 대한 자세한 내용은 [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 참조하세요.
+## <a name="next-steps"></a>Next steps
+For more information about accessing Service Fabric clusters, see [Visualizing your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 <!--Image references-->
-[publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
-[selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
+[publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
+[selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-<!---HONumber=AcomDC_0114_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

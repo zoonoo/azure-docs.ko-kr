@@ -1,16 +1,19 @@
-리소스|기본 제한|최대 제한
+Resource|Default Limit|Maximum Limit
 ---|---|---
-구독당 신뢰할 수 있는 IP 주소/범위의 최대 수</a><sup>1</sup>|0|12
-장치-일 수 기억|14|60
-앱 암호의 최대 수|0|제한 없음
-MFA 호출 중 **X**회 시도 허용|1|99
-양방향 문자 메시지 시간 제한(초)|60|600
-기본 일회성 바이패스 시간(초)|300|1800
-**X**회 연속 MFA 거부 후 사용자 계정 잠금|설정되지 않음|99
-**X**분 후 계정 잠금 카운터 재설정|설정되지 않음|9999
-**X**분 후 계정 잠금 해제|설정되지 않음|9999
+Max number of Trusted IP addresses/ranges</a> per subscription<sup>1</sup>|0|12
+Remember my devices - number of days|14|60
+Max number of app passwords?|0|No Limit
+Allow **X** attempts during MFA call|1|99
+Two-way Text message Timeout Seconds|60|600
+Default one-time bypass seconds|300|1800
+Lock user account after **X** consecutive MFA denials|Not Set|99
+Reset account lockout counter after **X** minutes|Not Set|9999
+Unlock account after **X** minutes|Not Set|9999
 
 
-<sup>1</sup>나중에 증가할 것으로 예상됩니다.
+<sup>1</sup>This is expected to increase in the future.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

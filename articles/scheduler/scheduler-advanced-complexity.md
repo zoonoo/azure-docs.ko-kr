@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
- description="Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
+ pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
+ description="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,188 +13,193 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
-
-# Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법  
-
-## 개요
-
-Azure 스케줄러의 핵심 작업은 *일정*입니다. 일정은 스케줄러가 작업을 실행할 시기와 방법을 결정합니다.
-
-Azure 스케줄러를 사용하여 작업에 대해 서로 다른 일회성 및 되풀이 일정을 지정할 수 있습니다. *일회성* 일정은 지정된 시간에 한 번만 실행됩니다. 실질적으로 이는 한 번만 실행되는 *되풀이* 일정입니다. 되풀이 일정은 미리 지정된 빈도로 실행됩니다.
-
-Azure 스케줄러의 이러한 유연성을 활용하여 다양한 비즈니스 시나리오를 지원할 수 있습니다.
-
--	정기적인 데이터 정리 - 예를 들어 매일 3개월 이상 지난 트윗을 삭제
--	아카이브 – 예를 들어 매달 송장 기록을 백업 서비스로 전송
--	외부 데이터 요청 - 예를 들어 NOAA에서 15분마다 새 ski 날씨 보고서 가져오기
--	이미지 처리 - 예를 들어 주중 매일, 사용량이 적은 시간에 그날 업로드된 이미지를 클라우드 컴퓨팅을 사용하여 압축
+ ms.author="deli"/>
 
 
-이 문서에서는 Azure 스케줄러로 만들 수 있는 작업의 예를 살펴보겠습니다. 각 일정을 설명하는 JSON 데이터를 제공합니다. [스케줄러 REST API](https://msdn.microsoft.com/library/mt629143.aspx)를 사용하는 경우 동일한 이 JSON을 [Azure 스케줄러 작업 만들기](https://msdn.microsoft.com/library/mt629145.aspx)에도 사용할 수 있습니다.
+# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
 
-## 지원되는 시나리오
+## <a name="overview"></a>Overview
 
-이 항목에서 소개하는 여러 예를 통해 Azure 스케줄러가 지원하는 다양한 시나리오를 볼 수 있습니다. 포괄적으로 보면 이러한 예는 다음을 포함하여 여러 동작 패턴에 대한 일정을 만드는 방법을 설명합니다.
+At the heart of an Azure Scheduler job is the *schedule*. The schedule determines when and how the Scheduler executes the job.
 
--	특정 날짜 및 시간에 한 번 실행
--	실행하고 명시된 횟수만큼 되풀이
--	즉시 실행하고 되풀이
--	실행하고 *n*분, 시간, 일, 주 또는 월마다 되풀이, 특정 시간에 시작
--	실행하고 주 또는 월마다 되풀이하지만 특정 일, 요일 또는 날짜에만 실행
--	실행하고 기간 내 여러 번 되풀이. 예를 들어 매월 마지막 금요일과 월요일, 매일 오전 5시 15분과 오후 5시 15분
+Azure Scheduler allows you to specify different one-time and recurring schedules for a job. *One-time* schedules fire once at a specified time – effectively, they are *recurring* schedules that execute only once. Recurring schedules fire on a predetermined frequency.
 
-## 날짜 및 날짜-시간
+With this flexibility, Azure Scheduler lets you support a wide variety of business scenarios:
 
-Azure 스케줄러 작업의 날짜는 [ISO-8601 사양](http://en.wikipedia.org/wiki/ISO_8601)을 따르며 날짜만 포함합니다.
+-   Periodic data cleanup –  e.g., every day, delete all tweets older than 3 months
+-   Archival – e.g., every month, push invoice history to backup service
+-   Requests for external data – e.g., every 15 minutes, pull new ski weather report from NOAA
+-   Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day
 
-Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en.wikipedia.org/wiki/ISO_8601)을 따르며 날짜와 시간 부분을 모두 포함합니다. 날짜-시간은 UTC 오프셋을 지정하지 않으며 UTC로 간주됩니다.
 
-## 방법: JSON 및 REST API를 사용하여 일정 만들기
+In this article, we walk through example jobs that you can create with Azure Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx), you can use this same JSON for [creating an Azure Scheduler job](https://msdn.microsoft.com/library/mt629145.aspx).
 
-[Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143)를 사용하여 간단한 일정을 만들려면 먼저 [리소스 공급자로 구독을 등록](https://msdn.microsoft.com/library/azure/dn790548.aspx)(스케줄러의 공급자 이름은 _Microsoft.Scheduler_임)한 다음 [작업 컬렉션을 만들고](https://msdn.microsoft.com/library/mt629159.aspx) 마지막으로 [작업을 만듭니다](https://msdn.microsoft.com/library/mt629145.aspx). 작업을 만들 때는 아래 나열된 것과 같은 JSON을 사용하여 일정과 되풀이를 지정할 수 있습니다.
+## <a name="supported-scenarios"></a>Supported Scenarios
 
-	{
-	    "startTime": "2012-08-04T00:00Z", // optional
-	     …
-	    "recurrence":                     // optional
-	    {
-	        "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-	        "interval": 1,                // optional, how often to fire (default to 1)
-	        "schedule":                   // optional (advanced scheduling specifics)
-	        {
-	            "weekDays": ["monday", "wednesday", "friday"],
-	            "hours": [10, 22]                      
-	        },
-	        "count": 10,                  // optional (default to recur infinitely)
-	        "endTime": "2012-11-04",      // optional (default to recur infinitely)
-	    },
-	    …
-	}
+The many examples in this topic illustrate the breadth of scenarios that Azure Scheduler supports. Broadly, these examples illustrate how to create schedules for many behavior patterns, including the ones below:
 
-## 개요: 작업 스키마 기본 사항
+-   Run once at a particular date and time
+-   Run and recur a number of explicit times
+-   Run immediately and recur
+-   Run and recur every *n* minutes, hours, days, weeks, or months, starting at a particular time
+-   Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
+-   Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
 
-다음 표에는 작업의 일정 및 되풀이에 관련된 주요 요소에 대한 간략한 개요가 나열되어 있습니다.
+## <a name="dates-and-datetimes"></a>Dates and DateTimes
 
-|**JSON 이름**|**설명**|
+Dates in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include only the date.
+
+Date-Time references in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include both date and time parts. A Date-Time that does not specify a UTC offset is assumed to be UTC.  
+
+## <a name="how-to:-use-json-and-rest-api-for-creating-schedules"></a>How To: Use JSON and REST API for Creating Schedules
+
+To create a simple schedule using the [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143), first [register your subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx) (the provider name for Scheduler is _Microsoft.Scheduler_), then [create a job collection](https://msdn.microsoft.com/library/mt629159.aspx), and finally [create a job](https://msdn.microsoft.com/library/mt629145.aspx). When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:
+
+    {
+        "startTime": "2012-08-04T00:00Z", // optional
+         …
+        "recurrence":                     // optional
+        {
+            "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
+            "interval": 1,                // optional, how often to fire (default to 1)
+            "schedule":                   // optional (advanced scheduling specifics)
+            {
+                "weekDays": ["monday", "wednesday", "friday"],
+                "hours": [10, 22]                      
+            },
+            "count": 10,                  // optional (default to recur infinitely)
+            "endTime": "2012-11-04",      // optional (default to recur infinitely)
+        },
+        …
+    }
+
+## <a name="overview:-job-schema-basics"></a>Overview: Job Schema Basics
+
+The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job:
+
+|**JSON name**|**Description**|
 |:--|:--|
-|**_startTime_**|_startTime_은 날짜-시간입니다. 간단한 일정의 경우 _startTime_은 처음 실행되는 시간이며 복잡한 일정의 경우 작업은 _startTime_보다 일찍 시작되지 않습니다.|
-|**_recurrence_**|_recurrence_ 개체는 작업에 대한 되풀이 규칙과 작업이 어떤 되풀이 조건으로 실행될지 지정합니다. 되풀이 개체가 지원하는 요소는 _frequency, interval, endTime, count_ 및 _schedule_입니다. _recurrence_가 정의된 경우 _frequency_가 필수 요소이며 _recurrence_의 다른 요소는 선택 사항입니다.|
-|**_frequency_**|_frequency_ 문자열은 작업이 되풀이되는 빈도 단위를 나타냅니다. 지원되는 값은 _"minute", "hour", "day", "week"_ 또는 _"month"_입니다.|
-|**_interval_**|_interval_은 양의 정수이며 작업이 얼마나 자주 실행될지 결정하는 _frequency_의 간격을 나타냅니다. 예를 들어 _interval_이 3이고 _frequency_가 "week"인 경우 작업은 3주마다 되풀이됩니다. Azure 스케줄러가 지원하는 최대 _interval_은 월 빈도로 18개월, 주 빈도로 78주, 일 빈도로 548일입니다. 시간과 분 빈도의 경우 지원되는 _interval_ 범위는 1 ~ 1000입니다.|
-|**_endTime_**|_endTime_ 문자열은 이 날짜-시간 이후에는 작업이 실행되지 않도록 지정합니다. _endTime_은 과거의 시간일 수 없습니다. _endTime_ 또는 count가 지정되지 않으면 작업은 무한으로 실행됩니다. 같은 작업에 _endTime_과 _count_를 모두 포함해서는 안 됩니다.|
-|**_count_**|<p>_count_는 0보다 큰 양의 정수로 작업이 완료되기 전에 몇 번 실행될지 지정합니다.</p><p>_count_는 작업이 완료된 것으로 결정되기 전에 실행되는 횟수를 나타냅니다. 예를 들어 _count_가 5로 지정되고 매일 실행되는 작업의 시작 날짜가 월요일인 경우, 이 작업은 금요일에 실행된 후 완료됩니다. 시작 날짜가 과거인 경우, 첫 실행 시간은 생성 시간에서 계산됩니다.</p><p>_endTime_ 또는 _count_가 지정되지 않으면 작업은 무한으로 실행됩니다. 같은 작업에 _endTime_과 _count_를 모두 포함해서는 안 됩니다.</p>|
-|**_schedule_**|작업에 빈도가 지정되면 되풀이 일정을 기반으로 되풀이가 변경됩니다. _schedule_에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 조건이 포함됩니다.|
+|**_startTime_**|_startTime_ is a Date-Time. For simple schedules, _startTime_ is the first occurrence and for complex schedules, the job will start no sooner than _startTime_.|
+|**_recurrence_**|The _recurrence_ object specifies recurrence rules for the job and the recurrence the job will execute with. The recurrence object supports the elements _frequency, interval, endTime, count,_ and _schedule_. If _recurrence_ is defined, _frequency_ is required; the other elements of _recurrence_ are optional.|
+|**_frequency_**|The _frequency_ string representing the frequency unit at which the job recurs. Supported values are _"minute", "hour", "day", "week",_ or _"month."_|
+|**_interval_**|The _interval_ is a positive integer and denotes the interval for the _frequency_ that determines how often the job will run. For example, if _interval_ is 3 and _frequency_ is "week", the job recurs every 3 weeks. Azure Scheduler supports a maximum _interval_ of 18 months for monthly frequency, 78 weeks for weekly frequency, or 548 days for daily frequency. For hour and minute frequency, the supported range is 1 <= _interval_ <= 1000.|
+|**_endTime_**|The _endTime_ string specifies the date-time past which the job should not execute. It is not valid to have an _endTime_ in the past. If no _endTime_ or count is specified, the job runs infinitely. Both _endTime_ and _count_ cannot be included for the same job.|
+|**_count_**|<p>The _count_ is a positive integer (greater than zero) that specifies the number of times this job should run before completing.</p><p>The _count_ represents the number of times the job runs before being determined as completed. For example, for a job that is executed daily with _count_ 5 and start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.</p><p>If no _endTime_ or _count_ is specified, the job runs infinitely. Both _endTime_ and _count_ cannot be included for the same job.</p>|
+|**_schedule_**|A job with a specified frequency alters its recurrence based on a recurrence schedule. A _schedule_ contains modifications based on minutes, hours, week days, month days, and week number.|
 
-## 개요: 작업 스키마 기본값, 제한 및 예
+## <a name="overview:-job-schema-defaults,-limits,-and-examples"></a>Overview: Job Schema Defaults, Limits, and Examples
 
-이 개요를 먼저 본 후, 각 요소에 대해 자세히 알아보겠습니다.
+After this overview, let’s discuss each of these elements in detail.
 
-|**JSON 이름**|**값 형식**|**필수 여부**|**기본값**|**유효한 값**|**예제**|
+|**JSON name**|**Value type**|**Required?**|**Default value**|**Valid values**|**Example**|
 |:---|:---|:---|:---|:---|:---|
-|**_startTime_**|문자열|아니요|없음|ISO-8601 날짜-시간|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
-|**_recurrence_**|Object|아니요|없음|되풀이 개체|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
-|**_frequency_**|문자열|예|없음|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
-|**_interval_**|Number|아니요|1|1 ~ 1000입니다.|<code>"interval":10</code>|
-|**_endTime_**|문자열|아니요|없음|현재 이후의 시간을 나타내는 날짜-시간입니다.|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-|**_count_**|Number|아니요|없음|1 이상|<code>"count": 5</code>|
-|**_schedule_**|Object|아니요|없음|일정 개체|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
+|**_startTime_**|String|No|None|ISO-8601 Date-Times|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
+|**_recurrence_**|Object|No|None|Recurrence object|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
+|**_frequency_**|String|Yes|None|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
+|**_interval_**|Number|No|1|1 to 1000.|<code>"interval":10</code>|
+|**_endTime_**|String|No|None|Date-Time value representing a time in the future|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+|**_count_**|Number|No|None|>= 1|<code>"count": 5</code>|
+|**_schedule_**|Object|No|None|Schedule object|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
 
-## 자세히 알아보기: _startTime_
+## <a name="deep-dive:-_starttime_"></a>Deep Dive: _startTime_
 
-다음 표는 _startTime_으로 작업이 실행되는 방식을 제어하는 방법을 설명합니다.
+The following table captures how _startTime_ controls how a job is run.
 
-|**startTime 값**|**되풀이 없음**|**되풀이. 일정 없음**|**일정대로 되풀이**|
+|**startTime value**|**No recurrence**|**Recurrence. No schedule**|**Recurrence with schedule**|
 |:--|:--|:--|:--|
-|**시작 시간 없음**|즉시 한 번 실행|즉시 한 번 실행합니다. 마지막 실행 시간에서 계산된 값을 기반으로 후속 실행 수행|<p>즉시 한 번 실행</p><p>되풀이 일정에 따라 후속 실행을 수행</p>|
-|**시작 시간이 이전임**|즉시 한 번 실행|<p>시작 시간 이후의 첫 실행 시간을 계산하고 이 시간에 실행</p><p>마지막 실행 시간을 기반으로 후속 실행 시간을 계산하여 실행</p><p>더 자세한 설명은 이 표 아래의 예를 참조하세요.</p>|<p>작업 시작은 지정된 시작 시간보다 _이전_이어서는 안 됩니다. 시작 시간에서 계산된 일정을 기반으로 첫 되풀이 실행</p><p>되풀이 일정을 기반으로 후속 실행 수행</p>|
-|**시작 시간이 이후이거나 현재임**|지정된 시작 시간에 한 번 실행|<p>지정된 시작 시간에 한 번 실행</p><p>마지막 실행 시간으로 계산한 값을 기반으로 후속 실행을 수행</p>|<p>작업 시작은 지정된 시작 시간보다 _이전_이어서는 안 됩니다. 시작 시간에서 계산된 일정을 기반으로 첫 되풀이 실행</p><p>되풀이 일정을 기반으로 후속 실행 수행</p>|
+|**No start time**|Run once immediately|Run once immediately. Run subsequent executions based on calculating from last execution time|<p>Run once immediately</p><p>Run subsequent executions based on recurrence schedule</p>|
+|**Start time in past**|Run once immediately|<p>Calculate first future execution time after start time, and run at that time</p><p>Run subsequent executions based oncalculating from last execution time</p><p>See example after this table for a further explanation</p>|<p>Job starts _no sooner than_ the specified start time. The first occurrence is based on the schedule calculated from the start time</p><p>Run subsequent executions based on recurrence schedule</p>|
+|**Start time in future or at present**|Run once at specified start time|<p>Run once at specified start time</p><p>Run subsequent executions based on calculating from last execution time</p>|<p>Job starts _no sooner than_ the specified start time. The first occurrence is based on the schedule calculated from the start time</p><p>Run subsequent executions based on recurrence schedule</p>|
 
-_startTime_이 이전이고 _recurrence_가 있으나 _schedule_이 없는 경우에 어떻게 되는지 예를 보겠습니다. 현재 시간이 2015-04-08 13:00, _startTime_은 2015-04-07 14:00, _recurrence_는 2일마다, _frequency_는 일, _interval_은 2로 정의되어 있다고 가정합니다. _startTime_이 현재 시간보다 이전임에 유의하십시오.
+Let's see an example of what happens where _startTime_ is in the past, with _recurrence_ but no _schedule_.  Assume that the current time is 2015-04-08 13:00, _startTime_ is 2015-04-07 14:00, and _recurrence_ is every 2 days (defined with _frequency_: day and _interval_: 2.) Note that the _startTime_ is in the past, and occurs before the current time
 
-이러한 조건일 경우 _첫 실행_은 2015-04-09 14:00가 됩니다. 스케줄러 엔진이 시작 시간에서 되풀이 실행 시간을 계산합니다. 현재보다 이전의 모든 인스턴스는 무시됩니다. 엔진은 이후에 발생하는 다음 인스턴스를 사용합니다. 따라서 이 경우, _startTime_이 2015-04-07 오후 2:00이므로 다음 인스턴스는 이 시간에서 2일 후인 2015-04-09 오후 2:00입니다.
+Under these conditions, the _first execution_ will be 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time.  Any instances in the past are discarded. The engine uses the next instance that occurs in the future.  So in this case, _startTime_ is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm.
 
-startTime이 2015-04-05 14:00이거나 2015-04-01 14:00이더라도 첫 실행 시간은 동일합니다. 첫 실행 후, 후속 실행은 일정을 사용하여 계산됩니다. 따라서 후속 실행은 2015-04-11 오후 2:00, 2015-04-13 오후 2:00, 2015-04-15 오후 2:00 순서가 됩니다.
+Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated using the scheduled – so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.
 
-마지막으로, 작업에 일정이 있을 경우 일정에 시간 및/또는 분이 설정되어 있지 않으면 첫 실행의 시간 및/또는 분이 기본값이 됩니다.
+Finally, when a job has a schedule, if hours and/or minutes aren’t set in the schedule, they default to the hours and/or minutes of the first execution, respectively.
 
-## 자세히 알아보기: _schedule_
+## <a name="deep-dive:-_schedule_"></a>Deep Dive: _schedule_
 
-_schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 합니다. 예를 들어 빈도가 "month"인 작업에 31일에만 실행되는 _schedule_이 있을 경우, 이 작업은 31<sup></sup>일이 있는 달에만 실행됩니다.
+On one hand, a _schedule_ can _limit_ the number of job executions.  For example, if a job with a "month" frequency has a _schedule_ that runs on only day 31, the job runs in only those months that have a 31<sup>st</sup> day.
 
-또한 _schedule_로 작업 실행의 횟수를 _늘릴_ 수도 있습니다. 예를 들어 빈도가 “month"인 작업의 _schedule_이 매월 1일과 2일로 설정된 경우, 작업은 한 달에 한 번 실행되는 것이 아니라 매월 1<sup></sup>일과 2<sup></sup>일에 실행됩니다.
+On the other hand, a _schedule_ can also _expand_ the number of job executions. For example, if a job with a "month" frequency has a _schedule_ that runs on month days 1 and 2, the job runs on the 1<sup>st</sup> and 2<sup>nd</sup> days of the month instead of just once a month.
 
-여러 일정 요소가 지정된 경우, 계산되는 순서는 가장 큰 것부터 가장 작은 것의 순서입니다. 즉 주차, 날짜, 요일, 시간, 분의 순서입니다.
+If multiple schedule elements are specified, the order of evaluation is from the largest to smallest – week number, month day, week day, hour, and minute.
 
-다음 표는 _schedule_ 요소의 세부 정보입니다.
+The following table describes _schedule_ elements in detail.
 
-|**JSON 이름**|**설명**|**유효한 값**|
+|**JSON name**|**Description**|**Valid Values**|
 |:---|:---|:---|
-|**minutes**|작업이 실행될 시간(분)|<ul><li>정수 또는</li><li>정수 배열</li></ul>|
-|**hours**|작업이 실행될 시간(시간)|<ul><li>정수 또는</li><li>정수 배열</li></ul>|
-|**weekDays**|작업이 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" 또는 "Sunday"</li><li>위 값의 배열(최대 배열 크기는 7)</li></ul>대/소문자 구분 _안 함_|
-|**monthlyOccurrences**|며칠에 작업을 실행할지 결정합니다. 빈도가 월인 경우에만 지정할 수 있습니다.|<ul><li>monthlyOccurence 개체의 배열:</li></ul> <pre>{ "day": _일_,<br /> "occurrence": _되풀이_<br />}</pre><p> _일_은 작업이 실행될 요일입니다. 예를 들어 {Sunday}는 매주 일요일입니다. 필수.</p><p>occurrence는 월 중에 _되풀이_되는 날입니다. 예를 들어 {Sunday, -1}은 월의 마지막 일요일입니다. 선택 사항입니다.</p>|
-|**monthDays**|작업이 실행될 월의 일입니다. 빈도가 월인 경우에만 지정할 수 있습니다.|<ul><li>-31 ~ -1 사이의 값.</li><li>1 ~ 31 사이의 값.</li><li>위 값의 배열</li></ul>|
+|**minutes**|Minutes of the hour at which the job will run|<ul><li>Integer, or</li><li>Array of integers</li></ul>|
+|**hours**|Hours of the day at which the job will run|<ul><li>Integer, or</li><li>Array of integers</li></ul>|
+|**weekDays**|Days of the week the job will run. Can only be specified with a weekly frequency.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", or "Sunday"</li><li>Array of any of the above values (max array size 7)</li></ul>_Not_ case-sensitive|
+|**monthlyOccurrences**|Determines which days of the month the job will run. Can only be specified with a monthly frequency.|<ul><li>Array of monthlyOccurence objects:</li></ul> <pre>{ "day": _day_,<br />  "occurrence": _occurence_<br />}</pre><p> _day_ is the day of the week the job will run, e.g. {Sunday} is every Sunday of the month. Required.</p><p>Occurrence is _occurrence_ of the day during the month, e.g. {Sunday, -1} is the last Sunday of the month. Optional.</p>|
+|**monthDays**|Day of the month the job will run. Can only be specified with a monthly frequency.|<ul><li>Any value <= -1 and >= -31.</li><li>Any value >= 1 and <= 31.</li><li>An array of above values</li></ul>|
 
-## 예: 되풀이 일정
+## <a name="examples:-recurrence-schedules"></a>Examples: Recurrence Schedules
 
-다음은 일정 개체와 하위 요소에 초점을 맞춘 되풀이 일정의 다양한 예입니다.
+The following are various examples of recurrence schedules – focusing on the schedule object and its sub-elements.
 
-아래 모든 일정의 _interval_은 1로 설정되어 있다고 가정합니다. 또한 _schedule_에 맞는 적절한 빈도가 설정되어 있다고 가정합니다. 예를 들어 빈도로 "day"를 사용할 수 없는 일정은 "monthDays"로 수정됩니다. 이러한 제한 사항은 위에 설명되어 있습니다.
+The schedules below all assume that the _interval_ is set to 1\. Also, one must assume the right frequency in accordance to what is in the _schedule_ – e.g., one can't use frequency "day" and have a "monthDays" modification in the schedule. Such restrictions are described above.
 
-|**예제**|**설명**|
+|**Example**|**Description**|
 |:---|:---|
-|<code>{"hours":[5]}</code>|매일 오전 5시에 실행합니다. Azure 스케줄러는 "hours"의 각 값을 "minutes"의 각 값과 1:1로 짝을 맞춰 작업이 실행될 모든 시간의 목록을 만듭니다.|
-|<code>{"minutes":[15], "hours":[5]}</code>|매일 오전 5시 15분에 실행|
-|<code>{"minutes":[15], "hours":[5,17]}</code>|매일 오전 5시 15분과 오후 5시 15분에 실행|
-|<code>{"minutes":[15,45], "hours":[5,17]}</code>|매일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
-|<code>{"minutes":[0,15,30,45]}</code>|15분마다 실행|
-|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|1시간마다 실행 이 작업은 매시간 실행됩니다. 분은 _startTime_이 지정된 경우 이를 통해 제어되며, 지정되지 않은 경우 생성 시간으로 제어됩니다. 예를 들어 시작 시간 또는 생성 시간(둘 중 해당하는 것)이 오후 12:25라면 작업은 00:25, 01:25, 02:25, …, 23:25에 실행됩니다. 이 일정은 작업의 _frequency_가 "hour"이고 _interval_은 1이며 _schedule_이 없는 것과 동일합니다. 차이점은 이 일정의 _frequency_와 _interval_을 다르게 하여 다른 작업을 만들 수 있다는 점입니다. 예를 들어 _frequency_가 "month"라면 _frequency_가 "day"일 때와 달리 일정은 한 달에 한 번만 실행됩니다.|
-|<code>{minutes:[0]}</code>|매시간 정각에 실행합니다. 이 작업은 매시간, 정각(예: 오전 12시, 1시, 2시 등)에만 실행됩니다. 이는 frequency가 “hour”, startTime이 0분인 작업과 동일합니다. 하지만 frequency가 “day”, “week” 또는 “month”라면 각각 하루에 한 번, 일주일에 한 번, 한 달에 한 번만 실행됩니다.|
-|<code>{"minutes":[15]}</code>|매시간 15분에 실행됩니다. 오전 0시 15분, 1시 15분, 2시 15분 등으로 시작하여 오후 10시 15분, 11시 15분에 완료됩니다.|
-|<code>{"hours":[17], "weekDays":["saturday"]}</code>|매주 토요일 오후 5시에 실행|
-|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|매주 월요일, 수요일, 금요일 오후 5시에 실행|
-|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|매주 월요일, 수요일, 금요일 오후 5시 15분과 5시 45분에 실행|
-|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|매주 월요일, 수요일, 금요일 오전 5시와 오후 5시에 실행|
-|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|매주 월요일, 수요일, 금요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|월요일부터 금요일까지 15분마다 실행|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|월요일부터 금요일까지 오전 9시에서 오후 4시 45분 사이에 15분마다 실행|
-|<code>{"weekDays":["sunday"]}</code>|일요일 시작 시간에 실행|
-|<code>{"weekDays":["tuesday", "thursday"]}</code>|화요일과 목요일 시작 시간에 실행|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|매월 28일 오전 6시에 실행(빈도가 month라고 가정)|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|월의 마지막 날짜 오전 6시에 실행합니다. 월의 마지막 날짜에 작업을 실행하려면 28, 29, 30 또는 31 대신 -1을 사용하십시오.|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|매월 1일과 말일의 오전 6시에 실행|
-|<code>{monthDays":[1,-1]}</code>|매월 1일과 말일의 시작 시간에 실행|
-|<code>{monthDays":[1,14]}</code>|매월 1일과 14일의 시작 시간에 실행|
-|<code>{monthDays":[2]}</code>|매월 2일 시작 시간에 실행|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|매월 첫 번째 금요일 오전 5시에 실행|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|매월 첫 번째 금요일 시작 시간에 실행|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|매월 끝에서 세 번째 금요일 시작 시간에 실행|
-|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|매월 첫 번째와 마지막 금요일 오전 5시 15분에 실행|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|매월 첫 번째와 마지막 금요일 시작 시간에 실행|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|매월 5번째 금요일 시작 시간에 실행됩니다. 5번째 금요일에만 실행되도록 설정되었으므로 5번째 금요일이 없는 달에는 실행되지 않습니다. 매월 마지막 금요일에 실행되도록 하려면 occurrence로 5대신 -1을 사용하면 됩니다.|
-|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|매월 마지막 금요일에 15분마다 실행|
-|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|매월 세 번째 수요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
+|<code>{"hours":[5]}</code>|Run at 5AM Every Day. Azure Scheduler matches up each value in "hours" with each value in "minutes", one by one, to create a list of all the times at which the job is to be run.|
+|<code>{"minutes":[15], "hours":[5]}</code>|Run at 5:15AM Every Day|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Run at 5:15 AM and 5:15 PM Every Day|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day|
+|<code>{"minutes":[0,15,30,45]}</code>|Run Every 15 Minutes|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Run Every Hour. This job runs every hour. The minute is controlled by the _startTime_, if one is specified, or if none is specified, by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25. The schedule is equivalent to having a job with _frequency_ of "hour", an _interval_ of 1, and no _schedule_. The difference is that this schedule could be used with different _frequency_ and _interval_ to create other jobs too. For example, if the _frequency_ were "month", the schedule would run only once a month instead of every day if _frequency_ were "day"|
+|<code>{minutes:[0]}</code>|Run Every Hour on the Hour. This job also runs every hour, but on the hour (e.g. 12AM, 1AM, 2AM, etc.) This is equivalent to a job with frequency of "hour", a startTime with zero minutes, and no schedule if the frequency were "day", but if the frequency were "week" or "month," the schedule would execute only one day a week or one day a month, respectively.|
+|<code>{"minutes":[15]}</code>|Run at 15 Minutes Past Hour Every Hour. Runs every hour, starting at 00:15AM, 1:15AM, 2:15AM, etc. and ending at 10:15PM and 11:15PM.|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Run at 5PM on Saturdays Every Week|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays between 9AM and 4:45PM|
+|<code>{"weekDays":["sunday"]}</code>|Run on Sundays at Start Time|
+|<code>{"weekDays":["tuesday", "thursday"]}</code>|Run on Tuesdays and Thursdays at Start Time|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Run at 6AM on the 28th Day of Every Month (assuming frequency of month)|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Run at 6AM on the Last Day of the Month. If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Run at 6AM on the First and Last Day of Every Month|
+|<code>{monthDays":[1,-1]}</code>|Run on the First and Last Day of Every Month at Start Time|
+|<code>{monthDays":[1,14]}</code>|Run on the First and Fourteenth Day of Every Month at Start Time|
+|<code>{monthDays":[2]}</code>|Run on the Second Day of the Month at Start Time|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Run on First Friday of Every Month at 5AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Run on First Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Run on Third Friday from End of Month, Every Month, at Start Time|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at 5:15AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Run on Fifth Friday of Every Month at Start Time. If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays. You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Run Every 15 Minutes on Last Friday of the Month|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
-## 참고 항목
+## <a name="see-also"></a>See Also
 
 
- [스케줄러란?](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

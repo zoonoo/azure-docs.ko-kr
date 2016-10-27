@@ -1,12 +1,12 @@
 <properties
-   pageTitle="HDInsight에서 Hadoop Hive 및 원격 데스크톱 사용 | Microsoft Azure"
-   description="원격 데스크톱을 사용하여 HDInsight의 Hadoop 클러스터에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 실행하는 방법을 배웁니다."
+   pageTitle="Use Hadoop Hive and Remote Desktop in HDInsight | Microsoft Azure"
+   description="Learn how to connect to Hadoop cluster in HDInsight by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -17,39 +17,40 @@
    ms.date="09/06/2016"
    ms.author="larryfr"/>
 
-# 원격 데스크톱을 사용하여 HDInsight에서 Hadoop과 Hive 사용
+
+# <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Use Hive with Hadoop on HDInsight with Remote Desktop
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 실행하는 방법을 배웁니다.
+In this article, you will learn how to connect to an HDInsight cluster by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface (CLI).
 
-> [AZURE.NOTE] 이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
+> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information about the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
 
-##<a id="prereq"></a>필수 조건
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Prerequisites
 
-이 문서의 단계를 완료하려면 다음이 필요합니다.
+To complete the steps in this article, you will need the following:
 
-* Windows 기반 HDInsight(HDInsight의 Hadoop) 클러스터
+* A Windows-based HDInsight (Hadoop on HDInsight) cluster
 
-* Windows 10, Window 8 또는 Windows 7을 실행하는 클라이언트 컴퓨터
+* A client computer running Windows 10, Window 8, or Windows 7
 
-##<a id="connect"></a>원격 데스크톱을 사용하여 연결
+##<a name="<a-id="connect"></a>connect-with-remote-desktop"></a><a id="connect"></a>Connect with Remote Desktop
 
-HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)의 지침에 따라 연결합니다.
+Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-##<a id="hive"></a>Hive 명령 사용
+##<a name="<a-id="hive"></a>use-the-hive-command"></a><a id="hive"></a>Use the Hive command
 
-HDInsight 클러스터용 데스크톱에 연결되면, Hive에서 작업하기 위해 다음 단계를 사용합니다.
+When you have connected to the desktop for the HDInsight cluster, use the following steps to work with Hive:
 
-1. HDInsight 데스크톱에서 **Hadoop 명령줄**을 시작합니다.
+1. From the HDInsight desktop, start the **Hadoop Command Line**.
 
-2. Hive CLI를 시작하려면 다음 명령을 입력합니다.
+2. Enter the following command to start the Hive CLI:
 
         %hive_home%\bin\hive
 
-    CLI가 시작되면 Hive CLI 프롬프트 `hive>`가 표시됩니다.
+    When the CLI has started, you will see the Hive CLI prompt: `hive>`.
 
-3. CLI에서 다음 문을 입력하여 샘플 데이터를 사용하는 **log4jLogs**라는 새 테이블을 만듭니다.
+3. Using the CLI, enter the following statements to create a new table named **log4jLogs** using sample data:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -58,67 +59,67 @@ HDInsight 클러스터용 데스크톱에 연결되면, Hive에서 작업하기 
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    이러한 문은 다음 작업을 수행합니다.
+    These statements perform the following actions:
 
-    * **DROP TABLE**: 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
+    * **DROP TABLE**: Deletes the table and the data file if the table already exists.
 
-    * **CREATE EXTERNAL TABLE**: Hive에서 새 ‘외부’ 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
+    * **CREATE EXTERNAL TABLE**: Creates a new 'external' table in Hive. External tables store only the table definition in Hive (the data is left in the original location).
 
-		> [AZURE.NOTE] 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
-    	>
-    	> 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
+        > [AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
+        >
+        > Dropping an external table does **not** delete the data, only the table definition.
 
-	* **ROW FORMAT**: 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
+    * **ROW FORMAT**: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
 
-    * **STORED AS TEXTFILE LOCATION**: 데이터가 저장된 위치(example/data 디렉터리)에 텍스트로 저장되었음을 Hive에 알립니다.
+    * **STORED AS TEXTFILE LOCATION**: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
 
-    * **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
+    * **SELECT**: Selects a count of all rows where column **t4** contains the value **[ERROR]**. This should return a value of **3** because there are three rows that contain this value.
 
-    * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
+    * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
 
 
-4. 다음 문을 사용하여 **errorLogs**라는 새 ‘내부' 테이블을 만듭니다.
+4. Use the following statements to create a new 'internal' table named **errorLogs**:
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    이러한 문은 다음 작업을 수행합니다.
+    These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS**: 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으면 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는 내부 테이블입니다.
+    * **CREATE TABLE IF NOT EXISTS**: Creates a table if it does not already exist. Because the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
 
-		> [AZURE.NOTE] **EXTERNAL** 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
+        > [AZURE.NOTE] Unlike **EXTERNAL** tables, dropping an internal table also deletes the underlying data.
 
-    * **STORED AS ORC**: 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
+    * **STORED AS ORC**: Stores the data in optimized row columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
 
-    * **덮어쓰기 삽입... SELECT**: **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
+    * **INSERT OVERWRITE ... SELECT**: Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
-    t4 열에 **[ERROR]**가 포함된 행만 **errorLogs** 테이블에 저장되었는지 확인하려면 다음 문을 사용하여 **errorLogs**의 모든 행을 반환합니다.
+    To verify that only rows that contain **[ERROR]** in column t4 were stored to the **errorLogs** table, use the following statement to return all the rows from **errorLogs**:
 
         SELECT * from errorLogs;
 
-    데이터 중 t4 열에 모두 **[ERROR]**가 포함된 3개 행이 반환되어야 합니다.
+    Three rows of data should be returned, all containing **[ERROR]** in column t4.
 
-##<a id="summary"></a>요약
+##<a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Summary
 
-여기에서 볼 수 있듯이 Hive 명령은 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 제공합니다.
+As you can see, the the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
 
-##<a id="nextsteps"></a>다음 단계
+##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Next steps
 
-HDInsight의 Hive에 대한 일반적인 정보:
+For general information about Hive in HDInsight:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
+For information about other ways you can work with Hadoop on HDInsight:
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문서를 참조하세요.
+If you are using Tez with Hive, see the following documents for debugging information:
 
-* [Windows 기반 HDInsight 클러스터에서 Tez UI 사용](hdinsight-debug-tez-ui.md)
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
 
-* [Linux 기반 HDInsight에서 Ambari Tez 보기 사용](hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -150,4 +151,9 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 [Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

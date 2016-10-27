@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(PolyBase) | Microsoft Azure"
-   description="bcp를 사용하여 SQL Server에서 플랫 파일로 데이터를 내보내고 AZCopy를 사용하여 Azure Blob 저장소로 데이터를 가져오고, PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 수집합니다."
+   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Microsoft Azure"
+   description="Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="ckarst"
@@ -17,41 +17,42 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
-# SQL 데이터 웨어하우스에서 PolyBase를 사용하여 데이터 로드
+
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Load data with PolyBase in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 - [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 - [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
-이 자습서는 AzCopy 및 PolyBase를 사용하여 SQL 데이터 웨어하우스로 데이터를 로드하는 방법을 보여줍니다. 자습서를 마치면 다음과 같은 방법을 알게 됩니다.
+This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
 
-- AzCopy를 사용하여 Azure Blob 저장소에 데이터 복사
-- 데이터를 정의하는 데이터베이스 개체 만들기
-- 데이터를 로드하는 T-SQL 쿼리 실행
+- Use AzCopy to copy data to Azure blob storage
+- Create database objects to define the data
+- Run a T-SQL query to load the data
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
 
-## 필수 조건
+## <a name="prerequisites"></a>Prerequisites
 
-이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
+To step through this tutorial, you need
 
-- SQL 데이터 웨어하우스 데이터베이스
-- 표준 로컬 중복 저장소(표준-LRS), 표준 지역 중복 저장소(표준-GRS) 또는 표준 읽기 액세스 지역 중복 저장소(표준-RAGRS) 유형의 Azure 저장소 계정
-- AzCopy 명령줄 유틸리티. Microsoft Azure 저장소 도구와 함께 설치되는 [AzCopy 최신 버전][]을 다운로드하여 설치합니다.
+- A SQL Data Warehouse database.
+- An Azure storage account of type Standard Locally Redundant Storage (Standard-LRS), Standard Geo-Redundant Storage (Standard-GRS), or Standard Read-Access Geo-Redundant Storage (Standard-RAGRS).
+- AzCopy Command-Line Utility. Download and install the [latest version of AzCopy][] which is installed with the Microsoft Azure Storage Tools.
 
-    ![Azure 저장소 도구](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
+    ![Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## 1단계: Azure Blob 저장소에 샘플 데이터 추가
+## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Step 1: Add sample data to Azure blob storage
 
-데이터를 로드하려면, Azure Blob 저장소에 샘플 데이터를 넣어야 합니다. 이 단계에서는 Azure Blob 저장소를 샘플 데이터로 채웁니다. 나중에 PolyBase를 사용하여 SQL 데이터 웨어하우스 데이터베이스로 이 샘플 데이터를 로드하게 됩니다.
+In order to load data, we need to put some sample data into an Azure blob storage. In this step we populate an Azure Storage blob with sample data. Later, we will use PolyBase to load this sample data into your SQL Data Warehouse database.
 
-### A. 샘플 텍스트 파일 준비
+### <a name="a.-prepare-a-sample-text-file"></a>A. Prepare a sample text file
 
-샘플 텍스트 파일을 준비하려면:
+To prepare a sample text file:
 
-1. 메모장을 열고 새 파일로 다음 데이터 줄을 복사합니다. 이것을 로컬 temp 디렉터리에 %temp%\\DimDate2.txt로 저장합니다.
+1. Open Notepad and copy the following lines of data into a new file. Save this to your local temp directory as %temp%\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -68,77 +69,77 @@
 20150101,1,3
 ```
 
-### B. Blob 서비스 끝점 찾기
+### <a name="b.-find-your-blob-service-endpoint"></a>B. Find your blob service endpoint
 
-Blob 서비스 끝점을 찾으려면:
+To find your blob service endpoint:
 
-1. Azure 포털에서 **찾아보기** > **저장소 계정**을 선택합니다.
-2. 사용하려는 저장소 계정을 클릭합니다.
-3. 저장소 계정 블레이드에서 BLOB을 클릭합니다.
+1. From the Azure Portal select **Browse** > **Storage Accounts**.
+2. Click the storage account you want to use.
+3. In the Storage account blade, click Blobs
 
-    ![BLOB 클릭](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
+    ![Click Blobs](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
 
-1. 나중을 위해 Blob 서비스 끝점 URL을 저장합니다.
+1. Save your blob service endpoint URL for later.
 
-    ![Blob 서비스 끝점](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
+    ![Blob service endpoint](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Azure 저장소 키 찾기
+### <a name="c.-find-your-azure-storage-key"></a>C. Find your Azure storage key
 
-Azure 저장소 키를 찾으려면:
+To find your Azure storage key:
 
-1. Azure 포털에서 **찾아보기** > **저장소 계정**을 선택합니다.
-2. 사용하려는 저장소 계정을 클릭합니다.
-3. **모든 설정** > **선택키**를 선택합니다.
-4. 복사 상자를 클릭하여 선택키 중 하나를 클립보드에 복사합니다.
+1. From the Azure Portal, select **Browse** > **Storage Accounts**.
+2. Click on the storage account you want to use.
+3. Select **All settings** > **Access keys**.
+4. Click the copy box to copy one of your access keys to the clipboard.
 
-    ![Azure 저장소 키 복사](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
+    ![Copy Azure storage key](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. 샘플 파일을 Azure Blob 저장소에 복사
+### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Copy the sample file to Azure blob storage
 
-데이터를 Azure Blob 저장소에 복사하려면:
+To copy your data to Azure blob storage:
 
-1. 명령 프롬프트를 열고 디렉터리를 AzCopy 설치 디렉터리로 변경합니다. 이 명령은 64비트 Windows 클라이언트의 기본 설치 디렉터리로 변경합니다.
+1. Open a command prompt, and change directories to the AzCopy installation directory. This command changes to the default installation directory on a 64-bit Windows client.
 
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. 다음 명령을 실행하여 파일을 업로드합니다. <Blob 서비스 끝점 URL>에 Blob 서비스 끝점 URL을 지정하고 <azure\_storage\_account\_key>에 Azure 저장소 계정 키를 지정합니다.
+1. Run the following command to upload the file. Specify your blob service endpoint URL for <blob service endpoint URL> and your Azure storage account key for <azure_storage_account_key>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-[AzCopy 명령줄 유틸리티 시작][latest version of AzCopy]을 참조하세요.
+See also [Getting Started with the AzCopy Command-Line Utility][latest version of AzCopy].
 
-### E. Blob 저장소 컨테이너 탐색
+### <a name="e.-explore-your-blob-storage-container"></a>E. Explore your blob storage container
 
-Blob 저장소에 업로드한 파일을 보려면:
+To see the file you uploaded to blob storage:
 
-1. Blob 서비스 블레이드로 돌아갑니다.
-2. 컨테이너에서 **datacontainer**를 두 번 클릭합니다.
-3. 데이터가 있는 경로로 이동하려는 경우 **datedimension** 폴더를 클릭하면 업로드한 **DimDate2.txt** 파일이 표시됩니다.
-4. 속성을 보려면 **DimDate2.txt**를 클릭합니다.
-5. Blob 속성 블레이드에서 파일을 다운로드하거나 삭제할 수 있습니다.
+1. Go back to your Blob service blade.
+2. Under Containers, double-click **datacontainer**.
+3. To explore the path to your data, click the folder **datedimension** and you will see your uploaded file **DimDate2.txt**.
+4. To view properties, click **DimDate2.txt**.
+5. Note that in the Blob properties blade, you can download or delete the file.
 
-    ![Azure 저장소 Blob 보기](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
+    ![View Azure storage blob](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## 2단계: 샘플 데이터에 대한 외부 테이블 만들기
+## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Step 2: Create an external table for the sample data
 
-이 섹션에서는 샘플 데이터를 정의하는 외부 테이블을 만듭니다.
+In this section we create an external table that defines the sample data.
 
-PolyBase는 외부 테이블을 사용하여 Azure Blob 저장소의 데이터에 액세스합니다. 데이터가 SQL 데이터 웨어하우스 내에 저장되지 않기 때문에, PolyBase는 데이터베이스-범위 자격 증명을 사용하여 외부 데이터에 대한 인증을 처리합니다.
+PolyBase uses external tables to access data in Azure blob storage. Since the data is not stored within SQL Data Warehouse, PolyBase handles authentication to the external data by using a database-scoped credential.
 
-이 단계의 예제는 다음 Transact-SQL 문을 사용하여 외부 테이블을 만듭니다.
+The example in this step uses these Transact-SQL statements to create an external table.
 
-- [마스터 키 만들기(Transact-SQL)][]\: 데이터베이스 범위 자격 증명의 암호를 암호화합니다.
-- [데이터베이스 범위 자격 증명 만들기(Transact-SQL)][]\: Azure 저장소 계정에 대한 인증 정보를 지정합니다.
-- [외부 데이터 원본 만들기(Transact-SQL)][]\: Azure Blob 저장소의 위치를 지정합니다.
-- [외부 파일 형식 만들기(Transact-SQL)][]\: 데이터의 형식을 지정합니다.
-- [외부 테이블 만들기(Transact-SQL)][]\: 테이블 정의 및 데이터의 위치를 지정합니다.
+- [Create Master Key (Transact-SQL)][] to encrypt the secret of your database scoped credential.
+- [Create Database Scoped Credential (Transact-SQL)][] to specify authentication information for your Azure storage account.
+- [Create External Data Source (Transact-SQL)][] to specify the location of your Azure blob storage.
+- [Create External File Format (Transact-SQL)][] to specify the format of your data.
+- [Create External Table (Transact-SQL)][] to specify the table definition and location of the data.
 
-SQL 데이터 웨어하우스 데이터베이스에 대해 이 쿼리를 실행합니다. Azure Blob 저장소의 샘플 데이터 DimDate2.txt를 가리키는 dbo 스키마에 DimDate2External이라는 이름의 외부 테이블이 생성됩니다.
+Run this query against your SQL Data Warehouse database. It will create an external table named DimDate2External in the dbo schema that points to the DimDate2.txt sample data in the Azure blob storage.
 
 
 ```sql
@@ -210,16 +211,16 @@ SELECT count(*) FROM dbo.DimDate2External;
 ```
 
 
-Visual Studio의 SQL Server 개체 탐색기에 외부 파일 형식, 외부 데이터 원본, DimDate2External 테이블이 표시됩니다.
+In SQL Server Object Explorer in Visual Studio, you can see the external file format, external data source, and the DimDate2External table.
 
-![외부 테이블 보기](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
+![View external table](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## 3단계: SQL 데이터 웨어하우스에 데이터 로드
+## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Step 3: Load data into SQL Data Warehouse
 
-외부 테이블이 생성되면, 새 테이블에 데이터를 로드하거나 기존 테이블에 데이터를 삽입할 수 있습니다.
+Once the external table is created, you can either load the data into a new table or insert it into an existing table.
 
-- 새 테이블로 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][] 문을 실행합니다. 새 테이블에는 쿼리에 명명된 열이 포함됩니다. 열의 데이터 형식은 외부 테이블 정의에 있는 데이터 형식과 일치합니다.
-- 기존 테이블에 데이터를 로드하려면 [INSERT...SELECT (Transact-SQL)][] 문을 사용합니다.
+- To load the data into a new table, run the [CREATE TABLE AS SELECT (Transact-SQL)][] statement. The new table will have the columns named in the query. The data types of the columns will match the data types in the external table definition.
+- To load the data into an existing table, use the [INSERT...SELECT (Transact-SQL)][] statement.
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -234,11 +235,11 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## 4단계: 새로 로드한 데이터에 대한 통계 만들기
+## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Step 4: Create statistics on your newly loaded data
 
-SQL 데이터 웨어하우스는 통계 자동 만들기 또는 자동 업데이트를 수행하지 않습니다. 따라서 높은 쿼리 성능을 달성하려면, 처음 로드한 후에 각 테이블의 각 열에 대한 통계를 만드는 것이 중요합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다.
+SQL Data Warehouse does not auto-create or auto-update statistics. Therefore, to achieve high query performance, it's important to create statistics on each column of each table after the first load. It's also important to update statistics after substantial changes in the data.
 
-이 예제는 새 DimDate2 테이블에 단일 열 통계를 만듭니다.
+This example creates single-column statistics on the new DimDate2 table.
 
 ```sql
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
@@ -246,11 +247,11 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-자세한 내용은 [통계][]를 참조하세요.
+To learn more, see [Statistics][].  
 
 
-## 다음 단계
-PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적인 내용은 [PolyBase 가이드][]를 참조하세요.
+## <a name="next-steps"></a>Next steps
+See the [PolyBase guide][] for further information you should know as you develop a solution that uses PolyBase.
 
 <!--Image references-->
 
@@ -258,10 +259,9 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 <!--Article references-->
 [PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[PolyBase 가이드]: ./sql-data-warehouse-load-polybase-guide.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
 [latest version of AzCopy]: ../storage/storage-use-azcopy.md
-[AzCopy 최신 버전]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -270,19 +270,23 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
-[외부 데이터 원본 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[외부 파일 형식 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/dn935026.aspx
-[외부 테이블 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
-[CREATE TABLE AS SELECT(Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[INSERT...SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/ms174335.aspx
-[마스터 키 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
-[데이터베이스 범위 자격 증명 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
+[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

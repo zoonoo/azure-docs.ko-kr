@@ -1,22 +1,22 @@
-[여기][namespace-how-to]와 같이 서비스 버스 네임스페이스를 만들었는지 확인합니다.
+Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
 
-1. [Azure 포털][azure-portal]에 로그온합니다.
+1. Log on to the [Azure portal][azure-portal].
 
-2. 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
+2. In the left navigation pane of the portal, click **Service Bus**.
 
-3. 큐를 만들려는 네임스페이스를 선택합니다. 이 경우 **nstest1**입니다.
+3. Select the namespace that you would like to create the queue in. In this case, it is **nstest1**.
 
-    ![큐 만들기][createqueue1]
+    ![Create a queue][createqueue1]
 
-4. **서비스 버스 네임스페이스** 블레이드에서 **큐**를 선택한 다음 **큐 추가**를 클릭합니다.
+4. In the **Service Bus namespace** blade, select **Queues**, then click **Add queue**.
 
-    ![큐 선택][createqueue2]
+    ![Select Queues][createqueue2]
 
-5. **큐 이름**을 입력하고 다른 값을 기본값으로 유지합니다.
+5. Enter the **Queue Name** and leave the other values with their defaults.
 
-    ![새로 만들기 선택][createqueue3]
+    ![Select New][createqueue3]
 
-7. 블레이드 하단에서 **만들기**를 클릭합니다.
+7. At the bottom of the blade, click **Create**.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
@@ -25,4 +25,6 @@
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

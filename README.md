@@ -1,102 +1,126 @@
-# Azure 기술 문서 참여자 가이드
+# <a name="azure-technical-documentation-contributor-guide"></a>Azure Technical Documentation Contributor Guide
 
-Azure 설명서 센터에 게시된 기술 문서에 대한 원본을 저장하는 GitHub 리포지토리는 [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation)에서 찾습니다.
+You've found the GitHub repository that houses the source for the technical documentation that is published to the Azure Documentation Center at [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation).
 
-또한 이 리포지토리는 기술 설명서에 참가하는 데 도움이 되는 지침을 포함합니다. 참여자의 가이드에서 문서 목록은 [인덱스](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md)를 참조하세요.
+This repository also contains guidance to help you contribute to our technical documentation.  For a list of the articles in the contributors' guide, see [the index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
 
-## Azure 문서에 참가
+## <a name="contribute-to-azure-documentation"></a>Contribute to Azure documentation
 
-Azure 문서에 관심을 가져 주셔서 감사합니다.
+Thank you for your interest in Azure documentation!
 
-* [참가 방법](#참가-방법)
-* [Azure 콘텐츠에 참가 방법](#azure-콘텐츠에-참가-방법)
-* [리포지토리 조직](#리포지토리-조직)
-* [GitHub, Git 및 이 리포지토리 사용](#github-git-및-이-리포지토리-사용)
-* [항목의 서식을 지정하는 마크다운을 사용하는 방법](#항목의-서식을-지정하는-마크다운을-사용하는-방법)
-* [추가 리소스](#추가-리소스)
-* [모든 참여자 가이드 문서의 인덱스](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md)(새 페이지를 엽니다)
+* [Ways to contribute](#ways-to-contribute)
+* [Code of conduct](#code-of-conduct)
+* [About your contributions to Azure content](#about-your-contributions-to-azure-content)
+* [Repository organization](#repository-organization)
+* [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
+* [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
+* [Feedback, comments, and support](./contributor-guide/feedback-and-comments.md)
+* [More resources](#more-resources)
+* [Index of all contributors' guide articles](./contributor-guide/contributor-guide-index.md) (opens new page)
 
-## 참가 방법
+## <a name="ways-to-contribute"></a>Ways to contribute 
 
-GitHub 사용자 인터페이스에서 기술 문서에 쉽게 참여할 수 있습니다. 이 레포지토리에서 문서를 찾거나 [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation)의 문서를 방문하여 문서에 대한 GitHub 원본으로 이동하는 문서의 링크를 클릭합니다.
+You can contribute to [Azure documentation](http://azure.microsoft.com/documentation/) in a few different ways:
 
-##Azure 콘텐츠에 참가 방법
+* Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* Submit Disqus comments at the bottom of articles.
+* You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) and click the link in the article that goes to the GitHub source for the article.
+* If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands.
 
-###사소한 수정
+##<a name="code-of-conduct"></a>Code of conduct
 
-이 레포지토리의 설명서 및 코드 예제에 대해 제출한 사소한 수정 또는 확인된 내용은 [Azure 웹 사이트 사용 약관(ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/)에서 다룹니다.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+##<a name="about-your-contributions-to-azure-content"></a>About your contributions to Azure content
+
+###<a name="minor-corrections"></a>Minor corrections
+
+Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/).
 
 
-###대규모 제출
+###<a name="larger-submissions"></a>Larger submissions
 
-설명서 및 코드 예제에 새롭거나 중요한 변경 내용을 통해 끌어오기 요청을 제출하면 다음과 같은 그룹에 있는 경우 온라인 참가 사용권 계약(CLA)을 제출하라고 요청하는 GitHub의 주석을 보냅니다.
+If you submit a pull request with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are in one of these groups:
 
-* Microsoft Open Technologies 그룹의 멤버입니다.
-* Microsoft 직원이 아닌 참가자입니다.
+* Members of the Microsoft Open Technologies group.
+* Contributors who don't work for Microsoft.
 
-끌어오기 요청을 수락할 수 있기 전에 온라인 양식을 완료해야 합니다.
+We need you to complete the online form before we can accept your pull request.
 
-전체 세부 사항은 [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla)에서 확인할 수 있습니다.
+Full details are available at [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
 
-## 리포지토리 조직
+## <a name="repository-organization"></a>Repository organization
 
-azure-content 리포지토리의 내용은 [Azure.Microsoft.com](http://azure.microsoft.com)에 있는 설명서의 구성을 따릅니다. 이 리포지토리에는 두 개의 루트 폴더가 포함됩니다.
+The content in the azure-content repository follows the organization of documentation on [Azure.Microsoft.com](http://azure.microsoft.com). This repository contains two root folders:
 
-### \articles
+### <a name="\articles"></a>\articles
 
-*\articles* 폴더는 *.md* 확장을 사용하여 마크다운 파일 형식의 설명서를 포함합니다.
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension.
 
-루트 디렉터리의 문서는 경로 *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*의 Azure.Microsoft.com에 게시됩니다.
+Articles in the root directory are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
-* **문서 파일 이름:** [파일 명명 지침](https://github.com/Azure/azure-content/blob/master/contributor-guide/file-names-and-locations.md)을 참조하세요.
+* **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md).
 
-고유한 서비스 폴더 내의 문서는 경로 
-*http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*의 Azure.Microsoft.com에 게시됩니다
+Articles within their own service folder are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
 
-* **미디어 하위 폴더:** *\articles* 폴더는 루트 디렉터리 문서 미디어 파일에 대한 *\media* 폴더를 포함하며 이 안에는 각 아티클에 대한 이미지가 담긴 하위 폴더가 있습니다. 서비스 폴더는 각 서비스 폴더 내에서 문서에 대한 별도의 미디어 폴더를 포함합니다. 문서 이미지 폴더는 *.md* 파일 확장을 뺀 문서 파일과 이름이 동일합니다.
+* **Media subfolders:** The *\articles* folder contains the *\media* folder for root directory article media files, inside which are subfolders with the images for each article.  The service folders contain a separate media folder for the articles within each service folder. The article image folders are named identically to the article file, minus the *.md* file extension.
 
-### \includes
+### <a name="\includes"></a>\includes
 
-하나 이상의 문서에 포함될 재사용 가능한 콘텐츠 섹션을 만들 수 있습니다. [기술 콘텐츠에 사용되는 사용자 지정 확장](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md)을 참조하세요.
+You can create reusable content sections to be included in one or more articles. See [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md).
 
-### \markdown templates
+### <a name="\markdown-templates"></a>\markdown templates
 
-이 폴더는 문서에 필요한 기본 마크다운 서식을 사용하는 표준 마크다운 템플릿이 포함됩니다.
+This folder contains our standard markdown template with the basic markdown formatting you need for an article.
 
-### \contributor-guide
+### <a name="\contributor-guide"></a>\contributor-guide
 
-이 폴더는 참여자의 가이드 중 일부인 문서를 포함합니다.
+This folder contains articles that are part of our contributors' guide.  
 
-## GitHub, Git 및 이 리포지토리 사용
+## <a name="use-github,-git,-and-this-repository"></a>Use GitHub, Git, and this repository
 
-참가하는 방법, 몇 가지 변경에 참가하는 GitHub UI를 사용하는 방법 및 중요한 참가에 대한 리포지토리를 분기 및 복제하는 방법에 대한 내용은 [GitHub에서 작성을 위한 도구 설치 및 설정](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md)을 참조하세요.
+For information about how to contribute, how to use the GitHub UI to contribute small changes, and how to fork and clone the repository for more significant contributions, see [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md).
 
-GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작업 분기를 만들고 내용을 변경하며 주요 분기에 변경 내용을 다시 제출하는 단계는 [새 문서를 만들거나 기존 문서를 업데이트하기 위한 Git 명령](https://github.com/Azure/azure-content/blob/master/contributor-guide/git-commands-for-master.md)에 나열됩니다.
+If you install GitBash and choose to work locally, the steps for creating a new local working branch, making changes, and submitting the changes back to the main branch are listed in [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md)
 
-### 분기
+### <a name="branches"></a>Branches
 
-변경의 특정 범위를 대상으로 하는 로컬 작업 분기를 만드는 것이 좋습니다. 각 분기는 모두 단일 개념/문서로 제한하여 워크플로를 간소화하고 병합 충돌의 가능성을 줄여야 합니다. 다음은 새 분기에 대한 적절한 범위입니다.
+We recommend that you create local working branches that target a specific scope of change. Each branch should be limited to a single concept/article both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
-* 새 문서(및 연결된 이미지)
-* 문서의 맞춤법 및 문법 편집입니다.
-* 많은 문서 집합에 단일 서식 변경 내용을 적용합니다.(예: 새 저작권 바닥글)
+* A new article (and associated images)
+* Spelling and grammar edits on an article.
+* Applying a single formatting change across a large set of articles (e.g. new copyright footer).
 
-## 항목의 서식을 지정하는 마크다운을 사용하는 방법
+## <a name="how-to-use-markdown-to-format-your-topic"></a>How to use markdown to format your topic
 
-이 레포지토리의 모든 문서는 GitHub 버전의 마크다운을 사용합니다. 다음은 리소스 목록입니다.
+All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.
 
-- [마크다운 기본 사항](https://help.github.com/articles/markdown-basics/)
+- [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
-- [인쇄 가능한 마크다운 치트 시트](https://github.com/Azure/azure-content/blob/master/contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-- 마크다운 편집기의 목록은 [도구 및 설치 항목](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#install-a-markdown-editor)을 참조하세요.
+- For our list of markdown editors, see the [tools and setup topic](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
-## 문서 메타데이터
+## <a name="article-metadata"></a>Article metadata
 
-문서 메타데이터를 사용하면 azure.microsoft.com 웹 사이트에서 작성자 특성, 참여자 특성, 이동 경로, 문서 설명 및 SEO 최적화 뿐만 아니라 Microsoft가 콘텐츠의 성능을 평가하는 데 사용하는 보고 등과 같은 특정 기능을 사용할 수 있습니다. 따라서 메타데이터는 중요합니다! [메타데이터가 제대로 수행되도록 하기 위한 지침은 다음과 같습니다](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md).
+Article metadata enables certain functionalities on the azure.microsoft.com web site, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! [Here's the guidance for making sure your metadata is done right](./contributor-guide/article-metadata.md).
 
-## 추가 리소스
+### <a name="labels"></a>Labels
 
-모든 지침 항목은 [참가자 가이드의 인덱스](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md)를 참조하세요.
+Automated labels are assigned to pull requests to help us manage the pull request workflow and to help let you know what's going on with your pull request:
 
-<!----HONumber=AcomDC_0307_2016-->
+* Contribution License Agreement related
+    * cla-not-required: The change is relatively minor and does not require that you sign a CLA.
+    * cla-required: The scope of the change is relatively large and requires that you sign a CLA.
+    * cla-signed: The contributor signed the CLA, so the pull request can now move forward for review.
+* Pillar labels: Labels such as PnP, Modern Apps, and TDC help categorize the pull requests by the internal organization that needs to review the pull request.
+* Change sent to author: The author has been notified of the pending pull request.
+
+## <a name="more-resources"></a>More resources
+
+See the [index of our contributor's guide](./contributor-guide/contributor-guide-index.md) for all our guidance topics.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

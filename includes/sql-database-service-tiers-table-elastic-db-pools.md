@@ -1,69 +1,72 @@
 
-### 기본 탄력적 풀 제한
+### <a name="basic-elastic-pool-limits"></a>Basic elastic pool limits
 
-| | |
+|   |  |
 |---|:---:|
-| 풀당 최대 eDTU 수 | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| 풀당 최대 저장소(GB)*| &nbsp;&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117 |
-| 풀당 최대 데이터베이스 수 | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| 풀당 최대 메모리 내 OLTP 저장소(GB)| 해당 없음 |
-| 풀당 최대 동시 작업자 | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| 풀당 최대 동시 로그인 | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| 풀당 최대 동시 세션 | 4800 &nbsp;9600 &nbsp; 19200 &nbsp; 28800 &nbsp; 28800 |
-| 데이터베이스당 최대 eDTU* | 5 |
-| 데이터베이스당 최소 eDTU* | 0,5 |
-| 데이터베이스당 최대 저장소(GB)** | 2 |
-| 특정 시점 복원 | 최근 7일 이내 임의의 시점 |
-| 재해 복구 | 활성 지역 복제 |
+| Max eDTUs per pool | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
+| Max storage per pool (GB)*| &nbsp;&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117 |
+| Max number of databases per pool | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
+| Max in-memory OLTP storage (GB) per pool| N/A |
+| Max concurrent workers per pool | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
+| Max concurrent logins per pool | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
+| Max concurrent sessions per pool | 4800 &nbsp;9600 &nbsp; 19200 &nbsp; 28800 &nbsp; 28800 |
+| Max eDTUs per database* | 5 |
+| Min eDTUs per database* | 0,5 |
+| Max storage per database (GB)** | 2 |
+| Point-in-time-restore | Any point last 7 days |
+| Disaster recovery | Active Geo-Replication |
 |||
 
-* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다.
+* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
 
-** Elastic Database는 풀 저장소를 공유하므로 데이터베이스 저장소는 남은 풀 저장소 또는 데이터베이스당 최대 저장소 중 작은 값으로 제한됩니다.
+** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
 
 
-### 표준 탄력적 풀 제한
+### <a name="standard-elastic-pool-limits"></a>Standard elastic pool limits
 
-| | |
+|   |  |
 |---|:---:|
-| 풀당 최대 eDTU 수 | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| 풀당 최대 저장소(GB)*| &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| 풀당 최대 데이터베이스 수 | &nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| 풀당 최대 메모리 내 OLTP 저장소(GB)| 해당 없음 |
-| 풀당 최대 동시 작업자 | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| 풀당 최대 동시 로그인 | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| 풀당 최대 동시 세션 | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| 데이터베이스당 최대 eDTU* | 10, 20, 50, 100 |
-| 데이터베이스당 최소 eDTU* | 0, 10, 20, 50, 100 |
-| 데이터베이스당 최대 저장소(GB)** | 250 |
-| 특정 시점 복원 | 최근 35일 이내 임의의 시점 |
-| 재해 복구 | 활성 지역 복제 |
+| Max eDTUs per pool | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
+| Max storage per pool (GB)*| &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
+| Max number of databases per pool | &nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
+| Max in-memory OLTP storage (GB) per pool| N/A |
+| Max concurrent workers per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
+| Max concurrent logins per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
+| Max concurrent sessions per pool | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
+| Max eDTUs per database* | 10, 20, 50, 100 |
+| Min eDTUs per database* | 0, 10, 20, 50, 100 |
+| Max storage per database (GB)** | 250 |
+| Point-in-time-restore | Any point last 35 days |
+| Disaster recovery | Active Geo-Replication |
 |||
 
-* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다.
+* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
 
-** Elastic Database는 풀 저장소를 공유하므로 데이터베이스 저장소는 남은 풀 저장소 또는 데이터베이스당 최대 저장소 중 작은 값으로 제한됩니다.
+** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
 
-### 프리미엄 탄력적 풀 제한
+### <a name="premium-elastic-pool-limits"></a>Premium elastic pool limits
 
-| | |
+|   |  |
 |---|:---:|
-| 풀당 최대 eDTU 수 | 125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
-| 풀당 최대 저장소(GB)*| 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 750 |
-| 풀당 최대 데이터베이스 수 | 50 |
-| 풀당 최대 메모리 내 OLTP 저장소(GB)| 해당 없음 |
-| 풀당 최대 동시 작업자 | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| 풀당 최대 동시 로그인 | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| 풀당 최대 동시 세션 | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| 데이터베이스당 최대 eDTU* | 125, 250, 500, 1000 |
-| 데이터베이스당 최소 eDTU* | 0, 125, 250, 500, 1000 |
-| 데이터베이스당 최대 저장소(GB)** | 500 |
-| 특정 시점 복원 | 최근 35일 이내 임의의 시점 |
-| 재해 복구 | 활성 지역 복제 |
+| Max eDTUs per pool | 125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
+| Max storage per pool (GB)*| 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 750 |
+| Max number of databases per pool | 50 |
+| Max in-memory OLTP storage (GB) per pool| N/A |
+| Max concurrent workers per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
+| Max concurrent logins per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
+| Max concurrent sessions per pool | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
+| Max eDTUs per database* | 125, 250, 500, 1000 |
+| Min eDTUs per database* | 0, 125, 250, 500, 1000 |
+| Max storage per database (GB)** | 500 |
+| Point-in-time-restore | Any point last 35 days |
+| Disaster recovery | Active Geo-Replication |
 |||
 
-* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다.
+* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
 
-** Elastic Database는 풀 저장소를 공유하므로 데이터베이스 저장소는 남은 풀 저장소 또는 데이터베이스당 최대 저장소 중 작은 값으로 제한됩니다.
+** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

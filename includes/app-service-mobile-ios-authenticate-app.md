@@ -1,6 +1,6 @@
-**Objective-C**:
+**Objective-C**: 
 
-1. Mac에서 Xcode를 사용하여 _QSTodoListViewController.m_을 열고 다음 메서드를 추가합니다. Google을 ID 공급자로 사용하지 않는 경우 _google_을 _microsoftaccount_, _twitter_, _facebook_ 또는 _windowsazureactivedirectory_로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다](https://developers.facebook.com/docs/ios/ios9#whitelist).
+1. On your Mac, open _QSTodoListViewController.m_ in Xcode and add the following method. Change _google_ to _microsoftaccount_, _twitter_, _facebook_, or _windowsazureactivedirectory_ if you're not using Google as your identity provider. If you use Facebook, [you will need to whitelist Facebook domains in your app](https://developers.facebook.com/docs/ios/ios9#whitelist).
 
             - (void) loginAndGetData
             {
@@ -15,15 +15,15 @@
             }
 
 
-2. _QSTodoListViewController.m_에서 `viewDidLoad`의 `[self refresh]`을 다음으로 바꿉니다.
+2. Replace `[self refresh]` in `viewDidLoad` in _QSTodoListViewController.m_ with the following:
 
             [self loginAndGetData];
 
-3. _Run_을 눌러 앱을 시작한 다음 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
+3. Press  _Run_ to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
 
 **Swift**:
 
-1. Mac의 Xcode에서 _ToDoTableViewController.swift_를 열고 다음 메서드를 추가합니다. Google을 ID 공급자로 사용하지 않는 경우 _google_을 _microsoftaccount_, _twitter_, _facebook_ 또는 _windowsazureactivedirectory_로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다](https://developers.facebook.com/docs/ios/ios9#whitelist).
+1. On your Mac, open _ToDoTableViewController.swift_ in Xcode and add the following method. Change _google_ to _microsoftaccount_, _twitter_, _facebook_, or _windowsazureactivedirectory_ if you're not using Google as your identity provider. If you use Facebook, [you will need to whitelist Facebook domains in your app](https://developers.facebook.com/docs/ios/ios9#whitelist).
         
             func loginAndGetData() {
                 
@@ -38,10 +38,13 @@
             }
 
 
-2. _ToDoTableViewController.swift_에 있는 `viewDidLoad()`의 끝에서 `self.refreshControl?.beginRefreshing()` 및 `self.onRefresh(self.refreshControl)` 줄을 제거합니다. 그 자리에 `loginAndGetData()`에 대한 호출을 추가합니다.
+2. Remove the lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the end of `viewDidLoad()` in _ToDoTableViewController.swift_. Add a call to `loginAndGetData()` in their place:
 
             loginAndGetData()
 
-3. _Run_을 눌러 앱을 시작한 다음 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
+3. Press  _Run_ to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
 
-<!---HONumber=AcomDC_0218_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

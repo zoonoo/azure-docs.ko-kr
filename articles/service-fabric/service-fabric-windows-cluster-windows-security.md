@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Windows 보안을 사용하여 Windows에서 실행되는 클러스터 보안 | Microsoft Azure"
-   description="Windows 보안을 사용하여 Windows에서 실행되는 독립 실행형 클러스터에서 노드 간 및 클라이언트-노드 보안을 구성하는 방법을 알아봅니다."
+   pageTitle="Secure a cluster running on Windows using Windows Security | Microsoft Azure"
+   description="Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows using Windows Security."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -17,22 +17,23 @@
    ms.author="ryanwi"/>
 
 
-# Windows 보안을 사용하여 독립 실행형 클러스터 보호
 
-특히 실행 중인 프로덕션 워크로드가 있는 경우 서비스 패브릭 클러스터에 대한 무단 액세스를 방지하기 위해 보안을 설정해야 합니다. 이 문서에서는 *ClusterConfig.JSON* 파일에서 Windows 보안을 사용하여 노드 간 및 클라이언트-노드 보안을 구성하는 방법을 설명합니다. 이 문서는 [Windows에서 실행되는 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 보안 구성 단계에 해당합니다. 서비스 패브릭에서Windows 보안을 사용하는 방법에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.
+# <a name="secure-a-standalone-cluster-on-windows-using-windows-security"></a>Secure a standalone cluster on Windows using Windows security
+
+To prevent unauthorized access to a Service Fabric cluster you must secure it, especially when it has production workloads running on it. This article describes how to configure node-to-node and client-to-node security using Windows security in the *ClusterConfig.JSON* file and corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information on how Service Fabric uses Windows Security, see [Cluster security scenarios](service-fabric-cluster-security.md).
 
 >[AZURE.NOTE]
-한 보안 선택에서 다른 보안 선택으로 클러스터 업그레이드가 지원되지 않으므로 노드 간 보안에 대한 보안 선택을 신중하게 고려해야 합니다. 보안 선택을 변경하려면 전체 클러스터를 다시 구축해야 합니다.
+You should consider your security selection for node-to-node security carefully, since there is no cluster upgrade from one security choice to another. Changing the security selection would require a full cluster rebuild.
 
-## Windows 보안 구성
-[Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드되는 샘플 *ClusterConfig.Windows.JSON* 구성 파일에는 Windows 보안 구성을 위한 템플릿이 포함되어 있습니다. **Properties** 섹션에서 다음과 같이 Windows 보안을 구성합니다.
+## <a name="configure-windows-security"></a>Configure Windows security
+The sample *ClusterConfig.Windows.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section:
 
 ```
 "security": {
             "ClusterCredentialType": "Windows",
             "ServerCredentialType": "Windows",
             "WindowsIdentities": {
-		"ClusterIdentity" : "[domain\machinegroup]",
+        "ClusterIdentity" : "[domain\machinegroup]",
                 "ClientIdentities": [{
                     "Identity": "[domain\username]",
                     "IsAdmin": true
@@ -41,28 +42,29 @@
         }
 ```
 
-|**구성 설정**|**설명**|
+|**Configuration Setting**|**Description**|
 |-----------------------|--------------------------|
-|ClusterCredentialType|**ClusterCredentialType** 매개 변수를 *Windows*로 설정하여 Windows 보안을 사용하도록 설정합니다.|
-|ServerCredentialType|**ServerCredentialType** 매개 변수를 *Windows*로 설정하여 클라이언트에 대한 Windows 보안을 사용하도록 설정합니다. 클러스터의 클라이언트와 클러스터 자체를 가리키며 Active Directory 도메인 내에서 실행됩니다.|
-|WindowsIdentities|클러스터와 클라이언트 ID를 포함합니다.|
-|ClusterIdentity|노드 간 보안을 구성합니다. 쉼표로 구분된 그룹 목록이 서비스 계정 또는 컴퓨터 이름을 관리했습니다.|
-|ClientIdentities|클라이언트-노드 보안을 구성합니다. 클라이언트 사용자 계정의 배열입니다.|
-|ID|클라이언트 ID, 도메인 사용자입니다.|
-|IsAdmin|도메인 사용자가 관리자 클라이언트 액세스 권한을 갖는 경우 true이며, 사용자 클라이언트 액세스 권한을 갖는 경우 false를 지정합니다.|
+|ClusterCredentialType|Windows Security is enabled by setting the **ClusterCredentialType** parameter to *Windows*.|
+|ServerCredentialType|Windows Security for clients is enabled by setting the **ServerCredentialType** parameter to *Windows*. This indicates that the clients of the cluster, and the cluster itself, are running within an Active Directory Domain.|
+|WindowsIdentities|Contains the cluster and client identities.|
+|ClusterIdentity|Configures node-to-node security. A comma-separated list of group managed service accounts or machine names.|
+|ClientIdentities|Configures client-to-node security. An array of client user accounts.|
+|Identity|The client identity, a domain user.|
+|IsAdmin|True specifies that the domain user has administrator client access, false for user client access.|
 
-[노드 간 보안](service-fabric-cluster-security.md#node-to-node-security)은 **ClusterIdentity**를 사용하여 설정하는 방식으로 구성합니다. 노드 간의 신뢰 관계를 구축하기 위해 서로를 인식하도록 만들어야 합니다. 이 작업은 두 가지 방법으로 수행할 수 있습니다. 클러스터의 모든 노드를 포함하는 그룹 관리 서비스 계정을 지정하거나 클러스터의 모든 노드의 도메인 노드 ID를 지정합니다. 특히 노드가 10개보다 많은 대형 클러스터 또는 확장되거나 축소될 수 있는 클러스터의 경우에는 [gMSA(그룹 관리 서비스 계정)](https://technet.microsoft.com/library/hh831782.aspx) 방식을 사용하는 것이 좋습니다. 이 접근 방법에서는 클러스터 매니페스트를 변경할 필요 없이 노드를 추가하거나 gMSA에서 제거할 수 있습니다. 이 접근 방법에서는 클러스터 관리자에게 멤버를 추가하고 제거하는 액세스 권한을 부여하기 위해 도메인 그룹을 만들 필요가 없습니다. 자세한 내용은 [그룹 관리 서비스 계정 시작](http://technet.microsoft.com/library/jj128431.aspx)을 참조하세요.
+[Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting using **ClusterIdentity**. In order to build trust relationships between nodes, they must be made aware of each other. This can be accomplished in two different ways: Specify the Group Managed Service Account that includes all nodes in the cluster or Specify the domain node identities of all nodes in the cluster. We strongly recommend using the [Group Managed Service Account (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) approach, particularly for larger clusters (more than 10 nodes) or for clusters that are likely to grow or shrink.
+This approach allows nodes to be added or removed from the gMSA, without requiring changes to the cluster manifest. This approach does not require the creation of a domain group for which cluster administrators have been granted access rights to add and remove members. For more information, see [Getting Started with Group Managed Service Accounts](http://technet.microsoft.com/library/jj128431.aspx).
 
-[클라이언트 및 노드 간 보안](service-fabric-cluster-security.md#client-to-node-security)은 **ClientIdentities**를 사용하여 구성합니다. 클라이언트와 클러스터 간에 트러스트를 설정하기 위해 신뢰할 수 있는 클라이언트 ID를 파악하도록 클러스터를 구성해야 합니다. 이 작업은 두 가지 방법으로 수행할 수 있습니다. 연결할 수 있는 도메인 그룹 사용자를 지정하거나 연결할 수 있는 도메인 노드 사용자를 지정합니다. 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클라이언트에 대해 관리자 및 사용자 액세스 제어 형식을 지원합니다. 액세스 제어는 클러스터 관리자가 사용자 그룹마다 특정 형식의 클러스터 작업에 대한 액세스를 제한하는 기능을 제공하여 클러스터의 보안을 강화할 수 있습니다. 관리자는 관리 기능(읽기/쓰기 기능만 포함)에 대한 모든 권한을 가집니다. 사용자는 기본적으로 관리 기능(예: 쿼리 기능)에 대한 읽기 권한 및 응용 프로그램과 서비스를 확인하는 기능만 갖습니다.
+[Client to node security](service-fabric-cluster-security.md#client-to-node-security) is configured using **ClientIdentities**. In order to establish trust between a client and the cluster, you must configure the cluster to know which client identities that it can trust. This can be done in two different ways: Specify the domain group users that can connect or specify the domain node users that can connect. Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control provides the ability for the cluster administrator to limit access to certain types of cluster operations for different groups of users, making the cluster more secure.  Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
 
-다음 예제 **security** 섹션에서는 Windows 보안을 구성하고 *ServiceFabric/clusterA.contoso.com*의 컴퓨터가 클러스터의 일부이며 *CONTOSO\\usera*에 관리자 클라이언트 액세스 권한이 있음을 지정합니다.
+The following example **security** section configures Windows security and specifies that the machines in *ServiceFabric/clusterA.contoso.com* are part of the cluster and that *CONTOSO\usera* has admin client access:
 
 ```
 "security": {
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
     "WindowsIdentities": {
-		"ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
+        "ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
         "ClientIdentities": [{
             "Identity": "CONTOSO\\usera",
         "IsAdmin": true
@@ -71,12 +73,16 @@
 },
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-*ClusterConfig.JSON* 파일에서 Windows 보안을 구성한 후에 [Windows에서 실행되는 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)에 나와 있는 클러스터 만들기 프로세스를 다시 시작합니다.
+After configuring Windows security in the *ClusterConfig.JSON* file, resume the cluster creation process in [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md).
 
-노드 간 보안, 클라이언트 및 노드 간 보안 및 역할 기반 액세스 제어 방법에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.
+For more information on how node-to-node security, client-to-node security, and role-based access control, see [Cluster security scenarios](service-fabric-cluster-security.md).
 
-PowerShell 또는 FabricClient를 사용한 연결에 대한 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요.
+See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for examples of connecting using PowerShell or FabricClient.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

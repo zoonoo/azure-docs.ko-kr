@@ -1,6 +1,6 @@
 <properties
-   pageTitle="ARM 템플릿을 사용하여 가상 네트워크 만들기 | Microsoft Azure"
-   description="ARM(Azure 리소스 관리자)에서 ARM 템플릿을 사용하여 가상 네트워크를 만드는 방법을 알아봅니다."
+   pageTitle="Create a virtual network using an ARM template | Microsoft Azure"
+   description="Learn how to create a virtual network using an ARM template | Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="jimdial"
@@ -17,17 +17,18 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
-# ARM 템플릿을 사용하여 가상 네트워크를 만들기
+
+# <a name="create-a-virtual-network-by-using-an-arm-template"></a>Create a virtual network by using an ARM template
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 리소스 관리자 배포 모델을 사용하여 VNet을 만드는 방법을 설명합니다. [클래식 배포 모델에서 가상 네트워크를 만들](virtual-networks-create-vnet-classic-pportal.md) 수도 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This document covers creating a VNet by using the Resource Manager deployment model. You can also [create a virtual network in the classic deployment model](virtual-networks-create-vnet-classic-pportal.md).
 
-GitHub에서 기존 ARM 템플릿을 다운로드한 후 수정하고 GitHub, PowerShell 및 Azure CLI에서 템플릿을 배포하는 방법에 알아봅니다.
+You will learn how to download and modify and existing ARM template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
-변경하지 않고 GitHub에서 직접 ARM 템플릿을 배포하는 경우 [github에서 템플릿 배포](#deploy-the-arm-template-by-using-click-to-deploy)로 건너뜁니다.
+If you are simply deploying the ARM template directly from GitHub, without any changes, skip to [deploy a template from github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -39,4 +40,7 @@ GitHub에서 기존 ARM 템플릿을 다운로드한 후 수정하고 GitHub, Po
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

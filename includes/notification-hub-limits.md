@@ -1,12 +1,15 @@
 
-| 계층: | 무료 | BASIC | 표준 |
+| TIER: | FREE | BASIC | STANDARD |
 |----|----|----|----|
-| 포함된 푸시 | 1백만 | 1천만 | 1천만 |
-| 활성 장치 | 500 | Unlimited | Unlimited |
-| 설치/등록당 태그 할당량 | 60 | 60 | 60 |
+| Included Pushes | 1 Million | 10 Million | 10 Million |
+| Active Devices | 500 | Unlimited | Unlimited |
+| Tag quota per installation/registration | 60 | 60 | 60 |
 
 
 
-이러한 제한 사항 및 가격에 관한 정보는 [알림 허브 가격](https://azure.microsoft.com/pricing/details/notification-hubs/)을 참조하세요.
+For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/). 
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

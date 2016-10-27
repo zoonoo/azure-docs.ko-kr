@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Data Lake Store에 대한 진단 로그 보기 | Microsoft Azure" 
-   description="Azure Data Lake Store에 대한 진단 로그를 설정하고 액세스하는 방법을 이해합니다 " 
+   pageTitle="Viewing diagnostic logs for Azure Data Lake Store | Microsoft Azure" 
+   description="Understand how to setup and access diagnostic logs for Azure Data Lake Store " 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,183 +13,189 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/19/2016"
+   ms.date="10/05/2016"
    ms.author="nitinme"/>
 
-# Azure Data Lake Store에 대한 진단 로그에 액세스
 
-Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정에 대해 수집된 로그를 보는 방법에 대해 알아봅니다.
+# <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accessing diagnostic logs for Azure Data Lake Store
 
-조직에서는 Azure Data Lake Store 계정에 대한 진단 로깅을 사용하도록 설정하여 데이터에 액세스하는 사용자의 목록, 데이터가 액세스되는 빈도, 계정에 저장된 데이터 양과 같은 정보를 제공하는 데이터 액세스 감사 추적을 수집할 수 있습니다.
+Learn about how to enable diagnostic logging for your Data Lake Store account and how to view the logs collected for your account.
 
-## 필수 조건
+Organizations can enable diagnostic logging for their Azure Data Lake Store account to collect data access audit trails that provides information such as list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- Data Lake Store 공개 미리 보기에 대해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
-- **Azure Data Lake 저장소 계정** [Azure 포털을 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)의 지침을 따릅니다.
+## <a name="prerequisites"></a>Prerequisites
 
-## Data Lake Store 계정에 대한 진단 로깅 사용
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+- **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 
-2. Data Lake Store 계정을 열고 Data Lake Store 계정 블레이드에서 **설정**을 클릭한 다음 **진단 설정**을 클릭합니다.
+## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Enable diagnostic logging for your Data Lake Store account
 
-3. **진단** 블레이드에서 진단 로깅을 구성하려면 다음과 같이 변경합니다.
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
-	![진단 로깅 사용](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "진단 로그 활성화")
+2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Settings**, and then click **Diagnostic Settings**.
 
-	* 진단 로깅을 사용하려면 **상태**를 **켜기**로 설정합니다.
-	* 두 가지 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
-		* Azure 이벤트 허브에 로그 데이터를 스트리밍하려면 **이벤트 허브로 내보내기** 옵션을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 대개 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
-		* **저장소 계정에 내보내기** 옵션을 선택하여 Azure 저장소 계정에 로그를 저장합니다. 나중에 배치로 처리할 데이터를 보관하려는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 Azure 저장소 계정을 제공하여 로그를 저장해야 합니다.
-	* 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.
-	* 데이터를 유지해야 하는 일 수를 지정합니다.
-	* **Save**를 클릭합니다.
+3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
 
-진단 설정을 사용하도록 설정했으면 **진단 로그** 탭에서 로그를 볼 수 있습니다.
+    ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
 
-## Data Lake Store 계정에 대한 진단 로그 보기
+    * Set **Status** to **On** to enable diagnostic logging.
+    * You can choose to store/process the data in two different ways.
+        * Select the option to **Export to Event Hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+        * Select the option to **Export to Storage Account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
+    * Specify whether you want to get audit logs or request logs or both.
+    * Specify the number of days for which the data must be retained.
+    * Click **Save**.
 
-두 가지 방법으로 Data Lake Store 계정에 대한 로그 데이터를 볼 수 있습니다.
+Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
 
-* Data Lake Store 계정 설정 보기에서
-* 데이터가 저장된 Azure 저장소 계정에서
+## <a name="view-diagnostic-logs-for-your-data-lake-store-account"></a>View diagnostic logs for your Data Lake Store account
 
-### Data Lake Store 설정 보기 사용
+There are two ways to view the log data for your Data Lake Store account.
 
-1. Data Lake Store 계정 **설정** 블레이드에서 **진단 로그**를 클릭합니다.
+* From the Data Lake Store account settings view
+* From the Azure Storage account where the data is stored
 
-	![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "진단 로그 보기")
+### <a name="using-the-data-lake-store-settings-view"></a>Using the Data Lake Store Settings view
 
-2. **진단 로그** 블레이드에서 **감사 로그** 및 **요청 로그**로 분류된 로그가 표시됩니다.
-	* 요청 로그는 Data Lake Store 계정에 대한 모든 API 요청을 캡처합니다.
-	* 감사 로그는 요청 로그와 비슷하지만 Data Lake Store 계정에 수행된 작업의 훨씬 더 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
+1. From your Data Lake Store account **Settings** blade, click **Diagnostic Logs**.
 
-3. 각 로그 항목에 대한 **다운로드** 링크를 클릭하여 로그를 다운로드합니다.
+    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
 
-### 로그 데이터를 포함하는 Azure 저장소 계정에서
+2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
+    * Request logs capture every API request made on the Data Lake Store account.
+    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Store account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
 
-1. 로깅을 위한 Data Lake Store와 연결된 Azure 저장소 계정 블레이드를 열고 Blob을 클릭합니다. **Blob 서비스** 블레이드는 두 개의 컨테이너를 나열합니다.
+3. Click the **Download** link against each log entry to download the logs.
 
-	![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
+### <a name="from-the-azure-storage-account-that-contains-log-data"></a>From the Azure Storage account that contains log data
 
-	* **insights-logs-audit** 컨테이너는 감사 로그를 포함합니다.
-	* **insights-logs-requests** 컨테이너는 요청 로그를 포함합니다.
+1. Open the Azure Storage account blade associated with Data Lake Store for logging, and then click Blobs. The **Blob service** blade lists two containers.
 
-2. 이러한 컨테이너 내에서 로그는 다음 구조로 저장됩니다.
+    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
 
-	![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "진단 로그 보기")
+    * The container **insights-logs-audit** contains the audit logs.
+    * The container **insights-logs-requests** contains the request logs.
 
-	예를 들어, 감사 로그에 대한 전체 경로는 `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`일 수 있습니다.
+2. Within these containers, the logs are stored under the following structure.
 
-	마찬가지로 요청 로그에 대한 전체 경로는 `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`일 수 있습니다.
+    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
 
-## 로그 데이터의 구조 이해
+    As an example, the complete path to an audit log could be `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
 
-감사 로그 및 요청 로그는 JSON 형식입니다. 이 섹션에서는 요청 로그 및 감사 로그에 대한 JSON의 구조를 살펴봅니다.
+    Similary, the complete path to a request log could be `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
-### 요청 로그
+## <a name="understand-the-structure-of-the-log-data"></a>Understand the structure of the log data
 
-다음은 JSON 형식인 요청 로그의 샘플 항목입니다. 각 Blob는 **레코드**라는 하나의 루트 개체를 포함하며 여기에는 로그 개체의 배열이 포함됩니다.
+The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.
 
-	{
-	"records": 
-	  [		
-		. . . .
-		,
-		{
-			 "time": "2016-07-07T21:02:53.456Z",
-			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
-			 "category": "Requests",
-			 "operationName": "GETCustomerIngressEgress",
-			 "resultType": "200",
-			 "callerIpAddress": "::ffff:1.1.1.1",
-			 "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
-			 "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-			 "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
-		}
-		,
-		. . . .
-	  ]
-	}
+### <a name="request-logs"></a>Request logs
 
-#### 요청 로그 스키마
+Here's a sample entry in the JSON-formatted request log. Each blob has one root object called **records** that contains an array of log objects.
 
-| Name | 형식 | 설명 |
+    {
+    "records": 
+      [     
+        . . . .
+        ,
+        {
+             "time": "2016-07-07T21:02:53.456Z",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "category": "Requests",
+             "operationName": "GETCustomerIngressEgress",
+             "resultType": "200",
+             "callerIpAddress": "::ffff:1.1.1.1",
+             "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
+             "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
+             "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
+        }
+        ,
+        . . . .
+      ]
+    }
+
+#### <a name="request-log-schema"></a>Request log schema
+
+| Name            | Type   | Description                                                                    |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| 실시간 | 문자열 | 로그의 타임스탬프(UTC) |
-| resourceId | String | 작업이 수행되는 리소스의 ID |
-| 카테고리 | 문자열 | 로그 범주 예를 들어 **요청** |
-| operationName | String | 기록된 작업의 이름 예를 들어 getfilestatus |
-| resultType | 문자열 | 작업의 상태, 예를 들어 200 |
-| callerIpAddress | 문자열 | 요청한 클라이언트의 IP 주소 |
-| CorrelationId | 문자열 | 관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
-| ID | Object | 로그를 생성하는 ID |
-| properties | JSON | 자세한 내용은 다음을 참조하세요. |
+| time            | String | The timestamp (in UTC) of the log                                              |
+| resourceId      | String | The ID of the resource that operation took place on                            |
+| category        | String | The log category. For example, **Requests**.                                   |
+| operationName   | String | Name of the operation that is logged. For example, getfilestatus.              |
+| resultType      | String | The status of the operation, For example, 200.                                 |
+| callerIpAddress | String | The IP address of the client making the request                                |
+| correlationId   | String | The id of the log that can used to group together a set of related log entries |
+| identity        | Object | The identity that generated the log                                            |
+| properties      | JSON   | See below for details                                                          |
 
-#### 요청 로그 속성 스키마
+#### <a name="request-log-properties-schema"></a>Request log properties schema
 
-| Name | 형식 | 설명 |
+| Name                 | Type   | Description                                               |
 |----------------------|--------|-----------------------------------------------------------|
-| HttpMethod | String | 작업에 사용된 HTTP 메서드 예를 들어 GET |
-| Path | 문자열 | 작업이 수행된 경로 |
-| RequestContentLength | int | HTTP 요청의 콘텐츠 길이 |
-| ClientRequestId | String | 이 요청을 고유하게 식별하는 ID |
-| StartTime | 문자열 | 서버가 요청을 받은 시간 |
-| EndTime | 문자열 | 서버가 응답을 전송한 시간 |
+| HttpMethod           | String | The HTTP Method used for the operation. For example, GET. |
+| Path                 | String | The path the operation was performed on                   |
+| RequestContentLength | int    | The content length of the HTTP request                    |
+| ClientRequestId      | String | The Id that uniquely identifies this request              |
+| StartTime            | String | The time at which the server received the request         |
+| EndTime              | String | The time at which the server sent a response              |
 
-### 감사 로그
+### <a name="audit-logs"></a>Audit logs
 
-다음은 JSON 형식인 감사 로그의 샘플 항목입니다. 각 Blob는 **레코드**라는 하나의 루트 개체를 포함하며 여기에는 로그 개체의 배열이 포함됩니다.
+Here's a sample entry in the JSON-formatted audit log. Each blob has one root object called **records** that contains an array of log objects
 
-	{
-	"records": 
-	  [		
-		. . . .
-		,
-		{
-			 "time": "2016-07-08T19:08:59.359Z",
-			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
-			 "category": "Audit",
-			 "operationName": "SeOpenStream",
-			 "resultType": "0",
-			 "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
-			 "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
-			 "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
-		}
-		,
-		. . . .
-	  ]
-	}
+    {
+    "records": 
+      [     
+        . . . .
+        ,
+        {
+             "time": "2016-07-08T19:08:59.359Z",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "category": "Audit",
+             "operationName": "SeOpenStream",
+             "resultType": "0",
+             "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
+             "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
+             "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
+        }
+        ,
+        . . . .
+      ]
+    }
 
-#### 감사 로그 스키마
+#### <a name="audit-log-schema"></a>Audit log schema
 
-| Name | 형식 | 설명 |
+| Name            | Type   | Description                                                                    |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| 실시간 | 문자열 | 로그의 타임스탬프(UTC) |
-| resourceId | String | 작업이 수행되는 리소스의 ID |
-| 카테고리 | 문자열 | 로그 범주 예를 들어 **감사** |
-| operationName | String | 기록된 작업의 이름 예를 들어 getfilestatus |
-| resultType | 문자열 | 작업의 상태, 예를 들어 200 |
-| CorrelationId | 문자열 | 관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
-| ID | Object | 로그를 생성하는 ID |
-| properties | JSON | 자세한 내용은 다음을 참조하세요. |
+| time            | String | The timestamp (in UTC) of the log                                              |
+| resourceId      | String | The ID of the resource that operation took place on                            |
+| category        | String | The log category. For example, **Audit**.                                      |
+| operationName   | String | Name of the operation that is logged. For example, getfilestatus.              |
+| resultType      | String | The status of the operation, For example, 200.                                 |
+| correlationId   | String | The id of the log that can used to group together a set of related log entries |
+| identity        | Object | The identity that generated the log                                            |
+| properties      | JSON   | See below for details                                                          |
 
-#### 감사 로그 속성 스키마
+#### <a name="audit-log-properties-schema"></a>Audit log properties schema
 
-| Name | 형식 | 설명 |
+| Name       | Type   | Description                              |
 |------------|--------|------------------------------------------|
-| StreamName | 문자열 | 작업이 수행된 경로 |
+| StreamName | String | The path the operation was performed on  |
 
 
-## 로그 데이터를 처리하는 샘플
+## <a name="samples-to-process-the-log-data"></a>Samples to process the log data
 
-Azure Data Lake Store에서는 로그 데이터를 처리하고 분석하는 방법에 대한 샘플을 제공합니다. [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)에서 샘플을 찾을 수 있습니다.
+Azure Data Lake Store provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-- [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
-- [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
+- [Overview of Azure Data Lake Store](data-lake-store-overview.md)
+- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

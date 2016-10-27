@@ -1,7 +1,7 @@
 <properties
-   pageTitle="클라우드 무중단 업무 방식 - 데이터베이스 복구 - SQL 데이터베이스 | Microsoft Azure"
-   description="Azure SQL 데이터베이스에서 클라우드 무중단 업무 방식 및 데이터베이스 복구를 지원하고 중요 업무용 클라우드 응용 프로그램을 계속해서 실행할 수 있도록 하는 방법을 알아봅니다."
-   keywords="무중단 업무 방식, 클라우드 무중단 업무 방식, 데이터베이스 재해 복구, 데이터베이스 복구"
+   pageTitle="Cloud business continuity - database recovery - SQL Database | Microsoft Azure"
+   description="Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running."
+   keywords="business continuity,cloud business continuity,database disaster recovery,database recovery"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -14,134 +14,145 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/20/2016"
+   ms.date="10/13/2016"
    ms.author="carlrab"/>
 
-# Azure SQL 데이터베이스의 비즈니스 연속성 개요
 
-이 개요에서는 Azure SQL 데이터베이스에서 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 응용 프로그램을 사용할 수 없게 만들 수 있는 중단 이벤트에서의 복구와 관련된 옵션, 권장 사항 및 자습서도 제공합니다. 토론에서는 사용자 또는 응용 프로그램 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 응용 프로그램에 유지 관리가 필요할 때 수행할 작업을 다룹니다.
+# <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overview of business continuity with Azure SQL Database
 
-## 비즈니스 연속성을 제공하는 데 사용할 수 있는 SQL 데이터베이스 기능
+This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. It provides options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. The discussion includes what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance. 
 
-SQL 데이터베이스는 자동화된 백업 및 선택적 데이터베이스 복제를 비롯한 여러 가지 비즈니스 연속성 기능을 제공합니다. 이러한 기능은 최근 트랜잭션에 대한 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성을 갖습니다. 이러한 옵션을 이해하면 적절한 옵션을 선택할 수 있습니다. 대부분의 시나리오에서 이러한 옵션을 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 응용 프로그램이 완벽하게 복구되기까지 허용되는 최대 시간(RTO(복구 시간 목표))을 이해해야 합니다. 중단 이벤트 후 복구될 때 응용 프로그램이 손실을 허용할 수 있는 최신 데이터 업데이트의 최대 크기(시간 간격)(RPO(복구 지점 목표))도 이해해야 합니다.
+## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>SQL Database features that you can use to provide business continuity
 
-다음 테이블에서 세 가지 가장 일반적인 시나리오에 대한 ERT 및 RPO를 비교합니다.
+SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - the recovery point objective (RPO). 
 
-| 기능 |	기본 계층 | 표준 계층 | 프리미엄 계층 |
+The following table compares the ERT and RPO for the three most common scenarios.
+
+| Capability |  Basic tier | Standard tier  | Premium tier |
 |---|---|---|---|
-| 백업에서 특정 시점 복원 | 7일 이내의 모든 복원 지점 | 35일 이내의 모든 복원 지점 | 35일 이내의 모든 복원 지점 |
-지리적으로 복제된 백업에서 지역 복원 | ERT < 12시간, RPO < 1시간 | ERT < 12시간, RPO < 1시간 | ERT < 12시간, RPO < 1시간 |
-|활성 지역 복제 | ERT < 30초, RPO < 5초 | ERT < 30초, RPO < 5초 |	ERT < 30초, RPO < 5초 |
+| Point in Time Restore from backup | Any restore point within 7 days   | Any restore point within 35 days  | Any restore point within 35 days |
+Geo-Restore from geo-replicated backups | ERT < 12h, RPO < 1h   | ERT < 12h, RPO < 1h   | ERT < 12h, RPO < 1h |
+|Active Geo-Replication | ERT < 30s, RPO < 5s   | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s |
 
 
-### 데이터베이스 백업을 사용하여 데이터베이스 복구
+### <a name="use-database-backups-to-recover-a-database"></a>Use database backups to recover a database
 
-SQL 데이터베이스는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업과 매시간 차등 데이터베이스 백업, 그리고 5분 간격으로 트랜잭션 로그 백업을 모두 자동으로 수행합니다. 이러한 백업은 표준 및 프리미엄 서비스 계층의 데이터베이스에 대해서는 35일, 기본 서비스 계층의 데이터베이스에 대해서는 7일 동안 로컬 중복 저장소에 저장됩니다. 서비스 계층에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요. 서비스 계층에 대한 보존 기간이 비즈니스 요구 사항에 맞지 않으면 [서비스 계층을 변경](sql-database-scale-up.md)하여 보존 기간을 늘릴 수 있습니다. 데이터 센터 가동 중단으로부터 보호하기 위해 전체 및 차등 데이터베이스 백업도 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)로 복제됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요.
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five minutes to protect your business from data loss. These backups are stored in locally redundant storage for 35 days for databases in the Standard and Premium service tiers and seven days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-scale-up.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage - see [automatic database backups](sql-database-automated-backups.md) for more details.
 
-이러한 자동 데이터베이스 백업을 사용하여 다양한 중단 이벤트에서 데이터 센터 내로 및 다른 데이터 센터로 데이터베이스를 복구할 수 있습니다. 자동 데이터베이스 백업을 사용할 경우 예상 복구 시간은 동일한 지역에서 동시에 복구되는 총 데이터베이스 수, 데이터베이스 크기, 트랜잭션 로그 크기 및 네트워크 대역폭에 따라 좌우됩니다. 대부분의 경우 복구 시간은 12시간 미만입니다. 다른 데이터 영역을 복구할 때 잠재적인 데이터 손실은 시간별 차등 데이터베이스 백업의 지역 중복 저장소별로 1시간으로 제한됩니다.
+You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. In most cases, the recovery time is less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups. 
 
-> [AZURE.IMPORTANT] 자동화된 백업을 사용하여 복구하려면 SQL Server 참여자 역할의 구성원이거나 구독 소유자여야 합니다. [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요. Azure 포털, PowerShell 또는 REST API를 사용하여 복구할 수 있습니다. Transact-SQL은 사용할 수 없습니다.
+> [AZURE.IMPORTANT] To recover using automated backups, you must be a member of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL.
 
-다음 조건의 응용 프로그램의 경우, 자동화된 백업을 비즈니스 연속성 및 복구 메커니즘으로 사용합니다.
+Use automated backups as your business continuity and recovery mechanism if your application:
 
-- 중요 업무용으로 간주되지 않습니다.
-- 연계된 SLA가 없으므로 24시간 이상의 가동 중지가 발생해도 재무적 책임이 없습니다.
-- 데이터 변경(시간당 낮은 트랜잭션) 속도가 느리고, 최대 1시간의 데이터 변경 내용 손실은 비교적 허용 가능한 데이터 손실에 해당합니다.
-- 비용에 민감합니다.
+- Is not considered mission critical.
+- Doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.
+- Has a low rate of data change (low transactions per hour) and losing up to an hour of change is an acceptable data loss. 
+- Is cost sensitive. 
 
-빠른 복구가 필요한 경우 [활성 지역 복제](sql-database-geo-replication-overview.md)(다음에 설명)를 사용합니다. 35일이 지난 데이터를 복구해야 할 경우 Azure Blob 저장소 또는 원하는 다른 위치에 저장된 BACPAC 파일(데이터베이스 스키마 및 관련 데이터를 포함하는 압축된 파일)에 정기적으로 데이터베이스를 보관하는 것이 좋습니다. 트랜잭션이 일관된 데이터베이스 보관 파일을 만드는 방법에 대한 자세한 내용은 [데이터베이스 복사본 만들기](sql-database-copy.md) 및 [데이터베이스 복사본 내보내기](sql-database-export.md)를 참조하세요.
+If you need faster recovery, use [Active Geo-Replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, consider archiving your database regularly to a BACPAC file (a compressed file containing your database schema and associated data) stored either in Azure blob storage or in another location of your choice. For more information on how to create a transactionally consistent database archive, see [create a database copy](sql-database-copy.md) and [export the database copy](sql-database-export.md). 
 
-### 활성 지역 복제를 사용하여 복구 시간을 줄이고 복구와 연결된 데이터 손실 제한
+### <a name="use-active-geo-replication-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Use Active Geo-Replication to reduce recovery time and limit data loss associated with a recovery
 
-업무 중단이 발생할 경우 데이터베이스 복구를 위해 데이터베이스 백업을 사용하는 것 외에도 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하여 선택한 지역에서 최대 4개의 읽기 가능한 보조 데이터베이스가 유지되도록 데이터베이스를 구성할 수 있습니다. 이러한 보조 데이터베이스는 비동기 복제 메커니즘을 사용하여 주 데이터베이스와 동기화된 상태를 유지합니다. 이 기능은 데이터 센터 가동 중단 또는 응용 프로그램 업그레이드 기간에 업무 중단을 방지하기 위해 사용됩니다. 지리적으로 분산된 사용자에게 읽기 전용 쿼리에 대한 향상된 쿼리 성능을 제공하기 위해 활성 지역 복제를 사용할 수도 있습니다.
+In addition to using database backups for database recovery in the event of a business disruption, you can use [Active Geo-Replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption in the event of a data center outage or during an application upgrade. Active Geo-Replication can also be used to provide better query performance for read-only queries to geographically dispersed users.
 
-주 데이터베이스가 예기치 않게 오프라인 상태가 되거나 유지 관리 작업을 위해 오프라인 상태로 전환해야 할 경우 보조 데이터베이스를 빠르게 주 데이터베이스로 승격하고(장애 조치(faiilover)라고도 함) 새로 승격된 주 데이터베이스에 연결하도록 응용 프로그램을 구성할 수 있습니다. 계획된 장애 조치를 사용할 경우 데이터는 손실되지 않습니다. 계획되지 않은 장애 조치를 사용하는 경우 비동기 복제의 특성으로 인해 아주 최근에 발생한 트랜잭션에 대해 약간의 데이터 손실이 발생합니다. 장애 조치(failover) 후, 계획에 따라 또는 데이터 센터가 다시 온라인 상태가 될 때 장애 복구(failback)를 수행할 수 있습니다. 모든 경우에 사용자는 적은 양의 가동 중지 시간을 경험하며 다시 연결해야 합니다.
+If the primary database goes offline unexpectedly or you need to take it offline for maintenance activities, you can quickly promote a secondary to become the primary (also called a failover) and configure applications to connect to the newly promoted primary. With a planned failover, there is no data loss. With an unplanned failover, there may be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users experience a small amount of downtime and need to reconnect. 
 
-> [AZURE.IMPORTANT] 활성 지역 복제를 사용하려면 SQL Server에서 구독 소유자이거나 관리 권한을 보유해야 합니다. 구독에 대한 권한을 통해 Azure 포털, PowerShell 또는 REST API를 사용하거나, SQL Server 내의 권한을 통해 Transact-SQL을 사용하여 구성 및 장애 조치(failover)를 수행할 수 있습니다.
+> [AZURE.IMPORTANT] To use Active Geo-Replication, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
 
-응용 프로그램이 다음 조건에 맞는 경우 활성 지역 복제를 사용합니다.
+Use Active Geo-Replication if your application meets any of these criteria:
 
-- 중요 업무용입니다.
-- 24시간 이상의 가동 중지 시간을 허용하지 않는 SLA(서비스 수준 약정)가 있습니다.
-- 가동 중지는 재무적 책임을 유발합니다.
-- 데이터 변경 속도가 높고 1시간에 해당하는 데이터 손실은 허용할 수 없는 수준입니다.
-- 활성 지역 복제를 사용할 때 발생하는 추가적인 비용이 잠재적인 재무적 책임과 연계된 비즈니스 손실보다 낮습니다.
+- Is mission critical.
+- Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
+- Downtime will result in financial liability.
+- Has a high rate of data change is high and losing an hour of data is not acceptable.
+- The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
 
-## 사용자 또는 응용 프로그램 오류 발생 이후 데이터베이스 복구
+## <a name="recover-a-database-after-a-user-or-application-error"></a>Recover a database after a user or application error
 
-*어느 누구도 완벽하지는 않습니다. 사용자가 실수로 데이터를 삭제할 수도 있고, 의도치 않게 중요한 테이블을 삭제할 수도 있고, 전체 데이터베이스를 삭제할 수도 있습니다. 또는 응용 프로그램에서 결함으로 인해 잘못된 데이터를 적절한 데이터에 덮어쓸 수도 있습니다.
+*No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect. 
 
-이러한 시나리오에서 복구 옵션은 다음과 같습니다.
+In this scenario, these are your recovery options.
 
-### 지정 시간 복원 수행
+### <a name="perform-a-point-in-time-restore"></a>Perform a point-in-time restore
 
-자동화된 백업을 사용하여 데이터베이스 복사본을 알려진 적절한 지정 시간(데이터베이스 보존 기간 내에 포함되는 시간)으로 복구할 수 있습니다. 데이터베이스가 복원된 후에 원본 데이터베이스를 복원된 데이터베이스로 바꾸거나 복원된 데이터에서 필요한 데이터를 원본 데이터베이스로 복사할 수 있습니다. 데이터베이스가 활성 지역 복제를 사용하는 경우 복원된 복사본에서 필수 데이터를 원본 데이터베이스로 복사하는 것이 좋습니다. 원본 데이터베이스를 복원된 데이터베이스로 바꾸는 경우 활성 지역 복제를 다시 구성하고 다시 동기화해야 합니다(데이터베이스 크기가 클 경우 시간이 오래 걸릴 수 있음).
+You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses Active Geo-Replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you will need to reconfigure and resynchronize Active Geo-Replication (which can take quite some time for a large database). 
 
-Azure 포털 또는 PowerShell을 사용하여 데이터베이스를 지정 시간으로 복원하기 위한 자세한 단계 및 내용은 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요. Transact-SQL을 사용하여 복구할 수는 없습니다.
+For more information and for detailed steps for restoring a database to a point in time using the Azure portal or using PowerShell, see [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore). You cannot recover using Transact-SQL.
 
-### 삭제된 데이터베이스 복원
+### <a name="restore-a-deleted-database"></a>Restore a deleted database
 
-데이터베이스가 삭제되었으나 논리 서버는 삭제되지 않은 경우 삭제된 데이터베이스를 삭제된 시점으로 복원할 수 있습니다. 이렇게 하면 삭제된 동일한 논리적 SQL Server로 데이터베이스 백업이 복원됩니다. 원래 이름을 사용하여 복원하거나 새 이름 또는 복원된 데이터베이스를 입력할 수 있습니다.
+If the database is deleted but the logical server has not been deleted, you can restore the deleted database to the point at which it was deleted. This restores a database backup to the same logical SQL server from which it was deleted. You can restore it using the original name or provide a new name or the restored database.
 
-Azure 포털 또는 PowerShell을 사용하여 삭제된 데이터베이스를 복원하는 자세한 단계 및 정보는 [삭제된 데이터베이스 복원](sql-database-recovery-using-backups.md#deleted-database-restore)을 참조하세요. Transact-SQL을 사용하여 복원할 수는 없습니다.
+For more information and for detailed steps for restoring a deleted database using the Azure portal or using PowerShell, see [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore). You cannot restore using Transact-SQL.
 
-> [AZURE.IMPORTANT] 논리 서버가 삭제되면 삭제된 데이터베이스를 복구할 수 없습니다.
+> [AZURE.IMPORTANT] If the logical server is deleted, you cannot recover a deleted database. 
 
-### 데이터베이스 보관 파일에서 가져오기
+### <a name="import-from-a-database-archive"></a>Import from a database archive
 
-자동화된 백업에 대한 현재 보존 기간을 벗어나 데이터 손실이 발생했으며 데이터베이스를 보관한 경우에는 [보관된 BACPAC 파일](sql-database-import.md)을 새 데이터베이스로 가져올 수 있습니다. 이 경우 원본 데이터베이스를 가져온 데이터베이스로 바꾸거나 가져온 데이터의 필수 데이터를 원본 데이터베이스로 복사할 수 있습니다.
+If the data loss occurred outside the current retention period for automated backups and you have been archiving the database, you can [Import an archived BACPAC file](sql-database-import.md) to a new database. At this point, you can either replace the original database with the imported database or copy the needed data from the imported data into the original database. 
 
-## Azure 지역 데이터 센터 가동 중단 상태에서 다른 지역으로 데이터베이스 복구
+## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Recover a database to another region from an Azure regional data center outage
 
 <!-- Explain this scenario -->
 
-드문 경우지만 Azure 데이터 센터에서 가동 중단이 발생할 수 있습니다. 가동 중단이 발생하면 몇 분 내지 몇 시간 동안 지속될 수 있는 업무 중단이 발생합니다.
+Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
 
-- 한 가지 방법은 데이터 센터 가동 중단이 끝날 때 데이터베이스가 다시 온라인 상태가 될 때까지 기다리는 것입니다. 이러한 방법은 데이터베이스의 오프라인 유지가 가능한 응용 프로그램에 적합합니다. 예를 들어 지속적으로 작업할 필요가 없는 개발 프로젝트 또는 무료 평가판이 있습니다. 데이터 센터가 가동 중단되면 중단이 얼마나 지속될지 알 수 없으므로 이 옵션은 잠시 데이터베이스가 필요 없어도 되는 경우에만 적합합니다.
-- 또 다른 방법은 활성 지역 복제를 사용 중인 경우 다른 데이터 영역으로 장애 조치(failover)하거나 지역 중복 데이터베이스 백업(지역 복원)을 사용하여 복구하는 것입니다. 백업에서 복구하는 데는 몇 시간이 걸리지만 장애 조치는 몇 초면 끝납니다.
+- One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you won't know how long the outage will last, so this option only works if you don't need your database for a while.
+- Another option is to either failover to another data region if you are using Active Geo-Replication or the recover using geo-redundant database backups (Geo-Restore). Failover takes only a few seconds, while recovery from backups takes hours.
 
-데이터 센터 가동 중단이 발생할 경우 작업을 수행하는 시기, 복구하는 데 걸리는 시간 및 발생하는 데이터 손실의 양은 위에서 설명한 비즈니스 연속성 기능을 응용 프로그램에서 어떤 방법으로 사용할 것인지에 따라 달라집니다. 실제로 응용 프로그램 요구 사항에 따라 데이터베이스 백업 및 활성 지역 복제를 함께 사용하도록 선택할 수 있습니다. 이러한 비즈니스 지속성 기능을 사용하는 독립 실행형 데이터베이스 및 탄력적 풀에 대한 응용 프로그램 디자인 고려 사항에 대한 자세한 내용은 [클라우드 재해 복구를 위해 응용 프로그램 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
+When you take action, how long it takes you to recover, and how much data loss you incur in the event of a data center outage depends upon how you decide to use the business continuity features discussed above in your application. Indeed, you may choose to use a combination of database backups and Active Geo-Replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-다음 섹션에서는 데이터베이스 백업 또는 활성 지역 복제를 사용하는 복구 단계를 대략적으로 설명합니다. 계획 요구 사항, 복구 후 단계 및 가동 중단을 시뮬레이션하여 재해 복구 훈련을 수행하는 방법을 포함하는 자세한 단계는 [중단 상태에서 SQL 데이터베이스 복구](sql-database-disaster-recovery.md)를 참조하세요.
+The sections below provide an overview of the steps to recover using either database backups or Active Geo-Replication. For detailed steps including planning requirements, post recovery steps and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](sql-database-disaster-recovery.md).
 
-### 가동 중단에 대비
+### <a name="prepare-for-an-outage"></a>Prepare for an outage
 
-어떤 비즈니스 연속성 기능을 사용하든 관계없이 다음 작업을 수행해야 합니다.
+Regardless of the business continuity feature you use, you must:
 
-- 서버 수준 방화벽 규칙, 로그인 및 master 데이터베이스 수준 사용 권한을 포함하는 대상 서버를 식별하고 준비합니다.
-- 클라이언트 및 클라이언트 응용 프로그램을 새 서버로 리디렉션하는 방법을 결정합니다.
-- 감사 설정 및 경고와 같은 다른 종속성을 문서화합니다.
+- Identify and prepare the target server, including server-level firewall rules, logins, and master database level permissions.
+- Determine how to redirect clients and client applications to the new server
+- Document other dependencies, such as auditing settings and alerts 
  
-적절한 계획 및 준비 없이 장애 조치나 복구 이후에 응용 프로그램을 온라인 상태로 전환하면 추가 시간이 소요되고, 바쁜 업무 중 문제 해결이 필요할 수도 있어 비효율적입니다.
+If you do not plan and prepare properly, bringing your applications online after a failover or a recovery takes additional time and likely also require troubleshooting at a time of stress - a bad combination.
 
-### 지역에서 복제된 보조 데이터베이스로 장애 조치(failover) 
+### <a name="failover-to-a-geo-replicated-secondary-database"></a>Failover to a geo-replicated secondary database 
 
-활성 지역 복제를 복구 메커니즘으로 사용하는 경우 [지역에서 복제된 보조 데이터베이스로 강제 장애 조치(failover)](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database)를 수행합니다. 몇 초 안에 보조 데이터베이스는 새로운 주 데이터베이스로 승격되며, 새 트랜잭션을 기록하고 쿼리에 응답할 준비를 갖춥니다. 이때 단 몇 초 간의 데이터 손실이 있을 수 있으나 아직 복제되지도 않은 데이터입니다. 장애 조치 프로세스 자동화에 대한 자세한 내용은 [클라우드 재해 복구를 위해 응용 프로그램 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md)을 참조하세요.
+If you are using Active Geo-Replication as your recovery mechanism, [force a failover to a geo-replicated secondary](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Within seconds, the secondary is promoted to become the new primary and is ready to record new transactions and respond to any queries - with only a few seconds of data loss for the data that had not yet been replicated. For information on automating the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-> [AZURE.NOTE] 데이터 센터가 다시 온라인 상태가 되면 원래 주 데이터베이스로 장애 복구(failback)할 수 있습니다(그렇지 않을 수도 있음).
+> [AZURE.NOTE] When the data center comes back online, you can failback to the original primary (or not).
 
-### 지역 복원 수행 
+### <a name="perform-a-geo-restore"></a>Perform a Geo-Restore 
 
-복구 메커니즘으로 지역 중복 저장소 복제와 자동화된 백업을 함께 사용하는 경우 [지역 복원을 사용하여 데이터베이스 복구를 시작](sql-database-disaster-recovery.md#recover-using-geo-restore)합니다. 일반적으로 복구는 12시간 이내에 수행됩니다. 이때 마지막으로 수행된 매시간 차등 백업의 실행 및 복제를 기준으로 최대 1시간의 데이터 손실이 있을 수 있습니다. 복구가 완료될 때까지 데이터베이스는 어떤 트랜잭션도 기록할 수 없으며 쿼리에 응답할 수 없습니다.
+If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. 
 
-> [AZURE.NOTE] 응용 프로그램이 복구된 데이터베이스로 전환하기 전에 데이터 센터가 다시 온라인 상태가 되면 복구를 간단히 취소할 수 있습니다.
+> [AZURE.NOTE] If the data center comes back online before you switch your application over to the recovered database, you can simply cancel the recovery.  
 
-### 사후 장애 조치(failover)/복구 작업 수행 
+### <a name="perform-post-failover-/-recovery-tasks"></a>Perform post failover / recovery tasks 
 
-복구 메커니즘에서 복구한 후에는 사용자 및 응용 프로그램이 다시 실행되기 전에 다음과 같은 추가 작업을 수행해야 합니다.
+After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
-- 클라이언트 및 클라이언트 응용 프로그램을 새 서버 및 복원된 데이터베이스로 리디렉션
-- 사용자가 연결할 수 있도록 적절한 서버 수준 방화벽 규칙이 설정되어 있는지 확인합니다(또는 [데이터베이스 수준 방화벽](sql-database-firewall-configure.md#creating-database-level-firewall-rules) 사용).
-- 적절한 로그인 및 master 데이터베이스 수준 사용 권한이 설정되었는지 확인합니다(또는 [포함된 사용자](https://msdn.microsoft.com/library/ff929188.aspx) 사용).
-- 필요에 따라 감사를 구성합니다.
-- 필요에 따라 경고를 구성합니다.
+- Redirect clients and client applications to the new server and restored database
+- Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-database-level-firewall-rules))
+- Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://msdn.microsoft.com/library/ff929188.aspx))
+- Configure auditing, as appropriate
+- Configure alerts, as appropriate
 
-## 최소 가동 중단으로 응용 프로그램 업그레이드
+## <a name="upgrade-an-application-with-minimal-downtime"></a>Upgrade an application with minimal downtime
 
-응용 프로그램 업그레이드와 같은 계획된 유지 관리로 인해 응용 프로그램을 오프라인 상태로 전환해야 하는 경우도 있습니다. [응용 프로그램 업그레이드 관리](sql-database-manage-application-rolling-upgrade.md)에서는 활성 지역 복제를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드를 사용하도록 설정함으로써 업그레이드 기간에 가동 중지 시간을 최소화하고 오류 이벤트에서 복구 경로를 제공하는 방법을 설명합니다. 이 문서에서는 업그레이드 프로세스를 오케스트레이션하는 두 가지 다른 방법을 살펴보고 각 옵션의 이점 및 장단점을 설명합니다.
+Sometimes an application needs to be taken offline because of planned maintenance such as an application upgrade. [Manage application upgrades](sql-database-manage-application-rolling-upgrade.md) describes how to use Active Geo-Replication to enable rolling upgrades of your cloud application to minimize downtime during upgrades and provide a recovery path in the event something goes wrong. This article looks at two different methods of orchestrating the upgrade process and discusses the benefits and trade-offs of each option.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-독립 실행형 데이터베이스 및 탄력적 풀에 대한 응용 프로그램 디자인 고려 사항에 대한 자세한 내용은 [클라우드 재해 복구를 위해 응용 프로그램 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
+For a discussion of application design considerations for stand-alone databases and for elastic pools, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

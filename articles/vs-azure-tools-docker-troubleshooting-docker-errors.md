@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visual Studio를 사용하여 Windows에서 Docker 클라이언트 오류 문제해결 | Microsoft Azure"
-   description="Visual Studio를 사용하여 웹앱을 만들고 Docker에 배포하는 경우 발생하는 문제를 해결합니다."
+   pageTitle="Troubleshooting Docker Client Errors on Windows Using Visual Studio | Microsoft Azure"
+   description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio."
    services="azure-container-service"
    documentationCenter="na"
    authors="mlearned"
@@ -15,39 +15,42 @@
    ms.date="06/08/2016"
    ms.author="allclark" />
 
-# Visual Studio Docker 개발 문제 해결
 
-Docker 미리 보기를 위해 Visual Studio 도구로 작업할 경우, 미리 보기 특성으로 인해 몇 가지 문제가 발생할 수도 있습니다. 다음은 몇 가지 일반적인 문제 및 해결 방법입니다.
+# <a name="troubleshooting-visual-studio-docker-development"></a>Troubleshooting Visual Studio Docker Development
+
+When working with Visual Studio Tools for Docker Preview, you may encounter some problems due to the preview nature.
+The following are some common issues and resolutions.
 
 
-## 볼륨 매핑의 유효성을 검사할 수 없음
-볼륨 매핑의 경우 응용 프로그램의 소스 코드 및 이진 파일을 컨테이너에 있는 앱 폴더와 공유해야 합니다. 특정 볼륨 매핑은 docker-compose.dev.debug.yml 및 docker-compose.dev.release.yml 파일 내에 포함되어 있습니다. 호스트 컴퓨터에서 파일이 변경되면 컨테이너는 비슷한 폴더 구조에서 이러한 변경 내용을 반영합니다.
+## <a name="unable-to-validate-volume-mapping"></a>Unable to validate volume mapping
+Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are contained within the docker-compose.dev.debug.yml and docker-compose.dev.release.yml files. As files are changed on your host machine, the containers reflect these changes in a similar folder structure.
 
-볼륨 매핑에 사용하지 않으려면 Windows용 Docker "모비" 트레이 아이콘에서 **설정...**을 열고 **드라이브 공유** 탭을 선택합니다. %USERPROFILE%이 상주하는 드라이브 문자뿐만 아니라 프로젝트를 호스팅하는 드라이브 문자를 선택한 다음 **적용**을 클릭하여 공유하도록 합니다.
+To enable volume mapping, open **Settings...** from the Docker For Windows "moby" tray icon and then select the **Shared Drives** tab.  Ensure that the drive letter which hosts your project as well as the drive letter where %USERPROFILE% resides are shared by checking them, and then clicking **Apply**.
 
-볼륨 매핑이 작동하는지를 테스트하려면 드라이브가 공유된 경우 Visual Studio 내에서 다시 빌드 또는 F5를 사용하거나 명령 프롬프트에서 다음을 사용해 봅니다.
+To test if volume mapping is functioning, once the drive(s) have been shared, either Rebuild and F5 from within Visual Studio or try the following from a command prompt:
 
-*Windows 명령 프롬프트에서*
+*In a Windows command prompt*
 
-*[참고: 사용자 폴더가 "C" 드라이브에 있으며 공유되었다고 가정합니다. 다른 드라이브를 공유하는 경우 필요에 따라 업데이트합니다]*
+*[Note: This assumes your Users folder is located on the "C" drive and that it has been shared.  Update as necessary if you have shared a different drive]*
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
 ```
 
-*Linux 컨테이너에서*
+*In the Linux container*
 
 ```
 / # ls
 ```
 
-Users/Public 폴더의 디렉토리 목록이 표시됩니다. 아무 파일도 표시되지 않고, /c/Users/Public 폴더는 비어 있지 않다면, 볼륨 매핑이 제대로 구성되지 않았습니다.
+You should see a directory listing from the Users/Public folder.
+If no files are displayed, and your /c/Users/Public folder isn't empty, volume mapping is not configured properly. 
 
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
 
-`/c/Users/Public` 디렉토리의 내용을 보려면 웜홀 디렉토리로 변경합니다.
+Change into the wormhole directory to see the contents of the `/c/Users/Public` directory:
 
 ```
 / # cd wormhole/
@@ -58,25 +61,25 @@ Documents        Libraries        Pictures
 /wormhole #
 ```
 
-**참고:** *Linux VM에서 작업할 때, 컨테이너 파일 시스템은 대/소문자를 구분합니다.*
+**Note:** *When working with Linux VMs, the container file system is case sensitive.*
 
-##빌드 : "PrepareForBuild" 태스크가 예기치 않게 실패했습니다.
+##<a name="build-:-"prepareforbuild"-task-failed-unexpectedly."></a>Build : "PrepareForBuild" task failed unexpectedly.
 
-Microsoft.DotNet.Docker.CommandLine.ClientException: 연결하려는 동안 오류가 발생해습니다.
+Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect:
 
-기본 Docker 호스트가 실행 중인지 확인합니다. 명령 프롬프트를 열고 다음을 실행합니다.
+Verify the default docker host is running. Open a command prompt and execute:
 
 ```
 docker info
 ```
 
-오류를 반환하는 경우 **Windows용 Docker** 데스크톱 앱을 시작하려고 시도합니다. 데스크톱 앱을 실행하는 경우 트레이에 **모비** 아이콘이 표시되어야 합니다. 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **설정**을 엽니다. **다시 설정** 탭 및 **Docker 다시 시작..**을 차례로 클릭합니다.
+If this returns an error then attempt to start the **Docker For Windows** desktop app.  If the desktop app is running then the **moby** icon in the tray should be visible. Right click on the tray icon and open **Settings**.  Click on the **Reset** tab and then **Restart Docker..**.
 
-##0\.31에서 0.40 버전으로 수동 업그레이드
+##<a name="manually-upgrading-from-version-0.31-to-0.40"></a>Manually upgrading from version 0.31 to 0.40
 
 
-1. 프로젝트 백업
-1. 프로젝트에서 다음 파일을 삭제합니다.
+1. Backup the project
+1. Delete the following files in the project:
 
     ```
       Dockerfile
@@ -89,7 +92,7 @@ docker info
       Properties\Docker.targets
     ```
 
-1. 솔루션을 닫고 .xproj 파일에서 다음 줄을 제거합니다.
+1. Close the Solution and remove the following lines from the .xproj file:
 
     ```
       <DockerToolsMinVersion>0.xx</DockerToolsMinVersion>
@@ -97,8 +100,8 @@ docker info
       <Import Project="Properties\Docker.targets" />
     ```
 
-1. 솔루션 다시 열기
-1. Properties\\launchSettings.json 파일에서 다음 줄을 제거합니다.
+1. Reopen the Solution
+1. Remove the following lines from the Properties\launchSettings.json file:
 
     ```
       "Docker": {
@@ -107,7 +110,7 @@ docker info
       }
     ```
 
-1. publishOptions의 project.json에서 Docker에 관련된 다음 파일을 제거합니다.
+1. Remove the following files related to Docker from project.json in the publishOptions:
 
     ```
     "publishOptions": {
@@ -122,21 +125,25 @@ docker info
     },
     ```
 
-1. 이전 버전을 제거하고 Docker 도구 0.40을 설치한 다음 ASP.Net Core Web 또는 콘솔 응용 프로그램에 대한 상황에 맞는 메뉴에서 다시 **Docker 지원 추가**를 클릭합니다. 이렇게 하면 프로젝트에 새 필수 Docker 아티팩트를 추가하게 됩니다.
+1. Uninstall the previous version and install Docker Tools 0.40, and then **Add->Docker Support** again from the context menu for your ASP.Net Core Web or Console Application. This will add the new required Docker artifacts back to your project. 
 
-## 컨테이너에서 **Docker 지원 추가** 또는 ASP.NET Core 응용 프로그램 디버그(F5)를 시도할 때 오류 대화 상자가 나타납니다.
+## <a name="an-error-dialog-occurs-when-attempting-to-**add->docker-support**-or-debug-(f5)-an-asp.net-core-application-in-a-container"></a>An error dialog occurs when attempting to **Add->Docker Support** or Debug (F5) an ASP.NET Core Application in a container
 
-확장을 제거하고 설치한 후에 Visual Studio의 MEF(Managed Extensibility Framework) 캐시가 손상된 것을 발견할 수 있습니다. 이 경우에는 Docker 지원을 추가 및/또는 ASP.NET Core 응용 프로그램을 실행 또는 디버그(F5)할 때 다양한 오류 대화 상자가 나타날 수 있습니다. 임시 해결 방법으로 MEF 캐시를 삭제하고 다시 생성하려면 다음 단계를 실행합니다.
+We have occasionally seen after uninstalling and installing extensions, Visual Studio's MEF (Managed Extensibility Framework) cache can become corrupt. When this occurs it can cause various error dialogs when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
 
-1. Visual Studio의 모든 인스턴스 닫기
-1. %USERPROFILE%\\AppData\\Local\\Microsoft\\VisualStudio\\14.0\\ 열기
-1. 다음 폴더 삭제
+1. Close all instances of Visual Studio
+1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\
+1. Delete the following folders
      ```
        ComponentModelCache
        Extensions
        MEFCacheBackup
     ```
-1. Visual Studio 열기
-1. 시나리오 다시 시도
+1. Open Visual Studio
+1. Attempt the scenario again 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

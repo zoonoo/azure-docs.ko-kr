@@ -1,13 +1,13 @@
 <properties
-   pageTitle="공용 및 개인 DC/OS 에이전트 풀 ACS | Microsoft Azure"
-   description="공용 및 사용자 에이전트 풀이 Azure Container Service 클러스터와 함께 작동하는 방식입니다."
+   pageTitle="Public and Private DC/OS Agent Pools ACS | Microsoft Azure"
+   description="How the public and private agent pools work with an Azure Container Service cluster."
    services="container-service"
    documentationCenter=""
    authors="Thraka"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, 컨테이너, 마이크로 서비스, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,28 +16,32 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/16/2016"
-   ms.author="adegeo"/>
+   ms.author="timlt"/>
 
-# Azure Container Service의 DC/OS 에이전트 풀
 
-DC/OS Azure Container Service는 에이전트를 공용 또는 개인 풀로 나눕니다. 배포가 이러한 두 풀 중 하나로 이루어질 수 있으며 이는 컨테이너 서비스의 컴퓨터 간의 액세스 가능성에 영향을 줍니다. 컴퓨터는 인터넷(공용)에 노출되거나 내부(개인)로 유지될 수 있습니다. 이 문서에서는 공용 및 개인 풀이 있는 이유에 대한 간략한 개요를 제공합니다.
+# <a name="dc/os-agent-pools-for-azure-container-service"></a>DC/OS Agent Pools for Azure Container Service
 
-### 사용자 에이전트
+DC/OS Azure Container Service divides agents into public or private pools. A deployment can be made to either pool, affecting accessibility between machines in your container service. The machines can be exposed to the internet (public) or kept internal (private). This article gives a brief overview of why there are a public and private pool.
 
-사용자 에이전트 노드는 라우팅할 수 없는 네트워크를 통해 실행됩니다. 이 네트워크는 관리 영역에서나 공용 영역 에지 라우터를 통해서만 액세스할 수 있습니다. 기본적으로 DC/OS는 사용자 에이전트 노드에서 앱을 시작합니다. 네트워크 보안에 대한 자세한 내용은 [DC/OS 설명서](https://dcos.io/docs/1.7/administration/securing-your-cluster/)를 참조하세요.
+### <a name="private-agents"></a>Private agents
 
-### 공용 에이전트
+Private agent nodes run through a non-routable network. This network is only accessible from the admin zone or through the public zone edge router. By default, DC/OS launches apps on private agent nodes. Consult the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/) for more information about network security.
 
-공용 에이전트 노드는 공개적으로 액세스 가능한 네트워크를 통해 DC/OS 앱과 서비스를 실행합니다. 네트워크 보안에 대한 자세한 내용은 [DC/OS 설명서](https://dcos.io/docs/1.7/administration/securing-your-cluster/)를 참조하세요.
+### <a name="public-agents"></a>Public agents
 
-## 에이전트 풀 사용
+Public agent nodes run DC/OS apps and services through a publicly accessible network. Consult the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/) for more information about network security.
 
-기본적으로 **Marathon**은 새 응용 프로그램을 *사용자* 에이전트 노드에 배포합니다. 응용 프로그램 생성 중에 응용 프로그램을 *공용* 노드에 명시적으로 배포해야 합니다. **선택 사항** 탭을 선택하고 **수락된 리소스 역할** 값에 **slave\_public**을 입력합니다. 이 과정은 [여기](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container)와 [DC\\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) 설명서에 문서화되어 있습니다.
+## <a name="using-agent-pools"></a>Using agent pools
 
-## 다음 단계
+By default, **Marathon** deploys any new application to the *private* agent nodes. You have to explicitly deploy the application to the *public* node during the creation of the application. Select the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles** value. This process is documented [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentation.
 
-[DC/OS 컨테이너 관리](container-service-mesos-marathon-ui.md)에 대해 자세히 알아보세요.
+## <a name="next-steps"></a>Next steps
 
-DC/OS 컨테이너에 대한 공용 액세스를 허용하기 위해 Azure에 제공된 [방화벽을 여는 방법](container-service-enable-public-access.md)에 대해 알아보세요.
+Read more information about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+Learn how to [open the firewall](container-service-enable-public-access.md) provided by Azure to allow public access to your DC/OS container.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

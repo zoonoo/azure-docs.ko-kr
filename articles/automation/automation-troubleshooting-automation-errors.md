@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Azure 자동화 오류 처리 | Microsoft Azure"
-   description="이 문서에서는 일반적인 Azure 자동화 오류를 해결하는 기본 오류 처리 단계를 제공합니다."
+   pageTitle="Azure automation error handling | Microsoft Azure"
+   description="This article provides basic error handling steps to troubleshoot and fix common Azure Automation errors."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
    manager="stevenka"
    editor="tysonn"
    tags="top-support-issue"
-   keywords="자동화 오류, 오류 처리"/>
+   keywords="automation error, error handling"/>
 <tags
    ms.service="automation"
    ms.devlang="na"
@@ -17,26 +17,24 @@
    ms.date="07/06/2016"
    ms.author="sngun; v-reagie"/>
 
-# 일반적인 Azure 자동화 오류에 대한 오류 처리 팁
 
-이 문서에서는 발생할 수 있는 몇 가지 일반적인 Azure 자동화 오류를 설명하고 사용할 수 있는 오류 처리 단계를 제안합니다.
+# <a name="error-handling-tips-for-common-azure-automation-errors"></a>Error handling tips for common Azure Automation errors
 
-## Azure 자동화 Runbook을 사용할 때 인증 오류 해결  
+This article explains some of the common Azure Automation errors you might experience and suggests possible error handling steps.
 
-### 시나리오: Azure 계정 로그인에 실패
+## <a name="troubleshoot-authentication-errors-when-working-with-azure-automation-runbooks"></a>Troubleshoot authentication errors when working with Azure Automation runbooks  
 
-**오류:**
-Add-AzureAccount 또는 Login-AzureRmAccount cmdlet을 사용하면 "Unknown\_user\_type: 알 수 없는 사용자 유형" 오류가 수신됩니다.
+### <a name="scenario:-sign-in-to-azure-account-failed"></a>Scenario: Sign in to Azure Account failed
 
-**오류 원인:**
-이 오류는 자격 증명 자산 이름이 올바르지 않거나 자동화 자격 증명 자산을 설정하는 데 사용한 사용자 이름과 암호가 올바르지 않은 경우에 발생합니다.
+**Error:** You receive the error "Unknown_user_type: Unknown User Type" when working with the Add-AzureAccount or Login-AzureRmAccount cmdlets.
 
-**문제 해결 팁:**
-무엇이 문제인지 확인하기 위해 다음 단계를 수행합니다.
+**Reason for the error:** This error occurs if the credential asset name is not valid or if the username and password that you used to setup the Automation credential asset are not valid.
 
-1. Azure에 연결할 때 사용하는 자동화 자격 증명 자산에 **@** 문자를 비롯한 특수 문자가 들어 있지는 않은지 확인합니다.
+**Troubleshooting tips:** In order to determine what's wrong, take the following steps:  
 
-2. Azure 자동화 자격 증명에 저장된 사용자 이름 및 암호를 로컬 PowerShell ISE 편집기에서 사용할 수 있는지 확인합니다. PowerShell ISE에서 다음 cmdlet을 실행하여 확인할 수 있습니다.
+1. Make sure that you don’t have any special characters, including the **@** character in the Automation credential asset name that you are using to connect to Azure.  
+
+2. Check that you can use the username and password that are stored in the Azure Automation credential in your local PowerShell ISE editor. You can do this by running the following cmdlets in the PowerShell ISE:  
 
         $Cred = Get-Credential  
         #Using Azure Service Management   
@@ -44,200 +42,178 @@ Add-AzureAccount 또는 Login-AzureRmAccount cmdlet을 사용하면 "Unknown\_us
         #Using Azure Resource Manager  
         Login-AzureRmAccount –Credential $Cred
 
-3. 인증이 로컬에서 실패하면 Azure Active Directory 자격 증명을 올바르게 설정하지 않았다는 뜻입니다. Azure Active Directory 계정을 올바르게 설정하는 방법은 [Azure Active Directory를 사용하여 Azure에 인증](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 블로그 게시물을 참조하세요.
+3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
 
-### 시나리오: Azure 구독을 찾을 수 없음
+### <a name="scenario:-unable-to-find-the-azure-subscription"></a>Scenario: Unable to find the Azure subscription
 
-**오류:**
-Select-AzureSubscription 또는 Select-AzureRmSubscription cmdlet을 사용하면 "``<subscription name>`` 구독을 찾을 수 없음" 오류가 수신됩니다.
+**Error:** You receive the error "The subscription named ``<subscription name>`` cannot be found" when working with the Select-AzureSubscription or Select-AzureRmSubscription cmdlets.
 
-**오류 원인:**
-이 오류는 구독 이름이 올바르지 않거나 구독 세부 정보를 가져오려는 Azure Active Directory 사용자가 구독 관리자로 구성되지 않은 경우에 발생합니다.
+**Reason for the error:** This error occurs if the subscription name is not valid or if the Azure Active Directory user who is trying to get the subscription details is not configured as an admin of the subscription.
 
-**문제 해결 팁:**
-Azure에 올바르게 인증하여 선택하려는 구독에 대한 액세스 권한을 획득했는지 확인하기 위해 다음 단계를 수행합니다.
+**Troubleshooting tips:** In order to determine if you have properly authenticated to Azure and have access to the subscription you are trying to select, take the following steps:  
 
-1. **Add-AzureAccount**를 실행한 후 **Select-AzureSubscription** cmdlet을 실행합니다.
+1. Make sure that you run the **Add-AzureAccount** before running the **Select-AzureSubscription** cmdlet.  
 
-2. 이 오류 메시지가 계속 나타나면 **Add-AzureAccount** 뒤에 **Get-AzureSubscription** cmdlet을 추가하여 코드를 수정한 다음 코드를 실행합니다. 이제 Get-AzureSubscription의 출력에 구독 세부 정보가 포함되었는지 확인합니다.
-    * 출력에 구독 세부 정보가 보이지 않으면 아직 구독이 초기화되지 않았다는 뜻입니다.
-    * 출력에 구독 세부 정보가 보이면 **Select-AzureSubscription** cmdlet을 사용하여 올바른 구독 이름 또는 ID를 사용하고 있는지 확인합니다.
+2. If you still see this error message, modify your code by adding the **Get-AzureSubscription** cmdlet following the **Add-AzureAccount** cmdlet and then execute the code.  Now verify if the output of Get-AzureSubscription contains your subscription details.  
+    * If you don't see any subscription details in the output, this means that the subscription isn’t initialized yet.  
+    * If you do see the subscription details in the output, confirm that you are using the correct subscription name or ID with the **Select-AzureSubscription** cmdlet.   
 
 
-### 시나리오: Multi-Factor Authentication이 활성화되어 Azure 인증에 실패
+### <a name="scenario:-authentication-to-azure-failed-because-multi-factor-authentication-is-enabled"></a>Scenario: Authentication to Azure failed because multi-factor authentication is enabled
 
-**오류:**
-Azure 사용자 이름 및 암호를 사용하여 Azure에 인증하면 “Add-AzureAccount: AADSTS50079: 강력한 인증 등록(증명)이 필요합니다” 오류가 수신됩니다.
+**Error:** You receive the error “Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required” when authenticating to Azure with your Azure username and password.
 
-**오류 원인:**
-Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다. 그 대신 인증서 또는 서비스 주체를 사용하여 Azure에 인증해야 합니다.
+**Reason for the error:** If you have multi-factor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure.  Instead, you need to use a certificate or a service principal to authenticate to Azure.
 
-**문제 해결 팁:**
-Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure 포털을 사용하여 서비스 주체 만들기](./resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.
+**Troubleshooting tips:** To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](./resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](./resource-group-authenticate-service-principal.md)
 
 
-## Runbook을 사용할 때 발생하는 일반적인 오류 해결
+## <a name="troubleshoot-common-errors-when-working-with-runbooks"></a>Troubleshoot common errors when working with runbooks
 
-### 시나리오: 역직렬화된 개체로 인해 Runbook 실패
+### <a name="scenario:-runbook-fails-because-of-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
-**오류:**
-``<ParameterName>`` 매개 변수를 바인딩할 수 없습니다. 역직렬화된 유형 ``<ParameterType>``의 ``<ParameterType>`` 값을 ``<ParameterType>``(으)로 변환할 수 없습니다" 오류와 함께 Runbook이 실패합니다.
+**Error:** Your runbook fails with the error "Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``".
 
-**오류 원인:**
-Runbook이 PowerShell 워크플로인 경우 워크플로가 일시 중단되더라도 Runbook 상태를 유지하기 위해 복합 개체를 역직렬화된 형식으로 저장합니다.
+**Reason for the error:** If your runbook is a PowerShell Workflow, it stores complex objects in a deserialized format in order to persist your runbook state if the workflow is suspended.  
 
-**문제 해결 팁:**  
-다음 세 가지 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+**Troubleshooting tips:**  
+Any of the following three solutions will fix this problem:
 
-1. 한 cmdlet에서 다른 cmdlet으로 복합 개체를 파이핑하는 경우 이러한 cmdlet을 InlineScript에 래핑합니다.
-2. 개체 전체를 전달하지 말고 복합 개체에서 필요한 이름 또는 값만 전달합니다.
+1. If you are piping complex objects from one cmdlet to another, wrap these cmdlets in an InlineScript.  
+2. Pass the name or value that you need from the complex object instead of passing the entire object.  
 
-3. PowerShell 워크플로 Runbook 대신 PowerShell Runbook을 사용합니다.
+3. Use a PowerShell runbook instead of a PowerShell Workflow runbook.  
 
 
-### 시나리오: 할당된 할당량을 초과하여 Runbook 작업 실패
+### <a name="scenario:-runbook-job-failed-because-the-allocated-quota-exceeded"></a>Scenario: Runbook job failed because the allocated quota exceeded
 
-**오류:**
-"이 구독에 할당된 월간 총 작업 실행에 도달했습니다" 오류와 함께 Runbook이 실패합니다.
+**Error:** Your runbook job fails with the error "The quota for the monthly total job run time has been reached for this subscription".
 
-**오류의 원인:**
-작업 실행 시간이 계정에 할당된 무료 500분을 초과하면 이 오류가 발생합니다. 이 할당량은 작업을 테스트하고, 포털에서 작업을 시작하고, 웹 후크를 사용하여 작업을 실행하고, Azure 포털 또는 데이터 센터를 사용하여 실행할 작업을 예약하는 등의 모든 작업 실행에 적용됩니다. 자동화 가격 책정에 대한 자세한 내용은 [자동화 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
+**Reason for the error:** This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks such as testing a job, starting a job from the portal, executing a job by using webhooks and scheduling a job to execute by using either the Azure portal or in your datacenter. To learn more about pricing for Automation see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
 
-**문제 해결 팁:**
-매월 처리 시간을 500분 이상 사용하려면 구독을 무료 계층에는 기본 계층으로 변경해야 합니다. 다음 단계에 따라 기본 계층으로 업그레이드할 수 있습니다.  
+**Troubleshooting tips:** If you want to use more than 500 minutes of processing per month you will need to change your subscription from the Free tier to the Basic tier. You can upgrade to the Basic tier by taking the following steps:  
 
-1. Azure 구독에 로그인합니다.
-2. 업그레이드할 자동화 계정을 선택합니다.
-3. **설정** > **가격 책정 계층 및 사용 현황** > **가격 책정 계층**을 클릭합니다.
-4. **가격 책정 계층 선택** 블레이드에서 **기본**을 선택합니다.
+1. Sign in to your Azure subscription  
+2. Select the Automation account you wish to upgrade  
+3. Click on **Settings** > **Pricing tier and Usage** > **Pricing tier**  
+4. On the **Choose your pricing tier** blade, select **Basic**    
 
 
-### 시나리오: Runbook을 실행해도 cmdlet이 인식되지 않음
+### <a name="scenario:-cmdlet-not-recognized-when-executing-a-runbook"></a>Scenario: Cmdlet not recognized when executing a runbook
 
-**오류:**
-``<cmdlet name>``: ``<cmdlet name>``이라는 용어가 cmdlet의 이름, 함수, 스크립트 파일 또는 사용이 가능한 프로그램으로 인식되지 않습니다" 오류와 함께 Runbook 작업이 실패하게 됩니다.
+**Error:** Your runbook job fails with the error "``<cmdlet name>``: The term ``<cmdlet name>`` is not recognized as the name of a cmdlet, function, script file, or operable program."
 
-**오류 원인:**
-PowerShell 엔진이 사용자가 Runbook에서 사용하는 cmdlet을 찾을 수 없는 경우에 이 오류가 발생합니다. cmdlet을 포함하고 있는 모듈이 계정에 없어서, Runbook 이름과 충돌하는 이름이 있어서 또는 다른 모듈에도 cmdlet이 있어서 Azure 자동화가 이름을 확인할 수 없는 것이 원인일 수 있습니다.
+**Reason for the error:** This error is caused when the PowerShell engine cannot find the cmdlet you are using in your runbook.  This could be because the module containing the cmdlet is missing from the account, there is a name conflict with a runbook name, or the cmdlet also exists in another module and Automation cannot resolve the name.
 
-**문제 해결 팁:**
-다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+**Troubleshooting tips:** Any of the following solutions will fix the problem:  
 
-- cmdlet 이름을 올바르게 입력했는지 확인합니다.
+- Check that you have entered the cmdlet name correctly.  
 
-- 자동화 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 **Get-Command``<CommandName>``를 실행합니다**. cmdlet을 계정에 사용할 수 있고 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는 것으로 확인되면 캔버스에 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.
+- Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run **Get-Command ``<CommandName>``**.  Once you have validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and ensure that you are using a valid parameter set in your runbook.  
 
-- 이름이 충돌하고 cmdlet이 서로 다른 두 모듈에서 사용되는 경우 cmdlet에 대한 정규화된 이름을 사용하여 이 문제를 해결할 수 있습니다. 예를 들어 **ModuleName\\CmdletName**을 사용할 수 있습니다.
+- If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
 
-- Hybrid Worker 그룹에서 runbook 온-프레미스를 실행하는 경우 모듈/cmdlet이 Hybrid Worker를 호스트하는 시스템에 설치되어야 합니다.
+- If you are executing the runbook on-premises in a hybrid worker group, then make sure that the module/cmdlet is installed on the machine that hosts the hybrid worker.
 
 
-### 시나리오: 장기 실행 runbook이 “동일한 검사점에서 반복적으로 제거되어 작업을 계속 실행할 수 없습니다.” 예외로 인해 지속적으로 실패함
+### <a name="scenario:-a-long-running-runbook-consistently-fails-with-the-exception:-"the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"."></a>Scenario: A long running runbook consistently fails with the exception: "The job cannot continue running because it was repeatedly evicted from the same checkpoint".
 
-**오류 원인:**
-Azure 자동화 내의 프로세스에 대한 "공평 분배" 모니터링으로 인한 의도된 동작입니다. 이 동작은 runbook이 3시간 넘게 실행되는 경우 자동으로 일시 중단합니다. 그러나 반환된 오류 메시지에서는 "다음 단계" 옵션을 제공하지 않습니다. runbook은 다양한 이유로 일시 중단될 수 있습니다. 일시 중단은 주로 오류로 인해 발생합니다. 예를 들어 runbook의 catch되지 않은 예외, 네트워크 오류 또는 runbook을 실행하는 Runbook Worker의 작동 중단은 모두 runbook을 일시 중단시키며, 재개 시 마지막 검사점에서 시작되도록 합니다.
+**Reason for the error:** This is by design behavior due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than 3 hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
 
-**문제 해결 팁:**
-이 문제를 방지하기 위한 문서화된 해결 방법은 워크플로에서 검사점을 사용하는 것입니다. 자세한 내용은 [PowerShell 워크플로 학습](automation-powershell-workflow.md#Checkpoints)을 참조하세요. "공평 분배" 및 검사점에 대한 자세한 설명은 [Runbook에서 검사점 사용](https://azure.microsoft.com/ko-KR/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) 블로그 문서에서 확인 수 있습니다.
+**Troubleshooting tips:** The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#Checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 
-## 모듈을 가져올 때 발생하는 일반적인 오류 해결
+## <a name="troubleshoot-common-errors-when-importing-modules"></a>Troubleshoot common errors when importing modules
 
-### 시나리오: 모듈이 가져오기를 실패하거나 가져오기를 실행한 후 cmdlet을 실행할 수 없음
+### <a name="scenario:-module-fails-to-import-or-cmdlets-can't-be-executed-after-importing"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
 
-**오류:**
-모듈이 가져오기를 실패하거나 성공하더라도 cmdlet이 추출되지 않습니다.
+**Error:** A module fails to import or imports successfully, but no cmdlets are extracted.
 
-**오류 원인:**
-모듈이 Azure 자동화를 가져오지 못하는 몇 가지 일반적인 이유는 다음과 같습니다.
+**Reason for the error:** Some common reasons that a module might not successfully import to Azure Automation are:  
 
-- 구조가 자동화에서 요구하는 구조와 일치하지 않습니다.
+- The structure does not match the structure that Automation needs it to be in.  
 
-- 모듈이 자동화 계정에 배포되지 않은 다른 모듈에 종속되어 있습니다.
+- The module is dependent on another module that has not been deployed to your Automation account.  
 
-- 모듈 폴더에 종속성이 없습니다.
+- The module is missing its dependencies in the folder.  
 
-- **New-AzureRmAutomationModule**cmdlet이 모듈 업로드에 사용되고 있으며, 사용자가 공개적으로 액세스 가능한 URL을 사용하여 저장소 전체 경로를 입력하거나 모듈을 로드하지 않았습니다.
+- The **New-AzureRmAutomationModule** cmdlet is being used to upload the module, and you have not given the full storage path or have not loaded the module by using a publicly accessible URL.  
 
-**문제 해결 팁:**  
-다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+**Troubleshooting tips:**  
+Any of the following solutions will fix the problem:  
 
-- 모듈이 다음 형식을 따르는지 확인합니다. ModuleName.Zip **->** ModuleName 또는 버전 번호 **->** (ModuleName.psm1, ModuleName.psd1)
+- Make sure that the module follows the following format:  
+ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
 
-- .Psd1 파일을 열고 모듈에 종속성이 있는지 확인합니다. 종속성이 있으면 이러한 모듈을 자동화 계정에 업로드합니다.
+- Open the .psd1 file and see if the module has any dependencies.  If it does, upload these modules to the Automation account.  
 
-- 모듈 폴더에 참조되는 .dll이 있는지 확인합니다.
+- Make sure that any referenced .dlls are present in the module folder.  
 
 
-## DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제 해결  
+## <a name="troubleshoot-common-errors-when-working-with-desired-state-configuration-(dsc)"></a>Troubleshoot common errors when working with Desired State Configuration (DSC)  
 
-### 시나리오: 노드는 "찾을 수 없음" 오류로 실패한 상태
+### <a name="scenario:-node-is-in-failed-status-with-a-“not-found”-error"></a>Scenario: Node is in failed status with a “Not found” error
 
-**오류:**
-노드에는 **실패**한 상태로 “https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` 서버에서 작업을 가져오려는 시도를 찾지 못했습니다.” 오류를 포함하는 보고서가 있습니다.
+**Error:** The node has a report with **Failed** status and containing the error "The attempt to get the action from server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` cannot be found.”
 
-**오류 원인:**
-이 오류는 일반적으로 노드가 노드 구성 이름(예: ABC.WebServer) 대신 구성 이름(예: ABC)에 할당된 경우에 발생합니다.
+**Reason for the error:** This error typically occurs when the node is assigned to a configuration name (e.g. ABC) instead of a node configuration name (e.g. ABC.WebServer).  
 
-**문제 해결 팁:**  
+**Troubleshooting tips:**  
 
-- "구성 이름"이 아니라 "노드 구성 이름"으로 노드를 할당해야 합니다.
+- Make sure that you are assigning the node with "node configuration name" and not the "configuration name".  
 
-- Azure 포털 또는 PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당할 수 있습니다.
-    - Azure 포털을 사용하여 노드 구성을 노드에 할당하려면 **DSC 노드** 블레이드를 열고 노드를 선택한 다음 **노드 구성 할당** 단추를 클릭합니다.
-    - PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당하려면 **Set-AzureRmAutomationDscNode** cmdlet을 사용합니다.
+- You can assign a node configuration to a node using Azure portal or with a PowerShell cmdlet.
+    - In order to assign a node configuration to a node using Azure portal, open the **DSC Nodes** blade, then select a node and click on **Assign node configuration** button.  
+    - In order to assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
 
 
-### 시나리오: 구성이 컴파일될 때 생성된 노드 구성(mof 파일)이 없음
+### <a name="scenario:-no-node-configurations-(mof-files)-were-produced-when-a-configuration-is-compiled"></a>Scenario:  No node configurations (MOF files) were produced when a configuration is compiled
 
-**오류:**
-DSC 컴파일 작업이 "컴파일은 성공적으로 완료되었지만 노드 구성 .mof가 생성되지 않음"이라는 오류로 일시 중단되었습니다.
+**Error:** Your DSC compilation job suspends with the error: “Compilation completed successfully, but no node configuration .mofs were generated”.
 
-**오류 원인:**
-DSC 구성에서 **Node** 키워드 다음에 오는 식이 $null로 계산되는 경우 노드 구성이 생성되지 않습니다.
+**Reason for the error:** When the expression following the **Node** keyword in the DSC configuration evaluates to $null then no node configurations will be produced.    
 
-**문제 해결 팁:**  
-다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+**Troubleshooting tips:**  
+Any of the following solutions will fix the problem:  
 
-- 구성 정의에서 **Node** 키워드 옆의 식이 $null로 계산되지 않는지 확인합니다.
-- 구성을 컴파일할 때 ConfigurationData를 전달하는 경우 [ConfigurationData](automation-dsc-compile.md#configurationdata)에서 구성에 필요한 값을 전달해야 합니다.
+- Make sure that the expression next to the **Node** keyword in the configuration definition is not evaluating to $null.  
+- If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](automation-dsc-compile.md#configurationdata).
 
 
-### 시나리오: DSC 노드 보고서가 "진행 중" 상태로 중단됨
+### <a name="scenario:-the-dsc-node-report-becomes-stuck-“in-progress”-state"></a>Scenario:  The DSC node report becomes stuck “in progress” state
 
-**오류:**
-DSC 에이전트는 "주어진 속성 값으로 인스턴스를 찾을 수 없음"을 출력합니다.
+**Error:** DSC Agent outputs “No instance found with given property values.”
 
-**오류 원인:**
-WMF 버전을 업그레이드했고 WMI가 손상되었습니다.
+**Reason for the error:** You have upgraded your WMF version and have corrupted WMI.  
 
-**문제 해결 팁:**
-문제 해결을 위해 [DSC 알려진 문제 및 제한 사항](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) 블로그 게시물의 지침을 따릅니다.
+**Troubleshooting tips:** Follow the instructions in the [DSC known issues and limitations](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) blog post to fix the issue.
 
 
-### 시나리오: DSC 구성에서 자격 증명을 사용할 수 없습니다.
+### <a name="scenario:-unable-to-use-a-credential-in-a-dsc-configuration"></a>Scenario:  Unable to use a credential in a DSC configuration
 
-**오류:**
-DSC 컴파일 작업이 "``<some resource name>`` 형식의 'Credential' 속성을 처리하는 System.InvalidOperationException 오류: PSDscAllowPlainTextPassword가 true로 설정된 경우에만 암호화된 암호를 일반 텍스트로 변환하고 저장할 수 있습니다." 오류로 인해 일시 중단되었습니다.
+**Error:** Your DSC compilation job was suspended with the error: “System.InvalidOperationException error processing property 'Credential' of type ``<some resource name>``: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true”.
 
-**오류에 대한 원인:**
-구성에서 자격 증명을 사용하지만 각 노드 구성에 대해 **PSDscAllowPlainTextPassword**를 true로 설정하는 적절한 **ConfigurationData**를 제공하지 않았습니다.
+**Reason for the error:** You have used a credential in a configuration but didn’t provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.  
 
-**문제 해결 팁:**  
-- 적절한 **ConfigurationData**에 전달하여 구성에서 언급한 각 노드의 구성에 대해 **PSDscAllowPlainTextPassword**를 true로 설정하도록 합니다. 자세한 내용은 [Azure 자동화 DSC의 자산](automation-dsc-compile.md#assets)을 참조하세요.
+**Troubleshooting tips:**  
+- Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration mentioned in the configuration. For more information, refer to [assets in Azure Automation DSC](automation-dsc-compile.md#assets).
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-위의 문제 해결 단계를 수행했으며 본 문서와 관련하여 추가 도움이 필요한 경우
+If you have followed the troubleshooting steps above and need additional help at any point in this article, you can:
 
-- Azure 전문가에게 도움을 받으세요. [MSDN Azure 또는 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에 문제를 제출하세요.
+- Get help from Azure experts. Submit your issue to the [MSDN Azure or Stack Overflow forums.](https://azure.microsoft.com/support/forums/)
 
-- Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **기술 및 대금 청구 지원**에서 **지원 받기**를 클릭합니다.
+- File an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get support** under **Technical and billing support**.
 
-- Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/)에 스크립트 요청을 게시하세요.
+- Post a Script Request on [Script Center](https://azure.microsoft.com/documentation/scripts/) if you are looking for an Azure Automation runbook solution or an integration module.
 
-- Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
+- Post feedback or feature requests for Azure Automation on [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

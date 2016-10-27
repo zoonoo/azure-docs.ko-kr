@@ -1,6 +1,6 @@
 <properties
-pageTitle="HDInsight에 사용되는 포트 | Azure"
-description="HDInsight에서 실행 중인 Hadoop 서비스에 사용된 포트 목록입니다."
+pageTitle="Ports used by HDInsight | Azure"
+description="A list of ports used by Hadoop services running on HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -13,134 +13,139 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="09/13/2016"
+ms.date="10/03/2016"
 ms.author="larryfr"/>
 
-# HDInsight에 사용되는 포트 및 URI
 
-이 문서에서는 Linux 기반 HDInsight 클러스터에서 실행되는 Hadoop 서비스에 사용되는 포트 목록을 제공합니다. 또한 SSH를 사용하여 클러스터에 연결하는 데 사용된 포트에 대한 정보도 제공합니다.
+# <a name="ports-and-uris-used-by-hdinsight"></a>Ports and URIs used by HDInsight
 
-## 공용 포트 및 비-공용 포트
+This document provides a list of the ports used by Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
 
-Linux 기반 HDInsight 클러스터는 인터넷에서 세 개의 포트(22, 23, 443)만 공개적으로 노출합니다. 이러한 포트는 SSH 및 보안 HTTPS 프로토콜을 통해 노출된 서비스를 사용하여 클러스터에 안전하게 액세스하는 데 사용됩니다.
+## <a name="public-ports-vs.-non-public-ports"></a>Public ports vs. non-public ports
 
-내부적으로 HDInsight는 Azure 가상 네트워크에서 실행되는 여러 Azure 가상 컴퓨터(클러스터 내의 노드)에 의해 구현됩니다. 가상 네트워크 내에서 인터넷을 통해 노출되지 않은 포트를 액세스할 수 있습니다. 예를 들어 SSH를 사용하여 헤드 노드 중 하나에 연결하는 경우 헤드 노드부터 시작하여 클러스터 노드에서 실행 중인 서비스에 직접 액세스할 수 있습니다.
+Linux-based HDInsight clusters only exposes three ports publicly on the internet; 22, 23, and 443. These are used to securely access the cluster using SSH and services exposed over the secure HTTPS protocol.
 
-> [AZURE.IMPORTANT] HDInsight 클러스터를 만드는 경우 구성 옵션으로 Azure 가상 네트워크를 지정하지 않으면 클러스터가 만들어지지만 다른 컴퓨터(예: 다른 Azure 가상 컴퓨터 또는 클라이언트 개발 컴퓨터)를 이 자동으로 생성된 가상 네트워크에 조인할 수 없습니다.
+Internally, HDInsight is implemented by several Azure Virtual Machines (the nodes within the cluster,) running on an Azure Virtual Network. From within the virtual network, you can access ports not exposed over the internet. For example, if you connect to one of the head nodes using SSH, from the head node you can then directly access services running on the cluster nodes.
 
-추가 컴퓨터를 가상 네트워크에 조인하려면 먼저 가상 네트워크를 만든 후 HDInsight 클러스터를 만들 때 이를 지정해야 합니다. 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+> [AZURE.IMPORTANT] When you create an HDInsight cluster, if you do not specify an Azure Virtual Network as a configuration option, one is created; however, you cannot join other machines (such as other Azure Virtual Machines or your client development machine,) to this automatically created virtual network. 
 
-## 공용 포트
+To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 
-HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으며 인터넷에서 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
+## <a name="public-ports"></a>Public ports
 
-| 부여 | 포트 | 프로토콜 | 설명 |
+All the nodes in an HDInsight cluster are located in an Azure Virtual Network, and cannot be directly accessed from the internet. A public gateway provides internet access to the following ports, which are common across all HDInsight cluster types.
+
+| Service | Port | Protocol | Description |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | 기본 헤드 노드에서 sshd에 클라이언트를 연결합니다. [Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요. |
-| sshd | 22 | SSH | 에지 노드에서 클라이언트를 sshd에 연결합니다(HDInsight 프리미엄만 해당). [HDInsight에서 R 서버 사용 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요. |
-| sshd | 23 | SSH | 보조 헤드 노드에서 sshd에 클라이언트를 연결합니다. [Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요. |
-| Ambari | 443 | HTTPS | Ambari 웹 UI. [Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요. |
-| Ambari | 443 | HTTPS | Ambari REST API. [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요. |
-| WebHCat | 443 | HTTPS | HCatalog REST API. [Curl에서 Hive 사용](hdinsight-hadoop-use-Pig-curl.md), [Curl에서 Pig 사용](hdinsight-hadoop-use-Pig-curl.md), [Curl에서 MapReduce 사용](hdinsight-hadoop-use-mapreduce-curl.md)을 참조하세요. |
-| HiveServer2 | 443 | ODBC | ODBC를 사용하여 Hive에 연결합니다. [Microsoft ODBC 드라이버로 HDInsight에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요. |
-| HiveServer2 | 443 | JDBC | JDBC를 사용하여 Hive에 연결합니다. [Hive JDBC 드라이버를 사용하여 HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md)을 참조하세요. |
+| sshd | 22 | SSH | Connects clients to sshd on the primary headnode. See [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 22 | SSH | Connects clients to sshd on the edge node (HDInsight Premium only). See [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) |
+| sshd | 23 | SSH | Connects clients to sshd on the secondary headnode. See [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| Ambari | 443 | HTTPS | Ambari web UI. See [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
+| Ambari | 443 | HTTPS | Ambari REST API. See [Manage HDInsight using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| WebHCat | 443 | HTTPS | HCatalog REST API. See [Use Hive with Curl](hdinsight-hadoop-use-pig-curl.md), [Use Pig with Curl](hdinsight-hadoop-use-pig-curl.md), [Use MapReduce with Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 | 443 | ODBC | Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 | 443 | JDBC | Connects to Hive using JDBC. See [Connect to Hive on HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) |
 
-다음은 특정 클러스터 유형에 대해 사용할 수 있습니다.
+The following are available for specific cluster types:
 
-| 부여 | 포트 | 프로토콜 |클러스터 유형 | 설명 |
+| Service | Port | Protocol |Cluster type | Description |
 | ------------ | ---- |  ----------- | --- | ----------- |
-| Stargate | 443 | HTTPS | HBase | HBase REST API. [HBase를 사용하여 시작](hdinsight-hbase-tutorial-get-started-linux.md)을 참조하세요. |
-| Livy | 443 | HTTPS | Spark | Spark REST API. [Livy를 사용하여 원격으로 Spark 작업 제출](hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요. |
-| Storm | 443 | HTTPS | Storm | Storm 웹 UI. [HDInsight에서 Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요.
+| Stargate | 443 | HTTPS | HBase | HBase REST API. See [Get started using HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
+| Livy | 443 | HTTPS |  Spark | Spark REST API. See [Submit Spark jobs remotely using Livy](hdinsight-apache-spark-livy-rest-interface.md) |
+| Storm | 443 | HTTPS | Storm | Storm web UI. See [Deploy and manage Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-### 인증
+### <a name="authentication"></a>Authentication
 
-인터넷에서 공개적으로 노출되는 모든 서비스를 인증해야 합니다.
+All services publicly exposed on the internet must be authenticated:
 
-| 포트 | 자격 증명 |
+| Port | Credentials |
 | ---- | ----------- |
-| 22 또는 23 | 클러스터를 만드는 동안 지정된 SSH 사용자 자격 증명 |
-| 443 | 클러스터를 만드는 동안 설정된 로그인 이름(기본값: admin) 및 암호 |
+| 22 or 23 | The SSH user credentials specified during cluster creation |
+| 443 | The login name (default: admin,) and password that were set during cluster creation |
 
-## 비-공용 포트
+## <a name="non-public-ports"></a>Non-public ports
 
-> [AZURE.NOTE] 일부 서비스는 특정 클러스터 형식에서만 사용할 수 있습니다. 예를 들어 HBase는 HBase 클러스터 형식에서만 사용할 수 있습니다.
+> [AZURE.NOTE] Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
 
-### HDFS 포트
+### <a name="hdfs-ports"></a>HDFS ports
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- | 
-| NameNode 웹 UI | 헤드 노드 | 30070 | HTTPS | 현재 상태를 보기 위한 웹 UI |
-| NameNode 메타데이터 서비스 | 헤드 노드 | 8020 | IPC | 파일 시스템 메타데이터 
-| DataNode | 모든 작업자 노드 | 30075 | HTTPS | 상태, 로그 등을 보기 위한 웹 UI |
-| DataNode | 모든 작업자 노드 | 30010 | &nbsp; | 데이터 전송 |
-| DataNode | 모든 작업자 노드 | 30020 | IPC | 메타데이터 작업 |
-| 보조 NameNode | 헤드 노드 | 50090 | HTTP | NameNode 메타데이터에 대한 검사점 |
+| NameNode web UI | Head nodes | 30070 | HTTPS | Web UI to view current status |
+| NameNode metadata service | head nodes | 8020 | IPC | File system metadata 
+| DataNode | All worker nodes | 30075 | HTTPS | Web UI to view status, logs, etc. |
+| DataNode | All worker nodes | 30010 | &nbsp; | Data transfer |
+| DataNode | All worker nodes | 30020 | IPC | Metadata operations |
+| Secondary NameNode | Head nodes | 50090 | HTTP | Checkpoint for NameNode metadata |
 
-### YARN 포트
+### <a name="yarn-ports"></a>YARN ports
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| Resource Manager 웹 UI | 헤드 노드 | 8088 | HTTP | Resource Manager용 웹 UI |
-| Resource Manager 웹 UI | 헤드 노드 | 8090 | HTTPS | Resource Manager용 웹 UI |
-| Resource Manager 관리 인터페이스 | 헤드 노드 | 8141 | IPC | 응용 프로그램 제출용(Hive, Hive server, Pig 등) |
-| Resource Manager 스케줄러 | 헤드 노드 | 8030 | HTTP | 관리 인터페이스 |
-| Resource Manager 응용 프로그램 인터페이스 | 헤드 노드 | 8050 | HTTP |응용 프로그램 관리자 인터페이스의 주소 |
-| NodeManager | 모든 작업자 노드 | 30050 | &nbsp; | 컨테이너 관리자의 주소 |
-| NodeManager 웹 UI | 모든 작업자 노드 | 30060 | HTTP | Resource Manager 인터페이스 |
-| 타임라인 주소 | 헤드 노드 | 10200 | RPC | 타임라인 서비스 RPC 서비스. |
-| 타임라인 웹 UI | 헤드 노드 | 8181 | HTTP | 타임라인 서비스 웹 UI |
+| Resource Manager web UI | Head nodes | 8088 | HTTP | Web UI for Resource Manager |
+| Resource Manager web UI | Head nodes | 8090 | HTTPS | Web UI for Resource Manager |
+| Resource Manager admin interface | head nodes | 8141 | IPC | For application submissions (Hive, Hive server, Pig, etc.) |
+| Resource Manager scheduler | head nodes | 8030 | HTTP | Administrative interface |
+| Resource Manager application interface | head nodes | 8050 | HTTP |Address of the applications manager interface |
+| NodeManager | All worker nodes | 30050 | &nbsp; | The address of the container manager |
+| NodeManager web UI | All worker nodes | 30060 | HTTP | Resource manager interface |
+| Timeline address | Head nodes | 10200 | RPC | The Timeline service RPC service. |
+| Timeline web UI | Head nodes | 8181 | HTTP | The Timeline service web UI |
 
-### Hive 포트
+### <a name="hive-ports"></a>Hive ports
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| HiveServer2 | 헤드 노드 | 10001 | Thrift | 프로그래밍 방식으로 Hive에 연결하기 위한 서비스(Thrift/JDBC) |
-| HiveServer | 헤드 노드 | 10000 | Thrift | 프로그래밍 방식으로 Hive에 연결하기 위한 서비스(Thrift/JDBC) |
-| Hive Metastore | 헤드 노드 | 9083 | Thrift | 프로그래밍 방식으로 Hive 메타데이터에 연결하기 위한 서비스(Thrift/JDBC) |
+| HiveServer2 | Head nodes | 10001 | Thrift | Service for programmatically connecting to Hive (Thrift/JDBC) |
+| HiveServer | Head nodes | 10000 | Thrift | Service for programmatically connecting to Hive (Thrift/JDBC) |
+| Hive Metastore | Head nodes | 9083 | Thrift | Service for programmatically connecting to Hive metadata (Thrift/JDBC) |
 
-### WebHCat 포트
+### <a name="webhcat-ports"></a>WebHCat ports
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| WebHCat 서버 | 헤드 노드 | 30111 | HTTP | HCatalog 및 기타 Hadoop 서비스 맨 위의 웹 API |
+| WebHCat server | Head nodes | 30111 | HTTP | Web API on top of HCatalog and other Hadoop services |
 
-### MapReduce 포트
+### <a name="mapreduce-ports"></a>MapReduce ports
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| JobHistory | 헤드 노드 | 19888 | HTTP | MapReduce JobHistory 웹 UI |
-| JobHistory | 헤드 노드 | 10020 | &nbsp; | MapReduce JobHistory 서버 |
-| ShuffleHandler | &nbsp; | 13562 | &nbsp; | 중간 맵 출력을 요청 리듀서에 전송 |
+| JobHistory | Head nodes | 19888 | HTTP | MapReduce JobHistory web UI |
+| JobHistory | Head nodes | 10020 | &nbsp; | MapReduce JobHistory server |
+| ShuffleHandler | &nbsp; | 13562 | &nbsp; | Transfers intermediate Map outputs to requesting Reducers |
 
-### Oozie
+### <a name="oozie"></a>Oozie
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| Oozie 서버 | 헤드 노드 | 11000 | HTTP | Oozie 서비스에 대한 URL |
-| Oozie 서버 | 헤드 노드 | 11001 | HTTP | Oozie 관리자에 대한 포트 |
+| Oozie server | Head nodes | 11000 | HTTP | URL for Oozie service |
+| Oozie server | Head nodes | 11001 | HTTP | Port for Oozie admin |
 
-### Ambari 메트릭
+### <a name="ambari-metrics"></a>Ambari Metrics
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| 타임라인(응용 프로그램 기록) | 헤드 노드 | 6188 | HTTP | 타임라인 서비스 웹 UI |
-| 타임라인(응용 프로그램 기록) | 헤드 노드 | 30200 | RPC | 타임라인 서비스 웹 UI |
+| TimeLine (Application history) | Head nodes | 6188 | HTTP | The TimeLine service web UI |
+| TimeLine (Application history) | Head nodes | 30200 | RPC | The TimeLine service web UI |
 
-### HBase 포트
+### <a name="hbase-ports"></a>HBase ports
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| HMaster | 헤드 노드 | 16000 | &nbsp; | &nbsp; |
-| HMaster 정보 웹 UI | 헤드 노드 | 16010 | HTTP | HBase 마스터 웹 UI에 대한 포트 |
-| Region 서버 | 모든 작업자 노드 | 16020 | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | 2181 | &nbsp; | 클라이언트가 ZooKeeper 연결에 사용하는 포트 |
+| HMaster | Head nodes | 16000 | &nbsp; | &nbsp; |
+| HMaster info Web UI | Head nodes | 16010 | HTTP | The port for the HBase Master web UI |
+| Region server | All worker nodes | 16020 | &nbsp; | &nbsp; |
+| &nbsp; | &nbsp; | 2181 | &nbsp; | The port that clients use to connect to ZooKeeper |
 
-### Kafka 포트
+### <a name="kafka-ports"></a>Kafka ports
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| Service | Node(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| Broker | 작업자 노드 | 9092 | [Kafka 유선 프로토콜](http://kafka.apache.org/protocol.html) | 클라이언트 통신에 사용됨 |
-| &nbsp; | Zookeeper 노드 | 2181 | &nbsp; | 클라이언트가 ZooKeeper 연결에 사용하는 포트 |
+| Broker  | Worker nodes | 9092 | [Kafka Wire Protocol](http://kafka.apache.org/protocol.html) | Used for client communication |
+| &nbsp; | Zookeeper nodes | 2181 | &nbsp; | The port that clients use to connect to Zookeeper |
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자에서 장치 관리 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 StorSimple 장치를 연결하고 관리하는 방법을 설명합니다."
+   pageTitle="Manage devices with StorSimple Snapshot Manager | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to connect and manage StorSimple devices."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -15,252 +15,258 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# StorSimple 스냅숏 관리자를 사용하여 StorSimple 장치 연결 및 관리
 
-## 개요
+# <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Use StorSimple Snapshot Manager to connect and manage StorSimple devices
 
-StorSimple 스냅숏 관리자의 **범위** 창에서 노드를 사용하여 가져온 StorSimple 장치 데이터를 확인하고 연결된 저장소 장치를 새로 고칠 수 있습니다. 또한 **장치** 노드를 클릭하면 연결된 장치 목록과 해당 상태 정보를 **결과** 창에서 볼 수 있습니다.
+## <a name="overview"></a>Overview
 
-![연결된 장치](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
+You can use nodes in the StorSimple Snapshot Manager **Scope** pane to verify imported StorSimple device data and refresh connected storage devices. Additionally, when you click the **Devices** node, you can see a list of connected devices and corresponding status information in the **Results** pane.
 
-**그림 1: StorSimple 스냅숏 관리자 연결된 장치**
+![Connected devices](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
-**보기** 선택 항목에 따라 각 장치에 대해 **결과** 창에 다음 정보가 표시됩니다. (보기 구성에 대한 자세한 내용은 [보기 메뉴](storsimple-use-snapshot-manager.md#view-menu)를 참조하세요.)
+**Figure 1: StorSimple Snapshot Manager connected device** 
+
+Depending on your **View** selections, the **Results** pane shows the following information about each device. (For more information about configuring a view, go to [View menu](storsimple-use-snapshot-manager.md#view-menu).
 
 
-| 결과 열 |설명 |
+| Results column  |Description          |
 |:----------------|:--------------------| 
-| 이름 | 장치의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다.|
-| 모델 | 장치의 모델 번호|
-| 버전 | 장치에 설치된 소프트웨어 버전 |
-| 상태 | 장치를 사용할 수 있는지 여부 |
-| 마지막 동기화 | 장치를 마지막으로 동기화한 날짜 및 시간 |
-| 일련 번호 | 장치의 일련 번호 |
+| Name            | The name of the device as configured in the Azure classic portal|
+| Model           | The model number of the device|
+| Version         | The version of the software installed on the device |
+| Status          | Whether the device is available |
+| Last Synced     | Date and time when the device was last synchronized |
+| Serial No.      | The serial number for the device |
  
-**범위** 창에서 **장치** 노드를 마우스 오른쪽 단추로 클릭하면 다음 작업 중에서 선택할 수 있습니다.
+If you right-click the **Devices** node in the **Scope** pane, you can select from the following actions:
 
-- 장치 추가 또는 교체 
-- 장치 연결 및 가져오기 확인 
-- 연결된 장치 새로 고침 
+- Add or replace a device 
+- Connect a device and verify imports 
+- Refresh connected devices 
 
-**장치** 노드를 클릭하고 **결과** 창에서 장치 이름을 마우스 오른쪽 단추로 클릭하면 다음 작업 중에서 선택할 수 있습니다.
+If you click the **Devices** node and then right-click a device name in the **Results** pane, you can select from the following actions:
 
-- 장치 인증 
-- 장치 세부 정보 보기 
-- 장치 새로 고침 
-- 장치 구성 삭제 
-- 장치 암호 변경
+- Authenticate a device 
+- View device details 
+- Refresh a device 
+- Delete a device configuration 
+- Change a device password
 
->[AZURE.NOTE] 이러한 모든 작업을 **작업** 창에서도 사용할 수 있습니다.
+>[AZURE.NOTE] All of these actions are also available in the **Actions** pane.
  
-이 자습서에서는 StorSimple 스냅숏 관리자를 사용하여 장치를 연결 및 관리하고 다음 작업을 수행하는 방법에 대해 설명합니다.
+This tutorial explains how to use StorSimple Snapshot Manager to connect and manage devices and perform the following tasks:
 
-- 장치 추가 또는 교체 
-- 장치 연결 및 가져오기 확인 
-- 연결된 장치 새로 고침 
-- 장치 인증 
-- 장치 세부 정보 보기 
-- 개별 장치 새로 고침 
-- 장치 구성 삭제 
-- 만료된 장치 암호 변경
-- 실패한 장치 바꾸기
+- Add or replace a device 
+- Connect a device and verify imports 
+- Refresh connected devices 
+- Authenticate a device 
+- View device details 
+- Refresh an individual device 
+- Delete a device configuration 
+- Change an expired device password
+- Replace a failed device
 
->[AZURE.NOTE] StorSimple 스냅숏 관리자 인터페이스 사용에 대한 일반적인 정보는 [StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md)를 참조하세요.
+>[AZURE.NOTE] For general information about using the StorSimple Snapshot Manager interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
 
 
-## 장치 추가 또는 교체
+## <a name="add-or-replace-a-device"></a>Add or replace a device
 
-다음 절차에 따라 StorSimple 장치를 추가하거나 교체할 수 있습니다.
+Use the following procedure to add or replace a StorSimple device.
 
-#### 장치를 추가 또는 교체하려면
+#### <a name="to-add-or-replace-a-device"></a>To add or replace a device
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **장치** 노드를 마우스 오른쪽 단추로 클릭한 다음 **장치 구성**을 클릭합니다. **장치 구성** 대화 상자가 나타납니다.
+2. In the **Scope** pane, right-click the **Devices** node, and then click **Configure a device**. The **Configure a Device** dialog box appears.
 
-    ![StorSimple 장치 구성](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png)
+    ![Configure a StorSimple device](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
 
-3. **장치** 드롭다운 상자에서 장치 또는 가상 장치의 IP 주소를 선택합니다.
+3. In the **Device** drop-down box, select the IP address of the device or virtual device. 
 
-4. 암호 **텍스트 상자**에 Azure 클래식 포털에서 장치에 대한 StorSimple 스냅숏 관리자 암호를 입력합니다. **확인**을 클릭합니다. StorSimple 스냅숏 관리자에서 사용자가 지정한 장치를 검색합니다.
+4. In the **Password** text box, type the StorSimple Snapshot Manager password that you created for the device in the Azure classic portal. Click **OK**. StorSimple Snapshot Manager searches for the device that you identified. 
 
-    - 장치를 사용할 수 있으면 StorSimple 스냅숏 관리자가 연결을 추가합니다. 
+    - If the device is available, StorSimple Snapshot Manager adds a connection. 
 
-    - 어떤 이유로든 장치를 사용할 수 없으면 StorSimple 스냅숏 관리자에서 오류 메시지를 반환합니다. **확인**을 클릭하여 오류 메시지를 닫은 다음 **취소**를 클릭하여 **장치 구성** 대화 상자를 닫습니다.
+    - If the device is unavailable for any reason, StorSimple Snapshot Manager returns an error message. Click **OK** to close the error message, and then click **Cancel** to close the **Configure a Device** dialog box.
 
-## 장치 연결 및 가져오기 확인
+## <a name="connect-a-device-and-verify-imports"></a>Connect a device and verify imports
 
-다음 절차에 따라 StorSimple 장치를 연결하고 연결된 백업이 있는 모든 기존 볼륨 그룹을 가져왔는지 확인할 수 있습니다.
+Use the following procedure to connect a StorSimple device and verify that any existing volume groups that have associated backups are imported.
 
-#### 장치를 연결하고 가져오기를 확인하려면
+#### <a name="to-connect-a-device-and-verify-imports"></a>To connect a device and verify imports
 
-1. StorSimple 스냅숏 관리자에 장치를 연결하려면 장치 추가 또는 교체에 나온 지침을 따릅니다. 장치에 연결되면 StorSimple 스냅숏 관리자가 다음과 같이 응답합니다.
+1. To connect a device to StorSimple Snapshot Manager, follow the instructions in Add or replace a device. When it connects to a device, StorSimple Snapshot Manager responds as follows:
 
-    - 어떤 이유로든 장치를 사용할 수 없으면 StorSimple 스냅숏 관리자에서 오류 메시지를 반환합니다. 
+    - If the device is unavailable for any reason, StorSimple Snapshot Manager returns an error message. 
 
-   - 장치를 사용할 수 있으면 StorSimple 스냅숏 관리자가 연결을 추가합니다. 장치를 선택하면 **결과** 창에 해당 장치가 나타나고 상태 필드에 장치를 **사용 가능**한지 표시됩니다. 볼륨 그룹에 연결된 백업이 있는 경우 StorSimple 스냅숏 관리자는 해당 장치에 대해 구성된 모든 볼륨 그룹을 가져옵니다. 백업 정책은 가져오지 않습니다. 연결된 백업이 없는 볼륨 그룹은 가져오지 않습니다.
+   - If the device is available, StorSimple Snapshot Manager adds a connection. When you select the device, it appears in the **Results** pane, and the status field indicates that the device is **Available**. StorSimple Snapshot Manager imports any volume groups configured for the device, provided that the volume groups have associated backups. Backup policies are not imported. Volume groups that do not have associated backups are not imported.
 
-2. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+2. Click the desktop icon to start StorSimple Snapshot Manager.
 
-3. **범위** 창에서 최상위 노드를 마우스 오른쪽 단추로 클릭한 다음 **가져오기 표시 토글**을 클릭합니다.
+3. Right-click the top node in the **Scope** pane, and then click **Toggle Imports Display**.
 
-    ![가져오기 표시 토글 선택](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png)
+    ![Select Toggle Imports Display](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
 
-4. 가져온 볼륨 그룹과 백업의 상태가 표시된 **가져오기 표시 토글** 대화 상자가 나타납니다. **확인**을 클릭합니다.
+4. The **Toggle Imports Display** dialog box appears, showing the status of the imported volume groups and backups. Click **OK**. 
 
-볼륨 그룹과 백업을 성공적으로 가져온 후에는 StorSimple 스냅숏 관리자로 만들고 구성한 볼륨 그룹과 백업을 관리하는 것과 마찬가지로 StorSimple 스냅숏 관리자를 사용하여 관리할 수 있습니다.
+After the volume groups and backups are successfully imported, you can use StorSimple Snapshot Manager to manage them, just as you would manage volume groups and backups that you created and configured with StorSimple Snapshot Manager. 
 
-## 연결된 장치 새로 고침
+## <a name="refresh-connected-devices"></a>Refresh connected devices
 
-다음 절차에 따라 연결된 StorSimple 장치를 StorSimple 스냅숏 관리자와 동기화할 수 있습니다.
+Use the following procedure to synchronize the connected StorSimple devices with StorSimple Snapshot Manager.
 
-####연결된 장치를 새로 고치려면
+####<a name="to-refresh-connected-devices"></a>To refresh connected devices
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **장치**를 마우스 오른쪽 단추로 클릭하고 **장치 새로 고침**을 클릭합니다. 그러면 연결된 장치와 StorSimple 스냅숏 관리자가 동기화되어 최근에 추가된 모든 항목을 비롯한 볼륨 그룹 및 백업을 볼 수 있습니다.
+2. In the **Scope** pane, right-click **Devices**, and then click **Refresh Devices**. This synchronizes the connected devices with StorSimple Snapshot Manager so that you can view the volume groups and backups, including any recent additions. 
 
-    ![StorSimple 장치 새로 고침](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Refresh_devices.png)
+    ![Refresh the StorSimple devices](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Refresh_devices.png)
  
-**장치 새로 고침** 작업은 연결된 장치에서 모든 새 볼륨 그룹과 연결된 백업을 검색합니다. **볼륨** 노드에서 사용할 수 있는 **볼륨 다시 검사** 작업과 달리 **장치 새로 고침**은 백업 레지스트리를 복원하지 않습니다.
+The **Refresh Devices** action retrieves any new volume groups and any associated backups from connected devices. Unlike the **Rescan volumes** action available for the **Volumes** node, **Refresh Devices** does not restore the backup registry.
 
-## 장치 인증
+## <a name="authenticate-a-device"></a>Authenticate a device
 
-다음 절차에 따라 StorSimple 스냅숏 관리자에서 StorSimple 장치를 인증할 수 있습니다.
+Use the following procedure to authenticate a StorSimple device with StorSimple Snapshot Manager.
 
-#### 장치를 인증하려면
+#### <a name="to-authenticate-a-device"></a>To authenticate a device
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **장치**를 클릭합니다.
+2. In the **Scope** pane, click **Devices**.
 
-3. **결과** 창에서 장치 이름을 마우스 오른쪽 단추로 클릭하고 **인증**을 클릭합니다.
+3. In the **Results** pane, right-click the name of the device, and then click **Authenticate**.
 
-4. **인증** 대화 상자가 나타납니다. 장치 암호를 다시 입력한 후 **확인**을 클릭합니다.
+4. The **Authenticate** dialog box appears. Type the device password, and then click **OK**.
 
-    ![인증 대화 상자](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Authenticate.png)
+    ![Authenticate dialog box](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Authenticate.png) 
  
-## 장치 세부 정보 보기
+## <a name="view-device-details"></a>View device details
 
-다음 절차에 따라 StorSimple 장치의 세부 정보를 볼 수 있으며 필요한 경우 StorSimple 스냅숏 관리자와 장치를 다시 동기화할 수도 있습니다.
+Use the following procedure to view the details of a StorSimple device and, if necessary, resynchronize the device with StorSimple Snapshot Manager.
 
-#### 장치 세부 정보를 보고 다시 동기화하려면
+#### <a name="to-view-and-resynchronize-device-details"></a>To view and resynchronize device details
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **장치**를 클릭합니다.
+2. In the **Scope** pane, click **Devices**.
 
-3. **결과** 창에서 장치 이름을 마우스 오른쪽 단추로 클릭하고 **세부 정보**를 클릭합니다.
+3. In the **Results** pane, right-click the name of the device, and then click **Details**. 
 
-4\. **장치 세부 정보** 대화 상자가 표시됩니다. 이 상자에는 이름, 모델, 버전, 일련 번호, 상태, 대상 IQN(정규화된 iSCSI 이름), 마지막 동기화 날짜 및 시간이 표시됩니다.
+4.The **Device Details** dialog box appears. This box shows the name, model, version, serial number, status, target iSCSI Qualified Name (IQN), and last synchronization date and time. 
 
-   - **다시 동기화**를 클릭하여 장치를 동기화합니다.
+   - Click **Resync** to synchronize the device.
 
-   - **확인** 또는 **취소**를 클릭하여 대화 상자를 닫습니다.
+   - Click **OK** or **Cancel** to close the dialog box.
 
-    ![장치 세부 정보](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Device_details.png)
+    ![Device details](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Device_details.png) 
  
-## 개별 장치 새로 고침
+## <a name="refresh-an-individual-device"></a>Refresh an individual device
 
-다음 절차에 따라 개별 StorSimple 장치를 StorSimple 스냅숏 관리자와 다시 동기화할 수 있습니다.
+Use the following procedure to resynchronize an individual StorSimple device with StorSimple Snapshot Manager.
 
-#### 장치를 새로 고치려면
+#### <a name="to-refresh-a-device"></a>To refresh a device
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. **범위** 창에서 **장치**를 클릭합니다.
+2. In the **Scope** pane, click **Devices**. 
 
-3. **결과** 창에서 장치 이름을 마우스 오른쪽 단추로 클릭하고 **장치 새로 고침**을 클릭합니다. 그러면 StorSimple 스냅숏 관리자와 장치가 동기화됩니다.
+3. In the **Results** pane, right-click the name of the device, and then click **Refresh Device**. This synchronizes the device with StorSimple Snapshot Manager. 
 
-## 장치 구성 삭제
+## <a name="delete-a-device-configuration"></a>Delete a device configuration
 
-다음 절차에 따라 개별 StorSimple 장치 구성을 StorSimple 스냅숏 관리자에서 삭제할 수 있습니다.
+Use the following procedure to delete an individual StorSimple device configuration from StorSimple Snapshot Manager.
 
-#### 장치 구성을 삭제하려면
+#### <a name="to-delete-a-device-configuration"></a>To delete a device configuration
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. **범위** 창에서 **장치**를 클릭합니다.
+2. In the **Scope** pane, click **Devices**. 
 
-3. **결과** 창에서 장치 이름을 마우스 오른쪽 단추로 클릭하고 **삭제**를 클릭합니다.
+3. In the **Results** pane, right-click the name of the device, and then click **Delete**. 
 
-4. 다음과 같은 메시지가 나타납니다. **예**를 클릭하여 구성을 삭제하거나 **아니요**를 클릭하여 삭제를 취소합니다.
+4. The following message appears. Click **Yes** to delete the configuration or click **No** to cancel the deletion.
 
-    ![장치 구성 삭제](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_DeleteDevice.png)
+    ![Delete device configuration](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_DeleteDevice.png)
 
-## 만료된 장치 암호 변경
+## <a name="change-an-expired-device-password"></a>Change an expired device password
 
-다음 절차에 따라 StorSimple 스냅숏 관리자에서 StorSimple 장치를 인증하기 위한 암호를 입력할 수 있습니다. Windows PowerShell 인터페이스를 사용하여 장치를 설정할 때 이 암호를 구성합니다. 그러나 암호는 만료될 수 있습니다. 이 경우에는 Azure 클래식 포털을 사용하여 암호를 변경할 수 있습니다. 그런 다음, 암호가 만료되기 전에 StorSimple 스냅숏 관리자에서 장치를 구성했기 때문에 StorSimple 스냅숏 관리자에서 장치를 다시 인증해야 합니다.
+You must enter a password to authenticate a StorSimple device with StorSimple Snapshot Manager. You configure this password when you use the Windows PowerShell interface to set up the device. However, the password can expire. If this happens, you can use the Azure classic portal to change the password. Then, because the device was configured in StorSimple Snapshot Manager before the password expired, you must re-authenticate the device in StorSimple Snapshot Manager. 
 
-#### 만료된 암호를 변경하려면
+#### <a name="to-change-the-expired-password"></a>To change the expired password
 
-1. Azure 클래식 포털에서 StorSimple Manager 서비스를 시작합니다.
+1. In the Azure classic portal, start the StorSimple Manager service.
 
-2. 해당 장치에 대해 **장치** > **구성**을 클릭합니다.
+2. Click **Devices** > **Configure** for the device.
 
-3. StorSimple 스냅숏 관리자 섹션으로 스크롤합니다. 14-15자로 암호를 입력합니다. 암호에는 대문자, 소문자, 숫자 및 특수 문자가 포함되어야 합니다.
+3. Scroll down to the StorSimple Snapshot Manager section. Enter a password that is 14-15 characters. Make sure that the password contains a mix of uppercase, lowercase, numeric, and special characters.
 
-4. 확인을 위해 암호를 다시 입력합니다.
+4. Re-enter the password to confirm it.
 
-5. 페이지 맨 아래에서 **저장**을 클릭합니다.
+5. Click **Save** at the bottom of the page.
 
-#### 장치를 다시 인증하려면
+#### <a name="to-re-authenticate-the-device"></a>To re-authenticate the device
 
-1. StorSimple 스냅숏 관리자를 시작합니다.
+1. Start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **장치**를 클릭합니다. 구성된 장치 목록이 **결과** 창에 표시됩니다.
+2. In the **Scope** pane, click **Devices**. A list of configured devices appears in the **Results** pane. 
 
-3. 장치를 선택하고 마우스 오른쪽 단추를 클릭한 다음 **인증**을 클릭합니다.
+3. Select the device, right-click, and then click **Authenticate**.
 
-4. **인증** 창에서 새 암호를 입력합니다.
+4. In the **Authenticate** window, enter the new password. 
 
-5. 장치를 선택하고 마우스 오른쪽 단추를 클릭한 다음 **장치 새로 고침**을 선택합니다. 그러면 StorSimple 스냅숏 관리자와 장치가 동기화됩니다.
+5. Select the device, right-click, and select **Refresh device**. This synchronizes the device with StorSimple Snapshot Manager. 
 
-## 실패한 장치 바꾸기
+## <a name="replace-a-failed-device"></a>Replace a failed device
 
-StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) 장치로 교체하는 경우 다음 단계에 따라 새 장치에 연결하고 연결된 백업을 확인할 수 있습니다.
+If a StorSimple device fails and is replaced by a standby (failover) device, use the following steps to connect to the new device and view the associated backups.
 
-#### 장애 조치(failover) 후 새 장치에 연결하려면
+#### <a name="to-connect-to-a-new-device-after-failover"></a>To connect to a new device after failover
 
-1. 새 장치에 대한 iSCSI 연결을 다시 구성합니다. 자세한 지침은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u2.md)에서 "7단계: 볼륨 탑재, 초기화 및 포맷"을 참조하세요. 
+1. Reconfigure the iSCSI connection to the new device. For instructions, go to "Step 7: Mount, initialize, and format a volume" in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md). 
 
->[AZURE.NOTE] 새 StorSimple 장치에 이전 장치와 동일한 IP 주소가 있으면 이전 구성을 연결할 수 있습니다.
+>[AZURE.NOTE] If the new StorSimple device has the same IP address as the old one, you might be able to connect the old configuration. 
 
-2. Microsoft StorSimple 관리 서비스를 중지합니다.
+2. Stop the Microsoft StorSimple Management Service:
 
-    1. 서버 관리자를 시작합니다.
+    1. Start Server Manager.
 
-    2. 서버 관리자 대시보드의 **도구** 메뉴에서 **서비스**를 선택합니다.
+    2. On the Server Manager Dashboard, on the **Tools** menu, select **Services**. 
 
-    3. **서비스** 창에서 **Microsoft StorSimple 관리 서비스**를 선택합니다.
+    3. On the **Services** window, select the **Microsoft StorSimple Management Service**. 
 
-    4. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 중지**를 클릭합니다.
+    4. In the right pane, under **Microsoft StorSimple Management Service**, click **Stop the service**. 
 
-3. 이전 장치 관련 구성 정보를 제거합니다.
+3. Remove the configuration information related to the old device: 
 
-    1. 파일 탐색기에서 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다. 
+    1. In File Explorer, browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
 
-    2. BACatalog 폴더의 파일을 삭제합니다.
+    2. Delete the files in the BACatalog folder. 
 
-4. Microsoft StorSimple 관리 서비스를 다시 시작합니다.
+4. Restart the Microsoft StorSimple Management Service: 
 
-    1. 서버 관리자 대시보드의 **도구** 메뉴에서 **서비스**를 선택합니다. 
+    1. On the Server Manager Dashboard, on the **Tools** menu, select **Services**. 
 
-    2. **서비스** 창에서 **Microsoft StorSimple 관리 서비스**를 선택합니다.
+    2. On the **Services** window, select the **Microsoft StorSimple Management Service**. 
 
-    3. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 다시 시작**을 클릭합니다.
+    3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**. 
 
-5. StorSimple 스냅숏 관리자를 시작합니다.
+5. Start StorSimple Snapshot Manager. 
 
-6. 새 StorSimple 장치를 구성하려면 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)에서 2단계: StorSimple 장치 연결의 단계를 완료합니다.
+6. To configure the new StorSimple device, complete the steps in Step 2: Connect a StorSimple device in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
 
-7. **범위** 창에서 최상위 노드(예제의 StorSimple 스냅숏 관리자)를 마우스 오른쪽 단추로 클릭한 다음 **가져오기 표시 토글**을 클릭합니다.
+7. Right-click the top-level node in the **Scope** pane (StorSimple Snapshot Manager in the example), and then click **Toggle Imports Display**. 
 
-8. 가져온 볼륨 그룹과 백업을 StorSimple 스냅숏 관리자에서 볼 수 있으면 메시지가 나타납니다. **확인**을 클릭합니다.
+8. A message appears when the imported volume groups and backups are visible in StorSimple Snapshot Manager. Click **OK**. 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
-- [StorSimple 스냅숏 관리자를 사용하여 볼륨을 보고 관리](storsimple-snapshot-manager-manage-volumes.md)하는 방법을 알아봅니다.
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

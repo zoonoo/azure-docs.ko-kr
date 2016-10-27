@@ -1,13 +1,16 @@
 <!--author=SharS last changed: 9/16/15-->
 
-#### 볼륨 컨테이너를 삭제하려면
+#### <a name="to-delete-a-volume-container"></a>To delete a volume container
 
-1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
 
-2. 삭제하려는 볼륨이 있는 볼륨 컨테이너를 선택합니다.
+2. Select the volume container you want to delete.
 
-3. 볼륨 컨테이너에 연결된 볼륨이 없으면 삭제할 수 있습니다. 페이지 맨 아래에서 **삭제**를 클릭하여 이 컨테이너를 삭제합니다. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 볼륨 컨테이너가 삭제됩니다.
+3. If a volume container has no associated volumes, then it can be deleted. Click **Delete** at the bottom of the page to delete this container. When prompted for confirmation, click **Yes**. This will delete the volume container.
 
-볼륨 컨테이너에 연결된 볼륨이 있으면 먼저 [볼륨을 오프라인으로 전환](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline)의 단계를 따라 해당 볼륨을 오프라인으로 전환해야 합니다. 볼륨이 오프라인이 되면 삭제할 수 있습니다. 볼륨 컨테이너에 연결된 볼륨이 없으면 위에서 설명한 대로 볼륨 컨테이너를 삭제합니다.
+If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in [Take a volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). After the volumes are offline, you can delete them. When the volume container has no associated volumes, delete the volume container as described above.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

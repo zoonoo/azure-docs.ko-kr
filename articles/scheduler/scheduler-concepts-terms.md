@@ -1,6 +1,6 @@
 <properties
- pageTitle="스케줄러 개념, 용어 및 엔터티 | Microsoft Azure"
- description="작업 및 작업 컬렉션을 포함하는 Azure 스케줄러 개념, 용어 및 엔터티 계층 구조입니다. 예약된 작업의 자세한 예를 보여줍니다."
+ pageTitle="Scheduler concepts, terms, and entities | Microsoft Azure"
+ description="Azure Scheduler concepts, terminology, and entity hierarchy, including jobs and job collections.  Shows a comprehensive example of a scheduled job."
  services="scheduler"
  documentationCenter=".NET"
  authors="derek1ee"
@@ -15,203 +15,212 @@
  ms.date="08/18/2016"
  ms.author="deli"/>
 
-# 스케줄러 개념, 용어 + 엔터티 계층 구조
 
-## 스케줄러 엔터티 계층 구조
+# <a name="scheduler-concepts,-terminology,-+-entity-hierarchy"></a>Scheduler concepts, terminology, + entity hierarchy
 
-다음 표에서 스케줄러 API에서 노출 하거나 사용하는 주 리소스를 설명 합니다.
+## <a name="scheduler-entity-hierarchy"></a>Scheduler entity hierarchy
 
-|리소스 | 설명 |
+The following table describes the main resources exposed or used by the Scheduler API:
+
+|Resource | Description |
 |---|---|
-|**작업 컬렉션**|작업 컬렉션은 작업 그룹을 포함하며 컬렉션 내에서 작업이 공유하는 설정, 할당량 및 제한을 유지합니다. 작업 컬렉션은 구독 소유자가 만들며, 사용 또는 응용 프로그램 경계를 기준으로 작업을 함께 그룹화합니다. 한 지역으로 제한됩니다. 또한 해당 컬렉션에 있는 모든 작업의 사용량을 제한하는 할당량을 적용할 수 있습니다. 할당량은 MaxJobs 및 MaxRecurrence을 포함합니다.|
-|**작업**|작업은 간단하거나 복잡한 실행 전략을 통해 단일 반복 작업을 정의합니다. 작업은 HTTP, 저장소 큐, 서비스 버스 큐 또는 서비스 버스 항목 요청을 포함할 수 있습니다.|
-|**작업 기록**|작업 기록의 경우 작업 실행에 대한 세부 정보를 나타냅니다. 응답 세부 정보와 함께 성공 또는 실패를 포함합니다.|
+|**Job collection**|A job collection contains a group of jobs and maintains settings, quotas, and throttles that are shared by jobs within the collection. A job collection is created by a subscription owner and groups jobs together based on usage or application boundaries. It’s constrained to one region. It also allows the enforcement of quotas to constrain the usage of all jobs in that collection. The quotas include MaxJobs and MaxRecurrence.|
+|**Job**|A job defines a single recurrent action, with simple or complex strategies for execution. Actions may include HTTP, storage queue, service bus queue, or service bus topic requests.|
+|**Job history**|A job history represents details for an execution of a job. It contains success vs. failure, as well as any response details.|
 
-## 스케줄러 엔터티 관리
+## <a name="scheduler-entity-management"></a>Scheduler entity management
 
-높은 수준에서 스케줄러 및 서비스 관리 API는 리소스에서 다음 작업을 노출합니다.
+At a high level, the scheduler and the service management API expose the following operations on the resources:
 
-|기능|설명 및 URI 주소|
+|Capability|Description and URI address|
 |---|---|
-|**작업 컬렉션 관리**|작업 컬렉션과 그 안에 포함된 작업의 생성 및 수정을 위한 GET, PUT 및 DELETE 지원. 작업 컬렉션을 작업에 대한 컨테이너이며 할당량 및 공유 설정에 매핑됩니다. 나중에 설명하는 할당량은 최대 작업 수와 최소 반복 간격을 예로 듭니다. <p>PUT 및 DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
-|**작업 관리**|작업의 생성 및 수정 지원을 위한 GET, PUT, POST, PATCH 및 DELETE 지원 모든 작업은 기존 작업 컬렉션에 속해야 하며 암시적으로 만들어지지 않습니다.<p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
-|**작업 기록 관리**|GET은 작업 경과 시간, 작업 실행 결과 등, 60일 간의 작업 실행 기록을 가져옵니다. 상태를 기초로 한 필터링을 위해 쿼리 문자열 매개 변수 지원을 추가합니다. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
+|**Job collection management**|GET, PUT, and DELETE support for creating and modifying job collections and the jobs contained therein. A job collection is a container for jobs and maps to quotas and shared settings. Examples of quotas, described later, are maximum number of jobs and smallest recurrence interval. <p>PUT and DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
+|**Job management**|GET, PUT, POST, PATCH, and DELETE support for creating and modifying jobs. All jobs must belong to a job collection that already exists, so there is no implicit creation. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+|**Job history management**|GET support for fetching 60 days of job execution history, such as job elapsed time and job execution results. Adds query string parameter support for filtering based on state and status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
-## 작업 유형
+## <a name="job-types"></a>Job types
 
-HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서비스 버스 큐 작업 및 서비스 버스 항목 작업 등 여러 가지 유형의 작업이 있습니다. HTTP 작업은 기존 작업 부하 또는 서비스의 끝점을 사용하는 경우에 이상적입니다. 저장소 큐 작업을 사용하여 저장소 큐에 메시지를 게시할 수 있으므로 저장소 큐를 사용하는 워크로드에 이상적입니다. 마찬가지로, 서비스 버스 작업은 서비스 버스 큐와 토픽을 사용하는 워크로드에 적합합니다.
+There are multiple types of jobs: HTTP jobs (including HTTPS jobs that support SSL), storage queue jobs, service bus queue jobs, and service bus topic jobs. HTTP jobs are ideal if you have an endpoint of an existing workload or service. You can use storage queue jobs to post messages to storage queues, so those jobs are ideal for workloads that use storage queues. Similarly, service bus jobs are ideal for workloads that use service bus queues and topics.
 
-## "Job" 엔터티 세부 정보
+## <a name="the-"job"-entity-in-detail"></a>The "job" entity in detail
 
-기본 수준에서, 예약된 작업에는 다음과 같은 여러 부분이 있습니다.
+At a basic level, a scheduled job has several parts:
 
-- 작업 타이머가 발생할 때 수행할 작업
+- The action to perform when the job timer fires  
 
-- (선택 사항) 작업 실행 시간
+- (Optional) The time to run the job  
 
-- (선택 사항) 작업 반복 시기 및 빈도
+- (Optional) When and how often to repeat the job  
 
-- (선택 사항) 기본 동작 실패 시 실행할 동작
+- (Optional) An action to fire if the primary action fails  
 
-내부적으로, 예약된 작업에는 다음 예약 실행 시간 등, 시스템에서 제공하는 데이터도 포함됩니다.
+Internally, a scheduled job also contains system-provided data such as the next scheduled execution time.
 
-다음 코드는 예약된 작업의 자세한 예를 제공합니다. 세부 정보는 이후의 섹션에서 제공합니다.
+The following code provides a comprehensive example of a scheduled job. Details are provided in subsequent sections.
 
-	{
-		"startTime": "2012-08-04T00:00Z",               // optional
-		"action":
-		{
-			"type": "http",
-			"retryPolicy": { "retryType":"none" },
-			"request":
-			{
-				"uri": "http://contoso.com/foo",        // required
-				"method": "PUT",                        // required
-				"body": "Posting from a timer",         // optional
-				"headers":                              // optional
+    {
+        "startTime": "2012-08-04T00:00Z",               // optional
+        "action":
+        {
+            "type": "http",
+            "retryPolicy": { "retryType":"none" },
+            "request":
+            {
+                "uri": "http://contoso.com/foo",        // required
+                "method": "PUT",                        // required
+                "body": "Posting from a timer",         // optional
+                "headers":                              // optional
 
-				{
-					"Content-Type": "application/json"
-				},
-			},
-		   "errorAction":
-		   {
-			   "type": "http",
-			   "request":
-			   {
-				   "uri": "http://contoso.com/notifyError",
-				   "method": "POST",
-			   },
-		   },
-		},
-		"recurrence":                                   // optional
-		{
-			"frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-			"interval": 1,                              // optional, how often to fire (default to 1)
-			"schedule":                                 // optional (advanced scheduling specifics)
-			{
-				"weekDays": ["monday", "wednesday", "friday"],
-				"hours": [10, 22]
-			},
-			"count": 10,                                 // optional (default to recur infinitely)
-			"endTime": "2012-11-04",                     // optional (default to recur infinitely)
-		},
-		"state": "disabled",                           // enabled or disabled
-		"status":                                       // controlled by Scheduler service
-		{
-			"lastExecutionTime": "2007-03-01T13:00:00Z",
-			"nextExecutionTime": "2007-03-01T14:00:00Z ",
-			"executionCount": 3,
-											    "failureCount": 0,
-												"faultedCount": 0
-		},
-	}
+                {
+                    "Content-Type": "application/json"
+                },
+            },
+           "errorAction":
+           {
+               "type": "http",
+               "request":
+               {
+                   "uri": "http://contoso.com/notifyError",
+                   "method": "POST",
+               },
+           },
+        },
+        "recurrence":                                   // optional
+        {
+            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
+            "interval": 1,                              // optional, how often to fire (default to 1)
+            "schedule":                                 // optional (advanced scheduling specifics)
+            {
+                "weekDays": ["monday", "wednesday", "friday"],
+                "hours": [10, 22]
+            },
+            "count": 10,                                 // optional (default to recur infinitely)
+            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
+        },
+        "state": "disabled",                           // enabled or disabled
+        "status":                                       // controlled by Scheduler service
+        {
+            "lastExecutionTime": "2007-03-01T13:00:00Z",
+            "nextExecutionTime": "2007-03-01T14:00:00Z ",
+            "executionCount": 3,
+                                                "failureCount": 0,
+                                                "faultedCount": 0
+        },
+    }
 
-위의 예제 예약된 작업에서와 같이 작업 정의에는 여러 부분이 있습니다.
+As seen in the sample scheduled job above, a job definition has several parts:
 
-- 시작 시간("startTime")
+- Start time (“startTime”)  
 
-- 오류 동작("errorAction")을 포함하는 동작("action")
+- Action (“action”), which includes error action (“errorAction”)
 
-- 되풀이("recurrence")
+- Recurrence (“recurrence”)  
 
-- 상태(“state”)
+- State (“state”)  
 
-- 상태(“status”)
+- Status (“status”)  
 
-- 재시도 정책("retryPolicy")
+- Retry policy (“retryPolicy”)  
 
-각각에 대해 자세히 살펴보겠습니다.
+Let’s examine each of these in detail:
 
-## startTime
+## <a name="starttime"></a>startTime
 
-"startTime"은 시작 시간이며, 호출자가 통신 중의 시간대 오프셋을 [ISO-8601 형식](http://en.wikipedia.org/wiki/ISO_8601)으로 지정할 수 있습니다.
+The "startTime” is the start time and allows the caller to specify a time zone offset on the wire in [ISO-8601 format](http://en.wikipedia.org/wiki/ISO_8601).
 
-## action 및 errorAction
+## <a name="action-and-erroraction"></a>action and errorAction
 
-"action"은 각각의 발생 시 호출되는 동작이며 서비스 호출 유형을 설명합니다. 동작은 제공된 일정에 따라 실행되는 것입니다. 스케줄러는 HTTP, 저장소 큐, 서비스 버스 항목 또는 서비스 버스 큐 작업을 지원합니다.
+The “action” is the action invoked on each occurrence and describes a type of service invocation. The action is what will be executed on the provided schedule. Scheduler supports HTTP, storage queue, service bus topic, and service bus queue actions.
 
-위 예의 동작은 HTTP 동작입니다. 다음은 저장소 큐 동작의 예입니다.
+The action in the example above is an HTTP action. Below is an example of a storage queue action:
 
-	{
-			"type": "storageQueue",
-			"queueMessage":
-			{
-				"storageAccount": "myStorageAccount",  // required
-				"queueName": "myqueue",                // required
-				"sasToken": "TOKEN",                   // required
-				"message":                             // required
-					"My message body",
-			},
-	}
+    {
+            "type": "storageQueue",
+            "queueMessage":
+            {
+                "storageAccount": "myStorageAccount",  // required
+                "queueName": "myqueue",                // required
+                "sasToken": "TOKEN",                   // required
+                "message":                             // required
+                    "My message body",
+            },
+    }
 
-다음은 서비스 버스 항목 작업의 예입니다.
+Below is an example of a service bus topic action.
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // netMessaging 또는 AMQP "인증"일 수 있습니다: { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
+      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
 
-다음은 서비스 버스 큐 동작의 예입니다.
-
-
-  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // netMessaging 또는 AMQP "인증"일 수 있습니다: { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
-
-“errorAction”은 오류 처리기로, 주 동작 실패 시 호출되는 동작입니다. 이 변수를 사용하여 오류 처리 끝점을 호출하거나 사용자 알림을 보낼 수 있습니다. 주 끝점을 사용할 수 없을 때(예: 끝점 사이트의 장애) 보조 끝점에 연결하거나, 오류 처리 끝점을 알리는 데 사용할 수 있습니다. 기본 동작과 마찬가지로 오류 동작은 다른 동작에 따라 단순 또는 복합 로직이 될 수 있습니다. SAS 토큰을 만드는 방법을 알아보려면 [공유 액세스 서명 만들기 및 사용](https://msdn.microsoft.com/library/azure/jj721951.aspx)을 참조하세요.
-
-## 되풀이
-
-되풀이에는 여러 부분이 있습니다.
-
-- 빈도: 분, 시간, 일, 주, 월, 년 중 하나
-
-- 간격: 되풀이를 위해 제공한 빈도의 간격
-
-- 정해진 일정: 되풀이할 분, 시간, 요일, 월, 날짜 지정
-
-- 개수: 발생 횟수
-
-- 종료 시간: 지정된 종료 시간 이후 작업이 실행되지 않습니다.
-
-JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다. Count 및 endTime이 모두 지정된 경우 먼저 발생하는 완료 규칙이 적용 됩니다.
-
-## state
-
-작업의 상태는 enabled(활성화), disabled(비활성화), completed(완료) 또는 faulted(결함) 등, 4가지 값 중 하나입니다. 작업을 PUT 또는 PATCH하여 활성화 또는 비활성화 상태로 업데이트할 수 있습니다. 작업이 완료되었거나 오류가 발생한 경우 최종 상태를 업데이트할 수 없습니다(작업 삭제는 가능함). state 속성의 예는 다음과 같습니다.
+Below is an example of a service bus queue action:
 
 
-    	"state": "disabled", // enabled, disabled, completed, or faulted
-완료 및 오류 작업은 60일 후 삭제됩니다.
+  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
+      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": {  
+        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
+      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
-## status
+The “errorAction” is the error handler, the action invoked when the primary action fails. You can use this variable to call an error-handling endpoint or send a user notification. This can be used for reaching a secondary endpoint in the case that the primary is not available (e.g., in the case of a disaster at the endpoint’s site) or can be used for notifying an error handling endpoint. Just like the primary action, the error action can be simple or composite logic based on other actions. To learn how to create a SAS token, refer to [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
-스케줄러 작업이 시작되면 현재 작업 상태에 대한 정보가 반환됩니다. 이 개체는 사용자가 설정할 수 없고 시스템에서 설정합니다. 그러나 작업 상태를 쉽게 확보할 수 있게 작업 개체(별도의 연결 리소스가 아님)에 포함되어 있습니다.
+## <a name="recurrence"></a>recurrence
 
-작업 상태에는 이전 실행 시간(있는 경우), 다음 예약 실행 시간(진행 중인 작업의 경우), 작업 실행 수가 포함됩니다.
+Recurrence has several parts:
 
-## retryPolicy
+- Frequency: One of minute, hour, day, week, month, year  
 
-스케줄러 작업이 실패할 경우 작업 재시도 여부 및 방법을 결정하는 재시도 정책을 지정할 수 있습니다. 이 항목은 **retryType** 개체에서 결정합니다. 재시도 정책이 없으면 **none**으로 설정됩니다. 재시도 정책이 있는 경우 **fixed**로 설정합니다.
+- Interval: Interval at the given frequency for the recurrence  
 
-재시도 정책을 설정하기 위해 재시도 간격(**retryInterval**)과 재시도 횟수(**retryCount**) 등, 두 추가 설정을 지정할 수 있습니다.
+- Prescribed schedule: Specify minutes, hours, weekdays, months, and monthdays of the recurrence  
 
-**retryInterval** 개체로 지정한 재시도 간격은 재시도 간 간격입니다. 기본값은 30초이며 구성 가능한 최소값은 15초, 최대값은 18개월입니다. 무료 작업 컬렉션에 있는 작업의 구성 가능한 최소값은 1시간입니다. ISO 8601 형식으로 정의됩니다. 마찬가지로, 재시도 횟수 값은 **retryCount** 개체로 정의하며 재시도를 시도하는 횟수입니다. 기본값은 4이고 최대값은 20입니다. **retryInterval** 및 **retryCount**는 모두 선택 사항입니다. **retryType**이 **fixed**로 설정되고 명시적으로 지정한 값이 없을 때 기본값으로 제공됩니다.
+- Count: Count of occurrences  
 
-## 참고 항목
+- End time: No jobs will execute after the specified end time  
 
- [스케줄러란?](scheduler-intro.md)
+A job is recurring if it has a recurring object specified in its JSON definition. If both count and endTime are specified, the completion rule that occurs first is honored.
 
- [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
+## <a name="state"></a>state
 
- [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
+The state of the job is one of four values: enabled, disabled, completed, or faulted. You can PUT or PATCH jobs so as to update them to the enabled or disabled state. If a job has been completed or faulted, that is a final state that cannot be updated (though the job can still be DELETED). An example of the state property is as follows:
 
- [Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법](scheduler-advanced-complexity.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
+        "state": "disabled", // enabled, disabled, completed, or faulted
+Completed and faulted jobs are deleted after 60 days.
 
- [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
+## <a name="status"></a>status
 
- [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
+Once a Scheduler job has started, information will be returned about the current status of the job. This object is not settable by the user—it’s set by the system. However, it is included in the job object (rather than a separate linked resource) so that one can obtain the status of a job easily.
 
- [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
+Job status includes the time of the previous execution (if any), the time of the next scheduled execution (for in-progress jobs), and the execution count of the job.
 
- [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
+## <a name="retrypolicy"></a>retryPolicy
 
-<!---HONumber=AcomDC_1005_2016-->
+If a Scheduler job fails, it is possible to specify a retry policy to determine whether and how the action is retried. This is determined by the **retryType** object—it is set to **none** if there is no retry policy, as shown above. Set it to **fixed** if there is a retry policy.
+
+To set a retry policy, two additional settings may be specified: a retry interval (**retryInterval**) and the number of retries (**retryCount**).
+
+The retry interval, specified with the **retryInterval** object, is the interval between retries. Its default value is 30 seconds, its minimum configurable value is 15 seconds, and its maximum value is 18 months. Jobs in Free job collections have a minimum configurable value of 1 hour.  It is defined in the ISO 8601 format. Similarly, the value of the number of retries is specified with the **retryCount** object; it is the number of times a retry is attempted. Its default value is 4, and its maximum value is 20\. Both **retryInterval** and **retryCount** are optional. They are given their default values if **retryType** is set to **fixed** and no values are specified explicitly.
+
+## <a name="see-also"></a>See also
+
+ [What is Scheduler?](scheduler-intro.md)
+
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

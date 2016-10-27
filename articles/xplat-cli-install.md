@@ -1,73 +1,78 @@
 <properties
-	pageTitle="Azure 명령줄 인터페이스 설치 | Microsoft Azure"
-	description="Azure 서비스 사용을 시작하기 위해 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI) 설치 "
-	editor=""
-	manager="timlt"
-	documentationCenter=""
-	authors="dlepow"
-	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Azure 명령줄 인터페이스 설치 | Microsoft Azure"
+    description="Azure 서비스 사용을 시작하기 위해 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI) 설치 "
+    editor=""
+    manager="timlt"
+    documentationCenter=""
+    authors="squillace"
+    services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2016"
-	ms.author="danlep"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="command-line-interface"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="rasquill"/>
     
-# Azure CLI 설치
+
+# <a name="install-the-azure-cli"></a>Azure CLI 설치
 
 > [AZURE.SELECTOR]
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli-install.md)
 
-신속하게 Azure CLI(Azure 명령줄 인터페이스)를 설치하여 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 사용합니다. 컴퓨터에 크로스 플랫폼 도구를 설치하는 몇 가지 옵션이 있습니다.
+신속하게 Azure CLI(Azure 명령줄 인터페이스)를 설치하여 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 사용합니다. 컴퓨터에 크로스 플랫폼 도구를 설치하는 몇 가지 옵션이 있습니다. 
 
 * **npm 패키지** - npm(JavaScript용 패키지 관리자)을 실행하여 Linux 배포 또는 OS에 최신 Azure CLI 패키지를 설치합니다. node.js 및 npm이 컴퓨터에 필요합니다.
 * **설치 관리자** - 설치 관리자를 다운로드하여 Mac 또는 Windows에서 손쉽게 설치합니다.
 * **Docker 컨테이너** - 즉시 실행 가능한 Docker 컨테이너에서 최신 CLI를 사용하기 시작합니다. Docker 호스트가 컴퓨터에 필요합니다.
     
-추가 옵션 및 배경 정보는 [GitHub](https://github.com/azure/azure-xplat-cli)에서 프로젝트 리포지토리를 참조하세요.
+추가 옵션 및 배경 정보는 [GitHub](https://github.com/azure/azure-xplat-cli)에서 프로젝트 리포지토리를 참조하세요. 
 
-Azure CLI가 설치되면 [Azure 구독을 사용하여 연결](xplat-cli-connect.md)하고 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트 등)에서 **azure** 명령을 실행하여 Azure 리소스 작업을 수행할 수 있습니다.
+Azure CLI가 설치되면 [Azure 구독을 사용하여 연결](xplat-cli-connect.md) 하고 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트 등)에서 **azure** 명령을 실행하여 Azure 리소스 작업을 수행할 수 있습니다.
 
 
 
-## 옵션 1. npm 패키지 설치
+## <a name="option-1:-install-an-npm-package"></a>옵션 1: npm 패키지 설치
 
-npm 패키지에서 CLI를 설치하려면 최신 Node.js 및 npm이 시스템에 설치되어 있어야 합니다. 그러면 [npmjs.com](https://www.npmjs.com)에 게시된 다음 명령을 실행하여 Azure CLI 패키지를 설치합니다. (Linux 배포에서는 __npm__ 명령을 정상적으로 실행하기 위해 **sudo**를 사용해야 할 수도 있습니다).
+npm 패키지에서 CLI를 설치하려면 [최신 Node.js 및 npm](https://nodejs.org/en/download/package-manager/)을 다운로드하고 설치했는지 확인합니다. 그런 다음 **npm install** azure-cli 패키지를 설치합니다. 
 
-	npm install -g azure-cli
+    npm install -g azure-cli
 
-> [AZURE.NOTE]Linux 배포 또는 OS에서 Node.js 및 npm을 설치하거나 업데이트해야 하는 경우 [Nodejs.org](https://nodejs.org/en/download/package-manager/)의 설명서를 참조하세요. 최신 Node.js LTS 버전(4.x)을 설치하는 것이 좋습니다. 이전 버전을 사용하는 경우 설치 오류가 발생할 수 있습니다.
+Linux 배포에서는 __npm__ 명령을 정상적으로 실행하기 위해 다음과 같이 **sudo**를 사용해야 할 수도 있습니다.
+
+    sudo npm install -g azure-cli
+
+> [AZURE.NOTE]Linux 배포 또는 OS에 Node.js 및 npm을 설치하거나 업데이트해야 하는 경우 최신 Node.js LTS 버전(4.x)을 설치하는 것이 좋습니다. 이전 버전을 사용하는 경우 설치 오류가 발생할 수 있습니다. 
 
 원한다면 npm 패키지용 최신 Linux [tar 파일][linux-installer]을 로컬에 다운로드하세요. 그런 다음, 다운로드한 npm 패키지를 다음과 같이 설치합니다.(Linux 배포에서는 **sudo**를 사용해야 할 수 있습니다.)
 
     npm install -g <path to downloaded tar file>
 
-## 옵션 2. 설치 관리자 사용
+## <a name="option-2:-use-an-installer"></a>옵션 2: 설치 관리자 사용
 
 Mac 또는 Windows 컴퓨터를 사용한다면, 다음과 같은 CLI 설치 관리자를 다운로드할 수 있습니다.
 
 * [Mac OS X 설치 관리자][mac-installer]
 
-* [Windows MSI][windows-installer]
+* [Windows MSI][windows-installer] 
 
->[AZURE.TIP]Windows에서 [웹 플랫폼 설치 관리자](https://go.microsoft.com/?linkid=9828653)를 다운로드하여 CLI를 설치할 수도 있습니다. 이 설치 관리자를 사용하면 CLI를 설치한 후에 추가적인 Azure SDK 및 명령줄 도구를 설치하는 옵션이 제공됩니다.
+>[AZURE.TIP]Windows에서 [웹 플랫폼 설치 관리자](https://go.microsoft.com/?linkid=9828653) 를 다운로드하여 CLI를 설치할 수도 있습니다. 이 설치 관리자를 사용하면 CLI를 설치한 후에 추가적인 Azure SDK 및 명령줄 도구를 설치하는 옵션이 제공됩니다. 
 
 
-## 옵션 3. Docker 컨테이너 사용
+## <a name="option-3:-use-a-docker-container"></a>옵션 3: Docker 컨테이너 사용
 
-컴퓨터를 [Docker](https://docs.docker.com/engine/understanding-docker/) 호스트로 설정한 경우 Docker 컨테이너에서 최신 Azure CLI를 실행할 수 있습니다. 다음을 실행합니다.
+컴퓨터를 [Docker](https://docs.docker.com/engine/understanding-docker/) 호스트로 설정한 경우 Docker 컨테이너에서 최신 Azure CLI를 실행할 수 있습니다. 다음 명령을 실행합니다. Linux 배포에서는 **sudo**를 사용해야 할 수도 있습니다.
 
 ```
 docker run -it microsoft/azure-cli
 ```
 
 
-## Azure CLI 명령 실행
+## <a name="run-azure-cli-commands"></a>Azure CLI 명령 실행
 Azure CLI가 설치되면 명령줄 사용자 인터페이스(Bash, 터미널, 명령 프롬프트 등)에서 **azure** 명령을 실행할 수 있습니다. 예를 들어 help 명령을 실행하려면 다음을 입력합니다.
 
 ```
@@ -90,7 +95,7 @@ azure --version
 >[AZURE.NOTE] Azure CLI를 처음 사용할 때, 사용 정보를 Microsoft가 수집하도록 허용할 것인지 묻는 메시지가 표시됩니다. 참여는 자발적입니다. 참여하기로 선택한 경우, `azure telemetry --disable`을 실행하여 언제든지 중지할 수 있습니다. 언제라도 참여를 활성화하려면, `azure telemetry --enable`을 실행합니다.
 
 
-## CLI 업데이트
+## <a name="update-the-cli"></a>CLI 업데이트
 
 Microsoft는 업데이트된 Azure CLI 버전을 자주 발표합니다. 사용 중인 운영 체제에 대 한 설치 관리자를 사용하여 CLI를 다시 설치하거나 최신 Docker 컨테이너를 실행합니다. 또는 최신 Node.js 및 npm이 설치된 경우 다음을 입력하여 업데이트합니다.(Linux 배포에서는 **sudo**를 사용해야 할 수 있습니다)
 
@@ -98,7 +103,7 @@ Microsoft는 업데이트된 Azure CLI 버전을 자주 발표합니다. 사용 
 npm update -g azure-cli
 ```
 
-## 탭 완성 기능 사용
+## <a name="enable-tab-completion"></a>탭 완성 기능 사용
 
 CLI 명령의 탭 완성 기능이 Mac 및 Linux에서 지원됩니다.
 
@@ -116,15 +121,15 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
 
-## 다음 단계 
+## <a name="next-steps"></a>다음 단계 
 
-* [CLI에서 Azure 구독에 연결](xplat-cli-connect.md)하여 Azure 리소스를 만들고 관리합니다.
+* [CLI에서 Azure 구독에 연결](xplat-cli-connect.md) 하여 Azure 리소스를 만들고 관리합니다.
 
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 
-* Azure CLI 또는 Azure 사용에 대한 질문이 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurescripting)을 방문하세요.
+* Azure CLI 또는 Azure 사용에 대한 질문이 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting)을 방문하세요.
 
-* Linux 시스템의 경우 [소스](http://aka.ms/linux-azure-cli)에서 빌드하여 Azure CLI를 설치할 수도 있습니다. 원본에서 빌드하는 방법에 대한 자세한 내용은 원본 보관 파일에 포함된 INSTALL 파일을 참조하세요.
+* 원할 경우 Python 기반 [Azure CLI 2.0 Preview](https://github.com/azure/azure-cli)를 사용해 볼 수도 있습니다.
 
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
@@ -132,4 +137,8 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

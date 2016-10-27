@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Azure Active Directory와 ZScaler Two 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 ZScaler Two를 사용하여 Single Sign-On, 자동화 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Zscaler Two | Microsoft Azure" 
+    description="Learn how to use Zscaler Two with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,191 +14,199 @@
     ms.date="08/16/2016" 
     ms.author="jeedes" />
 
-#자습서: Azure Active Directory와 Zscaler Two 통합
 
-이 자습서에서는 Azure와 Zscaler Two의 통합을 보여줍니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+#<a name="tutorial:-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: Azure Active Directory Integration with Zscaler Two
 
--   유효한 Azure 구독
--   ZScaler Two Single Sign-On은 구독할 수 있습니다.
+The objective of this tutorial is to show the integration of Azure and ZScaler Two.  
+The scenario outlined in this tutorial assumes that you already have the following items:
+
+-   A valid Azure subscription
+-   A ZScaler Two single sign-on enabled subscription
   
-이 자습서를 완료하면, ZScaler Two에 할당한 Azure AD 사용자들은 ZScaler Two 회사(로그온을 시작한 서비스 공급자) 사이트의 응용 프로그램에 단일 로그인 하거나, [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to ZScaler Two will be able to single sign into the application at your ZScaler Two company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  ZScaler Two의 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  프록시 설정 구성
-4.  사용자 프로비전 구성
-5.  사용자 할당
+1.  Enabling the application integration for ZScaler Two
+2.  Configuring single sign-on
+3.  Configuring proxy settings
+4.  Configuring user provisioning
+5.  Assigning users
 
-![Single Sign-On 구성](./media/active-directory-saas-zscaler-two-tutorial/IC800199.png "Single Sign-On 구성")
+![Configure Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800199.png "Configure Single Sign-On")
 
-##ZScaler Two의 응용 프로그램 통합 사용
+##<a name="enabling-the-application-integration-for-zscaler-two"></a>Enabling the application integration for ZScaler Two
   
-이 섹션에서는 ZScaler Two에 대한 응용 프로그램 통합을 사용하도록 설정하는 방법을 설명합니다.
+The objective of this section is to outline how to enable the application integration for ZScaler Two.
 
-###ZScaler Two에 응용 프로그램 통합을 사용하려면, 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-zscaler-two,-perform-the-following-steps:"></a>To enable the application integration for ZScaler Two, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zscaler-two-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-zscaler-two-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-zscaler-two-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-zscaler-two-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-zscaler-two-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-zscaler-two-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-zscaler-two-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에서, **ZScaler Two**를 입력합니다.
+6.  In the **search box**, type **ZScaler Two**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-zscaler-two-tutorial/IC800200.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-zscaler-two-tutorial/IC800200.png "Application Gallery")
 
-7.  결과 창에서 **ZScaler Two**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가 합니다.
+7.  In the results pane, select **ZScaler Two**, and then click **Complete** to add the application.
 
     ![ZScaler Two](./media/active-directory-saas-zscaler-two-tutorial/IC800201.png "ZScaler Two")
 
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션에서는 SAML 프로토콜 기반의 페더레이션을 사용하여 Azure AD의 해당 계정으로 사용자가 ZScaler Two에 인증하는 방법을 설명합니다. 이 과정의 일부로, ZScaler Two 테넌트에 base 64로 인코딩된 인증서를 업로드 해야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+The objective of this section is to outline how to enable users to authenticate to ZScaler Two with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to upload a base-64 encoded certificate to your ZScaler Two tenant.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **ZScaler Two** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign On 구성** 대화상자를 엽니다.
+1.  In the Azure classic portal, on the **ZScaler Two** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-zscaler-two-tutorial/IC800202.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800202.png "Configure Single Sign-On")
 
-2.  **ZScaler Two에 대한 사용자 로그온 방법을 선택하십시오**페이지에서, **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to ZScaler Two** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-zscaler-two-tutorial/IC800203.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800203.png "Configure Single Sign-On")
 
-3.  **ZScaler Two Sign On URL** 텍스트 상자의 **앱 URL 구성** 페이지에서, 사용자가 ZScaler Two 응용 프로그램에 로그인 할 때 사용한 URL을 입력하고 **다음**을 클릭합니다.
+3.  On the **Configure App URL** page, in the **ZScaler Two Sign On URL** textbox, type the URL used by your users to sign-on to your ZScaler Two application, and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "Configure App URL")
 
-    >[AZURE.NOTE] 필요한 경우 ZScaler Two 지원 팀에서 사용자 환경의 실제 값을 얻을 수 있습니다.
+    >[AZURE.NOTE] You can get the actual value for your environment from your ZScaler Two support team if you need it.
 
-4.  인증서를 다운로드 하려면 **ZScaler Two에서 Single Sign-On 설정** 페이지에서, **인증서 다운로드**를 클릭하여 인증서 파일을 컴퓨터에 저장합니다.
+4.  On the **Configure single sign-on at ZScaler Two** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-zscaler-two-tutorial/IC800205.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800205.png "Configure Single Sign-On")
 
-5.  다른 웹 브라우처 창에서 ZScaler Two 회사 사이트에 관리자로 로그인합니다.
+5.  In a different web browser window, log into your ZScaler Two company site as an administrator.
 
-6.  위쪽의 메뉴에서 **관리**를 클릭합니다.
+6.  In the menu on the top, click **Administration**.
 
-    ![관리](./media/active-directory-saas-zscaler-two-tutorial/IC800206.png "관리")
+    ![Administration](./media/active-directory-saas-zscaler-two-tutorial/IC800206.png "Administration")
 
-7.  **관리자 & 역할 관리**에서 **사용자 & 인증 관리**를 클릭합니다.
+7.  Under **Manage Administrators & Roles**, click **Manage Users & Authentication**.
 
-    ![사용자 및 인증 관리](./media/active-directory-saas-zscaler-two-tutorial/IC800207.png "사용자 및 인증 관리")
+    ![Manage Users & Authentication](./media/active-directory-saas-zscaler-two-tutorial/IC800207.png "Manage Users & Authentication")
 
-8.  **구성에 대한 인증 옵션 선택** 섹션에서, 다음 단계를 수행합니다.
+8.  In the **Choose Authentication Options for your Organization** section, perform the following steps:
 
-    ![인증](./media/active-directory-saas-zscaler-two-tutorial/IC800208.png "인증")
+    ![Authentication](./media/active-directory-saas-zscaler-two-tutorial/IC800208.png "Authentication")
 
-    1.  **SAML Single Sign-On을 사용하여 인증**을 선택합니다.
-    2.  **SAML Single Sign-On 매개 변수 구성**을 클릭합니다.
+    1.  Select **Authenticate using SAML Single Sign-On**.
+    2.  Click **Configure SAML Single Sign-On Parameters**.
 
-9.  **SAML Single Sign-On 매개 변수 구성**대화 상자 페이지에서 다음 단계를 수행하고 **완료**를 클릭합니다.
+9.  On the **Configure SAML Single Sign-On Parameters** dialog page, perform the following steps, and then click **Done**:
 
-    ![SSO(Single sign-on)](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "SSO(Single sign-on)")
+    ![Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "Single Sign-On")
 
-    1.  Azure 클래식 포털의 **ZScaler Two에서 Single Sign-On 구성** 대화 상자 페이지에서 **인증 요청 URL** 값을 복사하여 **사용자가 인증을 위해 보낸 SAML 포털의 URL** 텍스트 상자에 붙여 넣습니다.
-    2.  **로그인 이름을 포함한 특성** 텍스트 상자에 **NameID**를 입력합니다.
-    3.  **Zscaler pem**을 클릭하여 다운로드한 인증서를 업로드합니다.
-    4.  **SAML 자동 프로비전 사용**을 선택합니다.
+    1.  In the Azure classic portal, on the **Configure single sign-on at ZScaler Two** dialog page, copy the **Authentication Request URL** value, and then paste it into the **URL of the SAML Portal to which users are sent for authentication** textbox.
+    2.  In the **Attribute containing Login Name** textbox, type **NameID**.
+    3.  To upload your downloaded certificate, click **Zscaler pem**.
+    4.  Select **Enable SAML Auto-Provisioning**.
 
-10. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+10. On the **Configure User Authentication** dialog page, perform the following steps:
 
-    ![관리](./media/active-directory-saas-zscaler-two-tutorial/IC800210.png "관리")
+    ![Administration](./media/active-directory-saas-zscaler-two-tutorial/IC800210.png "Administration")
 
-    1.  **Save**를 클릭합니다.
-    2.  **지금 활성화**를 클릭합니다.
+    1.  Click **Save**.
+    2.  Click **Activate Now**.
 
-11. Azure 클래식 포털의 **ZScaler Two에서 Single Sign-On 설정** 대화 상자 페이지에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭합니다.
+11. In the Azure classic portal, on the **Configure single sign-on at ZScaler Two** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-zscaler-two-tutorial/IC800211.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800211.png "Configure Single Sign-On")
 
-##프록시 설정 구성
+##<a name="configuring-proxy-settings"></a>Configuring proxy settings
 
-###Internet Explorer에서 프록시 설정을 구성하려면
+###<a name="to-configure-the-proxy-settings-in-internet-explorer"></a>To configure the proxy settings in Internet Explorer
 
-1.  **Internet Explorer**를 시작합니다.
+1.  Start **Internet Explorer**.
 
-2.  **도구** 메뉴에서 **인터넷 옵션**을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.
+2.  Select **Internet options** from the **Tools** menu to open the **Internet Options** dialog.
 
-    ![인터넷 옵션](./media/active-directory-saas-zscaler-two-tutorial/IC769492.png "인터넷 옵션")
+    ![Internet Options](./media/active-directory-saas-zscaler-two-tutorial/IC769492.png "Internet Options")
 
-3.  **연결** 탭을 클릭합니다.
+3.  Click the **Connections** tab.
 
-    ![연결](./media/active-directory-saas-zscaler-two-tutorial/IC769493.png "연결")
+    ![Connections](./media/active-directory-saas-zscaler-two-tutorial/IC769493.png "Connections")
 
-4.  **LAN 설정**을 클릭하여 **LAN 설정** 대화 상자를 엽니다.
+4.  Click **LAN settings** to open the **LAN Settings** dialog.
 
-5.  프록시 서버 섹션에서 다음 단계를 수행합니다.
+5.  In the Proxy server section, perform the following steps:
 
-    ![프록시 서버](./media/active-directory-saas-zscaler-two-tutorial/IC769494.png "프록시 서버")
+    ![Proxy server](./media/active-directory-saas-zscaler-two-tutorial/IC769494.png "Proxy server")
 
-    1.  사용자 LAN의 프록시 서버 사용을 선택합니다.
-    2.  주소 텍스트 상자에 **gateway.zscalerone.net**을 입력합니다.
-    3.  포트 텍스트 상자에 **80**을 입력합니다.
-    4.  **로컬 주소의 바이패스 프록시 서버**를 선택합니다.
-    5.  **확인**을 클릭하여 **LAN(Local Area Network) 설정** 대화 상자를 닫습니다.
+    1.  Select Use a proxy server for your LAN.
+    2.  In the Address textbox, type **gateway.zscalerone.net**.
+    3.  In the Port textbox, type **80**.
+    4.  Select **Bypass proxy server for local addresses**.
+    5.  Click **OK** to close the **Local Area Network (LAN) Settings** dialog.
 
-6.  **확인**을 클릭하여 **인터넷 옵션** 대화 상자를 닫습니다.
+6.  Click **OK** to close the **Internet Options** dialog.
 
-##사용자 프로비전 구성
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 ZScaler Two에 로그인할 수 있도록 하려면 사용자 계정이 ZScaler로 프로비전되어야 합니다. ZScaler Two의 경우, 수동으로 프로비전합니다.
+In order to enable Azure AD users to log into ZScaler Two, they must be provisioned to ZScaler Two.  
+In the case of ZScaler Two, provisioning is a manual task.
 
-###사용자 프로비저닝을 구성하려면
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  **Zscaler** 테넌트에 로그인 합니다.
+1.  Log in to your **Zscaler** tenant.
 
-2.  **관리**를 클릭합니다.
+2.  Click **Administration**.
 
-    ![관리](./media/active-directory-saas-zscaler-two-tutorial/IC781035.png "관리")
+    ![Administration](./media/active-directory-saas-zscaler-two-tutorial/IC781035.png "Administration")
 
-3.  **사용자 관리**를 클릭합니다.
+3.  Click **User Management**.
 
-    ![추가](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "추가")
+    ![Add](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Add")
 
-4.  **사용자** 탭에서 **추가**를 클릭합니다.
+4.  In the **Users** tab, click **Add**.
 
-    ![추가](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "추가")
+    ![Add](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Add")
 
-5.  사용자 추가 섹션에서 다음 단계를 수행합니다.
+5.  In the Add User section, perform the following steps:
 
-    ![사용자 추가](./media/active-directory-saas-zscaler-two-tutorial/IC781038.png "사용자 추가")
+    ![Add User](./media/active-directory-saas-zscaler-two-tutorial/IC781038.png "Add User")
 
-    1.  **사용자ID**, **사용자 표시 이름**, **암호**, **암호 확인**을 입력하고, 프로비전하고자 하는 유효한 AAD 계정의 **그룹** 및 **부서**를 선택합니다.
-    2.  **Save**를 클릭합니다.
+    1.  Type the **UserID**, **User Display Name**, **Password**, **Confirm Password**, and then select **Groups** and the **Department** of a valid AAD account you want to provision.
+    2.  Click **Save**.
 
->[AZURE.NOTE] 다른 ZScaler 사용자 계정 생성 도구 또는 ZScaler가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] You can use any other ZScaler Two user account creation tools or APIs provided by ZScaler Two to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###ZScaler Two에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-zscaler-two,-perform-the-following-steps:"></a>To assign users to ZScaler Two, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **ZScaler Two** 응용 프로그램 통합 페이지에서, **사용자 할당**을 클릭합니다.
+2.  On the **ZScaler Two** application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-zscaler-two-tutorial/IC800212.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-zscaler-two-tutorial/IC800212.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-zscaler-two-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-zscaler-two-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

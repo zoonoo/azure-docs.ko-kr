@@ -1,6 +1,6 @@
 <properties
-   pageTitle="포털을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기 | Microsoft Azure"
-   description="포털을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 만드는 방법을 알아봅니다."
+   pageTitle="Create a custom probe for an application gateway by using the portal | Microsoft Azure"
+   description="Learn how to create a custom probe for Application Gateway by using the portal"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -14,77 +14,80 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="10/24/2016"
    ms.author="gwallace" />
 
-# 포털을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기
+
+# <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Create a custom probe for Application Gateway by using the portal
 
 > [AZURE.SELECTOR]
-- [Azure 포털](application-gateway-create-probe-portal.md)
+- [Azure portal](application-gateway-create-probe-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-- [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
+- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 <BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-## 시나리오
+## <a name="scenario"></a>Scenario
 
-다음 시나리오에서는 기존 응용 프로그램 게이트웨이에서 사용자 지정 상태 프로브를 만드는 과정을 살펴봅니다. 이 시나리오에서는 [응용 프로그램 게이트웨이 만들기](application-gateway-create-gateway-portal.md) 단계를 이미 수행한 것으로 가정합니다.
+The following scenario goes through creating a custom health probe in an existing application gateway.
+The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
 
-## <a name="createprobe"></a>프로브 만들기
+## <a name="<a-name="createprobe"></a>create-the-probe"></a><a name="createprobe"></a>Create the probe
 
-프로브는 포털을 통해 두 단계 프로세스로 구성됩니다. 첫 번째 단계에서는 프로브를 만들고, 두 번째 단계에서는 응용 프로그램 게이트웨이의 백 엔드 http 설정에 프로브를 추가합니다.
+Probes are configured in a two-step process through the portal. The first step is to create the probe, next you add the probe to the backend http settings of the application gateway.
 
-### 1단계
+### <a name="step-1"></a>Step 1
 
-http://portal.azure.com으로 이동하여 기존 응용 프로그램 게이트웨이를 선택합니다.
+Navigate to http://portal.azure.com and select an existing application gateway.
 
-![응용 프로그램 게이트웨이 개요][1]
+![Application Gateway overview][1]
 
-### 2단계
+### <a name="step-2"></a>Step 2
 
-**프로브**를 클릭한 다음 **추가** 단추를 클릭하여 새 프로브를 추가합니다.
+Click **Probes** and click the **Add** button to add a new probe.
 
-![정보가 입력된 프로브 추가 블레이드][2]
+![Add Probe blade with information filled out][2]
 
-### 3단계
+### <a name="step-3"></a>Step 3
 
-프로브에 대한 필수 정보를 입력하고 완료되면 **확인**을 클릭합니다.
+Fill out the required information for the probe and when complete click **OK**.
 
-- **이름** - 포털에서 액세스할 수 있는 프로브의 이름입니다.
-- **호스트** - 프로브에 사용되는 호스트 이름입니다.
-- **경로** - 사용자 지정 프로브의 전체 url 중 나머지 부분입니다.
-- **간격(초)** - 상태를 확인하기 위해 프로브를 실행할 주기입니다.
-- **제한 시간(초)** - 시간 초과되기 전에 프로브가 대기할 시간입니다.
-- **비정상 임계값** - 비정상으로 간주되는 실패한 시도 횟수입니다.
+- **Name** - This is a friendly name to the probe that is accessible in the portal.
+- **Host** - This is the host name that is used for the probe.
+- **Path** - The remainder of the full url for the custom probe.
+- **Interval (secs)** - How often the probe is run to check for health.
+- **Timeout (secs)** - The amount of time the probe waits before timing out.
+- **Unhealthy threshold** - Number of failed attempts to be considered unhealthy.
 
-> [AZURE.IMPORTANT] 호스트 이름은 서버 이름이 아닙니다. 응용 프로그램 서버에서 실행 중인 가상 호스트의 이름입니다. 프로브는 http://(host name):(port from httpsetting)/urlPath로 전송됩니다.
+> [AZURE.IMPORTANT] the host name is not the server name. This is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
 
-![프로브 구성 설정][3]
+![probe configuration settings][3]
 
-## 게이트웨이에 프로브 추가
+## <a name="add-probe-to-the-gateway"></a>Add probe to the gateway
 
-프로브를 만들었으므로 이제 게이트웨이에 추가해야 합니다. 프로브 설정은 응용 프로그램 게이트웨이의 백 엔드 http 설정에 지정됩니다.
+Now that the probe has been created, it is time to add it to the gateway. Probe settings are set on the backend http settings of the application gateway.
 
-### 1단계
+### <a name="step-1"></a>Step 1
 
-응용 프로그램 게이트웨이의 **HTTP 설정**을 클릭한 다음 창에서 현재 백 엔드 http 설정을 클릭하여 구성 블레이드를 불러옵니다.
+Click the **HTTP settings** of the application gateway, and then click the current backend http settings in the window to bring up the configuration blade.
 
-![https 설정 창][4]
+![https settings window][4]
 
-### 2단계
+### <a name="step-2"></a>Step 2
 
-**appGatewayBackEndHttp** 설정 블레이드에서 **사용자 지정 프로브 사용**을 클릭하고 [프로브 만들기](#createprobe) 섹션에 생성된 프로브를 선택합니다. 완료되면 **확인**을 클릭합니다. 그러면 설정이 적용됩니다.
+On the **appGatewayBackEndHttp** settings blade, click **Use custom probe** and choose the probe created in the [Create the probe](#createprobe) section.
+When complete, click **OK** and the settings are applied.
 
-![appgatewaybackend 설정 블레이드][5]
+![appgatewaybackend settings blade][5]
 
-기본 프로브는 웹 응용 프로그램에 대한 기본 액세스를 확인합니다. 사용자 지정 프로브를 만들었으므로 이제 응용 프로그램 게이트웨이에서 정의된 사용자 지정 경로를 사용하여 선택된 백 엔드의 상태를 모니터링합니다. 정의된 기준에 따라, 응용 프로그램 게이트웨이는 프로브에 지정된 파일을 확인합니다. host:Port/path에 대한 호출에서 Http 200 OK 상태 응답이 반환되지 않으면 비정상 임계값에 도달한 후 서버가 순환에서 제외된 것입니다. 비정상 인스턴스에 대해 프로빙이 계속되며 다시 정상 상태가 되는지 확인합니다. 인스턴스가 정상 서버 풀에 다시 추가되면 트래픽이 다시 흐르기 시작하고 평소처럼 사용자가 지정한 간격으로 인스턴스에 대한 프로빙이 계속됩니다.
+The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend selected. Based on the criteria that was defined, the application gateway checks the file specified in the probe. If the call to host:Port/path does not return an Http 200 OK status response, the server is taken out of rotation, after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-Azure 응용 프로그램 게이트웨이를 사용하여 SSL 오프로드를 구성하는 방법은 [SSL 오프로드 구성](application-gateway-ssl-portal.md)을 참조하세요.
+To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
@@ -92,4 +95,7 @@ Azure 응용 프로그램 게이트웨이를 사용하여 SSL 오프로드를 �
 [4]: ./media/application-gateway-create-probe-portal/figure4.png
 [5]: ./media/application-gateway-create-probe-portal/figure5.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

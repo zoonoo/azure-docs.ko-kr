@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Learningpool과 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Learningpool을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with Learningpool | Microsoft Azure" 
+    description="Learn how to use Learningpool with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,140 +11,147 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: Learningpool과 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-learningpool"></a>Tutorial: Azure Active Directory integration with Learningpool
   
-이 자습서는 Azure 및 Learningpool의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and Learningpool.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Learningpool Single Sign-on이 설정된 구독
+-   A valid Azure subscription
+-   A Learningpool single sign-on enabled subscription
   
-이 자습서를 완료한 후 Learningpool에 할당한 Azure AD 사용자가 Learningpool 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to Learningpool will be able to single sign into the application at your Learningpool company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Learningpool에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Learningpool
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-learningpool-tutorial/IC791166.png "시나리오")
-##Learningpool에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-learningpool-tutorial/IC791166.png "Scenario")
+##<a name="enabling-the-application-integration-for-learningpool"></a>Enabling the application integration for Learningpool
   
-이 섹션은 Learningpool에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for Learningpool.
 
-###Learningpool에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-learningpool,-perform-the-following-steps:"></a>To enable the application integration for Learningpool, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-learningpool-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-learningpool-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-learningpool-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-learningpool-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-learningpool-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-learningpool-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-learningpool-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **Learningpool**을 입력합니다.
+6.  In the **search box**, type **Learningpool**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-learningpool-tutorial/IC795073.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-learningpool-tutorial/IC795073.png "Application Gallery")
 
-7.  결과 창에서 **Learningpool**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Learningpool**, and then click **Complete** to add the application.
 
     ![Learningpool](./media/active-directory-saas-learningpool-tutorial/IC809577.png "Learningpool")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Learningpool에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable users to authenticate to Learningpool with their account in Azure AD using federation based on the SAML protocol.
   
-Learningpool 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+Your Learningpool application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
+The following screenshot shows an example for this.
 
-![SAML 토큰 특성](./media/active-directory-saas-learningpool-tutorial/IC795074.png "SAML 토큰 특성")
+![SAML Token Attributes](./media/active-directory-saas-learningpool-tutorial/IC795074.png "SAML Token Attributes")
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Learningpool** 응용 프로그램 통합 페이지에 있는 상단의 메뉴에서 **특성**을 클릭하여 **SAML 토큰 특성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Learningpool** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
-    ![특성](./media/active-directory-saas-learningpool-tutorial/IC795075.png "특성")
+    ![Attributes](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Attributes")
 
-2.  필요한 특성 매핑을 추가하려면 다음 단계를 수행합니다.
+2.  To add the required attribute mappings, perform the following steps:
 
-    ###
+    ###  
 
-    |특성 이름 |특성 값 |
-	|------------------------------|---------------------------|
+  	|Attribute Name                |Attribute Value            |
+  	|------------------------------|---------------------------|
 
      urn:oid:1.2.840.113556.1.4.221 | User.userprincipalname
-	|-------------------------------|--------------------------|  
-	 urn:oid:2.5.4.42|User.givenname   
-    |urn:oid:0.9.2342.19200300.100.1.3|User.mail
-    |urn:oid:2.5.4.4|User.surname
+  	|-------------------------------|--------------------------|  
+     urn:oid:2.5.4.42|User.givenname   
+  	|urn:oid:0.9.2342.19200300.100.1.3|User.mail
+  	|urn:oid:2.5.4.4|User.surname
 
-    1.  위의 테이블의 각 데이터 행에서 **사용자 특성 추가**를 클릭합니다.
-    2.  **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
-    3.  **특성 값** 목록에서 해당 행에 표시된 특성 값을 선택합니다.
-    4.  **완료**를 클릭합니다.
+    1.  For each data row in the table above, click **add user attribute**.
+    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
+    3.  From the **Attribute Value** list, select the attribute value shown for that row.
+    4.  Click **Complete**.
 
-3.  **변경 내용 적용**을 클릭합니다.
+3.  Click **Apply Changes**.
 
-4.  브라우저에서 **뒤로**를 클릭하여 **빠른 시작** 대화 상자를 다시 엽니다.
+4.  In your browser, click **Back** to open the **Quick Start** dialog again.
 
-5.  **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Single Sign-On 구성")
+    ![Configure Singel Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Configure Singel Sign-On")
 
-6.  **Learningpool에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+6.  On the **How would you like users to sign on to Learningpool** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configure Single Sign-On")
 
-7.  **앱 URL 구성** 페이지의 **Learningpool 로그온 URL** 텍스트 상자에 Learningpool 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL(예: https://parliament.preview.learningpool.com/auth/shibboleth/index.php)을 입력한 후 **다음**을 클릭합니다.
+7.  On the **Configure App URL** page, in the **Learningpool Sign On URL** textbox, type the URL used by your users to sign on to your Learningpool application ( e.g.: https://parliament.preview.learningpool.com/auth/shibboleth/index.php), and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-learningpool-tutorial/IC795078.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configure App URL")
 
-8.  **Learningpool에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 인증서 파일을 컴퓨터에 로컬로 저장합니다.
+8.  On the **Configure single sign-on at Learningpool** page, to download your metadata, click **Download metadata**, and then save the certificate file locally on your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Configure Single Sign-On")
 
-9.  Learningpool 지원팀에 해당 메타데이터 파일을 전달합니다.
+9.  Forward that Metadata file to your Learningpool Support team.
 
-    >[AZURE.NOTE]Single Sign-on은 Learningpool 지원팀에서 사용할 수 있어야 합니다.
+    >[AZURE.NOTE]Single sign-on has to be enabled by the Learningpool support team.
 
-10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Single Sign-On 구성")
-##사용자 프로비전 구성
+    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 Learningpool에 로그인할 수 있도록 하려면 Learningpool로 프로비전되어야 합니다.
+In order to enable Azure AD users to log into Learningpool, they must be provisioned into Learningpool.
   
-Learningpool을 프로비전하는 사용자를 구성할 작업 항목이 없습니다. Learningpool 지원 팀에서 사용자를 만들어야 합니다.
+There is no action item for you to configure user provisioning to Learningpool.  
+Users need to be created by your Learningpool support team.
 
->[AZURE.NOTE]다른 Learningpool 사용자 계정 생성 도구 또는 Learningpool이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE]You can use any other Learningpool user account creation tools or APIs provided by Learningpool to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Learningpool에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-learningpool,-perform-the-following-steps:"></a>To assign users to Learningpool, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Learningpool** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Learningpool **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-learningpool-tutorial/IC795081.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-learningpool-tutorial/IC795081.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-learningpool-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-learningpool-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

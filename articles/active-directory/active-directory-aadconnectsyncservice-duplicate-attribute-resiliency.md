@@ -1,200 +1,198 @@
 <properties
-	pageTitle="ID 동기화 및 중복 특성 복원력 | Microsoft Azure"
-	description="Azure AD Connect를 사용하여 디렉터리 동기화 동안 UPN 또는 ProxyAddress 충돌을 사용하여 개체를 처리하는 방법의 새 동작입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Identity synchronization and duplicate attribute resiliency | Microsoft Azure"
+    description="New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/29/2016"
+    ms.author="markusvi"/>
 
 
 
-# ID 동기화 및 중복 특성 복원력
-중복 특성 복원력은 Microsoft의 동기화 도구 중 하나를 실행하는 경우 **UserPrincipalName** 및 **ProxyAddress**의 충돌로 발생하는 마찰을 제거하기 위한 Azure Active Directory의 기능입니다.
 
-이 두 특성은 일반적으로 지정된 Azure Active Directory 디렉터리의 모든 **사용자**, **그룹** 또는 **연락처** 개체에 고유해야 합니다.
+# <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identity synchronization and duplicate attribute resiliency
+Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
 
-> [AZURE.NOTE] 사용자만 UPN을 가질 수 있습니다.
+These two attributes are generally required to be unique across all **User**, **Group**, or **Contact** objects in a given Azure Active Directory tenant.
 
-이 기능이 활성화하는 새 동작은 동기화 파이프라인의 클라우드 부분에 있으므로 클라이언트와 관계 없으며 Azure AD Connect, DirSync 및 MIM + 커넥터를 포함하는 모든 Microsoft 동기화 제품과 관련되어 있습니다. 일반 용어인 "동기화 클라이언트"는 이 문서에서 이러한 제품 중 하나를 나타내는 데 사용됩니다.
+> [AZURE.NOTE] Only Users can have UPNs.
 
-## 현재 동작
-이 고유성 제약 조건을 위반하는 UPN 또는 ProxyAddress 값으로 새 개체를 프로비전하려고 하는 경우 Azure Active Directory는 개체가 생성되는 것을 차단합니다. 마찬가지로 개체가 고유하지 않은 UPN 또는 ProxyAddress로 업데이트되면 업데이트가 실패합니다. 프로비전 시도 또는 업데이트는 각 내보내기 주기 시 동기화 클라이언트에서 다시 시도되고 충돌이 해결될 때까지 계속해서 실패합니다. 각 시도 시 오류 보고서가 발생되고 동기화 클라이언트에서 오류가 기록됩니다.
+The new behavior that this feature enables is in the cloud portion of the sync pipeline, therefore it is client agnostic and relevant for any Microsoft synchronization product including Azure AD Connect, DirSync and MIM + Connector. The generic term “sync client” is used in this document to represent any one of these products.
 
-## 중복 특성 복원력으로 동작
-중복 특성으로 개체 프로비전 또는 업데이트에 완전히 실패하는 대신 Azure Active Directory는 고유성 제약 조건을 위반하는 중복 특성을 “격리합니다”. 이 특성이 UserPrincipalName과 같은 프로비전에 필요한 경우 서비스는 자리 표시자 값을 할당합니다. 이러한 임시 값의 형식은 “***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”입니다. **ProxyAddress**와 같은 특성이 필요하지 않은 경우 Azure Active Directory는 단순히 충돌 특성을 격리하고 개체 생성 또는 업데이트를 진행합니다.
+## <a name="current-behavior"></a>Current behavior
+If there is an attempt to provision a new object with a UPN or ProxyAddress value that violates this uniqueness constraint, Azure Active Directory blocks that object from being created. Similarly, if an object is updated with a non-unique UPN or ProxyAddress, the update fails. The provisioning attempt or update is retried by the sync client upon each export cycle, and continues to fail until the conflict is resolved. An error report email is generated upon each attempt and an error is logged by the sync client.
 
-특성을 격리 시 충돌에 대한 정보는 이전 동작에 사용된 동일한 오류 보고서 전자 메일에 전송됩니다. 그러나 격리가 발생할 때 이 정보는 오류 보고서에 한 번만 표시되며 이후 메일에 계속해서 기록되지 않습니다. 또한 이 개체에 대한 내보내기가 성공했으므로 동기화 클라이언트는 오류를 기록하지 않고 후속 동기화 주기 시 만들기 / 업데이트 작업을 시도하지 않습니다.
+## <a name="behavior-with-duplicate-attribute-resiliency"></a>Behavior with Duplicate Attribute Resiliency
+Instead of completely failing to provision or update an object with a duplicate attribute, Azure Active Directory “quarantines” the duplicate attribute which would violate the uniqueness constraint. If this attribute is required for provisioning, like UserPrincipalName, the service assigns a placeholder value. The format of these temporary values is  
+“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
+If the attribute is not required, like a  **ProxyAddress**, Azure Active Directory simply quarantines the conflict attribute and proceeds with the object creation or update.
 
-이 동작을 지원하기 위해 사용자, 그룹 및 연락처 개체 클래스: **DirSyncProvisioningError**에 새 특성이 추가되었습니다.
+Upon quarantining the attribute, information about the conflict is sent in the same error report email used in the old behavior. However, this info only appears in the error report one time, when the quarantine happens, it does not continue to be logged in future emails. Also, since the export for this object has succeeded, the sync client does not log an error and does not retry the create / update operation upon subsequent sync cycles.
 
-정상적으로 추가해야 하는 고유성 제약 조건을 위반하는 충돌 특성을 저장하는 데 사용되는 다중값 특성입니다. 해결된 중복 특성 충돌을 찾기 위해 1시간마다 실행되고 격리에서 문제의 특성을 자동으로 제거하는 백그라운드 타이머 작업이 Azure Active Directory에서 활성화되었습니다.
+To support this behavior a new attribute has been added to the User, Group, and Contact object classes:  
+**DirSyncProvisioningErrors**
 
-### 중복 특성 복원력 활성화
-Azure Active Directory PowerShell 모듈의 최신 버전을 다운로드하고 실행하여 기능을 사용할 수 있습니다.
+This is a multi-valued attribute that is used to store the conflicting attributes that would violate the uniqueness constraint should they be added normally. A background timer task has been enabled in Azure Active Directory that  runs every hour to look for duplicate attribute conflicts that have been resolved, and automatically removes the attributes in question from quarantine.
+
+### <a name="enabling-duplicate-attribute-resiliency"></a>Enabling Duplicate Attribute Resiliency
+Duplicate Attribute Resiliency will be the new default behavior across all Azure Active Directory tenants. It will be on by default for all tenants that enabled synchronization for the first time on August 22nd, 2016 or later. Tenants that enabled sync prior to this date will have the feature enabled in batches. This rollout will begin in September 2016, and an email notification will be sent to each tenant's technical notification contact with the specific date when the feature will be enabled.
+
+Once Duplicate Attribute Resiliency has been turned on it cannot be disabled.
+
+To check if the feature is enabled for your tenant, you can do so by downloading the latest version of the Azure Active Directory PowerShell module and running:
+
+`Get-MsolDirSyncFeatures -Feature DuplicateUPNResiliency`
+
+`Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
+
+If you would like to proactively enable the feature before it is turned on for your tenant, you can do so by downloading the latest version of the Azure Active Directory PowerShell module and running:
 
 `Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`
 
 `Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`
 
-현재 UPN 및 ProxyAddress 복원력을 개별적으로 켜고 사용하지 않도록 설정할 수 있습니다. 이 동작은 나중에 변경하여 모든 Azure AD 디렉터리에 사용하도록 설정되며 해제할 수 없습니다.
+## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identifying Objects with DirSyncProvisioningErrors
+There are currently two methods to identify objects that have these errors due to duplicate property conflicts, Azure Active Directory PowerShell and the Office 365 Admin Portal. There are plans to extend to additional portal based reporting in the future.
 
-## DirSyncProvisioningErrors로 개체 식별
-중복 속성 충돌로 인해 이러한 오류가 있는 개체를 식별하는 방법은 현재 PowerShell Azure Active Directory 및 Office 365 관리자 포털로 두 가지 메서드가 있습니다. 향후 보고에 기반한 추가 포털로 확장할 계획이 있습니다.
+### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
+For the PowerShell cmdlets in this topic, the following is true:
 
-### Azure Active Directory PowerShell
-이 항목에서 PowerShell cmdlet의 경우 다음은 true입니다.
+- All of the following cmdlets are case sensitive.
+- The **–ErrorCategory PropertyConflict** must always be included. There are currently no other types of **ErrorCategory**, but this may be extended in the future.
 
-- 다음 cmdlet은 모두 대/소문자 구분입니다.
-- **–ErrorCategory PropertyConflict**는 항상 포함되어야 합니다. 현재 다른 종류의 **ErrorCategory**는 없지만 나중에 확장될 수 있습니다.
+First, get started by running **Connect-MsolService** and entering credentials for a tenant administrator.
 
-먼저 **Connect-MsolService**를 실행하고 테넌트 관리자에 대한 자격 증명을 입력하여 시작합니다.
+Then, use the following cmdlets and operators to view errors in different ways:
 
-그런 다음 다양한 방법으로 오류를 보려면 다음 cmdlet 및 연산자를 사용합니다.
+1. [See All](#see-all)
 
-1. [모두 표시](#see-all)
+2. [By Property Type](#by-property-type)
 
-2. [속성 형식으로](#by-property-type)
+3. [By Conflicting Value](#by-conflicting-value)
 
-3. [충돌 값으로](#by-conflicting-value)
+4. [Using a String Search](#using-a-string-search)
 
-4. [문자열 검색을 사용하여](#using-a-string-search)
+5. [Sorted](#sorted)
 
-5. [정렬](#sorted)
-
-6. [제한된 수량 또는 모두](#in-a-limited-quantity-or-all)
+6. [In a Limited Quantity or All](#in-a-limited-quantity-or-all)
 
 
-#### 모두 표시
-연결되면 테넌트에서 오류를 프로비저닝하는 특성의 일반 목록을 보기 위해 다음을 실행합니다.
+#### <a name="see-all"></a>See all
+Once connected, to see a general list of attribute provisioning errors in the tenant run:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-다음과 같은 결과가 생성됩니다. ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")
+This produces a result like the following:  
+ ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 
-#### 속성 형식으로
-속성 형식으로 오류를 보려면 **UserPrincipalName** 또는 **ProxyAddresses** 인수를 가진 **-PropertyName** 플래그를 추가합니다.
+#### <a name="by-property-type"></a>By property type
+To see errors by property type, add the **-PropertyName** flag with the **UserPrincipalName** or **ProxyAddresses** argument:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName UserPrincipalName`
 
-또는
+Or
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName ProxyAddresses`
 
-#### 충돌 값으로
-특정 속성에 관련된 오류를 확인하려면 **-PropertyValue** 플래그를 추가합니다(이 플래그를 추가하는 경우 **-PropertyName**을 함께 사용해야 함).
+#### <a name="by-conflicting-value"></a>By conflicting value
+To see errors relating to a specific property add the **-PropertyValue** flag (**-PropertyName** must be used as well when adding this flag):
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
 
-#### 문자열 검색을 사용하여
-광범위한 문자열 검색을 수행하려면 **-SearchString** 플래그를 사용합니다. 항상 필수 항목인 **-ErrorCategory PropertyConflict**를 제외하고 위의 모든 플래그와 독립적으로 사용할 수 있습니다.
+#### <a name="using-a-string-search"></a>Using a string search
+To do a broad string search use the **-SearchString** flag. This can be used independently from all of the above flags, with the exception of **-ErrorCategory PropertyConflict**, which is always required:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
-#### 정렬
-지정된 쿼리의 결과를 정렬하는 데 사용할 수 있는 두 가지 플래그가 있습니다.
+#### <a name="in-a-limited-quantity-or-all"></a>In a limited quantity or all
+1. **MaxResults <Int>** can be used to limit the query to a specific number of values.
 
-1.	**SortField**: 유효한 인수는 DisplayName 및 UserPrincipalName을 포함
-
-2.	**SortDirection**: 유효한 인수는 Ascending 및 Descending을 포함
-
-`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SortField UserPrincipalName -SortDirection Ascending`
-
-#### 제한된 수량 또는 모두
-1. **MaxResults<Int>**는 특정 값으로 쿼리를 제한하는 데 사용할 수 있습니다.
-
-2. **All**은 많은 오류가 있는 경우 검색되는 모든 결과를 확인하기 위해 사용할 수 있습니다.
+2. **All** can be used to ensure all results are retrieved in the case that a large number of errors exists.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## Office 365 관리 포털
+## <a name="office-365-admin-portal"></a>Office 365 admin portal
 
-Office 365 관리 센터에서 디렉터리 동기화 오류를 볼 수 있습니다. Office 365 포털의 보고서는 이러한 오류가 있는 **사용자** 개체만을 표시합니다. **그룹**, **연락처** 또는 **PublicFolders** 간의 충돌에 대한 정보는 표시하지 않습니다.
-
-
-![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1234.png "활성 사용자")
-
-Office 365 관리 센터에서 디렉터리 동기화 오류를 보는 방법에 대한 지침은 [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)을 참조하세요.
+You can view directory synchronization errors in the Office 365 admin center. The report in the Office 365 portal only displays **User** objects that have these errors. It does not show info about conflicts between **Groups** and **Contacts**.
 
 
-### ID 동기화 오류 보고서
-중복 특성 충돌이 있는 개체가 이 새 동작으로 처리되는 경우 알림은 테넌트에 대한 기술 알림 문의로 전송되는 표준 ID 동기화 오류 보고서 전자 메일에 포함됩니다. 그러나 이 동작에서 중요한 변경 사항이 있습니다. 이전에 중복 특성 충돌에 대한 정보는 충돌이 해결될 때까지 모든 후속 오류 보고서에 포함됩니다. 이 새 동작으로 지정된 충돌에 대한 오류 알림이 충돌 특성이 격리되는 시간에 한 번만 나타납니다.
+![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1234.png "Active Users")
 
-ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다. ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "활성 사용자")
+For instructions on how to view directory synchronization errors in the Office 365 admin center, see [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
-## 충돌 해결
-이러한 오류에 대한 문제 해결 전략 및 해결 방법은 중복 특성 오류가 이전에 처리된 방식과 다르지 않습니다. 유일한 차이점은 타이머 작업은 서비스쪽 테넌트를 통해 스윕하여 충돌이 해결되면 적절한 개체에 문제의 특성을 자동으로 추가한다는 점입니다.
 
-다음 문서에서는 다양한 문제 해결 및 해결 방법을 간략하게 설명합니다. [Office 365에서 중복되거나 잘못된 특성이 디렉터리 동기화를 방해할 경우](https://support.microsoft.com/kb/2647098).
+### <a name="identity-synchronization-error-report"></a>Identity synchronization error report
+When an object with a duplicate attribute conflict is handled with this new behavior a notification is included in the standard Identity Synchronization Error Report email that is sent to the Technical Notification contact for the tenant. However, there is an important change in this behavior. In the past, information about a duplicate attribute conflict would be included in every subsequent error report until the conflict was resolved. With this new behavior, the error notification for a given conflict does only appear once- at the time the conflicting attribute is quarantined.
 
-## 알려진 문제
-이러한 알려진 문제로 인해 데이터 손실 또는 서비스 저하가 발생하지 않습니다. 그 중 일부는 심미적이며 다른 것은 충돌 특성을 격리하는 대신 표준 “*사전 복원력*” 중복 특성 오류를 throw하고 다른 것은 추가 수동 수정이 필요한 특정 오류를 발생시킵니다.
+Here is an example of what the email notification looks like for a ProxyAddress conflict:  
+    ![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Active Users")  
 
-**핵심 동작:**
+## <a name="resolving-conflicts"></a>Resolving conflicts
+Troubleshooting strategy and resolution tactics for these errors should not differ from the way duplicate attribute errors were handled in the past. The only difference is that the timer task sweeps through the tenant on the service-side to automatically add the attribute in question to the proper object once the conflict is resolved.
 
-1. 특정 특성 구성을 사용한 사용자는 격리되는 특성과 달리 내보내기 오류 수신을 계속합니다. 예:
+The following article outlines various troubleshooting and resolution strategies: [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098).
 
-    a. 새로운 사용자가 **Joe@contoso.com**의 UPN과 ProxyAddress **smtp:Joe@contoso.com**로 AD에서 만들어집니다.
+## <a name="known-issues"></a>Known issues
+None of these known issues causes data loss or service degradation. Several of them are aesthetic, others cause standard “*pre-resiliency*” duplicate attribute errors to be thrown instead of quarantining the conflict attribute, and another causes certain errors to require extra manual fix-up.
 
-    b. 이 개체의 속성이 ProxyAddress가 **SMTP:Joe@contoso.com**인 기존 그룹과 충돌합니다.
+**Core behavior:**
 
-    c. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
+1. Objects with specific attribute configurations continue to receive export errors as opposed to the duplicate attribute(s) being quarantined.  
+For example:
 
-2. 해결된 중복 특성 충돌을 검색하는 타이머 작업은 UPN 충돌을 다른 UPN 충돌과 비교합니다. 이 경우 다음 시나리오의 4단계에 표시된 문제가 발생합니다.
+    a. New user is created in AD with a UPN of **Joe@contoso.com** and ProxyAddress **smtp:Joe@contoso.com**
 
-    a. **UserA@contoso.com**은 해당 값을 갖는 ProxyAddress로 인해 고유하지 않은 UPN을 갖습니다.
+    b. The properties of this object conflict with an existing Group, where ProxyAddress is **SMTP:Joe@contoso.com**.
 
-    b. UserA는 임시 **MOERA UPN**, **UserA1234@contoso.onmicrosoft.com**을 제공 받으며 실제 UPN 값은 격리됩니다(예상대로).
+    c. Upon export, a **ProxyAddress conflict** error is thrown instead of having the conflict attributes quarantined. The operation is retried upon each subsequent sync cycle, as it would have been before the resiliency feature was enabled.
 
-    c. 다른 충돌 개체에는 나중에 제거된 ProxyAddress가 있습니다.
+2. If two Groups are created on-premises with the same SMTP address, one fails to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value is properly quarantined upon the next sync cycle.
 
-    d. UserA의 UPN은 자동으로 고정되지 않으며 수동으로 업데이트해야 합니다.
+**Office Portal Report**:
 
-3. 두 그룹이 동일한 SMTP 주소로 온-프레미스가 생성되는 경우 하나는 첫 번째 시도에서 표준 중복 **ProxyAddress** 오류로 프로비전하지 못합니다. 그러나 다음 동기화 주기 시 중복 값은 제대로 격리됩니다.
+1. The detailed error message for two objects in a UPN conflict set is the same. This indicates that they have both had their UPN changed / quarantined, when in fact only a one of them had any data changed.
 
-**PowerShell cmdlet**:
+2. The detailed error message for a UPN conflict shows the wrong displayName for a user who has had their UPN changed/quarantined. For example:
 
-1. **ImmutableId** / **LastDirSyncTime**은 사용자 개체 클래스에 표시되지 않습니다.
+    a. **User A** syncs up first with **UPN = User@contoso.com**.
 
-2. **SortField** 및 **SortDirection** 플래그는 결과에 영향을 주지 않습니다.
+    b. **User B** is attempted to be synced up next with **UPN = User@contoso.com**.
 
-3. **PropertyName** 플래그를 추가하지 않고 **PropertyValue** 플래그를 사용하여 모호한 오류를 발생시킵니다.
+    c. **User B’s** UPN is changed to **User1234@contoso.onmicrosoft.com** and **User@contoso.com** is added to **DirSyncProvisioningErrors**.
 
-4. **PropertyValue** 및 **PropertyName** 플래그 없이 실행되는 경우 **SearchString** 플래그는 추가 결과를 반환합니다.
+    d. The error message for **User B** should indicate that **User A** already has **User@contoso.com** as a UPN, but it shows **User B’s** own displayName.
 
-**Office 포털 보고서**:
 
-1. UPN 충돌 집합에서 두 개체에 대한 자세한 오류 메시지는 같습니다. 이는 실제로 하나에만 변경된 데이터가 있는 경우 둘 모두 해당 UPN을 변경 / 격리했음을 나타냅니다.
 
-2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예:
+**Identity synchronization error report**:
 
-    a. **사용자 A**는 먼저 **UPN = User@contoso.com**과 동기화합니다.
+The link for *steps on how to resolve this issue* is incorrect:  
+    ![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Active Users")  
 
-    b. **사용자 B**는 **UPN = User@contoso.com**과 동기화하려고 시도합니다.
+It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
-    c. **사용자 B**의 UPN은 **User1234@contoso.onmicrosoft.com**로 변경되며 **User@contoso.com**이 **DirSyncProvisioningErrors**에 추가됩니다.
 
-    d. **사용자 B**에 대한 오류 메시지는 **사용자 A**가 이미 **User@contoso.com**을 UPN으로 가지고 있음을 나타내야 하지만 **사용자 B** 고유의 displayName을 보여 줍니다.
+## <a name="see-also"></a>See also
 
-3. 보고서는 **ProxyAddress** 오류가 아닌 사용자의 **UPN** 충돌에 대한 자세한 오류 정보만을 표시합니다(일관적인지 환경적인지 여부를 아직 조사 중임).
+- [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)
 
-## 참고 항목
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-- [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md)
+- [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
-- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-- [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

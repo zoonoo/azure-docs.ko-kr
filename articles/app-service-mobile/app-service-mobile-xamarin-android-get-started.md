@@ -1,78 +1,80 @@
 <properties
-	pageTitle="Xamarin Android 앱용 Azure 모바일 앱 시작"
-	description="이 자습서에 따라 Azure 모바일 앱을 사용하여 Xamarin Android 개발을 시작할 수 있습니다."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="adrianhall"
-	manager="erikre"
-	editor="" />
+    pageTitle="Get Started with Azure Mobile Apps for Xamarin.Android apps"
+    description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development"
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="erikre"
+    editor="" />
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="10/01/2016"
-	ms.author="adrianha" />
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="10/01/2016"
+    ms.author="adrianha" />
 
-#Xamarin.Android 앱 만들기
+
+#<a name="create-a-xamarin.android-app"></a>Create a Xamarin.Android App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##개요
+##<a name="overview"></a>Overview
 
-이 자습서에서는 Xamarin Android 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 자세한 내용은 [모바일 앱 정의](app-service-mobile-value-prop.md)를 참조하세요.
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
 
-완성된 앱의 스크린샷은 다음과 같습니다.
+A screenshot from the completed app is below:
 
 ![][0]
 
-이 자습서를 완료해야 다른 모든 Xamarin Android 앱용 모바일 앱 자습서를 진행할 수 있습니다.
+Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for Xamarin.Android apps.
 
-##필수 조건
+##<a name="prerequisites"></a>Prerequisites
 
-이 자습서를 완료하려면 다음이 필요합니다.
+To complete this tutorial, you need the following prerequisites:
 
-* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+* An active Azure account. If you don't have an account, sign up for an Azure trial and get up to 10 free Mobile Apps. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx)을 참조하세요.
- 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](https://tryappservice.azure.com/?appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
 
-## 새 Azure 모바일 앱 백 엔드 만들기
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile).  You can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
-다음 단계에 따라 새 모바일 앱 백 엔드를 만드세요.
+## <a name="create-an-azure-mobile-app-backend"></a>Create an Azure Mobile App backend
+
+Follow these steps to create a Mobile App backend.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-이제 모바일 클라이언트 응용 프로그램에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 “할 일 목록” 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, download a server project for a simple "todo list" backend and publish it to Azure.
 
-## 서버 프로젝트 구성
+## <a name="configure-the-server-project"></a>Configure the server project
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Xamarin.Android 앱 다운로드 및 실행
+## <a name="download-and-run-the-xamarin.android-app"></a>Download and run the Xamarin.Android app
 
-1. **Xamarin.Android 프로젝트 다운로드 및 실행**에서 **다운로드** 단추를 클릭합니다.
+1. Under **Download and run your Xamarin.Android project**, click the **Download** button.
 
-  	모바일 앱에 연결된 클라이언트 응용 프로그램을 포함하는 프로젝트를 다운로드합니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
+    Save the compressed project file to your local computer, and make a note of where you save it.
 
-2. **F5** 키를 눌러 프로젝트를 빌드하고 앱을 시작합니다.
+2. Press the **F5** key to build the project and start the app.
 
-3. 앱에서 _자습서 완료_ 등의 의미 있는 텍스트를 입력한 후 **추가** 단추를 클릭합니다.
+3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the **Add** button.
 
-	![][10]
+    ![][10]
 
-	Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 나타납니다.
+    Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data appears in the list.
 
-	> [AZURE.NOTE] 모바일 앱 백 엔드에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.cs C# 파일에 있습니다.
+    > [AZURE.NOTE] You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-* [앱에 인증 추가](app-service-mobile-xamarin-android-get-started-users.md) ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
-* [Xamarin.Android 앱에 푸시 알림 추가](app-service-mobile-xamarin-android-get-started-push.md) 앱에 푸시 알림을 추가하는 방법을 알아봅니다.
-* [Azure 모바일 앱에 대한 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md) Xamarin 앱에서 관리되는 클라이언트 SDK로 작업하는 방법에 대해 알아봅니다.
+* [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-android-get-started-push.md)
+* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 
 <!-- Images. -->
@@ -86,4 +88,8 @@
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

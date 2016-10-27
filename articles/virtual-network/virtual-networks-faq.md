@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="가상 네트워크 FAQ"
-   description="Azure 가상 네트워크(VNet) FAQ"
+   pageTitle="Virtual Network FAQ"
+   description="Azure virtual network (VNet) FAQ"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,12 +15,17 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-# 가상 네트워크 FAQ
+
+# <a name="virtual-network-faq"></a>Virtual Network FAQ
 
 [AZURE.INCLUDE [virtual-networks-vnet-faq-include](../../includes/virtual-networks-vnet-faq-include.md)]
 
-## 가상 네트워크 프레미스 간 연결(VPN)
+## <a name="virtual-network-cross-premises-connectivity-(vpns)"></a>Virtual Network Cross-premises Connectivity (VPNs)
 
-가상 네트워크 VPN에 대한 최신 FAQ는 [VPN 게이트웨이 FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md)를 참조하세요.
+For the latest FAQ on virtual network VPNs, see the [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

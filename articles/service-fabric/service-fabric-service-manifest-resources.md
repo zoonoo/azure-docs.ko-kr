@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 서비스 끝점 지정 | Microsoft Azure"
-   description="HTTPS 끝점을 설정하는 방법을 포함하여 서비스 매니페스트에서 끝점 리소스를 설명하는 방법"
+   pageTitle="Specifying Service Fabric service endpoints | Microsoft Azure"
+   description="How to describe endpoint resources in a service manifest, including how to set up HTTPS endpoints"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -16,15 +16,16 @@
    ms.date="09/14/2016"
    ms.author="subramar"/>
 
-# 서비스 매니페스트에서 리소스 지정
 
-## 개요
+# <a name="specify-resources-in-a-service-manifest"></a>Specify resources in a service manifest
 
-서비스 매니페스트를 사용하면 컴파일된 코드를 변경하지 않고도 서비스에서 사용하는 리소스를 선언/변경할 수 있게 해줍니다. Azure 서비스 패브릭은 서비스에 대한 끝점 리소스 구성을 지원합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 응용 프로그램 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대한 스키마 정의는 서비스 패브릭 SDK 및 도구와 함께 *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*에 설치됩니다.
+## <a name="overview"></a>Overview
 
-## 끝점
+The service manifest allows resources that are used by the service to be declared/changed without changing the compiled code. Azure Service Fabric supports configuration of endpoint resources for the service. The access to the resources that are specified in the service manifest can be controlled via the SecurityGroup in the application manifest. The declaration of resources allows these resources to be changed at deployment time, meaning the service doesn't need to introduce a new configuration mechanism. The schema definition for the ServiceManifest.xml file is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-서비스 매니페스트에 끝점 리소스가 정의되면 서비스 패브릭에서는 포트가 명시적으로 지정되지 않을 경우 예약된 응용 프로그램 포트 범위에 포함되는 포트를 할당합니다. 예를 들어 이 단락 다음에 제공된 매니페스트 코드 조각에 지정된 끝점 *ServiceEndpoint1*을 보세요. 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 서비스의 복제본은 포트를 공유합니다. 그러면 서비스 복제본은 복제 및 클라이언트 요청의 수신 대기를 위해 필요한 경우 이러한 포트를 사용할 수 있습니다.
+## <a name="endpoints"></a>Endpoints
+
+When an endpoint resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. For example, look at the endpoint *ServiceEndpoint1* specified in the manifest snippet provided after this paragraph. Additionally, services can also request a specific port in a resource. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of a service running on the same node share the port. The service replicas can then use these ports as needed for replication and listening for client requests.
 
 ```xml
 <Resources>
@@ -36,13 +37,13 @@
 </Resources>
 ```
 
-구성 패키지 설정 파일(settings.xml)의 끝점 참조에 대한 자세한 내용은 [상태 저장 Reliable Services 구성](service-fabric-reliable-services-configuration.md)을 참조하세요.
+Refer to [Configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md) to read more about referencing endpoints from the config package settings file (settings.xml).
 
-## 예: 서비스에 대한 HTTP 끝점 지정
+## <a name="example:-specifying-an-http-endpoint-for-your-service"></a>Example: specifying an HTTP endpoint for your service
 
-다음 서비스 매니페스트는 &lt;Resources&gt; 요소에서 1 TCP 끝점 리소스 및 2 HTTP 끝점 리소스를 정의합니다.
+The following service manifest defines one TCP endpoint resource and two HTTP endpoint resources in the &lt;Resources&gt; element.
 
-HTTP 끝점은 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
+HTTP endpoints are automatically ACL'd by Service Fabric.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -88,14 +89,14 @@ HTTP 끝점은 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
 </ServiceManifest>
 ```
 
-## 예: 서비스에 대한 HTTPS 끝점 지정
+## <a name="example:-specifying-an-https-endpoint-for-your-service"></a>Example: specifying an HTTPS endpoint for your service
 
-HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통신을 암호화하는 데에도 사용됩니다. 서비스 패브릭 서비스에서 HTTPS를 사용할 수 있도록 설정하려면 위의 *ServiceEndpoint3* 끝점과 같이 서비스 매니페스트의 *리소스 -> 끝점 -> 끝점* 섹션에서 프로토콜을 지정합니다.
+The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable HTTPS on your Service Fabric service, specify the protocol in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown earlier for the endpoint *ServiceEndpoint3*.
 
->[AZURE.NOTE] 서비스의 프로토콜은 주요 변경 내용으로 간주되어 응용 프로그램을 업그레이드하는 동안 변경할 수 없습니다.
+>[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade without it constituting a breaking change.
 
 
-HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같습니다. 인증서에 대한 지문을 제공해야 합니다. EndpointRef는 HTTPS 프로토콜을 설정하는 ServiceManifest의 EndpointResource에 대한 참조입니다. 둘 이상의 Endpointcertificate를 추가할 수 있습니다.
+Here is an example ApplicationManifest that you need to set for HTTPS. The thumbprint for your certificate must be provided. The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one EndpointCertificate.  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,4 +138,8 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

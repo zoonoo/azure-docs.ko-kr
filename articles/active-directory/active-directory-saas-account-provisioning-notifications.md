@@ -1,31 +1,34 @@
 <properties
-	pageTitle="계정 프로비전 알림 | Microsoft Azure"
-	description="계정 프로비전 알림 활성화를 통해 주의가 필요한 사용자 프로비전 관련 문제에 대한 알림을 받는 방법을 알아보세요."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="계정 프로비전 알림 | Microsoft Azure"
+    description="계정 프로비전 알림 활성화를 통해 주의가 필요한 사용자 프로비전 관련 문제에 대한 알림을 받는 방법을 알아보세요."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="markusvi"/>
 
 
-# 계정 프로비전 알림
 
-사용자 프로비전으로 타사 SaaS 응용 프로그램에서 사용자 관리 프로세스를 자동화할 수 있습니다. <br> 자동화 프로세스이지만 때때로 조작이 필요합니다. <br> 예를 들어 이 경우는 타사 SaaS 응용 프로그램과 데이터를 교환하기 위해 구성된 계정의 암호가 만료되었습니다.
+# <a name="account-provisioning-notifications"></a>계정 프로비전 알림
+
+사용자 프로비전으로 타사 SaaS 응용 프로그램에서 사용자 관리 프로세스를 자동화할 수 있습니다. <br>
+ 자동화 프로세스이지만 때때로 조작이 필요합니다. <br>
+ 예를 들어 이 경우는 타사 SaaS 응용 프로그램과 데이터를 교환하기 위해 구성된 계정의 암호가 만료되었습니다. 
 
 계정 프로비전 알림을 활성화하면 주의가 필요한 사용자 프로비전 관련 문제에 대해 알림을 받을 수 있습니다.
 
 타사 SaaS 응용 프로그램에 대한 사용자 프로비전 구성으로 계정 프로비전 알림을 활성화 또는 비활성화할 수 있습니다.
 
-![사용자 프로비저닝][1]
+![사용자 프로비저닝][1] 
 
 
 
@@ -40,7 +43,7 @@
 계정 프로비전 알림을 활성화하면 사용자 프로비전과 관련된 중요한 문제에 대한 메일을 받게 됩니다. 그러나 메일 오버로드를 방지하기 위해, 알림 메일이 활성화된 각 SaaS 응용 프로그램에 대하여 하루에 한 개의 알림 메일만 받습니다.
 
 
-##관련 문서
+##<a name="related-articles"></a>관련 문서
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 - [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](active-directory-saas-app-provisioning.md)
@@ -56,4 +59,7 @@
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

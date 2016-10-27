@@ -1,153 +1,151 @@
-<properties 
-   pageTitle="중첩 트래픽 관리자 프로필 | Microsoft Azure"
-   description="이 문서에서는 Azure 트래픽 관리자의 ‘중첩 프로필’ 기능에 대해 설명합니다."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
-   ms.author="sewhee" />
+<properties
+    pageTitle="Nested Traffic Manager Profiles | Microsoft Azure"
+    description="This article explains the 'Nested Profiles' feature of Azure Traffic Manager"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
+<tags
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
-# 중첩 트래픽 관리자 프로필
 
-트래픽 관리자에는 트래픽 관리자가 각 최종 사용자의 트래픽을 수신할 끝점을 선택하는 방법을 제어할 수 있는 다양한 트래픽 라우팅 방법이 포함되어 있습니다. 이러한 방법은 [트래픽 관리자 트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 설명되어 있으며 트래픽 관리자가 가장 일반적인 트래픽 라우팅 요구 사항을 충족할 수 있도록 합니다.
+# <a name="nested-traffic-manager-profiles"></a>Nested Traffic Manager profiles
 
-각 트래픽 관리자 프로필은 단일 트래픽 라우팅 방법을 지정합니다. 그러나 좀 더 복잡한 응용 프로그램이 단일 트래픽 관리자 프로필에서 제공할 수 있는 것보다 더 정교한 트래픽 라우팅을 요구하는 경우가 있을 수 있습니다.
+Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
 
-이러한 복잡한 응용 프로그램을 지원하기 위해 트래픽 관리자는 트래픽 관리자 프로필이 통합 또는 *중첩*될 수 있도록 하여 단일 응용 프로그램이 둘 이상의 트래픽 라우팅 방법의 이점을 활용할 수 있도록 합니다. 중첩 프로필을 사용하면 더 유연하고 강력한 트래픽 라우팅 체계를 만들어 더 크고 복잡한 배포에 대한 요구 사항을 지원할 수 있습니다.
+Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
 
-또한 중첩 프로필을 사용하면 지역 내의 트래픽 라우팅 또는 성능 트래픽 라우팅을 사용하는 경우 장애 조치(Failover) 기간과 같은 특정 경우에 기본 트래픽 관리자 동작을 재정의할 수 있습니다.
+The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
 
-이 페이지의 나머지 부분에서는 중첩 트래픽 관리자 프로필을 다양한 시나리오에서 사용할 수 있는 방법을 예제 시퀀스를 통해 설명합니다. 마지막으로 중첩 프로필에 대한 몇 가지 질문과 대답을 제시합니다.
+## <a name="example-1:-combining-'performance'-and-'weighted'-traffic-routing"></a>Example 1: Combining 'Performance' and 'Weighted' traffic routing
 
-## 예제 1: '성능' 및 '가중' 트래픽 라우팅 결합
+Suppose that you deployed an application in the following Azure regions: West US, West Europe, and East Asia. You use Traffic Manager's 'Performance' traffic-routing method to distribute traffic to the region closest to the user.
 
-응용 프로그램이 미국 서부, 유럽 서부 및 동아시아 등의 여러 Azure 지역에 배포되었다고 가정합니다. 트래픽 관리자의 '성능' 트래픽 라우팅 방법을 사용하여 사용자에게 가장 가까운 지역으로 트래픽을 분산합니다.
+![Single Traffic Manager profile][1]
 
-![단일 트래픽 관리자 프로필][1]
+Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in West Europe.
 
-이제 광범위하게 롤아웃하기 전에 소수의 사용자를 대상으로 서비스 업데이트를 시도한다고 가정합니다. 이를 위해 트래픽 일부만 평가판 배포로 보낼 수 있는 '가중' 트래픽 라우팅 방법을 사용하려고 합니다. 단일 프로필을 사용하는 경우 ‘가중' 및 '성능’ 트래픽 라우팅을 결합할 수 없습니다. 중첩 프로필을 사용하는 경우에는 둘 다 사용할 수 있습니다.
+You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two West Europe endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
 
-방법: 유럽 서부에서 새로운 배포를 시도하려 한다고 가정하겠습니다. 기존 프로덕션 배포와 함께 평가 배포를 설정하고, 이러한 두 끝점과 ‘가중’ 트래픽 라우팅 방법을 사용하여 트래픽 관리자 프로필을 만듭니다. 그런 후 이 ‘자식’ 프로필을 ‘부모’ 프로필에 끝점으로 추가합니다. 이 경우 성능 트래픽 라우팅 방법이 계속 사용되고, 다른 글로벌 배포가 끝점으로 포함됩니다.
+The following diagram illustrates this example:
 
-아래 다이어그램은 이 예제를 보여 줍니다.
+![Nested Traffic Manager profiles][2]
 
-![중첩 트래픽 관리자 프로필][2]
+In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within West Europe, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
 
-이 구성에서 부모 프로필을 통해 전달된 트래픽은 여러 지역 간에 정상적으로 분산됩니다. 유럽 서부 내에서는 할당된 가중치에 따라 프로덕션 배포 및 평가용 배포 간에 트래픽이 전달됩니다.
+When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 
-부모 프로필이 '성능' 트래픽 라우팅 방법을 사용하는 경우 각 끝점의 위치를 알고 있어야 합니다. 중첩 끝점의 경우 외부 끝점과 마찬가지로 이 위치를 끝점 구성의 일부로 지정해야 합니다. 배포에 가장 가까운 Azure 지역을 선택합니다. 사용 가능한 옵션은 인터넷 대기 시간 테이블에서 지원되는 위치인 Azure 지역입니다. 자세한 내용은 [트래픽 관리자 '성능' 트래픽 라우팅 방법](traffic-manager-routing-methods.md#performance-traffic-routing-method)을 참조하세요.
+## <a name="example-2:-endpoint-monitoring-in-nested-profiles"></a>Example 2: Endpoint monitoring in Nested Profiles
 
-## 예제 2: 중첩 프로필의 끝점 모니터링
+Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](#faq) section of this article for full details on health monitoring of nested profiles.
 
-트래픽 관리자는 적극적으로 각 서비스 끝점의 상태를 모니터링합니다. 끝점이 비정상 상태로 확인되는 경우 트래픽 관리자는 사용자를 대체 끝점으로 보내므로 서비스의 전반적인 가용성이 유지됩니다. 이 끝점 모니터링 및 장애 조치(Failover) 동작은 모든 트래픽 라우팅 방법에 적용됩니다. 자세한 내용은 [트래픽 관리자 끝점 모니터링](traffic-manager-monitoring.md)을 참조하세요.
+Returning to the previous example, suppose the production deployment in West Europe fails. By default, the 'child' profile directs all traffic to the test deployment. If the test deployment also fails, the parent profile determines that the child profile should not receive traffic since all child endpoints are unhealthy. Then, the parent profile distributes traffic to the other regions.
 
-중첩 프로필의 경우 몇 가지 특수한 끝점 모니터링 규칙이 적용됩니다. 부모 프로필의 중첩 끝점으로 자식 프로필이 구성된 경우 부모는 자식에 대해 직접 상태 검사를 수행하지 않습니다. 대신 자식 프로필 끝점의 상태가 자식 프로필의 전반적인 상태를 계산하는 데 사용되며, 이 정보는 부모 프로필 내에 중첩된 끝점의 상태를 결정하기 위해 중첩 프로필 계층 구조 위로 전파됩니다. 이에 따라 부모 프로필이 자식으로 트래픽을 전달할지 여부가 결정됩니다. 부모 프로필의 중첩 끝점 상태가 자식 프로필의 상태에서 계산되는 방식의 전체 세부 정보는 [아래](#faq)에 제시되어 있습니다.
+![Nested Profile failover (default behavior)][3]
 
-다시 예제 1로 돌아가, 유럽 서부의 프로덕션 배포가 실패하는 경우를 가정해보겠습니다. 기본적으로 '자식' 프로필은 평가판 배포로 모든 트래픽을 전달합니다. 이러한 전달이 실패하면 부모 프로필은 모든 자식 끝점이 비정상 상태이므로 자식 프로필이 트래픽을 받지 않아야 한다고 결정하고 모든 유럽 서부 트래픽을 다른 지역으로 장애 조치(Failover)합니다.
+You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
 
-![중첩 프로필 장애 조치(기본 동작)][3]
+The following figure illustrates this configuration:
 
-이 구성에 만족할 수도 있지만, 평가판 배포가 모든 유럽 서부 트래픽에 대한 장애 조치(Failover)로 사용되어서는 안 된다고 우려할 수도 있을 것입니다. 오히려 유럽 서부의 프로덕션 배포에 문제가 있을 경우 평가판 배포의 상태에 *상관없이* 다른 지역으로 장애 조치(Failover)되는 것을 원할 수 있습니다. 이러한 방식도 가능할 수 있습니다. 자식 프로필을 부모 프로필의 끝점으로 구성할 때 자식 프로필에서 사용할 수 있어야 하는 끝점의 최소 개수를 결정하는 'MinChildEndpoints' 매개 변수를 지정할 수 있습니다. 이 임계값(기본값 1)보다 낮을 경우 부모 프로필은 전체 자식 프로필을 사용할 수 없는 것으로 간주하고, 대신 다른 부모 프로필 끝점에 트래픽을 전달합니다.
+![Nested Profile failover with 'MinChildEndpoints' = 2][4]
 
-아래 예제에 이 내용이 나와 있습니다. MinChildEndpoints를 2로 설정한 상태에서 유럽 서부의 배포가 실패하는 경우 부모 프로필은 자식 프로필이 트래픽을 받지 않아야 한다고 결정하고 사용자를 다른 지역으로 보내기로 결정합니다.
+>[AZURE.NOTE]
+>The 'Priority' traffic-routing method distributes all traffic to a single endpoint. Thus there is little purpose in a MinChildEndpoints setting other than '1' for a child profile.
 
-!['MinChildEndpoints' = 2인 중첩 프로필 장애 조치][4]
+## <a name="example-3:-prioritized-failover-regions-in-'performance'-traffic-routing"></a>Example 3: Prioritized failover regions in 'Performance' traffic routing
 
-자식 프로필이 '우선 순위' 트래픽 라우팅 방법을 사용하면 해당 자식으로 이동되는 모든 트래픽이 단일 끝점에서 수신됩니다. 따라서 이 경우 MinChildEndpoints 설정에 '1'이 아닌 작은 값이 지정됩니다.
+The default behavior for the 'Performance' traffic-routing method is designed to avoid over-loading the next nearest endpoint and causing a cascading series of failures. When an endpoint fails, all traffic that would have been directed to that endpoint is evenly distributed to the other endpoints across all regions.
 
-## 예제 3: '성능' 트래픽 라우팅에서 우선 순위가 지정된 장애 조치(Failover) 지역
+!['Performance' traffic routing with default failover][5]
 
-'성능' 트래픽 라우팅을 사용하는 단일 프로필에서, 끝점 하나(예: 유럽 서부)에 장애가 발생하면 해당 끝점에 전달되었던 모든 트래픽이 모든 지역의 다른 끝점으로 분산됩니다. 이것은 가장 가까운 다음 끝점이 오버로드되면서 연속 장애가 발생하는 경우를 방지하도록 디자인된 '성능' 트래픽 라우팅 방법의 기본 동작입니다.
+However, suppose you prefer the West Europe traffic failover to West US, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
 
-![기본 장애 조치를 사용하는 '성능' 트래픽 라우팅][5]
+!['Performance' traffic routing with preferential failover][6]
 
-그러나 유럽 서부 트래픽을 미국 서부로 장애 조치(Failover)하고 해당 끝점을 둘 다 사용할 수 없게 되는 경우에만 다른 지역으로 전달하고 싶은 경우에는 표시된 것처럼 '우선 순위' 트래픽 라우팅 방법을 사용하는 자식 프로필을 만들면 됩니다.
+Since the West Europe endpoint has higher priority than the West US endpoint, all traffic is sent to the West Europe endpoint when both endpoints are online. If West Europe fails, its traffic is directed to West US. With the nested profile, traffic is directed to East Asia only when both West Europe and West US fail.
 
-![기본 설정 장애 조치를 사용하는 '성능' 트래픽 라우팅][6]
+You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
 
-유럽 서부 끝점은 미국 서부 끝점보다 우선 순위가 높으므로 둘 다 온라인 상태인 경우 모든 트래픽은 유럽 서부 끝점으로 전송됩니다. 유럽 서부에 장애가 발생하면 해당 트래픽은 미국 서부로 전달됩니다. 미국 서부에 장애가 발생하는 경우에만 유럽 서부 트래픽이 동아시아로 전달됩니다.
+## <a name="example-4:-controlling-'performance'-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
 
-부모 프로필의 모든 끝점 3개를 자식 프로필 3개로 바꾸고 각각에 장애 조치(Failover) 시퀀스를 지정하여 모든 지역에 대해 이 패턴을 반복할 수 있습니다.
+Suppose the 'Performance' traffic-routing method is used in a profile that has more than one endpoint in a particular region. By default, traffic directed to that region is distributed evenly across all available endpoints in that region.
 
-## 예제 4: 동일한 지역의 여러 끝점 간에 '성능' 트래픽 라우팅 제어
+!['Performance' traffic routing in-region traffic distribution (default behavior)][7]
 
-미국 서부를 예로 들어, 특정 지역에 둘 이상의 끝점이 있는 프로필에서 '성능' 트래픽 라우팅 방법을 사용한다고 가정해보겠습니다. 기본적으로 해당 지역으로 전달된 트래픽은 해당 지역에서 사용 가능한 모든 끝점에서 균등하게 배포됩니다.
+Instead of adding multiple endpoints in West Europe, those endpoints are enclosed in a separate child profile. The child profile is added to the parent as the only endpoint in West Europe. The settings on the child profile can control the traffic distribution with West Europe by enabling priority-based or weighted traffic routing within that region.
 
-![지역 내 트래픽 분산의'성능' 트래픽 라우팅(기본 동작)][7]
+!['Performance' traffic routing with custom in-region traffic distribution][8]
 
-이러한 기본 방식을 중첩 트래픽 관리자 프로필을 사용하여 변경할 수 있습니다. 미국 서부에 끝점을 여러 개 추가하는 대신, 해당 끝점을 별도의 자식 프로필에 포함시키고, 해당 자식 프로필을 미국 서부의 유일한 끝점으로 부모 프로필에 추가할 수 있습니다. 그런 후 자식 프로필에 대한 설정을 미국 서부의 트래픽 배포를 제어하는 데 사용하여 해당 지역 내에서 우선 순위 기반 또는 가중 트래픽 라우팅 등을 사용하도록 설정할 수 있습니다.
+## <a name="example-5:-per-endpoint-monitoring-settings"></a>Example 5: Per-endpoint monitoring settings
 
-![사용자 지정 지역 내 트래픽 분산을 사용하는 '성능' 트래픽 라우팅][8]
+Suppose you are using Traffic Manager to smoothly migrate traffic from a legacy on-premises web site to a new Cloud-based version hosted in Azure. For the legacy site, you want to use the home page URI to monitor site health. But for the new Cloud-based version, you are implementing a custom monitoring page (path '/monitor.aspx') that includes additional checks.
 
-## 예제 5: 끝점 기준 모니터링 설정
+![Traffic Manager endpoint monitoring (default behavior)][9]
 
-트래픽 관리자를 사용하여 기존 온-프레미스 웹 사이트와 Azure에서 호스트되는 새로운 클라우드 기반 버전 사이에서 원활하게 트래픽을 마이그레이션하고 있다고 가정하겠습니다. 기존 사이트의 경우 홈페이지(경로 '/')를 사용하여 사이트 상태를 모니터링하려고 하지만, 새로운 클라우드 기반 버전의 경우에는 추가 검사를 포함하는 사용자 지정 모니터링 페이지(경로 ‘/monitor.aspx’)를 구현합니다.
+The monitoring settings in a Traffic Manager profile apply to all endpoints within a single profile. With nested profiles, you use a different child profile per site to define different monitoring settings.
 
-![트래픽 관리자 끝점 모니터링(기본 동작)][9]
+![Traffic Manager endpoint monitoring with per-endpoint settings][10]
 
-트래픽 관리자 프로필의 모니터링 설정이 프로필 내의 모든 끝점에 적용됩니다. 즉, 이전에는 두 사이트에서 동일한 경로를 사용해야 했습니다. 이제 중첩 트래픽 관리자 프로필을 사용하여 사이트 기준 자식 프로필을 통해 사이트별로 다른 모니터링 설정을 정의할 수 있습니다.
+## <a name="faq"></a>FAQ
 
-![끝점 기준 설정을 사용하는 트래픽 관리자 끝점 모니터링][10]
+### <a name="how-do-i-configure-nested-profiles?"></a>How do I configure nested profiles?
 
-## FAQ
+Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
 
-### 중첩 프로필을 구성하려면 어떻게 해야 하나요?
+### <a name="how-many-layers-of-nesting-does-traffic-manger-support?"></a>How many layers of nesting does Traffic Manger support?
 
-중첩 트래픽 관리자 프로필은 ARM(Azure Resource Manager), ASM(Azure 서비스 관리) REST API, PowerShell cmdlet, 플랫폼 간 Azure CLI 명령을 사용하여 구성할 수 있습니다. Azure 포털을 통해서도 지원되지만 '클래식' 포털에서는 지원되지 않습니다.
+You can nest profiles up to 10 levels deep. 'Loops' are not permitted.
 
-### 트래픽 관리자가 지원하는 중첩 계층 수는 얼마나 되나요?
-프로필을 10개 수준 깊이까지 중첩할 수 있습니다. '루프'는 허용되지 않습니다.
+### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles,-in-the-same-traffic-manager-profile?"></a>Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?
 
-### 동일한 트래픽 관리자 프로필에서 중첩 자식 프로필과 다른 끝점 유형을 혼합할 수 있나요?
+Yes. There are no restrictions on how you combine endpoints of different types within a profile.
 
-예. 프로필 내에서 서로 다른 유형의 끝점을 결합하는 방법에는 제한이 없습니다.
+### <a name="how-does-the-billing-model-apply-for-nested-profiles?"></a>How does the billing model apply for Nested profiles?
 
-### 중첩 프로필에는 요금 청구 모델이 어떻게 적용되나요?
+There is no negative pricing impact of using nested profiles.
 
-중첩 프로필을 사용한다고 해서 가격이 더 부과되지는 않습니다.
+Traffic Manager billing has two components: endpoint health checks and millions of DNS queries
 
-트래픽 관리자 요금 청구는 끝점 상태 검사 및 수백만 개의 DNS 쿼리로 구성됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/traffic-manager/)를 참조하세요. 이러한 요금 청구 구성 요소가 중첩 프로필에 적용되는 방식은 다음과 같습니다.
+- Endpoint health checks: There is no charge for a child profile when configured as an endpoint in a parent profile. Monitoring of the endpoints in the child profile are billed in the usual way.
+- DNS queries: Each query is only counted once. A query against a parent profile that returns an endpoint from a child profile is counted against the parent profile only.
 
-- 끝점 상태 검사: 부모 프로필에서 끝점으로 구성된 자식 프로필에 대해서는 요금이 부과되지 않습니다. 기본 서비스를 모니터링하는 자식 프로필의 끝점의 경우 요금이 일반적인 방식으로 청구됩니다.
+For full details, see the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-- DNS 쿼리: 각 쿼리는 한 번만 계산됩니다. 자식 프로필의 끝점을 반환하는 부모 프로필에 대한 쿼리는 부모 프로필에 대해서만 요금이 청구됩니다.
+### <a name="is-there-a-performance-impact-for-nested-profiles?"></a>Is there a performance impact for nested profiles?
 
-### 중첩 프로필이 성능에 영향을 미치나요?
+No. There is no performance impact incurred when using nested profiles.
 
-아니요. 중첩 프로필을 사용해도 성능에 미치는 영향은 없습니다.
+The Traffic Manager name servers traverse the profile hierarchy internally when processing each DNS query. A DNS query to a parent profile can receive a DNS response with an endpoint from a child profile. A single CNAME record is used whether you are using a single profile or nested profiles. There is no need to create a CNAME record for each profile in the hierarchy.
 
-트래픽 관리자 이름 서버는 각 DNS 쿼리를 처리할 때 프로필 계층 구조를 내부적으로 통과하므로 부모 프로필에 대한 DNS 쿼리는 자식 프로필의 끝점을 포함하는 DNS 응답을 받을 수 있습니다.
+### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile?"></a>How does Traffic Manager compute the health of a nested endpoint in a parent profile?
 
-따라서 단일 트래픽 관리자 프로필을 사용할 때처럼 단일 CNAME 레코드만 사용됩니다. 계층의 각 프로필에 대해 하나씩 CNAME 레코드를 포함하는 체인이 필요하지는 **않으므로** 성능 저하가 발생하지 않습니다.
+The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints are used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
 
-### 어떻게 트래픽 관리자는 자식 프로필의 상태에 따라 부모 프로필의 중첩 끝점 상태를 계산하나요?
+The following table describes the behavior of Traffic Manager health checks for a nested endpoint.
 
-부모 프로필의 중첩 끝점으로 자식 프로필이 구성된 경우 부모는 자식에 대해 직접 상태 검사를 수행하지 않습니다. 대신 자식 프로필 끝점의 상태가 자식 프로필의 전반적인 상태를 계산하는 데 사용되며, 이 정보는 부모 프로필 내에 중첩된 끝점의 상태를 결정하기 위해 중첩 프로필 계층 구조 위로 전파됩니다. 이에 따라 부모 프로필이 자식으로 트래픽을 전달할지 여부가 결정됩니다.
-
-다음 표에서는 자식 프로필을 가리키는 부모 프로필의 중첩 끝점에 대한 트래픽 관리자의 상태 검사 동작에 대해 설명합니다.
-
-|자식 프로필 모니터 상태|부모 끝점 모니터 상태|참고 사항|
+|Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
-|Disabled. 사용자가 자식 프로필을 사용하지 않도록 설정했습니다.|중지됨|부모 끝점 상태는 Stopped이며 Disabled가 아닙니다. Disabled 상태는 부모 프로필에서 끝점을 사용할 수 없도록 설정했음을 표시하도록 예약되어 있습니다.|
-|Degraded. 하나 이상의 자식 프로필 끝점이 Degraded 상태입니다.|Online: 자식 프로필의 Online 끝점 수가 MinChildEndpoints 값 이상입니다. CheckingEndpoint: 자식 프로필의 Online 및 CheckingEndpoint 끝점 수 합계가 MinChildEndpoints 값 이상입니다. Degraded: 그렇지 않은 경우|트래픽이 CheckingEndpoint 상태의 끝점으로 라우팅됩니다. MinChildEndpoints를 너무 높게 설정하는 경우 끝점의 성능이 항상 저하됩니다.|
-|Online. 하나 이상의 자식 프로필 끝점이 Online 상태이며 Degraded 상태는 없습니다.|위 내용을 참조하세요.||
-|CheckingEndpoints. 하나 이상의 자식 프로필 끝점이 ‘CheckingEndpoint’이며 ‘Online’ 또는 ‘Degraded’는 없습니다.|위와 동일합니다.||
-|Inactive. 모든 자식 프로필 끝점이 Disabled 또는 Stopped이거나 끝점이 없는 프로필입니다.|중지됨||
+|Disabled. The child profile has been disabled.|Stopped|The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.|
+|Degraded. At least one child profile endpoint is in a Degraded state.| Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints.<BR>CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints.<BR>Degraded: otherwise.|Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint is always degraded.|
+|Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state.|See above.||
+|CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded'|Same as above.||
+|Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints.|Stopped||
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[트래픽 관리자 작동 방식](traffic-manager-how-traffic-manager-works.md)에 대한 자세한 정보
+Learn more about [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
 
-[트래픽 관리자 프로필을 만드는](traffic-manager-manage-profiles.md) 방법 알아보기
+Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -161,4 +159,9 @@
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

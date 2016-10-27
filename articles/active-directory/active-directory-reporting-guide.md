@@ -13,11 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/27/2016"
+   ms.date="09/30/2016"
    ms.author="femila"/>
 
 
-# Azure Active Directory Reporting 가이드
+
+# <a name="azure-active-directory-reporting-guide"></a>Azure Active Directory Reporting 가이드
+
+> [AZURE.SELECTOR]
+- [Azure 포털](active-directory-reporting-azure-portal.md)
+- [Azure 클래식 포털](active-directory-reporting-guide.md)
 
  - [Azure Active Directory Reporting - 미리 보기](active-directory-reporting-azure-portal.md)
  - [Azure AD Reporting API 시작하기](active-directory-reporting-api-getting-started.md)
@@ -29,4 +34,8 @@
  - [Azure Active Directory Reporting '알 수 없는 작업자' 이벤트](active-directory-reporting-unknown-actor.md)
  - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

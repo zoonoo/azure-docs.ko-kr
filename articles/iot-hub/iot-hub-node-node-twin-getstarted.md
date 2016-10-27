@@ -1,0 +1,239 @@
+<properties
+    pageTitle="쌍 시작 | Microsoft Azure"
+    description="이 자습서에서는 쌍을 사용하는 방법에 대해 설명합니다."
+    services="iot-hub"
+    documentationCenter="node"
+    authors="fsautomata"
+    manager="timlt"
+    editor=""/>
+
+<tags
+     ms.service="iot-hub"
+     ms.devlang="node"
+     ms.topic="article"
+     ms.tgt_pltfrm="na"
+     ms.workload="na"
+     ms.date="09/13/2016"
+     ms.author="elioda"/>
+
+
+# <a name="tutorial:-get-started-with-device-twins-(preview)"></a>장치 쌍 시작(미리 보기)
+
+[AZURE.INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
+
+이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 응용 프로그램이 제공됩니다.
+
+* **AddTagsAndQuery.js** - 백 엔드에서 실행되도록 의도된, 태그 및 쿼리 장치 쌍을 추가하는 Node.js 앱.
+* **TwinSimulatedDevice.js** - 앞에서 만든 장치 ID와 IoT Hub를 연결하고 연결 상태를 보고하는 장치를 시뮬레이션하는 Node.js 앱.
+
+> [AZURE.NOTE] [IoT Hub SDK][lnk-hub-sdks] 문서는 장치 및 백 엔드 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 SDK에 대한 정보를 제공합니다.
+
+이 자습서를 완료하려면 다음이 필요합니다.
+
++ Node.js 버전 0.10.x 이상
+
++ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
+
+[AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+
+## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
+
+이 섹션에서는 **myDeviceId**와 연결된 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음 미국에 위치한 장치를 선택한 후 셀룰러 연결을 보고하는 장치를 선택하는 허브에 저장된 쌍을 쿼리합니다.
+
+1. **addtagsandqueryapp**라는 빈 폴더를 새로 만듭니다. **addtagsandqueryapp** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
+
+    ```
+    npm init
+    ```
+
+2. **addtagsandqueryapp** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub** 패키지를 설치합니다.
+
+    ```
+    npm install azure-iothub@dtpreview --save
+    ```
+
+3. 텍스트 편집기를 사용하여 **addtagsandqueryapp** 폴더에 새 **AddTagsAndQuery.js** 파일을 만듭니다.
+
+4. 다음 코드를 **AddTagsAndQuery.js** 파일에 추가하고 허브를 만들 때 복사한 연결 문자열을 사용해 **{서비스 연결 문자열}** 자리 표시자를 대체합니다.
+
+        'use strict';
+        var iothub = require('azure-iothub');
+        var connectionString = '{service hub connection string}';
+        var registry = iothub.Registry.fromConnectionString(connectionString);
+
+        registry.getTwin('myDeviceId', function(err, twin){
+            if (err) {
+                console.error(err.constructor.name + ': ' + err.message);
+            } else {
+                var patch = {
+                    tags: {
+                        location: {
+                            region: 'US',
+                            plant: 'Redmond43'
+                      }
+                    }
+                };
+             
+                twin.update(patch, function(err) {
+                  if (err) {
+                    console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
+                  } else {
+                    console.log(twin.deviceId + ' twin updated successfully');
+                    queryTwins();
+                  }
+                });
+            }
+        });
+
+    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **레지스트리** 개체를 초기화한 다음 **myDeviceId**에 대한 쌍을 검색하고, 마지막으로 원하는 위치 정보를 사용해 태그를 업데이트합니다.
+
+    태그를 업데이트한 후 **queryTwins** 함수를 호출합니다.
+
+7. 다음 코드를 **queryTwins** 함수를 구현할 **AddTagsAndQuery.js** 끝 부분에 추가합니다.
+
+        var queryTwins = function() {
+            var query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
+            query.nextAsTwin(function(err, results) {
+                if (err) {
+                    console.error('Failed to fetch the results: ' + err.message);
+                } else {
+                    console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
+                }
+            });
+            
+            query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
+            query.nextAsTwin(function(err, results) {
+                if (err) {
+                    console.error('Failed to fetch the results: ' + err.message);
+                } else {
+                    console.log("Devices in Redmond43 using cellular network: " + results.map(function(twin) {return twin.deviceId}).join(','));
+                }
+            });
+        };
+
+    이전 코드는 두 개의 쿼리를 실행합니다. 첫 번째는 **Redmond43** 공장에 위치한 장치의 장치 쌍만을 선택하고, 두 번째는 또한 셀룰러 네트워크를 통해서 연결된 장치만을 선택하기 위해 쿼리를 구체화합니다.
+
+    이전 코드는 **쿼리** 개체를 만들 때 반환되는 최대 문서 수를 지정한다는 점에 유의합니다. **query** 개체에는 모든 결과를 검색하기 위해 여러번 **nextAsTwin** 메서드를 호출하는 데 사용할 수 있는 **hasMoreResults** 부울 속성이 들어 있습니다. **next**라는 메서드는 장치 쌍이 아닌 결과(예: 집계 쿼리의 결과)에 대해 사용할 수 있습니다.
+
+8. 키를 눌러 응용 프로그램을 실행합니다.
+
+        node AddTagsAndQuery.js
+
+    **Redmond43**에 위치한 모든 장치를 요청하는 쿼리에 대한 결과로는 하나의 장치를 보고 셀룰러 네트워크를 사용하는 장치에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 장치도 볼 수 없어야 합니다.
+
+    ![][1]
+
+다음 섹션에서는 연결 정보를 보고하고 이전 섹션의 쿼리 결과를 변경하는 장치 앱을 만듭니다.
+
+## <a name="create-the-device-app"></a>장치 앱 만들기
+
+이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보에 들어 있는 쌍의 reported 속성을 업데이트합니다.
+
+> [AZURE.NOTE] 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다. 기존 장치 앱이 MQTT를 사용하도록 변환하는 방법에 관한 설명은 [MQTT 지원][lnk-devguide-mqtt] 문서를 참조하세요.
+
+1. **reportconnectivity**라는 빈 폴더를 새로 만듭니다. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
+
+    ```
+    npm init
+    ```
+
+2. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+
+    ```
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    ```
+
+3. 텍스트 편집기를 사용하여 **reportconnectivity** 폴더에 새 **ReportConnectivity.js** 파일을 만듭니다.
+
+4. 다음 코드를 **ReportConnectivity.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
+
+        'use strict';
+        var Client = require('azure-iot-device').Client;
+        var Protocol = require('azure-iot-device-mqtt').Mqtt;
+
+        var connectionString = '{device connection string}';
+        var client = Client.fromConnectionString(connectionString, Protocol);
+
+        client.open(function(err) {
+        if (err) {
+            console.error('could not open IotHub client');
+        }  else {
+            console.log('client opened');
+
+            client.getTwin(function(err, twin) {
+            if (err) {
+                console.error('could not get twin');
+            } else {
+                var patch = {
+                    connectivity: {
+                        type: 'cellular'
+                    }
+                };
+
+                twin.properties.reported.update(patch, function(err) {
+                    if (err) {
+                        console.error('could not update twin');
+                    } else {
+                        console.log('twin state reported');
+                        process.exit();
+                    }
+                });
+            }
+            });
+        }
+        });
+
+    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Client** 개체를 초기화한 다음 **myDeviceId**에 대한 쌍을 검색하고, 연결 정보를 사용해 reported 속성을 업데이트합니다.
+
+5. 장치 앱 실행
+
+        node ReportConnectivity.js
+
+    메시지 `twin state reported`이 표시되어야 합니다.
+
+6. 장치가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. **addtagsandqueryapp** 폴더로 돌아가 쿼리를 다시 실행합니다.
+
+        node AddTagsAndQuery.js
+
+    이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
+
+    ![][3]
+
+## <a name="next-steps"></a>다음 단계
+이 자습서에서 포털에서 새 IoT Hub를 구성한 다음, 허브의 ID 레지스트리에서 장치 ID를 만들었습니다. 백 엔드 응용 프로그램으로부터 장치 메타데이터를 태그로 추가했고 장치 쌍에 들어 있는 장치 연결 정보를 보고하는 시물레이션된 장치 앱을 작성했습니다. 또한 IoT Hub SQL과 유사한 쿼리 언어를 사용하여 이 정보를 쿼리하는 방법을 배웠습니다.
+
+아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
+
+- 장치에서 [IoT Hub 시작][lnk-iothub-getstarted] 자습서와 함께 원격 분석을 보냅니다.
+- [desired 속성을 사용하여 장치 구성][lnk-twin-how-to-configure] 자습서와 함께 쌍의 desired 속성을 사용하여 장치를 구성합니다.
+- [직접 메서드 사용][lnk-methods-tutorial]자습서를 사용하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 장치를 제어합니다.
+
+<!-- images -->
+[1]: media/iot-hub-node-node-twin-getstarted/service1.png
+[3]: media/iot-hub-node-node-twin-getstarted/service2.png
+
+<!-- links -->
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+
+[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-twins]: iot-hub-devguide-device-twins.md
+[lnk-query]: iot-hub-devguide-query-language.md
+[lnk-identity]: iot-hub-devguide-identity-registry.md
+
+[lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
+
+[lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+
+[lnk-methods-tutorial]: iot-hub-c2d-methods.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+
+
+<!--HONumber=Oct16_HO2-->
+
+

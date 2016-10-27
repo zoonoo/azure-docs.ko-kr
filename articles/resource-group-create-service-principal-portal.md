@@ -1,6 +1,6 @@
 <properties
-   pageTitle="포털에서 서비스 보안 주체 만들기 | Microsoft Azure"
-   description="Azure 리소스 관리자에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Active Directory 응용 프로그램 및 서비스 주체를 만드는 방법을 설명합니다."
+   pageTitle="Create service principal in portal | Microsoft Azure"
+   description="Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,210 +16,218 @@
    ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
-# 포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기
+
+# <a name="use-portal-to-create-active-directory-application-and-service-principal-that-can-access-resources"></a>Use portal to create Active Directory application and service principal that can access resources
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
 - [Azure CLI](resource-group-authenticate-service-principal-cli.md)
-- [포털](resource-group-create-service-principal-portal.md)
+- [Portal](resource-group-create-service-principal-portal.md)
 
 
-리소스를 액세스하거나 수정해야 하는 응용 프로그램이 있는 경우 AD(Active Directory) 응용 프로그램을 설정하고 필수 사용 권한을 할당해야 합니다. 이 토픽에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 현재 클래식 포털을 사용하여 새 Active Directory 응용 프로그램을 만든 후 Azure 포털로 전환하여 응용 프로그램에 역할을 할당해야 합니다.
+When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. Currently, you must use the classic portal to create a new Active Directory application, and then switch to the Azure portal to assign a role to the application. 
 
-> [AZURE.NOTE] 인증서를 사용하여 인증하려는 경우에 특히 [PowerShell](resource-group-authenticate-service-principal.md) 또는 [Azure CLI](resource-group-authenticate-service-principal-cli.md)를 통해 AD 응용 프로그램 및 서비스 주체를 더욱 쉽게 설정할 수 있습니다. 이 토픽에는 인증서 사용 방법은 나오지 않습니다.
+> [AZURE.NOTE] The steps in this topic only apply when using the **classic portal** to create the AD application. **If you use the Azure portal for creating the AD application, these steps will not succeed.** 
+>
+> You may find it easier to set up your AD application and service principal through [PowerShell](resource-group-authenticate-service-principal.md) or [Azure CLI](resource-group-authenticate-service-principal-cli.md), especially if you want to use a certificate for authentication. This topic does not show how to use a certificate.
 
-Active Directory 개념에 대한 설명을 보려면 [응용 프로그램 개체 및 서비스 주체 개체](./active-directory/active-directory-application-objects.md)를 참조하세요. Active Directory 인증에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](./active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
+For an explanation of Active Directory concepts, see [Application Objects and Service Principal Objects](./active-directory/active-directory-application-objects.md). For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
+For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
 
-## Active Directory 응용 프로그램 만들기
+## <a name="create-an-active-directory-application"></a>Create an Active Directory application
 
-1. [클래식 포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
+1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/). 
 
-2. 구독의 기본 Active Directory를 알고 있는지 확인합니다. 구독과 동일한 디렉터리에 있는 응용 프로그램에 대해서만 액세스 권한을 부여할 수 있습니다. **설정**을 선택하고 구독과 연결된 디렉터리 이름을 찾습니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](./active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+2. Make sure you know the default Active Directory for your subscription. You can only grant access for applications in the same directory as your subscription. Select **Settings** and look for the directory name associated with your subscription.  For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
    
-     ![기본 디렉터리 찾기](./media/resource-group-create-service-principal-portal/show-default-directory.png)
+     ![find default directory](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
+2. Select **Active Directory** from the left pane.
 
-     ![Active Directory 선택](./media/resource-group-create-service-principal-portal/active-directory.png)
+     ![select Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
      
-3. 응용 프로그램을 만드는 데 사용할 Active Directory를 선택합니다. Active Directory가 두 개 이상인 경우 구독의 기본 디렉터리에 응용 프로그램을 만듭니다.
+3. Select the Active Directory that you want to use for creating the application. If you have more than one Active Directory, create the application in the default directory for your subscription.   
 
-     ![디렉터리 선택](./media/resource-group-create-service-principal-portal/active-directory-details.png)
+     ![choose directory](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
-3. 디렉터리의 응용 프로그램을 보려면 **응용 프로그램**을 선택합니다.
+3. To view the applications in your directory, select **Applications**.
 
-     ![응용 프로그램 보기](./media/resource-group-create-service-principal-portal/view-applications.png)
+     ![view applications](./media/resource-group-create-service-principal-portal/view-applications.png)
 
-4. 해당 디렉터리에 응용 프로그램을 만든 적이 없는 경우 다음과 비슷한 이미지가 표시됩니다. **응용 프로그램 추가**를 선택합니다.
+4. If you haven't created an application in that directory before, you should see something similar to following image. Select **ADD AN APPLICATION**
 
-     ![응용 프로그램 추가](./media/resource-group-create-service-principal-portal/create-application.png)
+     ![add application](./media/resource-group-create-service-principal-portal/create-application.png)
 
-     또는 아래쪽 창에서 **추가**를 클릭합니다.
+     Or, click **Add** in the bottom pane.
 
-     ![추가](./media/resource-group-create-service-principal-portal/add-icon.png)
+     ![add](./media/resource-group-create-service-principal-portal/add-icon.png)
 
-5. 만들 응용 프로그램의 유형을 선택합니다. 이 자습서에서는 **내 조직에서 개발 중인 응용 프로그램 추가**를 선택합니다.
+5. Select the type of application you would like to create. For this tutorial, select **Add an application my organization is developing**. 
 
-     ![새 응용 프로그램](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
+     ![new application](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
-6. 응용 프로그램의 이름을 입력하고 만들 응용 프로그램의 유형을 선택합니다. 이 자습서에서는 **웹 응용 프로그램 및/또는 웹 API**를 만들기로 선택하고 다음 단추를 클릭합니다. **네이티브 클라이언트 응용 프로그램**을 선택하는 경우 이 문서의 나머지 단계가 작업 환경과 일치하지 않게 됩니다.
+6. Provide a name for the application and select the type of application you want to create. For this tutorial, create a **WEB APPLICATION AND/OR WEB API** and click the next button. If you select **NATIVE CLIENT APPLICATION**, the remaining steps of this article will not match your experience.
 
-     ![응용 프로그램 이름 지정](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
+     ![name application](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. 앱에 대한 속성을 입력합니다. **로그온 URL**의 경우 응용 프로그램을 설명하는 웹 사이트에 대한 URI를 제공합니다. 웹 사이트의 존재 여부는 확인되지 않습니다. **앱 ID URI**의 경우 응용 프로그램을 식별하는 URI를 제공합니다.
+7. Fill in the properties for your app. For **SIGN-ON URL**, provide the URI to a web site that describes your application. The existence of the web site is not validated. For **APP ID URI**, provide the URI that identifies your application.
 
-     ![응용 프로그램 속성](./media/resource-group-create-service-principal-portal/app-properties.png)
+     ![application properties](./media/resource-group-create-service-principal-portal/app-properties.png)
 
-응용 프로그램이 만들어졌습니다.
+You have created your application.
 
-## 클라이언트 ID 및 인증 키 가져오기
+## <a name="get-client-id-and-authentication-key"></a>Get client id and authentication key
 
-프로그래밍 방식으로 로그인하는 경우 응용 프로그램에 대한 ID가 필요합니다. 응용 프로그램이 자체 자격 증명에서 실행되는 경우 인증 키도 필요합니다.
+When programmatically logging in, you need the id for your application. If the application runs under its own credentials, you also need an authentication key.
 
-1. **구성** 탭을 선택하여 응용 프로그램의 암호를 구성합니다.
+1. Select the **Configure** tab to configure your application's password.
 
-     ![응용 프로그램 구성](./media/resource-group-create-service-principal-portal/application-configure.png)
+     ![configure application](./media/resource-group-create-service-principal-portal/application-configure.png)
 
-2. **클라이언트 ID**를 복사합니다.
+2. Copy the **CLIENT ID**.
   
-     ![클라이언트 ID](./media/resource-group-create-service-principal-portal/client-id.png)
+     ![client id](./media/resource-group-create-service-principal-portal/client-id.png)
 
-3. 응용 프로그램이 자체 자격 증명에서 실행되는 경우 **키** 섹션까지 아래로 스크롤하여 암호가 유효한 기간을 선택합니다.
+3. If the application runs under its own credentials, scroll down to the **Keys** section and select how long you would like your password to be valid.
 
-     ![키](./media/resource-group-create-service-principal-portal/create-key.png)
+     ![keys](./media/resource-group-create-service-principal-portal/create-key.png)
 
-4. **저장**을 선택하여 키를 만듭니다.
+4. Select **Save** to create your key.
 
-     ![저장](./media/resource-group-create-service-principal-portal/save-icon.png)
+     ![save](./media/resource-group-create-service-principal-portal/save-icon.png)
 
-     저장된 키가 표시되고 키를 복사할 수 있습니다. 나중에 키를 검색할 수 없으므로 지금 키를 복사합니다.
+     The saved key is displayed and you can copy it. You are not able to retrieve the key later so copy it now.
 
-     ![공유 키](./media/resource-group-create-service-principal-portal/save-key.png)
+     ![saved key](./media/resource-group-create-service-principal-portal/save-key.png)
 
-## 테넌트 ID 가져오기
+## <a name="get-tenant-id"></a>Get tenant id
 
-프로그래밍 방식으로 로그인하는 경우 인증 요청과 함께 테넌트 ID를 전달해야 합니다. 웹앱 및 Web API 앱의 경우 아래 이미지와 같이 화면 아래쪽에서 **끝점 보기**를 선택하고 ID를 검색하여 테넌트 ID를 검색할 수 있습니다.
+When programmatically logging in, you need to pass the tenant id with your authentication request. For Web Apps and Web API Apps, you can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown in the following image.  
 
-   ![테넌트 ID](./media/resource-group-create-service-principal-portal/save-tenant.png)
+   ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
-PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
+You can also retrieve the tenant id through PowerShell:
 
     Get-AzureRmSubscription
 
-또는 Azure CLI:
+Or, Azure CLI:
 
     azure account show --json
 
-## 위임된 권한 설정
+## <a name="set-delegated-permissions"></a>Set delegated permissions
 
-응용 프로그램이 로그인한 사용자를 대신하여 리소스에 액세스하는 경우에는 응용 프로그램이 다른 응용 프로그램에 액세스하도록 위임된 권한을 부여해야 합니다. **구성** 탭의 **다른 응용 프로그램에 대한 권한** 섹션에서 이 액세스 권한을 부여합니다. 기본적으로 위임된 권한은 Azure Active Directory에서 사용하도록 이미 설정되어 있습니다. 위임된 권한을 변경하지 않고 그대로 둡니다.
+If your application accesses resources on behalf of a signed-in user, you must grant your application the delegated permission to access other applications. You grant this access in the **permissions to other applications** section of the **Configure** tab. By default, a delegated permission is already enabled for the Azure Active Directory. Leave this delegated permission unchanged.
 
-1. **응용 프로그램 추가**를 선택합니다.
+1. Select **Add application**.
 
-2. 목록에서 **Microsoft Azure Service Management API**를 선택합니다. 그런 후 완료 아이콘을 선택합니다.
+2. From the list, select the **Windows Azure Service Management API**. Then, select the complete icon.
 
-      ![앱 선택](./media/resource-group-create-service-principal-portal/select-app.png)
+      ![select app](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. 위임된 권한의 드롭다운 목록에서 **조직으로 Azure 서비스 관리에 액세스**를 선택합니다.
+3. In the dropdown list for delegated permissions, select **Access Azure Service Management as organization**.
 
-      ![사용 권한 선택](./media/resource-group-create-service-principal-portal/select-permissions.png)
+      ![select permission](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
-4. 변경 내용을 저장합니다.
+4. Save the change.
 
-## 응용 프로그램을 역할에 할당
+## <a name="assign-application-to-role"></a>Assign application to role
 
-응용 프로그램이 자체 자격 증명으로 실행되는 경우 응용 프로그램을 역할에 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](./active-directory/role-based-access-built-in-roles.md)을 참조하세요.
+If your application is running under its own credentials, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). 
 
-응용 프로그램에 역할을 할당하려면 올바른 사용 권한이 있어야 합니다. 특히, [소유자](./active-directory/role-based-access-built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) 역할을 통해 부여된 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다. 참가자 역할은 올바른 액세스 권한이 없습니다.
+To assign a role to an application, you must have the correct permissions. Specifically, you must have `Microsoft.Authorization/*/Write` access that is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. The Contributor role does not have the correct access.
 
-구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
+You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 
-1. 응용 프로그램에 역할을 할당하려면 클래식 포털에서 [Azure 포털](https://portal.azure.com)로 전환하세요.
+1. To assign the application to a role, switch from the classic portal to the [Azure portal](https://portal.azure.com).
 
-1. 역할에 서비스 주체를 할당하려면 사용 권한을 확인하세요. 계정의 **내 사용 권한**을 선택합니다.
+1. Check your permissions to make sure you can assign the service principal to a role. Select **My permissions** for your account.
 
-    ![내 사용 권한 선택](./media/resource-group-create-service-principal-portal/my-permissions.png)
+    ![select my permissions](./media/resource-group-create-service-principal-portal/my-permissions.png)
 
-1. 계정에 할당된 사용 권한을 확인합니다. 앞에서 설명했듯이, 소유자 또는 사용자 액세스 관리자 역할에 속해 있거나 Microsoft.Authorization에 대한 쓰기 액세스 권한을 부여하는 사용자 지정 역할을 갖고 있어야 합니다. 다음 이미지는 구독의 참여자 역할에 할당된 계정으로, 응용 프로그램을 역할에 할당하기에 적합한 사용 권한이 아닙니다.
+1. View the assigned permissions for your account. As noted previously, you must belong to the Owner or User Access Administrator roles, or have a customized role that grants write access for Microsoft.Authorization. The following image shows an account that is assigned to the Contributor role for the subscription, which is not adequate permissions to assign an application to a role.
 
-    ![내 사용 권한 표시](./media/resource-group-create-service-principal-portal/show-permissions.png)
+    ![show my permissions](./media/resource-group-create-service-principal-portal/show-permissions.png)
 
-     응용 프로그램에 대한 액세스 권한을 부여하는 데 필요한 사용 권한이 없는 경우 사용자 액세스 관리자 역할에 추가해 달라고 구독 관리자에게 요청하거나 응용 프로그램에 대한 액세스 권한을 부여해 달라고 관리자에게 요청해야 합니다.
+     If you do not have the correct permissions to grant access to an application, you must either request that your subscription administrator adds you to the User Access Administrator role, or request that an administrator grants access to the application.
 
-1. 응용 프로그램을 할당하려는 범위 수준으로 이동합니다. 구독 범위에서 역할을 할당하려면 **구독**을 선택합니다.
+1. Navigate to the level of scope you wish to assign the application to. To assign a role at the subscription scope, select **Subscriptions**.
 
-     ![구독 선택](./media/resource-group-create-service-principal-portal/select-subscription.png)
+     ![select subscription](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-     응용 프로그램을 할당할 특정 구독을 선택합니다.
+     Select the particular subscription to assign the application to.
 
-     ![할당을 위한 구독 선택](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+     ![select subscription for assignment](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
-     오른쪽 위 모퉁이에서 **액세스** 아이콘을 선택합니다.
+     Select the **Access** icon in the upper-right corner.
 
-     ![액세스 선택](./media/resource-group-create-service-principal-portal/select-access.png)
+     ![select access](./media/resource-group-create-service-principal-portal/select-access.png)
      
-     또는 리소스 그룹 범위에서 역할을 할당하려면 리소스 그룹으로 이동합니다. 리소스 그룹 블레이드에서 **액세스 제어**를 선택합니다.
+     Or, to assign a role at resource group scope, navigate to a resource group. From the resource group blade, select **Access control**.
 
-     ![사용자 선택](./media/resource-group-create-service-principal-portal/select-users.png)
+     ![select users](./media/resource-group-create-service-principal-portal/select-users.png)
 
-     다음 단계는 모든 범위에서 동일합니다.
+     The following steps are the same for any scope.
 
-2. **추가**를 선택합니다.
+2. Select **Add**.
 
-     ![추가 선택](./media/resource-group-create-service-principal-portal/select-add.png)
+     ![select add](./media/resource-group-create-service-principal-portal/select-add.png)
 
-3. **읽기 권한자** 역할(또는 응용 프로그램에 할당하고 싶은 역할)을 선택합니다.
+3. Select the **Reader** role (or whatever role you wish to assign the application to).
 
-     ![역할 선택](./media/resource-group-create-service-principal-portal/select-role.png)
+     ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
 
-4. 역할에 추가할 수 있는 사용자 목록이 처음 표시될 때에는 응용 프로그램이 표시되지 않고 그룹 및 사용자만 보입니다.
+4. When you first see the list of users you can add to the role, you will not see applications. You will only see group and users.
 
-     ![사용자 표시](./media/resource-group-create-service-principal-portal/show-users.png)
+     ![show users](./media/resource-group-create-service-principal-portal/show-users.png)
 
-5. 응용 프로그램을 찾으려면 응용 프로그램을 검색해야 합니다. 응용 프로그램 이름을 입력하면 사용 가능한 옵션 목록이 변경됩니다. 목록에 응용 프로그램이 표시되면 해당 응용 프로그램을 선택합니다.
+5. To find your application, you must search for it. Start typing the name of your application, and the list of available options will change. Select your application when you see it in the list.
 
-     ![역할에 할당](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+     ![assign to role](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-6. **확인**을 선택하여 역할 할당을 완료합니다. 이제 목록에서 리소스 그룹에 대한 역할에 할당된 사용자 목록에 응용 프로그램이 표시될 것입니다.
+6. Select **Okay** to finish assigning the role. You should now see your application in the list of uses assigned to a role for the resource group.
 
 
-포털을 통해 역할에 사용자 및 응용 프로그램을 할당하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal)를 참조하세요.
+For more information about assigning users and applications to roles through the portal, see [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
-## 샘플 응용 프로그램
+## <a name="sample-applications"></a>Sample applications
 
-다음 예제 응용 프로그램에서는 서비스 주체로 로그인하는 방법을 보여 줍니다.
+The following sample applications show how to log in as the service principal.
 
 **.NET**
 
-- [.NET에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [.NET을 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
 **Java**
 
-- [리소스 사용 시작 - Azure Resource Manager 템플릿을 사용하여 배포 - Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [리소스 사용 시작 - 리소스 그룹 관리 - Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+- [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Getting Started with Resources - Manage Resource Group - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
 
 **Python**
 
-- [Python에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Python을 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 
-**Node.JS**
+**Node.js**
 
-- [Node.js에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Node.js를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 
 **Ruby**
 
-- [Ruby에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-- [Ruby를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
-- 이러한 단계에 대한 비디오 데모를 보려면 [Azure Active Directory에서 Azure 리소스의 프로그래밍 방식 관리 활성화](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)를 참조하세요.
+- To learn about specifying security policies, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).  
+- For a video demonstration of these steps, see [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure 클래식 포털에서 VPN 게이트웨이 구성 | Microsoft Azure"
-   description="이 문서에서는 가상 네트워크 VPN 게이트웨이 구성하고 게이트웨이 VPN 라우팅 형식을 변경하는 방법을 안내합니다."
+   pageTitle="Configure a VPN Gateway in the Azure Classic Portal | Microsoft Azure"
+   description="This article walks you through configuring your virtual network VPN gateway and changing a gateway VPN routing type."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,155 +17,160 @@
    ms.date="08/11/2016"
    ms.author="cherylmc" />
 
-# 클래식 배포 모델에 대한 VPN 게이트웨이 구성
+
+# <a name="configure-a-vpn-gateway-for-the-classic-deployment-model"></a>Configure a VPN gateway for the classic deployment model
 
 
-Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만들려면 VPN 게이트웨이 연결을 구성해야 합니다. 클래식 배포 모델에서 게이트웨이는 두 VPN 라우팅 형식인 정적 또는 동적 중 하나일 수 있습니다. 선택하는 형식은 네트워크 디자인 계획과 사용하려는 온-프레미스 VPN 장치 둘 다에 따라 좌우됩니다.
+If you want to create a secure cross-premises connection between Azure and your on-premises location, you need to configure a VPN gateway connection. In the classic deployment model, a gateway can be one of two VPN routing types: static, or dynamic. The type you choose depends on both your network design plan, and the on-premises VPN device you want to use. 
 
-예를 들어 지점 및 사이트 간 연결과 같은 일부 연결 옵션은 동적 라우팅 게이트웨이가 필요합니다. 지점 및 사이트 간(P2S) 연결과 사이트 간(S2S) 연결을 모두 지원하도록 게이트웨이를 구성하려면, 두 게이트웨이 VPN 라우팅 형식 중 하나로 사이트 간 연결을 구성할 수 있더라도 동적 라우팅 게이트웨이를 구성해야 합니다.
+For example, some connectivity options, such as a point-to-site connection, require a dynamic routing gateway. If you want to configure your gateway to support both point-to-site (P2S) connections and a site-to-site (S2S) connection, you have to configure a dynamic routing gateway even though site-to-site can be configured with either gateway VPN routing type. 
 
-또한 연결에 사용하려는 장치가 만들려는 VPN 라우팅 형식을 지원하는지 확인해야 합니다. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
-
-
-**이 문서의 내용**
-
-이 문서는 [클래식 포털](https://manage.windowsazure.com)(Azure 포털이 아님)을 사용하는 클래식 배포 모델을 위해 작성되었습니다.
-
-**Azure 배포 모델 정보**
-
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-## 구성 개요
-
-다음 단계에서는 Azure 클래식 포털에서 VPN 게이트웨이를 구성하는 방법을 안내합니다. 이러한 단계는 클래식 배포 모델을 사용하여 만든 가상 네트워크에 대한 게이트웨이에 적용됩니다. 현재 게이트웨이에 대한 구성 설정의 일부만 Azure 포털에서 사용할 수 있습니다. 사용 가능한 경우 Azure 포털에 적용되는 새 명령 집합이 생성됩니다.
+Additionally, must make sure that the device you want to use for your connection supports the VPN routing type that you want to create. See [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 
 
-1. [VNet용 VPN 게이트웨이 만들기](#create-a-vpn-gateway)
+**About this article** 
 
-1. [VPN 장치 구성에 대한 정보 수집](#gather-information-for-your-vpn-device-configuration)
+This article was written for the classic deployment model using the [classic portal](https://manage.windowsazure.com) (not the Azure portal). 
 
-1. [VPN 장치 구성](#configure-your-vpn-device)
+**About Azure deployment models**
 
-1. [로컬 네트워크 범위 및 VPN 게이트웨이 IP 주소 확인](#verify-your-local-network-ranges-and-vpn-gateway-ip-address)
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-### 시작하기 전에
+## <a name="configuration-overview"></a>Configuration overview
 
-게이트웨이를 구성하기 전에 먼저 가상 네트워크를 만들어야 합니다. 프레미스 간 연결을 위해 가상 네트워크를 만드는 단계는 [사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md) 또는 [지점 및 사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-point-to-site-create.md)을 참조하세요. 그런 후 다음 단계에 따라 VPN 게이트웨이 구성하고 VPN 장치를 구성하는 데 필요한 정보를 수집합니다.
-
-VPN 게이트웨이가 이미 있는 경우 VPN 라우팅 형식을 변경하려면 [게이트웨이의 VPN 라우팅 형식을 변경하는 방법](#how-to-change-the-vpn-routing-type-for-your-gateway)을 참조하세요.
-
-## VPN 게이트웨이 만들기
-
-1. [Azure 클래식 포털](https://manage.windowsazure.com)의 **네트워크** 페이지에서, 가상 네트워크의 상태 열이 **생성됨**인지 확인합니다.
-
-1. **이름** 열에서 가상 네트워크의 이름을 클릭합니다.
-
-1. **대시보드** 페이지에서 이 VNet에 게이트웨이가 아직 구성되지 않은 것을 볼 수 있습니다. 게이트웨이 구성 단계를 진행할 때 이 상태가 표시됩니다.
-
-![게이트웨이가 만들어지지 않음](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
+The following steps walk you through configuring your VPN gateway in the Azure classic portal. These steps apply to gateways for virtual networks that were created using the classic deployment model. Currently, not all of the configuration settings for gateways are available in the Azure portal. When they are, we will create a new set of instructions that apply to the Azure portal.
 
 
-그런 다음 페이지 아래쪽에서 **게이트웨이 만들기**를 클릭합니다. *고정 라우팅* 또는 *동적 라우팅*을 선택할 수 있습니다. VPN 라우팅 형식은 몇 가지 요인에 따라 선택합니다. 예를 들어 VPN 장치가 지원하는 항목과 지점 및 사이트 간 연결을 지원해야 하는지 여부 등에 따라 달라집니다. 필요한 VPN 라우팅 형식은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 확인하세요. 게이트웨이를 만든 후 게이트웨이 VPN 라우팅 유형 간에 변경하려면 게이트웨이를 삭제하고 다시 만들어야 합니다. 시스템에서 게이트웨이 만들 것인지 확인하는 메시지를 표시하면 **예**를 클릭합니다.
+1. [Create a VPN gateway for your VNet](#create-a-vpn-gateway)
 
-![게이트웨이 VPN 라우팅 유형](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
+1. [Gather information for your VPN device configuration](#gather-information-for-your-vpn-device-configuration)
 
-게이트웨이를 만들 때 페이지의 게이트웨이 그래픽이 노란색으로 변경되고 *게이트웨이를 만드는 중*이 표시됩니다. 게이트웨이를 만드는 데에는 최대 45분이 걸릴 수 있습니다. 게이트웨이가 완료될 때까지 대기한 다음 다른 구성 설정을 계속합니다.
+1. [Configure your VPN device](#configure-your-vpn-device)
 
-![게이트웨이 만들기](./media/vpn-gateway-configure-vpn-gateway-mp/IC717027.png)
+1. [Verify your local network ranges and VPN gateway IP address](#verify-your-local-network-ranges-and-vpn-gateway-ip-address)
 
-게이트웨이가 *연결 중*으로 변경되면 VPN 장치에 필요한 정보를 수집할 수 있습니다.
+### <a name="before-you-begin"></a>Before you begin
 
-![게이트웨이 연결](./media/vpn-gateway-configure-vpn-gateway-mp/IC717028.png)
+Before you configure your gateway, you first need to create your virtual network. For steps to create a virtual network for cross-premises connectivity, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md), or [Configure a virtual network with a point-to-site VPN connection](vpn-gateway-point-to-site-create.md). Then, use the following steps to configure the VPN gateway and gather the information you need to configure your VPN device. 
 
-## VPN 장치 구성에 대한 정보 수집
+If you already have a VPN gateway and you want to change the VPN routing type, see [How to change the VPN routing type for your gateway](#how-to-change-the-vpn-routing-type-for-your-gateway).
 
-게이트웨이를 만든 후 VPN 장치 구성에 대한 정보를 수집합니다. 이 정보는 가상 네트워크에 대한 **대시보드** 페이지에 있습니다.
+## <a name="create-a-vpn-gateway"></a>Create a VPN gateway
 
-1. **게이트웨이 IP 주소 -** IP 주소는 **대시보드** 페이지에서 찾을 수 있습니다. IP 주소는 게이트웨이 만들기를 완료한 이후에 표시됩니다.
+1. In the [Azure classic portal](https://manage.windowsazure.com), on the **Networks** page, verify that the status column for your virtual network is **Created**.
 
-1. **공유 키 -** 화면 아래쪽에 있는 **키 관리**를 클릭합니다. 키 옆에 있는 아이콘을 클릭하여 키를 클립보드에 복사한 다음 붙여넣고 저장합니다. 이 단추는 S2S VPN 터널이 하나인 경우에만 작동합니다. S2S VPN 터널이 여러 개 있는 경우 *가상 네트워크 게이트웨이 공유 키 가져오기* API 또는 PowerShell cmdlet를 사용하세요.
+1. In the **Name** column, click the name of your virtual network.
 
-![키 관리](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
+1. On the **Dashboard** page, notice that this VNet doesn't have a gateway configured yet. You'll see this status as you go through the steps to configure your gateway.
+
+![Gateway Not Created](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
-## VPN 장치 구성
+Next, at the bottom of the page, click **Create Gateway**. You can select either *Static Routing* or *Dynamic Routing*. The VPN routing type you select depends on few factors. For example, what your VPN device supports and whether you need to support point-to-site connections. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify the VPN routing type that you need. Once the gateway has been created, you can't change between gateway VPN routing types without deleting and re-creating the gateway. When the system prompts you to confirm that you want the gateway created, click **Yes**.
 
-이전 단계를 완료한 후 사용자 또는 네트워크 관리자는 연결을 설정하기 위해 VPN 장치를 구성해야 합니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
+![Gateway VPN routing type](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
-VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데이트된 연결 정보를 볼 수 있습니다.
+When your gateway is creating, notice the gateway graphic on the page changes to yellow and says *Creating Gateway*. It may take up to 45 minutes for the gateway to create. Wait until the gateway is complete before you can move forward with other configuration settings.
 
-또한 다음 명령 중 하나를 실행하여 연결을 테스트할 수 있습니다.
+![Gateway Creating](./media/vpn-gateway-configure-vpn-gateway-mp/IC717027.png)
 
-| | Cisco ASA | Cisco ISR/ASR | Juniper SSG/ISG | Juniper SRX/J |
+When the gateway changes to *Connecting*, you can gather the information you'll need for your VPN device.
+
+![Gateway Connecting](./media/vpn-gateway-configure-vpn-gateway-mp/IC717028.png)
+
+## <a name="gather-information-for-your-vpn-device-configuration"></a>Gather information for your VPN device configuration
+
+After the gateway has been created, gather information for your VPN device configuration. This information is located on the **Dashboard** page for your virtual network:
+
+1. **Gateway IP address -** The IP address can be found on the **Dashboard** page. You won't be able to see it until after your gateway has finished creating.
+
+1. **Shared key -** Click **Manage Key** at the bottom of the screen. Click the icon next to the key to copy it to your clipboard, and then paste and save the key. This button only works when there is a single S2S VPN tunnel. If you have multiple S2S VPN tunnels, please use the *Get Virtual Network Gateway Shared Key* API or PowerShell cmdlet.
+
+![Manage Key](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
+
+
+## <a name="configure-your-vpn-device"></a>Configure your VPN device
+
+After completing the previous steps, you or your network administrator will need to configure the VPN device in order to create the connection. See [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) for more information about VPN devices.
+
+After the VPN device has been configured, you can view your updated connection information on the Dashboard page for your VNet.
+
+You can also run one of the following commands to test your connection:
+
+|                      | Cisco ASA             | Cisco ISR/ASR         | Juniper SSG/ISG | Juniper SRX/J                            |
 |----------------------|-----------------------|-----------------------|-----------------|------------------------------------------|
-| **Check main mode SAs** | show crypto isakmp sa | show crypto isakmp sa | get ike cookie | show security ike security-association |
-| **Check quick mode SAs** | show crypto ipsec sa | show crypto ipsec sa | get sa | show security ipsec security-association |
+| **Check main mode SAs**  | show crypto isakmp sa | show crypto isakmp sa | get ike cookie  | show security ike security-association   |
+| **Check quick mode SAs** | show crypto ipsec sa  | show crypto ipsec sa  | get sa          | show security ipsec security-association |
 
 
-## 로컬 네트워크 범위 및 VPN 게이트웨이 IP 주소 확인
+## <a name="verify-your-local-network-ranges-and-vpn-gateway-ip-address"></a>Verify your local network ranges and VPN gateway IP address
 
-### VPN 게이트웨이 IP 주소 확인
+### <a name="verify-your-vpn-gateway-ip-address"></a>Verify your VPN gateway IP address
 
-게이트웨이를 올바르게 연결하려면 프레미스 간 구성에 대해 지정한 로컬 네트워크에 대해 VPN 장치의 IP 주소를 올바르게 구성해야 합니다. 일반적으로 이 구성은 사이트 간 구성 프로세스 중에 설정합니다. 그러나 이전에 다른 장치에서 이 로컬 네트워크를 사용했거나 이 로컬 네트워크에 대한 IP 주소가 변경된 경우 설정을 편집하여 올바른 게이트웨이 IP 주소를 지정할 수 있습니다.
+For gateway to connect properly, the IP address for your VPN device must be correctly configured for the Local Network that you specified for your cross-premises configuration. Typically, this is configured during the site-to-site configuration process. However, if you previously used this local network with a different device, or the IP address has changed for this local network, edit the settings to specify the correct Gateway IP address.
 
-1. 게이트웨이 IP 주소를 확인하려면 왼쪽 포털 창에서 **네트워크**를 클릭한 다음 페이지 위쪽에 있는 **로컬 네트워크**를 선택합니다. 사용자가 만든 각 로컬 네트워크에 대한 VPN 게이트웨이 주소가 표시됩니다. IP 주소를 편집하려면 VNet을 선택하고 페이지 아래쪽에 있는 **편집**을 클릭합니다.
+1. To verify your gateway IP address, click **Networks** on the left portal pane and then select **Local Networks** at the top of the page. You'll see the VPN Gateway Address for each local network that you have created. To edit the IP address, select the VNet and click **Edit** at the bottom of the page.
 
-1. **로컬 네트워크 정보 지정** 페이지에서 IP 주소를 편집한 후 페이지의 아래쪽에 있는 다음 화살표를 클릭합니다.
+1. On the **Specify your local network details** page, edit the IP address, and then click the next arrow at the bottom of the page.
 
-1. **주소 공간 지정** 페이지에서 오른쪽 아래의 확인 표시를 클릭하여 설정을 저장합니다.
+1. On the **Specify the address space** page, click the checkmark on the lower right to save your settings.
 
-### 로컬 네트워크의 주소 범위 확인
+### <a name="verify-the-address-ranges-for-your-local-networks"></a>Verify the address ranges for your local networks
 
-게이트웨이를 통해 온-프레미스 위치로 올바른 트래픽이 이동되려면 각 IP 주소 범위가 지정되어 있는지 확인해야 합니다. 각 범위가 Azure **로컬 네트워크** 구성에 나열되어야 합니다. 온-프레미스 위치의 네트워크 구성에 따라 이 작업은 다소 커질 수 있습니다. 나열된 범위 내에 포함된 IP 주소에 대해 바인딩되는 트래픽은 가상 네트워크 VPN 게이트웨이를 통해 전송됩니다. 온-프레미스 구성이 인바운드 트래픽을 받을 수 있는지 확인하려는 경우에도 나열하는 범위가 전용 범위일 필요는 없습니다.
+For the correct traffic to flow through the gateway to your on-premises location, you need to verify that each IP address range is specified. Each range must be listed in your Azure **Local Networks** configuration. Depending on the network configuration of your on-premises location, this can be a somewhat large task. Traffic that is bound for an IP address that is contained within the listed ranges will be sent through the virtual network VPN gateway. The ranges that you list don't have to be private ranges, although you will want to verify that your on-premises configuration can receive the inbound traffic.
 
-로컬 네트워크에 대한 범위를 추가하거나 편집하려면 다음 단계를 사용하세요.
+To add or edit the ranges for a Local Network, use the following steps.
 
-1. 로컬 네트워크에 대한 IP 주소 범위를 편집하려면 왼쪽 포털 창에서 **네트워크**를 클릭한 다음 페이지 위쪽에 있는 **로컬 네트워크**를 선택합니다. 포털에서 나열된 범위를 확인하는 가장 쉬운 방법은 **편집** 페이지를 사용하는 것입니다. 범위를 확인하려면 VNet을 선택하고 페이지 아래쪽에 있는 **편집**을 클릭합니다.
+1. To edit the IP address ranges for a local network, click **Networks** on the left portal pane and then select **Local Networks** at the top of the page. In the portal, the easiest way to view the ranges that you've listed is on the **Edit** page. To see your ranges, select the VNet and click **Edit** at the bottom of the page.
 
-1. **로컬 네트워크 정보 지정** 페이지에서 아무것도 변경하지 않습니다. 페이지 맨 아래에 있는 다음 화살표를 클릭합니다.
+1. On the **Specify your local network details** page, don't make any changes. Click the next arrow at the bottom of the page.
 
-1. **주소 공간 지정** 페이지에서 네트워크 주소 공간을 변경합니다. 그런 다음 확인 표시를 클릭하여 구성을 저장합니다.
+1. On the **Specify the address space** page, make your network address space changes. Then click the checkmark to save your configuration.
 
-## 게이트웨이 트래픽을 확인하는 방법
+## <a name="how-to-view-gateway-traffic"></a>How to view gateway traffic
 
-가상 네트워크 **대시보드**에서 게이트웨이 및 게이트웨이 트래픽을 확인할 수 있습니다.
+You can view your gateway and gateway traffic from your Virtual Network **Dashboard** page.
 
-**대시보드** 페이지에서 다음을 확인할 수 있습니다.
+On the **Dashboard** page you can view the following:
 
-- 게이트웨이를 통해 전달되는 데이터의 양(입력 데이터와 출력 데이터 모두)
+- The amount of data that is flowing through your gateway, both data in and data out.
 
-- 가상 네트워크에 대해 지정된 DNS 서버의 이름
+- The names of the DNS servers that are specified for your virtual network.
 
-- 게이트웨이 및 VPN 장치 간 연결
+- The connection between your gateway and your VPN device.
 
-- VPN 장치에 대한 게이트웨이 연결을 구성하는 데 사용되는 공유 키
-
-
-## 게이트웨이의 VPN 라우팅 유형을 변경하는 방법
-
-일부 연결 구성은 특정 게이트웨이 라우팅 유형에만 사용할 수 있으므로 기존 VPN 게이트웨이의 게이트웨이 VPN 라우팅 유형을 변경해야 할 수도 있습니다. 예를 들어 고정 게이트웨이를 사용하는 기존 사이트 간 연결에 지점 및 사이트 간 연결을 추가할 수 있습니다. 지점 및 사이트 간 연결에는 동적 게이트웨이가 필요합니다. 즉, P2S 연결을 구성하려면 게이트웨이 VPN 라우팅 형식을 정적에서 동적으로 변경해야 합니다.
-
-게이트웨이 VPN 라우팅 형식을 변경해야 하는 경우 기존 게이트웨이를 삭제한 다음 새 라우팅 형식으로 새 게이트웨이를 만듭니다. 게이트웨이 라우팅 형식을 변경하기 위해 전체 가상 네트워크를 삭제할 필요는 없습니다.
-
-게이트웨이 VPN 라우팅 형식을 변경하기 전에 VPN 장치에서 사용하려는 라우팅 형식을 지원하는지 확인해야 합니다. 새 라우팅 구성 샘플을 다운로드하고 VPN 장치 요구 사항을 확인하려면 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
-
->[AZURE.IMPORTANT] 가상 네트워크 VPN 게이트웨이를 삭제하면 게이트웨이에 할당된 VIP가 해제됩니다. 게이트웨이를 다시 만들면 새 VIP가 게이트웨이에 할당됩니다.
-
-1. **기존 VPN 게이트웨이 삭제**
-
-	가상 네트워크의 **대시보드** 페이지의 맨 아래쪽으로 이동하여 **게이트웨이 삭제**를 클릭합니다. 게이트웨이가 삭제되었다는 알림이 표시될 때까지 기다립니다. 게이트웨이가 삭제되었다는 알림이 화면에 표시된 이후에 새 게이트웨이를 만들 수 있습니다.
-
-1. **새 VPN 게이트웨이 만들기**
-
-	페이지 맨 위의 절차를 사용하여 새 게이트웨이를 만듭니다. [VPN 게이트웨이 만들기](#create-a-vpn-gateway).
+- The shared key that is used to configure your gateway connection to your VPN device.
 
 
-## 다음 단계
+## <a name="how-to-change-the-vpn-routing-type-for-your-gateway"></a>How to change the VPN routing type for your gateway
 
-가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-windows-classic-createportal.md)을 참조하세요.
+Because some connectivity configurations are only available for certain gateway routing types, you may find that you need to change the gateway VPN routing type of an existing VPN gateway. For example, you may want to add point-to-site connectivity to an already existing site-to-site connection that has a static gateway. Point-to-site connections require a dynamic gateway. This means to configure a P2S connection, you have to change your gateway VPN routing type from static to dynamic.
 
-지점 및 사이트 간 VPN 연결을 구성하려면 [지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요.
+If you need to change a gateway VPN routing type, you'll delete the existing gateway, and then create a new gateway with the new routing type. You don't need to delete the entire virtual network to change the gateway routing type.
+
+Before changing your gateway VPN routing type, be sure to verify that your VPN device supports the routing type that you want to use. To download new routing configuration samples and check VPN device requirements, see [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md).
+
+>[AZURE.IMPORTANT] When you delete a virtual network VPN gateway, the VIP assigned to the gateway is released. When you recreate the gateway, a new VIP is assigned to it.
+
+1. **Delete the existing VPN gateway.**
+
+    On the **Dashboard** page for your virtual network, navigate to the bottom of the page and click **Delete Gateway**. Wait for the notification that the gateway has been deleted. Once you receive the notification on the screen that your gateway has been deleted, you can create a new gateway.
+
+1. **Create a new VPN gateway.**
+
+    Use the procedure at the top of the page to create a new gateway: [Create a VPN gateway](#create-a-vpn-gateway).
+
+
+## <a name="next-steps"></a>Next steps
+
+You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-windows-classic-createportal.md).
+
+If you want to configure a point-to-site VPN connection, see [Configure a point-to-site VPN connection](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

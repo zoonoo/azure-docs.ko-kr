@@ -1,30 +1,31 @@
 <properties
-	pageTitle="SQL Server 스트레치 데이터베이스 서비스에 대한 모든 항목 | Microsoft Azure"
-	description="http://azure.microsoft.com/documentation/articles/에 있는 SQL Server 스트레치 데이터베이스라는 Azure 서비스에 대한 모든 항목, 제목 및 설명에 대한 표입니다."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="DouglasL"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="SQL Server 스트레치 데이터베이스 서비스에 대한 모든 항목 | Microsoft Azure"
+    description="http://azure.microsoft.com/documentation/articles/에 있는 SQL Server 스트레치 데이터베이스라는 Azure 서비스에 대한 모든 항목, 제목 및 설명에 대한 표입니다."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="DouglasL"
+    manager="jhubbard"
+    editor="MightyPen"/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="sql-server-stretch-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2016"
-	ms.author="DouglasL"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="sql-server-stretch-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/05/2016"
+    ms.author="DouglasL"/>
 
 
-# Azure SQL Server 스트레치 데이터베이스 서비스에 대한 모든 토픽
+
+# <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Azure SQL Server 스트레치 데이터베이스 서비스에 대한 모든 토픽
 
 이 토픽에서는 Azure의 **SQL Server 스트레치 데이터베이스** 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.
 
 
 
 
-## 시작
+## <a name="get-started"></a>시작
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -35,7 +36,7 @@
 
 
 
-## 사용
+## <a name="enable"></a>사용
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -45,7 +46,7 @@
 
 
 
-## 관리
+## <a name="manage"></a>관리
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -56,7 +57,7 @@
 
 
 
-## 보안
+## <a name="security"></a>보안
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -65,11 +66,16 @@
 
 
 
-## 백업 및 복구
+## <a name="backup-and-recovery"></a>백업 및 복구
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
 | 14 | [스트레치 지원 데이터베이스 백업](sql-server-stretch-database-backup.md) | 스트레치 지원 데이터베이스를 백업하는 방법을 알아봅니다. |
 | 15 | [스트레치 지원 데이터베이스 복원](sql-server-stretch-database-restore.md) | 스트레치 지원 데이터베이스를 복원하는 방법을 알아봅니다. |
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

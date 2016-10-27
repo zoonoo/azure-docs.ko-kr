@@ -1,84 +1,85 @@
 <properties
-	pageTitle="SQL 메모리 내, 시작 | Microsoft Azure"
-	description="SQL 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다. 이러한 기술을 활용하는 방법을 알아봅니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="jodebrui"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="SQL In-Memory, Get started | Microsoft Azure"
+    description="SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies."
+    services="sql-database"
+    documentationCenter=""
+    authors="jodebrui"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="jodebrui"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="jodebrui"/>
 
 
-# SQL 데이터베이스에서 메모리 내 시작(미리 보기)
 
-메모리 내 기술은 합당한 상황에서 트랜잭션 및 분석 워크로드의 성능을 크게 향상시킵니다.
+# <a name="get-started-with-in-memory-(preview)-in-sql-database"></a>Get started with In-Memory (Preview) in SQL Database
 
-이 문서는 두 가지 데모 즉, 메모리 내 OLTP에 대한 데모와 메모리 내 분석에 대한 데모를 강조합니다. 각 데모에는 데모 실행에 필요한 단계와 코드가 완비되어 있습니다. 다음 중 하나가 가능합니다.
+In-Memory features greatly improve the performance of transactional and analytics workloads in the right situations.
 
-- 코드를 사용하여 성능 결과의 차이를 보기 위한 변형을 테스트하거나
-- 코드를 읽어서 시나리오를 이해하고 메모리 내 개체를 만들어서 활용하는 방법을 알아봅니다.
+This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In-Memory Analytics. Each demo comes complete with the steps and code you would need to run the demo. You can either:
+
+- Use the code to test variations to see differences in performance results; or
+- Read the code to understand the scenario, and to see how to create and utilize the In-Memory objects.
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
-- 시작하는 데 도움이 되는 또 하나의 문서로 [빠른 시작 1: 더 빠른 T-SQL 성능에 대한 메모리 내 OLTP 기술](http://msdn.microsoft.com/library/mt694156.aspx)을 참조하세요.
+- [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) - is another article to help you get started.
 
-#### 메모리 내 OLTP
+#### <a name="in-memory-oltp"></a>In-Memory OLTP
 
-메모리 내 [OLTP](#install_oltp_manuallink)(온라인 트랜잭션 프로세스)의 기능:
+The features of In-Memory [OLTP](#install_oltp_manuallink) (online transaction processing) are:
 
-- 메모리 최적화된 테이블.
-- 고유하게 컴파일된 저장 프로시저.
-
-
-메모리 액세스에 최적화된 테이블에는 하드 드라이브에 있는 표준 표현 외에도 활성 메모리에 하나의 표현이 있습니다. 테이블에 대한 비즈니스 트랜잭션은 활성 메모리에 있는 표현과만 직접적으로 상호 작용하기 때문에 더 빨리 수행됩니다.
-
-메모리 내 OLTP를 사용하면 워크로드의 고유 정보에 따라서, 트랜잭션 처리량을 최대 30배까지 높일 수 있습니다.
+- Memory-optimized tables.
+- Natively compiled stored procedures.
 
 
-고유하게 컴파일된 저장 프로시저는 이전 방식으로 해석되는 저장 프로시저보다 런타임 중에 컴퓨터 명령이 덜 필요합니다. 네이티브 컴파일 결과의 시간이 해석되는 시간의 100분의 1인 경우를 보았습니다.
+A memory-optimized table has one representation of itself in active memory, in addition to the standard representation on a hard drive. Business transactions against the table run faster because they directly interact with only the representation that is in active memory.
+
+With In-Memory OLTP, you can achieve up to 30 times gain in transaction throughput, depending on the specifics of the workload.
 
 
-#### 메모리 내 분석 
-
-메모리 내 [분석](#install_analytics_manuallink)의 기능:
-
-Columnstore 인덱스는 분석 및 보고 쿼리의 성능을 향상시킵니다.
+Natively compiled stored procedures require fewer machine instructions during run time than traditional interpreted stored procedures. We have seen native compilation result in durations that are 1/100th of the interpreted duration.
 
 
-#### 실시간 분석
+#### <a name="in-memory-analytics"></a>In-Memory Analytics 
 
-[실시간 분석](http://msdn.microsoft.com/library/dn817827.aspx)의 경우, 다음을 위해 메모리 내 OLTP와 분석을 결합합니다.
+The feature of In-Memory [Analytics](#install_analytics_manuallink) is:
 
-- 운영 데이터 기반 실시간 비즈니스 통찰력.
-
-
-#### Availability
+Columnstore indexes improve the performance of analytics and reporting queries. 
 
 
-GA, 일반 공급:
+#### <a name="real-time-analytics"></a>Real-Time Analytics
 
-- *디스크에 있는* [columnstore 인덱스](http://msdn.microsoft.com/library/dn817827.aspx).
+For [Real-Time Analytics](http://msdn.microsoft.com/library/dn817827.aspx) you combine In-Memory OLTP and Analytics to get:
 
-
-미리 보기:
-
-- 메모리 내 OLTP
-- 실시간 운영 분석
+- Real-time business insight based on operational data.
 
 
-메모리 내 기능이 미리 보기일 때 고려해야 할 사항은 [이 문서의 뒷부분](#preview_considerations_for_in_memory)에 설명되어 있습니다.
+#### <a name="availability"></a>Availability
 
 
-> [AZURE.NOTE] 미리 보기 기능은 표준 또는 기본 서비스 계층의 데이터베이스에는 제공되지 않고, [*프리미엄*](sql-database-service-tiers.md) Azure SQL 데이터베이스에만 제공됩니다.
+GA, General Availability:
+
+- [Columnstore indexes](http://msdn.microsoft.com/library/dn817827.aspx) that are *on-disk*.
+
+
+Preview:
+
+- In-Memory OLTP
+- Real-Time Operational Analytics
+
+
+Considerations while the In-Memory features are in Preview are described [later in this topic](#preview_considerations_for_in_memory).
+
+
+> [AZURE.NOTE] These in-Preview features are available only for [*Premium*](sql-database-service-tiers.md) Azure SQL databases, not for databases on the Standard or Basic service tier.
 
 
 
@@ -86,40 +87,40 @@ GA, 일반 공급:
 
 &nbsp;
 
-## A. 메모리 내 OLTP 샘플 설치
+## <a name="a.-install-the-in-memory-oltp-sample"></a>A. Install the In-Memory OLTP sample
 
-[Azure 포털](https://portal.azure.com/)에서 몇 번만 클릭하면 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 AdventureWorksLT 데이터베이스를 보강할 수는 방법을 설명합니다.
+You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure portal](https://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
 
-- 메모리 내 테이블.
-- 고유하게 컴파일된 저장 프로시저.
+- In-Memory tables.
+- A natively compiled stored procedure.
 
 
-#### 설치 단계
+#### <a name="installation-steps"></a>Installation steps
 
-1. [Azure 포털](https://portal.azure.com/)에서 V12 서버의 Premium 데이터베이스를 만듭니다. AdventureWorksLT [V12] 샘플 데이터베이스에 **소스**를 설정합니다.
- - 자세한 지침은 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
+ - For detailed instructions, you can see [Create your first Azure SQL database](sql-database-get-started.md).
 
-2. SQL Server Management Studio[(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
+2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql)를 클립보드에 복사합니다.
- - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
+3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard.
+ - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다.
- - 다음과 같은 `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다.
+4. Paste the T-SQL script into SSMS, and then execute the script.
+ - Crucial is the `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements, as in:
 
 
 ```
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
-	[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
-	...
+    [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
+    ...
 ) WITH (MEMORY_OPTIMIZED = ON);
 ```
 
 
-#### 오류 40536
+#### <a name="error-40536"></a>Error 40536
 
 
-T-SQL 스크립트를 실행할 때 오류 40536을 받게 되면 다음 T-SQL 스크립트를 실행하여 데이터베이스에서 메모리를 지원하는지 여부를 확인합니다.
+If you get error 40536 when you run the T-SQL script, run the following T-SQL script to verify whether the database supports In-Memory:
 
 
 ```
@@ -127,120 +128,120 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
 
-결과 **0**은 메모리 내가 지원되지 않음을 나타내고 1은 지원됨을 나타냅니다. 문제를 진단하려면:
+A result of **0** means In-Memory is not supported, and 1 means it is supported. To diagnose the problem:
 
-- 데이터베이스가 메모리 내 OLTP 기능이 미리 보기에서 활성이 된 후에 생성되었는지 확인합니다.
-- 데이터베이스가 프리미엄 서비스 계층에 있는지 확인합니다.
+- Ensure the database was created after the In-Memory OLTP features became active for Preview.
+- Ensure the database is at the Premium service tier.
 
 
-#### 생성된 메모리 최적화된 항목에 대한 정보
+#### <a name="about-the-created-memory-optimized-items"></a>About the created memory-optimized items
 
-**테이블**: 샘플은 다음과 같은 메모리 액세스에 최적화된 테이블을 포함합니다.
+**Tables**: The sample contains the following memory-optimized tables:
 
-- SalesLT.Product\_inmem
-- SalesLT.SalesOrderHeader\_inmem
-- SalesLT.SalesOrderDetail\_inmem
+- SalesLT.Product_inmem
+- SalesLT.SalesOrderHeader_inmem
+- SalesLT.SalesOrderDetail_inmem
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
 
-다음으로 SSMS의 **개체 탐색기**를 통해 메모리 액세스에 최적화된 테이블을 검사할 수 있습니다.
+You can inspect memory-optimized tables through the **Object Explorer** in SSMS by:
 
-- 마우스 오른쪽 단추로 **테이블** > **필터** > **필터 설정** > **메모리 액세스에 최적화된**을 클릭하면 1과 같습니다.
+- Right-click **Tables** > **Filter** > **Filter Settings** > **Is Memory Optimized** equals 1.
 
 
-또는 다음과 같은 카탈로그 뷰를 쿼리할 수 있습니다.
+Or you can query the catalog views such as:
 
 
 ```
 SELECT is_memory_optimized, name, type_desc, durability_desc
-	FROM sys.tables
-	WHERE is_memory_optimized = 1;
+    FROM sys.tables
+    WHERE is_memory_optimized = 1;
 ```
 
 
-**고유하게 컴파일된 저장 프로시저**: SalesLT.usp\_InsertSalesOrder\_inmem는 카탈로그 뷰 쿼리를 통해 검사할 수 있습니다.
+**Natively compiled stored procedure**: SalesLT.usp_InsertSalesOrder_inmem can be inspected through a catalog view query:
 
 
 ```
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
-	FROM sys.sql_modules
-	WHERE uses_native_compilation = 1;
+    FROM sys.sql_modules
+    WHERE uses_native_compilation = 1;
 ```
 
 
 &nbsp;
 
-## 샘플 OLTP 워크로드 실행
+## <a name="run-the-sample-oltp-workload"></a>Run the sample OLTP workload
 
-다음 두 *저장 프로시저* 간의 유일한 차이점은 첫 번째 절차는 메모리 액세스에 최적화된 테이블 버전을 사용하는 반면 두 번째 절차에서는 일반 디스크상의 테이블을 사용한다는 점입니다.
+The only difference between the following two *stored procedures* is that the first procedure uses memory-optimized versions of the tables, while the second procedure uses the regular on-disk tables:
 
-- SalesLT**.**usp\_InsertSalesOrder**\_inmem**
-- SalesLT**.**usp\_InsertSalesOrder**\_ondisk**
-
-
-이 섹션에는 편리한 **ostress.exe** 유틸리티를 사용하여 스트레스 수준에서 두 저장된 프로시저를 실행하는 방법을 살펴봅니다. 두 스트레스가 실행 완료하는 데 걸리는 시간을 비교할 수 있습니다.
+- SalesLT**.**usp_InsertSalesOrder**_inmem**
+- SalesLT**.**usp_InsertSalesOrder**_ondisk**
 
 
-ostress.exe를 실행하는 경우 모두에게 설계된 매개 변수 값을 전달하는 것이 좋습니다.
-
-- -n100을 사용하여 많은 수의 동시 연결을 실행합니다.
-- -r500을 사용하여 각 연결 루프를 수백 번 가집니다.
+In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes the two stress runs to complete.
 
 
-그러나 모든 것이 작동하도록 -n10 및 -r50과 같은 훨씬 작은 값으로 시작하려고 할 수도 있습니다.
+When you run ostress.exe, we recommend that you pass parameter values designed to both:
+
+- Run a large number of concurrent connections, by using -n100.
+- Have each connection loop hundreds of times, by using -r500.
 
 
-### ostress.exe에 대한 스크립트
+However, you might want to start with much smaller values like -n10 and -r50 to ensure the everything is working.
 
 
-이 섹션에서는 ostress.exe 명령줄에 포함된 T-SQL 스크립트를 표시합니다. 스크립트는 이전에 설치한 T-SQL 스크립트에 의해 생성된 항목을 사용합니다.
+### <a name="script-for-ostress.exe"></a>Script for ostress.exe
 
 
-다음 스크립트는 다음과 같은 메모리 액세스에 최적화된 *테이블*에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
+This section displays the T-SQL script that is embedded in our ostress.exe command line. The script uses items that were created by the T-SQL script you installed earlier.
 
-- SalesLT.SalesOrderHeader\_inmem
-- SalesLT.SalesOrderDetail\_inmem
+
+The following script inserts a sample sales order with five line items into the following memory-optimized *tables*:
+
+- SalesLT.SalesOrderHeader_inmem
+- SalesLT.SalesOrderDetail_inmem
 
 
 ```
 DECLARE
-	@i int = 0,
-	@od SalesLT.SalesOrderDetailType_inmem,
-	@SalesOrderID int,
-	@DueDate datetime2 = sysdatetime(),
-	@CustomerID int = rand() * 8000,
-	@BillToAddressID int = rand() * 10000,
-	@ShipToAddressID int = rand() * 10000;
-	
+    @i int = 0,
+    @od SalesLT.SalesOrderDetailType_inmem,
+    @SalesOrderID int,
+    @DueDate datetime2 = sysdatetime(),
+    @CustomerID int = rand() * 8000,
+    @BillToAddressID int = rand() * 10000,
+    @ShipToAddressID int = rand() * 10000;
+    
 INSERT INTO @od
-	SELECT OrderQty, ProductID
-	FROM Demo.DemoSalesOrderDetailSeed
-	WHERE OrderID= cast((rand()*60) as int);
-	
+    SELECT OrderQty, ProductID
+    FROM Demo.DemoSalesOrderDetailSeed
+    WHERE OrderID= cast((rand()*60) as int);
+    
 WHILE (@i < 20)
 begin;
-	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
-		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
-	SET @i = @i + 1;
+    EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
+        @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+    SET @i = @i + 1;
 end
 ```
 
 
-ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk* 로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
+To make the _ondisk version of the preceding T-SQL for ostress.exe, you would simply replace both occurrences of the *_inmem* substring with *_ondisk*. These replaces affect the names of tables and stored procedures.
 
 
-### RML 유틸리티 및 ostress 설치
+### <a name="install-rml-utilities-and-ostress"></a>Install RML utilities and ostress
 
 
-이상적으로 Azure VM에 ostress.exe를 실행합니다. AdventureWorksLT 데이터베이스가 있는 곳과 동일한 Azure 지리적 지역에 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)를 만듭니다. 하지만 대신 노트북에서 ostress.exe를 실행할 수 있습니다.
+Ideally you would plan to run ostress.exe on an Azure VM. You would create an [Azure Virtual Machine](https://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
 
 
-VM 또는 선택한 호스트에서 ostress.exe를 포함하는 RML(Replay Markup Language) 유틸리티를 설치합니다.
+On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities, which include ostress.exe.
 
-- [메모리 내 OLTP에 대한 샘플 데이터베이스](http://msdn.microsoft.com/library/mt465764.aspx)에서 ostress.exe 관련 내용을 참조하세요.
- - 또는 [메모리 내 OLTP에 대한 샘플 데이터베이스](http://msdn.microsoft.com/library/mt465764.aspx)를 참조하세요.
- - 또는 [ostress.exe 설치에 대한 블로그](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)를 참조하세요.
+- See the ostress.exe discussion in [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+ - Or see [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+ - Or see [Blog for installing ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
 
@@ -256,13 +257,13 @@ whereas for SQL 2016+
 
 
 
-### 먼저 \_inmem 스트레스 작업을 실행합니다.
+### <a name="run-the-_inmem-stress-workload-first"></a>Run the _inmem stress workload first
 
 
-*RML Cmd Prompt* 창을 사용하여 ostress.exe 명령줄을 실행할 수 있습니다. 명령줄 매개 변수는 ostress에게 다음을 명령합니다.
+You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command line parameters direct ostress to:
 
-- 동시에 100개의 연결(-n100)을 실행하도록 합니다.
-- 각 연결이 T-SQL 스크립트를 50회(-r50) 실행하도록 설정합니다.
+- Run 100 connections concurrently (-n100).
+- Have each connection run the T-SQL script 50 times (-r50).
 
 
 ```
@@ -270,50 +271,50 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 ```
 
 
-위의 ostress.exe 명령줄을 실행하려면:
+To run the preceding ostress.exe command line:
 
 
-1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스 데이터 콘텐츠를 다시 설정합니다.
+1. Reset the database data content by running the following command in SSMS, to delete all the data that was inserted by any previous runs:
 ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. 이전 ostress.exe 명령줄의 텍스트를 클립보드에 복사합니다.
+2. Copy the text of the preceding ostress.exe command line to your clipboard.
 
-3. 매개 변수-S -U -P -d에 대한 `<placeholders>`을(를) 올바른 실제 값으로 변경합니다.
+3. Replace the `<placeholders>` for the parameters -S -U -P -d with the correct real values.
 
-4. 편집한 명령줄을 RML Cmd 창에서 실행합니다.
-
-
-#### 결과는 기간입니다
+4. Run your edited command line in an RML Cmd window.
 
 
-ostress.exe가 완료되면 출력의 마지막 줄로 실행 기간을 RML Cmd 창에 작성합니다. 예를 들어 짧은 테스트 실행은 약 1.5분 동안 지속됩니다.
+#### <a name="result-is-a-duration"></a>Result is a duration
+
+
+When ostress.exe completes, it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### \_ondisk에 대해 다시 설정하고 편집한 다음 다시 실행
+#### <a name="reset,-edit-for-_ondisk,-then-rerun"></a>Reset, edit for _ondisk, then rerun
 
 
-\_Inmem 실행에서 결과를 얻은 후 \_indisk 실행에 대해 다음 단계를 수행합니다.
+After you have the result from the _inmem run, perform the following steps for the _ondisk run:
 
 
-1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다.
+1. Reset the database by running the following command in SSMS, to delete all the data that was inserted by the previous run:
 ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. ostress.exe 명령줄을 편집하여 모든 *\_inmem*을 *\_ondisk*로 대체합니다.
+2. Edit the ostress.exe command line to replace all *_inmem* with *_ondisk*.
 
-3. ostress.exe를 두 번째로 실행하고 기간 결과를 캡처합니다.
+3. Rerun ostress.exe for the second time, and capture the duration result.
 
-4. 양이 커질 수 있는 테스트 데이터를 확실히 제거하기 위해서 데이터베이스를 다시 설정합니다.
+4. Again reset the database, for responsible deletion of what can be a large amount of test data.
 
 
-#### 예상된 비교 결과
+#### <a name="expected-comparison-results"></a>Expected comparison results
 
-데이터베이스와 동일한 Azure 지역의 Azure VM에서 ostress를 실행하여, 이렇게 간단한 워크로드에 대해 메모리 내 테스트의 성능이 **9배** 향상되었습니다.
+Our In-Memory tests have shown a **9 times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
 
 
 
@@ -322,56 +323,56 @@ EXECUTE Demo.usp_DemoReset;
 &nbsp;
 
 
-## B. 메모리 내 분석 샘플 설치
+## <a name="b.-install-the-in-memory-analytics-sample"></a>B. Install the In-Memory Analytics sample
 
 
-이 섹션에서는 columnstore 인덱스와 전형적인 b-트리 인덱스를 사용하는 경우의 IO 및 통계 결과를 비교합니다.
+In this section, you compare the IO and Statistics results when using a columnstore index versus a traditional b-tree index.
 
 
-OLTP 작업의 실시간 분석의 경우 비클러스터형 columnstore 인덱스를 사용하는 것이 좋습니다. 자세한 내용은 [Columnstore Indexes Described](http://msdn.microsoft.com/library/gg492088.aspx)를 참조하세요.
+For real-time analytics on an OLTP workload, it is often best to use a NONclustered columnstore index. For details see [Columnstore Indexes Described](http://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
-### columnstore 분석 테스트 준비
+### <a name="prepare-the-columnstore-analytics-test"></a>Prepare the columnstore analytics test
 
 
-1. Azure 포털을 사용하여 샘플에서 새로운 AdventureWorksLT 데이터베이스를 만듭니다.
- - 정확한 이름을 사용합니다.
- - Premium 서비스 계층을 선택합니다.
+1. Use the Azure portal to create a fresh AdventureWorksLT database from the sample.
+ - Use that exact name.
+ - Choose any Premium service tier.
 
-2. [sql\_in memory\_analytics\_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql)을 클립보드에 복사합니다.
- - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
- - 스크립트는 차원 테이블과 두 개의 팩트 테이블을 만듭니다. 팩트 테이블은 각각 350만 개의 행으로 채워집니다.
- - 스크립트는 완료하는 데 15분 정도 걸릴 수 있습니다.
+2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
+ - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
+ - The script creates the Dimension table, and two fact tables. The fact tables are populated with 3.5 million rows each.
+ - The script might take 15 minutes to complete.
 
-3. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다.
- - 다음과 같은 **CREATE INDEX** 문의 **COLUMNSTORE** 키워드가 중요합니다.<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+3. Paste the T-SQL script into SSMS, and then execute the script.
+ - Crucial is the **COLUMNSTORE** keyword on a **CREATE INDEX** statement, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
-4. AdventureWorksLT를 호환성 수준 130으로 설정합니다.<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
- - 수준 130은 메모리 내 기능과 직접적으로 연관되지 않습니다. 하지만 수준 130은 일반적으로 120이 제공하는 것보다 빠른 쿼리 성능을 제공합니다.
-
-
-#### 중요한 테이블 및 columnstore 인덱스
+4. Set AdventureWorksLT to compatibility level 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+ - Level 130 is not directly related to In-Memory features. But level 130 generally provides faster query performance than does 120.
 
 
-- dbo.FactResellerSalesXL\_CCI는 클러스터형 **columnstore** 인덱스를 포함하는 테이블이고, 여기에는 *데이터* 수준의 고급 압축이 포함됩니다.
-
-- dbo.FactResellerSalesXL\_PageCompressed는 동등한 일반 클러스터형 인덱스를 가지며 *페이지* 수준에서만 압축된 테이블입니다.
+#### <a name="crucial-tables-and-columnstore-indexes"></a>Crucial tables and columnstore indexes
 
 
-#### columnstore 인덱스를 비교하는 중요한 쿼리
+- dbo.FactResellerSalesXL_CCI is a table that has a clustered **columnstore** index, which has advanced compression at the *data* level.
+
+- dbo.FactResellerSalesXL_PageCompressed is a table that has an equivalent regular clustered index, which is compressed only at the *page* level.
 
 
-[여기](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql)에 성능 향상을 확인하도록 실행할 수 있는 여러 유형의 T-SQL 쿼리가 있습니다. T-SQL 스크립트의 2단계에 직접 관심 있는 쿼리의 쌍이 있습니다. 두 쿼리는 한 줄에 대해서만 다릅니다.
+#### <a name="crucial-queries-to-compare-the-columnstore-index"></a>Crucial queries to compare the columnstore index
+
+
+[Here](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) are several T-SQL query types you can run to see performance improvements. From Step 2 in the T-SQL script, there is a pair of queries that are of direct interest. The two queries differ only on one line:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
 - `FROM FactResellerSalesXL_CCI a`
 
 
-클러스터형 columnstore 인덱스는 FactResellerSalesXL**\_CCI** 테이블에 있습니다.
+A clustered columnstore index is on the FactResellerSalesXL**_CCI** table.
 
-다음 T-SQL 스크립트 발췌는 각 테이블의 쿼리에 대한 IO 및 TIME에 대한 통계를 출력합니다.
+The following T-SQL script excerpt prints statistics for IO and TIME for the query of each table.
 
 
 ```
@@ -391,20 +392,20 @@ SET STATISTICS TIME ON
 GO
 
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_PageCompressed a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
 Inner JOIN DimProductSubCategory e on e.ProductSubcategoryKey = b.ProductSubcategoryKey
 INNER JOIN DimDate c ON c.DateKey = a.OrderDateKey
 WHERE e.ProductCategoryKey =2
-	AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
+    AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
 GROUP BY e.ProductCategoryKey,c.Year,d.CustomerKey,d.FirstName,d.LastName
 GO
 SET STATISTICS IO OFF
@@ -418,20 +419,20 @@ SET STATISTICS IO ON
 SET STATISTICS TIME ON
 GO
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_CCI a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
 Inner JOIN DimProductSubCategory e on e.ProductSubcategoryKey = b.ProductSubcategoryKey
 INNER JOIN DimDate c ON c.DateKey = a.OrderDateKey
 WHERE e.ProductCategoryKey =2
-	AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
+    AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
 GROUP BY e.ProductCategoryKey,c.Year,d.CustomerKey,d.FirstName,d.LastName
 GO
 
@@ -445,87 +446,92 @@ GO
 <a id="preview_considerations_for_in_memory" name="preview_considerations_for_in_memory"></a>
 
 
-## 메모리 내 OLTP에 대한 미리 보기 고려 사항
+## <a name="preview-considerations-for-in-memory-oltp"></a>Preview considerations for In-Memory OLTP
 
 
-Azure SQL 데이터베이스의 메모리 내 OLTP 기능은 [2015년 10월 28일에 미리 보기에 대해 활성화](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/)되었습니다.
+The In-Memory OLTP features in Azure SQL Database became [active for preview on October 28, 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
-현재 미리 보기에서 메모리 내 OLTP는 다음에 대해서만 지원됩니다.
+In the current preview, In-Memory OLTP is supported only for:
 
-- *프리미엄* 서비스 계층에 있는 데이터베이스.
+- Databases that are at a *Premium* service tier.
 
-- 메모리 내 OLTP 기능이 활성화된 후 만들어진 데이터베이스.
- - 메모리 내 OLTP 기능이 활성화되기 전에 생성된 데이터베이스에서 복원된 새 데이터베이스는 메모리 내 OLTP를 지원할 수 없습니다.
+- Databases that were created after the In-Memory OLTP features became active.
+ - A new database cannot support In-Memory OLTP if it is restored from a database that was created before the In-Memory OLTP features became active.
 
 
-확실하지 않은 경우 다음 T-SQL SELECT를 실행하여 데이터베이스에서 메모리 내 OLTP를 지원하는지를 확인할 수 있습니다. 결과 **1**은 데이터베이스에서 메모리 내 OLTP 기능을 지원함을 의미합니다.
+When in doubt, you can always run the following T-SQL SELECT to ascertain whether your database supports In-Memory OLTP. A result of **1** means the database does support In-Memory OLTP:
 
 ```
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
 
-쿼리가 **1**을 반환하는 경우 메모리 내 OLTP는 이 데이터베이스뿐만 아니라 이 데이터베이스를 기반으로 생성되는 모든 데이터베이스 복사 및 데이터베이스 복원에 지원됩니다.
+If the query returns **1**, In-Memory OLTP is supported in this database, and any database copy and database restore created based on this database.
 
 
-#### 프리미엄에서만 허용되는 개체
+#### <a name="objects-allowed-only-at-premium"></a>Objects allowed only at Premium
 
 
-데이터베이스가 다음과 같은 종류의 메모리 내 OLTP 개체 또는 형식을 포함하는 경우 데이터베이스의 서비스 계층을 프리미엄에서 기본 또는 표준으로 다운그레이드하는 작업은 지원되지 않습니다. 데이터베이스를 다운그레이드하려면 먼저 해당 개체를 삭제합니다.
+If a database contains any of the following kinds of In-Memory OLTP objects or types, downgrading the service tier of the database from Premium to either Basic or Standard is not supported. To downgrade the database, first drop these objects:
 
-- 메모리 최적화된 테이블
-- 메모리에 최적화된 테이블 형식
-- 고유하게 컴파일된 모듈
-
-
-#### 기타 관계
+- Memory-optimized tables
+- Memory-optimized table types
+- Natively compiled modules
 
 
-- 탄력적 풀의 데이터베이스로 메모리 내 OLTP 기능 사용은 미리 보기 중에 지원되지 않습니다.
- - 메모리 내 OLTP 개체가 있는 데이터베이스를 탄력적 풀로 이동하려면 다음 단계를 따르세요.
-  - 1. 메모리 액세스에 최적화된 테이블, 테이블 형식 및 데이터베이스의 고유하게 컴파일된 T-SQL 모듈을 삭제합니다.
-  - 2. 데이터베이스의 서비스 계층을 표준으로 변경합니다.
-  - 3. 데이터베이스를 탄력적 풀 내로 이동합니다.
-
-- SQL 데이터 웨어하우스와 함께 메모리 내 OLTP은 사용은 지원되지 않습니다.
- - 메모리 내 분석의 columnstore 인덱스 기능은 SQL 데이터 웨어하우스에서 지원됩니다.
-
-- 쿼리 저장소는 내부에서 고유하게 컴파일된 모듈을 쿼리하지 않습니다.
-
-- 일부 Transact-SQL 기능은 메모리 내 OLTP를 사용하여 지원되지 않습니다. 이는 Microsoft SQL Server와 Azure SQL 데이터베이스에 적용됩니다. 자세한 내용은 다음을 참조하세요.
- - [메모리 내 OLTP에 대한 Transact-SQL 지원](http://msdn.microsoft.com/library/dn133180.aspx)
- - [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx)
+#### <a name="other-relationships"></a>Other relationships
 
 
-## 다음 단계
+- Using In-Memory OLTP features with databases in elastic pools is not supported during Preview.
+ - To move a database that has or has had In-Memory OLTP objects to an elastic pool, follow these steps:
+  - 1. Drop any memory-optimized tables, table types, and natively compiled T-SQL modules in the database
+  - 2. Change the service tier of the database to standard
+  - 3. Move the database into the elastic pool
+
+- Using In-Memory OLTP with SQL Data Warehouse is not supported.
+ - The columnstore index feature of In-Memory Analytics is supported in SQL Data Warehouse.
+
+- The Query Store does not capture queries inside natively compiled modules.
+
+- Some Transact-SQL features are not supported with In-Memory OLTP. This applies to both Microsoft SQL Server and Azure SQL Database. For details, see:
+ - [Transact-SQL Support for In-Memory OLTP](http://msdn.microsoft.com/library/dn133180.aspx)
+ - [Transact-SQL Constructs Not Supported by In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx)
 
 
-- [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)을 시도합니다.
+## <a name="next-steps"></a>Next steps
 
 
-## 추가 리소스
+- Try [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 
-#### 자세한 정보
 
-- [Microsoft SQL Server와 Azure SQL 데이터베이스에 적용되는 메모리 내 OLTP에 대해 알아보기](http://msdn.microsoft.com/library/dn133186.aspx)
+## <a name="additional-resources"></a>Additional resources
 
-- [MSDN의 실시간 운영 성과 분석에 대해 알아보기](http://msdn.microsoft.com/library/dn817827.aspx)
+#### <a name="deeper-information"></a>Deeper information
 
-- [일반적인 워크로드 패턴 및 마이그레이션 고려 사항에 대한 백서](http://msdn.microsoft.com/library/dn673538.aspx)는 메모리 내 OLTP가 일반적으로 상당한 성능 향상을 제공하는 워크로드 패턴을 설명합니다.
+- [Learn about In-Memory OLTP, which applies to both Microsoft SQL Server and Azure SQL Database](http://msdn.microsoft.com/library/dn133186.aspx)
 
-#### 응용 프로그램 설계
+- [Learn about Real-Time Operational Analytics on MSDN](http://msdn.microsoft.com/library/dn817827.aspx)
 
-- [메모리 내 OLTP(메모리 내 최적화)](http://msdn.microsoft.com/library/dn133186.aspx)
+- White paper on [Common Workload Patterns and Migration Considerations](http://msdn.microsoft.com/library/dn673538.aspx), which describes workload patterns where In-Memory OLTP commonly provides significant performance gains.
 
-- [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용.](sql-database-in-memory-oltp-migration.md)
+#### <a name="application-design"></a>Application design
 
-#### 도구
+- [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
 
-- 월별 최신 버전에 대한 [SQL Server Data Tools 미리 보기(SSDT)](http://msdn.microsoft.com/library/mt204009.aspx).
+- [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 
-- [SQL 서버에 대한 RML(Replay Markup Language) 유틸리티의 설명](http://support.microsoft.com/ko-KR/kb/944837)
+#### <a name="tools"></a>Tools
 
-- 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
+- [SQL Server Data Tools Preview (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx), for the latest monthly version.
 
-<!---HONumber=AcomDC_0831_2016-->
+- [Description of the Replay Markup Language (RML) Utilities for SQL Server](http://support.microsoft.com/en-us/kb/944837)
+
+- [Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

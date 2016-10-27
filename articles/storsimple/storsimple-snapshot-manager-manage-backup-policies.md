@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자 백업 정책 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 예약된 백업을 제어하는 백업 정책을 만들고 관리하는 방법을 설명합니다."
+   pageTitle="StorSimple Snapshot Manager backup policies | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage the backup policies that control scheduled backups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,109 +15,114 @@
    ms.date="05/12/2016"
    ms.author="v-sharos" />
 
-# StorSimple 스냅숏 관리자를 사용하여 백업 정책 만들기 및 관리
 
-## 개요
+# <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use StorSimple Snapshot Manager to create and manage backup policies
 
-백업 정책은 로컬로 또는 클라우드에 볼륨 데이터를 백업하기 위한 일정을 만듭니다. 백업 정책을 만들 때 보존 정책을 지정할 수도 있습니다. (최대 64개의 스냅숏을 유지할 수 있습니다.) 백업 정책에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 솔루션](storsimple-overview.md)에서 [백업 형식](storsimple-what-is-snapshot-manager.md#backup-type)을 참조하세요.
+## <a name="overview"></a>Overview
 
-이 자습서에서는 다음을 수행하는 방법을 설명합니다.
+A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types](storsimple-what-is-snapshot-manager.md#backup-type) in [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).
 
-- 백업 정책 만들기 
-- 백업 정책 편집 
-- 백업 정책 삭제 
+This tutorial explains how to:
 
-## 백업 정책 만들기
+- Create a backup policy 
+- Edit a backup policy 
+- Delete a backup policy 
 
-다음 절차에 따라 새 백업 정책을 만듭니다.
+## <a name="create-a-backup-policy"></a>Create a backup policy
 
-#### 백업 정책을 만들려면
+Use the following procedure to create a new backup policy.
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+#### <a name="to-create-a-backup-policy"></a>To create a backup policy
 
-2. **범위** 창에서 **백업 정책**을 마우스 오른쪽 단추로 클릭하고 **백업 정책 만들기**를 클릭합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-    ![백업 정책 만들기](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
+2. In the **Scope** pane, right-click **Backup Policies**, and click **Create Backup Policy**.
 
-    **정책 만들기**대화 상자가 나타납니다.
+    ![Create a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    ![정책 만들기 - 일반 탭](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
+    The **Create a Policy** dialog box appears. 
 
-3. **일반** 탭에서 다음 정보를 입력합니다.
+    ![Create a Policy - General tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
 
-   1. **이름** 텍스트 상자에 정책 이름을 입력합니다.
+3. On the **General** tab, complete the following information:
 
-   2. **볼륨 그룹** 텍스트 상자에 정책과 연결된 볼륨 그룹의 이름을 입력합니다.
+   1. In the **Name** text box, type a name for the policy.
 
-   3. **로컬 스냅숏** 또는 **클라우드 스냅숏** 중 하나를 선택합니다.
+   2. In the **Volume group** text box, type the name of the volume group associated with the policy.
 
-   4. 보존할 스냅숏 수를 선택합니다. **모두**를 선택하면 64개의 스냅숏이 보존됩니다(최대값).
+   3. Select either **Local Snapshot** or **Cloud Snapshot**.
 
-4. **일정** 탭을 클릭합니다.
+   4. Select the number of snapshots to retain. If you select **All**, 64 snapshots will be retained (the maximum). 
 
-    ![정책 만들기 - 일정 탭](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
+4. Click the **Schedule** tab.
 
-5. **일정** 탭에서 다음 정보를 입력합니다.
+    ![Create a Policy - Schedule tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
 
-   1. **사용** 확인란을 클릭하여 다음 백업 일정을 정합니다.
+5. On the **Schedule** tab, complete the following information: 
 
-   2. **설정** 아래에서 **한 번**, **매일**, **매주** 또는 **매월**을 선택합니다.
+   1. Click the **Enable** check box to schedule the next backup.
 
-   3. **시작** 텍스트 상자에서 달력 아이콘을 클릭하고 시작 날짜를 선택합니다.
+   2. Under **Settings**, select **One time**, **Daily**, **Weekly**, or **Monthly**. 
 
-   4. **고급 설정** 아래에서 선택적 반복 일정과 종료 날짜를 설정할 수 있습니다.
+   3. In the **Start** text box, click the calendar icon and select a start date.
 
-   5. **확인**을 클릭합니다.
+   4. Under **Advanced Settings**, you can set optional repeat schedules and an end date.
 
-백업 정책을 만든 후 **결과** 창에 다음 정보가 나타납니다.
+   5. Click **OK**.
 
-- **이름** – 백업 정책의 이름
+After you create a backup policy, the following information appears in the **Results** pane:
 
-- **유형** – 로컬 스냅숏 또는 클라우드 스냅숏
+- **Name** – the name of backup policy.
 
-- **볼륨 그룹** – 정책과 연결된 볼륨 그룹
+- **Type** – local snapshot or cloud snapshot.
 
-- **보존** - 보존되는 스냅숏 개수로, 최대 64개
+- **Volume Group** – the volume group associated with the policy.
 
-- **만든 날짜** - 이 정책을 만든 날짜
+- **Retention** – the number of snapshots retained; the maximum is 64.
 
-- **사용** - 정책이 현재 적용되는지 여부. **True**는 적용되고 있음을 나타냅니다. **False**는 적용되지 않음을 나타냅니다.
+- **Created** – the date that this policy was created.
 
-## 백업 정책 편집
+- **Enabled** – whether the policy is currently in effect: **True** indicates that it is in effect; **False** indicates that it is not in effect. 
 
-다음 절차에 따라 기존 백업 정책을 편집합니다.
+## <a name="edit-a-backup-policy"></a>Edit a backup policy
 
-#### 백업 정책을 편집하려면
+Use the following procedure to edit an existing backup policy.
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
+#### <a name="to-edit-a-backup-policy"></a>To edit a backup policy
 
-2. **범위** 창에서 **백업 정책** 노드를 클릭합니다. 모든 백업 정책이 **결과** 창에 나타납니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-3. 편집할 정책을 마우스 오른쪽 단추로 클릭하고 **편집**을 클릭합니다.
+2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
 
-    ![백업 정책 편집](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
+3. Right-click the policy that you want to edit, and then click **Edit**. 
 
-4. **정책 만들기** 창이 나타나면 변경 내용을 입력한 다음 **확인**을 클릭합니다.
+    ![Edit a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png) 
 
-## 백업 정책 삭제
+4. When the **Create a Policy** window appears, enter your changes, and then click **OK**. 
 
-다음 절차에 따라 백업 정책을 삭제합니다.
+## <a name="delete-a-backup-policy"></a>Delete a backup policy
 
-#### 백업 정책을 삭제하려면
+Use the following procedure to delete a backup policy.
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
+#### <a name="to-delete-a-backup-policy"></a>To delete a backup policy
 
-2. **범위** 창에서 **백업 정책** 노드를 클릭합니다. 모든 백업 정책이 **결과** 창에 나타납니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-3. 삭제할 백업 정책을 마우스 오른쪽 단추로 클릭하고 **삭제**를 클릭합니다.
+2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
 
-4. 확인 메시지가 나타나면 **예**를 클릭합니다.
+3. Right-click the backup policy that you want to delete, and then click **Delete**.
 
-    ![백업 정책 삭제 확인](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
+4. When the confirmation message appears, click **Yes**.
 
-## 다음 단계
+    ![Delete backup policy confirmation](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
-- [StorSimple 스냅숏 관리자를 사용하여 백업 작업을 보고 관리](storsimple-snapshot-manager-manage-backup-jobs.md)하는 방법을 알아봅니다.
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0518_2016-->
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

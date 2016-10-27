@@ -1,10 +1,10 @@
 <properties
 pageTitle="Outlook.com | Microsoft Azure"
-description="Azure 앱 서비스로 논리 앱을 만듭니다. Outlook.com 커넥터를 사용하면 메일, 일정 및 연락처를 관리할 수 있습니다. 메일 보내기, 모임 예약, 연락처 추가 등 다양한 작업을 수행할 수 있습니다."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,895 +17,899 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Outlook.com 커넥터 시작
 
-Outlook.com 커넥터를 사용하면 메일, 일정 및 연락처를 관리할 수 있습니다. 메일 보내기, 모임 예약, 연락처 추가 등 다양한 작업을 수행할 수 있습니다.
+# <a name="get-started-with-the-outlook.com-connector"></a>Get started with the Outlook.com connector
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc.
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## 트리거 및 작업
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Outlook.com 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- Outlook.com 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
+The Outlook.com connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### Outlook.com 작업
-다음 작업을 수행할 수 있습니다.
+ The Outlook.com connector has the following action(s) and/or trigger(s) available:
 
-|작업|설명|
+### <a name="outlook.com-actions"></a>Outlook.com actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|[GetEmails](connectors-create-api-outlook.md#GetEmails)|폴더에서 전자 메일 검색|
-|[SendEmail](connectors-create-api-outlook.md#SendEmail)|전자 메일 전송|
-|[DeleteEmail](connectors-create-api-outlook.md#DeleteEmail)|ID별 전자 메일 삭제|
-|[MarkAsRead](connectors-create-api-outlook.md#MarkAsRead)|전자 메일을 읽은 것으로 표시|
-|[ReplyTo](connectors-create-api-outlook.md#ReplyTo)|전자 메일에 회신|
-|[GetAttachment](connectors-create-api-outlook.md#GetAttachment)|ID별로 전자 메일 첨부 파일 검색|
-|[SendMailWithOptions](connectors-create-api-outlook.md#SendMailWithOptions)|여러 옵션이 포함된 메일 전송 및 받는 사람이 옵션 중 하나로 다시 응답하기를 대기|
-|[SendApprovalMail](connectors-create-api-outlook.md#SendApprovalMail)|승인 메일을 보내고 받는 사람으로부터 응답 대기|
-|[CalendarGetTables](connectors-create-api-outlook.md#CalendarGetTables)|일정 검색|
-|[CalendarGetItems](connectors-create-api-outlook.md#CalendarGetItems)|일정에서 항목 검색|
-|[CalendarPostItem](connectors-create-api-outlook.md#CalendarPostItem)|새 이벤트 만들기|
-|[CalendarGetItem](connectors-create-api-outlook.md#CalendarGetItem)|일정에서 특정 항목 검색|
-|[CalendarDeleteItem](connectors-create-api-outlook.md#CalendarDeleteItem)|일정 항목 삭제|
-|[CalendarPatchItem](connectors-create-api-outlook.md#CalendarPatchItem)|일정 항목 부분적 업데이트|
-|[ContactGetTables](connectors-create-api-outlook.md#ContactGetTables)|연락처 폴더 검색|
-|[ContactGetItems](connectors-create-api-outlook.md#ContactGetItems)|연락처 폴더에서 연락처 검색|
-|[ContactPostItem](connectors-create-api-outlook.md#ContactPostItem)|새 연락처 만들기|
-|[ContactGetItem](connectors-create-api-outlook.md#ContactGetItem)|연락처 폴더에서 특정 연락처 검색|
-|[ContactDeleteItem](connectors-create-api-outlook.md#ContactDeleteItem)|연락처 삭제|
-|[ContactPatchItem](connectors-create-api-outlook.md#ContactPatchItem)|연락처 부분적 업데이트|
-### Outlook.com 트리거
-다음 이벤트를 수신할 수 있습니다.
+|[GetEmails](connectors-create-api-outlook.md#GetEmails)|Retrieves emails from a folder|
+|[SendEmail](connectors-create-api-outlook.md#SendEmail)|Sends an email|
+|[DeleteEmail](connectors-create-api-outlook.md#DeleteEmail)|Deletes an email by id|
+|[MarkAsRead](connectors-create-api-outlook.md#MarkAsRead)|Marks an email as having been read|
+|[ReplyTo](connectors-create-api-outlook.md#ReplyTo)|Replies to an email|
+|[GetAttachment](connectors-create-api-outlook.md#GetAttachment)|Retrieves email attachment by id|
+|[SendMailWithOptions](connectors-create-api-outlook.md#SendMailWithOptions)|Send an email with multiple options and wait for the recipient to respond back with one of the options|
+|[SendApprovalMail](connectors-create-api-outlook.md#SendApprovalMail)|Send an approval email and wait for a response from the recipient|
+|[CalendarGetTables](connectors-create-api-outlook.md#CalendarGetTables)|Retrieves calendars|
+|[CalendarGetItems](connectors-create-api-outlook.md#CalendarGetItems)|Retrieves items from a calendar|
+|[CalendarPostItem](connectors-create-api-outlook.md#CalendarPostItem)|Creates a new event|
+|[CalendarGetItem](connectors-create-api-outlook.md#CalendarGetItem)|Retrieves a specific item from a calendar|
+|[CalendarDeleteItem](connectors-create-api-outlook.md#CalendarDeleteItem)|Deletes a calendar item|
+|[CalendarPatchItem](connectors-create-api-outlook.md#CalendarPatchItem)|Partially updates a calendar item|
+|[ContactGetTables](connectors-create-api-outlook.md#ContactGetTables)|Retrieves contacts folders|
+|[ContactGetItems](connectors-create-api-outlook.md#ContactGetItems)|Retrieves contacts from a contacts folder|
+|[ContactPostItem](connectors-create-api-outlook.md#ContactPostItem)|Creates a new contact|
+|[ContactGetItem](connectors-create-api-outlook.md#ContactGetItem)|Retrieves a specific contact from a contacts folder|
+|[ContactDeleteItem](connectors-create-api-outlook.md#ContactDeleteItem)|Deletes a contact|
+|[ContactPatchItem](connectors-create-api-outlook.md#ContactPatchItem)|Partially updates a contact|
+### <a name="outlook.com-triggers"></a>Outlook.com triggers
+You can listen for these event(s):
 
-|트리거 | 설명|
+|Trigger | Description|
 |--- | ---|
-|곧 시작되는 이벤트|예정된 일정 이벤트를 시작할 때 흐름 트리거|
-|새 전자 메일에|새 전자 메일이 도착했을 때 흐름 트리거|
-|새 항목에|새 일정 항목이 만들어질 때 트리거됨|
-|업데이트된 항목에|일정 항목이 수정될 때 트리거됨|
+|On event starting soon|Triggers a flow when an upcoming calendar event is starting|
+|On new email|Triggers a flow when a new email arrives|
+|On new items|Triggered when a new calendar item is created|
+|On updated items|Triggered when a calendar item is modified|
 
 
-## Outlook.com에 대한 연결 만들기
-Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다.
+## <a name="create-a-connection-to-outlook.com"></a>Create a connection to Outlook.com
+To create Logic apps with Outlook.com, you must first create a **connection** then provide the details for the following properties: 
 
-|속성| 필수|설명|
+|Property| Required|Description|
 | ---|---|---|
-|위임|예|Outlook.com 자격 증명 제공|
-연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
+|Token|Yes|Provide Outlook.com Credentials|
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
->[AZURE.INCLUDE [Outlook.com에 대한 연결을 만드는 단계](../../includes/connectors-create-api-outlook.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)] 
 
->[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
+>[AZURE.TIP] You can use this connection in other logic apps.  
 
-## Outlook.com에 대한 참조
-적용 버전: 1.0
+## <a name="reference-for-outlook.com"></a>Reference for Outlook.com
+Applies to version: 1.0
 
-## OnUpcomingEvents
-곧 시작되는 이벤트: 예정된 일정 이벤트를 시작할 때 흐름을 트리거합니다.
+## <a name="onupcomingevents"></a>OnUpcomingEvents
+On event starting soon: Triggers a flow when an upcoming calendar event is starting 
 
-```GET: /Events/OnUpcomingEvents```
+```GET: /Events/OnUpcomingEvents``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|쿼리|없음|일정의 고유 식별자|
-|lookAheadTimeInMinutes|정수|no|쿼리|15|예정된 이벤트에 대해 조회할 시간(분)|
+|table|string|yes|query|none|Unique identifier of the calendar|
+|lookAheadTimeInMinutes|integer|no|query|15|Time (in minutes) to look ahead for upcoming events|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|202|작업이 성공했습니다.|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## GetEmails
-전자 메일 가져오기: 폴더에서 메일을 검색합니다.
+## <a name="getemails"></a>GetEmails
+Get emails: Retrieves emails from a folder 
 
-```GET: /Mail```
+```GET: /Mail``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|no|쿼리|받은 편지함|전자 메일을 검색하는 폴더의 경로(기본값: '받은 편지함')|
-|top|정수|no|쿼리|10|검색할 전자 메일의 수(기본값: 10)|
-|fetchOnlyUnread|부울|no|쿼리|true|읽지 않은 전자 메일만 검색할 수 있습니까?|
-|includeAttachments|부울|no|쿼리|false|true로 설정된 경우 첨부 파일도 전자 메일과 함께 검색됩니다.|
-|searchQuery|string|no|쿼리|없음|전자 메일을 필터링하려는 검색 쿼리|
-|skip|정수|no|쿼리|0|건너뛸 전자 메일의 수(기본값: 0)|
-|skipToken|string|no|쿼리|없음|새 페이지를 가져오는 토큰 건너뛰기|
+|folderPath|string|no|query|Inbox|Path of the folder to retrieve emails (default: 'Inbox')|
+|top|integer|no|query|10|Number of emails to retrieve (default: 10)|
+|fetchOnlyUnread|boolean|no|query|true|Retrieve only unread emails?|
+|includeAttachments|boolean|no|query|false|If set to true, attachments will also be retrieved along with the email|
+|searchQuery|string|no|query|none|Search query to filter emails|
+|skip|integer|no|query|0|Number of emails to skip (default: 0)|
+|skipToken|string|no|query|none|Skip token to fetch new page|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## SendEmail
-전자 메일 보내기: 전자 메일을 보냅니다.
+## <a name="sendemail"></a>SendEmail
+Send email: Sends an email 
 
-```POST: /Mail```
+```POST: /Mail``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|emailMessage| |yes|body|없음|Email|
+|emailMessage| |yes|body|none|Email|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## DeleteEmail
-전자 메일 삭제: ID별 전자 메일 삭제
+## <a name="deleteemail"></a>DeleteEmail
+Delete email: Deletes an email by id 
 
-```DELETE: /Mail/{messageId}```
+```DELETE: /Mail/{messageId}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|없음|삭제할 전자 메일의 ID|
+|messageId|string|yes|path|none|Id of the email to delete|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## MarkAsRead
-읽은 상태로 표시: 전자 메일을 읽은 것으로 표시합니다.
+## <a name="markasread"></a>MarkAsRead
+Mark as read: Marks an email as having been read 
 
-```POST: /Mail/MarkAsRead/{messageId}```
+```POST: /Mail/MarkAsRead/{messageId}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|없음|읽은 상태로 표시될 메시지의 ID|
+|messageId|string|yes|path|none|Id of the email to be marked as read|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## ReplyTo
-전자 메일에 회신: 전자 메일에 회신합니다.
+## <a name="replyto"></a>ReplyTo
+Reply to email: Replies to an email 
 
-```POST: /Mail/ReplyTo/{messageId}```
+```POST: /Mail/ReplyTo/{messageId}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|없음|회신할 전자 메일의 ID|
-|주석|string|yes|쿼리|없음|회신 주석|
-|replyAll|부울|no|쿼리|false|모든 받는 사람에게 회신|
+|messageId|string|yes|path|none|Id of the email to reply to|
+|comment|string|yes|query|none|Reply comment|
+|replyAll|boolean|no|query|false|Reply to all recipients|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## GetAttachment
-첨부 파일 가져오기: ID별로 전자 메일 첨부 파일을 검색합니다.
+## <a name="getattachment"></a>GetAttachment
+Get attachment: Retrieves email attachment by id 
 
-```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+```GET: /Mail/{messageId}/Attachments/{attachmentId}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|없음|전자 메일의 ID|
-|attachmentId|string|yes|path|없음|다운로드할 첨부 파일의 id|
+|messageId|string|yes|path|none|Id of the email|
+|attachmentId|string|yes|path|none|Id of the attachment to download|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## OnNewEmail
-새 전자 메일에: 새 메일이 도착했을 때 흐름을 트리거합니다.
+## <a name="onnewemail"></a>OnNewEmail
+On new email: Triggers a flow when a new email arrives 
 
-```GET: /Mail/OnNewEmail```
+```GET: /Mail/OnNewEmail``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|no|쿼리|받은 편지함|검색할 전자 메일 폴더(기본값: 받은 편지함)|
-|to|string|no|쿼리|없음|받는 사람 전자 메일 주소|
-|from|string|no|쿼리|없음|보낸 사람 주소|
-|중요도|string|no|쿼리|정상|전자 메일의 중요도(높음, 보통, 낮음) (기본값: 보통)|
-|fetchOnlyWithAttachment|부울|no|쿼리|false|첨부 파일이 있는 전자 메일만 검색|
-|includeAttachments|부울|no|쿼리|false|첨부 파일 포함|
-|subjectFilter|string|no|쿼리|없음|제목에서 찾을 문자열|
+|folderPath|string|no|query|Inbox|Email folder to retrieve (default: Inbox)|
+|to|string|no|query|none|Recipient email addresses|
+|from|string|no|query|none|From address|
+|importance|string|no|query|Normal|Importance of the email (High, Normal, Low) (default: Normal)|
+|fetchOnlyWithAttachment|boolean|no|query|false|Retrieve only emails with an attachment|
+|includeAttachments|boolean|no|query|false|Include attachments|
+|subjectFilter|string|no|query|none|String to look for in the subject|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|202|수락됨|
+|200|Operation was successful|
+|202|Accepted|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## SendMailWithOptions
-옵션을 사용하여 메일 전송: 여러 옵션이 포함된 메일을 보내고 받는 사람이 옵션 중 하나를 사용하여 다시 응답하기를 기다립니다.
+## <a name="sendmailwithoptions"></a>SendMailWithOptions
+Send email with options: Send an email with multiple options and wait for the recipient to respond back with one of the options 
 
-```POST: /mailwithoptions/$subscriptions```
+```POST: /mailwithoptions/$subscriptions``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|optionsEmailSubscription| |yes|body|없음|옵션에 대한 구독 요청 전자 메일|
+|optionsEmailSubscription| |yes|body|none|Subscription request for options email|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|201|구독 만들어짐|
+|200|OK|
+|201|Subscription Created|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## SendApprovalMail
-승인 전자 메일 보내기: 승인 메일을 보내고 받는 사람으로부터 응답을 기다립니다.
+## <a name="sendapprovalmail"></a>SendApprovalMail
+Send approval email: Send an approval email and wait for a response from the recipient 
 
-```POST: /approvalmail/$subscriptions```
+```POST: /approvalmail/$subscriptions``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|approvalEmailSubscription| |yes|body|없음|승인 전자 메일에 대한 구독 요청|
+|approvalEmailSubscription| |yes|body|none|Subscription request for approval email|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|201|구독 만들어짐|
+|200|OK|
+|201|Subscription Created|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## CalendarGetTables
-일정 가져오기: 일정을 검색합니다.
+## <a name="calendargettables"></a>CalendarGetTables
+Get calendars: Retrieves calendars 
 
-```GET: /datasets/calendars/tables```
+```GET: /datasets/calendars/tables``` 
 
-이 호출에 대한 매개 변수는 없습니다.
-#### 응답
+There are no parameters for this call
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## CalendarGetItems
-이벤트 가져오기: 일정에서 항목을 검색합니다.
+## <a name="calendargetitems"></a>CalendarGetItems
+Get events: Retrieves items from a calendar 
 
-```GET: /datasets/calendars/tables/{table}/items```
+```GET: /datasets/calendars/tables/{table}/items``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|검색할 일정의 고유 식별자|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
+|table|string|yes|path|none|Unique identifier of the calendar to retrieve|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## CalendarPostItem
-이벤트 만들기: 새 이벤트를 만듭니다.
+## <a name="calendarpostitem"></a>CalendarPostItem
+Create event: Creates a new event 
 
-```POST: /datasets/calendars/tables/{table}/items```
+```POST: /datasets/calendars/tables/{table}/items``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|일정의 고유 식별자|
-|항목| |yes|body|없음|만들 일정 항목|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|item| |yes|body|none|Calendar item to create|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## CalendarGetItem
-이벤트 가져오기: 일정에서 특정 항목을 검색합니다.
+## <a name="calendargetitem"></a>CalendarGetItem
+Get event: Retrieves a specific item from a calendar 
 
-```GET: /datasets/calendars/tables/{table}/items/{id}```
+```GET: /datasets/calendars/tables/{table}/items/{id}``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|일정의 고유 식별자|
-|id|string|yes|path|없음|검색할 일정 항목의 고유 식별자|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|id|string|yes|path|none|Unique identifier of a calendar item to retrieve|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## CalendarDeleteItem
-이벤트 삭제: 일정 항목을 삭제합니다.
+## <a name="calendardeleteitem"></a>CalendarDeleteItem
+Delete event: Deletes a calendar item 
 
-```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+```DELETE: /datasets/calendars/tables/{table}/items/{id}``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|일정의 고유 식별자|
-|id|string|yes|path|없음|삭제할 일정 항목의 고유 식별자|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|id|string|yes|path|none|Unique identifier of calendar item to delete|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## CalendarPatchItem
-이벤트 업데이트: 일정 항목을 부분적으로 업데이트합니다.
+## <a name="calendarpatchitem"></a>CalendarPatchItem
+Update event: Partially updates a calendar item 
 
-```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+```PATCH: /datasets/calendars/tables/{table}/items/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|일정의 고유 식별자|
-|id|string|yes|path|없음|업데이트할 일정 항목의 고유 식별자|
-|항목| |yes|body|없음|업데이트할 일정 항목|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|id|string|yes|path|none|Unique identifier of calendar item to update|
+|item| |yes|body|none|Calendar item to update|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## CalendarGetOnNewItems
-새 항목에: 새 일정 항목이 만들어질 때 트리거됩니다.
+## <a name="calendargetonnewitems"></a>CalendarGetOnNewItems
+On new items: Triggered when a new calendar item is created 
 
-```GET: /datasets/calendars/tables/{table}/onnewitems```
+```GET: /datasets/calendars/tables/{table}/onnewitems``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|일정의 고유 식별자|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## CalendarGetOnUpdatedItems
-업데이트된 항목에: 일정 항목이 수정될 때 트리거됩니다.
+## <a name="calendargetonupdateditems"></a>CalendarGetOnUpdatedItems
+On updated items: Triggered when a calendar item is modified 
 
-```GET: /datasets/calendars/tables/{table}/onupdateditems```
+```GET: /datasets/calendars/tables/{table}/onupdateditems``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|일정의 고유 식별자|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## ContactGetTables
-연락처 폴더 가져오기: 연락처 폴더를 검색합니다.
+## <a name="contactgettables"></a>ContactGetTables
+Get contact folders: Retrieves contacts folders 
 
-```GET: /datasets/contacts/tables```
+```GET: /datasets/contacts/tables``` 
 
-이 호출에 대한 매개 변수는 없습니다.
-#### 응답
+There are no parameters for this call
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## ContactGetItems
-연락처 가져오기: 연락처 폴더에서 연락처를 검색합니다.
+## <a name="contactgetitems"></a>ContactGetItems
+Get contacts: Retrieves contacts from a contacts folder 
 
-```GET: /datasets/contacts/tables/{table}/items```
+```GET: /datasets/contacts/tables/{table}/items``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|검색할 연락처 폴더의 고유 식별자|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
+|table|string|yes|path|none|Unique identifier of the contacts folder to retrieve|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## ContactPostItem
-연락처 만들기: 새 연락처를 만듭니다.
+## <a name="contactpostitem"></a>ContactPostItem
+Create contact: Creates a new contact 
 
-```POST: /datasets/contacts/tables/{table}/items```
+```POST: /datasets/contacts/tables/{table}/items``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|연락처 폴더의 고유 식별자|
-|항목| |yes|body|없음|만들 연락처|
+|table|string|yes|path|none|Unique identifier of a contacts folder|
+|item| |yes|body|none|Contact to create|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## ContactGetItem
-연락처 가져오기: 연락처 폴더에서 특정 연락처를 검색합니다.
+## <a name="contactgetitem"></a>ContactGetItem
+Get contact: Retrieves a specific contact from a contacts folder 
 
-```GET: /datasets/contacts/tables/{table}/items/{id}```
+```GET: /datasets/contacts/tables/{table}/items/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|연락처 폴더의 고유 식별자|
-|id|string|yes|path|없음|검색할 연락처의 고유 식별자|
+|table|string|yes|path|none|Unique identifier of a contacts folder|
+|id|string|yes|path|none|Unique identifier of a contact to retrieve|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## ContactDeleteItem
-연락처 삭제: 연락처를 삭제합니다.
+## <a name="contactdeleteitem"></a>ContactDeleteItem
+Delete contact: Deletes a contact 
 
-```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+```DELETE: /datasets/contacts/tables/{table}/items/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|연락처 폴더의 고유 식별자|
-|id|string|yes|path|없음|삭제할 연락처의 고유 식별자|
+|table|string|yes|path|none|Unique identifier of a contacts folder|
+|id|string|yes|path|none|Unique identifier of contact to delete|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## ContactPatchItem
-연락처 업데이트: 연락처를 부분적으로 업데이트합니다.
+## <a name="contactpatchitem"></a>ContactPatchItem
+Update contact: Partially updates a contact 
 
-```PATCH: /datasets/contacts/tables/{table}/items/{id}```
+```PATCH: /datasets/contacts/tables/{table}/items/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|연락처 폴더의 고유 식별자|
-|id|string|yes|path|없음|업데이트할 연락처의 고유 식별자|
-|항목| |yes|body|없음|업데이트할 연락처 항목|
+|table|string|yes|path|none|Unique identifier of a contacts folder|
+|id|string|yes|path|none|Unique identifier of contact to update|
+|item| |yes|body|none|Contact item to update|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## 개체 정의 
+## <a name="object-definitions"></a>Object definitions 
 
-### TriggerBatchResponse[IDictionary[String,Object]]
+### <a name="triggerbatchresponse[idictionary[string,object]]"></a>TriggerBatchResponse[IDictionary[String,Object]]
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|아니요 |
+|value|array|No |
 
 
 
-### Object
+### <a name="object"></a>Object
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
 
 
 
-### SendMessage
+### <a name="sendmessage"></a>SendMessage
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|첨부 파일|array|아니요 |
-|원본|string|아니요 |
-|참조|string|아니요 |
-|Bcc|string|아니요 |
-|제목 |string|예 |
-|본문|string|예 |
-|중요도 |string|아니요 |
-|IsHtml|부울|아니요 |
-|받는 사람 |string|예 |
+|Attachments|array|No |
+|From|string|No |
+|Cc|string|No |
+|Bcc|string|No |
+|Subject|string|Yes |
+|Body|string|Yes |
+|Importance|string|No |
+|IsHtml|boolean|No |
+|To|string|Yes |
 
 
 
-### SendAttachment
+### <a name="sendattachment"></a>SendAttachment
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|@odata.type|string|아니요 |
-|Name|string|예 |
-|ContentBytes|string|예 |
+|@odata.type|string|No |
+|Name|string|Yes |
+|ContentBytes|string|Yes |
 
 
 
-### ReceiveMessage
+### <a name="receivemessage"></a>ReceiveMessage
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Id|string|아니요 |
-|IsRead|부울|아니요 |
-|HasAttachment|부울|아니요 |
-|DateTimeReceived|string|아니요 |
-|첨부 파일|array|아니요 |
-|원본|string|아니요 |
-|참조|string|아니요 |
-|Bcc|string|아니요 |
-|제목 |string|예 |
-|본문|string|예 |
-|중요도|string|아니요 |
-|IsHtml|부울|아니요 |
-|받는 사람 |string|예 |
+|Id|string|No |
+|IsRead|boolean|No |
+|HasAttachment|boolean|No |
+|DateTimeReceived|string|No |
+|Attachments|array|No |
+|From|string|No |
+|Cc|string|No |
+|Bcc|string|No |
+|Subject|string|Yes |
+|Body|string|Yes |
+|Importance|string|No |
+|IsHtml|boolean|No |
+|To|string|Yes |
 
 
 
-### ReceiveAttachment
+### <a name="receiveattachment"></a>ReceiveAttachment
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Id|string|예 |
-|ContentType|string|예 |
-|@odata.type|string|아니요 |
-|Name|string|예 |
-|ContentBytes|string|예 |
+|Id|string|Yes |
+|ContentType|string|Yes |
+|@odata.type|string|No |
+|Name|string|Yes |
+|ContentBytes|string|Yes |
 
 
 
-### DigestMessage
+### <a name="digestmessage"></a>DigestMessage
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|제목|string|예 |
-|본문|string|아니요 |
-|중요도 |string|아니요 |
-|Digest|array|예 |
-|첨부 파일|array|아니요 |
-|받는 사람 |string|예 |
+|Subject|string|Yes |
+|Body|string|No |
+|Importance|string|No |
+|Digest|array|Yes |
+|Attachments|array|No |
+|To|string|Yes |
 
 
 
-### TriggerBatchResponse[ReceiveMessage]
+### <a name="triggerbatchresponse[receivemessage]"></a>TriggerBatchResponse[ReceiveMessage]
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|아니요 |
+|value|array|No |
 
 
 
-### DataSetsMetadata
+### <a name="datasetsmetadata"></a>DataSetsMetadata
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|tabular|정의되지 않음|아니요 |
-|Blob|정의되지 않음|아니요 |
+|tabular|not defined|No |
+|blob|not defined|No |
 
 
 
-### TabularDataSetsMetadata
+### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|원본|string|아니요 |
-|displayName|string|아니요 |
-|urlEncoding|string|아니요 |
-|tableDisplayName|string|아니요 |
-|tablePluralName|string|아니요 |
+|source|string|No |
+|displayName|string|No |
+|urlEncoding|string|No |
+|tableDisplayName|string|No |
+|tablePluralName|string|No |
 
 
 
-### BlobDataSetsMetadata
+### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|원본|string|아니요 |
-|displayName|string|아니요 |
-|urlEncoding|string|아니요 |
+|source|string|No |
+|displayName|string|No |
+|urlEncoding|string|No |
 
 
 
-### TableMetadata
+### <a name="tablemetadata"></a>TableMetadata
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|name|string|아니요 |
-|title|string|아니요 |
-|x-ms-permission|string|아니요 |
-|x-ms-capabilities|정의되지 않음|아니요 |
-|schema|정의되지 않음|아니요 |
+|name|string|No |
+|title|string|No |
+|x-ms-permission|string|No |
+|x-ms-capabilities|not defined|No |
+|schema|not defined|No |
 
 
 
-### TableCapabilitiesMetadata
+### <a name="tablecapabilitiesmetadata"></a>TableCapabilitiesMetadata
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|sortRestrictions|정의되지 않음|아니요 |
-|filterRestrictions|정의되지 않음|아니요 |
-|filterFunctions|array|아니요 |
+|sortRestrictions|not defined|No |
+|filterRestrictions|not defined|No |
+|filterFunctions|array|No |
 
 
 
-### TableSortRestrictionsMetadata
+### <a name="tablesortrestrictionsmetadata"></a>TableSortRestrictionsMetadata
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|sortable|부울|아니요 |
-|unsortableProperties|array|아니요 |
-|ascendingOnlyProperties|array|아니요 |
+|sortable|boolean|No |
+|unsortableProperties|array|No |
+|ascendingOnlyProperties|array|No |
 
 
 
-### TableFilterRestrictionsMetadata
+### <a name="tablefilterrestrictionsmetadata"></a>TableFilterRestrictionsMetadata
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|filterable|부울|아니요 |
-|nonFilterableProperties|array|아니요 |
-|requiredProperties|array|아니요 |
+|filterable|boolean|No |
+|nonFilterableProperties|array|No |
+|requiredProperties|array|No |
 
 
 
-### OptionsEmailSubscription
+### <a name="optionsemailsubscription"></a>OptionsEmailSubscription
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|NotificationUrl|string|아니요 |
-|Message|정의되지 않음|아니요 |
+|NotificationUrl|string|No |
+|Message|not defined|No |
 
 
 
-### MessageWithOptions
+### <a name="messagewithoptions"></a>MessageWithOptions
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|제목 |string|예 |
-|옵션|string|예 |
-|본문|string|아니요 |
-|중요도 |string|아니요 |
-|첨부 파일|array|아니요 |
-|받는 사람 |string|예 |
+|Subject|string|Yes |
+|Options|string|Yes |
+|Body|string|No |
+|Importance|string|No |
+|Attachments|array|No |
+|To|string|Yes |
 
 
 
-### SubscriptionResponse
+### <a name="subscriptionresponse"></a>SubscriptionResponse
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|string|아니요 |
-|resource|string|아니요 |
-|notificationType|string|아니요 |
-|notificationUrl|string|아니요 |
+|id|string|No |
+|resource|string|No |
+|notificationType|string|No |
+|notificationUrl|string|No |
 
 
 
-### ApprovalEmailSubscription
+### <a name="approvalemailsubscription"></a>ApprovalEmailSubscription
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|NotificationUrl|string|아니요 |
-|Message|정의되지 않음|아니요 |
+|NotificationUrl|string|No |
+|Message|not defined|No |
 
 
 
-### ApprovalMessage
+### <a name="approvalmessage"></a>ApprovalMessage
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|제목 |string|예 |
-|옵션|string|예 |
-|본문|string|아니요 |
-|중요도 |string|아니요 |
-|첨부 파일|array|아니요 |
-|받는 사람 |string|예 |
+|Subject|string|Yes |
+|Options|string|Yes |
+|Body|string|No |
+|Importance|string|No |
+|Attachments|array|No |
+|To|string|Yes |
 
 
 
-### ApprovalEmailResponse
+### <a name="approvalemailresponse"></a>ApprovalEmailResponse
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|SelectedOption|string|아니요 |
+|SelectedOption|string|No |
 
 
 
-### TablesList
+### <a name="tableslist"></a>TablesList
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|아니요 |
+|value|array|No |
 
 
 
-### 테이블
+### <a name="table"></a>Table
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|이름|string|아니요 |
-|DisplayName|string|아니요 |
+|Name|string|No |
+|DisplayName|string|No |
 
 
 
-### 항목
+### <a name="item"></a>Item
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ItemInternalId|string|아니요 |
+|ItemInternalId|string|No |
 
 
 
-### CalendarItemsList
+### <a name="calendaritemslist"></a>CalendarItemsList
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|아니요 |
+|value|array|No |
 
 
 
-### CalendarItem
+### <a name="calendaritem"></a>CalendarItem
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ItemInternalId|string|아니요 |
+|ItemInternalId|string|No |
 
 
 
-### ContactItemsList
+### <a name="contactitemslist"></a>ContactItemsList
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|아니요 |
+|value|array|No |
 
 
 
-### ContactItem
+### <a name="contactitem"></a>ContactItem
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ItemInternalId|string|아니요 |
+|ItemInternalId|string|No |
 
 
 
-### DataSetsList
+### <a name="datasetslist"></a>DataSetsList
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|아니요 |
+|value|array|No |
 
 
 
-### DataSet
+### <a name="dataset"></a>DataSet
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|이름|string|아니요 |
-|DisplayName|string|아니요 |
+|Name|string|No |
+|DisplayName|string|No |
 
 
-## 다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

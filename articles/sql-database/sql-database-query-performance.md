@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL 데이터베이스 Query Performance Insight" 
-   description="쿼리 성능 모니터링은 Azure SQL 데이터베이스에 대한 대부분의 CPU 사용 쿼리를 식별합니다." 
+   pageTitle="Azure SQL Database Query Performance Insight" 
+   description="Query performance monitoring identifies the most CPU-consuming queries for an Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,218 +16,220 @@
    ms.date="08/09/2016"
    ms.author="sstein"/>
 
-# Azure SQL 데이터베이스 Query Performance Insight
+
+# <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 
 
-관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. Query Performance Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
+Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight allows you to spend less time troubleshooting database performance by providing the following:
 
-- 데이터베이스 리소스(DTU) 사용에 대한 보다 자세한 정보를 확인합니다.
-- CPU/기간/실행 횟수별 최상위 쿼리는 향상된 성능을 위해 잠재적으로 조정될 수 있습니다.
-- 쿼리에 대한 세부 정보로 드릴다운하는 기능으로, 리소스 사용률에 대한 텍스트 및 기록을 표시합니다.
-- [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)에서 수행되는 동작을 표시하는 성능 튜닝 주석
+- Deeper insight into your databases resource (DTU) consumption. 
+- The top queries by CPU/Duration/Execution count, which can potentially be tuned for improved performance.
+- The ability to drill down into the details of a query, view its text and history of resource utilization. 
+- Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md)  
 
-​
 
-## 필수 조건
 
-- Query Performance Insight는 Azure SQL 데이터베이스 V12에서만 제공됩니다.
-- Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)가 활성 상태여야 합니다. 쿼리 저장소가 실행되지 않는 경우 저장소를 켜라는 포털 메시지가 표시됩니다.
+## <a name="prerequisites"></a>Prerequisites
+
+- Query Performance Insight is only available with Azure SQL Database V12.
+- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. If Query Store is not running, the portal prompts you to turn it on.
 
  
-## 권한
+## <a name="permissions"></a>Permissions
 
-Query Performance Insight를 사용하려면 다음 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 권한이 필요합니다.
+The following [role-based access control](../active-directory/role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
 
-- 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기**, **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
-- 쿼리 텍스트를 보려면 **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
-
-
-
-## Query Performance Insight 사용
-
-Query Performance Insight는 쉽게 사용할 수 있습니다.
-
-- [Azure 포털](https://portal.azure.com/)을 열고 검사하려는 데이터베이스를 찾습니다.
-  - 왼쪽 메뉴의 지원 및 문제 해결에서 "Query Performance Insight"를 선택합니다.
-- 첫 번째 탭에서 최상위 리소스 사용 쿼리의 목록을 검토합니다.
-- 해당하는 세부 정보를 보려면 개별 쿼리를 선택합니다.
-- [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)를 열고 권장 사항을 사용할 수 있는지 확인합니다.
-- 슬라이더를 또는 확대/축소 아이콘을 사용하여 관찰 간격을 변경합니다.
-
-    ![성능 대시보드](./media/sql-database-query-performance/performance.png)
-
-> [AZURE.NOTE] Query Performance Insight를 제공하는 SQL 데이터베이스용 쿼리 저장소로 데이터를 캡처하는데 몇 시간이 필요합니다. 데이터베이스에 아무런 작업이 없거나 쿼리 저장소가 특정 기간 동안 비활성 상태였던 경우 해당 기간을 표시할 때 차트가 비어 있게 됩니다. 실행하지 않는 경우 언제든지 쿼리 저장소를 활성화할 수 있습니다.
+- **Reader**, **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
+- **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view query text.
 
 
 
-## 최상위 CPU 소비 쿼리 검토
+## <a name="using-query-performance-insight"></a>Using Query Performance Insight
 
-[포털](http://portal.azure.com)에서 다음을 수행합니다.
+Query Performance Insight is easy to use:
 
-1. SQL 데이터베이스로 이동한 후 **모든 설정** > **지원 + 문제 해결** > **Query Performance Insight**를 클릭합니다.
+- Open [Azure portal](https://portal.azure.com/) and find database that you want to examine. 
+  - From left-hand side menu, under support and troubleshooting, select “Query Performance Insight”.
+- On the first tab, review the list of top resource-consuming queries.
+- Select an individual query to view its details.
+- Open [SQL Azure Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
+- Use sliders or zoom icons to change observed interval.
+
+    ![performance dashboard](./media/sql-database-query-performance/performance.png)
+
+> [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
+
+
+
+## <a name="review-top-cpu-consuming-queries"></a>Review top CPU consuming queries
+
+In the [portal](http://portal.azure.com) do the following:
+
+1. Browse to a SQL database and click **All settings** > **Support + Troubleshooting** > **Query performance insight**. 
 
     ![Query Performance Insight][1]
 
-    최상위 쿼리 뷰가 열리고 최상위 CPU 사용 쿼리가 나열됩니다.
+    The top queries view opens and the top CPU consuming queries are listed.
 
-1. 차트 주위를 클릭하여 세부 정보를 확인합니다.<br>위쪽 줄에는 데이터베이스에 대한 전체 DTU%가 표시되고 막대에는 선택한 기간 중에 선택한 쿼리에서 사용된 CPU%가 표시됩니다. 예를 들어 **지난주**를 선택하면 각 막대는 1일을 나타냅니다.
+1. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents one day).
 
-    ![최상위 쿼리][2]
+    ![top queries][2]
 
-    아래 그리드는 표시되는 쿼리에 대해 집계된 정보를 나타냅니다.
+    The bottom grid represents aggregated information for the visible queries.
 
-  -	쿼리 ID – 데이터베이스 내 쿼리의 고유 식별자입니다.
-  -	예측 가능한 간격 동안 쿼리당 CPU입니다(집계 함수에 따라 다름).
-  -	쿼리당 기간입니다(집계 함수에 따라 다름).
-  -	특정 쿼리에 대한 총 실행 수입니다.
+  - Query ID – unique identifier of query inside database.
+  - CPU per query during observable interval (depends on aggregation function).
+  - Duration per query (depends on aggregation function).
+  - Total number of executions for a particular query.
 
-    확인란을 사용하여 개별 쿼리를 선택하거나 지워 차트에서 포함하거나 제외합니다.
+    Select or clear individual queries to include or exclude them from the chart using checkboxes.
 
-1. 데이터가 최신 상태가 아닌 경우 **새로 고침** 단추를 클릭합니다.
-1. 슬라이더 및 확대/축소 단추를 사용하여 관찰 간격을 변경하고 스파이크를 조사할 수 있습니다. ![설정](./media/sql-database-query-performance/zoom.png)
-1. 필요에 따라 다른 보기를 원할 경우 **사용자 지정** 탭을 선택하고 다음을 설정합니다.
+1. If your data becomes stale, click the **Refresh** button.
+1. You can use sliders and zoom buttons to change observation interval and investigate spikes:  ![settings](./media/sql-database-query-performance/zoom.png)
+1. Optionally, if you want a different view, you can select **Custom** tab and set:
   
-  - 메트릭(CPU, 기간, 실행 횟수)
-  - 시간 간격(지난 24시간, 지난주, 지난달)
-  - 쿼리 수
-  - 집계 함수
+  - Metric (CPU, duration, execution count)
+  - Time interval (Last 24 hours, Past week, Past month). 
+  - Number of queries.
+  - Aggregation function.
 
-    ![설정](./media/sql-database-query-performance/custom-tab.png)
+    ![settings](./media/sql-database-query-performance/custom-tab.png)
 
-## 개별 쿼리 세부 정보 보기
+## <a name="viewing-individual-query-details"></a>Viewing individual query details
 
-쿼리 세부 정보를 보려면:
+To view query details:
 
-1. 맨 위 쿼리 목록에서 쿼리를 클릭합니다.
+1. Click any query in the list of top queries.
 
-    ![세부 정보](./media/sql-database-query-performance/details.png)
+    ![details](./media/sql-database-query-performance/details.png)
 
-1. 세부 정보 보기가 열리고 쿼리 CPU 사용/기간/실행 횟수가 시간에 따라 분석됩니다.
-1. 자세한 내용은 차트 주위를 클릭합니다.
-  - 맨 위 차트에는 전체 데이터베이스 DTU %가 선으로 표시되고, 선택한 쿼리에서 사용되는 CPU %가 막대로 표시됩니다.
-  - 두 번째 차트에는 선택한 쿼리의 전체 기간이 표시됩니다.
-  - 맨 아래 차트에는 선택한 쿼리의 전체 실행 횟수가 표시됩니다.
+1. The details view opens and the queries CPU consumption/Duration/Execution count is broken down over time.
+1. Click around the chart for details.
+  - Top chart shows line with overall database DTU%, and the bars are CPU% consumed by the selected query.
+  - Second chart shows total duration by the selected query.
+  - Bottom chart shows total number of executions by the selected query.
     
-    ![쿼리 세부 정보][3]
+    ![query details][3]
 
-1. 필요에 따라 슬라이더, 확대/축소 단추를 사용하거나 **설정**을 클릭하여 쿼리 데이터 표시 방법을 사용자 지정하거나 다른 기간을 표시합니다.
+1. Optionally, use sliders, zoom buttons or click **Settings** to customize how query data is displayed, or to pick a different time period.
 
-## 기간당 최상위 쿼리 검토
+## <a name="review-top-queries-per-duration"></a>Review top queries per duration
 
-Query Performance Insight의 최신 업데이트에는 잠재적인 병목 상태를 식별하는 데 도움이 되는 두 가지 새로운 메트릭인 기간과 실행 횟수가 제공됩니다.<br>
+In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
 
-장기 실행 쿼리는 리소스를 더 오래 잠그고, 다른 사용자를 차단하고, 확장성을 제한할 가능성이 가장 높습니다. 또한 최적화에 가장 적합한 후보이기도 합니다.<br>
+Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
 
-장기 실행 쿼리를 식별하려면 다음을 수행합니다.
+To identify long running queries:
 
-1. 선택한 데이터베이스에 대한 Query Performance Insight에서 **사용자 지정** 탭 열기
-1. 메트릭을 **기간**으로 변경
-1. 쿼리 수 및 관찰 간격 선택
-1. 집계 함수 선택
-  - **Sum**은 전체 관찰 간격 동안 모든 쿼리 실행 시간을 합합니다.
-  - **Max**는 전체 관찰 간격에는 실행 시간이 최대였던 쿼리를 찾습니다.
-  - **Avg**는 모든 쿼리 실행의 평균 실행 시간을 찾은 후 이러한 평균을 초과하는 항목을 보여 줍니다.
+1. Open **Custom** tab in Query Performance Insight for selected database
+1. Change metrics to be **duration**
+1. Select number of queries and observation interval
+1. Select aggregation function
+  - **Sum** adds up all query execution time during whole observation interval.
+  - **Max** finds queries which execution time was maximum at whole observation interval.
+  - **Avg** finds average execution time of all query executions and show you the top out of these averages. 
 
-    ![쿼리 기간][4]
+    ![query duration][4]
 
-## 실행 횟수당 최상위 쿼리 검토
+## <a name="review-top-queries-per-execution-count"></a>Review top queries per execution count
 
-실행 횟수가 높을 경우 데이터베이스 자체에는 영향을 주지 않고 리소스 사용량이 적어질 수 있지만 전체 응용 프로그램이 느려질 수도 있습니다.
+High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
 
-일부 경우에 실행 횟수가 매우 높을 경우 네트워크 왕복이 증가할 수 있습니다. 왕복은 성능에 지대한 영향을 미칩니다. 네트워크 대기 시간 및 다운스트림 서버 대기 시간이 발생할 수 있습니다.
+In some cases, very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
 
-예를 들어, 많은 데이터 기반 웹 사이트는 사용자 요청이 있을 때마다 데이터베이스에 과도하게 액세스합니다. 연결 풀링이 도움이 되지만, 데이터베이스 서버에서 네트워크 트래픽 및 처리 부하가 높아져 성능이 저하될 수 있습니다. 일반적으로는 왕복을 최소로 유지하는 것이 좋습니다.
+For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
 
-자주 실행되는 쿼리("번잡한") 쿼리를 식별하려면
+To identify frequently executed queries (“chatty”) queries:
 
-1. 선택한 데이터베이스에 대한 Query Performance Insight에서 **사용자 지정** 탭 열기
-1. 메트릭을 **실행 횟수**로 변경
-1. 쿼리 수 및 관찰 간격 선택
+1. Open **Custom** tab in Query Performance Insight for selected database
+1. Change metrics to be **execution count**
+1. Select number of queries and observation interval
 
-    ![쿼리 실행 횟수][5]
+    ![query execution count][5]
 
-## 성능 튜닝 주석 이해 
+## <a name="understanding-performance-tuning-annotations"></a>Understanding performance tuning annotations 
 
-Query Performance Insight에서 워크로드를 살펴보는 동안 차트 맨 위에 세로줄이 있는 아이콘이 표시될 수 있습니다.<br>
+While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>
 
-이러한 아이콘은 주석으로, [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)가 수행한 작업에 영향을 미치는 성능을 나타냅니다. 주석에 마우스를 가져가면 해당 작업에 대한 기본 정보가 표시됩니다.
+These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
 
-![쿼리 주석][6]
+![query annotation][6]
 
-더 자세히 알고 싶거나 관리자 권장 구성을 적용하려는 경우 이 아이콘을 클릭합니다. 작업의 세부 정보가 열립니다. 활성 권장 사항은 명령을 사용하여 바로 적용할 수 있습니다.
+If you want to know more or apply advisor recommendation, click the icon. It will open details of action. If it’s an active recommendation you can apply it straight away using command.
 
-![쿼리 주석 세부 정보][7]
+![query annotation details][7]
 
-### 여러 주석. ###
+### <a name="multiple-annotations."></a>Multiple annotations. ###
 
-확대/축소 수준으로 인해 서로 가까이 있는 주석은 하나로 축소되어 표시될 수 있습니다. 이러한 경우 특수 아이콘이 표시됩니다. 이 아이콘을 클릭하면 그룹화된 주석 목록이 표시되는 새 블레이드가 열립니다. 쿼리 및 성능 조정 작업의 상관 관계를 파악하면 워크로드를 파악하는 데 도움이 됩니다.
+It’s possible, that because of zoom level, annotations that are close to each other will get collapsed into one. This will be represented by special icon, clicking it will open new blade where list of grouped annotations will be shown.
+Correlating queries and performance tuning actions can help to better understand your workload. 
 
 
-## 	Query Performance Insight에 대한 쿼리 저장소 구성 최적화
+##  <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>Optimizing the Query Store configuration for Query Performance Insight
 
-Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 메시지가 나타날 수 있습니다.
+During your use of Query Performance Insight, you might encounter the following Query Store messages:
 
-- "이 데이터베이스의 쿼리 저장소가 적절하게 구성되어 있지 않습니다. 자세한 내용은 여기를 클릭하세요.
-- "이 데이터베이스의 쿼리 저장소가 적절하게 구성되어 있지 않습니다. 여기를 클릭하여 설정을 변경하세요."
+- "Query Store is not properly configured on this database. Click here to learn more."
+- "Query Store is not properly configured on this database. Click here to change settings." 
 
-이러한 메시지는 일반적으로 쿼리 저장소가 새 데이터를 수집할 수 없을 때 표시됩니다.
+These messages usually appear when Query Store is not able to collect new data. 
 
-첫 번째 경우는 쿼리 저장소가 읽기 전용 상태이고 매개 변수가 최적으로 설정되었을 때 발생합니다. 쿼리 저장소의 크기를 늘리거나 쿼리 저장소를 지워서 이 문제를 해결할 수 있습니다.
+First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store.
 
-![qds 단추][8]
+![qds button][8]
 
-두 번째 경우는 쿼리 저장소가 꺼져 있거나 매개 변수가 최적 상태로 설정되어 있지 않을 때 발생합니다. <br>아래 명령을 실행하거나 포털에서 직접 보존 및 캡처 정책을 변경하고 쿼리 저장소를 사용하도록 설정할 수 있습니다.
+Second case happens when Query Store is Off or parameters aren’t set optimally. <br>You can change the Retention and Capture policy and enable Query Store by executing commands below or directly from portal:
 
-![qds 단추][9]
+![qds button][9]
 
-### 권장된 보존 및 캡처 정책
+### <a name="recommended-retention-and-capture-policy"></a>Recommended retention and capture policy
 
-보존 정책에는 다음과 같은 두 종류가 있습니다.
+There are two types of retention policies:
 
-- 크기 기반 - AUTO로 설정된 경우 최대 크기에 가까워지면 데이터를 자동으로 지웁니다.
-- 시간 기반 - 기본적으로 30일로 설정됩니다. 즉, 쿼리 저장소의 공간이 부족해지면 30일이 지난 쿼리 정보를 삭제합니다.
+- Size based – if set to AUTO it will clean data automatically when near max size is reached.
+- Time based - by default we will set it to 30 days, which means, if Query Store will run out of space, it will delete query information older than 30 days
 
-캡처 정책은 다음과 같이 설정할 수 있습니다.
+Capture policy could be set to:
 
-- **모두** – 모든 쿼리를 캡처합니다.
-- **자동** – 컴파일 및 실행 기간이 중요하지 않고 사용 빈도가 적은 쿼리가 무시됩니다. 실행 횟수, 컴파일 및 런타임 기간에 대한 임계값을 내부적으로 결정합니다. 기본 옵션입니다.
-- **없음** – 쿼리 저장소에서 새 쿼리의 캡처를 중지하지만 이미 캡처된 쿼리에 대한 런타임 통계는 계속 수집됩니다.
-	
-모든 정책을 AUTO로 설정하고 클린 정책을 30일로 설정하는 것이 좋습니다.
+- **All** – Captures all queries.
+- **Auto** – Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined. This is the default option.
+- **None** – Query Store stops capturing new queries, however runtime stats for already captured queries are still collected.
+    
+We recommend setting all policies to AUTO and clean policy to 30 days:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
-    	
+        
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30));
     
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-쿼리 저장소의 크기를 늘립니다. 이는 데이터베이스에 연결하고 다음 쿼리를 실행하여 수행할 수 있습니다.
+Increase size of Query Store. This could be performed by connecting to a database and issuing following query:
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-하지만 이러한 설정을 적용하면 결과적으로 쿼리 저장소가 새 쿼리를 수집하게 되지만, 기다리는 것을 원치 않을 경우 쿼리 저장소를 지울 수 있습니다.
-> [AZURE.NOTE] 다음 쿼리를 실행하면 쿼리 저장소의 모든 현재 정보가 삭제됩니다.
+Applying these settings will eventually make Query Store collecting new queries, however if you don’t want to wait you can clear Query Store. 
+> [AZURE.NOTE] Executing following query will delete all current information in the Query Store. 
 
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
-## 요약
+## <a name="summary"></a>Summary
 
-쿼리 성능 Insight를 통해 쿼리 작업의 영향 및 데이터베이스 리소스 사용의 관계를 이해할 수 있습니다. 이 기능을 사용하여 최상위 사용 쿼리를 확인하고 문제가 되기 전에 해결할 쿼리를 쉽게 식별할 수 있습니다.
-
-
+Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem.
 
 
-## 다음 단계
 
-SQL 데이터베이스의 성능 향상에 관한 추가 권장 사항은 **Query Performance Insight** 블레이드의 [권장 사항](sql-database-advisor.md)을 클릭하여 확인합니다.
 
-![성능 관리자](./media/sql-database-query-performance/ia.png)
+## <a name="next-steps"></a>Next steps
+
+For additional recommendations about improving the performance of your SQL database, click [Recommendations](sql-database-advisor.md) on the **Query Performance Insight** blade.
+
+![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
 
 <!--Image references-->
@@ -241,4 +243,9 @@ SQL 데이터베이스의 성능 향상에 관한 추가 권장 사항은 **Quer
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

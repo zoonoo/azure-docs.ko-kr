@@ -1,5 +1,6 @@
-비 영어 Azure 기술 설명서에 기여해 주셔서 감사합니다. 우리는 번역 개선 제안 사항이나 문서 자체에 대한 설명 변경 사항 등을 검토합니다. 후자의 경우 제안이 승인되면 끌어 오기 요청은 EN과 모든 다른 언어에 반영됩니다.
+This content has been moved - see the [Readme page] (README.md) for information about how to contribute to the Azure tech docs.
 
-Azure 기술 설명서에 참여하는 방법에 대한 자세한 정보는 [추가 정보 페이지](README.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!--HONumber=Oct16_HO2-->
+
+

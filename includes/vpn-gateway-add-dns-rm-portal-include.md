@@ -1,10 +1,12 @@
-이 설정을 사용하면 이 가상 네트워크에 대한 이름 확인에 사용하려는 DNS 서버를 지정할 수 있습니다. DNS 서버를 만들지 않습니다.
+This setting allows you to specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
 
-1. 가상 네트워크에 대한 **설정** 페이지에서 **DNS 서버**로 이동하고 클릭하여 DNS 서버 블레이드를 엽니다.
-2. **DNS 서버** 페이지의 **DNS 서버**에서 **사용자 지정 DNS**를 선택합니다.
-3. **주 DNS 서버** 필드에서 이름 확인에 사용하려는 DNS 서버의 IP 주소를 입력합니다.
-4. 블레이드의 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
+1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to open the DNS servers blade.
+2. On the **DNS Servers** page, under **DNS servers**, select **Custom DNS**.
+3. In the **Primary DNS server** field, enter the IP address of the DNS server that you want to use for name resolution.
+4. Click **Save** at the top of the blade to save your configuration.
 
-	![사용자 지정 DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+    ![Custom DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

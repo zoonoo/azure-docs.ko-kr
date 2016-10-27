@@ -1,6 +1,6 @@
 <properties
-   pageTitle="가상 컴퓨터의 MATLAB 클러스터 | Microsoft Azure"
-   description="Microsoft Azure 가상 컴퓨터를 사용하여 계산 집약적인 병렬 MATLAB 작업을 실행하기 위한 MATLAB 분산 컴퓨팅 서버 클러스터를 만듭니다."
+   pageTitle="MATLAB clusters on virtual machines | Microsoft Azure"
+   description="Use Microsoft Azure virtual machines to create MATLAB Distributed Computing Server clusters to run your compute-intensive parallel MATLAB workloads"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="mscurrell"
@@ -16,74 +16,79 @@
    ms.date="05/09/2016"
    ms.author="markscu"/>
 
-# Azure VM에 MATLAB 분산 컴퓨팅 서버 클러스터 만들기 
 
-Microsoft Azure 가상 컴퓨터를 사용하여 계산 집약적인 병렬 MATLAB 작업을 실행하기 위한 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 만듭니다. MATLAB 분산 컴퓨팅 서버 소프트웨어를 VM에 설치하여 기본 이미지로 사용하고, Azure 빠른 시작 템플릿 또는 Azure PowerShell 스크립트([GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)에 제공됨)를 사용하여 클러스터를 배포하고 관리합니다. 배포 후에 클러스터에 연결하여 작업을 실행합니다.
+# <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Create MATLAB Distributed Computing Server clusters on Azure VMs 
 
-## MATLAB 및 MATLAB 분산 컴퓨팅 서버 정보 
+Use Microsoft Azure virtual machines to create one or more MATLAB Distributed Computing Server clusters to run your compute-intensive parallel MATLAB workloads. Install your MATLAB Distributed Computing Server software on a VM to use as a base image and use an Azure quickstart template or Azure PowerShell script (available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) to deploy and manage the cluster. After deployment, connect to the cluster to run your workloads. 
 
-[MATLAB](http://www.mathworks.com/products/matlab/) 플랫폼은 공학 및 과학 문제 해결에 최적화되어 있습니다. 대규모 시뮬레이션 및 데이터 처리 작업을 수행하는 MATLAB 사용자는 MathWorks 병렬 컴퓨팅 제품을 사용하면 계산 클러스터 및 그리드 서비스의 이점을 활용하여 계산 집약적인 워크로드의 속도를 높일 수 있습니다. [병렬 컴퓨팅 도구 상자](http://www.mathworks.com/products/parallel-computing/)는 MATLAB 사용자가 응용 프로그램을 병렬화하여 멀티 코어 프로세서, GPU, 및 계산 클러스터의 이점을 활용할 수 있도록 합니다. [MATLAB 분산 컴퓨팅 서버](http://www.mathworks.com/products/distriben/)는 MATLAB 사용자가 하나의 계산 클러스터 내에서 여러 컴퓨터를 활용할 수 있도록 합니다.
+## <a name="about-matlab-and-matlab-distributed-computing-server"></a>About MATLAB and MATLAB Distributed Computing Server 
 
-
-Azure 가상 컴퓨터를 사용하면, 대화형 작업, 배치 작업, 독립 작업, 통신 작업 같은 병렬 작업을 온-프레미스 클러스터로 전송하는 데 사용하는 메커니즘과 같은 모든 메커니즘을 포함하는 MATLAB 분산 컴퓨팅 서버 클러스터를 만들 수 있습니다. Azure를 MATLAB 플랫폼과 결합하여 사용하면 기존의 온-프레미스 하드웨어를 프로비전하고 사용하는 것에 비해 많은 장점이 있습니다. 다양한 가상 컴퓨터 크기, 사용하는 계산 리소스에 대해서만 지불하는 주문형 클러스터 생성, 대규모로 모델을 테스트할 수 있는 기능 등이 장점입니다.
-
-## 필수 조건
-
-* **클라이언트 컴퓨터** - 배포 후 Azure 및 MATLAB 분산 컴퓨팅 서버 클러스터와 통신하기 위한 Windows 기반 클라이언트 컴퓨터가 필요합니다.
-
-* **Azure PowerShell** - 클라이언트 컴퓨터에 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
-
-* **Azure 구독** - 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
-
-* **코어 할당량** - 대형 클러스터 또는 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 배포하려면 코어 할당량을 늘리는 것이 필요할 수 있습니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다.
-
-* **MATLAB, 병렬 컴퓨팅 도구 상자, 및 MATLAB 분산 컴퓨팅 서버 정보 라이선스** - 스크립트는 모든 라이선스에 대해 [MathWorks 호스티드 라이선스 관리자](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/)가 사용되었다고 가정합니다.
-
-* **MATLAB 분산 컴퓨팅 서버 소프트웨어** - 클러스터 VM의 기본 VM 이미지로 사용될 VM에 설치됩니다.
+The [MATLAB](http://www.mathworks.com/products/matlab/) platform is optimized for solving engineering and scientific problems. MATLAB users with large-scale simulations and data processing tasks can use MathWorks parallel computing products to speed up their compute-intensive workloads by taking advantage of compute clusters and grid services. [Parallel Computing Toolbox](http://www.mathworks.com/products/parallel-computing/) lets MATLAB users parallelize applications and take advantage of multi-core processors, GPUs, and compute clusters. [MATLAB Distributed Computing Server](http://www.mathworks.com/products/distriben/) enables MATLAB users to utilize many computers in a compute cluster. 
 
 
-## 대략적인 단계
+By using Azure virtual machines, you can create MATLAB Distributed Computing Server clusters that have all the same mechanisms available to submit parallel work as on-premises clusters, such as interactive jobs, batch jobs, independent tasks, and communicating tasks. Using Azure in conjunction with the MATLAB platform has many benefits compared to provisioning and using traditional on-premises hardware: a range of virtual machine sizes, creation of clusters on-demand so you pay only for the compute resources you use, and the ability to test models at scale.  
 
-MATLAB 분산 컴퓨팅 서버 클러스터에 대해 Azure 가상 컴퓨터를 사용하려면, 다음과 같은 대략적인 단계가 필요합니다. 자세한 지침은 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)의 스크립트 및 빠른 시작 템플릿을 포함하는 설명서에 있습니다.
+## <a name="prerequisites"></a>Prerequisites
 
-1. **기본 VM 이미지 만들기**
-    * MATLAB 분산 컴퓨팅 서버 소프트웨어를 VM에 다운로드하여 설치합니다.
+* **Client computer** - You'll need a Windows-based client computer to communicate with Azure and the MATLAB Distributed Computing Server cluster after deployment. 
 
-    >[AZURE.NOTE]이 프로세스에 한두 시간이 소요될 수 있지만, 사용하는 MATLAB 각 버전에 대해 한 번만 수행하면 됩니다.
+* **Azure PowerShell** - See [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install it on your client computer. 
+
+* **Azure subscription** - If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options. 
+
+* **Cores quota** - You might need to increase the core quota to deploy a large cluster or more than one MATLAB Distributed Computing Server cluster. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge. 
+
+* **MATLAB, Parallel Computing Toolbox, and MATLAB Distributed Computing Server licenses** - The scripts assume that the [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) is used for all licenses.  
+
+* **MATLAB Distributed Computing Server software** - Will be installed on a VM that will be used as the base VM image for the cluster VMs. 
+
+
+## <a name="high-level-steps"></a>High level steps
+
+To use Azure virtual machines for your MATLAB Distributed Computing Server clusters, the following high-level steps are required. Detailed instructions are in the documentation accompanying the quickstart template and scripts on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster).
+
+1. **Create a base VM image**  
+    * Download and install MATLAB Distributed Computing Server software onto this VM. 
+
+    >[AZURE.NOTE]This process can take a couple of hours, but you only have to do it once for each version of MATLAB you use.   
     
-2. **하나 이상의 클러스터 만들기**
-    * 제공된 PowerShell 스크립트를 사용하거나 빠른 시작 템플릿을 사용하여 기본 VM 이미지에서 클러스터를 만듭니다.
-    * 제공된 PowerShell 스크립트를 사용하여 클러스터를 관리합니다. 클러스터를 나열하고, 일시 중지하고, 다시 시작하고, 삭제하는 것이 가능합니다.
+2. **Create one or more clusters**  
+    * Use the supplied PowerShell script or use the quickstart template to create a cluster from the base VM image.   
+    * Manage the clusters using the supplied PowerShell script which allows you to list, pause, resume, and delete clusters. 
  
-## 클러스터 구성 
+## <a name="cluster-configurations"></a>Cluster configurations 
 
-현재, 클러스터 생성 스크립트 및 템플릿을 사용하면 단일 MATLAB 분산 컴퓨팅 서버 토폴로지를 만들 수 있습니다. 원한다면, 하나 이상의 클러스터를 추가적으로 만들고, 각 클러스터마다 작업자 VM의 수를 다르게 지정하고, 다른 VM 크기를 사용하는 등의 작업이 가능합니다.
+Currently, the cluster creation script and template enable you to create a single MATLAB Distributed Computing Server topology. If you want, create one or more additional clusters, with each cluster having a different number of worker VMs, using different VM sizes, and so on. 
 
-### Azure의 MATLAB 클라이언트 및 클러스터 
+### <a name="matlab-client-and-cluster-in-azure"></a>MATLAB client and cluster in Azure 
 
-MATLAB 클라이언트 노드, MATLAB 작업 스케줄러 노드, 및 MATLAB 분산 컴퓨팅 서버 “작업자” 노드는 다음 그림에서와 같이, 모두 가상 네트워크의 Azure VM으로 구성됩니다.
+The MATLAB client node, MATLAB Job Scheduler node, and MATLAB Distributed Computing Server "worker" nodes are all configured as Azure VMs in a virtual network, as shown in the following figure. 
 
-![클러스터 토폴로지](./media/virtual-machines-windows-matlab-mdcs-cluster/mdcs_cluster.png)
+![Cluster topology](./media/virtual-machines-windows-matlab-mdcs-cluster/mdcs_cluster.png)
 
-* 클러스터를 사용하려면 원격 데스크톱을 통해 클라이언트 노드에 연결합니다. 클라이언트 노드는 MATLAB 클라이언트를 실행합니다.
+* To use the cluster, connect by Remote Desktop to the client node. The client node runs the MATLAB client. 
 
-* 클라이언트 노드에는 모든 작업자가 액세스할 수 있는 파일 공유가 있습니다.
+* The client node has a file share that can be accessed by all workers.
 
-* MathWorks 호스티드 라이선스 관리자가 모든 MATLAB 소프트웨어의 라이선스를 확인하기 위해 사용됩니다.
+* MathWorks Hosted License Manager is used for the license checks for all MATLAB software. 
 
-* 기본적으로, 코어 당 하나의 MATLAB 분산 컴퓨팅 서버 작업자가 작업자 VM에 생성되지만, 어떤 숫자든 지정할 수 있습니다.
+* By default, one MATLAB Distributed Computing Server worker per core is created on the worker VMs, but you can specify any number. 
 
 
-## Azure 기반 클러스터 사용 
+## <a name="use-an-azure-based-cluster"></a>Use an Azure-based Cluster 
 
-다른 유형의 MATLAB 분산 컴퓨터 서버 클러스터에서처럼, MATLAB 작업 스케줄러 프로필을 만들려면 MATLAB 클라이언트(또는 클라이언트 VM)의 클라이언트 프로필 관리자를 사용해야 합니다.
+As with other types of MATLAB Distributed Computing Server clusters, you need to use the Cluster Profile Manager in the MATLAB client (on the client VM) to create a MATLAB Job Scheduler cluster profile.
 
-![클러스터 프로필 관리자](./media/virtual-machines-windows-matlab-mdcs-cluster/cluster_profile_manager.png)
+![Cluster Profile Manager](./media/virtual-machines-windows-matlab-mdcs-cluster/cluster_profile_manager.png)
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-* Azure에서 MATLAB 분산 컴퓨팅 서버 클러스터를 배포하고 관리하는 자세한 내용은, 템플릿과 스크립트를 포함하는 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) 리포지토리를 참조하세요.
+* For detailed instructions to deploy and manage MATLAB Distributed Computing Server clusters in Azure, see the [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) repository containing the templates and scripts. 
 
-* MATLAB 및 MATLAB 분산 컴퓨팅 서버에 대한 자세한 설명서는 [MathWorks 사이트](http://www.mathworks.com/)를 참조하세요.
+* Go to the [MathWorks site](http://www.mathworks.com/) for detailed documentation for MATLAB and MATLAB Distributed Computing Server.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

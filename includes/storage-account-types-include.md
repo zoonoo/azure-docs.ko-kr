@@ -1,27 +1,32 @@
-저장소 계정에는 다음과 같은 두 종류가 있습니다.
+There are two types of storage accounts:
 
-### 범용 저장소 계정
+### <a name="general-purpose-storage-accounts"></a>General-purpose Storage Accounts
 
-범용 저장소 계정에서는 단일 계정의 테이블, 큐, 파일, Blob, Azure 가상 컴퓨터 디스크 등, Azure 저장소 서비스에 액세스할 수 있습니다. 이 저장소 계정이 유형에는 다음과 같이 두 가지 성능 계층이 있습니다.
+A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
 
-- 테이블, 큐, 파일, Blob 및 Azure 가상 컴퓨터 디스크를 저장할 수 있는 표준 저장소 성능 계층
-- 현재 Azure 가상 컴퓨터 디스크만 지원하는 프리미엄 저장소 성능 계층. 프리미엄 저장소의 자세한 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
+- A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
+- A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) for an in-depth overview of Premium storage.
 
-### Blob 저장소 계정
+### <a name="blob-storage-accounts"></a>Blob Storage Accounts
 
-Blob 저장소 계정은 Azure 저장소에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 저장소 계정입니다. Blob 저장소 계정은 기존 범용 저장소 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다.
+A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
-> [AZURE.NOTE] Blob 저장소 계정은 블록 및 추가 Blob만 지원하고 페이지 Blob은 지원하지 않습니다.
+> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
 
-Blob 저장소 계정은 계정을 만들고 나중에 필요에 따라 수정하는 동안 지정할 수 있는 **액세스 계층** 속성을 표시합니다. 데이터 액세스 패턴에 따라 다음 두 가지 액세스 계층 유형을 지정할 수 있습니다.
+Blob storage accounts expose the **Access Tier** attribute which can be specified during account creation and modified later as needed. There are two types of access tiers that can be specified based on your data access pattern:
 
-- 저장소 계정의 개체가 더 자주 액세스됨을 의미하는 **핫** 액세스 계층. 더 저렴한 액세스 비용으로 데이터를 저장할 수 있습니다.
-- 저장소 계정의 개체가 덜 액세스됨을 의미하는 **쿨** 액세스 계층. 더 저렴한 데이터 저장 비용으로 데이터를 저장할 수 있습니다.
+- A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
+- A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
 
-데이터의 사용 패턴에 변화가 있으면 언제든 이 액세스 계층 간을 전환할 수 있습니다. 액세스 계층을 변경하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing)(Blob 저장소 계정에 대한 가격 책정 및 청구)를 참조하세요.
+If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
 
-Blob 저장소 계정에 대한 자세한 내용은 [Azure Blob 저장소: 쿨 및 핫 계층](../articles/storage/storage-blob-storage-tiers.md)을 참조하세요.
+For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md).
 
-저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. [무료 계정](https://azure.microsoft.com/pricing/free-trial/)으로 Azure를 시작할 수 있습니다. 구독 계획을 구매하기로 결정하는 경우 다양한 [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 중에서 선택할 수 있습니다. [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다. 볼륨 가격에 대한 자세한 내용은 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
-저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](../articles/storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 단일 구독으로 고유하게 명명된 저장소 계정을 100개까지 만들 수 있습니다. 저장소 계정 제한에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](../articles/storage/storage-scalability-targets.md)를 참조하세요.
+To learn how to create a storage account, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account limits.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple EBOD 컨트롤러 교체 | Microsoft Azure"
-   description="StorSimple 8600 장치에서 하나 또는 두 개의 EBOD 컨트롤러를 모두 꺼내고 교체하는 방법을 설명합니다."
+   pageTitle="Replace a StorSimple EBOD controller | Microsoft Azure"
+   description="Explains how to remove and replace one or both EBOD controllers on a StorSimple 8600 device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,96 +15,101 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# StorSimple 장치의 EBOD 컨트롤러 교체
 
-## 개요
+# <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Replace an EBOD controller on your StorSimple device
 
-이 자습서에서는 Microsoft Azure StorSimple 장치에서 결함이 있는 EBOD 컨트롤러 모듈을 교체하는 방법을 설명합니다. EBOD 컨트롤러 모듈을 교체하려면 다음을 수행해야 합니다.
+## <a name="overview"></a>Overview
 
-- 결함이 있는 EBOD 컨트롤러 꺼내기
-- 새 EBOD 컨트롤러 설치
+This tutorial explains how to replace a faulty EBOD controller module on your Microsoft Azure StorSimple device. To replace an EBOD controller module, you need to:
 
-시작하기 전에 다음 정보를 고려하세요.
+- Remove the faulty EBOD controller
+- Install a new EBOD controller
 
-- 사용하지 않은 모든 슬롯에 빈 EBOD 모듈을 삽입해야 합니다. 슬롯이 열려 있으면 엔클로저가 제대로 냉각되지 않습니다.
+Consider the following information before you begin:
 
-- EBOD 컨트롤러는 핫 스왑이 가능하며 꺼내거나 교체할 수 있습니다. 교체가 있을 때까지 오류가 발생한 모듈을 꺼내지 마세요. 교체 프로세스를 시작하는 경우 10분 내에 완료해야 합니다.
+- Blank EBOD modules must be inserted into all unused slots. The enclosure will not cool properly if a slot is left open.
 
->[AZURE.IMPORTANT] StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이콘 표시 규칙](storsimple-safety.md#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
+- The EBOD controller is hot-swappable and can be removed or replaced. Do not remove a failed module until you have a replacement. When you initiate the replacement process, you must finish it within 10 minutes.
 
-## EBOD 컨트롤러 꺼내기
+>[AZURE.IMPORTANT] Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](storsimple-safety.md#safety-icon-conventions) and other [safety precautions](storsimple-safety.md).
 
-StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체하기 전에 다른 EBOD 컨트롤러 모듈이 활성화되어 실행되고 있는지 확인합니다. 다음 절차와 표에서는 EBOD 컨트롤러 모듈을 꺼내는 방법을 설명합니다.
+## <a name="remove-an-ebod-controller"></a>Remove an EBOD controller
 
-#### EBOD 모듈을 꺼내려면
+Before replacing the failed EBOD controller module in your StorSimple device, make sure that the other EBOD controller module is active and running. The following procedure and table explain how to remove the EBOD controller module.
 
-1. Azure 클래식 포털을 엽니다.
+#### <a name="to-remove-an-ebod-module"></a>To remove an EBOD module
 
-2. **장치** > **유지 관리** > **하드웨어 상태**로 이동한 다음 활성 EBOD 컨트롤러 모듈의 LED 상태가 녹색이고 오류가 발생한 EBOD 컨트롤러 모듈의 LED가 빨간색인지 확인합니다.
+1. Open the Azure classic portal.
 
-3. 장치 뒷면에서 오류가 발생한 EBOD 컨트롤러 모듈을 찾습니다.
+2. Navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that the status of the LED for the active EBOD controller module is green and the LED for the failed EBOD controller module is red.
 
-4. 시스템에서 EBOD 모듈을 꺼내기 전에 EBOD 컨트롤러 모듈을 컨트롤러에 연결하는 케이블을 뺍니다.
+3. Locate the failed EBOD controller module at the back of the device.
 
-5. 컨트롤러에 연결된 EBOD 컨트롤러 모듈의 SAS 포트를 정확하게 적어둡니다. EBOD 모듈을 교체한 후 시스템을 이 구성으로 복원해야 합니다.
+4. Remove the cables that connect the EBOD controller module to the controller before taking the EBOD module out of the system.
 
-    >[AZURE.NOTE] 일반적으로 포트 A이며, 다음 다이어그램에서는 **호스트 인**으로 레이블이 붙어 있습니다.
+5. Make a note of the exact SAS port of the EBOD controller module that was connected to the controller. You will be required to restore the system to this configuration after you replace the EBOD module. 
 
-    ![EBOD 컨트롤러의 백플레인](./media/storsimple-ebod-controller-replacement/IC741049.png)
+    >[AZURE.NOTE] Typically, this will be Port A, which is labeled as **Host in** in the following diagram.
 
-     **그림 1** EBOD 모듈 뒷면
+    ![Backplane of EBOD controller](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
-    |레이블|설명|
-    |:----|:----------|
-    |1|오류 LED|
-    |2|전원 LED|
-    |3|SAS 커넥터|
-    |4|SAS LED|
-    |5|팩터리 전용 직렬 포트|
-    |6|포트 A(호스트 인)|
-    |7|포트 B(호스트 아웃)|
-    |8|포트 C(팩터리 전용)|
+     **Figure 1** Back of EBOD module
 
-## 새 EBOD 컨트롤러 설치
+  	|Label|Description|
+  	|:----|:----------|
+  	|1|Fault LED|
+  	|2|Power LED|
+  	|3|SAS connectors|
+  	|4|SAS LEDs|
+  	|5|Serial ports for factory use only|
+  	|6|Port A (Host in)|
+  	|7|Port B (Host out)|
+  	|8|Port C (Factory use only)|
 
-다음 절차와 표에서는 StorSimple 장치에 EBOD 컨트롤러 모듈을 설치하는 방법을 설명합니다.
+## <a name="install-a-new-ebod-controller"></a>Install a new EBOD controller
 
-#### EBOD 컨트롤러를 설치하려면
+The following procedure and table explain how to install an EBOD controller module in your StorSimple device.
 
-1. EBOD 장치에서 특히 인터페이스 커넥터에 손상된 부분이 있는지 확인합니다. 핀이 구부러진 경우 새 EBOD 컨트롤러를 설치하지 마세요.
+#### <a name="to-install-an-ebod-controller"></a>To install an EBOD controller
 
-2. 래치를 열린 위치에 놓고 래치가 걸릴 때까지 모듈을 엔클로저에 밀어넣습니다.
+1. Check the EBOD device for damage, especially to the interface connector. Do not install the new EBOD controller if any pins are bent.
 
-    ![EBOD 컨트롤러 설치](./media/storsimple-ebod-controller-replacement/IC741050.png)
+2. With the latches in the open position, slide the module into the enclosure until the latches engage.
 
-    **그림 2** EBOD 컨트롤러 모듈 설치
+    ![Installing EBOD controller](./media/storsimple-ebod-controller-replacement/IC741050.png)
 
-3. 래치를 닫습니다. 래치가 걸리면 딸깍하는 소리가 들립니다.
+    **Figure 2**  Installing the EBOD controller module
 
-    ![EBOD 래치 해제](./media/storsimple-ebod-controller-replacement/IC741047.png)
+3. Close the latch. You should hear a click as the latch engages.
 
-    **그림 3** EBOD 모듈 래치 닫기
+    ![Releasing EBOD latch](./media/storsimple-ebod-controller-replacement/IC741047.png)
 
-4. 케이블을 다시 연결합니다. 교체 전에 있던 구성을 정확하게 사용합니다. 케이블을 연결하는 방법에 대한 자세한 내용은 다음 다이어그램과 표를 참조하세요.
+    **Figure 3**  Closing the EBOD module latch
 
-    ![전원에 4U 장치를 케이블로 연결](./media/storsimple-ebod-controller-replacement/IC770723.png)
+4. Reconnect the cables. Use the exact configuration that was present before the replacement. See the following diagram and table for details about how to connect the cables.
 
-    **그림 4**. 케이블 다시 연결
+    ![Cable your 4U device for power](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    |레이블|설명|
-    |:----|:----------|
-    |1|기본 인클로저|
-    |2|PCM 0|
-    |3|PCM 1|
-    |4|컨트롤러 0|
-    |5|컨트롤러 1|
-    |6|EBOD 컨트롤러 0|
-    |7|EBOD 컨트롤러 1|
-    |8|EBOD 인클로저|
-    |9|전력 분배 장치|
+    **Figure 4**. Reconnecting cables
 
-## 다음 단계
+  	|Label|Description|
+  	|:----|:----------|
+  	|1|Primary enclosure|
+  	|2|PCM 0|
+  	|3|PCM 1|
+  	|4|Controller 0|
+  	|5|Controller 1|
+  	|6|EBOD controller 0|
+  	|7|EBOD controller 1|
+  	|8|EBOD enclosure|
+  	|9|Power Distribution Units|
 
-[StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0824_2016-->
+Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

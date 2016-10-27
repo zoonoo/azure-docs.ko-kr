@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL 데이터베이스 성능 Insight | Microsoft Azure" 
-   description="Azure SQL 데이터베이스는 현재 쿼리 성능을 향상시킬 수 있는 영역을 식별하는 데 도움이 되는 성능 도구를 제공합니다." 
+   pageTitle="Azure SQL Database Performance Insight | Microsoft Azure" 
+   description="The Azure SQL Database provides performance tools to help you identify areas that can improve current query performance." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,56 +16,60 @@
    ms.date="07/19/2016"
    ms.author="sstein"/>
 
-# SQL 데이터베이스 성능 Insight
 
-Azure SQL 데이터베이스는 인텔리전트 튜닝 작업 및 권장 사항을 제공하여 데이터베이스의 성능을 파악하고 향상시키는 데 도움이 되는 성능 도구를 제공합니다.
+# <a name="sql-database-performance-insight"></a>SQL Database Performance Insight
 
-1. [Azure 포털](http://portal.azure.com)에서 데이터베이스를 찾아 **모든 설정** > **성능** > **개요**를 클릭하면 **성능** 페이지가 열립니다.
+Azure SQL Database provides performance tools to help you identify and improve the performance of your databases by providing intelligent tuning actions and recommendations. 
 
-
-2. [SQL 데이터베이스 관리자](#sql-database-advisor)를 열려면 **권장 사항**을 클릭하고 [Query Performance Insight](#query-performance-insight)를 열려면 **쿼리**를 클릭합니다.
-
-    ![성능 보기](./media/sql-database-performance/entries.png)
+1. Browse to your database in the [Azure Portal](http://portal.azure.com) and click **All settings** > **Performance ** > **Overview** to open the **Performance** page. 
 
 
+2. Click **Recommendations** to open the [SQL Database Advisor](#sql-database-advisor), and click **Queries** to open [Query Performance Insight](#query-performance-insight).
 
-## 성능 개요
-
-**개요** 또는 **성능** 타일을 클릭하면 데이터베이스에 대한 성능 대시보드로 이동합니다. 이 보기에서는 데이터베이스 성능에 대한 요약을 제공하여 성능 튜닝 및 문제 해결에 도움이 됩니다.
-
-![성능](./media/sql-database-performance/performance.png)
-
-- **권장 사항** 타일은 데이터베이스에 대한 튜닝 권장 사항을 분석하여 제공합니다(표시되는 내용이 많은 경우 상위 3가지 권장 사항이 표시됨). 이 타일을 클릭하면 **SQL 데이터베이스 관리자**로 이동합니다.
-- **튜닝 활동** 타일은 데이터베이스에 대해 진행 중이고 완료된 튜닝 작업을 제공하여 튜닝 활동의 기록을 간략히 볼 수 있습니다. 이 타일을 클릭하면 데이터베이스에 대한 전체 튜닝 기록 보기로 이동합니다.
-- **자동 튜닝** 타일은 데이터베이스에 대한 자동 튜닝 구성을 보여 줍니다(데이터베이스에 자동으로 적용되도록 구성되는 튜닝 작업). 이 타일을 클릭하면 자동화 구성 대화 상자가 열립니다.
-- **데이터베이스 쿼리** 타일은 데이터베이스에 대한 쿼리 성능 요약을 보여 줍니다(전체 DTU 사용량 및 최상위 리소스 사용 쿼리). 이 타일을 클릭하면 **Query Performance Insight**로 이동합니다.
+    ![View Performance](./media/sql-database-performance/entries.png)
 
 
 
-## SQL 데이터베이스 관리자
+## <a name="performance-overview"></a>Performance Overview
+
+Clicking on **Overview** or on the **Performance** tile will take you to the performance dashboard for your database. This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
+
+![Performance](./media/sql-database-performance/performance.png)
+
+- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top 3 recommendations are shown if there are more). Clicking this tile takes you to **SQL Database Advisor**. 
+- The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
+- The **Auto-tuning** tile shows the auto-tuning configuration for your database (which tuning actions are configured to be automatically applied to your database). Clicking this tile opens the automation configuration dialog.
+- The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **Query Performance Insight**.
 
 
-[SQL 데이터베이스 관리자](sql-database-advisor.md)는 데이터베이스의 성능 향상에 도움이 될 수 있는 인텔리전트 튜닝 권장 사항을 제공합니다.
 
-- 생성 또는 삭제할 인덱스에 대한 권장 사항(및 사용자 상호 작용 없이 인덱스 권장 사항을 자동으로 적용하고 성능에 부정적인 영향을 주는 권장 사항을 자동으로 롤백하는 옵션).
-- 데이터베이스에서 스키마 문제가 확인될 때 권장 사항.
-- 쿼리가 매개 변수화된 쿼리에서 이점을 얻을 수 있는 경우 권장 사항.
+## <a name="sql-database-advisor"></a>SQL Database Advisor
 
 
+[SQL Database Advisor](sql-database-advisor.md) provides intelligent tuning recommendations that can help improve your database's performance. 
+
+- Recommendations on which indexes to create or drop (and an option to apply index recommendations automatically without any user interaction and automatically rolling back recommendations that have a negative impact on performance).
+- Recommendations when schema issues are identified in the database.
+- Recommendations when queries can benefit from parameterized queries.
 
 
-## 쿼리 성능 Insight
-
-[Query Performance Insight](sql-database-query-performance.md)를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
-
-- 데이터베이스 리소스(DTU) 사용에 대한 보다 자세한 정보를 확인합니다.
-- 최상위 CPU 사용 쿼리는 향상된 성능을 위해 잠재적으로 조정될 수 있습니다.
-- 쿼리에 대한 세부 정보로 드릴다운할 수 있습니다.
 
 
-## 추가 리소스
+## <a name="query-performance-insight"></a>Query Performance Insight
 
-- [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md)
-- [탄력적 데이터베이스 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)
+[Query Performance Insight](sql-database-query-performance.md) allows you to spend less time troubleshooting database performance by providing:
 
-<!---HONumber=AcomDC_0720_2016-->
+- Deeper insight into your databases resource (DTU) consumption. 
+- The top CPU consuming queries, which can potentially be tuned for improved performance. 
+- The ability to drill down into the details of a query. 
+
+
+## <a name="additional-resources"></a>Additional resources
+
+- [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
+- [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

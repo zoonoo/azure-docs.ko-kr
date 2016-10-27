@@ -1,8 +1,8 @@
 
 
 <properties
-   pageTitle="Azure 응용 프로그램 게이트웨이에 대한 상태 모니터링 개요 | Microsoft Azure"
-   description="Azure 응용 프로그램 게이트웨이의 모니터링 기능에 대해 알아봅니다."
+   pageTitle="Health monitoring overview for Azure Application Gateway | Microsoft Azure"
+   description="Learn about the monitoring capabilities in Azure Application Gateway"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -19,53 +19,62 @@
    ms.date="08/29/2016"
    ms.author="gwallace" />
 
-# 응용 프로그램 게이트웨이 상태 모니터링 개요
 
-Azure 응용 프로그램 게이트웨이는 기본적으로 백 엔드 풀의 모든 리소스 상태를 모니터링하고 풀에서 비정상으로 간주한 모든 리소스를 자동으로 제거합니다. 응용 프로그램 게이트웨이는 비정상 인스턴스를 계속 모니터링하며 사용할 수 있게 되고 상태 프로브에 응답하게 되면 정상 백 엔드 풀에 다시 추가합니다.
+# <a name="application-gateway-health-monitoring-overview"></a>Application Gateway health monitoring overview
 
-![Application Gateway 프로브 예제][1]
+Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes.
 
-기본 상태 프로브 모니터링 사용 외에도 응용 프로그램의 요구 사항에 맞게 상태 프로브를 사용자 지정할 수도 있습니다. 이 문서에서는 기본 및 사용자 지정 상태 프로브를 모두 설명합니다.
+![application gateway probe example][1]
 
-## 기본 상태 프로브
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
-응용 프로그램 게이트웨이는 사용자 지정 프로브 구성을 설정하지 않는 경우 기본 상태 프로브를 자동으로 구성합니다. 모니터링 동작은 백 엔드 풀에 대해 구성된 IP 주소에 대한 HTTP 요청을 만들어 작동합니다.
+## <a name="default-health-probe"></a>Default health probe
 
-예: 포트 80에서 HTTP 네트워크 트래픽을 수신할 백 엔드 서버 A, B, C를 사용하도록 응용 프로그램 게이트웨이를 구성합니다. 기본 상태 모니터링은 정상 HTTP 응답에 대해 3개의 서버를 30초마다 테스트합니다. 정상 HTTP 응답은 [상태 코드](https://msdn.microsoft.com/library/aa287675.aspx) 200에서 399 사이입니다.
+An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool.
 
-서버 A에 대한 기본 프로브 확인이 실패하면 응용 프로그램 게이트웨이가 백 엔드 풀에서 이를 제거하고 네트워크 트래픽이 이 서버로 이동되지 않습니다. 기본 프로브는 서버 A에 대해 30초마다 계속 확인합니다. 서버 A가 기본 상태 프로브에서 하나의 요청에 대해 성공적으로 응답하는 경우 백 엔드 풀에 정상으로 다시 추가되고 트래픽이 이 서버로 다시 이동하기 시작합니다.
+For example: You configure your application gateway to use back-end servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399.
 
-### 기본 상태 프로브 설정
+If the default probe check fails for server A, the application gateway removes it from its back-end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back-end pool, and traffic starts flowing to the server again.
 
-|프로브 속성 | 값 | 설명|
+### <a name="default-health-probe-settings"></a>Default health probe settings
+
+|Probe property | Value | Description|
 |---|---|---|
-| 프로브 URL| http://127.0.0.1:\<port>/ | URL 경로 |
-| 간격 | 30 | 프로브 간격(초) |
-| 시간 제한 | 30 | 프로브 시간 제한(초) |
-| 비정상 임계값 | 3 | 프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
+| Probe URL| http://127.0.0.1:\<port\>/ | URL path |
+| Interval | 30 | Probe interval in seconds |
+| Time-out  | 30 | Probe time-out in seconds |
+| Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-기본 프로브는 상태를 확인하는 데 http://127.0.0.1:\<port>만 살펴봅니다. 사용자 지정 URL로 이동하거나 다른 모든 설정을 수정하도록 상태 프로브를 구성하려면 다음 단계에 설명된 대로 사용자 지정 프로브를 사용해야 합니다.
+The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
 
-## 사용자 지정 상태 프로브
+## <a name="custom-health-probe"></a>Custom health probe
 
-사용자 지정 프로브를 통해 상태 모니터링을 보다 세부적으로 제어할 수 있습니다. 사용자 지정 프로브를 사용하는 경우 프로브 간격, 테스트할 URL 및 경로, 백 엔드 풀 인스턴스를 비정상으로 표시하기 전에 허용할 실패 응답 횟수를 구성할 수 있습니다.
+Custom probes allow you to have a more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy.
 
-### 사용자 지정 상태 프로브 설정
+### <a name="custom-health-probe-settings"></a>Custom health probe settings
 
-|프로브 속성| 설명|
+The following table provides definitions for the properties of a custom health probe.
+
+|Probe property| Description|
 |---|---|
-| Name | 프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
-| 프로토콜 | 프로브를 보내는 데 사용하는 프로토콜입니다. HTTP 또는 HTTPS는 유효한 프로토콜입니다. |
-| 호스트 | 프로브에 보낼 호스트 이름입니다. |
-| Path | 프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 <protocol>://<host>:<port><path>에 보내집니다. |
-| 간격 | 프로브 간격(초). 연속된 두 프로브 사이의 시간 간격입니다.|
-| 시간 제한 | 프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브는 실패로 표시됩니다. |
-| 비정상 임계값 | 프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
+| Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
+| Protocol | Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
+| Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This is different from VM host name. |
+| Path | Relative path of the probe. The valid path starts from '/'. |
+| Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
+| Time-out | Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
+| Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-## 다음 단계
+> [AZURE.IMPORTANT] If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
+For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>.
 
-Application Gateway 상태 모니터링에 대해 알아본 후에 PowerShell 및 Azure Resource Manager 배포 모델을 사용하여 Azure Portal의 [사용자 지정 상태 프로브](application-gateway-create-probe-portal.md) 또는 [사용자 지정 상태 프로브](application-gateway-create-probe-ps.md)를 구성할 수 있습니다.
+## <a name="next-steps"></a>Next steps
+
+After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

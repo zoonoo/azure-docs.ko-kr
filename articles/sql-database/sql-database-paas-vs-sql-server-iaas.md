@@ -1,159 +1,165 @@
 <properties
-	pageTitle="SQL(PaaS) 데이터베이스 vs VM에서 클라우드의 SQL Server(IaaS) | Microsoft Azure"
-	description="다음 중 어떤 클라우드 SQL Server 옵션이 응용 프로그램에 맞는지 알아봅니다. Azure SQL (PaaS) 데이터베이스 또는 Azure 가상 컴퓨터 클라우드의 SQL Server."
-	services="sql-database, virtual-machines"
-	keywords="SQL Server 클라우드, 클라우드의 SQL Server, PaaS 데이터베이스, 클라우드 SQL Server, DBaaS"
-	documentationCenter=""
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="cjgronlund"/>
+    pageTitle="SQL (PaaS) Database vs. SQL Server in the cloud on VMs (IaaS) | Microsoft Azure"
+    description="Learn which cloud SQL Server option fits your application: Azure SQL (PaaS) Database or SQL Server in the cloud on Azure Virtual Machines."
+    services="sql-database, virtual-machines"
+    keywords="SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS"
+    documentationCenter=""
+    authors="CarlRabeler"
+    manager="jhubbard"
+    editor="cjgronlund"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/06/2016"
-	ms.author="carlrab"/>
-
-# 클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
-
-Azure에는 Microsoft Azure의 SQL Server 워크로드를 호스팅하는 다음과 같은 두 가지 옵션이 있습니다.
-
-* [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/): 클라우드에 네이티브한 SQL 데이터베이스이며 서비스 (PaaS) 데이터베이스 또는 SaaS(software-as-a-service) 앱 개발에 최적화된 DBaaS(database as a service)라고도 하는 플랫폼이라고도 합니다. 대부분의 SQL Server 기능과의 호환성을 제공합니다. PaaS에 대한 자세한 내용은 [PaaS란](https://azure.microsoft.com/overview/what-is-paas/)을 참조하세요.
-* [Azure 가상 컴퓨터에서 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/): Azure에서 실행 중인 Windows Server 가상 컴퓨터(VM)의 클라우드에서 설치되고 호스팅되는 SQL Server이며 IaaS(infrastructure as a service)라고도 합니다. Azure 가상 컴퓨터에 대한 SQL Server는 기존 SQL Server 응용 프로그램을 마이그레이션하는 데 최적화됩니다. 모든 버전의 SQL Server를 사용할 수 있습니다. SQL Server에서 100% 호환성을 제공하여 필요한 많은 데이터베이스를 호스팅하고 교차 데이터베이스 트랜잭션을 실행할 수 있습니다. SQL Server 및 Windows에 대한 모든 권한을 제공합니다.
-
-각 옵션이 Microsoft 데이터 플랫폼에 얼마나 적합한지 알아보고 비즈니스 요구 사항에 적합한 옵션을 찾는 데 도움이 됩니다. 비용 절감이 우선이든 관리 최소화가 무엇보다 중요하든 이 문서에서는 가장 관심 있는 비즈니스 요구 사항에 대해 어떤 접근 방식이 결과를 가져오는지 결정하도록 도울 수 있습니다.
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/06/2016"
+    ms.author="carlrab"/>
 
 
-## Microsoft의 데이터 플랫폼
+# <a name="choose-a-cloud-sql-server-option:-azure-sql-(paas)-database-or-sql-server-on-azure-vms-(iaas)"></a>Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)
 
-Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 우선 이 둘을 모두 사용할 수 있다는 점을 이해해야 합니다. Microsoft의 데이터 플랫폼에서는 SQL Server 기술을 활용하며 물리적 온-프레미스 컴퓨터, 사설 클라우드 환경, 타사 호스팅 사설 클라우드 환경 및 공용 클라우드 전반에서 이 기술을 사용할 수 있습니다. Azure 가상 컴퓨터에 대한 SQL Server를 사용하면 온-프레미스 배포와 클라우드에 호스트된 배포를 조합하여 고유하고 다양한 비즈니스 요구 사항을 충족하고, 이러한 환경 전반에서 일련의 서버 제품, 개발 도구 및 전문 지식을 동일하게 사용할 수 있습니다.
+Azure has two options for hosting SQL Server workloads in Microsoft Azure:
 
-   ![클라우드 SQL Server 옵션: IaaS의 SQL server 또는 클라우드의 SaaS SQL 데이터베이스.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database native to the cloud, also known as a platform as a service (PaaS) database or a database as a service (DBaaS) that is optimized for software-as-a-service (SaaS) app development. It offers compatibility with most SQL Server features. For more information on PaaS, see [What is PaaS](https://azure.microsoft.com/overview/what-is-paas/).
+* [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server installed and hosted in the cloud on Windows Server Virtual Machines (VMs) running on Azure, also known as an infrastructure as a service (IaaS).
+SQL Server on Azure virtual machines is optimized for migrating existing SQL Server applications. All the versions and editions of SQL Server are available. It offers 100% compatibility with SQL Server, allowing you to host as many databases as needed and executing cross-database transactions. It offers full control on SQL Server and Windows.
 
-다이어그램에 나온 대로 각 제품의 특징을 인프라에 대한 관리 수준(X축)과 데이터베이스 수준 통합 및 자동화를 통해 얻는 비용 효율성의 정도(Y축)를 기준으로 설명할 수 있습니다.
+Learn how each option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
 
-응용 프로그램을 설계할 때 다음 네 가지 기본 옵션을 사용하여 응용 프로그램의 SQL Server 부분을 호스트할 수 있습니다.
 
-- 가상화되지 않은 물리적 컴퓨터의 SQL Server
-- 온-프레미스 가상화 컴퓨터의 SQL Server(사설 클라우드)
-- Azure 가상 컴퓨터의 SQL Server(Microsoft 공용 클라우드)
-- Azure SQL 데이터베이스(Microsoft 공용 클라우드)
+## <a name="microsoft's-data-platform"></a>Microsoft's data platform
 
-다음 섹션에서는 Microsoft 공용 클라우드의 SQL Server인 Azure SQL Database 및 Azure VM의 SQL Server에 대해 알아봅니다. 또한 응용 프로그램에 가장 적합한 옵션을 결정하는 데 영향을 미치는 일반적인 비즈니스 동인도 살펴봅니다.
+One of the first things to understand in any discussion of Azure versus on-premises SQL Server databases is that you can use it all. Microsoft’s data platform leverages SQL Server technology and makes it available across physical on-premises machines, private cloud environments, third-party hosted private cloud environments, and public cloud. SQL Server on Azure virtual mchines enables you to meet unique and diverse business needs through a combination of on-premises and cloud-hosted deployments, while using the same set of server products, development tools, and expertise across these environments.
 
-## Azure SQL 데이터베이스 및 Azure VM의 SQL Server에서 자세히 보기
+   ![Cloud SQL Server options: SQL server on IaaS, or SaaS SQL database in the cloud.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
-**Azure SQL 데이터베이스**는 *SaaS(software-as-a-service)* 및 *PaaS(platform-as-a-service)* 산업으로 분류되는 Azure 클라우드에서 호스팅되는 관계형 DBaaS(Database-as-a-Service)입니다. [SQL 데이터베이스](sql-database-technical-overview.md)는 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어 및 소프트웨어를 기반으로 구축됩니다. SQL 데이터베이스에서는 기본 제공 기능을 사용하여 서비스를 직접 개발할 수 있습니다. SQL 데이터베이스를 사용할 경우 추가 성능에 맞게 중단 없이 강화 및 확장하는 옵션을 통해 사용량에 따라 지불합니다.
+As seen in the diagram, each offering can be characterized by the level of administration you have over the infrastructure (on the X axis), and by the degree of cost efficiency achieved by database level consolidation and automation (on the Y axis).
 
-**Azure VM(가상 컴퓨터)의 SQL Server**는 업계 범주에 속하는 *IaaS(Infrastructure as a service)* 산업 부분으로 분류되며 클라우드의 가상 컴퓨터 내에서 SQL Server를 실행할 수 있도록 지원합니다. SQL 데이터베이스와 마찬가지로 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어를 기반으로 구축됩니다. VM에서 SQL Server를 사용하는 경우 SQL Server 이미지에 이미 포함된 SQL Server 라이선스에 종량제를 사용하거나 기존 라이선스를 쉽게 사용할 수 있습니다. 또한 필요에 따라 VM을 확대/축소하고 일시 중지/다시 시작할 수도 있습니다.
+When designing an application, four basic options are available for hosting the SQL Server part of the application:
 
-일반적으로 이러한 두 SQL 옵션은 다음과 같이 최적의 용도가 서로 다릅니다.
+- SQL Server on non-virtualized physical machines
+- SQL Server in on-premises virtualized machines (private cloud)
+- SQL Server in Azure Virtual Machine (Microsoft public cloud)
+- Azure SQL Database (Microsoft public cloud)
 
-- **SQL 데이터베이스**는 여러 데이터베이스를 프로비전 및 관리하는 전체 비용을 최소한으로 줄이는 데에 최적화되어 있습니다. 가상 컴퓨터, 운영 체제 또는 데이터베이스 소프트웨어를 관리할 필요가 없으므로 지속적인 관리 비용을 줄입니다. 업그레이드, 고가용성 또는 [백업](sql-database-automated-backups.md)을 관리할 필요가 없습니다. 일반적으로 Azure SQL 데이터베이스는 단일 IT 또는 개발 리소스로 관리되는 데이터베이스 수를 크게 늘립니다.
-- **Azure VM에서 실행 중인 SQL Server**는 기존 응용 프로그램을 Azure로 마이그레이션하거나 기존 온-프레미스 응용 프로그램을 하이브리드 배포의 클라우드로 확장하는 데 최적화됩니다. 또한 가상 컴퓨터에서 SQL Server를 사용하여 기존 SQL Server 응용 프로그램을 개발하고 테스트할 수 있습니다. Azure VM의 SQL Server를 사용할 경우 전용 SQL Server 인스턴스와 클라우드 기반 VM에 대한 모든 관리 권한을 갖습니다. 이 옵션은 가상 컴퓨터를 유지 관리하는 IT 리소스를 이미 갖춘 조직에게 가장 적합합니다. 이러한 기능을 사용하면 응용 프로그램 관련 성능 및 가용성 요구 사항을 해결하는 고도로 사용자 지정된 시스템을 구축할 수 있습니다.
+In the following sections, you learn about SQL Server in the Microsoft public cloud: Azure SQL Database and SQL Server on Azure VMs. In addition, you explore common business motivators for determining which option works best for your application.
 
-다음 테이블에는 SQL 데이터베이스와 Azure VM의 SQL Server의 주요 특징이 요약되어 있습니다.
+## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>A closer look at Azure SQL Database and SQL Server on Azure VMs
 
-| | SQL 데이터베이스 | Azure 가상 컴퓨터의 SQL Server|
+**Azure SQL Database** is a relational database-as-a-service (DBaaS) hosted in the Azure cloud that falls into the industry categories of *Software-as-a-Service (SaaS)* and *Platform-as-a-Service (PaaS)*. [SQL database](sql-database-technical-overview.md) is built on standardized hardware and software that is owned, hosted, and maintained by Microsoft. With SQL Database, you can develop directly on the service using built-in features and functionality. When using SQL Database, you pay-as-you-go with options to scale up or out for greater power with no interruption.
+
+**SQL Server on Azure Virtual Machines (VMs)** falls into the industry category *Infrastructure-as-a-Service (IaaS)* and allows you to run SQL Server inside a virtual machine in the cloud. Similar to SQL Database, it is built on standardized hardware that is owned, hosted, and maintained by Microsoft. When using SQL Server on a VM, you can either pay-as you-go for a SQL Server license already included in a  SQL Server image or easily use an existing license. You can also easily scale-up/down and pause/resume the VM as needed.
+
+In general, these two SQL options are optimized for different purposes:
+
+- **SQL Database** is optimized to reduce overall costs to the minimum for provisioning and managing many databases. It reduces ongoing administration costs because you do not have to manage any virtual machines, operating system or database software. You do not have to manage upgrades, high availability, or [backups](sql-database-automated-backups.md). In general, Azure SQL Database can dramatically increase the number of databases managed by a single IT or development resource.
+- **SQL Server running on Azure VMs** is optimized for migrating existing applications to Azure or extending existing on-premises applications to the cloud in hybrid deployments. In addition, you can use SQL Server in a virtual machine to develop and test traditional SQL Server applications. With SQL Server on Azure VMs, you have the full administrative rights over a dedicated SQL Server instance and a cloud-based VM. It is a perfect choice when an organization already has IT resources available to maintain the virtual machines. These capabilities allow you to build a highly customized system to address your application’s specific performance and availability requirements.
+
+The following table summarizes the main characteristics of SQL Database and SQL Server on Azure VMs:
+
+|       | SQL Database | SQL Server in an Azure Virtual Machine|
 | -------------- | ------------ | ---------------------- |
-| **최적 용도:** | 개발 및 마케팅에 시간 제약이 따르는 클라우드용으로 설계된 새 응용 프로그램 |기존 응용 프로그램을 변경은 최소로 하고 클라우드로 빠르게 마이그레이션해야 하는 경우 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 |
-|| 데이터베이스에 대한 기본 제공 고가용성, 재해 복구 및 업그레이드가 필요한 팀 |SQL Server에 대한 고가용성, 재해 복구 및 패치를 구성하고 관리할 수 있는 팀 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. |
-||기본 운영 체제 및 구성 설정을 관리하지 않으려는 팀입니다.| 모든 관리 권한이 있는 사용자 지정된 환경이 필요한 경우|
-||확장 패턴을 사용하여 [가로 또는 세로로 분할](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)될 수 있는 최대 1TB 이상의 데이터베이스|저장소의 최대 64TB를 사용하는 SQL Server 인스턴스 인스턴스는 필요한 만큼 많은 데이터베이스를 지원할 수 있습니다. |
-||[SaaS(Software-as-a-Service) 응용 프로그램 빌드](sql-database-design-patterns-multi-tenancy-saas-applications.md)| 엔터프라이즈 및 하이브리드 응용 프로그램 마이그레이션 및 빌드|
+| **Best for:** | New cloud-designed applications that have time constraints in development and marketing. |Existing applications that require fast migration to the cloud with minimal changes. Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware. |
+|| Teams that need built-in high availability, disaster recovery, and upgrade for the database. |Teams that can configure and manage high availability, disaster recovery, and patching for SQL Server. Some provided automated features dramatically simplify this. |
+||Teams that do not want to manage the underlying operating system and configuration settings.| If you need a customized environment with full administrative rights.|
+||Databases of up to 1 TB, or larger databases that can be [horizontally or vertically partitioned](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) using a scale-out pattern.|SQL Server instances with up to 64 TB of storage. The instance can support as many databases as needed. |
+||[Building Software-as-a-Service (SaaS) applications](sql-database-design-patterns-multi-tenancy-saas-applications.md).| Migrating and building enterprise and hybrid applications.|
 |||||
-|**리소스:**|기본 인프라를 구성하고 관리하는 데 IT 리소스를 사용하지 않지만 응용 프로그램 계층에 중점을 두려고 합니다.|구성 및 관리를 위한 일부 IT 리소스가 있습니다. 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다.|
-|**총 소유 비용**|하드웨어 비용을 제거하고 관리 비용을 절감합니다.|하드웨어 비용을 제거합니다.|
-|**비즈니스 연속성:**|Azure SQL Database는 내결함성 인프라 기능을 기본적으로 제공할 뿐 아니라 [자동화된 백업](sql-database-automated-backups.md), [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore), [지역 복원](sql-database-recovery-using-backups.md#geo-restore) 및 [활성 지역 복제](sql-database-geo-replication-overview.md) 등의 다양한 기능을 제공하여 비즈니스 연속성을 향상합니다. 자세한 내용은 [SQL 데이터베이스 비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.|Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 응용 프로그램에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.|
-|**하이브리드 클라우드:**|온-프레미스 응용 프로그램은 Azure SQL 데이터베이스의 데이터에 액세스할 수 있습니다.|Azure VM의 SQL Server를 사용하면 응용 프로그램을 일부는 클라우드에서, 일부는 온-프레미스에서 실행할 수 있습니다. 예를 들어 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)를 통해 클라우드로 온-프레미스 네트워크 및 Active Directory 도메인을 확장할 수 있습니다. 또한 [Azure의 SQL Server 데이터 파일](http://msdn.microsoft.com/library/dn385720.aspx)을 사용하여 온-프레미스 데이터 파일을 Azure 저장소에 저장할 수도 있습니다. 자세한 내용은 [SQL Server 2014 하이브리드 클라우드 소개](http://msdn.microsoft.com/library/dn606154.aspx)를 참조하세요.|
-||[SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx)를 구독자로 지원하여 데이터를 복제합니다.|[SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx), [AlwaysOn 가용성 그룹](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md), 통합 서비스 및 로그 전달을 완벽하게 지원하여 데이터를 복제합니다. 또한 기존의 SQL Server 백업은 완벽하게 지원됩니다.|
+|**Resources:**|You do not want to employ IT resources for configuration and management of the underlying infrastructure, but want to focus on the application layer.|You have some IT resources for configuration and management. Some provided automated features dramatically simplify this.|
+|**Total cost of ownership:**|Eliminates hardware costs and reduces administrative costs.|Eliminates hardware costs.|
+|**Business continuity:**|In addition to built-in fault tolerance infrastructure capabilities, Azure SQL Database provides features, such as [automated backups](sql-database-automated-backups.md), [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore), [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore), and [Active Geo-Replication](sql-database-geo-replication-overview.md) to increase business continuity. For more information, see [SQL Database business continuity overview](sql-database-business-continuity.md).|SQL Server on Azure VMs lets you set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).|
+|**Hybrid cloud:**|Your on-premises application can access data in Azure SQL Database.|With SQL Server on Azure VMs, you can have applications that run partly in the cloud and partly on-premises. For example, you can extend your on-premises network and Active Directory Domain to the cloud via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). In addition, you can store on-premises data files in Azure Storage using [SQL Server Data Files in Azure](http://msdn.microsoft.com/library/dn385720.aspx). For more information, see [Introduction to SQL Server 2014 Hybrid Cloud](http://msdn.microsoft.com/library/dn606154.aspx).|
+||Supports [SQL Server transactional replication](https://msdn.microsoft.com/library/mt589530.aspx) as a subscriber to replicate data.|Fully supports [SQL Server transactional replication](https://msdn.microsoft.com/library/mt589530.aspx), [AlwaysOn Availability Groups](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md), Integration Services, and Log Shipping to replicate data. Also, traditional SQL Server backups are fully supported|
 |||||
 |||||
 
-## Azure SQL 데이터베이스 또는 Azure VM의 SQL Server를 선택하는 경우 비즈니스 동기
+## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Business motivations for choosing Azure SQL Database or SQL Server on Azure VMs
 
-### 비용
+### <a name="cost"></a>Cost
 
-현금이 쪼들리는 신생 기업이든 자리를 잡은 회사에서 빠듯한 예산으로 운영되는 팀이든 데이터베이스를 호스트하는 방법을 결정할 때 제한된 자금이 주된 동인으로 작용하는 경우가 많습니다. 이 섹션에서는 SQL Database 및 Azure VM의 SQL Server 등 두 가지 관계형 데이터베이스 옵션에 대한 Azure의 청구 및 라이선스 기본 사항을 알아봅니다. 또한 총 응용 프로그램 비용을 계산하는 방법에 대해 알아봅니다.
+Whether you’re a startup that is strapped for cash, or a team in an established company that operates under tight budget constraints, limited funding is often the primary driver when deciding how to host your databases. In this section, you learn about the billing and licensing basics in Azure with regards to these two relational database options: SQL Database and SQL Server on Azure VMs. You also learn about calculating the total application cost.
 
-#### 청구 및 라이선스 기본 사항
+#### <a name="billing-and-licensing-basics"></a>Billing and licensing basics
 
-**SQL Database**는 라이선스가 아닌 서비스로 고객에게 판매됩니다. [Azure VM에 대한 SQL Server](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)는 분당 지불하는 라이선스로 판매됩니다. 기존 라이선스가 있다면 사용할 수 있습니다.
+**SQL Database** is sold to customers as a service, not with a license.  [SQL Server on Azure VMs](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) is sold with an included license that you pay per-minute. If you have an existing license, you can also use it.  
 
-현재 **SQL 데이터베이스**는 여러 서비스 계층에서 사용할 수 있으며 모두 선택하는 서비스 계층과 성능 수준을 기준으로 고정 요금이 시간당 청구됩니다. 또한 일반 [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/)으로 발신 인터넷 트래픽에 대해 요금이 청구됩니다. Basic, Standard 및 Premium 서비스 계층은 응용 프로그램의 최대 요구 사항에 맞게 여러 성능 수준의 예측 가능한 성능을 제공하기 위해 설계되었습니다. 응용 프로그램의 다양한 처리량 요구에 맞게 서비스 계층과 성능 수준을 변경할 수 있습니다. 데이터베이스에 트랜잭션 볼륨이 많고 지원해야 하는 동시 사용자가 많은 경우 Premium을 사용하는 것이 좋습니다. 현재 지원되는 서비스 계층에 대한 최신 정보는 [Azure SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)을 참조하세요. [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만들어 데이터베이스 인스턴스 간에 성능 리소스를 공유할 수도 있습니다.
+Currently, **SQL Database** is available in several service tiers, all of which are billed hourly at a fixed rate based on the service tier and performance level you choose. In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/). The Basic, Standard, and Premium service tiers are designed to deliver predictable performance with multiple performance levels to match your application’s peak requirements. You can change between service tiers and performance levels to match your application’s varied throughput needs. If your database has high transactional volume and needs to support many concurrent users, we recommend the Premium service tier. For the latest information on the current supported service tiers, see [Azure SQL Database Service Tiers](sql-database-service-tiers.md). You can also create [elastic database pools](sql-database-elastic-pool.md) to share performance resources among database instances.
 
-**SQL 데이터베이스**에서 데이터베이스 소프트웨어는 Microsoft에서 구성, 패치 적용 및 업그레이드를 수행하며 이는 관리 비용을 줄입니다. 또한 [기본 제공 백업](sql-database-automated-backups.md) 기능을 사용하여 비용을 크게 절감할 수 있으며, 특히 데이터베이스 수가 많을 경우 그 효과가 큽니다.
+With **SQL Database**, the database software is automatically configured, patched, and upgraded by Microsoft, which reduces your administration costs. In addition, its [built-in backup](sql-database-automated-backups.md) capabilities help you achieve significant cost savings, especially when you have a large number of databases.
 
-**Azure VM의 SQL Server**로 플랫폼에서 제공하는 SQL Server 이미지(라이선스 포함)를 사용하거나 사용자의 SQL Server 라이선스를 가져올 수 있습니다. 지원되는 모든 SQL Server 버전(2008R2, 2012, 2014, 2016) 및 버전(Developer, Express, Web, Standard, Enterprise)을 사용할 수 있습니다. 또한 이미지의 BYOL(사용자 라이선스 필요)를 사용할 수 있습니다. Azure에서 제공하는 이미지를 사용할 경우 VM 크기 및 선택하는 SQL Server 버전에 따라 운영 비용이 달라집니다. VM 크기 또는 SQL Server 버전에 관계 없이 VM 디스크에 대한 Azure 저장소 비용과 함께 SQL Server 및 Windows Server의 분당 라이선스 비용을 지불합니다. 분당 청구 옵션을 사용하면 추가 SQL Server 라이선스를 구입하지 않고 필요한 시간 동안만 SQL Server를 사용할 수 있습니다. 고유한 SQL Server 라이선스를 Azure에 가져오는 경우 Windows Server 및 저장소 비용만 청구됩니다. 고유한 라이선스 가져오기에 대한 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 참조하세요.
+With **SQL Server on Azure VMs**, you can use any of the platform-provided SQL Server images (which includes a license) or bring your SQL Server license. All the supported SQL Server versions (2008R2, 2012, 2014, 2016) and editions (Developer, Express, Web, Standard, Enterprise) are available. In addition, Bring-Your-Own-License versions (BYOL) of the images are available. When using the Azure provided images, the operational cost depends on the VM size and the edition of SQL Server you choose. Regardless of VM size or SQL Server edition, you pay per-minute licensing cost of SQL Server and Windows Server, along with the Azure Storage cost for the VM disks. The per-minute billing option allows you to use SQL Server for as long as you need without buying addition SQL Server licenses. If you bring your own SQL Server license to Azure, you are charged for Windows Server and storage costs only. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-#### 총 응용 프로그램 비용 계산
+#### <a name="calculating-the-total-application-cost"></a>Calculating the total application cost
 
-클라우드 플랫폼을 사용하기 시작하면 응용 프로그램을 실행하는 비용에는 개발 및 관리 비용과 공용 클라우드 플랫폼 서비스 비용이 포함됩니다.
+When you start using a cloud platform, the cost of running your application includes the development and administration costs, plus the public cloud platform service costs.
 
-다음은 Azure VM의 SQL 데이터베이스 및 SQL Server에서 실행 중인 응용 프로그램에 대한 자세한 비용 계산입니다.
+Here is the detailed cost calculation for your application running in SQL Database and SQL Server on Azure VMs:
 
-**Azure SQL 데이터베이스를 사용하는 경우:**
+**When using Azure SQL Database:**
 
-*총 응용 프로그램 비용 = 최소 관리 비용 + 소프트웨어 개발 비용 + SQL 데이터베이스 서비스 비용*
+*Total cost of application = Highly minimized administration costs + software development costs + SQL Database service costs*
 
-**Azure VM의 SQL Server를 사용하는 경우:**
+**When using SQL Server on Azure VMs:**
 
-*총 응용 프로그램 비용 = 매우 최소화된 소프트웨어 개발 비용 + 관리 비용 + SQL Server 및 Windows Server 라이선스 비용 + Azure Storage 비용*
+*Total cost of application = Highly minimized software development cost + administration costs +  SQL Server and Windows Server licensing costs + Azure Storage costs*
 
-가격에 대한 자세한 내용은 다음 리소스를 참조하세요.
+For more information on pricing, see the following resources:
 
-- [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)
-- [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)에 대한 [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)
-- [ Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+- [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/)
+- [Virtual Machine Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) for [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) and for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
+- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-> [AZURE.NOTE] SQL 데이터베이스에 적용되거나 사용할 수 없는 SQL Server의 기능 하위 집합이 있습니다. 자세한 내용은 [SQL 데이터베이스 일반 제한 사항 및 지침](sql-database-general-limitations.md) 및 [SQL 데이터베이스 Transact-SQL 정보](sql-database-transact-sql-information.md)를 참조하세요. 클라우드로 기존 SQL Server 솔루션을 이동하는 경우 [Azure SQL 데이터베이스에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. SQL 데이터베이스에 기존 온-프레미스 SQL Server 응용 프로그램을 마이그레이션하는 경우 클라우드 서비스가 제공하는 기능을 활용하려면 응용 프로그램을 업데이트하는 것이 좋습니다. 예를 들어 [Azure 웹앱 서비스](https://azure.microsoft.com/services/app-service/web/) 또는 [Azure 클라우드 서비스](https://azure.microsoft.com/services/cloud-services/)를 사용하여 비용 혜택이 증가하는 응용 프로그램 계층을 호스팅할 수 있습니다.
+> [AZURE.NOTE] There is a small subset of features on SQL Server that are not applicable or not available with SQL Database. See [SQL Database General Limitations and Guidelines](sql-database-general-limitations.md) and [SQL Database Transact-SQL information](sql-database-transact-sql-information.md) for more information. If you are moving an existing SQL Server solution to the cloud, see [Migrating a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md). When you migrate an existing on-premises SQL Server application to SQL Database, consider updating the application to take advantage of the capabilities that cloud services offer. For example, you may consider using [Azure Web App Service](https://azure.microsoft.com/services/app-service/web/) or [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) to host your application layer to increase cost benefits.
 
-### 관리
+### <a name="administration"></a>Administration
 
-많은 비즈니스의 경우 클라우드 서비스로 전환하는 결정은 드는 비용 만큼 관리의 복잡성을 오프로드하는 것과 관련됩니다. Microsoft에서는 **SQL Database**를 사용하여 기본 하드웨어를 관리합니다. Microsoft에서는 모든 데이터를 자동으로 복제하여 고가용성을 제공하고, 데이터베이스 소프트웨어를 구성 및 업그레이드하고, 부하 분산을 관리하고, 서버 오류가 발생하는 경우 장애 조치(Failover)를 투명하게 수행합니다. 데이터베이스 관리를 계속할 수 있지만 데이터베이스 엔진, 서버 운영 체제 또는 하드웨어를 더 이상 관리할 필요가 없습니다. 계속 관리할 수 있는 항목의 예는 데이터베이스 및 로그인, 인덱스 및 쿼리 튜닝 및 감사 및 보안을 들 수 있습니다.
+For many businesses, the decision to transition to a cloud service is as much about offloading complexity of administration as it is cost. With **SQL Database**, Microsoft administers the underlying hardware. Microsoft automatically replicates all data to provide high availability, configures and upgrades the database software, manages load balancing, and does transparent failover if there is a server failure. You can continue to administer your database, but you no longer need to manage the database engine, server operating system or hardware.  Examples of items you can continue to administer include databases and logins, index and query tuning, and auditing and security.
 
-**Azure VM에 대한 SQL Server**에서는 운영 체제와 SQL Server 인스턴스 구성을 완벽히 제어할 수 있습니다. VM에서는 운영 체제 및 데이터베이스 소프트웨어를 업데이트/업그레이드할 시기 및 바이러스 백신 등의 추가 소프트웨어를 설치할 시기를 사용자가 결정합니다. 자동화된 일부 기능이 제공되어 패치, 백업 및 고가용성을 크게 간소화합니다. 또한 VM 크기, 디스크 수 및 해당 저장소 구성도 사용자가 제어할 수 있습니다. Azure를 사용하면 VM이 필요한 크기를 변경할 수 있습니다. 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
+With **SQL Server on Azure VMs**, you have full control over the operating system and SQL Server instance configuration. With a VM, it’s up to you to decide when to update/upgrade the operating system and database software and when to install any additional software such as anti-virus. Some automated features are provided to dramatically simplify patching, backup, and high availability. In addition, you can control the size of the VM, the number of disks, and their storage configurations. Azure allows you to change the size of a VM as needed. For information, see [Virtual Machine and Cloud Service Sizes for Azure](../virtual-machines/virtual-machines-linux-sizes.md). 
 
-### SLA(서비스 수준 계약)
+### <a name="service-level-agreement-(sla)"></a>Service Level Agreement (SLA)
 
-IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충족하는 일이 가장 우선합니다. 이 섹션에서는 각 데이터베이스 호스팅 옵션에 어떤 SLA를 적용하는지 살펴봅니다.
+For many IT departments, meeting up-time obligations of a Service Level Agreement (SLA) is a top priority. In this section, we look at what SLA applies to each database hosting option.
 
-**SQL 데이터베이스** Basic, Standard 및 Premium 서비스 계층에 대해 Microsoft는 99.99%의 가용성 SLA를 제공합니다. 최신 정보는 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/sql-database/)을 참조하세요. SQL 데이터베이스 서비스 계층 및 지원되는 비즈니스 연속성 계획에 대한 최신 정보는 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+For **SQL Database** Basic, Standard, and Premium service tiers Microsoft provides an availability SLA of 99.99%. For the latest information, see [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/sql-database/). For the latest information on SQL Database service tiers and the supported business continuity plans, see [Service Tiers](sql-database-service-tiers.md).
 
-**Azure VM에서 실행 중인 SQL Server**의 경우 Microsoft는 가상 컴퓨터를 다루는 99.95%의 가용성 SLA를 제공합니다. 이 SLA는 VM에서 실행 중인 프로세스(예: SQL Server)를 다루지 않으며 가용성 집합에 두 개 이상의 VM 인스턴스를 호스트해야 합니다. 최신 정보는 [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 참조하세요. VM 내에서 데이터베이스 고가용성(HA)을 이용하려면 SQL Server에서 지원되는 고가용성 옵션 중 하나(예: [AlwaysOn 가용성 그룹](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx))를 구성해야 합니다. 지원되는 고가용성 옵션을 사용하면 추가 SLA를 제공하지 않지만 >99.99%의 데이터베이스 가용성을 달성할 수 있습니다.
+For **SQL Server running on Azure VMs**, Microsoft provides an availability SLA of 99.95% that covers just the Virtual Machine. This SLA does not cover the processes (such as SQL Server) running on the VM and requires that you host at least two VM instances in an availability set. For the latest information, see the [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). For database high availability (HA) within VMs, you should configure one of the supported high availability options in SQL Server, such as [AlwaysOn Availability Groups](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Using a supported high availability option doesn't provide an additional SLA, but allows you to achieve >99.99% database availability.
 
-### <a name="market"></a>출시 시간
+### <a name="<a-name="market"></a>time-to-market"></a><a name="market"></a>Time to market
 
-**SQL 데이터베이스**는 개발자 생산성과 빠른 출시 시간이 중요한 경우 클라우드용으로 설계된 응용 프로그램에 적합한 솔루션입니다. 프로그래밍 방식 DBA와 비슷한 기능을 사용하여 기본 운영 체제 및 데이터베이스를 관리할 필요성을 낮추므로 클라우드 설계자와 개발자에게 이상적인 솔루션입니다. 예를 들어 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [PowerShell Cmdlet](http://msdn.microsoft.com/library/azure/dn546726.aspx)을 사용하여 수천 개 데이터베이스에 대한 관리 작업을 자동화할 수 있습니다. [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)과 같은 기능을 사용하면 응용 프로그램 계층에 집중하고 시장에 솔루션을 더 빠르게 제공할 수 있습니다.
+**SQL Database** is the right solution for cloud-designed applications when developer productivity and fast time-to-market are critical. With programmatic DBA-like functionality, it is perfect for cloud architects and developers as it lowers the need for managing the underlying operating system and database. For example, you can use the [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) and [PowerShell Cmdlets](http://msdn.microsoft.com/library/azure/dn546726.aspx) to automate and manage administrative operations for thousands of databases. Features such as [Elastic Database Pools](sql-database-elastic-pool.md) allow you to focus on the application layer and deliver your solution to the market faster.
 
-**Azure VM에서 실행 중인 SQL Server**는 기존 또는 새 응용 프로그램에 상호 관련된 큰 데이터베이스가 필요하거나 SQL Server 또는 Windows의 모든 기능에 액세스하는 경우에 유용합니다. 또한 기존 온-프레미스 응용 프로그램 및 데이터베이스를 Azure에 그대로 마이그레이션하려는 경우 가장 잘 맞습니다. 프레젠테이션, 응용 프로그램 및 데이터 계층을 변경할 필요가 없으므로 기존 솔루션 재설계에 따른 비용과 예산이 절감됩니다. 대신 모든 솔루션을 Azure에 마이그레이션하고 Azure 플랫폼에 필요할 수 있는 일부 성능 최적화를 수행하는 데 집중할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-sql-performance.md)를 참조하세요.
+**SQL Server running on Azure VMs** is perfect if your existing or new applications require large databases, interrelated databases, or access to all features in SQL Server or Windows. It is also a good fit when you want to migrate existing on-premises applications and databases to Azure as-is. Since you do not need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and in doing some performance optimizations that may be required by the Azure platform. For more information, see [Performance Best Practices for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-performance.md).
 
-## 요약
+## <a name="summary"></a>Summary
 
-이 문서는 Azure 가상 컴퓨터(VM)에서 SQL 데이터베이스 및 SQL Server를 탐색했고 결정하는 데 영향을 줄 수 있는 일반적인 비즈니스 동인을 설명했습니다. 다음은 고려할 제안 사항을 요약한 내용입니다.
+This article explored SQL Database and SQL Server on Azure Virtual Machines (VMs) and discussed common business motivators that might affect your decision. The following is a summary of suggestions for you to consider:
 
-**Azure SQL 데이터베이스**를 선택하는 경우:
+Choose **Azure SQL Database** if:
 
-- 새로운 클라우드 기반 응용 프로그램을 빌드하여 클라우드 서비스가 제공하는 비용 절감 및 성능 최적화를 활용합니다. 이 방법은 완전히 관리되는 클라우드 서비스의 이점을 제공하고 초기 출시 시기를 낮춰주며 장기 비용을 최적화할 수 있습니다.
+- You are building new cloud-based applications to take advantage of the cost savings and performance optimization that cloud services provide. This approach provides the benefits of a fully managed cloud service, helps lower initial time-to-market, and can provide long-term cost optimization.
 
-- 데이터베이스의 일반 관리 작업을 Microsoft로 하여금 수행하게 하고 데이터베이스에 대해 높은 가용성 SLA가 필요한 경우.
-
-
-
-**Azure VM의 SQL Server**를 선택하는 경우:
-
-- 기존 온-프레미스 응용 프로그램을 마이그레이션 또는 클라우드로 확장하거나 1TB보다 큰 엔터프라이즈 응용 프로그램을 빌드하려는 경우. 이 방법을 통해 100% SQL 호환성, 큰 데이터베이스 용량, SQL Server 및 Windows 전체 제어 및 온-프레미스에 대한 안전한 터널링이라는 이점을 제공합니다. 이 방법은 기존 응용 프로그램의 개발 및 수정에 대한 비용을 최소화합니다.
-
-- 기존 IT 리소스가 있다면 패치, 백업 및 데이터베이스 고가용성을 궁극적으로 활용할 수 있습니다. 일부 자동화된 기능은 이러한 작업을 크게 간소화합니다.
+- You want to have Microsoft perform common management operations on your databases and require stronger availability SLAs for databases.
 
 
-## 다음 단계
-- [SQL 데이터베이스 자습서: Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 SQL 데이터베이스를 시작합니다.
-- [SQL 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
-- Azure VM에서 SQL Server를 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
-- [Azure 가상 컴퓨터의 SQL Server: 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)를 참조하세요.
 
-<!---HONumber=AcomDC_1005_2016-->
+Choose **SQL Server on Azure VMs** if:
+
+- You have existing on-premises applications that you want to migrate or extend to the cloud, or if you want to build enterprise applications larger than 1 TB. This approach provides the benefit of 100% SQL compatibility, large database capacity, full control over SQL Server and Windows, and secure tunneling to on-premises. This approach minimizes costs for development and modifications of existing applications.
+
+- You have existing IT resources and can ultimately own patching, backups, and database high availability. Notice that some automated features dramatically simplify these operations. 
+
+
+## <a name="next-steps"></a>Next steps
+- See [SQL Database tutorial: Create a SQL database in minutes using the Azure portal](sql-database-get-started.md) to get started with SQL Database.
+- See [SQL Database pricing] (https://azure.microsoft.com/pricing/details/sql-database/).
+- See [Provision a SQL Server virtual machine in Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) to get started with SQL Server on Azure VMs.
+- See [SQL Server on an Azure Virtual Machine: Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

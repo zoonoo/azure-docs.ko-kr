@@ -1,307 +1,325 @@
 <properties
-	pageTitle="Azure의 Active Directory 페더레이션 서비스 | Microsoft Azure"
-	description="이 문서에서는 고가용성을 위해 Azure에서 AD FS를 배포하는 방법을 알아봅니다."
-    keywords="Azure에 AD FS 배포, Azure ADFS 배포, Azure ADFS, Azure AD FS, ADFS 배포, AD FS 배포, Azure에서 ADFS, Azure에서 ADFS 배포, Azure에서 AD FS배포, ADFS Azure, AD FS 소개, Azure, Azure에서 AD FS, IaaS, ADFS, Azure에 ADFS 이동"
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="femila"
-	editor=""/>
+    pageTitle="Active Directory Federation Services in Azure | Microsoft Azure"
+    description="In this document you will learn how to deploy AD FS in Azure for high availablity."
+    keywords="deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure"
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/13/2016"
-	ms.author="anandy;billmath"/>
-
-# Azure에서 AD FS 배포 
-
-AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다. Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 같습니다.
-
-* **고가용성** - Azure 가용성 집합의 기능을 사용하여 인프라를 항상 사용 가능하도록 합니다.
-* **규모 조정 용이** – 더 좋은 성능이 필요한가요? Azure에서 몇 번 클릭하면 더 강력한 컴퓨터로 쉽게 마이그레이션합니다
-* **지역간 중복성** – Azure 지역 중복성을 사용하여 인프라를 전 세계에 걸쳐 항상 사용 가능하도록 보장할 수 있습니다
-* **관리 용이** – Azure 포털의 단순화된 관리 옵션을 사용하여 인프라를 관리하는 작업이 매우 간편하고 깔끔해 집니다.
-
-## 디자인 원칙
-
-![배포 설계](./media/active-directory-aadconnect-azure-adfs/deployment.png)
-
-위의 다이어그램에서는 Azure에서 AD FS 인프라를 배포하기 시작하는 데 권장되는 기본 토폴로지를 보여 줍니다. 토폴로지의 다양한 구성 요소의 원리는 다음과 같습니다.
-
-* **DC/AD FS 서버**: 사용자가 1,000명보다 적은 경우 도메인 컨트롤러에 AD FS 역할을 설치할 수 있습니다. 도메인 컨트롤러의 성능에 영향을 주지 않도록 하려는 경우 또는 사용자가 1,000명 이상인 경우 별도 서버에 AD FS를 배포합니다.
-* **WAP 서버** – 사용자가 회사 네트워크에 있지 않은 경우 AD FS에 연결할 수 있도록 웹 응용 프로그램 프록시 서버를 배포해야 합니다.
-* **DMZ**: 웹 응용 프로그램 프록시 서버는 DMZ에 배치되고 DMZ와 내부 서브넷 간에 TCP/443 액세스만이 허용됩니다.
-* **부하 분산 장치**: AD FS 및 웹 응용 프로그램 프록시 서버의 고가용성을 보장하려면 AD FS 서버용 내부 부하 분산 장치 및 웹 응용 프로그램 프록시 서버용 Azure Load Balancer를 사용하는 것이 좋습니다.
-* **가용성 집합**: AD FS 배포에 대한 중복성을 제공하려면 비슷한 워크로드에 대한 가용성 집합에 두 개 이상의 가상 컴퓨터를 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있습니다.
-* **저장소 계정**: 두 개의 저장소 계정을 사용하는 것이 좋습니다. 단일 저장소 계정을 만들면 단일 실패 지점이 생성될 수 있고 저장소 계정이 중단되는 가능성이 적은 시나리오에서 배포를 사용할 수 없게 될 수 있습니다. 두 개의 저장소 계정이 있으면 각 오류 줄에 하나의 저장소 계정을 연결할 수 있습니다.
-* **네트워크 분리**: 웹 응용 프로그램 프록시 서버를 별도의 DMZ 네트워크에 배포해야 합니다. 하나의 가상 네트워크를 두 개의 서브넷으로 나누고 격리된 서브넷에는 웹 응용 프로그램 프록시 서버를 배포할 수 있습니다. 각 서브넷에 대한 네트워크 보안 그룹 설정을 구성하고 두 개의 서브넷 간에 필요한 통신만을 허용할 수 있습니다. 자세한 내용은 아래 배포 시나리오 별로 지정됩니다.
-
-##Azure에서 AD FS를 배포하는 단계
-
-이 섹션에 설명한 단계는 아래와 같이 Azure에서 AD FS 인프라를 배포하는 가이드를 설명합니다.
-
-### 1\. 네트워크 배포
-
-위에서 설명한 대로 단일 가상 네트워크에 두 개의 서브넷을 만들거나 두 개의 완전히 다른 가상 네트워크(VNet)를 만들 수 있습니다. 이 문서는 단일 가상 네트워크를 배포하는 데 집중하고 해당 네트워크를 두 개의 서브넷으로 나눕니다. 두 개의 별도 VNet에 통신용 VNet간 게이트웨이가 필요하기 때문에 현재로서는 쉬운 방법입니다.
-
-**1.1 가상 네트워크 만들기**
-
-![가상 네트워크 만들기](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
-	
-한 번 클릭하여 Azure 포털에서 가상 네트워크를 선택하고 가상 네트워크와 서브넷 하나를 즉시 배포할 수 있습니다. INT 서브넷을 정의하여 이제 VM을 추가할 준비가 되었습니다. 다음 단계는 네트워크에 다른 서브넷, 즉 DMZ 서브넷을 추가하는 작업입니다. DMZ 서브넷을 만들려면
-
-* 새로 만든 네트워크 선택
-* 속성에서 서브넷 선택
-* 서브넷 패널에서 추가 단추 클릭
-* 서브넷을 만들려는 서브넷 이름 및 주소 공간 정보 제공
-
-![서브넷](./media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="07/13/2016"
+    ms.author="anandy;billmath"/>
 
 
-![서브넷 DMZ](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
+# <a name="ad-fs-deployment-in-azure"></a>AD FS deployment in Azure 
 
-**1.2. 네트워크 보안 그룹 만들기**
+AD FS provides simplified, secured identity federation and Web single sign-on (SSO) capabilities. Federation with Azure AD or O365 enables users to authenticate using on-premises credentials and access all resources in cloud. As a result, it becomes important to have a highly available AD FS infrastructure to ensure access to resources both on-premises and in the cloud. Deploying AD FS in Azure can help achieve the high availability required with minimal efforts.
+There are several advantages of deploying AD FS in Azure, a few of them are listed below:
 
-NSG(네트워크 보안 그룹)은 ACL(액세스 제어 목록)의 가상 네트워크에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 이 지침을 위해 DMZ와 내부 네트워크용으로 각각 하나씩 두 개의 NSG를 만듭니다. 각각 NSG\_INT 및 NSG\_DMZ라는 레이블이 지정됩니다.
+* **High Availability** - With the power of Azure Availability Sets, you ensure a highly available infrastructure.
+* **Easy to Scale** – Need more performance? Easily migrate to more powerful machines by just a few clicks in Azure
+* **Cross-Geo Redundancy** – With Azure Geo Redundancy you can be assured that your infrastructure is highly available across the globe
+* **Easy to Manage** – With highly simplified management options in Azure portal, managing your infrastructure is very easy and hassle-free 
 
-![NSG 만들기](./media/active-directory-aadconnect-azure-adfs/creatensg1.png)
+## <a name="design-principles"></a>Design principles
 
-NSG를 만든 후에 인바운드 및 아웃 바운드 규칙이 없어집니다. 각 서버의 역할이 설치되고 작동하면 원하는 보안 수준에 따라 인바운드 및 아웃 바운드 규칙을 만들 수 있습니다.
+![Deployment design](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
-![NSG 초기화](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
+The diagram above shows the recommended basic topology to start deploying your AD FS infrastructure in Azure. The principles behind the various components of the topology are listed below:
 
-NSG를 만든 후에 NSG\_INT를 서브넷 INT와 연결하고 NSG\_DMZ를 서브넷 DMZ와 연결합니다. 예제 스크린샷은 다음과 같습니다.
+* **DC / ADFS Servers**: If you have fewer than 1,000 users you can simply install AD FS role on your domain controllers. If you do not want any performance impact on the domain controllers or if you have more than 1,000 users, then deploy AD FS on separate servers.
+* **WAP Server** – it is necessary to deploy Web Application Proxy servers, so that users can reach the AD FS when they are not on the company network also.
+* **DMZ**: The Web Application Proxy servers will be placed in the DMZ and ONLY TCP/443 access is allowed between the DMZ and the internal subnet.
+* **Load Balancers**: To ensure high availability of AD FS and Web Application Proxy servers, we recommend using an internal load balancer for AD FS servers and Azure Load Balancer for Web Application Proxy servers.
+* **Availability Sets**: To provide redundancy to your AD FS deployment, it is recommended that you group two or more virtual machines in an Availability Set for similar workloads. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available
+* **Storage Accounts**: It is recommended to have two storage accounts. Having a single storage account can lead to creation of a single point of failure and can cause the deployment to become unavailable in an unlikely scenario where the storage account goes down. Two storage accounts will help associate one storage account for each fault line.
+* **Network segregation**:  Web Application Proxy servers should be deployed in a separate DMZ network. You can divide one virtual network into two subnets and then deploy the Web Application Proxy server(s) in an isolated subnet. You can simply configure the network security group settings for each subnet and allow only required communication between the two subnets. More details are given per deployment scenario below
 
-![NSG 구성](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
+##<a name="steps-to-deploy-ad-fs-in-azure"></a>Steps to deploy AD FS in Azure
 
-* 서브넷을 클릭하여 서브넷에 대한 패널을 엽니다.
-* NSG와 연결할 서브넷을 선택합니다.
+The steps mentioned in this section outline the guide to deploy the below depicted AD FS infrastructure in Azure.
 
-구성한 후에 서브넷에 대한 패널은 다음과 같이 표시됩니다.
+### <a name="1.-deploying-the-network"></a>1. Deploying the network
 
-![NSG 이후 서브넷](./media/active-directory-aadconnect-azure-adfs/nsgconfigure2.png)
+As outlined above, you can either create two subnets in a single virtual network or else create two completely different virtual networks (VNet). This article will focus on deploying a single virtual network and divide it into two subnets. This is currently an easier approach as two separate VNets would require a VNet to VNet gateway for communications.
 
-**1.3. 온-프레미스에 대한 연결 만들기**
+**1.1 Create virtual network**
 
-Azure에서 DC(도메인 컨트롤러)를 배포하기 위해 온-프레미스에 대한 연결이 필요합니다. Azure에서는 Azure 인프라에 온-프레미스 인프라를 연결하는 다양한 연결 옵션을 제공합니다.
+![Create virtual network](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
+    
+In the Azure portal, select virtual network and you can deploy the virtual network and one subnet immediately with just one click. INT subnet is also defined and is ready now for VMs to be added.
+The next step is to add another subnet to the network, i.e. the DMZ subnet. To create the DMZ subnet, simply
 
-* 지점 및 사이트 간
-* 가상 네트워크 사이트 간
-* Express 경로
+* Select the newly created network
+* In the properties select subnet
+* In the subnet panel click on the add button
+* Provide the subnet name and address space information to create the subnet
 
-Express 경로를 사용하는 것이 좋습니다. Express 경로를 사용하면 온-프레미스 또는 공동 배치 환경의 인프라와 Azure 데이터 센터 간에 개인 연결을 만들 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. Express 경로는 일반적인 인터넷을 통한 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. Express 경로를 사용하는 것이 좋지만 조직에 가장 적합한 연결 방법을 선택할 수 있습니다. Express 경로 및 Express 경로를 사용하는 다양한 연결 옵션에 대해 자세히 알아보려면 [Express 경로 기술 개요](https://aka.ms/Azure/ExpressRoute)를 참고합니다.
+![Subnet](./media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
 
-### 2\. 저장소 계정 만들기
 
-고가용성을 유지하고 단일 저장소 계정에 대한 종속성을 방지하기 위해 두 개의 저장소 계정을 만들 수 있습니다. 각 가용성 집합의 컴퓨터를 두 그룹으로 나누고 각 그룹에 별도 저장소 계정을 지정합니다. 저장소의 실제 사용량에 대해서만 청구됩니다.
+![Subnet DMZ](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
 
-![저장소 계정 만들기](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
+**1.2. Creating the network security groups**
 
-### 3\. 가용성 집합 만들기
+A Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
+For the purpose of this guidance, we will create two NSGs: one each for an internal network and a DMZ. They will be labeled NSG_INT and NSG_DMZ respectively.
 
-각 역할(DC/AD FS 및 WAP)에 최소한 2대의 컴퓨터를 포함하는 가용성 집합을 만듭니다. 각 역할이 높은 가용성을 달성하는 데 도움이 됩니다. 가용성 집합을 만드는 동안 필수적으로 다음을 결정해야 합니다.
-* **장애 도메인**: 동일한 장애 도메인에 있는 가상 컴퓨터는 동일한 전원 및 물리적 네트워크 스위치를 공유합니다. 최소 2개의 장애 도메인을 사용하는 것이 좋습니다. 기본값은 3개이며 배포하기 위해 그대로 둘 수 있습니다.
-* **업데이트 도메인**: 업데이트하는 동안 동일한 업데이트 도메인에 속한 컴퓨터는 모두 다시 시작됩니다. 최소 2개의 업데이트 도메인이 있어야 합니다. 기본값은 5개이며 배포하기 위해 그대로 둘 수 있습니다.
+![Create NSG](./media/active-directory-aadconnect-azure-adfs/creatensg1.png)
 
-![가용성 집합](./media/active-directory-aadconnect-azure-adfs/availabilityset1.png)
+After the NSG is created, there will be 0 inbound and 0 outbound rules. Once the roles on the respective servers are installed and functional, then the inbound and outbound rules can be made according to the desired level of security.
 
-다음과 같은 가용성 집합 만들기
+![Initialize NSG](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
 
-| 가용성 집합 | 역할 | 장애 도메인 | 업데이트 도메인 |
+After the NSGs are created, associate NSG_INT with subnet INT and NSG_DMZ with subnet DMZ. An example screenshot is given below:
+
+![NSG configure](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
+
+* Click on Subnets to open the panel for subnets
+* Select the subnet to associate with the NSG 
+
+After configuration, the panel for Subnets should look like below:
+
+![Subnets after NSG](./media/active-directory-aadconnect-azure-adfs/nsgconfigure2.png)
+
+**1.3. Create Connection to on-premises**
+
+We will need a connection to on-premises in order to deploy the domain controller (DC) in azure. Azure offers various connectivity options to connect your on-premises infrastructure to your Azure infrastructure.
+
+* Point-to-site
+* Virtual Network Site-to-site
+* ExpressRoute
+
+It is recommended to use ExpressRoute. ExpressRoute lets you create private connections between Azure datacenters and infrastructure that’s on your premises or in a co-location environment. ExpressRoute connections do not go over the public Internet. They offer more reliability, faster speeds, lower latencies and higher security than typical connections over the Internet.
+While it is recommended to use ExpressRoute, you may choose any connection method best suited for your organization. To learn more about ExpressRoute and the various connectivity options using ExpressRoute, read [ExpressRoute technical overview](https://aka.ms/Azure/ExpressRoute).
+
+### <a name="2.-create-storage-accounts"></a>2. Create storage accounts
+
+In order to maintain high availability and avoid dependence on a single storage account, you can create two storage accounts. Divide the machines in each availability set into two groups and then assign each group a separate storage account. Remember, you are only billed for the actual usage of the storage.
+
+![Create storage accounts](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
+
+### <a name="3.-create-availability-sets"></a>3. Create availability sets
+
+For each role (DC/AD FS and WAP), create availability sets that will contain 2 machines each at the minimum. This will help achieve higher availability for each role. While creating the availability sets, it is essential to decide on the following:
+* **Fault Domains**: Virtual machines in the same fault domain share the same power source and physical network switch. A minimum of 2 fault domains are recommended. The default value is 3 and you can leave it as is for the purpose of this deployment
+* **Update domains**: Machines belonging to the same update domain are restarted together during an update. You want to have minimum of 2 update domains. The default value is 5 and you can leave it as is for the purpose of this deployment
+
+![Availability sets](./media/active-directory-aadconnect-azure-adfs/availabilityset1.png)
+
+Create the following availability sets
+
+| Availability Set | Role | Fault domains | Update domains |
 |:----------------:|:----:|:-----------:|:-----------|
 | contosodcset | DC/ADFS | 3 | 5 |
 | contosowapset | WAP | 3 | 5 |
 
-### 4\. 가상 컴퓨터 배포
-다음 단계는 인프라의 다양한 역할을 호스팅하는 가상 컴퓨터를 배포하는 것입니다. 각 가용성 집합에서 최소 두 대의 컴퓨터를 사용하는 것이 좋습니다. 기본 배포를 위해 여섯 개의 가상 컴퓨터를 만듭니다.
+### <a name="4.-deploy-virtual-machines"></a>4.  Deploy virtual machines
+The next step is to deploy virtual machines that will host the different roles in your infrastructure. A minimum of two machines are recommended in each availability set. Create six virtual machines for the basic deployment.
 
-| 컴퓨터 | 역할 | 서브넷 | 가용성 집합 | 저장소 계정 | IP 주소 |
+| Machine | Role | Subnet | Availability set | Storage account | IP Address |
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|contosodc1|DC/ADFS|INT|contosodcset|contososac1|정적|
-|contosodc2|DC/ADFS|INT|contosodcset|contososac2|정적|
-|contosowap1|WAP|DMZ|contosowapset|contososac1|정적|
-|contosowap2|WAP|DMZ|contosowapset|contososac2|정적|
+|contosodc1|DC/ADFS|INT|contosodcset|contososac1|Static|
+|contosodc2|DC/ADFS|INT|contosodcset|contososac2|Static|
+|contosowap1|WAP|DMZ|contosowapset|contososac1|Static|
+|contosowap2|WAP|DMZ|contosowapset|contososac2|Static|
 
-보시는 것처럼 NSG가 지정되지 않았습니다. Azure가 서브넷 수준에서 NSG를 사용할 수 있도록 하기 때문입니다. 그러면 서브넷 또는 NIC 개체와 연결된 개별 NSG를 사용하여 컴퓨터 네트워크 트래픽을 제어할 수 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란](https://aka.ms/Azure/NSG)을 참고하세요. DNS를 관리하는 경우 고정 IP 주소를 사용하는 것이 좋습니다. 도메인에 대한 DNS 레코드 대신 Azure DNS를 사용할 수 있으며 해당 Azure FQDN에 의한 새 컴퓨터를 참조할 수 있습니다. 가상 컴퓨터 창은 배포가 완료된 후에 다음과 같이 표시됩니다.
+As you might have noticed, no NSG has been specified. This is because azure lets you use NSG at the subnet level. Then, you can control machine network traffic by using the individual NSG associated with either the subnet or else the NIC object. Read more on [What is a Network Security Group (NSG)](https://aka.ms/Azure/NSG).
+Static IP address is recommended if you are managing the DNS. You can use Azure DNS and instead in the DNS records for your domain, refer to the new machines by their Azure FQDNs.
+Your virtual machine pane should look like below after the deployment is completed:
 
-![배포된 가상 컴퓨터](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
+![Virtual Machines deployed](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-### 5\. 도메인 컨트롤러/AD FS 서버 구성
- 들어오는 모든 요청을 인증하기 위해 AD FS는 도메인 컨트롤러에 연결해야 합니다. 인증을 위해 Azure에서 온-프레미스 DC까지 비용이 많이 드는 여정을 저장하려면 Azure에서 도메인 컨트롤러의 복제본을 배포하는 것이 좋습니다. 고가용성을 달성하기 위해 최소 2개의 도메인 컨트롤러 가용성 집합을 만드는 것이 좋습니다.
+### <a name="5.-configuring-the-domain-controller-/-ad-fs-servers"></a>5. Configuring the domain controller / AD FS servers
+ In order to authenticate any incoming request, AD FS will need to contact the domain controller. To save the costly trip from Azure to on-premises DC for authentication, it is recommended to deploy a replica of the domain controller in Azure. In order to attain high availability, it is recommended to create an availability set of at-least 2 domain controllers.
 
-|도메인 컨트롤러|역할|저장소 계정|
+|Domain controller|Role|Storage account|
 |:-----:|:-----:|:-----:|
-|contosodc1|복제본|contososac1|
-|contosodc2|복제본|contososac2|
+|contosodc1|Replica|contososac1|
+|contosodc2|Replica|contososac2|
 
-* DNS을 사용하여 두 서버를 복제본 도메인 컨트롤러로 승격
-* 서버 관리자를 사용하는 AD FS 역할을 설치하여 AD FS 서버를 구성합니다.
+* Promote the two servers as replica domain controllers with DNS
+* Configure the AD FS servers by installing the AD FS role using the server manager.
 
-###6\. ILB(내부 부하 분산 장치) 배포
+###<a name="6.-deploying-internal-load-balancer-(ilb)"></a>6.   Deploying Internal Load Balancer (ILB)
 
-**6.1. ILB 만들기**
+**6.1.  Create the ILB**
 
-ILB를 배포하려면 Azure 포털에서 부하 분산 장치를 선택하고 추가(+)를 클릭합니다.
->[AZURE.NOTE] 메뉴에 **부하 분산 장치**가 표시되지 않으면 포털의 왼쪽 아래에서 **찾아보기**를 클릭하고 **부하 분산 장치**가 표시될 때까지 스크롤을 내립니다. 노란색 별표를 클릭하여 메뉴에 추가합니다. 이제 새 부하 분산 장치 아이콘을 선택하여 패널을 열고 부하 분산 장치를 구성하기 시작합니다.
+To deploy an ILB, select Load Balancers in the Azure portal and click on add (+).
+>[AZURE.NOTE] if you do not see **Load Balancers** in your menu, click **Browse** in the lower left of the portal and scroll until you see **Load Balancers**.  Then click the yellow star to add it to your menu. Now select the new load balancer icon to open the panel to begin configuration of the load balancer.
 
-![부하 분산 장치 찾아보기](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
+![Browse load balancer](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
 
-* **이름**: 부하 분산 장치에 적합한 이름을 지정합니다.
-* **구성표**: 이 부하 분산 장치가 AD FS 서버 앞에 배치되고 내부 네트워크 연결에만 사용되기 때문에 "내부"를 선택합니다
-* **가상 네트워크**: AD FS를 배포할 가상 네트워크를 선택합니다.
-* **서브넷**: 여기서 내부 서브넷을 선택합니다.
-* **IP 주소 할당**: 동적
+* **Name**: Give any suitable name to the load balancer
+* **Scheme**: Since this load balancer will be placed in front of the AD FS servers and is meant for internal network connections ONLY, select “Internal”
+* **Virtual Network**: Choose the virtual network where you are deploying your AD FS
+* **Subnet**: Choose the internal subnet here
+* **IP Address assignment**: Dynamic
 
-![내부 부하 분산 장치](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
+![Internal load balancer](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
  
-만들기를 클릭하여 ILB가 배포되면 부하 분산 장치 목록에 표시됩니다.
+After you click create and the ILB is deployed, you should see it in the list of load balancers:
 
-![ILB 이후 부하 분산 장치](./media/active-directory-aadconnect-azure-adfs/ilbdeployment2.png)
+![Load balancers after ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment2.png)
  
-다음 단계는 백 엔드 풀 및 백 엔드 프로브를 구성하는 것입니다.
+Next step is to configure the backend pool and the backend probe.
 
-**6.2. ILB 백 엔드 풀 구성**
+**6.2.  Configure ILB backend pool**
 
-부하 분산 장치 패널에서 새로 만든 ILB를 선택합니다. 설정 패널이 열립니다.
-1.	설정 패널에서 백 엔드 풀을 선택합니다.
-2.	백 엔드 풀 추가 패널에서 가상 컴퓨터 추가를 클릭합니다.
-3.	가용성 집합을 선택할 수 있는 패널로 나타납니다.
-4.	AD FS 가용성 집합을 선택합니다.
+Select the newly created ILB in the Load Balancers panel. It will open the settings panel. 
+1.  Select backend pools from the settings panel
+2.  In the add backend pool panel, click on add virtual machine
+3.  You will be presented with a panel where you can choose availability set
+4.  Choose the AD FS availability set
 
-![ILB 백 엔드 풀 구성](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
+![Configure ILB backend pool](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
  
-**6.3. 프로브 구성**
+**6.3.  Configuring probe**
 
-ILB 설정 패널에서 프로브를 선택합니다.
-1.	추가를 클릭합니다.
-2.	프로브에 대한 세부 정보를 제공합니다. a. **이름**: 이름을 검색합니다. b. **프로토콜**: TCP c. **포트**: 443(HTTPS) d. **간격**: 기본값 5는 ILB가 백 엔드 풀에 있는 컴퓨터를 검색하는 간격입니다. e. **비정상 임계값 제한**: 기본값 2는 ILB가 백 엔드 풀에 있는 컴퓨터를 응답하지 않는다고 선언하고 트래픽을 보내지 않고 나서 연속 프로브 오류가 발생하는 임계값입니다.
+In the ILB settings panel, select Probes.
+1.  Click on add
+2.  Provide details for probe a. **Name**: Probe name b. **Protocol**: TCP c. **Port**: 443 (HTTPS) d. **Interval**: 5 (default value) – this is the interval at which ILB will probe the machines in the backend pool e. **Unhealthy threshold limit**: 2 (default val ue) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
 
-![ILB 프로브 구성](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+![Configure ILB probe](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
  
-**6.4. 부하 분산 규칙 만들기**
+**6.4.  Create load balancing rules**
 
-트래픽을 효과적으로 분산하기 위해 ILB는 부하 분산 규칙을 사용하여 구성해야 합니다. 부하 분산 규칙을 만들려면
-1.	ILB의 설정 패널에서 부하 분산 규칙을 선택합니다.
-2.	부하 분산 규칙 패널에서 추가를 클릭합니다.
-3.	부하 분산 규칙 추가 패널에서 a. **이름**: 규칙의 이름을 지정합니다. b. **프로토콜**: TCP를 선택합니다. c. **포트**: 443 d. **백 엔드 포트**: 443 e. **백 엔드 풀**: 이전에 AD FS 클러스터에 만든 풀을 선택합니다. f. **프로브**: 이전에 AD FS 서버에 만든 프로브를 선택합니다.
+In order to effectively balance the traffic, the ILB should be configured with load balancing rules. In order to create a load balancing rule, 
+1.  Select Load balancing rule from the settings panel of the ILB
+2.  Click on Add in the Load balancing rule panel
+3.  In the Add load balancing rule panel a. **Name**: Provide a name for the rule b. **Protocol**: Select TCP c. **Port**: 443 d. **Backend port**: 443 e. **Backend pool**: Select the pool you created for the AD FS cluster earlier f. **Probe**: Select the probe created for AD FS servers earlier
 
-![ILB 분산 규칙 구성](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
+![Configure ILB balancing rules](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5. ILB를 사용하여 DNS 업데이트**
+**6.5.  Update DNS with ILB**
 
-DNS 서버로 이동하고 ILB에 대한 CNAME을 만듭니다. CNAME은 ILB의 IP 주소를 가리키는 IP 주소를 가진 페더레이션 서비스를 제공해야 합니다. 예를 들어 ILB DIP 주소가 10.3.0.8이고 설치된 페더레이션 서비스가 fs.contoso.com이면 10.3.0.8을 가리키는 fs.contoso.com에 대한 CNAME을 만듭니다. 이렇게 하면 fs.contoso.com과 관련된 모든 통신은 ILB로 끝나게 되고 적절하게 라우팅됩니다.
+Go to your DNS server and create a CNAME for the ILB. The CNAME should be for the federation service with the IP address pointing to the IP address of the ILB. For example if the ILB DIP address is 10.3.0.8, and the federation service installed is fs.contoso.com, then create a CNAME for fs.contoso.com pointing to 10.3.0.8.
+This will ensure that all communication regarding fs.contoso.com end up at the ILB and are appropriately routed.
 
-###7\. 웹 응용 프로그램 프록시 서버 구성
+###<a name="7.-configuring-the-web-application-proxy-server"></a>7.   Configuring the Web Application Proxy server
 
-**7.1. AD FS 서버에 연결할 웹 응용 프로그램 프록시 서버 구성**
+**7.1.  Configuring the Web Application Proxy servers to reach AD FS servers**
 
-웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있도록 하려면 ILB용 %systemroot%\\system32\\drivers\\etc\\hosts에 레코드를 만듭니다. DN(고유 이름)은 페더레이션 서비스 이름(예: fs.contoso.com)이 되도록 해야 합니다. 또한 IP 항목은 ILB의 IP 주소(이 예제에서와 같이 10.3.0.8)여야 합니다.
+In order to ensure that Web Application Proxy servers are able to reach the AD FS servers behind the ILB, create a record in the %systemroot%\system32\drivers\etc\hosts for the ILB. Note that the distinguished name (DN) should be the federation service name, for example fs.contoso.com. And the IP entry should be that of the ILB’s IP address (10.3.0.8 as in the example).
 
-**7.2. 웹 응용 프로그램 프록시 역할 설치**
+**7.2.  Installing the Web Application Proxy role**
 
-웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있는지를 확인한 후에 웹 응용 프로그램 프록시 서버를 설치할 수 있습니다. 웹 응용 프로그램 프록시 서버는 도메인에 조인되지 않습니다. 원격 액세스 역할을 선택하여 두 개의 웹 응용 프로그램 프록시 서버에 웹 응용 프로그램 프록시 역할을 설치합니다. 서버 관리자에서는 WAP 설치를 완료하도록 안내합니다. WAP를 배포하는 방법에 대한 자세한 내용은 [웹 응용 프로그램 프록시 서버 설치 및 구성](https://technet.microsoft.com/library/dn383662.aspx)을 참고합니다.
+After you ensure that Web Application Proxy servers are able to reach the AD FS servers behind ILB, you can next install the Web Application Proxy servers. Web Application Proxy servers do not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
+For more information on how to deploy WAP, read [Install and Configure the Web Application Proxy Server](https://technet.microsoft.com/library/dn383662.aspx).
 
-###8\. 인터넷 연결 (공용) 부하 분산 장치 배포
+###<a name="8.-deploying-the-internet-facing-(public)-load-balancer"></a>8.   Deploying the Internet Facing (Public) Load Balancer
 
-**8.1. 인터넷 연결 (공용) 부하 분산 장치 만들기**
+**8.1.  Create Internet Facing (Public) Load Balancer**
  
-Azure 포털에서 부하 분산 장치를 선택하고 추가를 클릭합니다. 부하 분산 장치 만들기 패널에 다음 정보를 입력합니다.
-1. **이름**: 부하 분산 장치의 이름
-2. **구성표**: 공용 – 이 옵션에서는 이 부하 분산 장치에 공용 주소가 필요하다는 것을 Azure에 알립니다.
-3. **IP 주소**: 새로운 IP 주소(동적) 만들기
+In the Azure portal, select Load balancers and then click on Add. In the Create load balancer panel, enter the following information
+1. **Name**: Name for the load balancer
+2. **Scheme**: Public – this option tells Azure that this load balancer will need a public address.
+3. **IP Address**: Create a new IP address (dynamic)
 
-![인터넷 연결 부하 분산 장치](./media/active-directory-aadconnect-azure-adfs/elbdeployment1.png)
+![Internet facing load balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment1.png)
 
-배포한 후에 부하 분산 장치는 부하 분산 장치 목록에 표시됩니다.
+After deployment, the load balancer will appear in the Load balancers list.
 
-![부하 분산 장치 목록](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
+![Load balancer list](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
  
-**8.2. 공용 IP에 DNS 레이블 할당**
+**8.2.  Assign a DNS label to the public IP**
 
-부하 분산 장치 패널에서 새로 만든 부하 분산 장치 항목을 클릭하여 구성에 대한 패널을 가져옵니다. 다음 단계를 수행하여 공용 IP에 DNS 레이블을 구성합니다.
-1.	공용 IP 주소를 클릭합니다. 공용 IP 및 해당 설정에 대한 패널이 열립니다.
-2.	구성을 클릭합니다.
-3.	DNS 레이블을 제공합니다. 예를 들어 contosofs.westus.cloudapp.azure.com과 같이 어디에서나 액세스할 수 있는 공용 DNS 레이블이 됩니다. 외부 부하 분산 장치(contosofs.westus.cloudapp.azure.com)의 DNS 레이블로 확인된 페더레이션 서비스(예: fs.contoso.com)에 대한 외부 DNS에 항목을 추가할 수 있습니다.
+Click on the newly created load balancer entry in the Load balancers panel to bring up the panel for configuration. Follow below steps to configure the DNS label for the public IP:
+1.  Click on the public IP address. This will open the panel for the public IP and its settings
+2.  Click on Configuration
+3.  Provide a DNS label. This will become the public DNS label that you can access from anywhere, for example contosofs.westus.cloudapp.azure.com. You can add an entry in the external DNS for the federation service (like fs.contoso.com) that resolves to the DNS label of the external load balancer (contosofs.westus.cloudapp.azure.com).
 
-![인터넷 연결 부하 분산 장치 구성](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png)
+![Configure internet facing load balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
 
-![인터넷 연결 부하 분산 장치 구성(DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
+![Configure internet facing load balancer (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3. 인터넷 연결 (공용) 부하 분산 장치에 대한 백 엔드 풀 구성**
+**8.3.  Configure backend pool for Internet Facing (Public) Load Balancer** 
 
-내부 부하 분산 장치 만들기와 동일한 단계를 따라 WAP 서버에 대한 가용성 집합으로 인터넷 연결 (공용) 부하 분산 장치에 대한 백 엔드 풀을 구성합니다. 예를 들어 contosowapset입니다.
+Follow the same steps as in creating the internal load balancer, to configure the backend pool for Internet Facing (Public) Load Balancer as the availability set for the WAP servers. For example, contosowapset.
 
-![인터넷 연결 부하 분산 장치의 백 엔드 풀 구성](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
+![Configure backend pool of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
  
-**8.4. 프로브 구성**
+**8.4.  Configure probe**
 
-내부 부하 분산 장치를 구성하는 동일한 단계를 따라 WAP 서버의 백 엔드 풀에 대한 프로브를 구성합니다.
+Follow the same steps as in configuring the internal load balancer  to configure the probe for the backend pool of WAP servers.
 
-![인터넷 연결 부하 분산 장치의 프로브 구성](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
+![Configure probe of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
  
-**8.5. 부하 분산 규칙 만들기**
+**8.5.  Create load balancing rule(s)**
 
-ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 구성합니다.
+Follow the same steps as in ILB to configure the load balancing rule for TCP 443.
 
-![인터넷 연결 부하 분산 장치의 분산 규칙 구성](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
+![Configure balancing rules of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
  
-###9\. 네트워크 보안
+###<a name="9.-securing-the-network"></a>9.   Securing the network
 
-**9.1. 내부 서브넷 보안**
+**9.1.  Securing the internal subnet**
 
-전반적으로 내부 서브넷을 효율적으로 보호하기 위해 다음 규칙이 필요합니다(아래에 나열된 순서로).
+Overall, you need the following rules to efficiently secure your internal subnet (in the order as listed below)
 
-|규칙|설명|흐름|
+|Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ| DMZ에서 HTTPS 통신을 허용합니다. | 인바운드 |
-|DenyAllFromDMZ| 이 규칙은 DMZ에서 내부 서브넷까지 모든 트래픽을 차단합니다. 규칙 AllowHTTPSFromDMZ는 HTTPS 통신 과정 및 이 규칙에 의해 차단되는 모든 항목을 관리합니다. | 인바운드 |
-|DenyInternetOutbound| 인터넷에 액세스할 수 없습니다. | 아웃바운드 |
+|AllowHTTPSFromDMZ| Allow the HTTPS communication from DMZ | Inbound |
+|DenyAllFromDMZ| This rule will block all traffic from DMZ to internal subnet. The rule AllowHTTPSFromDMZ already takes care of ensuring that HTTPS communication goes through and anything else is blocked by this rule | Inbound |
+|DenyInternetOutbound| No access to internet | Outbound |
 
-[comment]: <> (![INT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comment]: <> (![INT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+[comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
-**9.2. DMZ 서브넷 보안**
+**9.2.  Securing the DMZ subnet**
 
-|규칙|설명|흐름|
+|Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHttpsFromVirtualNetwork| 가상 네트워크에서 HTTPS를 허용합니다. | 인바운드 |
-|AllowHTTPSInternet| 인터넷에서 DMZ까지 HTTPS를 허용합니다. | 인바운드|
-|DenyingressexceptHTTPS| 인터넷에서 HTTPS 이외의 항목을 차단합니다. | 인바운드 |
-|DenyOutToInternet|	인터넷에 대한 HTTPS를 제외한 항목을 차단합니다. | 아웃바운드 |
+|AllowHttpsFromVirtualNetwork| Allow HTTPS from virtual network | Inbound |
+|AllowHTTPSInternet| Allow HTTPS from internet to the DMZ | Inbound|
+|DenyingressexceptHTTPS| Block anything other than HTTPS from internet | Inbound |
+|DenyOutToInternet| Anything except HTTPS to internet is blocked | Outbound |
 
-[comment]: <> (![EXT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comment]: <> (![EXT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
->[AZURE.NOTE] 클라이언트 사용자 인증서 인증(X509 사용자 인증서를 사용하는 clientTLS 인증)이 필요한 경우 AD FS는 TCP 포트 49443를 인바운드 액세스에 사용하도록 설정해야 합니다.
+>[AZURE.NOTE] If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.
 
-###10\. AD FS 로그인 테스트
+###<a name="10.-test-the-ad-fs-sign-in"></a>10.  Test the AD FS sign-in
 
-가장 쉬운 방법은 IdpInitiatedSignon.aspx 페이지를 사용하여 AD FS를 테스트하는 것입니다. 이렇게 하려면 AD FS 속성에 IdpInitiatedSignOn을 사용해야 합니다. AD FS 설치를 확인하려면 다음 단계를 수행합니다.
-1.	아래 AD FS 서버의 cmdlet을 실행하고 PowerShell을 사용하여 사용하도록 설정합니다. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
-2.	외부 컴퓨터 액세스에서 https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx
-3.	아래와 같은 AD FS 페이지를 참조해야 합니다.
+The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup
+1.  Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled.
+    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
+2.  From any external machine access https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+3.  You should see the AD FS page like below:
 
-![테스트 로그인 페이지](./media/active-directory-aadconnect-azure-adfs/test1.png)
+![Test login page](./media/active-directory-aadconnect-azure-adfs/test1.png)
 
-성공적으로 로그인하면 아래와 같은 성공 메시지가 표시됩니다.
+On successful sign-in, it will provide you with a success message as shown below:
 
-![테스트 성공](./media/active-directory-aadconnect-azure-adfs/test2.png)
+![Test success](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-## 추가 리소스
-* [가용성 집합](https://aka.ms/Azure/Availability)
-* [Azure 부하 분산 장치](https://aka.ms/Azure/ILB)
-* [내부 부하 분산 장치](https://aka.ms/Azure/ILB/Internal)
-* [인터넷 연결 부하 분산 장치](https://aka.ms/Azure/ILB/Internet)
-* [저장소 계정](https://aka.ms/Azure/Storage)
-* [Azure 가상 네트워크](https://aka.ms/Azure/VNet)
-* [AD FS 및 웹 응용 프로그램 프록시 링크](http://aka.ms/ADFSLinks)
+## <a name="additional-resources"></a>Additional resources
+* [Availability Sets](https://aka.ms/Azure/Availability ) 
+* [Azure Load Balancer](https://aka.ms/Azure/ILB)
+* [Internal Load Balancer](https://aka.ms/Azure/ILB/Internal)
+* [Internet Facing Load Balancer](https://aka.ms/Azure/ILB/Internet)
+* [Storage Accounts](https://aka.ms/Azure/Storage )
+* [Azure Virtual Networks](https://aka.ms/Azure/VNet)
+* [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-* [Azure AD Connect를 사용하여 AD FS 구성 및 관리](active-directory-aadconnectfed-whatis.md)
-* [Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Configuring and managing your AD FS using Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

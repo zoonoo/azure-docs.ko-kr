@@ -1,153 +1,154 @@
 <properties 
-	pageTitle="복구 관리자를 사용하여 분할된 데이터베이스 맵 문제 해결 | Microsoft Azure" 
-	description="RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵의 문제 해결" 
-	services="sql-database" 
-	documentationCenter=""  
-	manager="jhubbard"
-	authors="ddove"/>
+    pageTitle="Using Recovery Manager to fix shard map problems | Microsoft Azure" 
+    description="Use the RecoveryManager class to solve problems with shard maps" 
+    services="sql-database" 
+    documentationCenter=""  
+    manager="jhubbard"
+    authors="ddove"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2016" 
-	ms.author="ddove"/>
-
-# RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결
-
-[RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 클래스는 분할된 데이터베이스 환경에서 ADO.Net 응용 프로그램이 전역 분할된 데이터베이스 맵(GSM)과 로컬 분할된 데이터베이스 맵(LSM) 간의 모든 불일치를 쉽게 감지하고 수정하는 기능을 제공합니다.
-
-GSM 및 LSM은 분할된 데이터베이스 환경에서 각 데이터베이스의 매핑을 추적합니다. 경우에 따라 GSM과 LSM 사이에서 중단이 발생합니다. 이 경우 RecoveryManager 클래스를 사용하여 중단을 검색하고 복구합니다.
-
-RecoveryManager 클래스는 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)에 포함됩니다.
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/05/2016" 
+    ms.author="ddove"/>
 
 
-![분할된 맵][1]
+# <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Using the RecoveryManager class to fix shard map problems
+
+The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) class provides ADO.Net applications the ability to easily  detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database enviroment. 
+
+The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. In that case, use the RecoveryManager class to detect and repair the break.
+
+The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library.md). 
 
 
-용어 정의는 [탄력적 데이터베이스 도구 용어집](sql-database-elastic-scale-glossary.md)을 참조하세요. 분할된 데이터베이스 솔루션에서 데이터를 관리하는 데 **ShardMapManager**가 어떻게 사용되는지 이해하려면 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요.
+![Shard map][1]
 
 
-## 복구 관리자를 사용하는 이유
+For term definitions, see [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md). To understand how the **ShardMapManager** is used to manage data in a sharded solution, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
 
-분할된 데이터베이스 환경에서는 데이터베이스당 한 개의 테넌트가 있고 서버당 여러 데이터베이스가 있습니다. 또한 환경에 여러 서버가 있을 수도 있습니다. 분할된 데이터베이스 맵에서 각 데이터베이스를 매핑하므로 올바른 서버 및 데이터베이스로 호출을 라우트할 수 있습니다. 데이터베이스는 **분할 키**에 따라 추적되며 각 분할된 데이터베이스에는 **키 값 범위**가 할당됩니다. 예를 들어 분할 키는 "D"에서 "F"까지의 고객 이름을 나타낼 수 있습니다. 모든 분할된 데이터베이스의 매핑(즉, 데이터베이스) 및 매핑 범위는 **GSM(전역 분할된 데이터베이스 맵)**에 포함됩니다. 각 데이터베이스에도 분할된 데이터베이스에 포함된 범위 맵이 포함되며 이를 **LSM(로컬 분할된 데이터베이스 맵)**이라고 합니다. 앱이 분할된 데이터베이스에 연결될 때 빠른 검색을 위해 매핑이 앱과 함께 캐시됩니다. LSM은 캐시된 데이터의 유효성을 검사하는 데 사용됩니다.
 
-GSM 및 LSM이 동기화되지 않는 이유는 다음과 같습니다.
+## <a name="why-use-the-recovery-manager?"></a>Why use the recovery manager?
 
-1. 범위가 더 이상 사용되지 않는 분할된 데이터베이스가 삭제되거나 분할된 데이터베이스의 이름이 변경되었습니다. **분리되어 분할된 매핑**에서 분할된 데이터베이스 결과 삭제. 마찬가지로 이름이 바뀐 데이터베이스도 분리되어 분할된 데이터베이스 매핑을 발생시킬 수 있습니다. 변경 의도에 따라 분할된 데이터베이스를 제거하거나 분할된 데이터베이스 위치를 업데이트할 필요가 있습니다. 삭제된 데이터베이스를 복구하려면 [이전 시점으로 데이터베이스 복원, 삭제된 데이터베이스 복원 또는 데이터 센터 가동 중단에서 복구](sql-database-troubleshoot-backup-and-restore.md)를 참조하세요.
-2. 지역 장애 조치(failover) 이벤트가 발생합니다. 계속하려면 분할된 데이터베이스 맵의 모든 분할된 데이터베이스에 대해 서버 이름과 응용 프로그램에 있는 분할된 데이터베이스 맵 관리자의 데이터베이스 이름을 업데이트한 다음 분할된 데이터베이스 매핑 정보를 업데이트해야 합니다. 지역 장애 조치의 경우 이러한 복구 논리는 장애 조치 워크플로 내에서 자동화됩니다. 복구 작업을 자동화하면 지역 지원 데이터베이스에 대해 원활한 관리 효율성을 제공하며 사람이 직접 작업하지 않아도 됩니다.
-3. 분할된 데이터베이스 또는 ShardMapManager 데이터베이스는 이전 시점으로 복원됩니다.
+In a sharded database environment, there is one tenant per database, and many databases per server. There can also be many servers in the environment. Each database is mapped in the shard map, so calls can be routed to the correct server and database. Databases are tracked according to a **sharding key**, and each shard is assigned a **range of key values**. For example, a sharding key may represent the customer names from "D" to "F." The mapping of all shards (aka databases) and their mapping ranges are contained in the **global shard map (GSM)**. Each database also contains a map of the ranges contained on the shard—this is known as the **local shard map (LSM)**. When an app connects to a shard, the mapping is cached with the app for quick retrieval. The LSM is used to validate cached data. 
 
-Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 복제 및 복원에 대한 자세한 내용은 다음을 참조하세요.
+The GSM and LSM may become out of sync for the following reasons:
 
-* [개요: SQL 데이터베이스의 클라우드 무중단 업무 방식 및 데이터베이스 재해 복구](sql-database-business-continuity.md)
-* [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)
-* [ShardMap 관리](sql-database-elastic-scale-shard-map-management.md)
+1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similary, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
+2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions.
+3. Either a shard or the ShardMapManager database is restored to an earlier point-in time.
 
-## ShardMapManager에서 RecoveryManager 검색 
+For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, please see the following: 
 
-첫 번째 단계는 RecoveryManager 인스턴스를 만드는 것입니다. [GetRecoveryManager 메서드](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx)는 현재 [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) 인스턴스에 대한 복구 관리자를 반환합니다. 분할된 데이터베이스 맵의 모든 불일치를 해결하기 위해서는 먼저 특정 분할된 데이터베이스 맵에 대한 RecoveryManager를 검색해야 합니다.
+* [Overview: Cloud business continuity and database disaster recovery with SQL Database](sql-database-business-continuity.md) 
+* [Get started with elastic database tools](sql-database-elastic-scale-get-started.md)  
+* [ShardMap Management](sql-database-elastic-scale-shard-map-management.md)
 
-	ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
+## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Retrieving RecoveryManager from a ShardMapManager 
+
+The first step is to create a RecoveryManager instance. The [GetRecoveryManager method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) returns the recovery manager for the current [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) instance. In order to address any inconsistencies in the shard map, you must first retrieve the RecoveryManager for the particular shard map. 
+
+    ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
              ShardMapManagerLoadPolicy.Lazy);
              RecoveryManager rm = smm.GetRecoveryManager(); 
 
-이 예에서는 RecoveryManager가 ShardMapManager에서 초기화됩니다. ShardMap이 포함된 ShardMapManager도 이미 초기화됩니다.
+In this example, the RecoveryManager is initialized from the ShardMapManager. The ShardMapManager containing a ShardMap is also already initialized. 
 
-이 응용 프로그램 코드는 분할된 데이터베이스 맵 자체를 조작하므로 팩터리 메서드에 사용된 자격 증명(위의 예제에서는, smmConnectionString)은 연결 문자열에서 참조하는 GSM 데이터베이스에 대한 읽기-쓰기 권한이 있는 자격 증명이어야 합니다. 일반적으로 이러한 자격 증명은 데이터 종속 라우팅에 대한 연결을 여는 데 사용되는 자격 증명과는 다릅니다. 자세한 내용은 [탄력적 데이터베이스 클라이언트에 자격 증명 사용](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
+Since this application code manipulates the shard map itself, the credentials used in the factory method (in the above example, smmConnectionString) should be credentials that have read-write permissions on the GSM database referenced by the connection string. These credentials are typically different from credentials used to open connections for data-dependent routing. For more information, see [Using credentials in the elastic database client](sql-database-elastic-scale-manage-credentials.md).
 
-## 분할된 데이터베이스를 삭제한 후 ShardMap에서 분할된 데이터베이스 제거
+## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Removing a shard from the ShardMap after a shard is deleted
 
-[DetachShard 메서드](https://msdn.microsoft.com/library/azure/dn842083.aspx)는 분할된 데이터베이스 맵에서 지정된 분할된 데이터베이스를 분리하고 여기에 연결된 매핑을 삭제합니다.
+The [DetachShard method](https://msdn.microsoft.com/library/azure/dn842083.aspx) detaches the given shard from the shard map and deletes mappings associated with the shard.  
 
-* 위치 매개 변수는 분할된 데이터베이스 위치, 특히 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다.
-* shardMapName 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
+* The location parameter is the shard location, specifically server name and database name, of the shard being detached. 
+* The shardMapName parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
 
-**중요**: 업데이트되는 매핑의 범위가 비어 있는 것이 확실한 경우에만 이 기술을 사용하세요. 위의 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.
+**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty. The methods above do not check data for the range being moved, so it is best to include checks in your code.
 
-이 예제에서는 분할된 데이터베이스 맵에서 분할된 데이터베이스를 제거합니다.
+This example removes shards from the shard map. 
 
-	rm.DetachShard(s.Location, customerMap); 
+    rm.DetachShard(s.Location, customerMap); 
 
-분할된 데이터베이스를 삭제하기 전에 GSM에서의 분할된 데이터베이스 위치 맵입니다. 분할된 데이터베이스는 삭제되었기 때문에 의도적인 것으로 간주되며 분할 키 범위는 더 이상 사용 중이 아닙니다. 이 경우에 해당되지 않는 경우 시점 복원을 실행하여 이전 시점에서 분할된 데이터베이스를 복구할 수 있습니다. (이 경우, 아래 섹션을 검토하여 분할된 데이터베이스의 불일치를 감지하세요.) 복구하려면 [이전 시점으로 데이터베이스 복원, 삭제된 데이터베이스 복원 또는 데이터 센터 가동 중단에서 복구](sql-database-troubleshoot-backup-and-restore.md)를 참조하세요.
+The map the shard location in the GSM  prior to the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If this is not the case, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the section below to detect shard inconsistencies.) To recover, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
 
-데이터베이스 삭제를 의도적인 것으로 가정하므로 최종 관리 정리 작업은 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스에 대한 항목을 삭제하는 것입니다. 이렇게 하면 응용 프로그램에서 예기치 않은 범위에 정보를 실수록 기록하는 일을 방지할 수 있습니다.
+Since it is assumed the database deletion was intentional, the final administrative cleanup action is to delete the entry to the shard in the shard map manager. This prevents the application from inadvertently writing information to a range which is not expected.
 
-## 매핑 차이를 감지하려면 
+## <a name="to-detect-mapping-differences"></a>To detect mapping differences 
 
-[DetectMappingDifferences 메서드](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx)는 원본으로 분할된 데이터베이스 맵(로컬 또는 전역) 중 하나를 선택하여 반환하고 두 분할된 데이터베이스 맵(GSM 및 LSM)에서 매핑을 조정합니다.
+The [DetectMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) selects and returns one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
-	rm.DetectMappingDifferences(location, shardMapName);
+    rm.DetectMappingDifferences(location, shardMapName);
 
-* *위치*는 서버 이름과 데이터베이스 이름을 지정합니다.
-* *shardMapName* 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
+* The *location* specifies the server name and database name. 
+* The *shardMapName* parameter is the shard map name. This is only required if multiple shard maps are managed by the same shard map manager. Optional. 
 
-## 매핑 차이를 해결하려면
+## <a name="to-resolve-mapping-differences"></a>To resolve mapping differences
 
-[ResolveMappingDifferences 메서드](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx)는 원본으로 분할된 데이터베이스 맵(로컬 또는 전역) 중 하나를 선택하고 두 분할된 데이터베이스 맵(GSM 및 LSM)에서 매핑을 조정합니다.
+The [ResolveMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
-	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
+    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    
-* *RecoveryToken* 매개 변수는 특정 분할된 데이터베이스에 대한 GSM 및 LSM 간의 매핑에서 차이를 열거합니다.
+* The *RecoveryToken* parameter enumerates the differences in the mappings between the GSM and the LSM for the specific shard. 
 
-* [MappingDifferenceResolution 열거](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx)는 분할된 데이터베이스 매핑 간 차이를 해결하기 위한 메서드를 나타내는 데 사용됩니다.
-* **MappingDifferenceResolution.KeepShardMapping**은 LSM이 정확한 매핑을 포함하므로 분할된 데이터베이스의 매핑이 사용되는 경우에 권장됩니다. 이 방법은 장애 조치 시 일반적인 사례입니다. 이제 분할된 데이터베이스는 새 서버에 상주합니다. 분할된 데이터베이스는 GSM에서 먼저 제거되므로(RecoveryManager.DetachShard 메서드 사용) GSM에 매핑이 더 이상 존재하지 않습니다. 따라서 분할된 매핑을 다시 설정하기 위해 LSM을 사용해야 합니다.
+* The [MappingDifferenceResolution enumeration](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) is used to indicate the method for resolving the difference between the shard mappings. 
+* **MappingDifferenceResolution.KeepShardMapping** is recommended in the event that the LSM contains the accurate mapping and therefore the mapping in the shard should be used. This is typically the case in the event of a failover: the shard now resides on a new server. Since the shard must first be removed from the GSM (using the RecoveryManager.DetachShard method), a mapping no longer exists on the GSM. Therefore, the the LSM must be used to re-establish the shard mapping.
 
-## 분할된 데이터베이스를 복원한 후 ShardMap에 연결합니다. 
+## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Attach a shard to the ShardMap after a shard is restored 
 
-[AttachShard 메서드](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx)는 지정된 분할된 데이터베이스를 분할된 데이터베이스 맵에 연결합니다. 그런 다음 분할된 데이터베이스 맵의 불일치를 감지하고 분할된 데이터베이스 복원의 해당 지점에서 분할된 데이터베이스와 일치하도록 매핑을 업데이트합니다. 특정 시점 복원의 기본값은 타임스탬프가 추가된 새 데이터베이스이므로 데이터베이스가 원래 데이터베이스 이름(분할된 데이터베이스가 복원되기 이전)을 반영하도록 이름이 변경되었다고 가정합니다.
+The [AttachShard method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) attaches the given shard to the shard map. It then detects any shard map inconsistencies and updates the mappings to match the shard at the point of the shard restoration. It is assumed that the database is also renamed to reflect the original database name (prior to when the shard was restored), since the point-in time restoration defaults to a new database appended with the timestamp. 
 
-	rm.AttachShard(location, shardMapName) 
+    rm.AttachShard(location, shardMapName) 
 
-* *location* 매개 변수는 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다.
+* The *location* parameter is the server name and database name, of the shard being attached. 
 
-* *shardMapName* 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
+* The *shardMapName* parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
 
-이 예제는 분할된 데이터베이스를 최근 이전 시점에서 복원된 분할된 데이터베이스 맵에 추가합니다. 분할된 데이터베이스(즉, LSM에서 분할된 데이터베이스에 대한 매핑)를 복원한 후에는 GSM에서 분할된 데이터베이스 항목과 일치하지 않을 수 있습니다. 이 예제 코드 외부에서 분할된 데이터베이스가 복원되었고 데이터베이스의 원래 이름으로 바뀌었습니다. 복원된 후에는 LSM에서의 매핑이 신뢰할 수 있는 매핑으로 간주됩니다.
+This example adds a shard to the shard map which has been recently restored from an earlier point-in time. Since the shard (namely the mapping for the shard in the LSM) has been restored, it is potentially inconsistent with the shard entry in the GSM. Outside of this example code, the shard was restored and renamed to the original name of the database. Since it was restored, it is assumed the mapping in the LSM is the trusted mapping. 
 
-	rm.AttachShard(s.Location, customerMap); 
-	var gs = rm.DetectMappingDifferences(s.Location); 
-	  foreach (RecoveryToken g in gs) 
-	   { 
-	   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
-	   } 
+    rm.AttachShard(s.Location, customerMap); 
+    var gs = rm.DetectMappingDifferences(s.Location); 
+      foreach (RecoveryToken g in gs) 
+       { 
+       rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+       } 
 
-## 분할된 데이터베이스의 지역 장애 조치(복원) 후 분할된 데이터베이스 위치 업데이트
+## <a name="updating-shard-locations-after-a-geo-failover-(restore)-of-the-shards"></a>Updating shard locations after a geo-failover (restore) of the shards
 
-지역 장애 조치 시, 보조 데이터베이스가 쓸 수 있는 상태가 되고 새로운 주 데이터베이스가 됩니다. 서버와 잠재적으로 데이터베이스의 이름(구성에 따라 다름)은 원래 주 데이터베이스와 다를 수 있습니다. 따라서 GSM 및 LSM에서 분할된 데이터베이스에 대한 매핑 항목을 고정해야 합니다. 마찬가지로, 데이터베이스가 다른 이름 또는 위치로 복원되거나 이전 시점으로 복원되면 분할된 데이터베이스 맵에서 불일치가 발생할 수 있습니다. 분할된 데이터베이스 맵 관리자가 올바른 데이터베이스에 대해 열려 있는 연결의 배포를 처리합니다. 배포는 분할된 데이터베이스 맵의 데이터와 응용 프로그램의 요청 대상인 분할 키의 값을 기반으로 합니다. 지역 장애 조치 후 이 정보를 정확한 서버 이름, 데이터베이스 이름 및 복구된 데이터베이스의 분할된 데이터베이스 매핑으로 업데이트해야 합니다.
+In the event of a geo-failover, the secondary database is made write accessible and becomes the new primary database. The name of the server, and potentially the database (depending on your configuration), may be different from the original primary. Therefore the mapping entries for the shard in the GSM and LSM must be fixed. Similarly, if the database is restored to a different name or location, or to an earlier point in time, this might cause inconsistencies in the shard maps. The Shard Map Manager handles the distribution of open connections to the correct database. Distribution is based on the data in the shard map and the value of the sharding key that is the target of the application’s request. After a geo-failover, this information must be updated with the accurate server name, database name and shard mapping of the recovered database. 
 
-## 모범 사례
+## <a name="best-practices"></a>Best practices
 
-지역 장애 조치(failover) 및 복구는 의도적으로 Azure SQL 데이터베이스 무중단 업무 방식 기능 중 하나를 활용하는 응용 프로그램의 클라우드 관리자가 일반적으로 관리하는 작업입니다. 비즈니스 연속성 계획에는 비즈니스 작업을 중단 없이 계속할 수 있도록 보장해주는 프로세스, 절차 및 측정이 필요합니다. 이 워크플로 내에서 RecoveryManager 클래스의 일부로 제공되는 메서드를 사용하여 수행되는 복구 작업에 따라 GSM 및 LSM이 최신 상태로 유지되도록 해야 합니다. 장애 조치 이벤트 후 GSM 및 LSM이 정확한 정보를 반영하도록 제대로 보장하는 5가지 기본 단계가 있습니다. 이러한 단계를 실행할 응용 프로그램 코드를 기존 도구 및 워크플로에 통합할 수 있습니다.
+Geo-failover and recovery are operations typically managed by a cloud administrator of the application intentionally utilizing one of Azure SQL Databases business continuity features. Business continuity planning requires processes, procedures, and measures to ensure that business operations can continue without interruption. The methods available as part of the RecoveryManager class should be used within this work flow to ensure the GSM and LSM are kept up-to-date based on the recovery action taken. There are 5 basic steps to properly ensuring the GSM and LSM reflect the accurate information after a failover event. The application code to execute these steps can be integrated into existing tools and workflow. 
 
-1. ShardMapManager에서 RecoveryManager를 검색합니다.
-2. 분할된 데이터베이스 맵에서 이전 분할된 데이터베이스를 분리합니다.
-3. 새 분할된 데이터베이스 위치를 포함하여 새 분할된 데이터베이스를 분할된 데이터베이스 맵에 연결합니다.
-4. GSM 및 LSM 간의 매핑에서 불일치를 감지합니다.
-5. LSM을 신뢰하여 GSM 및 LSM 간의 차이를 해결합니다.
+1. Retrieve the RecoveryManager from the ShardMapManager. 
+2. Detach the old shard from the shard map.
+3. Attach the new shard to the shard map, including the new shard location.
+4. Detect inconsistencies in the mapping between the GSM and LSM. 
+5. Resolve differences between the GSM and the LSM, trusting the LSM. 
 
-이 예제에서는 다음 단계를 수행합니다.
-1. 장애 조치 이벤트 이전에, 분할된 데이터베이스 위치를 반영하는 분할된 데이터베이스 맵에서 분할된 데이터베이스를 제거합니다.
-2. 분할된 데이터베이스를 새 분할된 데이터베이스 위치를 반영하는 분할된 데이터베이스 맵에 연결합니다("Configuration.SecondaryServer" 매개 변수는 새로운 서버 이름이지만 동일한 데이터베이스 이름입니다).
-3. 각 분할된 데이터베이스에 대해 GSM 및 LSM 간의 매핑 차이를 감지하여 복구 토큰을 검색합니다.
-4. 각 분할된 데이터베이스의 LSM에서 매핑을 신뢰하여 불일치를 해결합니다.
+This example performs the following steps:
+1. Removes shards from the Shard Map which reflect shard locations prior to the failover event.
+2. Attaches shards to the Shard Map reflecting the new shard locations (the parameter "Configuration.SecondaryServer" is the new server name but the same database name).
+3. Retrieves the recovery tokens by detecting mapping differences between the GSM and the LSM for each shard. 
+4. Resolves the inconsistencies by trusting the mapping from the LSM of each shard. 
 
-	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
-		
-		  rm.DetachShard(s.Location); 
-		
-		  rm.AttachShard(slNew); 
-		
-		  var gs = rm.DetectMappingDifferences(slNew); 
-	
-		  foreach (RecoveryToken g in gs) 
-			{ 
-			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
-			} 
-		} 
-	}
+    var shards = smm.GetShards();  foreach (shard s in shards)  {   if (s.Location.Server == Configuration.PrimaryServer)       {        ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
+        
+          rm.DetachShard(s.Location); 
+        
+          rm.AttachShard(slNew); 
+        
+          var gs = rm.DetectMappingDifferences(slNew); 
+    
+          foreach (RecoveryToken g in gs) 
+            { 
+               rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+            } 
+        } 
+    } 
 
 
 
@@ -158,4 +159,8 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

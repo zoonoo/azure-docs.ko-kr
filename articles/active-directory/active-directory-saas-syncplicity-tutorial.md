@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Syncplicity와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Syncplicity를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with Syncplicity | Microsoft Azure" 
+    description="Learn how to use Syncplicity with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,150 +14,156 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-#자습서: Syncplicity와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Azure Active Directory integration with Syncplicity
   
-이 자습서는 Azure Active Directory(Azure AD)와 Syncplicity 사이에 Single Sign-On을 설정하는 방법을 보여주기 위한 것입니다.
+The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory (Azure AD) and Syncplicity.
   
-이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Syncplicity 테넌트
+-   A valid Azure subscription
+-   A Syncplicity tenant
   
-이 자습서를 완료한 후 Syncplicity에 할당한 Azure AD 사용자가 Syncplicity 회사 사이트(서비스 공급자가 시작한 로그온)에서나 액세스 패널 소개를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+After completing this tutorial, the Azure AD users to whom you have assign Syncplicity access will be able to single sign into the application at your Syncplicity company site (service provider initiated sign on), or using the Azure AD Access Panel.
 
-1.  Syncplicity에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Syncplicity
+2.  Configuring Single Sign-On
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-syncplicity-tutorial/IC769524.png "시나리오")
+![Scenario](./media/active-directory-saas-syncplicity-tutorial/IC769524.png "Scenario")
 
-##Syncplicity에 응용 프로그램 통합 사용
+##<a name="enabling-the-application-integration-for-syncplicity"></a>Enabling the application integration for Syncplicity
   
-이 섹션은 Syncplicity에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for Syncplicity.
 
-###Syncplicity에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-syncplicity,-perform-the-following-steps:"></a>To enable the application integration for Syncplicity, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-syncplicity-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-syncplicity-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-syncplicity-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-syncplicity-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-syncplicity-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-syncplicity-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-syncplicity-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색** 상자에 **Syncplicity**를 입력합니다.
+6.  In the **search box**, type **Syncplicity**.
 
-    ![Syncplicity 응용 프로그램 갤러리](./media/active-directory-saas-syncplicity-tutorial/IC769532.png "Syncplicity 응용 프로그램 갤러리")
+    ![Syncplicity application gallery](./media/active-directory-saas-syncplicity-tutorial/IC769532.png "Syncplicity application gallery")
 
-7.  결과 창에서 **Syncplicity**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Syncplicity**, and then click **Complete** to add the application.
 
     ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769533.png "Syncplicity")
 
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure Active Directory의 계정으로 Syncplicity에 인증할 수 있게 하는 방법을 간략하게 설명합니다.
+This section outlines how to enable users to authenticate to Syncplicity with their account in Azure Active Directory, using federation based on the SAML protocol.
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Syncplicity** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Syncplicity** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-syncplicity-tutorial/IC769534.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-syncplicity-tutorial/IC769534.png "Configure single sign-on")
 
-2.  **Syncplicity에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to Syncplicity** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-syncplicity-tutorial/IC769535.png "Microsoft Azure AD Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **Syncplicity 로그인 URL** 텍스트 상자에 Syncplicity 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL을 입력한 후 **다음**을 클릭합니다.
+3.  On the **Configure App URL** page, in the **Syncplicity Sign In URL** textbox, type the URL users are using to sign into your Syncplicity application click **Next**. 
 
-    앱 URL은 Syncplicity 테넌트 URL입니다(예: *http://company.Syncplicity.com*:).
+    The app URL is your Syncplicity tenant URL (e.g.: *http://company.Syncplicity.com*):
 
-    ![앱 URL 구성](./media/active-directory-saas-syncplicity-tutorial/IC769536.png "앱 URL 구성")
+    ![Configure app URL](./media/active-directory-saas-syncplicity-tutorial/IC769536.png "Configure app URL")
 
-4.  **Syncplicity에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
+4.  On the **Configure single sign-on at Syncplicity** page, to download your certificate, click **Download certificate**, and then save the certificate file locally to your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-syncplicity-tutorial/IC769543.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-syncplicity-tutorial/IC769543.png "Configure single sign-on")
 
-5.  **Syncplicity** 테넌트에 로그인합니다.
+5.  Sign in to your **Syncplicity** tenant.
 
-6.  위쪽에 있는 메뉴에서 **관리자**를 클릭하고 **설정**을 선택한 다음 **사용자 할당 도메인과 Single Sign-On**을 클릭합니다.
+6.  In the menu on the top, click **admin**, select **settings**, and then click **Custom domain and single sign-on**.
 
     ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769545.png "Syncplicity")
 
-7.  **SSO(Single Sign-On) 설정** 대화 상자 페이지에서 다음 단계를 수행합니다.
+7.  On the **Single Sign-On (SSO)** dialog page, perform the following steps:
 
-    ![SSO(Single Sign-On)](./media/active-directory-saas-syncplicity-tutorial/IC769550.png "Single Sign-On (SSO)")
+    ![Single Sign-On \(SSO\)](./media/active-directory-saas-syncplicity-tutorial/IC769550.png "Single Sign-On \(SSO\)")
 
-    1.  **사용자 할당 도메인** 텍스트 상자에 도메인 이름을 입력합니다.
-    2.  **사용**을 **Single Sign-On 상태**로 선택합니다.
-    3.  Azure 클래식 포털의 **Syncplicity에서 Single Sign-On 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
-    4.  Azure 클래식 포털의 **Syncplicity에 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사하여, **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
-    5.  Azure 클래식 포털의 **Syncplicity에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
-    6.  **ID 공급자 인증서**에서 **파일 선택**을 클릭하고 Azure 클래식 포털에서 다운로드한 인증서를 업로드합니다.
-    7.  **변경 내용 저장**을 클릭합니다.
+    1.  In the **Custom Domain** textbox, type the name of your domain.
+    2.  Select **Enabled** as **Single Sign-On Status**.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Syncplicity** page, copy the **Entity ID** value, and then paste it into the **Entity Id** textbox.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Syncplicity** page, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
+    5.  In the Azure classic portal, on the **Configure single sign-on at Syncplicity** page, copy the **Remote Logout URL** value, and then paste it into the **Logout page URL** textbox.
+    6.  In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate you have downloaded from the Azure classic portal.
+    7.  Click **Save Changes**.
 
-8.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+8.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![확인](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "확인")
+    ![Confirmation](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "Confirmation")
 
-##사용자 프로비전 구성
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-AAD 사용자가 로그인할 수 있도록 Syncplicity 응용 프로그램에 프로비전되어야 합니다. 이 섹션은 Syncplicity에 AAD 사용자 계정을 만드는 방법을 설명합니다.
+For AAD users to be able to sign in, they must be provisioned to Syncplicity application. This section describes how to create AAD user accounts in Syncplicity.
 
-###사용자 계정을 Syncplicity에 프로비전하려면 다음 단계를 수행합니다.
+###<a name="to-provision-a-user-account-to-syncplicity,-perform-the-following-steps:"></a>To provision a user account to Syncplicity, perform the following steps:
 
-1.  **Syncplicity** 테넌트에 로그인합니다(예: *https://company.Syncplicity.com*).
+1.  Log in to your **Syncplicity** tenant (e.g.: *https://company.Syncplicity.com*).
 
-2.  **관리자**를 클릭하고 **사용자 계정**을 선택합니다.
+2.  Click **Admin** and select **user accounts**.
 
-3.  **사용자 추가**를 클릭합니다.
+3.  Click **Add a user**.
 
-    ![사용자 관리](./media/active-directory-saas-syncplicity-tutorial/IC769764.png "사용자 관리")
+    ![Manage Users](./media/active-directory-saas-syncplicity-tutorial/IC769764.png "Manage Users")
 
-4.  프로비전하려는 AAD 계정의 **이메일 주소**를 입력하고 **사용자**를 **역할**로 선택하고 **다음**을 클릭합니다.
+4.  Type the **Email address** of an AAD account you want to provision, select **User** as **Role**, and then click **Next**.
 
-    ![계정 정보](./media/active-directory-saas-syncplicity-tutorial/IC769765.png "계정 정보")
+    ![Account Information](./media/active-directory-saas-syncplicity-tutorial/IC769765.png "Account Information")
 
-    >[AZURE.NOTE] AAD 계정 소유자가 해당 계정을 확인 및 활성화하기 위한 링크가 포함된 이메일을 받게 됩니다.
+    >[AZURE.NOTE] The AAD account holder will get an email including a link to confirm and activate the account.
 
-5.  회사에서 새 사용자가 구성원이 되고자 하는 그룹을 선택하고 **다음**을 클릭합니다.
+5.  Select a group in your company that your new user should become a member of, and then click **Next**.
 
-    ![그룹 멤버 자격](./media/active-directory-saas-syncplicity-tutorial/IC769772.png "그룹 멤버 자격")
+    ![Group Membership](./media/active-directory-saas-syncplicity-tutorial/IC769772.png "Group Membership")
 
-    >[AZURE.NOTE] 열거된 그룹이 없다면 **다음**을 클릭하면 됩니다.
+    >[AZURE.NOTE] If there are no groups listed, just click **Next**.
 
-6.  사용자의 컴퓨터에서 Syncplicity의 제어 하에 두려는 폴더들을 선택하고 **다음**을 클릭합니다.
+6.  Select the folders you would like to place under Syncplicity’s control on the user’s computer, and then click **Next**.
 
-    ![Syncplicity 폴더](./media/active-directory-saas-syncplicity-tutorial/IC769773.png "Syncplicity 폴더")
+    ![Syncplicity Folders](./media/active-directory-saas-syncplicity-tutorial/IC769773.png "Syncplicity Folders")
 
->[AZURE.NOTE] 다른 Syncplicity 사용자 계정 생성 도구 또는 Syncplicity가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] You can use any other Syncplicity user account creation tools or APIs provided by Syncplicity to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Syncplicity에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-syncplicity,-perform-the-following-steps:"></a>To assign users to Syncplicity, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Syncplicity** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Syncplicity** application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-syncplicity-tutorial/IC769557.png "사용자 할당")
+    ![Assign users](./media/active-directory-saas-syncplicity-tutorial/IC769557.png "Assign users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-syncplicity-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-syncplicity-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

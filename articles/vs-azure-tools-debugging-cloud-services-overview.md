@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure 클라우드 서비스 디버깅 | Microsoft Azure"
-   description="Azure 클라우드 서비스 디버깅"
+   pageTitle="Debugging Azure Cloud Services | Microsoft Azure"
+   description="Debugging Azure Cloud Services"
    services="visual-studio-online"
    documentationCenter="n/a"
    authors="TomArcher"
@@ -15,16 +15,24 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# 클라우드 서비스 디버깅
 
-Microsoft Visaul Studio 및 Azure SDK용 Azure 도구를 사용하여 Azure 응용 프로그램을 디버그할 때 다른 접근 방식을 사용할 수 있습니다.
+# <a name="debugging-cloud-services"></a>Debugging cloud services
 
-- Visual C# 또는 Visual Basic 응용 프로그램처럼 Azure 응용 프로그램을 개발할 때 Visual Studio에서 디버그할 수 있습니다. 자세한 내용은 [로컬 컴퓨터에서 클라우드 서비스 디버그](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-your-cloud-service-on-your-local-computer)를 참조하세요.
+You can use different approaches to debug an Azure application by using the Azure Tools for Microsoft Visual Studio and the Azure SDK:
 
-- 개발 환경 또는 Azure에서 실행되는 역할 내에서 실행되는 코드의 자세한 정보를 기록하는 Azure 진단을 사용할 수 있습니다. 자세한 내용은 [Azure 진단을 사용하여 로깅 데이터 수집](http://go.microsoft.com/fwlink/p/?LinkId=400450)을 참고하십시오.
+- You can debug an Azure application from Visual Studio when you are developing it, just as you would any Visual C# or Visual Basic application. For more information, see [Debug your cloud service on your local computer](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-your-cloud-service-on-your-local-computer).
 
-- Visual Studio를 사용하여 .NET Framework 4 또는 .NET Framework 4.5를 대상으로 하는 역할을 작성하는 경우, Visual Studio에서 Azure 클라우드 서비스를 배포할 때 IntelliTrace를 사용할 수 있습니다. IntelliTrace는 Azure에서 실행할 때 처럼응용 프로그램을 디버그하는 Visual Studio와 사용 가능한 로그를 제공합니다. 자세한 내용은 [IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅](http://go.microsoft.com/fwlink/p/?LinkId=623016)을 참조하십시오.
+- You can use Azure Diagnostics to log detailed information from code running within roles, whether the roles are running in the development environment or in Azure. For more information, see [Collecting logging data by using Azure Diagnostics](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-- Visual Studio에서 클라우드 서비스를 배포할 때 클라우드 서비스를 원격 디버깅할 수 있습니다. 배포에 원격 디버깅 사용을 선택하면 원격 디버깅 서비스는 각 역할 인스턴스에 실행되는 가상 컴퓨터에 설치됩니다. Msvsmon.exe 같은 서비스는 성능에 영향을 주지 않거나 추가 비용이 발생하지 않습니다. 자세한 내용은 [Azure에서 클라우드 서비스 디버그](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-a-cloud-service-in-azure)를 참조하세요.
+- If you are using Visual Studio Enterprise to write roles targeted at the .NET Framework 4 or the .NET Framework 4.5, you can enable IntelliTrace at the time that you deploy an Azure cloud service from Visual Studio. IntelliTrace provides a log that you can use with Visual Studio to debug your application as if it were running in Azure. For more information, see [Debugging a published cloud service with IntelliTrace and Visual Studio]( http://go.microsoft.com/fwlink/p/?LinkId=623016).
 
-<!---HONumber=AcomDC_0817_2016-->
+- You can enable remote debugging on your cloud services at the time when you deploy the cloud service from Visual Studio. If you choose to enable remote debugging for a deployment, remote debugging services are installed on the virtual machines that run each role instance. These services, such as msvsmon.exe, do not affect performance or result in extra costs. For more information, see [Debug a cloud service in Azure](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-a-cloud-service-in-azure).
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

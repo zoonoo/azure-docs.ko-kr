@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 응용 프로그램에 대한 재해 복구 및 고가용성 | Microsoft Azure"
-   description="Microsoft Azure에서 빌드된 응용 프로그램의 고가용성 및 재해 복구를 위한 응용 프로그램 설계에 대한 기술 개요와 자세한 정보입니다."
+   pageTitle="Disaster Recovery and High Availability for Azure Applications | Microsoft Azure"
+   description="Technical overviews and depth information on designing applications for high availability and disaster recovery of applications built on Microsoft Azure."
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -16,119 +16,124 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
-#Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구 및 고가용성
 
-##소개
+#<a name="disaster-recovery-and-high-availability-for-applications-built-on-microsoft-azure"></a>Disaster recovery and high availability for applications built on Microsoft Azure
 
-이 문서에서는 Azure에서 실행 중인 응용 프로그램에 대한 고가용성에 중점을 둡니다. 고가용성을 위한 전체 전략에는 재해 복구 측면도 포함됩니다. 클라우드에서 오류 및 재해를 계획하려면 오류를 신속하게 인식해야 합니다. 그런 다음 응용 프로그램의 가동 중지 시간에 대한 허용 범위를 일치하는 전략을 구현합니다. 또한 복원한 대로 부정적인 비즈니스 상황이 발생하지 않고 응용 프로그램이 허용할 수 있는 데이터 손실의 정도를 고려해야 합니다.
+##<a name="introduction"></a>Introduction
 
-대부분의 회사는 일시적이고 대규모인 오류에 대비했다고 합니다. 이 질문에 대답하기 전에 회사가 이러한 오류에 대해 예행 연습을 수행했는지 물어 봅니다. 올바른 프로세스를 준비했는지 확인하기 위해 데이터베이스의 복구를 테스트하는지 물어 봅니다. 그렇지 않을 가능성이 있습니다. 이러한 프로세스를 구현하는 여러 계획과 설계를 통해 성공적인 재해 복구가 시작되기 때문입니다. 보안과 같은 다른 많은 비기능적 요구 사항처럼 재해 복구도 필요한 분석 및 시간 할당을 거의 얻지 못합니다. 또한 회사에는 대부분 중복된 용량이 있는 지리적으로 분산된 지역에 대한 예산이 없습니다. 따라서 업무상 중요한 응용 프로그램조차도 자주 적절한 재해 복구 계획에서 제외됩니다.
+This article focuses on high availability for applications running in Azure. An overall strategy for high availability also includes the aspect of disaster recovery. Planning for failures and disasters in the cloud requires you to recognize the failures quickly. You then implement a strategy that matches your tolerance for the application’s downtime. Additionally, you have to consider the extent of data loss the application can tolerate without causing adverse business consequences as it is restored.
 
-Azure와 같은 클라우드 플랫폼에서는 전 세계에 지리적으로 분산된 지역을 제공합니다. 또한 이러한 플랫폼은 가용성 및 다양한 재해 복구 시나리오를 지원하는 기능을 제공합니다. 이제 시스템의 재해 교정에 대한 고려 사항으로 인해 모든 업무상 중요한 클라우드 응용 프로그램을 지정할 수 있습니다. Azure에는 여러 서비스에 기본 제공되는 복원력 및 재해 복구가 있습니다. 이러한 플랫폼 기능을 신중하게 연구하고 응용 프로그램 전략을 보완해야 합니다.
+Most companies say they are prepared for temporary and large-scale failures. However, before you answer that question for yourself, does your company rehearse these failures? Do you test the recovery of databases to ensure you have the correct processes in place? Probably not. That’s because successful disaster recovery starts with lots of planning and architecting to implement these processes. Just like many other non-functional requirements, such as security, disaster recovery rarely gets the up-front analysis and time allocation it requires. Also, most companies don’t have the budget for geographically distributed regions with redundant capacity. Consequently, even mission critical applications are frequently excluded from proper disaster recovery planning.
 
-이 문서에서는 Azure 배포의 재해 교정에 취해야 하는 필요한 아키텍처 단계를 간략하게 설명합니다. 그런 다음 광범위한 비즈니스 연속성 프로세스를 구현할 수 있습니다. 비즈니스 연속성 계획은 불리한 조건에서 작업을 계속하기 위한 로드맵입니다. 연결이 끊긴 서비스, 태풍이나 정전 같은 자연 재해 등 기술 상의 오류일 수 있습니다. 재해에 대한 응용 프로그램 복원력은 NIST 문서인 [정보 기술 시스템에 대한 대체 계획 가이드](https://www.fismacenter.com/sp800-34.pdf)에 설명된 것보다 큰 재해 복구 프로세스의 하위 집합입니다.
+Cloud platforms, such as Azure, provide geographically dispersed regions around the world. These platforms also provide capabilities that support availability and a variety of disaster recovery scenarios. Now, every mission critical cloud application can be given due consideration for disaster proofing of the system. Azure has resiliency and disaster recovery built in to many of its services. You must study these platform features carefully, and supplement with application strategies.
 
-다음 섹션에서는 여러 가지 수준의 오류, 오류를 다루는 기술, 그리고 이러한 기술을 지원하는 아키텍처를 정의합니다. 이 정보는 재해 복구 프로세스 및 프로시저에 대한 입력을 제공하여 재해 복구 전략이 올바르고 효율적으로 작동하도록 합니다.
+This article outlines the necessary architecture steps you must take to disaster-proof an Azure deployment. Then you can implement the larger business continuity process. A business continuity plan is a roadmap for continuing operations under adverse conditions. This could be a failure with technology, such as a downed service, or a natural disaster, such as a storm or power outage. Application resiliency for disasters is only a subset of the larger disaster recovery process, as described in this NIST document: [Contingency Planning Guide for Information Technology Systems](https://www.fismacenter.com/sp800-34.pdf).
 
-##복원력 있는 클라우드 응용 프로그램의 특성
+The following sections define different levels of failures, techniques to deal with them, and architectures that support these techniques. This information provides input to your disaster recovery processes and procedures, to ensure your disaster recovery strategy works correctly and efficiently.
 
-잘 설계된 응용 프로그램은 기술적 수준에서 기능 오류를 견딜 수 있고 지역 수준에서 전략적 시스템 차원의 오류를 허용할 수 있습니다. 다음 섹션에서는 문서 전체에서 참조되는 용어를 정의하여 복원력 있는 클라우드 서비스의 다양한 측면을 설명합니다.
+##<a name="characteristics-of-resilient-cloud-applications"></a>Characteristics of resilient cloud applications
 
-###고가용성
+A well architected application can withstand capability failures at a tactical level, and it can also tolerate strategic system-wide failures at the region level. The following sections define the terminology referenced throughout the document to describe various aspects of resilient cloud services.
 
-항상 사용 가능한 클라우드 응용 프로그램은 클라우드 플랫폼에서 제공하는 관리되는 서비스와 같은 종속성의 중단을 완화하는 전략을 구현합니다. 클라우드 플랫폼의 기능 중에서 오류가 발생할 수 있음에도 이 방법은 응용 프로그램이 필요한 기능 및 비기능적 시스템 특성을 계속 보이게 합니다. Channel 9 비디오 시리즈 [Failsafe: 복원력 있는 클라우드 아키텍처에 대한 지침](https://channel9.msdn.com/Series/FailSafe)에 대해 자세히 다룹니다.
+###<a name="high-availability"></a>High availability
 
-응용 프로그램을 구현하는 경우 성능 중단 가능성을 고려해야 합니다. 또한 구현 전략을 세부적으로 설정하기 전에 비즈니스 관점에서 중단이 응용 프로그램에 미치게 될 영향을 고려해야 합니다. 리스크 조건 발생의 비즈니스 영향 및 가능성을 충분히 고려하지 않으면 구현은 비용만 많이 들고 잠재적으로 불필요할 수 있습니다.
+A highly available cloud application implements strategies to absorb the outage of dependencies, like the managed services offered by the cloud platform. Despite possible failures of the cloud platform’s capabilities, this approach permits the application to continue to exhibit the expected functional and non-functional systemic characteristics. This is covered in-depth in the Channel 9 video series, [Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe).
 
-고가용성을 위해 자동차 비유를 사용하는 것이 좋습니다. 일정한 품질의 부품과 뛰어난 엔지니어링 기술은 가끔 발생하는 오류를 방지할 수 없습니다. 예를 들어, 자동차의 타이어 바람이 빠지면 자동차는 계속 달릴수 있지만 성능이 저하된 채로 작동합니다. 이러한 잠재적인 상황에 대비하여 수리점에 도달할 때까지 얇은 테의 스페어 타이어를 사용할 수 있습니다. 스페어 타이어가 빠른 속도를 허용하지 않지만 타이어를 교체할 때까지 자동차를 운행할 수는 있습니다. 마찬가지로, 잠재적인 기능 손실을 대비하는 클라우드 서비스는 비교적 사소한 문제로 인해 전체 응용 프로그램이 중지되지 않도록 방지할 수 있습니다. 성능이 저하된 기능으로 클라우드 서비스를 실행해야 하는 경우에도 마찬가지입니다.
+When you implement the application, you must consider the probability of a capability outage. Additionally, consider the impact an outage will have on the application from the business perspective, before diving deep into the implementation strategies. Without due consideration to the business impact and the probability of hitting the risk condition, the implementation can be expensive and potentially unnecessary.
 
-항상 사용 가능한 클라우드 서비스에는 가용성, 확장성 및 내결함성과 같은 주요 특징이 있습니다. 이러한 특성은 상호 관련되지만 각각을 이해하고 솔루션의 전반적인 가용성에 어떻게 기여하는지를 이해하는 것이 중요합니다.
+Consider an automotive analogy for high availability. Even quality parts and superior engineering does not prevent occasional failures. For example, when your car gets a flat tire, the car still runs, but it is operating with degraded functionality. If you planned for this potential occurrence, you can use one of those thin-rimmed spare tires until you reach a repair shop. Although the spare tire does not permit fast speeds, you can still operate the vehicle until you replace the tire. Similarly, a cloud service that plans for potential loss of capabilities can prevent a relatively minor problem from bringing down the entire application. This is true even if the cloud service must run with degraded functionality.
 
-###Availability
+There are a few key characteristics of highly available cloud services: availability, scalability, and fault tolerance. Although these characteristics are interrelated, it is important to understand each, and how they contribute to the overall availability of the solution.
 
-사용 가능한 응용 프로그램은 기본 인프라 및 종속 서비스의 가용성을 고려합니다. 사용 가능한 응용 프로그램은 중복성 및 탄력성 설계를 통해 단일 실패 지점을 제거합니다. 범위를 넓혀서 Azure의 가용성을 고려하면 플랫폼의 효과적인 가용성이라는 개념을 이해하는 것이 중요합니다. 효과적인 가용성은 각 종속 서비스의 SLA(서비스 수준 약정) 및 전체 시스템 가용성에 미치는 누적된 효과를 고려합니다.
+###<a name="availability"></a>Availability
 
-시스템 가용성은 시스템이 작동할 수 있는 시간 창을 백분율로 측정한 값입니다. 예를 들어, Azure에서 웹 또는 작업자 역할 중 두 개 이상의 인스턴스가 가진 가용성 SLA는 99.95%(100% 중에서)입니다. 해당 역할에서 실행되는 서비스의 성능이나 기능을 측정하지 않습니다. 그러나 클라우드 서비스의 효과적인 가용성에 다른 종속 서비스의 다양한 SLA가 영향을 주기도 합니다. 시스템 내에서 유동적인 부분이 많을 수록 응용 프로그램이 최종 사용자의 가용성 요구 사항을 탄력적으로 충족할 수 있도록 각별한 주의를 기울여야 합니다.
+An available application considers the availability of its underlying infrastructure and dependent services. Available applications remove single points of failure through redundancy and resilient design. When you broaden the scope to consider availability in Azure, it is important to understand the concept of the effective availability of the platform. Effective availability considers the Service Level Agreements (SLA) of each dependent service, and their cumulative effect on the total system availability.
 
-Azure 서비스를 사용하는 Azure 서비스에 대해 SLA(계산, Azure SQL 데이터베이스 및 Azure 저장소 등)를 고려합니다.
+System availability is the measure of the percentage of a time window the system will be able to operate. For example, the availability SLA of at least two instances of a web or worker role in Azure is 99.95 percent (out of 100 percent). It does not measure the performance or functionality of the services running on those roles. However, the effective availability of your cloud service is also affected by the various SLAs of the other dependent services. The more moving parts within the system, the more care you must take to ensure the application can resiliently meet the availability requirements of its end users.
 
-|Azure 서비스|SLA |잠재적인 분 가동 중지 시간/월(30일)|
+Consider the following SLAs for an Azure service that uses Azure services: Compute, Azure SQL Database, and Azure Storage.
+
+|Azure service|SLA   |Potential minutes downtime/month (30 days)|
 |:------------|:-----|:----------------------------------------:|
-|계산 |99\.95%|21\.6분 |
-|SQL 데이터베이스 |99\.99%|4\.3분 |
-|저장소 |99\.90%|43\.2분 |
+|Compute      |99.95%|21.6 minutes                              |
+|SQL Database |99.99%|4.3  minutes                              |
+|Storage      |99.90%|43.2 minutes                              |
 
-잠재적으로 다른 시간에 저하되는 모든 서비스에 대비해야 합니다. 이 간단한 예제에서 응용 프로그램의 작동이 중지될 수 있는 월별 총시간(분)은 108분입니다. 30일인 달에는 총 43,200분입니다. 108분은 30일인 달의 총시간(43,200분)의 0.25%입니다. 이렇게 하면 클라우드 서비스에 대해 99.75%라는 효과적인 가용성을 제공합니다.
+You must plan for all services to potentially go down at different times. In this simplified example, the total number of minutes per month that the application could be down is 108 minutes. A 30-day month has a total of 43,200 minutes. 108 minutes is .25 percent of the total number of minutes in a 30-day month (43,200 minutes). This gives you an effective availability of 99.75 percent for the cloud service.
 
-그러나 이 문서에 설명된 가용성 기술을 사용하여 향상할 수 있습니다. 예를 들어 SQL 데이터베이스를 사용할 수 없는 경우 응용 프로그램을 계속 실행하도록 설계했다면 방정식에서 제거할 수 있습니다. 비즈니스 요구 사항을 고려하도록 성능이 저하된 응용 프로그램을 실행해야 할 수도 있습니다. Azure SLA의 전체 목록은 [서비스 수준 약정](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
+However, using availability techniques described in this paper can improve this. For example, if you design your application to continue running when the SQL Database is unavailable, you can remove that from the equation. This might mean that the application runs with reduced capabilities, so there are also business requirements to consider. For a complete list of Azure SLAs, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
-###확장성
+###<a name="scalability"></a>Scalability
 
-확장성은 가용성에 직접적인 영향을 미칩니다. 부하가 증가한 상태에서 오류가 발생한 응용 프로그램을 더 이상 사용할 수 없습니다. 확장성 있는 응용 프로그램은 허용 가능한 시간 창에서 일관된 결과와 함께 늘어난 수요를 충족할 수 있습니다. 시스템을 확장할 수 있는 경우 가로 또는 세로로 규모를 확장하여 일관된 성능을 유지하면서 부하의 증가를 관리할 수 있습니다. 기본적으로 수평적 크기 조정이 기존 컴퓨터의 크기를 증가시키는 반면 수직적 크기 조정(프로세서, 메모리, 대역폭)은 동일한 크기의 컴퓨터를 추가합니다. Azure의 경우 계산하기 위해 다양한 컴퓨터 크기를 선택하는 수직적 확장 옵션이 있습니다. 그러나 시스템 크기를 변경하기 위해서는 재배포가 필요합니다. 따라서 가장 유연한 솔루션은 수평적 크기 조정이 가능하도록 설계되었습니다. 특히 계산의 경우, 웹 또는 작업자 역할의 실행 중인 인스턴스 수를 쉽게 늘릴 수 있기 때문에 그렇습니다. 이러한 추가 인스턴스는 Azure 웹 포털, PowerShell 스크립트 또는 코드를 통해 늘어난 트래픽을 처리합니다. 모니터링되는 특정 메트릭의 증가는 이 결정을 기반으로 합니다. 이 시나리오에서는 부하 상태에서도 사용자 성능 또는 메트릭이 크게 저하되지 않습니다. 일반적으로 웹 및 작업자 역할은 상태를 외부적으로 저장합니다. 따라서 유연하게 부하를 분산하며 인스턴스 개수에 대한 변화를 정상적으로 처리할 수 있습니다. 수평적 크기 조정도 Azure 저장소와 같은 서비스와 정상적으로 작동하며 수직적 크기 조정에 대한 계층화된 옵션을 제공하지 않습니다.
+Scalability directly affects availability. An application that fails under increased load is no longer available. Scalable applications are able to meet increased demand with consistent results, in acceptable time windows. When a system is scalable, it scales horizontally or vertically to manage increases in load while maintaining consistent performance. In basic terms, horizontal scaling adds more machines of the same size (processor, memory, and bandwidth), while vertical scaling increases the size of the existing machines. For Azure, you have vertical scaling options for selecting various machine sizes for compute. However, changing the machine size requires a re-deployment. Therefore, the most flexible solutions are designed for horizontal scaling. This is especially true for compute, because you can easily increase the number of running instances of any web or worker role. These additional instances handle increased traffic through the Azure Web portal, PowerShell scripts, or code. Base this decision on increases in specific monitored metrics. In this scenario, user performance or metrics do not suffer a noticeable drop under load. Typically, the web and worker roles store any state externally. This allows for flexible load balancing and graceful handling of any changes to instance counts. Horizontal scaling also works well with services, such as Azure Storage, which do not provide tiered options for vertical scaling.
 
-클라우드 배포는 확장 단위의 컬렉션으로 이해되어야 합니다. 따라서 최종 사용자의 처리량 요구를 제공하는 경우 응용 프로그램이 탄력적으로 작동할 수 있습니다. 배율 단위는 웹 및 응용 프로그램 서버 수준에서 시각화되기 쉽습니다. Azure에서 이미 웹 및 작업자 역할을 통해 상태 비저장 계산 노드를 제공했기 때문입니다. 배포에 계산 확장 단위를 추가하더라도 계산 확장 단위는 상태 비저장 방식이기 때문에 응용 프로그램 상태 관리 부작용을 발생시키지 않습니다. 저장소 확장 단위는 데이터(구조적 또는 비구조적)의 파티션을 관리해야 합니다 저장소 확장 단위의 예제에는 Azure 테이블 파티션, Azure Blob 컨테이너 및 Azure SQL 데이터베이스가 있습니다. 여러 Azure 저장소 계정을 사용하면 응용 프로그램 확장성에 직접적인 영향을 줍니다. 확장성이 뛰어난 클라우드 서비스를 설계하여 여러 저장소 확장 단위를 통합해야 합니다. 예를 들어, 응용 프로그램이 관계형 데이터를 사용하는 경우 여러 SQL 데이터베이스에 데이터를 분할합니다. 이렇게 하면 저장소를 탄력적인 계산 확장 단위 모델로 유지할 수 있습니다. 마찬가지로, Azure 저장소에서는 계산 계층의 처리량 요구를 충족하기 위해 정밀한 설계가 필요한 데이터 분할 구성표를 허용합니다. 확장성 있는 클라우드 서비스를 설계하기 위한 모범 사례 목록은 [Azure 클라우드 서비스에서 대규모 서비스의 설계에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)를 참조하세요.
+Cloud deployments should be seen as a collection of scale-units. This allows the application to be elastic in servicing the throughput needs of end users. The scale units are easier to visualize at the web and application server level. This is because Azure already provides stateless compute nodes through web and worker roles. Adding more compute scale-units to the deployment will not cause any application state management side effects, because compute scale-units are stateless. A storage scale-unit is responsible for managing a partition of data (structured or unstructured). Examples of storage scale-units include Azure Table partition, Azure Blob container, and Azure SQL Database. Even the usage of multiple Azure Storage accounts has a direct impact on the application scalability. You must design a highly scalable cloud service to incorporate multiple storage scale-units. For instance, if an application uses relational data, partition the data across several SQL databases. Doing so allows the storage to keep up with the elastic compute scale-unit model. Similarly, Azure Storage allows data partitioning schemes that require deliberate designs to meet the throughput needs of the compute layer. For a list of best practices for designing scalable cloud services, see [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
 
-###내결함성
+###<a name="fault-tolerance"></a>Fault tolerance
 
-응용 프로그램은 모든 종속 클라우드 기능이 특정 시점에 중지될 수 있다고 가정해야 합니다. 내결함성 응용 프로그램은 실패한 요소를 검색하고 연습하여 특정 시간 범위 내에 올바른 결과를 계속하고 반환하도록 합니다. 일시적인 오류 조건의 경우 내결함성 시스템은 재시도 정책을 채택합니다. 보다 심각한 오류의 경우 응용 프로그램은 문제를 감지하고 오류가 수정될 때까지 대체 하드웨어 또는 대체 계획을 장애조치할 수 있습니다. 신뢰할 수 있는 응용 프로그램은 하나 이상의 부분 오류를 적절히 관리하고 계속 제대로 작동하도록 할 수 있습니다. 내결함성 응용 프로그램은 중복성, 복제 또는 기능 저하와 같은 하나 이상의 설계 전략을 사용할 수 있습니다.
+Applications should assume that every dependent cloud capability can and will go down at some point in time. A fault tolerant application detects and maneuvers around failed elements, to continue and return the correct results within a specific timeframe. For transient error conditions, a fault tolerant system will employ a retry policy. For more serious faults, the application can detect problems and fail over to alternative hardware or contingency plans until the failure is corrected. A reliable application can properly manage the failure of one or more parts, and continue operating properly. Fault tolerant applications can use one or more design strategies, such as redundancy, replication, or degraded functionality.
 
-##재해 복구
+##<a name="disaster-recovery"></a>Disaster recovery
 
-클라우드 배포는 종속 서비스 또는 기본 인프라의 시스템 중단으로 인해 작동이 중단될 수 있습니다. 이러한 상황에서 비즈니스 연속성 계획은 재해 복구 프로세스를 트리거합니다. 일반적으로 이 프로세스는 사용 가능한 지역에서 응용 프로그램을 다시 활성화하기 위해 운영 담당자 및 자동화된 절차를 모두 포함합니다. 응용 프로그램 사용자, 데이터 및 서비스를 새 지역으로 전송해야 합니다. 또한 백업 미디어 또는 진행 중인 복제를 사용할 수 있어야 합니다.
+A cloud deployment might cease to function due to a systemic outage of the dependent services or the underlying infrastructure. Under such conditions, a business continuity plan triggers the disaster recovery process. This process typically involves both operations personnel and automated procedures in order to reactivate the application in an available region. This requires the transfer of application users, data, and services to the new region. It also involves the use of backup media or ongoing replication.
 
-고가용성을 스페어를 사용하여 바람 빠진 타이어를 복구하는 기능에 비교한 이전 비유를 고려합니다. 반면, 재해 복구는 자동차가 더 이상 작동하지 않는 경우 자동차 충돌 후에 조치할 단계를 포함합니다. 이 경우에 가장 적합한 솔루션은 여행사 또는 친구를 호출하여 다른 차량으로 변경하는 효율적인 방법을 찾는 것입니다. 이 시나리오에서는 차량이 다시 움직이기까지 지연될 가능성이 있습니다. 또한 원래 차량을 수리하고 이용하려면 더 복잡합니다. 마찬가지로, 다른 지역에 대한 재해 복구는 일반적으로 가동 중지 시간 및 데이터 손실 가능성을 포함하는 복잡한 작업입니다. 재해 복구 전략을 잘 이해하고 평가하려면 복구 시간 목표(RTO) 및 복구 지점 목표(RPO)와 같은 두 용어를 정의하는 것이 중요합니다.
+Consider the previous analogy that compared high availability to the ability to recover from a flat tire through the use of a spare. In contrast, disaster recovery involves the steps taken after a car crash, where the car is no longer operational. In that case, the best solution is to find an efficient way to change cars, by calling a travel service or a friend. In this scenario, there is likely going to be a longer delay in getting back on the road. There is also more complexity in repairing and returning to the original vehicle. In the same way, disaster recovery to another region is a complex task that typically involves some downtime and potential loss of data. To better understand and evaluate disaster recovery strategies, it is important to define two terms: recovery time objective (RTO) and recovery point objective (RPO).
 
-###복구 시간 목표
+###<a name="recovery-time-objective"></a>Recovery time objective
 
-RTO는 응용 프로그램의 기능을 복원하는 데 할당된 최대 기간입니다. 비즈니스 요구에 기반하며 응용 프로그램의 중요성과 관련이 있습니다. 중요한 비즈니스 응용 프로그램은 RTO가 낮아야 합니다.
+The RTO is the maximum amount of time allocated for restoring application functionality. This is based on business requirements, and it is related to the importance of the application. Critical business applications require a low RTO.
 
-###복구 지점 목표
+###<a name="recovery-point-objective"></a>Recovery point objective
 
-RPO는 복구 프로세스로 인해 손실된 데이터를 허용할 수 있는 시간 창입니다. 예를 들어 RPO가 1시간이면 최소한 1시간 간격으로 데이터를 완전히 백업하거나 복제해야 합니다. 대체 지역에서 응용 프로그램을 가져오면 백업 데이터가 데이터를 한 시간 정도 누락할 수 있습니다. RTO와 마찬가지로 중요한 응용 프로그램은 RPO가 작아야 합니다.
+The RPO is the acceptable time window of lost data due to the recovery process. For example, if the RPO is one hour, you must completely back up or replicate the data at least every hour. Once you bring up the application in an alternate region, the backup data may be missing up to an hour of data. Like RTO, critical applications target a much smaller RPO.
 
-##검사 목록
+##<a name="checklist"></a>Checklist
 
-이 문서에서 다뤄진 주요 내용을 요약해 보겠습니다(Azure 응용 프로그램에 대한 [고가용성](./resiliency-high-availability-azure-applications.md) 및 [재해 복구](./resiliency-disaster-recovery-azure-applications.md)에 관련된 문서임). 이 요약은 고유한 가용성 및 재해 복구 계획에 대해 고려해야 하는 항목의 검사 목록 역할을 합니다. 성공적인 솔루션을 구현하는 방법을 진지하게 찾고 있는 고객에게 유용한 모범 사례입니다.
+Let’s summarize the key points that have been covered in this article (and its related articles on [high availability](./resiliency-high-availability-azure-applications.md) and [disaster recovery](./resiliency-disaster-recovery-azure-applications.md) for Azure applications). This summary will act as a checklist of items you should consider for your own availability and disaster recovery planning. These are best practices that have been useful for customers seeking to get serious about implementing a successful solution.
 
-1. 각각 다른 요구 사항이 있을 수 있으므로 각 응용 프로그램에 대한 위험 평가를 수행합니다. 일부 응용 프로그램은 다른 항목보다 더 중요하기 때문에 재해 복구를 설계하는 데 추가 비용이 들 수 있습니다.
-1. 이 정보를 사용하여 각 응용 프로그램에 대한 RTO 및 RPO를 정의합니다.
-1. 실패를 설계하며 응용 프로그램 아키텍처를 시작합니다.
-1. 비용, 복잡성 및 위험을 분산하는 동안 고가용성에 대한 모범 사례를 구현합니다.
-1. 재해 복구 계획 및 프로세스를 구현합니다.
-  * 클라우드 중단을 완료되는 전체 모듈 수준에 확장된 오류를 고려합니다.
-  * 모든 참조 및 트랜잭션 데이터에 대한 백업 전략을 설정합니다.
-  * 다중 사이트 재해 복구 아키텍처를 선택합니다.
-1. 재해 복구 프로세스, 자동화 및 테스트에 대한 특정 소유자를 정의합니다. 소유자는 전체 프로세스를 관리하고 소유해야 합니다.
-1. 쉽게 반복할 수 있도록 프로세스를 문서화합니다. 소유자가 한 명이지만 여러 사람이 이해할 수 있고 응급 상황에서 프로세스를 수행할 수 있어야 합니다.
-1. 프로세스를 구현하도록 직원을 교육합니다.
-1. 프로세스의 학습 및 유효성 검사 모두에 대해 정기적인 재해 시뮬레이션을 사용합니다.
+1. Conduct a risk assessment for each application, because each can have different requirements. Some applications are more critical than others and would justify the extra cost to architect them for disaster recovery.
+1. Use this information to define the RTO and RPO for each application.
+1. Design for failure, starting with the application architecture.
+1. Implement best practices for high availability, while balancing cost, complexity, and risk.
+1. Implement disaster recovery plans and processes.
+  * Consider failures that span the module level all the way to a complete cloud outage.
+  * Establish backup strategies for all reference and transactional data.
+  * Choose a multi-site disaster recovery architecture.
+1. Define a specific owner for disaster recovery processes, automation, and testing. The owner should manage and own the entire process.
+1. Document the processes so they are easily repeatable. Although there is one owner, multiple people should be able to understand and follow the processes in an emergency.
+1. Train the staff to implement the process.
+1. Use regular disaster simulations for both training and validation of the process.
 
-##요약
+##<a name="summary"></a>Summary
 
-하드웨어 또는 응용 프로그램이 Azure 내에서 실패하면 이를 관리하는 기술과 전략은 온-프레미스 시스템에서 오류가 발생할 경우와 다릅니다. 주된 이유는 클라우드 솔루션이 일반적으로 Azure 지역에 분산되고 별도 서비스로 관리되는 인프라에 대한 종속성을 가지고 있기 때문입니다. 부분적인 오류는 고가용성 기술을 사용하여 처리해야 합니다. 재해 이벤트로 인해 발생할 수 있는 보다 심각한 오류를 관리하려면 재해 복구 전략을 사용합니다.
+When hardware or applications fail within Azure, the techniques and strategies for managing them are different than when failure occurs on on-premises systems. The main reason for this is that cloud solutions typically have more dependencies on infrastructure that is distributed across an Azure region, and managed as separate services. You must deal with partial failures using high availability techniques. To manage more severe failures, possibly due to a disaster event, use disaster recovery strategies.
 
-Azure는 여러 오류를 검색하고 처리하지만 응용 프로그램별로 전략이 필요한 다양한 유형의 오류가 있습니다. 응용 프로그램, 서비스 및 데이터의 실패를 적극적으로 준비하고 관리해야 합니다.
+Azure detects and handles many failures, but there are many types of failures that require application-specific strategies. You must actively prepare for and manage the failures of applications, services, and data.
 
-응용 프로그램의 가용성 및 재해 복구 계획을 만들 경우 응용 프로그램의 오류로 인한 비즈니스 결과를 고려합니다. 프로세스, 정책 및 절차를 정의하여 치명적인 재해가 시간, 계획 및 노력을 소비한 후에 중요한 시스템을 복원합니다. 그리고 계획을 설정하면 멈출 수 없습니다. 응용 프로그램 포트폴리오, 비즈니스 요구 사항 및 사용 가능한 기술을 기반으로 계획을 정기적으로 분석하고 테스트하며 지속적으로 개선해야 합니다. Azure는 오류를 견딜 수 있는 강력한 응용 프로그램을 만들도록 새로운 기능을 제공하고 과제를 부여합니다.
+When creating your application’s availability and disaster recovery plan, consider the business consequences of the application’s failure. Defining the processes, policies, and procedures to restore critical systems after a catastrophic event takes time, planning, and commitment. And once you establish the plans, you cannot stop there. You must regularly analyze, test, and continually improve the plans based on your application portfolio, business needs, and the technologies available to you. Azure provides new capabilities and raises new challenges to creating robust applications that withstand failures.
 
-##추가 리소스
+##<a name="additional-resources"></a>Additional resources
 
-[Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성](resiliency-high-availability-azure-applications.md)
+[High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md)
 
-[Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구](resiliency-disaster-recovery-azure-applications.md)
+[Disaster recovery for applications built on Microsoft Azure](resiliency-disaster-recovery-azure-applications.md)
 
-[Azure 복구력 기술 지침](resiliency-technical-guidance.md)
+[Azure resiliency technical guidance](resiliency-technical-guidance.md)
 
-[개요: SQL 데이터베이스의 클라우드 무중단 업무 방식 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md)
+[Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md)
 
-[Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
+[High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
 
-[Failsafe: 복원력 있는 클라우드 아키텍처 지침](https://channel9.msdn.com/Series/FailSafe)
+[Failsafe: Guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe)
 
-[Azure 클라우드 서비스에서 대규모 서비스 설계를 위한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
+[Best Practices for the design of large-scale services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-이 문서는 Azure 응용 프로그램에 대한 재해 복구 및 고가용성에 초점을 맞춘 문서 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성](resiliency-high-availability-azure-applications.md)입니다.
+This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

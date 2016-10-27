@@ -1,76 +1,77 @@
 <properties
-	pageTitle="Azure API 관리에서 VPN 연결을 설정하는 방법"
-	description="Azure API 관리에서 VPN 연결을 설정하고 웹 서비스에 액세스하는 방법에 대해 알아봅니다."
-	services="api-management"
-	documentationCenter=""
-	authors="antonba"
-	manager="erikre"
-	editor=""/>
+    pageTitle="How to setup VPN connections in Azure API Management"
+    description="Learn how to setup a VPN connection in Azure API Management and access web services through it."
+    services="api-management"
+    documentationCenter=""
+    authors="antonba"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="antonba"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/25/2016"
+    ms.author="antonba"/>
 
-# Azure API 관리에서 VPN 연결을 설정하는 방법
 
-API 관리의 VPN 지원을 사용하여 API 관리 게이트웨이를 Azure 가상 네트워크(클래식)에 연결할 수 있습니다. 이렇게 하면 API 관리 고객을 온-프레미스이거나 공용 인터넷에 액세스할 수 없는 해당 백 엔드 웹 서비스에 안전하게 연결할 수 있습니다.
+# <a name="how-to-setup-vpn-connections-in-azure-api-management"></a>How to setup VPN connections in Azure API Management
 
->[AZURE.NOTE] Azure API 관리는 클래식 VNET과 함께 작동합니다. 클래식 VNET을 만드는 방법에 대한 정보는 [Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. ARM VNET에 클래식 VNET을 연결하는 내용은 [새 VNet에 클래식 VNet 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.
+API Management's VPN support allows you to connect your API Management gateway to an Azure Virtual Network (classic). This allows API Management customers to securely connect to their backend web services that are on-premises or are otherwise inaccessible to the public internet.
 
-## <a name="enable-vpn"> </a>VPN 연결 사용
+>[AZURE.NOTE] Azure API Management works with classic VNETs. For information on creating a classic VNET, see [Create a virtual network (classic) by using the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). For information on connecting classic VNETs to ARM VNETS, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
->VPN 연결은 **프리미엄** 및 **개발자** 계층에서만 사용할 수 있습니다. 전환하려면 [Azure 클래식 포털][]에서 API 관리 서비스를 열고 **크기 조정** 탭을 엽니다. **일반** 섹션에서 프리미엄 계층을 선택하고 저장을 클릭합니다.
+## <a name="<a-name="enable-vpn">-</a>enable-vpn-connections"></a><a name="enable-vpn"> </a>Enable VPN connections
 
-VPN 연결을 사용하려면 [Azure 클래식 포털][]에서 API 관리 서비스를 열고 **구성** 탭으로 전환합니다.
+>VPN connectivity is only available in the **Premium** and **Developer** tiers. To switch to it, open your API Management service in the [Azure Classic Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
 
-VPN 섹션에서 **VPN 연결**을 **켜기**로 전환합니다.
+To enable VPN connectivity, open your API Management service in the [Azure Classic Portal][] and switch to the **Configure** tab. 
 
-![API 관리 인스턴스의 구성 탭][api-management-setup-vpn-configure]
+Under the VPN section, switch **VPN connection** to **On**.
 
-이제 API 관리 서비스가 프로비전되는 모든 지역 목록이 보입니다.
+![Configure tab of API Management instance][api-management-setup-vpn-configure]
 
-VPN 및 모든 지역에 대한 서브넷을 선택합니다. VPN 목록은 사용자가 구성하고 있는 지역에서 설정되는 Azure 구독에서 사용할 수 있는 가상 네트워크에 기반하여 채워집니다.
+You will now see a list of all regions where your API Management service is provisioned.
 
-![VPN 선택][api-management-setup-vpn-select]
+Select a VPN and subnet for every region. The list of VPNs is populated based on the virtual networks available in your Azure subscription that are setup in the region you are configuring.
 
-화면 아래쪽에서 **저장**을 클릭합니다. 업데이트하는 동안 Azure 클래식 포털에서 API 관리 서비스의 다른 작업을 수행할 수 없습니다. 서비스 게이트웨이는 여전히 사용할 수 있으며 런타임 호출은 영향을 받지 않습니다.
+![Select VPN][api-management-setup-vpn-select]
 
-게이트웨이의 VIP 주소는 VPN이 사용되거나 사용 해제될 때마다 변경됩니다.
+Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure Classic Portal while it is updating. The service gateway will remain available and runtime calls should not be affected.
 
-## <a name="connect-vpn"> </a>VPN 뒤에서 웹 서비스에 연결
+Note that the VIP address of the gateway will change each time VPN is enabled or disabled.
 
-API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 서비스 액세스는 공용 서비스 액세스와 다르지 않습니다. 새 API를 만들거나 기존 API를 편집할 때 **웹 서비스 URL** 필드에 웹 서비스의 로컬 주소 또는 호스트 이름(DNS 서버가 Azure 가상 네트워크에 대해 구성된 경우)을 입력하면 됩니다.
+## <a name="<a-name="connect-vpn">-</a>connect-to-a-web-service-behind-vpn"></a><a name="connect-vpn"> </a>Connect to a web service behind VPN
 
-![VPN에서 API 추가][api-management-setup-vpn-add-api]
+After your API Management service is connected to the VPN, accessing web services within the virtual network is no different than accessing public services. Just type in the local address or the host name (if a DNS server was configured for the Azure Virtual Network) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
 
-## API 관리 VPN 지원에 필요한 포트
+![Add API from VPN][api-management-setup-vpn-add-api]
 
-API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다. 이러한 포트가 차단되면 서비스가 제대로 작동하지 않을 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNET에서 API 관리를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
+## <a name="required-ports-for-api-management-vpn-support"></a>Required ports for API Management VPN support
 
-| 포트 | 방향 | 전송 프로토콜 | 목적 | 원본 / 대상 |
+When an API Management service instance is hosted in a VNET, the ports in the following table are used. If these ports are blocked, the service may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using API Management with a VNET.
+
+| Port(s)                      | Direction        | Transport Protocol | Purpose                                                          | Source / Destination              |
 |------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
-| 80, 443 | 인바운드 | TCP | API 관리에 대한 클라이언트 통신 | 인터넷 / VIRTUAL\_NETWORK |
-| 80,443 | 아웃바운드 | TCP | Azure 저장소 및 Azure 서비스 버스에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
-| 1433 | 아웃바운드 | TCP | SQL에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
-| 9350, 9351, 9352, 9353, 9354 | 아웃바운드 | TCP | 서비스 버스에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
-| 5671 | 아웃바운드 | AMQP | 이벤트 허브 정책에 대한 로그의 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
-| 6381, 6382, 6383 | 인바운드/아웃바운드 | UDP | Redis Cache에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
-| 445 | 아웃바운드 | TCP | GIT의 Azure 파일 공유에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
+| 80, 443                      | Inbound          | TCP                | Client communication to API Management                           | INTERNET / VIRTUAL_NETWORK        |
+| 80,443                       | Outbound         | TCP                | API Management Dependency on Azure Storage and Azure Service Bus | VIRTUAL_NETWORK / INTERNET        |
+| 1433                         | Outbound         | TCP                | API Management dependencies on SQL                               | VIRTUAL_NETWORK / INTERNET        |
+| 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus                       | VIRTUAL_NETWORK / INTERNET        |
+| 5671                         | Outbound         | AMQP               | API Management dependency for Log to event Hub policy            | VIRTUAL_NETWORK / INTERNET        |
+| 6381, 6382, 6383             | Inbound/Outbound | UDP                | API Management dependencies on Redis Cache                       | VIRTUAL_NETWORK / VIRTUAL_NETWORK |
+| 445                          | Outbound         | TCP                | API Management Dependency on Azure File Share for GIT            | VIRTUAL_NETWORK / INTERNET        |
 
-## <a name="custom-dns"> </a>사용자 지정 DNS 서버 설정
+## <a name="<a-name="custom-dns">-</a>custom-dns-server-setup"></a><a name="custom-dns"> </a>Custom DNS server setup
 
-API Management는 다양한 Azure 서비스에 따라 달라집니다. API Management 서비스 인스턴스가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스팅되면 해당 Azure 서비스의 호스트 이름을 확인할 수 있어야 합니다. 사용자 지정 DNS 설정에 대한 [이](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 지침을 따르세요.
+API Management depends on a number of Azure services. When an API Management service instance is hosted in a VNET where a custom DNS server is used, it needs to be able to resolve hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup.  
 
-## <a name="related-content"> </a>관련 콘텐츠
+## <a name="<a-name="related-content">-</a>related-content"></a><a name="related-content"> </a>Related content
 
 
-* [Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기][]
-* [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법][]
+* [Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal][]
+* [How to use the API Inspector to trace calls in Azure API Management][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -80,9 +81,13 @@ API Management는 다양한 Azure 서비스에 따라 달라집니다. API Manag
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
-[Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
-[API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
+[Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
+[How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

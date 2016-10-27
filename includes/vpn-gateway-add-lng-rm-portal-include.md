@@ -1,19 +1,22 @@
-1. 포털에서 **새로 만들기** > **네트워킹** > **로컬 네트워크 게이트웨이**로 이동합니다.
+1. In the portal, from **All resources**, click **+Add**. In the **Everything** blade search box, type **Local network gateway**, then click to search. This will return a list. Click **Local network gateway** to open the blade, then click **Create** to open the **Create local network gateway** blade.
 
-	![로컬 네트워크 게이트웨이 만들기](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. **로컬 네트워크 게이트웨이 블레이드 만들기**에서 로컬 네트워크 게이트웨이 개체의 **이름**을 지정합니다.
+2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
  
-3. 연결하려는 VPN 장치 또는 가상 네트워크 게이트웨이에 대한 유효한 공용 **IP 주소**를 지정합니다.<br>이 로컬 네트워크가 온-프레미스 위치를 나타내는 경우 연결하려는 VPN 장치의 공용 IP 주소입니다. NAT 뒤에 있을 수 없고 Azure에서 도달할 수 있어야 합니다.<br>이 로컬 네트워크가 다른 VNet을 나타내는 경우 해당 VNet에 대한 가상 네트워크 게이트웨이에 할당된 공용 IP 주소를 지정합니다.<br>
+3. Specify a valid public **IP address** for the VPN device or virtual network gateway to which you want to connect.<br>If this local network represents an on-premises location, this is the public IP address of the VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.<br>If this local network represents another VNet, you will specify the public IP address that was assigned to the virtual network gateway for that VNet.<br>
 
-4. **주소 공간**은 이 로컬 네트워크가 나타내는 네트워크에 대한 주소 범위를 가리킵니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 여기에서 지정한 범위가 연결하려는 다른 네트워크의 범위와 겹치지 않는지 확인합니다.
+4. **Address Space** refers to the address ranges for the network that this local network represents. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to.
  
-5. **구독**의 경우 올바른 구독이 표시되어 있는지 확인합니다.
+5. For **Subscription**, verify that the correct subscription is showing.
 
-6. **리소스 그룹**의 경우 사용하려는 리소스 그룹을 선택합니다. 새 리소스 그룹을 만들거나 이미 만든 리소스 그룹을 선택할 수 있습니다.
+6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
 
-7. **위치**에 이 개체를 생성한 위치를 선택합니다. VNet이 있는 동일한 위치를 선택하는 것이 좋지만 그렇게 하지 않아도 됩니다.
+7. For **Location**, select the location that this object will be created in. You may want to select the same location that your VNet resides in, but you are not required to do so.
 
-8. **만들기**를 클릭하여 로컬 네트워크 게이트웨이를 만듭니다.
+8. Click **Create** to create the local network gateway.
 
-<!-----HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

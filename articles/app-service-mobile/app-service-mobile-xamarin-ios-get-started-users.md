@@ -1,58 +1,59 @@
 <properties
-	pageTitle="Xamarin iOS에서 모바일 앱에 대한 인증 시작"
-	description="모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin iOS 앱 사용자를 인증하는 방법을 알아봅니다."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="mattchenderson"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with authentication for Mobile Apps in Xamarin iOS"
+    description="Learn how to use Mobile Apps to authenticate users of your Xamarin iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="na"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="na"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Xamarin.iOS 앱에 인증 추가
+
+# <a name="add-authentication-to-your-xamarin.ios-app"></a>Add authentication to your Xamarin.iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-이 항목에서는 클라이언트 응용 프로그램에서 앱 서비스 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 앱 서비스가 지원하는 ID 공급자를 사용하여 Xamarin.iOS 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증이 완료되고 권한이 부여되고 나면 사용자 ID 값이 표시되고 제한된 테이블 데이터에 액세스할 수 있게 됩니다.
+This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the Xamarin.iOS quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed and you will be able to access restricted table data.
 
-[Xamarin.iOS 앱 만들기] 자습서를 먼저 완료해야 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+You must first complete the tutorial [Create a Xamarin.iOS app]. If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##인증을 위해 앱 등록 및 앱 서비스 구성
+##<a name="register-your-app-for-authentication-and-configure-app-services"></a>Register your app for authentication and configure App Services
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##사용 권한을 인증된 사용자로 제한
+##<a name="restrict-permissions-to-authenticated-users"></a>Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 오류는 디버거의 콘솔에 기록됩니다. 따라서 Visual Studio의 출력 창에 오류가 표시됩니다.
+&nbsp;&nbsp;4. In Visual Studio or Xamarin Studio, run the client project on a device or emulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. The failure is logged to the console of the debugger. So in Visual Studio, you should see the failure in the output window.
 
-&nbsp;&nbsp;이 권한 없음 오류는 앱이 인증되지 않은 사용자로 모바일 앱 백엔드에 액세스하려고 하기 때문에 발생합니다. *TodoItem* 테이블에서 이제 인증을 요구합니다.
+&nbsp;&nbsp;This unauthorized failure happens because the app attempts to access your Mobile App backend as an unauthenticated user. The *TodoItem* table now requires authentication.
 
-다음으로 클라이언트 앱을 업데이트하여 모바일 앱 백엔드에서 인증된 된 사용자를 사용하여 리소스를 요청합니다.
+Next, you will update the client app to request resources from the Mobile App backend with an authenticated user.
 
-##앱에 인증 추가
+##<a name="add-authentication-to-the-app"></a>Add authentication to the app
 
-이 섹션에서는 데이터 표시 전에 로그인 화면을 표시하도록 앱을 수정합니다. 앱이 시작될 때 앱은 앱 서비스에 연결하지 않으며, 데이터를 표시하지 않습니다. 사용자가 새로 고침 제스처를 처음 수행한 다음 로그인 화면이 나타나고, 로그인이 성공하면 todo 항목 목록이 표시됩니다.
+In this section, you will modify the app to display a login screen before displaying data. When the app starts, it will not not connect to your App Service and will not display any data. After the first time that the user performs the refresh gesture, the login screen will appear; after successful login the list of todo items will be displayed.
 
-1. 클라이언트 프로젝트에서 QSTodoService 클래스에 문 및 접근자가 있는 `MobileServiceUser`를 사용하여 **QSTodoService.cs** 파일을 열고 다음을 추가합니다.
+1. In the client project, open the file **QSTodoService.cs** and add the following using statement and `MobileServiceUser` with accessor to the QSTodoService class:
 
-	```
-		using UIKit;
-	```
+    ```
+        using UIKit;
+    ```
 
-		// Logged in user
-		private MobileServiceUser user;
-		public MobileServiceUser User { get { return user; } }
+        // Logged in user
+        private MobileServiceUser user;
+        public MobileServiceUser User { get { return user; } }
 
-2. 다음 정의를 포함하여 새 메서드로 명명된 **Authenticate**를 **QSTodoService**에 추가합니다.
+2. Add new method named **Authenticate** to **QSTodoService** with the following definition:
 
 
         public async Task Authenticate(UIViewController view)
@@ -67,46 +68,50 @@
             }
         }
 
-	>[AZURE.NOTE] Facebook 이외의 ID 공급자를 사용하는 경우, 위의 **LoginAsync**에 전달된 값을 _MicrosoftAccount_, _Twitter_, _Google_ 또는 _WindowsAzureActiveDirectory_ 중 하나로 변경합니다.
+    >[AZURE.NOTE] If you are using an identity provider other than a Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-3. **QSTodoListViewController.cs**를 엽니다. 끝 부근의 **RefreshAsync()** 호출을 제거하여 **ViewDidLoad**의 메서드 정의를 수정합니다.
+3. Open **QSTodoListViewController.cs**. Modify the method definition of **ViewDidLoad** removing the call to **RefreshAsync()** near the end:
 
-		public override async void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
+        public override async void ViewDidLoad ()
+        {
+            base.ViewDidLoad ();
 
-			todoService = QSTodoService.DefaultService;
+            todoService = QSTodoService.DefaultService;
            await todoService.InitializeStoreAsync ();
 
            RefreshControl.ValueChanged += async (sender, e) => {
                 await RefreshAsync ();
            }
 
-			// Comment out the call to RefreshAsync
-			// await RefreshAsync ();
-		}
+            // Comment out the call to RefreshAsync
+            // await RefreshAsync ();
+        }
 
 
-4. **User** 속성이 null인 경우 인증을 수행하려면 **RefreshAsync** 메서드를 수정합니다. 메서드 정의 상단에서 다음 코드를 추가합니다.
+4. Modify the method **RefreshAsync** to authenticate if the **User** property is null. Add the following code at the top of the method definition:
 
-		// start of RefreshAsync method
-		if (todoService.User == null) {
-			await QSTodoService.DefaultService.Authenticate (this);
-			if (todoService.User == null) {
-				Console.WriteLine ("couldn't login!!");
-				return;
-			}
-		}
-		// rest of RefreshAsync method
+        // start of RefreshAsync method
+        if (todoService.User == null) {
+            await QSTodoService.DefaultService.Authenticate (this);
+            if (todoService.User == null) {
+                Console.WriteLine ("couldn't login!!");
+                return;
+            }
+        }
+        // rest of RefreshAsync method
 
-5. Mac 컴퓨터의 Xamarin 빌드 호스트에 연결된 Visual Studio 또는 Xamarin Studio에서 장치 또는 에뮬레이터를 대상으로 하는 클라이언트 프로젝트를 실행합니다. 앱이 데이터를 표시하지 않는지 확인합니다.
+5. In Visual Studio or Xamarin Studio connected to your Xamarin Build Host on your Mac, run the client project targeting a device or emulator. Verify that the app displays no data.
 
-	항목 목록을 아래로 끌어서 새로 고침 제스처를 수행하고 로그인 화면이 나타나도록 합니다. 유효한 자격 증명을 성공적으로 입력하면 앱이 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
+    Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items, and you can make updates to the data.
 
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Xamarin.iOS 앱 만들기]: app-service-mobile-xamarin-ios-get-started.md
+[Create a Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started.md
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

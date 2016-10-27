@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 마켓플레이스를 위해 온-프레미스 가상 컴퓨터 이미지 만들기 | Microsoft Azure"
-   description="온-프레미스 VM 이미지를 만들어 Azure 마켓플레이스에 배포하여 다른 사용자가 구입할 수 있도록 하는 단계를 이해하고 실행합니다."
+   pageTitle="Creating an on-premises virtual machine image for the Azure Marketplace | Microsoft Azure"
+   description="Understand and execute the steps to create an on-premises VM image and deploy to the Azure Marketplace for others to purchase."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,127 +16,132 @@
   ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
-# Azure 마켓플레이스를 위해 온-프레미스 가상 컴퓨터 이미지 개발
-원격 데스크톱 프로토콜을 사용하여 Azure VHD(가상 하드 디스크)를 클라우드에서 직접 개발하는 것이 좋습니다. 그러나 꼭 필요한 경우 VHD를 다운로드하고 온-프레미스 인프라를 사용하여 개발할 수 있습니다.
 
-온-프레미스 개발을 위해서는 만든 VM의 운영 체제 VHD를 다운로드해야 합니다. 다음 단계는 위의 3.3단계의 일부로 수행됩니다.
+# <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Develop an on-premises virtual machine image for the Azure Marketplace
+We strongly recommend that you develop Azure virtual hard disks (VHDs) directly in the cloud by using Remote Desktop Protocol. However, if you must, it is possible to download a VHD and develop it by using on-premises infrastructure.  
 
-## VHD 이미지 다운로드
-### Blob URL 찾기
-VHD를 다운로드하려면 먼저 운영 체제 디스크에 대한 Blob URL을 찾습니다.
+For on-premises development, you must download the operating system VHD of the created VM. These steps would take place as part of step 3.3, above.  
 
-새 [Microsoft Azure 포털](https://portal.azure.com)에서 Blob URL을 찾습니다.
+## <a name="download-a-vhd-image"></a>Download a VHD image
+### <a name="locate-a-blob-url"></a>Locate a blob URL
+In order to download the VHD, first locate the blob URL for the operating system disk.
 
-1.	**찾아보기** > **VM**으로 이동하고 배포된 VM을 선택합니다.
-2.	**구성** 아래에서 **디스크** 타일을 선택하면 디스크 블레이드가 열립니다.
+Locate the blob URL from the new [Microsoft Azure portal](https://portal.azure.com):
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
+1.  Go to **Browse** > **VMs**, and then select the deployed VM.
+2.  Under **Configure**, select the **Disks** tile, which opens the Disks blade.
 
-3.	**OS 디스크**를 선택하면 VHD 위치를 포함하여 디스크 속성을 표시하는 다른 블레이드가 열립니다.
-4.	이 Blob URL을 복사합니다.
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
+3.  Select the **OS Disk**, which opens another blade that displays disk properties, including the VHD location.
+4.  Copy this blob URL.
 
-5.	이제 백업 디스크를 삭제하지 않고 배포된 VM을 삭제합니다. 또한 VM을 삭제하는 대신 중지할 수 있습니다. VM 실행 중에는 운영 체제 VHD를 다운로드하지 마세요.
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
+5.  Now, delete the deployed VM without deleting the backing disks. You can also stop the VM instead of deleting it. Do not download the operating system VHD when the VM is running.
 
-### VHD 다운로드
-Blob URL을 알고 있는 경우 [Azure 포털](http://manage.windowsazure.com/) 또는 PowerShell을 사용하여 VHD를 다운로드할 수 있습니다.
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
-> [AZURE.NOTE] 이 가이드를 작성한 시점에는 VHD를 다운로드하는 기능이 새 Microsoft Azure 포털에 아직 없습니다.
+### <a name="download-a-vhd"></a>Download a VHD
+After you know the blob URL, you can download the VHD by using the [Azure portal](http://manage.windowsazure.com/) or PowerShell.  
+> [AZURE.NOTE] At the time of this guide’s creation, the functionality to download a VHD is not yet present in the new Microsoft Azure portal.  
 
-**현재 [Azure 포털](http://manage.windowsazure.com/)을 통해 운영 체제 VHD 다운로드**
+**Download the operating system VHD via the current [Azure portal](http://manage.windowsazure.com/)**
 
-1.	아직 로그인하지 않은 경우 Azure 포털에 로그인합니다.
-2.	**저장소** 탭을 클릭합니다.
-3.	VHD가 저장된 저장소 계정을 선택합니다.
+1.  Sign in to the Azure portal if you have not done so already.
+2.  Click the **Storage** tab.
+3.  Select the storage account within which the VHD is stored.
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
 
-4.	그러면 저장소 계정 속성이 표시됩니다. **컨테이너** 탭을 선택합니다.
+4.  This displays storage account properties. Select the **Containers** tab.
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
 
-5.	VHD가 저장되는 컨테이너를 선택합니다. 기본적으로 포털에서 만들 때 VHD는 vhd 컨테이너에 저장됩니다.
+5.  Select the container in which the VHD is stored. By default, when created from the portal, the VHD is stored in a vhds container.
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
 
-6.	저장된 URL과 비교하여 올바른 운영 체제 VHD를 선택합니다.
-7.	**다운로드**를 클릭합니다.
+6.  Select the correct operating system VHD by comparing the URL to the one you saved.
+7.  Click **Download**.
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
-### PowerShell을 사용하여 VHD 다운로드
-Azure 포털 사용 외에도 [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet을 사용하여 운영 체제 VHD를 다운로드할 수 있습니다.
+### <a name="download-a-vhd-by-using-powershell"></a>Download a VHD by using PowerShell
+In addition to using the Azure portal, you can use the [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet to download the operating system VHD.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-예: Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\\Users\\Administrator\\Desktop\\baseimagevm.vhd” -StorageKey <String>
+For example, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
 
-> [AZURE.NOTE] **Save-AzureVhd**에는 다운로드에 사용 가능한 대역폭을 가능한 효과적으로 사용할 수 있도록 병렬 처리를 늘리는 데 사용할 수 있는 **NumberOfThreads** 옵션도 있습니다.
+> [AZURE.NOTE] **Save-AzureVhd** also has a **NumberOfThreads** option that can be used to increase parallelism to make the best use of available bandwidth for the download.
 
-## Azure 저장소 계정에 VHD 업로드
-온-프레미스에서 VHD를 준비하는 경우 Azure의 저장소 계정에 업로드해야 합니다. 이 단계는 온-프레미스에서 VHD를 만든 후, VM 이미지에 대한 인증을 가져오기 전에 수행됩니다.
+## <a name="upload-vhds-to-an-azure-storage-account"></a>Upload VHDs to an Azure storage account
+If you prepared your VHDs on-premises, you need to upload them into a storage account in Azure. This step takes place after creating your VHD on-premises but before obtaining certification for your VM image.
 
-### 저장소 계정 및 컨테이너 만들기
-VHD를 미국의 지역에 있는 저장소 계정에 업로드하는 것이 좋습니다. 단일 SKU에 대한 모든 VHD는 단일 저장소 계정 내에서 단일 컨테이너에 배치되어야 합니다.
+### <a name="create-a-storage-account-and-container"></a>Create a storage account and container
+We recommend that VHDs be uploaded into a storage account in a region in the United States. All VHDs for a single SKU should be placed in a single container within a single storage account.
 
-저장소 계정을 만들려면 [Microsoft Azure 포털](https://portal.azure.com/), PowerShell 또는 Linux 명령줄 도구를 사용할 수 있습니다.
+To create a storage account, you can use the [Microsoft Azure portal](https://portal.azure.com/), PowerShell, or the Linux command-line tool.  
 
-**Microsoft Azure 포털에서 저장소 계정 만들기**
+**Create a storage account from the Microsoft Azure portal**
 
-1.	**새로 만들기**를 클릭합니다.
-2.	**저장소**를 선택합니다.
-3.	저장소 계정 이름을 입력하고 위치를 선택합니다.
+1.  Click **New**.
+2.  Select **Storage**.
+3.  Fill in the storage account name, and then select a location.
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 
-4.	**만들기**를 클릭합니다.
-5.	만든 저장소 계정에 대한 블레이드가 열립니다. 그렇지 않은 경우 **찾아보기** > **저장소 계정**을 선택합니다. 저장소 계정 블레이드에서 만든 저장소 계정을 선택합니다.
-6.	**컨테이너**를 선택합니다.
+4.  Click **Create**.
+5.  The blade for the created storage account should be open. If not, select **Browse** > **Storage Accounts**. On the Storage account blade, select the storage account created.
+6.  Select **Containers**.
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img09.png) 
 
-7.	컨테이너 블레이드에서 **추가**를 선택하고 컨테이너 이름 및 컨테이너 권한을 입력합니다. 컨테이너 권한에 대해 **개인**을 선택합니다.
+7.  On the Containers blade, select **Add**, and then enter a container name and the container permissions. Select **Private** for container permissions.
 
-> [AZURE.TIP] 게시를 계획 중인 SKU당 하나의 컨테이너를 만드는 것이 좋습니다.
+> [AZURE.TIP] We recommend that you create one container per SKU that you are planning to publish.
 
-  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
+  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
-### PowerShell을 사용하여 저장소 계정 만들기
-PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet를 사용 저장소 계정을 만듭니다.
+### <a name="create-a-storage-account-by-using-powershell"></a>Create a storage account by using PowerShell
+Using PowerShell, create a storage account by using the [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-그런 다음 [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet를 사용하여 해당 저장소 계정 내에 컨테이너를 만들 수 있습니다.
+Then you can create a container within that storage account by using the [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
-> [AZURE.NOTE] 이러한 명령은 현재 저장소 계정 컨텍스트가 PowerShell에 이미 설정되어 있다고 가정합니다. PowerShell 설정에 대한 자세한 내용은 [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)을 참조하세요.
-### Mac 및 Linux용 명령줄 도구를 사용하여 저장소 계정 만들기
-[Linux 명령줄 도구](../virtual-machines/virtual-machines-linux-cli-manage.md)에서 다음과 같이 저장소 계정을 만듭니다.
+> [AZURE.NOTE] Those commands assume that the current storage account context has already been set in PowerShell.   Refer to [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md) for more details on PowerShell setup.
+ 
+### <a name="create-a-storage-account-by-using-the-command-line-tool-for-mac-and-linux"></a>Create a storage account by using the command-line tool for Mac and Linux
+From [Linux command-line tool](../virtual-machines/virtual-machines-linux-cli-manage.md), create a storage account as follows.
 
         azure storage account create mystorageaccount --location "West US"
 
-다음과 같이 컨테이너를 만듭니다.
+Create a container as follows.
 
         azure storage container create containername --account-name mystorageaccount --accountkey <accountKey>
 
-## VHD 업로드
-저장소 계정 및 컨테이너를 만든 후에는 준비된 VHD를 업로드할 수 있습니다. PowerShell, Linux 명령줄 도구 또는 기타 Azure 저장소 관리 도구를 사용할 수 있습니다.
+## <a name="upload-a-vhd"></a>Upload a VHD
+After the storage account and container are created, you can upload your prepared VHDs. You can use PowerShell, the Linux command-line tool, or other Azure Storage management tools.
 
-### PowerShell 통해 VHD 업로드
-[Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet를 사용합니다.
+### <a name="upload-a-vhd-via-powershell"></a>Upload a VHD via PowerShell
+Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
-### Mac 및 Linux용 명령줄 도구를 사용하여 VHD 업로드
-[Linux 명령줄 도구](../virtual-machines/command-line-tools/)에서 azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>를 사용합니다.
+### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Upload a VHD by using the command-line tool for Mac and Linux
+With the [Linux command-line tool](../virtual-machines/command-line-tools/), use the following: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
-## 참고 항목
-- [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
-- [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
+## <a name="see-also"></a>See also
+- [Creating a virtual machine image for the Marketplace](marketplace-publishing-vm-image-creation.md)
+- [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

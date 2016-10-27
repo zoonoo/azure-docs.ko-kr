@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 장치에 원격으로 연결 | Microsoft Azure"
-   description="원격 관리를 위해 장치를 구성하는 방법 및 HTTP 또는 HTTPS를 통해 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다."
+   pageTitle="Connect remotely to your StorSimple device | Microsoft Azure"
+   description="Explains how to configure your device for remote management and how to connect to Windows PowerShell for StorSimple via HTTP or HTTPS."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,263 +15,268 @@
    ms.date="06/21/2016"
    ms.author="alkohli" />
 
-# StorSimple 장치에 원격으로 연결
 
-## 개요
+# <a name="connect-remotely-to-your-storsimple-device"></a>Connect remotely to your StorSimple device
 
-Windows PowerShell 원격을 사용하여 StorSimple 장치에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 장치의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
+## <a name="overview"></a>Overview
 
-Windows PowerShell 원격을 사용하여 장치를 관리하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치 관리](storsimple-windows-powershell-administration.md)를 참조하세요.
+You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language. 
 
-이 자습서에서는 원격 관리를 위해 장치를 구성하는 방법 및 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다. HTTP 또는 HTTPS를 사용하여 Windows PowerShell 원격을 통해 연결할 수 있습니다. 그러나 StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 다음 사항을 고려하세요.
+For more information about using Windows PowerShell remoting to manage your device, go to [Use Windows PowerShell for StorSimple to administer your StorSimple device](storsimple-windows-powershell-administration.md).
 
-- 장치 직렬 콘솔에 직접 연결하는 것은 안전하지만 네트워크 스위치를 통해 직렬 콘솔에 연결하는 것은 안전하지 않습니다. 네트워크 스위치를 통해 장치 직렬 콘솔에 연결할 때는 보안 위험에 주의하세요. 
+This tutorial explains how to configure your device for remote management and then how to connect to Windows PowerShell for StorSimple. You can use HTTP or HTTPS to connect via Windows PowerShell remoting. However, when you are deciding how to connect to Windows PowerShell for StorSimple, consider the following: 
 
-- HTTP 세션을 통해 연결하는 경우 네트워크에서 직렬 콘솔을 통해 연결하는 것보다 보안이 강화될 수 있습니다. 가장 안전한 방법은 아니지만 신뢰할 수 있는 네트워크에서는 적합합니다.
+- Connecting directly to the device serial console is secure, but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to the device serial console over network switches. 
 
-- 가장 안전하고 권장되는 옵션은 자체 서명된 인증서를 사용하여 HTTPS 세션을 통해 연결하는 것입니다.
+- Connecting through an HTTP session might offer more security than connecting through the serial console over the network. Although this is not the most secure method, it is acceptable on trusted networks. 
 
-Windows PowerShell 인터페이스에 원격으로 연결할 수 있습니다. 그러나 Windows PowerShell 인터페이스를 통한 StorSimple 장치에 대한 원격 액세스는 기본적으로 사용되지 않습니다. 먼저, 장치에서 원격 관리를 사용하도록 설정한 다음 장치에 액세스하는 데 사용되는 클라이언트에서 사용하도록 설정해야 합니다.
+- Connecting through an HTTPS session with a self-signed certificate is the most secure and the recommended option.
 
-이 문서에 설명된 단계는 Windows Server 2012 R2를 실행하는 호스트 시스템에서 수행되었습니다.
+You can connect remotely to the Windows PowerShell interface. However, remote access to your StorSimple device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the device first, and then on the client that is used to access your device.
 
-## HTTP를 통해 연결
+The steps described in this article were performed on a host system running Windows Server 2012 R2.
 
-HTTP 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 경우 StorSimple 장치의 직렬 콘솔을 통해 연결하는 것보다 보안이 강화됩니다. 가장 안전한 방법은 아니지만 신뢰할 수 있는 네트워크에서는 적합합니다.
+## <a name="connect-through-http"></a>Connect through HTTP
 
-Azure 클래식 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
+Connecting to Windows PowerShell for StorSimple through an HTTP session offers more security than connecting through the serial console of your StorSimple device. Although this is not the most secure method, it is acceptable on trusted networks.
 
-- [Azure 클래식 포털을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+You can use either the Azure classic portal or the serial console to configure remote management. Select from the following procedures:
 
-- [직렬 콘솔을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-serial-console-to-enable-remote-management-over-http)
+- [Use the Azure classic portal to enable remote management over HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
 
-원격 관리를 사용하도록 설정한 후 다음 절차에 따라 원격 연결을 위해 클라이언트를 준비합니다.
+- [Use the serial console to enable remote management over HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
-- [원격 연결을 위해 클라이언트 준비](#prepare-the-client-for-remote-connection)
+After you enable remote management, use the following procedure to prepare the client for a remote connection.
 
-### Azure 클래식 포털을 사용하여 HTTP를 통한 원격 관리 사용 
+- [Prepare the client for remote connection](#prepare-the-client-for-remote-connection)
 
-Azure 클래식 포털에서 다음 단계를 수행하여 HTTP를 통한 원격 관리를 사용할 수 있습니다.
+### <a name="use-the-azure-classic-portal-to-enable-remote-management-over-http"></a>Use the Azure classic portal to enable remote management over HTTP 
 
-#### Azure 클래식 포털을 통해 원격 관리를 사용하도록 설정하려면
+Perform the following steps in the Azure classic portal to enable remote management over HTTP.
 
-1. 장치에 대한 **장치** > **구성**에 액세스합니다.
+#### <a name="to-enable-remote-management-through-the-azure-classic-portal"></a>To enable remote management through the Azure classic portal
 
-2. **원격 관리** 섹션으로 스크롤합니다.
+1. Access **Devices** > **Configure** for your device.
 
-3. **원격 관리 사용**을 **예**로 설정합니다.
+2. Scroll down to the **Remote Management** section.
 
-4. 이제 HTTP를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통한 연결입니다. HTTP가 선택되었는지 확인합니다.
+3. Set **Enable Remote Management** to **Yes**.
 
-    >[AZURE.NOTE] HTTP를 통한 연결은 신뢰할 수 있는 네트워크에서만 허용됩니다.
+4. You can now choose to connect using HTTP. (The default is to connect over HTTPS.) Make sure that HTTP is selected.
 
-6. 페이지 맨 아래에서 **저장**을 클릭합니다.
+    >[AZURE.NOTE] Connecting over HTTP is acceptable only on trusted networks.
 
-### 직렬 콘솔을 사용하여 HTTP를 통한 원격 관리 사용
+6. Click **Save** at the bottom of the page.
 
-원격 관리를 사용하도록 설정하려면 장치 직렬 콘솔에서 다음 단계를 따르세요.
+### <a name="use-the-serial-console-to-enable-remote-management-over-http"></a>Use the serial console to enable remote management over HTTP
 
-#### 장치 직렬 콘솔을 통해 원격 관리를 사용하도록 설정하려면
+Perform the following steps on the device serial console to enable remote management.
 
-1. 직렬 콘솔 메뉴에서 옵션 1을 선택합니다. 장치의 직렬 콘솔을 사용하는 방법에 대한 자세한 내용은 [장치 직렬 콘솔을 통해 StorSimple용 Windows PowerShell에 연결](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console)을 참조하세요.
+#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>To enable remote management through the device serial console
 
-2. 프롬프트에 다음을 입력합니다. `Enable-HcsRemoteManagement –AllowHttp`
+1. On the serial console menu, select option 1. For more information about using the serial console on the device, go to [Connect to Windows PowerShell for StorSimple via device serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console).
 
-3. HTTP를 사용하여 장치에 연결하는 경우의 보안 취약점에 대한 알림이 표시됩니다. 메시지가 표시되면 **Y**를 입력하여 확인합니다.
+2. At the prompt, type: `Enable-HcsRemoteManagement –AllowHttp`
 
-4. 다음을 입력하여 HTTP를 사용할 수 있는지 확인합니다. `Get-HcsSystem`
+3. You will be notified about the security vulnerabilities of using HTTP to connect to the device. When prompted, confirm by typing **Y**.
 
-5. **RemoteManagementMode** 필드에 **HttpsAndHttpEnabled**가 표시되는지 확인합니다. 다음 그림은 PuTTY에서 이러한 설정을 보여 줍니다.
+4. Verify that HTTP is enabled by typing: `Get-HcsSystem`
 
-     ![직렬 HTTPS 및 HTTP 사용](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+5. Verify that the **RemoteManagementMode** field shows **HttpsAndHttpEnabled**.The following illustration shows these settings in PuTTY.
 
-### 원격 연결을 위해 클라이언트 준비
+     ![Serial HTTPS and HTTP enabled](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
-원격 관리를 사용하도록 설정하려면 클라이언트에서 다음 단계를 따르세요.
+### <a name="prepare-the-client-for-remote-connection"></a>Prepare the client for remote connection
 
-#### 원격 연결을 위해 클라이언트를 준비하려면
+Perform the following steps on the client to enable remote management.
 
-1. 관리자 권한으로 Windows PowerShell 세션을 시작합니다.
+#### <a name="to-prepare-the-client-for-remote-connection"></a>To prepare the client for remote connection
 
-2. 다음 명령을 입력하여 클라이언트의 신뢰할 수 있는 호스트 목록에 StorSimple 장치의 IP 주소를 추가합니다.
+1. Start a Windows PowerShell session as an administrator.
+
+2. Type the following command to add the IP address of the StorSimple device to the client’s trusted hosts list: 
 
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
 
-     <*device\_ip*>를 장치의 IP 주소로 대체합니다. 예를 들면 다음과 같습니다.
+     Replace <*device_ip*> with the IP address of your device; for example: 
 
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 
-3. 다음 명령을 입력하여 변수에 장치 자격 증명을 저장합니다.
+3. Type the following command to save the device credentials in a variable: 
 
      *$cred = Get-Credential*
 
-4. 나타나는 대화 상자에서 다음을 수행합니다.
+4. In the dialog box that appears:
 
-    1. *device\_ip\\SSAdmin* 형식으로 사용자 이름을 입력합니다.
-    2. 설정 마법사를 사용하여 장치를 구성할 때 설정한 장치 관리자 암호를 입력합니다. 기본 암호는 *Password1*입니다.
+    1. Type the user name in this format: *device_ip\SSAdmin*.
+    2. Type the device administrator password that was set when the device was configured with the setup wizard. The default password is *Password1*.
 
-7. 다음 명령을 입력하여 장치에서 Windows PowerShell 세션을 시작합니다.
+7. Start a Windows PowerShell session on the device by typing this command:
 
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE] StorSimple 가상 장치에 사용할 Windows PowerShell 세션을 만들려면 `–Port` 매개 변수를 추가하고 Remoting for StorSimple Virtual Appliance에서 구성한 공용 포트를 지정합니다.
+     >[AZURE.NOTE] To create a Windows PowerShell session for use with the StorSimple virtual device, append the `–Port` parameter and specify the public port that you configured in Remoting for StorSimple Virtual Appliance.
 
-     이제 장치에 대한 활성 원격 Windows PowerShell 세션이 있습니다.
+     At this point, you should have an active remote Windows PowerShell session to the device.
 
-    ![HTTP를 사용한 PowerShell 원격](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
+    ![PowerShell remoting using HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
-## HTTPS를 통해 연결
+## <a name="connect-through-https"></a>Connect through HTTPS
 
-HTTPS 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 것은 Microsoft Azure StorSimple 장치에 원격으로 연결하는 가장 안전하고 권장되는 방법입니다. 다음 절차에서는 HTTPS를 사용 여 StorSimple용 Windows PowerShell에 연결할 수 있도록 직렬 콘솔과 클라이언트 컴퓨터를 설정하는 방법을 설명합니다.
+Connecting to Windows PowerShell for StorSimple through an HTTPS session is the most secure and recommended method of remotely connecting to your Microsoft Azure StorSimple device. The following procedures explain how to set up the serial console and client computers so that you can use HTTPS to connect to Windows PowerShell for StorSimple.
 
-Azure 클래식 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
+You can use either the Azure classic portal or the serial console to configure remote management. Select from the following procedures:
 
-- [Azure 클래식 포털을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+- [Use the Azure classic portal to enable remote management over HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
 
-- [직렬 콘솔을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-serial-console-to-enable-remote-management-over-https)
+- [Use the serial console to enable remote management over HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
-원격 관리를 사용하도록 설정한 후 다음 절차에 따라 원격 관리를 위해 호스트를 준비하고 원격 호스트에서 장치에 연결합니다.
+After you enable remote management, use the following procedures to prepare the host for a remote management and connect to the device from the remote host.
 
-- [원격 관리를 위해 호스트 준비](#prepare-the-host-for-remote-management)
+- [Prepare the host for remote management](#prepare-the-host-for-remote-management)
 
-- [원격 호스트에서 장치에 연결](#connect-to-the-device-from-the-remote-host)
+- [Connect to the device from the remote host](#connect-to-the-device-from-the-remote-host)
 
-### Azure 클래식 포털을 사용하여 HTTPS를 통한 원격 관리 사용
+### <a name="use-the-azure-classic-portal-to-enable-remote-management-over-https"></a>Use the Azure classic portal to enable remote management over HTTPS
 
-Azure 클래식 포털에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리를 사용할 수 있습니다.
+Perform the following steps in the Azure classic portal to enable remote management over HTTPS.
 
-#### Azure 클래식 포털에서 HTTPS를 통한 원격 관리를 사용하도록 설정하려면
+#### <a name="to-enable-remote-management-over-https-from-the-azure-classic-portal"></a>To enable remote management over HTTPS from the Azure classic portal
 
-1. 장치에 대한 **장치** > **구성**에 액세스합니다.
+1. Access **Devices** > **Configure** for your device.
 
-2. **원격 관리** 섹션으로 스크롤합니다.
+2. Scroll down to the **Remote Management** section.
 
-3. **원격 관리 사용**을 **예**로 설정합니다.
+3. Set **Enable Remote Management** to **Yes**.
 
-4. 이제 HTTPS를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통한 연결입니다. HTTPS가 선택되었는지 확인합니다.
+4. You can now choose to connect using HTTPS. (The default is to connect over HTTPS.) Make sure that HTTPS is selected. 
 
-5. **원격 관리 인증서 다운로드**를 클릭합니다. 이 파일을 저장할 위치를 지정합니다. 장치에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치해야 합니다.
+5. Click **Download Remote Management Certificate**. Specify a location to save this file. You will need to install this certificate on the client or host computer that you will use to connect to the device.
 
-6. 페이지 맨 아래에서 **저장**을 클릭합니다.
+6. Click **Save** at the bottom of the page.
 
-### 직렬 콘솔을 사용하여 HTTPS를 통한 원격 관리 사용
+### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>Use the serial console to enable remote management over HTTPS
 
-원격 관리를 사용하도록 설정하려면 장치 직렬 콘솔에서 다음 단계를 따르세요.
+Perform the following steps on the device serial console to enable remote management.
 
-#### 장치 직렬 콘솔을 통해 원격 관리를 사용하도록 설정하려면
+#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>To enable remote management through the device serial console
 
-1. 직렬 콘솔 메뉴에서 옵션 1을 선택합니다. 장치의 직렬 콘솔을 사용하는 방법에 대한 자세한 내용은 [장치 직렬 콘솔을 통해 StorSimple용 Windows PowerShell에 연결](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console)을 참조하세요.
+1. On the serial console menu, select option 1. For more information about using the serial console on the device, go to [Connect to Windows PowerShell for StorSimple via device serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console).
 
-2. 프롬프트에 다음을 입력합니다.
+2. At the prompt, type: 
 
      `Enable-HcsRemoteManagement`
 
-    이제 장치에서 HTTPS를 사용할 수 있습니다.
+    This should enable HTTPS on your device.
 
-3. 다음을 입력하여 HTTPS를 사용할 수 있는지 확인합니다.
+3. Verify that HTTPS has been enabled by typing: 
 
      `Get-HcsSystem`
 
-    **RemoteManagementMode** 필드에 **HttpsEnabled**가 표시되는지 확인합니다. 다음 그림은 PuTTY에서 이러한 설정을 보여 줍니다.
+    Make sure that the **RemoteManagementMode** field shows **HttpsEnabled**.The following illustration shows these settings in PuTTY.
 
-     ![직렬 HTTPS 사용](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
+     ![Serial HTTPS enabled](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
-4. `Get-HcsSystem`의 출력에서 장치의 일련 번호를 복사하고 나중에 사용하기 위해 저장합니다.
+4. From the output of `Get-HcsSystem`, copy the serial number of the device and save it for later use.
 
-    >[AZURE.NOTE] 일련 번호는 인증서의 CN 이름에 매핑됩니다.
+    >[AZURE.NOTE] The serial number maps to the CN name in the certificate.
 
-5. 다음을 입력하여 원격 관리 인증서를 가져옵니다.
+5. Obtain a remote management certificate by typing: 
  
      `Get-HcsRemoteManagementCert`
 
-    다음과 유사한 인증서가 나타납니다.
+    A certificate similar to the following will appear.
 
-    ![원격 관리 인증서 가져오기](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
+    ![Get remote management certificate](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
 
-5. **-----BEGIN CERTIFICATE-----**에서 **-----END CERTIFICATE-----**까지 인증서 정보를 메모장 등의 텍스트 편집기에 복사하고 .cer 파일로 저장합니다. 호스트를 준비할 때 이 파일을 원격 호스트에 복사합니다.
+5. Copy the information in the certificate from **-----BEGIN CERTIFICATE-----** to **-----END CERTIFICATE-----** into a text editor such as Notepad, and save it as a .cer file. (You will copy this file to your remote host when you prepare the host.)
 
-    >[AZURE.NOTE] 새 인증서를 생성하려면 `Set-HcsRemoteManagementCert` cmdlet을 사용합니다.
+    >[AZURE.NOTE] To generate a new certificate, use the `Set-HcsRemoteManagementCert` cmdlet.
 
-### 원격 관리를 위해 호스트 준비
+### <a name="prepare-the-host-for-remote-management"></a>Prepare the host for remote management
 
-HTTPS 세션을 사용하는 원격 연결을 위해 호스트 컴퓨터를 준비하려면 다음 절차를 따르세요.
+To prepare the host computer for a remote connection that uses an HTTPS session, perform the following procedures:
 
-- [클라이언트 또는 원격 호스트의 루트 저장소로 .cer 파일을 가져옵니다](#to-import-the-certificate-on-the-remote-host).
+- [Import the .cer file into the root store of the client or remote host](#to-import-the-certificate-on-the-remote-host).
 
-- [원격 호스트의 호스트 파일에 장치 일련 번호를 추가합니다](#to-add-device-serial-numbers-to-the-remote-host).
+- [Add the device serial numbers to the hosts file on your remote host](#to-add-device-serial-numbers-to-the-remote-host).
 
-아래에서는 이러한 각 절차에 대해 설명합니다.
+Each of these procedures is described below.
 
-#### 원격 호스트에서 인증서를 가져오려면
+#### <a name="to-import-the-certificate-on-the-remote-host"></a>To import the certificate on the remote host
 
-1. .cer 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. 인증서 가져오기 마법사가 시작됩니다.
+1. Right-click the .cer file and select **Install certificate**. This will start the Certificate Import Wizard.
 
-    ![인증서 가져오기 마법사 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
+    ![Certificate Import Wizard 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
 
-2. **저장소 위치**에 대해 **로컬 컴퓨터**를 선택하고 **다음**을 클릭합니다.
+2. For **Store location**, select **Local Machine**, and then click **Next**.
 
-3. **모든 인증서를 다음 저장소에 저장**을 선택하고 **찾아보기**를 클릭합니다. 원격 호스트의 루트 저장소로 이동한 후 **다음**을 클릭합니다.
+3. Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
 
-    ![인증서 가져오기 마법사 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
+    ![Certificate Import Wizard 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 
-4. **마침**을 클릭합니다. 가져오기에 성공했음을 알리는 메시지가 나타납니다.
+4. Click **Finish**. A message that tells you that the import was successful appears.
 
-    ![인증서 가져오기 마법사 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
+    ![Certificate Import Wizard 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
-#### 원격 호스트에 장치 일련 번호를 추가하려면
+#### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>To add device serial numbers to the remote host
 
-1. 관리자 권한으로 메모장을 시작하고 \\Windows\\System32\\Drivers\\etc에 있는 호스트 파일을 엽니다.
+1. Start Notepad as an administrator, and then open the hosts file located at \Windows\System32\Drivers\etc.
 
-2. 호스트 파일에 **DATA 0 IP 주소**, **컨트롤러 0 고정 IP 주소** 및 **컨트롤러 1 고정 IP 주소**의 3개 항목을 추가합니다.
+2. Add the following three entries to your hosts file: **DATA 0 IP address**, **Controller 0 Fixed IP address**, and **Controller 1 Fixed IP address**.
 
-3. 이전에 저장한 장치 일련 번호를 입력합니다. 다음 그림과 같이 이 일련 번호를 IP 주소에 매핑합니다. 컨트롤러 0과 컨트롤러 1의 경우 일련 번호(CN 이름)의 끝에 **Controller0** 및 **Controller1**을 추가합니다.
+3. Enter the device serial number that you saved earlier. Map this to the IP address as shown in the following image. For Controller 0 and Controller 1, append **Controller0** and **Controller1** at the end of the serial number (CN name).
 
-    ![hosts 파일에 CN 이름 추가](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+    ![Adding CN Name to hosts file](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 
-4. 호스트 파일을 저장합니다.
+4. Save the hosts file.
 
-### 원격 호스트에서 장치에 연결
+### <a name="connect-to-the-device-from-the-remote-host"></a>Connect to the device from the remote host
 
-Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언트에서 장치의 SSAdmin 세션에 들어갑니다. SSAdmin 세션은 장치의 [직렬 콘솔](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console) 메뉴에 있는 옵션 1에 매핑됩니다.
+Use Windows PowerShell and SSL to enter an SSAdmin session on your device from a remote host or client. The SSAdmin session maps to option 1 in the [serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console) menu of your device.
 
-원격 Windows PowerShell 연결을 설정하려는 컴퓨터에서 다음 절차를 따르세요.
+Perform the following procedure on the computer from which you want to make the remote Windows PowerShell connection.
 
-#### Windows PowerShell 및 SSL을 사용하여 장치의 SSAdmin 세션에 들어가려면
+#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>To enter an SSAdmin session on the device by using Windows PowerShell and SSL
 
-1. 관리자 권한으로 Windows PowerShell 세션을 시작합니다.
+1. Start a Windows PowerShell session as an administrator.
 
-2. 다음을 입력하여 클라이언트의 신뢰할 수 있는 호스트에 장치 IP 주소를 추가합니다.
+2. Add the device IP address to the client’s trusted hosts by typing:
 
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
 
-    여기서 <*device\_ip*>는 장치의 IP 주소입니다. 예를 들면 다음과 같습니다.
+    Where <*device_ip*> is the IP address of your device; for example: 
 
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 
-3. 다음을 입력하여 새 자격 증명을 만듭니다.
+3. Create a new credential by typing: 
 
      `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
 
-    여기서 <*대상 장치의 IP*>는 장치에 대한 DATA 0의 IP 주소(예: hosts 파일의 이전 그림에 표시된 **10.126.173.90**)입니다. 또한 장치에 대한 관리자 암호를 제공합니다.
+    Where <*IP of target device*> is the IP address of DATA 0 for your device; for example, **10.126.173.90** as shown in the preceding image of the hosts file. Also, supply the administrator password for your device.
 
-4. 다음을 입력하여 세션을 만듭니다.
+4. Create a session by typing:
 
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
 
-    cmdlet의 ComputerName 매개 변수의 경우 <*대상 장치의 일련 번호*>를 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT**)에 매핑되었습니다.
+    For the -ComputerName parameter in the cmdlet, provide the <*serial number of target device*>. This serial number was mapped to the IP address of DATA 0 in the hosts file on your remote host; for example, **SHX0991003G44MT** as shown in the following image.
 
-5. 형식:
+5. Type: 
 
      `Enter-PSSession $session`
 
-6. 몇 분 정도 기다리면 HTTPS over SSL을 통해 장치에 연결됩니다. 장치에 연결되었음을 나타내는 메시지가 표시됩니다.
+6. You will need to wait a few minutes, and then you will be connected to your device via HTTPS over SSL. You will see a message that indicates you are connected to your device.
 
-    ![HTTPS 및 SSL을 사용한 PowerShell 원격](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![PowerShell remoting using HTTPS and SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법](storsimple-windows-powershell-administration.md)을 자세히 알아봅니다.
+- Learn more about [using Windows PowerShell to administer your StorSimple device](storsimple-windows-powershell-administration.md).
 
-- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

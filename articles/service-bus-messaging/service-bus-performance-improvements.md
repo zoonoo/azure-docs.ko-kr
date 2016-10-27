@@ -1,13 +1,13 @@
 <properties 
     pageTitle="서비스 버스를 사용하여 성능을 향상하는 모범 사례 | Microsoft Azure"
     description="broker 저장 메시지를 교환할 때 Azure 서비스 버스를 사용하여 성능을 최적화하는 방법에 대해 설명합니다."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" /> 
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -15,7 +15,8 @@
     ms.date="07/08/2016"
     ms.author="sethm" />
 
-# 서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례
+
+# <a name="best-practices-for-performance-improvements-using-service-bus-brokered-messaging"></a>서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례
 
 이 항목에서는 조정된 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 항목의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
 
@@ -23,67 +24,67 @@
 
 다음 섹션에서는 서비스 버스가 성능 향상을 위해 사용하는 몇 가지 개념에 대해 소개합니다.
 
-## 프로토콜
+## <a name="protocols"></a>프로토콜
 
 클라이언트는 서비스 버스를 사용하여 두 가지 프로토콜, 즉, 서비스 버스 클라이언트 프로토콜과 HTTP(REST)를 통해 메시지를 보내고 받을 수 있습니다. 서비스 버스 클라이언트 프로토콜은 메시징 팩터리가 있는 이상 서비스 버스 서비스에 대한 연결을 유지하기 때문에 더 효율적입니다. 또한 일괄 처리와 프리페치도 구현합니다. 서비스 버스 클라이언트 프로토콜은.NET API를 사용하는 .NET 응용 프로그램에 사용할 수 있습니다.
 
 명시적으로 언급하지 않는 한 이 항목의 모든 내용에서는 Service Bus 클라이언트 프로토콜을 사용하는 것으로 가정합니다.
 
-## 팩터리 및 클라이언트 다시 사용
+## <a name="reusing-factories-and-clients"></a>팩터리 및 클라이언트 다시 사용
 
-[QueueClient][] 또는 [MessageSender][]와 같은 서비스 버스 클라이언트 개체는 내부 연결 관리도 제공하는 [MessagingFactory][] 개체를 통해 만듭니다. 메시지를 보낸 다음 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 후 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않아야 합니다. 메시징 팩터리를 닫을 경우 서비스 버스 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다. 동시 비동기 작업 및 다중 스레드에서 메시지를 보내기 위해 [QueueClient][] 개체를 안전하게 사용할 수 있습니다.
+[QueueClient][] 또는 [MessageSender][]와 같은 Service Bus 클라이언트 개체는 내부 연결 관리도 제공하는 [MessagingFactory][] 개체를 통해 만듭니다. 메시지를 보낸 다음 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 후 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않아야 합니다. 메시징 팩터리를 닫을 경우 서비스 버스 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다. 동시 비동기 작업 및 다중 스레드에서 메시지를 보내기 위해 [QueueClient][] 개체를 안전하게 사용할 수 있습니다. 
 
-## 동시 작업
+## <a name="concurrent-operations"></a>동시 작업
 
 작업(보내기, 받기, 삭제 등) 수행은 다소 시간이 걸립니다. 이 시간에는 요청 및 응답 지연 시간과 서비스 버스 서비스의 작업 처리가 포함됩니다. 시간당 작업 수를 늘리려면 작업이 동시에 실행되어야 합니다. 이 작업은 다양한 방법으로 수행할 수 있습니다.
 
 -   **비동기 작업**: 클라이언트가 비동기 작업을 수행하여 작업을 예약합니다. 이전 요청이 완료되기 전에 다음 요청이 시작됩니다. 다음은 비동기 전송 작업의 예제입니다.
 
-	```
-	BrokeredMessage m1 = new BrokeredMessage(body);
-	BrokeredMessage m2 = new BrokeredMessage(body);
-	
-	Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
-	  {
-	    Console.WriteLine("Sent message #1");
-	  });
-	Task send2 = queueClient.SendAsync(m2).ContinueWith((t) => 
-	  {
-	    Console.WriteLine("Sent message #2");
-	  });
-	Task.WaitAll(send1, send2);
-	Console.WriteLine("All messages sent");
-	```
+    ```
+    BrokeredMessage m1 = new BrokeredMessage(body);
+    BrokeredMessage m2 = new BrokeredMessage(body);
+    
+    Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
+      {
+        Console.WriteLine("Sent message #1");
+      });
+    Task send2 = queueClient.SendAsync(m2).ContinueWith((t) => 
+      {
+        Console.WriteLine("Sent message #2");
+      });
+    Task.WaitAll(send1, send2);
+    Console.WriteLine("All messages sent");
+    ```
 
-	다음은 비동기 수신 작업의 예제입니다.
-	
-	```
-	Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-	Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-	
-	Task.WaitAll(receive1, receive2);
-	Console.WriteLine("All messages received");
-	
-	async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-	{
-	  BrokeredMessage m = t.Result;
-	  Console.WriteLine("{0} received", m.Label);
-	  await m.CompleteAsync();
-	  Console.WriteLine("{0} complete", m.Label);
-	}
-	```
+    다음은 비동기 수신 작업의 예제입니다.
+    
+    ```
+    Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
+    Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
+    
+    Task.WaitAll(receive1, receive2);
+    Console.WriteLine("All messages received");
+    
+    async void ProcessReceivedMessage(Task<BrokeredMessage> t)
+    {
+      BrokeredMessage m = t.Result;
+      Console.WriteLine("{0} received", m.Label);
+      await m.CompleteAsync();
+      Console.WriteLine("{0} complete", m.Label);
+    }
+    ```
 
--   **복수 팩터리:** 동일한 팩터리에서 만든 모든 클라이언트(발신기 및 수신기)가 하나의 TCP 연결을 공유합니다. 최대 메시지 처리량은 이 TCO 연결을 통과할 수 있는 작업의 수로 제한됩니다. 단일 팩터리로 얻을 수 있는 처리량은 TCP 왕복 시간과 메시지 크기에 따라 크게 달라집니다. 더 높은 처리량 속도를 얻으려면 여러 메시징 팩터리를 사용해야 합니다.
+-   **복수 팩터리**: 동일한 팩터리에서 만든 모든 클라이언트(발신기 및 수신기)가 하나의 TCP 연결을 공유합니다. 최대 메시지 처리량은 이 TCO 연결을 통과할 수 있는 작업의 수로 제한됩니다. 단일 팩터리로 얻을 수 있는 처리량은 TCP 왕복 시간과 메시지 크기에 따라 크게 달라집니다. 더 높은 처리량 속도를 얻으려면 여러 메시징 팩터리를 사용해야 합니다.
 
-## 수신 모드
+## <a name="receive-mode"></a>수신 모드
 
 큐 또는 구독 클라이언트를 만들 때 *보기-잠금* 또는 *수신 및 삭제* 중에서 수신 모드를 지정할 수 있습니다. 기본 수신 모드는 [PeekLock][]입니다. 이 모드에서 작동하는 경우 클라이언트가 서비스 버스에서 메시지를 수신하기 위한 요청을 보냅니다. 클라이언트가 메시지를 받으면 메시지를 완료하기 위한 요청을 보냅니다.
 
 수신 모드를 [ReceiveAndDelete][]로 설정하는 경우 두 단계가 단일 요청으로 결합됩니다. 그러면 전체 작업 수가 줄어들고 전체 메시지 처리량을 향상할 수 있습니다. 이와 같이 성능이 향상되지만 메시지 손실의 위험이 있습니다.
 
-서비스 버스는 수신 및 삭제 작업에 대한 트랜잭션을 지원하지 않습니다. 또한 클라이언트가 메시지를 연기하거나 [효력을 상실](service-bus-dead-letter-queues.md)하려는 시나리오에서는 보기-잠금 의미 체계가 필요합니다.
+서비스 버스는 수신 및 삭제 작업에 대한 트랜잭션을 지원하지 않습니다. 또한 클라이언트가 메시지를 연기하거나 [배달 못 한](service-bus-dead-letter-queues.md) 시나리오에서는 보기-잠금 의미 체계가 필요합니다.
 
-## 클라이언트 쪽 일괄 처리
+## <a name="client-side-batching"></a>클라이언트 쪽 일괄 처리
 
 클라이언트 쪽 일괄 처리에서는 큐 또는 토픽 클라이언트가 일정 시간 동안 메시지 전송을 연기할 수 있습니다. 클라이언트가 이 기간 동안 추가 메시지를 보내면 메시지를 단일 배치로 전송합니다. 또한 클라이언트 쪽 일괄 처리에서는 또한 큐/구독 클라이언트가 여러 **완료** 요청을 단일 요청으로 일괄 처리합니다. 일괄 처리는 비동기 **전송** 및 **완료** 작업에만 사용할 수 있습니다. 동기 작업은 서비스 버스 서비스에 즉시 보내집니다. 일괄 처리는 보기 또는 수신 작업에 대해 발생하지 않으며 클라이언트 전반에서도 발생하지 않습니다.
 
@@ -100,7 +101,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 일괄 처리는 청구 가능 메시징 작업의 수에 영향을 주지 않으며 서비스 버스 클라이언트 프로토콜에 대해서만 사용할 수 있습니다. HTTP 프로토콜은 일괄 처리를 지원하지 않습니다.
 
-## 저장소 액세스 일괄 처리
+## <a name="batching-store-access"></a>저장소 액세스 일괄 처리
 
 큐/토픽/구독의 처리량을 높이기 위해 Service Bus는 내부 저장소에 쓸 때 여러 메시지를 일괄 처리합니다. 큐 또는 토픽에 설정된 경우 저장소에 메시지를 쓰는 작업이 일괄 처리됩니다. 큐 또는 구독에 설정된 경우 저장소에서 메시지를 삭제하는 작업이 일괄 처리됩니다. 엔터티에 대해 일괄 처리된 저장소 액세스를 사용할 경우 서비스 버스는 해당 엔터티와 관련된 저장소 쓰기 작업을 최대 20ms까지 지연합니다. 이 간격 동안 발생하는 추가 저장소 작업은 배치에 추가됩니다. 일괄 처리된 저장소 액세스는 **전송** 및 **완료** 작업에만 영향을 주고 수신 작업은 영향을 받지 않습니다. 일괄 처리된 저장소 액세스는 엔터티의 속성입니다. 일괄 처리는 일괄 처리된 저장소 액세스가 가능한 모든 엔터티에서 발생합니다.
 
@@ -114,13 +115,13 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 일괄 처리된 저장소 액세스는 청구 가능한 메시징 작업의 수에 영향을 주지 않으며 큐, 토픽 또는 구독의 속성입니다. 또한 수신 모드와 독립적이며 클라이언트와 서비스 버스 서비스 간 사용되는 프로토콜과도 무관합니다.
 
-## 프리페치
+## <a name="prefetching"></a>프리페치
 
 프리페치에서는 큐 또는 구독 클라이언트가 수신 작업을 수행할 때 서비스에서 추가 메시지를 로드할 수 있습니다. 클라이언트는 이러한 메시지를 로컬 캐시에 저장합니다. 캐시 크기는 [QueueClient.PrefetchCount][] 또는 [SubscriptionClient.PrefetchCount][] 속성으로 결정됩니다. 프리페치를 사용할 수 있는 각 클라이언트는 각각의 캐시를 유지합니다. 캐시는 클라이언트 사이에서 공유되지 않습니다. 클라이언트가 수신 작업을 시작할 때 캐시가 비어 있으면 서비스에서 메시지의 배치를 전송합니다. 배치의 크기는 캐시의 크기와 256KB 중 더 작은 값입니다. 클라이언트가 수신 작업을 시작할 때 캐시에 메시지가 포함되어 있으면 캐시에서 해당 메시지를 가져옵니다.
 
 메시지가 프리페치되는 경우 서비스는 프리페치된 메시지를 잠급니다. 이렇게 하면 프리페치된 메시지를 다른 수신기가 받을 수 없습니다. 잠금이 만료되기 전에 수신기가 메시지를 완료할 수 없는 경우 다른 수신기가 메시지를 사용할 수 있습니다. 프리페치된 메시지의 복사본은 캐시에 남아 있습니다. 만료 및 캐시된 복사본을 사용하는 수신기가 해당 메시지를 완료하려고 하면 예외를 수신합니다. 기본적으로 메시지 잠금은 60초 후에 만료됩니다. 이 값은 5분으로 연장할 수 있습니다. 만료된 메시지를 사용하지 못하도록 하려면 캐시 크기가 언제나 잠금 시간 초과 간격 이내에 클라이언트가 사용할 수 있는 메시지 수보다 작아야 합니다.
 
-기본 잠금 만료 시간인 60초를 사용할 경우 [SubscriptionClient.PrefetchCount][]에는 모든 팩터리 수신기의 최대 처리 속도보다 20배 높은 값이 적합합니다. 예를 들어 팩터리에서 수신기 3개를 만들 경우 각 수신기는 초당 최대 10개의 메시지를 처리할 수 있습니다. 프리페치 수가 20*3*10 = 600을 초과해서는 안됩니다. 기본적으로 [QueueClient.PrefetchCount][]는 서비스에서 추가 메시지를 페치하지 않음을 의미하는 0으로 설정되어 있습니다.
+기본 잠금 만료 시간인 60초를 사용할 경우 [SubscriptionClient.PrefetchCount][]에는 모든 팩터리 수신기의 최대 처리 속도보다 20배 높은 값이 적합합니다. 예를 들어 팩터리에서 수신기 3개를 만들 경우 각 수신기는 초당 최대 10개의 메시지를 처리할 수 있습니다. 프리페치 수가 20\*3\*10 = 600을 초과해서는 안됩니다. 기본적으로 [QueueClient.PrefetchCount][]는 서비스에서 추가 메시지를 페치하지 않음을 의미하는 0으로 설정되어 있습니다.
 
 메시지를 프리페치할 경우 전체 메시지 작업 수 또는 왕복 수가 감소하므로 큐 또는 구독에 대한 전체 처리량이 증가합니다. 그러나 첫 번째 메시지를 페치하는 작업은 증가된 메시지 크기로 인해 더 오래 걸립니다. 프리페치된 메시지는 클라이언트에서 이미 다운로드한 메시지이므로 더 빠르게 수신할 수 있습니다.
 
@@ -128,7 +129,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 프리페치는 청구 가능 메시징 작업의 수에 영향을 주지 않으며 서비스 버스 클라이언트 프로토콜에 대해서만 사용할 수 있습니다. HTTP 프로토콜은 프리페치를 지원하지 않습니다. 프리페치는 동기 및 비동기 수신 작업에 사용할 수 있습니다.
 
-## 명시적 큐 및 토픽
+## <a name="express-queues-and-topics"></a>명시적 큐 및 토픽
 
 명시적 엔터티에서는 처리량이 높고 대기 시간이 감소된 시나리오가 지원됩니다. 명시적 엔터티를 사용할 경우 메시지가 큐 또는 토픽으로 전송되면 메시지 저장소에 즉시 저장되지 않고 대신 메모리에 캐시됩니다. 메시지가 큐에 몇 초 이상 남아 있을 경우 안정적 저장소에 자동으로 기록되므로 중단으로 인한 손실로부터 보호합니다. 메시지를 보낼 때에는 안정적 저장소에 액세스할 수 없기 때문에 메모리 캐시에 메시지를 쓰면 처리량이 증가하고 대기 시간이 감소합니다. 몇 초 이내에 사용된 메시지는 메시징 저장소에 기록되지 않습니다. 아래 예제에서는 명시적 토픽을 만듭니다.
 
@@ -138,9 +139,9 @@ td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
 ```
 
-손실되어서는 안 되는 중요 정보가 포함된 메시지를 명시적 엔터티로 보낼 경우 발신기는 [ForcePersistence][] 속성을 **true**로 설정하여 서비스 버스가 메시지를 안정적 저장소에 즉시 기록하여 유지하도록 할 수 있습니다.
+손실되어서는 안 되는 중요 정보가 포함된 메시지를 명시적 엔터티로 보낼 경우 발신기는 [ForcePersistence][] 속성을 **true**로 설정하여 Service Bus가 메시지를 안정적 저장소에 즉시 기록하여 유지하도록 할 수 있습니다.
 
-## 분할된 큐 또는 토픽 사용
+## <a name="use-of-partitioned-queues-or-topics"></a>분할된 큐 또는 토픽 사용
 
 Service Bus는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 토픽은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][]를 참조하세요.
 
@@ -151,15 +152,15 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## 여러 큐 사용
+## <a name="use-of-multiple-queues"></a>여러 큐 사용
 
 분할된 큐 또는 토픽을 사용할 수 없거나 분할된 단일 큐 또는 토픽으로 예상 부하를 처리할 수 없을 경우 여러 메시징 엔터티를 사용해야 합니다. 여러 엔터티를 사용할 때는 모든 엔터티에 동일한 클라이언트를 사용하는 대신 각 엔터티의 전용 클라이언트를 만듭니다.
 
-## 시나리오
+## <a name="scenarios"></a>시나리오
 
 다음 섹션에서는 일반적인 메시징 시나리오에 대해 설명하고 기본 서비스 버스 설정에 대해 간단히 소개합니다. 처리량 속도는 적음(초당 1개 메시지 미만), 보통(초당 1개 메시지 이상, 초당 100개 메시지 미만), 높음(초당 100개 메시지 이상)으로 분류됩니다. 클라이언트 수는 적음(5개 이하), 보통(5개 초과, 20개 이하), 많음(20개 초과)으로 분류됩니다.
 
-### 처리량이 높은 큐
+### <a name="high-throughput-queue"></a>처리량이 높은 큐
 
 목표: 단일 큐의 처리량을 최대화합니다. 발신기와 수신기의 수가 작습니다.
 
@@ -177,13 +178,13 @@ namespaceManager.CreateQueue(qd);
 
 -   프리페치 수를 모든 팩터리 수신기의 최대 처리 속도의 20배로 설정합니다. 이렇게 하면 서비스 버스 클라이언트 프로토콜 전송 횟수가 줄어듭니다.
 
-### 처리량이 높은 복수 큐
+### <a name="multiple-high-throughput-queues"></a>처리량이 높은 복수 큐
 
 목표: 여러 큐의 전체 처리량을 극대화합니다. 개별 큐의 처리량은 보통 또는 높음입니다.
 
 여러 큐에서 최대 처리량을 얻으려면 여기에서 설명하는 설정을 사용하여 단일 큐의 처리량을 최대화합니다. 또한 다른 팩터리를 사용하여 다양한 큐에서 보내거나 받는 클라이언트를 만듭니다.
 
-### 대기 시간이 짧은 큐
+### <a name="low-latency-queue"></a>대기 시간이 짧은 큐
 
 목표: 큐 또는 토픽의 종단간 대기 시간을 최소화합니다. 발신기와 수신기의 수가 작습니다. 큐의 처리량은 적음 또는 보통입니다.
 
@@ -197,7 +198,7 @@ namespaceManager.CreateQueue(qd);
 
 -   여러 클라이언트를 사용하는 경우 프리페치 수를 0으로 설정합니다. 이렇게 하면 첫 번째 클라이언트가 아직 첫 번째 메시지를 처리하는 동안 두 번째 클라이언트가 두 번째 메시지를 수신할 수 있습니다.
 
-### 발신기 수가 많은 큐
+### <a name="queue-with-a-large-number-of-senders"></a>발신기 수가 많은 큐
 
 목표: 발신기 수가 많은 큐 또는 토픽의 처리량 극대화 각 발신기는 보통 속도의 메시지를 전송합니다. 수신기의 수가 작습니다.
 
@@ -217,7 +218,7 @@ namespaceManager.CreateQueue(qd);
 
 -   프리페치 수를 모든 팩터리 수신기의 최대 처리 속도의 20배로 설정합니다. 이렇게 하면 서비스 버스 클라이언트 프로토콜 전송 횟수가 줄어듭니다.
 
-### 수신기 수가 많은 큐
+### <a name="queue-with-a-large-number-of-receivers"></a>수신기 수가 많은 큐
 
 목표: 수신기 수가 많은 큐 또는 구독의 수신 속도를 극대화합니다. 각 수신자는 보통 속도로 메시지를 받습니다. 발신기의 수가 작습니다.
 
@@ -235,7 +236,7 @@ namespaceManager.CreateQueue(qd);
 
 -   프리페치 수를 작은 값으로 설정합니다(예: PrefetchCount = 10). 이렇게 하면 발신기에 많은 수의 메시지가 캐시된 동안 수신기가 유휴 상태가 되지 않습니다.
 
-### 구독 수가 적은 토픽
+### <a name="topic-with-a-small-number-of-subscriptions"></a>구독 수가 적은 토픽
 
 목표: 구독 수가 적은 토픽의 처리량을 최대화합니다. 여러 구독에서 메시지를 수신합니다. 즉, 모든 구독의 수신 속도를 결합한 속도가 전송 속도보다 큼을 의미합니다. 발신기의 수가 작습니다. 구독당 수신기의 수가 작습니다.
 
@@ -255,7 +256,7 @@ namespaceManager.CreateQueue(qd);
 
 -   프리페치 수를 모든 팩터리 수신기의 최대 처리 속도의 20배로 설정합니다. 이렇게 하면 서비스 버스 클라이언트 프로토콜 전송 횟수가 줄어듭니다.
 
-### 구독 수가 많은 토픽
+### <a name="topic-with-a-large-number-of-subscriptions"></a>구독 수가 많은 토픽
 
 목표: 구독 수가 많은 토픽의 처리량을 최대화합니다. 여러 구독에서 메시지를 수신합니다. 즉, 모든 구독의 수신 속도를 결합한 속도가 전송 속도보다 훨씬 큼을 의미합니다. 발신기의 수가 작습니다. 구독당 수신기의 수가 작습니다.
 
@@ -273,9 +274,9 @@ namespaceManager.CreateQueue(qd);
 
 -   프리페치 수를 초당 예상 수신 속도의 20배로 설정합니다. 이렇게 하면 서비스 버스 클라이언트 프로토콜 전송 횟수가 줄어듭니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
-서비스 버스 성능 최적화에 대한 자세한 내용은 [분할된 메시징 엔터티][]를 참조하세요.
+Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 엔터티][]를 참조하세요.
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -291,4 +292,7 @@ namespaceManager.CreateQueue(qd);
   [분할된 메시징 엔터티]: service-bus-partitioning.md
   
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

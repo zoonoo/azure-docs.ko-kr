@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Freshdesk와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Freshdesk를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Freshdesk | Microsoft Azure" 
+    description="Learn how to use Freshdesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,156 +11,164 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: Freshdesk와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Azure Active Directory Integration with Freshdesk
   
-이 자습서는 Azure 및 Freshdesk의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and Freshdesk.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Freshdesk 테넌트
+-   A valid Azure subscription
+-   A Freshdesk tenant
   
-이 자습서를 완료한 후 Freshdesk에 할당한 Azure AD 사용자가 Freshdesk 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to Freshdesk will be able to single sign into the application at your Freshdesk company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Freshdesk에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Freshdesk
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-freshdesk-tutorial/IC776761.png "시나리오")
-##Freshdesk에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-freshdesk-tutorial/IC776761.png "Scenario")
+##<a name="enabling-the-application-integration-for-freshdesk"></a>Enabling the application integration for Freshdesk
   
-이 섹션은 Freshdesk에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for Freshdesk.
 
-###Freshdesk에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-freshdesk,-perform-the-following-steps:"></a>To enable the application integration for Freshdesk, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-freshdesk-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-freshdesk-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-freshdesk-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-freshdesk-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-freshdesk-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-freshdesk-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-freshdesk-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색** 상자에 **Freshdesk**를 입력합니다.
+6.  In the **search box**, type **Freshdesk**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-freshdesk-tutorial/IC776762.png "응용 프로그램 갤러리")
+    ![Application gallery](./media/active-directory-saas-freshdesk-tutorial/IC776762.png "Application gallery")
 
-7.  결과 창에서 **Freshdesk**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Freshdesk**, and then click **Complete** to add the application.
 
     ![Freshdesk](./media/active-directory-saas-freshdesk-tutorial/IC776763.png "Freshdesk")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Freshdesk에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. Freshdesk에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+The objective of this section is to outline how to enable users to authenticate to Freshdesk with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Freshdesk requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Freshdesk** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Freshdesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-freshdesk-tutorial/IC776764.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776764.png "Configure Single Sign-On")
 
-2.  **Freshdesk에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to Freshdesk** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-freshdesk-tutorial/IC776765.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776765.png "Configure Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **Freshdesk 로그인 URL** 텍스트 상자에 다음 패턴 "*https://\<tenant-name>.Freshdesk.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  On the **Configure App URL** page, in the **Freshdesk Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Freshdesk.com*", and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-freshdesk-tutorial/IC776766.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-freshdesk-tutorial/IC776766.png "Configure App URL")
 
-4.  **Freshdesk에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 **c:\\Freshdesk.cer**에 로컬로 인증서 파일을 저장합니다.
+4.  On the **Configure single sign-on at Freshdesk** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Freshdesk.cer**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-freshdesk-tutorial/IC776767.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776767.png "Configure Single Sign-On")
 
-5.  다른 웹 브라우저 창에서 Freshdesk 회사 사이트에 관리자로 로그인합니다.
+5.  In a different web browser window, log into your Freshdesk company site as an administrator.
 
-6.  위쪽의 메뉴에서 **관리자**를 클릭합니다.
+6.  In the menu on the top, click **Admin**.
 
-    ![관리자](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "관리자")
+    ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
-7.  **일반 설정** 탭에서 **보안**을 클릭합니다.
+7.  In the **General Settings** tab, click **Security**.
 
-    ![보안](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "보안")
+    ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
 
-8.  **보안** 섹션에서 다음 단계를 수행합니다.
+8.  In the **Security** section, perform the following steps:
 
     ![Single Sign On](./media/active-directory-saas-freshdesk-tutorial/IC776770.png "Single Sign On")
 
-    1.  **SSO(Single Sign On)**의 경우 **On**을 선택합니다.
-    2.  **SAML SSO**를 선택합니다.
-    3.  Azure 클래식 포털의 **Freshdesk에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SAML 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    4.  Azure 클래식 포털의 **Freshdesk에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-    5.  내보낸 인증서에서 **지문** 값을 복사한 다음 **보안 인증서 지문** 텍스트 상자에 붙여 넣습니다.
+    1.  For **Single Sign On (SSO)**, select **On**.
+    2.  Select **SAML SSO**.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Freshdesk** dialog page, copy the **Remote Login URL** value, and then paste it into the **SAML Login URL** textbox.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Freshdesk** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
+    5.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Security Certificate Fingerprint** textbox.  
 
-        >[AZURE.TIP]자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+        >[AZURE.TIP]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    6.  **Save**를 클릭합니다.
+    6.  Click **Save**.
 
-9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Single Sign-On 구성")
-##사용자 프로비전 구성
+    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 Freshdesk에 로그인할 수 있도록 하려면 Freshdesk로 프로비전되어야 합니다. Freshdesk의 경우 프로비전은 수동 작업입니다.
+In order to enable Azure AD users to log into Freshdesk, they must be provisioned into Freshdesk.  
+In the case of Freshdesk, provisioning is a manual task.
 
-###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  **Freshdesk** 테넌트에 로그인합니다.
+1.  Log in to your **Freshdesk** tenant.
 
-2.  위쪽의 메뉴에서 **관리자**를 클릭합니다.
+2.  In the menu on the top, click **Admin**.
 
-    ![관리자](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "관리자")
+    ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
 
-3.  **일반 설정** 탭에서 **에이전트**를 클릭합니다.
+3.  In the **General Settings** tab, click **Agents**.
 
-    ![에이전트](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "에이전트")
+    ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
 
-4.  **새 에이전트**를 클릭합니다.
+4.  Click **New Agent**.
 
-    ![새 에이전트](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "새 에이전트")
+    ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
 
-5.  에이전트 정보 대화 상자에서 다음 단계를 수행합니다.
+5.  On the Agent Information dialog, perform the following steps:
 
-    ![에이전트 정보](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "에이전트 정보")
+    ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
 
-    1.  **전체 이름** 텍스트 상자에 프로비전하려는 Azure AD 계정의 이름을 입력합니다.
-    2.  **전자 메일** 텍스트 상자에 프로비전하려는 Azure AD 계정의 Azure AD 전자 메일 주소를 입력합니다.
-    3.  **제목** 텍스트 상자에 프로비전하려는 Azure AD 계정의 제목을 입력합니다.
-    4.  **에이전트 역할**을 선택한 다음 **할당**을 클릭합니다.
-    5.  **Save**를 클릭합니다.
+    1.  In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+    2.  In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+    3.  In the **Title** textbox, type the title of the Azure AD account you want to provision.
+    4.  Select **Agents role**, and then click **Assign**.
+    5.  Click **Save**.
     
-        >[AZURE.NOTE] Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
+        >[AZURE.NOTE] The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
 
->[AZURE.NOTE] 다른 Freshdesk 사용자 계정 생성 도구 또는 Freshdesk가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Freshdesk에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-freshdesk,-perform-the-following-steps:"></a>To assign users to Freshdesk, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Freshdesk** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Freshdesk **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-freshdesk-tutorial/IC776776.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-freshdesk-tutorial/IC776776.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-freshdesk-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-freshdesk-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

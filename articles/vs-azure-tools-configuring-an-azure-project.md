@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visual Studio에서 Azure 클라우드 서비스 프로젝트 구성 | Microsoft Azure"
-   description="프로젝트의 요구 사항에 따라 Visual Studio에서 Azure 클라우드 서비스 프로젝트를 구성하는 방법을 알아보세요."
+   pageTitle="Configure an Azure Cloud Service Project with Visual Studio | Microsoft Azure"
+   description="Learn how to configure an Azure cloud service project in Visual Studio, depending on your requirements for that project."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,50 +15,55 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Visual Studio에서 Azure 클라우드 서비스 프로젝트 구성
 
-프로젝트 요구 사항에 따라 Azure 클라우드 서비스 프로젝트를 구성할 수 있습니다. 다음 범주에 대해 프로젝트 속성을 설정할 수 있습니다.
+# <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configure an Azure Cloud Service Project with Visual Studio
 
-- **Azure에 클라우드 서비스 게시**
+You can configure an Azure cloud service project, depending on your requirements for that project. You can set properties for the project for the following categories:
 
-  Azure에 배포된 기존 클라우드 서비스가 실수로 삭제되지 않도록 속성을 설정할 수 있습니다.
+- **Publish a cloud service to Azure**
 
-- **로컬 컴퓨터에서 클라우드 서비스 실행 또는 디버깅**
+  You can set a property to make sure that an existing cloud service deployed to Azure is not accidentally deleted.
 
-  사용할 서비스 구성을 선택하고 Azure 저장소 에뮬레이터를 시작할 것인지를 선택할 수 있습니다.
+- **Run or debug a cloud service on the local computer**
 
-- **생성된 클라우드 서비스 패키지 유효성 검사**
+  You can select a service configuration to use and indicate whether you want to start the Azure storage emulator.
 
-  클라우드 서비스 패키지가 문제 없이 배포되도록 모든 경고를 오류로 처리할 수 있습니다. 이 경우 배포한 다음 문제가 발생했음을 확인할 수 있어 기다리는 시간이 줄어듭니다.
+- **Validate a cloud service package when it is created**
 
-다음 그림은 클라우드 서비스를 로컬로 실행 또는 디버깅할 때 사용할 구성을 선택하는 방법을 보여줍니다. 그림과 같이, 이 창에서 필요한 프로젝트 속성을 설정할 수 있습니다.
+  You can decide to treat any warnings as errors so that you can make sure that the cloud service package will deploy without any issues. This reduces your wait time if you deploy and then discover that a failure occurred.
 
-![Microsoft Azure 프로젝트 구성](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
+The following illustration shows how to select a configuration to use when you run or debug your cloud service locally. You can set any of the project properties that you require from this window, as shown in the illustration.
 
-## Azure 클라우드 서비스 프로젝트를 구성하려면
+![Configure a Microsoft Azure Project](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
-1. **솔루션 탐색기**에서 클라우드 서비스 프로젝트를 구성하려면 클라우드 서비스 프로젝트에 대한 바로 가기 메뉴를 열고 **속성**을 선택합니다.
+## <a name="to-configure-an-azure-cloud-service-project"></a>To configure an Azure cloud service project
 
-  Visual Studio 편집기에 클라우드 서비스 프로젝트의 이름이 표시된 페이지가 나타납니다.
+1. To configure a cloud service project from **Solution Explorer**, open the shortcut menu for the cloud service project and then choose **Properties**.
 
-1. **개발** 탭을 선택합니다.
+  A page with the name of the cloud service project appears in the Visual Studio editor.
 
-1. Azure의 기존 배포를 실수로 삭제하지 않으려면 기존 배포 목록을 삭제하기 전 메시지에서 **True**를 선택합니다.
+1. Choose the **Development** tab.
 
-1. 클라우드 서비스를 로컬로 실행 또는 디버깅할 때 사용할 서비스 구성을 선택하려면 **서비스 구성** 목록에서 서비스 구성을 선택합니다.
+1. To make sure that you don't accidentally delete an existing deployment in Azure, in the prompt before deleting an existing deployment list, choose **True**.
 
-  >[AZURE.NOTE] 사용할 서비스 구성을 만들려면 서비스 구성 및 프로필을 관리하는 방법을 참조하세요. 역할에 대한 서비스 구성을 수정하려면 [Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할을 구성하는 방법](vs-azure-tools-configure-roles-for-cloud-service.md)을 참조하세요.
+1. To select the service configuration that you want to use when you run or debug your cloud service locally, in the **Service configuration** list choose the service configuration.
 
-1. 클라우드 서비스를 로컬로 실행 또는 디버깅할 경우 Azure 저장소 에뮬레이터를 시작하려면 **Azure 저장소 에뮬레이터 시작**에서 **True**를 선택합니다.
+  >[AZURE.NOTE] If you want to create a service configuration to use, see How to: Manage Service Configurations and Profiles. If you want to modify a service configuration for a role, see [How to configure the roles for an Azure cloud service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-1. 패키지 유효성 검사 오류가 있을 경우 게시하지 않도록 하려면 **경고를 오류로 처리**에서 **True**를 선택합니다.
+1. To start the Azure storage emulator when you run or debug your cloud service locally, in the **Start Azure storage emulator**, choose **True**.
 
-1. 웹 역할이 IIS Express에서 로컬로 시작될 때마다 동일한 포트를 사용하도록 하려면 **웹 프로젝트 포트 사용**에서 **True**를 선택합니다. 특정 웹 프로젝트에 대해 특정 포트를 사용하려면 웹 프로젝트에 대해 바로 가기 메뉴를 열고 **속성** 탭을 선택한 다음 **웹** 탭을 선택하고 **IIS Express** 섹션의 **프로젝트 Url** 설정에서 포트 번호를 변경합니다. 예를 들어 프로젝트 URL로 `http://localhost:14020`을 입력합니다.
+1. To make sure that you cannot publish if there are package validation errors, in **Treat warnings as errors**, choose **True**.
 
-1. 클라우드 서비스 프로젝트의 속성을 변경한 내용을 저장하려면 도구 모음에서 **저장** 단추를 선택합니다.
+1. To make sure that your web role uses the same port each time it starts locally in IIS Express, in **Use web project ports**, choose **True**. To use a specific port for a particular web project, open the shortcut menu for the web project, choose the **Properties** tab, choose the **Web** tab, and change the port number in the **Project Url** setting in the **IIS Express** section. For example, enter `http://localhost:14020` as the project URL.
 
-## 다음 단계
+1. To save any changes that you have made to the properties of the cloud service project, choose the **Save** button on the toolbar.
 
-Visual Studio에서 Azure 클라우드 서비스 프로젝트를 구성하는 방법을 자세히 알아보려면 [여러 서비스 구성을 사용하여 Azure 프로젝트 구성](vs-azure-tools-multiple-services-project-configurations.md)을 참조하세요.
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+To learn more about how to configure Azure cloud service projects in Visual Studio, see [Configuring Your Azure project using multiple service configurations](vs-azure-tools-multiple-services-project-configurations.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

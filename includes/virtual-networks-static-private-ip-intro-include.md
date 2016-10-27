@@ -1,5 +1,7 @@
-가상 네트워크의 IaaS VM(가상 컴퓨터) 및 PaaS 역할 인스턴스는 연결된 서브넷에 따라 지정한 범위의 개인 IP 주소를 자동으로 수신합니다. 해당 주소는 VM 및 역할 인스턴스가 서비스 해제될 때까지 유지됩니다. PowerShell, Azure CLI 또는 Azure 포털에서 중지하여 VM 또는 역할 인스턴스를 서비스 해제합니다. 이러한 경우 VM 또는 역할 인스턴스가 다시 시작되면 Azure 인프라에서 사용 가능한 IP 주소를 수신하며, 이전 IP 주소와 다를 수도 있습니다. 게스트 운영 체제에서 VM 또는 역할 인스턴스를 종료하는 경우 보유한 IP 주소가 유지됩니다.
+Your IaaS virtual machines (VMs) and PaaS role instances in a virtual network automatically receive a private IP address from a range that you specify, based on the subnet they are connected to. That address is retained by the VMs and role instances, until they are decommissioned. You decommission a VM or role instance by stopping it from PowerShell, the Azure CLI, or the Azure portal. In those cases, once the VM or role instance starts again, it will receive an available IP address from the Azure infrastructure, which might not be the same it previously had. If you shut down the VM or role instance from the guest operating system, it retains the IP address it had.  
 
-VM이 DNS를 실행하거나 도메인 컨트롤러가 되는 경우와 같이 VM 또는 역할 인스턴스에 고정 IP 주소를 지정하려는 경우가 있습니다. 이렇게 하려면 고정 개인 IP 주소를 설정합니다.
+In certain cases, you want a VM or role instance to have a static IP address, for example, if your VM is going to run DNS or will be a domain controller. You can do so by setting a static private IP address.
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

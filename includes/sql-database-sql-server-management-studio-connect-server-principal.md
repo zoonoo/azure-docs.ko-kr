@@ -1,44 +1,52 @@
 
 
-## SQL Server 인증을 사용하여 Azure SQL 데이터베이스에 연결
+## <a name="connect-to-azure-sql-database-using-sql-server-authentication"></a>Connect to Azure SQL Database using SQL Server Authentication
 
-다음 단계에서는 SSMS를 사용하여 Azure SQL Server와 데이터베이스에 연결하는 방법을 보여 줍니다. 서버 및 데이터베이스가 없는 경우 만들려면 [몇 분 이내에 SQL 데이터베이스 만들기](../articles/sql-database/sql-database-get-started.md)를 참조하세요.
+The following steps show how to connect to an Azure SQL server and database with SSMS. If you don't have a server and database, see [Create a SQL database in minutes](../articles/sql-database/sql-database-get-started.md) to create one.
 
 
-1. Windows 검색 상자에 **Microsoft SQL Server Management Studio**를 입력하여 SSMS를 시작한 다음 데스크톱 앱을 클릭합니다.
+1. Start SSMS by typing **Microsoft SQL Server Management Studio** in the Windows search box, and then click the desktop app.
 
-2. **서버에 연결** 창에 다음 정보를 입력합니다(SSMS가 이미 실행 중인 경우 **연결 > 데이터베이스 엔진**을 클릭하여 **서버에 연결** 창을 엽니다).
+2. In the **Connect to Server** window, enter the following information (if SSMS is already running, click **Connect > Database Engine** to open the **Connect to Server** window):
 
- - **서버 유형**: 기본값은 데이터베이스 엔진입니다. 이 값을 변경하지 마십시오.
- - **서버 이름**: *&lt;servername>*.**database.windows.net** 형식으로 Azure SQL 데이터베이스 서버의 정규화된 이름을 입력합니다.
- - **인증 유형**:이 문서에서는 **SQL Server 인증**을 사용하여 연결하는 방법을 보여 줍니다. Azure Active Directory와 연결하는 방법에 대한 자세한 내용은 [Active Directory 통합 인증을 사용하여 연결](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), [Active Directory 암호 인증을 사용하여 연결](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication) 및 [Active Directory 유니버설 인증을 사용하여 연결](../articles/sql-database/sql-database-ssms-mfa-authentication.md)을 참조하세요.
- - **사용자 이름**: 서버의 데이터베이스에 액세스 권한이 있는 사용자의 이름을 입력합니다(예: 서버를 만들 때 설정한 *서버 관리자*).
- - **암호**: 지정된 사용자에 대한 암호를 입력합니다(예: 서버를 만들 때 설정한 *암호*).
+ - **Server type**: The default is database engine; do not change this value.
+ - **Server name**: Enter the fully qualified name of your Azure SQL Database server in the following format: *&lt;servername>*.**database.windows.net**
+ - **Authentication type**: This article shows you how to connect using **SQL Server Authentication**. For details on connecting with Azure Active Directory, see [Connect using Active Directory integrated authentication](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), [Connect using Active Directory password authentication](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication), and [Connect using Active Directory Universal Authentication](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
+ - **User name**: Enter the name of a user with access to a database on the server (for example, the *server admin* you set up when creating the server). 
+ - **Password**: Enter the password for the specified user (for example, the *password* you set up when creating the server).
    
-       ![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 
-3. **Connect**를 클릭합니다.
+3. Click **Connect**.
  
-4. 기본적으로 새 서버에는 [방화벽 규칙](../articles/sql-database/sql-database-firewall-configure.md)을 정의하지 않았으므로 클라이언트가 처음부터 연결하지 못하도록 차단됩니다. 서버에 연결할 특정 IP 주소를 허용하는 방화벽 규칙이 아직 없는 경우 SSMS에서는 서버 수준 방화벽 규칙을 만들라는 메시지가 표시됩니다.
+4. By default, new servers have no defined [firewall rules](../articles/sql-database/sql-database-firewall-configure.md) so clients are initially blocked from connecting. If your server does not yet have a firewall rule that allows your specific IP address to connect, SSMS prompts to create a server-level firewall rule for you.
 
-    **로그인**을 클릭하고 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 만들려면 Azure 관리자여야 합니다.
+    Click **Sign in** and create a server-level firewall rule. You must be an Azure administrator to create a server-level firewall rule.
  
-       ![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
  
 
-5. Azure SQL 데이터베이스에 성공적으로 연결한 후에 **개체 탐색기**가 열리면 이제 데이터베이스에 액세스하여 [관리 작업을 수행하거나 데이터를 쿼리](../articles/sql-database/sql-database-manage-azure-ssms.md)할 수 있습니다.
+5. After successfully connecting to your Azure SQL database, **Object Explorer** opens and you can now access your database to [perform administrative tasks or query data](../articles/sql-database/sql-database-manage-azure-ssms.md).
  
-     ![새 서버 수준 방화벽](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
+     ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
-## 연결 오류 문제 해결
+## <a name="troubleshoot-connection-failures"></a>Troubleshoot connection failures
 
-연결 실패가 일어나는 가장 일반적인 원인은 서버 이름과 네트워크 연결 문제에서 발생한 실수 때문입니다. <*servername*>은 데이터베이스가 아니라 서버 이름이고 정규화된 서버 이름을 제공해야 합니다. `<servername>.database.windows.net`
+The most common reasons for connection failures are mistakes in the server name, and network connectivity issues. Remember, <*servername*> is the name of the server, not the database, and you need to provide the fully qualified server name: `<servername>.database.windows.net`
 
-또한, 사용자 이름 및 암호에 입력 오류 또는 공백이 포함되지 않는지 확인합니다(사용자 이름은 대/소문자를 구분하지 않지만 암호는 구분함).
+Also, verify the user name and password do not contain any typos or extra spaces (user names are not case-sensitive, but passwords are). 
 
-다음과 같은 서버 이름을 가진 프로토콜 및 포트 번호를 명시적으로 설정할 수 있습니다. `tcp:servername.database.windows.net,1433`
+You can also explicitly set the protocol and port number with the server name like the following: `tcp:servername.database.windows.net,1433`
 
-네트워크 연결 문제는 연결 오류 및 시간 제한을 발생시킬 수 있습니다. (서버 이름, 자격 증명 및 방화벽 규칙이 올바른 경우)단순히 연결을 다시 시도하여 성공할 수 있습니다.
+Network connectivity issues can also cause connection errors and timeouts. Simply retrying to connect (when you know that the server name, credentials, and firewall rules are correct) can lead to success.
 
-<!---HONumber=AcomDC_0824_2016-->
+For details and more about connectivity issues, see [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](../articles/sql-database/sql-database-connectivity-issues.md).
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

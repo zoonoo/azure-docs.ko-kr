@@ -1,17 +1,22 @@
-## 동적 서비스 계획
+## <a name="dynamic-service-plan"></a>Dynamic Service Plan
 
-동적 서비스 계획에서는 함수 앱이 함수 앱 인스턴스에 할당됩니다. 필요한 경우 더 많은 인스턴스가 동적으로 추가됩니다. 이러한 인스턴스는 사용 가능한 Azure 인프라를 최대한 활용하기 위해 여러 컴퓨팅 리소스에 걸쳐 있을 수 있습니다. 또한 함수는 요청을 처리하는 데 필요한 총 시간을 최소화하기 위해 병렬로 실행됩니다. 각 함수의 실행 시간(초)은 포함된 함수 앱에서 집계됩니다. 비용은 인스턴스 수, 메모리 크기 및 총 실행 시간(기가바이트 초로 측정)에 따라 결정됩니다. 이는 실제로 사용 중인 계산 리소스에 대해서만 요금이 청구되므로 계산 수요가 간헐적이거나 작업 시간이 매우 짧은 경우에 유용합니다.
+In the Dynamic Service Plan, your function apps will be assigned to a function app instance. If needed more instances will be added dynamically.
+Those instances can span across multiple computing resources, making the most out of the available Azure infrastructure. Moreover, your functions will run in parallel minimizing the total time needed to process requests. Execution time for each function is added up, in seconds, and aggregated by the containing function app. With cost driven by the number of instances, their memory size, and total execution time as measured in Gigabyte seconds. This is an excellent option if your compute needs are intermittent or your job times tend to be very short as it allows you to only pay for compute resources when they are actually in use.   
 
-### 메모리 계층
+### <a name="memory-tier"></a>Memory tier
 
-함수 수요에 따라 함수 앱(함수의 컨테이너)에서 함수를 실행하는 데 필요한 메모리 양을 선택할 수 있습니다. 메모리 크기 옵션은 **128MB~1536MB**입니다. 선택한 메모리 크기는 함수 앱의 일부인 모든 함수에 필요한 작업 집합에 해당합니다. 코드에 선택한 크기보다 더 많은 메모리가 필요한 경우 사용 가능한 메모리 부족으로 인해 함수 앱 인스턴스가 종료됩니다.
+Depending on your function needs you can select the amount of memory required to run them in the Function App (container of functions).
+The memory size options vary from **128MB to 1536MB**. The selected memory size corresponds to the Working Set needed by all the functions that are part of your function app. If your code requires more memory than the selected size, the function app instance will be shut down due to lack of available memory.
 
-### 확장
+### <a name="scaling"></a>Scaling
 
-Azure 함수 플랫폼에서는 구성된 트리거에 따라 트래픽 요구 사항을 평가하여 확장하거나 축소해야 할 때를 결정합니다. 크기 조정은 함수 앱 단위로 세분화됩니다. 즉, 확장하면 함수 앱의 인스턴스가 추가됩니다. 반대로 트래픽이 줄어들면 함수 앱 인스턴스가 비활성화되고 아무 것도 실행되지 않는 경우 0으로 축소됩니다.
+The Azure Functions platform will evaluate the traffic needs, based on the configured triggers, to decide when to scale up or down. The granularity of scaling is the function app. Scaling up in this case means adding more instances of a function app. Inversely as traffic goes down, function app instances are disabled- eventually scaling down to zero when none are running.  
 
-### 리소스 소비 및 요금 청구
+### <a name="resource-consumption-and-billing"></a>Resource consumption and billing
 
-동적 모드에서는 리소스 할당이 표준 앱 서비스 계획과 다르게 수행되므로 "종량 요금제" 모델을 허용하도록 소비 모델도 다르게 적용됩니다. 소비는 코드가 실행된 시간에 대해서만 함수 앱별로 보고됩니다. 해당 함수 앱 내의 실행 중인 모든 함수에 대한 총 실행 시간(초)에 메모리 크기(GB)를 곱한 값으로 계산됩니다. 소비 단위는 **GB-s(기가바이트 초)**입니다.
+In the Dynamic mode resource allocation is done differently than the standard App Service plan, therefore the consumption model is also different, allowing for a "pay-per-use" model. Consumption will be reported per function app, only for time when code is being executed.  
+It is computed by multiplying the memory size (in GB) by the total amount of execution time (in seconds) for all functions running inside that function app. The unit of consumption will be **GB-s (Gigabyte Seconds)**.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

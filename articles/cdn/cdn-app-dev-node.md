@@ -1,53 +1,54 @@
 <properties
-	pageTitle="Node.js용 Azure CDN SDK 시작하기 | Microsoft Azure"
-	description="Node.js 응용 프로그램을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다."
-	services="cdn"
-	documentationCenter="nodejs"
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Get started with the Azure CDN SDK for Node.js | Microsoft Azure"
+    description="Learn how to write Node.js applications to manage Azure CDN."
+    services="cdn"
+    documentationCenter="nodejs"
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/15/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/15/2016"
+    ms.author="casoper"/>
 
-# Azure CDN 개발 시작
+
+# <a name="get-started-with-azure-cdn-development"></a>Get started with Azure CDN development
 
 > [AZURE.SELECTOR]
-- [Node.JS](cdn-app-dev-node.md)
+- [Node.js](cdn-app-dev-node.md)
 - [.NET](cdn-app-dev-net.md)
 
-[Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn)를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다. 이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 응용 프로그램을 살펴봅니다. 이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
+You can use the [Azure CDN SDK for Node.js](https://www.npmjs.com/package/azure-arm-cdn) to automate creation and management of CDN profiles and endpoints.  This tutorial walks through the creation of a simple Node.js console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN SDK for Node.js in detail.
 
-이 자습서를 완료하려면 [Node.js](http://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다. 원하는 텍스트 편집기를 사용하여 Node.js 응용 프로그램을 만들 수 있습니다. 이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.
+To complete this tutorial, you should already have [Node.js](http://www.nodejs.org) **4.x.x** or higher installed and configured.  You can use any text editor you want to create your Node.js application.  To write this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).  
 
-> [AZURE.TIP] [이 자습서에서 완성된 프로젝트](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74)는 MSDN에서 다운로드할 수 있습니다.
+> [AZURE.TIP] The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is available for download on MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
-## 프로젝트 만들기 및 NPM 종속성 추가
+## <a name="create-your-project-and-add-npm-dependencies"></a>Create your project and add NPM dependencies
 
-CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필과 끝점을 관리하기 위한 Azure AD 응용 프로그램 권한을 부여했으므로, 응용 프로그램을 만들 수 있습니다.
+Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
 
-응용 프로그램을 저장할 폴더를 만듭니다. 현재 경로에 있는 Node.js 도구를 포함한 콘솔에서 새 폴더에 현재 위치를 설정하고 다음을 실행하여 프로젝트를 초기화합니다.
-	
-	npm init
-	
-그런 다음 프로젝트를 초기화하는 일련의 질문이 나타납니다. **진입점**의 경우 이 자습서에서는 *app.js*를 사용합니다. 다음 예제에서 다른 선택 항목을 볼 수 있습니다.
+Create a folder to store your application.  From a console with the Node.js tools in your current path, set your current location to this new folder and initialize your project by executing:
+    
+    npm init
+    
+You will then be presented a series of questions to initialize your project.  For **entry point**, this tutorial uses *app.js*.  You can see my other choices in the following example.
 
-![NPM init 출력](./media/cdn-app-dev-node/cdn-npm-init.png)
+![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-프로젝트는 *packages.json* 파일을 사용하여 초기화됩니다. 이 프로젝트에서는 NPM 패키지에 포함된 일부 Azure 라이브러리를 사용할 것입니다. Node.js용 Azure 클라이언트 런타임(ms-rest-azure) 및 Node.js용 Azure CDN 클라이언트 라이브러리(azure-arm-cd)를 사용할 것입니다. 해당 사항을 종속성으로 프로젝트에 추가하겠습니다.
+Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the Azure Client Runtime for Node.js (ms-rest-azure) and the Azure CDN Client Library for Node.js (azure-arm-cd).  Let's add those to the project as dependencies.
  
-	npm install --save ms-rest-azure
-	npm install --save azure-arm-cdn
+    npm install --save ms-rest-azure
+    npm install --save azure-arm-cdn
 
-패키지 설치가 완료된 후에 *package.json* 파일은 이 예제와 유사하게 표시됨(버전 번호가 달라질 수 있음):
+After the packages are done installing, the *package.json* file should look similar to this example (version numbers may differ):
 
 ``` json
 {
@@ -56,7 +57,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
   "description": "Azure CDN Node.js tutorial project",
   "main": "app.js",
   "scripts": {
-    "test": "echo "Error: no test specified" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cam Soper",
   "license": "MIT",
@@ -67,153 +68,153 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 }
 ```
 
-마지막으로 텍스트 편집기를 사용하여 빈 텍스트 파일을 만들고 프로젝트 폴더의 루트에 *app.js*로 저장합니다. 이제 코드 작성을 시작할 준비가 되었습니다.
+Finally, using your text editor, create a blank text file and save it in the root of our project folder as *app.js*.  We're now ready to begin writing code.
 
-## requires, 상수, 인증 및 구조
+## <a name="requires,-constants,-authentication,-and-structure"></a>Requires, constants, authentication, and structure
 
-편집기에서 열린 *app.js*를 사용하여 작성된 프로그램의 기본 구조를 살펴보겠습니다.
+With *app.js* open in our editor, let's get the basic structure of our program written.
 
-1. 다음을 사용하여 위쪽에 있는 NPM 패키지에 "requires"를 추가합니다.
+1. Add the "requires" for our NPM packages at the top with the following:
 
-	``` javascript
-	var msRestAzure = require('ms-rest-azure');
-	var cdnManagementClient = require('azure-arm-cdn');
-	```
+    ``` javascript
+    var msRestAzure = require('ms-rest-azure');
+    var cdnManagementClient = require('azure-arm-cdn');
+    ```
 
-2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다. 다음을 추가합니다. **&lt;꺽쇠 괄호&gt;**를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
+2. We need to define some constants our methods will use.  Add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
 
-	``` javascript
-	//Tenant app constants
-	const clientId = "<YOUR CLIENT ID>";
-	const clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
-	const tenantId = "<YOUR TENANT ID>";
+    ``` javascript
+    //Tenant app constants
+    const clientId = "<YOUR CLIENT ID>";
+    const clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
+    const tenantId = "<YOUR TENANT ID>";
 
-	//Application constants
-	const subscriptionId = "<YOUR SUBSCRIPTION ID>";
-	const resourceGroupName = "CdnConsoleTutorial";
-	const resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
-	```
+    //Application constants
+    const subscriptionId = "<YOUR SUBSCRIPTION ID>";
+    const resourceGroupName = "CdnConsoleTutorial";
+    const resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
+    ```
 
-3. 다음으로 CDN 관리 클라이언트를 인스턴스화하고 자격 증명을 제공합니다.
+3. Next, we'll instantiate the CDN management client and give it our credentials.
 
-	``` javascript
-	var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
-	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
-	```
-	
-	개별 사용자 인증을 사용한다면 다음 두 줄은 약간 다르게 표시됩니다.
+    ``` javascript
+    var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
+    var cdnClient = new cdnManagementClient(credentials, subscriptionId);
+    ```
+    
+    If you are using individual user authentication, these two lines will look slightly different.
 
-	>[AZURE.IMPORTANT] 서비스 주체가 아닌 개별 사용자 인증을 사용할 경우에만 다음 코드 샘플을 사용하세요. 개별 사용자 자격 증명을 보호하고 보안 상태를 유지하도록 주의합니다.
+    >[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.  Be careful to guard your individual user credentials and keep them secret.
 
-	``` javascript
-	var credentials = new msRestAzure.UserTokenCredentials(clientId, 
-		tenantId, '<username>', '<password>', '<redirect URI>');
-	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
-	```
+    ``` javascript
+    var credentials = new msRestAzure.UserTokenCredentials(clientId, 
+        tenantId, '<username>', '<password>', '<redirect URI>');
+    var cdnClient = new cdnManagementClient(credentials, subscriptionId);
+    ```
 
-	올바른 정보로 **&lt;꺾쇠 괄호&gt;**의 항목을 교체해야 합니다. `<redirect URI>`의 경우 Azure AD에서 응용 프로그램을 등록할 때 입력한 리디렉션 URI를 사용합니다.
-	
+    Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.  For `<redirect URI>`, use the redirect URI you entered when you registered the application in Azure AD.
+    
 
-4.  Node.js 콘솔 응용 프로그램에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다. 적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
+4.  Our Node.js console application is going to take some command-line parameters.  Let's validate that at least one parameter was passed.
 
-	```javascript
-	//Collect command-line parameters
-	var parms = process.argv.slice(2);
+    ```javascript
+    //Collect command-line parameters
+    var parms = process.argv.slice(2);
 
-	//Do we have parameters?
-	if(parms == null || parms.length == 0)
-	{
-		console.log("Not enough parameters!");
-		console.log("Valid commands are list, delete, create, and purge.");
-		process.exit(1);
-	}
-	```
+    //Do we have parameters?
+    if(parms == null || parms.length == 0)
+    {
+        console.log("Not enough parameters!");
+        console.log("Valid commands are list, delete, create, and purge.");
+        process.exit(1);
+    }
+    ```
 
-5. 그래서 프로그램의 주요 부분을 살펴보고 여기서 전달된 매개 변수에 따라 다른 기능으로 갈라집니다.
+5. That brings us to the main part of our program, where we branch off to other functions based on what parameters were passed.
 
-	```javascript
-	switch(parms[0].toLowerCase())
-	{
-		case "list":
-			cdnList();
-			break;
+    ```javascript
+    switch(parms[0].toLowerCase())
+    {
+        case "list":
+            cdnList();
+            break;
 
-		case "create":
-			cdnCreate();
-			break;
-		
-		case "delete":
-			cdnDelete();
-			break;
+        case "create":
+            cdnCreate();
+            break;
+        
+        case "delete":
+            cdnDelete();
+            break;
 
-		case "purge":
-			cdnPurge();
-			break;
+        case "purge":
+            cdnPurge();
+            break;
 
-		default:
-			console.log("Valid commands are list, delete, create, and purge.");
-			process.exit(1);
-	}
-	```
+        default:
+            console.log("Valid commands are list, delete, create, and purge.");
+            process.exit(1);
+    }
+    ```
 
-6.  프로그램의 여러 위치에서 매개 변수의 적합한 수를 전달하도록 하고 올바르지 않은 경우 도움말을 표시합니다. 작업을 수행할 함수를 만들어 보겠습니다.
+6.  At several places in our program, we'll need to make sure the right number of parameters were passed in and display some help if they don't look correct.  Let's create functions to do that.
 
-	```javascript
-	function requireParms(parmCount) {
-		if(parms.length < parmCount) {
-			usageHelp(parms[0].toLowerCase());
-			process.exit(1);
-		}
-	}
+    ```javascript
+    function requireParms(parmCount) {
+        if(parms.length < parmCount) {
+            usageHelp(parms[0].toLowerCase());
+            process.exit(1);
+        }
+    }
 
-	function usageHelp(cmd) {
-		console.log("Usage for " + cmd + ":");
-		switch(cmd)
-		{
-			case "list":
-				console.log("list profiles");
-				console.log("list endpoints <profile name>");
-				break;
+    function usageHelp(cmd) {
+        console.log("Usage for " + cmd + ":");
+        switch(cmd)
+        {
+            case "list":
+                console.log("list profiles");
+                console.log("list endpoints <profile name>");
+                break;
 
-			case "create":
-				console.log("create profile <profile name>");
-				console.log("create endpoint <profile name> <endpoint name> <origin hostname>");
-				break;
-			
-			case "delete":
-				console.log("delete profile <profile name>");
-				console.log("delete endpoint <profile name> <endpoint name>");
-				break;
+            case "create":
+                console.log("create profile <profile name>");
+                console.log("create endpoint <profile name> <endpoint name> <origin hostname>");
+                break;
+            
+            case "delete":
+                console.log("delete profile <profile name>");
+                console.log("delete endpoint <profile name> <endpoint name>");
+                break;
 
-			case "purge":
-				console.log("purge <profile name> <endpoint name> <path>");
-				break;
+            case "purge":
+                console.log("purge <profile name> <endpoint name> <path>");
+                break;
 
-			default:
-				console.log("Invalid command.");
-		}
-	}
-	```
+            default:
+                console.log("Invalid command.");
+        }
+    }
+    ```
 
-7. 마지막으로 CDN 관리 클라이언트에서 사용하는 기능은 비동기이므로 작업이 완료되면 콜백할 메서드가 필요합니다. CDN 관리 클라이언트(있는 경우)의 출력을 표시하고 프로그램을 정상적으로 종료할 수 있는 파일을 만들어 보겠습니다.
+7. Finally, the functions we'll be using on the CDN management client are asynchronous, so they need a method to call back when they're done.  Let's make one that can display the output from the CDN management client (if any) and exit the program gracefully.
 
-	```javascript
-	function callback(err, result, request, response) {
-		if (err) {
-			console.log(err);
-			process.exit(1);
-		} else {
-			console.log((result == null) ? "Done!" : result);
-			process.exit(0);
-		}
-	}
-	```
+    ```javascript
+    function callback(err, result, request, response) {
+        if (err) {
+            console.log(err);
+            process.exit(1);
+        } else {
+            console.log((result == null) ? "Done!" : result);
+            process.exit(0);
+        }
+    }
+    ```
 
-이제 프로그램의 기본 구조가 작성되었으므로 매개 변수에 따라 호출된 함수를 만들어야 합니다.
+Now that the basic structure of our program is written, we should create the functions called based on our parameters.
 
-## CDN 프로필 및 끝점 목록화하기
+## <a name="list-cdn-profiles-and-endpoints"></a>List CDN profiles and endpoints
 
-기존 프로필 및 끝점을 나열하는 코드부터 살펴 보겠습니다. 나의 코드 주석이 각 매개 변수가 이동할 위치를 알 수 있도록 예상되는 구문을 제공합니다.
+Let's start with code to list our existing profiles and endpoints.  My code comments provide the expected syntax so we know where each parameter goes.
 
 ```javascript
 // list profiles
@@ -240,9 +241,9 @@ function cdnList(){
 }
 ```
 
-## CDN 프로필 및 끝점 만들기
+## <a name="create-cdn-profiles-and-endpoints"></a>Create CDN profiles and endpoints
 
-다음으로 프로필 및 끝점을 만드는 함수를 작성합니다.
+Next, we'll write the functions to create profiles and endpoints.
 
 ```javascript
 function cdnCreate() {
@@ -293,9 +294,9 @@ function cdnCreateEndpoint() {
 }
 ```
 
-## 끝점 삭제
+## <a name="purge-an-endpoint"></a>Purge an endpoint
 
-끝점을 만들었을 경우, 프로그램에서 흔히 수행하는 작업은 끝점의 콘텐츠를 삭제하는 것입니다.
+Assuming the endpoint has been created, one common task that we might want to perform in our program is purging content in our endpoint.
 
 ```javascript
 // purge <profile name> <endpoint name> <path>
@@ -307,9 +308,9 @@ function cdnPurge() {
 }
 ```
 
-## CDN 프로필 및 끝점 삭제
+## <a name="delete-cdn-profiles-and-endpoints"></a>Delete CDN profiles and endpoints
 
-포함된 마지막 함수는 끝점 및 프로필을 삭제합니다.
+The last function we will include deletes endpoints and profiles.
 
 ```javascript
 function cdnDelete() {
@@ -337,36 +338,41 @@ function cdnDelete() {
 }
 ```
 
-## 프로그램 실행
+## <a name="running-the-program"></a>Running the program
 
-이제 선호하는 디버거를 사용하거나 콘솔에서 Node.js 프로그램을 실행할 수 있습니다.
+We can now execute our Node.js program using our favorite debugger or at the console.
 
-> [AZURE.TIP] Visual Studio 코드를 디버거로 사용하는 경우 사용자 환경을 설정하여 명령줄 매개 변수를 전달해야 합니다. Visual Studio 코드는 **lanuch.json** 파일에서 이를 수행합니다. **args**라는 속성을 찾고 다음과 유사하게 표시되도록 사용자 매개 변수에 대한 문자열 값의 배열을 추가합니다. `"args": ["list", "profiles"]`.
+> [AZURE.TIP] If you're using Visual Studio Code as your debugger, you'll need to set up your environment to pass in the command-line parameters.  Visual Studio Code does this in the **lanuch.json** file.  Look for a property named **args** and add an array of string values for your parameters, so that it looks similar to this:  `"args": ["list", "profiles"]`.
 
-프로필을 나열하여 시작하겠습니다.
+Let's start by listing our profiles.
 
-![프로필 나열](./media/cdn-app-dev-node/cdn-list-profiles.png)
+![List profiles](./media/cdn-app-dev-node/cdn-list-profiles.png)
 
-다시 빈 배열로 돌아옵니다. 리소스 그룹에 프로필이 없기 때문에 정상입니다. 이제 프로필을 만들겠습니다.
+We got back an empty array.  Since we don't have any profiles in our resource group, that's expected.  Let's create a profile now.
 
-![프로필 만들기](./media/cdn-app-dev-node/cdn-create-profile.png)
+![Create profile](./media/cdn-app-dev-node/cdn-create-profile.png)
 
-이제 끝점을 추가하겠습니다.
+Now, let's add an endpoint.
 
-![끝점 만들기](./media/cdn-app-dev-node/cdn-create-endpoint.png)
+![Create endpoint](./media/cdn-app-dev-node/cdn-create-endpoint.png)
 
-마지막으로 프로필을 삭제하겠습니다.
+Finally, let's delete our profile.
 
-![프로필 삭제](./media/cdn-app-dev-node/cdn-delete-profile.png)
+![Delete profile](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-이 연습에서 작성된 프로젝트를 보려면 [샘플을 다운로드하세요](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Node.js용 Azure CDN SDK에 대한 참조를 보려면 [참조](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/)를 봅니다.
+To see the reference for the Azure CDN SDK for Node.js, view the [reference](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Node.js용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](http://azure.github.io/azure-sdk-for-node/)를 봅니다.
+To find additional documentation on the Azure SDK for Node.js, view the [full reference](http://azure.github.io/azure-sdk-for-node/).
 
-[PowerShell](./cdn-manage-powershell.md)을 사용하여 CDN 리소스를 관리합니다.
+Manage your CDN resources with [PowerShell](./cdn-manage-powershell.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

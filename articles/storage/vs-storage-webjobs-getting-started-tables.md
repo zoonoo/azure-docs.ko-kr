@@ -1,158 +1,163 @@
 <properties
-	pageTitle="Azure 저장소 및 Visual Studio 연결 서비스 시작(WebJob 프로젝트)"
-	description="Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio Azure WebJobs 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다."
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Getting Started with Azure storage and Visual Studio connected services (WebJob projects)"
+    description="How to get started using Azure Table storage in an Azure WebJobs project in Visual Studio after connecting to a storage account using Visual Studio connected services"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-getting-started"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-getting-started"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/18/2016"
+    ms.author="tarcher"/>
 
-# Azure 저장소 시작(Azure WebJob 프로젝트)
+
+# <a name="getting-started-with-azure-storage-(azure-webjob-projects)"></a>Getting Started with Azure Storage (Azure WebJob Projects)
 
 [AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## 개요
+## <a name="overview"></a>Overview
 
-이 문서에서는 Azure 테이블 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다.
+This article provides C# code samples that show show how to use the Azure WebJobs SDK version 1.x with the Azure table storage service. The code samples use the [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x.
 
-Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. 자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md#create-a-table)을 참조하세요.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md#create-a-table) for more information.
 
-일부 코드 조각에서는 **Table** 특성이 수동으로 호출된 함수, 즉 트리거 특성 중 하나를 사용하지 않고 호출된 함수에서 사용됩니다.
+Some of the code snippets show the **Table** attribute used in functions that are called manually, that is, not by using one of the trigger attributes.
 
-## 테이블에 엔터티를 추가하는 방법
+## <a name="how-to-add-entities-to-a-table"></a>How to add entities to a table
 
-테이블에 엔터티를 추가하려면 **ICollector<T>** 또는 **IAsyncCollector<T>** 매개 변수와 함께 **Table** 특성을 사용합니다(여기서 **T**는 추가하려는 엔터티의 스키마를 지정). 특성 생성자는 테이블의 이름을 지정하는 문자열 매개 변수를 사용합니다.
+To add entities to a table, use the **Table** attribute with an **ICollector<T>** or **IAsyncCollector<T>** parameter where **T** specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table.
 
-다음 코드 샘플은 **Person** 엔터티를 *Ingress*라는 테이블에 추가합니다.
+The following code sample adds **Person** entities to a table named *Ingress*.
 
-		[NoAutomaticTrigger]
-		public static void IngressDemo(
-		    [Table("Ingress")] ICollector<Person> tableBinding)
-		{
-		    for (int i = 0; i < 100000; i++)
-		    {
-		        tableBinding.Add(
-		            new Person() {
-		                PartitionKey = "Test",
-		                RowKey = i.ToString(),
-		                Name = "Name" }
-		            );
-		    }
-		}
+        [NoAutomaticTrigger]
+        public static void IngressDemo(
+            [Table("Ingress")] ICollector<Person> tableBinding)
+        {
+            for (int i = 0; i < 100000; i++)
+            {
+                tableBinding.Add(
+                    new Person() {
+                        PartitionKey = "Test",
+                        RowKey = i.ToString(),
+                        Name = "Name" }
+                    );
+            }
+        }
 
-일반적으로 **ICollector**에서 사용되는 유형은 **TableEntity**에서 파생되거나 **ITableEntity**를 구현하지만 반드시 그런 것은 아닙니다. 다음 **Person** 클래스 중 하나는 이전 **Ingress** 메서드에 표시된 코드와 함께 작동합니다.
+Typically the type you use with **ICollector** derives from **TableEntity** or implements **ITableEntity**, but it doesn't have to. Either of the following **Person** classes work with the code shown in the preceding **Ingress** method.
 
-		public class Person : TableEntity
-		{
-		    public string Name { get; set; }
-		}
+        public class Person : TableEntity
+        {
+            public string Name { get; set; }
+        }
 
-		public class Person
-		{
-		    public string PartitionKey { get; set; }
-		    public string RowKey { get; set; }
-		    public string Name { get; set; }
-		}
+        public class Person
+        {
+            public string PartitionKey { get; set; }
+            public string RowKey { get; set; }
+            public string Name { get; set; }
+        }
 
-Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수 있습니다.
+If you want to work directly with the Azure storage API, you can add a **CloudStorageAccount** parameter to the method signature.
 
-## 실시간 모니터링
+## <a name="real-time-monitoring"></a>Real-time monitoring
 
-데이터 수신 함수는 많은 양의 데이터를 처리하는 경우가 많기 때문에 WebJobs SDK 대시보드에서는 실시간 모니터링 데이터를 제공합니다. **호출 로그** 섹션에 함수가 여전히 실행 중인지 표시됩니다.
+Because data ingress functions often process large volumes of data, the WebJobs SDK dashboard provides real-time monitoring data. The **Invocation Log** section tells you if the function is still running.
 
-![수신 함수 실행](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
+![Ingress function running](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
 
-**호출 세부 정보** 페이지에는 실행 중인 함수의 진행률(작성된 엔터티 수)이 보고되고 실행을 중단할 수 있는 기능을 제공합니다.
+The **Invocation Details** page reports the function's progress (number of entities written) while it's running and gives you an opportunity to abort it.
 
-![수신 함수 실행](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
+![Ingress function running](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
 
-함수가 완료되면 **호출 세부 정보** 페이지에 작성된 행 수가 보고됩니다.
+When the function finishes, the **Invocation Details** page reports the number of rows written.
 
-![수신 함수 완료](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
+![Ingress function finished](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
-## 테이블에서 여러 엔터티를 읽는 방법
+## <a name="how-to-read-multiple-entities-from-a-table"></a>How to read multiple entities from a table
 
-테이블을 읽으려면 **IQueryable<T>** 매개 변수와 함께 **Table** 특성을 사용합니다. 여기서 **T** 유형은 **TableEntity**에서 파생되거나 **ITableEntity**를 구현합니다.
+To read a table, use the **Table** attribute with an **IQueryable<T>** parameter where type **T** derives from **TableEntity** or implements **ITableEntity**.
 
-다음 코드 샘플은 **Ingress** 테이블에서 모든 행을 읽고 기록합니다.
+The following code sample reads and logs all rows from the **Ingress** table:
 
-		public static void ReadTable(
-		    [Table("Ingress")] IQueryable<Person> tableBinding,
-		    TextWriter logger)
-		{
-		    var query = from p in tableBinding select p;
-		    foreach (Person person in query)
-		    {
-		        logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
-		            person.PartitionKey, person.RowKey, person.Name);
-		    }
-		}
+        public static void ReadTable(
+            [Table("Ingress")] IQueryable<Person> tableBinding,
+            TextWriter logger)
+        {
+            var query = from p in tableBinding select p;
+            foreach (Person person in query)
+            {
+                logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
+                    person.PartitionKey, person.RowKey, person.Name);
+            }
+        }
 
-### 테이블에서 단일 엔터티를 읽는 방법
+### <a name="how-to-read-a-single-entity-from-a-table"></a>How to read a single entity from a table
 
-단일 테이블 엔터티에 바인딩할 때 파티션 키 및 행 키를 지정할 수 있는 추가 매개 변수 두 개가 포함된 **Table** 특성 생성자가 있습니다.
+There is a **Table** attribute constructor with two additional parameters that let you specify the partition key and row key when you want to bind to a single table entity.
 
-다음 코드 샘플은 큐 메시지에서 받은 파티션 키 및 행 키를 기반으로 **Person** 엔터티에 대한 테이블 행을 읽습니다.
+The following code sample reads a table row for a **Person** entity based on partition key and row key values received in a queue message:  
 
-		public static void ReadTableEntity(
-		    [QueueTrigger("inputqueue")] Person personInQueue,
-		    [Table("persontable","{PartitionKey}", "{RowKey}")] Person personInTable,
-		    TextWriter logger)
-		{
-		    if (personInTable == null)
-		    {
-		        logger.WriteLine("Person not found: PK:{0}, RK:{1}",
-		                personInQueue.PartitionKey, personInQueue.RowKey);
-		    }
-		    else
-		    {
-		        logger.WriteLine("Person found: PK:{0}, RK:{1}, Name:{2}",
-		                personInTable.PartitionKey, personInTable.RowKey, personInTable.Name);
-		    }
-		}
-
-
-이 예제의 **Person** 클래스는 **ITableEntity**를 구현할 필요가 없습니다.
-
-## .NET 저장소 API를 직접 사용하여 테이블로 작업하는 방법
-
-**CloudTable** 개체에서 **Table** 특성을 사용하여 테이블 작업을 보다 유연하게 수행할 수 있습니다.
-
-다음 코드 샘플은 **CloudTable** 개체를 사용하여 *Ingress* 테이블에 단일 엔터티를 추가합니다.
-
-		public static void UseStorageAPI(
-		    [Table("Ingress")] CloudTable tableBinding,
-		    TextWriter logger)
-		{
-		    var person = new Person()
-		        {
-		            PartitionKey = "Test",
-		            RowKey = "100",
-		            Name = "Name"
-		        };
-		    TableOperation insertOperation = TableOperation.Insert(person);
-		    tableBinding.Execute(insertOperation);
-		}
-
-**CloudTable** 개체를 사용하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)을 참조하세요.
-
-## 큐 방법 문서에서 다루는 관련 항목
-
-큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [Azure 큐 저장소 및 Visual Studio 연결된 서비스(WebJob 프로젝트) 시작](vs-storage-webjobs-getting-started-queues.md)을 참조하세요.
+        public static void ReadTableEntity(
+            [QueueTrigger("inputqueue")] Person personInQueue,
+            [Table("persontable","{PartitionKey}", "{RowKey}")] Person personInTable,
+            TextWriter logger)
+        {
+            if (personInTable == null)
+            {
+                logger.WriteLine("Person not found: PK:{0}, RK:{1}",
+                        personInQueue.PartitionKey, personInQueue.RowKey);
+            }
+            else
+            {
+                logger.WriteLine("Person found: PK:{0}, RK:{1}, Name:{2}",
+                        personInTable.PartitionKey, personInTable.RowKey, personInTable.Name);
+            }
+        }
 
 
+The **Person** class in this example does not have to implement **ITableEntity**.
 
-## 다음 단계
+## <a name="how-to-use-the-.net-storage-api-directly-to-work-with-a-table"></a>How to use the .NET Storage API directly to work with a table
 
-이 문서에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
+You can also use the **Table** attribute with a **CloudTable** object for more flexibility in working with a table.
 
-<!---HONumber=AcomDC_0727_2016-->
+The following code sample uses a **CloudTable** object to add a single entity to the *Ingress* table.
+
+        public static void UseStorageAPI(
+            [Table("Ingress")] CloudTable tableBinding,
+            TextWriter logger)
+        {
+            var person = new Person()
+                {
+                    PartitionKey = "Test",
+                    RowKey = "100",
+                    Name = "Name"
+                };
+            TableOperation insertOperation = TableOperation.Insert(person);
+            tableBinding.Execute(insertOperation);
+        }
+
+For more information about how to use the **CloudTable** object, see [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md).
+
+## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Related topics covered by the queues how-to article
+
+For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)](vs-storage-webjobs-getting-started-queues.md).
+
+
+
+## <a name="next-steps"></a>Next steps
+
+This article has provided code samples that show how to handle common scenarios for working with Azure tables. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

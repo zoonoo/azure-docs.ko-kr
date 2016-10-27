@@ -16,7 +16,8 @@
    ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
-# 판매자 통찰력 보고서 이해
+
+# <a name="understand-your-seller-insights-report"></a>판매자 통찰력 보고서 이해
 
 **판매자 통찰력이란 무엇인가요?**
 
@@ -32,7 +33,7 @@
     - 보고서는 고객의 데이터를 보호하기 위해 사용자와 Microsoft만 알고 있는 암호로 잠겨 있습니다.
     - Microsoft는 해당 월에 제품에 대한 사용량이 발생하지 않은 경우 보고서를 전송하지 않습니다.
 
-## 판매자 통찰력 보고서 이해
+## <a name="understand-your-seller-insights-report"></a>판매자 통찰력 보고서 이해
 
 
 **SKU 및 라이선스 유형별 주문: 마켓플레이스 주문 탭**
@@ -85,27 +86,31 @@
 
 법적 고지 사항을 자세히 읽으세요. 질문이나 의견이 있는 경우 고지 사항 하단의 링크를 클릭하여 마켓플레이스 지원 페이지로 이동할 수 있습니다.
 
-## 암호 미리 알림 요청
+## <a name="request-a-password-reminder"></a>암호 미리 알림 요청
 
-https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증명으로 로그인합니다. ![passwordreminder][7]
+https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증명으로 로그인합니다.
+![passwordreminder][7]
 
-**게시자** 탭을 선택합니다. ![selectpublisherstab][8]
+**게시자** 탭을 선택합니다.
+![selectpublisherstab][8]
 
 
 URL에서 게시자 ID를 찾습니다.
-- 이 ID를 암호로 사용하여 판매자 통찰력 Excel 파일을 엽니다. 추후 공지가 있을 때까지 이 ID가 암호입니다.
-- Windows에서 통합 문서 읽기 프로그램으로는 Microsoft Office 2013을 사용하는 것이 좋습니다. 일부 사용자가 Mac용 Microsoft Office 사용에 대한 문제를 보고했습니다.
+- 이 ID를 암호로 사용하여 판매자 통찰력 Excel 파일을 엽니다.
+추후 공지가 있을 때까지 이 ID가 암호입니다.
+- Windows에서 통합 문서 읽기 프로그램으로는 Microsoft Office 2013을 사용하는 것이 좋습니다.  일부 사용자가 Mac용 Microsoft Office 사용에 대한 문제를 보고했습니다.
 
 ![publisherid][9]
 
 
-## 다음 단계  
+## <a name="next-steps"></a>다음 단계  
 보고서 및 통찰력에 관한 질문은 지원 팀에 문의하세요.
 
-1. 지원 페이지(https://publish.windowsazure.com/)로 이동합니다.
+1. https://publish.windowsazure.com/에서 지원 페이지로 이동합니다.
 2. **문제 유형** 상자에서 **보고서 및 통찰력**을 선택합니다.
 3. **범주** 상자에서 **보고서와 관련된 질문**을 선택합니다.
-4. **요청 시작**을 클릭합니다. ![sellerinsightsquestions][10]
+4. **요청 시작**을 클릭합니다.
+  ![sellerinsightsquestions][10]
 
 
 
@@ -120,4 +125,8 @@ URL에서 게시자 ID를 찾습니다.
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

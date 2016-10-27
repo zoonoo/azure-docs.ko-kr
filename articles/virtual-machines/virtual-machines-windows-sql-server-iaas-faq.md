@@ -1,80 +1,85 @@
 <properties
-	pageTitle="Azure 가상 컴퓨터의 SQL Server FAQ | Microsoft Azure"
-	description="이 문서는 Azure VM에서 SQL Server를 실행하는 방법에 대한 질문과 대답을 제공합니다."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="v-shysun"
-	manager="felixwu"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="SQL Server on Azure Virtual Machines FAQ | Microsoft Azure"
+    description="This article provides answers to frequently asked questions about running SQL Server on Azure VMs."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="v-shysun"
+    manager="felixwu"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/13/2016"
-	ms.author="v-shysun"/>
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/13/2016"
+    ms.author="v-shysun"/>
 
-# Azure 가상 컴퓨터의 SQL Server FAQ
 
-이 항목에서는 [Azure Virtual Machines에서 SQL Server 실행](https://azure.microsoft.com/services/virtual-machines/sql-server/)에 대해 가장 일반적인 질문 중 몇 가지에 대한 답변을 제공합니다.
+# <a name="sql-server-on-azure-virtual-machines-faq"></a>SQL Server on Azure Virtual Machines FAQ
+
+This topic provides answers to some of the most common questions about running [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## 질문과 대답
+## <a name="frequently-asked-questions"></a>Frequently Asked Questions
 
-1. **SQL Server를 사용하여 Azure 가상 컴퓨터를 만들려면 어떻게 해야 합니까?**
+1. **How do I create an Azure virtual machine with SQL Server?**
 
-	두 가지 방법으로 이 작업을 수행할 수 있습니다. 가장 쉬운 해결 방법은 SQL Server가 포함된 가상 컴퓨터를 만드는 것입니다. Azure에 등록하고 포털에서 SQL VM을 만드는 방법에 대한 자습서는 [Azure 포털에 SQL Server 가상 컴퓨터 프로비저닝](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. 또한 VM에서 SQL Server를 수동으로 설치하고 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)으로 온-프레미스 라이센스를 다시 사용할 수도 있습니다.
+    There are two ways to do this. The easiest solution is to create a Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL VM from the portal, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). You also have the option of manually installing SQL Server on a VM and reusing an on-premises license with [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. **SQL VM과 SQL 데이터베이스는 어떤 점이 다릅니까?**
+1. **What is the difference between SQL VMs and the SQL Database service?**
 
-	개념적으로 Azure 가상 컴퓨터에서 SQL Server를 실행하는 것은 원격 데이터 센터에 SQL Server를 실행하는 것과 크게 다르지 않습니다. 반면, [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md)는 DaaS(Database-as-a-Service)를 제공합니다. SQL 데이터베이스에서는 데이터베이스를 호스팅하고 있는 컴퓨터에 액세스할 수 없습니다. 전체 비교를 보려면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
+    Conceptually, running SQL Server on an Azure virtual machine is not that different from running SQL Server in a remote datacenter. In contrast, [SQL Database](../sql-database/sql-database-technical-overview.md) offers database-as-a-service. With SQL Database, you do not have access to the machines that host your databases. For a full comparison, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-1. **온-프레미스 SQL Server 데이터베이스를 클라우드로 마이그레이션하려면 어떻게 해야 합니까?**
+1. **How can I migrate my on-premises SQL Server database to the Cloud?**
 
-	가장 먼저 SQL Server 인스턴스를 사용하여 Azure 가상 컴퓨터를 만듭니다. 그런 다음 온-프레미스 데이터베이스를 해당 인스턴스로 마이그레이션합니다. 데이터 마이그레이션 전략에 대해서는 [Azure VM의 SQL Server로 SQL Server 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)을 참조하세요.
+    First create an Azure virtual machine with a SQL Server instance. Then migrate your on-premises databases to that instance. For data migration strategies, see [Migrate a SQL Server database to SQL Server in an Azure VM](virtual-machines-windows-migrate-sql.md).
 
-2. **설치된 기능을 변경하거나 동일한 VM에 두 번째 SQL Server 인스턴스를 설치할 수 있습니까?**
+2. **Can I change the installed features or install a second instance of SQL Server on the same VM?**
 
-	예. SQL Server 설치 미디어는 **C** 드라이브의 폴더에 있습니다. 이 위치에서 **Setup.exe**를 실행하여 새 SQL Server 인스턴스를 실행하거나 컴퓨터에 설치된 다른 SQL Server 기능을 변경합니다.
+    Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine.
 
-3. **Azure VM에서 SQL Server의 새 버전을 업그레이드하려면 어떻게 합니까?**
+3. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
 
-	현재는 Azure VM에서 실행 중인 SQL Server를 전체 업그레이드할 수 없습니다. 원하는 SQL Server 버전으로 새 Azure 가상 컴퓨터를 만든 다음 표준 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
+    Currently, there is no in-place upgrade for SQL Server running in an Azure VM. Create a new Azure virtual machine with the desired SQL Server version/edition, and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md).
 
-4. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
+4. **How can I install my licensed copy of SQL Server on an Azure VM?**
 
-	SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치합니다. 라이선싱의 이유로 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 가능해야 합니다.
+    Copy the SQL Server installation media to the Windows Server VM, and then install SQL Server on the VM. For licensing reasons, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-5. **대기/장애 조치(failover)에만 사용되는 VM의 SQL 비용을 지불해야 합니까?**
+5. **Do you have to pay the SQL costs of a VM if it is only being used for standby/failover?**
 
-	갤러리를 통해 SQL VM을 만드는 경우 대기 SQL VM에 별도의 라이선스가 있어야 하며 가격은 동일합니다. SQL Server를 [라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 포함된 가상 컴퓨터에 수동으로 설치할 경우 장애 조치(failover)에 대한 수동 SQL 인스턴스 하나를 무료로 사용할 수 있습니다. 제한 및 요구 사항을 검토하십시오.
+    If you are creating the SQL VM through the gallery, then you must have a separate license for the standby SQL VM and the pricing is the same. If you install SQL Server manually on a virtual machine with [License Mobility](https://azure.microsoft.com/pricing/license-mobility/), you have the option to have one free passive SQL instance for failover. Please review the restrictions and requirements.
 
-6. **업데이트와 서비스 팩은 SQL Server VM에 어떻게 적용됩니까?**
+6. **How are updates and service packs applied on a SQL Server VM?**
 
-	가상 컴퓨터에서는 호스트 컴퓨터에 업데이트를 적용할 시기와 방법 등을 제어할 수 있습니다. 운영 체제의 경우 Windows 업데이트를 수동으로 적용하거나 [자동 패칭](virtual-machines-windows-classic-sql-automated-patching.md)이라는 예약 서비스를 사용할 수 있습니다. 자동 패칭은 해당 범주의 SQL Server 업데이트를 포함하여 중요함으로 표시된 업데이트를 설치합니다. SQL Server에 대한 기타 선택적 업데이트는 수동으로 설치해야 합니다.
+    Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
 
-7. **가상 컴퓨터 갤러리에 표시되지 않은 구성을 설정할 수 있습니까(예: Windows 2008 R2 + SQL Server 2012)?**
+7. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 
-	아니요. SQL Server가 포함된 가상 컴퓨터 갤러리 이미지의 경우 제공된 이미지 중 하나를 선택해야 합니다.
+    No. For virtual machine gallery images that include SQL Server, you must select one of the provided images.
 
-9. **Azure VM에 SQL Data Tools를 설치하려면 어떻게 해야 합니까?**
+9. **How do I install SQL Data tools on my Azure VM?**
 
-	[Microsoft SQL Server Data Tools - Visual Studio 2013용 비즈니스 인텔리전스](https://www.microsoft.com/ko-KR/download/details.aspx?id=42313)에서 SQL Data Tools를 다운로드하고 설치하세요.
+    Download and install the SQL Data tools from [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013 ](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
 
-## 리소스
+## <a name="resources"></a>Resources
 
-Azure 가상 컴퓨터의 SQL Server에 대한 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) 동영상을 시청하세요. 또한 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md) 항목에서도 간략한 소개를 확인할 수 있습니다.
+For an overview of SQL Server on Azure Virtual Machines, watch the video [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016). You can also get a good introduction in the topic, [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
-기타 리소스는 다음과 같습니다.
+Other resources include:
 
-- [Azure 포털에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)
-- [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)
-- [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)
-- [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)
-- [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+- [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
+- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
+- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
+- [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
+- [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

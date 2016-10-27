@@ -8,27 +8,30 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## 구독으로 Azure Portal에 연결
+## <a name="connect-to-the-azure-portal-with-a-subscription"></a>Connect to the Azure portal with a subscription
 
-Azure Portal에 연결하려면 구독이 있어야 합니다.
+To connect to the Azure portal, you must have a subscription.
 
-### 새 계정 가져오기
+### <a name="get-a-new-account"></a>Get a new account
 
-기존 Azure 계정이 없는 경우 계정을 가져오려면 다음 옵션 중 하나를 선택합니다.
+If you do not have an existing Azure account, choose one of the following options to obtain an account:
 
-- [무료 계정](https://azure.microsoft.com/get-started/) 가져오기
-- [MSDN 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 사용
+- Get a [free account](https://azure.microsoft.com/get-started/).
+- Use an [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/).
 
-### 기존 계정을 사용하여 로그인
+### <a name="sign-in-by-using-your-existing-account"></a>Sign in by using your existing account
 
-[기존 구독](https://account.windowsazure.com/Home/Index)을 사용하고 이러한 다음 단계를 수행하여 Azure Portal에 연결합니다.
+Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
 
-1. 선택한 브라우저를 열고 [Azure 포털](https://portal.azure.com/)에 연결합니다.
+1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. **로그인** 페이지에서 구독에 대한 자격 증명을 제공합니다.
+1. On the **Sign in** page, provide the credentials for your subscription.
 
-   ![로그인](./media/azure-getting-started-portal-login/login.png)
+   ![Sign in](./media/azure-getting-started-portal-login/login.png)
 
-<!---HONumber=AcomDC_0912_2016--->
+
+<!--HONumber=Oct16_HO2-->
+
+

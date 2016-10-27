@@ -1,14 +1,17 @@
 
-이 자습서를 사용하려면 다음이 필요합니다.
+This tutorial requires the following:
 
 + Visual Studio 2015
-+ [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592) Nuget 패키지
++ [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592) Nuget package
 
-> [AZURE.IMPORTANT] 이 자습서에는 Visual Studio 15를 사용하는 것으로 가정합니다. Visual Studio 13을 사용할 수도 있지만 사용자 인터페이스가 이 자습서의 인터페이스와 약간 다릅니다.
+> [AZURE.IMPORTANT] This tutorial assumes use of Visual Studio 15. You can also use Visual Studio 13, but that user interface is slightly different from what is in this tutorial.
 
 &nbsp;
 
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started)을 참조하세요.
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

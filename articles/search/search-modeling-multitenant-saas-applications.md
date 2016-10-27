@@ -1,134 +1,139 @@
 <properties
-	pageTitle="Azure 검색의 다중 테넌트 모델링 | Microsoft Azure | 호스팅되는 클라우드 검색 서비스"
-	description="Azure 검색을 사용할 때의 다중 테넌트 SaaS 응용 프로그램에 대한 일반적인 디자인 패턴에 대해 알아봅니다."
-	services="search"
-	authors="ashmaka"
-	documentationCenter=""/>
+    pageTitle="Modeling Multitenancy in Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="Learn about common design patterns for multitenant SaaS applications while using Azure Search."
+    services="search"
+    authors="ashmaka"
+    documentationCenter=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="09/20/2016"
-	ms.author="ashmaka"/>
-
-# 다중 테넌트 SaaS 응용 프로그램 및 Azure 검색에 대한 디자인 패턴
-
-다중 테넌트 응용 프로그램은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 응용 프로그램입니다. 이 문서에서는 Azure 검색을 사용하여 작성된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.
-
-## Azure 검색 개념
-Search-as-a-Service 솔루션인 Azure 검색은 개발자가 인프라를 관리하거나 검색 전문가가 아니더라도 응용 프로그램에 다양한 검색 환경을 추가할 수 있도록 합니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure 검색 API에 대한 간단한 요청을 사용하여 데이터를 수정 및 검색할 수 있습니다. 서비스의 개요는 [이 문서](http://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 논의하기 전에 Azure 검색의 일부 개념을 이해해야 합니다.
-
-### 검색 서비스, 인덱스, 필드 및 문서
-Azure 검색을 사용하는 경우 _검색 서비스_를 구독하게 됩니다. 데이터가 Azure 검색에 업로드되면 검색 서비스 내의 _인덱스_에 저장됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.
-
-검색 서비스 내의 각 인덱스는 많은 수의 사용자 지정 가능 _필드_로 정의되는 고유 스키마를 갖습니다. 데이터는 개별 _문서_ 형식으로 Azure 검색 인덱스에 추가됩니다. 각 문서는 특정 인덱스에 업로드되어야 하고 해당 인덱스의 스키마를 결정해야 합니다. Azure 검색을 사용하여 데이터를 검색할 때 특정 인덱스에 대해 전체 텍스트 검색 쿼리가 실행됩니다. 이러한 개념을 데이터베이스의 개념과 비교하려면 필드를 테이블의 열에, 문서를 행에 비유할 수 있습니다.
-
-### 확장성
-표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/search/)의 모든 Azure 검색 서비스는 저장소 및 가용성의 2가지 차원으로 확장할 수 있습니다.
-* _파티션_을 추가하여 검색 서비스 저장소를 늘릴 수 있습니다.
-* _복제본_을 서비스에 추가하여 검색 서비스가 처리할 수 있는 요청 처리량을 늘릴 수 있습니다.
-
-파티션 및 복제본을 추가 또는 제거하여 응용 프로그램이 요구하는 데이터 및 트래픽 양으로 검색 서비스의 용량을 늘릴 수 있습니다. 검색 서비스가 읽기 [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 달성하려면 2개의 복제본이 필요합니다. 검색 서비스가 읽기/쓰기 [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 달성하려면 3개의 복제본이 필요합니다.
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.date="09/20/2016"
+    ms.author="ashmaka"/>
 
 
-### Azure 검색의 서비스 및 인덱스 제한 사항
-Azure 검색에는 각 계층이 각기 다른 [제한 및 할당량](search-limits-quotas-capacity.md)을 갖는 다른 몇 가지 [가격 책정 계층](https://azure.microsoft.com/pricing/details/search/)이 있습니다. 서비스 수준에서 적용되는 제한도 있고, 인덱스 수준에서 적용되는 제한도 있고, 파티션 수준에서 적용되는 제한도 있습니다.
+# <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Design patterns for multitenant SaaS applications and Azure Search
+
+A multitenant application is one that provides the same services and capabilities to any number of tenants who cannot see or share the data of any other tenant. This document discusses tenant isolation strategies for multitenant applications built with Azure Search.
+
+## <a name="azure-search-concepts"></a>Azure Search concepts
+As a search-as-a-service solution, Azure Search allows developers to add rich search experiences to applications without managing any infrastructure or becoming an expert in search. Data is uploaded to the service and then stored in the cloud. Using simple requests to the Azure Search API, the data can then be modified and searched. An overview of the service can be found in [this article](http://aka.ms/whatisazsearch). Before discussing design patterns, it is important to understand some concepts in Azure Search.
+
+### <a name="search-services,-indexes,-fields,-and-documents"></a>Search services, indexes, fields, and documents
+When using Azure Search, one subscribes to a _search service_. As data is uploaded to Azure Search, it is stored in an _index_ within the search service. There can be a number of indexes within a single service. To use the familiar concepts of databases, the search service can be likened to a database while the indexes within a service can be likened to tables within a database.
+
+Each index within a search service has its own schema, which is defined by a number of customizable _fields_. Data is added to an Azure Search index in the form of individual _documents_. Each document must be uploaded to a particular index and must fit that index's schema. When searching data using Azure Search, the full-text search queries are issued against a particular index.  To compare these concepts to those of a database, fields can be likened to columns in a table and documents can be likened to rows.
+
+### <a name="scalability"></a>Scalability
+Any Azure Search service in the Standard [pricing tier](https://azure.microsoft.com/pricing/details/search/) can scale in two dimensions: storage and availability.
+* _Partitions_ can be added to increase the storage of a search service.
+* _Replicas_ can be added to a service to increase the throughput of requests that a search service can handle.
+
+Adding and removing partitions and replicas at will allow the capacity of the search service to grow with the amount of data and traffic the application demands. In order for a search service to achieve a read [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), it requires two replicas. In order for a service to achieve a read-write [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), it requires three replicas.
 
 
-| | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
+### <a name="service-and-index-limits-in-azure-search"></a>Service and index limits in Azure Search
+There are a few different [pricing tiers](https://azure.microsoft.com/pricing/details/search/) in Azure Search, each of the tiers has different [limits and quotas](search-limits-quotas-capacity.md). Some of these limits are at the service-level, some are at the index-level, and some are at the partition-level.
+
+
+|                                  | Basic     | Standard1   | Standard2   | Standard3   | Standard3 HD  |
 |----------------------------------|-----------|-------------|-------------|-------------|---------------|
-| 서비스당 최대 복제본 | 3 | 12 | 12 | 12 | 12 |
-| 서비스당 최대 파티션 | 1 | 12 | 12 | 12 | 1 |
-| 서비스당 최대 검색 단위(복제본*파티션) | 3 | 36 | 36 | 36 | 12 |
-| 서비스당 최대 문서 | 1백만 | 1억 8천만 | 7억 2천만 | 14억 | 2억 |
-| 서비스당 최대 저장소 | 2 GB | 300GB | 1\.2TB | 2\.4TB | 200GB |
-| 파티션당 최대 문서 | 1백만 | 1천 5백만 | 6천만 | 1억 2천만 | 2억 |
-| 파티션당 최대 저장소 | 2 GB | 25GB | 100GB | 200GB | 200GB |
-| 서비스당 최대 인덱스 | 5 | 50 | 200 | 200 | 1000 |
+| Maximum Replicas per Service     | 3         | 12          | 12          | 12          | 12            |
+| Maximum Partitions per Service   | 1         | 12          | 12          | 12          | 1             |
+| Maximum Search Units (Replicas*Partitions) per Service | 3         | 36          | 36          | 36          | 12            |
+| Maximum Documents per Service    | 1 million | 180 million | 720 million | 1.4 billion | 200 million   |
+| Maximum Storage per Service      | 2 GB      | 300 GB      | 1.2 TB      | 2.4 TB      | 200 GB        |
+| Maximum Documents per Partition  | 1 million | 15 million  | 60 million  | 120 million | 200 million   |
+| Maximum Storage per Partition    | 2 GB      | 25 GB       | 100 GB      | 200 GB      | 200 GB        |
+| Maximum Indexes per Service      | 5         | 50          | 200         | 200         | 1000          |
 
 
-#### S3 고밀도
-Azure 검색의 S3 가격 책정 계층에는 다중 테넌트 시나리오를 위해 특별히 디자인된 HD(고밀도) 모드에 대한 옵션이 있습니다. 고밀도 모드일 때 S3 SKU에는 표준 S3 구성과는 다른 몇 가지 제한이 적용됩니다.
-* 서비스당 인덱스 제한이 200개가 아닌 1000개일 수 있습니다.
-* 서비스당 데이터 제한이 2,4TB가 아닌 200GB일 수 있습니다.
-* 서비스당 파티션은 12개가 아닌 1개 뿐일 수 있습니다.
+#### <a name="s3-high-density"></a>S3 High Density
+In Azure Search’s S3 pricing tier, there is an option for the High Density (HD) mode designed specifically for multitenant scenarios. When in High Density mode, the S3 SKU has some different limits than the standard S3 configuration:
+* There can be up to 1000 indexes per service, instead of 200
+* There can be up to 200 GB of data per service, instead of 2.4 TB
+* There can be only 1 partition per service, instead of 12
 
-S3 HD 계층은 아래에 설명된 테넌트당 인덱스 모델을 구현하는 SaaS 사용 응용 프로그램에 이상적으로 적합합니다.
-
-
-## 다중 테넌트 응용 프로그램에 대한 고려 사항
-다중 테넌트 응용 프로그램은 다양한 테넌트 간에 일정 수준의 개인 정보를 유지하면서 테넌트 간에 리소스를 효과적으로 배포해야 합니다. 이러한 응용 프로그램에 대한 아키텍처를 디자인할 때 다음과 같은 사항을 고려해야 합니다.
-
-* _테넌트 격리:_ 응용 프로그램 개발자는 다른 테넌트의 데이터에 무단으로 또는 동의 없이 액세스하는 테넌트가 없도록 하기 위해 적절한 조치를 수행해야 합니다. 테넌트 격리 전략은 데이터 개인 정보 보호 측면 외에도, 공유 리소스를 효과적으로 관리하고 노이즈 환경으로부터 보호할 수 있어야 합니다.
-* _클라우드 리소스 비용:_ 다른 응용 프로그램과 마찬가지로, 소프트웨어 솔루션은 다중 테넌트 응용 프로그램의 구성 요소로서 비용 경쟁력을 유지해야 합니다.
-* _작업의 용이성:_ 다중 테넌트 아키텍처를 개발할 때 응용 프로그램의 작업 및 복잡성에 미치는 영향도 중요한 고려 사항입니다. Azure 검색은 [99\.9%의 SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 보장합니다.
-* _전역 공간:_ 다중 테넌트 응용 프로그램은 전 세계에 분산되어 있는 테넌트를 효과적으로 서비스할 수 있어야 합니다.
-* _확장성:_ 응용 프로그램 개발자는 충분히 낮은 수준의 응용 프로그램 복잡성을 유지하면서 테넌트의 데이터 및 워크로드의 수와 규모에 맞게 조정되도록 응용 프로그램을 설계하는 방안을 고려해야 합니다.
-
-Azure 검색에서는 테넌트의 데이터 및 작업 부하를 격리하는 데 사용할 수 있는 몇 가지 경계를 제공합니다.
-
-## Azure 검색을 사용한 다중 테넌트 모델링
-다중 테넌트 시나리오에서 응용 프로그램 개발자는 하나 이상의 검색 서비스를 사용하고 서비스, 인덱스 또는 둘 다에서 해당 테넌트를 나눕니다. Azure 검색에서는 다중 테넌트 시나리오를 모델링할 때 몇 가지 일반적인 패턴을 따릅니다.
-
-1. _테넌트당 인덱스:_ 각 테넌트는 다른 테넌트와 공유되는 검색 서비스 내의 자체 인덱스를 갖습니다.
-1. _테넌트당 서비스:_ 각 테넌트는 자체 전용 Azure 검색 서비스를 갖습니다. 이 검색 서비스는 가장 높은 수준의 데이터 및 워크로드 분리를 제공합니다.
-1. _두 가지 조합:_ 좀 더 작은 테넌트에는 공유 서비스 내에서 개별 인덱스가 할당되지만, 좀 더 큰 활성 테넌트에는 전용 서비스가 할당됩니다.
-
-## 1\. 테넌트당 인덱스
-![테넌트당 인덱스 모델](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
-
-테넌트당 인덱스 모델에서 여러 테넌트가 단일 Azure 검색 서비스에 포함되며, 각 테넌트는 고유 인덱스를 갖습니다.
-
-모든 검색 요청 및 문서 작업은 Azure 검색의 인덱스 수준에서 실행되므로 테넌트의 데이터 격리가 구현됩니다. 응용 프로그램 계층에서는 모든 테넌트의 서비스 수준에서 리소스를 관리하면서 다양한 테넌트의 트래픽을 적절한 인덱스로 전달해야 한다는 것을 인식해야 합니다.
-
-테넌트당 인덱스 모델의 주요 특성은 응용 프로그램 개발자가 응용 프로그램의 테넌트 간에 검색 서비스의 용량을 초과 구독할 수 있다는 것입니다. 테넌트의 워크로드가 균일하지 않게 분산되는 경우 사용 빈도가 낮은 테넌트의 긴 꼬리를 동시에 처리하면서 사용 빈도가 높은 많은 수의 리소스 집약적 테넌트를 수용하도록 하는 최적의 테넌트 조합을 검색 서비스의 인덱스에서 분산할 수 있습니다. 단점은 이 모델의 경우 각 테넌트의 사용 빈도가 동시에 높아지는 상황을 처리하지 못한다는 것입니다.
-
-테넌트당 인덱스 모델은 가변 비용 모델의 토대를 제공합니다. 이러한 모델에서는 전체 Azure 검색 서비스가 사전 구매된 후 이후에 테넌트로 채워집니다. 따라서 평가판 및 무료 계정을 위해 미사용 용량을 디자인할 수 있습니다.
-
-전역 공간이 있는 응용 프로그램의 경우 테넌트당 인덱스 모델이 가장 효율적이 아닐 수도 있습니다. 응용 프로그램의 테넌트가 전 세계에 걸쳐 분산되어 있으면 각 지역에 대해 별도 서비스가 필요할 수 있으므로 각각에 대해 비용이 중복될 수 있습니다.
-
-Azure 검색을 사용하면 개별 인덱스와 총 인덱스 수가 모두 커져도 됩니다. 적절한 가격 계층을 선택한 경우 서비스 내의 개별 인덱스가 저장소 또는 트래픽 측면에서 너무 커질 때 전체 검색 서비스에 파티션 및 복제본을 추가할 수 있습니다.
-
-인덱스의 총 수가 단일 서비스에 대해 너무 커지면 새 테넌트를 수용하도록 다른 서비스를 프로비전해야 합니다. 새 서비스를 추가할 때 인덱스를 검색 서비스 간에 이동해야 할 경우, Azure 검색 서비스는 인덱스 이동을 허용하지 않으므로 인덱스의 데이터를 수동으로 한 인덱스에서 다른 인덱스로 복사해야 합니다.
+The S3 HD tier is ideally suited for SaaS enabled applications which implement the index-per-tenant model described below.
 
 
-## 2\. 테넌트당 서비스
-![테넌트당 서비스 모델](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+## <a name="considerations-for-multitenant-applications"></a>Considerations for multitenant applications
+Multitenant applications must effectively distribute resources among the tenants while preserving some level of privacy between the various tenants. There are a few considerations when designing the architecture for such an application:
 
-테넌트당 서비스 아키텍처에서 각 테넌트에는 자체 검색 서비스가 있습니다.
+* _Tenant isolation:_ Application developers need to take appropriate measures to ensure that no tenants have unauthorized or unwanted access to the data of other tenants. Beyond the perspective of data privacy, tenant isolation strategies require effective management of shared resources and protection from noisy neighbors.
+* _Cloud resource cost:_ As with any other application, software solutions must remain cost competitive as a component of a multitenant application.
+* _Ease of Operations:_ When developing a multitenant architecture, the impact on the application's operations and complexity is an important consideration. Azure Search has a [99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* _Global footprint:_ Multitenant applications may need to effectively serve tenants which are distributed across the globe.
+* _Scalability:_ Application developers need to consider how they reconcile between maintaining a sufficiently low level of application complexity and designing the application to scale with number of tenants and the size of tenants' data and workload.
 
-이 모델에서 응용 프로그램에는 해당 테넌트에 대해 최대 수준의 격리가 구현됩니다. 각 서비스에는 별도의 API 키 외에도, 검색 요청을 처리하기 위한 전용 저장소 및 처리량을 갖습니다.
+Azure Search offers a few boundaries that can be used to isolate tenants’ data and workload.
 
-각 테넌트가 많은 공간을 차지하거나 워크로드가 테넌트 간에 거의 변동되지 않는 응용 프로그램의 경우 테넌트당 서비스 모델은 다양한 테넌트의 워크로드에서 리소스를 공유되지 않으므로 효과적입니다.
+## <a name="modeling-multitenancy-with-azure-search"></a>Modeling multitenancy with Azure Search
+In the case of a multitenant scenario, the application developer consumes one or more search services and divide their tenants among services, indexes, or both. Azure Search has a few common patterns when modeling a multitenant scenario:
 
-테넌트당 서비스 모델 또한 예측 가능한 고정 비용 모델의 이점을 제공합니다. 채울 테넌트가 있을 때까지 전체 검색 서비스에서 선행 투자가 없으므로 테넌트당 비용이 테넌트당 인덱스 모델보다 더 높습니다.
+1. _Index per tenant:_ Each tenant has its own index within a search service that is shared with other tenants.
+1. _Service per tenant:_ Each tenant has its own dedicated Azure Search service, offering highest level of data and workload separation.
+1. _Mix of both:_ Larger, more-active tenants are assigned dedicated services while smaller tenants are assigned individual indexes within shared services.
 
-테넌트당 서비스 모델은 전역 공간을 차지하는 응용 프로그램에 효율적인 선택입니다. 지리적으로 분산 테넌트를 사용할 경우 각 테넌트 서비스를 적절한 지역에 두기 쉽습니다.
+## <a name="1.-index-per-tenant"></a>1. Index per tenant
+![A portrayal of the index-per-tenant model](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
 
-개별 테넌트가 서비스보다 커지면 이 패턴의 규모를 조정하기 어렵습니다. Azure 검색에서는 현재 검색 서비스의 가격 책정 계층에 대한 업그레이드를 지원하지 않으므로 모든 데이터를 새 서비스에 수동으로 복사해야 합니다.
+In an index-per-tenant model, multiple tenants occupy a single Azure Search service where each tenant has their own index.
 
-## 3\. 두 모델 조합
-다중 테넌트를 모델링하기 위한 또 다른 패턴은 테넌트당 인덱스 및 테넌트당 서비스 전략을 조합하는 것입니다.
+Tenants achieve data isolation because all search requests and document operations are issued at an index level in Azure Search. In the application layer, there is the need awareness to direct the various tenants’ traffic to the proper indexes while also managing resources at the service level across all tenants.
 
-두 가지 패턴을 조합하면 응용 프로그램의 가장 큰 테넌트가 전용 서비스를 차지할 수 있지만, 사용 빈도가 낮으면서 좀 더 작은 테넌트의 긴 꼬리가 공유 서비스의 인덱스를 차지할 수 있습니다. 이 모델에서는 노이즈 이웃의 좀 더 작은 테넌트를 보호하면서 가장 큰 테넌트가 서비스에서 일관된 고성능을 보장합니다.
+A key attribute of the index-per-tenant model is the ability for the application developer to oversubscribe the capacity of a search service among the application’s tenants. If the tenants have an uneven distribution of workload, the optimal combination of tenants can be distributed across a search service’s indexes to accommodate a number of highly active, resource-intensive tenants while simultaneously serving a long tail of less active tenants. The trade-off is the inability of the model to handle situations where each tenant is concurrently highly active.
 
-그러나 이 전략을 구현하려면 공유 서비스의 인덱스 대비, 전용 서비스를 요구하는 테넌트를 예측해야 합니다. 이러한 다중 테넌트 모델을 둘 다 관리하기 위해 응용 프로그램 복잡성이 증가합니다.
+The index-per-tenant model provides the basis for a variable cost model, where an entire Azure Search service is bought up-front and then subsequently filled with tenants. This allows for unused capacity to be designated for trials and free accounts.
 
-## 훨씬 더 미세한 세밀성 달성
-Azure 검색에서 다중 테넌트 시나리오를 모델링하기 위한 위의 디자인 패턴은 각 테넌트가 응용 프로그램의 전체 인스턴스에 해당하는 균일한 범위를 가정합니다. 그러나 응용 프로그램은 경우에 따라 좀 더 작은 여러 범위를 처리할 수 있습니다.
+For applications with a global footprint, the index-per-tenant model may not be the most efficient. If an application's tenants are distributed across the globe, a separate service may be necessary for each region which may duplicate costs across each of them.
 
-테넌트당 서비스 및 테넌트당 인덱스 모델은 충분히 작은 범위가 아니므로 훨씬 더 미세한 세밀성을 얻기 위헤 인덱스를 모델링할 수 있습니다.
+Azure Search allows for the scale of both the individual indexes and the total number of indexes to grow. If an appropriate pricing tier is chosen, partitions and replicas can be added to the entire search service when an individual index within the service grows too large in terms of storage or traffic.
 
-단일 인덱스가 다양한 클라이언트 끝점에 대해 다르게 동작하도록 하기 위해 가능한 각 클라이언트에 대한 특정 값을 지정하는 필드를 인덱스에 추가할 수 있습니다. 클라이언트가 Azure 검색을 호출하여 인덱스를 쿼리 또는 수정할 때마다 클라이언트 응용 프로그램의 코드는 쿼리 시에 Azure 검색의 [필터](https://msdn.microsoft.com/library/azure/dn798921.aspx) 기능을 사용하여 해당 필드에 대해 적절한 값을 지정합니다.
+If the total number of indexes grows too large for a single service, another service has to be provisioned to accommodate the new tenants. If indexes have to be moved between search services as new services are added, the data from the index has to be manually copied from one index to the other as Azure Search does not allow for an index to be moved.
 
-이 방법을 사용하면 별도의 사용자 계정, 별도의 사용 권한 수준 및 완전 별도의 응용 프로그램 기능을 얻을 수 있습니다.
 
-## 다음 단계
-Azure 검색은 대부분의 응용 프로그램에 적합한 방법입니다. [이 서비스의 강력한 기능에 대해 자세히 읽여보세요](http://aka.ms/whatisazsearch). 다중 테넌트 응용 프로그램에 대한 다양한 디자인 패턴을 평가할 때 [다양한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한](search-limits-quotas-capacity.md)을 고려하여 모든 규모의 응용 프로그램 워크로드 및 아키텍처에 가장 잘 맞게 Azure 검색을 조정할 수 있습니다.
+## <a name="2.-service-per-tenant"></a>2. Service per tenant
+![A portrayal of the service-per-tenant model](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
 
-Azure 검색 및 다중 테넌트 시나리오에 대한 질문은 azuresearch_contact@microsoft.com으로 보내세요.
+In a service-per-tenant architecture, each tenant has its own search service.
 
-<!---HONumber=AcomDC_0921_2016-->
+In this model, the application achieves the maximum level of isolation for its tenants. Each service has dedicated storage and throughput for handling search request as well as separate API keys.
+
+For applications where each tenant has a large footprint or the workload has little variability from tenant to tenant, the service-per-tenant model is an effective choice as resources are not shared across various tenants’ workloads.
+
+A service per tenant model also offers the benefit of a predictable, fixed cost model. There is no up-front investment in an entire search service until there is a tenant to fill it, however the cost-per-tenant is higher than an index-per-tenant model.
+
+The service-per-tenant model is an efficient choice for applications with a global footprint. With geographically-distributed tenants, it is easy to have each tenant's service in the appropriate region.
+
+The challenges in scaling this pattern arise when individual tenants outgrow their service. Azure Search does not currently support upgrading the pricing tier of a search service, so all data would have to be manually copied to a new service.
+
+## <a name="3.-mixing-both-models"></a>3. Mixing both models
+Another pattern for modeling multitenancy is mixing both index-per-tenant and service-per-tenant strategies.
+
+By mixing the two patterns, an application's largest tenants can occupy dedicated services while the long tail of less active, smaller tenants can occupy indexes in a shared service. This model ensures that the largest tenants have consistently high performance from the service while helping to protect the smaller tenants from any noisy neighbors.
+
+However, implementing this strategy relies foresight in predicting which tenants will require a dedicated service versus an index in a shared service. Application complexity increases with the need to manage both of these multitenancy models.
+
+## <a name="achieving-even-finer-granularity"></a>Achieving even finer granularity
+The above design patterns to model multitenant scenarios in Azure Search assume a uniform scope where each tenant is a whole instance of an application. However, applications can sometimes handle many smaller scopes.
+
+If service-per-tenant and index-per-tenant models are not sufficiently small scopes, it is possible to model an index to achieve an even finer degree of granularity.
+
+To have a single index behave differently for different client endpoints, a field can be added to an index which designates a certain value for each possible client. Each time a client calls Azure Search to query or modify an index, the code from the client application specifies the appropriate value for that field using Azure Search's [filter](https://msdn.microsoft.com/library/azure/dn798921.aspx) capability at query time.
+
+This method can be used to achieve functionality of separate user accounts, separate permission levels, and even completely separate applications.
+
+## <a name="next-steps"></a>Next steps
+Azure Search is a compelling choice for many applications, [read more about the service's robust capabilities](http://aka.ms/whatisazsearch). When evaluating the various design patterns for multitenant applications, consider the [various pricing tiers](https://azure.microsoft.com/pricing/details/search/) and the respective [service limits](search-limits-quotas-capacity.md) to best tailor Azure Search to fit application workloads and architectures of all sizes.
+
+Any questions about Azure Search and multitenant scenarios can be directed to azuresearch_contact@microsoft.com.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

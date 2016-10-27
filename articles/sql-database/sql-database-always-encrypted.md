@@ -1,90 +1,91 @@
 <properties
-	pageTitle="상시 암호화: 데이터베이스 암호화를 사용하여 Azure SQL 데이터베이스의 중요한 데이터 보호 | Microsoft Azure"
-	description="몇 분 만에 SQL 데이터베이스의 중요한 데이터를 보호합니다."
-	keywords="데이터 암호화, sql 암호화, 데이터베이스 암호화, 중요한 데이터 암호화, 상시 암호화"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Always Encrypted: Protect sensitive data in Azure SQL Database with database encryption | Microsoft Azure"
+    description="Protect sensitive data in your SQL database in minutes."
+    keywords="encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="sstein"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/18/2016"
+    ms.author="sstein"/>
 
-# 상시 암호화 - SQL 데이터베이스의 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
+
+# <a name="always-encrypted:-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: Protect sensitive data in SQL Database and store your encryption keys in the Windows certificate store
 
 > [AZURE.SELECTOR]
-- [Azure 키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md)
-- [Windows 인증서 저장소](sql-database-always-encrypted.md)
+- [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
+- [Windows certificate store](sql-database-always-encrypted.md)
 
 
-이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
+This article shows you how to secure sensitive data in a SQL database with database encryption by using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
-상시 암호화는 클라이언트와 서버 사이의 이동 중에, 그리고 데이터를 사용 중일 때 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL 데이터베이스 및 SQL Server 내의 새로운 데이터 암호 기술로서, 중요한 데이터가 데이터베이스 시스템에서 일반 텍스트로 나타나지 않도록 보장합니다. 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 앱 서버는 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
+Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
-상시 암호화를 사용하는 데이터베이스를 구성한 후에 Visual Studio로 C#에서 클라이언트 응용 프로그램을 만들어 암호화된 데이터로 작업합니다.
+After configuring the database to use Always Encrypted, you will create a client application in C# with Visual Studio to work with the encrypted data.
 
-이 문서의 단계를 수행하고 Azure SQL 데이터베이스에 대해 상시 암호화를 설정하는 방법을 알아봅니다. 이 문서에서는 다음 작업을 수행하는 방법을 배웁니다.
+Follow the steps in this article to learn how to set up Always Encrypted for an Azure SQL database. In this article, you will learn how to perform the following tasks:
 
-- SSMS에서 상시 암호화 마법사를 사용하여 [상시 암호화 키](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)를 만듭니다.
-    - [CMK(열 마스터 키)](https://msdn.microsoft.com/library/mt146393.aspx)를 만듭니다.
-    - [CEK(열 암호화 키)](https://msdn.microsoft.com/library/mt146372.aspx)를 만듭니다.
-- 데이터베이스 테이블을 만들고 열을 암호화합니다.
-- 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 응용 프로그램을 만듭니다.
+- Use the Always Encrypted wizard in SSMS to create [Always Encrypted Keys](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
+    - Create a [Column Master Key (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
+    - Create a [Column Encryption Key (CEK)](https://msdn.microsoft.com/library/mt146372.aspx).
+- Create a database table and encrypt columns.
+- Create an application that inserts, selects, and displays data from the encrypted columns.
 
-## 필수 조건
+## <a name="prerequisites"></a>Prerequisites
 
-이 자습서에는 다음이 필요합니다.
+For this tutorial, you'll need:
 
-- Azure 계정 및 구독 없는 경우 지금 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 버전 13.0.700.242 이상.
-- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 이상(클라이언트 컴퓨터에서).
+- An Azure account and subscription. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+- [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
+- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 
 
-## 빈 SQL 데이터베이스 만들기
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터베이스**를 클릭합니다.
-3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure 포털에서 데이터베이스를 만드는 자세한 지침은 [몇 분 만에 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+## <a name="create-a-blank-sql-database"></a>Create a blank SQL database
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Click **New** > **Data + Storage** > **SQL Database**.
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Create a SQL database in minutes](sql-database-get-started.md).
 
-	![빈 데이터베이스 만들기](./media/sql-database-always-encrypted/create-database.png)
+    ![Create a blank database](./media/sql-database-always-encrypted/create-database.png)
 
-자습서의 뒷부분에서 연결 문자열이 필요합니다. 데이터베이스를 만든 후에 새 Clinic 데이터베이스로 이동하고 연결 문자열을 복사합니다. 언제든지 연결 문자열을 가져올 수 있지만 Azure 포털에 있을 때 복사하는 것이 쉽습니다.
+You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal.
 
-1. **SQL 데이터베이스** > **클리닉** > **데이터베이스 연결 문자열 표시**를 클릭합니다.
-2. **ADO.NET**에 대한 연결 문자열을 복사합니다.
+1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
+2. Copy the connection string for **ADO.NET**.
 
-	![연결 문자열 복사](./media/sql-database-always-encrypted/connection-strings.png)
-
-
-## SSMS로 데이터베이스에 연결
-
-SSMS를 열고 클리닉 데이터베이스가 있는 서버에 연결합니다.
+    ![Copy the connection string](./media/sql-database-always-encrypted/connection-strings.png)
 
 
-1. SSMS를 엽니다. 열리지 않은 경우 **연결** > **데이터베이스 엔진**을 클릭하여 **서버에 연결** 창을 엽니다.
-2. 서버 이름 및 자격 증명을 입력합니다. 앞에서 복사한 SQL 데이터베이스 블레이드 및 연결 문자열에 서버 이름을 찾아볼 수 있습니다. *database.windows.net*을 포함하여 전체 서버 이름을 입력합니다.
+## <a name="connect-to-the-database-with-ssms"></a>Connect to the database with SSMS
 
-	![연결 문자열 복사](./media/sql-database-always-encrypted/ssms-connect.png)
-
-**새 방화벽 규칙** 창이 열리면 Azure에 로그인하고 SSMS가 새 방화벽 규칙을 만들도록 합니다.
+Open SSMS and connect to the server with the Clinic database.
 
 
-## 테이블 만들기
+1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
+2. Enter your server name and credentials. The server name can be found on the SQL database blade and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
 
-이 섹션에서는 환자 데이터를 저장할 테이블을 만듭니다. 처음에는 일반 테이블이지만 다음 섹션에서 암호화를 구성합니다.
+    ![Copy the connection string](./media/sql-database-always-encrypted/ssms-connect.png)
 
-1. **데이터베이스**를 확장합니다.
-1. **Clinic** 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
-2. 새 쿼리 창에 다음 Transact-SQL(T-SQL)을 붙여넣고 **실행**합니다.
+If the **New Firewall Rule** window opens, sign in to Azure and let SSMS create a new firewall rule for you.
+
+
+## <a name="create-a-table"></a>Create a table
+
+In this section, you will create a table to hold patient data. This will be a normal table initially--you will configure encryption in the next section.
+
+1. Expand **Databases**.
+1. Right-click the **Clinic** database and click **New Query**.
+2. Paste the following Transact-SQL (T-SQL) into the new query window and **Execute** it.
 
 
         CREATE TABLE [dbo].[Patients](
@@ -102,94 +103,94 @@ SSMS를 열고 클리닉 데이터베이스가 있는 서버에 연결합니다.
          GO
 
 
-## 열 암호화(상시 암호화 구성)
+## <a name="encrypt-columns-(configure-always-encrypted)"></a>Encrypt columns (configure Always Encrypted)
 
-SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게 구성하는 마법사를 제공합니다.
+SSMS provides a wizard to easily configure Always Encrypted by setting up the CMK, CEK, and encrypted columns for you.
 
-1. **데이터베이스** > **Clinic** > **테이블**을 확장합니다.
-2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화**를 선택하여 상시 암호화 마법사를 엽니다.
+1. Expand **Databases** > **Clinic** > **Tables**.
+2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
 
-    ![열 암호화](./media/sql-database-always-encrypted/encrypt-columns.png)
+    ![Encrypt columns](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-항상 암호화 마법사에는 **열 선택**, **마스터 키 구성**(CMK) **유효성 검사** 및 **요약** 섹션이 포함됩니다.
+The Always Encrypted wizard includes the following sections: **Column Selection**, **Master Key Configuration** (CMK), **Validation**, and **Summary**.
 
-### 열 선택 ###
+### <a name="column-selection"></a>Column Selection ###
 
-**소개** 페이지에서 **다음**을 클릭하여 **열 선택** 페이지를 엽니다. 이 페이지에서 암호화하려는 열, [암호화 형식 및 사용할 CEK(열 암호화 키)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2)를 선택합니다.
+Click **Next** on the **Introduction** page to open the **Column Selection** page. On this page, you will select which columns you want to encrypt, [the type of encryption, and what column encryption key (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) to use.
 
-각 환자에 대해 **SSN** 및 **BirthDate** 정보를 암호화합니다. **SSN** 열은 같음 조회, 조인 및 그룹화를 지원하는 결정적 암호화를 사용합니다. **BirthDate** 열은 작업을 지원하지 않는 임의의 암호화를 사용합니다.
+Encrypt **SSN** and **BirthDate** information for each patient. The **SSN** column will use deterministic encryption, which supports equality lookups, joins, and group by. The **BirthDate** column will use randomized encryption, which does not support operations.
 
-**SSN** 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 **BirthDate** 열을 선택하고 **무작위**로 설정합니다. **다음**을 클릭합니다.
+Set the **Encryption Type** for the **SSN** column to **Deterministic** and the **BirthDate** column to **Randomized**. Click **Next**.
 
-![열 암호화](./media/sql-database-always-encrypted/column-selection.png)
+![Encrypt columns](./media/sql-database-always-encrypted/column-selection.png)
 
-### 마스터 키 구성###
+### <a name="master-key-configuration###"></a>Master Key Configuration###
 
-**마스터 키 구성** 페이지는 CMK를 설치하고 CMK가 저장될 키 저장소 공급자를 선택합니다. 현재 Windows 인증서 저장소, Azure 주요 자격 증명 모음 또는 하드웨어 보안 모듈(HSM)에 CMK를 저장할 수 있습니다. 이 자습서에는 Windows 인증서 저장소에 키를 저장하는 방법을 보여줍니다.
+The **Master Key Configuration** page is where you set up your CMK and select the key store provider where the CMK will be stored. Currently, you can store a CMK in the Windows certificate store, Azure Key Vault, or a hardware security module (HSM). This tutorial shows how to store your keys in the Windows certificate store.
 
-**Windows 인증서 저장소**가 선택되었는지 확인하고 **다음**을 클릭합니다.
+Verify that **Windows certificate store** is selected and click **Next**.
 
-![마스터 키 구성](./media/sql-database-always-encrypted/master-key-configuration.png)
-
-
-### 유효성 검사###
-
-이제 열을 암호화하거나 나중에 실행할 PowerShell 스크립트를 저장할 수 있습니다. 이 자습서의 경우 **지금 전체 과정 진행**을 선택하고 **다음**을 클릭합니다.
-
-### 요약###
-
-설정이 모두 정확한 것을 확인하고 **마침**을 클릭하여 상시 암호화에 대한 설정을 완료합니다.
-
-![요약](./media/sql-database-always-encrypted/summary.png)
+![Master key configuration](./media/sql-database-always-encrypted/master-key-configuration.png)
 
 
-### 마법사의 작업 확인
+### <a name="validation###"></a>Validation###
 
-마법사가 완료된 후에 데이터베이스는 상시 암호화에 대해 설정됩니다. 마법사는 다음 작업을 수행했습니다.
+You can encrypt the columns now or save a PowerShell script to run later. For this tutorial, select **Proceed to finish now** and click **Next**.
 
-- CMK를 만들었습니다.
-- CEK를 만들었습니다.
-- 암호화에 선택한 열을 구성합니다. **Patients** 테이블에는 현재 데이터가 없지만 이제 선택된 열의 기존 데이터가 암호화됩니다.
+### <a name="summary###"></a>Summary###
 
-**Clinic** > **보안** > **상시 암호화 키**로 이동하여 SSMS에서 키 만들기를 확인할 수 있습니다. 이제 마법사에서 생성한 새 키를 볼 수 있습니다.
+Verify that the settings are all correct and click **Finish** to complete the setup for Always Encrypted.
 
-
-## 암호화된 데이터로 작동하는 클라이언트 응용 프로그램 만들기
-
-상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 응용 프로그램을 빌드할 수 있습니다. 샘플 응용 프로그램을 성공적으로 실행하려면 상시 암호화 마법사를 실행한 동일한 컴퓨터에서 실행해야 합니다. 다른 컴퓨터에서 이 응용 프로그램을 실행하려면 클라이언트 앱을 실행하는 컴퓨터에 상시 암호화 인증서를 배포해야 합니다.
-
-> [AZURE.IMPORTANT] 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 응용 프로그램은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
+![Summary](./media/sql-database-always-encrypted/summary.png)
 
 
-1. Visual Studio를 열고 새 C# 콘솔 응용 프로그램을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
-2. 프로젝트 이름을 **AlwaysEncryptedConsoleApp**으로 지정하고 **확인**을 클릭합니다.
+### <a name="verify-the-wizard's-actions"></a>Verify the wizard's actions
 
-![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted/console-app.png)
+After the wizard is finished, your database is set up for Always Encrypted. The wizard performed the following actions:
 
+- Created a CMK.
+- Created a CEK.
+- Configured the selected columns for encryption. Your **Patients** table currently has no data, but any existing data in the selected columns is now encrypted.
 
-
-## 연결 문자열을 수정하여 상시 암호화 사용
-
-이 섹션에는 데이터베이스 연결 문자열에서 상시 암호화를 사용하는 방법을 설명합니다. 다음 섹션 "상시 암호화 샘플 콘솔 응용 프로그램"에서 실제로 방금 만든 콘솔 앱을 수정합니다.
-
-
-상시 암호화를 사용하려면 **열 암호화 설정** 키워드를 연결 문자열에 추가하고 **사용함**으로 설정해야 합니다.
-
-이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)를 사용하여 설정할 수 있습니다. 다음 섹션에서 응용 프로그램 예제는 **SqlConnectionStringBuilder**를 사용하는 방법을 보여 줍니다.
-
-> [AZURE.NOTE] 상시 암호화에 특정된 클라이언트 응용 프로그램에서 필요한 유일한 변경 내용입니다. 외부(즉, 구성 파일)에서 연결 문자열을 저장하는 기존 응용 프로그램이 있는 경우 코드를 변경하지 않고 상시 암호화를 사용할 수 있습니다.
+You can verify the creation of the keys in SSMS by going to **Clinic** > **Security** > **Always Encrypted Keys**. You can now see the new keys that the wizard generated for you.
 
 
-### 연결 문자열에서 상시 암호화 사용
+## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Create a client application that works with the encrypted data
 
-연결 문자열에 다음 키워드를 추가합니다.
+Now that Always Encrypted is set up, you can build an application that performs *inserts* and *selects* on the encrypted columns. To successfully run the sample application, you must run it on the same computer where you ran the Always Encrypted wizard. To run the application on another computer, you must deploy your Always Encrypted certificates to the computer running the client app.  
+
+> [AZURE.IMPORTANT] Your application must use [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) objects when passing plaintext data to the server with Always Encrypted columns. Passing literal values without using SqlParameter objects will result in an exception.
+
+
+1. Open Visual Studio and create a new C# console application. Make sure your project is set to **.NET Framework 4.6** or later.
+2. Name the project **AlwaysEncryptedConsoleApp** and click **OK**.
+
+![New console application](./media/sql-database-always-encrypted/console-app.png)
+
+
+
+## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Modify your connection string to enable Always Encrypted
+
+This section explains how to enable Always Encrypted in your database connection string. You will modify the console app you just created in the next section, "Always Encrypted sample console application."
+
+
+To enable Always Encrypted, you need to add the **Column Encryption Setting** keyword to your connection string and set it to **Enabled**.
+
+You can set this directly in the connection string, or you can set it by using a [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). The sample application in the next section shows how to use **SqlConnectionStringBuilder**.
+
+> [AZURE.NOTE] This is the only change required in a client application specific to Always Encrypted. If you have an existing application that stores its connection string externally (that is, in a config file), you might be able to enable Always Encrypted without changing any code.
+
+
+### <a name="enable-always-encrypted-in-the-connection-string"></a>Enable Always Encrypted in the connection string
+
+Add the following keyword to your connection string:
 
     Column Encryption Setting=Enabled
 
 
-### SqlConnectionStringBuilder로 상시 암호화 사용
+### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Enable Always Encrypted with a SqlConnectionStringBuilder
 
-다음 코드는 [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx)을 [사용함](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx)으로 설정하여 상시 암호화를 사용하는 방법을 보여 줍니다.
+The following code shows how to enable Always Encrypted by setting the [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder =
@@ -201,17 +202,17 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
 
 
-## 상시 암호화 샘플 콘솔 응용 프로그램
+## <a name="always-encrypted-sample-console-application"></a>Always Encrypted sample console application
 
-이 샘플에서는 다음 방법을 설명합니다.
+This sample demonstrates how to:
 
-- 연결 문자열을 수정하여 상시 암호화 사용.
-- 암호화된 열에 데이터 삽입.
-- 암호화된 열에서 특정 값에 필터링하여 레코드 선택.
+- Modify your connection string to enable Always Encrypted.
+- Insert data into the encrypted columns.
+- Select a record by filtering for a specific value in an encrypted column.
 
-**Program.cs** 내용을 다음 코드로 바꿉니다. Main 메서드 바로 위의 줄에서 전역 connectionString 변수에 대한 연결 문자열을 Azure 포털에서 유효한 연결 문자열로 바꿉니다. 이 코드에 대한 유일한 변경 내용입니다.
+Replace the contents of **Program.cs** with the following code. Replace the connection string for the global connectionString variable in the line directly above the Main method with your valid connection string from the Azure portal. This is the only change you need to make to this code.
 
-작업에서 상시 암호화를 확인하려면 앱을 실행합니다.
+Run the app to see Always Encrypted in action.
 
     using System;
     using System.Collections.Generic;
@@ -493,56 +494,60 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
     }
 
 
-## 데이터가 암호화되는지 확인합니다.
+## <a name="verify-that-the-data-is-encrypted"></a>Verify that the data is encrypted
 
-SSMS로 **Patients** 데이터를 쿼리하여 서버의 실제 데이터가 암호화되었는지 신속하게 확인할 수 있습니다. (열 암호화 설정이 아직 사용되도록 설정되지 않은 경우 현재 연결을 사용합니다.)
+You can quickly check that the actual data on the server is encrypted by querying the **Patients** data with SSMS. (Use your current connection where the column encryption setting is not yet enabled.)
 
-Clinic 데이터베이스에 대해 다음 쿼리를 실행합니다.
+Run the following query on the Clinic database.
 
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
-암호화된 열에 일반 텍스트 데이터가 포함되지 않은 것을 볼 수 있습니다.
+You can see that the encrypted columns do not contain any plaintext data.
 
-   ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted/ssms-encrypted.png)
+   ![New console application](./media/sql-database-always-encrypted/ssms-encrypted.png)
 
 
-SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암호화 설정=활성화** 매개 변수를 연결에 추가할 수 있습니다.
+To use SSMS to access the plaintext data, you can add the **Column Encryption Setting=enabled** parameter to the connection.
 
-1. SSMS에서 **개체 탐색기**에 있는 서버를 마우스 오른쪽 단추로 클릭하고 **연결 끊기**를 클릭합니다.
-2. **연결** > **데이터베이스 엔진**을 클릭하여 **서버에 연결** 창을 열고 **옵션**을 클릭합니다.
-3. **추가 연결 매개 변수**를 클릭하고 **열 암호화 설정=활성화**를 입력합니다.
+1. In SSMS, right-click your server in **Object Explorer**, and then click **Disconnect**.
+2. Click **Connect** > **Database Engine** to open the **Connect to Server** window, and then click **Options**.
+3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
-	![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
+    ![New console application](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
 
-4. **Clinic** 데이터베이스에 대해 다음 쿼리를 실행합니다.
+4. Run the following query on the **Clinic** database.
 
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
-     이제 암호화된 열에서 일반 텍스트 데이터를 볼 수 있습니다.
+     You can now see the plaintext data in the encrypted columns.
 
 
-	![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted/ssms-plaintext.png)
-
-
-
-> [AZURE.NOTE] 다른 컴퓨터에서 SSMS(또는 클라이언트)와 연결한 경우 암호화 키에 대한 액세스 권한이 없으므로 데이터를 해독할 수 없습니다.
+    ![New console application](./media/sql-database-always-encrypted/ssms-plaintext.png)
 
 
 
-## 다음 단계
-상시 암호화를 사용하는 데이터베이스를 만든 후에 다음을 수행할 수 있습니다.
+> [AZURE.NOTE] If you connect with SSMS (or any client) from a different computer, it will not have access to the encryption keys and will not be able to decrypt the data.
 
-- 다른 컴퓨터에서 이 샘플을 실행합니다. 암호화 키에 대한 액세스 권한이 없으므로 일반 텍스트 데이터에 액세스할 수 없고 성공적으로 실행되지 않습니다.
-- [키 회전 및 정리](https://msdn.microsoft.com/library/mt607048.aspx).
-- [상시 암호화로 이미 암호화된 데이터 마이그레이션](https://msdn.microsoft.com/library/mt621539.aspx)
-- [다른 클라이언트 컴퓨터에 상시 암호화 인증서 배포](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1)("응용 프로그램 및 사용자가 인증서를 사용할 수 있도록 지정" 섹션 참조).
 
-## 관련 정보
 
-- [상시 암호화(클라이언트 개발)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)
-- [SQL Server 암호화](https://msdn.microsoft.com/library/bb510663.aspx)
-- [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
-- [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+## <a name="next-steps"></a>Next steps
+After you create a database that uses Always Encrypted, you may want to do the following:
 
-<!---HONumber=AcomDC_0824_2016-->
+- Run this sample from a different computer. It won't have access to the encryption keys, so it will not have access to the plaintext data and will not run successfully.
+- [Rotate and clean up your keys](https://msdn.microsoft.com/library/mt607048.aspx).
+- [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
+- [Deploy Always Encrypted certificates to other client machines](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (see the "Making Certificates Available to Applications and Users" section).
+
+## <a name="related-information"></a>Related information
+
+- [Always Encrypted (client development)](https://msdn.microsoft.com/library/mt147923.aspx)
+- [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
+- [SQL Server Encryption](https://msdn.microsoft.com/library/bb510663.aspx)
+- [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx)
+- [Always Encrypted Blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

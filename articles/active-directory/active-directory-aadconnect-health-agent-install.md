@@ -1,271 +1,277 @@
 <properties
-	pageTitle="Azure AD Connect Health Agent 설치 | Microsoft Azure"
-	description="AD FS 및 동기화를 위한 에이전트 설치에 관해 설명하는 Azure AD Connect Health 페이지입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="karavar"
-	manager="femila"
-	editor="karavar"/>
+    pageTitle="Azure AD Connect Health Agent installation | Microsoft Azure"
+    description="This is the Azure AD Connect Health page that describes the agent installation for AD FS and Sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="karavar"
+    manager="samueld"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/05/2016"
-	ms.author="vakarand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/18/2016"
+    ms.author="vakarand"/>
 
 
-# Azure AD Connect Health Agent 설치
 
-이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.
+# <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent Installation
 
-## 	요구 사항
-다음 표는 Azure AD Connect Health를 사용하기 위한 요구 사항 목록입니다.
+This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
 
-| 요구 사항 | 설명|
+##  <a name="requirements"></a>Requirements
+The following table is a list of requirements for using Azure AD Connect Health.
+
+| Requirement | Description|
 | ----------- | ---------- |
-|Azure AD Premium| Azure AD Connect Health는 Azure AD Premium 기능이기 때문에 Azure AD Premium이 필요합니다. </br></br>자세한 내용은 [Azure AD Premium 시작](active-directory-get-started-premium.md)을 참조하세요. </br>30일 무료 평가판을 시작하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요.|
-|사용자는 Azure AD Connect Health를 시작할 수 있는 Azure AD의 전역 관리자여야 합니다.|기본적으로 전역 관리자만 Health Agent를 설치할 수 있고, 이것을 시작하고 포털에 액세스하고 Azure AD Connect Health 내에서 작업을 수행하도록 구성할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요. <br><br> 역할 기반 액세스 제어를 사용하여 조직에서 다른 사용자에게 Azure AD Connect Health에 액세스할 수 있습니다. 자세한 내용은 [Azure AD Connect Health용 역할 기반 Access Control](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control)을 참조하세요. </br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure에 등록](sign-up-organization.md)을 참조하세요.
-|Azure AD Connect Health Agent는 각 대상 서버에 설치됩니다.| Azure AD Connect Health는 포털에 표시되는 데이터를 제공하기 위해 대상 서버에 에이전트 설치가 필요합니다. </br></br>예를 들어, AD FS 온-프레미스 인프라에서 데이터를 얻기 위해 AD FS, AD FS 프록시 및 웹 응용 프로그램 프록시 서버에 에이전트가 설치되어야 합니다. 마찬가지로 온-프레미스 AD DS 인프라에 대한 데이터를 가져오려면 에이전트는 도메인 컨트롤러에 설치되어야 합니다. </br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure에 등록](sign-up-organization.md)을 참조하세요.|
-|Azure 서비스 끝점에 대한 아웃바운드 연결|에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 끝점에 연결되어야 합니다. 아웃바운드 연결이 차단되면, 다음 끝점이 허용 목록에 추가되어 있는지 확인합니다.</br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
-|에이전트를 실행하는 서버의 방화벽 포트| 에이전트가 Azure AD Health 서비스 끝점과 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li>
-|IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용| IE 보안 강화를 사용하는 경우, 에이전트가 설치될 서버에 다음 웹 사이트가 허용되어야 합니다.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory에서 신뢰하는 조직의 페더레이션 서버입니다. 예: https://sts.contoso.com</li>
+|Azure AD Premium| Azure AD Connect Health is an Azure AD Premium feature and requires Azure AD Premium. </br></br>For more information, see [Getting started with Azure AD Premium](active-directory-get-started-premium.md) </br>To start a free 30-day trial, see [Start a trial.](https://azure.microsoft.com/trial/get-started-active-directory/)|
+|You must be a global administrator of your Azure AD to get started with Azure AD Connect Health|By default, only the global administrators can install and configure the health agents to get started, access the portal, and perform any operations within Azure AD Connect Health. For more information, see [Administering your Azure AD directory](active-directory-administer.md). <br><br> Using Role Based Access Control you can allow access to Azure AD Connect Health to other users in your organization. For more information, see [Role Based Access Control for Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Important:** The account used when installing the agents must be a work or school account. It cannot be a Microsoft account. For more information, see [Sign up for Azure as an organization](sign-up-organization.md)
+|The Azure AD Connect Health Agent is installed on each targeted server| Azure AD Connect Health requires an agent installation on targeted servers, to provide the data that is viewed in the portal. </br></br>For example, to get data from your AD FS on-premises infrastructure, the agent must be installed on the AD FS, AD FS Proxy, and Web Application Proxy servers. Similarly, to get data on your on-premises AD DS infrastructure, the agent must be installed on the domain controllers. </br></br>**Important:** The account used when installing the agents must be a work or school account. It cannot be a Microsoft account. For more information, see [Sign up for Azure as an organization](sign-up-organization.md)|
+|Outbound connectivity to the Azure service endpoints|During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked, ensure that the following endpoints are added to the allowed list: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|Firewall ports on the server running the agent.| The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li>
+|Allow the following websites if IE Enhanced Security is enabled| If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https://sts.contoso.com</li>
 
 
 
 
-## AD FS용 Azure AD Connect Health Agent 설치
-에이전트 설치를 시작하려면 다운로드한 .exe 파일을 두 번 클릭합니다. 첫 번째 화면에서 설치를 클릭합니다.
+## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Installing the Azure AD Connect Health Agent for AD FS
+To start the agent installation, double-click the .exe file that you downloaded. On the first screen, click Install.
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install1.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install1.png)
 
-설치가 완료되면 지금 구성을 클릭합니다.
+Once the installation is finished, click Configure Now.
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install2.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install2.png)
 
-명령 프롬프트가 실행된 다음 PowerShell에서 Register-AzureADConnectHealthADFSAgent가 실행됩니다. Azure에 로그인하라는 메시지가 표시되면, 로그인을 진행합니다.
+A command prompt is launched, followed by some PowerShell that executes Register-AzureADConnectHealthADFSAgent. When prompted to sign in to Azure, go ahead and sign in.
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install3.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install3.png)
 
 
-로그인한 후 PowerShell이 계속됩니다. 완료된 후에 PowerShell을 닫으면 구성이 완료됩니다.
+After signing in, PowerShell will continue. Once it completes, you can close PowerShell and the configuration is complete.
 
-이 때 서비스가 자동으로 시작되면서 에이전트에 모니터링과 데이터 수집이 허용됩니다. 이전 섹션에 설명된 필수 조건이 모두 충족되지 않으면 PowerShell 창에 경고가 표시됩니다. 에이전트를 설치하기 전에 [요구 사항](active-directory-aadconnect-health-agent-install.md#requirements)을 완료해야 합니다. 다음 스크린샷은 이러한 오류의 예입니다.
+At this point, the services should be started automatically allowing the agent to monitor and gather data. If you have not met all the pre-requisites outlined in the previous sections, warnings appear in the PowerShell window. Be sure to complete the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) before installing the agent. The following screenshot is an example of these errors.
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install4.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install4.png)
 
-에이전트가 설치되었는지 확인하려면 서버에서 다음 서비스를 살펴봅니다. 구성을 완료했다면 해당 서비스가 실행 중이어야 합니다. 그렇지 않으면 구성이 완료될 때까지 해당 서비스가 중지됩니다.
+To verify the agent has been installed, look for the following services on the server. If you completed the configuration, they should already be running. Otherwise, they are stopped until the configuration is complete.
 
 - Azure AD Connect Health AD FS Diagnostics Service
 - Azure AD Connect Health AD FS Insights Service
 - Azure AD Connect Health AD FS Monitoring Service
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install5.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
 
-### Windows Server 2008 R2 서버에서 에이전트 설치
+### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Agent installation on Windows Server 2008 R2 Servers
 
-Windows Server 2008 R2 서버에 대한 단계:
+Steps for Windows Server 2008 R2 servers:
 
-1. 서버가 서비스 팩 1 이상에서 실행되고 있는지 확인합니다.
-1. 에이전트 설치에 대해 IE ESC를 끕니다.
-1. AD Health Agent를 설치하기 전에 각 서버에 Windows PowerShell 4.0을 설치합니다. Windows PowerShell 4.0을 설치하려면
- - 오프라인 설치 관리자를 다운로드하려면 다음 링크를 사용하여 [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779)를 설치합니다.
- - Windows 기능에서 PowerShell ISE를 설치합니다.
- - [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 설치합니다.
- - 서버에서 Internet Explorer 버전 10 이상을 설치합니다. (Health Service에서 Azure 관리자 자격 증명을 사용하여 인증하는 데 필요합니다.)
-1. Windows Server 2008 R2에서 Windows PowerShell 4.0을 설치하는 방법에 대한 자세한 내용은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)에서 wiki 문서를 참조하세요.
+1. Ensure that the server is running at Service Pack 1 or higher.
+1. Turn off IE ESC for agent installation:
+1. Install Windows PowerShell 4.0 on each of the servers ahead of installing the AD Health agent. To install Windows PowerShell 4.0:
+ - Install [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) using the following link to download the offline installer.
+ - Install PowerShell ISE (From Windows Features)
+ - Install the [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
+ - Install Internet Explorer version 10 or above on the server. (Required by the Health Service to authenticate, using your Azure Admin credentials.)
+1. For more information on installing Windows PowerShell 4.0 on Windows Server 2008 R2, see the wiki article [here](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
-### AD FS 감사 사용
+### <a name="enable-auditing-for-ad-fs"></a>Enable Auditing for AD FS
 
-> [AZURE.NOTE] 이 섹션은 AD FS 페더레이션 서버에만 적용됩니다.
+> [AZURE.NOTE] This section only applies to AD FS federation servers.
 
-사용 현황 분석 기능을 통해 데이터를 수집하고 분석하려면 Azure AD Connect Health Agent에 AD FS 감사 로그의 정보가 필요합니다. 이러한 로그는 기본적으로 사용하도록 설정되어 있지 않습니다. AD FS 서버에서 AD FS 감사를 사용하도록 설정하고 AD FS 감사 로그를 찾으려면 다음 절차에 따르세요.
+In order for the Usage Analytics feature to gather and analyze data, the Azure AD Connect Health agent needs the information in the AD FS Audit Logs. These logs are not enabled by default. Use the following procedures to enable AD FS auditing and to locate the AD FS audit logs, on your AD FS servers.
 
-#### AD FS 2.0에 대해 감사를 사용하도록 설정하려면
+#### <a name="to-enable-auditing-for-ad-fs-2.0"></a>To enable auditing for AD FS 2.0
 
-1. **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **로컬 보안 정책**을 클릭합니다.
-2. **보안 설정\\로컬 정책\\사용자 권한 관리** 폴더로 이동하여 보안 감사 생성을 두 번 클릭합니다.
-3. **로컬 보안 설정** 탭에서 AD FS 2.0 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
-4. 감사를 사용하려면, 상승된 권한으로 명령 프롬프트를 열고 다음 명령을 실행합니다.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. 로컬 보안 정책을 닫고 관리 스냅인을 엽니다. 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 AD FS 2.0 관리를 클릭합니다.
-6. 작업 창에서 페더레이션 서비스 속성 편집을 클릭합니다.
-7. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
-8. **성공 감사** 및 **실패 감사** 확인란을 선택합니다.
-9. **확인**을 클릭합니다.
+1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
+2. Navigate to the **Security Settings\Local Policies\User Rights Management** folder, and then double-click Generate security audits.
+3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
+4. To enable auditing, open a command prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+5. Close Local Security Policy, and then open the Management snap-in. To open the Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click AD FS 2.0 Management.
+6. In the Actions pane, click Edit Federation Service Properties.
+7. In the **Federation Service Properties** dialog box, click the **Events** tab.
+8. Select the **Success audits** and **Failure audits** check boxes.
+9. Click **OK**.
 
-#### Windows Server 2012 R2에서 AD FS에 대해 감사를 사용하도록 설정하려면
+#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>To enable auditing for AD FS on Windows Server 2012 R2
 
-1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
-2. **보안 설정\\로컬 정책\\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
-3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
-4. 감사를 사용하려면, 상승된 권한으로 명령 프롬프트를 열고 다음 명령을 실행합니다.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. **로컬 보안 정책**을 닫고 **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
-6. 작업 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
-7. 페더레이션 서비스 속성 대화 상자에서 **이벤트** 탭을 클릭합니다.
-8. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다.
-
-
-
+1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
+2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
+3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
+4. To enable auditing, open a command prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+5. Close **Local Security Policy**, and then open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
+6. In the Actions pane, click **Edit Federation Service Properties**.
+7. In the Federation Service Properties dialog box, click the **Events** tab.
+8. Select the **Success audits and Failure audits** check boxes and then click **OK**.
 
 
 
-#### AD FS 감사 로그를 찾으려면
 
 
-1. **이벤트 뷰어**를 엽니다.
-2. Windows 로그로 이동하여 **보안**을 선택합니다.
-3. 오른쪽에서 **현재 로그 필터링**을 클릭합니다.
-4. 이벤트 소스에서 **AD FS 감사**를 선택합니다.
 
-![AD FS 감사 로그](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
+#### <a name="to-locate-the-ad-fs-audit-logs"></a>To locate the AD FS audit logs
 
-> [AZURE.WARNING] AD FS 감사를 사용하지 않도록 설정하는 그룹 정책이 있으면 Azure AD Connect Health Agent가 정보를 수집할 수 없습니다. 감사를 사용하지 않도록 설정할 수 있는 그룹 정책이 없는지 확인합니다.
 
-[//]: # "에이전트 프록시 구성 섹션의 시작"
+1. Open **Event Viewer**.
+2. Go to Windows Logs and select **Security**.
+3. On the right, click **Filter Current Logs**.
+4. Under Event Source, select **AD FS Auditing**.
 
-## 동기화용 Azure AD Connect Health Agent 설치
-동기화용 Azure AD Connect Health Agent는 Azure AD Connect의 최신 빌드에 자동으로 설치됩니다. Azure AD Connect를 동기화에 사용하려면 Azure AD Connect의 최신 버전을 다운로드하여 설치해야 합니다. 최신 버전은 [여기](http://www.microsoft.com/download/details.aspx?id=47594)에서 다운로드할 수 있습니다.
+![AD FS audit logs](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
-에이전트가 설치되었는지 확인하려면 서버에서 다음 서비스를 살펴봅니다. 구성을 완료했다면 해당 서비스가 실행 중이어야 합니다. 그렇지 않으면 구성이 완료될 때까지 해당 서비스가 중지됩니다.
+> [AZURE.WARNING] If a group policy that is disabling AD FS auditing exists, then the Azure AD Connect Health Agent is unable to collect information. Ensure that you don’t have a group policy that may be disabling auditing.
+
+[//]: # (Start of Agent Proxy Configuration Section)
+
+## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>Installing the Azure AD Connect Health agent for sync
+The Azure AD Connect Health agent for sync is installed automatically in the latest build of Azure AD Connect. To use Azure AD Connect for sync, you need to download the latest version of Azure AD Connect and install it. You can download the latest version [here](http://www.microsoft.com/download/details.aspx?id=47594).
+
+To verify the agent has been installed, look for the following services on the server. If you completed the configuration, they should already be running. Otherwise, they are stopped until the configuration is complete.
 
 - Azure AD Connect Health Sync Insights Service
 - Azure AD Connect Health Sync Monitoring Service
 
-![동기화에 대한 Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-sync/services.png)
+![Verify Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/services.png)
 
-> [AZURE.NOTE] Azure AD Connect Health를 사용하려면 Azure AD Premium이 필요합니다. Azure AD Premium이 없으면 Azure Portal에서 구성을 완료할 수 없습니다. 자세한 내용은 [요구 사항 페이지](active-directory-aadconnect-health-agent-install.md#requirements)를 참조하세요.
+> [AZURE.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium. If you do not have Azure AD Premium, you are unable to complete the configuration in the Azure portal. For more information, see the [requirements page](active-directory-aadconnect-health-agent-install.md#requirements).
 
 
-## 동기화에 대한 Azure AD Connect Health 수동 등록
-Azure AD Connect를 성공적으로 설치한 후 동기화에 대한 Azure AD Connect Health 등록이 실패할 경우 다음 PowerShell 명령을 사용하여 수동으로 에이전트를 등록할 수 있습니다.
+## <a name="manual-azure-ad-connect-health-for-sync-registration"></a>Manual Azure AD Connect Health for Sync registration
+If the Azure AD Connect Health for Sync agent registration fails after successfully installing Azure AD Connect, you can use the following PowerShell command to manually register the agent.
 
->[AZURE.IMPORTANT] 이 PowerShell 명령은 Azure AD Connect를 설치한 후 에이전트 등록에 실패하는 경우에만 필요합니다.
+>[AZURE.IMPORTANT] Using this PowerShell command is only required if the agent registration fails after installing Azure AD Connect.
 
-다음 PowerShell 명령은 Azure AD Connect를 성공적으로 설치 및 구성한 후에도 Health Agent 등록이 실패하는 경우에만 필요합니다. Azure AD Connect Health 서비스는 에이전트가 성공적으로 등록된 후에 시작됩니다.
+The following PowerShell command is required ONLY when the health agent registration fails even after a successful installation and configuration of Azure AD Connect. The Azure AD Connect Health services will start after the agent has been successfully registered.
 
-다음 PowerShell 명령을 사용하여 동기화에 대한 Azure AD Connect Health 에이전트를 수동으로 등록할 수 있습니다.
+You can manually register the Azure AD Connect Health agent for sync using the following PowerShell command:
 
 `Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
 
-이 명령은 다음 매개 변수를 사용합니다.
+The command takes following parameters:
 
-- AttributeFiltering: Azure AD Connect가 기본 특성 집합을 동기화하지 않으며 필터링된 특성 집합을 사용하도록 사용자 지정된 경우에는 $true(기본값)이고, 그렇지 않으면 $false입니다.
-- StagingMode: Azure AD Connect 서버가 준비 모드에 있지 않으면 $false(기본값)이고, 서버가 준비 모드에 있도록 구성되면 $true입니다.
+- AttributeFiltering: $true (default) - if Azure AD Connect is not syncing the default attribute set and has been customized to use a filtered attribute set. $false otherwise.
+- StagingMode: $false (default) - if the Azure AD Connect server is NOT in staging mode, $true if the server is configured to be in staging mode.
 
-인증하라는 메시지가 표시되면 Azure AD Connect 구성에 사용한 것과 동일한 전역 관리자 계정(예: admin@domain.onmicrosoft.com)을 사용해야 합니다.
+When prompted for authentication you should use the same global admin account (such as admin@domain.onmicrosoft.com) that was used for configuring Azure AD Connect.
 
-## AD DS용 Azure AD Connect Health 에이전트 설치
-에이전트 설치를 시작하려면 다운로드한 .exe 파일을 두 번 클릭합니다. 첫 번째 화면에서 설치를 클릭합니다.
+## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds"></a>Installing the Azure AD Connect Health Agent for AD DS
+To start the agent installation, double-click the .exe file that you downloaded. On the first screen, click Install.
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)
 
-설치가 완료되면 지금 구성을 클릭합니다.
+Once the installation is finished, click Configure Now.
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install2.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install2.png)
 
-명령 프롬프트가 실행된 다음 PowerShell에서 Register-AzureADConnectHealthADDSAgent가 실행됩니다. Azure에 로그인하라는 메시지가 표시되면, 로그인을 진행합니다.
+A command prompt is launched, followed by some PowerShell that executes Register-AzureADConnectHealthADDSAgent. When prompted to sign in to Azure, go ahead and sign in.
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
 
-로그인한 후 PowerShell이 계속됩니다. 완료된 후에 PowerShell을 닫으면 구성이 완료됩니다.
+After signing in, PowerShell will continue. Once it completes, you can close PowerShell and the configuration is complete.
 
-이 때 서비스가 자동으로 시작되면서 에이전트에 모니터링과 데이터 수집이 허용됩니다. 이전 섹션에 설명된 필수 조건이 모두 충족되지 않으면 PowerShell 창에 경고가 표시됩니다. 에이전트를 설치하기 전에 [요구 사항](active-directory-aadconnect-health-agent-install.md#requirements)을 완료해야 합니다. 다음 스크린샷은 이러한 오류의 예입니다.
+At this point, the services should be started automatically allowing the agent to monitor and gather data. If you have not met all the pre-requisites outlined in the previous sections, warnings appear in the PowerShell window. Be sure to complete the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) before installing the agent. The following screenshot is an example of these errors.
 
-![AD DS용 Azure AD Connect Health 확인](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
+![Verify Azure AD Connect Health for AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
-에이전트가 설치되었는지 확인하려면 도메인 컨트롤러에서 다음 서비스를 살펴봅니다.
+To verify the agent has been installed, look for the following services on the domain controller.
 
-- Azure AD Connect Health AD DS Insights 서비스
-- Azure AD Connect Health AD DS 모니터링 서비스
+- Azure AD Connect Health AD DS Insights Service
+- Azure AD Connect Health AD DS Monitoring Service
 
-구성을 완료했다면 이러한 서비스가 이미 실행 중이어야 합니다. 그렇지 않으면 구성이 완료될 때까지 해당 서비스가 중지됩니다.
+If you completed the configuration, these services should already be running. Otherwise, they are stopped until the configuration is complete.
 
-![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
+![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
-## Server Core에 AD DS용 Azure AD Connect Health 에이전트 설치. 
-.exe 파일을 설치한 후 다음 PowerShell 명령을 사용하여 등록 프로세스를 완료할 수 있습니다.
+## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds-on-server-core."></a>Installing the Azure AD Connect Health Agent for AD DS on Server Core.
+After installing the .exe file, you can complete the registration process by using the following PowerShell command:
 
 `Register-AzureADConnectHealthADDSAgent -Credential $cred`
 
-## HTTP 프록시를 사용하도록 Azure AD Connect Health Agent 구성
-HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수 있습니다.
+## <a name="configure-azure-ad-connect-health-agents-to-use-http-proxy"></a>Configure Azure AD Connect Health Agents to use HTTP Proxy
+You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.
 
 >[AZURE.NOTE]
-- 에이전트가 Microsoft Windows HTTP Services 대신 System.Net을 사용하여 웹 요청을 수행하므로 “Netsh WinHttp set ProxyServerAddress” 사용이 지원되지 않습니다.
-- 구성된 Http 프록시 주소는 암호화된 Https 메시지를 통과하는 데 사용됩니다.
-- 인증된 프록시(HTTPBasic 사용)는 지원되지 않습니다.
+- Using “Netsh WinHttp set ProxyServerAddress” is not supported as the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services.
+- The configured Http Proxy address is used to pass-through encrypted Https messages.
+- Authenticated proxies (using HTTPBasic) are not supported.
 
-### Health Agent 프록시 구성 변경
-HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
+### <a name="change-health-agent-proxy-configuration"></a>Change Health Agent Proxy Configuration
+You have the following options to configure Azure AD Connect Health Agent to use an HTTP Proxy.
 
->[AZURE.NOTE] 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령을 실행합니다.<br> Restart-Service AdHealth*
+>[AZURE.NOTE] All Azure AD Connect Health Agent services must be restarted, in order for the proxy settings to be updated. Run the following command:<br>
+    Restart-Service AdHealth*
 
-#### 기존 프록시 설정 가져오기
+#### <a name="import-existing-proxy-settings"></a>Import existing proxy Settings
 
-##### Internet Explorer에서 가져오기
-Internet Explorer HTTP 프록시 설정을 가져와서 Azure AD Connect Health Agent에서 사용되도록 할 수 있습니다. Health Agent를 실행하는 각 서버에 다음 PowerShell 명령을 실행합니다.
+##### <a name="import-from-internet-explorer"></a>Import from Internet Explorer
+Internet Explorer HTTP proxy settings can be imported, to be used by the Azure AD Connect Health Agents. On each of the servers running the Health agent, execute the following PowerShell command:
 
-	Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+    Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
 
-##### WinHTTP에서 가져오기
-WinHTTP HTTP 프록시 설정을 가져와서 Azure AD Connect Health Agent에서 사용되도록 할 수 있습니다. Health Agent를 실행하는 각 서버에 다음 PowerShell 명령을 실행합니다.
+##### <a name="import-from-winhttp"></a>Import from WinHTTP
+WinHTTP proxy settings can be imported, to be used by the Azure AD Connect Health Agents. On each of the servers running the Health agent, execute the following PowerShell command:
 
-	Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+    Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
 
-#### 수동으로 프록시 주소 지정
-다음 PowerShell 명령을 실행하면 Health Agent를 실행하는 각 서버에 프록시 서버를 수동으로 설정할 수 있습니다.
+#### <a name="specify-proxy-addresses-manually"></a>Specify Proxy addresses manually
+You can manually specify a proxy server on each of the servers running the Health Agent, by executing the following PowerShell command:
 
-	Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+    Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
-예: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
+Example: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
 
-- "address"는 DNS 확인 가능 서버 이름 또는 IPv4 주소일 수 있습니다.
-- "port"는 생략할 수 있습니다. 생략하면 443이 기본 포트로 선택됩니다.
+- "address" can be a DNS resolvable server name or an IPv4 address
+- "port" can be omitted. If omitted then 443 is chosen as default port.
 
-#### 기존 프록시 구성 지우기
-다음 명령을 실행하여 기존 프록시 구성을 지울 수 있습니다.
+#### <a name="clear-existing-proxy-configuration"></a>Clear existing proxy configuration
+You can clear the existing proxy configuration by running the following command:
 
-	Set-AzureAdConnectHealthProxySettings -NoProxy
-
-
-### 현재 프록시 설정 읽기
-다음 명령을 실행하여 현재 구성된 프록시 설정을 읽을 수 있습니다.
-
-	Get-AzureAdConnectHealthProxySettings
+    Set-AzureAdConnectHealthProxySettings -NoProxy
 
 
-## Azure AD Connect Health 서비스에 대한 테스트 연결
-Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와의 연결이 끊어지게 하는 문제가 발생할 수 있습니다. 여기에는 네트워크 문제, 권한 문제 또는 기타 다양한 이유가 포함됩니다.
+### <a name="read-current-proxy-settings"></a>Read current proxy settings
+You can read the currently configured proxy settings by running the following command:
 
-에이전트에서 2시간 넘게 Azure AD Connect Health 서비스에 데이터를 보낼 수 없으면 "상태 서비스 데이터가 최신 상태가 아닙니다."라는 경고가 포털에 표시됩니다. 다음 PowerShell 명령을 실행하면 영향을 받는 Azure AD Connect Health Agent가 Azure AD Connect Health 서비스에 데이터를 업로드할 수 있는지 확인할 수 있습니다.
+    Get-AzureAdConnectHealthProxySettings
+
+
+## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Test Connectivity to Azure AD Connect Health Service
+It is possible that issues may arise that cause the Azure AD Connect Health agent to lose connectivity with the Azure AD Connect Health service. These include network issues, permission issues, or various other reasons.
+
+If the agent is unable to send data to the Azure AD Connect Health service for longer than two hours, it is indicated with the following alert in the portal: "Health Service data is not up to date." You can confirm if the affected Azure AD Connect Health agent is able to upload data to the Azure AD Connect Health service by running the following PowerShell command:
 
     Test-AzureADConnectHealthConnectivity -Role ADFS
 
-역할 매개 변수가 현재 다음 값을 사용합니다.
+The role parameter currently takes the following values:
 
 - ADFS
-- 동기화
+- Sync
 - ADDS
 
-명령에서 -ShowResults 플래그를 사용하면 자세한 내용을 볼 수 있습니다. 다음 예제를 사용합니다.
+You can use the -ShowResults flag in the command to view detailed logs. Use the following example:
 
     Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
->[AZURE.NOTE]연결 도구를 사용하려면 먼저 에이전트 등록을 완료해야 합니다. 에이전트 등록을 완료할 수 없는 경우 Azure AD Connect Health에 대한 [요구 사항](active-directory-aadconnect-health-agent-install.md#requirements)을 모두 충족했는지 확인합니다. 이 연결 테스트는 에이전트를 등록하는 동안 기본적으로 수행됩니다.
+>[AZURE.NOTE]To use the connectivity tool, you must first complete the agent registration. If you are not able to complete the agent registration, make sure that you have met all the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health. This connectivity test is performed by default during agent registration.
 
 
 
-## 관련 링크
+## <a name="related-links"></a>Related links
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
-* [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
-* [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
-* [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
+* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
+* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
+* [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

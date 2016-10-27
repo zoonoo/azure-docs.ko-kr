@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure에서 Office 365 구독의 디렉터리 관리 | Microsoft Azure"
-   description="Azure Active Directory 및 Azure 클래식 포털을 사용하여 Office 365 구독 디렉터리 관리"
+   pageTitle="Manage the directory for your Office 365 subscription in Azure | Microsoft Azure"
+   description="Managing an Office 365 subscription directory using Azure Active Directory and the Azure classic portal"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -16,49 +16,54 @@
    ms.date="08/23/2016"
    ms.author="curtand"/>
 
-# Azure에서 Office 365 구독의 디렉터리 관리
 
-이 문서에서는 Azure 클래식 포털을 사용하여 Office 365 구독에 대해 만들어진 디렉터리를 관리하는 방법을 설명합니다. Azure 클래식 포털에 로그인하려면 Azure 구독의 서비스 관리자 또는 공동 관리자여야 합니다. Azure 구독이 없는 경우 지금 [무료 30일 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)에 등록하면 이 링크를 사용하여 5분 내에 첫 번째 클라우드 솔루션을 배포할 수 있습니다. Office 365에 로그인하는 데 사용하는 회사 또는 학교 계정을 사용해야 합니다.
+# <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Manage the directory for your Office 365 subscription in Azure
 
-Azure 구독을 완료한 후 Azure 클래식 포털에 로그인하고 Azure 서비스에 액세스할 수 있습니다. Active Directory 확장을 클릭하여 Office 365 사용자를 인증하는 동일한 디렉터리를 관리합니다.
+This article describes how to manage a directory that was created for an Office 365 subscription, using the Azure classic portal. You must be either the Service Administrator or a co-administrator of an Azure subscription to sign in to the Azure classic portal. If you don’t yet have an Azure subscription, you can sign up for a [free 30-day trial](https://azure.microsoft.com/trial/get-started-active-directory/) today and deploy your first cloud solution in under 5 minutes, using this link. Be sure to use the work or school account that you use to sign in to Office 365.
 
-Azure 구독이 이미 있는 경우 추가 디렉터리를 관리하는 프로세스도 간단히 수행할 수 있습니다. 예를 들어 Michael Smith는 Contoso.com에 대한 Office 365 구독을 보유하고 있습니다. 그에게는 본인의 Microsoft 계정인 msmith@hotmail.com을 사용하여 등록한 Azure 구독도 있습니다. 이 경우 두 개의 디렉터리를 관리하게 됩니다.
+After you complete the Azure subscription, you can sign in to the Azure classic portal and access Azure services. Click the Active Directory extension to manage the same directory that authenticates your Office 365 users.
 
- 구독 | Office 365 | Azure
+If you do already have an Azure subscription, the process to manage an additional directory is also straightforward. For example, Michael Smith might have an Office 365 subscription for Contoso.com. He also has an Azure subscription that he signed up for by using his Microsoft account, msmith@hotmail.com. In this case, he manages two directories.
+
+  Subscription |  Office 365  |  Azure
   -------------- | ------------- | -------------------------------
- 표시 이름 | Contoso | 기본 Azure AD(Azure Active Directory) 디렉터리
- 도메인 이름 | contoso.com | msmithhotmail.onmicrosoft.com
+  Display name |  Contoso  |     Default Azure Active Directory (Azure AD) directory
+  Domain name  |  contoso.com  | msmithhotmail.onmicrosoft.com
 
-그는 다단계 인증 등의 Azure AD 기능을 설정할 수 있도록 Microsoft 계정을 사용하여 Azure에 로그인한 동안 Contoso 디렉터리의 사용자 ID를 관리하려고 합니다. 다음 다이어그램은 프로세스를 설명하는 데 도움이 될 수 있습니다.
+He wants to manage the user identities in the Contoso directory while he is signed in to Azure using his Microsoft account, so that he can enable Azure AD features such as multifactor authentication. The following diagram may help to illustrate the process.
 
-![독립적인 두 디렉터리를 관리하는 다이어그램](./media/active-directory-manage-o365-subscription/AAD_O365_03.png)
+![Diagram to manage two independent directories](./media/active-directory-manage-o365-subscription/AAD_O365_03.png)
 
-이 경우 두 디렉터리는 서로 독립적입니다.
+In this case, the two directories are independent of each other.
 
-## 독립적인 두 디렉터리를 관리하려면
-Michael Smith는 Azure에 msmith@hotmail.com으로 로그인한 동안 두 디렉터리를 관리하기 위해 다음 단계를 완료해야 합니다.
+## <a name="to-manage-two-independent-directories"></a>To manage two independent directories
+In order for Michael Smith to manage both directories while he is signed in to Azure as msmith@hotmail.com, he must complete the following steps:
 
 > [AZURE.NOTE]
-이러한 단계는 사용자가 Microsoft 계정으로 로그인한 경우에만 완료할 수 있습니다. 사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 **기존 디렉터리 사용**을 사용할 수 없습니다. 회사 또는 학교 계정은 홈 디렉터리(즉, 회사 또는 학교 계정이 저장되고 회사 또는 학교에서 소유한 디렉터리)에 의해서만 인증될 수 있습니다.
+> These steps can be completed only when a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option to **Use existing directory** isn't available. A work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and that the business or school owns).
 
-1.	[Azure 클래식 포털](https://manage.windowsazure.com)에 msmith@hotmail.com로 로그인합니다.
-2.	**새로 만들기** > **앱 서비스** > **Active Directory** > **디렉터리** > **사용자 지정 만들기**를 클릭합니다.
-3.	기존 디렉터리 사용을 클릭하고 **지금 로그아웃** 확인란을 선택합니다.
-4.	Contoso.onmicrosoft.com의 전역 관리자로 Azure 클래식 포털에 로그인합니다(예: msmith@contoso.com).
-5.	**Azure로 Contoso 디렉터리를 사용할까요?**라는 메시지가 나타나면 **계속**을 클릭합니다.
-6.	**지금 로그아웃**을 클릭합니다.
-7.	msmith@hotmail.com에서와 같이 Azure 클래식 포털에 로그인합니다. Contoso 디렉터리와 기본 디렉터리가 Active Directory 확장에 표시됩니다.
+1.  Sign in to the [Azure classic portal](https://manage.windowsazure.com) as msmith@hotmail.com.
+2.  Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
+3.  Click Use existing directory and select the **I am ready to be signed out now** checkbox.
+4.  Sign in to the Azure classic portal as global admin of Contoso.onmicrosoft.com (for example, msmith@contoso.com).
+5.  When prompted to **Use the Contoso directory with Azure?**, click **Continue**.
+6.  Click **Sign out now**.
+7.  Sign in to the Azure classic portal as msmith@hotmail.com. The Contoso directory and the Default directory appear in the Active Directory extension.
 
-다음 단계가 완료되면 msmith@hotmail.com은 Contoso 디렉터리의 전역 관리자가 됩니다.
+After completing these steps, msmith@hotmail.com is a global administrator in the Contoso directory.
 
-## 전역 관리자로 리소스를 관리하려면
-이제 Jane Doe가 msmith@hotmail.com의 Azure 구독과 연결된 웹 사이트 및 데이터베이스 리소스를 관리해야 한다고 가정해 봅니다. 이렇게 하려면 Michael Smith는 다음 추가 단계를 완료해야 합니다.
+## <a name="to-administer-resources-as-the-global-admin"></a>To administer resources as the global admin
+Now let’s suppose that Jane Doe needs administer websites and database resources that are associated with the Azure subscription for msmith@hotmail.com. Before she can do that, Michael Smith needs to complete these additional steps:
 
-1.	Azure 구독의 서비스 관리자 계정을 사용하여 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다(이 예에서는 msmith@hotmail.com).
-2.	Contoso 디렉터리로 구독을 전송합니다. 이를 위해 **설정** > **구독**을 클릭하고 구독을 선택한 후 **디렉터리 편집** > **Contoso(Contoso.com)**를 선택합니다. 전송 과정이 진행되면서 구독의 공동 관리자인 모든 회사 또는 학교 계정이 제거됩니다.
-3.	Jane Doe를 구독의 공동 관리자로 추가합니다. 이를 위해 **설정** > **관리자**를 클릭하고 구독 > **추가**를 선택한 다음 **JohnDoe@Contoso.com**을 입력합니다.
+1.  Sign in to the [Azure classic portal](https://manage.windowsazure.com) using the Service Administrator account for the Azure subscription (in this example, msmith@hotmail.com).
+2.  Transfer the subscription to the Contoso directory: click **Settings** > **Subscriptions** > select the subscription > **Edit Directory** > select **Contoso (Contoso.com)**. As part of the transfer, any work or school accounts that are co-administrators of the subscription are removed.
+3.  Add Jane Doe as co-administrator of the subscription: click **Settings** > **Administrators** > select the subscription > **Add** > type **JohnDoe@Contoso.com**.
 
-## 다음 단계
-구독과 디렉터리 간의 관계에 대한 자세한 내용은 [구독과 디렉터리의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+## <a name="next-steps"></a>Next steps
+For more information about the relationship between subscriptions and directories, see [How a subscription is associated with a directory](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

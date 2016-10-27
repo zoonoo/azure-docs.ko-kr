@@ -1,15 +1,17 @@
-형식 | 부여 | 트리거 | 입력 | 출력 
+Type | Service | Trigger | Input | Output 
 -----|---------|---------|-------|--------
-일정 | Azure 기능 | &#10004; | | 
-HTTP(REST 또는 webhook) | Azure 기능 | &#10004; | | &#10004;*
-Blob 저장소 | Azure 저장소 | &#10004; | &#10004; | &#10004; 
-이벤트 | Azure 이벤트 허브 | &#10004; | | &#10004;
-큐 | Azure 저장소 | &#10004; | | &#10004;
-테이블 | Azure 저장소 | | &#10004; | &#10004;
-테이블 | Azure 모바일 앱 | | &#10004; | &#10004;
-No-SQL DB | Azure DocumentDB | | &#10004; | &#10004;
-푸시 알림 | Azure 알림 허브 | | | &#10004;
+Schedule | Azure Functions | &#10004; |  | 
+HTTP (REST or webhook) | Azure Functions | &#10004; |  | &#10004;\*
+Blob Storage | Azure Storage | &#10004; | &#10004; | &#10004; 
+Events | Azure Event Hubs | &#10004; | | &#10004;
+Queues | Azure Storage | &#10004; |  | &#10004;
+Tables | Azure Storage |  | &#10004; | &#10004;
+Tables | Azure Mobile Apps |  | &#10004; | &#10004;
+No-SQL DB | Azure DocumentDB |  | &#10004; | &#10004;
+Push Notifications | Azure Notification Hubs | | | &#10004;
 
-(* - http 아웃 바인딩은 http 트리거가 필요함)
+(\* - The http out binding requires an http trigger)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

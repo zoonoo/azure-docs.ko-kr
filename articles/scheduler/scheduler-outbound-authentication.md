@@ -1,10 +1,10 @@
 <properties
- pageTitle="스케줄러 아웃바운드 인증"
- description="스케줄러 아웃바운드 인증"
+ pageTitle="Scheduler Outbound Authentication"
+ description="Scheduler Outbound Authentication"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,45 +13,46 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/15/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
-# 스케줄러 아웃바운드 인증
 
-인증을 요구하는 서비스를 호출하기 위해 스케줄러 작업이 필요할 수 있습니다. 이를 통해, 호출된 서비스가 스케줄러 작업이 리소스에 액세스 가능한지 여부를 결정할 수 있습니다. 이러한 서비스 중 일부에는 다른 Azure 서비스, Salesforce.com, Facebook 및 보안 사용자 지정 웹사이트가 포함됩니다.
+# <a name="scheduler-outbound-authentication"></a>Scheduler Outbound Authentication
 
-## 인증 추가 및 제거
+Scheduler jobs may need to call out to services that require authentication. This way, a called service can determine if the Scheduler job can access its resources. Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.
 
-스케줄러 작업에 간단하게 인증을 추가할 수 있습니다. 즉 작업을 만들거나 업데이트할 때 JSON 자식 요소 `authentication`을 `request` 요소에 추가합니다. `authentication` 개체의 일부로 PUT, PATCH 또는 POST 요청에서 스케줄러 서비스에 전달되는 암호는 응답에서 절대 반환되지 않습니다. 응답에서 암호 정보는 null로 설정되거나, 인증된 엔터티를 나타내는 공용 토큰을 갖을 수 있습니다.
+## <a name="adding-and-removing-authentication"></a>Adding and Removing Authentication
 
-인증을 제거하려면 작업을 명시적으로 PUT 또는 PATCH하여 `authentication` 개체를 null로 설정합니다. 응답에는 인증 속성이 하나도 표시되지 않습니다.
+Adding authentication to a Scheduler job is simple – add a JSON child element `authentication` to the `request` element when creating or updating a job. Secrets passed to the Scheduler service in a PUT, PATCH, or POST request – as part of the `authentication` object – are never returned in responses. In responses, secret information is set to null or may have a public token that represents the authenticated entity.
 
-현재 지원되는 인증 유형은 `ClientCertificate`모델(SSL/TLS 클라이언트 인증서를 사용할 경우), `Basic`(기본 인증의 경우), `ActiveDirectoryOAuth`(Active Directory OAuth 인증용)뿐입니다.
+To remove authentication, PUT or PATCH the job explicitly, setting the `authentication` object to null. You will not see any authentication properties back in response.
 
-## ClientCertificate 인증에 대한 요청 본문
+Currently, the only supported authentication types are the `ClientCertificate` model (for using the SSL/TLS client certificates), the `Basic` model (for Basic authentication), and the `ActiveDirectoryOAuth` model (for Active Directory OAuth authentication.)
 
-`ClientCertificate` 모델을 사용하여 인증을 추가할 때는 다음 추가 요소를 요청 본문에 추가합니다.
+## <a name="request-body-for-clientcertificate-authentication"></a>Request Body for ClientCertificate Authentication
 
-|요소|설명|
+When adding authentication using the `ClientCertificate` model, specify the following additional elements in the request body.  
+
+|Element|Description|
 |:---|:---|
-|_인증(부모 요소)_|SSL 클라이언트 인증서를 사용하기 위한 인증 개체 입니다.|
-|_type_|필수입니다. 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다.|
-|_pfx_|필수입니다. PFX 파일의 Base64 인코딩 콘텐츠입니다.|
-|_password_|필수입니다. PFX 파일에 액세스하기 위한 암호입니다.|
+|_authentication (parent element)_|Authentication object for using an SSL client certificate.|
+|_type_|Required. Type of authentication.For SSL client certificates, the value must be `ClientCertificate`.|
+|_pfx_|Required. Base64-encoded contents of the PFX file.|
+|_password_|Required. Password to access the PFX file.|
 
 
-## ClientCertificate 인증에 대한 응답 본문
+## <a name="response-body-for-clientcertificate-authentication"></a>Response Body for ClientCertificate Authentication
 
-인증 정보와 함께 요청을 보내면 응답에는 다음 인증 관련 요소가 포함됩니다.
+When a request is sent with authentication info, the response contains the following authentication-related elements.
 
-|요소 |설명 |
+|Element |Description |
 |:--|:--|
-|_인증(부모 요소)_ |SSL 클라이언트 인증서를 사용하기 위한 인증 개체 입니다.|
-|_type_ |인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다.|
-|_certificateThumbprint_ |인증서의 지문입니다.|
-|_certificateSubjectName_ |인증서의 주체 고유 이름입니다.|
-|_certificateExpiration_ |인증서의 만료일입니다.|
+|_authentication (parent element)_ |Authentication object for using an SSL client certificate.|
+|_type_ |Type of authentication. For SSL client certificates, the value is `ClientCertificate`.|
+|_certificateThumbprint_ |The thumbprint of the certificate.|
+|_certificateSubjectName_ |The subject distinguished name of the certificate.|
+|_certificateExpiration_ |The expiration date of the certificate.|
 
-## ClientCertificate 인증에 대한 샘플 REST 요청
+## <a name="sample-rest-request-for-clientcertificate-authentication"></a>Sample REST Request for ClientCertificate Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -67,10 +68,10 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "type": "clientcertificate",
           "password": "password",
           "pfx": "pfx key"
@@ -88,7 +89,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## ClientCertificate 인증에 대한 샘플 REST 응답
+## <a name="sample-rest-response-for-clientcertificate-authentication"></a>Sample REST Response for ClientCertificate Authentication
 
 ```
 HTTP/1.1 200 OK
@@ -145,28 +146,28 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## 기본 인증의 요청 본문
+## <a name="request-body-for-basic-authentication"></a>Request Body for Basic Authentication
 
-`Basic` 모델을 사용하여 인증을 추가할 때는 다음 추가 요소를 요청 본문에 추가합니다.
+When adding authentication using the `Basic` model, specify the following additional elements in the request body.
 
-|요소|설명|
+|Element|Description|
 |:--|:--|
-|_인증(부모 요소)_ |기본 인증을 사용 하기 위한 인증 개체입니다.|
-|_type_ |필수입니다. 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다.|
-|_username_ |필수입니다. 인증하기 위한 사용자 이름입니다.|
-|_password_ |필수입니다. 인증하기 위한 암호입니다.|
+|_authentication (parent element)_ |Authentication object for using Basic authentication.|
+|_type_ |Required. Type of authentication. For Basic authentication, the value must be `Basic`.|
+|_username_ |Required. Username to authenticate.|
+|_password_ |Required. Password to authenticate.|
 
-## 기본 인증의 응답 본문
+## <a name="response-body-for-basic-authentication"></a>Response Body for Basic Authentication
 
-인증 정보와 함께 요청을 보내면 응답에는 다음 인증 관련 요소가 포함됩니다.
+When a request is sent with authentication info, the response contains the following authentication-related elements.
 
-|요소|설명|
+|Element|Description|
 |:--|:--|
-|_인증(부모 요소)_ |기본 인증을 사용 하기 위한 인증 개체입니다.|
-|_type_ |인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다.|
-|_username_ |인증된 사용자 이름입니다.|
+|_authentication (parent element)_ |Authentication object for using Basic authentication.|
+|_type_ |Type of authentication. For Basic authentication, the value is `Basic`.|
+|_username_ |The authenticated username.|
 
-## 기본 인증에 대한 샘플 REST 요청
+## <a name="sample-rest-request-for-basic-authentication"></a>Sample REST Request for Basic Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -183,12 +184,12 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "type": "basic",
-		  "username": "user",
+          "username": "user",
           "password": "password"
         }
       },
@@ -204,7 +205,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## 기본 인증에 대한 샘플 REST 응답
+## <a name="sample-rest-response-for-basic-authentication"></a>Sample REST Response for Basic Authentication
 
 ```
 HTTP/1.1 200 OK
@@ -259,36 +260,36 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## ActiveDirectoryOAuth 인증의 요청 본문
+## <a name="request-body-for-activedirectoryoauth-authentication"></a>Request Body for ActiveDirectoryOAuth Authentication
 
-`ActiveDirectoryOAuth` 모델을 사용하여 인증을 추가할 때는 다음 추가 요소를 요청 본문에 추가합니다.
+When adding authentication using the `ActiveDirectoryOAuth` model, specify the following additional elements in the request body.
 
-|요소 |설명 |
+|Element |Description |
 |:--|:--|
-|_인증(부모 요소)_ |ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체입니다.|
-|_type_ |필수입니다. 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다.|
-|_tenant_ |필수입니다. Azure AD 테넌트의 테넌트 식별자입니다.|
-|_audience_ |필수입니다. 이 값은 https://management.core.windows.net/.|로 설정됩니다.
-|_clientId_ |필수입니다. Azure AD 응용 프로그램의 클라이언트 ID를 제공합니다.|
-|_secret_ |필수입니다. 토큰을 요청하는 클라이언트의 암호입니다.|
+|_authentication (parent element)_ |Authentication object for using ActiveDirectoryOAuth authentication.|
+|_type_ |Required. Type of authentication. For ActiveDirectoryOAuth authentication, the value must be `ActiveDirectoryOAuth`.|
+|_tenant_ |Required. The tenant identifier for the Azure AD tenant.|
+|_audience_ |Required. This is set to https://management.core.windows.net/.|
+|_clientId_ |Required. Provide the client identifier for the Azure AD application.|
+|_secret_ |Required. Secret of the client that is requesting the token.|
 
-### 테넌트 식별자 확인
+### <a name="determining-your-tenant-identifier"></a>Determining your Tenant Identifier
 
-Azure PowerShell에서 `Get-AzureAccount`를 실행하여 Azure AD 테넌트의 테넌트 식별자를 확인할 수 있습니다.
+You can find the tenant identifier for the Azure AD tenant by running `Get-AzureAccount` in Azure PowerShell.
 
-## ActiveDirectoryOAuth 인증의 응답 본문
+## <a name="response-body-for-activedirectoryoauth-authentication"></a>Response Body for ActiveDirectoryOAuth Authentication
 
-인증 정보와 함께 요청을 보내면 응답에는 다음 인증 관련 요소가 포함됩니다.
+When a request is sent with authentication info, the response contains the following authentication-related elements.
 
-|요소 |설명 |
+|Element |Description |
 |:--|:--|
-|_인증(부모 요소)_ |ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체입니다.|
-|_type_ |인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다.|
-|_tenant_ |Azure AD 테넌트의 테넌트 식별자입니다. |
-|_audience_ |이 값은 https://management.core.windows.net/.|로 설정됩니다.
-|_clientId_ |Azure AD 응용 프로그램의 클라이언트 ID입니다.|
+|_authentication (parent element)_ |Authentication object for using ActiveDirectoryOAuth authentication.|
+|_type_ |Type of authentication. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`.|
+|_tenant_ |The tenant identifier for the Azure AD tenant. |
+|_audience_ |This is set to https://management.core.windows.net/.|
+|_clientId_ |The client identifier for the Azure AD application.|
 
-## ActiveDirectoryOAuth 인증에 대한 샘플 REST 요청
+## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>Sample REST Request for ActiveDirectoryOAuth Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -305,10 +306,10 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "tenant":"microsoft.onmicrosoft.com",
           "audience":"https://management.core.windows.net/",
           "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
@@ -328,7 +329,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## ActiveDirectoryOAuth 인증에 대한 샘플 REST 응답
+## <a name="sample-rest-response-for-activedirectoryoauth-authentication"></a>Sample REST Response for ActiveDirectoryOAuth Authentication
 
 ```
 HTTP/1.1 200 OK
@@ -386,23 +387,27 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## 참고 항목
+## <a name="see-also"></a>See Also
 
 
- [스케줄러란?](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

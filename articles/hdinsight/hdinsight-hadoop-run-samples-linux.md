@@ -1,36 +1,37 @@
 <properties
-	pageTitle="Linux 기반 HDInsight에서 Hadoop MapReduce 샘플을 실행 | Microsoft Azure"
-	description="Linux 기반 HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="jhubbard"
-	editor="cgronlun"
+    pageTitle="Linux 기반 HDInsight에서 Hadoop MapReduce 샘플을 실행 | Microsoft Azure"
+    description="Linux 기반 HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"
     tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="larryfr"/>
 
 
 
 
-#HDInsight에서 Hadoop 샘플 실행
+
+#<a name="run-the-hadoop-samples-in-hdinsight"></a>HDInsight에서 Hadoop 샘플 실행
 
 [AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히는 데 사용할 수 있는 MapReduce 샘플 집합을 제공합니다. 이 문서에서는 사용 가능한 샘플을 살펴보고 그 중 일부를 실행하는 과정을 안내합니다.
 
-##필수 조건
+##<a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
+- **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
-- **Linux 기반 HDInsight 클러스터**: [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+- **Linux 기반 HDInsight 클러스터**: [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 
 - **SSH 클라이언트**: HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -38,9 +39,9 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
     - [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-## 샘플 ##
+## <a name="the-samples"></a>샘플 ##
 
-**위치**: 샘플은 HDInsight 클러스터(**/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**)에 있습니다.
+**위치**: 샘플은 HDInsight 클러스터 **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**에 있습니다.
 
 **내용**: 이 보관 파일에는 다음 샘플이 들어 있습니다.
 
@@ -67,11 +68,11 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 - **wordmedian**: 입력 파일의 중앙 단어 길이를 계산하는 map/reduce 프로그램
 - **wordstandarddeviation**: 입력 파일의 단어 길이 표준 편차를 계산하는 map/reduce 프로그램
 
-**소스 코드**: 이러한 샘플에 대한 소스 코드는 HDInsight 클러스터(**/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**)에 포함되어 있습니다.
+**소스 코드**: 이러한 샘플에 대한 소스 코드는 HDInsight 클러스터 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**에 포함되어 있습니다.
 
-> [AZURE.NOTE] 경로의 `2.2.4.9-1`은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
+> [AZURE.NOTE]  `2.2.4.9-1` 은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
 
-## 샘플을 실행하는 방법 ##
+## <a name="how-to-run-the-samples"></a>샘플을 실행하는 방법 ##
 
 1. 다음 문서에 설명된 대로 SSH를 사용하여 HDInsight에 연결합니다.
 
@@ -97,13 +98,13 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
 4. 다음을 사용하여 클러스터와 함께 샘플 데이터로 제공되는 Notebooks of Leonardo Da Vinci의 모든 단어 수를 계산할 수 있습니다.
 
-    	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
     이 작업에 대한 입력은 **wasbs:///example/data/gutenberg/davinci.txt**에서 읽습니다.
 
     이 예에 대한 출력은 **wasbs:///example/data/davinciwordcount**에 저장됩니다.
 
-    > [AZURE.NOTE] Wordcount 샘플에 대한 도움말에서 설명했듯이 여러 입력 파일을 지정할 수도 있습니다. 예를 들어 `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount`는 davinci.txt와 ulysses.txt 모두에서 단어 수를 계산합니다.
+    > [AZURE.NOTE] Wordcount 샘플에 대한 도움말에서 설명했듯이 여러 입력 파일을 지정할 수도 있습니다. 예를 들어 `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 는 davinci.txt와 ulysses.txt 모두에서 단어 수를 계산합니다.
 
 5. 작업이 완료되면 다음 명령을 사용하여 결과를 확인합니다.
 
@@ -120,19 +121,19 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
     각 줄은 단어와 해당 단어가 입력 데이터에서 발생한 횟수를 나타냅니다.
 
-## Sudoku
+## <a name="sudoku"></a>sudoku
 
 Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하지 않은 사용 지침이 있습니다.
 
-[Sudoku](https://en.wikipedia.org/wiki/Sudoku)는 9개의 3x3 표로 구성된 논리 퍼즐입니다. 표의 일부 셀에는 숫자가 있고 다른 셀은 비어 있으며, 빈 셀을 해결하는 것이 목표입니다. 위의 링크에는 퍼즐에 대한 자세한 내용이 나와 있지만 이 샘플의 목적은 빈 셀을 해결하는 것입니다. 따라서 입력은 다음과 같은 형식의 파일이어야 합니다.
+[Sudoku](https://en.wikipedia.org/wiki/Sudoku) 는 9개의 3x3 표로 구성된 논리 퍼즐입니다. 표의 일부 셀에는 숫자가 있고 다른 셀은 비어 있으며, 빈 셀을 해결하는 것이 목표입니다. 위의 링크에는 퍼즐에 대한 자세한 내용이 나와 있지만 이 샘플의 목적은 빈 셀을 해결하는 것입니다. 따라서 입력은 다음과 같은 형식의 파일이어야 합니다.
 
 - 9개 열의 9개 행
 
-- 각 열은 숫자 또는 `?`(빈 셀을 나타냄)를 포함할 수 있음
+- 각 열은 숫자 또는 `?` (빈 셀을 나타냄)를 포함할 수 있음
 
 - 셀은 공백으로 구분됨
 
-열이나 행에서 숫자를 반복할 수 없다는 Sudoku 퍼즐을 작성하는 특정 방법이 있습니다. 적절히 구성된 HDInsight 클러스터에 대한 예제가 있습니다. 이 예는 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta**에 있으며, 다음을 포함합니다.
+열이나 행에서 숫자를 반복할 수 없다는 Sudoku 퍼즐을 작성하는 특정 방법이 있습니다. 적절히 구성된 HDInsight 클러스터에 대한 예제가 있습니다. 이 예는 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** 에 있으며, 다음을 포함합니다.
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -144,7 +145,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-> [AZURE.NOTE] 경로의 `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
+> [AZURE.NOTE]  `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
 
 Sudoku 예제를 통해 이를 실행하려면 다음 명령을 사용합니다.
 
@@ -162,7 +163,7 @@ Sudoku 예제를 통해 이를 실행하려면 다음 명령을 사용합니다.
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## Pi(π)
+## <a name="pi-(π)"></a>Pi(π)
 
 Pi 샘플에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다. 단위 정사각형 내에 무작위로 놓인 점은 원의 영역과 같은 확률인 Pi/4로 해당 정사각형 내의 내접원 안에 들어갑니다. Pi의 값은 4R의 값에서 추정할 수 있습니다. 여기에서 R은 정사각형 내에 있는 점의 총수에 대한 원 내부에 있는 점 개수의 비율입니다. 사용한 점 샘플이 크면 클수록 추정이 향상됩니다.
 
@@ -176,11 +177,11 @@ Pi 샘플에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi �
 
 이 명령에서 반환되는 값은 **3.14159155000000000000**과 유사합니다. 참고로, Pi의 소수점 이하 10자리는 3.1415926535입니다.
 
-##10GB Greysort
+##<a name="10gb-greysort"></a>10GB Greysort
 
 GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는 정렬 속도(TB/분)가 일반적으로 최소 100TB인 벤치마크 정렬입니다.
 
-이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. 또한 2009년에 0.578TB/분(173분에 100TB)의 속도로 연간 범용("daytona") 테라바이트 정렬 벤치마크를 획득한 Owen O'Malley 및 Arun Murthy가 개발한 MapReduce 응용 프로그램을 사용합니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](http://sortbenchmark.org/)(영문) 사이트를 참조하십시오.
+이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. 또한 2009년에 0.578TB/분(173분에 100TB)의 속도로 연간 범용("daytona") 테라바이트 정렬 벤치마크를 획득한 Owen O'Malley 및 Arun Murthy가 개발한 MapReduce 응용 프로그램을 사용합니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](http://sortbenchmark.org/) (영문) 사이트를 참조하십시오.
 
 이 샘플에서는 세 가지 집합의 MapReduce 프로그램을 사용합니다.
 
@@ -196,29 +197,29 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 
 데이터를 생성하고 정렬한 다음 출력의 유효성을 검사하려면 다음 단계를 사용합니다.
 
-1. HDInsight 클러스터의 기본 저장소(**wasbs:///example/data/10GB-sort-input**)에 저장되는 10GB의 데이터를 생성합니다.
+1. HDInsight 클러스터의 기본 저장소 **wasbs:///example/data/10GB-sort-input**에 저장되는 10GB의 데이터를 생성합니다.
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	`-Dmapred.map.tasks`는 이 작업에 사용할 map 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 10GB 분량의 데이터를 만들어**wasbs:///example/data/10GB-sort-input**에 저장하도록 지시합니다.
+    `-Dmapred.map.tasks` 는 이 작업에 사용할 map 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 10GB 분량의 데이터를 만들어 **wasbs:///example/data/10GB-sort-input**에 저장하도록 지시합니다.
 
 2. 다음 명령을 사용하여 데이터를 정렬합니다.
 
-		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
 
-	`-Dmapred.reduce.tasks`는 작업에 사용할 reduce 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 데이터의 입력 및 출력 위치입니다.
+    `-Dmapred.reduce.tasks` 는 작업에 사용할 reduce 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 데이터의 입력 및 출력 위치입니다.
 
 3. 다음을 사용하여 정렬에 의해 생성된 데이터의 유효성을 검사합니다.
 
-		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
 
-##다음 단계 ##
+##<a name="next-steps"></a>다음 단계 ##
 
 이 문서에서는 Linux 기반 HDInsight 클러스터에 포함된 샘플을 실행하는 방법을 알아보았습니다. HDInsight에서 Pig, Hive 및 MapReduce를 사용하는 방법에 대한 자습서는 다음 항목을 참조하세요.
 
 * [HDInsight에서 Hadoop과 Pig 사용][hdinsight-use-pig]
 * [HDInsight에서 Hadoop과 Hive 사용][hdinsight-use-hive]
-* [HDInsight에서 Hadoop과 MapReduce 사용][hdinsight-use-mapreduce]
+* [HDInsight에서 Hadoop과 MapReduce 사용] [hdinsight-use-mapreduce]
 
 
 
@@ -236,4 +237,8 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

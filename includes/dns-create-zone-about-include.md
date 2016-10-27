@@ -1,12 +1,16 @@
-DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 도메인 호스팅을 시작하려면 DNS 영역을 만들어야 합니다. 특정 도메인에 대해 만든 DNS 레코드는 모두 해당 도메인에 대한 DNS 영역 내에 있습니다.
+A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
 
-예를 들어 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 많은 DNS 레코드를 포함할 수 있습니다.
+For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
 
 
-## <a name="names"></a>DNS 영역 이름 정보
+## <a name="<a-name="names"></a>about-dns-zone-names"></a><a name="names"></a>About DNS zone names
  
-- 영역 이름은 리소스 그룹 내에서 고유해야 하며, 영역이 존재해서는 안 됩니다. 그렇지 않으면 작업이 실패합니다.
+- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
 
-- 서로 다른 리소스 그룹이나 Azure 구독에서는 동일한 영역 이름을 다시 사용할 수 있습니다.
+- The same zone name can be re-used in a different resource group or a different Azure subscription. 
 
-- 여러 영역이 동일한 이름을 공유하는 경우 각 인스턴스에 다른 이름 서버 주소가 할당되며, 하나의 인스턴스만 부모 도메인에서 위임할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](../articles/dns/dns-domain-delegation.md)을 참조하세요.
+- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
+
+<!--HONumber=Oct16_HO2-->
+
+

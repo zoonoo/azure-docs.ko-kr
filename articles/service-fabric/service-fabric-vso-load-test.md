@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Visual Studio Team Services를 사용하여 응용 프로그램 부하 테스트 | Microsoft Azure"
-    description="Visual Studio Team Services를 사용하여 Azure 서비스 패브릭 응용 프로그램에 스트레스 테스트를 실행하는 방법을 알아봅니다."
+    pageTitle="Load test your application by using Visual Studio Team Services | Microsoft Azure"
+    description="Learn how to stress test your Azure Service Fabric applications by using Visual Studio Team Services."
     services="service-fabric"
     documentationCenter="na"
     authors="cawams"
@@ -16,119 +16,120 @@
     ms.date="07/29/2016"
     ms.author="cawa" />
 
-# Visual Studio Team Services를 사용하여 응용 프로그램 부하 테스트
 
-이 문서는 Microsoft Visual Studio 부하 테스트 기능을 사용하여 응용 프로그램에 스트레스 테스트를 실행하는 방법을 보여 줍니다. Azure 서비스 패브릭 상태 저장 서비스 백 엔드 및 상태 비저장 서비스 웹 프런트 엔드가 사용됩니다. 여기에 사용되는 예제 응용 프로그램은 항공기 위치 시뮬레이터입니다. 사용자는 항공기 ID, 출발 시간 및 도착 위치를 제공합니다. 응용 프로그램의 백 엔드는 요청을 처리하고 프런트 엔드는 지도에 조건에 일치하는 항공기를 표시합니다.
+# <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Load test your application by using Visual Studio Team Services
 
-다음 다이어그램은 테스트를 수행할 서비스 패브릭 응용 프로그램을 보여 줍니다.
+This article shows how to use Microsoft Visual Studio load test features to stress test an application. It uses an Azure Service Fabric stateful service back end and a stateless service web front end. The example application used here is an airplane location simulator. You provide an airplane ID, departure time, and destination. The application’s back end processes the requests, and the front end displays on a map the airplane that matches the criteria.
 
-![예제 비행기 위치 응용 프로그램의 다이어그램][0]
+The following diagram illustrates the Service Fabric application that you'll be testing.
 
-## 필수 조건
-시작하기 전에 다음을 수행해야 합니다.
+![Diagram of the example airplane location application][0]
 
-- Visual Studio Team Services 계정을 가져옵니다. [Visual Studio Team Services](https://www.visualstudio.com)에서 무료로 계정을 등록할 수 있습니다.
-- Visual Studio 2013 또는 Visual Studio 2015를 확보하여 설치합니다. 이 문서는 Visual Studio 2015 Enterprise Edition을 사용하지만 Visual Studio 2013 및 기타 버전도 유사하게 작동합니다.
-- 스테이징 환경에 응용 프로그램을 배포합니다. 자세한 내용은 [Visual Studio를 사용하여 원격 클러스터에 응용 프로그램을 배포하는 방법(영문)](service-fabric-publish-app-remote-cluster.md)을 참조하세요.
-- 응용 프로그램 사용 패턴을 이해합니다. 이 정보는 부하 패턴을 시뮬레이션하는 데 사용됩니다.
-- 부하 테스트의 목표를 이해합니다. 이것은 부하 테스트 결과를 해석하고 분석하는 데 도움이 됩니다.
+## <a name="prerequisites"></a>Prerequisites
+Before getting started, you need to do the following:
 
-## 웹 성능 및 부하 테스트 프로젝트 만들기 및 실행
+- Get a Visual Studio Team Services account. You can get one for free at [Visual Studio Team Services](https://www.visualstudio.com).
+- Get and install Visual Studio 2013 or Visual Studio 2015. This article uses Visual Studio 2015 Enterprise edition, but Visual Studio 2013 and other editions should work similarly.
+- Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md) for information about this.
+- Understand your application’s usage pattern. This information is used to simulate the load pattern.
+- Understand the goal for your load testing. This helps you interpret and analyze the load test results.
 
-### 웹 성능 및 부하 테스트 만들기
+## <a name="create-and-run-the-web-performance-and-load-test-project"></a>Create and run the Web Performance and Load Test project
 
-1. Visual Studio 2015를 엽니다. 메뉴 모음에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 **새 프로젝트** 대화 상자를 엽니다.
+### <a name="create-a-web-performance-and-load-test-project"></a>Create a Web Performance and Load Test project
 
-2. **Visual C#** 노드를 확장하고 **테스트** > **웹 성능 및 부하 테스트 프로젝트**를 선택합니다. 프로젝트 이름을 부여하고 **확인** 단추를 선택합니다.
+1. Open Visual Studio 2015. Choose **File** > **New** > **Project** on the menu bar to open the **New Project** dialog box.
 
-    ![새 프로젝트 대화 상자의 스크린샷][1]
+2. Expand the **Visual C#** node and choose **Test** > **Web Performance and Load Test project**. Give the project a name and then choose the **OK** button.
 
-    솔루션 탐색기에서 새로운 웹 성능 및 부하 테스트 프로젝트가 표시됩니다.
+    ![Screen shot of the New Project dialog box][1]
 
-    ![새 프로젝트를 보여 주는 솔루션 탐색기의 스크린샷][2]
+    You should see a new Web Performance and Load Test project in Solution Explorer.
 
-### 웹 성능 테스트 기록
+    ![Screen shot of Solution Explorer showing the new project][2]
 
-1. .webtest 프로젝트를 엽니다.
+### <a name="record-a-web-performance-test"></a>Record a web performance test
 
-2. **기록 추가** 아이콘을 선택하여 사용자 브라우저에서 기록 세션을 시작합니다.
+1. Open the .webtest project.
 
-    ![브라우저에서 기록 추가 아이콘의 스크린샷][3]
+2. Choose the **Add Recording** icon to start a recording session in your browser.
 
-    ![브라우저에서 기록 단추의 스크린샷][4]
+    ![Screen shot of the Add Recording icon in a browser][3]
 
-3. 서비스 패브릭 응용 프로그램으로 이동합니다. 기록 패널에 웹 요청이 표시됩니다.
+    ![Screen shot of the Record button in a browser][4]
 
-    ![기록 패널에서 웹 요청의 스크린샷][5]
+3. Browse to the Service Fabric application. The recording panel should show the web requests.
 
-4. 사용자가 수행할 것으로 예상하는 작업 시퀀스를 수행합니다. 이 작업은 부하를 생성하는 패턴으로 사용됩니다.
+    ![Screen shot of web requests in the recording panel][5]
 
-5. 완료되면 **중지** 단추를 선택하여 기록을 중지합니다.
+4. Perform a sequence of actions that you expect the users to perform. These actions are used as a pattern to generate the load.
 
-    ![중지 단추의 스크린샷][6]
+5. When you're done, choose the **Stop** button to stop recording.
 
-    Visual Studio의 .webtest 프로젝트가 일련의 요청으로 캡처되었습니다. 동적 매개 변수가 자동으로 대체됩니다. 이 때, 테스트 시나리오에 속하지 않는 중복된 종속 요청 또는 여분의 요청을 제거할 수 있습니다.
+    ![Screen shot of the Stop button][6]
 
-6. 프로젝트를 저장한 후 **테스트 실행** 명령을 선택하여 로컬에서 웹 성능 테스트를 실행하고 모든 것이 올바르게 작동하는지 확인합니다.
+    The .webtest project in Visual Studio should have captured a series of requests. Dynamic parameters are replaced automatically. At this point, you can delete any extra, repeated dependency requests that are not part of your test scenario.
 
-    ![테스트 실행 명령의 스크린샷][7]
+6. Save the project and then choose the **Run Test** command to run the web performance test locally and make sure everything works correctly.
 
-### 웹 성능 테스트 매개 변수화
+    ![Screen shot of the Run Test command][7]
 
-웹 성능 테스트를 코딩된 웹 성능 테스트로 변환한 후 코드를 편집하여 웹 성능 테스트를 매개 변수화할 수 있습니다. 또는 테스트가 데이터를 통해 반복되도록 웹 성능 테스트를 데이터 목록에 바인딩할 수 있습니다. 웹 성능 테스트를 코딩된 테스트로 변환하는 방법에 대한 자세한 내용은 [코딩된 웹 성능 테스트 생성 및 실행](https://msdn.microsoft.com/library/ms182552.aspx)을 참조하세요. 웹 성능 테스트에 데이터를 바인딩하는 방법에 대한 정보는 [웹 성능 테스트에 데이터 소스 추가](https://msdn.microsoft.com/library/ms243142.aspx)를 참조하세요.
+### <a name="parameterize-the-web-performance-test"></a>Parameterize the web performance test
 
-이 예제에서는 항공기 ID를 생성된 GUID로 대체하고 여러 지역에 항공편을 보내는 요청을 추가할 수 있도록 웹 성능 테스트를 코딩된 테스트로 변환합니다.
+You can parameterize the web performance test by converting it to a coded web performance test and then editing the code. As an alternative, you can bind the web performance test to a data list so that the test iterates through the data. See [Generate and run a coded web performance test](https://msdn.microsoft.com/library/ms182552.aspx) for details about how to convert the web performance test to a coded test. See [Add a data source to a web performance test](https://msdn.microsoft.com/library/ms243142.aspx) for information about how to bind data to a web performance test.
 
-### 부하 테스트 프로젝트 만들기
+For this example, we'll convert the web performance test to a coded test so you can replace the airplane ID with a generated GUID and add more requests to send flights to different locations.
 
-부하 테스트 프로젝트는 추가적으로 지정되는 부하 테스트 설정과 함께 웹 성능 테스트 및 단위 테스트로 설명되는 하나 이상의 시나리오로 구성됩니다. 다음 단계는 부하 테스트 프로젝트를 만드는 방법을 보여 줍니다.
+### <a name="create-a-load-test-project"></a>Create a load test project
 
-1. 웹 성능 및 부하 테스트 프로젝트의 바로 가기 메뉴에서 **추가** > **부하 테스트**를 선택합니다. **부하 테스트** 마법사에서 **다음** 단추를 선택하여 테스트 설정을 구성합니다.
+A load test project is composed of one or more scenarios described by the web performance test and unit test, along with additional specified load test settings. The following steps show how to create a load test project:
 
-2. **부하 패턴** 섹션에서 일정 사용자 부하를 원하는지 사용자 몇 명으로 시작하여 시간이 지나면서 사용자를 늘리는 단계 부하를 원하는지 선택합니다.
+1. On the shortcut menu of your Web Performance and Load Test project, choose **Add** > **Load Test**. In the **Load Test** wizard, choose the **Next** button to configure the test settings.
 
-    사용자 부하에 대한 예측이 믿을만하고 현재 시스템의 성능을 보려면 **일정 부하**를 선택합니다. 테스트의 목표가 다양한 부하에 대해 시스템 성능이 일관적으로 수행되는지를 파악하는 것이라면 **단계 부하**를 선택합니다.
+2. In the **Load Pattern** section, choose whether you want a constant user load or a step load, which starts with a few users and increases the users over time.
 
-3. **테스트 조합** 섹션에서 **추가** 단추를 선택한 후 부하 테스트에 포함할 테스트를 선택합니다. **분포** 열을 사용하여 각 테스트에 실행할 총 테스트의 백분율을 지정할 수 있습니다.
+    If you have a good estimate of the amount of user load and want to see how the current system performs, choose **Constant Load**. If your goal is to learn whether the system performs consistently under various loads, choose **Step Load**.
 
-4. **실행 설정** 섹션에서 부하 테스트 지속 시간을 지정합니다.
+3. In the **Test Mix** section, choose the **Add** button and then select the test that you want to include in the load test. You can use the **Distribution** column to specify the percentage of total tests run for each test.
 
-    >[AZURE.NOTE] **테스트 반복** 옵션은 Visual Studio를 사용하여 로컬에서 부하 테스트를 실행하는 경우에만 사용할 수 있습니다.
+4. In the **Run Settings** section, specify the load test duration.
 
-5. **실행 설정**의 **위치** 섹션에서 부하 테스트 요청이 생성되는 위치를 지정합니다. 마법사가 Team Services 계정에 로그인하라는 메시지를 표시할 수 있습니다. 로그인한 다음 지리적 위치를 선택합니다. 완료되면 **마침** 단추를 선택합니다.
+    >[AZURE.NOTE] The **Test Iterations** option is available only when you run a load test locally using Visual Studio.
 
-6. 부하 테스트를 만든 후에 .loadtest 프로젝트를 열어서 현재 실행 설정을 선택합니다(예: **실행 설정** > **실행 설정1 [활성]**). 그러면 **속성** 창에 실행 설정이 열립니다.
+5. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in and then choose a geographic location. When you're done, choose the **Finish** button.
 
-7. **실행 설정** 속성 창의 **결과** 섹션에, **타이밍 정보 저장소** 설정의 기본 값이 **없음**으로 나타납니다. 부하 테스트 결과에 대해 자세한 정보를 보려면 이 값을 **모든 개인 정보**로 변경합니다. Visual Studio Team Services에 연결하여 부하 테스트를 실행하는 방법을 자세히 보려면 [부하 테스트](https://www.visualstudio.com/load-testing.aspx)를 참조하세요.
+6. After the load test is created, open the .loadtest project and choose the current run setting, such as **Run Settings** > **Run Settings1 [Active]**. This opens the run settings in the **Properties** window.
 
-### Visual Studio Team Services를 사용하여 부하 테스트 실행
+7. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test results. See [Load Testing](https://www.visualstudio.com/load-testing.aspx) for more information on how to connect to Visual Studio Team Services and run a load test.
 
-**부하 테스트 실행** 명령을 선택하여 테스트 실행을 시작합니다.
+### <a name="run-the-load-test-by-using-visual-studio-team-services"></a>Run the load test by using Visual Studio Team Services
 
-![부하 테스트 실행 명령의 스크린샷][8]
+Choose the **Run Load Test** command to start the test run.
 
-## 부하 테스트 보기 및 분석
+![Screen shot of the Run Load Test command][8]
 
-부하 테스트가 진행됨에 따라서 성능 정보가 그래프로 표시됩니다. 다음과 유사한 그래프가 표시됩니다.
+## <a name="view-and-analyze-the-load-test-results"></a>View and analyze the load test results
 
-![부하 테스트 결과에 대한 성능 그래프의 스크린샷][9]
+As the load test progresses, the performance information is graphed. You should see something similar to the following graph.
 
-1. 페이지 맨 위 근처에서 **보고서 다운로드** 링크를 선택합니다. 보고서를 다운로드한 후에 **보고서 보기** 단추를 선택합니다.
+![Screen shot of performance graph for load test results][9]
 
-    **그래프** 탭에 다양한 성능 카운터의 그래프가 표시됩니다. **요약** 탭에 전반적인 테스트 결과가 표시됩니다. **테이블** 탭은 성공한 테스트와 실패한 테스트의 총 수를 보여 줍니다.
+1. Choose the **Download report** link near the top of the page. After the report is downloaded, choose the **View report** button.
 
-2. **테스트** > **실패** 및 **오류** > **개수** 열에서 숫자 링크를 선택하여 오류 정보를 확인합니다.
+    On the **Graph** tab you can see graphs for various performance counters. On the **Summary** tab, the overall test results appear. The **Tables** tab shows the total number of passed and failed load tests.
 
-    **세부 정보** 탭에 실패한 요청의 가상 사용자 및 테스트 시나리오 정보가 표시됩니다. 이 데이터는 가상 테스트에 여러 시나리오가 포함된 경우에 유용합니다.
+2. Choose the number links on the **Test** > **Failed** and the **Errors** > **Count** columns to see error details.
 
-부하 테스트 결과를 보는 방법에 대한 자세한 내용은 [부하 테스트 분석기의 그래프 보기에서 부하 테스트 결과 분석(영문)](https://www.visualstudio.com/load-testing.aspx)을 참조하세요.
+    The **Detail** tab shows virtual user and test scenario information for failed requests. This data can be useful if the load test includes multiple scenarios.
 
-## 부하 테스트 자동화
+See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](https://www.visualstudio.com/load-testing.aspx) for more information on viewing load test results.
 
-Visual Studio Team Services 부하 테스트에는 Team Services 계정으로 부하 테스트를 관리하고 결과를 분석할 수 있도록 하는 API가 제공됩니다. 자세한 내용은 [클라우드 부하 테스트 REST API(영문)](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx)를 참조하세요.
+## <a name="automate-your-load-test"></a>Automate your load test
 
-## 다음 단계
-- [로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+Visual Studio Team Services Load Test provides APIs to help you manage load tests and analyze results in a Team Services account. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
+
+## <a name="next-steps"></a>Next steps
+- [Monitoring and diagnosing services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [0]: ./media/service-fabric-vso-load-test/OverviewDiagram.png
 [1]: ./media/service-fabric-vso-load-test/NewProjectDialog.png
@@ -141,4 +142,8 @@ Visual Studio Team Services 부하 테스트에는 Team Services 계정으로 �
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SqlPackage를 사용하여 BACPAC 파일에서 SQL 데이터베이스로 가져오기"
-   description="Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 가져오기, BACPAC 파일 가져오기, sqlpackage"
+   pageTitle="Import to SQL Database from a BACPAC file using SqlPackage"
+   description="Microsoft Azure SQL Database, database migration, import database, import BACPAC file, sqlpackage"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,49 +16,54 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-# SqlPackage를 사용하여 BACPAC 파일에서 SQL 데이터베이스로 가져오기
+
+# <a name="import-to-sql-database-from-a-bacpac-file-using-sqlpackage"></a>Import to SQL Database from a BACPAC file using SqlPackage
 
 > [AZURE.SELECTOR]
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Azure 포털](sql-database-import.md)
+- [Azure portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-이 문서에서는 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령줄 유틸리티를 사용하여 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에서 SQL Database로 데이터를 가져오는 방법을 설명합니다. 이 유틸리티는 최신 버전의 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 및 [Visual Studio용 SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)가 함께 제공되며, Microsoft 다운로드 센터에서 직접 최신 버전의 [SqlPackage](https://www.microsoft.com/ko-KR/download/details.aspx?id=53876)를 다운로드할 수 있습니다.
+This article shows how to import to SQL database from a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility. This utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/en-us/download/details.aspx?id=53876) directly from the Microsoft download center.
 
 
-> [AZURE.NOTE] 아래 단계에서는 사용자가 이미 SQL Database 서버를 프로비전했고, 연결 정보를 알고 있으며, 원본 데이터베이스가 호환됨을 확인했다고 가정합니다.
+> [AZURE.NOTE] The following steps assume that you have already provisioned a SQL Database server, have the connection information on hand, and have verified that your source database is compatible.
 
-## SqlPackage를 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기
+## <a name="import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage"></a>Import from a BACPAC file into Azure SQL Database using SqlPackage
 
-아래 단계를 따라 [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) 명령줄 유틸리티를 사용하여 호환되는 SQL Server 데이터베이스 또는 Azure SQL Database를 BACPAC 파일에서 가져옵니다.
+Use the following steps to use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility to import a compatible SQL Server database (or Azure SQL database) from a BACPAC file.
 
-> [AZURE.NOTE] 아래 단계에서는 사용자가 이미 Azure SQL Database 서버를 프로비전했으며 연결 정보를 알고 있다고 가정합니다.
+> [AZURE.NOTE] The following steps assume that you have already provisioned an Azure SQL Database server and have the connection information on hand.
 
-1. 명령 프롬프트를 열고 sqlpackage.exe 명령줄 유틸리티가 들어 있는 디렉터리를 변경합니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다.
-2. 사용자 환경에 대해 다음 인수를 사용하여 다음 sqlpackage.exe 명령을 실행하세요.
+1. Open a command prompt and change a directory containing the sqlpackage.exe command-line utility - this utility ships with both Visual Studio and SQL Server.
+2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
-	`sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >`
+    `sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >`
 
-	| 인수 | 설명 |
-	|---|---|
-	| < server\_name > | 대상 서버 이름 |
-	| < database\_name > | 대상 데이터베이스 이름 |
-	| < user\_name > | 대상 서버의 사용자 이름 |
-	| < password > | 사용자 암호 |
-	| < source\_file > | 가져올 BACPAC 파일의 파일 이름 및 위치 |
+  	| Argument  | Description  |
+  	|---|---|
+  	| < server_name >  | target server name  |
+  	| < database_name >  | target database name  |
+  	| < user_name >  | the user name in the target server |
+  	| < password >  | the user's password  |
+  	| < source_file >  | the file name and location for the BACPAC file being imported  |
 
-	![작업 메뉴에서 데이터 계층 응용 프로그램 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
+    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
-- [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## 추가 리소스
+## <a name="additional-resources"></a>Additional resources
 
-- [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
-- [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
-- [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

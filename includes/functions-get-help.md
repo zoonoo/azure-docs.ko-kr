@@ -1,7 +1,9 @@
-### 도움이 필요하신가요?
+### <a name="need-some-help?"></a>Need some help?
 
-Azure 포럼에 질문을 게시하세요. - [MSDN 방문](http://go.microsoft.com/fwlink/?LinkId=780719)
+Post questions in the Azure forums. - [Visit MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)
 
-`azure-functions` 키워드와 관련된 질문을 태그합니다. - [스택 오버플로 방문](http://stackoverflow.com/questions/tagged/azure-functions)
+Tag questions with the keyword `azure-functions`. - [Visit Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 
-<!---HONumber=AcomDC_0912_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

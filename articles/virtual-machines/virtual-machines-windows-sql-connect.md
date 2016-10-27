@@ -1,105 +1,110 @@
 <properties
-	pageTitle="SQL Server 가상 컴퓨터에 연결(리소스 관리자) | Microsoft Azure"
-	description="Azure의 가상 컴퓨터에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"    
-	tags="azure-resource-manager"/>
+    pageTitle="Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure"
+    description="Learn how to connect to SQL Server running on a Virtual Machine in Azure. This topic uses the classic deployment model. The scenarios differ depending on the networking configuration and the location of the client."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"    
+    tags="azure-resource-manager"/>
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/21/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/21/2016"
+    ms.author="jroth" />
 
-# Azure에서 SQL Server 가상 컴퓨터 연결(리소스 관리자)
+
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-(resource-manager)"></a>Connect to a SQL Server Virtual Machine on Azure (Resource Manager)
 
 > [AZURE.SELECTOR]
-- [리소스 관리자](virtual-machines-windows-sql-connect.md)
-- [클래식](virtual-machines-windows-classic-sql-connect.md)
+- [Resource Manager](virtual-machines-windows-sql-connect.md)
+- [Classic](virtual-machines-windows-classic-sql-connect.md)
 
-## 개요
+## <a name="overview"></a>Overview
 
-이 항목에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. 여기서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
+This topic describes how to connect to your SQL Server instance running on an Azure virtual machine. It covers some [general connectivity scenarios](#connection-scenarios) and then provides [detailed steps for configuring SQL Server connectivity in an Azure VM](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 클래식의 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-classic-sql-connect.md)을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](virtual-machines-windows-classic-sql-connect.md).
 
-프로비저닝 및 연결의 전체 연습 과정을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+If you would rather have a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-## 연결 시나리오
+## <a name="connection-scenarios"></a>Connection scenarios
 
-클라이언트가 가상 컴퓨터를 실행 중인 SQL Server에 연결하는 방법은 클라이언트의 위치 및 컴퓨터/네트워킹 구성에 따라 달라집니다. 이 시나리오에는 다음이 포함됩니다.
+The way a client connects to SQL Server running on a Virtual Machine differs depending on the location of the client and the machine/networking configuration. These scenarios include:
 
-- [인터넷을 통해 SQL Server에 연결 ](#connect-to-sql-server-over-the-internet)
-- [동일한 가상 네트워크의 SQL Server에 연결](#connect-to-sql-server-in-the-same-virtual-network)
+- [Connect to SQL Server over the internet](#connect-to-sql-server-over-the-internet)
+- [Connect to SQL Server in the same virtual network](#connect-to-sql-server-in-the-same-virtual-network)
 
-### 인터넷을 통해 SQL Server에 연결
+### <a name="connect-to-sql-server-over-the-internet"></a>Connect to SQL Server over the Internet
 
-인터넷에서 SQL Server 데이터베이스 엔진에 연결하려는 경우 방화벽 구성, SQL 인증 사용, 네트워크 보안 그룹 구성 등의 여러 단계가 있습니다. 포트 1433에 TCP 트래픽을 허용하도록 네트워크 보안 그룹 규칙이 있어야 합니다.
+If you want to connect to your SQL Server database engine from the Internet, there are several steps required, such as configuring the firewall, enabling SQL Authentication, and configuring your network security group you must have a Network Security Group rule to allow TCP traffic on port 1433.
 
-포털을 사용하여 Resource Manager를 통해 SQL Server 가상 컴퓨터 이미지를 프로비전하는 경우 SQL 연결 옵션에 **공용**을 선택하면 다음 단계가 수행됩니다.
+If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps are done for you when you select **Public** for the SQL connectivity option:
 
-![프로비전 중 공용 SQL 연결 옵션](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
+![Public SQL connectivity option during provisioning](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
 
-프로비전하는 동안 하나가 아닌 경우 [수동으로 연결을 구성하는 이 문서의 단계](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)에 따라 SQL Server 및 가상 컴퓨터를 수동으로 구성할 수 있습니다.
+If this was not one during provisioning, then you can manually configure SQL Server and your virtual machines by following the [steps in this article to manually configure connectivity](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
->[AZURE.NOTE] SQL Server Express Edition용 가상 컴퓨터 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Express Edition의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#configure-sql-server-to-listen-on-the-tcp-protocol)해야 합니다.
+>[AZURE.NOTE] The virtual machine image for SQL Server Express edition does not automatically enable the TCP/IP protocol. For Express edition, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
 
-이 작업이 완료되면 인터넷에 연결된 모든 클라이언트는 가상 컴퓨터의 공용 IP 주소 또는 IP 주소에 할당된 DNS 이름을 지정하여 SQL Server 인스턴스에 연결할 수 있습니다. SQL Server 포트가 1433인 경우 연결 문자열에 지정할 필요가 없습니다.
+Once this is done, any client with internet access can connect to the SQL Server instance by specifying either the public IP address of the virtual machine or the DNS label assigned to that IP address. If the SQL Server port is 1433, you do not need to specify it in the connection string.
 
-	"Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+    "Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-이를 통해 인터넷을 통한 클라이언트의 연결이 활성화되지만 누구나 SQL Server에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호가 있어야 합니다. 추가 보안을 위해 잘 알려진 포트 1433을 피할 수 있습니다. 예를 들어 1,500 포트에서 수신하도록 SQL Server를 구성하고 적절한 방화벽 및 네트워크 보안 그룹 규칙을 설정하는 경우 다음 예제와 같이 서버 이름에 포트 번호를 추가하여 연결할 수 있습니다.
+Although this enables connectivity for clients over the internet, this does not imply that anyone can connect to your SQL Server. Outside clients have to the correct username and password. For additional security, you can avoid the well-known port 1433. For example, if you configured SQL Server to listen on port 1500 and established proper firewall and network security group rules, you could connect by appending the port number to the Server name as in the following example:
 
-	"Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+    "Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
->[AZURE.NOTE] 이 방법을 사용하여 SQL Server와 통신하는 경우 Azure 데이터 센터에서 보내는 모든 데이터에는 일반적으로 [아웃바운드 데이터 전송 가격](https://azure.microsoft.com/pricing/details/data-transfers/)이 적용됩니다.
+>[AZURE.NOTE] It is important to note that when you use this technique to communicate with SQL Server, all outgoing data from the Azure datacenter is subject to normal [pricing on outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-### 동일한 가상 네트워크의 SQL Server에 연결
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Connect to SQL Server in the same virtual network
 
-[가상 네트워크](../virtual-network/virtual-networks-overview.md)에서는 추가적인 시나리오가 가능합니다. VM이 다른 리소스 그룹에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
+[Virtual Network](../virtual-network/virtual-networks-overview.md) enables additional scenarios. You can connect VMs in the same virtual network, even if those VMs exist in different resource groups. And with a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md), you can create a hybrid architecture that connects VMs with on-premises networks and machines.
 
-가상 네트워크를 사용하면 Azure VM을 도메인에 연결할 수 있습니다. 이것이 SQL Server에 Windows 인증을 사용하는 유일한 방법입니다. 다른 연결 시나리오의 경우 사용자 이름과 암호가 있는 SQL 인증이 필요합니다.
+Virtual networks also enables you to join your Azure VMs to a domain. This is the only way to use Windows Authentication to SQL Server. The other connection scenarios require SQL Authentication with user names and passwords.
 
-Resource Manager를 통해 SQL Server 가상 컴퓨터 이미지를 프로비전하는 데 포털을 사용하는 경우 SQL 연결 옵션에 대해 **개인**을 선택할 때 가상 네트워크의 통신에 대한 적절한 방화벽 규칙이 설정됩니다. 프로비전하는 동안 하나가 아닌 경우 [수동으로 연결을 구성하는 이 문서의 단계](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)에 따라 SQL Server 및 가상 컴퓨터를 수동으로 구성할 수 있습니다. 그러나 도메인 환경과 Windows 인증을 구성하려는 경우 이 글의 단계를 사용하여 SQL 인증과 로그인을 구성할 필요가 없습니다. 또한 인터넷을 통한 액세스를 위해 네트워크 보안 그룹 규칙을 구성할 필요가 없습니다.
+If you use the portal to provision a SQL Server virtual machine image with the resource manager, the proper firewall rules for communication on the virtual network are setup when you select **Private** for the SQL connectivity option. If this was not one during provisioning, then you can manually configure SQL Server and your virtual machines by following the [steps in this article to manually configure connectivity](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). But if you are planning to configure a domain environment and Windows Authentication, you do not need to use the steps in this article to configure SQL Authentication and logins. You also do not need to configure Network Security Group rules for access over the internet.
 
->[AZURE.NOTE] SQL Server Express Edition용 가상 컴퓨터 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Express Edition의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#configure-sql-server-to-listen-on-the-tcp-protocol)해야 합니다.
+>[AZURE.NOTE] The virtual machine image for SQL Server Express edition does not automatically enable the TCP/IP protocol. For Express edition, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
 
-가상 네트워크에 DNS를 구성했다고 가정하면 연결 문자열에 SQL Server VM 컴퓨터 이름을 지정하여 SQL Server에 연결할 수 있습니다. 또한 다음 예에서는 Windows 인증도 구성되었고 사용자에게 SQL Server 인스턴스에 대한 액세스 권한이 있다고 가정합니다.
+Assuming that you have configured DNS in your virtual network, you can connect to your SQL Server instance by specifying the SQL Server VM computer name in the connection string. The following example also assumes that Windows Authentication has also been configured and that the user has been granted access to the SQL Server instance.
 
-	"Server=mysqlvm;Integrated Security=true"
+    "Server=mysqlvm;Integrated Security=true"
 
-이 시나리오에서는 VM의 IP 주소도 지정할 수 있습니다.
+Note that in this scenario, you could also specify the IP address of the VM.
 
-## Azure VM에서 SQL Server 연결을 수동으로 구성하기 위한 단계
+## <a name="steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm"></a>Steps for manually configuring SQL Server connectivity in an Azure VM
 
-다음 단계는 SQL Server 인스턴스에 수동으로 연결을 설정하고 SSMS(SQL Server Management Studio)를 사용하여 인터넷을 통해 연결하는 방법을 보여줍니다. 이러한 단계는 대부분 포털에서 적절한 SQL Server 연결 옵션을 선택하는 경우 수행됩니다.
+The following steps demonstrate how to manually setup connectivity to the SQL Server instance and then optionally connect over the internet using SQL Server Management Studio (SSMS). Note that many of these steps are done for you when you select the appropriate SQL Server connectivity options in the portal.
 
-인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 아래의 섹션에 설명된 대로 다음 작업을 완료해야 합니다.
+Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks as described in the sections that follow:
 
-- [Windows 방화벽에서 TCP 포트 열기](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [TCP 프로토콜에서 수신하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [혼합된 모드 인증에 대한 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
-- [SQL Server 인증 로그인 만들기](#create-sql-server-authentication-logins)
-- [네트워크 보안 그룹 인바운드 규칙 구성](#configure-a-network-security-group-inbound-rule-for-the-vm)
-- [공용 IP 주소에 대한 DNS 레이블 구성](#configure-a-dns-label-for-the-public-ip-address)
-- [다른 컴퓨터에서 데이터베이스 엔진에 연결](#connect-to-the-database-engine-from-another-computer)
+- [Open TCP ports in the Windows firewall](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [Configure SQL Server to listen on the TCP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [Configure SQL Server for mixed mode authentication](#configure-sql-server-for-mixed-mode-authentication)
+- [Create SQL Server authentication logins](#create-sql-server-authentication-logins)
+- [Configure a Network Security Group inbound rule](#configure-a-network-security-group-inbound-rule-for-the-vm)
+- [Configure a DNS Label for the public IP address](#configure-a-dns-label-for-the-public-ip-address)
+- [Connect to the Database Engine from another computer](#connect-to-the-database-engine-from-another-computer)
 
-[AZURE.INCLUDE [VM에서 SQL Server에 연결](../../includes/virtual-machines-sql-server-connection-steps.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM](../../includes/virtual-machines-sql-server-connection-steps.md)]
 
-[AZURE.INCLUDE [VM 리소스 관리자에서 SQL Server에 연결](../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
 
-[AZURE.INCLUDE [VM 리소스 관리자에서 SQL Server에 연결](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-이러한 연결 단계와 함께 프로비저닝 지침을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+To see provisioning instructions along with these connectivity steps, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Azure 가상 컴퓨터의 SQL Server에 대한 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)합니다.
+[Explore the Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines.
 
-Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

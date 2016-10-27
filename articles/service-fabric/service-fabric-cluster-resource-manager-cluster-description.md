@@ -1,6 +1,6 @@
 <properties
-   pageTitle="리소스 분산 장치 클러스터 설명 | Microsoft Azure"
-   description="클러스터 리소스 관리자에 대해 장애 도메인, 업그레이드 도메인, 노드 속성, 노드 용량을 지정하여 서비스 패브릭 클러스터를 설명합니다."
+   pageTitle="Resource Balancer cluster description | Microsoft Azure"
+   description="Describing a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities to the Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,112 +16,114 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# 서비스 패브릭 클러스터 설명
-서비스 패브릭 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 클러스터 Resource Manager는 이 정보를 사용하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장하고 동시에 클러스터의 리소스가 적절하게 사용되도록 합니다.
 
-## 주요 개념
-클러스터 Resource Manager는 클러스터를 설명하는 다음과 같은 몇 가지 기능을 지원합니다.
+# <a name="describing-a-service-fabric-cluster"></a>Describing a service fabric cluster
+The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During runtime, the Cluster Resource Manager uses this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
 
-- 장애 도메인
-- 업그레이드 도메인
-- 노드 속성
-- 노드 용량
+## <a name="key-concepts"></a>Key concepts
+The Cluster Resource Manager supports several features that describe a cluster:
 
-## 장애 도메인
-장애 도메인은 통합된 오류는 영역입니다. 단일 컴퓨터는 장애 도메인입니다(전원 공급 장치 오류, 드라이브 오류, 잘못된 NIC 펌웨어 등 다양한 이유로 실패할 수 있기 때문). 동일한 이더넷 스위치에 연결된 다수의 컴퓨터는 하나의 전원에 연결되어 있는 컴퓨터처럼 동일한 장애 도메인에 있는 것입니다. 이와 같이 중복되는 것이 당연하므로 장애 도메인은 기본적으로 계층 구조를 가지며 서비스 패브릭에서 URI로 표시됩니다.
+- Fault Domains
+- Upgrade Domains
+- Node Properties
+- Node Capacities
 
-사용자 고유의 클러스터를 설정 된 경우 모든 실패 영역을 고려하여 장애 도메인이 올바르게 설정되었는지 확인하여 서비스 패브릭이 서비스를 안전하게 배치했던 위치를 알 수 있도록 합니다. "안전하게"는 실제로 스마트하게 라는 의미로, 장애 도메인이 손실되어(예를 들어 위에 나열된 구성 요소 중 하나에 장애 발생) 서비스가 정지하는 위치에 서비스를 배치하면 안 됩니다. Azure 환경에서, 사용자 대신 클러스터의 노드를 올바르게 구성하기 위해 작업 환경에 제공되는 장애 도메인 정보를 활용하겠습니다. 아래 그림(그림 7)에서는 간단한 예로서 장애 도메인을 발생시키는 모든 엔터티에 색을 넣고 발생한 여러 장애 도메인을 모두 나열합니다. 이 예제에는 데이터센터(DC), 랙(R) 및 블레이드(B)가 있습니다. 각 블레이드에 하나 이상의 가상 컴퓨터가 있는 경우 장애 도메인 계층 구조에 또 다른 계층이 있다고 볼 수 있습니다.
+## <a name="fault-domains"></a>Fault domains
+A fault domain is any area of coordinated failure. A single machine is a fault domain (since it alone can fail for a variety of reasons, from power supply failures to drive failures to bad NIC firmware). A bunch of machines connected to the same Ethernet switch are in the same fault domain, as would be those connected to a single source of power. Since it's natural for these to overlap, Fault Domains are inherently hierarchal and are represented as URIs in Service Fabric.
 
-![장애 도메인을 통해 구성된 노드][Image1]
+If you were setting up your own cluster you’d need to think about all of these different areas of failure and make sure that your fault domains were set up correctly so that Service Fabric would know where it was safe to place services. By “safe” we really mean smart – we don’t want to place services such that a loss of a fault domain (the failure of any of the components listed above, for example) causes the service to go down.  In the Azure environment we leverage the fault domain information provided by the environment in order to correctly configure the nodes in the cluster on your behalf.
+In the graphic below (Fig. 7) we color all of the entities that reasonably result in a fault domain as a simple example and list out all of the different fault domains that result. In this example, we have datacenters (DC), racks (R), and blades (B). Conceivably, if each blade holds more than one virtual machine, there could be another layer in the fault domain hierarchy.
 
- 런타임 중에 서비스 패브릭 클러스터 리소스 분산 장치는 클러스터 내의 장애 도메인을 고려하여 지정된 서비스의 복제본을 개별적인 장애 도메인에 모두 두기 위하여 서비스 복제본을 퍼트리기 위한 시도를 합니다. 이 프로세스는 장애 도메인 중 하나에 실패가 발생하는 경우(계층 구조의 임의 수준에서), 해당 서비스의 가용성을 확보하고 서비스가 손상되지 않았음을 확인하는 데 도움이 됩니다.
+![Nodes organized via fault domains][Image1]
 
- 서비스 패브릭의 클러스터 리소스 관리자는 계층 구조에 얼마나 많은 계층이 있는지에 대해 관심이 없지만, 계층의 어느 한 부분의 손실이 클러스터 또는 클러스터에서 실행되는 서비스에 영향을 주지 않도록 하려 하기 때문에 장애 도메인의 각 깊이 수준에 동일한 수의 컴퓨터가 있는 경우에 가장 좋습니다. 이는 하루 일정이 끝날 때 계층 구조의 한 부분이 다른 계층 구조보다 더 많은 서비스를 포함하지 않도록 합니다.
+ During run time, the Service Fabric Cluster Resource Manager considers the fault domains in the cluster and attempts to spread out the replicas for a given service so that they are all in separate fault domains. This process helps ensure that in case of failure of any one fault domain (at any level in the hierarchy), that the availability of that service is not compromised.
 
- 장애 도메인의 "트리" 구조가 불균형하도록 클러스터를 구성하면 클러스터 Resource Manager가 복제본을 최상으로 할당하는 데 어려움을 겪게 되며, 특히 특정 도메인의 손실이 클러스터의 가용성에 과도하게 영향을 미칠 수 있으므로 클러스터 Resource Manager는 "무거운" 도메인에 있는 컴퓨터의 효율적인 사용(서비스 배치)과 도메인의 손실이 문제를 일으키지 않는 서비스 배치 사이에서 고민하게 됩니다.
+ Service Fabric’s Cluster Resource Manager doesn’t really care about how many layers there are in the hierarchy, however since it does try to ensure that the loss of any one portion of the hierarchy doesn’t impact the cluster or the services running on top of it, it is generally best if at each level of depth in the fault domain there are the same number of machines. This prevents one portion of the hierarchy from having to contain more services at the end of the day than others.
 
- 아래 다이어그램에서는 서로 다른 두 개의 예제 클러스터 레이아웃을 보여 줍니다. 하나는 노드가 장애 도메인 전체에 잘 분산된 클러스터이고, 다른 하나는 하나의 장애 도메인이 더 많은 노드가 되는 클러스터입니다. Azure에서 사용자를 위해 어떤 장애 및 업그레이드 도메인에 어떤 노드를 포함시킬지에 대한 선택을 처리하기 때문에 사용자는 이러한 유형의 불균형을 볼 수 없습니다. 그러나 자체 클러스터 온-프레미스 또는 다른 환경에서 구축하는 경우 이는 고려해야 할 문제입니다.
+ Configuring your cluster in such a way that the “tree” of fault domains is unbalanced makes it rather hard for the Cluster Resource Manager to figure out what the best allocation of replicas is, particularly since it means that the loss of a particular domain can overly impact the availability of the cluster – the Cluster Resource Manager is torn between using the machines in that “heavy” domain efficiently by placing services on them and placing services so that the loss of the domain doesn’t cause problems.
 
- ![두 개의 다른 클러스터 레이아웃][Image2]
+ In the diagram below we show two different example cluster layouts, one where the nodes are well distributed across the fault domains, and another where one fault domain ends up with many more nodes.  Note that in Azure the choices about which nodes end up in which fault and upgrade domains is handled for you, so you should never see these sorts of imbalances. However, if you ever stand up your own cluster on-premise or in another environment, it’s something you have to think about.
 
-## 업그레이드 도메인
-업그레이드 도메인은 서비스 패브릭 리소스 관리자가 실패에 대해 계획을 세울 수 있도록 클러스터의 레이아웃을 이해하는 데 도움을 주는 또 다른 기능입니다. 업그레이드 도메인은 업그레이드함과 동시에 작동이 멈추는 영역(실제 노드 설정)을 정의합니다.
+ ![Two different cluster layouts][Image2]
 
-업그레이드 도메인은 장애 도메인과 많이 닮았지만 몇 가지 주요 차이점이 있습니다. 첫째, 업그레이드 도메인은 일반적으로 정책에 의해 정의되는 반면, 장애 도메인은 조정된 오류의 영역에서 엄격하게 정의됩니다(주로 환경의 하드웨어 레이아웃). 그러나 업그레이드 도메인의 경우 몇 개나 필요한지 결정하게 됩니다. 또 다른 차이점으로는 적어도 지금은 업그레이드 도메인은 계층 구조가 아닙니다. 계층 구조라기보다는 간단한 태그에 더 가깝습니다.
+## <a name="upgrade-domains"></a>Upgrade domains
+Upgrade Domains are another feature that helps the Service Fabric Resource Manager to understand the layout of the cluster so that it can plan ahead for failures. Upgrade Domains define areas (sets of nodes, really) that will go down at the same time during an upgrade.
 
-아래 그림은 세 개의 업그레이드 도메인이 세 개의 장애 도메인을 가로지르는 가상 설치를 보여줍니다. 또한 상태 저장 서비스의 세 개의 서로 다른 복제본을 배치하는 한 가지 방법을 보여줍니다. 이들 모두는 여러 장애 및 업그레이드 도메인에 있습니다. 즉, 서비스 업그레이드 도중 장애 도메인을 잃을 수 있고 클러스터에 코드 및 데이터의 한 복사본이 여전히 실행 중일 수 있습니다. 필요에 따라 이것으로 충분할 수도 있지만, 이 복사본은 오래된 것일 수 있습니다(서비스 패브릭은 쿼럼 기반 복제를 사용). 두 개의 오류를 실제로 해결하기 위해 더 많은 복제본(최소 5개)이 필요할 수 있습니다.
+Upgrade Domains are a lot like Fault Domains, but with a couple key differences. First, Upgrade Domains are usually defined by policy; whereas Fault Domains are rigorously defined by the areas of coordinated failures (and hence usually the hardware layout of the environment). In the case of Upgrade Domains however you get to decide how many you want. Another difference is that (today at least) Upgrade Domains are not hierarchical – they are more like a simple tag than a hierarchy.
 
-![장애 및 업그레이드 도메인으로 배치][Image3]
+The picture below shows a fictional setup where we have three upgrade domains striped across three fault domains. It also shows one possible placement for three different replicas of a stateful service. Note that they are all in different fault and upgrade domains. This means that we could lose a fault domain while in the middle of a service upgrade and there would still be one running copy of the code and data in the cluster. Depending on your needs this could be good enough, however you may notice though that this copy could be old (as Service Fabric uses quorum based replication). In order to truly survive two failures you’d need more replicas (five at a minimum).
 
-많은 수의 업그레이드 도메인에 장단점이 있습니다. 장점으로는 업그레이드의 각 단계가 보다 세분화되어 더 적은 수의 노드 또는 서비스에 영향을 줍니다. 이로 인해 한 번에 이동해야 할 서비스가 적어져 시스템 내부로 이탈이 줄고 전반적인 안정성이 향상됩니다(문제에 영향을 받는 서비스가 감소하기 때문). 여러 업그레이드 도메인을 가질 때의 단점은 서비스 패브릭이 업그레이드될 때 각 업그레이드 도메인의 상태를 확인하고 다음 업그레이드 도메인으로 이동하기 전에 업그레이드 도메인의 상태를 정상으로 유지하는 것입니다. 이러한 검사의 목적은 서비스를 안정화하고 업그레이드가 진행되기 전에 문제가 있는지 서비스 상태를 확인하기 위한 것입니다. 이러한 단점은 한 번에 너무 많은 서비스에 영향을 주는 잘못된 변경 사항을 방지하기 때문에 받아들일 만합니다.
+![Placement With Fault and Upgrade Domains][Image3]
 
-업그레이드 도메인 수가 너무 적어도 부작용이 있습니다. 개별 업그레이드 도메인이 다운된 후 업그레이드하는 동안 전체 용량의 상당 부분을 사용할 수 없습니다. 예를 들어, 세 개의 업그레이드 도메인만 있는 경우 전체 서비스 또는 클러스터 용량은 약 1/3로 저하됩니다. 이는 워크로드를 감당하기 위해 클러스터의 나머지 부분에 용량이 충분해야 하기 때문에 바람직하지 않으며, 정상적인 경우 COGS가 증가하지 않도록 이러한 노드에 부하를 줄여야 함을 의미합니다.
+There are pros and cons to having large numbers of upgrade domains – the pro is that each step of the upgrade is more granular and therefore affects a smaller number of nodes or services. This results in fewer services having to move at a time, introducing less churn into the system and overall improving reliability (since less of the service will be impacted by any issue). The downside of having many upgrade domains is that Service Fabric verifies the health of each Upgrade Domain as it is upgraded and ensures that the Upgrade Domain is healthy before moving on to the next Upgrade Domain. The goal of this check is to ensure that services have a chance to stabilize and that their health is validated before the upgrade proceeds, so that any issues are detected. The tradeoff is acceptable because it prevents bad changes from affecting too much of the service at a time.
 
-환경에서 장애 또는 업그레이드 도메인의 총 수는 실제 제한이나 중첩 방법에 대한 제약이 없습니다. 이미 살펴본 일반적인 구조로는 1:1(각각의 고유한 장애 도메인이 자체 업그레이드 도메인에 매핑), 노드당 업그레이드 도메인(실제 또는 가상 OS 인스턴스), 장애 도메인 및 업그레이드 도메인이 일반적으로 컴퓨터가 대각선으로 가로지르는 행렬을 형성하는 "스트라이프" 또는 "행렬" 모델이 있습니다.
+Too few upgrade domains has its own side effects – while each individual upgrade domain is down and being upgraded a large portion of your overall capacity is unavailable. For example, if you only have three upgrade domains you are taking down about 1/3 of your overall service or cluster capacity at a time. This isn’t desirable as you have to have enough capacity in the rest of your cluster to cover the workload, meaning that in the normal case those nodes are less-loaded than they would otherwise be, increasing COGS.
 
-![장애 및 업그레이드 도메인 레이아웃][Image4]
+There’s no real limit to the total number of fault or upgrade domains in an environment, or constraints on how they overlap. Common structures that we’ve seen are 1:1 (where each unique fault domain maps to its own upgrade domain as well), an Upgrade Domain per Node (physical or virtual OS instance), and a “striped” or “matrix” model where the Fault Domains and Upgrade Domains form a matrix with machines usually running down the diagonal.
 
-어떤 레이아웃을 선택하느냐에 대한 정답은 없으며, 각각 몇 가지 장단점이 있습니다. 예를 들어, 1FD:1UD 모델은 매우 간단히 설정할 수 있는 반면, 노드당 1UD 모델은 과거 각각 별도로 해체할 수 있는 소수의 컴퓨터를 관리했던 사람들이 가장 좋아하는 모델입니다.
+![Fault and Upgrade Domain Layouts][Image4]
 
-가장 일반적인 모델(및 호스팅된 Azure 서비스 패브릭 클러스터에 사용하는 모델)은 FD/UD 행렬로, FD와 UD는 테이블을 형성하고 노드는 대각선을 따라 배치됩니다. 이는 스파스가 될지 압축될지 여부는 FD와 UD의 수와 비교하여 총 노드 수에 달려 있습니다(다시 말하면, 그림 10의 맨 아래 오른쪽 옵션에 나와있는 대로 충분히 큰 클러스터의 경우 거의 모든 항목이 조밀한 행렬 패턴처럼 보입니다).
+There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is fairly simple to set up, whereas the 1 UD per Node model is most like what people are used to from managing small sets of machines in the past where each would be taken down independently.
 
-## 장애 및 업그레이드 도메인 제약 조건 및 결과 동작
-클러스터 Resource Manager는 장애 및 업그레이드 도메인 간 서비스 분산 작업을 제약 조건으로 지정합니다. [이 문서](service-fabric-cluster-resource-manager-management-integration.md)에서 제약 조건에 대한 자세한 내용을 확인할 수 있습니다. 장애 및 업그레이드 도메인 제약 조건은 다음과 같이 정의됩니다. 즉, "지정한 서비스 파티션에서 두 도메인 간 복제본 수 차이는 *개 이상*이어야 합니다." 즉, 실질적으로 클러스터에서 지정된 서비스를 이동하거나 정렬하는 것은 장애 또는 업그레이드 도메인 제약 조건을 위반할 수 있으므로 유효하지 않습니다.
+The most common model (and the one that we use for the hosted Azure Service Fabric clusters) is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. Whether this ends up sparse or packed depends on the total number of nodes compared to the number of FDs and UDs (put differently, for sufficiently large clusters, almost everything ends up looking like the dense matrix pattern, shown in the bottom right option of Figure 10).
 
-한 가지 예를 살펴보겠습니다. 6개의 노드를 포함하며 5개의 장애 도메인과 5개의 업그레이드 도메인으로 구성된 클러스터가 있다고 가정해 보겠습니다.
+## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Fault and upgrade domain constraints and resulting behavior
+The Cluster Resource manager treats the desire to keep a service balanced across fault and upgrade domains as a constraint. You can find out more about constraints in [this article](service-fabric-cluster-resource-manager-management-integration.md). The fault and upgrade domain  constraints are defined as following: "For a given service partition there should never be a difference *greater than one* in the number of replicas between two domains."  Practically what this means is that for a given service certain movements or certain arrangements might not be valid in the cluster, because doing so would violate the fault or upgrade domain constraint.
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |
+Let's take a look at one example. Let's say that we have a cluster with 6 nodes, configured with 5 fault domains and 5 upgrade domains.
+
+|       |FD0    |FD1    |FD2    |FD3    |FD4    |
 |-------|:-----:|:-----:|:-----:|:-----:|:-----:|
-| UD0 |N1 | | | | |
-| UD1 |N6 |N2 | | | |
-| UD2 | | |N3 | | |
-| UD3 | | | |N4 | |
-| UD4 | | | | |N5 |
+| UD0   |N1     |       |       |       |       |
+| UD1   |N6     |N2     |       |       |       |
+| UD2   |       |       |N3     |       |       |
+| UD3   |       |       |       |N4     |       |
+| UD4   |       |       |       |       |N5     |
 
-이제 TargetReplicaSetSize가 5인 서비스를 만들어 보겠습니다. 복제본은 N1-N5에 생성됩니다. 실제로 N6는 절대 사용되지 않습니다. 그렇지만 그 이유는 무엇일까요? 현재 레이아웃 및 N6를 대신 선택한 경우에 나타나는 결과 간의 차이를 살펴보고 이러한 결과가 FD 및 UD 제약 조건의 정의와 어떤 관련이 있는지 생각해 보세요.
+Now let's say that we create a service with a TargetReplicaSetSize of 5. The replicas land on N1-N5. In fact, N6 will never get used. But why? Well let's take a look at the difference between the current layout and what would happen if we had chosen N6 instead, and think about how that relates to our definition of the FD and UD constraint.
 
-다음은 장애 및 업그레이드 도메인별로 구현되는 레이아웃 및 총 복제본 수입니다.
+Here's the layout we got and the total number of replicas per fault and upgrade domain.
 
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
+|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
 |-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| UD0 |R1 | | | | |1 |
-| UD1 | |R2 | | | |1 |
-| UD2 | | |R3 | | |1 |
-| UD3 | | | |R4 | |1 |
-| UD4 | | | | |R5 |1 |
-|FDTotal|1 |1 |1 |1 |1 |- |
+| UD0   |R1     |       |       |       |       |1      |
+| UD1   |       |R2     |       |       |       |1      |
+| UD2   |       |       |R3     |       |       |1      |
+| UD3   |       |       |       |R4     |       |1      |
+| UD4   |       |       |       |       |R5     |1      |
+|FDTotal|1      |1      |1      |1      |1      |-      |
 
-이 레이아웃은 장애 도메인 및 업그레이드 도메인당 노드 수를 기준으로 부하가 분산될 뿐 아니라, 장애 도메인 및 업그레이드 도메인당 복제본 수를 기준으로도 부하가 분산됩니다. 각 도메인에는 동일한 수의 노드 및 동일한 수의 복제본이 있습니다.
+Note that this layout is balanced in terms of nodes per fault domain and upgrade domain, and it is also balanced in terms of the number of replicas per fault and upgrade domain. Each domain has the same number of nodes and the same number of replicas.
 
-이제 N2 대신 N6를 사용하는 경우 어떤 결과가 나타나는지 살펴보겠습니다. 복제본은 어떻게 배포되나요? 다음과 같이 표시됩니다.
+Now, let's take a look at what would happen if instead of N2, we'd used N6. How would the replicas be distributed then? Well, they'd look something like this:
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
+|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
 |-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| UD0 |R1 | | | | |1 |
-| UD1 |R5 | | | | |1 |
-| UD2 | | |R2 | | |1 |
-| UD3 | | | |R3 | |1 |
-| UD4 | | | | |R4 |1 |
-|FDTotal|2 |0 |1 |1 |1 |- |
+| UD0   |R1     |       |       |       |       |1      |
+| UD1   |R5     |       |       |       |       |1      |
+| UD2   |       |       |R2     |       |       |1      |
+| UD3   |       |       |       |R3     |       |1      |
+| UD4   |       |       |       |       |R4     |1      |
+|FDTotal|2      |0      |1      |1      |1      |-      |
 
-FD0에는 복제본이 2개 있지만 FD1에는 복제본이 없으므로 총 2개의 차이가 나타납니다. 따라서 클러스터 Resource Manager는 이러한 정렬을 허용하지 않으므로 장애 도메인 제약 조건의 정의에 위반됩니다. 마찬가지로 N2-6를 선택하면 다음 결과가 나타납니다.
+This violates our definition for the fault domain constraint, since FD0 has 2 replicas, while FD1 has 0, making the total difference 2 and thus the Cluster Resource Manager will not allow this arrangement. Similarly if we had picked N2-6 we'd get:
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
+|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
 |-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| UD0 | | | | | |0 |
-| UD1 |R5 |R1 | | | |2 |
-| UD2 | | |R2 | | |1 |
-| UD3 | | | |R3 | |1 |
-| UD4 | | | | |R4 |1 |
-|FDTotal|1 |1 |1 |1 |1 |- |
+| UD0   |       |       |       |       |       |0      |
+| UD1   |R5     |R1     |       |       |       |2      |
+| UD2   |       |       |R2     |       |       |1      |
+| UD3   |       |       |       |R3     |       |1      |
+| UD4   |       |       |       |       |R4     |1      |
+|FDTotal|1      |1      |1      |1      |1      |-      |
 
-장애 도메인을 기준으로 부하가 분산되는 경우도 업그레이드 도메인 제약 조건에 위반되므로(UD1에는 복제본이 2개 있지만 UD0에는 복제본이 없음) 유효하지 않습니다.
+Which while balanced in terms of fault domains is violating the upgrade domain constraint (since UD0 has 0 replicas while UD1 has 2), and hence is invalid as well.
 
-## 장애 및 업그레이드 도메인 구성
-장애 도메인 및 업그레이드 도메인 정의는 Azure 호스티드 서비스 패브릭 배포에서 자동으로 수행되며, 서비스 패브릭은 Azure의 환경 정보를 선택합니다. Azure에서 장애 및 업그레이드 도메인 정보 모두 "단일 수준"처럼 보이지만, 실제로 Azure 스택의 낮은 계층의 정보를 캡슐화하고 사용자의 관점에서 논리적 장애 및 업그레이드 도메인을 나타냅니다.
+## <a name="configuring-fault-and-upgrade-domains"></a>Configuring fault and upgrade domains
+Defining Fault Domains and Upgrade Domains is done automatically in Azure hosted Service Fabric deployments; Service Fabric just picks up the environment information from Azure. In Azure both the fault and upgrade domain information looks “single level” but it really is encapsulating information from lower layers of the Azure stack and just presenting the logical fault and upgrade domains from the user’s perspective.
 
-사용자의 클러스터를 구축하는 경우(또는 개발 컴퓨터에서 특정 토폴로지를 실행하려는 경우) 장애 도메인 및 업그레이드 도메인 정보를 사용자가 직접 제공해야 합니다. 이 예에서는 세 개의 "데이터센터"(각각 세 개의 랙 포함)에 걸쳐 확장된 9 노드 로컬 개발 클러스터와 세 개의 데이터 센터에 걸쳐 있는 업그레이드 도메인을 정의합니다. 클러스터 매니페스트 템플릿에서는 다음과 같이 나타납니다.
+If you’re standing up your own cluster (or just want to try running a particular topology on your development machine) you’ll need to provide the fault domain and upgrade domain information yourself. In this example we define a 9 node local development cluster that spans three “datacenters” (each with three racks), and three upgrade domains striped across those three datacenters. In the cluster manifest template, it looks something like this:
 
 ClusterManifest.xml
 
@@ -143,49 +145,49 @@ ClusterManifest.xml
     </WindowsServer>
   </Infrastructure>
 ```
-> [AZURE.NOTE] Azure 배포에서 장애 도메인과 업그레이드 도메인은 Azure에 의해 할당되기 때문에 Azure에 대한 인프라 옵션 내 노드 및 역할 정의에 장애 도메인 또는 업그레이드 도메인 정보가 포함되지 않습니다.
+> [AZURE.NOTE] In Azure deployments, fault domains and upgrade domains are assigned by Azure. Therefore, the definition of your nodes and roles within the infrastructure option for Azure does not include fault domain or upgrade domain information.
 
-## 배치 제약 조건 및 노드 속성
-종종(실제로 대부분의 경우) 특정 워크로드가 클러스터의 특정 노드 또는 특정 노드 집합에서만 실행되도록 하려 할 것입니다. 예를 들어, 일부 워크로드는GPU 또는 SSD가 필요할 수 있습니다. 이에 대한 좋은 예는 거의 모든 n 계층 아키텍처로, 특정 컴퓨터는 응용 프로그램의 서비스 프런트 엔드/인터페이스의 역할을 하고(따라서 인터넷에 노출될 수 있음) 다른 컴퓨터(종종 다른 하드웨어 리소스 포함)는 계산 또는 저장소 계층의 작업을 처리합니다(일반적으로 인터넷에 노출되지 않음). 서비스 패브릭은 마이크로 서비스 환경에서 특정 워크로드가 특정 하드웨어 구성에서 실행될 것을 기대합니다. 예를 들어,
+## <a name="placement-constraints-and-node-properties"></a>Placement constraints and node properties
+Sometimes (in fact, most of the time) you’re going to want to ensure that certain workloads run only on certain nodes or certain sets of nodes in the cluster. For example, some workload may require GPUs or SSDs while others may not. A great example of this is pretty much every n-tier architecture out there, where certain machines serve as the front end/interface serving side of the application (and hence are probably exposed to the internet) while a different set (often with different hardware resources) handle the work of the compute or storage layers (and usually are not exposed to the internet). Service Fabric expects that even in a microservices world there are cases where particular workloads will need to run on particular hardware configurations, for example:
 
-- 기존 n 계층 응용 프로그램은 서비스 패브릭 환경으로 "리프트 및 이동"되었습니다.
-- 성능, 규모 또는 보안상의 이유 등으로 특정 하드웨어에서 워크로드를 실행하려고 합니다.
--	한 워크로드는 정책 또는 리소스 소비 이유로 다른 워크로드로부터 격리되어야 합니다.
+- an existing n-tier application has been “lifted and shifted” into a Service Fabric environment
+- a workload wants to run on specific hardware for performance, scale, or security isolation reasons
+-   A workload needs to be isolated from other workloads for policy or resource consumption reasons
 
-이러한 유형의 구성을 지원하기 위해 서비스 패브릭에는 배치 제약 조건이라고 부르는 첫 번째 클래스 개념이 있습니다. 배치 제약 조건은 특정 서비스를 실행할 위치를 나타내는 데 사용할 수 있습니다. 제약 조건 집합은 사용자에 의해 확장 가능하기 때문에, 사람들이 사용자 지정 속성이 있는 노드를 태그한 다음 선택할 수 있습니다.
+In order to support these sorts of configurations Service Fabric has a first class notion of what we call placement constraints. Placement constraints can be used to indicate where certain services should run. The set of constraints is extensible by users, meaning that people can tag nodes with custom properties and then select for those as well.
 
-![클러스터 레이아웃 다양한 워크로드][Image5]
+![Cluster Layout Different Workloads][Image5]
 
-노드의 서로 다른 키/값 태그는 노드 배치 *속성*(또는 노드 속성)으로 알려져 있으며, 서비스의 문은 배치 *제약 조건*이라고 합니다. 노드 속성에서 지정된 값은 문자열, 부울 또는 기호가 있는 long이 될 수 있습니다. 이 제약 조건은 클러스터의 다른 노드 속성에 작동하는 부울 문일 수 있습니다. 이러한 부울 문의 유효한 선택기(문자열)는 다음과 같습니다.
+The different key/value tags on nodes are known as node placement *properties* (or just node properties), whereas the statement at the service is called a placement *constraint*. The value specified in the node property can be a string, bool, or signed long. The constraint can be any Boolean statement that operates on the different node properties in the cluster. The valid selectors in these boolean statements (which are strings) are:
 
-- 특정 문을 만들기 위한 조건부 검사
-  - "같음" ==
-  - "다음보다 큼" >
-  - "다음보다 작음" <
-  - "다음과 같지 않음" !=
-  - "다음보다 크거나 같음" >=
-  - "다음보다 작거나 같음" <=
-- 그룹화 및 부정에 대한 부울 문
-  - "및" &&
-  - "또는" ||
-  - "다음이 아님" !
-- 그룹화 작업에 대한 괄호
+- conditional checks for creating particular statements
+  - "equal to" ==
+  - "greater than" >
+  - "less than" <
+  - "not equal to" !=
+  - "greater than or equal to" >=
+  - "less than or equal to" <=
+- boolean statements for grouping and negation
+  - "and" &&
+  - "or" ||
+  - "not" !
+- parenthesis for grouping operations
   - ()
 
-  다음은 위의 기호 중 일부를 사용하는 기본 제약 조건문의 몇 가지 예입니다. 노드 속성은 문자열, 부울 또는 숫자 값일 수 있습니다.
+  Here are some examples of basic constraint statements that use some of the symbols above. Note that node properties can be strings, bools, or numerical values.   
 
   - "Foo >= 5"
   - "NodeColor != green"
   - "((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"
 
 
-전체 문이 "True"로 평가되는 노드에만 서비스가 배치될 수 있습니다. 정의된 속성이 없는 노드는 해당 속성이 포함된 배치 제약 조건과 일치하지 않습니다.
+Only nodes where the overall statement evaluates to “True” can have the service placed on it. Nodes without a property defined do not match any placement constraint that contains that property.
 
-또한 서비스 패브릭은 사용자가 정의할 필요 없이 자동으로 사용할 수 있는 몇 가지 기본 속성을 정의합니다. 이 문서를 작성하는 현재 각 노드에서 정의된 기본 속성은 NodeType 및 NodeName입니다. 예를 들어 배치 제약 조건을 "(NodeType == NodeType03)"으로 작성할 수 있습니다. 일반적으로 NodeType는 가장 흔히 사용되는 속성 중 하나이며, 컴퓨터 유형과 1:1로 일치시킨 다음 기존 n 계층 응용 프로그램 아키텍처의 워크로드 형식과 일치시킵니다.
+Service Fabric also defines some default properties which can be used automatically without the user having to define them. As of this writing the default properties defined at each node are the NodeType and the NodeName. So for example you could write a placement constraint as "(NodeType == NodeType03)". Generally we have found NodeType to be one of the most commonly used properties, as it usually corresponds 1:1 with a type of a machine, which in turn correspond to a type of workload in a traditional n-tier application architecture.
 
-![배치 제약 조건 및 노드 속성][Image6]
+![Placement Constraints and Node Properties][Image6]
 
-다음과 같은 노드 속성이 제시된 노드 형식에 대해 정의되었다고 가정해 보겠습니다. ClusterManifest.xml
+Let’s say that the following node properties were defined for a given node type: ClusterManifest.xml
 
 ```xml
     <NodeType Name="NodeType01">
@@ -197,7 +199,7 @@ ClusterManifest.xml
     </NodeType>
 ```
 
-다음과 같은 서비스에 대 한 서비스 배치 제약 조건을 만들 수 있습니다.
+You can create service placement constraints for a service like this:
 
 C#
 
@@ -216,9 +218,9 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-NodeType01의 모든 노드에 올바르다고 판단한 경우, 위 그림과 같이 배치 제약 조건을 사용하여 해당 노드 유형을 선택할 수도 있습니다.
+If you are sure that all nodes of NodeType01 are valid, you could also just select that node type, using placement constraints like those show in the pictures above.
 
-서비스 배치 제약 조건에 대한 멋진 기능 중 하나는 런타임 도중 동적으로 업데이트할 수 있다는 것입니다. 따라서 필요한 경우 클러스터에서 서비스를 이동할 수 있으며, 요구 사항 등을 추가 및 제거할 수 있습니다. 서비스 패브릭은 이러한 유형의 변경이 진행 중일 때도 서비스를 유지하고 사용할 수 있도록 관리합니다.
+One of the cool things about a service’s placement constraints is that they can be updated dynamically during runtime. So if you need to, you can move a service around in the cluster, add and remove requirements, etc. Service Fabric takes care of ensuring that the service stays up and available even when these types of changes are ongoing.
 
 C#:
 
@@ -234,18 +236,18 @@ Powershell:
 Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstraints "NodeType == NodeType01"
 ```
 
-배치 제약 조건(곧 설명할 여러 다른 Orchestrator 컨트롤 포함)은 다른 모든 명명된 서비스 인스턴스에 대해 지정됩니다. 업데이트는 이전에 지정된 것에 대해 항상 수행(덮어쓰기)됩니다.
+Placement constraints (along with many other orchestrator controls that we’re going to talk about) are specified for every different named service instance. Updates always take the place (overwrite) what was previously specified.
 
-이 시점에서 노드의 속성은 클러스터 정의를 통해 정의되므로 클러스터로 업그레이드하지 않고 업데이트할 수 없으며, 해당 속성을 새로 고치기 위해서는 각 노드가 작동 중단되었다가 다시 작동되어야 한다는 점을 이해해야 합니다.
+It is also worth noting that at this point the properties on a node are defined via the cluster definition and hence cannot be updated without an upgrade to the cluster and will require each node to go down and then come back up in order to refresh its properties.
 
-## 용량
-모든 조정자의 가장 중요한 작업 중 하나는 클러스터에서 리소스 소비를 관리할 수 있도록 돕는 일입니다. 서비스를 효율적으로 실행하려는 경우 마지막으로 해야 할 일은 자주 사용되는 노드(리소스 경합 및 성능 저하로 이어짐)와 자주 사용되지 않는 노드(리소스 낭비)를 구분하는 것입니다. 하지만 분산(곧 다룰 예정)보다 좀더 기본적인 것을 생각해 보겠습니다. 먼저 노드가 리소스를 소모하지 않는 경우는 어떨까요?
+## <a name="capacity"></a>Capacity
+One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. The last thing you want if you’re trying to run services efficiently is a bunch of nodes which are hot (leading to resource contention and poor performance) while others are cold (wasted resources). But let’s think even more basic than balancing (which we’ll get to in a minute) – what about just ensuring that nodes don’t run out of resources in the first place?
 
-서비스 패브릭은 리소스를 "메트릭"으로 나타냅니다. 메트릭은 서비스 패브릭에 대해 설명하려는 논리적 또는 물리적 리소스입니다. 메트릭의 예로는 "WorkQueueDepth" 또는 "MemoryInMb" 등이 있습니다. 메트릭은 해당 노드 속성의 배치 제약 조건 및 노드 속성과 다르며 일반적으로 노드 자체의 정적인 설명자이고, 동시에 노드에서 실행되고 있을 때 노드가 포함하며 해당 서비스가 소비하는 리소스에 관한 것입니다. 속성은 HasSSD와 같은 것으로 True 또는 False로 지정할 수 있지만, 해당 SSD에 서 사용 가능한 공간(서비스에서 사용)의 크기는 "DriveSpaceInMb"와 같은 메트릭일 것입니다. 노드 용량은 "DriveSpaceInMb"를 드라이브의 예약되지 않은 공간의 총 크기로 설정하고 서비스는 런타임 시 메트릭의 사용량을 보고합니다.
+Service Fabric represents resources as “Metrics”. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. Metrics are different from placements constraints and node properties in that node properties are generally static descriptors of the nodes themselves, whereas metrics are about resources that nodes have and that services consume when they are running on a node. So a property would be something like HasSSD and could be set to true or false, but the amount of space available on that SSD (and consumed by services) would be a metric like “DriveSpaceInMb”. Capacity on the node would set the “DriveSpaceInMb” to the amount of total non-reserved space on the drive, and services would report how much of the metric they used during runtime.
 
-모든 리소스 *부하 분산*을 해제한 경우에도 서비스 패브릭의 클러스터 Resource Manager는 여전히 노드가 해당 용량을 초과하지 않도록 할 수 있습니다(전체 클러스터가 너무 꽉 차지 않은 경우 제외). 용량은 클러스터 Resource Manager가 노드에 있는 리소스의 양을 이해하기 위해 사용하는 또 다른 *제약 조건*입니다. 서비스 수준에서 용량과 소비량은 메트릭을 기준으로 표현됩니다. 예를 들어 메트릭이 "MemoryInMb"일 수 있으며, 지정된 노드 용량은 2048 MemoryInMb이지만 지정된 서비스는 현재 64 MemoryInMb를 사용하고 있다고 표시할 수 있습니다.
+If you turned off all resource *balancing*, Service Fabric’s Cluster Resource Manager would still be able to ensure that no node ended up over its capacity (unless the cluster as a whole was too full). Capacity is another *constraint* which the Cluster Resource Manager uses to understand how much of a resource a node has. Both the capacity and the consumption at the service level are expressed in terms of metrics. So for example, the metric might be "MemoryInMb" - a given Node may have a capacity for MemoryInMb of 2048, while a given service can say it is currently consuming 64 of MemoryInMb.
 
-런타임 중에 클러스터 Resource Manager는 각 노드(해당 용량에 의해 정의됨)에 각 리소스가 얼마나 있는지 그리고 얼마나 남았는지(각 서비스에서 선언된 모든 사용량 뺌) 추적합니다. 이 정보를 통해 서비스 패브릭 리소스 관리자는 노드가 용량을 초과하지 않도록 복제본을 어디에 배치하거나 이동시킬지 알 수 있습니다.
+During runtime, the Cluster Resource Manager tracks how much of each resource is present on each node (defined by its capacity) and how much is remaining (by subtracting any declared usage from each service). With this information, the Service Fabric Resource Manager can figure out where to place or move replicas so that nodes don’t go over capacity.
 
 C#:
 
@@ -266,9 +268,9 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,64,64)
 ```
 
-![클러스터 노드 및 용량][Image7]
+![Cluster nodes and capacity][Image7]
 
-클러스터 매니페스트에서 이를 확인할 수 있습니다.
+You can see these in the cluster manifest:
 
 ClusterManifest.xml
 
@@ -281,19 +283,19 @@ ClusterManifest.xml
     </NodeType>
 ```
 
-또한 서비스의 부하를 동적으로 변경할 수도 있습니다. 복제본의 부하가 64에서 1024로 변경되었으나 당시에 실행되던 노드에는 512("MemoryInMb" 메트릭)만 남아 있었습니다. 이로 인해 해당 노드의 모든 복제본 및 인스턴스의 총 사용량이 해당 노드의 용량을 초과하여 복제본 또는 인스턴스가 현재 배치된 위치를 사용할 수 없게 될 수 있습니다. 부하가 동적으로 변경되는 이 시나리오에 대한 나중에 자세히 설명할 것이지만, 용량에 관한 한 동일하게 처리됩니다. 즉, 클러스터 Resource Manager는 자동으로 시작되고 하나 이상의 복제본 또는 인스턴스를 해당 노드에서 다른 노드로 이동시켜 노드의 최대 용량 아래로 낮춥니다. 이 작업을 수행하는 경우 클러스터 Resource Manager는 모든 움직임에 따른 비용을 최소화하려 합니다(비용의 개념은 나중에 설명).
+It is also possible that a service’s load changes dynamically. Say that a replica's load changed from 64 to 1024, but the node it was running on at that time only had 512 (of the "MemoryInMb" metric) remaining. Because of this, where a replica or instance is currently placed becomes invalid since the combined usage of all of the replicas and instances on that node exceeds that node’s capacity. We’ll talk more about this scenario where load can change dynamically later, but as far as capacity goes it is handled the same way – the Cluster Resource Manager automatically kicks in and gets the node back below capacity by moving one or more of the replicas or instances on that node to different nodes. When doing this the Cluster Resource Manager tries to minimize the cost of all of the movements (we’ll come back to the notion of Cost later).
 
-## 클러스터 용량
-그렇다면 전체 클러스터 용량이 꽉 차지 않도록 하려면 어떻게 해야 합니까? 클러스터 Resource Manager에서 수행된 작업과 관계없이 서비스는 부하가 최대로 증가할 수 있습니다. 즉, 오늘은 여유가 많은 클러스터가 내일은 수요가 많아져 전력이 부족해질 수 있으므로 동적 부하의 경우 실제로 할 수 있는 일이 별로 없지만, 기본적인 문제를 방지하기 위해 내장된 컨트롤이 몇 가지 있습니다. 가장 먼저 할 수 있는 작업은 클러스터가 꽉 차도록 만드는 워크로드가 생성되지 않도록 하는 것입니다.
+## <a name="cluster-capacity"></a>Cluster capacity
+So how do we keep the overall cluster from being too full? Well, with dynamic load there’s actually not a lot we can do (since services can have their load spike independent of actions taken by the Cluster Resource Manager – your cluster with a lot of headroom today may be rather underpowered when you become famous tomorrow), but there are some controls that are baked in to prevent basic problems. The first thing we can do is prevent the creation of new workloads that would cause the cluster to become full.
 
-간단한 상태 비저장 서비스를 만들기로 이동하고 이와 관련된 일부 부하가 있다고 가정해 보겠습니다(기본 및 동적 부하 보고에 대해서는 나중에 자세히 설명). 이 서비스의 경우, 일부 리소스(DiskSpace라고 가정)를 관리하고 서비스의 모든 인스턴스에 대해 기본적으로 5단위의 DiskSpace를 소비한다고 가정해 보겠습니다. 3개의 서비스 인스턴스를 만들려고 합니다. 잘하셨습니다. 즉, 이들 서비스 인스턴스를 만들기 위해서는 클러스터에 15단위의 DiskSpace가 필요하다는 의미입니다. 서비스 패브릭은 각 메트릭의 전체 용량 및 소비량을 계속 계산하여 쉽게 결정할 수 있으며 공간이 부족한 경우 서비스 호출을 거부할 수 있습니다.
+Say that you go to create a simple stateless service and it has some load associated with it (more on default and dynamic load reporting later). For this service, let’s say that it cares about some resource (let’s say DiskSpace) and that by default it is going to consume 5 units of DiskSpace for every instance of the service. You want to create 3 instances of the service. Great! So that means that we need 15 units of DiskSpace to be present in the cluster in order for us to even be able to create these service instances. Service Fabric is continually calculating the overall capacity and consumption of each metric, so we can easily make the determination and reject the create service call if there’s insufficient space.
 
-요구 사항은 15단위만 사용할 수 있기 때문에, 이 공간은 여러 방식으로 할당할 수 있습니다. 15개의 노드에 나머지 용량 단위를 할당하거나 5개의 노드에 나머지 3단위 용량을 할당할 수 있습니다. 세 개의 서로 다른 노드에 용량이 충분하지 않은 경우 서비스 패브릭은 필요한 노드 세 개에 공간을 확보하기 위해 클러스터에 이미 있는 서비스를 다시 구성합니다. 전체 클러스터가 거의 꽉 차지 않은 한 이러한 재배열은 거의 항상 가능합니다.
+Note that since the requirement is only that there be 15 units available, this space could be allocated many different ways; it could be one remaining unit of capacity on 15 different nodes, for example, or three remaining units of capacity on 5 different nodes, etc. If there isn’t sufficient capacity on three different nodes Service Fabric will reorganize the services already in the cluster in order to make room on the three necessary nodes. Such rearrangement is almost always possible unless the cluster as a whole is almost entirely full.
 
-## 버퍼링된 용량
-전체 클러스터 용량 관리에 도움이 되는 또 다른 개념은 각 노드에서 지정된 용량에 일부 예약된 버퍼를 추가하는 것입니다. 이 설정은 선택 사항이지만, 전체 노드 용량의 일부분을 지정하여 업그레이드 도중이나 클러스터 용량이 감소하여 실패한 경우 서비스를 배치하는 데에만 사용할 수 있습니다. 현재 ClusterManifest를 통해 모든 노드에 대해 메트릭을 기준으로 버퍼가 전역에 지정되어 있습니다. 예약 용량에 대해 선택한 값은 서비스를 더욱 제한하는 리소스의 함수이자 클러스터의 장애 및 업그레이드 도메인 수입니다. 일반적으로 더 많은 장애 및 업그레이드 도메인은 버퍼링된 용량에 대해 낮은 값을 선택할 수 있다는 의미이며, 업그레이드 도중 그리고 실패 시 사용할 수 없는 클러스터 양을 줄여야 합니다. 메트릭에 대해 노드 용량을 지정한 경우 버퍼율을 지정할 수도 있습니다.
+## <a name="buffered-capacity"></a>Buffered Capacity
+Another thing that helps people manage overall cluster capacity is the notion of some reserved buffer to the capacity specified at each node. This setting is optional, but allows people to reserve some portion of the overall node capacity so that it is only used to place services during upgrades and failures – cases where the capacity of the cluster is otherwise reduced. Today buffer is specified globally per metric for all nodes via the ClusterManifest. The value you pick for the reserved capacity will be a function of which resources your services are more constrained on, as well as the number of fault and upgrade domains you have in the cluster. Generally more fault and upgrade domains means that you can pick a lower number for your buffered capacity, as you will expect smaller amounts of your cluster to be unavailable during upgrades and failures. Note that specifying the buffer percentage only makes sense if you have also specified the node capacity for a metric.
 
-버퍼링된 용량을 지정하는 방법의 예는 다음과 같습니다.
+Here's an example of how to specify buffered capacity:
 
 ClusterManifest.xml
 
@@ -305,7 +307,7 @@ ClusterManifest.xml
         </Section>
 ```
 
-클러스터의 버퍼링된 용량이 부족하면 새 서비스에 만들지 못합니다. 업그레이드 및 실패로 인해 노드가 용량을 초과하지 않도록 클러스터가 예비 공간을 유지해야 합니다. 클러스터 Resource Manager는 PowerShell 및 쿼리 API를 통해 이 정보를 많이 공개하기 때문에, 버퍼링된 용량 설정, 총 용량, 클러스터에서 사용 중인 모든 메트릭에 대한 현재 소비량을 볼 수 있습니다. 여기에서 출력의 예제를 볼 수 있습니다.
+The creation of new services will fail when the cluster is out of buffered capacity, ensuring that the cluster retains enough spare overhead such that upgrades and failures don’t result in nodes being actually over capacity. The Cluster Resource Manager exposes a lot of this information via PowerShell and the Query APIs, letting you see the buffered capacity settings, the total capacity, and the current consumption for every metric in use in the cluster. Here we see an example of that output:
 
 ```posh
 PS C:\Users\user> Get-ServiceFabricClusterLoadInformation
@@ -333,18 +335,22 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## 다음 단계
-- 클러스터 Resource Manager 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
-- 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)를 참조하세요.
-- 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
-- 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
+## <a name="next-steps"></a>Next steps
+- For information on the architecture and information flow within the Cluster Resource manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
-[Image3]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domains-with-placement.png
-[Image4]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domain-layout-strategies.png
-[Image5]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
-[Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
-[Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
+[Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
+[Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
+[Image3]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domains-with-placement.png
+[Image4]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domain-layout-strategies.png
+[Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
+[Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
+[Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

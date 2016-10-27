@@ -1,387 +1,394 @@
 <properties
-	pageTitle="에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 플레이 북 | Microsoft Azure"
-	description="에너지 공익 사업체에서 수요를 예측할 수 있도록 하는 Microsoft Cortana Intelligence 솔루션 템플릿입니다."
-	services="cortana-analytics"
-	documentationCenter=""
-	authors="ilanr9"
-	manager="ilanr9"
-	editor="yijichen"/>
+    pageTitle="Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Microsoft Azure"
+    description="A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company."
+    services="cortana-analytics"
+    documentationCenter=""
+    authors="ilanr9"
+    manager="ilanr9"
+    editor="yijichen"/>
 
 <tags
-	ms.service="cortana-analytics"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/24/2016"
-	ms.author="ilanr9;yijichen;garye"/>
+    ms.service="cortana-analytics"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/24/2016"
+    ms.author="ilanr9;yijichen;garye"/>
 
-# 에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 플레이 북  
 
-## 요약  
+# <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy  
 
-지난 몇 년 동안, 사물 인터넷(IoT), 대체 에너지원 및 빅 데이터의 병합은 공익 사업 및 에너지 영역에 엄청난 기회를 창출했습니다. 이와 동시에, 공익 사업 및 전체 에너지 분야에서 에너지 사용을 제어하는 데 소비자가 요구하는 향상된 방법으로 소비량이 안정된 것으로 나타났습니다. 따라서, 공익 사업 및 스마트 그리드 회사는 더욱 더 스스로 혁신하고 새롭게 태어나야 합니다. 또한 많은 전력 및 공익 사업 그리드가 노후되고 유지 관리하는 데 비용이 많이 들고 있습니다. 지난 해, 팀은 에너지 영역과 여러 협력 관계를 맺었습니다. 이러한 협력 진행 중에 공익 사업 또는 ISV(독립 소프트웨어 공급업체)가 미래 에너지 수요의 예측을 조사하는 다양한 사례를 접했습니다. 이러한 예측은 현재와 미래 비즈니스에 중요한 역할을 하며 다양한 사용 사례를 위한 기초가 됩니다. 여기에는 단기 및 장기 전원 부하 예측, 거래, 부하 분산 및 그리드 최적화 등이 포함됩니다. ML(기계 학습)과 같은 빅 데이터 및 고급 분석(AA) 메서드는 정확하고 신뢰할 수 있는 예측을 생성하기 위한 핵심 요소입니다.
+## <a name="executive-summary"></a>Executive Summary  
 
-이 플레이 북은 에너지 요구 예측 솔루션의 성공적인 개발 및 배포에 필요한 비즈니스 및 분석 지침을 함께 제공합니다. 이러한 제안된 지침은 공익 사업자, 데이터 과학자 및 데이터 엔지니어가 완전히 조작 가능한 클라우드 기반, 수요 예측 솔루션을 구축하는 데 도움이 될 수 있습니다. 이제 막 빅 데이터와 고급 분석 과정을 시작한 회사는 이러한 솔루션이 장기적인 스마트 그리드 전략에서 초기 시드를 나타낼 수 있습니다.
+In the past few years, Internet of Things (IoT), alternative energy sources, and big data have merged to create vast opportunities in the utility and energy domain. At the same time, the utility and the entire energy sector have seen consumption flattening out with consumers demanding better ways to control their use of energy. Hence, the utility and smart grid companies are in great need to innovate and renew themselves. Furthermore, many power and utility grids are becoming outdated and very costly to maintain and manage. During the last year, the team has been working on a number of engagements within the energy domain. During these engagements, we have encountered many cases in which the utilities or ISVs (Independent Software Vendors) have been looking into forecasting for future energy demand. These forecasts play an important role in their current and future business and have become the foundation for various use cases. These include short and long-term power load forecast, trading, load balancing, grid optimization etc. Big data and Advanced Analytics (AA) methods such as Machine Learning (ML) are the key enablers for producing accurate and reliable forecasts.  
 
->[AZURE.TIP] 이 템플릿에 대한 아키텍처 개요를 제공하는 다이어그램을 다운로드하려면 [에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 아키텍처](cortana-analytics-architecture-demand-forecasting-energy.md)를 참조하세요.
+In this playbook, we put together the business and analytical guidelines needed for a successful development and deployment of energy demand forecast solution. These proposed guidelines can help utilities, data scientists, and data engineers in establishing fully operationalized, cloud-based, demand-forecasting solutions. For companies who are just starting their big data and advanced analytics journey, such a solution can represent the initial seed in their long-term smart grid strategy.
 
-## 개요  
+>[AZURE.TIP] To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md).  
 
-이 문서에서는 Cortana Intelligence 사용의 비즈니스, 데이터 및 기술적 측면을 설명하며 특히, 에너지 예측 솔루션의 구현 및 배포를 위한 AML(Azure 기계 학습)에 대해 설명합니다. 문서는 세 가지 주요 부분으로 구성됩니다.
+## <a name="overview"></a>Overview  
 
-1. 비즈니스 이해
-2. 데이터 이해
-3. 기술 구현
+This document covers the business, data, and technical aspects of using Cortana Intelligence and in particular Azure Machine Learning (AML) for the implementation and deployment of Energy Forecasting Solutions. The document consists of three main parts:  
 
-**비즈니스 이해** 부분에서는 투자 결정을 하기 전에 이해 및 고려해야 하는 비즈니스 측면에 대해 간략히 설명합니다. 예측 분석 및 기계 학습이 실제로 유효하고 적용 가능한지 확인하기 위해 비즈니스 문제를 한정하는 방법을 설명합니다. 또한 기계 학습의 기본 사항과 에너지 예측 문제를 해결하는 데 어떻게 사용하는지도 설명합니다. 사용 사례의 필수 구성 요소 및 자격 조건에 대해 간략히 설명합니다. 일부 샘플 사용 사례와 비즈니스 사례 시나리오도 제공됩니다.
+1. Business understanding  
+2. Data understanding  
+3. Technical implementation
 
-데이터는 기계 학습 솔루션을 위한 주요 요소입니다. 이 문서의 **데이터 이해** 부분에서는 데이터의 몇 가지 중요한 측면에 대해 설명합니다. 에너지 예측에 필요한 데이터 종류, 데이터 품질 요구 사항 및 일반적으로 어떤 데이터 원본이 존재하는지를 간략히 설명합니다. 또한 실제로 모델링 부분을 구동하는 데이터 기능을 준비하는 데 원시 데이터를 어떻게 사용할 수 있는지도 설명합니다.
+The **Business Understanding** part outlines the business aspect one needs to understand and consider prior to making an investment decision. It explains how to qualify the business problem at hand to ensure that predictive analytics and machine learning are indeed effective and applicable. The document further explains the basics of machine learning and how it is used to address energy-forecasting problems. It outlines the prerequisites and the qualification criteria of a use case. Some sample use cases and business case scenarios are also provided.
 
-문서의 세 번째 부분에서는 솔루션의 **기술 구현** 측면에 대해 설명합니다. 기능 엔지니어링 및 모델링은 데이터 과학 프로세스의 핵심이므로 좀 더 자세히 논의됩니다. 예측 분석 솔루션의 클라우드 배포를 위한 중요한 수단인 웹 서비스의 개념에 대해 설명합니다. 종단 간 조작 가능한 솔루션의 일반적인 아키텍처도 간략하게 설명합니다.
+Data is the main ingredient for any machine learning solution. The **Data Understanding** part of this document covers some important aspects of the data. It outlines the kind of data that is needed for energy forecasting, data quality requirements, and what data sources typically exist. We also explain how the raw data is used to prepare data features that actually drive the modeling part.
 
-또한 이 문서는 도메인 및 기술에 대한 이해를 돕는 데 사용할 수 있는 참조 자료를 포함합니다.
+The third part of the document covers the **Technical Implementation** aspect of a solution. Feature engineering and modeling are at the core of the data science process and are therefore being discussed in some detail. It covers the concept of web services, which are an important vehicle for cloud deployment of predictive analytics solutions. We also outline a typical architecture of an end-to-end operationalized solution.
 
-이 문서에서는 데이터 과학 프로세스, 수학 및 기술적 측면에 대해 심도 있게 다루지 않는다는 것에 유의해야 합니다. 이러한 세부 정보는 [Azure 기계 학습 설명서](http://azure.microsoft.com/services/machine-learning/) 및 [블로그](http://blogs.microsoft.com/blog/tag/azure-machine-learning/)에서 확인할 수 있습니다.
+In addition, the document includes reference material that you can use to gain further understanding of the domain and technology.
 
-### 대상 사용자   
-이 문서의 대상 사용자는 기계 학습 기반 솔루션에 대한 정보와 이 솔루션을 에너지 예측 도메인 내에서 구체적으로 어떻게 사용하는지 알고자 하는 비즈니스 및 기술 담당자입니다.
+It is important to note that we do not intend to cover in this document the deeper data science process, its mathematical and technical aspects. These details can be found in [Azure ML documentation](http://azure.microsoft.com/services/machine-learning/) and [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
-또한 데이터 과학자는 이 문서를 읽고 에너지 예측 솔루션의 배포를 구동하는 상위 수준의 프로세스를 보다 잘 이해할 수 있습니다. 이 컨텍스트에서 보다 자세한 고급 자료를 위한 적절한 기준선과 시작 지점을 설정하는 데도 사용할 수 있습니다.
+### <a name="target-audience"></a>Target Audience   
+The target audience for this document is both business and technical personnel who would like to gain knowledge and understanding of Machine Learning based solutions and how these are being used specifically within the energy-forecasting domain.
 
-### 산업 동향  
-지난 몇 년 동안, IoT, 대체 에너지원 및 빅 데이터의 병합은 공익 사업 및 에너지 영역에 엄청난 기회를 창출했습니다. 이와 동시에, 공익 사업 및 전체 에너지 분야에서 에너지 사용을 제어하는 데 소비자가 요구하는 향상된 방법으로 소비량이 안정된 것으로 나타났습니다.
+Data scientists can also benefit from reading this document to gain a better understanding of the high level process that drives the deployment of an energy forecasting solution. In this context it can also be used to establish a good baseline and starting point for more detailed and advanced material.
 
-수많은 공익 사업 및 스마트 그리드 회사가 그리드로 생성된 데이터를 활용하는 다양한 사용 사례를 배포하여 [스마트 그리드](https://en.wikipedia.org/wiki/Smart_grid)를 개척해왔습니다. 많은 사용 사례가 전기를 누적하거나 재고로 따로 저장할 수 없다는 전기 발전의 고유한 특징을 중심으로 이루어집니다. 따라서 생성되는 전기를 사용해야 합니다. 보다 많은 효율성을 확보하고자 하는 공익 사업체는 전력 소비량을 예측하기만 하면 됩니다. **공급과 수요의 균형**을 맞추는 기능이 뛰어나 에너지 낭비를 방지하면 **온실 가스 방출이 줄어들고** 비용을 제어할 수 있기 때문입니다.
+### <a name="industry-trends"></a>Industry Trends  
+In the past few years, IoT, alternative energy sources, and big data have merged to create vast opportunities in the utility and energy space. At the same time, the utility and the entire energy sectors have seen consumption flattening out with consumers demanding better ways to control their use of energy.
 
-비용에 관해 이야기할 때 가격이라는 다른 중요한 측면이 있습니다. 공익 사업 간 전력을 거래하는 새로운 기능은 **전기의 향후 수요 및 향후 가격 예측**에 대한 필요성을 가져왔습니다. 그러면 회사는 발전량을 결정할 수 있습니다.
+Many utility and smart energy companies have been pioneering the [smart grid](https://en.wikipedia.org/wiki/Smart_grid) by deploying a number of use cases that make use of the data generated by the grid. Many use cases revolve around the inherent characteristics of electricity production: it cannot be accumulated nor stored aside as inventory. So, what is produced must be used. Utilities that want to become more efficient need to forecast power consumption simply because that will give them greater ability to **balance supply and demand**, thus preventing energy wastage, **reduce greenhouse gas emission**, and control cost.
 
-'스마트'라는 단어를 사용할 때 실제로 학습 및 예측할 수 있는 그리드를 나타냅니다. 소비량의 계절별 변동을 예상할 수 있으며 **임시 오버로드 상황을 예견하고 자동으로 조정**할 수 있습니다. 스마트 측정기를 활용하여 소비량을 원격으로 조정하여 지역화된 오버로드 상황을 처리할 수 있습니다. **먼저 예측한 후 조치**하는 방식으로 그리드는 시간이 지남에 따라 더욱 지능적이 됩니다.
+When talking of costs, there is another important aspect, which is price. New abilities to trade power between utilities have brought in a great need to **forecast future demand and future price of electricity**. This can help companies determine their production volumes.
 
-이 문서의 나머지 부분에서는 미래, 단기 및 장기 에너지 수요를 예측하는 사용 사례에 대한 특정 제품군을 중점적으로 설명합니다. 몇 개월 동안 이러한 분야에 대해 작업해왔으며 산업 등급 결과를 생성할 수 있는 몇 가지 지식과 기술을 획득했습니다. 다른 사용 사례도 향후 이 문서에서 다룰 예정입니다.
+When we use the word 'smart', we actually refer to a grid that can learn and then make predictions. It can anticipate seasonal changes in consumption as well as **foresee temporary overload situations and automatically adjust for it**. By remotely regulating consumption (with the help of these smart meters), localized overload situations can be handled. **By first predicting and then acting**, the grid makes itself smarter over time.
 
-## 비즈니스 이해
+For the rest of this document we will focus on a specific family of use cases that cover forecasting of future, short term, and long-term energy demand. We have been working in these areas for a few months and have gained some knowledge and skill that allow us to produce industry grade results. Other use cases will be covered as well in the document in the near future.
 
-### 비즈니스 목표
-**에너지 데모** 목표는 매우 짧은 시간 프레임에 배포할 수 있는 일반적인 예측 분석 및 기계 학습 솔루션을 설명하는 데 있습니다. 특히 현재 초점은 에너지 수요 예측 솔루션을 사용하여 비즈니스 가치를 신속하게 실현하고 활용할 수 있도록 하는 것입니다. 이 플레이 북의 정보는 다음과 같은 목표를 수행하는 고객에게 유용할 수 있습니다.
--   단기간에 기계 학습 기반 솔루션의 가치 창출
--   파일럿 사용 사례를 다른 사용 사례로 확장하거나 비즈니스 요구를 기반으로 보다 넓은 범위로 확장하는 기능
--   Cortana Intelligence Suite 제품 지식을 신속하게 획득
+## <a name="business-understanding"></a>Business Understanding
 
-이 플레이 북은 이러한 목표를 염두에 두고 이러한 목표를 달성하는 데 도움이 되는 비즈니스 및 기술 지식을 제공하는 것을 목표로 합니다.
+### <a name="business-goals"></a>Business Goals
+The **Energy Demo** goal is to demonstrate a typical predictive analytics and machine learning solution that can be deployed in a very short time frame. Specifically, our current focus is on enabling energy demand forecast solutions so that its business value can be quickly realized and leveraged upon. The information in this playbook can help the customer accomplishing the following goals:
+-   Short time to value of machine learning based solution
+-   Ability to expand a pilot use case to other use cases or to a broader scope based on their business need
+-   Quickly gain Cortana Intelligence Suite product knowledge
 
-### 전원 부하 및 수요 예측
-에너지 분야 내에서 여러 가지 방법으로 수요 예측을 통해 중요한 비즈니스 문제를 해결할 수 있습니다. 사실, 수요 예측은 업계의 수많은 사용 사례를 위한 기초로 고려할 수 있습니다. 일반적으로 단기 및 장기라는 두 가지 유형의 에너지 수요 예측을 고려합니다. 각각 서로 다른 목적이 있으며 서로 다른 방법을 활용할 수 있습니다. 둘 사이의 주요 차이점은 예측 기간으로, 우리가 예측할 미래 시간 범위입니다.
+With these goals in mind, this playbook aims at delivering the business and technical knowledge that will assist in achieving these goals.
 
-#### 단기 부하 예측
-에너지 수요 컨텍스트 내에서 단기 부하 예측(STLF)은 가까운 미래에 다양한 그리드 부분(또는 전체 그리드)에서 예측되는 집계된 로드로 정의됩니다. 이 컨텍스트에서 단기는 1시간~24시간 범위 내의 시간으로 정의됩니다. 일부 경우에 48시간 범위도 가능합니다. 따라서 STLF는 그리드의 운영 사용 사례에 매우 일반적입니다. STLF 기반 사용 사례의 몇 가지 예는 다음과 같습니다.
--   공급과 수요 균형 조정
--   전원 거래 지원
--   시장 조성(전력 가격 설정)
--   그리드 운영 최적화
--   [수요 대응](https://en.wikipedia.org/wiki/Demand_response)
--   최고 수요 예측
--   수요 관리
--   부하 분산 및 오버로드 방지
--   장기 부하 예측
--   장애 및 이상 감지
--   최고 단축/평준화
+### <a name="power-load-and-demand-forecasting"></a>Power Load and Demand Forecasting
+Within the energy sector, there could be many ways in which demand forecasting can help solve critical business problems. In fact, demand forecasting can be considered the foundation for many core use cases in the industry. In general, we consider two types of energy demand forecasts: short term and long term. Each one may serve a different purpose and utilize a different approach. The main difference between the two is the forecasting horizon, meaning the range of time into the future for which we would forecast.
 
-STLF 모델은 주로 가까운 과거(마지막 날 또는 주) 소비량 데이터를 기반으로 하며 예측된 온도를 중요한 예측 변수로 사용합니다. 1시간부터 최대 24시간까지의 정확한 온도 예측을 확보하는 것은 오늘날 그다지 어려운 일이 아닙니다. 이러한 모델은 계절성 패턴 또는 장기 소비량 추세에 덜 민감합니다.
+#### <a name="short-term-load-forecasting"></a>Short Term Load Forecasting
+Within the context of energy demand, Short Term Load Forecasting (STLF) is defined as the aggregated load that is forecasted in the near future on various parts of the grid (or the grid as a whole). In this context, short term is defined to be time horizon within the range of 1 hour to 24 hours. In some cases, a horizon of 48 hours is also possible. Therefore, STLF is very common in an operational use case of the grid. Here are some examples of STLF driven use cases:
+-   Supply and demand balancing
+-   Power trading support
+-   Market making (setting power price)
+-   Grid operational optimization
+-   [Demand response](https://en.wikipedia.org/wiki/Demand_response)
+-   Peak demand forecasting
+-   Demand side management
+-   Load balancing and overload prevention
+-   Long Term Load Forecasting
+-   Fault and anomaly detection
+-   Peak curtailment/leveling 
 
-또한 SLTF 솔루션은 매시간 호출되고 일부 경우에는 보다 높은 빈도로 호출되므로 많은 양의 예측 호출(서비스 요청)를 생성할 가능성이 높습니다. 각 개별 변전소 또는 변압기가 독립 실행형 모델로 표현되는 이식이 매우 일반적으로 표시되므로 예측 요청의 양이 훨씬 많습니다.
+STLF model are mostly based on the near past (last day or week) consumption data and use forecasted temperature as an important predictor. Obtaining accurate temperature forecast for the next hour and up to 24 hours is becoming less of a challenge now days. These models are less sensitive to seasonal patterns or long-term consumption trends.
 
-#### 장기 부하 예측
-장기 부하 예측(LTLF)의 목표는 1주~몇 달(일부 경우 몇 년 동안) 범위의 시간으로 전원 수요를 예측하는 것입니다. 이 시간 범위는 주로 계획 중이고 투자 사용 사례에 적용 가능합니다.
+SLTF solutions are also likely to generate high volume of prediction calls (service requests) since they are being invoked on an hourly basis and in some cases even with higher frequency. It is also very common to see implantation where each individual substation or transformer is represented as a standalone model and therefore the volume of prediction requests are even greater.
 
-장기 시나리오는 몇 년 동안의 고품질 데이터를 보유하는 데 중요합니다(최소 3년). 이러한 모델은 일반적으로 과거 데이터에서 계절성 패턴을 추출하고 날씨 및 기후 패턴과 같은 외부 예측 요소를 활용합니다.
+#### <a name="long-term-load-forecasting"></a>Long Term Load Forecasting
+The goal of Long Term Load Forecasting (LTLF) is to forecast power demand with a time horizon ranging from 1 week to multiple months (and in some cases for a number of years). This range of horizon is mostly applicable for planning and investment use cases.
 
-예측 기간이 길수록 예측 정확도는 떨어진다는 점을 명확히 해야 합니다. 따라서 사용자가 가능한 변형을 계획 과정에 반영할 수 있도록 실제 예측과 함께 신뢰 구간을 생성하는 것이 중요합니다.
+For long-term scenarios, it is important to have high quality data that covers a span of multiple years (minimum 3 years). These models will typically extract seasonality patterns from the historical data and make use of external predicators such as weather and climate patterns.
 
-LTLF에 대한 소비량 시나리오는 대부분 계획 중이므로 STLF에 비해 훨씬 낮은 예측 양을 예상할 수 있습니다. 일반적으로 이러한 예측은 Excel 또는 PowerBI와 같은 시각화 도구에 포함되며 사용자가 수동으로 호출합니다.
+It is important to clarify that the longer the forecasting horizon is, the less accurate the forecast may be. It is therefore important to produce some confidence intervals along with the actual forecast that would allow humans to factor the possible variation into their planning process.
 
-### 단기 및 장기 예측 비교
-다음 표에서는 가장 중요한 특성에 관하여 STLF 및 LTLF를 비교합니다.
+Since the consumption scenario for LTLF is mostly planning, we can expect much lower prediction volumes (as compared to STLF). We would typically see these predictions embedded into visualization tools such as Excel or PowerBI and be invoked manually by the user.
 
-|특성|단기 부하 예측|장기 부하 예측|
+### <a name="short-term-vs.-long-term-prediction"></a>Short Term vs. Long Term Prediction
+The following table compares STLF and LTLF in respect to the most important attributes:
+
+|Attribute|Short Term Load Forecast|Long Term Load Forecast|
 |---|---|---|
-|예측 기간|1시간~48시간|1~6개월 이상|
-|데이터 세분성|매시간|매시간 또는 매일|
-|일반적인 사용 사례|<ul><li>수요/공급 균형 조정</li><li>예측 시간 선택</li><li>수요 대응</li></ul>|<ul><li>장기 계획</li><li>그리드 자산 계획</li><li>리소스 계획</li></ul>|
-|일반적인 예측 변수|<ul><li>일 또는 주</li><li>하루 중 시간</li><li>시간별 온도</li></ul>|<ul><li>연간 월</li><li>월간 일자</li><li>장기 온도 및 기후</li></ul>|
-|과거 데이터 범위|2-3년 분량의 데이터|5-10년 분량의 데이터|
-|일반적인 정확도|5% 이하의 MAPE*|25% 이하의 MAPE*|
-|예측 빈도|1시간 또는 24시간마다 생성됨|월별, 분기별 또는 매년 한 번 생성됨|
-*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – 평균 백분율 오차(Mean Average Percent Error)
+|Forecast Horizon|From 1 hour to 48 hours|From 1 to 6 months or more|
+|Data granularity|Hourly|Hourly or daily|
+|Typical use cases|<ul><li>Demand/Supply balancing</li><li>Pick hour forecasting</li><li>Demand response</li></ul>|<ul><li>Long term planning</li><li>Grid assets planning</li><li>Resource planning</li></ul>|
+|Typical predictors|<ul><li>Day or week</li><li>Hour of day</li><li>Hourly temperature</li></ul>|<ul><li>Month of year</li><li>Day of month</li><li>Long term temperature and climate</li></ul>|
+|Historical data range|Two to three years' worth of data|Five to 10 years' worth of data|
+|Typical accuracy|MAPE* of 5% or lower|MAPE* of 25% or lower|
+|Forecast frequency|Produced every hour or every 24 hours|Produced once monthly, quarterly or yearly|
+\*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – Mean Average Percent Error
 
-이 표에서 볼 수 있듯이 다양한 비즈니스 요구를 나타내며 서로 다른 배포 및 소비량 패턴을 포함할 수 있으므로 단기 및 장기 예측 시나리오를 구분하는 것이 매우 중요합니다.
+As can be seen from this table, it is quite important to distinguish between the short and the long term forecasting scenarios as these represent different business needs and may have different deployment and consumption patterns.
 
-### 사용 사례 예 1: eSmart 시스템 - 오버로드 최적화
-[스마트 그리드](https://en.wikipedia.org/wiki/Smart_grid)의 중요한 역할은 변동되는 소비량 패턴을 동적으로 지속적으로 최적화하고 조정하는 것입니다. 전력 소비량은 주로 온도 변화로 인한 장기 변동의 영향을 받을 수 있습니다(*예:* 냉방 또는 난방에 많은 전력이 사용됨). 이와 동시에 전력 소비량은 장기 추세의 영향도 받습니다. 여기에는 계절성 효과, 국경일, 장기 소비량 증가 및 소비자 지수, 유가 및 GDP와 같은 경제적 요인도 포함될 수 있습니다.
+### <a name="example-use-case-1:-esmart-systems-–-overload-optimization"></a>Example Use Case 1: eSmart Systems – Overload optimization
+An important role of a [smart grid](https://en.wikipedia.org/wiki/Smart_grid) is to dynamically and constantly optimize and adjust for the changing consumption patterns. Power consumption can be impacted by short-term changes that are mainly caused by temperature fluctuations (*e.g.*, more power is used for air condition or heating). At the same time, power consumption is also influenced by long-term trends. These may include seasonality effects, national holidays, long-term consumption growth, and even economic factors such as consumer index, oil price, and GDP.
 
-이 사용 사례에서 [eSmart](http://www.esmartsystems.com/)는 그리드의 지정된 변전소에서 오버로드 상황의 성향을 예측할 수 있는 클라우드 기반 솔루션을 배포하려고 합니다. 특히, eSmart는 1시간 이내 오버로드가 발생할 가능성이 있는 변전소를 식별하여 즉각적인 조치를 취하고 해당 상황을 피하거나 해결하려고 합니다.
+In this use case, [eSmart](http://www.esmartsystems.com/) wanted to deploy a cloud-based solution that enables predicting the propensity of an overload situation on any given substation of the grid. In particular, eSmart wanted to identify substations that are likely to overload within the next hour, so an immediate action could be taken to avoid or resolve that situation.
 
-정확하고 신속한 예측 수행을 위해서는 세 가지 예측 모델을 구현해야 합니다.
--   다음 몇 주 또는 몇 개월 동안 각 변전소에서 전력 소비량을 예측할 수 있는 장기 모델
--   1시간 동안 지정된 변전소에서 오버로드 상황을 예측할 수 있는 단기 모델
--   여러 시나리오에 대해 향후 온도 예측을 제공하는 온도 모델
+An accurate and fast performing prediction requires implementation of three predictive models:
+-   Long term model that enables forecasting of power consumption on each substation during the next few weeks or months
+-   Short term model that enables prediction of overload situation on a given substation during the next hour
+-   Temperature model that provides forecasting of future temperature over multiple scenarios
 
-장기 모델의 목적은 다음 주 또는 월 동안 오버로드 성향별(특정 송전 용량)로 변전소에 순위를 지정하는 것입니다. 이를 통해 단기 예측을 위한 입력으로 제공할 변전소에 대한 간단한 목록을 작성할 수 있습니다. 온도는 장기 모델을 위한 중요한 예측 변수이므로 지속적으로 다중 시나리오 온도 예측을 생성하고 이를 장기 모델에 대한 입력으로 공급해야 합니다. 그런 다음 1시간 동안 오버로드가 발생할 가능성이 있는 변전소를 예측하기 위해 단기 예측이 호출됩니다.
+The objective of the long-term model is to rank the substations by their propensity to overload (given their power transmission capacity) during the next week or month. This allows the creation of a short list of substations that would serve as an input for the short-term prediction. As temperature is an important predictor for the long-term model, there is a need to constantly produce multi-scenario temperature forecasts and feed them as input into to the long-term model. The short term forecast is then invoked to predict which substation is likely to overload over the next hour.
 
-단기 및 장기 모델은 변전소별로 개별적으로 배포됩니다. 따라서 이러한 모델의 실제 실행을 위해서는 광범위한 오케스트레이션이 필요합니다. 단기간에 높은 예측 정확도를 실현하기 위해 각 시간 동안 더 세분화된 모델이 전용으로 사용됩니다. 이러한 모든 모델은 1시간마다 실행되며 몇 분 이내 실행이 완료되어 필요한 경우 이에 대응하고 예방 조치를 할 충분한 시간이 주어집니다. 이 모델 컬렉션은 최근 데이터를 사용하여 정기적으로 재학습하는 방법으로 최신 상태를 유지합니다.
+The short-term and long-term models are deployed individually per each substation. Therefore, the practical execution of these models requires extensive orchestration. To gain higher prediction accuracy in the short term, a more granular model is dedicated for each hour of the day. All these models are executed every hour and finish execution within a few minutes to allow sufficient time to respond and take preventive actions if needed. This collection of models is kept up-to-date by periodical retraining using the most recent data.
 
-이 사용 사례에 대한 자세한 내용은 [여기](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945)에 있습니다.
+More information about this use case can be found [here](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
-#### 사용 사례 자격 조건 - 필수 구성 요소
-Cortana Intelligence의 주요 강점은 기계 학습 중심 솔루션을 배포 및 확장하는 강력한 기능입니다. 동시에 실행되는 수천 개의 예측을 지원하도록 설계되었습니다. 변동되는 소비량 패턴에 맞게 자동으로 규모가 조정됩니다. 따라서 솔루션의 초점은 정확도와 컴퓨팅 성능에 있습니다. 예를 들어 공익 사업체는 1시간, 시간별로 정확한 에너지 수요 예측을 생성하는 데 관심이 있습니다. 반면, 우리는 수요가 그렇게 예측되는 이유를 묻는 질문에 대한 응답에는 관심이 적습니다(모델 자체가 처리).
+#### <a name="use-case-qualification-criteria-–-prerequisites"></a>Use Case Qualification Criteria – Prerequisites
+The main strength of Cortana Intelligence is in its powerful ability to deploy and scale machine learning centric solutions. It is designed to support thousands of predictions that are executed concurrently. It can automatically scale to meet a changing consumption pattern. A solution's focus therefore, is on accuracy and computational performance. For example, a utility company is interested in producing accurate energy demand forecast for the next hour, and for each hour of the day. On the other hand, we are less interested in answering the question of why the demand is predicted to be as it is (the model itself will take care of that).
 
-따라서 모든 사용 사례 및 비즈니스 문제를 기계 학습으로 효과적으로 해결할 수 없다는 것을 깨달아야 합니다.
+It is therefore important to realize that not all use cases and business problems can be effectively solved using machine learning.
 
-Cortana Intelligence 및 기계 학습은 다음 조건이 충족되는 경우 특정 비즈니스 문제 해결에 매우 효과적일 수 있습니다.
--   현재 비즈니스 문제가 사실상 **예측** 가능합니다. 예측 사용 사례 예제는 1시간 동안 주어진 변전소에서 전원 부하를 예측하는 공익 사업체입니다. 반면에 과거 수요의 요인을 분석하고 순위를 지정하는 것은 사실상 **구체적**이므로 해당되지 않습니다.
--   일반 예측이 가능하면 확실한 **조치 경로**가 있습니다. 예를 들어, 1시간 동안 변전소에서 오버로드를 예측하면 변전소와 관련된 부하를 줄이고 잠재적으로 오버로드를 방지하는 사전 조치를 트리거할 수 있습니다.
--   이 사용 사례는 해결할 경우 다른 유사한 사용 사례를 해결하는 방법을 마련할 수 있는 **일반적인 문제 유형**을 나타냅니다.
--   고객은 **정량적 및 정성적 목표**를 설정하여 성공적인 솔루션 구현을 보여 줄 수 있습니다. 예를 들어, 에너지 수요 예측에 대한 적절한 정량적 목표는 필요한 정확도 임계값(*예:* 최대 5% 오차 허용)이 될 수 있으며 변전소 오버로드를 예측할 경우 정밀도(참 긍정 비율) 및 회수(참 긍정 범위)가 주어진 임계값 이상이어야 합니다. 이러한 목표는 고객의 비즈니스 목표에서 파생되어야 합니다.
--   회사의 비즈니스 워크플로를 사용하는 확실한 **통합 시나리오**가 있습니다. 예를 들어 변전소 부하 예측을 그리드 제어 센터에 통합하여 오버로드 방지 활용을 허용할 수 있습니다.
--   고객은 사용 사례를 지원하기 위해 **충분한 품질의 데이터**를 사용할 준비가 되었습니다(자세한 내용은 이 플레이 북의 다음 섹션, **데이터 품질** 참조).
--   고객은 Azure 기계 학습 및 기타 Cortana Intelligence Suite 구성 요소를 비롯한 클라우드 중심 데이터 아키텍처 또는 **클라우드 기반 기계 학습**을 수용합니다.
--   고객은 클라우드로 지속적인 데이터 배달이 용이하도록 **종단 간 데이터 흐름**을 설정하고 솔루션을 **운영**하려고 합니다.
--   고객은 솔루션의 지식 및 소유권을 성공적으로 완료 시 고객에게 이전할 수 있도록 초기 파일럿 구현 중에 적극적으로 참여할 **리소스를 전용**할 준비가 됩니다.
--   고객 리소스는 **숙련된 데이터 전문가**여야 하며 가급적이면 데이터 과학자여야 합니다.
+Cortana Intelligence and machine learning could be highly effective in solving a given business problem when the following criteria are met:
+-   The business problem in hand is **predictive** in nature. A predictive use case example is a utility company that would like to predict power load on a given substation during the next hour. On the other hand, analyzing and ranking drivers of historical demand would be **descriptive** in nature and therefore less applicable.
+-   There is a clear **path of action** to be taken once the prediction is available. For example, predicting an overload on a substation during the next hour can trigger a proactive action of reducing load that is associated with that substation and thus potentially preventing an overload.
+-   The use case represents a **typical type of problem** such that when solved it can pave the way to solving other similar use cases.
+-   The customer can set **quantitative and qualitative goals** to demonstrate a successful solution implementation. For example, a good quantitative goal for energy demand forecast would be the required accuracy threshold (*e.g.*, up to 5% error is allowed) or when predicting substation overload then the precision (rate of true positives) and recall (extent of true positives) should be above a given threshold. These goals should be derived from the customer's business goals.
+-   There is a clear **integration scenario** with the company's business workflow. For example, the substation load forecast can be integrated into the grid control center to allow overload prevention activities.
+-   The customer has ready to use **data with sufficient quality** to support the use case (see more in the next section, **Data Quality**, of this playbook).
+-   The customer embraces cloud centric data architecture or **cloud-based machine learning**, including Azure ML and other Cortana Intelligence Suite components.
+-   The customer is willing to establish **an end to end data flow** that facilities the delivery of data into the cloud on an ongoing basis, and is willing to **operationalize** the solution.
+-   The customer is ready to **dedicate resources** who will be actively engaged during the initial pilot implementation so that knowledge and ownership of the solution can be transferred to the customer upon successful completion.
+-   The customer resource should be a **skilled data professional**, preferably a data scientist.
 
-위의 조건을 기반으로 한 사용 사례의 자격은 사용 사례의 성공률을 크게 개선할 수 있으며 향후 사용 사례의 구현을 위한 발판으로 삼을 수 있습니다.
+Qualification of a use case based on the above criteria can greatly improve the success rates of a use case and establish a good beachhead for the implementation of future use cases.
 
-### 클라우드 기반 솔루션
-Azure에서 Cortana Intelligence Suite는 클라우드에 상주하는 통합된 환경입니다. 클라우드 환경에서 고급 분석 솔루션의 배포는 비즈니스에 상당한 이점을 제공하는 동시에 여전히 온-프레미스 IT 솔루션을 사용하는 회사의 중대한 변화를 의미할 수 있습니다. 에너지 분야 내에서 운영을 클라우드로 점진적으로 마이그레이션하는 추세가 분명합니다. 위의 **산업 동향**에 설명된 것처럼 이러한 추세는 스마트 그리드의 개발과 함께 밀접하게 연결됩니다. 이 플레이 북은 에너지 영역의 클라우드 기반 솔루션에 초점을 두므로 클라우드 기반 솔루션 배포 시 이점 및 기타 고려 사항을 설명해야 합니다.
+### <a name="cloud-based-solutions"></a>Cloud-Based Solutions
+Cortana Intelligence Suite on Azure is an integrated environment that resides in the cloud. The deployment of an advanced analytics solution in a cloud environment holds substantial benefits for businesses and at the same time may mean big change for companies that still use on-premise IT solutions. Within the energy sector, there is a clear trend of gradual migration of operations into the cloud. This trend goes hand in hand along with the development of the smart grid as discussed above, in **Industry Trends**. As this playbook is focused on a cloud-based solution in the energy domain, it is important to explain the benefits and other considerations of deploying a cloud-based solution.
 
-아마도 클라우드 기반 솔루션의 가장 큰 장점은 비용입니다. 솔루션은 클라우드 배포 구성 요소를 활용하므로 이와 관련된 사전 투자 비용 또는 매출원가(COGS) 구성 요소 비용이 없습니다. 즉, 하드웨어, 소프트웨어 및 IT 유지 관리에 투자가 필요 없으므로 비즈니스 위험이 크게 줄어듭니다.
+Perhaps the biggest advantage of a cloud-based solution is the cost. As a solution makes use of cloud-deployed components, there is no upfront costs or COGS (Cost of Goods Sold) component costs associated with it. That means that there is no need to invest in hardware, software, and IT maintenance, and therefore there is a substantial reduction in business risk.
 
-또 다른 중요한 장점은 클라우드 기반 솔루션의 종량제 비용 구조입니다. 계산 또는 저장소용 클라우드 기반 서버는 필요에 따라 배포 및 확장할 수 있습니다. 따라서 클라우드 기반 솔루션에는 비용 효율성 이점이 제공됩니다.
+Another important advantage is the pay-as-you-go cost structure of cloud-based solutions. Cloud-based servers for computing or storage can be deployed and scaled on a just-as-needed basis. This represents the cost efficiency advantage of a cloud-based solution.
 
-마지막으로, IT 유지 관리 또는 향후 인프라 개발이 클라우드 기반 제품에 포함되므로 투자가 필요하지 않습니다. 이처럼 Cortana Intelligence Suite는 동급 최고의 서비스를 포함하며 이에 대한 로드맵은 계속 진화하고 있습니다. 새로운 기능, 구성 요소 및 기능이 지속적으로 도입되고 개발되고 있습니다.
+Finally, there is no need for investing in IT maintenance or future infrastructure development as all this is part of the cloud-based offering. To that extent, Cortana Intelligence Suite includes the best in class services and its road map keeps evolving. New features, components, and capabilities are constantly being introduced and evolve.
 
-클라우드로 전환을 이제 시작하는 회사의 경우 클라우드 마이그레이션 로드맵을 구현하여 점진적인 방법을 취하는 것이 좋습니다. 에너지 영역의 공익 사업체 및 회사의 경우 이 플레이 북에 설명된 사용 사례를 통해 클라우드에서 예측 분석 솔루션을 파일럿할 수 있는 뛰어난 기회를 얻을 수 있습니다.
+For a company that is just starting its transition into the cloud, we are highly recommending to take a gradual approach by implementing a cloud migration road map. We believe that for utilities and companies in the energy domain, the use cases that are discussed in this playbook represent an excellent opportunity for piloting predictive analytics solutions in the cloud.
 
-#### 비즈니스 사례 근거 고려 사항
-대부분의 경우 고객은 클라우드 기반 솔루션 및 기계 학습이 중요한 구성 요소인 특정 사용 사례에 대한 비즈니스 근거를 만드는 데 관심이 있을 수 있습니다. 온-프레미스 솔루션과 달리 클라우드 기반 솔루션의 경우 사전 투자 비용 구성 요소는 최소 수준이며 대부분의 비용 요소는 실제 사용과 관련됩니다. Cortana Intelligence Suite에서 에너지 예측 솔루션을 배포하는 것과 관련해서 여러 서비스를 하나의 공통 비용 구조로 통합할 수 있습니다. 예를 들어 데이터베이스(*예:*, SQL Azure)를 원시 데이터를 저장하는 데 사용한 후 실제 예측에서는 예측 서비스를 호스팅하는 데 Azure 기계 학습을 사용합니다. 이 예제에서는 비용 구조에 저장소 및 트랜잭션 구성 요소가 포함될 수 있습니다.
+#### <a name="business-case-justification-considerations"></a>Business Case Justification Considerations
+In many cases, the customer may be interested in making a business justification for a given use case in which a cloud-based solution and Machine Learning are important components. Unlike an on-premise solution, in the case of a cloud-based solution, the upfront cost component is minimal and most of the cost elements are associated with actual usage. When it comes to deploying an energy forecasting solution on Cortana Intelligence Suite, multiple services can be integrated with a single common cost structure. For example, databases (*e.g.*, SQL Azure) can be used to store the raw data and then for the actual forecasts Azure ML is used to host the forecasting services. In this example, the cost structure could include storage and transactional components.
 
-반면에 에너지 수요 예측 운영(단기 또는 장기)의 비즈니스 가치에 대해 잘 이해해야 합니다. 실제로 각 예측 작업에서 비즈니스 가치를 실현하는 것이 중요합니다. 예를 들어, 다음 24시간 동안의 전원 부하를 정확하게 예측하면 과잉 생산을 방지할 수 있으며 그리드에 오버로드를 방지하는 데 도움이 되며 재정 절감 관점에서 일 단위로 정량화할 수 있습니다.
+On the other hand, one should have a good understanding of the business value of operating an energy demand forecasting (short or long term). In fact, it is important to realize the business value of each forecast operation. For example, accurately forecasting power load for the next 24 hours can prevent overproduction or can help prevent overloads on the grid and this can be quantified in terms of financial savings on a daily basis.
 
-수요 예측 솔루션의 재정적 이익을 계산하는 기본 수식은 다음과 같습니다. ![수요 예측 솔루션의 재정적 이익을 계산하는 기본 수식](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+A basic formula for calculating the financial benefit of demand forecast solution would be: ![Basic formula for calculating the financial benefit of demand forecast solution](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
-Cortana Intelligence Suite는 종량제 가격 책정 모델을 제공하므로 이 수식에 고정 비용 요소가 발생할 필요가 없습니다. 이 수식은 매일, 매월 또는 매년 단위로 계산할 수 있습니다.
+Since Cortana Intelligence Suite provides a pay-as-you-go pricing model, there is no need for incurring a fixed cost component to this formula. This formula can be calculated on a daily, monthly, or annual basis.
 
-현재 Cortana Intelligence Suite 및 Azure 기계 학습 가격 계획은 [여기](http://azure.microsoft.com/pricing/details/machine-learning/)에서 확인할 수 있습니다.
+Current Cortana Intelligence Suite and Azure ML pricing plans can be found [here](http://azure.microsoft.com/pricing/details/machine-learning/).
 
-### 솔루션 개발 프로세스
-에너지 수요 예측 솔루션의 개발 주기는 일반적으로 4단계를 포함하며 모두 Cortana Intelligence Suite 내에서 클라우드 기반 기술 및 서비스를 활용합니다.
+### <a name="solution-development-process"></a>Solution Development Process
+The development cycle of an energy demand forecasting solution typically involves 4 phases, in all of which we make use of cloud-based technologies and services within the Cortana Intelligence Suite.
 
-이 내용은 다음 다이어그램에서 설명됩니다.
+This is illustrated in the following diagram:
 
-![스마트 그리드 주기](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
+![Smart Grid Cycle](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
 
-다음 단락에서는 이 4단계 프로세스를 설명합니다.
+The following paragraph describes this 4 step process:
 
-1.  **데이터 수집** – 모든 고급 분석 기반 솔루션은 데이터에 의존합니다(**데이터 이해** 참조). 특히, 예측 분석 및 예측과 관련하여 지속적이고 동적인 데이터 흐름을 사용합니다. 에너지 수요 예측의 경우 이 데이터는 스마트 측정기에서 직접 가져오거나 온-프레미스 데이터베이스에서 이미 집계될 수 있습니다. 또한 날씨 및 온도와 같은 기타 외부 데이터 원본도 활용합니다. 이 지속적인 데이터 흐름은 오케스트레이션, 예약 및 저장되어야 합니다. [Azure 데이터 팩터리](http://azure.microsoft.com/services/data-factory/)(ADF)는 이 작업을 완수하기 위한 주요 수단입니다.
-2.  **모델링** – 정확하고 신뢰할 수 있는 에너지 예측을 위해 과거 데이터를 활용하고 데이터에서 의미 있는 예측 패턴을 추출하는 훌륭한 모델을 개발(학습) 및 유지 관리해야 합니다. 기계 학습(ML) 영역은 더욱 고급화된 알고리즘을 정기적으로 개발하여 급속도로 성장하고 있습니다. Azure 기계 학습 스튜디오는 복잡한 워크플로 내에서 최첨단 기계 학습 알고리즘을 활용할 수 있는 우수한 사용자 환경을 제공합니다. 이러한 워크플로는 직관적인 흐름 다이어그램으로 표현되며 여기에는 데이터 준비, 기능 추출, 모델링 및 모델 평가가 포함됩니다. 사용자는 이 환경에 포함된 다양한 모델을 수백 개 가져올 수 있습니다. 이 단계의 끝으로 데이터 과학자는 충분히 평가되고 배포할 준비가 된 작업 모델을 갖게 됩니다.
+1.  **Data Collection** – Any advanced analytics based solution relies on data (see **Data Understanding**). Specifically, when it comes to predictive analytics and forecasting, we rely on ongoing, dynamic flow of data. In the case of energy demand forecasting, this data can be sourced directly from smart meters, or be already aggregated on an on-prem database. We also rely on other external sources of data such as weather and temperature. This ongoing flow of data must be orchestrated, scheduled, and stored. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) is our main workhorse for accomplishing this task.
+2.  **Modeling** – For accurate and reliable energy forecasts, one must develop (train) and maintain a great model that makes use of the historical data and extracts the meaningful and predictive patterns in the data. The area of Machine Learning (ML) has been growing rapidly with more advanced algorithms being routinely developed. Azure ML Studio provides a great user experience that helps utilize the most advanced ML algorithms within a complete work flow. That workflow is illustrated in an intuitive flow diagram and includes the data preparation, feature extraction, modeling, and model evaluation. The user can pull in hundreds of various models that are included in this environment. By the end of this phase a data scientist will have a working model that is fully evaluated and ready for deployment.
 
-	다음 다이어그램은 일반적인 워크플로 보여 줍니다.
+    The following diagram is an illustration of a typical workflow:
 
-	![모델링 워크플로](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
+    ![Modeling Workflow](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 
-3.  **배포** – 작업 모델 다음 단계는 배포입니다. 여기서 모델은 인터넷을 통해 다양한 소비자 클라이언트로부터 동시에 호출할 수 있는 RESTful API를 노출하는 웹 서비스로 변환됩니다. Azure 기계 학습은 한 번의 단추 클릭으로 Azure 기계 학습 스튜디오에서 모델을 직접 배포하는 간단한 방법을 제공합니다. 전체 배포 프로세스는 내부에서 발생합니다. 이 솔루션은 필요한 소비량에 맞게 자동으로 규모를 조정합니다.
+3.  **Deployment** – With a working model in hand, the next step is deployment. Here the model is converted into a web service that exposes a RESTful API that can be concurrently invoked over the     Internet from various consumption clients. Azure ML provides a simple way of deploying a model directly from the Azure ML Studio with a single click of a button. The entire deployment process happens under the hood. This solution can automatically scale to meet the required consumption.
 
-4.  **소비** – 이 단계에서 예측을 생성하기 위해 실제로 예측 모델을 활용합니다. 소비는 사용자 응용 프로그램(*예:* 대시보드)에서 구동되거나 수요/공급 균형 유지 시스템 또는 그리드 최적화 솔루션과 같은 운영 시스템에서 직접 구동될 수 있습니다. 여러 사용 사례가 단일 모델에서 구동될 수 있습니다.
+4.  **Consumption** – In this phase, we actually make use of the forecasting model to produce predictions. The consumption can be driven from a user application (*e.g.*, dashboard) or directly from an operational system such as demand/supply balancing system or a grid optimization solution. Multiple use cases can be driven from a single model.
 
-## 데이터 이해
-에너지 수요 예측 솔루션의 비즈니스 고려 사항(**비즈니스 이해** 참조)을 살펴보았으므로 이제 데이터 부분에 대해 논의하겠습니다. 모든 예측 분석 솔루션은 신뢰할 수 있는 데이터에 의존합니다. 에너지 수요 예측을 위해 다양한 수준의 세분성을 지닌 과거 소비량 데이터에 의존합니다. 이러한 기록 데이터는 근본 자료로 사용됩니다. 데이터 과학자가 결국에는 원하는 예측을 생성할 모델에 입력할 수 있는 예측 변수(기능이라고도 함)를 식별하도록 신중한 분석을 진행합니다.
+## <a name="data-understanding"></a>Data Understanding
+After covering the business considerations (see **Business Understanding**) of an energy demand forecasting solution, we are now ready to discuss the data part. Any predictive analytics solution relies on reliable data. For energy demand forecasting, we rely on historical consumption data with various levels of granularity. That historical data is used as the raw material. It will undergo a careful analysis in which the data scientist will identify predictors (also referred to as features) that can be put into a model which will eventually generate the required forecasts.
 
-이 섹션의 나머지 부분에서는 데이터 및 데이터를 사용 가능한 형식으로 가져오는 방법을 이해하는 다양한 단계와 고려 사항에 대해 설명합니다.
+In the rest of this section, we will describe the various steps and considerations for understanding the data and how to bring it to a usable form.
 
-### 모델 개발 주기
-적절한 예측 모델을 생성하려면 몇 가지 세심한 준비와 계획이 필요합니다. 모델링 프로세스를 여러 단계로 세분화하고 한 번에 한 단계에 집중하면 전체 프로세스의 결과를 크게 개선할 수 있습니다.
+### <a name="the-model-development-cycle"></a>The Model Development Cycle
+Producing good forecasting models requires some careful preparation and planning. Breaking down the modeling process into multiple steps and focusing on one step at a time could dramatically improve the outcome of the entire process.
 
-다음 다이어그램에서는 모델링 프로세스를 어떻게 여러 단계로 세분화하는지를 보여 줍니다.
+The following diagram illustrates how the modeling process could be broken down into multiple steps:
 
-![모델 개발 주기](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
+![Model Development Cycle](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
 
-볼 수 있는 것처럼 주기는 다음 6단계로 구성됩니다.
--   문제 공식화
--   데이터 수집 및 데이터 탐색
--   데이터 준비 및 기능 엔지니어링
--   모델링
--   모델 평가
--   개발
+As can be seen the cycle consists of six steps:
+-   Problem formulation
+-   Data ingestion and data exploration
+-   Data preparation and feature engineering
+-   Modeling
+-   Model evaluation
+-   Development
 
-이 섹션의 나머지 부분에서 개별 단계와 각 단계에서 고려할 항목에 대해 설명합니다.
+In the rest of this section we will describe the individual steps and items to consider at each step.
 
-### 문제 공식화
-예측 분석 솔루션을 구현하기 전에 수행해야 하는 가장 중요한 단계로 문제 공식화를 고려할 수 있습니다. 여기서 비즈니스 문제를 변환하고 데이터 및 모델링 기법을 사용하여 해결할 수 있는 특정 요소로 분해합니다. 일련의 질문에 대답하는 방식으로 문제를 공식화하는 것도 좋은 방법입니다. 다음은 에너지 수요 예측의 범위 내에서 적용할 수 있는 몇 가지 가능한 질문입니다.
--   1시간 또는 하루에 개별 변전소에서 예상되는 부하는?
--   내 그리드 환경에서 최고 수요가 발생하는 시간은?
--   내 그리드에서 예상된 최고 부하를 감당할 가능성은?
--   하루 중 매시간 동안 발전소에서 생성하는 전력의 양은?
+### <a name="problem-formulation"></a>Problem Formulation
+We can consider the problem formulation as the most critical step one needs to take prior to implementing any predictive analytics solution. Here we would transform the business problem and decompose it to specific elements which can be solved by using data and modeling techniques. It is a good practice to formulate the problem as a set of questions we would like to answer. Here are some possible questions that might be applicable within the scope of energy demand forecasting:
+-   What is the expected load on an individual substation in the next hour or day?
+-   At what time of the day will my grid experience peak demand?
+-   How likely is my grid to sustain the expected peak load?
+-   How much power should the power station generate during each hour of the day?
 
-이러한 질문을 공식화하면 적합한 데이터를 가져오고 직면한 비즈니스 문제에 잘 맞는 솔루션을 구현하는 데 집중할 수 있습니다. 또한 모델의 성능을 평가할 수 있는 몇 가지 주요 메트릭을 설정할 수 있습니다. 예를 들어 예측의 정확도는 얼마나 되어야 하며 비즈니스에서 허용 가능한 오차 범위는 무엇인지 등을 설정할 수 있습니다.
+Formulating these questions allows us to focus on getting the right data and implementing a solution that is fully aligned with the business problem at hand. Furthermore, we can then set some key metrics that allow us to evaluate the performance of the model. For example, how accurate should the forecast be and what is the range of error that would still be acceptable by the business?
 
-### 데이터 원본
-최신 스마트 그리드는 그리드의 다양한 부분과 구성 요소에서 데이터를 수집합니다. 이 데이터는 전력망의 운영 및 활용의 다양한 측면을 나타냅니다. 에너지 수요 예측 범위 내에서 실제 수요 소비량을 반영하는 데이터 원본으로 논의를 제한하고 있습니다. 한 가지 중요한 에너지 소비량 원본은 스마트 측정기입니다. 전 세계 공익 사업체는 자신의 소비자에게 스마트 측정기를 신속하게 배포하고 있습니다. 스마트 측정기는 실제 전원 소비량을 기록하고 이 데이터를 다시 공익 사업체에 지속적으로 릴레이합니다. 데이터가 수집되고 5분~1시간 단위 범위의 고정된 간격으로 다시 전송됩니다. 가정 내에서 실제 소비량을 원격으로 제어하고 균형을 이루도록 고급 스마트 측정기를 프로그래밍할 수 있습니다. 스마트 측정기 데이터는 비교적 신뢰할 수 있으며 타임스탬프를 포함합니다. 따라서 수요 예측에 중요한 요소입니다. 측정기 데이터를 변압기, 변전소, 하위 지역 *등*의 그리드 토폴로지 내에서 다양한 수준으로 집계(합계)할 수 있습니다. 그런 다음 원하는 집계 수준을 선택하여 해당 예측 모델을 구축할 수 있습니다. 예를 들어 공익 사업체에서 각 그리드 변전소의 향후 부하를 예측하려는 경우 각 개별 변전소에 대한 모든 측정기 데이터를 집계하여 예측 모델의 입력으로 사용할 수 있습니다. 스마트 측정기를 내부 데이터 원본으로 참조합니다.
+### <a name="data-sources"></a>Data Sources
+The modern smart grid collects data from various parts and components of the grid. This data represents various aspects of the operation and the utilization of the power grid. Within the scope of the energy demand forecast, we are limiting the discussion on data sources that reflect the actual demand consumption. One important source of energy consumption are smart meters. Utilities around the globe are rapidly deploying smart meters for their consumers. Smart meters record the actual power consumption and constantly relay this data back to the utility company. Data is collected and sent back at a fixed interval, ranging from every 5 minutes to 1 hour. More advanced smart meters can be programmed remotely to control and balance the actual consumption within a household. Smart meter data is relatively reliable and includes a time stamp. That makes it an important ingredient for demand forecast. Meter data can be aggregated (summed up) at various levels within the grid topology: transformer, substation, region, *etc*. We can then pick the required aggregation level to build a forecasting model for it. For example, if the utility company would like to forecast future load on each of its grid substations then all meters' data can be aggregated for each individual substation and used as an input for the forecasting model. We refer to smart meters as an internal data source.
 
-신뢰할 수 있는 에너지 수요 예측은 다른 외부 데이터 원본에 따라서도 좌우됩니다. 전력 소비량에 영향을 주는 한 가지 중요한 요소는 날짜이며 더 정확히 말해 온도입니다. 과거 데이터는 외부 온도와 전력 소비량 간의 강력한 상관 관계를 보여 줍니다. 더운 여름 동안 소비자는 에어컨을 사용하며 겨울에는 난방 시스템을 가동합니다. 따라서 그리드 위치에서 과거 온도에 대한 신뢰할 수 있는 원본이 핵심 요소입니다. 또한 전력 소비량의 예측 변수로 온도의 정확한 예측을 사용합니다.
+A reliable energy demand forecast will also rely on other external data sources. One important factor that affects power consumption is the weather, or more precisely the temperature. Historical data shows strong correlation between outside temperature and power consumption. During hot summer days, consumers make use of their air conditioners and during the winter power on heating systems. A reliable source of historical temperatures at the grid location is therefore key. Furthermore, we also rely on accurate forecast of temperature as a predictor of power consumption.
 
-다른 외부 데이터 원본도 에너지 수요 예측 모델을 구축하는 데 도움이 될 수 있습니다. 여기에는 장기 기후 변동, 경제 지수(*예:* GDP) 등이 포함될 수 있습니다. 이 문서에서는 이러한 다른 데이터 원본은 포함하지 않습니다.
+Other external data sources can also help in building energy demand forecast models. These may include long term climate changes, economical indexes (*e.g.*, GDP), and others. In this document we will not include these other data sources.
 
-### 데이터 구조
-필요한 데이터 원본을 식별한 후 수집된 원시 데이터가 정확한 데이터 기능을 포함하는지 확인합니다. 신뢰할 수 있는 수요 예측 모델을 구축하려면 수집된 데이터가 향후 수요를 예측하는 데 도움이 될 수 있는 데이터 요소를 포함하는지 확인해야 합니다. 다음은 원시 데이터의 데이터 구조(스키마)와 관련된 몇 가지 기본적인 요구 사항입니다.
+### <a name="data-structure"></a>Data Structure
+After identifying the required data sources, we would like to ensure that raw data that has been collected includes the correct data features. To build a reliable demand forecast model, we would need to ensure that the data collected includes data elements that can help predict the future demand. Here are some basic requirements concerning the data structure (schema) of the raw data.
 
-원시 데이터는 행과 열로 이루어져 있습니다. 각 측정은 데이터의 단일 행으로 표시됩니다. 데이터의 각 행에는 기능 또는 필드라고도 하는 여러 열이 포함됩니다.
+The raw data consists of rows and columns. Each measurement is represented as a single row of data. Each row of data includes multiple columns (also referred to as features or fields).
 
-1.  **타임스탬프** – 타임스탬프 필드는 측정이 기록된 실제 시간을 나타냅니다. 일반 날짜/시간 형식 중 하나를 준수해야 합니다. 날짜와 시간 부분 모두 포함해야 합니다. 대부분의 경우 두 번째 단위까지 시간을 기록하지 않아도 됩니다. 데이터가 기록되는 표준 시간대를 지정하는 것이 중요합니다.
-2.  **측정기 ID** - 이 필드는 측정기 또는 측정 장치를 식별합니다. 범주 변수이며 문자와 숫자 조합을 사용할 수 있습니다.
-3.  **소비량 값** - 특정 날짜/시간의 실제 소비량입니다. 소비량은 kWh(킬로와트-시간) 또는 기타 선호하는 단위로 측정할 수 있습니다. 측정 단위는 모든 데이터 측정값에서 일관되게 유지되어야 한다는 것에 유의하세요. 경우에 따라 소비량은 3개의 전원 단계를 통해 공급될 수 있습니다. 이 경우 모두 독립적인 소비 단계로 수집해야 합니다.
-4.  **온도** – 일반적으로 온도는 독립적인 원본에서 수집됩니다. 그러나 소비량 데이터와 호환되어야 합니다. 위에 설명된 대로 실제 소비량 데이터와 동기화할 수 있도록 타임스탬프를 포함해야 합니다. 온도 값은 섭씨 또는 화씨로 지정할 수 있지만 모든 측정값에서 일관성을 유지해야 합니다.
-5.  **위치** - 일반적으로 위치 필드는 온도 데이터가 수집된 곳과 관련됩니다. 우편 번호 또는 위도/경도(lat/long) 형식으로 나타낼 수 있습니다.
+1.  **Time stamp** – the timestamp field represents the actual time when the measurement was recorded. It should comply with one of the common date/time formats. Both date and time parts should be included. In most cases, there is no need for the time to be recorded till the second level of granularity. It is important to specify the time zone in which the data is recorded.
+2.  **Meter ID** - This field identifies the meter or the measurement device. It is a categorical variable and can be a combination of digits and characters.
+3.  **Consumption value** – This is the actual consumption at a given date/time. The consumption can be measured in kWh (kilowatt-hour) or any other preferred units. It is important to note that the measurement unit must stay consistent across all measurements in the data. In some cases, consumption can be supplied over 3 power phases. In that case we would need to collect all the independent consumption phases.
+4.  **Temperature** – the temperature is typically collected from an independent source. However, it should be compatible with the consumption data. It should include a timestamp as described above that will allow it to be synchronized with the actual consumption data. The temperature value can be specified in degrees Celsius or Fahrenheit but should stay consistent across all measurements.
+5.  **Location –** The location field is typically associated with the place where the temperature data has been collected. It can be represented as a zip-code number or in latitude/longitude (lat/long) format.
 
-다음 표에서는 소비량 및 온도 데이터 형식에 대한 좋은 예를 보여 줍니다.
+The following tables shows examples of a good consumption and temperature data format:
 
-|**Date**|**Time**|**측정기 ID**|**1단계**|**2단계**|**3단계**|
+|**Date**|**Time**|**Meter ID**|**Phase 1**|**Phase 2**|**Phase 3**|
 |--------|--------|------------|-----------|-----------|-----------|
-|7/1/2015|10:00:00|ABC1234 |7\.0 |2\.1 |5\.3 |
-|7/1/2015|10:00:01|ABC1234 |7\.1 |2\.2 |4\.3. |
-|7/1/2015|10:00:02|ABC1234 |6\.0 |2\.1 |4\.0 |
+|7/1/2015|10:00:00|ABC1234     |7.0        |2.1        |5.3        |
+|7/1/2015|10:00:01|ABC1234     |7.1        |2.2        |4.3        |
+|7/1/2015|10:00:02|ABC1234     |6.0        |2.1        |4.0        |
 
-|**Date**|**Time**|**위치**|**온도**|
+|**Date**|**Time**|**Location**|**Temperature**|
 |--------|--------|-------------|---------------|
-|7/1/2015|10:00:00|11242 |24\.4 |
-|7/1/2015|10:00:01|11242 |24\.4 |
-|7/1/2015|10:00:02|11242 |24\.5 |
+|7/1/2015|10:00:00|11242        |24.4           |
+|7/1/2015|10:00:01|11242        |24.4           |
+|7/1/2015|10:00:02|11242        |24.5           |
 
-위에서 볼 수 있듯이 이 예에서는 3개의 전원 단계와 관련된 소비량에 대해 3개의 다른 값을 포함합니다. 또한 날짜 및 시간 필드가 구분되었으나 단일 열로 조합할 수 있습니다.. 이 경우 위치 열은 5자리 우편 번호 형식으로 표현되며 온도는 섭씨 형식입니다.
+As can be seen above, this example includes 3 different values for consumption associated with 3 power phases. Also, note that the date and time fields are separated, however they can also be combined into a single column. In this case the location column is represented in a 5-digit zip-code format and the temperature in a degree Celsius format.
 
-### 데이터 형식
-Cortana Intelligence Suite는 CSV, TSV, JSON *등*의 가장 일반적인 데이터 형식을 지원할 수 있습니다. 프로젝트의 전체 수명 주기에서 데이터 형식을 일관성 있게 유지하는 것이 중요합니다.
+### <a name="data-format"></a>Data Format
+Cortana Intelligence Suite can support the most common data formats like CSV, TSV, JSON, *etc*. It is important that the data format stays consistent for the entire life cycle of the project.
 
-### 데이터 수집
-에너지 수요 예측은 지속적으로 자주 예측되므로 원시 데이터가 확실하고 신뢰할 수 있는 데이터를 통해 흐르고 있는지 확인해야 합니다. 수집 프로세스는 필요한 시간에 예측 프로세스에 원시 데이터를 사용할 수 있음을 보장해야 합니다. 이것은 데이터 수집 빈도가 예측 빈도보다 커야 함을 의미합니다.
+### <a name="data-ingestion"></a>Data Ingestion
+Since energy demand forecast is constantly and frequently predicted, we must ensure that the raw data is flowing by means of a solid and reliable data ingestion process. The ingestion process must guarantee that the raw data is available for the forecasting process at the required time. That implies that the data ingestion frequency should be greater than the forecasting frequency.
 
-예를 들어, 수요 예측 솔루션이 매일 오전 8시에 새 예측을 생성하는 경우 지난 24시간 동안 수집된 모든 데이터가 해당 지점까지 완전히 수집되었고 마지막 시간 데이터까지도 포함하는지 확인해야 합니다.
+For example: If our demand forecasting solution would generate a new forecast at 8:00AM on a daily basis then we need to ensure that all the data that has been collected during the last 24 hours has been fully ingested till that point and has to even include the last hour of data.
 
-이 작업을 완수하도록 Cortana Intelligence Suite는 신뢰할 수 있는 데이터 수집 프로세스를 지원하는 다양한 방법을 제공합니다. 이 내용에 대해서는 이 문서의 **배포** 섹션에서 추가로 설명됩니다.
+In order to accomplish this, Cortana Intelligence Suite offers various ways to support a reliable data ingestion process. This will be further discussed in the **Deployment** section of this document.
 
-### 데이터 품질
-신뢰할 수 있는 정확한 수요 예측을 수행하는 데 필요한 원시 데이터 원본은 몇 가지 기본적인 데이터 품질 기준을 충족해야 합니다. 일부 발생할 수 있는 데이터 품질 문제에 대한 보정을 위해 고급 통계 메서드를 사용할 수 있지만 새 데이터를 수집할 때 일부 기준이 되는 데이터 품질 임계값을 넘는지 계속 확인해야 합니다. 원시 데이터 품질에 관한 몇 가지 고려 사항은 다음과 같습니다.
--   **누락 값** – 특정 측정값이 수집되지 않는 상황을 나타냅니다. 여기서 기본 요구 사항은 주어진 기간 동안 누락 값 비율이 10%를 넘지 않아야 합니다. 단일 값이 누락된 경우 '0'이 아닌, 유효한 측정값일 수 있는 미리 정의된 값(예: '9999')을 사용하여 표시해야 합니다.
--   **측정 정확도** – 소비량 또는 온도의 실제 값을 정확하게 기록해야 합니다. 정확하지 않은 측정값은 정확하지 않은 예측을 생성합니다. 일반적으로 측정 오차는 실제 값을 기준으로 1%보다 작아야 합니다.
--   **측정 시간** – 수집된 데이터의 실제 타임스탬프가 실제 측정값의 정확한 시간을 기준으로 10초 이상 벗어나지 않아야 합니다.
--   **동기화** - 여러 데이터 원본을 사용하는 경우(*예:* 소비량 및 온도) 이들 간에 시간 동기화 문제가 없는지 확인해야 합니다. 즉, 어떤 두 개의 독립적인 데이터 원본에서 수집된 타임스탬프 간의 시간 차이가 10초를 넘지 않아야 합니다.
--   **대기 시간** - 위에서 설명한 것처럼 **데이터 수집**에서 신뢰할 수 있는 데이터 흐름 및 수집 프로세스에 의존합니다. 이를 제어하기 위해서는 데이터 대기 시간을 제어하는지 확인해야 합니다. 대기 시간은 실제 측정이 이루어진 시간과 Cortana Intelligence Suite 저장소에 로드되어 사용할 준비가 된 시간 사이의 시간 차이로 지정됩니다. 단기 부하 예측의 경우 총 대기 시간은 30분을 넘지 않아야 합니다. 장기 부하 예측의 경우 총 대기 시간은 1일을 넘지 않아야 합니다.
+### <a name="data-quality"></a>Data Quality
+The raw data source that is required for performing reliable and accurate demand forecasting must meet some basic data quality criteria. Although advanced statistical methods can be used to compensate for some possible data quality issue, we still need to ensure that we are crossing some base data quality threshold when ingesting new data. Here are a few considerations concerning raw data quality:
+-   **Missing value** – this refers to the situation when specific measurement was not collected. The basic requirement here is that the missing value rate should not be greater than 10% for any given time period. In case that a single value is missing it should be indicated by using a pre-defined value (for example: '9999') and not '0' which could be a valid measurement.
+-   **Measurement accuracy** – the actual value of consumption or temperature should be accurately recorded. Inaccurate measurements will produce inaccurate forecasts. Typically, the measurement error should be lower than 1% relative to the true value.
+-   **Time of measurement** – it is required that the actual timestamp of the data collected will not deviate by more than 10 seconds relative to the true time of the actual measurement.
+-   **Synchronization** – When multiple data sources are being used (*e.g.*, consumption and temperature) we must ensure that there are no time synchronization issues between them. This means that the time difference between the collected timestamp from any two independent data sources should not exceed more than 10 seconds.
+-   **Latency** - As discussed above, in **Data Ingestion**, we are dependent on a reliable data flow and ingestion process. To control that we must ensure that we control the data latency. This is specified as the time difference between the time that the actual measurement was taken and the time at which it has been loaded into the Cortana Intelligence Suite storage and is ready for use. For short term load forecasting the total latency should not be greater than 30 minutes. For long term load forecasting the total latency should not be greater than 1 day.
 
-### 데이터 준비 및 기능 엔지니어링
-원시 데이터가 수집되어(**데이터 수집** 참조) 안전하게 저장되었으면 처리할 준비가 된 것입니다. 기본적으로 데이터 준비 단계는 원시 데이터를 가져와 이를 모델링 단계를 위한 형태로 변환(형식 변환, 모양 변경)합니다. 여기에는 원시 데이터 열을 실제 측정값, 표준화된 값과 함께 그대로 사용하는 간단한 작업과 [시간 지연](https://en.wikipedia.org/wiki/Lag_operator) 등과 같은 보다 복잡한 작업이 포함될 수 있습니다. 새로 만든 데이터 열을 데이터 기능이라고 하며 이를 데이터를 생성하는 과정을 기능 엔지니어링이라고 합니다. 이 프로세스의 끝부분에서는 원시 데이터에서 파생되고 모델링에 사용할 수 있는 새 데이터 집합을 갖게 됩니다. 또한 데이터 준비 단계에서는 누락 값(**데이터 품질** 참조)을 처리하고 이를 보정해야 합니다. 일부 경우에는 데이터를 정규화하여 모든 값을 동일한 크기에 표시해야 합니다.
+### <a name="data-preparation-and-feature-engineering"></a>Data Preparation and Feature Engineering
+Once the raw data has been ingested (see **Data Ingestion**) and has been securely stored, it is ready to be processed. The data preparation phase is basically taking the raw data and converting (transforming, reshaping) it into a form for the modeling phase. That may include simple operations such as using the raw data column as is with its actual measured value, standardized values,  more complex operations such as [time lagging](https://en.wikipedia.org/wiki/Lag_operator), and others. The newly created data columns are referred to as data features and the process of generating these is referred to as feature engineering. By the end of this process we would have a new data set that has been derived from the raw data and can be used for modeling. In addition, the data preparation phase needs to take care of missing values (see **Data Quality**) and compensate for them. In some cases, we would also need to normalize the data to ensure that all values are represented in the same scale.
 
-이 섹션에서는 에너지 수요 예측 모델에 포함되는 일반적인 데이터 기능 중 일부를 나열합니다.
+In this section we list some of the common data features that are included in the energy demand forecast models.
 
-**시간 기반 기능:** 이러한 기능은 날짜/타임스탬프 데이터에서 파생됩니다. 이러한 기능은 추출되어 다음과 같은 범주 기능으로 변환됩니다.
--   시간 - 0부터 23까지의 값을 사용하는 시간입니다.
--   요일 - 요일을 나타내며 1(일요일)부터 7(토요일)까지의 값을 사용합니다.
--   월간 일자 – 실제 날짜를 나타내며 1부터 31까지의 값을 사용할 수 있습니다.
--   연간 월 – 월을 나타내며 1(1월)부터 12(12월)까지의 값을 사용합니다.
--   주말 - 평일인 경우 0, 주말인 경우 1 값을 사용하는 이진 값 기능입니다.
--   휴일 - 휴일이 아닌 경우 0, 휴일인 경우 1 값을 사용하는 이진 값 기능입니다.
--   푸리에 항 – 푸리에 항은 타임스탬프에서 파생되는 가중치이며 데이터에서 계절성(주기)을 캡처하는 데 사용됩니다. 데이터에 여러 계절이 포함될 수 있으므로 푸리에 항을 곱해야 할 수 있습니다. 예를 들어 수요 값에는 3 푸리에 항이 발생하는 연간, 주별 및 일별 계절/주기가 포함될 수 있습니다.
+**Time driven features:** These features are derived from the date/timestamp data. These are extracted and converted into categorical features like:
+-   Time of day – This is the hour of the day which takes values from 0 to 23
+-   Day of week – This represents the day of the week and takes values from 1 (Sunday) to 7 (Saturday)
+-   Day of month – This represents the actual date and can take values from 1 to 31
+-   Month of year – This represents the month and takes values from 1 (January) to 12 (December)
+-   Weekend – This is a binary value feature that takes the values of 0 for weekdays or 1 for weekend
+-   Holiday - This is a binary value feature that takes the values of 0 for a regular day or 1 for a holiday
+-   Fourier terms – The Fourier terms are weights that are derived from the timestamp and are used to capture the seasonality (cycles) in the data. Since we may have multiple seasons in our data we may need multiple Fourier terms. For example, demand values may have yearly, weekly, and daily seasons/cycles which will result in 3 Fourier terms.
 
-**독립 측정 기능:** 독립 기능은 모델에서 예측 변수로 사용할 모든 데이터 요소를 포함합니다. 여기서 예측해야 하는 종속 기능은 제외합니다.
--   지연 기능 - 실제 수요의 시간 변동 값입니다. 예를 들어, 지연 1 기능은 현재 타임스탬프를 기준으로 이전 시간(시간별 데이터 가정)의 수요 값을 보유합니다. 마찬가지로 지연 2, 지연 3 *등*을 추가할 수 있습니다. 사용되는 지연 기능의 실제 조합은 모델 결과를 평가하여 모델링 단계 중에 결정됩니다.
--   장기 추세 – 이 기능은 연간 수요의 선형 성장을 나타냅니다.
+**Independent measurement features:** The independent features include all the data elements that we would like to use as predictors in our model. Here we exclude the dependent feature which we would need to predict.
+-   Lag feature – these are time shifted values of the actual demand. For example, lag 1 features will hold the demand value in the previous hour (assuming hourly data) relative to the current timestamp. Similarly, we can add lag 2, lag 3, *etc*. The actual combination of lag features that are used are determined during the modeling phase by evaluation of the model results.
+-   Long term trending – this feature represents the linear growth in demand between years.
 
-**종속 기능:** 종속 기능은 모델에서 예측할 데이터 열입니다. [감독 기계 학습](https://en.wikipedia.org/wiki/Supervised_learning)과 함께, 먼저 종속 기능(레이블로도 참조됨)을 사용하여 모델을 학습해야 합니다. 이를 통해 모델은 종속 기능과 관련된 데이터에서 패턴을 학습할 수 있습니다. 에너지 수요 예측에서는 일반적으로 실제 수요를 예측하고자 하므로 종속 기능으로 사용합니다.
+**Dependent feature:** The dependent feature is the data column which we would like our model to predict. With [supervised machine learning](https://en.wikipedia.org/wiki/Supervised_learning), we need to first train the model using the dependent features (which is also referred to as labels). This allows the model to learn the patterns in the data associated with the dependent feature. In energy demand forecast we typically want to predict the actual demand and therefore we would use it as the dependent feature.
 
-**누락 값 처리:** 데이터 준비 단계 중 누락 값을 처리할 최적의 전략을 결정해야 합니다. 다양한 통계 [데이터 대체 메서드](https://en.wikipedia.org/wiki/Imputation_(statistics))를 사용하여 주로 수행됩니다. 에너지 수요 예측의 경우 일반적으로 이전에 제공되는 데이터 요소에서 이동 평균을 사용하여 누락 값을 대체합니다.
+**Handling of missing values:** During the data preparation phase, we would need to determine the best strategy to handle missing values. This is mostly done by using the various statistical [data imputation methods](https://en.wikipedia.org/wiki/Imputation_(statistics)). In the case of energy demand forecasting, we typically impute missing values by using moving average from previous available data points.
 
-**데이터 정규화:** 데이터 정규화는 수요 예측과 같은 모든 숫자 데이터를 유사한 규모로 가져오는 데 사용하는 또 다른 변환 유형입니다. 일반적으로 모델 정확도와 정밀도를 개선하는 데 도움이 됩니다. 보통 실제 값을 데이터 범위로 나누는 방법으로 수행합니다. 원래 값을 더 작은 범위(일반적으로 -1과 1 사이)로 규모를 조정합니다.
+**Data Normalization:** Data normalization is another type of transformation which is used to bring all numeric data such as demand forecast into a similar scale. This typically helps improve the model accuracy and precision. We would typically do this by dividing the actual value by the range of the data.
+This will scale the original value down into a smaller range, typically between -1 and 1.
 
-## 모델링
-모델링 단계는 데이터가 모델로 변환되는 과정을 거치는 단계입니다. 이 프로세스의 코어에는 과거 데이터(학습 데이터)를 검색하고 패턴을 추출하며 모델을 구축하는 고급 알고리즘이 있습니다. 이 모델은 나중에 모델을 구축하는 데 사용되지 않은 새 데이터에 대해 예측하는 데 사용할 수 있습니다.
+## <a name="modeling"></a>Modeling
+The modeling phase is where the conversion of the data into a model takes place. In the core of this process there are advanced algorithms that scan the historical data (training data), extract patterns, and build a model. That model can be later used to predict on new data that has not been used to build the model.
 
-작동하는 신뢰할 수 있는 모델이 있으면 이를 사용하여 필요한 기능(X)을 포함하도록 구조화된 새 데이터의 점수를 매길 수 있습니다. 점수 매기기 프로세스는 지속되는 모델(학습 단계의 개체)을 사용하며 Ŷ로 표시되는 대상 변수를 예측합니다.
+Once we have a working reliable model we can then use it to score new data that is structured to include the required features (X). The scoring process will make use of the persisted model (object from the training phase) and predict the target variable that is denoted by Ŷ.
 
-### 수요 예측 모델링 기법
-수요 예측의 경우 시간 기준으로 정렬된 과거 데이터를 사용합니다. 일반적으로 [시계열](https://en.wikipedia.org/wiki/Time_series)이라는 시간 차원을 포함하는 데이터를 말합니다. 시계열 모델링의 목표는 시간 관련 추세, 계절성, 자동 상관관계(시간에 따른 상관관계)를 찾고 이를 모델로 공식화하는 것입니다.
+### <a name="demand-forecasting-modeling-techniques"></a>Demand Forecasting Modeling Techniques
+In the case of demand forecasting we make use of historical data which is ordered by time. We generally refer to data that includes the time dimension as [time series](https://en.wikipedia.org/wiki/Time_series). The goal in time series modeling is to find time related trends, seasonality, auto-correlation (correlation over time), and formulate those into a model.
 
-최근 몇 년간, 시계열 예측을 포함하고 예측 정확도를 향상하기 위한 고급 알고리즘 개발되었습니다. 여기에서 몇 가지 알고리즘을 간단히 다루겠습니다.
+In recent years advanced algorithms have been developed to accommodate time series forecasting and to improve forecasting accuracy. We briefly discuss a few of them here.
 
-> [AZURE.NOTE] 이 섹션은 기계 학습 및 예측 개요로 사용하기에는 적합하지 않으나 수요 예측에 자주 사용되는 모델링 기법에 대한 간단한 설문 조사로 사용됩니다. 시계열 예측에 대한 자세한 내용 및 교육 자료는 온라인 설명서 [예측: 원칙 및 사례](https://www.otexts.org/book/fpp)를 사용하는 것이 좋습니다.
+> [AZURE.NOTE] This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
 
-#### [**MA(이동 평균)**](https://www.otexts.org/fpp/6/2)
-이동 평균은 시계열 예측에 사용된 최초 분석 기법 중 하나로, 오늘날까지 가장 널리 사용되는 기법 중 하나입니다. 보다 고급 예측 기법을 위한 기초이기도 합니다. 이동 평균을 통해 K 최근 요소의 평균을 구하여 다음 데이터 요소를 예측합니다. 여기서 K는 이동 평균의 계수를 나타냅니다.
+#### <a name="[**ma-(moving-average)**](https://www.otexts.org/fpp/6/2)"></a>[**MA (Moving Average)**](https://www.otexts.org/fpp/6/2)
+Moving average is one of the first analytical techniques that has been used for time series forecasting and it is still one of the most commonly used techniques as of today. It is also the foundation for more advanced forecasting techniques. With moving average we are forecasting the next data point by averaging over the K most recent points, where K denotes the order of the moving average.
 
-이동 평균 기법은 예측을 평활화하는 효과가 있으므로 데이터의 큰 변동성을 제대로 처리하지 못할 수 있습니다.
+The moving average technique has the effect of smoothing the forecast and therefore may not handle well large volatility in the data.
 
-#### [**ETS(지수 평활법)**](https://www.otexts.org/fpp/7/5)
-ETS(지수 평활법)는 다음 데이터 요소를 예측하기 위해 최근 데이터 요소에 대한 가중치가 적용된 평균을 사용하는 다양한 메서드 제품군입니다. 최신 값에 더 높은 가중치를 할당하고 이전에 측정된 값에 대해 이 가중치를 점진적으로 감소시키는 개념입니다. 이 제품군에는 다양한 메서드가 있으며 이중 일부는 [Holt-Winters Seasonal Method](https://www.otexts.org/fpp/7/5)처럼 데이터에서 계절성 처리를 포함합니다.
+#### <a name="[**ets-(exponential-smoothing)**](https://www.otexts.org/fpp/7/5)"></a>[**ETS (Exponential Smoothing)**](https://www.otexts.org/fpp/7/5)
+Exponential Smoothing (ETS) is a family of various methods which use weighted average of recent data points in order to predict the next data point. The idea is to assign higher weights to more recent values and gradually decrease this weight for older measured values. There are a number of different methods with this family, some of them include handling of seasonality in the data such as [Holt-Winters Seasonal Method](https://www.otexts.org/fpp/7/5).
 
-이러한 메서드 중 일부도 데이터의 계절성을 고려합니다.
+Some of these methods also factor in the seasonality of the data.
 
-#### [**ARIMA(자동 회귀 통합 이동 평균)**](https://www.otexts.org/fpp/8)
-ARIMA(자동 회귀 통합 이동 평균)는 시계열 예측에 일반적으로 사용되는 메서드의 또 다른 제품군입니다. 실질적으로 자동 회귀 메서드를 이동 평균과 결합합니다. 자동 회귀 메서드는 다음 날짜 요소를 계산하기 위해 이전 시계열 값을 가져다가 회귀 모델을 사용합니다. 또한 ARIMA 메서드는 데이터 요소 간 차이 계산을 포함하는 차이점 보관용 메서드를 적용하고 원래 측정된 값 대신 계산된 값을 사용합니다. 마지막으로, ARIMA에서는 위에서 설명한 이동 평균 기법도 활용합니다. 이러한 모든 메서드를 다양한 방법으로 조합하여 ARIMA 메서드 제품군이 생성됩니다.
+#### <a name="[**arima-(auto-regression-integrated-moving-average)**](https://www.otexts.org/fpp/8)"></a>[**ARIMA (Auto Regression Integrated Moving Average)**](https://www.otexts.org/fpp/8)
+Auto Regression Integrated Moving Average (ARIMA) is another family of methods which is commonly used for time series forecasting. It practically combines auto-regression methods with moving average. Auto-regression methods use regression models by taking previous time series values in order to compute the next date point. ARIMA methods also apply differencing methods that include calculating the difference between data points and using those instead of the original measured value. Finally, ARIMA also makes use of the moving average techniques that are discussed above. The combination of all of these methods in various ways is what constructs the family of ARIMA methods.
 
-오늘날, ETS 및 ARIMA는 에너지 수요 예측 및 다른 많은 예측 문제에 널리 사용되고 있습니다. 대부분의 경우 매우 정확한 결과를 달성하기 위해 함께 조합하여 사용합니다.
+ETS and ARIMA are widely used today for energy demand forecasting and many other forecasting problems. In many cases these are combined together to deliver very accurate results.
 
-**일반 다중 회귀** 회귀 모델은 기계 학습 및 통계 분야에서 가장 중요한 모델링 방법일 수 있습니다. 시계열의 컨텍스트에서 회귀를 사용하여 미래 값(*예:* 수요의 값)을 예측합니다. 회귀에서는 예측 변수의 선형 조합을 사용하고 학습 프로세스 중에 이러한 예측 변수의 가중치(계수라고도 함)를 학습합니다. 예측된 값을 예상할 회귀선을 생성하는 것을 목표로 합니다. 회귀 메서드는 대상 변수가 숫자일 경우 적합하므로 시계열 예측에도 알맞습니다. [선형 회귀](https://en.wikipedia.org/wiki/Linear_regression)처럼 매우 단순한 회귀 모델부터 의사 결정 트리, [임의 포리스트](https://en.wikipedia.org/wiki/Random_forest), [신경망](https://en.wikipedia.org/wiki/Artificial_neural_network), 향상된 의사 결정 트리처럼 보다 고급 모델까지 광범위한 회귀 메서드가 있습니다.
+**General Multiple Regression** Regression models could be the most important modeling approach within the domain of machine learning and statistics. In the context of time series we use regression to predict the future values (*e.g.*, of demand). In regression we take a linear combination of the predictors and learn the weights (also referred to as coefficients) of those predictors during the training process. The goal is to produce a regression line that will forecast our predicted value. Regression methods are suitable when the target variable is numeric and therefore also fits time series forecasting. There is a wide range of regression methods including very simple regression models such as [Linear Regression](https://en.wikipedia.org/wiki/Linear_regression) and more advanced ones such as decision trees, [Random Forests](https://en.wikipedia.org/wiki/Random_forest), [Neural Networks](https://en.wikipedia.org/wiki/Artificial_neural_network), and Boosted Decision Trees.
 
-에너지 수요 예측을 회귀 문제로 생성하면 데이터 기능을 선택하는 데 상당한 유연성이 제공되어 실제 수요 시계열 데이터와 온도와 같은 외부 요인을 결합할 수 있습니다. 선택한 기능에 대한 자세한 내용은 이 플레이 북의 기능 엔지니어링(**데이터 준비 및 기능 엔지니어링** 참조) 섹션에 나와 있습니다.
+Constructing energy demand forecasting as a regression problem gives us a lot of flexibility in selecting our data features which can be combined from the actual demand time series data and external factors such as temperature. More information about the selected features are discussed in the Feature Engineering (see **Data Preparation and Feature Engineering**) section of this playbook.
 
-에너지 수요 예측 파일럿의 구현 및 배포 경험을 통해 Azure 기계 학습에 제공되는 고급 회귀 모델이 최적의 결과를 생성하는 경향이 있음을 알게 되었으며 이 회귀 모델을 활용합니다.
+From our experience with implementation and deployment of energy demand forecasts pilot, we have found that the advanced regression models that are available in Azure ML tend to produce the best results and we make use of them.
 
-## 모델 평가
-모델 평가는 **모델 개발 주기** 내에서 중요한 역할을 담당합니다. 이 단계에서는 모델과 해당 성능의 유효성 검사를 실제 데이터와 함께 살펴봅니다. 모델링 단계 중에는 모델 학습에 사용할 수 있는 데이터의 일부를 사용합니다. 평가 단계 중에는 모델을 테스트하는 데 나머지 데이터를 사용합니다. 실질적으로 이것은 모델에 재구성된 새 데이터를 공급하고 있음을 의미하며 학습 데이터 집합과 동일한 기능을 포함합니다. 그러나 유효성 검사 프로세스 중에는 사용 가능한 대상 변수를 제공하기보다는 대상 변수를 예측하는 데 모델을 사용합니다. 이 프로세스 보통 모델 점수 매기기라고 합니다. 그런 다음 실제 대상 값을 사용하고 이를 예측된 값과 비교합니다. 여기서는 예측값과 실제 값 간의 차이를 의미하는 예측 오차를 최소화하고 측정하는 것을 목표로 합니다. 모델을 미세 조정하고 실제로 오차가 감소하고 있는지 여부를 확인하려고 하므로 오차 측정을 정량화하는 것이 핵심입니다. 모델일 미세 조정하는 것은 학습 과정을 제어하는 모델 매개 변수를 수정하거나 데이터 기능을 추가 또는 제거하여 수행할 수 있습니다([매개 변수 스윕](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)이라고 함). 실질적으로 오차를 원하는 수준까지 줄을 때까지 기능 엔지니어링, 모델링 및 모델 평가 단계를 여러 번 반복해야 함을 의미할 수 있습니다.
+## <a name="model-evaluation"></a>Model Evaluation
+Model evaluation has a critical role within the **Model Development Cycle**. At this step we look into validating the model and its performance with real life data. During the modeling step we use a part of the available data for training the model. During the evaluation phase we take the remainder of the data to test the model. Practically it means that we are feeding the model new data that has been restructured and contains the same features as the training dataset. However, during the validation process, we use the model to predict the target variable rather than provide the available target variable. We often refer to this process as model scoring. We would then use the true target values and compare them with the predicted ones. The goal here is to measure and minimize the prediction error, meaning the difference between the predictions and the true value. Quantifying the error measurement is key since we would like to fine-tune the model and validate whether the error is actually decreasing. Fine-tuning the model can be done by modifying model parameters that control the learning process, or by adding or removing data features (referred to as [parameters sweep](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Practically that means that we may need to iterate between the feature engineering, modeling, and model evaluation phases multiple times until we are able to reduce the error to the required level.
 
-모든 결과를 완벽하게 예측할 수 있는 모델은 없으므로 예측 오차는 0일 수 없다는 것을 강조해야 합니다. 단, 비즈니스에서 허용 가능한 특정 오차 범위는 있습니다. 유효성 검사 프로세스 중에 모델 예측 오차가 비즈니스 허용 오차 수준 이하인지 확인합니다. 따라서 주기 시작 시 **문제 공식화** 단계 중에 허용 오차 수준을 설정해야 합니다.
+It is important to emphasis that the prediction error will never be zero as there is never a model that can perfectly predict every outcome. However, there is a certain magnitude of error that is acceptable by the business. During the validation process, we would like to ensure that our model prediction error is at the level or better than the business tolerance level. It is therefore important to set the level of the tolerable error at the beginning of the cycle during the **Problem Formulation** phase.
 
-### 일반적인 평가 기법
-다양한 방법으로 예측 오차를 측정하고 정량화할 수 있습니다. 이 섹션에서는 특히 에너지 수요 예측에서 시계열과 관련된 평가 기법을 중점적으로 설명합니다.
+### <a name="typical-evaluation-techniques"></a>Typical Evaluation Techniques
+There are various ways in which prediction error can be measured and quantified. In this section we will focus the discussion on evaluation techniques relevant to time series and in specific for energy demand forecast.
 
-#### [**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
-MAPE는 절대 평균 백분율 오차(Mean Absolute Percentage Error)를 나타냅니다. MAPE를 통해 각 예측 지점과 해당 지점의 실제 값 간의 차이를 계산합니다. 그런 다음 실제 값을 기준으로 차이의 비율을 계산하여 지점당 오차를 정량화합니다. 마지막 단계에서는 이러한 값의 평균을 구합니다. MAPE에 사용되는 수학 공식은 다음과 같습니다.
+#### <a name="[**mape**](https://en.wikipedia.org/wiki/mean_absolute_percentage_error)"></a>[**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
+MAPE stands for Mean Absolute Percentage Error. With MAPE we are computing the difference between each forecasted point and the actual value of that point. We then quantify the error per point by calculating the proportion of the difference relative to the actual value. At the last step we average these values. The mathematical formula used for MAPE is the following:
 
-![MAPE 수식](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png) *여기서 A<sub>t</sub>는 실제 값이고 F<sub>t</sub>는 예측된 값이며 n은 예측 기간입니다.*
+![MAPE Formula](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
+*Where A<sub>t</sub> is the actual value, F<sub>t</sub> is the predicted value, and n is the forecast horizon.*
 
-## 배포
-모델링 단계를 완료하고 모델 성능의 유효성을 검사했으면 배포 단계로 이동할 준비가 된 것입니다. 이 컨텍스트에서 배포를 통해 고객은 대규모로 실제 예측을 실행하여 모델을 사용할 수 있습니다. 데이터에서 단지 정보를 얻는 것이 아니라 지속적으로 예측을 호출하는 것이 주된 목표이므로 Azure 기계 학습에서 배포 개념이 중요합니다. 배포 단계는 모델을 대규모로 사용할 수 있도록 하는 단계입니다.
+## <a name="deployment"></a>Deployment
+Once we have nailed down the modeling phase and validated the model performance we are ready to go into the deployment phase. In this context, deployment means enabling the customer to consume the model by running actual predictions on it at large scale. The concept of deployment is key in Azure ML since our main goal is to constantly invoke predictions as opposed to just obtaining the insight from the data. The deployment phase is the part where we enable the model to be consumed at large scale.
 
-에너지 수요 예측의 컨텍스트 내에서는 지속적이고 정기적인 예측을 호출하는 동시에 모델에 대해 최신 데이터를 사용할 수 있고 예측된 데이터를 다시 소비 클라이언트로 전송하도록 하는 것을 목표로 합니다.
+Within the context of energy demand forecast, our aim is to invoke continuous and periodic forecasts while ensuring that fresh data is available for the model and that the forecasted data is sent back to the consuming client.
 
-### 웹 서비스 배포
-Azure 기계 학습에서 기본 배포 가능한 구성 요소는 웹 서비스입니다. 클라우드에서 예측 모델을 사용할 수 있는 가장 효과적인 방법입니다. 웹 서비스는 모델을 캡슐화하여 [RESTful](http://www.restapitutorial.com/) API(응용 프로그래밍 인터페이스)로 래핑합니다. 아래 다이어그램에 나타난 것처럼 클라이언트 코드의 일부로 API를 사용할 수 있습니다.
+### <a name="web-services-deployment"></a>Web Services Deployment
+The main deployable building block in Azure ML is the web service. This is the most effective way to enable consumption of a predictive model in the cloud. The Web service encapsulates the model and wraps it up with a [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). The API can be used as part of any client code as illustrated in the diagram below.
 
-![배포 및 소비 서비스](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
+![We Service Deployment and Consumption](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
-보다시피 웹 서비스는 Cortana Intelligence Suite 클라우드에 배포되고 노출된 REST API 끝점을 통해 호출할 수 있습니다. 다양한 도메인 간 서로 다른 유형의 클라이언트는 Web API를 통해 서비스를 동시에 호출할 수 있습니다. 또한 웹 서비스는 수천 개의 동시 호출을 지원하도록 확장할 수 있습니다.
+As can be seen, the web service is deployed in the Cortana Intelligence Suite cloud and can be invoked over its exposed REST API endpoint. Different type of clients across various domains can invoke the service through the Web API simultaneously. The web service can also scale to support thousands of concurrent calls.
 
-### 일반적인 솔루션 아키텍처
-에너지 수요 예측 솔루션을 배포할 때는 예측 웹 서비스 범위를 넘어서고 전체 데이터 흐름을 원활하게 해주는 종단 간 솔루션을 배포하는 데 관심이 있습니다. 새 예측을 호출하는 시점에 모델에 최신 데이터 기능이 공급되는지 확인해야 합니다. 즉, 새로 수집된 원시 데이터를 지속적으로 수집, 처리하고 모델이 구축되었던 필수 기능 집합으로 변환합니다. 이와 동시에 예측된 데이터를 최종 소비 클라이언트에 제공하고자 합니다. 데이터 흐름 주기(또는 데이터 파이프라인)의 예가 아래 다이어그램에 나와 있습니다.
+### <a name="a-typical-solution-architecture"></a>A Typical Solution Architecture
+When deploying an energy demand forecasting solution, we are interested in deploying an end to end solution that goes beyond the prediction web service and facilitates the entire data flow. At the time we invoke a new forecast, we would need to make sure that the model is fed with the up-to-date data features. That implies that the newly collected raw data is constantly ingested, processed, and transformed into the required feature set on which the model was built. At the same time, we would like to make the forecasted data available for the end consuming clients. An example data flow cycle (or data pipeline) is illustrated in the diagram below:
 
-![에너지 수요 예측 종단 간 데이터 흐름](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
+![Energy Demand Forecast End to End Data Flow](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
 
-다음은 에너지 수요 예측 주기의 일환으로 수행되는 단계입니다.
-1.  수백만 개의 배포된 데이터 측정기가 실시간으로 전력 소비량 데이터를 계속 생성합니다.
-2.  이 데이터는 수집되어 클라우드 리포지토리(*예:* Azure Blob)에 업로드됩니다.
-3.  처리하기 전에 원시 데이터를 비즈니스에서 정의한 대로 변전소 또는 하위 지역 수준으로 집계합니다.
-4.  그런 다음 기능 처리(**데이터 준비 및 기능 처리** 참조)가 수행되고 모델 학습 또는 점수 매기기에 필요한 데이터가 생성됩니다. 기능 집합 데이터는 데이터베이스(*예:* SQL Azure)에 저장됩니다.
-5.  예측 모델을 다시 학습하기 위해 재학습 서비스가 호출됩니다. 이 모델의 업데이트 버전이 유지되어 점수 매기기 웹 서비스에서 사용할 수 있습니다.
-6.  점수 매기기 웹 서비스는 필요한 예측 빈도에 따른 일정으로 호출됩니다.
-7.  예측된 데이터는 최종 소비 클라이언트가 액세스할 수 있는 데이터베이스에 저장됩니다.
-8.  소비 클라이언트는 예측을 검색하여 이를 다시 그리드에 적용하고 필요한 사용 사례에 따라 사용합니다.
+These are the steps that take place as part of the energy demand forecast cycle:
+1.  Millions of deployed data meters are constantly generating power consumption data in real time.
+2.  This data is being collected and uploaded into a cloud repository (*e.g.*, Azure Blob).
+3.  Before being processed, the raw data is aggregated to a substation or regional level as defined by the business.
+4.  The feature processing (see **Data Preparation and Feature Processing**) then takes place and produces the data that is required for model training or scoring – the feature set data is stored in a database (*e.g.*, SQL Azure).
+5.  The re-training service is invoked to re-train the forecasting model – that updated version of the model is persisted so that it can be used by the scoring web service.
+6.  The scoring web service is invoked on a schedule that fits the required forecast frequency.
+7.  The forecasted data is stored in a database that can be accessed by the end consumption client.
+8.  The consumption client retrieves the forecasts, applies it back into the grid, and consumes it in accordance with the required use case.
 
-이 전체 주기는 완전 자동화되고 일정에 따라 실행됨을 유의하세요. 이 데이터 주기의 전체 오케스트레이션은 [Azure 데이터 팩터리](http://azure.microsoft.com/services/data-factory/)와 같은 도구를 사용하여 수행할 수 있습니다.
+It is important to note that this entire cycle is fully automated and runs on a schedule. The entire orchestration of this data cycle can be done by using tools such as [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
 
-### 종단 간 배포 아키텍처
-Cortana Intelligence에 에너지 수요 예측 솔루션을 실제로 배포하려면 필수 구성 요소가 제대로 설정 및 구성되어 있어야 합니다.
+### <a name="end-to-end-deployment-architecture"></a>End to End Deployment Architecture
+In order to practically deploy an energy demand forecast solution on Cortana Intelligence, we need to ensure that the required components are established and configured correctly.
 
-다음 다이어그램에서는 위에서 설명된 데이터 흐름 주기를 구현 및 오케스트레이션하는 일반적인 Cortana Intelligence 기반 아키텍처를 보여 줍니다.
+The following diagram illustrates a typical Cortana Intelligence based architecture that implements and orchestrates the data flow cycle that is described above:
 
-![종단 간 배포 아키텍처](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
+![End to End Deployment Architecture](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
-각 구성 요소 및 전체 아키텍처에 대한 자세한 내용은 에너지 솔루션 템플릿을 참조하세요.
+For more information about each of the components and the entire architecture please refer to the Energy Solution Template.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

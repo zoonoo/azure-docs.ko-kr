@@ -1,10 +1,10 @@
 <properties
-    pageTitle="DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발 | Microsoft Azure"
-    description="DocumentDB를 사용하여 Azure에 호스트된 Python Flask 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 응용 프로그램 개발 솔루션을 찾습니다." 
-	keywords="응용 프로그램 개발, 데이터베이스 자습서, python flask, python 웹 응용 프로그램, python 웹 개발, documentdb, azure, Microsoft azure"
+    pageTitle="Python Flask Web Application Development with DocumentDB | Microsoft Azure"
+    description="Review a database tutorial on using DocumentDB to store and access data from a Python Flask web application hosted on Azure. Find application development solutions." 
+    keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="AndrewHoh"
+    authors="syamkmsft"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,154 +15,156 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="08/25/2016"
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
 
-# DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발
+
+# <a name="python-flask-web-application-development-with-documentdb"></a>Python Flask Web Application Development with DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
-- [Node.JS](documentdb-nodejs-application.md)
+- [Node.js](documentdb-nodejs-application.md)
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-이 자습서에서는 Azure DocumentDB를 사용하여 Azure에 호스트된 Python 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여주며 이전에 Python 및 Azure 웹 사이트를 사용한 경험이 있다고 가정합니다.
+This tutorial shows you how to use Azure DocumentDB to store and access data from a Python web application hosted on Azure and presumes that you have some prior experience using Python and Azure websites.
 
-이 데이터베이스 자습서에서는 다음 내용을 다룹니다.
+This database tutorial covers:
 
-1. DocumentDB 계정 만들기 및 프로비전
-2. Python MVC 응용 프로그램 만들기
-3. 웹 응용 프로그램에서 Azure DocumentDB에 연결 및 사용
-4. Azure 웹 사이트에 웹 응용 프로그램 배포
+1. Creating and provisioning a DocumentDB account.
+2. Creating a Python MVC application.
+3. Connecting to and using Azure DocumentDB from your web application.
+4. Deploying the web application to Azure Websites.
 
-이 자습서를 따르면 설문 조사에 투표할 수 있는 간단한 투표 응용 프로그램을 빌드합니다.
+By following this tutorial, you will build a simple voting application that allows you to vote for a poll.
 
-![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-python-application/image1.png)
+![Screen shot of the todo list web application created by this database tutorial](./media/documentdb-python-application/image1.png)
 
 
-## 데이터베이스 자습서 필수 조건
+## <a name="database-tutorial-prerequisites"></a>Database tutorial prerequisites
 
-이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
+Before following the instructions in this article, you should ensure that you have the following installed:
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
-- [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 [Visual Studio Express]()(무료 버전) 이 자습서의 지침은 특별히 Visual Studio 2015용으로 작성되었습니다.
-- [GitHub](http://microsoft.github.io/PTVS/)에서 Visual Studio용 Python 도구. 이 자습서에서는 Python Tools for VS 2015를 사용합니다.
-- [azure.com](https://azure.microsoft.com/downloads/)에서 사용 가능한 Visual Studio용 Azure Python SDK 2.4 버전 이상. Python 2.7용 Microsoft Azure SDK를 사용했습니다.
-- [python.org][2]에서 Python 2.7. Python 2.7.11을 사용했습니다.
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+- [Visual Studio 2013](http://www.visualstudio.com/) or higher, or [Visual Studio Express](), which is the free version. The instructions in this tutorial are written specifically for Visual Studio 2015. 
+- Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015. 
+- Azure Python SDK for Visual Studio, version 2.4 or higher available from [azure.com](https://azure.microsoft.com/downloads/). We used Microsoft Azure SDK for Python 2.7.
+- Python 2.7 from [python.org][2]. We used Python 2.7.11. 
 
-> [AZURE.IMPORTANT] 처음으로 Python 2.7을 설치하는 경우 사용자 지정 Python 2.7.11 화면에서 **경로에 python.exe 추가**를 선택하도록 합니다.
+> [AZURE.IMPORTANT] If you are installing Python 2.7 for the first time, ensure that in the Customize Python 2.7.11 screen, you select **Add python.exe to Path**.
 > 
->    ![사용자 지정 Python 2.7.11 화면의 스크린샷에서 경로에 python.exe 추가를 선택해야 합니다.](./media/documentdb-python-application/image2.png)
+>    ![Screen shot of the Customize Python 2.7.11 screen, where you need to select Add python.exe to Path](./media/documentdb-python-application/image2.png)
 
-- [Microsoft 다운로드 센터][3]에서 Python 2.7용 Microsoft Visual C++ 컴파일러.
+- Microsoft Visual C++ Compiler for Python 2.7 from the [Microsoft Download Center][3].
 
-## 1단계: DocumentDB 데이터베이스 계정 만들기
+## <a name="step-1:-create-a-documentdb-database-account"></a>Step 1: Create a DocumentDB database account
 
-먼저 DocumentDB 계정을 만듭니다. 계정이 이미 있는 경우 [2단계: 새 Python Flask 웹 응용 프로그램 만들기](#step-2:-create-a-new-python-flask-web-application)로 건너뛸 수 있습니다.
+Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Step 2: Create a new Python Flask web application](#step-2:-create-a-new-python-flask-web-application).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> 이제 새 Python Flask 웹 응용 프로그램을 처음부터 만드는 방법을 살펴보겠습니다.
+<br/>
+We will now walk through how to create a new Python Flask web application from the ground up.
 
-## 2단계: 새 Python Flask 웹 응용 프로그램 만들기로 건너뛸 수 있습니다
+## <a name="step-2:-create-a-new-python-flask-web-application"></a>Step 2: Create a new Python Flask web application
 
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다.
+1. In Visual Studio, on the **File** menu, point to **New**, and then click **Project**.
 
-    **새 프로젝트** 대화 상자가 나타납니다.
+    The **New Project** dialog box appears.
 
-2. 왼쪽 창에서 **템플릿** 및 **Python**을 확장하고 **웹**을 클릭합니다.
+2. In the left pane, expand **Templates** and then **Python**, and then click **Web**. 
 
-3. 가운데 창에서 **Flask 웹 프로젝트**를 선택한 다음 **이름** 상자에 **자습서**를 입력하고 **확인**을 클릭합니다. [Python 코드에 대한 스타일 가이드](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)에 설명한 대로 Python 패키지 이름은 모두 소문자여야 합니다.
+3. Select **Flask  Web Project** in the center pane, then in the **Name** box type **tutorial**, and then click **OK**. Remember that Python package names should be all lowercase, as described in the [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/#package-and-module-names).
 
-	Python Flask를 처음 사용하는 경우 Python에서 웹 응용 프로그램을 더 빨리 작성하는 데 도움이 되는 웹 응용 프로그램 개발 프레임워크입니다.
+    For those new to Python Flask, it is a web application development framework that helps you build web applications in Python faster.
 
-	![왼쪽에서 Python이 강조 표시되고, 가운데에서 Python Flask 웹 프로젝트가 선택되고, 이름 상자에 tutorial 이름이 포함된 Visual Studio 새 프로젝트 창의 스크린샷](./media/documentdb-python-application/image9.png)
+    ![Screen shot of the New Project window in Visual Studio with Python highlighted on the left, Python Flask Web Project selected in the middle, and the name tutorial in the Name box](./media/documentdb-python-application/image9.png)
 
-4. **Visual Studio용 Python 도구** 창에서 **가상 환경에 설치**를 클릭합니다.
+4. In the **Python Tools for Visual Studio** window, click **Install into a virtual environment**. 
 
-	![데이터베이스 자습서의 스크린샷 - Python Tools for Visual Studio 창](./media/documentdb-python-application/image10.png)
+    ![Screen shot of the database tutorial - Python Tools for Visual Studio window](./media/documentdb-python-application/image10.png)
 
-5. **가상 환경 추가** 창에서 PyDocumentDB가 현재 Python 3.x을 지원하지 않기 때문에 기본값을 적용하고 Python 2.7을 기본 환경으로 사용한 다음 **만들기**를 클릭합니다. 프로젝트에 필요한 Python 가상 환경을 설정합니다.
+5. In the **Add Virtual Environment** window, you can accept the defaults and use Python 2.7 as the base environment because PyDocumentDB does not currently support Python 3.x, and then click **Create**. This sets up the required Python virtual environment for your project.
 
-	![데이터베이스 자습서의 스크린샷 - Python Tools for Visual Studio 창](./media/documentdb-python-application/image10_A.png)
+    ![Screen shot of the database tutorial - Python Tools for Visual Studio window](./media/documentdb-python-application/image10_A.png)
 
-    환경이 성공적으로 설치될 때 출력 창은 `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`을 표시합니다.
+    The output window displays `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` when the environment is successfully installed.
 
-## 3단계: Python Flask 웹 응용 프로그램 수정
+## <a name="step-3:-modify-the-python-flask-web-application"></a>Step 3: Modify the Python Flask web application
 
-### 프로젝트에 Python Flask 패키지 추가
+### <a name="add-the-python-flask-packages-to-your-project"></a>Add the Python Flask packages to your project
 
-프로젝트가 설정된 후 DocumentDB용 Python 패키지인 pydocumentdb를 포함해서 프로젝트에 필요한 Flask 패키지를 추가해야 합니다.
+After your project is set up, you'll need to add the required Flask packages to your project, including pydocumentdb, the Python package for DocumentDB.
 
-1. 솔루션 탐색기에서 **requirements.txt** 파일을 열고 내용을 다음으로 바꿉니다.
+1. In Solution Explorer, open the file named **requirements.txt** and replace the contents with the following:
 
-    	flask==0.9
-    	flask-mail==0.7.6
-    	sqlalchemy==0.7.9
-    	flask-sqlalchemy==0.16
-    	sqlalchemy-migrate==0.7.2
-    	flask-whooshalchemy==0.55a
-    	flask-wtf==0.8.4
-    	pytz==2013b
-    	flask-babel==0.8
-    	flup
-    	pydocumentdb>=1.0.0
+        flask==0.9
+        flask-mail==0.7.6
+        sqlalchemy==0.7.9
+        flask-sqlalchemy==0.16
+        sqlalchemy-migrate==0.7.2
+        flask-whooshalchemy==0.55a
+        flask-wtf==0.8.4
+        pytz==2013b
+        flask-babel==0.8
+        flup
+        pydocumentdb>=1.0.0
 
-2. **requirements.txt** 파일을 저장합니다.
-3. 솔루션 탐색기에서 **env**를 마우스 오른쪽 단추로 클릭하고 **requirements.txt에서 설치**를 클릭합니다.
+2. Save the **requirements.txt** file. 
+3. In Solution Explorer, right-click **env** and click **Install from requirements.txt**.
 
-	![목록에서 강조 표시된 requirements.txt에서 설치를 사용하여 선택한 env(Python 2.7)를 보여주는 스크린샷](./media/documentdb-python-application/image11.png)
+    ![Screen shot showing env (Python 2.7) selected with Install from requirements.txt highlighted in the list](./media/documentdb-python-application/image11.png)
 
-    성공적으로 설치한 후에 출력 창이 다음을 표시합니다.
+    After successful installation, the output window displays the following:
 
         Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
-    > [AZURE.NOTE] 출력 창에 실패가 표시되는 경우가 드물게 발생합니다. 그런 경우 오류가 정리와 관련이 있는지 확인하세요. 때때로 정리는 실패하지만 설치는 성공하는 경우가 있습니다(이를 확인하려면 출력 창에서 위로 스크롤). [가상 환경 확인](#verify-the-virtual-environment)에서 설치를 확인할 수 있습니다. 설치에 실패했지만 확인이 성공한 경우 계속해도 됩니다.
+    > [AZURE.NOTE] In rare cases, you might see a failure in the output window. If this happens, check if the error is related to cleanup. Sometimes the cleanup fails, but the installation will still be successful (scroll up in the output window to verify this). You can check your installation by [Verifying the virtual environment](#verify-the-virtual-environment). If the installation failed but the verification is successful, it's OK to continue.
 
-### 가상 환경 확인
+### <a name="verify-the-virtual-environment"></a>Verify the virtual environment
 
-모두 올바르게 설치되었는지 확인해 보겠습니다.
+Let's make sure that everything is installed correctly.
 
-1. **Ctrl**+**Shift**+**B**를 눌러 솔루션을 빌드합니다.
-2. 빌드가 성공하면 **F5** 키를 눌러 웹 사이트를 시작합니다. 그러면 Flask 개발 서버가 실행되고 웹 브라우저가 시작됩니다. 다음 페이지를 참조해야 합니다.
+1. Build the solution by pressing **Ctrl**+**Shift**+**B**.
+2. Once the build succeeds, start the website by pressing **F5**. This launches the Flask development server and starts your web browser. You should see the following page.
 
-	![브라우저에 표시된 빈 Python Flask 웹 개발 프로젝트](./media/documentdb-python-application/image12.png)
+    ![The empty Python Flask web development project displayed in a browser](./media/documentdb-python-application/image12.png)
 
-3. Visual Studio에서 **Shift**+**F5**를 눌러 웹 사이트의 디버깅을 중지합니다.
+3. Stop debugging the website by pressing **Shift**+**F5** in Visual Studio.
 
-### 데이터베이스, 컬렉션 및 문서 정의 만들기
+### <a name="create-database,-collection,-and-document-definitions"></a>Create database, collection, and document definitions
 
-이제 새 파일을 추가하고 다른 사용자를 업데이트하여 투표 응용 프로그램을 만들어 보겠습니다.
+Now let's create your voting application by adding new files and updating others.
 
-1. 솔루션 탐색기에서 **자습서** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. **빈 Python 파일**을 선택하고 파일 이름을 **forms.py**로 지정합니다.
-2. 다음 코드를 forms.py 파일에 추가한 다음 파일을 저장합니다.
+1. In Solution Explorer, right-click the **tutorial** project, click **Add**, and then click **New Item**. Select **Empty Python File** and name the file **forms.py**.  
+2. Add the following code to the forms.py file, and then save the file.
 
 ```python
 from flask.ext.wtf import Form
 from wtforms import RadioField
 
 class VoteForm(Form):
-	deploy_preference  = RadioField('Deployment Preference', choices=[
+    deploy_preference  = RadioField('Deployment Preference', choices=[
         ('Web Site', 'Web Site'),
         ('Cloud Service', 'Cloud Service'),
         ('Virtual Machine', 'Virtual Machine')], default='Web Site')
 ```
 
 
-### 필요한 가져오기를 views.py에 추가합니다.
+### <a name="add-the-required-imports-to-views.py"></a>Add the required imports to views.py
 
-1. 솔루션 탐색기에서 **자습서** 폴더를 확장하고 **views.py** 파일을 엽니다.
-2. **views.py** 파일 맨 위에 다음 import 문을 추가하고 파일을 저장합니다. 이렇게 하면 DocumentDB의 PythonSDK 및 Flask 패키지를 가져옵니다.
+1. In Solution Explorer, expand the **tutorial** folder, and open the **views.py** file. 
+2. Add the following import statements to the top of the **views.py** file, then save the file. These import DocumentDB's PythonSDK and the Flask packages.
 
-	```python
-	from forms import VoteForm
-	import config
-	import pydocumentdb.document_client as document_client
-	```
+    ```python
+    from forms import VoteForm
+    import config
+    import pydocumentdb.document_client as document_client
+    ```
 
 
-### 데이터베이스, 컬렉션 및 문서 만들기
+### <a name="create-database,-collection,-and-document"></a>Create database, collection, and document
 
-- **views.py**에서 파일의 끝에 다음 코드를 추가합니다. 이 코드는 폼에서 사용되는 데이터베이스를 만듭니다. **views.py**의 기존 코드를 삭제하지 마세요. 단순히 끝 부분에 추가합니다.
+- Still in **views.py**, add the following code to the end of the file. This takes care of creating the database used by the form. Do not delete any of the existing code in **views.py**. Simply append this to the end.
 
 ```python
 @app.route('/create')
@@ -199,12 +201,12 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP] **CreateCollection** 메서드는 선택적 **RequestOptions**를 세 번째 매개 변수로 사용합니다. 컬렉션에 대한 제품 유형을 지정하는 데 사용할 수 있습니다. offerType 값을 제공하지 않으면 기본 제품 유형을 사용하여 컬렉션이 생성됩니다. DocumentDB 제품 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
+> [AZURE.TIP] The **CreateCollection** method takes an optional **RequestOptions** as the third parameter. This can be used to specify the Offer Type for the collection. If no offerType value is supplied, then the collection will be created using the default Offer Type. For more information on DocumentDB Offer Types, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
 
 
-### 데이터베이스, 컬렉션, 문서 및 제출 폼 참고
+### <a name="read-database,-collection,-document,-and-submit-form"></a>Read database, collection, document, and submit form
 
-- **views.py**에서 파일의 끝에 다음 코드를 추가합니다. 이 코드는 데이터베이스, 컬렉션 및 문서를 읽고 폼을 설정합니다. **views.py**의 기존 코드를 삭제하지 마세요. 단순히 끝 부분에 추가합니다.
+- Still in **views.py**, add the following code to the end of the file. This takes care of setting up the form, reading the database, collection, and document. Do not delete any of the existing code in **views.py**. Simply append this to the end.
 
 ```python
 @app.route('/vote', methods=['GET', 'POST'])
@@ -254,178 +256,178 @@ def vote():
 ```
 
 
-### HTML 파일 만들기
+### <a name="create-the-html-files"></a>Create the HTML files
 
-1. 솔루션 탐색기의 **자습서** 폴더에서 **템플릿** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다.
-2. **HTML 페이지**를 선택한 다음 이름 상자에 **create.html**을 입력합니다.
-3. 1단계 및 2단계를 반복하여 results.html 및 vote.html과 같은 추가 HTML 파일을 만듭니다.
-4. `<body>` 요소의 **create.html**에 다음 코드를 추가합니다. 이 코드는 새 데이터베이스, 컬렉션 및 문서를 만들었다는 메시지를 표시합니다.
+1. In Solution Explorer, in the **tutorial** folder, right click the **templates** folder, click **Add**, and then click **New Item**. 
+2. Select **HTML Page**, and then in the name box type **create.html**. 
+3. Repeat steps 1 and 2 to create two additional HTML files: results.html and vote.html.
+4. Add the following code to **create.html** in the `<body>` element. It displays a message stating that we created a new database, collection, and document.
 
-	```html
-	{% extends "layout.html" %}
-	{% block content %}
-	<h2>{{ title }}.</h2>
-	<h3>{{ message }}</h3>
-	<p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
-	{% endblock %}
-	```
+    ```html
+    {% extends "layout.html" %}
+    {% block content %}
+    <h2>{{ title }}.</h2>
+    <h3>{{ message }}</h3>
+    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
+    {% endblock %}
+    ```
 
-5. `<body`> 요소의 **results.html**에 다음 코드를 추가합니다. 설문 조사 결과를 표시합니다.
+5. Add the following code to **results.html** in the `<body`> element. It displays the results of the poll.
 
-	```html
-	{% extends "layout.html" %}
-	{% block content %}
-	<h2>Results of the vote</h2>
-		<br />
-		
-	{% for choice in vote_object.choices %}
-	<div class="row">
-		<div class="col-sm-5">{{choice}}</div>
-	        <div class="col-sm-5">
-	        	<div class="progress">
-	        		<div class="progress-bar" role="progressbar" aria-valuenow="{{vote_object.choices[choice]}}" aria-valuemin="0" aria-valuemax="{{vote_object.total_votes}}" style="width: {{(vote_object.choices[choice]/vote_object.total_votes)*100}}%;">
-	                    		{{vote_object.choices[choice]}}
-				</div>
-			</div>
-	        </div>
-	</div>
-	{% endfor %}
-	
-	<br />
-	<a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
-	{% endblock %}
-	```
+    ```html
+    {% extends "layout.html" %}
+    {% block content %}
+    <h2>Results of the vote</h2>
+        <br />
+        
+    {% for choice in vote_object.choices %}
+    <div class="row">
+        <div class="col-sm-5">{{choice}}</div>
+            <div class="col-sm-5">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{vote_object.choices[choice]}}" aria-valuemin="0" aria-valuemax="{{vote_object.total_votes}}" style="width: {{(vote_object.choices[choice]/vote_object.total_votes)*100}}%;">
+                                {{vote_object.choices[choice]}}
+                </div>
+            </div>
+            </div>
+    </div>
+    {% endfor %}
+    
+    <br />
+    <a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
+    {% endblock %}
+    ```
 
-6. `<body`> 요소의 **vote.html**에 다음 코드를 추가합니다. 설문 조사를 표시하고 투표를 수락합니다. 투표를 등록하면 제어가 views.py로 전달되며, 여기서 투표 완료를 인식하고 그에 따라 문서를 추가합니다.
+6. Add the following code to **vote.html** in the `<body`> element. It displays the poll and accepts the votes. On registering the votes, the control is passed over to views.py where we will recognize the vote cast and append the document accordingly.
 
-	```html
-	{% extends "layout.html" %}
-	{% block content %}
-	<h2>What is your favorite way to host an application on Azure?</h2>
-	<form action="" method="post" name="vote">
-		{{form.hidden_tag()}}
-	        {{form.deploy_preference}}
-	        <button class="btn btn-primary" type="submit">Vote</button>
-	</form>
-	{% endblock %}
-	```
+    ```html
+    {% extends "layout.html" %}
+    {% block content %}
+    <h2>What is your favorite way to host an application on Azure?</h2>
+    <form action="" method="post" name="vote">
+        {{form.hidden_tag()}}
+            {{form.deploy_preference}}
+            <button class="btn btn-primary" type="submit">Vote</button>
+    </form>
+    {% endblock %}
+    ```
 
-7. **템플릿** 폴더에서 **index.html**의 내용을 다음과 같이 바꿉니다. 이 코드는 응용 프로그램의 방문 페이지 역할을 합니다.
-	
-	```html
-	{% extends "layout.html" %}
-	{% block content %}
-	<h2>Python + DocumentDB Voting Application.</h2>
-	<h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
-	<p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
-	<p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
-	{% endblock %}
-	```
+7. In the **templates** folder, replace the contents of **index.html** with the following. This serves as the landing page for your application.
+    
+    ```html
+    {% extends "layout.html" %}
+    {% block content %}
+    <h2>Python + DocumentDB Voting Application.</h2>
+    <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
+    <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
+    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
+    {% endblock %}
+    ```
 
-### 구성 파일 추가 및 \_\_init\_\_.py 변경
+### <a name="add-a-configuration-file-and-change-the-\_\_init\_\_.py"></a>Add a configuration file and change the \_\_init\_\_.py
 
-1. 솔루션 탐색기에서 **자습서** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 및 **새 항목**을 차례로 클릭한 다음 **빈 Python 파일**을 선택하고 파일의 이름을 **config.py**로 지정합니다. 이 구성 파일은 Flask의 폼에 필요합니다. 이 파일을 사용하여 암호 키를 제공할 수도 있습니다. 하지만 이 자습서에서는 이 키가 필요하지 않습니다.
+1. In Solution Explorer, right-click the **tutorial** project, click **Add**, click **New Item**, select **Empty Python File**, and then name the file **config.py**. This config file is required by forms in Flask. You can use it to provide a secret key as well. This key is not needed for this tutorial though.
 
-2. Config.py에 다음 코드를 추가하고 다음 단계에서 **DOCUMENTDB\_HOST** 및 **DOCUMENTDB\_KEY**의 값을 변경해야 합니다.
+2. Add the following code to config.py, you'll need to alter the values of **DOCUMENTDB\_HOST** and **DOCUMENTDB\_KEY** in the next step.
 
-	```python
-	CSRF_ENABLED = True
-	SECRET_KEY = 'you-will-never-guess'
-	
-	DOCUMENTDB_HOST = 'https://YOUR_DOCUMENTDB_NAME.documents.azure.com:443/'
-	DOCUMENTDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
-	
-	DOCUMENTDB_DATABASE = 'voting database'
-	DOCUMENTDB_COLLECTION = 'voting collection'
-	DOCUMENTDB_DOCUMENT = 'voting document'
-	```
+    ```python
+    CSRF_ENABLED = True
+    SECRET_KEY = 'you-will-never-guess'
+    
+    DOCUMENTDB_HOST = 'https://YOUR_DOCUMENTDB_NAME.documents.azure.com:443/'
+    DOCUMENTDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
+    
+    DOCUMENTDB_DATABASE = 'voting database'
+    DOCUMENTDB_COLLECTION = 'voting collection'
+    DOCUMENTDB_DOCUMENT = 'voting document'
+    ```
 
-3. [Azure 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하여 **키** 블레이드를 탐색하고 사용할 계정 이름을 두 번 클릭한 다음 **Essentials** 영역에서 **키** 단추를 클릭합니다. **키** 블레이드에서 **URI** 값을 복사하고 **DOCUMENTDB\_HOST** 속성에 대한 값으로 **config.py** 파일에 붙여 넣습니다.
-4. 다시 Azure 포털의 **키** 블레이드에서 **기본 키** 또는 **보조 키** 값을 복사하고 **DOCUMENTDB\_KEY** 속성에 대한 값으로 **config.py** 파일에 붙여 넣습니다.
-5. **\_\_init\_\_.py** 파일에 다음 줄을 추가합니다.
+3. In the [Azure portal](https://portal.azure.com/), navigate to the **Keys** blade by clicking **Browse**, **DocumentDB Accounts**, double-click the name of the account to use, and then click the **Keys** button in the **Essentials** area. In the **Keys** blade, copy the **URI** value and paste it into the **config.py** file, as the value for the **DOCUMENTDB\_HOST** property. 
+4. Back in the Azure portal, in the **Keys** blade, copy the value of the **Primary Key** or the **Secondary Key**, and paste it into the **config.py** file, as the value for the **DOCUMENTDB\_KEY** property.
+5. In the **\_\_init\_\_.py** file, add the following line. 
 
         app.config.from_object('config')
 
-    파일의 내용은 다음과 같습니다.
+    So that the content of the file is:
 
-	```python
-	from flask import Flask
-	app = Flask(__name__)
-	app.config.from_object('config')
-	import tutorial.views
-	```
+    ```python
+    from flask import Flask
+    app = Flask(__name__)
+    app.config.from_object('config')
+    import tutorial.views
+    ```
 
-6. 모든 파일을 추가한 후에 솔루션 탐색기는 다음과 같아야 합니다.
+6. After adding all the files, Solution Explorer should look like this:
 
-	![Visual Studio 솔루션 탐색기 창의 스크린샷](./media/documentdb-python-application/image15.png)
+    ![Screen shot of the Visual Studio Solution Explorer window](./media/documentdb-python-application/image15.png)
 
 
-## 4단계: 로컬에서 웹 응용 프로그램 실행
+## <a name="step-4:-run-your-web-application-locally"></a>Step 4: Run your web application locally
 
-1. **Ctrl**+**Shift**+**B**를 눌러 솔루션을 빌드합니다.
-2. 빌드가 성공하면 **F5** 키를 눌러 웹 사이트를 시작합니다. 스크린에 다음이 표시되어야 합니다.
+1. Build the solution by pressing **Ctrl**+**Shift**+**B**.
+2. Once the build succeeds, start the website by pressing **F5**. You should see the following on your screen.
 
-	![웹 브라우저에 표시된 Python + DocumentDB 투표 응용 프로그램의 스크린샷](./media/documentdb-python-application/image16.png)
+    ![Screen shot of the Python + DocumentDB Voting Application displayed in a web browser](./media/documentdb-python-application/image16.png)
 
-3. **투표 데이터베이스 만들기/지우기**를 클릭하여 데이터베이스를 생성합니다.
+3. Click **Create/Clear the Voting Database** to generate the database.
 
-	![웹 응용 프로그램 만들기 페이지의 스크린샷 - 개발 세부 정보](./media/documentdb-python-application/image17.png)
+    ![Screen shot of the Create Page of the web application – development details](./media/documentdb-python-application/image17.png)
 
-4. 그런 다음 **투표**를 클릭하고 옵션을 선택합니다.
+4. Then, click **Vote** and select your option.
 
-	![게시된 투표 질문이 있는 웹 응용 프로그램의 스크린샷](./media/documentdb-python-application/image18.png)
+    ![Screen shot of the web application with a voting question posed](./media/documentdb-python-application/image18.png)
 
-5. 투표할 때마다 해당 카운터가 증가합니다.
+5. For every vote you cast, it increments the appropriate counter.
 
-	![표시된 투표 페이지의 결과 스크린샷](./media/documentdb-python-application/image19.png)
+    ![Screen shot of the Results of the vote page shown](./media/documentdb-python-application/image19.png)
 
-6. Shift+F5를 눌러 프로젝트의 디버깅을 중지합니다.
+6. Stop debugging the project by pressing Shift+F5.
 
-## 5단계:· Azure 웹 사이트에 웹 응용 프로그램 배포
+## <a name="step-5:-deploy-the-web-application-to-azure-websites"></a>Step 5: Deploy the web application to Azure Websites
 
-이제 완료된 응용 프로그램이 DocumentDB에 대해 올바르게 작동하므로 Azure 웹 사이트에 배포하겠습니다.
+Now that you have the complete application working correctly against DocumentDB, we're going to deploy this to Azure Websites.
 
-1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고(로컬에서 실행하고 있지 않도록 확인) **게시**를 선택합니다.
+1. Right-click the project in Solution Explorer (make sure you're not still running it locally) and select **Publish**.  
 
- 	![강조 표시된 게시 옵션을 사용하여 솔루션 탐색기에서 선택된 자습서의 스크린샷](./media/documentdb-python-application/image20.png)
+    ![Screen shot of the tutorial selected in Solution Explorer, with the Publish option highlighted](./media/documentdb-python-application/image20.png)
 
-2. **웹 게시** 창에서 **Microsoft Azure 웹앱**을 선택하고 **다음**을 클릭합니다.
+2. In the **Publish Web** window, select **Microsoft Azure Web Apps**, and then click **Next**.
 
-	![강조 표시된 Microsoft Azure 웹앱이 포함된 웹 게시 창의 스크린샷](./media/documentdb-python-application/image21.png)
+    ![Screen shot of the Publish Web window with Microsoft Azure Web Apps highlighted](./media/documentdb-python-application/image21.png)
 
-3. **Microsoft Azure 웹앱 창** 창에서 **새로 만들기**를 클릭합니다.
+3. In the **Microsoft Azure Web Apps Window** window, click **New**.
 
-	![Microsoft Azure 웹앱 창 창의 스크린샷](./media/documentdb-python-application/select-existing-website.png)
+    ![Screen shot of the Microsoft Azure Web Apps Window window](./media/documentdb-python-application/select-existing-website.png)
 
-4. **Microsoft Azure에서 사이트 만들기** 창에서 **웹앱 이름**, **앱 서비스 계획**, **리소스 그룹** 및 **지역**을 입력한 다음 **만들기**를 클릭합니다.
+4. In the **Create site on Microsoft Azure** window, enter a **Web app name**, **App Service plan**, **Resource group**, and **Region**, then click **Create**.
 
-	![Microsoft Azure 창에서 사이트 만들기의 스크린 샷](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
+    ![Screen shot of the Create site on Microsoft Azure window](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
 
-5. **웹 게시** 창에서 **게시**를 클릭합니다.
+5. In the **Publish Web** window, click **Publish**.
 
-	![Microsoft Azure 창에서 사이트 만들기의 스크린 샷](./media/documentdb-python-application/publish-web.png)
+    ![Screen shot of the Create site on Microsoft Azure window](./media/documentdb-python-application/publish-web.png)
 
-3. 몇 초 후에 Visual Studio에서 웹 응용 프로그램 게시를 완료하고 브라우저를 시작하며, Azure에서 실행되는 작업 내용을 확인할 수 있습니다.
+3. In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your handy work running in Azure!
 
-## 문제 해결
+## <a name="troubleshooting"></a>Troubleshooting
 
-컴퓨터에서 실행하는 첫 번째 Python 앱인 경우 다음 폴더(또는 동등한 설치 위치)가 경로 변수에 포함되어 있도록 합니다.
+If this is the first Python app you've run on your computer, ensure that the following folders (or the equivalent installation locations) are included in your PATH variable:
 
     C:\Python27\site-packages;C:\Python27\;C:\Python27\Scripts;
 
-투표 페이지에 오류가 발생하고 **자습서**가 아닌 다른 이름으로 프로젝트의 이름을 지정한 경우 **\_\_init\_\_.py**가 줄에서 올바른 프로젝트 이름을 참조하도록 합니다.`import tutorial.view`
+If you receive an error on your vote page, and you named your project something other than **tutorial**, make sure that **\_\_init\_\_.py** references the correct project name in the line: `import tutorial.view`.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Python 웹 응용 프로그램을 완성하고 Azure 웹 사이트에 게시했습니다.
+Congratulations! You have just completed your first Python web application using Azure DocumentDB and published it to Azure Websites.
 
-이 항목은 사용자 피드백에 따라 자주 업데이트되고 개선됩니다. 자습서를 완료했으면 이 페이지 상단과 하단에 있는 응답 단추를 사용하여 개선되었으면 하는 사항에 대한 피드백을 포함해야 합니다. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
+We update and improve this topic frequently based on your feedback.  Once you've completed the tutorial, please using the voting buttons at the top and bottom of this page, and be sure to include your feedback on what improvements you want to see made. If you'd like us to contact you directly, feel free to include your email address in your comments.
 
-웹 응용 프로그램에 다른 기능을 추가하려면 [DocumentDB Python SDK](documentdb-sdk-python.md)에서 사용할 수 있는 API를 검토하세요.
+To add additional functionality to your web application, review the APIs available in the [DocumentDB Python SDK](documentdb-sdk-python.md).
 
-Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요.
+For more information about Azure, Visual Studio, and Python, see the [Python Developer Center](https://azure.microsoft.com/develop/python/). 
 
-추가 Python Flask 자습서는 [Flask Mega-자습서 1부: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)를 참조하세요.
+For additional Python Flask tutorials, see [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
 
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [2]: https://www.python.org/downloads/windows/
@@ -433,4 +435,8 @@ Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

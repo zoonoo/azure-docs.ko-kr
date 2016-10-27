@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Azure 자동화 보안 | Microsoft Azure"
-   description="이 문서는 자동화 보안의 개요와 Azure 자동화의 자동화 계정에 사용 가능한 다양한 인증 방법에 대해 설명합니다."
+   pageTitle="Azure Automation Security | Microsoft Azure"
+   description="This article provides an overview of automation security and the different authentication methods available for Automation Accounts in Azure Automation."
    services="automation"
    documentationCenter=""
    authors="MGoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="자동화 보안, 보안 자동화" />
+   keywords="automation security, secure automation" />
 <tags
    ms.service="automation"
    ms.devlang="na"
@@ -16,37 +16,46 @@
    ms.date="07/29/2016"
    ms.author="magoedte" />
 
-# Azure 자동화 보안
-Azure 자동화를 사용하여 Azure, 온-프레미스 및 AWS\(Amazon 웹 서비스\)와 같은 기타 클라우드 공급자의 리소스에 대해 작업을 자동화할 수 있습니다. Runbook이 필요한 작업을 수행하려면 구독 내에서 최소의 권한으로 리소스에 안전하게 액세스할 수 있는 권한이 있어야 합니다. 이 문서에서는 Azure 자동화에서 지원하는 다양한 인증 시나리오를 살펴보고 관리해야 하는 환경에 따라 시작하는 방법에 대해 설명합니다.
 
-## 자동화 계정 개요
-Azure 자동화를 처음 시작하려면 자동화 계정을 하나 이상 만들어야 합니다. 자동화 계정을 사용하면 다른 자동화 계정에 포함된 리소스에서 사용자의 자동화 리소스\(Runbook, 자산, 구성\)를 격리할 수 있습니다. 자동화 계정을 사용하여 리소스를 별도의 논리적 환경으로 구분할 수 있습니다. 예를 들어 개발, 프로덕션, 온-프레미스 환경에 서로 다른 계정을 사용할 수 있습니다. Azure 자동화 계정은 Microsoft 계정 또는 Azure 구독에서 만든 계정과 다릅니다.
+# <a name="azure-automation-security"></a>Azure Automation security
+Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS).  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription.  
+This article will cover the various authentication scenarios supported by Azure Automation and will show you how to get started based on the environment or environments you need to manage.  
 
-각 자동화 계정의 자동화 리소스는 단일 Azure 지역과 연결되지만 자동화 계정에서 모든 지역의 리소스를 관리할 수 있습니다. 여러 지역에서 자동화 계정을 만드는 주된 이유는 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있을 수 있기 때문입니다.
+## <a name="automation-account-overview"></a>Automation Account overview
+When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets, configurations) from the resources contained in other Automation accounts. You can use Automation accounts to separate resources into separate logical environments. For example, you might use one account for development, another for production, and another for your on-premises environment.  An Azure Automation account is different from your Microsoft account or accounts created in your Azure subscription.
 
->[AZURE.NOTE]Azure 포털에서 작성된 자동화 계정 및 자동화 계정이 포함하는 리소스는 Azure 클래식 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
+The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage resources in any region. The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.
 
-Azure 자동화에서 Azure Resource Manager 및 Azure cmdlet을 사용하여 리소스에 대해 수행하는 모든 작업은 Azure Active Directory 조직 ID 자격 증명 기반 인증을 사용하여 Azure에 인증해야 합니다. 원래는 Azure 서비스 관리 모드에서 인증서 기반 인증을 사용했지만 설치 방법이 복잡합니다. Azure AD 사용자로 Azure에 인증하는 방법은 2014년에 인증 계정 구성을 간소화하는 한편 Azure Resource Manager와 클래식 리소스와 연동하는 단일 사용자 계정으로 Azure에 비 대화식으로 인증하는 기능을 지원하기 위해 도입되었습니다.
+>[AZURE.NOTE]Automation accounts, and the resources they contain that are created in the Azure portal, cannot be accessed in the Azure classic portal. If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.
 
-현재 Azure 포털에서 새 자동화 계정을 만들 경우 다음을 자동으로 만듭니다.
+All of the tasks that you perform against resources using Azure Resource Manager and the Azure cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  Certificate-based  authentication was the original authentication method with Azure Service Management mode, but it was complicated to setup.  Authenticating to Azure with Azure AD user was introduced back in 2014 to not only simplify the process to configure an Authentication account, but also support the ability to non-interactively authenticate to Azure with a single user account that worked with both Azure Resource Manager and classic resources.   
 
--  Azure Active Directory에서 새 서비스 주체, 인증서를 만들고 runbook을 사용하여 Resource Manager 리소스를 관리하는 데 사용될 참여자 역할 기반 액세스 제어\(RBAC\)를 할당하는 실행 계정.
--  runbook을 사용하여 Azure 서비스 관리 또는 클래식 리소스를 관리하는 데 사용될 관리 인증서를 업로드하는 클래식 실행 계정.
+Currently when you create a new Automation account in the Azure portal, it automatically creates:
 
-Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azure AD 사용자 계정 및 실행 계정에 허용된 작업을 수락하고 서비스 주체를 인증할 수 있습니다. 자동화 권한 관리 모델을 개발하는 방법에 대한 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md) 문서를 참조하세요.
+-  Run As account which creates a new service principal in Azure Active Directory, a certificate, and assigns the Contributor role-based access control (RBAC), which will be used to manage Resource Manager resources using runbooks.
+-  Classic Run As account by uploading a management certificate, which will be used to manage Azure Service Management or classic resources using runbooks.  
 
-데이터 센터의 Hybrid Runbook Worker에서 실행되거나 AWS의 계산 서비스에 대해 실행되는 Runbook은 일반적으로 Azure 리소스를 인증하는 Runbook에 사용되는 것과 동일한 방법을 사용할 수 없습니다. 이러한 리소스는 Azure 외부에서 실행되므로 로컬로 액세스하는 리소스에 인증하려면 자동화에서 정의한 자체 보안 자격 증명이 필요하기 때문입니다.
+Role-based access control is available with Azure Resource Manager to grant permitted actions to an Azure AD user account and Run As account, and authenticate that service principal.  Please read [Role-based access control in Azure Automation article](../automation/automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.  
 
-## 인증 방법
+Runbooks running on a Hybrid Runbook Worker in your datacenter or against computing services in AWS cannot use the same method that is typically used for runbooks authenticating to Azure resources.  This is because those resources are running outside of Azure and therefore, will require their own security credentials defined in Automation to authenticate to resources that they will access locally.  
 
-다음 테이블에는 Azure 자동화에서 지원하는 각 환경에 대한 다양한 인증 방법과 Runbook에 대한 인증 설정 방법을 설명하는 문서가 요약되어 있습니다.
+## <a name="authentication-methods"></a>Authentication methods
 
-메서드 | Environment | 문서
+The following table summarizes the different authentication methods for each environment supported by Azure Automation and the article describing how to setup authentication for your runbooks.
+
+Method  |  Environment  | Article
 ----------|----------|----------
-Azure AD 사용자 계정 만들기 | Azure 리소스 관리자 및 Azure 서비스 관리 | [Azure AD 사용자 계정으로 Runbook 인증](../automation/automation-sec-configure-aduser-account.md)
-Azure 실행 계정 | Azure 리소스 관리자 | [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md)
-Azure 클래식 실행 계정 | Azure 서비스 관리 | [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md)
-Windows 인증 | 온-프레미스 데이터 센터 | [Hybrid Runbook Worker용 Runbook 인증](../automation/automation-hybrid-runbook-worker.md)
-AWS 자격 증명 | Amazon 웹 서비스 | [AWS\(Amazon 웹 서비스\)로 Runbook 인증](../automation/automation-sec-configure-aws-account.md)
+Azure AD User Account | Azure Resource Manager and Azure Service Management | [Authenticate Runbooks with Azure AD User account](../automation/automation-sec-configure-aduser-account.md)
+Azure Run As Account | Azure Resource Manager | [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+Azure Classic Run As Account | Azure Service Management | [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+Windows Authentication | On-Premises Datacenter | [Authenticate Runbooks for Hybrid Runbook Workers](../automation/automation-hybrid-runbook-worker.md)
+AWS Credentials | Amazon Web Services | [Authenticate Runbooks with Amazon Web Services (AWS)](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

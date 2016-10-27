@@ -1,26 +1,28 @@
 <properties
-    pageTitle="내 클라우드 서비스 프로젝트의 변경 내용 | Microsoft Azure | Visual Studio 연결 서비스"
-	description="Visual Studio 연결 서비스를 사용하여 Azure 저장소 계정에 연결한 후 클라우드 서비스 프로젝트의 변경 내용에 대해 설명합니다."
+    pageTitle="What happened to my cloud service project? | Microsoft Azure | Visual Studio connected services"
+    description="Describes what happens in a cloud services project after connecting to an Azure storage account using Visual Studio connected services"
     services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-what-happened"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-what-happened"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="tarcher"/>
 
-# 내 클라우드 서비스 프로젝트(Visual Studio Azure 저장소 연결 서비스)의 변경 내용
 
-## 참조 추가됨
+# <a name="what-happened-to-my-cloud-services-project-(visual-studio-azure-storage-connected-service)?"></a>What happened to my cloud services project (Visual Studio Azure Storage connected service)?
 
-Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습니다. 이 패키지는 다음.NET 참조를 추가합니다.
+## <a name="references-added"></a>References added
+
+The Azure Storage NuGet package was added to your Visual Studio project.  
+This package adds the following .NET references:
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -31,11 +33,15 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 - **System.Data**
 - **System.Spatial**
 
-## 추가된 Azure 저장소에 대한 연결 문자열
-선택한 저장소 계정의 연결 문자열과 키를 포함하는 요소가 생성되었습니다. 다음 파일이 수정되었습니다.
+## <a name="connection-string-for-azure-storage-added"></a>Connection string for Azure Storage added
+Elements were created with the selected storage account's connection string and key. Modifications were made to the following files:
 
 - **ServiceDefinition.csdef**
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

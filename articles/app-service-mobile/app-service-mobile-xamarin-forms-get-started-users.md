@@ -1,107 +1,108 @@
 <properties
-	pageTitle="Xamarin.Forms 앱에서 모바일 앱에 대한 인증 시작 | Microsoft Azure"
-	description="모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Forms 앱 사용자를 인증하는 방법을 알아봅니다."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with authentication for Mobile Apps in Xamarin.Forms app | Microsoft Azure"
+    description="Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="wesmc"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Xamarin.Forms 앱에 인증 추가
+
+# <a name="add-authentication-to-your-xamarin.forms-app"></a>Add authentication to your Xamarin.Forms app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-##개요
+##<a name="overview"></a>Overview
 
-이 항목에서는 클라이언트 응용 프로그램에서 앱 서비스 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 앱 서비스가 지원하는 ID 공급자를 사용하여 Xamarin.Forms 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증이 완료되고 권한이 부여되고 나면 사용자 ID 값이 표시되고 제한된 테이블 데이터에 액세스할 수 있게 됩니다.
+This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the Xamarin.Forms quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed, and you will be able to access restricted table data.
 
-##필수 조건
+##<a name="prerequisites"></a>Prerequisites
 
-이 자습서를 통한 최상의 결과를 얻기 위해 먼저 [Xamarin.Forms 앱 만들기](app-service-mobile-xamarin-forms-get-started.md) 자습서를 완료하는 것이 좋습니다. 이 자습서를 완료하면 다중 플랫폼 TodoList 앱인 Xamarin.Forms 프로젝트가 생깁니다.
+For the best result with this tutorial, we recommend that you first complete the [Create a Xamarin.Forms app](app-service-mobile-xamarin-forms-get-started.md) tutorial. After you complete this tutorial, you will have a Xamarin.Forms project that is a multi-platform TodoList app.
 
-다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##인증을 위해 앱 등록 및 앱 서비스 구성
+##<a name="register-your-app-for-authentication-and-configure-app-services"></a>Register your app for authentication and configure App Services
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##사용 권한을 인증된 사용자로 제한
+##<a name="restrict-permissions-to-authenticated-users"></a>Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 
-##이식 가능한 클래스 라이브러리에 인증 추가
+##<a name="add-authentication-to-the-portable-class-library"></a>Add authentication to the portable class library
 
-모바일 앱은 [MobileServiceClient]에서 [LoginAsync] 확장 메서드를 사용하여 앱 서비스 인증으로 사용자를 로그인합니다. 이 샘플에서는 서버 관리 인증 흐름을 사용하여 앱에서 공급자의 로그인 인터페이스를 표시합니다. 자세한 내용은 [서버 관리 인증](app-service-mobile-dotnet-how-to-use-client-library.md#serverflow)을 참조하세요. 프로덕션 앱에서 향상된 사용자 환경을 제공하기 위해 대신 [클라이언트 관리 인증](app-service-mobile-dotnet-how-to-use-client-library.md#clientflow)을 사용하는 것을 고려할 수 있습니다.
+Mobile Apps uses the [LoginAsync] extension method on the [MobileServiceClient] to sign-in a user with App Service authentication. This sample uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication](app-service-mobile-dotnet-how-to-use-client-library.md#serverflow). To provide a better user experience in your production app, you may consider instead using [Client-managed authentication](app-service-mobile-dotnet-how-to-use-client-library.md#clientflow). 
 
-Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 이식 가능한 클래스 라이브러리에 **IAuthenticate** 인터페이스를 정의합니다. 또한 이식 가능한 클래스 라이브러리에 정의된 사용자 인터페이스를 업데이트하여 **로그인** 단추를 추가합니다. 사용자는 이 단추를 클릭하여 인증을 시작합니다. 인증에 성공하면 모바일 앱 백 엔드에서 데이터가 로드됩니다.
+To authenticate with a Xamarin.Forms project, you define an **IAuthenticate** interface in the Portable Class Library for the app. You also update the user interface defined in the Portable Class Library to add a **Sign-in** button, which the user clicks to start authentication. After successful authentication, data is loaded from the mobile app backend.
 
-앱에서 지원되는 각 플랫폼에 대해 **IAuthenticate** 인터페이스를 구현해야 합니다.
+You must implement the **IAuthenticate** interface for each platform supported by your app.
 
 
-1. Visual Studio 또는 Xamarin Studio에서 이름에 **이식 가능**이 있는 프로젝트(이식 가능한 클래스 라이브러리 프로젝트)에서 App.cs를 연 후 다음 `using` 문을 추가합니다.
+1. In Visual Studio or Xamarin Studio, open App.cs from the project with **Portable** in the name, which is Portable Class Library project, then add the following `using` statement:
 
-		using System.Threading.Tasks;
+        using System.Threading.Tasks;
 
-2. App.cs에 `App` 클래스 정의 직전에 다음과 같은 `IAuthenticate` 인터페이스 정의를 추가합니다.
+2. In App.cs, add the following `IAuthenticate` interface definition immediately before the `App` class definition.
 
-	    public interface IAuthenticate
-	    {
-	        Task<bool> Authenticate();
-	    }
+        public interface IAuthenticate
+        {
+            Task<bool> Authenticate();
+        }
 
-3. 플랫폼 전용 구현으로 인터페이스를 초기화하도록 **App** 클래스에 다음 정적 멤버를 추가합니다.
+3. Add the following static members to the **App** class to initialize the interface with a platform specific implementation.
 
-	    public static IAuthenticate Authenticator { get; private set; }
+        public static IAuthenticate Authenticator { get; private set; }
 
         public static void Init(IAuthenticate authenticator)
         {
             Authenticator = authenticator;
         }
 
-4. 이식 가능한 클래스 라이브러리 프로젝트에서 TodoList.xaml을 열고 *buttonsPanel* 레이아웃 요소의 다음 **Button** 요소를 기존 단추 뒤에 추가합니다.
+4. Open TodoList.xaml from the Portable Class Library project, add the following **Button** element in the *buttonsPanel* layout element, after the existing button: 
 
-      	<Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" 
-			Clicked="loginButton_Clicked"/>
+        <Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" 
+            Clicked="loginButton_Clicked"/>
 
-	이 단추는 모바일 앱 백 엔드로 서버 관리 인증을 트리거합니다.
+    This button triggers server-managed authentication with your mobile app backend.
 
-5. 이식 가능한 클래스 라이브러리 프로젝트에서 TodoList.xaml.cs를 연 후 다음 필드를 `TodoList` 클래스에 추가합니다.
+5. Open TodoList.xaml.cs from the Portable Class Library project, then add the following field to the `TodoList` class:
 
-		// Track whether the user has authenticated. 
+        // Track whether the user has authenticated. 
         bool authenticated = false;
 
 
-6. **OnAppearing** 메서드를 다음 코드로 바꿉니다.
+6. Replace the **OnAppearing** method with the following code:
 
-	    protected override async void OnAppearing()
-	    {
-	        base.OnAppearing();
-	
-	        // Refresh items only when authenticated.
-	        if (authenticated == true)
-	        {
-	            // Set syncItems to true in order to synchronize the data 
-	            // on startup when running in offline mode.
-	            await RefreshItems(true, syncItems: false);
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+    
+            // Refresh items only when authenticated.
+            if (authenticated == true)
+            {
+                // Set syncItems to true in order to synchronize the data 
+                // on startup when running in offline mode.
+                await RefreshItems(true, syncItems: false);
 
-				// Hide the Sign-in button.
+                // Hide the Sign-in button.
                 this.loginButton.IsVisible = false;
-	        }
-	    }
+            }
+        }
 
-	이렇게 하면 사용자가 인증된 후에만 데이터가 새로 고침됩니다.
+    This makes sure that data is only refreshed from the service after the user has been authenticated.
 
-7. **TodoList** 클래스에 **Clicked** 이벤트에 대한 다음 처리기를 추가합니다.
+7. Add the following handler for the **Clicked** event to the **TodoList** class:
 
         async void loginButton_Clicked(object sender, EventArgs e)
         {
@@ -113,28 +114,28 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
                 await RefreshItems(true, syncItems: false);
         }
 
-8. 변경 내용을 저장하고 이식 가능한 클래스 라이브러리 프로젝트를 다시 빌드하여 오류가 없는지 확인합니다.
+8. Save your changes and rebuild the Portable Class Library project verifying no errors.
 
 
-##Android 앱에 인증 추가
+##<a name="add-authentication-to-the-android-app"></a>Add authentication to the Android app
 
-이 섹션에는 Android 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. Android 장치를 지원하지 않는 경우 이 섹션을 건너뜁니다.
+This section shows how to implement the **IAuthenticate** interface in the Android app project. Skip this section if you are not supporting Android devices.
 
-1. Visual Studio 또는 Xamarin Studio에서 **droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
+1. In Visual Studio or Xamarin Studio, right-click the **droid** project, then **Set as StartUp Project**.
 
-2. F5 키를 눌러 디버거에서 프로젝트를 실행하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 백 엔드에서 액세스를 인증된 사용자만으로 제한했기 때문에 이런 상황이 발생합니다.
+2. Press F5 to start the project in the debugger, then verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because access on the backend is restricted to authorized users only.
 
-3. Android 프로젝트에서 MainActivity.cs를 열고 다음 `using` 문을 추가합니다.
+3. Open MainActivity.cs in the Android project and add the following `using` statements:
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using System.Threading.Tasks;
+        using Microsoft.WindowsAzure.MobileServices;
+        using System.Threading.Tasks;
 
-4. 다음과 같이 **IAuthenticate** 인터페이스를 구현하도록 **MainActivity** 클래스를 업데이트합니다.
+4. Update the **MainActivity** class to implement the **IAuthenticate** interface, as follows:
 
-		public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
+        public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 
 
-5. 다음과 같이 **IAuthenticate** 인터페이스에 필요한 **MobileServiceUser** 필드 및 **Authenticate** 메서드를 추가하여 **MainActivity** 클래스를 업데이트합니다.
+5. Update the **MainActivity** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate** interface, as follows:
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -170,35 +171,35 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
         }
 
 
-	Facebook 이외의 ID 공급자를 사용하는 경우 [MobileServiceAuthenticationProvider]에 대해 다른 값을 선택합니다.
+    If you are using an identity provider other than Facebook, choose a different value for [MobileServiceAuthenticationProvider].
 
-6. `LoadApplication()`에 대한 호출 이전에 **MainActivity** 클래스의 **onCreate** 메서드에 다음 코드를 추가합니다.
+6. Add the following code to the **OnCreate** method of the **MainActivity** class before the call to `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
-	이렇게 하면 앱이 로드되기 전에 인증자가 초기화됩니다.
+    This makes sure that the authenticator is initialized before the app loads.
 
-7. 앱을 닷 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
+7. Rebuild the app, run it, then sign-in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
-##iOS 앱에 인증 추가
+##<a name="add-authentication-to-the-ios-app"></a>Add authentication to the iOS app
 
-이 섹션에는 iOS 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. iOS 장치를 지원하지 않는 경우 이 섹션을 건너뜁니다.
+This section shows how to implement the **IAuthenticate** interface in the iOS app project. Skip this section if you are not supporting iOS devices.
 
-1. Visual Studio 또는 Xamarin Studio에서 **iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
+1. In Visual Studio or Xamarin Studio, right-click the **iOS** project, then **Set as StartUp Project**.
 
-2. F5 키를 눌러 디버거에서 프로젝트를 실행하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 백 엔드에서 액세스를 인증된 사용자만으로 제한했기 때문에 이런 상황이 발생합니다.
+2. Press F5 to start the project in the debugger, then verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because access on the backend is restricted to authorized users only.
 
-4. iOS 프로젝트에서 AppDelegate.cs를 열고 다음 `using` 문을 추가합니다.
+4. Open AppDelegate.cs in the iOS project and add the following `using` statements:
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using System.Threading.Tasks;
+        using Microsoft.WindowsAzure.MobileServices;
+        using System.Threading.Tasks;
 
-4. 다음과 같이 **IAuthenticate** 인터페이스를 구현하도록 **AppDelegate** 클래스를 업데이트합니다.
+4. Update the **AppDelegate** class to implement the **IAuthenticate** interface, as follows:
 
-		public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
+        public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 
-5. 다음과 같이 **IAuthenticate** 인터페이스에 필요한 **MobileServiceUser** 필드 및 **Authenticate** 메서드를 추가하여 **AppDelegate** 클래스를 업데이트합니다.
+5. Update the **AppDelegate** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate** interface, as follows:
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -234,40 +235,40 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
             return success;
         }
 
-	Facebook 이외의 ID 공급자를 사용하는 경우 [MobileServiceAuthenticationProvider]에 대해 다른 값을 선택합니다.
+    If you are using an identity provider other than Facebook, choose a different value for [MobileServiceAuthenticationProvider].
 
-6. `LoadApplication()`에 대한 호출 이전에 **FinishedLaunching** 메서드에 다음 코드 줄을 추가합니다.
+6. Add the following line of code to the **FinishedLaunching** method before the call to `LoadApplication()`: 
 
         App.Init(this);
 
-	이렇게 하면 앱이 로드되기 전에 인증자가 초기화됩니다.
+    This makes sure that the authenticator is initialized before the app is loaded.
 
-7. 앱을 닷 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
-
-
-##Windows 앱 프로젝트에 인증 추가
-
-이 섹션에는 Windows 8.1 및 Windows Phone 8.1 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. UWP(범용 Windows 플랫폼) 프로젝트에 동일한 단계가 적용됩니다. Windows 장치를 지원하지 않는 경우 이 섹션을 건너뜁니다.
-
-1. Visual Studio에서 **WinApp** 또는 **WinPhone81** 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
-
-2. F5 키를 눌러 디버거에서 프로젝트를 실행하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 백 엔드에서 액세스를 인증된 사용자만으로 제한했기 때문에 이런 상황이 발생합니다.
-
-3. Windows 앱 프로젝트에 대한 MainPage.xaml.cs를 열고 다음 `using` 문을 추가합니다.
-
-		using Microsoft.WindowsAzure.MobileServices;
-		using System.Threading.Tasks;
-		using Windows.UI.Popups;
-		using <your_Portable_Class_Library_namespace>;
-
-	`<your_Portable_Class_Library_namespace>`를 이식 가능한 클래스 라이브러리의 네임스페이스로 바꿉니다.
-
-4. 다음과 같이 **IAuthenticate** 인터페이스를 구현하도록 **MainPage** 클래스를 업데이트합니다.
-
-	    public sealed partial class MainPage : IAuthenticate
+7. Rebuild the app, run it, then sign-in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
 
-5. 다음과 같이 **IAuthenticate** 인터페이스에 필요한 **MobileServiceUser** 필드 및 **Authenticate** 메서드를 추가하여 **MainPage** 클래스를 업데이트합니다.
+##<a name="add-authentication-to-windows-app-projects"></a>Add authentication to Windows app projects
+
+This section shows how to implement the **IAuthenticate** interface in the Windows 8.1 and Windows Phone 8.1 app projects. The same steps apply for Universal Windows Platform (UWP) projects. Skip this section if you are not supporting Windows devices.
+
+1. In Visual Studio, right-click either the **WinApp** or the **WinPhone81** project, then **Set as StartUp Project**.
+
+2. Press F5 to start the project in the debugger, then verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because access on the backend is restricted to authorized users only.
+
+3. Open MainPage.xaml.cs for the Windows app project and add the following `using` statements:
+
+        using Microsoft.WindowsAzure.MobileServices;
+        using System.Threading.Tasks;
+        using Windows.UI.Popups;
+        using <your_Portable_Class_Library_namespace>;
+
+    Replace `<your_Portable_Class_Library_namespace>` with the namespace for your portable class library.
+
+4. Update the **MainPage** class to implement the **IAuthenticate** interface, as follows:
+
+        public sealed partial class MainPage : IAuthenticate
+
+
+5. Update the **MainPage** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate** interface, as follows:
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -286,7 +287,7 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
                         .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
                     if (user != null)
                     {
-						success = true;
+                        success = true;
                         message = string.Format("You are now signed-in as {0}.", user.UserId);
                     }
                 }
@@ -297,55 +298,58 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
                 message = string.Format("Authentication Failed: {0}", ex.Message);
             }
 
-			// Display the success or failure message.
+            // Display the success or failure message.
             await new MessageDialog(message, "Sign-in result").ShowAsync();
 
             return success;
         }
 
 
-	Facebook 이외의 ID 공급자를 사용하는 경우 [MobileServiceAuthenticationProvider]에 대해 다른 값을 선택합니다.
+    If you are using an identity provider other than Facebook, choose a different value for [MobileServiceAuthenticationProvider].
 
-6. `LoadApplication()`에 대한 호출 이전에 **MainPage** 클래스에 대한 생성자에 다음 코드 줄을 추가합니다.
+6. Add the following line of code in the constructor for the **MainPage** class before the call to `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         <your_Portable_Class_Library_namespace>.App.Init(this);
  
-    `<your_Portable_Class_Library_namespace>`를 이식 가능한 클래스 라이브러리의 네임스페이스로 바꿉니다. WinApp 프로젝트인 경우 아래 8단계로 건너뛸 수 있습니다. 다음 단계는 WinPhone81 프로젝트에만 적용되며 여기서 로그인 콜백을 완료해야 합니다.
+    Replace `<your_Portable_Class_Library_namespace>` with the namespace for your portable class library.  
+    If this is the WinApp project, you can skip down to step 8. The next step applies only to the WinPhone81 project, where you need to complete the login callback.
 
-7. (선택 사항) **WinPhone81** 앱 프로젝트에서 App.xaml.cs를 열고 다음 `using` 문을 추가합니다.
+7. (Optional) In the **WinPhone81** app project, open App.xaml.cs and add the following `using` statements:
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using <your_Portable_Class_Library_namespace>;
+        using Microsoft.WindowsAzure.MobileServices;
+        using <your_Portable_Class_Library_namespace>;
 
-	`<your_Portable_Class_Library_namespace>`를 이식 가능한 클래스 라이브러리의 네임스페이스로 바꿉니다.
+    Replace `<your_Portable_Class_Library_namespace>` with the namespace for your portable class library.
 
-8.  **App** 클래스에 다음 **OnActivated** 메서드 재정의를 추가합니다.
+8.  Add the following **OnActivated** method override to the **App** class:
 
-		protected override void OnActivated(IActivatedEventArgs args)
-		{
-		    base.OnActivated(args);
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
 
-			// We just need to handle activation that occurs after web authentication. 
-		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
-		    {
-				// Get the client and call the LoginComplete method to complete authentication.
-		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
-		        client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
-		    }
-		}
+            // We just need to handle activation that occurs after web authentication. 
+            if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
+            {
+                // Get the client and call the LoginComplete method to complete authentication.
+                var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
+                client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
+            }
+        }
 
-	메서드 재정의가 이미 있는 경우 위의 코드 조각에서 조건부 코드를 추가합니다.
+    When the method override already exists, just add the conditional code from the above snippet.
 
-7. 앱을 닷 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
+7. Rebuild the app, run it, then sign-in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-이 기본 인증 자습서를 완료했으므로 다음 자습서 중 하나를 계속하는 것을 고려해보세요.
+Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [앱에 푸시 알림 추가](app-service-mobile-xamarin-forms-get-started-push.md) 앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure 알림 허브를 사용하는 방법을 알아봅니다.
++ [Add push notifications to your app](app-service-mobile-xamarin-forms-get-started-push.md)  
+  Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-+ [앱에 오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md) 모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다.
++ [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- Images. -->
 
@@ -355,4 +359,9 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
 [MobileServiceClient]: https://msdn.microsoft.com/library/azure/JJ553674(v=azure.10).aspx
 [MobileServiceAuthenticationProvider]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

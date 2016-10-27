@@ -1,77 +1,91 @@
 <properties
-	pageTitle="엔터프라이즈 통합 팩 및 논리 앱을 사용하여 플랫 파일을 인코딩 또는 디코딩하는 방법 배우기 | Microsoft Azure 앱 서비스 | Microsoft Azure"
-	description="엔터프라이즈 통합 팩 및 논리 앱의 기능을 사용하여 플랫 파일 인코딩 또는 디코딩"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="msftman"
-	manager="erikre"
-	editor="cgronlun"/>
+    pageTitle="Learn to encode or decode flat files using the Enterprise Integration Pack and Logic apps| Microsoft Azure App Service | Microsoft Azure"
+    description="Use the features of Enterprise Integration Pack and Logic apps to encode or decode flat files"
+    services="app-service\logic"
+    documentationCenter=".net,nodejs,java"
+    authors="msftman"
+    manager="erikre"
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/08/2016" 
+    ms.author="deonhe"/>
 
-# 플랫 파일과 엔터프라이즈 통합
 
-## 개요
+# <a name="enterprise-integration-with-flat-files"></a>Enterprise integration with flat files
 
-B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내기 전에 XML 콘텐츠를 인코딩하려 할 수 있습니다. Azure 앱 서비스의 논리 앱 기능을 통해 수행되는 논리 앱에서 이 작업을 수행하려면 플랫 파일 인코딩 커넥터를 사용할 수 있습니다. 만든 논리 앱은 HTTP 요청 트리거를 포함하여 다른 응용 프로그램 또는 다양한 [커넥터](../connectors/apis-list.md)에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 논리 앱에 대한 자세한 내용은 [논리 앱 설명서](./app-service-logic-what-are-logic-apps.md "논리 앱에 대해 자세히 알아보기")를 참조하세요.
+## <a name="overview"></a>Overview
 
-## 플랫 파일 인코딩 커넥터를 만드는 방법
+You may want to encode XML content before you send it to a business partner in a business-to-business (B2B) scenario. In a logic app made by the Logic Apps feature of the Azure App Service, you can use the flat file encoding connector to do this. The logic app that you create can get its XML content from a variety of sources, including from an HTTP request trigger, from another application, or even from one of the many [connectors](../connectors/apis-list.md). For more information about logic apps, see the [logic apps documentation](./app-service-logic-what-are-logic-apps.md "Learn more about Logic apps").  
 
-다음 단계를 수행하여 플랫 파일 인코딩 커넥터를 논리 앱을 추가합니다.
+## <a name="how-to-create-the-flat-file-encoding-connector"></a>How to create the flat file encoding connector
 
-1. 논리 앱을 만들고 [통합 계정에 연결](./app-service-logic-enterprise-integration-accounts.md "논리 앱에 통합 계정을 연결하는 방법 알아보기")합니다. 이 계정은 XML 데이터를 인코딩하는 데 사용할 스키마를 포함합니다.
-2. **요청 - HTTP 요청을 받은 경우** 트리거를 논리 앱에 추가합니다. ![선택할 트리거의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)
-3. 다음을 수행하여 플랫 파일 인코딩 작업을 추가합니다.
+Follow these steps to add a flat file encoding connector to your logic app.
 
-    a. **더하기** 기호를 선택합니다.
+1. Create a logic app and [link it to your integration account](./app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app"). This account contains the schema you will use to encode the XML data.  
+2. Add a **Request - When an HTTP request is received** trigger to your logic app.  
+![Screenshot of trigger to select](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
+3. Add the flat file encoding action, as follows:
 
-	b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
+    a. Select the **plus** sign.
 
-	c. 검색 상자에 *플랫*을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
+    b. Select the **Add an action** link (appears after you have selected the plus sign).
 
-	d. 목록에서 **플랫 파일 인코딩** 옵션을 선택합니다. ![플랫 파일 인코딩 옵션의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)
-4. **플랫 파일 인코딩** 대화 상자에서 **콘텐츠** 텍스트 상자를 선택합니다. ![텍스트 상자 콘텐츠의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-3.png)
-5. 본문 태그를 인코딩하려는 콘텐츠로 선택합니다. 본문 태그는 콘텐츠 필드를 채웁니다. ![본문 태그의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-4.png)
-6. **스키마 이름** 목록 상자를 선택하고 입력 콘텐츠를 인코딩하는 데 사용할 스키마를 선택합니다. ![스키마 이름 목록 상자의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-5.png)
-7. 작업을 저장합니다. ![저장 아이콘의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)
+    c. In the search box, enter *Flat* to filter all the actions to the one that you want to use.
 
-이 시점에서 플랫 파일 인코딩 커넥터의 설정이 완료됩니다. 실제 응용 프로그램에서는 SalesForce와 같은 LOB(line-of-business) 응용 프로그램에 인코딩한 데이터를 저장할 수 있습니다. 또는 인코딩된 데이터를 거래 업체에 보낼 수 있습니다. 제공된 다른 커넥터 중 하나를 사용하여 Salesforce 또는 거래 파트너에게 인코딩 작업의 출력을 보내는 동작을 쉽게 추가할 수 있습니다.
+    d. Select the **Flat File Encoding** option from the list.   
+![Screenshot of Flat File Encoding option](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)   
+4. On the **Flat File Encoding** dialog box, select the **Content** text box.  
+![Screenshot of Content text box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-3.png)  
+5. Select the body tag as the content that you want to encode. The body tag will populate the content field.     
+![Screenshot of body tag](./media/app-service-logic-enterprise-integration-flatfile/flatfile-4.png)  
+6. Select the **Schema Name** list box, and choose the schema you want to use to encode the input content.    
+![Screenshot of Schema Name list box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-5.png)  
+7. Save your work.   
+![Screenshot of Save icon](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)  
 
-이제 HTTP 끝점에 요청하고 요청 본문에 XML 콘텐츠를 포함하여 커넥터를 테스트할 수 있습니다.
+At this point, you are finished setting up your flat file encoding connector. In a real world application, you may want to store the encoded data in a line-of-business application, such as Salesforce. Or you can send that encoded data to a trading partner. You can easily add an action to send the output of the encoding action to Salesforce, or to your trading partner, by using any one of the other connectors provided.
 
-## 플랫 파일 디코딩 커넥터를 만드는 방법
+You can now test your connector by making a request to the HTTP endpoint, and including the XML content in the body of the request.  
 
->[AZURE.NOTE] 이러한 단계를 완료하려면 통합 계정에 이미 업로드된 스키마 파일이 있어야 합니다.
+## <a name="how-to-create-the-flat-file-decoding-connector"></a>How to create the flat file decoding connector
 
-1. **요청 - HTTP 요청을 받은 경우** 트리거를 논리 앱에 추가합니다. ![선택할 트리거의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)
-2. 다음을 수행하여 플랫 파일 디코딩 작업을 추가합니다.
+>[AZURE.NOTE] To complete these steps, you need to have a schema file already uploaded into you integration account.
 
-    a. **더하기** 기호를 선택합니다.
+1. Add a **Request - When an HTTP request is received** trigger to your logic app.  
+![Screenshot of trigger to select](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
+2. Add the flat file decoding action, as follows:
 
-	b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
+    a. Select the **plus** sign.
 
-	c. 검색 상자에 *플랫*을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
+    b. Select the **Add an action** link (appears after you have selected the plus sign).
 
-	d. 목록에서 **플랫 파일 디코딩** 옵션을 선택합니다. ![플랫 파일 디코딩 옵션의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)
-- **콘텐츠** 제어를 선택합니다. 그러면 이전 단계에서 콘텐츠로 디코딩하는 데 사용할 수 있는 콘텐츠의 목록이 생성됩니다. 들어오는 HTTP 요청의 *본문*을 콘텐츠로 디코딩하는 데 사용할 수 있습니다. **콘텐츠** 제어에 직접 디코딩할 콘텐츠를 입력할 수도 있습니다.
-- *본문* 태그를 선택합니다. 이제 본문 태그는 **콘텐츠** 제어에 위치합니다.
-- 콘텐츠를 디코딩하는 데 사용할 스키마의 이름을 선택합니다. 다음 스크린샷에서는 *OrderFile*이 선택한 스키마 이름임을 보여 줍니다. 이전에 이 스키마 이름을 통합 계정에 업로드했습니다.
+    c. In the search box, enter *Flat* to filter all the actions to the one that you want to use.
 
- ![플랫 파일 디코딩 대화 상자의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-decode-1.png)
-- 작업을 저장합니다. ![저장 아이콘의 스크린샷](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)
+    d. Select the **Flat File Decoding** option from the list.   
+![Screenshot of Flat File Decoding option](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)   
+- Select the **Content** control. This produces a list of the content from earlier steps that you can use as the content to decode. Notice that the *Body* from the incoming HTTP request is available to be used as the content to decode. You can also enter the content to decode directly into the **Content** control.     
+- Select the *Body* tag. Notice the body tag is now in the **Content** control.
+- Select the name of the schema that you want to use to decode the content. The following screenshot shows that *OrderFile* is the selected schema name. This schema name had been uploaded into the integration account previously.
 
-이 시점에서 플랫 파일 디코딩 커넥터의 설정이 완료됩니다. 실제 응용 프로그램에서는 SalesForce와 같은 LOB(line-of-business) 응용 프로그램에 디코딩한 데이터를 저장할 수 있습니다. Salesforce에 디코딩 작업의 출력을 보내는 작업을 쉽게 추가할 수 있습니다.
+ ![Screenshot of Flat File Decoding dialog box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-decode-1.png)    
+- Save your work.  
+![Screenshot of Save icon](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)    
 
-이제 HTTP 끝점에 요청하고 요청 본문에 디코딩하려는 XML 콘텐츠를 포함하여 커넥터를 테스트할 수 있습니다.
+At this point, you are finished setting up your flat file decoding connector. In a real world application, you may want to store the decoded data in a line-of-business application such as Salesforce. You can easily add an action to send the output of the decoding action to Salesforce.
 
-## 다음 단계
-- [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
+You can now test your connector by making a request to the HTTP endpoint and including the XML content you want to decode in the body of the request.  
 
-<!---HONumber=AcomDC_0803_2016-->
+## <a name="next-steps"></a>Next steps
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack").  
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

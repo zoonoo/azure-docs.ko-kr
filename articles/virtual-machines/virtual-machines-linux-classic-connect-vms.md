@@ -1,36 +1,44 @@
 <properties
-	pageTitle="클라우드 서비스에서 Linux VM 연결 | Microsoft Azure"
-	description="클래식 배포 모델을 사용하여 만든 Linux 가상 컴퓨터를 Azure 클라우드 서비스 또는 가상 네트워크에 연결합니다."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Connect Linux VMs in a cloud service | Microsoft Azure"
+    description="Connect Linux virtual machines created with the classic deployment model to an Azure cloud service or virtual network."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/06/2016"
+    ms.author="cynthn"/>
 
-# 클래식 배포 모델을 사용하여 만든 Linux 가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스에 연결
+
+# <a name="connect-linux-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>Connect Linux virtual machines created with the classic deployment model with a virtual network or cloud service
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-클래식 배포 모델을 사용하여 만든 Linux 가상 컴퓨터는 항상 클라우드 서비스에 배치됩니다. 클라우드 컴퓨터는 컨테이너 역할을 하며 인터넷을 통해 가상 컴퓨터에 액세스할 수 있도록 고유한 공용 DNS 이름, 공용 IP 주소 및 끝점 집합을 제공합니다. 클라우드 서비스는 가상 네트워크에 있을 수 있지만 요구 사항은 아닙니다. 또한 [Windows 가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스와 연결](virtual-machines-windows-classic-connect-vms.md)할 수도 있습니다.
+Linux virtual machines created with the classic deployment model are always placed in a cloud service. The cloud service acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints to access the virtual machine over the Internet. The cloud service can be in a virtual network, but that's not a requirement. You can also [connect Windows virtual machines with a virtual network or cloud service](virtual-machines-windows-classic-connect-vms.md).
 
-가상 네트워크에 없는 클라우드 서비스를 *독립 실행형* 클라우드 서비스라고 합니다. 독립 실행형 클라우드 서비스의 가상 컴퓨터는 다른 가상 컴퓨터의 공용 DNS 이름을 사용하여 다른 가상 컴퓨터와 통신만 할 수 있고 인터넷을 통해 트래픽을 이동시킵니다. 클라우드 서비스가 가상 네트워크에 있는 경우 해당 클라우드 서비스의 가상 컴퓨터는 인터넷을 통해 트래픽을 보내지 않고도 가상 네트워크에 있는 다른 모든 가상 컴퓨터와 통신할 수 있습니다.
+If a cloud service isn't in a virtual network, it's called a *standalone* cloud service. The virtual machines in a standalone cloud service can only communicate with other virtual machines by using the other virtual machines’ public DNS names, and the traffic travels over the Internet. If a cloud service is in a virtual network, the virtual machines in that cloud service can communicate with all other virtual machines in the virtual network without sending any traffic over the Internet.
 
-같은 독립 실행형 클라우드 서비스에 가상 컴퓨터를 배치하는 경우에는 계속 부하 분산 및 가용성 집합을 사용할 수 있습니다. 자세한 내용은 [가상 컴퓨터 부하 분산](virtual-machines-linux-load-balance.md) 및 [가상 컴퓨터의 가용성 관리](virtual-machines-linux-manage-availability.md)를 참조하세요. 그러나 서브넷에서 가상 컴퓨터를 구성하거나 독립 실행형 클라우드 서비스를 온-프레미스 네트워크에 연결할 수는 없습니다. 예를 들면 다음과 같습니다.
+If you place your virtual machines in the same standalone cloud service, you can still use load balancing and availability sets. For details, see [Load balancing virtual machines](virtual-machines-linux-load-balance.md) and [Manage the availability of virtual machines](virtual-machines-linux-manage-availability.md). However, you can't organize the virtual machines on subnets or connect a standalone cloud service to your on-premises network. Here's an example:
 
 [AZURE.INCLUDE [virtual-machines-common-classic-connect-vms](../../includes/virtual-machines-common-classic-connect-vms.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-가상 컴퓨터를 만들고 나서 서비스 및 워크로드에 데이터를 저장할 위치가 포함되도록 [데이터 디스크를 추가](virtual-machines-linux-classic-attach-disk.md)하는 것이 좋습니다.
+After you create a virtual machine, it's a good idea to [add a data disk](virtual-machines-linux-classic-attach-disk.md) so your services and workloads have a location to store data. 
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

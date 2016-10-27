@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple 가상 배열 배포 1 – 포털 준비"
-   description="StorSimple 가상 배열을 배포하는 첫 번째 자습서에는 포털 준비가 포함됩니다."
+   pageTitle="Deploy StorSimple Virtual Array 1 - Portal Preparation"
+   description="First tutorial to deploy StorSimple virtual array involves preparing the portal"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,191 +16,196 @@
    ms.date="05/24/2016"
    ms.author="alkohli"/>
 
-# StorSimple 가상 배열 배포 – 포털 준비
+
+# <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Deploy StorSimple Virtual Array - Prepare the portal
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
-## 개요
+## <a name="overview"></a>Overview
 
-이 문서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 가상 배열을 파일 서버 또는 iSCSI 서버로 완전히 배포하는 데 필요한 배포 자습서 시리즈의 첫 번째 문서입니다. 이 문서는 가상 배열을 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성하는 데 필요한 준비 사항을 설명합니다. 이 문서는 배포 구성 검사 목록 뿐만 아니라 필수 조건과도 연관됩니다.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release. This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist as well as configuration prerequisites.
 
-설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 배포 구성 검사 목록을 검토하는 것이 좋습니다. 포털 준비에는 10분 미만이 소요됩니다.
+You will need administrator privileges to complete the setup and configuration process. We recommend that you review the deployment configuration checklist before you begin. The portal preparation will take less than 10 minutes.
 
-이 문서에 게시된 정보는 Microsoft Azure Government 클라우드뿐만 아니라 Azure 클래식 포털에서 StorSimple 가상 배열의 배포에 적용됩니다.
+The information published in this article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
 
-### 시작
+### <a name="get-started"></a>Get started
 
-배포 워크플로는 포털 준비, 가상화된 환경에 가상 배열 프로비전, 설치 완료로 구성됩니다. 파일 서버 또는 iSCSI 서버로 StorSimple 가상 배열 배포를 시작하려면 다음 표에 준비된 리소스(문서 및 동영상)를 참고해야 합니다.
+The deployment workflow consists of preparing the portal, provisioning a virtual array in your virtualized environment, and completing the setup. To get started with the StorSimple Virtual Array deployment as a file server or an iSCSI server, you will need to refer to the following tabulated resources (articles and videos).
 
-#### 배포 문서
+#### <a name="deployment-articles"></a>Deployment articles
 
-StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대로 참조하세요.
+Refer to the following articles in the prescribed sequence to deploy your StorSimple Virtual Array.
 
-| **#** | **단계** | **수행할 사항** | **이러한 문서를 사용합니다.**|
+| **#** | **In this step**                          | **You will do this …**                                                         | **Use these documents.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
-|1\. | **Azure 클래식 포털 설정** | StorSimple 가상 장치를 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성합니다. |[포털 준비](storsimple-ova-deploy1-portal-prep.md)|
-|2\. | **가상 배열 프로비전** | Hyper-V의 경우 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 장치를 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우, VMware ESXi 5.5 이상을 실행하는 호스트 시스템에서 StorSimple 온-프레미스 가상 장치에 프로비전하고 연결합니다.<br></br>| [Hyper-V에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)|
-|3\. | **가상 배열 설정** | 파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br> iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다.| [파일 서버로 가상 배열 설정](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-ova-deploy3-iscsi-setup.md)|
+|1.   | **Set up the Azure classic portal**       | Create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device.  |[Prepare the portal](storsimple-ova-deploy1-portal-prep.md)|
+|2.   | **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.<br></br>| [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
+|3.    | **Set up the Virtual Array**              | For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes.| [Set up virtual array as file server](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Set up virtual array as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)|
 
-#### 배포 동영상
+#### <a name="deployment-videos"></a>Deployment videos
 
-| **이 단계를 수행하려면...** | **이 동영상을 보세요.**|
+| **To do this step...** |  **Watch this video.**|
 |----------------|-------------|
-| StorSimple 가상 배열을 시작하는 단계별 지침 | [StorSimple 가상 배열 시작](https://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array/)|
-| Hyper-V에서 StorSimple 가상 배열을 프로비전하는 단계별 지침|[StorSimple 가상 배열 만들기](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array/) |
-|StorSimple 가상 배열을 구성하고 등록하는 단계별 지침|[StorSimple 가상 배열 구성](https://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array/)|
-|파일 서버로 구성된 StorSimple 가상 배열에서 공유를 만들고, 공유를 백업하고, 데이터를 복원하는 단계별 지침|[StorSimple 가상 배열 사용](https://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array/)|
-|StorSimple 가상 배열의 장애 조치(failover) 및 재해 복구에 대한 단계별 지침|[StorSimple 가상 배열 재해 복구](https://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery/)
+| Step-by-step instructions to get started with the StorSimple Virtual Array. | [Get started with the StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array/)|
+| Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|[Create a StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array/) |
+|Step-by-step instructions to configure and register a StorSimple Virtual Array|[Configure a StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array/)|
+|Step-by-step instructions to create shares, back up shares, and restore data on a StorSimple Virtual Array configured as a file server|[Use the StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array/)|
+|Step-by-step instructions for failover and disaster recovery of a StorSimple Virtual Array|[StorSimple Virtual Array Disaster Recovery](https://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery/)
 
-이제 Azure 클래식 포털 설치를 시작할 수 있습니다.
+You can now begin to set up the Azure classic portal.
 
-## 구성 검사 목록
+## <a name="configuration-checklist"></a>Configuration checklist
 
-구성 검사 목록에서는 StorSimple 장치에 소프트웨어를 구성하기 전에 수집해야 하는 정보를 설명합니다. 이 정보를 미리 준비하면 사용자 환경에서 StorSimple 장치를 배포하는 과정을 간소화 하는 데 도움이 됩니다. StorSimple 가상 장치를 파일 서버로 배포할지 iSCSI 서버로 배포할지에 따라서 다음 검사 목록 중 하나가 필요합니다.
+The configuration checklist describes the information that you need to collect before you configure the software on your StorSimple device. Preparing this information ahead of time will help streamline the process of deploying the StorSimple device in your environment. Depending upon whether your StorSimple virtual device will be deployed as a file server or an iSCSI server, you will need one of the following checklists.
 
--   [StorSimple 가상 배열 파일 서버 구성 검사 목록](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)을 다운로드합니다.
+-   Download the [StorSimple Virtual Array File Server Configuration Checklist](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 
--   [StorSimple 가상 배열 iSCSI 서버 구성 검사 목록](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)을 다운로드합니다.
+-   Download the [StorSimple Virtual Array iSCSI Server Configuration Checklist](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## 필수 조건
+## <a name="prerequisites"></a>Prerequisites
 
-여기에는 StorSimple Manager 서비스, StorSimple 가상 장치, 데이터 센터 네트워크에 대한 필수 조건이 제공됩니다.
+Here you will find the configuration prerequisites for your StorSimple Manager service, your StorSimple virtual device, and the datacenter network.
 
-### StorSimple 관리자 서비스의 경우
+### <a name="for-the-storsimple-manager-service"></a>For the StorSimple Manager service
 
-시작하기 전에 다음 사항을 확인합니다.
+Before you begin, make sure that:
 
--   액세스 자격 증명이 있는 Microsoft 계정이 있습니다.
+-   You have your Microsoft account with access credentials.
 
--   액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
+-   You have your Microsoft Azure storage account with access credentials.
 
--   사용자의 Microsoft Azure 구독을 StorSimple Manager 서비스에 사용할 수 있습니다.
+-   Your Microsoft Azure subscription should be enabled for StorSimple Manager service.
 
-### StorSimple 가상 장치의 경우
+### <a name="for-the-storsimple-virtual-device"></a>For the StorSimple virtual device
 
-가상 장치를 배포하기 전에 다음 사항을 확인해야 합니다.
+Before you deploy a virtual device, make sure that:
 
--   장치 프로비전에 사용될 수 있는 Windows Server 2008 R2 이상 또는 VMware(ESXi 5.5 이상)에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
+-   You have access to a host system running Hyper-V on Windows Server 2008 R2 or later or VMware (ESXi 5.5 or later) that can be used to a provision a device.
 
--   가상 디스크 프로비전을 위해 호스트 시스템에서 다음 리소스를 전용할 수 있습니다.
+-   The host system is able to dedicate the following resources to provision your virtual device:
 
-	-   코어 4개 이상
+    -   A minimum of 4 cores.
 
-	-   RAM 8GB 이상
+    -   At least 8 GB of RAM.
 
-	-   네트워크 인터페이스 하나
+    -   One network interface.
 
-	-   시스템 데이터용 가상 디스크 500GB
+    -   A 500 GB virtual disk for system data.
 
-### 데이터 센터 네트워크의 경우
+### <a name="for-the-datacenter-network"></a>For the datacenter network
 
-시작하기 전에 다음 사항을 확인합니다.
+Before you begin, make sure that:
 
--   데이터 센터의 네트워크가 StorSimple 장치에 대한 네트워킹 요구 사항에 따라 구성되어 있습니다. 자세한 내용은 [StorSimple 가상 배열 시스템 요구 사항](storsimple-ova-system-requirements.md)을 참조하세요.
+-   The network in your datacenter is configured as per the networking requirements for your StorSimple device. For more information, see the [StorSimple Virtual Array System Requirements](storsimple-ova-system-requirements.md).
 
--   StorSimple 가상 장치에 전용 5Mbps 인터넷 대역폭(또는 그 이상)을 항상 사용할 수 있습니다. 이 대역폭은 다른 응용 프로그램과 공유하면 안됩니다.
+-   Your StorSimple virtual device has a dedicated 5 Mbps Internet bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications.
 
-## 단계별 준비
+## <a name="step-by-step-preparation"></a>Step-by-step preparation
 
-다음 단계별 지침을 사용하여 StorSimple Manager 서비스용 포털을 준비합니다.
+Use the following step-by-step instructions to prepare your portal for the StorSimple Manager service.
 
-## 1단계: 새 서비스 만들기
+## <a name="step-1:-create-a-new-service"></a>Step 1: Create a new service
 
-StorSimple Manager 서비스 단일 인스턴스는 여러 StorSimple 1200 장치를 관리할 수 있습니다. StorSimple 관리자 서비스의 새 인스턴스를 만들려면 다음 단계를 수행합니다. 1200 장치를 관리하는 기존 StorSimple Manager 서비스가 있는 경우에는 이 단계를 건너뛰고 [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key)로 이동합니다.
+A single instance of the StorSimple Manager service can manage multiple StorSimple 1200 devices. Perform the following steps to create a new instance of the StorSimple Manager service. If you have an existing StorSimple Manager service to manage your 1200 devices, skip this step and go to [Step2: Get the service registration key](#step-2-get-the-service-registration-key).
 
 [AZURE.INCLUDE [storsimple-ova-create-new-service](../../includes/storsimple-ova-create-new-service.md)]
 
 > [AZURE.IMPORTANT]
 >
-> 서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다.
+> If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service.
 >
 
-> - 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#optional-step-configure-a-new-storage-account-for-the-service)을 참조하세요.
+> - If you did not create a storage account automatically, go to [Configure a new storage account for the service](#optional-step-configure-a-new-storage-account-for-the-service) for detailed instructions.
 >
 
-> - 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key)로 이동합니다.
+> - If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2-get-the-service-registration-key).
 
 
-## 2단계: 서비스 등록 키 받기
+## <a name="step-2:-get-the-service-registration-key"></a>Step 2: Get the service registration key
 
 
-StorSimple 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
+After the StorSimple Manager service is up and running, you will need to get the service registration key. This key is used to register and connect your StorSimple device with the service.
 
-[Azure 클래식 포털](https://manage.windowsazure.com/)에서 다음 단계를 수행합니다.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/).
 
 
 [AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
 
 > [AZURE.NOTE]
 >
-> 서비스 등록 키는 StorSimple Manager 서비스에 등록해야 하는 모든 StorSimple Manager 장치를 등록하는 데 사용됩니다.
+> The service registration key is used to register all the StorSimple Manager devices that need to register with your StorSimple Manager service.
 
-## 3단계: 가상 장치 이미지 다운로드
+## <a name="step-3:-download-the-virtual-device-image"></a>Step 3: Download the virtual device image
 
-서비스 등록 키를 확보한 후에는 호스트 시스템에 가상 장치를 프로비전할 적절한 가상 장치 이미지를 다운로드해야 합니다. 가상 장치 이미지는 운영 체제 별로 구분되며 Azure 클래식 포털의 빠른 시작 페이지에서 다운로드할 수 있습니다.
+After you have the service registration key, you will need to download the appropriate virtual device image to provision a virtual device on your host system. The virtual device images are operating system specific and can be downloaded from the Quick Start page in the Azure classic portal.
 
-> [AZURE.IMPORTANT] StorSimple 가상 배열에서 실행되는 소프트웨어는 Storsimple Manager 서비스와 함께 사용해야 합니다.
+> [AZURE.IMPORTANT] The software running on the StorSimple Virtual Array may only be used in conjunction with the Storsimple Manager service.
 
 
-[Azure 클래식 포털](https://manage.windowsazure.com/)에서 다음 단계를 수행합니다.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/).
 
-#### 가상 장치 이미지를 가져오려면
+#### <a name="to-get-the-virtual-device-image"></a>To get the virtual device image
 
-1.  **StorSimple 관리자 서비스** 페이지에서 작성한 서비스를 클릭합니다. 그러면 **빠른 시작** 페이지로 이동합니다. 언제든지 빠른 시작 아이콘 ![](./media/storsimple-ova-deploy1-portal-prep/image8.png)을 클릭하여 **빠른 시작** 페이지에 액세스할 수 있습니다.
+1.  On the **StorSimple Manager service** page, click the service that you created. This will take you to the **Quick Start** page. (You can click the quick start icon ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) to access the **Quick Start** page at any time.)
 
-1.  Microsoft 다운로드 센터에서 다운로드하려는 이미지에 해당하는 링크를 클릭합니다. 이미지 파일은 약 4.8GB입니다.
+1.  Click the link corresponding to the image that you want to download from the Microsoft Download Center. The image files are approximately 4.8 GB.
 
-	-   Windows Server 2012 이상의 Hyper-V용 VHDX
+    -   VHDX for Hyper-V on Windows Server 2012 and later
 
-	-   Windows Server 2008 R2 이상의 Hyper-V용 VHD
+    -   VHD for Hyper-V on Windows Server 2008 R2 and later
 
-	-   VMWare ESXi 5.5 이상용 VMDK
+    -   VMDK for VMWare ESXi 5.5 and later
 
-2.  파일을 다운로드하고 로컬 드라이브에 압축을 푼 다음 압축을 푼 위치를 적어둡니다.
+2.  Download and unzip the file to a local drive, making a note of where the unzipped file is located.
 
-![동영상 아이콘](./media/storsimple-ova-deploy1-portal-prep/video_icon.png) **동영상 사용 가능**
+![video icon](./media/storsimple-ova-deploy1-portal-prep/video_icon.png) **Video available**
 
-StorSimple 가상 배열을 시작하는 단계별 지침에 대한 동영상을 보세요.
+Watch the video for step-by-step instructions to get started with the StorSimple Virtual Array.
 
 > [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 
 
 
-## 선택적 단계: 서비스에 대한 새 저장소 계정 구성
+## <a name="optional-step:-configure-a-new-storage-account-for-the-service"></a>Optional step: Configure a new storage account for the service
 
-서비스와 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 하는 선택적 단계입니다.
+This is an optional step that needs to be performed only if you did not enable the automatic creation of a storage account with your service.
 
-다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
+If you need to create an Azure storage account in a different region, see [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) for step-by-step instructions.
 
-기존 Microsoft Azure 저장소 계정을 추가하려면 StorSimple Manager 서비스 페이지의 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 다음 단계를 수행합니다.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) on the StorSimple Manager service page to add an existing Microsoft Azure storage account.
 
-#### 저장소 계정을 추가하려면
+#### <a name="to-add-a-storage-account"></a>To add a storage account
 
-1.  StorSimple 관리자 서비스 방문 페이지에서 서비스를 선택하고 두번 클릭합니다. 이렇게 하면 **퀵 스타트** 페이지로 이동됩니다. **구성** 페이지를 선택합니다.
+1.  On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
 
-2.  **저장소 계정 추가/편집**을 클릭합니다. **저장소 계정 추가/편집** 대화 상자에서 다음을 수행합니다.
+2.  Click **Add/edit storage account**. In the **Add/Edit Storage Account** dialog box, do the following:
 
-	1.  **새로 추가**를 클릭합니다.
+    1.  Click **Add new**.
 
-	1.  저장소 계정의 이름을 제공합니다.
+    1.  Provide a name for your storage account.
 
-	1.  Microsoft Azure 저장소 계정의 기본 **액세스 키**를 지정합니다.
+    1.  Supply the primary **Access Key** for your Microsoft Azure storage account.
 
-	1.  **SSL 모드 사용**을 선택하여 장치와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 사설 클라우드 내에서 작업 중인 경우에만 **SSL 모드 사용** 확인란을 지웁니다.
+    1.  Select **Enable SSL mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL mode** check box only if you are operating within a private cloud.
 
-	1.  확인 아이콘![](./media/storsimple-ova-deploy1-portal-prep/image7.png)을 클릭합니다. 저장소 계정이 성공적으로 만들어진 후 알림이 표시됩니다.
+    1.  Click the check icon ![](./media/storsimple-ova-deploy1-portal-prep/image7.png). You will be notified after the storage account is successfully created.
 
-		![](./media/storsimple-ova-deploy1-portal-prep/image11.png)
+        ![](./media/storsimple-ova-deploy1-portal-prep/image11.png)
 
-1.  새로 만들어진 저장소 계정이 **저장소 계정**의 **구성** 페이지에 표시됩니다. **저장**을 클릭하여 새로 만들어진 저장소 계정을 저장합니다. 확인하라는 메시지가 표시되면 **확인**을 클릭합니다.
+1.  The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
 
 
-## 다음 단계
+## <a name="next-step"></a>Next step
 
-다음 단계는 StorSimple 가상 장치에 대한 가상 컴퓨터를 프로비전하는 것입니다. 호스트 운영 체제에 따라서 다음의 자세한 지침을 참조하세요.
+The next step is to provision a virtual machine for your StorSimple virtual device. Depending on your host operating system, see the detailed instructions in:
 
--   [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md)
+-   [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
 
--   [VMware에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)
+-   [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

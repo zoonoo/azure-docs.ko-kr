@@ -1,81 +1,89 @@
 <properties
-	pageTitle="Azure Active Directory ID 보호에서 검색하는 위험 이벤트의 유형 | Microsoft Azure"
-	description="이 항목에서는 Azure Active Directory ID 보호에서 위험 이벤트의 사용 가능한 유형에 대한 자세한 개요를 제공합니다."
-	services="active-directory"
-	keywords="Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Types of risk events detected by Azure Active Directory Identity Protection | Microsoft Azure"
+    description="This topic gives you a detailed overview of the available types of risk events in Azure Active Directory Identity Protection"
+    services="active-directory"
+    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/02/2016"
-	ms.author="markvi"/>
-
-#Azure Active Directory ID 보호에서 검색한 위험 이벤트의 유형 
-
-Azure Active Directory ID 보호에서 위험 이벤트는 다음과 같은 이벤트입니다.
-
-- 의심스러운 이벤트로 플래그가 지정된 이벤트
-
-- ID가 손상되었을 수 있다고 표시하는 이벤트
-
-이 항목에서는 위험 이벤트의 사용 가능한 유형에 대한 자세한 개요를 제공합니다.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2016"
+    ms.author="markvi"/>
 
 
-## 유출된 자격 증명
+#<a name="types-of-risk-events-detected-by-azure-active-directory-identity-protection"></a>Types of risk events detected by Azure Active Directory Identity Protection 
 
-Microsoft 보안 연구원은 Dark 웹에 공개적으로 게시된 유출된 자격 증명을 찾습니다. 일반적으로 이러한 자격 증명은 일반 텍스트에 있습니다. Azure AD 자격 증명에 대해 확인하여 일치하는 경우 ID 보호에서 "유출된 자격 증명"으로 보고됩니다.
+In Azure Active Directory Identity Protection, risk events are events that:
 
-사용자 이름 및 암호를 공격자가 사용할 수 있다고 명백히 표시하기 때문에 유출된 자격 증명 위험 이벤트는 "높은" 심각도 위험 이벤트로 분류됩니다.
+- were flagged as suspicious
 
-## 비정상적 위치로 불가능한 이동
+- indicate that an identity may have been compromised. 
 
-이 위험 이벤트 유형은 지역적으로 떨어진 위치에서 시작한 두 번의 로그인을 식별합니다. 과거 동작을 고려하면 이 위치 중 하나 이상이 사용자에 대해 불규칙적입니다. 또한 두 번의 로그인 간의 시간은 사용자가 첫 번째 위치에서 두 번째 위치로 이동하는 데 걸리는 시간보다 짧습니다. 이는 서로 다른 사용자가 동일한 자격 증명을 사용하고 있음을 나타냅니다.
-
-조직의 다른 사용자가 정기적으로 사용하는 VPN 및 위치와 같은 불가능한 이동 조건에 영향을 주는 확실한 "*가양성*"을 무시하는 기계 학습 알고리즘입니다. 시스템에는 새 사용자의 로그인 동작을 알아보는 동안 14일의 초기 학습 기간이 있습니다.
-
-불가능한 이동은 일반적으로 해커가 성공적으로 로그인할 수 있는 훌륭한 지표입니다. 그러나 사용자가새 장치를 사용하거나 조직의 다른 사용자가 일반적으로 사용하지 않는 VPN을 사용하여 이동하는 경우 가양성이 발생할 수 있습니다. 가양성의 다른 원본은 서버 IP 및 클라이언트 IP를 정확하지 않게 전달하는 응용 프로그램이며 응용 프로그램의 백 엔드가 호스팅되는 데이터 센터에서 발생하는 로그인의 모양을 가져올 수 있습니다(대개 이러한 Microsoft 데이터 센터는 Microsoft에서 소유한 고유의 IP 주소를 발생시키는 로그인의 모양을 제공할 수 있음). 이러한 가양성의 결과로 이 위험 이벤트에 대한 위험 수준은 “**보통**”입니다.
-
-##감염된 장치에서 로그인
-
-이 위험 이벤트 유형은 적극적으로 봇 서버와 통신한다고 알려진 맬웨어로 감염된 장치에서 시도한 로그인을 식별합니다. 봇 서버와 접촉했던 IP 주소에 대해 사용자의 장치의 IP 주소를 상호 연결하여 결정됩니다.
-
-이 위험 이벤트는 사용자 장치가 아닌 IP 주소를 식별합니다. 여러 장치가 단일 IP 주소에서 비롯되고 일부만이 봇 네트워크에 의해 제어되는 경우 다른 장치에서 시도한 로그인은 이 이벤트를 불필요하게 트리거할 수 있습니다. 이것이 해당 위험 이벤트를 "**낮음**"으로 분류하는 이유입니다.
-
-사용자에게 연락하고 모든 사용자 장치를 검사하는 것이 좋습니다. 사용자의 개인 장치가 감염되었거나 이전에 언급했듯이 사용자 이외의 다른 사람이 사용자와 동일한 IP 주소에서 감염된 장치를 사용했을 가능성이 있습니다. 감염된 장치는 종종 바이러스 백신 소프트웨어로 아직 식별되지 않는 맬웨어로 감염됩니다. 또한 장치에 감염을 일으킬 수 있는 잘못된 사용자 습관을 나타낼 수 있습니다.
-
-맬웨어 감염을 해결하는 방법에 대한 자세한 내용은 [맬웨어 보호 센터](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409)(영문)를 참조하세요.
+This topic gives you a detailed overview of the available types of risk events.
 
 
-## 익명 IP 주소에서 로그인
+## <a name="leaked-credentials"></a>Leaked credentials
 
-이 위험 이벤트 유형은 익명 프록시 IP 주소로 식별된 IP 주소에서 시도하여 성공적으로 로그인한 사용자를 식별합니다. 이 프록시는 해당 장치의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다.
+Leaked credentials are found posted publicly in the dark web by Microsoft security researchers. These credentials are usually found in plain text. They are checked against Azure AD credentials, and if there is a match, they are reported as “Leaked credentials” in Identity Protection.
 
-사용자에게 즉시 문의하여 익명 IP 주소를 사용했는지를 확인하는 것이 좋습니다. 익명 IP는 그 자체로 계정 손상을 확실히 표시하지 않기 때문에 이 위험 이벤트 유형의 위험 수준은 "**보통**"입니다.
+Leaked credentials risk events are classified as a “High” severity risk event, because they provide a clear indication that the user name and password are available to an attacker.
 
-## 의심스러운 작업이 있는 IP 주소에서 로그인
+## <a name="impossible-travel-to-atypical-locations"></a>Impossible travel to atypical locations
 
-이 위험 이벤트 유형은 짧은 기간 동안에 여러 사용자 계정에서 실패한 로그인 시도가 많이 확인되는 IP 주소를 식별합니다. 이는 공격자가 사용하는 IP 주소의 트래픽 패턴과 일치하며 계정이 이미 또는 손상되었거나 손상될 것이라는 확실한 지표입니다. 조직의 다른 사용자가 정기적으로 사용하는 IP 주소와 같은 명백한 "*가양성*"을 무시하는 기계 학습 알고리즘입니다. 시스템에는 새 사용자 및 새 테넌트의 로그인 동작을 알아보는 14일의 초기 학습 기간이 있습니다.
+This risk event type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. In addition, the time between the two sign-ins is shorter than the time it would have taken the user to travel from the first location to the second, indicating that a different user is using the same credentials. 
 
-사용자에게 문의하여 의심스럽다고 표시된 IP 주소에서 실제로 로그인했는지를 확인하는 것이 좋습니다. 일부가 의심스러운 작업에 책임이 있을 수 있는 반면 동일한 IP 주소에 여러 장치가 있을 수 있으므로 이 이벤트 유형의 위험 수준은 "**보통**"입니다.
+This machine learning algorithm that ignores obvious "*false positives*" contributing to the impossible travel condition, such as VPNs and locations regularly used by other users in the organization.  The system has an initial learning period of 14 days during which it learns a new user’s sign-in behavior.
+
+Impossible travel is usually a good indicator that a hacker was able to successfully sign-in. However, false-positives may occur when a user is traveling using a new device or using a VPN that is typically not used by other users in the organization. Another source of false-positives is applications that incorrectly pass server IPs as client IPs, which may give the appearance of sign-ins taking place from the data center where that application’s back-end is hosted (often these are Microsoft datacenters, which may give the appearance of sign-ins taking place from Microsoft owned IP addresses). As a result of these false-positives, the risk level for this risk event is “**Medium**”.
+
+##<a name="sign-ins-from-infected-devices"></a>Sign-ins from infected devices
+
+This risk event type identifies sign-ins from devices infected with malware, that are known to actively communicate with a bot server. This is determined by correlating IP addresses of the user’s device against IP addresses that were in contact with a bot server. 
+
+This risk event identifies IP addresses, not user devices. If several devices are behind a single IP address, and only some are controlled by a bot network, sign-ins from other devices my trigger this event unnecessarily, which is the reason for classifying this risk event as “**Low**”.  
+
+We recommend that you contact the user and scan all the user's devices. It is also possible that a user's personal device is infected, or as mentioned earlier, that someone else was using an infected device from the same IP address as the user. Infected devices are often infected by malware that have not yet been identified by anti-virus software, and may also indicate as bad user habits that may have caused the device to become infected.
+
+For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
 
 
-## 잘 모르는 위치에서 로그인
+## <a name="sign-ins-from-anonymous-ip-addresses"></a>Sign-ins from anonymous IP addresses
 
-이 위험 이벤트 유형은 새로운/알 수 없는 위치를 확인하기 위해 과거 로그인 위치(IP, 위도/경도 및 ASN)를 고려하는 실시간 로그인 평가 메커니즘입니다. 시스템은 사용자가 사용한 이전 위치에 대한 정보를 저장하고 이러한 "익숙한" 위치를 고려합니다. 로그인이 익숙한 위치 목록에 없는 위치에서 발생하는 경우 위험 이벤트가 트리거됩니다. 시스템에는 새로운 위치를 알 수 없는 위치의 플래그로 지정하지 않는 14일의 초기 학습 기간이 있습니다. 또한 시스템은 익숙한 장치 및 익숙한 위치에 지리적으로 가까운 위치에서 시도한 로그인을 무시합니다. <br> 알 수 없는 위치는 공격자가 도난당한 ID를 사용하려고 시도할 수 있다는 확실한 표시를 제공할 수 있습니다. 가양성은 사용자가 새 장치를 사용하거나 새 VPN을 사용하여 이동할 때 발생할 수 있습니다. 이러한 가양성의 결과로 이 이벤트 유형의 위험 수준은 “**보통**”입니다.
+This risk event type identifies users who have successfully signed in from an IP address that has been identified as an anonymous proxy IP address. These proxies are used by people who want to hide their device’s IP address, and may be used for malicious intent.
+
+We recommend that you immediately contact the user to verify if they were using anonymous IP addresses. The risk level for this risk event type is “**Medium**” because in itself an anonymous IP is not a strong indication of an account compromise.
+
+## <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Sign-ins from IP addresses with suspicious activity
+
+This risk event type identifies IP addresses from which a high number of failed sign-in attempts were seen, across multiple user accounts, over a short period of time. This matches traffic patterns of IP addresses used by attackers, and is a strong indicator that accounts are either already or are about to be compromised. This is a machine learning algorithm that ignores obvious "*false-positives*", such as IP addresses that are regularly used by other users in the organization.  The system has an initial learning period of 14 days where it learns the sign-in behavior of a new user and new tenant.
+
+We recommend that you contact the user to verify if they actually signed in from an IP address that was marked as suspicious. The risk level for this event type is “**Medium**” because several devices may be behind the same IP address, while only some may be responsible for the suspicious activity. 
+
+
+## <a name="sign-in-from-unfamiliar-locations"></a>Sign-in from unfamiliar locations
+
+This risk event type is a real-time sign-in evaluation mechanism that considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores information about previous locations used by a user, and considers these “familiar” locations. The risk even is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. The system has an initial learning period of 14 days, during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. <br>
+Unfamiliar locations can provide a strong indication that an attacker is able attempting to use a stolen identity. False-positives may occur when a user is traveling, trying out a new device or uses a new VPN. As a result of these false positives, the risk level for this event type is “**Medium**”.
 
 
 
 
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-- [Azure Active Directory ID 보호](active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

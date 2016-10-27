@@ -1,144 +1,145 @@
 <properties
-	pageTitle="Azure AD v2.0 iOS 앱 | Microsoft Azure"
-	description="타사 라이브러리를 사용하여 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 iOS 앱을 빌드하는 방법입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD v2.0 iOS App | Microsoft Azure"
+    description="How to build an iOS app that signs in users with both personal Microsoft account and work or school accounts by using third-party libraries."
+    services="active-directory"
+    documentationCenter=""
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="brandwe"/>
-
-# v2.0 끝점을 사용하는 Graph API와 함께 타사 라이브러리를 사용하여 iOS 앱에 로그인 추가
-
-Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준을 사용합니다. 개발자는 서비스와 통합하려는 모든 라이브러리를 사용할 수 있습니다. 개발자가 플랫폼을 다른 라이브러리와 함께 사용할 수 있도록 돕기 위해, 타사 라이브러리를 Microsoft ID 플랫폼에 연결하도록 구성하는 방법을 설명하는 이와 같은 연습 몇 가지를 작성했습니다. [RFC6749 OAuth2 사양](https://tools.ietf.org/html/rfc6749)을 구현하는 대부분의 라이브러리는 Microsoft ID 플랫폼에 연결할 수 있습니다.
-
-이 연습에서 만드는 응용 프로그램을 사용하여 해당 조직에 로그인한 다음 Graph API를 사용하여 조직에서 다른 사용자를 검색할 수 있습니다.
-
-OAuth2 또는 OpenID Connect를 처음 접하는 경우 이 샘플 구성 대부분이 잘 이해되지 않을 수도 있습니다. 배경 지식을 위해 [v2.0 프로토콜 - OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols-oauth-code.md)을 읽어보는 것이 좋습니다.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="06/28/2016"
+    ms.author="brandwe"/>
 
 
-> [AZURE.NOTE]
-    조건부 액세스 및 Intune 정책 관리 등과 같은 OAuth2 또는 OpenID Connect 표준의 식을 사용하는 플랫폼의 일부 기능은 수행하려면 오픈 소스인 Microsoft Azure ID 라이브러리를 사용해야 합니다.
+# <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v2.0-endpoint"></a>Add sign-in to an iOS app using a third-party library with Graph API using the v2.0 endpoint
 
-v2.0 끝점에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다.
+The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Developers can use any library they want to integrate with our services. To help developers use our platform with other libraries, we've written a few walkthroughs like this one to demonstrate how to configure third-party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) can connect to the Microsoft identity platform.
+
+With the application that this walkthrough creates, users can sign in to their organization and then search for others in their organization by using the Graph API.
+
+If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make sense to you. We recommend that you read  [v2.0 Protocols - OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md) for background.
+
 
 > [AZURE.NOTE]
-    v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+    Some features of our platform that do have an expression in the OAuth2 or OpenID Connect standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries.
 
-## GitHub에서 코드 다운로드
-이 자습서에 대한 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
+The v2.0 endpoint does not support all Azure Active Directory scenarios and features.
+
+> [AZURE.NOTE]
+    To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+
+## <a name="download-code-from-github"></a>Download code from GitHub
+The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
-샘플을 다운로드할 수도 있고 지금 바로 시작할 수도 있습니다.
+You can also just download the sample and get started right away:
 
 ```
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
-## 앱 등록
-[응용 프로그램 등록 포털](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 [v2.0 끝점을 사용하여 앱을 등록하는 방법](active-directory-v2-app-registration.md)의 자세한 단계를 따르세요. 다음을 수행해야 합니다.
+## <a name="register-an-app"></a>Register an app
+Create a new app at the [Application registration portal](https://apps.dev.microsoft.com), or follow the detailed steps at  [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
 
-- 앱에 할당된 **응용 프로그램 ID**는 곧 필요하므로 적어둡니다.
-- 앱용 **Mobile** 플랫폼을 추가합니다.
-- 포털에서 **리디렉션 URI**를 복사합니다. `urn:ietf:wg:oauth:2.0:oob`의 기본값을 사용해야 합니다.
+- Copy the **Application Id** that's assigned to your app because you'll need it soon.
+- Add the **Mobile** platform for your app.
+- Copy the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 타사 NXOAuth2 라이브러리 다운로드 및 작업 영역 만들기
+## <a name="download-the-third-party-nxoauth2-library-and-create-a-workspace"></a>Download the third-party NXOAuth2 library and create a workspace
 
-이 연습에서는 Mac OS X 및 iOS(Cocoa 및 Cocoa touch)에 대한 OAuth2 라이브러리인 GitHub의 OAuth2Client를 사용합니다. 이 라이브러리는 OAuth2 사양의 초안 10에 기반을 둡니다. 네이티브 응용 프로그램 프로필을 구현하고 사용자의 권한 부여 끝점을 지원합니다. 이것이 바로 Microsoft ID 플랫폼과 통합하기 위해 필요한 모든 것입니다.
+For this walkthrough, you will use the OAuth2Client from GitHub, which is an OAuth2 library for Mac OS X and iOS (Cocoa and Cocoa touch). This library is based on draft 10 of the OAuth2 spec. It implements the native application profile and supports the authorization endpoint of the user. These are all the things you'll need to integrate with the Microsoft identity platform.
 
-### CocoaPods를 사용하여 프로젝트에 라이브러리 추가하기
+### <a name="add-the-library-to-your-project-by-using-cocoapods"></a>Add the library to your project by using CocoaPods
 
-CocoaPods는 Xcode 프로젝트에 대한 종속성 관리자입니다. 이전 설치 단계를 자동으로 관리합니다.
+CocoaPods is a dependency manager for Xcode projects. It manages the previous installation steps automatically.
 
 ```
 $ vi Podfile
 ```
-1. 이 podfile에 다음을 추가합니다.
+1. Add the following to this podfile:
 
-	```
-	 platform :ios, '8.0'
+    ```
+     platform :ios, '8.0'
 
-	 target 'QuickStart' do
+     target 'QuickStart' do
 
-	 pod 'NXOAuth2Client'
+     pod 'NXOAuth2Client'
 
-	 end
-	```
+     end
+    ```
 
-2. CocoaPods를 사용하여 podfile를 로드합니다. 로드하려는 새 XCode 작업 영역을 만듭니다.
+2. Load the podfile by using CocoaPods. This will create a new Xcode workspace that you will load.
 
-	```
-	$ pod install
-	...
-	$ open QuickStart.xcworkspace
-	```
+    ```
+    $ pod install
+    ...
+    $ open QuickStart.xcworkspace
+    ```
 
-## 프로젝트의 구조 탐색
+## <a name="explore-the-structure-of-the-project"></a>Explore the structure of the project
 
-프로젝트의 기본 골격 구조는 다음과 같이 설정되어 있습니다.
+The following structure is set up for our project in the skeleton:
 
-- UPN 검색으로 마스터 보기
-- 선택한 사용자에 관한 데이터 세부 정보 보기
-- 사용자가 앱에 로그인하여 그래프를 쿼리할 수 있도록 하는 로그인 뷰
+- A Master View with a UPN Search
+- A Detail View for the data about the selected user
+- A Login View where a user can sign in to the app to query the graph
 
-인증 추가를 위해 골격 구조의 다양한 파일로 이동합니다. 시각적 코드와 같은 코드의 다른 부분은 ID와 밀접한 관련이 없으나 사용자에게 제공됩니다.
+We will move to various files in the skeleton to add authentication. Other parts of the code, such as the visual code, do not pertain to identity but are provided for you.
 
-## 라이브러리의 settings.plst 파일 설정
+## <a name="set-up-the-settings.plst-file-in-the-library"></a>Set up the settings.plst file in the library
 
--	빠른 시작 프로젝트에서 `settings.plist` 파일을 엽니다. Azure 포털에 사용한 값을 반영하도록 섹션의 요소 값을 바꿉니다. 코드는 Active Directory 인증 라이브러리를 사용할 때마다 이러한 값을 참조합니다.
-    -	`clientId`는 포털에서 복사한 응용 프로그램의 클라이언트 ID입니다.
-    -	`redirectUri`는 포털에서 제공한 리디렉션 URL입니다.
+-   In the QuickStart project, open the `settings.plist` file. Replace the values of the elements in the section to reflect the values that you used in the Azure portal. Your code will reference these values whenever it uses the Active Directory Authentication Library.
+    -   The `clientId` is the client ID of your application that you copied from the portal.
+    -   The `redirectUri` is the redirect URL that the portal provided.
 
-## LoginViewController의 NXOAuth2Client 라이브러리 설정
+## <a name="set-up-the-nxoauth2client-library-in-your-loginviewcontroller"></a>Set up the NXOAuth2Client library in your LoginViewController
 
-NXOAuth2Client 라이브러리는 시작하기 위해 일부 값을 필요로 합니다. 해당 작업을 마친 후 획득한 토큰을 사용하여 Graph API를 호출할 수 있습니다. `LoginView`는 인증이 필요할 때마다 호출되므로 해당 파일에 구성 값을 입력하는 것이 좋습니다.
+The NXOAuth2Client library requires some values to get set up. After you complete that task, you can use the acquired token to call the Graph API. Because `LoginView` will be called any time we need to authenticate, it makes sense to put configuration values in to that file.
 
-- `LoginViewController.m` 파일에 일부 값을 추가하여 인증 및 권한 부여에 대한 컨텍스트를 설정해 보겠습니다. 코드 다음에는 값에 대한 세부 정보가 나옵니다.
+- Let's add some values to the  `LoginViewController.m` file to set the context for authentication and authorization. Details about the values follow the code.
 
-	```objc
-	NSString *scopes = @"openid offline_access User.Read";
-	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
-	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
-	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
-	NSString *tokenURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/token";
-	NSString *keychain = @"com.microsoft.azureactivedirectory.samples.graph.QuickStart";
-	static NSString * const kIDMOAuth2SuccessPagePrefix = @"session_state=";
-	NSURL *myRequestedUrl;
-	NSURL *myLoadedUrl;
-	bool loginFlow = FALSE;
-	bool isRequestBusy;
-	NSURL *authcode;
-	```
+    ```objc
+    NSString *scopes = @"openid offline_access User.Read";
+    NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
+    NSString *loginURL = @"https://login.microsoftonline.com/common/login";
+    NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
+    NSString *tokenURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/token";
+    NSString *keychain = @"com.microsoft.azureactivedirectory.samples.graph.QuickStart";
+    static NSString * const kIDMOAuth2SuccessPagePrefix = @"session_state=";
+    NSURL *myRequestedUrl;
+    NSURL *myLoadedUrl;
+    bool loginFlow = FALSE;
+    bool isRequestBusy;
+    NSURL *authcode;
+    ```
 
-코드에 대한 세부 정보를 살펴보겠습니다.
+Let's look at details about the code.
 
-첫 번째 문자열은 `scopes`에 대한 것입니다. `User.Read` 값을 사용하여 로그인한 사용자의 기본 프로필을 읽을 수 있습니다.
+The first string is for `scopes`.  The `User.Read` value allows you to read the basic profile of the signed in user.
 
-[Microsoft Graph 권한 범위](https://graph.microsoft.io/docs/authorization/permission_scopes)에서 사용 가능한 모든 범위에 대해 알아볼 수 있습니다.
+You can learn more about all the available scopes at [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
-`authURL`, `loginURL`, `bhh` 및 `tokenURL`에서는 앞서 제공된 값을 사용해야 합니다. 오픈 소스 Microsoft Azure Identity 라이브러리를 사용하는 경우 메타데이터 끝점을 사용하여 이 데이터를 가져옵니다. 사용자를 위해 이러한 값을 추출하는 어려운 작업을 마쳤습니다.
+For `authURL`, `loginURL`, `bhh`, and `tokenURL`, you should use the values provided previously. If you use the open source Microsoft Azure Identity Libraries, we pull this data down for you by using our metadata endpoint. We've done the hard work of extracting these values for you.
 
-`keychain` 값은 NXOAuth2Client 라이브러리가 토큰을 저장하기 위해 키 집합을 만드는데 사용할 컨테이너입니다. 다양한 앱에서 SSO(Single Sign-On)를 가져오려 한다면 각 응용 프로그램에서 동일한 키 집합을 지정하는 것은 물론 Xcode 자격에서 그 키 집합의 사용을 요청할 수 있습니다. 이 내용은 Apple 설명서에서 다룹니다.
+The `keychain` value is the container that the NXOAuth2Client library will use to create a keychain to store your tokens. If you'd like to get single sign-on (SSO) across numerous apps, you can specify the same keychain in each of your applications and request the use of that keychain in your Xcode entitlements. This is explained in the Apple documentation.
 
-나머지 이런 값들은 라이브러리를 사용하여 값을 컨텍스트로 옮길 위치를 만드는 것이 필요합니다.
+The rest of these values are required to use the library and create places for you to carry values to the context.
 
-### URL 캐시 만들기
+### <a name="create-a-url-cache"></a>Create a URL cache
 
-항상 뷰를 로드한 후에 호출되는 `(void)viewDidLoad()` 내부에서 다음 코드는 캐시를 사용할 수 있게 준비합니다.
+Inside `(void)viewDidLoad()`, which is always called after the view is loaded, the following code primes a cache for our use.
 
-다음 코드를 추가합니다.
+Add the following code:
 
 ```objc
 - (void)viewDidLoad {
@@ -154,9 +155,9 @@ NXOAuth2Client 라이브러리는 시작하기 위해 일부 값을 필요로 �
 }
 ```
 
-### 로그인을 위한 WebView 만들기
+### <a name="create-a-webview-for-sign-in"></a>Create a WebView for sign-in
 
-WebView는 사용자에게 SMS 텍스트 메시지(구성된 경우)와 같은 추가 요소에 대한 메시지를 표시하거나 사용자에게 오류 메시지를 반환할 수 있습니다. 여기서 WebView를 설정한 후에 ID 서비스의 WebView에서 발생할 콜백을 처리할 코드를 작성합니다.
+A WebView can prompt the user for additional factors like SMS text message (if configured) or return error messages to the user. Here you'll set up the WebView and then later write the code to handle the callbacks that will happen in the WebView from the identity services.
 
 ```objc
 -(void)requestOAuth2Access {
@@ -171,9 +172,9 @@ WebView는 사용자에게 SMS 텍스트 메시지(구성된 경우)와 같은 �
 }
 ```
 
-### 인증을 처리하는 WebView 메서드 재정의
+### <a name="override-the-webview-methods-to-handle-authentication"></a>Override the WebView methods to handle authentication
 
-사용자가 이전에 설명한 대로 로그인해야 할 때 발생하는 상황을 WebView에 알리려면 다음 코드를 붙여넣을 수 있습니다.
+To tell the WebView what happens when a user needs to sign in as discussed previously, you can paste the following code.
 
 ```objc
 - (void)resolveUsingUIWebView:(NSURL *)URL {
@@ -225,9 +226,9 @@ WebView는 사용자에게 SMS 텍스트 메시지(구성된 경우)와 같은 �
 }
 ```
 
-### OAuth2 요청의 결과를 처리할 코드를 작성합니다.
+### <a name="write-code-to-handle-the-result-of-the-oauth2-request"></a>Write code to handle the result of the OAuth2 request
 
-다음 코드는 WebView에서 반환되는 redirectURL을 처리합니다. 인증이 실패하면 코드는 다시 시도합니다. 한편 라이브러리는 콘솔에서 보거나 비동기식으로 처리할 수 있는 오류를 제공합니다.
+The following code will handle the redirectURL that returns from the WebView. If authentication wasn't successful, the code will try again. Meanwhile, the library will provide the error that you can see in the console or handle asynchronously.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSString *)accessResult {
@@ -246,9 +247,9 @@ WebView는 사용자에게 SMS 텍스트 메시지(구성된 경우)와 같은 �
 }
 ```
 
-### OAuth 컨텍스트 설정(호출된 계정 저장소)
+### <a name="set-up-the-oauth-context-(called-account-store)"></a>Set up the OAuth Context (called account store)
 
-응용 프로그램에서 액세스할 수 있게 하려는 각 서비스에 대한 공유 계정 저장소의 `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]`을 호출할 수 있습니다. 계정 유형은 특정 서비스에 대한 식별자로 사용되는 문자열입니다. Graph API에 액세스하게 되므로 코드는 `"myGraphService"`로 참조합니다. 그런 다음 토큰과 함께 뭔가가 변경될 때 알려주도록 관찰자를 설정합니다. 토큰을 가져온 후에는 사용자를 `masterView`로 다시 반환합니다.
+Here you can call `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` on the shared account store for each service that you want the application to be able to access. The account type is a string that is used as an identifier for a certain service. Because you are accessing the Graph API, the code refers to it as `"myGraphService"`. You then set up an observer that will tell you when anything changes with the token. After you get the token, you return the user back to the `masterView`.
 
 
 
@@ -295,18 +296,18 @@ WebView는 사용자에게 SMS 텍스트 메시지(구성된 경우)와 같은 �
 }
 ```
 
-## Graph API에서 사용자를 검색 및 표시하도록 MasterView 설정
+## <a name="set-up-the-master-view-to-search-and-display-the-users-from-the-graph-api"></a>Set up the Master View to search and display the users from the Graph API
 
-눈금에 반환된 데이터를 표시하는 MVC(Master-View-Controller) 앱은 이 연습에서 다루지 않으며 다양한 온라인 자습서에 해당 빌드 방법이 설명되어 있습니다. 이러한 모든 코드는 기본 골격 파일입니다. 그러나 이 MVC 응용 프로그램에서 몇 가지를 다룰 필요가 있습니다.
+A Master-View-Controller (MVC) app that displays the returned data in the grid is beyond the scope of this walkthrough, and many online tutorials explain how to build one. All this code is in the skeleton file. However, you do need to deal with a few things in this MVC application:
 
-* 사용자가 뭔가를 검색 필드에 입력할 때 가로채기
-* 결과를 눈금에 표시할 수 있도록 데이터의 개체를 MasterView에 다시 제공합니다.
+* Intercept when a user types something in the search field
+* Provide an object of data back to the MasterView so it can display the results in the grid
 
-이를 아래와 같이 수행할 것입니다.
+We'll do those below.
 
-### 로그인되었는지 보기 위한 확인란 추가
+### <a name="add-a-check-to-see-if-you're-logged-in"></a>Add a check to see if you're logged in
 
-사용자가 로그인하지 않으면 응용 프로그램이 하는 일이 거의 없기 때문에 캐시에 토큰이 이미 있는지 확인하는 것이 현명합니다. 그렇지 않은 경우 사용자가 로그인하도록 LoginView로 리디렉션합니다. 다시 말해서 뷰가 로드될 때 작업을 수행할 가장 좋은 방법은 Apple이 제공한 `viewDidLoad()` 메서드를 사용하는 것입니다.
+The application does little if the user is not signed in, so it's smart to check if there is already a token in the cache. If not, you redirect to the LoginView for the user to sign in. If you recall, the best way to do actions when a view loads is to use the `viewDidLoad()` method that Apple provides us.
 
 ```objc
 - (void)viewDidLoad {
@@ -326,9 +327,9 @@ WebView는 사용자에게 SMS 텍스트 메시지(구성된 경우)와 같은 �
         }
 ```
 
-### 데이터를 수신할 때 Table View 업데이트
+### <a name="update-the-table-view-when-data-is-received"></a>Update the Table View when data is received
 
-Graph API에서 데이터를 반환할 때 해당 데이터를 표시해야 합니다. 편의상 여기에 테이블을 업데이트하기 위한 모든 코드가 있습니다. 오른쪽 값을 MVC 상용구 코드에 붙여넣을 수 있습니다.
+When the Graph API returns data, you need to display the data. For simplicity, here is all the code to update the table. You can just paste the right values in your MVC boilerplate code.
 
 ```objc
 #pragma mark - Table View
@@ -363,9 +364,9 @@ Graph API에서 데이터를 반환할 때 해당 데이터를 표시해야 합�
 
 ```
 
-### 누군가가 검색 필드에 입력할 때 Graph API를 호출하는 방법을 제공합니다.
+### <a name="provide-a-way-to-call-the-graph-api-when-someone-types-in-the-search-field"></a>Provide a way to call the Graph API when someone types in the search field
 
-사용자가 검색 상자에 입력할 때 입력된 내용을 Graph API로 넣을 필요가 있습니다. 다음 코드에서 빌드하게 되는 `GraphAPICaller` 클래스는 프레젠테이션에서 조회 기능을 분리합니다. 이제, Graph API에 검색 문자를 공급하는 코드를 작성해 보겠습니다. 검색할 문자열을 받는 `lookupInGraph`라는 메서드를 제공하여 이 작업을 수행합니다.
+When a user types a search in the box, you need to shove that over to the Graph API. The `GraphAPICaller` class, which you will build in the following code, separates the lookup functionality from the presentation. For now, let's write the code that feeds any search characters to the Graph API. We do this by providing a method called `lookupInGraph`, which takes the string that we want to search for.
 
 ```objc
 
@@ -402,13 +403,13 @@ if (searchText.length > 0) {
 }
 ```
 
-## Graph API에 액세스할 도우미 클래스 작성
+## <a name="write-a-helper-class-to-access-the-graph-api"></a>Write a Helper class to access the Graph API
 
-이것이 응용 프로그램의 핵심입니다. 나머지는 Apple에서 기본 MVC 패턴으로 코드를 삽입한 반면, 여기서는 그래프를 사용자 유형으로 쿼리하고 그 데이터를 반환하는 코드를 작성합니다. 아래에는 코드와 자세한 설명이 차례대로 나와 있습니다.
+This is the core of our application. Whereas the rest was inserting code in the default MVC pattern from Apple, here you write code to query the graph as the user types and then return that data. Here's the code, and a detailed explanation follows it.
 
-### 새 Objective C 헤더 파일 만들기
+### <a name="create-a-new-objective-c-header-file"></a>Create a new Objective C header file
 
-파일 이름을 `GraphAPICaller.h`로 지정하고 다음 코드를 추가합니다.
+Name the file `GraphAPICaller.h`, and add the following code.
 
 ```objc
 @interface GraphAPICaller : NSObject<NSURLConnectionDataDelegate>
@@ -419,12 +420,12 @@ if (searchText.length > 0) {
 @end
 ```
 
-여기서 지정된 메서드는 문자열을 가져와 completionBlock을 반환합니다. 이 completionBlock은 짐작할 수 있듯이 사용자가 검색할 때 실시간으로 데이터를 채워 넣는 개체를 제공하여 테이블을 업데이트합니다.
+Here you see that a specified method takes a string and returns a completionBlock. This completionBlock, as you may have guessed, will update the table by providing an object with populated data in real time as the user searches.
 
 
-### 새 Objective C 파일 만들기
+### <a name="create-a-new-objective-c-file"></a>Create a new Objective C file
 
-파일 이름을 `GraphAPICaller.m`로 지정하고 다음 메서드를 추가합니다.
+Name the file `GraphAPICaller.m`, and add the following method.
 
 ```objc
 +(void) searchUserList:(NSString*)searchString
@@ -494,25 +495,25 @@ if (searchText.length > 0) {
 
 ```
 
-이 메서드를 자세히 살펴보겠습니다.
+Let's go through this method in detail.
 
-이 코드의 핵심은 초기에 settings.plist 파일 내에 미리 정의한 매개 변수를 사용하는 `NXOAuth2Request` 메서드에 있습니다.
+The core of this code is in the `NXOAuth2Request`, method which takes the parameters that you've already defined in the settings.plist file.
 
-첫 번째 단계는 적절한 Graph API 호출을 생성하는 것입니다. `/users`를 호출하게 되므로 버전과 함께 Graph API 리소스에 추가하여 지정합니다. 이것들이 API가 진화함에 따라 변화할 수 있으므로 외부 설정 파일에 놓는 것이 좋습니다.
+The first step is to construct the right Graph API call. Because you are calling `/users`, you specify that by appending it to the Graph API resource along with the version. It makes sense to put these in an external settings file because these can change as the API evolves.
 
 
 ```objc
 NSString *graphURL = [NSString stringWithFormat:@"%@%@/users", data.graphApiUrlString, data.apiversion];
 ```
 
-다음으로 Graph API 호출에 제공할 매개 변수를 지정해야 합니다. 런타임 시 모든 URI 비합치 문자는 삭제됨으로 리소스 끝점에 매개 변수를 삽입하지 않는 것이 *매우 중요*합니다. 모든 쿼리 코드는 매개 변수에 제공되어야 합니다.
+Next, you need to specify parameters that you will also provide to the Graph API call. It is *very important* that you do not put the parameters in the resource endpoint because that is scrubbed for all non-URI conforming characters at runtime. All query code must be provided in the parameters.
 
 ```objc
 
 NSDictionary* params = [self convertParamsToDictionary:searchString];
 ```
 
-이것이 아직 작성하지 않은 메서드 `convertParamsToDictionary`을 호출하는 것을 볼 수 있습니다. 이제 파일 끝에서 실행해 보겠습니다.
+You might notice this calls a `convertParamsToDictionary` method that you haven't written yet. Let's do so now at the end of the file:
 
 ```objc
 +(NSDictionary*) convertParamsToDictionary:(NSString*)searchString
@@ -529,7 +530,7 @@ NSDictionary* params = [self convertParamsToDictionary:searchString];
 }
 
 ```
-다음으로 데이터를 API에서 JSON 형식으로 다시 가져오기 위해 `NXOAuth2Request` 메서드를 사용해 보겠습니다.
+Next, let's use the `NXOAuth2Request` method to get data back from the API in JSON format.
 
 ```objc
 NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
@@ -551,7 +552,7 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 ```
 
-마지막으로, 데이터를 MasterViewController에 반환하는 방법을 살펴보겠습니다. 데이터는 직렬화되어 반환되며 MainViewController가 사용할 수 있는 개체에 역직렬화되어 로드되어야 합니다. 이런 목적으로 기본 골격 구조에 User 개체를 만드는 `User.m/h` 파일이 있습니다. 그래프의 정보로 User 개체를 채웁니다.
+Finally, let's look at how you return the data to the MasterViewController. The data returns as serialized and needs to be deserialized and loaded in an object that the MainViewController can consume. For this purpose, the skeleton has a `User.m/h` file that creates a User object. You populate that User object with information from the graph.
 
 ```objc
                            // We can grab the top most JSON node to get our graph data.
@@ -580,12 +581,16 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
 ```
 
 
-## 샘플 실행
+## <a name="run-the-sample"></a>Run the sample
 
-기본 구조를 사용하거나 연습을 따라했다면 응용 프로그램이 이제 실행됩니다. 시뮬레이터를 시작하고 **로그인**을 클릭하여 응용 프로그램을 사용합니다.
+If you've used the skeleton or followed along with the walkthrough your application should now run. Start the simulator and click **Sign in** to use the application.
 
-## 당사 제품에 대한 보안 업데이트 가져오기
+## <a name="get-security-updates-for-our-product"></a>Get security updates for our product
 
-[Security TechCenter](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+We encourage you to get notifications of when security incidents occur by visiting the [Security TechCenter](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

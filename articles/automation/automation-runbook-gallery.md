@@ -1,141 +1,147 @@
 <properties
-	pageTitle="Azure 자동화용 Runbook 및 모듈 갤러리 | Microsoft Azure"
-	description="Microsoft 및 커뮤니티의 Runbook과 모듈을 Azure 자동화 환경에 설치하여 사용할 수 있습니다. 이 글에서는 이러한 리소스에 액세스하는 방법과 자신의 Runbook을 갤러리에 올리는 방법을 설명합니다."
-	services="automation"
-	documentationCenter=""
-	authors="mgoedtel"
-	manager="jwhit"
-	editor="tysonn" />
+    pageTitle="Runbook and module galleries for Azure Automation | Microsoft Azure"
+    description="Runbooks and modules from Microsoft and the community are available for you to install and use in your Azure Automation environment.  This article describes how you can access these resources and to contribute your runbooks to the gallery."
+    services="automation"
+    documentationCenter=""
+    authors="mgoedtel"
+    manager="jwhit"
+    editor="tysonn" />
 <tags
-	ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/18/2016"
-	ms.author="magoedte;bwren" />
+    ms.service="automation"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="09/18/2016"
+    ms.author="magoedte;bwren" />
 
 
-# Azure 자동화용 Runbook 및 모듈 갤러리
 
-Azure 자동화에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 구성한 다양한 시나리오에 액세스할 수 있습니다. 이러한 시나리오는 수정 없이 그대로 사용하거나, 이를 기초로 특정 요구 사항에 맞게 편집하여 사용할 수 있습니다.
+# <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook and module galleries for Azure Automation
 
-Runbook은 [Runbook 갤러리](#runbooks-in-runbook-gallery)에서, 모듈은 [PowerShell 갤러리](#modules-in-powerShell-gallery)에서 가져올 수 있습니다. 또한 자신이 개발한 시나리오를 공유하여 커뮤니티에 기여할 수 있습니다.
+Rather than creating your own runbooks and modules in Azure Automation, you can access a variety of scenarios that have already been built by Microsoft and the community.  You can either use these scenarios without modification or you can use them as a starting point and edit them for your specific requirements.
 
-## Runbook 갤러리의 Runbook
+You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) and modules from the [PowerShell Gallery](#modules-in-powerShell-gallery).  You can also contribute to the community by sharing scenarios that you develop.
 
-[Runbook 갤러리](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation)는 Azure 자동화로 가져올 수 있는 Microsoft 및 커뮤니티에서 제작한 다양한 Runbook을 제공합니다. [TechNet 스크립트 센터](http://gallery.technet.microsoft.com/)에서 호스팅되는 갤러리로부터 Runbook을 다운로드하거나, Azure 클래식 포털 또는 Azure 포털의 갤러리에서 Runbook을 직접 가져올 수 있습니다.
+## <a name="runbooks-in-runbook-gallery"></a>Runbooks in Runbook Gallery
 
-Azure 클래식 포털 또는 Azure 포털을 사용하는 Runbook 갤러리에서만 직접 가져올 수 있습니다. Windows PowerShell을 사용하여 이 함수를 수행할 수 없습니다.
+The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery which is hosted in the [TechNet Script Center](http://gallery.technet.microsoft.com/), or you can directly import runbooks from the gallery from either the Azure classic portal or Azure portal.
 
->[AZURE.NOTE] 프러덕션 환경에서 설치 및 실행할 때는 Runbook 갤러리에서 가져올 Runbook 내용의 유효성을 검사해야 하며 세심한 주의가 필요합니다.|
+You can only import directly from the Runbook Gallery using the Azure classic portal or Azure portal. You cannot perform this function using Windows PowerShell.
 
-### Azure 클래식 포털을 사용하여 Runbook 갤러리에서 Runbook을 가져오려면
+>[AZURE.NOTE] You should validate the contents of any runbooks that you get from the Runbook Gallery and use extreme caution in installing and running them in a production environment.|
 
-1. Azure 포털에서 **새로 만들기**, **앱 서비스**, **자동화**, **Runbook**, **Gallery에서**을(를) 차례로 클릭합니다.
-2. 관련 Runbook을 볼 범주를 선택하고 Runbook을 선택하여 세부 내용을 확인합니다. 원하는 Runbook을 선택했으면 오른쪽 화살표 단추를 클릭합니다.
+### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-classic-portal"></a>To import a runbook from the Runbook Gallery with the Azure classic portal
 
-    ![Runbook 갤러리](media/automation-runbook-gallery/runbook-gallery.png)
+1. In the Azure Portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
+2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.
 
-3. Runbook의 내용을 검토하고 설명의 모든 요구 사항을 확인합니다. 마치면 오른쪽 화살표 단추를 클릭합니다.
-4. Runbook의 세부 정보를 입력하고 확인 표시 단추를 클릭합니다. Runbook 이름은 이미 입력되어 있습니다.
-5. 이 Runbook이 자동화 계정의**Runbook** 탭에 표시됩니다.
+    ![Runbook gallery](media/automation-runbook-gallery/runbook-gallery.png)
 
-### Azure 포털을 사용하여 Runbook 갤러리에서 Runbook을 가져오려면
+3. Review the contents of the runbook and note any requirements in the description. Click the right arrow button when you’re done.
+4. Enter the runbook details and then click the checkmark button. The runbook name will already be filled in.
+5. The runbook will appear on the **Runbooks** tab for the Automation Account.
 
-1. Azure 포털에서 자동화 계정을 엽니다.
-2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
-3. **갤러리 찾아보기** 단추를 클릭합니다.
+### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>To import a runbook from the Runbook Gallery with the Azure portal
 
-    ![갤러리 찾아보기 단추](media/automation-runbook-gallery/browse-gallery-button.png)
+1. In the Azure Portal, open your Automation account.
+2. Click on the **Runbooks** tile to open the list of runbooks.
+3. Click **Browse gallery** button.
 
-4. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다.
+    ![Browse gallery button](media/automation-runbook-gallery/browse-gallery-button.png)
 
-    ![갤러리 찾아보기](media/automation-runbook-gallery/browse-gallery.png)
+4. Locate the gallery item you want and select it to view its details.
 
-4. [TechNet 스크립트 센터](http://gallery.technet.microsoft.com/)의 항목을 확인하려면 **소스 프로젝트 보기**를 클릭합니다.
-5. 항목을 가져오려면 해당 항목을 클릭하여 세부 정보를 확인한 다음 **가져오기** 단추를 클릭합니다.
+    ![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
 
-    ![가져오기 단추](media/automation-runbook-gallery/gallery-item-detail.png)
+4. Click on **View source project** to view the item in the [TechNet Script Center](http://gallery.technet.microsoft.com/).
+5. To import an item, click on it to view its details and then click the **Import** button.
 
-6. 선택적으로 Runbook의 이름을 변경한 다음 **확인**을 클릭하여 해당 Runbook을 가져옵니다.
-5. 이 Runbook이 자동화 계정의**Runbook** 탭에 표시됩니다.
+    ![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
 
-
-### Runbook 갤러리에 Runbook 추가
-
-Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 Runbook 갤러리에 추가하도록 장려하고 있습니다. 다음 세부 정보를 고려하여 [스크립트 센터에 업로드](http://gallery.technet.microsoft.com/site/upload)를 선택하면 Runbook을 추가할 수 있습니다.
-
-- **범주**에 *Microsoft Azure*를 지정하고 **하위 범주**에 *자동화*를 지정해야 Runbook이 마법사에 표시됩니다.
-
-- 단일.ps1 또는 .graphrunbook 파일을 업로드해야 합니다. Runbook에 필요한 모듈, 자식 Runbook 또는 자산이 있는 경우 Runbook의 제출 설명과 내용 섹션에 해당 항목을 나열해야 합니다. 여러 Runbook이 필요한 시나리오인 경우 각 Runbook을 개별적으로 업로드하고 설명마다 관련 Runbook의 이름을 나열합니다. 동일한 범주에 표시되도록 동일한 태그를 사용합니다. 시나리오가 작동하기 위해 다른 Runbook이 필요하다는 설명을 사용자가 읽고 알 수 있어야 합니다.
-
-- **그래픽 Runbook**(그래픽 워크플로가 아닌)을 게시하는 경우 "GraphicalPS" 태그를 추가합니다.
-
-- **코드 섹션 삽입** 아이콘을 사용하여 PowerShell 또는 PowerShell 워크플로 코드 조각을 설명에 삽입합니다.
-
-- 업로드 요약이 Runbook 갤러리 결과에 표시되므로 사용자가 해당 Runbook의 기능을 파악하는 데 도움이 되는 상세한 정보를 제공해야 합니다.
-
-- 업로드에 1~3개의 다음 태그를 할당해야 합니다. Runbook이 마법사에서 태그와 일치하는 범주에 나열됩니다. 이 목록에 없는 태그는 마법사에서 무시됩니다. 일치하는 태그를 지정하지 않는 경우 Runbook이 기타 범주에 나열됩니다.
-
- - 백업
- - 용량 관리
- - 변경 제어
- - 규정 준수
- - 개발/테스트 환경
- - 재해 복구
- - 모니터링
- - 패치
- - 프로비전
- - 재구성
- - VM 수명 주기 관리
+6. Optionally, change the name of the runbook and then click **OK** to import the runbook.
+5. The runbook will appear on the **Runbooks** tab for the Automation Account.
 
 
-- 자동화는 갤러리를 한 시간마다 업데이트하므로 제출한 내용이 즉시 확인되지는 않습니다.
+### <a name="adding-a-runbook-to-the-runbook-gallery"></a>Adding a runbook to the runbook gallery
 
-## PowerShell 갤러리의 모듈
+Microsoft encourages you to add runbooks to the Runbook Gallery that you think would be useful to other customers.  You can add a runbook by [uploading it to the Script Center](http://gallery.technet.microsoft.com/site/upload) taking into account the following details.
 
-PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azure 자동화에서 설치할 수 있는 기존 모듈을 [PowerShell 갤러리](http://www.powershellgallery.com)에서 사용할 수 있습니다. Azure 포털에서 이 갤러리를 실행하여 Azure 자동화에 직접 설치하거나, 수동으로 다운로드하여 설치할 수 있습니다. Azure 클래식 포털에서 모듈을 직접 설치할 수는 없지만 다운로드하여 다른 모듈처럼 설치할 수 있습니다.
+- You must specify *Windows Azure* for the **Category** and *Automation* for the **Subcategory** for the runbook to be displayed in the wizard.  
 
-### Azure 포털을 사용하여 자동화 모듈 갤러리에서 모듈을 가져오려면
+- The upload must be a single .ps1 or .graphrunbook file.  If the runbook requires any modules, child runbooks, or assets, then you should list those in the description of the submission and in the comments section of the runbook.  If you have a scenario requiring multiple runbooks, then upload each separately and list the names of the related runbooks in each of their descriptions. Make sure that you use the same tags so that they will show up in the same category. A user will have to read the description to know that other runbooks are required the scenario to work.
 
-1. Azure 포털에서 자동화 계정을 엽니다.
-2. **자산** 타일을 클릭하여 자산 목록을 엽니다.
-3. **모듈** 타일을 클릭하여 모듈 목록을 엽니다.
-4. **갤러리 찾아보기** 단추를 클릭하면 갤러리 찾아보기 블레이드가 시작됩니다.
+- Add the tag "GraphicalPS" if you are publishing a **Graphical runbook** (not a Graphical Workflow). 
 
-    ![모듈 갤러리](media/automation-runbook-gallery/modules-blade.png) <br>
-5. 갤러리 찾아보기 블레이드에서 시작한 후 다음 필드로 검색할 수 있습니다.
+- Insert either a PowerShell or PowerShell Workflow code snippet into the description using **Insert code section** icon.
 
-   - 모듈 이름
-   - 태그
-   - 작성자
-   - Cmdlet/DSC 리소스 이름
+- The Summary for the upload will be displayed in the Runbook Gallery results so you should provide detailed information that will help a user identify the functionality of the runbook.
 
-6. 관심이 있는 모듈을 찾아 선택하여 세부 내용을 확인합니다. 특정 모듈을 상세히 검색하면 PowerShell 갤러리로 다시 연결되는 링크, 필요한 모든 종속성, 모듈이 포함하는 모든 cmdlet 및/또는 DSC 리소스를 포함하여 모듈에 대한 자세한 정보를 볼 수 있습니다.
+- You should assign one to three of the following Tags to the upload.  The runbook will be listed in the wizard under the categories that match its tags.  Any tags not on this list will be ignored by the wizard. If you don’t specify any matching tags, the runbook will be listed under the Other category.
 
-    ![PowerShell 모듈 세부 정보](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
+ - Backup
+ - Capacity Management
+ - Change Control
+ - Compliance
+ - Dev / Test Environments
+ - Disaster Recovery
+ - Monitoring
+ - Patching
+ - Provisioning
+ - Remediation
+ - VM Lifecycle Management
 
-7. Azure 자동화에 직접 모듈을 설치하려면 **가져오기** 단추를 클릭합니다.
 
-    ![모듈 가져오기 단추](media/automation-runbook-gallery/module-import-button.png)
+- Automation updates the Gallery once an hour, so you won’t see your contributions immediately.
 
-8. 가져오기 단추를 클릭하면 가져오려고 하는 모듈 이름이 표시됩니다. 모든 종속성이 설치되면 **확인** 단추가 활성화됩니다. 종속성이 없는 경우 종속성을 가져와야만 이 모듈을 가져올 수 있습니다.
-9. 모듈을 가져오도록 **확인**을 클릭하면 모듈 블레이드가 시작됩니다. Azure 자동화가 계정에 모듈을 가져오면 모듈 및 cmdlet에 대한 메타데이터를 추출합니다.
+## <a name="modules-in-powershell-gallery"></a>Modules in PowerShell Gallery
 
-    ![모듈 가져오기 블레이드](media/automation-runbook-gallery/module-import-blade.png)
+PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](http://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  You cannot install the modules directly from the Azure classic portal, but you can download them install them as you would any other module.
 
-    각 활동을 추출해야 하므로 몇 분이 걸릴 수 있습니다.
-10. 모듈을 가져오는 도중과 완료 시점에 알림이 표시됩니다.
-11. 모듈을 가져온 후 사용 가능한 작업이 표시되고 Runbook 및 필요한 상태 구성에서 해당 리소스를 사용할 수 있습니다.
+### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>To import a module from the Automation Module Gallery with the Azure portal
 
-## Runbook 또는 모듈 요청 중
+1. In the Azure Portal, open your Automation account.
+2. Click on the **Assets** tile to open the list of assets.
+3. Click on the **Modules** tile to open the list of modules.
+4. Click on the **Browse gallery** button and the Browse gallery blade is launched.
 
-[사용자 음성](https://feedback.azure.com/forums/246290-azure-automation/)에 요청을 보낼 수 있습니다. Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/ko-KR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
+    ![Module gallery](media/automation-runbook-gallery/modules-blade.png) <br>
+5. After you have launched the Browse gallery blade, you can search by the following fields:
 
-## 다음 단계
+   - Module Name
+   - Tags
+   - Author
+   - Cmdlet/DSC resource name
 
-- Runbook 작성을 시작하려면 [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)를 참조하세요.
-- Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [PowerShell 워크플로 학습](automation-powershell-workflow.md)을 참조하세요.
+6. Locate a module that you're interested in and select it to view its details.  
+When you drill into a specific module, you can view more information about the module, including a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets and/or DSC resources that the module contains.
 
-<!---HONumber=AcomDC_0914_2016-->
+    ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
+
+7. To install the module directly into Azure Automation, click the **Import** button.
+
+    ![Import module button](media/automation-runbook-gallery/module-import-button.png)
+
+8. When you click the Import button, you will see the module name that you are about to import. If all the dependencies are installed, the **OK** button will be active. If you are missing dependencies, you need to import those before you can import this module.
+9. Click **OK** to import the module, and the module blade will launch. When Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets.
+
+    ![Import module blade](media/automation-runbook-gallery/module-import-blade.png)
+
+    This may take a couple of minutes since each activity needs to be extracted.
+10. You will receive a notification that the module is being deployed and a notification when it has completed.
+11. After the module is imported, you will see the available activities, and you can use its resources in your runbooks and Desired State Configuration.
+
+## <a name="requesting-a-runbook-or-module"></a>Requesting a runbook or module
+
+You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+
+## <a name="next-steps"></a>Next Steps
+
+- To get started with runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+- To understand the differences between PowerShell and PowerShell Workflow with runbooks, see [Learning PowerShell workflow](automation-powershell-workflow.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 장치 | Microsoft Azure에 대한 CHAP 구성"
-   description="StorSimple 장치에 CHAP(Challenge Handshake 인증 프로토콜)를 구성하는 방법을 설명합니다."
+   pageTitle="Configure CHAP for your StorSimple device | Microsoft Azure"
+   description="Describes how to configure the Challenge Handshake Authentication Protocol (CHAP) on a StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,187 +15,192 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# StorSimple 장치에 대한 CHAP 구성
 
-이 자습서에서는 StorSimple 장치에 대한 CHAP를 구성하는 방법에 대해 설명합니다. 이 문서에서 설명하는 절차는 StorSimple 1200 장치 뿐만 아니라 StorSimple 8000 시리즈에도 적용됩니다.
+# <a name="configure-chap-for-your-storsimple-device"></a>Configure CHAP for your StorSimple device
 
-CHAP는 Challenge Handshake Authentication Protocol의 약어입니다. CHAP는 서버에서 원격 클라이언트의 ID를 확인하는데 사용하는 인증 체계입니다. 확인은 공유 암호 또는 암호를 기반으로 합니다. CHAP는 일방(단방향)이거나 상호적(양방향)일 수 있습니다. 단방향 CHAP는 대상이 초기자를 인증하는 경우입니다. 반면에 상호 또는 역방향 CHAP는 대상이 초기자를 인증한 다음 초기자에서 대상을 인증해야 합니다. 대상 인증 없이 초기자 인증을 구현할 수 있습니다. 그러나 초기자 인증도 구현하는 경우 대상 인증을 구현할 수 있습니다.
+This tutorial explains how to configure CHAP for your StorSimple device. The procedure detailed in this article applies to StorSimple 8000 series as well as StorSimple 1200 devices.
 
-모범 사례로 CHAP를 사용하여 iSCSI 보안을 강화하는 것이 좋습니다.
+CHAP stands for Challenge Handshake Authentication Protocol. It is an authentication scheme used by servers to validate the identity of remote clients. The verification is based on a shared password or secret. CHAP can be one-way (unidirectional) or mutual (bidirectional). One-way CHAP is when the target authenticates an initiator. Mutual or reverse CHAP, on the other hand, requires that the target authenticate the initiator and then the initiator authenticate the target. Initiator authentication can be implemented without target authentication. However, target authentication can be implemented only if initiator authentication is also implemented. 
 
->[AZURE.NOTE] IPSEC는 StorSimple 장치에서 현재 지원되지 않습니다.
+As a best practice, we recommend that you use CHAP to enhance iSCSI security.
 
-StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 수 있습니다.
+>[AZURE.NOTE] Keep in mind that IPSEC is not currently supported on StorSimple devices.
 
-- 단방향 또는 일방 인증
+The CHAP settings on the StorSimple device can be configured in the following ways:
 
-- 양방향 또는 상호 또는 역방향 인증
+- Unidirectional or one-way authentication
 
-각 경우에서 장치 포털 및 서버 iSCSI 초기자 소프트웨어를 구성해야 합니다. 이 구성에 대한 자세한 단계는 다음 자습서에 설명되어있습니다.
+- Bidirectional or mutual or reverse authentication
 
-## 단방향 또는 일방 인증
+In each of these cases, the portal for the device and the server iSCSI initiator software needs to be configured. The detailed steps for this configuration are described in the following tutorial.
 
-단방향 인증에서 대상이 초기자를 인증합니다. 이 인증은 StorSimple 장치의 CHAP 초기자 설정 및 호스트의 iSCSI 초기자 소프트웨어를 구성해야 합니다. StorSimple 장치 및 Windows 호스트에 대한 자세한 절차는 다음과 같습니다.
+## <a name="unidirectional-or-one-way-authentication"></a>Unidirectional or one-way authentication
 
-#### 단방향 인증에 대한 장치를 구성하려면
+In unidirectional authentication, the target authenticates the initiator. This authentication requires that you configure the CHAP initiator settings on the StorSimple device and the iSCSI Initiator software on the host. The detailed procedures for your StorSimple device and Windows host are described next.
 
-1. Azure 클래식 포털의 **장치** 페이지에서 **구성** 탭을 클릭합니다.
+#### <a name="to-configure-your-device-for-one-way-authentication"></a>To configure your device for one-way authentication
 
-    ![CHAP 초기자](./media/storsimple-configure-chap/IC740943.png)
+1. In the Azure classic portal, on the **Devices** page, click the **Configure** tab.
 
-2. 이 페이지에서 아래로 스크롤하고 **CHAP 초기자** 섹션에서 다음을 수행합니다.
-													
-	1. CHAP 초기자에 대한 사용자 이름을 입력합니다.
+    ![CHAP Initiator](./media/storsimple-configure-chap/IC740943.png)
 
-	2. CHAP 초기자에 대한 암호를 입력합니다.
+2. Scroll down on this page, and in the **CHAP Initiator** section:
+                                                    
+    1. Provide a user name for your CHAP initiator.
 
-   		 > [AZURE.IMPORTANT] CHAP 사용자 이름은 233 미만의 문자를 포함해야 합니다. CHAP 암호는 12 ~ 16 자 사이여야 합니다. 더 긴 사용자 이름이나 암호를 사용하면 Windows 호스트에서 인증 오류가 발생합니다.
+    2. Supply a password for your CHAP initiator.
+
+         > [AZURE.IMPORTANT] The CHAP user name must contain fewer than 233 characters. The CHAP password must be between 12 and 16 characters. A longer user name or password will result in an authentication failure on the Windows host.
     
-	3. 암호를 확인합니다.
+    3. Confirm the password.
 
-4. **Save**를 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
+4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
 
-#### Windows 호스트 서버에서 일방 인증을 구성하려면
+#### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>To configure one-way authentication on the Windows host server
 
-1. Windows 호스트 서버에서 iSCSI 초기자를 시작합니다.
+1. On the Windows host server, start the iSCSI Initiator.
 
-2. **iSCSI 초기자 속성** 창에서 다음 단계를 수행합니다.
-													
-	1. **검색** 탭을 클릭합니다.
+2. In the **iSCSI Initiator Properties** window, perform the following steps:
+                                                    
+    1. Click the **Discovery** tab.
 
-		![iSCSI 초기자 속성](./media/storsimple-configure-chap/IC740944.png)
+        ![iSCSI initiator properties](./media/storsimple-configure-chap/IC740944.png)
 
-	2. **포털 검색**을 클릭합니다.
+    2. Click **Discover Portal**.
 
-3. **대상 포털 검색** 대화 상자에서 다음을 수행합니다.
-													
-	1. 장치의 IP 주소를 지정합니다.
+3. In the **Discover Target Portal** dialog box:
+                                                    
+    1. Specify the IP address of your device.
 
-	3. **고급**을 클릭합니다.
+    3. Click **Advanced**.
 
-		![대상 포털 검색](./media/storsimple-configure-chap/IC740945.png)
+        ![Discover target portal](./media/storsimple-configure-chap/IC740945.png)
 
-4. **고급 설정** 대화 상자에서:
-													
-	1. **CHAP 로그온 사용** 확인란을 선택합니다.
+4. In the **Advanced Settings** dialog box:
+                                                    
+    1. Select the **Enable CHAP log on** check box.
 
-	2. **이름** 필드에 클래식 포털에서 CHAP 초기자에 지정한 사용자 이름을 입력합니다.
+    2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
 
-	3. **대상 암호** 필드에 클래식 포털에서 CHAP 초기자에 지정한 암호를 입력합니다.
+    3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
 
-	4. **확인**을 클릭합니다.
+    4. Click **OK**.
 
-		![고급 설정 일반](./media/storsimple-configure-chap/IC740946.png)
+        ![Advanced settings general](./media/storsimple-configure-chap/IC740946.png)
 
-5. **iSCSI 초기자 속성** 창의 **대상** 탭에서 장치 상태는 **Connected**로 표시되어야 합니다. StorSimple 1200 장치를 사용하는 경우 각 볼륨은 아래와 같이 iSCSI 대상으로 탑재됩니다. 따라서 3-4단계는 각 볼륨에 대해 반복해야 할 수 있습니다.
+5. On the **Targets** tab of the **iSCSI Initiator Properties** window, the device status should appear as **Connected**. If you are using a StorSimple 1200 device, then each volume will be mounted as an iSCSI target as shown below. Hence, steps  3-4 will need to be repeated for each volume.
 
-	![별도 대상으로 탑재된 볼륨](./media/storsimple-configure-chap/chap4.png)
+    ![Volumes mounted as separate targets](./media/storsimple-configure-chap/chap4.png)
 
-    > [AZURE.IMPORTANT] iSCSI 이름을 변경하는 경우 새 iSCSI 세션에 대한 새 이름이 사용됩니다. 새 설정은 로그오프하고 다시 로그온할 때까지 기존 세션에 대해 다시 사용되지 않습니다.
+    > [AZURE.IMPORTANT] If you change the iSCSI name, the new name will be used for new iSCSI sessions. New settings are not used for existing sessions until you log off and log on again.
 
-Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용을 보려면 [추가 고려 사항](#additional-considerations)으로 이동하세요.
+For more information about configuring CHAP on the Windows host server, go to [Additional considerations](#additional-considerations).
 
 
-## 양방향 또는 상호 인증
+## <a name="bidirectional-or-mutual-authentication"></a>Bidirectional or mutual authentication
 
-양방향 인증에서 대상은 초기자를 인증한 다음 초기자는 대상을 인증합니다. 사용자가 CHAP 초기자 설정과 장치의 역방향 CHAP 설정 및 호스트의 iSCSI 초기자 소프트웨어를 구성해야 합니다. 다음 절차는 장치와 Windows 호스트에서 상호 인증을 구성하는 단계를 설명합니다.
+In bidirectional authentication, the target authenticates the initiator and then the initiator authenticates the target. This requires the user to configure the CHAP initiator settings, as well as the reverse CHAP settings on the device and iSCSI Initiator software on the host. The following procedures describe the steps to configure mutual authentication on the device and on the Windows host.
 
-#### 상호 인증에 대한 장치를 구성하려면
+#### <a name="to-configure-your-device-for-mutual-authentication"></a>To configure your device for mutual authentication
 
-1. Azure 클래식 포털의 **장치** 페이지에서 **구성** 탭을 클릭합니다.
+1. In the Azure classic portal, on the **Devices** page, click the **Configure** tab.
 
-    ![CHAP 대상](./media/storsimple-configure-chap/IC740948.png)
+    ![CHAP target](./media/storsimple-configure-chap/IC740948.png)
 
-2. 이 페이지에서 아래로 스크롤하고 **CHAP 대상** 섹션에서 다음을 수행합니다.
-													
-	1. 장치에 대한 **역방향 CHAP 사용자 이름**을 입력합니다.
+2. Scroll down on this page, and in the **CHAP Target** section:
+                                                    
+    1. Provide a **Reverse CHAP user name** for your device.
 
-	2. 장치에 대한 **역방향 CHAP 암호**를 입력합니다.
+    2. Supply a **Reverse CHAP password** for your device.
 
-	3. 암호를 확인합니다.
+    3. Confirm the password.
 
-3. **CHAP 초기자** 섹션에서 다음을 수행합니다.
-												
-	1. 장치에 대한 **사용자 이름**을 입력합니다.
+3. In the **CHAP Initiator** section:
+                                                
+    1. Provide a **user name** for your device.
 
-	1. 장치에 대한 **암호**를 입력합니다.
+    1. Provide a **password** for your device.
 
-	3. 암호를 확인합니다.
+    3. Confirm the password.
 
-4. **Save**를 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
+4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
 
-#### Windows 호스트 서버에서 양방향 인증을 구성하려면
+#### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>To configure bidirectional authentication on the Windows host server
 
-1. Windows 호스트 서버에서 iSCSI 초기자를 시작합니다.
+1. On the Windows host server, start the iSCSI Initiator.
 
-2. **iSCSI 초기자 속성** 창에서 **구성** 탭을 클릭합니다.
+2. In the **iSCSI Initiator Properties** window, click the **Configuration** tab.
 
-3. **CHAP**를 클릭합니다.
+3. Click **CHAP**.
 
-4. **iSCSI 초기자 상호 CHAP 암호** 대화 상자에서 다음을 수행합니다.
-													
-	1. Azure 클래식 포털에서 구성한 **역방향 CHAP 암호**를 입력합니다.
+4. In the **iSCSI Initiator Mutual CHAP Secret** dialog box:
+                                                    
+    1. Type the **Reverse CHAP Password** that you configured in the Azure classic portal.
 
-	2. **확인**을 클릭합니다.
+    2. Click **OK**.
 
-		![iSCSI 초기자 상호 CHAP 암호](./media/storsimple-configure-chap/IC740949.png)
+        ![iSCSI initiator mutual CHAP secret](./media/storsimple-configure-chap/IC740949.png)
 
-5. **대상** 탭을 클릭합니다.
+5. Click the **Targets** tab.
 
-6. **연결** 단추를 클릭합니다.
+6. Click the **Connect** button. 
 
-7. **대상에 연결** 대화 상자에서 **고급**을 클릭합니다.
+7. In the **Connect To Target** dialog box, click **Advanced**.
 
-8. **고급 속성** 대화 상자에서 다음을 수행합니다.
-													
-	1. **CHAP 로그온 사용** 확인란을 선택합니다.
+8. In the **Advanced Properties** dialog box:
+                                                    
+    1. Select the **Enable CHAP log on** check box.
 
-	2. **이름** 필드에 클래식 포털에서 CHAP 초기자에 지정한 사용자 이름을 입력합니다.
+    2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
 
-	3. **대상 암호** 필드에 클래식 포털에서 CHAP 초기자에 지정한 암호를 입력합니다.
+    3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
 
-	4. **상호 인증 수행** 확인란을 선택합니다.
+    4. Select the **Perform mutual authentication** check box.
 
-		![고급 설정 상호 인증](./media/storsimple-configure-chap/IC740950.png)
+        ![Advanced settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)
 
-	5. **확인**을 클릭하여 CHAP 구성을 완료합니다.
-	 
-Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용을 보려면 [추가 고려 사항](#additional-considerations)으로 이동하세요.
+    5. Click **OK** to complete the CHAP configuration
+     
+For more information about configuring CHAP on the Windows host server, go to [Additional considerations](#additional-considerations).
 
-## 추가 고려 사항
+## <a name="additional-considerations"></a>Additional considerations
 
-**빠른 연결** 기능은 CHAP를 사용할 수 있는 연결을 지원하지 않습니다. CHAP를 사용하도록 설정한 경우 **대상** 탭에 있는 **연결** 단추를 사용하여 대상에 연결해야 합니다.
+The **Quick Connect** feature does not support connections that have CHAP enabled. When CHAP is enabled, make sure that you use the **Connect** button that is available on the **Targets** tab to connect to a target.
 
-![대상에 연결](./media/storsimple-configure-chap/IC740947.png)
+![Connect to target](./media/storsimple-configure-chap/IC740947.png)
 
-표시되는 **대상에 연결** 대화 상자에서 **즐겨찾는 대상 목록에 이 연결 추가** 확인란을 선택합니다. 이렇게 하면 컴퓨터를 다시 시작할 때마다 iSCSI 즐겨찾는 대상에 연결을 복원하는 시도가 수행됩니다.
+In the **Connect to Target** dialog box that is presented, select the **Add this connection to the list of Favorite Targets** check box. This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.
 
-## 구성 중 오류
+## <a name="errors-during-configuration"></a>Errors during configuration
 
-CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 표시될 수 있습니다.
+If your CHAP configuration is incorrect, then you are likely to see an **Authentication failure** error message.
 
-## CHAP 구성 확인
+## <a name="verification-of-chap-configuration"></a>Verification of CHAP configuration
 
-다음 단계를 완료하여 CHAP가 사용되고 있는지 확인할 수 있습니다.
+You can verify that CHAP is being used by completing the following steps.
 
-#### CHAP 구성을 확인하려면
+#### <a name="to-verify-your-chap-configuration"></a>To verify your CHAP configuration
 
-1. **즐겨찾는 대상**을 클릭합니다.
+1. Click **Favorite Targets**.
 
-2. 인증을 사용하도록 설정한 대상을 선택합니다.
+2. Select the target for which you enabled authentication.
 
-3. **세부 정보**를 클릭합니다.
+3. Click **Details**.
 
-    ![iSCSI 초기자 속성 즐겨찾는 대상](./media/storsimple-configure-chap/IC740951.png)
+    ![iSCSI initiator properties favorite targets](./media/storsimple-configure-chap/IC740951.png)
 
-4. **즐겨찾는 대상 세부 정보** 대화 상자에서 **인증** 필드에 항목을 입력합니다. 구성이 성공하면 **CHAP**라는 텍스트가 표시되어야 합니다.
+4. In the **Favorite Target Details** dialog box, note the entry in the **Authentication** field. If the configuration was successful, it should say **CHAP**.
 
-    ![즐겨찾는 대상 세부 정보](./media/storsimple-configure-chap/IC740952.png)
+    ![Favorite target details](./media/storsimple-configure-chap/IC740952.png)
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
+- Learn more about [StorSimple security](storsimple-security.md).
 
-- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

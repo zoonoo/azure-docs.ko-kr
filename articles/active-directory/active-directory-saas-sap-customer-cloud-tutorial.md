@@ -1,312 +1,315 @@
 <properties
-	pageTitle="자습서: SAP Cloud for Customer와 Azure Active Directory 통합 | Microsoft Azure"
-	description="Azure Active Directory 및 SAP Cloud for Customer 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with SAP Cloud for Customer | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and SAP Cloud for Customer."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2016"
-	ms.author="jeedes"/>
-
-
-# 자습서: SAP Cloud for Customer와 Azure Active Directory 통합
-
-이 자습서에서는 Azure AD(Azure Active Directory)와 SAP Cloud for Customer를 통합하는 방법에 대해 알아봅니다.
-
-SAP Cloud for Customer를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
-
-- SAP Cloud for Customer에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-- 사용자가 해당 Azure AD 계정으로 SAP Cloud for Customer에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
-
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
-
-## 필수 조건
-
-SAP Cloud for Customer와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
-
-- Azure AD 구독
-- SAP Cloud for Customer Single Sign-On이 설정된 구독
-
-
-> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
-
-
-이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
-
-- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
-
-
-## 시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
-
-1. 갤러리에서 SAP Cloud for Customer 추가
-2. Azure AD Single Sign-on 구성 및 테스트
-
-
-## 갤러리에서 SAP Cloud for Customer 추가
-SAP Cloud for Customer의 Azure AD 통합을 구성하려면 갤러리의 SAP Cloud for Customer를 관리되는 SaaS 앱 목록에 추가해야 합니다.
-
-**갤러리에서 SAP Cloud for Customer를 추가하려면 다음 단계를 수행합니다.**
-
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
-
-	![Active Directory][1]
-
-2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
-
-3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
-
-	![응용 프로그램][2]
-
-4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
-
-	![응용 프로그램][3]
-
-5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
-
-	![응용 프로그램][4]
-
-6. 검색 상자에 **SAP Cloud for Customer**를 입력합니다.
-
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_01.png)
-
-7. 결과 창에서 **SAP Cloud for Customer**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
-
-	![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2016"
+    ms.author="jeedes"/>
 
 
 
-##  Azure AD Single Sign-on 구성 및 테스트
+# <a name="tutorial:-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Tutorial: Azure Active Directory integration with SAP Cloud for Customer
 
-이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+In this tutorial, you learn how to integrate SAP Cloud for Customer with Azure Active Directory (Azure AD).
 
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 SAP Cloud for Customer 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 SAP Cloud for Customer의 관련 사용자 간에 연결 관계가 형성되어야 합니다.
+Integrating SAP Cloud for Customer with Azure AD provides you with the following benefits:
 
-SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+- You can control in Azure AD who has access to SAP Cloud for Customer
+- You can enable your users to automatically get signed-on to SAP Cloud for Customer (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[SAP Cloud for Customer 테스트 사용자 만들기](#creating-an-sap-business-bydesign-test-user)** - Azure AD를 대표하여 SAP Cloud for Customer에서 Britta Simon에 해당하는 사용자가 있어야 합니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-### Azure AD Single Sign-On 구성
+## <a name="prerequisites"></a>Prerequisites
 
-이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 SAP Cloud for Customer 응용 프로그램에서 Single Sign-On을 구성합니다.
+To configure Azure AD integration with SAP Cloud for Customer, you need the following items:
 
-
-**SAP Cloud for Customer에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+- An Azure AD subscription
+- A SAP Cloud for Customer single-sign on enabled subscription
 
 
-1. Azure 클래식 포털의 **SAP Cloud for Customer** 응용 프로그램 통합 페이지에 있는 상단 메뉴에서 **특성**을 클릭합니다.
-
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png)
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-2. 특성의 SAML 토큰 특성 목록에서 nameidentifier 특성을 선택한 다음 **편집**을 클릭합니다.
+To test the steps in this tutorial, you should follow these recommendations:
 
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png)
-
-3. **사용자 특성 편집** 대화 상자에서 다음 단계를 수행합니다.
-
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png)
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-	a. **특성 값** 목록에서 **ExtractMailPrefix()** 함수를 선택합니다.
-	
-	b. **메일** 목록에서 구현에 사용할 사용자 특성을 선택합니다. 예를 들어, EmployeeID를 고유한 사용자 식별자로 사용하고자 하고 ExtensionAttribute2에 특성 값을 저장했다면 user.extensionattribute2를 선택합니다.
+## <a name="scenario-description"></a>Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment.
 
-	c. **완료**를 클릭합니다.
-	
+The scenario outlined in this tutorial consists of two main building blocks:
 
-4. 클래식 포털의 **SAP Cloud for Customer** 응용 프로그램 통합 페이지에서 **Single Sing-on 구성**을 클릭합니다.
-	 
-	![Single Sign-On 구성][6]
+1. Adding SAP Cloud for Customer from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-5. **SAP Cloud for Customer에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png)
+## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Adding SAP Cloud for Customer from the gallery
+To configure the integration of SAP Cloud for Customer into Azure AD, you need to add SAP Cloud for Customer from the gallery to your list of managed SaaS apps.
 
-6. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+**To add SAP Cloud for Customer from the gallery, perform the following steps:**
 
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png)
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-    a. **로그인 URL** 텍스트 상자에 다음 패턴을 사용하여 사용자가 SAP Cloud for Customer 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. `https://<server name>.crm.ondemand.com`
-	
-	b. **다음**을 클릭합니다.
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **SAP Cloud for Customer**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_01.png)
+
+7. In the results pane, select **SAP Cloud for Customer**, and then click **Complete** to add the application.
+
+    ![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
+
+
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+
+In this section, you configure and test Azure AD single sign-on with SAP Cloud for Customer based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in SAP Cloud for Customer is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SAP Cloud for Customer needs to be established.
+
+To configure and test Azure AD single sign-on with SAP Cloud for Customer, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a SAP Cloud for Customer test user](#creating-an-sap-business-bydesign-test-user)** - to have a counterpart of Britta Simon in SAP Cloud for Customer that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SAP Cloud for Customer application. 
+
+
+**To configure Azure AD single sign-on with SAP Cloud for Customer, perform the following steps:**
+
+
+1. In the Azure classic portal, on the **SAP Cloud for Customer** application integration page, in the menu on the top, click **Attributes**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png) 
+
+
+2. In the attributes SAML token attributes list, select the nameidentifier attribute, and then click **Edit**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png) 
+
+3. On the **Edit User Attribute** dialog, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png) 
+
+
+    a. From the **Attribute Value** list, select the **ExtractMailPrefix()** fuction.
+    
+    b. From the **Mail** list, select the user attribute you want to use for your implementation. 
+    For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select user.extensionattribute2. 
+
+    c. Click **Complete**. 
+    
+
+4. In the classic portal, on the **SAP Cloud for Customer** application integration page, click **Configure single sign-on**.
+     
+    ![Configure Single Sign-On][6] 
+
+5. On the **How would you like users to sign on to SAP Cloud for Customer** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png) 
+
+6. On the **Configure App Settings** dialog page, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png) 
+
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SAP Cloud for Customer application using the following pattern: `https://<server name>.crm.ondemand.com`
+    
+    b. click **Next**
  
-7. **SAP Cloud for Customer에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
+7. On the **Configure single sign-on at SAP Cloud for Customer** page, perform the following steps:
 
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_05.png)
 
-    a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
+    a. Click **Download metadata**, and then save the file on your computer.
 
-    b. **Next**를 클릭합니다.
+    b. Click **Next**.
 
 
-8. SSO를 구성하려면 다음 단계를 수행합니다.
+8. To get SSO configured, perform the following steps:
 
-	a. SAP Cloud for Customer 포털에 관리자 권한으로 로그인합니다.
+    a. Login into SAP Cloud for Customer portal with administrator rights.
 
-	b. **응용 프로그램 및 사용자 관리 일반 작업**으로 이동하여 **ID 공급자** 탭을 클릭합니다.
+    b. Navigate to the **Application and User Management Common Task** and click the **Identity Provider** tab.
 
-	c. **새 ID 공급자**를 클릭하고 Azure 클래식 포털에서 다운로드한 메타데이터 XML 파일을 선택합니다. 시스템은 메타데이터를 가져와서 필수 서명 인증서 및 암호화 인증서를 자동으로 업로드합니다.
+    c. Click **New Identity Provider** and select the metadata XML file you have downloaded from the Azure classic portal. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
 
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_54.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_54.png)
 
-	d. Azure AD에서는 SAML 요청에서 어설션 소비자 서비스 URL 요소가 필요합니다. 따라서 **어설션 소비자 서비스 URL 포함** 확인란을 선택합니다.
+    d. Azure AD requires the element Assertion Consumer Service URL in the SAML request, so select the **Include Assertion Consumer Service URL** checkbox.
 
-	e. **Single Sign-on 활성화**를 클릭합니다.
+    e. Click **Activate Single Sign-On**.
 
-	f. 변경 내용을 저장합니다.
+    f. Save your changes.
 
-	g. **내 시스템** 탭을 클릭합니다.
+    g. Click the **My System** tab.
 
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_52.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_52.png)
 
-	h. **SSO URL**을 복사하고 **Azure AD 로그온 URL** 텍스트 상자에 붙여 넣습니다.
+    h. Copy the **SSO URL** and paste it into the **Azure AD Sign On URL** textbox.
 
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_53.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_53.png)
 
-	i 직원이 **수동 ID 공급자 선택**을 선택하여 사용자 ID 및 암호 또는 SSO를 사용하는 로그온 중 하나를 수동으로 선택할 수 있는지 여부를 지정합니다.
+    i. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting the **Manual Identity Provider Selection**.
 
-	j. **SSO URL** 섹션에서 시스템에 로그온하는 직원이 사용해야 하는 URL을 지정합니다. **직원에게 전송된 URL** 목록에서 다음 옵션 중 하나를 선택할 수 있습니다.
-	
-	**SSO가 아닌 URL**
+    j. In the **SSO URL** section, specify the URL that should be used by your employees to sign on to the system. 
+    In the **URL Sent to Employee** list, you can choose between the following options:
+    
+    **Non-SSO URL**
  
-	시스템은 직원에게 정상적인 시스템 URL만을 보냅니다. 직원은 SSO를 사용하여 로그온할 수 없고 대신 암호 또는 인증서를 사용해야 합니다.
+    The system sends only the normal system URL to the employee. The employee cannot log on using SSO, and must use password or certificate instead.
 
-	**SSO URL**
+    **SSO URL** 
 
-	시스템은 직원에게 SSO URL만을 보냅니다. 직원은 SSO를 사용하여 로그온할 수 있습니다. IdP를 통해 인증 요청이 리디렉션됩니다.
+    The system sends only the SSO URL to the employee. The employee can log on using SSO. Authentication request is redirected through the IdP.
 
-	**자동 선택**
+    **Automatic Selection**
  
-	SSO가 활성 상태가 아닌 경우 시스템은 직원에게 정상적인 시스템 URL을 보냅니다. SSO가 활성 상태인 경우 시스템은 직원이 암호를 가지는지 여부를 확인합니다. 암호를 사용할 수 있는 경우 SSO URL와 SSO가 아닌 URL은 직원에게 전송됩니다. 그러나 직원에게 암호가 없는 경우 SSO URL만이 직원에게 전송됩니다.
+    If SSO is not active, the system sends the normal system URL to the employee. If SSO is active, the system checks whether the employee has a password. If a password is available, both SSO URL and Non-SSO URL are sent to the employee. However, if the employee has no password, only the SSO URL is sent to the employee.
 
-	k. 변경 내용을 저장합니다.
+    k. Save your changes.
 
-9. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
-	
-	![Azure AD Single Sign-On][10]
+9. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    
+    ![Azure AD Single Sign-On][10]
 
-10. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
+10. On the **Single sign-on confirmation** page, click **Complete**.  
  
-	![Azure AD Single Sign-On][11]
+    ![Azure AD Single Sign-On][11]
 
 
-### Azure AD 테스트 사용자 만들기
-이 섹션에서는 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만듭니다.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+In this section, you create a test user in the Azure classic portal called Britta Simon.
 
 
-![Azure AD 사용자 만들기][20]
+![Create Azure AD User][20]
 
-**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png) 
 
-2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png) 
 
-4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png) 
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png) 
 
-    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+    a. As Type Of User, select New user in your organization.
 
-    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. **Next**를 클릭합니다.
+    c. Click **Next**.
 
-6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png)
+6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png) 
 
-    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. In the **Role** list, select **User**.
 
-    e. **Next**를 클릭합니다.
+    e. Click **Next**.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png) 
 
-8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png) 
 
-    a. **새 암호** 값을 적어둡니다.
+    a. Write down the value of the **New Password**.
 
-    b. **완료**를 클릭합니다.
-
-
-
-### SAP Cloud for Customer 테스트 사용자 만들기
-
-이 섹션에서는 SAP Cloud for Customer에서 Britta Simon이라는 사용자를 만듭니다. SAP Cloud for Customer 지원 팀 SAP Cloud for Customer 플랫폼에 사용자를 추가하세요.
-
-> [AZURE.NOTE] NameID 값이 SAP Cloud for Customer 플랫폼에서 사용자 이름 필드와 일치하는지 확인하세요.
-
-### Azure AD 테스트 사용자 할당
-
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 SAP Cloud for Customer에 대한 액세스 권한을 부여합니다.
-
-![사용자 할당][200]
-
-**Britta Simon을 SAP Cloud for Customer에 할당하려면 다음 단계를 수행합니다.**
-
-1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
-
-	![사용자 할당][201]
-
-2. 응용 프로그램 목록에서 **SAP Cloud for Customer**를 선택합니다.
-
-	![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png)
-
-3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
-
-	![사용자 할당][203]
-
-4. 사용자 목록에서 **Britta Simon**을 선택합니다.
-
-5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
-
-	![사용자 할당][205]
+    b. Click **Complete**.   
 
 
-### Single Sign-On 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+### <a name="creating-an-sap-cloud-for-customer-test-user"></a>Creating an SAP Cloud for Customer test user
 
-액세스 패널에서 SAP Cloud for Customer 타일을 클릭하면 SAP Cloud for Customer 응용 프로그램에 자동으로 로그온됩니다.
+In this section, you create a user called Britta Simon in SAP Cloud for Customer. Please work with SAP Cloud for Customer support team to add the users in the SAP Cloud for Customer platform. 
+
+> [AZURE.NOTE] Please make sure that NameID value should match with the username field in the SAP Cloud for Customer platform.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to SAP Cloud for Customer.
+
+![Assign User][200] 
+
+**To assign Britta Simon to SAP Cloud for Customer, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **SAP Cloud for Customer**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png) 
+
+3. In the menu on the top, click **Users**.
+
+    ![Assign User][203]
+
+4. In the Users list, select **Britta Simon**.
+
+5. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
 
 
-## 추가 리소스
+### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the SAP Cloud for Customer tile in the Access Panel, you should get automatically signed-on to your SAP Cloud for Customer application.
+
+
+## <a name="additional-resources"></a>Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -327,4 +330,8 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
 [204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

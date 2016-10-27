@@ -1,6 +1,6 @@
 <properties
-    pageTitle="논리 앱에 Box 커넥터 추가 | Microsoft Azure"
-    description="REST API 매개 변수를 사용하는 Box 커넥터 개요"
+    pageTitle="Add the Box connector to your Logic Apps | Microsoft Azure"
+    description="Overview of the Box connector with REST API parameters"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
@@ -17,246 +17,262 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
-# Box 커넥터 시작
-Box에 연결하여 파일 만들기, 파일 삭제 등의 작업을 수행합니다.
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+# <a name="get-started-with-the-box-connector"></a>Get started with the Box connector
+Connect to Box and create files, delete files, and more. 
 
-Box를 사용하여 다음을 수행할 수 있습니다.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-- Box에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다.
-- 파일을 만들거나 업데이트할 때 트리거를 사용합니다.
-- 파일 복사, 파일 삭제 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Box에서 파일이 변경된 경우 해당 파일을 가져와 Office 365를 사용하여 전자 메일로 보낼 수 있습니다.
+With Box, you can:
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+- Build your business flow based on the data you get from Box. 
+- Use triggers when a file is created or updated.
+- Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a file is changed on Box, you can take that file and email it using Office 365.
 
-## 트리거 및 작업
-Box에는 다음 트리거 및 작업이 포함됩니다.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-| 트리거 | 작업|
+## <a name="triggers-and-actions"></a>Triggers and actions
+Box includes the following trigger and actions.
+
+| Triggers | Actions|
 | --- | --- |
-|<ul><li>파일을 만들 때</li><li>파일을 수정할 때</li></ul> | <ul><li>파일 만들기</li><li>파일을 만들 때</li><li>파일 복사</li><li>파일 삭제</li><li>폴더에 보관 추출</li><li>ID를 사용하여 파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>ID를 사용하여 파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>파일 업데이트</li><li>파일을 수정할 때</li></ul>
+|<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
-모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+All connectors support data in JSON and XML formats.
 
-## Box에 대한 연결 만들기
-논리 앱에 이 커넥터를 추가할 때 Box에 연결할 권한을 논리 앱에 부여해야 합니다.
+## <a name="create-a-connection-to-box"></a>Create a connection to Box
+When you add this connector to your logic apps, you must authorize logic apps to connect to your Box.
 
->[AZURE.INCLUDE [Box에 대한 연결을 만드는 단계](../../includes/connectors-create-api-box.md)]
+>[AZURE.INCLUDE [Steps to create a connection to box](../../includes/connectors-create-api-box.md)]
 
-연결을 만든 후에 Box 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
+After you create the connection, you enter the Box properties. The **REST API reference** in this topic describes these properties.
 
->[AZURE.TIP] 다른 논리 앱에서 이와 동일한 Box 연결을 사용할 수 있습니다.
+>[AZURE.TIP] You can use this same Box connection in other logic apps.
 
-## Swagger REST API 참조
-적용 버전: 1.0
+## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
+Applies to version: 1.0.
 
-### 파일 만들기
-Box에 파일을 업로드합니다. ```POST: /datasets/default/files```
+### <a name="create-file"></a>Create file
+Uploads a file to Box.  
+```POST: /datasets/default/files```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|예|쿼리|없음 |Box에 파일을 업로드할 폴더 경로|
-|name|string|예|쿼리|없음 |Box에 만들 파일의 이름|
-|body|string(binary) |예|body|없음 |Box에 업로드할 파일의 콘텐츠|
+|folderPath|string|Yes|query|None |Folder path to upload the file to Box|
+|name|string|Yes|query|None |Name of the file to create in Box|
+|body|string(binary) |Yes|body|None |Content of the file to upload to Box|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 파일을 만들 때
-Box 폴더에서 새 파일을 만들 때 흐름을 트리거합니다. ```GET: /datasets/default/triggers/onnewfile```
+### <a name="when-a-file-is-created"></a>When a file is created
+Triggers a flow when a new file is created in a Box folder.  
+```GET: /datasets/default/triggers/onnewfile```
 
-| Name|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderId|string|예|쿼리|없음 |Box에서 폴더의 고유 식별자|
+|folderId|string|Yes|query|None |Unique identifier of the folder in Box|
 
-#### 응답
-|Name|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 파일 복사
-Box에 파일을 복사합니다. ```POST: /datasets/default/copyFile```
+### <a name="copy-file"></a>Copy file
+Copies a file to Box.  
+```POST: /datasets/default/copyFile```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|원본|string|예|쿼리|없음 |원본 파일에 대한 URL|
-|destination|string|예|쿼리| 없음|대상 파일 이름을 포함한 Box의 대상 파일 경로|
-|overwrite|부울|아니요|쿼리| 없음|'true'로 설정할 경우 대상 덮어쓰기|
+|source|string|Yes|query|None |Url to source file|
+|destination|string|Yes|query| None|Destination file path in Box, including target filename|
+|overwrite|boolean|No|query| None|Overwrites the destination file if set to 'true'|
 
-#### 응답
-|Name|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 파일 삭제
-Box에서 파일을 삭제합니다. ```DELETE: /datasets/default/files/{id}```
+### <a name="delete-file"></a>Delete file
+Deletes a file from Box.  
+```DELETE: /datasets/default/files/{id}```
 
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|예|path|없음 |Box에서 삭제할 파일의 고유 식별자|
+|id|string|Yes|path|None |Unique identifier of the file to delete from Box|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 폴더에 보관 추출
-보관 파일(예: .zip)을 Box의 폴더에 추출합니다. ```POST: /datasets/default/extractFolderV2```
+### <a name="extract-archive-to-folder"></a>Extract archive to folder
+Extracts an archive file into a folder in Box (example: .zip).  
+```POST: /datasets/default/extractFolderV2```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|원본|string|예|쿼리| |보관 파일의 경로|
-|destination|string|예|쿼리| |보관 콘텐츠를 추출할 Box의 경로|
-|overwrite|부울|아니요|쿼리| |'true'로 설정할 경우 대상 파일 덮어쓰기|
+|source|string|Yes|query| |Path to the archive file|
+|destination|string|Yes|query| |Path in Box to extract the archive contents|
+|overwrite|boolean|No|query| |Overwrites the destination files if set to 'true'|
 
-#### 응답
-|Name|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### ID를 사용하여 파일 콘텐츠 가져오기
-ID를 사용하여 Box에서 파일 콘텐츠를 검색합니다. ```GET: /datasets/default/files/{id}/content```
+### <a name="get-file-content-using-id"></a>Get file content using id
+Retrieves file contents from Box using id.  
+```GET: /datasets/default/files/{id}/content```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|예|path|없음 |Box 파일의 고유 식별자|
+|id|string|Yes|path|None |Unique identifier of the file in Box|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 경로를 사용하여 파일 콘텐츠 가져오기
-경로를 사용하여 Box에서 파일 콘텐츠를 검색합니다. ```GET: /datasets/default/GetFileContentByPath```
+### <a name="get-file-content-using-path"></a>Get file content using path
+Retrieves file contents from Box using path.  
+```GET: /datasets/default/GetFileContentByPath```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|path|string|예|쿼리|없음 |Box의 파일에 대한 고유 경로|
+|path|string|Yes|query|None |Unique path to the file in Box|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### ID를 사용하여 파일 메타데이터 가져오기
-파일 ID를 사용하여 Box에서 파일 메타데이터를 검색합니다. ```GET: /datasets/default/files/{id}```
+### <a name="get-file-metadata-using-id"></a>Get file metadata using id
+Retrieves file metadata from Box using file id.  
+```GET: /datasets/default/files/{id}```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|예|path| 없음|Box 파일의 고유 식별자|
+|id|string|Yes|path| None|Unique identifier of the file in Box|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 경로를 사용하여 파일 메타데이터 가져오기
-경로를 사용하여 Box에서 파일 메타데이터를 검색합니다. ```GET: /datasets/default/GetFileByPath```
+### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+Retrieves file metadata from Box using path.  
+```GET: /datasets/default/GetFileByPath```
 
-| Name|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|path|string|예|쿼리|없음 |Box의 파일에 대한 고유 경로|
+|path|string|Yes|query|None |Unique path to the file in Box|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 파일 업데이트
-Box에서 파일을 업데이트합니다. ```PUT: /datasets/default/files/{id}```
+### <a name="update-file"></a>Update file
+Updates a file in Box.  
+```PUT: /datasets/default/files/{id}```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|예|path| 없음|Box에서 업데이트할 파일의 고유 식별자|
-|body|string(binary) |예|body|없음 |Box에서 업데이트할 파일의 콘텐츠|
+|id|string|Yes|path| None|Unique identifier of the file to update in Box|
+|body|string(binary) |Yes|body|None |Content of the file to update in Box|
 
-#### 응답
-|Name|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 파일을 수정할 때
-Box 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /datasets/default/triggers/onupdatedfile```
+### <a name="when-a-file-is-modified"></a>When a file is modified
+Triggers a flow when a file is modified in a Box folder.  
+```GET: /datasets/default/triggers/onupdatedfile```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderId|string|예|쿼리|없음 |Box에서 폴더의 고유 식별자|
+|folderId|string|Yes|query|None |Unique identifier of the folder in Box|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## 개체 정의
+## <a name="object-definitions"></a>Object definitions
 
-#### DataSetsMetadata
+#### <a name="datasetsmetadata"></a>DataSetsMetadata
 
-|속성 이름 | 데이터 형식 | 필수|
+|Property Name | Data Type | Required|
 |---|---|---|
-|tabular|정의되지 않음|no|
-|Blob|정의되지 않음|no|
+|tabular|not defined|no|
+|blob|not defined|no|
 
-#### TabularDataSetsMetadata
+#### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
 
-|속성 이름 | 데이터 형식 |필수|
+|Property Name | Data Type |Required|
 |---|---|---|
-|원본|string|no|
+|source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
 |tablePluralName|string|no|
 
-#### BlobDataSetsMetadata
+#### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
 
-|속성 이름 | 데이터 형식 |필수|
+|Property Name | Data Type |Required|
 |---|---|---|
-|원본|string|no|
+|source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
-#### BlobMetadata
+#### <a name="blobmetadata"></a>BlobMetadata
 
-|속성 이름 | 데이터 형식 |필수|
+|Property Name | Data Type |Required|
 |---|---|---|
 |Id|string|no|
-|이름|string|no|
+|Name|string|no|
 |DisplayName|string|no|
 |Path|string|no|
 |LastModified|string|no|
-|크기|정수|no|
+|Size|integer|no|
 |MediaType|string|no|
-|IsFolder|부울|no|
+|IsFolder|boolean|no|
 |ETag|string|no|
 |FileLocator|string|no|
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,88 +1,91 @@
 <properties
-   pageTitle="Microsoft Azure 트래픽 관리자 프로필 | Microsoft Azure"
-   description="이 문서에서는 Azure 트래픽 관리자 프로필의 기록을 만들고, 사용 또는 사용하지 않도록 설정하고 삭제 및 표시할 수 있습니다."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
+    pageTitle="Manage Azure Traffic Manager profiles | Microsoft Azure"
+    description="This article helps you create, disable, enable, delete, and view the history of a Azure Traffic Manager profile."
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
 <tags
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
-
-# Azure 트래픽 관리자 프로필 관리
-
-트래픽 관리자 프로필을 사용하여 트래픽 관리자에서 모니터링하는 클라우드 서비스나 웹 사이트 끝점 및 이 끝점에 대한 연결을 배포하기 위해 사용하려는 트래픽 라우팅 방법을 지정합니다.
-
-## 빠른 생성을 사용하여 트래픽 관리자 프로필 만들기
-
-Azure 클래식 포털의 빠른 생성에서 트래픽 관리자 프로필을 신속하게 만들 수 있습니다. 빠른 생성을 사용하면 기본 구성 설정으로 프로필을 만들 수 있습니다. 그러나 빠른 생성은 끝점(클라우드 서비스 및 웹 사이트), 장애 조치 트래픽 라우팅 방법에 대한 장애 조치 순서 또는 모니터링 설정과 같은 설정에는 사용할 수 없습니다. 프로필을 만든 후 Azure 클래식 포털에서 이러한 설정을 구성할 수 있습니다. 트래픽 관리자는 프로필당 최대 200개의 끝점을 지원합니다. 하지만 대부분의 사용 시나리오에는 적은 수의 끝점만 필요합니다.
-
-### 새 트래픽 관리자 프로필을 만들려면
-
-1. **프로덕션 환경으로 클라우드 서비스 및 웹 사이트를 배포합니다.** 클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스](http://go.microsoft.com/fwlink/p/?LinkId=314074)를 참조하세요. 클라우드 서비스에 대한 내용은 [모범 사례](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile)를 참조하세요. 웹 사이트에 대한 자세한 내용은 [웹 사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)를 참조하세요.
-
-2. **Azure 클래식 포털에 로그인합니다.** 새 트래픽 관리자 프로필을 만들려면 포털의 왼쪽 아래에서 **새로 만들기**, **네트워크 서비스 > 트래픽 관리자**를 순서대로 클릭한 다음, **빠른 생성**을 클릭하여 프로필 구성을 시작합니다.
-3. **DNS 접두사를 구성합니다.** 트래픽 관리자 프로필에 고유한 DNS 접두사 이름을 제공합니다. 트래픽 관리자 도메인 이름에 대한 접두사만 지정할 수 있습니다.
-4. **구독을 선택합니다.** 적절한 Azure 구독을 선택합니다. 각 프로필은 단일 구독과 연결됩니다. 하나의 구독만 있는 경우 이 옵션이 표시되지 않습니다.
-5. **트래픽 라우팅 방법을 선택합니다.** **트래픽 라우팅 정책**에서 트래픽 라우팅 방법을 선택합니다. 트래픽 라우팅 방법에 대한 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)를 참조하세요.
-6. **“만들기”를 클릭하여 새 프로필을 만듭니다**. 프로필 구성이 완료되면 Azure 클래식 포털에 있는 트래픽 관리자 창에서 프로필을 찾을 수 있습니다.
-7. **Azure 클래식 포털에서 끝점, 모니터링 및 추가 설정을 구성합니다.** 빠른 생성을 사용하면 기본 설정만 구성할 수 있기 때문에 원하는 구성을 완료하려면 끝점 목록 및 끝점 장애 조치 순서와 같은 추가 설정을 구성해야 합니다.
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
 
-## 프로필 사용 안 함, 사용 또는 삭제
+# <a name="manage-an-azure-traffic-manager-profile"></a>Manage an Azure Traffic Manager profile
 
-구성된 끝점에 대한 사용자 요청을 참조하지 않도록 기존 트래픽 관리자 프로필을 사용하지 않도록 설정할 수 있습니다. 트래픽 관리자 프로필을 사용하지 않도록 설정하면 프로필 자체 및 프로필에 포함된 정보는 그대로 유지되며 트래픽 관리자 인터페이스에서 편집할 수 있습니다. 프로필을 다시 사용하도록 설정하려는 경우, Azure 클래식 포털에서 쉽게 설정할 수 있으며 조회가 다시 시작됩니다. Azure 클래식 포털에서 트래픽 관리자 프로필을 만들면 자동으로 활성화됩니다. 프로필이 더 이상 필요하지 않은 경우 프로필을 삭제할 수 있습니다.
+Traffic Manager profiles use traffic-routing methods to control the distribution of traffic to your cloud services or website endpoints. This article explains how to create and manage these profiles.
 
-### 프로필을 사용하지 않도록 설정하려면
+## <a name="create-a-traffic-manager-profile-using-quick-create"></a>Create a Traffic Manager profile using Quick Create
 
-1. 인터넷에서 특정 위치의 IP 주소나 다른 이름에 대한 적절한 레코드 유형 및 포인터를 사용하도록 인터넷 DNS 서버의 DNS 리소스 레코드를 수정합니다. 즉, 트래픽 관리자 프로필의 도메인 이름을 가리키는 CNAME 리소스 레코드를 사용하지 않도록 인터넷 DNS 서버의 DNS 리소스 레코드를 변경 합니다.
-2. 트래픽 관리자 프로필 설정을 통해 끝점에 보내는 트래픽이 중지됩니다.
-3. 사용하지 않도록 설정할 프로필을 선택합니다. 트래픽 관리자 페이지에서 프로필을 선택하려면 프로필 이름 옆에 있는 열을 클릭하여 프로필을 강조표시합니다. 프로필 이름 또는 이름 옆의 화살표를 클릭하지 마세요. 클릭하면 프로필 설정 페이지로 이동합니다.
-4. 프로필을 선택한 후 페이지의 맨 아래에서 **사용 안 함**을 클릭합니다.
+You can quickly create a Traffic Manager profile by using Quick Create in the Azure classic portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover traffic routing method, or monitoring settings. After creating your profile, you can configure these settings in the Azure classic portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a few of endpoints.
 
-### 프로필을 사용하려면
+### <a name="to-create-a-traffic-manager-profile"></a>To create a Traffic Manager profile
 
-1. 사용하도록 설정하려는 프로필을 선택합니다. 트래픽 관리자 페이지에서 프로필을 선택하려면 프로필 이름 옆에 있는 열을 클릭하여 프로필을 강조표시합니다. 프로필 이름 또는 이름 옆의 화살표를 클릭하지 마세요. 클릭하면 프로필 설정 페이지로 이동합니다.
-2. 프로필을 선택한 후 페이지의 맨 아래에서 **사용**을 클릭합니다.
-3. 회사 도메인 이름이 트래픽 관리자 프로필의 도메인 이름으로 매핑하는 CNAME 레코드 종류를 사용하여 인터넷 DNS 서버의 DNS 리소스 레코드를 수정합니다. 자세한 내용은 [회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정](traffic-manager-point-internet-domain.md)을 참조하세요.
-4. 트래픽은 끝점에 전달되어 다시 시작됩니다.
+1. **Deploy your cloud services and websites to your production environment.** For more information about cloud services, see [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). For more information about websites, see [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 
-### 프로필을 삭제하려면
-
-1. 인터넷 DNS 서버의 DNS 리소스 레코드에서 트래픽 관리자 프로필의 도메인 이름을 가리키는 CNAME 리소스 레코드를 더 이상 사용하지 않는지 확인합니다.
-2. 삭제할 프로필을 선택합니다. 트래픽 관리자 페이지에서 프로필을 선택하려면 프로필 옆에 있는 열을 클릭하여 프로필을 강조표시합니다. 프로필 이름 또는 이름 옆의 화살표를 클릭하지 마세요. 클릭하면 프로필 설정 페이지로 이동합니다.
-4. 프로필을 선택한 후 페이지의 맨 아래에서 **삭제**를 클릭합니다.
-
-## 트래픽 관리자 프로필 변경 기록 확인
-
-Azure 클래식 포털의 관리 서비스에서 트래픽 관리자 프로필의 변경 기록을 확인할 수 있습니다.
-
-### 트래픽 관리자 변경 기록을 보려면
-
-1. Azure 클래식 포털의 왼쪽 창에서 **관리 서비스**를 클릭합니다.
-2. 관리 서비스 페이지에서 **작업 로그**를 클릭합니다.
-3. 작업 로그 페이지에서 필터링을 통해 트래픽 관리자 프로필의 변경 기록을 확인할 수 있습니다. 필터링 옵션을 선택한 후 확인 표시를 클릭하여 결과를 확인합니다.
-   - 모든 프로필의 프로필 변경 내용을 확인하려면 구독 및 시간 범위를 선택하고 **형식** 바로 가기 메뉴에서 **트래픽 관리자**를 선택합니다.
-   - 프로필 이름으로 필터링하려면 **서비스 이름** 필드에 프로필 이름을 입력하거나 바로 가기 메뉴에서 프로필을 선택합니다.
-   - 각 개별 변경 내용을 자세히 보려면 변경된 행을 선택하고 페이지 맨 아래에서 **세부 정보**를 클릭합니다. **작업 세부 정보** 창에서 작업의 일부로 작성되거나 업데이트된 API 개체의 XML 표현을 확인하고 XML 코드를 클립보드에 복사할 수 있습니다.
+2. **Log in to the Azure classic portal.** Click **New** on the lower left of the portal, click **Network Services > Traffic Manager**, and then click **Quick Create** to begin configuring your profile.
+3. **Configure the DNS prefix.** Give your traffic manager profile a unique DNS prefix name. You can specify only the prefix for a Traffic Manager domain name.
+4. **Select the subscription.** Select the appropriate Azure subscription. Each profile is associated with a single subscription. If you only have one subscription, this option does not appear.
+5. **Select the traffic routing method.** Select the traffic routing method in **traffic routing Policy**. For more information about traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
+6. **Click "Create" to create the profile**. When the profile configuration is completed, you can locate your profile in the Traffic Manager pane in the Azure classic portal.
+7. **Configure endpoints, monitoring, and additional settings in the Azure classic portal.** Using Quick Create only configures basic settings. It is necessary to configure additional settings such as the list of endpoints and the endpoint failover order.
 
 
-## 다음 단계
+## <a name="disable,-enable,-or-delete-a-profile"></a>Disable, enable, or delete a profile
 
-[끝점 추가](traffic-manager-endpoints.md)
+You can disable an existing profile so that Traffic Manager does not refer user requests to the configured endpoints. When you disable a Traffic Manager profile, the profile and the information contained in the profile remain intact and can be edited in the Traffic Manager interface.  Referrals resume when you re-enable the profile. When you create a Traffic Manager profile in the Azure classic portal, it's automatically enabled. If you decide a profile is no longer necessary, you can delete it.
 
-[장애 조치(Failover) 라우팅 방법 구성](traffic-manager-configure-failover-routing-method.md)
+### <a name="to-disable-a-profile"></a>To disable a profile
 
-[라운드 로빈 라우팅 방법 구성](traffic-manager-configure-round-robin-routing-method.md)
+1. If you are using a custom domain name, change the CNAME record on your Internet DNS server so that it no longer points to your Traffic Manager profile.
+2. Traffic stops being directed to the endpoints through the Traffic Manager profile settings.
+3. Select the profile that you want to disable. On the Traffic Manager page, highlight the profile by clicking the column next to the profile name. Note, clicking the name of the profile or the arrow next to the name opens the settings page for the profile.
+4. After selecting the profile, click **Disable** at the bottom of the page.
 
-[성능 라우팅 방법 구성](traffic-manager-configure-performance-routing-method.md)
+### <a name="to-enable-a-profile"></a>To enable a profile
 
-[트래픽 관리자 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)
+1. Select the profile that you want to disable. On the Traffic Manager page, highlight the profile by clicking the column next to the profile name. Note, clicking the name of the profile or the arrow next to the name opens the settings page for the profile.
+2. After selecting the profile, click **Enable** at the bottom of the page.
+3. If you are using a custom domain name, create a CNAME resource record on your Internet DNS server to point to the domain name of your Traffic Manager profile.
+4. Traffic is directed to the endpoints again.
 
-<!---HONumber=AcomDC_0824_2016-->
+### <a name="to-delete-a-profile"></a>To delete a profile
+
+1. Ensure that the DNS resource record on your Internet DNS server no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.
+2. Select the profile that you want to disable. On the Traffic Manager page, highlight the profile by clicking the column next to the profile name. Note, clicking the name of the profile or the arrow next to the name opens the settings page for the profile.
+3. After selecting the profile, click **Delete** at the bottom of the page.
+
+## <a name="view-traffic-manager-profile-change-history"></a>View Traffic Manager profile change history
+
+You can view the change history for your Traffic Manager profile in the Azure classic portal in Management Services.
+
+### <a name="to-view-your-traffic-manager-change-history"></a>To view your Traffic Manager change history
+
+1. In the left pane of the Azure classic portal, click **Management Services**.
+2. On the Management Services page, click **Operation Logs**.
+3. On the Operation Logs page, you can filter to view the change history for your Traffic Manager profile. After selecting your filtering options, click the checkmark to view the results.
+
+   - To view the changes for all your profiles, select your subscription and time range and then select **Traffic Manager** from the **Type** shortcut menu.
+   - To filter by profile name, type the name of the profile in the **Service Name** field or select it from the shortcut menu.
+   - To view details for each individual change, select the row with the change that you want to view, and then click **Details** at the bottom of the page. In the **Operation Details** window, you can view the XML representation of the API object that was created or updated as part of the operation.
+
+## <a name="next-steps"></a>Next steps
+
+- [Add an endpoint](traffic-manager-endpoints.md)
+- [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
+- [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
+- [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+- [Point a company Internet domain to a Traffic Manager domain name](traffic-manager-point-internet-domain.md)
+- [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

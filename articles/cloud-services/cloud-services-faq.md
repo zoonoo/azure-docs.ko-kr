@@ -1,70 +1,79 @@
 <properties
-	pageTitle="클라우드 서비스 FAQ | Microsoft Azure"
-	description="클라우드 서비스에 대한 질문과 대답입니다."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Cloud Services FAQ | Microsoft Azure"
+    description="Frequently asked questions about Cloud Services."
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="adegeo"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/19/2016"
+    ms.author="adegeo"/>
 
-# 클라우드 서비스 FAQ
-이 문서는 Microsoft Azure 클라우드 서비스에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 방문할 수 있습니다. 크기 정보는 [클라우드 서비스 VM 크기 페이지](cloud-services-sizes-specs.md)를 참조할 수도 있습니다.
 
-## 인증서
+# <a name="cloud-services-faq"></a>Cloud Services FAQ
+This article answers some frequently asked questions about Microsoft Azure Cloud Services. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
 
-### 어디에 내 인증서를 설치해야 하나요?
+## <a name="certificates"></a>Certificates
 
-- 개인 키를 포함한 **내** 응용 프로그램 인증서(*.pfx, *.p12)
+### <a name="where-should-i-install-my-certificate?"></a>Where should I install my certificate?
 
-- **CA** 모든 중간 인증서를 이 저장소(정책 및 하위 CA)로 이동시킵니다.
+- **My**  
+Application Certificate with private key (\*.pfx, \*.p12).
 
-- **루트** 루트 CA 저장소이므로 기본 루트 CA 인증서를 여기로 이동시켜야 합니다.
+- **CA**  
+All your intermediate certificates go in this store (Policy and Sub CAs).
 
-### 만료된 인증서를 제거할 수 없습니다.
+- **ROOT**  
+The root CA store, so your main root CA cert should go here.
 
-Azure에서는 사용 중인 인증서를 제거할 수 없습니다. 인증서를 사용하는 배포를 삭제하거나 다른 또는 갱신된 인증서로 배포를 업데이트해야 합니다.
+### <a name="i-can't-remove-expired-certificate"></a>I can't remove expired certificate
 
-### 만료된 인증서 삭제
+Azure prevents you from removing a certificate while it is in use. You need to either delete the deployment that uses the certificate, or update the deployment with a different or renewed certificate.
 
-인증서를 사용하지 않으면 [Remove-AzureCertificate](https://msdn.microsoft.com/library/azure/mt589145.aspx) PowerShell cmdlet을 사용하여 인증서를 제거할 수 있습니다.
+### <a name="delete-an-expired-certificate"></a>Delete an expired certificate
 
-### 확장명이 Microsoft Azure 서비스 관리라는 인증서가 만료되었습니다.
+As long as the certificate is not in use, you can use the [Remove-AzureCertificate](https://msdn.microsoft.com/library/azure/mt589145.aspx) PowerShell cmdlet to remove a certificate.
 
-이러한 인증서는 원격 데스크톱 확장과 같은 클라우드 서비스에 확장명을 추가할 때마다 생성됩니다. 이러한 인증서는 확장명의 개인 구성을 암호화하고 암호 해독하는 경우에만 사용됩니다. 이러한 인증서가 만료되는 경우 중요하지 않습니다. 만료 날짜를 확인하지 않습니다.
+### <a name="i-have-expired-certificates-named-windows-azure-service-management-for-extensions"></a>I have expired certificates named Windows Azure Service Management for Extensions
 
-### 삭제한 인증서가 다시 나타납니다.
+These certificates are created whenever an extension is added to the cloud service such as the Remote Desktop extension. These certificates are only used for encrypting and decrypting the private configuration of the extension. It does not matter if these certificates expire. The expiration date is not checked.
 
-대개 Visual Studio와 같은 사용 중인 도구 때문에 계속 다시 나타납니다. 인증서를 사용하는 도구에 다시 연결할 때마다 다시 Azure에 업로드됩니다.
+### <a name="certificates-i-have-deleted-keep-reappearing"></a>Certificates I have deleted keep reappearing
 
-### 내 인증서가 자꾸 없어집니다.
+These keep reappearing most likely because of a tool you're using, such as Visual Studio. Whenever you reconnect with a tool that is using a certificate, it will again be uploaded to Azure.
 
-가상 컴퓨터 인스턴스가 재활용되면 모든 로컬 변경 내용이 손실됩니다. [시작 태스크](cloud-services-startup-tasks.md)를 사용하여 역할이 시작될 때마다 가상 컴퓨터에 인증서를 설치합니다.
+### <a name="my-certificates-keep-disappearing"></a>My certificates keep disappearing
 
-### 포털에서 내 관리 인증서를 찾을 수 없습니다.
+When the virtual machine instance recycles, all local changes are lost. Use a [startup task](cloud-services-startup-tasks.md) to install certificates to the virtual machine each time the role starts.
 
-[관리 인증서](..\azure-api-management-certs.md) Azure 클래식 포털에만 사용할 수 있습니다. 현재의 Azure 포털에서는 관리 인증서를 사용하지 않습니다.
+### <a name="i-cannot-find-my-management-certificates-in-the-portal"></a>I cannot find my management certificates in the portal
 
-### 어떻게 하면 관리 인증서를 사용하지 않도록 설정할 수 있습니까?
+[Management certificates](..\azure-api-management-certs.md) are only avialable in the Azure Classic Portal. The current Azure portal does not use management certificates. 
 
-[관리 인증서](..\azure-api-management-certs.md)는 사용하지 않도록 설정할 수 없습니다. 더 이상 사용되게 하지 않으려면 Azure 클래식 포털을 통해 삭제합니다.
+### <a name="how-can-i-disable-a-management-certificate?"></a>How can I disable a management certificate?
 
-### 특정 IP 주소에 대한 SSL 인증서를 만들려면 어떻게 해야 합니까?
+[Management certificates](..\azure-api-management-certs.md) cannot be disabled. You delete them through the Azure Classic Portal when you do not want them to be used anymore.
 
-[인증서 만들기 자습서](cloud-services-certs-create.md)에 나오는 지시를 따릅니다. IP 주소를 DNS 이름으로 사용합니다.
+### <a name="how-do-i-create-an-ssl-certificate-for-a-specific-ip-address?"></a>How do I create an SSL certificate for a specific IP address?
 
-## 문제 해결
+Follow the directions in the [create a certificate tutorial](cloud-services-certs-create.md). Use the IP address as the DNS Name.
 
-### 여러 VIP 클라우드 서비스에서 IP를 예약할 수 없습니다.
+## <a name="troubleshooting"></a>Troubleshooting
 
-우선, IP를 예약하려고 하는 가상 컴퓨터 인스턴스가 켜져 있는지 확인합니다. 다음으로, 스테이징 및 프로덕션 배포 모두에 대해 예약된 IP를 사용해야 합니다. 배포를 업그레이드하는 동안 설정을 변경하지 **않습니다**.
+### <a name="i-can't-reserve-an-ip-in-a-multi-vip-cloud-service"></a>I can't reserve an IP in a multi-VIP cloud service
 
-<!---HONumber=AcomDC_0914_2016-->
+First, make sure that the virtual machine instance that you're trying to reserve the IP for is turned on. Second, make sure that you're using Reserved IPs for bother the staging and production deployments. **Do not** change the settings while the deployment is upgrading.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

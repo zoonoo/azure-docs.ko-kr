@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 가상 컴퓨터의 SQL Server에 대한 AlwaysOn 가용성 그룹용 수신기 만들기"
-   description="Azure 가상 컴퓨터의 SQL Server에 대한 AlwaysOn 가용성 그룹용 수신기를 만드는 단계별 지침"
+   pageTitle="Create Listener for AlwaysOn availabilty group for SQL Server in Azure Virtual Machines"
+   description="Step-by-step instructions for creating a listener for an AlwaysOn availabilty group for SQL Server in Azure Virtual Machines"
    services="virtual-machines"
    documentationCenter="na"
    authors="MikeRayMSFT"
@@ -16,190 +16,191 @@
    ms.date="07/12/2016"
    ms.author="MikeRayMSFT"/>
 
-# Azure에서 AlwaysOn 가용성 그룹에 대한 내부 부하 분산 장치 구성
 
-이 항목에서는 리소스 관리자 모델에서 실행 중인 Azure 가상 컴퓨터에서 SQL Server AlwaysOn 가용성 그룹에 대한 내부 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 컴퓨터에 있는 경우 AlwaysOn 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
+# <a name="configure-an-internal-load-balancer-for-an-alwayson-availability-group-in-azure"></a>Configure an internal load balancer for an AlwaysOn availability group in Azure
 
-이 작업을 완료하려면 리소스 관리자 모델의 Azure 가상 컴퓨터에 SQL Server AlwaysOn 가용성 그룹이 배포되어야 합니다. 두 SQL Server 가상 컴퓨터는 동일한 가용성 집합에 속해야 합니다. [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 사용하여 Azure Resource Manager에서 AlwaysOn 가용성 그룹을 자동으로 만들 수 있습니다. 이 템플릿은 내부 부하 분산 장치를 자동으로 만듭니다.
+This topic explains how to create an internal load balancer for a SQL Server AlwaysOn availability group in Azure virtual machines running in resource manager model. An AlwaysOn availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans mutliple regions, each region needs a load balancer.
 
-원하는 경우 [수동으로 AlwaysOn 가용성 그룹을 구성](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)할 수 있습니다.
+To complete this task, you need to have a SQL Server AlwaysOn availability group deployed on Azure virtual machines in resource manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the AlwaysOn availability group in Azure resource manager. This template automatically creates the internal load balancer for you. 
 
-이 항목에서는 가용성 그룹이 이미 구성되어 있어야 합니다.
+If you prefer, you can [manually configure an AlwaysOn availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
-관련 항목은 다음과 같습니다.
+This topic requires that your availablity groups are already configured.  
 
- - [Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+Related topics include:
+
+ - [Configure AlwaysOn Availability Groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
  
- - [Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+ - [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-## 단계
+## <a name="steps"></a>Steps
 
-이 문서를 통해 Azure 포털에서 부하 분산 장치를 만들고 구성합니다. 완료 후에는 AlwaysOn 가용성 그룹 수신기에 대한 부하 분산 장치에서 IP 주소를 사용하도록 클러스터를 구성합니다.
+By walking through this document you will create and configure a load balancer in the Azure portal. After that is complete, you will configure the cluster to use the IP address from the load balancer for the AlwaysOn availability group listener.
 
-## Azure 포털에서 부하 분산 장치 만들기 및 구성
+## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Create and configure the load balancer in the Azure portal
 
-작업의 이 부분에서는 Azure 포털에서 다음 단계를 수행합니다.
+In this portion of the task you will do the following steps in the Azure portal:
 
-1. 부하 분산 장치 만들기 및 IP 주소 구성
+1. Create the load balancer and configure the IP address
 
-1. 백 엔드 풀 구성
+1. Configure the backend pool
 
-1. 프로브 만들기
+1. Create the probe 
 
-1. 부하 분산 규칙 설정
+1. Set the load balancing rules
 
->[AZURE.NOTE] SQL Server가 다른 리소스 그룹 및 지역에 있는 경우 이 모든 단계를 각 리소스 그룹마다 한 번씩 두 번 수행합니다.
+>[AZURE.NOTE] If the SQL Servers are in different resource groups and regions, you will do all of these steps twice, once in each resource group.
 
-## 1\. 부하 분산 장치 만들기 및 IP 주소 구성
+## <a name="1.-create-the-load-balancer-and-configure-the-ip-address"></a>1. Create the load balancer and configure the IP address
 
-첫 번째 단계는 부하 분산 장치를 만드는 것입니다. Azure 포털에서 SQL Server 가상 컴퓨터를 포함하는 리소스 그룹을 엽니다. 리소스 그룹에서 **추가**를 클릭합니다.
+The first step is to create the load balancer. In the Azure portal, open the resource group that contains the SQL Server virtual machines. In the resource group, click **Add**.
 
-- **부하 분산 장치**를 검색합니다. 검색 결과에서 **Microsoft**에서 게시하는 **부하 분산 장치**를 선택합니다.
+- Search for **load balancer**. From the search results select **Load Balancer**, which is published by **Microsoft**.
 
-- **부하 분산 장치** 블레이드에서 **만들기**를 클릭합니다.
+- On the **Load Balancer** blade, click **Create**.
 
-- **부하 분산 장치 만들기**에서 다음과 같이 부하 분산 장치를 구성합니다.
+- On **Create load balancer**, configure the the load balancer as follows:
 
-| 설정 | 값 |
+| Setting | Value |
 | ----- | ----- |
-| **Name** | 부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
-| **스키마** | **내부** |
-| **가상 네트워크** | SQL Server가 있는 가상 네트워크를 선택합니다. |
-| **서브넷** | SQL Server가 있는 서브넷을 선택합니다. |
-| **구독** | 구독이 여러 개인 경우 이 필드가 나타날 수 있습니다. 이 리소스와 연결할 구독을 선택합니다. 일반적으로 가용성 그룹에 대한 모든 리소스와 동일한 구독입니다. |
-| **리소스 그룹** | SQL Server가 있는 리소스 그룹을 선택합니다. | 
-| **위치** | SQL Server가 있는 Azure 위치를 선택합니다. |
+| **Name** | A text name representing the load balancer. For example, **sqlLB**. |
+| **Schema** | **Internal** |
+| **Virtual network** | Choose the virtual network that the SQL Servers are in.   |
+| **Subnet**  | Choose the subnet that the SQL Servers are in. |
+| **Subscription** | If you have multiple subscriptions, this field may appear. Select the subscription that you want associated with this resource. It is normally the same subcription as all of the resources for the availability group.  |
+| **Resource group** | Choose the resource group that the SQL Servers are in. | 
+| **Location** | Choose the Azure location that the SQL Servers are in. |
 
-- **만들기**를 클릭합니다.
+- Click **Create**. 
 
-위에서 구성한 부하 분산 장치가 만들어집니다. 부하 분산 장치는 특정 네트워크, 서브넷, 리소스 그룹 및 위치에 속합니다. 완료되면 Azure에서 부하 분산 장치 설정을 확인합니다.
+Azure creates the load balancer that you configured above. The load balancer belongs to a specific network, subnet, resource group, and location. After Azure completes, verify the load balancer settings in Azure. 
 
-이제 부하 분산 장치 IP 주소를 구성합니다.
+Now, configure the load balancer IP address.  
 
-- 부하 분산 장치 **설정** 블레이드에서 **IP 주소**를 클릭합니다. **IP 주소** 블레이드에는 이 장치가 SQL Server와 동일한 가상 네트워크의 개인 부하 분산 장치임이 표시됩니다.
+- On the load balancer **Settings** blade, click **IP address**. The **IP address** blade shows that this is a private load balancer on the same virtual network as your SQL Servers. 
 
-- 다음 설정을 지정합니다.
+- Set the following settings: 
 
-| 설정 | 값 |
+| Setting | Value |
 | ----- | ----- |
-| **서브넷** | SQL Server가 있는 서브넷을 선택합니다. |
-| **할당** | **정적** |
-| **IP 주소** | 서브넷에서 사용되지 않는 가상 IP 주소를 입력합니다. |
+| **Subnet** | Choose the subnet that the SQL Servers are in. |
+| **Assignment** | **Static** |
+| **IP address** | Type an unused virtual IP address from the subnet.  |
 
-- 설정을 저장합니다.
+- Save the settings.
 
-이제 부하 분산 장치에 IP 주소가 지정됩니다. 이 IP 주소를 기록합니다. 클러스터에서 수신기를 만들 때 이 IP 주소를 사용합니다. 이 주소는 이 문서 뒷부분의 PowerShell 스크립트에서 `$ILBIP` 변수에 대해 사용됩니다.
+Now the load balancer has an IP address. Record this IP address. You will use this IP address when you create a listener on the cluster. In a PowerShell script later in this article, use this address for the `$ILBIP` variable.
 
 
 
-## 2\. 백 엔드 풀 구성
+## <a name="2.-configure-the-backend-pool"></a>2. Configure the backend pool
 
-다음 단계는 백 엔드 주소 풀을 만드는 것입니다. 백 엔드 주소 풀 *백 엔드 풀*이 호출됩니다. 이 경우 백 엔드 풀은 가용성 그룹에 있는 두 SQL Server의 주소입니다.
+The next step is to create a backend address pool. Azure calls the backend address pool *backend pool*. In this case, the backend pool is the addresses of the two SQL Servers in your availability group. 
 
-- 리소스 그룹에서, 만든 부하 분산 장치를 클릭합니다.
+- In your resource group, click on the load balancer you created. 
 
-- **설정**에서 **백 엔드 풀**을 클릭합니다.
+- On **Settings**, click **Backend pools**.
 
-- **백 엔드 주소 풀**에서 **추가**를 클릭하여 백 엔드 주소 풀을 만듭니다.
+- On **Backend address pools**, click **Add** to create a backend address pool. 
 
-- **백 엔드 풀 추가**의 **이름**에 백 엔드 풀의 이름을 입력합니다.
+- On **Add backend pool** under **Name**, type a name for the backend pool.
 
-- **가상 컴퓨터**에서 **+ 가상 컴퓨터 추가**를 클릭합니다.
+- Under **Virtual machines** click **+ Add a virtual machine**. 
 
-- **가상 컴퓨터 선택**에서 **가용성 집합 선택**을 클릭하고 SQL Server 가상 컴퓨터가 속한 가용성 집합을 지정합니다.
+- Under **Choose virtual machines** click **Choose an availability set** and specify the availablity set that the SQL Server virtual machines belong to.
 
-- 가용성 집합을 선택한 후 **가상 컴퓨터 선택**을 클릭합니다. 가용성 그룹에서 SQL Server 인스턴스를 호스트하는 두 가상 컴퓨터를 클릭합니다. **선택**을 클릭합니다.
+- After you have chosen the availability set, click **Choose the virtual machines**. Click the two virtual machines that host the SQL Server instances in the availability group. Click **Select**. 
 
-- **확인**을 클릭하여 **가상 컴퓨터 선택** 및 **백 엔드 풀 추가**에 대한 블레이드를 닫습니다.
+- Click **OK** to close the blades for **Choose virtual machines**, and **Add backend pool**. 
 
-백 엔드 주소 풀에 대한 설정이 업데이트됩니다. 이제 가용성 집합에는 두 개의 SQL Server 풀이 있습니다.
+Azure updates the settings for the backend address pool. Now your availability set has a pool of two SQL Servers.
 
-## 3\. 프로브 만들기
+## <a name="3.-create-a-probe"></a>3. Create a probe
 
-다음 단계는 프로브를 만드는 것입니다. 프로브는 Azure에서 현재 가용성 그룹 수신기를 소유하는 SQL Server를 확인하는 방법을 정의합니다. Azure는 프로브를 만들 때 정의한 포트의 IP 주소를 기반으로 서비스를 프로브합니다.
+The next step is to create a probe. The probe defines how Azure will verify which of the SQL Servers currently owns the availability group listener. Azure will probe the service based on IP address on a port that you define when you create the probe.
 
-- 부하 분산 장치 **설정** 블레이드에서 **프로브**를 클릭합니다.
+- On the load balancer **Settings** blade, click **Probes**. 
 
-- **프로브** 블레이드에서 **추가**를 클릭합니다.
+- On the **Probes** blade, click **Add**.
 
-- **프로브 추가** 블레이드에서 프로브를 구성합니다. 다음 값을 사용하여 프로브를 구성합니다.
+- Configure the probe on the **Add probe** blade. Use the following values to configure the probe:
 
-| 설정 | 값 |
+| Setting | Value |
 | ----- | ----- |
-| **Name** | 프로브를 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointProbe**입니다. |
-| **프로토콜** | **TCP** |
-| **포트** | 사용 가능한 모든 포트를 사용할 수 있습니다. 예를 들어 *59999*입니다. |
-| **간격** | *5* | 
-| **비정상 임계값** | *2* | 
+| **Name** | A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
+| **Protocol** | **TCP** |
+| **Port** | You may use any available port. For example, *59999*.    |
+| **Interval**  | *5* | 
+| **Unhealthy threshold**  | *2* | 
 
-- **확인**을 클릭합니다.
+- Click **OK**. 
 
->[AZURE.NOTE] 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](http://technet.microsoft.com/library/cc753558.aspx)을 참조하세요.
+>[AZURE.NOTE] Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. See [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx) for more information. 
 
-프로브가 만들어집니다. 프로브는 가용성 그룹에 대한 수신기가 있는 SQL Server를 테스트하는 데 사용됩니다.
+Azure creates the probe. Azure will use the probe to test which SQL Server has the listener for the availability group.
 
-## 4\. 부하 분산 규칙 설정
+## <a name="4.-set-the-load-balancing-rules"></a>4. Set the load balancing rules
 
-부하 분산 규칙을 설정합니다. 부하 분산 규칙은 부하 분산 장치가 트래픽을 SQL Server로 라우트하는 방법을 구성합니다. 이 부하 분산 장치의 경우 한 번에 두 SQL Server 중 하나만 가용성 그룹 수신기 리소스를 소유하므로 DSR(Direct Server Return)이 사용됩니다.
+Set the load balancing rules. The load balancing rules configure how the load balancer routes traffic to the SQL Servers. For this load balancer you will enable direct server return because only one of the two SQL Servers will ever own the availability group listener resource at a time.
 
-- 부하 분산 장치 **설정** 블레이드에서 **부하 분산 규칙**을 클릭합니다.
+- On the load balancer **Settings** blade, click **Load balancing rules**. 
 
-- **부하 분산 규칙** 블레이드에서 **추가**를 클릭합니다.
+- On the **Load balancing rules** blade, click **Add**.
 
-- **부하 분산 규칙 추가** 블레이드를 사용하여 부하 분산 규칙을 구성합니다. 다음 설정을 사용합니다.
+- Use the **Add load balancing rules** blade to configure the load balancing rule. Use the following settings: 
 
-| 설정 | 값 |
+| Setting | Value |
 | ----- | ----- |
-| **Name** | 부하 분산 규칙을 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointListener**입니다. |
-| **프로토콜** | **TCP** |
-| **포트** | *1433* |
-| **백 엔드 포트** | *1433*. 이 규칙은 **부동 IP(Direct Server Return)**를 사용하므로 이 설정이 사용되지 않습니다. |
-| **프로브** | 이 부하 분산 장치에 대해 만든 프로브의 이름을 사용합니다. |
-| **세션 지속성** | **없음** | 
-| **유휴 제한 시간(분)** | *4* | 
-| **부동 IP(Direct Server Return)** | **사용** | 
+| **Name** | A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
+| **Protocol** | **TCP** |
+| **Port** | *1433*   |
+| **Backend Port** | *1433*. Note that this will be disabled because this rule uses **Floating IP (direct server return)**.   |
+| **Probe** | Use the name of the probe that you created for this load balancer. |
+| **Session persistance**  | **None** | 
+| **Idle timeout (minutes)**  | *4* | 
+| **Floating IP (direct server return)**  | **Enabled** | 
 
- >[AZURE.NOTE] 블레이드에서 모든 설정을 보려면 아래로 스크롤해야 할 수도 있습니다.
+ >[AZURE.NOTE] You might have to scroll down on the blade to see all of the settings.
 
-- **확인**을 클릭합니다.
+- Click **OK**. 
 
-- 부하 분산 규칙이 구성됩니다. 이제 가용성 그룹에 대한 수신기를 호스트하는 SQL Server로 트래픽을 라우트하도록 부하 분산 장치가 구성되었습니다.
+- Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server that hosts the listener for the availability group. 
 
-현재 리소스 그룹에는 두 SQL Server 컴퓨터에 모두 연결하는 하나의 부하 분산 장치가 있습니다. 부하 분산 장치에는 SQL Server AlwaysOn 가용성 그룹 수신기에 대한 IP 주소도 있으므로 두 컴퓨터 중 하나가 가용성 그룹에 대한 요청에 응답할 수 있습니다.
+At this point the resource group has a load balancer, connecting to both SQL Server machines. The load balancer also contains an IP address for the SQL Server AlwaysOn availablity group listener so that either machine can respond to requests for the availability groups.
 
->[AZURE.NOTE] SQL Server가 두 개의 별도 지역에 있는 경우 다른 지역에서 단계를 반복합니다. 각 지역마다 하나의 부하 분산 장치가 필요합니다.
+>[AZURE.NOTE] If your SQL Servers are in two separate regions, repeat the steps in the other region. Each region requires a load balancer. 
 
-## 부하 분산 장치 IP 주소를 사용하도록 클러스터 구성 
+## <a name="configure-the-cluster-to-use-the-load-balancer-ip-address"></a>Configure the cluster to use the load balancer IP address 
 
-다음 단계는 클러스터에서 수신기를 구성하고 수신기를 온라인 상태로 전환하는 것입니다. 이 작업을 완료하려면 다음을 수행합니다.
+The next step is to configure the listener on the cluster, and bring the listener online. To accomplish this, do the following: 
 
-1. 장애 조치(failover) 클러스터에서 가용성 그룹 수신기 만들기
+1. Create the availablity group listener on the failover cluster 
 
-1. 수신기를 온라인 상태로 만들기
+1. Bring the listener online
 
-## 1\. 장애 조치(failover) 클러스터에서 가용성 그룹 수신기 만들기
+## <a name="1.-create-the-availablity-group-listener-on-the-failover-cluster"></a>1. Create the availablity group listener on the failover cluster
 
-이 단계에서는 수동으로 장애 조치(Failover) 클러스터 관리자 및 SSMS(SQL Server Management Studio)에서 가용성 그룹 수신기를 만듭니다.
+In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio (SSMS).
 
-- RDP를 사용하여 주 복제본을 호스트하는 Azure 가상 컴퓨터에 연결합니다.
+- Use RDP to connect to the Azure virtual machine that hosts the primary replica. 
 
-- 장애 조치(failover) 클러스터 관리자를 엽니다.
+- Open Failover Cluster Manager.
 
-- **네트워크** 노드를 선택하고 클러스터 네트워크 이름을 확인합니다. 이 이름은 PowerShell 스크립트에서 `$ClusterNetworkName` 변수에 사용됩니다.
+- Select the **Networks** node, and note the cluster network name. This name will be used in the `$ClusterNetworkName` variable in the PowerShell script.
 
-- 클러스터 이름을 확장한 다음 **역할**을 클릭합니다.
+- Expand the cluster name, and then click **Roles**.
 
-- **역할** 창에서 가용성 그룹 이름을 마우스 오른쪽 단추로 클릭한 다음 **리소스 추가** > **클라이언트 액세스 지점**을 선택합니다.
+- In the **Roles** pane, right-click the availability group name and then select **Add Resource** > **Client Access Point**.
 
-- **이름** 상자에 이 새 수신기에 대한 이름을 입력하고 **다음**을 두 번 클릭한 다음 **마침**을 클릭합니다. 현재 온라인 상태에서 수신기 또는 리소스를 가져오지 마세요.
+- In the **Name** box, create a name for this new listener, then click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
 
- >[AZURE.NOTE] 새 수신기 이름은 응용 프로그램에서 SQL Server 가용성 그룹의 데이터베이스에 연결하는 데 사용할 네트워크 이름입니다.
+ >[AZURE.NOTE] The name for the new listener is the network name that applications will use to connect to databases in the SQL Server availability group.
 
-- **리소스** 탭을 클릭한 다음 방금 만든 클라이언트 액세스 지점을 확장합니다. IP 리소스를 마우스 오른쪽 단추로 클릭하고 속성을 클릭합니다. IP 주소의 이름을 적어둡니다. 이 이름은 PowerShell 스크립트에서 `$IPResourceName` 변수에 사용됩니다.
+- Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. You will use this name in the `$IPResourceName` variable in the PowerShell script.
 
-- **IP 주소**에서 **고정 IP 주소**를 클릭하고 Azure 포털에서 부하 분산 장치 IP 주소를 설정할 때 사용된 주소와 동일한 주소로 고정 IP 주소를 설정합니다. 이 주소에 대해 NetBIOS를 사용하도록 설정하고 **확인**을 클릭합니다. 솔루션이 여러 Azure Vnet에 걸쳐 있는 경우 각 IP 리소스에 대해 이 단계를 반복합니다.
+- Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used when you set the load balancer IP address on the Azure portal. Enable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
 
-- 현재 주 복제본을 호스트하는 클러스터 노드에서 관리자 권한으로 PowerShell ISE를 열고 새 스크립트에 다음 명령을 붙여넣습니다.
+- On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands into a new script.
 
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP Address resource name
@@ -209,60 +210,64 @@
     
         Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 
-- 변수를 업데이트하고 PowerShell 스크립트를 실행하여 새 수신기에 대한 IP 주소와 포트를 구성합니다.
+- Update the variables and run the PowerShell script to configure the IP address and port for the new listener.
 
- >[AZURE.NOTE] SQL Server가 별도 지역에 있는 경우 PowerShell 스크립트를 두 번 실행해야 합니다. 먼저 클러스터 네트워크 이름, 클러스터 IP 리소스 이름 및 첫 번째 리소스 그룹의 부하 분산 장치 IP 주소를 사용합니다. 그런 다음 클러스터 네트워크 이름, 클러스터 IP 리소스 이름 및 두 번째 리소스 그룹의 부하 분산 장치 IP 주소를 사용합니다.
+ >[AZURE.NOTE] If your SQL Servers are in separate regions, you need to run the PowerShell script twice. The first time use the cluster network name, cluster IP resource name, and load balancer IP address from the first resource group. The second time use the cluster network name, cluster IP resource name, and load balancer IP address from the second resource group.
 
-이제 클러스터에 가용성 그룹 수신기 리소스가 있습니다.
+Now the cluster has an availability group listener resource.
 
-## 2\. 수신기를 온라인 상태로 만들기
+## <a name="2.-bring-the-listener-online"></a>2. Bring the listener online
 
-구성된 가용성 그룹 수신기 리소스를 사용하여 수신기를 온라인 상태로 만들 수 있습니다. 이렇게 하면 응용 프로그램에서 수신기를 사용하여 가용성 그룹의 데이터베이스에 연결할 수 있습니다.
+With the availability group listener resource configured, you can bring the listener online so that applications can connect to databases in the availability group with the listener.
 
-- 다시 장애 조치(Failover) 클러스터 관리자로 이동합니다. **역할**을 확장한 다음 가용성 그룹을 강조 표시합니다. **리소스** 탭에서 수신기 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+- Navigate back to Failover Cluster Manager. Expand **Roles** and then highlight your Availability Group. On the **Resources** tab, right-click the listener name and click **Properties**.
 
-- **종속성** 탭을 클릭합니다. 여러 리소스가 나열되어 있으면 IP 주소에 AND가 아닌 OR 종속성이 있는지 확인합니다. **확인**을 클릭합니다.
+- Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**.
 
-- 수신기 이름을 마우스 오른쪽 단추로 클릭하고 **온라인 상태로 전환**을 클릭합니다.
-
-
-- 수신기가 온라인 상태로 전환되면 **리소스** 탭에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
-
-- 수신기 이름 리소스(IP 주소 리소스 이름이 아님)에 대한 종속성을 만듭니다. **확인**을 클릭합니다.
+- Right-click the listener name and click **Bring Online**.
 
 
-- SQL Server Management Studio를 시작하고 주 복제본에 연결합니다.
+- Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
+
+- Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
 
 
-- **AlwaysOn 고가용성** | **가용성 그룹** | **가용성 그룹 수신기**로 이동합니다.
+- Launch SQL Server Management Studio and connect to the primary replica.
 
 
-- 이제 장애 조치(Failover) 클러스터 관리자에서 만든 수신기 이름이 표시됩니다. 수신기 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+- Navigate to **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**. 
 
 
-- **포트** 상자에서 이전에 사용한 $EndpointPort(1433이 기본값임)를 사용하여 가용성 그룹 수신기에 대한 포트 번호를 지정한 다음 **확인**을 클릭합니다.
+- You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
 
-이제 리소스 관리자 모드에서 실행 중인 Azure 가상 컴퓨터의 SQL Server AlwaysOn 가용성 그룹이 만들어졌습니다.
 
-## 수신기에 대한 연결 테스트
+- In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
 
-연결을 테스트하려면
+You now have a SQL Server AlwaysOn availability group in Azure virtual machines running in resource manager mode. 
 
-1. 동일한 가상 네트워크에 있지만 복제본을 소유하지 않는 SQL Server로 RDP합니다. 클러스터의 다른 SQL Server가 될 수 있습니다.
+## <a name="test-the-connection-to-the-listener"></a>Test the connection to the listener
 
-1. **sqlcmd** 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 **sqlcmd** 연결을 설정합니다.
+To test the connection:
+
+1. RDP to a SQL Server that is in the same virtual network, but does not own the replica. This can be the other SQL Server in the cluster.
+
+1. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
 
         sqlcmd -S <listenerName> -E
 
-SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자동으로 연결합니다.
+The SQLCMD connection automatically connect to whichever instance of SQL Server hosts the primary replica. 
 
-## 지침 및 제한 사항
+## <a name="guidelines-and-limitations"></a>Guidelines and limitations
 
-내부 부하 분산 장치를 사용하는 Azure에서는 가용성 그룹 수신기에 다음과 같은 지침이 적용됩니다.
+Note the following guidelines on availablity group listener in Azure using internal load balancer:
 
-- 수신기는 부하 분산 장치로 구성되고 내부 부하 분산 장치 하나만 있기 때문에 클라우드 서비스당 하나의 내부 가용성 그룹 수신기만 지원됩니다. 그러나 외부 수신기는 여러 개를 만들 수 있습니다.
+- Only one internal availablity group listener is supported per cloud service because the listener is configured to the load balancer, and there is only one internal load balancer. However it is possible to create multipe external listeners. 
 
-- 내부 부하 분산 장치를 사용할 경우 동일한 가상 네트워크 내에서만 수신기에 액세스합니다.
+- With an internal load balancer you only access the listener from within the same virtual network.
  
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

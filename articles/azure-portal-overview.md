@@ -1,95 +1,96 @@
 <properties
-	pageTitle="Microsoft Azure 포털 개요"
-	description="Microsoft Azure 포털을 사용하는 방법에 대해 알아봅니다."
-	services=""
-	documentationCenter=""
-	authors="davidwrede"
-	manager="dwrede"
-	editor="jimbe"/>
+    pageTitle="Microsoft Azure portal overview"
+    description="Learn how to use the Microsoft Azure portal."
+    services=""
+    documentationCenter=""
+    authors="davidwrede"
+    manager="dwrede"
+    editor="jimbe"/>
 
 <tags
-	ms.service="na"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/16/2015"
-	ms.author="dwrede"/>
-
-# Microsoft Azure 포털 개요
-
-Microsoft Azure 포털은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다. 이 자습서는 포털에 익숙해지도록 이러한 주요 기능 중 일부를 사용하는 방법을 보여줍니다.
-- **포괄적인 마켓플레이스**를 사용하여 구입하거나 프로비전할 수 있는 Microsoft 및 다른 공급 업체의 수천 개의 항목을 탐색할 수 있습니다.
-- **통합되고 확장 가능한 브라우저 환경**을 사용하여 관심 있는 리소스를 쉽게 찾고 다양한 관리 작업을 수행할 수 있습니다.
-- **일관적인 관리 페이지**(또는 블레이드)를 사용하면 노출 설정, 작업, 대금 청구 정보, 상태 모니터링 및 사용 현황 데이터 등 일관된 방식으로 Azure의 다양한 서비스를 관리할 수 있습니다.
-- **개인 환경**을 사용하면 로그인할 때마다 확인하려는 정보를 표시하는 사용자 지정된 시작 화면을 만들 수 있습니다. 또한 타일이 포함된 관리 블레이드를 사용자 지정할 수 있습니다.
-
- ![Azure 포털 UI 개요][UIOrientation]
-
-## 시작하기 전에
-
-이 자습서를 진행하려면 유효한 Azure 구독이 필요합니다. 없는 경우 지금 [무료 평가판에 등록](https://azure.microsoft.com/pricing/free-trial/)하세요. 구독한 후에는 [https://portal.azure.com]에서 포털에 액세스할 수 있습니다.
-
-## 리소스를 만드는 방법
-
-Azure에는 수천 개의 항목을 한 곳에서 만들 수 있는 마켓플레이스가 있습니다. 새 Windows Server 2012 VM을 만들려는 경우를 가정해 보겠습니다. +새로 만들기 허브는 마켓플레이스의 큐레이트된 주요 범주 집합에 대한 진입점입니다. 각 범주에는 모든 범주 및 검색을 표시하는 전체 마켓플레이스의 링크와 함께 소규모의 주요 항목 집합이 있습니다. 새 Windows Server 2012 VM을 만들려면 다음 작업을 수행합니다.
-
-1.	Windows Server 2012는 주요 항목이므로 계산 범주에서 선택할 수 있습니다.  
-2.	양식에서 몇 가지 기본 입력 항목을 작성합니다.
-3.	'만들기'를 클릭하면 VM이 즉시 프로비전되기 시작합니다.
-
-리소스가 만들어지면 알림 허브에서 알림이 제공되며 관리 블레이드(나중에 언제든지 리소스를 찾아볼 수 있음)가 열립니다.
-
-![포털 범주][PortalCategories]
+    ms.service="na"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="12/16/2015"
+    ms.author="dwrede"/>
 
 
-## 리소스를 찾는 방법
+# <a name="microsoft-azure-portal-overview"></a>Microsoft Azure portal overview
 
-자주 액세스하는 리소스는 항상 시작 보드에 고정할 수 있지만 자주 액세스하지 않는 항목은 검색해야 할 수 있습니다. 아래에 표시된 찾아보기 허브를 통해 모든 리소스를 확인할 수 있습니다. 구독별로 필터링하고, 열을 선택/크기 조정하고, 개별 항목을 클릭하여 관리 블레이드로 이동할 수 있습니다.
+The Microsoft Azure portal is a central place where you can provision and manage your Azure resources.  This tutorial will familiarize you with the portal and show you how to use some of these key capabilities:
+- A **comprehensive marketplace** that lets you browse through thousands of items from Microsoft and other vendors that can be purchased and/or provisioned.
+- A **unified and scalable browse experience** that makes it easy to find the resources you care about and perform various management operations.
+- **Consistent management pages** (or blades) that let you manage Azure’s wide variety of services through a consistent way of exposing settings, actions, billing information, health monitoring and usage data, and much more.
+- A **personal experience** that lets you create a customized start screen that shows the information that you want to see whenever you log in.  You can also customize any of the management blades that contain tiles.
 
-![찾아보기 허브][BrowseHub]
+ ![Azure Portal UI Orientation][UIOrientation]
 
-## 리소스에 대한 액세스 권한을 관리 및 위임하는 방법
+## <a name="before-you-get-started"></a>Before you get started
 
-이 블레이드에서는 원격 데스크톱을 사용하여 가상 컴퓨터에 연결하고, 핵심 성과 지표를 모니터링하고, RBAC(역할 기반 액세스)를 사용하여 이 VM에 대한 액세스를 제어하고, VM을 구성하고, 기타 중요한 관리 작업을 수행할 수 있습니다. 역할 기반의 액세스 위임은 규모별로 관리하는 데 중요합니다. 자세히 알아보려면 [여기](./active-directory/role-based-access-control-configure.md)를 클릭하세요. 리소스에 대한 액세스 권한을 위임하려면 다음 작업을 수행합니다.
+You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://portal.azure.com].
 
-1.	리소스를 찾습니다.
-2.	필수 패키지 섹션에서 ‘모든 설정’을 클릭합니다.
-3.	설정 목록에서 '사용자'를 클릭합니다.
-4.	명령 모음에서 ‘추가’를 클릭합니다.
-5.	사용자 및 역할을 선택합니다.
+## <a name="how-to-create-a-resource"></a>How to create a resource
 
-![리소스 관리][ManageResource]
+Azure has a marketplace with thousands of items that you can create from one place.  Let’s say you want to create a new Windows Server 2012 VM.  The +NEW hub is your entry point into a curated set of featured categories from the marketplace.  Each category has a small set of featured items along with a link to the full marketplace that shows all categories and search. To create that new Windows Server 2012 VM, perform the following actions:  
 
-## 리소스 블레이드를 사용자 지정하는 방법
+1.  Windows Server 2012 is featured, so you can select it from the Compute category.  
+2.  Fill out some basic inputs on a form.
+3.  Click ‘Create’ and your VM will begin to provision immediately.
 
-Azure에서는 리소스의 블레이드를 미리 구성하지만 이러한 블레이드의 타일은 사용자가 제어합니다. 사용자 지정 모드로 이동하여 타일을 손쉽게 추가, 제거, 크기 조정 또는 다시 정렬할 수 있습니다. 블레이드를 사용자 지정하려면 다음 작업을 수행합니다.
+The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).
 
-1.	리소스를 찾습니다.
-2.	사용자 지정할 블레이드의 맨 위에 있는 '...'를 클릭합니다.
-3.	‘파트 추가’를 클릭합니다.
-4.	파트를 끌어서 놓기 시작합니다.  
+![Portal Categories][PortalCategories]
 
-![블레이드 사용자 지정][CustomizeBlades]
 
-## 도움말을 보는 방법
+## <a name="how-to-find-your-resources"></a>How to find your resources
 
-문제가 발생한 경우 걱정하지 않아도 됩니다. 포털에는 올바른 지침을 제공할 수 있는 도움말 및 지원 페이지가 있습니다. [지원 계획](https://azure.microsoft.com/support/plans/)에 따라 포털에서 직접 지원 티켓을 만들 수도 있습니다. 지원 티켓을 만든 후에는 포털 내에서 티켓의 수명 주기를 관리할 수 있습니다. 도움말 및 지원 페이지를 보려면 찾아보기 -> 도움말 + 지원으로 이동합니다.
+You can always pin frequently accessed resources to your startboard, but you might need to browse to something that you don’t frequently access.  The browse hub shown below is your way to get to all of your resources.  You can filter by subscription, choose/resize columns, and navigate to the management blades by clicking on individual items.
 
-![도움말 및 지원][HelpSupport]
+![Browse Hub][BrowseHub]
 
-## 요약
+## <a name="how-to-manage-and-delegate-access-to-a-resource"></a>How to manage and delegate access to a resource
 
-이 자습서에서 배운 내용을 검토하겠습니다.
-- 등록하고 구독을 가져오며 포털로 이동하는 방법을 알아보았습니다.
-- 포털 UI를 중심으로 리소스를 만들고 찾아보는 방법을 알아보았습니다.
-- 리소스르 만들고 찾아보는 방법을 알아보았습니다.
-- 구조 또는 관리 블레이드 및 여러 유형의 리소스를 지속적으로 관리하는 방법에 대해 알아보았습니다.
-- 포털을 사용자 지정하여 가장 관심이 있는 정보를 가져오는 방법을 알아보았습니다.
-- RBAC(역할 기반 액세스)를 사용하여 리소스에 대한 액세스를 제어하는 방법을 알아보았습니다.
-- 도움말 및 지원을 얻는 방법을 알아보았습니다.
+From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.  Delegating access based on role is critical to managing at scale.  Click [here](./active-directory/role-based-access-control-configure.md) to learn more about it. To delegate access to a resource, perform the following actions:
 
-Microsoft Azure 포털은 클라우드에서 응용 프로그램을 빌드 및 관리하는 작업을 크게 간소화합니다. Microsoft는 지속적으로 [사용자 의견을 듣고](https://feedback.azure.com/forums/223579-azure-preview-portal/) 개선하므로 항상 [관리 블로그](https://azure.microsoft.com/blog/topics/management/)에서 최신 정보를 확인하시기 바랍니다. 또한 [ScottGu의 블로그](http://weblogs.asp.net/scottgu)는 모든 Azure 업데이트를 확인하는 데 유용합니다.
+1.  Browse to your resource.
+2.  Click ‘All settings’ in the Essentials section.
+3.  Click ‘Users’ in the settings list.
+4.  Click ‘Add’ in the command bar.
+5.  Choose a user and a role.
+
+![Managing a Resource][ManageResource]
+
+## <a name="how-to-customize-a-resource-blade"></a>How to customize a resource blade
+
+Azure preconfigures the blades for your resources, but the tiles on these blades are yours to control.  You can easily go into customize mode to add, remove, resize, or re-arrange the tiles. To customize a blade, perform the following actions:
+
+1.  Browse to your resource.
+2.  Click the ‘…’ at the top of the blade you want to customize.
+3.  Click ‘Add parts’.
+4.  Start dragging and dropping parts.  
+
+![Customizing Blades][CustomizeBlades]
+
+## <a name="how-to-get-help"></a>How to get help
+
+If you ever have a problem, we’re here for you.  The portal has a help and support page that can point you in the right direction.  Depending on your [support plan](https://azure.microsoft.com/support/plans/), you can also create support tickets directly in the portal.  After creating a support ticket, you can manage the lifecycle of the ticket from within the portal. You can get to the help and support page by navigating to Browse -> Help + support.  
+
+![Help and support][HelpSupport]
+
+## <a name="summary"></a>Summary
+
+Let’s review what you learned in this tutorial:
+- You learned how to sign up, get a subscription, and browse to the portal
+- You got oriented with the portal UI and learned how to create and browse resources
+- You learned how to create a resource and browse resources
+- You learned about the structure or management blades and how you can consistently manage different types of resources
+- You learned how to customize the portal to bring the information you care about to the front and center
+- You learned how to control access to resources using role based access (RBAC)
+- You learned how to get help and support
+
+The Microsoft Azure portal radically simplifies building and managing your applications in the cloud.  Take a look at the [management blog](https://azure.microsoft.com/blog/topics/management/) to keep up to date as we’re constantly [listening to feedback](https://feedback.azure.com/forums/223579-azure-preview-portal/) and making improvements.  [ScottGu’s blog](http://weblogs.asp.net/scottgu) is another great place to look for all Azure updates.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -98,4 +99,8 @@ Microsoft Azure 포털은 클라우드에서 응용 프로그램을 빌드 및 �
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

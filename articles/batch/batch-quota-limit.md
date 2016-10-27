@@ -1,104 +1,105 @@
 <properties
-	pageTitle="배치 서비스 할당량 및 제한 | Microsoft Azure"
-	description="기본 Azure 배치 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다."
-	services="batch"
-	documentationCenter=""
-	authors="mmacy"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Batch service quotas and limits | Microsoft Azure"
+    description="Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases"
+    services="batch"
+    documentationCenter=""
+    authors="mmacy"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/10/2016"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/10/2016"
+    ms.author="marsma"/>
 
-# Azure 배치 서비스에 대한 할당량 및 제한
 
-다른 Azure 서비스와 마찬가지로 배치 서비스와 관련하여 특정 리소스에 대한 제한이 있습니다. 이러한 제한 대부분은 Azure 구독 또는 계정 수준에서 적용되는 기본 할당량입니다. 이 문서는 그러한 기본값을 설명하고 할당량 증가를 요청하는 방법을 설명합니다.
+# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Quotas and limits for the Azure Batch service
 
-배치에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기본값의 할당량 중 두 개 이상을 늘려야 할 수 있습니다. 할당량을 늘리려면 무료 온라인 [고객지원 요청](#increase-a-quota)을 개설합니다.
+As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
 
->[AZURE.NOTE] 할당량은 신용 한도액일 뿐이며 용량을 보장하는 것은 아닙니다. 대규모 용량이 필요한 경우 Azure 지원에 문의하세요.
+If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
 
-## 구독 할당량
-**리소스**|**기본 제한**|**최대 제한**
+>[AZURE.NOTE] A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
+
+## <a name="subscription-quotas"></a>Subscription quotas
+**Resource**|**Default Limit**|**Maximum Limit**
 ---|---|---
-구독당 지역별 배치 계정 | 1 | 50
+Batch accounts per region per subscription | 1 | 50
 
-## 배치 계정 할당량
+## <a name="batch-account-quotas"></a>Batch account quotas
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-## 기타 제한
-**리소스**|**최대 제한**
+## <a name="other-limits"></a>Other limits
+**Resource**|**Maximum Limit**
 ---|---
-계산 노드당 [동시 작업](batch-parallel-node-tasks.md) | 4 x 노드 코어 수
-배치 계정당 [응용 프로그램](batch-application-packages.md) | 20
-응용 프로그램당 응용 프로그램 패키지 | 40
-각 응용 프로그램 패키지 크기 | 약 195GB<sup>1</sup>
+[Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores
+[Applications](batch-application-packages.md) per Batch account        | 20
+Application packages per application  | 40
+Application package size (each)       | Approx. 195GB<sup>1</sup>
 
-<sup>1</sup> 최대 블록 Blob 크기에 대한 Azure 저장소 용량 한도
+<sup>1</sup> Azure Storage limit for maximum block blob size
 
-## 배치 할당량 보기
+## <a name="view-batch-quotas"></a>View Batch quotas
 
-[Azure 포털][portal]에서 배치 계정 할당량을 봅니다.
+View your Batch account quotas in the [Azure portal][portal].
 
-1. 포털에서 **배치 계정**을 선택한 다음 관심 있는 배치 계정을 선택합니다.
+1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
 
-2. 배치 계정의 메뉴 블레이드에서 **속성**을 선택합니다.
+2. Select **Properties** on the Batch account's menu blade
 
-3. 속성 블레이드에서 현재 배치 계정에 적용되는 **할당량**을 표시합니다.
+3. The Properties blade displays the **quotas** currently applied to the Batch account
 
-	![배치 계정 할당량][account_quotas]
+    ![Batch account quotas][account_quotas]
 
-## 할당량 증가
+## <a name="increase-a-quota"></a>Increase a quota
 
-[Azure 포털][portal]에서 할당량 증가를 요청하려면 다음 단계를 수행합니다.
+Follow the steps below to request a quota increase using the [Azure portal][portal].
 
-1. 포털 대시보드에서 **도움말 + 지원** 타일을 선택하거나 포털 오른쪽 위 모서리에 있는 물음표(**?**)를 선택합니다.
+1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
 
-2. **새 기본 지원 요청** > **기본**을 클릭합니다.
+2. Select **New support request** > **Basics**.
 
-3. **기본 사항** 블레이드:
+3. On the **Basics** blade:
 
-	a. **문제 형식** > **할당량**
+    a. **Issue Type** > **Quota**
 
-	b. 사용 중인 구독을 선택합니다.
+    b. Select your subscription.
 
-	c. **할당량 형식** > **배치**
+    c. **Quota type** > **Batch**
 
-	d. **지원 계획** > **할당량 지원-포함됨**
+    d. **Support plan** > **Quota support - Included**
 
-	**다음**을 클릭합니다.
+    Click **Next**.
 
-4. **문제** 블레이드:
+4. On the **Problem** blade:
 
-	a. [비즈니스 영향][support_sev]에 따라 **심각도**를 선택합니다.
+    a. Select a **Severity** according to your [business impact][support_sev].
 
-	b. **세부 정보**에서 변경하려는 각 할당량과 배치 계정 이름, 새로운 제한을 지정합니다.
+    b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
 
-	**다음**을 클릭합니다.
+    Click **Next**.
 
-5. **연락처 정보** 블레이드:
+5. On the **Contact information** blade:
 
-	a. **기본 연락 방법**을 선택합니다.
+    a. Select a **Preferred contact method**.
 
-	b. 필수 연락처 세부 정보를 확인하고 입력합니다.
+    b. Verify and enter the required contact details.
 
-	**만들기**를 클릭하여 지원 요청을 제출합니다.
+    Click **Create** to submit the support request.
 
-지원 요청을 제출하면 Azure 지원 팀에서 연락을 드릴 것입니다. 참고로 요청 완료까지 업무일 기준 최대 2일이 걸릴 수 있습니다.
+Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
 
-## 관련된 항목
+## <a name="related-topics"></a>Related topics
 
-* [Azure 포털을 사용하여 Azure 배치 계정 만들기](batch-account-create-portal.md)
+* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
 
-* [Azure 배치 기능 개요](batch-api-basics.md)
+* [Azure Batch feature overview](batch-api-basics.md)
 
-* [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)
+* [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
@@ -106,4 +107,8 @@
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

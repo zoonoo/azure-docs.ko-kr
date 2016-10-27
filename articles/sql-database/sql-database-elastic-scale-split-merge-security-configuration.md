@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="분할-병합 보안 구성 | Microsoft Azure" 
-    description="암호화에 대한 409 인증서를 설정" 
+    pageTitle="Split-merge security configuration | Microsoft Azure" 
+    description="Set up x409 certificates for encryption" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" 
     documentationCenter="" 
@@ -17,125 +17,128 @@
     ms.author="torsteng" />
 
 
-# 분할-병합 보안 구성  
 
-분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL 데이터베이스의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
+# <a name="split-merge-security-configuration"></a>Split-merge security configuration  
 
-## 인증서 구성
+To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
-인증서는 두 가지 방법으로 구성합니다.
+## <a name="configuring-certificates"></a>Configuring certificates
 
-1. [SSL 인증서를 구성하려면](#To-Configure-the-SSL#Certificate)
-2. [클라이언트 인증서를 구성하려면](#To-Configure-Client-Certificates) 
+Certificates are configured in two ways. 
 
-## 인증서를 얻으려면
+1. [To Configure the SSL Certificate](#To-Configure-the-SSL#Certificate)
+2. [To Configure Client Certificates](#To-Configure-Client-Certificates) 
 
-공용 CA(인증 기관) 또는 [Windows 인증서 서비스](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)에서 인증서를 얻을 수 있습니다. 인증서를 가져올 때 이러한 방법이 일반적으로 사용됩니다.
+## <a name="to-obtain-certificates"></a>To obtain certificates
 
-이러한 옵션을 사용할 수 없는 경우 **자체 서명된 인증서**를 생성할 수 있습니다.
+Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
+
+If those options are not available, you can generate **self-signed certificates**.
  
-## 인증서를 생성하는 도구
+## <a name="tools-to-generate-certificates"></a>Tools to generate certificates
 
 * [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
-### 도구를 실행하려면
+### <a name="to-run-the-tools"></a>To run the tools
 
-* Visual Studio용 개발자 명령 프롬프트에서 [Visual Studio 명령 프롬프트를 참조하세요](http://msdn.microsoft.com/library/ms229859.aspx). 
+* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/library/ms229859.aspx) 
 
-    설치되어 있는 경우 다음으로 이동합니다.
+    If installed, go to:
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* WDK 가져오기 [Windows 8.1: 키트 및 도구 다운로드](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## SSL 인증서를 구성하려면
-통신을 암호화하고 서버를 인증하려면 SSL 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
+## <a name="to-configure-the-ssl-certificate"></a>To configure the SSL certificate
+A SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
 
-### 자체 서명된 새로운 인증서 만들기
+### <a name="create-a-new-self-signed-certificate"></a>Create a new self-signed certificate
 
-1.    [자체 서명된 인증서 만들기](#Create-a-Self-Signed-Certificate)
-2.    [자체 서명된 SSL 인증서용 PFX 파일 만들기](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
-3.    [클라우드 서비스에 SSL 인증서 업로드](#Upload-SSL-Certificate-to-Cloud-Service)
-4.    [서비스 구성 파일에서 SSL 인증서 업데이트](#Update-SSL-Certificate-in-Service-Configuration-File)
-5.    [SSL 인증 기관 가져오기](#Import-SSL-Certification-Authority)
+1.    [Create a Self-Signed Certificate](#Create-a-Self-Signed-Certificate)
+2.    [Create PFX file for Self-Signed SSL Certificate](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
+3.    [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+4.    [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
+5.    [Import SSL Certification Authority](#Import-SSL-Certification-Authority)
 
-### 인증서 저장소에서 기존 인증서를 사용하려면
-1. [인증서 저장소에서 SSL 인증서 내보내기](#Export-SSL-Certificate-From-Certificate-Store)
-2. [클라우드 서비스에 SSL 인증서 업로드](#Upload-SSL-Certificate-to-Cloud-Service)
-3. [서비스 구성 파일에서 SSL 인증서 업데이트](#Update-SSL-Certificate-in-Service-Configuration-File)
+### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>To use an existing certificate from the certificate store
+1. [Export SSL Certificate From Certificate Store](#Export-SSL-Certificate-From-Certificate-Store)
+2. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+3. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-### PFX 파일에서 기존 인증서를 사용하려면
+### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>To use an existing certificate in a PFX file
 
-1. [클라우드 서비스에 SSL 인증서 업로드](#Upload-SSL-Certificate-to-Cloud-Service)
-2. [서비스 구성 파일에서 SSL 인증서 업데이트](#Update-SSL-Certificate-in-Service-Configuration-File)
+1. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+2. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-## 클라이언트 인증서를 구성하려면
-클라이언트 인증서는 서비스에 요청을 인증하는 데 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
+## <a name="to-configure-client-certificates"></a>To configure client certificates
+Client certificates are required in order to authenticate requests to the service. Choose the most applicable of the three scenarios below, and execute all its steps:
 
-### 클라이언트 인증서 해제
-1.    [클라이언트 인증서 기반 인증 해제](#Turn-Off-Client-Certificate-Based-Authentication)
+### <a name="turn-off-client-certificates"></a>Turn off client certificates
+1.    [Turn Off Client Certificate-Based Authentication](#Turn-Off-Client-Certificate-Based-Authentication)
 
-### 자체 서명된 새로운 클라이언트 인증서 발급
-1.    [자체 서명된 인증 기관 만들기](#Create-a-Self-Signed-Certification-Authority)
-2.    [클라우드 서비스에 CA 인증서 업로드](#Upload-CA-Certificate-to-Cloud-Service)
-3.    [서비스 구성 파일의 CA 인증서 업데이트](#Update-CA-Certificate-in-Service-Configuration-File)
-4.    [클라이언트 인증서 발급](#Issue-Client-Certificates)
-5.    [클라이언트 인증서용 PFX 파일 만들기](#Create-PFX-files-for-Client-Certificates)
-6.    [클라이언트 인증서 가져오기](#Import-Client-Certificate)
-7.    [클라이언트 인증서 지문 복사](#Copy-Client-Certificate-Thumbprints)
-8.    [서비스 구성 파일에서 허용된 클라이언트 구성](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
+### <a name="issue-new-self-signed-client-certificates"></a>Issue new self-signed client certificates
+1.    [Create a Self-Signed Certification Authority](#Create-a-Self-Signed-Certification-Authority)
+2.    [Upload CA Certificate to Cloud Service](#Upload-CA-Certificate-to-Cloud-Service)
+3.    [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Issue Client Certificates](#Issue-Client-Certificates)
+5.    [Create PFX files for Client Certificates](#Create-PFX-files-for-Client-Certificates)
+6.    [Import Client Certificate](#Import-Client-Certificate)
+7.    [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
+8.    [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
 
-### 기존 클라이언트 인증서 사용
-1.    [CA 공개 키 찾기](#Find-CA-Public Key)
-2.    [클라우드 서비스에 CA 인증서 업로드](#Upload-CA-certificate-to-cloud-service)
-3.    [서비스 구성 파일의 CA 인증서 업데이트](#Update-CA-Certificate-in-Service-Configuration-File)
-4.    [클라이언트 인증서 지문 복사](#Copy-Client-Certificate-Thumbprints)
-5.    [서비스 구성 파일에 허용된 클라이언트 구성](#Configure-Allowed-Clients-in-the-Service-Configuration File)
-6.    [클라이언트 인증서 해지 확인 구성](#Configure-Client-Certificate-Revocation-Check)
+### <a name="use-existing-client-certificates"></a>Use existing client certificates
+1.    [Find CA Public Key](#Find-CA-Public Key)
+2.    [Upload CA Certificate to Cloud Service](#Upload-CA-certificate-to-cloud-service)
+3.    [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
+5.    [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+6.    [Configure Client Certificate Revocation Check](#Configure-Client-Certificate-Revocation-Check)
 
-## 허용된 IP 주소
+## <a name="allowed-ip-addresses"></a>Allowed IP addresses
 
-특정 범위의 IP 주소에서만 서비스 끝점에 액세스하도록 제한할 수 있습니다.
+Access to the service endpoints can be restricted to specific ranges of IP addresses.
 
-## 저장소에 대한 암호화를 구성하려면
+## <a name="to-configure-encryption-for-the-store"></a>To configure encryption for the store
 
-메타데이터 저장소에 저장된 자격 증명을 암호화하려면 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
+A certificate is required to encrypt the credentials that are stored in the metadata store. Choose the most applicable of the three scenarios below, and execute all its steps:
 
-### 자체 서명된 새로운 인증서 사용
+### <a name="use-a-new-self-signed-certificate"></a>Use a new self-signed certificate
 
-1.     [자체 서명된 인증서 만들기](#Create-a-Self-Signed-Certificate)
-2.     [자체 서명된 암호화 인증서용 PFX 파일 만들기](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
-3.     [클라우드 서비스에 암호화 인증서 업로드](#Upload-Encryption-Certificate-to-Cloud-Service)
-4.     [서비스 구성 파일에서 암호화 인증서 업데이트](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Create a Self-Signed Certificate](#Create-a-Self-Signed-Certificate)
+2.     [Create PFX file for Self-Signed Encryption Certificate](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
+3.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+4.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-### 인증서 저장소에서 기존 인증서 사용
+### <a name="use-an-existing-certificate-from-the-certificate-store"></a>Use an existing certificate from the certificate store
 
-1.     [인증서 저장소에서 암호화 인증서 내보내기](#Export-Encryption-Certificate-From-Certificate-Store)
-2.     [클라우드 서비스에 암호화 인증서 업로드](#Upload-Encryption-Certificate-to-Cloud-Service)
-3.     [서비스 구성 파일에서 암호화 인증서 업데이트](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Export Encryption Certificate From Certificate Store](#Export-Encryption-Certificate-From-Certificate-Store)
+2.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+3.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-### PFX 파일에서 기존 인증서 사용
+### <a name="use-an-existing-certificate-in-a-pfx-file"></a>Use an existing certificate in a PFX file
 
-1.     [클라우드 서비스에 암호화 인증서 업로드](#Upload-Encryption-Certificate-to-Cloud-Service)
-2.     [서비스 구성 파일에서 암호화 인증서 업데이트](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+2.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-## 기본 구성
+## <a name="the-default-configuration"></a>The default configuration
 
-기본 구성에서는 HTTP 끝점에 대한 모든 액세스를 거부합니다. 이러한 끝점에 대한 요청에서는 데이터베이스 자격 증명과 같은 중요한 정보가 전송될 수 있으므로 이 설정을 사용하는 것이 좋습니다. 기본 구성에서는 HTTPS 끝점에 대한 모든 액세스가 허용됩니다. 이 설정을 추가로 제한할 수 있습니다.
+The default configuration denies all access to the HTTP endpoint. This is the recommended setting, since the requests to these endpoints may carry sensitive information like database credentials.
+The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
 
-### 구성 변경
+### <a name="changing-the-configuration"></a>Changing the Configuration
 
-**서비스 구성 파일**의 **<EndpointAcls>**섹션에서 끝점에 적용되는 액세스 제어 규칙 그룹을 구성합니다.
+The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
     </EndpointAcls>
 
-액세스 제어 그룹의 규칙은 서비스 구성 파일의 <AccessControl name=""> 섹션에서 구성합니다.
+The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
 
-해당 형식에 대한 설명은 네트워크 액세스 제어 목록 설명서에 나와 있습니다. 예를 들어 100.100.0.0~100.100.255.255 범위의 IP만 HTTPS 끝점에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
+The format is explained in Network Access Control Lists documentation.
+For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -144,50 +147,50 @@
     <EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
 
-## 서비스 거부 방지
+## <a name="denial-of-service-prevention"></a>Denial of service prevention
 
-서비스 거부 공격을 검색 및 방지할 수 있도록 지원하는 메커니즘이 두 가지 있습니다.
+There are two different mechanisms supported to detect and prevent Denial of Service attacks:
 
-*    원격 호스트당 동시 요청 수 제한(기본적으로 해제됨)
-*    원격 호스트당 액세스 속도 제한(기본적으로 설정됨)
+*    Restrict number of concurrent requests per remote host (off by default)
+*    Restrict rate of access per remote host (on by default)
 
-이러한 메커니즘은 IIS의 동적 IP 보안에 자세히 설명되어 있는 기능을 기반으로 합니다. 이 구성을 변경할 때 다음과 같은 요인에 주의하세요.
+These are based on the features further documented in Dynamic IP Security in IIS. When changing this configuration beware of the following factors:
 
-* 프록시 및 원격 호스트 정보를 통한 Network Address Translation 장치의 동작
-* 웹 역할의 모든 리소스에 대한 각 요청(예: 스크립트, 이미지 등 로드) 이 고려됨
+* The behavior of proxies and Network Address Translation devices over the remote host information
+* Each request to any resource in the web role is considered (e.g. loading scripts, images, etc)
 
-## 동시 액세스 수 제한
+## <a name="restricting-number-of-concurrent-accesses"></a>Restricting number of concurrent accesses
 
-이 동작을 구성하는 설정은 다음과 같습니다.
+The settings that configure this behavior are:
 
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-이 보호를 사용하도록 설정하려면 DynamicIpRestrictionDenyByConcurrentRequests를 true로 변경합니다.
+Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
 
-## 액세스 속도 제한
+## <a name="restricting-rate-of-access"></a>Restricting rate of access
 
-이 동작을 구성하는 설정은 다음과 같습니다.
+The settings that configure this behavior are:
 
     <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
     <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
     <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
 
-## 거부된 요청에 대한 응답 구성
+## <a name="configuring-the-response-to-a-denied-request"></a>Configuring the response to a denied request
 
-다음 설정은 거부된 요청에 대한 응답을 구성합니다.
+The following setting configures the response to a denied request:
 
     <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
-기타 지원되는 값에 대해서는 IIS의 동적 IP 보안에 대한 설명서를 참조하세요.
+Refer to the documentation for Dynamic IP Security in IIS for other supported values.
 
-## 서비스 인증서 구성 작업
-이 항목은 참조용일 뿐입니다. 아래 항목에 나와 있는 구성 단계를 수행하세요.
+## <a name="operations-for-configuring-service-certificates"></a>Operations for configuring service certificates
+This topic is for reference only. Please follow the configuration steps outlined in:
 
-* SSL 인증서 구성
-* 클라이언트 인증서 구성
+* Configure the SSL certificate
+* Configure client certificates
 
-## 자체 서명된 인증서 만들기
-다음 코드를 실행합니다.
+## <a name="create-a-self-signed-certificate"></a>Create a self-signed certificate
+Execute:
 
     makecert ^
       -n "CN=myservice.cloudapp.net" ^
@@ -196,64 +199,64 @@
       -a sha1 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
-사용자 지정하려면:
+To customize:
 
-*    -n을 서비스 URL로 바꿉니다. 와일드카드("CN=*.cloudapp.net") 및 대체 이름("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net")이 지원됩니다.
-*    -e 및 인증서 만료 날짜 강력한 암호를 만들고 메시지가 표시되면 해당 암호를 지정합니다.
+*    -n with the service URL. Wildcards ("CN=*.cloudapp.net") and alternative names ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net") are supported.
+*    -e with the certificate expiration date Create a strong password and specify it when prompted.
 
-## 자체 서명된 SSL 인증서용 PFX 파일 만들기
+## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>Create PFX file for self-signed SSL certificate
 
-다음 코드를 실행합니다.
+Execute:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-암호를 입력하고 다음 옵션을 사용하여 인증서를 내보냅니다.
-* 예, 개인 키를 내보냅니다.
-* 확장된 속성 모두 내보내기
+Enter password and then export certificate with these options:
+* Yes, export the private key
+* Export all extended properties
 
-## 인증서 저장소에서 SSL 인증서 내보내기
+## <a name="export-ssl-certificate-from-certificate-store"></a>Export SSL certificate from certificate store
 
-* 인증서를 찾습니다.
-* 작업-> 모든 작업 -> 내보내기를 클릭합니다.
-* 다음 옵션을 사용하여 .PFX 파일로 인증서를 내보냅니다.
-    * 예, 개인 키를 내보냅니다.
-    * 가능하면 인증 경로에 있는 인증서 모두 포함 *확장된 속성 모두 내보내기
+* Find certificate
+* Click Actions -> All tasks -> Export…
+* Export certificate into a .PFX file with these options:
+    * Yes, export the private key
+    * Include all certificates in the certification path if possible *Export all extended properties
 
-## 클라우드 서비스에 SSL 인증서 업로드
+## <a name="upload-ssl-certificate-to-cloud-service"></a>Upload SSL certificate to cloud service
 
-SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니다.
+Upload certificate with the existing or generated .PFX file with the SSL key pair:
 
-* 개인 키 정보를 보호하는 암호를 입력합니다.
+* Enter the password protecting the private key information
 
-## 서비스 구성 파일에서 SSL 인증서 업데이트
+## <a name="update-ssl-certificate-in-service-configuration-file"></a>Update SSL certificate in service configuration file
 
-클라우드 서비스에 업로드된 인증서의 지문으로 서비스 구성 파일의 다음 설정에 대한 지문 값을 업데이트합니다.
+Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## SSL 인증 기관 가져오기
+## <a name="import-ssl-certification-authority"></a>Import SSL certification authority
 
-서비스와 통신 하는 모든 계정/컴퓨터에서 다음 단계를 수행합니다.
+Follow these steps in all account/machine that will communicate with the service:
 
-* Windows 탐색기에서 CER 파일을 두 번 클릭합니다.
-* 인증서 대화 상자에서 인증서 설치를 클릭합니다.
-* 신뢰할 수 있는 루트 인증 기관 저장소로 인증서를 가져옵니다.
+* Double-click the .CER file in Windows Explorer
+* In the Certificate dialog, click Install Certificate…
+* Import certificate into the Trusted Root Certification Authorities store
 
-## 클라이언트 인증서 기반 인증 해제
+## <a name="turn-off-client-certificate-based-authentication"></a>Turn off client certificate-based authentication
 
-클라이언트 인증서 기반 인증만 지원됩니다. 이 인증을 사용하지 않도록 설정하는 경우 Microsoft Azure 가상 네트워크 등의 다른 네트워크가 없으면 서비스 끝점에 대한 공용 액세스가 허용됩니다.
+Only client certificate-based authentication is supported and disabling it will allow for public access to the service endpoints, unless other mechanisms are in place (e.g. Microsoft Azure Virtual Network).
 
-서비스 구성 파일에서 이러한 설정을 false로 변경하여 기능을 해제합니다.
+Change these settings to false in the service configuration file to turn the feature off:
 
     <Setting name="SetupWebAppForClientCertificates" value="false" />
     <Setting name="SetupWebserverForClientCertificates" value="false" />
 
-그런 다음 CA 인증서 설정의 SSL 인증서와 동일한 지문을 복사합니다.
+Then, copy the same thumbprint as the SSL certificate in the CA certificate setting:
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## 자체 서명된 인증 기관 만들기
-다음 단계를 실행하여 인증 기관 역할을 할 자체 서명된 인증서를 만듭니다.
+## <a name="create-a-self-signed-certification-authority"></a>Create a self-signed certification authority
+Execute the following steps to create a self-signed certificate to act as a Certification Authority:
 
     makecert ^
     -n "CN=MyCA" ^
@@ -263,51 +266,51 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
       -sr localmachine -ss my ^
       MyCA.cer
 
-이를 사용자 지정하려면
+To customize it
 
-*    -e 및 인증 만료 날짜
+*    -e with the certification expiration date
 
 
-## CA 공개 키 찾기
+## <a name="find-ca-public-key"></a>Find CA public key
 
-모든 클라이언트 인증서는 서비스에서 신뢰하는 인증 기관에서 발급해야 합니다. 클라우드 서비스에 업로드할 수 있도록 인증에 사용할 클라이언트 인증서를 발급한 인증 기관의 공용 키를 찾습니다.
+All client certificates must have been issued by a Certification Authority trusted by the service. Find the public key to the Certification Authority that issued the client certificates that are going to be used for authentication in order to upload it to the cloud service.
 
-공용 키가 포함된 파일을 사용할 수 없는 경우 인증서 저장소에서 이 파일을 내보냅니다.
+If the file with the public key is not available, export it from the certificate store:
 
-* 인증서를 찾습니다.
-    * 동일한 인증 기관에서 발급한 클라이언트 인증서를 검색합니다.
-* 인증서를 두 번 클릭합니다.
-* 인증서 대화 상자에서 인증 경로 탭을 선택합니다.
-* 경로의 CA 항목을 두 번 클릭합니다.
-* 인증서 속성을 기록합니다.
-* **인증서** 대화 상자를 닫습니다.
-* 인증서를 찾습니다.
-    * 위에서 기록한 CA를 검색합니다.
-* 작업-> 모든 작업 -> 내보내기를 클릭합니다.
-* 다음 옵션을 사용하여 .CER 파일로 인증서를 내보냅니다.
-    * **아니요, 개인 키를 내보내지 않습니다.**
-    * 가능하면 인증 경로에 있는 인증서 모두 포함
-    * 확장된 속성 모두 내보내기
+* Find certificate
+    * Search for a client certificate issued by the same Certification Authority
+* Double-click the certificate.
+* Select the Certification Path tab in the Certificate dialog.
+* Double-click the CA entry in the path.
+* Take notes of the certificate properties.
+* Close the **Certificate** dialog.
+* Find certificate
+    * Search for the CA noted above.
+* Click Actions -> All tasks -> Export…
+* Export certificate into a .CER with these options:
+    * **No, do not export the private key**
+    * Include all certificates in the certification path if possible.
+    * Export all extended properties.
 
-## 클라우드 서비스에 CA 인증서 업로드
+## <a name="upload-ca-certificate-to-cloud-service"></a>Upload CA certificate to cloud service
 
-CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증서를 업로드합니다.
+Upload certificate with the existing or generated .CER file with the CA public key.
 
-## 서비스 구성 파일의 CA 인증서 업데이트
+## <a name="update-ca-certificate-in-service-configuration-file"></a>Update CA certificate in service configuration file
 
-클라우드 서비스에 업로드된 인증서의 지문으로 서비스 구성 파일의 다음 설정에 대한 지문 값을 업데이트합니다.
+Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-동일한 지문으로 다음 설정의 값을 업데이트합니다.
+Update the value of the following setting with the same thumbprint:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
-## 클라이언트 인증서 발급
+## <a name="issue-client-certificates"></a>Issue client certificates
 
-서비스에 액세스할 수 있는 권한이 부여된 각 개인은 단독 사용을 위해 클라이언트 인증서를 발급해야 하며 해당 개인 키를 보호 하기 위한 강력한 암호를 선택해야 합니다.
+Each individual authorized to access the service should have a client certificate issued for his/hers exclusive use and should choose his/hers own strong password to protect its private key. 
 
-다음 단계는 자체 서명된 CA 인증서를 생성하고 저장한 동일한 컴퓨터에서 실행해야 합니다.
+The following steps must be executed in the same machine where the self-signed CA certificate was generated and stored:
 
     makecert ^
       -n "CN=My ID" ^
@@ -317,176 +320,178 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
-사용자 지정:
+Customizing:
 
-* -n 및 이 인증서로 인증할 클라이언트의 ID
-* -e 및 인증서 만료 날짜
-* MyID.pvk 및 MyID.cer과 이 클라이언트 인증서의 고유한 파일 이름
+* -n with an ID for to the client that will be authenticated with this certificate
+* -e with the certificate expiration date
+* MyID.pvk and MyID.cer with unique filenames for this client certificate
 
-이 명령은 암호를 만들어 한 번 사용하라는 메시지를 표시합니다. 강력한 암호를 사용하세요.
+This command will prompt for a password to be created and then used once. Use a strong password.
 
-## 클라이언트 인증서용 PFX 파일 만들기
+## <a name="create-pfx-files-for-client-certificates"></a>Create PFX files for client certificates
 
-생성된 각 클라이언트 인증서에 대해 다음을 실행합니다.
+For each generated client certificate, execute:
 
     pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
-사용자 지정:
+Customizing:
 
     MyID.pvk and MyID.cer with the filename for the client certificate
 
-암호를 입력하고 다음 옵션을 사용하여 인증서를 내보냅니다.
+Enter password and then export certificate with these options:
 
-* 예, 개인 키를 내보냅니다.
-* 확장된 속성 모두 내보내기
-* 이 인증서를 발급하는 개인이 내보내기 암호를 선택해야 합니다.
+* Yes, export the private key
+* Export all extended properties
+* The individual to whom this certificate is being issued should choose the export password
 
-## 클라이언트 인증서 가져오기
+## <a name="import-client-certificate"></a>Import client certificate
 
-클라이언트 인증서를 발급받은 개별 사용자는 서비스와 통신하는 데 사용할 컴퓨터의 키 쌍을 가져와야 합니다.
+Each individual for whom a client certificate has been issued should import the key pair in the machines he/she will use to communicate with the service:
 
-* Windows 탐색기에서 .PFX 파일을 두 번 클릭합니다.
-* 적어도 다음 옵션을 사용하여 개인 저장소에 인증서를 가져옵니다.
-    * 확장된 속성 모두 포함 옵션 선택
+* Double-click the .PFX file in Windows Explorer
+* Import certificate into the Personal store with at least this option:
+    * Include all extended properties checked
 
-## 클라이언트 인증서 지문 복사
-클라이언트 인증서를 발급한 각 개인이 서비스 구성 파일에 추가할 인증서의 지문을 가져오려면 다음 단계를 따라야 합니다.
-* Certmgr.exe 실행
-* 개인 탭 선택
-* 인증에 사용할 클라이언트 인증서를 두 번 클릭합니다.
-* 표시되는 인증서 대화 상자에서 세부 정보 탭을 선택합니다.
-* 표시가 모두를 나타내는지 확인합니다.
-* 목록에서 지문이라는 필드를 선택합니다.
-* 지문 값을 복사합니다. 
-** 첫 번째 숫자 앞에 표시 되지 않는 유니코드 문자를 삭제합니다. 
-** 모든 공백을 삭제합니다.
+## <a name="copy-client-certificate-thumbprints"></a>Copy client certificate thumbprints
+Each individual for whom a client certificate has been issued must follow these steps in order to obtain the thumbprint of his/hers certificate which will be added to the service configuration file:
+* Run certmgr.exe
+* Select the Personal tab
+* Double-click the client certificate to be used for authentication
+* In the Certificate dialog that opens, select the Details tab
+* Make sure Show is displaying All
+* Select the field named Thumbprint in the list
+* Copy the value of the thumbprint ** Delete non-visible Unicode characters in front of the first digit ** Delete all spaces
 
-## 서비스 구성 파일에서 허용된 클라이언트 구성
+## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configure Allowed clients in the service configuration file
 
-서비스 구성 파일에서 다음 설정의 값을 서비스에 대한 액세스가 허용된 클라이언트 인증서의 지문 목록(쉼표로 구분)으로 업데이트합니다.
+Update the value of the following setting in the service configuration file with a comma-separated list of the thumbprints of the client certificates allowed access to the service:
 
     <Setting name="AllowedClientCertificateThumbprints" value="" />
 
-## 클라이언트 인증서 해지 확인 구성
+## <a name="configure-client-certificate-revocation-check"></a>Configure client certificate revocation check
 
-기본 설정은 인증 기관으로 클라이언트 인증서 해지 상태를 확인하지 않습니다. 확인을 설정하려면 클라이언트 인증서를 발급한 인증 기관에서 이러한 확인을 지원하는 경우 X509RevocationMode 열거에 정의된 값 중 하나로 다음 설정을 변경합니다.
+The default setting does not check with the Certification Authority for client certificate revocation status. To turn on the checks, if the Certification Authority which issued the client certificates supports such checks, change the following setting with one of the values defined in the X509RevocationMode Enumeration:
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
-## 자체 서명된 암호화 인증서용 PFX 파일 만들기
+## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Create PFX file for self-signed encryption certificates
 
-암호화 인증서에 대해 다음을 실행합니다.
+For an encryption certificate, execute:
 
     pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
-사용자 지정:
+Customizing:
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-암호를 입력하고 다음 옵션을 사용하여 인증서를 내보냅니다.
-*    예, 개인 키를 내보냅니다.
-*    확장된 속성 모두 내보내기
-*    클라우드 서비스에 인증서를 업로드할 때 암호가 필요합니다.
+Enter password and then export certificate with these options:
+*    Yes, export the private key
+*    Export all extended properties
+*    You will need the password when uploading the certificate to the cloud service.
 
-## 인증서 저장소에서 암호화 인증서 내보내기
+## <a name="export-encryption-certificate-from-certificate-store"></a>Export encryption certificate from certificate store
 
-*    인증서를 찾습니다.
-*    작업-> 모든 작업 -> 내보내기를 클릭합니다.
-*    다음 옵션을 사용하여 .PFX 파일로 인증서를 내보냅니다. 
-  *    예, 개인 키를 내보냅니다.
-  *    가능하면 인증 경로에 있는 인증서 모두 포함 
-*    확장된 속성 모두 내보내기
+*    Find certificate
+*    Click Actions -> All tasks -> Export…
+*    Export certificate into a .PFX file with these options: 
+  *    Yes, export the private key
+  *    Include all certificates in the certification path if possible 
+*    Export all extended properties
 
-## 클라우드 서비스에 암호화 인증서 업로드
+## <a name="upload-encryption-certificate-to-cloud-service"></a>Upload encryption certificate to cloud service
 
-암호화 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니다.
+Upload certificate with the existing or generated .PFX file with the encryption key pair:
 
-* 개인 키 정보를 보호하는 암호를 입력합니다.
+* Enter the password protecting the private key information
 
-## 서비스 구성 파일에서 암호화 인증서 업데이트
+## <a name="update-encryption-certificate-in-service-configuration-file"></a>Update encryption certificate in service configuration file
 
-클라우드 서비스에 업로드된 인증서의 지문으로 서비스 구성 파일의 다음 설정에 대한 지문 값을 업데이트합니다.
+Update the thumbprint value of the following settings in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## 일반 인증서 작업
+## <a name="common-certificate-operations"></a>Common certificate operations
 
-* SSL 인증서 구성
-* 클라이언트 인증서 구성
+* Configure the SSL certificate
+* Configure client certificates
 
-## 인증서를 찾습니다.
+## <a name="find-certificate"></a>Find certificate
 
-다음 단계를 수행하세요.
+Follow these steps:
 
-1. Mmc.exe를 실행합니다.
-2. 파일-> 스냅인 추가/제거로 이동합니다.
-3. **인증서**를 선택합니다.
-4. **추가**를 클릭합니다.
-5. 인증서 저장소 위치를 선택합니다.
-6. **마침**을 클릭합니다.
-7. **확인**을 클릭합니다.
-8. **인증서**를 확장합니다.
-9. 인증서 저장소 노드를 확장합니다.
-10. 인증서 하위 노드를 확장합니다.
-11. 목록에서 인증서를 선택합니다.
+1. Run mmc.exe.
+2. File -> Add/Remove Snap-in…
+3. Select **Certificates**.
+4. Click **Add**.
+5. Choose the certificate store location.
+6. Click **Finish**.
+7. Click **OK**.
+8. Expand **Certificates**.
+9. Expand the certificate store node.
+10. Expand the Certificate child node.
+11. Select a certificate in the list.
 
-## 인증서 내보내기
-**인증서 내보내기 마법사**에서 다음을 수행합니다.
+## <a name="export-certificate"></a>Export certificate
+In the **Certificate Export Wizard**:
 
-1. **다음**을 클릭합니다.
-2. **예**, **개인 키를 내보냅니다**.를 선택합니다.
-3. **다음**을 클릭합니다.
-4. 원하는 출력 파일 형식을 선택합니다.
-5. 원하는 옵션을 선택합니다.
-6. **암호**를 확인합니다.
-7. 강력한 암호를 입력하고 이를 확인합니다.
-8. **다음**을 클릭합니다.
-9. 인증서를 저장할 파일 이름을 입력하거나 찾습니다(.PFX 확장명을 사용하여).
-10. **다음**을 클릭합니다.
-11. **마침**을 클릭합니다.
-12. **확인**을 클릭합니다.
+1. Click **Next**.
+2. Select **Yes**, then **Export the private key**.
+3. Click **Next**.
+4. Select the desired output file format.
+5. Check the desired options.
+6. Check **Password**.
+7. Enter a strong password and confirm it.
+8. Click **Next**.
+9. Type or browse a filename where to store the certificate (use a .PFX extension).
+10. Click **Next**.
+11. Click **Finish**.
+12. Click **OK**.
 
-## 인증서 가져오기
+## <a name="import-certificate"></a>Import certificate
 
-인증서 가져오기 마법사에서:
+In the Certificate Import Wizard:
 
-1. 저장소 위치를 선택합니다.
+1. Select the store location.
 
-    * 현재 사용자 계정으로 실행되는 프로세스만 서비스에 액세스하는 경우 **현재 사용자**를 선택합니다.
-    * 컴퓨터의 다른 프로세스에서 서비스에 액세스하는 경우 **로컬 컴퓨터**를 선택합니다.
-2. **다음**을 클릭합니다.
-3. 파일에서 가져오는 경우 파일 경로를 확인합니다.
-4. .PFX 파일을 가져오는 경우:
-    1.     개인 키를 보호하는 암호를 입력합니다.
-    2.     가져오기 옵션을 선택합니다.
-5.     다음 저장소에 인증서 저장을 선택합니다.
-6.     **찾아보기**를 클릭합니다.
-7.     원하는 저장소를 선택합니다.
-8.     **마침**을 클릭합니다.
+    * Select **Current User** if only processes running under current user will access the service
+    * Select **Local Machine** if other processes in this computer will access the service
+2. Click **Next**.
+3. If importing from a file, confirm the file path.
+4. If importing a .PFX file:
+    1.     Enter the password protecting the private key
+    2.     Select import options
+5.     Select "Place" certificates in the following store
+6.     Click **Browse**.
+7.     Select the desired store.
+8.     Click **Finish**.
        
-    * 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 **예**를 클릭합니다.
-9.     모든 대화 상자 창에서 **확인**을 클릭합니다.
+    * If the Trusted Root Certification Authority store was chosen, click **Yes**.
+9.     Click **OK** on all dialog windows.
 
-## 인증서 업로드
+## <a name="upload-certificate"></a>Upload certificate
 
-[Azure 포털](https://portal.azure.com/)에서
+In the [Azure Portal](https://portal.azure.com/)
 
-1. **클라우드 서비스**를 선택합니다.
-2. 클라우드 서비스를 선택합니다.
-3. 최상위 메뉴에서 **인증서**를 클릭합니다.
-4. 아래쪽 메뉴 모음에서 **업로드**를 클릭합니다.
-5. 인증서 파일을 선택합니다.
-6. .PFX 파일인 경우 개인 키에 대한 암호를 입력합니다.
-7. 완료되면 목록의 새 항목에서 인증서 지문을 복사합니다.
+1. Select **Cloud Services**.
+2. Select the cloud service.
+3. On the top menu, click **Certificates**.
+4. On the bottom bar, click **Upload**.
+5. Select the certificate file.
+6. If it is a .PFX file, enter the password for the private key.
+7. Once completed, copy the certificate thumbprint from the new entry in the list.
 
-## 기타 보안 고려 사항
+## <a name="other-security-considerations"></a>Other security considerations
  
-이 문서에 설명된 SSL 설정은 HTTPS 끝점을 사용하는 경우 해당 클라이언트와 서비스 간의 통신을 암호화합니다. 데이터베이스 액세스에 대한 자격 증명 및 기타 잠재적으로 중요한 정보가 통신에 포함되므로 이러한 암호화가 중요합니다. 단, 서비스에서 Microsoft Azure 구독의 메타데이터 저장소에 대해 제공한 Microsoft Azure SQL 데이터베이스의 내부 테이블에 있는 자격 증명을 비롯하여 내부 상태를 유지합니다. 해당 데이터베이스는 서비스 구성 파일(.CSCFG 파일)에서 다음 설정의 일부로 정의됩니다.
+The SSL settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the Microsoft Azure SQL database that you have provided for metadata storage in your Microsoft Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
 
     <Setting name="ElasticScaleMetadata" value="Server=…" />
 
-이 데이터베이스에 저장된 자격 증명은 암호화됩니다. 그러나 서비스 배포의 웹 역할과 작업자 역할 모두 최신 상태를 유지하고 저장된 자격 증명의 암호화 및 암호 해독에 사용되는 인증서와 메타데이터 데이터베이스에 액세스할 때 보안을 유지해야 합니다.
+Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,66 +1,67 @@
 <properties
-	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.iOS 앱에 푸시 알림 추가"
-	description="Azure 앱 서비스를 사용하여Xamarin.iOS 앱에 푸시 알림을 전송하는 방법을 알아봅니다."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add push notifications to your Xamarin.iOS app with Azure App Service"
+    description="Learn how to use Azure App Service to send push notifications to your Xamarin.iOS app"
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="wesmc"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Xamarin.iOS 앱에 푸시 알림 추가
+
+# <a name="add-push-notifications-to-your-xamarin.ios-app"></a>Add push notifications to your Xamarin.iOS App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-##개요
+##<a name="overview"></a>Overview
 
-이 자습서는 먼저 완료해야 하는 [Xamarin.iOS 빠른 시작 자습서](app-service-mobile-xamarin-ios-get-started.md)를 기반으로 합니다. 푸시 알림을 Xamarin.iOS 빠른 시작 프로젝트에 추가하여 레코드가 삽입될 때마다 푸시 알림이 전송됩니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 푸시 알림 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+This tutorial is based on the [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) tutorial, which you must complete first. You will add push notifications to the Xamarin.iOS quick start project so that every time a record is inserted, a push notification is sent. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##필수 조건
+##<a name="prerequisites"></a>Prerequisites
 
-* [Xamarin.iOS 빠른 시작 자습서](app-service-mobile-xamarin-ios-get-started.md)를 완료합니다.
+* Complete the [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) tutorial.
 
-* 실제 iOS 장치. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
+* A physical iOS device. Push notifications are not supported by the iOS simulator.
 
-##Apple 개발자 포털의 푸시 알림에 대한 앱 등록
+##<a name="register-the-app-for-push-notifications-on-apple's-developer-portal"></a>Register the app for push notifications on Apple's developer portal
 
-[AZURE.INCLUDE [알림 허브 Xamarin이 Apple 푸시 알림 사용](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Notification Hubs Xamarin Enable Apple Push Notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
-##푸시 알림을 전송하도록 모바일 앱 구성
+##<a name="configure-your-mobile-app-to-send-push-notifications"></a>Configure your Mobile App to send push notifications
 
-알림을 보내도록 앱을 구성하려면 새 허브를 만들어 사용하려는 플랫폼 알림 서비스로 구성합니다.
+To configure your app to send notifications, create a new hub and configure it for the platform notification services that you will use.
 
-1. [Azure 포털](https://portal.azure.com/)에서 **찾아보기** > **모바일 앱** > 모바일 앱 > **설정** > **모바일** > **푸시** > **알림 허브** > **+ 알림 허브**를 클릭하고, 새 알림 허브에 대한 이름 및 네임스페이스를 입력한 다음 **확인** 단추를 클릭합니다.
+1. In the [Azure portal](https://portal.azure.com/), click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Mobile** > **Push** > **Notification Hub** > **+ Notification Hub**, and provide a name and namespace for a new notification hub, and then click the **OK** button.
 
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
+    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
-2. 알림 허브 만들기 블레이드에서 **만들기**를 클릭합니다.
+2. In the Create Notification Hub blade, click **Create**.
 
-3. **푸시** > **Apple(APNS)** > **인증서 업로드**를 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다.
+3. Click **Push** > **Apple (APNS)** > **Upload Certificate**. Upload the .p12 push certificate file you exported earlier.  Make sure to select **Sandbox** if you created a development push certificate for development and testing.  Otherwise, choose **Production**.
 
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
-이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+Your service is now configured to work with push notifications on iOS.
 
-##푸시 알림을 전송하도록 서버 프로젝트 업데이트
+##<a name="update-the-server-project-to-send-push-notifications"></a>Update the server project to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##Xamarin.iOS 프로젝트 구성
+##<a name="configure-your-xamarin.ios-project"></a>Configure your Xamarin.iOS project
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-##앱에 푸시 알림 추가
+##<a name="add-push-notifications-to-your-app"></a>Add push notifications to your app
 
-1. **QSTodoService**에서 **AppDelegate**가 모바일 클라이언트를 가져올 수 있도록 다음 속성을 추가합니다.
+1. In **QSTodoService**, add the following property so that **AppDelegate** can acquire the mobile client:
 
             public MobileServiceClient GetClient {
             get
@@ -73,12 +74,12 @@
             }
         }
 
-1. 다음 `using` 문을 **AppDelegate.cs** 파일의 맨 위에 추가합니다.
+1. Add the following `using` statement to the top of the **AppDelegate.cs** file.
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Microsoft.WindowsAzure.MobileServices;
+        using Newtonsoft.Json.Linq;
 
-2. **AppDelegate**에서 **FinishedLaunching** 이벤트를 재정의합니다.
+2. In **AppDelegate**, override the **FinishedLaunching** event:
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -95,16 +96,16 @@
             return true;
         }
 
-3. 동일한 파일에서 **RegisteredForRemoteNotifications** 이벤트를 재정의합니다. 이 코드에서는 서버에서 지원하는 모든 플랫폼에서 전송되는 간단한 템플릿 알림을 등록하게 됩니다.
+3. In the same file, override the **RegisteredForRemoteNotifications** event. In this code you are registering for a simple template notification that will be sent across all supported platforms by the server.
 
-	알림 허브를 사용하는 템플릿에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요.
+    For more information on templates with Notification Hubs, see [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             MobileServiceClient client = QSTodoService.DefaultService.GetClient;
 
-            const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
+            const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
@@ -118,7 +119,7 @@
         }
 
 
-4. 그런 다음 **DidReceivedRemoteNotification** 이벤트를 재정의합니다.
+4. Then, override the **DidReceivedRemoteNotification** event:
 
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -136,24 +137,31 @@
             }
         }
 
-이제 앱이 푸시 알림을 지원하도록 업데이트됩니다.
+Your app is now updated to support push notifications.
 
-## <a name="test"></a>앱에서 푸시 알림 테스트
+## <a name="<a-name="test"></a>test-push-notifications-in-your-app"></a><a name="test"></a>Test push notifications in your app
 
-1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
+1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
 
-	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
+    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
-2. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
+2. In the app, type a task, and then click the plus (**+**) icon.
 
-3. 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다.
+3. Verify that a notification is received, then click **OK** to dismiss the notification.
 
-4. 2단계를 반복하여 앱을 즉시 닫은 후 알림이 표시되는지 확인합니다.
+4. Repeat step 2 and immediately close the app, then verify that a notification is shown.
 
-이 자습서를 성공적으로 완료했습니다.
+You have successfully completed this tutorial.
 
 <!-- Images. -->
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

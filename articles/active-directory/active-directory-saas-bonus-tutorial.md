@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Bonus.ly와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Bonus.ly를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Bonus.ly | Microsoft Azure" 
+    description="Learn how to use Bonus.ly with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,152 +11,160 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: Bonus.ly와 Azure Active Directory 통합
 
-이 자습서는 Azure 및 Bonus.ly의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+#<a name="tutorial:-azure-active-directory-integration-with-bonus.ly"></a>Tutorial: Azure Active Directory Integration with Bonus.ly
 
--   유효한 Azure 구독
--   Bonus.ly의 테스트 테넌트
+The objective of this tutorial is to show the integration of Azure and Bonus.ly. The scenario outlined in this tutorial assumes that you already have the following items:
 
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+-   A valid Azure subscription
+-   A test tenant in Bonus.ly
 
-1.  Bonus.ly에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+The scenario outlined in this tutorial consists of the following building blocks:
 
-![시나리오](./media/active-directory-saas-bonus-tutorial/IC773679.png "시나리오")
-##Bonus.ly에 응용 프로그램 통합 사용
+1.  Enabling the application integration for Bonus.ly
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-이 섹션은 Bonus.ly에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+![Scenario](./media/active-directory-saas-bonus-tutorial/IC773679.png "Scenario")
+##<a name="enabling-the-application-integration-for-bonus.ly"></a>Enabling the application integration for Bonus.ly
 
-###Bonus.ly에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+The objective of this section is to outline how to enable the application integration for Bonus.ly.
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+###<a name="to-enable-the-application-integration-for-bonus.ly,-perform-the-following-steps:"></a>To enable the application integration for Bonus.ly, perform the following steps:
 
-    ![Single Sign-On 사용](./media/active-directory-saas-bonus-tutorial/IC773680.png "Single Sign-On 사용")
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+    ![Enable single sign-on](./media/active-directory-saas-bonus-tutorial/IC773680.png "Enable single sign-on")
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-    ![응용 프로그램](./media/active-directory-saas-bonus-tutorial/IC700994.png "응용 프로그램")
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+    ![Applications](./media/active-directory-saas-bonus-tutorial/IC700994.png "Applications")
 
-    ![응용 프로그램 추가](./media/active-directory-saas-bonus-tutorial/IC749321.png "응용 프로그램 추가")
+4.  Click **Add** at the bottom of the page.
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+    ![Add application](./media/active-directory-saas-bonus-tutorial/IC749321.png "Add application")
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-bonus-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-6.  **검색 상자**에 **Bonus.ly**를 입력합니다.
+    ![Add an application from gallerry](./media/active-directory-saas-bonus-tutorial/IC749322.png "Add an application from gallerry")
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-bonus-tutorial/IC773681.png "응용 프로그램 갤러리")
+6.  In the **search box**, type **Bonus.ly**.
 
-7.  결과 창에서 **Bonus.ly**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+    ![Application gallery](./media/active-directory-saas-bonus-tutorial/IC773681.png "Application gallery")
+
+7.  In the results pane, select **Bonus.ly**, and then click **Complete** to add the application.
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773682.png "Bonusly")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Bonus.ly에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. Bonus.ly에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+The objective of this section is to outline how to enable users to authenticate to Bonus.ly with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Bonus.ly requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Bonus.ly** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Bonus.ly** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC749323.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configure single sign-on")
 
-2.  **Bonus.ly에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to Bonus.ly** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC773683.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configure single sign-on")
 
-3.  **앱 URL 구성** 페이지의 **Bonus.ly 테넌트 URL** 텍스트 상자에 다음 패턴 "*https://\<tenant-name>.Bonus.ly*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  On the **Configure App URL** page, in the **Bonus.ly Tenant URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Bonus.ly*", and then click **Next**: 
 
-    ![앱 URL 구성](./media/active-directory-saas-bonus-tutorial/IC773684.png "앱 URL 구성")
+    ![Configure app URL](./media/active-directory-saas-bonus-tutorial/IC773684.png "Configure app URL")
 
-4.  **Bonus.ly에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 **c:\\Bonusly.cer**에 로컬로 인증서 파일을 저장합니다.
+4.  On the **Configure single sign-on at Bonus.ly** page, click **download Certificate**, and then save the certificate file locally as **c:\\Bonusly.cer**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC773685.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773685.png "Configure single sign-on")
 
-5.  다른 브라우저 창에서 **Bonus.ly** 테넌트에 로그인합니다.
+5.  In a different browser window, log in to your **Bonus.ly** tenant.
 
-6.  위쪽에 도구 모음에서 **설정**을 클릭하고 **통합 및 앱**을 선택합니다.
+6.  In the toolbar on the top, click **Settings**, and then select **Integrations and apps**.
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773686.png "Bonusly")
 
-7.  **Single Sign-on**에서 **SAML**을 선택합니다.
+7.  Under **Single Sign-On**, select **SAML**.
 
-8.  **SAML** 대화 상자 페이지에서 다음 단계를 수행합니다.
+8.  On the **SAML** dialog page, perform the following steps:
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773687.png "Bonusly")
 
-    1.  Azure 클래식 포털의 **Bonus.ly에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IdP SSO 대상 URL** 텍스트 상자에 붙여넣습니다.
-    2.  Azure 클래식 포털의 **Bonus.ly에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 ID** 값을 복사한 다음 **IdP 발급자** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 클래식 포털의 **Bonus.ly에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여 넣습니다.
+    1.  In the Azure classic portal, on the **Configure single sign-on at Bonus.ly** dialog page, copy the **Remote Login URL** value, and then paste it into the **IdP SSO target URL** textbox.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Bonus.ly** dialog page, copy the **Issuer ID** value, and then paste it into the **IdP Issuer** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Bonus.ly** dialog page, copy the **Remote Login URL** value, and then paste it into the **IdP Login URL** textbox.
+    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Cert Fingerprint** textbox.
 
-        >[AZURE.TIP] 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+        >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-9.  **저장**을 클릭합니다.
+9.  Click **save**.
 
-10. Microsoft Azure 클래식 포털에서 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. On the Microsoft Azure classic portal, select the configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC773689.png "Single Sign-On 구성")
-##사용자 프로비전 구성
+    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773689.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Azure AD 사용자가 Bonus.ly에 로그인할 수 있도록 하려면 Bonus.ly로 프로비전되어야 합니다. Bonus.ly의 경우 프로비전은 수동 작업입니다.
+In order to enable Azure AD users to log into Bonus.ly, they must be provisioned into Bonus.ly.  
+In the case of Bonus.ly, provisioning is a manual task.
 
-###사용자 프로비전을 구성하려면
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  브라우저 창에서 Bonus.ly 테넌트에 로그인합니다.
+1.  In a web browser window, log into your Bonus.ly tenant.
 
-2.  **설정**을 클릭합니다.
+2.  Click **Settings**
 
-    ![설정](./media/active-directory-saas-bonus-tutorial/IC781041.png "설정")
+    ![Settings](./media/active-directory-saas-bonus-tutorial/IC781041.png "Settings")
 
-3.  **사용자 및 보너스** 탭을 클릭합니다.
+3.  Click the **Users and bonuses** tab.
 
-    ![사용자 및 보너스](./media/active-directory-saas-bonus-tutorial/IC781042.png "사용자 및 보너스")
+    ![Users and bonuses](./media/active-directory-saas-bonus-tutorial/IC781042.png "Users and bonuses")
 
-4.  **사용자 관리**를 클릭합니다.
+4.  Click **Manage Users**.
 
-    ![사용자 관리](./media/active-directory-saas-bonus-tutorial/IC781043.png "사용자 관리")
+    ![Manage Users](./media/active-directory-saas-bonus-tutorial/IC781043.png "Manage Users")
 
-5.  **사용자 추가**를 클릭합니다.
+5.  Click **Add User**.
 
-    ![사용자 추가](./media/active-directory-saas-bonus-tutorial/IC781044.png "사용자 추가")
+    ![Add User](./media/active-directory-saas-bonus-tutorial/IC781044.png "Add User")
 
-6.  **사용자 추가** 대화 상자에서 다음 단계를 수행합니다.
+6.  On the **Add User** dialog, perform the following steps:
 
-    ![사용자 추가](./media/active-directory-saas-bonus-tutorial/IC781045.png "사용자 추가")
+    ![Add User](./media/active-directory-saas-bonus-tutorial/IC781045.png "Add User")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 “**전자 메일**, **이름**, **성**”을 입력합니다.
-    2.  **Save**를 클릭합니다.
+    1.  Type the “**Email**, **First name**, **Last name**” of a valid AAD account you want to provision into the related textboxes.
+    2.  Click **Save**.
 
-    >[AZURE.NOTE] AAD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
+    >[AZURE.NOTE] The AAD account holder will receive an email that includes a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] 다른 Bonus.ly 사용자 계정 생성 도구 또는 Bonus.ly가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] You can use any other Bonus.ly user account creation tools or APIs provided by Bonus.ly to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
 
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Bonus.ly에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-bonus.ly,-perform-the-following-steps:"></a>To assign users to Bonus.ly, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  Bonus.ly 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the Bonus.ly application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-bonus-tutorial/IC773690.png "사용자 할당")
+    ![Assign users](./media/active-directory-saas-bonus-tutorial/IC773690.png "Assign users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-bonus-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-bonus-tutorial/IC767830.png "Yes")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

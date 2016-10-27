@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Window Server에 대한 Azure 하이브리드 사용 혜택 | Microsoft Azure"
-   description="Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Server Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다."
+   pageTitle="Azure Hybrid Use Benefit for Window Server | Microsoft Azure"
+   description="Learn how to maximize your Windows Server Software Assurance benefits to bring on-premises licenses to Azure"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,46 +16,47 @@
    ms.date="07/13/2016"
    ms.author="georgem"/>
 
-# Windows Server에 대한 Azure 하이브리드 사용 혜택
 
-Software Assurance와 함께 Windows Server를 사용하는 고객의 경우, 온-프레미스 Windows Server 라이선스를 Azure로 가져올 수 있으며 Azure에서 절감된 비용으로 Windows Server VM을 실행할 수 있습니다. Azure 하이브리드 사용 혜택을 사용하면 기본 계산 요금으로 Azure에서 Windows Server VM을 실행할 수 있습니다. 자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요. 이 문서에서는 이 라이선싱 혜택을 사용하기 위해 Azure에서 Windows Server VM을 배포하는 방법을 설명합니다.
+# <a name="azure-hybrid-use-benefit-for-windows-server"></a>Azure Hybrid Use Benefit for Windows Server
 
-> [AZURE.NOTE] Azure 하이브리드 사용 혜택을 사용하는 Windows Server VM을 배포하는 데 Azure 마켓플레이스 이미지를 사용할 수 없습니다. 기본 계산 요금을 할인 받을 수 있도록 VM을 올바르게 등록하려면 PowerShell 또는 리소스 관리자 템플릿을 사용하여 VM을 배포해야 합니다.
+For customers using Windows Server with Software Assurance, you can bring your on-premises Windows Server licenses to Azure and run Windows Server VMs in Azure at a reduced cost. The Azure Hybrid Use Benefit allows you to run Windows Server VMs in Azure and only get billed for the base compute rate. For more information, please see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/). This article explains how to deploy Windows Server VMs in Azure to use this licensing benefit.
 
-## 필수 구성 요소
-Azure에서 Windows Server VM에 대한 Azure 하이브리드 사용 혜택을 사용하려면 몇 가지 필수 조건이 있습니다.
+> [AZURE.NOTE] You cannot use Azure Marketplace images to deploy Windows Server VMs utilizing the Azure Hybrid Use Benefit. You must deploy your VMs using either PowerShell or Resource Manager templates to correctly register your VMs as eligible for base compute rate discount.
 
-- Azure PowerShell 모듈이 설치되어 있어야 합니다.
-- Windows Server VHD를 Azure 저장소에 업로드해야 합니다.
+## <a name="pre-requisites"></a>Pre-requisites
+There are a couple of pre-requisites in order to utilize Azure Hybrid Use Benefit for Windows Server VMs in Azure:
 
-### Azure PowerShell 설치
-먼저 [최신 Azure PowerShell을 설치 및 구성](../powershell-install-configure.md)했는지 확인합니다. Resource Manager 템플릿을 사용하여 VM을 배포하려는 경우에도 Windows Server VHD를 업로드하려면 Azure PowerShell을 설치해야 합니다(다음 단계 참조).
+- Have the Azure PowerShell module installed
+- Have your Windows Server VHD uploaded to Azure Storage
 
-### Windows Server VHD 업로드
+### <a name="install-azure-powershell"></a>Install Azure PowerShell
+Make sure you have [installed and configured the latest Azure PowerShell](../powershell-install-configure.md). Even if you are going to deploy your VMs using Resource Manager templates, you still need Azure PowerShell installed to upload your Windows Server VHD (see the following step).
 
-Azure에서 Windows Server VM을 배포하려면 먼저 기본 Windows Server 빌드를 포함하는 VHD를 만들어야 합니다. 이 VHD는 Azure에 업로드하기 전에 Sysprep을 통해 적절하게 준비되어야 합니다. 자세한 내용은 [VHD 요구 사항 및 Sysprep 프로세스](./virtual-machines-windows-upload-image.md) 및 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요. Sysprep를 실행하기 전에 VM을 백업합니다. VHD를 준비했으면 다음과 같이 `Add-AzureRmVhd` cmdlet을 사용하여 Azure 저장소 계정에 VHD를 업로드합니다.
+### <a name="upload-a-windows-server-vhd"></a>Upload a Windows Server VHD
+
+To deploy a Windows Server VM in Azure, you first need to create a VHD that contains your base Windows Server build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](./virtual-machines-windows-upload-image.md) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
 ```
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
 ```
 
-> [AZURE.NOTE] Microsoft SQL Server, SharePoint 서버 및 Dynamics는 또한 Software Assurance 라이선스를 활용할 수 있습니다. Windows Server 이미지를 준비하려면 응용 프로그램 구성 요소를 설치하고 라이선스 키를 적절하게 제공한 다음, 디스크 이미지를 Azure에 업로드합니다. 응용 프로그램과 함께 [SysPrep을 사용하여 SQL Server 설치에 대한 고려 사항](https://msdn.microsoft.com/library/ee210754.aspx) 또는 [SharePoint Server 2016 참조 이미지 빌드(SysPrep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx)와 같은 Sysprep 실행에 대한 적합한 설명서를 검토합니다.
+> [AZURE.NOTE] Microsoft SQL Server, SharePoint Server, and Dynamics can also utilize your Software Assurance licensing. You still need to prepare the Windows Server image by installing your application components and providing license keys accordingly, then uploading the disk image to Azure. Review the appropriate documentation for running Sysprep with your application, such as [Considerations for Installing SQL Server using Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) or [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx).
 
-자세한 내용은 [Azure에 VHD 업로드 프로세스](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account)를 참조하세요.
+You can also read more about [uploading the VHD to Azure process](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
 
-> [AZURE.TIP] 이 문서에서는 Windows Server VM을 배포하는 방법을 중점적으로 설명합니다. 같은 방식으로 Windows 클라이언트 VM도 배포할 수 있습니다. 다음 예제에서 `Server`를 `Client`로 적절하게 바꿉니다.
+> [AZURE.TIP] This article focuses on deploying Windows Server VMs. You can also deploy Windows Client VMs in the same manner. In the following examples, you replace `Server` with `Client` appropriately.
 
-## PowerShell 빠른 시작을 통해 VM 배포
-PowerShell을 통해 Windows Server VM을 배포할 때는 `-LicenseType`에 대한 추가 매개 변수가 있습니다. Azure에 VHD를 업로드하고 나면 다음과 같이 `New-AzureRmVM`을 사용하여 새 VM을 만들고 라이선싱 형식을 지정합니다.
+## <a name="deploy-a-vm-via-powershell-quick-start"></a>Deploy a VM via PowerShell Quick-Start
+When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you create a new VM using `New-AzureRmVM` and specify the licensing type as follows:
 
 ```
 New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
 ```
 
-아래에서 [PowerShell을 통해 Azure에서 VM을 배포하는 보다 자세한 연습을 확인](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough)하거나, [Resource Manager 및 PowerShell을 사용하여 Windows VM 만들기](./virtual-machines-windows-ps-create.md)를 수행하는 다른 단계에 대해 보다 자세히 설명하는 더 자세한 지침을 확인하세요.
+You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](./virtual-machines-windows-ps-create.md).
 
-## 리소스 관리자를 통해 VM 배포
-Resource Manager 템플릿 내에서 `licenseType`에 대한 추가 매개 변수를 지정할 수 있습니다. [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. Azure에 VHD를 업로드하고 나면 Resource Manager 템플릿을 편집하여 계산 공급자의 일부로 라이선스 유형을 포함하고 정상적으로 템플릿을 배포합니다.
+## <a name="deploy-a-vm-via-resource-manager"></a>Deploy a VM via Resource Manager
+Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
 
 ```
 "properties": {  
@@ -65,14 +66,14 @@ Resource Manager 템플릿 내에서 `licenseType`에 대한 추가 매개 변�
    },
 ```
  
-## VM이 라이선싱 혜택을 사용하고 있는지 확인
-PowerShell 또는 Resource Manager 배포 메서드를 통해 VM을 배포한 후 다음과 같이 `Get-AzureRmVM`을 사용하여 라이선스 형식을 확인합니다.
+## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Verify your VM is utilizing the licensing benefit
+Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzureRmVM` as follows:
  
 ```
 Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
 ```
 
-다음과 유사하게 출력됩니다.
+The output is similar to the following:
 
 ```
 Type                     : Microsoft.Compute/virtualMachines
@@ -80,7 +81,7 @@ Location                 : westus
 LicenseType              : Windows_Server
 ```
 
-이는 Azure 갤러리에서 바로 배포된 VM과 같이 Azure 하이브리드 사용 혜택 라이선싱 없이 배포된 다음 VM과는 대조됩니다.
+This contrasts with the following VM deployed without Azure Hybrid Use Benefit licensing, such as a VM deployed straight from the Azure Gallery:
 
 ```
 Type                     : Microsoft.Compute/virtualMachines
@@ -88,11 +89,11 @@ Location                 : westus
 LicenseType              : 
 ```
  
-## 자세한 PowerShell 연습
+## <a name="detailed-powershell-walkthrough"></a>Detailed PowerShell Walkthrough
 
-다음 자세한 PowerShell 단계는 VM의 전체 배포를 보여 줍니다. [Resource Manager 및 PowerShell을 사용하여 Windows VM 만들기](./virtual-machines-windows-ps-create.md)에서 만든 실제 cmdlet 및 다른 구성 요소에 대해 자세한 컨텍스트를 읽어볼 수 있습니다. 단계별로 리소스 그룹, 저장소 계정 및 가상 네트워킹을 만든 다음 VM을 정의하고 마지막으로 VM을 만듭니다.
+The following detailed PowerShell steps show a full deployment of a VM. You can read more context as to the actual cmdlets and different components being created in [Create a Windows VM using Resource Manager and PowerShell](./virtual-machines-windows-ps-create.md). You step through creating your resource group, storage account, and virtual networking, then define your VM and finally create your VM.
  
-먼저 안전하게 자격 증명을 얻고, 위치를 설정하고, 리소스 그룹 이름을 지정합니다.
+First, securely obtain credentials, set a location, and resource group name:
 
 ```
 $cred = Get-Credential
@@ -100,14 +101,14 @@ $location = "West US"
 $resourceGroupName = "TestLicensing"
 ```
 
-공용 IP 만들기:
+Create a public IP:
 
 ```
 $publicIPName = "testlicensingpublicip"
 $publicIP = New-AzureRmPublicIpAddress -Name $publicIPName -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
 ```
 
-서브넷, NIC 및 VNET을 정의합니다.
+Define your subnet, NIC, and VNET:
 
 ```
 $subnetName = "testlicensingsubnet"
@@ -118,33 +119,33 @@ $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGr
 $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIP.Id
 ```
 
-VM 이름을 지정하고 VM 구성을 만듭니다.
+Name your VM and create a VM config:
 
 ```
 $vmName = "testlicensing"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A1"
 ```
 
-OS 정의:
+Define your OS:
 
 ```
 $computerName = "testlicensing"
 $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 ```
 
-VM에 NIC를 추가합니다.
+Add your NIC to the VM:
 
 ```
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-사용할 저장소 계정 정의:
+Define the storage account to use:
 
 ```
 $storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -AccountName testlicensing
 ```
 
-VHD를 업로드하고, 적절하게 준비하고, 사용을 위해 VM에 연결합니다.
+Upload your VHD, suitably prepared, and attach to your VM for use:
 
 ```
 $osDiskName = "licensing.vhd"
@@ -153,16 +154,20 @@ $urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licens
 $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption FromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
-마지막으로, VM을 만들고 Azure 하이브리드 사용 혜택을 사용하기 위한 라이선싱 유형을 정의합니다.
+Finally, create your VM and define the licensing type to utilize Azure Hybrid Use Benefit:
 
 ```
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType Windows_Server
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 참조하세요.
+Read more about [Azure Hybrid Use Benefit licensing](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-[Resource Manager 템플릿 사용](../resource-group-overview.md)에 대해 자세히 알아봅니다.
+Learn more about [using Resource Manager templates](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

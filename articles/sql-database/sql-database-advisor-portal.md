@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure 포털을 사용하는 Azure SQL 데이터베이스 관리자 | Microsoft Azure" 
-   description="Azure 포털의 Azure SQL 데이터베이스 관리자를 사용하여 현재 쿼리 성능을 향상시킬 수 있는 기존 SQL 데이터베이스에 대한 권장 사항을 검토하고 구현할 수 있습니다." 
+   pageTitle="Azure SQL Database Advisor using the Azure portal | Microsoft Azure" 
+   description="You can use the Azure SQL Database Advisor in the Azure portal to review and implement recommendations for your existing SQL Databases that can improve current query performance." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,164 +13,175 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/22/2016"
+   ms.date="09/30/2016"
    ms.author="sstein"/>
 
-# SQL 데이터베이스 관리자
+
+# <a name="sql-database-advisor-using-the-azure-portal"></a>SQL Database Advisor using the Azure portal
 
 > [AZURE.SELECTOR]
-- [SQL 데이터베이스 관리자 개요](sql-database-advisor.md)
-- [포털](sql-database-advisor-portal.md)
+- [SQL Database Advisor Overview](sql-database-advisor.md)
+- [Portal](sql-database-advisor-portal.md)
 
-Azure 포털의 Azure SQL 데이터베이스 관리자를 사용하여 현재 쿼리 성능을 향상시킬 수 있는 기존 SQL 데이터베이스에 대한 권장 사항을 검토하고 구현할 수 있습니다.
+You can use the Azure SQL Database Advisor in the Azure portal to review and implement recommendations for your existing SQL Databases that can improve current query performance.
 
-## 권장 사항 보기
+## <a name="viewing-recommendations"></a>Viewing recommendations
 
-권장 사항 페이지에서 성능 향상을 위한 잠재적 영향을 기준으로 상위 권장 사항을 봅니다. 또한 과거 작업의 상태도 볼 수 있습니다. 세부 정보를 보려면 권장 구성 또는 상태를 선택합니다.
+The recommendations page is where you view the top recommendations based on their potential impact to improve performance. You can also view the status of the historical operations. Select a recommendation or status to see  more details.
 
-권장 사항을 보고 적용하려면 Azure에서 올바른 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 권한이 필요합니다. 권장 사항을 보려면 **읽기 권한자**, **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자**, **SQL DB 참가자** 권한이 필요합니다.
+To view and apply recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-configure.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **찾아보기** > **SQL 데이터베이스**를 클릭하고 해당 데이터베이스를 선택합니다.
-5. **모든 설정** > **권장 사항**을 클릭하여 선택된 데이터베이스의 사용 가능한 **권장 사항**을 봅니다.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Click **More services** > **SQL databases**, and select your database.
+5. Click **Performance recommendation** to view available recommendations for the selected database.
 
-> [AZURE.NOTE] 권장 사항을 가져오려면 데이터베이스에 일주일의 사용 기간이 필요하고, 그 기간 내에 활동이 필요합니다. 연관된 활동 또한 필요합니다. SQL 데이터베이스 관리자는 일관성있는 쿼리 패턴을 임의 연결 상태가 좋지 않은 버스트 활동보다 더욱 쉽게 최적화할 수 있습니다. 권장 사항을 사용할 수 없는 경우 **권장 구성** 페이지에서 이유를 설명하는 메시지를 제공해야 합니다.
+> [AZURE.NOTE] To get recommendations a database needs to have about a day of usage, and there needs to be some activity. There also needs to be some consistent activity. The SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not available, the **Performance recommendation** page should provide a message explaining why.
 
-![추천](./media/sql-database-advisor-portal/recommendations.png)
+![Recommendations](./media/sql-database-advisor-portal/recommendations.png)
 
-Azure 포털의 "스키마 문제 해결" 권장 사항의 예는 다음과 같습니다.
+Here is an example of "Fix schema issue" recommendation in the Azure portal.
 
-![스키마 문제 해결](./media/sql-database-advisor-portal/sql-database-advisor-schema-issue.png)
+![Fix Schema Issue](./media/sql-database-advisor-portal/sql-database-advisor-schema-issue.png)
 
-권장 사항은 아래 4개의 카테고리에서 성능의 잠재적 영향 순으로 정렬됩니다.
+Recommendations are sorted by their potential impact on performance into the following four categories:
 
-| 영향 | 설명 |
+| Impact | Description |
 | :--- | :--- |
-| 높음 | 높은 영향 권장사항은 가장 중요한 성능 영향을 제공합니다. |
-| 중간 | 중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
-| 낮음 | 낮은 영향 권장 사항은 없는 것보다 나은 성능을 제공하지만, 향상된 기능이 눈에 띄지는 않습니다. 
+| High | High impact recommendations should provide the most significant performance impact. |
+| Medium | Medium impact recommendations should improve performance, but not substantially. |
+| Low | Low impact recommendations should provide better performance than without, but improvements might not be significant. 
 
 
-### 목록에서 권장 사항 제거
+### <a name="removing-recommendations-from-the-list"></a>Removing recommendations from the list
 
-권장 사항 목록에 목록에서 제거할 항목이 포함된 경우 권장 사항을 삭제할 수 있습니다.
+If your list of recommendations contains items that you want to remove from the list, you can discard the recommendation:
 
-1. **권장 사항** 목록에서 권장 사항을 선택합니다.
-2. **세부 정보** 블레이드에서 **삭제**를 클릭합니다.
-
-
-원하는 경우 삭제된 항목을 **권장 사항** 목록에 다시 추가할 수 있습니다.
-
-1. **권장 사항** 블레이드에서 **삭제된 항목 보기**를 클릭합니다.
-1. 자세히 보기 목록에서 삭제된 항목을 선택합니다.
-1. 필요에 따라 **권장 사항**의 기본 목록에 인덱스를 다시 추가하고 싶다면 **삭제 취소**를 클릭하세요.
+1. Select a recommendation in the list of **Recommendations**.
+2. Click **Discard** on the **Details** blade.
 
 
+If desired, you can add discarded items back to the **Recommendations** list:
 
-## 권장 사항 적용
-
-SQL 데이터베이스 관리자는 아래의 3가지 옵션을 사용하여 권장 사항을 사용하도록 설정하는 방법을 완전히 제어할 수 있게 합니다.
-
-- 개별 권장 구성을 한 번에 하나씩 적용합니다.
-- 권장 사항을 자동으로 적용하도록 관리자를 설정합니다(현재 인덱스 권장 사항에만 적용됨).
-- 권장 구성을 구현하려면 데이터베이스에 대해 권장 T-SQL 스크립트를 수동으로 실행합니다.
-
-권장 사항을 선택하여 세부 정보를 본 다음 **스크립트 보기**를 클릭하여 권장 사항이 어떻게 만들어지는지에 대해 정확한 세부 사항을 검토합니다.
-
-관리자가 권장 구성을 적용하는 동안 데이터베이스는 온라인 상태로 유지됩니다. SQL 데이터베이스 관리자를 사용해도 데이터베이스는 오프라인으로 되지 않습니다.
-
-### 개별 권장 구성 적용
-
-권장 구성을 한 번에 하나씩 검토하고 수락할 수 있습니다.
-
-1. **권장 사항** 블레이드에서 권장 사항을 클릭합니다.
-2. **세부 정보** 블레이드에서 **적용**을 클릭합니다.
-
-    ![권장 구성 적용](./media/sql-database-advisor-portal/apply.png)
-
-### 자동 인덱스 관리 사용
-
-SQL 데이터베이스 관리자가 권장 사항을 자동으로 구현하도록 설정할 수 있습니다. 권장 구성은 사용할 수 있을 때 자동으로 적용됩니다. 서비스에서 관리되는 모든 인덱스 작업처럼 성능에 좋지 않은 영향을 주는 경우 권장 구성이 되돌려집니다.
-
-1. **권장 사항** 블레이드에서 **자동화**를 클릭합니다.
-
-    ![관리자 설정](./media/sql-database-advisor-portal/settings.png)
-
-2. 관리자가 자동으로 인덱스를 **만들거나** **삭제**하도록 설정합니다.
-
-    ![권장된 인덱스](./media/sql-database-advisor-portal/automation.png)
-
-
-### 권장 T-SQL 스크립트를 수동으로 실행
-
-권장 사항을 선택한 다음 **스크립트 보기**를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.
-
-*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)를 참조하세요.
-
-
-### 권장 사항 취소
-
-**보류 중**, **확인 중** 또는 **성공** 상태에 있는 권장 사항은 취소할 수 있습니다. **실행 중** 상태의 권장 사항은 취소할 수 없습니다.
-
-1. **튜닝 기록** 영역에서 권장 사항을 선택하면 **권장 사항 세부 정보** 블레이드가 열립니다.
-2. **취소**를 클릭하여 권장 사항을 적용하는 과정을 중단합니다.
+1. On the **Recommendations** blade click **View discarded**.
+1. Select a discarded item from the list to view its details.
+1. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
 
 
-## 모니터링 작업
+## <a name="applying-recommendations"></a>Applying recommendations
 
-권장 구성을 적용해도 즉각적으로 일어나지 않을 수 있습니다. 포털에서는 권장 사항 작업의 상태에 대한 세부 정보를 제공합니다. 다음은 인덱스 안에 나타날 수 있는 상태입니다.
+SQL Database Advisor gives you full control over how recommendations are enabled using any of the following three options: 
 
-| 상태 | 설명 |
+- Apply individual recommendations one at a time.
+- Enable the advisor to automatically apply recommendations (currently applies to index recommendations only).
+- To implement a recommendation manually, run the recommended T-SQL script against your database .
+
+Select any recommendation to view its details and then click **View script** to review the exact details of how the recommendation is created.
+
+The database remains online while the advisor applies the recommendation -- using SQL Database Advisor never takes a database offline.
+
+### <a name="apply-an-individual-recommendation"></a>Apply an individual recommendation
+
+You can review and accept recommendations one at a time.
+
+1. On the **Recommendations** blade, click a recommendation.
+2. On the **Details** blade click **Apply**.
+
+    ![Apply recommendation](./media/sql-database-advisor-portal/apply.png)
+
+### <a name="enable-automatic-index-management"></a>Enable automatic index management
+
+You can set the SQL Database Advisor to implement recommendations automatically. As recommendations become available they will automatically be applied. As with all index operations managed by the service if the performance impact is negative the recommendation will be reverted.
+
+1. On the **Recommendations** blade, click **Automate**:
+
+    ![Advisor settings](./media/sql-database-advisor-portal/settings.png)
+
+2. Set the advisor to automatically **Create** or **Drop** indexes:
+
+    ![Recommended Indexes](./media/sql-database-advisor-portal/automation.png)
+
+
+### <a name="manually-run-the-recommended-t-sql-script"></a>Manually run the recommended T-SQL script
+
+Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
+
+*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+
+
+### <a name="canceling-recommendations"></a>Canceling recommendations
+
+Recommendations that are in a **Pending**, **Verifying**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
+
+1. Select a recommendation in the **Tuning History** area to open the **recommendations details** blade.
+2. Click **Cancel** to abort the process of applying the recommendation.
+
+
+
+## <a name="monitoring-operations"></a>Monitoring operations
+
+Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation operations. The following are possible states that an index can be in:
+
+| Status | Description |
 | :--- | :--- |
-| Pending | 권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
-| Executing | 권장 사항을 적용 중입니다. |
-| 성공 | 권장 사항이 성공적으로 적용되었습니다. |
-| 오류 | 권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
-| 되돌리기 | 권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |
-| 되돌림 | 권장 사항을 되돌렸습니다. |
+| Pending | Apply recommendation command has been received and is scheduled for execution. |
+| Executing | The recommendation is being applied. |
+| Success | Recommendation was successfully applied. |
+| Error | An error occurred during the process of applying the recommendation. This can be a transient issue, or possibly a schema change to the table and the script is no longer valid. |
+| Reverting | The recommendation was applied, but has been deemed non-performant and is being automatically reverted. |
+| Reverted | The recommendation was reverted. |
 
-세부 정보를 보려면 목록에서 In Process 권장 구성을 클릭합니다.
+Click an in-process recommendation from the list to see more details:
 
-![권장된 인덱스](./media/sql-database-advisor-portal/operations.png)
-
-
-### 권장 사항 되돌리기
-
-관리자를 사용하여 권장 사항을 적용하는 경우(즉 수동으로 T-SQL 스크립트를 실행하지 않음) 관리자가 성능에 좋지 않은 영향을 알게 되면 자동으로 이를 되돌립니다. 어떤 이유로든 단순히 권장 사항을 되돌리려면 다음을 수행할 수 있습니다.
+![Recommended Indexes](./media/sql-database-advisor-portal/operations.png)
 
 
-1. **튜닝 기록** 영역에서 성공적으로 적용된 권장 사항을 선택합니다.
-2. **권장 사항 세부 정보** 블레이드에서 **되돌리기**를 클릭합니다.
+### <a name="reverting-a-recommendation"></a>Reverting a recommendation
 
-![권장된 인덱스](./media/sql-database-advisor-portal/details.png)
-
-
-## 인덱스 권장 구성의 성능 영향 모니터링
-
-권장 사항이 성공적으로 구현된 후(현재는 인덱스 작업 및 쿼리 매개 변수화 권장 사항만) 인덱스 세부 정보 블레이드의 **쿼리 인사이트**를 클릭하여 [Query Performance Insights](sql-database-query-performance.md)를 열고 상위 쿼리의 성능 영향을 확인할 수 있습니다.
-
-![성능에 미치는 영향을 모니터링합니다.](./media/sql-database-advisor-portal/query-insights.png)
+If you used the advisor to apply the recommendation (meaning you did not manually run the T-SQL script) it will automatically revert it if it finds the performance impact to be negative. If for any reason you simply want to revert a recommendation you can do the following:
 
 
+1. Select a successfully applied recommendation in the **Tuning history** area.
+2. Click **Revert** on the **recommendation details** blade.
 
-## 요약
+![Recommended Indexes](./media/sql-database-advisor-portal/details.png)
 
-SQL 데이터베이스 관리자는 SQL 데이터베이스 성능 향상을 위한 권장 사항을 제공합니다. 관리자는 T-SQL 스크립트 및 개별적인 완전 자동(현재는 인덱스만)을 제공하여 데이터베이스를 최적화하고 궁극적으로 쿼리 성능을 향상시키도록 지원합니다.
+
+## <a name="monitoring-performance-impact-of-index-recommendations"></a>Monitoring performance impact of index recommendations
+
+After recommendations are successfully implemented (currently, index operations and parameterize queries recommendations only) you can click **Query Insights** on the recommendation details blade to open [Query Performance Insights](sql-database-query-performance.md) and see the performance impact of your top queries.
+
+![Monitor performance impact](./media/sql-database-advisor-portal/query-insights.png)
 
 
 
-## 다음 단계
+## <a name="summary"></a>Summary
 
-권장 사항을 모니터링하고 개선된 성능을 계속 적용합니다. 데이터베이스 워크로드는 동적 이며 지속적으로 변경합니다. SQL 데이터베이스 관리자는 데이터베이스 성능을 잠재적으로 향상시킬 권장 사항을 계속 제공하고 모니터링할 것입니다.
+SQL Database Advisor provides recommendations for improving SQL database performance. By providing T-SQL scripts, as well as individual and fully-automatic (currently index only), the advisor provides helpful assistance in optimizing your database and ultimately improving query performance.
 
- - SQL 데이터베이스 관리자에 대한 개요를 보려면 [SQL 데이터베이스 관리자](sql-database-advisor.md)를 참조하세요.
- - 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](sql-database-query-performance.md)를 참조하세요.
 
-## 추가 리소스
 
-- [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
+## <a name="next-steps"></a>Next steps
+
+Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor will continue to monitor and provide recommendations that can potentially improve your database's performance. 
+
+ - See [SQL Database Advisor](sql-database-advisor.md) for an overview of SQL Database Advisor.
+ - See [Query Performance Insights](sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.
+
+## <a name="additional-resources"></a>Additional resources
+
+- [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 - [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-- [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
+- [Role-based access control](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

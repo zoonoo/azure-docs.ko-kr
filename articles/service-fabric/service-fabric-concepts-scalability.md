@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 서비스의 확장성 | Microsoft Azure"
-   description="서비스 패브릭 서비스의 규모를 조정하는 방법을 설명합니다."
+   pageTitle="Scalability of Service Fabric services | Microsoft Azure"
+   description="Describes how to scale Service Fabric services"
    services="service-fabric"
    documentationCenter=".net"
    authors="appi101"
@@ -16,48 +16,53 @@
    ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
-# 서비스 패브릭 응용 프로그램 크기 조정
-Azure 서비스 패브릭을 사용하면 클러스터의 모든 노드에서 부하 분산 서비스, 파티션 및 복제본에 의해 확장 가능한 응용 프로그램의 빌드가 쉬워집니다. 최대 리소스 사용률을 가능하게 합니다.
 
-서비스 패브릭 응용 프로그램의 높은 규모는 다음 두 가지 방법으로 얻을 수 있습니다.
+# <a name="scaling-service-fabric-applications"></a>Scaling Service Fabric applications
+Azure Service Fabric makes it easy to build scalable applications by load-balancing services, partitions, and replicas on all the nodes in a cluster. This enables maximum resource utilization.
 
-1. 파티션 수준에서 크기 조정
+High scale for Service Fabric applications can be achieved in two ways:
 
-2. 서비스 이름 수준에서 크기 조정
+1. Scaling at the partition level
 
-## 파티션 수준에서 크기 조정
-서비스 패브릭은 개별 서비스를 여러 개의 작은 파티션으로 분할하는 것을 지원합니다. [분할 개요](service-fabric-concepts-partitioning.md)는 지원되는 분할 체계의 유형에 대한 정보를 제공합니다. 각 파티션의 복제본은 클러스터의 노드 간에 분산됩니다. 하위 키 0, 상위 키 99 및 파티션 4개의 범위 지정 분할 체계를 사용하는 서비스를 상정해 봅니다. 3노드 클러스터에서 서비스는 다음과 같이 각 노드에서 리소스를 공유하는 4개의 복제본으로 배치될 수 있습니다.
+2. Scaling at the service name level
 
-![3개의 노드가 있는 파티션 레이아웃](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+## <a name="scaling-at-the-partition-level"></a>Scaling at the partition level
+Service Fabric supports partitioning an individual service into multiple smaller partitions. The [partitioning overview](service-fabric-concepts-partitioning.md) provides information on the types of partitioning schemes that are supported. The replicas of each partition are spread across the nodes in a cluster. Consider a service that uses a ranged partitioning scheme with a low key of 0, a high key of 99, and four partitions. In a three-node cluster, the service might be laid out with four replicas that share the resources on each node as shown here:
 
-노드 수를 늘리면 서비스 패브릭이 일부 복제본을 빈 노드로 이동시켜서 새 노드의 리소스를 활용할 수 있게 됩니다. 노드 수를 4개로 증가시키면 서비스가 서로 다른 파티션의 각 노드에서 실행되는 3개의 복제본을 갖게 되어 리소스 사용률 및 성능이 더 좋아집니다.
+![Partition layout with three nodes](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 
-![4개의 노드가 있는 파티션 레이아웃](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+Increasing the number of nodes allows Service Fabric to utilize the resources on the new nodes by moving some of the replicas to empty nodes. By increasing the number of nodes to four, the service now has three replicas running on each node (of different partitions), allowing for better resource utilization and performance.
 
-## 서비스 이름 수준에서 크기 조정
-서비스 인스턴스는 응용 프로그램 이름 및 서비스 형식 이름의 특정 인스턴스입니다([서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md) 참조). 서비스를 만드는 동안 사용할 파티션 구성표를 지정합니다([서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md) 참조).
+![Partition layout with four nodes](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 
-크기 조정의 첫 번째 수준은 서비스 이름에 의해 조정됩니다. 기존 서비스 인스턴스가 바빠지면 분할의 다른 수준으로 서비스의 새 인스턴스를 만들 수 있습니다. 그러면 새 서비스 소비자가 더 바쁜 서비스 인스턴스 대신 덜 바쁜 서비스 인스턴스를 사용할 수 있습니다.
+## <a name="scaling-at-the-service-name-level"></a>Scaling at the service name level
+A service instance is a specific instance of an application name and a service type name (see [Service Fabric application life cycle](service-fabric-application-lifecycle.md)). During the creation of a service, you specify the partition scheme (see [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)) to be used.
 
-용량을 늘리고 파티션 수를 늘리거나 줄이는 한 가지 옵션은 새 파티션 체계로 새 서비스 인스턴스를 만드는 것입니다. 하지만 사용 중인 모든 클라이언트가 언제 어떻게 다르게 이름 지정된 서비스를 사용하는지 알아야 하므로 복잡성이 추가됩니다.
+The first level of scaling is by service name. You can create new instances of a service, with different levels of partitioning, as your older service instances become busy. This allows new service consumers to use less-busy service instances, rather than busier ones.
 
-### 예제 시나리오: 포함된 날짜
-한 가지 가능한 시나리오는 서비스 이름의 일부로 날짜 정보를 사용하는 것입니다. 예를 들어 2013년에 합류한 모든 고객에 대해 특정한 이름의 서비스 인스턴스를 사용하고 2014년에 합류한 고객에 대해서는 다른 이름의 서비스 인스턴스를 사용할 수 있습니다. 이 이름 지정 체계로 날짜에 따라 이름이 증가하는 프로그래밍 방식을 사용할 수 있습니다(2014 접근 방식으로 2014년에 대한 서비스 인스턴스를 필요에 따라 만들 수 있습니다).
+One option for increasing capacity, as well as increasing or decreasing partition counts, is to create a new service instance with a new partition scheme. This adds complexity, though, as any consuming clients need to know when and how to use the differently named service.
 
-그러나 이 접근 방식은 서비스 패브릭 지식 범위 밖의 특정 이름 지정 정보 응용 프로그램을 사용하는 클라이언트에 기반합니다.
+### <a name="example-scenario:-embedded-dates"></a>Example scenario: Embedded dates
+One possible scenario would be to use date information as part of the service name. For example, you could use a service instance with a specific name for all customers who joined in 2013 and another name for customers who joined in 2014. This naming scheme allows for programmatically increasing the names depending on the date (as 2014 approaches, the service instance for 2014 can be created on demand).
 
-- *이름 지정 규칙 사용*: 2013년에 사용할 응용 프로그램이 있는 경우 fabric:/app/service2013라는 이름의 서비스를 만듭니다. 2013년 2/4분기를 향해 fabric:/app/service2014라는 이름의 다른 서비스를 만듭니다. 이 두 서비스는 동일한 서비스 유형입니다. 이 접근 방법에서는 클라이언트가 연도를 기준으로 적절한 서비스 이름을 생성하는 논리가 있어야 합니다.
+However, this approach is based on the clients using application-specific naming information that is outside the scope of Service Fabric knowledge.
 
-- *조회 서비스 사용*: 다른 패턴은 원하는 키에 대한 서비스의 이름을 제공할 수 있는 보조 “조회 서비스”를 사용하는 것입니다. 그러면 조회 서비스에 의해새 서비스 인스턴스가 만들어집니다. 조회 서비스 자체는 생성한 서비스 이름에 대한 데이터 외에는 어떤 응용 프로그램 데이터도 유지하지 않습니다. 따라서 같은 해에 기반한 위 예제의 경우, 클라이언트는 먼저 조회 서비스에 연결하여 주어진 해에 대한 서비스 처리 데이터의 이름을 확인한 후 그 서비스 이름을 사용하여 실제 작업을 수행합니다. 첫 번째 조회 결과는 캐시될 수 있습니다.
+- *Using a naming convention*: In 2013, when your application goes live, you create a service called fabric:/app/service2013. Near the second quarter of 2013, you create another service, called fabric:/app/service2014. Both of these services are of the same service type. In this approach, your client will need to employ logic to construct the appropriate service name based on the year.
 
-## 다음 단계
+- *Using a lookup service*: Another pattern is to provide a secondary lookup service, which can provide the name of the service for a desired key. New service instances can then be created by the lookup service. The lookup service itself doesn't retain any application data, only data about the service names that it creates. Thus, for the year-based example above, the client would first contact the lookup service to find out the name of the service handling data for a given year, and then use that service name for performing the actual operation. The result of the first lookup can be cached.
 
-서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하세요.
+## <a name="next-steps"></a>Next steps
 
-- [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
+For more information on Service Fabric concepts, see the following:
 
-- [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
+- [Availability of Service Fabric services](service-fabric-availability-services.md)
 
-- [상태 정의 및 관리](service-fabric-concepts-state.md)
+- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+- [Defining and managing state](service-fabric-concepts-state.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

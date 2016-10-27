@@ -1,14 +1,17 @@
-다음 표는 Azure 이벤트 허브의 할당량과 제한 목록입니다. 이벤트 허브에 대한 자세한 내용은 [이벤트 허브 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요. 서비스 버스에 대한 가격 책정 및 기타 할당량에 대한 정보는 [서비스 버스 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/) 개요를 참조하세요.
+The following table lists quotas and limits specific to Azure Event Hubs. For more information about Event Hubs, see [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). For information about pricing and other quotas for Service Bus, see the [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/) overview.
 
-| 제한 | 범위 | 유형 | 초과 시 동작 | 값 |
+| Limit                                            | Scope       | Type   | Behavior when exceeded                                                                                                 | Value    |
 |--------------------------------------------------|-------------|--------|------------------------------------------------------------------------------------------------------------------------|----------|
-| 네임스페이스당 이벤트 허브 개수 | 네임스페이스 | 정적 | 새로운 네임스페이스 생성에 대한 이후 요청은 거부됩니다. | 10 |
-| 이벤트 허브당 파티션 수 | 엔터티 | 정적 | - | 32 |
-| 이벤트 허브당 소비자 그룹 수 | 엔터티 | 정적 | - | 20 |
-| 네임스페이스당 AMQP 연결 수 | 네임스페이스 | 정적 | 추가 연결에 대한 이후 요청은 거부되고, 예외는 호출 코드로 수신됩니다. | 5,000 |
-| 최대 이벤트 크기 | 전체 시스템 | 정적 | - | 256KB |
-| 소비자 그룹당 비 epoch 수신자 수 | 엔터티 | 정적 | - | 5 |
-| 이벤트 데이터의 최대 재방문 주기 기간 | 엔터티 | 정적 | - | 1-7일 |
-| 최대 처리량 단위 | 네임스페이스 | 정적 | 처리량 단위 제한을 초과하면 데이터가 제한되고 **ServerBusyException**가 발생합니다. 표준 계층의 경우 지원 티켓을 작성하여 더 많은 수의 처리량 단위를 요청할 수 있습니다. 추가 처리량 단위는 약정된 구매를 기준으로 20개 단위로 사용할 수 있습니다. | 20 |
+| Number of Event Hubs per namespace               | Namespace   | Static | Subsequent requests for creation of a new namespace will be rejected.                                                  | 10       |
+| Number of partitions per Event Hub               | Entity      | Static |  -                                                                                                                      | 32       |
+| Number of consumer groups per Event Hub          | Entity      | Static |  -                                                                                                                      | 20       |
+| Number of AMQP connections per namespace         | Namespace   | Static | Subsequent requests for additional connections will be rejected and an exception will be received by the calling code. | 5,000    |
+| Maximum event size                               | System-wide | Static |  -                                                                                                                      | 256KB    |
+| Number of non-epoch receivers per consumer group | Entity      | Static |  -                                                                                                                      | 5        |
+| Maximum retention period of event data           | Entity      | Static |  -                                                                                                                      | 1-7 days |
+| Maximum throughput units           | Namespace      | Static | Exceeding the throughput unit limit will cause your data to be throttled and generate a **ServerBusyException**. You can request a larger number of throughput units for a Standard tier by filing a support ticket. Additional throughput units are available in blocks of twenty on a committed purchase basis.                                                                                                                       | 20 |
 
-<!---HONumber=AcomDC_0615_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

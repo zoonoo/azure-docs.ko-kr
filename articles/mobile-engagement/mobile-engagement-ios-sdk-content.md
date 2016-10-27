@@ -1,45 +1,50 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK 콘텐츠"
-	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Azure Mobile Engagement iOS SDK Content"
+    description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="MehrdadMzfr"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="08/19/2016"
+    ms.author="piyushjo" />
 
-#SDK 콘텐츠
 
-이 문서에서는 SDK 보관 파일의 콘텐츠를 소개 및 설명합니다.
+#<a name="sdk-content"></a>SDK Content
 
-##Engagement SDK
+This document lists and describes the content of the SDK archive.
+
+##<a name="engagement-sdk"></a>Engagement SDK
 
 `EngagementSDK`
 
-> 헤더, 라이브러리 및 추가 클래스(IDFA 컬렉션을 사용하거나 사용하지 않도록 설정하기 위한 소스 코드로 제공됨)를 포함하는 핵심 Engagement SDK입니다.
+> The core Engagement SDK containing headers, library and an additional class provided as a source code to enable/disable IDFA collection.
 
-##Engagement 도달률 SDK
+##<a name="engagement-reach-sdk"></a>Engagement Reach SDK
 
 `EngagementReach`
 
-> 헤더, 라이브러리 및 관련 리소스를 포함하는 Engagement 도달률 SDK입니다.
+> Engagement Reach SDK containing headers, library and associated resources.
 
-##추가 파일
+##<a name="additional-files"></a>Additional files
 
-`doc/index.html`(`doc` 폴더에 있음)
+`doc/index.html` (in `doc` folder)
 
-> Engagement SDK 및 도달률 SDK Objective-C 설명서입니다.
+> Engagement SDK and Reach SDK Objective-C documentation.
 
-`src` 폴더
+`src` folder
 
-> Engagement 클래스를 필요에 따라 조정하려는 고급 사용자를 위해 제공되는 Engagement 뷰 컨트롤러 및 도달률 SDK의 소스 코드입니다.
+> Engagement view controllers and Reach SDK's source code (for power users who want to adapt Engagement classes to their needs).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

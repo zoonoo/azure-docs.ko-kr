@@ -1,94 +1,96 @@
 <properties 
-	pageTitle="Python과 함께 알림 허브를 사용하는 방법" 
-	description="Python 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777"
-	manager="erikre" 
-	editor=""/>
+    pageTitle="How to use Notification Hubs with Python" 
+    description="Learn how to use Azure Notification Hubs from a Python back-end." 
+    services="notification-hubs" 
+    documentationCenter="" 
+    authors="wesmc7777"
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="python" 
-	ms.devlang="php" 
-	ms.topic="article" 
-	ms.date="06/29/2016" 
-	ms.author="wesmc"/>
+    ms.service="notification-hubs" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="python" 
+    ms.devlang="php" 
+    ms.topic="article" 
+    ms.date="06/29/2016" 
+    ms.author="wesmc"/>
 
-# Python에서 알림 허브를 사용하는 방법
+
+# <a name="how-to-use-notification-hubs-from-python"></a>How to use Notification Hubs from Python
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
-		
-MSDN [항목 알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
+        
+You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
 
-> [AZURE.NOTE] 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다.
+> [AZURE.NOTE] This is a sample reference implementation for implementing the notification sends in Python and is not the officially supported Notifications Hub Python SDK.
 >
-> 이 샘플은 Python 3.4를 사용하여 작성되었습니다.
+> This sample is written using Python 3.4.
 
-이 항목에서는 다음 방법을 보여 줍니다.
+In this topic we show how to:
 
-* Python에서 알림 허브 기능에 대한 REST 클라이언트를 빌드하는 방법
-* Python 인터페이스를 사용하여 알림 허브 REST API에 알림을 보냅니다.
-* 디버그/교육 용도로 HTTP REST 요청/응답의 덤프를 가져옵니다.
+* Build a REST client for Notification Hubs features in Python.
+* Send notifications using the Python interface to the Notification Hub REST APIs. 
+* Get a dump of the HTTP REST request/response for debugging/educational purpose. 
 
-선택한 모바일 플랫폼에 대한 [시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에 따라 Python에서 백 엔드 부분을 구현할 수 있습니다.
+You can follow the [Get started tutorial](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) for your mobile platform of choice, implementing the back-end portion in Python.
 
-> [AZURE.NOTE] 샘플 범위는 알림 보내기로만 제한되며 등록 관리는 수행하지 않습니다.
+> [AZURE.NOTE] The scope of the sample is only limited to send notifications and it doesn't do any registration management.
 
-## 클라이언트 인터페이스
-기본 클라이언트 인터페이스에서는 [.NET 알림 허브 SDK](http://msdn.microsoft.com/library/jj933431.aspx)에서 제공되는 것과 같은 메서드를 제공할 수 있습니다. 따라서 현재 이 사이트에서 사용 가능하며 인터넷 커뮤니티에서 제공한 모든 자습서 및 샘플을 직접 변환할 수 있습니다.
+## <a name="client-interface"></a>Client interface
+The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx). This will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.
 
-[Python REST 래퍼 샘플]에서 사용 가능한 모든 코드를 찾을 수 있습니다.
+You can find all the code available in the [Python REST wrapper sample].
 
-예를 들어 클라이언트를 만들려면 다음을 수행합니다.
+For example, to create a client:
 
-	isDebug = True
-	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
-	
-Windows 알림 메시지를 보내려면
-	
-	wns_payload = """<toast><visual><binding template="ToastText01"><text id="1">Hello world!</text></binding></visual></toast>"""
-	hub.send_windows_notification(wns_payload)
-	
-## 구현
-아직 하지 않았으면 백 엔드를 구현해야 하는 [시작 자습서]의 마지막 섹션까지 수행하세요.
+    isDebug = True
+    hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
+    
+To send a Windows toast notification:
+    
+    wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
+    hub.send_windows_notification(wns_payload)
+    
+## <a name="implementation"></a>Implementation
+If you did not already, please follow our [Get started tutorial] up to the last section where you have to implement the back-end.
 
-전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)을 참조하세요. 이 섹션에서는 알림 허브 REST 끝점에 액세스하고 알림을 보내는 데 필요한 기본 단계의 Python 구현에 대해 설명합니다.
+All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In this section we will describe the Python implementation of the main steps required to access Notification Hubs REST endpoints and send notifications
 
-1. 연결 문자열 구문 분석
-2. 인증 토큰 생성
-3. HTTP REST API를 사용하여 알림 보내기
+1. Parse the connection string
+2. Generate the authorization token
+3. Send a notification using HTTP REST API
 
-### 연결 문자열 구문 분석
+### <a name="parse-the-connection-string"></a>Parse the connection string
 
-연결 문자열을 구문 분석하는 생성자가 포함된 클라이언트를 구현하는 기본 클래스는 다음과 같습니다.
+Here is the main class implementing the client, whose constructor parses the connection string:
 
-	class NotificationHub:
-	    API_VERSION = "?api-version=2013-10"
-	    DEBUG_SEND = "&test"
-	
-	    def __init__(self, connection_string=None, hub_name=None, debug=0):
-	        self.HubName = hub_name
-	        self.Debug = debug
-	
-	        # Parse connection string
-	        parts = connection_string.split(';')
-	        if len(parts) != 3:
-	            raise Exception("Invalid ConnectionString.")
-	
-	        for part in parts:
-	            if part.startswith('Endpoint'):
-	                self.Endpoint = 'https' + part[11:]
-	            if part.startswith('SharedAccessKeyName'):
-	                self.SasKeyName = part[20:]
-	            if part.startswith('SharedAccessKey'):
-	                self.SasKeyValue = part[16:]
+    class NotificationHub:
+        API_VERSION = "?api-version=2013-10"
+        DEBUG_SEND = "&test"
+    
+        def __init__(self, connection_string=None, hub_name=None, debug=0):
+            self.HubName = hub_name
+            self.Debug = debug
+    
+            # Parse connection string
+            parts = connection_string.split(';')
+            if len(parts) != 3:
+                raise Exception("Invalid ConnectionString.")
+    
+            for part in parts:
+                if part.startswith('Endpoint'):
+                    self.Endpoint = 'https' + part[11:]
+                if part.startswith('SharedAccessKeyName'):
+                    self.SasKeyName = part[20:]
+                if part.startswith('SharedAccessKey'):
+                    self.SasKeyValue = part[16:]
 
 
-### 보안 토큰 만들기
-보안 토큰 만들기에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/library/dn495627.aspx)를 참조하세요. 현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만들려면 **NotificationHub** 클래스에 다음 메서드를 추가해야 합니다.
+### <a name="create-security-token"></a>Create security token
+The details of the security token creation are available [here](http://msdn.microsoft.com/library/dn495627.aspx).
+The following methods have to be added to the **NotificationHub** class to create the token based on the URI of the current request and the credentials extracted from the connection string.
 
-	@staticmethod
+    @staticmethod
     def get_expiry():
         # By default returns an expiration of 5 minutes (=300 seconds) from now
         return int(round(time.time() + 300))
@@ -115,31 +117,31 @@ Windows 알림 메시지를 보내려면
         sas_token = auth_format.format(signature, expiry, self.SasKeyName, my_uri)
         return sas_token
 
-### HTTP REST API를 사용하여 알림 보내기
-먼저 알림을 나타내는 클래스를 정의합니다.
+### <a name="send-a-notification-using-http-rest-api"></a>Send a notification using HTTP REST API
+First, let use define a class representing a notification.
 
-	class Notification:
-	    def __init__(self, notification_format=None, payload=None, debug=0):
-	        valid_formats = ['template', 'apple', 'gcm', 'windows', 'windowsphone', "adm", "baidu"]
-	        if not any(x in notification_format for x in valid_formats):
-	            raise Exception(
-	                "Invalid Notification format. " +
-	                "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
-	
-	        self.format = notification_format
-	        self.payload = payload
-	
-	        # array with keynames for headers
-	        # Note: Some headers are mandatory: Windows: X-WNS-Type, WindowsPhone: X-NotificationType
-	        # Note: For Apple you can set Expiry with header: ServiceBusNotification-ApnsExpiry
-	        # in W3C DTF, YYYY-MM-DDThh:mmTZD (for example, 1997-07-16T19:20+01:00).
-	        self.headers = None
+    class Notification:
+        def __init__(self, notification_format=None, payload=None, debug=0):
+            valid_formats = ['template', 'apple', 'gcm', 'windows', 'windowsphone', "adm", "baidu"]
+            if not any(x in notification_format for x in valid_formats):
+                raise Exception(
+                    "Invalid Notification format. " +
+                    "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
+    
+            self.format = notification_format
+            self.payload = payload
+    
+            # array with keynames for headers
+            # Note: Some headers are mandatory: Windows: X-WNS-Type, WindowsPhone: X-NotificationType
+            # Note: For Apple you can set Expiry with header: ServiceBusNotification-ApnsExpiry
+            # in W3C DTF, YYYY-MM-DDThh:mmTZD (for example, 1997-07-16T19:20+01:00).
+            self.headers = None
 
-이 클래스는 기본 알림 본문(또는 템플릿 알림의 경우 속성 집합), 형식(기본 플랫폼 또는 템플릿)이 포함된 헤더 집합 및 플랫폼 특정 속성(예: Apple 만료 속성 및 WNS 헤더)에 대한 컨테이너입니다.
+This class is a container for a native notification body or a set of properties in case of a template notification, a set of headers which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).
 
-모든 사용할 수 있는 옵션은 [알림 허브 REST API 설명서](http://msdn.microsoft.com/library/dn495827.aspx) 및 특정 알림 플랫폼의 형식을 참조하세요.
+Please refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
 
-이제 이 클래스를 사용하여 **NotificationHub** 클래스 내부에서 알림 보내기 메서드를 쓸 수 있습니다.
+Now with this class, we can write the send notification methods inside of the **NotificationHub** class.
 
     def make_http_request(self, url, payload, headers):
         parsed_url = urllib.parse.urlparse(url)
@@ -205,7 +207,7 @@ Windows 알림 메시지를 보내려면
 
         self.make_http_request(url, payload_to_send, headers)
 
-	def send_apple_notification(self, payload, tags=""):
+    def send_apple_notification(self, payload, tags=""):
         nh = Notification("apple", payload)
         self.send_notification(nh, tags)
 
@@ -247,141 +249,141 @@ Windows 알림 메시지를 보내려면
         nh = Notification("template", properties)
         self.send_notification(nh, tags)
 
-위의 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 /messages 끝점으로 HTTP POST 요청을 보냅니다.
+The above methods send an HTTP POST request to the /messages endpoint of your notification hub, with the correct body and headers to send the notification.
 
-### 디버그 속성을 통해 자세한 로깅 사용
-알림 허브를 초기화하는 동안 디버그 속성을 사용하면 HTTP 요청 및 응답 덤프에 대한 자세한 로깅 정보 및 자세한 알림 메시지 전송 결과가 기록됩니다. 최근에 알림 보내기 결과에 대한 자세한 정보를 반환하는 [Notification Hubs TestSend](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx)라는 속성을 추가했습니다. 이 속성을 사용하려면 다음을 사용하여 초기화합니다.
+### <a name="using-debug-property-to-enable-detailed-logging"></a>Using debug property to enable detailed logging
+Enabling debug property while initializing the Notification Hub will write out detailed logging information about the HTTP request and response dump as well as detailed Notification message send outcome. We recently added this property called [Notification Hubs TestSend property](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) which returns detailed information about the notification send outcome. To use it - initialize using the following:
 
-	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
+    hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
-그 결과, 알림 허브 전송 요청 HTTP URL에 "test" 쿼리 문자열이 추가됩니다.
+The Notification Hub Send request HTTP URL gets appended with a "test" querystring as a result. 
 
-##<a name="complete-tutorial"></a>자습서 완료
-이제 Python 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
+##<a name="<a-name="complete-tutorial"></a>complete-the-tutorial"></a><a name="complete-tutorial"></a>Complete the tutorial
+Now you can complete the Get Started tutorial by sending the notification from a Python back-end.
 
-알림 허브 클라이언트를 초기화합니다([시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
+Initialize your Notification Hubs client (substitute the connection string and hub name as instructed in the [Get started tutorial]):
 
-	hub = NotificationHub("myConnectionString", "myNotificationHubName")
+    hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-그리고 대상 모바일 플랫폼에 따라 보내기 코드를 추가합니다. 또한 이 샘플은 플랫폼에 따라 알림 보내기를 사용하도록 설정하는 상위 수준의 메서드를 추가합니다(예: send\_windows\_notification(Windows), send\_apple\_notification(Apple) 등).
+Then add the send code depending on your target mobile platform. This sample also adds higher level methods to enable sending notifications based on the platform e.g. send_windows_notification for windows; send_apple_notification (for apple) etc. 
 
-### Windows 스토어 및 Windows Phone 8.1(비 Silverlight)
+### <a name="windows-store-and-windows-phone-8.1-(non-silverlight)"></a>Windows Store and Windows Phone 8.1 (non-Silverlight)
 
-	wns_payload = """<toast><visual><binding template="ToastText01"><text id="1">Test</text></binding></visual></toast>"""
-	hub.send_windows_notification(wns_payload)
+    wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
+    hub.send_windows_notification(wns_payload)
 
-### Windows Phone 8.0 및 8.1 Silverlight
+### <a name="windows-phone-8.0-and-8.1-silverlight"></a>Windows Phone 8.0 and 8.1 Silverlight
 
-	hub.send_mpns_notification(toast)
+    hub.send_mpns_notification(toast)
 
-### iOS
+### <a name="ios"></a>iOS
 
-	alert_payload = {
-	    'data':
-	        {
-	            'msg': 'Hello!'
-	        }
-	}
-	hub.send_apple_notification(alert_payload)
+    alert_payload = {
+        'data':
+            {
+                'msg': 'Hello!'
+            }
+    }
+    hub.send_apple_notification(alert_payload)
 
-### Android
-	gcm_payload = {
-	    'data':
-	        {
-	            'msg': 'Hello!'
-	        }
-	}
-	hub.send_gcm_notification(gcm_payload)
+### <a name="android"></a>Android
+    gcm_payload = {
+        'data':
+            {
+                'msg': 'Hello!'
+            }
+    }
+    hub.send_gcm_notification(gcm_payload)
 
-### Kindle Fire
-	adm_payload = {
-	    'data':
-	        {
-	            'msg': 'Hello!'
-	        }
-	}
-	hub.send_adm_notification(adm_payload)
+### <a name="kindle-fire"></a>Kindle Fire
+    adm_payload = {
+        'data':
+            {
+                'msg': 'Hello!'
+            }
+    }
+    hub.send_adm_notification(adm_payload)
 
-### Baidu
-	baidu_payload = {
-	    'data':
-	        {
-	            'msg': 'Hello!'
-	        }
-	}
-	hub.send_baidu_notification(baidu_payload)
+### <a name="baidu"></a>Baidu
+    baidu_payload = {
+        'data':
+            {
+                'msg': 'Hello!'
+            }
+    }
+    hub.send_baidu_notification(baidu_payload)
 
-Python 코드를 실행하면 대상 장치에 나타나는 알림이 생성됩니다.
+Running your Python code should produce a notification appearing on your target device.
 
-## 예제:
+## <a name="examples:"></a>Examples:
 
-### 디버그 속성 사용
-NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록 설정하면 자세한 HTTP 요청 및 응답 덤프뿐 아니라 요청 시 전달된 HTTP 헤더 및 알림 허브에서 수신된 HTTP 응답을 확인할 수 있는 다음과 같은 NotificationOutcome이 표시됩니다. ![][1]
+### <a name="enabling-debug-property"></a>Enabling debug property
+When you enable debug flag while initializing the NotificationHub then you will see detailed HTTP request and response dump as well as NotificationOutcome like the following where you can understand what HTTP headers are passed in the request and what HTTP response was received from the Notification Hub:     ![][1]
 
-예를 들어 메시지가 푸시 알림 서비스로 전송되면
+You will see detailed Notification Hub result e.g. 
 
-- 자세한 알림 허브 결과가 표시됩니다.
-	
-		<Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
+- when the message is successfully sent to the Push Notification Service. 
+    
+        <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
 
-- 푸시 알림의 대상을 찾을 수 없는 경우 등록에 불일치 태그가 있어서 알림을 전달할 등록을 찾을 수 없음을 나타내는 다음 메시지가 응답에 포함되기를 원할 것입니다.
+- If there were no targets found for any push notification then you are likely going to see the following in the response (which indicates that there were no registrations found to deliver the notification probably because the registrations had some mismatched tags)
 
-		'<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
+        '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
 
-### Windows로 보내는 브로드캐스트 알림 메시지 
+### <a name="broadcast-toast-notification-to-windows"></a>Broadcast toast notification to Windows 
 
-Windows 클라이언트로 브로드캐스트 알림 메시지를 보낼 때 전송되는 헤더를 확인합니다.
+Notice the headers that get sent out when you are sending a broadcast toast notification to Windows client. 
 
-	hub.send_windows_notification(wns_payload)
+    hub.send_windows_notification(wns_payload)
 
 ![][2]
 
-### 태그(또는 태그 식)를 지정하여 알림 보내기
+### <a name="send-notification-specifying-a-tag-(or-tag-expression)"></a>Send notification specifying a tag (or tag expression)
 
-HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제에서는 '스포츠' 페이로드가 있는 등록에만 알림을 보냅니다.
+Notice the Tags HTTP header which gets added to the HTTP request (in the example below, we are sending the notification only to registrations with 'sports' payload)
 
-	hub.send_windows_notification(wns_payload, "sports")
+    hub.send_windows_notification(wns_payload, "sports")
 
 ![][3]
 
-### 여러 태그를 지정하여 알림 보내기
+### <a name="send-notification-specifying-multiple-tags"></a>Send notification specifying multiple tags
 
-여러 태그를 보낼 때 태그 HTTP 헤더가 어떻게 변경되는지 확인합니다.
-	
-	tags = {'sports', 'politics'}
-	hub.send_windows_notification(wns_payload, tags)
+Notice how the Tags HTTP header changes when multiple tags are sent. 
+    
+    tags = {'sports', 'politics'}
+    hub.send_windows_notification(wns_payload, tags)
 
 ![][4]
 
-### 템플릿 기반 알림
+### <a name="templated-notification"></a>Templated notification
 
-형식 HTTP 헤더가 변경되고 페이로드 본문이 HTTP 요청 본문의 일부로 전송됩니다.
+Notice that the Format HTTP header changes and the payload body is sent as part of the HTTP request body:
 
-**클라이언트 측 - 등록된 템플릿**
+**Client side - registered template**
 
-		var template =
-		                @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(greeting_en)</text></binding></visual></toast>";
+        var template =
+                        @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(greeting_en)</text></binding></visual></toast>";
             
-**서버 측 - 페이로드 보내기**
-		
-		template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
-		hub.send_template_notification(template_payload)
+**Server side - sending the payload**
+        
+        template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
+        hub.send_template_notification(template_payload)
 
 ![][5]
 
 
-## 다음 단계
-이 항목에서는 알림 허브에 대한 단순한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
+## <a name="next-steps"></a>Next Steps
+In this topic we showed how to create a simple Python REST client for Notification Hubs. From here you can:
 
-* 위의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
-* [속보 자습서]에서 알림 허브 태그 지정 기능에 대해 계속 알아봅니다.
-* [지역화 뉴스 자습서]에서 알림 허브 템플릿 기능에 대해 계속 알아봅니다.
+* Download the full [Python REST wrapper sample], which contains all the code above.
+* Continue learning about Notification Hubs tagging feature in the [Breaking News tutorial]
+* Continue learning about Notification Hubs Templates feature in the [Localizing News tutorial]
 
 <!-- URLs -->
-[Python REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[속보 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[지역화 뉴스 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Python REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Breaking News tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Localizing News tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png
@@ -391,4 +393,8 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

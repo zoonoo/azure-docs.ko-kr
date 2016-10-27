@@ -1,98 +1,101 @@
-## 다음 단계
-Azure 키 자격 증명 모음 통합을 설정한 후에는 SQL VM에서 SQL Server 암호화를 설정할 수 있습니다. 먼저, 키 자격 증명 모음 내에서 비대칭 키를 만들고 VM의 SQL Server 내에서 대칭 키를 만들어야 합니다. 그러면 T-SQL 문을 실행하여 데이터베이스 및 백업에 대해 암호화를 설정할 수 있습니다.
+## <a name="next-steps"></a>Next steps
+After enabling Azure Key Vault Integration, you can enable SQL Server encryption on your SQL VM. First, you will need to create an asymmetric key inside your key vault and a symmetric key within SQL Server on your VM. Then, you will be able to execute T-SQL statements to enable encryption for your databases and backups.
 
-여러 형태의 암호화를 이용할 수 있습니다.
+There are several forms of encryption you can take advantage of:
 
-- [TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx)
-- [암호화된 백업](https://msdn.microsoft.com/library/dn449489.aspx)
-- [CLE(열 수준 암호화)](https://msdn.microsoft.com/library/ms173744.aspx)
+- [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Encrypted backups](https://msdn.microsoft.com/library/dn449489.aspx)
+- [Column Level Encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
-다음 Transact-SQL 스크립트는 이러한 각 영역에 대한 예를 제공합니다.
+The following Transact-SQL scripts provide examples for each of these areas.
 
->[AZURE.NOTE] 각 예제는 두 가지 필수 조건을 기반으로 합니다. 하나는 주요 자격 증명 모음의 비대칭 키인 **CONTOSO\_KEY**이고, 다른 하나는 AKV 통합 기능을 통해 생성되는 자격 증명인 **Azure\_EKM\_TDE\_cred**입니다.
+>[AZURE.NOTE] Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**.
 
-### TDE(투명한 데이터 암호화)
-1. TDE용 데이터베이스 엔진에서 사용할 SQL Server 로그인을 만든 후 자격 증명을 추가합니다.
-	
-		USE master;
-		-- Create a SQL Server login associated with the asymmetric key 
-		-- for the Database engine to use when it loads a database 
-		-- encrypted by TDE.
-		CREATE LOGIN TDE_Login 
-		FROM ASYMMETRIC KEY CONTOSO_KEY;
-		GO
-		
-		-- Alter the TDE Login to add the credential for use by the 
-		-- Database Engine to access the key vault
-		ALTER LOGIN TDE_Login 
-		ADD CREDENTIAL Azure_EKM_TDE_cred;
-		GO
-	
-2. TDE에 사용할 데이터베이스 암호화 키를 만듭니다.
-	
-		USE ContosoDatabase;
-		GO
-		
-		CREATE DATABASE ENCRYPTION KEY 
-		WITH ALGORITHM = AES_128 
-		ENCRYPTION BY SERVER ASYMMETRIC KEY CONTOSO_KEY;
-		GO
-		
-		-- Alter the database to enable transparent data encryption.
-		ALTER DATABASE ContosoDatabase 
-		SET ENCRYPTION ON;
-		GO
+### <a name="transparent-data-encryption-(tde)"></a>Transparent Data Encryption (TDE)
+1. Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.
+    
+        USE master;
+        -- Create a SQL Server login associated with the asymmetric key 
+        -- for the Database engine to use when it loads a database 
+        -- encrypted by TDE.
+        CREATE LOGIN TDE_Login 
+        FROM ASYMMETRIC KEY CONTOSO_KEY;
+        GO
+        
+        -- Alter the TDE Login to add the credential for use by the 
+        -- Database Engine to access the key vault
+        ALTER LOGIN TDE_Login 
+        ADD CREDENTIAL Azure_EKM_TDE_cred;
+        GO
+    
+2. Create the database encryption key that will be used for TDE.
+    
+        USE ContosoDatabase;
+        GO
+        
+        CREATE DATABASE ENCRYPTION KEY 
+        WITH ALGORITHM = AES_128 
+        ENCRYPTION BY SERVER ASYMMETRIC KEY CONTOSO_KEY;
+        GO
+        
+        -- Alter the database to enable transparent data encryption.
+        ALTER DATABASE ContosoDatabase 
+        SET ENCRYPTION ON;
+        GO
 
-### 암호화된 백업
-1. 백업 암호화용 데이터베이스 엔진에서 사용할 SQL Server 로그인을 만든 후 자격 증명을 추가합니다.
-	
-		USE master;
-		-- Create a SQL Server login associated with the asymmetric key 
-		-- for the Database engine to use when it is encrypting the backup.
-		CREATE LOGIN Backup_Login 
-		FROM ASYMMETRIC KEY CONTOSO_KEY;
-		GO 
-		
-		-- Alter the Encrypted Backup Login to add the credential for use by 
-		-- the Database Engine to access the key vault
-		ALTER LOGIN Backup_Login 
-		ADD CREDENTIAL Azure_EKM_Backup_cred ;
-		GO
-	
-2. 키 자격 증명 모음에 저장된 비대칭 키를 사용하여 암호화를 지정하는 데이터베이스를 백업합니다.
-	
-		USE master;
-		BACKUP DATABASE [DATABASE_TO_BACKUP]
-		TO DISK = N'[PATH TO BACKUP FILE]' 
-		WITH FORMAT, INIT, SKIP, NOREWIND, NOUNLOAD, 
-		ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
-		GO
+### <a name="encrypted-backups"></a>Encrypted backups
+1. Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.
+    
+        USE master;
+        -- Create a SQL Server login associated with the asymmetric key 
+        -- for the Database engine to use when it is encrypting the backup.
+        CREATE LOGIN Backup_Login 
+        FROM ASYMMETRIC KEY CONTOSO_KEY;
+        GO 
+        
+        -- Alter the Encrypted Backup Login to add the credential for use by 
+        -- the Database Engine to access the key vault
+        ALTER LOGIN Backup_Login 
+        ADD CREDENTIAL Azure_EKM_Backup_cred ;
+        GO
+    
+2. Backup the database specifying encryption with the asymmetric key stored in the key vault.
+    
+        USE master;
+        BACKUP DATABASE [DATABASE_TO_BACKUP]
+        TO DISK = N'[PATH TO BACKUP FILE]' 
+        WITH FORMAT, INIT, SKIP, NOREWIND, NOUNLOAD, 
+        ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
+        GO
 
-### CLE(열 수준 암호화)
-이 스크립트는 키 자격 증명 모음의 비대칭 키를 통해 보호되는 대칭 키를 만든 후 그 대칭 키를 사용하여 데이터베이스의 데이터를 암호화합니다.
+### <a name="column-level-encryption-(cle)"></a>Column Level Encryption (CLE)
+This script creates a symmetric key protected by the asymmetric key in the key vault, and then uses the symmetric key to encrypt data in the database.
 
-	CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
-	WITH ALGORITHM=AES_256
-	ENCRYPTION BY ASYMMETRIC KEY CONTOSO_KEY;
-	
-	DECLARE @DATA VARBINARY(MAX);
-	
-	--Open the symmetric key for use in this session
-	OPEN SYMMETRIC KEY DATA_ENCRYPTION_KEY 
-	DECRYPTION BY ASYMMETRIC KEY CONTOSO_KEY;
-	
-	--Encrypt syntax
-	SELECT @DATA = ENCRYPTBYKEY(KEY_GUID('DATA_ENCRYPTION_KEY'), CONVERT(VARBINARY,'Plain text data to encrypt'));
-	
-	-- Decrypt syntax
-	SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
-	
-	--Close the symmetric key
-	CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
+    CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
+    WITH ALGORITHM=AES_256
+    ENCRYPTION BY ASYMMETRIC KEY CONTOSO_KEY;
+    
+    DECLARE @DATA VARBINARY(MAX);
+    
+    --Open the symmetric key for use in this session
+    OPEN SYMMETRIC KEY DATA_ENCRYPTION_KEY 
+    DECRYPTION BY ASYMMETRIC KEY CONTOSO_KEY;
+    
+    --Encrypt syntax
+    SELECT @DATA = ENCRYPTBYKEY(KEY_GUID('DATA_ENCRYPTION_KEY'), CONVERT(VARBINARY,'Plain text data to encrypt'));
+    
+    -- Decrypt syntax
+    SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
+    
+    --Close the symmetric key
+    CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
-## 추가 리소스
-이러한 암호화 기능을 사용하는 방법에 대한 자세한 내용은 [SQL Server 암호화 기능과 함께 EKM 사용](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)을 참조하세요.
+## <a name="additional-resources"></a>Additional resources
+For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-이 문서의 단계는 Azure 가상 컴퓨터에서 이미 SQL Server가 실행되고 있는 것으로 가정합니다. 아직 실행하고 있지 않다면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. Azure VM에서 SQL Server 실행과 관련된 기타 참고 자료는 [Azure 가상 컴퓨터의 SQL Server 개요](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine. If not, see [Provision a SQL Server virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md). For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

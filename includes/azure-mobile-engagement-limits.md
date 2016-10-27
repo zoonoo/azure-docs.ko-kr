@@ -1,12 +1,15 @@
-리소스|최대 제한
+Resource|Maximum Limit
 ---|---
-앱 컬렉션 사용자|앱 컬렉션당 5
-평균 데이터 요소|활성 사용자/일별 200
-평균 앱 정보 설정|활성 사용자/일별 50
-푸시되는 평균 메시지|활성 사용자/일별 20
-세그먼트|앱당 100
-세그먼트당 조건|10
-활성 푸시 캠페인|앱당 50
-총 푸시 캠페인(활성 및 완료 포함)|앱당 1000
+App Collection Users|5 per App Collection
+Average Data points|200 per Active User/Day
+Average App-Info set|50 per Active User/Day
+Average Messages pushed|20 per Active User/Day
+Segments|100 per app
+Criteria per segment|10
+Active Push Campaigns|50 per app
+Total Push Campaigns (includes Active & Completed)|1000 per app
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

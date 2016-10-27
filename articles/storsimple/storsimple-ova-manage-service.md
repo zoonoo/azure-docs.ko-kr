@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 가상 배열에 대한 StorSimple Manager 서비스 배포| Microsoft Azure"
-   description="Azure 클래식 포털에서 StorSimple 관리자 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다."
+   pageTitle="Deploy the StorSimple Manager service for StorSimple virtual array| Microsoft Azure"
+   description="Explains how to create and delete the StorSimple Manager service in the Azure classic portal, and describes how to manage the service registration key."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,102 +15,107 @@
    ms.date="05/19/2016"
    ms.author="alkohli" />
 
-# StorSimple 가상 배열을 위한 StorSimple Manager 서비스 배포
 
-## 개요
+# <a name="deploy-the-storsimple-manager-service-for-storsimple-virtual-array"></a>Deploy the StorSimple Manager service for StorSimple Virtual Array
 
-StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 서비스를 만든 후에 브라우저에서 실행되는 Microsoft Azure 클래식 포털에서 이러한 장치를 관리하는 데 사용할 수 있습니다. 하나의 중앙 위치에서 StorSimple 관리자 서비스에 연결된 모든 장치를 모닝터링하여 관리 부담을 최소화할 수 있습니다.
+## <a name="overview"></a>Overview
 
-StorSimple 관리자 방문 페이지에는 StorSimple 저장소 장치를 관리하는 데 사용할 수 있는 모든 StorSimple 관리자 서비스가 나열되어 있습니다. 각 StorSimple 관리자 서비스의 경우, 다음 정보가 StorSimple 관리자 페이지에 있습니다.
+The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. After you create the service, you can use it to manage the devices from the Microsoft Azure classic portal running in a browser. This allows you to monitor all the devices that are connected to the StorSimple Manager service from a single, central location, thereby minimizing administrative burden.
 
-- **이름** – 만들었을 때 StorSimple 관리자 서비스에 할당된 이름입니다. 서비스 이름은 서비스를 만든 후에 변경할 수 없습니다.
+The StorSimple Manager landing page lists all the StorSimple Manager services that you can use to manage your StorSimple storage devices. For each StorSimple Manager service, the following information is presented on the StorSimple Manager page:
 
-- **상태** – **활성**, **만들기** 또는 **온라인** 등의 서비스 상태입니다.
+- **Name** – The name that was assigned to your StorSimple Manager service when it was created. The service name cannot be changed after the service is created.
 
-- **위치** – StorSimple 장치를 배포할 지리적 위치입니다.
+- **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
 
-- **구독** – 서비스와 연관된 청구 구독입니다.
+- **Location** – The geographical location in which the StorSimple device will be deployed.
 
-StorSimple 관리자 페이지를 통해 수행할 수 있는 일반적인 작업은 다음과 같습니다.
+- **Subscription** – The billing subscription that is associated with your service.
 
-- 서비스 만들기
-- 서비스 삭제
-- 서비스 등록 키 가져오기
-- 서비스 등록 키 생성
+The common tasks that can be performed through the StorSimple Manager page are:
 
-이 자습서에서는 이러한 각 작업을 수행하는 방법을 설명합니다. 이 문서에 포함된 정보는 StorSimple 가상 배열에만 적용됩니다. StorSimple 8000 시리즈에 대한 자세한 내용은 [StorSimple Manager 서비스 배포](storsimple-manage-service.md)를 참조하세요.
+- Create a service
+- Delete a service
+- Get the service registration key
+- Regenerate the service registration key
 
-## 서비스 만들기
+This tutorial describes how to perform each of these tasks. The information contained in this article is applicable only to StorSimple Virtual Arrays. For more information on StorSimple 8000 series, go to [deploy a StorSimple Manager service](storsimple-manage-service.md).
 
-StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용하여 StorSimple 관리자 서비스를 만듭니다. 서비스를 만들려면:
+## <a name="create-a-service"></a>Create a service
 
-- 엔터프라이즈 계약을 사용하여 구독
-- 활성 Microsoft Azure 저장소 계정
-- 액세스 관리에 사용되는 청구 정보
+Use the **Quick Create** option to create a StorSimple Manager service if you want to deploy your StorSimple device. To create a service, you need to have:
 
-또한 서비스를 만들 때 기본 저장소 계정을 생성하도록 선택할 수 있습니다.
+- A subscription with an Enterprise Agreement
+- An active Microsoft Azure storage account
+- The billing information that is used for access management
 
-하나의 서비스로 여러 장치를 관리할 수 있습니다. 하지만 하나의 장치는 여러 서비스로 확장할 수 없습니다. 대규모 엔터프라이즈는 서로 다른 구독, 조직 또는 배포 위치와 동작하는 여러 서비스 인스턴스를 가질 수 있습니다.
+You can also choose to generate a default storage account when you create the service.
 
-> [AZURE.NOTE] StorSimple 8000 시리즈 장치와 StorSimple 가상 배열을 관리하려면 별도의 StorSimple Manager 서비스 인스턴스가 필요합니다.
+A single service can manage multiple devices. However, a device cannot span multiple services. A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations.  
 
-서비스를 만들려면 다음 단계를 수행합니다.
+> [AZURE.NOTE] You need separate instances of StorSimple Manager service to manage StorSimple 8000 series devices and StorSimple Virtual Arrays.
+
+Perform the following steps to create a service.
 
 [AZURE.INCLUDE [storsimple-ova-create-new-service](../../includes/storsimple-ova-create-new-service.md)]
 
-## 서비스 삭제
+## <a name="delete-a-service"></a>Delete a service
 
-서비스를 삭제하기 전에 사용 중인 연결 장치가 없는지 확인합니다. 서비스를 사용 중인 경우 연결된 장치를 비활성화합니다. 비활성화 작업은 장치와 서비스 간의 연결을 제공하지만 클라우드의 장치 데이터는 유지합니다.
+Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud. 
 
-> [AZURE.IMPORTANT] 서비스가 삭제된 후에는 작업을 되돌릴 수 없습니다.
+> [AZURE.IMPORTANT] After a service is deleted, the operation cannot be reversed. 
 
-서비스를 삭제하려면 다음 단계를 수행합니다.
+Perform the following steps to delete a service.
 
-### 서비스를 삭제하려면
+### <a name="to-delete-a-service"></a>To delete a service
 
-1. **StorSimple 관리자 서비스** 페이지에서 삭제하려는 서비스를 선택합니다.
+1. On the **StorSimple Manager service** page, select the service that you wish to delete.
 
-1. 페이지 맨 아래에서 **삭제**를 클릭합니다.
+1. Click **Delete** at the bottom of the page.
 
-1. 확인 알림에서 **예**를 클릭합니다. 서비스 삭제에는 몇 분 정도 걸릴 수 있습니다.
+1. Click **Yes** in the confirmation notification. It may take a few minutes for the service to be deleted.
 
-## 서비스 등록 키 가져오기
+## <a name="get-the-service-registration-key"></a>Get the service registration key
 
-서비스를 성공적으로 만든 후에 서비스에 StorSimple 장치를 등록해야 합니다. 처음으로 StorSimple 장치를 등록하려면 서비스 등록 키가 필요합니다. 기존 StorSimple 서비스에 추가 장치를 등록하려면 등록 키와 서비스 데이터 암호화 키(등록 시 첫 번째 장치에서 생성된 키)가 모두 필요합니다. 서비스 데이터 암호화 키에 대한 자세한 내용은 [로컬 웹 UI에서 서비스 데이터 암호화 키 가져오기](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)를 참조하세요.
+After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [Get the service data encryption key from the local web UI](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key). 
 
-서비스 등록 키를 가져오려면 다음 단계를 수행합니다.
+Perform the following steps to get the service registration key.
 
 [AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
 
-서비스 등록 키를 안전한 장소에 보관합니다. 이 키와 서비스 데이터 암호화 키는 이 서비스에 추가 장치를 등록할 때 필요합니다. 서비스 등록 키를 가져온 후 StorSimple 인터페이스용 Windows PowerShell을 통해 장치를 구성해야 합니다.
+Keep the service registration key in a safe location. You will need this key, as well as the service data encryption key, to register additional devices with this service. After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.
 
-## 서비스 등록 키 생성
+## <a name="regenerate-the-service-registration-key"></a>Regenerate the service registration key
 
-키 회전을 수행해야 하거나 서비스 관리자 목록이 변경된 경우 서비스 등록 키를 다시 생성해야 합니다. 키를 다시 생성하면 후속 장치 등록을 위해서만 새 키가 사용됩니다. 이미 등록된 장치는 이 과정에 영향을 받지 않습니다.
+You will need to regenerate a service registration key if you are required to perform key rotation or if the list of service administrators has changed. When you regenerate the key, the new key is used only for registering subsequent devices. The devices that were already registered are unaffected by this process.
 
-서비스 등록 키를 다시 생성하려 다음 단계를 수행합니다.
+Perform the following steps to regenerate a service registration key.
 
-### 서비스 등록 키를 다시 생성하려면
+### <a name="to-regenerate-the-service-registration-key"></a>To regenerate the service registration key
 
-1. **StorSimple 관리자 서비스** 페이지에서 **등록 키**를 클릭합니다.
+1. On the **StorSimple Manager service** page, click **Registration Key**.
 
-1. **서비스 등록 키** 대화 상자에서 **등록**을 클릭합니다.
+1. In the **Service Registration Key** dialog box, click **Regenerate**.
 
-1. 확인 메시지가 표시됩니다. **확인**을 클릭하여 등록을 계속합니다.
+1. You will see a confirmation message. Click **OK** to continue with the regeneration.
 
-1. 새 서비스 등록 키가 나타납니다.
+1. A new service registration key will appear.
 
-1. 이 서비스에 새 장치 등록을 위해 이 키를 복사하고 저장합니다.
+1. Copy this key and save it for registering any new devices with this service.
 
-1. 확인 아이콘![확인 아이콘](./media/storsimple-ova-manage-service/image7.png)을 클릭하고 이 대화 상자를 닫습니다.
+1. Click the check icon ![Check icon](./media/storsimple-ova-manage-service/image7.png) to close this dialog box.
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- StorSimple 가상 배열 [시작](storsimple-ova-deploy1-portal-prep.md) 방법에 대해 알아봅니다.
-	
-- [StorSimple 장치 관리](storsimple-ova-web-ui-admin.md) 방법에 대해 알아봅니다.
+- Learn how to [get started](storsimple-ova-deploy1-portal-prep.md) with a StorSimple virtual array.
+    
+- Learn how to [administer your StorSimple device](storsimple-ova-web-ui-admin.md).
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

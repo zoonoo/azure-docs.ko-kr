@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: LogicMonitor와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 LogicMonitor를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with LogicMonitor | Microsoft Azure" 
+    description="Learn how to use LogicMonitor with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,139 +11,149 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: LogicMonitor와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Azure Active Directory integration with LogicMonitor
   
-이 자습서는 Azure 및 LogicMonitor의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and LogicMonitor.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   LogicMonitor 테넌트
+-   A valid Azure subscription
+-   A LogicMonitor tenant
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  LogicMonitor에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for LogicMonitor
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "시나리오")
-##LogicMonitor에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Scenario")
+##<a name="enabling-the-application-integration-for-logicmonitor"></a>Enabling the application integration for LogicMonitor
   
-이 섹션은 LogicMonitor에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for LogicMonitor.
 
-###LogicMonitor에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-logicmonitor,-perform-the-following-steps:"></a>To enable the application integration for LogicMonitor, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-logicmonitor-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-logicmonitor-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-logicmonitor-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **logicmonitor**를 입력합니다.
+6.  In the **search box**, type **logicmonitor**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-logicmonitor-tutorial/IC790046.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-logicmonitor-tutorial/IC790046.png "Application Gallery")
 
-7.  결과 창에서 **LogicMonitor**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **LogicMonitor**, and then click **Complete** to add the application.
 
     ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 LogicMonitor에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable users to authenticate to LogicMonitor with their account in Azure AD using federation based on the SAML protocol.
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **LogicMonitor** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **LogicMonitor **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configure Single Sign-On")
 
-2.  **LogicMonitor에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to LogicMonitor** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Configure Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **LogicMonitor 로그온 URL** 텍스트 상자에서 사용자가 사용한 URL(예: "*http://company.logicmonitor.com*"\)을 입력하여 LogicMonitor에 로그인하고 **다음**을 클릭합니다.
+3.  On the **Configure App URL** page, in the **Sign On URL** textbox, type your URL used by your users to sign on to LogicMonitor \(e,g,: "*http://company.logicmonitor.com*"\), and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "Configure App URL")
 
-4.  **LogicMonitor에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
+4.  On the **Configure single sign-on at LogicMonitor** page, click **Download metadata**, and then save it on your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-logicmonitor-tutorial/IC790051.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790051.png "Configure Single Sign-On")
 
-5.  **LogicMonitor** 회사 사이트에 관리자 권한으로 로그인합니다.
+5.  Log in to your **LogicMonitor** company site as an administrator.
 
-6.  위쪽의 메뉴에서 **설정**을 클릭합니다.
+6.  In the menu on the top, click **Settings**.
 
-    ![설정](./media/active-directory-saas-logicmonitor-tutorial/IC790052.png "설정")
+    ![Settings](./media/active-directory-saas-logicmonitor-tutorial/IC790052.png "Settings")
 
-7.  왼쪽의 탐색 모음에서 **Single Sign-On**을 클릭합니다.
+7.  In the navigation bat on the left side, click **Single Sign On**
 
-    ![SSO(Single sign-on)](./media/active-directory-saas-logicmonitor-tutorial/IC790053.png "SSO(Single sign-on)")
+    ![Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790053.png "Single Sign-On")
 
-8.  **SSO(Single Sign-On) 설정** 섹션에서 다음 단계를 수행합니다.
+8.  In the **Single Sign-on (SSO) settings** section, perform the following steps:
 
-    ![Singl Sign-On 설정](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Single Sign-On 설정")
+    ![Single Sign-On Settings](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Single Sign-On Settings")
 
-    1.  **Single Sign-On 사용**을 선택합니다.
-    2.  **기본 역할 할당**으로 **readonly**를 선택합니다.
-    3.  다운로드한 메타데이터 파일을 메모장에서 열고 파일 내용을 **ID 공급자 메타데이터** 텍스트 상자에 붙여넣습니다.
-    4.  **변경 내용 저장**을 클릭합니다.
+    1.  Select **Enable Single Sign-on**.
+    2.  As **Default Role Assignment**, select **readonly**.
+    3.  Open the downloaded metadata file in notepad, and then paste content of the file into the **Identity Provider Metadata** textbox.
+    4.  Click **Save Changes**.
 
-9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Single Sign-On 구성")
-##사용자 프로비전 구성
+    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 LogicMonitor 응용 프로그램에 프로비전되어야 합니다.
+For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.
 
-###사용자 프로비전을 구성하려면
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  LogicMonitor 회사 사이트에 관리자 권한으로 로그인합니다.
+1.  Log in to your LogicMonitor company site as an administrator.
 
-2.  위쪽 메뉴에서 **설정**을 클릭한 다음 **역할 및 사용자**를 클릭합니다.
+2.  In the menu on the top, click **Settings**, and then click **Roles and Users**.
 
-    ![역할 및 사용자](./media/active-directory-saas-logicmonitor-tutorial/IC790056.png "역할 및 사용자")
+    ![Roles and Users](./media/active-directory-saas-logicmonitor-tutorial/IC790056.png "Roles and Users")
 
-3.  **추가**를 클릭합니다.
+3.  Click **Add**.
 
-4.  **계정 추가** 섹션에서 다음 단계를 수행합니다.
+4.  In the **Add an account** section, perform the following steps:
 
-    ![계정 추가](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "계정 추가")
+    ![Add an account](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "Add an account")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 사용자의 **이름**, **전자 메일**, **암호**, **암호 확인** 값을 입력합니다.
-    2.  **역할**, **보기 권한** 및 **상태**를 선택합니다.
-    3.  **Submit**를 클릭합니다.
+    1.  Type the **Username**, **Email**, **Password** and **Retype password** values of the Azure Active Directory user you want to provision into the related textboxes.
+    2.  Select **Roles**, **View Permissions** and the **Status**.
+    3.  Click **Submit**.
 
->[AZURE.NOTE]LogicMonitor에서 제공하는 다른 LogicMonitor 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.
+>[AZURE.NOTE]You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###LogicMonitor에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-logicmonitor,-perform-the-following-steps:"></a>To assign users to LogicMonitor, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **LogicMonitor** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **LogicMonitor** application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-logicmonitor-tutorial/IC790058.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-logicmonitor-tutorial/IC790058.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

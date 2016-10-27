@@ -1,99 +1,100 @@
 <properties
-	pageTitle="Azure 배치의 작업 및 태스크 지속성 | Microsoft Azure"
-	description="Azure Storage를 배치 태스크 및 작업 출력의 영구 저장소로 사용하고 이 보관된 출력을 Azure 포털에서 표시하도록 설정하는 방법을 알아봅니다."
-	services="batch"
-	documentationCenter=".net"
-	authors="mmacy"
-	manager="timlt"
-	editor="" />
+    pageTitle="Job and task output persistence in Azure Batch | Microsoft Azure"
+    description="Learn how to use Azure Storage as a durable store for your Batch task and job output, and enable viewing this persisted output in the Azure portal."
+    services="batch"
+    documentationCenter=".net"
+    authors="mmacy"
+    manager="timlt"
+    editor="" />
 
 <tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="big-compute"
-	ms.date="09/07/2016"
-	ms.author="marsma" />
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="big-compute"
+    ms.date="09/07/2016"
+    ms.author="marsma" />
 
-# Azure 배치 작업 및 태스크 출력 보관
 
-배치에서 실행하는 태스크는 일반적으로 저장한 후 나중에 작업의 다른 태스크, 작업을 실행한 클라이언트 응용 프로그램 또는 둘 다에서 검색해야 하는 출력을 생성합니다. 이 출력은 입력 데이터 또는 태스크 실행과 관련된 로그 파일을 처리하여 생성되는 파일일 수 있습니다. 이 문서에서는 규칙 기반 기술을 사용하여 이러한 태스크 출력을 Azure Blob 저장소에 보관함으로써 풀, 작업 및 계산 노드를 삭제한 후에도 사용할 수 있도록 하는 .NET 클래스 라이브러리를 소개합니다.
+# <a name="persist-azure-batch-job-and-task-output"></a>Persist Azure Batch job and task output
 
-이 문서의 기술을 사용하면 [Azure 포털][portal]에서 **저장된 출력 파일** 및 **저장된 로그**에서 태스크 출력을 볼 수도 있습니다.
+The tasks you run in Batch typically produce output that must be stored and then later retrieved by other tasks in the job, the client application that executed the job, or both. This output might be files created by processing input data or log files associated with task execution. This article introduces a .NET class library that uses a conventions-based technique to persist such task output to Azure Blob storage, making it available even after you delete your pools, jobs, and compute nodes.
 
-![포털의 저장된 출력 파일 및 저장된 로그 선택기][1]
+By using the technique in this article, you can also view your task output in **Saved output files** and **Saved logs** in the [Azure portal][portal].
 
->[AZURE.NOTE] 이 문서에 설명된 [Azure 배치 파일 규칙][nuget_package] .NET 클래스 라이브러리는 현재 미리 보기 상태입니다. 여기서 설명하는 기능의 몇 가지는 일반 공급 전에 변경될 수 있습니다.
+![Saved output files and Saved logs selectors in portal][1]
 
-## 태스크 출력 고려 사항
+>[AZURE.NOTE] The [Azure Batch File Conventions][nuget_package] .NET class library discussed in this article is currently in preview. Some of the features described here may change prior to general availability.
 
-배치 솔루션을 디자인할 때 작업 및 태스크 출력과 관련된 몇 가지 요소를 고려해야 합니다.
+## <a name="task-output-considerations"></a>Task output considerations
 
-* **계산 노드 수명**: 계산 노드는 특히 자동 크기 조정 가능한 풀에서 일시적인 경우가 많습니다. 노드에서 실행되는 태스크의 출력은 노드가 존재하는 동안 해당 태스크에 대해 설정한 파일 보존 기간 내에서만 사용할 수 있습니다. 따라서 태스크 출력을 보관하려면 태스크에서 해당 출력 파일을 영구 저장소(예: Azure Storage)에 업로드해야 합니다.
+When you design your Batch solution, you must consider several factors related to job and task outputs.
 
-* **출력 저장**: 태스크 출력 데이터를 영구 저장소에 보관하려면 태스크 코드에서 [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md)를 사용하여 태스크 출력을 Blob 저장소 컨테이너에 업로드하면 됩니다. 컨테이너 및 파일 명명 규칙을 구현한 경우 클라이언트 응용 프로그램 또는 작업의 다른 태스크에서 규칙에 따라 이 출력을 찾아 다운로드할 수 있습니다.
+* **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. The outputs of the tasks that run on a node are available only while the node exists, and only within the file retention time you've set for the task. To ensure that the task output is preserved, your tasks must therefore upload their output files to a durable store, for example, Azure Storage.
 
-* **출력 검색**: Azure Storage(태스크에서 출력을 보관하는 경우) 또는 풀의 계산 노드에서 직접 태스크 출력을 검색할 수 있습니다. 태스크의 출력을 계산 노드에서 직접 검색하려면 파일 이름과 노드에서의 해당 출력 위치가 필요합니다. Azure Storage에 출력을 보관하는 경우 다운스트림 태스크 또는 클라이언트 응용 프로그램에서 Azure Storage SDK를 사용하여 Azure Storage의 파일을 다운로드하려면 이 파일의 전체 경로를 알아야 합니다.
+* **Output storage**: To persist task output data to durable storage, you can use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) in your task code to upload the task output to a Blob storage container. If you implement a container and file naming convention, your client application or other tasks in the job can then locate and download this output based on the convention.
 
-* **출력 보기**: Azure 포털에서 배치 태스크로 이동하여 **노드의 파일**을 선택한 경우 관심 있는 출력 파일만 표시되는 것이 아니라 태스크와 연관된 모든 파일이 표시됩니다. 계산 노드의 파일은 노드가 존재하는 동안 해당 태스크에 대해 설정한 파일 보존 기간 내에서만 사용할 수 있습니다. 포털 또는 [Azure Storage 탐색기][storage_explorer]와 같은 응용 프로그램에서 Azure Storage에 보관한 태스크 출력을 보려면 해당 위치를 알아야 하며 파일로 직접 이동해야 합니다.
+* **Output retrieval**: You can retrieve task output directly from the compute nodes in your pool, or from Azure Storage if your tasks persist their output. To retrieve a task's output directly from a compute node, you need the file name and its output location on the node. If you persist output to Azure Storage, downstream tasks or your client application must have the full path to the file in Azure Storage to download it by using the Azure Storage SDK.
 
-## 보관된 출력에 대한 도움말
+* **Viewing output**: When you navigate to a Batch task in the Azure portal and select **Files on node**, you are presented with all files associated with the task, not just the output files you're interested in. Again, files on compute nodes are available only while the node exists and only within the file retention time you've set for the task. To view task output that you've persisted to Azure Storage in the portal or an application like the [Azure Storage Explorer][storage_explorer], you must know its location and navigate to the file directly.
 
-작업 및 태스크 출력을 보다 쉽게 보관할 수 있도록 도와주기 위해 배치 팀은 배치 응용 프로그램에서 사용할 수 있는 [Azure 배치 파일 규칙][nuget_package] 라이브러리인 .NET 클래스 라이브러리 외에 명명 규칙 집합을 정의하고 구현했습니다. 또한 Azure 포털에서 이러한 명명 규칙을 알고 있으므로 라이브러리를 사용하여 저장한 파일을 쉽게 찾을 수 있습니다.
+## <a name="help-for-persisted-output"></a>Help for persisted output
 
-## 파일 규칙 라이브러리 사용
+To help you more easily persist job and task output, the Batch team has defined and implemented a set of naming conventions as well as a .NET class library, the [Azure Batch File Conventions][nuget_package] library, that you can use in your Batch applications. In addition, the Azure portal is aware of these naming conventions so that you can easily find the files you've stored by using the library.
 
-[Azure 배치 파일 규칙][nuget_package]은 배치 .NET 응용 프로그램에서 Azure Storage에 태스크 출력을 쉽게 저장하고 검색하는 데 사용할 수 있는 .NET 클래스 라이브러리입니다. 이 규칙은 태스크 코드와 클라이언트 코드 모두에서 사용할 수 있습니다. 즉, 태스크 코드에서는 파일을 보관하고, 클라이언트 코드에서는 파일을 나열 및 검색할 수 있습니다. 또한 태스크에서 라이브러리를 사용하여 [태스크 종속성](batch-task-dependencies.md) 시나리오 등에서 업스트림 태스크의 출력을 검색할 수 있습니다.
+## <a name="using-the-file-conventions-library"></a>Using the file conventions library
 
-규칙 라이브러리는 저장소 컨테이너 및 태스크 출력 파일이 규칙에 따라 명명되고 Azure Storage에 보관될 때 올바른 위치에 업로드되도록 합니다. 출력을 검색할 때 파일 이름이나 저장소 내 위치를 몰라도 ID 및 용도별로 출력을 나열하거나 검색하여 지정된 작업 또는 태스크의 출력을 쉽게 찾을 수 있습니다.
+[Azure Batch File Conventions][nuget_package] is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code for persisting files, and in client code to list and retrieve them. Your tasks can also use the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
 
-예를 들어 파일 이름이나 저장소 계정 내의 위치를 몰라도 라이브러리를 사용하여 "태스크 7의 모든 중간 파일을 나열"하거나 "*mymovie* 작업에 대한 미리 보기를 표시"할 수 있습니다.
+The conventions library takes care of ensuring that storage containers and task output files are named according to the convention, and are uploaded to the right place when persisted to Azure Storage. When you retrieve outputs, you can easily locate the outputs for a given job or task by listing or retrieving the outputs by ID and purpose, instead of having to know filenames or where it exists in Storage.
 
-### 라이브러리 가져오기
+For example, you can use the library to "list all intermediate files for task 7," or "get me the thumbnail preview for job *mymovie*," without needing to know the file names or location within your Storage account.
 
-[NuGet][nuget_package]에서 새 클래스를 포함하고 [CloudJob][net_cloudjob] 및 [CloudTask][net_cloudtask] 클래스를 새 메서드로 확장하는 라이브러리를 가져올 수 있습니다. [NuGet 라이브러리 패키지 관리자][nuget_manager]를 사용하여 Visual Studio 프로젝트에 이를 추가할 수 있습니다.
+### <a name="get-the-library"></a>Get the library
 
->[AZURE.TIP] Azure 배치 파일 규칙 라이브러리의 [소스 코드][github_file_conventions]는 GitHub의 Microsoft Azure SDK for .NET 리포지토리에 있습니다.
+You can obtain the library, which contains new classes and extends the [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] classes with new methods, from [NuGet][nuget_package]. You can add it to your Visual Studio project using the [NuGet Library Package Manager][nuget_manager].
 
-## 요구 사항: 연결된 저장소 계정
+>[AZURE.TIP] You can find the [source code][github_file_conventions] for the Azure Batch File Conventions library on GitHub in the Microsoft Azure SDK for .NET repository.
 
-파일 규칙 라이브러리를 사용하여 영구 저장소에 출력을 저장하고 Azure 포털에서 이를 보려면 배치 계정에 [Azure Storage 계정을 연결](batch-application-packages.md#link-a-storage-account)해야 합니다. 아직 연결하지 않은 경우 Azure 포털을 사용하여 저장소 계정을 배치 계정에 연결합니다.
+## <a name="requirement:-linked-storage-account"></a>Requirement: linked storage account
 
-**배치 계정** 블레이드 > **설정** > **저장소 계정** > **저장소 계정**(없음) > 구독에서 저장소 계정을 선택합니다.
+To store outputs to durable storage using the file conventions library and view them in the Azure portal, you must [link an Azure Storage account](batch-application-packages.md#link-a-storage-account) to your Batch account. If you haven't already, link a Storage account to your Batch account by using the Azure portal:
 
-저장소 계정 연결에 대한 자세한 단계별 설명은 [Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+**Batch account** blade > **Settings** > **Storage Account** > **Storage Account** (None) > Select a Storage account in your subscription
 
-## 출력 보관
+For a more detailed walk-through on linking a Storage account, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
-파일 규칙 라이브러리를 사용하여 작업 및 태스크 출력을 저장할 때 수행할 기본 동작에는 저장소 컨테이너 만들기와 컨테이너에 출력 저장이라는 두 가지 동작이 있습니다.
+## <a name="persist-output"></a>Persist output
 
->[AZURE.WARNING] 모든 작업 및 태스크 출력은 동일한 컨테이너에 저장되므로 많은 수의 태스크에서 동시에 파일을 보관하려는 경우 [저장소 제한 한도](../storage/storage-performance-checklist.md#blobs)가 적용될 수 있습니다.
+There are two primary actions to perform when saving job and task output with the file conventions library: create the storage container and save output to the container.
 
-### 저장소 컨테이너 만들기
+>[AZURE.WARNING] Because all job and task outputs are stored in the same container, [storage throttling limits](../storage/storage-performance-checklist.md#blobs) may be enforced if a large number of tasks try to persist files at the same time.
 
-태스크에서 저장소에 출력을 보관하려면 먼저 출력을 업로드할 Blob 저장소 컨테이너를 만들어야 합니다. [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]를 호출하여 이 작업을 수행합니다. 이 확장 메서드는 [CloudStorageAccount][net_cloudstorageaccount] 개체를 매개 변수로 가져와 이 문서의 뒷부분에 설명된 검색 방법 및 Azure 포털에서 해당 콘텐츠를 검색할 수 있는 방식으로 명명된 컨테이너를 만듭니다.
+### <a name="create-storage-container"></a>Create storage container
 
-일반적으로 클라이언트 응용 프로그램, 즉 풀, 작업 및 태스크를 만드는 응용 프로그램에 이 코드를 배치합니다.
+Before your tasks begin persisting output to storage, you must create a blob storage container to which they'll upload their output. Do this by calling [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. This extension method takes a [CloudStorageAccount][net_cloudstorageaccount] object as a parameter, and creates a container named in such a way that its contents are discoverable by the Azure portal and the retrieval methods discussed later in the article.
+
+You typically place this code in your client application--the application that creates your pools, jobs, and tasks.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
-	"myJob",
-	new PoolInformation { PoolId = "myPool" });
+    "myJob",
+    new PoolInformation { PoolId = "myPool" });
 
 // Create reference to the linked Azure Storage account
 CloudStorageAccount linkedStorageAccount =
-	new CloudStorageAccount(myCredentials, true);
+    new CloudStorageAccount(myCredentials, true);
 
 // Create the blob storage container for the outputs
 await job.PrepareOutputStorageAsync(linkedStorageAccount);
 ```
 
-### 태스크 출력 저장
+### <a name="store-task-outputs"></a>Store task outputs
 
-Blob 저장소에 컨테이너를 준비했으므로 이제 태스크에서 파일 규칙 라이브러리에 있는 [TaskOutputStorage][net_taskoutputstorage] 클래스를 사용하여 컨테이너에 출력을 저장할 수 있습니다.
+Now that you've prepared a container in blob storage, tasks can save output to the container by using the [TaskOutputStorage][net_taskoutputstorage] class found in the file conventions library.
 
-태스크 코드에서 먼저 [TaskOutputStorage][net_taskoutputstorage] 개체를 만든 다음 태스크가 해당 작업을 완료하면 [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] 메서드를 호출하여 Azure Storage에 출력을 저장합니다.
+In your task code, first create a [TaskOutputStorage][net_taskoutputstorage] object, then when the task has completed its work, call the [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] method to save its output to Azure Storage.
 
 ```csharp
 CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
@@ -101,7 +102,7 @@ string jobId = Environment.GetEnvironmentVariable("AZ_BATCH_JOB_ID");
 string taskId = Environment.GetEnvironmentVariable("AZ_BATCH_TASK_ID");
 
 TaskOutputStorage taskOutputStorage = new TaskOutputStorage(
-	linkedStorageAccount, jobId, taskId);
+    linkedStorageAccount, jobId, taskId);
 
 /* Code to process data and produce output file(s) */
 
@@ -109,17 +110,17 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-"output kind" 매개 변수는 보관된 파일을 분류합니다. [TaskOutputKind][net_taskoutputkind] 유형에는 "TaskOutput", "TaskPreview", "TaskLog" 및 "TaskIntermediate"라는 미리 정의된 네 가지 형식이 있습니다. 워크플로에서 유용한 경우 사용자 지정 종류를 정의할 수도 있습니다.
+The "output kind" parameter categorizes the persisted files. There are four predefined [TaskOutputKind][net_taskoutputkind] types: "TaskOutput", "TaskPreview", "TaskLog", and "TaskIntermediate." You can also define custom kinds if they would be useful in your workflow.
 
-이러한 출력 형식을 사용하면 나중에 지정된 태스크의 보관된 출력에 대해 배치를 쿼리할 때 나열한 출력 형식을 지정할 수 있습니다. 즉, 태스크에 대한 출력을 나열할 때 출력 형식 중 하나로 목록을 필터링할 수 있습니다. 예를 들어 "Give me the *preview* output for task *109*"와 같이 지정할 수 있습니다. 출력 나열 및 검색에 대한 보다 자세한 내용은 이 문서의 뒷부분에 있는 [출력 검색](#retrieve-output)에서 확인할 수 있습니다.
+These output types allow you to specify which type of outputs to list when you later query Batch for the persisted outputs of a given task. In other words, when you list the outputs for a task, you can filter the list on one of the output types. For example, "Give me the *preview* output for task *109*." More on listing and retrieving outputs appears in [Retrieve output](#retrieve-output) later in the article.
 
->[AZURE.TIP] 출력 종류는 Azure 포털에서 특정 파일이 표시되는 위치도 지정합니다. 즉, *TaskOutput* 분류 파일은 "태스크 출력 파일"에 나타나고, *TaskLog* 파일은 "태스크 로그"에 나타납니다.
+>[AZURE.TIP] The output kind also designates where in the Azure portal a particular file appears: *TaskOutput*-categorized files appear in "Task output files", and *TaskLog* files appear in "Task logs."
 
-### 작업 출력 저장
+### <a name="store-job-outputs"></a>Store job outputs
 
-태스크 출력 외에 전체 작업과 연관된 출력도 저장할 수 있습니다. 예를 들어 영화 렌더링 작업의 병합 태스크에서 완전히 렌더링된 영화를 작업 출력으로 보관할 수 있습니다. 작업이 완료되면 클라이언트 응용 프로그램에서 개별 태스크를 쿼리할 필요 없이 작업의 출력을 나열하고 검색할 수 있습니다.
+In addition to storing task outputs, you can store the outputs associated with an entire job. For example, in the merge task of a movie rendering job, you could persist the fully rendered movie as a job output. When your job is completed, your client application can simply list and retrieve the outputs for the job, and does not need to query the individual tasks.
 
-[JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] 메서드를 호출하여 작업 출력을 저장하고 [JobOutputKind][net_joboutputkind] 및 파일 이름을 지정합니다.
+Store job output by calling the [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] method, and specify the [JobOutputKind][net_joboutputkind] and filename:
 
 ```
 CloudJob job = await batchClient.JobOperations.GetJobAsync(jobId);
@@ -129,103 +130,103 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
 await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
 ```
 
-태스크 출력에 대한 TaskOutputKind와 마찬가지로 [JobOutputKind][net_joboutputkind] 매개 변수를 사용하여 작업의 보관된 파일을 분류할 수 있습니다. 이 매개 변수를 통해 나중에 특정 출력 형식(목록)을 쿼리할 수 있습니다. JobOutputKind는 출력 및 미리 보기 형식을 둘 다 포함하며, 사용자 지정 형식 만들기를 지원합니다.
+As with TaskOutputKind for task outputs, you use the [JobOutputKind][net_joboutputkind] parameter to categorize a job's persisted files. This parameter allows you to later query for (list) a specific type of output. The JobOutputKind includes both output and preview types, and supports creating custom types.
 
-### 태스크 로그 저장
+### <a name="store-task-logs"></a>Store task logs
 
-태스크 또는 작업이 완료된 경우 영구 저장소에 파일을 보관하는 것 외에 태스크를 실행하는 동안 업데이트된 파일(예: 로그 파일 또는 `stdout.txt` 및 `stderr.txt`)을 보관해야 할 수도 있습니다. 이를 위해 Azure 배치 파일 규칙 라이브러리에서는 [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync] 메서드를 제공합니다. [SaveTrackedAsync][net_savetrackedasync]를 사용하여 노드에서 파일 업데이트를 추적(지정한 간격으로)하고 이러한 업데이트를 Azure Storage에 보관할 수 있습니다.
+In addition to persisting a file to durable storage when a task or job completes, you might find it necessary to persist files that are updated during the execution of a task--log files or `stdout.txt` and `stderr.txt`, for example. For this purpose, the Azure Batch File Conventions library provides the [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync] method. With [SaveTrackedAsync][net_savetrackedasync], you can track updates to a file on the node (at an interval that you specify) and persist those updates to Azure Storage.
 
-다음 코드 조각에서는 [SaveTrackedAsync][net_savetrackedasync]를 사용하여 태스크가 실행되는 동안 15초마다 Azure Storage에서 `stdout.txt`를 업데이트합니다.
+In the following code snippet, we use [SaveTrackedAsync][net_savetrackedasync] to update `stdout.txt` in Azure Storage every 15 seconds during the execution of the task:
 
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
 string logFilePath = Path.Combine(
-	Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
+    Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
 
 // The primary task logic is wrapped in a using statement that sends updates to
 // the stdout.txt blob in Storage every 15 seconds while the task code runs.
 using (ITrackedSaveOperation stdout =
-		await taskStorage.SaveTrackedAsync(
-		TaskOutputKind.TaskLog,
-		logFilePath,
-		"stdout.txt",
-		TimeSpan.FromSeconds(15)))
+        await taskStorage.SaveTrackedAsync(
+        TaskOutputKind.TaskLog,
+        logFilePath,
+        "stdout.txt",
+        TimeSpan.FromSeconds(15)))
 {
-	/* Code to process data and produce output file(s) */
+    /* Code to process data and produce output file(s) */
 
-	// We are tracking the disk file to save our standard output, but the
-	// node agent may take up to 3 seconds to flush the stdout stream to
-	// disk. So give the file a moment to catch up.
- 	await Task.Delay(stdoutFlushDelay);
+    // We are tracking the disk file to save our standard output, but the
+    // node agent may take up to 3 seconds to flush the stdout stream to
+    // disk. So give the file a moment to catch up.
+    await Task.Delay(stdoutFlushDelay);
 }
 ```
 
-`Code to process data and produce output file(s)`은 태스크에서 일반적으로 수행하는 코드에 대한 자리 표시자입니다. 예를 들어 Azure Storage에서 데이터를 다운로드하고 변환 또는 계산을 수행하는 코드가 있을 수 있습니다. 이 조각의 중요한 부분은 [SaveTrackedAsync][net_savetrackedasync]를 통해 `using` 블록의 이러한 코드를 래핑하여 파일을 주기적으로 업데이트할 수 있는 방법을 보여 주고 있습니다.
+`Code to process data and produce output file(s)` is simply a placeholder for the code that your task would normally perform. For example, you might have code that downloads data from Azure Storage and performs transformation or calculation on it. The important part of this snippet is demonstrating how you can wrap such code in a `using` block to periodically update a file with [SaveTrackedAsync][net_savetrackedasync].
 
-노드 에이전트가 표준 출력의 내용을 노드의 stdout.txt 파일로 플러시하는 시간을 확보하도록 하기 위해 이 `using` 블록 끝에 `Task.Delay`가 필요합니다(노드 에이전트는 풀의 각 노드에서 실행되는 프로그램이며 노드와 배치 서비스 간에 명령 및 컨트롤 인터페이스를 제공합니다). 이 지연 시간이 없다면 마지막 몇 초의 출력을 놓칠 수 있습니다. 이 지연 시간은 일부 파일에만 필요할 수 있습니다.
+The `Task.Delay` is required at the end of this `using` block to ensure that the node agent has time to flush the contents of standard out to the stdout.txt file on the node (the node agent is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service). Without this delay, it is possible to miss the last few seconds of output. This delay may not be required for all files.
 
->[AZURE.NOTE] SaveTrackedAsync를 사용하여 파일 추적을 사용하도록 설정한 경우 추적된 파일의 *추가 항목*만 Azure Storage에 보관됩니다. 이 방법은 순환하지 않는 로그 파일 또는 추가된 다른 파일을 추적하는 데에만 사용해야 합니다. 즉, 데이터는 업데이트 시 파일 끝에만 추가됩니다.
+>[AZURE.NOTE] When you enable file tracking with SaveTrackedAsync, only *appends* to the tracked file are persisted to Azure Storage. Use this method only for tracking non-rotating log files or other files that are appended to, that is, data is only added to the end of the file when it's updated.
 
-## 출력 검색
+## <a name="retrieve-output"></a>Retrieve output
 
-Azure 배치 파일 규칙 라이브러리를 사용하여 보관된 출력을 검색할 때는 태스크 및 작업 중심 방식으로 검색합니다. Blob 저장소 내 경로 또는 파일 이름을 몰라도 지정된 태스크 또는 작업의 출력을 요청할 수 있습니다. "Give me the output files for task *109*"라고 지정하면 됩니다.
+When you retrieve your persisted output using the Azure Batch File Conventions library, you do so in a task- and job-centric manner. You can request the output for given task or job without needing to know its path in blob Storage, or even its file name. You can simply say, "Give me the output files for task *109*."
 
-다음 코드 조각은 모든 작업의 태스크를 반복하여 태스크의 출력 파일에 대한 일부 정보를 인쇄한 다음 Storage에서 해당 파일을 다운로드합니다.
+The following code snippet iterates through all of a job's tasks, prints some information about the output files for the task, and then downloads its files from Storage.
 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
 {
     foreach (TaskOutputStorage output in
-		task.OutputStorage(storageAccount).ListOutputs(
-			TaskOutputKind.TaskOutput))
+        task.OutputStorage(storageAccount).ListOutputs(
+            TaskOutputKind.TaskOutput))
     {
         Console.WriteLine($"output file: {output.FilePath}");
 
-		output.DownloadToFileAsync(
-			$"{jobId}-{output.FilePath}",
-			System.IO.FileMode.Create).Wait();
+        output.DownloadToFileAsync(
+            $"{jobId}-{output.FilePath}",
+            System.IO.FileMode.Create).Wait();
     }
 }
 ```
 
-## 태스크 출력 및 Azure 포털
+## <a name="task-outputs-and-the-azure-portal"></a>Task outputs and the Azure portal
 
-Azure 포털에서는 [Azure 배치 파일 규칙 추가 정보][github_file_conventions_readme]에 있는 명명 규칙을 사용하여 연결된 Azure Storage 계정에 보관된 태스크 출력 및 로그를 표시합니다. 이러한 규칙을 원하는 언어로 직접 구현하거나, .NET 응용 프로그램의 파일 규칙 라이브러리를 사용할 수 있습니다.
+The Azure portal displays task outputs and logs that are persisted to a linked Azure Storage account using the naming conventions found in the [Azure Batch File Conventions README][github_file_conventions_readme]. You can implement these conventions yourself in a language of your choosing, or you can use the file conventions library in your .NET applications.
 
-### 포털 표시 사용
+### <a name="enable-portal-display"></a>Enable portal display
 
-포털에서 출력을 표시하려면 다음 요구 사항을 충족해야 합니다.
+To enable the display of your outputs in the portal, you must satisfy the following requirements:
 
- 1. 배치 계정에 [Azure Storage 계정을 연결](#requirement-linked-storage-account)합니다.
- 2. 출력을 보관할 때 저장소 컨테이너 및 파일에 대한 미리 정의된 명명 규칙을 따릅니다. 파일 규칙 라이브러리 [추가 정보][github_file_conventions_readme]에서 이러한 규칙에 대한 정의를 확인할 수 있습니다. [Azure 배치 파일 규칙][nuget_package] 라이브러리를 사용하여 출력을 보관하는 경우에는 이 요구 사항이 충족됩니다.
+ 1. [Link an Azure Storage account](#requirement-linked-storage-account) to your Batch account.
+ 2. Adhere to the predefined naming conventions for Storage containers and files when persisting outputs. You can find the definition of these conventions in the file conventions library [README][github_file_conventions_readme]. If you use the [Azure Batch File Conventions][nuget_package] library to persist your output, this requirement is satisfied.
 
-### 포털에서 출력 보기
+### <a name="view-outputs-in-the-portal"></a>View outputs in the portal
 
-Azure 포털에서 태스크 출력 및 로그를 보려면 관심 있는 출력의 태스크로 이동하여 **저장된 출력 파일** 또는 **저장된 로그**를 클릭합니다. 이 이미지는 ID가 "007"인 태스크에 대한 **저장된 출력 파일**을 보여 줍니다.
+To view task outputs and logs in the Azure portal, navigate to the task whose output you are interested in, then click either **Saved output files** or **Saved logs**. This image shows the **Saved output files** for the task with ID "007":
 
-![Azure 포털의 태스크 출력 블레이드][2]
+![Task outputs blade in the Azure portal][2]
 
-## 코드 샘플
+## <a name="code-sample"></a>Code sample
 
-[PersistOutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure 배치 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 2015 솔루션은 Azure 배치 파일 규칙 라이브러리를 사용하여 영구 저장소에 태스크 출력을 보관하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
+The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to use the Azure Batch File Conventions library to persist task output to durable storage. To run the sample, follow these steps:
 
-1. **Visual Studio 2015**에서 프로젝트를 엽니다.
-2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 배치 및 저장소 **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.
-3. 솔루션을 **빌드**합니다(하지만 실행하지 않음). 메시지가 표시되면 모든 NuGet 패키지를 복원합니다.
-4. Azure 포털을 사용하여 **PersistOutputsTask**에 대한 [응용 프로그램 패키지](batch-application-packages.md)를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 응용 프로그램 ID를 "PersistOutputsTask"로, 응용 프로그램 패키지 버전을 "1.0"으로 설정합니다.
-5. **PersistOutputs** 프로젝트를 **시작**(실행)합니다.
+1. Open the project in **Visual Studio 2015**.
+2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project.
+3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
+4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputsTask**. Include the `PersistOutputsTask.exe` and its dependent assemblies in the .zip package, set the application ID to "PersistOutputsTask", and the application package version to "1.0".
+5. **Start** (run) the **PersistOutputs** project.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-### 응용 프로그램 배포
+### <a name="application-deployment"></a>Application deployment
 
-배치의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 계산 노드에서 태스크를 실행하는 응용 프로그램을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
+The [application packages](batch-application-packages.md) feature of Batch provides an easy way to both deploy and version the applications that your tasks execute on compute nodes.
 
-### 응용 프로그램 설치 및 데이터 준비
+### <a name="installing-applications-and-staging-data"></a>Installing applications and staging data
 
-태스크를 실행하기 위해 노드를 준비하는 다양한 방법의 개요는 Azure 배치 포럼에서 [배치 계산 노드에서 응용 프로그램 설치 및 데이터 스테이징][forum_post] 게시물을 확인합니다. Azure 배치 팀 멤버 중 하나가 작성한 이 게시물은 계산 노드에 (응용 프로그램 및 태스크 입력 데이터를 모두 포함한) 파일을 가져오는 다른 방법에 대한 좋은 기초이며 각 메서드에 대한 특별한 고려 사항입니다.
+Check out the [Installing applications and staging data on Batch compute nodes][forum_post] post in the Azure Batch forum for an overview of the various methods of preparing your nodes for running tasks. Written by one of the Azure Batch team members, this post is a good primer on the different ways to get files (including both applications and task input data) onto your compute nodes, and some special considerations for each method.
 
-[forum_post]: https://social.msdn.microsoft.com/Forums/ko-KR/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
+[forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
 [github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
@@ -249,7 +250,10 @@ Azure 포털에서 태스크 출력 및 로그를 보려면 관심 있는 출력
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
 
-[1]: ./media/batch-task-output/task-output-01.png "포털의 저장된 출력 파일 및 저장된 로그 선택기"
-[2]: ./media/batch-task-output/task-output-02.png "Azure 포털의 태스크 출력 블레이드"
+[1]: ./media/batch-task-output/task-output-01.png "Saved output files and Saved logs selectors in portal"
+[2]: ./media/batch-task-output/task-output-02.png "Task outputs blade in the Azure portal"
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

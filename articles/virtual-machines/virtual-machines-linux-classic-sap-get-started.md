@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Linux 가상 컴퓨터에서 SAP 사용 | Microsoft Azure"
-   description="Microsoft Azure의 Linux VM(가상 컴퓨터)에서 SAP를 사용하는 방법을 알아봅니다."
+   pageTitle="Using SAP on Linux virtual machines | Microsoft Azure"
+   description="Learn about using SAP on Linux virtual machines (VMs) in Microsoft Azure"
    services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
@@ -14,25 +14,30 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="10/04/2016"
    ms.author="sedusch"/>
 
-# Azure의 Linux 가상 컴퓨터에서 SAP 사용
 
-클라우드 컴퓨팅은 중소 기업에서 대기업 및 다국적 기업까지 IT 업계 내에서 점점 더 중요해지는 널리 사용되는 용어입니다. Microsoft Azure는 다양한 새로운 가능성을 제공하는 Microsoft의 클라우드 서비스 플랫폼입니다. 이제 고객은 클라우드 서비스로 응용 프로그램을 신속하게 프로비전 및 프로비전 해제할 수 있으므로 기술 또는 예산 제한에 제한되지 않습니다. 하드웨어 인프라에 시간과 예산을 투자하는 대신 기업은 고객 및 사용자를 위한 응용 프로그램, 비즈니스 프로세스 및 그 이점에 집중할 수 있습니다.
+# <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Using SAP on Linux virtual machines in Azure
 
-Microsoft는 Microsoft Azure 가상 컴퓨터와 함께 포괄적인 IaaS(Infrastructure as a Service) 플랫폼을 제공합니다. SAP NetWeaver 기반 응용 프로그램은 Azure 가상 컴퓨터(IaaS)에서 지원됩니다. 아래 백서는 Azure의 Windows 가상 컴퓨터에서 SAP NetWeaver 기반 응용 프로그램을 계획하고 구현하는 방법에 대해 설명합니다. [Windows 가상 컴퓨터](virtual-machines-windows-classic-sap-get-started.md)에서 SAP NetWeaver 기반 응용 프로그램을 구현할 수도 있습니다.
+Cloud Computing is a widely used term which is gaining more and more importance within the IT industry, from small companies up to large and multinational corporations. Microsoft Azure is the Cloud Services Platform from Microsoft which offers a wide spectrum of new possibilities. Now customers are able to rapidly provision and de-provision applications as Cloud-Services, so they are not limited to technical or budgeting restrictions. Instead of investing time and budget into hardware infrastructure, companies can focus on the application, business processes and its benefits for customers and users.
+
+With Microsoft Azure virtual machines, Microsoft offers a comprehensive Infrastructure as a Service (IaaS) platform. SAP NetWeaver based applications are supported on Azure Virtual Machines (IaaS). The whitepapers below describe how to plan and implement SAP NetWeaver based applications on Windows virtual machines in Azure. You can also implement SAP NetWeaver based applications on [Windows virtual machines](virtual-machines-windows-classic-sap-get-started.md).
 
 [AZURE.INCLUDE [virtual-machines-common-classic-sap-get-started](../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
-## Azure SUSE Linux 가상 컴퓨터에서 SAP NetWeaver
+## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>SAP NetWeaver on Azure SUSE Linux Virtual Machines
 
-제목: Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트
+Title: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs
 
-요약: 현 시점에는 Azure Linux VM에서의 SAP NetWeaver 실행에 대해 SAP에서 공식적으로 지원하지 않습니다. 그렇기는 하지만 고객이 SAP 지원에 문의할 필요가 없다면 Azure Linux VM에서 일부 테스트를 수행하거나 SAP 데모 또는 교육 시스템 실행을 고려할 수 있습니다. 이 문서는 SAP를 실행할 수 있도록 Azure SUSE Linux VM을 설정하는 데 도움을 주며 일반적으로 일어날 수 있는 위험을 방지하기 위한 몇 가지 기본적인 힌트를 제공합니다.
+Summary: There is no official SAP support for running SAP NetWeaver on Azure Linux VMs at this point in time. Nevertheless customers might want to do some testing or might consider to run SAP demo or training systems on Azure Linux VMs as long as there is no need for contacting SAP support. This article should help setting up Azure SUSE Linux VMs for running SAP and gives some basic hints in order to avoid common potential pitfalls.
 
-업데이트한 날짜: 2015년 12월
+Updated: December 2015
 
-[이 문서는 여기서 확인할 수 있습니다.](virtual-machines-linux-sap-on-suse-quickstart.md)
+[This article can be found here](virtual-machines-linux-sap-on-suse-quickstart.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

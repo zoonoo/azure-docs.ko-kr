@@ -1,105 +1,113 @@
 <properties
-	pageTitle="C# 쿼리로 SQL 데이터베이스에 연결 | Microsoft Azure"
-	description="C#에 프로그램을 작성하여 SQL 데이터베이스에 쿼리하고 연결합니다. IP 주소, 연결 문자열, 보안 로그인 및 무료 Visual Studio에 대한 정보입니다."
-	services="sql-database"
-	keywords="c# 데이터베이스 쿼리, c# 쿼리, 데이터베이스 연결, SQL C#"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Connect to SQL Database with a C# query | Microsoft Azure"
+    description="Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio."
+    services="sql-database"
+    keywords="c# database query, c# query, connect to database, SQL C#"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="08/17/2016"
-	ms.author="stevestein"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="08/17/2016"
+    ms.author="stevestein"/>
 
 
 
-# Visual Studio를 사용하여 SQL 데이터베이스에 연결
+
+# <a name="connect-to-a-sql-database-with-visual-studio"></a>Connect to a SQL Database with Visual Studio
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Visual Studio에서 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다.
+Learn how to connect to an Azure SQL database in Visual Studio. 
 
-## 필수 조건
-
-
-Visual Studio를 사용하여 SQL 데이터베이스에 연결하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>Prerequisites
 
 
-- 연결할 SQL 데이터베이스. 이 문서에서는 **AdventureWorks** 샘플 데이터베이스를 사용합니다. AdventureWorks 샘플 데이터베이스를 다운로드하려면 [데모 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+To connect to a SQL database using Visual Studio, you need the following: 
 
 
-- Visual Studio 2013 업데이트 4(이후) Microsoft는 이제 Visual Studio 커뮤니티를 *무료* 로 제공합니다.
- - [Visual Studio Community, 다운로드](http://www.visualstudio.com/products/visual-studio-community-vs)
- - [무료 Visual Studio에 대한 더 많은 옵션](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
+- A SQL database to connect to. This article uses the **AdventureWorks** sample database. To get the AdventureWorks sample database, see [Create the demo database](sql-database-get-started.md).
+
+
+- Visual Studio 2013 update 4 (or later). Microsoft now provides Visual Studio Community for *free*.
+ - [Visual Studio Community, download](http://www.visualstudio.com/products/visual-studio-community-vs)
+ - [More options for free Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
 
 
 
 
-## Azure 포털에서 Visual Studio 열기
+## <a name="open-visual-studio-from-the-azure-portal"></a>Open Visual Studio from the Azure portal
 
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. Log in to the [Azure portal](https://portal.azure.com/).
 
-2. **더 많은 서비스** > **SQL 데이터베이스**를 클릭합니다.
-3. *AdventureWorks* 데이터베이스를 찾고 클릭하여 **AdventureWorks** 데이터베이스 블레이드를 엽니다.
+2. Click **More Services** > **SQL databases**
+3. Open the **AdventureWorks** database blade by locating and clicking the *AdventureWorks* database.
 
-6. 데이터베이스 블레이드의 위쪽에서 **도구** 단추를 클릭합니다.
+6. Click the **Tools** button at the top of the database blade:
 
-	![새 쿼리 SQL 데이터베이스 서버에 연결: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
 
-7. **Visual Studio에서 열기**를 클릭합니다(Visual Studio가 필요한 경우 다운로드 링크를 클릭합니다).
+7. Click **Open in Visual Studio** (if you need Visual Studio, click the download link):
 
-	![새 쿼리 SQL 데이터베이스 서버에 연결: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
-
-
-8. 포털에서 선택한 서버 및 데이터베이스에 이미 연결하도록 설정된 **서버에 연결** 창과 함께 Visual Studio가 열립니다. (**옵션**을 클릭하여 올바른 데이터베이스에 연결이 설정되어 있는지 확인합니다.) 서버 관리자 암호를 입력하고 **연결**을 클릭합니다.
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-	![새 쿼리 SQL 데이터베이스 서버에 연결: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
+8. Visual Studio opens with the **Connect to Server** window already set to connect to the server and database you selected in the portal.  (Click **Options** to verify that the connection is set to the correct database.) Type your server admin password and click **Connect**.
 
 
-8. 컴퓨터의 IP 주소에 대한 방화벽 규칙을 설정하지 않은 경우 여기에 *연결할 수 없습니다.* 메시지를 받게 됩니다. 방화벽 규칙을 만들려면 [Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
 
-9. 성공적으로 연결되면 데이터베이스에 연결된 **SQL Server 개체 탐색기** 창이 열립니다.
-
-	![새 쿼리 SQL 데이터베이스 서버에 연결: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+8. If you do not have a firewall rule set up for your computer's IP address, you get a *Cannot connect* message here. To create a firewall rule, see [Configure an Azure SQL Database server-level firewall rule](sql-database-configure-firewall-settings.md).
 
 
-## 샘플 쿼리 실행
+9. After successfully connecting, the **SQL Server Object Explorer** window opens with a connection to your database.
 
-데이터베이스에 연결되었으므로 다음 단계에서는 간단한 쿼리를 실행하는 방법을 보여 줍니다.
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
 
-2. 데이터베이스를 마우스 오른쪽 단추로 클릭한 다음 **새 쿼리**를 선택합니다.
 
-	![새 쿼리 SQL 데이터베이스 서버에 연결: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
+## <a name="run-a-sample-query"></a>Run a sample query
 
-3. 쿼리 창에서 다음 코드를 복사하여 붙여넣습니다.
+Now that we're connected to the database, the following steps show how to run a simple query:
 
-		SELECT
-		CustomerId
-		,Title
-		,FirstName
-		,LastName
-		,CompanyName
-		FROM SalesLT.Customer;
+2. Right-click the database and then select **New Query**.
 
-4. 쿼리를 실행하려면 **실행** 단추를 클릭합니다.
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
-	![성공. SQL 데이터베이스 서버에 연결: SVisual Studio](./media/sql-database-connect-query/run-query.png)
+3. In the query window, copy and paste the following code.
 
-## 다음 단계
+        SELECT
+        CustomerId
+        ,Title
+        ,FirstName
+        ,LastName
+        ,CompanyName
+        FROM SalesLT.Customer;
 
-- Visual Studio에서 SQL 데이터베이스를 열고 SQL Server Data Tools를 사용합니다. 자세한 내용은 [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx)를 참조하세요.
-- 코드를 사용하여 SQL 데이터베이스에 연결하려면 [.NET(C#)을 사용하여 SQL 데이터베이스에 연결](sql-database-develop-dotnet-simple.md)을 참조하세요.
+4. Click the **Execute** button to run the query:
 
-<!-----HONumber=AcomDC_0824_2016-->
+    ![Success. Connect to SQL Database server: SVisual Studio](./media/sql-database-connect-query/run-query.png)
+
+## <a name="next-steps"></a>Next steps
+
+- Opening SQL databases in Visual Studio uses SQL Server Data Tools. For more details, see [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- To connect to a SQL database using code, see [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md).
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

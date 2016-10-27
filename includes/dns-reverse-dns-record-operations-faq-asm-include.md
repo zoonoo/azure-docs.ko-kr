@@ -1,20 +1,23 @@
-<BR>
-## FAQ 
-### 역방향 DNS 레코드의 비용은 얼마인가요?
-무료입니다. 역방향 DNS 레코드 또는 쿼리에 대한 추가 비용은 없습니다.
-### 인터넷에서 내 역방향 DNS 레코드가 확인되나요?
-예. 클라우드 서비스에 대해 역방향 DNS 속성을 설정하면 역방향 DNS 레코드를 모든 인터넷 사용자에 대해 확인하는 데 필요한 DNS 영역 및 DNS 위임을 Azure에서 모두 관리합니다.
-### 내 클라우드 서비스에 대해 기본 역방향 DNS 레코드가 생성되나요?
-아니요. 역방향 DNS는 옵트인(opt in) 기능입니다. 역방향 레코드를 구성하지 않으면 기본 역방향 DNS 레코드가 만들어지지 않습니다.
-### FQDN(정규화된 도메인 이름)의 형식은 무엇인가요?
-FQDN은 정방향 순서로 지정되고 점으로 끝나야 합니다(예: "app1.contoso.com.").
-### 내가 지정한 역방향 DNS의 유효성 검사가 실패하면 어떻게 되나요?
-역방향 DNS에 대한 유효성 검사가 실패하는 경우 서비스 관리 작업이 실패합니다. 필요에 따라 역방향 DNS 값을 수정하고 다시 시도하세요.
-### Azure 웹 사이트에 대해 역방향 DNS를 관리할 수 있나요?
-역방향 DNS는 Azure 웹 사이트에 대해 지원되지 않습니다. 역방향 DNS는 Azure PaaS 역할 및 IaaS 가상 컴퓨터에 대해 지원됩니다.
-### 내 클라우드 서비스에 대해 다중 역방향 DNS 레코드를 구성할 수 있나요?
-아니요. Azure는 각 Azure 클라우드 서비스에 대해 단일 역방향 DNS 레코드를 지원합니다. 그러나 각 Azure 클라우드 서비스는 자체 역방향 DNS 레코드를 가질 수 있습니다.
-### Azure 계산 서비스에서 외부 도메인으로 전자 메일을 보낼 수 있나요?
-아니요. [여기](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)에 나온 내용에 따르면, Azure 계산 서비스는 외부 도메인으로의 전자 메일 전송을 지원하지 않습니다.
+<BR> 
+## <a name="faq"></a>FAQ 
+### <a name="how-much-do-reverse-dns-records-cost?"></a>How much do reverse DNS records cost?
+They’re free!  There is no additional cost for reverse DNS records or queries.
+### <a name="will-my-reverse-dns-records-resolve-from-the-internet?"></a>Will my reverse DNS records resolve from the internet?
+Yes. Once you set the reverse DNS property for your Cloud Service, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all internet users.
+### <a name="will-a-default-reverse-dns-record-be-created-for-my-cloud-services?"></a>Will a default reverse DNS record be created for my Cloud Services?
+No. Reverse DNS is an opt-in feature. No default reverse DNS records are created if you choose not to configure them.
+### <a name="what-is-the-format-for-the-fully-qualified-domain-name-(fqdn)?"></a>What is the format for the fully-qualified domain name (FQDN)?
+FQDNs are specified in forward order, and must be terminated by a dot (e.g., “app1.contoso.com.”).
+### <a name="what-happens-if-the-validation-checks-for-the-reverse-dns-i’ve-specified-fail?"></a>What happens if the validation checks for the reverse DNS I’ve specified fail?
+Where the validation for reverse DNS checks fail, the service management operation will fail. Please correct the reverse DNS value as required, and retry.
+### <a name="can-i-manage-reverse-dns-for-my-azure-website?"></a>Can I manage reverse DNS for my Azure Website?
+Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure PaaS roles and IaaS virtual machines.
+### <a name="can-i-configure-multiple-reverse-dns-records-for-my-cloud-service?"></a>Can I configure multiple reverse DNS records for my Cloud Service?
+No. Azure supports a single reverse DNS record for each Azure Cloud Service. Each Azure Cloud Service however can have their own reverse DNS record.
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services?"></a>Can I send emails to external domains from my Azure Compute services?
+No. As per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), Azure Compute services do not support sending emails to external domains.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Eclipse에서 Azure용 Hello World 클라우드 서비스 만들기"
-    description="Eclipse용 Azure 도구 키트를 사용하여 간단한 Hello World 응용 프로그램을 만드는 방법을 알아봅니다."
+    pageTitle="Create a Hello World Cloud Service for Azure in Eclipse"
+    description="Learn how to create a simple Hello World application using the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,165 +16,161 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
-# Eclipse에서 Azure용 Hello World 클라우드 서비스 만들기 #
+# <a name="create-a-hello-world-cloud-service-for-azure-in-eclipse"></a>Create a Hello World Cloud Service for Azure in Eclipse #
 
-다음 단계에서는 Eclipse용 Azure 도구 키트를 사용하여 Azure에 기본 JSP 응용 프로그램을 배포하는 방법을 보여줍니다. JSP 예제는 편의를 위해 표시되지만 Azure 배포가 관련되는 한 아주 유사한 단계는 Java 서블릿에 적합합니다.
+The following steps show you how to create and deploy a basic JSP application to Azure using the Azure Toolkit for Eclipse. A JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
 
-응용 프로그램은 다음과 유사합니다.
+The application will look similar to the following:
 
 ![][ic600360]
 
-## 필수 조건 ##
+## <a name="prerequisites"></a>Prerequisites ##
 
-* JDK(Java 개발자 키트), v 1.7 이상
-* Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/> 에서 다운로드할 수 있습니다.
-* Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat, GlassFish, JBoss Application Server, Jetty 또는 IBM® WebSphere® Application Server Liberty Core)
-* Azure 구독. <http://azure.microsoft.com/pricing/purchase-options/> 에서 구입할 수 있습니다.
-* Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치][] 를 참조하세요.
+* A Java Developer Kit (JDK), v 1.7 or later.
+* Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
+* A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, Jetty, or IBM® WebSphere® Application Server Liberty Core.
+* An Azure subscription, which can be acquired from <http://azure.microsoft.com/pricing/purchase-options/>.
+* The Azure Toolkit for Eclipse. For more information, see [Installing the Azure Toolkit for Eclipse][].
 
-## Hello World 응용 프로그램을 만들려면 ##
+## <a name="to-create-a-hello-world-application"></a>To create a Hello World application ##
 
-먼저 java 프로젝트를 만듭니다.
+First, we'll start off with creating a Java project.
 
-*  Eclipse를 시작하고 메뉴에서 **File**, **New**, **Dynamic Web Project**를 차례로 클릭합니다. (**파일**, **새로 만들기**를 차례로 클릭한 후 **Dynamic Web Project**가 사용 가능한 프로젝트로 표시되지 않는 경우 **파일**, **새로 만들기**, **프로젝트...**를 차례로 클릭한 후 **웹**을 확장하고 **Dynamic Web Project**를 클릭한 후 **다음**을 클릭합니다.)
-*  이 자습서에서는 프로젝트의 이름을 **MyHelloWorld**로 지정합니다. (이 이름을 사용했는지 확인하세요. 이 자습서의 이후 단계에서는 WAR 파일의 이름이 MyHelloWorld라고 가정합니다.) 화면이 다음과 유사하게 나타납니다.
-    ![][ic589576]
-* **마침**을 클릭합니다.
-* Eclipse의 Project Explorer 뷰 내에서 **MyHelloWorld**를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
-* **New JSP File** 대화 상자에서 파일의 이름을 **index.jsp**로 지정합니다. 다음에 표시된 것처럼 상위 폴더를 **MyHelloWorld/WebContent**로 유지합니다.
-    ![][ic659262]
-* **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라 **새 JSP 파일(html)**을 선택하고 **완료**를 클릭합니다.
-* Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 내용이 다음과 같이 나타납니다.
+*  Start Eclipse, and at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don't see **Dynamic Web Project** listed as an available project after clicking **File**, **New**, then do the following: click **File**, click **New**, click **Project...**, expand **Web**, click **Dynamic Web Project**, and click **Next**.)
+*  For purposes of this tutorial, name the project **MyHelloWorld**. (Ensure you use this name, subsequent steps in this tutorial expect your WAR file to be named MyHelloWorld). Your screen will appear similar to the following:  ![][ic589576]
+* Click **Finish**.
+* Within Eclipse's Project Explorer view, expand **MyHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
+* In the **New JSP File** dialog, name the file **index.jsp**. Keep the parent folder as **MyHelloWorld/WebContent**, as shown in the following:   ![][ic659262]
+* In the **Select JSP Template** dialog, for purposes of this tutorial select **New JSP File (html)** and click **Finish**.
+* When the index.jsp file opens in Eclipse, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should appear as the following:
 ```
     <body>
     <b><% out.println("Hello World!"); %></b>
     </body>
 ```
-* index.jsp를 저장합니다.
+* Save index.jsp.
 
-## 빠르고 간편한 방식으로 Azure에 응용 프로그램을 배포하려면 ##
+## <a name="to-deploy-your-application-to-azure,-the-quick-and-simple-way"></a>To deploy your application to Azure, the quick and simple way ##
 
-Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바로 가기를 사용하여 Azure 클라우드에서 직접 체험할 수 있습니다.
+As soon as you have a Java web application ready to test, you can use the following shortcut to try it out directly on the Azure cloud.
 
-1. Eclipse의 프로젝트 탐색기에서 **MyHelloWorld**를 클릭합니다.
-1. Eclipse 도구 모음에서 **게시** 드롭다운 단추를 클릭한 다음 **Publish As Azure Cloud Service**(Azure 클라우드 서비스로 게시)를 클릭합니다 
-![][publishDropdownButton]
-1. 처음으로 Azure에 이 응용 프로그램을 게시하고 이전에 이 응용 프로그램에 대한 Azure 배포 프로젝트를 만들지 않은 경우 Azure 배포 프로젝트가 자동으로 만들어집니다. 또한 다음과 같은 메시지가 표시되어야 하며 이는 응용 프로그램을 실행하기 위해 자동으로 배포되는 JDK 패키지 및 응용 프로그램 서버를 나열합니다.
-![][ic789598]
+1. In Eclipse's Project Explorer, click **MyHelloWorld**.
+1. In the Eclipse toolbar, click the **Publish** drop down button and then click **Publish As Azure Cloud Service**
+    ![][publishDropdownButton]
+1. If you are publishing this application to Azure for the first time and you have not created an Azure deployment project for this application before, an Azure deployment project be created for you automatically. You should see the following prompt, which also lists the JDK package and application server that will be automatically deployed to run your application.
+    ![][ic789598]
 
-    이 바로 가기 방식을 사용하면 기본값과 다른 특정 서버 또는 JDK를 구성할 필요 없이 Azure에서 응용 프로그램을 테스트하는 빠르고 쉬운 방법이 가능합니다. 기본값에 만족할 경우 **확인**을 클릭하여 다음 단계를 계속할 수 있습니다.
-    그러나 응용 프로그램에 사용할 JDK 또는 응용 프로그램 서버를 변경하려는 경우 나중에 사용자를 위해 자동으로 만들어진 Azure 배포 프로젝트를 편집하여 수행하거나 지금 **취소**를 클릭하고 이 자습서의 **Azure 배포 프로젝트 섹션 정보**를 읽을 수 있습니다.
-1. **Azure에 게시** 대화 상자에서:
-    1. 아직 **구독** 목록에서 선택할 구독이 없는 경우 다음이 단계를 수행하여 구독 정보를 가져옵니다.
-        1. **게시 설정 파일에서 가져오기**를 클릭합니다.
-        1. **Import Subscription Information** 대화 상자에서 **Download PUBLISH-SETTINGS File**을 클릭합니다. Azure 계정에 로그인하지 않은 경우에는 로그인을 요청하는 메시지가 표시됩니다. 그 후 Azure 게시 설정 파일을 저장하도록 요청하는 메시지가 표시됩니다. 로컬 컴퓨터에 저장합니다.
-        1. **구독 정보 가져오기** 대화 상자에서 **찾아보기** 단추를 클릭하고 이전 단계에서 로컬에 저장해 놓은 게시 설정 파일을 선택한 다음 **열기**를 클릭합니다. 화면은 다음과 유사해야 합니다.
-	![][ic644267]
-        1. **확인**을 클릭합니다.
-    1. **구독**의 경우 배포에 사용하려는 구독을 선택합니다.
-    1. **저장소 계정**의 경우 사용하려는 저장소 계정을 선택하거나 **새로 만들기**를 클릭하여 새 저장소 계정을 만듭니다.
-    1. **서비스 이름**의 경우 사용하려는 클라우드 서비스를 선택하거나 **새로 만들기**를 클릭하여 새 클라우드 서비스를 만듭니다.
-    1. **대상 OS**의 경우 배포에 사용하려는 운영 체제의 버전을 선택합니다.
-    1. **대상 환경**의 경우 자습서의 목적에 따라 **준비**를 선택합니다. (프로덕션 사이트에 배포할 준비가 되면 **프로덕션**에 이를 변경합니다.)
-    1. 선택 사항: 새 배포가 자동으로 이전 배포를 덮어쓰도록 하려면 **이전 배포 덮어쓰기**가 선택되어야 합니다. 이 옵션을 사용하면 동일한 위치에 게시할 때 "409 충돌" 문제가 발생하지 않습니다.
-        **Azure에 게시** 대화 상자는 **원격 액세스**에 대한 섹션을 포함합니다. 기본적으로 원격 액세스가 설정되지 않으며 이 예에서도 사용하지 않습니다. 원격 액세스를 설정하려면 사용자 이름 및 암호를 입력하여 원격으로 로그인할 때 사용합니다. 원격 액세스에 대한 자세한 내용은 [Eclipse에서 Azure 배포에 원격 액세스 사용][]을 참조하세요.
-        **Azure에 게시** 대화 상자는 다음과 유사하게 표시됩니다.
-        ![][ic719488]
-1. **게시**를 클릭하여 스테이징 환경에 게시합니다.
-    전체 빌드를 수행하라는 메시지가 나타나면 **예**를 클릭합니다.
-    첫 번째 작성에 몇 분 정도 걸릴 수 있습니다. **Azure 활동 로그**는 Eclipse가 탭된 뷰 섹션에 표시됩니다.
+    This shortcut approach enables a quick and easy way to test your application in Azure without having to configure a specific server or JDK that is different from the defaults. If you are satisfied with the defaults, you can click **OK** to continue with the following steps.
+    However, if you want to change the JDK or application server to use for your application, you can do that later by editing the Azure deployment project that was automatically created for you, or you can click **Cancel** now and read the **About Azure deployment projects section** of this tutorial.
+1. In the **Publish to Azure** dialog:
+    1. If there are no subscriptions to select in the **Subscription** list yet, follow these steps to import your subscription information:
+        1. Click **Import from PUBLISH-SETTINGS file**.
+        1. In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you'll be prompted to save an Azure publish settings file. Save it to your local machine.
+        1. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally in the previous step, and then click **Open**. Your screen should look similar to the following:  ![][ic644267]
+        1. Click **OK**.
+    1. For **Subscription**, select the subscription that you want use for your deployment.
+    1. For **Storage account**, select the storage account that you want to use, or click **New** to create a new storage account.
+    1. For **Service name**, select the cloud service that you want to use, or click **New** to create a new cloud service.
+    1. For **Target OS**, select the version of the operating system that you want to use for your deployment.
+    1. For **Target environment**, for purposes of this tutorial, select **Staging**. (When you're ready to deploy to your production site, you'll change this to **Production**.)
+    1. Optional: Ensure that **Overwrite previous deployment** is checked if you want your new deployment to automatically overwrite the previous deployment. When you enable this option, you will not experience "409 conflict" issues when publishing to the same location.
+        Note that the **Publish to Azure** dialog contains a section for **Remote Access**. By default, Remote Access is not enabled and we will not enable it for this example. To enable Remote Access, you would enter a user name and password to use when remotely logging in. For more information about Remote Access, see [Enabling Remote Access for Azure Deployments in Eclipse][].
+        Your **Publish to Azure** dialog will appear similar to the following:  ![][ic719488]
+1. Click **Publish** to publish to the Staging environment.
+    When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
+    An **Azure Activity Log** will display in your Eclipse tabbed views section.
     ![][ic719489]
-    **콘솔** 보기와 같이 이 로그를 사용하여 배포의 진행 상황을 볼 수 있습니다. [Azure 관리 포털][]에 로그인하거나 **클라우드 서비스** 섹션을 사용해서도 상태를 모니터링할 수 있습니다.
-1. 배포가 성공적으로 배포될 때 **Azure 활동 로그**는 **게시된** 상태를 보여줍니다. 다음 그림에 표시된 것처럼 **게시**를 클릭하고 브라우저가 배포의 인스턴스를 엽니다.
+    You can use this log, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the [Azure Management Portal][], and use the **Cloud Services** section to monitor the status.
+1. When your deployment is successfully deployed, the **Azure Activity Log** will show a status of **Published**. Click **Published**, as shown in the following image, and your browser will open an instance of your deployment.
     ![][ic719490]
 
-스테이징 환경에 대한 배포이기 때문에 DNS 이름은 http://&lt;*guid*&gt;.cloudapp.net 양식이고 URL은 DNS 이름과 응용 프로그램에 대한 접미사를 포함합니다. 예: http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld (**MyHelloWorld** 부분은 대/소문자를 구분합니다.) 또한 Azure Platform Management 포털(관리 포털의 클라우드 서비스 부분 내)에서 배포 이름을 클릭하는 경우 DNS 이름을 볼 수 있습니다.
+Because this was a deployment to a staging environment, the DNS name will be of the form http://&lt;*guid*&gt;.cloudapp.net, and the URL will contain the DNS name plus a suffix for your application. For example, http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (The **MyHelloWorld** portion is case-sensitive.) You can also see the DNS name if you click the deployment name in the Azure Platform Management Portal (within the Cloud Services portion of the management portal).
 
-이 연습이 스테이징 환경에 대한 배포용이지만 프로덕션에 배포는 **Azure에 게시** 대화 상자를 제외하고 동일한 단계를 따르고 **대상 환경**에 대한 **준비** 대신 **프로덕션**을 선택합니다. 프로덕션에 대한 배포는 스테이징에 사용되는 GUID 대신 선택한 DNS 이름을 기반으로 한 URL을 발생시킵니다.
+Although this walk-through was for a deployment to the staging environment, a deployment to production follows the same steps, except within the **Publish to Azure** dialog, select **Production** instead of **Staging** for the **Target environment**. A deployment to production results in a URL based on the DNS name of your choice, instead of a GUID as used for staging.
 
->[AZURE.WARNING] 이 시점에서 클라우드에 Azure 응용 프로그램을 배포했습니다. 그러나 계속하기 전에 배포된 응용 프로그램이 실행되지 않을 경우에도 구독에 대한 청구 가능 시간을 계속 실현한다는 점을 중요합니다. 따라서 Azure 구독에서 원하지 않는 배포를 삭제하는 것이 매우 중요합니다.
+>[AZURE.WARNING] At this point you have deployed your Azure application to the cloud. However, before proceeding, realize that a deployed application, even if it is not running, will continue to accrue billable time for your subscription. Therefore, it is extremely important that you delete unwanted deployments from your Azure subscription.
 
-## Azure 배포 프로젝트 정보 ##
+## <a name="about-azure-deployment-projects"></a>About Azure deployment projects ##
 
-하나 이상의 Java 응용 프로그램을 Azure에 배포하려면 Azure 배포 프로젝트가 필요합니다. 응용 프로그램이 Azure에 게시되기 위해 래핑되어야 하는 "패키지"의 역할을 수행합니다.
+In order to deploy one or more Java applications to Azure, an Azure Deployment Project is needed. It plays the role of the "package" that your applications need to be wrapped into in order to be published on Azure.
 
-또한 응용 프로그램에 대한 내용 외에도 Azure 배포 프로젝트는 배포의 다른 주요 구성 요소에 대한 정보를 포함합니다. 가장 중요한 부분은 웹앱을 실행하려는 응용 프로그램 서버 컨테이너 및 실행할 Java 런타임입니다. Azure에서는 선택할 수 있는 여러 Java 런타임 및 Java 응용 프로그램을 지원합니다.
+Besides the information about your applications, an Azure deployment project also contains information about other key components of your deployment, most importantly: the application server container to run your web app in, and the Java runtime to run it on. Azure supports a large selection of Java runtimes and Java application servers you can choose from.
 
-여기에 사용된 예제가 교육을 위한 목적으로 간단하지만 Azure 배포 프로젝트는 응용 프로그램을 사용하여 복잡하고 확장성 있는 고가용성의 다중 계층 클라우드 서비스를 만들 수 있도록 다른 중요한 구성 정보를 포함할 수도 있습니다. **세션 선호도("고정 세션")**, **빠른 캐싱**, **원격 디버깅**, **SSL 오프 로딩**, **방화벽/포트 라우팅**, **원격 액세스** 및 다른 다양한 강력한 기능을 사용할 수 있습니다.
+Although the example used here is greatly simplified for educational purposes, an Azure deployment project can also contain other important configuration information that enables you to create almost arbitrarily complex, scalable, highly available, multi-tier cloud services with your applications. You can enable **session affinity ("sticky sessions")**, **fast caching**, **remote debugging**, **SSL offloading**, **firewall/port routing**, **remote access**, and a number of other powerful capabilities.
 
-이 자습서("Azure에 응용 프로그램 배포, 빠르고 간편한 방식")의 이전 섹션을 완료한 경우 자동으로 생성 ehls "**MyHelloWorld_onAzure**"라는 프로젝트 탐색기에서 새 Azure 배포 프로젝트를 이제 확인합니다
+If you've completed the previous section of this tutorial ("To deploy your application to Azure, the quick and simple way"), you will now see a new Azure deployment project in the Project Explorer generated for you automatically and named "**MyHelloWorld_onAzure**".
 
-또한 먼저 빈 Azure 배포 프로젝트를 직접 만들고 응용 프로그램을 추가하여 이 자습서를 시작했습니다. 긴 과정이지만 처음부터 초기 구성을 강하게 제어할 수 있습니다.
+You could have also started this tutorial by first creating a blank Azure deployment project yourself and then adding your application(s) to it. It is a longer process, but giving you more control over the initial configuration from the beginning.
 
-새 Azure 배포 프로젝트를 처음부터 새로 만들려면 **새 Azure 배포 프로젝트** 단추 ![][ic710876] 를 클릭합니다.
+To create a new Azure deployment project from scratch, click the **New Azure Deployment Project** button ![][ic710876].
 
-기존의 Azure 배포 프로젝트로 작업하거나 처음부터 새로 만드는지에 관계 없이 JDK 또는 응용 프로그램 서버와 같은 해당 구성 설정 및 구성 요소를 동일하게 언제든지 쉽게 변경할 수 있습니다.
+Regardless of whether you are working with an already existing Azure deployment project, or creating one from scratch, you are able to change its configuration settings and components, such as the JDK or the application server, equally easily at any time.
 
-기존 Azure 배포 프로젝트의 JDK, 응용 프로그램 서버 또는 응용 프로그램 목록을 변경하려면 :
+To change the JDK, or the application server, or the application list in an existing Azure deployment project:
 
-1. 프로젝트 탐색기에서 프로젝트 노드 확장(예: **MyHelloWorld\_onAzure**)
-2. 마우스 오른쪽 단추로 **WorkerRole1** 클릭
-3. 상황에 맞는 메뉴에서 **Azure** 하위 메뉴 확장
-4. **서버 구성** 클릭
+1. Expand the project node (e.g. **MyHelloWorld_onAzure**) in the Project Explorer
+2. Right-click **WorkerRole1**
+3. Expand the **Azure** submenu in the context menu
+4. Click **Server Configuration**
 
-위에 표시된 대로 기존 Azure 배포 프로젝트를 편집하거나 처음부터 새로 만들지에 관계 없이 서버 구성 단계를 시작하면 JDK, 서버 및 응용 프로그램 구성 요소를 구성할 수 있는 동일한 형식의 대화 상자가 표시됩니다. 해당 대화 상자에서 JDK인 응용 프로그램 서버를 변경하거나 배포에서는 응용 프로그램을 제거하는 등 설정을 변경하는 방법을 자세히 알아보려면 [서버 구성 속성][] 문서를 참조하세요.
+Regardless of whether you started these server configuration steps by editing an existing Azure deployment project as shown above, or creating a new one from scratch, you will see the same type of dialogs allowing you to configure your JDK, server and application components. To learn more how to change the settings in those dialogs, for example to change the JDK, the application server and add or remove applications in a deployment, see the [Server configuration properties][] article.
 
-## Windows에만 해당: 계산 에뮬레이터에 응용 프로그램을 배포하려면 ##
+## <a name="windows-only:-to-deploy-your-application-to-the-compute-emulator"></a>Windows only: To deploy your application to the compute emulator ##
 
->[AZURE.NOTE] Azure 에뮬레이터는 Windows에서만 사용할 수 있습니다. Windows 이외의 운영 체제를 사용하는 경우 이 섹션을 건너뜁니다.
+>[AZURE.NOTE] The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows.
 
-이전에 암시적으로 설명한 단계에 따라 Azure에 응용 프로그램을 게시하여 새 Azure 배포 프로젝트를 만든 경우 JDK 및 응용 프로그램 서버는 로컬 에뮬레이션이 아닌 클라우드에 대해 구성됩니다. 로컬 에뮬레이터에서 프로젝트를 테스트할 준비를 하려면 다음 단계를 따릅니다.
+If you have created a new Azure deployment project following the steps described earlier, i.e. implicitly, by publishing your application to Azure, the JDK and application servers have been configured for the cloud, but not for local emulation. To prepare your project for testing in the local emulator, follow these steps:
 
-1. Eclipse의 프로젝트 탐색기에서 **MyHelloWorld\_onAzure**를 클릭합니다.
-1. 마우스 오른쪽 단추로 **WorkerRole1**를 클릭합니다.
-1. 상황에 맞는 메뉴에서 **Azure** 하위 메뉴를 확장합니다.
-1. **서버 구성**을 클릭합니다.
-1. **JDK** 탭에서 도구 키트에 미리 구성된 기본 로컬 JDK가 있는지 확인합니다. 그렇지 않은 경우 또는 가정된 기본값을 변경하려는 경우 **로컬로 테스트를 위해 이 파일 경로에서 JDK 사용** 확인란이 선택되어 있고 사용하려는 JDK 설치 위치가 지정되어 있어야 합니다. 변경하려는 경우 찾아보기 제어를 사용하여 **찾아보기**를 클릭하고 사용할 JDK의 디렉터리 위치를 선택합니다.
-1. **서버** 탭을 클릭합니다.
-1. 대화 상자 맨 아래에 있는 **로컬 서버 경로** 텍스트 상자에서 **이 형식의 서버 배포** 확인란의 대화 상자 맨 아래에서 선택한 서버의 형식 및 주 버전 번호와 일치하는 로컬에 설치된 서버의 경로를 입력합니다. 응용 프로그램 서버의 다른 형식 또는 주 버전을 사용하려는 경우 먼저 해당 확인란에서 선택을 변경합니다.
-1. **확인**을 클릭합니다.
-1. Eclipse 도구 모음에서 **Azure 에뮬레이터에서 실행** 단추 ![][ic710879]를 클릭합니다. **Azure 에뮬레이터에서 실행** 단추가 활성화되지 않으면 **MyHelloWorld\_onAzure**가 Eclipse의 프로젝트 탐색기에서 선택되고 Eclipse 프로젝트 탐색기에 포커스가 현재 창으로 포커스되어 있도록 합니다. 그러면 먼저 프로젝트의 전체 빌드를 시작하고 계산 에뮬레이터에서 Java 웹 응용 프로그램을 시작합니다. (컴퓨터의 성능 특성에 따라 첫 번째 빌드는 몇 초에서 몇 분까지 걸릴 수 있지만 후속 빌드는 훨씬 빨라집니다.) 첫 번째 빌드 단계가 완료된 후에 Windows 사용자 계정 컨트롤(UAC)에서 메시지가 표시되어 이 명령이 컴퓨터를 변경할 수 있도록 합니다. **예**를 클릭합니다.
+1. In Eclipse's Project Explorer, click **MyHelloWorld_onAzure**.
+1. Right-click on **WorkerRole1**.
+1. Expand the **Azure** submenu in the context menu.
+1. Click **Server Configuration**.
+1. On the **JDK** tab, check if the toolkit has pre-configured a default local JDK for you. If not, or if you want to change the assumed defaults, ensure that the **Use the JDK from this file path for testing locally** checkbox is checked and the JDK installation location that you want to use is specified. If you want to change it, click the **Browse** button and using the browse control, select the directory location of the JDK to use.
+1. Click the **Server** tab.
+1. In the **Local server path** text box at the bottom of the dialog box, enter the path of a locally-installed server that matches the type and major version number of the server selected at the top of the dialog box, under the **Deploy a server of this type** checkbox. If you want to use a different type or major version of the application server, change the selection under that checkbox first.
+1. Click **OK**.
+1. In the Eclipse toolbar, click the **Run in Azure Emulator** button, ![][ic710879]. If the **Run in Azure Emulator** button is not enabled, ensure that **MyHelloWorld_onAzure** is selected in Eclipse's Project Explorer, and ensure that Eclipse's Project Explorer has focus as the current window. This will first start a full build of your project and then launch your Java web application in the compute emulator. (Note that depending on your computer's performance characteristics, the first build may take between a few seconds to a few minutes, but subsequent builds will get faster.) After the first build step has been completed, you will be prompted by Windows User Account Control (UAC) to allow this command to make changes to your computer. Click **Yes**.
 
->[AZURE.IMPORTANT] UAC 프롬프트가 표시되지 않으면 UAC 아이콘에 대한 Windows 작업 표시줄을 확인하고 먼저 클릭합니다. 때로는 UAC 프롬프트가 최상위 창으로 표시되지 않고 작업 표시줄 아이콘으로 표시됩니다.
+>[AZURE.IMPORTANT] If you do not see the UAC prompt, check the Windows taskbar for the UAC icon and click it first. Sometimes the UAC prompt does not show up as a topmost window, but is visible only as a taskbar icon.
 
-1. 계산 에뮬레이터 UI의 출력을 검사하여 프로젝트에 문제가 있는지 확인합니다. 배포 콘텐츠에 따라 응용 프로그램이 계산 에뮬레이터 내에서 완전히 시작되려면 일 분 정도 걸릴 수 있습니다.
-1. 브라우저를 시작하고 URL `http://localhost:8080/MyHelloWorld`을 주소로 사용합니다.(URL의 `MyHelloWorld` 부분은 대/소문자 구분함) MyHelloWorld 응용 프로그램(index.jsp의 출력)을 확인하면 다음 이미지와 비슷해야 합니다.
-    ![][ic589579]
+1. Examine the output of the compute emulator UI to determine if there are any issues with your project. Depending on the contents of your deployment, it may take a couple minutes for your application to be fully started within the compute emulator.
+1. Start your browser and use the URL `http://localhost:8080/MyHelloWorld` as the address (the `MyHelloWorld` portion of the URL is case-sensitive). You should see your MyHelloWorld application (the output of index.jsp), similar to the following image:  ![][ic589579]
 
-계산 에뮬레이터에서 실행되는 응용 프로그램을 중지할 준비가 되면 Eclipse 도구 모음에서 **Azure 에뮬레이터 다시 설정** 단추 ![][ic710880] 를 클릭합니다.
+When you are ready to stop your application from running in the compute emulator, in the Eclipse toolbar, click the **Reset Azure Emulator** button, ![][ic710880].
 
-## 배포를 삭제하려면 ##
+## <a name="to-delete-your-deployment"></a>To delete your deployment ##
 
-Eclipse용 Azure 도구 모음 내에서 배포를 삭제하려면 Eclipse의 프로젝트 탐색기에서 **MyHelloWorld_onAzure**을 선택하고 Eclipse 프로젝트 탐색기가 현재 창에 포커스를 맞춘 다음 **게시 취소** 단추 ![][ic710883]을 Eclipse 도구 모음에서 클릭해야 합니다. (Eclipse의 프로젝트 탐색기에서 마우스 오른쪽 단추로 **MyHelloWorld\_onAzure**를 클릭하고 **Azure**를 클릭한 다음 **Azure 클라우드에서 배포 취소**를 클릭하여 동일한 작업을 수행할 수 있습니다.) **Azure 프로젝트 게시 취소** 대화 상자가 표시됩니다.
+To delete your deployment within the Azure Toolkit for Eclipse, ensure that **MyHelloWorld_onAzure** is selected in Eclipse's Project Explorer, ensure the Eclipse Project Explorer has the current window focus, and then click the **Unpublish** button, ![][ic710883], in the Eclipse toolbar. (You could do the same operation by right-clicking **MyHelloWorld_onAzure** in Eclipse's Project Explorer, clicking **Azure** and then clicking **Undeploy from Azure Cloud**.) This will display the **Unpublish Azure Project** dialog.
 
 ![][ic719491]
 
-배포를 포함하는 구독 및 클라우드 서비스를 선택하고 삭제하려는 배포를 선택한 다음 **게시 취소**를 클릭합니다.
+Select the subscription and cloud service that contains your deployment, select the deployment that you want to delete, and then click **Unpublish**.
 
-(배포를 삭제하기 위해 도구 키트를 사용하는 대신 Azure 관리 포털의 **클라우드 서비스** 섹션을 사용할 수 있습니다. 배포로 이동하고 선택한 다음 **삭제** 단추를 클릭합니다. 배포를 중지한 다음 삭제합니다. 배포를 중지하지만 삭제하지 않으려는 경우 **삭제** 단추 대신 **중지** 를 클릭하지만 위에서 언급한 대로 배포를 삭제하지 않으면 중지된 경우에도 배포에 청구 가능한 요금이 계속 발생합니다.)
+(An alternative to using the toolkit to delete the deployment is to use the **Cloud Services** section of the Azure Management Portal: Navigate to your deployment, select it, and then click the **Delete** button. This will stop, and then delete, the deployment. If you only want to stop the deployment and not delete it, click the **Stop** button instead of the **Delete** button, but as mentioned above, if you do not delete the deployment, billable charges will continue to accrue for your deployment even if it is stopped).
 
-## 참고 항목 ##
+## <a name="see-also"></a>See Also ##
 
-[Eclipse용 Azure 도구 키트][]
+[Azure Toolkit for Eclipse][]
 
-[Eclipse용 Azure 도구 키트 설치][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Eclipse용 Azure 도구 키트의 새로운 기능][]
+[What's New in the Azure Toolkit for Eclipse][]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][]를 참조하세요.
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure 관리 포털]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Eclipse에서 Azure 배포에 원격 액세스 사용]: http://go.microsoft.com/fwlink/?LinkID=699538
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
-[서버 구성 속성]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[Eclipse용 Azure 도구 키트의 새로운 기능]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -195,4 +191,8 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

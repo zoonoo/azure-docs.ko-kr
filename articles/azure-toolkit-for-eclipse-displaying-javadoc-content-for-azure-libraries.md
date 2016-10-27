@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시"
-    description="Eclipse에서 Azure 라이브러리의 Javadoc 콘텐츠를 표시하는 방법입니다."
+    pageTitle="Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java"
+    description="How to display the Javadoc content for the Azure Libraries in Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,49 +16,55 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh698319.aspx -->
 
-# Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시 #
+# <a name="displaying-javadoc-content-in-eclipse-for-the-azure-libraries-package-for-java"></a>Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java #
 
-Javadoc 콘텐츠를 Java용 Azure 라이브러리 패키지에 연결하면 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠를 Eclipse 환경 내에서 볼 수 있습니다. 다음 단계는 Eclipse 내에서 이 기능을 사용하는 방법을 보여 줍니다.
+The Javadoc content for the Azure Libraries for Java can be viewed within your Eclipse environment by associating the Javadoc content to the Azure Libraries for Java. The following steps show you how to use this functionality within Eclipse.
 
-이 절차는 빌드 경로에 Java용 Azure 라이브러리를 이미 추가했다고 가정합니다.
+This procedure assumes you have already added the Azure Library for Java to your build path.
 
-## Eclipse에서 Java용 Azure 라이브러리의 Javadoc 콘텐츠를 표시하려면 ##
+## <a name="to-display-javadoc-content-in-eclipse-for-the-azure-libraries-for-java"></a>To display Javadoc content in Eclipse for the Azure Libraries for Java ##
 
-* Eclipse의 프로젝트 탐색기에 있는 프로젝트 **참조 라이브러리** 섹션에서 Java JAR용 Azure 라이브러리의 상황에 맞는 메뉴를 엽니다. 예를 들어 **microsoft windowsazure-api 0.1.0.jar**(버전 번호는 설치한 버전에 따라 다를 수 있음)입니다.
-* **속성**을 클릭합니다.
-* **속성** 대화 상자의 왼쪽 창에서 **Javadoc Location**(Javadoc 위치)을 클릭합니다. **Javadoc Location**(Javadoc 위치) 대화 상자가 표시됩니다.
-* **Javadoc URL** 또는 **Javadoc in archive**(보관 중인 Javadoc)를 지정할 수 있습니다.
-    * **Javadoc URL** 지정을 선택하는 경우 **http://dl.windowsazure.com/javadoc** 또는 **http://dl.windowsazure.com/storage/javadoc**과 같은 URL을 사용합니다.
-    * **Javadoc in archive**(보관 중인 Javadoc)를 사용하도록 선택하는 경우 외부 파일 또는 작업 영역 파일을 지정할 수 있습니다. 필요에 따라 선택하여 찾거나 유효성을 검사합니다. 다음 예제에서는 Java용 Azure 라이브러리를 **c:\\MyAzureJARs**라는 폴더에 로컬로 다운로드된 해당 Javadoc JAR와 연결합니다. ![][ic553487]
-* *옵션*: **유효성 검사**를 클릭합니다. Javadoc JAR의 잠재적 문제가 여기에 표시될 수 있습니다.
-* **확인**을 클릭합니다.
+* Within Eclipse's Project Explorer, in the **Referenced Libraries** section of your project, open the context menu for the Azure Library for Java JAR. For example, **microsoft-windowsazure-api-0.1.0.jar** (the version number may be different, dependent upon which version you have installed).
+* Click **Properties**.
+* Within the **Properties** dialog, in the left-hand pane, click **Javadoc Location**. The **Javadoc Location** dialog is displayed.
+* You can specify a **Javadoc URL**, or a **Javadoc in archive**.
+    * If you choose to specify a **Javadoc URL**, use the URLs such as **http://dl.windowsazure.com/javadoc** or **http://dl.windowsazure.com/storage/javadoc**.
+    * If you choose to use **Javadoc in archive**, you can specify an external file, or a workspace file.
+    Make your choice and browse/validate as needed. The following example associates the Azure Libraries for Java with the corresponding Javadoc JAR that has been downloaded locally to a folder named **c:\MyAzureJARs**.
+    ![][ic553487]
+* *Optional*: Click **Validate**. Potential issues with the Javadoc JAR could be displayed here.
+* Click **OK**.
 
-라이브러리에 연결되면 Javadoc 콘텐츠가 Eclipse IDE 내에 표시됩니다. 예를 들어 `blob`이 코드에서 `CloudBlockBlob` 형식으로 정의되는 경우 다음은 코드에서 `blob.acquireLease`를 입력했을 때 표시되는 Javadoc 콘텐츠의 예입니다.
+Once associated with the library, the Javadoc content should display within your Eclipse IDE. For example, if `blob` is defined of type `CloudBlockBlob` within your code, the following is an example of Javadoc content that appears when you type `blob.acquireLease` in code:
 
 ![][ic553488]
 
-## 참고 항목 ##
+## <a name="see-also"></a>See Also ##
 
-[Eclipse용 Azure 도구 키트][]
+[Azure Toolkit for Eclipse][]
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-[Eclipse용 Azure 도구 키트 설치][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][]를 참조하세요.
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic553487]: ./media/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/ic553487.png
 [ic553488]: ./media/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/ic553488.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

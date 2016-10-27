@@ -1,66 +1,67 @@
 <properties
-	pageTitle="앱 서비스 응용 프로그램에 대해 Twitter 인증을 구성하는 방법"
-	description="앱 서비스 응용 프로그램에 대해 Twitter 인증을 구성하는 방법을 알아봅니다."
-	services="app-service"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="erikre"
-	editor=""/>
+    pageTitle="How to configure Twitter authentication for your App Services application"
+    description="Learn how to configure Twitter authentication for your App Services application."
+    services="app-service"
+    documentationCenter=""
+    authors="mattchenderson"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="mahender"/>
 
-# Twitter 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
+
+# <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>How to configure your App Service application to use Twitter login
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 항목에서는 Twitter를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
+This topic shows you how to configure Azure App Service to use Twitter as an authentication provider.
 
-이 항목의 절차를 완료하려면 검증된 전자 메일 주소 및 전화 번호가 포함된 Twitter 계정이 있어야 합니다. 새 Twitter 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>으로 이동합니다.
+To complete the procedure in this topic, you must have a Twitter account that has a verified email address and phone number. To create a new Twitter account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
-## <a name="register"> </a>Twitter를 사용하여 응용 프로그램 등록
-
-
-1. [Azure 포털]에 로그인한 다음 응용 프로그램으로 이동합니다. **URL**을 복사합니다. Twitter 앱을 구성하는 데 사용합니다.
-
-2. [Twitter 개발자] 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 다음 **새 앱 만들기**를 클릭합니다.
-
-3. 새 앱에 대한 **이름** 및 **설명**을 입력합니다. **Website** 값으로 응용 프로그램의 **URL**을 붙여 넣습니다. 그런 다음에 **Callback URL**에 앞서 복사한 **콜백 URL**을 붙여넣습니다. 이는 _/.auth/login/twitter/callback_ 경로를 사용하여 추가된 모바일 앱 게이트웨이입니다. 예: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. HTTPS 체계를 사용 중인지 확인합니다.
-
-3.  페이지 맨 아래에서 사용 약관을 읽고 동의합니다. 그런 다음 **Twitter 응용 프로그램 만들기**을 클릭합니다. 앱이 등록되고 응용 프로그램 세부 정보가 표시됩니다.
-
-4. **Settings** 탭을 클릭하고 **Allow this application to be used to sign in with Twitter**를 선택한 다음 **Update Settings**를 클릭합니다.
-
-5. **키 및 액세스 토큰** 탭을 선택합니다. **API 키(소비자 키)** 및 **API 비밀(소비자 비밀)**의 값을 적어 둡니다.
-
-    > [AZURE.NOTE] 소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마세요.
+## <a name="<a-name="register">-</a>register-your-application-with-twitter"></a><a name="register"> </a>Register your application with Twitter
 
 
-## <a name="secrets"> </a>응용 프로그램에 Twitter 정보 추가
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Twitter app.
 
-13. [Azure 포털]로 돌아가서 응용 프로그램으로 이동합니다. **Settings**를 클릭한 다음 **Authentication / Authorization**을 클릭합니다.
+2. Navigate to the [Twitter Developers] website, sign in with your Twitter account credentials, and click **Create New App**.
 
-14. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **On**으로 전환합니다.
+3. Type in the **Name** and a **Description** for your new app. Paste in your application's **URL** for the **Website** value. Then, for the **Callback URL**, paste the **Callback URL** you copied earlier. This is your Mobile App gateway appended with the path, _/.auth/login/twitter/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure that you are using the HTTPS scheme.
 
-15. **Twitter**를 클릭합니다. 앞에서 얻은 App ID 및 App Secret 값을 붙여넣습니다. 그런 후 **OK**를 클릭합니다.
+3.  At the bottom the page, read and accept the terms. Then click **Create your Twitter application**. This registers the app displays the application details.
+
+4. Click the **Settings** tab, check **Allow this application to be used to sign in with Twitter**, then click **Update Settings**.
+
+5. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer Key (API Key)** and **Consumer secret (API Secret)**.
+
+    > [AZURE.NOTE] The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
+
+
+## <a name="<a-name="secrets">-</a>add-twitter-information-to-your-application"></a><a name="secrets"> </a>Add Twitter information to your application
+
+13. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+
+14. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
+
+15. Click **Twitter**. Paste in the App ID and App Secret values which you obtained previously. Then click **OK**.
 
     ![][1]
 
-	기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
-17. (선택 사항) Twitter에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **Twitter**에 **요청이 인증되지 않으면 수행할 동작**을 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Twitter에 리디렉션되어야 합니다.
+17. (Optional) To restrict access to your site to only users authenticated by Twitter, set **Action to take when request is not authenticated** to **Twitter**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Twitter for authentication.
 
-17. **Save**를 클릭합니다.
+17. Click **Save**.
 
-이제 앱에서 Twitter를 인증에 사용할 준비가 되었습니다.
+You are now ready to use Twitter for authentication in your app.
 
-## <a name="related-content"> </a>관련 콘텐츠
+## <a name="<a-name="related-content">-</a>related-content"></a><a name="related-content"> </a>Related Content
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
@@ -73,8 +74,12 @@
 
 <!-- URLs. -->
 
-[Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Azure 포털]: https://portal.azure.com/
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

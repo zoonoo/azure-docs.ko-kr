@@ -1,162 +1,167 @@
 <properties
-	pageTitle="Azure 포털에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Microsoft Azure"
-	description="Azure 포털에서 새 저장소 계정을 만들고 계정 액세스 키를 관리하거나 저장소 계정을 삭제합니다. 표준 및 프리미엄 저장소 계정에 대해 알아봅니다."
-	services="storage"
-	documentationCenter=""
-	authors="robinsh"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="How to create, manage, or delete a storage account in the Azure Portal | Microsoft Azure"
+    description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
+    services="storage"
+    documentationCenter=""
+    authors="robinsh"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/26/2016"
-	ms.author="micurd;robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="07/26/2016"
+    ms.author="micurd;robinsh"/>
 
 
-# Azure 저장소 계정 정보
+
+# <a name="about-azure-storage-accounts"></a>About Azure storage accounts
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## 개요
+## <a name="overview"></a>Overview
 
-Azure 저장소 계정은 Azure 저장소 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. 저장소 계정의 모든 개체는 그룹으로 합산 청구됩니다. 기본적으로 계정에 대한 데이터는 사용자 계정 소유자에만 사용할 수 있습니다.
+An Azure storage account provides a unique namespace to store and access your Azure Storage data objects. All objects in a storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
 
 [AZURE.INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
-## 저장소 계정 사용 비용
+## <a name="storage-account-billing"></a>Storage account billing
 
 [AZURE.INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
-> [AZURE.NOTE] Azure 가상 컴퓨터를 만드는 경우 배포 위치에 저장소 계정이 아직 없으면 해당 위치에서 자동으로 저장소 계정이 만들어집니다. 따라서 가상 컴퓨터 디스크에 대한 저장소 계정을 만들기 위해 아래 단계를 수행할 필요가 없습니다. 저장소 계정 이름은 가상 컴퓨터 이름을 기반으로 합니다. 자세한 내용은 [Azure 가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
+> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more details.
 
-## 저장소 계정 끝점
+## <a name="storage-account-endpoints"></a>Storage account endpoints
 
-Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있습니다. 저장소 계정 이름은 해당 주소의 하위 도메인을 구성합니다. 하위 도메인과 도메인 이름의 조합은 각 서비스와 관련되며 저장소 계정의 *끝점* 을 구성합니다.
+Every object that you store in Azure Storage has a unique URL address. The storage account name forms the subdomain of that address. The combination of subdomain and domain name, which is specific to each service, forms an *endpoint* for your storage account.
 
-예를 들어 저장소 계정의 이름이 *mystorageaccount* 일 경우 저장소 계정의 기본 끝점은 다음과 같습니다.
+For example, if your storage account is named *mystorageaccount*, then the default endpoints for your storage account are:
 
-- Blob 서비스: http://*mystorageaccount*.blob.core.windows.net
+- Blob service: http://*mystorageaccount*.blob.core.windows.net
 
-- 테이블 서비스: http://*mystorageaccount*.table.core.windows.net
+- Table service: http://*mystorageaccount*.table.core.windows.net
 
-- 큐 서비스: http://*mystorageaccount*.queue.core.windows.net
+- Queue service: http://*mystorageaccount*.queue.core.windows.net
 
-- 파일 서비스: http://*mystorageaccount*.file.core.windows.net
+- File service: http://*mystorageaccount*.file.core.windows.net
 
-> [AZURE.NOTE] Blob 저장소 계정은 Blob 서비스 끝점만 노출합니다.
+> [AZURE.NOTE] A Blob storage account only exposes the Blob service endpoint.
 
-저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
+The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 클래식 저장소 계정의 경우 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조하세요. Resource Manager 저장소 계정의 경우 이 기능은 [Azure 포털](https://portal.azure.com)에 아직 추가되지 않았지만 PowerShell을 사용하여 구성할 수 있습니다. 자세한 내용은 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet을 참조하세요.
+You can also configure a custom domain name to use with your storage account. For classic storage accounts, see [Configure a custom domain Name for your Blob Storage Endpoint](storage-custom-domain-name.md) for details. For Resource Manager storage accounts, this capability has not been added to the [Azure portal](https://portal.azure.com) yet, but you can configure it with PowerShell. For more information, see the [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet.  
 
-## 저장소 계정 만들기
+## <a name="create-a-storage-account"></a>Create a storage account
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. 허브 메뉴에서 **새로 만들기** -> **데이터 + 저장소** -> **저장소 계정**을 선택합니다.
+2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
 
-3. 저장소 계정의 이름을 입력합니다. 저장소 계정 이름을 Azure 저장소에서 개체를 처리하는 데 사용하는 방법에 대한 자세한 내용은 [저장소 계정 끝점](#storage-account-endpoints)을 참조하세요.
+3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
 
-	> [AZURE.NOTE] 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
-	>  
-	> 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 선택한 저장소 계정 이름이 이미 사용 중인 경우 Azure 포털에 표시됩니다.
+    > [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+    >  
+    > Your storage account name must be unique within Azure. The Azure portal will indicate if the storage account name you select is already in use.
 
-4. 사용할 배포 모델을 **Resource Manager** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
+4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
 
-	> [AZURE.NOTE] Blob 저장소 계정은 리소스 관리자 배포 모델을 사용해서만 만들 수 있습니다.
+    > [AZURE.NOTE] Blob storage accounts can only be created using the Resource Manager deployment model.
 
-5. 저장소 계정 유형을 **범용** 또는 **Blob 저장소**로 선택합니다. **범용**이 기본값입니다.
+5. Select the type of storage account: **General purpose** or **Blob storage**. **General purpose** is the default.
 
-	**범용** 을 선택한 경우 성능 계층을 **표준** 또는 **프리미엄** 으로 지정합니다. 기본값은 **표준** 입니다. 표준 및 프리미엄 저장소 계정에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](storage-introduction.md) 및 [프리미엄 저장소: Azure 가상 컴퓨터 워크로드에 대한 고성능 저장소](storage-premium-storage.md) 를 참조하세요.
+    If **General purpose** was selected, then specify the performance tier: **Standard** or **Premium**. The default is **Standard**. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
 
-	**Blob 저장소**를 선택한 경우 액세스 계층을 **핫** 또는 **쿨**로 지정합니다. 기본값은 **핫**입니다. 자세한 내용은 [Azure Blob 저장소: 쿨 및 핫 계층](storage-blob-storage-tiers.md)을 참조하세요.
+    If **Blob Storage** was selected, then specify the access tier: **Hot** or **Cool**. The default is **Hot**. See [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md) for more details.
 
-6. 저장소 계정에 대한 복제 옵션을 **LRS**, **GRS**, **RA-GRS** 또는 **ZRS**로 선택합니다. 기본값은 **RA-GRS**입니다. Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [Azure 저장소 복제](storage-redundancy.md)를 참조하세요.
+6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 
-7. 새 저장소 계정을 만들려는 구독을 선택합니다.
+7. Select the subscription in which you want to create the new storage account.
 
-8. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
+8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
-9. 저장소 계정에 대한 지리적 위치를 선택합니다. 각 지역에서 어떤 서비스가 가능한지에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
+9. Select the geographic location for your storage account. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
 
-10. **만들기**를 클릭하여 저장소 계정을 만들 수 있습니다.
+10. Click **Create** to create the storage account.
 
-## 저장소 계정 관리
+## <a name="manage-your-storage-account"></a>Manage your storage account
 
-### 계정 구성 변경
+### <a name="change-your-account-configuration"></a>Change your account configuration
 
-저장소 계정을 만든 후에는 Blob 저장소 계정에 대한 액세스 계층 변경 또는 계정에 사용되는 복제 옵션 변경 등, 해당 구성을 수정할 수 있습니다. [Azure 포털](https://portal.azure.com)에서 저장소 계정으로 이동하고 **모든 설정**을 클릭한 다음 **구성**을 클릭하여 계정 구성을 보기 및/또는 변경합니다.
+After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration.
 
-> [AZURE.NOTE] 저장소 계정을 만들 때 선택한 성능 계층에 따라 일부 복제 옵션을 사용하지 못할 수 있습니다.
+> [AZURE.NOTE] Depending on the performance tier you chose when creating the storage account, some replication options may not be available.
 
-복제 옵션을 변경하면 가격 책정이 변경됩니다. 자세한 내용은 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지를 참조하세요.
+Changing the replication option will change your pricing. For more details, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page.
 
-Blob 저장소 계정의 경우 가격 책정 변경 외에도 액세스 계층을 변경하면 그에 따른 요금이 발생할 수 있습니다. 자세한 내용은 [Blob 저장소 계정 - 가격 책정 및 청구](storage-blob-storage-tiers.md#pricing-and-billing)를 참조하세요.
+For Blob storage accounts, changing the access tier may incur charges for the change in addition to changing your pricing. Please see the [Blob storage accounts - Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) for more details.
 
-### 저장소 액세스 키 다시 관리
+### <a name="manage-your-storage-access-keys"></a>Manage your storage access keys
 
-저장소 계정을 만들면 Azure에서 두 개의 512비트 저장소 액세스 키를 생성합니다. 이 키는 저장소 계정에 액세스하는 경우 인증에 사용됩니다. Azure에서는 두 개의 저장소 액세스 키를 제공하므로 저장소 서비스나 해당 서비스에 대한 액세스 중단 없이 키를 다시 생성할 수 있습니다.
+When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
-> [AZURE.NOTE]저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명* 을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 자습서](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+> [AZURE.NOTE] We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information.
 
-#### 저장소 액세스 키 보기 및 복사
+#### <a name="view-and-copy-storage-access-keys"></a>View and copy storage access keys
 
-[Azure 포털](https://portal.azure.com)에서 저장소 계정으로 이동하고 **모든 설정**을 클릭한 다음 **선택키**를 클릭하여 계정 액세스 키를 보고, 복사하며 다시 생성합니다. 또한 **선택키** 블레이드는 응용 프로그램에서 사용하기 위해 복사할 수 있는 기본 및 보조 키를 사용하여 미리 구성된 연결 문자열을 포함합니다.
+In the [Azure portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Access keys** to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications.
 
-#### 저장소 액세스 키 다시 생성
+#### <a name="regenerate-storage-access-keys"></a>Regenerate storage access keys
 
-저장소 연결을 안전하게 유지하는 데 도움이 되도록 정기적으로 저장소 계정의 액세스 키를 변경하는 것이 좋습니다. 두 개의 액세스 키가 할당되므로 하나의 액세스 키를 다시 생성하는 동안 다른 액세스 키를 사용하여 저장소 계정에 대한 연결을 유지할 수 있습니다.
+We recommend that you change the access keys to your storage account periodically to help keep your storage connections secure. Two access keys are assigned so that you can maintain connections to the storage account by using one access key while you regenerate the other access key.
 
-> [AZURE.WARNING] 액세스 키를 다시 생성하면 저장소 계정에 종속된 모든 자체 응용 프로그램과 Azure의 서비스에 영향을 미칩니다. 액세스 키를 사용하여 저장소 계정에 액세스하는 모든 클라이언트에서 새 키를 사용하도록 업데이트해야 합니다.
+> [AZURE.WARNING] Regenerating your access keys can affect services in Azure as well as your own applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
 
-**미디어 서비스** - 저장소 계정에 종속된 미디어 서비스가 있는 경우 키를 다시 생성한 후 미디어 서비스와 액세스 키를 다시 동기화해야 합니다.
+**Media services** - If you have media services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
 
-**응용 프로그램** - 저장소 계정을 사용하는 웹 응용 프로그램이나 클라우드 서비스가 있는 경우 키를 롤링하지 않고 키를 다시 생성하면 연결이 끊어집니다.
+**Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys.
 
-**저장소 탐색기** - [저장소 탐색기 응용 프로그램](storage-explorers.md)을 사용할 경우 해당 응용 프로그램에서 사용하는 저장소 키를 업데이트해야 할 수 있습니다.
+**Storage Explorers** - If you are using any [storage explorer applications](storage-explorers.md), you will probably need to update the storage key used by those applications.
 
-저장소 액세스 키를 회전하기 위한 프로세스는 다음과 같습니다.
+Here is the process for rotating your storage access keys:
 
-1. 저장소 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 연결 문자열을 업데이트합니다.
+1. Update the connection strings in your application code to reference the secondary access key of the storage account.
 
-2. 저장소 계정의 기본 액세스 키를 다시 생성합니다. **선택키** 블레이드에서 **키1 다시 생성**을 클릭하고 **예**를 클릭하여 새 키를 생성하려는 것을 확인합니다.
+2. Regenerate the primary access key for your storage account. On the **Access Keys** blade, click **Regenerate Key1**, and then click **Yes** to confirm that you want to generate a new key.
 
-3. 새 기본 액세스 키를 참조하도록 코드의 연결 문자열을 업데이트합니다.
+3. Update the connection strings in your code to reference the new primary access key.
 
-4. 같은 방식으로 보조 액세스 키를 다시 생성합니다.
+4. Regenerate the secondary access key in the same manner.
 
-## 저장소 계정 삭제
+## <a name="delete-a-storage-account"></a>Delete a storage account
 
-더 이상 사용하지 않는 저장소 계정을 제거하려면 [Azure 포털](https://portal.azure.com)의 저장소 계정으로 이동하여 **삭제**를 클릭합니다. 저장소 계정 삭제는 계정의 모든 데이터를 포함한 전체 계정을 삭제합니다.
+To remove a storage account that you are no longer using, navigate to the storage account in the [Azure portal](https://portal.azure.com), and click **Delete**. Deleting a storage account deletes the entire account, including all data in the account.
 
-> [AZURE.WARNING] 삭제된 저장소 계정을 복원할 수 없거나 삭제 전에 포함된 콘텐츠를 검색할 수 없습니다. 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다. 또한 해당 계정의 리소스에 대해 true를 유지합니다. Blob, 테이블, 큐 또는 파일을 삭제하면 영구적으로 삭제됩니다.
+> [AZURE.WARNING] It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
 
-Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 가상 컴퓨터 디스크가 삭제되었는지 확인해야 합니다. 가상 컴퓨터 디스크를 먼저 삭제하지 않은 경우 저장소 계정을 삭제하려고 할 때 다음과 유사한 오류 메시지가 나타납니다.
+To delete a storage account that is associated with an Azure virtual machine, you must first ensure that any virtual machine disks have been deleted. If you do not first delete your virtual machine disks, then when you attempt to delete your storage account, you will see an error message similar to:
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-저장소 계정이 클래식 배포 모델을 사용하는 경우 [Azure 포털](https://manage.windowsazure.com)에서 이러한 단계를 수행하여 가상 컴퓨터 디스크를 제거할 수 있습니다.
+If the storage account uses the Classic deployment model, you can remove the virtual machine disk by following these steps in the [Azure portal](https://manage.windowsazure.com):
 
-1. [클래식 Azure 포털](https://manage.windowsazure.com)로 이동합니다.
-2. 가상 컴퓨터 탭으로 이동합니다.
-3. 디스크 탭을 클릭합니다.
-4. 데이터 디스크를 선택한 다음 디스크 삭제를 클릭합니다.
-5. 디스크 이미지를 삭제하려면 이미지 탭으로 이동하여 계정에 저장된 모든 이미지를 삭제합니다.
+1. Navigate to the [classic Azure portal](https://manage.windowsazure.com).
+2. Navigate to the Virtual Machines tab.
+3. Click the Disks tab.
+4. Select your data disk, then click Delete Disk.
+5. To delete disk images, navigate to the Images tab and delete any images that are stored in the account.
 
-자세한 내용은 [Azure 가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
+For more information, see the [Azure Virtual Machine documentation](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [Azure Blob 저장소: 쿨 및 핫 계층](storage-blob-storage-tiers.md)
-- [Azure 저장소 복제](storage-redundancy.md)
-- [Azure 저장소 연결 문자열 구성](storage-configure-connection-string.md)
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
-- [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
+- [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md)
+- [Azure Storage replication](storage-redundancy.md)
+- [Configure Azure Storage Connection Strings](storage-configure-connection-string.md)
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

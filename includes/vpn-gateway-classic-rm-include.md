@@ -1,3 +1,6 @@
-Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모델에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 작업하려는 모델의 위치를 파악해야 합니다. 두 모델에 대해 모든 네트워킹 기능이 지원되는 것은 아닙니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../articles/resource-manager-deployment-model.md)를 참조하세요.
+It's important to know that Azure currently works with two deployment models: Resource Manager and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. You'll need to know which model that you want to work in. Not all networking features are supported yet for both models. For information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../articles/resource-manager-deployment-model.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

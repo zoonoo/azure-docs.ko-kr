@@ -1,176 +1,180 @@
 <properties
-	pageTitle="Azure PowerShell에서 SQL Server 가상 컴퓨터 만들기(클래식) | Microsoft Azure"
-	description="SQL Server 가상 컴퓨터 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 스크립트를 제공합니다. 이 항목에서는 클래식 배포 모드를 사용합니다."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management" />
+    pageTitle="Create a SQL Server Virtual Machine in Azure PowerShell (Classic) | Microsoft Azure"
+    description="Provides steps and PowerShell scripts for creating an Azure VM with SQL Server virtual machine gallery images. This topic uses the classic deployment mode."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management" />
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="07/15/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="07/15/2016"
+    ms.author="jroth" />
 
-# Azure PowerShell을 사용하여 SQL Server 가상 컴퓨터 프로비전(클래식)
 
-## 개요
+# <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-(classic)"></a>Provision a SQL Server virtual machine using Azure PowerShell (Classic)
 
-이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만드는 방법에 대한 단계를 제공합니다.
+## <a name="overview"></a>Overview
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]  
-이 항목의 리소스 관리자 버전에 대해서는 [Azure PowerShell 리소스 관리자를 사용하여 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
+This article provides steps for how to create a SQL Server virtual machine in Azure by using the PowerShell cmdlets.
 
-## PowerShell 설치 및 구성
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For the Resource Manager version of this topic, see [Provision a SQL Server virtual machine using Azure PowerShell Resource Manager](virtual-machines-windows-ps-sql-create.md).
 
-1. Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
+## <a name="install-and-configure-powershell"></a>Install and configure PowerShell
 
-2. [최신 Azure PowerShell cmdlet 설치](../powershell-install-configure.md)
+1. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-3. 설치한 후 Windows PowerShell을 시작합니다.
+2. [Install the latest Azure PowerShell cmdlets](../powershell-install-configure.md).
 
-4. 그런 다음 Add-AzureAccount 명령을 사용하여 Azure 구독으로 PowerShell에 연결합니다.
+3. After installing, launch Windows PowerShell.
 
-		Add-AzureAccount
+4. Then connect PowerShell with your Azure subscription with the Add-AzureAccount command.
 
-## 대상 Azure 지역 확인
+        Add-AzureAccount
 
-SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비스에서 호스트합니다. 다음 단계에서 지역, 저장소 계정 및 클라우드 서비스를 확인할 수 있으며, 이는 자습서의 나머지 부분에 사용됩니다.
+## <a name="determine-your-target-azure-region"></a>Determine your target Azure region
 
-1. SQL Server VM을 호스트하기 위해 사용하려는 데이터 센터를 확인합니다. 다음 PowerShell 명령은 사용할 수 있는 지역을 자세히 표시하고 끝 부분에 요약 목록을 표시합니다.
+Your SQL Server Virtual Machine will be hosted in a cloud service that resides a specific Azure region. The following steps help you to determine your region, storage account, and cloud service that will be used for the rest of the tutorial.
 
-		Get-AzureLocation
-		(Get-AzureLocation).Name
+1. Determine the data center that you want to use to host your SQL Server VM. The following PowerShell commands will display the available regions in detail with a summary list at the end.
 
-2.  원하는 위치를 식별했으면 **$dcLocation**이라는 변수를 해당 지역으로 설정합니다.
+        Get-AzureLocation
+        (Get-AzureLocation).Name
 
-		$dcLocation = "<region name>"
+2.  Once you've identified your preferred location, set a variable named **$dcLocation** to that region.
 
-## 구독 및 저장소 계정 설정
+        $dcLocation = "<region name>"
 
-1. 새 가상 컴퓨터에 대해 사용할 Azure 구독을 확인합니다.
+## <a name="set-your-subscription-and-storage-account"></a>Set your subscription and storage account
 
-		(Get-AzureSubscription).SubscriptionName
+1. Determine the Azure subscription you will use for the new virtual machine.
 
-1. 대상 Azure 구독을 **$subscr** 변수에 할당합니다. 그런 다음 이를 현재 Azure 구독으로 설정합니다.
+        (Get-AzureSubscription).SubscriptionName
 
-		$subscr="<subscription name>"
-		Select-AzureSubscription -SubscriptionName $subscr –Current
+1. Assign your target Azure subscription to the **$subscr** variable. Then set this as your current Azure subscription.
 
-1. 기존 저장소 계정을 확인합니다. 다음 스크립트는 선택한 지역에 있는 모든 저장소 계정을 표시합니다.
+        $subscr="<subscription name>"
+        Select-AzureSubscription -SubscriptionName $subscr –Current
 
-		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
+1. Then check for existing storage accounts. The following script displays all storage accounts that exist in your chosen region:
 
-	>[AZURE.NOTE] 새 저장소 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 저장소 계정 이름(모두 소문자)을 만듭니다(예: **New-AzureStorageAccount -StorageAccountName "<저장소 계정 이름>" -Location $dcLocation**).
+        (Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-1. 대상 저장소 계정 이름을 **$staccount**에 할당합니다. **Set-AzureSubscription**을 사용하여 구독 및 현재 저장소 계정을 설정합니다.
+    >[AZURE.NOTE] If you require a new storage account, first create an all-lower-case storage account name with the New-AzureStorageAccount command as in the following example: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
 
-		$staccount="<storage account name>"
-		Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
+1. Assign the target storage account name to the **$staccount**. Then use **Set-AzureSubscription** to set the subscription and current storage account.
 
-## SQL Server 가상 컴퓨터 이미지를 선택합니다.
+        $staccount="<storage account name>"
+        Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-1. 갤러리에서 사용 가능한 SQL Server 가상 컴퓨터 이미지의 목록을 찾습니다. 이러한 모든 이미지에는 "SQL"로 시작하는 **ImageFamily** 속성이 있습니다. 다음 쿼리는 SQL Server를 미리 설치했을 때 사용 가능한 이미지 패밀리를 표시합니다.
+## <a name="select-a-sql-server-virtual-machine-image"></a>Select a SQL Server virtual machine image
 
-		Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
+1. Find out the list of available SQL Server virtual machines images from the gallery. These images all have an **ImageFamily** property that starts with "SQL". The following query displays the image family available to you that have SQL Server preinstalled.
 
-1. 가상 컴퓨터 이미지 패밀리를 찾으면 해당 패밀리에 여러 개의 게시된 이미지가 있을 수 있습니다. 다음 스크립트를 사용하여 선택한 이미지 패밀리에 대해 게시된 최신 가상 컴퓨터 이미지 이름을 찾습니다(예: **Windows Server 2012 R2의 SQL Server 2014 SP1 Enterprise**).
+        Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
-		$family="<ImageFamily value>"
-		$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+1. When you find the  virtual machine image family, there could be multiple published images in this family. Use the following script to find the latest published virtual machine image name for your selected image family (such as **SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2**):
 
-		echo "Selected SQL Server image name:"
-		echo "   $image"
+        $family="<ImageFamily value>"
+        $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-## 가상 컴퓨터 만들기
+        echo "Selected SQL Server image name:"
+        echo "   $image"
 
-마지막으로, PowerShell을 사용하여 가상 컴퓨터를 만듭니다.
+## <a name="create-the-virtual-machine"></a>Create the virtual machine
 
-1. 새 VM을 호스트할 클라우드 서비스를 만듭니다. 기존 클라우드 서비스를 대신 사용할 수도 있습니다. 클라우드 서비스의 짧은 이름을 사용하여 새 변수 **$svcname**을 만듭니다.
+Finally, create the virtual machine with PowerShell:
 
-		$svcname = "<cloud service name>"
-		New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
+1. Create a cloud service to host the new VM. Note that it is also possible to use an existing cloud service instead. Create a new variable **$svcname** with the short name of the cloud service.
 
-2. 가상 컴퓨터 이름 및 크기를 지정합니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [Azure에 대한 가상 컴퓨터 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+        $svcname = "<cloud service name>"
+        New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
 
-		$vmname="<machine name>"
-		$vmsize="<Specify a valid machine size>" # see the link to virtual machine sizes
-		$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
+2. Specify the virtual machine name and a size. For more information about virtual machine sizes, see [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md).
 
-3. 로컬 관리자 계정 및 암호 지정
+        $vmname="<machine name>"
+        $vmsize="<Specify a valid machine size>" # see the link to virtual machine sizes
+        $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-		$cred=Get-Credential -Message "Type the name and password of the local administrator account."
-		$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+3. Specify the local administrator account and password.
 
-4. 다음 스크립트를 실행하여 가상 컴퓨터를 만듭니다.
+        $cred=Get-Credential -Message "Type the name and password of the local administrator account."
+        $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
-		New-AzureVM –ServiceName $svcname -VMs $vm1
+4. Run the following script to create the virtual machine.
 
->[AZURE.NOTE] 추가 설명과 구성 옵션은 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-windows-classic-create-powershell.md)의 **명령 집합 빌드** 섹션을 참조하세요.
+        New-AzureVM –ServiceName $svcname -VMs $vm1
 
-## PowerShell 스크립트 예
+>[AZURE.NOTE] For additional explanation and configuration options, see the **Build your command set** section in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-windows-classic-create-powershell.md).
 
-다음 스크립트는 **Windows Server 2012 R2의 SQL Server 2014 SP1 Enterprise** 가상 컴퓨터를 만드는 전체 스크립트의 예를 제공합니다. 이 스크립트를 사용하는 경우 이 항목의 이전 단계를 기반으로 하여 초기 변수를 사용자 지정해야 합니다.
+## <a name="example-powershell-script"></a>Example PowerShell script
 
-	# Customize these variables based on your settings and requirements:
-	$dcLocation = "East US"
-	$subscr="mysubscription"
-	$staccount="mystorageaccount"
-	$family="SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2"
-	$svcname = "mycloudservice"
-	$vmname="myvirtualmachine"
-	$vmsize="A5"
+The following script provides and example of a complete script that creates a **SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2** virtual machine. If you use this script, you must customize the initial variables based on the previous steps in this topic.
 
-	# Set the current subscription and storage account
-	# Comment out the New-AzureStorageAccount line if the account already exists
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-	New-AzureStorageAccount -StorageAccountName $staccount -Location $dcLocation
-	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
+    # Customize these variables based on your settings and requirements:
+    $dcLocation = "East US"
+    $subscr="mysubscription"
+    $staccount="mystorageaccount"
+    $family="SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2"
+    $svcname = "mycloudservice"
+    $vmname="myvirtualmachine"
+    $vmsize="A5"
 
-	# Select the most recent VM image in this image family:
-	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+    # Set the current subscription and storage account
+    # Comment out the New-AzureStorageAccount line if the account already exists
+    Select-AzureSubscription -SubscriptionName $subscr –Current
+    New-AzureStorageAccount -StorageAccountName $staccount -Location $dcLocation
+    Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-	# Create the new cloud service; comment out this line if cloud service exists already:
-	New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
+    # Select the most recent VM image in this image family:
+    $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-	# Create the VM config:
-	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
+    # Create the new cloud service; comment out this line if cloud service exists already:
+    New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
 
-	# Set administrator credentials:
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+    # Create the VM config:
+    $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	# Create the SQL Server VM:
-	New-AzureVM –ServiceName $svcname -VMs $vm1
+    # Set administrator credentials:
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account."
+    $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
+    # Create the SQL Server VM:
+    New-AzureVM –ServiceName $svcname -VMs $vm1
 
-## 원격 데스크톱을 사용하여 연결
 
-1. 현재 사용자의 문서 폴더에 .RDP 파일을 만들고 이러한 가상 컴퓨터를 시작하여 설정을 완료합니다.
+## <a name="connect-with-remote-desktop"></a>Connect with remote desktop
 
-		$documentspath = [environment]::getfolderpath("mydocuments")
-		Get-AzureRemoteDesktopFile -ServiceName $svcname -Name $vmname -LocalPath "$documentspath\vm1.rdp"
+1. Create the .RDP files in the current user's document folder to launch these virtual machines to complete setup:
 
-1. 문서 디렉터리에서 RDP 파일을 시작합니다. 앞에서 입력한 관리자의 사용자 이름 및 암호에 연결합니다(예: 사용자 이름이 VMAdmin이면 사용자로 "\\VMAdmin"을 지정하고 암호 입력).
+        $documentspath = [environment]::getfolderpath("mydocuments")
+        Get-AzureRemoteDesktopFile -ServiceName $svcname -Name $vmname -LocalPath "$documentspath\vm1.rdp"
 
-		.\vm1.rdp
+1. In the documents directory, launch the RDP file. Connect with the administrator user name and password provided earlier (for example, if your user name was VMAdmin, specify "\VMAdmin" as the user and provide the password).
 
-## 원격 액세스를 위한 SQL Server 컴퓨터 구성 완료
+        .\vm1.rdp
 
-원격 데스크톱을 사용하여 컴퓨터에 로그온한 후 [Azure VM에서 SQL Server 연결을 구성하기 위한 단계](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)의 지침에 따라 SQL Server를 구성합니다.
+## <a name="complete-the-configuration-of-the-sql-server-machine-for-remote-access"></a>Complete the configuration of the SQL Server Machine for remote access
 
-## 다음 단계
+After logging onto the machine with remote desktop, configure SQL Server based on the instructions in [Steps for configuring SQL Server connectivity in an Azure VM](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[가상 컴퓨터 설명서](virtual-machines-windows-classic-create-powershell.md)에서 PowerShell을 사용하여 가상 컴퓨터를 프로비전하는 추가 지침을 찾을 수 있습니다. SQL Server 및 프리미엄 저장소에 관련된 추가 스크립트는 [가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용](virtual-machines-windows-classic-sql-server-premium-storage.md)을 참조하세요.
+## <a name="next-steps"></a>Next steps
 
-대부분의 경우 다음 단계는 이 새로운 SQL Server VM에 데이터베이스를 마이그레이션하는 것입니다. 데이터베이스 마이그레이션 지침은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)을 참조하세요.
+You can find additional instructions for provisioning virtual machines with PowerShell in the [virtual machines documentation](virtual-machines-windows-classic-create-powershell.md). For additional scripts related to SQL Server and Premium Storage, see [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-또한 Azure 포털을 사용하여 SQL 가상 컴퓨터를 만드는 방법을 알아보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. 자습서는 포털을 통해 이 PowerShell 항목에서 사용되는 클래식 모델이 아닌 권장되는 리소스 관리자 모델을 사용하여 VM을 만드는 과정을 안내합니다.
+In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
 
-이러한 리소스 외에도 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 기타 항목](virtual-machines-windows-sql-server-iaas-overview.md)을 확인하는 것이 좋습니다.
+If you're also interested in using the Azure portal to create SQL Virtual Machines, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md). Note that the tutorial that walks you through the portal creates VMs using the recommended Resource Manager model, rather than the classic model used in this PowerShell topic.
 
-<!----HONumber=AcomDC_0720_2016--->
+In addition to these resources, we recommend that you review [other topics related to running SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

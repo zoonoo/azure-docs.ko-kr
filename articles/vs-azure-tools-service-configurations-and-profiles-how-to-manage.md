@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 구성 및 프로필을 관리하는 방법 | Microsoft Azure"
-   description="서비스 구성 및 프로필 구성 파일로 작업하는 방법에 대해 배우기|배포 환경에 대한 설정을 저장하고 클라우드 서비스에 대한 설정을 게시합니다."
+   pageTitle="How to manage service configurations and profiles | Microsoft Azure"
+   description="Learn how to work with service configurations and profiles configuration files| which store settings for the deployment environments and publish settings for cloud services."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,120 +15,125 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# 서비스 구성 및 프로필을 관리하는 방법
 
-## 개요
+# <a name="how-to-manage-service-configurations-and-profiles"></a>How to manage service configurations and profiles
 
-클라우드 서비스를 게시하면 Visual Studio는 두 종류의 구성 파일, 서비스 구성 및 프로필에 구성 정보를 저장합니다. 서비스 구성(.cscfg 파일)은 Azure 클라우드 서비스용 배포 환경에 대한 설정을 저장합니다. Azure는 클라우드 서비스를 관리하는 경우 이 구성 파일을 사용합니다. 반면에 프로필(.azurePubxml 파일)은 클라우드 서비스에 대한 설정을 저장합니다. 이 설정은 게시 마법사를 사용하고 Visual Studio에서 로컬로 사용되는 경우 선택한 항목의 레코드입니다. 이 항목에서는 구성 파일의 두 형식으로 작업하는 방법을 설명합니다.
+## <a name="overview"></a>Overview
 
-## 서비스 구성
+When you publish a cloud service, Visual Studio stores configuration information in two kinds of configuration files: service configurations and profiles. Service configurations (.cscfg files) store settings for the deployment environments for an Azure cloud service. Azure uses these configuration files when it manages your cloud services. On the other hand, profiles (.azurePubxml files) store publish settings for cloud services. These settings are a record of what you choose when you use the publish wizard, and are used locally by Visual Studio. This topic explains how to work with both types of configuration files.
 
-각 배포 환경에 대해 사용하도록 여러 서비스 구성을 만들 수 있습니다. 예를 들어, Azure 응용 프로그램 및 프로덕션 환경에 대한 다른 서비스 구성을 실행하고 테스트하는 로컬 환경용 서비스 구성을 만들 수 있습니다.
+## <a name="service-configurations"></a>Service Configurations
 
-요구 사항에 따라 이 서비스 구성을 추가, 삭제, 이름 변경 및 수정할 수 있습니다. 다음 그림에 표시된 것 처럼 Visual Studio에서 이 서비스 구성을 관리할 수 있습니다.
+You can create multiple service configurations to use for each of your deployment environments. For example, you might create a service configuration for the local environment that you use to run and test an Azure application and another service configuration for your production environment.
 
-![서비스 구성 관리](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-service-config.png)
+You can add, delete, rename, and modify these service configurations based on your requirements. You can manage these service configurations from Visual Studio, as shown in the following illustration.
 
-역할의 속성 페이지에서 **구성 관리** 대화 상자를 열 수도 있습니다. Azure 프로젝트에서 역할에 대한 속성을 열려면, 해당 역할에 대한 바로 가기 메뉴를 연 다음 **속성**을 선택합니다. **설정** 탭에서 **서비스 구성** 목록을 확장한 다음 **관리**를 선택하여 **구성 관리** 대화 상자를 엽니다.
+![Manage Service Configurations](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-service-config.png)
 
-### 서비스 구성을 추가하려면
+You can also open the **Manage Configurations** dialog box from the role’s property pages. To open the properties for a role in your Azure project, open the shortcut menu for that role, and then choose **Properties**. On the **Settings** tab, expand the **Service Configuration** list, and then select **Manage** to open the **Manage Configurations** dialog box.
 
-1. 솔루션 탐색기에서 Azure 프로젝트에 대한 바로 가기 메뉴를 열고 **구성 관리**를 선택합니다.
+### <a name="to-add-a-service-configuration"></a>To add a service configuration
 
-    **서비스 구성 관리** 대화 상자가 나타납니다.
+1. In Solution Explorer open the shortcut menu for the Azure project and then select **Manage Configurations**.
 
-1. 서비스 구성을 추가하려면, 기존 구성의 복사본을 만들어야 합니다. 이렇게 하려면 이름 목록에서 복사할 구성을 선택한 다음 **복사본 만들기**를 선택합니다.
+    The **Manage Service Configurations** dialog box appears.
 
-1. (선택 사항)서비스 구성에 다른 이름을 지정하려면 이름 목록에서 새 서비스 구성을 선택한 다음 **이름 바꾸기**를 선택합니다. **이름** 텍스트 상자에 이 서비스 구성에 사용할 이름을 입력한 다음 **확인**을 선택합니다.
+1. To add a service configuration, you must create a copy of an existing configuration. To do this, choose the configuration that you want to copy from the Name list and then select **Create copy**.
 
-    솔루션 탐색기에서 ServiceConfiguration.[새 이름].cscfg라는 새 서비스 구성 파일이 Azure 프로젝트에 추가됩니다.
+1. (Optional) To give the service configuration a different name, choose the new service configuration from the Name list and then select **Rename**. In the **Name** text box, type the name that you want to use for this service configuration and then select **OK**.
 
-
-### 서비스 구성을 삭제하려면
-
-1. 솔루션 탐색기에서 Azure 프로젝트에 대한 바로 가기 메뉴를 열고 **구성 관리**를 선택합니다.
-
-    **서비스 구성 관리** 대화 상자가 나타납니다.
-
-1. 서비스 구성을 삭제하려면 **이름** 목록에서 삭제할 구성을 선택한 다음 **제거**를 선택합니다. 이 구성을 삭제할 것인지를 확인하는 대화 상자가 나타납니다.
-
-1. **삭제**를 선택합니다.
-
-     솔루션 탐색기에서 서비스 구성 파일은 Azure 프로젝트에서 제거됩니다.
+    A new service configuration file that is named ServiceConfiguration.[New Name].cscfg is added to the Azure project in Solution Explorer.
 
 
-### 서비스 구성의 이름을 변경하려면
+### <a name="to-delete-a-service-configuration"></a>To delete a service configuration
 
-1. 솔루션 탐색기에서 Azure 프로젝트에 대한 바로 가기 메뉴를 열고 **구성 관리**를 선택합니다.
+1. In Solution Explorer, open the shortcut menu for the Azure project and then select **Manage Configurations**.
 
-    **서비스 구성 관리** 대화 상자가 나타납니다.
+    The **Manage Service Configurations** dialog box appears.
 
-1. 서비스 구성의 이름을 변경하려면 **이름** 목록에서 새 서비스 구성을 선택한 다음 **이름 바꾸기**를 선택합니다. **이름** 텍스트 상자에 이 서비스 구성에 사용할 이름을 입력한 다음 **확인**을 선택합니다.
+1. To delete a service configuration, choose the configuration that you want to delete from the **Name** list and then select **Remove**. A dialog box appears to verify that you want to delete this configuration.
 
-    솔루션 탐색기의 Azure 프로젝트에서 서비스 구성 파일의 이름이 변경됩니다.
+1. Select **Delete**.
 
-### 서비스 구성을 변경하려면
+     The service configuration file is removed from the Azure project in Solution Explorer.
 
-- 서비스 구성을 변경하려는 경우, Azure 프로젝트에서 변경하려는 특정 역할에 대 한 바로 가기 메뉴를 연 다음 **속성**을 선택합니다. 자세한 내용은 [방법: Visual Studio와 함께 Azure 클라우드 서비스에 대한 역할 구성](https://msdn.microsoft.com/library/azure/hh369931.aspx)을 참조하세요.
 
-## 프로필을 사용하여 여러 다른 설정 조합 만들기
+### <a name="to-rename-a-service-configuration"></a>To rename a service configuration
 
-프로필을 사용하여 다양한 용도에 맞는 다른 설정 조합으로 **게시 마법사**를 자동으로 채울 수 있습니다. 예를 들어, 디버깅용으로 하나의 프로필이 있고 릴리스 빌드용으로 다른 프로필이 있을 수 있습니다. 이 경우 **디버그** 프로필은 **IntelliTrace**를 사용하며 **디버그** 구성이 선택되며, **릴리스** 프로필은 **IntelliTrace**를 사용하지 않도록 설정하고 **릴리스** 구성이 선택됩니다. 또한 다른 프로필로 다른 저장소 계정을 사용하여 서비스를 배포할 수도 있습니다.
+1. In Solution Explorer, open the shortcut menu for the Azure project, and then select **Manage Configurations**.
 
-처음으로 마법사를 실행하는 경우 기본 프로필이 만들어집니다. Visual Studio는 .azurePubXml 확장명이 있는 파일로 프로필을 저장하며, **프로필** 폴더의 Azure 프로젝트에 추가됩니다. 나중에 마법사를 실행할 때 수동으로 다른 프로필을 지정하면 파일이 자동으로 업데이트됩니다. 다음 절차를 실행하기 전에 한 번 이상 이미 클라우드 서비스를 게시했어야 합니다.
+    The **Manage Service Configurations** dialog box appears.
 
-### 프로필을 추가하려면
+1. To rename a service configuration, choose the new service configuration from the **Name** list, and then select **Rename**. In the **Name** text box, type the name that you want to use for this service configuration, and then select **OK**.
 
-1. Azure 프로젝트의 바로 가기 메뉴를 열고 **게시**를 클릭합니다.
+    The name of the service configuration file is changed in the Azure project in Solution Explorer.
 
-1. 다음 그림과 같이 **대상 프로필** 목록 옆 **프로필 저장** 단추를 선택합니다. 이렇게 하면 프로필이 만들어 집니다.
+### <a name="to-change-a-service-configuration"></a>To change a service configuration
 
-    ![새 프로필 만들기](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/create-new-profile.png)
+- If you want to change a service configuration, open the shortcut menu for the specific role you want to change in the Azure project, and then select **Properties**. See [How to: Configure the Roles for an Azure Cloud Service with Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx) for more information.
 
-1. 프로필을 만든 후 **대상 프로필** 목록에서 **<관리...>**를 선택합니다.
+## <a name="make-different-setting-combinations-by-using-profiles"></a>Make different setting combinations by using profiles
 
-    다음 그림과 같이 **프로필 관리** 대화 상자가 나타납니다.
+By using a profile, you can automatically fill in the **Publish Wizard** with different combinations of settings for different purposes. For example, you can have one profile for debugging and another for release builds. In that case, your **Debug** profile would have **IntelliTrace** enabled and the **Debug** configuration selected, and your **Release** profile would have **IntelliTrace** disabled and the **Release** configuration selected. You could also use different profiles to deploy a service using a different storage account.
 
-    ![프로필 관리 대화 상자](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-profiles.png)
+When you run the wizard for the first time, a default profile is created. Visual Studio stores the profile in a file that has an .azurePubXml extension, which is added to your Azure project under the **Profiles** folder. If you manually specify different choices when you run the wizard later, the file automatically updates. Before you run the following procedure, you should have already published your cloud service at least once.
 
-1. **이름** 목록에서 프로필을 선택한 다음 **복사본 만들기**를 선택합니다.
+### <a name="to-add-a-profile"></a>To add a profile
 
-1. **닫기** 단추를 선택합니다.
+1. Open the shortcut menu for your Azure project, and then select **Publish**.
 
-    새 프로필이 대상 프로필 목록에 나타납니다.
+1. Next to the **Target profile** list, select the **Save Profile** button, as the following illustration shows. This creates a profile for you.
 
-1. **대상 프로필** 목록에서 방금 만든 프로필을 선택합니다. 게시 마법사 설정은 선택한 프로필의 선택 항목으로 채워집니다.
+    ![Create an new profile](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/create-new-profile.png)
 
-1. **이전** 및 **다음** 단추를 선택하여 게시 마법사의 각 페이지를 표시한 다음 이 프로필에 대한 설정을 사용자 지정합니다. 자세한 내용은 [Azure 응용 프로그램 게시 마법사](http://go.microsoft.com/fwlink/p/?LinkID=623085)를 참조하세요.
+1. After the profile is created, select **<Manage…>** in the **Target profile** list.
 
-1. 설정 사용자 지정을 완료한 후 **다음**을 선택하여 설정 페이지로 다시 이동합니다. 이 설정을 사용하여 서비스를 게시하거나 프로필 목록 옆 **저장**을 선택하면 프로필이 저장됩니다.
+    The **Manage Profiles** dialog box appears, as the following illustration shows.
 
-### 프로필의 이름을 변경하거나 삭제하려면
+    ![Manage Profiles Dialog](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-profiles.png)
 
-1. Azure 프로젝트의 바로 가기 메뉴를 열고 **게시**를 클릭합니다.
+1. In the **Name** list, choose a profile, and then select **Create Copy**.
 
-1. **대상 프로필** 목록에서 **관리**를 선택합니다.
+1. Choose the **Close** button.
 
-1. **프로필 관리** 대화 상자에서 삭제할 프로필을 선택한 다음 **제거**를 선택합니다.
+    The new profile appears in the Target profile list.
 
-1. 나타나는 확인 대화 상자에서 **확인**을 선택합니다.
+1. In the **Target profile** list, select the profile that you just created. The Publish Wizard settings are filled in with the choices from the profile you selected.
 
-1. **닫기**를 선택합니다.
+1. Select the **Previous** and **Next** buttons to display each page of the Publish Wizard, and then customize the settings for this profile. See [Publish Azure Application Wizard](http://go.microsoft.com/fwlink/p/?LinkID=623085) for information.
 
-### 프로필을 변경하려면
+1. After you finish customizing the settings, select **Next** to go back to the Settings page. The profile is saved when you publish the service by using these settings or if you select **Save** next to the list of profiles.
 
-1. Azure 프로젝트의 바로 가기 메뉴를 열고 **게시**를 클릭합니다.
+### <a name="to-rename-or-delete-a-profile"></a>To rename or delete a profile
 
-1. **대상 프로필** 목록에서 변경할 프로필을 선택합니다.
+1. Open the shortcut menu for your Azure project, and then select **Publish**.
 
-1. **이전** 및 **다음** 단추를 선택하여 게시 마법사의 각 페이지를 표시한 다음 이 프로필에 대한 설정을 변경합니다. 자세한 내용은 [Azure 응용 프로그램 게시 마법사](http://go.microsoft.com/fwlink/p/?LinkID=623085)를 참조하세요.
+1. In the **Target profile** list, select **Manage**.
 
-1. 설정 변경을 완료한 후 **다음**을 선택하여 **설정** 페이지로 다시 이동합니다.
+1. In the **Manage Profiles** dialog box, select the profile that you want to delete, and then select **Remove**.
 
-1. (선택 사항) **게시**를 선택하고 새 설정을 사용하여 클라우드 서비스를 게시합니다. 이번에 클라우드 서비스를 게시하지 않고 게시 마법사를 닫으려는 경우, Visual Studio는 프로필에 변경 내용을 저장할 것인지를 묻습니다.
+1. In the confirmation dialog box that appears, select **OK**.
 
-## 다음 단계
+1. Select **Close**.
 
-Visual Studio에서 Azure 프로젝트의 다른 부분 구성에 대해 알아보려면 [Azure 프로젝트 구성](http://go.microsoft.com/fwlink/p/?LinkID=623075)을 참조하세요.
+### <a name="to-change-a-profile"></a>To change a profile
 
-<!---HONumber=AcomDC_0817_2016-->
+1. Open the shortcut menu for your Azure project, and then select **Publish**.
+
+1. In the **Target profile** list, select the profile that you want to change.
+
+1. Select the **Previous** and **Next** buttons to display each page of the Publish Wizard, and then change the settings you want. See [Publish Azure Application Wizard](http://go.microsoft.com/fwlink/p/?LinkID=623085) for information.
+
+1. After you finish changing the settings, select **Next** to go back to the **Settings** page.
+
+1. (Optional) select **Publish** to publish the cloud service using the new settings. If you don’t want to publish your cloud service at this time, and you close the Publish Wizard, Visual Studio asks you if you want to save the changes to the profile.
+
+## <a name="next-steps"></a>Next steps
+
+To learn about configuring other parts of your Azure project from Visual Studio, see [Configuring an Azure Project](http://go.microsoft.com/fwlink/p/?LinkID=623075)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

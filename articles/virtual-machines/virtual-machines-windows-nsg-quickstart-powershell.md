@@ -1,6 +1,6 @@
 <properties
-   pageTitle="PowerShell을 사용하여 VM으로 포트 열기 | Microsoft Azure"
-   description="Azure Resource Manager 배포 모델 및 Azure PowerShell을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
+   pageTitle="Open ports to a VM using PowerShell | Microsoft Azure"
+   description="Learn how to open a port / create an endpoint to your Windows VM using the Azure resource manager deployment mode and Azure PowerShell"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,13 +16,14 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# PowerShell을 사용하여 Azure에서 VM으로 포트 열기
+
+# <a name="opening-ports-to-a-vm-in-azure-using-powershell"></a>Opening ports to a VM in Azure using PowerShell
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## 빠른 명령
-네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](../powershell-install-configure.md)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](virtual-machines-windows-nsg-quickstart-portal.md).
+## <a name="quick-commands"></a>Quick commands
+To create a Network Security Group and ACL rules you need [the latest version of Azure PowerShell installed](../powershell-install-configure.md). You can also [perform these steps using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md).
 
-먼저 고유한 이름 및 설명을 입력하여 TCP 포트 80에서 HTTP 트래픽을 허용하는 규칙을 만들어야 합니다.
+First, you need to create a rule to allow HTTP traffic on TCP port 80 entering your own name and description:
 
 ```
 $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "Allow HTTP" `
@@ -31,45 +32,48 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "A
     -DestinationAddressPrefix * -DestinationPortRange 80
 ```
 
-그런 후 다음과 같이 고유한 리소스 그룹 이름 및 위치를 입력하여 네트워크 보안 그룹을 만들고 방금 만든 HTTP 규칙을 할당합니다.
+Next, create your Network Security group and assign the HTTP rule you just created as follows, entering your own resource group name and location:
 
 ```
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
     -Name "TestNSG" -SecurityRules $httprule
 ```
 
-이제 서브넷에 네트워크 보안 그룹을 할당합니다. 먼저 만든 가상 네트워크를 선택합니다.
+Now let's assign your Network Security Group to a subnet. First, select the virtual network:
 
 ```
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 ```
 
-네트워크 보안 그룹을 서브넷에 연결합니다.
+Associate your Network Security Group with your subnet:
 
 ```
 Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name TestSubnet `
     -NetworkSecurityGroup $nsg
 ```
 
-마지막으로, 변경 내용이 적용되도록 가상 네트워크를 업데이트합니다.
+Finally, update your virtual network in order for your changes to take effect:
 
 ```
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
 
-## 네트워크 보안 그룹에 대한 자세한 정보
-여기서 빠른 명령을 사용하면 VM으로 트래픽이 이동되도록 할 수 있습니다. 네트워크 보안 그룹은 리소스에 대한 액세스를 제어하는 많은 기능과 세분성을 제공합니다. [여기서 네트워크 보안 그룹 및 ACL 규칙 만들기](../virtual-network/virtual-networks-create-nsg-arm-ps.md)에 대해 자세히 읽어보세요.
+## <a name="more-information-on-network-security-groups"></a>More information on Network Security Groups
+The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
-네트워크 보안 그룹 및 ACL 규칙을 Azure Resource Manager 템플릿의 일부로 정의할 수도 있습니다. [템플릿을 사용하여 네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-template.md)에 대해 자세히 읽어보세요.
+You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-포트 전달을 사용하여 고유한 외부 포트를 VM의 내부 포트에 매핑해야 하는 경우 부하 분산 장치 및 NAT(네트워크 주소 변환) 규칙을 사용합니다. 예를 들어 TCP 포트 8080을 외부에 노출하고 트래픽이 VM의 TCP 포트 80으로 전달되도록 할 수 있습니다. [인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-ps.md)에 대해 자세히 알아볼 수 있습니다.
+If you need to use port-forwarding to map a unique external port to an internal port on your VM, use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-## 다음 단계
-이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
+## <a name="next-steps"></a>Next steps
+In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
-- [Azure Resource Manager 개요](../resource-group-overview.md)
-- [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
-- [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
+- [Azure Resource Manager overview](../resource-group-overview.md)
+- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
+- [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

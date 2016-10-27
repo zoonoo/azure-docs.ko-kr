@@ -1,137 +1,138 @@
 <properties
-	pageTitle="Azure 구독과 Azure Active Directory의 연관 관계 | Microsoft Azure"
-	description="Microsoft Azure 로그인 및 Azure 구독과 Azure Active Directory 간의 관계와 같은 관련 문제입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="How Azure subscriptions are associated with Azure Active Directory | Microsoft Azure"
+    description="Signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/15/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="curtand"/>
 
-# Azure 구독과 Azure Active Directory의 연관 관계
 
-이 항목에서는 Microsoft Azure 로그인 및 Azure 구독과 Azure Active Directory(Azure AD) 간의 관계와 같은 관련 문제에 대한 정보를 제공합니다.
+# <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>How Azure subscriptions are associated with Azure Active Directory
 
-## 로그인에 사용할 수 있는 계정
-로그인에 사용할 수 있는 계정부터 살펴보겠습니다. 두 가지 유형의 계정, 즉 Microsoft 계정(이전의 Microsoft Live ID)과 Azure AD에 저장되는 회사 또는 학교 계정이 있습니다.
+This topic covers information about signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory (Azure AD).
 
- Microsoft 계정 | Azure AD 계정
-	------------- | -------------
-Microsoft에서 제공하는 소비자 ID 시스템 | Microsoft에서 제공하는 기업 ID 시스템
-Hotmail, MSN과 같은 소비자 지향적인 서비스에 대한 인증 | Office 365와 같은 비즈니스 지향적인 서비스에 대한 인증
-소비자가 자신의 Microsoft 계정을 생성(메일에 등록할 때 등) | 회사와 조직이 자신의 회사 또는 학교 계정을 만들고 관리함
-ID가 만들어지고 Microsoft 계정 시스템에 저장됨 | Azure 또는 Office 365와 같은 다른 서비스를 사용하여 ID가 만들어지고 이 ID는 조직에 할당된 Azure AD 인스턴스에 저장됨
+## <a name="accounts-that-you-can-use-to-sign-in"></a>Accounts that you can use to sign in
+Let’s start with the accounts that you can use to sign in. There are two types: a Microsoft account (formerly known as Microsoft Live ID) and a work or school account, which is an account stored in Azure AD.
 
-원래 Microsoft 계정 사용자만 Azure에 액세스할 수 있었으나 이제는 이 *두 가지* 시스템의 사용자도 액세스할 수 있습니다. 이렇게 하기 위해 모든 Azure 속성이 인증을 위해 Azure AD를 신뢰하도록 하고, Azure AD가 조직 사용자를 인증하도록 하며, 소비자 사용자를 인증하는 Microsoft 계정 소비자 ID 시스템을 Azure AD가 신뢰하는 위치에 페더레이션 관계를 만들었습니다. 그 결과, Azure AD가 "기본" Azure AD 계정 뿐만 아니라 "게스트" Microsoft 계정도 인증할 수 있습니다.
+ Microsoft account  | Azure AD account
+    ------------- | -------------
+The consumer identity system run by Microsoft | The business identity system run by Microsoft
+Authentication to services that are consumer-oriented, such as Hotmail and MSN | Authentication to services that are business-oriented, such as Office 365
+Consumers create their own Microsoft accounts, such when they sign up for email | Companies and organizations create and manage their own work or school accounts
+Identities are created and stored in the Microsoft account system | Identities are created by using Azure or another service such as Office 365, and they are stored in an Azure AD instance assigned to the organization
 
-예를 들어 Microsoft 계정을 가진 사용자가 Azure 클래식 포털에 로그인합니다.
+Although Azure originally allowed access only by Microsoft account users, it now allows access by users from *both* systems. This was done by having all the Azure properties trust Azure AD for authentication, having Azure AD authenticate organizational users, and by creating a federation relationship where Azure AD trusts the Microsoft account consumer identity system to authenticate consumer users. As a result, Azure AD is able to authenticate “guest” Microsoft accounts as well as “native” Azure AD accounts.
+
+For example, here a user with a Microsoft account signs in to the Azure classic portal.
 
 > [AZURE.NOTE]
-Azure 클래식 포털에 로그인하려면 msmith@hotmail.com에 Azure 구독이 있어야 합니다. 구독의 공동 관리자 또는 서비스 관리자 계정이어야 합니다.
+> To sign in to the Azure classic portal, msmith@hotmail.com must have a subscription to Azure. The account must be either a Service administrator or a co-administrator of the subscription.
 
 ![][1]
 
-이 Hotmail 주소는 소비자 계정이므로 Microsoft 계정 소비자 ID 시스템에서 로그인을 인증했습니다. Azure AD ID 시스템은 Microsoft 계정 시스템에서 수행한 인증을 신뢰하고 Azure 서비스에 액세스할 수 있는 토큰을 발급합니다.
+Because this Hotmail address is a consumer account, the sign in is authenticated by the Microsoft account consumer identity system. The Azure AD identity system trusts the authentication done by the Microsoft account system and will issue a token to access Azure services.
 
-## Azure 구독과 Azure AD의 연관 관계
+## <a name="how-an-azure-subscription-is-related-to-azure-ad"></a>How an Azure subscription is related to Azure AD
 
-모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 장치를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 설정 탭에서 구독이 신뢰하는 디렉터리를 확인할 수 있습니다. 신뢰하는 디렉터리를 변경하도록 [구독 설정을 편집](active-directory-understanding-resource-access.md)할 수 있습니다.
+Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. You can see which directory is trusted by your subscription under the Settings tab. You can [edit the subscription settings](active-directory-understanding-resource-access.md) to change which directory it trusts.
 
-구독이 디렉터리와 갖는 이 트러스트 관계는 구독이 Azure의 다른 모든 리소스(웹 사이트, 데이터베이스 등)와 갖는 관계와 다르며 구독의 하위 리소스와 더 유사합니다. 구독이 만료되면 구독과 연결된 다른 리소스에 대한 액세스도 중지됩니다. 하지만 디렉터리는 Azure에 남아 있으며 해당 디렉터리와 다른 구독을 연결하여 디렉터리 사용자를 계속 관리할 수 있습니다.
+This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users.
 
-마찬가지로, 구독에 표시되는 Azure AD 확장은 Azure 클래식 포털의 다른 확장처럼 작동하지 않습니다. Azure 클래식 포털의 다른 확장은 Azure 구독으로 범위가 제한됩니다. Azure AD 확장에 표시되는 내용은 구독에 따라 달라지지 않고 로그인한 사용자에 따라 디렉터리만 표시됩니다.
+Similarly, the Azure AD extension you see in your subscription doesn’t work like the other extensions in the Azure classic portal. Other extensions in the Azure classic portal are scoped to the Azure subscription. What you see in the Azure AD extension does not vary based on subscription – it shows only directories based on the signed-in user.
 
-모든 사용자는 자신을 인증하는 단일 홈 디렉터리를 가지고 있지만 다른 디렉터리의 게스트가 될 수도 있습니다. Azure AD 확장에 사용자 계정이 구성원인 디렉터리가 모두 표시됩니다. 계정이 구성원이 아닌 디렉터리는 표시되지 않습니다. 디렉터리는 Azure AD의 회사 또는 학교 계정을 위한 토큰이나 Microsoft 계정 사용자(Azure AD가 Microsoft 계정 시스템과 페더레이션되므로)를 위한 토큰을 발급할 수 있습니다.
+All users have a single home directory which authenticates them, but they can also be guests in other directories. In the Azure AD extension, you will see every directory your user account is a member of. Any directory that your account is not a member of will not appear. A directory can issue tokens for work or school accounts in Azure AD or for Microsoft account users (because Azure AD is federated with the Microsoft account system).
 
-이 다이어그램에서는 Michael Smith란 사람이 Contoso의 회사 계정을 사용하여 등록한 후의 구독을 보여 줍니다.
+This diagram shows a subscription for Michael Smith after he signed up by using a work account for Contoso.
 
 ![][2]
 
-## 구독 및 디렉터리를 관리하는 방법
-Azure 구독의 관리 역할은 Azure 구독에 연결된 리소스를 관리합니다. 이러한 역할 및 구독 관리 모범 사례는 [Azure Active Directory의 관리자 역할 할당](active-directory-assign-admin-roles.md)에서 다룹니다.
+## <a name="how-to-manage-a-subscription-and-a-directory"></a>How to manage a subscription and a directory
+The administrative roles for an Azure subscription manage resources tied to the Azure subscription. These roles and the best practices for managing your subscription are covered at [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
-등록할 때 기본적으로 서비스 관리자 역할이 할당됩니다. 다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 서비스 관리자와 공동 관리자는 Azure 구독이 연결된 디렉터리의 Microsoft 계정이거나 회사 또는 학교 계정일 수 있습니다.
+By default, you are assigned the Service Administrator role when you sign up. If others need to sign in and access services using the same subscription, you can add them as co-administrators. The Service Administrator and co-administrators can be either Microsoft accounts or work or school accounts from the directory that the Azure subscription is associated with.
 
-Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역할 집합을 가지고 있습니다. 예를 들어 디렉터리의 전역 관리자는 디렉터리에 사용자 및 그룹을 추가하거나 사용자에 대해 다단계 인증을 요구할 수 있습니다. 디렉터리를 만든 사용자는 전역 관리자 역할에 할당되어 다른 사용자에게 관리자 역할을 할당할 수 있습니다.
+Azure AD has a different set of administrative roles to manage the directory and identity-related features. For example, the global administrator of a directory can add users and groups to the directory, or require multifactor authentication for users. A user who creates a directory is assigned to the global administrator role and they can assign administrator roles to other users.
 
-구독 관리자와 마찬가지로 Azure AD 관리 역할은 Microsoft 계정이거나 회사 또는 학교 계정일 수 있습니다. 또한 Azure AD 관리 역할은 Office 365 및 Microsoft Intune과 같은 다른 서비스에서도 사용됩니다. 자세한 내용은 [관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
+As with subscription administrators, the Azure AD administrative roles can be either Microsoft accounts or work or school accounts. Azure AD administrative roles are also used by other services such as Office 365 and Microsoft Intune. For more information, see [Assigning administrator roles](active-directory-assign-admin-roles.md).
 
-하지만 여기서 중요한 것은 Azure 구독 관리자와 Azure AD 디렉터리 관리자는 서로 다른 개념이라는 점입니다. Azure 구독 관리자는 Azure에서 리소스를 관리할 수 있으며 Azure 클래식 포털이 Azure 리소스이므로 Azure 클래식 포털에서 Active Directory 확장을 볼 수 있습니다. 디렉터리 관리자는 디렉터리에서 속성을 관리할 수 있습니다.
+But the important point here is that Azure subscription admins and Azure AD directory admins are two separate concepts. Azure subscription admins can manage resources in Azure and can view the Active Directory extension in the Azure classic portal (because the Azure classic portal is an Azure resource). Directory admins can manage properties in the directory.
 
-역할을 모두 담당할 수 있지만 그럴 필요는 없습니다. 사용자는 디렉터리 전역 관리자 역할에 할당될 수 있지만 Azure 구독의 공동 관리자 또는 서비스 관리자로 할당될 수는 없습니다. 구독의 관리자가 아니어도 이 사용자는 Azure 클래식 포털에 로그인할 수 없습니다. 하지만 Azure AD PowerShell 또는 Office 365 관리 센터와 같은 다른 도구를 사용하여 디렉터리 관리 작업을 수행할 수 있습니다.
+A person can be in both roles but this isn’t required. A user can be assigned to the directory global administrator role but not be assigned as Service administrator or co-administrator of an Azure subscription. Without being an administrator of the subscription, this user cannot sign in to the Azure classic portal. But the user could perform directory administration tasks using other tools such as Azure AD PowerShell or Office 365 Admin Center.
 
-## 현재 사용자 계정으로 디렉터리를 관리할 수 없는 이유
+## <a name="why-can't-i-manage-the-directory-with-my-current-user-account?"></a>Why can't I manage the directory with my current user account?
 
-사용자가 Azure 구독에 등록하기 전에 회사 또는 학교 계정을 사용하여 Azure 클래식 포털에 로그인할 경우도 있습니다. 이 경우에 사용자는 해당 계정에 대한 구독이 없다는 메시지를 받게 됩니다. 메시지에는 무료 평가판 구독을 시작할 수 있는 링크가 포함됩니다.
+Sometimes a user may try to sign in to the Azure classic portal using a work or school account prior to signing up for an Azure subscription. In this case, the user will receive a message that there is no subscription for that account. The message will include a link to start a free trial subscription.
 
-무료 평가판에 등록한 후 사용자는 Azure 클래식 포털에서 조직의 디렉터리를 볼 수 있지만 디렉터리 전역 관리자가 아니므로 디렉터리를 관리할 수는 없습니다. 즉, 사용자를 추가하거나 기존 사용자 속성을 편집할 수 없습니다. 구독을 통해 사용자는 Azure 클래식 포털을 사용하고 Azure Active Directory 확장을 볼 수 있지만 디렉터리를 관리하려면 전역 관리자 권한이 추가로 필요합니다.
+After signing up for the free trial, the user will see the directory for the organization in the Azure classic portal but be unable to manage it (that is, be unable to add users, or edit any existing user properties) because the user is not a directory global administrator. The subscription allows the user to use the Azure classic portal and see the Azure Active Directory extension, but the additional permissions of a global administrator are needed to manage the directory.
 
-## Microsoft 계정을 사용하여 만든 Azure 구독을 회사 또는 학교 계정을 사용하여 관리
+## <a name="using-your-work-or-school-account-to-manage-an-azure-subscription-that-was-created-by-using-a-microsoft-account"></a>Using your work or school account to manage an Azure subscription that was created by using a Microsoft account
 
-[조직으로 Azure에 등록](sign-up-organization.md)하고 회사 또는 학교 계정을 사용하여 Azure에서 리소스를 관리하는 것이 가장 좋습니다. 회사 또는 학교 계정은 발급한 조직이 중앙에서 관리하고, Microsoft 계정보다 많은 기능을 갖고 있으며, Azure AD에서 직접 인증하므로 선호됩니다. 동일한 계정은 기업 및 조직에 제공된 Office 365 또는 Microsoft Intune 등의 다른 Microsoft 온라인 서비스에 대한 액세스를 제공합니다. 이러한 다른 속성을 사용하는 계정이 이미 있는 경우 Azure로 동일한 계정을 사용하려는 경우가 많습니다. 또한 Azure 구독을 신뢰하는 해당 속성을 지원하는 Active Directory 인스턴스도 갖게 됩니다.
+As a best practice, you should [sign up for Azure as an organization](sign-up-organization.md) and use a work or school account to manage resources in Azure. Work or school accounts are preferred because they can be centrally managed by the organization that issued them, they have more features than Microsoft accounts, and they are directly authenticated by Azure AD. The same account provides access to other Microsoft online services that are offered to businesses and organizations, such as Office 365 or Microsoft Intune. If you already have an account that you use with those other properties, you likely want to use that same account with Azure. You will also already have an Active Directory instance backing those properties that you will want your Azure subscription to trust.
 
-회사 또는 학교 계정은 Microsoft 계정보다 많은 방법으로 관리할 수도 있습니다. 예를 들어 관리자는 회사 또는 학교 계정의 암호를 재설정하거나 계정에 대한 다단계 인증을 요구할 수 있습니다.
+Work or school accounts can also be managed in more ways than a Microsoft account. For example, an administrator can reset the password of an a work or school account, or require multifactor authentication for it.
 
-경우에 따라 조직의 사용자가 소비자 Microsoft 계정의 Azure 구독에 연결된 리소스를 관리할 수도 있습니다. 다른 계정이 구독 또는 디렉터리를 관리하도록 전환하는 방법에 대한 자세한 내용은 [Azure에서 Office 365 구독의 디렉터리 관리](#manage-the-directory-for-your-office-365-subscription-in-azure)를 참조하세요.
+In some cases, you may want a user from your organization to be able to manage resources that are associated with an Azure subscription for a consumer Microsoft account. For more information about how to transition to have different accounts manage subscriptions or directories, see [Manage the directory for your Office 365 subscription in Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 
-## Microsoft 계정에 업무용 메일을 사용한 경우의 로그인
+## <a name="signing-in-when-you-used-your-work-email-for-your-microsoft-account"></a>Signing in when you used your work email for your Microsoft account
 
-지난 번에 업무용 메일을 사용자 ID로 사용하여 소비자 Microsoft 계정을 만들었으면 Microsoft Azure 계정 시스템 또는 Microsoft 계정 시스템에서 선택하라는 페이지가 표시될 수 있습니다.
+If at some point of time in the past you created a consumer Microsoft account using your work email as a user identifier, you may see a page asking you to select from either the Microsoft Azure Account system or the Microsoft Account system.
 
 ![][3]
 
-이름이 같은 사용자 계정이 있으며, 하나는 Azure AD에 있고 다른 하나는 소비자 Microsoft 계정 시스템에 있습니다. 사용하려는 Azure 구독과 연결된 계정을 선택해야 합니다. 이 사용자에 대한 구독이 없다는 오류가 발생하면 옵션을 잘못 선택한 것입니다. 로그아웃하고 다시 시도하세요. 로그인을 방해할 수 있는 오류에 대한 자세한 내용은 ["계정과 연결된 구독을 찾지 못했습니다" 오류 문제 해결](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement)을 참조하세요.
+You have user accounts with the same name, one in Azure AD and the other in the consumer Microsoft account system. You should pick the account that is associated with the Azure subscription you want to use. If you get an error saying a subscription does not exist for this user, you likely just chose the wrong option. Sign out and try again. For more information about errors that can prevent sign in, see [Troubleshooting "We were unable to find any subscriptions associated with your account" errors](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
-## Azure에서 Office 365 구독의 디렉터리 관리
+## <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Manage the directory for your Office 365 subscription in Azure
 
-Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습니다. 이제 Azure 클래식 포털에서 Office 365 구독의 디렉터리를 관리하려고 합니다. 이 작업을 수행하는 방법에는 Azure 등록 여부에 따라 두 가지가 있습니다.
+Let's say you signed up for Office 365 before you sign up for Azure. Now you want to manage the directory for the Office 365 subscription in the Azure classic portal. There are two ways to do this, depending on whether you have signed up for Azure or you have not.
 
-### Azure에 대한 구독이 없는 경우
+### <a name="i-do-not-have-a-subscription-for-azure"></a>I do not have a subscription for Azure
 
-이 경우 Office 365에 로그인하는 데 사용하는 것과 동일한 회사 또는 학교 계정을 사용하여 [Azure에 등록](sign-up-organization.md)하기만 하면 됩니다. Office 365 계정의 관련 정보가 Azure 등록 양식에 미리 채워집니다. 계정이 구독의 서비스 관리자 역할에 할당됩니다.
+In this case, just [sign up for Azure](sign-up-organization.md) using the same work or school account that you use to sign in to Office 365. Relevant information from the Office 365 account will be prepopulated in the Azure sign-up form. Your account will be assigned to the Service Administrator role of the subscription.  
 
-### Azure에 대해 Microsoft 계정을 사용하는 구독이 있는 경우
+### <a name="i-do-have-a-subscription-for-azure-using-my-microsoft-account"></a>I do have a subscription for Azure using my Microsoft account
 
-회사 또는 학교 계정을 사용하여 Office 365에 등록한 다음 Microsoft 계정을 사용하여 Azure에 등록한 경우에는 두 개의 디렉터리가 있습니다. 하나는 회사 또는 학교용 디렉터리이고, 다른 하나는 Azure에 등록할 때 생성된 기본 디렉터리입니다.
+If you signed up for Office 365 using a work or school account and then signed up for Azure using a Microsoft account, then you have two directories: one for your work or school and a Default directory that was created when you signed up for Azure.
 
-이 두 디렉터리를 모두 Azure 클래식 포털에서 관리하려면 다음 단계를 완료하세요.
+To manage both of the directories in the Azure classic portal, complete these steps.
 
 > [AZURE.NOTE]
-이 단계는 사용자가 Microsoft 계정으로 로그인한 경우에만 완료할 수 있습니다. 사용자가 회사 또는 학교 계정으로 로그인했으면 홈 디렉터리(즉, 회사 또는 학교 계정이 저장된 디렉터리 및 회사 또는 학교가 소유한 디렉터리)만 회사 또는 학교 계정을 인증할 수 있으므로 **기존 디렉터리 사용** 옵션을 사용할 수 없습니다.
+> These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).
 
-1. Microsoft 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
+1. Sign in to the Azure classic portal using your Microsoft account.
 
-2. **새로 만들기** > **앱 서비스** > **Active Directory** > **디렉터리 ** > **사용자 지정 만들기**를 클릭합니다.
+2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
 
-3. **기존 디렉터리 사용**을 클릭하고 **지금 로그아웃할 준비가 되었습니다**를 선택하고 확인 표시를 클릭하여 작업을 완료합니다.
+3. Click **Use existing directory** and check **I am ready to be signed out now** and click the check mark to complete the action.
 
-4. 회사 또는 학교 디렉터리에 대한 전역 관리자 권한이 있는 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
+4. Sign in to the Azure classic portal using an account that has global admin rights for the work or school directory.
 
-5. **Azure로 Contoso 디렉터리를 사용할까요?**란 메시지가 나타나면 **계속**을 클릭합니다.
+5. When prompted to **Use the Contoso directory with Azure?**, and click **continue**.
 
-6. **지금 로그아웃**을 클릭합니다.
+6. Click **Sign out now**.
 
-7. Microsoft 계정을 사용하여 Azure 클래식 포털에 다시 로그인합니다. Active Directory 확장에 두 디렉터리가 모두 표시됩니다.
+7. Sign back in to the Azure classic portal using your Microsoft account. Both directories will appear in the Active Directory extension.
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- Azure 구독에 대한 관리자를 변경하는 방법을 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+- To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
 
-- Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](active-directory-understanding-resource-access.md)를 참조하세요.
+- To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 
-- Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
+- For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
 
-- [조직으로 Azure에 등록](sign-up-organization.md)
+- [Sign up for Azure as an organization](sign-up-organization.md)
 
 
 <!--Image references-->
@@ -139,4 +140,8 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

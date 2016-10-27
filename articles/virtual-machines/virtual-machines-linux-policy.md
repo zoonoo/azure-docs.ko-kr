@@ -1,42 +1,43 @@
 <properties
-	pageTitle="Azure Resource Manager 가상 컴퓨터에 정책 적용 | Microsoft Azure"
-	description="Azure Resource Manager Linux 가상 컴퓨터에 정책을 적용하는 방법"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="singhkays"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Apply policies to Azure Resource Manager Virtual Machines | Microsoft Azure"
+    description="How to apply a policy to an Azure Resource Manager Linux Virtual Machine"
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="singhkays"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/13/2016"
-	ms.author="singhkay"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="04/13/2016"
+    ms.author="singhkay"/>
 
-# Azure Resource Manager 가상 컴퓨터에 정책 적용
 
-조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 가상 컴퓨터에 대해 원하는 동작을 정의하는 방법을 설명합니다.
+# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Apply policies to Azure Resource Manager Virtual Machines
 
-이 작업을 수행하는 개략적인 단계는 다음과 같습니다.
+By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we will describe how you can use Azure Resource Manager policies to define the desired behavior for your organization’s Virtual Machines.
 
-1. Azure Resource Manager 정책 101
-2. 가상 컴퓨터에 대한 정책 정의
-3. 정책 만들기
-4. 정책 적용
+The outline for the steps to accomplish this is as below
 
-## Azure Resource Manager 정책 101
+1. Azure Resource Manager Policy 101
+2. Define a policy for your Virtual Machine
+3. Create the policy
+4. Apply the policy
 
-Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 문서에 있는 단계를 계속하는 것이 좋습니다. 아래 문서에서 정책의 기본 정의 및 구조, 정책 평가 방법을 설명하고 정책 정의의 다양한 예제를 제공합니다.
+## <a name="azure-resource-manager-policy-101"></a>Azure Resource Manager Policy 101
 
-* [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../resource-manager-policy.md)
+For getting started with Azure Resource Manager policies, we recommend reading the article below and then continuing with the steps in this article. The article below describes the basic definition and structure of a policy, how policies get evaluated and gives various examples of policy definitions.
 
-## 가상 컴퓨터에 대한 정책 정의
+* [Use Policy to manage resources and control access](../resource-manager-policy.md)
 
-엔터프라이즈에 대한 일반적인 시나리오 중 하나는 LOB 응용 프로그램과 호환되도록 테스트된 특정 운영 체제에서 사용자에게만 가상 컴퓨터를 만들 수 있도록 하는 것일 수 있습니다. Azure Resource Manager 정책을 사용하여 몇 단계만으로 이 작업을 수행할 수 있습니다. 이 정책 예제에서는 Ubuntu 14.04.2-LTS 가상 컴퓨터만 만들 수 있도록 허용합니다. 정책 정의는 아래와 같습니다.
+## <a name="define-a-policy-for-your-virtual-machine"></a>Define a policy for your Virtual Machine
+
+One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps. In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Machines to be created. The policy definition looks like below
 
 ```
 "if": {
@@ -70,7 +71,7 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 }
 ```
 
-위의 정책은 아래 변경으로 가상 컴퓨터 배포에 모든 Ubuntu LTS 이미지를 사용할 수 있도록 하는 시나리오로 쉽게 수정할 수 있습니다.
+The above policy can easily be modified to a scenario where you might want to allow any Ubuntu LTS image to be used for a Virtual Machine deployment with the below change
 
 ```
 {
@@ -79,31 +80,35 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 }
 ```
 
-#### 가상 컴퓨터 속성 필드
+#### <a name="virtual-machine-property-fields"></a>Virtual Machine Property Fields
 
-아래 표에서 정책 정의의 필드로 사용할 수 있는 가상 컴퓨터 속성에 대해 설명합니다. 정책 필드에 대한 자세한 내용은 아래 문서를 참조하세요.
+The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more on policy fields, see the article below:
 
-* [필드 및 소스](../resource-manager-policy.md#fields-and-sources)
+* [Fields and Sources](../resource-manager-policy.md#fields-and-sources)
 
 
-| 필드 이름 | 설명 |
+| Field Name     | Description                                        |
 |----------------|----------------------------------------------------|
-| imagePublisher | 이미지 게시자 지정 |
-| imageOffer | 선택된 이미지 게시자에 대한 제품 지정 |
-| imageSku | 선택한 제품에 대한 SKU 지정 |
-| imageVersion | 선택한 SKU에 대한 이미지 버전 지정 |
+| imagePublisher | Specifies the publisher of the image               |
+| imageOffer     | Specifies the offer for the chosen image publisher |
+| imageSku       | Specifies the SKU for the chosen offer             |
+| imageVersion   | Specifies the image version for the chosen SKU     |
 
-## 정책 만들기
+## <a name="create-the-policy"></a>Create the Policy
 
-정책은 REST API를 직접 사용하거나 PowerShell cmdlet을 사용하여 쉽게 만들 수 있습니다. 정책 만들기에 대한 자세한 내용은 아래 문서를 참조하세요.
+A policy can easily be created using the REST API directly or the PowerShell cmdlets. For creating the policy, see the article below:
 
-* [정책 만들기](../resource-manager-policy.md#creating-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#creating-a-policy)
 
 
-## 정책 적용
+## <a name="apply-the-policy"></a>Apply the Policy
 
-정책을 만든 후 정의된 범위에 적용해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수도 있습니다. 정책 적용에 대한 자세한 내용은 아래 문서를 참조하세요.
+After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. For applying the policy, see the article below:
 
-* [정책 만들기](../resource-manager-policy.md#applying-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

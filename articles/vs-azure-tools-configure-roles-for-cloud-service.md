@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visual Studio에서 Azure 클라우드 서비스에 대한 역할 구성 | Microsoft Azure"
-   description="Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할을 설정 및 구성하는 방법에 대해 알아봅니다."
+   pageTitle="Configure the Roles for an Azure Cloud Service with Visual Studio | Microsoft Azure"
+   description="Learn how to set up and configure roles for Azure cloud services by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,99 +15,100 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성
 
-Azure 클라우드 서비스에는 하나 이상의 작업자 또는 웹 역할이 포함될 수 있습니다. 각 역할에 대해 해당 역할 설정 방법을 정의하고 해당 역할의 실행 방법을 구성해야 합니다. 클라우드 서비스의 역할에 대한 자세한 내용은 [Azure 클라우드 서비스 소개](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services)를 참조하세요. 클라우드 서비스에 대한 정보는 다음 파일에 저장됩니다.
+# <a name="configure-the-roles-for-an-azure-cloud-service-with-visual-studio"></a>Configure the Roles for an Azure Cloud Service with Visual Studio
+
+An Azure cloud service can have one or more worker or web roles. For each role you need to define how that role is set up and also configure how that role runs. To learn more about roles in cloud services, see the video [Introduction to Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). The information for your cloud service is stored in the following files:
 
 - **ServiceDefinition.csdef**
 
-    서비스 정의 파일은 필요한 역할, 끝점 및 가상 컴퓨터 크기를 포함하여 클라우드 서비스에 대한 런타임 설정을 정의합니다. 역할이 실행 중인 경우 이 파일에 저장된 데이터를 변경할 수 없습니다.
+    The service definition file defines the runtime settings for your cloud service including what roles are required, endpoints, and virtual machine size. None of the data stored in this file can be changed when your role is running.
 
 - **ServiceConfiguration.cscfg**
 
-    서비스 구성 파일은 얼마나 많은 역할의 인스턴스가 실행되는지와 역할에 대해 정의된 설정의 값을 구성합니다. 역할이 실행 중인 동안 이 파일에 저장된 데이터를 변경할 수 있습니다.
+    The service configuration file configures how many instances of a role are run and the values of the settings defined for a role. The data stored in this file can be changed while your role is running.
 
-역할이 실행되는 방식에 대한 이러한 설정에 다른 값을 저장하기 위해 여러 서비스 구성을 포함할 수 있습니다. 각 배포 환경에 대해 서로 다른 서비스 구성을 사용할 수 있습니다. 예를 들어, 로컬 서비스 구성에서 로컬 Azure 저장소 에뮬레이터를 사용하도록 저장소 계정 연결 문자열을 설정하고 클라우드에서 Azure 저장소를 사용하도록 다른 서비스 구성을 만들 수 있습니다.
+To be able to store different values for these settings for how your role runs, you can have multiple service configurations. You can use a different service configuration for each deployment environment. For example, you can set your storage account connection string to use the local Azure storage emulator in a local service configuration and create another service configuration to use the Azure storage in the cloud.
 
-Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으로 두 개의 서비스 구성이 만들어집니다. 이러한 구성은 Azure 프로젝트에 추가됩니다. 다음과 같이 구성 이름이 지정됩니다.
+When you create a new Azure cloud service in Visual Studio, two service configurations are created by default. These configurations are added to your Azure project. The configurations are named:
 
 - ServiceConfiguration.Cloud.cscfg
 
 - ServiceConfiguration.Local.cscfg
 
-## Azure 클라우드 서비스 구성
+## <a name="configure-an-azure-cloud-service"></a>Configure an Azure cloud service
 
-다음 그림에 표시된 것처럼 Visual Studio의 솔루션 탐색기에서 Azure 클라우드 서비스를 구성할 수 있습니다.
+You can configure an Azure cloud service from Solution Explorer in Visual Studio, as shown in the following illustration.
 
-![클라우드 서비스 구성](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
+![Configure Cloud Service](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
 
-### Azure 클라우드 서비스를 구성하려면
+### <a name="to-configure-an-azure-cloud-service"></a>To configure an Azure cloud service
 
-1. **솔루션 탐색기**에서 Azure 프로젝트에 각 역할을 구성하려면, Azure 프로젝트에서 역할에 대한 바로 가기 메뉴를 열고 **속성**을 선택합니다.
+1. To configure each role in your Azure project from **Solution Explorer**, open the shortcut menu for the role in the Azure project and then choose **Properties**.
 
-    역할의 이름이 있는 페이지가 Visual Studio 편집기에 표시됩니다. 페이지에 **구성** 탭에 대한 필드가 표시됩니다.
+    A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
 
-1. **서비스 구성** 목록에서 편집할 서비스 구성의 이름을 선택합니다.
+1. In the **Service Configuration** list, choose the name of the service configuration that you want to edit.
 
-    이 역할에 대한 모든 서비스 구성을 변경하려는 경우 **모든 구성**을 선택할 수 있습니다.
+    If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.
 
-    >[AZURE.IMPORTANT] 특정 서비스 구성을 선택하면 일부 속성은 모든 구성에 대해서만 설정 가능하므로 비활성화됩니다. 이러한 속성을 편집하려면 모든 구성을 선택해야 합니다.
+    >[AZURE.IMPORTANT] If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must choose All Configurations.
 
-    이제 탭을 선택하여 해당 보기에 활성화된 모든 속성을 업데이트할 수 있습니다.
+    You can now choose a tab to update any enabled properties on that view.
 
-## 역할 인스턴스 수 변경
+## <a name="change-the-number-of-role-instances"></a>Change the number of role instances
 
-클라우드 서비스의 성능을 개선하기 위해 실행 중인 역할의 인스턴스 수를 사용자 수 또는 특정 역할에 대해 예상되는 부하에 따라 변경할 수 있습니다. Azure에서 클라우드 서비스를 실행하는 경우 별도의 가상 컴퓨터가 역할의 각 인스턴스에 대해 생성됩니다. 이 클라우드 서비스의 배포에 대한 대금 청구에 영향을 줍니다. 대금 청구에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
+To improve the performance of your cloud service, you can change the number of instances of a role that are running, based on the number of users or the load expected for a particular role. A separate virtual machine is created for each instance of a role when the cloud service runs in Azure. This will affect the billing for the deployment of this cloud service. For more information about billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-### 역할에 대한 인스턴스 수를 변경하려면
+### <a name="to-change-the-number-of-instances-for-a-role"></a>To change the number of instances for a role
 
-1. **구성** 탭을 선택합니다.
+1. Choose the **Configuration** tab.
 
-1. **서비스 구성** 목록에서 업데이트할 서비스 구성을 선택합니다.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] 모든 서비스 구성에 대한 또는 특정 서비스 구성에 대한 인스턴스 수를 설정할 수 있습니다.
+    >[AZURE.NOTE] You can set the instance count for a specific service configuration or for all service configurations.
 
-1. **인스턴스 수** 텍스트 상자에서 이 역할에 대해 시작하려는 인스턴스 수를 입력합니다.
+1. In the **Instance count** text box, enter the number of instances that you want to start for this role.
 
-    >[AZURE.NOTE] 각 인스턴스는 Azure에 클라우드 서비스를 게시할 때 별도의 가상 컴퓨터에서 실행됩니다.
+    >[AZURE.NOTE] Each instance is run on a separate virtual machine when you publish your cloud service to Azure.
 
-1. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## 저장소 계정에 대한 연결 문자열 관리
+## <a name="manage-connection-strings-for-storage-accounts"></a>Manage connection strings for storage accounts
 
-서비스 구성에 대한 연결 문자열을 추가, 제거 또는 수정할 수 있습니다. 다양한 서비스 구성에 대해 서로 다른 연결 문자열이 필요할 수 있습니다. 예를 들어, `UseDevelopmentStorage=true` 값이 있는 로컬 서비스 구성에 대해 로컬 연결 문자열이 필요할 수 있습니다. 또한 Azure에서 저장소 계정을 사용하는 클라우드 서비스 구성을 구성하려고 할 수도 있습니다.
+You can add, remove or modify connection strings for your service configurations. You might want different connection strings for different service configurations. For example, you might want a local connection string for a local service configuration that has a value of `UseDevelopmentStorage=true`. You might also want to configure a cloud service configuration that uses a storage account in Azure.
 
->[AZURE.WARNING] 저장소 계정 연결 문자열에 대해 Azure 저장소 계정 키 정보를 입력하면 이 정보가 서비스 구성 파일에 로컬로 저장됩니다. 그러나 현재는 이 정보가 암호화된 텍스트로 저장되지 않습니다.
+>[AZURE.WARNING] When you enter the Azure storage account key information for a storage account connection string, this information is stored locally in the service configuration file. However, this information is currently not stored as encrypted text.
 
-각 서비스 구성에 대해 서로 다른 값을 사용하면 클라우드 서비스에서 서로 다른 연결 문자열을 사용하거나 클라우드 서비스에서 Azure로 게시할 때 코드를 수정하지 않아도 됩니다. 코드에서 연결 문자열에 동일한 이름을 사용할 수 있으며 클라우드 서비스를 빌드할 때 선택한 서비스 구성 또는 게시하는 시기에 따라 값은 달라집니다.
+By using a different value for each service configuration, you do not have to use different connection strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the connection string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
-### 저장소 계정에 대한 연결 문자열을 관리하려면
+### <a name="to-manage-connection-strings-for-storage-accounts"></a>To manage connection strings for storage accounts
 
-1. **설정** 탭을 선택합니다.
+1. Choose the **Settings** tab.
 
-1. **서비스 구성** 목록에서 업데이트할 서비스 구성을 선택합니다.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] 특정 서비스 구성에 대한 연결 문자열을 업데이트할 수 있지만 연결 문자열을 추가 또는 삭제해야 하는 경우 모든 구성을 선택해야 합니다.
+    >[AZURE.NOTE] You can update connection strings for a specific service configuration, but if you need to add or delete a connection string you must select All Configurations.
 
-1. 연결 문자열을 추가하려면 **설정 추가** 단추를 선택합니다. 새 항목이 목록에 추가됩니다.
+1. To add a connection string, choose the **Add Setting** button. A new entry is added to the list.
 
-1. **이름** 텍스트 상자에 연결 문자열에 사용할 이름을 입력합니다.
+1. In the **Name** text box, type the name that you want to use for the connection string.
 
-1. **형식** 드롭다운 목록에서 **연결 문자열**을 선택합니다.
+1. In the **Type** drop-down list, choose **Connection String**.
 
-1. 연결 문자열에 대한 값을 변경하려면 줄임표(...) 단추를 선택합니다. **저장소 연결 문자열 만들기** 대화 상자가 나타납니다.
+1. To change the value for the connection string, choose the ellipsis (...) button. The **Create Storage Connection String** dialog box appears.
 
-1. 로컬 저장소 계정 에뮬레이터를 사용하려면 **Microsoft Azure 저장소 에뮬레이터** 옵션 단추를 선택한 후 **확인** 단추를 선택합니다.
+1. To use the local storage account emulator, choose the **Microsoft Azure storage emulator** option button and then choose the **OK** button.
 
-1. Azure에서 저장소 계정을 사용하려면 **구독** 옵션 단추를 선택하고 원하는 저장소 계정을 선택합니다.
+1. To use a storage account in Azure, choose the **Your subscription** option button and select the desired storage account.
 
-1. 사용자 지정 자격 증명을 사용하려면 **수동으로 입력한 자격 증명** 옵션 단추를 선택합니다. 저장소 계정 이름과 기본 또는 보조 키를 입력합니다. 저장소 계정을 만드는 방법 및 **저장소 연결 문자열 만들기** 대화 상자에 저장소 계정에 대한 세부 정보를 입력하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요.
+1. To use custom credentials, choose the **Manually entered credentials** options button. Enter the storage account name, and either the primary or second key. For information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. 연결 문자열을 삭제하려면 연결 문자열을 선택하고 **설정 제거** 단추를 선택합니다.
+1. To delete a connection string, select the connection string and then choose the **Remove Setting** button.
 
-1. 도구 모음에서 **저장** 아이콘을 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
+1. Choose the **Save** icon on the toolbar to save these changes to the service configuration file.
 
-1. 서비스 구성 파일에서 연결 문자열에 액세스하려면 구성 설정의 값을 가져와야 합니다. 다음 코드에서는 사용자가 Azure 클라우드 서비스에 대한 웹 역할의 Default.aspx 페이지에서 **Button1**을 선택한 경우 BLOB 저장소를 만드는 위치와 서비스 구성 파일에서 연결 문자열 `MyConnectionString`을 사용하여 업로드된 데이터의 예를 보여줍니다. Default.aspx.cs에 다음 using 문을 추가합니다.
+1. To access the connection string in the service configuration file, you must get the value of the configuration setting. The following code shows an example where blob storage is created and data uploaded using a connection string `MyConnectionString` from the service configuration file when a user chooses **Button1** on the Default.aspx page in the web role for an Azure cloud service. Add the following using statements to Default.aspx.cs:
 
     ```
     using Microsoft.WindowsAzure;
@@ -115,7 +116,7 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. 디자인 보기에서 Default.aspx.cs를 열고 도구 상자에서 단추를 추가합니다. `Button1_Click` 메서드에 다음 코드를 추가합니다. 이 코드는 `GetConfigurationSettingValue`를 사용하여 연결 문자열에 대한 서비스 구성 파일에서 값을 가져옵니다. 그러면 연결 문자열 `MyConnectionString`에서 참조되는 저장소 계정에 BLOB가 생성되고 마지막으로 프로그램에서 BLOB에 텍스트를 추가합니다.
+1. Open Default.aspx.cs in design view, and add a button from the toolbox. Add the following code to the `Button1_Click` method. This code uses `GetConfigurationSettingValue` to get the value from the service configuration file for the connection string. Then a blob is created in the storage account that is referenced in the connection string `MyConnectionString` and finally the program adds text to the blob.
 
     ```
     protected void Button1_Click(object sender, EventArgs e)
@@ -133,37 +134,37 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
     }
     ```
 
-## Azure 클라우드 서비스에서 사용할 사용자 지정 설정 추가
+## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>Add custom settings to use in your Azure cloud service
 
-서비스 구성 파일의 사용자 지정 설정을 통해 특정 서비스 구성에 대한 문자열의 이름 및 값을 추가할 수 있습니다. 설정 값을 읽고 이 값을 코드에서 논리를 제어하는 데 사용하여 클라우드 서비스에서 기능을 구성하는 데 이 설정을 사용하도록 선택할 수 있습니다. 서비스 패키지를 다시 빌드하지 않고 클라우드 서비스가 실행 중인 경우에도 이러한 서비스 구성 값을 변경할 수 있습니다. 설정이 변경될 때 코드에서 알림을 확인할 수 있습니다. [RoleEnvironment.Changing 이벤트](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)를 참조하세요.
+Custom settings in the service configuration file let you add a name and value for a string for a specific service configuration. You might choose to use this setting to configure a feature in your cloud service by reading the value of the setting and using this value to control the logic in your code. You can change these service configuration values without having to rebuild your service package or when your cloud service is running. Your code can check for notifications of when a setting changes. See [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
-서비스 구성에 대한 사용자 지정 설정을 추가, 제거 또는 수정할 수 있습니다. 다양한 서비스 구성에 대해 이러한 문자열에 서로 다른 값이 필요할 수 있습니다.
+You can add, remove or modify custom settings for your service configurations. You might want different values for these strings for different service configurations.
 
-각 서비스 구성에 대해 서로 다른 값을 사용하면 클라우드 서비스에서 서로 다른 문자열을 사용하거나 클라우드 서비스에서 Azure로 게시할 때 코드를 수정하지 않아도 됩니다. 코드에서 문자열에 동일한 이름을 사용할 수 있으며 클라우드 서비스를 빌드할 때 선택한 서비스 구성 또는 게시하는 시기에 따라 값은 달라집니다.
+By using a different value for each service configuration, you do not have to use different strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
-### Azure 클라우드 서비스에서 사용할 사용자 지정 설정을 추가하려면
+### <a name="to-add-custom-settings-to-use-in-your-azure-cloud-service"></a>To add custom settings to use in your Azure cloud service
 
-1. **설정** 탭을 선택합니다.
+1. Choose the **Settings** tab.
 
-1. **서비스 구성** 목록에서 업데이트할 서비스 구성을 선택합니다.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] 특정 서비스 구성에 대한 문자열을 업데이트할 수 있지만 문자열을 추가 또는 삭제해야 하는 경우 **모든 구성**을 선택해야 합니다.
+    >[AZURE.NOTE] You can update strings for a specific service configuration, but if you need to add or delete a string, you must select **All Configurations**.
 
-1. 문자열을 추가하려면 **설정 추가** 단추를 선택합니다. 새 항목이 목록에 추가됩니다.
+1. To add a string, choose the **Add Setting** button. A new entry is added to the list.
 
-1. **이름** 텍스트 상자에 문자열에 사용할 이름을 입력합니다.
+1. In the **Name** text box, type the name that you want to use for the string.
 
-1. **형식** 드롭다운 목록에서 **문자열**을 선택합니다.
+1. In the **Type** drop-down list, choose **String**.
 
-1. 문자열에 대한 값을 추가 또는 변경하려면 **값** 텍스트 상자에 새 값을 입력합니다.
+1. To add or change the value for the string, in the **Value** text box type the new value.
 
-1. 문자열을 삭제하려면 문자열을 선택하고 **설정 제거** 단추를 선택합니다.
+1. To delete a string, select the string and then choose the **Remove Setting** button.
 
-1. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-1. 서비스 구성 파일에서 문자열에 액세스하려면 구성 설정의 값을 가져와야 합니다.
+1. To access the string in the service configuration file, you must get the value of the configuration setting.
 
-    이전 절차에서 수행했던 것처럼 다음 using 문이 Default.aspx.cs에 이미 추가되었는지 확인해야 합니다.
+    You need to make sure that the following using statements are already added to Default.aspx.cs just as you did in the previous procedure.
 
     ```
     using Microsoft.WindowsAzure;
@@ -171,7 +172,7 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. 다음 코드를 `Button1_Click` 메서드에 추가하여 연결 문자열에 액세스하는 것과 같은 방식으로 이 문자열에 액세스합니다. 그러면 사용자 코드에서 사용된 서비스 구성 파일에 대한 설정 문자열 값에 따라 일부 특정 코드를 수행할 수 있습니다.
+1. Add the following code to the `Button1_Click` method to access this string in the same way that you access a connection string. Your code can then perform some specific code based on the value of the settings string for the service configuration file that is used.
 
     ```
     var settingValue = RoleEnvironment.GetConfigurationSettingValue("MySetting");
@@ -181,42 +182,42 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
     }
     ```
 
-## 각 역할 인스턴스에 대한 로컬 저장소 관리
+## <a name="manage-local-storage-for-each-role-instance"></a>Manage local storage for each role instance
 
-각 역할 인스턴스에 대한 로컬 파일 시스템 저장소를 추가할 수 있습니다. 다른 역할에서 액세스할 필요가 없는 곳에 로컬 데이터를 저장할 수 있습니다. 테이블, BLOB 또는 SQL 데이터베이스 저장소에 저장할 필요가 없는 모든 데이터를 여기에 저장할 수 있습니다. 예를 들어, 이 로컬 저장소를 사용하여 다시 사용해야 하는 데이터를 캐시할 수 있습니다. 이 저장된 데이터는 역할의 다른 인스턴스에서 액세스할 수 없습니다.
+You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. 
 
-로컬 저장소 설정은 모든 서비스 구성에 적용됩니다. 모든 서비스 구성에 대한 로컬 저장소만 추가, 제거 또는 수정할 수 있습니다.
+Local storage settings apply to all service configurations. You can only add, remove, or modify local storage for all service configurations.
 
-### 각 역할 인스턴스에 대한 로컬 저장소를 관리하려면
+### <a name="to-manage-local-storage-for-each-role-instance"></a>To manage local storage for each role instance
 
-1. **로컬 저장소** 탭을 선택합니다.
+1. Choose the **Local Storage** tab.
 
-1. **서비스 구성** 목록에서 **모든 구성**을 선택합니다.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. 로컬 저장소 항목을 추가하려면 **로컬 저장소 추가** 단추를 선택합니다. 새 항목이 목록에 추가됩니다.
+1. To add a local storage entry, choose the **Add Local Storage** button. A new entry is added to the list.
 
-1. **이름** 텍스트 상자에 이 로컬 저장소에 사용할 이름을 입력합니다.
+1. In the **Name** text box, type the name that you want to use for this local storage.
 
-1. **크기** 텍스트 상자에 이 로컬 저장소에 필요한 크기(MB)를 입력합니다.
+1. In the **Size** text box, type the size in MB that you need for this local storage.
 
-1. 이 역할에 대한 가상 컴퓨터가 재활용될 때 이 로컬 저장소에서 데이터를 제거하려면 **역할 재생에서 정리** 확인란을 선택합니다.
+1. To remove the data in this local storage when the virtual machine for this role is recycled, select the **Clean on role recycle** check box.
 
-1. 기존 로컬 저장소 항목을 편집하려면 업데이트해야 하는 행을 선택합니다. 그런 다음 이전 단계에서 설명한 것처럼 필드를 편집할 수 있습니다.
+1. To edit an existing local storage entry, choose the row that you need to update. Then you can edit the fields, as described in the previous steps.
 
-1. 로컬 저장소 항목을 삭제하려면 목록에서 저장소 항목을 선택하고 **로컬 저장소 제거** 단추를 선택합니다.
+1. To delete a local storage entry, choose the storage entry in the list and then choose the **Remove Local Storage** button.
 
-1. 서비스 구성 파일에 이러한 변경 내용을 저장하려면 도구 모음에서 **저장** 아이콘을 선택합니다.
+1. To save these changes to the service configuration files, choose the **Save** icon on the toolbar.
 
-1. 서비스 구성 파일에 추가된 로컬 저장소에 액세스하려면 로컬 리소스 구성 설정의 값을 가져와야 합니다. 다음 코드 줄을 사용하여 이 값에 액세스하고 **MyStorageTest.txt**라는 파일을 만들어 이 파일에 테스트 데이터 줄을 기록합니다. 이 코드를 이전 절차에 사용된 `Button_Click` 메서드에 추가할 수 있습니다.
+1. To access the local storage that you have added in the service configuration file, you must get the value of the local resource configuration setting. Use the following lines of code to access this value and create a file called **MyStorageTest.txt** and write a line of test data into that file. You can add this code into the `Button_Click` method that you used in the previous procedures:
 
-1. 다음 using 문이 Default.aspx.cs에 추가되었는지 확인해야 합니다.
+1. You need to make sure that the following using statements are added to Default.aspx.cs:
 
     ```
     using System.IO;
     using System.Text;
     ```
 
-1. `Button1_Click` 메서드에 다음 코드를 추가합니다. 이 로컬 저장소에 파일을 만들고 파일에 테스트 데이터를 기록합니다.
+1. Add the following code to the `Button1_Click` method. This creates the file in the local storage and writes test data into that file.
 
     ```
     // Retrieve an object that points to the local storage resource
@@ -233,147 +234,151 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
     }
     ```
 
-1. (선택 사항) 클라우드 서비스를 로컬로 실행할 때 만든 이 파일을 보려면 다음 단계를 사용합니다.
+1. (Optional) To view this file that you created when you run your cloud service locally, use the following steps:
 
-  1. 웹 역할을 실행하고 **Button1**을 선택하여 `Button1_Click` 내부의 코드가 호출되도록 합니다.
+  1. Run the web role and select **Button1** to make sure that the code inside `Button1_Click` gets called.
 
-  1. 알림 영역에서 Azure 아이콘에 대한 바로 가기 메뉴를 열고 **계산 에뮬레이터 UI 표시**를 선택합니다. **Azure 계산 에뮬레이터** 대화 상자가 나타납니다.
+  1. In the notification area, open the shortcut menu for the Azure icon and choose **Show Compute Emulator UI**. The **Azure Compute Emulator** dialog box appears.
 
-  1. 웹 역할을 선택합니다.
+  1. Select the web role.
 
-  1. 메뉴 모음에서 **도구**, **로컬 저장소 열기**를 선택합니다. Windows 탐색기 창이 나타납니다.
+  1. On the menu bar, choose **Tools**, **Open local store**. A Windows Explorer window appears.
 
-  1. 메뉴 모음에서 **검색** 텍스트 상자에 **MyStorageTest.txt**를 입력한 후 **Enter**를 선택하여 검색을 시작합니다.
+  1. On the menu bar, enter **MyStorageTest.txt** into the **Search** text box and then choose **Enter** to start the search.
 
-    파일이 검색 결과에 표시됩니다.
+    The file is displayed in the search results.
 
-  1. 파일의 내용을 보려면 파일에 대한 바로 가기 메뉴를 열고 **열기**를 선택합니다.
+  1. To view the contents of the file, open the shortcut menu for the file and choose **Open**.
 
-## 클라우드 서비스 진단 수집
+## <a name="collect-cloud-service-diagnostics"></a>Collect cloud service diagnostics
 
-Azure 클라우드 서비스에 대한 진단 데이터를 수집할 수 있습니다. 이 데이터는 저장소 계정에 추가됩니다. 다양한 서비스 구성에 대해 서로 다른 연결 문자열이 필요할 수 있습니다. 예를 들어, UseDevelopmentStorage=true 값을 포함하는 로컬 서비스 구성에 대해 로컬 저장소 계정이 필요할 수 있습니다. 또한 Azure에서 저장소 계정을 사용하는 클라우드 서비스 구성을 구성하려고 할 수도 있습니다. Azure 진단에 대한 자세한 내용은 Azure 진단을 사용하여 로깅 데이터 수집을 참조하세요.
+You can collect diagnostics data for your Azure cloud service. This data is added to a storage account. You might want different connection strings for different service configurations. For example, you might want a local storage account for a local service configuration that has a value of UseDevelopmentStorage=true. You might also want to configure a cloud service configuration that uses a storage account in Azure. For more information about Azure diagnostics, see Collect Logging Data by Using Azure Diagnostics.
 
->[AZURE.NOTE] 로컬 서비스 구성이 로컬 리소스를 사용하도록 이미 구성되어 있습니다. Azure 클라우드 서비스를 게시하기 위해 클라우드 서비스 구성을 사용하는 경우 사용자가 연결 문자열을 지정하지 않았다면 게시할 때 지정한 연결 문자열이 진단 연결 문자열에도 사용됩니다. Visual Studio를 사용하여 클라우드 서비스를 패키지하는 경우 서비스 구성에서 연결 문자열이 변경되지 않습니다.
+>[AZURE.NOTE] The local service configuration is already configured to use local resources. If you use the cloud service configuration to publish your Azure cloud service, the connection string that you specify when you publish is also used for the diagnostics connection string unless you have specified a connection string. If you package your cloud service using Visual Studio, the connection string in the service configuration is not changed.
 
-### 클라우드 서비스 진단을 수집하려면
+### <a name="to-collect-cloud-service-diagnostics"></a>To collect cloud service diagnostics
 
-1. **구성** 탭을 선택합니다.
+1. Choose the **Configuration** tab.
 
-1. **서비스 구성** 목록에서 업데이트할 서비스 구성을 선택하거나 **모든 구성**을 선택합니다.
+1. In the **Service Configuration** list, choose the service configuration that you want to update or choose **All Configurations**.
 
-    >[AZURE.NOTE] 특정 서비스 구성에 대한 저장소 계정을 업데이트할 수 있지만 진단을 사용 또는 사용하지 않도록 설정하려면 모든 구성을 선택해야 합니다.
+    >[AZURE.NOTE] You can update the storage account for a specific service configuration, but if you want to enable or disable diagnostics you must choose All Configurations.
 
-1. 진단을 사용하도록 설정하려면 **진단 사용** 확인란을 선택합니다.
+1. To enable diagnostics, select the **Enable Diagnostics** check box.
 
-1. 저장소 계정에 대한 값을 변경하려면 줄임표(...) 단추를 선택합니다.
+1. To change the value for the storage account, choose the ellipsis (...) button.
 
-    **저장소 연결 문자열 만들기** 대화 상자가 나타납니다.
+    The **Create Storage Connection String** dialog box appears.
 
-1. 로컬 연결 문자열을 사용하려면 Azure 저장소 에뮬레이터 옵션을 선택한 다음 **확인** 단추를 선택합니다.
+1. To use a local connection string, choose Azure storage emulator option and then choose the **OK** button.
 
-1. Azure 구독과 연결된 저장소 계정을 사용하려면 **구독** 옵션을 선택합니다.
+1. To use a storage account associated with your Azure subscription, choose the **Your subscription** option.
 
-1. 로컬 연결 문자열에 대한 저장소 계정을 사용하려면 **수동으로 입력한 자격 증명** 옵션을 선택합니다.
+1. To use a storage account for the local connection string, choose the **Manually entered credentials** option.
 
-    저장소 계정을 만드는 방법 및 **저장소 연결 문자열 만들기** 대화 상자에 저장소 계정에 대한 세부 정보를 입력하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요.
+    For more information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. **계정 이름**에서 사용할 저장소 계정을 선택합니다.
+1. Choose the storage account you want to use in **Account name**.
 
-    저장소 계정 자격 증명을 수동으로 입력하는 경우 **계정 키**에 기본 키를 복사하거나 입력합니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 이 키를 복사할 수 있습니다. 이 키를 복사하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)의 **저장소 계정** 보기에서 다음 단계를 따릅니다.
+    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). To copy this key, following these steps from the **Storage Accounts** view in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
     
-  1. 클라우드 서비스에 사용할 저장소 계정을 선택합니다.
+  1. Select the storage account that you want to use for your cloud service.
 
-  1. 화면 아래쪽에 있는 **액세스 키 관리** 단추를 선택합니다. **액세스 키 관리** 대화 상자가 나타납니다.
+  1. Choose the **Manage Access Keys** button located at the bottom of the screen. The **Manage Access Keys** dialog box appears.
 
-  1. 액세스 키를 복사하려면 **클립보드로 복사** 단추를 선택합니다. 이제 이 키를 **계정 키** 필드에 붙여넣을 수 있습니다.
+  1. To copy the access key, choose the **Copy to clipboard** button. You can now paste this key into the **Account key** field.
 
-1. Azure에 클라우드 서비스를 게시할 때 진단(및 캐싱)을 위한 연결 문자열로 사용자가 제공한 저장소 계정을 사용하려면 **Azure에 게시할 때 Azure 저장소 계정 자격 증명을 사용하여 진단 및 캐싱을 위한 개발 저장소 연결 문자열 업데이트** 확인란을 선택합니다.
+1. To use the storage account that you provide, as the connection string for diagnostics (and caching) when you publish your cloud service to Azure, select the **Update development storage connection strings for Diagnostics and Caching with Azure storage account credentials when publishing to Azure** check box.
 
-1. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## 각 역할에 사용되는 가상 컴퓨터의 크기를 변경합니다.
+## <a name="change-the-size-of-the-virtual-machine-used-for-each-role"></a>Change the size of the virtual machine used for each role
 
-각 역할에 대한 가상 컴퓨터 크기를 설정할 수 있습니다. 모든 서비스 구성에 대한 이 크기만 설정할 수 있습니다. 작은 컴퓨터 크기를 선택하는 경우 적은 CPU 코어, 메모리 및 로컬 디스크 저장소가 할당됩니다. 할당된 대역폭도 작아집니다. 이러한 크기 및 할당된 리소스에 대한 자세한 내용은 [클라우드 서비스에 적합한 크기](cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
+You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md).
 
-Azure에서 각 가상 컴퓨터에 필요한 리소스는 Azure에서 클라우드 서비스를 실행하는 비용에 영향을 줍니다. Azure 대금 청구에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
+The resources required for each virtual machine in Azure affects the cost of running your cloud service in Azure. For more information about Azure Billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-### 가상 컴퓨터의 크기를 변경하려면
+### <a name="to-change-the-size-of-the-virtual-machine"></a>To change the size of the virtual machine
 
-1. **구성** 탭을 선택합니다.
+1. Choose the **Configuration** tab.
 
-1. **서비스 구성** 목록에서 **모든 구성**을 선택합니다.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. 이 역할에 대한 가상 컴퓨터 크기를 선택하려면 **VM 크기** 목록에서 적절한 크기를 선택합니다.
+1. To select the size for the virtual machine for this role, choose the appropriate size from the **VM size** list.
 
-1. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## 사용자 역할에 대한 인증서 및 끝점 관리
+## <a name="manage-endpoints-and-certificates-for-your-roles"></a>Manage endpoints and certificates for your roles
 
-프로토콜, 포트 번호, HTTPS인 경우 SSL 인증서 정보를 지정하여 네트워킹 끝점을 구성합니다. 2012년 6월 이전의 릴리스는 HTTP, HTTPS 및 TCP를 지원합니다. 2012년 6월 릴리스는 이러한 프로토콜과 UDP를 지원합니다. 계산 에뮬레이터에서 입력 끝점에는 UDP를 사용할 수 없습니다. 내부 끝점에만 해당 프로토콜을 사용할 수 있습니다.
+You configure networking endpoints by specifying the protocol, the port number, and, for HTTPS, the SSL certificate information. Releases before June 2012 support HTTP, HTTPS, and TCP. The June 2012 release supports those protocols and UDP. You can’t use UDP for input endpoints in the compute emulator. You can use that protocol only for internal endpoints.
 
-Azure 클라우드 서비스의 보안을 향상시키기 위해 HTTPS 프로토콜을 사용하는 끝점을 만들 수 있습니다. 예를 들어, 고객이 구매 주문을 위해 클라우드 서비스를 사용하는 경우 SSL을 사용하여 해당 정보가 안전한지 확인해야 합니다.
+To improve the security of your Azure cloud service, you can create endpoints that use the HTTPS protocol. For example, if you have a cloud service that is used by customers to purchase orders, you want to make sure that their information is secure by using SSL.
 
-또한 내부적으로나 외부적으로 사용할 수 있는 끝점을 추가할 수도 있습니다. 외부 끝점을 입력 끝점이라고 합니다. 입력 끝점을 통해 사용자는 클라우드 서비스에 대한 다른 액세스 지점을 얻을 수 있습니다. WCF 서비스가 있는 경우 이 서비스에 액세스하는 데 사용할 웹 역할에 대한 내부 끝점을 노출해야 할 수 있습니다.
+You can also add endpoints that can be used internally or externally. External endpoints are called input endpoints. An input endpoint allows another access point to users to your cloud service. If you have a WCF service, you might want to expose an internal endpoint for a web role to use to access this service.
 
->[AZURE.IMPORTANT] 모든 서비스 구성에 대한 끝점만 업데이트할 수 있습니다.
+>[AZURE.IMPORTANT] You can only update endpoints for all service configurations.
 
-HTTPS 끝점을 추가하는 경우 SSL 인증서를 사용해야 합니다. 이를 위해 인증서를 모든 서비스 구성에 대한 역할과 연결하고 끝점에 대해 사용할 수 있습니다.
+If you add HTTPS endpoints, you need to use an SSL certificate. To do this you can associate certificates with your role for all service configurations and use these for your endpoints.
 
->[AZURE.IMPORTANT] 이러한 인증서는 서비스와 함께 패키징되지 않습니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 통해 Azure에 인증서를 별도로 업로드해야 합니다.
+>[AZURE.IMPORTANT] These certificates are not packaged with your service. You must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-서비스 구성과 연결되는 모든 관리 인증서는 Azure에서 클라우드 서비스가 실행될 때만 적용됩니다. 클라우드 서비스가 로컬 개발 환경에서 실행되는 경우 Azure 계산 에뮬레이터가 관리하는 표준 인증서를 사용합니다.
+Any management certificates that you associate with your service configurations apply only when your cloud service runs in Azure. When your cloud service runs in the local development environment, a standard certificate that is managed by the Azure compute emulator is used.
 
-### 역할에 인증서를 추가하려면
+### <a name="to-add-a-certificate-to-a-role"></a>To add a certificate to a role
 
-1. **인증서** 탭을 선택합니다.
+1. Choose the **Certificates** tab.
 
-1. **서비스 구성** 목록에서 **모든 구성**을 선택합니다.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-    >[AZURE.NOTE] 인증서를 추가 또는 제거하려면 모든 구성을 선택해야 합니다. 필요한 경우 특정 서비스 구성에 대한 이름 및 지문을 업데이트할 수 있습니다.
+    >[AZURE.NOTE] To add or remove certificates, you must select All Configurations. You can update the name and the thumbprint for a specific service configuration if it is required.
 
-1. 이 역할에 대한 인증서를 추가하려면 **인증서 추가** 단추를 선택합니다. 새 항목이 목록에 추가됩니다.
+1. To add a certificate for this role, choose the **Add Certificate** button. A new entry is added to the list.
 
-1. **이름** 텍스트 상자에 인증서의 이름을 입력합니다.
+1. In the **Name** text box, enter the name for the certificate.
 
-1. **저장소 위치** 목록에서 추가하려는 인증서에 대한 위치를 선택합니다.
+1. In the **Store Location** list, choose the location for the certificate that you want to add.
 
-1. **저장소 이름** 목록에서 인증서를 선택하는 데 사용할 저장소를 선택합니다.
+1. In the **Store Name** list, choose the store that you want to use to select the certificate.
 
-1. 인증서를 추가하려면 줄임표(...) 단추를 선택합니다. **Windows 보안** 대화 상자가 나타납니다.
+1. To add the certificate, choose the ellipsis (...) button. The **Windows Security** dialog box appears.
 
-1. 목록에서 사용할 인증서를 선택한 후 **확인** 단추를 선택합니다.
+1. Choose the certificate that you want to use from the list and then choose the **OK** button.
 
-    >[AZURE.NOTE] 인증서 저장소에서 인증서를 추가하면 모든 중간 인증서가 구성 설정에 자동으로 추가됩니다. 또한 이러한 중간 인증서는 SSL에 대한 서비스를 올바르게 구성하기 위해 Azure에 업로드해야 합니다.
+    >[AZURE.NOTE] When you add a certificate from the certificate store, any intermediate certificates are added automatically to the configuration settings for you. These intermediate certificates must also be uploaded to Azure in order to correctly configure your service for SSL.
 
-1. 인증서를 삭제하려면 인증서를 선택하고 **인증서 제거** 단추를 선택합니다.
+1. To delete a certificate, choose the certificate and then choose the **Remove Certificate** button.
 
-1. 도구 모음에서 **저장** 아이콘을 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
+1. Choose the **Save** icon in the toolbar to save these changes to the service configuration files.
 
-### 역할에 대한 끝점을 관리하려면
+### <a name="to-manage-endpoints-for-a-role"></a>To manage endpoints for a role
 
-1. **끝점** 탭을 선택합니다.
+1. Choose the **Endpoints** tab.
 
-1. **서비스 구성** 목록에서 **모든 구성**을 선택합니다.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. 끝점을 추가하려면 **끝점 추가** 단추를 선택합니다. 새 항목이 목록에 추가됩니다.
+1. To add an endpoint, choose the **Add Endpoint** button. A new entry is added to the list.
 
-1. **이름** 텍스트 상자에 이 끝점에 사용할 이름을 입력합니다.
+1. In the **Name** text box, type the name that you want to use for this endpoint.
 
-1. **형식** 목록에서 필요한 끝점 형식을 선택합니다.
+1. Choose the type of endpoint that you need from the **Type** list.
 
-1. **프로토콜** 목록에서 필요한 끝점에 대한 프로토콜을 선택합니다.
+1. Choose the protocol for the endpoint that you need from the **Protocol** list.
 
-1. 입력 끝점인 경우 **공용 포트** 텍스트 상자에 사용할 공용 포트를 입력합니다.
+1. If it is an input endpoint, in the **Public Port** text box, enter the public port to use.
 
-1. **개인 포트** 텍스트 상자에 사용할 개인 포트를 입력합니다.
+1. In the **Private Port** text box type the private port to use.
 
-1. 끝점에서 https 프로토콜을 요구하는 경우 **SSL 인증서 이름** 목록에서 사용할 인증서를 선택합니다.
+1. If the endpoint requires the https protocol, in the **SSL Certificate Name** list choose a certificate to use.
 
-    >[AZURE.NOTE] 이 목록은 **인증서** 탭에서 이 역할에 대해 추가된 인증서를 보여줍니다.
+    >[AZURE.NOTE] This list shows the certificates that you have added for this role in the **Certificates** tab.
 
-1. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration files.
 
-## 다음 단계
-[Azure 프로젝트 구성](vs-azure-tools-configuring-an-azure-project.md)을 읽고 Visual Studio에서 Azure 프로젝트에 대해 자세히 알아봅니다. [스키마 참조](https://msdn.microsoft.com/library/azure/dd179398)를 읽고 클라우드 서비스 스키마에 대해 자세히 알아봅니다.
+## <a name="next-steps"></a>Next steps
+Learn more about Azure projects in Visual Studio by reading [Configuring an Azure Project](vs-azure-tools-configuring-an-azure-project.md). Learn more about the cloud service schema by reading [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

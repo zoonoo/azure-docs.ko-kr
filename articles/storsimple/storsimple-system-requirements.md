@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple 시스템 요구 사항 | Microsoft Azure"
-   description="Microsoft Azure StorSimple 솔루션에 대한 모범 사례와 소프트웨어, 네트워킹, 고가용성 요구 사항을 설명합니다."
+   pageTitle="StorSimple system requirements | Microsoft Azure"
+   description="Describes software, networking, and high availability requirements and best practices for a Microsoft Azure StorSimple solution."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,279 +16,285 @@
    ms.date="08/31/2016"
    ms.author="alkohli"/>
 
-# StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 
-## 개요
+# <a name="storsimple-software,-high-availability,-and-networking-requirements"></a>StorSimple software, high availability, and networking requirements
 
-Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요한 시스템 요구 사항 및 StorSimple 장치와 해당 장치에 액세스하는 저장소 클라이언트에 대한 모범 사례를 설명합니다. StorSimple 시스템을 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
+## <a name="overview"></a>Overview
 
-시스템 요구 사항에는 다음 내용이 포함됩니다.
+Welcome to Microsoft Azure StorSimple. This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
-- **저장소 클라이언트에 대한 소프트웨어 요구 사항** -지원되는 운영 체제 및 이러한 운영 체제에 대한 추가 요구 사항을 설명합니다.
-- **StorSimple 장치에 대한 네트워킹 요구 사항** - iSCSI, 클라우드 또는 관리 트래픽을 허용하도록 방화벽에서 열려야 하는 포트에 대한 정보를 제공합니다.
-- **StorSimple에 대한 고가용성 요구 사항** - StorSimple 장치 및 호스트 컴퓨터에 대한 고가용성 요구 사항 및 모범 사례를 설명합니다.
+The system requirements include:
+
+- **Software requirements for storage clients** - describes the supported operating systems and any additional requirements for those operating systems.
+- **Networking requirements for the StorSimple device** - provides information about the ports that need to be open in your firewall to allow for iSCSI, cloud, or management traffic.
+- **High availability requirements for StorSimple** - describes high availability requirements and best practices for your StorSimple device and host computer. 
 
 
-## 저장소 클라이언트에 대한 소프트웨어 요구 사항
+## <a name="software-requirements-for-storage-clients"></a>Software requirements for storage clients
 
-다음 소프트웨어 요구 사항은 StorSimple 장치에 액세스하는 저장소 클라이언트에 대한 것입니다.
+The following software requirements are for the storage clients that access your StorSimple device.
 
-| 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
+| Supported operating systems | Version required | Additional requirements/notes |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>Windows Server 2012 씬 프로비저닝 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에만 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨 및 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다.<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>포맷이 완료되면 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 2012 핫픽스를 Windows Server 컴퓨터에 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요.|
-| VMWare ESX | 5\.5 및 6.0 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다.
-| Linux RHEL/CentOS | 5, 6 및 7 | Open iSCSI 초기자 버전 5, 6 및 7과 함께 Linux iSCSI 클라이언트를 지원합니다. |
+| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Windows Server 2012 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components).|
+| VMWare ESX | 5.5 and 6.0 | Supported with VMWare vSphere as iSCSI client. VAAI-block feature is supported with VMware vSphere on StorSimple devices.
+| Linux RHEL/CentOS | 5, 6, and 7 | Support for Linux iSCSI clients with open-iSCSI initiator versions 5, 6, and 7. |
 | Linux | SUSE Linux 11 | |
- > [AZURE.NOTE] IBM AIX는 현재 StorSimple에 지원되지 않습니다.
+ > [AZURE.NOTE] IBM AIX is currently not supported with StorSimple.
 
-## 선택적 구성 요소에 대한 소프트웨어 요구 사항
+## <a name="software-requirements-for-optional-components"></a>Software requirements for optional components
 
-다음 소프트웨어 요구 사항은 선택적 StorSimple 구성 요소(StorSimple 스냅숏 관리자 및 SharePoint용 StorSimple 어댑터)에 대한 것입니다.
+The following software requirements are for the optional StorSimple components (StorSimple Snapshot Manager and StorSimple Adapter for SharePoint).
 
-| 구성 요소 | 호스트 플랫폼 | 추가 요구 사항/메모 |
+| Component | Host platform | Additional requirements/notes |
 | --------------------------- | ---------------- | ------------- |
-| StorSimple 스냅숏 관리자 | Windows Server 2008R2 SP1, 2012, 2012R2 | Windows Server에서 StorSimple 스냅숏 관리자 사용은 미러링한 동적 디스크의 백업/복원에 필요하며 응용 프로그램에 일관된 백업에 필요합니다.<br> StorSimple 스냅숏 관리자는 Windows Server 2008 R2 SP1 (64-bit), Windows 2012 R2, Windows Server 2012에만 지원됩니다.<ul><li>Window Server 2012를 사용하는 경우 StorSimple 스냅숏 관리자를 설치하기 전에 .NET 3.5–4.5를 설치해야 합니다.</li><li>Windows Server 2008 R2 SP1을 사용하는 경우 StorSimple 스냅숏 관리자를 설치하기 전에 Windows Management Framework 3.0을 설치해야 합니다.</li></ul> |
-| SharePoint용 StorSimple 어댑터 | Windows Server 2008R2 SP1, 2012, 2012R2 |<ul><li>SharePoint용 StorSimple 어댑터는 SharePoint 2010 및 SharePoint 2013에만 지원됩니다.</li><li>RBS는 SQL Server Enterprise Edition, 2008 R2 또는 2012 버전을 필요로 합니다.</li></ul>|
+| StorSimple Snapshot Manager | Windows Server 2008R2 SP1, 2012, 2012R2 | Use of StorSimple Snapshot Manager on Windows Server is required for backup/restore of mirrored dynamic disks and for any application-consistent backups.<br> StorSimple Snapshot Manager is supported only on Windows Server 2008 R2 SP1 (64-bit), Windows 2012 R2, and Windows Server 2012.<ul><li>If you are using Window Server 2012, you must install .NET 3.5–4.5 before you install StorSimple Snapshot Manager.</li><li>If you are using Windows Server 2008 R2 SP1, you must install Windows Management Framework 3.0 before you install StorSimple Snapshot Manager.</li></ul> |
+| StorSimple Adapter for SharePoint | Windows Server 2008R2 SP1, 2012, 2012R2 |<ul><li>StorSimple Adapter for SharePoint is only supported on SharePoint 2010 and SharePoint 2013.</li><li>RBS requires SQL Server Enterprise Edition, version 2008 R2 or 2012.</li></ul>|
 
-## StorSimple 장치에 대한 네트워킹 요구 사항
+## <a name="networking-requirements-for-your-storsimple-device"></a>Networking requirements for your StorSimple device
 
-StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
+Your StorSimple device is a locked-down device. However, ports need to be opened in your firewall to allow for iSCSI, cloud, and management traffic. The following table lists the ports that need to be opened in your firewall. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
 
-| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 사항 |
+| Port No.<sup>1,2</sup> | In or out | Port scope | Required | Notes |
 |------------------------|-----------|------------|----------|-------|
-|TCP 80(HTTP)<sup>3</sup>| 아웃 | WAN | 아니요 |<ul><li>아웃 바운드 포트는 업데이트를 검색하기 위해 인터넷 액세스에 사용됩니다.</li><li>아웃 바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 이 포트도 IP가 고정된 컨트롤러에 대해 열려야 합니다.</li></ul> |
-|TCP 443(HTTPS)<sup>3</sup>| 아웃 | WAN | 예 |<ul><li>아웃 바운드 포트는 클라우드에서 데이터에 액세스하는 데 사용됩니다.</li><li>아웃 바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 이 포트도 IP가 고정된 컨트롤러에 대해 열려야 합니다.</li><li>이 포트는 가비지 수집을 위해 두 컨트롤러 모두에 사용됩니다.</li></ul>|
-|UDP 53(DNS) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. |
-| UDP 123(NTP) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
-| TCP 9354 | 아웃 | WAN | 예 |아웃바운드 포트는 StorSimple 장치에서 StorSimple 관리자 서비스와 통신하는 데 사용됩니다. |
-| 3260(iSCSI) | 내용 | LAN | 아니요 | 이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다.|
-| 5985 | 내용 | LAN | 아니요 | 인바운드 포트는 StorSimple 장치와의 통신을 위해 StorSimple 스냅숏 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
-| 5986 | 내용 | LAN | 아니요 | 이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
+|TCP 80 (HTTP)<sup>3</sup>|  Out |  WAN | No |<ul><li>Outbound port is used for Internet access to retrieve updates.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul> |
+|TCP 443 (HTTPS)<sup>3</sup>| Out | WAN | Yes |<ul><li>Outbound port is used for accessing data in the cloud.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li><li>This port is also used on both the controllers for garbage collection.</li></ul>|
+|UDP 53 (DNS) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. |
+| UDP 123 (NTP) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based NTP server. |
+| TCP 9354 | Out | WAN | Yes |The outbound port is used by the StorSimple device to communicate with the StorSimple Manager service. |
+| 3260 (iSCSI) | In | LAN | No | This port is used to access data over iSCSI.|
+| 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP. |
+| 5986 | In | LAN | No | This port is used when you remotely connect to Windows PowerShell for StorSimple over HTTPS. |
 
-<sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
+<sup>1</sup> No inbound ports need to be opened on the public Internet.
 
-<sup>2</sup> 여러 포트가 게이트웨이 구성을 수행하는 경우 아웃바운드 라우팅된 트래픽 순서는 아래 [포트 라우팅](#routing-metric)에 설명된 포트 라우팅 순서에 따라 결정됩니다.
+<sup>2</sup> If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described in [Port routing](#routing-metric), below.
 
-<sup>3</sup> StorSimple 장치에서 IP가 고정된 컨트롤러는 라우팅할 수 있어야 하며 인터넷에 연결할 수 있어야 합니다. 고정 IP 주소는 장치에 대한 업데이트를 제공하는 데 사용됩니다. 장치 컨트롤러가 고정 IP를 통해 인터넷에 연결되는 경우 StorSimple 장치를 업데이트할 수 없습니다.
+<sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
 
-> [AZURE.IMPORTANT] 방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
+> [AZURE.IMPORTANT] Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
 
-### 방화벽 규칙에 대한 URL 패턴
+### <a name="url-patterns-for-firewall-rules"></a>URL patterns for firewall rules
 
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. StorSimple 장치 및 StorSimple Manager 서비스는 Azure 서비스 버스, Azure Active Directory 액세스 제어, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your StorSimple device and the StorSimple Manager service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your StorSimple as and when needed.
 
-StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
+We recommend that you set your firewall rules for outbound traffic, based on StorSimple fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
 
-> [AZURE.NOTE] 장치(원본) IP는 항상 사용하도록 설정된 네트워크 인터페이스로 설정되어야 합니다. 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/ko-KR/download/confirmation.aspx?id=41653)로 설정해야 합니다.
+> [AZURE.NOTE] The device (source) IPs should always be set to all the enabled network interfaces. The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
 
-#### Azure 포털의 URL 패턴
-| URL 패턴 | 구성 요소/기능 | 장치 IP |
+#### <a name="url-patterns-for-azure-portal"></a>URL patterns for Azure portal
+| URL pattern                                                      | Component/Functionality                                           | Device IPs                           |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
-|`https://*.backup.windowsazure.com`|장치 등록| 데이터 0만 해당|
-|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|인증서 해지 |클라우드 사용 네트워크 인터페이스 |
-| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
-| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
-| `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 | 클라우드 사용 네트워크 인터페이스 |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus| Cloud-enabled network interfaces        |
+|`https://*.backup.windowsazure.com`|Device registration| DATA 0 only|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Certificate revocation |Cloud-enabled network interfaces |
+| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure storage accounts and monitoring | Cloud-enabled network interfaces        |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                             | Controller fixed IPs only               |
+| `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |Controller fixed IPs only   |
+| `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  | Cloud-enabled network interfaces        |
 
-#### Azure Government 포털의 URL 패턴
-| URL 패턴 | 구성 요소/기능 | 장치 IP |
+#### <a name="url-patterns-for-azure-government-portal"></a>URL patterns for Azure Government portal
+| URL pattern                                                      | Component/Functionality                                           | Device IPs                           |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
-|`https://*.backup.windowsazure.us`|장치 등록| 데이터 0만 해당|
-|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|인증서 해지 |클라우드 사용 네트워크 인터페이스 |
-| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
-| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
-| `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 | 클라우드 사용 네트워크 인터페이스 |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus| Cloud-enabled network interfaces        |
+|`https://*.backup.windowsazure.us`|Device registration| DATA 0 only|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Certificate revocation |Cloud-enabled network interfaces |
+| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure storage accounts and monitoring | Cloud-enabled network interfaces        |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                             | Controller fixed IPs only               |
+| `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |Controller fixed IPs only   |
+| `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  | Cloud-enabled network interfaces        |
 
-### 라우팅 메트릭
+### <a name="routing-metric"></a>Routing metric
 
-라우팅 메트릭은 데이터를 특정 네트워크로 라우팅하는 게이트웨이 및 인터페이스와 연결됩니다. 라우팅 메트릭은 주어진 대상에 대해 다수의 경로가 존재한다는 것이 파악되면, 라우팅 프로토콜이 해당 대상에 대한 최상의 경로를 계산하는 데 사용됩니다. 라우팅 메트릭이 낮을수록 기본 설정이 높습니다.
+A routing metric is associated with the interfaces and the gateway that route the data to the specified networks. Routing metric is used by the routing protocol to calculate the best path to a given destination, if it learns multiple paths exist to the same destination. The lower the routing metric, the higher the preference.
 
-StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이가 트래픽을 전달하기 위해 구성되면 라우팅 메트릭이 인터페이스가 사용될 상대적인 순서를 결정하는 데 작용하게 됩니다. 라우팅 메트릭은 사용자에 의해 변경될 수 없습니다. 하지만 `Get-HcsRoutingTable` cmdlet을 사용하여 StorSimple 장치에 라우팅 테이블(및 메트릭)을 출력할 수 있습니다. Get-HcsRoutingTable cmdlet에 대한 자세한 내용은 [StorSimple 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
+In the context of StorSimple, if multiple network interfaces and gateways are configured to channel traffic, the routing metrics will come into play to determine the relative order in which the interfaces will get used. The routing metrics cannot be changed by the user. You can however use the `Get-HcsRoutingTable` cmdlet to print out the routing table (and metrics) on your StorSimple device. More information on Get-HcsRoutingTable cmdlet in [Troubleshooting StorSimple deployment](storsimple-troubleshoot-deployment.md).
 
-라우팅 메트릭 알고리즘은 StorSimple 장치에서 실행 중인 소프트웨어 버전에 따라 다릅니다.
+The routing metric algorithms are different depending on the software version running on your StorSimple device.
 
-**업데이트 1 이전 릴리스**
+**Releases prior to Update 1**
 
-여기에는 업데이트 1 이전의 소프트웨어 버전(예: GA, 0.1, 0.2, 또는 0.3 릴리스)이 포함됩니다. 라우팅 메트릭을 기반으로 하는 순서는 다음과 같습니다.
+This includes software versions prior to Update 1 such as the GA, 0.1, 0.2, or 0.3 release. The order based on routing metrics is as follows:
 
-   *마지막으로 구성된 10GbE 네트워크 인터페이스 > 기타 10GbE 네트워크 인터페이스 > 마지막으로 구성된 1GbE 네트워크 인터페이스 > 기타 1GbE 네트워크 인터페이스*
+   *Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface*
 
 
-**업데이트 1에서 업데이트 2 이전 릴리스**
+**Releases starting from Update 1 and prior to Update 2**
 
-여기에는 1, 1.1, 또는 1.2 같은 소프트웨어 버전이 포함됩니다. 라우팅 메트릭을 기반으로 하는 순서는 다음과 같이 결정됩니다.
+This includes software versions such as 1, 1.1, or 1.2. The order based on routing metrics is decided as follows:
 
-   *데이터 0 > 마지막으로 구성된 10GbE 네트워크 인터페이스 > 기타 10GbE 네트워크 인터페이스 > 마지막으로 구성된 1GbE 네트워크 인터페이스 > 기타 1GbE 네트워크 인터페이스*
+   *DATA 0 > Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface*
 
-   업데이트 1에서 데이터 0의 라우팅 메트릭은 가장 낮게 만들어집니다. 따라서 모든 클라우드 트래픽은 데이터 0을 통해 라우팅됩니다. StorSimple 장치에 둘 이상의 클라우드 지원 네트워크 인터페이스가 있는 경우 이를 기록해 둡니다.
+   In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0. Make a note of this if there are more than one cloud-enabled network interface on your StorSimple device.
 
 
-**업데이트 2 이후 릴리스**
+**Releases starting from Update 2**
 
-업데이트 2는 몇 가지 네트워킹 관련 사항이 개선되었고 라우팅 메트릭이 변경되었습니다. 다음과 같이 동작을 설명할 수 있습니다.
+Update 2 has several networking-related improvements and the routing metrics has changed. The behavior can be explained as follows.
 
-- 미리 결정된 값 집합이 네트워크 인터페이스에 할당되었습니다.
+- A set of predetermined values have been assigned to network interfaces.   
 
-- 클라우드를 사용하거나 클라우드를 사용하지 않지만 게이트웨이가 구성되어 있는 다양한 네트워크 인터페이스에 대해 값이 할당된 아래의 예제 테이블을 고려해 보세요. 여기에 할당된 값은 예제입니다.
+- Consider an example table shown below with values assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway. Note the values assigned here are example values only.
 
 
-	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
-	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+  	| Network interface | Cloud-enabled | Cloud-disabled with gateway |
+  	|-----|---------------|---------------------------|
+  	| Data 0  | 1            | -                        |
+  	| Data 1  | 2            | 20                       |
+  	| Data 2  | 3            | 30                       |
+  	| Data 3  | 4            | 40                       |
+  	| Data 4  | 5            | 50                       |
+  	| Data 5  | 6            | 60                       |
 
 
-- 네트워크 인터페이스를 통해 클라우드 트래픽이 라우팅되는 순서는 다음과 같습니다.
+- The order in which the cloud traffic will be routed through the network interfaces is:
 
-	*Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
+    *Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
 
-	이 내용은 다음 예제를 통해 설명됩니다.
+    This can be explained by the following example.
 
-	클라우드 사용 네트워크 인터페이스가 두 개(Data 0과 Data 5)인 StorSimple 장치가 있다고 가정합니다. Data 1에서 Data 4까지는 클라우드를 사용하지 않지만 구성된 게이트웨이가 있습니다. 이 장치에 대해 트래픽이 라우팅되는 순서는 다음과 같습니다.
+    Consider a StorSimple device with two cloud-enabled network interfaces, Data 0 and Data 5. Data 1 through Data 4 are cloud-disabled but have a configured gateway. The order in which traffic will be routed for this device will be:
 
-	*Data 0(1) > Data 5(6) > Data 1(20) > Data 2(30) > Data 3(40) > Data 4(50)*
+    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
 
-	*괄호 안의 숫자는 각각의 라우팅 메트릭을 나타냅니다.*
+    *where the numbers in parentheses indicate the respective routing metrics.*
 
-	Data 0에 실패하면 클라우드 트래픽은 Data 5를 통해 라우팅됩니다. 다른 모든 네트워크에 게이트웨이가 구성되어 있기 때문에 Data 0 및 Data 5에 실패하면 클라우드 트래픽은 Data 1을 거쳐갑니다.
+    If Data 0 fails, the cloud traffic will get routed through Data 5. Given that a gateway is configured on all other network, if both Data 0 and Data 5 were to fail, the cloud traffic will go through Data 1.
 
 
-- 클라우드 사용 네트워크 인터페이스가 실패하면, 인터페이스 연결을 30초 지연 후에 3회 재시도합니다. 재시도가 모두 실패하면 트래픽은 라우팅 테이블에 의해 결정되는 사용 가능한 다음 번 클라우드 사용 인터페이스로 라우팅됩니다. 클라우드 사용 네트워크 인터페이스가 모두 실패하면, 장치는 다른 컨트롤러로 장애 조치됩니다(이 경우 재부팅 없이).
+- If a cloud-enabled network interface fails, then are 3 retries with a 30 second delay to connect to the interface. If all the retries fail, the traffic is routed to the next available cloud-enabled interface as determined by the routing table. If all the cloud-enabled network interfaces fail, then the device will fail over to the other controller (no reboot in this case).
 
-- iSCSI 사용 네트워크 인터페이스에 VIP 오류가 있으면, 2초 지연 후에 재시도가 3회 실행됩니다. 이 동작은 이전 릴리스와 동일하게 유지됩니다. iSCSI 네트워크 인터페이스가 모두 실패하면, 컨트롤러 장애 조치(failover)가 발생합니다(재부팅 동반).
+- If there is a VIP failure for an iSCSI-enabled network interface, there will be 3 retries with a 2 seconds delay. This behavior has stayed the same from the previous releases. If all the iSCSI network interfaces fail, then a controller failover will occur (accompanied by a reboot).
 
 
-- VIP 오류가 있으면 StorSimple 장치에 경고가 생성됩니다. 자세한 내용은 [경고 빠른 참조](storsimple-manage-alerts.md)를 참조하세요.
+- An alert is also raised on your StorSimple device when there is a VIP failure. For more information, go to [alert quick reference](storsimple-manage-alerts.md).
 
-- 재시도에 있어서 iSCSI는 클라우드에 우선합니다.
+- In terms of retries, iSCSI will take precedence over cloud.
 
-	다음과 같은 예제를 가정합니다. StorSimple 장치에 Data 0 및 Data 1이라는 두 개의 네트워크 인터페이스를 사용합니다. Data 0은 클라우드를 사용하지만 Data 1은 클라우드와 iSCSI 모두를 사용합니다. 이 장치에서 클라우드 또는 iSCSI에 사용하도록 설정된 다른 네트워크 인터페이스는 없습니다.
+    Consider the following example: A StorSimple device has two network interfaces enabled, Data 0 and Data 1. Data 0 is cloud-enabled whereas Data 1 is both cloud and iSCSI-enabled. No other network interfaces on this device are enabled for cloud or iSCSI.
 
-	Data 1에 실패하면, 이것이 마지막 iSCSI 네트워크 인터페이스라는 전제 하에, 다른 컨트롤러의 Data 1로 컨트롤러 장애 조치(failover)가 발생하게 됩니다.
+    If Data 1 fails, given it is the last iSCSI network interface, this will result in a controller failover to Data 1 on the other controller.
 
 
-### 네트워킹 모범 사례
+### <a name="networking-best-practices"></a>Networking best practices
 
-StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 사항 외에도 다음 모범 사례를 준수합니다.
+In addition to the above networking requirements, for the optimal performance of your StorSimple solution, please adhere to the following best practices:
 
-- StorSimple 장치에서 항상 전용 40Mbps 대역폭(이상)을 사용할 수 있어야 합니다. 이 대역폭을 다른 응용 프로그램과 공유되지 않아야 합니다(또는 QoS 정책을 사용하여 할당을 보장해야 함).
+- Ensure that your StorSimple device has a dedicated 40 Mbps bandwidth (or more) available at all times. This bandwidth should not be shared (or allocation should be guaranteed through the use of QoS policies) with any other applications.
 
-- 항상 인터넷에 네트워크 연결이 되어야 합니다. 인터넷 연결이 전혀 안되는 것을 비롯하여 산발적이거나 안정적이지 않은 인터넷 연결은 지원되지 않은 구성을 야기합니다.
+- Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.
 
-- iSCSI 및 클라우드 액세스를 위해 장치에서 전용 네트워크 인터페이스를 갖추어 iSCSI 및 클라우드 트래픽을 분리합니다. 자세한 내용은 StorSimple 장치에서 [네트워크 인터페이스를 수정](storsimple-modify-device-config.md#modify-network-interfaces)하는 방법을 참조하세요.
+- Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces) on your StorSimple device.
 
-- 네트워크 인터페이스에 대한 링크 집합 제어 프로토콜(LACP) 구성을 사용하지 마십시오. 지원되지 않는 구성입니다.
+- Do not use a Link Aggregation Control Protocol (LACP) configuration for your network interfaces. This is an unsupported configuration.
 
 
-## StorSimple에 대한 고가용성 요구 사항
+## <a name="high-availability-requirements-for-storsimple"></a>High availability requirements for StorSimple
 
-StorSimple 솔루션에 포함된 하드웨어 플랫폼은 데이터센터에서 가용성이 높고, 내결함성을 갖춘 저장소 인프라에 대한 기반을 제공하는 가용성 및 안정성 기능이 있습니다. 하지만 StorSimple 솔루션의 가용성을 위해 준수해야 하는 요구 사항 및 모범 사례가 있습니다. StorSimple을 배포하기 전에 StorSimple 장치 및 연결된 호스트 컴퓨터에 대한 다음 요구 사항 및 모범 사례를 신중하게 검토해야 합니다.
+The hardware platform that is included with the StorSimple solution has availability and reliability features that provide a foundation for a highly available, fault-tolerant storage infrastructure in your datacenter. However, there are requirements and best practices that you should comply with to help ensure the availability of your StorSimple solution. Before you deploy StorSimple, carefully review the following requirements and best practices for the StorSimple device and connected host computers.
 
-StorSimple 장치의 하드웨어 구성 요소 모니터링 및 유지 관리에 대한 자세한 내용을 보려면 [StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링](storsimple-monitor-hardware-status.md) 및 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)로 이동하세요.
+For more information about monitoring and maintaining the hardware components of your StorSimple device, go to [Use the StorSimple Manager service to monitor hardware components and status](storsimple-monitor-hardware-status.md) and [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-### StorSimple 장치에 대한 고가용성 요구 사항 및 절차
+### <a name="high-availability-requirements-and-procedures-for-your-storsimple-device"></a>High availability requirements and procedures for your StorSimple device
 
-StorSimple 장치의 고가용성을 위해 다음 정보를 신중하게 검토해야 합니다.
+Review the following information carefully to ensure the high availability of your StorSimple device.
 
-#### PCM
+#### <a name="pcms"></a>PCMs
 
-StorSimple 장치에는 운영 중 스왑 가능한 중복 전원 및 냉각 모듈(PCM)이 포함됩니다. 각 PCM에는 전체 섀시에 서비스를 제공하기에 충분한 용량이 있습니다. 고가용성을 위해서는 두 PCM이 모두 설치되어야 합니다.
+StorSimple devices include redundant, hot-swappable power and cooling modules (PCMs). Each PCM has enough capacity to provide service for the entire chassis. To ensure high availability, both PCMs must be installed.
 
-- 전원에 문제가 있는 경우 가용성을 제공하기 위해 다른 전원에 PCM을 연결합니다.
-- PCM에 문제가 있으면 즉시 교체를 요청합니다.
-- 교체가 있고 설치 준비가 되었을 때에만 문제가 있는 PCM을 제거합니다.
-- 두 PCM을 동시에 제거하지 마십시오. PCM 모듈에는 백업 배터리 모듈이 포함됩니다. PCM 두 개를 모두 제거하면 배터리 보호 없이 전원이 꺼지고 장치 상태가 저장되지 않습니다. 배터리에 대한 자세한 내용을 보려면 [백업 배터리 모듈 유지 관리](storsimple-battery-replacement.md#maintain-the-backup-battery-module)로 이동하세요.
+- Connect your PCMs to different power sources to provide availability if a power source fails.
+- If a PCM fails, request a replacement immediately.
+- Remove a failed PCM only when you have the replacement and are ready to install it.
+- Do not remove both PCMs concurrently. The PCM module includes the backup battery module. Removing both of the PCMs will result in a shutdown without battery protection, and the device state will not be saved. For more information about the battery, go to [Maintain the backup battery module](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
-#### 컨트롤러 모듈
+#### <a name="controller-modules"></a>Controller modules
 
-StorSimple 장치에는 운영 중 스왑 가능한 중복 컨트롤러 모듈이 포함됩니다. 컨트롤러 모듈은 활성/수동 방식으로 작동합니다. 지정된 시간에 다른 컨트롤러 모듈이 수동인 동안 하나의 컨트롤러 모듈은 활성 상태이며 서비스를 제공합니다. 수동 컨트롤러 모듈이 켜져 있고 활성 컨트롤러 모듈에 오류가 발생하거나 제거된 경우 작동하게 됩니다. 각 컨트롤러 모듈에는 전체 섀시에 서비스를 제공하기에 충분한 용량이 있습니다. 높은 가용성을 위해 컨트롤러 모듈을 모두 설치해야 합니다.
+StorSimple devices include redundant, hot-swappable controller modules. The controller modules operate in an active/passive manner. At any given time, one controller module is active and is providing service, while the other controller module is passive. The passive controller module is powered on and becomes operational if the active controller module fails or is removed. Each controller module has enough capacity to provide service for the entire chassis. Both controller modules must be installed to ensure high availability.
 
-- 항상 두 컨트롤러 모듈이 모두 설치되었는지 확인합니다.
+- Make sure that both controller modules are installed at all times.
 
-- 컨트롤러 모듈에 문제가 있으면 즉시 교체를 요청합니다.
+- If a controller module fails, request a replacement immediately.
 
-- 교체가 있고 설치 준비가 되었을 때에만 문제가 있는 컨트롤러 모듈을 제거합니다. 오랫동안 모듈을 제거하면 기류에 영향을 미치므로 시스템 냉각에도 영향을 미칩니다.
+- Remove a failed controller module only when you have the replacement and are ready to install it. Removing a module for extended periods will affect the airflow and hence the cooling of the system.
 
-- 두 컨트롤러 모듈에 대한 네트워크 연결이 동일해야 하며 연결된 네트워크 인터페이스에 동일한 네트워크 구성이 있어야 합니다.
+- Make sure that the network connections to both controller modules are identical, and the connected network interfaces have an identical network configuration.
 
-- 한 컨트롤러 모듈에 장애가 발생하거나 교체가 필요한 경우, 장애가 발생한 컨트롤러 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인해야 합니다. 컨트롤러가 활성인지 확인하려면 [장치의 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
+- If a controller module fails or needs replacement, make sure that the other controller module is in an active state before replacing the failed controller module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- 두 컨트롤러 모듈을 동시에 제거하지 마십시오. 컨트롤러 장애 조치가 진행 중이면 대기 컨트롤러 모듈을 종료하거나 섀시에서 제거하지 마십시오.
+- Do not remove both controller modules at the same time. If a controller failover is in progress, do not shut down the standby controller module or remove it from the chassis.
 
-- 컨트롤러 장애 조치 후 컨트롤러 모듈을 제거하기 전에 5분 이상 기다립니다.
+- After a controller failover, wait at least five minutes before removing either controller module.
 
-#### 네트워크 인터페이스
+#### <a name="network-interfaces"></a>Network interfaces
 
-StorSimple 장치 컨트롤러 모듈마다 1기가비트 4개 및 10기가비트 2개의 이더넷 네트워크 인터페이스가 있습니다.
+StorSimple device controller modules each have four 1 Gigabit and two 10 Gigabit Ethernet network interfaces.
 
-- 두 컨트롤러 모듈에 대한 네트워크 연결이 동일해야 하며 컨트롤러 모듈 인터페이스가 연결된 네트워크 인터페이스에 동일한 네트워크 구성이 있어야 합니다.
+- Make sure that the network connections to both controller modules are identical, and the network interfaces that the controller module interfaces are connected to have an identical network configuration.
 
-- 가능하면 네트워크 장치에 오류가 발생하는 경우 서비스 가용성을 보장하기 위해 다른 스위치 간에 네트워크 연결을 배포합니다.
+- When possible, deploy network connections across different switches to ensure service availability in the event of a network device failure.
 
-- 유일한 또는 마지막 남은 iSCSI 사용 인터페이스(할당된 IP 포함)를 분리할 때 먼저 해당 인터페이스를 사용하지 않도록 설정하고 케이블을 분리합니다. 인터페이스를 먼저 분리하는 경우 활성 컨트롤러가 수동 컨트롤러로 장애 조치됩니다. 또한 수동 컨트롤러에 해당 인터페이스가 분리되어 있는 경우 한 컨트롤러를 정하기 전에 두 컨트롤러가 여러 번 재부팅됩니다.
+- When unplugging the only or the last remaining iSCSI-enabled interface (with IPs assigned), disable the interface first and then unplug the cables. If the interface is unplugged first, then it will cause the active controller to fail over to the passive controller. If the passive controller also has its corresponding interfaces unplugged, then both the controllers will reboot multiple times before settling on one controller.
 
-- 각 컨트롤러 모듈에서 네트워크에 둘 이상의 데이터 인터페이스를 연결합니다.
+- Connect at least two DATA interfaces to the network from each controller module.
 
-- 2개의 10GbE 인터페이스를 사용하도록 설정한 경우 다른 스위치 간에 배포합니다.
+- If you have enabled the two 10 GbE interfaces, deploy those across different switches.
 
-- 가능한 경우 서버가 링크, 네트워크 또는 인터페이스 오류를 허용할 수 있도록 서버에서 MPIO를 사용합니다.
+- When possible, use MPIO on servers to ensure that the servers can tolerate a link, network, or interface failure.
 
-고가용성 및 성능을 위한 장치 네트워킹 관련 정보를 보려면 [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) 또는 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device)로 이동하세요.
+For more information about networking your device for high availability and performance, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
-#### SSD 및 HDD
+#### <a name="ssds-and-hdds"></a>SSDs and HDDs
 
-StorSimple 장치에는 미러링된 공간을 사용하여 보호되는 SSD(Solid State Disk) 및 HDD(Hard Disk Drive)가 포함됩니다. 미러링된 공간을 사용하면 해당 장치가 하나 이상의 SSD 또는 HDD의 장애를 허용할 수 있습니다.
+StorSimple devices include solid state disks (SSDs) and hard disk drives (HDDs) that are protected using mirrored spaces. Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more SSDs or HDDs.
 
-- 모든 SSD 및 HDD 모듈이 설치되었는지 확인합니다.
+- Make sure that all SSD and HDD modules are installed.
 
-- SSD 또는 HDD 문제가 있으면 즉시 교체를 요청합니다.
+- If an SSD or HDD fails, request a replacement immediately.
 
-- SSD 또는 HDD에 문제가 있거나 교체가 필요한 경우, 교체가 필요한 SSD 또는 HDD만 제거해야 합니다.
+- If an SSD or HDD fails or requires replacement, make sure that you remove only the SSD or HDD that requires replacement.
 
-- 언제든지 시스템에서 하나 이상의 SSD 또는 HDD를 제거하지 마십시오. 특정 유형의 2개 이상의 디스크(HDD, SDD) 오류 또는 단시간 프레임 내의 연속된 오류는 시스템 오작동 및 잠재적 데이터 손실을 야기할 수 있습니다. 이 경우 지원을 위해 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)합니다.
+- Do not remove more than one SSD or HDD from the system at any point in time.
+A failure of 2 or more disks of certain type (HDD, SSD) or consecutive failure within a short time frame may result in system malfunction and potential data loss. If this occurs, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
-- 교체하는 동안 SSD 및 HDD에서 드라이브의 **유지 관리** 페이지에서 **하드웨어 상태**를 모니터링합니다. 녹색 확인 상태는 디스크가 정상 또는 확인 상태인지 나타내며, 빨간색 느낌표는 오류가 있는 SDD 또는 HDD를 나타냅니다.
+- During replacement, monitor the **Hardware Status** in the **Maintenance** page for the drives in the SSDs and HDDs. A green check status indicates that the disks are healthy or OK, whereas a red exclamation point indicates a failed SSD or HDD.
 
-- 시스템 오류가 있는 경우 보호가 필요한 모든 볼륨에 대한 클라우드 스냅숏을 구성하는 것이 좋습니다.
+- We recommend that you configure cloud snapshots for all volumes that you need to protect in case of a system failure.
 
-#### EBOD 인클로저
+#### <a name="ebod-enclosure"></a>EBOD enclosure
 
-StorSimple 장치 모델 8600에는 기본 인클로저 외에도 확장 EBOD(Extended Bunch of Disks) 인클로저가 포함됩니다. EBOD에는 미러링된 공간을 사용하여 보호되는 EBOD 컨트롤러 및 HDD(하드 디스크 드라이브)가 포함됩니다. 미러링된 공간을 사용하면 해당 장치가 하나 이상의 HDD의 장애를 허용할 수 있습니다. EBOD 인클로저는 중복 SAS 케이블을 통해 기본 인클로저에 연결됩니다.
+StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosure in addition to the primary enclosure. An EBOD contains EBOD controllers and hard disk drives (HDDs) that are protected using mirrored spaces. Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more HDDs. The EBOD enclosure is connected to the primary enclosure through redundant SAS cables.
 
-- 두 EBOD 인클로저 컨트롤러 모듈, 두 SAS 케이블 및 모든 하드 디스크 드라이브가 설치되어 있어야 합니다.
+- Make sure that both EBOD enclosure controller modules, both SAS cables, and all the hard disk drives are installed at all times.
 
-- EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 즉시 교체를 요청합니다.
+- If an EBOD enclosure controller module fails, request a replacement immediately.
 
-- EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [장치의 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
+- If an EBOD enclosure controller module fails, make sure that the other controller module is active before you replace the failed module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- EBOD 컨트롤러 모듈을 교체하는 동안 **유지 관리** > **하드웨어 상태**에 액세스하여 StorSimple Manager 서비스의 구성 요소 상태를 지속적으로 모니터링합니다.
+- During an EBOD controller module replacement, continuously monitor the status of the component in the StorSimple Manager service by accessing **Maintenance** > **Hardware status**.
 
-- SAS 케이블에 오류가 있거나 교체가 필요한 경우(확인을 위해 Microsoft 지원이 포함되어야 함) 교체가 필요한 SAS 케이블만 제거해야 합니다.
+- If an SAS cable fails or requires replacement (Microsoft Support should be involved to make such a determination), make sure that you remove only the SAS cable that requires replacement.
 
-- 언제든지 시스템에서 두 SAS 케이블을 동시에 제거하지 마십시오.
+- Do not concurrently remove both SAS cables from the system at any point in time.
 
-### 호스트 컴퓨터에 대한 고가용성 권장 사항
+### <a name="high-availability-recommendations-for-your-host-computers"></a>High availability recommendations for your host computers
 
-StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모범 사례를 신중하게 검토해야 합니다.
+Carefully review these best practices to ensure the high availability of hosts connected to your StorSimple device.
 
-- [2-노드 파일 서버 클러스터 구성][1]으로 StorSimple을 구성합니다. 호스트 쪽의 중복에서 오류 및 구축의 단일 지점을 제거하여 전체 솔루션 가용성이 높아집니다.
+- Configure StorSimple with [two-node file server cluster configurations][1]. By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
 
-- 저장소 컨트롤러를 장애 조치하는 동안 고가용성을 위해 Windows Server 2012(SMB 3.0)와 함께 사용할 수 있는 CA(Continuously Available) 공유를 사용합니다. Windows Server 2012를 사용하여 파일 서버 클러스터 및 CA 공유 구성을 위한 추가 정보는 이 [비디오 데모](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares)를 참조하세요.
+- Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers. For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this [video demo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [StorSimple 시스템 제한에 대해 자세히 알아봅니다](storsimple-limits.md).
-- [StorSimple 솔루션 배포 방법을 알아봅니다](storsimple-deployment-walkthrough-u2.md).
+- [Learn about StorSimple system limits](storsimple-limits.md).
+- [Learn how to deploy your StorSimple solution](storsimple-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

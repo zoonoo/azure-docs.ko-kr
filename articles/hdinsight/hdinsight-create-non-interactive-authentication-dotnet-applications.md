@@ -1,95 +1,97 @@
 <properties
-	pageTitle="비대화형 인증 .NET HDInsight 응용 프로그램 만들기 | Microsoft Azure"
-	description="비대화형 인증 .NET HDInsight 응용 프로그램을 만드는 방법을 알아봅니다."
-	editor="cgronlun"
-	manager="jhubbard"
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian"/>
+    pageTitle="Create non-interactive authentication .NET HDInsight applciations | Microsoft Azure"
+    description="Learn how to create non-interactive authentication .NET HDInsight applications."
+    editor="cgronlun"
+    manager="jhubbard"
+    services="hdinsight"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="mumian"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2016"
-	ms.author="jgao"/>
-
-# 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
-
-응용 프로그램의 고유한 ID(비대화형) 또는 응용 프로그램에 로그인한 사용자의 ID(대화형)로 .NET Azure HDInsight 응용 프로그램을 실행할 수 있습니다. 대화형 응용 프로그램 샘플의 경우 [HDInsight.NET SDK를 사용하여 Hive/Pig/Sqoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk)을 참조하세요. 이 문서에서는 비대화형 인증 .NET 응용 프로그램을 만들어 Azure HDInsight에 연결하고 Hive 작업을 제출하는 방법을 보여 줍니다.
-
-.NET 응용 프로그램에서 다음이 필요합니다.
-
-- Azure 구독 테넌트 ID
-- Azure Directory 응용 프로그램 클라이언트 ID
-- Azure Directory 응용 프로그램 비밀 키
-
-기본 프로세스에는 다음 단계가 포함됩니다.
-
-2. Azure Directory 응용 프로그램을 만듭니다.
-2. AD 응용 프로그램에 역할을 할당합니다.
-3. 클라이언트 응용 프로그램을 개발합니다.
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/02/2016"
+    ms.author="jgao"/>
 
 
-##필수 조건
+# <a name="create-non-interactive-authentication-.net-hdinsight-applications"></a>Create non-interactive authentication .NET HDInsight applications
 
-- HDInsight 클러스터. [시작 자습서](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)에 설명된 지침을 사용하여 만들 수 있습니다.
+You can execute your .NET Azure HDInsight application either under application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). For a sample of the interactive application, see [Submit Hive/Pig/Sqoop jobs using HDInsight .NET SDK](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). This article shows you how to create non-interactive authentication .NET application to connect to Azure HDInsight and submit a Hive job.
+
+From your .NET application, you will need:
+
+- your Azure subscription tenant ID
+- the Azure Directory application client ID
+- the Azure Directory application secret key.  
+
+The main process includes the following steps:
+
+2. Create an Azure Directory application.
+2. Assign roles to the AD application.
+3. Develop your client application.
+
+
+##<a name="prerequisites"></a>Prerequisites
+
+- HDInsight cluster. You can create one using the instructions found in the [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
 
 
 
-## Active Directory 응용 프로그램 만들기 
-Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 응용 프로그램의 ID로 응용 프로그램을 실행할 수 있습니다.
+## <a name="create-azure-directory-application"></a>Create Azure Directory application 
+When you create an Active Directory application, it actually creates both the application and a service principal. You can execute the application under the application’s identity.
 
-현재는 새 Active Directory 응용 프로그램을 만들려면 Azure 클래식 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure 포털에 추가될 예정입니다. Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수도 있습니다. 서비스 주체와 함께 PowerShell 또는 CLI를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)을 참조하세요.
+Currently, you must use the Azure classic portal to create a new Active Directory application. This ability will be added to the Azure portal in a later release. You can also perform these steps through Azure PowerShell or Azure CLI. For more information about using PowerShell or CLI with the service principal, see [Authenticate service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
-**Azure Directory 응용 프로그램을 만들려면**
+**To create an Azure Directory application**
 
-1.	[Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
-2.	왼쪽 창에서 **Active Directory**를 선택합니다.
+1.  Sign in to the [Azure classic portal]( https://manage.windowsazure.com/).
+2.  Select **Active Directory** from the left pane.
 
-    ![Azure 클래식 포털 Active Directory](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\active-directory.png)
+    ![Azure classic portal active directory](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\active-directory.png)
     
-3.	새 응용 프로그램을 만드는 데 사용할 디렉터리를 선택합니다. 기존 디렉터리여야 합니다.
-4.	기존 응용 프로그램을 나열하려면 위쪽에서 **응용 프로그램**을 클릭합니다.
-5.	새 응용 프로그램을 추가하려면 아래쪽에서 **추가**를 클릭합니다.
-6.	**이름**을 입력하고 **웹 응용 프로그램 및/또는 Web API**를 선택한 후 **다음**을 클릭합니다.
+3.  Select the directory that you want to use for creating the new application. It shall be the existing one.
+4.  Click **Applications** from the top to list the existing applications.
+5.  Click **Add** from the bottom to add a new application.
+6.  Enter **Name**, select **Web application and/or Web API**, and then click **Next**.
 
-    ![새 Azure Active Directory 응용 프로그램](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application.png)
+    ![new azure active directory application](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application.png)
 
-7.	**로그온 URL**과 **앱 ID URI**를 입력합니다. **로그온 URL**의 경우 응용 프로그램을 설명하는 웹 사이트에 대한 URI를 제공합니다. 웹 사이트의 존재 여부는 확인되지 않습니다. 앱 ID URI의 경우 응용 프로그램을 식별하는 URI를 제공합니다. 그런 다음 **완료**를 클릭합니다. 응용 프로그램을 만드는 데 몇 분 정도 걸립니다. 응용 프로그램이 만들어지면 포털에 새 응용 프로그램의 을 만들면 포털에 새 응용 프로그램의 한 눈에 보기 페이지가 표시됩니다. 포털을 닫지 마세요.
+7.  Enter **Sign-on URL** and **App ID URI**. For **SIGN-ON URL**, provide the URI to a web-site that describes your application. The existence of the web-site is not validated. For APP ID URI, provide the URI that identifies your application. And then click **Complete**.
+It takes a few moments to create the application.  Once the application is created, the portal shows you the Quick Glace page of the new application. Don’t close the portal. 
 
-    ![새 Azure Active Directory 응용 프로그램 속성](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application-properties.png)
+    ![new azure active directory application properties](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application-properties.png)
 
-**응용 프로그램 클라이언트 ID와 비밀 키를 가져오려면**
+**To get the application client ID and the secret key**
 
-1.	새로 만든 AD 응용 프로그램 페이지의 위쪽 메뉴에서 **구성**을 클릭합니다.
-2.	**클라이언트 ID**의 복사본을 만듭니다. .NET 응용 프로그램에 필요합니다.
-3.	**키** 아래에서 **기간 선택** 드롭다운을 클릭하고 **1년** 또는 **2년**을 선택합니다. 구성을 저장할 때까지 키 값이 표시되지 않습니다.
-4.	페이지 아래쪽에서 **저장**을 클릭합니다. 비밀 키가 표시되면 키의 복사본을 만듭니다. .NET 응용 프로그램에 필요합니다.
+1.  From the newly created AD application page, click **Configure** from the top menu.
+2.  Make a copy of **Client ID**. You will need it in your .NET application.
+3.  Under **Keys**, click **Select duration** dropdown, and select either **1 year** or **2 years**. The key value will not be displayed until you save the configuration.
+4.  Click **Save** on the bottom of the page. When the secret key appears, make a copy of the key. You will need it in your .NET application.
 
-##역할에 AD 응용 프로그램 할당
+##<a name="assign-ad-application-to-role"></a>Assign AD application to role
 
-작업 수행 권한을 부여하려면 응용 프로그램을 [역할](../active-directory/role-based-access-built-in-roles.md)에 할당해야 합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다. 이 자습서에서는 리소스 그룹 수준에서 범위를 설정합니다. Azure 클래식 포털은 리소스 그룹을 지원하지 않으므로 Azure 포털에서 이 부분을 수행해야 합니다.
+You must assign the application to a [role](../active-directory/role-based-access-built-in-roles.md) to grant it permissions for performing actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains). In this tutorial, you will set the scope at the resource group level.  Because the Azure classic portal doesn’t support resource groups, this part has to be performed from the Azure portal. 
 
-**AD 응용 프로그램에 소유자 역할을 추가하려면**
+**To add the Owner role to the AD application**
 
-1.	[Azure 포털](https://portal.azure.com)에 로그인합니다.
-2.	왼쪽 창에서 **리소스 그룹**을 클릭합니다.
-3.	이 자습서의 뒷부분에서 Hive 쿼리를 실행할 HDInsight 클러스터가 포함된 리소스 그룹을 클릭합니다. 너무 많은 리소스 그룹이 있는 경우 필터를 사용할 수 있습니다.
-4.	클러스터 블레이드에서 **액세스**를 클릭합니다.
+1.  Sign in to the [Azure portal](https://portal.azure.com).
+2.  Click **Resource Group** from the left pane.
+3.  Click the resource group that contains the HDInsight cluster where you will run your Hive query later in this tutorial. If there are too many resource groups, you can use the filter.
+4.  Click **Access** from the cluster blade.
 
-    ![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)
-5.	**사용자** 블레이드에서 **추가**를 클릭합니다.
-6.	지침에 따라 마지막 절차에서 만든 AD 응용 프로그램에 **소유자**를 추가합니다. 성공적으로 완료하면 소유자 역할이 있는 사용자가 블레이드에 나열된 응용 프로그램이 표시됩니다.
+    ![cloud and thunderbolt icon = quickstart](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)
+5.  Click **Add** from the **Users** blade.
+6.  Follow the instruction to add the **Owner** role to the AD application you created in the last procedure. When you complete it successfully, you shall see the application listed in the Users blade with the Owner role.
 
 
-##HDInsight 클라이언트 응용 프로그램 개발
+##<a name="develop-hdinsight-client-application"></a>Develop HDInsight client application
 
-[HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk)의 지침에 따라 C#.net 콘솔 응용 프로그램을 만듭니다. 그런 다음 GetTokenCloudCredentials 메서드를 다음으로 바꿉니다.
+Create a C# .net console application following the instructions found in [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Then replace the GetTokenCloudCredentials method with the following:
 
     public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
     {
@@ -106,20 +108,24 @@ Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램
         return new TokenCloudCredentials(accessToken);
     }
 
-PowerShell을 통해 테넌트 ID를 검색하려면
+To retrieve the Tenant ID through PowerShell:
 
     Get-AzureRmSubscription
 
-또는 Azure CLI:
+Or, Azure CLI:
 
     azure account show --json
 
       
-## 참고 항목
+## <a name="see-also"></a>See also
 
-- [HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
-- [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)
-- [Azure Resource Manager를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)
-- [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
+- [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
+- [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md)
+- [Authenticate service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+- [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="온-프레미스 사이트로 VMWare 가상 컴퓨터 및 물리적 서버 장애 복구 | Microsoft Azure"
-   description="VMware VM 및 물리적 서버를 Azure로 장애 조치한 후 온-프레미스 사이트로 장애 복구에 대해 알아봅니다." 
+   pageTitle="Fail back VMware virtual machines and physical servers to the on-premises site | Microsoft Azure"
+   description="Learn about failing back to the on-premises site after failover of VMware VMs and physical servers to Azure." 
    services="site-recovery" 
    documentationCenter="" 
    authors="ruturaj" 
@@ -16,192 +16,200 @@
    ms.date="08/22/2016"
    ms.author="ruturajd"/>
 
-# 온-프레미스 사이트로 VMWare 가상 컴퓨터 및 물리적 서버 장애 복구
+
+# <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Fail back VMware virtual machines and physical servers to the on-premises site
 
 > [AZURE.SELECTOR]
-- [Azure 포털](site-recovery-failback-azure-to-vmware.md)
-- [Azure 클래식 포털](site-recovery-failback-azure-to-vmware-classic.md)
-- [Azure 클래식 포털(레거시)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Azure Portal](site-recovery-failback-azure-to-vmware.md)
+- [Azure Classic Portal](site-recovery-failback-azure-to-vmware-classic.md)
+- [Azure Classic Portal (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
 
 
-이 문서에서는 Azure의 Azure 가상 컴퓨터를 온-프레미스 사이트로 장애 복구하는 방법을 설명합니다. 이 [자습서](site-recovery-vmware-to-azure-classic.md)를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치한 후 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버 장애 복구가 준비된 경우 이 문서의 지침에 따릅니다.
+This articles describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
 
 
-## 개요
+## <a name="overview"></a>Overview
 
-이 다이어그램은 이 시나리오에 대한 장애 복구 아키텍처를 보여 줍니다.
+This diagram shows the failback architecture for this scenario.
 
-프로세스 서버가 온-프레미스이고 Express 경로를 사용할 경우 이 아키텍처를 사용합니다.
+Use this architecture when the process server is on-premises and you are using an ExpressRoute.
 
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
-프로세스 서버가 Azure에 있고 VPN 또는 Express 경로를 연결할 경우 이 아키텍처를 사용합니다.
+Use this architecture when the process server is on Azure and you have either a VPN or an ExpressRoute connection.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
-포트 및 장애 복구(failback) 아키텍처 다이어그램의 전체 목록을 보려면 아래 이미지를 참조하세요.
+To see the complete list of ports and the failback architechture diagram refer to the image below
 
 ![](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
 
-장애 복구의 작동 방식은 다음과 같습니다.
+Here’s how failback works:
 
-- Azure로 장애 조치한 후 다음 몇 가지 단계에서 온-프레미스 사이트로 장애 복구합니다.
-	- **1단계**: 온-프레미스 사이트에서 실행 중인 VMware VM으로 다시 복제가 시작되도록 Azure VM을 다시 보호합니다. 다시 보호를 사용하면 장애 조치 보호 그룹을 처음 만들 때 자동으로 생성된 장애 복구 보호 그룹으로 VM을 이동합니다. 복구 계획에 장애 조치 보호 그룹을 추가한 경우 장애 복구 보호 그룹도 계획에 자동으로 추가됩니다. 다시 보호하는 동안 장애 복구를 계획하는 방법을 지정합니다.
-	- **2단계**: Azure VM이 온-프레미스 사이트에 복제된 후 Azure에서 장애 복구하도록 장애 조치를 실행합니다.
-	- **3단계**: 데이터가 장애 복구된 후 Azure로 복제가 시작하도록 장애 복구한 온-프레미스 VM을 다시 보호합니다.
+- After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
+    - **Stage 1**: You reprotect the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. Enabling reprotection moves the VM into a failback protection group that was created automatically when you originally created the failover protection group. If you added your failover protection group to a recovery plan then the failback protection group was also automatically added to the plan.  During reprotect you specify how to plan to fail back.
+    - **Stage 2**: After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
+    - **Stage 3**: After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
 > [AZURE.VIDEO enhanced-vmware-to-azure-failback]
 
 
-### 원래 또는 대체 위치로 장애 복구
+### <a name="failback-to-the-original-or-alternate-location"></a>Failback to the original or alternate location
 
-VMware VM을 장애 조치한 경우 온-프레미스에 아직 있는 경우 동일한 원본 VM으로 장애 복구할 수 있습니다. 이 시나리오에서 델타 변경 내용만 장애 복구됩니다. 다음 사항에 유의하세요.
+If you failed over a VMware VM you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes will be failed back. Note that:
 
-- 실제 서버를 장애 조치한 경우 장애 복구는 항상 새 VMware VM으로 수행됩니다.
-	- 물리적 컴퓨터를 장애 복구(failback)하기 전에 다음 사항에 유의하세요.
-	- 보호된 물리적 컴퓨터는 Azure에서 VMware로 다시 장애 조치(failover)된 경우 가상 컴퓨터로 복구됩니다.
-	- 장애 복구(failback)해야 하는 필요한 ESX/ESXi 호스트와 함께 하나 이상의 마스터 대상 서버를 검색해야 합니다.
-- 원래 VM으로 장애 복구하는 경우 다음이 필요합니다.
-	- VM이 vCenter 서버에 의해 관리되는 경우 마스터 대상의 ESX 호스트에서 VM 데이터 저장소에 액세스할 수 있어야 합니다.
-	- VM이 ESX 호스트에 있지만 vCenter에서 관리하지 않는 경우 VM의 하드 디스크는 MT의 호스트에서 액세스할 수 있는 데이터 저장소에 있어야 합니다.
-	- VM이 ESX 호스트에 있고 vCenter를 사용하지 않는 경우 다시 보호하기 전에 MT의 ESX 호스트 검색을 완료해야 합니다. 물리적 서버도 장애 복구하는 경우 적용됩니다.
-	- 다른 옵션(온-프레미스 VM이 있는 경우)은 장애 복구를 수행하기 전에 삭제하는 것입니다. 그런 다음 장애 복구는 마스터 대상 ESX 호스트와 동일한 호스트에 새 VM을 생성합니다.
-	
-- 대체 위치로 장애 복구하는 경우 데이터는 온-프레미스 마스터 대상 서버에서 사용한 것과 동일한 데이터 저장소와 동일한 ESX 호스트로 복구됩니다.
-
-
-## 필수 조건
-
-- VMware VM 및 물리적 서버를 장애 복구하려면 VMware 환경이 필요합니다. 물리적 서버로 장애 복구는 지원되지 않습니다.
-- 장애 복구하려면 보호를 처음 설정할 때 Azure 네트워크를 만들어야 합니다. 장애 복구는 온-프레미스 사이트에 있는 Azure VM이 있는 Azure 네트워크에서 VPN 또는 Express 경로 연결이 필요합니다.
-- 장애 복구하려는 VM이 vCenter 서버를 통해 관리되는 경우 vCenter 서버의 VM 검색에 필요한 권한이 있는지 확인해야 합니다. [자세히 알아보기](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-- 스냅숏이 VM에 있는 경우 다시 보호에 실패합니다. 스냅숏 또는 디스크를 삭제할 수 있습니다.
-- 장애 복구하려면 여러 구성 요소를 만들어야 합니다.
-	- **Azure에 프로세스 서버를 만듭니다**. 장애 복구 중에 만들고 계속 실행해야 하는 Azure VM입니다. 장애 복구를 완료한 후 컴퓨터를 삭제할 수 있습니다.
-	- **마스터 대상 서버 만들기**: 마스터 대상 서버는 장애 복구 데이터를 송수신합니다. 온-프레미스를 만든 관리 서버에는 기본적으로 설치된 마스터 대상 서버가 있습니다. 그러나 장애 복구 트래픽 볼륨에 따라 장애 복구에 대한 별도 마스터 대상 서버를 만들어야 할 수도 있습니다.
-	- Linux에서 실행되는 추가 마스터 대상 서버를 만들려는 경우 아래에 설명된 대로 마스터 대상 서버를 설치하기 전에 Linux VM을 설정해야 합니다.
-- 장애 복구(failback)를 수행할 때 구성 서버는 온-프레미스여야 합니다. 장애 복구(failback)하는 동안 구성 서버 데이터베이스에 가상 컴퓨터가 존재해야 하며, 그러지 않으면 장애 복구(failback)가 실패하게 됩니다. 따라서 서버의 예정된 정기 백업을 수행해야 합니다. 재해가 발생할 경우 장애 복구(failback)가 작동할 수 있도록 동일한 IP 주소를 사용하여 복원해야 합니다.
-
-## Azure에 프로세스 서버 설정
-
-Azure에 프로세스 서버를 설치해야 Azure VM이 데이터를 온-프레미스 마스터 대상 서버에 다시 보낼 수 있습니다.
-
-1.  Site Recovery 포털 > **구성 서버**에서 선택하여 새 프로세스 서버를 추가합니다.
-
-	![](./media/site-recovery-failback-azure-to-vmware-classic/ps1.png)
-
-2.  프로세스 서버 이름을 지정하고 관리자로 Azure VM에 연결하는 데 사용할 이름 및 암호를 입력합니다. **구성 서버**에서 온-프레미스 관리 서버를 선택하고 프로세스 서버를 배포해야 하는 Azure 네트워크를 지정합니다. Azure VM이 있는 네트워크이어야 합니다. 선택한 서브넷에서 고유한 IP 주소를 지정하고 배포를 시작합니다.
-
-	![](./media/site-recovery-failback-azure-to-vmware-classic/ps2.png)
-
-	프로세스 서버를 배포하기 위한 작업이 트리거됩니다.
-
-	![](./media/site-recovery-failback-azure-to-vmware-classic/ps3.png)
-
-	프로세스 서버가 Azure에 배포되면 지정한 자격 증명을 사용하여 로그인할 수 있습니다. 프로세스 서버에 처음으로 로그인할 때 대화 상자가 실행됩니다. 온-프레미스 관리 서버의 IP 주소 및 해당 암호를 입력합니다. 기본 포트 443 설정을 그대로 둡니다. 온-프레미스 관리 서버를 설정할 때 특별히 이 설정을 수정하지 않은 경우 데이터 복제에 대해 기본 9443 포트를 그대로 둘 수 있습니다.
-
-	>[AZURE.NOTE] **VM 속성** 아래에서 서버가 표시되지 않습니다. 등록되는 관리 서버의 **서버** 탭에서만 볼 수 있습니다. 프로세스 서버가 나타날 때까지 약 10-15분이 소요될 수 있습니다.
+- If you failed over physical servers then failback is always to a new VMware VM.
+    - Before failing back a Physical machine note that
+    - Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware
+    - Ensure that you discover atleast one Master Target sever along with the necessary ESX/ESXi hosts to which you need to failback.
+- If you fail back to the original VM the following is required:
+    - If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
+    - If the VM is on an ESX host but is not managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
+    - If your VM is on an ESX host and doesn't use vCenter then you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
+    - Another option (if the on-premises VM exists) is to delete it before you do a failback. Then failback will then create a new VM on the same host as the master target ESX host.
+    
+- When you failback to an alternate location the data will be recovered to the same datastore and the same ESX host as that used by the on-premises master target server. 
 
 
-## 마스터 대상 서버 온-프레미스 설정
+## <a name="prerequisites"></a>Prerequisites
 
-마스터 대상 서버는 장애 복구 데이터를 받습니다. 마스터 대상 서버는 온-프레미스 관리 서버에 자동으로 설치되지만 많은 데이터를 장애 복구하는 경우 추가 마스터 대상 서버를 설정해야 할 수도 있습니다. 다음과 같이 수행합니다.
+- You'll need a VMware environment in order to fail back VMware VMs and physical servers. Failing back to a physical server isn’t supported.
+- In order to fail back you should have created an Azure network when you initially set up protection. Failback needs a VPN or ExpressRoute connection from the Azure network in which the Azure VMs are located to the on-premises site.
+- If the VMs you want to fail back to are managed by a vCenter server you'll need to make sure you have the required permissions for discovery of VMs on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+- If snapshots are present on a VM then reprotection will fail. You can delete the snapshots or the disks. 
+- Before you fail back you’ll need to create a number of components:
+    - **Create a process server in Azure**. This is an Azure VM that you’ll need to create and keep running during failback. You can delete the machine after failback is complete.
+    - **Create a master target server**: The master target server sends and receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback.
+    - if you want to create an additional master target server running on Linux, you’ll need to set up the Linux VM before you install the master target server, as described below.
+- Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback wont be successful. Hence ensure that you take regular scheduled backup of your server. In case of a disaster, you will need to restore it with the same IP address so that failback will work.
 
->[AZURE.NOTE] Linux에 마스터 대상 서버를 설치하려는 경우 다음 절차의 지침을 따릅니다.
+## <a name="set-up-the-process-server-in-azure"></a>Set up the process server in Azure
 
-1. Windows에 마스터 대상 서버를 설치하는 경우 마스터 대상 서버를 설치하는 VM에서 빠른 시작 페이지를 열고 Azure Site Recovery 통합 설치 마법사에 대한 설치 파일을 다운로드합니다.
-2. 설치를 실행하고 **시작하기 전에**에서 **배포 규모 확장을 위해 추가 프로세스 서버 추가**를 선택합니다.
-3. [관리 서버를 설정](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)했을 때 수행한 것과 동일한 방식으로 마법사를 완료합니다. **구성 서버 세부 정보** 페이지에서 이 마스터 대상 서버의 IP 주소와 VM에 액세스하기 위한 암호를 지정합니다.
+You need to install a process server in Azure so that the Azure VMs can send the data back to on-premises master target server. 
 
-### 마스터 대상 서버로 Linux VM 설정
-Linux VM으로 마스터 대상 서버를 실행하는 관리 서버를 설정하려면 CentOS 6.6 최소 운영 체제를 설치하고 각 SCSI 하드 디스크에 대한 SCSI ID를 검색하고 몇 가지 추가 패키지를 설치하고 일부 사용자 지정 변경 내용을 적용해야 합니다.
+1.  In the Site Recovery portal >  **Configuration Servers** select to add a new process server.
 
-#### CentOS 6.6 설치
+    ![](./media/site-recovery-failback-azure-to-vmware-classic/ps1.png)
 
-1.	관리 서버 VM에 CentOS 6.6 최소 운영 체제를 설치합니다. DVD 드라이브에 ISO를 유지하고 시스템을 부팅합니다. 미디어 테스트를 건너뛰고 언어에서 영어(미국)를 선택하고 **기본 저장소 장치**를 선택하고 하드 드라이브에 중요한 데이터가 없는지 확인하고 **예**를 클릭하고 모든 데이터를 삭제합니다. 관리 서버의 호스트 이름을 입력하고 서버 네트워크 어댑터를 선택합니다. **편집 시스템** 대화 상자에서 **자동으로 연결**을 선택하고 고정 IP 주소, 네트워크 및 DNS 설정을 추가합니다. 표준 시간대 및 관리 서버에 액세스하기 위한 루트 암호를 지정합니다.
-2.	설치 형식을 묻는 경우 파티션으로 **사용자 지정 레이아웃 만들기**를 선택합니다. **다음**을 클릭한 후 **무료**를 선택하고 만들기를 클릭합니다. **FS 유형:** **ext4**로 **/**, **/var/crash** 및 **/home 파티션**을 만듭니다. **FS 유형: 스왑**으로 스왑 파티션을 만듭니다.
-3.	기존 장치가 발견되는 경우 경고 메시지가 표시됩니다. **포맷**을 클릭하여 파티션 설정으로 드라이브를 포맷합니다. **디스크에 변경 내용 쓰기**를 클릭하여 파티션 변경 내용을 적용합니다.
-4.	**부팅 로더 설치** > **다음**을 선택하여 루트 파티션에 부팅 로더를 설치합니다.
-5.	설치가 완료되면 **재부팅**을 클릭합니다.
+2.  Specify a process server name, and enter a name and password you'll use to connect to the Azure VM as an administrator. In **Configuration Server** select the on-premises management server, and specify the Azure network in which the process server should be deployed. This should be the network in which the Azure VMs are located. Specify a unique IP address from the select subnet and begin deployment.
 
+    ![](./media/site-recovery-failback-azure-to-vmware-classic/ps2.png)
 
-#### SCSI ID 검색
+    A job to deploy the process server will be triggered
 
-1. 설치 후 VM에서 각 SCSI 하드 디스크에 대한 SCSI ID를 검색합니다. 이를 수행하려면 관리 서버 VM을 종료하고 VMware의 VM 속성에서 VM 항목 > **설정 편집** > **옵션**을 마우스 오른쪽 단추로 클릭합니다.
-2. **고급** > **일반 항목**을 선택하고 **구성 매개 변수**를 클릭합니다. 컴퓨터가 실행되는 경우 이 옵션은 비활성화됩니다. 활성화하려면 컴퓨터를 종료해야 합니다.
-3. **disk.EnableUUID** 행이 존재하는 경우 값이 **True**(대/소문자 구분)로 설정되었는지 확인합니다. 존재하는 경우 취소하고 부팅된 후 게스트 운영 체제 내에서 SCSI 명령을 테스트할 수 있습니다.
-4.	행이 존재하지 않는 경우 **행 추가**를 클릭하고 **True** 값으로 추가합니다. 큰따옴표를 사용하지 마십시오.
+    ![](./media/site-recovery-failback-azure-to-vmware-classic/ps3.png)
 
-#### 추가 패키지 설치
+    After the process server is deployed in Azure you can log onto it using the credentials you specified. The first time you log in the process server dialog will run. Type in the IP address of the on-premises management server and its passphrase. Leave the default port 443 setting. You can also leave the default 9443 port for data replication unless you specifically modified this setting when you set up the on-premises management server. 
 
-몇 가지 추가 패키지를 다운로드 및 설치해야 합니다.
-
-1.	마스터 대상 서버가 인터넷에 연결되어 있는지 확인합니다.
-2.	이 명령을 실행하여 다운로드하고 CentOS 리포지토리에서 15개의 패키지를 설치합니다. **# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools**.
-3.	보호하려는 원본 컴퓨터가 루트 또는 부팅 장치에 대해 Linux wit Reiser 또는 XFS 파일 시스템을 실행하는 경우 다음과 같이 추가 패키지를 다운로드하고 설치해야 합니다.
-
-	- # cd /usr/local
-	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
-	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
-	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
-	- # wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
-	- # rpm –ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
-
-#### 사용자 지정 변경 내용 적용
-
-설치 후 단계를 완료하고 패키지를 설치한 후 다음을 수행하여 사용자 지정 변경 내용을 적용합니다.
-
-1.	RHEL 6-64 통합 에이전트 바이너리를 VM에 복사합니다. 이 명령을 실행하여 바이너리를 untar합니다. **tar-zxvf <파일 이름>**
-2.	이 명령을 실행하여 사용 권한을 부여합니다. **# chmod 755 ./ApplyCustomChanges.sh**
-3.	스크립트: **# ./ApplyCustomChanges.sh**를 실행합니다. 스크립트를 한 번만 실행해야 합니다. 스크립트가 성공적으로 실행된 후 서버를 다시 부팅합니다.
+    >[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
 
-## 장애 복구 실행
+## <a name="set-up-the-master-target-server-on-premises"></a>Set up the master target server on-premises
 
-### Azure VM 다시 보호
+The master target server receives the failback data. A master target server is automatically installed on the on-premises management server but if you're failing back a lot of data you might need to set up an additional master target server. Do this as follows:
 
-1.	Site Recovery 포털 > **컴퓨터** 탭에서 장애 조치(failover)된 VM을 선택하고 **다시 보호**를 클릭합니다.
-2.	**마스터 대상 서버** 및 **프로세스 서버**에서 온-프레미스 마스터 대상 서버 및 Azure VM 프로세스 서버를 선택합니다.
-3.	VM에 연결하기 위해 구성된 계정을 선택합니다.
-4.	보호 그룹의 장애 복구 버전을 선택합니다. 예를 들어 VM이 PG1에서 보호되는 경우 PG1\_Failback을 선택해야 합니다.
-5.	대체 위치로 복구하려는 경우 마스터 대상 서버에 대해 구성된 보존 드라이브 및 데이터 저장소를 선택합니다. 온-프레미스 사이트로 장애 복구할 때 장애 복구 보호 계획의 VMware VM은 마스터 대상 서버와 동일한 데이터 저장소를 사용합니다. 동일한 온-프레미스 VM으로 복제본 Azure VM을 복구하려는 경우 온-프레미스 VM은 마스터 대상 서버와 동일한 데이터 저장소에 있어야 합니다. VM 온-프레미스가 없는 경우 다시 보호하는 동안 새 VM 온-프레미스가 만들어집니다.
+>[AZURE.NOTE] If you want to install a master target server on Linux, follow the instructions in the next procedure.
 
-	![](./media/site-recovery-failback-azure-to-vmware-classic/failback1.png)
+1. If you're installing the master target server on Windows, open the Quick Start page from the VM on which you're installing the master target server, and download the installation file for the Azure Site Recovery Unified Setup wizard.
+2. Run setup and in **Before you begin** select **Add additional process servers to scale out deployment**.
+3. Complete the wizard in the same way you did when you [set up the management server](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). On the **Configuration Server Details** page, specify the IP address of this master target server, and a passphrase to access the VM.
 
-6.	**확인**을 클릭하여 시작하면 다시 보호 작업이 Azure의 VM을 온-프레미스 사이트로 복제하는 작업을 시작합니다. **작업** 탭에서 진행률을 추적할 수 있습니다.
+### <a name="set-up-a-linux-vm-as-the-master-target-server"></a>Set up a Linux VM as the master target server
+To set up the management server running the master target server as a Linux VM you'll need to install the Cent)S 6.6 minimal operating system, retrieve the SCSI IDs for each SCSI hard disk, install some additional packages, and apply some custom changes.
 
-	![](./media/site-recovery-failback-azure-to-vmware-classic/failback2.png)
+#### <a name="install-centos-6.6"></a>Install CentOS 6.6
 
-### 온-프레미스 사이트로 장애 조치 실행
-
-다시 보호한 후 VM은 해당 보호 그룹의 장애 복구 버전으로 이동되고 복구 계획이 있는 경우 Azure로 장애 조치에 대해 사용한 복구 계획에 자동으로 추가됩니다.
-
-1.	**복구 계획** 페이지에서 장애 복구 그룹을 포함하는 복구 계획을 선택하고 **장애 조치** > **계획되지 않은 장애 조치**를 클릭합니다.
-2.	**장애 조치 확인**에서 장애 조치 방향을 확인하고 장애 조치(최신)에 사용할 복구 지점을 선택합니다. 복제 속성을 구성할 때 **여러 VM**을 설정한 경우 최신 앱 또는 크래시 일관성 복구 지점으로 복구할 수 있습니다. 확인 표시를 클릭하여 장애 조치를 시작합니다.
-3.	장애 조치 중 사이트 복구는 Azure VM을 종료합니다. 장애 복구가 예상대로 완료된 후 Azure VM이 예상대로 종료되었는지 확인할 수 있습니다.
-
-### 온-프레미스 사이트 다시 보호
-
-장애 복구가 완료된 후 데이터는 온-프레미스 사이트로 다시 이동되지만 보호할 수 없습니다. Azure에 복제를 다시 시작하려면 다음을 수행합니다.
-
-1.	사이트 복구 포털 > **컴퓨터** 탭에서 장애 복구된 VM을 선택하고 **다시 보호**를 클릭합니다.
-2.	Azure로 복제가 예상대로 작동하는지 확인한 후 Azure에서 장애 복구된 Azure VM(현재 실행되고 있지 않는)을 삭제할 수 있습니다.
+1.  Install the CentOS 6.6 minimal operating system on the management server VM. Keep the ISO in a DVD drive and boot the system. Skip the media testing, select US English at the language, select **Basic Storage Devices**, check that the hard drive doesn’t have any important data and click **Yes**, discard any data. Enter the host name of the management server and select the server network adapter.  In the **Editing System** dialog select** Connect automatically** and add a static IP address, network, and DNS settings. Specify a time zone, and a root password to access the management server. 
+2.  When you asked the type of installation you’d like select **Create Custom Layout** as the partition. After you click **Next** select **Free** and click Create. Create **/**,  **/var/crash** and **/home partitions** with **FS Type:** **ext4**. Create the swap partion as **FS Type: swap**.
+3.  If pre-existing devices are found a warning message will appear. Click **Format** to format the drive with the partition settings. Click **Write change to disk** to apply the partition changes.
+4.  Select **Install boot loader** > **Next** to install the boot loader on the root partition.
+5.  When installation is complete click **Reboot**.
 
 
-### 장애 복구(failback)의 일반적인 문제
+#### <a name="retrieve-the-scsi-ids"></a>Retrieve the SCSI IDs
 
-1. 읽기 전용 사용자 vCenter 검색을 수행하고 가상 컴퓨터를 보호한 경우 작업에 성공하고 장애 조치(failover)가 작동합니다. 다시 보호 시점에서는 데이터 저장소를 검색할 수 없으므로 작업에 실패합니다. 하나의 증상으로, 다시 보호하는 동안 나열된 데이터 저장소가 보이지 않습니다. 이 문제를 해결하려면 사용 권한이 있는 적절한 계정을 사용하여 vCenter 자격 증명을 업데이트하고 작업을 다시 시도하면 됩니다. [자세히 알아보기](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
-2. Linux VM을 장애 복구(failback)하고 온-프레미스에서 실행하는 경우 네트워크 관리자 패키지가 컴퓨터에서 제거됩니다. 이는 Azure에서 VM이 복구된 경우 네트워크 관리자 패키지가 제거되기 때문입니다.
-3. VM이 고정 IP 주소로 구성되고 Azure로 장애 조치(failover)된 경우 IP 주소는 DHCP를 통해 가져옵니다. 온-프레미스로 다시 장애 조치(failover)하면 VM에서 계속 DHCP를 사용하여 IP 주소를 가져옵니다. 컴퓨터에 수동으로 로그인하고 필요한 경우 IP 주소를 고정 주소로 다시 설정해야 합니다.
-4. ESXi 5.5 무료 버전 또는 vSphere 6 하이퍼바이저 무료 버전을 사용하는 경우 장애 조치(failover)에는 성공하지만 장애 복구(failback)에는 실패합니다. 장애 복구(failback)를 사용하도록 설정하려면 평가판 라이선스로 업그레이드해야 합니다.
+1. After installation retrieve the SCSI IDs for each SCSI hard disk in the VM. To do this shut down the management server VM, in the VM properties in VMware right-click the VM entry > **Edit Settings** > **Options**.
+2. Select **Advanced** > **General item** and click **Configuration Parameters**. This option will be de-active when the machine is running. To make it active the machine must be shut down.
+3. If the row **disk.EnableUUID** exists make sure the value is set to **True** (case sensitive). If it already is you can cancel and test the SCSI command inside a guest operating system after it’s booted. 
+4.  If the row doesn’t existing click **Add Row** – and add it with the **True** value. Don’t use double-quotes.
 
-## Express 경로로 장애 복구
+#### <a name="install-additional-packages"></a>Install additional packages
 
-VPN 연결 또는 Azure Express 경로를 통해 장애 복구할 수 있습니다. Express 경로를 사용하려면 다음에 유의합니다.
+You’ll need to download and install some additional packages. 
 
-- Express 경로는 원본 컴퓨터가 장애 조치되고 장애 조치가 발생한 후 Azure VM이 위치하는 Azure 가상 네트워크에 설치되어 있어야 합니다.
-- 데이터는 공용 끝점의 Azure 저장소 계정에 복제됩니다. Express 경로를 사용하려면 사이트 복구 복제에 대한 대상 데이터 센터로 Express 경로에 공용 피어링을 설정해야 합니다.
+1.  Make sure the master target server is connected to the internet.
+2.  Run this command to download and install 15 packages from the CentOS repository: **# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools**.
+3.  If the source machines you’re protecting are running Linux wit Reiser or XFS file system for the root or boot device, then you should download and install additional packages as follows:
 
-<!---HONumber=AcomDC_0824_2016--->
+    - # <a name="cd-/usr/local"></a>cd /usr/local
+    - # <a name="wget-[http://elrepo.org/linux/elrepo/el6/x86_64/rpms/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/rpms/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)"></a>wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
+    - # <a name="wget-[http://elrepo.org/linux/elrepo/el6/x86_64/rpms/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/rpms/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)"></a>wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
+    - # <a name="rpm-–ivh-kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm-reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm"></a>rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
+    - # <a name="wget-[http://mirror.centos.org/centos/6.6/os/x86_64/packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)"></a>wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
+    - # <a name="rpm-–ivh-xfsprogs-3.1.1-16.el6.x86_64.rpm"></a>rpm –ivh xfsprogs-3.1.1-16.el6.x86_64.rpm
+
+#### <a name="apply-custom-changes"></a>Apply custom changes
+
+Do the following to apply custom changes after you’ve complete the post-installation steps and installed the packages:
+
+1.  Copy the RHEL 6-64 Unified Agent binary to the VM. Run this command to untar the binary: **tar –zxvf <file name>**
+2.  Run this command to give permissions: **# chmod 755 ./ApplyCustomChanges.sh**
+3.  Run the script: **# ./ApplyCustomChanges.sh**. You should only run the script once. Reboot the server after the script runs successfully.
+
+
+## <a name="run-the-failback"></a>Run the failback
+
+### <a name="reprotect-the-azure-vms"></a>Reprotect the Azure VMs
+
+1.  In the Site Recovery  portal > **Machines** tab select the VM that's been failed over and click **Re-Protect**.
+2.  In **Master Target Server** and **Process Server** select the on-premises master target server, and the Azure VM process server.
+3.  Select the account you configured for connecting to the VM.
+4.  Select the failback version of the protection group. For example if the VM is protected in PG1 then you'll need to select PG1_Failback.
+5.  If you want to recover to an alternate location, select the retention drive and datastore configured for the master target server. When you fail back to the on-premises site the VMware VMs in the failback protection plan will use the same datastore as the master target server. If you want to recover the replica Azure VM to the same on-premises VM then the on-premises VM should already be in the same datastore as the master target server. If there's no VM on-premises a new one will be created during reprotection.
+
+    ![](./media/site-recovery-failback-azure-to-vmware-classic/failback1.png)
+
+6.  After you click **OK** to begin reprotection a job begins to replicate the VM from Azure to the on-premises site. You can track the progress on the **Jobs** tab.
+
+    ![](./media/site-recovery-failback-azure-to-vmware-classic/failback2.png)
+
+### <a name="run-a-failover-to-the-on-premises-site"></a>Run a failover to the on-premises site
+
+After reprotection the VM is moved to the failback version of its protection group and is automatically added to the recovery plan you used for the failover to Azure if there is one.
+
+1.  In the **Recovery Plans** page select the recovery plan containing the failback group and click **Failover** > **Unplanned Failover**.
+2.  In **Confirm Failover** verify the failover direction (to Azure) and select the recovery point you want to use for the failover (latest). If you enabled **Multi-VM** when you configured replication properties you can recover to the latest app or crash-consistent recovery point. Click the check mark to start the failover.
+3.  During failover Site Recovery will shut down the Azure VMs. After you check that failback has completed as expected you can you can check that the Azure VMs have been shut down as expected.
+
+### <a name="reprotect-the-on-premises-site"></a>Reprotect the  on-premises site
+
+After failback completes your data will be back on the on-premises site, but won’t be protected. To start replicating to Azure again do the following:
+
+1.  In the Site Recovery portal > **Machines** tab select the VMs that have failed back and click **Re-Protect**. 
+2.  After you verify that replication to Azure is working as expected, in Azure you can delete the Azure VMs (currently not running) that were failed back.
+
+
+### <a name="common-issues-in-failback"></a>Common Issues in failback
+
+1. If you perform Read-Only User vCenter discovery and protect virtual machines, it succeeds and failover works. At the time of Reprotect, it will fail since the datastores cannot be discovered. As a symptom you will not see the datastores listed while re-protecting. To resolve this, you can update the vCenter credential with appropriate account that has permissions and retry the job. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
+2. When you failback a Linux VM and run it on-prem, you will see that the Network Manager package is uninstalled from the machine. This is because when the VM is recovered in Azure, the Network Manager package is removed.
+3. When a VM is configured with Static IP address and is failed over to Azure, the IP address is acquired via DHCP. When you fail over back to On-prem, the VM continues to use DHCP to acquire the IP address. You will need to manually login into the machine and set the IP address back to Static address if required.
+4. If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback will not succeed. You will ned to upgrade to either Evaluation License to enable failback.
+
+## <a name="failing-back-with-expressroute"></a>Failing back with ExpressRoute
+
+You can fail back over a VPN connection or Azure ExpressRoute. If you want to use ExpressRoute note the following:
+
+- ExpressRoute should be set up on the Azure virtual network to which source machines fail over, and in which Azure VMs are located after the failover occurs.
+- Data is replicated to an Azure storage account on a public endpoint. You should set up public peering in ExpressRoute with the target data center for Site Recovery replication to use ExpressRoute.
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

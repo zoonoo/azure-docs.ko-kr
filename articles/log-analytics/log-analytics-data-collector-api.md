@@ -1,0 +1,441 @@
+<properties
+    pageTitle="Log Analytics HTTP 데이터 수집기 API | Microsoft Azure"
+    description="REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 문서는 API를 사용하는 방법을 설명하며, 다양한 프로그래밍 언어를 사용하여 데이터를 게시하는 방법을 예제로 제시합니다."
+    services="log-analytics"
+    documentationCenter=""
+    authors="bwren"
+    manager="jwhit"
+    editor=""/>
+
+<tags
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/11/2016"
+    ms.author="bwren"/>
+
+
+
+# <a name="log-analytics-http-data-collector-api"></a>Log Analytics HTTP 데이터 수집기 API  
+
+Log Analytics HTTP 데이터 수집기 API를 사용하면 REST API를 호출할 수 있는 모든 클라이언트에서 POST JSON(JavaScript Object Notation) 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 방법으로 Azure Automation의 Runbook 같은 타사 응용 프로그램이나 스크립트에서 데이터를 보낼 수 있습니다.  
+
+## <a name="create-a-request"></a>요청 만들기
+
+다음 두 표에서는 Log Analytics HTTP 데이터 수집기 API에 대한 각 요청에 필요한 속성을 보여 줍니다. 이 문서의 뒷부분에서 각각의 속성에 대해 자세히 설명합니다.
+
+### <a name="request-uri"></a>요청 URI
+
+| 특성 | 속성 |
+|:--|:--|
+| 메서드 | POST |
+| URI | https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| 콘텐츠 형식 | application/json |
+
+### <a name="request-uri-parameters"></a>URI 매개 변수 요청
+| 매개 변수 | 설명 |
+|:--|:--|
+| CustomerID  | Microsoft Operations Management Suite 작업 영역에 대한 고유 식별자입니다. |
+| 리소스    | API 리소스 이름: /api/logs |
+| API 버전 | 이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
+
+### <a name="request-headers"></a>헤더 요청
+| 헤더 | 설명 |
+|:--|:--|
+| 권한 부여 | 권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
+| Log-Type | 제출 중인 데이터의 레코드 종류를 지정합니다. 현재는 로그 형식에서 영문자만 지원합니다. 숫자 또는 특수 문자는 지원되지 않습니다. |
+| x-ms-date | RFC 1123 형식의 요청이 처리된 날짜입니다. |
+| time-generated-field | 데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
+
+
+## <a name="authorization"></a>권한 부여
+
+Log Analytics HTTP 데이터 수집기 API에 대한 모든 요청에는 권한 부여 헤더가 포함되어야 합니다. 요청을 인증하려면 요청을 수행하는 작업 영역에 대한 기본 키 또는 보조 키를 통해 요청을 서명해야 합니다. 그런 다음 요청의 일부로 해당 서명을 전달합니다.   
+
+권한 부여 헤더의 형식은 다음과 같습니다.
+
+```
+Authorization: SharedKey <WorkspaceID>:<Signature>
+```
+
+*WorkspaceID*는 Operations Management Suite 작업 영역에 대한 고유 식별자입니다. *서명*은 요청에서 구성되고 [SHA256 알고리즘](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx)을 사용하여 계산된 [해시 기반 메시지 인증 코드(HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx)입니다. 그런 다음 Base64 인코딩을 사용하여 인코딩합니다.
+
+이 형식을 사용하여 **SharedKey** 서명 문자열을 인코딩합니다.
+
+```
+StringToSign = VERB + "\n" +
+               Content-Length + "\n" +
+               Content-Type + "\n" +
+               x-ms-date + "\n" +
+               "/api/logs";
+```
+
+서명 문자열의 예는 다음과 같습니다.
+
+```
+POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
+```
+
+서명 문자열이 있을 때는 UTF-8 문자열에서 HMAC-SHA256 알고리즘을 사용하여 인코딩한 다음 결과를 Base64로 인코딩합니다. 이 형식을 사용합니다.
+
+```
+Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
+```
+
+다음 섹션의 샘플은 권한 부여 헤더를 만드는 데 도움이 되는 예제 코드입니다.
+
+## <a name="request-body"></a>요청 본문
+
+메시지의 본문은 JSON에 있어야 합니다. 다음 형식으로 속성 이름과 값 쌍을 갖는 하나 이상의 레코드를 포함해야 합니다.
+
+```
+{
+"property1": "value1",
+" property 2": "value2"
+" property 3": "value3",
+" property 4": "value4"
+}
+```
+
+다음 형식을 사용하여 단일 요청에서 여러 레코드를 일괄 처리할 수 있습니다. 모든 레코드는 동일한 레코드 형식 이어야 합니다.
+
+```
+{
+"property1": "value1",
+" property 2": "value2"
+" property 3": "value3",
+" property 4": "value4"
+},
+{
+"property1": "value1",
+" property 2": "value2"
+" property 3": "value3",
+" property 4": "value4"
+}
+```
+
+## <a name="record-type-and-properties"></a>레코드 유형 및 속성
+
+Log Analytics HTTP 데이터 수집기 API를 통해 데이터를 제출할 때 사용자 지정 레코드 유형을 정의합니다. 현재는 다른 데이터 형식과 솔루션으로 만든 기존 레코드 형식에 데이터를 쓸 수 없습니다. Log Analytics가 드러오는 데이터를 읽은 다음 입력한 값의 데이터 형식과 일치하는 속성을 만듭니다.
+
+Log Analytics API에 대한 각각의 요청은 레코드 형식의 이름과 함께 **Log-Type** 헤더를 포함해야 합니다. 이 사용자 지정 로그를 다른 로그 형식과 구분하기 위해 입력한 이름에는 접미사 **_CL**이 자동으로 추가됩니다. 예를 들어 **MyNewRecordType**을 입력하면 Log Analytics가 **MyNewRecordType_CL** 형식의 레코드를 만듭니다. 이렇게 하면 사용자가 만든 형식 이름과 Microsoft가 현재 또는 향후에 포함한 이름 사이의 충돌을 방지할 수 있습니다.
+
+속성의 데이터 형식을 식별하기 위해 Log Analytics가 속성 이름에 접미사를 추가합니다. 속성에 null 값이 있으면 속성이 해당 레코드에 포함되지 않습니다. 이 표는 속성 데이터 형식과 해당하는 접미사를 나열합니다.
+
+| 속성 데이터 형식 | 접미사 |
+|:--|:--|
+| 문자열    | _s |
+| Boolean   | _b |
+| Double    | _d |
+| 날짜/시간 | _t |
+| GUID      | _g |
+
+
+Log Analytics가 각 속성에 사용하는 데이터 형식은 새 레코드에 대한 레코드 형식이 이미 존재하는지 여부에 따라 달라집니다.
+
+- 레코드 형식이 없으면 Log Analytics가 새로 만듭니다. Log Analytics는 JSON 형식을 사용하여 새 레코드에 대한 각 속성의 데이터 형식을 결정합니다.
+- 레코드 형식이 없으면 Log Analytics가 기존 속성에 따라 새 레코드를 만들려 합니다. 새 레코드에서 속성에 대한 데이터 형식이 일치하지 않고 기존 형식으로 변환할 수 없거나, 레코드가 존재하지 않는 속성을 포함하는 경우 Log Analytics는 관련 접미사가 있는 새 속성을 만듭니다.
+
+예를 들어, 이 제출 항목은 **number_d**, **boolean_b**, **string_s** 등의 세 가지 속성이 있는 레코드를 만듭니다.
+
+![샘플 레코드 1](media/log-analytics-data-collector-api/record-01.png)
+
+이후 모든 값을 문자열 형식으로 지정하여 다음 항목을 제출하면 속성이 변경되지 않습니다. 이러한 값은 기존 데이터 형식으로 변환할 수 있습니다.
+
+![샘플 레코드 2](media/log-analytics-data-collector-api/record-02.png)
+
+그러나 이 다음 제출을 실행하면 Log Analytics가 새 속성 **boolean_d** 및 **string_d**를 만듭니다. 이 값은 변환할 수 없습니다.
+
+![샘플 레코드 3](media/log-analytics-data-collector-api/record-03.png)
+
+이후 다음 항목을 제출하면 레코드 형식을 만들기 전에 Log Analytics가 **number_s**, **boolean_s** 및 **string_s** 등의 세 가지 속성으로 레코드를 만듭니다. 이 항목에서 각각의 초기 값은 문자열 형식이 됩니다.
+
+![샘플 레코드 4](media/log-analytics-data-collector-api/record-04.png)
+
+## <a name="return-codes"></a>반환 코드
+
+HTTP 상태 코드 202는 요청이 처리를 위해 수락되었으나 처리가 아직 완료되지 않았음을 의미합니다. 이 항목은 작업이 성공적으로 완료되었음을 나타냅니다.
+
+이 표는 서비스에서 반환할 수 있는 전체 상태 코드 집합을 보여 줍니다.
+
+| 코드 | 가동 상태 | 오류 코드 | 설명 |
+|:--|:--|:--|:--|
+| 202 | 수락됨 |  | 요청이 성공적으로 수락되었습니다. |
+| 400 | 잘못된 요청 | InactiveCustomer | 작업 영역이 닫혔습니다. |
+| 400 | 잘못된 요청 | InvalidApiVersion | 지정한 API 버전이 서비스에서 인식되지 않았습니다. |
+| 400 | 잘못된 요청 | InvalidCustomerId | 지정된 작업 영역 ID가 올바르지 않습니다. |
+| 400 | 잘못된 요청 | InvalidDataFormat | 잘못된 JSON이 제출되었습니다. 응답 본문에 오류 해결 방법에 관한 추가 정보가 포함될 수 있습니다. |
+| 400 | 잘못된 요청 | InvalidLogType | 지정한 로그 형식이 특수 문자나 숫자를 포함합니다. |
+| 400 | 잘못된 요청 | MissingApiVersion | API 버전을 지정하지 않았습니다. |
+| 400 | 잘못된 요청 | MissingContentType | 콘텐츠 형식을 지정하지 않았습니다. |
+| 400 | 잘못된 요청 | MissingLogType | 필요한 값 로그 형식을 지정하지 않았습니다. |
+| 400 | 잘못된 요청 | UnsupportedContentType | 콘텐츠 형식이 **application/json**으로 설정되지 않았습니다. |
+| 403 | 사용할 수 없음 | InvalidAuthorization | 서비스가 요청을 인증하지 못했습니다. 작업 영역 ID 및 연결 키가 올바른지 확인합니다. |
+| 500 | 내부 서버 오류 | UnspecifiedError | 서비스에 내부 오류가 발생했습니다. 요청을 다시 시도하세요. |
+| 503 | 서비스를 사용할 수 없음 | ServiceUnavailable | 현재 서비스가 요청을 받을 수 없습니다. 요청을 다시 시도하세요. |
+
+## <a name="query-data"></a>쿼리 데이터
+
+Log Analytics HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리하려면 지정한 **LogType** 값에 **_CL**을 첨부한 것과 같은 **형식**의 레코드를 검색하십시오. 예를 들어, **MyCustomLog**를 사용한 경우**Type=MyCustomLog_CL**을 갖는 모든 레코드를 반환합니다.
+
+
+## <a name="sample-requests"></a>샘플 요청
+
+다음 섹션에서는 다양한 프로그래밍 언어를 사용하여 Log Analytics HTTP 데이터 수집기에 데이터를 제출하는 방법의 샘플을 제공합니다.
+
+각각의 샘플에서 다음 절차를 통해 권한 부여 헤더에 대한 변수를 설정합니다.
+
+1. Operations Management Suite 포털에서 **설정** 타일을 선택하고 **연결 원본** 탭을 선택합니다.
+2. **작업 영역 ID** 오른쪽에서 복사 아이콘을 선택한 다음 이 ID를 **고객 ID** 변수의 값으로 붙여넣습니다.
+3. **기본 키** 오른쪽에서 복사 아이콘을 선택한 다음 이 ID를 **공유 키** 변수의 값으로 붙여넣습니다.
+
+또는 로그 형식 및 JSON 데이터에 대한 변수를 변경할 수 있습니다.
+
+### <a name="powershell-sample"></a>PowerShell 샘플
+
+```
+# Replace with your Workspace ID
+$CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
+
+# Replace with your Primary Key
+$SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# Specify the name of the record type that you'll be creating
+$LogType = "MyRecordType"
+
+# Specify a field with the created time for the records
+$TimeStampField = "DateValue"
+
+
+# Create two records with the same set of properties to create
+$json = @"
+[{  "StringValue": "MyString1",
+    "NumberValue": 42,
+    "BooleanValue": true,
+    "DateValue": "2016-05-12T20:00:00.625Z",
+    "GUIDValue": "9909ED01-A74C-4874-8ABF-D2678E3AE23D"
+},
+{   "StringValue": "MyString2",
+    "NumberValue": 43,
+    "BooleanValue": false,
+    "DateValue": "2016-05-12T20:00:00.625Z",
+    "GUIDValue": "8809ED01-A74C-4874-8ABF-D2678E3AE23D"
+}]
+"@
+
+# Create the function to create the authorization signature
+Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $method, $contentType, $resource)
+{
+    $xHeaders = "x-ms-date:" + $date
+    $stringToHash = $method + "`n" + $contentLength + "`n" + $contentType + "`n" + $xHeaders + "`n" + $resource
+
+    $bytesToHash = [Text.Encoding]::UTF8.GetBytes($stringToHash)
+    $keyBytes = [Convert]::FromBase64String($sharedKey)
+
+    $sha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $sha256.Key = $keyBytes
+    $calculatedHash = $sha256.ComputeHash($bytesToHash)
+    $encodedHash = [Convert]::ToBase64String($calculatedHash)
+    $authorization = 'SharedKey {0}:{1}' -f $customerId,$encodedHash
+    return $authorization
+}
+
+
+# Create the function to create and post the request
+Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+{
+    $method = "POST"
+    $contentType = "application/json"
+    $resource = "/api/logs"
+    $rfc1123date = [DateTime]::UtcNow.ToString("r")
+    $contentLength = $body.Length
+    $signature = Build-Signature `
+        -customerId $customerId `
+        -sharedKey $sharedKey `
+        -date $rfc1123date `
+        -contentLength $contentLength `
+        -fileName $fileName `
+        -method $method `
+        -contentType $contentType `
+        -resource $resource
+    $uri = "https://" + $customerId + ".ods.opinsights.azure.com" + $resource + "?api-version=2016-04-01"
+
+    $headers = @{
+        "Authorization" = $signature;
+        "Log-Type" = $logType;
+        "x-ms-date" = $rfc1123date;
+        "time-generated-field" = $TimeStampField;
+    }
+
+    $response = Invoke-WebRequest -Uri $uri -Method $method -ContentType $contentType -Headers $headers -Body $body -UseBasicParsing
+    return $response.StatusCode
+
+}
+
+# Submit the data to the API endpoint
+Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+```
+
+### <a name="c#-sample"></a>C# 샘플
+
+```
+using System;
+using System.Net;
+using System.Security.Cryptography;
+
+namespace OIAPIExample
+{
+    class ApiExample
+    {
+// An example JSON object, with key/value pairs
+        static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
+
+// Update customerId to your Operations Management Suite workspace ID
+        static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
+
+// For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
+        static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+// LogName is name of the event type that is being submitted to Log Analytics
+        static string LogName = "DemoExample";
+
+// You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        static string TimeStampField = "";
+
+        static void Main()
+        {
+// Create a hash for the API signature
+            var datestring = DateTime.UtcNow.ToString("r");
+            string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
+            string hashedString = BuildSignature(stringToHash, sharedKey);
+            string signature = "SharedKey " + customerId + ":" + hashedString;
+
+            PostData(signature, datestring, json);
+        }
+
+// Build the API signature
+        public static string BuildSignature(string message, string secret)
+        {
+            var encoding = new System.Text.ASCIIEncoding();
+            byte[] keyByte = Convert.FromBase64String(secret);
+            byte[] messageBytes = encoding.GetBytes(message);
+            using (var hmacsha256 = new HMACSHA256(keyByte))
+            {
+                byte[] hash = hmacsha256.ComputeHash(messageBytes);
+                return Convert.ToBase64String(hash);
+            }
+        }
+
+// Send a request to the POST API endpoint
+        public static void PostData(string signature, string date, string json)
+        {
+            string url = "https://"+ customerId +".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
+            using (var client = new WebClient())
+            {
+                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                client.Headers.Add("Log-Type", LogName);
+                client.Headers.Add("Authorization", signature);
+                client.Headers.Add("x-ms-date", date);
+                client.Headers.Add("time-generated-field", TimeStampField);
+                client.UploadString(new Uri(url), "POST", json);
+            }
+        }
+    }
+}
+```
+
+### <a name="python-sample"></a>Python 샘플
+
+```
+import json
+import requests
+import datetime
+import hashlib
+import hmac
+import base64
+
+# Update the customer ID to your Operations Management Suite workspace ID
+customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# The log type is the name of the event that is being submitted
+log_type = 'WebMonitorTest'
+
+# An example JSON web monitor object
+json_data = [{
+   "slot_ID": 12345,
+    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
+    "availability_Value": 100,
+    "performance_Value": 6.954,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "true"
+},
+{   
+    "slot_ID": 67890,
+    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
+    "availability_Value": 100,
+    "performance_Value": 3.379,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "false"
+}]
+body = json.dumps(json_data)
+
+#####################
+######Functions######  
+#####################
+
+# Build the API signature
+def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
+    x_headers = 'x-ms-date:' + date
+    string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
+    bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
+    decoded_key = base64.b64decode(shared_key)
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, string_to_hash, digestmod=hashlib.sha256).digest())
+    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
+    return authorization
+
+# Build and send a request to the POST API
+def post_data(customer_id, shared_key, body, log_type):
+    method = 'POST'
+    content_type = 'application/json'
+    resource = '/api/logs'
+    rfc1123date = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
+    content_length = len(body)
+    signature = build_signature(customer_id, shared_key, rfc1123date, content_length, method, content_type, resource)
+    uri = 'https://' + customer_id + '.ods.opinsights.azure.com' + resource + '?api-version=2016-04-01'
+
+    headers = {
+        'content-type': content_type,
+        'Authorization': signature,
+        'Log-Type': log_type,
+        'x-ms-date': rfc1123date
+    }
+
+    response = requests.post(uri,data=body, headers=headers)
+    if (response.status_code == 202):
+        print 'Accepted'
+    else:
+        print "Response code: {}".format(response.status_code)
+
+post_data(customer_id, shared_key, body, log_type)
+```
+
+## <a name="next-steps"></a>다음 단계
+
+- [뷰 디자이너](log-analytics-view-designer.md)를 사용하여 제출한 데이터에 대한 사용자 지정 보기를 구성할 수 있습니다.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,10 +1,10 @@
 <properties
-    pageTitle="논리 앱에 Azure SQL 데이터베이스 커넥터 추가 | Microsoft Azure"
-    description="REST API 매개 변수를 사용하는 Azure SQL 데이터베이스 커넥터 개요"
+    pageTitle="Add the Azure SQL Database connector in your Logic Apps | Microsoft Azure"
+    description="Overview of Azure SQL Database connector with REST API parameters"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
-    manager="erikre"
+    manager="anneta"
     editor=""
     tags="connectors"/>
 
@@ -14,220 +14,225 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="07/25/2016"
+   ms.date="10/18/2016"
    ms.author="mandia"/>
 
 
-# Azure SQL 데이터베이스 커넥터 시작
-Azure SQL 데이터베이스 커넥터를 사용하여 테이블의 데이터를 관리하는 조직의 워크플로를 만듭니다.
 
-SQL 데이터베이스를 사용하여 다음과 같은 작업을 수행합니다.
+# <a name="get-started-with-the-azure-sql-database-connector"></a>Get started with the Azure SQL Database connector
+Using the Azure SQL Database connector, create workflows for your organization that manage data in your tables. 
 
-- 고객 데이터베이스에 새 고객을 추가하거나 주문 데이터베이스에서 주문을 업데이트하여 워크플로를 작성합니다.
-- 데이터의 행을 가져오고, 새 행을 삽입하고, 삭제하는 작업을 사용합니다. 예를 들어 Dynamics CRM Online에서 레코드가 만들어지면(트리거) Azure SQL 데이터베이스에 행을 삽입합니다(작업).
+With SQL Database, you:
 
-이 항목에서는 논리 앱에서 SQL 데이터베이스 커넥터를 사용하는 방법을 보여 주고 작업을 나열합니다.
+- Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
+- Use actions to get a row of data, insert a new row, and even delete. For example,  when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Azure SQL Database (an action). 
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다.
+This topic shows you how to use the SQL Database connector in a logic app, and also lists the actions.
 
-논리 앱에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../app-service-logic/app-service-logic-what-are-logic-apps.md) 및 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-## Azure SQL 데이터베이스에 연결
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만듭니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 SQL 데이터베이스에 연결하려면 먼저 SQL 데이터베이스 *연결*을 만듭니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 SQL 데이터베이스에서 SQL 데이터베이스 자격 증명을 입력하여 연결을 만듭니다.
+## <a name="connect-to-azure-sql-database"></a>Connect to Azure SQL Database
 
-#### 연결 만들기
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to SQL Database, you first create a SQL Database *connection*. To create a connection, you enter the credentials you normally use to access the service you are connecting to. So, in SQL Database, enter your SQL Database credentials to create the connection. 
 
->[AZURE.INCLUDE [SQL Azure에 대한 연결 만들기](../../includes/connectors-create-api-sqlazure.md)]
+#### <a name="create-the-connection"></a>Create the connection
 
-## 트리거 사용
+>[AZURE.INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
 
-이 연결에는 트리거가 필요하지 않습니다. 다른 트리거(되풀이 트리거, HTTP 웹후크 트리거, 다른 커넥터와 함께 사용할 수 있는 트리거 포함)를 사용하여 논리 앱을 시작합니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)에서는 예제를 제공합니다.
+## <a name="use-a-trigger"></a>Use a trigger
 
-## 작업 사용
-	
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
 
-1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 등이 표시됩니다.
+## <a name="use-an-action"></a>Use an action
+    
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-	![](./media/connectors-create-api-sqlazure/add-action.png)
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
 
-2. **작업 추가**를 선택합니다.
+    ![](./media/connectors-create-api-sqlazure/add-action.png)
 
-3. 텍스트 상자에 "sql"을 입력하여 사용 가능한 모든 작업의 목록을 표시합니다.
+2. Choose **Add an action**.
 
-	![](./media/connectors-create-api-sqlazure/sql-1.png)
+3. In the text box, type “sql” to get a list of all the available actions.
 
-4. 이 예제에서는 **SQL Server - 행 가져오기**를 선택합니다. 연결이 이미 있는 경우 드롭다운 목록에서 **테이블 이름**을 선택하고 반환할 **행 ID**를 입력합니다.
+    ![](./media/connectors-create-api-sqlazure/sql-1.png) 
 
-	![](./media/connectors-create-api-sqlazure/sample-table.png)
+4. In our example, choose **SQL Server - Get row**. If a connection already exists, then select the **Table name** from the drop-down list, and enter the **Row ID** you want to return.
 
-	연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 항목의 [연결 만들기](connectors-create-api-sqlazure.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다.
+    ![](./media/connectors-create-api-sqlazure/sample-table.png)
 
-	> [AZURE.NOTE] 이 예제에서는 테이블의 행을 반환합니다. 이 행의 데이터를 보려면 테이블의 필드를 사용하여 파일을 만드는 다른 작업을 추가합니다. 예를 들어 FirstName 및 LastName 필드를 사용하여 클라우드 저장소 계정에 새 파일을 만드는 OneDrive 작업을 추가합니다.
+    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-sqlazure.md#create-the-connection) in this topic describes these properties. 
 
-5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
+    > [AZURE.NOTE] In this example, we return a row from a table. To see the data in this row, add another action that creates a file using the fields from the table. For example, add a OneDrive action that uses the FirstName and LastName fields to create a new file in the cloud storage account. 
+
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
-## 기술 세부 정보
+## <a name="technical-details"></a>Technical Details
 
-## SQL 데이터베이스 작업
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. SQL 데이터베이스 커넥터에는 다음 작업이 포함됩니다.
+## <a name="sql-database-actions"></a>SQL Database actions
+An action is an operation carried out by the workflow defined in a logic app. The SQL Database connector includes the following actions. 
 
-|작업|설명|
+|Action|Description|
 |--- | ---|
-|[ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure)|SQL의 저장 프로시저를 실행합니다.|
-|[GetRow](connectors-create-api-sqlazure.md#get-row)|SQL 테이블에서 단일 행을 검색합니다.|
-|[GetRows](connectors-create-api-sqlazure.md#get-rows)|SQL 테이블에서 행을 검색합니다.|
-|[InsertRow](connectors-create-api-sqlazure.md#insert-row)|SQL 테이블에 새 행을 삽입합니다.|
-|[DeleteRow](connectors-create-api-sqlazure.md#delete-row)|SQL 테이블에서 행을 삭제합니다.|
-|[GetTables](connectors-create-api-sqlazure.md#get-tables)|SQL 데이터베이스에서 테이블을 검색합니다.|
-|[UpdateRow](connectors-create-api-sqlazure.md#update-row)|SQL 테이블에서 기존 행을 업데이트합니다.|
+|[ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure)|Executes a stored procedure in SQL|
+|[GetRow](connectors-create-api-sqlazure.md#get-row)|Retrieves a single row from a SQL table|
+|[GetRows](connectors-create-api-sqlazure.md#get-rows)|Retrieves rows from a SQL table|
+|[InsertRow](connectors-create-api-sqlazure.md#insert-row)|Inserts a new row into a SQL table|
+|[DeleteRow](connectors-create-api-sqlazure.md#delete-row)|Deletes a row from a SQL table|
+|[GetTables](connectors-create-api-sqlazure.md#get-tables)|Retrieves tables from a SQL database|
+|[UpdateRow](connectors-create-api-sqlazure.md#update-row)|Updates an existing row in a SQL table|
 
-### 작업 세부 정보
+### <a name="action-details"></a>Action Details
 
-이 섹션에서는 모든 필수 또는 선택적 입력 속성 및 커넥터와 연결된 모든 해당 출력을 비롯한 각 작업에 대한 특정 세부 정보를 참조하세요.
+In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
 
 
-#### 저장 프로시저 실행
-SQL의 저장 프로시저를 실행합니다.
+#### <a name="execute-stored-procedure"></a>Execute stored procedure
+Executes a stored procedure in SQL.  
 
-| 속성 이름| 표시 이름 |설명|
+| Property Name| Display Name |Description|
 | ---|---|---|
-|procedure * | 프로시저 이름 | 실행할 저장 프로시저의 이름 |
-|parameters * | 입력 매개 변수 | 매개 변수는 동적이며 선택한 저장 프로시저를 기준으로 합니다. <br/><br/> 예를 들어 Adventure Works 샘플 데이터베이스를 사용하는 경우 *ufnGetCustomerInformation* 저장 프로시저를 선택합니다. **고객 ID** 입력 매개 변수가 표시됩니다. "6" 또는 다른 고객 ID 중 하나를 입력합니다. |
+|procedure * | Procedure name | The name of the stored procedure you want to execute |
+|parameters * | Input parameters | The parameters are dynamic and based on the stored procedure you choose. <br/><br/> For example, if you're using the Adventure Works sample database, choose the *ufnGetCustomerInformation* stored procedure. The **Customer ID** input parameter is displayed. Enter "6" or one of the other customer IDs. |
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-ProcedureResult: 저장 프로시저 실행 결과 전달
+##### <a name="output-details"></a>Output Details
+ProcedureResult: Carries result of stored procedure execution
 
-| 속성 이름 | 데이터 형식 | 설명 |
+| Property Name | Data Type | Description |
 |---|---|---|
-|OutputParameters|object|출력 매개 변수 값 |
-|ReturnCode|정수|프로시저의 반환 코드 |
-|ResultSets|object| 결과 집합|
+|OutputParameters|object|Output parameter values |
+|ReturnCode|integer|Return code of a procedure |
+|ResultSets|object| Result sets|
 
 
-#### 행 가져오기 
-SQL 테이블에서 단일 행을 검색합니다.
+#### <a name="get-row"></a>Get row 
+Retrieves a single row from a SQL table.  
 
-| 속성 이름| 표시 이름 |설명|
+| Property Name| Display Name |Description|
 | ---|---|---|
-|table * | 테이블 이름 |SQL 테이블의 이름|
-|id * | 행 ID |검색할 행의 고유 식별자|
+|table * | Table name |Name of SQL table|
+|id * | Row id |Unique identifier of the row to retrieve|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-항목
+##### <a name="output-details"></a>Output Details
+Item
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |ItemInternalId|string|
 
 
-#### 행 가져오기 
-SQL 테이블에서 행을 검색합니다.
+#### <a name="get-rows"></a>Get rows 
+Retrieves rows from a SQL table.  
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|테이블 이름|SQL 테이블의 이름|
-|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
-|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
-|$filter|필터 쿼리|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|table*|Table name|Name of SQL table|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|$filter|Filter Query|An ODATA filter query to restrict the number of entries|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 ItemsList
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
 
-#### 행 삽입 
-SQL 테이블에 새 행을 삽입합니다.
+#### <a name="insert-row"></a>Insert row 
+Inserts a new row into a SQL table.  
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|테이블 이름|SQL 테이블의 이름|
-|item*|행|SQL의 지정된 테이블에 삽입할 행|
+|table*|Table name|Name of SQL table|
+|item*|Row|Row to insert into the specified table in SQL|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-항목
+##### <a name="output-details"></a>Output Details
+Item
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |ItemInternalId|string|
 
 
-#### 행 삭제 
-SQL 테이블에서 행을 삭제합니다.
+#### <a name="delete-row"></a>Delete row 
+Deletes a row from a SQL table.  
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|테이블 이름|SQL 테이블의 이름|
-|id*|행 ID|삭제할 행의 고유 식별자|
+|table*|Table name|Name of SQL table|
+|id*|Row id|Unique identifier of the row to delete|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-없음
+##### <a name="output-details"></a>Output Details
+None.
 
-#### 테이블 가져오기 
-SQL 데이터베이스에서 테이블을 검색합니다.
+#### <a name="get-tables"></a>Get tables 
+Retrieves tables from a SQL database.  
 
-이 호출에 대한 매개 변수는 없습니다.
+There are no parameters for this call. 
 
-##### 출력 세부 정보 
+##### <a name="output-details"></a>Output Details 
 TablesList
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
-#### 행 업데이트 
-SQL 테이블에서 기존 행을 업데이트합니다.
+#### <a name="update-row"></a>Update row 
+Updates an existing row in a SQL table.  
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|테이블 이름|SQL 테이블의 이름|
-|id*|행 ID|업데이트할 행의 고유 식별자|
-|item*|행|업데이트된 값을 가진 행|
+|table*|Table name|Name of SQL table|
+|id*|Row id|Unique identifier of the row to update|
+|item*|Row|Row with updated values|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보  
-항목
+##### <a name="output-details"></a>Output Details  
+Item
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |ItemInternalId|string|
 
 
-### HTTP 응답
+### <a name="http-responses"></a>HTTP Responses
 
-다른 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 응답 및 해당 설명을 대략적으로 설명합니다.
+When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|202|수락됨|
-|400|잘못된 요청|
-|401|권한 없음|
-|403|사용할 수 없음|
-|404|찾을 수 없음|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
+|default|Operation Failed.|
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,101 +1,106 @@
 <properties
-	pageTitle="역할 기반 액세스 제어 문제 해결 | Microsoft Azure"
-	description="역할 기반 액세스 제어 리소스에 대해 발생하는 문제 또는 질문 사항에 대한 도움말을 봅니다."
-	services="azure-portal"
-	documentationCenter="na"
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+    pageTitle="Role based access control troubleshooting | Microsoft Azure"
+    description="Get help with issues or questions about Role Based Access Control resources."
+    services="azure-portal"
+    documentationCenter="na"
+    authors="kgremban"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/12/2016"
+    ms.author="kgremban"/>
 
-# 역할 기반 액세스 제어 문제 해결
 
-## 소개
+# <a name="role-based-access-control-troubleshooting"></a>Role-Based Access Control troubleshooting
 
-[역할 기반 액세스 제어](role-based-access-control-configure.md)는 Azure의 리소스에 대해 세분화된 액세스 권한을 위임하는 데 사용할 수 있는 유용한 기능입니다. 이 기능을 통해 특정 사용자에게 필요한 리소스에 대한 권한만을 정확하게 부여할 수 있습니다. 그러나 Azure 리소스의 리소스 모델이 복잡하여 권한 부여 대상을 정확하게 파악하기가 어려운 경우도 있습니다.
+## <a name="introduction"></a>Introduction
 
-이 문서에서는 Azure 포털의 몇 가지 역할을 사용하는 경우의 결과를 소개합니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
+[Role-Based Access Control](role-based-access-control-configure.md) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to use exactly what they need, and no more. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
 
-- 소유자
-- 참여자
-- 읽기 권한자
+This document will let you know what to expect when using some of the roles in the Azure portal. These three roles cover all resource types:
 
-소유자와 참여자 양쪽 모두 관리 환경에 대한 모든 권한을 가집니다. 하지만, 참여자의 경우 다른 사용자나 그룹에 액세스 권한을 부여할 수 없다는 것입니다. 읽기 권한자 역할은 좀 더 복잡하므로 자세히 파악해야 합니다. 액세스를 부여하는 방법에 대한 세부 정보는 [역할 기반 액세스 제어 시작 문서](role-based-access-control-configure.md)를 참조하세요.
+- Owner  
+- Contributor  
+- Reader  
 
-## 앱 서비스 워크로드
+Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we’ll spend some time. See the [Role-Based Access Control get-started article](role-based-access-control-configure.md) for details on how to grant access.
 
-### 쓰기 액세스 기능
+## <a name="app-service-workloads"></a>App service workloads
 
-사용자에게 단일 웹앱에 대한 읽기 전용 액세스를 부여하면 예상치 않게 일부 기능을 사용하지 못할 수 있습니다. 다음 관리 기능을 사용하려면 참여자나 소유자에게 제공되는 웹앱에 대한 **쓰기** 권한이 필요하며, 읽기 전용 시나리오에서는 이러한 기능을 사용할 수 없습니다.
+### <a name="write-access-capabilities"></a>Write access capabilities
 
-- 시작, 중지 등의 명령
-- 일반 구성, 규모 설정, 백업 설정, 모니터링 설정 등의 설정 변경
-- 게시 자격 증명과 앱 설정, 연결 문자열 등의 기타 암호 액세스
-- 스트리밍 로그
-- 진단 로그 구성
-- 콘솔(명령 프롬프트)
-- 활성 및 최근 배포(로컬 Git 연속 배포의 경우)
-- 예상 소요 시간
-- 웹 테스트
-- 가상 네트워크(쓰기 권한이 있는 사용자가 이전에 가상 네트워크를 구성한 경우에만 읽기 권한자에게 표시됨)
+If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and won’t be available in any read-only scenario.
 
-이러한 타일에 액세스할 수 없는 경우 관리자에게 웹앱에 대한 참여자 권한을 요청해야 합니다.
+- Commands (e.g. start, stop, etc.)
+- Changing settings like general configuration, scale settings, backup settings, and monitoring settings
+- Accessing publishing credentials and other secrets like app settings and connection strings
+- Streaming logs
+- Diagnostic logs configuration
+- Console (command prompt)
+- Active and recent deployments (for local git continuous deployment)
+- Estimated spend
+- Web tests
+- Virtual network (only visible to a reader if a virtual network has previously been configured by a user with write access).
 
-### 관련 리소스 사용
+If you can't access any of these tiles, you'll need to ask your administrator for Contributor access to the web app.
 
-웹앱에서 몇 가지 리소스가 상호 연동되는 경우 웹앱의 구조가 복잡해집니다. 아래에는 웹 사이트 몇 개가 포함된 일반적인 리소스 그룹이 나와 있습니다.
+### <a name="dealing-with-related-resources"></a>Dealing with related resources
 
-![웹앱 리소스 그룹](./media/role-based-access-control-troubleshooting/website-resource-model.png)
+Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple websites:
 
-따라서 사용자에게 웹앱에 대한 권한만 부여하면 Azure 포털에서 웹 사이트 블레이드의 기능을 대부분 사용할 수 없게 됩니다.
+![Web app resource group](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-다음 항목을 사용하려면 웹 사이트에 해당하는 **앱 서비스 계획**에 대한 **쓰기** 권한이 필요합니다.
+As a result, if you grant someone access to just the web app, much of the functionality on the website blade in the Azure portal will be disabled.
 
-- 웹앱의 가격 책정 계층 보기(무료 또는 표준)
-- 크기 조정 구성(인스턴스 수, 가상 컴퓨터 크기, 자동 크기 조정 설정)
-- 할당량(저장소, 대역폭, CPU)
+These items require **write** access to the **App Service plan** that corresponds to your website:  
 
-다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹**에 대한 **쓰기** 권한이 필요합니다.
+- Viewing the web app’s pricing tier (Free or Standard)  
+- Scale configuration (number of instances, virtual machine size, autoscale settings)  
+- Quotas (storage, bandwidth, CPU)  
 
-- SSL 인증서 및 바인딩(SSL 인증서는 같은 리소스 그룹과 지리적 위치의 사이트 간에 공유될 수 있기 때문)
-- 경고 규칙
-- 자동 크기 조정 설정
-- Application Insights 구성 요소
-- 웹 테스트
+These items require **write** access to the whole **Resource group** that contains your website:  
 
-## 가상 컴퓨터 작업
+- SSL Certificates and bindings (This is because SSL certificates can be shared between sites in the same resource group and geo-location)  
+- Alert rules  
+- Autoscale settings  
+- Application insights components  
+- Web tests  
 
-웹앱과 마찬가지로 가상 컴퓨터 블레이드의 일부 기능 역시 가상 컴퓨터 또는 리소스 그룹의 기타 리소스에 대한 쓰기 권한이 있어야 사용할 수 있습니다.
+## <a name="virtual-machine-workloads"></a>Virtual machine workloads
 
-가상 컴퓨터는 도메인 이름, 가상 네트워크, 저장소 계정 및 경고 규칙과 관련이 있습니다.
+Much like with web apps, some features on the virtual machine blade require write access to the virtual machine, or to other resources in the resource group.
 
-다음 항목을 사용하려면 **가상 컴퓨터**에 대한 **쓰기** 권한이 필요합니다.
+Virtual machines are related to Domain names, virtual networks, storage accounts, and alert rules.
 
-- 끝점
-- IP 주소
-- 디스크
-- 확장
+These items require **write** access to the **Virtual machine**:
 
-다음 항목을 사용하려면 **가상 컴퓨터**와 가상 컴퓨터가 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.
+- Endpoints  
+- IP addresses  
+- Disks  
+- Extensions  
 
-- 가용성 집합
-- 부하 분산된 집합
-- 경고 규칙
+These require **write** access to both the **Virtual machine**, and the **Resource group** (along with the Domain name) that it is in:  
 
-이러한 타일에 액세스할 수 없는 경우 관리자에게 리소스 그룹에 대한 참여자 권한을 요청해야 합니다.
+- Availability set  
+- Load balanced set  
+- Alert rules  
 
-## 자세히 보기
-- [역할 기반 액세스 제어](role-based-access-control-configure.md): Azure 포털에서 RBAC를 통해 시작합니다.
-- [기본 제공 역할](role-based-access-built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
-- [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
-- [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
+If you can't access any of these tiles, you'll need to ask your administrator for Contributor access to the Resource group.
 
-<!---HONumber=AcomDC_0713_2016-->
+## <a name="see-more"></a>See more
+- [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+- [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
+- [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
+- [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

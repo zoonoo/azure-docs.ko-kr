@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 데이터 카탈로그의 필수 구성 요소 | Microsoft Azure"
-   description="Azure 데이터 카탈로그 필수 구성 요소 - Azure 데이터 카탈로그 시작에 필요합니다."
+   pageTitle="Azure Data Catalog prerequisites | Microsoft Azure"
+   description="Azure Data Catalog prerequisites - what you need to get started with Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,34 +16,39 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
-# Azure 데이터 카탈로그의 필수 구성 요소
 
-## Azure 데이터 카탈로그를 시작하려면 어떻게 하나요?
+# <a name="azure-data-catalog-prerequisites"></a>Azure Data Catalog prerequisites
 
-**Azure 데이터 카탈로그**를 설정하기 전에 몇 가지 주의 사항이 있습니다. 걱정하지 마세요. 오래 걸리지 않습니다!
+## <a name="what-do-i-need-to-get-started-with-azure-data-catalog?"></a>What do I need to get started with Azure Data Catalog?
 
-## Azure 구독
-Azure Data Catalog를 설정하려면 Azure 구독의 소유자 또는 공동 소유자여야 합니다.
+There are a few things you’ll need to take care of before you can set up **Azure Data Catalog**. Don’t worry – they won’t take long!
 
-Azure 구독에서는 Azure 데이터 카탈로그와 같은 클라우드 서비스 리소스에 대한 액세스를 구성할 수 있습니다. 리소스 사용을 보고하고, 요금을 청구하고, 지불하는 방식을 제어할 수도 있습니다. 각 구독은 청구 및 지불 설정이 다를 수 있으므로 부서, 프로젝트, 지사 등에 따라 구독 및 계획이 다를 수 있습니다. 모든 클라우드 서비스는 구독에 속하고 Azure 데이터 카탈로그를 설정하기 전에 구독을 보유해야 합니다. 자세한 내용은 [계정, 구독 및 관리 역할 관리](../active-directory/active-directory-assign-admin-roles.md)를 참조하세요.
+## <a name="azure-subscription"></a>Azure Subscription
+To set up Azure Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-## Azure Active Directory
-Azure Data Catalog를 설정하려면 Azure Active Directory 사용자 계정을 사용하여 로그인해야 합니다.
+Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles.md).
 
-Azure Active Directory(Azure AD)는 클라우드 및 온-프레미스 모두에서비즈니스가 ID와 액세스를 쉽게 관리하는 방법을 제공합니다. 사용자는 클라우드 및 온-프레미스 웹 응용 프로그램에 SSO(Single Sign-on)를 위해 단일 회사 또는 학교 계정을 사용할 수 있습니다. Azure 데이터 카탈로그는 로그온 인증에 Azure AD를 사용합니다. 자세히 알아보려면 [Azure Active Directory란](../active-directory/active-directory-whatis.md)을 참조하세요.
+## <a name="azure-active-directory"></a>Azure Active Directory
+To set up Azure Data Catalog, you must be logged in using an Azure Active Directory user account.
 
-> [AZURE.NOTE] [Azure 포털](http://portal.azure.com/)에서 사용자는 개인 Microsoft 계정 또는 Azure Active Directory 작업 또는 학교 계정을 사용하여 로그인할 수 있습니다. Azure 포털을 사용하거나 [데이터 카탈로그 포털](http://www.azuredatacatalog.com)을 사용하여 Azure Data Catalog를 설정하려면 개인 계정이 아닌, Azure Active Directory 계정을 사용하여 로그인해야 합니다.
+Azure Active Directory (Azure AD) provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-on to any cloud and on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-on. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
-## Active Directory 정책 구성
+> [AZURE.NOTE] The [Azure portal](http://portal.azure.com/) allows users to sign in using either a personal Microsoft Account or an Azure Active Directory work or school account. To set up Azure Data Catalog using the Azure portal or using the [Data Catalog portal](http://www.azuredatacatalog.com) you must be logged in using an Azure Active Directory account, not a personal account.
 
-Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생하는 경우도 있지만, 데이터 원본 등록 도구에 로그온을 시도할 때 로그온하지 않도록 하는 오류 메시지가 표시됩니다. 이 문제 동작은 사용자가 회사 네트워크에 있는 경우 또는 회사 네트워크 외부에서 연결하는 경우에만 발생할 수 있습니다.
+## <a name="active-directory-policy-configuration"></a>Active Directory policy configuration
 
-데이터 원본 등록 도구가 폼 인증을 사용하여 Active Directory에 대한 사용자 로그온의 유효성 검사를 수행합니다. 로그온이 성공하려면 Active Directory 관리자가 전역 인증 정책에서 폼 인증을 사용하도록 설정해야 합니다.
+In some situations, users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on. This problem behavior may occur only when the user is on the company network, or may occur only when the user is connecting from outside the company network.
 
-전역 인증 정책을 사용하면 아래와 같이 인트라넷 및 엑스트라넷 연결에 대해 개별적으로 인증 방법을 사용하도록 설정할 수 있습니다. 폼 인증이 사용자가 연결되는 네트워크에 사용하도록 설정되지 않은 경우 로그온 오류가 발생할 수 있습니다.
+The data source registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
 
- ![Active Directory 전역 인증 정책](./media/data-catalog-prerequisites/global-auth-policy.png)
+The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections, as illustrated below. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
-자세한 내용은 [인증 정책 구성](https://technet.microsoft.com/library/dn486781.aspx)을 참조하세요.
+ ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,15 +1,17 @@
-캐시는 [Azure 포털](https://portal.azure.com)의 **찾아보기** 블레이드를 사용하여 액세스할 수 있습니다.
+Caches can be accessed in the [Azure portal](https://portal.azure.com) using the **Browse** blade.
 
-![Azure Redis 캐시 찾아보기 블레이드](media/redis-cache-browse/redis-cache-browse.png)
+![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
 
-캐시를 보려면 **더 많은 서비스 > Redis Cache**를 클릭합니다. 최근에 Redis Cache를 탐색했으면 **더 많은 서비스**를 클릭하지 않고 목록에서 직접 **Redis Cache**를 클릭할 수 있습니다.
+To view your caches, click **More services > Redis Caches**. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **More services**.
 
-캐시에 대한 속성을 보려면 원하는 캐시를 선택합니다.
+Select the desired cache to view the properties for that cache.
 
-![Azure Redis 캐시 찾아보기 캐시 목록](media/redis-cache-browse/redis-caches.png)
+![Azure Redis Cache Browse Cache List](media/redis-cache-browse/redis-caches.png)
 
-**설정** 또는 **모든 설정**을 클릭하여 캐시를 보고 구성할 수 있습니다.
+Click **Settings** or **All settings** to view and configure your cache.
 
-![Redis 캐시 모든 설정](media/redis-cache-browse/redis-cache-blade.png)
+![Redis Cache All Settings](media/redis-cache-browse/redis-cache-blade.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

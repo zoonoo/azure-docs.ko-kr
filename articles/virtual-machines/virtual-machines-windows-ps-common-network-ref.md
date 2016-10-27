@@ -1,47 +1,76 @@
 <properties
-	pageTitle="Vm에 대한 공통 네트워크 PowerShell 명령 | Microsoft Azure"
-	description="Vm에 대한 가상 네트워크 및 연결된 리소스 만들기를 시작하게 하는 공통 PowerShell 명령."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Common network PowerShell commands for VMs | Microsoft Azure"
+    description="Common PowerShell commands to get you started creating a virtual network and its associated resources for VMs."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Vm에 대한 공통 네트워크 Azure PowerShell 명령
 
-가상 컴퓨터를 만들려는 경우, [가상 네트워크](../virtual-network/virtual-networks-overview.md)를 만들거나 VM을 추가할 수 있는 기존 가상 네트워크에 대해 알아야 합니다. 일반적으로 VM을 만들 때 이 문서에 설명된 리소스를 만드는 것이 좋습니다.
+# <a name="common-network-azure-powershell-commands-for-vms"></a>Common network Azure PowerShell commands for VMs
 
-## Azure PowerShell을 사용하여 리소스 만들기
+If you want to create a virtual machine, you need to create a [virtual network](../virtual-network/virtual-networks-overview.md) or know about an existing virtual network in which the VM can be added. Typically, when you create a VM, you also need to consider creating the resources described in this article.
 
-최신 버전의 Azure PowerShell을 설치하는 방법, 사용할 구독을 선택하는 방법, Azure 계정에 로그인하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
-리소스 | 명령 
+## <a name="create-network-resources"></a>Create network resources
+
+Task | Command 
 -------------- | -------------------------
-서브넷 | $internetSubnet = [New-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt619412.aspx) -Name internetSubnet -AddressPrefix 10.0.1.0/24<BR>$internalSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name internalSubnet -AddressPrefix 10.0.2.0/24<BR><BR>일반적인 네트워크에는 [인터넷 연결 부하 분산 장치](../load-balancer/load-balancer-internet-overview.md)에 대한 서브넷과 [내부 부하 분산 장치](../load-balancer/load-balancer-internal-overview.md)에 대한 별도 서브넷이 있을 수 있습니다. |
-가상 네트워크 | 가상 네트워크 만들기:<BR><BR>$rgName = "[resource-group-name](../powershell-azure-resource-manager.md)"<BR>$locName = "[location-name](https://msdn.microsoft.com/library/azure/dn495177.aspx)"<BR>$vnetName = "virtual-network-name"<BR>$vnet = [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx) -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $internetSubnet,$internalSubnet<BR><BR>가상 네트워크의 목록 가져오기:<BR><BR>[Get AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603515.aspx) -ResourceGroupName $rgName &#124; Sort Name &#124; Select Name<BR><BR>가상 네트워크의 서브넷 목록:<BR><BR>Get AzureRmVirtualNetwork-$vnetName-ResourceGroupName $rgName & #124; 서브넷 선택<BR><BR>서브넷 목록을 보여 주는 다음과 같은 내용이 표시됩니다:<BR><BR>서브넷<BR>---<BR>{internetSubnet, internalSubnet}<BR><BR> internetSubnet에 대한 서브넷 인덱스는 0이고 internalSubnet에 대한 서브넷 인덱스는 1입니다.
-도메인 이름 레이블 | $domName = "domain-name"<BR>[Test-AzureRmDnsAvailability](https://msdn.microsoft.com/library/mt619419.aspx) -DomainQualifiedName $domName -Location $locName<BR><BR>Azure 관리 DNS 서버에서 공용 IP 주소에 대한 domainnamelabel.location.cloudapp.azure.com 매핑을 만드는 [공용 IP 리소스](../virtual-network/virtual-network-ip-addresses-overview-arm.md)에 대한 DNS 도메인 이름 레이블을 지정할 수 있습니다. 레이블에는 문자, 숫자 및 하이픈만 사용할 수 있습니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 하며 도메인 이름 레이블은 Azure 위치 내에서 고유해야 합니다. 도메인 이름 레이블이 전역적으로 고유한지 항상 테스트해야 합니다. **True**가 반환된 경우 제안한 이름이 전역적으로 고유합니다.
-공용 IP 주소 | $ipName = "public-ip-address-name"<BR>$pip = [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) -Name $ipName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic<BR><BR>공용 IP 주소는 이전에 만들었고 부하 분산 장치의 프런트 엔드 구성에서 사용되는 도메인 이름 레이블을 사용합니다.
-프런트 엔드 IP 구성 | $feConfigName = "frontend-ip-config-name"<BR>$frontendIP = [New-AzureRmLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) -Name $feConfigName -PublicIpAddress $pip<BR><BR>프런트 엔드 구성은 들어오는 네트워크 트래픽에 대해 이전에 만든 공용 IP 주소를 포함합니다.
-백 엔드 주소 풀 | $bePoolName = "back-end-pool-name"<BR>$beAddressPool = [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) -Name $bePoolName<BR><BR>네트워크 인터페이스를 통해 액세스 하는 부하 분산 장치의 백 엔드에 대한 내부 주소를 제공합니다.
-프로브 | $probeName = "health-probe-name"<BR>$healthProbe = [New-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) -Name $probeName -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2<BR><BR>백 엔드 주소 풀의 가상 컴퓨터 인스턴스 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
-부하 분산 규칙 | $lbRule = [New-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80<BR><BR>백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
-인바운드 NAT 규칙 | $ruleName = "NAT-rule-name"<BR>$inboundNATRule = [New-AzureRmLoadBalancerInboundNatRuleConfig](https://msdn.microsoft.com/library/mt603606.aspx) -Name $ruleName -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389<BR><BR>백 엔드 주소 풀에서 특정 가상 컴퓨터에 대한 포트에 부하 분산 장치에는 공용 포트 매핑 규칙을 포함합니다.
-부하 분산 장치 | $lbName = "load-balancer-name"<BR>$loadBalancer = [New-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) -ResourceGroupName $rgName -Name $lbName -Location $locName -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule -LoadBalancingRule $lbRule -BackendAddressPool $beAddressPool -Probe $healthProbe
-네트워크 인터페이스 | $vnet = [Get-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603515.aspx) -Name $vnetName -ResourceGroupName $rgName<BR>$internalSubnet = [Get-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt603817.aspx) -Name "internalSubnet" -VirtualNetwork $vnet<BR>$nicName = "network-interface-name"<BR>$nic1= [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx) -ResourceGroupName $rgName -Name $nicName -Location $locName -PrivateIpAddress 10.0.2.6 -Subnet $internalSubnet -LoadBalancerBackendAddressPool $loadBalancer.BackendAddressPools[0] -LoadBalancerInboundNatRule $loadBalancer.InboundNatRules[0]<BR><BR>이전에 만든 공용 IP 주소 및 가상 네트워크 서브넷을 사용하여 네트워크 인터페이스를 만듭니다.
-	
-## 다음 단계
+Create subnet configurations | $subnet1 = [New-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt619412.aspx) -Name "subnet_name" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name "subnet_name" -AddressPrefix XX.X.X.X/XX<BR><BR>A typical network might have a subnet for an [internet facing load balancer](../load-balancer/load-balancer-internet-overview.md) and a separate subnet for an [internal load balancer](../load-balancer/load-balancer-internal-overview.md). |
+Create a virtual network | $vnet = [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx) -Name "virtual_network_name" -ResourceGroupName "resource_group_name" -Location "location_name" -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2
+Test for a unique domain name | [Test-AzureRmDnsAvailability](https://msdn.microsoft.com/library/mt619419.aspx) -DomainQualifiedName "domain_name" -Location "location_name"<BR><BR>You can specify a DNS domain name for a [public IP resource](../virtual-network/virtual-network-ip-addresses-overview-arm.md), which creates a mapping for domainname.location.cloudapp.azure.com to the public IP address in the Azure-managed DNS servers. The name can contain only letters, numbers, and hyphens. The first and last character must be a letter or number and the domain name must be unique within its Azure location. If **True** is returned, your proposed name is globally unique.
+Create a public IP address | $pip = [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) -Name "ip_address_name" -ResourceGroupName "resource_group_name" -DomainNameLabel "domain_name" -Location "location_name" -AllocationMethod Dynamic<BR><BR>The public IP address uses the domain name that you previously tested and is used by the frontend configuration of the load balancer.
+Create a frontend IP configuration | $frontendIP = [New-AzureRmLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) -Name "frontend_ip_name" -PublicIpAddress $pip<BR><BR>The frontend configuration includes the public IP address that you previously created for incoming network traffic.
+Create a backend address pool | $beAddressPool = [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) -Name "backend_pool_name"<BR><BR>Provides internal addresses for the backend of the load balancer that are accessed through a network interface.
+Create a probe | $healthProbe = [New-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) -Name "probe_name" -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2<BR><BR>Contains health probes used to check availability of virtual machines instances in the backend address pool.
+Create a load balancing rule | $lbRule = [New-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80<BR><BR>Contains rules that assign a public port on the load balancer to a port in the backend address pool.
+Create an inbound NAT rule | $inboundNATRule = [New-AzureRmLoadBalancerInboundNatRuleConfig](https://msdn.microsoft.com/library/mt603606.aspx) -Name "rule_name" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389<BR><BR>Contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the backend address pool.
+Create a load balancer | $loadBalancer = [New-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) -ResourceGroupName "resource_group_name" -Name "load_balancer_name" -Location "location_name" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule -LoadBalancingRule $lbRule -BackendAddressPool $beAddressPool -Probe $healthProbe
+Create a network interface | $nic1= [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx) -ResourceGroupName "resource_group_name" -Name "network_interface_name" -Location "location_name" -PrivateIpAddress XX.X.X.X -Subnet subnet2 -LoadBalancerBackendAddressPool $loadBalancer.BackendAddressPools[0] -LoadBalancerInboundNatRule $loadBalancer.InboundNatRules[0]<BR><BR>Create a network interface using the public IP address and virtual network subnet that you previously created.
+    
+## <a name="get-information-about-network-resources"></a>Get information about network resources
 
-- [VM 만들기](virtual-machines-windows-ps-create.md)를 할 때 방금 만든 네트워크 인터페이스를 사용합니다.
-- [여러 네트워크 인터페이스를 사용하여 VM 만들기](../virtual-network/virtual-networks-multiple-nics.md)를 할 수 있는 방법을 알아봅니다.
+Task | Command 
+-------------- | -------------------------
+List virtual networks | [Get-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603515.aspx) -ResourceGroupName "resource_group_name"<BR><BR>Lists all the virtual networks in the resource group.
+Get information about a virtual network | Get-AzureRmVirtualNetwork -Name "virtual_network_name" -ResourceGroupName "resource_group_name"
+List subnets in a virtual network | Get-AzureRmVirtualNetwork -Name "virtual_network_name" -ResourceGroupName "resource_group_name" &#124; Select Subnets
+Get information about a subnet | [Get-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt603817.aspx) -Name "subnet_name" -VirtualNetwork $vnet<BR><BR>Gets information about the subnet in the specified virtual network. The $vnet value represents the object returned by Get-AzureRmVirtualNetwork.
+List IP addresses | [Get-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt619342.aspx) -ResourceGroupName "resource_group_name"<BR><BR>Lists the public IP addresses in the resource group.
+List load balancers | [Get-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603668.aspx) -ResourceGroupName "resource_group_name"<BR><BR>Lists all the load balancers in the resource group.
+List network interfaces | [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) -ResourceGroupName "resource_group_name"<BR><BR>Lists all the network interfaces in the resource group.
+Get information about a network interface | Get-AzureRmNetworkInterface -Name "network_interface_name" -ResourceGroupName "resource_group_name"<BR><BR>Gets information about a specific network interface.
+Get the IP configuration of a network interface | [Get-AzureRmNetworkInterfaceIPConfig](https://msdn.microsoft.com/library/mt732618.aspx) -Name "ipconfiguration_name" -NetworkInterface $nic<BR><BR>Gets information about the IP configuration of the specified network interface. The $nic value represents the object returned by Get-AzureRmNetworkInterface.
 
-<!---HONumber=AcomDC_0629_2016-->
+## <a name="manage-network-resources"></a>Manage network resources
+
+Task | Command 
+-------------- | -------------------------
+Add a subnet to a virtual network | [Add-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt603722.aspx) -AddressPrefix XX.X.X.X/XX -Name "subnet_name" -VirtualNetwork $vnet<BR><BR>Adds a subnet to an existing virtual network. The $vnet value represents the object returned by Get-AzureRmVirtualNetwork.
+Delete a virtual network | [Remove-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt619338.aspx) -Name "virtual_network_name" -ResourceGroupName "resource_group_name"<BR><BR>Removes the specified virtual network from the resource group.
+Delete a network interface | [Remove-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt603836.aspx) -Name "network_interface_name" -ResourceGroupName "resource_group_name"<BR><BR>Removes the specified network interface from the resource group.
+Delete a load balancer | [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) -Name "load_balancer_name" -ResourceGroupName "resource_group_name"<BR><BR>Removes the specified load balancer from the resource group.
+Delete a public IP address | [Remove-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt619352.aspx)-Name "ip_address_name" -ResourceGroupName "resource_group_name"<BR><BR>Removes the specified public IP address from the resource group.
+
+## <a name="next-steps"></a>Next Steps
+
+- Use the network interface that you just created when you [create a VM](virtual-machines-windows-ps-create.md).
+- Learn about how you can [create a VM with multiple network interfaces](../virtual-network/virtual-networks-multiple-nics.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

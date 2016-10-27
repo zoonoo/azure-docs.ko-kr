@@ -1,120 +1,121 @@
 <properties 
-	pageTitle="Azure Government 개발자 가이드" 
-	description="Azure Government용 응용 프로그램 개발에 대한 지침 및 기능 비교를 제공합니다." 
-	services="" 
-	cloud="gov"
-	documentationCenter="" 
-	authors="Joharve2" 
-	manager="Chrisnie" 
-	editor=""/>
+    pageTitle="Azure Government Developers Guide" 
+    description="This provides a comparision of features and guidance on developing applications for Azure Government" 
+    services="" 
+    cloud="gov"
+    documentationCenter="" 
+    authors="Joharve2" 
+    manager="Chrisnie" 
+    editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="azure-government" 
-	ms.date="10/29/2015" 
-	ms.author="jharve"/>
+    ms.service="multiple" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="azure-government" 
+    ms.date="10/29/2015" 
+    ms.author="jharve"/>
 
 
-#  Microsoft Azure Government 개발자 가이드 
 
-<p> Microsoft Azure Government는 Microsoft Azure의 물리적으로 격리되고 네트워크에서 격리된 인스턴스입니다. 이 개발자 가이드는 응용 프로그램 개발자와 관리자가 이러한 Azure의 별도 지역에 대한 작업을 수행하고 조작해야 하는 차이점에 대한 세부 정보를 제공합니다.
+#  <a name="microsoft-azure-government-developer-guide"></a>Microsoft Azure Government Developer Guide 
+
+<p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 
-## 항목 내용
+## <a name="in-this-topic"></a>In this topic
 
 
-+ [개요](#Overview)
-+ [개발자에 대한 지침](#Guidance)
-+ [Microsoft Azure Government에서 현재 사용할 수 있는 기능](#Features)
-+ [끝점 매핑](#Endpoint)
-+ [다음 단계](#next)
++ [Overview](#Overview)
++ [Guidance for Developers](#Guidance)
++ [Features currently available in Microsoft Azure Government](#Features)
++ [Endpoint Mapping](#Endpoint)
++ [Next Steps](#next)
 
 
-## <a name="Overview"></a>개요
+## <a name="<a-name="overview"></a>overview"></a><a name="Overview"></a>Overview
 
-Microsoft Azure Government는 미국 연방 기관, 주 및 지방 정부와 해당 솔루션 공급자의 보안 및 규정 준수 요구를 처리하는 Microsoft Azure 서비스의 별도 인스턴스입니다. Azure Government는 비 미국 정부 배포에서 물리적 격리 및 네트워크 격리를 제공하며 선별된 미국 시민을 제공합니다.
+Microsoft Azure Government is a separate instance of the Microsoft Azure service addressing the security and compliance needs of U.S. federal agencies, state and local governments and their solutions providers. Azure Government offers physical and network isolation from non-U.S. government deployments and provides screened U.S. personnel. 
 
-Microsoft는 클라우드 응용 프로그램을 만들고 배포할 수 있는 다양한 도구를 Microsoft의 글로벌 Microsoft Azure 서비스(“글로벌 서비스") 및 Microsoft Azure Government 서비스에 제공합니다.
+Microsoft provides a number of tools to create and deploy cloud applications to Microsoft’s global Microsoft Azure service (“Global Service”) and Microsoft Azure Government services.
 
-응용 프로그램을 만들어 글로벌 서비스가 아니라 Azure Government 서비스에 배포하는 경우 개발자는 두 서비스의 주요 차이점을 알아야 합니다. 특히, 프로그래밍 환경을 설정 및 구성하고, 끝점을 구성하며, 응용 프로그램을 작성하고, 응용 프로그램을 서비스로 Azure Government에 배포하는 경우에 그렇습니다.
+When creating and deploying applications to the Azure Government Services, as opposed to the Global Service, developers need to know the key differences of the two services.  Specifically around setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying them as services to Azure Government.
 
-이 문서의 정보는 그러한 차이점을 요약하고 [Azure Government](http://www.azure.com/gov "Azure Government") 사이트 및 MSDN의 [Microsoft Azure 기술 라이브러리](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN")에서 제공하는 정보를 보완합니다. 또한 공식 정보는 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"/), [Azure 설명서 센터](https://azure.microsoft.com/documentation/) 및 [Azure 블로그](https://azure.microsoft.com/blog/ "Azure Blogs"/) 등의 여러 다른 위치에서도 제공할 수 있습니다.
+The information in this document summarizes those differences and supplements the information available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information may also be available in many other locations such as the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"/), [Azure Documentation Center](https://azure.microsoft.com/documentation/) and in [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs"/). 
 
-이 내용은 Microsoft Azure Government에 배포하는 파트너 및 개발자를 위한 것입니다.
-
-
-
-## <a name="Guidance"></a>개발자에 대한 지침
-현재 사용할 수 있는 대부분의 기술 콘텐츠에서는 응용 프로그램이 Microsoft Azure Government가 아니라 글로벌 서비스용으로 개발되고 있다고 가정하므로 개발자가 Azure Government에서 호스트되도록 개발된 응용 프로그램의 주요 차이점을 알도록 해야 합니다.
-
-- 첫째, 서비스 및 기능 차이점이 있습니다. 즉, 글로벌 서비스의 특정 지역에 있는 특정 기능을 Azure Government에서는 사용하지 못할 수도 있습니다.
-
-- 둘째, Azure Government에서 제공되는 기능의 경우 글로벌 서비스와 구성 차이점이 있습니다. 따라서 샘플 코드, 구성 및 Azure Government 클라우드 서비스 환경 내에서 빌드 및 실행하고 있는지를 확인하는 단계를 검토해야 합니다.
+This content is intended for partners and developers who are deploying to Microsoft Azure Government.
 
 
-## <a name="Features"></a> Microsoft Azure Government에서 현재 사용할 수 있는 기능
-현재 Azure Government에는 미국 정부 아이오와 및 미국 정부 버지니아 지역에서 사용할 수 있는 다음과 같은 서비스가 포함되어 있습니다.
 
-- 가상 컴퓨터
-- 클라우드 서비스
-- 저장소
+## <a name="<a-name="guidance"></a>guidance-for-developers"></a><a name="Guidance"></a>Guidance for Developers
+Because most of the technical content that is available currently assumes that applications are being developed for the Global Service rather than for Microsoft Azure Government, it’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Government.
+
+- First, there are services and feature differences, this means that certain features that are in specific regions of the Global Service may not be available in Azure Government.
+
+- Second, for features that are offered in Azure Government, there are configuration differences from the Global Service.  Therefore, you should review your sample code, configurations and steps to ensure that you are building and executing within the Azure Government Cloud Services environment.
+
+
+## <a name="<a-name="features"></a>-features-currently-available-in-microsoft-azure-government"></a><a name="Features"></a> Features currently available in Microsoft Azure Government
+Azure Government currently has the following services available in both US GOV IOWA and US GOV VIRGINIA regions:
+
+- Virtual Machines
+- Cloud Services
+- Storage
 - Active Directory
-- 스케줄러
-- 가상 네트워킹
-- SQL 데이터베이스
-- Azure 파일
-- 미디어 서비스
-- 트래픽 관리자
-- 서비스 버스
+- Scheduler
+- Virtual Networking
+- SQL Database
+- Azure Files
+- Media Services
+- Traffic Manager
+- Service Bus
 - StorSimple
-- Redis 캐시
-- Azure 백업
-- 자동화
-- Express 경로
+- Redis Cache
+- Azure Backup
+- Automation
+- ExpressRoute
 - etc.
 
-기타 서비스도 사용할 수 있으며, 계속해서 서비스가 더 추가될 예정입니다. 서비스의 최신 목록은 사용 가능한 각 지역과 해당 서비스가 강조 표시되어 있는 [지역 페이지](https://azure.microsoft.com/regions/#services)를 참조하세요.
+Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](https://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 
-현재 미국 정부 아이오와 및 미국 정부 버지니아는 Azure Government를 지원하는 데이터 센터입니다. 현재 사용 가능한 데이터 센터 및 서비스에 대해서는 위의 지역 페이지를 참조하세요.
+Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.  Please refer to the regions page above for current data centers and services available.
 
-## <a name="Endpoint"></a>끝점 매핑
+## <a name="<a-name="endpoint"></a>endpoint-mapping"></a><a name="Endpoint"></a>Endpoint Mapping
 
-공용 Microsoft Azure 및 SQL 데이터베이스 끝점을 Azure Government 특정 끝점에 매핑할 경우 다음 표를 참조하세요.
+Use the following table to guide you when mapping public Microsoft Azure and SQL Database endpoints to Azure Government specific endpoints.
 
 
-서비스 유형|Azure 공용|Azure Government
+Service Type|Azure Public|Azure Government
 ---|---|---
-관리 포털|manage.windowsazure.com|manage.windowsazure.us
-일반|*.windows.net|*.usgovcloudapi.net
-코어|*.core.windows.net|*.core.usgovcloudapi.net
-계산|*.cloudapp.net|*.usgovcloudapp.net
-Blob 저장소|*.blob.core.windows.net|	*.blob.core.usgovcloudapi.net
-큐 저장소|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
-테이블 저장소|*.table.core.windows.net|*.table.core.usgovcloudapi.net
-서비스 관리|management.core.windows.net|management.core.usgovcloudapi.net
-SQL 데이터베이스|*.database.windows.net|*.database.usgovcloudapi.net
-ARM 부하 분산 된 끝점|https://management.windows.net|https://management.usgovcloudapi.net  
+Management Portal|manage.windowsazure.com|manage.windowsazure.us
+General|*.windows.net|*.usgovcloudapi.net
+Core|*.core.windows.net|*.core.usgovcloudapi.net
+Compute|*.cloudapp.net|*.usgovcloudapp.net
+Blob Storage|*.blob.core.windows.net|   *.blob.core.usgovcloudapi.net
+Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Table Storage|*.table.core.windows.net|*.table.core.usgovcloudapi.net
+Service Management|management.core.windows.net|management.core.usgovcloudapi.net
+SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
+ARM Load balanced Endpoint|https://management.windows.net|https://management.usgovcloudapi.net  
 
-* Azure AD 통한 ARM 인증은 [Azure 리소스 관리자 요청 인증](https://msdn.microsoft.com/library/azure/dn790557.aspx)을 참조하세요.
+* For ARM authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
-## <a name="next"></a>다음 단계
+## <a name="<a-name="next"></a>next-steps"></a><a name="next"></a>Next steps
 
-Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 알아보시기 바랍니다.
+If you are interested in learning more and about Azure Government please leverage some of the links below.
 
-- **[평가판에 등록](https://azuregov.microsoft.com/trial/azuregovtrial)**
+- **[Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)**
 
-- **[Azure Government 구입 및 액세스](http://azure.com/gov)**
+- **[Acquiring and accessing Azure Government](http://azure.com/gov)**
 
-- **[Azure Government 개요](/azure-government-overview)**
+- **[Azure Government Overview](/azure-government-overview)**
 
-- **[Azure 정부 블로그](http://blogs.msdn.com/b/azuregov/)**
+- **[Azure Government Blog](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Azure 규정 준수](https://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Azure Compliance](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -130,4 +131,8 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

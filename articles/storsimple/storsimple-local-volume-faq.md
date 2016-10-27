@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 로컬로 고정된 볼륨 FAQ | Microsoft Azure"
-   description="StorSimple 로컬로 고정된 볼륨에 대한 질문과 대답에 대한 답변을 제공합니다."
+   pageTitle="StorSimple locally pinned volumes FAQ|Microsoft Azure"
+   description="Provides answers to frequently asked questions about StorSimple locally pinned volumes."
    services="storsimple"
    documentationCenter="NA"
    authors="manuaery"
@@ -15,202 +15,209 @@
    ms.date="08/16/2016"
    ms.author="manuaery" />
 
-# StorSimple 로컬로 고정된 볼륨: 질문과 대답(FAQ)
 
-## 개요
+# <a name="storsimple-locally-pinned-volumes:-frequently-asked-questions-(faq)"></a>StorSimple locally pinned volumes: frequently asked questions (FAQ)
 
-다음은 StorSimple 로컬로 고정된 볼륨을 만들거나, 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환(또는 그 반대로)하거나 로컬로 고정된 볼륨을 백업 및 복원하는 경우 발생할 수 있는 질문과 대답입니다.
+## <a name="overview"></a>Overview
 
-질문과 대답은 다음과 같은 범주로 정렬됩니다
+The following are questions and answers that you might have when you create a StorSimple locally pinned volume, convert a tiered volume to a locally pinned volume (and vice versa), or back up and restore a locally pinned volume.
 
-- 로컬로 고정된 볼륨 만들기
-- 로컬 고정된 백업
-- 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환
-- 로컬로 고정된 볼륨 복원
-- 로컬로 고정된 볼륨 장애 조치
+Questions and answers are arranged into the following categories
 
-## 로컬로 고정된 볼륨 만들기에 대한 질문
+- Creating a locally pinned volume
+- Backing up a locally pinned
+- Converting a tiered volume to a locally pinned volume
+- Restoring a locally pinned volume
+- Failing over a locally pinned volume
 
-**Q.** 8000 시리즈 장치에 만들 수 있는 로컬로 고정된 볼륨의 최대 크기는?
+## <a name="questions-about-creating-a-locally-pinned-volume"></a>Questions about creating a locally pinned volume
 
-**A** 8100 장치에서는 최대 8.5TB의 로컬로 고정된 볼륨 또는 최대 200TB의 계층화된 볼륨을 프로비전할 수 있습니다. 더 큰 8600 장치에서 로컬로 고정된 볼륨은 최대 22.5TB, 계층화된 볼륨은 최대 500TB까지 프로비전할 수 있습니다.
+**Q.** What is the maximum size of a locally pinned volume that I can create on the 8000 series devices?
 
-**Q.** 최근에 8100 장치를 업데이트 2로 업그레이드했고 로컬로 고정된 볼륨을 만들 때 사용할 수 있는 최대 크기는 6TB이며 8.5TB가 아닙니다. 8.5TB 볼륨을 만들 수 없는 이유는?
+**A** You can provision locally pinned volumes up to 8.5 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 22.5 TB or tiered volumes up to 500 TB.
 
-**A** 8100 장치에서는 최대 8.5TB의 로컬로 고정된 볼륨 또는 최대 200TB의 계층화된 볼륨을 프로비전할 수 있습니다. 장치에 계층화된 볼륨이 있는 경우 로컬로 고정된 볼륨을 만들기 위해 사용 가능한 공간은 최대 한도보다 비례적으로 낮을 수 있습니다. 예를 들어 (계층화된 용량의 절반인) 8100 장치에 계층화된 볼륨의 100TB가 이미 프로비전된 경우 8100 장치에서 만들 수 있는 로컬 볼륨의 최대 크기는 4TB로 줄어듭니다(로컬로 고정된 볼륨의 최대 용량에서 대략 절반).
+**Q.** I recently upgraded my 8100 device to Update 2 and when I try to create a locally pinned volume, the maximum available size is only 6 TB and not 8.5 TB. Why can’t I create an 8.5 TB volume?
 
-장치에서 일부 로컬 공간이 계층화된 볼륨의 작업 집합을 호스트하는 데 사용되기 때문에 장치가 볼륨을 계층화하는 경우 로컬로 고정된 볼륨을 만들기 위해 사용 가능한 공간은 줄어듭니다. 반대로, 로컬로 고정된 볼륨을 만드는 작업은 계층화된 볼륨에 사용 가능한 공간을 비례적으로 감소시킵니다. 다음 테이블에서는 로컬로 고정된 볼륨이 만들어질 때 8100 및 8600 장치에서 사용 가능한 계층화된 용량을 요약합니다.
+**A** You can provision locally pinned volumes up to 8.5 TB OR tiered volumes up to 200 TB on the 8100 device. If your device already has tiered volumes, then the space available for creating a locally pinned volume will be proportionally lower than this maximum limit. For example, if 100 TB of tiered volumes have already been provisioned on your 8100 device (which is half of the tiered capacity), then the maximum size of a local volume that you can create on the 8100 device will be correspondingly reduced to 4 TB (roughly half of the maximum locally pinned volume capacity).
 
-|로컬로 고정된 볼륨이 프로비전된 용량|계층화 볼륨에 프로비전된 사용 가능한 용량 - 8100|계층화 볼륨에 프로비전된 사용 가능한 용량 - 8600|
+Because some local space on the device is used to host the working set of tiered volumes, the available space for creating a locally pinned volume is reduced if the device has tiered volumes. Conversely, creating a locally pinned volume proportionally reduces the available space for tiered volumes. The following table summarizes the available tiered capacity on the 8100 and 8600 devices when locally pinned volumes are created.
+
+|Locally pinned volumes provisioned capacity|Available capacity to be provisioned for tiered volumes - 8100|Available capacity to be provisioned for tiered volumes - 8600|
 |-----|------|------|
-|0 | 200TB | 500TB |
-|1TB | 176\.5TB | 477\.8TB|
-|4TB | 105\.9TB | 411\.1TB |
-|8\.5TB | 0TB | 311\.1TB|
-|10TB | 해당 없음 | 277\.8TB |
-|15TB | 해당 없음 | 166\.7TB |
-|22\.5TB | 해당 없음 | 0TB |
+|0 | 200 TB | 500 TB |
+|1 TB | 176.5 TB | 477.8 TB|
+|4 TB | 105.9 TB | 411.1 TB |
+|8.5 TB | 0 TB | 311.1 TB|
+|10 TB | NA | 277.8 TB |
+|15 TB | NA | 166.7 TB |
+|22.5 TB | NA | 0 TB |
 
 
-**Q.** 로컬로 고정된 볼륨 만들기가 장기 실행 작업인 이유는?
+**Q.** Why is locally pinned volume creation a long running operation? 
 
-**A.** 로컬로 고정된 볼륨은 씩 프로비전됩니다. 장치의 로컬 계층에 공간을 만들려면 프로비전 프로세스 동안 기존의 계층화된 볼륨의 일부 데이터가 클라우드로 푸시될 수 있습니다. 프로비전된 볼륨의 크기, 장치의 기존 데이터 및 클라우드에 대한 사용 가능한 대역폭에 따라 로컬 볼륨을 만드는 데 몇 시간이 걸릴 수 있습니다.
+**A.** Locally pinned volumes are thickly provisioned. To create space on the local tiers of the device, some data from existing tiered volumes might be pushed to the cloud during the provisioning process. And since this depends upon the size of the volume being provisioned, the existing data on your device and the available bandwidth to the cloud, the time taken to create a local volume may be several hours.
 
-**Q.** 로컬로 고정된 볼륨을 만드는 데 걸리는 시간은?
+**Q.** How long does it take to create a locally pinned volume?
 
-**A.** 로컬로 고정된 볼륨이 씩 프로비전되었기 때문에 프로비전 프로세스 동안 계층화된 볼륨에서 일부 기존 데이터가 클라우드로 푸시될 수 있습니다. 따라서 로컬로 고정된 볼륨을 만드는 데 걸리는 시간은 볼륨의 크기, 장치의 데이터 및 사용 가능한 대역폭을 비롯한 여러 요인에 따라 다릅니다. 볼륨이 없는 새로 설치된 장치에서 로컬로 고정된 볼륨을 만드는 데 걸리는 시간은 데이터의 테라바이트 당 10분 정도입니다. 그러나 로컬 볼륨을 만드는 작업은 사용 중인 장치에 있는 위에서 설명한 요인에 따라 몇 시간이 걸릴 수 있습니다.
+**A.** Because locally pinned volumes are thickly provisioned, some existing data from tiered volumes might be pushed to the cloud during the provisioning process. Therefore, the time taken to create a locally pinned volume depends upon multiple factors, including the size of the volume, the data on your device and the available bandwidth. On a freshly installed device that has no volumes, the time to create a locally pinned volume is about 10 minutes per terabyte of data. However, creation of local volumes may take several hours based on the factors explained above on a device that is in use.
 
-**Q.** 로컬로 고정된 볼륨을 만들려고 합니다. 유의해야 하는 모범 사례는?
+**Q.** I want to create a locally pinned volume. Are there any best practices I need to be aware of?
 
-**A.** 로컬로 고정된 볼륨은 항상 데이터의 로컬 보증을 요구하며 클라우드 대기 시간에 민감한 워크로드에 적합합니다. 워크로드에 로컬 볼륨의 사용을 고려하는 동안 다음을 주의합니다.
+**A.** Locally pinned volumes are suitable for workloads that require local guarantees of data at all times and are sensitive to cloud latencies. While considering usage of local volumes for any of your workloads, please be aware of the following:
 
-- 로컬로 고정된 볼륨은 씩 프로비전되고 로컬 볼륨을 만드는 작업은 계층화된 볼륨에 대해 사용 가능한 공간에 영향을 줍니다. 따라서 더 작은 크기의 볼륨을 시작하고 저장소 요구 사항이 증가하면 확장하는 것이 좋습니다.
+- Locally pinned volumes are thickly provisioned, and creating local volumes impacts the available space for tiered volumes. Therefore, we suggest you start with smaller-sized volumes and scale up as your storage requirement increases.
 
-- 로컬 볼륨의 프로비전은 계층화된 볼륨에서 클라우드에 기존 데이터의 푸시를 포함할 수 있는 장기 실행 작업입니다. 결과적으로, 이러한 볼륨의 성능이 저하될 수 있습니다.
+- Provisioning of local volumes is a long running operation that might involve pushing existing data from tiered volumes to the cloud. As a result, you may experience reduced performance on these volumes.
 
-- 로컬 볼륨의 프로비전은 시간이 오래 걸리는 작업입니다. 관련된 실제 시간은 프로비전된 볼륨의 크기, 장치의 데이터 및 사용 가능한 대역폭 등 여러 요소에 따라 다릅니다. 클라우드로 기존 볼륨을 백업하지 않았다면 볼륨을 만드는 속도가 느립니다. 로컬 볼륨을 프로비전하기 전에 기존 볼륨의 클라우드 스냅숏을 만드는 것이 좋습니다.
+- Provisioning of local volumes is a time consuming operation. The actual time involved depends on multiple factors: the size of the volume being provisioned, data on your device, and available bandwidth. If you have not backed up your existing volumes to the cloud, then volume creation is slower. We suggest you take cloud snapshots of your existing volumes before you provision a local volume.
  
-- 기존의 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환할 수 있으며 이 변환은 (계층화된 데이터[있다면]를 클라우드에서 가져오는 것 외에도) 로컬로 고정된 볼륨을 만드는 장치에서 공간의 프로비전을 포함합니다. 다시, 위에서 설명한 요인에 따라 결정되는 장기 실행 작업입니다. 기존 볼륨을 백업되지 않은 경우 프로세스가 더 느리기 때문에 변환하기 전에 기존 볼륨을 백업하는 것이 좋습니다. 또한 이 과정에서 장치의 성능이 감소할 수 있습니다.
-	
-[로컬로 고정된 볼륨을 만드는](storsimple-manage-volumes-u2.md#add-a-volume) 방법에 대한 자세한 내용
+- You can convert existing tiered volumes to locally pinned volumes, and this conversion involves provisioning of space on the device for the resulting locally pinned volume (in addition to bringing down tiered data [if any] from the cloud). Again, this is a long running operation that depends on factors we’ve discussed above. We suggest that you back up your existing volumes prior to conversion as the process will be even slower if existing volumes are not backed up. Your device might also experience reduced performance during this process.
+    
+More information on how to [create a locally pinned volume](storsimple-manage-volumes-u2.md#add-a-volume)
 
-**Q.** 동시에 여러 개의 로컬로 고정된 볼륨을 만들 수 있나요?
+**Q.** Can I create multiple locally pinned volumes at the same time?
 
-**A.** 예, 하지만 로컬로 고정된 볼륨 만들기 및 확장 작업은 순차적으로 처리됩니다.
+**A.** Yes, but any locally pinned volume creation and expansion jobs are processed sequentially.
 
-로컬로 고정된 볼륨은 씩 프로비전되고 이를 위해서는 장치에서 로컬 공간을 만들어야 합니다(프로비전 프로세스 동안 클라우드로 푸시할 계층화된 볼륨의 기존 데이터로 발생할 수 있음). 따라서 프로비전 작업이 진행 중이면 해당 작업이 완료될 때까지 다른 로컬 볼륨 만들기 작업은 큐에 대기됩니다.
+Locally pinned volumes are thickly provisioned and this requires creation of local space on the device (which might result in existing data from tiered volumes to be pushed to the cloud during the provisioning process). Therefore, if a provisioning job is in progress, other local volume creation jobs will be queued until that job is finished.
 
-마찬가지로 기존 로컬 볼륨을 확장하거나 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환하는 경우 이전 작업이 완료될 때까지 새 로컬로 고정된 볼륨을 만드는 작업은 큐에 대기됩니다. 로컬로 고정된 볼륨의 크기를 확장하는 작업은 해당 볼륨에 대한 기존 로컬 공간의 확장을 포함합니다. 또한 계층화된 볼륨에서 로컬로 고정된 볼륨으로 변환하는 작업은 만들어진 로컬로 고정된 볼륨에 대한 로컬 공간을 만듭니다. 이러한 작업 모두에서 로컬 공간의 만들기 또는 확장은 장기 실행 작업입니다.
+Similarly, if an existing local volume is being expanded or a tiered volume is being converted to a locally pinned volume, then the creation of a new locally pinned volume is queued until the previous job is completed. Expanding the size of a locally pinned volume involves the expansion of the existing local space for that volume. Conversion from a tiered to locally pinned volume also involves the creation of local space for the resulting locally pinned volume. In both of these operations, creation or expansion of local space is a long running job.
 
-Azure StorSimple Manager 서비스의 **작업** 페이지에서 이러한 작업을 볼 수 있습니다. 적극적으로 처리되고 있는 작업은 공간 프로비전의 진행 상태를 반영하도록 지속적으로 업데이트됩니다. 남아있는 로컬로 고정된 볼륨 작업은 실행 중으로 표시되지만 진행은 중단되고 큐에 대기된 순서 대로 선택됩니다.
+You can view these jobs in the **Jobs** page of the Azure StorSimple Manager service. The job that is actively being processed is continually updated to reflect the progress of space provisioning. The remaining locally pinned volume jobs is marked as running, but their progress is stalled and they are picked in the order they were queued.
 
-**Q.** 로컬로 고정된 볼륨을 삭제했습니다. 새 볼륨을 만들려고 할 때 사용 가능한 공간에 반영되는 회수된 공간이 표시되지 않는 이유는?
+**Q.** I deleted a locally pinned volume. Why don't I see the reclaimed space reflected in the available space when I try to create a new volume? 
 
-**A.** 로컬에 고정된 볼륨을 삭제하면 새 볼륨에 사용할 수 있는 공간이 즉시 업데이트되지 않을 수 있습니다. StorSimple Manager 서비스는 사용 가능한 로컬 공간을 거의 매 시간마다 업데이트합니다. 새 볼륨을 만들기 전에 한 시간을 기다려 주세요.
+**A.** If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager Service updates the local space available approximately every hour. We suggest you wait for an hour before you try to create the new volume.
 
-**Q.** 클라우드 장비에 로컬로 고정된 볼륨이 지원되나요?
+**Q.** Are locally pinned volumes supported on the cloud appliance?
 
-**A.** 로컬로 고정된 볼륨은 클라우드 장비(원래 StorSimple 가상 장치로 알려진 8010 및 8020 장치)에서 지원되지 않습니다.
+**A.** Locally pinned volumes are not supported on the cloud appliance (8010 and 8020 devices formerly referred to as the StorSimple virtual device).
 
-**Q.** Azure PowerShell cmdlet을 사용하여 로컬로 고정된 볼륨을 만들고 관리할 수 있나요?
+**Q.** Can I use the Azure PowerShell cmdlets to create and manage locally pinned volumes? 
 
-**A.** 아니요, Azure PowerShell cmdlet을 통해 로컬로 고정된 볼륨을 만들 수 없습니다(Azure PowerShell을 통해 만든 볼륨은 계층화됨). 계층화된 볼륨 형식을 수정하는 원하지 않는 영향을 미치기 때문에 Azure PowerShell cmdlet를 사용하지 않아서 로컬로 고정된 볼륨의 속성을 수정하는 것이 좋습니다.
+**A.** No, you cannot create locally pinned volumes via Azure PowerShell cmdlets (any volume you create via Azure PowerShell is tiered). We also suggest that you do not use the Azure PowerShell cmdlets to modify any properties of a locally pinned volume, as it will have the undesired effect of modifying the volume type to tiered.
 
-## 로컬로 고정된 볼륨 백업에 대한 질문
+## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Questions about backing up a locally pinned volume
 
-**Q.** 로컬로 고정된 볼륨의 로컬 스냅숏이 지원되나요?
+**Q.** Are local snapshots of locally pinned volumes supported?
 
-**A.** 예, 로컬로 고정된 볼륨의 로컬 스냅숏을 사용할 수 있습니다. 그러나 클라우드 스냅숏으로 로컬로 고정된 볼륨을 정기적으로 백업하하여 데이터가 재해에 대비하여 보호되도록 하는 것이 좋습니다.
+**A.** Yes, you can take local snapshots of your locally pinned volumes. However, we strongly suggest that you regularly back up your locally pinned volumes with cloud snapshots to ensure that your data is protected in the eventuality of a disaster.
 
-**Q.** 로컬로 고정된 볼륨에서 로컬 스냅숏을 관리하기 위한 지침이 있나요?
+**Q.** Are there any guidelines for managing local snapshots for locally pinned volumes?
 
-**A.** 로컬로 고정된 볼륨에서 높은 비율의 데이터 이탈이 일어나는 빈번한 로컬 스냅숏으로 인해 장치의 로컬 공간을 빠르게 소모시키고 계층화된 볼륨의 데이터를 클라우드로 푸쉬하는 결과를 일으킬 수 있습니다. 따라서 로컬 스냅숏의 수를 최소화하는 것이 좋습니다.
+**A.** Frequent local snapshots alongside a high rate of data churn in the locally pinned volume might cause local space on the device to be consumed quickly and result in data from tiered volumes being pushed to the cloud. We therefore suggest you minimize the number of local snapshots.
 
-**Q.** 로컬로 고정 볼륨의 내 로컬 스냅숏이 무효화될 수 있다는 경고가 나타났습니다. 언제 발생할 수 있나요?
+**Q.** I received an alert stating that my local snapshots of locally pinned volumes might be invalidated. When can this happen?
 
-**A.** 이 백업 정책 그룹에 연결된 볼륨에서 높은 비율의 데이터 이탈과 함께 빈번한 로컬 스냅숏으로 인해 장치의 로컬 공간을 신속하게 사용될 수 있습니다. 장치의 로컬 계층이 자주 사용되는 경우 확장된 클라우드 중단이 가득 찬 장치에 나타날 수 있습니다. 그리고 볼륨에 들어오는 쓰기는 스냅숏을 무효화할 수 있습니다(덮어쓴 데이터의 이전 블록을 참조하기 위해 스냅숏을 업데이트할 공간이 없음). 이러한 상황에서 볼륨에 대한 쓰기는 계속 제공될 수 있지만 로컬 스냅숏은 무효화될 수 있습니다. 기존 클라우드 스냅숏에 영향은 없습니다.
+**A.** Frequent local snapshots alongside a high rate of data churn in the locally pinned volume might cause local space on the device to be consumed quickly. If the local tiers of the device are heavily used, an extended cloud outage might result in the device becoming full, and incoming writes to the volume might result in invalidation of the snapshots (as no space exists to update the snapshots to refer to the older blocks of data that have been overwritten). In such a situation the writes to the volume will continue to be served, but the local snapshots might be invalid. There is no impact to your existing cloud snapshots.
 
-알림 경고는 빈도가 낮은 로컬 스냅숏을 가져오는 로컬 스냅숏 일정을 검토하거나 더 이상 필요하지 않는 이전의 로컬 스냅숏을 삭제하여 이런 상황이 발생할 수 있고 동일한 상황을 적시에 해결할 것을 알립니다.
+The alert warning is to notify you that such a situation can arise and ensure you address the same in a timely manner by either reviewing your local snapshots schedules to take less frequent local snapshots or deleting older local snapshots that are no longer required.
 
-로컬 스냅숏이 무효화되면 특정 백업 정책에 대한 로컬 스냅숏이 무효화된 로컬 스냅숏의 타임스탬프와 함께 무효화된 것을 알려주는 정보 알림을 받게 됩니다. 이러한 스냅숏은 자동으로 삭제되고 Azure 클래식 포털의 **백업 카탈로그** 페이지 더 이상 볼 수 없습니다.
+If the local snapshots are invalidated, you will receive an information alert notifying you that the local snapshots for the specific backup policy have been invalidated alongside the list of timestamps of the local snapshots that were invalidated. These snapshots will be auto-deleted and you will no longer be able to view them in the **Backup Catalogs** page in the Azure classic portal.
 
-## 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환하는 방법에 대한 질문
+## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Questions about converting a tiered volume to a locally pinned volume
 
-**Q.** 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환하는 동안 장치에 속도 저하가 확인됩니다. 이것이 발생하는 이유는?
+**Q.** I’m observing some slowness on the device while converting a tiered volume to a locally pinned volume. Why is this happening? 
 
-**A.** 변환 프로세스는 다음의 두 단계로 이루어집니다.
+**A.** The conversion process involves two steps: 
 
-  1. 곧 변환될 로컬로 고정된 볼륨에 대한 장치의 공간의 프로비전합니다.
-  2. 로컬 보증을 확실히 하도록 클라우드에서 계층화된 데이터를 다운로드합니다.
+  1. Provisioning of space on the device for the soon-to-be-converted locally pinned volume.
+  2. Downloading any tiered data from the cloud to ensure local guarantees.
 
-이 단계는 모두 변환 중인 볼륨의 크기, 장치의 데이터 및 사용 가능한 대역폭에 따라 달라지는 장기 실행 작업입니다. 기존의 계층화된 볼륨의 일부 데이터는 프로비전 프로세스의 일환으로 클라우드에 유출될 수 있으므로 이 시간 동안 장치의 성능이 저하될 수 있습니다. 또한 다음의 경우 변환 프로세스의 속도가 느려질 수 있습니다.
+Both of these steps are long running operations that are dependent on the size of the volume being converted, data on the device, and available bandwidth. As some data from existing tiered volumes might spill to the cloud as part of the provisioning process, your device might experience reduced performance during this time. In addition, the conversion process can be slower if:
 
-- 기존 볼륨을 클라우드에 백업하지 않았으므로 변환을 시작하기 전에 볼륨을 백업하는 것이 좋습니다.
+- Existing volumes have not been backed up to the cloud; so we suggest you backup your volumes prior to initiating a conversion.
 
-- 대역폭 제한 정책을 적용했으며 이는 클라우드에 사용 가능한 대역폭을 제한할 수 있습니다. 따라서 클라우드에 대해 전용으로 사용되는 40 Mbps 이상의 연결이 있는 것이 좋습니다.
+- Bandwidth throttling policies have been applied, which might constrain the available bandwidth to the cloud; we therefore recommend you have a dedicated 40 Mbps or more connection to the cloud.
 
-- 변환 프로세스는 위에서 설명한 여러 요인으로 인해 몇 시간이 걸립니다. 따라서 급증하는 동안이나 주말에 이 작업을 수행하여 최종 소비자에 미치는 영향을 방지하는 것이 좋습니다.
+- The conversion process can take several hours due to the multiple factors explained above; therefore, we suggest that you perform this operation during non-peaks times or on a weekend to avoid the impact on end consumers.
 
-[계층화된 볼륨을 로컬로 고정된 볼륨으로 변환](storsimple-manage-volumes-u2.md#change-the-volume-type)하는 방법에 대한 자세한 내용
+More information on how to [convert a tiered volume to a locally pinned volume](storsimple-manage-volumes-u2.md#change-the-volume-type)
 
-**Q.** 볼륨 변환 작업을 취소할 수 있나요?
+**Q.** Can I cancel the volume conversion operation?
 
-**A.** 아니요, 변환 작업이 시작되면 취소할 수 없습니다. 앞의 질문에서 설명했듯이 프로세스 중에 발생할 수 있는 잠재적 성능 문제를 인지하고 변환을 계획할 때 위에 나열된 모범 사례를 준수합니다.
+**A.** No, you cannot the cancel the conversion operation once initiated. As discussed in the previous question, please be aware of the potential performance issues that you might encounter during the process, and follow the best practices listed above when you plan your conversion.
 
-**Q.** 변환 작업이 실패한 경우 볼륨에 미치는 영향은?
+**Q.** What happens to my volume if the conversion operation fails?
 
-**A.** 볼륨 변환은 클라우드 연결 문제로 인해 실패할 수 있습니다. 결국 장치는 계층화된 데이터를 클라우드에서 종료하려는 일련의 시도가 실패한 후에 변환 프로세스를 중지할 수 있습니다. 이러한 시나리오에서 볼륨 유형은 변환에 앞서 원본 볼륨 유형으로 이어집니다.
+**A.** Volume conversion can fail due to cloud connectivity issues. The device may eventually stop the conversion process after a series of unsuccessful attempts to bring down tiered data from the cloud. In such a scenario, the volume type will continue to be the source volume type prior to conversion, and:
 
-- 볼륨 변환 실패를 알려주는 중요한 경고가 발생합니다. 자세한 내용은 [로컬로 고정된 볼륨에 관련된 경고](storsimple-manage-alerts.md#locally-pinned-volume-alerts)에 있습니다
+- A critical alert will be raised to notify you of the volume conversion failure. More information on [alerts related to locally pinned volumes](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
 
-- 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환하는 경우 데이터가 클라우드에 있으므로 볼륨은 계층화된 볼륨의 속성을 계속 보이게 됩니다. 연결 문제를 해결한 다음 변환 작업을 다시 시도하는 것이 좋습니다.
+- If you are converting a tiered to a locally pinned volume, the volume will continue to exhibit properties of a tiered volume as data might still reside on the cloud. We suggest that you resolve the connectivity issues and then retry the conversion operation.
  
-- 마찬가지로 로컬로 고정된 볼륨에서 계층화된 볼륨으로 변환하는 경우 볼륨이 로컬로 고정된 볼륨으로 표시되지만 계층화된 볼륨의 기능을 수행합니다(데이터가 클라우드에 유출되었을 수 있기 때문임). 그러나 장치의 로컬 계층에서 공간을 계속 차지합니다. 이 공간은 다른 로컬로 고정된 볼륨에 사용할 수 없습니다. 이 작업을 다시 시도하여 볼륨 변환이 완료되고 장치에서 로컬 공간을 회수할 수 있도록 하는 것이 좋습니다.
+- Similarly, when conversion from a locally pinned to a tiered volume fails, although the volume will be marked as a locally pinned volume, it will function as a tiered volume (because data could have spilled to the cloud). However, it will continue to occupy space on the local tiers of the device. This space will not be available for other locally pinned volumes. We suggest that you retry this operation to ensure that the volume conversion is complete and the local space on the device can be reclaimed.
 
-## 로컬로 고정된 볼륨 복원에 대한 질문
+## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Questions about restoring a locally pinned volume
 
-**Q.** 로컬로 고정된 볼륨이 즉시 복원되나요?
+**Q.** Are locally pinned volumes restored instantly?
 
-**A.** 네, 로컬로 고정된 볼륨이 즉시 복원됩니다. 클라우드에서 볼륨에 대한 메타데이터 정보를 복원 작업의 일부로 끌어오는 즉시 볼륨은 온라인 상태가 되고 호스트에서 액세스될 수 있습니다. 그러나 볼륨 데이터에 대한 로컬 보증은 데이터가 클라우드에서 다운로드될 때까지 표시되지 않으며 복원 중에 이러한 볼륨에서 성능을 저하될 수 있습니다.
+**A.** Yes, locally pinned volumes are restored instantly. As soon as the metadata information for the volume is pulled from the cloud as part of the restore operation, the volume is brought online and can be accessed by the host. However, local guarantees for the volume data will not be present until all the data has been downloaded from the cloud, and you may experience reduced performance on these volumes for the duration of the restore.
 
-**Q.** 로컬로 고정된 볼륨을 복원하는 데 걸리는 시간은?
+**Q.** How long does it take to restore a locally pinned volume?
 
-**A.** 볼륨 데이터가 백그라운드에서 계속 다운로드되는 동안 로컬로 고정된 볼륨은 즉시 복원되고 볼륨 메타데이터 정보를 클라우드에서 검색하는 즉시 온라인 상태가 됩니다. 볼륨 데이터에 대한 로컬 보증을 가져오는 복원 작업의 뒷 부분은 장기 실행 작업으로 모든 데이터를 다시 로컬로 만드는 데 몇 시간이 걸릴 수 있습니다. 동일한 작업을 완료하는 데 걸리는 시간은 복원 중인 볼륨의 크기 및 사용 가능한 대역폭 등 여러 요인에 따라 달라집니다. 복원되는 원본 볼륨이 삭제된 경우 장치에서 로컬 공간을 복원 작업의 일부로 만드는 데 추가 시간이 걸립니다.
+**A.** Locally pinned volumes are restored instantly and brought online as soon as the volume metadata information is retrieved from the cloud, while the volume data continues to be downloaded in the background. This latter part of the restore operation--getting back the local guarantees for the volume data--is a long running operation and might take several hours for all the data to be made local again. The time taken to complete the same depends on multiple factors, such as the size of the volume being restored and the available bandwidth. If the original volume that is being restored has been deleted, additional time will be taken to create the local space on the device as part of the restore operation.
 
-**Q.** (볼륨을 계층화할 때 만든) 이전 스냅숏에 기존의 로컬로 고정된 볼륨을 복원해야 합니다. 이 경우에 볼륨은 계층화되어 복원될 수 있나요?
+**Q.** I need to restore my existing locally pinned volume to an older snapshot (taken when the volume was tiered). Will the volume be restored as tiered in this case?
 
-**A.** 아니요, 볼륨은 로컬로 고정된 볼륨으로 복원됩니다. 스냅숏이 볼륨이 계층화된 시점으로 시간이 지정되지만 기존 볼륨을 복원하는 동안 StorSimple은 항상 현재 존재하는 디스크의 볼륨 유형을 사용합니다.
+**A.** No, the volume will be restored as a locally pinned volume. Although the snapshot dates to the time when the volume was tiered, while restoring existing volumes, StorSimple always uses the type of volume on the disk as it exists currently.
 
-**Q.** 최근 내 로컬로 고정된 볼륨을 확장했지만 볼륨의 크기가 작았을 시점으로 데이터를 복원해야 합니다. 복원이 현재 볼륨의 크기를 조정하고 복원이 완료되면 볼륨의 크기를 확장해야 합니까?
+**Q.** I extended my locally pinned volume recently, but I now need to restore the data to a time when the volume was smaller in size. Will restore resize the current volume and will I need to extend the size of the volume once the restore is completed?
 
-**A.** 예, 복원이 현재 볼륨의 크기를 조정하고 복원이 완료되면 볼륨의 크기를 확장해야 합니다.
+**A.** Yes, the restore will resize the volume, and you will need to extend the size of the volume after the restore is completed.
 
-**Q.** 복원하는 동안 볼륨의 유형을 변경할 수 있나요?
+**Q.** Can I change the type of a volume during restore?
 
-**A.**아니요, 복원하는 동안 볼륨의 유형을 변경할 수 없습니다.
+**A.**No, you cannot change the volume type during restore.
 
-- 삭제된 볼륨은 스냅숏에 저장된 형식으로 복원됩니다.
+- Volumes that have been deleted are restored as the type stored in the snapshot.
 
-- 기존 볼륨은 스냅숏에 저장된 형식에 관계없이 해당하는 현재 유형을 기반으로 복원됩니다(이전의 두 질문 참조).
+- Existing volumes are restored based on their current type, irrespective of the type stored in the snapshot (refer to the previous two questions).
  
-**Q.** 내 로컬로 고정된 볼륨을 복원해야 하지만 스냅샷에 잘못된 시점을 선택했습니다. 현재 복원 작업을 취소할 수 있습니까?
+**Q.** I need to restore my locally pinned volume, but I picked an incorrect point in time snapshot. Can I cancel the current restore operation?
 
-**A.** 예, 진행 중인 복원 작업을 취소할 수 있습니다. 볼륨의 상태는 복원이 시작할 때의 상태로 롤백될 수 있습니다. 그러나 복원이 진행 중인 동안 볼륨에 만들어진 쓰기는 손실됩니다.
+**A.** Yes, you can cancel an on-going restore operation. The state of the volume will be rolled back to the state at the start of the restore. However, any writes that were made to the volume while the restore was in progress will be lost.
 
-**Q.** 내 로컬로 고정된 볼륨 중 하나에서 복원 작업을 시작했지만 이제 만들기를 다시 수집하지 않는 내 백로그 카탈로그에 스냅숏을 표시합니다. 이 용도는 무엇인가요?
+**Q.** I started a restore operation on one of my locally pinned volumes, and now I see a snapshot in my backlog catalog that I don't recollect creating. What is this used for?
 
-**A.** 복원 작업에 앞서 전에 만들어지는 임시 스냅숏으로 복원을 취소되거나 실패하는 경우에 롤백에 사용됩니다. 이 스냅숏을 삭제하지 마세요. 복원이 완료되면 자동으로 삭제됩니다. 복원 작업에 로컬로 고정된 볼륨만 있거나 로컬로 고정된 볼륨과 계층화된 볼륨이 함께 있는 경우에 이 동작이 발생할 수 있습니다. 복원 작업에 계층화된 볼륨만 있으면 이 동작이 발생 하지 않습니다.
+**A.** This is the temporary snapshot that is created prior to the restore operation and is used for rollback in case the restore is canceled or fails. Do not delete this snapshot; it will be automatically deleted when the restore is complete. This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur.
 
-**Q.** 로컬로 고정된 볼륨을 복제할 수 있나요?
+**Q.** Can I clone a locally pinned volume?
 
-**A.** 예, 할 수 있습니다. 그러나 로컬로 고정된 볼륨은 기본적으로 계층화된 볼륨으로 복제됩니다. [로컬로 고정된 볼륨을 복제하는](storsimple-clone-volume-u2.md) 방법에 대한 자세한 내용
+**A.** Yes, you can. However, the locally pinned volume will be cloned as a tiered volume by default. More information on how to [clone a  locally pinned volume](storsimple-clone-volume-u2.md)
 
-## 로컬로 고정된 볼륨 장애 조치에 대한 질문
+## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Questions about failing over a locally pinned volume
 
-**Q.** 내 장치를 다른 실제 장치로 장애 조치해야 합니다. 내 로컬로 고정된 볼륨이 로컬로 고정되거나 계층화되어 실패하나요?
+**Q.** I need to fail over my device to another physical device. Will my locally pinned volumes be failed over as locally pinned or tiered?
 
-**A.** 대상 장치의 소프트웨어 버전에 따라 로컬로 고정된 볼륨을 다음으로 장애 조치합니다.
+**A.** Depending on the software version of the target device, locally pinned volumes will be failed over as:
 
-- 대상 장치가 StorSimple 8000 시리즈 업데이트 2를 실행한 경우 로컬로 고정됨
-- 대상 장치가 StorSimple 8000 시리즈 업데이트 1.x를 실행한 경우 계층화됨
-- 대상 장치가 클라우드 장비인 경우 계층화됨(소프트웨어 버전 업데이트 2 또는 1.x)
+- Locally pinned if the target device is running StorSimple 8000 series update 2
+- Tiered if the target device is running StorSimple 8000 series update 1.x
+- Tiered if the target device is the cloud appliance (software version update 2 or update 1.x)
 
-[버전에 걸쳐 로컬로 고정된 볼륨의 장애 조치 및 DR](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)에 대한 자세한 내용
+More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
-**Q.** 로컬로 고정된 볼륨이 DR(재해 복구) 중에 즉시 복원되나요?
+**Q.** Are locally pinned volumes instantly restored during disaster recovery (DR)?
 
-**A.** 네, 장애 조치 중에 로컬로 고정된 볼륨이 즉시 복원됩니다. 클라우드에서 볼륨에 대한 메타데이터 정보를 장애 조치 작업의 일부로 끌어오는 즉시 볼륨은 대상 장치에서 온라인 상태가 되고 호스트에서 액세스될 수 있습니다. 한편, 볼륨 데이터가 백그라운드에서 계속 다운로드되면 장애 조치 중에 이러한 볼륨의 성능이 저하될 수 있습니다.
+**A.** Yes, locally pinned volumes are restored instantly during failover. As soon as the metadata information for the volume is pulled from the cloud as part of the failover operation, the volume is brought online on the target device and can be accessed by the host. Meanwhile, the volume data will continue to download in the background, and you may experience reduced performance on these volumes for the duration of the failover.
 
-**Q.** 장애 조치 작업이 완료되면 대상 장치에 복원되고 있는 로컬로 고정된 볼륨의 진행 상태를 어떻게 추적할 수 있나요?
+**Q.** I see the failover job completed, how can I track the progress of locally pinned volume that is being restored on the target device?
 
-**A.** 장애 조치 작업 중에 장애 조치 작업은 장애 조치 설정의 모든 볼륨이 즉시 복원되고 대상 장치에 온라인 상태가 되면 완료됨으로 표시됩니다. 여기에는 장애 조치될 수 있는 로컬로 고정된 볼륨을 모두 포함합니다. 그러나 데이터의 로컬 보증은 볼륨에 대한 모든 데이터가 다운로드되었을 때만 제공됩니다. 장애 조치의 일부로 만들어진 해당 복원 작업을 모니터링하여 장애 조치된 로컬로 고정된 볼륨에 대한 진행률을 각각 추적할 수 있습니다. 이러한 개별 복원 작업은 로컬로 고정된 볼륨에 대해서만 만들어집니다.
+**A.** During a failover operation, the failover job is marked as complete once all the volumes in the failover set have been instantly restored and brought online on the target device. This includes any locally pinned volumes that might have been failed over; however, local guarantees of the data will only be available when all the data for the volume has been downloaded. You can track this progress for each locally pinned volume that was failed over by monitoring the corresponding restore jobs that are created as part of the failover. These individual restore jobs will only be created for locally pinned volumes.
 
-**Q.** 장애 조치 중에 볼륨의 유형을 변경할 수 있나요?
+**Q.** Can I change the type of a volume during failover?
 
-**A.** 아니요, 장애 조치 중에 볼륨의 유형을 변경할 수 없습니다. StorSimple 8000 시리즈 업데이트 2를 실행하는 다른 실제 장치에 장애 조치하는 경우 볼륨은 스냅숏에 저장된 볼륨 유형에 따라 장애 조치됩니다. 다른 장치 버전에 장애 조치하는 경우 장애 조치 후에 볼륨 유형에 대해 위의 질문을 참조합니다.
+**A.** No, you cannot change the volume type during a failover. If you are failing over to another physical device that is running StorSimple 8000 series update 2, the volumes will be failed over based on the volume type stored in the snapshot. When failing over to any other device version, refer to the question above on the volume type after a failover.
 
-**Q.** 클라우드 장비에 로컬로 고정된 볼륨을 사용하여 볼륨 컨테이너를 장애 조치할 수 있나요?
+**Q.** Can I fail over a volume container with locally pinned volumes to the cloud appliance?
 
-**A.** 예, 할 수 있습니다. 로컬로 고정된 볼륨은 계층화된 볼륨으로 장애 조치됩니다. [버전에 걸쳐 로컬로 고정된 볼륨의 장애 조치 및 DR](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)에 대한 자세한 내용
+**A.** Yes, you can. The locally pinned volumes will be failed over as tiered volumes. More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

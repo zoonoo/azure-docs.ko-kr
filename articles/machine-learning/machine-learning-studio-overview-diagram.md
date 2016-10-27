@@ -1,50 +1,56 @@
 <properties
-	pageTitle="기계 학습 스튜디오 기능 개요 다이어그램 | Microsoft Azure"
-	description="Azure 기계 학습 스튜디오 기능의 인쇄 가능한 다이어그램으로 스튜디오를 사용하여 예측 분석 실험을 개발하고 Azure 클라우드에서 운영하는 방법을 보여 줍니다."
-	keywords="기계 학습 스튜디오, 개요 다이어그램, 다운로드"
-	services="machine-learning"
-	documentationCenter=""
-	authors="hning86"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Overview diagram of Machine Learning Studio capabilities | Microsoft Azure"
+    description="A printable diagram of the capabilities of Azure Machine Learning Studio, demonstrating how to use Studio to develop a predictive analytics experiment and operationalize it in the Azure cloud."
+    keywords="machine learning studio,overview diagram,download"
+    services="machine-learning"
+    documentationCenter=""
+    authors="hning86"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/21/2016"
-	ms.author="haining;garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/21/2016"
+    ms.author="haining;garye" />
 
 
-# Azure 기계 학습 스튜디오 기능 개요 다이어그램
 
-**Microsoft Azure 기계 학습 스튜디오 기능 개요** 다이어그램은 기계 학습 스튜디오를 사용하여 예측 분석 모델을 개발하고 해당 모델을 Azure 클라우드에서 운영할 수 있는 방법을 개략적으로 설명합니다.
+# <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Overview diagram of Azure Machine Learning Studio capabilities
 
-[Azure 기계 학습 스튜디오](https://studio.azureml.net/)에는 데이터 입력, 출력, 준비 및 시각화를 지원하는 모듈과 함께 다수의 사용 가능한 기계 학습 알고리즘이 있습니다. 이러한 구성 요소를 사용하여 예측 분석 실험을 개발하고 반복해서 사용하여 모델을 학습할 수 있습니다. 그런 다음에는 새 데이터의 점수를 매기는 데 사용할 수 있도록 한 번 클릭으로 Azure 클라우드에서 모델을 운영할 수 있습니다.
+The **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram gives you a high-level overview of how you can use Machine Learning Studio to develop a predictive analytics model and operationalize it in the Azure cloud.
 
-이 다이어그램은 이러한 모든 과정을 함께 보여 줍니다.
+[Azure Machine Learning Studio](https://studio.azureml.net/) has available a large number of machine learning algorithms, along with modules that help with data input, output, preparation, and visualization. Using these components you can develop a predictive analytics experiment, iterate on it, and use it to train your model.
+Then with one click you can operationalize your model in the Azure cloud so that it can be used to score new data.
 
-> [AZURE.NOTE] 전체를 탐색해 보고 기계 학습 스튜디오에서 사용 가능한 기계 학습 알고리즘을 선택하는 데 대한 추가 도움이 필요하면 [Microsoft Azure 기계 학습 스튜디오용 기계 학습 알고리즘 참고 자료](machine-learning-algorithm-cheat-sheet.md)를 참조하세요.
+This diagram shows how all those pieces fit together.
 
-## 기계 학습 스튜디오 개요 다이어그램 다운로드
+> [AZURE.NOTE] See [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) for additional help in navigating through and choosing the machine learning algorithms available in Machine Learning Studio.
 
-**Microsoft Azure 기계 학습 스튜디오 기능 개요** 다이어그램을 다운로드하여 기계 학습 스튜디오의 기능을 개략적으로 봅니다. 옆에 두고 보려면, tabloid 크기(11 x 17인치)로 다이어그램을 인쇄하면 됩니다.
+## <a name="download-the-machine-learning-studio-overview-diagram"></a>Download the Machine Learning Studio overview diagram
 
-**여기서 다이어그램 다운로드: [Microsoft Azure 기계 학습 스튜디오 기능 개요](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio. To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).
 
-![Microsoft Azure 기계 학습 스튜디오 기능 개요][studio-overview]
+**Download the diagram here: [Microsoft Azure Machine Learning Studio Capabilities Overview](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+
+![Microsoft Azure Machine Learning Studio Capabilities Overview][studio-overview]
 
 [studio-overview]: ./media/machine-learning-studio-overview-diagram/ml_studio_overview_v1.1.png
 
 
-## 기계 학습 스튜디오에 대한 추가 도움말
+## <a name="more-help-with-machine-learning-studio"></a>More help with Machine Learning Studio
 
-* Microsoft Azure 기계 학습의 개요는 [Microsoft Azure의 기계 학습 소개](machine-learning-what-is-machine-learning.md)를 참조하세요.
-* 기계 학습 스튜디오에 대한 개요는 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
-* 기계 학습 스튜디오에서 사용 가능한 기계 학습 알고리즘에 대해 자세히 알아보려면 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md)을 참조하세요.
+* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* For an overview of Machine Learning Studio, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+* For a detailed discussion of the machine learning algorithms available in Machine Learning Studio, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

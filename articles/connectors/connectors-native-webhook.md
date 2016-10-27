@@ -1,12 +1,12 @@
 <properties
-	pageTitle="논리 앱 웹후크 커넥터 | Microsoft Azure"
-	description="배열 필터링과 같은 동작을 수행하기 위한 웹후크 동작 및 트리거의 개요입니다."
-	services=""
-	documentationCenter="" 
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Logic App webhook connector | Microsoft Azure"
+    description="Overview of webhook action and triggers for performing actions like Filter Array."
+    services=""
+    documentationCenter="" 
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,146 +17,153 @@
    ms.date="07/21/2016"
    ms.author="jehollan"/>
 
-# 웹후크 커넥터 시작
 
-웹후크 동작 및 트리거를 사용하여 다음을 완료하기 위한 흐름을 트리거, 일시 중지 및 다시 시작할 수 있습니다.
+# <a name="get-started-with-the-webhook-connector"></a>Get started with the webhook connector
 
-- [항목이 수신되자마자 Azure 이벤트 허브](https://github.com/logicappsio/EventHubAPI)의 트리거가 수신됩니다.
-- 워크플로를 계속하기 전에 승인을 대기합니다.
+With the webhook action and trigger you can trigger, pause, and resume flows to accomplish:
 
-웹후크 구독을 지원하는 API를 만드는 방법에 대한 자세한 내용은 [리 논리 앱 커넥터 생성에 대한 이 문서](../app-service-logic/app-service-logic-create-api-app.md)를 참조하세요.
+- Trigger from an [Azure Event Hub as soon as an item](https://github.com/logicappsio/EventHubAPI) is received
+- Wait for an approval before continuing a workflow
 
----
-
-## 웹후크 트리거 사용
-
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요](connectors-overview.md). 웹후크 트리거는 새 항목에 대한 폴링에 의존하지 않으므로 특히 유용합니다. [요청 트리거](./connectors-native-reqres.md)처럼 논리 앱이 인스턴스를 생성하면 이벤트가 발생합니다. 필요할 때 논리 앱을 실행하는 데 사용할 수 있는 서비스에 *콜백 URL*을 등록하면 이 작업이 수행됩니다.
-
-논리 앱 디자이너에서 HTTP 트리거를 설정하는 방법의 예제 시퀀스는 다음과 같습니다. 여기서는 [논리 앱에서 사용되는 웹후크 구독 및 구독 취소 패턴](../app-service-logic/app-service-logic-create-api-app.md#webhook-triggers)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 구독 호출은 논리 앱이 새 웹후크와 함께 저장되거나 사용 안 함 상태에서 사용 상태로 전환될 때마다 수행됩니다. 구독 취소 호출은 논리 앱 웹후크 트리거가 제거 또는 저장되거나 사용 상태에서 사용 안 함 상태로 전환될 때마다 수행됩니다.
-
-1. **HTTP 웹후크** 트리거를 논리 앱의 첫 번째 단계로 추가합니다.
-1. 웹후크 구독 및 구독 취소 호출에 대한 매개 변수를 입력합니다.
-	- 이 동작은 [HTTP 동작](./connectors-native-http.md) 형식과 동일한 패턴을 따릅니다.
-
-	![HTTP 트리거](./media/connectors-native-webhook/using-trigger.png)
-
-1. 하나 이상의 동작 추가
-1. 저장을 클릭하여 논리 앱을 게시합니다. 이 작업을 수행하면 이 논리 앱을 트리거하는 데 필요한 콜백 URL을 사용하여 구독 끝점이 호출됩니다.
-1. 서비스에서 콜백 URL에 댛 `HTTP POST`를 수행할 때마다 논리 앱이 실행됩니다(논리 앱에는 요청에 전달된 모든 데이터가 포함됨).
-
-## 웹후크 동작 사용
-	
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](connectors-overview.md) 웹후크 동작은 서비스에 *콜백 URL*을 등록하고, 다시 시작하기 전에 URL이 호출될 때까지 대기하므로 특히 유용합니다. ["승인 전자 메일 보내기"](./connectors-create-api-office365-outlook.md)는 이 패턴을 따르는 커넥터의 예입니다. 이 패턴을 웹후크 동작을 통해 서비스로 확장할 수 있습니다. 여기서는 [논리 앱에서 사용되는 웹후크 구독 및 구독 취소 패턴](../app-service-logic/app-service-logic-create-api-app.md#webhook-actions)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 논리 앱이 웹후크 동작을 실행할 때마다 구독 호출이 수행됩니다. 응답을 기다리는 동안 또는 논리 앱 실행이 시간 초과되기 전에 실행이 취소될 때마다 구독 취소 호출이 수행됩니다.
-
-웹후크 동작을 추가하려면
-
-1. **새 단계** 단추를 선택합니다.
-1. **동작 추가**를 선택합니다.
-1. 동작 검색 상자에 "webhook"를 입력하여 **HTTP 웹후크** 동작을 나열합니다.
-
-	![쿼리 동작 선택](./media/connectors-native-webhook/using-action-1.png)
-
-1. 웹후크 구독 및 구독 취소 호출에 대한 매개 변수를 입력합니다.
-	- 이 동작은 [HTTP 동작](./connectors-native-http.md) 형식과 동일한 패턴을 따릅니다.
-
-	![쿼리 동작 완료](./media/connectors-native-webhook/using-action-2.png)
-
-	- 런타임 시 논리 앱은 해당 단계에 도달하면 구독 끝점을 호출합니다.
-
-1. 도구 모음 왼쪽 위에서 저장을 클릭하면 논리 앱이 저장되고 게시됩니다(활성화).
+Information on creating an API that supports a webhook subscribe can be found [in this article on creating Logic App connectors](../app-service-logic/app-service-logic-create-api-app.md).
 
 ---
 
-## 기술 세부 정보
+## <a name="use-the-webhook-trigger"></a>Use the webhook trigger
 
-웹후크가 지원하는 트리거 및 동작에 대한 세부 정보는 다음과 같습니다.
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](connectors-overview.md).  A webhook trigger is especially useful as it doesn't rely on polling for new items - like the [request trigger](./connectors-native-reqres.md) the logic app will fire the instant an event occurs.  It does this by registering a *callback URL* to a service which can be used to fire the logic app as needed.
 
-## 웹후크 트리거
+Here’s an example sequence of how to setup a HTTP trigger in the logic app designer.  This assumes you have already deployed or are accessing an API that follows [the webhook subscribe and unsubscribe pattern used in Logic Apps](../app-service-logic/app-service-logic-create-api-app.md#webhook-triggers).  The subscribe call is made whenever a logic app is saved with a new webhook, or switched from disabled to enabled.  The unsubscribe call is made whenever a logic app webhook trigger is removed and saved, or switched from enabled to disabled.
 
-트리거는 워크플로를 시작하기 위한 작업입니다. [트리거에 대해 자세히 알아보세요.](connectors-overview.md) 이 커넥터에는 1개의 트리거가 있습니다.
+1. Add the **HTTP Webhook** trigger as the first step in a logic app
+1. Fill in the parameters for the webhook subscribe and unsubscribe calls
+    - This follow the same pattern as the [HTTP action](./connectors-native-http.md) format
 
-|작업|설명|
+    ![HTTP Trigger](./media/connectors-native-webhook/using-trigger.png)
+
+1. Add at least one action
+1. Click save to publish the logic app - this will call the subscribe endpoint with the callback URL needed to trigger this logic app
+1. Whenever the service makes an `HTTP POST` to the callback URL, the logic app will fire (and include any data passed in the request)
+
+## <a name="use-the-webhook-action"></a>Use the webhook action
+    
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md)  A webhook action is especially useful as it will register a *callback URL* with a service and wait until the URL is called before resuming.  The ["Send Approval Email"](./connectors-create-api-office365-outlook.md) is an example of a connector that follows this pattern.  You can extend this pattern into any service through the webhook action.  This assumes you have already deployed or are accessing an API that follows [the webhook subscribe and unsubscribe pattern used in Logic Apps](../app-service-logic/app-service-logic-create-api-app.md#webhook-actions).  The subscribe call is made whenever a logic app executes the webhook action.  The unsubscribe call is made whenever a run is cancelled while awaiting a response, or before the logic app run times out.
+
+To add a webhook action:
+
+1. Select the **New Step** button
+1. Choose **Add an action**
+1. In the action search box, type "webhook" to list the **HTTP Webhook** action
+
+    ![Select query action](./media/connectors-native-webhook/using-action-1.png)
+
+1. Fill in the parameters for the webhook subscribe and unsubscribe calls
+    - This follow the same pattern as the [HTTP action](./connectors-native-http.md) format
+
+    ![Complete query action](./media/connectors-native-webhook/using-action-2.png)
+
+    - At runtime the logic app will call the subscribe endpoint once it reaches the step
+
+1. Click save at the top left corner of the toolbar, and your logic app will both save and publish (activate)
+
+---
+
+## <a name="technical-details"></a>Technical details
+
+Below are the details for the trigger and action webhook supports.
+
+## <a name="webhook-triggers"></a>Webhook triggers
+
+A trigger is an operation to start a workflow. [Learn more about triggers.](connectors-overview.md) This connector has 1 trigger.
+
+|Action|Description|
 |---|---|
-|HTTP 웹후크|필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 논리 앱을 실행합니다.|
+|HTTP Webhook|Subscribe a callback URL to a service that can call the URL to fire logic app as needed.|
 
-### 트리거 세부 정보
+### <a name="trigger-details"></a>Trigger details
 
-웹후크 커넥터에는 1개의 가능한 트리거가 있습니다. 아래에는 동작, 동작의 필수 및 선택 사항 입력 필드, 사용과 연결된 해당 출력 세부 정보에 대한 정보가 나와 있습니다.
+The webhook connector comes with 1 possible trigger. Below is the information on the action, its required and optional input fields, and the corresponding output details associated with its usage.
 
-#### HTTP 웹후크
-필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 논리 앱을 실행합니다. *는 필수 필드를 의미합니다.
+#### <a name="http-webhook"></a>HTTP Webhook
+Subscribe a callback URL to a service that can call the URL to fire logic app as needed.
+An * means required field.
 
-|표시 이름|속성 이름|설명|
+|Display Name|Property Name|Description|
 |---|---|---|
-|구독 메서드*|메서드|구독 요청에 사용할 HTTP 메서드|
-|구독 URI*|uri|구독 요청에 사용할 HTTP URI|
-|구독 취소 메서드*|메서드|구독 취소 요청에 사용할 HTTP 메서드|
-|구독 취소 URI*|uri|구독 취소 요청에 사용할 HTTP URI|
-|구독 본문|body|구독의 HTTP 요청 본문|
-|구독 헤더|headers|구독의 HTTP 요청 헤더|
-|구독 인증|인증|구독에 사용할 HTTP 인증 자세한 내용은 [HTTP 커넥터를 참조](./connectors-native-http.md#authenication)하세요.|
-|구독 취소 본문|body|구독 취소의 HTTP 요청 본문|
-|구독 취소 헤더|headers|구독 취소의 HTTP 요청 헤더|
-|구독 취소 인증|authentication|구독 취소에 사용할 HTTP 인증 자세한 내용은 [HTTP 커넥터를 참조](./connectors-native-http.md#authenication)하세요.|
+|Subscribe Method*|method|HTTP Method to use for subscribe request|
+|Subscribe URI*|uri|HTTP URI to use for subscribe request|
+|Unsubscribe Method*|method|HTTP method to use for unsubscribe request|
+|Unsubscribe URI*|uri|HTTP URI to use for unsubscribe request|
+|Subscribe Body|body|HTTP request body for subscribe|
+|Subscribe Headers|headers|HTTP request headers for subscribe|
+|Subscribe Authentication|authencation|HTTP authentication to use for subscribe. [See HTTP connector](./connectors-native-http.md#authenication) for details|
+|Unsubscribe Body|body|HTTP request body for unsubscribe|
+|Unsubscribe Headers|headers|HTTP request headers for unsubscribe|
+|Unsubscribe Authentication|authentication|HTTP authentication to use for unsubscribe. [See HTTP connector](./connectors-native-http.md#authenication) for details|
 <br>
 
-**출력 세부 정보**
+**Output Details**
 
-웹후크 요청
+Webhook request
 
-|속성 이름|데이터 형식|설명|
+|Property Name|Data Type|Description|
 |---|---|---|
-|헤더|object|웹후크 요청 헤더|
-|본문|object|웹후크 요청 개체|
-|상태 코드|int|웹후크 요청 상태 코드|
+|Headers|object|Webhook request headers|
+|Body|object|Webhook request object|
+|Status Code|int|Webhook request status code|
 
-## 웹후크 작업
+## <a name="webhook-actions"></a>Webhook actions
 
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](connectors-overview.md) 커넥터에는 1개의 가능한 동작이 있습니다.
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md) The connector has 1 possible action. 
 
-|작업|설명|
+|Action|Description|
 |---|---|
-|HTTP 웹후크|필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 워크플로 단계를 다시 시작합니다.|
+|HTTP Webhook|Subscribe a callback URL to a service that can call the URL to resume a workflow step as needed.|
 
-### 작업 세부 정보
+### <a name="action-details"></a>Action details
 
-웹후크 커넥터에는 1개의 가능한 동작이 있습니다. 아래에는 동작, 동작의 필수 및 선택 사항 입력 필드, 사용과 연결된 해당 출력 세부 정보에 대한 정보가 나와 있습니다.
+The webhook connector comes with 1 possible action. Below, there is information on the action, its required and optional input fields, and the corresponding output details associated with its usage.
 
-#### HTTP 웹후크
-필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 워크플로 단계를 다시 시작합니다. *는 필수 필드를 의미합니다.
+#### <a name="http-webhook"></a>HTTP Webhook
+Subscribe a callback URL to a service that can call the URL to resume a workflow step as needed.
+An * means required field.
 
-|표시 이름|속성 이름|설명|
+|Display Name|Property Name|Description|
 |---|---|---|
-|구독 메서드*|메서드|구독 요청에 사용할 HTTP 메서드|
-|구독 URI*|uri|구독 요청에 사용할 HTTP URI|
-|구독 취소 메서드*|메서드|구독 취소 요청에 사용할 HTTP 메서드|
-|구독 취소 URI*|uri|구독 취소 요청에 사용할 HTTP URI|
-|구독 본문|body|구독의 HTTP 요청 본문|
-|구독 헤더|headers|구독의 HTTP 요청 헤더|
-|구독 인증|인증|구독에 사용할 HTTP 인증 자세한 내용은 [HTTP 커넥터를 참조](./connectors-native-http.md#authentication)하세요.|
-|구독 취소 본문|body|구독 취소의 HTTP 요청 본문|
-|구독 취소 헤더|headers|구독 취소의 HTTP 요청 헤더|
-|구독 취소 인증|authentication|구독 취소에 사용할 HTTP 인증 자세한 내용은 [HTTP 커넥터를 참조](./connectors-native-http.md#authentication)하세요.|
+|Subscribe Method*|method|HTTP Method to use for subscribe request|
+|Subscribe URI*|uri|HTTP URI to use for subscribe request|
+|Unsubscribe Method*|method|HTTP method to use for unsubscribe request|
+|Unsubscribe URI*|uri|HTTP URI to use for unsubscribe request|
+|Subscribe Body|body|HTTP request body for subscribe|
+|Subscribe Headers|headers|HTTP request headers for subscribe|
+|Subscribe Authentication|authencation|HTTP authentication to use for subscribe. [See HTTP connector](./connectors-native-http.md#authentication) for details|
+|Unsubscribe Body|body|HTTP request body for unsubscribe|
+|Unsubscribe Headers|headers|HTTP request headers for unsubscribe|
+|Unsubscribe Authentication|authentication|HTTP authentication to use for unsubscribe. [See HTTP connector](./connectors-native-http.md#authentication) for details|
 <br>
 
-**출력 세부 정보**
+**Output Details**
 
-웹후크 요청
+Webhook request
 
-|속성 이름|데이터 형식|설명|
+|Property Name|Data Type|Description|
 |---|---|---|
-|헤더|object|웹후크 요청 헤더|
-|본문|object|웹후크 요청 개체|
-|상태 코드|int|웹후크 요청 상태 코드|
+|Headers|object|Webhook request headers|
+|Body|object|Webhook request object|
+|Status Code|int|Webhook request status code|
 
 ---
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-논리 앱 및 커뮤니티를 사용하여 앞으로 이동하는 방법에 대한 세부 정보는 다음과 같습니다.
+Below are details on how to move forward with logic apps and our community.
 
-## 논리 앱 만들기
+## <a name="create-a-logic-app"></a>Create a logic app
 
-지금 플랫폼을 사용해 보고 [논리 앱을 만드세요](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
+Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

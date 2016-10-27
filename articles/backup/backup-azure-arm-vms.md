@@ -1,80 +1,86 @@
 <properties
-	pageTitle="복구 서비스 자격 증명 모음에 Azure VM 백업 | Microsoft Azure"
-	description="Azure 가상 컴퓨터 백업에 대한 절차를 사용하여 Azure 가상 컴퓨터를 복구 서비스 자격 증명 모음으로 검색, 등록 및 백업합니다."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="cfreeman"
-	editor=""
-	keywords="가상 컴퓨터 백업; 가상 컴퓨터 백업; 백업 및 재해 복구; ARM VM 백업"/>
+    pageTitle="Back up Azure VMs to a Recovery Services vault | Microsoft Azure"
+    description="Discover, register, and back up Azure virtual machines to a recovery services vault with these procedures for Azure virtual machine backup."
+    services="backup"
+    documentationCenter=""
+    authors="markgalioto"
+    manager="cfreeman"
+    editor=""
+    keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/29/2016"
+    ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# 복구 서비스 자격 증명 모음에 Azure VM 백업
+
+# <a name="back-up-azure-vms-to-a-recovery-services-vault"></a>Back up Azure VMs to a Recovery Services vault
 
 > [AZURE.SELECTOR]
-- [복구 서비스 자격 증명 모음에 VM 백업](backup-azure-arm-vms.md)
-- [백업 자격 증명 모음에 VM 백업](backup-azure-vms.md)
+- [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
+- [Back up VMs to Backup vault](backup-azure-vms.md)
 
-이 문서는 Azure VM(Resource Manager 배포 VM과 클래식 배포 VM 모두)을 복구 서비스 자격 증명 모음에 백업하는 절차를 제공합니다. VM 을 백업하는 대부분의 작업은 준비 작업에 들어갑니다. VM을 백업하거나 보호할 수 있으려면, VM을 보호하도록 환경을 준비하기 위한 [필수 구성 요소](backup-azure-arm-vms-prepare.md)를 완료해야 합니다. 필수 구성 요소를 완비하고 나면, VM의 스냅숏을 만드는 백업 작업을 시작할 수 있습니다.
+This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. The majority of work for backing up VMs goes into the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the back up operation to take snapshots of your VM.
 
->[AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../resource-manager-deployment-model.md) 모델이 있습니다. 복구 서비스 자격 증명 모음으로 Resource Manager 배포 VM과 클래식 VM을 보호할 수 있습니다. 클래식 배포 모델 VM 작업에 대한 자세한 내용은 [Azure 가상 컴퓨터 백업](backup-azure-vms.md)을 참조하세요.
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). You can protect Resource Manager-deployed VMs and Classic VMs with Recovery Services vaults. See [Back up Azure virtual machines](backup-azure-vms.md) for details on working with Classic deployment model VMs.
 
-자세한 내용은 [Azure에서 VM 백업 인프라 계획](backup-azure-vms-introduction.md) 및 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)에 대한 문서를 참조하세요.
+For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## 백업 작업 트리거
+## <a name="triggering-the-back-up-job"></a>Triggering the back up job
 
-복구 서비스 자격 증명 모음과 연결된 백업 정책은, 백업 작업이 실행되는 빈도와 시기를 정의합니다. 기본적으로 첫 번째 예약된 백업은 초기 백업입니다. 초기 백업이 발생할 때까지 **백업 작업** 블레이드에서 최신 백업 상태가 **경고(초기 백업 보류 중)**로 표시됩니다.
+The back up policy associated with the Recovery Services vault, defines how often and when the backup operation runs. By default, the first scheduled backup is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
 
-![보류 중인 백업](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
+![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-초기 백업을 곧 시작할 예정이 아니라면 **지금 백업**을 실행하는 것이 좋습니다. 자격 증명 모음 대시보드에서 다음 절차가 시작됩니다. 이 절차는 모든 필수 구성 요소를 완비한 후에 초기 백업 작업을 실행하기 위한 용도입니다. 초기 백업 작업이 이미 실행되었으면, 이 절차는 제공되지 않습니다. 연결된 백업 정책이 다음 백업 작업을 결정합니다.
+Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. This procedure serves for running the initial backup job after you have completed all prerequisites. If the initial backup job has already been run, this procedure is not available. The associated backup policy determines the next backup job.  
 
-초기 백업 작업을 실행하려면:
+To run the initial backup job:
 
-1. 자격 증명 모음 대시보드의 **백업** 타일에서 **Azure 가상 컴퓨터**를 클릭합니다. <br/> ![설정 아이콘](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines**. <br/>
+    ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
-    **백업 항목** 블레이드가 열립니다.
+    The **Backup Items** blade opens.
 
-2. **백업 항목** 블레이드에서 백업하려는 자격 증명 모음을 마우스 오른쪽 단추로 클릭하고 **지금 백업**을 클릭합니다.
+2. On the **Backup Items** blade, right-click the vault you want to back up, and click **Backup now**.
 
-    ![설정 아이콘](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+    ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-now.png)
 
-    백업 작업이 트리거됩니다. <br/>
+    The Backup job is triggered. <br/>
 
-    ![백업 작업 트리거됨](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
+    ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
 
-3. 초기 백업이 완료되었는지 보려면 자격 증명 모음 대시보드의 **백업 작업** 타일에서 **Azure 가상 컴퓨터**를 클릭합니다.
+3. To view that your initial backup has completed, on the vault dashboard, on the **Backup Jobs** tile, click **Azure virtual machines**.
 
-    ![백업 작업 타일](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
 
-    백업 작업 블레이드가 열립니다.
+    The Backup Jobs blade opens.
 
-4. **백업 작업** 블레이드에서 모든 작업의 상태를 볼 수 있습니다.
+4. In the **Backup jobs** blade, you can see the status of all jobs.
 
-    ![백업 작업 타일](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
 
-    >[AZURE.NOTE] 백업 작업의 일부로 Azure 백업 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기를 플러시하고 일관된 스냅숏을 찍습니다.
+    >[AZURE.NOTE] As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all writes and take a consistent snapshot.
 
-    백업 작업이 완료되면 상태는 *완료됨*입니다.
+    When the backup job is finished, the status is *Completed*.
 
 
-## 문제 해결 오류
-가상 컴퓨터를 백업하는 동안 문제가 발생하면, [VM 문제 해결 문서](backup-azure-vms-troubleshoot.md)를 살펴보세요.
+## <a name="troubleshooting-errors"></a>Troubleshooting errors
+If you run into issues while backing up your virtual machine, please see the [VM troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-VM을 보호했으니, 다음 문서에서 VM으로 수행할 수 있는 추가적인 관리 작업과 VM을 복원하는 방법을 확인하세요.
+Now that you have protected your VM, check out the following articles for additional management tasks  you can do with your VMs, and how to restore VMs.
 
-- [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
-- [가상 컴퓨터 복원](backup-azure-arm-restore-vms.md)
+- [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
+- [Restore virtual machines](backup-azure-arm-restore-vms.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,8 +1,11 @@
-Data Lake 분석은 분산 인프라와 복잡한 코드를 관리하는 복잡한 작업을 쉽게 해 줍니다. 이 서비스를 통해 리소스를 동적으로 프로비전하고 엑사바이트 단위의 데이터도 분석할 수 있습니다. 작업이 완료되면 리소스가 자동으로 사용 해제되며, 사용한 처리량에 대해서만 지불하면 됩니다. 저장된 데이터 크기 또는 사용된 계산량을 늘리거나 줄일 때 코드를 다시 작성할 필요가 없습니다. 지원 팀에 문의하여 구독에 대한 기본 제한 수를 쉽게 늘릴 수 있습니다.
+Data Lake Analytics makes the complex task of managing distributed infrastructure and complex code easy. It dynamically provisions resources and lets you do analytics on exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. Many of the default limits can be easily raised for your subscription by contacting support. 
 
-**리소스** | **기본 제한** | **설명**
+**Resource** | **Default Limit** | **Comments**
 -------- | ------------- | -------------
-최대 동시 작업 | 3 
-계정당 최대 병렬 처리 | 60 | 세 개의 작업에서 최대 60개의 병렬 처리 조합을 사용합니다.
+max concurrent jobs | 3 
+Max parallelism per account | 60 | Use any combination of up to a maximum of 60 units of parallelism across three jobs.
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

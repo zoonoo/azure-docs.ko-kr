@@ -1,31 +1,36 @@
 
 
-![독립 실행형 클라우드 서비스의 가상 컴퓨터](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
+![Virtual machines in a standalone cloud service](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-가상 컴퓨터를 가상 네트워크에 둔 경우 부하 분산 및 가용성 집합에 사용할 클라우드 서비스 수를 결정할 수 있습니다. 또한 온-프레미스 네트워크와 동일한 방법으로 서브넷에서 가상 컴퓨터를 구성하고 가상 컴퓨터를 온-프레미스 네트워크에 연결할 수 있습니다. 예를 들면 다음과 같습니다.
+If you place your virtual machines in a virtual network, you can decide how many cloud services you want to use for load balancing and availability sets. Additionally, you can organize the virtual machines on subnets in the same way as your on-premises network and connect the virtual network to your on-premises network. Here's an example:
 
-![가상 네트워크의 가상 컴퓨터](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
+![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-가상 네트워크는 Azure에서 가상 컴퓨터를 연결하는 데 권장되는 방법입니다. 응용 프로그램의 각 계층을 별도의 클라우드 서비스에 구성하는 것이 가장 좋습니다. 그러나 구독당 클라우드 서비스 수를 최대 200개의 범위 내에서 유지하기 위해 여러 응용 프로그램 계층의 일부 가상 컴퓨터를 동일한 클라우드 서비스에 통합해야 할 수도 있습니다. 이 제한 및 다른 제한을 검토하려면 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)을 참조하세요.
+Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
 
-## 가상 네트워크에서 VM 연결
+## <a name="connect-vms-in-a-virtual-network"></a>Connect VMs in a virtual network
 
-가상 네트워크에서 가상 컴퓨터를 연결하려면
+To connect virtual machines in a virtual network:
 
-1.	[Azure 포털](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 가상 네트워크를 만듭니다.
-2.	가용성 집합 및 부하 분산에 대한 디자인을 반영하기 위해 배포에 대한 클라우드 서비스의 집합을 만듭니다. Azure 클래식 포털에서 각 클라우드 서비스에 대해 **새로 만들기 > 계산 > 클라우드 서비스 > 사용자 지정 만들기**를 클릭합니다.
-3.	각각의 새 가상 컴퓨터를 만들려면 **새로 만들기 > 계산 > 가상 컴퓨터 > 갤러리에서**를 클릭합니다. VM에 대한 올바른 클라우드 서비스 및 가상 네트워크를 선택합니다. 클라우드 서비스가 가상 네트워크에 이미 연결된 경우 해당 이름이 이미 선택되어 있을 것입니다.
+1.  Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+2.  Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure classic portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
+3.  To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
 
-![가상 컴퓨터에 대한 클라우드 서비스 선택](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
+![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
 
-## 독립 실행형 클라우드 서비스에서 VM 연결
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connect VMs in a standalone cloud service
 
-독립 실행형 클라우드 서비스에서 가상 컴퓨터를 연결하려면
+To connect virtual machines in a standalone cloud service:
 
-1.	[Azure 클래식 포털](http://manage.windowsazure.com)에서 클라우드 서비스를 만듭니다. **새로 만들기 > 계산 > 클라우드 서비스 > 사용자 지정 만들기**를 클릭합니다. 또는 첫 번째 가상 컴퓨터를 만들 때 배포에 대한 클라우드 서비스를 만들 수 있습니다.
+1.  Create the cloud service in the [Azure classic portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
 
-2.	가상 컴퓨터를 만들 때 이전 단계에서 만든 클라우드 서비스의 이름을 선택합니다.
+2.  When you create the virtual machines, choose the name of cloud service created in the previous step.
 
-	![기존 클라우드 서비스에 가상 컴퓨터 추가](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
+    ![Add a virtual machine to an existing cloud service](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

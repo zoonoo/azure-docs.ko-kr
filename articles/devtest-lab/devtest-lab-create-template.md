@@ -1,117 +1,123 @@
 <properties
-	pageTitle="VM을 만드는 Azure DevTest Labs 사용자 지정 이미지 관리 | Microsoft Azure"
-	description="VHD 파일 또는 DevTest Lab의 기존 VM에서 사용자 지정 이미지를 만드는 방법 알아보기"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Manage Azure DevTest Labs custom images to create VMs | Microsoft Azure"
+    description="Learn how to create a custom image from a VHD file, or from an existing VM in Azure DevTest Labs"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="tarcher"/>
-
-# VM을 만드는 Azure DevTest Labs 사용자 지정 이미지 관리
-
-Azure DevTest Labs에서 사용자 지정 이미지를 사용하면 모든 필수 소프트웨어가 대상 컴퓨터에 설치될 때까지 기다리지 않고도 VM을 빠르게 만들 수 있습니다. 사용자 지정 이미지를 사용하면 VHD 파일에 필요한 모든 소프트웨어를 미리 설치하고 VHD 파일을 사용하여 VM을 만들 수 있습니다. 소프트웨어가 이미 설치되어 있으므로 VM 생성 시간이 훨씬 단축됩니다. 또한 VM에서 사용자 지정 이미지를 만든 다음 해당 사용자 지정 이미지에서 VM을 만듭니다.
-
-이 문서에서는 다음 방법을 설명합니다.
-
-- 사용자 지정 이미지에서 VM을 만들 수 있도록 [VHD 파일에서 사용자 지정 이미지 만들기](#create-a-custom-image-from-a-vhd-file)
-- 빠른 VM 복제를 위해 [VM에서 사용자 지정 이미지 만들기](#create-a-custom-image-from-a-vm)
-
-## VHD 파일에서 사용자 지정 이미지 만들기
-
-이 섹션에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다. 이 섹션의 모든 단계를 수행하려면 올바른 VHD 파일에 액세스할 수 있어야 합니다.
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/07/2016"
+    ms.author="tarcher"/>
 
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+# <a name="manage-azure-devtest-labs-custom-images-to-create-vms"></a>Manage Azure DevTest Labs custom images to create VMs
 
-1. **서비스 더 보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
+In Azure DevTest Labs, custom images enable you to create VMs quickly without waiting for all the required software to be installed on the target machine. Custom images allow you to pre-install all the software that you need in a VHD file, and then use the VHD file to create a VM. Because the software is already installed, the VM creation time is much quicker. In addition, custom images are used to clone VMs by creating a custom image from a VM, and then creating VMs from that custom image.
 
-1. 랩 목록에서 원하는 랩을 탭합니다.
+In this article, you learn how to:
 
-1. 랩의 블레이드에서 **구성**을 선택합니다.
+- [Create a custom image from a VHD file](#create-a-custom-image-from-a-vhd-file) so that you can then create a VM from that custom image. 
+- [Create a custom image from a VM](#create-a-custom-image-from-a-vm) for rapid VM cloning.
 
-1. 랩 **구성** 블레이드에서 **사용자 지정 이미지**를 선택합니다.
+## <a name="create-a-custom-image-from-a-vhd-file"></a>Create a custom image from a VHD file
 
-1. **사용자 지정 이미지** 블레이드에서 **+ 사용자 지정 이미지**를 선택합니다.
+In this section, you see how to create a custom image from a VHD file.
+You need access to a valid VHD file to perform all the steps in this section.   
 
-    ![사용자 지정 이미지 추가](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. 사용자 지정 이미지의 이름을 입력합니다. 이 이름은 VM을 만들 때 기본 이미지 목록에 표시됩니다.
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. 사용자 지정 이미지에 대한 설명을 입력합니다. 이 설명은 VM을 만들 때 기본 이미지 목록에 표시됩니다.
+1. Select **More services**, and then select **DevTest Labs** from the list.
 
-1. **VHD 파일**을 선택합니다.
+1. From the list of labs, select the desired lab.  
 
-1. 목록에 없는 VHD 파일에 액세스하려면 [VHD 파일 업로드](#upload-a-vhd-file) 섹션의 지침에 따라 추가한 후 완료되면 여기로 돌아옵니다.
+1. On the lab's blade, select **Configuration**. 
 
-1. 원하는 VHD 파일을 선택합니다.
+1. On the lab **Configuration** blade, select **Custom images**.
 
-1. **확인**을 선택하여 **VHD 파일** 블레이드를 닫습니다.
+1. On the **Custom images** blade, select **+ Custom image**.
 
-1. **OS 구성**을 선택합니다.
+    ![Add Custom image](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. **OS 구성** 탭에서 **Windows** 또는 **Linux**를 선택합니다.
+1. Enter the name of the custom image. This name is displayed in the list of base images when creating a VM.
 
-1. **Windows**가 선택되면 확인란을 통해 컴퓨터에서 *Sysprep* 이 실행되었는지를 지정합니다.
+1. Enter the description of the custom image. This description is displayed in the list of base images when creating a VM.
 
-1. **확인**을 선택하여 **OS 구성** 블레이드를 닫습니다.
+1. Select **VHD File**.
 
-1. **확인**을 선택하여 사용자 지정 이미지를 만듭니다.
+1. If you have access to a VHD file that is not listed, add it by following the instructions in the [Upload a VHD file](#upload-a-vhd-file) section, and return here when finished.
 
-1. [다음 단계](#next-steps) 섹션으로 이동합니다.
+1. Select the desired VHD file.
 
-###VHD 파일 업로드
+1. Select **OK** to close the **VHD File** blade.
 
-사용자 지정 이미지를 추가하려면 VHD 파일에 액세스할 수 있어야 합니다.
+1. Select **OS Configuration**.
 
-1. **VHD 파일** 블레이드에서 **PowerShell을 사용하여 VHD 파일 업로드**를 선택합니다.
+1. On the **OS Configuration** tab, select either **Windows** or **Linux**.
 
-    ![이미지 업로드](./media/devtest-lab-create-template/upload-image-using-psh.png)
+1. If **Windows** is selected, specify via the checkbox whether *Sysprep* has been run on the machine.
 
-1. 다음 블레이드는 Azure 구독에 VHD 파일을 업로드하는 PowerShell 스크립트를 수정하고 실행하기 위한 지침을 표시합니다. **참고:** 이 프로세스는 VHD 파일 크기 및 연결 속도에 따라 시간이 오래 걸릴 수 있습니다.
+1. Select **OK** to close the **OS Configuration** blade.
 
-## VM에서 사용자 지정 이미지 만들기
-VM이 이미 구성되어 있는 경우 VM에서 사용자 지정 이미지를 만들고 나중에 해당 사용자 지정 이미지를 다른 동일한 VM을 만드는 데 사용할 수 있습니다. 다음 단계에서는 VM에서 사용자 지정 이미지를 만드는 방법을 보여 줍니다.
+1. Select **OK** to create the custom image.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. Go to the [Next Steps](#next-steps) section.
 
-1. **서비스 더 보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
+###<a name="upload-a-vhd-file"></a>Upload a VHD file
 
-1. 랩 목록에서 원하는 랩을 탭합니다.
+To add a custom image, you need to have access to a VHD file.
 
-1. 랩의 블레이드에서 **내 가상 컴퓨터**를 선택합니다.
+1. On the **VHD File** blade, select **Upload a VHD file using PowerShell**.
+
+    ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
+
+1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD file. 
+**Note:** This process can be lengthy depending on the size of the VHD file and your connection speed.
+
+## <a name="create-a-custom-image-from-a-vm"></a>Create a custom image from a VM
+If you have a VM that is already configured, you can create a custom image from that VM, and afterwards use that custom image to create other identical VMs. The following steps illustrate how to create a custom image from a VM:
+
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Select **More services**, and then select **DevTest Labs** from the list.
+
+1. From the list of labs, select the desired lab.  
+
+1. On the lab's blade, select **My virtual machines**.
  
-1. **내 가상 컴퓨터** 블레이드에서 사용자 지정 이미지를 만들 VM을 선택합니다.
+1. On the **My virtual machines** blade, select the VM from which you want to create the custom image.
 
-1. VM의 블레이드에서 **사용자 지정 이미지 만들기(VHD)**를 선택합니다.
+1. On the VM's blade, select **Create custom image (VHD)**.
 
-	![사용자 지정 이미지 만들기 메뉴 항목](./media/devtest-lab-create-template/create-custom-image.png)
+    ![Create custom image menu item](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. **이미지 만들기** 블레이드에서 사용자 지정 이미지에 대한 이름 및 설명을 입력합니다. 이 정보는 VM을 만들 때 기본 목록에 표시됩니다.
+1. On the **Create image** blade, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM.
 
-	![사용자 지정 이미지 만들기 블레이드](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Create custom image blade](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. sysprep이 VM에서 실행되었는지 여부를 선택합니다. sysprep이 VM에서 실행되지 않은 경우 이 사용자 지정 이미지에서 VM을 만들 때 sysprep을 실행할지를 지정합니다.
+1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep run when a VM is created from this custom image.
 
-1. 완료했으면 **확인**을 선택하여 사용자 지정 이미지를 만듭니다.
+1. Select **OK** when finished to create the custom image.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## 관련 블로그 게시물
+## <a name="related-blog-posts"></a>Related blog posts
 
-- [사용자 지정 이미지 또는 수식?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Azure DevTest Labs 간의 사용자 지정 이미지 복사](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Copying Custom Images between Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-VM을 만들 때 사용할 사용자 지정 이미지를 추가했으면 다음 단계는 [랩에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
+Once you have added a custom image for use when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

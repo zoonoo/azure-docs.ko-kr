@@ -1,3 +1,6 @@
-트래픽 관리자 프로필이 아직 없는 경우 [빠른 생성을 사용하여 트래픽 관리자 프로필 만들기](../articles/traffic-manager/traffic-manager-manage-profiles.md)의 내용을 참조하여 만듭니다. 나중에 트래픽 관리자 프로필과 연결된 **.trafficmanager.net** 도메인 이름을 이 문서 뒷부분의 단계에서 사용하므로 기록해 둡니다.
+If you do not already have a Traffic Manager profile, use the information in [Create a Traffic Manager profile using Quick Create](../articles/traffic-manager/traffic-manager-manage-profiles.md) to create one. Note the **.trafficmanager.net** domain name associated with your Traffic Manager profile, as this will be used later by later steps in this document.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

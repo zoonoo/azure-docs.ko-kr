@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자 백업 작업 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 예약된 백업 작업, 현재 실행 중인 백업 작업 및 완료된 백업 작업을 보고 관리하는 방법을 설명합니다."
+   pageTitle="StorSimple Snapshot Manager backup jobs | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage scheduled, currently running, and completed backup jobs."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -16,100 +16,101 @@
    ms.author="v-sharos" />
 
 
-# StorSimple 스냅숏 관리자를 사용하여 백업 작업 보기 및 관리
 
-## 개요
+# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Use StorSimple Snapshot Manager to view and manage backup jobs
 
-**범위** 창의 **작업** 노드에는 대화형으로 또는 구성된 정책에 따라 시작된 **예약됨**, **최근 24시간** 및 **실행 중** 백업 작업이 표시됩니다.
+## <a name="overview"></a>Overview
 
-이 자습서에서는 **작업** 노드를 사용하여 예약된 백업 작업, 최근 백업 작업 및 현재 실행 중인 백업 작업에 대한 정보를 표시하는 방법을 설명합니다. (작업 및 해당 정보 목록이 **결과** 창에 나타납니다.) 또한 나열된 작업을 마우스 오른쪽 단추로 클릭하면 사용 가능한 작업이 나열된 상황에 맞는 메뉴를 표시할 수 있습니다.
+The **Jobs** node in the **Scope** pane shows the **Scheduled**, **Last 24 hours**, and **Running** backup tasks that you initiated interactively or by a configured policy. 
 
-## 예약된 작업 보기
+This tutorial explains how you can use the **Jobs** node to display information about scheduled, recent, and currently running backup jobs. (The list of jobs and corresponding information appears in the **Results** pane.) Additionally, you can right-click a listed job and see a context menu that lists available actions.
 
-다음 절차를 사용하여 예약된 백업 작업을 볼 수 있습니다.
+## <a name="view-scheduled-jobs"></a>View scheduled jobs
 
-#### 예약된 작업을 보려면
+Use the following procedure to view scheduled backup jobs.
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
+#### <a name="to-view-scheduled-jobs"></a>To view scheduled jobs
 
-2. **범위** 창에서 **작업** 노드를 확장한 다음 **예약됨**을 클릭합니다. **결과** 창에 다음 정보가 표시됩니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-    - **이름** – 예약된 스냅숏의 이름
+2. In the **Scope** pane, expand the **Jobs** node, and click **Scheduled**. The following information appears in the **Results** pane:
 
-    - **다음 실행** – 다음으로 예약된 스냅숏의 날짜 및 시간
+    - **Name** – the name of the scheduled snapshot
 
-    - **마지막 실행** – 가장 최근으로 예약된 스냅숏의 날짜 및 시간
+    - **Next Run** – the date and time of the next scheduled snapshot
 
-    >[AZURE.NOTE] 일회성 스냅숏은 **다음 실행** 및 **마지막 실행**이 동일합니다.
+    - **Last Run** – the date and time of the most recent scheduled snapshot
+
+    >[AZURE.NOTE] For one-time only snapshots, the **Next Run** and **Last Run** will be the same. 
  
-    ![예약된 백업 작업](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png)
+    ![Scheduled backup jobs](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
  
-3. 특정 작업에 대해 추가 작업을 수행하려면 **결과** 창에서 해당 작업 이름을 마우스 오른쪽 단추로 클릭하고 메뉴 옵션 중에서 선택합니다.
+3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
 
-## 최근 작업 보기
+## <a name="view-recent-jobs"></a>View recent jobs
 
-다음 절차를 사용하여 최근 24시간 동안 완료된 백업 및 복원 작업을 볼 수 있습니다.
+Use the following procedure to view backup and restore jobs that were completed in the last 24 hours.
 
-#### 최근 작업을 보려면
+#### <a name="to-view-recent-jobs"></a>To view recent jobs
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **작업** 노드를 확장한 다음 **최근 24시간**을 클릭합니다. **결과** 창에 최근 24시간 동안의 백업 작업이 표시됩니다(최대 64개 작업까지). 지정한 **보기** 옵션에 따라 **결과** 창에 다음 정보가 나타납니다.
+2. In the **Scope** pane, expand the **Jobs** node, and click **Last 24 hours**. The **Results** pane shows backup jobs for the last 24 hours (to a maximum of 64 jobs). The following information appears in the **Results** pane, depending on the **View** options you specify:
 
-    - **이름** – 예약된 스냅숏의 이름
+    - **Name** – the name of the scheduled snapshot.
  
-    - **시작** – 스냅숏이 시작된 날짜 및 시간
+    - **Started** – the date and time when the snapshot began.
 
-    - **중지** – 스냅숏이 완료되거나 종료된 날짜 및 시간
+    - **Stopped** – the date and time when the snapshot finished or was terminated.
 
-    - **경과** – **시작** 및 **중지** 시간 사이의 시간
+    - **Elapsed** – the amount of time between the **Started** and **Stopped** times.
 
-    - **상태** - 최근에 완료된 작업의 상태 **성공** - 백업이 성공적으로 만들어졌음을 나타냅니다. **실패** - 작업이 성공적으로 실행 되지 않았음을 나타냅니다.
+    - **Status** – the state of the recently completed job. **Success** indicates that the backup was created successfully. **Failed** indicates that the job did not run successfully.
 
-    - **정보** – 실패한 이유
+    - **Information** – the reason for the failure.
 
-    - **처리된 바이트(MB)** – 처리된 볼륨 그룹의 데이터 양(MB)
+    - **Bytes processed (MB)** – the amount of data from the volume group that was processed (in MBs). 
 
-    ![최근 24시간 동안 실행된 작업](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png)
+    ![Jobs that ran in the last 24 hours](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 
-3. 특정 작업에 대해 추가 작업을 수행하려면 **결과** 창에서 해당 작업 이름을 마우스 오른쪽 단추로 클릭하고 메뉴 옵션 중에서 선택합니다.
+3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
 
-    ![작업 삭제](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
+    ![Delete a job](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png) 
      
-## 현재 실행 중인 작업 보기
+## <a name="view-currently-running-jobs"></a>View currently running jobs
 
-다음 절차를 사용하여 현재 실행 중인 작업을 볼 수 있습니다.
+Use the following procedure to view jobs that are currently running.
 
-#### 현재 실행 중인 작업을 보려면
+#### <a name="to-view-currently-running-jobs"></a>To view currently running jobs
 
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. **범위** 창에서 **작업** 노드를 확장한 다음 **실행 중**을 클릭합니다. 지정한 **보기** 옵션에 따라 **결과** 창에 다음 정보가 나타납니다.
+2. In the **Scope** pane, expand the **Jobs** node, and click **Running**. Depending on the **View** options you specify, the following information appears in the **Results** pane: 
 
-    - **이름** – 예약된 스냅숏의 이름
+    - **Name** – the name of the scheduled snapshot.
 
-    - **시작** – 스냅숏이 시작된 날짜 및 시간
+    - **Started** – the date and time when the snapshot began.
 
-    - **검사점** - 백업의 현재 작업
+    - **Checkpoint** – the current action of the backup.
 
-    - **상태** – 완료율
+    - **Status** – the percentage of completion.
     
-    - **경과** - 백업이 시작된 이후 경과된 시간
+    - **Elapsed** – the amount of time that has passed since the backup began. 
 
-    - **평균 처리량(MB)** – 처리하는 데 걸린 총 시간에 대해 처리된 데이터 총 바이트의 비율(MB)
+    - **Average throughput (MB)** – ratio of total bytes of data processed to that of total time taken for processing (MBs).
 
-    - **처리된 바이트(MB)** - 처리된 데이터의 총 바이트(MB)
+    - **Bytes processed (MB)** – total bytes of data processed (in MBs).
 
-    - **작성된 바이트(MB)** - 작성된 데이터의 총 바이트(MB) 메타데이터 뿐만 아니라 데이터를 포함하고 따라서 일반적으로 처리된 바이트보다 큽니다.
+    - **Bytes written (MB)** – total bytes of data written (in MBs). It includes the data as well as the metadata and hence is typically greater than the Bytes Processed.
 
-    ![현재 실행 중인 작업](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
+    ![Jobs currently running](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 
-3. 특정 작업에 대해 추가 작업을 수행하려면 **결과** 창에서 해당 작업 이름을 마우스 오른쪽 단추로 클릭하고 메뉴 옵션 중에서 선택합니다.
+3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
-- [StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그를 관리](storsimple-snapshot-manager-manage-backup-catalog.md)하는 방법을 알아봅니다.
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to manage the backup catalog](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -130,4 +131,9 @@
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

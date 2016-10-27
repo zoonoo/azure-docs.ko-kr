@@ -1,61 +1,68 @@
 <properties
-	pageTitle="클래식 Azure VM에 로그온 | Microsoft Azure"
-	description="Azure 클래식 포털을 사용하여 클래식 배포 모델로 만든 Windows 가상 컴퓨터에 로그온할 수 있습니다."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+    pageTitle="Log on to a classic Azure VM | Microsoft Azure"
+    description="Use the Azure classic portal to log on to a Windows virtual machine created with the classic deployment model."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="cynthn"/>
 
 
-# Azure 클래식 포털을 사용하여 Windows 가상 컴퓨터에 로그온
 
-Azure 클래식 포털에서 **연결** 버튼을 사용하여 원격 데스크톱 세션을 시작 및 Windows VM에 로그온합니다.
+# <a name="log-on-to-a-windows-virtual-machine-using-the-azure-classic-portal"></a>Log on to a Windows virtual machine using the Azure classic portal
 
-Linux VM에 연결하고 싶으세요? [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-mac-create-ssh-keys.md)을 참조하세요.
+In the Azure classic portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
 
-[새 Azure 포털을 사용하여 이러한 단계를 수행](virtual-machines-windows-connect-logon.md)하는 방법을 알아봅니다.
+Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-mac-create-ssh-keys.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+Learn how to [perform these steps using new Azure portal](virtual-machines-windows-connect-logon.md).
 
-## 연습 동영상
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
 
-이 자습서의 비디오 연습은 다음과 같습니다. 또한 Azure에서 Windows VM에 연결하는 데 사용되는 끝점과 공용 및 개인 포트에 대해서도 설명합니다.
+## <a name="video-walkthrough"></a>Video walkthrough
+
+Here's a video walkthrough of the steps in this tutorial. It also covers endpoints and public and private ports used for connecting to a Windows VM in Azure.
 
 [AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
 
 
-## 가상 컴퓨터에 연결
+## <a name="connect-to-the-virtual-machine"></a>Connect to the virtual machine
 
-1. Azure 클래식 포털에 로그인합니다.
+1. Sign in to the Azure classic portal.
 
-2. **가상 컴퓨터**를 클릭한 다음 가상 컴퓨터를 선택합니다.
+2. Click **Virtual Machines**, and then select the virtual machine.
 
-3. 페이지 아래쪽의 명령 모음에서 **연결**을 클릭합니다.
+3. On the command bar at the bottom of the page, click **Connect**.
 
-	![가상 컴퓨터에 로그온](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
-	
-> [AZURE.TIP] **연결** 버튼을 사용할 수 없는 경우 이 문서의 끝에 문제 해결 팁을 참조하세요.
+    ![Log on to the virtual machine](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
+    
+> [AZURE.TIP] If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
 
-## 가상 컴퓨터에 로그온
+## <a name="log-on-to-the-virtual-machine"></a>Log on to the virtual machine
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
--	**연결** 단추가 비활성 상태이거나 원격 데스크톱 연결에 다른 문제가 있는 경우 구성을 다시 설정해 봅니다. 가상 컴퓨터 대시보드에서, **빠른 보기** 아래 **재설정 원격 구성**을 클릭합니다.
--	암호에 문제가 있는 경우 암호를 다시 설정합니다. 가상 컴퓨터 대시보드에서, **빠른 보기** 아래 **암호 재설정**을 클릭합니다.
+-   If the **Connect** button is inactive or you are having other problems with the Remote Desktop connection, try resetting the configuration. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
+-   For problems with your password, try resetting it. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.
 
-이러한 팁이 작동하지 않거나 필요한 정보가 아닌 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
+If those tips don't work or aren't what you need, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md). This article walks you through diagnosing and resolving common problems.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

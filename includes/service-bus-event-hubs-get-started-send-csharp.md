@@ -1,68 +1,71 @@
-## 이벤트 허브에 메시지 보내기
+## <a name="send-messages-to-event-hubs"></a>Send messages to Event Hubs
 
-이 섹션에서는 이벤트 허브로 이벤트를 보내는 Windows 콘솔 앱을 작성합니다.
+In this section, you'll write a Windows console app that sends events to your Event Hub.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트의 이름을 **Sender**로 지정합니다.
+1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
 
-	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
-2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다.
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**. 
 
-3. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. 프로젝트 이름(**보낸 사람**)이 **버전** 상자에 지정되는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+3. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Ensure that the project name (**Sender**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use. 
 
-	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
-	Visual Studio는 [Azure 서비스 버스 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)에 대한 참조를 다운로드, 설치 및 추가합니다.
+    Visual Studio downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
-4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+4. Add the following `using` statements at the top of the **Program.cs** file:
 
-	```
-	using System.Threading;
-	using Microsoft.ServiceBus.Messaging;
-	```
+    ```
+    using System.Threading;
+    using Microsoft.ServiceBus.Messaging;
+    ```
 
-5. **Program** 클래스에 다음 필드를 추가하고, 이전 섹션에서 만든 이벤트 허브 이름과 이전에 저장한 네임스페이스 수준 연결 문자열로 위치 지정자 값을 대체합니다.
+5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the namespace-level connection string you saved previously.
 
-	```
-	static string eventHubName = "{Event Hub name}";
-	static string connectionString = "{send connection string}";
-	```
+    ```
+    static string eventHubName = "{Event Hub name}";
+    static string connectionString = "{send connection string}";
+    ```
 
-6. **Program** 클래스에 다음 메서드를 추가합니다.
+6. Add the following method to the **Program** class:
 
-	```
-	static void SendingRandomMessages()
-	{
-	    var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-	    while (true)
-	    {
-	        try
-	        {
-	            var message = Guid.NewGuid().ToString();
-	            Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-	            eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
-	        }
-	        catch (Exception exception)
-	        {
-	            Console.ForegroundColor = ConsoleColor.Red;
-	            Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
-	            Console.ResetColor();
-	        }
+    ```
+    static void SendingRandomMessages()
+    {
+        var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
+        while (true)
+        {
+            try
+            {
+                var message = Guid.NewGuid().ToString();
+                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+                eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+            }
+            catch (Exception exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+                Console.ResetColor();
+            }
 
-	        Thread.Sleep(200);
-	    }
-	}
-	```
+            Thread.Sleep(200);
+        }
+    }
+    ```
 
-	이 메서드는 200ms 지연과 함께 이벤트 허브에 이벤트를 지속적으로 보냅니다.
+    This method continuously sends events to your Event Hub with a 200-ms delay.
 
-7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
+7. Finally, add the following lines to the **Main** method:
 
-	```
-	Console.WriteLine("Press Ctrl-C to stop the sender process");
-	Console.WriteLine("Press Enter to start now");
-	Console.ReadLine();
-	SendingRandomMessages();
-	```
+    ```
+    Console.WriteLine("Press Ctrl-C to stop the sender process");
+    Console.WriteLine("Press Enter to start now");
+    Console.ReadLine();
+    SendingRandomMessages();
+    ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

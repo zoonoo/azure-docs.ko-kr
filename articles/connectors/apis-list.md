@@ -1,137 +1,138 @@
 <properties
-	pageTitle="Microsoft Azure Logic Apps에서 사용하는 Microsoft 관리 커넥터 목록 | Microsoft Azure 앱 서비스 | Microsoft Azure"
-	description="Azure 앱 서비스에서 Logic Apps를 빌드하는 데 사용할 수 있는 Microsoft 관리 커넥터의 전체 목록 가져오기"
-	services="logic-apps"
-	documentationCenter=""
-	authors="MSFTMAN"
-	manager="erikre"
-	editor=""
+    pageTitle="List of Microsoft-managed connectors for use in Microsoft Azure Logic apps | Microsoft Azure App Service | Microsoft Azure"
+    description="Get a complete list of the Microsoft-Managed connectors you can use to build Logic apps in Azure App Service"
+    services="logic-apps"
+    documentationCenter=""
+    authors="MSFTMAN"
+    manager="erikre"
+    editor=""
     tags="connectors"/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/20/2016"
-	ms.author="deonhe"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/20/2016"
+    ms.author="deonhe"/>
 
-# 커넥터 목록
 
-워크플로를 구축하는 방법에 대해 알아보려면 커넥터를 선택합니다.
+# <a name="list-of-connectors"></a>List of connectors
 
-## 표준 커넥터
+Select a connector to learn how to build workflows quickly.
 
-|커넥터||||
+## <a name="standard-connectors"></a>Standard connectors
+
+|Connectors||||
 |-----------|-----------|-----------|-----------|
-|[![API 아이콘][API/Web-Appicon]<br/>**API/웹앱**][API/Web-Appdoc]|[![API 아이콘][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc]|[![API 아이콘][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc]|[![API 아이콘][Boxicon]<br/>**Box**][Boxdoc]|
-|[![API 아이콘][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![API 아이콘][DB2icon]<br/>**DB2**][db2doc]|[![API 아이콘][Delayicon]<br/>**지연**][Delaydoc]|[![API 아이콘][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|
-|[![API 아이콘][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API 아이콘][FTPicon]<br/>**FTP**][FTPdoc]|[![API 아이콘][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![API 아이콘][Google-Driveicon]<br/>**Google 드라이브**][Google-Drivedoc]|
-|![API 아이콘][Google-Sheetsicon]<br/>**Google Sheets**|![API 아이콘][Google-Tasksicon]<br/>**Google 태스크**|![API 아이콘][Google~Calendaricon]<br/>**Google<br/>달력**|[![API 아이콘][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API 아이콘][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|[![API 아이콘][HTTP~Requesticon]<br/>**HTTP<br/>요청**][HTTP~Requestdoc]|[![API 아이콘][HTTP~Responseicon]<br/>**HTTP<br/>응답**][HTTP~Responsedoc]|[![API 아이콘][Informixicon]<br/>**Informix**][informixdoc]|
-|![API 아이콘][Instagramicon]<br/>**Instagram**|[![API 아이콘][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API 아이콘][Mandrillicon]<br/>**Mandrill**|[![API 아이콘][Nested~Logic-Appicon]<br/>**중첩된<br/>논리 앱**][Nested~Logic-Appdoc]|
-|[![API 아이콘][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![API 아이콘][Office-365~Usersicon]<br/>**Office 365<br/>사용자**][Office-365~Usersdoc]|[![API 아이콘][Office-365~Videoicon]<br/>**Office 365<br/>비디오**][Office-365~Videodoc]|[![API 아이콘][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
-|[![API 아이콘][OneDrive-for~Businessicon]<br/>**비즈니스용<br/>OneDrive**][OneDrive-for~Businessdoc]|[![API 아이콘][Outlookicon]<br/>**Outlook**][Outlookdoc]|[![API 아이콘][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API 아이콘][Queryicon]<br/>**쿼리**][Querydoc]|
-|[![API 아이콘][Recurrenceicon]<br/>**되풀이**][Recurrencedoc]|[![API 아이콘][RSSicon]<br/>**RSS**][RSSdoc]|[![API 아이콘][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API 아이콘][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![API 아이콘][Service-Busicon]<br/>**서비스 버스**][Service-Busdoc]|[![API 아이콘][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API 아이콘][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API 아이콘][Slackicon]<br/>**Slack**][Slackdoc]|
-|[![API 아이콘][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API 아이콘][SparkPosticon]<br/>**SparkPost**|[![API 아이콘][SQLicon]<br/>**SQL**][SQLdoc]|[![API 아이콘][Translatoricon]<br/>**번역기**][Translatordoc]|
-|[![API 아이콘][Trelloicon]<br/>**Trello**][Trellodoc]|[![API 아이콘][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API 아이콘][Twittericon]<br/>**Twitter**][Twitterdoc]|[![API 아이콘][Webhookicon]<br/>**Webhook**][Webhookdoc]|
-|[![API 아이콘][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API 아이콘][Yammericon]<br/>**Yammer**][Yammerdoc]|![API 아이콘][YouTubeicon]<br/>**YouTube**||
+|[![API Icon][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc]|[![API Icon][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc]|[![API Icon][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc]|[![API Icon][Boxicon]<br/>**Box**][Boxdoc]|
+|[![API Icon][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|[![API Icon][Delayicon]<br/>**Delay**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|
+|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|[![API Icon][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|
+|![API Icon][Google-Sheetsicon]<br/>**Google Sheets**|![API Icon][Google-Tasksicon]<br/>**Google Tasks**|![API Icon][Google~Calendaricon]<br/>**Google<br/>Calendar**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
+|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|[![API Icon][HTTP~Requesticon]<br/>**HTTP<br/>Request**][HTTP~Requestdoc]|[![API Icon][HTTP~Responseicon]<br/>**HTTP<br/>Response**][HTTP~Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][informixdoc]|
+|![API Icon][Instagramicon]<br/>**Instagram**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Nested~Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested~Logic-Appdoc]|
+|[![API Icon][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![API Icon][Office-365~Usersicon]<br/>**Office 365<br/>Users**][Office-365~Usersdoc]|[![API Icon][Office-365~Videoicon]<br/>**Office 365<br/>Video**][Office-365~Videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
+|[![API Icon][OneDrive-for~Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for~Businessdoc]|[![API Icon][Outlookicon]<br/>**Outlook**][Outlookdoc]|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|
+|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
+|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQLicon]<br/>**SQL**][SQLdoc]|[![API Icon][Translatoricon]<br/>**Translator**][Translatordoc]|
+|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|
+|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API Icon][YouTubeicon]<br/>**YouTube**||
 
-> [AZURE.NOTE] Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 
-## EIP(엔터프라이즈 통합 팩) 커넥터
-EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 대한 논리 앱을 만듭니다.
+## <a name="enterprise-integration-pack-(eip)-connectors"></a>Enterprise Integration Pack (EIP) connectors
+Use the EIP connectors to create Logic apps for B2B scenarios that include EAI and EDI.  
  
-|EIP 커넥터 ||||
+|EIP connectors ||||
 |-----------|-----------|-----------|-----------|
-|[![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc]|[![API 아이콘][xmltransformicon]<br/>**XML<br/> 변환**][xmltransformdoc]|[![API 아이콘][flatfileicon]<br/>**플랫 파일</br>인코딩**][flatfiledoc]|[![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br>디코딩**][flatfiledecodedoc]|
-|[![API 아이콘][as2icon]<br/>**AS2</br>디코딩**][as2decode]|[![API 아이콘][as2icon]<br/>**AS2</br>인코딩**][as2encode]|[![API 아이콘][x12icon]<br/>**X12</br>디코딩**][x12decode]|[![API 아이콘][x12icon]<br/>**X12</br>인코딩**][x12encode]|
-|[![API 아이콘][x12icon]<br/>**EDIFACT</br>디코딩**][EDIFACTdecode]|[![API 아이콘][x12icon]<br/>**EDIFACT</br>인코딩**][EDIFACTencode]||||
+|[![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc]|[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc]|[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc]|[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc]|
+|[![API Icon][as2icon]<br/>**AS2</br>decode**][as2decode]|[![API Icon][as2icon]<br/>**AS2</br>encode**][as2encode]|[![API Icon][x12icon]<br/>**X12</br>decode**][x12decode]|[![API Icon][x12icon]<br/>**X12</br>encode**][x12encode]|
+|[![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode]|[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### 커넥터는 트리거가 될 수 있습니다.
-몇몇 커넥터는 특정 이벤트가 발생할 때 앱에 알릴 수 있는 트리거를 제공합니다. 예를 들어 FTP 커넥터에는 OnUpdatedFile 트리거가 있습니다. 이 트리거를 수신 대기하고 트리거가 발생될 때마다 작업을 수행하는 논리 앱, PowerApp 또는 흐름을 빌드할 수 있습니다.
+### <a name="connectors-can-be-triggers"></a>Connectors can be triggers
+Several connectors provide triggers that can notify your app when specific events occur. For example, the FTP connector has the OnUpdatedFile trigger. You can build either a Logic app, PowerApp or Flow that listens to this trigger and takes an action whenever the trigger is fired.
 
-트리거에는 두 가지 유형이 있습니다.
+There are two types of triggers:  
 
-* 폴링 트리거: 이 트리거는 지정된 빈도로 서비스를 폴링하여 새 데이터를 확인합니다. 새 데이터를 사용할 수 있으면 앱의 새 인스턴스가 해당 데이터를 입력으로 사용하여 실행됩니다. 동일한 데이터가 여러 번 사용되지 않도록 트리거는 읽어서 앱으로 전달된 데이터를 정리합니다.
-* 트리거 푸시: 이 트리거는 끝점에서 데이터 또는 발생하는 이벤트를 수신 대기한 다음 앱의 새 인스턴스를 트리거합니다. Twitter 커넥터가 한 예입니다.
+* Poll Triggers: These triggers poll your service at a specified frequency to check for new data. When new data is available, a new instance of your app runs with the data as input. To prevent the same data from being consumed multiple times, the trigger may clean up data that has been read and passed to your app.
+* Push Triggers: These triggers listen for data on an endpoint or for an event to occur, then, triggers a new instance of your app. The Twitter connector is one such example.
 
-### 커넥터는 작업이 될 수 있습니다.
-커넥터를 앱의 내부에서 작업으로 사용할 수도 있습니다. 작업은 앱의 실행에 사용될 수 있는 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 SQL 데이터베이스에서 고객 데이터를 조회해야 할 수 있습니다. 또는 대상 테이블에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. 커넥터가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 Swagger 메타데이터에 정의된 작업에 매핑됩니다.
+### <a name="connectors-can-be-actions"></a>Connectors can be actions
+Connectors can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination table. You can do this using the actions provided by the connectors. Actions map to operations that are defined in the Swagger metadata.
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- [이제 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md)
-- [사용자 지정 커넥터 만들기](../app-service-logic/app-service-logic-create-api-app.md)
-- [논리 앱 모니터링](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+- [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+- [Create a custom connector](../app-service-logic/app-service-logic-create-api-app.md)
+- [Monitor your logic apps](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
-[azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Blob 컨테이너에서 파일을 관리하는 Azure Blob에 연결합니다."
-[boxDoc]: ./connectors-create-api-box.md "상자에 연결하고 업로드, 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다."
-[crm-onlinedoc]: ./connectors-create-api-crmonline.md "Dynamics CRM Online에 연결하고 CRM Online 데이터를 사용하여 더 많은 작업을 수행합니다."
-[db2doc]: ./connectors-create-api-db2.md "클라우드 또는 온-프레미스에서 IBM DB2에 연결하여 행을 업데이트하고 테이블을 가져오는 등의 작업이 가능합니다."
-[dropboxdoc]: ./connectors-create-api-dropbox.md "Dropbox에 연결하고 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다."
-[facebookdoc]: ./connectors-create-api-facebook.md "Facebook에 연결하여 타임라인에 게시, 페이지 피드 가져오기 등의 작업을 수행합니다."
-[ftpdoc]: ./connectors-create-api-ftp.md "FTP / FTPS 서버에 연결하여 파일 등의 업로드, 가져오기, 삭제를 포함한 다른 FTP 작업을 수행합니다."
-[google-drivedoc]: ./connectors-create-api-googledrive.md "Google 드라이브에 연결하고 데이터를 조작합니다."
-[informixdoc]: ./connectors-create-api-informix.md "클라우드 또는 온-프레미스에서 Informix에 연결하여 행을 읽고 테이블을 나열하는 등의 작업이 가능합니다."
+[azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
+[boxDoc]: ./connectors-create-api-box.md "Connects to Box and can upload, get, delete, list, and more file tasks."
+[crm-onlinedoc]: ./connectors-create-api-crmonline.md "Connect to Dynamics CRM Online and do more with your CRM Online data."
+[db2doc]: ./connectors-create-api-db2.md "Connect to IBM DB2 in the cloud or on-premises to update a row, get a table, and more."
+[dropboxdoc]: ./connectors-create-api-dropbox.md "Connect to Dropbox and can get, delete, list, and more file tasks."
+[facebookdoc]: ./connectors-create-api-facebook.md "Connect to Facebook to post to a timeline, get a page feed, and more."
+[ftpdoc]: ./connectors-create-api-ftp.md "Connects to an FTP / FTPS server and do different FTP tasks, including uploading, getting, deleting files, and more."
+[google-drivedoc]: ./connectors-create-api-googledrive.md "Connect to GoogleDrive and interact with your data."
+[informixdoc]: ./connectors-create-api-informix.md "Connect to Informix in the cloud or on-premises to read a row, lists the tables, and more."
 [translatordoc]: ./connectors-create-api-microsofttranslator.md
-[office-365~outlookdoc]: ./connectors-create-api-office365-outlook.md "Office 365 커넥터는 메일을 보내고 받고, 일정을 관리하고, Office 365 계정을 사용하여 연락처를 관리할 수 있습니다."
+[office-365~outlookdoc]: ./connectors-create-api-office365-outlook.md "The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account."
 [office-365~usersdoc]: ./connectors-create-api-office365-users.md
 [office-365~videodoc]: ./connectors-create-api-office365-video.md
-[onedrivedoc]: ./connectors-create-api-onedrive.md "사용자 개인 Microsoft OneDrive에 연결하여 파일 등을 업로드, 삭제, 나열합니다."
-[onedrive-for~businessdoc]: ./connectors-create-api-onedriveforbusiness.md "비즈니스 Microsoft OneDrive에 연결하고 파일 업로드, 삭제, 나열 등을 수행합니다."
-[outlookdoc]: ./connectors-create-api-outlook.md "Outlook 사서함에 연결 및 전자 메일 액세스 등을 수행합니다."
-[project-onlinedoc]: ./connectors-create-api-projectonline.md "Microsoft Project Online에 연결합니다."
-[rssdoc]: ./connectors-create-api-rss.md "RSS 커넥터를 사용하여 사용자가 피드 항목을 게시 및 검색할 수 있습니다. 또한 새 항목이 피드에 게시된 경우 사용자가 작업을 트리거할 수 있습니다."
-[salesforcedoc]: ./connectors-create-api-salesforce.md "Salesforce 계정에 연결하고 계정, 잠재 고객, 영업 기회 등을 관리합니다."
-[sendgriddoc]: ./connectors-create-api-sendgrid.md "Microsoft Project Online에 연결합니다."
-[service-busdoc]: ./connectors-create-api-servicebus.md "서비스 버스 큐 및 항목에서 메시지를 보내고 서비스 버스 엔큐 및 구독에서 메시지를 받을 수 있습니다."
-[sharepointdoc]: ./connectors-create-api-sharepointonline.md "문서 및 목록 항목을 관리하려면 SharePoint Online에 연결합니다."
-[slackdoc]: ./connectors-create-api-slack.md "Slack에 연결하고 Slack 채널에 메시지를 게시합니다."
-[sftpdoc]: ./connectors-create-api-sftp.md "SFTP에 연결하고 파일 등을 업로드하고, 가져오고 삭제할 수 있습니다."
-[githubdoc]: ./connectors-create-api-github.md "GitHub에 연결하고 문제를 추적할 수 있습니다."
-[mailchimpdoc]: ./connectors-create-api-mailchimp.md "더 나은 전자 메일을 보냅니다."
-[smtpdoc]: ./connectors-create-api-smtp.md "SMTP 서버에 연결하여 첨부 파일과 함께 전자 메일을 보냅니다."
-[sqldoc]: ./connectors-create-api-sqlazure.md "SQL Azure 데이터베이스에 연결합니다. SQL 데이터베이스 테이블의 항목 생성, 업데이트, 가져오기 및 삭제 작업을 수행할 수 있습니다."
-[trellodoc]: ./connectors-create-api-trello.md "Trello는 무료이며 모든 사람과 어떠한 일이라도 구성하는 유연하고 시각적인 방법입니다."
-[twiliodoc]: ./connectors-create-api-twilio.md "Twilio에 연결하여 메시지를 보내고 가져오고, 사용 가능한 번호를 가져와 수신 전화 번호 등을 관리합니다."
-[twitterdoc]: ./connectors-create-api-twitter.md "Twitter에 연결하여 타임 라인을 가져오고 트윗에 게시합니다."
-[wunderlistdoc]: ./connectors-create-api-wunderlist.md "업무를 동기화 상태로 유지합니다."
-[yammerdoc]: ./connectors-create-api-yammer.md "Yammer에 연결하여 메시지를 게시하고 새 메시지를 받습니다."
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "엔터프라이즈 통합 AS2에 대해 알아봅니다."
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "엔터프라이즈 통합 X12에 대해 알아봅니다."
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "엔터프라이즈 통합 XML 유효성 검사에 대해 알아봅니다."
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아봅니다."
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "엔터프라이즈 통합 AS2 디코딩에 대해 알아봅니다."
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "엔터프라이즈 통합 AS2 인코딩에 대해 알아봅니다."
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "엔터프라이즈 통합 X12 디코딩에 대해 알아봅니다."
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "엔터프라이즈 통합 X12 인코딩에 대해 알아봅니다."
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "엔터프라이즈 통합 EDIFACT 디코딩에 대해 알아봅니다."
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "엔터프라이즈 통합 EDIFACT 인코딩에 대해 알아봅니다."
-[httpdoc]: ./connectors-native-http.md "HTTP를 호출하는 HTTP 커넥터."
-[http~requestdoc]: ./connectors-native-reqres.md "요청 및 응답 작업."
-[http~responsedoc]: ./connectors-native-reqres.md "요청 및 응답 작업."
-[delaydoc]: ./connectors-native-delay.md "지연 작업에 대해 알아봅니다."
-[http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP를 호출하는 HTTP + Swagger 커넥터."
-[querydoc]: ./connectors-native-query.md "작업을 쿼리하여 배열을 선택하고 필터링합니다."
-[webhookdoc]: ./connectors-native-webhook.md "Webhook 작업 및 논리 앱에 대한 트리거."
-[azure~functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Azure Functions와 논리 앱을 통합합니다."
-[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "앱 서비스 API 앱과 논리 앱을 통합합니다."
-[nested~logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "중첩된 워크플로와 논리 앱을 통합합니다."
-[recurrencedoc]: ./connectors-native-recurrence.md "논리 앱에 대한 되풀이 트리거."
-[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Google Sheets에 연결하고 시트를 수정할 수 있습니다."
-[google-tasksdoc]: ./connectors-create-api-googletasks.md "Google 작업에 연결하고 작업을 관리할 수 있습니다."
-[google~calendardoc]: ./connectors-create-api-googlecalendar.md "Google 달력에 연결하고 달력을 관리할 수 있습니다."
-[instagramdoc]: ./connectors-create-api-instagram.md "Instagram에 연결하고 이벤트를 트리거하거나 작업할 수 있습니다."
-[mandrilldoc]: ./connectors-create-api-mandrill.md "Mandrill에 연결하고 통신에 사용할 수 있습니다."
-[youtubedoc]: ./connectors-create-api-youtube.md "YouTube에 연결하고 비디오 및 채널과 상호 작용할 수 있습니다."
-[sparkpostdoc]: ./connectors-create-api-sparkpost.md "SparkPost에 연결하고 통신에 사용할 수 있습니다."
+[onedrivedoc]: ./connectors-create-api-onedrive.md "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
+[onedrive-for~businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Connects to your business Microsoft OneDrive and uploads, deletes, lists your files, and more."
+[outlookdoc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox and access your email and more."
+[project-onlinedoc]: ./connectors-create-api-projectonline.md "Connects to Microsoft Project Online."
+[rssdoc]: ./connectors-create-api-rss.md "RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed."
+[salesforcedoc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
+[sendgriddoc]: ./connectors-create-api-sendgrid.md "Connects to Microsoft Project Online."
+[service-busdoc]: ./connectors-create-api-servicebus.md "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
+[sharepointdoc]: ./connectors-create-api-sharepointonline.md "Connects to SharePoint Online to manage documents and list items."
+[slackdoc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels."
+[sftpdoc]: ./connectors-create-api-sftp.md "Connects to SFTP and can upload, get, delete files, and more."
+[githubdoc]: ./connectors-create-api-github.md "Connects to GitHub and can track issues."
+[mailchimpdoc]: ./connectors-create-api-mailchimp.md "Send Better Email."
+[smtpdoc]: ./connectors-create-api-smtp.md "Connects to a SMTP server and can send email with attachments."
+[sqldoc]: ./connectors-create-api-sqlazure.md "Connects to SQL Azure Database. You can create, update, get, and delete entries on a SQL database table."
+[trellodoc]: ./connectors-create-api-trello.md "Trello is the free,  flexible, and visual way to organize anything with anyone."
+[twiliodoc]: ./connectors-create-api-twilio.md "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
+[twitterdoc]: ./connectors-create-api-twitter.md "Connects to Twitter and get timelines, post tweets, and more."
+[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Keep your life in sync."
+[yammerdoc]: ./connectors-create-api-yammer.md "Connects to Yammer to post messages and get new messages."
+[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Learn about enterprise integration AS2."
+[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Learn about enterprise integration X12"
+[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Learn about enterprise integration XML validation."
+[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration transforms."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Learn about enterprise integration AS2 decode"
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Learn about enterprise integration AS2 encode"
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Learn about enterprise integration X12 decode"
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Learn about enterprise integration X12 encode"
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
+[httpdoc]: ./connectors-native-http.md "HTTP connector to make HTTP calls."
+[http~requestdoc]: ./connectors-native-reqres.md "Request and Response actions."
+[http~responsedoc]: ./connectors-native-reqres.md "Request and Response actions."
+[delaydoc]: ./connectors-native-delay.md "Learn about the delay action."
+[http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger connector to make HTTP calls."
+[querydoc]: ./connectors-native-query.md "Query action to select and filter arrays."
+[webhookdoc]: ./connectors-native-webhook.md "Webhook action and trigger for logic apps."
+[azure~functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrate logic apps with Azure Functions."
+[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Integrate logic apps with App Service API Apps."
+[nested~logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integrate logic apps with a nested workflow."
+[recurrencedoc]:  ./connectors-native-recurrence.md "Recurrence trigger for logic apps."
+[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Connects to Google Sheets and can modify sheets."
+[google-tasksdoc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks and can manage tasks."
+[google~calendardoc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar."
+[instagramdoc]: ./connectors-create-api-instagram.md "Connects to Instagram and can trigger or act on events."
+[mandrilldoc]: ./connectors-create-api-mandrill.md "Connects to Mandrill and can be used for communication."
+[youtubedoc]: ./connectors-create-api-youtube.md "Connects to YouTube and can interact with videos and channels."
+[sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost and can be used for communication."
 
 <!--Icon references-->
 [Azure-Blobicon]: ./media/apis-list/azureblob.png
@@ -194,4 +195,8 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

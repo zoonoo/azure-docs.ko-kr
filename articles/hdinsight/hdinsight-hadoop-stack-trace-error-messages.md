@@ -1,41 +1,46 @@
 <properties
-	pageTitle="Hadoop 스택 추적 오류 메시지 | Microsoft Azure"
-	description="HDInsight의 Hadoop 스택 추적 오류 메시지의 인덱스입니다. 문제 해결 정보를 보려면 목록에서 오류를 찾습니다."
-	keywords="스택 추적, 오류 메시지"
-	services="hdinsight"
-	documentationCenter="NA"
-	authors="mumian"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Hadoop stack trace error messages | Microsoft Azure"
+    description="Index of Hadoop stack trace error messages in HDInsight. Find the error in the list to see troubleshooting information."
+    keywords="stack trace, error messages"
+    services="hdinsight"
+    documentationCenter="NA"
+    authors="mumian"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="big-data"
-	ms.date="07/14/2016"
-	ms.author="rashimg;jgao"/>
+    ms.service="hdinsight"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="big-data"
+    ms.date="10/19/2016"
+    ms.author="rashimg;jgao"/>
 
-# HDInsight에서 Hadoop의 인덱스 문제 해결 문서
 
-문서는 오류의 유형별로 구성됩니다.
+# <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Index of Hadoop in HDInsight troubleshooting articles
 
-## 메모리 부족 오류
+Articles are organized by types of errors.
 
-* [Hive 설정을 사용하여 OOM(메모리 부족) 오류 수정](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Hive 쿼리에서 OOM(메모리 부족) 오류를 수정합니다. 고객 시나리오에 많은 대형 테이블 간 쿼리를 포함합니다.
+## <a name="out-of-memory-error"></a>Out of Memory error
 
-## Hive 쿼리 성능
+* [Fix an Out of Memory (OOM) error with Hive settings](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Fix an out of memory error (OOM) from a Hive query. The customer scenario includes a query across many large tables.
 
-* [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md):이 문서에서는 Hive 쿼리를 적용할 수 있는 몇 가지 가장 일반적인 Hive 성능 최적화 방법을 다룹니다.
-* [HDInsight Hadoop 클러스터에서 Hive 쿼리 성능 문제를 해결합니다](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
+## <a name="hive-query-performance"></a>Hive query performance
 
-## 추가 문제 해결 문서
+* [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): This article covers some most common Hive performance optimization methods that you can apply to Hive queries.
+* [Troubleshoot Hive query performance issues in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
 
-* [Linux에서 HDInsight 사용에 관한 정보](hdinsight-hadoop-linux-information.md)
-* [HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석](hdinsight-debug-jobs.md)
-* [HDInsight의 Linux 기반 Hadoop에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보](hdinsight-release-notes.md)
+## <a name="more-troubleshooting-articles"></a>More troubleshooting articles
 
-<!---HONumber=AcomDC_0914_2016-->
+* [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)
+* [Debug Hadoop in HDInsight: View logs and interpret error messages](hdinsight-debug-jobs.md)
+* [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Release notes for Hadoop components on Azure HDInsight](hdinsight-release-notes.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,125 +1,126 @@
 <properties 
-	pageTitle="SSMS를 사용하여 SQL 데이터베이스 관리 | Microsoft Azure" 
-	description="SQL Server Management Studio를 사용하여 SQL 데이터베이스 서버 및 데이터베이스를 관리하는 방법에 대해 알아봅니다." 
-	services="sql-database" 
-	documentationCenter=".net" 
-	authors="stevestein" 
-	manager="jhubbard" 
-	editor="tysonn"/>
+    pageTitle="Manage a SQL Database with SSMS | Microsoft Azure" 
+    description="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." 
+    services="sql-database" 
+    documentationCenter=".net" 
+    authors="stevestein" 
+    manager="jhubbard" 
+    editor="tysonn"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/09/2016" 
-	ms.author="sstein"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/29/2016" 
+    ms.author="sstein"/>
 
 
-# SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리 
+
+# <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>Managing Azure SQL Database using SQL Server Management Studio 
 
 
 > [AZURE.SELECTOR]
-- [Azure 포털](sql-database-manage-portal.md)
+- [Azure portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
-- [PowerShell](sql-database-command-line-tools.md)
+- [PowerShell](sql-database-manage-powershell.md)
 
-SSMS(SQL Server Management Studio)를 사용하여 Azure SQL 데이터베이스 서버 및 데이터베이스를 관리할 수 있습니다. 이 항목에서는 SSMS로 수행하는 일반적인 작업에 대해 설명합니다. 시작하기 전에 Azure SQL 데이터베이스에서 서버 및 데이터베이스가 생성되어 있어야 합니다. 자세한 내용은 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 및 [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
+You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database servers and databases. This topic walks you through common tasks with SSMS. You should already have a server and database created in Azure SQL Database before you begin. See [Create your first Azure SQL Database](sql-database-get-started.md) and [Connect and Query using SSMS](sql-database-connect-query-ssms.md) for more information.
 
-Azure SQL 데이터베이스를 사용하여 작업할 경우 최신 버전의 SSMS를 사용하는 것이 좋습니다.
+It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database. 
 
-> [AZURE.IMPORTANT] Azure 및 SQL 데이터베이스에 대한 최신 업데이트에서 작동되도록 지속해서 개선되고 있으므로 항상 최신 버전의 SSMS를 사용하세요. 최신 버전을 다운로드하려면 [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)를 참조하세요.
+> [AZURE.IMPORTANT] Always use the latest version of SSMS because it is continually improved to work with the latest updates to Azure and SQL Database. To get the latest version, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 
-## Azure SQL 데이터베이스 만들기 및 관리
+## <a name="create-and-manage-azure-sql-databases"></a>Create and manage Azure SQL databases
 
-**master** 데이터베이스에 연결되어 있는 동안에는 서버에 데이터베이스를 만들고 기존 데이터베이스를 수정하거나 삭제할 수 있습니다. 다음 단계에서는 Management Studio를 통해 여러 일반 데이터베이스 관리 작업을 수행하는 방법에 대해 설명합니다. 이러한 작업을 수행하려면 서버를 설치할 때 만든 서버 수준 보안 주체 로그인으로 **master** 데이터베이스에 연결되어 있어야 합니다.
+While connected to the **master** database, you can create databases on the server and modify or drop existing databases. The following steps describe how to accomplish several common database management tasks through Management Studio. To perform these tasks, make sure you are connected to the **master** database with the server-level principal login that you created when you set up your server.
 
-Management Studio에서 쿼리 창을 열려면 데이터베이스 폴더를 열고 **시스템 데이터베이스** 폴더를 확장한 후 **master**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
+To open a query window in Management Studio, open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
--   데이터베이스를 만들려면 **CREATE DATABASE** 문을 사용하세요. 자세한 내용은 [CREATE DATABASE(SQL 데이터베이스)](https://msdn.microsoft.com/library/dn268335.aspx)를 참조하세요. 다음 문은 **myTestDB**라는 데이터베이스를 만들고 기본 최대 크기가 250GB인 Standard S0 Edition 데이터베이스로 지정합니다.
+-   Use the **CREATE DATABASE** statement to create a database. For more information, see [CREATE DATABASE (SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx). The following statement creates a database named **myTestDB** and specifies that it is a Standard S0 Edition database with a default maximum size of 250 GB.
 
         CREATE DATABASE myTestDB
         (EDITION='Standard',
          SERVICE_OBJECTIVE='S0');
 
-**실행**을 클릭하여 쿼리를 실행합니다.
+Click **Execute** to run the query.
 
--   예를 들어 데이터베이스의 이름 및 버전을 변경하려는 경우처럼 기존 데이터베이스를 수정하려면 **ALTER DATABASE** 문을 사용합니다. 자세한 내용은 [ALTER DATABASE(SQL 데이터베이스)](https://msdn.microsoft.com/library/ms174269.aspx)를 참조하세요. 다음 문은 이전 단계에서 만든 데이터베이스 버전을 Standard S1로 변경하도록 수정합니다.
+-   Use the **ALTER DATABASE** statement to modify an existing database, for example if you want to change the name and edition of the database. For more information, see [ALTER DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms174269.aspx). The following statement modifies the database you created in the previous step to change edition to Standard S1.
 
         ALTER DATABASE myTestDB
         MODIFY
         (SERVICE_OBJECTIVE='S1');
 
--   기존 데이터베이스를 삭제하려면 **DROP DATABASE** 문을 사용하세요. 자세한 내용은 [DROP DATABASE(SQL 데이터베이스)](https://msdn.microsoft.com/library/ms178613.aspx)를 참조하세요. 다음 문은 **myTestDB** 데이터베이스를 삭제하지만 다음 단계에서 로그인을 만드는 데 사용되므로 지금 삭제하지는 마세요.
+-   Use **the DROP DATABASE** Statement to delete an existing database. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The following statement deletes the **myTestDB** database, but don't drop it now because you will use it to create logins in the next step.
 
         DROP DATABASE myTestBase;
 
--   master 데이터베이스에는 모든 데이터베이스에 관한 세부 정보를 볼 수 있는 **sys.databases** 뷰가 있습니다. 기존 데이터베이스를 모두 보려면 다음 문을 실행하세요.
+-   The master database has the **sys.databases** view that you can use to view details about all databases. To view all existing databases, execute the following statement:
 
         SELECT * FROM sys.databases;
 
--   SQL 데이터베이스에서 **USE** 문은 데이터베이스 간 전환을 지원하지 않습니다. 대신 대상 데이터베이스에 직접 연결해야 합니다.
+-   In SQL Database, the **USE** statement is not supported for switching between databases. Instead, you need to establish a connection directly to the target database.
 
->[AZURE.NOTE] 데이터베이스를 만들거나 수정하는 많은 Transact-SQL 문은 자신의 일괄 처리 안에서 실행되어야 하며 다른 Transact-SQL 문과 함께 그룹화될 수 없습니다. 자세한 내용은 문 관련 정보를 참조하세요.
+>[AZURE.NOTE] Many of the Transact-SQL statements that create or modify a database must be run within their own batch and cannot be grouped with other Transact-SQL statements. For more information, see the statement-specific information.
 
-## 로그인 만들기 및 관리
+## <a name="create-and-manage-logins"></a>Create and manage logins
 
-**master** 데이터베이스는 데이터베이스 또는 다른 로그인을 만들 수 있는 권한이 있는 로그인을 포함합니다. 서버를 설치할 때 만든 서버 수준 보안 주체 로그인으로 **master** 데이터베이스에 연결하여 로그인을 관리하세요. 전체 서버에서 로그인을 관리할 master 데이터베이스에 대해 **CREATE LOGIN**, **ALTER LOGIN** 또는 **DROP LOGIN** 문을 사용하여 쿼리를 실행할 수 있습니다. 자세한 내용은 [SQL 데이터베이스에서 데이터베이스 및 로그인 관리](http://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
+The **master** database contains logins and which logins have permission to create databases or other logins. Manage logins by connecting to the **master** database with the server-level principal login that you created when you set up your server. You can use the **CREATE LOGIN**, **ALTER LOGIN**, or **DROP LOGIN** statements to execute queries against the master database that manages logins across the entire server. For more information, see [Managing Databases and Logins in SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx). 
 
 
--   서버 수준 로그인을 만들려면 **CREATE LOGIN** 문을 사용하세요. 자세한 내용은 [CREATE LOGIN(SQL 데이터베이스)](https://msdn.microsoft.com/library/ms189751.aspx)을 참조하세요. 다음 문은 **login1**이라는 로그인을 만듭니다. **password1**을 원하는 암호로 바꾸세요.
+-   Use the **CREATE LOGIN** statement to create a server-level login. For more information, see [CREATE LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189751.aspx). The following statement creates a login called **login1**. Replace **password1** with the password of your choice.
 
         CREATE LOGIN login1 WITH password='password1';
 
--   데이터베이스 수준의 권한을 부여하려면 **CREATE USER** 문을 사용하세요. 모든 로그인은 **마스터** 데이터베이스에서 만들어야 합니다. 다른 데이터베이스에 연결하기 위한 로그인은 해당 데이터베이스에서 **CREATE USER** 문을 사용하여 데이터베이스 수준의 권한을 부여받아야 합니다. 자세한 내용은 [CREATE USER(SQL 데이터베이스)](https://msdn.microsoft.com/library/ms173463.aspx)를 참조하세요.
+-   Use the **CREATE USER** statement to grant database-level permissions. All logins must be created in the **master** database. For a login to connect to a different database, you must grant it database-level permissions using the **CREATE USER** statement on that database. For more information, see [CREATE USER (SQL Database)](https://msdn.microsoft.com/library/ms173463.aspx). 
 
--   **myTestDB**라는 데이터베이스에 login1 권한을 부여하려면 다음 단계를 완료하십시오.
+-   To give login1 permissions to a database called **myTestDB**, complete the following steps:
 
- 1.  개체 탐색기를 새로 고쳐 만든 **myTestDB** 데이터베이스를 표시하려면 개체 탐색기에서 서버 이름을 마우스 오른쪽 단추로 클릭한 후 **새로 고침**을 클릭합니다.
+ 1.  To refresh Object Explorer to view the **myTestDB** database that you created, right-click the server name in Object Explorer and then click **Refresh**.  
 
-     연결을 닫았으면 파일 메뉴에서 **개체 탐색기 연결**을 선택하여 다시 연결할 수 있습니다.
+     If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu.
 
- 2. **myTestDB** 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+ 2. Right-click **myTestDB** database and select **New Query**.
 
-    3.  myTestDB 데이터베이스에 대해 다음 문을 실행하여 서버 수준 로그인인 **login1**에 해당하는 데이터베이스 사용자를 **login1User**라는 이름으로 만듭니다.
+    3.  Execute the following statement against the myTestDB database to create a database user named **login1User** that corresponds to the server-level login **login1**.
 
             CREATE USER login1User FROM LOGIN login1;
 
--   데이터베이스에서 적절한 수준의 권한을 사용자 계정에 부여하려면 **sp\_addrolemember** 저장 프로시저를 사용하세요. 자세한 내용은 [sp\_addrolemember(Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx)를 참조하세요. 다음 문은 **db\_datareader** 역할에 **login1User**를 추가하여 데이터베이스에 **login1User** 읽기 전용 권한을 부여합니다.
+-   Use the **sp\_addrolemember** stored procedure to give the user account the appropriate level of permissions on the database. For more information, see [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). The following statement gives **login1User** read-only permissions to the database by adding **login1User** to the **db\_datareader** role.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
--   예를 들어 로그인 암호를 변경하려는 경우처럼 기존 로그인을 수정하려면 **ALTER LOGIN** 문을 사용하세요. 자세한 내용은 [ALTER LOGIN(SQL 데이터베이스)](https://msdn.microsoft.com/library/ms189828.aspx)을 참조하세요. **ALTER LOGIN** 문은 **master** 데이터베이스에 대해 실행되어야 합니다. 해당 데이터베이스에 연결되어 있는 쿼리 창으로 전환합니다. 다음 문은 암호를 다시 설정하도록 **login1** 로그인을 수정합니다. **newPassword**는 원하는 암호로 바꾸고, **oldPassword**는 현재 로그인 암호로 바꾸세요.
+-   Use the **ALTER LOGIN** statement to modify an existing login, for example if you want to change the password for the login. For more information, see [ALTER LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189828.aspx). The **ALTER LOGIN** statement should be run against the **master** database. Switch back to the query window that is connected to that database. The following statement modifies the **login1** login to reset the password. Replace **newPassword** with the password of your choice, and **oldPassword** with the current password for the login.
 
         ALTER LOGIN login1
         WITH PASSWORD = 'newPassword'
         OLD_PASSWORD = 'oldPassword';
 
--   기존 로그인을 삭제하려면 **DROP LOGIN** 문을 사용하십시오. 서버 수준에서 로그인을 삭제하면 연결된 데이터베이스 사용자 계정도 삭제됩니다. 자세한 내용은 [DROP DATABASE(SQL 데이터베이스)](https://msdn.microsoft.com/library/ms178613.aspx)를 참조하세요. **DROP LOGIN** 문은 **master** 데이터베이스에 대해 실행되어야 합니다. 다음 문은 **login1** 로그인을 삭제합니다.
+-   Use **the DROP LOGIN** statement to delete an existing login. Deleting a login at the server level also deletes any associated database user accounts. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The **DROP LOGIN** statement should be run against the **master** database. The statement deletes the **login1** login.
 
         DROP LOGIN login1;
 
--   master 데이터베이스에는 로그인을 볼 수 있는 **sys.sql\_logins** 뷰가 있습니다. 기존 로그인을 모두 보려면 다음 문을 실행하세요.
+-   The master database has the **sys.sql\_logins** view that you can use to view logins. To view all existing logins, execute the following statement:
 
         SELECT * FROM sys.sql_logins;
 
-## 동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링
+## <a name="monitor-sql-database-using-dynamic-management-views"></a>Monitor SQL Database using Dynamic Management Views
 
-SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있는 여러 동적 관리 뷰를 지원합니다. 다음은 이러한 뷰를 통해 검색할 수 있는 모니터 데이터 형식의 몇몇 예입니다. 전체 세부 정보 및 그 밖의 사용 예는 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링](https://msdn.microsoft.com/library/azure/ff394114.aspx)을 참조하세요.
+SQL Database supports several dynamic management views that you can use to monitor an individual database. A few examples of the type of monitor data you can retrieve through these views are following. For complete details and more usage examples, see [Monitoring SQL Database using Dynamic Management Views](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
--   동적 관리 뷰를 쿼리하려면 **VIEW DATABASE STATE** 권한이 있어야 합니다. 특정 데이터베이스 사용자에게 **VIEW DATABASE STATE** 권한을 부여하려면 데이터베이스에 연결하고 그 데이터베이스에 대해 다음 문을 실행하세요.
+-   Querying a dynamic management view requires **VIEW DATABASE STATE** permissions. To grant the **VIEW DATABASE STATE** permission to a specific database user, connect to the database and execute the following statement against the database:
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   **sys.dm\_db\_partition\_stats** 뷰를 사용하여 데이터베이스 크기를 계산합니다. **sys.dm\_db\_partition\_stats** 뷰는 데이터베이스에 있는 모든 파티션의 페이지 및 행 개수 정보를 반환하며, 데이터베이스 크기를 계산할 수 있습니다. 다음 쿼리는 데이터베이스 크기(MB)를 반환합니다.
+-   Calculate database size using the **sys.dm\_db\_partition\_stats** view. The **sys.dm\_db\_partition\_stats** view returns page and row-count information for every partition in the database, which you can use to calculate the database size. The following query returns the size of your database in megabytes:
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   현재 사용자 연결 및 데이터베이스와 연결된 내부 작업에 대한 정보를 검색하려면 **sys.dm\_exec\_connections** 및 **sys.dm\_exec\_sessions** 뷰를 사용하세요. 다음 쿼리는 현재 연결에 대한 정보를 반환합니다.
+-   Use the **sys.dm\_exec\_connections** and **sys.dm\_exec\_sessions** views to retrieve information about current user connections and internal tasks associated with the database. The following query returns information about the current connection:
 
         SELECT
             e.connection_id,
@@ -132,7 +133,7 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   캐시된 쿼리 계획의 성능 통계를 집계하려면 **sys.dm\_exec\_query\_stats** 뷰를 사용하세요. 다음 쿼리는 평균 CPU 시간별로 상위 5개의 쿼리에 대한 정보를 반환합니다.
+-   Use the **sys.dm\_exec\_query\_stats** view to retrieve aggregate performance statistics for cached query plans. The following query returns information about the top five queries ranked by average CPU time.
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -151,4 +152,8 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
  
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

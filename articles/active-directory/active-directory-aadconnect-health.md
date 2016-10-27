@@ -1,126 +1,133 @@
 <properties
-	pageTitle="클라우드에서 온-프레미스 ID 인프라 모니터링"
-	description="사용되는 항목 및 이유를 설명하는 Azure AD Connect 상태 페이지입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="karavar"
-	manager="femila"
-	editor="karavar"/>
+    pageTitle="Monitor your on-premises identity infrastructure in the cloud."
+    description="This is the Azure AD Connect Health page that describes what it is and why you would use it."
+    services="active-directory"
+    documentationCenter=""
+    authors="karavar"
+    manager="femila"
+    editor="karavar"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/14/2016"
-	ms.author="vakarand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="07/14/2016"
+    ms.author="vakarand"/>
 
-# 온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.
 
-Azure AD Connect Health를 사용하면 온-프레미스 ID 인프라 및 동기화 서비스를 모니터링하고 파악할 수 있습니다. AD FS 서버, Azure AD Connect 서버(즉, 동기화 엔진), Active Directory 도메인 컨트롤러 등과 같은 핵심 ID 구성 요소를 위한 모니터링 기능을 제공하여 Office 365 및 Microsoft Online Services에 대해 신뢰할 수 있는 연결을 유지 관리할 수 있습니다. 또한 이러한 구성 요소에 대한 핵심 데이터 요소를 액세스하기 쉽게 만들어 사용 현황 및 기타 중요한 통찰력을 보다 쉽게 얻을 수 있습니다.
+# <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitor your on-premises identity infrastructure and synchronization services in the cloud
 
-정보는 [Azure AD Connect Health 포털](https://aka.ms/aadconnecthealth)에 표시됩니다. Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 사용 현황 분석 등을 볼 수 있습니다. Azure AD Connect Health를 통해 핵심 ID 구성 요소의 상태를 한 곳에서 단일 렌즈로 볼 수 있습니다.
+Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  It enables you to maintain a reliable connection to Office 365 and Microsoft Online Services by providing monitoring capabilities for your key identity components such as AD FS Servers, Azure AD Connect servers (aka Sync Engine), Active Directory Domain Controllers etc. It also makes the key data points about these components easily accessible, making it easy to get usage and other important insights.
 
-![Azure AD Connect Health 정의](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
+The information is presented to you in the [Azure AD Connect Health Portal](https://aka.ms/aadconnecthealth). Using the Azure AD Connect Health portal you can view alerts, performance monitoring, usage analytics and much more. Azure AD Connect Health enables the single lens of health for your key identity components, all at one place.
 
-Azure AD Connect Health에 대한 이후 업데이트는 추가 모니터링 및 추가 ID 구성 요소에 대한 통찰력을 포함합니다. ID의 렌즈를 통한 단일 대시보드를 제공하고 사용자가 작업을 완료하는 기능을 향상시킬 수 있도록 하는 훨씬 더 강력하고 정상적이며 통합된 환경을 활용합니다.
+![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
+
+Future updates to Azure AD Connect Health will include additional monitoring and insight into additional identity components. Thus providing you a single dash board through the lens of identity, enabling you to have an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.
 
 <!-- <center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center> -->
 
-## Azure AD Connect Health를 사용하는 이유
+## <a name="why-use-azure-ad-connect-health"></a>Why use Azure AD Connect Health
 
-Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 클라우드 리소스 모두에 액세스하기 위한 일반적인 ID를 제공하므로 사용자가 더 생산성을 높일 수 있습니다. 그러나 이 통합을 통해 사용자가 모든 장치에서 온-프레미스와 클라우드 모두의 리소스에 안정적으로 액세스할 수 있도록 이 환경이 정상적인지 확인해야 하는 문제가 있습니다. Azure AD Connect Health는 온-프레미스 ID 인프라에 대해 쉽게 모니터링하고 통찰력을 얻을 수 있는 클라우드 기반 접근 방식을 제공하여 Office 365 또는 다른 Azure AD 응용 프로그램에 액세스하는 데 사용됩니다. 각 온-프레미스 ID 서버에 에이전트를 설치하는 것만큼 간단합니다.
+Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. However, with this integration comes the challenges of ensuring that this environment is healthy so that users can reliably access resources both on-premises and in cloud from any device. Azure AD Connect Health provides an easy cloud based approach to monitor and gain insights into your on-premises identity infrastructure that is used to access Office 365 or other Azure AD applications. It is as simple as installing an agent on each of your on-premises identity servers.
 
-## [AD FS에 대한 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
+## <a name="[azure-ad-connect-health-for-ad-fs](active-directory-aadconnect-health-adfs.md)"></a>[Azure AD Connect Health for AD FS](active-directory-aadconnect-health-adfs.md)
 
-AD FS에 대한 Azure AD Connect Health는 Windows Server 2008 R2에서 AD FS 2.0, Windows Server 2012 및 Windows Server 2012R2에서 AD FS를 지원합니다. 여기에는 엑스트라넷 액세스에 대한 인증 지원을 제공하는 AD FS 프록시 또는 웹 응용 프로그램 프록시 서버도 포함됩니다. AD FS에 대한 Azure AD Connect Health는 Health Agent의 매우 쉽고 저렴한 설치 비용과 함께 다음과 같은 주요 기능 집합을 제공합니다.
+Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, AD FS in Windows Server 2012 and Windows Server 2012R2. This also includes AD FS Proxy or Web Application Proxy servers that provide authentication support for extranet access. With a very easy and low cost installation of the health agent, Azure AD Connect Health for AD FS provides the following set of key capabilities:
 
-- AD FS 및 AD FS 프록시 서버가 정상이 아닐 때 알아야 하는 경고 모니터링
-- 중요한 경고에 대한 전자 메일 알림
-- AD FS의 용량 계획에 유용한 성능 데이터의 동향 보기
-- AD FS를 어떻게 활용하는지 이해하는 데 유용하며 다양한 피벗(앱, 사용자, 네트워크 위치 등)을 통해 AD FS 로그인의 사용량 분석입니다.
-- 잘못된 사용자 이름/암호를 시도한 상위 50명의 사용자와 같은 AD FS에 대한 보고서
+- Monitoring with alerts to know when AD FS and AD FS Proxy servers are not healthy
+- Email notifications for critical alerts
+- View trends in performance data, useful for capacity planning of AD FS
+- Usage analytics for AD FS logins with different pivot (apps, users, network location etc), useful in understand how AD FS is getting utilized.
+- Reports for AD FS such as Top 50 users with bad Username/Password attempts
 
-다음 비디오는 AD FS에 대한 Azure AD Connect Health의 개요를 제공합니다.
+The following video will provide an overview of Azure AD Connect Health for AD FS
 
-> [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
-## [동기화에 대한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
+## <a name="[azure-ad-connect-health-for-sync](active-directory-aadconnect-health-sync.md)"></a>[Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
 
-동기화에 대한 Azure AD Connect Health는 온-프레미스 Active Directory와 Azure Active Directory 간에 발생하는 동기화에 대한 정보를 모니터링하고 제공합니다. 동기화에 대한 Azure AD Connect Health는 다음과 같은 주요 기능 집합을 제공합니다.
+Azure AD Connect Health for Sync monitors and provides information on the synchronizations that occur between your on-premises Active Directory and Azure Active Directory. Azure AD Connect Health for Sync provides the following set of key capabilities:
 
-- Azure AD Connect 서버 즉, 동기화 엔진이 정상이 아닐 때 알아야 하는 경고 모니터링
-- 중요한 경고에 대한 전자 메일 알림
-- 동기화 작업에 대한 대기 시간 차트, 동기화 작업(추가, 업데이트, 삭제 등)의 동향을 비롯한 동기화 작업 통찰력
-- 동기화 속성, 최근에 성공한 Azure AD로 내보내기에 대한 정보 빠른 보기
+- Monitoring with alerts to know when Azure AD Connect servers aka the Sync Engine is not healthy
+- Email notifications for critical alerts
+- Sync operational insights including latency charts for Sync Operations and trends in sync operations such as adds, updates, deletes.
+- Quick glance information about sync properties, last successful export to Azure AD
 
-다음 비디오는 동기화를 위한 Azure AD Connect Health의 개요를 제공합니다.
+The following video will provide an overview of Azure AD Connect Health for sync
 
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
-## [AD DS용 Azure AD Connect Health(미리 보기)](active-directory-aadconnect-health-adds.md)
+## <a name="[azure-ad-connect-health-for-ad-ds-(preview)](active-directory-aadconnect-health-adds.md)"></a>[Azure AD Connect Health for AD DS (preview)](active-directory-aadconnect-health-adds.md)
 
-AD DS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2에 설치된 도메인 컨트롤러에 대한 모니터링을 제공합니다. 쉽고 저렴한 비용 상태 에이전트 설치를 사용하면 클라우드에서 직접 온-프레미스 AD DS 환경을 모니터링할 수 있습니다. AD DS용 Azure AD Connect Health는 다음과 같은 주요 기능 집합을 제공합니다.
+Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2. An easy and low cost health agent installation, enables you to monitor your on-premises AD DS environenment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
 
-- 도메인 컨트롤러가 중요한 경고에 대한 전자 메일 알림과 함께 비정상인 시기를 감지하는 경고 모니터링
-- 도메인 컨트롤러의 상태 및 작동 상태에 대한 빠른 보기를 제공하는 도메인 컨트롤러 대시보드
-- 오류가 감지되면 문제 해결 가이드에 대한 링크와 함께 최신 복제 정보를 사용하는 복제 상태 대시보드
-- 문제 해결 및 모니터링을 위해 필요한 인기 있는 성능 카운터의 성능 데이터 그래프에 대한 빠른 액세스
+- Monitoring alerts to detect when domain controllers are unhealthy, along with email notifications for critical alerts.
+- Domain Controllers dashboard which provides a quick view into the health and operational status of your domain controllers.
+- Replication Status dashboard with latest replication information, along with links to troubleshooting guides when errors are detected.
+- Quick anywhere access to performance data graphs of popular performance counters, necessary for troubleshooting and monitoring purposes.
 
-다음 비디오는 AD DS용 Azure AD Connect Health의 개요를 제공합니다.
+The following video will provide an overview of Azure AD Connect Health for AD DS
 
 >[AZURE.VIDEO azure-ad-connect-health-monitors-on-premises-ad-domain-services]
 
-## Azure AD Connect Health 시작
-Azure AD Connect Health를 시작하기가 매우 쉽습니다. 다음 단계를 따르세요.
+## <a name="get-started-with-azure-ad-connect-health"></a>Get started with Azure AD Connect Health
+It is very easy to get started with Azure AD Connect Health. Follow the steps below:
 
-1. [Azure AD Premium을 다운로드](active-directory-get-started-premium.md)하거나 [평가판을 시작](https://azure.microsoft.com/trial/get-started-active-directory/)합니다.
+1. [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/)
 
-2. ID 서버에 [Azure AD Connect Health 에이전트를 다운로드하고 설치합니다](#download-and-install-azure-ad-connect-health-agent).
+2. [Download and Install Azure AD Connect Health agents](#download-and-install-azure-ad-connect-health-agent) on your identity servers.
 
-3. [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)에서 Azure AD Connect Health 대시보드를 봅니다.
+3. View Azure AD Connect Health dashboard at [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)
 
->[AZURE.NOTE]Azure AD Connect Health 대시보드에 데이터를 표시하려면 대상 서버에 Azure AD Connect Health Agent를 설치해야 합니다.
+>[AZURE.NOTE]Remember that before you see any data in your Azure AD Connect Health Dashboard, you will need to install the Azure AD Connect Health Agents on your targeted servers.
 
-## Azure AD Connect Health 에이전트 다운로드 및 설치
+## <a name="download-and-install-azure-ad-connect-health-agent"></a>Download and Install Azure AD Connect Health Agent
 
-- Azure AD Connect Health에 대한 [요구 사항](active-directory-aadconnect-health-agent-install.md#Requirements)을 참조하세요.
+- See the [Requirements](active-directory-aadconnect-health-agent-install.md#Requirements) for Azure AD Connect Health
 
-- AD FS용 Azure AD Connect Health를 사용하기 시작하려면 [AD FS용 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=518973)에서 에이전트의 최신 버전을 다운로드할 수 있습니다. [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+- To get started using Azure AD Connect Health for AD FS you can download the latest version of the agent here:  [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+[](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
-- 동기화를 위한 Azure AD Connect Health를 사용하기 시작하려면 [Azure AD Connect 최신 버전](http://go.microsoft.com/fwlink/?linkid=615771)을 다운로드하고 설치합니다. 상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다(버전 1.0.9125.0 이상). Azure AD Connect는 이전 버전에서 전체 업그레이드를 지원합니다.
+- To get started using Azure AD Connect Health for sync, download and install the [latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  The health agent will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).  Azure AD Connect supports an in-place upgrade from previous versions.
 
-- AD DS용 Azure AD Connect Health를 사용하기 시작하려면 [AD DS용 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=820540)에서 에이전트의 최신 버전을 다운로드할 수 있습니다. [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+- To get started using Azure AD Connect Health for AD DS you can download the latest version of the agent here:  [Download Azure AD Connect Health Agent for AD DS.](http://go.microsoft.com/fwlink/?LinkID=820540)
+[](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
-## Azure AD Connect Health 포털
-Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 사용 현황 분석을 볼 수 있습니다. https://aka.ms/aadconnecthealth를 클릭하면 Azure AD Connect Health의 기본 블레이드로 이동합니다. 블레이드를 창으로 생각할 수 있습니다. 기본 블레이드에서 빠른 시작, Azure AD Connect Health 내 서비스 및 추가 구성 옵션이 표시됩니다. 스크린샷 아래에는 이들 각각에 대해 간략한 설명이 있습니다. 에이전트를 배포한 후에 상태 서비스는 Azure AD Connect Health가 모니터링하는 서비스에 대해 자동으로 식별됩니다.
+## <a name="azure-ad-connect-health-portal"></a>Azure AD Connect Health Portal
+The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics. https://aka.ms/aadconnecthealth takes you to the main blade of Azure AD Connect Health.  You can think of a blade as a window. On The main blade you see Quick Start, Services within Azure AD Connect Health and additional configuration options. Below the screenshot is a brief explanation of each of these.  After you've deployed the agents, the health service automatically identifies for the services Azure AD Connect Health is monitoring.
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/portal4.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal4.png)
 
-- **빠른 시작** – 이 항목을 선택하면 빠른 시작 블레이드가 열립니다. 여기에서 도구 가져오기를 선택하여 Azure AD Connect Health Agent를 다운로드하고, 설명서에 액세스하고, 피드백을 제공할 수 있습니다.
+- **Quick Start** – by selecting this you will open the Quick Start blade. Here you will be able to download the Azure AD Connect Health agent by choosing Get Tools, access documentation, and provide feedback.
 
-- **Active Directory Federation Services** – Azure AD Connect Health에서 현재 모니터링하는 모든 AD FS 서비스를 나타냅니다. 인스턴스 중 하나를 선택하면, 서비스 인스턴스에 대한 정보가 포함된 블레이드가 열립니다. 개요, 속성, 경고, 모니터링 및 사용 현황 분석이 이러한 정보에 포함됩니다. [여기](active-directory-aadconnect-health-adfs.md)에서 기능에 대해 자세히 알아보세요.
+- **Active Directory Federation Services** – this represents all of the AD FS services that Azure AD Connect Health is currently monitoring. By selecting one of the instances, a blade will open with information about that services instance.  This information includes an overview, properties, alerts, monitoring, and usage analytics. Read more about the capabilities [here.](active-directory-aadconnect-health-adfs.md)
 
-- **Azure Active Directory Connect(동기화)** – Azure AD Connect Health가 현재 모니터링하는 Azure AD Connect 서버를 나타냅니다. 항목을 선택하면 Azure AD Connect 서버에 대한 정보와 함께 블레이드가 열립니다. [여기](active-directory-aadconnect-health-sync.md)에서 기능에 대해 자세히 알아보세요.
+- **Azure Active Directory Connect (Sync)** – this represents your Azure AD Connect servers that Azure AD Connect Health is currently monitoring. By selecting the entry, a blade will open with information about your Azure AD Connect servers. Read more about the capabilities [here.](active-directory-aadconnect-health-sync.md)
  
-- **Active Directory 도메인 서비스** – Azure AD Connect Health가 현재 모니터링하는 모든 AD FS 포리스트를 나타냅니다. 포리스트 중 하나를 선택하여 포리스트에 대한 정보가 포함된 블레이드가 열립니다. 이 정보에는 중요한 정보의 개요, 도메인 컨트롤러 대시보드, 복제 상태 대시보드, 경고 및 모니터링이 포함됩니다. [여기](active-directory-aadconnect-health-adds.md)에서 기능에 대해 자세히 알아보세요.
+- **Active Directory Domain Services** – this represents all of the AD DS forests that Azure AD Connect Health is currently monitoring. By selecting one of the forests, a blade will open with information about that forest.  This information includes an overview of essential information, Domain Controllers dashboard, Replication Status dashboard, alerts and monitoring. Read more about the capabilities [here.](active-directory-aadconnect-health-adds.md)
 
-- **구성** – 여기에서는 다음 옵션을 켜거나 끌 수 있습니다.
+- **Configure** – this allows you to turn the following on or off:
 
-	1. 자동으로 Azure AD Connect Health Agent를 최신 버전으로 업데이트하는 자동 업데이트 - Azure AD Connect Health Agent의 최신 버전을 사용할 수 있게 되면 자동으로 업데이트됩니다. 이 옵션은 기본적으로 사용하도록 설정되어 있습니다.
+    1. Auto update to automatically update the Azure AD Connect Health agent to the latest version - This means that you will be automatically updated to the latest version of the Azure AD Connect Health Agent when they become available. This is enabled by default.
 
-	2. Microsoft가 문제 해결을 위해서만 Azure AD 디렉터리 상태 데이터에 액세스할 수 있음 - 이 옵션을 사용하도록 설정하면 사용자에게 표시되는 것과 동일한 데이터를 Microsoft가 볼 수 있습니다. 이 옵션은 문제 해결 및 지원에 도움이 될 수 있습니다. 이 옵션은 기본적으로 사용하지 않도록 설정되어 있습니다.
+    2. Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only - This means that if this is enabled, Microsoft will be able to see the same data that you are seeing. This can help with troubleshooting and assistance with issues. This is disabled by default.
 
 
-## 관련 링크
+## <a name="related-links"></a>Related links
 
-* [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
-* [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
-* [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
-* [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
+* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
+* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
+* [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

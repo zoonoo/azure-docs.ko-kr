@@ -1,481 +1,489 @@
 <properties 
-	pageTitle="Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍 | Microsoft Azure" 
-	description="이 항목에서는 온-프레미스 인코더에서 단일 비트 전송률 라이브 스트림을 받은 다음 미디어 서비스를 사용하여 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH, HDS 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="anilmur" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Azure" 
+    description="This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="anilmur" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016"
-	ms.author="juliako;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/12/2016"
+    ms.author="juliako;anilmur"/>
 
-#Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 
-##개요
+#<a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streaming using Azure Media Services to create multi-bitrate streams
 
-AMS(Azure 미디어 서비스)에서 **채널**은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. **채널**은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
+##<a name="overview"></a>Overview
 
-- 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTP(MPEG-TS), RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 미디어 서비스를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
+In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
 
-- 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 AMS로 라이브 인코딩을 수행하도록 설정되지 않은 채널에 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 **채널**을 통과합니다. 이 방법을 **통과**라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 Elemental, Envivio, Cisco를 사용할 수 있습니다. RTMP를 출력하는 라이브 인코더는 Adobe Flash Live, Telestream Wirecast 및 Tricaster 트랜스코더입니다. 또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
+- An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
-	>[AZURE.NOTE] 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
+- An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
-미디어 서비스 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스트림을 받는 방법과 채널이 스트림의 라이브 인코딩을 수행할지 여부를 지정할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
+    >[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming.
 
-- **없음** – 다중 비트 전송률 스트림(통과 스트림)을 출력할 온-프레미스 라이브 인코더를 사용할 계획인 경우 이 값을 지정합니다. 이 경우 들어오는 스트림이 인코딩 없이 출력으로 전달됩니다. 이것이 2.10 릴리스 이전의 채널 동작입니다. 이 형식의 채널 작업에 대한 자세한 내용은 [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 참조하세요.
+Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
 
-- **표준** – 미디어 서비스를 사용하여 단일 비트 전송률 라이브 스트림을 다중 비트 전송률 스트림으로 인코딩할 계획인 경우 이 값을 선택합니다. 라이브 인코딩의 청구 영향이 있고 라이브 인코딩 채널을 "실행 중" 상태로 두면 요금이 청구됨을 기억해야 합니다. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다.
+- **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
->[AZURE.NOTE]이 항목에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다(**표준** 인코딩 형식). 라이브 인코딩을 수행할 수 없는 채널 작업에 대한 자세한 내용은 [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 참조하세요.
+- **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
+
+>[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 >
->[고려 사항](media-services-manage-live-encoder-enabled-channels.md#Considerations) 섹션을 검토해야 합니다.
+>Make sure to review the [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations) section.
 
 
-##요금 청구
+##<a name="billing-implications"></a>Billing Implications
 
-라이브 인코딩 채널은 상태가 API를 통한 "실행 중"으로 전환되면 그 즉시 청구되기 시작됩니다. 또한 Azure 클래식 포털 또는 Azure 미디어 서비스 탐색기 도구(http://aka.ms/amse)에서 상태를 볼 수도 있습니다.
+A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure portal, or in the Azure Media Services Explorer tool (http://aka.ms/amse).
 
-다음 표에서는 채널 상태가 API 및 Azure 클래식 포털에서 청구 상태에 매핑되는 방식을 보여줍니다. API와 포털 UX의 상태는 서로 약간 다릅니다. 채널이 API를 통한 "실행 중" 상태 또는 Azure 클래식 포털의 "준비" 또는 "스트리밍" 상태에 있는 한, 요금이 청구됩니다. 채널이 요금을 청구하지 못하게 하려면 API를 통해 또는 Azure 클래식 포털에서 채널을 중지해야 합니다. 라이브 인코딩 채널의 작업이 끝나면 채널을 중지할 책임이 있습니다. 인코딩 채널을 중지하지 않으면 요금이 계속 청구됩니다.
+The following table shows how Channel states map to billing states in the API and Azure portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure Classic Portal, billing will be active.
+To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure portal.
+You are responsible for stopping your channels when you are done with the live encoding channel.  Failure to stop an encoding channel will result in continued billing.
 
-###<a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식 
+###<a name="<a-id="states"></a>channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Channel states and how they map to the billing mode 
 
-채널의 현재 상태입니다. 가능한 값은 다음과 같습니다.
+The current state of a Channel. Possible values include:
 
-- **중지됨**. 이는 채널을 만든 후 초기 상태입니다(포털에서 자동 시작을 선택하지 않은 경우). 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
-- **시작 중**. 채널이 시작 중입니다. 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
-- **실행 중**. 라이브 스트림 처리에 채널을 사용할 수 있습니다. 이제 사용 요금이 청구됩니다. 추가 요금 청구를 방지하기 위해 채널을 중지해야 합니다.
-- **중지 중**. 채널이 중지 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
-- **삭제 중**. 채널이 삭제 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+- **Stopped**. This is the initial state of the Channel after its creation (unless autostart was selected in the portal.) No billing occurs in this state. In this state, the Channel properties can be updated but streaming is not allowed.
+- **Starting**. The Channel is being started. No billing occurs in this state. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
+- **Running**. The Channel is capable of processing live streams. It is now billing usage. You must stop the channel to prevent further billing. 
+- **Stopping**. The Channel is being stopped. No billing occurs in this transient state. No updates or streaming is allowed during this state.
+- **Deleting**. The Channel is being deleted. No billing occurs in this transient state. No updates or streaming is allowed during this state.
 
-다음 표에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
+The following table shows how Channel states map to the billing mode. 
  
-채널 상태|포털 UI 표시기|요금이 청구됩니까?
+Channel state|Portal UI Indicators|Is it Billing?
 ---|---|---
-시작 중|Starting|없음(일시적인 상태)
-실행 중|준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임)|예
-중지 중|중지 중|없음(일시적인 상태)
-중지됨|중지됨|아니요
+Starting|Starting|No (transient state)
+Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|YES
+Stopping|Stopping|No (transient state)
+Stopped|Stopped|No
 
-###사용하지 않는 채널에 대한 자동 종료
+###<a name="automatic-shut-off-for-unused-channels"></a>Automatic shut-off for unused Channels
 
-2016년 1월 25일부터 시작하는 미디어 서비스는 장기간 사용하지 않은 상태로 실행된 후 자동으로 채널을 중지하는(라이브 인코딩 사용) 업데이트를 출시했습니다. 이는 활성화된 프로그램이 없고 오랜 시간 동안 입력 기여 피드를 받지 않은 채널에 적용됩니다.
+Starting with January 25, 2016, Media Services rolled out an update that automatically stops a Channel (with live encoding enabled) after it has been running in an unused state for a long period. This applies to Channels that have no active Programs, and which have not received an input contribution feed for an extended period of time.
 
-사용하지 않은 기간에 대한 임계값은 명목상 12시간이지만 변경될 수 있습니다.
+The threshold for an unused period is nominally 12 hours, but is subject to change.
 
-##라이브 인코딩 워크플로
-다음 다이어그램은 채널이 RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나로 단일 비트 전송률 스트림을 받은 다음 다중 비트 전송률 스트림으로 인코딩하는 라이브 스트리밍 워크플로를 나타냅니다.
+##<a name="live-encoding-workflow"></a>Live Encoding Workflow
+The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
 
-![라이브 워크플로][live-overview]
-
-
-##항목 내용
-
-- [일반적인 라이브 스트리밍 시나리오](media-services-manage-live-encoder-enabled-channels.md#scenario) 개요
-- [채널 및 관련 구성 요소에 대한 설명](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [고려 사항](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+![Live workflow][live-overview]
 
 
-##<a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
+##<a name="in-this-topic"></a>In this topic
 
-다음은 일반적인 라이브 스트리밍 응용 프로그램을 만드는 일반적인 단계입니다.
-
->[AZURE.NOTE] 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 장시간 채널을 실행해야 하는 경우 amslived@microsoft.com으로 문의하세요. 라이브 인코딩에 대해 요금 청구가 있고 라이브 인코딩 채널을 "실행 중" 상태로 두면 요금이 시간별로 청구됨을 기억해야 합니다. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다.
-
-1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나로 **단일** 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다.
-	
-	이 단계는 채널을 만든 후에도 수행할 수 있습니다.
-
-1. 채널을 만들고 시작합니다.
-
-1. 채널 수집 URL을 검색합니다.
-
-	수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
-1. 채널 미리 보기 URL을 검색합니다.
-
-	이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
-
-3. 프로그램을 만듭니다.
-
-	Azure 클래식 포털을 사용하는 경우 프로그램을 만들면 자산도 만들어집니다.
-
-	.NET SDK 또는 REST를 사용하는 경우 자산을 만들고 프로그램을 만들 때 이 자산을 사용하도록 지정해야 합니다.
-1. 프로그램과 연결된 자산을 게시합니다.
-
-	콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
-1. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
-2. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
-1. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
-1. 프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.
-
->[AZURE.NOTE]라이브 인코딩 채널을 중지하는 것을 잊지 않는 것이 매우 중요합니다. 라이브 인코딩의 시간별 요금 청구가 있고 라이브 인코딩 채널을 "실행 중" 상태로 두면 요금이 청구됨을 기억해야 합니다. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다.
+- Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
+- [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
+- [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
 
 
-##<a id="channel"></a>채널 입력(수집) 구성
+##<a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Common Live Streaming Scenario
 
-###<a id="Ingest_Protocols"></a>수집 스트리밍 프로토콜
+The following are general steps involved in creating common live streaming applications.
 
-**인코더 형식**이 **표준**으로 설정된 경우 유효한 옵션은 다음과 같습니다.
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 
-- **RTP**(MPEG-TS): RTP를 통한 MPEG-2 전송 스트림
-- 단일 비트 전송률 **RTMP**
-- 단일 비트 전송률 **조각화된 MP4**(부드러운 스트리밍)
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). 
+    
+    This step could also be performed after you create your Channel.
 
-####RTP(MPEG-TS) - RTP를 통한 MPEG-2 전송 스트림  
+1. Create and start a Channel. 
 
-일반적인 사용 사례:
+1. Retrieve the Channel ingest URL. 
 
-일반적으로 전문 방송기기는 Elemental Technologies, Ericsson, Ateme, Imagine 또는 Envivio와 같은 공급업체의 최고급 온-프레미스 라이브 인코더와 함께 작동하여 스트림을 보냅니다. IT 부서 및 개인 네트워크와 함께 사용되는 경우가 많습니다.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
+1. Retrieve the Channel preview URL. 
 
-고려 사항:
+    Use this URL to verify that your channel is properly receiving the live stream.
 
-- SPTS(단일 프로그램 전송 스트림) 입력을 사용하는 것이 좋습니다.
-- RTP를 통해 MPEG-2 TS를 사용하여 최대 8개의 오디오 스트림을 입력할 수 있습니다.
-- 비디오 스트림의 평균 비트 전송률은 15Mbps 미만이어야 합니다.
-- 오디오 스트림의 총 평균 비트 전송률은 1Mbps 미만이어야 합니다.
-- 지원되는 코덱은 다음과 같습니다.
-	- MPEG-2 / H.262 비디오
-		
-		- 기본 프로필(4:2:0)
-		- 상위 프로필(4:2:0, 4:2:2)
-		- 422 프로필(4:2:0, 4:2:2)
+3. Create a program. 
 
-	- MPEG-4 AVC / H.264 비디오
-	
-		- 기준, 기본, 상위 프로필(8비트 4:2:0)
-		- 상위 10 프로필(10비트 4:2:0)
-		- 상위 422 프로필(10비트 4:2:2)
+    When using the Azure Classic Portal, creating a program also creates an asset. 
+
+    When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
+1. Publish the asset associated with the program.   
+
+    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+1. Start the program when you are ready to start streaming and archiving.
+2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
+1. Stop the program whenever you want to stop streaming and archiving the event.
+1. Delete the Program (and optionally delete the asset).   
+
+>[AZURE.NOTE]It is very important not to forget to Stop a Live Encoding Channel. Be aware that there is an hourly billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 
 
-	- MPEG-2 AAC-LC 오디오
-	
-		- 모노, 스테레오, 서라운드(5.1, 7.1)
-		- Mpeg-2 스타일 ADTS 패키징
+##<a name="<a-id="channel"></a>channel's-input-(ingest)-configurations"></a><a id="channel"></a>Channel's input (ingest) configurations
 
-	- Dolby Digital(AC-3) 오디오
+###<a name="<a-id="ingest_protocols"></a>ingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>Ingest streaming protocol
 
-		- 모노, 스테레오, 서라운드(5.1, 7.1)
+If the **Encoder Type** is set to **Standard**, valid options are:
 
-	- MPEG 오디오(Layer II 및 III)
-			
-		- 모노, 스테레오
+- **RTP** (MPEG-TS): MPEG-2 Transport Stream over RTP.  
+- Single bitrate **RTMP**
+- Single bitrate **Fragmented MP4** (Smooth Streaming)
 
-- 권장되는 브로드캐스트 인코더는 다음과 같습니다.
-	- Ateme AM2102
-	- Ericsson AVP2000
-	- eVertz 3480
-	- Ericsson RX8200
-	- Imagine Communications Selenio ENC 1
-	- Imagine Communications Selenio ENC 2
-	- AdTec EN-30
-	- AdTec EN-91P
-	- AdTec EN-100
-	- Harmonic ProStream 1000
-	- Thor H-2 4HD-EM
-	- eVertz 7880 SLKE
-	- Cisco Spinnaker
-	- Elemental Live
+####<a name="rtp-(mpeg-ts)---mpeg-2-transport-stream-over-rtp."></a>RTP (MPEG-TS) - MPEG-2 Transport Stream over RTP.  
 
-####<a id="single_bitrate_RTMP"></a>단일 비트 전송률 RTMP
+Typical use case: 
 
-고려 사항:
+Professional broadcasters typically work with high-end on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme, Imagine or Envivio to send a stream. Often used in conjunction with  an IT department and private networks.
 
-- 들어오는 스트림에 다중 비트 전송률 비디오가 포함될 수 없습니다.
-- 비디오 스트림의 평균 비트 전송률은 15Mbps 미만이어야 합니다.
-- 오디오 스트림의 평균 비트 전송률은 1Mbps 미만이어야 합니다.
-- 지원되는 코덱은 다음과 같습니다.
+Considerations:
 
-- MPEG-4 AVC / H.264 비디오
+- The use of a single program transport stream (SPTS) input is strongly recommended. 
+- You can input up to 8 audio streams using MPEG-2 TS over RTP. 
+- The video stream should have an average bitrate below 15 Mbps
+- The aggregate average bitrate of the audio streams should be below 1 Mbps
+- Following are the supported codecs:
+    - MPEG-2 / H.262 Video 
+        
+        - Main Profile (4:2:0)
+        - High Profile (4:2:0, 4:2:2)
+        - 422 Profile (4:2:0, 4:2:2)
 
-- 기준, 기본, 상위 프로필(8비트 4:2:0)
-- 상위 10 프로필(10비트 4:2:0)
-- 상위 422 프로필(10비트 4:2:2)
+    - MPEG-4 AVC / H.264 Video  
+    
+        - Baseline, Main, High Profile (8-bit 4:2:0)
+        - High 10 Profile (10-bit 4:2:0)
+        - High 422 Profile (10-bit 4:2:2)
 
-- MPEG-2 AAC-LC 오디오
 
-- 모노, 스테레오, 서라운드(5.1, 7.1)
-- 44\.1kHz 샘플링 주기
-- Mpeg-2 스타일 ADTS 패키징
+    - MPEG-2 AAC-LC Audio 
+    
+        - Mono, Stereo, Surround (5.1, 7.1)
+        - MPEG-2 style ADTS packaging
 
-- 권장되는 인코더는 다음과 같습니다.
+    - Dolby Digital (AC-3) Audio 
+
+        - Mono, Stereo, Surround (5.1, 7.1)
+
+    - MPEG Audio (Layer II and III) 
+            
+        - Mono, Stereo
+
+- Recommended broadcast encoders include:
+    - Ateme AM2102
+    - Ericsson AVP2000
+    - eVertz 3480
+    - Ericsson RX8200
+    - Imagine Communications Selenio ENC 1
+    - Imagine Communications Selenio ENC 2
+    - AdTec EN-30
+    - AdTec EN-91P
+    - AdTec EN-100
+    - Harmonic ProStream 1000
+    - Thor H-2 4HD-EM
+    - eVertz 7880 SLKE
+    - Cisco Spinnaker
+    - Elemental Live
+
+####<a name="<a-id="single_bitrate_rtmp"></a>single-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>Single bitrate RTMP
+
+Considerations:
+
+- The incoming stream cannot contain multi-bitrate video
+- The video stream should have an average bitrate below 15 Mbps
+- The audio stream should have an average bitrate below 1 Mbps
+- Following are the supported codecs:
+
+- MPEG-4 AVC / H.264 Video
+
+- Baseline, Main, High Profile (8-bit 4:2:0)
+- High 10 Profile (10-bit 4:2:0)
+- High 422 Profile (10-bit 4:2:2)
+
+- MPEG-2 AAC-LC Audio
+
+- Mono, Stereo, Surround (5.1, 7.1)
+- 44.1 kHz sampling rate
+- MPEG-2 style ADTS packaging
+
+- Recommended encoders include:
 
 - Telestream Wirecast
 - Flash Media Live Encoder
 - Tricaster
 
-####단일 비트 전송률 조각화된 MP4(부드러운 스트리밍)
+####<a name="single-bitrate-fragmented-mp4-(smooth-streaming)"></a>Single bitrate Fragmented MP4 (Smooth Streaming)
 
-일반적인 사용 사례:
+Typical use case:
 
-Elemental Technologies, Ericsson, Ateme, Envivio와 같은 공급업체의 온-프레미스 라이브 인코더를 사용하여 입력 스트림을 공개 인터넷을 통해 근처의 Azure 데이터 센터에 보냅니다.
+Use on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme, Envivio to send the input stream over the open internet to a nearby Azure data center.
 
-고려 사항:
+Considerations:
 
-[단일 비트 전송률 RTMP](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP)와 동일합니다.
+Same as for [single bitrate RTMP](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
-####기타 고려 사항
+####<a name="other-considerations"></a>Other considerations
 
-- 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
-- 들어오는 비디오 스트림의 최대 해상도는 1920x1080이며 인터레이스의 경우 최대 60필드/초이고 프로그레시브의 경우 30프레임/초입니다.
-
-
-###수집 URL(끝점)
-
-채널이 라이브 인코더에서 지정하는 입력 끝점(수집 URL)을 제공하므로 해당 인코더는 채널에 스트림을 푸시할 수 있습니다.
-
-채널을 만들면 수집 URL을 가져올 수 있습니다. 이러한 URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다. 채널에 데이터 푸시를 시작할 준비가 되면 채널이 **실행 중** 상태여야 합니다. 채널이 데이터 수집을 시작하면 미리 보기 URL을 통해 스트림을 미리 볼 수 있습니다.
-
-SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스트림 수집 옵션이 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다.
-
-###허용된 IP 주소
-
-이 채널에 비디오를 게시하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: ‘10.0.0.1’), IP 주소와 CIDR 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1/22’) 또는 IP 주소와 점으로 구분된 10진수 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1(255.255.252.0)’)로 지정될 수 있습니다.
-
-IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- Maximum resolution for the incoming video stream is 1920x1080, and at most 60 fields/second if interlaced, or 30 frames/second if progressive.
 
 
-##채널 미리 보기
+###<a name="ingest-urls-(endpoints)"></a>Ingest URLs (endpoints)
 
-###미리 보기 URL
+A Channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your Channels.
 
-채널은 추가 처리 및 배달 전에 스트림을 미리 보고 확인하는 데 사용하는 미리 보기 끝점(미리 보기 URL)을 제공합니다.
+You can get the ingest URLs once you create a Channel. To get these URLs, the Channel does not have to be in the **Running** state. When you are ready to start pushing data into the Channel, it must be in the **Running** state. Once the Channel starts ingesting data, you can preview your stream through the preview URL.
 
-채널을 만들 때 미리 보기 URL을 가져올 수 있습니다. URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다.
+You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.
 
-채널이 데이터 수집을 시작하면 스트림을 미리 볼 수 있습니다.
+###<a name="allowed-ip-addresses"></a>Allowed IP addresses
 
->[AZURE.NOTE]현재 미리 보기 스트림은 지정된 입력 형식에 관계없이 조각화된 MP4(부드러운 스트리밍) 형식으로만 배달될 수 있습니다. [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 플레이어를 사용하여 부드러운 스트림을 테스트할 수 있습니다. Azure 클래식 포털에 호스팅된 플레이어를 사용하여 스트림을 볼 수도 있습니다.
+You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).
 
-###허용된 IP 주소
-
-끝점을 미리 보려면 연결이 허용된 IP 주소를 정의할 수 있습니다. 지정된 IP 주소가 없는 경우 모든 IP 주소가 허용됩니다. 허용된 IP 주소는 단일 IP 주소(예: ‘10.0.0.1’), IP 주소와 CIDR 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1/22’) 또는 IP 주소와 점으로 구분된 10진수 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1(255.255.252.0)’)로 지정될 수 있습니다.
-
-##라이브 인코딩 설정
-
-이 섹션에서는 채널의 **인코딩 형식**이 **표준**으로 설정된 경우 채널 내의 라이브 인코더에 대한 설정을 조정하는 방법에 대해 설명합니다.
-
->[AZURE.NOTE]Azure를 사용하여 여러 언어 트랙을 입력하고 라이브 인코딩을 수행할 때 RTP만은 다국어 입력에 지원됩니다. RTP를 통해 MPEG-2 TS를 사용하여 최대 8개의 오디오 스트림을 정의할 수 있습니다. RTMP 또는 부드러운 스트리밍으로 여러 오디오 트랙을 수집하는 작업은 현재 지원되지 않습니다. [온-프레미스 라이브 인코딩](media-services-live-streaming-with-onprem-encoders.md)을 사용하여 라이브 인코딩을 수행할 때 AMS로 보내지는 항목은 추가적인 처리 없이 채널을 통해 전달되기 때문에 이러한 제한이 없습니다.
-
-###광고 표식 원본
-
-광고 표식 신호의 원본을 지정할 수 있습니다. 기본값은 채널 내의 라이브 인코더가 비동기 **광고 표식 API**를 수신해야 함을 나타내는 **Api**입니다.
-
-다른 유효한 옵션은 **Scte35**입니다(수집 스트리밍 프로토콜이 RTP(MPEG TS)로 설정된 경우에만 허용됨). Scte35를 지정하면 라이브 인코더가 입력 RTP(MPEG-TS) 스트림의 SCTE-35 신호를 구문 분석합니다.
-
-###CEA 708 선택 캡션
-
-들어오는 비디오의 모든 CEA 708 캡션 데이터를 무시하도록 라이브 인코더에 지시하는 선택적 플래그입니다. 플래그를 false(기본값)로 설정하면 인코더가 CEA 708 데이터를 검색하고 출력 비디오 스트림에 다시 삽입합니다.
-
-###비디오 스트림
-
-선택 사항입니다. 입력 비디오 스트림에 대해 설명합니다. 이 필드를 지정하지 않으면 기본값이 사용됩니다. 이 설정은 입력 스트리밍 프로토콜이 RTP(MPEG-TS)로 설정된 경우에만 허용됩니다.
-
-####인덱스
-
-채널 내의 라이브 인코더가 처리해야 하는 입력 비디오 스트림을 지정하는 0부터 시작하는 인덱스입니다. 이 설정은 수집 스트리밍 프로토콜이 RTP(MPEG-TS)인 경우에만 적용됩니다.
-
-기본값은 0입니다. SPTS(단일 프로그램 전송 스트림)로 보내는 것이 좋습니다. 입력 스트림에 여러 프로그램이 포함된 경우 라이브 인코더는 입력의 PMT(프로그램 맵 테이블)를 구문 분석하고 스트림 형식 이름이 MPEG-2 비디오 또는 H.264인 입력을 식별하여 PMT에 지정된 순서로 정렬합니다. 해당 정렬의 n번째 항목을 선택하기 위해 0부터 시작하는 인덱스가 사용됩니다.
-
-###오디오 스트림
-
-선택 사항입니다. 입력 오디오 스트림에 대해 설명합니다. 이 필드를 지정하지 않으면 지정된 기본값이 적용됩니다. 이 설정은 입력 스트리밍 프로토콜이 RTP(MPEG-TS)로 설정된 경우에만 허용됩니다.
-
-####인덱스
-
-SPTS(단일 프로그램 전송 스트림)로 보내는 것이 좋습니다. 입력 스트림에 여러 프로그램이 포함된 경우 채널 내의 라이브 인코더는 입력의 PMT(프로그램 맵 테이블)를 구문 분석하고 스트림 형식 이름이 MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 개인 PES, MPEG-1 오디오, MPEG-2 오디오인 입력을 식별하여 PMT에 지정된 순서로 정렬합니다. 해당 정렬의 n번째 항목을 선택하기 위해 0부터 시작하는 인덱스가 사용됩니다.
-
-####언어
-
-ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입니다. 없는 경우 기본값은 UND(정의되지 않음)입니다.
-
-채널에 대한 입력이 RTP를 통한 MPEG-2 TS인 경우 오디오 스트림 집합을 최대 8개까지 지정할 수 있습니다. 그러나 인덱스 값이 동일한 항목이 두 개 있을 수는 없습니다.
-
-###<a id="preset"></a>시스템 기본 설정
-
-이 채널 내의 라이브 인코더에서 사용할 기본 설정을 지정합니다. 현재 허용되는 유일한 값은 **Default720p**(기본값)입니다.
-
-사용자 지정 사전 설정이 필요한 경우 amslived@microsoft.com으로 문의해야 합니다.
-
-**Default720p**는 비디오를 다음 7개 계층으로 인코딩합니다.
+If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
 
-####출력 비디오 스트림
+##<a name="channel-preview"></a>Channel preview
 
-비트 전송률|너비|높이|MaxFPS|프로필|출력 스트림 이름
+###<a name="preview-urls"></a>Preview URLs
+
+Channels provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
+
+You can get the preview URL when you create the channel. To get the URL, the channel does not have to be in the **Running** state.
+
+Once the Channel starts ingesting data, you can preview your stream.
+
+>[AZURE.NOTE]Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Classic Portal to view your stream.
+
+###<a name="allowed-ip-addresses"></a>Allowed IP Addresses
+
+You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified any IP address will be allowed. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).
+
+##<a name="live-encoding-settings"></a>Live encoding settings
+
+This section describes how the settings for the live encoder within the Channel can be adjusted, when the **Encoding Type** of a Channel is set to **Standard**.
+
+>[AZURE.NOTE]When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+
+###<a name="ad-marker-source"></a>Ad marker source
+
+You can specify the source for ad markers signals. Default value is **Api**, which indicates that the live encoder within the Channel should listen to an asynchronous **Ad Marker API**.
+
+The other valid option is **Scte35** (allowed only if the ingest streaming protocol is set to RTP (MPEG-TS). When Scte35 is specified, the live encoder will parse SCTE-35 signals from the input RTP (MPEG-TS) stream.
+
+###<a name="cea-708-closed-captions"></a>CEA 708 Closed Captions
+
+An optional flag which tells the live encoder to ignore any CEA 708 captions data embedded in the incoming video. When the flag is set to false (default), the encoder will detect and re-insert CEA 708 data into the output video streams.
+
+###<a name="video-stream"></a>Video Stream
+
+Optional. Describes the input video stream. If this field is not specified, the default value is used. This setting is allowed only if the input streaming protocol is set to RTP (MPEG-TS).
+
+####<a name="index"></a>Index
+
+A zero-based index that specifies which input video stream should be processed by the live encoder within the Channel. This setting applies only if ingest streaming protocol is RTP (MPEG-TS).
+
+Default value is zero. It is recommended to send in a single program transport stream (SPTS). If the input stream contains multiple programs, the live encoder parses the Program Map Table (PMT) in the input, identifies the inputs that have a stream type name of MPEG-2 Video or H.264, and arranges them in the order specified in the PMT. The zero-based index is then used to pick up the n-th entry in that arrangement.
+
+###<a name="audio-stream"></a>Audio Stream
+
+Optional. Describes the input audio streams. If this field is not specified, the default values specified apply. This setting is allowed only if the input streaming protocol is set to RTP (MPEG-TS).
+
+####<a name="index"></a>Index
+
+It is recommended to send in a single program transport stream (SPTS). If the input stream contains multiple programs, the live encoder within the Channel parses the Program Map Table (PMT) in the input, identifies the inputs that have a stream type name of MPEG-2 AAC ADTS or AC-3 System-A or AC-3 System-B or MPEG-2 Private PES or MPEG-1 Audio or MPEG-2 Audio, and arranges them in the order specified in the PMT. The zero-based index is then used to pick up the n-th entry in that arrangement.
+
+####<a name="language"></a>Language
+
+The language identifier of the audio stream, conforming to ISO 639-2, such as ENG. If not present, the default is UND (undefined).
+
+There can be up to 8 audio stream sets specified if the input to the Channel is MPEG-2 TS over RTP. However, there can be no two entries with the same value of Index.
+
+###<a name="<a-id="preset"></a>system-preset"></a><a id="preset"></a>System Preset
+
+Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
+
+Note that if you need custom presets, you should contact  amslived at Microsoft.com.
+
+**Default720p** will encode the video into the following 7 layers.
+
+
+####<a name="output-video-stream"></a>Output Video Stream
+
+BitRate|Width|Height|MaxFPS|Profile|Output Stream Name
 ---|---|---|---|---|---
-3500|1280|720|30|높음|비디오_1280x720_3500kbps
-2200|960|540|30|기본|비디오_960x540_2200kbps
-1350|704|396|30|기본|비디오_704x396_1350kbps
-850|512|288|30|기본|비디오_512x288_850kbps
-550|384|216|30|기본|비디오_384x216_550kbps
-350|340|192|30|기초|비디오_340x192_350kbps
-200|340|192|30|기초|비디오_340x192_200kbps
+3500|1280|720|30|High|Video_1280x720_3500kbps
+2200|960|540|30|Main|Video_960x540_2200kbps
+1350|704|396|30|Main|Video_704x396_1350kbps
+850|512|288|30|Main|Video_512x288_850kbps
+550|384|216|30|Main|Video_384x216_550kbps
+350|340|192|30|Baseline|Video_340x192_350kbps
+200|340|192|30|Baseline|Video_340x192_200kbps
 
 
-####출력 오디오 스트림
+####<a name="output-audio-stream"></a>Output Audio Stream
 
-오디오가 64kbps, 샘플링 속도 44.1kHz로 스테레오 AAC-LC로 인코딩됩니다.
+Audio is encoded to stereo AAC-LC at 64 kbps, sampling rate of 44.1 kHz.
 
-##광고 신호 보내기
+##<a name="signaling-advertisements"></a>Signaling Advertisements
 
-채널이 라이브 인코딩을 사용하도록 설정된 경우 파이프라인에 비디오를 처리하는 구성 요소가 있으며 이 구성 요소를 조작할 수 있습니다. 슬레이트 및/또는 광고를 나가는 적응 비트 전송률 스트림에 삽입하도록 채널에 신호를 보낼 수 있습니다. 슬레이트는 특정한 경우(예: 중간 광고 중)에 입력 라이브 피드를 숨기는 데 사용할 수 있는 정지 이미지입니다. 광고 신호는 적절한 시간에 광고로 전환하는 등의 특별한 작업을 수행하도록 비디오 플레이어에 지시하기 위해 나가는 스트림에 포함하는 시간이 동기화된 신호입니다. 이 목적을 위해 사용되는 SCTE-35 신호 메커니즘의 개요는 이 [블로그](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/)를 참조하세요. 다음은 라이브 이벤트에서 구현할 수 있는 일반적인 시나리오입니다.
+When your Channel has Live Encoding enabled, you have a component in your pipeline that is processing video, and can manipulate it. You can signal for the Channel to insert slates and/or advertisements into the outgoing adaptive bitrate stream. Slates are still images that you can use to cover up the input live feed in certain cases (for example during a commercial break). Advertising signals, are time-synchronized signals you embed into the outgoing stream to tell the video player to take special action – such as to switch to an advertisement at the appropriate time. See this [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) for an overview of the SCTE-35 signaling mechanism used for this purpose. Below is a typical scenario you could implement in your live event.
 
-1. 이벤트가 시작되기 전에 시청자가 사전 이벤트 이미지를 보게 합니다.
-1. 이벤트가 끝난 후에 시청자가 사후 이벤트 이미지를 보게 합니다.
-1. 이벤트 중에 문제가 발생한 경우(경기장의 정전 등) 시청자가 오류 이벤트 이미지를 보게 합니다.
-1. 중간 광고 중에 라이브 이벤트 피드를 숨기기 위해 중간 광고 이미지를 보냅니다.
+1. Have your viewers get a PRE-EVENT image before the event starts.
+1. Have your viewers get a POST-EVENT image after the event ends.
+1. Have your viewers get an ERROR-EVENT image if there is a problem during the event (for example, power failure in the stadium).
+1. Send an AD-BREAK image to hide the live event feed during a commercial break.
 
-다음은 광고를 신호로 보낼 때 설정할 수 있는 속성입니다.
+The following are the properties you can set when signaling advertisements. 
 
-###기간
+###<a name="duration"></a>Duration
 
-중간 광고의 기간(초)입니다. 중간 광고를 시작하려면 이 값이 0이 아닌 양수여야 합니다. 중간 광고가 진행 중인 경우 기간이 0으로 설정되어 있고 CueId가 진행 중인 중간 광고와 일치하면 해당 중간 광고가 취소됩니다.
+The duration, in seconds, of the commercial break. This has to be a non-zero positive value in order to start the commercial break. When a commercial break is in progress, and the duration is set to zero with the CueId matching the on-going commercial break, then that break is canceled.
 
-###CueId
+###<a name="cueid"></a>CueId
 
-적절한 작업을 수행하기 위해 다운스트림 응용 프로그램에서 사용할 중간 광고의 고유 ID입니다. 양의 정수여야 합니다. 이 값을 임의의 양의 정수로 설정하거나 업스트림 시스템을 사용하여 큐 ID를 추적할 수 있습니다. API를 통해 제출하기 전에 모든 ID를 양의 정수로 정규화해야 합니다.
+A Unique ID for the commercial break, to be used by downstream application to take appropriate action(s). Needs to be a positive integer. You can set this value to any random positive integer or use an upstream system to track the Cue Ids. Make certain to normalize any ids to positive integers before submitting through the API.
 
-###슬레이트 표시
+###<a name="show-slate"></a>Show slate
 
-선택 사항입니다. 중간 광고 중에 [기본 슬레이트](media-services-manage-live-encoder-enabled-channels.md#default_slate) 이미지로 전환하고 들어오는 비디오 피드를 숨기도록 라이브 인코더에 신호를 보냅니다. 슬레이트 중에는 오디오도 음소거됩니다. 기본값은 **false**입니다.
+Optional. Signals the live encoder to switch to the [default slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) image during a commercial break and hide the incoming video feed. Audio is also muted during slate. Default is **false**. 
  
-사용되는 이미지는 채널을 만들 때 기본 슬레이트 자산 ID 속성을 통해 지정된 이미지입니다. 슬레이트는 표시 이미지 크기에 맞게 확장됩니다.
+The image used will be the one specified via the default slate asset Id property at the time of the channel creation. The slate will be stretched to fit the display image size. 
 
 
-##슬레이트 이미지 삽입
+##<a name="insert-slate-images"></a>Insert Slate  images
 
-슬레이트 이미지로 전환하도록 채널 내의 라이브 인코더에 신호를 보낼 수 있습니다. 진행 중인 슬레이트를 종료하도록 신호를 보낼 수도 있습니다.
+The live encoder within the Channel can be signaled to switch to a slate image. It can also be signaled to end an on-going slate. 
 
-중간 광고 시간과 같은 특정한 상황에 슬레이트 이미지로 전환하고 들어오는 비디오 신호를 숨기도록 라이브 인코더를 구성할 수 있습니다. 이러한 슬레이트를 구성하지 않는 경우 입력 비디오가 해당 중간 광고 중에 마스킹되지 않습니다.
+The live encoder can be configured to switch to a slate image and hide the incoming video signal in certain situations – for example, during an ad break. If such a slate is not configured, input video is not masked during that ad break.
 
-###기간
+###<a name="duration"></a>Duration
 
-슬레이트의 기간(초)입니다. 슬레이트를 시작하려면 이 값이 0이 아닌 양수여야 합니다. 진행 중인 슬레이트가 있는 경우 기간을 0으로 지정하면 진행 중인 슬레이트가 종료됩니다.
+The duration of the slate in seconds. This has to be a non-zero positive value in order to start the slate. If there is an on-going slate, and a duration of zero is specified, then that on-going slate will be terminated.
 
-###광고 표식에서 슬레이트 삽입
+###<a name="insert-slate-on-ad-marker"></a>Insert slate on ad marker
 
-이 설정은 true로 설정되면 중간 광고 중에 슬레이트 이미지를 삽입하도록 라이브 인코더를 구성합니다. 기본값은 true입니다.
+When set to true, this setting configures the live encoder to insert a slate image during an ad break. The default value is true. 
 
-###<a id="default_slate"></a>기본 슬레이트 자산 ID
+###<a name="<a-id="default_slate"></a>default-slate-asset-id"></a><a id="default_slate"></a>Default slate Asset Id
 
-선택 사항입니다. 슬레이트 이미지를 포함하는 미디어 서비스 자산의 자산 ID를 지정합니다. 기본값은 null입니다.
+Optional. Specifies the Asset Id of the Media Services Asset which contains the slate image. Default is null. 
 
-**참고**: 채널을 만들기 전에 다음 제약 조건이 있는 슬레이트 이미지가 전용 자산(다른 파일이 이 자산에 없어야 함)으로 업로드되어야 합니다.
+**Note**: Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
 
-- 최대 1920x1080 해상도.
-- 최대 3MB 크기.
-- 파일 이름에는 *.jpg 확장명이 있어야 합니다.
-- 이미지는 자산의 유일한 자산 파일로 해당 자산에 업로드되어야 하고 이 자산 파일은 기본 파일로 표시되어야 합니다. 자산은 암호화된 저장소일 수 없습니다.
+- At most 1920x1080 in resolution.
+- At most 3 Mbytes in size.
+- The file name must have a *.jpg extension.
+- The image must be uploaded into an Asset as the only AssetFile in that Asset and this AssetFile should be marked as the primary file. The Asset cannot be storage encrypted.
 
-**기본 슬레이트 자산 ID**를 지정하지 않고 **광고 표식에서 슬레이트 삽입**을 **true**로 설정하는 경우 기본 Azure 미디어 서비스 이미지가 입력 비디오 스트림을 숨기는 데 사용됩니다. 슬레이트 중에는 오디오도 음소거됩니다.
-
-
-##채널의 프로그램
-
-채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어할 수 있는 프로그램과 연결되어 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
-
-**보관 창** 길이를 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
-
-각 프로그램은 스트리밍된 콘텐츠를 저장하는 자산과 연결됩니다. 자산은 Azure 저장소 계정의 Blob 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 Blob으로 저장됩니다. 고객이 스트림을 볼 수 있도록 프로그램을 게시하려면 연결된 자산에 대한 주문형 로케이터를 만들어야 합니다. 이 로케이터가 있으면 클라이언트에 제공할 수 있는 스트리밍 URL을 작성할 수 있습니다.
-
-채널은 동시 실행 프로그램을 최대 세 개까지 지원하므로 동일한 들어오는 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항에 따라 6시간의 프로그램을 보관하고 마지막 10분만 브로드캐스트해야 할 수 있습니다. 이렇게 하려면 두 개의 동시 실행 프로그램을 만들어야 합니다. 한 프로그램은 6시간의 이벤트를 보관하도록 설정하고 프로그램은 게시하지 않습니다. 다른 프로그램은 10분 동안을 보관하도록 설정하고 프로그램을 게시합니다.
-
-새 이벤트에 기존 프로그램을 다시 사용할 수 없습니다. 대신 프로그래밍 라이브 스트리밍 응용 프로그램 섹션에서 설명한 각각의 이벤트에 대한 새 프로그램을 만들고 시작합니다.
-
-스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
-
-보관된 콘텐츠를 삭제하려면 프로그램을 중단 및 삭제한 다음 연결된 자산을 삭제합니다. 프로그램이 자산을 사용하는 경우 삭제할 수 없습니다. 프로그램을 먼저 삭제해야 합니다.
-
-프로그램을 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있어야 합니다.
-
-보관된 콘텐츠를 보관하려는데 스트리밍에 사용할 수 있는 콘텐츠가 없는 경우 스트리밍 로케이터를 삭제합니다.
+If the **default slate Asset Id** is not specified, and **insert slate on ad marker** is set to **true**, a default Azure Media Services image will be used to hide the input video stream. Audio is also muted during slate. 
 
 
-##라이브 피드의 축소판 그림 미리 보기 가져오기
+##<a name="channel's-programs"></a>Channel's programs
 
-라이브 인코딩을 사용하도록 설정한 경우 이제 라이브 피드가 채널에 도달할 때 라이브 피드의 미리 보기를 가져올 수 있습니다. 이 도구는 라이브 피드가 실제로 채널에 도달하고 있는지를 확인하는 데 유용할 수 있습니다.
+A channel is associated with programs that enable you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a Channel has a constant stream of content and a program is scoped to some timed event on that Channel.
 
-##<a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식 
+You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
-채널의 현재 상태입니다. 가능한 값은 다음과 같습니다.
+Each program is associated with an Asset which stores the streamed content. An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as blobs in that container. To publish the program so your customers can view the stream you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
 
-- **중지됨**. 만들어진 후 채널의 초기 상태입니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
-- **시작 중**. 채널이 시작 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
-- **실행 중**. 라이브 스트림 처리에 채널을 사용할 수 있습니다.
-- **중지 중**. 채널이 중지 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
-- **삭제 중**. 채널이 삭제 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+A Channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
-다음 표에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
+You should not reuse existing programs for new events. Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.
+
+Start the program when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event. 
+
+To delete archived content, stop and delete the program and then delete the associated asset. An asset cannot be deleted if it is used by a program; the program must be deleted first. 
+
+Even after you stop and delete the program, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
+
+If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
+
+
+##<a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Getting a thumbnail preview of a live feed
+
+When Live Encoding is enabled, you can now get a preview of the live feed as it reaches the Channel. This can be a valuable tool to check whether your live feed is actually reaching the Channel. 
+
+##<a name="<a-id="states"></a>channel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>Channel states and how states map to the billing mode 
+
+The current state of a Channel. Possible values include:
+
+- **Stopped**. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
+- **Starting**. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
+- **Running**. The Channel is capable of processing live streams.
+- **Stopping**. The Channel is being stopped. No updates or streaming is allowed during this state.
+- **Deleting**. The Channel is being deleted. No updates or streaming is allowed during this state.
+
+The following table shows how Channel states map to the billing mode. 
  
-채널 상태|포털 UI 표시기|청구 여부
+Channel state|Portal UI Indicators|Billed?
 ---|---|---
-Starting|Starting|없음(일시적인 상태)
-실행 중|준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임)|예
-중지 중|중지 중|없음(일시적인 상태)
-중지됨|중지됨|아니요
+Starting|Starting|No (transient state)
+Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|Yes
+Stopping|Stopping|No (transient state)
+Stopped|Stopped|No
 
 
->[AZURE.NOTE] 현재, 채널 시작 평균 시간은 약 2분이지만 종종 최대 20분 이상 걸릴 수도 있습니다. 채널 다시 설정은 최대 5분까지 걸릴 수 있습니다.
+>[AZURE.NOTE] Currently, the Channel start average is about 2 minutes, but at times could take up to 20+ minutes. Channel resets can take up to 5 minutes.
 
 
-##<a id="Considerations"></a>고려 사항
+##<a name="<a-id="considerations"></a>considerations"></a><a id="Considerations"></a>Considerations
 
-- **표준** 인코딩 형식의 채널에서 입력 소스/기여도 피드 손실이 발생하는 경우 원본 비디오/오디오를 오류 슬레이트 및 대기로 바꿔 보완합니다. 채널은 입력/기여도 피드가 다시 시작될 때까지 계속 슬레이트를 내보냅니다. 라이브 채널을 2시간 이상 이러한 상태로 두지 않는 것이 좋습니다. 그 후에는 입력 다시 연결 시 채널의 동작이 보장되지 않으며 다시 설정 명령에 대한 응답 동작도 보장되지 않습니다. 채널을 중지하고 삭제한 후 새로 만들어야 합니다.
-- 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
-- 라이브 인코더를 다시 구성할 때마다 채널에 대해 **Reset** 메서드를 호출합니다. 채널을 다시 설정하기 전에 프로그램을 중단해야 합니다. 채널을 다시 설정한 후 프로그램을 다시 시작합니다.
-- 채널이 실행 상태일 때만 중단할 수 있으며 채널의 모든 프로그램이 중단됩니다.
-- 기본적으로 미디어 서비스 계정에 5개의 채널만 추가할 수 있습니다. 이는 모든 새 계정에 대한 소프트 할당량입니다. 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
-- 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
-- 채널이 **실행 중** 상태일 때만 청구됩니다. 자세한 내용은 [이](media-services-manage-live-encoder-enabled-channels.md#states) 섹션을 참조하세요.
-- 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 amslived@microsoft.com으로 문의하세요.
-- 콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
-- Azure를 사용하여 여러 언어 트랙을 입력하고 라이브 인코딩을 수행할 때 RTP만은 다국어 입력에 지원됩니다. RTP를 통해 MPEG-2 TS를 사용하여 최대 8개의 오디오 스트림을 정의할 수 있습니다. RTMP 또는 부드러운 스트리밍으로 여러 오디오 트랙을 수집하는 작업은 현재 지원되지 않습니다. [온-프레미스 라이브 인코딩](media-services-live-streaming-with-onprem-encoders.md)을 사용하여 라이브 인코딩을 수행할 때 AMS로 보내지는 항목은 추가적인 처리 없이 채널을 통해 전달되기 때문에 이러한 제한이 없습니다.
-- 인코딩 사전 설정에서 "최대 프레임 속도" 30fps의 개념을 사용합니다. 입력이 60fps/59.97i이면 입력 프레임이 30/29.97fps로 드롭/디인터레이스됩니다. 입력이 50fps/50i이면 입력 프레임이 25fps로 드롭/디인터레이스됩니다. 입력이 25fps이면 출력이 25fps를 유지합니다.
-- 작업이 끝나면 채널을 중지하는 것을 잊지 마세요. 그렇지 않으면 요금이 계속 청구됩니다.
+- When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
+- A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
+- By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
+- Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
+- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+- When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+- The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.97i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
+- Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue.
 
-##알려진 문제
+##<a name="known-issues"></a>Known Issues
 
-- 채널 시작 시간은 평균 2분으로 향상되었지만 종종 여전히 최대 20분 이상 정도 걸리기도 합니다.
-- RTP 지원은 전문 방송인을 위해 제공됩니다. [이](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) 블로그에서 RTP에 대한 설명을 검토하세요.
-- 슬레이트 이미지는 [여기](media-services-manage-live-encoder-enabled-channels.md#default_slate) 설명된 제한 사항을 따라야 합니다. 1920x1080보다 큰 기본 슬레이트를 사용하여 채널을 만들려고 하면 결국 요청이 오류로 처리됩니다.
-- 다시 한번 강조하지만, 작업이 끝나면 채널을 중지하는 것을 잊지 마세요. 그렇지 않으면 요금이 계속 청구됩니다.
+- Channel start up time has been improved to an average of 2 minutes, but at times of increased demand could still take up to 20+ minutes.
+- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
+- Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 
-###단일 비트 전송률에서 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 만드는 방법
+###<a name="how-to-create-channels-that-perform-live-encoding-from-a-singe-bitrate-to-adaptive-bitrate-stream"></a>How to create channels that perform live encoding from a singe bitrate to adaptive bitrate stream
 
-**포털**, **.NET**, **REST API**를 선택하여 채널과 프로그램을 만들고 관리하는 방법을 살펴봅니다.
+Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
 
 > [AZURE.SELECTOR]
-- [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
-##다음 단계
+##<a name="next-step"></a>Next step
 
-미디어 서비스 학습 경로를 검토합니다.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##관련된 항목
+##<a name="related-topics"></a>Related topics
 
-[Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공](media-services-overview.md)
+[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
 
-[미디어 서비스 개념](media-services-concepts.md)
+[Media Services Concepts](media-services-concepts.md)
 
-[Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

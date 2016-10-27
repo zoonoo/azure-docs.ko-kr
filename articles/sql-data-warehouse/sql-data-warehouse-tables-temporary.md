@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL 데이터 웨어하우스의 임시 테이블 | Microsoft Azure"
-   description="Azure SQL 데이터 웨어하우스에서 임시 테이블로 시작"
+   pageTitle="Temporary tables in SQL Data Warehouse | Microsoft Azure"
+   description="Getting started with temporary tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,79 +16,80 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# SQL 데이터 웨어하우스의 임시 테이블
+
+# <a name="temporary-tables-in-sql-data-warehouse"></a>Temporary tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [개요][]
-- [데이터 형식][]
-- [배포][]
+- [Overview][]
+- [Data Types][]
+- [Distribute][]
 - [Index][]
-- [파티션][]
-- [통계][]
-- [임시][]
+- [Partition][]
+- [Statistics][]
+- [Temporary][]
 
-특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 매우 유용합니다. 임시 테이블은 SQL 데이터 웨어하우스의 세션 수준에서 존재합니다. 이러한 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다. 임시 테이블은 결과가 원격 저장소 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다. Azure SQL 데이터 웨어하우스의 임시 테이블은 저장 프로시저의 내부 및 외부를 비롯하여 세션 내의 어디에서나 액세스할 수 있으므로 Azure SQL 데이터베이스의 임시 테이블과 약간 다릅니다.
+Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.  Temporary tables are slightly different in Azure SQL Data Warehouse than Azure SQL Database as they can be accessed from anywhere inside the session, including both inside and outside of a stored procedure.
 
-이 문서에서는 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다. 이 문서의 정보를 사용하여 코드를 모듈화할 수 있으므로 코드의 재사용 가능성 및 유지 관리 용이성이 개선됩니다.
+This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance of your code.
 
-## 임시 테이블 만들기
+## <a name="create-a-temporary-table"></a>Create a temporary table
 
-임시 테이블은 간단히 테이블 이름 앞에 `#`을 붙여 만듭니다. 예:
+Temporary tables are created by simply prefixing your table name with a `#`.  For example:
 
 ```sql
 CREATE TABLE #stats_ddl
 (
-	[schema_name]		NVARCHAR(128) NOT NULL
-,	[table_name]            NVARCHAR(128) NOT NULL
-,	[stats_name]            NVARCHAR(128) NOT NULL
-,	[stats_is_filtered]     BIT           NOT NULL
-,	[seq_nmbr]              BIGINT        NOT NULL
-,	[two_part_name]         NVARCHAR(260) NOT NULL
-,	[three_part_name]       NVARCHAR(400) NOT NULL
+    [schema_name]       NVARCHAR(128) NOT NULL
+,   [table_name]            NVARCHAR(128) NOT NULL
+,   [stats_name]            NVARCHAR(128) NOT NULL
+,   [stats_is_filtered]     BIT           NOT NULL
+,   [seq_nmbr]              BIGINT        NOT NULL
+,   [two_part_name]         NVARCHAR(260) NOT NULL
+,   [three_part_name]       NVARCHAR(400) NOT NULL
 )
 WITH
 (
-	DISTRIBUTION = HASH([seq_nmbr])
-,	HEAP
+    DISTRIBUTION = HASH([seq_nmbr])
+,   HEAP
 )
 ```
 
-정확히 동일한 접근 방식을 사용하여 `CTAS`를 통해 임시 테이블을 만들 수도 있습니다.
+Temporary tables can also be created with a `CTAS` using exactly the same approach:
 
 ```sql
 CREATE TABLE #stats_ddl
 WITH
 (
-	DISTRIBUTION = HASH([seq_nmbr])
-,	HEAP
+    DISTRIBUTION = HASH([seq_nmbr])
+,   HEAP
 )
 AS
 (
 SELECT
-		sm.[name]				                                                AS [schema_name]
-,		tb.[name]				                                                AS [table_name]
-,		st.[name]				                                                AS [stats_name]
-,		st.[has_filter]			                                                AS [stats_is_filtered]
+        sm.[name]                                                               AS [schema_name]
+,       tb.[name]                                                               AS [table_name]
+,       st.[name]                                                               AS [stats_name]
+,       st.[has_filter]                                                         AS [stats_is_filtered]
 ,       ROW_NUMBER()
         OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
-,								 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
-,		QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
-FROM	sys.objects			AS ob
-JOIN	sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-JOIN	sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND st.[object_id]		= sc.[object_id]
-JOIN	sys.columns			AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-JOIN	sys.tables			AS tb	ON	co.[object_id]		= tb.[object_id]
-JOIN	sys.schemas			AS sm	ON	tb.[schema_id]		= sm.[schema_id]
-WHERE	1=1
-AND		st.[user_created]   = 1
+,                                QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,       QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects         AS ob
+JOIN    sys.stats           AS st   ON  ob.[object_id]      = st.[object_id]
+JOIN    sys.stats_columns   AS sc   ON  st.[stats_id]       = sc.[stats_id]
+                                    AND st.[object_id]      = sc.[object_id]
+JOIN    sys.columns         AS co   ON  sc.[column_id]      = co.[column_id]
+                                    AND sc.[object_id]      = co.[object_id]
+JOIN    sys.tables          AS tb   ON  co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm   ON  tb.[schema_id]      = sm.[schema_id]
+WHERE   1=1
+AND     st.[user_created]   = 1
 GROUP BY
-		sm.[name]
-,		tb.[name]
-,		st.[name]
-,		st.[filter_definition]
-,		st.[has_filter]
+        sm.[name]
+,       tb.[name]
+,       st.[name]
+,       st.[filter_definition]
+,       st.[has_filter]
 )
 SELECT
     CASE @update_type
@@ -106,34 +107,34 @@ FROM    t1
 ;
 ``` 
 
->[AZURE.NOTE] `CTAS`는 매우 강력한 명령이며 트랜잭션 로그 공간을 사용한다는 점에서 매우 효율적이라는 추가적인 이점이 있습니다.
+>[AZURE.NOTE] `CTAS` is a very powerful command and has the added advantage of being very efficient in its use of transaction log space. 
 
 
-## 임시 테이블 삭제
+## <a name="dropping-temporary-tables"></a>Dropping temporary tables
 
-새 세션이 만들어지면 임시 테이블이 존재하지 않습니다. 그러나 동일한 이름의 임시 테이블을 만드는 동일한 저장 프로시저를 호출하는 경우 `CREATE TABLE` 문이 정상적으로 수행되도록 하려면 아래 예제와 같이 `DROP`을 사용해서 단순한 사전 존재 여부 확인을 수행할 수 있습니다.
+When a new session is created, no temporary tables should exist.  However, if you are calling the same stored procedure, which creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful a simple pre-existence check with a `DROP` can be used as in the below example:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
-	DROP TABLE #stats_ddl
+    DROP TABLE #stats_ddl
 END
 ```
 
-코딩 일관성을 유지하려면 테이블 및 임시 테이블 모두에 대해 이 패턴을 사용하는 것이 좋습니다. 또한 코드에서 사용을 완료한 경우 `DROP TABLE`을 사용하여 임시 테이블을 제거하는 것이 좋습니다. 저장 프로시저 개발에서는 프로시저 끝에 삭제 명령이 번들로 포함되어 있는지 확인하여 이러한 개체가 정리되는지 알 수 있습니다.
+For coding consistency, it is a good practice to use this pattern for both tables and temporary tables.  It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them in your code.  In stored procedure development it is quite common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
-## 코드 모듈화
+## <a name="modularizing-code"></a>Modularizing code
 
-임시 테이블을 사용자 세션의 어디에서나 볼 수 있으므로 응용 프로그램 코드를 모듈화하는 데 이용될 수 있습니다. 예를 들어 위의 권장 방법과 아래의 저장 프로시저를 함께 사용하여 데이터베이스의 모든 통계를 통계 이름으로 업데이트하는 DDL을 생성합니다.
+Since temporary tables can be seen anywhere in a user session, this can be exploited to help you modularize your application code.  For example, the stored procedure below brings together the recommended practices from above to generate DDL which will update all statistics in the database by statistic name.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
-	,@sample_pct     tinyint
+    ,@sample_pct     tinyint
 )
 AS
 
@@ -149,41 +150,41 @@ END;
 
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
-	DROP TABLE #stats_ddl
+    DROP TABLE #stats_ddl
 END
 
 CREATE TABLE #stats_ddl
 WITH
 (
-	DISTRIBUTION = HASH([seq_nmbr])
+    DISTRIBUTION = HASH([seq_nmbr])
 )
 AS
 (
 SELECT
-		sm.[name]				                                                AS [schema_name]
-,		tb.[name]				                                                AS [table_name]
-,		st.[name]				                                                AS [stats_name]
-,		st.[has_filter]			                                                AS [stats_is_filtered]
+        sm.[name]                                                               AS [schema_name]
+,       tb.[name]                                                               AS [table_name]
+,       st.[name]                                                               AS [stats_name]
+,       st.[has_filter]                                                         AS [stats_is_filtered]
 ,       ROW_NUMBER()
         OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
-,								 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
-,		QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
-FROM	sys.objects			AS ob
-JOIN	sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-JOIN	sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND st.[object_id]		= sc.[object_id]
-JOIN	sys.columns			AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-JOIN	sys.tables			AS tb	ON	co.[object_id]		= tb.[object_id]
-JOIN	sys.schemas			AS sm	ON	tb.[schema_id]		= sm.[schema_id]
-WHERE	1=1
-AND		st.[user_created]   = 1
+,                                QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,       QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects         AS ob
+JOIN    sys.stats           AS st   ON  ob.[object_id]      = st.[object_id]
+JOIN    sys.stats_columns   AS sc   ON  st.[stats_id]       = sc.[stats_id]
+                                    AND st.[object_id]      = sc.[object_id]
+JOIN    sys.columns         AS co   ON  sc.[column_id]      = co.[column_id]
+                                    AND sc.[object_id]      = co.[object_id]
+JOIN    sys.tables          AS tb   ON  co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm   ON  tb.[schema_id]      = sm.[schema_id]
+WHERE   1=1
+AND     st.[user_created]   = 1
 GROUP BY
-		sm.[name]
-,		tb.[name]
-,		st.[name]
-,		st.[filter_definition]
-,		st.[has_filter]
+        sm.[name]
+,       tb.[name]
+,       st.[name]
+,       st.[filter_definition]
+,       st.[has_filter]
 )
 SELECT
     CASE @update_type
@@ -202,7 +203,7 @@ FROM    t1
 GO
 ```
 
-이 단계에서 발생하는 유일한 작업은 DDL 문으로 임시 테이블인 #stats\_ddl을 생성하는 저장 프로시저를 만드는 것입니다. 이 저장 프로시저는 세션 내에서 두 번 이상 실행하는 경우 실패하지 않도록 #stats\_ddl(이미 있는 경우)을 삭제합니다. 그러나 저장 프로시저 끝에는 `DROP TABLE`이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다. 다른 SQL Server 데이터베이스와 달리, SQL 데이터 웨어하우스에서 임시 테이블을 만든 프로시저의 외부에서 임시 테이블을 사용할 수 있습니다. 세션 내의 **어디에서나** SQL 데이터 웨어하우스 임시 테이블을 사용할 수 있습니다. 아래 예제와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
+At this stage the only action that has occurred is the creation of a stored procedure which will simply generated a temporary table, #stats_ddl, with DDL statements.  This stored procedure will drop #stats_ddl if it already exists to ensure it does not fail if run more than once within a session.  However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it will leave the created table so that it can be read outside of the stored procedure.  In SQL Data Warehouse, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  SQL Data Warehouse temporary tables can be used **anywhere** inside the session. This can lead to more modular and manageable code as in the below example:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -223,33 +224,32 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-## 임시 테이블 제한 사항
+## <a name="temporary-table-limitations"></a>Temporary table limitations
 
-임시 테이블을 구현하는 경우 SQL 데이터 웨어하우스는 두 가지 제한 사항을 적용합니다. 현재 세션 범위의 임시 테이블만 지원됩니다. 전역 임시 테이블은 지원되지 않습니다. 또한 임시 테이블에서 뷰를 만들 수 없습니다.
+SQL Data Warehouse does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-자세히 알아보려면 [테이블 개요][Overview], [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition] 및 [테이블 통계 유지 관리][Statistics]에 대한 문서를 참조하세요. 모범 사례에 대한 자세한 내용은 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[개요]: ./sql-data-warehouse-tables-overview.md
 [Data Types]: ./sql-data-warehouse-tables-data-types.md
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
-[배포]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[파티션]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[임시]: ./sql-data-warehouse-tables-temporary.md
-[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

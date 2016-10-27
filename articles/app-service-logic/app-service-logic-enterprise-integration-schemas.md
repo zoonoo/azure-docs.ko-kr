@@ -1,92 +1,101 @@
 <properties 
-	pageTitle="스키마 및 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
-	description="엔터프라이즈 통합 팩 및 논리 앱에서 스키마를 사용하는 방법 알아보기" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Overview of schemas and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
+    description="Learn how to use schemas with the Enterprise Integration Pack and Logic apps" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/29/2016" 
+    ms.author="deonhe"/>
 
-# 스키마 및 엔터프라이즈 통합 팩에 대해 알아보기  
 
-## 스키마를 사용하는 이유
-스키마를 사용하여 수신한 XML 문서가 유효한지를 확인합니다. 이는 예상되는 데이터가 미리 정의된 형식으로 문서에 포함된다는 것을 말합니다.
+# <a name="learn-about-schemas-and-the-enterprise-integration-pack"></a>Learn about schemas and the Enterprise Integration Pack  
 
-## 스키마를 추가하는 방법
-Azure 포털에서 다음을 수행합니다.
+## <a name="why-use-a-schema"></a>Why use a schema
+You use schemas to confirm that XML documents you receive are valid, meaning that the documents contain the expected data in a predefined format.
 
-1. **더 많은 서비스**를 선택합니다.  
+## <a name="how-to-add-a-schema"></a>How to add a schema
+From the Azure portal:  
+
+1. Select **More Services**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-11.png)    
-2. 필터 검색 상자에 **통합**을 입력하고 결과 목록에서 **통합 계정**을 선택합니다.     
+2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
 ![](./media/app-service-logic-enterprise-integration-overview/overview-21.png)  
-3. 스키마를 추가할 **통합 계정**을 선택합니다.    
+3. Select the **integration account** to which you add the schema    
 ![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)  
-4. **스키마** 타일을 선택합니다.  
+4. Select the **Schemas** tile  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)  
 
-#### 2MB보다 작은 스키마 파일을 추가하려면  
+#### <a name="to-add-schema-file-less-than-2-mb"></a>To add schema file less than 2 MB  
 
-5. 열린 스키마 블레이드에서 **추가** 단추를 선택합니다.  
+5. Select the **Add** button in the Schemas blade that opens  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-21.png)  
-6. 스키마의 **이름**을 입력한 다음 스키마 파일을 업로드하고 **스키마** 텍스트 상자의 오른쪽에 있는 폴더 아이콘을 선택합니다. 업로드 프로세스가 완료되면 **확인** 단추를 선택합니다.    
+6. Enter a **Name** for your schema, then to upload the schema file, select the folder icon on the right side of the **Schema** text box. After the upload process is completed, select the **OK** button.    
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)  
 
-#### 2MB(최대 8MB)보다 큰 스키마 파일을 추가하려면  
+#### <a name="to-add-schema-file-larger-than-2-mb-(max-8-mb)"></a>To add schema file larger than 2 MB (Max 8 MB)  
 
-7. Blob 보안 액세스 수준이 **공용**인 경우  
+7. If blob security access level is **Public**  
   ![](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
 
-  * 스키마를 저장소에 업로드하고 URI를 복사합니다.  
+  * Upload the schema to storage and copy the URI  
   ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
 
-  * 스키마 추가에서 큰 파일을 선택하고 콘텐츠 URI에 URI를 제공합니다.  
+  * Select Large file in Add Schema and provide the URI in the Content URI  
   ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-8. Blob 보안 액세스 수준이 **익명 액세스 없음**인 경우  
+8. If blob security access level is **No anonymous access**  
   ![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
 
-  * 스키마를 저장소에 업로드합니다. ![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
+  * Upload the schema to storage  
+  ![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
 
-  * 스키마에 대한 공유 액세스 서명을 생성합니다. ![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
+  * Generate a Shared Access Signature for the schema  
+  ![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
 
-  * 스키마 추가에서 큰 파일을 선택하고 콘텐츠 URI에 공유 액세스 서명 URI를 제공합니다. ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)
+  * Select Large file in Add Schema and provide the Shared Access Signature URI in the Content URI  
+  ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-9. 새로 추가된 스키마가 표시됩니다. ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
+9. You should see the newly added schema  
+![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png) 
 
-## 스키마 사용 방법
-- 스키마는 B2B 시나리오에서 교환되는 메시지의 유효성을 검사하는 데 사용됩니다.
+## <a name="how-to-use-schemas"></a>How to use schemas
+- Schemas are used to validate messages that are exchanged in a B2B scenario.  
 
-## 스키마 편집 방법
-1. **스키마** 타일을 선택합니다.
-2. 열린 스키마 블레이드에서 편집하려는 스키마를 선택합니다.
-3. 스키마 블레이드에서 **업로드** 링크를 선택합니다.  
+## <a name="how-to-edit-schemas"></a>How to edit schemas
+1. Select the **Schemas** tile  
+2. Select the schema you wish to edit from the Schemas blade that opens up
+3. Select the **Upload** link on the Schemas blade  
 ![](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)    
-4. 열린 파일 선택 대화 상자를 사용하여 업로드하려는 스키마 파일을 선택합니다.
-5. 파일 선택에서 **열기**를 선택합니다.  
+4. Select the schema file you wish to upload by using the file picker dialog that opens up.
+5. Select **Open** in the file picker  
 ![](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)  
-6. 성공적으로 업로드되었다는 알림을 받게 됩니다.  
+6. You receive a notification that indicates the upload was successful  
 
-## 스키마 삭제 방법
-1. **스키마** 타일을 선택합니다.  
-2. 열린 스키마 블레이드에서 삭제하려는 스키마를 선택합니다.
-3. 스키마 블레이드의 메뉴 모음에서 **삭제** 링크를 선택합니다.
-![](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)  
-4. 선택한 스키마를 삭제하려는 경우 삭제 스키마 대화 상자에서 **예**를 선택하여 선택한 내용을 확인합니다.  
+## <a name="how-to-delete-schemas"></a>How to delete schemas
+1. Select the **Schemas** tile  
+2. Select the schema you wish to delete from the Schemas blade that opens up  
+3. Select the **Delete** link from the menu bar on the Schemas blade ![](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)  
+4. If you really wish to delete the schema you selected, choose **Yes** on the Delete schema dialog to confirm your choice  
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-21.png)  
-5. 마지막으로, 스키마 블레이드에서 스키마 목록을 새로 고치면 삭제한 스키마는 더 이상 나열되지 않습니다.  
+5. Finally, notice that the list of schemas in the Schemas blade refreshes and the schema you deleted is no longer listed  
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-31.png)    
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about the enterprise integration pack")  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

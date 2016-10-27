@@ -1,34 +1,39 @@
 <properties
-	pageTitle="서버 간, 구독 간, Azure 내부 및 외부로 데이터베이스를 이동합니다."
-	description="Azure SQL 데이터베이스에서 데이터 및 데이터베이스를 복사, 이동 및 마이그레이션하는 빠른 단계입니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="v-shysun"
-	manager="felixwu"
-	editor=""/>
+    pageTitle="Move databases between servers, between subscriptions, and in and out of Azure."
+    description="Quick steps to copy, move, and migrate data and databases in Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="v-shysun"
+    manager="felixwu"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="v-shysun"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="v-shysun"/>
 
-# 서버 간, 구독 간 및 Azure에서/로 데이터베이스 이동
+
+# <a name="move-databases-between-servers,-between-subscriptions,-and-in-and-out-of-azure"></a>Move databases between servers, between subscriptions, and in and out of Azure
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
-##동일한 구독의 다른 서버에 데이터베이스를 이동하려면
-- [Azure 포털](https://portal.azure.com)에서 **SQL 데이터베이스**를 클릭하고 목록에서 데이터베이스를 선택한 후 **복사**를 클릭합니다. 자세한 내용은 [Azure SQL 데이터베이스 복사](sql-database-copy.md)를 참조하세요.
+##<a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>To move a database to a different server in the same subscription
+- In the [Azure Portal](https://portal.azure.com), click **SQL databases**, select a database from the list, and then click **Copy**. See [Copy an Azure SQL database](sql-database-copy.md) for more detail.
 
-## 구독 간에 데이터베이스를 이동하려면
-- [Azure 포털](https://portal.azure.com)에서 **SQL Server**를 클릭하고, 목록에서 데이터베이스를 호스팅하는 서버를 선택합니다. **이동**을 클릭한 후 이동할 리소스와 이동 대상인 구독을 선택합니다.
+## <a name="to-move-a-database-between-subscriptions"></a>To move a database between subscriptions
+- In the [Azure Portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
 
-## SQL 데이터베이스를 Azure로 마이그레이션하려면
-- 데이터베이스 호환성을 확인한 후 필요에 따라 적합한 마이그레이션 방법을 선택합니다. [SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)에 대한 지침 및 옵션을 따릅니다.
+## <a name="to-migrate-a-sql-database-into-azure"></a>To migrate a SQL database into Azure
+- Determine database compatibility and then pick the right migration method based on your needs. Follow the guidelines and options in [Migrating a SQL Server database](sql-database-cloud-migrate.md).
 
-## Azure 외부에서 사용할 데이터베이스 복사본을 만들려면
-- [BACPAC 파일을 내보냅니다.](sql-database-export.md)
+## <a name="to-create-a-copy-of-a-database-for-use-outside-of-azure"></a>To create a copy of a database for use outside of Azure
+- [Export a BACPAC file.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

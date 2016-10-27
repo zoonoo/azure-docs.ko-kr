@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 클러스터 용량 계획 | Microsoft Azure"
-   description="서비스 패브릭 클러스터 용량 계획 고려 사항입니다. 노드 유형, 내구성 및 안정성 계층"
+   pageTitle="Planning the Service Fabric cluster capacity | Microsoft Azure"
+   description="Service Fabric cluster capacity planning considerations. Nodetypes, Durability and Reliability tiers"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -17,94 +17,99 @@
    ms.author="chackdan"/>
 
 
-# 서비스 패브릭 클러스터 용량 계획 고려 사항
 
-프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
+# <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric cluster capacity planning considerations
 
-- 클러스터에서 시작해야 하는 노드 형식의 수입니다.
-- 각 노드 유형의 속성(크기, 기본, 인터넷 연결, VM의 수 등)
-- 클러스터의 안정성 및 지속성 특성
+For any production deployment, capacity planning is an important step. Here are some of the items that you have to consider as a part of that process.
 
-이러한 각 항목을 간단히 검토해보겠습니다.
+- The number of node types your cluster needs to start out with
+- The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
+- The reliability and durability characteristics of the cluster
 
-## 클러스터에서 시작해야 하는 노드 형식의 수입니다.
+Let us briefly review each of these items.
 
-우선 만든 클러스터가 어디에 사용되는지 및 이 클러스터에 배포하려는 응용 프로그램의 종류를 파악해야 합니다. 클러스터의 용도가 명확하지 않는 경우 상황에 맞는 용량 프로세스를 입력하도록 준비하지 앉아야 합니다.
+## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>The number of node types your cluster needs to start out with
 
-클러스터에서 시작해야 하는 노드 유형의 수를 설정합니다. 각 노드 유형은 가상 컴퓨터 크기 조정 설정에 매핑됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. 따라서 노드 유형의 수를 결정할 때 기본적으로 다음 사항을 고려합니다.
+First, you need to figure out what the cluster you are creating is going to be used for and what kinds of applications you are planning to deploy into this cluster. If you are not clear on the purpose of the cluster, you are most likely not yet ready to enter the capacity planning process.
 
-- 응용 프로그램이 여러 서비스를 보유하고 해당 서비스 중 일부를 공용 또는 인터넷에 연결해야 하나요? 일반적인 응용 프로그램은 클라이언트에서 입력을 수신하는 프런트 엔드 게이트웨이 서비스 및 프런트 엔드 서비스와 통신하는 하나 이상의 백 엔드 서비스를 포함합니다. 따라서 이 경우에 두 개 이상의 노드 유형을 보유하게 됩니다.
+Establish the number of node types your cluster needs to start out with.  Each node type is mapped to a Virtual Machine Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. So the decision of the number of node types essentially comes down to the following considerations:
 
-- 서비스(응용 프로그램을 구성함)에는 더 유용한 RAM 또는 더 높은 CPU 사용률과 같은 서로 다른 인프라가 필요한가요? 예를 들어 배포하려는 응용 프로그램에 프런트 엔드 서비스 및 백 엔드 서비스가 포함되어 있다고 가정합니다. 프런트 엔드 서비스는 인터넷에 열린 포트가 있는 작은 VM(D2와 같은 VM 크기)에서 실행할 수 있습니다. 하지만 백 엔드 서비스는 계산 집약적이며 인터넷에 연결되지 않은 비교적 큰 VM(D4, D6, D15과 같은 VM 크기로)에서 실행됩니다.
+- Does your application have multiple services, and do any of them need to be public or internet facing? Typical applications contain a front-end gateway service that receives input from a client, and one or more back-end services that communicate with the front-end services. So in this case, you end up having at least two node types.
 
- 이 예제에서는 하나의 노드 유형에 모든 서비스를 배치할 수 있지만 두 노드 유형을 사용하여 클러스터에 배치하는 것이 좋습니다. 따라서 각 노드 유형이 인터넷 연결 또는 VM 크기와 같은 고유 속성을 가질 수 있습니다. VM의 수를 독립적으로 확장할 수도 있습니다.
+- Do your services (that make up your application) have different infrastructure needs such as greater RAM or higher CPU cycles? For example, let us assume that the application that you want to deploy contains a front-end service and a back-end service. The front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  The back-end service, however, is computation intensive and needs to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet facing.
 
-- 미래를 예측할 수 없으므로 알고 있는 사실을 바탕으로 진행하고 다음 응용 프로그램으로 시작해야 하는 노드 형식의 수를 결정합니다. 나중에 노드 유형을 추가하거나 제거할 수 있습니다. 서비스 패브릭 클러스터에는 하나 이상의 노드 유형이 있어야 합니다.
+ In this example, although you can decide to put all the services on one node type, we recommended that you place them in a cluster with two node types.  This allows for each node type to have distinct properties such as internet connectivity or VM size. The number of VMs can be scaled independently, as well.  
 
-## 각 노드 유형의 속성
+- Since you cannot predict the future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types later. A Service Fabric cluster must have at least one node type.
 
-**노드 유형**은 클라우드 서비스의 역할과 똑같이 보일 수 있습니다. 노드 유형에서 VM 크기, VM 수 및 VM 속성을 정의합니다. 서비스 패브릭 클러스터에 정의된 모든 노드 유형은 별도의 가상 컴퓨터 크기 조정 설정으로 설정됩니다. VM 크기 조정 설정은 가상 컴퓨터의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. 고유한 VM 크기 조정 설정으로 정의된 각 노드 유형은 독립적으로 확장 또는 축소되고 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다.
+## <a name="the-properties-of-each-node-type"></a>The properties of each node type
 
-클러스터에는 둘 이상의 노드 유형이 있을 수 있지만 주 노드 유형(포털에서 정의하는 첫 번째)에는 프로덕션 워크로드에 사용되는 클러스터에 대해 다섯 개 이상(또는 테스트 클러스터에 대해 세 개 이상)의 VM이 있어야 합니다. Resource Manager 템플릿을 사용하여 클러스터를 만드는 경우 노드 유형 정의에서 **주** 특성을 찾습니다. 주 노드 유형은 서비스 패브릭 시스템 서비스가 위치한 노드 유형입니다.
+The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine Scale Set. VM Scale Sets are an Azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Being defined as distinct VM Scale Sets, each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
 
-### 주 노드 유형
-여러 노드 유형을 포함한 클러스터의 경우 하나를 주 노드 유형으로 선택해야 합니다. 다음은 주 노드 유형의 특징입니다.
+Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using an Resource Manager template, then you will find a **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
 
-- 주 노드 유형에 대한 최소 VM 크기는 선택한 내구성 계층에 따라 결정됩니다. 내구성 계층에 대한 기본값은 브론즈입니다. 내구성 계층 정의 및 내구성이 사용할 값에 대한 자세한 내용은 아래로 스크롤합니다.
+### <a name="primary-node-type"></a>Primary node type
+For a cluster with multiple node types, you will need to choose one of them to be primary. Here are the characteristics of a primary node type:
 
-- 주 노드 유형에 대한 최소 VM 수는 선택한 안정성 계층에 따라 결정됩니다. 안정성 계층에 대한 기본값은 실버입니다. 안정성 계층 정의 및 안정성이 사용할 값에 대한 자세한 내용은 아래로 스크롤합니다.
+- The minimum size of VMs for the primary node type is determined by the durability tier you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
 
-- 서비스 패브릭 시스템 서비스(예: 클러스터 관리자 서비스 또는 이미지 저장소 서비스)는 주 노드 유형에 배치됩니다. 따라서 클러스터의 안정성 및 내구성은 노드 유형에 대해 선택한 안정성 계층 값 및 내구성 계층 값으로 결정됩니다.
+- The minimum number of VMs for the primary node type is determined by the reliability tier you choose. The default for the reliability tier is Silver. Scroll down for details on what the reliability tier is and the values it can take.
 
-![두 가지 노드 유형이 있는 클러스터의 스크린 샷][SystemServices]
+- The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type and so the reliability and durability of the cluster is determined by the reliability tier value and durability tier value you select for the primary node type.
 
-
-### 주가 아닌 노드 유형
-여러 노드 유형을 포함한 클러스터의 경우 하나의 주 노드 유형이 있고 나머지는 주가 아닌 노드 유형입니다. 다음은 주가 아닌 노드 유형의 특징입니다.
-
-- 이 노드 유형에 대한 최소 VM 크기는 선택한 내구성 계층에 따라 결정됩니다. 내구성 계층에 대한 기본값은 브론즈입니다. 내구성 계층 정의 및 내구성이 사용할 값에 대한 자세한 내용은 아래로 스크롤합니다.
-
-- 이 노드 유형에 대한 VM의 최소 수는 하나일 수 있습니다. 그러나 이 노드 유형에서 실행하려는 응용 프로그램/서비스의 복제본 수에 따라 이 수를 선택해야 합니다. 클러스터를 배포한 후에 노드 유형에서 VM의 수를 늘릴 수 있습니다.
+![Screen shot of a cluster that has two Node Types ][SystemServices]
 
 
-## 클러스터의 지속성 특성
+### <a name="non-primary-node-type"></a>Non-primary node type
+For a cluster with multiple node types, there is one primary node type and the rest of them are non-primary. Here are the characteristics of a non-primary node type:
 
-지속성 계층은 기본 Azure 인프라와 함께 VM에 있는 권한을 이 시스템에 표시하는 데 사용됩니다. 주 노드 유형에서 이 권한을 사용하면 서비스 패브릭이 시스템 서비스 및 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(VM 다시 부팅, VM 이미지로 다시 설치, 또는 VM 마이그레이션 등)을 일시 중지할 수 있습니다. 주가 아닌 노드 유형에서 이 권한을 사용하면 서비스 패브릭이 실행 중인 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(VM 다시 부팅, VM 이미지로 다시 설치, VM 마이그레이션 등)을 일시 중지할 수 있습니다.
+- The minimum size of VMs for this node type is determined by the durability tier you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
 
-이 권한은 다음 값에 표시됩니다.
+- The minimum number of VMs for this node type can be one. However you should choose this number based on the number of replicas of the application/services that you would like to run in this node type. The number of VMs in a node type can be increased after you have deployed the cluster.
 
-- 골드 - UD당 2시간이라는 기간 동안 인프라 작업을 일시 중지할 수 있습니다.
 
-- 실버 - UD당 30분이라는 기간 동안 인프라 작업을 일시 중지할 수 있습니다. 현재 사용하도록 설정되어 있지 않습니다. 사용하도록 설정되면 단일 코어 이상의 모든 표준 VM에서 사용할 수 있습니다.
+## <a name="the-durability-characteristics-of-the-cluster"></a>The durability characteristics of the cluster
 
-- 브론즈 - 권한이 없습니다. 이것이 기본값입니다.
+The durability tier is used to indicate to the system the privileges that your VMs have with the underlying Azure infrastructure. In the primary node type, this privilege allows Service Fabric to pause any VM level infrastructure request (such as a VM reboot, VM reimage, or VM migration) that impact the quorum requirements for the system services and your stateful services. In the non-primary node types, this privilege allows Service Fabric to pause any VM level infrastructure request like VM reboot, VM reimage, VM migration etc., that impact the quorum requirements for your stateful services running in it.
 
-## 클러스터의 안정성 특성
+This privilege is expressed in the following values:
 
-안정성 계층은 주 노드 유형에서 이 클러스터에서 실행하려는 시스템 서비스의 복제본 수를 설정하는 데 사용됩니다. 복제본 수가 많을수록 클러스터에서 시스템 서비스를 신뢰할 수 있습니다.
+- Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD
 
-안정성 계층은 다음 값을 사용할 수 있습니다.
+- Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. Once enabled this will be available on all standard VMs of single core and above).
 
-- 플래티넘 - 9라는 대상 복제본 세트 수를 가진 시스템 서비스를 실행합니다.
+- Bronze - No privileges. This is the default.
 
-- 골드 - 7이라는 대상 복제본 세트 수를 가진 시스템 서비스를 실행합니다.
+## <a name="the-reliability-characteristics-of-the-cluster"></a>The reliability characteristics of the cluster
 
-- 실버 - 5라는 대상 복제본 세트 수를 가진 시스템 서비스를 실행합니다.
+The reliability tier is used to set the number of replicas of the system services that you want to run in this cluster on the primary node type. The more the number of replicas, the more reliable the system services are in your cluster.  
 
-- 브론즈 - 3이라는 대상 복제본 세트 수를 가진 시스템 서비스를 실행합니다.
+The reliability tier can take the following values.
 
->[AZURE.NOTE] 선택한 안정성 계층은 주 노드 형식이 보유해야 하는 노드의 최소 수를 결정합니다. 안정성 계층은 클러스터의 최대 크기와 관련이 없습니다. 따라서 브론즈 안정성으로 실행되는 20개의 노드 클러스터를 보유할 수 있습니다.
+- Platinum - Run the System services with a target replica set count of 9
 
- 클러스터의 안정성을 한 계층에서 다른 계층으로 업데이트하도록 선택할 수 있습니다. 이렇게 하면 클러스터 업그레이드를 트리거하여 시스템 서비스 복제본 세트 수를 변경합니다. 노드를 추가하는 것처럼 클러스터를 다르게 변경하기 전에 진행 중인 업그레이드가 완료될 때까지 기다립니다. 서비스 패브릭 탐색기에서 또는 [Get ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)를 실행하여 업그레이드 진행률을 모니터링할 수 있습니다.
+- Gold - Run the System services with a target replica set count of 7
+
+- Silver - Run the System services with a target replica set count of 5
+
+- Bronze - Run the System services with a target replica set count of 3
+
+>[AZURE.NOTE] The reliability tier you choose determines the minimum number of nodes your primary node type must have. The reliability tier has no bearing on the max size of the cluster. So you can have a 20 node cluster, that is running at Bronze reliability.
+
+ You can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes etc.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-용량 계획을 마치고 클러스터를 설정하면 다음을 참고합니다.
-- [서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)
-- [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
+Once you finish your capacity planning and set up a cluster, please read the following:
+- [Service Fabric cluster security](service-fabric-cluster-security.md)
+- [Service Fabric health model introduction](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

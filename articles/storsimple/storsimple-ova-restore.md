@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple 가상 배열의 백업에서 복원"
-   description="StorSimple 가상 배열의 백업을 복원하는 방법에 대해 자세히 알아봅니다."
+   pageTitle="Restore from a backup of your StorSimple Virtual Array"
+   description="Learn more about how to restore a backup of your StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,124 +16,129 @@
    ms.date="06/07/2016"
    ms.author="alkohli"/>
 
-# StorSimple 가상 배열의 백업에서 복원
 
-## 개요 
+# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Restore from a backup of your StorSimple Virtual Array
 
-이 문서는 2016년 3월 GA(일반 공급) 버전 또는 이상 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. StorSimple 가상 배열에 대한 공유 또는 볼륨의 백업 세트에서 복원하는 단계별 방법을 설명합니다. 또한 파일 서버로 구성된 StorSimple 가상 배열에 항목 수준 복원이 작동하는 방식을 자세히 설명합니다.
+## <a name="overview"></a>Overview 
 
-
-## 백업 세트에서 공유 복원
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later. This article describes step-by-step how to restore from a backup set of your shares or volumes on your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
 
 
-**공유 복원을 시도하기 전에 작업을 완료하기에 충분한 공간이 장치에 있는지 확인합니다.** 백업에서 복원하려면 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 다음 단계를 수행합니다.
-
-#### 공유를 복원하려면
-
-1.  **백업 카탈로그**로 이동합니다. 적절한 장치 및 시간 범위를 기준으로 필터링하여 백업을 검색합니다. 확인 아이콘 ![](./media/storsimple-ova-restore/image1.png)을 클릭하여 쿼리를 실행합니다.
+## <a name="restore-shares-from-a-backup-set"></a>Restore shares from a backup set
 
 
-1.  표시된 백업 세트 목록에서 특정 백업을 클릭하고 선택합니다. 하위에 있는 다양한 공유를 보려면 백업을 확장합니다. 복원할 공유를 클릭하고 선택합니다.
+**Before you try to restore shares, ensure that you have sufficient space on the device to complete this operation.** To restore from a backup, in the [Azure classic portal](https://manage.windowsazure.com/), perform the following steps.
 
-2.  페이지의 맨 아래에서 **새로 복원**을 클릭합니다.
+#### <a name="to-restore-a-share"></a>To restore a share
 
-3.  **새 공유로 복원** 마법사가 시작됩니다. **이름 및 위치 지정** 페이지에서:
-
-
-	1.  원본 장치 이름을 확인합니다. 이 장치는 복원할 공유를 포함하는 장치여야 합니다. 장치 선택이 회색으로 표시됩니다. 다른 원본 장치를 선택하려면, 마법사를 종료하고 백업 세트를 다시 선택해야 합니다.
-
-	2.  공유 이름을 입력합니다. 공유 이름은 3자에서 127자 사이여야 합니다.
-
-	3.  복원하려는 공유와 연관된 사용 권한, 크기, 형식을 검토합니다. 복원이 완료되면 Windows 탐색기를 통해 공유 속성을 수정할 수 있습니다.
-
-	4.  확인 아이콘![](./media/storsimple-ova-restore/image1.png)을 클릭합니다.
-
-		![](./media/storsimple-ova-restore/image9.png)
-
-1.  복원 작업이 완료된 후에, 복원이 시작되고 또 다른 알림이 표시됩니다. 복원 진행률을 모니터링하려면 **작업 보기**를 클릭합니다. **작업** 페이지로 이동하게 됩니다.
-
-2.  복원 작업의 진행률을 추적할 수 있습니다. 복원이 100% 완료되면 장치의 **공유** 페이지로 돌아갑니다.
-
-3.  장치의 공유 목록에서 새로 복원된 공유를 볼 수 있습니다. 복원은 공유와 동일한 형식으로 수행됩니다. 계층화된 공유는 계층화된 공유로 복원되고 로컬로 고정된 공유는 로컬로 고정된 공유로 복원됩니다.
-
-장치 구성을 완료했고 공유를 백업 또는 복원하는 방법에 대해 알아봤습니다.
+1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
 
 
-## 백업 세트에서 볼륨 복원
+1.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various shares under it. Click and select a share that you want to restore.
+
+2.  At the bottom of the page, click **Restore as new**.
+
+3.  This will initiate the **Restore as new share** wizard. On the **Specify name and location** page:
 
 
-백업에서 복원하려면 Azure 클래식 포털에서 다음 단계를 수행합니다. 복원 작업은 동일한 가상 장치의 새 볼륨에 백업을 복원합니다. 다른 장치에 복원할 수 없습니다.
+    1.  Verify the source device name. This should be the device that contains the share you want to restore. The device selection is grayed out. To select a different source device, you will need to exit the wizard and reselect the backup set again.
 
-#### 볼륨을 복원하려면
+    2.  Provide a share name. The share name must contain 3 to 127 characters.
 
-1.  **백업 카탈로그**로 이동합니다. 적절한 장치 및 시간 범위를 기준으로 필터링하여 백업을 검색합니다. 확인 아이콘 ![](./media/storsimple-ova-restore/image1.png)을 클릭하여 쿼리를 실행합니다.
+    3.  Review the size, type, and permissions associated with the share that you are trying to restore. You will be able to modify the share properties via Windows Explorer after the restore is complete.
 
-2.  표시된 백업 세트 목록에서 특정 백업을 클릭하고 선택합니다. 하위에 있는 다양한 볼륨을 보려면 백업을 확장합니다. 복원하려는 볼륨을 선택합니다.
+    4.  Click the check icon ![](./media/storsimple-ova-restore/image1.png).
 
-5.  페이지의 맨 아래에서 **새로 복원**을 클릭합니다. **새 볼륨으로 복원** 마법사가 시작됩니다.
+        ![](./media/storsimple-ova-restore/image9.png)
 
-1.  **이름 및 위치 지정** 페이지에서:
+1.  After the restore job is complete, the restore will start and you will see another notification. To monitor the progress of restore, click **View job**. This will take you to the **Jobs** page.
+
+2.  You can track the progress of the restore job. When the restore is 100% complete, navigate back to the **Shares** page on your device.
+
+3.  You can now view the new restored share in the list of shares on your device. Note that restore is done to the same type of the share. A tiered share is restored as tiered and a locally pinned share as a locally pinned share.
+
+You have now completed the device configuration and learned how to backup or restore a share. 
 
 
-	1.  원본 장치 이름을 확인합니다. 이 장치는 복원할 볼륨을 포함하는 장치여야 합니다. 장치 선택을 사용할 수 없습니다. 다른 원본 장치를 선택하려면, 마법사를 종료하고 백업 세트를 다시 선택해야 합니다.
+## <a name="restore-volumes-from-a-backup-set"></a>Restore volumes from a backup set
 
-	2.  새로 복원될 볼륨의 볼륨 이름을 제공합니다. 볼륨 이름은 3자에서 127자 사이여야 합니다.
 
-	3.  화살표 아이콘을 클릭합니다.
+To restore from a backup, in the Azure classic portal, perform the following steps. The restore operation restores the backup to a new volume on the same virtual device; you cannot restore to a different device.
 
-		![](./media/storsimple-ova-restore/image12.png)
+#### <a name="to-restore-a-volume"></a>To restore a volume
 
-1.  **이 볼륨을 사용할 수 있는 호스트 지정** 페이지의 드롭다운 목록에서 적절한 ACR을 선택합니다.
+1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
 
-	![](./media/storsimple-ova-restore/image13.png)
+2.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various volumes under it. Select the volume you want to restore. 
 
-1.  확인 아이콘![](./media/storsimple-ova-restore/image1.png)을 클릭합니다. 복원 작업이 시작되고 작업이 진행 중이라는 알림이 다음과 같이 표시됩니다.
+5.  At the bottom of the page, click **Restore as new**. The **Restore as new volume** wizard will start.
 
-2.  복원 작업이 완료된 후에, 복원이 시작되고 또 다른 알림이 표시됩니다. 복원 진행률을 모니터링하려면 **작업 보기**를 클릭합니다. **작업** 페이지로 이동하게 됩니다.
+1.  On the **Specify name and location** page:
 
-3.  복원 작업의 진행률을 추적할 수 있습니다. 장치의 **볼륨** 페이지로 돌아갑니다.
 
-4.  장치의 볼륨 목록에서 새로 복원된 볼륨을 볼 수 있습니다. 복원은 동일한 형식의 볼륨에 수행됩니다. 계층화된 볼륨은 계층화된 볼륨으로 복원되고 로컬로 고정된 볼륨은 로컬로 고정된 볼륨으로 복원됩니다.
+    1.  Verify the source device name. This should be the device that contains the volume that you want to restore. The device selection is unavailable. To select a different source device, you will need to exit the wizard and reselect the backup set again.
 
-5.  볼륨 목록에 볼륨이 온라인 상태로 표시되면 볼륨을 사용할 수 있게 됩니다. iSCSI 초기자 호스트에서 iSCSI 초기자 속성 창의 대상 목록을 새로 고칩니다. 복원된 볼륨 이름이 포함된 새 대상은 상태 열 아래에 '비활성'이 표시됩니다.
+    2.  Provide a volume name for the volume being restored as new. The volume name must contain 3 to 127 characters.
 
-6.  대상을 선택하고 **연결**을 클릭합니다. 초기자가 대상에 연결되면 상태가 **연결됨**으로 변경됩니다.
+    3.  Click the arrow icon.
 
-7.  **디스크 관리** 창에 탑재된 볼륨이 다음 그림과 같이 표시됩니다. 검색된 볼륨을 마우스 오른쪽 단추로 클릭(디스크 이름 클릭)한 다음 **온라인**을 클릭합니다.
+        ![](./media/storsimple-ova-restore/image12.png)
 
-> [AZURE.IMPORTANT] 백업 집합에서 볼륨 또는 공유를 복원할 때 복원 작업에 실패한 경우 포털에서 대상 볼륨 또는 공유를 계속 만들 수 있습니다. 향후 이 요소로 인해 발생하는 문제를 최소화하려면 포털에서 이 대상 볼륨 또는 공유를 삭제해야 합니다.
+1.  On the **Specify hosts that can use this volume** page, select the appropriate ACRs from the dropdown list.
 
-## 항목 수준 복구(ILR)
+    ![](./media/storsimple-ova-restore/image13.png)
 
-이 릴리스는 파일 서버로 구성된 StorSimple 가상 장치의 항목 수준 복구(ILR)를 소개합니다. 이 기능을 사용하여 StorSimple 장치에 있는 모든 공유의 클라우드 백업에서 파일과 폴더를 세부적으로 복원할 수 있습니다. 사용자는 셀프 서비스 모델을 사용하여 최근 백업에서 삭제된 파일을 복구할 수 있습니다.
+1.  Click the check icon ![](./media/storsimple-ova-restore/image1.png). This will initiate a restore job and you will see the following notification that the job is in progress.
 
-모든 공유에는 최신 백업을 포함하는 *.backups* 폴더가 있습니다. 사용자는 원하는 백업으로 이동하고, 백업에서 적절한 파일과 폴더를 복사하여 복원할 수 있습니다. 이렇게 하면 백업에서 파일을 복원하기 위해 관리자를 호출할 필요가 없습니다.
+2.  After the restore job is complete, the restore will start and you will see another notification. To monitor the progress of restore, click **View job**. This will take you to the **Jobs** page.
 
-1.  ILR을 수행할 때 Windows 탐색기를 통해 백업을 볼 수 있습니다. 백업을 살펴보려면 특정 공유를 클릭합니다. 모든 백업을 저장하는 공유 아래에 만들어진 *.backups* 폴더를 볼 수 있습니다. 백업을 보려면 *.backups* 폴더를 확장합니다. 폴더에 전체 백업 계층 구조의 쪼개진 보기가 표시됩니다. 이 보기는 주문형으로 만들어지며 일반적으로 몇 초 안에 만들어집니다.
+3.  You can track the progress of the restore job. Navigate back to the **Volumes** page on your device.
 
-	마지막 백업 5개가 이러한 방식으로 표시되며 항목 수준 복구를 수행하는 데 사용될 수 있습니다. 최근 백업 5개에는 기본 예약된 백업 및 수동 백업이 모두 포함됩니다.
+4.  You can now view the new restored volume in the list of volumes on your device. Note that restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
 
-	
-	-   **예약된 백업**의 이름은 &lt;장치 이름&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC로 지정됩니다.
+5.  Once the volume appears online on the list of volumes, the volume is available for use.  On the iSCSI initiator host, refresh the list of targets in iSCSI initiator properties window.  A new target which contains the restored volume name should appear as 'inactive' under the status column.
 
-	-   **수동 백업**의 이름은 Ad-hoc-YYYYMMDD-HHMMSS-UTC로 지정됩니다.
-	
-		![](./media/storsimple-ova-restore/image14.png)
+6.  Select the target and click **Connect**.   After the initiator is connected to the target, the status should change to **Connected**. 
 
-1.  삭제된 파일의 최신 버전을 포함하는 백업을 확인합니다. 위의 모든 경우에서 폴더 이름에 UTC 타임스탬프가 포함되며, 폴더가 만들어진 시간은 백업이 시작될 당시 장치의 실제 시간입니다. 폴더 타임스탬프를 사용하여 백업을 찾고 확인합니다.
+7.  In the **Disk Management** window, the mounted volumes will appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.
 
-2.  이전 단계에서 확인한 백업에서 복원하려는 폴더 또는 파일을 찾습니다. 사용 권한이 있는 파일 또는 폴더만 볼 수 있습니다. 특정한 파일 또는 폴더에 액세스할 수 없다면 공유 관리자에게 문의해야 합니다. 공유 관리자는 Windows 탐색기를 사용하여 공유 사용 권한을 편집하고 특정 파일 또는 폴더에 대한 액세스를 부여할 수 있습니다. 공유 관리자는 단일 사용자가 아닌 사용자 그룹이 되도록 하는 것이 좋습니다.
+> [AZURE.IMPORTANT] When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this target volume or share in the portal to minimize any  future issues arising from this element.
 
-3.  파일 또는 폴더를 StorSimple 파일 서버의 적절한 공유에 복사합니다.
+## <a name="item-level-recovery-(ilr)"></a>Item-level recovery (ILR)
 
-![video\_icon](./media/storsimple-ova-restore/video_icon.png) **동영상 사용 가능**
+This release introduces the item-level recovery (ILR) on a StorSimple virtual device configured as a file server. The feature allows you to do granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. Users can retrieve deleted files from recent backups using a self-service model.
 
-StorSimple 가상 배열에서 공유를 만들고, 공유를 백업하고, 데이터를 복원하는 방법을 보려면 동영상을 시청하세요.
+Every share has a *.backups* folder that contains the most recent backups. The user can navigate to the desired backup, copy relevant files and folders from the backup and restore them. This eliminates calls to administrators for restoring files from backups.
+
+1.  When performing the ILR, you can view the backups through Windows Explorer. Click the specific share that you want to look at the backup for. You will see a *.backups* folder created under the share that stores all the backups. Expand the *.backups* folder to view the backups. The folder will then show the exploded view of the entire backup hierarchy. This view is created on-demand and usually takes only a couple of seconds to create.
+
+    The last 5 backups are displayed in this way and can be used to perform an item-level recovery. The 5 recent backups include both the default scheduled and the manual backups.
+
+    
+    -   **Scheduled backups** named as &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
+
+    -   **Manual backups** named as Ad-hoc-YYYYMMDD-HHMMSS-UTC.
+    
+        ![](./media/storsimple-ova-restore/image14.png)
+
+1.  Identify the backup containing the most recent version of the deleted file. Though the folder name contains a UTC timestamp in each of the above cases, the time at which the folder was created is the actual device time when the backup started. Use the folder timestamp to locate and identify the backups.
+
+2.  Locate the folder or the file that you want to restore in the backup that you identified in the previous step. Note you can only view the files or folders that you have permissions for. If you are not able to access certain files or folders, you will need to contact a share administrator who can use Windows Explorer to edit the share permissions and give you access to the specific file or folder. It is a recommended best practice that the share administrator be a user group instead of a single user.
+
+3.  Copy the file or the folder to the appropriate share on your StorSimple file server.
+
+![video_icon](./media/storsimple-ova-restore/video_icon.png) **Video available**
+
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
 
 > [AZURE.VIDEO use-the-storsimple-virtual-array]
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법에 대해 자세히 알아봅니다.
+Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 리소스 상태 개요 | Microsoft Azure"
-   description="Azure 리소스 상태 개요"
+   pageTitle="Azure Resource health overview | Microsoft Azure"
+   description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
    authors="BernardoAMunoz"
@@ -16,95 +16,100 @@
    ms.date="06/01/2016"
    ms.author="BernardoAMunoz"/>
 
-# Azure 리소스 상태 개요
 
-Azure 리소스 상태는 개별 Azure 리소스의 상태를 노출하고 문제 해결을 위한 실행 가능한 지침을 제공하는 서비스입니다. 서버 또는 인프라 요소에 직접 액세스할 수 없는 클라우드 환경에서 리소스 상태 기능은 고객이 문제 해결에 투입하는 시간을 단축하는 것을 목적으로 합니다. 특히, 문제의 원인이 응용 프로그램 내에 있거나 Azure 플랫폼 내의 이벤트로 야기된 경우에 시간 단축 효과가 뛰어납니다.
+# <a name="azure-resource-health-overview"></a>Azure Resource health overview
 
-## 무엇이 리소스로 간주되고 어떻게 리소스 상태가 리소스가 정상인지를 결정하나요? 
-리소스는 예를 들어 가상 컴퓨터, 웹앱 또는 SQL 데이터베이스와 같은 서비스에서 제공하는 리소스를 사용자가 만든 인스턴스입니다.
+Azure Resource health is a service that exposes the health of individual Azure resources and provides actionable guidance to troubleshoot problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource health is to reduce the time customers spend on troubleshooting, in particular reducing the time spent determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform.
 
-리소스 상태는 리소스 및/또는 서비스에서 내보낸 신호에 의존하여 리소스가 정상인지를 확인합니다. 현재 리소스 상태가 한가지 특정 리소스 형식의 상태만을 고려하고 전반적인 상태에 영향을 줄 수 있는 다른 요소를 고려하지 않는다는 점을 기억합니다. 예를 들어, 가상 컴퓨터의 상태를 보고하는 경우 인프라의 계산 부분만을 고려합니다. 즉, 네트워크의 문제는 선언된 서비스 중단이 발생하지 않는 한 리소스 상태에 표시되지 않습니다. 이 경우에 블레이드 맨 위에 있는 배너를 통해 표시됩니다. 서비스 중단에 대한 자세한 내용은 이 문서의 뒷부분에 있습니다.
+## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-the-resource-is-healthy-or-not?"></a>What is considered a Resource and how does resource health decides if the resource is healthy or not? 
+A resource is a user created instance of a resource type provided by a service, for example: a virtual machine, a Web app or a SQL database. 
 
-## 리소스 상태는 서비스 상태 대시보드와 어떻게 다른가요?
+Resource health relies on signals emitted by the resource and/or the service to determine if a resource is healthy or not. It is important to notice that currently Resource health only accounts for the health of one specific resource type and does not consider other elements that may contribute to the overall health. For example, when reporting the status of a virtual machine, only the compute portion of the infrastructure is considered, i.e. issues in the network will not be shown in Resource health, unless there is a declared service outage, in which case, it will be surfaced through the banner at the top of the blade. More information about service outage is offered later in this article. 
 
-리소스 상태에서 제공하는 정보는 서비스 상태 대시보드에서 제공하는 정보보다 더 세부적입니다. SHD가 지역에서 서비스의 가용성에 영향을 주는 이벤트를 통신하는 반면 리소스 상태는 특정 리소스와 관련 된 정보를 노출합니다. 예를 들어, 가상 컴퓨터, 웹앱 또는 SQL 데이터베이스의 가용성에 영향을 주는 이벤트를 노출합니다. 예를 들어, 노드가 예기치 않게 다시 부팅되는 경우 가상 컴퓨터가 해당 노드에서 실행되는 고객은 잠시 VM를 사용할 수 없는 이유를 알 수 있습니다.
+## <a name="how-is-resource-health-different-from-service-health-dashboard?"></a>How is Resource health different from Service Health Dashboard?
 
-## 리소스 상태에 액세스하는 방법
-리소스 상태를 통해 사용할 수 있는 서비스의 경우 리소스 상태에 액세스하는 두 가지 방법이 있습니다.
+The information provided by Resource health is more granular than what is provided by the Service Health Dashboard. While SHD communicates events that impact the availability of a service in a region, Resource health exposes information relevant to a specific resource, e.g. it will expose events that impact the availability of a virtual machine, a web app, or a SQL database. For example, if a node unexpectedly reboots, customers whose virtual machines were running on that node will be able to obtain the reason why their VM was unavailable for a period of time.   
 
-### Azure 포털
-Azure 포털에서 리소스 상태 블레이드는 리소스의 상태에 대한 자세한 정보 뿐만 아니라 리소스의 현재 상태에 따라 달라지는 권장되는 작업을 제공합니다. 이 블레이드에서는 리소스 상태를 쿼리할 경우 포털 내 다른 리소스에 액세스를 용이하게 하는 등 최상의 환경을 제공합니다. 앞서 언급했듯이 리소스 상태 블레이드에서 권장되는 일련의 작업은 현재 상태에 따라 달라 집니다.
+## <a name="how-to-access-resource-health"></a>How to access Resource health
+For the services available through Resource health, there are 2 ways to access Resource health.
 
-* 정상 리소스: 리소스의 상태에 영향을 줄 수 있는 문제가 발견되지 않았기 때문에 작업은 해결 프로세스를 지원하는 데 초점을 맞춥니다. 예를 들어, 문제 해결 블레이드에 대한 직접 액세스를 제공하며 이는 고객이 직면하는 가장 일반적인 문제를 해결하는 방법에 대한 지침을 제공합니다.
-* 비정상 리소스: Azure에 의해 발생한 문제의 경우 블레이드는 Microsoft가 리소스를 복구하기 위해 수행하는(또는 수행한) 작업을 표시합니다. 사용자 개시 작업으로 발생한 문제의 경우 블레이드는 문제를 해결하고 리소스를 복구하기 위해 고객이 취할 수 있는 작업 목록입니다.
+### <a name="azure-portal"></a>Azure Portal
+The Resource health blade in the Azure Portal, provides detailed information about the health of the resource as well as recommended actions that vary depending on the current health of the resource. This blade provides the best experience when querying Resource health, as it facilitates access to other resources inside the portal. As mentioned before, the set of recommended actions in the Resource health blade will vary based on the current health:
 
-Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는 두 가지 방법이 있습니다.
+* Healthy resources: Since no issue that could impact the health of the resource has been detected, the actions are focused on helping the troubleshooting process. For example, it provides direct access to the Troubleshooting blade, which offers guidance on how to solve the most common problems customers face.
+* Unhealthy resource: For problems caused by Azure, the blade will display actions Microsoft is taking (or has taken) to recover the resource. For problems caused by user initiated actions, the blade will a list of actions customers can take so address the problem and recover the resource.  
 
-###리소스 블레이드 열기
-지정된 리소스에 대한 리소스 블레이드를 엽니다. 리소스 블레이드 옆에 열리는 설정 블레이드에서 리소스 상태를 클릭하여 리소스 상태 블레이드를 엽니다.
+Once you have logged into the Azure Portal, there are two ways to access the Resource health blade: 
 
-![리소스 상태 블레이드](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
+###<a name="open-the-resource-blade"></a>Open the Resource blade
+Open the Resource blade for a given resource. On the Settings blade that opens next to the Resource blade, click on Resource Health to open the Resource health blade. 
 
-### 도움말 및 지원 블레이드
-오른쪽 위 모서리에서 물음표를 클릭하고 도움말 + 지원을 선택하여 도움말 및 지원 블레이드를 엽니다.
+![Resource health blade](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
-**위쪽 탐색 모음에서**
+### <a name="help-and-support-blade"></a>Help and Support blade
+Open the Help and Support blade by clicking on the question mark in the upper right corner then selecting Help + Support. 
 
-![도움말 + 지원](./media/resource-health-overview/HelpAndSupport.png)
+**From the top navigation bar**
 
-타일을 클릭하면 구독에 있는 모든 리소스를 나열하는 리소스 상태 구독 블레이드가 열립니다. 각 리소스 옆에 해당 상태를 나타내는 아이콘이 있습니다. 각 리소스를 클릭하면 리소스 상태 블레이드가 열립니다.
+![Help + support](./media/resource-health-overview/HelpAndSupport.png)
 
-**리소스 상태 타일**
+Clicking the tile opens the Resource health subscription blade which will list all of the resources in your subscription. Beside each resource, there is an icon indicating its health. Clicking on each resource will open the Resource health blade.
 
-![리소스 상태 타일](./media/resource-health-overview/resourceHealthTile.png)
+**Resource health tile**
 
-## 내 리소스 상태는 무엇을 의미하나요?
-리소스에서 확인할 수 있는 4개의 다른 상태가 있습니다.
+![Resource health tile](./media/resource-health-overview/resourceHealthTile.png)
 
-### 사용 가능
-서비스는 리소스의 가용성에 영향을 미칠 수 있는 플랫폼에서 문제를 탐지하지 못했습니다. 이는 녹색 확인 표시 아이콘으로 표시됩니다.
+## <a name="what-does-my-resource-health-status-mean?"></a>What does my Resource health status mean?
+There are 4 different health statuses that you might see for your resource.
 
-![리소스를 사용할 수 있음](./media/resource-health-overview/Available.png)
+### <a name="available"></a>Available
+The service has not detected any problems in the platform that could be impacting the availability of the resource. This is indicated by a green check mark icon. 
 
-### 사용할 수 없음
+![Resource is available](./media/resource-health-overview/Available.png)
 
-이 경우에 서비스는 리소스의 가용성에 영향을 주는 플랫폼에서 진행 중인 문제를 탐지했습니다(예: VM이 실행되는 노드가 예기치 않게 다시 부팅됨). 이는 빨간색 경고 아이콘으로 표시됩니다. 다음을 포함하여 문제에 대한 추가 정보는 블레이드의 중간 섹션에서 제공됩니다.
+### <a name="unavailable"></a>Unavailable
 
-1.	리소스를 복구하기 위해 Microsoft에서 어떤 작업을 사용하나요
-2.	예상된 해결 시간 등 문제의 자세한 시간 표시 막대
-3.	사용자에게 권장되는 작업 목록
+In this case the service has detected an ongoing problem in the platform that is impacting the availability of this resource, for example, the node where the VM was running unexpectedly rebooted. This is indicated by a red warning icon. Additional information about the problem is provided in the middle section of the blade, including: 
 
-![리소스를 사용할 수 없음](./media/resource-health-overview/Unavailable.png)
+1.  What actions Microsoft is taking to recover the resource 
+2.  A detailed timeline of the problem, including the expected resolution time
+3.  A list recommended actions for users 
 
-### 사용할 수 없음 – 고객이 시작
-리소스는 리소스 중지 또는 다시 시작 요청과 같은 고객 요청으로 인해 사용할 수 없습니다. 이는 파란색 정보 아이콘으로 표시됩니다.
+![Resource is unavailable](./media/resource-health-overview/Unavailable.png)
 
-![사용자 시작된 작업으로 인해 리소스를 사용할 수 없업](./media/resource-health-overview/userInitiated.png)
+### <a name="unavailable-–-customer-initiated"></a>Unavailable – customer initiated
+The resource is unavailable due to a customer request such as stopping a resource or requesting a restart. This is indicated by a blue informational icon. 
 
-### 알 수 없음
-서비스가 5분 이상 이 리소스에 대한 정보를 수신하지 못했습니다. 이는 회색 물음표 아이콘으로 표시됩니다.
+![Resource is unavailable due to user an initiated action](./media/resource-health-overview/userInitiated.png)
 
-리소스 문제가 있다는 선언적 표시가 아니라는 점이 중요합니다. 따라서 고객은 다음과 같은 권장 사항을 따라야 합니다.
+### <a name="unknown"></a>Unknown
+The service has not received information about this resource for more than 5 minutes. This is indicated by a grey question mark icon. 
 
-* 리소스가 예상대로 실행되지만 상태가 리소스 상태에서 알 수 없음으로 설정된 경우 큰 문제는 없으며 몇 분 후에 리소스의 상태가 정상으로 업데이트된다고 볼 수 있습니다.
-* 리소스에 액세스하는 데 문제가 있고 상태가 리소스 상태에서 알 수 없음으로 설정된 경우 문제가 있을 수 있다는 초기 징후일 수 있으며 상태가 정상 또는 비정상으로 업데이트될 때까지 추가 조사가 이루어져야 합니다.
+It is important to note that this is not a definitive indication that there is something wrong with a resource, so customers should follow these recommendations:
 
-![리소스 상태를 알 수 없음](./media/resource-health-overview/unknown.png)
+* If the resource is running as expected but its health is set to Unknown in Resource health, there are no problems and you can expect the status of the resource to update to healthy after a few minutes.
+* If there are problems accessing the resource and its health is set to Unknown in Resource health, this could be an early indication there could be an issue and additional investigations should be done until the health is updated to either healthy or unhealthy
 
-## 서비스에 영향을 미치는 이벤트
-리소스가 진행 중인 서비스에 영향을 미치는 이벤트에 의해 영향을 받을 수 있는 경우 리소스 상태 블레이드 맨 위에 배너가 표시됩니다. 배너를 클릭하면 감사 이벤트 블레이드가 자동으로 열리고 가동 중단에 대한 추가 정보를 표시합니다.
+![Resource health is unknown](./media/resource-health-overview/unknown.png)
 
-![리소스 상태가 SIE의 영향을 받을 수 있음](./media/resource-health-overview/serviceImpactingEvent.png)
+## <a name="service-impacting-events"></a>Service Impacting Events
+If the resource may be impacted by an ongoing Service Impacting Event, a banner will be displayed at the top of the Resource health blade. Clicking on the banner will open the Audit Events blade, which will display additional information about the outage.
 
-## 리소스 상태에 대해 알아야 할 사항은 무엇인가요?
+![Resource health may be impacted by a SIE](./media/resource-health-overview/serviceImpactingEvent.png)
 
-### 신호 대기 시간
-리소스 상태를 알려주는 신호는 최대 15분까지 지연될 수 있으며 리소스의 현재 상태와 실제 가용성 간에 불일치를 발생시킬 수 있습니다. 발생할 수 있는 문제를 조사하는 데 불필요하게 소요된 시간을 제거하도록 도움을 준다는 점을 고려해야 합니다.
+## <a name="what-else-do-i-need-to-know-about-resource-health?"></a>What else do I need to know about Resource health?
 
-### SQL에 대한 특별한 경우 
-리소스 상태는 SQL server가 아닌 SQL 데이터베이스의 상태를 보고합니다. 이 경로를 통해 보다 현실적인 상태를 파악할 수 있지만 여러 구성 요소 및 서비스를 고려하여 데이터베이스의 상태를 확인해야 합니다. 현재 신호는 데이터베이스에 대 한 로그인에 의존합니다. 즉, 일반 로그인 상태를 수신하는 데이터베이스(다른 작업 및 쿼리 실행 요청 수신을 포함)의 경우 상태가 정기적으로 표시됩니다. 10분 이상 기간 동안 데이터베이스에 액세스하지 못하는 경우 알 수 없는 상태로 바뀝니다. 데이터베이스를 사용할 수 없다는 의미가 아니라 로그인하지 못했기 때문에 신호 없음을 내보내는 것입니다. 데이터베이스에 연결하고 쿼리를 실행하면 데이터베이스의 상태를 확인하고 업데이트하는 데 필요한 신호를 내보냅니다.
+### <a name="signal-latency"></a>Signal latency
+The signals that feed Resource health, may be up to 15 min delayed, which can cause discrepancies between the current health status of the resource and its actual availability. It is important to keep this in mind as it will help eliminate unnecessary time spent investigating possible issues. 
 
-## 사용자 의견
-Microsoft는 사용자 의견 및 제안을 항상 환영합니다! [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주시기 바랍니다. [Twitter](https://twitter.com/azuresupport)나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure)을 통해 참여하실 수도 있습니다.
+### <a name="special-case-for-sql"></a>Special case for SQL 
+Resource health reports the status of the SQL database, not the SQL server. While going this route provides a more realistic health picture, it requires that multiple components and services be taken into consideration to determine the health of the database. The current signal relies on logins to the database, which means that for databases that receive regular logins (which includes among other things, receiving query execution requests) the health status will be regularly displayed. If the database has not been accessed for a period of 10 minutes or more, it will be moved to the unknown state. This does not mean that the database is unavailable, just that no signal has been emitted because no logins have been performed. Connecting to the database and running a query will emit the signals needed to determine and update the health status of the database.
 
-<!---HONumber=AcomDC_0831_2016-->
+## <a name="feedback"></a>Feedback
+We are always open to feedback and suggestions! Please send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

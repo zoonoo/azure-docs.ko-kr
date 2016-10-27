@@ -1,11 +1,11 @@
 <properties
-	pageTitle="OS 플랫폼 및 하드웨어 호환성 | Microsoft Azure"
-	description="OS 플랫폼 및 장치 하드웨어와 IoT 장치 SDK 호환성을 요약합니다."
-	services="iot-hub"
-	documentationCenter=""
-	authors="hegate"
-	manager="timlt"
-	editor=""/>
+    pageTitle="OS 플랫폼 및 하드웨어 호환성 | Microsoft Azure"
+    description="OS 플랫폼 및 장치 하드웨어와 IoT 장치 SDK 호환성을 요약합니다."
+    services="iot-hub"
+    documentationCenter=""
+    authors="hegate"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -13,136 +13,137 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/27/2016"
+     ms.date="10/04/2016"
      ms.author="hegate"/>
 
-# OS 플랫폼 및 장치 SDK와의 하드웨어 호환성
+
+# <a name="os-platforms-and-hardware-compatibility-with-device-sdks"></a>OS 플랫폼 및 장치 SDK와의 하드웨어 호환성
 
 이 문서에서는 [IoT용 Microsoft Azure 인증 프로그램](#microsoft-azure-certified-for-iot)에 포함되어 있는 특정 장치 구성뿐만 아니라 다른 OS 플랫폼의 SDK 호환성에 대해 설명합니다. 장치가 이미 있는 경우 호환성에 대한 장치 특정 정보를 찾으려면 프로그램에서 포함된 장치 목록을 확인하세요. 어떤 장치를 사용할지 확인하지 않은 경우 [OS 플랫폼 및 라이브러리](#os-platforms) 호환 섹션을 확인하세요.
 
 
-## OS 플랫폼
+## <a name="os-platforms"></a>OS 플랫폼
 
 Azure IoT 라이브러리는 다음 운영 체제 플랫폼에서 테스트되었습니다.
 
 
-|Linux/Unix OS 플랫폼 | 버전|
+|Linux/Unix OS 플랫폼  |   버전|
 |:---------------|:------------:|
-|Debian Linux| 7\.5|
+|Debian Linux| 7.5|
 |Fedora Linux|20|
-|Raspbian Linux| 3\.18 |
-|Ubuntu Linux| 14\.04 |
-|Yocto Linux|2\.1 |
+|Raspbian Linux| 3.18 |
+|Ubuntu Linux| 14.04 |
+|Yocto Linux|2.1 |
 
-|Android OS 플랫폼 | 버전|
+|Android OS 플랫폼  |   버전|
 |:---------------|:------------:|
 |Android| > 4.2|
 
-|Windows OS 플랫폼 | 버전|
+|Windows OS 플랫폼  |   버전|
 |:---------------|:------------:|
 |Windows 데스크톱| 10 |
 |Windows IoT 코어| 10 |
 |Windows Server| 2012 R2|
 
-|기타 플랫폼 | 버전|
+|기타 플랫폼  |   버전|
 |:---------------|:------------:|
 |Arduino | IDE 1.6.8 |
-|mbed | 2\.0 |
-|TI-RTOS | 2\.x |
+|mbed | 2.0 |
+|TI-RTOS | 2.x |
 
 
 
-## C 라이브러리
+## <a name="c-libraries"></a>C 라이브러리
 
-[C용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md)는 다음 구성에서 테스트되었습니다.
+[C용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md) 는 다음 구성에서 테스트되었습니다.
 
 |OS 플랫폼| 버전|프로토콜|
 |:---------|:----------:|:----------:|
 |Arduino| IDE 1.6.8 | HTTPS |
-|Debian Linux| 7\.5 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
+|Debian Linux| 7.5 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
 |Fedora Linux| 20 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
-|mbed OS| 2\.0 | HTTPS, AMQP, MQTT |
-|TI-RTOS| 2\.x | HTTPS |
-|Ubuntu Linux| 14\.04 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
+|mbed OS| 2.0 | HTTPS, AMQP, MQTT |
+|TI-RTOS| 2.x | HTTPS |
+|Ubuntu Linux| 14.04 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
 |Windows 데스크톱| 10 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
-|Yocto Linux|2\.1 | HTTPS, AMQP|
+|Yocto Linux|2.1  | HTTPS, AMQP|
 
 
 
-## Node.js 라이브러리
+## <a name="node.js-libraries"></a>Node.js 라이브러리
 
-[Node.js용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md)는 다음 구성에서 테스트되었습니다.
+[Node.js용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md) 는 다음 구성에서 테스트되었습니다.
 
 |런타임| 버전|프로토콜|
 |:---------|:----------:|:----:|
-|Node.js| 4\.1.0 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
+|Node.js| 4.1.0 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
 
 Node.js용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었습니다.
 
 |런타임| 버전|
 |:---------|:----------:|
-|Node.js| 4\.1.0 |
+|Node.js| 4.1.0 |
 
 
-## Java 라이브러리
+## <a name="java-libraries"></a>Java 라이브러리
 
-[Java용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md)는 다음 구성에서 테스트되었습니다.
+[Java용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md) 는 다음 구성에서 테스트되었습니다.
 
 |런타임| 버전|프로토콜|
 |:---------|:----------:|----|
-|Java SE(Windows)| 1\.8 | HTTPS, AMQP, MQTT |
-|Java SE(Linux)| 1\.8 | HTTPS, AMQP, MQTT|
+|Java SE(Windows)| 1.8 | HTTPS, AMQP, MQTT |
+|Java SE(Linux)| 1.8 | HTTPS, AMQP, MQTT|
 |Android| API 15 | HTTPS, MQTT |
 
 Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었습니다.
 
 |런타임| 버전|프로토콜|
 |:---------|:----------:|:-----|
-|Java SE| 1\.8 | HTTPS, AMQP, MQTT |
+|Java SE| 1.8 | HTTPS, AMQP, MQTT |
 
 
-## CSharp
+## <a name="csharp"></a>CSharp
 
-[.NET용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md)는 다음 구성에서 테스트되었습니다.
+[.NET용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md) 는 다음 구성에서 테스트되었습니다.
 
 |OS 플랫폼| 버전|프로토콜|
 |:---------|:----------:|:----------:|
 |Windows 데스크톱| 10 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
 |Windows IoT 코어|10 | HTTPS |
-|PCL (Xamarin, 모노, UWP, WP8.1, Win8.1)| | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
+|PCL (Xamarin, 모노, UWP, WP8.1, Win8.1)|  | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
 
 CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었습니다.
 
 |런타임| 버전|
 |:---------|:----------:|
-|.Net| 4\.5. |
-|UWP| |
+|.Net| 4.5. |
+|UWP|  |
 
 관리된 에이전트 코드는 Microsoft .NET Framework 4.5가 필요함
 
 
-## Python 라이브러리
+## <a name="python-libraries"></a>Python 라이브러리
 
-[Python용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md)는 다음 구성에서 테스트되었습니다.
+[Python용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md) 는 다음 구성에서 테스트되었습니다.
 
 |런타임| 버전|프로토콜|
 |:---------|:----------:|:----------:|
-|Python | 2\.7.x, 3.4.x, 3.5.x | HTTPS, AMQP, MQTT |
+|Python | 2.7.x, 3.4.x, 3.5.x | HTTPS, AMQP, MQTT |
 
 
-## IoT용으로 인증된 Microsoft Azure
+## <a name="microsoft-azure-certified-for-iot"></a>IoT용으로 인증된 Microsoft Azure
 
-**IoT용으로 인증된 Microsoft Azure**는 광범위한 IoT 에코 시스템과 Microsoft Azure를 연결하여 개발자와 설계자는 호환성 시나리오를 이해할 수 있습니다. 특히 OS/장치 조합의 신뢰할 수 잇는 목록을 제공하여 개념 증명 또는 파일럿 단계에서든 IoT 프로젝트를 빠르게 시작할 수 있도록 합니다. 인증된 장치 및 운영 체제 조합을 사용하여 장치가 [Azure IoT Suite][lnk-iot-suite] 및 Azure IoT Hub와 호환하는데 필요한 적은 작업과 사용자 지정을 통해 IoT 프로젝트를 빠르게 시작할 수 있습니다.
+**IoT용으로 인증된 Microsoft Azure** 는 광범위한 IoT 에코 시스템과 Microsoft Azure를 연결하여 개발자와 설계자는 호환성 시나리오를 이해할 수 있습니다. 특히 OS/장치 조합의 신뢰할 수 잇는 목록을 제공하여 개념 증명 또는 파일럿 단계에서든 IoT 프로젝트를 빠르게 시작할 수 있도록 합니다. 인증된 장치 및 운영 체제 조합을 사용하여 장치가 [Azure IoT Suite][lnk-iot-suite] 및 Azure IoT Hub와 호환하는데 필요한 적은 작업과 사용자 지정을 통해 IoT 프로젝트를 빠르게 시작할 수 있습니다.
 
-## IoT 장치에 대한 인증
+## <a name="certified-for-iot-devices"></a>IoT 장치에 대한 인증
 
-**IoT 장치에 대한 인증**은 Azure IoT SDK와의 호환성이 테스트되었으며 IoT 응용 프로그램에서 사용할 준비가 되었습니다. 특히 운영 체제 플랫폼 및 코드 언어에 따라 호환성을 식별합니다.
+**IoT 장치에 대한 인증** 은 Azure IoT SDK와의 호환성이 테스트되었으며 IoT 응용 프로그램에서 사용할 준비가 되었습니다. 특히 운영 체제 플랫폼 및 코드 언어에 따라 호환성을 식별합니다.
 
 목록에서 찾는 장치를 발견하지 못했습니까? 괜찮습니다. Azure IoT SDK는 오픈 소스이며 휴대가 가능하도록 설계되었습니다. 시작하려면 클라이언트 라이브러리 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)를 방문하세요. [문제](https://github.com/Azure/azure-iot-sdks/issues) 섹션에서 장치와 관련된 문제가 발생하면 알려주시기 바랍니다.
 
-#### 장치 목록
+#### <a name="devices-list"></a>장치 목록
 
-각 장치는 장치 제조업체에서 선택한 OS 및 언어에서 SDK와 함께 작동하도록 인증되었습니다. 예를 들어 BeagleBone Black은 C, Javascript 및 Java 언어를 사용하여 Debian에서 작동합니다. 즉 개발자는 특정 장치에서 해당 언어 및 OS 조합 중에서 응용 프로그램을 개발할 수 있습니다.
+각 장치는 장치 제조업체에서 선택한 OS 및 언어에서 SDK와 함께 작동하도록 인증되었습니다. 예를 들어 BeagleBone Black은 C, Javascript 및 Java 언어를 사용하여 Debian에서 작동합니다. 즉 개발자는 특정 장치에서 해당 언어 및 OS 조합 중에서 응용 프로그램을 개발할 수 있습니다. 이 테이블의 더 편리한 시각화를 위해 Power BI를 사용하여 시각화하는 방법을 설명하는 블로그 게시물 http://bit.ly/azureiotdevices를 확인할 수 있습니다.
 
 |장치| 테스트된 OS |언어|지침|
 |:---------|:----------|:----------|:----------|
@@ -155,15 +156,15 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[AAEON UP](http://www.up-board.org/) |ubilinux | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ubilinux-up-board.md)|
 |[AAEON UP](http://www.up-board.org/) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-aaeon-up-csharp.md)|
 |[Acme Systems Arietta G25](http://www.acmesystems.it/arietta) |Debian | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-arietta-g25-c.md)|
-|[Adafruit Feather M0 Wifi](https://www.adafruit.com/product/3010) |Arduino IDE(RTOS) | Arduino,C|[시작](https://azure.microsoft.com/documentation/samples/iot-hub-c-m0wifi-getstartedkit/)|
-|[Adafruit Feather Huzzah](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview) |Arduino IDE(RTOS) | Arduino,C|[시작](https://azure.microsoft.com/documentation/samples/iot-hub-c-huzzah-getstartedkit/)|
-|[ADLINK IMB-M43](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1600&seq=&id=&sid=&category=Industrial-Motherboards-&-SBC_ ATX&utm\_source=#) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-imb-m43-csharp.md)|
+|[Adafruit Feather M0 Wifi](https://www.adafruit.com/product/3010) |Arduino IDE(RTOS) | Arduino,C|[시작](https://azure.microsoft.com/en-us/documentation/samples/iot-hub-c-m0wifi-getstartedkit/)|
+|[Adafruit Feather Huzzah](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview) |Arduino IDE(RTOS) | Arduino,C|[시작](https://azure.microsoft.com/en-us/documentation/samples/iot-hub-c-huzzah-getstartedkit/)|
+|[ADLINK IMB-M43](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1600&seq=&id=&sid=&category=Industrial-Motherboards-&-SBC_ ATX&utm_source=#) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-imb-m43-csharp.md)|
 |[ADLINK MXE-200](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-mxe-200-csharp.md)|
 |[ADLINK MXE-200](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Windows10 Iot 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-mxe-200-csharp.md)|
 |[ADLINK MXE 202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-mxe-202i-nodejs.md)|
 |[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-mxe-5400-csharp.md)|
 |[ADLINK MXC-6300](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1242&seq=&id=&sid=&category=Fanless-Embedded-Computer_Expandable-Embedded-Computer&utm_source=) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-mxc-6300-csharp.md)|
-|[ADLINK NuPRO-E43](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1634&seq=&id=&sid=&category=Industrial-Motherboards-&-SBC_PICMG-1.x-CPU-boards&utm_source=) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-nupro-e43-csharp.md)|
+|[ADLINK NuPRO-E43]( http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1634&seq=&id=&sid=&category=Industrial-Motherboards-&-SBC_PICMG-1.x-CPU-boards&utm_source=) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-nupro-e43-csharp.md)|
 |[Advantech Co., AIMB-203](http://www.advantech.com/products/68ccaea2-9ff5-4f85-97f2-3d11244b0a08/aimb-203/mod_a46984f8-caa9-433a-a720-e1815a8c16a3) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-aimb-203-csharp.md)|
 |[Advantech Co., AIMB-215](http://www.advantech.com/products/f910a32b-088c-4f15-8a94-f130f22bc1b5/aimb-215/mod_2fd07ef0-7445-4131-a3b0-379548b78e27) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-aimb-215-csharp.md)|
 |[Advantech Co., AIMB-501](http://www.advantech.com/products/1-2jkkgc/aimb-501/mod_3ed96dd6-792f-431d-b3e7-c524380b15d6) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-aimb-501-csharp.md)|
@@ -193,7 +194,7 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[Alleantia IoT SCADA 서버](http://www.alleantia.com/en/iot-scada-server-2) |Ubuntu | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ubuntu-IoT-scada-server-java.md)|
 |[Allwinner Technology Banana Pi BPI-M64](http://www.banana-pi.com/eacp_view.asp?id=95) |Windows 10 IoT 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-banana-pi-bpi-m64-csharp.md)|
 |[Allwinner Technology Pine64](https://www.pine64.com/product#features) |Windows 10 IoT 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-pine64-csharp.md)|
-|[Amplified FATBOX G3](http://www.amplified.com.au/#!4gltegateway/c192n) |OpenWRT Linux | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-openwrt-fatbox-g3-c.md)|
+|[Amplified FATBOX G3]( http://www.amplified.com.au/#!4gltegateway/c192n) |OpenWRT Linux | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-openwrt-fatbox-g3-c.md)|
 |[AOPEN Inc. eTILE15-FB](http://www.aopen.com/global/shop/products/etile-15m) |Windows 10 IoT Enterprise LTSB | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-enterprise-ltsb-etile15-fb-csharp.md)|
 |[AOPEN Inc. ETILE19-FB](http://www.aopen.com/global/shop/products/etile-19m) |Windows 10 IoT Enterprise LTSB | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-enterprise-ltsb-etile19-fb-csharp.md)|
 |[AOPEN Inc. ETILE22-FW](http://www.aopen.com/global/shop/products/etile-22m) |Windows 10 IoT Enterprise LTSB | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-enterprise-ltsb-etile22-fw-csharp.md)|
@@ -208,8 +209,9 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[Atmark Armadillo-IoT Gateway G3](http://armadillo.atmark-techno.com/armadillo-iot-g3) |Debian | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gw-g3-java.md)|
 |[Atmark Armadillo-IoT Gateway G3L](http://armadillo.atmark-techno.com/armadillo-iot-g3l) |Debian | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gw-g3l-java.md)|
 |[Atmark Armadillo-IoT Gateway G3L](http://armadillo.atmark-techno.com/armadillo-iot-g3l) |Debian | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gateway-g3l-c.md)|
+|[Autobase ATB-1A15C](http://www.autobase.biz/Korean/autobasetouch/ATB-1A15C.htm) |Windows 10 IoT Enterprise LTSB | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-enterprise-ltsb-atb-1a15c-c.md)|
 |[Avalue EPC-BTCR](http://www.avalue.com.tw/Product/Embedded-Computing/Fanless-Industrial-System/Embedded-Computing-System/EPC-BTCR_2323) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/Windows10-epc-btcr-csharp.md)|
-|[Avalue RIPAC-10P1](http://www.avalue.com.tw/product/Intelligent-Systems/POS-Terminal/POS-hardware-systems/RiPac-10P1_2399) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ripac-10p1-csharp.md)|
+|[Avalue RIPAC-10P1]( http://www.avalue.com.tw/product/Intelligent-Systems/POS-Terminal/POS-hardware-systems/RiPac-10P1_2399) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ripac-10p1-csharp.md)|
 |[Avalue RITAB-10T1](http://www.avalue.com.tw/product/Intelligent-Systems/Mobile-Solution/Mobile-Solution/RiTab-10T1_2384) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ritab-10t1-csharp.md)|
 |[Avalue OFT-07W01](http://www.avalue.com.tw/Product/Panel-PC/Open-Frame/Open-Frame-Tablet/OFT-07W01_2394) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-oft-07w01-csharp.md)|
 |[Avalue OFT-10W01](http://www.avalue.com.tw/Product/Panel-PC/Open-Frame/Open-Frame-Tablet/OFT-10W01_2324) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-oft-10w01-csharp.md)|
@@ -217,7 +219,7 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[Avalue OFT-21W01](http://www.avalue.com.tw/Product/Panel-PC/Open-Frame/Open-Frame-Tablet/OFT-21W01_2326) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-oft-21w01-csharp.md)|
 |[Axiomtek eBOX560-300](http://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=17308&upcat=144) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-ebox560-300-csharp.md)|
 |[Axiomtek ICO300](http://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=1151) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-axiomtek-ico300-csharp.md)|
-|[Base Technology QuiX Sensor Gateway](https://www.quix.jp/iot/iotqsx/) |Raspbian | Python|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-quix-sensor-gateway-python.md)|
+|[Base Technology QuiX Sensor Gateway](  https://www.quix.jp/iot/iotqsx/) |Raspbian | Python|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-quix-sensor-gateway-python.md)|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-beaglebone-black-c.md)|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-beaglebone-black-java.md)|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample.md)|
@@ -236,7 +238,7 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[Contec BX-320](http://www3.contec.co.jp) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-BX-320-csharp.md)|
 |[Contec BX-830](http://www3.contec.co.jp) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-BX-830-csharp.md)|
 |[Contec CPS-MC341-ADSC2](http://www3.contec.co.jp/B2B/ConIWCatProductPage_B2B.process?Merchant_Id=1&Section_Id=0&Catalog_Id=0&Product_Id=2537) |Ubuntu | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ubuntu-CPS-MC341-ADSC2-c.md)|
-|[DataVan Glamor 시리즈](http://www.datavan.com.tw/zh_hant/product_4.html) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-glamor-series-csharp.md)|
+|[DataVan Glamor 시리즈]( http://www.datavan.com.tw/zh_hant/product_4.html ) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-glamor-series-csharp.md)|
 |[Dell Edge Gateway 5000 시리즈](http://www.dell.com/IoTgateway) |Ubuntu | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-dell-edge-gateway-5000-series-java.md)|
 |[DFI EC700-BT](http://www.dfi.com.tw/Upload/Product/Documents/BT700.pdf) |Windows 10 | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows7-ec700-bt-c.md)|
 |[DUX Inc HFBX-100](http://dux.jp/product/hfbx-100.html) |Windows10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-HFBX-100-csharp.md)|
@@ -276,11 +278,12 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[MechaTracks 3GPI](http://www.mechatrax.com/products/3gpi) |Raspbian | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-3gpi-c.md)|
 |[Micro-Star Int'l Co. Ltd. NB31](https://www.msi.com/product/tablet/NB31.html#hero-overview) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-nb31-csharp.md)|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7,8, 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-minnowboard-max-csharp.md)|
-|[MiTAC Computing Technology Pluto E220](http://client.mitac.com/products-Embedded-Box-PC-PlutoE220.html) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-pluto-e220-csharp.md)|
+|[MiTAC Computing Technology Pluto E220](http://client.mitac.com/products-Embedded-Box-PC-PlutoE220.html ) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-pluto-e220-csharp.md)|
 |[동작 제어 헨리 보드](http://www.runele.com/ca1/38/p-r-s/) |Yocto | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-henry-board-javascript.md)|
 |[Moxa ioPAC5542-C](http://www.moxa.com.tw/Product/ioPAC_5500.htm) |Linux | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-iopac5542-c-c.md)|
 |[MSC Technologies Baytrail Family](https://www.msc-technologies.eu/de/support/boards/qseven/msc-q7-bt.html) |Linux (MSC-LDK) | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-msc-ldk-baytrail-c.md)|
-|[Nexcom NDiS B535](http://www.nexcom.com.tw/Products/multi-media-solutions/digital-signage-player/high-performance-player/digital-signage-player-ndis-b535) |Windows 10 IoT 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-ndis-b535-csharp.md)|
+|[MSC Technologies Baytrail Family](https://www.msc-technologies.eu/de/support/boards/qseven/msc-q7-bt.html) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-msc-baytrail-csharp.md)|
+|[Nexcom NDiS B535]( http://www.nexcom.com.tw/Products/multi-media-solutions/digital-signage-player/high-performance-player/digital-signage-player-ndis-b535 ) |Windows 10 IoT 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-ndis-b535-csharp.md)|
 |[Nexcom NIFE100](http://www.nexcom.com.tw/Products/industrial-computing-solutions/pc-based-factory-automation/industr) |Windows 10 IoT 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NIFE100-csharp.md)|
 |[Nexcom NIFE200](http://www.nexcom.com.tw/Products/industrial-computing-solutions/pc-based-factory-automation/industr) |Windows 10 IoT 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NIFE200-csharp.md)|
 |[Nexcom NISE50](http://www.nexcom.com.tw/Products/industrial-computing-solutions/industrial-fanless-computer/atom-co) |Windows 10 IoT 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NISE50-csharp.md)|
@@ -305,7 +308,7 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Raspbian | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample.md)|
 |[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Raspbian | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample.md)|
 |[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Windows 10 IoT 코어| C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iotcore-csharp.md)|
-|[Renesas Electronics Corporation GR-PEACH](http://gadget.renesas.com/en/product/peach.html) |Mbed | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-renesas-gr-peach-c.md)|
+|[Renesas Electronics Corporation GR-PEACH](http://gadget.renesas.com/en/product/peach.html) |mbed | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-renesas-gr-peach-c.md)|
 |[RICOH IT9](http://industry.ricoh.com/fbx_board/it9/index.html) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-IT9-csharp.md)|
 |[Sam4s TITAN-500](http://sam4s.co.kr/english/service/product/product_detail.asp?product_num=100073) |Windows 10 | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-sam4s-titan-500-c.md)|
 |[Samsung ARTIK](http://developer.samsung.com/artik) |Fedora | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/fedora-samsung-artik-c.md)|
@@ -316,19 +319,22 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[SinTau SrL GROPIUS](http://www.sintau.it/index.php?option=com_virtuemart&view=productdetails&virtuemart_product_id=6&virtuemart_category_id=1&Itemid=360&lang=it) |Debian | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-gropius-c.md)|
 |[SinTau SrL GROPIUS](http://www.sintau.it/index.php?option=com_virtuemart&view=productdetails&virtuemart_product_id=6&virtuemart_category_id=1&Itemid=360&lang=it) |Debian | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-gropius-java.md)|
 |[Smarthesia PasSy Gateway](http://www.smarthesia.com/#!home-page/gj699) |Yocto| JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/yocto-PasSy-Gateway-nodejs.md)|
-|[SOTEC CloudPlug](http://cloudplug.info/) |YOCTO | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-sotec-cloudplug-c.md)|
-|[Sparkfun ThingDev](https://www.sparkfun.com/products/13711) |Arduino IDE(RTOS)| Arduino, C|[시작](https://azure.microsoft.com/documentation/samples/iot-hub-c-thingdev-getstartedkit/)|
+|[SOTEC CloudPlug](http://cloudplug.info/) |Yocto | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-sotec-cloudplug-c.md)|
+|[Sparkfun ThingDev](https://www.sparkfun.com/products/13711) |Arduino IDE(RTOS)| Arduino, C|[시작](https://azure.microsoft.com/en-us/documentation/samples/iot-hub-c-thingdev-getstartedkit/)|
 |[Spreadtrum SC98xx](http://www.spreadtrum.com/en/SC9830A.html) |Android Marshmallow(v6.0.1)| Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/android-sc98xx-board-java.md)|
+|[Supermicro SYS-5018D-FN4T](https://www.supermicro.com/products/system/1u/5018/sys-5018d-fn4t.cfm) |Windows 10 | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-fn4t-c.md)|
+|[Supermicro SYS-5018D-FN8T](https://www.supermicro.com/products/system/1u/5018/SYS-5018D-FN8T.cfm) |Windows 10 | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-fn8t-c.md)|
+|[Supermicro SYS-5018D-LN4T](https://www.supermicro.com/products/system/1u/5018/SYS-5018D-LN4T.cfm) |Windows 10 | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-ln4t-c.md)|
 |[Supermicro SYS-E200-8B](https://www.supermicro.com.tw/products/system/Mini-ITX/SYS-E200-8B.cfm) |Windows 10 | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-sys-e200-8b-c.md)|
 |[Supermicro SYS-E200-9B](https://www.supermicro.com.tw/products/system/Mini-ITX/SYS-E200-9B.cfm) |Windows 10 | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-sys-e200-9b-c.md)|
 |[Techman Robot Inc. TM5](http://tm-robot.com/robot/) |Windows Embedded Standard 7 | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-embedded-standard-7-tm5-c.md)|
 |[Thecus Technology Corp. W2810PRO](http://wss.thecus.com/product_W2810PRO.php) |Windows Storage Server 2012 R2 Essentials | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-storage-server-2012-r2-essentials-thecus w2810pro-csharp.md)|
 |[Thecus Technology Corp. W5810](http://wss.thecus.com/product_W5810.php) |Windows Storage Server 2012 R2 Essentials | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-storage-server-2012-r2-essentials-thecus w5810-csharp.md)|
 |[TI CC3200](http://www.ti.com/product/cc3200) |TI-RTOS 2.x | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ti-rtos-ti-cc3200-c.md)|
-|[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto) | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
-|[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto) | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
-|[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto) | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
-|[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto) | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
+|[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto)  | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
+|[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto)  | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
+|[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto)  | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
+|[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto)  | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
 |[Toradex Colibri iMX6](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-imx6) |Linux Angstrom(Yocto) | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
 |[Toradex Colibri iMX6](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-imx6) |Linux Angstrom(Yocto) | JavaScript|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
 |[Toradex Colibri T20](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-2) |Linux Angstrom(Yocto) | Java|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
@@ -339,7 +345,7 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 |[Trex NGP](http://www.trex.com.tr/en/donanim_dcasngp8739_73.php) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-trex-ngp-csharp.md)|
 |[Trueverit V4](http://www.trueverit.com/) |사용자 지정 Linux | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-trueverit-v4-c.md)|
 |[USISH EDA8909](http://www.usish.com/) |Windows 10 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-eda8909-csharp.md)|
-|[VaneLife VHo1-X](http://www.vanelife.com/product/detail/2) |Linux Beaglebone | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-vho1-x-c.md)|
+|[VaneLife VHo1-X]( http://www.vanelife.com/product/detail/2) |Linux Beaglebone | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-vho1-x-c.md)|
 |[Vantron VT-M2M-BTA-DE](http://vantrontech.com/hardwares/VT-M2M-BTA-DE.htm) |Windows 10 IoT 코어 | C#|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-vt-m2m-bta-de-csharp.md)|
 |[Vantron VT-M2M-LV](http://vantrontech.com/hardwares/VT-M2M-LV.htm) |사용자 지정 Linux | Python|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-vt-m2m-lv-python.md)|
 |[YASKAWA MMLink-GW](http://www.ysknet.co.jp/product/type/networkboard/mmlink-gw/index.html) |Linux | C|[시작](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-MMLink-GW-c.md)|
@@ -347,22 +353,20 @@ CSharp용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되�
 
 [이러한 장치 사용을 시작](https://azure.microsoft.com/develop/iot/get-started/)하거나 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)를 방문하고 언어별 장치 문서를 검색하세요.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 [IoT 장치에 대한 인증](http://azure.com/iotdev)을 사용하여 솔루션을 개발하는 방법에 대해 자세히 알아봅니다.
 
 IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [추가 프로토콜 지원][lnk-protocols]
-- [이벤트 허브와 비교][lnk-compare]
-- [크기 조정, HA 및 DR][lnk-scaling]
+- [추가 프로토콜 ][lnk-protocols 지원]
+- [이벤트 허브 ][lnk-compare와 비교]
+- [크기 조정, HA 및 DR ][lnk-scaling]
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 - [개발자 가이드][lnk-devguide]
-- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
 - [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
-- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
@@ -371,8 +375,10 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

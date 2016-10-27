@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사를 사용하여 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션 | Microsoft Azure"
-   description="Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, Microsoft Azure 데이터베이스 마법사"
+   pageTitle="Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard | Microsoft Azure"
+   description="Microsoft Azure SQL Database, database migration, Microsoft Azure Database Wizard"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,62 +16,67 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-# Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사를 사용하여 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션
+
+# <a name="migrate-sql-server-database-to-sql-database-using-deploy-database-to-microsoft-azure-database-wizard"></a>Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard
 
 
 > [AZURE.SELECTOR]
-- [SSMS 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [BACPAC 파일로 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [BACPAC 파일에서 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [트랜잭션 복제자](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
-SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사는 [호환되는 SQL Server 데이터베이스](sql-database-cloud-migrate.md)를 Azure SQL 데이터베이스 서버로 마이그레이션합니다.
+The Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio migrates a [compatible SQL Server database](sql-database-cloud-migrate.md) directly into your Azure SQL Database server.
 
-## Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사 사용
+## <a name="use-the-deploy-database-to-microsoft-azure-database-wizard"></a>Use the Deploy Database to Microsoft Azure Database Wizard
 
-> [AZURE.NOTE] 아래 단계에서는 [프로비전된 SQL Database 서버](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/)가 있다고 가정합니다.
+> [AZURE.NOTE] The following steps assume that you have a [provisioned SQL Database server](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 
-1. 최신 버전의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 포털의 업데이트와 동기화 상태를 유지합니다.
+1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
-    > [AZURE.IMPORTANT] Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+    > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Management Studio를 열고 개체 탐색기에서 마이그레이션할 SQL Server 데이터베이스에 연결합니다.
-3. 개체 탐색기에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 다음 **Deploy Database to Microsoft Azure SQL Database…**(Microsoft Azure SQL 데이터베이스에 데이터베이스 배포...)를 클릭합니다.
+2. Open Management Studio and connect to your SQL Server database to be migrated in Object Explorer.
+3. Right-click the database in the Object Explorer, point to **Tasks**, and click **Deploy Database to Microsoft Azure SQL Database…**
 
-	![작업 메뉴에서 Azure에 배포 합니다.](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
+    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
 
-4.	배포 마법사에서 **다음**을 클릭한 후 **연결**을 클릭하여 SQL 데이터베이스 서버에 대한 연결을 구성합니다.
+4.  In the deployment wizard, click **Next**, and then click **Connect** to configure the connection to your SQL Database server.
 
-	![작업 메뉴에서 Azure에 배포 합니다.](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
+    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
 
-5. 서버에 연결 대화 상자에서 SQL 데이터베이스 서버에 연결하기 위한 연결 정보를 입력합니다.
+5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server.
 
-	![작업 메뉴에서 Azure에 배포 합니다.](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
+    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.	마이그레이션 프로세스 중에 이 마법사에서 만드는 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에 대해 다음 정보를 제공합니다.
+5.  Provide the following for the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:
 
- - **새 데이터베이스 이름**
- - **Microsoft Azure SQL Database의 버전**([서비스 계층](sql-database-service-tiers.md))
- - **최대 데이터베이스 크기**
- - **서비스 목표**(성능 수준)
- - **임시 파일 이름**
+ - The **New database name** 
+ - The **Edition of Microsoft Azure SQL Database** ([service tier](sql-database-service-tiers.md))
+ - The **Maximum database size**
+ - The **Service Objective** (performance level)
+ - The **Temporary file name**  
 
-    ![설정 내보내기](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+    ![Export settings](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
-6.	마법사를 완료합니다. 데이터베이스의 크기와 복잡성에 따라 배포는 몇 분에서 몇 시간이 걸릴 수 있습니다. 이 마법사에서 호환성 문제를 검색하면 오류가 화면에 표시되고 마이그레이션이 진행되지 않습니다. 데이터베이스 호환성 문제를 해결하는 방법에 대한 참고 자료는 [데이터베이스 호환성 문제 해결](sql-database-cloud-migrate-fix-compatibility-issues.md)을 참조하세요.
+6.  Complete the wizard. Depending on the size and complexity of the database, deployment may take from a few minutes to many hours. If this wizard detects compatibility issues, errors are displayed to the screen and the migration does not continue. For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
-7.	개체 탐색기를 사용하여 Azure SQL 데이터베이스 서버에서 마이그레이션된 데이터베이스에 연결합니다.
-8.	Azure 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
+7.  Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
+8.  Using the Azure portal, view your database and its properties.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
-- [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## 추가 리소스
+## <a name="additional-resources"></a>Additional resources
 
-- [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
-- [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
-- [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

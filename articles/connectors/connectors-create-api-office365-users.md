@@ -1,6 +1,6 @@
 <properties
-    pageTitle="논리 앱에 Office 365 사용자 커넥터 추가 | Microsoft Azure"
-    description="REST API 매개 변수를 사용하는 Office 365 사용자 커넥터 개요"
+    pageTitle="Add the Office 365 Users connector in Logic Apps | Microsoft Azure"
+    description="Overview of Office 365 Users connector with REST API parameters"
     services=""    
     documentationCenter=""     
     authors="msftman"    
@@ -17,150 +17,156 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Office 365 사용자 커넥터 시작
 
-Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다.
+# <a name="get-started-with-the-office-365-users-connector"></a>Get started with the Office 365 Users connector
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+Connect to Office 365 Users to get profiles, search users, and more. 
 
-Office 365 사용자를 사용하여 다음을 수행할 수 있습니다.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-- Office 365 사용자에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다.
-- 부하 직원 가져오기, 관리자의 사용자 프로필 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 사용자의 부하 직원을 가져온 다음 이 정보를 사용하여 SQL Azure 데이터베이스를 업데이트합니다.
+With Office 365 Users, you can:
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+- Build your business flow based on the data you get from Office 365 Users. 
+- Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a SQL Azure database. 
 
-## 트리거 및 작업
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
-| 트리거 | 작업|
+The Office 365 Users connector has the following actions available. There are no triggers.
+
+| Triggers | Actions|
 | --- | --- |
-|없음 | <ul><li>관리자 가져오기</li><li>내 프로필 가져오기</li><li>부하 직원 가져오기</li><li>사용자 프로필 가져오기</li><li>사용자 검색</li></ul>|
+|None | <ul><li>Get manager</li><li>Get my profile</li><li>Get direct reports</li><li>Get user profile</li><li>Search for users</li></ul>|
 
-모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
-
-
-## Office 365 사용자에 대한 연결 만들기
-
-논리 앱에 이 커넥터를 추가할 때 Office 365 사용자 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
-
->[AZURE.INCLUDE [Office 365 사용자에 대한 연결을 만드는 단계](../../includes/connectors-create-api-office365users.md)]
-
-연결을 만든 후 사용자 ID 등의 Office 365 사용자 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
-
->[AZURE.TIP] 다른 논리 앱에서 이와 동일한 Office 365 사용자 연결을 사용할 수 있습니다.
+All connectors support data in JSON and XML formats. 
 
 
-## Office 365 사용자 REST API 참조
-적용 버전: 1.0
+## <a name="create-a-connection-to-office-365-users"></a>Create a connection to Office 365 Users
 
-### 내 프로필 가져오기 
-현재 사용자에 대한 프로필을 검색합니다. ```GET: /users/me```
+When you add this connector to your logic apps, you must sign-in to your Office 365 Users account and allow logic apps to connect to your account.
 
-이 호출에 대한 매개 변수는 없습니다.
+>[AZURE.INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 
-#### 응답
+After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this topic describes these properties.
 
-|Name|설명|
+>[AZURE.TIP] You can use this same Office 365 Users connection in other logic apps.
+
+
+## <a name="office-365-users-rest-api-reference"></a>Office 365 Users REST API reference
+Applies to version: 1.0.
+
+### <a name="get-my-profile"></a>Get my profile 
+Retrieves the profile for the current user.  
+```GET: /users/me``` 
+
+There are no parameters for this call.
+
+#### <a name="response"></a>Response
+
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|202|작업이 성공했습니다.|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-### 사용자 프로필 가져오기 
-특정 사용자 프로필을 검색합니다. ```GET: /users/{userId}```
+### <a name="get-user-profile"></a>Get user profile 
+Retrieves a specific user profile.  
+```GET: /users/{userId}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|없음|사용자 계정 이름 또는 전자 메일 ID|
+|userId|string|yes|path|none|User principal name or email id|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|202|작업이 성공했습니다.|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-### 관리자 가져오기 
-지정된 사용자의 관리자에 대한 사용자 프로필을 검색합니다. ```GET: /users/{userId}/manager```
+### <a name="get-manager"></a>Get manager 
+Retrieves user profile for the manager of the specified user.  
+```GET: /users/{userId}/manager``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|없음|사용자 계정 이름 또는 전자 메일 ID|
+|userId|string|yes|path|none|User principal name or email id|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|202|작업이 성공했습니다.|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
 
-### 부하 직원을 가져옵니다. 
-부하 직원을 가져옵니다. ```GET: /users/{userId}/directReports```
+### <a name="get-direct-reports"></a>Get direct reports 
+Get direct reports.  
+```GET: /users/{userId}/directReports``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|없음|사용자 계정 이름 또는 전자 메일 ID|
+|userId|string|yes|path|none|User principal name or email id|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|202|작업이 성공했습니다.|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
 
-### 사용자 검색 
-사용자 프로필 검색 결과를 가져옵니다. ```GET: /users```
+### <a name="search-for-users"></a>Search for users 
+Retrieves search results of user profiles.  
+```GET: /users``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|searchTerm|string|no|쿼리|없음|검색 문자열(적용 대상: 표시 이름, 이름, 성, 메일, 메일 애칭 및 사용자 계정 이름)|
+|searchTerm|string|no|query|none|Search string (applies to: display name, given name, surname, mail, mail nickname and user principal name)|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|202|작업이 성공했습니다.|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|권한 없음|
-|403|사용할 수 없음|
-|500|내부 서버 오류|
-|기본값|작업이 실패했습니다.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
 
-## 개체 정의
+## <a name="object-definitions"></a>Object definitions
 
-#### User: 사용자 모델 클래스입니다.
+#### <a name="user:-user-model-class"></a>User: User model class
 
-|속성 이름 | 데이터 형식 |필수
+|Property Name | Data Type |Required
 |---|---|---|
 |DisplayName|string|no|
 |GivenName|string|no|
@@ -168,19 +174,19 @@ Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수
 |Mail|string|no|
 |MailNickname|string|no|
 |TelephoneNumber|string|no|
-|AccountEnabled|부울|no|
+|AccountEnabled|boolean|no|
 |Id|string|yes
 |UserPrincipalName|string|no|
-|부서|string|no|
+|Department|string|no|
 |JobTitle|string|no|
-|MobilePhone|string|no|
+|mobilePhone|string|no|
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-[API 목록](apis-list.md)으로 돌아갑니다.
+Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -190,4 +196,8 @@ Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
- pageTitle="IoT Hub 진단 메트릭"
- description="사용자가 리소스의 전반적인 상태를 평가할 수 있는 Azure IoT Hub 메트릭의 개요"
+ pageTitle="IoT Hub diagnostic metrics"
+ description="An overview of Azure IoT Hub metrics, enabling users to assess the overall health of their resource"
  services="iot-hub"
  documentationCenter=""
  authors="nberdy"
@@ -16,55 +16,53 @@
  ms.date="08/11/2016"
  ms.author="nberdy"/>
 
-# 진단 메트릭 소개
 
-진단 메트릭은 구독의 Azure 리소스 상태에 대한 더 나은 데이터를 제공합니다. 메트릭을 통해 서비스와 연결된 장치의 전반적인 상태를 평가할 수 있습니다. 사용자 측 통계는 Azure 지원 센터에 문의할 필요 없이 IoT Hub의 상황을 파악하고 근본 원인을 해결할 수 있기 때문에 중요합니다.
+# <a name="introduction-to-diagnostic-metrics"></a>Introduction to diagnostic metrics
 
-Azure 포털에서 진단 메트릭을 사용할 수 있습니다.
+Diagnostic metrics give you better data about the state of the Azure resources in your subscription. Metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
-## 진단 메트릭을 사용하는 방법
+You can enable diagnostic metrics from the Azure portal.
 
-1. IoT Hub를 만듭니다. IoT Hub를 만드는 방법에 관한 지침은 [시작][lnk-get-started] 가이드에서 확인할 수 있습니다.
+## <a name="how-to-enable-diagnostic-metrics"></a>How to enable diagnostic metrics
 
-2. IoT Hub의 블레이드를 엽니다. 여기에서 **진단**을 클릭합니다.
+1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
+
+2. Open the blade of your IoT hub. From there, click **Diagnostics**.
 
     ![][1]
 
-3. 상태를 **켜기**로 설정하고 저장소 계정을 선택하여 진단 데이터를 저장함으로써 진단을 구성할 수 있습니다. **메트릭**을 확인하고 **저장**을 누릅니다. 저장소 계정은 미리 만들어야 하고 저장소에 대한 요금이 별도로 청구됩니다. 또한 이벤트 허브 끝점에 진단 데이터를 보낼 수 있습니다.
+3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check **Metrics**, and then press **Save**. Note that the storage account must be created ahead of time and that you are charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
 
     ![][2]
 
-4. 진단을 설정한 후에 **개요** IoT Hub 블레이드로 돌아갑니다. 메트릭 정보는 블레이드의 **모니터링** 섹션에 채워집니다. 차트를 클릭하면 IoT Hub에 대한 메트릭 정보 요약을 보고 차트에 표시된 메트릭 선택 항목을 편집할 수 있는 메트릭 창이 열립니다. 또한 메트릭 값을 기반으로 경고를 구성할 수 있습니다.
+4. After you have set up the diagnostics, return to the **Overview** IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub and edit the selection of metrics shown in the chart. You can also configure alerts based on metric values.
 
     ![][3]
 
-## 메트릭 및 사용 방법
+## <a name="metrics-and-how-to-use-them"></a>Metrics and how to use them
 
-IoT Hub는 허브의 상태와 연결 된 장치의 총 수에 대한 개요를 제공하는 몇 가지 메트릭을 제공합니다. IoT Hub 상태의 큰 그림을 그리기 위해 여러 가지 메트릭의 정보를 결합할 수 있습니다. 다음 테이블에는 각 IoT Hub가 추적하는 메트릭과 각 메트릭이 IoT hub의 전반적인 상태와 어떤 관련성이 있는지 설명합니다.
+IoT Hub provides several metrics to give you an overview of the health of your hub and the total number of devices connected to it. You can combine information from multiple metrics to paint a bigger picture of the state of the IoT hub. The following table describes the metrics each IoT hub tracks, and how each metric relates to the overall status of the IoT hub.
 
-| 메트릭 | 메트릭 설명 | 메트릭 용도 |
+| Metric | Metric description | What the metric is used for |
 | ---- | ---- | ---- |
-| d2c.telemetry.ingress.allProtocol | 모든 장치에서 전송된 메시지의 수 | 메시지 전송에 대한 개요 데이터 |
-| d2c.telemetry.ingress.success | 허브 내 모든 성공한 메시지의 수 | 허브에 성공적으로 수신된 메시지의 개요 |
-| c2d.commands.egress.complete.success | 모든 장치의 수신 장치에 의해 완료된 모든 명령 메시지의 수 | 중단 및 거부에 대한 메트릭과 함께 전반적인 C2D 명령 성공률에 관한 개요 제공 |
-| c2d.commands.egress.abandon.success | 모든 장치의 수신 장치에 의해 성공적으로 중단된 모든 메시지의 수 | 메시지가 예상보다 자주 중단되는 경우 잠재적인 문제 강조 표시 |
-| c2d.commands.egress.reject.success | 모든 장치의 수신 장치에 의해 성공적으로 거부된 모든 메시지의 수 | 메시지가 예상보다 자주 거부되는 경우 잠재적인 문제 강조 표시 |
-| devices.totalDevices | IoT Hub에 등록된 장치의 평균, 최소 및 최대수 | 허브에 등록된 장치 수 |
-| devices.connectedDevices.allProtocol | 동시에 연결된 장치의 평균, 최소 및 최대수 | 허브에 연결된 장치 수 개요 |
+| d2c.telemetry.ingress.allProtocol | The count of messages sent across all devices | Overview data on message sends |
+| d2c.telemetry.ingress.success | The count of all successful messages into the hub | Overview of successful message ingress into the hub |
+| c2d.commands.egress.complete.success | The count of all command messages completed by the receiving device across all devices | Together with the metrics on abandon and reject, gives an overview of overall C2D command success rate |
+| c2d.commands.egress.abandon.success | The count of all messages successfully abandoned by the receiving device across all devices | Highlights potential issues if messages are getting abandoned more often than expected |
+| c2d.commands.egress.reject.success | The count of all messages successfully rejected by the receiving device across all devices | Highlights potential issues if messages are getting rejected more often than expected |
+| devices.totalDevices | The average, min, and max of the number of devices registered to the IoT hub | The number of devices registered to the hub |
+| devices.connectedDevices.allProtocol | The average, min, and max of the number of simultaneous connected devices | Overview of the number of devices connected to the hub |
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-지금까지 진단 메트릭의 개요를 살펴보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 보려면 다음 링크를 따라가십시오.
+Now that you’ve seen an overview of diagnostic metrics, follow this link to learn more about managing Azure IoT Hub:
 
-- [작업 모니터링][lnk-monitor]
-- [IoT Hub에 대한 액세스 관리][lnk-itpro]
+- [Operations monitoring][lnk-monitor]
 
-IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+To further explore the capabilities of IoT Hub, see:
 
-- [솔루션 디자인][lnk-design]
-- [개발자 가이드][lnk-devguide]
-- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
-- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -77,11 +75,12 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-dr]: iot-hub-ha-dr.md
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
-[lnk-itpro]: iot-hub-itpro-info.md
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

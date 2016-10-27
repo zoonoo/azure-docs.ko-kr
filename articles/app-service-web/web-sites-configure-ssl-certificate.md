@@ -1,171 +1,174 @@
 <properties
-	pageTitle="HTTPS를 사용하여 앱의 사용자 지정 도메인 보안 유지 | Microsoft Azure"
-	description="SSL 인증서 바인딩을 구성하여 Azure 앱 서비스에서 앱에 대한 사용자 지정 도메인 이름의 보안을 유지하는 방법을 알아봅니다. 또한 여러 도구에서 SSL 인증서를 가져오는 방법을 알아봅니다."
-	services="app-service"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
-	editor="jimbe"
-	tags="top-support-issue"/>
+    pageTitle="Secure your app's custom domain with HTTPS | Microsoft Azure"
+    description="Learn how secure the custom domain name for your app in Azure App Service by configuring an SSL certificate binding. You will also learn how to get an SSL certificate from multiple tools."
+    services="app-service"
+    documentationCenter=".net"
+    authors="cephalin"
+    manager="wpickett"
+    editor="jimbe"
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="cephalin"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/08/2016"
+    ms.author="cephalin"/>
 
-# HTTPS를 사용하여 앱의 사용자 지정 도메인 보안 유지
+
+# <a name="secure-your-app's-custom-domain-with-https"></a>Secure your app's custom domain with HTTPS
 
 
 > [AZURE.SELECTOR]
-- [Azure에서 SSL 인증서 구입](web-sites-purchase-ssl-web-site.md)
-- [다른 곳에서 SSL 인증서 사용](web-sites-configure-ssl-certificate.md)
+- [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
+- [Use SSL cert from elsewhere](web-sites-configure-ssl-certificate.md)
 
 
-이 문서에서는 사용자 지정 도메인 이름을 사용하는 웹앱, 모바일 앱 백 엔드 또는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 API 앱에 HTTPS를 사용하도록 설정하는 방법을 보여 줍니다. 여기서는 서버 전용 인증을 다룹니다. 상호 인증(클라이언트 인증 포함)이 필요한 경우 [앱 서비스에 대한 TLS 상호 인증을 구성하는 방법](app-service-web-configure-tls-mutual-auth.md)을 참조하세요.
+This article shows you how to enable HTTPS for a web app, a mobile app backend, or an API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md) that uses a custom domain name. It covers server-only authentication. If you need mutual authentication (including client authentication), see [How To Configure TLS Mutual Authentication for App Service](app-service-web-configure-tls-mutual-auth.md).
 
-HTTPS를 사용하여 사용자 지정 도메인 이름이 있는 앱의 보안을 유지하려면 해당 도메인 이름에 대한 인증서를 추가합니다. 기본적으로 Azure는 단일 SSL 인증서를 사용하여 ***.azurewebsites.net** 와일드카드 도메인의 보안을 유지하므로 클라이언트는 이미 **https://*&lt;appname>*.azurewebsites.net**에서 앱에 액세스할 수 있습니다. 그러나 **contoso.com**, **www.contoso.com** 및 ***.contoso.com**과 같은 사용자 지정 도메인을 사용하려는 경우에는 기본 인증서로 보안을 유지할 수 없습니다. 또한 모든 [와일드카드 인증](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)와 마찬가지로 기본 인증서는 사용자 지정 도메인과 해당 도메인용 인증서를 사용하는 것보다 안전하지 않습니다.
+To secure with HTTPS an app that has a custom domain name, you add a certificate for that domain name. By default, Azure secures the **\*.azurewebsites.net** wildcard domain with a single SSL certificate, so your clients can already access your app at **https://*&lt;appname>*.azurewebsites.net**. But if you want to use a custom domain, like **contoso.com**, **www.contoso.com**, and **\*.contoso.com**, the default certificate can't secure that. Furthermore, like all [wildcard certificates](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), the default certificate is not as secure as using a custom domain and a certificate for that custom domain.   
 
->[AZURE.NOTE] 언제든지 [Azure 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가의 도움을 받을 수 있습니다. 보다 개별화된 지원을 원하는 경우 [Azure 지원](https://azure.microsoft.com/support/options/)으로 이동하여 **지원 받기**를 클릭합니다.
+>[AZURE.NOTE] You can get help from Azure experts anytime on the [Azure forums](https://azure.microsoft.com/support/forums/). For more personalized support, go to [Azure Support](https://azure.microsoft.com/support/options/) and click **Get Support**.
 
 <a name="bkmk_domainname"></a>
-## 필요한 항목
-HTTPS를 사용하여 사용자 지정 도메인 이름의 보안을 유지하려면 Azure에서 사용자 지정 SSL 인증서를 해당 사용자 지정 도메인에 바인딩합니다. 사용자 지정 인증서를 바인딩하기 전에 먼저 다음을 수행해야 합니다.
+## <a name="what-you-need"></a>What you need
+To secure your custom domain name with HTTPS, you bind a custom SSL certificate to that custom domain in Azure. Before binding a custom certificate, you need to do the following:
 
-- **사용자 지정 도메인 구성** - 앱 서비스에서는 앱에 이미 구성된 도메인 이름에 대한 인증서만 추가하도록 허용합니다. 지침은 [Azure 앱에 사용자 지정 도메인 이름 매핑](web-sites-custom-domain-name.md)을 참조하세요.
-- **기본 계층 이상으로 강화** - 낮은 가격 책정 계층의 앱 서비스 계획은 사용자 지정 SSL 인증서를 지원하지 않습니다. 지침은 [Azure에서 앱 강화](web-sites-scale.md)를 참조하세요.
-- **SSL 인증서 가져오기** - 아직 없는 경우 신뢰할 수 있는 CA([인증 기관](http://en.wikipedia.org/wiki/Certificate_authority))에서 받아야 합니다. 인증서는 다음 요구 사항을 모두 충족해야 합니다.
+- **Configure the custom domain** - App Service only allows adding a certificate for a domain name that's already configured in your app. For instructions, see [Map a custom domain name to an Azure app](web-sites-custom-domain-name.md). 
+- **Scale up to Basic tier or higher** App Service plans in lower pricing tiers don't support custom SSL certificates. For instructions, see [Scale up an app in Azure](web-sites-scale.md). 
+- **Get an SSL certificate** - If you do not already have one, you need to get one from a trusted [certificate authority](http://en.wikipedia.org/wiki/Certificate_authority) (CA). The certificate must meet all the following requirements:
 
-	- 개인 CA 서버가 아니라 신뢰할 수 있는 CA가 서명한 것이어야 합니다.
-	- 개인 키가 포함되어 있어야 합니다.
-	- 키 교환용으로 만들어졌으며 .PFX 파일로 내보낼 수 있어야 합니다.
-	- 최소 2048비트 암호화를 사용해야 합니다.
-	- 해당 주체 이름이 보안을 유지해야 하는 사용자 지정 도메인과 일치해야 합니다. 여러 도메인을 하나의 인증서로 보안을 유지하려면 와일드 카드 이름(예: ***. contoso.com**)을 사용하거나 subjectAltName 값을 지정하면 됩니다.
-	- 이는 CA에서 사용하는 모든 **[중간 인증서](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)**와 병합됩니다. 그렇지 않으면 일부 클라이언트에서 재생 불가능한 상호 운용성 문제가 발생할 수 있습니다.
+    - It is signed by a trusted CA (no private CA servers).
+    - It contains a private key.
+    - It is created for key exchange, and exported to a .PFX file.
+    - It uses a minimum of 2048-bit encryption.
+    - Its subject name matches the custom domain it needs to secure. To secure multiple domains with one certificate, you need to use a wildcard name (e.g. **\*.contoso.com**) or specify subjectAltName values.
+    - It is merged with all **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** used by your CA. Otherwise, you may run into irreproducible interoperability problems on some clients.
 
-		>[AZURE.NOTE] 모든 요구 사항을 충족하는 SSL 인증서를 얻는 가장 쉬운 방법은 [Azure 포털에서 직접 구입](web-sites-purchase-ssl-web-site.md)하는 것입니다. 이 문서에서는 수동으로 이 작업을 수행한 다음 앱 서비스에서 사용자 지정 도메인에 바인딩하는 방법을 보여 줍니다.
-		>	
-		> **ECC(타원 곡선 암호화) 인증서**는 앱 서비스에서 사용할 수 있지만 이 문서의 범위를 벗어납니다. ECC 인증서를 만드는 정확한 단계에서 CA를 사용하세요.
+        >[AZURE.NOTE] The easiest way to get an SSL certificate that meets all the requirements is to         [buy one in the Azure portal directly](web-sites-purchase-ssl-web-site.md). This article shows you how to do it manually and then bind it to your custom domain in App Service.
+        >   
+        > **Elliptic Curve Cryptography (ECC) certificates** can work with App Service, but outside the scope of this article. Work with your CA on the exact steps to create ECC certificates.
 
 <a name="bkmk_getcert"></a>
-## 1단계. SSL 인증서 가져오기
+## <a name="step-1.-get-an-ssl-certificate"></a>Step 1. Get an SSL certificate
 
-CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 구입할 SSL 인증서 유형을 결정해야 합니다. 단일 도메인 이름(**www.contoso.com**)의 보안을 유지하려면 기본 인증서만 있으면 됩니다. 여러 도메인 이름(**contoso.com** *and* **www.contoso.com** *및* **mail.contoso.com**)의 보안을 유지하려면 [와일드카드 인증서](http://en.wikipedia.org/wiki/Wildcard_certificate) 또는 [주체 대체 이름](http://en.wikipedia.org/wiki/SubjectAltName)(`subjectAltName`)이 포함된 인증서가 필요합니다.
+Because CAs provide the various SSL certificate types at different price points, you should start by deciding what type of SSL certificate to buy. To secure a single domain name (**www.contoso.com**), you just need a basic certificate. To secure multiple domain names (**contoso.com** *and* **www.contoso.com** 
+*and* **mail.contoso.com**), you need either a [wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate) or a certificate with [Subject Alternate Name](http://en.wikipedia.org/wiki/SubjectAltName) (`subjectAltName`).
 
-구입할 SSL 인증서를 알았으면 CA에 CSR(인증서 서명 요청)을 제출합니다. CA에서 요청한 인증서를 다시 가져온 경우 인증서에서 .pfx 파일을 생성합니다. 선택한 도구를 사용하여 이러한 단계를 수행할 수 있습니다. 다음은 일반적인 도구에 대한 지침입니다.
+Once you know which SSL certificate to buy, you submit a Certificate Signing Request (CSR) to a CA. When you get requested certificate back from the CA, you then generate a .pfx file from the certificate. You can perform these steps using the tool of your choice. Here are instructions for the common tools:
 
-- [Certreq.exe 단계](#bkmk_certreq) - 인증서 요청을 만들기 위한 Windows 유틸리티입니다. Windows XP/Windows Server 2000 이후 Windows의 일부가 되었습니다.
-- [IIS 관리자 단계](#bkmk_iismgr) - 이미 익숙한 경우에 선택하는 도구입니다.
-- [OpenSSL 단계](#bkmk_openssl) - [오픈 소스, 크로스 플랫폼 도구](https://www.openssl.org)입니다. 이 도구를 사용하면 모든 플랫폼에서 SSL 인증서를 가져올 수 있습니다.
-- [OpenSSL을 사용하는 subjectAltName 단계](#bkmk_subjectaltname) -`subjectAltName` 인증서를 가져오는 단계입니다.
+- [Certreq.exe steps](#bkmk_certreq) - the Windows utility for creating certificate requests. It has been part of Windows since Windows XP/Windows Server 2000.
+- [IIS Manager steps](#bkmk_iismgr) - The tool of choice if you're already familiar with it.
+- [OpenSSL steps](#bkmk_openssl) - an [open-source, cross-platform tool](https://www.openssl.org). Use it to help you get an SSL certificate from any platform.
+- [subjectAltName steps using OpenSSL](#bkmk_subjectaltname) - steps for getting `subjectAltName` certificates.
 
-인증서를 구입하기 전에 앱 서비스에서 설정을 테스트하려는 경우 [자체 서명된 인증서](https://en.wikipedia.org/wiki/Self-signed_certificate)를 생성할 수 있습니다. 이 자습서에서는 인증서를 생성하는 두 가지 방법을 제공합니다.
+If you want to test the setup in App Service before buying a certificate, you can generate a [self-signed certificate](https://en.wikipedia.org/wiki/Self-signed_certificate). This tutorial gives you two ways to generate it:
 
-- [자체 서명된 인증서, Certreq.exe 단계](#bkmk_sscertreq)
-- [자체 서명된 인증서, OpenSSL 단계](#bkmk_ssopenssl)
+- [Self-signed certificate, Certreq.exe steps](#bkmk_sscertreq)
+- [Self-signed certificate, OpenSSL steps](#bkmk_ssopenssl)
 
 <a name="bkmk_certreq"></a>
-### Certreq.exe를 사용하여 인증서 받기
+### <a name="get-a-certificate-using-certreq.exe"></a>Get a certificate using Certreq.exe
 
-1. 파일(예: **myrequest.txt**)을 만들고 다음 텍스트를 복사한 다음 작업 디렉터리에 저장합니다. `<your-domain>` 자리 표시자를 앱의 사용자 지정 도메인 이름으로 바꿉니다.
+1. Create a file (e.g. **myrequest.txt**), and copy into it the following text, and save it in a working directory. Replace the `<your-domain>` placeholder with the custom domain name of your app.
 
-		[NewRequest]
-		Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
-		Exportable = TRUE
-		KeyLength = 2048              ; Required minimum is 2048
-		KeySpec = 1
-		KeyUsage = 0xA0
-		MachineKeySet = True
-		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
-		ProviderType = 12
-		HashAlgorithm = SHA256
+        [NewRequest]
+        Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
+        Exportable = TRUE
+        KeyLength = 2048              ; Required minimum is 2048
+        KeySpec = 1
+        KeyUsage = 0xA0
+        MachineKeySet = True
+        ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+        ProviderType = 12
+        HashAlgorithm = SHA256
 
-		[EnhancedKeyUsageExtension]
-		OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
+        [EnhancedKeyUsageExtension]
+        OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
-	CSR의 옵션 및 사용 가능한 기타 옵션에 대한 자세한 내용은 [Certreq 참조 설명서](https://technet.microsoft.com/library/dn296456.aspx)를 참조하세요.
+    For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/library/dn296456.aspx).
 
-4. 명령 프롬프트에서 작업 디렉터리로 `CD`한 후 다음 명령을 실행하여 CSR을 만듭니다.
+4. In a command prompt, `CD` into your working directory and run the following command to create the CSR:
 
-		certreq -new myrequest.txt myrequest.csr
+        certreq -new myrequest.txt myrequest.csr
 
-	이제 **myrequest.csr**이 현재 작업 디렉터리에 생성되었습니다.
+    **myrequest.csr** is now created in your current working directory.
 
-5. **myrequest.csr**을 CA에 제출하여 SSL 인증서를 가져옵니다. 웹 양식으로 파일을 업로드하거나 텍스트 편집기에서 해당 콘텐츠를 복사합니다.
+5. Submit **myrequest.csr** to a CA to obtain an SSL certificate. You either upload the file, or copy its content from a text editor into a web form.
 
-	Microsoft에서 신뢰할 수 있는 CA 목록은 [Microsoft에서 신뢰할 수 있는 루트 인증서 프로그램: 참가자][cas]를 참조하세요.
+    For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
 
-6. CA가 인증서(.CER) 파일로 응답한 경우 작업 디렉터리에 저장합니다. 다음 명령을 실행하여 보류 중인 CSR을 완료합니다.
+6. Once the CA has responded to you with a certificate (.CER) file, save it in your working directory. Then, run the following command to complete the pending CSR.
 
-		certreq -accept -user <certificate-name>.cer
+        certreq -accept -user <certificate-name>.cer
 
-	이 명령은 완성된 인증서를 Windows 인증서 저장소에 저장합니다.
+    This command stores the finished certificate in the Windows certificate store.
 
-6. CA에서 중간 인증서를 사용하는 경우 먼저 이를 설치한 다음 계속 진행합니다. 일반적으로 이 인증서는 CA에서 개별 다운로드로 제공되며, 각 웹 서버 유형에 따라 여러 형식으로 제공됩니다. Microsoft IIS용 버전을 선택합니다.
+6. If your CA uses intermediate certificates, install them before you proceed. They usually come as a separate download from your CA, and in several formats for different web server types. Select the version for Microsoft IIS.
 
-	인증서를 다운로드한 후 Windows 탐색기에서 각 인증서를 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. **인증서 가져오기 마법사**에서 기본값을 사용하고 가져오기가 완료될 때까지 **다음**을 계속 선택합니다.
+    Once you have downloaded the certificates, right-click each of them in Windows Explorer and select  **Install certificate**. Use the default values in the **Certificate Import Wizard**, and continue selecting **Next** until the import has completed.
 
-7. 인증서 저장소에서 SSL 인증서를 내보내려면 `Win`+`R`를 누르고 **certmgr.msc**를 실행하여 인증서 관리자를 시작합니다. **개인** > **인증서**를 선택합니다. **발급 대상** 열에 사용자 지정 도메인 이름이 있는 항목이 표시되고, **발급자** 열에 인증서를 생성하는 데 사용한 CA가 표시됩니다.
+7. To export your SSL certificate from the certificate store, press `Win`+`R` and run **certmgr.msc** to launch Certificate Manager. Select **Personal** > **Certificates**. In the **Issued To** column, you should see an entry with your custom domain name, and the CA you used to generate the certificate in the **Issued By** column.
 
-	![여기에 인증서 관리자 이미지 삽입][certmgr]
+    ![insert image of cert manager here][certmgr]
 
-9. 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업** > **내보내기**를 선택합니다. **인증서 내보내기 마법사**에서 **다음**을 클릭하고 **예, 개인 키를 내보냅니다.**를 선택한 후 **다음**을 다시 클릭합니다.
+9. Right-click the certificate and select **All Tasks** > **Export**. In the **Certificate Export Wizard**, click **Next**, then select **Yes, export the private key**, and then click **Next** again.
 
-	![개인 키 내보내기][certwiz1]
+    ![Export the private key][certwiz1]
 
-10. **개인 정보 교환 - PKCS #12**, **가능한 경우 인증 경로에 있는 인증서 모두 포함** 및 **확장된 속성 모두 내보내기**를 선택합니다. 그런 후 **다음**을 클릭합니다.
+10. Select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and **Export all extended properties**. Then, click **Next**.
 
-	![모든 인증서 및 확장 속성 포함][certwiz2]
+    ![include all certs and extended properties][certwiz2]
 
-11. **암호**를 선택한 후 암호를 입력하고 확인합니다. **다음**을 클릭합니다.
+11. Select **Password**, and then enter and confirm the password. Click **Next**.
 
-	![암호 지정][certwiz3]
+    ![specify a password][certwiz3]
 
-12. 내보낸 인증서의 경로 및 파일 이름을 확장명 **.pfx**와 함께 제공합니다. **다음**을 클릭하여 완료합니다.
+12. Provide a path and filename for the exported certificate, with the extension **.pfx**. Click **Next** to finish.
 
-	![파일 경로 제공][certwiz4]
+    ![provide a file path][certwiz4]
 
-이제 내보낸 PFX 파일을 앱 서비스에 업로드할 준비가 되었습니다. [2단계. 사용자 지정 SSL 인증서 업로드 및 바인딩](#bkmk_configuressl)을 참조하세요.
+You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
 <a name="bkmk_iismgr"></a>
-### IIS 관리자를 사용하여 인증서 받기
+### <a name="get-a-certificate-using-the-iis-manager"></a>Get a certificate using the IIS Manager
 
-1. IIS 관리자를 사용하여 CA에 보낼 CSR을 생성합니다. CSR 생성에 대한 자세한 내용은 [인터넷 서버 인증서 요청(IIS 7)][iiscsr]을 참조하세요.
+1. Generate a CSR with IIS Manager to send to the CA. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
 
-3. SSL 인증서를 가져오려면 CA에 CSR을 제출합니다. Microsoft에서 신뢰할 수 있는 CA 목록은 [Microsoft에서 신뢰할 수 있는 루트 인증서 프로그램: 참가자][cas]를 참조하세요.
+3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
 
 
-3. CA에서 반환하는 인증서로 CSR을 완료합니다. CSR 완료에 대한 자세한 내용은 [인터넷 서버 인증서 설치(IIS 7)][installcertiis]를 참조하세요.
+3. Complete the CSR with the certificate that the CA sends back to you. For more information on completing the CSR, see [Install an Internet Server Certificate (IIS 7)][installcertiis].
 
-4. CA에서 중간 인증서를 사용하는 경우 먼저 이를 설치한 다음 계속 진행합니다. 일반적으로 이 인증서는 CA에서 개별 다운로드로 제공되며, 각 웹 서버 유형에 따라 여러 형식으로 제공됩니다. Microsoft IIS용 버전을 선택합니다.
+4. If your CA uses intermediate certificates, install them before you proceed. They usually come as a separate download from your CA, and in several formats for different web server types. Select the version for Microsoft IIS.
 
-	인증서를 다운로드한 후 Windows 탐색기에서 각 인증서를 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. **인증서 가져오기 마법사**에서 기본값을 사용하고 가져오기가 완료될 때까지 **다음**을 계속 선택합니다.
+    Once you have downloaded the certificates, right-click each of them in Windows Explorer and select **Install certificate**. 
+    Use the default values in the **Certificate Import Wizard**, and continue selecting **Next** until the import has completed.
 
-4. IIS 관리자에서 SSL 인증서를 내보냅니다. 인증서 내보내기에 대한 자세한 내용은 [서버 인증서 내보내기(IIS 7)][exportcertiis]를 참조하세요.
+4. Export the SSL certificate from IIS Manager. For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. 
 
-	>[AZURE.IMPORTANT] **인증서 내보내기 마법사**에서 **예, 개인 키를 내보냅니다.**가 선택되어 있는지 확인합니다.
-	>
-	>![개인 키 내보내기][certwiz1]
-	>
-	> 또한 **개인 정보 교환 - PKCS #12**, **가능한 경우 인증 경로에 있는 인증서 모두 포함** 및 **확장된 속성 모두 내보내기**를 선택합니다.
-	>
-	>![모든 인증서 및 확장 속성 포함][certwiz2]
+    >[AZURE.IMPORTANT] In the **Certificate Export Wizard**, make sure that you select **Yes, export the private key**  
+    >
+    >![Export the private key][certwiz1]  
+    >
+    > and also select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and     **Export all extended properties**.
+    >
+    >![include all certs and extended properties][certwiz2]
 
-이제 내보낸 PFX 파일을 앱 서비스에 업로드할 준비가 되었습니다. [2단계. 사용자 지정 SSL 인증서 업로드 및 바인딩](#bkmk_configuressl)을 참조하세요.
+You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
 <a name="bkmk_openssl"></a>
-### OpenSSL을 사용하여 인증서 받기
+### <a name="get-a-certificate-using-openssl"></a>Get a certificate using OpenSSL
 
-1. 명령줄 터미널에서 작업 디렉터리로 `CD`한 후 다음 명령을 실행하여 개인 키와 CSR을 생성합니다.
+1. In a command-line terminal, `CD` into a working directory generate a private key and CSR by running the following command:
 
-		openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
+        openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
 
-2. 메시지가 표시되면 해당 정보를 입력합니다. 예:
+2. When prompted, enter the appropriate information. For example:
 
- 		Country Name (2 letter code)
+        Country Name (2 letter code)
         State or Province Name (full name) []: Washington
         Locality Name (eg, city) []: Redmond
         Organization Name (eg, company) []: Microsoft
@@ -173,201 +176,204 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
         Common Name (eg, YOUR name) []: www.microsoft.com
         Email Address []:
 
-		Please enter the following 'extra' attributes to be sent with your certificate request
+        Please enter the following 'extra' attributes to be sent with your certificate request
 
-       	A challenge password []:
+        A challenge password []:
 
-	완료되면 작업 디렉터리에 두 개의 파일 **myserver.key** 및 **server.csr**이 생성됩니다. **server.csr**에 CSR이 포함되어 있으며 **myserver.key**는 나중에 필요합니다.
+    When finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
+    The **server.csr** contains the CSR, and you need **myserver.key** later.
 
-3. SSL 인증서를 가져오려면 CA에 CSR을 제출합니다. Microsoft에서 신뢰할 수 있는 CA 목록은 [Microsoft에서 신뢰할 수 있는 루트 인증서 프로그램: 참가자][cas]를 참조하세요.
+3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
 
 
-4. CA에서 요청한 인증서를 보내면 작업 디렉터리의 **myserver.crt**라는 파일에 저장합니다. CA에서 텍스트 형식으로 인증서를 제공하는 경우에는 텍스트 편집기에서 **myserver.crt**로 콘텐츠를 복사하여 저장하면 됩니다. 파일은 다음과 같아야 합니다.
+4. Once the CA sends you the requested certificate, save it to a file named **myserver.crt** in your working directory. If your CA provides it in a text format, simply copy the content into **myserver.crt** in a text editor and save it. Your file should look like the following:
 
-		-----BEGIN CERTIFICATE-----
-		MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
-		UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
-		c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
-		NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
-		ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
-		ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
-		enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
-		3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
-		xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
-		ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
-		Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
-		AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
-		Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
-		F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
-		7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
-		lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
-		A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
-		-----END CERTIFICATE-----
+        -----BEGIN CERTIFICATE-----
+        MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
+        UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
+        c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
+        NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
+        ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
+        ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
+        enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
+        3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
+        xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
+        ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
+        Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
+        AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
+        Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
+        F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
+        7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
+        lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
+        A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
+        -----END CERTIFICATE-----
 
-5. 명령줄 터미널에서 다음 명령을 실행하여 **myserver.key** 및 **myserver.crt**에서 **myserver.pfx**를 내보냅니다.
+5. In the command-line terminal, run the following command to export **myserver.pfx** from **myserver.key** and **myserver.crt**:
 
-		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-	메시지가 표시되면 암호를 입력하여 .pfx 파일의 보안을 설정합니다.
+    When prompted, define a password to secure the .pfx file.
 
-	> [AZURE.NOTE] CA에서 중간 인증서를 사용하는 경우 `-certfile` 매개 변수에 이를 포함해야 합니다. 일반적으로 이 인증서는 CA에서 개별 다운로드로 제공되며, 각 웹 서버 유형에 따라 여러 형식으로 제공됩니다. 확장명이 `.pem`인 버전을 선택합니다.
-	>
-	> `openssl -export` 명령은 다음 예와 같이 **intermediate-cets.pem** 파일에서 중간 인증서가 포함된 .pfx 파일을 만듭니다.
-	>  
-	> `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+    > [AZURE.NOTE] If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They usually come as a separate download from your CA, and in several formats for different web server types. Select the version with the `.pem` extension.
+    >
+    > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the intermediate certificates from the **intermediate-cets.pem** file:
+    >  
+    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
 
-이제 내보낸 PFX 파일을 앱 서비스에 업로드할 준비가 되었습니다. [2단계. 사용자 지정 SSL 인증서 업로드 및 바인딩](#bkmk_configuressl)을 참조하세요.
+You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
 <a name="bkmk_subjectaltname"></a>
-### OpenSSL을 사용하여 SubjectAltName 인증서 받기
+### <a name="get-a-subjectaltname-certificate-using-openssl"></a>Get a SubjectAltName certificate using OpenSSL
 
-1. **sancert.cnf**라는 파일을 만들고 다음 텍스트를 복사한 다음 작업 디렉터리에 저장합니다.
+1. Create a file named **sancert.cnf**, copy the following text into it, and save it in a working directory:
 
-		# -------------- BEGIN custom sancert.cnf -----
-		HOME = .
-		oid_section = new_oids
-		[ new_oids ]
-		[ req ]
-		default_days = 730
-		distinguished_name = req_distinguished_name
-		encrypt_key = no
-		string_mask = nombstr
-		req_extensions = v3_req # Extensions to add to certificate request
-		[ req_distinguished_name ]
-		countryName = Country Name (2 letter code)
-		countryName_default =
-		stateOrProvinceName = State or Province Name (full name)
-		stateOrProvinceName_default =
-		localityName = Locality Name (eg, city)
-		localityName_default =
-		organizationalUnitName  = Organizational Unit Name (eg, section)
-		organizationalUnitName_default  =
-		commonName              = Your common name (eg, domain name)
-		commonName_default      = www.mydomain.com
-		commonName_max = 64
-		[ v3_req ]
-		subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
-		# -------------- END custom sancert.cnf -----
+        # -------------- BEGIN custom sancert.cnf -----
+        HOME = .
+        oid_section = new_oids
+        [ new_oids ]
+        [ req ]
+        default_days = 730
+        distinguished_name = req_distinguished_name
+        encrypt_key = no
+        string_mask = nombstr
+        req_extensions = v3_req # Extensions to add to certificate request
+        [ req_distinguished_name ]
+        countryName = Country Name (2 letter code)
+        countryName_default =
+        stateOrProvinceName = State or Province Name (full name)
+        stateOrProvinceName_default =
+        localityName = Locality Name (eg, city)
+        localityName_default =
+        organizationalUnitName  = Organizational Unit Name (eg, section)
+        organizationalUnitName_default  =
+        commonName              = Your common name (eg, domain name)
+        commonName_default      = www.mydomain.com
+        commonName_max = 64
+        [ v3_req ]
+        subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
+        # -------------- END custom sancert.cnf -----
 
-	`subjectAltName`으로 시작하는 줄에서 보안을 유지하려는 모든 도메인 이름으로 값을 바꿉니다(`commonName`과 함께). 예:
+    In the line that begins with `subjectAltName`, replace the value with all domain names you want to secure (in addition to  `commonName`). For example:
 
-		subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
+        subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
 
-	`commonName`을 포함하여 다른 필드를 변경할 필요는 없습니다. 다음 몇 단계에서 지정하라는 메시지가 표시됩니다.
+    You do not need to change any other field, including `commonName`. You will be prompted to specify them in the next few steps.
 
-1. 명령줄 터미널에서 작업 디렉터리로 `CD`한 후 다음 명령을 실행합니다.
+1. In a command-line terminal, `CD` into your working directory and run the following command:
 
-		openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048 -config sancert.cnf
+        openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048 -config sancert.cnf
 
-2. 메시지가 표시되면 해당 정보를 입력합니다. 예:
+2. When prompted, enter the appropriate information. For example:
 
- 		Country Name (2 letter code) []: US
+        Country Name (2 letter code) []: US
         State or Province Name (full name) []: Washington
         Locality Name (eg, city) []: Redmond
         Organizational Unit Name (eg, section) []: Azure
         Your common name (eg, domain name) []: www.microsoft.com
 
-	완료되면 작업 디렉터리에 두 개의 파일 **myserver.key** 및 **server.csr**이 생성됩니다. **server.csr**에 CSR이 포함되어 있으며 **myserver.key**는 나중에 필요합니다.
+    Once finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
+    The **server.csr** contains the CSR, and you need **myserver.key** later.
 
-3. SSL 인증서를 가져오려면 CA에 CSR을 제출합니다. Microsoft에서 신뢰할 수 있는 CA 목록은 [Microsoft에서 신뢰할 수 있는 루트 인증서 프로그램: 참가자][cas]를 참조하세요.
+3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
 
 
-4. CA에서 요청한 인증서를 보내면 **myserver.crt**라는 파일에 저장합니다. CA에서 텍스트 형식으로 인증서를 제공하는 경우에는 텍스트 편집기에서 **myserver.crt**로 콘텐츠를 복사하여 저장하면 됩니다. 파일은 다음과 같아야 합니다.
+4. Once the CA sends you the requested certificate, save it to a file named **myserver.crt**. If your CA provides it in a text format, simply copy the content into **myserver.crt** in a text editor and save it. The file should look like the following:
 
-		-----BEGIN CERTIFICATE-----
-		MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
-		UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
-		c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
-		NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
-		ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
-		ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
-		enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
-		3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
-		xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
-		ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
-		Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
-		AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
-		Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
-		F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
-		7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
-		lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
-		A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
-		-----END CERTIFICATE-----
+        -----BEGIN CERTIFICATE-----
+        MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
+        UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
+        c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
+        NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
+        ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
+        ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
+        enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
+        3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
+        xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
+        ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
+        Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
+        AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
+        Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
+        F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
+        7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
+        lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
+        A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
+        -----END CERTIFICATE-----
 
-5. 명령줄 터미널에서 다음 명령을 실행하여 **myserver.key** 및 **myserver.crt**에서 **myserver.pfx**를 내보냅니다.
+5. In the command-line terminal, run the following command to export **myserver.pfx** from **myserver.key** and **myserver.crt**:
 
-		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-	메시지가 표시되면 암호를 입력하여 .pfx 파일의 보안을 설정합니다.
+    When prompted, define a password to secure the .pfx file.
 
-	> [AZURE.NOTE] CA에서 중간 인증서를 사용하는 경우 `-certfile` 매개 변수에 이를 포함해야 합니다. 일반적으로 이 인증서는 CA에서 개별 다운로드로 제공되며, 각 웹 서버 유형에 따라 여러 형식으로 제공됩니다. 확장명이 `.pem`인 버전을 선택합니다.
-	>
-	> `openssl -export` 명령은 다음 예와 같이 **intermediate-cets.pem** 파일에서 중간 인증서가 포함된 .pfx 파일을 만듭니다.
-	>  
-	> `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+    > [AZURE.NOTE] If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They usually come as a separate download from your CA, and in several formats for different web server types. Select the version with the `.pem` extension).
+    >
+    > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the intermediate certificates from the **intermediate-cets.pem** file:
+    >  
+    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
 
-이제 내보낸 PFX 파일을 앱 서비스에 업로드할 준비가 되었습니다. [2단계. 사용자 지정 SSL 인증서 업로드 및 바인딩](#bkmk_configuressl)을 참조하세요.
+You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
 <a name="bkmk_sscertreq"></a>
-### Certreq.exe를 사용하여 자체 서명된 인증서 생성 ###
+### <a name="generate-a-self-signed-certificate-using-certreq.exe"></a>Generate a self-signed certificate using Certreq.exe ###
 
->[AZURE.IMPORTANT] 자체 서명된 인증서는 테스트 전용입니다. 대부분의 브라우저는 자체 서명된 인증서로 보안이 유지되는 웹 사이트를 방문할 경우 오류를 반환합니다. 일부 브라우저는 사이트 이동을 거절할 수도 있습니다.
+>[AZURE.IMPORTANT] Self-signed certificates are for test purposes only. Most browsers return errors when visiting a website that's secured by a self-signed certificate. Some browsers may even refuse to navigate to the site. 
 
-1. 텍스트 파일(예: **mycert.txt**)을 만들고 다음 텍스트를 복사한 다음 작업 디렉터리에 저장합니다. `<your-domain>` 자리 표시자를 앱의 사용자 지정 도메인 이름으로 바꿉니다.
+1. Create a text file (e.g. **mycert.txt**), copy into it the following text, and save the file in a working directory. Replace the `<your-domain>` placeholder with the custom domain name of your app.
 
-		[NewRequest]
-		Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
-		Exportable = TRUE
-		KeyLength = 2048              ; KeyLength can be 2048, 4096, 8192, or 16384 (required minimum is 2048)
-		KeySpec = 1
-		KeyUsage = 0xA0
-		MachineKeySet = True
-		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
-		ProviderType = 12
-		HashAlgorithm = SHA256
-		RequestType = Cert            ; Self-signed certificate
-		ValidityPeriod = Years
-		ValidityPeriodUnits = 1
+        [NewRequest]
+        Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
+        Exportable = TRUE
+        KeyLength = 2048              ; KeyLength can be 2048, 4096, 8192, or 16384 (required minimum is 2048)
+        KeySpec = 1
+        KeyUsage = 0xA0
+        MachineKeySet = True
+        ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+        ProviderType = 12
+        HashAlgorithm = SHA256
+        RequestType = Cert            ; Self-signed certificate
+        ValidityPeriod = Years
+        ValidityPeriodUnits = 1
 
-		[EnhancedKeyUsageExtension]
-		OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
+        [EnhancedKeyUsageExtension]
+        OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
-	중요한 매개 변수는 자체 서명된 인증서를 지정하는 `RequestType = Cert`입니다. CSR의 옵션 및 사용 가능한 기타 옵션에 대한 자세한 내용은 [Certreq 참조 설명서](https://technet.microsoft.com/library/dn296456.aspx)를 참조하세요.
+    The important parameter is `RequestType = Cert`, which specifies a self-signed certificate. 
+    For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/library/dn296456.aspx).
 
-4. 명령 프롬프트에서 작업 디렉터리로 `CD`한 후 다음 명령을 실행합니다.
+4. In the command prompt, `CD` to your working directory and run the following command:
 
-		certreq -new mycert.txt mycert.crt
-	
-	이제 새 자체 서명된 인증서가 인증서 저장소에 설치됩니다.
+        certreq -new mycert.txt mycert.crt
+    
+    Your new self-signed certificate is now installed in the certificate store.
 
-7. 인증서 저장소에서 인증서를 내보내려면 `Win`+`R`를 누르고 **certmgr.msc**를 실행하여 인증서 관리자를 시작합니다. **개인** > **인증서**를 선택합니다. **발급 대상** 열에 사용자 지정 도메인 이름이 있는 항목이 표시되고, **발급자** 열에 인증서를 생성하는 데 사용한 CA가 표시됩니다.
+7. To export the certificate from the certificate store, press `Win`+`R` and run **certmgr.msc** to launch Certificate Manager. Select **Personal** > **Certificates**. In the **Issued To** column, you should see an entry with your custom domain name, and the CA you used to generate the certificate in the **Issued By** column.
 
-	![여기에 인증서 관리자 이미지 삽입][certmgr]
+    ![insert image of cert manager here][certmgr]
 
-9. 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업** > **내보내기**를 선택합니다. **인증서 내보내기 마법사**에서 **다음**을 클릭하고 **예, 개인 키를 내보냅니다.**를 선택한 후 **다음**을 다시 클릭합니다.
+9. Right-click the certificate and select **All Tasks** > **Export**. In the **Certificate Export Wizard**, click **Next**, then select **Yes, export the private key**, and then click **Next** again.
 
-	![개인 키 내보내기][certwiz1]
+    ![Export the private key][certwiz1]
 
-10. **개인 정보 교환 - PKCS #12**, **가능한 경우 인증 경로에 있는 인증서 모두 포함** 및 **확장된 속성 모두 내보내기**를 선택합니다. 그런 후 **다음**을 클릭합니다.
+10. Select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and **Export all extended properties**. Then, click **Next**.
 
-	![모든 인증서 및 확장 속성 포함][certwiz2]
+    ![include all certs and extended properties][certwiz2]
 
-11. **암호**를 선택한 후 암호를 입력하고 확인합니다. **다음**을 클릭합니다.
+11. Select **Password**, and then enter and confirm the password. Click **Next**.
 
-	![암호 지정][certwiz3]
+    ![specify a password][certwiz3]
 
-12. 내보낸 인증서의 경로 및 파일 이름을 확장명 **.pfx**와 함께 제공합니다. **다음**을 클릭하여 완료합니다.
+12. Provide a path and filename for the exported certificate, with the extension **.pfx**. Click **Next** to finish.
 
-	![파일 경로 제공][certwiz4]
+    ![provide a file path][certwiz4]
 
-이제 내보낸 PFX 파일을 앱 서비스에 업로드할 준비가 되었습니다. [2단계. 사용자 지정 SSL 인증서 업로드 및 바인딩](#bkmk_configuressl)을 참조하세요.
+You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
 <a name="bkmk_ssopenssl"></a>
-###OpenSSL을 사용하여 자체 서명된 인증서 생성 ###
+###<a name="generate-a-self-signed-certificate-using-openssl"></a>Generate a self-signed certificate using OpenSSL ###
 
->[AZURE.IMPORTANT] 자체 서명된 인증서는 테스트 전용입니다. 대부분의 브라우저는 자체 서명된 인증서로 보안이 유지되는 웹 사이트를 방문할 경우 오류를 반환합니다. 일부 브라우저는 사이트 이동을 거절할 수도 있습니다.
+>[AZURE.IMPORTANT] Self-signed certificates are for test purposes only. Most browsers return errors when visiting a website that's secured by a self-signed certificate. Some browsers may even refuse to navigate to the site. 
 
-1. **serverauth.cnf**라는 텍스트 파일을 만들고 다음 콘텐츠를 복사한 다음 작업 디렉터리에 저장합니다.
+1. Create a text file named **serverauth.cnf**, then copy the following content into it, and then save it in a working directory:
 
         [ req ]
         default_bits           = 2048
@@ -377,22 +383,22 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
         x509_extensions        = v3_ca
 
         [ req_distinguished_name ]
-        countryName			= Country Name (2 letter code)
-        countryName_min			= 2
-        countryName_max			= 2
-        stateOrProvinceName		= State or Province Name (full name)
-        localityName			= Locality Name (eg, city)
-        0.organizationName		= Organization Name (eg, company)
-        organizationalUnitName		= Organizational Unit Name (eg, section)
-        commonName			= Common Name (eg, your app's domain name)
-        commonName_max			= 64
-        emailAddress			= Email Address
-        emailAddress_max		= 40
+        countryName         = Country Name (2 letter code)
+        countryName_min         = 2
+        countryName_max         = 2
+        stateOrProvinceName     = State or Province Name (full name)
+        localityName            = Locality Name (eg, city)
+        0.organizationName      = Organization Name (eg, company)
+        organizationalUnitName      = Organizational Unit Name (eg, section)
+        commonName          = Common Name (eg, your app's domain name)
+        commonName_max          = 64
+        emailAddress            = Email Address
+        emailAddress_max        = 40
 
         [ req_attributes ]
-        challengePassword		= A challenge password
-        challengePassword_min		= 4
-        challengePassword_max		= 20
+        challengePassword       = A challenge password
+        challengePassword_min       = 4
+        challengePassword_max       = 20
 
         [ v3_ca ]
          subjectKeyIdentifier=hash
@@ -401,129 +407,131 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
          keyUsage=nonRepudiation, digitalSignature, keyEncipherment
          extendedKeyUsage = serverAuth
 
-2. 명령줄 터미널에서 작업 디렉터리로 `CD`한 후 다음 명령을 실행합니다.
+2. In a command-line terminal, `CD` into your working directory and run the following command:
 
-		openssl req -sha256 -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
+        openssl req -sha256 -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
 
-	이 명령은 **serverauth.cnf**의 설정에 따라 두 개의 파일 **myserver.crt**(자체 서명된 인증서) 및 **myserver.key**(개인 키)를 만듭니다.
+    This command creates two files: **myserver.crt** (the self-signed certificate) and **myserver.key** (the private key), based on the settings in **serverauth.cnf**.
 
-3. 다음 명령을 실행하여 인증서를 .pfx 파일로 내보냅니다.
+3. Export the certificate to a .pfx file by running the following command:
 
-		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-	메시지가 표시되면 암호를 입력하여 .pfx 파일의 보안을 설정합니다.
+    When prompted, define a password to secure the .pfx file.
 
-이제 내보낸 PFX 파일을 앱 서비스에 업로드할 준비가 되었습니다. [2단계. 사용자 지정 SSL 인증서 업로드 및 바인딩](#bkmk_configuressl)을 참조하세요.
+You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
 <a name="bkmk_configuressl"></a>
-## 2단계. 사용자 지정 SSL 인증서 업로드 및 바인딩
+## <a name="step-2.-upload-and-bind-the-custom-ssl-certificate"></a>Step 2. Upload and bind the custom SSL certificate
 
-계속하기 전에 [필요한 항목](#bkmk_domainname) 섹션을 검토하고 다음을 확인합니다.
+Before you move on, review the [What you need](#bkmk_domainname) section and verify that:
 
-- Azure 앱에 매핑되는 사용자 지정 도메인이 있습니다.
-- 앱이 **기본** 계층 이상에서 실행 중입니다.
-- CA로부터 사용자 지정 도메인에 대한 SSL 인증서를 받았습니다.
+- you have a custom domain that maps to your Azure app,
+- your app is running in **Basic** tier or higher, and
+- you have an SSL certificate for the custom domain from a CA.
 
 
-1. 브라우저에서 **[Azure 포털](https://portal.azure.com/)**을 엽니다.
-2.	페이지의 왼쪽에서 **앱 서비스** 옵션을 클릭합니다.
-3.	이 인증서를 할당하려는 앱의 이름을 클릭합니다.
-4.	**설정**에서 **SSL 인증서**를 클릭합니다.
-5.	**인증서 업로드**를 클릭합니다.
-6.	[1단계](#bkmk_getcert)에서 내보낸 .pfx 파일을 선택하고 이전에 만든 암호를 지정합니다. 그런 후 **업로드**를 클릭하여 인증서를 업로드합니다. 이제 업로드된 인증서가 **SSL 인증서** 블레이드에 다시 표시됩니다.
-7. **ssl 바인딩** 섹션에서 **바인딩 추가**를 클릭합니다.
-8. **ssl bindings** 블레이드에서 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. **[SNI(서버 이름 표시)](http://en.wikipedia.org/wiki/Server_Name_Indication)**를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
+1. In your browser, open the **[Azure Portal.](https://portal.azure.com/)**
+2.  Click the **App Service** option on the left side of the page.
+3.  Click the name of your app to which you want to assign this certificate. 
+4.  In the **Settings**, Click **SSL certificates**
+5.  Click **Upload Certificate**
+6.  Select the .pfx file that you exported in [Step 1](#bkmk_getcert) and specify the password that you create before. Then, click **Upload** to upload the certificate. You should now see your uploaded certificate back in the **SSL certificate** blade.
+7. In the **ssl bindings** section Click on **Add bindings**
+8. In the **Add SSL Binding** blade use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
 
-    ![SSL 바인딩 이미지 삽입](./media/web-sites-configure-ssl-certificate/sslbindings.png)
+    ![insert image of SSL Bindings](./media/web-sites-configure-ssl-certificate/sslbindings.png)
 
-       • IP 기반 SSL은 서버의 전용 공용 IP 주소를 도메인 이름에 매핑하여 인증서를 도메인 이름과 연결합니다. 이렇게 하려면 서비스와 연결된 각 도메인 이름(contoso.com, fabricam.com 등)에 전용 IP 주소가 있어야 합니다. 이 방법은 SSL 인증서를 웹 서버와 연결하는 일반적인 방법입니다. • SNI 기반 SSL은 SSL 및 TLS(**[전송 계층 보안](http://en.wikipedia.org/wiki/Transport_Layer_Security)**)에 대한 확장으로, 각 도메인에 별도의 보안 인증서를 사용하여 여러 도메인이 동일한 IP 주소를 공유할 수 있게 해 줍니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원하지만 이전 브라우저는 SNI를 지원하지 않을 수도 있습니다. SNI에 대한 자세한 내용은 Wikipedia의 **[서버 이름 표시](http://en.wikipedia.org/wiki/Server_Name_Indication)** 문서를 참조하세요.
+       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
+       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
      
-9. **바인딩 추가**를 클릭하여 변경 내용을 저장하고 SSL을 사용하도록 설정합니다.
+9. Click **Add Binding** to save the changes and enable SSL.
 
-## 3단계. 도메인 이름 매핑 변경(IP 기반 SSL에만 해당)
+## <a name="step-3.-change-your-domain-name-mapping-(ip-based-ssl-only)"></a>Step 3. Change your domain name mapping (IP based SSL only)
 
-**SNI SSL** 바인딩만 사용하는 경우 이 섹션을 건너뛰세요. 여러 **SNI SSL** 바인딩을 앱에 할당된 기존 공유 IP 주소에서 함께 사용할 수 있습니다. 그러나 **IP 기반 SSL** 바인딩을 만든 경우 앱 서비스에서는 바인딩 전용 IP 주소(**IP 기반 SSL**에 필요하기 때문)를 만듭니다. 하나의 전용 IP 주소만을 만들 수 있으므로 하나의 **IP 기반 SSL** 바인딩만 추가할 수 있습니다.
+If you use **SNI SSL** bindings only, skip this section. Multiple **SNI SSL** bindings can work together on the existing shared IP address assigned to your app. However, if you create an **IP based SSL** binding, App Service creates a dedicated IP address for the binding because the **IP based SSL** requires one. Only one dedicated IP address can be created, therefore only one **IP based SSL** binding may be added.
 
-이 전용 IP 주소로 인해 다음에 해당하는 경우 앱을 추가로 구성해야 합니다.
+Because of this dedicated IP address, you will need to configure your app further if:
 
-- [A 레코드를 사용하여 사용자 지정 도메인을 Azure 앱에 매핑](web-sites-custom-domain-name.md#a)하고 **IP 기반 SSL** 바인딩을 추가했습니다. 이 시나리오에서는 다음 단계에 따라 전용 IP 주소를 가리키도록 기존 A 레코드를 다시 매핑해야 합니다.
+- You [used an A record to map your custom domain](web-sites-custom-domain-name.md#a) to your Azure app, and you just added an **IP based SSL** binding. In this scenario, you need to remap the existing A record to point to the dedicated IP address by following these steps:
 
-	1. IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다. **외부 IP 주소**로 나열됩니다.
+    1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
     
-	    ![가상 IP 주소](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
+        ![Virtual IP address](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
 
-	2. [사용자 지정 도메인 이름에 대한 A 레코드를 이 새 IP 주소에 다시 매핑합니다](web-sites-custom-domain-name.md#a).
+    2. [Remap the A record for your custom domain name to this new IP address](web-sites-custom-domain-name.md#a).
 
-- 앱에 이미 하나 이상의 **SNI SSL** 바인딩이 있으므로 **IP 기반 SSL** 바인딩을 추가하기만 했습니다. 바인딩이 완료되면 *&lt;appname>*.azurewebsites.net 도메인 이름이 새 IP 주소를 가리킵니다. 따라서 **SNI SSL** 바인딩을 포함하여 *&lt;appname>*.azurewebsites.net과의 모든 기존 [사용자 지정 도메인 CNAME 매핑](web-sites-custom-domain-name.md#cname)도 **IP 기반 SSL** 전용으로 생성된 새 주소에서 트래픽을 받습니다. 이 시나리오에서는 다음 단계에 따라 원래 공유 IP 주소로 **SNI SSL** 트래픽을 다시 보내야 합니다.
+- You already have one or more **SNI SSL** bindings in your app, and you just added an **IP based SSL** binding. Once the binding is complete, your *&lt;appname>*.azurewebsites.net domain name points to the new IP address. Therefore, any existing [CNAME mapping from the custom domain](web-sites-custom-domain-name.md#cname) to *&lt;appname>*.azurewebsites.net, including the ones that the **SNI SSL** secure, also receives traffic on the new address, which is created for the **IP based SSL** only. In this scenario, you need to send the **SNI SSL** traffic back to the original shared IP address by following these steps:
 
-	1. **SNI SSL** 바인딩이 있는 앱에 대한 모든 [사용자 지정 도메인 CNAME 매핑](web-sites-custom-domain-name.md#cname)을 확인합니다.
+    1. Identify all [CNAME mappings of custom domains](web-sites-custom-domain-name.md#cname) to your app that has an **SNI SSL** binding.
 
-	2. 각 CNAME 레코드를 &lt;appname>.azurewebsites.net 대신 **sni.**&lt;appname>.azurewebsites.net에 다시 매핑합니다.
+    2. Remap each CNAME record to **sni.**&lt;appname>.azurewebsites.net instead of &lt;appname>.azurewebsites.net.
 
-## 4단계. 사용자 지정 도메인에 대한 HTTPS 테스트
+## <a name="step-4.-test-https-for-your-custom-domain"></a>Step 4. Test HTTPS for your custom domain
 
-이제 HTTPS가 사용자 지정 도메인에 작동하는지 확인하는 작업만 남았습니다. 다양한 브라우저에서 `https://<your.custom.domain>`으로 이동하여 앱을 처리하는지 확인합니다.
+All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse to `https://<your.custom.domain>` to see that it serves up your app.
 
-- 앱에서 인증서 유효성 검사 오류가 발생한 경우 자체 서명된 인증서를 사용하고 있을 수도 있습니다.
+- If your app gives you certificate validation errors, you're probably using a self-signed certificate.
 
-- 그렇지 않으면 .pfx 인증서를 내보낼 때 중간 인증서를 생략했을 수도 있습니다. [필요한 항목](#bkmk_domainname)으로 돌아가 CSR이 앱 서비스의 모든 요구 사항을 충족하는지 확인합니다.
+- If that's not the case, you may have left out intermediate certificates when you export your .pfx certificate. Go back to [What you need](#bkmk_domainname) to verify that your CSR meets all the requirements by App Service.
 
 <a name="bkmk_enforce"></a>
-## 앱에 HTTPS 적용
+## <a name="enforce-https-on-your-app"></a>Enforce HTTPS on your app
 
-앱에 대한 HTTP 액세스를 계속 허용하려면 이 단계를 건너뜁니다. 앱 서비스에서 HTTPS를 적용하지 *않으므로* 방문자는 HTTP를 사용하여 앱에 계속 액세스할 수 있습니다. 앱에 HTTPS를 적용하려면 앱의 `web.config`에서 다시 쓰기 규칙을 정의하면 됩니다. 앱의 언어 프레임워크에 관계없이 모든 앱 서비스 앱에 이 파일이 있습니다.
+If you still want to allow HTTP access to your app, skip this step. App Service does *not* enforce HTTPS, so visitors can still access your app using HTTP. If you want to enforce HTTPS for your app, you can define a rewrite rule in the `web.config` file for your app. Every App Service app has this file, regardless of the language framework of your app.
 
-> [AZURE.NOTE] 언어별 요청 리디렉션이 있습니다. ASP.NET MVC는 `web.config`의 다시 쓰기 규칙 대신 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 사용할 수 있습니다([웹앱에 보안 ASP.NET MVC 5 앱 배포](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) 참조).
+> [AZURE.NOTE] There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 
-다음 단계를 수행하세요.
+Follow these steps:
 
-1. 앱에 대한 Kudu 디버그 콘솔로 이동합니다. 해당 주소는 `https://<appname>.scm.azurewebsites.net/DebugConsole`입니다.
+1. Navigate to the Kudu debug console for your app. Its address is `https://<appname>.scm.azurewebsites.net/DebugConsole`.
 
-2. 디버그 콘솔에서 `D:\home\site\wwwroot`로 CD합니다.
+2. In the debug console, CD to `D:\home\site\wwwroot`.
 
-3. 연필 단추를 클릭하여 `web.config`를 엽니다.
+3. Open `web.config` by clicking the pencil button.
 
-	![](./media/web-sites-configure-ssl-certificate/openwebconfig.png)
+    ![](./media/web-sites-configure-ssl-certificate/openwebconfig.png)
 
-	Visual Studio 또는 Git를 사용하여 앱을 배포하는 경우 앱 서비스는 응용 프로그램 루트에 .NET, PHP, Node.js 또는 Python 앱에 대한 적절한 `web.config`를 자동으로 생성합니다. `web.config`가 없으면 웹 기반 명령 프롬프트에서 `touch web.config`를 실행하여 만듭니다. 또는 로컬 프로젝트에서 만들어 코드를 다시 배포할 수 있습니다.
+    If you deploy your app with Visual Studio or Git, App Service automatically generates the appropriate `web.config` for your .NET, PHP, Node.js, or Python app in the application root. 
+    If `web.config` doesn't exist, run `touch web.config` in the web-based command prompt to create it. Or, you can create it in your local project and redeploy your code.
 
-4. `web.config`를 만들어야 하는 경우 다음 코드를 복사한 후 저장합니다. 기존 web.config를 연 경우 전체 `<rule>` 태그를 `web.config`의 `configuration/system.webServer/rewrite/rules` 요소에 복사하기만 하면 됩니다.
+4. If you had to create a `web.config`, copy the following code into it and save it. If you opened an existing web.config, then you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element.
 
-		<?xml version="1.0" encoding="UTF-8"?>
-		<configuration>
-		  <system.webServer>
-		    <rewrite>
-		      <rules>
-			    <!-- BEGIN rule TAG FOR HTTPS REDIRECT -->
-		        <rule name="Force HTTPS" enabled="true">
-		          <match url="(.*)" ignoreCase="false" />
-		          <conditions>
-		            <add input="{HTTPS}" pattern="off" />
-		          </conditions>
-		          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-		        </rule>
-				<!-- END rule TAG FOR HTTPS REDIRECT -->
-		      </rules>
-		    </rewrite>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <configuration>
+          <system.webServer>
+            <rewrite>
+              <rules>
+                <!-- BEGIN rule TAG FOR HTTPS REDIRECT -->
+                <rule name="Force HTTPS" enabled="true">
+                  <match url="(.*)" ignoreCase="false" />
+                  <conditions>
+                    <add input="{HTTPS}" pattern="off" />
+                  </conditions>
+                  <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
+                </rule>
+                <!-- END rule TAG FOR HTTPS REDIRECT -->
+              </rules>
+            </rewrite>
           </system.webServer>
-		</configuration>
+        </configuration>
 
-	이 규칙에서는 사용자가 HTTP를 사용하여 페이지를 요청할 때마다 HTTPS 프로토콜에 HTTP 301(영구 리디렉션)을 반환합니다. http://contoso.com에서 https://contoso.com으로 리디렉션합니다.
+    This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user requests a page using HTTP. It redirects from http://contoso.com to https://contoso.com.
 
-	>[AZURE.IMPORTANT] `web.config`에 다른 `<rule>` 태그가 이미 있는 경우 복사한 `<rule>` 태그를 다른 `<rule>` 태그 앞에 배치합니다.
+    >[AZURE.IMPORTANT] If there are already other `<rule>` tags in your `web.config`, then place the copied `<rule>` tag before the other `<rule>` tags.
 
-4. Kudu 디버그 콘솔에서 파일을 저장합니다. 모든 요청이 HTTPS로 즉시 리디렉션됩니다.
+4. Save the file in the Kudu debug console. It should take effect immediately redirect all requests to HTTPS.
 
-IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](http://www.iis.net/downloads/microsoft/url-rewrite)(영문) 설명서를 참조하세요.
+For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
 
-## 추가 리소스 ##
-- [Microsoft Azure 보안 센터](/support/trust-center/security/)
-- [Azure 웹 사이트에서 잠금 해제된 구성 옵션](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [진단 로깅 사용](web-sites-enable-diagnostic-log.md)
-- [Azure 앱 서비스에서 웹앱 구성](web-sites-configure.md)
-- [Azure 관리 포털](https://manage.windowsazure.com)
+## <a name="more-resources"></a>More Resources ##
+- [Microsoft Azure Trust Center](/support/trust-center/security/)
+- [Configuration options unlocked in Azure Web Sites](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+- [Enable diagnostic logging](web-sites-enable-diagnostic-log.md)
+- [Configure web apps in Azure App Service](web-sites-configure.md)
+- [Azure Management Portal](https://manage.windowsazure.com)
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.
 
 [customdomain]: web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
@@ -549,4 +557,10 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

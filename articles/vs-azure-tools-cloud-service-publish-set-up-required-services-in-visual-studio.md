@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비 | Microsoft Azure"
-   description="클라우드 및 저장소 계정 서비스를 설정하고 Azure 응용 프로그램을 구성하는 절차에 대해 알아봅니다."
+   pageTitle="Prepare to publish or deploy an Azure application from Visual Studio | Microsoft Azure"
+   description="Learn the procedures to set up cloud and storage account services and configure your Azure application."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,142 +15,148 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비
 
-## 개요
+# <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Prepare to Publish or Deploy an Azure Application from Visual Studio
 
-클라우드 서비스 프로젝트를 게시하기 전에 다음 서비스를 설정해야 합니다.
+## <a name="overview"></a>Overview
 
-- Azure 환경에서 역할을 실행하는 **클라우드 서비스**
+Before you can publish a cloud service project, you must set up the following services:
 
-- Blob, 큐 및 테이블 서비스에 대한 액세스를 제공하는 **저장소 계정**.
+- A **cloud service** to run your roles in the Azure environment
 
-다음 절차를 사용하여 이러한 서비스를 설정하고 응용 프로그램 구성
+- A **storage account** that provides access to the Blob, Queue, and Table services.
 
+Use the following procedures to set up these services and configure your application
 
-## 클라우드 서비스 만들기
 
-Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사용자 역할을 실행하는 클라우드 서비스를 만들어야 합니다. 이 항목 뒷부분에 나오는 **Azure 클래식 포털을 사용하여 클라우드 서비스를 만들려면** 섹션에서 설명하는 대로 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 클라우드 서비스를 만들 수 있습니다. 또한 게시 마법사를 사용하여 Visual Studio에서 클라우드 서비스를 만들 수 있습니다.
+## <a name="create-a-cloud-service"></a>Create a cloud service
 
-### Visual Studio를 사용하여 클라우드 서비스 만들기
+To publish a cloud service to Azure, you must first create a cloud service, which runs your roles in the Azure environment. You can create a cloud service in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), as described in the section **To create a cloud service by using the Azure classic portal**, later in this topic. You can also create a cloud service in Visual Studio by using the publishing wizard.
 
-1. Azure 프로젝트의 바로 가기 메뉴를 열고, **게시**를 선택합니다.
+### <a name="to-create-a-cloud-service-by-using-visual-studio"></a>To create a cloud service by using Visual Studio
 
-    ![VST\_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
+1. Open the shortcut menu for the Azure project, and choose **Publish**.
 
-1. 로그인하지 않은 경우 Azure 구독과 연결된 Microsoft 계정 또는 조직 계정에 대한 사용자 이름 및 암호를 사용하여 로그인합니다.
+    ![VST_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
 
-1. **다음** 단추를 선택하여 **설정** 페이지로 이동합니다.
+1. If you haven't signed in, sign in with your username and password for the Microsoft account or organizational account that's associated with your Azure subscription.
 
-    ![게시 마법사 일반 설정](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
+1. Choose the **Next** button to advance to the **Settings** page.
 
-1. **클라우드 서비스** 목록에서 **새로 만들기**를 선택합니다. **Azure 서비스 만들기** 대화 상자가 나타납니다.
+    ![Publishing Wizard Common Settings](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
 
-1. 클라우드 서비스의 이름을 입력합니다. 이름은 서비스에 대한 URL의 일부를 형성하므로 전역적으로 고유해야 합니다. 이름은 대/소문자를 구분하지 않습니다.
+1. In the **Cloud Services** list, choose **Create New**. The **Create Azure Services** dialog appears.
 
-### Azure 클래식 포털을 사용하여 클라우드 서비스를 만들려면
+1. Enter the name of your cloud service. The name forms part of the URL for your service and therefore must be globally unique. The name is not case-sensitive.
 
-1. Microsoft 웹 사이트의 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkId=253103)에 로그인합니다.
+### <a name="to-create-a-cloud-service-by-using-the-azure-classic-portal"></a>To create a cloud service by using the Azure classic portal
 
-1. (선택 사항) 이미 만든 클라우드 서비스의 목록을 표시하려면 페이지의 왼쪽에서 클라우드 서비스 링크를 선택합니다.
+1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
 
-1. 왼쪽 아래 모퉁이에서 **+** 아이콘을 선택한 다음 나타나는 메뉴에서 **클라우드 서비스**를 선택합니다. 두 옵션을 사용하는 다른 화면인 **빠른 생성** 및 **사용자 지정 만들기**가 나타납니다. **빠른 생성**을 선택하는 경우, 물리적으로 호스트되는 URL과 해당 지역을 지정하여 클라우드 서비스를 만들 수 있습니다. **사용자 지정 만들기**를 선택하는 경우, 패키지(.cspkg 파일), 구성 (.cscfg) 파일 및 인증서를 지정하여 클라우드 서비스를 즉시 게시할 수 있습니다. Azure 프로젝트의 **게시** 명령을 사용하여 클라우드 서비스를 게시하려는 경우 사용자 지정 만들기는 필요하지 않습니다. **게시**는 Azure 프로젝트에 대한 바로 가기 메뉴에서 사용할 수 있는 명령입니다.
+1. (optional) To display a list of cloud services that you've already created, choose the Cloud Services link on the left side of the page.
 
-1. **빠른 생성**을 선택하여 나중에 Visual Studio를 사용하여 클라우드 서비스를 게시합니다.
+1. Choose the **+** icon in the lower-left corner, and then choose **Cloud Service** on the menu that appears. Another screen with two options, **Quick Create** and **Custom Create**, appears. If you choose **Quick Create**, you can create a cloud service just by specifying its URL and the region where it will be physically hosted. If you choose **Custom Create**, you can immediately publish a cloud service by specifying a package (.cspkg file), a configuration (.cscfg) file, and a certificate. Custom Create isn’t required if you intend to publish your cloud service by using the **Publish** command in an Azure project. The **Publish** command is available on the shortcut menu for an Azure project.
 
-1. 클라우드 서비스의 이름을 지정 합니다. 전체 URL이 이름 옆에 나타납니다.
+1. Choose **Quick Create** to later publish your cloud service by using Visual Studio.
 
-1. 목록에서 대부분의 사용자가 위치한 지역을 선택합니다.
+1. Specify a name for your cloud service.The complete URL appears next to the name.
 
-1. 창의 아래쪽에서 **클라우드 서비스 만들기** 링크를 선택합니다.
+1. In the list, choose the region where most of your users are located.
 
-## 저장소 계정 만들기
+1. At the bottom of the window, choose the **Create Cloud Service** link.
 
-저장소 계정은 Blob, 큐 및 테이블 서비스에 대한 액세스를 제공합니다. Visual Studio 또는 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkId=253103)을 사용하여 저장소 계정을 만들 수 있습니다.
+## <a name="create-a-storage-account"></a>Create a storage account
 
-### Visual Studio를 사용하여 저장소 계정을 만들려면
+A storage account provides access to the Blob, Queue, and Table services. You can create a storage account by using Visual Studio or the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103).
 
-1. **솔루션 탐색기**에서 **저장소** 노드에 대한 바로 가기 메뉴를 연 다음 **저장소 계정 만들기**를 선택합니다.
+### <a name="to-create-a-storage-account-by-using-visual-studio"></a>To create a storage account by using Visual Studio
 
-    ![새 Azure 저장소 계정 만들기](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
+1. In **Solution Explorer**, open the shortcut menu for the **Storage** node, and then choose **Create Storage Account**.
 
-1. **저장소 계정 만들기** 대화 상자에서 새 저장소 계정에 대한 다음의 정보를 선택 또는 입력합니다.
-    - 저장소 계정을 추가할 Azure 구독입니다.
-    - 새 저장소 계정에 대해 사용하려는 이름입니다.
-    - 지역 또는 선호도 그룹 (예: 미국 서부 또는 동아시아)입니다.
-    - 저장소 계정에 대해 사용하려는 복제의 유형입니다 – 예: 지역 중복.
+    ![Create a new Azure storage account](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
 
-1. 완료되면 **만들기**를 선택합니다. 새 저장소 계정이 **서버 탐색기**의 **저장소** 목록에 나타납니다.
+1. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
+    - The Azure subscription to which you want to add the storage account.
+    - The name you want to use for the new storage account.
+    - The region or affinity group (such as West US or East Asia).
+    - The type of replication you want to use for the storage account, such as Geo-Redundant.
 
-### Azure 클래식 포털을 사용하여 저장소 계정을 만들려면
+1. When you’re done, choose **Create**.The new storage account appears in the **Storage** list in **Server Explorer**.
 
-1. Microsoft 웹 사이트의 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkId=253103)에 로그인합니다.
+### <a name="to-create-a-storage-account-by-using-the-azure-classic-portal"></a>To create a storage account by using the Azure classic portal
 
-1. (선택 사항) 저장소 계정을 보려면 페이지의 왼쪽에서 패널의 **저장소** 링크를 선택합니다.
+1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
 
-1. 페이지의 왼쪽 아래 모퉁이에서 **+** 아이콘을 선택합니다.
+1. (Optional) To view your storage accounts, choose the **Storage** link in the panel on the left side of the page.
 
-1. 나타나는 메뉴에서 **저장소**를 선택한 다음 **빠른 생성**을 선택합니다.
+1. In the lower-left corner of the page, choose the **+** icon.
 
-1. 고유 url이 될 이름을 저장소 계정에 지정합니다.
+1. In the menu that appears, choose **Storage**, and then choose **Quick Create**.
 
-1. 이름을 클라우드 서비스에 지정합니다. 전체 URL이 이름 옆에 나타납니다.
+1. Give the storage account a name that will result in a unique url.
 
-1. 지역 목록에서 대부분의 사용자가 위치한 지역을 선택합니다.
+1. Give your cloud service a name. The complete URL appears next to the name.
 
-1. 지리적 복제를 사용하도록 설정하는지 여부를 지정합니다. 지리적 복제를 사용하도록 설정하면 손실의 가능성을 줄일 수 있는 여러 물리적 위치에 저장됩니다. 이 기능을 사용하면 저장소 비용이 많이 듭니다. 하지만 나중에 기능을 추가 하는 대신 저장소 계정을 만들 때 지리적 위치를 사용하여 비용을 줄일 수 있습니다. 자세한 내용은 [지리적 복제](http://go.microsoft.com/fwlink/?LinkId=253108)를 참조하세요.
+1. In the list of regions, choose a region where most of your users are located.
 
-1. 창의 아래쪽에서 **저장소 계정 만들기** 링크를 선택합니다.
+1. Specify whether you want to enable geo-replication. If you enable geo-replication, your data will be saved in multiple physical locations to reduce the chance of loss. This feature makes storage more expensive, but you can reduce the cost by enabling geo-location when you create the storage account instead of adding the feature later. For more information, see [Geo-replication](http://go.microsoft.com/fwlink/?LinkId=253108).
 
-저장소 계정을 만든 후에 Azure 저장소 서비스 및 사용자 계정에 대한 기본 및 보조 액세스 키의 각 리소스에 액세스하는 데 사용할 수 있는 Url이 표시 됩니다. 이러한 키를 사용하여 저장소 서비스에 대해 수행된 요청을 인증합니다.
+1. At the bottom of the window, choose the **Create Storage Account** link.
 
->[AZURE.NOTE] 보조 액세스 키는 기본 액세스 키로서 저장소 계정에 대한 동일한 액세스를 제공하며 기본 액세스 키가 손상되는 경우 백업으로 생성됩니다. 또한 정기적으로 액세스 키를 다시 생성하는 것이 좋습니다. 기본 키를 다시 생성하는 동안 보조 키를 사용하기 위한 연결 문자열 설정을 수정한 다음, 보조 키를 다시 생성하는 동안 기본 키를 다시 생성하기 위해 문자열 설정을 수정할 수 있습니다.
+After you create your storage account, you will see the URLs that you can use to access resources in each of the Azure storage services, and also the primary and secondary access keys for your account. You use these keys to authenticate requests made against the storage services.
 
-## 앱을 구성하여 저장소 계정에서 제공하는 서비스를 사용합니다.
+>[AZURE.NOTE] The secondary access key provides the same access to your storage account as the primary access key and is generated as a backup should your primary access key be compromised. Additionally, it is recommended that you regenerate your access keys on a regular basis. You can modify a connection string setting to use the secondary key while you regenerate the primary key, then you can modify it to use the regenerated primary key while you regenerate the secondary key.
 
-사용자가 만든 Azure 저장소 서비스를 사용하여 저장소 서비스에 액세스하는 모든 역할을 구성해야 합니다. 이렇게 하면 Azure 프로젝트에 대한 여러 서비스 구성을 사용할 수 있습니다. 기본적으로, 이 두 가지 구성은 Azure 프로젝트에서 생성됩니다. 여러 서비스 구성을 사용 하면 코드에서 동일한 연결 문자열을 사용할 수 있지만 각 서비스 구성에서 연결 문자열에 대해 다른 값을 가질 수 있습니다. 예를 들어, Azure 저장소 에뮬레이터를 사용하여 로컬에서 응용 프로그램을 실행 및 디버깅하는 서비스 구성을 사용할 수 있으며 Azure에 응용 프로그램을 게시하는 다른 서비스 구성을 사용할 수 있습니다. 서비스 구성에 대한 자세한 내용은 [여러 서비스 구성을 사용하여 Azure 프로젝트 구성](vs-azure-tools-multiple-services-project-configurations.md)을 참조하세요.
+## <a name="configure-your-app-to-use-services-provided-by-the-storage-account"></a>Configure your app to use services provided by the storage account
 
-### 저장소 계정이 제공하는 서비스를 사용하도록 응용 프로그램을 구성하려면
+You must configure any role that accesses storage services to use the Azure storage services that you have created. To do this, you can use multiple service configurations for your Azure project. By default, two are created in your Azure project. By using multiple service configurations, you can use the same connection string in your code, but have a different value for a connection string in each service configuration. For example, you can use one service configuration to run and debug your application locally using the Azure storage emulator and a different service configuration to publish your application to Azure. For more information about service configurations, see [Configuring Your Azure Project Using Multiple Service Configurations](vs-azure-tools-multiple-services-project-configurations.md).
 
-1. Visual Studio에서 Azure 솔루션을 엽니다. 솔루션 탐색기에서 저장소 서비스에 액세스 하는 Azure 프로젝트의 각 역할에 대한 바로 가기 메뉴를 열고 **속성**을 선택합니다. 역할의 이름이 있는 페이지가 Visual Studio 편집기에 표시됩니다. 페이지에 **구성** 탭에 대한 필드가 표시됩니다.
+### <a name="to-configure-your-application-to-use-services-that-the-storage-account-provides"></a>To configure your application to use services that the storage account provides
 
-1. 역할에 대한 속성 페이지에서 **설정**을 선택합니다.
+1. In Visual Studio open your Azure solution. In Solution Explorer, open the shortcut menu for each role in your Azure project that accesses the storage services and choose **Properties**. A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
 
-1. **서비스 구성** 목록에서 편집할 서비스 구성의 이름을 선택합니다. 이 역할에 대한 모든 서비스 구성을 변경하려는 경우 **모든 구성**을 선택할 수 있습니다. 서비스 구성을 업데이트하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성](vs-azure-tools-configure-roles-for-cloud-service.md).항목의 **저장소 계정에 대한 연결 문자열 관리** 섹션을 참조하세요.
+1. In the property pages for the role, choose **Settings**.
 
-1. 연결 문자열 설정을 수정하려면 설정 옆에 있는 **...** 단추를 선택합니다. **저장소 연결 문자열 만들기** 대화 상자가 나타납니다.
+1. In the **Service Configuration** list, choose the name of the service configuration that you want to edit. If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.  For more information about how to update service configurations, see the section **Manage Connection Strings for Storage Accounts** in the topic [Configure the Roles for an Azure Cloud Service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-1. **연결 사용**아래에서**구독** 옵션을 선택합니다.
+1. To modify any connection string settings, choose the **…** button next to the setting. The **Create Storage Connection String** dialog box appears.
 
-1. **구독** 목록에서 구독을 선택합니다. 구독 목록에 원하는 구독이 없으면 **게시 설정 다운로드** 링크를 선택합니다.
+1. Under **Connect using**, choose the **Your subscription** option.
 
-1. **계정 이름** 목록에서 저장소 계정 이름을 선택합니다. Azure Tools은.publishsettings 파일을 사용하여 자동으로 저장소 계정 자격 증명을 가져옵니다. 저장소 계정 자격 증명을 수동으로 지정하려면 **수동으로 입력한 자격 증명** 옵션을 선택한 다음 이 절차를 계속합니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에서 저장소 계정 이름과 기본 키를 얻을 수 있습니다. 저장소 계정 설정을 수동으로 지정하지 않으려면 **확인** 단추를 선택하여 대화 상자를 닫습니다.
+1. In the **Subscription** list, choose your subscription. If the list of subscriptions doesn't include the one that you want, choose the **Download Publish Settings** link.
 
-1. **저장소 계정 입력** 자격 증명 링크를 선택합니다.
+1. In the **Account name** list, choose your storage account name. Azure Tools obtains storage account credentials automatically by using the .publishsettings file. To specify your storage account credentials manually, choose the **Manually entered credentials** option, and then continue with this procedure. You can get your storage account name and primary key from the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885). If you don’t want to specify your storage account settings manually, choose the **OK** button to close the dialog box.
 
-1. **계정 이름** 상자에 저장소 계정의 이름을 입력합니다.
+1. Choose the **Enter storage account** credentials link.
 
-    >[AZURE.NOTE] [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 로그인한 다음 **저장소** 단추를 선택합니다. 포털에서는 저장소 계정 목록을 보여줍니다. 계정을 선택하면 그에 대한 페이지가 열립니다. 이 페이지에서 저장소 계정의 이름을 복사할 수 있습니다. 이전 버전의 클래식 포털을 사용하는 경우에는 저장소 계정 이름이 **저장소 계정** 보기에 나타납니다. 이 이름을 복사하려면 이 보기의 **속성** 창에서 강조 표시한 다음 Ctrl-C 키를 선택합니다. 이름을 Visual Studio을 붙여넣으려면 **계정 이름** 텍스트 상자를 선택한 다음 Ctrl+V 키를 선택합니다.
+1. In the **Account name** box, enter the name of your storage account.
 
-1. **계정 키** 상자에서 기본 키를 입력하거나 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 기본 키를 복사하고 붙여넣습니다. 이 키를 복사하려면:
+    >[AZURE.NOTE] Log into the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and then choose the **Storage** button. The portal shows a list of storage accounts. If you choose an account, a page for it opens. You can copy the name of the storage account from this page. If you are using a previous version of the classic portal, the name of your storage account appears in the **Storage Accounts** view. To copy this name, highlight it in the **Properties** window of this view, and then choose the Ctrl-C keys. To paste the name into Visual Studio, choose the **Account name** text box, and then choose the Ctrl+V keys.
 
-    1. 적절한 저장소 계정에 대한 페이지의 맨 아래에서 **키 관리** 단추를 선택합니다.
+1. In the **Account key** box, enter your primary key, or copy and paste it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+    To copy this key:
 
-    1. **키 액세스 관리** 페이지에서 기본 액세스 키의 텍스트를 선택하고 Ctrl+C 키를 선택합니다.
+    1. At the bottom of the page for the appropriate storage account, choose the **Manage Keys** button.
 
-    1. Azure Tools에서 **계정 키** 상자에 키를 붙여넣습니다.
+    1. On the **Manage Keys Access** page, select the text of the primary access key, and then choose the Ctrl+C keys.
 
-    1. 서비스가 저장소 계정에 액세스하는 방식을 결정하려면 다음 옵션 중 하나를 선택해야 합니다.
-        - **HTTP 사용**. 표준 옵션입니다. 예: `http://<account name>.blob.core.windows.net`
-        - 보안 연결을 위해 **HTTPS 사용**. 예: `https://<accountname>.blob.core.windows.net`
-        - 3개의 서비스 각각에 대해 **사용자 지정 끝점 지정**. 그런 다음 특정 서비스에 대한 필드에 이러한 끝점을 입력할 수 있습니다.
+    1. In Azure Tools, paste the key into the **Account key** box.
 
-        >[AZURE.NOTE] 사용자 지정 끝점을 만들면 더 복잡한 연결 문자열을 만들 수 있습니다. 이 문자열 형식을 사용할 때 BLOB 서비스를 통해 저장소 계정에 등록한 사용자 지정 도메인 이름을 포함하는 저장소 서비스 끝점을 지정할 수 있습니다. 또한 공유 액세스 서명을 통해 단일 컨테이너의 BLOB 리소스에만 액세스를 부여할 수 있습니다. 사용자 지정 끝점을 만드는 방법에 대한 자세한 내용은 [Azure 저장소 연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
+    1. You must select one of the following options to determine how the service will access the storage account:
+        - **Use HTTP**. This is the standard option. For example, `http://<account name>.blob.core.windows.net`.
+        - **Use HTTPS** for a secure connection. For example, `https://<accountname>.blob.core.windows.net`.
+        - **Specify custom endpoints** for each of the three services. You can then type these endpoints into the field for the specific service.
 
-1. 이러한 연결 문자열 변경사항을 저장하려면 **확인** 단추를 선택한 다음 도구 모음의 **저장** 단추를 선택합니다. 이러한 변경 내용을 저장한 후 [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx)를 사용하여 사용자의 코드의 연결 문자열의 값을 가져올 수 있습니다. Azure에 응용 프로그램을 게시하는 경우 연결 문자열에 대한 Azure 저장소 계정이 포함된 서비스 구성을 선택합니다. 응용 프로그램을 게시한 후, 응용 프로그램이 Azure 저장소 서비스에 대해 예상 대로 작동하는지 확인합니다.
+        >[AZURE.NOTE] If you create custom endpoints, you can create a more complex connection string. When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service. Also you can grant access only to blob resources in a single container through a shared access signature. For more information about how to create custom endpoints, see [Configure Azure Storage Connection Strings](storage-configure-connection-string.md).
 
-## 다음 단계
+1. To save these connection string changes, choose the **OK** button and then choose the **Save** button on the toolbar. After you save these changes, you can get the value of this connection string in your code by using [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). When you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string. After your application is published, verify that the application works as expected against the Azure storage services
 
-Visual Studio에서 Azure에 앱을 게시하는 방법에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](vs-azure-tools-publishing-a-cloud-service.md)를 참조하세요.
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+To learn more about publishing apps to Azure from Visual Studio, see [Publishing a Cloud Service using the Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

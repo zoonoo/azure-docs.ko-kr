@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure 포털을 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Azure"
-   description="Azure 포털을 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
+   pageTitle="How to create NSGs in ARM mode using the Azure portal | Microsoft Azure"
+   description="Learn how to create and deploy NSGs in ARM using the Azure portal"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,90 +17,94 @@
    ms.date="02/04/2016"
    ms.author="jdial" />
 
-# Azure 포털을 사용하여 NSG 관리하는 방법
+
+# <a name="how-to-manage-nsgs-using-the-azure-portal"></a>How to manage NSGs using the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md) 수도 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. You can also [create NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-아래 샘플 PowerShell 명령에는 위의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [이 템플릿](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)을 배포하여 테스트 환경을 구축하고 **Azure에 배포**를 클릭한 다음 필요한 경우 기본 매개 변수 값을 바꾸고 포털의 지침을 따릅니다. 아래 단계는 템플릿이 배포된 리소스 그룹의 이름으로 **RG-NSG**를 사용합니다.
+The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. The steps below use **RG-NSG** as the name of the resource group the template was deployed to.
 
-## NSG-FrontEnd NSG 만들기
+## <a name="create-the-nsg-frontend-nsg"></a>Create the NSG-FrontEnd NSG
 
-위의 시나리오에 나온 것처럼 **NSG-FrontEnd** NSG를 만들려면 다음 단계를 따르세요.
+To create the **NSG-FrontEnd** NSG as shown in the scenario above, follow the steps below.
 
-1. 브라우저에서 http://portal.azure.com으로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
-2. **찾아보기 >** > **네트워크 보안 그룹**을 클릭합니다.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+2. Click **Browse >** > **Network Security Groups**.
 
-    ![Azure 포털 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
-3. **네트워크 보안 그룹** 블레이드에서 **추가**를 클릭합니다.
+3. In the **Network security groups** blade, click **Add**.
   
-    ![Azure 포털 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
-4. **네트워크 보안 그룹 만들기** 블레이드에서 *RG-NSG* 리소스 그룹 안에 *NSG-FrontEnd* 라는 이름의 NSG를 만든 다음 **만들기**를 클릭합니다.
+4. In the **Create network security group** blade, create an NSG named *NSG-FrontEnd* in the *RG-NSG* resource group, and then click **Create**.
 
-	![Azure 포털 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
+    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
 
-## 기존 NSG에서 규칙 만들기
+## <a name="create-rules-in-an-existing-nsg"></a>Create rules in an existing NSG
 
-Azure 포털의 기존 NSG에 규칙을 만들려면 다음 단계를 따릅니다.
+To create rules in an existing NSG from the Azure portal, follow the steps below.
 
-2. **찾아보기 >** > **네트워크 보안 그룹**을 클릭합니다.
+2. Click **Browse >** > **Network security groups**.
 
-3. NSG 목록에서 **NSG-FrontEnd** > **인바운드 보안 규칙**을 클릭합니다.
+3. In the list of NSGs, click **NSG-FrontEnd** > **Inbound security rules**
 
-	![Azure 포털 - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
+    ![Azure portal - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
 
-4. **인바운드 보안 규칙** 목록에서 **추가**를 클릭합니다.
+4. In the list of **Inbound security rules**, click **Add**.
 
-	![Azure 포털 - 규칙 추가](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
+    ![Azure portal - Add rule](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
 
-5. **인바운드 보안 규칙 추가** 블레이드에서 우선순위 *200*의 *web-rule*이라는 규칙을 만들어 *TCP* 및 포트 *80*을 통한 모든 원본의 모든 VM으로 액세스를 허용한 후 **확인**을 클릭합니다. 이러한 설정 중 대부분은 이미 기본값입니다.
+5. In the **Add inbound security rule** blade, create a rule named *web-rule* with priority of *200* allowing access via *TCP* to port *80* to any VM from any source, and then click **OK**. Notice that most of these settings are default values already.
 
-	![Azure 포털 - 규칙 설정](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
+    ![Azure portal - Rule settings](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
 
-6. 몇 초 후는 NSG에 새 규칙이 표시됩니다.
+6. After a few seconds you will see the new rule in the NSG.
 
-	![Azure 포털 - 새 규칙](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
+    ![Azure portal - New rule](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-7. 6단계까지 반복하여 *TCP* 및 포트 *3389*를 통해 모든 원본의 모든 VM에 대한 액세스를 허용하는 우선 순위 *250*의 *rdp-rule*이라는 인바운드 규칙을 만듭니다.
+7. Repeat steps  to 6 to create an inbound rule named *rdp-rule* with a priority of *250* allowing access via *TCP* to port *3389* to any VM from any source.
 
-## NSG를 FrontEnd 서브넷에 연결
+## <a name="associate-the-nsg-to-the-frontend-subnet"></a>Associate the NSG to the FrontEnd subnet
 
-1. **찾아보기 >** > **리소스 그룹** > **RG-NSG**를 클릭합니다.
-2. **RG-NSG** 블레이드에서 **...** > **TestVNet**을 클릭합니다.
+1. Click **Browse >** > **Resource groups** > **RG-NSG**.
+2. In the **RG-NSG** blade, click **...** > **TestVNet**.
 
-	![Azure 포털 - TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
+    ![Azure portal - TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
 
-3. **설정** 블레이드에서 **서브넷** > **FrontEnd** > **네트워크 보안 그룹** > **NSG-FrontEnd**를 클릭합니다.
+3. In the **Settings** blade, click **Subnets** > **FrontEnd** > **Network security group** > **NSG-FrontEnd**.
 
-	![Azure 포털 - 서브넷 설정](./media/virtual-networks-create-nsg-arm-pportal/figure15.png)
+    ![Azure portal - Subnet settings](./media/virtual-networks-create-nsg-arm-pportal/figure15.png)
 
-4. **FrontEnd** 블레이드에서 **저장**을 클릭합니다.
+4. In the **FrontEnd** blade, click **Save**.
 
-	![Azure 포털 - 서브넷 설정](./media/virtual-networks-create-nsg-arm-pportal/figure16.png)
+    ![Azure portal - Subnet settings](./media/virtual-networks-create-nsg-arm-pportal/figure16.png)
 
-## NSG-BackEnd NSG 만들기
+## <a name="create-the-nsg-backend-nsg"></a>Create the NSG-BackEnd NSG
 
-**NSG-BackEnd** NSG를 만든 후 **BackEnd** 서브넷에 연결하려면 다음 단계를 따릅니다.
+To create the **NSG-BackEnd** NSG and associate it to the **BackEnd** subnet, follow the steps below.
 
-1. [NSG-FrontEnd NSG 만들기](#Create-the-NSG-FrontEnd-NSG)의 단계를 반복하여 *NSG-BackEnd*라는 NSG를 만듭니다.
-2. 아래 표에 있는 **인바운드** 규칙을 만들려면 [기존 NSG에서 규칙 만들기](#Create-rules-in-an-existing-NSG)의 단계를 반복합니다.
+1. Repeat the steps in [Create the NSG-FrontEnd NSG](#Create-the-NSG-FrontEnd-NSG) to create an NSG named *NSG-BackEnd*
+2. Repeat the steps in [Create rules in an existing NSG](#Create-rules-in-an-existing-NSG) to create the **inbound** rules in the table below.
 
-	|인바운드 규칙|아웃바운드 규칙|
-	|---|---|
-	|![Azure 포털 - 인바운드 규칙](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Azure 포털 - 아웃바운드 규칙](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
+  	|Inbound rule|Outbound rule|
+  	|---|---|
+  	|![Azure portal - inbound rule](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Azure portal - outbound rule](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
 
-3. **NSG-Backend** NSG를 **BackEnd** 서브넷에 연결하려면 [FrontEnd 서브넷에 NSG 연결](#Associate-the-NSG-to-the-FrontEnd-subnet)의 단계를 반복합니다.
+3. Repeat the steps in [Associate the NSG to the FrontEnd subnet](#Associate-the-NSG-to-the-FrontEnd-subnet) to associate the **NSG-Backend** NSG to the **BackEnd** subnet.
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- [기존 NSG 관리](virtual-network-manage-nsg-arm-portal.md) 방법을 알아봅니다.
-- NSG에 대한 [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
+- Learn how to [manage existing NSGs](virtual-network-manage-nsg-arm-portal.md)
+- [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

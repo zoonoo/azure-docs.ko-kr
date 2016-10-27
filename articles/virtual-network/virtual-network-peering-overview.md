@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Azure 가상 네트워크 피어링 | Microsoft Azure"
-   description="Azure에서 VNet 피어링에 대해 알아봅니다."
+   pageTitle="Azure virtual network peering | Microsoft Azure"
+   description="Learn about VNet peering in Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="NarayanAnnamalai"
@@ -16,76 +16,81 @@
    ms.date="07/28/2016"
    ms.author="narayan" />
 
-# VNet 피어링
 
-VNet 피어링은 Azure 백본 네트워크를 통해 동일한 지역에 있는 두 개의 가상 네트워크를 연결하는 메커니즘입니다. 두 가상 네트워크가 피어링되면 모든 연결에 대해 하나로 표시됩니다. 여전히 별도 리소스로 관리할 수는 있지만 이러한 가상 네트워크의 가상 컴퓨터는 개인 IP 주소를 사용하여 직접 서로 통신할 수 있습니다.
+# <a name="vnet-peering"></a>VNet peering
 
-트래픽이 동일한 가상 네트워크에 있는 VM 간에 라우팅되는 것과 마찬가지로 피어링된 가상 네트워크에 있는 가상 컴퓨터 간의 트래픽은 Azure 인프라를 통해 라우팅됩니다. VNet 피어링을 사용하는 이점은 다음과 같습니다.
+VNet peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
 
-- 다른 가상 네트워크에 있는 리소스 간에 짧은 대기 시간, 높은 대역폭 연결
-- 네트워크 가상 어플라이언스, VPN 게이트웨이와 같은 리소스를 피어링된 VNet에서 전송 지점으로 사용 가능
-- 클래식 배포 모델을 사용하는 가상 네트워크에 Azure Resource Manager 모델을 사용하는 가상 네트워크를 연결하고 이러한 가상 네트워크의 리소스 간의 전체 연결 사용 가능
+The traffic between virtual machines in the peered virtual networks is routed through the Azure infrastructure much like traffic is routed between VMs in the same virtual network. Some of the benefits of using VNet peering include:
 
-VNet 피어링의 요구 사항 및 주요 측면은 다음과 같습니다.
+- A low-latency, high-bandwidth connection between resources in different virtual networks.
+- The ability to use resources such as network appliances and VPN gateways as transit points in a peered VNet.
+- The ability to connect a virtual network that uses the Azure Resource Manager model to a virtual network that uses the classic deployment model and enable full connectivity between resources in these virtual networks.
 
-- 피어링된 두 개의 가상 네트워크는 동일한 Azure 지역에 있어야 합니다.
-- 피어링된 가상 네트워크에는 겹치지 않는 IP 주소 공간이 있어야 합니다.
-- VNet 피어링은 두 가상 네트워크 간에 가능하며 파생된 전이적 관계가 없습니다. 예를 들어, 가상 네트워크 A는 가상 네트워크 B와 피어링되고 가상 네트워크 B가 가상 네트워크 C와 피어링되더라도 가상 네트워크 A가 가상 네트워크 C와 피어링되었다고 해석하지 않습니다.
-- 양쪽 구독의 권한 있는 사용자가 피어링을 허용하면 서로 다른 두 구독에 있는 가상 네트워크 간에 피어링을 설정할 수 있고 구독은 동일한 Active Directory 테넌트에 연결됩니다.
-- Resource Manager 배포 모델을 사용하는 가상 네트워크는 이 모델을 사용하는 다른 가상 네트워크 또는 클래식 배포 모델을 사용하는 가상 네트워크와 피어링될 수 있습니다. 그러나 클래식 배포 모델을 사용하는 가상 네트워크는 서로 피어링될 수 없습니다.
-- 피어링된 가상 네트워크에 있는 가상 컴퓨터 간의 통신에 대역폭 제한이 추가되지 않더라도 VM 크기에 따른 대역폭 상한이 여전히 적용됩니다.
+Requirements and key aspects of VNet peering:
 
-
-![기본 VNet 피어링](./media/virtual-networks-peering-overview/figure01.png)
-
-## 연결
-두 개의 가상 네트워크가 피어링된 후에 가상 네트워크에 있는 가상 컴퓨터(웹/작업자 역할)는 피어링된 가상 네트워크의 다른 가상 컴퓨터와 직접 연결할 수 있습니다. 이 두 개의 네트워크에는 전체 IP 수준 연결이 생성됩니다.
-
-피어링 가상 네트워크에 있는 두 개의 가상 컴퓨터 간의 왕복 네트워크 대기 시간은 로컬 가상 네트워크 내의 왕복 시간과 같습니다. 네트워크 처리량은 해당 크기에 비례하는 가상 컴퓨터에 허용되는 대역폭을 기반으로 합니다. 대역폭에 대한 추가 제한이 없습니다.
-
-피어링된 가상 네트워크에 있는 가상 컴퓨터 간의 트래픽은 게이트웨이가 아닌 Azure의 백 엔드 인프라를 통해 직접 라우팅됩니다.
-
-가상 네트워크의 가상 컴퓨터는 피어링된 가상 네트워크에서 ILB(내부 부하 분산) 끝점에 액세스할 수 있습니다. 원하는 경우 다른 가상 네트워크 또는 서브넷에 대한 액세스를 차단하기 위해 NSG(네트워크 보안 그룹)을 각 가상 네트워크에 적용할 수 있습니다.
-
-사용자가 피어링을 구성하는 경우 가상 네트워크 간의 NSG 규칙을 열거나 닫을 수 있습니다. 사용자가 피어링된 가상 네트워크 간의 전체 연결을 열도록 선택하는 경우(기본 옵션임) 특정 서브넷 또는 가상 컴퓨터에 NSG를 사용하여 특정 액세스를 차단하거나 거부할 수 있습니다.
-
-Azure에서 제공한 가상 컴퓨터에 대한 내부 DNS 이름 확인은 피어링된 가상 네트워크에 작동하지 않습니다. 가상 컴퓨터는 로컬 가상 네트워크 내에서만 확인할 수 있는 내부 DNS 이름을 갖게 됩니다. 그러나 사용자는 피어링된 가상 네트워크에서 실행 중인 가상 컴퓨터를 가상 네트워크에 대한 DNS 서버로 구성할 수 있습니다.
-
-## 서비스 체이닝
-사용자는 이 문서의 뒷부분에 있는 다이어그램에서 보여준 대로 피어링된 가상 네트워크의 가상 컴퓨터를 가리키는 사용자 정의 경로 테이블을 "다음 홉" IP 주소로 구성할 수 있습니다. 이렇게 하면 사용자 정의 경로 테이블을 통해 하나의 가상 네트워크에서 피어링된 가상 네트워크에서 실행되는 가상 어플라이언스로 트래픽을 보낼 수 있는 서비스 체이닝을 설정할 수 있습니다.
-
-사용자는 허브가 네트워크 가상 어플라이언스와 같은 인프라 구성 요소를 호스팅할 수 있는 허브 및 스포크 유형의 환경을 효율적으로 만들 수도 있습니다. 모든 스포크 가상 네트워크는 허브 가상 네트워크에서 실행되는 어플라이언스 뿐만 아니라 그에 대한 트래픽의 하위 집합과 피어링할 수 있습니다. 즉, VNet 피어링을 사용하면 ‘사용자 정의 경로 테이블’에 대한 다음 홉 IP 주소는 피어링된 가상 네트워크에 있는 가상 컴퓨터의 IP 주소가 될 수 있습니다.
-
-## 게이트웨이 및 온-프레미스 연결
-각 가상 네트워크는 다른 가상 네트워크와 피어링되었는지 여부와 상관없이 고유한 게이트웨이를 가지고 있으며 이를 온-프레미스에 연결하는 데 사용할 수 있습니다. 사용자는 가상 네트워크가 피어링된 경우에도 게이트웨이를 사용하여 [VNet 간 연결](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 구성할 수도 있습니다.
-
-가상 네트워크 연결을 위한 옵션을 모두 구성한 경우 가상 네트워크 간의 트래픽은 피어링 구성(즉, Azure 백본)을 통해 전달됩니다.
-
-가상 네트워크가 피어링되면 사용자도 피어링된 가상 네트워크에 있는 게이트웨이를 온-프레미스에 대한 전송 지점으로 구성할 수 있습니다. 이 경우ㅇ 원격 게이트웨이를 사용하는 가상 네트워크는 고유한 게이트웨이를 사용할 수 없습니다. 하나의 가상 네트워크는 게이트웨이를 하나만 가질 수 있습니다. 다음 그림에서 보여준 대로 피어링된 가상 네트워크의 로컬 게이트웨이 또는 원격 게이트웨이일 수 있습니다.
-
-게이트웨이 전송은 Resource Manager 모델을 사용하는 가상 네트워크와 클래식 배포 모델을 사용하는 가상 네트워크 간의 피어링 관계에서 지원되지 않습니다. 피어링 관계인 두 가상 네트워크는 게이트웨이 전송을 위한 Resource Manager 배포 모델을 사용하여 작동해야 합니다.
-
-단일 Azure Express 경로 연결을 공유하는 가상 네트워크가 피어링된 경우 둘 사이의 트래픽은 피어링 관계(즉, Azure 백본 네트워크)를 거치게 됩니다. 사용자는 로컬 게이트웨이 각각에서 가상 네트워크를 사용하여 온-프레미스 회로에 연결할 수 있습니다. 또는 공유 게이트웨이를 사용하고 온-프레미스 연결에 대한 전송을 구성할 수 있습니다.
-
-![VNet 피어링 전송](./media/virtual-networks-peering-overview/figure02.png)
-
-## 프로비전
-VNet 피어링은 권한 있는 작업입니다. VirtualNetworks 네임스페이스에서 별도 기능입니다. 사용자는 특정 권한을 지정하여 피어링하는 권한을 부여할 수 있습니다. 가상 네트워크에 대한 읽기-쓰기 액세스 권한이 있는 사용자는 이러한 권한을 자동으로 상속합니다.
-
-피어링 기능의 관리자 또는 권한있는 사용자 중 하나인 사용자는 다른 VNet에 대한 피어링 작업을 시작할 수 있습니다. 다른 쪽에 피어링에 대해 동일한 요청이 있고 다른 요구 사항을 충족하는 경우 피어링이 설정됩니다.
-
-두 가상 네트워크 간의 VNet 피어링을 설정하는 방법에 대해 자세히 알아보려면 "다음 단계" 섹션의 문서를 참조하세요.
-
-## 제한
-단일 가상 네트워크에 허용되는 피어링의 수에 대한 제한이 있습니다. 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md#networking-limits)을 참조하세요.
-
-## 가격
-VNet 피어링은 검토 기간 동안 요금이 청구되지 않습니다. 출시된 후에 피어링을 활용하는 송/수신 트래픽에 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조합니다.
+- The two virtual networks that are peered should be in the same Azure region.
+- The virtual networks that are peered should have non-overlapping IP address spaces.
+- VNet peering is between two virtual networks, and there is no derived transitive relationship. For example, if virtual network A is peered with virtual network B, and if virtual network B is peered with virtual network C, it does not translate to virtual network A being peered with virtual network C.
+- Peering can be established between virtual networks in two different subscriptions as long a privileged user of both subscriptions authorizes the peering and the subscriptions are associated to the same Active Directory tenant. 
+- A virtual network that uses the Resource Manager deployment model can be peered with another virtual network that uses this model, or with a virtual network that uses the classic deployment model. However, virtual networks that use the classic deployment model can't be peered to each other.
+- Though the communication between virtual machines in peered virtual networks has no additional bandwidth restrictions, bandwidth cap based on VM size still applies.
 
 
-## 다음 단계
-- [가상 네트워크 간에 피어링을 설정합니다](virtual-networks-create-vnetpeering-arm-portal.md).
-- [NSG](virtual-networks-nsg.md)에 대해 알아봅니다.
-- [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아봅니다.
+![Basic VNet peering](./media/virtual-networks-peering-overview/figure01.png)
 
-<!---HONumber=AcomDC_0928_2016-->
+## <a name="connectivity"></a>Connectivity
+After two virtual networks are peered, a virtual machine (web/worker role) in the virtual network can directly connect with other virtual machines in the peered virtual network. These two networks have full IP-level connectivity.
+
+The network latency for a round trip between two virtual machines in peered virtual networks is the same as for a round trip within a local virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine proportionate to its size. There isn't any additional restriction on bandwidth.
+
+The traffic between the virtual machines in peered virtual networks is routed directly through the Azure back-end infrastructure and not through a gateway.
+
+Virtual machines in a virtual network can access the internal load-balanced (ILB) endpoints in the peered virtual network. Network security groups (NSGs) can be applied in either virtual network to block access to other virtual networks or subnets if desired.
+
+When users configure peering, they can either open or close the NSG rules between the virtual networks. If the user chooses to open full connectivity between peered virtual networks (which is the default option), they can then use NSGs on specific subnets or virtual machines to block or deny specific access.
+
+Azure-provided internal DNS name resolution for virtual machines doesn't work across peered virtual networks. Virtual machines have internal DNS names that are resolvable only within the local virtual network. However, users can configure virtual machines that are running in peered virtual networks as DNS servers for a virtual network.
+
+## <a name="service-chaining"></a>Service chaining
+Users can configure user-defined route tables that point to virtual machines in peered virtual networks as the "next hop" IP address, as shown in the diagram later in this article. This enables users to achieve service chaining, through which they can direct traffic from one virtual network to a virtual appliance that's running in a peered virtual network through user-defined route tables.
+
+Users can also effectively build hub-and-spoke type environments where the hub can host infrastructure components such as a network virtual appliance. All the spoke virtual networks can then peer with it, as well as a subset of traffic to appliances that are running in the hub virtual network. In short, VNet peering enables the next hop IP address on the ‘User defined route table’ to be the IP address of a virtual machine in the peered virtual network.
+
+## <a name="gateways-and-on-premises-connectivity"></a>Gateways and on-premises connectivity
+Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to on-premises. Users can also configure [VNet-to-VNet connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) by using gateways, even though the virtual networks are peered.
+
+When both options for virtual network interconnectivity are configured, the traffic between the virtual networks flows through the peering configuration (that is, through the Azure backbone).
+
+When virtual networks are peered, users can also configure the gateway in the peered virtual network as a transit point to on-premises. In this case, the virtual network that is using a remote gateway cannot have its own gateway. One virtual network can have only one gateway. It can either be a local gateway or a remote gateway (in the peered virtual network), as shown in the following picture.
+
+Gateway transit is not supported in the peering relationship between virtual networks using the Resource Manager model and those using the classic deployment model. Both virtual networks in the peering relationship need to use the Resource Manager deployment model for a gateway transit to work.
+
+When the virtual networks that are sharing a single Azure ExpressRoute connection are peered, the traffic between them goes through the peering relationship (that is, through the Azure backbone network). Users can still use local gateways in each virtual network to connect to the on-premises circuit. Alternatively, they can use a shared gateway and configure transit for on-premises connectivity.
+
+![VNet peering transit](./media/virtual-networks-peering-overview/figure02.png)
+
+## <a name="provisioning"></a>Provisioning
+VNet peering is a privileged operation. It’s a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
+
+A user who is either an admin or a privileged user of the peering ability can initiate a peering operation on another VNet. If there is a matching request for peering on the other side, and if other requirements are met, the peering will be established.
+
+Refer to the articles in the "Next steps" section to learn more about how to establish VNet peering between two virtual networks.
+
+## <a name="limits"></a>Limits
+There are limits on the number of peerings that are allowed for a single virtual network. Refer to [Azure networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
+
+## <a name="pricing"></a>Pricing
+VNet peering will be free of charge during the review period. After it is released, there will be a nominal charge on ingress and egress traffic that utilizes the peering. For more information, refer to the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+
+
+## <a name="next-steps"></a>Next steps
+- [Set up peering between virtual networks](virtual-networks-create-vnetpeering-arm-portal.md).
+- Learn about [NSGs](virtual-networks-nsg.md).
+- Learn about [user-defined routes and IP forwarding](virtual-networks-udr-overview.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager 개요의 클래식 끝점 | Microsoft Azure"
-   description="클래식 배포 모델의 끝점이 네트워크 보안 그룹 및 ACL 규칙을 사용하여 Resource Manager에서 구현되는 방식 이해"
+   pageTitle="Classic Endpoints in Resource Manager Overview | Microsoft Azure"
+   description="Understand how endpoints from the Classic deployment model are now implemented in Resource Manager using Network Security Groups and ACL rules"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,15 +16,19 @@
    ms.date="08/09/2016"
    ms.author="iainfou"/>
 
-# 리소스 관리자의 클래식 끝점
+
+# <a name="classic-endpoints-in-resource-manager"></a>Classic Endpoints in Resource Manager
 [AZURE.INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
-## 다음 단계
-다음 문서에서 여기에 설명된 기술에 대한 자세한 내용과 네트워크 보안 그룹을 사용하기 위한 빠른 시작 가이드를 읽어볼 수 있습니다.
+## <a name="next-steps"></a>Next steps
+You can read more detailed information on the technologies discussed here, along with quick-start guides for using Network Security Groups, in the following articles:
 
-- [빠른 시작-Azure CLI를 사용하여 네트워크 보안 그룹 및 ACL 규칙 만들기](virtual-machines-linux-nsg-quickstart.md)
-- [Azure Resource Manager 개요](../resource-group-overview.md)
-- [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
-- [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
+- [Quick-start - Create a Network Security Group and ACL rules using the Azure CLI](virtual-machines-linux-nsg-quickstart.md)  
+- [Azure Resource Manager overview](../resource-group-overview.md)  
+- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)  
+- [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md) 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

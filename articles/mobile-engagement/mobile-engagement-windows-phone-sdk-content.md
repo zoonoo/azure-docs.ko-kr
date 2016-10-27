@@ -1,40 +1,45 @@
 <properties 
-	pageTitle="Windows Phone Silverlight SDK 콘텐츠" 
-	description="Azure Mobile Engagement용 Windows Phone Silverlight SDK의 콘텐츠에 대해 살펴봅니다." 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede"
-	editor="" />
+    pageTitle="Windows Phone Silverlight SDK content" 
+    description="Learn about the contents of the Windows Phone Silverlight SDK for Azure Mobile Engagement"                     
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede"
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016" 
-	ms.author="piyushjo" />
-	
-#Windows Phone Silverlight SDK 콘텐츠
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/19/2016" 
+    ms.author="piyushjo" />
+    
 
-이 문서는 응용 프로그램에서 SDK가 배포한 콘텐츠를 나열하고 설명합니다.
+#<a name="windows-phone-silverlight-sdk-content"></a>Windows Phone Silverlight SDK content
 
-##`/Resources` 폴더 
+This document lists and describes the content deployed by the SDK in your application.
 
-이 폴더에는 Mobile Engagement에 필요한 모든 리소스가 포함되어 있습니다. 앱에 맞게 리소스를 사용자 지정할 수도 있습니다.
+##<a name="the-`/resources`-folder"></a>The `/Resources` folder 
 
-- `EngagementIconNotification.png` : 알림 왼쪽에 표시되는 브랜드 아이콘이며, 이것을 브랜드 아이콘으로 대체합니다.
+This folder contains all the resources that Mobile Engagement needs. You can also customize them to fit your app.
 
-- `EngagementIconOk.png`: 도달률 페이지 ApplicationBar의 "확인" 아이콘입니다.
+- `EngagementIconNotification.png` : The brand icon displayed at the left of a notification, replace this one by your brand icon.
+
+- `EngagementIconOk.png` : The "Ok" icon of the reach pages ApplicationBar.
  
-- `EngagementIconCancel.png`: 도달률 페이지 ApplicationBar의 "취소" 아이콘입니다.
+- `EngagementIconCancel.png` : The "Cancel" icon of the reach pages ApplicationBar.
  
-- `EngagementIconCloseLight.png`: Windows Phone 밝은 테마용 Mobile Engagement 도달률 알림의 "닫기" 아이콘입니다.
+- `EngagementIconCloseLight.png` : The "Close" icon of the Mobile Engagement's reach notification for the Windows Phone light theme.
  
-- `EngagementIconCloseDark.png`: Windows Phone 어두운 테마용 Mobile Engagement 도달률 알림의 "닫기" 아이콘입니다.
+- `EngagementIconCloseDark.png` : The "Close" icon of the Mobile Engagement's reach notification for the Windows Phone dark theme.
 
-- `EngagementConfiguration.xml`: Mobile Engagement 구성 파일입니다. 이 파일에서 Engagement 연결 문자열, 작동 중단 보고 등의 Engagement 설정을 사용자 지정할 수 있습니다.
+- `EngagementConfiguration.xml` : The Mobile Engagement's configuration file, this is where you can customize Engagement settings (Engagement connection string, report crashes etc).
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

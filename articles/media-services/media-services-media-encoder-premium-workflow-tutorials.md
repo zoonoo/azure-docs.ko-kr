@@ -1,989 +1,995 @@
 <properties 
-	pageTitle="고급 미디어 인코더 Premium 워크플로 자습서" 
-	description="이 문서는 미디어 인코더 Premium 워크플로를 사용한 고급 작업을 수행하는 방법 및 워크플로 디자이너르 사용한 복잡한 워크플로를 만드는 방법을 보여주는 연습을 포함합니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="xstof" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Avanced Media Encoder Premium Workflow tutorials" 
+    description="This document contains walkthroughs that show how to perform advanced tasks with Media Encoder Premium Workflow and also how to create complex workflows with Workflow Designer." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="xstof" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2016"  
-	ms.author="xstof;xpouyat;juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/03/2016"  
+    ms.author="xstof;xpouyat;juliako"/>
 
-#고급 미디어 인코더 Premium 워크플로 자습서
 
-##개요 
+#<a name="advanced-media-encoder-premium-workflow-tutorials"></a>Advanced Media Encoder Premium Workflow tutorials
 
-이 문서는 **워크플로 디자이너**를 사용하여 워크플로를 사용자 지정하는 방법을 보여주는 연습을 포함합니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples)에서 실제 워크플로 파일을 찾을 수 있습니다.
+##<a name="overview"></a>Overview 
 
-##목차
+This document contains walkthroughs that show how to customize workflows with  **Workflow Designer**. You can find the actual workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
-다음 항목이 다루어집니다.
+##<a name="toc"></a>TOC
 
-- [단일 비트 전송률 MP4로 MXF 인코딩](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
-	- [새 워크플로 시작](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
-	- [미디어 파일 입력 사용](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
-	- [미디어 스트림 검사](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
-	- [MP4 파일 생성을 위해 비디오 인코더 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
-	- [오디오 스트림 인코딩](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio)
-	- [MP4 컨테이너에 오디오 및 비디오 스트림 멀티플렉싱](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio_and_fideo)
-	- [MP4 파일 작성](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
-	- [출력 파일에서 미디어 서비스 자산 만들기](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_asset_from_output)
-	- [완료된 워크플로 로컬로 테스트](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
-- [다중 비트 전송률 MP4로 MXF 인코딩 - 동적 패키징 사용](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)
-	- [하나 이상의 추가 MP4 출력 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_more_outputs)
-	- [파일 출력 이름 구성](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
-	- [별도 오디오 트랙 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
-	- [.ISM SMIL 파일 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
-- [다중 비트 전송률 MP4로 MXF 인코딩 - 향상된 청사진](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-	- [강화할 워크플로 개요](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_overview)
-	- [파일 명명 규칙](vMXF_to__multibitrate_MP4_file_naming)
-	- [워크플로 루트에 구성 요소 속성 게시](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
-	- [게시된 속성 값을 사용하는 출력 파일 이름 생성](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
-- [다중 비트 전송률 MP4 출력에 미리 보기 추가](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-	- [미리 보기를 추가하는 워크플로 개요](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to_multibitrate_MP4_overview)
-	- [JPG 인코딩 추가](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
-	- [색 공간 변환 처리](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
-	- [미리 보기 작성](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
-	- [워크플로에서 오류 감지](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_errors)
-	- [완료된 워크플로](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_finish)
-- [다중 비트 전송률 MP4 출력의 시간 기반 트리밍](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim)
-	- [트리밍을 추가하기 시작하려는 워크플로 개요](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_start)
-	- [스트림 트리머 사용](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
-	- [완료된 워크플로](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_finish)
-- [스크립팅한 구성 요소 소개](media-services-media-encoder-premium-workflow-tutorials.md#scripting)
-	- [워크플로 내의 스크립팅: Hello World](media-services-media-encoder-premium-workflow-tutorials.md#scripting_hello_world)
-- [다중 비트 전송률 MP4 출력의 프레임 기반 트리밍](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim)
-	- [트리밍을 추가하기 시작하려는 청사진 개요](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_start)
-	- [클립 목록 XML 사용](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clip_list)
-	- [스크립팅한 구성 요소에서 클립 목록 수정](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
-	- [ClippingEnabled 편의 속성 추가](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
+The following topics are covered:
 
-##<a id="MXF_to_MP4"></a>단일 비트 전송률 MP4로 MXF 인코딩
+- [Encoding MXF into a single bitrate MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
+    - [Starting a new workflow](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+    - [Using the Media File Input](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
+    - [Inspecting media streams](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
+    - [Adding a video encoder for .MP4 file generation](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
+    - [Encoding the audio stream](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio)
+    - [Multiplexing Audio and Video streams into an MP4 container](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio_and_fideo)
+    - [Writing the MP4 file](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
+    - [Creating a Media Services Asset from the output file](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_asset_from_output)
+    - [Test the finished workflow locally](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
+- [Encoding MXF into multibitrate MP4s - dynamic packaging enabled](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)
+    - [Adding one or more additional MP4 outputs](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_more_outputs)
+    - [Configuring the file output names](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
+    - [Adding a separate Audio Track](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
+    - [Adding the .ISM SMIL File](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
+- [Encoding MXF into multibitrate MP4 - enhanced blueprint](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
+    - [Workflow overview to enhance](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_overview)
+    - [File Naming Conventions](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
+    - [Publishing component properties onto the workflow root](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
+    - [Have generated output file names rely on published property values](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
+- [Adding thumbnails to multibitrate MP4 output](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
+    - [Workflow overview to add thumbnails to](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to_multibitrate_MP4_overview)
+    - [Adding JPG Encoding](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
+    - [Dealing with Color Space conversion](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
+    - [Writing the thumbnails](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
+    - [Detecting errors in a workflow](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_errors)
+    - [Finished Workflow](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_finish)
+- [Time-based trimming of multibitrate MP4 output](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim)
+    - [Workflow overview to start adding trimming to](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_start)
+    - [Using the Stream Trimmer](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
+    - [Finished Workflow](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_finish)
+- [Introducing the Scripted Component](media-services-media-encoder-premium-workflow-tutorials.md#scripting)
+    - [Scripting within a workflow: hello world](media-services-media-encoder-premium-workflow-tutorials.md#scripting_hello_world)
+- [Frame-based trimming of multibitrate MP4 output](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim)
+    - [Blueprint overview to start adding trimming to](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_start)
+    - [Using the Clip List XML](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clip_list)
+    - [Modifying the clip list from a Scripted Component](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
+    - [Adding a ClippingEnabled convenience property](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
+
+##<a name="<a-id="mxf_to_mp4"></a>encoding-mxf-into-a-single-bitrate-mp4"></a><a id="MXF_to_MP4"></a>Encoding MXF into a single bitrate MP4
  
-이 연습에서는 .MXF 입력 파일에서 AAC-HE 인코딩 오디오를 사용하여 단일 비트 전송률 MP4 파일을 만듭니다.
+In this walkthrough we'll create a single bitrate .MP4 file with AAC-HE encoded audio from an .MXF input file. 
 
-###<a id="MXF_to_MP4_start_new"></a>새 워크플로 시작 
+###<a name="<a-id="mxf_to_mp4_start_new"></a>starting-a-new-workflow"></a><a id="MXF_to_MP4_start_new"></a>Starting a new workflow 
 
-워크플로 디자이너를 열고 "파일"-"새 작업 영역"-"청사진 트랜스코딩"을 선택합니다.
+Open Workflow Designer and select "File"-"New Workspace"-"Transcode Blueprint" 
 
-새 워크플로는 3개 요소를 표시합니다.
+The new workflow will show 3 elements: 
 
-- 기본 원본 파일
-- 클립 목록 XML
-- 출력 파일/자산
+- Primary Source File
+- Clip List XML
+- Output File/Asset  
 
-![새 인코딩 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
+![New Encoding Workflow](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
-*새 인코딩 워크플로*
+*New Encoding Workflow*
 
-###<a id="MXF_to_MP4_with_file_input"></a>미디어 파일 입력 사용
+###<a name="<a-id="mxf_to_mp4_with_file_input"></a>using-the-media-file-input"></a><a id="MXF_to_MP4_with_file_input"></a>Using the Media File Input
 
-입력 미디어 파일을 허용하기 위해 미디어 파일 입력 구성 요소를 추가하기 시작합니다. 워크플로에 구성 요소를 추가하려면 리포지토리 검색 상자에서 구성 요소를 찾고 디자이너 창으로 원하는 항목을 끕니다. 미디어 파일 입력에 이 작업을 수행하고 미디어 파일 입력에서 파일 이름 입력 핀에 기본 원본 파일 구성 요소를 연결합니다.
+In order to accept our input media file, one starts with adding a Media File Input component. To add a component to the workflow, look for it in the Repository search box and drag the desired entry onto the designer pane. Do this for the Media File Input and connect the Primary Source File component to the Filename input pin from the Media File Input.
 
-![연결된 미디어 파일 입력](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-input.png)
+![Connected Media File Input](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-input.png)
 
-*연결된 미디어 파일 입력*
+*Connected Media File Input*
 
-다른 많은 작업을 실행하기 전에 먼저 워크플로 디자이너에 워크플로를 디자인하는 데 사용하려는 샘플 파일을 설명해야 합니다. 이렇게 하려면 디자이너 창 배경을 클릭하고 오른쪽 속성 창에서 기본 원본 파일 속성을 찾습니다. 폴더 아이콘을 클릭하고 원하는 파일을 선택하여 워크플로를 테스트합니다. 이 작업이 완료되는 즉시 미디어 파일 입력 구성 요소는 파일을 검사하고 해당 출력 핀을 채워서 검사한 파일을 반영합니다.
+Before we can do much else, we'll first need to indicate to the workflow designer what sample file we'd like to use to design our workflow with. To do so, click the designer pane background and look for the Primary Source File property on the right-hand property pane. Click the folder icon and select the desired file to test the workflow with. As soon as this is done, the Media File Input component will inspect the file and populate its output pins to reflect the file it inspected.
 
-![채워진 미디어 파일 입력](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-populated-media-file-input.png)
+![Populated Media File Input](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-populated-media-file-input.png)
 
-*채워진 미디어 파일 입력*
+*Populated Media File Input*
 
-작업하려는 입력을 지정하는 반면 인코딩된 출력이 이동해야 하는 위치를 지정하지 않습니다. 이제 기본 원본 파일의 구성 방법과 유사하게 아래의 출력 폴더 변수 속성을 구성합니다.
+While this specifies with what input we'd like to work with, it doesn't tell yet where the encoded output should go to. Similar to how the Primary Source File was configured, now configure the Output Folder Variable property, just below it.
 
-![구성된 입력 및 출력 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configured-io-properties.png)
+![Configured Input and Output properties](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configured-io-properties.png)
 
-*구성된 입력 및 출력 속성*
+*Configured Input and Output properties*
 
-###<a id="MXF_to_MP4_streams"></a>미디어 스트림 검사
+###<a name="<a-id="mxf_to_mp4_streams"></a>inspecting-media-streams"></a><a id="MXF_to_MP4_streams"></a>Inspecting media streams
 
-종종 워크플로를 통해 흐르는 스트림의 모양을 알고자 합니다. 워크플로의 어떤 시점에서 스트림을 검사하려면 구성 요소에서 출력 또는 입력 핀을 클릭합니다. 이 경우에 미디어 파일 입력에서 압축되지 않은 비디오 출력 핀을 클릭해봅니다. 아웃 바운드 비디오를 검사할 수 있도록 하는 대화 상자가 열립니다.
+Often it's desired to know how the stream looks like that flows through the workflow. To inspect a stream at any point in the workflow, just click an output or input pin on any of the components. In this case, try clicking on the Uncompressed Video output pin from our Media File Input. A dialog will open up that allows to inspect the outbound video.
 
-![압축되지 않은 비디오 출력 핀 검사](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
+![Inspecting the Uncompressed Video output pin](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
 
-*압축되지 않은 비디오 출력 핀 검사*
+*Inspecting the Uncompressed Video output pin*
 
-이 경우에 예를 들어 거의 2분인 비디오의 4:2:2 샘플링에서 초 당 24프레임으로 1920x1080 입력을 사용하여 처리합니다.
+In our case, it tells us for example that we're dealing with a 1920x1080 input at 24 frames per second in 4:2:2 sampling for a video of almost 2 minutes.
 
-###<a id="MXF_to_MP4_file_generation"></a>MP4 파일 생성을 위해 비디오 인코더 추가
+###<a name="<a-id="mxf_to_mp4_file_generation"></a>adding-a-video-encoder-for-.mp4-file-generation"></a><a id="MXF_to_MP4_file_generation"></a>Adding a video encoder for .MP4 file generation
 
-이제 압축되지 않은 비디오 및 여러 압축되지 않은 오디오 출력 핀을 미디어 파일 입력에 사용할 수 있다는 점을 기억합니다. 인바운드 비디오를 인코딩하기 위해 인코딩 구성 요소가 필요하며 이 경우에 .MP4 파일을 생성합니다.
+Note that now, an Uncompressed Video and multiple Uncompressed Audio output pins are available for use on our Media File Input. In order to encode the inbound video, we need an encoding component - in this case for generating .MP4 files.
 
-비디오 스트림을 H.264로 인코딩하려면 AVC 비디오 인코더 구성 요소를 디자이너 화면에 추가합니다. 이 구성 요소는 압축되지 않은 비디오 스트림을 입력으로 사용하고 AVC 압축된 비디오 스트림을 해당 출력 핀에 제공합니다.
+To encode the video stream to H.264, add the AVC Video Encoder component to the designer surface. This component takes an uncompress video stream as input and delivers an AVC compressed video stream on its output pin.
 
-![연결되지 않은 AVC 인코더](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
+![Unconnected AVC Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
 
-*연결되지 않은 AVC 인코더*
+*Unconnected AVC Encoder*
 
-해당 속성은 인코딩이 정확하게 발생하는 방법을 결정합니다. 몇 가지 중요한 설정을 보도록 하겠습니다.
+Its properties determine how the encoding exactly happens. Let's have a look at some of the more important settings:
 
-- 출력 너비 및 출력 높이: 인코딩된 비디오의 해상도를 결정합니다. 이 경우에 640x360로 결정하겠습니다.
-- 프레임 속도: 통과로 설정하면 원본 프레임 속도를 채택하지만 재정의할 수 있습니다. 이러한 프레임 속도 변환은 동작 보정할 수 없습니다.
-- 프로필 및 수준: AVC 프로필 및 수준을 결정합니다. 다양한 수준 및 프로필에 대한 자세한 정보를 편리하게 가져오려면 AVC 비디오 인코더 구성 요소에서 물음표 아이콘을 클릭하고 도움말 페이지는 각 수준에 대한 자세한 정보를 표시합니다. 이 샘플에서는 3.2(기본값) 수준에서 기본 프로필로 결정하겠습니다.
-- 전송률 제어 모드 및 비트 전송률(kbps): 이 시나리오에서는 1200kbps에서 상수 비트 전송률(CBR) 출력을 선택합니다.
-- 비디오 형식: H.264 스트림에 작성된 VUI(비디오 유용성 정보)에 대한 것입니다(디코더에서 디스플레이를 향상시키는 데 사용되지만 반드시 올바르게 디코딩하는 데 사용될 필요는 없는 부가 정보).
-- NTSC(30fps를 사용하는 미국 또는 일본에 일반적임)
-- PAL(25fps를 사용하는 유럽에 일반적임)
-- GOP 크기 모드: 여기서는 닫힌 GOP로 키 간격이 2초인 고정된 GOP 크기를 구성합니다. 이렇게 하면 동적 패키징 Azure 미디어 서비스와 호환성을 제공합니다.
+- Output width and Output height: these determine the resolution of the encoded video. In our case let's go with 640x360
+- Frame Rate: when set to passthrough it will just adopt the source frame rate, it's possible to override this though. Note that such framerate conversion is not motion-compensated.
+- Profile and Level: these determine the AVC profile and level. To conveniently get more information about the different levels and profiles, click the question mark icon on the AVC Video Encoder component and the help page will show more detail about each of the levels. For our sample, let's go with Main Profile at level 3.2 (the default).
+- Rate Control Mode and Bitrate (kbps): in our scenario we opt for a constant bitrate (CBR) output at 1200 kbps
+- Video Format: this is about the VUI (Video Usability Information) that gets written into the H.264 stream (side information that might be used by a decoder to enhance the display but not essential to correctly decode):
+- NTSC (typical for US or Japan, using 30 fps)
+- PAL (typical for Europe, using 25 fps)
+- GOP Size Mode: we'll configure Fixed GOP Size for our purposes with a Key Interval of 2 seconds with Closed GOPs. This ensures compatibility with the dynamic packaging Azure Media Services provides.
 
-AVC 인코더를 공급하려면 미디어 파일 입력 구성 요소에서 AVC 인코더의 압축되지 않은 비디오 입력 핀에 압축되지 않은 비디오 출력 핀을 연결합니다.
+To feed our AVC encoder, connect the Uncompressed Video output pin from the Media File Input component to the Uncompressed Video input pin from the AVC encoder.
 
-![연결된 AVC 인코더](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-avc-encoder.png)
+![Connected AVC Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-avc-encoder.png)
 
-*연결된 AVC 기본 인코더*
+*Connected AVC Main encoder*
 
-###<a id="MXF_to_MP4_audio"></a>오디오 스트림 인코딩
+###<a name="<a-id="mxf_to_mp4_audio"></a>encoding-the-audio-stream"></a><a id="MXF_to_MP4_audio"></a>Encoding the audio stream
 
-이 시점에서 인코딩된 비디오가 있지만 원래 압축되지 않은 오디오 스트림을 압축해야 합니다. 이를 위해 AAC 인코더(Dolby) 구성 요소에서 AAC 인코딩을 사용합니다. 워크플로에 추가합니다.
+At this point, we have encoded video but the original uncompressed audio stream still needs to be compressed. For this we'll go with AAC encoding by the AAC Encoder (Dolby) component. Add it to the workflow.
 
-![연결되지 않은 AVC 인코더](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
+![Unconnected AVC Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
 
-*연결되지 않은 AAC 인코더*
+*Unconnected AAC encoder*
 
-비호환성: 미디어 파일 입력에서 두 개의 압축되지 않은 오디오 스트림(왼쪽 오디오 채널 및 오른쪽 오디오 채널에 각각 하나)을 사용할 수 있는 반면 AAC 인코더에 압축되지 않은 단일 오디오 입력 핀이 있습니다. (서라운드 사운드를 처리하는 경우 6채널입니다.) 따라서 미디어 파일 입력 원본에서 AAC 오디오 인코더에 오디오를 직접 연결할 수 없습니다. AAC 구성 요소는 소위 "인터리브" 오디오 스트림이 필요합니다: 서로 인터리브된 왼쪽 및 오른쪽 채널이 있는 단일 스트림입니다. 어떤 오디오 트랙이 원본에서 어떤 위치에 있는지 원본 미디어 파일에서 알게 되면 왼쪽 및 오른쪽에 올바르게 할당된 스피커 위치로 이러한 인터리브 오디오 스트림을 생성할 수 있습니다.
+Now there's an incompatibility: there's only a single uncompressed audio input pin from the AAC Encoder while more than likely the Media File Input will have two different uncompressed audio stream available: one for the left audio channel and one for the right. (If you're dealing with surround sound, that's 6 channels.) So it's not possible to directly connect the audio from the Media File Input source into the AAC audio encoder. The AAC component expects a so-called "interleaved" audio stream: a single stream that has both the left and the right channels interleaved with each other. Once we know from our source media file which audio tracks are on what position in the source, we can generate such interleaved audio stream with the correctly assigned speaker positions for left and right.
 
-먼저 필요한 원본 오디오 채널에서 인터리브 스트림을 생성하려 합니다. 오디오 스트림 인터리브 구성 요소가 이를 처리합니다. 워크플로에 추가하고 미디어 파일 입력에서 오디오 출력을 여기에 연결합니다.
+First one will want to generated an interleaved stream from the required source audio channels. The Audio Stream Interleaver component will handle this for us. Add it to the workflow and connect the audio outputs from the Media File Input into it.
 
-![연결된 오디오 스트림 인터리버](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-audio-stream-interleaver.png)
+![Connected Audio Stream Interleaver](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-audio-stream-interleaver.png)
 
-*연결된 오디오 스트림 인터리버*
+*Connected Audio Stream Interleaver*
 
-인터리브 오디오 스트림이 있으므로 왼쪽 또는 오른쪽 스피커 위치를 할당할 위치를 지정하지 않습니다. 이 위치를 지정하기 위해 스피커 위치 할당자를 활용할 수 있습니다.
+Now that we have an interleaved audio stream, we still didn't specify where to assign the left or right speaker positions to. In order to specify this, we can leverage the Speaker Position Assigner.
 
-![스피커 위치 할당자 추가](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-speaker-position-assigner.png)
+![Adding a Speaker Position Assigner](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-speaker-position-assigner.png)
 
-*스피커 위치 할당자 추가*
+*Adding a Speaker Position Assigner*
 
-"사용자 지정"이라는 인코더 사전 설정 필터 및 "2.0 (L,R)"이라는 채널 사전 설정를 통해 스테레오 입력 스트림을 사용하도록 스피커 위치 할당자를 구성합니다. (채널1에 왼쪽 스피커 위치를 할당하고 채널2에 오른쪽 스피커 위치를 할당합니다.)
+Configure the Speaker Position Assigner for use with a stereo input stream through an Encoder Preset Filter of "Custom" and the Channel Preset called "2.0 (L,R)". (This will assign the left speaker position to channel 1 and the right speaker position to channel 2.)
 
-AAC 인코더의 입력에 스피커 위치 할당자의 출력을 연결합니다. 그런 다음 AAC 인코더가 "2.0 (L,R)" 채널 사전 설정으로 작업하므로 스테레오 오디오를 입력으로 처리하는 방법을 알게 됩니다.
+Connect the output of the Speaker Position Assigner to the input of the AAC Encoder. Then, tell the AAC Encoder to work with a "2.0 (L,R)" Channel Preset, so it knows to deal with stereo audio as input.
 
-###<a id="MXF_to_MP4_audio_and_fideo"></a>MP4 컨테이너에 오디오 및 비디오 스트림 멀티플렉싱
+###<a name="<a-id="mxf_to_mp4_audio_and_fideo"></a>multiplexing-audio-and-video-streams-into-an-mp4-container"></a><a id="MXF_to_MP4_audio_and_fideo"></a>Multiplexing Audio and Video streams into an MP4 container
 
-AVC 인코딩된 비디오 스트림 및 AAC 인코딩된 오디오 스트림을 지정하여 둘 모두를 .MP4 컨테이너에 캡처할 수 있습니다. 다양한 스트림을 하나로 혼합하는 프로세스는 "멀티플렉싱"(또는 "muxing")이라고 합니다. 이 경우에 일관된 단일 .MP4 패키지에서 오디오 및 비디오 스트림을 인터리브합니다. .MP4 컨테이너에 이 기능을 조정하는 구성 요소는 ISO MPEG-4 멀티플렉서라고 합니다. 이를 디자이너 화면에 추가하고 AVC 비디오 인코더 및 AAC 인코더를 입력에 연결합니다.
+Given our AVC encoded video stream and our AAC encoded audio stream, we can capture both into an .MP4 container. The process of mixing different streams into a single one is called "multiplexing" (or "muxing"). In this case we're interleaving the audio and the video streams in a single coherent .MP4 package. The component that coordinates this for an .MP4 container is called the ISO MPEG-4 Multiplexer. Add one to the designer surface and connect both the AVC Video Encoder and the AAC Encoder to its inputs.
 
-![연결된 MPEG4 멀티플렉서](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-mpeg4-multiplexer.png)
+![Connected MPEG4 Multiplexer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-mpeg4-multiplexer.png)
 
-*연결된 MPEG4 멀티플렉서*
+*Connected MPEG4 Multiplexer*
 
-###<a id="MXF_to_MP4_writing_mp4"></a>MP4 파일 작성
+###<a name="<a-id="mxf_to_mp4_writing_mp4"></a>writing-the-mp4-file"></a><a id="MXF_to_MP4_writing_mp4"></a>Writing the MP4 file
 
-출력 파일을 작성할 때 파일 출력 구성 요소를 사용합니다. ISO MPEG-4 멀티플렉서의 출력에 연결할 수 있으므로 해당 출력이 디스크에 작성됩니다. 이렇게 하려면 컨테이너(MPEG-4) 출력 핀을 파일 출력의 쓰기 입력 핀에 연결합니다.
+When writing an output file, the File Output component is used. We can connect this to the output of the ISO MPEG-4 Multiplexer so that its output gets written to disk. To do this, connect the Container (MPEG-4) output pin to the Write input pin of the File Output.
 
-![연결된 파일 출력](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-file-output.png)
+![Connected File Output](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-file-output.png)
 
-*연결된 파일 출력*
+*Connected File Output*
 
-사용되는 파일 이름은 파일 속성에 의해 결정됩니다. 해당 속성은 지정된 값에 하드 코딩될 수 있는 반면 대신 식을 통해 설정하려 할 가능성이 가장 높습니다.
+The filename that will be used is determined by the File property. While that property can be hardcoded to a given value, most likely one will want to set it through an expression instead.
 
-워크플로가 식에서 출력 파일 이름 속성을 자동으로 결정하려면 파일 이름 옆에 있는 단추를 클릭합니다(폴더 아이콘 옆에 있음). 그런 다음 드롭다운 메뉴에서 "식"을 선택합니다. 이렇게 하면 식 편집기를 표시합니다. 편집기의 내용을 먼저 지웁니다.
+To have the workflow automatically determine the output File name property from an expression, click the buton next to the File name (next to the folder icon). From the drop down menu then select "Expression". This will bring up the expression editor. Clear the contents of the editor first.
 
-![빈 식 편집기](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-empty-expression-editor.png)
+![Empty Expression Editor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-empty-expression-editor.png)
 
-*빈 식 편집기*
+*Empty Expression Editor*
 
-식 편집기는 리터럴 값을 입력할 수 있게 하고 이는 하나 이상의 변수와 결합됩니다. 변수는 달러 기호로 시작합니다. $ 키를 누르면 사용 가능한 변수로 선택한 드롭다운 상자가 편집기에 표시됩니다. 이 경우에 출력 디렉터리 변수 및 기본 입력 파일 이름 변수의 조합을 사용합니다.
+The expression editor allows to enter any literal value, mixed with one or more variables. Variables start with a dollar sign. As you hit the $ key, the editor will show a dropdown box with a choice of available variables. In our case we'll use a combination of the output directory variable and the base input file name variable:
 
-	${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
 
-![채워진 식 편집기](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
+![Filled out Expression Editor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
-*채워진 식 편집기*
+*Filled out Expression Editor*
 
->[AZURE.NOTE]Azure에서 인코딩 작업의 출력 파일을 참조하기 위해 식 편집기에서 값을 제공해야 합니다.
+>[AZURE.NOTE]In order to see see an output file of your encoding job in Azure, you must provide a value in the expression editor. 
 
-확인을 눌러 식을 확인하는 경우 속성 창으로 이 시점에서 제 시간에 파일 속성이 확인하는 값을 미리 봅니다.
+When you confirm the expression by hitting ok, the property window will preview to what value the File property resolves at this point in time.
 
-![파일 식이 출력 dir 확인](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-expression-resolves-output-dir.png)
+![File Expression resolves output dir](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-expression-resolves-output-dir.png)
 
-*파일 식이 출력 dir 확인*
+*File Expression resolves output dir*
 
-###<a id="MXF_to_MP4_asset_from_output"></a>출력 파일에서 미디어 서비스 자산 만들기
+###<a name="<a-id="mxf_to_mp4_asset_from_output"></a>creating-a-media-services-asset-from-the-output-file"></a><a id="MXF_to_MP4_asset_from_output"></a>Creating a Media Services Asset from the output file
 
-MP4 출력 파일을 작성한 반면 미디어 서비스가 이 워크플로를 실행한 결과로 생성한 출력 자산에 이 파일이 속해 있음을 나타내야 합니다. 이 마지막에 워크플로 캔버스의 출력 파일/자산 노드를 사용합니다. 이 노드에 들어오는 파일은 모두 결과적으로 Azure 미디어 서비스 자산의 일부가 됩니다.
+While we have written an MP4 output file, we still need to indicate that this file belongs to the output asset which media services will generate as a result of executing this workflow. To this end, the Output File/Asset node on the workflow canvas is used. All incoming files into this node will make part of the resulting Azure Media Services asset.
 
-출력 파일/자산 구성 요소에 파일 출력 구성 요소를 연결하여 워크플로를 종료합니다.
+Connect the File Output component to the Output File/Asset component to finish the workflow.
 
-![완료된 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow.png)
+![Finished Workflow](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow.png)
 
-*완료된 워크플로*
+*Finished Workflow*
 
-###<a id="MXF_to_MP4_test"></a>완료된 워크플로 로컬로 테스트
+###<a name="<a-id="mxf_to_mp4_test"></a>test-the-finished-workflow-locally"></a><a id="MXF_to_MP4_test"></a>Test the finished workflow locally
 
-로컬에서 워크플로를 테스트하려면 맨 위에 있는 도구 모음에서 재생 단추를 누릅니다. 워크플로가 실행을 마치면 구성된 출력 폴더에 생성된 출력을 검사합니다. MXF 입력 원본 파일에서 인코딩된 완료된 MP4 출력 파일이 표시됩니다.
+To test the workflow locally, hit the play button in the toolbar at the top. When the workflow finished executing, inspect the output generated in the configured output folder. You'll see the finished MP4 output file that was encoded from the MXF input source file.
 
-##<a id="MXF_to_MP4_with_dyn_packaging"></a>MP4로 MXF 인코딩 - 다중 비트 전송률 동적 패키징 사용
+##<a name="<a-id="mxf_to_mp4_with_dyn_packaging"></a>encoding-mxf-into-mp4---multibitrate-dynamic-packaging-enabled"></a><a id="MXF_to_MP4_with_dyn_packaging"></a>Encoding MXF into MP4 - multibitrate dynamic packaging enabled
 
-이 연습에서는 단일 .MXF 입력 파일에서 AAC 인코딩 오디오를 사용하여 단일 비트 전송률 MP4 파일의 집합을 만듭니다.
+In this walkthrough we'll create a set of multiple bitrate MP4 files with AAC encoded audio from a single .MXF input file.
 
-다중 비트 전송률 자산을 Azure 미디어 서비스에서 제공한 동적 패키징 기능과 함께 사용하려면 비트 전송률 및 해상도 각각에 여러 GOP로 정렬된 MP4 파일이 생성되어야 합니다. 이렇게 하려면 [단일 비트 전송률 MP4로 MXF 인코딩](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) 연습으로 시작하는 것이 좋습니다.
+When a multi-bitrate asset output is desired for use in combination with the Dynamic Packaging features offered by Azure Media Services, multiple GOP-aligned MP4 files of each a different bitrate and resolution will need to be generated. To do so, the [Encoding MXF into a single bitrate MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) walkthrough provides us with a good starting point.
 
-![워크플로 시작](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow.png)
+![Starting Workflow](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow.png)
 
-*워크플로 시작*
+*Starting Workflow*
 
-###<a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>하나 이상의 추가 MP4 출력 추가
+###<a name="<a-id="mxf_to_mp4_with_dyn_packaging_more_outputs"></a>adding-one-or-more-additional-mp4-outputs"></a><a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Adding one or more additional MP4 outputs
 
-결과 Azure 미디어 서비스 자산의 모든 MP4 파일은 서로 다른 비트 전송률 및 해상도를 지원합니다. 워크플로에 하나 이상의 MP4 출력 파일을 추가하겠습니다.
+Every MP4 file in our resulting Azure Media Services asset will support a different bitrate and resolution. Let's add one or more MP4 output files to the workflow.
 
-동일한 설정을 사용하여 만든 모든 비디오 인코더가 있는지 확인하는 작업은 기존 AVC 비디오 인코더를 복제하고 해상도 및 비트 전송률의 다른 조합을 구성하는 데 가장 편리합니다.(2,5Mbps로 초 당 25프레임에서 960x540를 추가해보겠습니다.) 기존 인코더를 복제하려면 디자이너 화면에 복사하고 붙여 넣습니다.
+To make sure we have all our video encoders created with the same settings, it's most convenient to duplicate the already existing AVC Video Encoder and configure another combination of resolution and bitrate (let's add one of 960 x 540 at 25 frames per second at 2,5 Mbps). To duplicate the existing encoder, copy paste it on the designer surface.
 
-새 AVC 구성 요소에 미디어 파일 입력의 압축되지 않은 비디오 출력 핀을 연결합니다.
+Connect the Uncompressed Video output pin of the Media File Input into our new AVC component.
 
-![연결된 두 번째 AVC 인코더](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-avc-encoder-connected.png)
+![Second AVC encoder connected](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-avc-encoder-connected.png)
 
-*연결된 두 번째 AVC 인코더*
+*Second AVC encoder connected*
 
-이제 2,5Mbps로 960x540를 출력하는 새 AVC 인코더에 대한 구성을 적용합니다. (여기에 해당 속성 "출력 너비", "출력 높이" 및 "비트 전송률(kbps)"을 사용합니다.)
+Now adapt the configuration for our new AVC encoder to output 960x540 at 2,5 Mbps. (Use its properties "Output width", "Output height", and "Bitrate (kbps)" for this.)
 
-Azure 미디어 서비스의 동적 패키징과 함께 결과 자산을 사용하려 한다면 스트리밍 끝점은 서로 정확하게 정렬된 MP4 파일 HLS/조각화된 MP4/DASH 조각에서 생성될 수 있어야 합니다. 생성되는 방법도 다른 비트 전송률 간에 전환하는 클라이언트가 부드러운 단일 연속 비디오 및 오디오 환경을 가져오는 방식이어야 합니다. 이렇게 하려면 두 AVC 인코더 GOP("사진의 그룹")의 속성에서 MP4 파일의 크기가 2초로 설정되어 있는지 확인해야 합니다. 이는 다음으로 수행할 수 있습니다.
+Given we want to use the resulting asset together with Azure Media Services' dynamic packaging, the streaming endpoint needs to be capable of generating from these MP4 files HLS/Fragmented MP4/DASH fragments that are exactly aligned to each other in a way that clients that are switching between different bitrates get a single smooth continuous video and audio experience. To make that happen, we need to ensure that, in the properties of both AVC encoders the GOP ("group of pictures") size for both MP4 files is set to 2 seconds, which can be done by:
 
-- 고정 GOP 크기 모드를 GOP 크기로 설정하고
-- 키 프레임 간격을 2초로 설정합니다.
-- 또한 GOP IDR 컨트롤을 닫힌 GOP로 설정하여 모든 GOP이 종속성 없이 자체에 대기하도록 합니다.
+- setting the GOP Size Mode to Fixed GOP size and
+- the Key Frame Interval to two seconds.
+- also set the GOP IDR Control to Closed GOP to ensure all GOP's are standing on their own without dependencies
 
-워크플로를 편리하게 이해하려면 첫 번째 AVC 인코더의 이름을 "AVC 비디오 인코더 640x360 1200kbps"로 바꾸고 두 번째 AVC 인코더의 이름을 "AVC 비디오 인코더 960x540 2500kbps"로 바꿉니다.
+To make our workflow convenient to understand, rename the first AVC encoder to "AVC Video Encoder 640x360 1200kbps" and the second AVC encoder "AVC Video Encoder 960x540 2500 kbps".
 
-이제 두 번째 ISO MPEG-4 멀티플렉서 및 두 번째 파일 출력을 추가합니다. 새 AVC 인코더에 멀티플렉서를 연결하고 해당 출력이 파일 출력에 전달되도록 합니다. 그런 다음 AAC 오디오 인코더 출력을 새 멀티플렉서의 입력에 연결합니다. 그러면 파일 출력은 출력 파일/자산 노드에 연결되어 생성되는 미디어 서비스 자산에 추가될 수 있습니다.
+Now add a second ISO MPEG-4 Multiplexer and a second File Output. Connect the multiplexer to the new AVC encoder and make sure its output is directed into the File Output. Then also connect the AAC audio encoder output to the new multiplexer's input. The File Output in turn can then be connected to the Output File/Asset node to add it to the Media Services Asset that will be created.
 
-![두 번째 Muxer 및 연결된 파일 출력](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-muxer-file-output-connected.png)
+![Second Muxer and File Output connected](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-muxer-file-output-connected.png)
 
-*두 번째 Muxer 및 연결된 파일 출력*
+*Second Muxer and File Output connected*
 
-Azure 미디어 서비스 동적 패키징과 호환성을 위해 멀티플렉서의 청크 모드를 GOP 개수나 기간으로 구성하고 청크 당 GOP를 1로 설정합니다. (기본값이어야 합니다.)
+For compatibility with Azure Media Services dynamic packaging, configure the multiplexer's Chunk Mode to GOP count or duration and set the GOPs per chunk to 1. (This should be the default.)
 
-![Muxer 청크 모드](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-muxer-chunk-modes.png)
+![Muxer Chunk Modes](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-muxer-chunk-modes.png)
 
-*Muxer 청크 모드*
+*Muxer Chunk Modes*
 
-참고: 사용자가 자산 출력에 추가하려는 다른 비트 전송률 및 해상도 조합에 대해 이 프로세스를 반복하고자 할 수 있습니다.
+Note: you may want to repeat this process for any other bitrate and resolution combinations you want to have added to the asset output.
 
-###<a id="MXF_to_MP4_with_dyn_packaging_conf_output_names"></a>파일 출력 이름 구성
+###<a name="<a-id="mxf_to_mp4_with_dyn_packaging_conf_output_names"></a>configuring-the-file-output-names"></a><a id="MXF_to_MP4_with_dyn_packaging_conf_output_names"></a>Configuring the file output names
 
-출력 자산에 추가된 둘 이상의 단일 파일이 있습니다. 각 출력 파일에 대한 파일 이름이 서로 다르게 만들 필요를 제공하고 어쩌면 파일 명명 규칙을 제공하므로 파일 이름에서 다룰 내용이 명확해집니다.
+We have more than one single file added to the output asset. This provides a need to make sure the filenames for each of the output files are different from each other and maybe even apply a file-naming convention so it becomes clear from the file name what you're dealing with.
 
-파일 출력 이름 지정은 디자이너에서 식을 통해 제어될 수 있습니다. 파일 출력 구성 요소 중 하나에 대한 속성 창을 열고 파일 속성에 대한 식 편집기를 엽니다. 다음 식을 통해 첫 번째 출력 파일을 구성했습니다([MXF에서 단일 비트 전송률 MP4 출력으로](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) 이동하기 위한 자습서를 참조).
+File output naming can be controlled through expressions in the designer. Open the property pane for one of the File Output components and open the expression editor for the File property. Our first output file was configured through the following expression (see the tutorial for going from [MXF to a single bitrate MP4 output](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
 
-즉, 작성할 출력 디렉터리 및 원본 파일 기본 이름 등 두 개의 변수로 파일 이름을 결정합니다. 전자는 워크플로 루트에서 속성으로 노출되고 후자는 들어오는 파일에 의해 결정됩니다. 출력 디렉터리는 로컬 테스트에 사용합니다. 워크플로가 Azure 미디어 서비스에서 클라우드 기반 미디어 프로세서에 의해 실행되는 경우 워크플로 엔진이 이 속성을 재정의합니다. 출력 파일 모두에 일관된 출력 명명을 부여하려면 첫 번째 파일 명명 식을 다음과 같이 변경합니다.
+This means that our filename is determined by two variables: the output directory to write in and the source file base name. The former is exposed as a property on the workflow root and the latter is determined by the incoming file. Note that the output directory is what you use for local testing; this property will be overridden by the workflow engine when the workflow is executed by the cloud-based media processor in Azure Media Services.
+To give both our output files a consistent output naming, change the first file naming expression to:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
 
-그리고 두 번째를 다음과 같이 변경합니다.
+and the second to:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
 
-중간 테스트 실행을 실행하여 MP4 출력 파일이 모두 제대로 생성되도록 합니다.
+Execute an intermediate test run to make sure both MP4 output files are properly generated.
 
-###<a id="MXF_to_MP4_with_dyn_packaging_audio_tracks"></a>별도 오디오 트랙 추가
+###<a name="<a-id="mxf_to_mp4_with_dyn_packaging_audio_tracks"></a>adding-a-separate-audio-track"></a><a id="MXF_to_MP4_with_dyn_packaging_audio_tracks"></a>Adding a separate Audio Track
 
-나중에 살펴보겠지만 .ism 파일을 생성하여 MP4 출력 파일을 사용하는 경우 적응 스트리밍에 대한 오디오 트랙으로 오디오 전용 MP4 파일이 필요합니다. 이 파일을 만들려면 워크플로(ISO-MPEG-4 멀티플렉서)에 추가 muxer를 추가하고 트랙1에 해당 입력 핀으로 AAC 인코더의 출력 핀을 연결합니다.
+As we'll see later when we generate an .ism file to go with our MP4 output files, we will also require a audio-only MP4 file as the audio track for our adaptive streaming. To create this file, add an additional muxer to the workflow (ISO-MPEG-4 Multiplexer) and connect the AAC encoder's output pin with its input pin for Track 1.
 
-![추가된 오디오 Muxer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-added.png)
+![Audio Muxer Added](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-added.png)
 
-*추가된 오디오 Muxer*
+*Audio Muxer Added*
 
-세 번째 출력 파일 구성 요소를 만들어서 muxer에서 아웃바운드 스트림을 출력하고 파일 명명 식을 다음과 같이 구성합니다.
-	
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+Create a third File Output component to output the outbound stream from the muxer and configure the file naming expression as:
+    
+    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
 
-![파일 출력을 생성하는 오디오 Muxer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
+![Audio Muxer creating File Output](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
-*파일 출력을 생성하는 오디오 Muxer*
+*Audio Muxer creating File Output*
 
-###<a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>.ISM SMIL 파일 추가
+###<a name="<a-id="mxf_to_mp4_with_dyn_packaging_ism_file"></a>adding-the-.ism-smil-file"></a><a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Adding the .ISM SMIL File
 
-또한 미디어 서비스 자산에서 MP4 파일 모두(및 오디오 전용 MP4)와 함께 작업하는 동적 패키징의 경우 매니페스트 파일이 필요합니다(또는 "SMIL"(동기화 멀티미디어 통합 언어) 파일이라고도 함). 이 파일은 동적 패키징에 사용 가능하고 오디오 스트리밍에 고려하는 MP4 파일을 Azure 미디어 서비스에 나타냅니다. 단일 오디오 스트림이 있는 MP4의 집합에 대한 일반적인 매니페스트 파일은 다음과 같습니다.
-	
-	<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-	<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
-	  <head>
-	    <meta name="formats" content="mp4" />
-	  </head>
-	  <body>
-	    <switch>
-	      <video src="H264_1900kbps_AAC_und_ch2_96kbps.mp4" />
-	      <video src="H264_1300kbps_AAC_und_ch2_96kbps.mp4" />
-	      <video src="H264_900kbps_AAC_und_ch2_96kbps.mp4" />
-	      <audio src="AAC_ch2_96kbps.mp4" title="AAC_und_ch2_96kbps" />
-	    </switch>
-	  </body>
-	</smil>
+For the dynamic packaging to work in combination with both MP4 files (and the audio-only MP4) in our Media Services asset, we also need a manifest file (also called a "SMIL" file: Synchronized Multimedia Integration Language). This file indicates to Azure Media Services what MP4 files are available for dynamic packaging and which of those to consider for the audio streaming. A typical manifest file for a set of MP4's with a single audio stream looks like this:
+    
+    <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+      <head>
+        <meta name="formats" content="mp4" />
+      </head>
+      <body>
+        <switch>
+          <video src="H264_1900kbps_AAC_und_ch2_96kbps.mp4" />
+          <video src="H264_1300kbps_AAC_und_ch2_96kbps.mp4" />
+          <video src="H264_900kbps_AAC_und_ch2_96kbps.mp4" />
+          <audio src="AAC_ch2_96kbps.mp4" title="AAC_und_ch2_96kbps" />
+        </switch>
+      </body>
+    </smil>
 
-.ism 파일은 전환 문 내에서 개별 MP4 비디오 파일 각각에 대한 참조 및 추가로 오디오를 포함하는 MP4에 하나(또는 이상)의 오디오 파일 참조를 포함합니다.
+The .ism file contains within a switch statement, a reference to each of the individual MP4 video files and in addition to those also one (or more) audio file references to an MP4 that only contains the audio.
 
-MP4의 집합에 매니페스트 파일을 생성하는 작업은 "AMS 매니페스트 기록기"라는 구성 요소를 통해 수행될 수 있습니다. 이를 사용하려면 화면으로 끌어서 세 개의 파일 출력 구성 요소에서 AMS 매니페스트 기록기 입력에 "쓰기 완료" 출력 핀을 연결합니다. 그런 다음 출력 파일/자산에 AMS 매니페스트 기록기의 출력을 연결해야 합니다.
+Generating the manifest file for our set of MP4's can be done through a component called the "AMS Manifest Writer". To use it, drag it onto the surface and connect the "Write Complete" output pins from the three File Output components to the AMS Manifest Writer input. Then make sure to connect the output of the AMS Manifest Writer to the Output File/Asset.
 
-다른 파일 출력 구성 요소와 마찬가지로 .ism 파일 출력 이름을 식으로 구성합니다.
+As with our other file output components, configure the .ism file output name with an expression:
 
-	${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
 
-완료된 워크플로는 아래와 같습니다.
+Our finished workflow looks like the below:
 
-![다중 비트 전송률 MP4 워크플로에 완료된 MXF](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-mxf-to-multibitrate-mp4-workflow.png)
+![Finished MXF to multibitrate MP4 workflow](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-mxf-to-multibitrate-mp4-workflow.png)
 
-*다중 비트 전송률 MP4 워크플로에 완료된 MXF*
+*Finished MXF to multibitrate MP4 workflow*
 
-##<a id="MXF_to__multibitrate_MP4"></a>다중 비트 전송률 MP4로 MXF 인코딩 - 향상된 청사진
+##<a name="<a-id="mxf_to__multibitrate_mp4"></a>encoding-mxf-into-multibitrate-mp4---enhanced-blueprint"></a><a id="MXF_to__multibitrate_MP4"></a>Encoding MXF into multibitrate MP4 - enhanced blueprint
 
-[이전 워크플로 연습](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)에서 단일 MXF 입력 자산이 어떻게 Azure 미디어 서비스 동적 패키징과 함께 사용할 다중 비트 전송률 MP4 파일, 오디오 전용 MP4 파일, 매니페스트 파일을 가진 출력 자산으로 변환될 수 있는지를 살펴보았습니다.
+In the [previous workflow walkthrough](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) we've seen how a single MXF input asset can be converted into an output asset with multi-bitrate MP4 files, an audio-only MP4 file and a manifest file for use in conjunction with Azure Media Services dynamic packaging.
 
-이 연습에서는 일부의 측면이 강화되고 더 편리하게 만들어지는 방법을 보여줍니다.
+This walkthrough will show how some of the aspects can be enhanced and made more convenient.
 
-###<a id="MXF_to_multibitrate_MP4_overview"></a>강화할 워크플로 개요
+###<a name="<a-id="mxf_to_multibitrate_mp4_overview"></a>workflow-overview-to-enhance"></a><a id="MXF_to_multibitrate_MP4_overview"></a>Workflow overview to enhance
 
-![강화할 다중 비트 전송률 MP4 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-enhance.png)
+![Multibitrate MP4 workflow to enhance](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-enhance.png)
 
-*강화할 다중 비트 전송률 MP4 워크플로*
+*Multibitrate MP4 workflow to enhance*
 
-###<a id="MXF_to__multibitrate_MP4_file_naming"></a>파일 명명 규칙
+###<a name="<a-id="mxf_to__multibitrate_mp4_file_naming"></a>file-naming-conventions"></a><a id="MXF_to__multibitrate_MP4_file_naming"></a>File Naming Conventions
 
-이전 워크플로에서 출력 파일 이름을 생성하기 위한 기반으로 단일 식을 지정했습니다. 그러나 이러한 식을 지정한 각 개별 출력 파일 구성 요소의 경우 모두 일부 중복이 있습니다.
+In the previous workflow we specified a simple expression as the basis for generating output file names. We have some duplication though: all of the the individual output file components specified such expression.
 
-예를 들어 첫 번째 비디오 파일에 대한 파일 출력 구성 요소는 다음 식으로 구성됩니다.
+For example, our file output component for the first video file is configured with this expression:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
 
-반면 두 번째 출력 비디오의 경우 다음과 같은 식을 사용합니다.
+While for the second output video, we have an expression like:
 
-	${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
 
-대신 이러한 중복을 제거하고 더 구성 가능하게 된다면 간결하며 오류가 발생할 가능성이 적고 더 편리해질 것입니다. 다행히 다음과 같은 작업이 가능합니다. 워크플로 루트에서 사용자 지정 속성을 만드는 기능과 함께 디자이너의 식 기능이 편리한 추가 계층을 제공합니다.
+Wouldn't it be cleaner, less error prone and more convenient if we could remove some of this duplication and make things more configurable instead? Luckily we can: the designer's expression capabilities in combination with the ability to create custom properties on our workflow root will give us an added layer of convenience.
 
-개별 MP4 파일의 비트 전송률에서 파일 이름 구성을 가져온다고 가정해 보겠습니다. (그래프의 루트의) 하나의 중앙 위치에서 구성하려는 이러한 비트 전송률은 해당 위치에서 파일 이름 생성을 구성하고 가져오도록 액세스됩니다. 이렇게 하려면 AVC 인코더 모두에서 워크플로 루트로 비트 전송률 속성을 게시하기 시작하므로 AVC 인코더와 마찬가지로 모두 루트에서도 액세스할 수 있습니다. (두 개의 서로 다른 위치에 표시되는 경우에도 기본 값은 하나입니다.)
+Let's assume we'll drive filename configuration from the bitrates of the individual MP4 files. These bitrates we'll aim to configure in one central place (on the root of our graph), from where they'll be accessed to configure and drive file name generation. To do this, we start by publishing the bitrate property from both AVC encoders to the root of our workflow, so that it becomes accessible from both the root as well as from the AVC encoders. (Even if displayed in two different spots, there's only one underlying value.)
 
-###<a id="MXF_to__multibitrate_MP4_publishing"></a>워크플로 루트에 구성 요소 속성 게시
+###<a name="<a-id="mxf_to__multibitrate_mp4_publishing"></a>publishing-component-properties-onto-the-workflow-root"></a><a id="MXF_to__multibitrate_MP4_publishing"></a>Publishing component properties onto the workflow root
 
-첫 번째 AVC 인코더를 열고 비트 전송률(kbps) 속성으로 이동하여 드롭다운에서 게시를 선택합니다.
+Open the first AVC encoder, go to the Bitrate (kbps) property and from the dropdown choose Publish.
 
-![비트 전송률 속성 게시](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-bitrate-property.png)
+![Publishing the bitrate property](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-bitrate-property.png)
 
-*비트 전송률 속성 게시*
+*Publishing the bitrate property*
 
-게시 대화 상자를 구성하여 "video1bitrate"라는 게시된 이름 및 "비디오 1 비트 전송률"이라는 읽을 수 있는 표시 이름을 사용하여 워크플로 그래프의 루트에 게시합니다. "비트 전송률 스트리밍"이라는 사용자 지정 그룹 이름을 구성하고 게시를 누릅니다.
+Configure the publish dialog to publish to the root of our workflow graph, with a published name of "video1bitrate" and a readable display name of "Video 1 Bitrate". Configure a custom group name called "Streaming Bitrates" and hit Publish.
 
-![비트 전송률 속성 게시](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-bitrate-property.png)
+![Publishing the bitrate property](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-bitrate-property.png)
 
-*비트 전송률 속성에 게시 대화 상자*
+*Publishing dialog for bitrate property*
 
-두 번째 AVC 인코더의 비트 전송률 속성에서 동일하게 반복하고 동일한 "비트 전송률 스트리밍" 사용자 지정 그룹에서 "비디오 2 비트 전송률"이라는 표시 이름을 사용하여 "video2bitrate"이라고 명명합니다.
+Repeat the same for the bitrate property of the second AVC encoder and name it "video2bitrate" with a display name of "Video 2 Bitrate", in the same custom group "Streaming Bitrates".
 
-이제 워크플로 루트 속성을 검사하면 두 개의 게시된 속성이 있는 사용자 지정 그룹이 표시됩니다. 둘 모두 해당 AVC 인코더 비트 전송률의 값을 반영합니다.
+If we now inspect the workflow root properties, we'll see our custom group with the two published properties show up. Both are reflecting the value of their respective AVC encoder bitrate.
 
-![워크플로 루트에 게시된 비트 전송률 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-bitrate-props-on-workflow-root.png)
+![Published bitrate props on workflow root](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-bitrate-props-on-workflow-root.png)
 
-코드 또는 식에서 이러한 속성에 액세스하려는 때마다 다음과 같이 수행할 수 있습니다.
+Whenever we want to access these properties from code or from an expression, we can do so like this:
 
-- 루트 바로 아래 구성 요소의 인라인 코드에서: node.getPropertyAsString('../video1bitrate',null)
-- 식 내에서: ${ROOT\_video1bitrate}
+- from inline code from a component right below the root: node.getPropertyAsString('../video1bitrate',null)
+- within an expression: ${ROOT_video1bitrate}
  
-여기에서도 오디오 트랙 비트 전송률을 게시하여 "비트 전송률 스트리밍" 그룹을 완료하겠습니다. AAC 인코더의 속성 내에서 비트 전송률 설정을 검색하고 옆에 있는 드롭다운에서 게시를 선택합니다. "비트 전송률 스트리밍" 사용자 지정 그룹 내에서 "audio1bitrate"이라는 이름과 "오디오 1 비트 전송률"이라는 표시 이름을 사용하여 그래프의 루트에 게시합니다.
+Let's complete the "Streaming Bitrates" group by publishing our audio track bitrate on it as well. Within the properties of the AAC Encoder, search for the Bitrate setting and select Publish from the dropdown next to it. Publish to the root of the graph with name "audio1bitrate" and display name "Audio 1 Bitrate" within our custom group "Streaming Bitrates".
 
-![오디오 비트 전송률에 게시 대화 상자](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-audio-bitrate.png)
+![Publishing dialog for audio bitrate](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-audio-bitrate.png)
 
-*오디오 비트 전송률에 게시 대화 상자*
+*Publishing dialog for audio bitrate*
 
-![루트의 결과 비디오 및 오디오 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-resulting-video-and-audio-props-on-root.png)
+![Resulting video and audio props on root](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-resulting-video-and-audio-props-on-root.png)
 
-*루트의 결과 비디오 및 오디오 속성*
+*Resulting video and audio props on root*
 
-또한 세 가지 해당 값의 변경이 연결된 (그리고 게시된) 해당 구성 요소의 값을 다시 구성하고 변경합니다.
+Note that changing any of those three values also re-configures and changes the values on the respective components they are linked with (and where published from).
 
-###<a id="MXF_to__multibitrate_MP4_output_files"></a>게시된 속성 값을 사용하는 출력 파일 이름 생성
+###<a name="<a-id="mxf_to__multibitrate_mp4_output_files"></a>have-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>Have generated output file names rely on published property values
 
-생성된 파일 이름을 하드 코딩하는 대신 각 그래프 루트에 방금 게시한 비트 전송률 속성을 사용하는 각 출력 파일 구성 요소의 파일 이름 식을 변경할 수 있습니다. 첫 번째 파일 출력을 시작하고 파일 속성을 찾아서 다음과 같이 식을 편집합니다.
+Instead of hardcoding our generated file names, we can now change our filename expression on each of the File Output components to rely on the bitrate properties we just published on the graph root. Starting with our first file output, find the File property and edit the expression like this:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
 
-식 창에서 키보드에 달러 기호를 눌러서 이 식의 다른 매개 변수를 액세스하고 입력할 수 있습니다. 사용 가능한 매개 변수 중 하나는 이전에 게시한 video1bitrate 속성입니다.
+The different parameters in this expression can be accessed and entered by hitting the dollar sign on the keyboard while in the expression window. One of the available parameters is our video1bitrate property which we published earlier.
 
-![식 내에서 매개 변수 액세스](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-accessing-parameters-within-an-expression.png)
+![Accessing parameters within an expression](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-accessing-parameters-within-an-expression.png)
 
-*식 내에서 매개 변수 액세스*
+*Accessing parameters within an expression*
 
-두 번째 비디오에 대한 파일 출력에 동일한 작업을 수행합니다.
+Do the same for the file output for our second video:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
 
-그리고 오디오 전용 파일 출력에도 수행합니다.
+and for the audio-only file output:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
 
-이제 비디오 또는 오디오 파일에 대한 비트 전송률을 변경하면 해당하는 인코더를 다시 구성하고 비트 전송률 기반 파일 이름 규칙을 모두 자동으로 적용합니다.
+If we now change the bitrate for any of the video or audio files, the respective encoder will be reconfigured and the bitrate-based file name convention will be honored all automatic.
 
-##<a id="thumbnails_to__multibitrate_MP4"></a>다중 비트 전송률 MP4 출력에 미리 보기 추가
+##<a name="<a-id="thumbnails_to__multibitrate_mp4"></a>adding-thumbnails-to-multibitrate-mp4-output"></a><a id="thumbnails_to__multibitrate_MP4"></a>Adding thumbnails to multibitrate MP4 output
 
-[MXF 입력에서 다중 비트 전송률 MP4 출력](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)을 생성하는 워크플로를 시작하고 이제 출력에 미리 보기의 추가를 살펴봅니다.
+Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), we will now be looking into adding thumbnails to the output.
 
-###<a id="thumbnails_to__multibitrate_MP4_overview"></a>미리 보기를 추가하는 워크플로 개요
+###<a name="<a-id="thumbnails_to__multibitrate_mp4_overview"></a>workflow-overview-to-add-thumbnails-to"></a><a id="thumbnails_to__multibitrate_MP4_overview"></a>Workflow overview to add thumbnails to
 
-![시작할 다중 비트 전송률 MP4 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-start-from.png)
+![Multibitrate MP4 workflow to start from](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-start-from.png)
 
-*시작할 다중 비트 전송률 MP4 워크플로*
+*Multibitrate MP4 workflow to start from*
 
-###<a id="thumbnails_to__multibitrate_MP4__with_jpg"></a>JPG 인코딩 추가
+###<a name="<a-id="thumbnails_to__multibitrate_mp4__with_jpg"></a>adding-jpg-encoding"></a><a id="thumbnails_to__multibitrate_MP4__with_jpg"></a>Adding JPG Encoding
 
-미리 보기 생성의 핵심은 JPG 파일을 출력할 수 있는 JPG 인코더 구성 요소입니다.
+The heart of our thumbnail generation will be the JPG Encoder component, able to output JPG files.
 
-![JPG 인코더](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
+![JPG Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
 
-*JPG 인코더*
+*JPG Encoder*
 
-그러나 직접 미디어 파일 입력에서 JPG 인코더에 압축되지 않은 비디오 스트림을 연결할 수 없습니다. 대신 전달된 개별 프레임을 사용합니다. 이는 비디오 프레임 게이트 구성 요소를 통해 수행할 수 있습니다.
+We cannot however directly connect our Uncompressed Video stream from the Media File Input into the JPG encoder. Instead, it expects to be handed individual frames. This, we can do through the Video Frame Gate component.
 
-![JPG 인코더에 프레임 게이트 연결](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-frame-gate-to-jpg-encoder.png)
+![Connecting a frame gate to the JPG encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-frame-gate-to-jpg-encoder.png)
 
-*JPG 인코더에 프레임 게이트 연결*
+*Connecting a frame gate to the JPG encoder*
 
-프레임 게이트는 여러 초 또는 여러 프레임에 한 번 비디오 프레임을 전달할 수 있습니다. 발생하는 간격 및 시간 오프셋은 속성에서 구성할 수 있습니다.
+The frame gate once every so many seconds or frames allows a video frame to pass. The interval and the time offset with which this happens is configurable in the properties.
 
-![비디오 프레임 게이트 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-video-frame-gate-properties.png)
+![Video Frame Gate properties](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-video-frame-gate-properties.png)
 
-*비디오 프레임 게이트 속성*
+*Video Frame Gate properties*
 
-모드를 시간(초)으로 설정하고 간격을 60으로 설정하여 매 분 마다 미리 보기를 만들어보겠습니다.
+Let's create a thumbnail every minute by setting the mode to Time (seconds) and the Interval to 60.
 
-###<a id="thumbnails_to__multibitrate_MP4_color_space"></a>색 공간 변환 처리
+###<a name="<a-id="thumbnails_to__multibitrate_mp4_color_space"></a>dealing-with-color-space-conversion"></a><a id="thumbnails_to__multibitrate_MP4_color_space"></a>Dealing with Color Space conversion
 
-프레임 게이트 및 미디어 파일 입력의 압축되지 않은 비디오 핀은 모두 연결될 수 있다는 것이 논리적 보이는 반면 그렇게 할 경우 경고를 받게 됩니다.
+While it would seem logical both Uncompressed Video pins of the frame gate and the Media File Input can now be connected, we would get a warning if we would do so.
 
-![입력 색 공간 오류](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-input-color-space-error.png)
+![Input color space error](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-input-color-space-error.png)
 
-*입력 색 공간 오류*
+*Input color space error*
 
-색 정보가 원래 있는 그대로 압축되지 않은 비디오 스트림에서 보여지는 방식 때문에 MXF에서 가져오면 JPG 인코더가 예상하는 것과 다릅니다. 구체적으로 말하면 소위 "RGB" 또는 "회색"의 "색 공간"이 흘러들어 올 것이 예상됩니다. 즉, 비디오 프레임 게이트의 인바운드 비디오 스트림이 해당 색 공간을 고려하여 적용할 변환이 있어야 합니다.
+This is because the way in which colour information is represented in our original raw uncompressed video stream, coming from our MXF, is different from what the JPG Encoder is expecting. More specifically, a so-called "color space" of "RGB" or "Grayscale" is expected to flow in. This means that the Video Frame Gate's inbound video stream will need to have a conversion applied regarding its color space first.
 
-워크플로인 색상 공간 변환기 - Intel에 끌어서 놓고 프레임 게이트에 연결합니다.
+Drag onto the workflow the Color Space Converter - Intel and connect it to our frame gate.
 
-![색 공간 변환 연결](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-color-space-convertor.png)
+![Connecting a Color Space Convertor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-color-space-convertor.png)
 
-*색 공간 변환 연결*
+*Connecting a Color Space Convertor*
 
-속성 창의 사전 설정 목록에서 BGR 24 항목을 선택합니다.
+In the properties window, pick the BGR 24 entry from the Preset list.
 
-###<a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>미리 보기 작성
+###<a name="<a-id="thumbnails_to__multibitrate_mp4_writing_thumbnails"></a>writing-the-thumbnails"></a><a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Writing the thumbnails
 
-MP4 비디오와 다르게 JPG 인코더 구성 요소는 여러 개의 파일을 출력합니다. 이를 처리하기 위해 장면 검색 JPG 파일 기록기 구성 요소를 사용할 수 있습니다. 들어오는 JPG 미리 보기를 사용하고 이를 작성하며 각 파일 이름이 다른 숫자 뒤에 붙습니다. (일반적으로 미리 보기를 그린 스트림에서 초/단위의 수를 나타내는 숫자입니다.)
+Different from our MP4 video's, the JPG Encoder component will output more than one file. In order to deal with this, a Scene Search JPG File Writer component can be used: it will take the incoming JPG thumbnails and write them out, each filename being suffixed by a different number. (The number typically indicating the number of seconds/units in the stream which the thumbnail was drawn from.)
 
 
-![장면 검색 JPG 파일 기록기 소개](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
+![Introducing the Scene Search JPG File Writer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
 
-*장면 검색 JPG 파일 기록기 소개*
+*Introducing the Scene Search JPG File Writer*
 
-다음 식을 사용하여 출력 폴더 경로 속성을 구성합니다. ${ROOT\_outputWriteDirectory}
+Configure the Output Folder Path property with the expression: ${ROOT_outputWriteDirectory} 
 
-그리고 다음으로 파일 이름 접두사 속성을 구성합니다.
+and the Filename Prefix property with: 
 
-	${ROOT_sourceFileBaseName}_thumb_
+    ${ROOT_sourceFileBaseName}_thumb_
 
-접두사는 미리 보기 파일이 명명되는 방법을 결정합니다. 스트림에서 미리 보기의 위치를 나타내는 숫자가 뒤에 붙습니다.
+The prefix will determine how the thumbnail files are being named. They will be suffixed with a number indicating the thumb's position in the stream.
 
 
-![장면 검색 JPG 파일 기록기 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer-properties.png)
+![Scene Search JPG File Writer properties](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer-properties.png)
 
-*장면 검색 JPG 파일 기록기 속성*
+*Scene Search JPG File Writer properties*
 
-출력 파일/자산 노드에 장면 검색 JPG 파일 기록기를 연결합니다.
+Connect the Scene Search JPG File Writer to the Output File/Asset node.
 
-###<a id="thumbnails_to__multibitrate_MP4_errors"></a>워크플로에서 오류 감지
+###<a name="<a-id="thumbnails_to__multibitrate_mp4_errors"></a>detecting-errors-in-a-workflow"></a><a id="thumbnails_to__multibitrate_MP4_errors"></a>Detecting errors in a workflow
 
-색상 공간 변환기의 입력을 그대로 압축되지 않은 비디오 출력에 연결합니다. 이제 워크플로에 대한 로컬 테스트 실행을 수행합니다. 워크플로가 갑자기 실행을 중지하고 오류가 발생한 구성 요소에 빨간 윤곽선이 나타날 가능성이 있습니다.
+Connect the input of the color space converter to the raw uncompressed video output. Now perform a local test run for the workflow. There's a good chance the workflow will suddenly stop executing and indicate with a red outline on the component that encountered an error:
 
-![색 공간 변환기 오류](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error.png)
+![Color Space Converter error](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error.png)
 
-*색 공간 변환기 오류*
+*Color Space Converter error*
 
-색 공간 변환기 구성 요소의 오른쪽 상단에 있는 작은 빨간색 "E" 아이콘을 클릭하여 인코딩 시도가 실패한 이유를 확인합니다.
+Click the little red "E" icon in the top right corner of the Color Space Converter component to see what's the reason the encoding attempt failed.
 
-![색 공간 변환기 오류 대화 상자](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error-dialog.png)
+![Color Space Converter error dialog](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error-dialog.png)
 
-*색 공간 변환기 오류 대화 상자*
+*Color Space Converter error dialog*
 
-결국 확인할 수 있듯이 색 공간 변환기에 들어오는 색 공간 표준이 요청한 YUV에서 RGB로의 변환에 대해 rec601로 설정되어야 합니다. 스트림은 rec601을 나타내지 않습니다. (Rec 601은 디지털 비디오 형태로 인터레이스된 아날로그 비디오 신호를 인코딩하기 위한 표준입니다. 720 광도 샘플 및 줄 당 360 색차 샘플을 포함하는 활성 영역을 지정합니다. 색 인코딩 시스템은 YCbCr 4:2:2라고 알려져 있습니다.)
+It turns out, as you can see, that the incoming color space standard for the color space converter has to be rec601 for our requested conversion of YUV to RGB. Apparently our stream doesn't indicate it's rec601. (Rec 601 is a standard for encoding interlaced analog video signals in digital video form. It specifies an active region covering 720 luminance samples and 360 chrominance samples per line. The color encoding system is known as YCbCr 4:2:2.)
 
-이를 해결하기 위해 rec601 콘텐츠를 다루는 스트림의 메타데이터를 나타냅니다. 이렇게 하려면 비디오 데이터 형식 업데이트를 구성 요소를 사용하며 이를 원시 원본 및 색 공간 변환 구성 요소 사이에 입력합니다. 이 데이터 형식 업데이트 프로그램을 사용하면 특정 비디오 데이터 형식 속성을 수동으로 업데이트할 수 있습니다. 이를 구성하여 색 공간 표준인 "Rec 601"을 나타냅니다. 이렇게 하면 색 공백이 없는 경우 비디오 데이터 형식 업데이트 프로그램이 "Rec 601" 색 공간을 사용하여 스트림의 태그를 지정합니다. (재정의 확인란을 선택하지 않으면 기존 메타데이터를 재정의하지 않습니다.)
+To fix this, we'll indicate on the metadata of our stream that we're dealing with rec601 content. To do so we'll use a Video Data Type Updater component, which we'll put in between our raw source and the color space conversion component. This data type updater allows for the manual update of certain video data type properties. Configure it to indicate a Color Space Standard of "Rec 601". This will cause the Video Data Type Updater to tag the stream with the "Rec 601" color space if there was no color space defined yet. (It will not override any existing metadata, unless the Override checkbox was checked.)
 
-![데이터 형식 업데이트 프로그램에서 색 공간 표준 업데이트](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-update-color-space-standard-on-data-type.png)
+![Updating Color Space Standard on the Data Type Updater](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-update-color-space-standard-on-data-type.png)
 
-*데이터 형식 업데이트 프로그램에서 색 공간 표준 업데이트*
+*Updating Color Space Standard on the Data Type Updater*
 
-###<a id="thumbnails_to__multibitrate_MP4_finish"></a>완료된 워크플로
+###<a name="<a-id="thumbnails_to__multibitrate_mp4_finish"></a>finished-workflow"></a><a id="thumbnails_to__multibitrate_MP4_finish"></a>Finished Workflow
 
-이제 워크플로가 완료되면 다른 테스트를 실행하여 통과하는지 확인합니다.
+Now that our our workflow is finished, do another test run to see it pass.
 
-![미리 보기로 다중 mp4 출력에 대해 완료된 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-for-multi-mp4-thumbnails.png)
+![Finished workflow for multi-mp4 output with thumbnails](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-for-multi-mp4-thumbnails.png)
 
-*미리 보기로 다중 mp4 출력에 대해 완료된 워크플로*
+*Finished workflow for multi-mp4 output with thumbnails*
 
-##<a id="time_based_trim"></a>다중 비트 전송률 MP4 출력의 시간 기반 트리밍
+##<a name="<a-id="time_based_trim"></a>time-based-trimming-of-multibitrate-mp4-output"></a><a id="time_based_trim"></a>Time-based trimming of multibitrate MP4 output
 
-[MXF 입력에서 다중 비트 전송률 MP4 출력](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)을 생성하는 워크플로를 시작하고 이제 타임 스탬프를 기반으로 하는 원본 비디오의 트리밍을 살펴봅니다.
+Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), we will now be looking into trimming the source video based on time-stamps.
 
-###<a id="time_based_trim_start"></a>트리밍을 추가하기 시작하려는 워크플로 개요
+###<a name="<a-id="time_based_trim_start"></a>workflow-overview-to-start-adding-trimming-to"></a><a id="time_based_trim_start"></a>Workflow overview to start adding trimming to
 
-![트리밍에 추가할 워크플로 시작](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow-to-add-trimming.png)
+![Starting workflow to add trimming to](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow-to-add-trimming.png)
 
-*트리밍에 추가할 워크플로 시작*
+*Starting workflow to add trimming to*
 
-###<a id="time_based_trim_use_stream_trimmer"></a>스트림 트리머 사용
+###<a name="<a-id="time_based_trim_use_stream_trimmer"></a>using-the-stream-trimmer"></a><a id="time_based_trim_use_stream_trimmer"></a>Using the Stream Trimmer
 
-스트림 트리머 구성 요소를 사용하면 시간 정보(초, 분,...)에 기반하는 입력 스트림의 시작 및 종료를 자를 수 있습니다. 트리머는 프레임 기반 자르기를 지원하지 않습니다.
+The Stream Trimmer component allows to trim the beginning and ending of an input stream base on timing information (seconds, minutes, ...). The trimmer does not support frame-based trimming.
 
-![스트림 트리머](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
+![Stream Trimmer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
-*스트림 트리머*
+*Stream Trimmer*
 
-AVC 인코더 및 스피커 위치 할당자를 미디어 파일 입력에 직접 연결하는 대신 해당 스트림 트리머 간에 입력합니다. (비디오 신호 및 인터리브 오디오 신호에 각각 하나.)
+Instead of linking the AVC encoders and speaker position assigner to the Media File Input directly, we'll put in between those the stream trimmer. (One for the video signal and one for the interleaved audio signal.)
 
-![사이 간 스트림 트리머 배치](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-put-stream-trimmer-in-between.png)
+![Put Stream Trimmer in between](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-put-stream-trimmer-in-between.png)
 
-*사이 간 스트림 트리머 배치*
+*Put Stream Trimmer in between*
 
-비디오에서 15초에서 60초 사이에 있는 비디오 및 오디오만 처리하도록 트리머를 구성하겠습니다.
+Let's configure the trimmer so that we will only process video and audio between 15 seconds and 60 seconds in the video.
 
-비디오 스트림 트리머의 속성으로 이동하고 시작 시간(15초) 및 종료 시간(60초) 속성을 모두 구성합니다. 오디오 및 비디오 트리머를 모두 항상 동일한 시작 및 종료 값으로 구성하려면 해당 사항을 워크플로의 루트에 게시합니다.
+Go to the properties of the Video Stream Trimmer and configure both Start Time (15s) and End Time (60s) properties. To make sure both our audio and video trimmer are always configured to the same start and end values, we will publish those to the root of the workflow.
 
-![스트림 트리머에서 시작 시간 속성 게시](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-start-time-from-stream-trimmer.png)
+![Publish start time property from Stream Trimmer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-start-time-from-stream-trimmer.png)
 
-*스트림 트리머에서 시작 시간 속성 게시*
+*Publish start time property from Stream Trimmer*
 
-![시작 시간에 속성 대화 상자 게시](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-dialog-for-start-time.png)
+![Publish property dialog for start time](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-dialog-for-start-time.png)
 
-*시작 시간에 속성 대화 상자 게시*
+*Publish property dialog for start time*
 
-![종료 시간에 속성 대화 상자 게시](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-dialog-for-end-time.png)
+![Publish property dialog for end time](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-dialog-for-end-time.png)
 
-*종료 시간에 속성 대화 상자 게시*
+*Publish property dialog for end time*
 
 
-이제 워크플로의 루트를 검사하면 속성이 모두 여기에 깔끔하게 표시되고 구성 가능합니다.
+If we now inspect the root of our workflow, both properties will be neatly displayed and configurable from there.
 
-![루트에 사용 가능한 게시된 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-properties-available-on-root.png)
+![Published properties available on root](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-properties-available-on-root.png)
 
-*루트에 사용 가능한 게시된 속성*
+*Published properties available on root*
 
-이제 오디오 트리머에서 트리밍 속성을 열고 워크플로의 루트에 게시된 속성을 참조하는 식으로 시작 및 종료 시간을 모두 구성합니다.
+Now open the trimming properties from the audio trimmer and configure both start and end times with an expression that refers to the published properties on the root of our workflow.
 
-오디오 트리밍 시작 시간을 다음과 같이 구성합니다.
+For the audio trimming start time:
 
-	${ROOT_TrimmingStartTime}
+    ${ROOT_TrimmingStartTime}
 
-그리고 종료 시간을 다음과 같습니다.
+and for its end time:
 
-	${ROOT_TrimmingEndTime}
+    ${ROOT_TrimmingEndTime}
 
-###<a id="time_based_trim_finish"></a>완료된 워크플로
+###<a name="<a-id="time_based_trim_finish"></a>finished-workflow"></a><a id="time_based_trim_finish"></a>Finished Workflow
 
-![완료된 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
+![Finished Workflow](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
 
-*완료된 워크플로*
+*Finished Workflow*
 
 
-##<a id="scripting"></a>스크립팅한 구성 요소 소개
+##<a name="<a-id="scripting"></a>introducing-the-scripted-component"></a><a id="scripting"></a>Introducing the Scripted Component
 
-스크립팅한 구성 요소는 워크플로의 실행 단계 중 임의의 스크립트를 실행할 수 있습니다. 실행될 수 있는 다른 4개의 스크립트가 있으며 각각 워크플로 수명 주기에서 특정한 특성 및 고유한 위치를 가집니다.
+Scripted Components can execute arbitrary scripts during the execution phases of our workflow. There are four different scripts that can be executed, each with specific characteristics and their own place in the workflow life-cycle:
 
 - **commandScript**
 - **realizeScript**
 - **processInputScript**
 - **lifeCycleScript**
 
-스크립팅된 구성 요소의 설명서는 위에서 각각에 대해 자세히 설명합니다. [다음 섹션](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim)에서 **realizeScript** 스크립트 구성 요소는 워크플로가 시작할 때 즉석에서 cliplist xml을 생성하는 데 사용됩니다. 이 스크립트는 구성 요소를 설치하는 동안 호출되며 수명 주기에서 한 번만 발생합니다.
+The documentation of the Scripted Component goes in more detail for each of the above. In [the following section](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim), the **realizeScript** scripting component is used to construct a cliplist xml on the fly when the workflow starts. This script is called during the component setup, which happens only once in it's lifecycle.
 
 
-###<a id="scripting_hello_world"></a>워크플로 내의 스크립팅: Hello World
+###<a name="<a-id="scripting_hello_world"></a>scripting-within-a-workflow:-hello-world"></a><a id="scripting_hello_world"></a>Scripting within a workflow: hello world
 
-스크립트 구성 요소를 디자이너 화면으로 끌어오고 이름을 바꿉니다(예: "SetClipListXML").
+Drag a Scripted Component onto the designer surface and rename it (for example, "SetClipListXML").
 
-![스크립팅된 구성 요소 추가](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
+![Adding a Scripted Component](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
 
-*스크립팅된 구성 요소 추가*
+*Adding a Scripted Component*
 
-스크립팅된 구성 요소의 속성을 검사할 때 네 개의 스크립트 형식이 표시되고 각각 다른 스크립트로 구성 가능합니다.
+When you inspect the properties of the Scripted Component, the four different script types will be shown, each configurable to a different script.
 
-![스크립팅된 구성 요소 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
+![Scripted Component properties](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
-*스크립팅된 구성 요소 속성*
+*Scripted Component properties*
 
-processInputScript의 선택을 취소하고 realizeScript에 대한 편집기를 엽니다. 이제 스크립트를 시작할 준비가 되었습니다.
+Clear the processInputScript and open the editor for the realizeScript. Now we're set up and ready to start scripting.
 
-스크립트는 Java와의 호환성을 유지하는 Java 플랫폼에 동적으로 컴파일된 스크립트 언어인 Groovy로 작성됩니다. 사실 대부분의 Java 코드는 유효한 Groovy 코드입니다.
+Scripts are written in Groovy, a dynamically compiled scripting language for the Java platform that retains compatibility with Java. Actually, most Java code is valid Groovy code.
 
-realizeScript의 컨텍스트에서 간단한 Hello World Groovy 스크립트를 작성해 보겠습니다. 편집기에 다음을 입력합니다.
+Let's write a simple hello world groovy script in the context of our realizeScript. Enter the following in the editor:
 
-	node.log("hello world");
+    node.log("hello world");
 
-이제 로컬 테스트 실행을 실행합니다. 실행한 후에 로그 속성을 검사합니다(스크립팅된 구성 요소의 시스템 탭을 통해).
+Now execute a local test run. After this run, inspect (through the System tab on the Scripted Component) the Logs property.
 
-![Hello World 로그 출력](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output.png)
+![Hello world log output](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output.png)
 
-*Hello World 로그 출력*
+*Hello world log output*
 
-로그 메서드를 호출하는 노드 개체는 현재 "노드" 또는 스크립트하는 구성 요소를 나타냅니다. 이와 같은 모든 구성 요소는 출력 로깅 데이터에 대한 기능을 가지며 시스템 탭을 통해 사용할 수 있습니다. 이 경우에 문자열 리터럴 "Hello World"를 출력합니다. 중요한 것은 스크립트가 실제로 수행하는 작업에 대한 통찰력을 제공하는 중요한 디버깅 도구라는 것을 증명할 수 있어야 합니다.
+The node object we call the log method on, refers to our current "node" or the component we're scripting within. Every component as such has the ability to output logging data, available through the system tab. In this case, we output the string literal "hello world". Important to understand here is that this can prove to be an invaluable debugging tool, providing you with insight on what the script is actually doing.
 
-또한 스크립트 환경 내에서 다른 구성 요소의 속성에 액세스합니다. 다음을 실행해보세요.
+From within our scripting environment, we also have access to properties on other components. Try this:
 
 
-	//inspect current node: 
-	def nodepath = node.getNodePath(); 
-	node.log("this node path: " + nodepath);
-	
-	//walking up to other nodes: 
-	def parentnode = node.getParentNode(); 
-	def parentnodepath = parentnode.getNodePath(); 
-	node.log("parent node path: " + parentnodepath);
-	
-	//read properties from a node: 
-	def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null ); 
-	def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null); 
-	node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
+    //inspect current node: 
+    def nodepath = node.getNodePath(); 
+    node.log("this node path: " + nodepath);
+    
+    //walking up to other nodes: 
+    def parentnode = node.getParentNode(); 
+    def parentnodepath = parentnode.getNodePath(); 
+    node.log("parent node path: " + parentnodepath);
+    
+    //read properties from a node: 
+    def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null ); 
+    def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null); 
+    node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
 
-로그 창은 다음을 표시합니다.
+Our log window will show us the following:
 
-![노드 경로에 액세스하기 위한 로그 출력](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output2.png)
+![Log output for accessing node paths](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output2.png)
 
-*노드 경로에 액세스하기 위한 로그 출력*
+*Log output for accessing node paths*
 
 
-##<a id="frame_based_trim"></a>다중 비트 전송률 MP4 출력의 프레임 기반 트리밍
+##<a name="<a-id="frame_based_trim"></a>frame-based-trimming-of-multibitrate-mp4-output"></a><a id="frame_based_trim"></a>Frame-based trimming of multibitrate MP4 output
 
-[MXF 입력에서 다중 비트 전송률 MP4 출력](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)을 생성하는 워크플로를 시작하고 이제 프레임 개수를 기반으로 하는 원본 비디오의 트리밍을 살펴봅니다.
+Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), we will now be looking into trimming the source video based on frame counts.
 
-###<a id="frame_based_trim_start"></a>트리밍을 추가하기 시작하려는 청사진 개요
+###<a name="<a-id="frame_based_trim_start"></a>blueprint-overview-to-start-adding-trimming-to"></a><a id="frame_based_trim_start"></a>Blueprint overview to start adding trimming to
 
-![트리밍을 추가하기 시작하려는 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-workflow-start-adding-trimming-to.png)
+![Workflow to start adding trimming to](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-workflow-start-adding-trimming-to.png)
 
-*트리밍을 추가하기 시작하려는 워크플로*
+*Workflow to start adding trimming to*
 
-###<a id="frame_based_trim_clip_list"></a>클립 목록 XML 사용
+###<a name="<a-id="frame_based_trim_clip_list"></a>using-the-clip-list-xml"></a><a id="frame_based_trim_clip_list"></a>Using the Clip List XML
 
-이전의 모든 워크플로 자습서에서 미디어 파일 입력 구성 요소를 비디오 입력 원본으로 사용했습니다. 하지만 이 특정 시나리오에서 클립 목록 원본 구성 요소를 대신 사용합니다. 선호하는 작업 방법이 아니어야 합니다. 그렇게 해야 하는 실제 이유가 있을 때에만 클립 목록 원본을 사용합니다(아래와 같이 클립 목록 지우기 기능을 사용할 경우).
+In all previous workflow tutorials, we used the Media File Input component as our video input source. For this specific scenario though, we'll be using the Clip List Source component instead. Note that this should not be the preferred way of working; only use the Clip List Source when there's a real reason to do so (like in the below case, where we're making use of the clip list trimming capabilities).
 
-미디어 파일 입력에서 클립 목록 원본으로 전환하려면 클립 목록 원본 구성 요소를 디자인 화면으로 끌어서 클립 목록 XML 핀을 워크플로 디자이너의 클립 목록 XML 노드에 연결합니다. 입력 비디오에 따라 출력 핀으로 클립 목록 원본을 채워야 합니다. 이제 압축되지 않은 비디오 및 압축되지 않은 오디오 핀을 클립 목록 원본에서 해당 AVC 인코더 및 오디오 스트림 인터리버에 연결합니다. 이제 미디어 파일 입력을 제거합니다.
+To switch from our Media File Input to the Clip List Source, drag the Clip List Source component onto the design surface and connect the Clip List XML pin to the Clip List XML node of the workflow designer. This should populate the Clip List Source with output pins, according to our input video. Now connect the Uncompressed Video and Uncompressed Audio pins from the the Clip List Source to the respective AVC Encoders and Audio Stream Interleaver. Now remove the Media File Input.
 
-![클립 목록 원본으로 미디어 파일 입력 바꾸기](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
+![Replaced the Media File Input with the Clip List Source](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
 
-*클립 목록 원본으로 미디어 파일 입력 바꾸기*
+*Replaced the Media File Input with the Clip List Source*
 
-클립 목록 원본 구성 요소는 "클립 목록 XML"을 입력으로 사용합니다. 로컬로 테스트할 원본 파일을 선택한 경우 이 클립 목록 xml은 자동으로 채워집니다.
+The Clip List Source component takes as its input a "Clip List XML". When selecting the source file to test with locally, this clip list xml is auto-populated for you.
 
-![자동으로 채워진 클립 목록 XML 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-auto-populated-clip-list-xml-property.png)
+![Auto-populated Clip List XML property](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-auto-populated-clip-list-xml-property.png)
 
-*자동으로 채워진 클립 목록 XML 속성*
+*Auto-populated Clip List XML property*
 
-xml을 더 자세히 알아보려면 다음과 같습니다.
+Looking a bit closer to the xml, this is how it looks like:
 
-![클립 목록 대화 상자 편집](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-edit-clip-list-dialog.png)
+![Edit clip list dialog](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-edit-clip-list-dialog.png)
 
-*클립 목록 대화 상자 편집*
+*Edit clip list dialog*
 
-그러나 클립 목록 xml의 기능을 반영하지 않습니다. 한 가지 옵션은 비디오 및 오디오 원본에 다음과 같이 "트리밍" 요소를 추가하는 것입니다.
+This however does not reflect the capabilities of the clip list xml. One option we have is to add a "Trim" element under both the video and audio source, like this:
 
-![클립 목록에 자르기 요소 추가](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-trim-element-to-clip-list.png)
+![Adding a trim element to the clip list](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-trim-element-to-clip-list.png)
 
-*클립 목록에 자르기 요소 추가*
+*Adding a trim element to the clip list*
 
-위와 같이 클립 목록 xml을 수정하고 로컬 테스트 실행을 수행하는 경우 비디오에서 10-20초 사이가 잘린 비디오를 확인하게 됩니다.
+If you modify the clip list xml like this above and perform a local test run, you'll see the video correctly been trimmed between 10 and 20 seconds in the video.
 
-그러나 로컬로 실행할 때 발생한 것과 달리 동일한 cliplist xml은 Azure 미디어 서비스에서 실행되는 워크플로에 적용될 때 동일한 효과를 발생시킵니다. Azure Premium 인코더가 시작되면 cliplist xml은 인코딩 작업에서 지정한 입력 파일에 따라 매번 다시 생성됩니다. 즉, xml에서 수행하는 변경 내용이 아쉽게도 재정의됩니다.
+Contrary to what happens when you do a local run though, this very same cliplist xml would not have the same effect when applied in a workflow that runs in Azure Media Services. When Azure Premium Encoder starts, the cliplist xml is generated every time again, based on the input file the encoding job was given. This means that any changes we do on the xml would unfortunately be overridden.
 
-인코딩 작업이 시작될 때 cliplist xml의 초기화를 방지하려면 워크플로가 시작된 후에 바로 즉석에서 다시 생성할 수 있습니다. "스크립팅된 구성 요소"라는 것을 통해 이러한 사용자 지정 작업을 수행할 수 있습니다. 자세한 내용은 [스크립팅된 구성 요소 소개](media-services-media-encoder-premium-workflow-tutorials.md#scripting)를 참조하세요.
+To counter the cliplist xml being wiped when an encoding job is started, we can re-generate it on the fly just after the start of our workflow. Such custom actions can be taken through what is called a "Scripted Component". For more information, see [Introducing the Scripted Component](media-services-media-encoder-premium-workflow-tutorials.md#scripting).
 
 
-스크립트 구성 요소를 디자이너 화면으로 끌어오고 이름을 "SetClipListXML"로 바꿉니다.
+Drag a Scripted Component onto the designer surface and rename it to "SetClipListXML".
 
-![스크립팅된 구성 요소 추가](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
+![Adding a Scripted Component](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
 
-*스크립팅된 구성 요소 추가*
+*Adding a Scripted Component*
 
-스크립팅된 구성 요소의 속성을 검사할 때 네 개의 스크립트 형식이 표시되고 각각 다른 스크립트로 구성 가능합니다.
+When you inspect the properties of the Scripted Component, the four different script types will be shown, each configurable to a different script.
 
-![스크립팅된 구성 요소 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
+![Scripted Component properties](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
-*스크립팅된 구성 요소 속성*
+*Scripted Component properties*
 
 
-###<a id="frame_based_trim_modify_clip_list"></a>스크립팅한 구성 요소에서 클립 목록 수정
+###<a name="<a-id="frame_based_trim_modify_clip_list"></a>modifying-the-clip-list-from-a-scripted-component"></a><a id="frame_based_trim_modify_clip_list"></a>Modifying the clip list from a Scripted Component
 
-워크플로가 시작하는 동안 생성되는 cliplist xml을 다시 작성할 수 있기 전에 cliplist xml 속성 및 내용에 액세스할 수 있도록 해야 합니다. 다음과 같은 작업을 수행할 수 있습니다.
+Before we can re-write the cliplist xml that is generated during workflow startup, we'll need to have access to the cliplist xml property and contents. We can do so like this:
 
-	// get cliplist xml: 
-	def clipListXML = node.getProperty("../clipListXml");
-	node.log("clip list xml coming in: " + clipListXML);
+    // get cliplist xml: 
+    def clipListXML = node.getProperty("../clipListXml");
+    node.log("clip list xml coming in: " + clipListXML);
 
-![기록된 들어오는 클립 목록](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-incoming-clip-list-logged.png)
+![Incoming clip list being logged](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-incoming-clip-list-logged.png)
 
-*기록된 들어오는 클립 목록*
+*Incoming clip list being logged*
 
-먼저 어떤 지점에서 어떤 지점까지 비디오를 트리밍하려는지 결정하는 방법이 필요합니다. 워크플로에 덜 숙련된 사용자에게 편리하도록 두 개의 속성을 그래프의 루트에 게시합니다. 이렇게 하려면 디자이너 화면을 마우스 오른쪽 단추로 클릭하고 "속성 추가"를 선택합니다.
+First we need a way to determine from which point till which point we want to trim the video. To make this convenient to the less-technical user of the workflow, publish two properties to the root of the graph. To do this, right click the designer surface and select "Add Property":
 
-- 첫 번째 속성: 형식의 "ClippingTimeStart": "시간 코드"
-- 두 번째 속성: 형식의 "ClippingTimeEnd": "시간 코드"
+- First property: "ClippingTimeStart" of type: "TIMECODE"
+- Second property: "ClippingTimeEnd" of type: "TIMECODE"
 
-![클리핑 시작 시간에 속성 대화 상자 추가](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
+![Add Property dialog for clipping start time](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 
-*클리핑 시작 시간에 속성 대화 상자 추가*
+*Add Property dialog for clipping start time*
 
-![워크플로 루트에 게시된 클리핑 시간 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-time-props.png)
+![Published clipping time props on workflow root](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-time-props.png)
 
-*워크플로 루트에 게시된 클리핑 시간 속성*
+*Published clipping time props on workflow root*
 
-두 속성을 모두 적절한 값으로 구성합니다.
+Configure both properties to a suitable value:
 
-![클리핑 시작 및 종료 속성 구성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configure-clip-start-end-prop.png)
+![Configure the clipping start and end properties](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configure-clip-start-end-prop.png)
 
-*클리핑 시작 및 종료 속성 구성*
+*Configure the clipping start and end properties*
 
-이제 스크립트 내에서 다음과 같은 두 속성에 액세스할 수 있습니다.
+Now, from within our script, we can access both properties, like this:
 
-	
-	// get start and end of clipping:
-	def clipstart = node.getProperty("../ClippingTimeStart").toString();
-	def clipend = node.getProperty("../ClippingTimeEnd").toString();
-	
-	node.log("clipping start: " + clipstart);
-	node.log("clipping end: " + clipend);
+    
+    // get start and end of clipping:
+    def clipstart = node.getProperty("../ClippingTimeStart").toString();
+    def clipend = node.getProperty("../ClippingTimeEnd").toString();
+    
+    node.log("clipping start: " + clipstart);
+    node.log("clipping end: " + clipend);
 
-![클리핑의 시작 및 종료를 보여주는 로그 창](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-show-start-end-clip.png)
+![Log window showing start and end of clipping](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-show-start-end-clip.png)
 
-*클리핑의 시작 및 종료를 보여주는 로그 창*
+*Log window showing start and end of clipping*
 
-간단한 정규식을 사용하여 양식을 보다 편리하게 사용하도록 시간 코드 문자열을 구문 분석해보겠습니다.
-	
-	//parse the start timing: 
-	def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
-	startregresult.matches(); 
-	def starttimecode = startregresult.group(1); 
-	node.log("timecode start is: " + starttimecode); 
-	def startframerate = startregresult.group(2); 
-	node.log("framerate start is: " + startframerate);
-	
-	//parse the end timing: 
-	def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend); 
-	endregresult.matches(); 
-	def endtimecode = endregresult.group(1); 
-	node.log("timecode end is: " + endtimecode); 
-	def endframerate = endregresult.group(2); 
-	node.log("framerate end is: " + endframerate);
+Let's parse the timecode strings into a more convenient to use form, using a simple regular expression:
+    
+    //parse the start timing: 
+    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
+    startregresult.matches(); 
+    def starttimecode = startregresult.group(1); 
+    node.log("timecode start is: " + starttimecode); 
+    def startframerate = startregresult.group(2); 
+    node.log("framerate start is: " + startframerate);
+    
+    //parse the end timing: 
+    def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend); 
+    endregresult.matches(); 
+    def endtimecode = endregresult.group(1); 
+    node.log("timecode end is: " + endtimecode); 
+    def endframerate = endregresult.group(2); 
+    node.log("framerate end is: " + endframerate);
 
-![구문 분석된 시간 코드의 출력이 있는 로그 창](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
+![Log window with output of parsed timecode](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
 
-*구문 분석된 시간 코드의 출력이 있는 로그 창*
+*Log window with output of parsed timecode*
 
-이 정보가 있으므로 이제 cliplist xml를 수정하여 동영상의 원하는 정확한 프레임 클리핑에 대한 시작 및 종료 시간을 반영할 수 있습니다.
+With this information at hand, we can now modify the cliplist xml to reflect the start and end times for the desired frame-accurate clipping of the movie.
 
-![자르기 요소를 추가하는 스크립트 코드](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-trim-elements.png)
+![Script code to add trim elements](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-trim-elements.png)
 
-*자르기 요소를 추가하는 스크립트 코드*
+*Script code to add trim elements*
 
-이 작업은 일반 문자열 조작 작업을 통해 수행되었습니다. 결과 수정된 클립 목록 xml은 워크플로 루트에서 "setProperty" 메서드를 통해 clipListXML 속성에 다시 기록됩니다. 다른 테스트를 실행한 후에 로그 창은 다음을 표시합니다.
+This was done through normal string manipulation operations. The resulting modified clip list xml is written back to the clipListXML property on the workflow root through the "setProperty" method. The log window after another test run would show us the following:
 
-![결과 클립 목록 로깅](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-result-clip-list.png)
+![Logging the resulting clip list](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-result-clip-list.png)
 
-*결과 클립 목록 로깅*
+*Logging the resulting clip list*
 
-비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 즉, 시작 및 종료 지점을 처음 설정한 때에만 xml을 변환할 수 있습니다. 나머지 경우에는 워크플로에서 다른 자르기 요소를 추가하지 못하도록 가드 절(if(clipListXML.indexOf("<trim>") == -1))이 방지합니다.
+Do a test-run to see how the video and audio streams have been clipped. As you'll do more than one test-run with different values for the trimming points, you'll notice that those will not be taken into account however! The reason for this is that the designer, unlike the Azure runtime, does NOT override the cliplist xml every run. This means that only the very first time you have set the in and out points, will cause the xml to transform, all the other times, our guard clause (if(clipListXML.indexOf("<trim>") == -1)) will prevent the workflow from adding another trim element when there's already one present.
 
-워크플로를 편리하게 로컬로 테스트하려는 가장 좋은 방법은 자르기 요소가 이미 있는지 조사하는 정리 코드를 추가하는 것입니다. 그렇다면 새 값으로 xml을 수정하여 계속하기 전에 제거할 수 있습니다. 일반 문자열 조작을 사용하지 않고 구문 분석하는 실제 xml 개체 모델을 통해이 작업을 수행하는 것이 안전합니다.
+To make our workflow convenient to test locally, we best add some house-keeping code that inspects if a trim element was already present. If so, we can remove it before continuing by modifying the xml with the new values. Rather than using plain string manipulations, it's probably safer to do this through real xml object model parsing.
 
-하지만 이러한 코드를 추가할 수 있기 전에 먼저 스크립트의 시작 부분에 여러 개의 가져오기 문을 추가해야 합니다.
-	
-	import javax.xml.parsers.*; 
-	import org.xml.sax.*; 
-	import org.w3c.dom.*;
-	import javax.xml.*;
-	import javax.xml.xpath.*; 
-	import javax.xml.transform.*; 
-	import javax.xml.transform.stream.*; 
-	import javax.xml.transform.dom.*;
+Before we can add such code though, we'll need to add a number of import statements at the start of our script first:
+    
+    import javax.xml.parsers.*; 
+    import org.xml.sax.*; 
+    import org.w3c.dom.*;
+    import javax.xml.*;
+    import javax.xml.xpath.*; 
+    import javax.xml.transform.*; 
+    import javax.xml.transform.stream.*; 
+    import javax.xml.transform.dom.*;
 
-그런 다음 필요한 정리 코드를 추가할 수 있습니다.
+After this, we can add the required cleaning code:
 
-	//for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
-	DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-	DocumentBuilder builder=factory.newDocumentBuilder();
-	InputSource is=new InputSource(new StringReader(clipListXML)); 
-	Document dom=builder.parse(is);
+    //for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
+    DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder=factory.newDocumentBuilder();
+    InputSource is=new InputSource(new StringReader(clipListXML)); 
+    Document dom=builder.parse(is);
 
-	//find the trim element inside videoSource and audioSource and remove it if it exists already: 
-	XPath xpath = XPathFactory.newInstance().newXPath();
-	String findAllTrimElements = "//trim"; 
-	NodeList trimelems = xpath.evaluate(findAllTrimElements,dom,XPathConstants.NODESET);
+    //find the trim element inside videoSource and audioSource and remove it if it exists already: 
+    XPath xpath = XPathFactory.newInstance().newXPath();
+    String findAllTrimElements = "//trim"; 
+    NodeList trimelems = xpath.evaluate(findAllTrimElements,dom,XPathConstants.NODESET);
 
-	//copy trim nodes into a "to-be-deleted" collection 
-	Set<Element> elementsToDelete = new HashSet<Element>(); 
-	for (int i = 0; i < trimelems.getLength(); i++) { 
-		Element e = (Element)trimelems.item(i); 
-		elementsToDelete.add(e); 
-	}
+    //copy trim nodes into a "to-be-deleted" collection 
+    Set<Element> elementsToDelete = new HashSet<Element>(); 
+    for (int i = 0; i < trimelems.getLength(); i++) { 
+        Element e = (Element)trimelems.item(i); 
+        elementsToDelete.add(e); 
+    }
 
-	node.log("about to delete any existing trim nodes");
-	 //delete the trim nodes: 
-	elementsToDelete.each{ 
-		e -> e.getParentNode().removeChild(e);
-	}; 
-	node.log("deleted any existing trim nodes");
-	
-	//serialize the modified clip list xml dom into a string: 
-	def transformer = TransformerFactory.newInstance().newTransformer();
-	StreamResult result = new StreamResult(new StringWriter());
-	DOMSource source = new DOMSource(dom);
-	transformer.transform(source, result); 
-	clipListXML = result.getWriter().toString();
-	
-이 코드는 cliplist xml에 자르기 요소를 추가한 지점 바로 위에 사용됩니다.
-
-이 시점에서 변경 사항을 적용하는 동안 원하는 만큼 워크플로를 실행하고 수정할 수 있습니다.
-
-###<a id="frame_based_trim_clippingenabled_prop"></a>ClippingEnabled 편의 속성 추가
-
-항상 트리밍이 발생하기를 원하지 않으면 트리밍/클리핑을 사용할지 여부를 나타내는 편리한 부울 플래그를 추가하여 워크플로를 마무리하겠습니다.
-
-이전과 마찬가지로 "부울" 형식의 "ClippingEnabled"라는 워크플로의 루트에 새 속성을 게시합니다.
-
-![클리핑 설정에 게시된 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-enable-clip.png)
-
-*클리핑 설정에 게시된 속성 *
-
-간단한 가드 절 아래에서 트리밍해야 하는지를 확인하고 이와 같은 클립 목록을 수정할지를 결정합니다.
-
-	//check if clipping is required: 
-	def clippingrequired = node.getProperty("../ClippingEnabled"); 
-	node.log("clipping required: " + clippingrequired.toString()); 
-	if(clippingrequired == null || clippingrequired == false) 
-	{
-		node.setProperty("../clipListXml",clipListXML); 
-		node.log("no clipping required"); 
-		return; 
-	}
-
-
-###<a id="code"></a>코드 완료
-
-	import javax.xml.parsers.*; 
-	import org.xml.sax.*; 
-	import org.w3c.dom.*;
-	import javax.xml.*;
-	import javax.xml.xpath.*; 
-	import javax.xml.transform.*; 
-	import javax.xml.transform.stream.*; 
-	import javax.xml.transform.dom.*;
-	
-	// get cliplist xml: 
-	def clipListXML = node.getProperty("../clipListXml");
-	node.log("clip list xml coming in: \n" + clipListXML);
-	// get start and end of clipping: 
-	def clipstart = node.getProperty("../ClippingTimeStart").toString();
-	def clipend = node.getProperty("../ClippingTimeEnd").toString();
-	
-	//parse the start timing:
-	def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
-	startregresult.matches(); 
-	def starttimecode = startregresult.group(1);
-	node.log("timecode start is: " + starttimecode);
-	def startframerate = startregresult.group(2);
-	node.log("framerate start is: " + startframerate);
-	
-	//parse the end timing: 
-	def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
-	endregresult.matches(); 
-	def endtimecode = endregresult.group(1); 
-	node.log("timecode end is: " + endtimecode); 
-	def endframerate = endregresult.group(2);
-
-	node.log("framerate end is: " + endframerate);
-	
-	//for local testing: delete any pre-existing trim elements 
-	//from the clip list xml by parsing the xml into a DOM:
-	
-	DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-	DocumentBuilder builder=factory.newDocumentBuilder(); 
-	InputSource is=new InputSource(new StringReader(clipListXML)); 
-	Document dom=builder.parse(is);
-
-	//find the trim element inside videoSource and audioSource and remove it if it exists already:
-	XPath xpath = XPathFactory.newInstance().newXPath(); 
-	String findAllTrimElements = "//trim"; 
-	NodeList trimelems = xpath.evaluate(findAllTrimElements, dom, XPathConstants.NODESET);
-
-	//copy trim nodes into a "to-be-deleted" collection 
-	Set<Element> elementsToDelete = new HashSet<Element>(); 
-	for (int i = 0; i < trimelems.getLength(); i++) { 
-		Element e = (Element)trimelems.item(i); 
-		elementsToDelete.add(e); 
-	}
-	
-	node.log("about to delete any existing trim nodes");
-	//delete the trim nodes:
-	elementsToDelete.each{ e -> 
-		e.getParentNode().removeChild(e); 
-	};
-	node.log("deleted any existing trim nodes");
-
-	//serialize the modified clip list xml dom into a string:
-	def transformer = TransformerFactory.newInstance().newTransformer();
-	StreamResult result = new StreamResult(new StringWriter());
-	DOMSource source = new DOMSource(dom);
-	transformer.transform(source, result);
-	clipListXML = result.getWriter().toString();
-
-	//check if clipping is required:
-	def clippingrequired = node.getProperty("../ClippingEnabled");
-	node.log("clipping required: " + clippingrequired.toString()); 
-	if(clippingrequired == null || clippingrequired == false) 
-	{
-		node.setProperty("../clipListXml",clipListXML);
-		node.log("no clipping required");
-		return; 
-	}
-
-	//add trim elements to cliplist xml 
-	if ( clipListXML.indexOf("<trim>") == -1 ) 
-	{
-		//trim video 
-		clipListXML = clipListXML.replace("<videoSource>","<videoSource>\n <trim>\n <inPoint fps=""+ 
-			startframerate +"">" + starttimecode + 
-			"</inPoint>\n" + "<outPoint fps="" + endframerate +""> " + endtimecode + 
-			" </outPoint>\n </trim> \n"); 
-		//trim audio 
-		clipListXML = clipListXML.replace("<audioSource>","<audioSource>\n <trim>\n <inPoint fps=""+ 
-			startframerate +"">" + starttimecode + 
-			"</inPoint>\n" + "<outPoint fps=""+ endframerate +"">" + 
-			endtimecode + "</outPoint>\n </trim>\n");
-		node.log( "clip list going out: \n" +clipListXML ); 
-		node.setProperty("../clipListXml",clipListXML); 
-	}
-
-
-##참고 항목 
-
-[Azure 미디어 서비스의 프리미엄 인코딩 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-
-[Azure 미디어 서비스의 프리미엄 인코딩 사용 방법](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
-[Azure 미디어 서비스로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media_encoder_premium_workflow)
-
-[미디어 인코더 Premium 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
-
-[샘플 워크플로 파일](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
-
-[Azure 미디어 서비스 탐색기 도구](http://aka.ms/amse)
-
-##미디어 서비스 학습 경로
+    node.log("about to delete any existing trim nodes");
+     //delete the trim nodes: 
+    elementsToDelete.each{ 
+        e -> e.getParentNode().removeChild(e);
+    }; 
+    node.log("deleted any existing trim nodes");
+    
+    //serialize the modified clip list xml dom into a string: 
+    def transformer = TransformerFactory.newInstance().newTransformer();
+    StreamResult result = new StreamResult(new StringWriter());
+    DOMSource source = new DOMSource(dom);
+    transformer.transform(source, result); 
+    clipListXML = result.getWriter().toString();
+    
+This code goes just above the point at which we add the trim elements to the cliplist xml.
+
+At this point, we can run and modify our workflow as much as we want while having the changes applied ever time.    
+
+###<a name="<a-id="frame_based_trim_clippingenabled_prop"></a>adding-a-clippingenabled-convenience-property"></a><a id="frame_based_trim_clippingenabled_prop"></a>Adding a ClippingEnabled convenience property
+
+As you might not always want trimming to happen, let's finish off our workflow by adding a convenient boolean flag that indicates whether or not we want to enable trimming / clipping.
+
+Just as before, publish a new property to the root of our workflow called "ClippingEnabled" of type "BOOLEAN".
+
+![Published a property for enabling clipping](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-enable-clip.png)
+
+*Published a property for enabling clipping*
+
+With the below simple guard clause, we can check if trimming is required and decide if our clip list as such needs to be modified or not.
+
+    //check if clipping is required: 
+    def clippingrequired = node.getProperty("../ClippingEnabled"); 
+    node.log("clipping required: " + clippingrequired.toString()); 
+    if(clippingrequired == null || clippingrequired == false) 
+    {
+        node.setProperty("../clipListXml",clipListXML); 
+        node.log("no clipping required"); 
+        return; 
+    }
+
+
+###<a name="<a-id="code"></a>complete-code"></a><a id="code"></a>Complete code
+
+    import javax.xml.parsers.*; 
+    import org.xml.sax.*; 
+    import org.w3c.dom.*;
+    import javax.xml.*;
+    import javax.xml.xpath.*; 
+    import javax.xml.transform.*; 
+    import javax.xml.transform.stream.*; 
+    import javax.xml.transform.dom.*;
+    
+    // get cliplist xml: 
+    def clipListXML = node.getProperty("../clipListXml");
+    node.log("clip list xml coming in: \n" + clipListXML);
+    // get start and end of clipping: 
+    def clipstart = node.getProperty("../ClippingTimeStart").toString();
+    def clipend = node.getProperty("../ClippingTimeEnd").toString();
+    
+    //parse the start timing:
+    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
+    startregresult.matches(); 
+    def starttimecode = startregresult.group(1);
+    node.log("timecode start is: " + starttimecode);
+    def startframerate = startregresult.group(2);
+    node.log("framerate start is: " + startframerate);
+    
+    //parse the end timing: 
+    def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
+    endregresult.matches(); 
+    def endtimecode = endregresult.group(1); 
+    node.log("timecode end is: " + endtimecode); 
+    def endframerate = endregresult.group(2);
+
+    node.log("framerate end is: " + endframerate);
+    
+    //for local testing: delete any pre-existing trim elements 
+    //from the clip list xml by parsing the xml into a DOM:
+    
+    DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder=factory.newDocumentBuilder(); 
+    InputSource is=new InputSource(new StringReader(clipListXML)); 
+    Document dom=builder.parse(is);
+
+    //find the trim element inside videoSource and audioSource and remove it if it exists already:
+    XPath xpath = XPathFactory.newInstance().newXPath(); 
+    String findAllTrimElements = "//trim"; 
+    NodeList trimelems = xpath.evaluate(findAllTrimElements, dom, XPathConstants.NODESET);
+
+    //copy trim nodes into a "to-be-deleted" collection 
+    Set<Element> elementsToDelete = new HashSet<Element>(); 
+    for (int i = 0; i < trimelems.getLength(); i++) { 
+        Element e = (Element)trimelems.item(i); 
+        elementsToDelete.add(e); 
+    }
+    
+    node.log("about to delete any existing trim nodes");
+    //delete the trim nodes:
+    elementsToDelete.each{ e -> 
+        e.getParentNode().removeChild(e); 
+    };
+    node.log("deleted any existing trim nodes");
+
+    //serialize the modified clip list xml dom into a string:
+    def transformer = TransformerFactory.newInstance().newTransformer();
+    StreamResult result = new StreamResult(new StringWriter());
+    DOMSource source = new DOMSource(dom);
+    transformer.transform(source, result);
+    clipListXML = result.getWriter().toString();
+
+    //check if clipping is required:
+    def clippingrequired = node.getProperty("../ClippingEnabled");
+    node.log("clipping required: " + clippingrequired.toString()); 
+    if(clippingrequired == null || clippingrequired == false) 
+    {
+        node.setProperty("../clipListXml",clipListXML);
+        node.log("no clipping required");
+        return; 
+    }
+
+    //add trim elements to cliplist xml 
+    if ( clipListXML.indexOf("<trim>") == -1 ) 
+    {
+        //trim video 
+        clipListXML = clipListXML.replace("<videoSource>","<videoSource>\n <trim>\n <inPoint fps=\""+ 
+            startframerate +"\">" + starttimecode + 
+            "</inPoint>\n" + "<outPoint fps=\"" + endframerate +"\"> " + endtimecode + 
+            " </outPoint>\n </trim> \n"); 
+        //trim audio 
+        clipListXML = clipListXML.replace("<audioSource>","<audioSource>\n <trim>\n <inPoint fps=\""+ 
+            startframerate +"\">" + starttimecode + 
+            "</inPoint>\n" + "<outPoint fps=\""+ endframerate +"\">" + 
+            endtimecode + "</outPoint>\n </trim>\n");
+        node.log( "clip list going out: \n" +clipListXML ); 
+        node.setProperty("../clipListXml",clipListXML); 
+    }
+
+
+##<a name="also-see"></a>Also see 
+
+[Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+[How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+
+[Encoding On-Demand Content with Azure Media Service](media-services-encode-asset.md#media_encoder_premium_workflow)
+
+[Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
+
+[Sample workflow files](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
+
+[Azure Media Services Explorer tool](http://aka.ms/amse)
+
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

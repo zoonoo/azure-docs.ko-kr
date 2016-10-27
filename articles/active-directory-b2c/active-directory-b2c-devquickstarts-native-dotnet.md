@@ -1,78 +1,79 @@
 <properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Azure Active Directory B2C를 사용하여 로그인, 등록 및 프로필 관리를 포함하는 Windows 데스크톱 응용 프로그램을 빌드하는 방법을 알아봅니다."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory B2C | Microsoft Azure"
+    description="How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C."
+    services="active-directory-b2c"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="07/22/2016"
+    ms.author="dastrock"/>
 
-# Azure AD B2C: Windows 데스크톱 앱 빌드
 
-Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계에서 강력한 셀프 서비스 ID 관리 기능을 데스크톱 앱에 추가할 수 있습니다. 이 문서에서는 사용자 등록, 로그인 및 프로필 관리를 포함하는 .NET WPF(Windows Presentation Foundation) "할 일 모음" 앱을 만드는 방법을 보여 줍니다. 이 앱에서는 사용자 이름 또는 전자 메일을 사용하여 등록 및 로그인할 수 있습니다. 또한 Facebook 및 Google과 같은 소셜 계정을 사용하여 등록 및 로그인하는 기능도 지원합니다.
+# <a name="azure-ad-b2c:-build-a-windows-desktop-app"></a>Azure AD B2C: Build a Windows desktop app
 
-## Azure AD B2C 디렉터리 가져오기
+By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
 
-Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
+## <a name="get-an-azure-ad-b2c-directory"></a>Get an Azure AD B2C directory
 
-## 응용 프로그램 만들기
+Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
 
-다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
+## <a name="create-an-application"></a>Create an application
 
-- 응용 프로그램에 **네이티브 클라이언트**를 포함합니다.
-- **리디렉션 URI** `urn:ietf:wg:oauth:2.0:oob`를 복사합니다. 이 코드 샘플에 대한 기본 URL입니다.
-- 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 시간은 나중에 필요합니다.
+Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to:
+
+- Include a **native client** in the application.
+- Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
+- Copy the **Application ID** that is assigned to your app. You will need it later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 정책 만들기
+## <a name="create-your-policies"></a>Create your policies
 
-Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플은 등록, 로그인 및 프로필 편집 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 대한 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create the three policies, be sure to:
 
-- ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **메일 등록** 중 하나를 선택합니다.
-- 등록 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
-- 모든 정책에 대한 응용 프로그램 클레임으로 **표시 이름** 및 **개체 ID** 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 나중에 필요합니다.
+- Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
+- Choose **Display name** and other sign-up attributes in your sign-up policy.
+- Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
+- Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need these policy names later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-세 가지 정책을 성공적으로 만들면 앱을 빌드할 준비가 되었습니다.
+After you have successfully created the three policies, you're ready to build your app.
 
-## 코드 다운로드
+## <a name="download-the-code"></a>Download the code
 
-이 자습서에 대한 코드는 [GitHub에서 유지 관리됩니다](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). 진행하면서 샘플을 빌드하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip)할 수 있습니다. 기본 구조를 복제할 수도 있습니다.
+The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). You can also clone the skeleton:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-완성된 앱도 [.zip 파일로 가능](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)하거나 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
+The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
 
-샘플 코드를 다운로드한 후 Visual Studio .sln 파일을 열어 시작합니다. `TaskClient` 프로젝트는 사용자와 상호 작용하는 WPF 데스크톱 응용 프로그램입니다. 이 자습서에서는 Azure에 호스트되는 각 사용자의 할 일 목록을 저장하는 백 엔드 작업 웹 API를 호출합니다. 웹 API를 빌드할 필요가 없습니다. 이미 실행 중입니다.
+After you download the sample code, open the Visual Studio .sln file to get started. The `TaskClient` project is the WPF desktop application that the user interacts with. For the purposes of this tutorial, it calls a back-end task web API, hosted in Azure, that stores each user's to-do list.  You do not need to build the web API, we already have it running for you.
 
-Web API가 Azure AD B2C를 사용하여 요청을 안전하게 인증하는 방법을 알아보려면 [Web API 시작 문서](active-directory-b2c-devquickstarts-api-dotnet.md)를 확인하세요.
+To learn how a web API securely authenticates requests by using Azure AD B2C, check out the [web API getting started article](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 정책 실행
-앱은 인증 메시지를 전송하여 Azure AD B2C와 통신하며 이는 HTTP 요청의 일부로 실행하고자 하는 정책을 지정합니다. .NET 데스크톱 응용 프로그램의 경우 MSAL(미리 보기 Microsoft 인증 라이브러리)을 사용하여 OAuth 2.0 인증 메시지를 보내고 정책을 실행하고 Web API를 호출하는 토큰을 가져올 수 있습니다.
+## <a name="execute-policies"></a>Execute policies
+Your app communicates with Azure AD B2C by sending authentication messages that specify the policy they want to execute as part of the HTTP request. For .NET desktop applications, you can use the preview Microsoft Authentication Library (MSAL) to send OAuth 2.0 authentication messages, execute policies, and get tokens that call web APIs.
 
-### MSAL 설치
-Visual Studio 패키지 관리자 콘솔을 사용하여 MSAL을 `TaskClient` 프로젝트에 추가합니다.
+### <a name="install-msal"></a>Install MSAL
+Add MSAL to the `TaskClient` project by using the Visual Studio Package Manager Console.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
-### B2C 세부 정보 입력
-`Globals.cs` 파일을 열고 각각의 속성 값을 사용자 고유의 값으로 바꿉니다. 이 클래스는 일반적으로 사용되는 값을 참조하기 위해 `TaskClient` 전반에 사용됩니다.
+### <a name="enter-your-b2c-details"></a>Enter your B2C details
+Open the file `Globals.cs` and replace each of the property values with your own. This class is used throughout `TaskClient` to reference commonly used values.
 
 ```C#
 public static class Globals
@@ -93,8 +94,8 @@ public static class Globals
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-### PublicClientApplication 만들기
-MSAL의 기본 클래스는 `PublicClientApplication`입니다. 이 클래스는 Azure AD B2C 시스템에 있는 응용 프로그램을 나타냅니다. 앱이 시작되면 `MainWindow.xaml.cs`에서 `PublicClientApplication` 인스턴스를 만듭니다. 이를 창 전체에서 사용할 수 있습니다.
+### <a name="create-the-publicclientapplication"></a>Create the PublicClientApplication
+The primary class of MSAL is `PublicClientApplication`. This class represents your application in the Azure AD B2C system. When the app initalizes, create an instance of `PublicClientApplication` in `MainWindow.xaml.cs`. This can be used throughout the window.
 
 ```C#
 protected async override void OnInitialized(EventArgs e)
@@ -111,8 +112,8 @@ protected async override void OnInitialized(EventArgs e)
     ...
 ```
 
-### 등록 흐름 시작
-사용자가 등록하려는 경우 이전에 만든 등록 정책을 사용하는 등록 흐름을 시작할 수 있습니다. MSAL을 사용하여 `pca.AcquireTokenAsync(...)`를 호출하면 됩니다. `AcquireTokenAsync(...)`에 전달하는 매개 변수는 받을 토큰의 종류, 인증 요청에서 사용되는 정책 등을 결정합니다.
+### <a name="initiate-a-sign-up-flow"></a>Initiate a sign-up flow
+When a user opts to signs up, you want to initiate a sign-up flow that uses the sign-up policy you created. By using MSAL, you just call `pca.AcquireTokenAsync(...)`. The parameters you pass to `AcquireTokenAsync(...)` determine which token you receive, the policy used in the authentication request, and more.
 
 ```C#
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -162,40 +163,40 @@ private async void SignUp(object sender, RoutedEventArgs e)
 }
 ```
 
-### 로그인 흐름 시작
-등록 흐름을 시작하는 것과 동일한 방식으로 로그인 흐름을 시작할 수 있습니다. 사용자가 로그인하면 로그인 정책을 사용하여 동일한 방식으로 MSAL을 호출합니다.
+### <a name="initiate-a-sign-in-flow"></a>Initiate a sign-in flow
+You can initiate a sign-in flow in the same way that you initiate a sign-up flow. When a user signs in, make the same call to MSAL, this time by using your sign-in policy:
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.signInPolicy);
-		...
+        ...
 ```
 
-### 프로필 편집 흐름 시작
-다시 동일한 방식으로 프로필 편집 정책을 실행할 수 있습니다.
+### <a name="initiate-an-edit-profile-flow"></a>Initiate an edit-profile flow
+Again, you can execute an edit-profile policy in the same fashion:
 
 ```C#
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.editProfilePolicy);
 ```
 
-이 모든 경우에 MSAL은 `AuthenticationResult`에서 토큰을 반환하거나 예외를 throw합니다. MSAL에서 토큰을 가져올 때마다 `AuthenticationResult.User` 개체를 사용하여 UI와 같은 앱의 사용자 데이터를 업데이트합니다. 또한 ADAL은 응용 프로그램의 다른 부분에 사용하기 위해 토큰을 캐시합니다.
+In all of these cases, MSAL either returns a token in `AuthenticationResult` or throws an exception. Each time you get a token from MSAL, you can use the `AuthenticationResult.User` object to update the user data in the app, such as the UI. ADAL also caches the token for use in other parts of the application.
 
 
-### 앱 시작에서 토큰 확인
-또한 MSAL를 사용하여 사용자의 로그인 상태를 추적할 수 있습니다. 이 앱에서 사용자가 앱을 닫았다가 다시 연 후에도 로그인된 상태를 유지하게 하려 합니다. `OnInitialized` 재정의 내부에서 MSAL의 `AcquireTokenSilent` 메서드를 사용하여 캐시된 토큰을 확인합니다.
+### <a name="check-for-tokens-on-app-start"></a>Check for tokens on app start
+You can also use MSAL to keep track of the user's sign-in state.  In this app, we want the user to remain signed in even after they close the app & re-open it.  Back inside the `OnInitialized` override, use MSAL's `AcquireTokenSilent` method to check for cached tokens:
 
 ```C#
 AuthenticationResult result = null;
@@ -233,8 +234,8 @@ catch (MsalException ex)
 }
 ```
 
-## 태스크 API 호출
-MSAL을 사용하여 정책을 실행하고 토큰을 가져왔습니다. 이러한 토큰 중 하나를 사용하여 태스크 API를 호출하려는 경우 MSAL의 `AcquireTokenSilent` 메서드를 다시 사용하여 캐쉬된 토큰을 확인할 수 있습니다.
+## <a name="call-the-task-api"></a>Call the task API
+You have now used MSAL to execute policies and get tokens.  When you want to use one these tokens to call the task API, you can again use MSAL's `AcquireTokenSilent` method to check for cached tokens:
 
 ```C#
 private async void GetTodoList()
@@ -276,23 +277,23 @@ private async void GetTodoList()
 
         return;
     }
-	...
+    ...
 ```
 
-`AcquireTokenSilentAsync(...)`에 대한 호출이 성공하고 캐시에 토큰이 발견되면 HTTP 요청의 `Authorization` 헤더에 토큰을 추가할 수 있습니다. 태스크 웹 API는 이 헤더를 사용하여 사용자 할 일 목록에 대한 읽기 요청을 인증합니다.
+When the call to `AcquireTokenSilentAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request. The task web API will use this header to authenticate the request to read the user's to-do list:
 
 ```C#
-	...
-	// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+    ...
+    // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
     // Call the To Do list service.
     HttpResponseMessage response = await httpClient.GetAsync(Globals.taskServiceUrl + "/api/tasks");
-	...
+    ...
 ```
 
-## 사용자를 로그아웃
-마지막으로 사용자가 **로그아웃**을 선택한 경우 MSAL을 사용하여 앱에서 사용자의 세션을 종료할 수 있습니다. MSAL을 사용하는 경우 토큰 캐시에서 모든 토큰을 삭제하는 방식으로 이 작업이 수행됩니다.
+## <a name="sign-the-user-out"></a>Sign the user out
+Finally, you can use MSAL to end a user's session with the app when the user selects **Sign out**.  When using MSAL, this is accomplished by clearing all of the tokens from the token cache:
 
 ```C#
 private void SignOut(object sender, RoutedEventArgs e)
@@ -313,27 +314,31 @@ private void SignOut(object sender, RoutedEventArgs e)
 }
 ```
 
-## 샘플 앱 실행
+## <a name="run-the-sample-app"></a>Run the sample app
 
-마지막으로 샘플을 빌드하하고 실행합니다. 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동일한 사용자로 다시 로그인합니다. 해당 사용자의 프로필을 편집합니다. 로그아웃했다가 다른 사용자로 등록합니다.
+Finally, build and run the sample.  Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up by using a different user.
 
-## 소셜 IDP 추가
+## <a name="add-social-idps"></a>Add social IDPs
 
-현재, 앱은 **로컬 계정**을 사용하는 사용자 등록 및 로그인만 지원합니다. 이들은 사용자 이름 및 암호를 사용하는 B2C 디렉터리에 저장된 계정입니다. Azure AD B2C를 사용하면 코드를 변경하지 않고도 다른 IDP(ID 공급자)에 대한 지원을 추가할 수 있습니다.
+Currently, the app supports only user sign-up and sign-in that use **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other identity providers (IDPs) without changing any of your code.
 
-소셜 IDP를 앱에 추가하려면 이 문서 중에서 상세한 지침을 수행하여 시작합니다. 지원하려는 각 IDP의 경우 해당 시스템에서 응용 프로그램을 등록하고 클라이언트 ID를 얻어야 합니다.
+To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
 
-- [Facebook을 IDP로 설정](active-directory-b2c-setup-fb-app.md)
-- [Google을 IDP로 설정](active-directory-b2c-setup-goog-app.md)
-- [Amazon을 IDP로 설정](active-directory-b2c-setup-amzn-app.md)
-- [LinkedIn을 IDP로 설정](active-directory-b2c-setup-li-app.md)
+- [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
+- [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
+- [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
+- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
 
-B2C 디렉터리에 ID 공급자를 추가한 후 [정책 참조 문서](active-directory-b2c-reference-policies.md)에서 설명한 대로 새 IDP를 포함하도록 세 가지 정책을 각각 편집해야 합니다. 정책을 저장한 후 앱을 다시 실행합니다. ID 환경 각각에서 로그인 및 등록으로 추가된 새 IDP가 표시되어야 합니다.
+After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again. You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
 
-정책을 실험하고 샘플 앱에서 영향을 확인할 수 있습니다. IDP를 추가 또는 제거하거나 응용 프로그램 클레임을 조작하거나 등록 특성을 변경합니다. 어떻게 정책, 인증 요청 및 MSAL을 모두 함께 연결하는지 확인할 수 있을 때까지 실험해 보세요.
+You can experiment with your policies and observe the effects on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and MSAL tie together.
 
-참조를 위해 완료된 샘플은 [.zip 파일로 제공](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)됩니다. 또한 GitHub에서 복제할 수 있습니다.
+For reference, the completed sample [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). You can also clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

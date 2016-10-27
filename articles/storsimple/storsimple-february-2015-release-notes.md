@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 8000 업데이트 0.3 릴리스 정보 | Microsoft Azure"
-   description="2015년 2월 Microsoft Azure StorSimple 릴리스(업데이트 0.3)에 대한 새 기능 및 수정 사항, 미해결 문제 및 해결 방법을 설명합니다."
+   pageTitle="StorSimple 8000 Update 0.3 release notes | Microsoft Azure"
+   description="Describes the new features and fixes, open issues, and available workarounds for the February 2015 Microsoft Azure StorSimple release (Update 0.3)."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,75 +15,80 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# StorSimple 8000 시리즈 업데이트 0.3 릴리스 정보 - 2015년 2월
 
-## 개요
+# <a name="storsimple-8000-series-update-0.3-release-notes---february-2015"></a>StorSimple 8000 Series Update 0.3 release notes - February 2015
 
-다음 릴리스 정보는 2015년 2월에 출시된 StorSimple 8000 시리즈 업데이트 0.3에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어 및 펌웨어 업데이트의 목록을 포함합니다. 일반적으로 StorSimple 8000 시리즈 릴리스 버전이 2014년 7월에 사용할 수 있게 변경된 후 세 번째 릴리스입니다.
+## <a name="overview"></a>Overview
+
+The following release notes identify the critical open issues for  StorSimple 8000 Series Update 0.3 released in February 2015. They also contain a list of the StorSimple software and firmware updates included in this release. This is the third release after the StorSimple 8000 Series Release version was made generally available in July 2014.
   
-이 업데이트는 1월 업데이트에서 장치 소프트웨어 버전이 변경되지 않습니다. 6.3.9600.17312 버전을 계속 사용합니다. **마지막 업데이트** 날짜를 확인하여 설치된 업데이트를 확인할 수 있습니다. 날짜가 2015/2/10 이후인 경우, 업데이트가 성공적으로 설치된 것입니다.
+This update does not change the device software version from the January update. It continues to be version 6.3.9600.17312. You can confirm that the update has been installed by checking the **Last Updated** date. If the date is 2/10/2015 or later, then the update has been installed successfully.  
 
-StorSimple 장치를 설치한 후 즉시 사용 가능한 업데이트를 검색하고 적용하는 것이 좋습니다. 출시되는 즉시 Microsoft에서 중요한 업데이트를 다운로드하고 설치하는 자동 업데이트를 켤 수도 있습니다. 자세한 내용은 [StorSimple 장치 업데이트](storsimple-update-device.md)를 참조하세요.
+We recommend that you scan for and apply any available updates immediately after you install your StorSimple device. You can also turn on automatic updates to download and install high-priority updates from Microsoft as soon as they are released. For more information, see [Update your StorSimple device](storsimple-update-device.md).  
 
-StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 포함된 정보를 검토하십시오.
+Please review the information contained in the release notes before you deploy the update in your StorSimple solution.  
 
 >[AZURE.IMPORTANT]   
 >
-> - 2월 업데이트를 설치하려면 StorSimple용 Windows PowerShell이 아닌 StorSimple 관리자 서비스를 사용합니다.   
-> - 이 업데이트를 설치하는 데에는 1시간 정도 걸립니다. 하지만 누적 업데이트를 설치하는 경우 프로세스를 완료하는 데 3시간 정도 걸릴 수 있습니다.  
-> -	StorSimple의 2월 릴리스는 StorSimple 가상 장치에 대한 업데이트가 포함되지 않습니다. 최근 보안 수정 사항을 포함하여 가상 장치에 사용 가능한 Windows 업데이트를 적용할 수 있지만 가상 장치의 버전에서 변경 내용을 볼 수는 없습니다.  
+> - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install the February update.   
+> - It takes approximately an hour to install this update. However, if you are installing cumulative updates, the process can take about 3 hours to complete.  
+> - The February release of StorSimple does not contain any updates to the StorSimple virtual device. You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the virtual device.  
 
-StorSimple 장치를 업데이트하기 전에 다음 필수 조건이 충족되는지 확인합니다.
+Make sure that the following prerequisites are met prior to updating your StorSimple device.  
 
-- 업데이트를 검색하기 전에 두 장치 컨트롤러가 모두 실행되고 있는지 확인합니다. 둘 중 한 컨트롤러라도 실행되지 않는 경우 검색에 실패합니다. 컨트롤러가 정상 상태에 있는지 확인하려면 **유지 관리** 페이지의 **하드웨어 상태**로 이동합니다. **주의가 필요한** 구성 요소가 있는 경우, 더 진행하기 전에 Microsoft 지원에 문의합니다.
-- 두 컨트롤러 0 및 컨트롤러 1에 대해 고정 IP를 라우팅할 수 있고 장치에 대한 업데이트를 제공하기 위해 이 IP를 사용하면 인터넷에 연결할 수 있는지 확인합니다. [연결 테스트 cmdlet](https://technet.microsoft.com/library/hh849808.aspx)을 사용하여 outlook.com과 같이 네트워크의 알려진 외부 주소를 ping하고 컨트롤러가 외부 네트워크에 연결되어있는지 확인할 수 있습니다.
-- 80 및 443 포트가 아웃바운드 통신을 위한 StorSimple 장치에서 사용할 수 있는지 확인합니다. 자세한 내용은 [StorSimple 장치에 대한 네트워킹 요구 사항](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)을 참조하세요.
-- 장치 소프트웨어 버전이 6.3.9600.17312(2014년 10월 업데이트) 보다 오래된 경우, 업데이트를 시작하기 전에 데이터 2 및 데이터 3 포트를 사용하지 않도록 설정합니다(사용하도록 설정되었던 경우). 업데이트를 적용할 때 데이터 2 또는 데이터 3 포트를 사용 가능하도록 두면, 장치 컨트롤러가 복구 모드로 전환될 수 있습니다. 네트워크 인터페이스를 해제하면 연결된 모든 볼륨이 오프라인으로 전환되며 업데이트 기간 동안에 I/O가 중단된다는 점에 주의하세요.  
+- Ensure that both device controllers are running before you scan for updates. If either controller is not running, the scan will fail. To verify that the controllers are in a healthy state, navigate to **Hardware Status** under the **Maintenance** page. If there are components that **Need attention**, contact Microsoft Support before proceeding any further.
+- Ensure that fixed IPs for both controller 0 and controller 1 are routable and can connect to the Internet as these are used for servicing the updates to the device. You can use the [Test-Connection cmdlet](https://technet.microsoft.com/library/hh849808.aspx) to ping a known address outside of the network, such as outlook.com, to verify that the controller has connectivity to the outside network.
+- Ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see the [Networking requirements for your StorSimple device](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+- If the device software version is older than 6.3.9600.17312 (October 2014 update), disable the Data 2 and Data 3 ports, if enabled, before starting the update. Leaving the Data 2 or Data 3 ports enabled when you apply the update might cause your device controller to go into recovery mode. Please note that when you disable the network interfaces, all the associated volumes will be taken offline and the I/Os will be disrupted for the duration of the update.  
   
-## 2월 릴리스의 새로운 기능
+## <a name="what's-new-in-the-february-release"></a>What's new in the February release
 
-이 업데이트는 GA 릴리스에서 2014년 10월 릴리스로 업그레이드되었던 장치에서 발생한 공장 재설정 문제에 대한 수정 사항을 포함합니다. 자세한 내용은 참조 [이 릴리스에서 수정된 문제](#issues-fixed-in-the-february-release)를 참조하세요.
+This update contains a fix for the factory reset issue that occurred on devices that had been upgraded from the GA release to the October 2014 release. For more information, see [Issues fixed in this release](#issues-fixed-in-the-february-release).   
 
-이 업데이트에는 새로운 특징 또는 기능은 포함되지 않습니다.
+This update does not contain new features or functionality.  
 
-## 2월 릴리스에서 해결된 문제
+## <a name="issues-fixed-in-the-february-release"></a>Issues fixed in the February release
 
-다음 표는 이 업데이트에서 해결된 문제를 설명합니다.
+The following table describes the issue that was fixed in this update.  
  
-| 번호 | 기능 | 문제 | 실제 장치에 적용 | 가상 장치에 적용 |
+| No. | Feature | Issue | Applies to physical device | Applies to virtual device |
 |-----|---------|-------|---------------------------------|-------------------------------|
-| 1 | 공장 재설정 | 원래 GA 릴리스(6.3.9600.17215 버전)가 설치되었지만 10월 릴리스(6.3.9600.17312 버전)로 업데이트된 장치에서 공장 재설정을 수행해 봅니다. 공장 재설정이 실패하고 장치가 불안정합니다. | 예 | 아니요 |
+| 1 | Factory reset | You try to perform a factory reset on a device that originally had the GA release (version 6.3.9600.17215) installed but has been updated to the October release (version 6.3.9600.17312). The factory reset fails and the device becomes unstable. | Yes | No |
 
 
-## 2월 릴리스에서 알려진 문제
+## <a name="known-issues-in-the-february-release"></a>Known issues in the February release
 
-다음 표에서 이 릴리스의 알려진 문제를 간략하게 설명합니다.
+The following table provides a summary of known issues in this release.
  
-| 번호 | 기능 | 문제 | 주석/해결 방법 | 실제 장치에 적용 | 가상 장치에 적용 |
+| No. | Feature | Issue | Comments/workaround | Applies to physical device  | Applies to virtual device |
 |-----|---------|-------|----------------------------|-----------------------------|--------------------------|
-| 1 | 공장 재설정 | 일부 경우에 공장 재설정을 수행하면 StorSimple 장치가 중단될 수 있으며 **공장 기본 설정으로 재설정 진행 중(8단계)** 메시지를 표시할 수 있습니다. cmdlet가 진행 중인 동안 CTRL+C를 누르면 발생합니다. | 공장 재설정을 시작한 후 CTRL+C를 누르지 마세요. 이미 이 상태에 있다면 다음 단계에 대해 Microsoft 지원에 문의하세요. | 예 | 아니요 |
-| 2 | 디스크 쿼럼 | 드문 경우에 8600 장치의 EBOD 인클로저에 있는 대부분의 디스크의 연결이 끊겨 디스크 쿼럼이 없는 경우, 저장소 풀이 오프라인 상태가 됩니다. 디스크가 다시 연결되더라도 오프라인 상태로 유지됩니다. | 장치를 다시 부팅해야 합니다. 문제가 지속되면 다음 단계에 대해 Microsoft 지원에 문의하세요. | 예 | 아니요 |
-| 3 | 클라우드 스냅숏 실패 | 드문 경우에 클라우드 스냅숏이 **최대 백업 한계에 도달했습니다**라는 오류와 함께 실패할 수 있습니다. 삭제된 볼륨과 동일한 원래 볼륨에서 동일한 장치에 255개의 온라인 복제가 초과하는 경우 발생합니다. | | 예 | 예 |
-| 4 | 잘못된 컨트롤러 ID | 컨트롤러가 교체되면 컨트롤러 0이 컨트롤러 1로 표시될 수 있습니다. 컨트롤러 교체 중, 이미지가 피어 노드에서 로드되면 컨트롤러 ID는 처음에 피어 컨트롤러의 ID로 표시될 수 있습니다. 드문 경우에 시스템을 다시 부팅한 후 이 동작이 나타날 수도 있습니다. | 별도의 작업이 필요하지 않습니다. 컨트롤러 교체를 완료 한 후 이 상황이 저절로 해결됩니다. | 예 | 아니요 |
-| 5 | 장치 모니터링 차트 | StorSimple 관리자 서비스에서 해당 장치에 대한 프록시 서버 구성에서 기본 또는 NTLM 인증이 사용되면 장치 모니터링 차트가 동작하지 않습니다. | 인증이 NONE으로 설정되도록 StorSimple 관리자 서비스와 함께 등록된 장치에 대한 웹 프록시 구성을 수정합니다. 수정하려면 StorSimple Set-HcsWebProxy cmdlet에 대해 Windows PowerShell을 실행합니다. | 예 | 예 |
-| 6 | 저장소 계정 | 저장소 계정 삭제에 저장소 서비스를 사용하는 것은 지원되지 않는 시나리오입니다. 이렇게 되면 사용자 데이터를 검색할 수 없게 됩니다. | | 예 | 예 |
-| 7 | 장치 장애 조치 | 동일한 원본 장치에서 다른 대상 장치로의 볼륨 컨테이너의 다중 장애 조치는 지원되지 않습니다. 단일 데드 장치에서 여러 장치로의 장애 조치로 첫 번째 장애 조치된 장치의 볼륨 컨테이너에서 데이터 소유권이 손실됩니다. 이러한 장애 조치 후 Azure 클래식 포털에서 볼 때 이 볼륨 컨테이너가 나타나거나 다르게 동작합니다. | | 예 | 아니요 |
-| 8 | 설치 | SharePoint용 StorSimple 어댑터 설치 중, 성공적으로 설치를 완료하려면 장비 IP를 입력해야 합니다. | | 예 | 아니요 |
-| 9 | 웹 프록시 | 웹 프록시 구성에 지정된 프로토콜로 HTTPS가 있는 경우, 장치 대 서비스의 통신에 영향을 줄 수 있으며 장치는 오프라인 상태가 됩니다. 지원 패키지는 장치에서 중요한 리소스를 소모하는 프로세스에도 생성됩니다. | 웹 프록시 URL에 지정된 프로토콜로 HTTP가 있는지 확인합니다. [장치에 대한 웹 프록시 구성](storsimple-configure-web-proxy.md) 방법에 대한 자세한 내용. | 예 | 아니요 |
-| 10 | 웹 프록시 | 등록된 장치에서 웹 프록시를 구성하고 사용하는 경우, 장치에서 활성 컨트롤러를 다시 시작해야 합니다. | | 예 | 아니요 |
-| 11 | 긴 클라우드 대기 시간 및 많은 I/O 작업 | StorSimple 장치에서 클라우드 대기 시간(초 순서)이 매우 길고 I/O 워크로드가 많으면 장치 볼륨의 성능이 저하되며 "장치가 준비 되지 않았습니다"라는 오류와 함께 I/O가 실패할 수 있습니다. | 이 상황에서 복구하려면 수동으로 장치 컨트롤러를 다시 부팅하거나 장치 장애 조치를 수행해야 합니다. | 예 | 아니요 |
+| 1 | Factory reset | In some instances, when you perform a factory reset, the StorSimple device may be stuck and display this message: **Reset to factory is in progress (phase 8)**. This happens if you press CTRL+C while the cmdlet is in progress. | Do not press CTRL+C after initiating a factory reset. If you are already in this state, please contact Microsoft Support for next steps. | Yes | No |
+| 2 | Disk quorum | In rare instances, if the majority of disks in the EBOD enclosure of an 8600device are disconnected resulting in no disk quorum, then the storage pool will be offline. It will stay offline even if the disks are reconnected. | You will need to reboot the device. If the issue persists, please contact Microsoft Support for next steps. | Yes | No |
+| 3 | Cloud snapshot failures | In rare instances, a cloud snapshot may fail with the error **Maximum backup limit reached**. This occurs if you exceed 255 online clones on the same device, from the same original volume which has been deleted. |  | Yes | Yes |
+| 4 | Incorrect controller ID | When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. | No user action is required. This situation will resolve itself after the controller replacement is complete. | Yes | No |
+| 5 | Device monitoring charts | In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device. | Modify the web proxy configuration for the device registered with your StorSimple Manager service so that authentication is set to NONE. To do this, run the the Windows PowerShell for StorSimple Set-HcsWebProxy cmdlet. | Yes | Yes |
+| 6 | Storage accounts | Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved. |  | Yes | Yes |
+| 7 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported.  Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure classic portal. |   | Yes | No |
+| 8 | Installation | During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully. |  | Yes | No |
+| 9 | Web proxy | If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. | Make sure that the web proxy URL has HTTP as the specified protocol. More information on how to [Configure web proxy for your device](storsimple-configure-web-proxy.md). | Yes | No |
+| 10 | Web proxy | If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device. |  | Yes | No |
+| 11 | High cloud latency and high I/O workload | When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error. | You will need to manually reboot the device controllers or perform a device failover to recover from this situation. | Yes | No |
 
-## 2월 릴리스의 실제 장치 업데이트
+## <a name="physical-device-updates-in-the-february-release"></a>Physical device updates in the February release
 
-이 업데이트는 GA 릴리스에서 2014년 10월 릴리스로 업그레이드되었던 장치에서 발생한 공장 재설정 문제를 해결합니다. StorSimple 장치에 대한 다른 업데이트는 포함하지 않습니다.
+This update fixes the factory reset issue that occurred on devices that had been upgraded from the GA release to the October 2014 release. It does not contain any other updates to the StorSimple device.  
 
-## 2월 릴리스의 SAS(Serial attached SCSI) 컨트롤러 및 펌웨어 업데이트
+## <a name="serial-attached-scsi-(sas)-controller-and-firmware-updates-in-the-february-release"></a>Serial-attached SCSI (SAS) controller and firmware updates in the February release
 
-이 릴리스에 SAS(Serial attached SCSI) 컨트롤러 또는 펌웨어에 대한 업데이트는 포함되지 않습니다. 드라이버 업데이트는 2014년 10월 릴리스에 있습니다.
+This release does not contain any updates to the serial-attached SCSI (SAS) controller or the firmware. The driver update was in the October, 2014 release.  
 
-## 2월 릴리스의 가상 장치 업데이트
+## <a name="virtual-device-updates-in-the-february-release"></a>Virtual device updates in the February release
 
-이 릴리스에는 가상 장치에 대한 업데이트는 포함되지 않습니다. 이 업데이트를 적용해도 가상 장치의 소프트웨어 버전은 변경되지 않습니다.
+This release does not contain any updates for the virtual device. Applying this update will not change the software version of a virtual device.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

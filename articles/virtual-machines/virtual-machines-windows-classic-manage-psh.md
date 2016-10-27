@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure PowerShell | Microsoft Azure를사용하여 가상 컴퓨터 관리"
-   description="가상 컴퓨터 관리에서의 작업 자동화에 사용할 수 있는 명령에 대해 알아봅니다."
+   pageTitle="Manage your virtual machines by using Azure PowerShell | Microsoft Azure"
+   description="Learn commands that you can use to automate tasks in managing your virtual machines."
    services="virtual-machines-windows"
    documentationCenter="windows"
    authors="singhkays"
@@ -14,85 +14,90 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="07/01/2016"
+   ms.date="10/12/2016"
    ms.author="kasing"/>
 
-# Azure PowerShell을 사용하여 가상 컴퓨터 관리
+
+# <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Manage your virtual machines by using Azure PowerShell
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행하는 많은 작업을 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
+Many tasks you do each day to manage your VMs can be automated by using Azure PowerShell cmdlets. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
 
->[AZURE.NOTE] Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서에서 지침을 확인할 수 있습니다.
+>[AZURE.NOTE] If you haven't installed and configured Azure PowerShell yet, you can get instructions in the article [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-## 예제 명령을 사용하는 방법
-명령의 일부 텍스트는 환경에 적합한 텍스트로 바꿔야 합니다. < 및 > 기호는 바꿔야 하는 텍스트를 나타냅니다. 텍스트를 바꾸는 경우 기호는 제거하고 따옴표는 그대로 남겨 두세요.
+## <a name="how-to-use-the-example-commands"></a>How to use the example commands
+You'll need to replace some of the text in the commands with text that's appropriate for your environment. The < and > symbols indicate text you need to replace. When you replace the text, remove the symbols but leave the quote marks in place.
 
-## VM 확인
-자주 사용하게 될 기본 작업입니다. 이 작업을 사용하여 VM에 대한 정보를 가져오거나 VM에서 작업을 수행하거나 변수에 저장할 출력을 가져옵니다.
+## <a name="get-a-vm"></a>Get a VM
+This is a basic task you'll use often. Use it to get information about a VM, perform tasks on a VM, or get output to store in a variable.
 
-VM에 대한 정보를 가져오려면 이 명령을 실행하고 < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
+To get information about the VM, run this command, replacing everything in the quotes, including the < and > characters:
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-출력을 $vm 변수에 저장하려면 다음을 실행합니다.
+To store the output in a $vm variable, run:
 
     $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Windows 기반 VM에 로그온
+## <a name="log-on-to-a-windows-based-vm"></a>Log on to a Windows-based VM
 
-다음 명령을 실행합니다.
+Run these commands:
 
->[AZURE.NOTE] **Get-AzureVM** 명령 표시에서 가상 컴퓨터 및 클라우드 서비스 이름을 가져올 수 있습니다.
+>[AZURE.NOTE] You can get the virtual machine and cloud service name from the display of the **Get-AzureVM** command.
 >
-	$svcName = "<cloud service name>"
-	$vmName = "<virtual machine name>"
-	$localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile = $localPath + "" + $vmname + ".rdp"
-	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+    $svcName = "<cloud service name>"
+    $vmName = "<virtual machine name>"
+    $localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+    $localFile = $localPath + "\" + $vmname + ".rdp"
+    Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
-## VM 중지
+## <a name="stop-a-vm"></a>Stop a VM
 
-다음 명령을 실행합니다.
+Run this command:
 
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT] 해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. <br><br> StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
+>[AZURE.IMPORTANT] Use this parameter to keep the virtual IP (VIP) of the cloud service in case it's the last VM in that cloud service. <br><br> If you use the StayProvisioned parameter, you'll still be billed for the VM.
 
-## VM 시작
+## <a name="start-a-vm"></a>Start a VM
 
-다음 명령을 실행합니다.
+Run this command:
 
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## 데이터 디스크 연결
-이 작업에는 몇 단계가 필요합니다. 먼저, ****Add-AzureDataDisk**** cmdlet를 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 **Update-AzureVM** cmdlet을 사용하여 VM의 구성을 업데이트합니다.
+## <a name="attach-a-data-disk"></a>Attach a data disk
+This task requires a few steps. First, you use the ****Add-AzureDataDisk**** cmdlet to add the disk to the $vm object. Then, you use **Update-AzureVM** cmdlet to update the configuration of the VM.
 
-또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 이 명령은 .vhd 파일을 만들고 디스크를 연결합니다.
+You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it.
 
-새 디스크를 연결하려면 다음 명령을 실행합니다.
+To attach a new disk, run this command:
 
     Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM $vm | Update-AzureVM
 
-기존 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
+To attach an existing data disk, run this command:
 
     Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
 
-Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
+To attach data disks from an existing .vhd file in blob storage, run this command:
 
     Add-AzureDataDisk -ImportFrom -MediaLocation `
               "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
               -DiskLabel "<main>" -LUN <0> |
               Update-AzureVM
 
-## Windows 기반 VM 만들기
+## <a name="create-a-windows-based-vm"></a>Create a Windows-based VM
 
-Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터를 만들고 미리 구성](virtual-machines-windows-classic-create-powershell.md)의 지침을 사용하세요. 이 항목에서는 미리 구성할 수 있는 Windows VM을 만드는 Azure PowerShell 명령 집합 만들기를 단계별로 안내합니다.
+To create a new Windows-based virtual machine in Azure, use the instructions in [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md). This topic steps you through the creation of an Azure PowerShell command set that creates a Windows-based VM that can be preconfigured:
 
-- Active Directory 도메인 구성원 자격을 통해 만들기
-- 추가 디스크를 통해 만들기
-- 기존 부하 분산 집합의 구성원으로 만들기
-- 고정 IP 주소로 만들기
+- With Active Directory domain membership.
+- With additional disks.
+- As a member of an existing load-balanced set.
+- With a static IP address.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

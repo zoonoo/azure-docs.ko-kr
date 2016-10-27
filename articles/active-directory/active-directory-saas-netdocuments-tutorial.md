@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: NetDocuments와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 NetDocuments를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with NetDocuments | Microsoft Azure" 
+    description="Learn how to use NetDocuments with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,151 +11,157 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: NetDocuments와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-netdocuments"></a>Tutorial: Azure Active Directory integration with NetDocuments
   
-이 자습서는 Azure 및 NetDocuments의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and NetDocuments.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   NetDocuments 테넌트
+-   A valid Azure subscription
+-   A NetDocuments tenant
   
-이 자습서를 완료한 후 NetDocuments에 할당한 Azure AD 사용자가 NetDocuments 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to NetDocuments will be able to single sign into the application at your NetDocuments company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  NetDocuments에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for NetDocuments
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-netdocuments-tutorial/IC795040.png "시나리오")
-##NetDocuments에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-netdocuments-tutorial/IC795040.png "Scenario")
+##<a name="enabling-the-application-integration-for-netdocuments"></a>Enabling the application integration for NetDocuments
   
-이 섹션은 NetDocuments에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for NetDocuments.
 
-###NetDocuments에 응용 프로그램 통합을 사용하도록 설정하려면
+###<a name="to-enable-the-application-integration-for-netdocuments,-perform-the-following-steps:"></a>To enable the application integration for NetDocuments, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-netdocuments-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-netdocuments-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-netdocuments-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-netdocuments-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-netdocuments-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-netdocuments-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-netdocuments-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **NetDocuments**를 입력합니다.
+6.  In the **search box**, type **NetDocuments**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-netdocuments-tutorial/IC795041.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-netdocuments-tutorial/IC795041.png "Application Gallery")
 
-7.  결과 창에서 **NetDocuments**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **NetDocuments**, and then click **Complete** to add the application.
 
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 NetDocuments에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
-NetDocuments에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다.
-이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+The objective of this section is to outline how to enable users to authenticate to NetDocuments with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for NetDocuments requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **NetDocuments** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **NetDocuments** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Configure Single Sign-On")
 
-2.  **NetDocuments에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to NetDocuments** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-netdocuments-tutorial/IC795044.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795044.png "Configure Single Sign-On")
 
-3.  **앱 URL 구성** 페이지에서 다음 단계를 수행합니다.
+3.  On the **Configure App URL** page, perform the following steps:
 
-    ![앱 URL 구성](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configure App URL")
 
-    1.  **로그온 URL** 텍스트 상자에 사용자가 NetDocuments 응용 프로그램에 로그인하는 데 사용하는 URL(예: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*")을 입력합니다.
-	2.  **NetDocuments 회신 URL** 텍스트 상자에 **로그온 URL** 텍스트 상자에 입력한 것과 동일한 값을 입력합니다.  
+    1.  In the **Sign On URL** textbox, type your URL used by your users to sign on to your NetDocuments application (e.g.: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
+    2.  In the **NetDocuments Reply URL** textbox, type the same value you have typed into the the **Sign On URL** textbox.  
 
-        >[AZURE.NOTE]**페더레이션 ID** 대화 상자의 끝에서 올바른 값을 찾을 수 있습니다(9단계의 스크린샷 참조).
+        >[AZURE.NOTE]You can find the correct value at the end of the **Federated Identity** dialog (See the screenshot for step 9).
 
-    3.  **다음**를 클릭합니다.
+    3.  Click **Next**
 
-4.  **NetDocuments에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
+4.  On the **Configure single sign-on at NetDocuments** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Configure Single Sign-On")
 
-5.  다른 웹 브라우저 창에서 NetDocuments 회사 사이트에 관리자로 로그인합니다.
+5.  In a different web browser window, log into your NetDocuments company site as an administrator.
 
-6.  **관리자**로 이동합니다.
+6.  Go to **Admin**.
 
-7.  **사용자와 그룹 추가 및 제거**를 클릭합니다.
+7.  Click **Add and remove users and groups**.
 
-    ![리포지토리](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "리포지토리")
+    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repository")
 
-8.  **고급 인증 옵션 구성**을 클릭합니다.
+8.  Click **Configure advanced authentication options**.
 
-    ![고급 인증 옵션 구성](./media/active-directory-saas-netdocuments-tutorial/IC795048.png "고급 인증 옵션 구성")
+    ![Configure advanced authentication options](./media/active-directory-saas-netdocuments-tutorial/IC795048.png "Configure advanced authentication options")
 
-9.  **페더레이션 ID** 대화 상자에서 다음 단계를 수행합니다.
+9.  On **the Federated Identity** dialog, perform the following steps:
 
-    ![페더레이션된 ID](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "페더레이션된 ID")
+    ![Federated Identitty](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "Federated Identitty")
 
-    1.  **페더레이션 ID 서버 유형**으로 **Active Directory Federation Services**를 선택합니다.
-    2.  **파일 선택**을 클릭하여 다운로드한 메타데이터 파일을 업로드합니다.
-    3.  **확인**을 클릭합니다.
+    1.  As **Federated identity server type**, select **Active Directory Federation Services**.
+    2.  Click **Choose file**, to upload the downloaded metadata file.
+    3.  Click **OK**.
 
-10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Single Sign-On 구성")
-##사용자 프로비전 구성
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 NetDocuments에 로그인할 수 있도록 하려면 NetDocuments로 프로비전되어야 합니다. NetDocuments의 경우 프로비전은 수동 작업입니다.
+In order to enable Azure AD users to log into NetDocuments, they must be provisioned into NetDocuments.  
+In the case of NetDocuments, provisioning is a manual task.
 
-###사용자 프로비전을 구성하려면
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  **NetDocuments** 회사 사이트에 관리자 권한으로 로그온합니다.
+1.  Sing on to your **NetDocuments** company site as administrator.
 
-2.  위쪽의 메뉴에서 **관리자**를 클릭합니다.
+2.  In the menu on the top, click **Admin**.
 
-    ![관리자](./media/active-directory-saas-netdocuments-tutorial/IC795051.png "관리자")
+    ![Admin](./media/active-directory-saas-netdocuments-tutorial/IC795051.png "Admin")
 
-3.  **사용자와 그룹 추가 및 제거**를 클릭합니다.
+3.  Click **Add and remove users and groups**.
 
-    ![리포지토리](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "리포지토리")
+    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repository")
 
-4.  **이메일 입력** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 계정의 이메일 주소를 입력한 다음 **사용자 추가**를 클릭합니다.
+4.  In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
 
-    ![메일 주소](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "메일 주소")
+    ![Email Address](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Email Address")
 
-    >[AZURE.NOTE]Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다.
+    >[AZURE.NOTE]The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active.
 
->[AZURE.NOTE]다른 NetDocuments 사용자 계정 생성 도구 또는 NetDocuments가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE]You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###NetDocuments에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-netdocuments,-perform-the-following-steps:"></a>To assign users to NetDocuments, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **NetDocuments** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **NetDocuments **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

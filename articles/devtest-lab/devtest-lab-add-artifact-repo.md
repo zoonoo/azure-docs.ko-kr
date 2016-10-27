@@ -1,123 +1,128 @@
 <properties
-	pageTitle="Azure DevTest Labs에서 랩에 Git 아티팩트 리포지토리 추가 | Microsoft Azure"
-	description="Azure DevTest Labs에서 사용자 지정 아티팩트 원본용 GitHub 또는 Visual Studio Team Services Git 리포지토리 추가"
-	services="devtest-lab,virtual-machines,visual-studio-online"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Add a Git artifact repository to a lab in Azure DevTest Labs | Microsoft Azure"
+    description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts source in Azure DevTest Labs"
+    services="devtest-lab,virtual-machines,visual-studio-online"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/06/2016"
+    ms.author="tarcher"/>
 
-# Azure DevTest Labs에서 랩에 Git 아티팩트 리포지토리 추가
+
+# <a name="add-a-git-artifact-repository-to-a-lab-in-azure-devtest-labs"></a>Add a Git artifact repository to a lab in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-add-your-private-artifacts-repository-in-a-devtest-lab]
 
-Azure DevTest Labs에서 아티팩트는 VM이 생성될 때 소프트웨어를 설치하거나 스크립트 및 명령을 실행하는 것과 같은 *작업*입니다. 기본적으로 랩에는 공식 Azure DevTest Labs 아티팩트 리포지토리의 아티팩트가 포함되어 있습니다. 팀이 만드는 아티팩트를 포함시키기 위해 랩에 Git 리포지토리를 추가할 수 있습니다. 리포지토리는 [GitHub](https://github.com) 또는 [VSTS(Visual Studio Team Services)](https://visualstudio.com)에서 호스트될 수 있습니다.
+In Azure DevTest Labs, artifacts are *actions* - such as installing software or running scripts and commands - when a VM is created. By default, a lab includes artifacts from the official Azure DevTest Labs artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
-- GitHub 리포지토리를 만드는 방법을 알아보려면 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)를 참조하세요.
-- Git 리포지토리를 사용하여 Team Services 프로젝트를 만드는 방법을 알아보려면 [Visual Studio Team Services에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
+- To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
+- To learn how to create a Team Services project with a Git Repository, see [Connect to Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
-다음 스크린샷은 아티팩트가 포함된 리포지토리가 GitHub에서 어떻게 표시될 수 있는지에 대한 예를 보여 줍니다. ![GitHub 아티팩트 리포지토리 샘플](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
+The following screen shot shows an example of how a repository containing artifacts might look in GitHub:  
+![Sample GitHub artifacts repo](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
 
-## 리포지토리 정보 및 자격 증명 가져오기
+## <a name="get-the-repository-information-and-credentials"></a>Get the repository information and credentials
 
-랩에 아티팩트 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져와야 합니다. 다음 섹션에서는 GitHub 및 Visual Studio Team Services에서 호스트되는 아티팩트 리포지토리에 대해 이러한 정보를 가져오는 방법을 안내합니다.
+To add an artifact repository to your lab, you must first get certain information from your repository. The following sections guide you through getting this information for artifact repositories hosted on GitHub and Visual Studio Team Services.
 
-### GitHub 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
+### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Get the GitHub repository clone URL and personal access token
 
-GitHub 리포지토리 복제 URL 및 개인 액세스 토큰을 가져오려면 다음 단계를 따르세요.
+To get the GitHub repository clone URL and personal access token, follow these steps:
 
-1. 아티팩트 정의를 포함하는 GitHub 리포지토리의 홈 페이지로 이동합니다.
+1. Browse to the home page of the GitHub repository that contains the artifact definitions.
 
-1. **복제 또는 다운로드**를 선택합니다.
+1. Select **Clone or download**.
 
-1. 이 단추를 선택하여 **HTTPS 복제 URL**을 클립보드에 복사하고 나중에 사용할 수 있게 URL을 저장합니다.
+1. Select the button to copy the **HTTPS clone url** to the clipboard, and save the URL for later use.
 
-1. GitHub의 오른쪽 위에서 프로필 이미지를 탭하고 **설정**을 선택합니다.
+1. Select the profile image in the upper-right corner of GitHub, and select **Settings**.
 
-1. 왼쪽의 **개인 설정** 메뉴에서 **개인 액세스 토큰**을 탭합니다.
+1. In the **Personal settings** menu on the left, select **Personal access tokens**.
 
-1. **Generate new token**(새 토큰 생성)을 탭합니다.
+1. Select **Generate new token**.
 
-1. **New personal access token**(새 개인 액세스 토큰) 페이지에서 **토큰 설명**을 입력하고 **범위 선택**에서 기본 항목을 수락한 다음 **Generate Token**(토큰 생성)을 선택합니다.
+1. On the **New personal access token** page, enter a **Token description**, accept the default items in the **Select scopes**, and then choose **Generate Token**.
 
-1. 나중에 필요하므로 생성한 토큰을 저장합니다.
+1. Save the generated token as you need it later.
 
-1. 이제 GitHub를 닫아도 됩니다.
+1. You can close GitHub now.   
 
-1. [아티팩트 리포지토리에 랩 연결](#connect-your-lab-to-the-artifact-repository) 섹션을 계속 진행합니다.
+1. Continue to the [Connect your lab to the artifact repository](#connect-your-lab-to-the-artifact-repository) section.
 
-### Visual Studio Team Services 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
+### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Get the Visual Studio Team Services repository clone URL and personal access token
 
-Visual Studio Team Services 리포지토리 복제 URL 및 개인 액세스 토큰을 가져오려면 다음 단계를 따르세요.
+To get the Visual Studio Team Services repository clone URL and personal access token, follow these steps:
 
-1. 팀 컬렉션의 홈페이지(예: `https://contoso-web-team.visualstudio.com`)를 열고 아티팩트 프로젝트를 탭합니다.
+1. Open the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select the artifact project.
 
-1. 프로젝트 홈 페이지에서 선택 **코드**합니다.
+1. On the project home page, select **Code**.
 
-1. 복제 URL을 보려면 프로젝트 **코드** 페이지에서 **복제**를 탭합니다.
+1. To view the clone URL, on the project **Code** page, select **Clone**.
 
-1. 이 자습서의 뒷부분에서 필요하므로 URL을 저장합니다.
+1. Save the URL as you need it later in this tutorial.
 
-1. 개인 액세스 토큰을 만들려면 사용자 계정 드롭다운 메뉴에서 **내 프로필**을 탭합니다.
+1. To create a Personal Access Token, select **My profile** from the user account drop-down menu.
 
-1. 프로필 정보 페이지에서 **보안**을 탭합니다.
+1. On the profile information page, select **Security**.
 
-1. 에 **보안** 탭에서 **추가**합니다.
+1. On the **Security** tab, select **Add**.
 
-1. **개인 액세스 토큰 만들기** 페이지에서
+1. In the **Create a personal access token** page:
 
-    - 토큰에 대한 **설명**을 입력합니다.
-    - **다음 기간 내에 만료** 목록에서 **180일**을 선택합니다.
-    - **계정** 목록에서 **액세스 가능한 모든 계정**을 선택합니다.
-    - **모든 범위** 옵션을 선택합니다.
-    - **토큰 만들기**를 선택합니다.
+    - Enter a **Description** for the token.
+    - Select **180 days** from the **Expires In** list.
+    - Choose **All accessible accounts** from the **Accounts** list.
+    - Choose the **All scopes** option.
+    - Choose **Create Token**.
 
-1. 완료되면 새 토큰이 **개인 액세스 토큰** 목록에 표시됩니다. **토큰 복사**를 선택하고 나중에 사용할 수 있게 토큰 값을 저장합니다.
+1. When finished, the new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
 
-1. [아티팩트 리포지토리에 랩 연결](#connect-your-lab-to-the-artifact-repository) 섹션을 계속 진행합니다.
+1. Continue to the [Connect your lab to the artifact repository](#connect-your-lab-to-the-artifact-repository) section.
 
-##아티팩트 리포지토리에 랩 연결
+##<a name="connect-your-lab-to-the-artifact-repository"></a>Connect your lab to the artifact repository
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. **서비스 더 보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
-1. 랩 목록에서 원하는 랩을 탭합니다.
+1. From the list of labs, select the desired lab.   
 
-1. 랩의 블레이드에서 **구성**을 선택합니다.
+1. On the lab's blade, select **Configuration**.
 
-1. 랩의 **구성** 블레이드에서 **아티팩트 리포지토리**를 선택합니다.
+1. On the lab's **Configuration** blade, select **Artifacts Repositories**.
 
-1. **아티팩트 리포지토리** 블레이드에서 **+추가**를 선택합니다.
+1. On the **Artifacts Repositories** blade, select **+ Add**.
 
-	![아티팩트 리포지토리 단추 추가](./media/devtest-lab-add-artifact-repo/add-artifact-repo.png)
+    ![Add artifact repository button](./media/devtest-lab-add-artifact-repo/add-artifact-repo.png)
  
-1. 두 번째 **아티팩트 리포지토리** 블레이드에서 다음을 지정합니다.
+1. On the second **Artifacts Repositories** blade, specify the following:
 
-    - **이름** - 리포지토리의 이름을 입력합니다.
-    - **Git 복제 URL** - 이전에 GitHub 또는 Visual Studio Team Services에서 복사한 Git HTTPS 복제 URL을 입력합니다.
-    - **폴더 경로** - 아티팩트 정의를 포함하는 복제 URL에 상대적인 폴더 경로를 입력합니다.
-    - **분기** - 아티팩트 정의를 가져올 분기를 입력합니다.
-    - **개인 액세스 토큰** - 이전에 GitHub 또는 Visual Studio Team Services에서 가져온 개인 액세스 토큰을 입력합니다.
+    - **Name** - Enter a name for the repository.
+    - **Git Clone Url** - Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Visual Studio Team Services. 
+    - **Folder Path** - Enter the folder path relative to the clone URL that contains your artifact definitions.
+    - **Branch** - Enter the branch to get your artifact definitions.
+    - **Personal Access Token** - Enter the personal access token you obtained earlier from either GitHub or Visual Studio Team Services. 
      
-	![아티팩트 리포지토리 블레이드](./media/devtest-lab-add-artifact-repo/artifact-repo-blade.png)
+    ![Artifact repo blade](./media/devtest-lab-add-artifact-repo/artifact-repo-blade.png)
 
-1. **저장**을 선택합니다.
+1. Select **Save**.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## 관련 블로그 게시물
-- [AzureDevTestLabs에서 실패한 아티팩트 문제를 해결하는 방법](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-- [ Azure DevTest Labs에서 ARM 템플릿을 사용하여 기존 AD 도메인에 VM 가입](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+## <a name="related-blog-posts"></a>Related blog posts
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

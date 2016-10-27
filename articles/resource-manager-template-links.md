@@ -1,6 +1,6 @@
 <properties
-   pageTitle="리소스 연결을 위한 리소스 관리자 템플릿 | Microsoft Azure"
-   description="템플릿을 통해 관련 리소스 간 링크를 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
+   pageTitle="Resource Manager template for linking resources | Microsoft Azure"
+   description="Shows the Resource Manager schema for deploying links between related resources through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,13 +16,14 @@
    ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
-# 리소스 링크 템플릿 스키마
 
-두 리소스 간의 링크를 만듭니다. 링크는 원본 리소스라고 하는 리소스에 적용됩니다. 링크의 두 번째 리소스는 대상 리소스라고 합니다.
+# <a name="resource-links-template-schema"></a>Resource links template schema
 
-## 스키마 형식
+Creates a link between two resources. The link is applied to a resource known as the source resource. The second resource in the link is known as the target resource.
 
-링크를 만들려면 템플릿의 리소스 섹션에 다음 스키마를 추가합니다.
+## <a name="schema-format"></a>Schema format
+
+To create a link, add the following schema to the resources section of your template.
     
     {
         "type": enum,
@@ -38,41 +39,42 @@
 
 
 
-## 값
+## <a name="values"></a>Values
 
-다음 표에서는 스키마에 설정해야 하는 값에 대해 설명합니다.
+The following tables describe the values you need to set in the schema.
 
-| 이름 | 값 |
+| Name | Value |
 | ---- | ---- |
-| type | 열거형<br />필수<br />**{namespace}/{type}/providers/links**<br /><br />만들려는 리소스 종류입니다. {namespace} 및 {type} 값은 원본 리소스의 공급자 네임스페이스 및 리소스 종류를 나타냅니다. |
-| apiVersion | 열거형<br />필수<br />**2015-01-01**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |  
-| name | 문자열<br />필수<br />**{resouce}/Microsoft.Resources/{linkname}****<br /> 최대 64자이며, <, > %, &, ? 또는 제어 문자를 포함할 수 없습니다.<br /><br />원본 리소스 이름과 링크 이름을 둘 다 지정하는 값입니다. | 
-| dependsOn | Array<br />선택<br />쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다.<br /><br />이 링크에 따라 달라지는 리소스 컬렉션입니다. 연결하려는 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다. | 
-| properties | 개체<br />필수<br />[properties 개체](#properties)<br /><br />연결할 리소스를 식별하고 링크에 대해 설명하는 개체입니다. | 
+| type | Enum<br />Required<br />**{namespace}/{type}/providers/links**<br /><br />The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource. |
+| apiVersion | Enum<br />Required<br />**2015-01-01**<br /><br />The API version to use for creating the resource. |  
+| name | String<br />Required<br />**{resouce}/Microsoft.Resources/{linkname}**<br /> up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the name of source resource and a name for the link. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first. | 
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the resource to link to, and notes about the link. |  
 
 <a id="properties" />
-### properties 개체
+### <a name="properties-object"></a>properties object
 
-| 이름 | 값 |
+| Name | Value |
 | ------- | ---- |
-| 대상 ID | 문자열<br />필수<br />**{resource id}**<br />연결할 대상 리소스의 식별자입니다.<br />. | | notes | 문자열<br />선택<br />최대 512자<br /><br />잠금에 대한 설명입니다. |
+| targetId | String<br />Required<br />**{resource id}**<br /><br />The identifier of the target resource to link to. |
+| notes | String<br />Optional<br />up to 512 characters<br /><br />Description of the lock. |
 
 
-## 링크 리소스를 사용하는 방법
+## <a name="how-to-use-the-link-resource"></a>How to use the link resource
 
-리소스가 배포 후에도 계속되는 종속성을 가진 경우 두 리소스 사이에 링크를 적용합니다. 예를 들어 앱이 다른 리소스 그룹의 데이터베이스에 연결할 수 있습니다. 앱에서 데이터베이스로의 링크를 만들어 해당 종속성을 정의할 수 있습니다. 링크를 사용하여 두 리소스 간의 관계를 문서화할 수 있습니다. 나중에 사용자 또는 조직 내 다른 사람이 리소스에 링크를 쿼리하여 해당 리소스가 다른 리소스와 어떻게 함께 작동하는지 검색할 수 있습니다.
+You apply a link between two resources when the resources have a dependency that continues after deployment. For example, an app may connect to a database in a different resource group. You can define that dependency by creating a link from the app to the database. Links enable you to document the relationship between two resources. Later, you or someone else in your organization can query a resource for links to discover how the resource works with other resources.
 
-연결된 모든 리소스는 동일한 구독에 속해야 합니다. 각 리소스는 다른 50개의 리소스에 연결될 수 있습니다. 연결된 리소스 중 하나가 삭제되거나 이동되면 링크 소유자는 나머지 링크를 청정리해야 합니다.
+All linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link.
 
-REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.microsoft.com/library/azure/mt238499.aspx)(영문)를 참조하세요.
+To work with links through REST, see [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx).
 
-다음 Azure PowerShell 명령을 사용하면 구독의 모든 링크를 확인할 수 있습니다. 결과를 제한하려면 다른 매개 변수를 지정할 수 있습니다.
+Use the following Azure PowerShell command to see all of the links in your subscription. You can provide other parameters to limit the results.
 
     Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
-## 예
+## <a name="examples"></a>Examples
 
-다음 예제에서는 웹앱에 읽기 전용 잠금을 적용합니다.
+The following example applies a read-only lock to a web app.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -119,25 +121,29 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
                     "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
                     "notes": "This web site uses the storage account to store user information."
                 }
-    	    }
+            }
         ],
         "outputs": {}
     }
 
-## 빠른 시작 템플릿
+## <a name="quickstart-templates"></a>Quickstart templates
 
-다음 빠른 시작 템플릿은 링크를 사용하여 리소스를 배포합니다.
+The following quickstart templates deploy resources with a link.
 
-- [논리 앱으로 큐에 경고](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
-- [논리 앱으로 Slack에 경고](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
-- [기존 게이트웨이로 API 앱을 프로비전](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
-- [새 게이트웨이로 API 앱을 프로비전](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
-- [템플릿을 사용하여 논리 앱과 API 앱 만들기](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
-- [경고가 발생할 때 문자 메시지를 전송하는 논리 앱](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
+- [Alert to queue with Logic app](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
+- [Alert to Slack with Logic app](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
+- [Provision an API app with an existing gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
+- [Provision an API app with a new gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
+- [Create a Logic App plus API app using a template](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
+- [Logic app that sends a text message when an alert fires](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+- For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

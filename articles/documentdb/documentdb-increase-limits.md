@@ -1,64 +1,69 @@
 <properties
-	pageTitle="DocumentDB 계정 할당량 증가 요청 | Microsoft Azure"
-	description="문서 저장소 및 컬렉션당 처리량과 같은 DocumentDB 데이터베이스 할당량을 조정하도록 요청하는 방법을 알아봅니다."
-	services="documentdb"
-	authors="AndrewHoh"
-	manager="jhubbard"
-	editor="monicar"
-	documentationCenter=""/>
+    pageTitle="Request increased DocumentDB account quotas | Microsoft Azure"
+    description="Learn how to request an adjustment to DocumentDB database quotas such as document storage and throughput per collection."
+    services="documentdb"
+    authors="AndrewHoh"
+    manager="jhubbard"
+    editor="monicar"
+    documentationCenter=""/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="anhoh"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/25/2016"
+    ms.author="anhoh"/>
 
-# DocumentDB 계정 제한 증가 요청
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)에는 Azure 지원에 문의하여 조정할 수 있는 일련의 기본 할당량이 있습니다. 이 문서에서는 할당량 증가를 요청하는 방법을 보여 줍니다.
+# <a name="request-increased-documentdb-account-limits"></a>Request increased DocumentDB account limits
 
-이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) has a set of default quotas that can be adjusted by contacting Azure support.  This article shows how to request a quota increase.
 
--	Azure 지원에 문의하여 조정할 수 있는 DocumentDB 데이터베이스 할당량은 무엇인가요?
--	어떻게 DocumentDB 계정 할당량 조정을 요청할 수 있나요?
+After reading this article, you'll be able to answer the following questions:  
 
-##<a id="Quotas"></a> DocumentDB 계정 할당량
+-   Which DocumentDB database quotas can be adjusted by contacting Azure support?
+-   How can I request a DocumentDB account quota adjustment?
 
-다음 표에 DocumentDB 할당량이 나와 있습니다. 별표(*)가 표시된 할당량은 Azure 지원부에 문의하여 조정할 수 있습니다.
+##<a name="<a-id="quotas"></a>-documentdb-account-quotas"></a><a id="Quotas"></a> DocumentDB account quotas
+
+The following table describes the DocumentDB quotas. The quotas that have an asterisk (*) can be adjusted by contacting Azure support:
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 
-##<a id="RequestQuotaIncrease"></a> 할당량 조정 요청
-다음 단계에서는 할당량 조정을 요청하는 방법을 보여 줍니다.
+##<a name="<a-id="requestquotaincrease"></a>-request-a-quota-adjustment"></a><a id="RequestQuotaIncrease"></a> Request a quota adjustment
+The following steps show how to request a quota adjustment.
 
-1. [Azure 포털](https://portal.azure.com)에서 **서비스 더 보기**를 클릭한 다음 **도움말 + 지원**을 클릭합니다.
+1. In the [Azure portal](https://portal.azure.com), click **More Services**, and then click **Help + support**.
 
-	![도움말 및 지원 시작의 스크린샷](media/documentdb-increase-limits/helpsupport.png)
+    ![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
 
-2. **도움말 + 지원** 블레이드에서 **새 지원 요청**을 클릭합니다.
+2. In the **Help + support** blade, click **New support request**.
 
-	![지원 티켓 만들기의 스크린샷](media/documentdb-increase-limits/getsupport.png)
+    ![Screenshot of creating a support ticket](media/documentdb-increase-limits/getsupport.png)
 
-3. **새 지원 요청 블레이드**에서 **기본**을 클릭하세요. 다음으로 **문제점 형식**을 **할당량**으로, **구독**을 DocumentDB 계정을 호스트하는 구독으로, **할당량 형식**을 **DocumentDB**로, **지원 계획**을 **할당량 지원 - 포함**으로 설정합니다. 그런 후에 **다음**을 클릭합니다.
+3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your DocumentDB account, **Quota type** to **DocumentDB**, and **Support plan** to **Quota SUPPORT - Included**. Then, click **Next**.
 
-	![지원 티켓 요청 유형의 스크린샷](media/documentdb-increase-limits/supportrequest1.png)
+    ![Screenshot of support ticket request type](media/documentdb-increase-limits/supportrequest1.png)
 
-4. **문제** 블레이드에서 심각도를 선택하고 할당량 증가에 대한 정보를 **세부사항**에 포함합니다. **다음**을 클릭합니다.
+4. In the **Problem** blade, choose a severity and include information about your quota increase in **Details**. Click **Next**.
 
-	![지원 티켓 구독 선택기의 스크린샷](media/documentdb-increase-limits/supportrequest2.png)
+    ![Screenshot of support ticket subscription picker](media/documentdb-increase-limits/supportrequest2.png)
 
-5. 마지막으로 **연락처 정보** 블레이드에 연락처 정보를 입력하고 **만들기**를 클릭합니다.
+5. Finally, fill in your contact information in the **Contact information** blade and click **Create**.
 
-지원 티켓이 생성되면 메일을 통해 지원 요청 번호를 받게 됩니다. 또한 **도움말+지원** 블레이드의 **지원 요청 관리**를 클릭하여 지원 요청을 볼 수 있습니다.
+Once the support ticket has been created, you should receive the support request number via email.  You can also view the support request by clicking **Manage support requests** in the **Help + support** blade.
 
-![지원 요청 블레이드의 스크린샷](media/documentdb-increase-limits/supportrequest4.png)
+![Screenshot of support requests blade](media/documentdb-increase-limits/supportrequest4.png)
 
 
-##<a name="NextSteps"></a> 다음 단계
-- DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
+##<a name="<a-name="nextsteps"></a>-next-steps"></a><a name="NextSteps"></a> Next steps
+- To learn more about DocumentDB, click [here](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

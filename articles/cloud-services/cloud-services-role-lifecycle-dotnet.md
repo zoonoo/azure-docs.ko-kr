@@ -1,6 +1,6 @@
 <properties 
-pageTitle="클라우드 서비스 수명 주기 이벤트 처리 | Microsoft Azure" 
-description=".NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용할 수 있는 방법을 알아봅니다." 
+pageTitle="Handle Cloud Service lifecycle events | Microsoft Azure" 
+description="Learn how the lifecycle methods of a Cloud Service role can be used in .NET" 
 services="cloud-services" 
 documentationCenter=".net" 
 authors="Thraka" 
@@ -15,35 +15,36 @@ ms.topic="article"
 ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
-# .NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
 
-작업자 역할을 만들 때 수명 주기 이벤트에 응답할 수 있게 재정의하도록 메서드를 제공하는 [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) 클래스를 확장합니다. 웹 역할의 경우, 이 클래스는 선택적이므로 수명 주기 이벤트에 응답하는 데 사용합니다.
+# <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-.net"></a>Customize the Lifecycle of a Web or Worker role in .NET
 
-## RoleEntryPoint 클래스 확장
+When you create a worker role, you extend the [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) class which provides methods for you to override that let you respond to lifecycle events. For web roles this class is optional, so you must use it to respond to lifecycle events.
 
-[RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) 클래스는 웹 또는 작업자 역할을 **시작**, **실행** 또는 **중지**할 때 Azure에서 호출하는 메서드를 포함합니다. 필요에 따라 역할 초기화, 역할 종료 시퀀스 또는 역할의 실행 스레드를 관리하는 이 메서드를 재정의할 수 있습니다.
+## <a name="extend-the-roleentrypoint-class"></a>Extend the RoleEntryPoint class
 
-**RoleEntryPoint**를 확장하면 메서드의 다음 동작을 인식해야 합니다.
+The [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) class includes methods that are called by Azure when it **starts**, **runs**, or **stops** a web or worker role. You can optionally override these methods to manage role initialization, role shutdown sequences, or the execution thread of the role. 
 
--   [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) 및 [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) 메서드는 부울 값을 반환하므로 이 메서드에서 **false**를 반환할 수 있습니다.
+When extending **RoleEntryPoint**, you should be aware of the following behaviors of the methods:
 
-     코드가 **false**를 반환하는 경우, 준비된 모든 종료 시퀀스를 실행하지 않고 역할 프로세스가 갑자기 종료됩니다. 일반적으로, **OnStart** 메서드에서 **false**를 반환하지 않아야 합니다.
+-   The [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) and [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) methods return a boolean value, so it is possible to return **false** from these methods.
+
+     If your code returns **false**, the role process is abruptly terminated, without running any shutdown sequence you may have in place. In general, you should avoid returning **false** from the **OnStart** method.
      
--   **RoleEntryPoint** 메서드의 오버 로드 내 확인할 수 없는 예외는 처리되지 않는 예외로 취급됩니다.
+-   Any uncaught exception within an overload of a **RoleEntryPoint** method is treated as an unhandled exception.
 
-     수명 주기 메서드 중 하나 내에서 예외가 발생하는 경우, [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) 이벤트가 발생한 다음 프로세스가 종료됩니다. 역할이 오프라인 상태가 되었거나, Azure에서 다시 시작할 수 있습니다. 처리되지 않은 예외가 발생하면, [중지](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) 이벤트가 발생하지 않으며 **OnStop** 메서드가 호출되지 않습니다.
+     If an exception occurs within one of the lifecycle methods, Azure will raise the [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) event, and then the process is terminated. After your role has been taken offline, it will be restarted by Azure. When an unhandled exception occurs, the [Stopping](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) event is not raised, and the **OnStop** method is not called.
 
-사용자의 역할이 시작되지 않거나 초기화, 사용 중 및 중지 상태 사이에서 재활용되는 경우, 코드는 역할이 다시 시작될때마다 수명 주기 이벤트 중 하나에서 처리되지 않은 예외를 발생시킬 수 있습니다. 이 경우에 [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) 이벤트를 사용하여 예외 원인을 확인하고 적절하게 처리합니다. 사용자의 역할은 [실행](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드에서 반환될 수도 있으며 역할을 다시 시작하게 합니다. 배포 상태에 대한 자세한 내용은 [역할을 재활용하게 하는 일반적인 문제](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)를 참조하세요.
+If your role does not start, or is recycling between the initializing, busy, and stopping states, your code may be throwing an unhandled exception within one of the lifecycle events each time the role restarts. In this case, use the [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) event to determine the cause of the exception and handle it appropriately. Your role may also be returning from the [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method, which causes the role to restart. For more information about deployment states, see [Common Issues Which Cause Roles to Recycle](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-> [AZURE.NOTE] **Azure Tools for Microsoft Visual Studio**을 사용하여 응용 프로그램을 개발하려면 역할 프로젝트 템플릿은 자동으로 *WebRole.cs* 및 *WorkerRole.cs* 파일에서 **RoleEntryPoint** 클래스를 확장합니다.
+> [AZURE.NOTE] If you are using the **Azure Tools for Microsoft Visual Studio** to develop your application, the role project templates automatically extend the **RoleEntryPoint** class for you, in the *WebRole.cs* and *WorkerRole.cs* files.
 
-## Onstart 메서드
+## <a name="onstart-method"></a>OnStart method
 
-Azure에서 역할 인스턴스를 온라인 상태로 가져오면 **OnStart** 메서드가 호출됩니다. OnStart 코드가 실행되는 동안 역할 인스턴스는 **Busy**로 표시되며 부하 분산 장치에서 전송된 외부 트래픽은 없습니다. 이벤트 처리기 구현 및 [Azure 진단](cloud-services-how-to-monitor.md) 시작과 같은 초기화 작업을 수행하도록 이 메서드를 재정의할 수 있습니다.
+The **OnStart** method is called when your role instance is brought online by Azure. While the OnStart code is executing, the role instance is marked as **Busy** and no external traffic will be directed to it by the load balancer. You can override this method to perform initialization work, such as implementing event handlers and starting [Azure Diagnostics](cloud-services-how-to-monitor.md).
 
-**OnStart**가 **true**를 반환하면, 인스턴스가 성공적으로 초기화되고 Azure는 **RoleEntryPoint.Run** 메서드를 호출합니다. **OnStart**가 **false**를 반환하면, 계획된 종료 시퀀스를 실행하지 않고 역할이 즉시 종료됩니다.
+If **OnStart** returns **true**, the instance is successfully initialized and Azure calls the **RoleEntryPoint.Run** method. If **OnStart** returns **false**, the role terminates immediately, without executing any planned shutdown sequences.
 
-다음 코드 예제는 **OnStart** 메서드를 재정의하는 방법을 보여 줍니다. 역할 인스턴스가 시작되고 저장소 계정에 로깅 데이터의 전송을 설정하면 이 메서드가 구성되어 진단 모니터를 시작합니다.
+The following code example shows how to override the **OnStart** method. This method configures and starts a diagnostic monitor when the role instance starts and sets up a transfer of logging data to a storage account:
 
 ```csharp
 public override bool OnStart()
@@ -59,25 +60,28 @@ public override bool OnStart()
 }
 ```
 
-## OnStop 메서드
+## <a name="onstop-method"></a>OnStop method
 
-역할 인스턴스가 Azure에서 오프라인으로 사용된 후 및 프로세스 종료 전에 **OnStop** 메서드가 호출됩니다. 역할 인스턴스가 올바르게 종료하는 데 필요한 코드를 호출하도록 이 메서드를 재정의할 수 있습니다.
+The **OnStop** method is called after a role instance has been taken offline by Azure and before the process exits. You can override this method to call code required for your role instance to cleanly shut down.
 
-> [AZURE.IMPORTANT] 사용자가 시작한 종료 이외의 이유로 호출될 때 **OnStop** 메서드에서 실행 중인 코드는 완료 시간이 제한됩니다. 이 시간이 지난 후 프로세스가 종료되므로, **OnStop** 메서드의 해당 코드가 신속하게 실행하거나 완료될 때까지 실행되지않는 것을 허용합니다. **Stopping** 이벤트가 발생한 후 **OnStop** 메서드가 호출됩니다.
-
-
-## Run 메서드
-
-역할 인스턴스에 대 한 장기 실행 스레드를 구현하도록 **Run** 메서드를 재정의할 수 있습니다.
-
-**Run** 메서드 재정의는 필요하지 않습니다. 기본 구현은 영원히 중지되는 스레드를 시작합니다. **Run** 메서드를 재정의하는 경우, 코드가 무기한으로 차단되어야 합니다. **Run** 메서드가 반환되면, 역할이 자동으로 정상적으로 재활용됩니다. 즉, 역할이 오프라인 상태로 전환되기 전에 종료 시퀀스가 실행될수 있도록 Azure는 **Stopping** 이벤트를 발생시키고 **OnStop** 메서드를 호출합니다.
+> [AZURE.IMPORTANT] Code running in the **OnStop** method has a limited time to finish when it is called for reasons other than a user-initiated shutdown. After this time elapses, the process is terminated, so you must make sure that code in the **OnStop** method can run quickly or tolerates not running to completion. The **OnStop** method is called after the **Stopping** event is raised.
 
 
-### 웹 역할에 대한 ASP.NET 수명 주기 메서드 구현
+## <a name="run-method"></a>Run method
 
-**RoleEntryPoint** 클래스에서 제공하는 것 외에도 ASP.NET 수명 주기 메서드를 사용하여 웹 역할에 대한 초기화 및 종료 시퀀스를 관리할 수 있습니다. 이 기존 ASP.NET 응용 프로그램을 Azure에 이식하는 경우 호환성을 위해 유용할 수 있습니다. ASP.NET 수명 주기 메서드는 **RoleEntryPoint** 메서드 내에서 호출됩니다. **Application\_Start** 메서드는**RoleEntryPoint.OnStart** 메서드를 완료한 후 호출됩니다. **Application\_End** 메서드는**RoleEntryPoint.OnStop** 메서드를 호출하기 전에 호출됩니다.
+You can override the **Run** method to implement a long-running thread for your role instance.
 
-## 다음 단계
-[클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md) 방법에 대해 알아봅니다.
+Overriding the **Run** method is not required; the default implementation starts a thread that sleeps forever. If you do override the **Run** method, your code should block indefinitely. If the **Run** method returns, the role is automatically gracefully recycled; in other words, Azure raises the **Stopping** event and calls the **OnStop** method so that your shutdown sequences may be executed before the role is taken offline.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+### <a name="implementing-the-asp.net-lifecycle-methods-for-a-web-role"></a>Implementing the ASP.NET lifecycle methods for a web role
+
+You can use the ASP.NET lifecycle methods, in addition to those provided by the **RoleEntryPoint** class, to manage initialization and shutdown sequences for a web role. This may be useful for compatibility purposes if you are porting an existing ASP.NET application to Azure. The ASP.NET lifecycle methods are called from within the **RoleEntryPoint** methods. The **Application\_Start** method is called after the **RoleEntryPoint.OnStart** method finishes. The **Application\_End** method is called before the **RoleEntryPoint.OnStop** method is called.
+
+## <a name="next-steps"></a>Next steps
+Learn how to [create a cloud service package](cloud-services-model-and-package.md).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

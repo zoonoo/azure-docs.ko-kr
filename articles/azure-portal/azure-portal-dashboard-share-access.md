@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 포털 대시보드 액세스 | Microsoft Azure"
-   description="이 문서에서는 Azure 포털에서 대시보드에 대한 액세스 권한을 공유하는 방법을 설명합니다."
+   pageTitle="Azure portal dashboard access | Microsoft Azure"
+   description="This article explains how to share access to a dashboard in the Azure portal."
    services="azure-portal"
    documentationCenter=""
    authors="tfitzmac"
@@ -16,69 +16,73 @@
    ms.date="08/01/2016"
    ms.author="tomfitz"/>
 
-# Azure 대시보드 공유
 
-대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. 다른 사람이 Azure [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 사용하여 대시보드에 액세스할 수 있도록 허용합니다. 역할에 사용자 또는 사용자 그룹을 할당하고 해당 역할이 사용자가 게시된 대시보드를 보거나 수정할 수 있는지 정의합니다.
+# <a name="sharing-azure-dashboards"></a>Sharing Azure dashboards
 
-모든 대시보드는 Azure 리소스로 구현됩니다. 즉, 구독 내에서 관리할 수 있는 항목으로 존재하고 리소스 그룹에 포함됩니다. 액세스 제어 관점에서 대시보드는 가상 컴퓨터 또는 저장소 계정과 같은 다른 리소스와 차이가 없습니다.
+After configuring a dashboard, you can publish it and share it with other users in your organization. You permit others to access your dashboard by using Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
 
-> [AZURE.TIP] 대시보드의 개별 타일은 표시하는 리소스에 따라 고유한 액세스 제어 요구 사항을 적용합니다. 그러므로 개별 타일에 있는 데이터를 보호하면서 광범위하게 공유할 수 있는 대시보드를 디자인할 수 있습니다.
+All published dashboards are implemented as Azure resources, which means they exist as manageable items within your subscription and are contained in a resource group.  From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
 
-## 대시보드에 대한 액세스 제어 이해
+> [AZURE.TIP] Individual tiles on the dashboard enforce their own access control requirements based on the resources they display.  Therefore, you can design a dashboard that is shared broadly while still protecting the data on individual tiles.
 
-역할 기반 액세스 제어를 사용하여 세 개의 다른 수준 범위로 역할에 사용자를 할당할 수 있습니다.
+## <a name="understanding-access-control-for-dashboards"></a>Understanding access control for dashboards
 
-- (구독당)
-- 리소스 그룹
+With role-based access control, you can assign users to roles at three different levels of scope:
+
+- subscription
+- resource group
 - resource
 
-할당한 사용 권한은 구독에서 리소스까지 상속됩니다. 게시된 대시보드는 리소스입니다. 따라서 게시된 대시보드에 대해서도 작동하는 구독의 역할에 할당된 사용자가 이미 있을 수도 있습니다.
+The permissions you assign are inherited from subscription down to the resource. The published dashboard is a resource. Therefore, you may already have users assigned to roles for the subscription which also work for the published dashboard. 
 
-다음은 예제입니다. Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽기 권한자** 역할에 할당된 팀의 다양한 멤버가 있다고 가정해 보겠습니다. 소유자 또는 참여자인 사용자는 구독 내에서 대시보드를 나열, 보기, 만들기, 수정 또는 삭제할 수 있습니다. 읽기 권한자인 사용자는 대시보드를 나열 및 볼 수 있지만 수정 또는 삭제할 수 없습니다. 읽기 권한자 액세스를 보유한 사용자는 게시된 대시보드에 대한 로컬 편집을 만들 수 있지만(예: 문제 해결 시) 해당 변경 내용을 서버로 다시 게시할 수 없습니다. 대시보드의 개인 복사본을 직접 만들 수 있는 옵션을 갖게 됩니다.
+Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** for the subscription. Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a published dashboard (such as, when troubleshooting an issue), but are not able to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves
 
-그러나 여러 대시보드를 포함하는 리소스 그룹 또는 개별 대시보드에 대한 사용 권한을 할당할 수도 있습니다. 예를 들어, 사용자 그룹이 구독에 걸친 제한된 사용 권한을 갖지만 특정 대시보드에 더 큰 액세스 권한을 가져야 한다고 결정할 수 있습니다. 해당 대시보드에 대한 역할에 해당 사용자를 할당합니다.
+However, you could also assign permissions to the resource group that contains several dashboards or to an individual dashboard. For example, you may decide that a group of users should have limited permissions across the subscription but greater access to a particular dashboard. You assign those users to a role for that dashboard. 
 
-## 대시보드 게시
+## <a name="publish-dashboard"></a>Publish dashboard
 
-구독에 사용자 그룹과 공유할 대시보드의 구성을 완료한 경우를 가정하겠습니다. 다음 단계에서는 저장소 관리자라는 사용자 지정된 그룹을 설명하지만 원하는 모든 그룹에 이름을 지정할 수 있습니다. Active Directory 그룹을 만들고 해당 그룹에 사용자를 추가하는 방법에 대한 정보는 [Azure Active Directory에서 그룹 관리](../active-directory/active-directory-accessmanagement-manage-groups.md)를 참조하세요.
+Let's suppose you have finished configuring a dashboard that you want to share with a group of users in your subscription. The steps below depict a customized group called Storage Managers, but you can name your group whatever you would like. For information about creating an Active Directory group and adding users to that group, see [Managing groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
-1. 대시보드에서 **공유**를 선택합니다.
+1. In the dashboard, select **Share**.
 
-     ![공유 선택](./media/azure-portal-dashboard-share-access/select-share.png)
+     ![select share](./media/azure-portal-dashboard-share-access/select-share.png)
 
-2. 액세스를 할당하기 전에 대시보드를 게시해야 합니다. 기본적으로 대시보드는 **대시보드**라는 리소스 그룹에 게시됩니다. **게시**를 선택합니다.
+2. Before assigning access, you must publish the dashboard. By default, the dashboard will be published to a resource group named **dashboards**. Select **Publish**.
 
      ![publish](./media/azure-portal-dashboard-share-access/publish.png)
 
-대시보드가 이제 게시되었습니다. 구독에서 상속된 사용 권한이 적절한 경우 작업을 더 수행할 필요가 없습니다. 조직에서 다른 사용자가 해당 구독 수준 역할에 따라 대시보드에 액세스하고 대시보드를 수정할 수 있습니다. 그러나 이 자습서에서는 해당 대시보드에 대한 역할에 사용자 그룹을 할당하겠습니다.
+Your dashboard is now published. If the permissions inherited from the subscription are suitable, you do not need to do anything more. Other users in your organization will be able to access and modify the dashboard based on their subscription level role. However, for this tutorial, let's assign a group of users to a role for that dashboard.
 
-## 대시보드에 액세스 할당
+## <a name="assign-access-to-a-dashboard"></a>Assign access to a dashboard
 
-1. 대시보드를 게시한 후에 **사용자 관리**를 선택합니다.
+1. After publishing the dashboard, select **Manage users**.
 
-     ![사용자 관리](./media/azure-portal-dashboard-share-access/manage-users.png)
+     ![manage users](./media/azure-portal-dashboard-share-access/manage-users.png)
 
-2. 이 대시보드에 대한 역할을 이미 할당한 기존 사용자의 목록이 표시됩니다. 기존 사용자 목록은 아래 이미지와 다를 수 있습니다. 대부분의 경우 할당은 구독에서 상속됩니다. 새 사용자 또는 그룹을 추가하려면 **추가**를 선택합니다.
+2. You will see a list of existing users that are already assigned a role for this dashboard. Your list of existing users will be different than the image below. Most likely, the assignments are inherited from the subscription. To add a new user or group, select **Add**.
 
-     ![사용자 추가](./media/azure-portal-dashboard-share-access/existing-users.png)
+     ![add user](./media/azure-portal-dashboard-share-access/existing-users.png)
 
-3. 부여하려는 사용 권한을 나타내는 역할을 선택합니다. 이 예에서는 **참가자**를 선택합니다.
+3. Select the role that represents the permissions you would like to grant. For this example, select **Contributor**.
 
-     ![역할 선택](./media/azure-portal-dashboard-share-access/select-role.png)
+     ![select role](./media/azure-portal-dashboard-share-access/select-role.png)
 
-4. 역할에 할당하려는 사용자 또는 그룹을 선택합니다. 목록에 원하는 사용자 또는 그룹이 표시되지 않으면 검색 상자를 사용합니다. 사용 가능한 그룹 목록은 Active Directory에서 만든 그룹에 따라 달라 집니다.
+4. Select the user or group that you wish to assign to the role. If you do not see the user or group you are looking for in the list, use the search box. Your list of available groups will depend on the groups you have created in your Active Directory.
 
-     ![사용자 선택](./media/azure-portal-dashboard-share-access/select-user.png)
+     ![select user](./media/azure-portal-dashboard-share-access/select-user.png) 
 
-5. 사용자 또는 그룹을 추가했으면 **확인**을 선택합니다.
+5. When you have finished adding users or groups, select **OK**. 
 
-6. 새 할당은 사용자 목록에 추가됩니다. 해당 **액세스**는 **상속됨**이 아닌 **할당**으로 나열됩니다.
+6. The new assignment is added to the list of users. Notice that its **Access** is listed as **Assigned** rather than **Inherited**.
 
-     ![할당된 역할](./media/azure-portal-dashboard-share-access/assigned-roles.png)
+     ![assigned roles](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- 역할의 목록은 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
-- 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
+- For a list of roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
+- To learn about managing resources, see [Manage Azure resources through portal](resource-group-portal.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

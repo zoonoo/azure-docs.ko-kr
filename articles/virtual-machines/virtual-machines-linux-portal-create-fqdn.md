@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 포털에서 VM에 대한 FQDN 만들기 | Microsoft Azure"
-   description="Azure 포털에서 가상 컴퓨터를 기반으로 한 리소스 관리자에 대한 정규화된 도메인 이름 또는 FQDN을 만드는 방법에 대해 알아봅니다."
+   pageTitle="Create FQDN for a VM in Azure portal | Microsoft Azure"
+   description="Learn how to create a Fully Qualified Domain Name or FQDN for a Resource Manager based virtual machine in the Azure portal."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -17,16 +17,20 @@
    ms.date="08/23/2016"
    ms.author="iainfou"/>
 
-# Azure 포털에서 정규화된 도메인 이름 만들기
-Resource Manager 배포 모델을 사용하여 [Azure 포털](https://portal.azure.com)에서 VM(가상 컴퓨터)을 만들 때, 가상 컴퓨터의 공용 IP 리소스가 자동으로 만들어집니다. 이 IP 주소를 사용하여 VM에 원격으로 액세스합니다. 기본적으로 포털에서 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 또는 FQDN을 만들지는 않지만 VM을 만들면 이름을 추가할 수 있습니다. 이 문서에서는 DNS 이름 또는 FQDN을 만드는 단계를 보여 줍니다.
+
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal"></a>Create a Fully Qualified Domain Name in the Azure portal
+When you create a virtual machine (VM) in the [Azure portal](https://portal.azure.com) using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), or FQDN, by default, you can add one once the VM is created. This article demonstrates the steps to create a DNS name or FQDN.
 
 [AZURE.INCLUDE [virtual-machines-common-portal-create-fqdn](../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-이제 `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com`을 사용하는 경우처럼 이 DNS 이름을 사용하여 원격으로 VM에 연결할 수 있습니다.
+You can now connect remotely to the VM using this DNS name such as with `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com`.
 
-## 다음 단계
-VM에는 공용 IP 및 DNS 이름이 있으므로 nginx, MongoDB, Docker와 같은 일반적인 응용 프로그램 프레임워크 또는 서비스를 배포할 수 있습니다.
+## <a name="next-steps"></a>Next steps
+Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as nginx, MongoDB, Docker, etc.
 
-또한 Azure 배포 구축에 대한 팁을 보려면 [Resource Manager 사용](../resource-group-overview.md)에 대해 자세히 읽어볼 수도 있습니다.
+You can also read more about [using Resource Manager](../resource-group-overview.md) for tips on building your Azure deployments.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

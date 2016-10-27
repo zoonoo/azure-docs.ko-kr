@@ -1,6 +1,6 @@
 <properties
-   pageTitle="마켓플레이스용 솔루션 템플릿 만들기 가이드 | Microsoft Azure"
-   description="Azure 마켓플레이스에서 구입하기 위한 여러 VM 이미지 솔루션 템플릿을 만들고 인증하고 배포하는 방법에 대한 자세한 지침입니다."
+   pageTitle="Guide to creating a solution template for the  Marketplace | Microsoft Azure"
+   description="Detailed instructions of how to create, certify and deploy a Multi-VM Image Solution Template for purchase on the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,52 +16,57 @@
       ms.date="07/27/2016"
       ms.author="hascipio; v-divte" />
 
-# Azure 마켓플레이스용 솔루션 템플릿 만들기 가이드
-1단계 [계정 만들기 및 등록][link-acct-creation]을 완료한 후 [솔루션 템플릿을 만들기 위한 기술 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md)에서 Azure 호환 솔루션 템플릿 만들기에 대해 안내했습니다. 이제 Azure 마켓플레이스의 [게시 포털][link-pubportal]에서 여러 VM에 대한 솔루션 템플릿을 만드는 단계를 안내합니다.
 
-## 게시 포털에서 솔루션 템플릿 제품 만들기
-[https://publish.windowsazure.com](http://publish.windowsazure.com)로 이동합니다. 처음으로 [게시 포털](https://publish.windowsazure.com/)에 로그인할 때는 회사의 판매자 프로필이 등록된 계정을 동일하게 사용하세요. 나중에 게시 포털에서 회사의 직원을 공동 관리자로 추가할 수 있습니다.
+# <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guide to create a solution template for Azure Marketplace
+After completing step 1, [Account creation and registration][link-acct-creation], we guided you on the creation of an Azure-compatible solution template at [Technical prerequisites for creating a solution template](marketplace-publishing-solution-template-creation-prerequisites.md). Now we will walk you through the steps for creating a solution template for multiple VMs on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
 
-### 1\. "솔루션 템플릿" 선택
+## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Create your solution template offer in the Publishing Portal
+Go to  [https://publish.windowsazure.com](http://publish.windowsazure.com). When signing in for the first time to the [Publishing Portal](https://publish.windowsazure.com/), use the same account with which your company’s seller profile was registered. Later, you can add any employee of your company as a co-admin in the Publishing Portal.
 
-  ![그리기][img-pubportal-menu-sol-templ]
+### <a name="1.-select-"solution-templates""></a>1. Select "Solution templates"
 
-### 2\. 새 솔루션 템플릿 만들기
+  ![drawing][img-pubportal-menu-sol-templ]
 
-  ![그리기][img-pubportal-sol-templ-new]
+### <a name="2.-create-a-new-solution-template"></a>2. Create a new solution template
 
-### 3\. 토폴로지로 시작
-솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품/솔루션 템플릿에서 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다. 아래 단계를 따라 제품을 정의합니다.
+  ![drawing][img-pubportal-sol-templ-new]
 
-- 토폴로지 만들기: "토폴로지 식별자"는 일반적으로 솔루션 템플릿의 토폴로지 이름입니다. 토폴로지 식별자는 아래와 같은 URL에서 사용됩니다.
+### <a name="3.-start-with-topologies"></a>3. Start with topologies
+A solution template is a "parent" to all of its topologies. You can define multiple topologies in one offer/solution template. When an offer is pushed to staging, it is pushed with all of its topologies. Follow the steps below to define your offer:     
 
-  Azure 마켓플레이스: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
+- Create a Topology: “Topology Identifier” is typically the name of the topology for the solution template. The topology identifier is used in the URL as shown below:
 
-  Azure 포털: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-- 새 버전을 추가합니다.
+  Azure Portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 
-### 4\. 토폴로지 버전 인증받기
-해당하는 특정 토폴로지 버전을 프로비전하는 데 필요한 모든 파일이 포함된 zip 파일을 업로드합니다. 이 zip 파일에는 다음이 포함되어 있어야 합니다.
+- Add a new version.
 
-- 루트 디렉터리의 *mainTemplate.json* 및 *createUiDefinition.json* 파일
-- 연결된 모든 템플릿 및 모든 필수 스크립트
+### <a name="4.-get-your-topology-versions-certified"></a>4. Get your topology versions certified
+Upload a zip file that contains all required files to provision that particular version of the topology. This zip file must contain the following:
 
-  > [AZURE.TIP] 개발자가 솔루션 템플릿 토폴로지를 만들고 인증을 받는 동안 회사의 비즈니스, 마케팅 및/또는 법무 부서는 마케팅 및 법률 콘텐츠를 작업할 수 있습니다.
+- *mainTemplate.json* and *createUiDefinition.json* file at its root directory.
+- Any linked templates and all required scripts.
 
-## 다음 단계
-지금까지 솔루션 템플릿을 만들고 zip 파일을 업로드했으므로 제품을 스테이징으로 푸시하기 전에 [마켓플레이스 마케팅 콘텐츠 가이드](marketplace-publishing-push-to-staging.md)의 지침을 따르세요. [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하여 전체 마켓플레이스 게시 문서를 확인할 수 있습니다.
+  > [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
 
-다음 관련 문서를 참조할 수도 있습니다.
+## <a name="next-steps"></a>Next steps
+Now that you created your solution template and uploaded the zip file, please follow the instructions in the [Marketplace marketing content guide](marketplace-publishing-push-to-staging.md) before pushing the offer to staging. To see the full set of marketplace publishing articles, visit [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
 
-- VM 이미지: [Azure의 가상 컴퓨터 이미지 정보](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-- VM 확장: [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/azure/dn832621.aspx) 및 [Azure VM 확장 및 기능](https://msdn.microsoft.com/library/azure/dn606311.aspx)
-- Azure 리소스 관리자: [Azure ARM 템플릿 작성](../resource-group-authoring-templates.md) 및 [간단한 ARM 템플릿 예제](https://github.com/rjmax/ArmExamples)
-- 저장소 계정 제한: [저장소 계정 제한을 모니터링하는 방법](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) 및 [프리미엄 저장소](../storage/storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)
+You might also be interested in these related articles:
 
-[img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
-[img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
-[link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-pubportal]: https://publish.windowsazure.com
+- VM images: [About Virtual Machine Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
+- VM extensions: [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/azure/dn832621.aspx) and [Azure VM Extensions and Features](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+- Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates.md) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
+- Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)
 
-<!---HONumber=AcomDC_0803_2016-->
+[img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
+[img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
+[link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
+[link-pubportal]:https://publish.windowsazure.com
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

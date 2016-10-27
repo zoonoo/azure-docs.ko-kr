@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Azure 함수 개요 | Microsoft Azure"
-   description="Azure Functions를 사용하여 비동기 워크로드를 몇 분 이내에 최적화하는 방법에 대해 이해합니다."
+   pageTitle="Azure Functions Overview | Microsoft Azure"
+   description="Understand how to use Azure Functions to optimize asynchronous workloads in minutes."
    services="functions"
    documentationCenter="na"
    authors="mattchenderson"
    manager="erikre"
    editor=""
    tags=""
-   keywords="Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
+   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
    ms.service="functions"
@@ -19,72 +19,81 @@
    ms.author="cfowler;mahender;glenga"/>
    
    
-# Azure 함수 개요
 
-Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 응용 프로그램 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. 이 경우 개발 생산성을 높일 수 있으며 C#, F#, Node.js, Python, PHP 등의 원하는 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure를 신뢰하여 필요에 따라 크기를 조정합니다.
+# <a name="azure-functions-overview"></a>Azure Functions Overview
 
-이 항목에서는 Azure Functions에 대한 간략한 개요를 제공합니다. Azure Functions를 바로 시작하려면 [첫 번째 Azure 함수 만들기](functions-create-first-azure-function.md)를 시작합니다. Functions에 대한 자세한 기술 정보는 [개발자 참조](functions-reference.md)를 참조하세요.
+Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Python or PHP. Pay only for the time your code runs and trust Azure to scale as needed.
 
-## 기능
+This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Azure Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
 
-Azure Functions의 몇 가지 주요 기능은 다음과 같습니다.
+## <a name="features"></a>Features
+
+Here are some key features of Azure Functions:
     
-* **원하는 언어 사용** - C#, F#, Node.js, Python, PHP, 배치, bash, Java 또는 실행 파일을 사용하여 함수를 작성합니다.
-* **사용량에 따른 가격 책정 모델** - 코드를 실행하는 데 사용한 시간에 대해서만 지불합니다. 아래의 [가격 책정 섹션](#pricing)에서 동적 앱 서비스 계획 옵션을 참조하세요.
-* **고유한 종속성 가져오기** - Functions는 NuGet 및 NPM을 지원하므로 즐겨찾는 라이브러리를 사용할 수 있습니다.
-* **통합 보안** - Azure Active Directory, Facebook, Google, Twitter, Microsoft 계정 등의 OAuth 공급자를 사용하여 HTTP 트리거 함수를 보호합니다.
-* **통합 간소화** - Azure 서비스 및 SaaS(software-as-a-service) 제품을 손쉽게 활용합니다. 몇 가지 예제는 아래 [통합 섹션](#integrations)을 참조하세요.
-* **유연한 개발** - GitHub, Visual Studio Team Services, 기타 [지원되는 개발 도구](../app-service-web/web-sites-deploy.md#deploy-using-an-ide)를 통해 포털에 바로 함수를 코딩하거나 연속 통합을 설정하고 코드를 배포합니다.
-* **오픈 소스** - Functions 런타임은 오픈 소스이며 [GitHub에서 사용](https://github.com/azure/azure-webjobs-sdk-script)할 수 있습니다.
+* **Choice of language** - Write functions using C#, F#, Node.js, Python, PHP, batch, bash, Java, or any executable.
+* **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Dynamic App Service Plan option in the [pricing section](#pricing) below.  
+* **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
+* **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
+* **Simplified integration** - Easily leverage Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) below for some examples.  
+* **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and other [supported development tools](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
+* **Open-source** - The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
-## 함수로 할 수 있는 작업은 무엇인가요?
+## <a name="what-can-i-do-with-functions?"></a>What can I do with Functions?
 
-Azure Functions는 데이터를 처리하고 시스템을 통합하며 IoT(사물 인터넷)로 작업하고 간단한 API 및 마이크로 서비스를 구축하는 데 유용한 솔루션입니다. Functions는 이미지 또는 주문 처리, 파일 유지 관리, 백그라운드 스레드에서 실행하려는 장기 실행 작업 등의 작업이나 일정에 따라 실행하려는 모든 작업에 사용합니다.
+Azure Functions is a great solution for processing data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and microservices. Consider Functions for tasks like image or order processing, file maintenance, long-running tasks that you want to run in a background thread, or for any tasks that you want to run on a schedule. 
 
-Functions는 다음을 포함한 주요 시나리오로 시작할 수 있는 템플릿을 제공합니다.
+Functions provides templates to get you started with key scenarios, including the following:
 
-* **BlobTrigger** - 컨테이너에 Azure 저장소 Blob을 추가할 때 해당 Blob을 처리합니다. 이미지 크기 조정에 사용할 수 있습니다.
-* **EventHubTrigger** - Azure 이벤트 허브에 전달된 이벤트에 응답합니다. 응용 프로그램 계측, 사용자 경험 또는 워크플로 처리 및 사물 인터넷(IoT) 시나리오에서 특히 유용합니다.
-* **일반 웹후크** - 웹후크를 지원하는 모든 서비스의 웹후크 HTTP 요청을 처리합니다.
-* **GitHub 웹후크** - GitHub 리포지토리에서 발생하는 이벤트에 대응합니다. 예제를 보려면 [웹후크 또는 API 함수 만들기](functions-create-a-web-hook-or-api-function.md)를 참조하세요.
-* **HTTPTrigger** - HTTP 요청을 사용하여 코드 실행을 트리거합니다.
-* **QueueTrigger** - Azure 저장소 큐에 도착하는 메시지에 대응합니다. 예제를 보려면 [Azure 서비스에 바인딩되는 Azure 함수 만들기](functions-create-an-azure-connected-function.md)를 참조하세요.
-* **ServiceBusQueueTrigger** - 메시지 큐를 수신하여 다른 Azure 서비스 또는 온-프레미시 서비스에 코드를 연결합니다.
-* **ServiceBusTopicTrigger** - 항목을 구독하여 다른 Azure 서비스 또는 온-프레미스 서비스에 코드를 연결합니다.
-* **TimerTrigger** - 사전 정의된 일정에 따라 정리 또는 다른 배치 작업을 실행합니다. 예제를 보려면 [이벤트 처리 함수 만들기](functions-create-an-event-processing-function.md)를 참조하세요.
+* **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this for image resizing.
+* **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios.
+* **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks.
+* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a webhook or API function](functions-create-a-web-hook-or-api-function.md).
+* **HTTPTrigger** - Trigger the execution of your code by using an HTTP request.
+* **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create an Azure Function which binds to an Azure service](functions-create-an-azure-connected-function.md).
+* **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premise services by listening to message queues. 
+* **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premise services by subscribing to topics. 
+* **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create an event processing function](functions-create-an-event-processing-function.md).
 
-Azure Functions는 코드 실행을 시작하는 방법인 *트리거*와 입력 및 출력 데이터의 코딩을 간소화하는 방법인 *바인딩*을 지원합니다. Azure Functions가 제공하는 트리거 및 바인딩에 대한 자세한 설명은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)를 참조하세요.
+Azure Functions supports *triggers*, which are ways to start execution of your code, and *bindings*, which are ways to simplifying coding for input and output data. For a detailed description of the triggers and bindings that Azure Functions provides, see [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md).
 
 
-## <a name="integrations"></a>통합
+## <a name="<a-name="integrations"></a>integrations"></a><a name="integrations"></a>Integrations
 
-Azure Functions는 다양한 Azure 및 타사 서비스와 통합됩니다. 이를 사용하여 함수 및 시작 실행을 트리거하거나 코드에 대한 입력 및 출력으로 사용할 수 있습니다. Azure Functions에서 지원하는 서비스 통합은 다음과 같습니다.
+Azure Functions integrates with a variety of Azure and 3rd-party services. You can use these to trigger your function and start execution or to serve as input and output for your code. The following service integrations are supported by Azure Functions. 
 
 * Azure DocumentDB
-* Azure 이벤트 허브
-* Azure 모바일 앱(테이블)
-* Azure 알림 허브
-* Azure Service Bus(큐 및 항목)
-* Azure 저장소(Blob, 쿠, 테이블)
-* GitHub(웹후크)
-* 온-프레미스(서비스 버스 사용)
+* Azure Event Hubs 
+* Azure Mobile Apps (tables)
+* Azure Notification Hubs
+* Azure Service Bus (queues and topics)
+* Azure Storage (blob, queues, and tables) 
+* GitHub (webhooks)
+* On-premises (using Service Bus)
 
-## <a name="pricing"></a>Functions 사용 비용
+## <a name="<a-name="pricing"></a>how-much-does-functions-cost?"></a><a name="pricing"></a>How much does Functions cost?
 
-Azure Functions에는 두 가지 가격 책정 계획이 있으므로 요구 사항에 가장 적합한 계획을 선택할 수 있습니다.
+Azure Functions has two kinds of pricing plans, choose the one that best fits your needs: 
 
-* **동적 호스팅 계획** - 함수가 실행되면 Azure에서 필요한 모든 계산적 리소스를 제공합니다. 리소스 관리에 대해 염려하지 않아도 되며 코드가 실행된 시간에 대해서만 비용을 지불합니다. 전체 가격 책정 정보는 [Functions 가격 책정](/pricing/details/functions) 페이지에 나와 있습니다.
+* **Dynamic Hosting plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions). 
 
-* **앱 서비스 계획** - 웹, 모바일, API 앱 등의 함수를 실행합니다. 다른 응용 프로그램에 이미 앱 서비스를 사용하고 있는 경우 추가 비용 없이 동일한 계획으로 함수를 실행할 수 있습니다. 자세한 내용은 [앱 서비스 가격 책정](/pricing/details/app-service/)을 참조하세요.
+* **App Service plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
 
-함수 조정에 대한 자세한 내용은 [Azure Functions 조정 방법](functions-scale.md)을 참조하세요.
+For more information about scaling your functions, see [How to scale Azure Functions](functions-scale.md).
 
-##다음 단계
+##<a name="next-steps"></a>Next Steps
 
-+ [첫 번째 Azure 함수 만들기](functions-create-first-azure-function.md) Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다.
-+ [Azure Functions 개발자 참조](functions-reference.md) Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.
-+ [Azure Functions 테스트](functions-test-a-function.md) 함수 테스트를 위한 다양한 도구와 기법에 대해 설명합니다.
-+ [Azure Functions 조정 방법](functions-scale.md) 동적 서비스 계획, 올바른 계획 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 계획에 대해 설명합니다.
-+ [Azure 앱 서비스에 대해 자세히 알아보기](../app-service/app-service-value-prop-what-is.md) Azure Functions는 개발, 환경 변수, 진단 등의 주요 함수에 대한 Azure 앱 서비스 플랫폼을 활용합니다.
++ [Create your first Azure Function](functions-create-first-azure-function.md)  
+Jump right in and create your first function using the Azure Functions quickstart. 
++ [Azure Functions developer reference](functions-reference.md)  
+Provides more technical information about the Azure Functions runtime and a reference for coding functions and defining triggers and bindings.
++ [Testing Azure Functions](functions-test-a-function.md)  
+Describes various tools and techniques for testing your functions.
++ [How to scale Azure Functions](functions-scale.md)  
+Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan. 
++ [Learn more about Azure App Service](../app-service/app-service-value-prop-what-is.md)  
+Azure Functions leverages the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

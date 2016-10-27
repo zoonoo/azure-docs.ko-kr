@@ -1,41 +1,42 @@
 <properties
-	pageTitle="PowerShell을 사용하여 Azure VM 만들기 | Microsoft Azure"
-	description="Azure PowerShell 및 Azure Resource Manager를 사용하여 Windows Server를 실행하는 새 VM을 손쉽게 만들 수 있습니다."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Create an Azure VM using PowerShell | Microsoft Azure"
+    description="Use Azure PowerShell and Azure Resource Manager to easily create a new VM running Windows Server."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# 리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기
 
-이 문서는 [리소스 관리자](../resource-group-overview.md) 및 PowerShell을 사용하여 Windows 서버를 실행하는 Azure 가상 컴퓨터 및 필요한 리소스를 빠르게 만드는 방법을 보여 줍니다.
+# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Create a Windows VM using Resource Manager and PowerShell
 
-이 문서의 모든 단계는 가상 컴퓨터를 만드는 데 필요하며 단계를 수행하려면 약 30분 정도가 걸립니다.
+This article shows you how to quickly create an Azure Virtual Machine running Windows Server and the resources it needs using [Resource Manager](../resource-group-overview.md) and PowerShell. 
 
-## 1단계: Azure PowerShell 설치
+All the steps in this article are required to create a virtual machine and it should take about 30 minutes to do the steps.
 
-최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+## <a name="step-1:-install-azure-powershell"></a>Step 1: Install Azure PowerShell
+
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
         
-## 2단계: 리소스 그룹 만들기
+## <a name="step-2:-create-a-resource-group"></a>Step 2: Create a resource group
 
-먼저, 리소스 그룹을 만듭니다.
+First, you create a resource group.
 
-1. 리소스를 만들 수 있는 사용 가능한 위치 목록을 가져옵니다.
+1. Get a list of available locations where resources can be created.
 
-	    Get-AzureRmLocation | sort Location | Select Location
+        Get-AzureRmLocation | sort Location | Select Location
         
-    다음 예제와 유사한 결과가 표시됩니다.
+    You should see something like this example:
     
         Location
         --------
@@ -60,116 +61,120 @@
         westindia
         westus
 
-2. **$locName** 값을 목록의 위치로 바꿉니다. 변수를 만듭니다.
+2. Replace the value of **$locName** with a location from the list. Create the variable.
 
         $locName = "centralus"
         
-3. **$rgName** 값을 새 리소스 그룹 이름으로 바꿉니다. 변수 및 리소스 그룹을 만듭니다.
+3. Replace the value of **$rgName** with a name for the new resource group. Create the variable and the resource group.
 
         $rgName = "mygroup1"
         New-AzureRmResourceGroup -Name $rgName -Location $locName
     
-## 3단계: 저장소 계정 만들기
+## <a name="step-3:-create-a-storage-account"></a>Step 3: Create a storage account
 
-만든 가상 컴퓨터에서 사용한 가상 하드 디스크를 저장하는 데 [저장소 계정](../storage/storage-introduction.md)이 필요합니다.
+A [storage account](../storage/storage-introduction.md) is needed to store the virtual hard disk that is used by the virtual machine that you create.
 
-1. **$stName** 값을 저장소 계정 이름으로 바꿉니다. 이름의 고유성을 테스트합니다.
+1. Replace the value of **$stName** with a name for the storage account. Test the name for uniqueness.
 
         $stName = "mystorage1"
         Get-AzureRmStorageAccountNameAvailability $stName
 
-    이 명령에서 **True**가 반환되면 제안한 이름은 Azure 내에서 고유합니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
+    If this command returns **True**, your proposed name is unique within Azure. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
     
-2. 이제 명령을 실행하여 저장소 계정을 만듭니다.
+2. Now, run the command to create the storage account.
     
         $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
-## 4단계: 가상 네트워크 만들기
+## <a name="step-4:-create-a-virtual-network"></a>Step 4: Create a virtual network
 
-모든 가상 컴퓨터는 [가상 네트워크](../virtual-network/virtual-networks-overview.md)의 일부입니다.
+All virtual machines are part of a [virtual network](../virtual-network/virtual-networks-overview.md).
 
-1. **$subnetName** 값을 서브넷 이름으로 바꿉니다. 변수 및 서브넷을 만듭니다.
-    	
+1. Replace the value of **$subnetName** with a name for the subnet. Create the variable and the subnet.
+        
         $subnetName = "mysubnet1"
         $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
-2. **$vnetName** 값을 가상 네트워크 이름으로 바꿉니다. 서브넷으로 변수 및 가상 네트워크를 만듭니다.
+2. Replace the value of **$vnetName** with a name for the virtual network. Create the variable and the virtual network with the subnet.
 
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    응용 프로그램 및 환경에 적합한 값을 사용합니다.
+    Use values that make sense for your application and environment.
         
-## 5단계: 공용 IP 주소 및 네트워크 인터페이스 만들기
+## <a name="step-5:-create-a-public-ip-address-and-network-interface"></a>Step 5: Create a public IP address and network interface
 
-가상 네트워크에서 가상 컴퓨터와 통신하려면 [공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-1. **$ipName** 값을 공용 IP 주소의 이름으로 바꿉니다. 변수 및 공용 IP 주소를 만듭니다.
+1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
 
         $ipName = "myIPaddress1"
         $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
         
-2. **$nicName** 값을 네트워크 인터페이스의 이름으로 바꿉니다. 변수 및 네트워크 인터페이스를 만듭니다.
+2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
 
         $nicName = "mynic1"
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
         
-## 6단계: 가상 컴퓨터 만들기
+## <a name="step-6:-create-a-virtual-machine"></a>Step 6: Create a virtual machine
 
-이제 모든 항목이 결합되었으므로 가상 컴퓨터를 만들 시간입니다.
+Now that you have all the pieces in place, it's time to create the virtual machine.
 
-1. 명령을 실행하여 가상 컴퓨터에 대한 관리자 계정 이름 및 암호를 설정합니다.
+1. Run the command to set the administrator account name and password for the virtual machine.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    암호의 길이는 12-123자여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자가 있어야 합니다.
+    The password must be at 12-123 characters long and have at least one lower case character, one upper case character, one number, and one special character. 
         
-2. **$vmName** 값을 가상 컴퓨터 이름으로 바꿉니다. 변수 및 가상 컴퓨터 구성을 만듭니다.
+2. Replace the value of **$vmName** with a name for the virtual machine. Create the variable and the virtual machine configuration.
 
         $vmName = "myvm1"
         $vm = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A1"
         
-    가상 컴퓨터에 사용 가능한 크기 목록은 [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-windows-sizes.md)를 참조하세요.
+    See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) for a list of available sizes for a virtual machine.
     
-3. **$compName** 값을 가상 컴퓨터의 컴퓨터 이름으로 바꿉니다. 변수를 만들고 구성에 운영 체제 정보를 추가합니다.
+3. Replace the value of **$compName** with a computer name for the virtual machine. Create the variable and add the operating system information to the configuration.
 
         $compName = "myvm1"
         $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $compName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
         
-4. 가상 컴퓨터를 프로비전하는 데 사용할 이미지를 정의합니다.
+4. Define the image to use to provision the virtual machine. 
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    사용할 이미지 선택에 대한 자세한 내용은 [Powershell 또는 CLI로 Azure의 Windows 가상 컴퓨터 이미지 이동 및 선택](virtual-machines-windows-cli-ps-findimage.md)을 참조하세요.
+    For more information about selecting images to use, see [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md) .
         
-5. 만든 네트워크 인터페이스를 구성에 추가합니다.
+5. Add the network interface that you created to the configuration.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. **$blobPath** 값을 가상 하드 디스크의 저장소에 있는 경로 및 파일 이름으로 바꿉니다. 가상 하드 디스크 파일은 일반적으로 컨테이너에 저장됩니다(예: **vhds/WindowsVMosDisk.vhd**). 변수를 만듭니다.
+6. Replace the value of **$blobPath** with a path and filename in storage of the virtual hard disk. The virtual hard disk file is usually stored in a container, for example **vhds/WindowsVMosDisk.vhd**. Create the variables.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
         
-7. **$diskName** 값을 운영 체제 디스크 이름으로 바꿉니다. 변수를 만들고 구성에 디스크 정보를 추가합니다.
+7. Replace The value of **$diskName** with a name for the operating system disk. Create the variable and add the disk information to the configuration.
 
         $diskName = "windowsvmosdisk"
         $vm = Set-AzureRmVMOSDisk -VM $vm -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage
         
-8. 마지막으로 가상 컴퓨터를 만듭니다.
+8. Finally, create the virtual machine.
 
         New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-    Azure 포털에서 리소스 그룹 및 모든 해당 리소스가 표시되고 PowerShell 창에 성공 상태가 표시됩니다.
+    You should see the resource group and all its resources in the Azure portal and a success status in the PowerShell window:
 
         RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
         ---------  -------------------  ----------  ------------
                                   True          OK  OK
                                   
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-- 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴봅니다.
-- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 검토하여 자신이 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
-- [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
+- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
+- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
+- Take advantage of using a template to create a virtual machine by using the information in [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

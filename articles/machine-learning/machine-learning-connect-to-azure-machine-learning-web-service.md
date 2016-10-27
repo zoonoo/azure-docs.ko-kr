@@ -1,124 +1,142 @@
 <properties
-	pageTitle="기계 학습 웹 서비스에 연결 | Microsoft Azure"
-	description="C# 또는 Python을 사용하는 경우 권한 부여 키를 사용하여 Azure 기계 학습 웹 서비스에 연결합니다."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun" />
+    pageTitle="Connect to a Machine Learning Web Service | Microsoft Azure"
+    description="With C# or Python, connect to an Azure Machine Learning Web service using an authorization key."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="jhubbard"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2016" 
-	ms.author="garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016" 
+    ms.author="garye" />
 
 
-# Azure 기계 학습 웹 서비스에 연결
-Azure 기계 학습 개발자 환경은 실시간 또는 일괄 처리 모드로 입력 데이터에서 예측하는 웹 서비스 API입니다. Azure 기계 학습 스튜디오를 사용하여 예측을 만들고 Azure 기계 학습 웹 서비스를 배포할 수 있습니다.
+
+# <a name="connect-to-an-azure-machine-learning-web-service"></a>Connect to an Azure Machine Learning Web Service
+
+The Azure Machine Learning developer experience is a Web service API to make predictions from input data in real time or in batch mode. You use Azure Machine Learning Studio to create predictions and deploy an Azure Machine Learning Web service.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-기계 학습 스튜디오를 사용하여 기계 학습 웹 서비스를 만들고 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+To learn about how to create and deploy a Machine Learning Web service using Machine Learning Studio:
 
-- 기계 학습 스튜디오에서 실험을 만드는 방법에 대한 자습서는 [첫 번째 실험 만들기](machine-learning-create-experiment.md)를 참조하세요.
-- 웹 서비스를 배포하는 방법에 대한 자세한 내용은 [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
-- 기계 학습에 대한 자세한 내용은 [기계 학습 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
+- For a tutorial on how to create an experiment in Machine Learning Studio, see [Create your first experiment](machine-learning-create-experiment.md).
+- For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](machine-learning-publish-a-machine-learning-web-service.md).
+- For more information about Machine Learning in general, visit the [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-## Azure 기계 학습 웹 서비스 ##
+## <a name="azure-machine-learning-web-service"></a>Azure Machine Learning Web service ##
 
-Azure 기계 학습 웹 서비스를 통해 외부 응용 프로그램에서 기계 학습 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. 기계 학습 웹 서비스 호출은 외부 응용 프로그램에 예측 결과를 반환합니다. 기계 학습 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. 기계 학습 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
+With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
-Azure 기계 학습에는 다음 두 가지 유형의 서비스가 있습니다.
+Azure Machine Learning has two types of services:
 
-- RRS(요청-응답 서비스) - 대기 시간이 짧고 확장성이 높은 서비스로, 기계 학습 스튜디오에서 생성 및 배포되는 상태 비저장 모델에 대한 인터페이스를 제공합니다.
-- BES(일괄 처리 실행 서비스) – 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
+- Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio.
+- Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
 
-기계 학습 웹 서비스에 대한 자세한 내용은 [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
+For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](machine-learning-publish-a-machine-learning-web-service.md).
 
-## Azure 기계 학습 권한 부여 키 가져오기 ##
+## <a name="get-an-azure-machine-learning-authorization-key"></a>Get an Azure Machine Learning authorization key ##
 
-실험을 배포할 때 웹 서비스에 API 키가 생성됩니다. 키를 검색하는 위치는 실험이 새 웹 서비스로 배포되었는지 아니면 기존 웹 서비스로 배포되었는지에 따라 달라집니다.
+When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
 
-## 기존 웹 서비스 ##
+## <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>From the Microsoft Azure Machine Learning Web Services portal
 
- 기계 학습 스튜디오 또는 Azure 포털에서 키를 검색할 수 있습니다.
+Sign in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net) portal.
 
-### 기계 학습 스튜디오 ###
+To retrieve the API key for a New Machine Learning Web service:
 
-1. 기계 학습 스튜디오의 왼쪽에서 **웹 서비스**를 클릭합니다.
-2. 웹 서비스를 클릭합니다. **API 키**는 **대시보드** 탭에 있습니다.
-
-### Azure 포털 ###
-
-1. 왼쪽에서 **기계 학습**을 클릭합니다.
-2. 작업 영역을 클릭합니다.
-3. **웹 서비스**를 클릭합니다.
-4. 웹 서비스를 클릭합니다.
-5. 끝점을 클릭합니다. "API 키"는 오른쪽 아래에 있습니다.
+1. In the Azure Machine Learning Web Services portal, click **Web Services** the top menu.
+2. Click the Web service for which you want to retrieve the key.
+3. On the top menu, click **Consume**.
+4. Copy and save the **Primary Key**.
 
 
-## 새 웹 서비스 
+To retrieve the API key for a Classic Machine Learning Web service:
 
-API 키를 검색하려면 새 기계 학습 웹 서비스의 경우 [Microsoft Azure 기계 학습 웹 서비스](https://services.azureml.net/quickstart) 포털에 로그인해야 합니다.
+1. In the Azure Machine Learning Web Services portal, click **Classic Web Services** the top menu.
+2. Click the Web service with which you are working.
+3. Click the endpoint for which you want to retrieve the key.
+3. On the top menu, click **Consume**.
+4. Copy and save the **Primary Key**.
 
-1. Azure 기계 학습 웹 서비스 포털의 최상위 메뉴에서 **웹 서비스**를 클릭합니다.
-2. 키를 검색하려는 웹 서비스를 클릭합니다.
-3. 위쪽 메뉴에서 **사용**을 클릭합니다.
-4. **기본 키**를 복사하고 저장합니다.
+## <a name="classic-web-service"></a>Classic Web service ##
 
-## <a id="connect"></a>기계 학습 웹 서비스에 연결
+ You can also retrieve a key for a Classic Web service from Machine Learning Studio or the Azure portal.
 
-HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용하여 기계 학습 웹 서비스에 연결할 수 있습니다. 기계 학습 웹 서비스 도움말 페이지에서 C#, Python 및 R로 작성된 예제를 볼 수 있습니다.
+### <a name="machine-learning-studio"></a>Machine Learning Studio ###
 
-**기계 학습 API 도움말** 웹 서비스를 배포하면 기계 학습 API 도움말이 생성됩니다. [Azure 기계 학습 연습 - 웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)를 참조하세요. 기계 학습 API 도움말에는 예측 웹 서비스에 대한 세부 정보가 포함되어 있습니다.
+1. In Machine Learning Studio, click **WEB SERVICES** on the left.
+2. Click a Web service. The **API key** is on the **DASHBOARD** tab.
 
-**기존 웹 서비스에 대한 기계 학습 API 도움말을 보려면** 기계 학습 스튜디오에서 다음을 수행합니다.
+### <a name="azure-portal"></a>Azure portal ###
 
-1. **웹 서비스**를 클릭합니다.
-2. 웹 서비스를 클릭합니다.
-3. **API 도움말 페이지** - **요청/응답** 또는 **배치 실행**을 클릭합니다.
+1. Click **MACHINE LEARNING** on the left.
+2. Click the workspace in which your Web service is located.
+3. Click **WEB SERVICES**.
+4. Click a Web service.
+5. Click an endpoint. The “API KEY” is down at the lower-right.
 
-**새 웹 서비스에 대한 기계 학습 API 도움말을 보려면** Azure 기계 학습 웹 서비스 포털에서 다음을 수행합니다.
+## <a name="<a-id="connect"></a>connect-to-a-machine-learning-web-service"></a><a id="connect"></a>Connect to a Machine Learning Web service
 
-1. 최상위 메뉴에서 **웹 서비스**를 클릭합니다.
-2. 키를 검색하려는 웹 서비스를 클릭합니다.
+You can connect to a Machine Learning Web service using any programming language that supports HTTP request and response. You can view examples in C#, Python, and R from a Machine Learning Web service help page.
 
-**사용**을 클릭하여 C#, R 및 Python으로 요청-응답 및 배치 실행 서비스와 샘플 코드에 대한 URI를 가져옵니다.
+**Machine Learning API help** Machine Learning API help is created when you deploy a Web service. See [Azure Machine Learning Walkthrough- Deploy Web Service](machine-learning-walkthrough-5-publish-web-service.md).
+The Machine Learning API help contains details about a prediction Web service.
 
-**Swagger API**를 클릭하여 제공된 URI에서 호출된 API에 대한 Swagger 기반 설명서를 가져옵니다.
+2. Click the Web service with which you are working.
+3. Click the endpoint for which you want to view the API Help Page.
+3. On the top menu, click **Consume**.
+3. Click **API help page** under either the Request-Response or Batch Execution endpoints.
 
-### C# 샘플 ###
+**To view Machine Learning API help for a New Web service**
 
-기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 **HttpClient**를 사용합니다. ScoreData는 ScoreData를 나타내는 수치의 n 차원 벡터인 FeatureVector를 포함합니다. API 키로 기계 학습 서비스를 인증합니다.
+In the Azure Machine Learning Web Services Portal:
 
-기계 학습 웹 서비스에 연결하려면 **Microsoft.AspNet.WebApi.Client** Nuget 패키지를 설치해야 합니다.
+1. Click **WEB SERVICES** on the top menu.
+2. Click the Web service for which you want to retrieve the key.
 
-**Visual Studio에서 Microsoft.AspNet.WebApi.Client Nuget 설치**
+Click **Consume** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
 
-1. UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드 웹 서비스를 게시합니다.
-2. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭합니다.
-2. **Install-Package Microsoft.AspNet.WebApi.Client**를 선택합니다.
+Click **Swagger API** to get Swagger based documentation for the APIs called from the supplied URIs.
 
-**코드 샘플을 실행하려면**
+### <a name="c#-sample"></a>C# Sample ###
 
-1. 기계 학습 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 게시합니다.
-2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 위의 **Azure 기계 학습 권한 부여 키 가져오기**를 참조하세요.
-3. 요청 URI로 serviceUri를 할당합니다.
+To connect to a Machine Learning Web service, use an **HttpClient** passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+
+To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Client** NuGet package must be installed.
+
+**Install Microsoft.AspNet.WebApi.Client NuGet in Visual Studio**
+
+1. Publish the Download dataset from UCI: Adult 2 class dataset Web Service.
+2. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+2. Choose **Install-Package Microsoft.AspNet.WebApi.Client**.
+
+**To run the code sample**
+
+1. Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
+2. Assign apiKey with the key from a Web service. See **Get an Azure Machine Learning authorization key** above.
+3. Assign serviceUri with the Request URI.
 
 
-### Python 샘플 ###
+### <a name="python-sample"></a>Python Sample ###
 
-기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 **urllib2** 라이브러리를 사용합니다. ScoreData는 ScoreData를 나타내는 수치의 n 차원 벡터인 FeatureVector를 포함합니다. API 키로 기계 학습 서비스를 인증합니다.
+To connect to a Machine Learning Web service, use the **urllib2** library passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
 
 
-**코드 샘플을 실행하려면**
+**To run the code sample**
 
-1. 기계 학습 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 배포합니다.
-2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 위의 **Azure 기계 학습 권한 부여 키 가져오기**를 참조하세요.
-3. 요청 URI로 serviceUri를 할당합니다.
+1. Deploy "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
+2. Assign apiKey with the key from a Web service. See the **Get an Azure Machine Learning authorization key** section near the beginning of this article.
+3. Assign serviceUri with the Request URI.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="iOS에서 인증서 기반 인증 시작 | Microsoft Azure" 
-    description="iOS 장치에서 솔루션의 인증서 기반 인증을 구성하는 방법 알아보기" 
+    pageTitle="Get started with certificate based authentication on iOS | Microsoft Azure" 
+    description="Learn how to configure certificate based authentication in solutions with iOS devices" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="MarkusVi"  
     documentationCenter="na" 
     manager="femila"/>
 <tags 
@@ -11,108 +11,111 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/02/2016" 
+    ms.date="10/20/2016" 
     ms.author="markvi" />
 
 
 
-# iOS에서 인증서 기반 인증 시작 - 공개 미리 보기
+
+# <a name="get-started-with-certificate-based-authentication-on-ios---public-preview"></a>Get started with certificate based authentication on iOS - Public Preview
 
 > [AZURE.SELECTOR]
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 - [Android](active-directory-certificate-based-authentication-android.md)
 
 
-이 항목에서는 iOS 장치에서 Office 365 Enterprise, Business 및 Education 계획의 테넌트 사용자를 위해 CBA(인증서 기반 인증)를 구성하고 활용하는 방법을 보여 줍니다.
+This topic shows you how to configure and utilize certificate based authentication (CBA) on an iOS device for users of tenants in Office 365 Enterprise, Business, and Education plans. 
 
-CBA를 사용하면 Exchange Online 계정을 다음에 연결할 때 Android 또는 iOS 장치의 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증을 받을 수 있습니다.
+CBA enables you to be authenticated by Azure Active Directory with a client certificate on an Android or iOS device when connecting your Exchange online account to: 
 
-- Microsoft Outlook 및 Microsoft Word와 같은 Office 모바일 응용 프로그램
-- EAS(Exchange ActiveSync) 클라이언트
+- Office mobile applications such as Microsoft Outlook and Microsoft Word   
+- Exchange ActiveSync (EAS) clients 
 
-이 기능을 구성하면 모바일 장치의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.
+Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device. 
  
 
-## 지원되는 시나리오 및 요구 사항  
+## <a name="supported-scenarios-and-requirements"></a>Supported scenarios and requirements  
 
 
 
-### 일반 요구 사항 
+### <a name="general-requirements"></a>General requirements 
 
 
-이 항목의 모든 시나리오에는 다음과 같은 작업이 필요합니다.
+For all scenarios in this topic, the following tasks are required:  
 
-- 클라이언트 인증서를 발급하기 위해 인증 기관에 액세스합니다.
+- Access to certificate authority(s) to issue client certificates.  
 
-- Azure Active Directory에서 해당 인증 기관이 구성되어 있어야 합니다. [시작](#getting-started) 섹션에서 구성을 완료하는 방법에 대한 자세한 단계를 찾을 수 있습니다.
+- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the [Getting Started](#getting-started) section.  
 
-- Azure Active Directory에는 루트 인증 기관 및 중간 인증 기관을 구성되어야 합니다.
+- The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
-- 각 인증 기관에는 인터넷 연결 URL을 통해 참조될 수 있는 CRL(인증서 해지 목록)이 있어야 합니다.
+- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an Internet facing URL.  
 
-- 클라이언트 인증을 위해서는 클라이언트 인증서가 발급되어야 합니다.
-
-
-- Exchange ActiveSync 클라이언트의 경우에만, 보안 주체 이름 또는 주체 대체 이름 필드의 RFC822 이름 값에 Exchange Online 사용자의 라우팅할 수 있는 전자 메일 주소가 있어야 합니다. Azure Active Directory는 디렉터리의 프록시 주소 특성에 RFC822 값을 매핑합니다.
+- The client certificate must be issued for client authentication.  
 
 
+- For Exchange ActiveSync clients only, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.  
 
-### Office 모바일 응용 프로그램 지원 
 
-| 앱 | 지원 |
+
+### <a name="office-mobile-applications-support"></a>Office mobile applications support 
+
+| Apps                      | Support      |
 | ---                       | ---          |
-| Word / Excel / PowerPoint | ![확인][1] |
-| OneNote | ![확인][1] |
-| OneDrive | ![확인][1] |
-| Outlook | 서비스 예정 |
-| Yammer | ![확인][1] |
-| 비즈니스용 Skype | 서비스 예정 |
+| Word / Excel / PowerPoint | ![Check][1]  |
+| OneNote                   | ![Check][1]  |
+| OneDrive                  | ![Check][1]  |
+| Outlook                   | Coming soon  |
+| Yammer                    | ![Check][1]  |
+| Skype for Business        | Coming soon  |
 
 
-### 요구 사항  
+### <a name="requirements"></a>Requirements  
 
-장치 OS 버전은 iOS 9 이어야 합니다.
+The device OS version must be iOS 9 and above 
 
-페더레이션 서버가 구성되어야 합니다.
+A federation server must be configured.  
 
-Azure Authenticator는 iOS의 Office 응용 프로그램에 필요합니다.
+Azure Authenticator is required for Office applications on iOS.  
 
-Azure Active Directory에서 클라이언트 인증서를 해지하려면 ADFS 토큰에 다음 클레임이 있어야 합니다.
+For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:  
 
-  - `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`(클라이언트 인증서의 일련 번호)
+  - `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
+(The serial number of the client certificate) 
 
-  - `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`(클라이언트 인증서 발급자에 대한 문자열)
+  - `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
+(The string for the issuer of the client certificate) 
 
-Azure Active Directory는 이러한 클레임이 ADFS 토큰(또는 다른 SAML 토큰)에서 사용 가능한 경우 새로 고침 토큰에 이러한 클레임을 추가합니다. 새로 고침 토큰의 유효성을 검사해야 하는 경우 이 정보가 해지를 확인하는 데 사용됩니다.
+Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation. 
 
-ADFS 오류 페이지를 다음으로 업데이트하는 것이 가장 좋습니다.
+As a best practice, you should update the ADFS error pages with the following:
 
-- IOS에서 Azure Authenticator를 설치하기 위한 요구 사항
+- The requirement for installing the Azure Authenticator on iOS
 
-- 사용자 인증서를 얻는 방법에 대한 지침
+- Instructions on how to get a user certificate. 
 
-자세한 내용은 [AD FS 로그인 페이지 사용자 지정](https://technet.microsoft.com/library/dn280950.aspx)을 참조하세요.
-
-
-
-### Exchange ActiveSync 클라이언트 지원 
-
-
-iOS 9 이상에서, 네이티브 iOS 메일 클라이언트가 지원됩니다. 다른 모든 Exchange ActiveSync 응용 프로그램에 대하여, 이 기능이 지원되는지 확인하려면 응용 프로그램 개발자에게 문의하세요.
+For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).  
 
 
 
-## 시작 
+### <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync clients support 
 
 
-시작하려면 Azure Active Directory에서 인증 기관을 구성해야 합니다. 각 인증 기관에 대해 다음을 업로드합니다.
+On iOS 9 or later, the native iOS mail client is supported. For all other Exchange ActiveSync applications, to determine if this feature is supported, contact your application developer.  
 
-- 인증서의 공개 부분(*.cer* 형식)
 
-- CRL(인증서 해지 목록)이 있는 인터넷 연결 URL
+
+## <a name="getting-started"></a>Getting started 
+
+
+To get started, you need to configure the certificate authorities in Azure Active Directory. For each certificate authority, upload the following: 
+
+- The public portion of the certificate, in *.cer* format 
+
+- The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
  
 
-다음은 인증 기관에 대한 스키마입니다.
+Below is the schema for a certificate authority: 
 
     class TrustedCAsForPasswordlessAuth 
     { 
@@ -137,25 +140,26 @@ iOS 9 이상에서, 네이티브 iOS 메일 클라이언트가 지원됩니다. 
     } 
 
 
-이 정보를 업로드하려면 Windows PowerShell을 통해 Azure AD 모듈을 사용할 수 있습니다. 다음은 인증 기관을 추가, 제거 또는 수정하는 예제입니다.
+To upload the information, you can use  the Azure AD module through Windows PowerShell.  
+Below are examples for adding, removing or modifying a certificate authority. 
 
 
 
-### 인증서 기반 인증서에 맞게 Azure AD 테넌트 구성 
+### <a name="configuring-your-azure-ad-tenant-for-certificate-based-authentication"></a>Configuring your Azure AD tenant for certificate based authentication 
 
-1. 관리자 권한으로 Windows PowerShell을 시작합니다.
+1. Start Windows PowerShell with administrator privileges. 
 
-2. Azure AD 모듈을 설치합니다. 버전 [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) 이상을 설치해야 합니다.
+2. Install the Azure AD module. You need to install Version [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) or higher.  
 
         Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
-3. 대상 테넌트에 연결합니다.
+3. Connect to your target tenant: 
 
         Connect-AzureAD 
 
-### 새 인증 기관 추가
+### <a name="adding-a-new-certificate-authority"></a>Adding a new certificate authority
 
-1. 인증 기관의 다양한 속성을 설정하고 Azure Active Directory에 추가합니다.
+1. Set various properties of the certificate authority and add it to Azure Active Directory: 
 
         $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
         $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
@@ -163,119 +167,122 @@ iOS 9 이상에서, 네이티브 iOS 메일 클라이언트가 지원됩니다. 
         $new_ca.TrustedCertificate=$cert 
         New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
 
-5. 인증 기관을 가져옵니다.
+5. Get the Certificate Authorities: 
 
         Get-AzureADTrustedCertificateAuthority 
 
 
-### 인증 기관 목록 검색
+### <a name="retrieving-the-list-certificate-authorities"></a>Retrieving the list certificate authorities
 
-테넌트에 대한 Azure Active Directory에 현재 저장되어 있는 인증 기관을 검색합니다.
+Retrieve the certificate authorities currently stored in Azure Active Directory for your tenant: 
 
         Get-AzureADTrustedCertificateAuthority 
 
 
-### 인증 기관 제거
+### <a name="removing-a-certificate-authority"></a>Removing a certificate authority
 
-1.	인증 기관을 검색합니다.
+1.  Retrieve the certificate authorities: 
 
-		$c=Get-AzureADTrustedCertificateAuthority 
-
-
-2. 인증 기관의 인증서를 제거합니다.
-
-		Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
+        $c=Get-AzureADTrustedCertificateAuthority 
 
 
-### 인증 기관 수정 
+2. Remove the certificate for the certificate authority: 
 
-1.	인증 기관을 검색합니다.
-
-		$c=Get-AzureADTrustedCertificateAuthority 
+        Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
 
 
-2. 인증 기관의 속성을 수정합니다.
+### <a name="modfiying-a-certificate-authority"></a>Modfiying a certificate authority 
 
-		$c[0].AuthorityType=1 
+1.  Retrieve the certificate authorities: 
 
-3. **인증 기관**을 설정합니다.
-
-		Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
+        $c=Get-AzureADTrustedCertificateAuthority 
 
 
+2. Modify properties on the certificate authority: 
 
+        $c[0].AuthorityType=1 
 
-## Office 모바일 응용 프로그램 테스트  
+3. Set the **Certificate Authority**: 
 
-모바일 Office 응용 프로그램에서 인증서 인증을 테스트하려면
-
-1.	테스트 장치에서 앱 스토어의 Office 모바일 응용 프로그램(예: OneDrive)을 설치합니다.
-
-2.	테스트 장치에 사용자 인증서가 프로비전되었는지 확인합니다.
-
-3.	응용 프로그램을 시작합니다.
-
-4.	사용자 이름을 입력하고 사용하려는 사용자 인증서를 선택합니다.
-
-정상적으로 로그인되어야 합니다.
+        Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 
 
 
 
+## <a name="testing-office-mobile-applications"></a>Testing Office mobile applications  
 
-## Exchange ActiveSync 클라이언트 응용 프로그램 테스트
+To test certificate authentication on your mobile Office application: 
 
-인증서 기반 인증을 통해 Exchange ActiveSync에 액세스하려면 클라이언트 인증서를 포함하는 EAS 프로필을 응용 프로그램에서 사용할 수 있어야 합니다. EAS 프로필은 다음 정보를 포함해야 합니다.
+1.  On your test device, install an Office mobile application (e.g. OneDrive) from the App Store.
 
-- 인증에 사용할 사용자 인증서
+2.  Verify that the user certificate has been provisioned to your test device. 
 
-- EAS 끝점은 outlook.office365.com이어야 합니다(이 기능은 현재 Exchange Online 다중 테넌트 환경에서만 지원됨).
+3.  Launch the application. 
 
-Intune과 같은 MDM을 활용하거나 장치의 EAS 프로필에 인증서를 수동으로 배치하여 장치에서 EAS 프로필을 구성하고 배치할 수 있습니다.
+4.  Enter your user name, and then pick the user certificate you want to use. 
 
-### iOS에서 EAS 클라이언트 응용 프로그램 테스트 
-
-iOS 9 이상의 네이티브 메일 응용 프로그램으로 인증서 인증을 테스트하려면
-
-1.	위의 요구 사항을 충족하는 EAS 프로필을 구성합니다.
-
-2.	Intune과 같은 MDM 또는 Apple Configurator 응용 프로그램을 사용하여 iOS 장치에서 프로필을 설치합니다.
-
-3.	프로필이 제대로 구성되면 네이티브 메일 응용 프로그램을 열고 메일이 동기화되는지 확인합니다.
+You should be successfully signed in. 
 
 
 
-## 해지
 
-클라이언트 인증서를 해지할 수 있게 Azure Active Directory는 인증 기관 정보의 일부로 업로드된 URL에서 CRL(인증서 해지 목록)을 가져온 후 캐시합니다. CRL의 마지막 게시 타임스탬프(**개시 날짜** 속성)는 CRL이 여전히 유효한지 확인하는 데 사용됩니다. CRL은 목록의 일부인 인증서에 대한 액세스 권한을 해지하기 위해 주기적으로 참조됩니다.
 
-추가 인스턴트 해지가 필요하면(예: 사용자가 장치를 분실한 경우) 사용자의 권한 부여 토큰이 무효화될 수 있습니다. 권한 부여 토큰을 무효화하려면 Windows PowerShell을 사용하여 이 특정 사용자에 대한 **StsRefreshTokenValidFrom** 필드를 설정합니다. 액세스 권한을 해지하려는 각 사용자에 대한 **StsRefreshTokenValidFrom** 필드를 업데이트해야 합니다.
+## <a name="testing-exchange-activesync-client-applications"></a>Testing Exchange ActiveSync client applications
+
+To access Exchange ActiveSync via certificate based authentication, an EAS profile containing the client certificate must be available to application. The EAS profile must contain the following information:
+
+- The user certificate to be used for authentication 
+
+- The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
+
+An EAS profile can be configured and placed on the device through the utilization of an MDM such as Intune or by manually placing the certificate in the EAS profile on the device.  
+
+### <a name="testing-eas-client-applications-on-ios"></a>Testing EAS client applications on iOS 
+
+To test certificate authentication with the native mail application on iOS 9 or above: 
+
+1.  Configure an EAS profile that satisfies the requirements above. 
+
+2.  Install the profile on the iOS device (either using an MDM, such as Intune, or the Apple Configurator application)
+
+3.  Once the profile is properly installed, open the native Mail application, and verify that mail is synchronizing
+
+
+
+## <a name="revocation"></a>Revocation
+
+To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (**Effective Date** property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
+
+If a more instant revocation is required (for example, if a user loses a device), the authorization token of the user can be invalidated. To invalidate the authorization token, set the **StsRefreshTokenValidFrom** field for this particular user using Windows PowerShell. You must update the **StsRefreshTokenValidFrom** field for each user you want to revoke access for.
  
-해지가 지속되도록 하려면 **개시 날짜**를 **StsRefreshTokenValidFrom**으로 설정한 값 이후의 날짜로 설정하고 문제의 인증서가 CRL에 있는지 확인해야 합니다.
+To ensure that the revocation persists, you must set the **Effective Date** of the CRL to a date after the value set by **StsRefreshTokenValidFrom** and ensure the certificate in question is in the CRL.
  
-다음 단계에서는 **StsRefreshTokenValidFrom** 필드를 설정하여 권한 부여 토큰을 업데이트 및 무효화하기 위한 프로세스를 설명합니다.
+The following steps outline the process for updating and invalidating the authorization token by setting the **StsRefreshTokenValidFrom** field. 
 
-1. 관리 자격 증명을 MSOL 서비스에 연결합니다.
+1. Connect with admin credentials to the MSOL service: 
 
-		$msolcred = get-credential 
-		connect-msolservice -credential $msolcred 
+        $msolcred = get-credential 
+        connect-msolservice -credential $msolcred 
 
-1.	사용자에 대한 현재 StsRefreshTokensValidFrom 값을 검색합니다.
+1.  Retrieve the current StsRefreshTokensValidFrom value for a user: 
 
-		$user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-		$user.StsRefreshTokensValidFrom 
-
-
-1.	사용자에 대한 새 StsRefreshTokensValidFrom 값을 현재 타임스탬프와 같게 구성합니다.
-
-		Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
+        $user.StsRefreshTokensValidFrom 
 
 
-설정하는 날짜는 이후 날짜여야 합니다. 날짜가 이후 날짜가 아닌 경우 **StsRefreshTokensValidFrom** 속성이 설정되지 않은 것입니다. 날짜가 이후 날짜인 경우 **StsRefreshTokensValidFrom**이 현재 시간(Set-MsolUser 명령으로 지정된 날짜 아님)으로 설정됩니다.
+1.  Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp: 
+
+        Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+
+
+The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command). 
 
 
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,15 +1,19 @@
-1. 포털에서 게이트웨이에 연결하려는 가상 네트워크로 이동합니다.
+1. In the portal, navigate to the virtual network to which you want to connect a gateway.
 
-2. VNet 블레이드의 **설정** 섹션에서 **서브넷**을 클릭하여 서브넷 블레이드를 확장합니다.
+2. In the **Settings** section of your VNet blade, click **Subnets** to expand the Subnets blade.
 
-3. **서브넷** 블레이드에서 위쪽에 있는 **+게이트웨이 서브넷**을 클릭합니다. 그러면 **서브넷 추가** 블레이드가 열립니다.
+3. On the **Subnets** blade, click **+Gateway subnet** at the top. This will open the **Add subnet** blade. 
 
-	![게이트웨이 서브넷 추가](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "게이트웨이 서브넷 추가")
+    ![Add the gateway subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Add the gateway subnet")
 
-4. 서브넷의 **이름**은 'GatewaySubnet' 값으로 자동으로 채워집니다. Azure가 서브넷을 게이트웨이 서브넷으로 인식하기 위해 이 값이 필요합니다. 자동으로 채워진 **주소 범위** 값을 구성 요구 사항과 일치하도록 조정합니다.
+4. The **Name** for your subnet will automatically be filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the auto-filled **Address range** values to match your configuration requirements.
 
-	![서브넷 추가](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "서브넷 추가")
+    ![Adding the subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
 
-6. 블레이드의 맨 아래에서 **확인**을 클릭하여 서브넷을 만듭니다.
+6. Click **OK** at the bottom of the blade to create the subnet.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

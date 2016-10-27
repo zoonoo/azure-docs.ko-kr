@@ -1,6 +1,6 @@
 <properties
-   pageTitle="다중 테넌트 SaaS 응용 프로그램 및 Azure SQL 데이터베이스에 대한 디자인 패턴 | Microsoft Azure"
-   description="이 문서에서는 클라우드 환경에서 실행되는 다중 테넌트 데이터베이스 응용 프로그램에 대해 고려해야 하는 요구 사항과 일반적인 데이터 아키텍처 패턴을 설명하고 이러한 패턴과 관련된 다양한 장단점을 설명합니다. 그리고 Azure SQL Database가 탄력적 풀 및 탄력적 도구를 통해 다른 기능도 동일하게 제공하면서 이러한 요구 사항의 처리를 지원하는 방법도 설명합니다."
+   pageTitle="Design patterns for multitenant SaaS applications and Azure SQL Database | Microsoft Azure"
+   description="This article discusses the requirements and common data architecture patterns of multitenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database, with its elastic pools and elastic tools, help address these requirements in a no-compromise fashion."
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,151 +17,157 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-# 다중 테넌트 SaaS 응용 프로그램 및 Azure SQL 데이터베이스에 대한 디자인 패턴
 
-이 문서에서는 클라우드 환경에서 실행되는 다중 테넌트 SaaS(Software-as-a-Service) 데이터베이스 응용 프로그램의 요구 사항 및 일반적인 데이터 아키텍처 패턴에 대해 알아봅니다. 또한 고려해야 하는 요인 및 서로 다른 디자인 패턴의 장단점도 설명합니다. Azure SQL Database의 탄력적 풀 및 탄력적 도구를 사용하면 다른 목표도 달성하면서 특정 요구 사항을 충족할 수 있습니다.
+# <a name="design-patterns-for-multitenant-saas-applications-and-azure-sql-database"></a>Design patterns for multitenant SaaS applications and Azure SQL Database
 
-때때로 개발자는 다중 테넌트 응용 프로그램의 데이터 계층에 대한 테넌시 모델을 디자인할 때 장기적으로 가장 큰 이익에 적합한 선택을 합니다. 적어도 초기에 개발자는 개발의 편리성과 낮은 클라우드 서비스 공급자 비용을 테넌트 격리 또는 응용 프로그램 확장성보다 중요한 것으로 인식합니다. 하지만 이러한 선택으로 인해 나중에 고객 만족도 관련 문제가 발생하여 관련 과정을 수정하는 데 비용이 많이 소요될 수 있습니다.
+In this article, you can learn about the requirements and common data architecture patterns of multitenant software as a service (SaaS) database applications that run in a cloud environment. It also explains the factors you need to consider and the trade-offs of different design patterns. Elastic pools and elastic tools in Azure SQL Database can help you meet your specific requirements without compromising other objectives.
 
-클라우드 환경에서 호스트되는 응용 프로그램인 다중 테넌트 응용 프로그램은 서로 데이터를 공유하거나 다른 테넌트의 데이터를 확인하지 않는 매우 많은 수의 테넌트에게 동일한 서비스 집합을 제공합니다. 예를 들어 클라우드 호스팅 환경에서 테넌트에 서비스를 제공하는 SaaS 응용 프로그램이 있습니다.
+Developers sometimes make choices that work against their long-term best interests when they design tenancy models for the data tiers of multitenant applications. Initially, at least, a developer might perceive ease of development and lower cloud service provider costs as more important than tenant isolation or the scalability of an application. This choice can lead to customer satisfaction concerns and a costly course-correction later.
 
-## 다중 테넌트 응용 프로그램
+A multitenant application is an application hosted in a cloud environment and that provides the same set of services to hundreds or thousands of tenants who do not share or see each other’s data. An example is an SaaS application that provides services to tenants in a cloud-hosted environment.
 
-다중 테넌트 응용 프로그램에서는 데이터 및 워크로드를 쉽게 분할할 수 있습니다. 대부분의 요청은 테넌트의 범위 내에서 발생하므로, 예를 들어 테넌트 경계를 따라 데이터 및 워크로드를 분할할 수 있습니다. 이러한 속성은 데이터 및 워크로드에 내재되어 있으며, 이 문서에서 설명하는 응용 프로그램 패턴을 선호합니다.
+## <a name="multitenant-applications"></a>Multitenant applications
 
-개발자는 다음을 포함하여 클라우드 기반 응용 프로그램 전반에 걸쳐 이러한 유형의 응용 프로그램을 사용합니다.
+In multitenant applications, data and workload can be easily partitioned. You can partition data and workload, for example, along tenant boundaries, because most requests occur within the confines of a tenant. That property is inherent in the data and the workload, and it favors the application patterns discussed in this article.
 
-- SaaS 응용프로그램으로서 클라우드로 전환되는 파트너 데이터베이스 응용 프로그램
-- 처음부터 클라우드를 위해 구축된 SaaS 응용 프로그램
-- 직접 고객에게 표시되는 응용 프로그램
-- 직원이 접하는 엔터프라이즈 응용 프로그램
+Developers use this type of application across the whole spectrum of cloud-based applications, including:
 
-클라우드용으로 설계된 SaaS 응용 프로그램 및 파트너 데이터베이스 응용 프로그램에 근거한 응용 프로그램은 일반적으로 다중 테넌트 응용 프로그램입니다. SaaS 응용 프로그램은 특수한 소프트웨어 응용 프로그램을 테넌트에게 서비스로 제공합니다. 테넌트는 응용 프로그램 서비스에 액세스할 수 있으며 응용 프로그램의 일부로 저장된 관련 데이터에 대해 완전한 소유권을 갖습니다. 그러나 SaaS의 혜택을 이용하려면 테넌트는 자신의 데이터에 대한 일부 제어를 넘겨줘야 합니다. 테넌트는 자신의 데이터를 안전하고 다른 테넌트의 데이터에서 격리되도록 유지하기 위해 SaaS 서비스 공급자를 신뢰합니다. 이러한 종류의 다중 테넌트 SaaS 응용 프로그램의 예로 MYOB, SnelStart 및 Salesforce.com이 있습니다. 이러한 각 응용 프로그램은 테넌트 경계를 따라 분할될 수 있으며 이 문서에서 설명하는 응용 프로그램 디자인 패턴을 지원합니다.
+- Partner database applications that are being transitioned to the cloud as SaaS applications
+- SaaS applications built for the cloud from the ground up
+- Direct, customer-facing applications
+- Employee-facing enterprise applications
 
-조직 내에서 고객이나 직원(테넌트 대신 사용자로 언급되기도 함)에게 직접 서비스를 제공하는 응용 프로그램은 다중 테넌트 응용 프로그램 영역의 또 다른 범주입니다. 고객은 서비스 공급자가 수집하고 저장하는 데이터를 소유하지 않으며 서비스를 구독합니다. 서비스 공급자는 고객의 데이터를 서로 격리된 상태로 유지하기 위해 정부에서 요구하는 개인 정보 보호 규정보다 덜 엄격한 요구 사항을 적용합니다. 이러한 종류의 고객에게 표시되는 다중 테넌트 응용 프로그램의 예로 Netflix, Spotify 및 Xbox LIVE 같은 미디어 콘텐츠 공급자가 있습니다. 쉽게 분할이 가능한 응용 프로그램의 다른 예로는 고객에게 표시되는 인터넷 규모 응용 프로그램이나, 각 고객 또는 장치가 파티션 역할을 할 수 있는 IoT(사물 인터넷) 응용 프로그램이 있습니다. 파티션 경계를 통해 사용자와 장치를 분리할 수 있습니다.
+SaaS applications that are designed for the cloud and those with roots as partner database applications typically are multitenant applications. These SaaS applications deliver a specialized software application as a service to their tenants. Tenants can access the application service and have full ownership of associated data stored as part of the application. But to take advantage of the benefits of SaaS, tenants must surrender some control over their own data. They trust the SaaS service provider to keep their data safe and isolated from other tenants’ data. Examples of this kind of multitenant SaaS application are MYOB, SnelStart, and Salesforce.com. Each of these applications can be partitioned along tenant boundaries and support the application design patterns we discuss in this article.
 
-응용 프로그램이 테넌트, 고객, 사용자 또는 장치 같은 단일 속성에 따라 쉽게 분할되지 않는 경우도 있습니다. 예를 들어 복잡한 전사적 자원 관리(ERP) 응용 프로그램은 제품, 주문 및 고객을 포함합니다. 이러한 응용 프로그램은 일반적으로 매우 복잡하게 상호 연결된 테이블을 수천 개 포함하는 복잡한 스키마를 가지고 있습니다.
+Applications that provide a direct service to customers or to employees within an organization (often referred to as users, rather than tenants) are another category on the multitenant application spectrum. Customers subscribe to the service and do not own the data that the service provider collects and stores. Service providers have less stringent requirements to keep their customers’ data isolated from each other beyond government-mandated privacy regulations. Examples of this kind of customer-facing multitenant application are media content providers like Netflix, Spotify, and Xbox LIVE. Other examples of easily partitionable applications are customer-facing, Internet-scale applications, or Internet of Things (IoT) applications in which each customer or device can serve as a partition. Partition boundaries can separate users and devices.
 
-모든 테이블 및 응용 프로그램의 워크로드 전반에 걸친 작업에 적용할 수 있는 단일 파티션 전략은 없습니다. 이 문서는 쉽게 분할이 가능한 데이터 및 워크로드를 포함한 다중 테넌트 응용 프로그램에 초점을 맞춥니다.
+Not all applications partition easily along a single property such as tenant, customer, user, or device. A complex enterprise resource planning (ERP) application, for example, has products, orders, and customers. It usually has a complex schema with thousands of highly interconnected tables.
 
-## 다중 테넌트 응용 프로그램 디자인의 장단점
+No single partition strategy can apply to all tables and work across an application's workload. This article focuses on multitenant applications that have easily partitionable data and workloads.
 
-다중 테넌트 응용 프로그램 개발자는 일반적으로 다음과 같은 요인을 고려하여 디자인 패턴을 선택합니다.
+## <a name="multitenant-application-design-trade-offs"></a>Multitenant application design trade-offs
 
--	**테넌트 격리**. 개발자는 테넌트가 다른 테넌트의 데이터에 대해 불필요한 액세스 권한을 갖지 않도록 해야 합니다. 격리 요구 사항은 노이즈가 많은 주변 환경으로부터의 보호, 테넌트의 데이터를 복원하는 기능, 테넌트 전용 사용자 지정 구현 등과 같은 그 밖의 속성으로 확장됩니다.
--	**클라우드 리소스 비용**. SaaS 응용 프로그램은 가격 경쟁력이 있어야 합니다. 다중 테넌트 응용 프로그램 개발자는 저장소와 같은 클라우드 리소스 사용 시 비용을 낮추도록 최적화하고 비용을 계산하기 위해 선택할 수 있습니다.
--	**DevOps 편의성**. 다중 테넌트 응용 프로그램 개발자는 격리 방지 기능을 통합하고, 응용 프로그램 및 데이터베이스 스키마의 상태를 유지 관리/모니터링하고, 테넌트 문제를 해결해야 합니다. 응용 프로그램 개발 및 운영이 복잡하면 비용이 증가하고 테넌트 만족도에 문제가 생깁니다.
--	**확장성**. 더 많은 테넌트 및 테넌트에 필요한 용량을 점진적으로 추가하는 기능은 성공적인 SaaS 운영에 필수입니다.
+The design pattern that a multitenant application developer chooses typically is based on a consideration of the following factors:
 
-이러한 각 요인은 다른 요인과 비교하여 장단점이 있습니다. 비용이 가장 저렴한 클라우드 제품이라고 해서 반드시 가장 편리한 개발 환경을 제공하는 것은 아닙니다. 개발자는 응용 프로그램 디자인 프로세스 중에 이러한 옵션 및 해당 옵션의 장단점에 관하여 현명한 선택을 해야 합니다.
+-   **Tenant isolation**. The developer needs to ensure that no tenant has unwanted access to other tenants’ data. The isolation requirement extends to other properties, such as providing protection from noisy neighbors, being able to restore a tenant’s data, and implementing tenant-specific customizations.
+-   **Cloud resource cost**. An SaaS application needs to be cost-competitive. A multitenant application developer might choose to optimize for lower cost in the use of cloud resources, such as storage and compute costs.
+-   **Ease of DevOps**. A multitenant application developer needs to incorporate isolation protection, maintain, and monitor the health of their application and database schema, and troubleshoot tenant issues. Complexity in application development and operation translates directly to increased cost and challenges with tenant satisfaction.
+-   **Scalability**. The ability to incrementally add more tenants and capacity for tenants who require it is imperative to a successful SaaS operation.
 
-많이 사용되는 개발 패턴은 여러 테넌트를 하나 또는 몇 개의 데이터베이스로 묶는 것입니다. 이 방식의 이점은 데이터베이스 몇 개에 대해서만 요금을 지불하면 되므로 비용이 더 적게 들고, 제한된 수의 데이터베이스를 사용하므로 작업이 비교적 단순하다는 것입니다. 하지만 시간이 지남에 따라 SaaS 다중 테넌트 응용 프로그램 개발자는 이 선택이 테넌트 격리 및 확장성 면에서 상당한 단점이 있다는 것을 깨닫게 됩니다. 테넌트 격리가 중요한 경우 공유된 저장소의 테넌트 데이터를 무단 액세스 또는 노이즈가 많은 주변 환경으로부터 보호하기 위한 추가 작업이 필요합니다. 이러한 추가 작업으로 인해 개발 작업 및 격리 유지 관리 비용이 대폭 증가할 수 있습니다. 마찬가지로, 테넌트를 추가해야 하는 경우 이 디자인 패턴은 일반적으로 데이터베이스 전반에 걸쳐 테넌트 데이터를 재배포하여 응용 프로그램의 데이터 계층을 적절히 크기 조정하기 위해 전문지식이 필요합니다.
+Each of these factors has trade-offs compared to another. The lowest-cost cloud offering might not offer the most convenient development experience. It’s important for a developer to make informed choices about these options and their trade-offs during the application design process.
 
-테넌트 격리는 기업과 조직에 제공하는 SaaS 다중 테넌트 응용 프로그램의 기본 요구 사항인 경우가 많습니다. 개발자들은 테넌트 격리 및 확장성보다 단순성과 비용에서 인지된 장점의 유혹에 넘어갈 수도 있습니다. 이렇게 선택을 하면 서비스가 성장하면서 복잡성과 비용이 높아지고, 테넌트 격리 요구 사항이 더 중요해지면서 응용 프로그램 계층에서 이러한 요구 사항을 관리해야 하는 상황이 될 수 있습니다. 그러나 소비자에게 표시되는 서비스를 고객에게 직접 제공하는 다중 테넌트 응용 프로그램의 경우 테넌트 격리는 클라우드 리소스 비용 최적화보다 우선 순위가 더 낮을 수 있습니다.
+A popular development pattern is to pack multiple tenants into one or a few databases. The benefits of this approach are a lower cost because you pay for a few databases, and the relative simplicity of working with a limited number of databases. But over time, a SaaS multitenant application developer will realize that this choice has substantial downsides in tenant isolation and scalability. If tenant isolation becomes important, additional effort is required to protect tenant data in shared storage from unauthorized access or noisy neighbors. This additional effort might significantly boost development efforts and isolation maintenance costs. Similarly, if adding tenants is required, this design pattern typically requires expertise to redistribute tenant data across databases to properly scale the data tier of an application.  
 
-## 다중 테넌트 데이터 모델
+Tenant isolation often is a fundamental requirement in SaaS multitenant applications that cater to businesses and organizations. A developer might be tempted by perceived advantages in simplicity and cost over tenant isolation and scalability. This trade-off can prove complex and expensive as the service grows and tenant isolation requirements become more important and managed at the application layer. However, in multitenant applications that provide a direct, consumer-facing service to customers, tenant isolation might be a lower priority than optimizing for cloud resource cost.
 
-테넌트 데이터 배치에 대한 일반적인 디자인 방식은 그림 1과 같은 세 가지로 구분되는 모델을 따릅니다.
+## <a name="multitenant-data-models"></a>Multitenant data models
+
+Common design practices for placing tenant data follow three distinct models, shown in Figure 1.
 
 
-  ![다중 테넌트 응용 프로그램 데이터 모델](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png) 그림 1: 다중 테넌트 데이터 모델에 대한 일반적인 디자인 방식
+  ![Multitenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
+    Figure 1: Common design practices for multitenant data models
 
--	**테넌트별 데이터베이스**. 각 테넌트가 자기만의 데이터베이스를 가지고 있습니다. 모든 테넌트별 데이터는 자체 데이터베이스 내에만 보관되고 다른 테넌트 및 해당 테넌트의 데이터로부터 격리됩니다.
--	**공유 데이터베이스-분할**. 여러 테넌트가 여러 데이터베이스 중 하나를 공유합니다. 해시, 범위 또는 목록 분할 등과 같은 분할 전략을 사용하여 테넌트의 구분되는 집합을 각 데이터베이스에 할당합니다. 이러한 데이터 배포 전략을 분할이라고도 합니다.
--	**공유 데이터베이스-단일**. 때로는 큰 단일 데이터베이스는 테넌트 ID 열에서 명확하게 구분되는 모든 테넌트를 위한 데이터를 포함합니다.
+-   **Database-per-tenant**. Each tenant has its own database. All tenant-specific data is confined to the tenant’s database and isolated from other tenants and their data.
+-   **Shared database-sharded**. Multiple tenants share one of multiple databases. A distinct set of tenants is assigned to each database by using a partitioning strategy such as hash, range, or list partitioning. This data distribution strategy often is referred to as sharding.
+-   **Shared database-single**. A single, sometimes large, database contains data for all tenants, which are disambiguated in a tenant ID column.
 
-> [AZURE.NOTE] 응용 프로그램 개발자는 서로 다른 테넌트를 서로 다른 데이터베이스 스키마에 배치한 다음, 스키마 이름을 사용하여 서로 다른 테넌트를 명확하게 구분할 수도 있습니다. 이 방식은 일반적으로 동적 SQL을 사용해야 하고 계획 캐싱에서 효과적일 수 없기 때문에 권장하지 않습니다. 이 문서의 나머지 부분에서는 이 범주의 다중 테넌트 응용 프로그램에 대한 공유 테이블 방식에 초점을 맞춥니다.
+> [AZURE.NOTE] An application developer might choose to place different tenants in different database schemas, and then use the schema name to disambiguate the different tenants. We do not recommend this approach because it usually requires the use of dynamic SQL, and it can’t be effective in plan caching. In the remainder of this article, we focus on the shared table approach for this category of multitenant application.
 
-## 인기 있는 다중 테넌트 데이터 모델
+## <a name="popular-multitenant-data-models"></a>Popular multitenant data models
 
-이미 확인한 응용 프로그램 디자인 장단점에 의해 다양한 유형의 다중 테넌트 데이터 모델을 평가해야 합니다. 이러한 요인은 앞에서 설명한 세 가지 가장 일반적인 다중 테넌트 데이터 모델 및 해당 모델의 그림 2와 같은 데이터베이스 사용의 특성을 설명하는 데 도움이 됩니다.
+It’s important to evaluate the different types of multitenant data models in terms of the application design trade-offs we’ve already identified. These factors help characterize the three most common multitenant data models described earlier and their database usage as shown in Figure 2.
 
--	**격리**. 테넌트 간의 격리 정도는 데이터 모델이 달성하는 테넌트 격리의 정도에 대한 척도일 수 있습니다.
--	**클라우드 리소스 비용**. 테넌트 간에 공유하는 리소스의 양을 통해 클라우드 리소스 비용을 최적화할 수 있습니다. 리소스는 계산 및 저장소 비용으로 정의될 수 있습니다.
--	**DevOps 비용**. 응용 프로그램 개발, 배포 및 관리의 용이성은 전반적인 SaaS 운영 비용을 감소시킵니다.
+-   **Isolation**. The degree of isolation between tenants can be a measure of how much tenant isolation a data model achieves.
+-   **Cloud resource cost**. The amount of resource sharing between tenants can optimize cloud resource cost. A resource can be defined as the compute and storage cost.
+-   **DevOps cost**. The ease of application development, deployment, and manageability reduces overall SaaS operation cost.  
 
-그림 2의 Y축은 테넌트 격리 수준을 나타냅니다. X축은 리소스 공유 수준을 나타냅니다. 중간의 회색 대각선 화살표는 증가 또는 감소 추세를 나타내는 DevOps 비용의 방향을 나타냅니다.
+In Figure 2, the Y axis shows the level of tenant isolation. The X axis shows the level of resource sharing. The gray, diagonal arrow in the middle indicates the direction of DevOps costs, tending to increase or decrease.
 
-![인기 있는 다중 테넌트 응용 프로그램 디자인 패턴](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png) 그림 2: 인기 있는 다중 테넌트 데이터 모델
+![Popular multitenant application design patterns](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png) Figure 2: Popular multitenant data models
 
-그림 2의 오른쪽 아래 사분면에는 공유된 단일 데이터베이스(대형일 수 있음)와 공유 테이블 또는 개별 스키마 방식을 사용하는 응용 프로그램 패턴이 나와 있습니다. 이 패턴은 모든 테넌트가 단일 데이터베이스의 동일한 데이터베이스 리소스(CPU, 메모리, 입력/출력)를 사용하기 때문에 리소스 공유에 적합합니다. 그러나 테넌트 격리는 제한됩니다. 응용 프로그램 계층에서 테넌트를 서로 보호하기 위해 추가 단계를 실행해야 할 수 있습니다. 이와 같은 추가 단계로 인해 경우 응용 프로그램 개발 및 관리에 소요되는 운영 개발 비용이 대폭 증가할 수 있습니다. 데이터베이스를 호스트하는 하드웨어의 규모에 따라 확장성이 제한됩니다.
+The lower-right quadrant in Figure 2 shows an application pattern that uses a potentially large, shared single database, and the shared table (or separate schema) approach. It's good for resource sharing because all tenants use the same database resources (CPU, memory, input/output) in a single database. But tenant isolation is limited. You might need to take additional steps to protect tenants from each other at the application layer. These additional steps can significantly increase the DevOps cost of developing and managing the application. Scalability is limited by the scale of the hardware that hosts the database.
 
-그림 2의 왼쪽 아래 사분면은 여러 데이터베이스(일반적으로 하드웨어 규모 단위가 서로 다름)에 대한 멀티 테넌트 공유를 나타냅니다. 각 데이터베이스는 다른 패턴의 확장성 문제를 해결하는 테넌트의 하위 집합을 호스트합니다. 테넌트가 추가되어 용량이 더 필요하면 새 하드웨어 규모 단위에 할당된 새 데이터베이스에 손쉽게 용량을 배치할 수 있습니다. 그러나 리소스 공유 양이 줄어듭니다. 동일한 규모 단위에 배치된 테넌트만이 리소스를 공유합니다. 이 방식은 다수의 테넌트가 서로의 작업으로부터 자동으로 보호받지 못하고 여전히 동일한 공간에 함께 배치되기 때문에 테넌트 격리를 향상시키지 않습니다. 응용 프로그램 복잡성의 높게 유지됩니다.
+The lower-left quadrant in Figure 2 illustrates multiple tenants sharded across multiple databases (typically, different hardware scale units). Each database hosts a subset of tenants, which addresses the scalability concern of other patterns. If more capacity is required for more tenants, you can easily place the tenants on new databases allocated to new hardware scale units. However, the amount of resource sharing is reduced. Only tenants placed on the same scale units share resources. This approach provides little improvement to tenant isolation because many tenants are still collocated without being automatically protected from each other’s actions. Application complexity remains high.
 
-그림 2의 왼쪽 위 사분면은 세 번째 방식입니다. 각 테넌트를 테넌트의 자체 데이터베이스에 배치합니다. 이 방식은 테넌트 격리 속성이 뛰어나지만 각 데이터베이스가 각각의 전용 리소스를 갖기 때문에 리소스 공유를 제한합니다. 모든 테넌트의 작업을 예측할 수 있는 경우에는 이 방식이 적절합니다. 테넌트의 작업을 예측하기가 어려워지면 공급자는 리소스 공유를 최적화할 수 없습니다. SaaS 응용 프로그램의 경우에는 대개 작업을 예측하기가 어렵습니다. 공급자는 요구를 충족하거나 리소스를 줄이기 위해 과도하게 프로비전해야 합니다. 두 작업 모두 비용을 증가시키거나 테넌트의 만족을 떨어뜨립니다. 테넌트 전반의 리소스 공유 수준이 높으면 솔루션을 비용 효과적으로 만들기에 더 적합합니다. 데이터베이스 수가 증가하면 응용 프로그램 배포 및 유지 관리의 DevOps 비용도 증가합니다. 이러한 문제가 있는데도 이 방법은 테넌트에 가장 우수하고 쉬운 격리를 제공합니다.
+The upper-left quadrant in Figure 2 is the third approach. It places each tenant’s data in its own database. This approach has good tenant-isolation properties but limits resource sharing when each database has its own dedicated resources. This approach is good if all tenants have predictable workloads. If tenant workloads become less predictable, the provider cannot optimize resource sharing. Unpredictability is common for SaaS applications. The provider must either over-provision to meet demands or lower resources. Either action results in either higher costs or lower tenant satisfaction. A higher degree of resource sharing across tenants becomes desirable to make the solution more cost-effective. Increasing the number of databases also increases DevOps cost to deploy and maintain the application. Despite these concerns, this method provides the best and easiest isolation for tenants.
 
-이러한 요소는 고객이 선택하는 디자인 패턴에도 영향을 미칩니다.
+These factors also influence the design pattern a customer chooses:
 
--	**테넌트 데이터 소유권**. 테넌트가 자체 데이터에 대한 소유권을 유지하는 응용 프로그램은 테넌트별 단일 데이터베이스 패턴을 선호합니다.
--	**확장**. 수십만 또는 수백만 테넌트를 대상으로 하는 응용 프로그램은 분할과 같은 데이터베이스 공유 방식을 선호합니다. 격리 요구 사항도 여전히 문제가 될 수 있습니다.
--	**가치 및 비즈니스 모델**. 응용 프로그램의 테넌트별 수익이 1달러 미만 등으로 적은 경우에는 격리 요구 사항의 중요성이 낮아지므로 공유 데이터베이스를 사용하는 것이 적절합니다. 테넌트별 수익이 몇 달러 이상이면 테넌트별 데이터베이스 모델이 더 타당합니다. 개발 비용을 줄이는 데에도 도움이 될 수 있습니다.
+-   **Ownership of tenant data**. An application in which tenants retain ownership of their own data favors the pattern of a single database per tenant.
+-   **Scale**. An application that targets hundreds of thousands or millions of tenants favors database sharing approaches such as sharding. Isolation requirements still can pose challenges.
+-   **Value and business model**. If an application’s per-tenant revenue if small (less than a dollar), isolation requirements become less critical and a shared database makes sense. If per-tenant revenue is a few dollars or more, a database-per-tenant model is more feasible. It might help reduce development costs.
 
-그림 2와 같은 디자인 절충을 가정하면 최적의 다중 테넌트 모델은 테넌트 간에 최적의 리소스 공유와 함께 우수한 테넌트 경리 속성을 포함해야 합니다. 이 모델은 그림 2의 오른쪽 위 사분면에 설명되어 있는 범주에 해당합니다.
+Given the design trade-offs shown in Figure 2, an ideal multitenant model needs to incorporate good tenant isolation properties with optimal resource sharing among tenants. This model fits in the category described in the upper-right quadrant of Figure 2.
 
-## Azure SQL 데이터베이스에서 다중 테넌트 지원
+## <a name="multitenancy-support-in-azure-sql-database"></a>Multitenancy support in Azure SQL Database
 
-Azure SQL 데이터베이스는 그림 2에 제시한 다중 테넌트 응용 프로그램 패턴을 모두 지원합니다. 탄력적 풀을 사용하는 경우에는 테넌트별 데이터베이스 방식의 격리 이점과 효율적인 리소스 공유 기능이 모두 제공되는 응용 프로그램 패턴도 사용 가능합니다(그림 3의 오른쪽 위 사분면 참조). 탄력적 데이터베이스 도구와 SQL Database의 기능은 많은 데이터베이스를 포함하는 응용 프로그램(그림 3에서 어둡게 표시된 영역에 나와 있음)을 개발 및 운영하는 비용을 줄이는 데 도움이 될 수 있습니다. 이러한 도구는 복수 데이터베이스 패턴을 사용하는 응용 프로그램을 구축 및 관리하는 데 도움이 될 수 있습니다.
+Azure SQL Database supports all multitenant application patterns outlined in Figure 2. With elastic pools, it also supports an application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper-right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database help reduce the cost to develop and operate an application that has many databases (shown in the shaded area in Figure 3). These tools can help you build and manage applications that use any of the multi-database patterns.
 
-![Azure SQL 데이터베이스의 패턴](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png) 그림 3: Azure SQL 데이터베이스의 다중 테넌트 응용 프로그램 패턴
+![Patterns in Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png) Figure 3: Multitenant application patterns in Azure SQL Database
 
-## 탄력적 풀 및 도구를 사용하는 테넌트별 데이터베이스 모델
+## <a name="database-per-tenant-model-with-elastic-pools-and-tools"></a>Database-per-tenant model with elastic pools and tools
 
-SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터베이스 간의 리소스 공유 기능을 함께 제공함으로써 테넌트별 데이터베이스 방식을 보다 효율적으로 지원합니다. SQL Database는 다중 테넌트 응용 프로그램을 작성하는 SaaS 공급자용 데이터 계층 솔루션입니다. 테넌트 간의 리소스 공유는 응용 프로그램 계층이 아닌 데이터베이스 서비스 계층에서 처리됩니다. 탄력적 작업, 탄력적 쿼리, 탄력적 트랜잭션 및 탄력적 데이터베이스 클라이언트 라이브러리를 사용하면 전체 데이터베이스의 복잡한 대규모 관리 및 쿼리 작업이 간소화됩니다.
+Elastic pools in SQL Database combine tenant isolation with resource sharing among tenant databases to better support the database-per-tenant approach. SQL Database is a data tier solution for SaaS providers who build multitenant applications. The burden of resource sharing among tenants shifts from the application layer to the database service layer. The complexity of managing and querying at scale across databases is simplified with elastic jobs, elastic query, elastic transactions, and the elastic database client library.
 
-| 응용 프로그램 요구 사항 | SQL 데이터베이스 기능 |
+| Application requirements | SQL database capabilities |
 | ------------------------ | ------------------------- |
-| 테넌트 격리 및 리소스 공유 | [탄력적 풀](sql-database-elastic-pool.md): SQL Database 리소스 풀을 할당하고 여러 데이터베이스 간에 해당 리소스를 공유합니다. 또한 개별 데이터베이스는 테넌트 워크로드 변화로 인한 용량 수요의 급등에 대처하기 위해 풀에서 리소스를 필요한 만큼 끌어올 수 있습니다. 탄력적 풀 자체는 필요에 따라 위로 또는 아래로 확장할 수 있습니다. 탄력적 풀은 풀 수준에서 관리, 모니터링 및 문제 해결을 위한 편의성도 제공합니다. |
-| 데이터베이스 전반에 대한 DevOps 편의성 | [탄력적 풀](sql-database-elastic-pool.md): 위의 설명을 참조하세요.|
-||[탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md): 보고 또는 테넌트 전반에 대한 분석을 위해 데이터베이스 전반에 쿼리를 수행합니다.|
-||[탄력적 작업:](sql-database-elastic-jobs-overview.md) 데이터베이스 유지 관리 작업 또는 데이터베이스 스키마 변경 내용을 패키지한 다음 여러 데이터베이스에 안정적으로 배포합니다.|
-||[탄력적 트랜잭션:](sql-database-elastic-transactions-overview.md) 원자성 또는 격리 방식으로 여러 개의 데이터베이스에 대한 변경을 처리합니다. 응용 프로그램에서 다수의 데이터베이스 작업에 대해 "양자택일"을 보장해야 하는 경우에는 탄력적 트랜잭션이 필요합니다. |
-||[탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md): 데이터 배포를 관리하고 테넌트를 데이터베이스에 매핑합니다. |
+| Tenant isolation and resource sharing | [Elastic pools](sql-database-elastic-pool.md): Allocate a pool of SQL Database resources and share the resources across various databases. Also, individual databases can draw as much resources from the pool as needed to accommodate capacity demand spikes due to changes in tenant workloads. The elastic pool itself can be scaled up or down as needed. Elastic pools also provide ease of manageability and monitoring and troubleshooting at the pool level. |
+| Ease of DevOps across databases | [Elastic pools](sql-database-elastic-pool.md): As noted earlier.|
+||[Elastic query](sql-database-elastic-query-horizontal-partitioning.md): Query across databases for reporting or cross-tenant analysis.|
+||[Elastic jobs](sql-database-elastic-jobs-overview.md): Package and reliably deploy database maintenance operations or database schema changes to multiple databases.|
+||[Elastic transactions](sql-database-elastic-transactions-overview.md): Process changes to several databases in an atomic and isolated way. Elastic transactions are needed when applications need “all or nothing” guarantees over several database operations. |
+||[Elastic database client library](sql-database-elastic-database-client-library.md): Manage data distributions and map tenants to databases. |
 
-## 공유 모델
+## <a name="shared-models"></a>Shared models
 
-앞서 언급했듯이, 대부분의 SaaS 공급자에게 공유 모델 방식은 테넌트 격리 문제는 물론 응용 프로그램 개발 및 유지 관리의 복잡성과 관련해서도 문제를 유발할 수 있습니다. 그러나 소비자에게 서비스를 직접 제공하는 다중 테넌트 응용 프로그램의 경우, 테넌트 격리 요구 사항은 비용 최소화만큼 우선 순위가 높지 않을 수 있습니다. 이 경우에는 비용을 줄이기 위해서 하나 이상의 데이터베이스에 높은 밀도로 테넌트를 압축할 수 있습니다. 단일 데이터베이스 또는 다수의 분할된 데이터베이스를 사용하는 공유 데이터베이스 모델은 리소스 공유 효율을 높이고 전체 비용을 낮출 수 있습니다. Azure SQL 데이터베이스는 고객이 보안 향상 및 데이터 계층의 대규모 관리를 위해 격리를 구축하는 데 도움이 되는 몇 가지 기능을 제공합니다.
+As described earlier, for most SaaS providers, a shared model approach might pose problems with tenant isolation issues and complexities with application development and maintenance. However, for multitenant applications that provide a service directly to consumers, tenant isolation requirements may not be as high a priority as minimizing cost. They might be able to pack tenants in one or more databases at a high density to reduce costs. Shared-database models using a single database or multiple sharded databases might result in additional efficiencies in resource sharing and overall cost. Azure SQL Database provides some features that help customers build isolation for improved security and management at scale in the data tier.
 
-| 응용 프로그램 요구 사항 | SQL 데이터베이스 기능 |
+| Application requirements | SQL database capabilities |
 | ------------------------ | ------------------------- |
-| 보안 격리 기능 | [행 수준 보안](https://msdn.microsoft.com/library/dn765131.aspx) |
-|| [데이터베이스 스키마](https://msdn.microsoft.com/library/dd207005.aspx) |
-| 데이터베이스 전반에 대한 DevOps 편의성 | [탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md) |
-|| [탄력적 작업](sql-database-elastic-jobs-overview.md) |
-|| [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md) |
-|| [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) |
-|| [탄력적 데이터베이스 분할 및 병합](sql-database-elastic-scale-overview-split-and-merge.md) |
+| Security isolation features | [Row-level security](https://msdn.microsoft.com/library/dn765131.aspx) |
+|| [Database schema](https://msdn.microsoft.com/library/dd207005.aspx) |
+| Ease of DevOps across databases | [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) |
+|| [Elastic jobs](sql-database-elastic-jobs-overview.md) |
+|| [Elastic transactions](sql-database-elastic-transactions-overview.md) |
+|| [Elastic database client library](sql-database-elastic-database-client-library.md) |
+|| [Elastic database split and merge](sql-database-elastic-scale-overview-split-and-merge.md) |
 
-## 요약
+## <a name="summary"></a>Summary
 
-테넌트 격리 요구 사항은 대부분의 SaaS 다중 테넌트 응용 프로그램에서 중요합니다. 격리를 제공하는 최상의 옵션은 테넌트별 데이터베이스 방식으로 많이 기울어집니다. 나머지 두 방식의 경우에는 숙련된 개발 직원이 격리 기능을 제공해야 하는 복잡한 응용 프로그램 계층에 투자를 해야 하므로 비용과 위험이 많이 증가합니다. 서비스 개발 초기에 격리 요구 사항을 처리하지 않은 상태에서, 나중에 보강해 넣으려면 처음 두 가지 모델의 경우 비용이 훨씬 많이 들 수 있습니다. 테넌트별 데이터베이스 모델과 관련된 주요 단점은 공유 감소로 인해 클라우드 리소스 비용이 증가한다는 것과, 많은 데이터베이스를 유지 및 관리해야 한다는 것입니다. SaaS 응용 프로그램 개발자는 이러한 절충에 어려움을 겪는 경우가 많습니다.
+Tenant isolation requirements are important for most SaaS multitenant applications. The best option to provide isolation leans heavily toward the database-per-tenant approach. The other two approaches require investments in complex application layers that require skilled development staff to provide isolation, which significantly increases cost and risk. If isolation requirements are not accounted for early in the service development, retrofitting them can be even more costly in the first two models. The main drawbacks associated with the database-per-tenant model are related to increased cloud resource costs due to reduced sharing, and maintaining and managing many databases. SaaS application developers often struggle when they make these trade-offs.
 
-대부분의 클라우드 데이터베이스 서비스 공급자에게는 이러한 단점이 중요한 문제가 될 수 있지만, Azure SQL Database는 탄력적 풀 및 탄력적 데이터베이스 기능을 통해 이러한 문제를 방지해 줍니다. SaaS 개발자는 탄력적 풀 및 관련 도구를 사용하여 테넌트별 데이터베이스 모델의 격리 특성을 제공하는 동시에 여러 데이터베이스 간의 리소스 공유를 최적화하고 관리 효율을 개선할 수 있습니다.
+Although trade-offs might be major barriers with most cloud database service providers, Azure SQL Database eliminates the barriers with its elastic pool and elastic database capabilities. SaaS developers can combine the isolation characteristics of a database-per-tenant model and optimize resource sharing and the manageability improvements of many databases by using elastic pools and associated tools.
 
-테넌트 격리 요구 사항이 없으며 테넌트를 데이터베이스에 높은 밀도로 압축할 수 있는 다중 테넌트 응용 프로그램 공급자의 경우 공유 데이터 모델을 사용하면 리소스 공유의 효율성을 추가로 개선하고 전체 비용을 줄일 수 있습니다. Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 분할 라이브러리 및 보안 기능은 SaaS 공급자가 다중 테넌트 응용 프로그램을 구축하고 관리하는 데 도움을 제공합니다.
+Multitenant application providers who have no tenant isolation requirements and who can pack tenants in a database at a high density might find that shared data models result in additional efficiency in resource sharing and reduce overall cost. Azure SQL Database elastic database tools, sharding libraries, and security features help SaaS providers build and manage multitenant applications.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-클라이언트 라이브러리를 보여 주는 샘플 앱으로 [탄력적 데이터베이스 도구를 시작](sql-database-elastic-scale-get-started.md)합니다.
+[Get started with elastic database tools](sql-database-elastic-scale-get-started.md) with a sample app that demonstrates the client library.
 
-비용 효율적이고 확장성 있는 데이터베이스 솔루션을 위해 탄력적 풀을 사용하는 샘플 앱으로 [SaaS에 대한 탄력적 풀 사용자 지정 대시보드](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard)를 만듭니다.
+Create an [elastic pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) with a sample app that uses elastic pools for a cost-effective, scalable database solution.
 
-Azure SQL 데이터베이스 도구를 사용하여 [규모 확장할 기존 데이터베이스를 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)합니다.
+Use the Azure SQL Database tools to [migrate existing databases to scale out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-[탄력적 풀을 만드는 방법](sql-database-elastic-pool-create-portal.md)에 관한 자습서를 참조하세요.
+View our tutorial on how to [create an elastic pool](sql-database-elastic-pool-create-portal.md).  
 
-[탄력적 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md) 방법에 대해 알아보세요.
+Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
-## 추가 리소스
+## <a name="additional-resources"></a>Additional resources
 
-- [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)
-- [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
-- [탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-- [Azure Active Directory 및 OpenID Connect를 사용하여 다중 테넌트 앱에서 인증](../guidance/guidance-multitenant-identity-authenticate.md)
-- [Tailspin 설문 조사 응용 프로그램](../guidance/guidance-multitenant-identity-tailspin.md)
-- [솔루션 빠른 시작](sql-database-solution-quick-starts.md)
+- [What is an Azure elastic pool?](sql-database-elastic-pool.md)
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [Multitenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Solution quick starts](sql-database-solution-quick-starts.md)
 
-## 질문 및 기능 요청
+## <a name="questions-and-feature-requests"></a>Questions and feature requests
 
-궁금한 사항이 있는 경우 [SQL Database 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)을 방문하세요. [SQL 데이터베이스 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에서 기능 요청을 추가하세요.
+For questions, find us in the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Add a feature request in the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Azure 검색 | Microsoft Azure 검색에 대한 Lucene 쿼리 예제"
-    description="Lucene은 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 및 와일드카드 검색에 대해 구문을 쿼리합니다."
+    pageTitle="Lucene query examples for Azure Search | Microsoft Azure Search"
+    description="Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard search."
     services="search"
     documentationCenter=""
-	authors="LiamCa"
-	manager="pablocas"
-	editor=""
+    authors="LiamCa"
+    manager="pablocas"
+    editor=""
     tags="Lucene query analyzer syntax"
 />
 
@@ -19,114 +19,118 @@
     ms.author="liamca"
 />
 
-# Lucene은 Azure 검색에서 퀴리를 만들기 위해 구문 예제를 쿼리합니다.
 
-Azure 검색을 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용하거나, [Azure 검색의 Lucene 쿼리 파서](https://msdn.microsoft.com/library/azure/mt589323.aspx)를 대신 사용할 수 있습니다. Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 검색, 근접 검색, 용어 상승 및 정규식 등의 더 복잡한 쿼리 구조를 지원합니다.
+# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene query syntax examples for building queries in Azure Search
 
-이 문서에서는 Lucene 쿼리 구문과 결과를 나란히 표시하는 예제를 살펴볼 수 있습니다. 예제는 스크립트 및 HTML 테스트용 온라인 코드 편집기인 [JSFiddle](https://jsfiddle.net/)에서 사전 로드된 검색 인덱스를 기준으로 실행됩니다.
+When constructing queries for Azure Search, you can use either the default [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the alternative [Lucene Query Parser in Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and reqular expression search.
 
-쿼리 예제 URL을 마우스 오른쪽 단추로 클릭하여 별도의 브라우저 창에서 JSFiddle을 엽니다.
+In this article, you can step through examples that display Lucene query syntax and results side by side. Examples run against a pre-loaded Search index in [JSFiddle](https://jsfiddle.net/), an online code editor for testing script and HTML. 
 
-> [AZURE.NOTE] 다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 집합에 기반하여 사용 가능한 작업으로 구성된 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공하는 샌드박스 서비스에 있습니다. 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure 검색이 필요하지 않습니다.
+Right-click on the query example URLs to open JSFiddle in a separate browser window.
 
-## 이 문서의 예제 살펴보기
+> [AZURE.NOTE] The following examples leverage a search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft. You do not need an Azure subscription or Azure Search to try these queries.
 
-이 문서의 모든 예제에서는 **queryType** 검색 매개 변수를 통해 Lucene 쿼리 파서를 지정합니다. 사용자 코드에서 Lucene 쿼리 파서를 사용할 때는 모든 요청마다 **queryType**을 지정합니다. 유효한 값은 **simple**|**full**이며 기본값은 **simple**이고 Lucene 쿼리 파서의 경우 **full**입니다. 쿼리 매개 변수 지정에 대한 자세한 내용은 [문서 검색(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하세요.
+## <a name="viewing-the-examples-in-this-article"></a>Viewing the examples in this article
 
-**예제 1** -- 다음 쿼리 조각을 마우스 오른쪽 단추로 클릭하여 새 브라우저 페이지에서 열고 JSFiddle을 로드한 후 쿼리를 실행합니다.
+All of the examples in this article specify the Lucene Query Parser via the**queryType** search parameter. When using the Lucene Query Parser from your code, you'll specify the **queryType** on every request.  Valid values include **simple**|**full**, with **simple** as the default and **full** for the Lucene Query Parser. See [Search Documents (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) for details about specifying query parameters.
+
+**Example 1** -- Right-click the following query snippet to open it in a new browser page that loads JSFiddle and runs the query:
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
-이 쿼리는 작업 인덱스(샌드박스 서비스에서 로드한)에서 문서를 반환합니다.
+This query returns documents from our Jobs index (loaded on a sandbox service)
 
-새 브라우저 창에 JavaScript 소스 및 HTML 출력이 나란히 표시됩니다. 스크립트는 이 문서의 예제 URL에서 제공하는 쿼리를 참조합니다. 예를 들어 **예제 1**에서 기본 쿼리는 다음과 같습니다.
+In the new browser window, you'll see the JavaScript source and HTML output side by side. The script references a query, which is provided by the example URLs in this article. For instance, in **Example 1**, the underlying query is as follows:
 
     http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
-쿼리는 nycjobs라고 하는 사전 구성된 Azure 검색을 사용합니다. **searchFields** 매개 변수는 검색을 직위 필드로만 제한합니다. **queryType**이 **full**로 설정되어,이 쿼리에 Lucene 쿼리 파서를 사용하도록 Azure 검색에 지시합니다.
+Notice the query uses a preconfigured Azure Search index called nycjobs. The **searchFields** parameter restricts the search to just the business title field. The **queryType** is set to **full**, which instructs Azure Search to use the Lucene Query Parser for this query.
 
-### 필드 지정 쿼리 작업
+### <a name="fielded-query-operation"></a>Fielded query operation
 
-**fieldname:searchterm** 구조를 정의하여 필드 지정 쿼리 작업을 정의하도록 이 문서의 예제를 수정할 수 있습니다. 여기서 필드는 단일 단어이고, 검색어도 선택적으로 부울 연산이 포함된 단일 단어 또는 구입니다. 몇 가지 예제는 다음과 같습니다.
+You can modify the examples in this article by specifying a **fieldname:searchterm** construction to define a fielded query operation, where the field is a single word, and the search term is also a single word or a phrase, optionally with Boolean operators. Some examples include the following:
 
-- business\_title:(senior NOT junior)
+- business_title:(senior NOT junior)
 - state:("New York" AND "New Jersey")
 
-이 경우에 위치 필드에서 두 개의 다른 도시를 검색하고 있으므로 두 문자열이 단일 엔터티로 평가되길 원하는 경우 여러 문자열을 인용 부호로 묶어야 합니다. 또한, NOT과 AND와 같이 연산자는 대문자로 표시해야 합니다.
+Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct cities in the location field. Also, ensure the operator is capitalized as you see with NOT and AND.
 
-**fieldname:searchterm**에서 지정된 필드는 검색 가능 필드이어야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 참조하세요.
+The field specified in **fieldname:searchterm** must be a searchable field. See [Create Index (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) for details on how index attributes are used in field definitions.
 
-## 유사 항목 검색
+## <a name="fuzzy-search"></a>Fuzzy search
 
-유사 항목 검색은 용어에서 구조가 유사한 일치 항목을 찾습니다. [Lucene 문서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance)에 기반합니다.
+A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-유사 항목 검색을 수행하려면 편집 거리를 지정하는 0과 2 사이의 값을 선택적 매개 변수로 포함하여 단일 단어의 끝에 물결표("~") 기호를 사용하십시오. 예를 들어, "blue~" 또는 "blue~1"은 blue, blues 및 glue를 반환합니다.
+To do a fuzzy search, use the tilde "~" symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, "blue~" or "blue~1" would return blue, blues, and glue.
 
-**예제 2** -- 다음 쿼리 조각을 마우스 오른쪽 단추로 클릭하여 시도합니다. 이 쿼리는 junior가 아닌 senior라는 용어가 포함된 직함을 검색합니다.
+**Example 2** -- Right-click the following query snippet to give it a try. This query searches for business titles with the term senior in them, but not junior:
 
-- [& queryType = 전체 및 검색 business\_title:senior NOT = 초급](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+- [&queryType=full&search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
-## 근접 검색
+## <a name="proximity-search"></a>Proximity Search
 
-근접 검색은 문서에서 서로 근접한 용어를 찾는 데 사용됩니다. 구 끝에 물결표("~") 기호, 그리고 근접 경계를 생성하는 단어 수를 넣습니다. 예를 들어, "hotel airport"~5는 문서에서 서로 5개의 단어 내에서 hotel과 airport라는 용어를 찾게 됩니다.
+Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, "hotel airport"~5 will find the terms hotel and airport within 5 words of each other in a document.
 
-**예제 3** -- 다음 쿼리 조각을 마우스 오른쪽 단추로 클릭합니다. 이 쿼리는 associate라는 용어가 포함된 직업을 검색합니다(맞춤법이 틀린 경우).
+**Example 3** -- Right-click the following query snippet. This query searches for jobs with the term associate (where it is misspelled):
 
-- [&queryType=full&search= business\_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+- [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
-**예제 4** -- 쿼리를 마우스 오른쪽 단추로 클릭합니다. 단 한 단어로 구분된 "senior analyst"라는 용어가 포함된 직업을 검색합니다.
+**Example 4** -- Right-click the query. Search for jobs with the term "senior analyst" where it is separated by no more than one word:
 
-- [&queryType=full&search=business\_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+- [&queryType=full&search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
-**예제 5** -- "senior analyst"라는 용어 사이에 단어를 제거하여 다시 시도합니다.
+**Example 5** -- Try it again removing the words between the term "senior analyst".
 
-- [&queryType=full&search=business\_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+- [&queryType=full&search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
-## 용어 상승
+## <a name="term-boosting"></a>Term Boosting
 
-용어 상승은 해당 용어가 포함되지 않은 문서와 상대적으로, 상승된 용어가 포함된 경우 문서에 더 높은 순위를 매기는 것을 의미합니다. 이것은 평가 프로필은 특정 용어가 아닌 특정 필드를 상승시킨다는 점에서 평가 프로필과는 다릅니다. 다음 예제는 차이점을 설명하는 데 도움이 됩니다.
+Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. This differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms. The following example helps illustrate the differences.
 
-musicstoreindex 예제에서 **genre**와 같이, 특정 필드에서 일치 항목을 상승시키는 평가 프로필을 고려해 보세요. 용어 상승은 일부 검색어를 다른 것보다 높게 더 상승시키는 데 사용될 수 있습니다. 예를 들어, "rock^2 electronic"은 **genre** 필드에 검색어가 있는 문서를 인덱스의 다른 검색 가능 필드보다 높게 상승시킵니다. 또한, 용어 상승 값(2)의 결과로 "rock"이라는 검색어가 포함된 문서는 "electronic"이라는 다른 검색어보다 높은 순위로 매겨집니다.
+Consider a scoring profile that boosts matches in a certain field, such as **genre** in the musicstoreindex example. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the **genre** field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2).
 
-용어를 상승시키려면 검색하려는 용어 끝 부분에 상승 계수(숫자)와 함께 캐럿("^") 기호를 사용하십시오. 상승 계수가 높을수록 해당 용어는 다른 검색어에 비해 더 관련성이 높아집니다. 기본적으로, 상승 계수는 1입니다. 상승 계수는 양수이어야 하지만, 1보다 작을 수 있습니다(예: 0.2).
+To boost a term, use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.2).
 
-**예제 6** -- 쿼리를 마우스 오른쪽 단추로 클릭합니다. "computer analyst"라는 용어가 포함된 직업을 검색합니다. 여기서 computer와 analyst 두 단어가 포함된 결과는 없지만, analyst라는 직업은 결과의 맨 위에 나옵니다.
+**Example 6**  -- Right-click the query. Search for jobs with the term "computer analyst" where we see there are no results with both words computer and analyst, yet analyst jobs are at the top of the results.
 
-- [&queryType=full&search=business\_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+- [&queryType=full&search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
-**예제 7** -- 다시 시도합니다. 이번에는 두 단어가 존재하지 않을 경우 analyst라는 용어보다 computer라는 용어가 포함된 결과를 상승시킵니다.
+**Example 7**  --  Try it again, this time boosting results with the term computer over the term analyst if both words do not exist.
 
-- [&queryType=full&search=business\_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+- [&queryType=full&search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
-## 정규식
+## <a name="regular-expression"></a>Regular Expression
 
-정규식 검색은 [RegExp 클래스](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)에 나와 있는 것처럼 슬래시("/") 사이의 내용에 기반하여 일치 항목을 찾습니다.
+A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
-**예제 8** -- 쿼리를 마우스 오른쪽 단추로 클릭합니다. Senior 또는 Junior라는 용어가 포함된 직업을 검색합니다.
+**Example 8** -- Right-click the query. Search for jobs with either the term Senior or Junior.
 
 - `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-이 예제에 대한 URL은 페이지에서 제대로 렌더링되지 않습니다. 해결 방법으로 아래의 URL을 복사한 후 브라우저 URL 주소에 붙여 넣습니다.`http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+The URL for this example will not render properly in the page. As a workaround, copy the URL below and paste it into the browser URL address:     `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 
-## 와일드카드 검색
+## <a name="wildcard-search"></a>Wildcard Search
 
-일반적으로 다중(*) 또는 단일(?) 문자 와일드카드 검색에 인식된 구문을 사용할 수 있습니다. Lucene 쿼리 커서는 구가 아닌 단일 용어에 이러한 기호의 사용을 지원합니다.
+You can use generally recognized syntax for multiple (\*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
-**예제 9** -- 쿼리를 마우스 오른쪽 단추로 클릭합니다. programming 및 programmer라는 용어가 있는 직함이 포함된 접두사 'prog'가 포함되어 있는 직업을 검색합니다.
+**Example 9** -- Right-click the  query. Search for jobs that contain the prefix 'prog' which would include business titles with the terms programming and programmer in it.
 
-- [&queryType=full&$select=business\_title&search=business\_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:prog*)
+- [&queryType=full&$select=business_title&search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:prog*)
 
-검색의 첫 문자로 * 또는 ? 기호를 사용할 수 없습니다.
+You cannot use a * or ? symbol as the first character of a search.
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-코드에서 Lucene 쿼리 파서를 지정해 보십시오. 다음 링크에서는 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다. 링크는 기본 단순 구문을 사용하므로 **queryType**을 지정하려면 이 문서에서 배운 내용을 적용해야 합니다.
+Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
 
-- [.NET SDK를 사용하여 Azure 검색 인덱스 쿼리](search-query-dotnet.md)
-- [REST API를 사용하여 Azure 검색 인덱스 쿼리](search-query-rest-api.md)
+- [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
+- [Query your Azure Search Index using the REST API](search-query-rest-api.md)
 
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

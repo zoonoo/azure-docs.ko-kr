@@ -1,4 +1,9 @@
 
 
-> [AZURE.WARNING] HDInsight 클러스터 결제는 사용 여부에 관계없이 분당으로 비례 배분됩니다. 사용한 후에 클러스터를 삭제해야 합니다. 클러스터 삭제에 대한 정보는 [HDInsight 클러스터를 삭제하는 방법](../articles/hdinsight/hdinsight-delete-cluster.md)을 참조하세요.
+> [AZURE.WARNING] HDInsight clusters billing is pro-rated per minute, whether you are using them or not. Please be sure to delete your cluster after you have finished using it. For information on deleting a cluster, see [How to delete an HDInsight cluster](../articles/hdinsight/hdinsight-delete-cluster.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
 

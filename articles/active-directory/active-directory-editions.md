@@ -1,507 +1,512 @@
 <properties
-	pageTitle="Azure Active Directory 버전 | Microsoft Azure"
-	description="무료 및 유료 버전의 Azure Active Directory를 설명하는 항목입니다. Azure Active Directory Basic, Azure Active Directory Premium P1 및 Azure Active Directory Premium P2는 유료 버전입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure Active Directory editions | Microsoft Azure"
+    description="A topic that explains choices for free and paid editions of Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1, and Azure Active Directory Premium P2 are the paid editions."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2016"
-	ms.author="curtand"/>
-
-# Azure Active Directory 버전
-
-모든 Microsoft Online 비즈니스 서비스는 로그온 및 기타 ID가 필요로 할 때 Azure Active Directory(Azure AD)를 사용합니다. Microsoft Online 비즈니스 서비스 중 하나를 구독하는 경우(예: Office 365 또는 Microsoft Azure) 아래에 설명된 무료 기능 모두에 액세스할 수 있는 Azure AD를 가져옵니다.
-
-Azure Active Directory는 클라우드에서 직원, 파트너 및 고객에게 포괄적인 ID 및 액세스 관리 기능을 제공하는 서비스입니다. 이 서비스는 개발자를 위한 디렉터리 서비스, 고급 ID 거버넌스, 풍부한 표준 기반 플랫폼과 고유한 또는 미리 통합된 응용 프로그램을 위한 응용 프로그램 액세스 관리를 결합합니다. Azure Active Directory Free Edition를 사용하면 사용자 및 그룹을 관리하고, 온-프레미스 디렉터리와 동기화하고, Azure, Office 365 및 인기 많은 수천 가지의 SaaS 응용 프로그램(예: Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox 등)에서 SSO(Single Sign-On)를 수행할 수 있습니다. Azure Active Directory에 대해 자세히 알아보려면 [Azure AD란?](active-directory-whatis.md)을 읽습니다.
-
-Azure Active Directory를 강화하려면 Azure Active Directory Basic, Premium P1 및 Premium P2 Edition을 사용하여 유료 기능을 추가할 수 있습니다. Azure Active Directory 유료 버전은 기존 무료 디렉터리 위에 구축되어 모바일 작업자를 위한 셀프 서비스를 확장하는 엔터프라이즈 클래스 기능, 향상 된 모니터링, 보안 보고, Multi-Factor Authentication(MFA) 및 보안 액세스를 제공합니다.
-
-Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active Directory 기능을 포함합니다.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2016"
+    ms.author="curtand"/>
 
 
-> [AZURE.NOTE] 이러한 버전의 가격 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요. Azure Active Directory Premium P1, Premium P2 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. 자세한 내용은 Azure Active Directory 포럼에 문의하세요.
+# <a name="azure-active-directory-editions"></a>Azure Active Directory editions
+
+All Microsoft Online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. If you subscribe to any of Microsoft Online business services (for example, Office 365 or Microsoft Azure), you get Azure AD with access to all of the Free features, described below.  
+
+Azure Active Directory is a service that provides comprehensive identity and access management capabilities in the cloud for your employees, partners and customers. It combines directory services, advanced identity governance, a rich standards-based platform for developers, and application access management for your own or any of thousands of pre-integrated applications. With the Azure Active Directory Free edition, you can manage users and groups, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more. To learn more about Azure Active Directory, read [What is Azure AD](active-directory-whatis.md).
+
+To enhance your Azure Active Directory, you can add paid capabilities using the Azure Active Directory Basic, Premium P1, and Premium P2 editions. Azure Active Directory paid editions are built on top of your existing free directory, providing enterprise class capabilities spanning self-service, enhanced monitoring, security reporting, Multi-Factor Authentication (MFA), and secure access for your mobile workforce.
+
+Office 365 subscriptions include additional Azure Active Directory features described in the comparison table below.
 
 
-- **Azure Active Directory Basic** - 클라우드를 주로 필요로 하는 작업자를 위해 설계된 이 버전은 클라우드 중심 응용 프로그램 액세스 및 셀프 서비스 ID 관리 솔루션을 제공합니다. Azure Active Directory Basic 버전을 사용하면 그룹 기반 액세스 관리, 클라우드 응용 프로그램에 대한 셀프 서비스 암호 재설정 및 Azure Active Directory 응용 프로그램 프록시(Azure Active Directory를 사용하여 온-프레미스 웹 응용 프로그램을 게시하는 데 필요)와 같은 생산성 강화 및 비용 절감 기능을 활용할 수 있고 이는 모두 엔터프라이즈급의 99.9% 가동 시간 SLA에서 지원됩니다.
+> [AZURE.NOTE] For the pricing options of these editions, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1, Premium P2, and Azure Active Directory Basic are not currently supported in China. Please contact us at the Azure Active Directory Forum for more information.
 
-- **Azure Active Directory Premium P1** - ID 및 액세스 관리를 필요로 하는 조직을 지원하도록 설계된 Azure Active Directory Premium Edition은 풍부한 기능의 엔터프라이즈 수준 ID 관리 기능을 추가하고 하이브리드 사용자가 원활하게 온-프레미스 및 클라우드 기능에 액세스할 수 있도록 합니다. 이 버전은 하이브리드 환경에서 응용 프로그램 액세스, 셀프 서비스 ID 및 액세스 관리(IAM), 클라우드에서 ID 보호 및 보안에 대해 정보 작업자 및 ID 관리자를 위해 필요한 모든 것을 포함합니다. 동적 그룹 및 셀프 서비스 그룹 관리와 같은 고급 관리 및 위임 리소스를 지원합니다. 온-프레미스 사용자를 위한 셀프 서비스 암호 재설정과 같은 솔루션을 사용하여 Microsoft ID 관리자(온-프레미스 ID 및 액세스 관리 제품군)를 포함하며 클라우드 쓰기 저장 기능을 제공합니다.
 
-- **Azure Active Directory Premium P2** - 모든 사용자와 관리자에 대한 고급 보호로 설계되었으며 이 새 제품은 Azure AD Premium P1의 모든 기능과 새로운 ID 보호 및 Privileged Identity Management를 포함합니다. Azure Active Directory ID 보호는 수많은 신호를 활용하여 응용 프로그램 및 중요한 회사 데이터에 위험 기반 조건부 액세스를 제공합니다. 관리자 및 관리자의 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있도록 Azure Active Directory Privileged Identity Management를 사용하여 권한 있는 계정을 관리 및 보호할 수 있도록 도움을 주고 필요한 경우 적시에 액세스를 제공합니다.
+- **Azure Active Directory Basic** - Designed for task workers with cloud-first needs, this edition provides cloud centric application access and self-service identity management solutions. With the Basic edition of Azure Active Directory, you get productivity enhancing and cost reducing features like group-based access management, self-service password reset for cloud applications, and Azure Active Directory Application Proxy (to publish on-premises web applications using Azure Active Directory), all backed by an enterprise-level SLA of 99.9 percent uptime.
 
-지금 당장 Active Directory Premium을 등록하고 사용하려면 [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)을 참조하세요.
+- **Azure Active Directory Premium P1** - Designed to empower organizations with more demanding identity and access management needs, Azure Active Directory Premium edition adds feature-rich enterprise-level identity management capabilities and enables hybrid users to seamlessly access on-premises and cloud capabilities. This edition includes everything you need for information worker and identity administrators in hybrid environments across application access, self-service identity and access management (IAM), identity protection and security in the cloud. It supports advanced administration and delegation resources like dynamic groups and self-service group management. It includes Microsoft Identity Manager (an on-premises identity and access management suite) and provides cloud write-back capabilities enabling solutions like self-service password reset for your on-premises users.
+
+- **Azure Active Directory Premium P2** - Designed with advanced protection for all your users and administrators, this new offering includes all the capabilities in Azure AD Premium P1 as well as our new Identity Protection and Privileged Identity Management. Azure Active Directory Identity Protection leverages billions of signals to provide risk-based conditional access to your applications and critical company data. We also help you manage and protect privileged accounts with Azure Active Directory Privileged Identity Management so you can discover, restrict and monitor administrators and their access to resources and provide just-in-time access when needed.  
+
+To sign up and start using Active Directory Premium today, see [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md).
 
 
 > [AZURE.NOTE]
-다양한 Azure Active Directory 기능은 "종량제" 버전을 통해 사용할 수 있습니다.
+>A number of Azure Active Directory capabilities are available through "pay as you go" editions:
 >
->- Active Directory B2C는 소비자 지향 응용 프로그램에 대한 ID 및 액세스 관리 솔루션입니다. 자세한 내용은 [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)를 참조하세요.
+>- Active Directory B2C is the identity and access management solution for your consumer-facing applications. For more details, see [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
 
->-	Azure Multi-Factor Authentication는 사용자 또는 인증 공급자 단위를 통해 사용될 수 있습니다. 자세한 세부 내용은 [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)를 참조하세요.
-
-
-##일반 기능 비교
-
-> [AZURE.NOTE] 이 데이터의 다른 보기는 [Azure Active Directory 기능](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx)을 참조하세요.
+>-  Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
+##<a name="comparing-generally-available-features"></a>Comparing generally available features
 
-
-**일반 기능**
-
-- [디렉터리 개체](#directory-objects)
-
-- [사용자/그룹 관리(추가/업데이트/삭제)/ 사용자 기반 프로비전, 장치 등록](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
-
-- [SSO(Single Sign-On)](#single-sign-on-sso)
-
-- [클라우드 사용자를 위한 셀프 서비스 암호 변경](#self-service-password-change-for-cloud-users)
-
-- [Connect(온-프레미스 디렉터리를 Azure Active Directory로 확장하는 동기화 엔진)](#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory)
-
-- [보안/사용 보고서](#securityusage-reports)
+> [AZURE.NOTE] For a different view of this data, see the [Azure Active Directory Capabilities](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
 
 
 
-**Basic 기능**
 
-- [그룹 기반 액세스 관리/프로비전](#group-based-access-managementprovisioning)
+**Common Features**
 
-- [클라우드 사용자를 위한 셀프 서비스 암호 재설정](#self-service-password-reset-for-cloud-users)
+- [Directory Objects](#directory-objects)
 
-- [회사 브랜딩(로그온 페이지/액세스 패널 사용자 지정)](#company-branding-logon-pagesaccess-panel-customization)
+- [User/Group Management (add/update/delete)/ User-based provisioning, Device  registration](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
 
-- [응용 프로그램 프록시](#application-proxy)
+- [Single Sign-On (SSO)](#single-sign-on-sso)
+
+- [Self-Service Password Change for cloud users](#self-service-password-change-for-cloud-users)
+
+- [Connect  (Sync engine that extends on-premises directories to Azure Active Directory)](#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory)
+
+- [Security / Usage Reports](#securityusage-reports)
+
+
+
+**Basic Features**
+
+- [Group-based access management / provisioning](#group-based-access-managementprovisioning)
+
+- [Self-Service Password Reset for cloud users](#self-service-password-reset-for-cloud-users)
+
+- [Company Branding (Logon Pages/Access Panel customization)](#company-branding-logon-pagesaccess-panel-customization)
+
+- [Application Proxy](#application-proxy)
 
 - [SLA 99.9%](#sla-999)
 
 
-**Premium P1 기능**
+**Premium P1 Features**
 
-- [셀프 서비스 그룹 및 앱 관리/셀프 서비스 응용 프로그램 추가/동적 그룹](#self-service-group-and-app-managementself-service-application-additions-dynamic-groups)
+- [Self-Service Group and app Management/Self-Service application additions/ Dynamic Groups](#self-service-group-and-app-managementself-service-application-additions-dynamic-groups)
 
-- [셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제](#self-service-password-resetchangeunlock-with-on-premises-write-back)
+- [Self-Service Password Reset/Change/Unlock  with on-premises write-back](#self-service-password-resetchangeunlock-with-on-premises-write-back)
 
-- [Multi-Factor Authentication(클라우드 및 온-프레미스(MFA 서버))](#multi-factor-authentication-cloud-and-on-premises-mfa-server)
+- [Multi-Factor Authentication (Cloud and On-premises (MFA Server))](#multi-factor-authentication-cloud-and-on-premises-mfa-server)
 
-- [MIM CAL + MIM 서버](#mim-cal-mim-server)
+- [MIM CAL + MIM Server](#mim-cal-mim-server)
 
-- [클라우드 앱 검색](#cloud-app-discovery)
+- [Cloud App Discovery](#cloud-app-discovery)
 
 - [Connect Health](#connect-health)
 
-- [그룹 계정에 대한 자동 암호 롤오버](#automatic-password-rollover-for-group-accounts)
+- [Automatic password rollover for group accounts](#automatic-password-rollover-for-group-accounts)
 
-**Premium P2 기능**
+**Premium P2 Features**
 
-- [ID 보호](active-directory-identityprotection.md)
+- [Identity Protection](active-directory-identityprotection.md)
 
 - [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
-**Azure Active Directory 조인 – Windows 10 전용 관련 기능**
+**Azure Active Directory Join – Windows 10 only related features**
 
-- [장치를 Azure AD, 데스크톱 SSO, Azure AD용 Microsoft Passport, 관리자 BitLocker 복구에 조인](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
+- [Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
 
-- [MDM 자동 등록, 셀프 서비스 BitLocker 복구, Azure AD 조인을 통해 추가된 Windows 10 장치에 대한 추가 로컬 관리자](#mdm-auto-enrolment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join)
-
-
-## 일반 기능
-#### 디렉터리 개체
-
-**유형:** 일반 기능
-
-기본 사용 할당량은 개체 150,000개입니다. 개체는 디렉터리 서비스의 항목이며 고유하게 구별되는 이름으로 표시됩니다. 인증 목적으로 사용되는 사용자 항목을 개체의 예로 들 수 있습니다. 이 기본 할당량을 초과해야 하는 경우 고객 지원으로 문의하세요. Office 365, Windows Intune 또는 디렉터리 서비스에 대해 Azure Active Directory를 사용하는 기타 모든 Microsoft 유료 온라인 서비스에는 50만 개 개체 제한이 적용되지 않습니다.
+- [MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join](#mdm-auto-enrolment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join)
 
 
-**가용성:**
+## <a name="common-features"></a>Common Features
+#### <a name="directory-objects"></a>Directory Objects
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+**Type:** Common Features
+
+The default usage quota is 150,000 objects. An object is an entry in the directory service, represented by its unique distinguished name. An example of an object is a user entry used for authentication purposes. If you need to exceed this default quota, please contact support. The 500K object limit does not apply for Office 365, Microsoft Intune or any other Microsoft paid online service that relies on Azure Active Directory for directory services.
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| 최대 500,000개의 개체| 개체 제한 없음| 개체 제한 없음| Office 365 사용자 계정에 대한 개체 제한 없음|
+| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
 
 
 
-#### 사용자/그룹 관리(추가/업데이트/삭제)/ 사용자 기반 프로비전, 장치 등록
+#### <a name="user/group-management-(add/update/delete)/-user-based-provisioning,-device-registration"></a>User/Group Management (add/update/delete)/ User-based provisioning, Device  registration
 
-**유형:** 일반 기능
+**Type:** Common Features
 
-**가용성:**
+**Availability:**
 
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 
-**자세한 내용:**
+**More details:**
 
-- [Azure AD 디렉터리 관리](active-directory-administer.md)
-- [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md)
-
-
+- [Administer your Azure AD directory](active-directory-administer.md)
+- [Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
 
 
-#### SSO(Single Sign-On)
-
-**유형:** 일반 기능
 
 
-**가용성:**
+#### <a name="single-sign-on-(sso)"></a>Single Sign-On (SSO)
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+**Type:** Common Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| 사용자당 앱 10개 [1] | 사용자당 앱 10개 [1] | 제한 없음 [2] | 사용자당 앱 10개 [1]|
+| 10 apps per user (1) | 10 apps per user (1) | No Limit (2) | 10 apps per user (1)|
 
-1. Azure AD Free와 Azure AD Basic을 사용하면 SaaS 앱 액세스 권한이 할당된 최종 사용자가 액세스 패널에서 최대 10개의 앱을 보고 해당 앱에 대한 SSO 액세스 권한을 가질 수 있습니다. 관리자는 Free 및 Basic에서 SSO를 구성하고 원하는 수만큼 SaaS 앱에 대한 사용자 액세스 권한을 할당할 수 있지만 최종 사용자는 액세스 패널에서 한 번에 10개의 앱만 볼 수 있습니다.
+1. With Azure AD Free and Azure AD Basic, end users who have been assigned access to SaaS apps, can see up to 10 apps in their Access Panel and get SSO access to them. Admins can configure SSO and assign user access to as many SaaS apps as they want with Free and Basic however end users will only see 10 apps in their Access Panel at a time.
 
-2. 응용 프로그램 갤러리 메뉴에 제공되는 템플릿을 사용하여 SAML, SCIM 또는 양식 기반 인증을 지원하는 모든 응용 프로그램을 셀프 서비스로 통합합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)을 참조하세요.
+2. Self-service integration of any application supporting SAML, SCIM, or forms-based authentication by using templates provided in the application gallery menu. For more details, see [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md).
 
-**자세한 내용:**
+**More details:**
 
-- [Azure Active Directory(AD)와 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
+- [Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
 
 
 
-#### 클라우드 사용자를 위한 셀프 서비스 암호 변경
+#### <a name="self-service-password-change-for-cloud-users"></a>Self-Service Password Change for cloud users
 
-**유형:** 일반 기능
+**Type:** Common Features
 
-**가용성:**
+**Availability:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 
-**자세한 내용:**
+**More details:**
 
-- [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md)
-
-
+- [How to update your own password](active-directory-passwords-update-your-own-password.md)
 
 
-#### Connect(온-프레미스 디렉터리를 Azure Active Directory로 확장하는 동기화 엔진)
-
-**유형:** 일반 기능
 
 
-**가용성:**
+#### <a name="connect-(sync-engine-that-extends-on-premises-directories-to-azure-active-directory)"></a>Connect  (Sync engine that extends on-premises directories to Azure Active Directory)
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+**Type:** Common Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 
-**자세한 내용:**
+**More details:**
 
-- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-#### 보안/사용 보고서
-
-**유형:** 일반 기능
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 
-**가용성:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+#### <a name="security/usage-reports"></a>Security/Usage Reports
+
+**Type:** Common Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| 3 기본 보고서| 3 기본 보고서| 고급 보고서| 3 기본 보고서|
+| 3 Basic reports| 3 Basic reports| Advanced reports| 3 Basic reports|
 
-**자세한 내용:**
+**More details:**
 
-- [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
-
-
+- [View your access and usage reports](active-directory-view-access-usage-reports.md)
 
 
-## Premium 및 Basic 기능
-#### 그룹 기반 액세스 관리/프로비전
-
-**유형:** Basic 기능
 
 
-**가용성:**
+## <a name="premium-and-basic-features"></a>Premium and Basic Features
+#### <a name="group-based-access-management/provisioning"></a>Group-based access management/provisioning
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+**Type:** Basic Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | ![확인][12]| ![확인][12]| |
+|  | ![Check][12]| ![Check][12]|  |
 
-**자세한 내용:**
+**More details:**
 
-- [SaaS 응용 프로그램에 대한 액세스를 관리할 그룹 사용](active-directory-accessmanagement-group-saasapps.md)
-
-
-
-#### 클라우드 사용자를 위한 셀프 서비스 암호 재설정
-
-**유형:** Basic 기능
+- [Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md)
 
 
-**가용성:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+#### <a name="self-service-password-reset-for-cloud-users"></a>Self-Service Password Reset for cloud users
+
+**Type:** Basic Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | ![확인][12]| ![확인][12]| ![확인][12]|
+|  | ![Check][12]| ![Check][12]| ![Check][12]|
 
-**자세한 내용:**
+**More details:**
 
-- [사용자와 관리자에 대한 Azure AD 암호 재설정](active-directory-passwords.md)
-
-
-
-#### 회사 브랜딩(로그온 페이지/액세스 패널 사용자 지정)
-
-**유형:** Basic 기능
+- [Azure AD Password Reset for Users and Admins](active-directory-passwords.md)
 
 
-**가용성:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+#### <a name="company-branding-(logon-pages/access-panel-customization)"></a>Company Branding (Logon Pages/Access Panel customization)
+
+**Type:** Basic Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | ![확인][12]| ![확인][12]| ![확인][12]|
+|  | ![Check][12]| ![Check][12]| ![Check][12]|
 
-**자세한 내용:**
+**More details:**
 
-- [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
-
-
-
-#### 응용 프로그램 프록시
-
-**유형:** Basic 기능
+- [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 
 
-**가용성:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+#### <a name="application-proxy"></a>Application Proxy
+
+**Type:** Basic Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | ![확인][12]| ![확인][12]| |
+|  | ![Check][12]| ![Check][12]|  |
 
-**자세한 내용:**
+**More details:**
 
-- [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)
-
-
-
-#### SLA 99.9%
-
-**유형:** Basic 기능
+- [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
 
 
-**가용성:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+#### <a name="sla-99.9%"></a>SLA 99.9%
+
+**Type:** Basic Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | ![확인][12]| ![확인][12]| ![확인][12]|
+|  | ![Check][12]| ![Check][12]| ![Check][12]|
 
-**자세한 내용:**
+**More details:**
 
-- [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)
-
-
+- [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 
-## Premium 기능
-#### 셀프 서비스 그룹 및 앱 관리/셀프 서비스 응용 프로그램 추가/동적 그룹
-
-**유형:** Premium 기능
 
 
-**가용성:**
+## <a name="premium-features"></a>Premium Features
+#### <a name="self-service-group-and-app-management/self-service-application-additions/dynamic-groups"></a>Self-Service Group and app Management/Self-Service application additions/Dynamic Groups
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+**Type:** Premium Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
 
 
 
 
-#### 셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제
+#### <a name="self-service-password-reset/change/unlock-with-on-premises-write-back"></a>Self-Service Password Reset/Change/Unlock with on-premises write-back
 
-**유형:** Premium 기능
+**Type:** Premium Features
 
 
-**가용성:**
+**Availability:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
 
 
 
 
-#### Multi-Factor Authentication(클라우드 및 온-프레미스(MFA 서버))
+#### <a name="multi-factor-authentication-(cloud-and-on-premises-(mfa-server))"></a>Multi-Factor Authentication (Cloud and On-premises (MFA Server))
 
-**유형:** Premium 기능
+**Type:** Premium Features
 
 
-**가용성:**
+**Availability:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| Office 365 앱에 대한 클라우드로 제한|
+|  |  | ![Check][12]| Limited to cloud only for Office 365 Apps|
 
-**자세한 내용:**
+**More details:**
 
-- [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)
-
-
-
-#### MIM CAL + MIM 서버
-
-Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라이선스(모든 버전)와 함께 부여됩니다. Microsoft ID 관리자는 Windows Server OS에서 실행되므로 서버에서 라이선스가 부여된 유효한 Windows Server를 실행하는 한 Microsoft ID 관리자를 해당 서버에 설치하고 사용할 수 있습니다. Microsoft Identity Manager 서버에는 별도의 다른 라이선스가 필요하지 않습니다.
-
-**유형:** Premium 기능
+- [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-**가용성:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+#### <a name="mim-cal-+-mim-server"></a>MIM CAL + MIM Server
+
+Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Since Microsoft Identity Manager runs on Windows Server OS, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
+
+**Type:** Premium Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
 
 
 
 
-#### 클라우드 앱 검색
+#### <a name="cloud-app-discovery"></a>Cloud App Discovery
 
-**유형:** Premium 기능
+**Type:** Premium Features
 
 
-**가용성:**
+**Availability:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
-**자세한 내용:**
+**More details:**
 
-- [클라우드 앱 검색을 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기](active-directory-cloudappdiscovery-whatis.md)
-
-
-
-#### Azure AD Connect Health
-
-**유형:** Premium 기능
+- [Finding unmanaged cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
 
-**가용성:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+#### <a name="azure-ad-connect-health"></a>Azure AD Connect Health
+
+**Type:** Premium Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
-**자세한 내용:**
+**More details:**
 
-- [온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.](active-directory-aadconnect-health.md)
-
-
-
-#### 그룹 계정에 대한 자동 암호 롤오버
-
-**유형:** Premium 기능
+- [Monitor your on-premises identity infrastructure and synchronization services in the cloud](active-directory-aadconnect-health.md)
 
 
-**가용성:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+#### <a name="automatic-password-rollover-for-group-accounts"></a>Automatic password rollover for group accounts
+
+**Type:** Premium Features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
 
-#### ID 보호
+#### <a name="identity-protection"></a>Identity Protection
 
-**유형:** Premium 기능
+**Type:** Premium Features
 
-| Free Edition| Basic Edition| Premium P2 Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium P2 Edition | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
 
-#### Privileged Identity Management
+#### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-**유형:** Premium 기능
+**Type:** Premium Features
 
-| Free Edition| Basic Edition| Premium P2 Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium P2 Edition | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
 
-## Azure Active Directory 조인 – Windows 10 전용 관련 기능
-#### 장치를 Azure AD, 데스크톱 SSO, Azure AD용 Microsoft Passport, 관리자 BitLocker 복구에 조인
+## <a name="azure-active-directory-join-–-windows-10-only-related-features"></a>Azure Active Directory Join – Windows 10 only  related features
+#### <a name="join-a-device-to-azure-ad,-desktop-sso,-microsoft-passport-for-azure-ad,-administrator-bitlocker-recovery"></a>Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery
 
-**유형:** Azure Active Directory 조인 – Windows 10 전용 관련 기능
+**Type:** Azure Active Directory Join – Windows 10 only  related features
 
 
-**가용성:**
+**Availability:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 
 
 
 
-#### MDM 자동 등록, 셀프 서비스 BitLocker 복구, Azure AD 조인을 통해 추가된 Windows 10 장치에 대한 추가 로컬 관리자
+#### <a name="mdm-auto-enrollment,-self-service-bitlocker-recovery,-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a>MDM auto-enrollment,  Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join
 
-**유형:** Azure Active Directory 조인 – Windows 10 전용 관련 기능
+**Type:** Azure Active Directory Join – Windows 10 only  related features
 
 
-**가용성:**
+**Availability:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+|  |  | ![Check][12]|  |
 
 
-#### 엔터프라이즈 상태 로밍
+#### <a name="enterprise-state-roaming"></a>Enterprise State Roaming
 
-**유형:** Azure Active Directory 조인 – Windows 10 전용 관련 기능
+**Type:** Azure Active Directory Join – Windows 10 only  related features
 
 
-**가용성:**
+**Availability:**
 
-| Free Edition| Basic Edition| Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
+| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| | | ![확인][12]| |
+| | | ![Check][12]| |
 
-**자세한 내용:**
+**More details:**
 
-- [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
-
-
-## Azure AD 미리 보기 기능
-Azure AD는 Free, Basic 및 Premium(P1 및 P2) 버전의 일반 기능 외에도 미리 보기 기능 컬렉션을 제공합니다. 미리 보기 기능을 사용하여 조만간 추가될 새 기능을 미리 경험해 보고 이러한 기능이 환경 개선에 도움이 될지 알아볼 수 있습니다.
-
-**제공되는 미리 보기 기능:**
-
-- [B2B 공동 작업](active-directory-b2b-collaboration-overview.md)
-- [관리 장치](active-directory-administrative-units-management.md)
-- [HR 응용 프로그램 통합](active-directory-saas-workday-inbound-tutorial.md)
-- [iOS에 대한 인증서 기반 인증](active-directory-certificate-based-authentication-ios.md)
-- [Android에 대한 인증서 기반 인증](active-directory-certificate-based-authentication-android.md)
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
+## <a name="azure-ad-preview-features"></a>Azure AD preview features
+In addition to the generally available features of the Free, Basic, and Premium (P1 and P2) editions, Azure AD also provides you with a collection of preview features. You can use the preview features to get an impression of what is coming in the near future and to determine whether these features can help improving your environment.
+
+**Available preview features:**
+
+- [B2B collaboration](active-directory-b2b-collaboration-overview.md)
+- [Administrative Units](active-directory-administrative-units-management.md)
+- [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
+- [Certificate-based authentication on iOS](active-directory-certificate-based-authentication-ios.md)
+- [Certificate-based authentication on Android](active-directory-certificate-based-authentication-android.md)
 
 
 
 
-## 다음 단계
 
-- [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
-- [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
-- [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
+
+## <a name="what's-next"></a>What's next
+
+- [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
+- [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
+- [View your access and usage reports](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

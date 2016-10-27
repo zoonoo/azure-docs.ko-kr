@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭에서 서비스에 대한 통신 보호 도움말 | Microsoft Azure"
-   description="Azure 서비스 패브릭 클러스터에서 실행되는 Reliable Services에 대한 통신을 보호하는 방법을 간략하게 설명합니다."
+   pageTitle="Help secure communication for services in Service Fabric | Microsoft Azure"
+   description="Overview of how to help secure communication for reliable services that are running in an Azure Service Fabric cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="suchiagicha"
@@ -16,15 +16,16 @@
    ms.date="07/06/2016"
    ms.author="suchiagicha"/>
 
-# Azure 서비스 패브릭에서 서비스에 대한 통신 보호 도움말
 
-통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 응용 프로그램 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 이 문서에서는 서비스 원격 기능 및 WCF(Windows Communication Foundation) 통신 스택을 사용하는 경우 보안을 개선하는 방법에 대해 설명합니다.
+# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Help secure communication for services in Azure Service Fabric
 
-## 서비스 원격 기능을 사용하는 경우 서비스 보호 도움말
+Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article will talk about how to improve security when you're using service remoting and the Windows Communication Foundation (WCF) communication stack.
 
-Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설명하는 기존 [예제](service-fabric-reliable-services-communication-remoting.md)를 사용합니다. 서비스 원격 기능을 사용하는 경우 서비스를 보호하려면 다음 단계를 따르세요.
+## <a name="help-secure-a-service-when-you're-using-service-remoting"></a>Help secure a service when you're using service remoting
 
-1. 서비스의 원격 프로시저 호출에 사용할 수 있는 메서드를 정의하는 인터페이스 `IHelloWorldStateful`을 만듭니다. 서비스는 `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` 네임스페이스에 선언되는 `FabricTransportServiceRemotingListener`를 사용합니다. 이것은 원격 호출 기능을 제공하는 `ICommunicationListener` 구현입니다.
+We'll be using an existing [example](service-fabric-reliable-services-communication-remoting.md) that explains how to set up remoting for reliable services. To help secure a service when you're using service remoting, follow these steps:
+
+1. Create an interface, `IHelloWorldStateful`, that defines the methods that will be available for a remote procedure call on your service. Your service will use `FabricTransportServiceRemotingListener`, which is declared in the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -48,11 +49,11 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
     }
     ```
 
-2. 수신기 설정 및 보안 자격 증명을 추가합니다.
+2. Add listener settings and security credentials.
 
-    서비스 통신을 보호하는 데 사용할 인증서는 클러스터의 모든 노드에 설치해야 합니다. 두 가지 방법으로 수신기 설정 및 보안 자격 증명을 제공할 수 있습니다.
+    Make sure that the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. There are two ways that you can provide listener settings and security credentials:
 
-    1. 서비스 코드에서 직접 제공:
+    1. Provide them directly in the service code:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -84,9 +85,9 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
             return x509Credentials;
         }
         ```
-    2. [config 패키지](service-fabric-application-model.md)를 사용하여 제공:
+    2. Provide them by using a [config package](service-fabric-application-model.md):
 
-        settings.xml 파일에 `TransportSettings` 섹션을 추가합니다.
+        Add a `TransportSettings` section in the settings.xml file.
 
         ```xml
         <!--Section name should always end with "TransportSettings".-->
@@ -103,7 +104,7 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
         </Section>
         ```
 
-        이 경우 `CreateServiceReplicaListeners` 메서드는 다음과 같습니다.
+        In this case, the `CreateServiceReplicaListeners` method will look like this:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -117,7 +118,7 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
         }
         ```
 
-         settings.xml 파일에 접두사 없이 `TransportSettings` 섹션을 추가하면 `FabricTransportListenerSettings`는 기본적으로 이 섹션의 모든 설정을 로드합니다.
+         If you add a `TransportSettings` section in the settings.xml file without any prefix, `FabricTransportListenerSettings` will load all the settings from this section by default.
 
          ```xml
          <!--"TransportSettings" section without any prefix.-->
@@ -125,7 +126,7 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
              ...
          </Section>
          ```
-         이 경우 `CreateServiceReplicaListeners` 메서드는 다음과 같습니다.
+         In this case, the `CreateServiceReplicaListeners` method will look like this:
 
          ```csharp
          protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -139,7 +140,7 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
          }
          ```
 
-3. `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` 클래스를 사용하여 서비스 프록시를 만드는 대신 원격 스택을 사용하여 보안 서비스에서 메서드를 호출하는 경우 `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`를 사용합니다. `SecurityCredentials`를 포함하는 `FabricTransportSettings`를 전달합니다.
+3. When you call methods on a secured service by using the remoting stack, instead of using the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class to create a service proxy, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Pass in `FabricTransportSettings`, which contains `SecurityCredentials`.
 
     ```csharp
 
@@ -168,7 +169,7 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
 
     ```
 
-    클라이언트 코드를 서비스의 일부로 실행하는 경우 settings.xml 파일에서 `FabricTransportSettings`를 로드할 수 있습니다. 위에 나와 있는 서비스 코드와 비슷한 TransportSettings 섹션을 만듭니다. 클라이언트 코드를 다음과 같이 변경합니다.
+    If the client code is running as part of a service, you can load `FabricTransportSettings` from the settings.xml file. Create a TransportSettings section that is similar to the service code, as shown earlier. Make the following changes to the client code:
 
     ```csharp
 
@@ -182,11 +183,11 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
 
     ```
 
-    클라이언트를 서비스의 일부로 실행하지 않는 경우에는 client\_name.exe와 같은 위치에 client\_name.settings.xml 파일을 만들 수 있습니다. 그런 다음 해당 파일에서 TransportSettings 섹션을 만듭니다.
+    If the client is not running as part of a service, you can create a client_name.settings.xml file in the same location where the client_name.exe is. Then create a TransportSettings section in that file.
 
-    서비스와 마찬가지로 클라이언트 settings.xml/client\_name.settings.xml의 경우에도 접두사 없이 `TransportSettings` 섹션을 추가하면 `FabricTransportSettings`는 기본적으로 이 섹션의 모든 설정을 로드합니다.
+    Similar to the service, if you add a `TransportSettings` section without any prefix in client settings.xml/client_name.settings.xml, `FabricTransportSettings` will load all the settings from this section by default.
 
-    그러면 앞의 코드를 더 간략하게 작성할 수 있습니다.
+    In that case, the earlier code is even further simplified:  
 
     ```csharp
 
@@ -197,11 +198,11 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
 
     ```
 
-## WCF 기반 통신 스택을 사용하는 경우 서비스 보호 방법
+## <a name="help-secure-a-service-when-you're-using-a-wcf-based-communication-stack"></a>Help secure a service when you're using a WCF-based communication stack
 
-Reliable Services에 대한 WCF 기반 통신 스택을 설정하는 방법을 설명하는 기존 [예제](service-fabric-reliable-services-communication-wcf.md)를 사용합니다. WCF 기반 통신 스택을 사용하는 경우 서비스를 보호하려면 다음 단계를 수행하세요.
+We'll be using an existing [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for reliable services. To help secure a service when you're using a WCF-based communication stack, follow these steps:
 
-1. 서비스의 경우 만든 WCF 통신 수신기(`WcfCommunicationListener`)를 보호해야 합니다. 이 작업을 수행하려면 `CreateServiceReplicaListeners` 메서드를 수정합니다.
+1. For the service, you need to help secure the WCF communication listener (`WcfCommunicationListener`) that you create. To do this, modify the `CreateServiceReplicaListeners` method.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -239,7 +240,7 @@ Reliable Services에 대한 WCF 기반 통신 스택을 설정하는 방법을 �
     }
     ```
 
-2. 클라이언트에서는 이전 [예제](service-fabric-reliable-services-communication-wcf.md)에서 만든 `WcfCommunicationClient` 클래스가 변경되지 않고 그대로 유지됩니다. 그러나 `WcfCommunicationClientFactory`의 `CreateClientAsync` 메서드를 재정의해야 합니다.
+2. In the client, the `WcfCommunicationClient` class that was created in the previous [example](service-fabric-reliable-services-communication-wcf.md) remains unchanged. But you need to override the `CreateClientAsync` method of `WcfCommunicationClientFactory`:
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -289,7 +290,7 @@ Reliable Services에 대한 WCF 기반 통신 스택을 설정하는 방법을 �
     }
     ```
 
-    `SecureWcfCommunicationClientFactory`를 사용하여 WCF 통신 클라이언트(`WcfCommunicationClient`)를 만듭니다. 클라이언트를 사용하여 서비스 메서드를 호출합니다.
+    Use `SecureWcfCommunicationClientFactory` to create a WCF communication client (`WcfCommunicationClient`). Use the client to invoke service methods.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
@@ -305,8 +306,12 @@ Reliable Services에 대한 WCF 기반 통신 스택을 설정하는 방법을 �
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-* [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
+* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

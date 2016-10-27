@@ -1,11 +1,14 @@
-## 시나리오
+## <a name="scenario"></a>Scenario
 
-이 문서에서는 VM(가상 컴퓨터)에 할당된 고정 공용 IP 주소를 사용하는 배포에 대해 자세히 설명합니다. 이 시나리오에는 고유의 고정 공용 IP 주소를 사용하는 단일 VM이 있습니다. VM은 **프론트 엔드**라는 서브넷의 일부이며 또한 해당 서브넷에 고정 개인 IP 주소(**192.168.1.101**)도 가지고 있습니다.
+This document will walk through a deployment that uses a static public IP address allocated to a virtual machine (VM). In this scenario, you have a single VM with its own static public IP address. The VM is part of a subnet named **FrontEnd** and also has a static private IP address (**192.168.1.101**) in that subnet.
 
-SSL 인증서가 IP 주소에 연결되는 SSL 연결이 필요한 웹 서버에 대해 고정 IP 주소가 필요할 수 있습니다.
+You may need a static IP address for web servers that require SSL connections in which the SSL certificate is linked to an IP address. 
 
-![이미지 설명](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
+![IMAGE DESCRIPTION](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
 
-위 그림과 같은 환경을 배포하려면 아래 단계를 따르면 됩니다.
+You can follow the steps below to deploy the environment shown in the figure above.
 
-<!---HONumber=AcomDC_0114_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

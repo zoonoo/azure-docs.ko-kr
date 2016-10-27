@@ -1,6 +1,6 @@
 <properties
-   pageTitle="클라우드 서비스에 대한 일정한 가상 IP 주소를 유지하는 방법 | Microsoft Azure"
-   description="Azure 클라우드 서비스의 가상 IP 주소(VIP)가 변경되지 않도록 하는 방법에 대해 알아봅니다."
+   pageTitle="How to retain a constant virtual IP address for a cloud service | Microsoft Azure"
+   description="Learn how to ensure that the virtual IP address (VIP) of your Azure cloud service doesn't change."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,34 +15,39 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# 클라우드 서비스에 대한 일정한 가상 IP 주소를 유지하는 방법
 
-Azure에서 호스팅되는 클라우드 서비스를 업데이트하는 경우 서비스의 가상 IP 주소(VIP)가 변경되지 않는지 확인해야 할 수 있습니다. 많은 도메인 관리 서비스에서 도메인 이름을 등록하는 데 도메인 이름 시스템(DNS)을 사용합니다. DNS는 VIP가 동일하게 유지되는 경우에만 작동합니다. Azure 도구에서 **게시 마법사**를 사용하여 클라우드 서비스를 업데이트할 때 VIP가 변경되지 않는지 확인할 수 있습니다. 클라우드 서비스에 대한 DNS 도메인 관리를 사용하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](./cloud-services/cloud-services-custom-domain-name.md)을 참조하세요.
+# <a name="how-to-retain-a-constant-virtual-ip-address-for-a-cloud-service"></a>How to retain a constant virtual IP address for a cloud service
 
-## VIP를 변경하지 않고 클라우드 서비스 게시
+When you update a cloud service that's hosted in Azure, you might need to ensure that the virtual IP address (VIP) of the service doesn't change. Many domain management services use the Domain Name System (DNS) for registering domain names. DNS works only if the VIP remains the same. You can use the **Publish Wizard** in Azure Tools to ensure that the VIP of your cloud service doesn’t change when you update it. For more information about how to use DNS domain management for cloud services, see [Configuring a custom domain name for an Azure cloud service](./cloud-services/cloud-services-custom-domain-name.md).
 
-클라우드 서비스의 VIP는 프로덕션 환경과 같은 특정 환경에서 Azure에 처음 배포할 때 할당됩니다. VIP는 배포를 명시적으로 삭제하거나 배포 업데이트 프로세스에 의해 암시적으로 삭제하지 않는 한 변경되지 않습니다. VIP를 유지하려면 배포를 삭제해서는 안되며 Visual Studio에서 배포를 자동으로 삭제하지 않는지도 확인해야 합니다. 여러 배포 옵션을 지원하는 **게시 마법사**에서 배포 설정을 지정하여 동작을 제어할 수 있습니다. 새로 배포 또는 업데이트 배포를 증분 또는 동시에 진행하도록 지정할 수 있으며 두 종류의 업데이트 배포 모두 VIP를 유지합니다. 이러한 다양한 유형의 배포에 대한 정의는 [Azure 응용 프로그램 게시 마법사](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요. 또한 오류가 발생하는 경우 클라우드 서비스의 이전 배포를 삭제할지 제어할 수 있습니다. 옵션이 바르게 설정되지 않은 경우 VIP가 예기치 않게 변경될 수 있습니다.
+## <a name="publishing-a-cloud-service-without-changing-its-vip"></a>Publishing a cloud service without changing its VIP
 
-### VIP를 변경하지 않고 클라우드 서비스를 업데이트하려면
+The VIP of a cloud service is allocated when you first deploy it to Azure in a particular environment, such as the Production environment. The VIP doesn’t change unless you delete the deployment explicitly or it is implicitly deleted by the deployment update process. To retain the VIP, you must not delete your deployment, and you must also make sure that Visual Studio doesn’t delete your deployment automatically. You can control the behavior by specifying deployment settings in the **Publish Wizard**, which supports several deployment options. You can specify a fresh deployment or an update deployment, which can be incremental or simultaneous, and both kinds of update deployments retain the VIP. For definitions of these different types of deployment, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).  In addition, you can control whether the previous deployment of a cloud service is deleted if an error occurs. The VIP might unexpectedly change if you don't set that option correctly.
 
-1. 클라우드 서비스를 한 번 이상 배포한 후 Azure 프로젝트의 노드에 대한 바로 가기 메뉴를 열고 **게시**를 선택합니다. **Azure 응용 프로그램 게시** 마법사가 나타납니다.
+### <a name="to-update-a-cloud-service-without-changing-its-vip"></a>To update a cloud service without changing its VIP
 
-1. 구독 목록에서 배포할 구독을 선택한 후 **다음** 단추를 선택합니다. 마법사의 **설정** 페이지가 나타납니다.
+1. After you deploy your cloud service at least once, open the shortcut menu for the node for your Azure project, and then choose **Publish**. The **Publish Azure Application** wizard appears.
 
-1. **일반 설정** 탭에서 배포 중인 클라우드 서비스 이름을 확인하고 **환경**, **빌드 구성** 및 **서비스 구성**이 모두 올바른지 확인합니다.
+1. In the list of subscriptions, choose the one to which you want to deploy, and then choose the **Next** button. The **Settings** page of the wizard appears.
 
-1. **고급 설정** 탭에서 저장소 계정과 배포 레이블이 올바른지 확인하고 **실패 시 배포 삭제** 확인란이 선택 취소되었고 **배포 업데이트** 확인란이 선택되었는지 확인합니다. **배포 업데이트** 확인란을 선택하면 응용 프로그램을 다시 게시할 때 배포가 삭제되지 않고 VIP가 손실되지 않았는지 확인할 수 있습니다. **실패 시 배포 삭제** 확인란을 선택 취소하면 배포 중에 오류가 발생할 경우 VIP가 손실되지 않았는지 확인할 수 있습니다.
+1. On the **Common Settings** tab, verify that the name of the cloud service to which you’re deploying, the **Environment**, the **Build Configuration**, and the **Service Configuration** are all correct.
 
-1. 역할이 업데이트되는 방식을 추가로 지정하려면 **배포 업데이트** 상자 옆에 있는 **설정** 링크를 선택한 후 **배포 업데이트** 설정 대화 상자에서 증분 업데이트 또는 동시 업데이트 옵션을 선택합니다. 증분 업데이트를 선택하면 각 인스턴스가 차례로 업데이트되어 해당 응용 프로그램을 항상 사용할 수 있습니다. 동시 업데이트를 선택하면 모든 인스턴스가 동시에 업데이트됩니다. 동시 업데이트는 신속하게 진행되지만 업데이트 과정 중에 서비스를 사용할 수 없습니다.
+1. On the **Advanced Settings** tab, verify that the storage account and the deployment label are correct, that the **Delete deployment on failure** check box is cleared, and that the **Deployment** update check box is selected. By selecting the **Deployment** update check box, you ensure that your deployment won't be deleted and your VIP won't be lost when you republish your application. By clearing the **Delete deployment on failure check box**, you ensure that your VIP won't be lost if an error occurs during deployment.
 
-1. 현재 설정에 만족하는 경우 **다음** 단추를 선택합니다.
+1. To further specify how you want the roles to be updated, choose the  **Settings** link next to the **Deployment update** box, and then choose either the incremental update or simultaneous update option in the **Deployment update** settings dialog box. If you choose incremental update, each instance is updated one after another, so that the application is always available. If you choose simultaneous update, all instances are updated at the same time. Simultaneous updating is faster, but your service might not be available during the update process.
 
-1. 마법사의 **요약** 페이지에서 설정을 확인한 후 **게시** 단추를 선택합니다.
+1. When you’re satisfied with your settings, choose the **Next** button.
 
-  >[AZURE.WARNING] 배포에 실패하는 경우 실패한 이유를 해결하고 즉시 재배포하여 클라우드 서비스가 손상된 상태가 있지 않도록 해야 합니다.
+1. On the **Summary** page of the wizard, verify your settings, and then choose the **Publish** button.
 
-## 다음 단계
+  >[AZURE.WARNING] If the deployment fails, you should address why it failed and redeploy promptly, to avoid leaving your cloud service in a corrupted state.
 
-Visual Studio에서 Azure로 게시하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램 마법사 게시](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요.
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+To learn about publishing to Azure from Visual Studio, see [Publish Azure application wizard](vs-azure-tools-publish-azure-application-wizard.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

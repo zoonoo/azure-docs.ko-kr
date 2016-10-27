@@ -1,10 +1,10 @@
 <properties
 pageTitle="RSS | Microsoft Azure"
-description="Azure 앱 서비스로 논리 앱을 만듭니다. RSS 커넥터를 사용하여 사용자가 피드 항목을 게시 및 검색할 수 있습니다. 또한 새 항목이 피드에 게시된 경우 사용자가 작업을 트리거할 수 있습니다."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,112 +17,116 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# RSS 커넥터 시작
-RSS는 블로그 항목 및 뉴스 헤드라인처럼 자주 업데이트되는 콘텐츠를 게시하는 데 사용되는 인기 있는 웹 배포 형식입니다. 많은 콘텐츠 게시자는 사용자가 구독할 수 있는 RSS 피드를 제공합니다. RSS 커넥터를 사용하여 피드 정보를 검색하고 RSS 피드에 새 항목이 게시될 때 흐름을 트리거합니다.
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+# <a name="get-started-with-the-rss-connector"></a>Get started with the RSS connector
+RSS is a popular web syndication format used to publish frequently updated content – like blog entries and news headlines.  Many content publishers provide an RSS feed to allow users to subscribe to it.  Use the RSS connector to retrieve feed information and trigger flows when new items are published in an RSS feed.
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## 트리거 및 작업
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- RSS 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
+The RSS connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### RSS 동작
-다음 작업을 수행할 수 있습니다.
+ The RSS connector has the following action(s) and/or trigger(s) available:
 
-|작업|설명|
+### <a name="rss-actions"></a>RSS actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|[ListFeedItems](connectors-create-api-rss.md#listfeeditems)|모든 RSS 피드 항목을 가져옵니다.|
-### RSS 트리거
-다음 이벤트를 수신할 수 있습니다.
+|[ListFeedItems](connectors-create-api-rss.md#listfeeditems)|Get all RSS feed items.|
+### <a name="rss-triggers"></a>RSS triggers
+You can listen for these event(s):
 
-|트리거 | 설명|
+|Trigger | Description|
 |--- | ---|
-|새 피드 항목을 게시하는 경우|새 피드가 게시될 경우 워크플로 트리거|
+|When a new feed item published|Triggers a workflow when a new feed is published|
 
 
-## RSS에 대한 연결 만들기
+## <a name="create-a-connection-to-rss"></a>Create a connection to RSS
 
->[AZURE.INCLUDE [RSS에 대한 연결을 만드는 단계](../../includes/connectors-create-api-rss.md)]
+>[AZURE.INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
 
->[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-## RSS에 대한 참조
-적용 버전: 1.0
+## <a name="reference-for-rss"></a>Reference for RSS
+Applies to version: 1.0
 
-## OnNewFeed
-새 피드 항목을 게시하는 경우: 새 피드가 게시될 경우 워크플로 트리거
+## <a name="onnewfeed"></a>OnNewFeed
+When a new feed item published: Triggers a workflow when a new feed is published 
 
-```GET: /OnNewFeed```
+```GET: /OnNewFeed``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|feedUrl|string|yes|쿼리|없음|피드 URL|
+|feedUrl|string|yes|query|none|Feed url|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|202|수락됨|
-|400|잘못된 요청|
-|401|권한 없음|
-|403|사용할 수 없음|
-|404|찾을 수 없음|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## ListFeedItems
-모든 RSS 피드 항목 나열: 모든 RSS 피드 항목을 가져옵니다.
+## <a name="listfeeditems"></a>ListFeedItems
+List all RSS feed items.: Get all RSS feed items. 
 
-```GET: /ListFeedItems```
+```GET: /ListFeedItems``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|feedUrl|string|yes|쿼리|없음|피드 URL|
+|feedUrl|string|yes|query|none|Feed url|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|202|수락됨|
-|400|잘못된 요청|
-|401|권한 없음|
-|403|사용할 수 없음|
-|404|찾을 수 없음|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## 개체 정의 
+## <a name="object-definitions"></a>Object definitions 
 
-### TriggerBatchResponse[FeedItem]
+### <a name="triggerbatchresponse[feeditem]"></a>TriggerBatchResponse[FeedItem]
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|아니요 |
+|value|array|No |
 
 
 
-### FeedItem
+### <a name="feeditem"></a>FeedItem
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|string|예 |
-|title|string|예 |
-|콘텐츠|string|예 |
-|links|array|아니요 |
-|updatedOn|string|아니요 |
+|id|string|Yes |
+|title|string|Yes |
+|content|string|Yes |
+|links|array|No |
+|updatedOn|string|No |
 
 
-## 다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

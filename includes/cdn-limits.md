@@ -1,10 +1,13 @@
 
-리소스 | 소프트 제한
+Resource | Soft limit
 ---------|-----------
-CDN 프로필 | 8
-프로필당 CDN 끝점 | 10
-끝점당 사용자 지정 도메인 | 10 
+CDN profiles | 8
+CDN endpoints per profile | 10
+Custom domains per endpoint | 10 
 
-지원 티켓을 열어 구독의 소프트 한도에 대한 업데이트를 요청합니다.
+Request an update to your subscription's soft limits by opening a support ticket.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

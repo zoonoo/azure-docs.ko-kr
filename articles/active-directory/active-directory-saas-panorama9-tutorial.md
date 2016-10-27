@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Panorama9와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Panorama9를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with Panorama9 | Microsoft Azure" 
+    description="Learn how to use Panorama9 with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,142 +11,150 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#자습서: Panorama9와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-panorama9"></a>Tutorial: Azure Active Directory integration with Panorama9
   
-이 자습서는 Azure 및 Panorama9의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and Panorama9.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Panorama9 Single Sign-On이 설정된 구독
+-   A valid Azure subscription
+-   A Panorama9 single sign-on enabled subscription
   
-이 자습서를 완료한 후 Panorama9에 할당한 Azure AD 사용자가 Panorama9 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to Panorama9 will be able to single sign into the application at your Panorama9 company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Panorama9에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Panorama9
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-panorama9-tutorial/IC790016.png "시나리오")
-##Panorama9에 응용 프로그램 통합 사용
+![Scenario](./media/active-directory-saas-panorama9-tutorial/IC790016.png "Scenario")
+##<a name="enabling-the-application-integration-for-panorama9"></a>Enabling the application integration for Panorama9
   
-이 섹션은 Panorama9에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for Panorama9.
 
-###Panorama9에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-panorama9,-perform-the-following-steps:"></a>To enable the application integration for Panorama9, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-panorama9-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-panorama9-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-panorama9-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-panorama9-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-panorama9-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-panorama9-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-panorama9-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **Panorama9**를 입력합니다.
+6.  In the **search box**, type **Panorama9**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-panorama9-tutorial/IC790017.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-panorama9-tutorial/IC790017.png "Application Gallery")
 
-7.  결과 창에서 **Panorama9**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Panorama9**, and then click **Complete** to add the application.
 
     ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Panorama9에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. Panorama9에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+The objective of this section is to outline how to enable users to authenticate to Panorama9 with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Panorama9 requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Panorama9** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Panorama9** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configure Single Sign-On")
 
-2.  **Panorama9에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to Panorama9** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Configure Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **Panorama9 로그온 URL** 텍스트 상자에서 사용자가 사용한 URL을 입력하여 Panorama9에 로그인하고(예: “*https://dashboard.panorama9.com/saml/access/3262*") **다음**을 클릭합니다.
+3.  On the **Configure App URL** page, in the **Panorama9 Sign On URL** textbox, type your URL used by your users to sign in to Panorama9 (e.g.: “*https://dashboard.panorama9.com/saml/access/3262*"), and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-panorama9-tutorial/IC790021.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configure App URL")
 
-4.  **Panorama9에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 저장합니다.
+4.  On the **Configure single sign-on at Panorama9** page, to download your certificate, click **Download certificate**, and then save it locally on your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-panorama9-tutorial/IC790022.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790022.png "Configure Single Sign-On")
 
-5.  다른 웹 브라우저 창에서 Panorama9 회사 사이트에 관리자로 로그인합니다.
+5.  In a different web browser window, log into your Panorama9 company site as an administrator.
 
-6.  위쪽의 도구 모음에서 **관리**를 클릭한 다음 **확장**을 클릭합니다.
+6.  In the toolbar on the top, click **Manage**, and then click **Extensions**.
 
-    ![확장](./media/active-directory-saas-panorama9-tutorial/IC790023.png "확장")
+    ![Extensions](./media/active-directory-saas-panorama9-tutorial/IC790023.png "Extensions")
 
-7.  **확장** 대화 상자에서 **Single Sign-On**을 클릭합니다.
+7.  On the **Extensions** dialog, click **Single Sign-On**.
 
-    ![SSO(Single sign-on)](./media/active-directory-saas-panorama9-tutorial/IC790024.png "SSO(Single sign-on)")
+    ![Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790024.png "Single Sign-On")
 
-8.  **설정** 섹션에서 다음 단계를 수행합니다.
+8.  In the **Settings** section, perform the following steps:
 
-    ![설정](./media/active-directory-saas-panorama9-tutorial/IC790025.png "설정")
+    ![Settings](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Settings")
 
-    1.  Azure 클래식 포털의 **Panorama9에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
-    2.  내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여 넣습니다.
+    1.  In the Azure classic portal, on the **Configure single sign-on at Panorama9** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider URL** textbox.
+    2.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate fingerprint** textbox.  
 
-        >[AZURE.TIP]자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+        >[AZURE.TIP]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    3.  **Save**를 클릭합니다.
+    3.  Click **Save**.
 
-9.  Azure AD 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+9.  On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Single Sign-On 구성")
-##사용자 프로비전 구성
+    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 Panorama9에 로그인할 수 있도록 하려면 Panorama9로 프로비전되어야 합니다. Panorama9의 경우 프로비전은 수동 작업입니다.
+In order to enable Azure AD users to log into Panorama9, they must be provisioned into Panorama9.  
+In the case of Panorama9, provisioning is a manual task.
 
-###사용자 프로비전을 구성하려면
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  **Panorama9** 회사 사이트에 관리자 권한으로 로그인합니다.
+1.  Log in to your **Panorama9** company site as an administrator.
 
-2.  위쪽 메뉴에서 **관리**를 클릭한 다음 **사용자**를 클릭합니다.
+2.  In the menu on the top, click **Manage**, and then click **Users**.
 
-    ![사용자](./media/active-directory-saas-panorama9-tutorial/IC790027.png "사용자")
+    ![Users](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Users")
 
-3.  **+**를 클릭합니다.
+3.  Click **+**.
 
-4.  사용자 데이터 섹션에서 다음 단계를 수행합니다.
+4.  In the User data section, perform the following steps:
 
-    ![사용자](./media/active-directory-saas-panorama9-tutorial/IC790028.png "사용자")
+    ![Users](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Users")
 
-    1.  **이메일** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 사용자의 이메일 주소를 입력합니다.
-    2.  **Save**를 클릭합니다.
+    1.  In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
+    2.  Click **Save**.
 
->[AZURE.NOTE]다른 Panorama9 사용자 계정 생성 도구 또는 Panorama9가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE]You can use any other Panorama9 user account creation tools or APIs provided by Panorama9 to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Panorama9에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-panorama9,-perform-the-following-steps:"></a>To assign users to Panorama9, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Panorama9** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Panorama9** application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-panorama9-tutorial/IC790029.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-panorama9-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

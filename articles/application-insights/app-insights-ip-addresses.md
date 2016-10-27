@@ -1,56 +1,57 @@
 <properties 
-	pageTitle="Application Insights에 사용된 IP 주소 | Microsoft Azure"
-	description="Application Insights에 필요한 서버 방화벽 예외" 
-	services="application-insights"
+    pageTitle="IP addresses used by Application Insights | Microsoft Azure"
+    description="Server firewall exceptions required by Application Insights" 
+    services="application-insights"
     documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2016" 
+    ms.author="awills"/>
  
-# Application Insights에 사용된 IP 주소
 
-[Visual Studio Application Insights](app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
+# <a name="ip-addresses-used-by-application-insights"></a>IP addresses used by Application Insights
 
-> [AZURE.NOTE] 이러한 주소는 정적이지만 경우에 따라 변경해야 할 수 있습니다.
+The [Visual Studio Application Insights](app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+
+> [AZURE.NOTE] Although these addresses are static, it's possible that we will need to change them from time to time.
 
 
-## 발신 포트
+## <a name="outgoing-ports"></a>Outgoing ports
 
-Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 보낼 수 있도록 서버 방화벽에서 일부 나가는 포트를 열어야 합니다.
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
 
-|목적|URL|IP|포트
+|Purpose|URL|IP|Ports
 |---|---|---|---
-| 원격 분석|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40\.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|443
-|LiveStream|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |변수|443
+| Telemetry|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|443
+|LiveStream|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable|443
 
 
 
-+ 상태 모니터 구성 - 변경하는 경우에만 필요합니다.
- -	`management.core.windows.net:443`
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ 상태 모니터 설치:
- +	`packages.nuget.org:443`
++ Status Monitor Configuration - needed only when making changes:
+ -  `management.core.windows.net:443` 
+ -  `management.azure.com:443`
+ -  `login.windows.net:443`
+ -  `login.microsoftonline.com:443`
+ -  `secure.aadcdn.microsoftonline-p.com:443`
+ -  `auth.gfx.ms:443`
+ -  `login.live.com:443`
++ Status Monitor Installation:
+ +  `packages.nuget.org:443`
 
-이 목록은 수시로 변경될 수 있습니다.
+This list may change from time to time.
 
-## 가용성 테스트
+## <a name="availability-tests"></a>Availability tests
 
-[가용성 웹 테스트](app-insights-monitor-web-app-availability.md)가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
+This is the list of addresses from which [availability web tests](app-insights-monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
 
-이 주소에서 들어오는 트래픽에 대한 포트 80(http) 및 443(https)을 엽니다.
+Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 
 ```
 
@@ -104,6 +105,8 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 207.46.98.159
 207.46.98.160
 207.46.98.162
+207.46.98.169
+207.46.98.170
 207.46.98.171
 207.46.98.172
 213.199.178.54
@@ -136,6 +139,8 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 65.55.244.44
 65.55.244.46
 65.55.244.47
+65.55.82.77
+65.55.82.78
 65.55.82.81
 65.55.82.84
 65.55.82.85
@@ -158,6 +163,8 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 94.245.72.45
 94.245.72.46
 94.245.72.49
+94.245.72.52
+94.245.72.53
 94.245.78.40
 94.245.78.41
 94.245.78.42
@@ -167,16 +174,17 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 94.245.82.37
 94.245.82.38
 
+
 ```  
 
-## 데이터 액세스 API
+## <a name="data-access-api"></a>Data access API
 
 
 
-|URI|IP|포트
+|URI|IP|Ports
 |---|---|---
-|api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io|13\.82.26.252<br/>40.76.213.73|80,443
-|dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com|13\.82.24.149<br/>40.114.82.10|80,443
+|api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io|13.82.26.252<br/>40.76.213.73|80,443
+|dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com|13.82.24.149<br/>40.114.82.10|80,443
 
 
 
@@ -184,4 +192,8 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

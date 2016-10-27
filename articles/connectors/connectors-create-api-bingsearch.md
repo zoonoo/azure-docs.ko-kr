@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Bing 검색 커넥터 논리 앱 추가 | Microsoft Azure"
-    description="REST API 매개 변수를 사용하는 Bing 검색 커넥터 개요"
+    pageTitle="Add the Bing Search connector logic apps | Microsoft Azure"
+    description="Overview of the Bing Search connector with REST API parameters"
     services=""
     suite=""
     documentationCenter="" 
@@ -18,260 +18,268 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
-# Bing 검색 커넥터 시작 
-Bing 검색에 연결하여 뉴스 검색, 비디오 검색 등의 작업을 수행합니다. Bing 검색을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
-- 검색에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다.
-- 이미지 검색, 뉴스 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 비디오를 검색한 다음 Twitter를 사용하여 Twitter 피드에 해당 비디오를 게시할 수 있습니다.
+# <a name="get-started-with-the-bing-search-connector"></a>Get started with the Bing Search connector 
+Connect to Bing Search to search news, search videos, and more. With Bing Search, you can: 
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+- Build your business flow based on the data you get from your search. 
+- Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
 
-## 트리거 및 작업
-Bing 검색에는 다음 작업이 포함됩니다. 트리거는 없습니다.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-트리거 | 작업
+## <a name="triggers-and-actions"></a>Triggers and actions
+Bing Search includes the following actions. There are no triggers. 
+
+Triggers | Actions
 --- | ---
-없음 | <ul><li>웹 검색</li><li>비디오 검색</li><li>이미지 검색</li><li>뉴스 검색</li><li>관련 검색</li><li>맞춤법 검색</li><li>모두 검색</li></ul>
+None | <ul><li>Search web</li><li>Search videos</li><li>Search images</li><li>Search news</li><li>Search related</li><li>Search spellings</li><li>Search all</li></ul>
 
-모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+All connectors support data in JSON and XML formats.
 
 
-## Swagger REST API 참조
-적용 버전: 1.0
+## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
+Applies to version: 1.0.
 
-### 웹 검색 
-Bing 검색에서 웹 사이트를 검색합니다. ```GET: /Web```
+### <a name="search-web"></a>Search web 
+Retrieves web sites from a Bing search.  
+```GET: /Web```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|쿼리|string|yes|쿼리|없음 |검색할 텍스트(예: 'xbox')|
-|maxResult|정수|no|쿼리|없음 |반환할 결과의 최대 수|
-|startOffset|정수|no|쿼리| 없음|건너뛸 결과의 수|
-|adultContent|string|no|쿼리|없음 |성인 콘텐츠 필터입니다. 유효한 값: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
-|market|string|no|쿼리|없음 |검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
-|longitude|number|no|쿼리| 없음|검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
-|latitude|number|no|쿼리| 없음|검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
-|webFileType|string|no|쿼리|없음 |검색 범위를 좁힐 파일 형식(예: 'DOC')|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query| none|Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query| none|Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|webFileType|string|no|query|none |File type to narrow the search (example: 'DOC')|
 
-#### 응답
-|Name|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 비디오 검색 
-Bing 검색에서 비디오를 검색합니다. ```GET: /Video```
+### <a name="search-videos"></a>Search videos 
+Retrieves videos from a Bing search.  
+```GET: /Video```
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|쿼리|string|yes|쿼리|없음 |검색할 텍스트(예: 'xbox')|
-|maxResult|정수|no|쿼리| 없음|반환할 결과의 최대 수|
-|startOffset|정수|no|쿼리|없음 |건너뛸 결과의 수|
-|adultContent|string|no|쿼리|없음 |성인 콘텐츠 필터입니다. 유효한 값: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
-|market|string|no|쿼리|없음 |검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
-|longitude|number|no|쿼리|없음 |검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
-|latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
-|videoFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>예: 'Duration:Short+Resolution:High'|
-|videoSortBy|string|no|쿼리|없음 |결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query| none|Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High'|
+|videoSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
 
-#### 응답
-|Name|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 이미지 검색    
-Bing 검색에서 이미지를 검색합니다. ```GET: /Image```
+### <a name="search-images"></a>Search images    
+Retrieves images from a Bing search.  
+```GET: /Image```
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|쿼리|string|yes|쿼리|없음 |검색할 텍스트(예: 'xbox')|
-|maxResult|정수|no|쿼리|없음 |반환할 결과의 최대 수|
-|startOffset|정수|no|쿼리|없음 |건너뛸 결과의 수|
-|adultContent|string|no|쿼리|없음 |성인 콘텐츠 필터입니다. 유효한 값: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
-|market|string|no|쿼리|없음 |검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
-|longitude|number|no|쿼리| 없음|검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
-|latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
-|imageFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>예: 'Size:Small+Aspect:Square'|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query| none|Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square'|
 
-#### 응답
-|Name|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 뉴스 검색    
-Bing 검색에서 뉴스 결과를 검색합니다. ```GET: /News```
+### <a name="search-news"></a>Search news    
+Retrieves news results from a Bing search.  
+```GET: /News```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|쿼리|string|yes|쿼리|없음 |검색할 텍스트(예: 'xbox')|
-|maxResult|정수|no|쿼리|없음 |반환할 결과의 최대 수|
-|startOffset|정수|no|쿼리| 없음|건너뛸 결과의 수|
-|adultContent|string|no|쿼리|없음 |성인 콘텐츠 필터입니다. 유효한 값: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
-|market|string|no|쿼리|없음 |검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
-|longitude|number|no|쿼리|없음 |검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
-|latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
-|newsSortBy|string|no|쿼리| 없음|결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
-|newsCategory|string|no|쿼리| |검색 범위를 좁힐 뉴스의 범주(예: 'rt\_Business')|
-|newsLocationOverride|string|no|쿼리|없음 |Bing 위치 검색을 재정의합니다. 이 매개 변수는 ko-KR 지역/국가에서만 적용할 수 있습니다. 입력 형식은 US./<state />(예: 'US.WA')입니다.|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|newsSortBy|string|no|query| none|Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|newsCategory|string|no|query| |Category of news to narrow the search (example: 'rt_Business')|
+|newsLocationOverride|string|no|query|none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA')|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 맞춤법 검색    
-맞춤법 제안을 검색합니다. ```GET: /SpellingSuggestions```
+### <a name="search-spellings"></a>Search spellings    
+Retrieves spelling suggestions.  
+```GET: /SpellingSuggestions```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|쿼리|string|yes|쿼리| 없음|검색할 텍스트(예: 'xbox')|
-|maxResult|정수|no|쿼리|없음 |반환할 결과의 최대 수|
-|startOffset|정수|no|쿼리| 없음|건너뛸 결과의 수|
-|adultContent|string|no|쿼리|없음 |성인 콘텐츠 필터입니다. 유효한 값: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
-|market|string|no|쿼리| 없음|검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
-|longitude|number|no|쿼리|없음 |검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
-|latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
+|query|string|yes|query| none|Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query| none|Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
 
-#### 응답
-|Name|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 관련 검색    
-Bing 검색에서 관련 검색 결과를 검색합니다. ```GET: /RelatedSearch```
+### <a name="search-related"></a>Search related    
+Retrieves related search results from a Bing search.  
+```GET: /RelatedSearch```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|쿼리|string|yes|쿼리|없음 |검색할 텍스트(예: 'xbox')|
-|maxResult|정수|no|쿼리|없음 |반환할 결과의 최대 수|
-|startOffset|정수|no|쿼리| 없음|건너뛸 결과의 수|
-|adultContent|string|no|쿼리|없음 |성인 콘텐츠 필터입니다. 유효한 값: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
-|market|string|no|쿼리|없음 |검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
-|longitude|number|no|쿼리|없음 |검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
-|latitude|number|no|쿼리| 없음|검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query| none|Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### 모두 검색    
-Bing 검색에서 모든 웹 사이트, 비디오, 이미지 등을 검색합니다. ```GET: /CompositeSearch```
+### <a name="search-all"></a>Search all    
+Retrieves all web sites, videos, images, etc. from a Bing search.  
+```GET: /CompositeSearch```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|쿼리|string|yes|쿼리|없음 |검색할 텍스트(예: 'xbox')|
-|maxResult|정수|no|쿼리|없음 |반환할 결과의 최대 수|
-|startOffset|정수|no|쿼리|없음 |건너뛸 결과의 수|
-|adultContent|string|no|쿼리|없음 |성인 콘텐츠 필터입니다. 유효한 값: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
-|market|string|no|쿼리|없음 |검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
-|longitude|number|no|쿼리|없음 |검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
-|latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
-|webFileType|string|no|쿼리|없음 |검색 범위를 좁힐 파일 형식(예: 'DOC')|
-|videoFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>예: 'Duration:Short+Resolution:High'|
-|videoSortBy|string|no|쿼리|없음 |결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
-|imageFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>예: 'Size:Small+Aspect:Square'|
-|newsSortBy|string|no|쿼리|없음 |결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
-|newsCategory|string|no|쿼리|없음 |검색 범위를 좁힐 뉴스의 범주(예: 'rt\_Business')|
-|newsLocationOverride|string|no|쿼리|없음 |Bing 위치 검색을 재정의합니다. 이 매개 변수는 ko-KR 지역/국가에서만 적용할 수 있습니다. 입력 형식은 US./<state />(예: 'US.WA')입니다.|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|webFileType|string|no|query|none |File type to narrow the search (example: 'DOC')|
+|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High'|
+|videoSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square'|
+|newsSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|newsCategory|string|no|query|none |Category of news to narrow the search (example: 'rt_Business')|
+|newsLocationOverride|string|no|query|none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA')|
 
-#### 응답
-|이름|설명|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## 개체 정의
+## <a name="object-definitions"></a>Object definitions
 
-#### WebResultModel: Bing 웹 검색 결과
+#### <a name="webresultmodel:-bing-web-search-results"></a>WebResultModel: Bing web search results
 
-|속성 이름 | 데이터 형식 | 필수 |
+|Property Name | Data Type | Required |
 |---|---|---|
-|제목|string|no|
-|설명|string|no|
+|Title|string|no|
+|Description|string|no|
 |DisplayUrl|string|no|
 |Id|string|no|
 |FullUrl|string|no|
 
-#### VideoResultModel: Bing 비디오 검색 결과
+#### <a name="videoresultmodel:-bing-video-search-results"></a>VideoResultModel: Bing video search results
 
-|속성 이름 | 데이터 형식 |필수 |
+|Property Name | Data Type |Required |
 |---|---|---|
-|제목|string|no|
+|Title|string|no|
 |DisplayUrl|string|no|
 |Id|string|no|
 |MediaUrl|string|no|
-|런타임|정수|no|
-|미리 보기|정의되지 않음|no|
+|Runtime|integer|no|
+|Thumbnail|not defined|no|
 
-#### ThumbnailModel: 멀티미디어 요소의 미리 보기 속성
+#### <a name="thumbnailmodel:-thumbnail-properties-of-the-multimedia-element"></a>ThumbnailModel: Thumbnail properties of the multimedia element
 
-|속성 이름 | 데이터 형식 |필수 |
+|Property Name | Data Type |Required |
 |---|---|---|
 |MediaUrl|string|no|
 |ContentType|string|no|
-|너비|정수|no|
-|높이|정수|no|
-|FileSize|정수|no|
+|Width|integer|no|
+|Height|integer|no|
+|FileSize|integer|no|
 
-#### ImageResultModel: Bing 이미지 검색 결과
+#### <a name="imageresultmodel:-bing-image-search-results"></a>ImageResultModel: Bing image search results
 
-|속성 이름 | 데이터 형식 |필수 |
+|Property Name | Data Type |Required |
 |---|---|---|
-|제목|string|no|
+|Title|string|no|
 |DisplayUrl|string|no|
 |Id|string|no|
 |MediaUrl|string|no|
 |SourceUrl|string|no|
-|미리 보기|정의되지 않음|no|
+|Thumbnail|not defined|no|
 
-#### NewsResultModel: Bing 뉴스 검색 결과
+#### <a name="newsresultmodel:-bing-news-search-results"></a>NewsResultModel: Bing news search results
 
-|속성 이름 | 데이터 형식 |필수 |
+|Property Name | Data Type |Required |
 |---|---|---|
-|제목|string|no|
-|설명|string|no|
+|Title|string|no|
+|Description|string|no|
 |DisplayUrl|string|no|
 |Id|string|no|
-|원본|string|no|
+|Source|string|no|
 |Date|string|no|
 
-#### SpellResultModel: Bing 맞춤법 제안 결과
+#### <a name="spellresultmodel:-bing-spelling-suggestions-results"></a>SpellResultModel: Bing spelling suggestions results
 
-|속성 이름 | 데이터 형식 |필수 |
+|Property Name | Data Type |Required |
 |---|---|---|
 |Id|string|no|
-|값|string|no|
+|Value|string|no|
 
-#### RelatedSearchResultModel: Bing 관련 검색 결과
+#### <a name="relatedsearchresultmodel:-bing-related-search-results"></a>RelatedSearchResultModel: Bing related search results
 
-|속성 이름 | 데이터 형식 |필수 |
+|Property Name | Data Type |Required |
 |---|---|---|
-|제목|string|no|
+|Title|string|no|
 |Id|string|no|
 |BingUrl|string|no|
 
-#### CompositeSearchResultModel: Bing 복합 검색 결과
+#### <a name="compositesearchresultmodel:-bing-composite-search-results"></a>CompositeSearchResultModel: Bing composite search results
 
-|속성 이름 | 데이터 형식 |필수 |
+|Property Name | Data Type |Required |
 |---|---|---|
-|WebResultsTotal|정수|no|
-|ImageResultsTotal|정수|no|
-|VideoResultsTotal|정수|no|
-|NewsResultsTotal|정수|no|
-|SpellSuggestionsTotal|정수|no|
+|WebResultsTotal|integer|no|
+|ImageResultsTotal|integer|no|
+|VideoResultsTotal|integer|no|
+|NewsResultsTotal|integer|no|
+|SpellSuggestionsTotal|integer|no|
 |WebResults|array|no|
 |ImageResults|array|no|
 |VideoResults|array|no|
@@ -279,10 +287,14 @@ Bing 검색에서 모든 웹 사이트, 비디오, 이미지 등을 검색합니
 |SpellSuggestionResults|array|no|
 |RelatedSearchResults|array|no|
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-[API 목록](apis-list.md)으로 돌아갑니다.
+Go back to the [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

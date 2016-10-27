@@ -1,66 +1,85 @@
 <properties 
-	pageTitle="Microsoft Azure Multi-Factor Authentication 사용자 상태"
-	description="Azure MFA의 사용자 상태에 대해 알아보세요."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Microsoft Azure Multi-Factor Authentication User States"
+    description="Learn about user states in Azure MFA."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
-# Azure Multi-Factor Authentication의 사용자 상태
 
-Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가지 상태를 갖습니다.
+# <a name="user-states-in-azure-multi-factor-authentication"></a>User States in Azure Multi-Factor Authentication
 
-시스템 상태 | 설명 |영향 받는 비브라우저 앱| 참고 사항
+User accounts in Azure Multi-Factor Authentication have the following three distinct states:
+
+State | Description |Non-browser apps affected| Notes
 :-------------: | :-------------: |:-------------: |:-------------: |
-사용 안 함 | 다단계 인증에 등록되지 않은 새 사용자에 대한 기본 상태입니다.|아니요|사용자는 Multi-Factor Authentication을 사용하고 있지 않습니다.
-사용 |사용자가 다단계 인증에 등록되었습니다.|아니요. 등록 프로세스가 완료될 때까지 계속 작업합니다.|사용자가 활성화되었지만 등록 프로세스를 완료하지 않았습니다. 다음 로그인 시 프로세스를 완료하라는 메시지가 표시됩니다.
-적용|사용자가 등록되었으며 다단계 인증을 사용하기 위한 등록 프로세스를 완료했습니다.|예. 앱에 앱 암호가 필요합니다. | 사용자가 등록을 완료했을 수도 있고 그렇지 않았을 수도 있습니다. 등록 프로세스를 완료한 경우 Multi-Factor Authentication을 사용합니다. 그렇지 않은 경우 사용자에게 다음 로그인 시 프로세스를 완료하라는 메시지가 표시됩니다.
+Disabled | The default state for a new user not enrolled in multi-factor authentication.|No|The user is not using multi-factor authentication.
+Enabled |The user has been enrolled in multi-factor authentication.|No.  They continue to work until the registration process is completed.|The user is enabled but has not completed the registration process. They will be prompted to complete the process at next sign-in.
+Enforced|The user has been enrolled and has completed the registration process for using multi-factor authentication.|Yes.  Apps require app passwords. | The user may or may not have completed registration. If they have completed the registration process, then they are using multi-factor authentication. Otherwise, the user will be prompted to complete the process at next sign-in.
 
-## 사용자 상태 변경
-사용자 상태는 MFA가 설정되었는지 여부 및 사용자가 프로세스를 완료했는지 여부에 따라 달라집니다. 사용자에 대해 MFA를 설정하면 사용자 상태가 사용에서 사용 안 함으로 변경됩니다. 사용 상태로 변경된 사용자가 로그인하고 프로세스를 완료하면 상태가 적용으로 바뀝니다.
+## <a name="changing-a-user-state"></a>Changing a user state
+A users state changes depending on whether or not it has been setup for MFA and whether the user has completed the process.  When you turn MFA on for a user, the users state will change from disabled to enabled.  Once the user, whose state has been changed to enabled, signs in and completes the process, their state will change to enforced.  
 
-### 사용자 상태를 보려면
+### <a name="to-view-a-user's-state"></a>To view a user's state
 --------------------------------------------------------------------------------
-1.  관리자 권한으로 **Azure 클래식 포털**에 로그인합니다.
-2.  왼쪽에서 **Active Directory**를 클릭합니다.
-3.  **디렉터리**에서 사용하도록 설정하려는 사용자에 대한 디렉터리 클릭합니다. ![디렉터리 클릭](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4.  위쪽에서 **사용자**를 클릭합니다.
-5.  페이지의 아래쪽에서 **Multi-Factor Auth 관리**를 클릭합니다. ![디렉터리 클릭](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6.  그러면 새 브라우저 탭이 열립니다. 사용자 상태가 표시됩니다. ![디렉터리 클릭](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
+1.  Sign in to the **Azure classic portal** as an Administrator.
+2.  On the left, click **Active Directory**.
+3.  Under, **Directory** click on the directory for the user you wish to enable.
+![Click Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+4.  At the top, click **Users**.
+5.  At the bottom of the page, click **Manage Multi-Factor Auth**.
+![Click Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6.  This will open a new browser tab.  You will be able to view the users state.
+![Click Directory](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
 
-###상태를 사용 안 함에서 사용으로 변경하려면
-1.  관리자 권한으로 **Azure 클래식 포털**에 로그인합니다.
-2.  왼쪽에서 **Active Directory**를 클릭합니다.
-3.  **디렉터리**에서 사용하도록 설정하려는 사용자에 대한 디렉터리 클릭합니다. ![디렉터리 클릭](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4.  위쪽에서 **사용자**를 클릭합니다.
-5.  페이지의 아래쪽에서 **Multi-Factor Auth 관리**를 클릭합니다. ![디렉터리 클릭](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6.  그러면 새 브라우저 탭이 열립니다. 다단계 인증을 사용하도록 설정할 사용자를 찾습니다. 위쪽에서 보기를 변경해야 할 수 있습니다. 상태가 **사용 안 함**인지 확인합니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/enable1.png)
-7.  이름 옆의 상자에 **확인 표시**를 합니다.
-7.  오른쪽에서 **사용**을 클릭합니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/user1.png)
-8.  **다단계 인증 사용**을 클릭합니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-9.  사용자의 상태가 **사용 안 함**에서 **사용**으로 변경됩니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/user.png)
-10.  사용자를 사용하도록 설정하면 전자 메일을 통해 알리는 것이 좋습니다. 또한 잠그지 않으려면 비 브라우저 앱을 사용할 수 있는 방법을 알려야 합니다.
+###<a name="to-change-the-state-from-disabled-to-enabled"></a>To change the state from disabled to enabled
+1.  Sign in to the **Azure classic portal** as an Administrator.
+2.  On the left, click **Active Directory**.
+3.  Under, **Directory** click on the directory for the user you wish to enable.
+![Click Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+4.  At the top, click **Users**.
+5.  At the bottom of the page, click **Manage Multi-Factor Auth**.
+![Click Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6.  This will open a new browser tab.  Find the user that you wish to enable for multi-factor authentication. You may need to change the view at the top. Ensure that the status is **disabled.**
+![Enable user](./media/multi-factor-authentication-get-started-cloud/enable1.png)
+7.  Place a **check** in the box next to their name.
+7.  On the right, click **Enable**.
+![Enable user](./media/multi-factor-authentication-get-started-cloud/user1.png)
+8.  Click **enable multi-factor auth**.
+![Enable user](./media/multi-factor-authentication-get-started-cloud/enable2.png)
+9.  You should notice the user's state has changed from **disabled** to **enabled**.
+![Enable Users](./media/multi-factor-authentication-get-started-cloud/user.png)
+10.  After you have enabled your users, it is recommended that you notify them via email.  It should also inform them how they can use their non-browser apps to avoid being locked out.
 
-### 상태를 사용/적용에서 사용 안 함으로 변경하려면
-1.  관리자 권한으로 **Azure 클래식 포털**에 로그인합니다.
-2.  왼쪽에서 **Active Directory**를 클릭합니다.
-3.  **디렉터리**에서 사용하도록 설정하려는 사용자에 대한 디렉터리 클릭합니다. ![디렉터리 클릭](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4.  위쪽에서 **사용자**를 클릭합니다.
-5.  페이지의 아래쪽에서 **Multi-Factor Auth 관리**를 클릭합니다. ![디렉터리 클릭](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6.  그러면 새 브라우저 탭이 열립니다. 사용하지 않도록 설정하려는 사용자를 찾습니다. 위쪽에서 보기를 변경해야 할 수 있습니다. 상태가 **사용** 또는 **적용**인지 확인합니다.
-7.  이름 옆의 상자에 **확인 표시**를 합니다.
-7.  오른쪽에서 **사용 안 함**을 클릭합니다. ![사용자 사용 안 함 설정](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
-8.  확인 메시지가 표시됩니다. **예**를 클릭합니다. ![사용자 사용 안 함 설정](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
-9.  그러면 성공 메시지가 표시됩니다. **닫기**를 클릭합니다. ![사용자 사용 안 함 설정](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
+### <a name="to-change-the-state-from-enabled/enforced-to-disabled"></a>To change the state from enabled/enforced to disabled
+1.  Sign in to the **Azure classic portal** as an Administrator.
+2.  On the left, click **Active Directory**.
+3.  Under, **Directory** click on the directory for the user you wish to enable.
+![Click Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+4.  At the top, click **Users**.
+5.  At the bottom of the page, click **Manage Multi-Factor Auth**.
+![Click Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6.  This will open a new browser tab.  Find the user that you wish to disable. You may need to change the view at the top. Ensure that the status is either **enabled** or **enforced.**
+7.  Place a **check** in the box next to their name.
+7.  On the right, click **Disable**.
+![Disable user](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
+8.  You will be prompted to confirm this.  Click **Yes**.
+![Disable user](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
+9.  You should then see that it was successful.  Click **close.**
+![Disable user](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

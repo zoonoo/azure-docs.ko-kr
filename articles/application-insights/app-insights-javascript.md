@@ -1,86 +1,87 @@
 <properties
-	pageTitle="JavaScript 웹앱 Application Insights | Microsoft Azure"
-	description="페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다."
-	services="application-insights"
+    pageTitle="Application Insights for JavaScript web apps | Microsoft Azure"
+    description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages."
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/15/2016"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="awills"/>
 
-# 웹 페이지용 Application Insights
+
+# <a name="application-insights-for-web-pages"></a>Application Insights for web pages
 
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 Visual Studio Application Insights를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션을 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 또한 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다.
+Find out about the performance and usage of your web page or app. If you add Visual Studio Application Insights to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can also set alerts on failure counts or slow page loading.
 
-Application Insights와 다른 웹 페이지를 사용할 수 있습니다. 간단한 JavaScript만 추가하면 됩니다. 웹 서비스가 [Java](app-insights-java-get-started.md) 또는 [ASP.NET](app-insights-asp-net.md)인 경우, 서버 및 클라이언트의 원격 분석을 통합할 수 있습니다.
+You can use Application Insights with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md), you can integrate telemetry from your server and clients.
 
-[Microsoft Azure](https://azure.com)를 구독해야 합니다. 팀에 조직 구독이 있는 경우 자신의 Microsoft 계정을 여기에 추가해도 되는지 소유자에게 문의합니다. 무료 가격 책정 계층이 있으므로 개발 및 소규모 사용에는 별도의 비용이 없습니다.
-
-
-## 웹 페이지용 Application Insights 설치
-
-먼저 웹 페이지에 Application Insights를 추가해야 하나요? 이미 추가했을 수 있습니다. Visual Studio의 새 프로젝트 대화 상자에서 웹앱에 Application Insights를 추가하도록 선택한 경우 스크립트는 추가되었습니다. 이 경우에 더 이상 수행할 필요가 없습니다.
-
-그렇지 않은 경우 다음과 같이 코드 조각을 웹 페이지에 추가해야 합니다.
-
-### Application Insights 리소스 열기
-
-Application Insights 리소스는 페이지의 성능 및 사용 현황에 대한 데이터가 표시되는 위치입니다.
-
-[Azure 포털](https://portal.azure.com)에 로그인합니다.
-
-응용 프로그램의 서버측에 대한 모니터링을 이미 설정한 경우 리소스가 있습니다.
-
-![찾아보기, 개발자 서비스, Application Insights를 선택합니다.](./media/app-insights-javascript/01-find.png)
-
-계정이 없는 경우 계정을 만듭니다.
-
-![새로 만들기, 개발자 서비스, Application Insights를 선택합니다.](./media/app-insights-javascript/01-create.png)
+You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. There's a free pricing tier, so development and small-scale use won't cost anything.
 
 
-*벌써 질문이 있나요?* [리소스 만들기에 대해 자세히 알아보세요](app-insights-create-new-resource.md).
+## <a name="set-up-application-insights-for-your-web-page"></a>Set up Application Insights for your web page
+
+First, do you need to add Application Insights to your web pages? You might already have done so. If you chose to add Application Insights to your web app in the New Project dialog in Visual Studio, the script was added then. In that case, you don't need to do any more.
+
+Otherwise, you need to add a snippet of code your web pages, as follows.
+
+### <a name="open-an-application-insights-resource"></a>Open an Application Insights resource
+
+The Application Insights resource is where data about your page's performance and usage is displayed. 
+
+Sign into [Azure portal](https://portal.azure.com).
+
+If you already set up monitoring for the server side of your app, you already have a resource:
+
+![Choose Browse, Developer Services, Application Insights.](./media/app-insights-javascript/01-find.png)
+
+If you don't have one, create it:
+
+![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/01-create.png)
 
 
-### 앱 또는 웹 페이지에 SDK 스크립트를 추가합니다.
-
-빠른 시작에서 웹 페이지용 스크립트를 가져옵니다.
-
-![앱 개요 블레이드에서 빠른 시작, 내 웹 페이지를 모니터링할 코드 가져오기를 선택합니다. 스크립트를 복사합니다.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-추적하려는 모든 페이지의 `</head>` 태그 바로 앞의 이 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예:
-
-* ASP.NET MVC 프로젝트에서는 `View\Shared\_Layout.cshtml`에 추가합니다.
-* SharePoint 사이트의 경우 제어판에서 [사이트 설정/마스터 페이지](app-insights-sharepoint.md)를 엽니다.
-
-스크립트에는 Application Insights 리소스에 데이터를 전달하는 계측 키가 포함됩니다.
-
-([스크립트에 대한 자세한 설명.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
-
-*(잘 알려진 웹 페이지 프레임워크를 사용하는 경우 Application Insights 어댑터를 찾아보세요. 예를 들어 [AngularJS 모듈](http://ngmodules.org/modules/angular-appinsights)이 있습니다.)*
+*Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
 
 
-## 자세한 구성
+### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Add the SDK script to your app or web pages
 
-몇 가지 [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)을 설정할 수 있지만 대부분의 경우에서 설정할 필요가 없습니다. 예를 들어, 트래픽을 줄이기 위해 페이지 보기 당 보고된 Ajax 호출 수를 사용하지 않도록 설정하거나 제한할 수 있습니다. 또는 디버그 모드를 설정하여 배치되지 않고 파이프라인을 통해 원격 분석을 빠르게 이동시킬 수 있습니다.
+In Quick Start, get the script for web pages:
 
-이러한 매개 변수를 설정하려면 코드 조각에서 이 줄을 찾고 쉼표로 구분하여 항목을 추가합니다.
+![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
+
+Insert the script just before the `</head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
+
+* In an ASP.NET MVC project, you'd put it in `View\Shared\_Layout.cshtml`
+* In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
+
+The script contains the instrumentation key that directs the data to your Application Insights resource. 
+
+([Deeper explanation of the script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+
+*(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
+
+
+## <a name="detailed-configuration"></a>Detailed configuration
+
+There are several [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) you can set, though in most cases, you shouldn't need to. For example, you can disable or limit the number of Ajax calls reported per page view (to reduce traffic). Or you can set debug mode to have telemetry move rapidly through the pipeline without being batched.
+
+To set these parameters, look for this line in the code snippet, and add more comma-separated items after it:
 
     })({
       instrumentationKey: "..."
       // Insert here
     });
 
-[사용 가능한 매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)는 다음을 포함합니다.
+The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) include:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -105,148 +106,154 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 
 
-## <a name="run"></a>앱 실행
+## <a name="<a-name="run"></a>run-your-app"></a><a name="run"></a>Run your app
 
-웹앱을 실행하고, 잠깐 사용하여 원격 분석을 생성하고, 잠시 기다립니다. 개발 컴퓨터에서 **F5** 키를 사용하여 실행하거나 사용자가 실행할 수 있도록 게시할 수 있습니다.
+Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the **F5** key on your development machine, or publish it and let users play with it.
 
-웹앱에서 Application Insights로 보내는 원격 분석을 확인하려면 브라우저의 디버깅 도구(대부분의 브라우저는 **F12** 키)를 사용합니다. 데이터가 dc.services.visualstudio.com으로 전송됩니다.
+If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (**F12** on many browsers). Data is sent to dc.services.visualstudio.com.
 
-## 브라우저 성능 데이터 탐색
+## <a name="explore-your-browser-performance-data"></a>Explore your browser performance data
 
-사용자의 브라우저에서 집계된 성능 데이터를 표시하도록 브라우저 블레이드를 엽니다.
+Open the Browsers blade to show aggregated performance data from your users' browsers.
 
-![Portal.azure.com에서 앱의 리소스 열고 설정, 브라우저를 클릭합니다.](./media/app-insights-javascript/03.png)
+![In portal.azure.com, open your app's resource and click Settings, Browser](./media/app-insights-javascript/03.png)
 
 
-*아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.*
+*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
 
-브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](app-insights-metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원**을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
+The Browsers blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
-## 페이지 로드 성능
+## <a name="page-load-performance"></a>Page load performance
 
-맨 위에 있는 것이 페이지 로드 시간의 분할된 차트입니다. 차트의 전체 높이는 사용자의 브라우저의 앱에서 페이지를 로드하고 페이지를 표시하는 평균 시간을 나타냅니다. 레이아웃 및 실행 스크립트를 포함하여 모든 동기 로드 이벤트가 처리될 때까지 브라우저가 초기 HTTP 요청을 보낼 때부터 시간이 측정됩니다. AJAX 호출로부터 웹 파트를 로드하는 등의 비동기 작업은 포함되지 않습니다.
+At the top is a segmented chart of page load times. The total height of the chart represents the average time to load and display pages from your app in your users' browsers. The time is measured from when the browser sends the initial HTTP request until all synchronous load events have been processed, including layout and running scripts. It doesn't include asynchronous tasks such as loading web parts from AJAX calls.
 
-차트는 총 페이지 로드 시간을 [W3C에서 정의한 표준 타이밍](http://www.w3.org/TR/navigation-timing/#processing-model)으로 분할한 것입니다.
+The chart segments the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
-*네트워크 연결* 시간은 가끔 예상보다 짧습니다. 브라우저에서 서버로 보내는 모든 요청의 평균값이기 때문입니다. 서버에 대한 활성 연결이 이미 있기 때문에 연결 시간이 0인 개별 요청이 많습니다.
+Note that the *network connect* time is often lower than you might expect, because it's an average over all requests from the browser to the server. Many individual requests have a connect time of 0 because there is already an active connection to the server.
 
-### 로드가 느립니까?
+### <a name="slow-loading?"></a>Slow loading?
 
-느린 페이지 로드는 사용자가 가장 불만족을 느끼는 부분입니다. 차트가 느린 페이지 로드를 나타내는 경우, 일부 진단 조사를 쉽게 수행할 수 있습니다.
+Slow page loads are a major source of dissatisfaction for your users. If the chart indicates slow page loads, it's easy to do some diagnostic research.
 
-차트는 앱에서 모든 페이지를 로드하는 평균 시간을 보여줍니다. 이 문제가 특정 페이지에 국한되는지 확인하려면, 블레이드 아래의 페이지 URL별로 분류된 표를 참조하세요.
+The chart shows the average of all page loads in your app. To see if the problem is confined to particular pages, look further down the blade, where there's a grid segmented by page URL:
 
 ![](./media/app-insights-javascript/09-page-perf.png)
 
-페이지 보기 수 및 표준 편차를 확인합니다. 페이지 수가 매우 낮은 경우 사용자에게 큰 문제가 되지 않습니다. 높은 표준 편차(자체 평균 비교 시)는 개별 측정값 간의 차이가 많음을 나타냅니다.
+Notice the page view count and standard deviation. If the page count is very low, then the issue isn't affecting users much. A high standard deviation (comparable to the average itself) indicates a lot of variation between individual measurements.
 
-**한 URL 및 한 페이지 보기에서 확대합니다.** 해당 URL에 대해서만 필터링된 브라우저 차트의 블레이드를 보려면 페이지 이름을 클릭한 다음, 페이지 보기의 인스턴스를 클릭합니다.
+**Zoom in on one URL and one page view.** Click any page name to see a blade of browser charts filtered just to that URL; and then on an instance of a page view.
 
 ![](./media/app-insights-javascript/35.png)
 
-`...`을(를) 클릭하여 해당 이벤트에 대한 속성의 전체 목록을 보거나 Ajax 호출 및 관련된 이벤트를 검사합니다. 느린 Ajax 호출은 동기화할 때 전체 페이지 로드 시간에 영향을 줍니다. 관련된 이벤트에는 동일한 URL에 대한 서버 요청을 포함합니다(웹 서버에서 Application Insights를 설정한 경우).
+Click `...` for a full list of properties for that event, or inspect the Ajax calls and related events. Slow Ajax calls affect the overall page load time if they are synchronous. Related events include server requests for the same URL (if you've set up Application Insights on your web server).
 
 
-**시간에 따른 페이지 성능** 브라우저 블레이드로 돌아와서 특정 시간에 최대치가 있는지 확인하기 위해 페이지 보기 로드 시간 표를 꺾은선형 차트로 변경합니다.
+**Page performance over time.** Back at the Browsers blade, change the Page View Load Time grid into a line chart to see if there were peaks at particular times:
 
-![표의 머리글을 클릭하고 새 차트 종류를 선택합니다.](./media/app-insights-javascript/10-page-perf-area.png)
+![Click the head of the grid and select a new chart type](./media/app-insights-javascript/10-page-perf-area.png)
 
-**다른 차원으로 분류** 특정 브라우저, 클라이언트 OS 또는 사용자 거주지에 따라 페이지 로드 시간이 느려질 수 있습니까? 새 차트를 추가하고 **Group-by** 차원을 실험해봅니다.
+**Segment by other dimensions.** Maybe your pages are slower to load on a particular browser, client OS, or user locality? Add a new chart and experiment with the **Group-by** dimension.
 
 ![](./media/app-insights-javascript/21.png)
 
 
-## AJAX 성능
+## <a name="ajax-performance"></a>AJAX Performance
 
-웹 페이지의 모든 AJAX 호출이 정상적으로 수행되고 있는지 확인합니다. 종종 페이지의 부분들을 비동기적으로 채우는 데 사용 됩니다. 전체 페이지가 신속하게 로드되더라도 사용자는 빈 웹 부분을 응시하면서 데이터가 표시되기를 기다리는 데 불만을 가질 수 있습니다.
+Make sure any AJAX calls in your web pages are performing well. They are often used to fill parts of your page asynchronously. Although the overall page might load promptly, your users could be frustrated by staring at blank web parts, waiting for data to appear in them.
 
-웹 페이지에서 이루어진 AJAX 호출은 브라우저 블레이드에 종속성으로 표시됩니다.
+AJAX calls made from your web page are shown on the Browsers blade as dependencies.
 
-블레이드의 상단 부분에 있는 요약 차트가 있습니다.
+There are summary charts in the upper part of the blade:
 
 ![](./media/app-insights-javascript/31.png)
 
-그리고 상세한 표가 아래에 있습니다.
+and detailed grids lower down:
 
 ![](./media/app-insights-javascript/33.png)
 
-특정 세부 정보를 보려면 행을 클릭합니다.
+Click any row for specific details.
 
 
-> [AZURE.NOTE] 블레이드에서 브라우저 필터를 삭제하면 서버와 AJAX 종속성이 이 차트에 포함됩니다. 필터를 다시 구성하려면 기본값 복원을 클릭합니다.
+> [AZURE.NOTE] If you delete the Browsers filter on the blade, both server and AJAX dependencies are included in these charts. Click Restore Defaults to reconfigure the filter.
 
-**실패한 Ajax 호출을 분석하려면** 종속성 실패 그리드로 아래로 스크롤한 다음, 보려는 특정 인스턴스의 행을 클릭합니다.
+**To drill into failed Ajax calls** scroll down to the Dependency failures grid, and then click a row to see specific instances.
 
 ![](./media/app-insights-javascript/37.png)
 
-Ajax 호출에 대한 전체 원격 분석을 하려면 `...`을(를) 클릭합니다.
+Click `...` for the full telemetry for an Ajax call.
 
-### Ajax 호출이 보고되지 않았습니까?
+### <a name="no-ajax-calls-reported?"></a>No Ajax calls reported?
 
-Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 포함합니다. 보고된 호출이 없는 경우, 코드 조각이 `disableAjaxTracking` 또는 `maxAjaxCallsPerView` [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)를 설정하지 않았는지 확인합니다.
+Ajax calls include any HTTP calls made from the script of your web page. If you don't see them reported, check that the code snippet doesn't set the `disableAjaxTracking` or `maxAjaxCallsPerView` [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
-## 브라우저 예외
+## <a name="browser-exceptions"></a>Browser exceptions
 
-브라우저 블레이드에는 예외 요약 차트가 있고 좀 더 아래에는 예외 형식의 표가 있습니다.
+On the Browsers blade, there's an exceptions summary chart, and a grid of exception types further down the blade.
 
 ![](./media/app-insights-javascript/39.png)
 
-보고된 브라우저 예외가 없는 경우, 코드 조각이 `disableExceptionTracking` [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)를 설정하지 않았는지 확인합니다.
+If you don't see browser exceptions reported, check that the code snippet doesn't set the `disableExceptionTracking` [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
-## 개별 페이지 보기 이벤트 검사
+## <a name="inspect-individual-page-view-events"></a>Inspect individual page view events
 
-일반적으로 페이지 보기 원격 분석은 Application Insights에서 분석하며 모든 사용자에 대해 계산된 평균이 포함된 누적 보고서만 표시됩니다. 그러나 디버깅을 위해 개별 페이지 보기 이벤트를 확인할 수도 있습니다.
+Usually page view telemetry is analyzed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
 
-진단 검색 블레이드에서 필터를 페이지 보기로 설정합니다.
+In the Diagnostic Search blade, set Filters to Page View.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-보다 자세한 정보를 확인하려면 원하는 이벤트를 선택합니다. 세부 정보 페이지에서 더 자세한 정보를 보려면 "..."를 클릭합니다.
+Select any event to see more detail. In the details page, click "..." to see even more detail.
 
-> [AZURE.NOTE] [검색](app-insights-diagnostic-search.md)을 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않습니다.
+> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
 
-또한 강력한 [분석 쿼리 언어](app-insights-analytics-tour.md)를 사용하여 페이지 보기를 검색할 수 있습니다.
+You can also use the powerful [Analytics query language](app-insights-analytics-tour.md) to search page views.
 
-### 페이지 보기 속성
+### <a name="page-view-properties"></a>Page view properties
 
-* **페이지 보기 기간**
+* **Page view duration** 
 
- * 기본적으로 클라이언트 요청에서 전체 로드로 페이지를 로드하는 데 걸리는 시간(보조 파일을 포함하지만 Ajax 호출과 같은 비동기 작업은 제외)입니다.
- * [페이지 구성](#detailed-configuration)에서 `overridePageViewDuration`을 설정한 경우 첫 번째 `trackPageView` 실행에 대한 클라이언트 요청 간 간격입니다. 스크립트의 초기화 후 일반적인 위치에서 trackPageView를 이동한 경우 다른 값이 반영 됩니다.
- * `overridePageViewDuration`을 설정하고 `trackPageView()` 호출에서 기간 인수가 제공된 경우 인수 값이 대신 사용됩니다.
+ * By default, the time it takes to load the page, from client request to full load (including auxiliary files but excluding asynchronous tasks such as Ajax calls). 
+ * If you set `overridePageViewDuration` in the [page configuration](#detailed-configuration), the interval between client request to execution of the first `trackPageView`. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.
+ * If `overridePageViewDuration` is set and a duration argument is provided in the `trackPageView()` call, then the argument value is used instead. 
 
 
-## 사용자 지정 페이지 수
+## <a name="custom-page-counts"></a>Custom page counts
 
-기본적으로는 새 페이지를 클라이언트 브라우저로 로드할 때마다 페이지 수가 계산됩니다. 그러나 추가 페이지 보기를 계산에 포함할 수도 있습니다. 예를 들어 탭에 콘텐츠가 표시되는 페이지에서 사용자가 탭을 전환할 때 페이지 수를 계산하도록 지정할 수 있습니다. 또는 페이지의 JavaScript 코드가 브라우저 URL은 변경하지 않고 새 콘텐츠를 로드할 수도 있습니다.
+By default, a page count occurs each time a new page loads into the client browser.  But you might want to count additional page views. For example, a page might display its content in tabs and you want to count a page when the user switches tabs. Or JavaScript code in the page might load new content without changing the browser's URL.
 
-클라이언트 코드의 적절한 지점에 다음과 같은 JavaScript 호출을 삽입합니다.
+Insert a JavaScript call like this at the appropriate point in your client code:
 
     appInsights.trackPageView(myPageName);
 
-페이지 이름은 URL과 같은 문자를 포함할 수 있지만 "#" 또는 "?" 뒤의 모든 문자는 무시됩니다.
+The page name can contain the same characters as a URL, but anything after "#" or "?" is ignored.
 
 
 
-## 사용 추적
+## <a name="usage-tracking"></a>Usage tracking
 
 
-사용자가 앱으로 어떤 작업을 수행하려고 하는지 확인하고 싶나요?
+Want to find out what your users do with your app?
 
-* [사용 추적에 대해 알아보기](app-insights-web-track-usage.md)
-* [사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보세요](app-insights-api-custom-events-metrics.md).
+* [Learn about usage tracking](app-insights-web-track-usage.md)
+* [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
 
-#### <a name="video"></a> 비디오: 사용 현황 추적
+#### <a name="<a-name="video"></a>-video:-tracking-usage"></a><a name="video"></a> Video: Tracking Usage
 
 > [AZURE.VIDEO tracking-usage-with-application-insights]
 
-## <a name="next"></a> 다음 단계
+## <a name="<a-name="next"></a>-next-steps"></a><a name="next"></a> Next steps
 
-* [사용 현황 추적](app-insights-web-track-usage.md)
-* [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
-* [빌드 - 측정 - 학습](app-insights-overview-usage.md)
+* [Track usage](app-insights-web-track-usage.md)
+* [Custom events and metrics](app-insights-api-custom-events-metrics.md)
+* [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

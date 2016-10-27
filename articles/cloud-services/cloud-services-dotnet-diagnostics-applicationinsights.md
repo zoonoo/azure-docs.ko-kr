@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application Insights를 사용하여 클라우드 서비스 문제 해결 | Microsoft Azure"
-   description="Application Insights를 통해 Azure 진단의 데이터를 처리하여 클라우드 서비스 문제를 해결하는 방법에 대해 알아봅니다."
+   pageTitle="Troubleshoot Cloud Services using Application Insights | Microsoft Azure"
+   description="Learn how to troubleshoot cloud service issues by using Application Insights to process data from Azure Diagnostics."
    services="cloud-services"
    documentationCenter=".net"
    authors="sbtron"
@@ -16,58 +16,59 @@
    ms.author="saurabh" />
 
 
-# Application Insights를 사용하여 클라우드 서비스 문제 해결
 
-[Azure SDK 2.8](https://azure.microsoft.com/downloads/) 및 Azure 진단 확장 1.5를 사용하면 클라우드 서비스에 대한 Azure 진단 데이터를 Application Insights로 직접 보낼 수 있습니다. 응용 프로그램 로그, Windows 이벤트 로그, ETW 로그 및 성능 카운터를 포함하여 Azure 진단에서 수집한 다양한 형식의 로그를 Application Insights로 보내 Application Insights 포털 UI에서 시각화할 수 있습니다. Application Insights SDK와 함께 사용할 경우 응용 프로그램의 메트릭 및 로그뿐만 아니라 Azure 진단의 시스템 및 인프라 수준 데이터를 이해할 수 있습니다.
+# <a name="troubleshoot-cloud-services-using-application-insights"></a>Troubleshoot Cloud Services using Application Insights
 
-## Application Insights에 데이터를 보내도록 Azure 진단 구성
+With [Azure SDK 2.8](https://azure.microsoft.com/downloads/) and Azure diagnostics extension 1.5 you can now send your Azure Diagnostics data for your Cloud Service directly to Application Insights. The various types of logs collected by Azure Diagnostics including application logs, windows event logs, ETW logs and performance counters can now be sent to Application Insights and visualized in the Application Insights portal UI. When used along with the Application Insights SDK you can now get insights into metrics and logs coming from your application as well as the system and infrastructure level data coming from Azure Diagnostics.
 
-Application Insights로 Azure 진단 데이터를 보내도록 클라우드 서비스 프로젝트를 설정하려면 다음 단계를 수행합니다.
+## <a name="configure-azure-diagnostics-to-send-data-to-application-insights"></a>Configure Azure Diagnostics to send data to Application Insights
 
-1) Visual Studio 솔루션 탐색기에서 역할을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택하여 역할 디자이너를 엽니다.
+Follow these steps to setup your cloud service project to send Azure Diagnostics data to Application Insights.
 
-![솔루션 탐색기 역할 속성][1]
+1) In Visual Studio Solution Explorer right-click on a role and select **properties** to open the Role designer
 
-2) 역할 디자이너의 진단 섹션에서 **진단 데이터를 Application Insights로 보내기** 확인란을 선택합니다.
+![Solution Explorer Role Properties][1]
 
-![역할 디자이너에서 진단 데이터를 Application Insights로 보내기][2]
+2) In Role designer under the diagnostics section select the check box to **Send diagnostics data to Application Insights**
 
-3) 팝업으로 나타난 대화 상자에서 Azure 진단 데이터를 전송할 Application Insights 리소스를 선택합니다. 이 대화 상자를 사용하면 구독에서 기존 Application Insights 리소스를 선택하거나 Application Insights 리소스에 대한 계측 키를 수동으로 지정할 수 있습니다. 기존 Application Insights 리소스가 없는 경우 **새 리소스 만들기** 링크를 클릭하여 Application Insights 리소스를 만들 수 있는 Azure 클래식 포털에 대한 브라우저 창을 엽니다. Application Insights 리소스 만들기에 대한 자세한 내용은 [새 Application Insights 리소스 만들기](../application-insights/app-insights-create-new-resource.md)를 참조하세요.
+![Role designer send diagnostics data to application insights][2]
 
-![Application Insights 리소스 선택][3]
+3) In the dialog that pops up select the Application Insights Resource that you would like to send the Azure diagnostics data to. The dialog allows you to select an existing Application Insights resource from your subscription or manually specify an instrumentation key for an Application Insights resource. If you don't have an existing Application Insights resource then you can create on by clicking on the **Create a new resource** link which will open a browser window to the Azure classic portal where you can create an Application Insights Resource. For more information on creating an Application Insights resource see [Create a new Application Insights resource](../application-insights/app-insights-create-new-resource.md)
 
-4) Application Insights 리소스를 추가하고 나면 해당 리소스에 대한 계측 키가 **APPINSIGHTS\_INSTRUMENTATIONKEY**라는 이름의 서비스 구성 설정으로 저장됩니다. 서비스 구성 드롭다운에서 다른 구성을 선택하고 해당 구성에 대한 새 계측 키를 지정하여 각 서비스 구성 또는 환경에 대한 이 구성 설정을 변경할 수 있습니다.
+![select application insights resource][3]
 
-![서비스 구성 선택][4]
+4) Once you have added the Application Insights resource, the instrumentation key for that resource is stored as a service configuration setting with the name **APPINSIGHTS_INSTRUMENTATIONKEY**. You can change this configuration setting for each service configuration or environment by selecting a different configuration from the Service configuration drop down and specifying a new instrumentation key for that configuration.
 
-**APPINSIGHTS\_INSTRUMENTATIONKEY** 구성 설정은 게시 중 Visual Studio에서 적절한 Application Insights 리소스 정보로 진단 확장을 구성하는 데 사용됩니다. 구성 설정을 사용하면 각 서비스 구성에 대해 다른 계측 키를 편리하게 정의할 수 있습니다. Visual Studio는 해당 설정을 변환하여 게시할 때 진단 확장 공용 구성에 삽입합니다. PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 적절한 Application Insights 계측 키와 함께 공용 구성 XML이 포함됩니다. 공용 config 파일이 Extensions 폴더에서 생성되고 PaaSDiagnostics.<RoleName>.PubConfig.xml 패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
+![select service configuration][4]
 
-5) **진단 데이터를 Application Insights로 보내기**를 사용하면 Azure 진단 에이전트에 의해 수집된 모든 성능 카운터 및 오류 수준 로그를 Application Insights로 보내도록 Azure 진단이 자동으로 구성됩니다. Application Insights로 보낼 데이터를 추가로 구성하려는 경우 각 역할에 대한 *diagnostics.wadcfgx* 파일을 수동으로 편집해야 합니다. 구성을 수동으로 업데이트하는 방법에 대한 자세한 내용은 [Application Insights에 데이터를 보내도록 Azure 진단 구성](../azure-diagnostics-configure-applicationinsights.md)을 참조하세요.
+The **APPINSIGHTS_INSTRUMENTATIONKEY** configuration setting is used by Visual Studio to configure the diagnostics extension with the appropriate Application Insights resource information during publishing. The configuration setting is a convenient way of defining different instrumentation keys for different service configurations. Visual Studio will translate that setting and insert it into the diagnostics extension public configuration when publishing. To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML with the appropriate Application Insights instrumentation key included. The public config files are created in the Extensions folder and follow the pattern PaaSDiagnostics.<RoleName>.PubConfig.xml. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
 
-Azure 진단 데이터를 Application Insights로 보내도록 클라우드 서비스를 구성한 후에는 일반적인 방법으로 Azure에 배포하여 Azure 진단 확장이 사용되는지 확인할 수 있습니다. [Visual Studio를 사용하여 클라우드 서비스 게시](../vs-azure-tools-publishing-a-cloud-service.md)를 참조하세요.
+5) Enabling the **Send diagnostics data to Application Insights** will automatically configure Azure diagnostics to send all performance counters and error level logs that are being collected by the Azure diagnostics agent to Application Insights. If you want to further configure what data is sent to Application Insights then you need to manually edit the *diagnostics.wadcfgx* file for each role. See [Configure Azure Diagnostics to send data to Application Insights](../azure-diagnostics-configure-applicationinsights.md) to learn more about manually updating the configuration.
 
-## Application Insights에서 Azure 진단 데이터 보기
-Azure 진단 원격 분석이 해당 클라우드 서비스에 대해 구성된 Application Insights 리소스에 표시됩니다.
+Once the Cloud Service is configured to send Azure diagnostics data to application insights you can deploy it to Azure like you normally would making sure the Azure diagnostics extension is enabled. See [Publishing a Cloud Service using Visual Studio](../vs-azure-tools-publishing-a-cloud-service.md).  
 
-다음은 다양한 Azure 진단 로그 형식이 Application Insights 개념에 어떻게 매핑되는지 나타낸 것입니다.
+## <a name="viewing-azure-diagnostics-data-in-application-insights"></a>Viewing Azure diagnostics data in Application Insights
+The Azure diagnostic telemetry will show up in the Application Insights resource configured for your cloud service.
 
--  성능 카운터는 Application Insights에서 사용자 지정 메트릭으로 표시됩니다.
--  Windows 이벤트 로그는 Application Insights에서 추적 및 사용자 지정 이벤트로 표시됩니다.
--  응용 프로그램 로그, ETW 로그 및 진단 인프라 로그는 Application Insights에서 추적으로 표시됩니다.
+The following is how the various Azure diagnostics log types map to Application Insights concepts:  
 
-Application Insights에서 Azure 진단 데이터를 보려면 다음을 수행합니다.
+-  Performance Counters are displayed as Custom Metrics in Application Insights
+-  Windows Event Logs are shown as Traces and Custom Events in Application Insights
+-  Application Logs, ETW Logs and any Diagnostics Infrastructure logs are shown as Traces in Application Insights.
 
-- [메트릭 탐색기](../application-insights/app-insights-metrics-explorer.md)를 사용하여 사용자 지정 성능 카운터 또는 다양한 형식의 Windows 이벤트 로그 이벤트 수를 시각화합니다.
+To view Azure diagnostics data in Application Insights:
 
-![메트릭 탐색기의 사용자 지정 메트릭][5]
+- Use [Metrics explorer](../application-insights/app-insights-metrics-explorer.md) to visualize any custom performance counters or counts of different types of windows event log events.
 
-- [검색](../application-insights/app-insights-diagnostic-search.md)을 사용하여 Azure 진단에서 보낸 다양한 추적 로그를 검색합니다. 예를 들어 역할에 처리되지 않은 예외가 있어 역할이 충돌 및 재활용되는 경우 해당 정보가 *Windows 이벤트 로그*의 *응용 프로그램* 채널에 표시됩니다. 검색 기능을 사용하여 Windows 이벤트 로그 오류를 확인하고 예외에 대한 전체 스택 추적을 가져와서 문제의 근본 원인을 찾을 수 있습니다.
+![Custom Metrics in Metrics Explorer][5]
 
-![추적 검색][6]
+- Use [Search](../application-insights/app-insights-diagnostic-search.md) to search across the various trace logs sent by Azure Diagnostics. For example if you had an unhandled exception in a Role which caused the Role to crash and recycle that information would show up in the *Application* channel of *Windows Event Log*. You can use the Search functionality to look at the Windows Event Log error and get the full stack trace for the exception enabling you to find the root cause of the issue.
 
-## 다음 단계
+![Search Traces][6]
 
-- [Application Insights SDK를 클라우드 서비스에 추가](../application-insights/app-insights-cloudservices.md)하여 응용 프로그램에서 요청, 예외, 종속성 및 모든 사용자 지정 원격 분석에 대한 데이터를 보냅니다. Azure 진단 데이터와 함께 사용하여 동일한 Application Insight 리소스에 있는 모든 응용 프로그램 및 시스템을 전체적으로 확인할 수 있습니다.  
+## <a name="next-steps"></a>Next Steps
+
+- [Add the Application Insights SDK to your cloud service](../application-insights/app-insights-cloudservices.md) to send data about requests, exceptions, dependencies, and any custom telemetry from your application. Combined with the Azure Diagnostics data you can get a complete view of your application and system all in the same Application Insight resource.  
 
 
 <!--Image references-->
@@ -78,4 +79,8 @@ Application Insights에서 Azure 진단 데이터를 보려면 다음을 수행�
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

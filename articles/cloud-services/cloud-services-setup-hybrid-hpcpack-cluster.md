@@ -1,313 +1,314 @@
 <properties
-	pageTitle="Microsoft HPC 팩을 사용하여 하이브리드 HPC 클러스터 설정 | Microsoft Azure"
-	description="Microsoft HPC Pack 및 Azure를 사용하여 소규모 하이브리드 HPC(고성능 컴퓨팅) 클러스터를 설정하는 방법에 대해 알아봅니다."
-	services="cloud-services"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management,hpc-pack"/>
+    pageTitle="Set up a hybrid HPC cluster with Microsoft HPC Pack | Microsoft Azure"
+    description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster"
+    services="cloud-services"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management,hpc-pack"/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="danlep"/>
+    ms.service="cloud-services"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="danlep"/>
 
 
-# Microsoft HPC(고성능 컴퓨팅) Pack 및 주문형 Azure 계산 노드를 사용하여 하이브리드 HPC 클러스터 설정
 
-Microsoft HPC Pack 2012 R2 및 Azure를 사용하여 소규모 하이브리드 HPC(고성능 컴퓨팅) 클러스터를 설정합니다. 클러스터는 온-프레미스 헤드 노드(Windows Server 운영 체제와 HPC 팩이 실행되는 컴퓨터) 및 Azure 클라우드 서비스에 작업자 역할 인스턴스로 배포되는 일부 계산 노드로 구성됩니다. 그런 다음 하이브리드 클러스터에서 계산 작업을 실행할 수 있습니다.
+# <a name="set-up-a-hybrid-high-performance-computing-(hpc)-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes
 
-![하이브리드 HPC 클러스터][Overview]
+Use Microsoft HPC Pack 2012 R2 and Azure to set up a small, hybrid high performance computing (HPC) cluster. The cluster will consist of an on-premises head node (a computer running the Windows Server operating system and HPC Pack) and some compute nodes you deploy on-demand as worker role instances in an Azure cloud service. You can then run compute jobs on the hybrid cluster.
 
-이 자습서에서는 Azure의 확장 가능한 주문형 계산 리소스를 사용하여 계산이 많이 사용되는 응용 프로그램을 실행하는 방법을 보여 줍니다. 이 방법을 클러스터 "클라우드로 버스트"라고도 합니다.
+![Hybrid HPC cluster][Overview] 
 
-이 자습서는 이전에 계산 클러스터나 HPC 팩을 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC 팩 클러스터를 프로덕션 환경에 대규모로 배포하는 단계와 고려 사항은 [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하십시오. Azure 가상 컴퓨터의 자동화된 클러스터 배포를 포함한 HPC Pack을 사용한 다른 시나리오의 경우 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md)을 참조하세요.
+This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Azure to run compute-intensive applications.
 
+This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). For other scenarios with HPC Pack, including automated cluster deployment in Azure virtual machines, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
 
-## 필수 조건
 
-* **Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
+## <a name="prerequisites"></a>Prerequisites
 
-* **Windows Server 2012 R2 또는 Windows Server 2012가 실행되는 온-프레미스 컴퓨터** - 이 컴퓨터는 HPC 클러스터의 헤드 노드입니다. Windows Server가 아직 실행되지 않는 경우 [평가판](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2)을 다운로드하고 설치할 수 있습니다.
+* **Azure subscription** - If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
-	* Active Directory 도메인에 컴퓨터를 가입해야 합니다. Windows Server를 새로 설치하는 작업이 수행된 테스트 시나리오에서 Active Directory 도메인 서비스 서버 역할을 추가하고 헤드 노드 컴퓨터를 새 도메인 포리스트에서 도메인 컨트롤러로 승격할 수 있습니다(Windows Server에 대한 설명서 참조).
+* **An on-premises computer running Windows Server 2012 R2 or Windows Server 2012** - This computer will be the head node of the HPC cluster. If you aren't already running Windows Server, you can download and install an [evaluation version](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2).
 
-	* HPC 팩을 지원하려면 운영 체제가 영어, 일본어 또는 중국어(간체) 언어 중 하나로 설치되어야 합니다.
+    * The computer must be joined to an Active Directory domain. For a test scenario with a fresh installation of Windows Server, you can add the Active Directory Domain Services server role and promote the head node computer as a domain controller in a new domain forest (see the documentation for Windows Server).
 
-	* 중요 업데이트가 설치되었는지 확인합니다.
+    * To support HPC Pack, the operating system must be installed in one of these languages: English, Japanese, or Chinese (Simplified).
 
-* **HPC Pack 2012 R2** - 무료로 최신 버전의 설치 패키지를 [다운로드](http://go.microsoft.com/fwlink/p/?linkid=328024)하고 헤드 노드 컴퓨터나 네트워크 위치에 파일을 복사합니다. Windows Server 설치와 동일한 언어의 설치 파일을 선택합니다.
+    * Verify that important and critical updates are installed.
 
-* **도메인 계정** - HPC Pack을 설치하려면 헤드 노드에서 로컬 관리자 권한으로 이 계정을 구성해야 합니다.
+* **HPC Pack 2012 R2** - [Download](http://go.microsoft.com/fwlink/p/?linkid=328024) the installation package for the latest version free of charge and copy the files to the head node computer or to a network location. Choose installation files in the same language as your installation of Windows Server.
 
-* **포트 443의 헤드 노드와 Azure 간 TCP 연결**
+* **Domain account** - This account must be configured with local Administrator permissions on the head node to install HPC Pack.
 
-## 헤드 노드에 HPC 팩 설치
+* **TCP connectivity on port 443** from the head node to Azure.
 
-먼저 클러스터의 헤드 노드로 사용할 Windows Server를 실행하는 온-프레미스 컴퓨터에 Microsoft HPC Pack을 설치합니다.
+## <a name="install-hpc-pack-on-the-head-node"></a>Install HPC Pack on the head node
 
-1. 로컬 관리자 권한을 가진 도메인 계정을 사용하여 헤드 노드에 로그온합니다.
+You first install Microsoft HPC Pack on your on-premises computer running Windows Server that will be the head node of the cluster.
 
-2. HPC 팩 설치 파일에서 Setup.exe를 실행하여 HPC Pack Installation Wizard를 시작합니다.
+1. Log on to the head node by using a domain account that has local Administrator permissions.
 
-3. **HPC Pack 2012 R2 Setup** 화면에서 **New installation or add new features to an existing installation**을 클릭합니다.
+2. Start the HPC Pack Installation Wizard by running Setup.exe from the HPC Pack installation files.
 
-	![HPC Pack 2012 설치][install_hpc1]
+3. On the **HPC Pack 2012 R2 Setup** screen, click **New installation or add new features to an existing installation**.
 
-4. **Microsoft Software User Agreement page**에서 **Next**를 클릭합니다.
+    ![HPC Pack 2012 Setup][install_hpc1]
 
-5. **Select Installation Type** 페이지에서 **Create a new HPC cluster by creating a head node**를 클릭한 후 **Next**를 클릭합니다.
+4. On the **Microsoft Software User Agreement page**, click **Next**.
 
-	![설치 유형 선택][install_hpc2]
+5. On the **Select Installation Type** page, click **Create a new HPC cluster by creating a head node**, and then click **Next**.
 
-6. 마법사에서 여러 개의 사전 설치 테스트를 실행합니다. 테스트를 모두 통과한 경우 **Installation Rules** 페이지에서 **Next**를 클릭합니다. 그렇지 않으면 제공된 정보를 검토하고 필요에 따라 환경을 변경합니다. 다시 테스트를 실행하거나 필요한 경우 Installation Wizard를 다시 시작합니다.
+    ![Select Installation Type][install_hpc2]
 
-	![설치 규칙][install_hpc3]
+6. The wizard runs several pre-installation tests. Click **Next** on the **Installation Rules** page if all tests pass. Otherwise, review the information provided and make any necessary changes in your environment. Then run the tests again or if necessary start the Installation Wizard again.
 
-7. **HPC DB Configuration** 페이지에서 모든 HPC 데이터베이스에 대해 **Head Node**가 선택되었는지 확인하고 **Next**를 클릭합니다.
+    ![Installation Rules][install_hpc3]
 
-	![DB 구성][install_hpc4]
+7. On the **HPC DB Configuration** page, make sure **Head Node** is selected for all HPC databases, and then click **Next**.
 
-8. 마법사의 나머지 페이지에서 기본 선택을 적용합니다. **Install Required Components** 페이지에서 **Install**을 클릭합니다.
+    ![DB Configuration][install_hpc4]
 
-	![설치][install_hpc6]
+8. Accept default selections on the remaining pages of the wizard. On the **Install Required Components** page, click **Install**.
 
-9. 설치가 완료되면 **Start HPC Cluster Manager**를 선택 취소하고 **Finish**를 클릭합니다. (이후 단계에서 HPC 클러스터 관리자를 시작합니다.)
+    ![Install][install_hpc6]
 
-	![마침][install_hpc7]
+9. After the installation completes, uncheck **Start HPC Cluster Manager** and then click **Finish**. (You will start HPC Cluster Manager in a later step.)
 
-## Azure 구독 준비
-[Azure 클래식 포털](https://manage.windowsazure.com)을 사용하여 Azure 구독으로 다음 단계를 수행합니다. 이러한 단계는 나중에 온-프레미스 헤드 노드에서 Azure 노드를 배포하는 데 필요합니다. 자세한 절차는 다음 섹션에 있습니다.
+    ![Finish][install_hpc7]
 
-- 헤드 노드와 Azure 서비스 간의 보안 연결에 필요한 관리 인증서 업로드
+## <a name="prepare-the-azure-subscription"></a>Prepare the Azure subscription
+Use the [Azure classic portal](https://manage.windowsazure.com) to perform the following steps with your Azure subscription. These are needed so you can later deploy Azure nodes from the on-premises head node. Detailed procedures are in the next sections.
 
-- Azure 노드(작업자 역할 인스턴스)가 실행되는 Azure 클라우드 서비스 만들기
+- Upload a management certificate (needed for secure connections between the head node and the Azure services)
 
-- Azure 저장소 계정 만들기
+- Create an Azure cloud service in which Azure nodes (worker role instances) will run
 
-	>[AZURE.NOTE]또한 나중에 필요한 Azure 구독 ID를 기록해 둡니다. **설정** > **구독**을 클릭하여 클래식 포털에서 찾습니다.
+- Create an Azure storage account
 
-### 기본 관리 인증서 업로드
-HPC 팩은 Azure 관리 인증서로 업로드할 수 있는 자체 서명된 인증서(기본 Microsoft HPC Azure 관리 인증서라고 함)를 헤드 노드에 설치합니다. 이 인증서는 테스트 목적 및 개념 증명 배포를 위해 제공됩니다.
+    >[AZURE.NOTE]Also make a note of your Azure subscription ID, which you will need later. Find this in the classic portal by clicking **Settings** > **Subscriptions**.
 
-1. 헤드 노드 컴퓨터에서 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+### <a name="upload-the-default-management-certificate"></a>Upload the default management certificate
+HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing purposes and proof-of-concept deployments.
 
-2. **설정** > **관리 인증서**를 클릭합니다.
+1. From the head node computer, sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
-3. 명령 모음에서 **업로드**를 클릭합니다.
+2. Click **Settings** > **Management Certificates**.
 
-	![인증서 설정][upload_cert1]
+3. On the command bar, click **Upload**.
 
-4. 헤드 노드에서 C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer 파일을 찾은 다음 **선택 단추**를 클릭합니다.
+    ![Certificate Settings][upload_cert1]
 
-	![인증서 업로드][install_hpc10]
+4. Browse on the head node for the file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Then, click the **Check** button.
 
-관리 인증서 목록에 **기본 HPC Azure 관리**가 표시됩니다.
+    ![Upload Certificate][install_hpc10]
 
-### Azure 클라우드 서비스 만들기
+You will see **Default HPC Azure Management** in the list of management certificates.
 
->[AZURE.NOTE]최상의 성능을 얻으려면 동일한 지역에 클라우드 서비스와 저장소 계정을 만듭니다(이후 단계에서).
+### <a name="create-an-azure-cloud-service"></a>Create an Azure cloud service
 
-1. 클래식 포털의 명령 모음에서 **새로 만들기**를 클릭합니다.
+>[AZURE.NOTE]For best performance, create the cloud service and the storage account (in a later step) in the same geographic region.
 
-2. **계산** > **클라우드 서비스** > **빨리 만들기**를 클릭합니다.
+1. In the classic portal, on the command bar, click **New**.
 
-3. 클라우드 서비스의 URL을 입력하고 **클라우드 서비스 만들기**를 클릭합니다.
+2. Click **Compute** > **Cloud Service** > **Quick Create**.
 
-	![서비스 만들기][createservice1]
+3. Type a URL for the cloud service, and then click **Create Cloud Service**.
 
-### Azure 저장소 계정 만들기
+    ![Create Service][createservice1]
 
-1. 클래식 포털의 명령 모음에서 **새로 만들기**를 클릭합니다.
+### <a name="create-an-azure-storage-account"></a>Create an Azure storage account
 
-2. **데이터 서비스** > **저장소** > **빠른 생성**을 클릭합니다.
+1. In the classic portal, on the command bar, click **New**.
 
-3. 계정의 URL을 입력하고 **저장소 계정 만들기**를 클릭합니다.
+2. Click **Data Services** > **Storage** > **Quick Create**.
 
-	![저장소 만들기][createstorage1]
+3. Type a URL for the account, and then click **Create Storage Account**.
 
-## 헤드 노드 구성
+    ![Create Storage][createstorage1]
 
-HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제출하려면 먼저 필요한 클러스터 구성 단계를 수행합니다.
+## <a name="configure-the-head-node"></a>Configure the head node
 
-1. 헤드 노드에서 HPC Cluster Manager를 시작합니다. **Select Head Node** 대화 상자가 표시되면 **Local Computer**를 클릭합니다. **Deployment To-do List**가 나타납니다.
+To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perform some required cluster configuration steps.
 
-2. **Required deployment tasks**에서 **Configure your network**를 클릭합니다.
+1. On the head node, start HPC Cluster Manager. If the **Select Head Node** dialog box appears, click **Local Computer**. The **Deployment To-do List** appears.
 
-	![네트워크 구성][config_hpc2]
+2. Under **Required deployment tasks**, click **Configure your network**.
 
-3. Network Configuration Wizard에서 **All nodes only on an enterprise network**(Topology 5)를 선택합니다.
+    ![Configure Network][config_hpc2]
 
-	![토폴로지 5][config_hpc3]
+3. In the Network Configuration Wizard, select **All nodes only on an enterprise network** (Topology 5).
 
-	>[AZURE.NOTE]이 구성은 헤드 노드에 Active Directory 및 인터넷에 연결하기 위한 네트워크 어댑터 하나만 필요하기 때문에 가장 간단한 데모용 구성입니다. 이 자습서에서는 추가 네트워크가 필요한 클러스터 시나리오를 다루지 않습니다.
+    ![Topology 5][config_hpc3]
 
-4. 마법사의 나머지 페이지에서 **Next**를 클릭하여 기본값을 적용합니다. **Review** 탭에서 **Configure**를 클릭하여 네트워크 구성을 완료합니다.
+    >[AZURE.NOTE]This is the simplest configuration for demonstration purposes, because the head node only needs a single network adapter to connect to Active Directory and the Internet. This tutorial does not cover cluster scenarios that require additional networks.
 
-5. **Deployment To-do List**에서 **Provide installation credentials**를 클릭합니다.
+4. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Configure** to complete the network configuration.
 
-6. **Installation Credentials** 대화 상자에서 HPC 팩을 설치하는 데 사용한 도메인 계정의 자격 증명을 입력합니다. 그런 후 **OK**를 클릭합니다.
+5. In the **Deployment To-do List**, click **Provide installation credentials**.
 
-	![설치 자격 증명][config_hpc6]
+6. In the **Installation Credentials** dialog box, type the credentials of the domain account that you used to install HPC Pack. Then click **OK**.
 
-	>[AZURE.NOTE]HPC 팩 서비스는 설치 자격 증명만을 사용하여 도메인에 가입된 계산 노드를 배포합니다. 이 자습서에서 추가한 Azure 노드는 가입되지 않은 도메인입니다.
+    ![Installation Credentials][config_hpc6]
 
-7. **Deployment To-do List**에서 **Configure the naming of new nodes**을 클릭합니다.
+    >[AZURE.NOTE]HPC Pack services only use installation credentials to deploy domain-joined compute nodes. The Azure nodes you add in this tutorial are not domain-joined.
 
-8. **Specify Node Naming Series** 대화 상자에서 기본 이름 지정 시리즈를 적용하고 **OK**를 클릭합니다.
+7. In the **Deployment To-do List**, click **Configure the naming of new nodes**.
 
-	![노드 이름 지정][config_hpc8]
+8. In the **Specify Node Naming Series** dialog box, accept the default naming series and click **OK**.
 
-	>[AZURE.NOTE]이 이름 지정 시리즈는 도메인에 가입된 계산 노드의 이름만 생성합니다. Azure 작업자 노드의 이름은 자동으로 지정됩니다.
+    ![Node Naming][config_hpc8]
 
-9. **Deployment To-do List**에서 **Create a node template**을 클릭합니다. 노드 템플릿을 사용하여 클러스터에 Azure 노드를 추가합니다.
+    >[AZURE.NOTE]The naming series only generates names for domain-joined compute nodes. Azure worker nodes are named automatically.
 
-10. Create Node Template Wizard에서 다음을 수행합니다.
+9. In the **Deployment To-do List**, click **Create a node template**. You will use the node template to add Azure nodes to the cluster.
 
-	a. **노드 템플릿 유형 선택** 페이지에서 **Azure 노드 템플릿**을 클릭한 후 **다음**을 클릭합니다.
+10. In the Create Node Template Wizard, do the following:
 
-	![노드 템플릿][config_hpc10]
+    a. On the **Choose Node Template Type** page, click **Azure node template**, and then click **Next**.
 
-	b. **다음**을 클릭하여 기본 템플릿 이름을 적용합니다.
+    ![Node Template][config_hpc10]
 
-	c. **구독 정보 제공** 페이지에서 Azure 계정 정보에 제공된 Azure 구독 ID를 입력합니다. **Management certificate**에서 **Browse**를 클릭하고 **Default HPC Azure Management**를 선택합니다. 그런 후 **Next**를 클릭합니다.
+    b. Click **Next** to accept the default template name.
 
-	![노드 템플릿][config_hpc12]
+    c. On the **Provide Subscription Information** page, enter your Azure subscription ID (available in your Azure account information). Then, in **Management certificate**, click **Browse** and select **Default HPC Azure Management.** Then click **Next**.
 
-	d. **서비스 정보 제공** 페이지에서 이전 단계를 통해 만든 클라우드 서비스와 저장소 계정을 선택합니다. 그런 후 **Next**를 클릭합니다.
+    ![Node Template][config_hpc12]
 
-	![노드 템플릿][config_hpc13]
+    d. On the **Provide Service Information** page, select the cloud service and the storage account that you created in a previous step. Then click **Next**.
 
-	e. 마법사의 나머지 페이지에서 **Next**를 클릭하여 기본값을 적용합니다. **Review** 탭에서 **Create**를 클릭하여 노드 템플릿을 만듭니다.
+    ![Node Template][config_hpc13]
 
-	>[AZURE.NOTE]기본적으로 Azure 노드 템플릿에는 HPC 클러스터 관리자를 사용하여 수동으로 노드를 시작(프로비전) 및 중지하기 위한 설정이 포함되어 있습니다. Azure 노드를 자동으로 시작 및 중지하도록 일정을 구성할 수도 있습니다.
+    e. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Create** to create the node template.
 
-## 클러스터에 Azure 노드 추가
+    >[AZURE.NOTE]By default, the Azure node template includes settings for you to start (provision) and stop the nodes manually, using HPC Cluster Manager. You can optionally configure a schedule to start and stop the Azure nodes automatically.
 
-이제 노드 템플릿을 사용하여 클러스터에 Azure 노드를 추가합니다. 클러스터에 노드를 추가하면 해당 구성 정보가 저장되므로 언제든지 클라우드 서비스의 역할 인스턴스로 노드를 시작(프로비전)할 수 있습니다. 클라우드 서비스에서 역할 인스턴스가 실행되는 경우 Azure 노드에 대해서만 구독에 요금이 부과됩니다.
+## <a name="add-azure-nodes-to-the-cluster"></a>Add Azure nodes to the cluster
 
-이 자습서에서는 두 개의 작은 노드를 추가합니다.
+You now use the node template to add Azure nodes to the cluster. Adding the nodes to the cluster stores their configuration information so that you can start (provision) them at any time as role instances in the cloud service. Your subscription only gets charged for Azure nodes after the role instances are running in the cloud service.
 
-1. HPC 클러스터 관리자의 **노드 관리**(최신 버전의 HPC Pack에서 **리소스 관리**)에서 **동작** 창의 **노드 추가**를 클릭합니다.
+For this tutorial you will add two Small nodes.
 
-	![노드 추가][add_node1]
+1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), in the **Actions** pane, click **Add Node**.
 
-2. Add Node Wizard의 **Select Deployment Method** 페이지에서 **Add Azure nodes**를 클릭한 후 **Next**를 클릭합니다.
+    ![Add Node][add_node1]
 
-	![Add Azure Node][add\_node1_1]
+2. In the Add Node Wizard, on the **Select Deployment Method** page, click **Add Azure nodes**, and then click **Next**.
 
-3. **Specify New Nodes** 페이지에서 이전에 만든 Azure 노드 템플릿(기본적으로 **Default AzureNode Template**)을 선택합니다. 크기가 **Small**인 노드 **2**개를 지정하고 **Next**를 클릭합니다.
+    ![Add Azure Node][add_node1_1]
 
-	![노드 지정][add_node2]
+3. On the **Specify New Nodes** page, select the Azure node template you created previously (called by default **Default AzureNode Template**). Then specify **2** nodes of size **Small**, and then click **Next**.
 
-	사용 가능한 크기에 대한 자세한 내용은 [클라우드 서비스에 적합한 크기](cloud-services-sizes-specs.md)를 참조하세요.
+    ![Specify Nodes][add_node2]
 
-4. **Completing the Add Node Wizard** 페이지에서 **Finish**를 클릭합니다.
+    For details about the available sizes, see [Sizes for Cloud Services](cloud-services-sizes-specs.md).
 
-	 이제 **AzureCN-0001** 및 **AzureCN-0002**라는 Azure 노드 2개가 HPC Cluster Manager에 표시됩니다. 둘 다 **배포되지 않음** 상태입니다.
+4. On the **Completing the Add Node Wizard** page, click **Finish**.
 
-	![추가된 노드][add_node3]
+     Two Azure nodes, named **AzureCN-0001** and **AzureCN-0002**, now appear in HPC Cluster Manager. Both are in the **Not-Deployed** state.
 
-## Azure 노드 시작
-Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통해 Azure 노드를 시작(프로비전)하고 온라인 상태로 전환합니다.
+    ![Added Nodes][add_node3]
 
-1.	HPC Cluster Manager의 **노드 관리**(최신 버전의 HPC Pack에서 **리소스 관리**)에서 노드 중 하나 또는 둘 다를 클릭하고 **동작** 창에서 **시작**을 클릭합니다.
+## <a name="start-the-azure-nodes"></a>Start the Azure nodes
+When you want to use the cluster resources in Azure, use HPC Cluster Manager to start (provision) the Azure nodes and bring them online.
 
-	![노드 시작][add_node4]
+1.  In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), click one or both nodes and then, in the **Actions** pane, click **Start**.
 
-2. **Start Azure Nodes** 대화 상자에서 **Start**를 클릭합니다.
+    ![Start Nodes][add_node4]
 
-	![노드 시작][add_node5]
+2. In the **Start Azure Nodes** dialog box, click **Start**.
 
-	노드가 **Provisioning** 상태로 전환됩니다. 프로비전 로그를 보고 프로비전 진행 상태를 추적합니다.
+    ![Start Nodes][add_node5]
 
-	![노드 프로비전][add_node6]
+    The nodes transition to the **Provisioning** state. View the provisioning log to track the provisioning progress.
 
-3. 몇 분 후에 Azure 노드가 프로비전을 완료하고 **Offline** 상태로 전환됩니다. 이 상태에서는 역할 인스턴스가 실행되지만 클러스터 작업을 수락하지 않습니다.
+    ![Provision Nodes][add_node6]
 
-4. 역할 인스턴스가 실행되고 있는지 확인하려면 [클래식 포털](https://manage.windowsazure.com)에서 **클라우드 서비스** > *your\_cloud\_service\_name* > **인스턴스**를 클릭합니다.
+3. After a few minutes, the Azure nodes finish provisioning and are in the **Offline** state. In this state the role instances are running but will not yet accept cluster jobs.
 
-	![실행 중인 인스턴스][view_instances1]
+4. To confirm that the role instances are running, in the [classic portal](https://manage.windowsazure.com), click **Cloud Services** > *your_cloud_service_name* > **Instances**.
 
-	서비스에서 두 개의 작업자 역할 인스턴스가 실행되고 있습니다. 또한 HPC 팩은 헤드 노드와 Azure 간의 통신을 처리하기 위해 **HpcProxy** 인스턴스(중간 크기) 두 개를 자동으로 배포합니다.
+    ![Running Instances][view_instances1]
 
-5. 클러스터 작업을 실행하기 위해 Azure 노드를 온라인 상태로 전환하려면 노드를 선택하고 마우스 오른쪽 단추를 클릭한 후 **Bring Online**을 클릭합니다.
+    You will see two worker role instances are running in the service. HPC Pack also automatically deploys two **HpcProxy** instances (size Medium) to handle communication between the head node and Azure.
 
-	![오프라인 노드][add_node7]
+5. To bring the Azure nodes online to run cluster jobs, select the nodes, right-click, and then click **Bring Online**.
 
-	HPC Cluster Manager에서 노드가 **Online** 상태로 표시됩니다.
+    ![Offline Nodes][add_node7]
 
-## 클러스터에서 명령 실행
+    HPC Cluster Manager indicates that the nodes are in the **Online** state.
 
-설치를 확인하려면 HPC Pack **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드에서 명령이나 응용 프로그램을 실행합니다. 간단한 예로 **clusrun**을 사용하여 Azure 노드의 IP 구성을 가져옵니다.
+## <a name="run-a-command-across-the-cluster"></a>Run a command across the cluster
 
-1. 헤드 노드에서 명령 프롬프트를 엽니다.
+To check the installation, use the HPC Pack **clusrun** command to run a command or application on one or more cluster nodes. As a simple example, use **clusrun** to get the IP configuration of the Azure nodes.
 
-2. 다음 명령을 입력합니다.
+1. On the head node, open a command prompt.
 
-	`clusrun /nodes:azurecn* ipconfig`
+2. Type the following command:
 
-3. 다음과 유사한 출력이 표시됩니다.
+    `clusrun /nodes:azurecn* ipconfig`
 
-	![Clusrun][clusrun1]
+3. You will see output similar to the following.
 
-## 테스트 작업 실행
+    ![Clusrun][clusrun1]
 
-이제 하이브리드 클러스터에서 실행되는 테스트 작업을 제출합니다. 이 예제는 매우 간단한 매개 변수 스윕 작업(본질적으로 병렬 계산 형식)입니다. 이 예제는 **set/a** 명령을 사용하여 자체적으로 정수를 추가하는 하위 작업을 실행합니다. 클러스터의 모든 노드는 1에서 100까지 정수의 하위 작업을 마치는 데 사용됩니다.
+## <a name="run-a-test-job"></a>Run a test job
 
-1. HPC Cluster Manager의 **Job Management**, **Actions** 창에서 **New Parametric Sweep Job**을 클릭합니다.
+Now submit a test job that runs on the hybrid cluster. This example is a very simple parametric sweep job (a type of intrinsically parallel computation). This example runs subtasks that add an integer to itself by using the **set /a** command. All the nodes in the cluster contribute to finishing the subtasks for integers from 1 to 100.
 
-	![새 작업][test_job1]
+1. In HPC Cluster Manager, in **Job Management**, in the **Actions** pane, click **New Parametric Sweep Job**.
 
-2. **New Parametric Sweep Job** 대화 상자의 **Command line**에 `set /a *+*`을 입력합니다(표시되는 기본 명령줄을 덮어씀). 나머지 설정은 기본값을 그대로 두고 **Submit**를 클릭하여 작업을 제출합니다.
+    ![New Job][test_job1]
 
-	![매개 변수 스윕][param_sweep1]
+2. In the **New Parametric Sweep Job** dialog box, in **Command line**, type `set /a *+*` (overwriting the default command line that appears). Leave default values for the remaining settings, and then click **Submit** to submit the job.
 
-3. 작업이 완료되면 **My Sweep Task** 작업을 두 번 클릭합니다.
+    ![Parametric Sweep][param_sweep1]
 
-4. **View Tasks**를 클릭한 후 하위 작업을 클릭하여 해당 하위 작업의 계산된 출력을 표시합니다.
+3. When the job is finished, double-click the **My Sweep Task** job.
 
-	![작업 결과][view_job361]
+4. Click **View Tasks**, and then click a subtask to view the calculated output of that subtask.
 
-5. 하위 작업에 대한 계산을 수행한 노드를 보려면 **Allocated Nodes**를 클릭합니다. 클러스터에서 다른 노드 이름이 표시할 수도 있습니다.
+    ![Task Results][view_job361]
 
-	![작업 결과][view_job362]
+5. To see which node performed the calculation for that subtask, click **Allocated Nodes**. (Your cluster might show a different node name.)
 
-## Azure 노드 중지
+    ![Task Results][view_job362]
 
-클러스터를 시도한 후 계정에 대한 불필요한 요금 부과를 피하기 위해 Azure 노드를 중지합니다. 클라우드 서비스가 중지되고 Azure 역할 인스턴스가 제거됩니다.
+## <a name="stop-the-azure-nodes"></a>Stop the Azure nodes
 
-1. HPC 클러스터 관리자의 **노드 관리**(최신 버전의 HPC Pack에서 **리소스 관리**)에서 두 Azure 노드를 모두 선택합니다. **Actions** 창에서 **Stop**을 클릭합니다.
+After you try out the cluster, stop the Azure nodes to avoid unnecessary charges to your account. This stops the cloud service and removes the Azure role instances.
 
-	![노드 중지][stop_node1]
+1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), select both Azure nodes. Then, in the **Actions** pane, click **Stop**.
 
-2. **Stop Azure Nodes** 대화 상자에서 **Stop**을 클릭합니다.
+    ![Stop Nodes][stop_node1]
 
-	![노드 중지][stop_node2]
+2. In the **Stop Azure Nodes** dialog box, click **Stop**.
 
-3. 노드가 **Stopping** 상태로 전환됩니다. 몇 분 후에 HPC Cluster Manager에서 노드가 **Not-Deployed**로 표시됩니다.
+    ![Stop Nodes][stop_node2]
 
-	![배포되지 않은 노드][stop_node4]
+3. The nodes transition to the **Stopping** state. After a few minutes, HPC Cluster Manager shows that the nodes are **Not-Deployed**.
 
-4. 역할 인스턴스가 Azure에서 더 이상 실행되지 않는지 확인하려면 [클래식 포털](https://manage.windowsazure.com)에서 **클라우드 서비스** > *your\_cloud\_service\_name* > **인스턴스**를 클릭합니다. 프로덕션 환경에는 인스턴스가 배포되지 않습니다.
+    ![Not Deployed Nodes][stop_node4]
 
-	![인스턴스 없음][view_instances2]
+4. To confirm that the role instances are no longer running in Azure, in the [classic portal](https://manage.windowsazure.com), click **Cloud Services** > *your_cloud_service_name* > **Instances**. No instances will be deployed in the production environment.
 
-	이제 자습서를 마쳤습니다.
+    ![No Instances][view_instances2]
 
-## 다음 단계
+    This completes the tutorial.
 
-* [HPC Pack 2012 R2 및 HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697) 설명서를 참조하세요.
+## <a name="next-steps"></a>Next steps
 
-* 대규모 하이브리드 HPC Pack 클러스터 배포를 설정하려면 [Microsoft HPC Pack을 사용하여 Azure 작업자 역할 인스턴스로 버스트](http://go.microsoft.com/fwlink/p/?LinkID=200493)를 참조하세요.
+* Explore the documentation for [HPC Pack 2012 R2 and HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697).
 
-* Azure Resource Manager 템플릿 사용 등 Azure에서 HPC Pack 클러스터를 만드는 다른 방법은 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md)을 참조하세요.
-* Azure의 큰 계산 및 HPC 클라우드 솔루션 범위에 대한 자세한 내용은 [Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스](../batch/big-compute-resources.md)를 참조하세요.
+* To set up a hybrid HPC Pack cluster deployment at greater scale, see [Burst to Azure Worker Role Instances with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+
+* For other ways to create an HPC Pack cluster in Azure, including using Azure Resource Manager templates, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
+* See [Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)](../batch/big-compute-resources.md) for more about the range of Big Compute and HPC cloud solutions in Azure.
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -329,7 +330,7 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
 [config_hpc12]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc12.png
 [config_hpc13]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc13.png
 [add_node1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1.png
-[add\_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
+[add_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
 [add_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node2.png
 [add_node3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node3.png
 [add_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node4.png
@@ -347,4 +348,8 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!----HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,56 +1,59 @@
 
 <properties
-	pageTitle="배치의 권장 사항 가져오기: 기계 학습 권장 사항 API | Microsoft Azure"
-	description="Azure 기계 학습 권장 사항--배치의 권장 사항 가져오기"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Getting recommendations in batches: Machine learning recommendations API | Microsoft Azure"
+    description="Azure machine learning recommendations--getting recommendations in batches"
+    services="cognitive-services"
+    documentationCenter=""
+    authors="luiscabrer"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="cognitive-services"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="luisca"/>
+    ms.service="cognitive-services"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/17/2016"
+    ms.author="luisca"/>
 
-# 배치의 권장 사항 가져오기
 
->[AZURE.NOTE] 배치의 권장 사항을 가져오는 것은 권장 사항을 한 번에 하나씩 가져오는 것보다 더 복잡합니다. 단일 요청에 대해 권장 사항을 가져오는 방법에 대한 정보는 API를 확인하세요.
+# <a name="get-recommendations-in-batches"></a>Get recommendations in batches
 
-> [항목-항목 권장 사항](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br> [사용자-항목 권장 사항](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
+>[AZURE.NOTE] Getting recommendations in batches is more complicated than getting recommendations one at a time. Check the APIs for information about how to get recommendations for a single request:
+
+> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
+> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
-> 배치 점수 매기기는 2016년 7월 21일 이후에 생성된 빌드에 대해서만 작동합니다.
+> Batch scoring only works for builds that were created after July 21, 2016.
 
 
-한 번에 둘 이상의 항목에 대한 권장 사항을 가져와야 하는 경우가 있습니다. 예를 들어 권장 사항 캐시 만들기 또는 가져오는 권장 사항의 형식에 대한 분석에 관심이 있을 수 있습니다.
+There are situations in which you need to get recommendations for more than one item at a time. For instance, you might be interested in creating a recommendations cache or even analyzing the types of recommendations that you are getting.
 
-호출하므로 배치 점수 매기기 작업은 비동기 작업입니다. 요청을 제출하고 작업이 완료될 때까지 기다린 다음 결과를 수집해야 합니다.
+Batch scoring operations, as we call them, are asynchronous operations. You need to submit the request, wait for the operation to finish, and then gather your results.  
 
-보다 정확하게 하기 위해 다음 단계를 수행합니다.
+To be more precise, these are the steps to follow:
 
-1.	아직 없는 경우 Azure Storage 컨테이너를 만듭니다.
-2.	Azure Blob 저장소에 대한 각 권장 사항 요청을 설명하는 입력 파일을 업로드합니다.
-3.	점수 매기기 배치 작업을 시작합니다.
-4.	비동기 작업이 완료될 때까지 기다립니다.
-5.	작업이 완료되면 Blob 저장소에서 결과 수집합니다.
+1.  Create an Azure Storage container if you don’t have one already.
+2.  Upload an input file that describes each of your recommendation requests to Azure Blob storage.
+3.  Kick-start the scoring batch job.
+4.  Wait for the asynchronous operation to finish.
+5.  When the operation has finished, gather the results from Blob storage.
 
-이러한 각 단계를 살펴보겠습니다.
+Let’s walk through each of these steps.
 
-## 아직 없는 경우 저장소 컨테이너 만들기
+## <a name="create-a-storage-container-if-you-don’t-have-one-already"></a>Create a Storage container if you don’t have one already
 
-[Azure 포털](https://portal.azure.com)로 이동하고 아직 없는 경우 새 저장소 계정을 만듭니다. 이 작업을 수행하려면 **새로 만들기** > **데이터** + **저장소** > **저장소 계정**으로 이동합니다.
+Go to the [Azure portal](https://portal.azure.com) and create a new storage account if you don’t have one already. To do this, navigate to **New** > **Data** + **Storage** > **Storage Account**.
 
-저장소 계정을 가진 후 배치 실행의 입력 및 출력을 저장하는 Blob 컨테이너를 만들어야 합니다.
+After you have a storage account, you need to create the blob containers where you will store the input and output of the batch execution.
 
-Blob 저장소에 대한 각 권장 사항 요청을 설명하는 입력 파일을 업로드합니다. 여기에서는 input.json 파일입니다. 컨테이너를 만든 후 권장 사항 서비스에서 수행해야 하는 각 요청을 설명하는 파일을 업로드해야 합니다.
+Upload an input file that describes each of your recommendation requests to Blob storage--let's call the file input.json here.
+After you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service.
 
-배치는 특정 빌드에서 한 가지 유형의 요청만을 수행할 수 있습니다. 다음 섹션에서 이 정보를 정의하는 방법을 설명합니다. 현재로서는 특정 빌드 중에서 항목 권장 사항을 수행하는 것으로 가정합니다. 입력 파일은 각 요청에 대한 입력 정보를 포함합니다(이 경우 시드 항목).
+A batch can perform only one type of request from a specific build. We will explain how to define this information in the next section. For now, let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case, the seed items) for each of the requests.
 
-input.json 파일이 어떤 모습인지 보여 주는 예제입니다.
+This is an example of what the input.json file looks like:
 
     {
       "requests": [
@@ -65,15 +68,15 @@ input.json 파일이 어떤 모습인지 보여 주는 예제입니다.
       ]
     }
 
-여기에서 볼 수 있듯이 파일은 각 요청이 권장 사항 요청을 보내는 데 필요한 정보를 갖는 JSON 파일입니다. 수행해야 하는 요청에 대해 비슷한 JSON 파일을 만들고 Blob 저장소에서 방금 만든 컨테이너에 복사합니다.
+As you can see, the file is a JSON file, where each of the requests has the information that's necessary to send a recommendations request. Create a similar JSON file for the requests that you need to fulfill, and copy it to the container that you just created in Blob storage.
 
-## 배치 작업 시작
+## <a name="kick-start-the-batch-job"></a>Kick-start the batch job
 
-다음 단계는 새 배치 작업을 제출하는 것입니다. 자세한 내용은 [API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/)를 확인하세요.
+The next step is to submit a new batch job. For more information, check the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
-API의 요청 본문은 입력, 출력 및 오류 파일이 저장되어야 하는 위치를 정의해야 합니다. 해당 위치에 액세스하는 데 필요한 자격 증명도 정의해야 합니다. 또한 전체 배치(요청에 대한 권장 사항 형식, 사용할 모델/빌드, 호출당 결과 수 등)에 적용하는 일부 매개 변수를 지정해야 합니다.
+The request body of the API needs to define the locations where the input, output, and error files need to be stored. It also needs to define the credentials that are necessary to access those locations. In addition, you need to specify some parameters that apply to the whole batch (the type of recommendations to request, the model/build to use, the number of results per call, and so on.)
 
-요청 본문이 어떤 모습인지 보여 주는 예제입니다.
+This is an example of what the request body should look like:
 
     {
       "input": {
@@ -104,23 +107,24 @@ API의 요청 본문은 입력, 출력 및 오류 파일이 저장되어야 하�
       }
     }
 
-유의해야 할 두 가지 중요한 사항:
+Here a few important things to note:
 
--	현재 **authenticationType**은 항상 **PublicOrSas**로 설정되어야 합니다.
+-   Currently, **authenticationType** should always be set to **PublicOrSas**.
 
--	권장 사항 API를 Blob 저장소 계정 간 읽기 및 쓰기를 허용하도록 SAS(공유 액세스 서명) 토큰을 가져와야 합니다. SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [권장 사항 API 페이지](../storage/storage-dotnet-shared-access-signature-part-1.md)에서 확인할 수 있습니다.
+-   You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
--	항목-항목 권장 사항에 사용되는 현재 지원되는 유일한 **apiName**은 **ItemRecommend**입니다. 일괄 처리가 현재 사용자-항목 권장 사항을 지원하지 않습니다.
+-   The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
 
-## 비동기 작업이 완료될 때까지 기다립니다.
+## <a name="wait-for-the-asynchronous-operation-to-finish"></a>Wait for the asynchronous operation to finish
 
-배치 작업을 시작하면 응답은 작업을 추적하는 데 필요한 정보를 제공하는 작업 위치 헤더를 반환합니다. 빌드 작업의 작업 추적에 대해 수행하는 것과 마찬가지로 [작업 상태 API 검색](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da)을 사용하여 작업을 추적합니다.
+When you start the batch operation, the response returns the Operation-Location header that gives you the information that's necessary to track the operation.
+You track the operation by using the [Retrieve Operation Status API]( https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), just like you do for tracking the operation of a build operation.
 
-## 결과 가져오기
+## <a name="get-the-results"></a>Get the results
 
-작업이 완료된 후 오류가 없었던 것으로 가정하면 출력 Blob 저장소에서 결과를 수집할 수 있습니다.
+After the operation has finished, assuming that there were no errors, you can gather the results from your output Blob storage.
 
-아래 예제에서는 출력이 어떤 모습인지 보여 줍니다. 이 예제에서는 간단한 설명을 위해 두 가지 요청만으로 배치에 대한 결과를 보여 줍니다.
+The example below show what the output might look like. In this example, we show results for a batch with only two requests (for brevity).
 
     {
       "results":
@@ -193,9 +197,13 @@ API의 요청 본문은 입력, 출력 및 오류 파일이 저장되어야 하�
     ]}
 
 
-## 제한 사항에 알아보기
+## <a name="learn-about-the-limitations"></a>Learn about the limitations
 
--	한 번에 구독당 하나의 배치 작업만을 호출할 수 있습니다.
--	배치 작업 입력 파일은 2MB 이상일 수 없습니다.
+-   Only one batch job can be called per subscription at a time.
+-   A batch job input file cannot be more than 2 MB.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

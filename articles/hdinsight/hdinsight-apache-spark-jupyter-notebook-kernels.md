@@ -1,193 +1,198 @@
 <properties 
-	pageTitle="Linux의 HDInsight Spark 클러스터에서 Jupyter 노트북과 함께 사용할 수 있는 커널 | Microsoft Azure" 
-	description="Hdinsight Linux의 Spark 클러스터와 함께 사용할 수 있는 추가 Jupyter 노트북 커널에 대해 알아봅니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="jhubbard" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Kernels available with Jupyter notebooks on HDInsight Spark clusters on Linux| Microsoft Azure" 
+    description="Learn about the additional Jupyter notebook kernels available with Spark cluster on HDInsight Linux." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="nitinme" 
+    manager="jhubbard" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/05/2016" 
+    ms.author="nitinme"/>
 
 
-# HDInsight Linux의 Apache Spark 클러스터로 Jupyter 노트북에 사용할 수 있는 커널
 
-HDInsight(Linux)의 Apache Spark 클러스터는 응용 프로그램을 테스트하는 데 사용할 수 있는 Jupyter 노트북을 포함합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. HDInsight Spark 클러스터는 Jupyter Notebook에 사용할 수 있는 두 개의 커널을 제공합니다. 다음과 같습니다.
+# <a name="kernels-available-for-jupyter-notebooks-with-apache-spark-clusters-on-hdinsight-linux"></a>Kernels available for Jupyter notebooks with Apache Spark clusters on HDInsight Linux
 
-1. **PySpark**(Python에서 작성한 응용 프로그램용)
-2. **Spark**(Scala에서 작성한 응용 프로그램용)
+Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook. These are:
 
-이 문서에서는 이러한 커널을 사용하는 방법 및 이를 사용하여 얻을 수 있는 이점에 대해 배우게 됩니다.
+1. **PySpark** (for applications written in Python)
+2. **Spark** (for applications written in Scala)
 
-**필수 조건:**
+In this article, you will learn about how to use these kernels and what are the benefits you get from using them.
 
-다음이 있어야 합니다.
+**Prerequisites:**
 
-- Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+You must have the following:
 
-## 커널은 어떻게 사용합니까? 
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
+## <a name="how-do-i-use-the-kernels?"></a>How do I use the kernels? 
 
-2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
-	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
-	>
-	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-2. 새 커널로 새 노트북을 만듭니다. **새로 만들기**를 클릭한 다음 **Pyspark** 또는 **Spark**를 클릭합니다. Scala 응용 프로그램에 대해 Spark 커널을 Python 응용 프로그램에 대해 PySpark 커널을 사용해야 합니다.
+    > [AZURE.NOTE] You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
+    >
+    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "새 Jupyter 노트북 만들기")
+2. Create a new notebook with the new kernels. Click **New**, and then click **Pyspark** or **Spark**. You should use the Spark kernel for Scala applications and PySpark kernel for Python applications.
 
-3. 선택한 커널로 새 노트북을 열어야 합니다.
+    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a new Jupyter notebook") 
 
-## 왜 PySpark 또는 Spark 커널을 사용해야 하나요?
+3. This should open a new notebook with the kernel you selected.
 
-다음은 새 커널 사용 시 얻을 수 있는 몇 가지 이점입니다.
+## <a name="why-should-i-use-the-pyspark-or-spark-kernels?"></a>Why should I use the PySpark or Spark kernels?
 
-1. **컨텍스트를 미리 설정**합니다. Jupyter Notebook에 제공되는 **PySpark** 또는 **Spark** 커널을 사용하면 개발 중인 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요가 없습니다. 즉, Spark 또는 Hive 컨텍스트를 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
+Here are a few benefits of using the new kernels.
 
-	* **sc** - Spark 컨텍스트용
-	* **sqlContext** - Hive 컨텍스트용
+1. **Preset contexts**. With the **PySpark** or **Spark** kernels that are provided with Jupyter notebooks, you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
+
+    * **sc** - for Spark context
+    * **sqlContext** - for Hive context
 
 
-	따라서 컨텍스트를 설정하기 위해 다음과 같은 문을 실행할 필요가 없습니다.
+    So, you don't have to run statements like the following to set the contexts:
 
-		###################################################
-		# YOU DO NOT NEED TO RUN THIS WITH THE NEW KERNELS
-		###################################################
-		sc = SparkContext('yarn-client')
-		sqlContext = HiveContext(sc)
+        ###################################################
+        # YOU DO NOT NEED TO RUN THIS WITH THE NEW KERNELS
+        ###################################################
+        sc = SparkContext('yarn-client')
+        sqlContext = HiveContext(sc)
 
-	대신 응용 프로그램에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
-	
-2. **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다. 매직에 대한 자세한 내용은 [여기](http://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
+    Instead, you can directly use the preset contexts in your application.
+    
+2. **Cell magics**. The PySpark kernel provides some predefined “magics”, which are special commands that you can call with `%%` (e.g. `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, will cause an error.   For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
-	아래 표에는 커널을 통해 사용할 수 있는 다양한 매직이 나열되어 있습니다.
+    The table below lists the different magics available through the kernels.
 
-	| 매직 | 예 | 설명 |
-	|-----------|---------------------------------|--------------|
-	| help | `%%help` | 예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
-	| info | `%%info` | 현재 Livy 끝점에 대한 출력 세션 정보 |
-	| 구성 | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | 세션 만들기에 대한 매개 변수를 구성합니다. 이미 만들어진 세션을 삭제 후 다시 만드는 경우 강제 플래그(-f)가 필수입니다. 유효한 매개 변수 목록은 [Livy의 POST /sessions Request Body](https://github.com/cloudera/livy#request-body)를 참조하세요. 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다. |
-	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | sqlContext에 대해 Hive 쿼리를 실행합니다. `-o` 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 유지됩니다. |
-	| local | `%%local`<br>`a=1` | 다음 줄의 모든 코드는 로컬로 실행됩니다. 코드는 유효한 Python 코드여야 합니다. |
-	| 로그 | `%%logs` | 현재 Livy 세션에 대한 로그를 출력합니다. |
-	| delete | `%%delete -f -s <session number>` | 현재 Livy 끝점의 특정 세션을 삭제합니다. 커널 자체에 대해 시작된 세션은 삭제할 수 없습니다. |
-	| cleanup | `%%cleanup -f` | 이 노트북의 세션을 포함하여 현재 Livy 끝점에 대한 모든 세션을 삭제합니다. 강제 플래그 -f는 필수입니다. |
+  	| Magic     | Example                         | Description  |
+  	|-----------|---------------------------------|--------------|
+  	| help      | `%%help`                            | Generates a table of all the available magics with example and description |
+  	| info      | `%%info`                          | Outputs session information for the current Livy endpoint |
+  	| configure | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created and the session will be dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
+  	| sql       |  `%%sql -o <variable name>`<br> `SHOW TABLES`    | Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe.   |
+  	| local     |     `%%local`<br>`a=1`              | All the code in subsequent lines will be executed locally. Code must be valid Python code. |
+  	| logs      | `%%logs`                        | Outputs the logs for the current Livy session.  |
+  	| delete    | `%%delete -f -s <session number>` | Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
+  	| cleanup   | `%%cleanup -f`                    | Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory.  |
 
-	>[AZURE.NOTE] PySpark 커널이 추가하는 매직 외에 `%%sh` [ IPython 매직](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)도 사용할 수 있습니다. `%%sh` 매직을 사용하면 클러스터 헤드 노드에서 스크립트 및 코드 블록을 실행할 수 있습니다.
+    >[AZURE.NOTE] In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode. 
 
-3. **자동 시각화**. **Pyspark** 커널은 Hive 및 SQL 쿼리 출력을 자동으로 시각화합니다. 테이블, 원형, 선, 영역, 막대를 포함하여 다양한 시각화 형식 중에서 선택할 수 있습니다.
+3. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You have the option to choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 
-## %%sql 매직에서 지원되는 매개 변수
+## <a name="parameters-supported-with-the-%%sql-magic"></a>Parameters supported with the %%sql magic
 
-%%sql 매직은 쿼리를 실행할 때 검색하는 출력 종류를 제어하는 데 사용할 수 있는 여러 매개 변수를 지원합니다. 다음 표에는 출력이 나와 있습니다.
+The %%sql magic supports different parameters that you can use to control the kind of output that you receive when you run queries. The following table lists the output.
 
-| 매개 변수 | 예 | 설명 |
+| Parameter     | Example                         | Description  |
 |-----------|---------------------------------|--------------|
-| -o | `-o <VARIABLE NAME>` | 이 매개 변수를 사용하여 쿼리 결과를 %%local Python 컨텍스트에서 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 유지할 수 있습니다. 데이터 프레임 변수 이름은 사용자가 지정한 변수 이름입니다. |
-| -q | `-q` | 이 매개 변수를 사용하여 셀에 대한 시각화를 해제할 수 있습니다. 셀 내용을 자동으로 시각화하지 않고 데이터 프레임으로 캡처하기만 하려면 `-q -o <VARIABLE>`을 사용합니다. `CREATE TABLE` 문과 같은 부작용이 있는 SQL 쿼리를 실행하려는 등의 경우 결과를 캡처하지 않고 시각화를 해제하려면 `-o` 인수를 지정하지 않고 `-q`만 사용합니다. |
-| -m | `-m <METHOD>` | 여기서 **METHOD**는 **take** 또는 **sample**(기본값은 **take**)입니다. METHOD가 **take**인 경우 커널은 MAXROWS(이 표의 뒷부분에서 설명함)로 지정된 결과 데이터 집합의 맨 위에서부터 요소를 선택합니다. METHOD가 **sample**인 경우 커널은 `-r` 매개 변수(이 표의 다음 행에서 설명함)에 따라 데이터 집합의 요소를 무작위로 샘플링합니다. |
-| -r | `-r <FRACTION>` | 여기서 **FRACTION**은 0.0과 1.0 사이의 부동 소수점 숫자입니다. SQL 쿼리의 샘플 메서드가 `sample`인 경우 커널은 결과 집합 요소의 지정된 부분을 무작위로 샘플링합니다. 예를 들어 `-m sample -r 0.01` 인수를 포함하여 SQL 쿼리를 실행할 경우 결과 행의 1%가 무작위로 샘플링됩니다. |
-| -n | `-n <MAXROWS>` | **MAXROWS**는 정수 값입니다. 커널은 출력 행 수를 **MAXROWS**로 제한합니다. **MAXROWS**가 **-1**과 같은 음수인 경우에는 결과 집합의 행 수가 제한되지 않습니다. |
+| -o      | `-o <VARIABLE NAME>`                          | Use this parameter to persist the result of the query, in the %%local Python context, as a [Pandas](http://pandas.pydata.org/) dataframe. The name of the dataframe variable is the variable name you specify. |
+| -q      | `-q`                          | Use this to turn off visualizations for the cell. If you don't want to auto-visualize the content of a cell and just want to capture it as a dataframe, then use `-q -o <VARIABLE>`. If you want to turn off visualizations without capturing the results (e.g. for running a SQL query with side effects, like a `CREATE TABLE` statement), just use `-q` without specifying a `-o` argument. |
+| -m       |  `-m <METHOD>`    | Where **METHOD** is either **take** or **sample** (default is **take**). If the method is **take**, the kernel picks elements from the top of the result data set specified by MAXROWS (described later in this table). If the method is **sample**, the kernel will randomly sample elements of the data set according to `-r` parameter, described next in this table.   |
+| -r     |     `-r <FRACTION>`            | Here **FRACTION** is a floating-point number between 0.0 and 1.0. If the sample method for the SQL query is `sample`, then the kernel randomly samples the specified fraction of the elements of the result set for you; e.g. if you run a SQL query with the arguments `-m sample -r 0.01`, then 1% of the result rows will be randomly sampled. |
+| -n      | `-n <MAXROWS>`                        | **MAXROWS** is an integer value. The kernel will limit the number of output rows to **MAXROWS**. If **MAXROWS** is a negative number such as **-1**, then the number of rows in the result set will not be limited. |
 
-**예제:**
+**Example:**
 
-	%%sql -q -m sample -r 0.1 -n 500 -o query2 
-	SELECT * FROM hivesampletable
+    %%sql -q -m sample -r 0.1 -n 500 -o query2 
+    SELECT * FROM hivesampletable
 
-위의 문은 다음 작업을 수행합니다.
+The statement above does the following:
 
-* **hivesampletable**에서 모든 레코드를 선택합니다.
-* -q를 사용하기 때문에 자동 시각화를 해제합니다.
-* `-m sample -r 0.1 -n 500`을 사용하기 때문에 hivesampletable에서 행의 10%를 무작위로 샘플링하고 결과 집합의 크기를 500개 행으로 제한합니다.
-* 마지막으로, `-o query2`를 사용하기 때문에 출력을 **query2**라는 데이터 프레임에도 저장합니다.
-	
+* Selects all records from **hivesampletable**.
+* Because we use -q, it turns off auto-visualization.
+* Because we use `-m sample -r 0.1 -n 500` it randomly samples 10% of the rows in the hivesampletable and limits the size of the result set to 500 rows.
+* Finally, because we used `-o query2` it also saves the output into a dataframe called **query2**.
+    
 
-## 새 커널을 사용하는 동안 고려 사항
+## <a name="considerations-while-using-the-new-kernels"></a>Considerations while using the new kernels
 
-사용하는 커널에 따라(PySpark 또는 Spark) Notebook을 실행 중인 상태로 두면 클러스터 리소스가 사용됩니다. 이러한 커널의 경우 컨텍스트가 미리 설정되어 있기 때문에 Notebook이 컨텍스트를 종료하지 않으므로 클러스터 리소스는 계속 사용 중인 것으로 됩니다. PySpark 및 Spark 커널을 사용하는 경우 노트북의 **파일** 메뉴에서 **Close and Halt** 옵션을 사용하는 것이 좋습니다. 이는 컨텍스트를 종료한 다음 노트북을 종료합니다.
-
-
-## 몇 가지 예제 보기
-
-Jupyter 노트북을 여는 경우 루트 수준에서 사용할 수 있는 두 개의 폴더가 표시됩니다.
-
-* **PySpark** 폴더에는 새 **Python** 커널을 사용하는 샘플 노트북이 있습니다.
-* **Scala** 폴더에는 새 **Spark** 커널을 사용하는 샘플 노트북이 있습니다.
-
-**PySpark** 또는 **Spark** 폴더에서 **00 - [READ ME FIRST] Spark 매직 커널 기능** 노트북을 열어 사용 가능한 다양한 매직에 대해 살펴볼 수 있습니다. 두 폴더에서 사용할 수 있는 다른 샘플 노트북을 사용하여 Jupyter 노트북을 HDInsight Spark 클러스터와 함께 사용하는 다양한 시나리오에 대해 알아볼 수 있습니다.
-
-## Notebook이 저장되는 위치
-
-Jupyter Notebook은 클러스터와 연결된 저장소 계정의 **/HdiNotebooks** 폴더 아래에 저장됩니다. Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 WASB에서 액세스할 수 있습니다. 예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** 노트북을 만든 경우 `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 노트북에 액세스할 수 있습니다. 반대의 경우도 마찬가지입니다, 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 저장소 계정에 직접 노트북을 업로드한 경우 Jupyter에서도 이 노트북을 볼 수 있습니다. Notebook은 클러스터를 삭제한 후에도 저장소 계정에 유지됩니다.
-
-Notebook이 저장소 계정에 저장되는 방식은 HDFS와 호환됩니다. 따라서 클러스터에 SSH 연결을 설정한 경우 다음과 같은 파일 관리 파일을 사용할 수 있습니다.
-
-	hdfs dfs -ls /HdiNotebooks             				  # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
-	hdfs dfs –copyToLocal /HdiNotebooks    				# Download the contents of the HdiNotebooks folder
-	hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
+Whichever kernel you use (PySpark or Spark), leaving the notebooks running will consume your cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the the cluster resources will continue to be in use. A good practice with the PySpark and Spark kernels would be to use the **Close and Halt** option from the notebook's **File** menu. This kills the context and then exits the notebook.    
 
 
-클러스터의 저장소 계정에 액세스하는 데 문제가 있는 경우 헤드 노드 `/var/lib/jupyter`에도 노트북이 저장됩니다.
+## <a name="show-me-some-examples"></a>Show me some examples
 
-## 지원되는 브라우저
-HDInsight Spark 클러스터에 대해 실행되는 Jupyter Notebook은 Google Chrome에서만 지원됩니다.
+When you open a Jupyter notebook, you will see two folders available at the root level.
 
-## 사용자 의견
+* The **PySpark** folder has sample notebooks that use the new **Python** kernel.
+* The **Scala** folder has sample notebooks that use the new **Spark** kernel.
 
-새로운 커널도 현재 개발 중이며 곧 완성될 예정입니다. 이는 API가 이러한 커널의 성숙에 따라 변경될 수 있음을 의미할 수 있습니다. 이러한 새로운 커널을 사용하는 동안 가진 의견을 보내주시면 감사하겠습니다. 이러한 커널의 최종 릴리스 형성에 매우 유용할 것입니다. 이 문서의 맨 아래 **의견** 섹션 아래에 의견/피드백을 남길 수 있습니다.
+You can open the **00 - [READ ME FIRST] Spark Magic Kernel Features** notebook from the **PySpark** or **Spark** folder to learn about the different magics available. You can also use the other sample notebooks available under the two folders to learn how to achieve different scenarios using Jupyter notebooks with HDInsight Spark clusters.
+
+## <a name="where-are-the-notebooks-stored?"></a>Where are the notebooks stored?
+
+Jupyter notebooks are saved to the storage account associated with the cluster under the **/HdiNotebooks** folder.  Notebooks, text files, and folders that you create from within Jupyter will be accessible from WASB.  For example, if you use Jupyter to create a folder **myfolder** and a notebook **myfolder/mynotebook.ipynb**, you can access that notebook at `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`.  The reverse is also true, that is, if you upload a notebook directly to your storage account at `/HdiNotebooks/mynotebook1.ipynb`, the notebook will be visible from Jupyter as well.  Notebooks will remain in the storage account even after the cluster is deleted.
+
+The way notebooks are saved to the storage account is compatible with HDFS. So, if you SSH into the cluster you can use file management commands like the following:
+
+    hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
+    hdfs dfs –copyToLocal /HdiNotebooks                 # Download the contents of the HdiNotebooks folder
+    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
 
-## <a name="seealso"></a>참고 항목
+In case there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
+
+## <a name="supported-browser"></a>Supported browser
+Jupyter notebooks running against HDInsight Spark clusters are supported only on Google Chrome.
+
+## <a name="feedback"></a>Feedback
+
+The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This will be very useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Comments** section at the bottom of this article.
 
 
-* [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
+## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
 
-### 시나리오
 
-* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+### <a name="scenarios"></a>Scenarios
 
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-### 응용 프로그램 만들기 및 실행
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](hdinsight-apache-spark-create-standalone-application.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
+### <a name="create-and-run-applications"></a>Create and run applications
 
-### 도구 및 확장
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### <a name="tools-and-extensions"></a>Tools and extensions
 
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-### 리소스 관리
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-* [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
+### <a name="manage-resources"></a>Manage resources
 
-<!---HONumber=AcomDC_0914_2016-->
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

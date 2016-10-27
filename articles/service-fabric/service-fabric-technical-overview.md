@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 용어 개요 | Microsoft Azure"
-   description="서비스 패브릭의 용어에 대해 간략하게 소개하고 설명서의 나머지 부분에서 사용되는 용어와 주요 용어 개념에 대해 설명합니다."
+   pageTitle="Service Fabric terminology overview | Microsoft Azure"
+   description="A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -16,78 +16,83 @@
    ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
-# 서비스 패브릭 용어 개요
 
-서비스 패브릭은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 이 항목에서는 설명서에서 사용되는 용어를 이해할 수 있도록 서비스 패브릭에서 사용되는 용어에 대해 자세히 설명합니다.
+# <a name="service-fabric-terminology-overview"></a>Service Fabric terminology overview
 
-## 인프라 개념
-**클러스터**: 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
+Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This topic details the terminology used by Service Fabric in order to understand the terms used in the documentation.
 
-**노드**: 클러스터의 일부인 컴퓨터로 VM 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`이라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
+## <a name="infrastructure-concepts"></a>Infrastructure concepts
+**Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.
 
-## 응용 프로그램 개념
-**응용 프로그램 종류**: 이름/버전이 서비스 형식의 컬렉션에 할당됩니다. `ApplicationManifest.xml` 파일에 정의되고 응용 프로그램 패키지 디렉터리에 포함된 후 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서이 응용 프로그램 형식에서 명명된 응용 프로그램을 만들 수 있습니다.
+**Node**: A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, which starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
-자세한 내용은 [응용 프로그램 모델](service-fabric-application-model.md) 문서를 참조하세요.
+## <a name="application-concepts"></a>Application concepts
+**Application Type**: The name/version assigned to a collection of service types. Defined in an `ApplicationManifest.xml` file, embedded in an application package directory, which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
-**응용 프로그램 패키지**: 응용 프로그램 형식인 `ApplicationManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 응용 프로그램 형식를 구성하는 각 서비스 형식에 대한 서비스 패키지를 참조합니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 예를 들어 전자 메일 응용 프로그램 형식에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.
+Read the [Application Model](service-fabric-application-model.md) article for more information.
 
-**명명된 응용 프로그램**: 응용 프로그램 패키지가 이미지 저장소에 복사된 후에 응용 프로그램 패키지의 응용 프로그램 형식을 지정하여 클러스터 내에서 응용 프로그램의 인스턴스를 만듭니다(이름/버전 사용). 각 응용 프로그램 형식 인스턴스는 `"fabric:/MyNamedApp"`와 같은 URI 이름이 할당됩니다. 클러스터 내에서 단일 응용 프로그램 형식에서 여러 명명된 응용 프로그램을 만들 수 있습니다. 또한 다른 형식의 응용 프로그램에서 명명된 응용 프로그램을 만들 수 있습니다. 명명된 응용 프로그램은 각각 독립적으로 관리되고 버전이 지정됩니다.
+**Application Package**: A disk directory containing the application type's `ApplicationManifest.xml` file. References the service packages for each service type that makes up the application type. The files in the application package directory are copied to Service Fabric cluster's image store. For example, an application package for an email application type could contain references to a queue service package, a frontend service package, and a database service package.
 
-**서비스 형식**: 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. `ServiceManifest.xml` 파일에 정의되고, 서비스 패키지 디렉터리에 포함되며, 서비스 패키지 디렉터리는 응용 프로그램 패키지의 `ApplicationManifest.xml` 파일에서 참조됩니다. 클러스터 내에서 명명된 응용 프로그램을 만든 후에 응용 프로그램 형식의 서비스 형식 중 하나에서 명명된 서비스를 만들 수 있습니다. 서비스 형식의 `ServiceManifest.xml` 파일은 서비스에서 설명합니다.
+**Named Application**: After an application package is copied to the image store, you create an instance of the application within the cluster by specifying the application package's application type (using its name/version). Each application type instance is assigned a URI name that looks like this: `"fabric:/MyNamedApp"`. Within a cluster, you can create multiple named applications from a single application type. You can also create named applications from different application types. Each named application is managed and versioned independently.      
 
-자세한 내용은 [응용 프로그램 모델](service-fabric-application-model.md) 문서를 참조하세요.
+**Service Type**: The name/version assigned to a service's code packages, data packages, and configuration packages. Defined in a `ServiceManifest.xml` file, embedded in a service package directory and the service package directory is then referenced by an application package's `ApplicationManifest.xml` file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. The service type's `ServiceManifest.xml` file describes the service.
 
-서비스의 두 가지 형식이 있습니다.
+Read the [Application Model](service-fabric-application-model.md) article for more information.
 
-- **상태 비저장:** Azure 저장소, Azure SQL 데이터베이스 또는 Azure DocumentDB와 같은 외부 저장소 서비스에 서비스의 영구적 상태를 저장할 때 상태 비저장 서비스를 사용합니다. 서비스에 영구 저장소가 없는 경우 상태 비저장 서비스를 사용합니다. 예를 들어, 값을 서비스에 전달하는 계산기 서비스는 이러한 값을 사용하여 계산을 수행하고 결과를 반환합니다.
+There are two types of services:
 
-- **상태 저장:** 서비스 패브릭으로 신뢰할 수 있는 컬렉션 또는 Reliable Actors 프로그래밍 모델을 통해 서비스의 상태를 관리하려는 경우 상태 저장 서비스를 사용합니다. 명명된 서비스를 만들 때 상태를 확산하려는 파티션 수를 지정합니다(확장성을 위해). 또한 노드 간에 상태를 복제할 횟수를 지정합니다(안정성을 위해). 명명된 서비스 각각에는 하나의 기본 복제본과 여러 보조 복제본이 있습니다. 기본 복제본에 써서 명명된 서비스의 상태를 수정합니다. 그러면 서비스 패브릭은 이 상태를 모든 보조 복제본에 복제하여 상태를 동기화합니다. 기본 복제본이 실패하는 경우 서비스 패브릭은 자동으로 이를 감지하고 기존 보조 복제본을 기본 복제본으로 승격합니다. 그러면 서비스 패브릭은 새로운 보조 복제본을 만듭니다.
+- **Stateless:** Use a stateless service when the service's persistent state is stored in an external storage service such as Azure Storage, Azure SQL Database, or Azure DocumentDB. Use a stateless service when the service has no persistent storage at all. For example, a calculator service where values are passed to the service, a computation is performed using these values, and a result is returned.
 
-**서비스 패키지**: 서비스 형식인 `ServiceManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 이 파일은 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 응용 프로그램 형식의 `ApplicationManifest.xml` 파일에서 서비스 패키지 디렉터리에 파일을 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
+- **Stateful:** Use a stateful service when you want Service Fabric to manage your service's state via its Reliable Collections or Reliable Actors programming models. Specify how many partitions you want to spread your state over (for scalability) when creating a named service. Also specify how many times to replicate your state across nodes (for reliability). Each named service has a single primary replica and multiple secondary replicas. You modify your named service's state by writing to the primary replica. Service Fabric then replicates this state to all the secondary replicas keeping your state in sync. Service Fabric automatically detects when a primary replica fails and promotes an existing secondary replica to a primary replica. Service Fabric then creates a new secondary replica.  
 
-**명명된 서비스**: 명명된 응용 프로그램을 만든 후에 서비스 형식을 지정하여(이름/버전 사용) 클러스터 내에서 해당 서비스 형식의 인스턴스를 만들 수 있습니다. 각 서비스 형식 인스턴스는 명명된 응용 프로그램의 URI로 범위가 지정된 URI 이름이 할당됩니다. 예를 들어 "MyNamedApp"이라는 응용 프로그램 내에서 "MyDatabase"라는 서비스를 만드는 경우 URI는 `"fabric:/MyNamedApp/MyDatabase"`와 같습니다. 명명된 응용 프로그램 내에서 몇 가지 명명된 서비스를 만들 수 있습니다. 명명된 각 서비스는 고유한 파티션 구성표 및 복제본/인스턴스 수를 가질 수 있습니다.
+**Service Package**: A disk directory containing the service type's `ServiceManifest.xml` file. This file references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's `ApplicationManifest.xml` file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
 
-**코드 패키지**: 서비스 형식의 실행 파일(일반적으로 EXE/DLL 파일)을 포함한 디스크 디렉터리입니다. 서비스 형식의 `ServiceManifest.xml` 파일에서 코드 패키지 디렉터리에 파일을 참조합니다. 명명된 서비스를 만들면 코드 패키지는 명명된 서비스를 실행하기 위해 선택된 하나 이상의 노드로 복사됩니다. 그러면 코드가 실행되기 시작합니다. 코드 패키지 실행 파일은 다음과 같은 두 종류가 있습니다.
+**Named Service**: After creating a named application, you can create an instance of one of its service types within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: `"fabric:/MyNamedApp/MyDatabase"`. Within a named application, you can create several named services. Each named service can have its own partition scheme and instance/replica counts.
 
-- **게스트 실행 파일**: 호스트 운영 체제(Windows 또는 Linux)에서 그대로 실행되는 실행 파일입니다. 즉, 이러한 실행 파일은 연결하거나 서비스 패브릭 런타임 파일을 참조하지 않으며 따라서 서비스 패브릭 프로그래밍 모델 중 하나를 사용하지 않습니다. 이러한 실행 파일은 끝점 검색을 위해 이름 지정 서비스와 같은 일부 서비스 패브릭 기능을 사용할 수 없습니다. 게스트 실행 파일은 각 서비스 인스턴스와 관련된 부하 메트릭을 보고할 수 없습니다.
+**Code Package**: A disk directory containing the service type's executable files (typically EXE/DLL files). The files in the code package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the code package is copied to the one or more nodes selected to run the named service. Then the code starts running. There are two types of code package executables:
 
-- **서비스 호스트 실행 파일**: 서비스 패브릭 런타임 파일에 연결하여 서비스 패브릭 프로그래밍 모델을 사용하는 실행 파일로, 서비스 패브릭 기능을 사용하도록 설정합니다. 예를 들어 명명된 서비스 인스턴스는 서비스 패브릭의 이름 지정 서비스를 사용하여 끝점을 등록할 수 있고 부하 메트릭을 보고할 수도 있습니다.
+- **Guest executables**: Executables that run as-is on the host operating system (Windows or Linux). That is, these executables do not link to or reference any Service Fabric runtime files and therefore do not use any Service Fabric programming models. These executables are unable to use some Service Fabric features such as the naming service for endpoint discovery. Guest executables cannot report load metrics specific to each service instance.
 
-**데이터 패키지**: 서비스 형식의 정적인 읽기 전용 데이터 파일을 포함하는 디스크 디렉터리입니다(일반적으로 사진, 사운드 및 비디오 파일). 서비스 형식의 `ServiceManifest.xml` 파일에서 데이터 패키지 디렉터리에 파일을 참조합니다. 명명된 서비스를 만들면 데이터 패키지는 명명된 서비스를 실행하기 위해 선택된 하나 이상의 노드로 복사됩니다. 이 코드는 실행되기 시작하며, 이제 데이터 파일에 액세스할 수 있습니다.
+- **Service Host Executables**: Executables that use Service Fabric programming models by linking to Service Fabric runtime files, enabling Service Fabric features. For example, a named service instance can register endpoints with Service Fabric's Naming Service and can also report load metrics.      
 
-**구성 패키지**: 서비스 형식의 정적인 읽기 전용 구성 파일을 포함하는 디스크 디렉터리입니다(일반적으로 텍스트 파일). 서비스 형식의 `ServiceManifest.xml` 파일에서 구성 패키지 디렉터리에 파일을 참조합니다. 명명된 서비스를 만들면 구성 패키지의 파일은 명명된 서비스를 실행하기 위해 선택된 하나 이상의 노드로 복사됩니다. 그러면 코드가 실행되기 시작하며, 이제 구성 파일에 액세스할 수 있습니다.
+**Data Package**: A disk directory containing the service type's static, read-only data files (typically photo, sound, and video files). The files in the data package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the data package is copied to the one or more nodes selected to run the named service.  The code starts running and can now access the data files.
 
-**파티션 구성표**: 명명된 서비스를 만들 때 파티션 구성표를 지정합니다. 많은 양의 상태가 있는 서비스는 클러스터의 노드에 분산하는 파티션에 데이터를 분할합니다. 이렇게 하면 명명된 서비스의 상태를 조정할 수 있습니다. 상태 저장 서비스에 복제본이 있는 반면 파티션 내에서 명명된 상태 비저장 서비스에는 인스턴스가 있습니다. 일반적으로 명명된 상태 비저장 서비스는 내부 상태가 없기 때문에 하나의 파티션만을 가질 수 있습니다. 파티션 인스턴스를 가용성에 제공합니다. 인스턴스가 실패하면 다른 인스턴스는 계속 정상적으로 작동하고 서비스 패브릭은 새 인스턴스를 만듭니다. 명명된 상태 저장 서비스는 복제본 내에서 해당 상태를 유지하고 각 파티션은 동기화 상태로 유지된 모든 상태를 가진 고유한 복제를 설정합니다. 복제가 실패하면 서비스 패브릭은 기존 복제본에서 새 복제본을 작성해야 합니다.
+**Configuration Package**: A disk directory containing the service type's static, read-only configuration files (typically text files). The files in the configuration package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the files in the configuration package are copied to the one or more nodes selected to run the named service. Then the code starts running and can now access the configuration files.
 
-자세한 내용은 [서비스 패브릭 Reliable Services 분할](service-fabric-concepts-partitioning.md) 문서를 참조하세요.
+**Partition Scheme**: When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions which spreads it across the cluster's nodes. This allows your named service's state to scale. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. The partition instances provide for availability; if one instance fails, other instances continue to operate normally and then Service Fabric will create a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set with all the state being kept in sync. Should a replica fail, Service Fabric builds a new replica from the existing replicas.
 
-## 시스템 서비스
-서비스 패브릭의 플랫폼 기능을 제공하는 모든 클러스터에서 작성되는 시스템 서비스가 있습니다.
+Read the [Partition Service Fabric reliable services](service-fabric-concepts-partitioning.md) article for more information.
 
-**명명 서비스**: 각 서비스 패브릭 클러스터에는 서비스 이름을 클러스터의 위치로 확인하는 명명 서비스가 있습니다. 클러스터에 대해 DNS(Domain Name Service)와 비슷하게 서비스 이름과 속성을 관리할 수 있습니다. 클라이언트는 이름 지정 서비스를 사용하여 클러스터의 모든 노드와 안전하게 통신하여 서비스 네임 및 해당 위치를 확인할 수 있습니다. 클라이언트는 실제 컴퓨터 IP 주소 및 현재 주소가 실행 중인 포트를 가져옵니다. 오류, 리소스 균형 조정, 클러스터의 크기 조정 등으로 인해 응용 프로그램이 클러스터 내에서 이동하더라도 현재 네트워크 위치를 확인할 수 있는 서비스와 클라이언트를 개발할 수 있습니다.
+## <a name="system-services"></a>System services
+There are system services that are created in every cluster that provide the platform capabilities of Service Fabric.
 
-명명 서비스와 연동되는 클라이언트 및 서비스 통신 API에 대한 자세한 내용은 [서비스를 사용하여 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요.
+**Naming Service**: Each Service Fabric cluster has a Naming service, which resolves service names to a location in the cluster. You manage the service names and properties, similar to an internet Domain Name Service (DNS) for the cluster. Clients securely communicate with any node in the cluster using the Naming Service to resolve a service name and its location.  Clients obtain the actual machine IP address and port where it is currently running. You can develop services and clients capable of resolving the current network location despite applications being moved within the cluster for example due to failures, resource balancing, or the resizing of the cluster.
 
-**이미지 저장소 서비스**: 각 서비스 패브릭 클러스터에는 배포되어 버전이 지정된 응용 프로그램 패키지가 보관되는 이미지 저장소 서비스가 있습니다. 이미지 저장소에 응용 프로그램 패키지를 복사하고 해당 응용 프로그램 패키지 내에 포함된 응용 프로그램 형식을 등록합니다. 응용 프로그램 형식을 프로비전한 후에 명명된 응용 프로그램을 만듭니다. 명명된 응용 프로그램이 모두 삭제된 후에 이미지 저장소 서비스에서 응용 프로그램 형식의 등록을 취소할 수 있습니다.
+Read [Communicate with services](service-fabric-connect-and-communicate-with-services.md) for more information on the client and service communication APIs that work with the Naming service.
 
-이미지 저장소 서비스에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [응용 프로그램 배포](service-fabric-deploy-remove-applications.md) 문서를 참조하세요.
+**Image Store Service**: Each Service Fabric cluster has an Image Store service where deployed, versioned application packages are kept. Copy an application package to the Image Store and then register the application type contained within that application package. After the application type is provisioned, you create a named applications from it. You can unregister an application type from the Image Store service after all its named applications have been deleted.
 
-## 기본 제공 프로그래밍 모델
-서비스 패브릭 서비스를 작성하는 데 사용할 수 있는 .NET Framework 프로그래밍 모델이 있습니다.
+Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
 
-**Reliable Services**: 상태 비저장 및 상태 저장 서비스를 구축하는 API입니다. 상태 저장 서비스는 신뢰할 수 있는 컬렉션(예: 사전 또는 큐)에 자신의 상태를 저장합니다. 또한 웹 API 및 WCF(Windows Communication Foundation)과 같은 다양한 통신 스택을 플러그인하는 기능을 가져옵니다.
+## <a name="built-in-programming-models"></a>Built-in programming models
+There are .NET Framework programming models available for you to build Service Fabric services:
 
-**Reliable Actors**: 가상 행위자 프로그래밍 모델을 통해 상태 비저장 및 상태 저장 개체를 작성하는 API입니다. 이 모델은 계산/상태의 독립적인 단위가 많은 경우 유용할 수 있습니다. 이 모델은 턴 기반 스레딩 모델을 사용하기 때문에 모든 아웃바운드 요청이 완료될 때까지 개별 행위자가 들어오는 다른 요청을 처리할 수 없으므로 다른 행위자 또는 서비스를 호출하는 코드를 방지하는 좋은 방법입니다.
+**Reliable Services**: An API to build stateless and stateful services. Stateful service store their state in Reliable Collections (such as a dictionary or a queue). You also get to plug in a variety of communication stacks such as Web API and Windows Communication Foundation (WCF).
 
-자세한 내용은 [서비스에 대한 프로그래밍 모델 선택](service-fabric-choose-framework.md) 문서를 참조하세요.
+**Reliable Actors**: An API to build stateless and stateful objects through the virtual Actor programming model. This model can be useful when you have lots of independent units of computation/state. Because this model uses a turn-based threading model, it is best to avoid code that calls out to other actors or services since an individual actor cannot process other incoming requests until all its outbound requests have completed.
+
+Read the [Choose a Programming Model for your service](service-fabric-choose-framework.md) article for more information.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## 다음 단계
-서비스 패브릭에 대해 자세히 알아보려면 다음을 참고하세요.
+## <a name="next-steps"></a>Next steps
+To learn more about Service Fabric:
 
-- [서비스 패브릭의 개요](service-fabric-overview.md)
-- [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
-- [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
+- [Overview of Service Fabric](service-fabric-overview.md)
+- [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
+- [Application scenarios](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

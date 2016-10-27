@@ -1,226 +1,229 @@
 <properties
-	pageTitle="자동 크기 조정 및 앱 서비스 환경 | Microsoft Azure"
-	description="자동 크기 조정 및 앱 서비스 환경"
-	services="app-service"
-	documentationCenter=""
-	authors="btardif"
-	manager="wpickett"
-	editor=""
+    pageTitle="Autoscaling and App Service Environment | Microsoft Azure"
+    description="Autoscaling and App Service Environment"
+    services="app-service"
+    documentationCenter=""
+    authors="btardif"
+    manager="wpickett"
+    editor=""
 />
 
 <tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2016"
-	ms.author="byvinyal"
+    ms.service="app-service"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/07/2016"
+    ms.author="byvinyal"
 />
 
-# 자동 크기 조정 및 앱 서비스 환경
 
-Azure 앱 서비스 환경은 *자동 크기 조정*을 지원합니다. 메트릭 또는 일정에 따라 개별 작업자 풀을 자동 크기 조정할 수 있습니다.
+# <a name="autoscaling-and-app-service-environment"></a>Autoscaling and App Service Environment
 
-![작업자 풀에 대한 자동 크기 조정 옵션입니다.][intro]
+Azure App Service environments support *autoscaling*. You can autoscale individual worker pools based on metrics or schedule.
 
-자동 크기 조정은 앱 서비스 환경을 예산 및 부하 프로필에 맞게 자동으로 증대 및 축소하여 리소스 사용을 최적화합니다.
+![Autoscale options for a worker pool.][intro]
 
-## 작업자 풀 자동 크기 조정 구성
+Autoscaling optimizes your resource utilization by automatically growing and shrinking an App Service environment to fit your budget and or load profile.
 
-작업자 풀의 **설정** 탭에서 자동 크기 조정 기능에 액세스할 수 있습니다.
+## <a name="configure-worker-pool-autoscale"></a>Configure worker pool autoscale
 
-![작업자 풀의 설정 탭입니다.][settings-scale]
+You can access the autoscale functionality from the **Settings** tab of the worker pool.
 
-이 곳의 인터페이스는 앱 서비스 계획을 확장할 때와 동일한 환경이므로 상당히 친숙할 것입니다. 크기 조정 값을 직접 입력할 수 있습니다.
+![Settings tab of the worker pool.][settings-scale]
 
-![수동 크기 조정 설정입니다.][scale-manual]
+From there, the interface should be fairly familiar because this is the same experience that you see when you scale an App Service plan. You will be able to enter a scale value manually.
 
-또한 자동 크기 조정 프로필을 구성할 수 있습니다.
+![Manual scale settings.][scale-manual]
 
-![자동 크기 조정 설정입니다.][scale-profile]
+You can also configure an autoscale profile.
 
-자동 크기 조정 프로필은 크기에 대한 제한을 설정하는 데 유용합니다. 이렇게 하면 하한 크기 값(1)을 설정하여 일관된 성능 환경을 유지하고 상한(2)을 설정하여 예측 가능한 지출 한도를 정할 수 있습니다.
+![Autoscale settings.][scale-profile]
 
-![프로필의 크기 조정 설정입니다.][scale-profile2]
+Autoscale profiles are useful to set limits on your scale. This way, you can have a consistent performance experience by setting a lower bound scale value (1) and a predictable spend cap by setting an upper bound (2).
 
-프로필을 정의한 후 자동 크기 조정 규칙을 추가하여 프로필에서 정의한 범위 안에서 작업자 풀의 인스턴스 수를 늘리거나 줄일 수 있습니다. 자동 크기 조정 규칙은 메트릭을 기반으로 합니다.
+![Scale settings in profile.][scale-profile2]
 
-![크기 조정 규칙입니다.][scale-rule]
+After you define a profile, you can add autoscale rules to scale up or down the number of instances in the worker pool within the bounds defined by the profile. Autoscale rules are based on metrics.
 
- 작업자 풀 또는 프런트 엔드 메트릭을 사용하여 자동 크기 조정 규칙을 정의할 수 있습니다. 이는 리소스 블레이드 그래프에서 모니터링하거나 그에 대한 알림을 설정할 수 있는 동일한 메트릭입니다.
+![Scale rule.][scale-rule]
 
-## 자동 크기 조정 예제
+ Any worker pool or front-end metrics can be used to define autoscale rules. These are the same metrics that you can monitor in the resource blade graphs or set alerts for.
 
-앱 서비스 환경의 자동 크기 조정은 시나리오를 살펴보면서 가장 잘 설명할 수 있습니다.
+## <a name="autoscale-example"></a>Autoscale example
 
-이 문서에서는 자동 크기 조정을 설정할 때 필요한 모든 고려 사항과, 앱 서비스 환경에서 호스팅되는 앱 서비스 환경의 자동 크기 조정에 반영하게 되는 모든 상호 작용을 설명합니다.
+Autoscale of an App Service environment can best be illustrated by walking through a scenario.
 
-### 시나리오 소개
+This article explains all the necessary considerations when you set up autoscale and all the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
 
-Frank는 한 기업의 시스템 관리자로, 자신이 관리하는 워크로드의 일부를 앱 서비스 환경으로 마이그레이션했습니다.
+### <a name="scenario-introduction"></a>Scenario introduction
 
-앱 서비스 환경은 다음과 같이 수동 크기 조정으로 구성되었습니다.
+Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that he manages to an App Service environment.
 
-* **프런트 엔드:** 3
-* **작업자 풀 1**: 10
-* **작업자 풀 2**: 5
-* **작업자 풀 3**: 5
+The App Service environment is configured to manual scale as follows:
 
-작업자 풀 1은 프로덕션 워크로드에, 작업자 풀 2 및 작업자 풀 3은 QA(품질 보증) 및 개발 워크로드에 사용됩니다.
+* **Front ends:** 3
+* **Worker pool 1**: 10
+* **Worker pool 2**: 5
+* **Worker pool 3**: 5
 
-QA 및 개발에 대한 앱 서비스 계획은 수동 크기 조정으로 구성되었지만 프로덕션 앱 서비스 계획은 자동 크기 조정으로 설정되어 부하 및 트래픽의 변화를 처리합니다.
+Worker pool 1 is used for production workloads, while worker pool 2 and worker pool 3 are used for quality assurance (QA) and development workloads.
 
-Frank는 응용 프로그램에 대해 잘 알고 있습니다. 직원이 사무실에 있는 동안 사용하는 LOB(기간 업무) 응용 프로그램이므로 사용이 많은 피크 시간은 오전 9시와 오후 6시 사이라는 것을 알고 있습니다. 사용자가 퇴근한 후에는 사용량이 줍니다. 피크 시간 이외에도 사용자가 모바일 장치 또는 가정용 PC를 사용하여 원격으로 앱에 액세스할 수 있으므로 여전히 일부 부하가 있습니다. 프로덕션 앱 서비스 계획은 이미 다음 규칙을 기준으로 CPU 사용량에 따라 자동 크기 조정을 수행하도록 구성되어 있습니다.
+The App Service plans for QA and dev are configured to manual scale, but the production App Service plan is set to autoscale to deal with variations in load and traffic.
 
-![LOB 앱에 대한 특정 설정입니다.][asp-scale]
+Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
 
-|	**자동 크기 조정 프로필 - 주중 - 앱 서비스 계획** |	**자동 크기 조정 프로필 - 주말 - 앱 서비스 계획** |
-|	----------------------------------------------------	|	----------------------------------------------------	|
-|	**이름:** 주중 프로필 |	**이름:** 주말 프로필 |
-|	**크기 조정 기준:** 일정 및 성능 규칙 |	**크기 조정 기준:** 일정 및 성능 규칙 |
-|	**프로필:** 주중 |	**프로필:** 주말 |
-|	**유형:** 반복 |	**유형:** 반복 |
-|	**대상 범위:** 5~20개 인스턴스 |	**대상 범위:** 3~10개 인스턴스 |
-|	**요일:** 월요일, 화요일, 수요일, 목요일, 금요일 |	**요일:** 토요일, 일요일 |
-|	**시작 시간:** 오전 9시 |	**시작 시간:** 오전 9시 |
-|	**표준 시간대:** UTC-08 |	**표준 시간대:** UTC-08 |
-| | |
-|	**자동 크기 조정 규칙(확장)** |	**자동 크기 조정 규칙(확장)** |
-|	**리소스:** 프로덕션(앱 서비스 환경) |	**리소스:** 프로덕션(앱 서비스 환경) |
-|	**메트릭:** CPU % |	**메트릭:** CPU % |
-|	**작업:** 60% 초과 |	**작업:** 80% 초과 |
-|	**기간:** 5분 |	**기간:** 10분 |
-|	**집계 시간:** 평균 |	**집계 시간:** 평균 |
-|	**작업:** 개수 2씩 증가 |	**작업:** 개수 1씩 증가 |
-|	**정지(분):** 15 |	**정지(분):** 20 |
-| | |
- |	**자동 크기 조정 규칙(축소)** |	**자동 크기 조정 규칙(축소)** |
-|	**리소스:** 프로덕션(앱 서비스 환경) |	**리소스:** 프로덕션(앱 서비스 환경) |
-|	**메트릭:** CPU % |	**메트릭:** CPU % |
-|	**작업:** 30% 미만 |	**작업:** 20% 미만 |
-|	**기간:** 10분 |	**기간:** 15분 |
-|	**집계 시간:** 평균 |	**집계 시간:** 평균 |
-|	**작업:** 개수 1씩 감소 |	**작업:** 개수 1씩 감소 |
-|	**정지(분):** 20 |	**정지(분):** 10 |
+![Specific settings for LOB app.][asp-scale]
 
-### 앱 서비스 계획 인플레이션 속도
+|   **Autoscale profile – Weekdays – App Service plan**     |   **Autoscale profile – Weekends – App Service plan**     |
+|   ----------------------------------------------------    |   ----------------------------------------------------    |
+|   **Name:** Weekday profile                               |   **Name:** Weekend profile                               |
+|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules            |
+|   **Profile:** Weekdays                                   |   **Profile:** Weekend                                    |
+|   **Type:** Recurrence                                    |   **Type:** Recurrence                                    |
+|   **Target range:** 5 to 20 instances                     |   **Target range:** 3 to 10 instances                     |
+|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                              |
+|   **Start time:** 9:00 AM                                 |   **Start time:** 9:00 AM                                 |
+|   **Time zone:** UTC-08                                   |   **Time zone:** UTC-08                                   |
+|                                                           |                                                           |
+|   **Autoscale rule (Scale Up)**                           |   **Autoscale rule (Scale Up)**                           |
+|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
+|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
+|   **Operation:** Greater than 60%                         |   **Operation:** Greater than 80%                         |
+|   **Duration:** 5 Minutes                                 |   **Duration:** 10 Minutes                                |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                           |
+|   **Action:** Increase count by 2                         |   **Action:** Increase count by 1                         |
+|   **Cool down (minutes):** 15                             |   **Cool down (minutes):** 20                             |
+|                                                           |                                                           |
+  	|   **Autoscale rule (Scale Down)**                     |   **Autoscale rule (Scale Down)**                         |
+|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
+|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
+|   **Operation:** Less than 30%                            |   **Operation:** Less than 20%                            |
+|   **Duration:** 10 minutes                                |   **Duration:** 15 minutes                                |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                           |
+|   **Action:** Decrease count by 1                         |   **Action:** Decrease count by 1                         |
+|   **Cool down (minutes):** 20                             |   **Cool down (minutes):** 10                             |
 
-자동 크기 조정으로 구성된 앱 서비스 계획은 시간당 최대 속도에서 작업을 수행합니다. 이 속도는 자동 크기 조정 규칙에서 제공한 값을 기준으로 산출됩니다.
+### <a name="app-service-plan-inflation-rate"></a>App Service plan inflation rate
 
-작업자 풀의 크기 조정 변경은 즉각적으로 적용되는 것이 아니므로 앱 서비스 환경에서 *앱 서비스 계획 인플레이션 속도*를 이해하고 산출하는 것이 중요합니다.
+App Service plans that are configured to autoscale will do so at a maximum rate per hour. This rate can be calculated based on the values provided on the autoscale rule.
 
-앱 서비스 계획 인플레이션 속도는 다음과 같이 산출됩니다.
+Understanding and calculating the *App Service plan inflation rate* is important for App Service environment autoscale because scale changes to a worker pool are not instantaneous.
 
-![앱 서비스 계획 인플레이션 속도 계산입니다.][ASP-Inflation]
+The App Service plan inflation rate is calculated as follows:
 
-프로덕션 앱 서비스 계획의 주중 프로필에 대한 자동 크기 조정 - 확장 규칙을 기준으로, 이 작업은 다음과 같습니다.
+![App Service plan inflation rate calculation.][ASP-Inflation]
 
-![자동 크기 조정 - 확장 규칙에 따른 주중의 앱 서비스 계획 인플레이션 속도입니다.][Equation1]
+Based on the Autoscale – Scale Up rule for the Weekday profile of the production App Service plan, this would look as follows:
 
-프로덕션 앱 서비스 계획의 주말 프로필에 대한 자동 크기 조정 - 확장 규칙을 기준으로, 수식은 다음과 같이 산출됩니다.
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Up rule.][Equation1]
 
-![자동 크기 조정 - 확장 규칙에 따른 주말의 앱 서비스 계획 인플레이션 속도입니다.][Equation2]
+In the case of the Autoscale – Scale Up rule for the Weekend profile of the production App Service plan, the formula would resolve to:
 
-이 값은 축소 작업에 대해서도 산출할 수 있습니다.
+![App Service plan inflation rate for weekends based on Autoscale – Scale Up rule.][Equation2]
 
-프로덕션 앱 서비스 계획의 주중 프로필에 대한 자동 크기 조정 - 축소 규칙을 기준으로, 이 작업은 다음과 같습니다.
+This value can also be calculated for scale-down operations.
 
-![자동 크기 조정 - 축소 규칙에 따른 주중의 앱 서비스 계획 인플레이션 속도입니다.][Equation3]
+Based on the Autoscale – Scale Down rule for the Weekday profile of the production App Service plan, this would look as follows:
 
-프로덕션 앱 서비스 계획의 주말 프로필에 대한 자동 크기 조정 - 축소 규칙을 기준으로, 수식은 다음과 같이 산출됩니다.
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Down rule.][Equation3]
 
-![자동 크기 조정 - 축소 규칙에 따른 주말의 앱 서비스 계획 인플레이션 속도입니다.][Equation4]
+In the case of the Autoscale – Scale Down rule for the Weekend profile of the production App Service plan, the formula would resolve to:  
 
-즉, 프로덕션 앱 서비스 계획이 주중에는 최대 8개 인스턴스/시간 속도로, 주말에는 4개 인스턴스/시간의 속도로 확장될 수 있습니다. 또한 주중에는 최대 4개 인스턴스/시간의 속도로, 주말에는 최대 6개 인스턴스/시간의 속도로 인스턴스를 해제할 수 있습니다.
+![App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.][Equation4]
 
-여러 앱 서비스 계획을 작업자 풀에서 호스트하는 경우 작업자 풀에서 호스트되는 모든 앱 서비스 계획에 대한 인플레이션 속도의 합계로 *총 인플레이션 속도*를 산출해야 합니다.
+This means that the production App Service plan can grow at a maximum rate of eight instances per hour during the week and four instances per hour during the weekend. And it can release instances at a maximum rate of four instances per hour during the week and six instances per hour during weekends.
 
-![작업자 풀에서 호스팅되는 여러 앱 서비스 계획에 대한 총 인플레이션 속도 계산입니다.][ASP-Total-Inflation]
+If multiple App Service plans are being hosted in a worker pool, you have to calculate the *total inflation rate* as the sum of the inflation rate for all the App Service plans that are being hosting in that worker pool.
 
-### 앱 서비스 계획 인플레이션 속도를 사용하여 작업자 풀 자동 크기 조정 규칙 정의
+![Total inflation rate calculation for multiple App Service plans hosted in a worker pool.][ASP-Total-Inflation]
 
-자동 크기 조정으로 구성된 앱 서비스 계획을 호스팅하는 작업자 풀은 용량의 버퍼를 할당해야 합니다. 버퍼는 자동 크기 조정 작업이 필요에 따라 앱 서비스 계획을 늘리고 축소하도록 허용합니다. 최소 버퍼 크기는 산출된 총 앱 서비스 계획 인플레이션 속도입니다.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Use the App Service plan inflation rate to define worker pool autoscale rules
 
-앱 서비스 환경 크기 조정 작업을 적용하려면 다소 시간이 걸리므로, 이러한 변경은 크기 조정 작업이 진행 중인 동안 발생할 수 있는 추가적인 수요 변화에 대처할 수 있어야 합니다. 이 대기 시간을 수용하려면 산출된 총 앱 서비스 계획 인플레이션 속도를 각 자동 크기 조정 작업에 대해 추가된 최소 인스턴스 수로 사용하는 것이 좋습니다.
+Worker pools that host App Service plans that are configured to autoscale will need to be allocated a buffer of capacity. The buffer allows for the autoscale operations to grow and shrink the App Service plan as needed. The minimum buffer would be the calculated Total App Service Plan Inflation Rate.
 
-이 정보를 통해 Frank는 다음 자동 크기 조정 프로필과 규칙을 정의할 수 있습니다.
+Because App Service environment scale operations take some time to apply, any change should account for further demand changes that could happen while a scale operation is in progress. To accommodate this latency, we recommend that you use the calculated Total App Service Plan Inflation Rate as the minimum number of instances that are added for each autoscale operation.
 
-![LOB 예제에 대한 자동 크기 조정 프로필 규칙입니다.][Worker-Pool-Scale]
+With this information, Frank can define the following autoscale profile and rules:
 
-|	**자동 크기 조정 프로필 – 주중** |	**자동 크기 조정 프로필 – 주말** |
-|	----------------------------------------------------	|	--------------------------------------------	|
-|	**이름:** 주중 프로필 |	**이름:** 주말 프로필 |
-|	**크기 조정 기준:** 일정 및 성능 규칙 |	**크기 조정 기준:** 일정 및 성능 규칙 |
-|	**프로필:** 주중 |	**프로필:** 주말 |
-|	**유형:** 반복 |	**유형:** 반복 |
-|	**대상 범위:** 13~25개 인스턴스 |	**대상 범위:** 6~15개 인스턴스 |
-|	**요일:** 월요일, 화요일, 수요일, 목요일, 금요일 |	**요일:** 토요일, 일요일 |
-|	**시작 시간:** 오전 7시 |	**시작 시간:** 오전 9시 |
-|	**표준 시간대:** UTC-08 |	**표준 시간대:** UTC-08 |
-| | |
-|	**자동 크기 조정 규칙(확장)** |	**자동 크기 조정 규칙(확장)** |
-|	**리소스:** 작업자 풀 1 |	**리소스:** 작업자 풀 1 |
-|	**메트릭:** WorkersAvailable |	**메트릭:** WorkersAvailable |
-|	**작업:** 8 미만 |	**작업:** 3 미만 |
-|	**기간:** 20분 |	**기간:** 30분 |
-|	**집계 시간:** 평균 |	**집계 시간:** 평균 |
-|	**작업:** 개수 8씩 증가 |	**작업:** 개수 3씩 증가 |
-|	**정지(분):** 180 |	**정지(분):** 180 |
-| | |
-|	**자동 크기 조정 규칙(축소)** |	**자동 크기 조정 규칙(축소)** |
-|	**리소스:** 작업자 풀 1 |	**리소스:** 작업자 풀 1 |
-|	**메트릭:** WorkersAvailable |	**메트릭:** WorkersAvailable |
-|	**작업:** 8 초과 |	**작업:** 3 초과 |
-|	**기간:** 20분 |	**기간:** 15분 |
-|	**집계 시간:** 평균 |	**집계 시간:** 평균 |
-|	**작업:** 개수 2씩 감소 |	**작업:** 개수 3씩 감소 |
-|	**정지(분):** 120 |	**정지(분):** 120 |
+![Autoscale profile rules for LOB example.][Worker-Pool-Scale]
 
-프로필에서 정의한 대상 범위는 앱 서비스 계획에 대한 프로필에서 정의한 최소 인스턴스 수 + 버퍼로 산출됩니다.
+|   **Autoscale profile – Weekdays**                        |   **Autoscale profile – Weekends**                |
+|   ----------------------------------------------------    |   --------------------------------------------    |
+|   **Name:** Weekday profile                               |   **Name:** Weekend profile                       |
+|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules    |
+|   **Profile:** Weekdays                                   |   **Profile:** Weekend                            |
+|   **Type:** Recurrence                                    |   **Type:** Recurrence                            |
+|   **Target range:** 13 to 25 instances                    |   **Target range:** 6 to 15 instances             |
+|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                      |
+|   **Start time:** 7:00 AM                                 |   **Start time:** 9:00 AM                         |
+|   **Time zone:** UTC-08                                   |   **Time zone:** UTC-08                           |
+|                                                           |                                                   |
+|   **Autoscale rule (Scale Up)**                           |   **Autoscale rule (Scale Up)**                   |
+|   **Resource:** Worker pool 1                             |   **Resource:** Worker pool 1                     |
+|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
+|   **Operation:** Less than 8                              |   **Operation:** Less than 3                      |
+|   **Duration:** 20 minutes                                |   **Duration:** 30 minutes                        |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                   |
+|   **Action:** Increase count by 8                         |   **Action:** Increase count by 3                 |
+|   **Cool down (minutes):** 180                            |   **Cool down (minutes):** 180                    |
+|                                                           |                                                   |
+|   **Autoscale rule (Scale Down)**                         |   **Autoscale rule (Scale Down)**                 |
+|   **Resource:** Worker pool 1                             |   **Resource:** Worker pool 1                     |
+|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
+|   **Operation:** Greater than 8                           |   **Operation:** Greater than 3                   |
+|   **Duration:** 20 minutes                                |   **Duration:** 15 minutes                        |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                   |
+|   **Action:** Decrease count by 2                         |   **Action:** Decrease count by 3                 |
+|   **Cool down (minutes):** 120                            |   **Cool down (minutes):** 120                    |
 
-최대 범위는 작업자 풀에서 호스팅되는 모든 앱 서비스 계획에 대한 모든 최대 범위의 합계가 됩니다.
+The Target range defined in the profile is calculated by the minimum instances defined in the profile for the App Service plan + buffer.
 
-강화 규칙의 증가 수는 강화를 위한 앱 서비스 계획 인플레이션 속도에 1배 이상으로 설정되어야 합니다.
+The Maximum range would be the sum of all the maximum ranges for all App Service plans hosted in the worker pool.
 
-수 축소는 축소에 대한 앱 서비스 계획 인플레이션 속도의 1/2배 ~ 1배 사이에서 조정할 수 있습니다.
+The Increase count for the scale up rules should be set to at least 1X the App Service Plan Inflation Rate for scale up.
 
-### 프런트 엔드 풀에 대한 자동 크기 조정
+Decrease count can be adjusted to something between 1/2X or 1X the App Service Plan Inflation Rate for scale down.
 
-프런트 엔드 자동 크기 조정에 대한 규칙은 작업자 풀에 대한 것보다 간단합니다. 주로 측정 시간을 확인하고 휴지 시간 타이머는 앱 서비스 계획에 대한 크기 조정 작업이 즉각적이지 않다는 것을 고려해야 합니다.
+### <a name="autoscale-for-front-end-pool"></a>Autoscale for front-end pool
 
-이 시나리오의 경우 Frank는 프런트 엔드가 CPU 사용률의 80%에 도달한 후 오류 비율이 증가함을 알고 있습니다. 이를 방지하려면 다음과 같이 인스턴스가 증가하도록 자동 크기 조정 규칙을 설정합니다.
+Rules for front-end autoscale are simpler than for worker pools. Primarily, you should  
+make sure that duration of the measurement and the cooldown timers consider that scale operations on an App Service plan are not instantaneous.
 
-![프런트 엔드 풀에 대한 자동 크기 조정 설정입니다.][Front-End-Scale]
+For this scenario, Frank knows that the error rate increases after front ends reach 80% CPU utilization.
+To prevent this, he sets the autoscale rule to increase instances as follows:
 
-|	**자동 크기 조정 프로필 – 프런트 엔드** |
-|	--------------------------------------------	|
-|	**이름:** 자동 크기 조정 - 프런트 엔드 |
-|	**크기 조정 기준:** 일정 및 성능 규칙 |
-|	**프로필:** 매일 |
-|	**유형:** 반복 |
-|	**대상 범위:** 3~10개 인스턴스 |
-|	**요일:** 매일 |
-|	**시작 시간:** 오전 9시 |
-|	**표준 시간대:** UTC-08 |
-| |
-|	**자동 크기 조정 규칙(확장)** |
-|	**리소스:** 프런트 엔드 풀 |
-|	**메트릭:** CPU % |
-|	**작업:** 60% 초과 |
-|	**기간:** 20분 |
-|	**집계 시간:** 평균 |
-|	**작업:** 개수 3씩 증가 |
-|	**정지(분):** 120 |
-| |
-|	**자동 크기 조정 규칙(축소)** |
-|	**리소스:** 작업자 풀 1 |
-|	**메트릭:** CPU % |
-|	**작업:** 30% 미만 |
-|	**기간:** 20분 |
-|	**집계 시간:** 평균 |
-|	**작업:** 개수 3씩 감소 |
-|	**정지(분):** 120 |
+![Autoscale settings for front-end pool.][Front-End-Scale]
+
+|   **Autoscale profile – Front ends**              |
+|   --------------------------------------------    |
+|   **Name:** Autoscale – Front ends                |
+|   **Scale by:** Schedule and performance rules    |
+|   **Profile:** Everyday                           |
+|   **Type:** Recurrence                            |
+|   **Target range:** 3 to 10 instances             |
+|   **Days:** Everyday                              |
+|   **Start time:** 9:00 AM                         |
+|   **Time zone:** UTC-08                           |
+|                                                   |
+|   **Autoscale rule (Scale Up)**                   |
+|   **Resource:** Front-end pool                    |
+|   **Metric:** CPU %                               |
+|   **Operation:** Greater than 60%                 |
+|   **Duration:** 20 minutes                        |
+|   **Time aggregation:** Average                   |
+|   **Action:** Increase count by 3                 |
+|   **Cool down (minutes):** 120                    |
+|                                                   |
+|   **Autoscale rule (Scale Down)**                 |
+|   **Resource:** Worker pool 1                     |
+|   **Metric:** CPU %                               |
+|   **Operation:** Less than 30%                    |
+|   **Duration:** 20 Minutes                        |
+|   **Time aggregation:** Average                   |
+|   **Action:** Decrease count by 3                 |
+|   **Cool down (minutes):** 120                    |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -239,4 +242,8 @@ Frank는 응용 프로그램에 대해 잘 알고 있습니다. 직원이 사무
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

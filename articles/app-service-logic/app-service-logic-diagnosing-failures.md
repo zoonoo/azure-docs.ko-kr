@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Logic Apps 오류 진단 | Microsoft Azure"
-   description="Logic Apps이 실패하는 경우를 파악하는 일반적인 방법을 알아보기"
+   pageTitle="Diagnosing logic apps failures | Microsoft Azure"
+   description="Common approaches to understanding where logic apps are failing"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -13,67 +13,68 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/18/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
-# 논리 앱 오류 진단
 
-Azure 앱 서비스에서 Logic Apps 기능에 문제가 있거나 문제가 발생할 경우, 오류의 원인을 파악하는 데 도움이 되는 방법이 몇 가지 있습니다.
+# <a name="diagnosing-logic-app-failures"></a>Diagnosing logic app failures
 
-## Azure 포털 도구
+If you experience issues or failures with the Logic Apps feature of Azure App Service, a few approaches can help you better understand where the failures are coming from.  
 
-Azure 포털에서는 각 단계에서 각 논리 앱을 진단하는 여러 가지 도구를 제공합니다.
+## <a name="azure-portal-tools"></a>Azure portal tools
 
-### 트리거 기록
+The Azure portal provides many tools to diagnose each logic app at each step.
 
-각 논리 앱에는 하나 이상의 트리거가 있습니다. 앱이 실행되지 않을 경우, 가장 먼저 트리거 기록에서 자세한 정보를 찾습니다. 트리거 기록은 논리 앱 주 블레이드에서 액세스할 수 있습니다.
+### <a name="trigger-history"></a>Trigger history
 
-![트리거 기록 찾기][1]
+Each logic app has at least one trigger. If you notice that apps aren't firing, the first place to look for additional information is the trigger history. You can access the trigger history on the logic app main blade.
 
-여기에는 논리 앱의 모든 트리거 시도 목록이 포함됩니다. 각 항목을 클릭하여 다음 수준의 세부 정보를 얻을 수 있습니다(특히, 트리거 시도로 생성된 모든 입력 또는 출력). '실패(Failed)' 트리거가 있는 경우 트리거 시도를 클릭하고 **출력** 링크를 자세히 살펴 생성될 수 있는 모든 오류 메시지를 모두 파악합니다(예: 잘못된 FTP 자격 증명).
+![Locating the trigger history][1]
 
-여러 상태가 표시될 수 있습니다.
+This lists all of the trigger attempts that your logic app has made. You can click each trigger attempt to get the next level of detail (specifically, any inputs or outputs that the trigger attempt generated). If you see any failed triggers, click the trigger attempt and drill into the **Outputs** link to see any error messages that might have been generated (for example, for invalid FTP credentials).
 
-* **생략**. 끝점을 폴링하여 데이터를 확인하고, 사용할 수 있는 데이터가 없다는 응답을 받았습니다.
-* **성공**. 트리거가 데이터를 사용할 수 있다는 응답을 받았습니다. 수동 트리거, 되풀이 트리거 또는 폴링 트리거일 수 있습니다. **발생(Fired)**이 함께 포함될 수 있지만 코드 보기에 충족되지 않는 조건 또는 SplitOn이 있는 경우에는 포함되지 않을 수 있습니다.
-* **실패**. 오류가 발생했습니다.
+The different statuses you might see are:
 
-#### 트리거 수동 시작
+* **Skipped**. It polled the endpoint to check for data and received a response that no data was available.
+* **Succeeded**. The trigger received a response that data was available. This could be from a manual trigger, a recurrence trigger, or a polling trigger. This likely will be accompanied with a status of **Fired**, but it might not if you have a condition or SplitOn command in code view that wasn't satisfied.
+* **Failed**. An error was generated.
 
-논리 앱에서 사용 가능한 트리거를 즉시(다음 되풀이까지 기다리지 않고) 확인하려면 주 블레이드에서 **트리거 선택**을 클릭하여 확인합니다. 예를 들어 Dropbox 트리거로 이 단추를 클릭하면 새 파일에 대해 Dropbox를 즉시 폴링하는 워크플로가 발생합니다.
+#### <a name="starting-a-trigger-manually"></a>Starting a trigger manually
 
-### 실행 기록
+If you want the logic app to check for an available trigger immediately (without waiting for the next recurrence), you can click **Select Trigger** on the main blade to force a check. For example, clicking this link with a Dropbox trigger will cause the workflow to immediately poll Dropbox for new files.
 
-발생한 후 실행된 모든 트리거가 있습니다. 주 블레이드에서 실행 정보에 액세스할 수 있습니다. 여기에는 워크플로에서 일어난 일을 이해하는 데 유용한 정보가 많이 있습니다.
+### <a name="run-history"></a>Run history
 
-![실행 기록 찾기][2]
+Every trigger that is fired results in a run. You can access run information from the main blade, which contains a lot of information that can be helpful in understanding what happened during the workflow.
 
-실행은 다음 상태 중 하나를 표시합니다.
+![Locating the run history][2]
 
-* **성공**. 모든 작업이 성공했거나, 오류가 있을 경우 나중에 워크플로에서 발생한 작업으로 처리되었습니다. 즉, 작업이 실패하고 실행되도록 설정된 작업이 이를 처리한 것입니다.
-* **실패**. 하나 이상의 작업이 실패하였고, 그중 워크플로에서 나중에 발생하여 처리하지 못한 작업이 있습니다.
-* **취소**. 워크플로가 실행 중이지만 취소 요청을 받았습니다.
-* **실행 중**. 워크플로가 현재 실행 중입니다. 현재 제한되는 작업 흐름 또는 현재 앱 서비스 계획으로 인해 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/plans/)의 작업 제한을 참조하세요. 진단 구성(실행 기록 아래의 차트)도 발생 중인 제한 이벤트에 관한 정보를 제공할 수 있습니다.
+A run displays one of the following statuses:
 
-실행 기록에서 자세한 내용을 확인할 수 있습니다.
+* **Succeeded**. All actions succeeded, or, if there was a failure, it was handled by an action that occurred later in the workflow. That is, it was handled by an action that was set to run after a failed action.
+* **Failed**. At least one action had a failure that was not handled by an action later in the workflow.
+* **Cancelled**. The workflow was running but received a cancel request.
+* **Running**. The workflow is currently running. This may occur for workflows that are being throttled, or because of the current App Service plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
 
-#### 트리거 출력
+When you are looking at a run history, you can drill in for more details.  
 
-트리거 출력은 트리거에서 받은 데이터를 보여 줍니다. 모든 속성이 예상대로 반환되었는지 판단하는 데 도움이 됩니다.
+#### <a name="trigger-outputs"></a>Trigger outputs
 
->[AZURE.NOTE] 이해할 수 없는 내용을 보았을 때, Logic Apps 기능이 어떤 식으로 [다양한 콘텐츠 유형을 처리하는지](app-service-logic-content-type.md)이해하는 데 유용할 수도 있습니다.
+Trigger outputs show the data that was received from the trigger. This can help you determine whether all properties returned as expected.
 
-![트리거 출력 예제][3]
+>[AZURE.NOTE] It might be helpful to understand how the Logic Apps feature [handles different content types](app-service-logic-content-type.md) if you see any content that you don't understand.
 
-#### 작업 입력 및 출력
+![Trigger output examples][3]
 
-작업에서 수신한 입력 및 출력을 드릴인할 수 있습니다. 출력 크기와 모양을 이해하고 생성될 수 있는 오류 메시지를 보는 데 유용합니다.
+#### <a name="action-inputs-and-outputs"></a>Action inputs and outputs
 
-![작업 입력 및 출력][4]
+You can drill into the inputs and outputs that an action received. This is useful for understanding the size and shape of the outputs, as well as to see any error messages that may have been generated.
 
-## 워크플로 런타임 디버깅
+![Action inputs and outputs][4]
 
-입력, 출력 및 실행 트리거를 모니터링하는 것 외에도 워크플로 내에 디버깅에 도움이 되는 몇 가지 단계를 추가하는 데 유용할 수 있습니다. 워크플로에 단계로 추가할 수 있는 강력한 도구로는 [RequestBin](http://requestb.in)이 있습니다. RequestBin을 사용하면 HTTP 요청의 크기, 모양 및 형식을 정확하게 파악하도록 HTTP 검사기를 설정할 수 있습니다. 새 RequestBin을 만들고 URL을 테스트하려는 본문 콘텐츠(예: 식, 다른 단계 출력)와 함께 논리 앱 HTTP POST 작업에 붙여넣을 수 있습니다. Logic Apps를 실행한 후에는 RequestBin을 새로 고쳐 요청이 논리 앱 엔진에서 생성됨에 따라 어떻게 형성되는지 확인할 수 있습니다.
+## <a name="debugging-workflow-runtime"></a>Debugging workflow runtime
+
+In addition to monitoring the inputs, outputs, and triggers of a run, it could be useful to add some steps within a workflow to help with debugging. [RequestBin](http://requestb.in) is a powerful tool that you can add as a step in a workflow. By using RequestBin, you can set up an HTTP request inspector to determine the exact size, shape, and format of an HTTP request. You can create a new RequestBin and paste the URL in a logic app HTTP POST action along with body content you want to test (for example, an expression or another step output). After you run the logic app, you can refresh your RequestBin to see how the request was formed as it was generated from the Logic Apps engine.
 
 
 
@@ -84,4 +85,8 @@ Azure 포털에서는 각 단계에서 각 논리 앱을 진단하는 여러 가
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

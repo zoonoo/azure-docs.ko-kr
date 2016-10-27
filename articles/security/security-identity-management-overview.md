@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure ID 관리 보안 개요 | Microsoft Azure"
-   description=" Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 응용 프로그램 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. 이 문서는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공합니다. "
+   pageTitle="Azure identity management security overview | Microsoft Azure"
+   description=" Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multi-factor authentication and conditional access policies. This article provides an overview of the core Azure security features that help with identity management. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,145 +16,150 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
-# Azure ID 관리 보안 개요
 
-Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 응용 프로그램 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../active-directory/active-directory-editions.md)은 수천 개의 클라우드 앱에 Single Sign-On(SaaS)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
+# <a name="azure-identity-management-security-overview"></a>Azure identity management security overview
 
-Azure AD(Active Directory)의 보안 이점은 다음과 같은 기능을 포함합니다.
+Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multi-factor authentication and conditional access policies. Monitoring suspicious activity through advanced security reporting, auditing and alerting helps mitigate potential security issues. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) provides single sign-on to thousands of cloud (SaaS) apps and access to web apps you run on-premises.
 
-- 하이브리드 엔터프라이즈에서 사용자, 그룹 및 장치의 동기화를 유지하도록 각 사용자에 대한 단일 ID 만들기 및 관리
-- 수천 개의 미리 통합된 SaaS 앱을 포함한 응용 프로그램에 대한 Single Sign-On 액세스 제공
-- 온-프레미스 및 클라우드 응용 프로그램에 대한 규칙 기반 Multi-Factor Authentication을 적용하여 응용 프로그램 액세스 보안 활성화
-- Azure AD 응용 프로그램 프록시를 통해 온-프레미스 웹 응용 프로그램에 대한 보안 원격 액세스 프로비전
+Security benefits of Azure Active Directory (AD) include the ability to:
 
-이 문서의 목표는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공하는 것입니다. 문서에 각 기능에 대한 세부 정보를 제공해 줄 링크를 제공하므로 자세히 알아볼 수 있습니다.
+- Create and manage a single identity for each user across your hybrid enterprise, keeping users, groups and devices in sync
+- Provide single sign-on access to your applications including thousands of pre-integrated SaaS apps
+- Enable application access security by enforcing rules-based Multi-Factor Authentication for both on-premises and cloud applications
+- Provision secure remote access to on-premises web applications through Azure AD Application Proxy
 
-문서는 다음과 같은 핵심 Azure ID 관리 기능에 중점을 둡니다.
+The goal of this article is to provide an overview of the core Azure security features that help with identity management. We also provide links to articles that will give details of each feature so you can learn more.  
 
-- SSO(Single sign-on)
-- 역방향 프록시
-- Multi-Factor Authentication
-- 보안 모니터링, 경고 및 기계 학습 기반 보고서
-- 소비자 ID 및 액세스 관리
-- 장치 등록
-- Privileged Identity Management
-- ID 보호
-- 하이브리드 ID 관리
+The article focuses on the following core Azure Identity management capabilities:
 
-## SSO(Single sign-on)
+- Single sign-on
+- Reverse proxy
+- Multi-factor authentication
+- Security monitoring, alerts, and machine learning-based reports
+- Consumer identity and access management
+- Device registration
+- Privileged identity management
+- Identity protection
+- Hybrid identity management
 
-SSO(Single Sign-On)란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
+## <a name="single-sign-on"></a>Single sign-on
 
-대부분의 조직에서는 최종 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS(Software as a Service) 응용 프로그램에 의존합니다. 지금까지 IT 담당자는 각 SaaS 응용 프로그램에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 응용 프로그램에 대한 암호를 기억해야 했습니다.
+Single sign-on (SSO) means being able to access all of the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (e.g. type a password) a second time.
 
-Azure AD는 온-프레미스 Active Directory를 클라우드로 확장하여 사용자가 자신의 기본 조직 계정을 사용하여 해당 도메인에 가입된 장치 및 회사 리소스뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 응용 프로그램에 로그인할 수 있도록 합니다.
+Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
-사용자는 여러 사용자 이름과 암호 집합을 관리할 필요가 없을 뿐만 아니라, 조직 그룹 및 직원으로서의 상태에 따라 해당 응용 프로그램 액세스를 자동으로 프로비전하거나 프로비전을 해제할 수 있습니다. Azure AD는 SaaS 응용 프로그램에 대한 사용자의 액세스를 중앙에서 관리할 수 있는 보안 및 액세스 관리 제어를 도입했습니다.
+Azure AD extends on-premises Active Directory into the cloud, enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all of the web and SaaS applications needed for their job.
 
-자세한 정보:
+Not only do users not have to manage multiple sets of usernames and passwords, application access can be automatically provisioned or de-provisioned based on organizational groups and their status as an employee. Azure AD introduces security and access governance controls that enable you to centrally manage users' access across SaaS applications.
 
-- [Single Sign-On 개요](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-- [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](../active-directory/active-directory-appssoaccess-whatis.md)
-- [Azure Active Directory Single Sign-On과 SaaS 앱 통합](../active-directory/active-directory-sso-integrate-saas-apps.md)
+Learn more:
 
-## 역방향 프록시
+- [Overview of Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
+- [What is application access and single sign-on with Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
+- [Integrate Azure Active Directory single sign-on with SaaS apps](../active-directory/active-directory-sso-integrate-saas-apps.md)
 
-Azure AD Application Proxy를 사용하면 [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=ko-KR&rs=ko-KR&ad=US) 사이트, [Outlook 웹앱](https://technet.microsoft.com/library/jj657718.aspx), [IIS](http://www.iis.net/) 기반 앱과 같은 온-프레미스 응용 프로그램을 개인 네트워크 내에 게시할 수 있으며 네트워크 외부 사용자가 안전하게 액세스할 수 있게 합니다. 응용 프로그램 프록시에서는 Azure AD가 지원하는 수천 개의 SaaS 응용 프로그램과 함께, 많은 유형의 온-프레미스 웹 응용 프로그램에 대한 원격 액세스 및 SSO(Single Sign-On)를 제공합니다. 직원들은 자택에서 개인용 장치를 사용하여 앱에 로그인하고 이 클라우드 기반 프록시를 통해 인증할 수 있습니다.
+## <a name="reverse-proxy"></a>Reverse proxy
 
-자세한 정보:
+Azure AD Application Proxy lets you publish on-premises applications, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), and [IIS](http://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and single sign-on (SSO) for many types of on-premises web applications with the thousands of SaaS applications that Azure AD supports. Employees can log into your apps from home on their own devices and authenticate through this cloud-based proxy.
 
-- [Azure AD 응용 프로그램 프록시 사용](../active-directory/active-directory-application-proxy-enable.md)
-- [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](../active-directory/active-directory-application-proxy-publish.md)
-- [응용 프로그램 프록시를 사용하는 Single-Sign-On](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-- [조건부 액세스로 작업하기](../active-directory/active-directory-application-proxy-conditional-access.md)
+Learn more:
 
-## Multi-Factor Authentication
-Azure MFA(Multi-Factor Authentication)는 두 개 이상의 인증 방법을 사용해야 하고 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
+- [Enabling Azure AD Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
+- [Publish applications using Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
+- [Single-sign-on with Application Proxy](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
+- [Working with conditional access](../active-directory/active-directory-application-proxy-conditional-access.md)
 
-자세한 정보:
+## <a name="multi-factor-authentication"></a>Multi-factor authentication
+Azure Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and 3rd party OAuth tokens.
 
-- [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-- [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)
-- [Azure Multi-Factor Authentication 작동 방법](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+Learn more:
 
-## 보안 모니터링, 경고 및 기계 학습 기반 보고서
+- [Multi-factor authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+- [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+- [How Azure Multi-Factor Authentication works](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
-일치하지 않는 액세스 패턴을 식별하는 보안 모니터링 및 경고 및 기계 학습 기반 보고서로 비즈니스를 보호할 수 있습니다. Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 볼 수 있습니다 이 정보를 사용하면 디렉터리 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다.
+## <a name="security-monitoring,-alerts,-and-machine-learning-based-reports"></a>Security monitoring, alerts, and machine learning-based reports
 
-Azure 클래식 포털에서 보고서는 다음과 같은 방식으로 분류되어 있습니다.
+Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
-- 비정상 보고서 – 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
-- 통합 응용 프로그램 보고서 – 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다.
-- 오류 보고서 – 외부 응용 프로그램에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
-- 사용자별 보고서 – 특정 사용자에 대한 장치/로그인 활동 데이터를 표시합니다.
-- 활동 로그 – 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
+In the Azure classic portal, reports are categorized in the following ways:
 
-자세한 정보:
+- Anomaly reports – contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to make a determination about whether an event is suspicious.
+- Integrated Application reports – provide insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications.
+- Error reports – indicate errors that may occur when provisioning accounts to external applications.
+- User-specific reports – display device/sign in activity data for a specific user.
+- Activity logs – contain a record of all audited events within the last 24 hours, last 7 days, or last 30 days, as well as group activity changes, and password reset and registration activity.
 
-- [액세스 및 사용 보고서 보기](../active-directory/active-directory-view-access-usage-reports.md)
-- [Azure Active Directory Reporting 시작하기](../active-directory/active-directory-reporting-getting-started.md)
-- [Azure Active Directory Reporting 가이드](../active-directory/active-directory-reporting-guide.md)
+Learn more:
 
-## 소비자 ID 및 액세스 관리
+- [View your access and usage reports](../active-directory/active-directory-view-access-usage-reports.md)
+- [Getting started with Azure Active Directory Reporting](../active-directory/active-directory-reporting-getting-started.md)
+- [Azure Active Directory Reporting Guide](../active-directory/active-directory-reporting-guide.md)
 
-Azure Active Directory B2C는 몇 억 개의 ID로 확장하는 소비자 지향 응용 프로그램에 항상 사용 가능한 전역적인 ID 관리 서비스입니다. 이 서비스는 모바일 및 웹 플랫폼에 통합될 수 있습니다. 고객은 사용자 지정 가능한 환경을 통해 기존 소셜 계정을 사용하거나 새 자격 증명을 만들어 모든 응용 프로그램에 로그온할 수 있습니다.
+## <a name="consumer-identity-and-access-management"></a>Consumer identity and access management
 
-이전에는 고객을 응용 프로그램에 가입 및 로그인하게 하고자 했던 응용 프로그램 개발자들이 자체 코드를 작성했습니다. 또한 온-프레미스 데이터베이스나 시스템을 사용하여 사용자 이름과 암호를 저장했습니다. Azure Active Directory B2C는 조직에게 안전한 표준 기반 플랫폼 및 확장할 수 있는 정책의 다양한 집합으로 소비자 ID 관리를 응용 프로그램에 통합하는 더 나은 방법을 제공합니다.
+Azure Active Directory B2C is a highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can log on to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
 
-Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(전자 메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 응용 프로그램을 등록할 수 있습니다.
+In the past, application developers who wanted to sign up and sign in consumers into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform and a large set of extensible policies.
 
-자세한 정보:
+When you use Azure Active Directory B2C, your consumers can sign up for your applications by using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address and password, or username and password).
 
-- [Azure Active Directory B2C란?](https://azure.microsoft.com/services/active-directory-b2c/)
-- [Azure Active Directory B2C 미리 보기: 응용 프로그램에 소비자 등록 및 로그인](../active-directory-b2c/active-directory-b2c-overview.md)
-- [Azure Active Directory B2C 미리 보기: 응용 프로그램 유형](../active-directory-b2c/active-directory-b2c-apps.md)
+Learn more:
 
-## 장치 등록
+- [What is Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
+- [Azure Active Directory B2C preview: Sign up and sign in consumers in your applications](../active-directory-b2c/active-directory-b2c-overview.md)
+- [Azure Active Directory B2C Preview: Types of Applications](../active-directory-b2c/active-directory-b2c-apps.md)
 
-Azure AD Device Registration은 장치 기반 [조건부 액세스](../active-directory/active-directory-conditional-access-on-premises-setup.md) 시나리오의 기초입니다. 장치가 등록될 경우 Azure Active Directory 장치 등록은 사용자가 로그인할 때 장치를 인증하는 데 사용되는 ID로 장치를 제공합니다. 그런 다음 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 응용 프로그램에 조건부 액세스 정책을 적용할 수 있습니다.
+## <a name="device-registration"></a>Device registration
 
-Intune과 같은 MDM(모바일 장치 관리) 솔루션과 함께 사용할 경우 Azure Active Directory의 장치 특성이 장치에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 장치의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다.
+Azure AD Device Registration is the foundation for device-based [conditional access](../active-directory/active-directory-conditional-access-on-premises-setup.md) scenarios. When a device is registered, Azure Active Directory Device Registration provides the device with an identity which is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises.
 
-자세한 정보:
+When combined with a mobile device management (MDM) solution such as Intune, the device attributes in Azure Active Directory are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance.
 
-- [Azure Active Directory 장치 등록 시작](../active-directory/active-directory-conditional-access-device-registration-overview.md)
-- [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory/active-directory-conditional-access-on-premises-setup.md)
-- [Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
+Learn more:
 
-## Privileged Identity Management
-Azure AD(Active Directory) Privileged Identity Management를 사용하여 Azure AD 및 기타 Microsoft Online Services(Office 365 또는 Microsoft Intune 등)에서 권한 있는 ID를 관리, 제어, 모니터링하고 리소스에 액세스할 수 있습니다.
+- [Get started with Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-device-registration-overview.md)
+- [Setting up on-premises conditional access using Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-on-premises-setup.md)
+- [Automatic device registration with Azure Active Directory for Windows domain-joined devices](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
 
-경우에 따라 사용자는 Azure, Office 365 리소스 또는 기타 SaaS 앱에서 권한이 필요한 작업을 수행해야 합니다. 이는 보통 조직이 사용자에게 Azure AD에서 영구 권한 있는 액세스를 제공해야 함을 의미합니다. 조직은 사용자가 관리자 권한으로 수행하는 작업을 충분히 모니터링할 수 없으므로 클라우드에 호스트된 리소스의 보안 위험이 증가합니다. 또한 권한 있는 액세스가 있는 사용자 계정이 손상되면 이로 인해 전반적인 클라우드 보안에 영향을 줄 수 있습니다. Azure AD 권한 있는 ID 관리는 이 위험을 해결하는 데 도움이 됩니다.
+## <a name="privileged-identity-management"></a>Privileged identity management
+Azure Active Directory (AD) Privileged Identity Management lets you manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.
 
-Azure AD Privileged Identity Management를 통해 다음을 할 수 있습니다.
+Sometimes users need to carry out privileged operations in Azure or Office 365 resources, or other SaaS apps. This often means organizations have to give them permanent privileged access in Azure AD. This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their admin privileges. Additionally, if a user account with privileged access is compromised, that one breach could impact their overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk.
 
-- Azure AD 관리자인 사용자를 확인할 수 있습니다.
-- Office 365 및 Intune 등의 Microsoft Online Services에 대해 주문형으로 “Just-In-Time”에 관리 권한을 사용하도록 설정할 수 있습니다.
-- 관리자 액세스 기록 및 관리자 할당 변경에 대한 보고서 가져오기
-- 권한 있는 역할의 액세스에 대한 알림을 받을 수 있습니다.
+Azure AD Privileged Identity Management lets you:
 
-자세한 정보:
+- See which users are Azure AD admins
+- Enable on-demand, "just in time" administrative access to Microsoft Online Services like Office 365 and Intune
+- Get reports about administrator access history and changes in administrator assignments
+- Get alerts about access to a privileged role
 
-- [Azure AD 권한 있는 ID 관리](../active-directory/active-directory-privileged-identity-management-configure.md)
-- [Azure AD Privileged Identity Management의 역할](../active-directory/active-directory-privileged-identity-management-roles.md)
-- [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
+Learn more:
 
-## ID 보호
-Azure AD ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 보안 서비스입니다. ID 보호는 기존 Azure Active Directory의 비정상 감지 기능(Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 활용하고 실시간으로 잘못된 부분을 검색할 수 있는 새로운 위험 이벤트 유형을 소개합니다.
+- [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
+- [Roles in Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-roles.md)
+- [Azure AD Privileged Identity Management: How to add or remove a user role](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
 
-자세한 정보:
+## <a name="identity-protection"></a>Identity protection
+Azure AD Identity Protection is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Identity Protection leverages existing Azure Active Directory’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
 
-- [Azure Active Directory ID 보호](../active-directory/active-directory-identityprotection.md)
-- [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+Learn more:
 
-## 하이브리드 ID 관리
+- [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
+- [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-Microsoft의 ID에 대한 접근 방식은 솔루션은 온-프레미스 및 클라우드를 확장하며 이는 위치에 관계 없이 모든 리소스에 인증 및 권한 부여에 대한 단일 사용자 ID를 만듭니다.
+## <a name="hybrid-identity-management"></a>Hybrid identity management
 
-자세한 정보:
+Microsoft’s approach to identity spans on-premises and the cloud, creating a single user identity for authentication and authorization to all resources, regardless of location.
 
-- [하이브리드 ID 백서](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
+Learn more:
+
+- [Hybrid identity white paper](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 - [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
-- [Active Directory 팀 블로그](https://blogs.technet.microsoft.com/ad/)
+- [Active Directory Team Blog](https://blogs.technet.microsoft.com/ad/)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

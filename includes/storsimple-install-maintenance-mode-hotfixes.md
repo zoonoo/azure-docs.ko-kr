@@ -1,21 +1,24 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### StorSimple용 Windows PowerShell을 통해 유지 관리 모드 핫픽스를 설치하려면
+#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
 
-> [AZURE.IMPORTANT]유지 관리 모드에서는 핫픽스를 각 컨트롤러에 차례대로 적용해야 합니다.
+> [AZURE.IMPORTANT] In Maintenance mode, you need to apply the hotfix first on one controller and then on the other controller.
 
-1. 장치를 유지 관리 모드로 설정합니다. 유지 관리 모드로 전환하는 방법에 대한 지침은 [2단계: 유지 관리 모드 전환](storsimple-update-device.md#step2)을 참조하세요.
+1. Place the device into Maintenance mode. See [Step 2: Enter Maintenance mode](storsimple-update-device.md#step2) for instructions on how to enter Maintenance mode.
 
-2. 핫픽스를 적용하려면 다음을 입력합니다.
+2. To apply the hotfix, type:
 
-     `Start-HcsHotfix`
+     `Start-HcsHotfix` 
 
-3. 메시지가 표시되면 핫픽스 파일이 포함된 네트워크 공유 폴더의 경로를 입력합니다.
+3. When prompted, supply the path to the network shared folder that contains the hotfix files.
 
-4. 확인하라는 메시지가 표시됩니다. **Y**를 입력하여 핫픽스 설치를 진행합니다.
+4. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
 
-5. 컨트롤러 하나에 핫픽스를 적용한 후 다른 컨트롤러에 로그온합니다. 이전 컨트롤러에서와 같이 핫픽스를 적용합니다.
+5. After you have applied the hotfix on one controller, log on to the other controller. Apply the hotfix as you did for the previous controller.
 
-6. 핫픽스를 적용한 후 유지 관리 모드를 종료합니다. 지침은 [4단계: 유지 관리 모드 종료](storsimple-update-device.md#step4)를 참조하세요.
+6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](storsimple-update-device.md#step4) for instructions.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

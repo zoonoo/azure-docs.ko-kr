@@ -1,252 +1,257 @@
 <properties
-	pageTitle="자습서: Azure Active Directory와 Microsoft Azure용 클라우드 관리 포털 통합 | Microsoft Azure"
-	description="Azure Active Directory 및 Microsoft Azure용 클라우드 관리 포털 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Cloud Management Portal for Microsoft Azure | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Cloud Management Portal for Microsoft Azure."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/16/2016"
+    ms.author="jeedes"/>
 
 
-# 자습서: Azure Active Directory와 Microsoft Azure용 클라우드 관리 포털 통합
 
-이 자습서에서는 Microsoft Azure용 클라우드 관리 포털과 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다. Microsoft Azure용 클라우드 관리 포털과 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
+# <a name="tutorial:-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutorial: Azure Active Directory integration with Cloud Management Portal for Microsoft Azure
 
-- Azure AD에서 Microsoft Azure용 클라우드 관리 포털에 액세스할 수 있는 사람을 제어할 수 있습니다.
-- 사용자가 해당 Azure AD 계정으로 Microsoft Azure용 클라우드 관리 포털에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
+The objective of this tutorial is to show you how to integrate Cloud Management Portal for Microsoft Azure with Azure Active Directory (Azure AD).  
+Integrating Cloud Management Portal for Microsoft Azure with Azure AD provides you with the following benefits:
 
+- You can control in Azure AD who has access to Cloud Management Portal for Microsoft Azure
+- You can enable your users to automatically get signed-on to Cloud Management Portal for Microsoft Azure (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
-## 필수 조건
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Microsoft Azure용 클라우드 관리 포털과의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+## <a name="prerequisites"></a>Prerequisites
 
-- Azure AD 구독
-- Microsoft Azure용 클라우드 관리 포털 Single Sign-On 사용 구독
+To configure Azure AD integration with Cloud Management Portal for Microsoft Azure, you need the following items:
 
+- An Azure AD subscription
+- A Cloud Management Portal for Microsoft Azure single-sign on enabled subscription
 
-> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
-이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
-- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+To test the steps in this tutorial, you should follow these recommendations:
 
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-## 시나리오 설명
-이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 Microsoft Azure용 클라우드 관리 포털 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of two main building blocks:
 
+1. Adding Cloud Management Portal for Microsoft Azure from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-## 갤러리에서 Microsoft Azure용 클라우드 관리 포털 추가
-Microsoft Azure용 클라우드 관리 포털과 Azure AD의 통합을 구성하려면 갤러리에서 관리되는 SaaS 앱 목록에 Microsoft Azure용 클라우드 관리 포털을 추가해야 합니다.
 
-**갤러리에서 Microsoft Azure용 클라우드 관리 포털을 추가하려면 다음 단계를 수행합니다.**
+## <a name="adding-cloud-management-portal-for-microsoft-azure-from-the-gallery"></a>Adding Cloud Management Portal for Microsoft Azure from the gallery
+To configure the integration of Cloud Management Portal for Microsoft Azure into Azure AD, you need to add Cloud Management Portal for Microsoft Azure from the gallery to your list of managed SaaS apps.
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+**To add Cloud Management Portal for Microsoft Azure from the gallery, perform the following steps:**
 
-	![Active Directory][1]
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+    ![Active Directory][1]
 
-3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-	![응용 프로그램][2]
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
+    ![Applications][2]
 
-	![응용 프로그램][3]
+4. Click **Add** at the bottom of the page.
 
-5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+    ![Applications][3]
 
-	![응용 프로그램][4]
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-6. 검색 상자에 **Microsoft Azure용 클라우드 관리 포털**을 입력합니다.
+    ![Applications][4]
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_01.png)
+6. In the search box, type **Cloud Management Portal for Microsoft Azure**.
 
-7. 결과 창에서 **Microsoft Azure용 클라우드 관리 포털**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_01.png)
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_02.png)
+7. In the results pane, select **Cloud Management Portal for Microsoft Azure**, and then click **Complete** to add the application.
 
-##  Azure AD Single Sign-on 구성 및 테스트
-이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Microsoft Azure용 클라우드 관리 포털에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_02.png)
 
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Microsoft Azure용 클라우드 관리 포털 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Microsoft Azure용 클라우드 관리 포털의 관련 사용자 간에 연결이 형성되어야 합니다. 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Microsoft Azure용 클라우드 관리 포털의 **Username** 값으로 할당하여 설정합니다.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Cloud Management Portal for Microsoft Azure based on a test user called "Britta Simon".
 
-Microsoft Azure용 클라우드 관리 포털에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Cloud Management Portal for Microsoft Azure to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Cloud Management Portal for Microsoft Azure needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Cloud Management Portal for Microsoft Azure.
 
-1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-4. **[Microsoft Azure용 클라우드 관리 포털 테스트 사용자 만들기](#creating-a-newsignature-test-user)** - Azure AD에 연결된 Microsoft Azure용 클라우드 관리 포털에서 Britta Simon을 나타내는 사용자를 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+To configure and test Azure AD single sign-on with Cloud Management Portal for Microsoft Azure, you need to complete the following building blocks:
 
-### Azure AD Single Sign-On 구성
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Cloud Management Portal for Microsoft Azure test user](#creating-a-newsignature-test-user)** - to have a counterpart of Britta Simon in Cloud Management Portal for Microsoft Azure that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 Microsoft Azure용 클라우드 관리 포털 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
 
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Cloud Management Portal for Microsoft Azure application.
 
 
-**Microsoft Azure용 클라우드 관리 포털에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 클래식 포털의 **Microsoft Azure용 클라우드 관리 포털** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+**To configure Azure AD single sign-on with Cloud Management Portal for Microsoft Azure, perform the following steps:**
 
-	![Single Sign-On 구성][6]
+1. In the Azure classic portal, on the **Cloud Management Portal for Microsoft Azure** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
-2. **Microsoft Azure용 클라우드 관리 포털에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+    ![Configure Single Sign-On][6] 
 
-	![Single Sign-On 구성](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_03.png)
+2. On the **How would you like users to sign on to Cloud Management Portal for Microsoft Azure** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_03.png) 
 
-	![Single Sign-On 구성](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_04.png)
+3. On the **Configure App Settings** dialog page, perform the following steps:.
 
-    a. **로그인 URL** 텍스트 상자에 다음 `https://portal.igcm.com/<instance name>` 패턴을 사용하여 사용자가 Microsoft Azure용 클라우드 관리 포털 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_04.png) 
 
-    b. **Next**를 클릭합니다.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Cloud Management Portal for Microsoft Azure application using the following pattern: `https://portal.igcm.com/<instance name>`
 
+    b. Click **Next**.
 
-4. **Microsoft Azure용 클라우드 관리 포털에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
 
-	![Single Sign-On 구성](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_05.png)
+4. On the **Configure single sign-on at Cloud Management Portal for Microsoft Azure** page, perform the following steps:
 
-    a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_05.png) 
 
-    b. **다음**을 클릭합니다.
+    a. Click **Download certificate**, and then save the file on your computer.
 
+    b. Click **Next**.
 
-5. SSO를 응용 프로그램에 맞게 구성하려면 [jczernuszka@newsignature.com](mailTo:jczernuszka@newsignature.com)에서 Microsoft Azure용 클라우드 관리 포털 지원 팀에 문의하거나 다운로드한 인증서 파일을 첨부하여 전자 메일로 문의하세요. 또한 SSO 통합을 위해 구성할 수 있도록 발급자 URL, SAML SSO URL 및 Single Sign Out URL을 제공하세요.
 
+5. To get SSO configured for your application, contact your Cloud Management Portal for Microsoft Azure support team at [jczernuszka@newsignature.com](mailTo:jczernuszka@newsignature.com) and email the attach downloaded certificate file. Also please do provide the Issuer URL, SAML SSO URL and Single Sign Out Service URL so that they can be configured for SSO integration.
 
-6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
-	![Azure AD Single Sign-On][10]
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
+    ![Azure AD Single Sign-On][10]
 
-	![Azure AD Single Sign-On][11]
+7. On the **Single sign-on confirmation** page, click **Complete**.  
 
+    ![Azure AD Single Sign-On][11]
 
 
-### Azure AD 테스트 사용자 만들기
-이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-![Azure AD 사용자 만들기][20]
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
 
-**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
+![Create Azure AD User][20]
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+**To create a test user in Azure AD, perform the following steps:**
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/create_aaduser_09.png)
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/create_aaduser_09.png) 
 
-3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/create_aaduser_03.png)
+3. To display the list of users, in the menu on the top, click **Users**.
 
-4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/create_aaduser_03.png) 
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/create_aaduser_04.png)
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/create_aaduser_04.png) 
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/create_aaduser_05.png) 
 
-    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+    a. As Type Of User, select New user in your organization.
 
-    c. **Next**를 클릭합니다.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
+    c. Click **Next**.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/create_aaduser_06.png)
+6.  On the **User Profile** dialog page, perform the following steps:
 
-    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/create_aaduser_06.png) 
 
-    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    d. **역할** 목록에서 **사용자**를 선택합니다.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    e. **Next**를 클릭합니다.
+    d. In the **Role** list, select **User**.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
+    e. Click **Next**.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/create_aaduser_07.png)
+7. On the **Get temporary password** dialog page, click **create**.
 
-8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/create_aaduser_07.png) 
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-newsignature-tutorial/create_aaduser_08.png)
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-    a. **새 암호** 값을 적어둡니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-newsignature-tutorial/create_aaduser_08.png) 
 
-    b. **완료**를 클릭합니다.
+    a. Write down the value of the **New Password**.
 
+    b. Click **Complete**.   
 
 
-### Microsoft Azure용 클라우드 관리 포털 테스트 사용자 만들기
 
-이 섹션에서는 Microsoft Azure용 클라우드 관리 포털에서 Britta Simon이라는 사용자를 만듭니다. Microsoft Azure용 클라우드 관리 포털 지원 팀과 함께 Microsoft Azure용 클라우드 관리 포털 계정에 사용자를 추가하세요.
+### <a name="creating-a-cloud-management-portal-for-microsoft-azure-test-user"></a>Creating a Cloud Management Portal for Microsoft Azure test user
 
+The objective of this section is to create a user called Britta Simon in Cloud Management Portal for Microsoft Azure. Please work with Cloud Management Portal for Microsoft Azure support team to add the users in the Cloud Management Portal for Microsoft Azure account. 
 
-> [AZURE.NOTE] 사용자를 수동으로 만들어야 하는 경우 Microsoft Azure용 클라우드 관리 포털 지원 팀에 문의해야 합니다.
 
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Cloud Management Portal for Microsoft Azure support team.
 
-### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 Microsoft Azure용 클라우드 관리 포털에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다.
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-![사용자 할당][200]
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Cloud Management Portal for Microsoft Azure.
 
-**Microsoft Azure용 클라우드 관리 포털에 Britta Simon을 할당하려면 다음 단계를 수행합니다.**
+![Assign User][200] 
 
-1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+**To assign Britta Simon to Cloud Management Portal for Microsoft Azure, perform the following steps:**
 
-	![사용자 할당][201]
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 
-2. 응용 프로그램 목록에서 **Microsoft Azure용 클라우드 관리 포털**을 선택합니다.
+    ![Assign User][201] 
 
-	![Single Sign-On 구성](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_50.png)
+2. In the applications list, select **Cloud Management Portal for Microsoft Azure**.
 
-1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_50.png) 
 
-	![사용자 할당][203]
+1. In the menu on the top, click **Users**.
 
-1. 사용자 목록에서 **Britta Simon**을 선택합니다.
+    ![Assign User][203] 
 
-2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
+1. In the Users list, select **Britta Simon**.
 
-	![사용자 할당][205]
+2. In the toolbar on the bottom, click **Assign**.
 
+    ![Assign User][205]
 
 
-### Single Sign-On 테스트
 
-이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다. 액세스 패널에서 Microsoft Azure용 클라우드 관리 포털 타일을 클릭하면 Microsoft Azure용 클라우드 관리 포털 응용 프로그램에 자동으로 로그온됩니다.
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
 
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the Cloud Management Portal for Microsoft Azure tile in the Access Panel, you should get automatically signed-on to your Cloud Management Portal for Microsoft Azure application.
 
-## 추가 리소스
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -267,4 +272,8 @@ Microsoft Azure용 클라우드 관리 포털에서 Azure AD Single Sign-On을 �
 [204]: ./media/active-directory-saas-newsignature-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-newsignature-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,22 +1,23 @@
 <properties 
-	pageTitle="NewTek TriCaster 인코더를 구성하여 단일 비트 전송률 라이브 스트림 보내기 | Microsoft Azure" 
-	description="이 항목에서는 Tricaster 라이브 인코더를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="cenkdin" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Configure the NewTek TriCaster encoder to send a single bitrate live stream | Microsoft Azure" 
+    description="This topic shows how to configure the Tricaster live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="cenkdin" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="09/15/2016" 
-	ms.author="juliako;cenkd;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="10/12/2016" 
+    ms.author="juliako;cenkd;anilmur"/>
 
-#NewTek TriCaster 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
+
+#<a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Use the NewTek TriCaster encoder to send a single bitrate live stream
 
 > [AZURE.SELECTOR]
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -24,147 +25,153 @@
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md)
 
-이 항목에서는 [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) 라이브 인코더를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다. 자세한 내용은 [Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+This topic shows how to configure the [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-이 자습서에서는 AMSE(Azure 미디어 서비스 탐색기) 도구를 사용하여 AMS(Azure 미디어 서비스)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure 클래식 포털을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program)을 만듭니다.
+This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
->[AZURE.NOTE]기여 피드에서 라이브 인코딩에 사용할 수 있는 AMS 채널에 보내기 위해 Tricaster를 사용할 때 피드 간에 빠르게 잘라내기, 슬레이트 간 전환과 같은 Tricaster의 특정 기능을 사용하는 경우 라이브 이벤트에 비디오/오디오 결함이 있을 수 있습니다. AMS 팀에서 이러한 문제를 해결하기 위해 노력하고 있으며 그때까지 이러한 기능을 사용하지 않는 것이 좋습니다.
-
-
-##필수 조건
-
-- [Azure 미디어 서비스 계정 만들기](media-services-create-account.md)
-- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
-- 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
-- 이 도구를 시작하고 AMS 계정에 연결합니다.
-
-##팁
-
-- 가능하면 하드웨어에 내장된 인터넷 연결을 사용합니다.
-- 대역폭 요구 사항을 결정할 때에 가장 좋은 방법은 스트리밍 비트 전송률을 두 배로 하는 것입니다. 이는 필수 요구 사항은 아니지만 네트워크 정체로 인한 영향을 줄이는 데 도움이 됩니다.
-- 소프트웨어 기반 인코더를 사용하는 경우 불필요한 프로그램을 모두 닫습니다.
-
-## 채널 만들기
-
-1.  AMSE 도구에서 **라이브** 탭으로 이동하고 채널 영역 안을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Create channel...**(채널 만들기...)을 선택합니다.
-
-![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
-
-2. 채널 이름을 지정합니다. 설명 필드는 선택 사항입니다. 채널 설정에서 라이브 인코딩 옵션에 대해 **표준**을 선택하고 입력 프로토콜은 **RTMP**로 설정합니다. 다른 모든 설정은 그대로 유지할 수 있습니다.
+>[AZURE.NOTE]When using Tricaster for sending in a contribution feed to AMS channels that are enabled for live encoding, there can be video/audio glitches in your live event if you use certain features of Tricaster, such as rapid cutting between feeds, or switching to/from slates. The AMS team is working on fixing these issues, until then, it is not recommend to use these features.
 
 
-**새 채널 지금 시작**이 선택되었는지 확인합니다.
+##<a name="prerequisites"></a>Prerequisites
 
-3. **채널 만들기**를 클릭합니다. ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
+- [Create an Azure Media Services account](media-services-portal-create-account.md)
+- Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)
+- Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
+- Launch the tool and connect to your AMS account.
 
->[AZURE.NOTE] 채널을 시작하는 데 20분 정도 걸릴 수 있습니다.
+##<a name="tips"></a>Tips
+
+- Whenever possible, use a hardwired internet connection.
+- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
+- When using software based encoders, close out any unnecessary programs.
+
+## <a name="create-a-channel"></a>Create a channel
+
+1.  In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
+
+![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
+
+2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTMP**. You can leave all other settings as is.
 
 
-채널을 시작하는 동안 [인코더 구성](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp)을 수행할 수 있습니다.
+Make sure the **Start the new channel now** is selected.
 
->[AZURE.IMPORTANT] 채널이 준비 상태가 되는 즉시 요금이 청구되기 시작합니다. 자세한 내용은 [채널 상태](media-services-manage-live-encoder-enabled-channels.md#states)를 참조하세요.
+3. Click **Create Channel**.
+![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
-##<a id=configure_tricaster_rtmp></a>NewTek TriCaster 인코더 구성
+>[AZURE.NOTE] The channel can take as long as 20 minutes to start.
 
-이 자습서에서는 다음 출력 설정이 사용됩니다. 이 섹션의 나머지 부분에서 구성 단계를 더 자세히 설명합니다.
 
-**비디오**:
+While the channel is starting you can [configure the encoder](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
+
+>[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
+
+##<a name="<a-id=configure_tricaster_rtmp></a>configure-the-newtek-tricaster-encoder"></a><a id=configure_tricaster_rtmp></a>Configure the NewTek TriCaster encoder
+
+In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
+
+**Video**:
  
-- 코덱: H.264
-- 프로필: 높음(수준 4.0)
-- 비트 전송률: 5,000kbps
-- 키 프레임: 2초(60초)
-- 프레임 속도: 30
+- Codec: H.264 
+- Profile: High (Level 4.0) 
+- Bitrate: 5000 kbps 
+- Keyframe: 2 seconds (60 seconds) 
+- Frame Rate: 30
  
-**오디오**:
+**Audio**:
 
-- 코덱: AAC(LC)
-- 비트 전송률: 192kbps
-- 샘플 속도: 44.1khz
+- Codec: AAC (LC) 
+- Bitrate: 192 kbps 
+- Sample Rate: 44.1 kHz
 
 
-###구성 단계
+###<a name="configuration-steps"></a>Configuration steps
 
-1. 사용 중인 비디오 입력 원본에 따라 새 **NewTek TriCaster** 프로젝트를 만듭니다.
-2. 해당 프로젝트 내에 있는 경우 **스트림** 단추를 찾고 그 옆의 기어 아이콘을 클릭하여 스트림 구성 메뉴에 액세스합니다.
+1. Create a new **NewTek TriCaster** project depending on what video input source is being used. 
+2. Once within that project, find the **Stream** button, and click the gear icon next to it to access the stream configuration menu.
 
-	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
-3. 메뉴가 열려 있으면 연결 제목 아래에서 **새로 만들기**를 클릭합니다. 연결 형식에 대한 메시지가 표시되면 **Adobe Flash**를 선택합니다.
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
+3. Once the menu has opened, click **New** under the Connection heading. When prompted for the connection type, select **Adobe Flash**.
 
-	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
 
-4. **확인**을 클릭합니다.
+4. Click **OK**.
 
-5. 이제 **Streaming Profile**(스트리밍 프로필) 아래에서 드롭다운 화살표를 클릭하고 **찾아보기**로 이동하여 FMLE 프로필을 가져올 수 있습니다.
+5. An FMLE profile can now be imported by clicking the drop down arrow under **Streaming Profile** and navigating to **Browse**.
 
-	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
 
-6. 구성한 FMLE 프로필이 저장된 위치로 이동합니다.
-7. 선택한 다음 **확인**을 누릅니다.
+6. Navigate to where the configured FMLE profile was saved.
+7. Select it, and press **OK**.
 
-	프로필이 업로드되면 다음 단계를 진행합니다.
+    Once the profile is uploaded, proceed to the next step.
 
-6. Tricaster **RTMP 끝점**에 할당하기 위해 채널의 입력 URL을 가져옵니다.
-	
-	AMSE 도구로 다시 이동하여 채널 완료 상태를 확인합니다. 상태가 **시작**에서 **실행**으로 변경되었으면 입력 URL을 가져올 수 있습니다.
-	  
-	채널이 실행 중일 때 채널 이름을 마우스 오른쪽 단추로 클릭하고 아래로 이동하여 **입력 URL을 클립보드로 복사**를 가리킨 다음 **(기본 입력 URL**을 선택합니다.
-	
-	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
+6. Get the channel's input URL in order to assign it to the Tricaster **RTMP Endpoint**.
+    
+    Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
+      
+    When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input  URL**.  
+    
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
 
-7. Tricaster 프로젝트 내의 **Flash Server**(플래시 서버) 아래 **위치** 필드에 이 정보를 붙여넣습니다. 또한 **스트림 ID** 필드에 스트림 이름을 할당합니다.
+7. Paste this information in the **Location** field under **Flash Server** within the Tricaster project. Also assign a stream name in the **Stream ID** field. 
 
-	또한 스트림 정보가 FMLE 프로필에 추가된 경우 **설정 가져오기**를 클릭하고 저장된 FMLE 프로필로 이동한 다음 **확인**을 클릭하여 이 섹션으로 가져올 수 있습니다. 관련 Flash Server(플래시 서버) 필드는 FMLE의 정보로 채워야 합니다.
+    If stream information was added to the FMLE profile, it can also be imported to this section by clicking **Import Settings**, navigating to the saved FMLE profile and clicking **OK**. The relevant Flash Server fields should populate with the information from FMLE.
 
-	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
 
-9. 완료되면 화면 아래쪽에 있는 **확인**을 클릭합니다. 비디오 및 오디오를 Tricaster에 입력할 준비가 되면 **스트림** 단추를 클릭하여 AMS로 스트리밍을 시작합니다.
+9. When finished, click **OK** at the bottom of the screen. When video and audio inputs into the Tricaster are ready, begin streaming to AMS by clicking the **Stream** button.
 
-	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
->[AZURE.IMPORTANT] **스트림**을 클릭하기 전에 채널이 준비되었는지 **반드시** 확인합니다. 또한 15분을 초과할 때까지 입력 기여 피드 없이 채널을 준비 상태로 그대로 두지 않도록 해야 합니다.
+>[AZURE.IMPORTANT] Before you click **Stream**, you **must** ensure that the Channel is ready. 
+>Also, make sure not to leave the Channel in a ready state without an input contribution feed for longer than > 15 minutes. 
 
-##테스트 재생
+##<a name="test-playback"></a>Test playback
   
-1. AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Playback the Preview**(미리 보기 재생)를 가리키고 **with Azure Media Player**(Azure 미디어 플레이어 사용)를 선택합니다.
+1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
-	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
-스트림이 플레이어에 나타나면 인코더가 AMS에 연결되도록 제대로 구성된 것입니다.
+If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
 
-오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
+If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.  
 
-##프로그램 만들기
+##<a name="create-a-program"></a>Create a program
 
-1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 **새 프로그램 만들기**를 선택합니다.
+1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
 
-	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
 
-2. 프로그램 이름을 지정하고 필요한 경우 **보관 창 길이**(기본값은 4시간)를 조정합니다. 또한 저장소 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.
-3. **지금 프로그램 시작** 상자를 선택합니다.
-4. **프로그램 만들기**를 클릭합니다.
+2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
+3. Check the **Start the Program now** box.
+4. Click **Create Program**.  
   
-	참고: 프로그램 만들기는 채널 만들기보다 시간이 덜 걸립니다.
+    Note: Program creation takes less time than channel creation.    
  
-5. 프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 **프로그램 재생**으로 이동한 다음 **Azure 미디어 플레이어 사용**을 선택하여 재생을 확인합니다.
-6. 확인되면 프로그램을 마우스 오른쪽 단추로 다시 클릭하고 **Copy the Output URL to Clipboard**(클립보드로 출력 URL 복사)를 선택하거나 메뉴의 **Program information and settings**(프로그램 정보 및 설정) 옵션에서 이 정보를 검색합니다.
+5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
+6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu). 
 
-이제 스트림을 플레이어에 포함하거나 실시간 보기를 위해 대상 그룹에게 배포할 준비가 되었습니다.
-
-
-## 문제 해결
-
-참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
+The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.  
 
 
-##다음 단계
+## <a name="troubleshooting"></a>Troubleshooting
 
-미디어 서비스 학습 경로를 검토합니다.
+Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
+
+
+##<a name="next-step"></a>Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

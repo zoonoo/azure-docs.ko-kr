@@ -15,34 +15,34 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. http://portal.azure.com/에서 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
 
-2. 왼쪽 배너에서 **모두 찾아보기**를 클릭합니다. **찾아보기** 블레이드가 표시됩니다.
+2. In the left banner, click **BROWSE ALL**. The **Browse** blade is displayed.
 
-3. 스크롤하여 **SQL Server**를 클릭합니다. **SQL Server** 블레이드가 표시됩니다.
+3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed.
 
-	![포털에서 Azure SQL 데이터베이스 서버를 찾습니다.][b21-FindServerInPortal]
+    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
 
-4. 편의를 위해 이전 **찾아보기** 블레이드에서 최소화 컨트롤을 클릭합니다.
+4. For convenience, click the minimize control on the earlier **Browse** blade.
 
-5. 필터 텍스트 상자에 서버 이름을 입력하기 시작합니다. 해당 행이 표시됩니다.
+5. In the filter text box, start typing the name of your server. Your row is displayed.
 
-6. 서버에 대한 행을 클릭합니다. 서버 블레이드가 표시됩니다.
+6. Click the row for your server. A blade for your server is displayed.
 
-7. 서버 블레이드에서 **설정**을 클릭합니다. **설정** 블레이드가 표시됩니다.
+7. On your server blade, click **Settings**. The **Settings** blade is displayed.
 
-8. **방화벽**을 클릭합니다. **방화벽 설정** 블레이드가 표시됩니다.
+8. Click **Firewall**. The **Firewall Settings** blade is displayed.
 
-	![설정 > 방화벽을 클릭합니다.][b31-SettingsFirewallNavig]
+    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
 
-9. **클라이언트 IP 추가**를 클릭합니다. 첫 번째 텍스트 상자에 새 규칙의 이름을 입력합니다.
+9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
 
-10. 사용하도록 설정하려는 범위의 하한 및 상한 IP 주소 값을 입력합니다.
-	- 하한 값은 **.0**으로 끝나고 상한 값은 **.255**로 끝나도록 하면 유용할 수 있습니다.
+10. Type in the low and high IP address values for the range you want to enable.
+    - It can be handy to have the low value end with **.0** and the high with **.255**.
 
-	![허용할 IP 주소 범위를 추가합니다.][b41-AddRange]
+    ![Add an IP address range to allow][b41-AddRange]
 
-11. **Save**를 클릭합니다.
+11. Click **Save**.
 
 
 
@@ -63,4 +63,7 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=AcomDC_0330_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

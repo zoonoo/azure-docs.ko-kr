@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL 데이터베이스 FAQ" 
-   description="클라우드 데이터베이스 및 Azure SQL 데이터베이스, Microsoft 관계형 데이터베이스 관리 시스템(RDBMS) 및 클라우드에서 서비스로 데이터베이스에 대해 고객이 궁금해하는 일반적인 질문에 대한 답변입니다." 
+   pageTitle="Azure SQL Database FAQ" 
+   description="Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud." 
    services="sql-database" 
    documentationCenter="" 
    authors="CarlRabeler" 
@@ -16,77 +16,82 @@
    ms.date="08/16/2016"
    ms.author="sashan;carlrab"/>
 
-# SQL 데이터베이스 FAQ
 
-## SQL 데이터베이스 사용량은 청구서에 어떻게 표시되나요? 
-SQL 데이터베이스는 서비스 계층 + 단일 데이터베이스에 대한 성능 수준 또는 탄력적 데이터베이스 풀당 eDTU에 따라 예측 가능한 시간당 요금이 청구됩니다. 실제 사용량은 시간별로 계산 및 비례 배분되므로 청구서에 시간의 일부가 표시될 수 있습니다. 예를 들어 데이터베이스가 한 달에 12시간 동안 있었다면 청구서에는 0.5일의 사용량이 표시됩니다. 또한 서비스 계층 + 성능 수준 및 풀당 eDTU가 청구서에 세부적으로 표시되어 각 해당 월에 사용한 데이터베이스 일수를 쉽게 확인할 수 있습니다.
+# <a name="sql-database-faq"></a>SQL Database FAQ
 
-## 단일 데이터베이스가 1시간 미만 동안 활성화되거나 더 높은 서비스 계층을 1시간 미만 사용하는 경우 어떻게 되나요?
-사용량이나 데이터베이스가 한 시간 미만 동안 활성화되었는지 여부에 관계없이, 그 시간에 적용된 최고 서비스 계층 + 성능 수준을 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다.
+## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill?"></a>How does the usage of SQL Database show up on my bill? 
+SQL Database bills on a predictable hourly rate based on both the service tier + performance level for single databases or eDTUs per elastic database pool. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. Additionally, service tiers + performance level and eDTUs per pool are broken out in the bill to make it easier to see the number of database days you used for each in a single month.
 
-예
-	
-- Basic 데이터베이스를 만든 후 즉시 Standard S1로 업그레이드한 경우에는 처음 1시간 사용에 대해 Standard S1 요금이 청구됩니다.
+## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour?"></a>What if a single database is active for less than an hour or uses a higher service tier for less than an hour?
+You are billed for each hour a database exists using the highest service tier + performance level that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour. 
 
-- 오후 10시에 Basic에서 Premium으로 데이터베이스를 업그레이드하고 다음 날 오전 1시 35분에 업그레이드가 완료되면 오전 1시부터 Premium 요금이 부과됩니다.
+Examples
+    
+- If you create a Basic database and then immediately upgrade it to Standard S1, you are charged at the Standard S1 rate for the first hour.
 
-- 오전 11시에 Premium에서 Basic으로 데이터베이스를 다운그레이드하고 오후 2시 15분에 다운그레이드가 완료되면 데이터베이스에는 Basic 요금이 부과된 후 오후 3시까지 Premium 요금이 부과됩니다.
+- If you upgrade a database from Basic to Premium at 10:00 p.m. and upgrade completes at 1:35 a.m. on the following day, you are charged at the Premium rate starting at 1:00 a.m. 
 
-## 탄력적 데이터베이스 풀 사용량은 청구서에 어떻게 표시되며 풀당 eDTU를 변경하면 어떻게 되나요?
-탄력적 데이터베이스 풀 요금은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)의 풀당 eDTU 아래 표시된 증분 단위로 탄력적 DTU(eDTU)로 청구서에 표시됩니다. 탄력적 데이터베이스 풀에 대한 데이터베이스별 요금은 없습니다. 사용량이나 풀이 한 시간 미만 동안 활성화되었는지 여부에 관계없이, 최고 eDTU를 사용하여 풀이 있었던 각 시간에 대해 요금이 청구됩니다.
+- If you downgrade a database from Premium to Basic at 11:00 a.m. and it completes at 2:15 p.m., then the database is charged at the Premium rate until 3:00 p.m., after which it is charged at the Basic rates.
 
-예
+## <a name="how-does-elastic-database-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool?"></a>How does elastic database pool usage show up on my bill and what happens when I change eDTUs per pool?
+Elastic database pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic database pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
 
-- 오전 11시 18분에 200 eDTU로 Standard 탄력적 데이터베이스 풀을 만든 경우 풀에 5개의 데이터베이스를 추가하면 오전 11시부터 남은 시간까지 전체 시간 동안 200 eDTU에 대한 요금이 청구됩니다.
-- 2일차의 오전 5시 5분에 데이터베이스 1은 50 eDTU 사용을 시작하고 그 날 동안 계속 유지합니다. 데이터베이스 2-5는 0과 80 eDTU 사이를 이동합니다. 이 날에는 하루 종일 다양한 eDTU를 사용하는 5개의 다른 데이터베이스를 추가합니다. 2일차는 200 eDTU에서 전일 요금이 청구됩니다.
-- 3일차의 오전 5시에 다른 15개의 데이터베이스를 추가합니다. 데이터베이스 사용량이 종일 증가하여 오후 8시 5분에는 풀에 대한 eDTU를 200에서 400으로 증가하도록 결정하기에 이릅니다. 오후 8시까지 200 eDTU 수준으로 요금이 적용되고 남은 4시간에 대해서는 400 eDTU로 요금이 증가합니다.
+Examples
 
-## 탄력적 데이터베이스 풀에서 활성 지역 복제의 사용량은 청구서에 어떻게 표시되나요?
-단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용해도 청구서에 직접적인 영향은 없습니다. 각 풀(기본 풀 및 보조 풀)에 프로비전된 eDTU에 대해서만 요금이 청구됩니다.
+- If you create a Standard elastic database pool with 200 eDTUs at 11:18 a.m., adding five databases to the pool, you are charged for 200 eDTUs for the whole hour, beginning at 11 a.m. through the remainder of the day.
+- On Day 2, at 5:05 a.m., Database 1 begins consuming 50 eDTUs and holds steady through the day. Databases 2-5 fluctuate between 0 and 80 eDTUs. During the day, you add five other databases that consume varying eDTUs throughout the day. Day 2 is a full day billed at 200 eDTU. 
+- On Day 3, at 5 a.m. you add another 15 databases. Database usage increases throughout the day to the point where you decide to increase eDTUs for the pool from 200 to 400 at 8:05 p.m. Charges at the 200 eDTU level were in effect until 8 pm and increases to 400 eDTUs for the remaining four hours. 
 
-## 감사 기능 사용이 청구서 요금에 반영되는 방식 
-감사는 추가 비용 없이 SQL 데이터베이스 서비스에 기본으로 제공되며 Basic, Standard 및 Premium 데이터베이스에서 사용할 수 있습니다. 하지만 감사 로그를 저장할 때 감사 기능은 Azure 저장소 계정을 사용하며 감사 로그의 크기에 따라 Azure 저장소의 테이블 및 큐에 대한 요금이 부과됩니다.
+## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-database-pool-show-up-on-my-bill?"></a>How does the use of Active Geo-Replication in an elastic database pool show up on my bill?
+Unlike single databases, using [Active Geo-Replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
 
-## 단일 데이터베이스 및 탄력적 데이터베이스 풀에 적합한 서비스 계층과 성능 수준을 찾으려면 어떻게 해야 하나요? 
-몇 가지 도구를 사용할 수 있습니다.
+## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill?"></a>How does the use of the auditing feature impact my bill? 
+Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
 
-- 온-프레미스 데이터베이스의 경우 필요한 DTU 및 데이터베이스를 추천하는 [DTU 크기 조정 관리자](http://dtucalculator.azurewebsites.net/)를 사용하고 탄력적 데이터베이스 풀에 대해 여러 데이터베이스를 평가합니다.
-- 풀에 포함될 경우 유리한 단일 데이터베이스의 경우 Azure의 지능형 엔진이 사용 패턴 기록이 타당하다고 판단되는 경우 탄력적 데이터베이스 풀을 권장합니다. [Azure 포털을 사용하여 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요. 직접 계산을 수행하는 방법에 대한 자세한 내용은 [탄력적 데이터베이스 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
-- 단일 데이터베이스를 확장 또는 축소해야 할지 여부를 확인하려면 [단일 데이터베이스의 성능 지침](sql-database-performance-guidance.md)을 참조하세요.
+## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-database-pools?"></a>How do I find the right service tier and performance level for single databases and elastic database pools? 
+There are a few tools available to you. 
 
-## 단일 데이터베이스의 서비스 계층 또는 성능 수준은 얼마나 자주 변경할 수 있나요? 
-V12 데이터베이스를 사용하는 경우 서비스 계층(Basic, Standard 및 Premium) 또는 서비스 계층 내 성능 수준(예: S1~S2)을 원하는 횟수만큼 변경할 수 있습니다. 이전 버전의 데이터베이스는 서비스 계층 또는 성능 수준을 24시간 동안 총 4번 변경할 수 있습니다.
+- For on-premises databases, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic database pools.
+- If a single database would benefit from being in a pool, Azure's intelligent engine recommends an elastic database pool if it sees a historical usage pattern that warrants it. See [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md). For details about how to do the math yourself, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md)
+- To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
 
-##풀당 eDTU는 얼마나 자주 조정할 수 있나요? 
-원하는 횟수만큼 조정할 수 있습니다.
+## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database?"></a>How often can I change the service tier or performance level of a single database? 
+With V12 databases, you can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
 
-## 단일 데이터베이스의 서비스 계층 또는 성능 수준을 변경하거나 탄력적 데이터베이스 풀 내부 및 외부로 데이터베이스를 이동하는 데는 얼마나 시간이 소요되나요? 
-데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 서비스 계층을 변경하는 데는 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-scale-up.md)을 참조하세요.
+##<a name="how-often-can-i-adjust-the-edtus-per-pool?"></a>How often can I adjust the eDTUs per pool? 
+As often as you want.
 
-## 탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 하나요? 
-일반적으로 탄력적 데이터베이스 풀은 고객 또는 테넌트당 하나의 데이터베이스가 있는 전형적인 [SaaS(Software-as-a-Service) 응용 프로그램 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 위해 설계되었습니다. 개별 데이터베이스를 만들고 각 데이터베이스의 가변적인 최대 수요를 충족하기 위해 과도하게 프로비저닝하는 것은 대체로 비용 효율적이지 않습니다. 풀을 사용하여 사용자는 풀의 집단 성능을 관리하고 데이터베이스는 자동으로 확장 및 축소됩니다.
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-database-pool?"></a>How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic database pool? 
+Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](sql-database-scale-up.md). 
 
-Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경우 데이터베이스에 대한 풀을 추천합니다. 자세한 내용은 [SQL 데이터베이스 가격 책정 계층 권장 사항](sql-database-service-tier-advisor.md)을 참조하세요. 단일 및 탄력적 데이터베이스 중에서 선택 방법에 대한 자세한 지침은 [탄력적 데이터베이스 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
+## <a name="when-should-i-use-a-single-database-vs.-elastic-databases?"></a>When should I use a single database vs. elastic databases? 
+In general, elastic database pools are designed for a typical [software-as-a-service (SaaS) application pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), where there is one database per customer or tenant. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. 
 
-## 최대 프로비전된 데이터베이스 저장소의 최대 200%가 백업 저장소로 제공된다는 것은 어떤 의미인가요? 
-백업 저장소는 [지정 시간 복원](sql-database-recovery-using-backups.md#-point-in-time-restore) 및 [지역 복원](sql-database-recovery-using-backups.md#geo-restore)에 사용되는 자동 데이터베이스 백업과 관련된 저장소입니다. Microsoft Azure SQL 데이터베이스에서는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%까지 백업 저장소가 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소가 제공됩니다. 데이터베이스가 제공된 백업 저장소를 초과하는 경우 Azure 지원에 문의하여 보존 기간을 줄이도록 선택하거나 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금으로 청구되는 추가 백업 저장소에 대해 비용을 지불할 수 있습니다. RA-GRS 청구에 대한 자세한 내용은 저장소 가격 세부 정보를 참조하세요.
+Azure's intelligent engine recommends a pool for databases when a usage pattern warrants it. For details, see [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md). For detailed guidance about choosing between single and elastic databases, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md).
 
-## Web/Business에서 새 서비스 계층으로 옮기려고 합니다. 알아야 할 사항은 무엇인가요?
-Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니다. Basic, Standard, Premium 및 Elastic 계층이 사용되지 않는 Web 및 Business 데이터베이스를 대체합니다. 이 전환 기간에 도움이 될 추가 FAQ를 제공합니다. [Web 및 Business 버전 지원 종료 FAQ](sql-database-web-business-sunset-faq.md)
+## <a name="what-does-it-mean-to-have-up-to-200%-of-your-maximum-provisioned-database-storage-for-backup-storage?"></a>What does it mean to have up to 200% of your maximum provisioned database storage for backup storage? 
+Backup storage is the storage associated with your automated database backups that are used for [Point-In-Time-Restore](sql-database-recovery-using-backups.md#-point-in-time-restore) and [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore). Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you are provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
 
-## 동일한 Azure 지리 내의 두 지역 간에 데이터베이스를 지역 복제하는 경우 예상되는 복제 지연은 무엇인가요?  
-현재 5초의 RPO를 지원하고 있으며 복제 지연은 지역 보조 데이터베이스가 Azure에서 권장하는 쌍을 이루는 지역에 호스트되고 동일한 서비스 계층인 경우보다 짧았습니다.
+## <a name="i'm-moving-from-web/business-to-the-new-service-tiers,-what-do-i-need-to-know?"></a>I'm moving from Web/Business to the new service tiers, what do I need to know?
+Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](sql-database-web-business-sunset-faq.md)
 
-## 지역 보조 데이터베이스가 주 데이터베이스와 동일한 지역에 만들어지는 경우 예상되는 복제 지연은 무엇인가요?  
-경험적 데이터를 보면 Azure에서 권장하는 쌍을 이루는 지역을 사용하는 경우 지역 내 및 지역 간 복제 지연 간에 그리 많은 차이는 없습니다.
+## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography?"></a>What is an expected replication lag when geo-replicating a database between two regions within the same Azure geography?  
+We are currently supporting an RPO of five seconds and the replication lag has been less than that when the geo-secondary is hosted in the Azure recommended paired region and at the same service tier.
 
-## 두 지역 간에 네트워크 오류가 있는 경우 지역에서 복제가 설정되었을 때 재시도 논리가 어떻게 작동하나요?  
-연결이 끊어지면 연결을 다시 설정하도록 10초마다 재시도합니다.
+## <a name="what-is-an-expected-replication-lag-when-geo-secondary-is-created-in-the-same-region-as-the-primary-database?"></a>What is an expected replication lag when geo-secondary is created in the same region as the primary database?  
+Based on empirical data, there is not too much difference between intra-region and inter-region replication lag when the Azure recommended paired region is used. 
 
-## 주 데이터베이스의 중요한 변경 내용이 복제되도록 보장하려면 어떻게 해야 하나요?
-지역 보조 데이터베이스는 비동기 복제본이며 주 데이터베이스와 전체 동기화를 유지하려고 하지 않습니다. 하지만 중요한 변경 내용(예: 암호 업데이트)이 복제되도록 하기 위해 강제 동기화 방법을 제공하고 있습니다. 강제 동기화는 모든 커밋된 트랜잭션이 복제될 때까지 호출 스레드를 차단하므로 성능에 영향을 주게 됩니다. 자세한 내용은 [sp\_wait\_for\_database\_copy\_sync](https://msdn.microsoft.com/library/dn467644.aspx)를 참조하세요.
+## <a name="if-there-is-a-network-failure-between-two-regions,-how-does-the-retry-logic-work-when-geo-replication-is-set-up?"></a>If there is a network failure between two regions, how does the retry logic work when Geo-Replication is set up?  
+If there is a disconnect, we retry every 10 seconds to re-establish connections.
 
-## 주 데이터베이스와 지역 보조 데이터베이스 간의 복제 지연을 모니터링할 수 있는 도구는 무엇인가요?
-DMV를 통해 주 데이터베이스와 지역 보조 데이터베이스 간의 실시간 복제 지연을 표시합니다. 자세한 내용은 [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx)를 참조하세요.
+## <a name="what-can-i-do-to-guarantee-that-a-critical-change-on-the-primary-database-is-replicated?"></a>What can I do to guarantee that a critical change on the primary database is replicated?
+The geo-secondary is an async replica and we do not try to keep it in full sync with the primary. But we provide a method to force synchronization to ensure the replication of critical changes (for example, password updates). Forced synchronization impacts performance because it blocks the calling thread until all committed transactions are replicated. For details, see [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx). 
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary?"></a>What tools are available to monitor the replication lag between the primary database and geo-secondary?
+We expose the real-time replication lag between the primary database and geo-secondary through a DMV. For details, see [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

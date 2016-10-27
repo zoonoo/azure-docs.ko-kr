@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 가상 배열 경고 보기 및 관리 | Microsoft Azure"
-   description="StorSimple 가상 배열 경고 조건 및 심각도 및 StorSimple 관리자 서비스를 사용하여 경고를 관리하는 방법을 설명합니다."
+   pageTitle="View and manage StorSimple Virtual Array alerts | Microsoft Azure"
+   description="Describes StorSimple Virtual Array alert conditions and severity, and how to use the StorSimple Manager service to manage alerts."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,171 +15,178 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# StorSimple 가상 배열에 대한 경고를 보고 관리하기 위해 StorSimple 관리자 서비스 사용
 
-## 개요
+# <a name="use-the-storsimple-manager-service-to-view-and-manage-alerts-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to view and manage alerts for the StorSimple Virtual Array
 
-StorSimple 관리자 서비스에서 **경고** 탭은 StorSimple 가상 배열과 관련된 경고를 실시간으로 검토하고 삭제할 방법을 제공합니다. 이 탭에서는 StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치라고도 함) 및 전체 Microsoft Azure StorSimple 솔루션의 상태 문제를 중앙에서 모니터링할 수 있습니다.
+## <a name="overview"></a>Overview
 
-이 자습서에서는 경고 알림을 구성하는 방법, 일반적인 경고 조건, 경고 심각도 수준 및 경고를 보고 추적하는 방법을 설명합니다. 또한 경고 빠른 참조 테이블을 포함하여 신속하게 특정 경고를 찾아서 적절 하게 응답할 수 있습니다.
+The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple Virtual Array–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple  Virtual Arrays (also known as StorSimple on-premises virtual devices) and the overall Microsoft Azure StorSimple solution.
 
-![경고 페이지](./media/storsimple-ova-manage-alerts/alerts1.png)
+This tutorial describes how to configure alert notifications, common alert conditions, alert severity levels, and how to view and track alerts. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
 
-## 경고 설정 구성
+![Alerts page](./media/storsimple-ova-manage-alerts/alerts1.png)
 
-각 StorSimple 가상 장치에 대한 경고 조건을 메일로 알림을 받을 것인지 여부를 선택할 수 있습니다. 또한 **다른 메일 받는 사람** 상자에서 해당 메일 주소를 입력하여 다른 경고 알림 받는 사람을 식별할 수 있으며 세미콜론으로 구분합니다.
+## <a name="configure-alert-settings"></a>Configure alert settings
 
->[AZURE.NOTE] 가상 장치 당 최대 20개의 메일 주소를 입력할 수 있습니다.
+You can choose whether you want to be notified by email of alert conditions for each of your StorSimple virtual devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **Other email recipients** box, separated by semicolons.
 
-가상 장치에 메일 알림을 사용하도록 설정한 후에 알림 목록의 멤버는 중요한 경고가 발생할 때마다 메일 메시지를 받게 됩니다. 메시지는 **storsimple-alerts-noreply@mail.windowsazure.com*에서 전송되며 경고 조건을 설명합니다. 받는 사람은 **구독 취소**를 클릭하여 메일 알림 목록에서 제거할 수 있습니다.
+>[AZURE.NOTE] You can enter a maximum of 20 email addresses per virtual device.
 
-#### 가상 장치에 경고하는 메일 알림을 사용하려면
+After you enable email notification for a virtual device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
-1. 가상 장치에서 **장치** > **구성**으로 이동합니다. **경고 설정** 섹션으로 이동합니다.
+#### <a name="to-enable-email-notification-of-alerts-for-a-virtual-device"></a>To enable email notification of alerts for a virtual device
 
-    ![경고 설정](./media/storsimple-ova-manage-alerts/alerts2.png)
+1. Go to **Devices** > **Configuration** for the virtual device. Go to the **Alert settings** section.
 
-2. **경고 설정**에서 다음을 설정합니다.
+    ![alert settings](./media/storsimple-ova-manage-alerts/alerts2.png)
 
-    1. **메일 알림 보내기** 필드에서 **예**를 선택합니다.
+2. Under **Alert settings**, set the following:
 
-    2. 서비스 관리자 및 모든 공동 관리자가 경고 알림을 받기를 원하는 경우 **메일 서비스 관리자** 필드에서 **예**를 선택합니다.
+    1. In the **Send email notification** field, select **YES**.
 
-    3. **다른 메일 받는 사람** 필드에 경고 알림을 받을 다른 모든 받는 사람의 메일 주소를 입력합니다. **someone@somewhere.com* 형식으로 이름을 입력합니다. 세미콜론을 사용하여 메일 주소를 구분합니다. 가상 장치당 최대 20개의 메일 주소를 구성할 수 있습니다.
+    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
 
-        ![경고 알림 구성](./media/storsimple-ova-manage-alerts/alerts3.png)
+    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device. 
 
-3. 페이지 맨 아래에서 **저장**을 클릭하여 구성을 저장합니다.
+        ![alerts notification configuration](./media/storsimple-ova-manage-alerts/alerts3.png)
 
-4. 테스트 전자 메일 알림을 보내려면 **테스트 전자 메일 보내기** 옆에 화살표 아이콘을 클릭합니다. 테스트 알림을 전달하여 StorSimple 관리자 서비스가 상태 메시지를 표시합니다.
+3. At the bottom of the page, click **Save** to save your configuration.
 
-5. 다음과 같은 메시지가 나타나는 경우 **확인**을 클릭합니다.
+4. To send a test email notification, click the arrow icon next to **Send test email**. The StorSimple Manager service will display status messages as it forwards the test notification. 
 
-    ![전송된 경고 테스트 알림 메일](./media/storsimple-ova-manage-alerts/alerts4.png)
+5. When the following message appears, click **OK**. 
 
-    >[AZURE.NOTE] 테스트 알림 메시지를 보낼 수 없는 경우 StorSimple 관리자 서비스가 적절한 메시지를 표시합니다. **확인**을 클릭하고 몇 분 정도 기다렸다가 다시 테스트 알림 메시지를 보냅니다.
+    ![Alerts test notification email sent](./media/storsimple-ova-manage-alerts/alerts4.png)
 
-    테스트 알림 메시지는 다음과 유사합니다.
+    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
 
-    ![경고 테스트 전자 메일 예](./media/storsimple-ova-manage-alerts/alerts5.png)
+    The test notification message will be similar to the following.
 
-## 일반 경고 조건
+    ![Alerts test email example](./media/storsimple-ova-manage-alerts/alerts5.png)
 
-StorSimple 가상 배열은 다양한 조건에 대한 응답으로 경고를 생성합니다. 다음은 가장 일반적인 유형의 경고 조건입니다.
+## <a name="common-alert-conditions"></a>Common alert conditions
 
-- **연결 문제** – 이러한 경고는 데이터 전송이 어려울 때 발생합니다. Azure 저장소 계정에서 데이터를 전송하는 동안 또는 가상 장치와 StorSimple 관리자 서비스 사이의 연결 부족으로 인해 통신 문제가 발생할 수 있습니다. 통신 문제는 너무 많은 실패 지점이 있기 때문에 해결하기 어렵습니다. 고급 문제를 해결하기 전에 항상 먼저 네트워크 연결 및 인터넷 액세스를 사용할 수 있는지 확인해야 합니다. 포트 및 방화벽 설정에 대한 내용은 [StorSimple 가상 배열 시스템 요구 사항](storsimple-ova-system-requirements.md)으로 이동합니다. 문제 해결에 대한 도움은 [Test-Connection cmdlet 문제 해결](storsimple-troubleshoot-deployment.md)로 이동합니다.
+Your StorSimple Virtual Array generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
-- **성능 문제** – 이러한 경고는 부하가 높을 때처럼 시스템이 최적으로 작동하지 않는 경우에 발생합니다.
+- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For information about ports and firewall settings, go to [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md). For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
 
-또한 보안, 업데이트 또는 작업 실패와 관련된 경고를 표시할 수 있습니다.
+- **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
-## 경고 심각도 수준
+In addition, you might see alerts related to security, updates, or job failures.
 
-경고는 경고 상황에 있는 영향 및 경고에 대한 응답을 위한 필요성에 따라 심각도 수준이 다릅니다. 경고 심각도 수준은 다음과 같습니다.
+## <a name="alert-severity-levels"></a>Alert severity levels
 
-- **중요** – 이 경고는 시스템의 성공적인 성능이 영향을 미치는 조건에 대한 응답입니다. 작업은 StorSimple 서비스가 중단되지 않았는지 확인해야 합니다.
+Alerts have different severity levels, depending on the impact that the alert situation will have and the need for a response to the alert. The severity levels are:
 
-- **경고** – 이 상태는 확인되지 않은 경우 위험할 수 있습니다. 상황을 조사하고 문제를 삭제하는 데 필요한 모든 작업을 수행해야 합니다.
+- **Critical** – This alert is in response to a condition that is affecting the successful performance of your system. Action is required to ensure that the StorSimple service is not interrupted.
 
-- **정보** – 이 경고는 시스템의 추적 및 관리에 유용할 수 있는 정보를 포함합니다.
+- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to clear the issue.
 
-## 경고 보기 및 추적
+- **Information** – This alert contains information that can be useful in tracking and managing your system.
 
-StorSimple 관리자 서비스 대시보드는 가상 장치에서 경고의 개수를 빠른 보기로 제공하여 심각도 수준에 따라 정렬합니다.
+## <a name="view-and-track-alerts"></a>View and track alerts
 
-![경고 대시보드](./media/storsimple-ova-manage-alerts/alerts6.png)
+The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your virtual devices, arranged by severity level.
 
-심각도 수준을 클릭하면 **경고**탭이 열립니다. 결과는 해당 심각도와 일치하는 경고만을 포함합니다.
+![Alerts dashboard](./media/storsimple-ova-manage-alerts/alerts6.png)
 
-![경고 유형으로 지정된 경고 보고서](./media/storsimple-ova-manage-alerts/alerts7.png)
+Clicking the severity level opens the **Alerts** tab. The results include only the alerts that match that severity level.
 
-목록에서 경고를 클릭하면 경고가 보고된 마지막 시간, 장치에서 경고의 발생 횟수 및 경고를 해결하기 위한 권장된 조치를 포함하여 경고에 대한 추가 세부 정보를 제공합니다.
+![Alerts report scoped to alert type](./media/storsimple-ova-manage-alerts/alerts7.png)
 
-Microsoft 지원에 정보를 보내야 할 경우 텍스트 파일에 알림 세부 정보를 복사할 수 있습니다. 권장 사항을 따르고 경고 조건 온-프레미스를 해결한 후에 **경고** 탭에서 경고를 선택하고 **지우기**를 클릭하여 경고를 지워야 합니다. 여러 경고를 지우려면 각 경고를 선택하고 **경고** 열을 제외한 모든 열을 클릭한 다음 삭제할 모든 경고를 선택한 후 **지우기**를 클릭합니다. 문제가 해결되거나 시스템이 경고를 새 정보로 업데이트하는 경우 일부 경고가 자동으로 삭제됩니다.
+Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert.
 
-**지우기**를 클릭하는 경우 경고에 대한 의견 및 문제를 해결하기 위해 수행할 단계에 대한 의견을 제공할 수 있습니다.
+You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
-![경고 설명](./media/storsimple-ova-manage-alerts/clear-alert.png)
+When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
 
-확인 아이콘![check-icon](./media/storsimple-ova-manage-alerts/check-icon.png)을 클릭하여 의견을 저장합니다.
+![alert comments](./media/storsimple-ova-manage-alerts/clear-alert.png)
 
-다른 이벤트가 새 정보로 트리거될 경우 일부 이벤트가 시스템에서 지워집니다. 이 경우 다음 메시지가 표시됩니다.
+Click the check icon ![check-icon](./media/storsimple-ova-manage-alerts/check-icon.png) to save your comments.
 
-![경고 메시지 지우기](./media/storsimple-ova-manage-alerts/alerts8.png)
+Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
 
-## 경고 정렬 및 검토
+![Clear alert message](./media/storsimple-ova-manage-alerts/alerts8.png)
 
-**경고** 탭은 최대 250개의 경고를 표시할 수 있습니다. 해당 경고 수를 초과한 경우 경고 전체가 기본 보기에 표시되지 않습니다. 어떤 경고를 표시할지 사용자 지정을 하려면 다음 필드를 결합할 수 있습니다.
+## <a name="sort-and-review-alerts"></a>Sort and review alerts
 
-- **상태** – **활성** 또는 **지워짐** 경고를 표시할 수 있습니다. 시스템이 새 정보로 경고 조건을 업데이트하기 때문에 삭제된 경고는 관리자가 수동으로 지웠거나 프로그래밍 방식으로 지운 반면 활성 경고는 시스템에서 여전히 트리거됩니다.
+The **Alerts** tab can display up to 250 alerts. If you have exceeded that number of alerts, not all alerts will be displayed in the default view. You can combine the following fields to customize which alerts are displayed:
 
-- **심각도** – 모든 심각도 수준(중요, 경고, 정보) 또는 중요한 경고와 같은 특정 심각도의 경고를 표시할 수 있습니다.
+- **Status** – You can display either **Active** or **Cleared** alerts. Active alerts are still being triggered on your system, while cleared alerts have been either manually cleared by an administrator or programmatically cleared because the system updated the alert condition with new information.
 
-- **원본** – 모든 원본에서 경고를 표시하거나 서비스 또는 하나 또는 모든 가상 장치에서 발생하는 경고를 제한할 수 있습니다.
+- **Severity** – You can display alerts of all severity levels (critical, warning, information), or just a certain severity, such as only critical alerts.
 
-- **시간 범위** – **시작** 및 **종료** 날짜 및 시간 스탬프를 지정하여 관심이 있는 기간 동안 경고를 살펴볼 수 있습니다.
+- **Source** – You can display alerts from all sources, or limit the alerts to those that come from either the service or one or all the virtual devices.
 
-## 빠른 참조 경고
+- **Time range** – By specifying the **From** and **To** dates and time stamps, you can look at alerts during the time period that you are interested in.
 
-다음 표에서는 사용 가능한 경우 추가 정보 및 권장 사항 뿐만 아니라 발생할 수 있는 Microsoft Azure StorSimple 경고의 일부를 나열합니다. StorSimple 가상 장치 경고는 다음 범주 중 하나에 속합니다.
+## <a name="alerts-quick-reference"></a>Alerts quick reference
 
-- [클라우드 연결 경고](#cloud-connectivity-alerts)
+The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available. StorSimple virtual device alerts fall into one of the following categories:
 
-- [구성 경고](#configuration-alerts)
+- [Cloud connectivity alerts](#cloud-connectivity-alerts)
 
-- [작업 실패 경고](#job-failure-alerts)
+- [Configuration alerts](#configuration-alerts)
 
-- [성능 경고](#performance-alerts)
+- [Job failure alerts](#job-failure-alerts)
 
-- [보안 경고](#security-alerts)
+- [Performance alerts](#performance-alerts)
 
-- [업데이트 경고](#update-alerts)
+- [Security alerts](#security-alerts)
 
-### 클라우드 연결 경고
+- [Update alerts](#update-alerts)
 
-|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
+### <a name="cloud-connectivity-alerts"></a>Cloud connectivity alerts
+
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|장치 *<device name>*이(가) 클라우드에 연결되지 않았습니다.|명명된 장치는 클라우드로 연결할 수 없습니다. |클라우드에 연결할 수 없습니다. 다음 중 하나 때문일 수 있습니다.<ul><li>장치의 네트워크 설정에 문제가 있을 수 있습니다.</li><li>저장소 계정 자격 증명에 문제가 있을 수 있습니다.</li></ul>연결 문제 해결에 대한 자세한 내용은 장치의 [로컬 웹 UI](storsimple-ova-web-ui-admin.md)로 이동합니다.|
+|Device *<device name>* is not connected to the cloud.|The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device.|
 
 
-### 구성 경고
+### <a name="configuration-alerts"></a>Configuration alerts
 
-|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|온-프레미스 가상 장치 구성은 지원되지 않습니다.|성능 저하.|현재 구성은 성능을 저하할 수 있습니다. 서버가 최소 구성 요구 사항을 충족하는지 확인합니다. 자세한 내용은 [StorSimple 가상 배열 요구 사항](storsimple-ova-system-requirements.md)을 참조합니다. 
-|<*장치 이름*>에서 프로비전된 디스크 공간이 부족합니다.|디스크 공간 경고입니다.|프로비전된 디스크 공간이 부족합니다. 공간을 확보하려면 다른 볼륨으로 작업을 이동하거나 데이터 공유 또는 삭제하는 것이 좋습니다.
+|On-premises virtual device configuration unsupported.|Slow performance.|The current configuration may result in performance degradation. Ensure that your server meets the minimum configuration requirements. For more information, go to [StorSimple Virtual Array Requirements](storsimple-ova-system-requirements.md). 
+|You are running out of provisioned disk space on <*device name*>.|Disk space warning.|You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data.
 
-### 작업 실패 경고
+### <a name="job-failure-alerts"></a>Job failure alerts
 
-|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|<*장치 이름*>의 백업을 완료할 수 없습니다.|백업 작업이 실패했습니다.|백업을 만들 수 없습니다. 다음 중 하나를 고려하십시오.<ul><li>연결 문제가 성공적인 백업 작업을 방해할 수 있습니다. 연결 문제가 없는지 확인합니다. 연결 문제 해결에 대한 자세한 내용은 자신의 가상 장치에 대한 [로컬 웹 UI](storsimple-ova-web-ui-admin.md)로 이동하십시오.</li><li>사용 가능한 저장소 공간의 한도에 도달했습니다. 공간을 확보하려면 더 이상 필요 없는 모든 백업을 삭제하는 것이 좋습니다.</li></ul> 문제를 해결하고 경고를 지우고 작업을 다시 시도합니다.|
-|<*장치 이름*>의 복원을 완료할 수 없습니다.|복원 작업이 실패했습니다.|백업에서 복원하지 못했습니다. 다음 중 하나를 고려하십시오.<ul><li>백업 목록이 잘못되었을 수 있습니다. 목록을 새로고쳐서 여전히 유효한지 확인하십시오.</li><li>연결 문제는 성공적인 복원 작업을 방해할 수 있습니다. 연결 문제가 없는지 확인하십시오.</li><li>사용 가능한 저장 공간의 한도에 도달했습니다. 공간을 확보하려면 더 이상 필요 없는 모든 백업을 삭제하는 것이 좋습니다.</li></ul>문제를 해결하고 경고를 지운 다음 복원 작업을 다시 시도하십시오.|
-|<*장치 이름*>의 복제를 완료할 수 없습니다.|복제 작업이 실패했습니다.|복제본을 만들 수 없습니다. 다음 중 하나를 고려하십시오.<ul><li>백업 목록이 잘못되었을 수 있습니다. 목록을 새로고쳐서 여전히 유효한지 확인하십시오.</li><li>연결 문제는 성공적인 복제 작업을 방해할 수 있습니다. 연결 문제가 없는지 확인하십시오.</li><li>사용 가능한 저장 공간의 한도에 도달했습니다. 공간을 확보하려면 더 이상 필요 없는 모든 백업을 삭제하는 것이 좋습니다.</li></ul>문제를 해결하고 경고를 지운 다음 작업을 다시 시도하십시오.|
+|Backup of <*device name*> couldn’t be completed.|Backup job failure.|Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation.|
+|Restore of <*device name*> couldn’t be completed.|Restore job failure.|Could not restore from backup. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the restore operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the restore operation.|
+|Clone of <*device name*> couldn’t be completed.|Clone job failure.|Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation.|
 
-### 성능 경고
+### <a name="performance-alerts"></a>Performance alerts
 
-|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|데이터 전송에 예기치 않은 대기 시간이 발생했습니다.|느린 데이터 전송.|저장소 서비스의 확장성 목표를 초과하면 제한 오류가 발생합니다. 저장소 서비스는 단일 클라이언트나 테넌트만이 서비스를 사용하는 현상을 방지하기 위해 이 오류를 발생시킵니다. Azure 저장소 계정 문제 해결에 대한 자세한 내용은 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)로 이동합니다.
-|<*장치 이름*>의 로컬 예약 디스크 공간이 부족합니다.|느린 응답 시간.|<*장치 이름*>에 대해 프로비저닝된 총 크기의 10%가 로컬 장치에 예약되어 있으며, 이제 예약된 공간이 부족합니다. <*장치 이름*>의 워크로드가 작업 부하가 높은 비율의 변동을 발생시키고 있거나 최근에 대용량의 데이터를 마이그레이션한 것 같습니다. 이로 인해 성능이 저하될 수 있습니다. 다음 작업 중 하나를 고려하여 이것을 해결하십시오.<ul><li>이 장치에 대한 클라우드 대역폭을 높입니다.</li><li>다른 볼륨 또는 공유할 워크로드를 줄이거나 이동합니다.</li></ul>
+|You are experiencing unexpected delays in data transfer.|Slow data transfer.|Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+|You are running low on local reservation disk space on <*device name*>.|Slow response time.|10% of the total provisioned size for <*device name*> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul>
 
-### 보안 경고
+### <a name="security-alerts"></a>Security alerts
 
-|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|<*장치 이름*>에 대한 암호가 <*숫자*> 일 후에 만료됩니다.|암호 경고.| 암호가 <숫자>일에 만료됩니다. 암호를 변경하는 것이 좋습니다. 자세한 내용은 [StorSimple 가상 배열 장치 관리자 암호를 변경](storsimple-ova-change-device-admin-password.md)으로 이동합니다.
+|Password for <*device name*> will expire in <*number*> days.|Password warning.| Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-ova-change-device-admin-password.md).
 
-### 업데이트 경고
+### <a name="update-alerts"></a>Update alerts
 
-|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|장치에 새 업데이트를 사용할 수 있습니다.|StorSimple 가상 배열에 대한 업데이트를 사용할 수 있습니다.|**유지 관리** 페이지에서 새 업데이트를 설치할 수 있습니다.|
-|<*장치 이름*>에서 새 업데이트를 스캔할 수 없습니다.|업데이트에 실패했습니다. |새 업데이트를 설치하는 동안 오류가 발생했습니다. 업데이트를 수동으로 설치할 수 있습니다. 문제가 계속되면 [Microsoft 지원](storsimple-contact-microsoft-support.md)을 확인하십시오.|
+|New updates are available for your device.|Updates to the StorSimple Virtual Array are available.|You can install new updates from the **Maintenance** page.|
+|Could not scan for new updates on <*device name*>.|Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md).|
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [StorSimple 가상 배열에 대해 더 알아봅니다](storsimple-ova-overview.md).
+- [Learn about the StorSimple Virtual Array](storsimple-ova-overview.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

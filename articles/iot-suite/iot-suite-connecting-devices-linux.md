@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Linux에서 C를 사용하여 장치 연결 | Microsoft Azure"
-   description="Linux에서 실행되는 C로 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다."
+   pageTitle="Connect a device using C on Linux | Microsoft Azure"
+   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux."
    services=""
    suite="iot-suite"
    documentationCenter="na"
@@ -14,46 +14,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="10/05/2016"
    ms.author="dobett"/>
 
 
-# 미리 구성된 원격 모니터링 솔루션에 장치 연결(Linux)
+
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-(linux)"></a>Connect your device to the remote monitoring preconfigured solution (Linux)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## 샘플 C 클라이언트 Linux 빌드 및 실행
+## <a name="build-and-run-a-sample-c-client-linux"></a>Build and run a sample C client Linux
 
-다음 절차에서는 미리 구성된 원격 모니터링 솔루션과 통신하는 간단한 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다. 이 응용 프로그램은 C로 작성되고 Ubuntu Linux에서 실행됩니다. 이러한 단계를 완료하려면 Ubuntu 버전 15.04 또는 15.10을 실행하는 장치가 필요합니다. 계속하기 전에 다음 명령을 사용하여 Ubuntu 장치에서 필수 구성 요소 패키지를 설치합니다.
+The following procedures show you how to create a client application, written in C and built and run on Ubuntu Linux, that communicates with the remote monitoring preconfigured solution. To complete these steps, you need a device running Ubuntu version 15.04 or 15.10. Before proceeding, install the prerequisite packages on your Ubuntu device using the following command:
 
 ```
 sudo apt-get install cmake gcc g++
 ```
 
-## 장치에 클라이언트 라이브러리 설치
+## <a name="install-the-client-libraries-on-your-device"></a>Install the client libraries on your device
 
-Azure IoT Hub 클라이언트 라이브러리를 **apt-get** 명령을 사용하여 Ubuntu 장치에 설치할 수 있는 패키지로 사용할 수 있습니다. Ubuntu 컴퓨터에서 IoT Hub 클라이언트 라이브러리와 헤더 파일을 포함하는 패키지를 설치하려면 다음 단계를 완료하세요.
+The Azure IoT Hub client libraries are available as a package you can install on your Ubuntu device using the **apt-get** command. Complete the following steps to install the package that contains the IoT Hub client library and header files on your Ubuntu machine:
 
-1. 컴퓨터에 AzureIoT 리포지토리를 추가합니다.
+1. Add the AzureIoT repository to the machine:
 
     ```
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
 
-2. azure-iot-sdk-c-dev 패키지 설치
+2. Install the azure-iot-sdk-c-dev package
 
     ```
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
-## 장치의 동작을 지정하는 코드 추가
+## <a name="add-code-to-specify-the-behavior-of-the-device"></a>Add code to specify the behavior of the device
 
-Ubuntu 컴퓨터에서 **remote\_monitoring**이라는 폴더를 만듭니다. **remote\_monitoring** 폴더에 **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, **CMakeLists.txt**의 4개 파일을 만듭니다.
+On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **remote\_monitoring** folder create the four files **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, and **CMakeLists.txt**.
 
-IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메시지의 형식 및 장치에서 응답하는 IoT Hub의 명령을 지정하는 모델을 사용합니다.
+The IoT Hub serializer client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands it receives from IoT Hub.
 
-1. 텍스트 편집기에서 **remote\_monitoring.c** 파일을 엽니다. 다음 `#include` 문을 추가합니다.
+1. In a text editor, open the **remote\_monitoring.c** file. Add the following `#include` statements:
 
     ```
     #include "iothubtransportamqp.h"
@@ -65,7 +66,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     #include "azure_c_shared_utility/platform.h"
     ```
 
-2. 다음 변수 선언을 `#include` 문 뒤에 추가합니다. 원격 모니터링 솔루션 대시보드에서 자리 표시자 값 [Device Id] 및 [Device Key]를 장치에 대한 값으로 바꿉니다. 대시보드에서 IoT Hub 호스트 이름을 사용하여 [IoTHub Name]을 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 **contoso.azure-devices.net**인 경우 [IoTHub Name]을 **contoso**로 바꿉니다.
+2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -74,7 +75,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     static const char* hubSuffix = "azure-devices.net";
     ```
 
-3. 다음 코드를 추가하여 장치에서 IoT Hub와 통신하도록 지원하는 모델을 정의합니다. 이 모델은 장치에서 온도, 외부 온도, 습도 및 장치 ID를 원격 분석으로 보내도록 지정합니다. 또한 장치는 지원하는 명령 목록을 포함하여 장치에 대한 메타데이터를 IoT Hub로 보냅니다. 이 장치는 **SetTemperature** 및 **SetHumidity**에 응답합니다.
+3. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device sends temperature, external temperature, humidity, and a device id as telemetry. The device also sends metadata about the device to IoT Hub, including a list of commands that the device supports. This device responds to the commands **SetTemperature** and **SetHumidity**:
 
     ```
     // Define the Model
@@ -113,11 +114,11 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     END_NAMESPACE(Contoso);
     ```
 
-### 장치의 동작을 구현하는 코드 추가
+### <a name="add-code-to-implement-the-behavior-of-the-device"></a>Add code to implement the behavior of the device
 
-장치가 허브에서 명령을 받을 때 실행되는 함수 및 시뮬레이션된 원격 분석을 허브로 보내는 코드를 추가합니다.
+Add the functions to execute when the device receives a command from the hub, and the code to send simulated telemetry to the hub.
 
-1. 장치가 모델에 정의된 **SetTemperature** 및 **SetHumidity** 명령을 받을 때 실행되는 다음 함수를 추가합니다.
+1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands defined in the model:
 
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -135,7 +136,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     }
     ```
 
-2. IoT Hub로 메시지를 보내는 다음 함수를 추가합니다.
+2. Add the following function that sends a message to IoT Hub:
 
     ```
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -162,7 +163,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     }
     ```
 
-3. SDK의 serialization 라이브러리를 연결하는 다음 함수를 추가합니다.
+3. Add the following function that hooks up the serialization library in the SDK:
 
     ```
     static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -200,7 +201,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     }
     ```
 
-4. IoT Hub에 연결하고, 메시지를 보내고 받으며, 허브에서 연결을 해제하는 다음 함수를 추가합니다. 장치가 연결되는 즉시 IoT Hub에 자체에 대한 메타데이터(장치에서 지원하는 명령 포함)를 보내는 방식을 확인할 수 있습니다. 이를 통해 솔루션은 대시보드에서 장치의 상태를 **실행 중**으로 업데이트할 수 있습니다.
+4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub when it connects. This metadata enables the solution to update the status of the device to **Running** on the dashboard:
 
     ```
     void remote_monitoring_run(void)
@@ -326,7 +327,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     }
     ```
     
-    참고로, 시작 시 IoT Hub로 전송되는 샘플 **장치 정보** 메시지는 다음과 같습니다.
+    For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
 
     ```
     {
@@ -345,13 +346,13 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     }
     ```
     
-    참고로, IoT Hub로 전송되는 샘플 **원격 분석** 메시지는 다음과 같습니다.
+    For reference, here is a sample **Telemetry** message sent to IoT Hub:
 
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
-    참고로, IoT Hub에서 수신되는 샘플 **명령**은 다음과 같습니다.
+    For reference, here is a sample **Command** received from IoT Hub:
     
     ```
     {
@@ -362,15 +363,15 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     }
     ```
 
-### remote\_monitoring\_run 함수를 호출할 코드 추가
+### <a name="add-code-to-invoke-the-remote_monitoring_run-function"></a>Add code to invoke the remote_monitoring_run function
 
-텍스트 편집기에서 **remote\_monitoring.h** 파일을 엽니다. 다음 코드를 추가합니다.
+In a text editor, open the **remote_monitoring.h** file. Add the following code:
 
 ```
 void remote_monitoring_run(void);
 ```
 
-텍스트 편집기에서 **main.c** 파일을 엽니다. 다음 코드를 추가합니다.
+In a text editor, open the **main.c** file. Add the following code:
 
 ```
 #include "remote_monitoring.h"
@@ -383,13 +384,13 @@ int main(void)
 }
 ```
 
-## CMake를 사용하여 클라이언트 응용 프로그램 작성
+## <a name="use-cmake-to-build-the-client-application"></a>Use CMake to build the client application
 
-다음 단계에서는 *CMake*를 사용하여 클라이언트 응용 프로그램을 빌드하는 방법을 설명합니다.
+The following steps describe how to use *CMake* to build your client application.
 
-1. 텍스트 편집기에서 **remote\_monitoring** 폴더의 **CMakeLists.txt** 파일을 엽니다.
+1. In a text editor, open the **CMakeLists.txt** file in the **remote_monitoring** folder.
 
-2. 클라이언트 응용 프로그램을 작성하는 방법을 정의하려면 다음 지침을 추가합니다.
+2. Add the following instructions to define how to build your client application:
 
     ```
     cmake_minimum_required(VERSION 2.8.11)
@@ -422,7 +423,7 @@ int main(void)
     )
     ```
 
-3. **remote\_monitoring** 폴더에서 CMake가 생성하는 *make* 파일을 저장할 폴더를 만든 후 다음과 같이 **cmake** 및 **make** 명령을 실행합니다.
+3. In the **remote_monitoring** folder, create a folder to store the *make* files that CMake generates and then run the **cmake** and **make** commands as follows:
 
     ```
     mkdir cmake
@@ -431,7 +432,7 @@ int main(void)
     make
     ```
 
-4. 클라이언트 응용 프로그램을 실행하고 IoT Hub에 원격 분석을 전송합니다.
+4. Run the client application and send telemetry to IoT Hub:
 
     ```
     ./sample_app
@@ -439,4 +440,9 @@ int main(void)
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

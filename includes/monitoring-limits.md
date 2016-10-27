@@ -1,6 +1,8 @@
 
-| 리소스 | 제한 |
+| Resource | Limit |
 |----|----|
-| 자동 크기 조정 설정 | 구독당 지역별 100개 |
+| Autoscale Settings | 100 per region per subscription |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

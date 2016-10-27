@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 마켓플레이스에 대한 게시자 지원 액세스 | Microsoft Azure"
-   description="Azure 마켓플레이스에 대한 게시자 지원에 액세스하고 지원 요청을 제출하는 방법"
+   pageTitle="Accessing publisher support for the Azure Marketplace | Microsoft Azure"
+   description="How to access and submit publisher support requests for the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter="na"
    authors="v-jeana"
@@ -17,75 +17,76 @@
    ms.author="v-jeana; hascipio"/>
 
 
-# Azure 마켓플레이스에 대한 게시자 지원 액세스
 
-Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니다. 적절하고 신속한 응답을 받으려면 쿼리에서 올바른 지원 팀을 찾아야 합니다. 다음은 쿼리를 적절한 팀으로 라우팅하는 데 도움이 되는 시나리오입니다.
+# <a name="accessing-publisher-support-for-the-azure-marketplace"></a>Accessing publisher support for the Azure Marketplace
 
-- Azure 마켓플레이스에서 게시자이고 VM을 개발하고 있는 경우 Microsoft 등록 또는 계산 팀과 함께 작업해야 합니다.
+Microsoft provides support for a wide variety of products and services. Ensuring that your query finds the right support team is important to ensure an appropriate and timely response. Please consider the following scenarios, which should help you route your query to the appropriate team:
 
-- 마켓플레이스에서 게시자이고 고객에게 질문을 받은 경우 https://portal.azure.com/의 지원 링크를 통해 지원을 요청하도록 고객에게 알려 줍니다.
+- If you are a publisher in the Azure Marketplace and are still developing your VM, you should engage with your Microsoft onboarding or compute teams.
 
-- 마켓플레이스에서 게시자이고 앱이나 서비스와 관련된 질문이 있는 경우 아래의 내용을 계속 읽습니다.
+- If you are a publisher in the Marketplace and have a question from a customer, please tell your customer to request support via the support links at https://portal.azure.com/.
 
-이 문서에서 설명하는 방법:
+- If you are a publisher in the Marketplace and have a question relating to your app or service, continue reading below.
 
-- Microsoft 계정으로 로그인
-- 게시자 지원 페이지로 이동
-- 문제 유형 및 범주 선택
-- 지원 요청
-- 연락처 정보 제공
-- 문제 설명
+This article will show you how to:
 
-## 1\. Microsoft 계정으로 로그인
+- Sign in to your Microsoft account.
+- Navigate to the publisher support pages.
+- Select the problem type and category.
+- Request support.
+- Provide contact information.
+- Describe the problem.
 
-https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증명으로 로그인합니다.
+## <a name="1.-sign-in-to-your-microsoft-account"></a>1. Sign in to your Microsoft account
 
-  ![로그인 화면][1]
+Navigate to https://publish.windowsazure.com/ and sign in with your Microsoft account credentials.
 
-## 2\. 게시자 지원 페이지로 이동
+  ![Sign-in screen][1]
 
-오른쪽 상단의 메뉴에서 **지원 받기**를 선택합니다.
+## <a name="2.-navigate-to-the-publisher-support-pages"></a>2. Navigate to the publisher support pages
 
-  ![지원 받기][2]
+From the upper-right menu, select **Get Support**.
 
-## 3\. 문제 유형 및 범주 선택
+  ![Get support][2]
 
-![문제 유형 및 범주][3]
+## <a name="3.-select-the-problem-type-and-category"></a>3. Select the problem type and category
 
-사용 가능한 문제 유형은 다음과 같습니다.
+![Problem type & category][3]
 
-  - **계정 관리**
-  - **보고서 및 통찰력**
-  - **VM 이미지 인증**
-  - **고객 관리**
-  - **제품 관리**
-  - **지급**
-  - **개발자 센터**
-  - **기타**
+Available problem types are as follows:
 
-## 4\. 지원 요청
+  - **Account Management**
+  - **Reports and Insights**
+  - **VM Image Certification**
+  - **Managing Customers**
+  - **Managing Offers**
+  - **Payouts**
+  - **Developer Center**
+  - **Other**
 
-문제 유형과 범주를 선택한 후 **요청 시작** 단추를 클릭합니다.
+## <a name="4.-request-support"></a>4. Request support
 
-![지원 시작][4]
+After you select the problem type and category, click the **Start request** button.
 
-## 5\. 연락처 정보를 제공하고 문제를 설명합니다.
+![Start support][4]
 
-가능한 한 자세하게 문제를 설명하고 문제 해결에 도움이 될 수 있는 파일(스크린샷, 네트워크 추적 등)을 모두 제공합니다.
+## <a name="5.-provide-contact-information-and-describe-the-problem"></a>5. Provide contact information and describe the problem
 
-![문제 설명][5]
+Describe the problem as fully as you can, and provide any files (screenshots, network traces, etc.) that may be helpful in solving your issue.
 
-## 6\. 제출 확인
+![Describe problem][5]
 
-문제가 제출된 후 Microsoft는 24시간 내에 받았다는 응답을 하고 문제에 우선 순위와 심각도를 할당합니다. 전담 지원 엔지니어 팀이 서비스 수준 계약 응답 시간에 따라 문제의 해결을 도와줍니다.
+## <a name="6.-submission-confirmation"></a>6. Submission confirmation
 
-![확인 페이지][6]
-+ 문제에 대해 Microsoft에 알릴 내용이 있는 경우 모든 통신에서 확인 번호를 사용합니다.
-+ 언제든지 문제에 대한 진행률을 확인할 수 있습니다.
+Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity. Our dedicated team of support engineers will assist with its resolution according to our Service Level Agreement response times.
 
-## 다음 단계
+![Confirmation][6]
++ If you need to talk to us about your issue, use the confirmation number in all correspondence.
++ You can view progress on your issue at any time.
 
-특정 지원 문제를 해결하는 방법을 알아보려면 [Azure 마켓플레이스에 대한 일반적인 문제 해결](marketplace-publishing-support-common-issues.md)을 참조하세요.
+## <a name="next-steps"></a>Next steps
+
+To learn how to resolve specific support issues, see [Troubleshooting common issues on the Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
 [2]: ./media/marketplace-publishing-get-publisher-support/step2.png
@@ -94,4 +95,8 @@ https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

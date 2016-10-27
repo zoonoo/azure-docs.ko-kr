@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Redis로 캐시 마이그레이션 | Microsoft Azure"
-    description="Azure Redis Cache로 관리된 캐시 서비스 응용 프로그램을 마이그레이션하는 방법을 알아봅니다."
+    pageTitle="Cache Migrate to Redis | Microsoft Azure"
+    description="Learn how to migrate Managed Cache Service applications to Azure Redis Cache"
     services="redis-cache"
     documentationCenter="na"
     authors="steved0x"
@@ -12,86 +12,87 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="09/07/2016"
+    ms.date="09/30/2016"
     ms.author="sdanie" />
 
-# 관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션
 
-Azure 관리된 캐시 서비스를 Azure Redis Cache에 사용하는 응용 프로그램을 마이그레이션하는 작업은 캐싱 응용 프로그램에서 사용하는 관리된 캐시 서비스 기능에 따라 응용 프로그램을 최소한으로 변경하여 수행할 수 있습니다. API가 정확히 동일하지 않고 유사하며 캐시에 액세스하는 데 관리된 캐시 서비스를 사용하는 기존 코드의 대부분은 변경을 최소화하면서 다시 사용할 수 있습니다. 이 항목에서는 필요한 구성을 만들고 응용 프로그램을 변경하여 관리된 캐시 서비스 응용 프로그램이 Azure Redis Cache를 사용하도록 마이그레이션하는 방법을 보여 줍니다. 그리고 Azure Redis Cache의 기능 일부가 관리된 캐시 서비스 캐시의 기능을 구현하는 데 사용될 수 있는 방법을 보여 줍니다.
+# <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrate from Managed Cache Service to Azure Redis Cache
 
-## 마이그레이션 단계
+Migrating your applications that use Azure Managed Cache Service to Azure Redis Cache can be accomplished with minimal changes to your application, depending on the Managed Cache Service features used by your caching application. While the APIs are not exactly the same they are similar, and much of your existing code that uses Managed Cache Service to access a cache can be reused with minimal changes. This topic shows how to make the necessary configuration and application changes to migrate your Managed Cache Service applications to use Azure Redis Cache, and shows how some of the features of Azure Redis Cache can be used to implement the functionality of a Managed Cache Service cache.
 
-다음 단계에서는 관리된 캐시 서비스 응용 프로그램을 마이그레이션하여 Azure Redis Cache를 사용해야 합니다.
+## <a name="migration-steps"></a>Migration Steps
 
--	관리된 캐시 서비스 기능에서 Azure Redis Cache로 매핑
--	캐시 제품 선택
--	캐시 만들기
--	캐시 클라이언트 구성
-	-	관리된 캐시 서비스 구성 제거
-	-	StackExchange.Redis NuGet 패키지를 사용하여 캐시 클라이언트 구성
--	관리된 캐시 서비스 코드 마이그레이션
-	-	ConnectionMultiplexer 클래스를 사용하여 캐시에 연결
-	-	캐시에 기본 데이터 형식 액세스
-	-	캐시의 .NET 개체 사용
--	Azure Redis Cache로 ASP.NET 세션 상태 및 출력 캐싱 마이그레이션
+The following steps are required to migrate a Managed Cache Service application to use Azure Redis Cache.
 
-## 관리된 캐시 서비스 기능에서 Azure Redis Cache로 매핑
+-   Map Managed Cache Service features to Azure Redis Cache
+-   Choose a Cache Offering
+-   Create a Cache
+-   Configure the Cache Clients
+    -   Remove the Managed Cache Service Configuration
+    -   Configure a cache client using the StackExchange.Redis NuGet Package
+-   Migrate Managed Cache Service code
+    -   Connect to the cache using the ConnectionMultiplexer class
+    -   Access primitive data types in the cache
+    -   Work with .NET objects in the cache
+-   Migrate ASP.NET Session State and Output caching to Azure Redis Cache 
 
-Azure 관리된 캐시 서비스 및 Azure Redis Cache는 유사하지만 다른 방법으로 해당 기능 일부를 구현합니다. 이 섹션은 차이점 중 일부를 설명하고 Azure Redis Cache에서 관리된 캐시 서비스의 기능을 구현하는 데 대한 지침을 제공합니다.
+## <a name="map-managed-cache-service-features-to-azure-redis-cache"></a>Map Managed Cache Service features to Azure Redis Cache
 
-|관리된 캐시 서비스 기능|관리된 캐시 서비스 지원|Azure Redis Cache 지원|
+Azure Managed Cache Service and Azure Redis Cache are similar but implement some of their features in different ways. This section describes some of the differences and provides guidance on implementing the features of Managed Cache Service in Azure Redis Cache.
+
+|Managed Cache Service feature|Managed Cache Service support|Azure Redis Cache support|
 |---|---|---|
-|이름이 지정된 캐시|기본 캐시는 표준 및 프리미엄 캐시 제품에서 구성됩니다. 원하는 경우 최대 9개의 추가 명명된 캐시가 구성될 수 있습니다.|Azure Redis Cache에는 명명된 캐시와 유사한 기능을 구현하는 데 사용할 수 있는 여러 개의 구성 가능한 데이터베이스(기본 16개)가 있습니다. 자세한 내용은 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.|
-|고가용성|표준 및 프리미엄 캐시 제품의 캐시에서 항목에 고가용성을 제공합니다. 항목이 오류로 인해 손실된 경우 여전히 캐시에서 항목의 백업 복사본을 사용할 수 있습니다. 보조 캐시에 대한 쓰기는 동기적으로 수행됩니다.|고가용성은 두 개의 노드 기본/복제본 구성(프리미엄 캐시의 각 분할에는 하나의 기본/복제본 쌍이 있음)이 있는 표준 및 프리미엄 캐시 제품에서 사용할 수 있습니다. 복제본에 대한 쓰기는 비동기적으로 수행됩니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.|
-|알림|명명된 캐시에서 다양한 캐시 작업이 발생할 때 클라이언트가 비동기 알림을 받을 수 있습니다.|클라이언트 응용 프로그램은 Redis 게시/구독 또는 [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings)을 사용하여 알림에 유사한 기능을 수행할 수 있습니다.|
-|로컬 캐시|매우 빠른 액세스를 위해 클라이언트에서 캐시된 개체의 복사본을 로컬로 저장합니다.|클라이언트 응용 프로그램은 사전 또는 유사한 데이터 구조를 사용하여 이 기능을 구현해야 합니다.|
-|제거 정책|없음 또는 LRU입니다. 기본 정책이 LRU입니다.|Azure Redis Cache는 다음의 제거 정책을 지원합니다. volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. 기본 정책이 volatile-lru입니다. 자세한 내용은 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.|
-|만료 정책|기본 만료 정책은 절대이며 기본 만료 시간은 10분입니다. 또한 슬라이딩 및 없음 정책을 사용할 수 있습니다.|기본적으로 캐시의 항목이 만료되지 않지만 만료는 캐시 집합 오버로드를 사용하여 쓰기 단위로 구성할 수 있습니다. 자세한 내용은 [캐시에서 개체 추가 및 검색](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)을 참조하세요.|
-|지역 및 태깅|지역은 캐시된 항목에 대한 하위 그룹입니다. 또한 지역은 태그라는 추가 설명 문자열을 사용하여 캐시된 항목의 주석을 지원합니다. 지역은 해당 지역에서 태그가 지정된 항목에 검색 작업을 수행하는 기능을 지원합니다. 지역 내의 모든 항목은 캐시 클러스터의 단일 노드 내에 위치합니다.|Redis Cache는 단일 노드로 이루어지므로(Redis 클러스터를 사용하지 않는 한) 관리된 캐시 서비스 지역의 개념이 적용되지 않습니다. Redis는 키를 검색할 때 검색 및 와일드카드 작업을 지원하므로 설명 태그를 키 이름 내에 포함하고 나중에 항목을 검색하는 데 사용할 수 있습니다. Redis를 사용하는 태그 지정 솔루션을 구현하는 예는 [Redis로 태그를 지정하는 캐시 구현](http://stackify.com/implementing-cache-tagging-redis/)을 참조하세요.|
-|직렬화|관리된 캐시는 NetDataContractSerializer, BinaryFormatter 및 사용자 지정 직렬 변환기의 사용을 지원합니다. 기본값은 NetDataContractSerializer입니다.|직렬 변환기의 선택은 클라이언트 응용 프로그램 개발자에게 맡겨지며 캐시에 두기 전에 .NET 개체를 직렬화하는 것은 클라이언트 응용 프로그램의 책임입니다. 자세한 내용 및 샘플 코드는 [캐시의 .NET 개체 작업](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)을 참조하세요.|
-| 캐시 에뮬레이터 | 관리되는 캐시는 로컬 캐시 에뮬레이터를 제공합니다. | Azure Redis Cache에는 에뮬레이터가 없지만 [redis-server.exe의 MSOpenTech 빌드를 로컬로 실행](cache-faq.md#cache-emulator)하여 에뮬레이터 환경을 제공할 수 있습니다. |
+|Named caches|A default cache is configured, and in the Standard and Premium cache offerings, up to nine additional named caches can be configured if desired.|Azure Redis caches have a configurable number of databases (default of 16) that can be used to implement a similar functionality to named caches. For more information, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).|
+|High Availability|Provides high availability for items in the cache in the Standard and Premium cache offerings. If items are lost due to a failure, backup copies of the items in the cache are still available. Writes to the secondary cache are made synchronously.|High availability is available in the Standard and Premium cache offerings, which have a two node Primary/Replica configuration (each shard in a Premium cache has a primary/replica pair). Writes to the replica are made asynchronously. For more information, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/).|
+|Notifications|Allows clients to receive asynchronous notifications when a variety of cache operations occur on a named cache.|Client applications can use Redis pub/sub or [Keyspace notifications](cache-configure.md#keyspace-notifications-advanced-settings) to achieve a similar functionality to notifications.|
+|Local cache|Stores a copy of cached objects locally on the client for extra-fast access.|Client applications would need to implement this functionality using a dictionary or similar data structure.|
+|Eviction Policy|None or LRU. The default policy is LRU.|Azure Redis Cache supports the following eviction policies: volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. The default policy is volatile-lru. For more information, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).|
+|Expiration Policy|The default expiration policy is Absolute and the default expiration interval is ten minutes. Sliding and Never policies are also available.|By default items in the cache do not expire, but an expiration can be configured on a per write basis using cache set overloads. For more information, see [Add and retrieve objects from the cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache).|
+|Regions and Tagging|Regions are subgroups for cached items. Regions also support the annotation of cached items with additional descriptive strings called tags. Regions support the ability to perform search operations on any tagged items in that region. All items within a region are located within a single node of the cache cluster.|A Redis cache consists of a single node (unless Redis cluster is enabled) so the concept of Managed Cache Service regions does not apply. Redis supports searching and wildcard operations when retrieving keys so descriptive tags can be embedded within the key names and used to retrieve the items later. For an example of implementing a tagging solution using Redis, see [Implementing cache tagging with Redis](http://stackify.com/implementing-cache-tagging-redis/).|
+|Serialization|Managed Cache supports NetDataContractSerializer, BinaryFormatter, and the use of custom serializers. The default is NetDataContractSerializer.|It is the responsibility of the client application to serialize .NET objects before placing them into the cache, with the choice of the serializer up to the client application developer. For more information and sample code, see [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).|
+| Cache emulator | Managed Cache provides a local cache emulator. | Azure Redis Cache does not have an emulator, but you can [run the MSOpenTech build of redis-server.exe locally](cache-faq.md#cache-emulator) to provide an emulator experience. |
 
-## 캐시 제품 선택
+## <a name="choose-a-cache-offering"></a>Choose a Cache Offering
 
-Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
+Microsoft Azure Redis Cache is available in the following tiers:
 
--	**기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
--	**표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
--	**프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB에서 530GB에 이르는 다양한 크기(자세한 내용 문의). 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
+-   **Basic** – Single node. Multiple sizes up to 53 GB.
+-   **Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
+-   **Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
 
-각 계층은 기능과 가격이 다릅니다. 기능에 대해서는 이 가이드의 뒷부분에서 다룹니다. 가격에 대한 자세한 내용은 [캐시 가격 정보](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요.
+Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details](https://azure.microsoft.com/pricing/details/cache/).
 
-마이그레이션을 위한 출발점은 이전의 관리된 캐시 서비스 캐시와 일치하는 크기를 선택하는 것입니다. 그런 다음 응용 프로그램의 요구 사항에 따라 크기를 확장하거나 축소합니다. 올바른 Azure Redis Cache 제품을 선택하는 데 대한 자세한 가이드는 [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
+A starting point for migration is to pick the size that matches the size of your previous Managed Cache Service cache, and then scale up or down depending on the requirements of your application. For more guidance on choosing the right Azure Redis Cache offering, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
-## 캐시 만들기
+## <a name="create-a-cache"></a>Create a Cache
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## 캐시 클라이언트 구성
+## <a name="configure-the-cache-clients"></a>Configure the Cache Clients
 
-캐시를 만들고 구성하면 다음 단계에서는 관리된 캐시 서비스 구성을 제거하고 추가 Azure Redis Cache 및 참조를 추가하므로 캐시 클라이언트가 캐시에 액세스할 수 있습니다.
+Once the cache is created and configured, the next step is to remove the Managed Cache Service configuration, and add the add the Azure Redis Cache configuration and references so that cache clients can access the cache.
 
--	관리된 캐시 서비스 구성 제거
--	StackExchange.Redis NuGet 패키지를 사용하여 캐시 클라이언트 구성
+-   Remove the Managed Cache Service Configuration
+-   Configure a cache client using the StackExchange.Redis NuGet Package
 
-### 관리된 캐시 서비스 구성 제거
+### <a name="remove-the-managed-cache-service-configuration"></a>Remove the Managed Cache Service Configuration
 
-클라이언트 응용 프로그램이 Azure Redis Cache에 대해 구성되기 전에 기존 관리된 캐시 서비스 구성 및 어셈블리 참조는 관리된 캐시 서비스 NuGet 패키지의 설치를 취소하여 제거해야 합니다.
+Before the client applications can be configured for Azure Redis Cache, the existing Managed Cache Service configuration and assembly references must be removed by uninstalling the Managed Cache Service NuGet package.
 
-관리된 캐시 서비스 NuGet 패키지의 설치를 취소하려면 **솔루션 탐색기**에서 클라이언트 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **설치된 패키지**를 선택하고 검색 설치된 패키지 상자에 W**indowsAzure.Caching**을 입력합니다. **Windows** **Azure 캐시**(또는 NuGet 패키지의 버전에 따라 **Windows** **Azure 캐싱**)을 선택하고 **제거** 및 **닫기**를 차례로 클릭합니다.
+To uninstall the Managed Cache Service NuGet package, right-click the client project in **Solution Explorer** and choose **Manage NuGet Packages**. Select the **Installed packages** node, and type W**indowsAzure.Caching** into the Search installed packages box. Select **Windows** **Azure Cache** (or **Windows** **Azure Caching** depending on the version of the NuGet package), click **Uninstall**, and then click **Close**.
 
-![Azure 관리된 캐시 서비스 NuGet 패키지 제거](./media/cache-migrate-to-redis/IC757666.jpg)
+![Uninstall Azure Managed Cache Service NuGet Package](./media/cache-migrate-to-redis/IC757666.jpg)
 
-관리된 캐시 서비스 NuGet 패키지의 설치를 취소하면 클라이언트 응용 프로그램의 app.config 또는 web.config에서 관리된 캐시 서비스 어셈블리 및 관리된 캐시 서비스 항목을 제거합니다. NuGet 패키지를 제거하는 경우 일부 사용자 지정된 설정을 제거할 수 없기 때문에 web.config 또는 app.config를 열고 다음 요소가 완전히 제거되었는지 확인합니다.
+Uninstalling the Managed Cache Service NuGet package removes the Managed Cache Service assemblies and the Managed Cache Service entries in the app.config or web.config of the client application. Because some customized settings may not be removed when uninstalling the NuGet package, open web.config or app.config and ensure that the following elements are completely removed.
 
-`dataCacheClients` 항목이 `configSections` 요소에서 제거되도록 합니다. 전체 `configSections` 요소를 제거하지 마세요. 표시된 `dataCacheClients` 항목만 제거합니다.
+Ensure that the `dataCacheClients` entry is removed from the `configSections` element. Do not remove the entire `configSections` element; just remove the `dataCacheClients` entry, if it is present.
 
     <configSections>
       <!-- Existing sections omitted for clarity. -->
       <section name="dataCacheClients"type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" allowLocation="true" allowDefinition="Everywhere"/>
     </configSections>
 
-`dataCacheClients` 섹션이 제거되도록 합니다. `dataCacheClients` 섹션은 다음 예제와 비슷합니다.
+Ensure that the `dataCacheClients` section is removed. The `dataCacheClients` section will be similar to the following example.
 
     <dataCacheClients>
       <dataCacheClientname="default">
@@ -107,76 +108,81 @@ Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
       </dataCacheClient>
     </dataCacheClients>
 
-관리된 캐시 서비스 구성이 제거되면 다음 섹션에서 설명한 대로 캐시 클라이언트를 구성할 수 있습니다.
+Once the Managed Cache Service configuration is removed, you can configure the cache client as described in the following section.
 
-### StackExchange.Redis NuGet 패키지를 사용하여 캐시 클라이언트 구성
+### <a name="configure-a-cache-client-using-the-stackexchange.redis-nuget-package"></a>Configure a cache client using the StackExchange.Redis NuGet Package
 
 [AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
-## 관리된 캐시 서비스 코드 마이그레이션
+## <a name="migrate-managed-cache-service-code"></a>Migrate Managed Cache Service code
 
-StackExchange.Redis 캐시 클라이언트에 대한 API는 관리된 캐시 서비스와 유사합니다. 이 섹션에서는 차이점의 개요를 제공합니다.
+The API for the StackExchange.Redis cache client is similar to the Managed Cache Service. This section provides an overview of the differences.
 
-### ConnectionMultiplexer 클래스를 사용하여 캐시에 연결
+### <a name="connect-to-the-cache-using-the-connectionmultiplexer-class"></a>Connect to the cache using the ConnectionMultiplexer class
 
-관리된 캐시 서비스에서 캐시에 대한 연결은 `DataCacheFactory` 및 `DataCache` 클래스에서 처리됩니다. Azure Redis Cache에서 이러한 연결은 `ConnectionMultiplexer` 클래스로 관리됩니다.
+In Managed Cache Service, connections to the cache were handled by the `DataCacheFactory` and `DataCache` classes. In Azure Redis Cache, these connections are managed by the `ConnectionMultiplexer` class.
 
-캐시에 액세스하려는 파일의 상단에 다음 using 문을 추가합니다.
+Add the following using statement to the top of any file from which you want to access the cache.
 
-	using StackExchange.Redis
-								
-이 네임스페이스가 해결되지 않으면 [캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)에서 설명한 대로 StackExchange.Redis NuGet 패키지를 추가했는지 확인합니다.
+    using StackExchange.Redis
+                                
+If this namespace doesn’t resolve, be sure that you have added the StackExchange.Redis NuGet package as described in [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
->[AZURE.NOTE] StackExchange.Redis 클라이언트를 사용하려면 .NET Framework 4 이상이 필요합니다.
+>[AZURE.NOTE] Note that the StackExchange.Redis client requires .NET Framework 4 or higher.
 
-Azure Redis Cache 인스턴스에 연결하려면 정적 `ConnectionMultiplexer.Connect` 메서드를 호출하고 끝점 및 키에 전달합니다. 응용 프로그램의 `ConnectionMultiplexer` 인스턴스를 공유하는 방법은 다음 예제와 비슷하게 연결된 인스턴스를 반환하는 정적 속성을 갖는 것입니다. 스레드가 안전하도록 단일 연결된 `ConnectionMultiplexer` 인스턴스를 초기화하는 방법을 제공합니다. 이러한 예에서 `abortConnect`은 false로 설정되며 이는 캐시에 연결이 설정되지 않은 경우에도 호출이 성공한다는 사실을 의미합니다. `ConnectionMultiplexer`의 한 가지 주요 기능은 연결 네트워크 문제 또는 다른 원인이 해결되면 캐시에 연결이 자동으로 복원된다는 점입니다.
+To connect to an Azure Redis Cache instance, call the static `ConnectionMultiplexer.Connect` method and pass in the endpoint and key. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This provides a thread-safe way to initialize only a single connected `ConnectionMultiplexer` instance. In this example `abortConnect` is set to false, which means that the call will succeed even if a connection to the cache is not established. One key feature of `ConnectionMultiplexer` is that it will automatically restore connectivity to the cache once the network issue or other causes are resolved.
 
-	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	{
-	    return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-	});
-	
-	public static ConnectionMultiplexer Connection
-	{
-	    get
-	    {
-	        return lazyConnection.Value;
-	    }
-	}
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
+        }
+    }
 
-캐시 끝점, 키 및 포트는 캐시 인스턴스에 대한 **Redis Cache** 블레이드에서 가져올 수 있습니다. 자세한 내용은 [Redis Cache 속성](cache-configure.md#properties)을 참조하세요.
+The cache endpoint, keys, and ports can be obtained from the **Redis Cache** blade for your cache instance. For more information, see [Redis Cache properties](cache-configure.md#properties).
 
-연결이 설정되고 나면 `ConnectionMultiplexer.GetDatabase` 메서드를 호출하여 Redis Cache 데이터베이스에 대한 참조를 반환합니다. `GetDatabase` 메서드에서 반환된 개체는 경량의 통과 개체이며 저장할 필요가 없습니다.
+Once the connection is established, return a reference to the Redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
-	IDatabase cache = Connection.GetDatabase();
-	
-	// Perform cache operations using the cache object...
-	// Simple put of integral data types into the cache
-	cache.StringSet("key1", "value");
-	cache.StringSet("key2", 25);
-	
-	// Simple get of data types from the cache
-	string key1 = cache.StringGet("key1");
-	int key2 = (int)cache.StringGet("key2");
+    IDatabase cache = Connection.GetDatabase();
+    
+    // Perform cache operations using the cache object...
+    // Simple put of integral data types into the cache
+    cache.StringSet("key1", "value");
+    cache.StringSet("key2", 25);
+    
+    // Simple get of data types from the cache
+    string key1 = cache.StringGet("key1");
+    int key2 = (int)cache.StringGet("key2");
 
-StackExchange.Redis 클라이언트는 캐시의 항목에 액세스하고 저장하는 데 `RedisKey` 및 `RedisValue` 형식을 사용합니다. 이러한 형식은 문자열을 포함하여 가장 기본적인 언어 형식에 매핑되며 직접 사용되는 경우가 드뭅니다. Redis 문자열은 가장 기본적인 종류의 Redis 값이며 직렬화된 이진 스트림을 비롯한 다양한 형식의 데이터를 포함할 수 있습니다. 이 형식을 직접 사용하지 않는 반면 이름에 `String`을 포함하는 메서드를 사용합니다. 가장 기본적인 데이터 형식의 경우 캐시에 컬렉션 또는 기타 Redis 데이터 형식을 저장하지 않는 한 `StringSet` 및 `StringGet` 메서드를 사용하여 캐시에서 항목을 저장하고 검색합니다.
+The StackExchange.Redis client uses the `RedisKey` and `RedisValue` types for accessing and storing items in the cache. These types map onto most primitive language types, including string, and often are not used directly. Redis Strings are the most basic kind of Redis value, and can contain many types of data, including serialized binary streams, and while you may not use the type directly, you will use methods that contain `String` in the name. For most primitive data types you store and retrieve items from the cache using the `StringSet` and `StringGet` methods, unless you are storing collections or other Redis data types in the cache. 
 
-`StringSet` 및 `StringGet`는 관리된 캐시 서비스 `Put` 및 `Get`와 매우 유사합니다. 이러한 결과를 가져오는 한 가지 주요 차이점은 캐시에 .NET 개체를 설정하고 가져오기 전에 먼저 직렬화해야 한다는 것입니다.
+`StringSet` and `StringGet` are very similar to the Managed Cache Service `Put` and `Get` methods, with one major difference being that before you set and get a .NET object into the cache you must serialize it first. 
 
-`StringGet` 호출 시 개체가 있으면 반환되고 없으면 null이 반환됩니다. 이 경우에는 원하는 데이터 소스에서 값을 검색하여 이후에 사용할 수 있게 캐시에 저장할 수 있습니다. 이를 캐시 배제 패턴이라고 합니다.
+When calling `StringGet`, if the object exists, it is returned, and if it does not, null is returned. In this case you can retrieve the value from the desired data source and store it in the cache for subsequent use. This is known as the cache-aside pattern.
 
-캐시에서 항목의 만료를 지정하려면 `StringSet`의 `TimeSpan` 매개 변수를 사용합니다.
+To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
 
-	cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
+    cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-Azure Redis Cache는 .NET 개체 및 기본 데이터 형식으로 작업할 수 있지만 .NET 개체를 캐시하려면 먼저 직렬화해야 합니다. 이것은 응용 프로그램 개발자의 책임입니다. 직렬 변환기를 선택할 때 개발자에게 융통성을 제공합니다. 자세한 내용 및 샘플 코드는 [캐시의 .NET 개체 작업](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)을 참조하세요.
+Azure Redis Cache can work with .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer. This gives the developer flexibility in the choice of the serializer. For more information and sample code, see [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-## Azure Redis Cache로 ASP.NET 세션 상태 및 출력 캐싱 마이그레이션
+## <a name="migrate-asp.net-session-state-and-output-caching-to-azure-redis-cache"></a>Migrate ASP.NET Session State and Output caching to Azure Redis Cache
 
-Azure Redis Cache에는 ASP.NET 세션 상태 및 페이지 출력 캐싱 모두에 공급자가 있습니다. 관리된 캐시 서비스 버전의 이러한 공급자를 사용하는 응용 프로그램을 마이그레이션하려면 먼저 web.config에서 기존 섹션을 제거하고 Azure Redis Cache 버전의 공급자를 구성합니다. Azure Redis Cache ASP.NET 공급자를 사용하는 데 대한 지침은 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md) 및 [Azure Redis Cache에 대한 ASP.NET 출력 캐시 공급자](cache-aspnet-output-cache-provider.md)를 참조하세요.
+Azure Redis Cache has providers for both ASP.NET Session State and Page Output caching. To migrate your application that uses the Managed Cache Service versions of these providers, first remove the existing sections from your web.config, and then configure the Azure Redis Cache versions of the providers. For instructions on using the Azure Redis Cache ASP.NET providers, see [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md) and [ASP.NET Output Cache Provider for Azure Redis Cache](cache-aspnet-output-cache-provider.md).
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-자습서, 샘플, 비디오, 등은 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/cache/)를 탐색합니다.
+Explore the [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) for tutorials, samples, videos, and more.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

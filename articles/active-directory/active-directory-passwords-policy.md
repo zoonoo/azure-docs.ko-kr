@@ -1,66 +1,71 @@
 <properties
-	pageTitle="Azure Active Directory에서 암호 정책 및 제한 | Microsoft Azure"
-	description="허용되는 문자, 길이 및 만료를 포함하여 Azure Active Directory에서 암호에 적용되는 정책을 설명합니다."
+    pageTitle="Password policies and restrictions in Azure Active Directory | Microsoft Azure"
+    description="Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration"
   services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="curtand"/>
 
 
-# Azure Active Directory에서 암호 정책 및 제한
 
-이 문서에서는 Azure AD 디렉터리에 저장된 사용자 계정과 관련된 암호 정책 및 복잡성 요구 사항을 설명합니다.
+# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Password policies and restrictions in Azure Active Directory
 
-> [AZURE.IMPORTANT] **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+This article describes the password policies and complexity requirements associated with user accounts stored in your Azure AD directory.
 
-## 모든 사용자 계정에 적용되는 UserPrincipalName 정책
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에는 해당 계정에 연결된 고유한 사용자 계정 이름(UPN) 특성 값이 있어야 합니다. 다음 테이블은 온-프레미스 Active Directory 소싱 사용자 계정(클라우드로 동기화됨) 및 클라우드 전용 사용자 계정에 모두 적용되는 정책을 간략하게 설명합니다.
+## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName policies that apply to all user accounts
 
-| 속성 | UserPrincipalName 요구 사항 |
+Every user account that needs to sign in to the Azure AD authentication system must have a unique user principal name (UPN) attribute value associated with that account. The following table outlines the polices  that apply to both on-premises Active Directory-sourced user accounts   (synced to the cloud) and to cloud-only user accounts.
+
+|   Property           |     UserPrincipalName requirements  |
 |   ----------------------- |   ----------------------- |
-| 허용되는 문자 | <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| 허용되지 않는 문자 | <ul> <li>사용자 이름을 도메인으로부터 구분하지 않는 모든 '@' 문자.</li> <li>'@' 기호 바로 앞에 마침표 문자 '.'를 포함할 수 없습니다.</li></ul> |
-| 길이 제약 조건 | <ul> <li>총 길이는 113 자를 초과할 수 없습니다</li><li>'@' 기호 앞에 64자</li><li>'@' 기호 뒤에 48자</li></ul>
+|  Characters allowed    |  <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+|  Characters not allowed  | <ul> <li>Any '@' character that is not separating the user name from the domain.</li> <li>Cannot contain a period character '.' immediately preceding the '@' symbol</li></ul> |
+| Length constraints  |       <ul> <li>Total length must not exceed 113 characters</li><li>64 characters before the ‘@’ symbol</li><li>48 characters after the ‘@’ symbol</li></ul>
 
-## 클라우드 사용자 계정에만 적용되는 암호 정책
+## <a name="password-policies-that-apply-only-to-cloud-user-accounts"></a>Password policies that apply only to cloud user accounts
 
-다음 테이블은 Azure AD에서 만들어지고 관리되는 사용자 계정에 적용할 수 있는 사용 가능 암호 정책 설정을 설명합니다.
+The following table describes the available password policy settings that can be applied to user accounts that are created and managed in   Azure AD.
 
-| 속성 | 요구 사항 |
+|  Property       |    Requirements          |
 |   ----------------------- |   ----------------------- |
-| 허용되는 문자 | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| 허용되지 않는 문자 | <ul><li>유니코드 문자</li><li>공백</li><li> **강력한 암호만**: '@' 기호 바로 앞에 점 문자'.'를 포함할 수 없습니다.</li></ul> |
-| 암호 제한 | <ul><li>최소 8자 및 최대 16자</li><li>**강력한 암호만**: 다음의 4가지 중에서 3가지가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(위의 암호 제한 참조)</li></ul></li></ul> |
-| 암호 만료 기간 | <ul><li>기본값: **90**일 </li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 Set-MsolPasswordPolicy cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
-| 암호 만료 알림 | <ul><li>기본값: **14**일(암호가 만료되기 전에)</li><li>값은 Set-MsolPasswordPolicy cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
-| 암호 만료 | <ul><li>기본값: **false**일 (암호 만료가 사용됨을 나타냄) </li><li>Set-MsolUser cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다. </li></ul> |
-| 암호 기록 | 마지막 암호를 다시 사용할 수 없습니다. |
-| 암호 기록 기간 | 영구 |
-| 계정 잠금 | 로그인 시도를 10번 실패하면(잘못된 암호) 1분 동안 사용자가 잠기게 됩니다. 잘못된 로그인을 더 시도하면 사용자가 잠기는 시간이 더 늘어납니다. |
+|  Characters allowed   |   <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+|  Characters not allowed   |       <ul><li>Unicode characters</li><li>Spaces</li><li> **Strong passwords only**: Cannot contain a dot character '.' immediately preceding the '@' symbol</li></ul> |
+|   Password restrictions | <ul><li>8 characters minimum and 16 characters maximum</li><li>**Strong passwords only**: Requires 3 out of 4 of the following:<ul><li>Lowercase characters</li><li>Uppercase characters</li><li>Numbers (0-9)</li><li>Symbols (see password restrictions above)</li></ul></li></ul> |
+| Password expiry duration      | <ul><li>Default value: **90** days </li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
+| Password expiry notification |  <ul><li>Default value: **14** days (before password expires)</li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet.</li></ul> |
+| Password Expiry |  <ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
+|  Password history  | Last password cannot be used again. |
+|  Password history duration | Forever |
+|  Account Lockout | After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-* [어디에서나 암호 관리](active-directory-passwords.md)
-* [암호 관리의 작동 원리](active-directory-passwords-how-it-works.md)
-* [암호 관리 시작](active-directory-passwords-getting-started.md)
-* [암호 관리 사용자 지정](active-directory-passwords-customize.md)
-* [암호 관리 모범 사례](active-directory-passwords-best-practices.md)
-* [암호 관리 보고서와 함께 Operational Insights를 얻는 방법](active-directory-passwords-get-insights.md)
-* [암호 관리 FAQ](active-directory-passwords-faq.md)
-* [암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
-* [자세한 정보](active-directory-passwords-learn-more.md)
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [Manage your passwords from anywhere](active-directory-passwords.md)
+* [How Password Management works](active-directory-passwords-how-it-works.md)
+* [Getting started with Password Mangement](active-directory-passwords-getting-started.md)
+* [Customize Password Management](active-directory-passwords-customize.md)
+* [Password Management Best Practices](active-directory-passwords-best-practices.md)
+* [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
+* [Password Management FAQ](active-directory-passwords-faq.md)
+* [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
+* [Learn More](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

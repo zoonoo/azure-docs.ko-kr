@@ -1,689 +1,690 @@
 <properties
-	pageTitle="문제 해결: Azure AD 암호 관리 | Microsoft Azure"
-	description="Azure AD 암호 관리를 위한 일반적인 문제 해결 단계는 재설정, 변경, 쓰기 저장, 등록 및 도움이 필요한 경우 포함할 정보를 포함합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Troubleshooting: Azure AD Password Management | Microsoft Azure"
+    description="Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help."
+    services="active-directory"
+    documentationCenter=""
+    authors="asteen"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="asteen"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2016"
+    ms.author="asteen"/>
 
-# 암호 관리 문제 해결 방법
 
-> [AZURE.IMPORTANT] **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+# <a name="how-to-troubleshoot-password-management"></a>How to troubleshoot Password Management
 
-암호 관리 문제가 발생하는 경우 도움을 드립니다. 직면할 문제 대부분은 아래에서 배포 문제를 해결하려고 읽을 수 있는 몇 가지 간단한 문제 해결 단계로 해결할 수 있습니다.
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-* [**도움이 필요한 경우 포함할 정보**](#information-to-include-when-you-need-help)
-* [**Azure 관리 포털에서 암호 관리 구성에 문제가 있음**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
-* [**Azure 관리 포털에서 암호 관리 보고서에 문제가 있음**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
-* [**암호 재설정 등록 포털에서 문제가 있음**](#troubleshoot-the-password-reset-registration-portal)
-* [**암호 재설정 포털에서 문제가 있음**](#troubleshoot-the-password-reset-portal)
-* [**암호 쓰기 저장에 문제가 있음**](#troubleshoot-password-writeback)
-  - [암호 쓰기 저장 이벤트 로그 오류 코드](#password-writeback-event-log-error-codes)
-  - [암호 쓰기 저장 연결에 문제가 있음](#troubleshoot-password-writeback-connectivity)
+If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to troubleshoot your deployment:
 
-아래의 문제 해결 단계를 시도해도 여전히 문제가 발생하면 [Azure AD 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)에 질문을 게시하거나 지원에 문의하면 빠른 시일 내에 문제를 살펴보겠습니다.
+* [**Information to include when you need help**](#information-to-include-when-you-need-help)
+* [**Problems with Password Management configuration in the Azure Management Portal**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
+* [**Problems with Password Managment reports in the Azure Management Portal**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
+* [**Problems with the Password Reset Registration Portal**](#troubleshoot-the-password-reset-registration-portal)
+* [**Problems with the Password Reset Portal**](#troubleshoot-the-password-reset-portal)
+* [**Problems with Password Writeback**](#troubleshoot-password-writeback)
+  - [Password Writeback event log error codes](#password-writeback-event-log-error-codes)
+  - [Problems with Password Writeback connectivity](#troubleshoot-password-writeback-connectivity)
 
-## 도움이 필요한 경우 포함할 정보
+If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) or contact support and we'll take a look at your problem as soon as we can.
 
-아래 지침 관련 문제를 해결할 수 없는 경우 지원 엔지니어에 문의할 수 있습니다. 이렇게 문의할 때 다음 정보를 포함 하는 것이 좋습니다.
+## <a name="information-to-include-when-you-need-help"></a>Information to include when you need help
 
- - **오류에 대한 일반적인 설명** – 사용자가 본 정확한 오류 메시지 정의 오류 메시지가 있는 경우 알아낸 예기치 않은 동작을 자세히 설명합니다.
- - **페이지** – 오류(URL 포함)가 나타나는 경우 페이지 정의
- - **날짜/시간/표준 시간대** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간 정의
- - **지원 코드** – 오류가 나타나는 경우 생성된 지원 코드 정의(오류를 찾으려면 오류를 재현한 후 화면 아래에서 코드 지원 링크를 클릭하고 지원 엔지니어에게 결과인 GUID를 보냄.)
-   - 아래에서 지원 코드 없이 페이지에서 F12 키를 누르고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
+If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
+
+ - **General description of the error** – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
+ - **Page** – what page were you on when you saw the error (include the URL)?
+ - **Date / Time / Timezone** – what was the precise date and time you saw the error (include the timezone)?
+ - **Support Code** – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results).
+   - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
 
     ![][001]
 
- - **사용자 ID** – 오류가 나타난 사용자의 ID 정의(예: user@contoso.com)
- - **사용자에 대한 정보** – 페더레이션된 사용자, 동기화된 암호 해시, 클라우드 정의 AAD Premium 또는 AAD 기본 라이선스가 할당된 사용자입니까?
- - **응용 프로그램 이벤트 로그** – 암호 쓰기 저장을 사용 중이고 온-프레미스 인프라에서 오류가 발생한 경우 Azure AD Connect 서버에서 응용 프로그램 이벤트 로그의 복사본을 압축하고 요청과 함께 보내주십시오.
+ - **User ID** – what was the ID of the user who saw the error (e.g. user@contoso.com)?
+ - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
+ - **Application Event Log** – if you are using Password Writeback and the error is in your on-premises infrastructure, please zip up a copy of your application event log from your Azure AD Connect server and send along with your request.
 
-이 정보를 포함하면 최대한 빨리 문제를 해결하는데 도움이 됩니다.
+Including this information will help us to solve your problem as quickly as possible.
 
 
-## Azure 관리 포털에서 암호 재설정 구성 문제 해결
-암호 재설정을 구성할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
+## <a name="troubleshoot-password-reset-configuration-in-the-azure-management-portal"></a>Troubleshoot password reset configuration in the Azure Management Portal
+If you encounter an error when configuring password reset, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>오류 사례</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>발생한 오류 정의</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Azure 관리 포털의 <strong>구성</strong> 탭 아래에서 <strong>사용자 암호 재설정 정책 </strong>섹션이 보이지 않습니다. </p>
+              <p>I don’t see the <strong>User Password Reset Policy </strong>section under the <strong>Configure</strong> tab in the Azure management portal</p>
             </td>
             <td>
-              <p>Azure 관리 포털의 <strong>구성</strong> 탭에서 <strong>사용자 암호 재설정 정책 </strong>섹션이 보이지 않습니다. </p>
+              <p>The <strong>User Password Reset Policy </strong>section is not visible on the <strong>Configure</strong> tab in the Azure Management Portal.</p>
             </td>
             <td>
-              <p>이 작업을 수행하는 관리자에게 할당된 AAD Premium 또는 AAD 기본 라이선스가 없는 경우 발생할 수 있습니다. </p>
-              <p>이 문제를 수정하려면 <strong>라이선스</strong> 탭으로 이동하여 해당 관리자 계정에 AAD Premium 또는 AAD 기본 라이선스를 할당하고 다시 시도하십시오.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>설명서에서 설명된 <strong>사용자 암호 재설정 정책</strong> 아래에서 구성 옵션이 보이지 않습니다.</p>
-            </td>
-            <td>
-              <p><strong>사용자 암호 재설정 정책 </strong>섹션이 보이지만 그 아래에 나타나는 유일한 플래그는 <strong>암호 재설정 활성화한 사용자</strong> 플래그입니다.</p>
-            </td>
-            <td>
-              <p><strong>암호 재설정 활성화한 사용자</strong> 플래그를 <strong>예</strong>로 전환하는 경우 UI의 나머지가 나타납니다.</p>
+              <p>This can occur if you do not have an AAD Premium or AAD Basic license assigned to the admin performing this operation. </p>
+              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the <strong>Licenses</strong> tab and try again.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>특정 구성 옵션이 보이지 않습니다.</p>
+              <p>I don’t see any of the configuration options under the <strong>User Password Reset Policy</strong> section that are described in the documentation.</p>
             </td>
             <td>
-              <p>예를 들어 <strong>사용자 암호 재설정 정책</strong> 섹션(또는 동일한 문제에 대한 다른 예제)을 스크롤하면 <strong>사용자가 연락처 데이터를 확인하기 전에 일수</strong> 옵션이 보이지 않습니다.</p>
+              <p>The <strong>User Password Reset Policy </strong>section is visible, but the only flag that appears under it is the <strong>Users Enabled for Password Reset</strong> flag.</p>
             </td>
             <td>
-              <p>필요할 때까지 UI의 요소는 대부분 숨겨져 있습니다. 참조하려면 페이지의 모든 옵션을 사용하도록 설정하십시오.</p>
-              <p>모든 컨트롤을 사용할 수 있는 방법에 대한 자세한 정보는 <a href="active-directory-passwords-customize.md#password-management-behavior">암호 관리 동작</a>을 참조하십시오.</p>
+              <p>The rest of the UI will appear when you switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes.</strong></p>
             </td>
           </tr>
           <tr>
             <td>
-              <p><strong>암호를 온-프레미스에 쓰기 저장</strong> 구성 옵션이 보이지 않습니다.</p>
+              <p>I don’t see a particular configuration option.</p>
             </td>
             <td>
-              <p>Azure 관리 포털의 <strong>구성</strong> 탭 아래에 <strong>암호를 온-프레미스에 쓰기 저장</strong> 옵션이 보이지 않습니다.</p>
+              <p>For example, I do not see the <strong>Number of days before a user must confirm their contact data</strong> option when I scroll through the <strong>User Password Reset Policy</strong> section (or other examples of the same issue).</p>
             </td>
             <td>
-              <p>Azure AD 연결을 다운로드하고 암호 쓰기 저장을 구성하는 경우 이 옵션을 표시합니다. 이 작업을 하는 경우 해당 옵션이 표시되고 클라우드에서 쓰기 저장을 사용하거나 사용하지 않도록 설정할 수 있습니다.</p>
-              <p>이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Azure AD Connect에서 비밀번호 쓰기 저장 활성화</a>를 참조하십시오.</p>
+              <p>Many elements of UI are hidden until they are needed. Try enabling all the options on the page if you want to see.</p>
+              <p>See <a href="active-directory-passwords-customize.md#password-management-behavior">Password Management behavior</a> for more info about all of the controls that are available to you.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>I don’t see the <strong>Write Back Passwords to On-Premises</strong> configuration option</p>
+            </td>
+            <td>
+              <p>The <strong>Write Back Passwords to On-Premises</strong> option is not visible under the <strong>Configure</strong> tab in the Azure Management Portal</p>
+            </td>
+            <td>
+              <p>This option is only visible if you have downloaded Azure AD Connect and configured Password Writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
+              <p>See <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Enable Password Writeback in Azure AD Connect</a> for more information on how to do this.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Azure 관리 포털에서 암호 관리 보고서에 문제 해결
-암호 관리 보고서를 사용할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
+## <a name="troubleshoot-password-management-reports-in-the-azure-management-portal"></a>Troubleshoot password management reports in the Azure Management Portal
+If you encounter an error when using the password management reports, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>오류 사례</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>발생한 오류 정의</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>암호 관리 보고서가 보이지 않습니다.</p>
+              <p>I don’t see any password management reports</p>
             </td>
             <td>
-              <p><strong>보고서</strong> 탭의 <strong>활동 로그</strong> 아래에서 <strong>암호 재설정 활동</strong> 및 <strong>암호 재설정 등록 활동</strong> 보고서가 보이지 않습니다.</p>
+              <p>The <strong>Password reset activity</strong> and <strong>Password reset registration activity</strong> reports are not visible under the <strong>Activity Log</strong> reports in the <strong>Reports</strong> tab.</p>
             </td>
             <td>
-              <p>이 작업을 수행하는 관리자에게 할당된 AAD Premium 또는 AAD 기본 라이선스가 없는 경우 발생할 수 있습니다. </p>
-              <p>이 문제를 수정하려면 <strong>라이선스</strong> 탭으로 이동하여 해당 관리자 계정에 AAD Premium 또는 AAD 기본 라이선스를 할당하고 다시 시도하십시오.</p>
+              <p>This can occur if you do not have an AAD Premium or AAD Basic license assigned to the admin performing this operation. </p>
+              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the <strong>Licenses</strong> tab and try again.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>사용자 등록이 여러 번 표시됩니다</p>
+              <p>User registrations show multiple times</p>
             </td>
             <td>
-              <p>사용자가 대체 전자 메일, 휴대폰 및 보안 질문을 등록할 때 각각 대신 별도 줄로 표시됩니다.</p>
+              <p>When a user registers alternate email, mobile phone, and security questions, they each show up as separate lines instead of a single line.</p>
             </td>
             <td>
-              <p>현재 사용자가 등록할 때 등록 페이지에 있는 모든 것들이 등록될 것을 가정할 수 없습니다. 결과적으로, 별도 이벤트로 등록된 데이터의 각 개별 부분을 로그합니다.</p>
-              <p>이 데이터를 집계하려는 경우 보고서를 다운로드하고 엑셀에서 피벗 테이블로 데이터를 열어서 더 유연하게 관리할 수 있습니다.</p>
+              <p>Currently, when a user registers, we cannot assume that they will register everything present on the registration page. As a result, we currently log each individual piece of data that is registered as a separate event.</p>
+              <p>If you want to aggregate this data, you can download the report and open the data as a pivot table in excel to have more flexibility.</p>
             </td>
           </tr>
         </tbody></table>
 
-## 암호 재설정 등록 포털에서 문제 해결
-암호 재설정을 위해 사용자를 등록할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
+## <a name="troubleshoot-the-password-reset-registration-portal"></a>Troubleshoot the password reset registration portal
+If you encounter an error when registering a user for password reset, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>오류 사례</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>발생한 오류 정의</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>암호 재설정을 위해 디렉터리를 사용할 수 없습니다.</p>
+              <p>Directory is not enabled for password reset</p>
             </td>
             <td>
-              <p>관리자는 이 기능을 사용하도록 활성화하지 않습니다.</p>
+              <p>Your administrator has not enabled you to use this feature.</p>
             </td>
             <td>
-              <p><strong>암호 재설정을 활성화한 사용자</strong> 플래그를 <strong>예</strong>로 전환하고 Azure 관리 포털 디렉터리 구성 탭에서 <strong>저장</strong>을 누릅니다. 이 작업을 수행하는 관리자에게 할당된 Azure AD Premium 또는 기본 라이선스가 있어야 합니다.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>AAD Premium 또는 AAD 기본 라이선스가 할당되지 않은 사용자입니까?</p>
-            </td>
-            <td>
-              <p>관리자는 이 기능을 사용하도록 활성화하지 않습니다.</p>
-            </td>
-            <td>
-              <p>Azure 관리 포털의 <strong>라이선스</strong> 아래에서 사용자에게 Azure AD Premium 또는 Azure AD 기본 라이선스를 할당합니다. 이 작업을 수행하는 관리자에게 할당된 Azure AD Premium 또는 기본 라이선스가 있어야 합니다.</p>
+              <p>Switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes</strong> and hit <strong>Save</strong> in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>오류 처리 요청</p>
+              <p>User does not have an AAD Premium or AAD Basic license assigned</p>
             </td>
             <td>
-              <p>다음과 같이 보고하는 오류가 나타납니다. </p>
+              <p>Your administrator has not enabled you to use this feature.</p>
+            </td>
+            <td>
+              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the <strong>Licenses</strong> tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Error processing request</p>
+            </td>
+            <td>
+              <p>User sees an error that states:</p>
               <p>
 
               </p>
-              <p>오류 처리 요청 </p>
-              <p>암호 재설정하려는 동안.</p>
+              <p>Error processing request </p>
+              <p>When attempting to reset a password.</p>
             </td>
             <td>
-              <p>많은 문제로 인해 발생할 수 있지만 일반적으로 확인할 수 없는 서비스 중단 또는 구성 문제로 인해 이 오류가 발생합니다. </p>
-              <p>이 오류가 나타나고 비즈니스에 영향을 주는 경우 지원에 문의하시면 되도록 빨리 도움을 드립니다. 신속한 문제해결을 돕기 위해 지원 엔지니어에게 제공해야 할 내용을 보려면 <a href="#information-to-include-when-you-need-help">도움이 필요한 경우 포함할 정보</a>를 참조하십시오.</p>
+              <p>This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue that cannot be resolved. </p>
+              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#information-to-include-when-you-need-help">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
             </td>
           </tr>
         </tbody></table>
 
-## 암호 재설정 포털에서 문제 해결
-사용자용 암호를 재설정할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
+## <a name="troubleshoot-the-password-reset-portal"></a>Troubleshoot the password reset portal
+If you encounter an error when resetting a password for a user, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>오류 사례</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>발생한 오류 정의</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>암호 재설정을 위해 디렉터리를 사용할 수 없습니다.</p>
+              <p>Directory is not enabled for password reset</p>
             </td>
             <td>
-              <p>암호 재설정을 위해 계정을 사용할 수 없습니다.</p>
-              <p>죄송하지만 관리자가 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. </p>
-              <p>
-
-              </p>
-              <p>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다.</p>
-            </td>
-            <td>
-              <p><strong>암호 재설정을 활성화한 사용자</strong> 플래그를 <strong>예</strong>로 전환하고 Azure 관리 포털 디렉터리 구성 탭에서 <strong>저장</strong>을 누릅니다. 이 작업을 수행하는 관리자에게 할당된 Azure AD Premium 또는 기본 라이선스가 있어야 합니다.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>AAD Premium 또는 AAD 기본 라이선스가 할당되지 않은 사용자입니까?</p>
-            </td>
-            <td>
-              <p>관리자 외 계정 암호를 자동으로 재설정할 수는 없지만 조직의 관리자에게 연락할 수 있습니다.</p>
-            </td>
-            <td>
-              <p>Azure 관리 포털의 <strong>라이선스</strong> 아래에서 사용자에게 Azure AD Premium 또는 Azure AD 기본 라이선스를 할당합니다. 이 작업을 수행하는 관리자에게 할당된 Azure AD Premium 또는 기본 라이선스가 있어야 합니다.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>암호 재설정에 디렉터리를 사용할 수 있지만 사용자가 인증 정보를 누락했거나 형식이 잘못 되었습니다.</p>
-            </td>
-            <td>
-              <p>암호 재설정을 위해 계정을 사용할 수 없습니다.</p>
-              <p>죄송하지만 관리자가 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. </p>
+              <p>Your account is not enabled for password reset</p>
+              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
 
               </p>
-              <p>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다.</p>
+              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>진행하기 전에 사용자가 디렉터리에서 파일에 연락처 데이터를 제대로 구성했는지 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록 합니다. </p>
+              <p>Switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes</strong> and hit <strong>Save</strong> in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>암호 재설정에 디렉터리를 사용할 수 있지만 두 개의 검증 단계가 필요하도록 정책이 설정된 경우 사용자만이 연락처 데이터에서 한 개의 파일을 보유합니다. </p>
+              <p>User does not have an AAD Premium or AAD Basic license assigned</p>
             </td>
             <td>
-              <p>암호 재설정을 위해 계정을 사용할 수 없습니다.</p>
-              <p>죄송하지만 관리자가 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. </p>
+              <p>While we cannot reset non-admin account passwords automatically, we can contact your organization's admin to do it for you.</p>
+            </td>
+            <td>
+              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the <strong>Licenses</strong> tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Directory is enabled for password reset, but user has missing or mal-formed authentication information</p>
+            </td>
+            <td>
+              <p>Your account is not enabled for password reset</p>
+              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
 
               </p>
-              <p>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다.</p>
+              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>계속하기 전에 해당 사용자에게 둘 이상의 제대로 구성된 연락 방법(예: 휴대폰 및 사무실 전화)이 있는지를 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록 합니다. </p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>암호 재설정에 디렉터리를 사용할 수 있고 사용자가 올바르게 구성되어 있지만 사용자와 연결할 수 없습니다. </p>
-            </td>
-            <td>
-              <p>아이쿠! 사용자를 연결하는 동안 예기치 않은 오류가 발생했습니다.</p>
-            </td>
-            <td>
-              <p>이것은 임시 서비스 오류 또는 우리가 제대로 검색할 수 없는 잘못 구성한 연락처 데이터 결과입니다. 사용자가 10초 동안 기다리면 다시 시도하고 "관리자에게 문의" 링크가 표시됩니다. 다시 시도를 클릭하면 호출을 다시 발송하는 반면 "관리자에게 문의"를 클릭하면 해당 사용자 계정을 위해 암호 재설정이 수행되도록 요청하는 전자 메일 양식을 사용자, 암호 또는 전역 관리자에게(이 우선순위 대로) 전송할 것입니다.</p>
+              <p>Ensure that user has properly formed contact data on file in the directory before proceeding. See <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>사용자는 암호 재설정 SMS 또는 전화 통화를 수신하지 않습니다</p>
+              <p>Directory is enabled for password reset, but a user only has one piece of contact data on file when policy is set to require two verification steps</p>
             </td>
             <td>
-              <p>사용자는 "내게 텍스트" 또는 "내게 전화 걸기"를 클릭하고 아무것도 수신하지 않습니다.</p>
-            </td>
-            <td>
-              <p>이것은 디렉터리에서 형식이 잘못된 전화번호의 결과일 수 있습니다. 전화번호가 "+ ccc xxxyyyzzzzXeeee" 형식인지 확인합니다. 암호 재설정에 사용할 전화번호 형식에 대한 자세한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하십시오.</p>
-              <p>문제의 사용자에게 라우팅할 확장이 필요한 경우 디렉터리에서 하나를 지정하더라도 해당 암호 재설정은 확장을 지원하지 않습니다.(호출이 발송되기 전에 제거됨)  확장을 사용하지 않고 숫자를 사용하거나 사용자의 PBX의 전화번호에 확장을 통합하려 합니다.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>사용자는 암호 재설정 전자 메일을 수신하지 못합니다.</p>
-            </td>
-            <td>
-              <p>사용자는 "내게 전화 걸기"를 클릭하고 아무것도 수신하지 않습니다.</p>
-            </td>
-            <td>
-              <p>이 문제에 대한 가장 일반적인 원인은 스팸 필터에 의해 메시지가 거부된다는 점입니다. 전자 메일에 대한 스팸, 정크, 또는 삭제된 항목 폴더를 확인하십시오.</p>
-              <p>또한 메시지를 위해 올바른 전자 메일인지를 확인하십시오...많은 사람이 매우 유사한 전자 메일 주소가 있고 메시지를 받은 편지함을 잘못 확인합니다. 이러한 두 옵션이 모두 효과가 없으면 디렉터리에서 전자 메일 주소 형식이 잘못된 것일 수도 있습니다. 전자 메일 주소가 올바른지 확인하고 다시 시도하십시오. 암호 재설정에 사용할 전자 메일 주소 형식에 대한 자세한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하십시오.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>필자는 암호 재설정 정책을 설정했지만 관리자 계정이 암호 재설정을 사용하는 경우 해당 정책이 적용되지 않습니다.</p>
-            </td>
-            <td>
-              <p><strong>구성</strong> 탭의 <strong>사용자 암호 재설정 정책</strong> 섹션에서 어떤 정책을 설정했는지에 관계 없이 암호를 재설정한 관리자 계정은 전자 메일 및 휴대폰에서 암호 재설정을 위해 활성화된 동일한 옵션을 나타냅니다. </p>
-            </td>
-            <td>
-              <p><strong>구성</strong> 탭의 <strong>사용자 암호 재설정 정책</strong> 섹션 아래에서 구성된 옵션만이 사용자의 조직에서 최종 사용자에게 적용됩니다.</p>
-              <p>가장 높은 수준의 보안을 보장하기 위해 Microsoft가 관리자 암호 재설정 정책을 관리하고 제어합니다.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>사용자는 하루에 너무 많이 암호를 재설정하려 할 수 없습니다.</p>
-            </td>
-            <td>
-              <p>다음과 같이 보고하는 오류가 나타납니다. </p>
+              <p>Your account is not enabled for password reset</p>
+              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
 
               </p>
-              <p>다른 옵션을 사용하십시오.</p>
-              <p>마지막 1시간에 계정 인증을 너무 많이 시도했습니다. 보안상의 이유로 다시 시도하기 전에 24시간을 대기해야 합니다. </p>
-              <p>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다.</p>
+              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>짧은 시간 동안에 너무 여러 번 자신의 암호를 다시 설정하려는 사용자를 차단하는 자동 제한 메커니즘을 구현합니다. 다음과 같은 때 이것이 일어납니다.</p>
+              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Directory is enabled for password reset, and user is properly configured, but user is unable to be contacted </p>
+            </td>
+            <td>
+              <p>Oops!  We encountered an unexpected error while contacting you.</p>
+            </td>
+            <td>
+              <p>This could be the result of a temporary service error or misconfigured contact data that we could not properly detect. If the user waits 10 seconds, a try again and “contact your administrator” link appears. Clicking try again will re-dispatch the call, whereas clicking “contact your administrator” will send a form email to user, password, or global admins (in that precedence order) requesting a password reset to be performed for that user account.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>User never receives the password reset SMS or phone call</p>
+            </td>
+            <td>
+              <p>User clicks “text me” or “call me” and then never receives anything.</p>
+            </td>
+            <td>
+              <p>This could be the result of a mal-formed phone number in the directory. Make sure the phone number is in the format “+ccc xxxyyyzzzzXeeee”. To learn more about formatting phone numbers for use with password reset see <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a>.</p>
+              <p>If you require an extension to be routed to the user in question, note that password reset does not support extensions, even if you specify one in the directory (they are stripped before the call is dispatched). Try using a number without an extension, or integrating the extension into the phone number in your PBX.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>User never receives password reset email</p>
+            </td>
+            <td>
+              <p>User clicks “email me” and then never receives anything.</p>
+            </td>
+            <td>
+              <p>The most common cause for this issue is that the message is rejected by a spam filter. Check your spam, junk, or deleted items folder for the email.</p>
+              <p>Also ensure that you are checking the right email for the message…lots of people have very similar email addresses and end up checking the wrong inbox for the message. If neither of these options work, it’s also possible that the email address in the directory is malformed, check to make sure the email address is the right one and try again. To learn more about formatting email addresses for use with password reset see <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>I have set a password reset policy, but when an admin account uses password reset, that policy is not applied</p>
+            </td>
+            <td>
+              <p>Admin accounts resetting their passwords see the same options enabled for password reset, email and mobile phone, no matter what policy is set under the <strong>User Password Reset Policy</strong> section of the <strong>Configure</strong> tab.</p>
+            </td>
+            <td>
+              <p>The options configured under the <strong>User Password Reset Policy</strong> section of the <strong>Configure</strong> tab only apply to end users in your organization.</p>
+              <p>Microsoft manages and controls the Admin password reset policy in order to ensure the highest level of security</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>User prevented from attempting password reset too many times in a day</p>
+            </td>
+            <td>
+              <p>User sees an error stating:</p>
+              <p>
+
+              </p>
+              <p>Please use another option.</p>
+              <p>You've tried to verify your account too many times in the last 1 hour(s). For security reasons, you'll have to wait 24 hour(s) before you can try again. </p>
+              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
+            </td>
+            <td>
+              <p>We implement an automatic throttling mechanism to block users from attempting to reset their passwords too many times in a short period of time. This occurs when:</p>
               <ol class="ordered">
                 <li>
-										사용자는 한 시간 동안 5회에 걸쳐 전화번호의 유효성을 검사하려 합니다.<br\><br\></li>
+User attempts to validate a phone number 5 times in one hour.<br\><br\></li>
                 <li>
-										사용자는 한 시간 동안 5회에 걸쳐 보안 질문 게이트를 사용하려 합니다.<br\><br\></li>
+User attempts to use the security questions gate 5 times in one hour.<br\><br\></li>
                 <li>
-										사용자가 한 시간 동안 5회에 걸쳐 동일한 사용자 계정에 대한 암호를 재설정하려 합니다.<br\><br\></li>
+User attempts to reset a password for the same user account 5 times in one hour.<br\><br\></li>
               </ol>
-              <p>이를 해결하려면 사용자가 마지막 시도 후 24시간 동안 대기하도록 하고 사용자가 자신의 암호를 재설정합니다.</p>
+              <p>To fix this, instruct the user to wait 24 hours after the last attempt, and the user will then be able to reset his or her password.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>사용자가 자신의 전화번호의 유효성을 검사하는 경우 오류가 보입니다.</p>
+              <p>User sees an error when validating his or her phone number</p>
             </td>
             <td>
-              <p>인증 방법을 사용하여 전화를 확인하려고 시도할 때, 사용자에게 내용의 오류를 보여줍니다.</p>
+              <p>When attempting to verify a phone to use as an authentication method, the user sees an error stating:</p>
               <p>
 
               </p>
-              <p>잘못된 전화번호를 지정합니다.</p>
+              <p>Incorrect phone number specified.</p>
             </td>
             <td>
-              <p>이 오류는 입력한 휴대폰 번호와 파일에서 휴대폰 번호가 일치하지 않을 때 발생합니다.</p>
-              <p>사용자가 암호 재설정을 위해 전화 기반 방법을 사용하려고 할 때 영역 및 국가 코드를 포함하여 전체 전화 번호를 입력하는지 확인합니다.</p>
+              <p>This error occurs when the phone number entered does not match the phone number on file.</p>
+              <p>Make sure the user is entering the complete phone number, including area and country code, when attempting to use a phone-based method for password reset.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>오류 처리 요청</p>
+              <p>Error processing request</p>
             </td>
             <td>
-              <p>다음과 같이 보고하는 오류가 나타납니다. </p>
+              <p>User sees an error that states:</p>
               <p>
 
               </p>
-              <p>오류 처리 요청 </p>
-              <p>암호 재설정하려는 동안.</p>
+              <p>Error processing request </p>
+              <p>When attempting to reset a password.</p>
             </td>
             <td>
-              <p>많은 문제로 인해 발생할 수 있지만 일반적으로 확인할 수 없는 서비스 중단 또는 구성 문제로 인해 이 오류가 발생합니다. </p>
-              <p>이 오류가 나타나고 비즈니스에 영향을 주는 경우 지원에 문의하시면 되도록 빨리 도움을 드립니다. 신속한 문제해결을 돕기 위해 지원 엔지니어에게 제공해야 할 내용을 보려면 <a href="#information-to-include-when-you-need-help">도움이 필요한 경우 포함할 정보</a>를 참조하십시오.</p>
+              <p>This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue that cannot be resolved. </p>
+              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#information-to-include-when-you-need-help">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
             </td>
           </tr>
         </tbody></table>
 
-## 암호 쓰기 저장 문제 해결
-암호 쓰기 저장을 활성화, 비활성화 또는 사용할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
+## <a name="troubleshoot-password-writeback"></a>Troubleshoot Password Writeback
+If you encounter an error when enabling, disabling, or using Password Writeback, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>오류 사례</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>발생한 오류 정의</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>일반 온보딩 및 시작 오류</p>
+              <p>General onboarding and startup failures</p>
             </td>
             <td>
-              <p>Azure AD 연결 컴퓨터의 응용 프로그램 이벤트 로그에서 오류 6800로 인해 온-프레미스에서 암호 재설정 서비스가 시작되지 않습니다.</p>
+              <p>Password reset service does not start on premises with error 6800 in the Azure AD Connect machine’s application event log.</p>
               <p>
 
               </p>
-              <p>온보딩 후에 페더레이션되거나 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다.</p>
+              <p>After onboarding, federated or password hash synced users cannot reset their passwords.</p>
             </td>
             <td>
-              <p>암호 쓰기 저장을 사용하는 경우 동기화 엔진은 저장 라이브러리를 호출하여 클라우드 온보딩 서비스와 대화함으로써 구성(온보딩)을 수행합니다. 암호 쓰기 저장에 대한 WCF 끝점을 온보딩 또는 시작하는 동안 발생한 오류는 Azure AD 연결 컴퓨터의 이벤트 로그의 이벤트 로그에서 오류를 발생시킵니다.</p>
-              <p>ADSync 서비스를 다시 시작하는 동안 쓰기 저장을 구성한 경우 WCF 끝점을 시작합니다. 그러나 끝점을 시작하는 데 실패하면 단순히 6800 이벤트를 로그하고 동기화 서비스를 시작합니다. 이 이벤트의 현재 상태는 암호 쓰기 저장 끝점이 시작되지 않았음을 의미합니다. 이 이벤트(6800)에 대한 이벤트 로그 세부 정보는 PasswordResetService 요소가 생성한 이벤트 로그 항목과 함께 끝점을 시작하지 못한 이유를 나타냅니다. 암호 쓰기 저장이 여전히 작동하지 않는 경우 이러한 이벤트 로그 오류를 검토하고 Azure AD 연결을 다시 시작합니다. 문제가 지속되면 암호 쓰기 저장을 비활성화하고 다시 활성화시킵니다.</p>
-            </td>
-          </tr>
-					<tr>
-            <td>
-              <p>사용자가 암호 재설정 또는 비밀번호 쓰기 저장을 사용하도록 설정된 계정을 잠금 해제하려는 경우 작업이 실패합니다. 또한 잠금 해제 작업이 발생한 후 “동기화 엔진이 오류 hr=800700CE 반환, 메시지=파일 이름 또는 확장명이 너무 깁니다”를 포함하는 Azure AD Connect 이벤트 로그에서 이벤트가 표시됩니다.
-							</p>
-            </td>
-            <td>
-              <p>Azure AD Connect 또는 DirSync의 이전 버전에서 업그레이드한 경우 발생할 수 있습니다. 이전 버전의 Azure AD Connect 업그레이드는 Azure AD 관리 에이전트 계정에 대해 254자의 암호를 설정합니다(최신 버전은 127자 길이 암호 설정) . 이러한 긴 암호는 AD 커넥터 가져오기 및 내보내기 작업에 사용할 수 있지만 잠금 해제 작업에서 지원되지 않습니다.
-							</p>
-            </td>
-            <td>
-              <p>Azure AD Connect에 대한 [Active Directory 계정 찾기](active-directory-aadconnect-accounts-permissions.md#active-directory-account) 및 127자 미만의 문자를 포함하는 암호를 다시 설정합니다. 그런 다음 시작 메뉴에서 **동기화 서비스**를 엽니다. **커넥터**로 이동하고 **Active Directory Connector**를 찾습니다. 선택하고 **속성**을 클릭합니다. **자격 증명** 페이지로 이동하고 새 암호를 입력합니다. **확인**을 선택하여 페이지를 닫습니다.
-							</p>
+              <p>When Password Writeback is enabled, the sync engine will call the writeback library to perform the configuration (onboarding) by talking to the cloud onboarding service. Any errors encountered during onboarding or while starting the WCF endpoint for Password Writeback will result in errors in the Event log in your Azure AD Connect machine’s event log.</p>
+              <p>During restart of ADSync service, if writeback was configured, the WCF endpoint will be started up. However, if the startup of the endpoint fails, we will simply log event 6800 and let the sync service startup. Presence of this event means that the Password Writeback endpoint was not started up. Event log details for this event (6800) along with event log entries generate by PasswordResetService component will indicate why the endpoint could not be started up. Review these event log errors and try to re-start the Azure AD Connect if Password Writeback still isn’t working. If the problem persists, try to disable and re-enable Password Writeback.</p>
             </td>
           </tr>
-					<tr>
+                    <tr>
             <td>
-              <p>Azure AD Connect을 설치하는 동안 쓰기 저장을 구성하는 오류입니다.</p>
+              <p>When a user attempts to reset a password or unlock an account with password writeback enabled, the operation fails. In addition, you see an event in the Azure AD Connect event log containing: “Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long” after the unlock operation occurs.
+                            </p>
             </td>
             <td>
-              <p>Azure AD Connect 설치 프로세스의 마지막 단계에서 암호 쓰기 저장을 구성할 수 없다는 오류가 표시됩니다.</p>
+              <p>This can occur if you had upgraded from older versions of Azure AD Connect or DirSync. Upgrading to older versions of Azure AD Connect set a 254 character password for the Azure AD Management Agent account (newer versions will set a 127 character length password). Such long passwords work for AD Connector Import and Export operations but they are not supported by the Unlock operation.
+                            </p>
+            </td>
+            <td>
+              <p>[Find the Active Directory account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) for Azure AD Connect and reset the password to contain no more than 127 characters. Then open **Synchronization Service** from the Start menu. Navigate to **Connectors** and find the **Active Directory Connector**. Select it and click **Properties**. Navigate to the page **Credentials** and enter the new password. Select **OK** to close the page.
+                            </p>
+            </td>
+          </tr>
+                    <tr>
+            <td>
+              <p>Error configuring writeback during Azure AD Connect installation.</p>
+            </td>
+            <td>
+              <p>At the last step of the Azure AD Connect installation process, you see an error indicating that Password Writeback could not be configured.</p>
               <p>
 
               </p>
-              <p>Azure AD 연결 응용 프로그램 이벤트 로그는 "인증 토큰 가져오기 오류"라는 오류 32009 텍스트를 포함합니다.</p>
+              <p>The Azure AD Connect Application event log contains error 32009 with text “Error getting auth token”.</p>
             </td>
             <td>
-              <p>이 오류는 다음과 같은 두 경우에 발생합니다.</p>
+              <p>This error occurs in the following two cases:</p>
               <ul>
                 <li class="unordered">
-										Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 잘못된 암호를 지정했습니다.<br\><br\></li>
+You have specified an incorrect password for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 페더레이션된 사용자를 사용하려 했습니다.<br\><br\></li>
+You have attempted to use a federated user for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br\><br\></li>
               </ul>
-              <p>이 오류를 해결하려면 Azure AD Connect 설치 프로세스를 시작할 때 지정한 전역 관리자로 페더레이션된 계정을 사용하지 않고 지정된 암호가 올바른지 확인하십시오.</p>
+              <p>To fix this error, please ensure that you are not using a federated account for the global administrator you specified at the beginning of the Azure AD Connect installation process, and that the password specified is correct.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Azure AD Connect을 설치하는 동안 쓰기 저장을 구성하는 오류입니다.</p>
+              <p>Error configuring writeback during Azure AD Connect installation.</p>
             </td>
             <td>
-              <p>Azure AD Connect 컴퓨터 이벤트 로그는 PasswordResetService가 발생시킨 오류 32002를 포함합니다.</p>
+              <p>The Azure AD Connect machine event log contains error 32002 thrown by the PasswordResetService.</p>
               <p>
 
               </p>
-              <p>오류에서 "ServiceBus에 연결 오류, 토큰 공급자가 보안 토큰을 제공할 수 없습니다... "라는 메시지가 보입니다.</p>
+              <p>The error reads: “Error Connecting to ServiceBus, The token provider was unable to provide a security token…”</p>
               <p>
 
               </p>
             </td>
             <td>
-              <p>이 오류의 근본 원인은 온-프레미스 환경에서 실행하는 암호 재설정 서비스가 클라우드의 서비스 버스 끝점에 연결할 수 없는 데 있습니다. 이 오류는 일반적으로 특정 포트 또는 웹 주소에 대한 아웃 바운드 연결을 차단하는 방화벽 규칙에 의해 발생됩니다.</p>
+              <p>The root cause of this error is that the password reset service running in your on-premises environment is not able to connect to the service bus endpoint in the cloud. This error is normally normally caused by a firewall rule blocking an outbound connection to a particular port or web address.</p>
               <p>
 
               </p>
-              <p>방화벽이 다음에서 아웃 바운드 연결을 허용하는지 확인합니다.</p>
+              <p>Make sure your firewall allows outbound connections for the following:</p>
               <ul>
                 <li class="unordered">
-										TCP 443(HTTPS)를 통한 모든 트래픽<br\><br\></li>
+All traffic over TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										에 아웃바운드 연결<br\><br\></li>
+Outbound connections to <br\><br\></li>
               </ul>
               <p>
 
               </p>
-              <p>이러한 규칙을 업데이트한 후 Azure AD Connect 컴퓨터를 재부팅하고 암호 쓰기 저장은 작업을 다시 시작해야 합니다.</p>
+              <p>Once you have updated these rules, reboot the Azure AD Connect machine and Password Writeback should start working again.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>연결할 수 없는 암호 쓰기 저장 끝점 온-프레미스</p>
+              <p>Password Writeback endpoint on-prem not reachable</p>
             </td>
             <td>
-              <p>시간이 지난 후에 페더레이션되거나 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다.</p>
+              <p>After working for some time, federated or password hash synced users cannot reset their passwords.</p>
             </td>
             <td>
-              <p>일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 암호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 암호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하십시오. 이렇게 하려면 Azure AD Connect 마법사 또는 Powershell를 사용해야 합니다.(위의 HowTos 섹션 참조) 기능을 사용 가능하도록 표시되면 UI 또는 PowerShell을 통해 이 기능을 활성화 또는 비활성화하도록 시도합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 및 방화벽 규칙을 구성"을 참조하십시오.</p>
+              <p>In some rare cases, the Password Writeback service may fail to re-start when Azure AD Connect has re-started. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the Azure AD Connect wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
               <p>
 
               </p>
-              <p>작동하지 않으면 Azure AD Connect를 완전히 제거하고 다시 설치하십시오.</p>
+              <p>If this doesn’t work, try completely uninstalling and re-installing Azure AD Connect.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>권한 오류</p>
+              <p>Permissions errors</p>
             </td>
             <td>
-              <p>페더레이션된 페더레이션되거나 암호 해시 동기화되어 자신의 암호를 재설정하려는 사용자는 서비스 문제가 나타나는 암호를 제출한 후 오류가 나타납니다.</p>
+              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
 
               </p>
-              <p>이 외에도 암호 재설정 작업 중 관리 에이전트와 관련한 오류가 온-프레미스 이벤트 로그에서 거부된 액세스를 표시할 수 있습니다</p>
+              <p>In addition to this, during password reset operations, you may see an error regarding management agent was denied access in your on premises event logs.</p>
             </td>
             <td>
-              <p>이러한 오류를 이벤트 로그에 표시한 경우 AD MA 계정(구성 시 마법사에서 지정됨)이 암호 쓰기 저장에 필요한 권한이 있는지 확인합니다.</p>
+              <p>If you see these errors in your event log, confirm that the AD MA account (that was specified in the wizard at the time of configuration) has the necessary permissions for Password Writeback.</p>
               <p>
 
               </p>
-              <p>이 권한이 부여되면 DC에서 sdprop 백그라운드 작업을 통해 권한을 주는 데 최대 1시간이 걸릴 수 있습니다.  </p>
-              <p>암호 재설정을 작동하기 위해 해당 암호를 재설정하는 사용자 개체의 보안 설명자에 사용 권한을 스탬프해야 합니다. 사용자 개체에 이 사용 권한이 표시될 때까지 암호 재설정에 액세스가 거부되고 실패할 것입니다.</p>
+              <p>NOTE that once this permission is given it can take up to 1 hour for the permissions to trickle down via sdprop background task on the DC. </p>
+              <p>For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset will continue to fail with access denied.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Azure AD Connect 구성 마법사에서 암호 쓰기 저장을 구성하는 동안 오류가 발생했습니다. </p>
+              <p>Error when configuring Password Writeback from the Azure AD Connect configuration wizard </p>
             </td>
             <td>
-              <p>암호 쓰기 저장을 활성화/비활성화하는 동안 마법사에서 "MA를 찾을 수 없다는" 오류입니다</p>
+              <p>“Unable to Locate MA” error in Wizard while enabling/disabling Password Writeback</p>
             </td>
             <td>
-              <p>다음과 같은 상황에서 매니페스트한 Azure AD Connect의 릴리스 버전에서는 알려진 버그가 있습니다.</p>
+              <p>There is a known bug in the released version of Azure AD Connect which manifests in the following situation:</p>
               <ol class="ordered">
                 <li>
-										자격 증명을 사용하여 테넌트 abc.com(확인된 도메인)에 대한 Azure AD Connect을 구성합니다. "abc.com – AAD"라는 이름으로 AAD 커넥터가 생성되었습니다. <br\><br\></li>
+You configure Azure AD Connect for tenant abc.com (Verified domain) using creds . This results in AAD connector with name “abc.com – AAD” being created.<br\><br\></li>
                 <li>
-										그런 다음 커넥터용 AAD 자격 증명을 (이전 동기화 UI 사용함) (동일한 테넌트지만 서로 다른 도메인 이름임)로 바꿉니다. <br\><br\></li>
+You then then change the AAD creds for the connector (using old sync UI) to  (note it’s the same tenant but different domain name). <br\><br\></li>
                 <li>
-										이제 암호 쓰기 저장 활성화/비활성화를 시도할 수 있습니다. 마법사는 자격 증명을 사용하여 "abc.onmicrosoft.com – AAD"으로 커넥터의 이름을 생성하고 암호 쓰기 저장 cmdlet에 전달합니다. 이 이름을 사용하여 만든 커넥터가 없기 때문에 실패합니다.<br\><br\></li>
+Now you try to enable/disable Password Writeback. The wizard will construct the name of the connector using the creds, as “abc.onmicrosoft.com – AAD” and pass to the Password Writeback cmdlet. This will fail because there is no connector created with this name.<br\><br\></li>
               </ol>
-              <p>이것은 최신 빌드에서 수정되었습니다. 이전 빌드를 설정한 경우 해결 방법은 기능을 활성화/비활성화하는 Powershell cmdlet을 사용하는 것입니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 및 방화벽 규칙을 구성"을 참조하십시오.</p>
+              <p>This has been fixed in our latest builds. If you have an older build, the one workaround is to use the powershell cmdlet to enable/disable the feature. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>도메인 관리자/ 엔터프라이즈 관리자 등과 같은 특수한 그룹의 사용자용 암호를 다시 설정할 수 없습니다.</p>
+              <p>Unable to reset password for users in special groups such as Domain Admins / Enterprise Admins etc.</p>
             </td>
             <td>
-              <p>페더레이션된 페더레이션되거나 암호 해시 동기화되어 보호된 그룹의 일부로서 자신의 암호를 재설정하려는 사용자는 서비스 문제가 나타나는 암호를 제출한 후 오류가 나타납니다.</p>
+              <p>Federated or password hash sync’d users who are part of protected groups and attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
             </td>
             <td>
-              <p>Active Directory에 권한이 있는 사용자는 AdminSDHolder를 사용하여 보호됩니다. 자세한 내용은 <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a>을 참조하십시오. </p>
+              <p>Privileged users in Active Directory are protected using AdminSDHolder. See <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> for more details. </p>
               <p>
 
               </p>
-              <p>즉, 이러한 개체에서 보안 설명자는 AdminSDHolder에 지정된 개체와 일치하도록 정기적으로 검사하고 일치하지 않는 경우 재설정됩니다. 따라서 암호 쓰기 저장에 필요한 추가 사용 권한을 그러한 사용자에게 주지 않습니다. 이러한 사용자에게는 암호 쓰기 저장이 작동하지 않을 수 있습니다. 결과적으로 이는 AD 보안 모델을 저해하므로 이러한 그룹 내에서 사용자용 관리 암호를 지원하지 않습니다 </p>
+              <p>This means the security descriptors on these objects are periodically checked to match the one specified in AdminSDHolder and are reset if they are different. The additional permissions that are needed for Password Writeback therefore do not trickle to such users. This can result in Password Writeback not working for such users.As a result, we do not support managing passwords for users within these groups because it breaks the AD security model.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>개체의 재설정 작업 실패를 찾을 수 없습니다</p>
+              <p>Reset operations fails with Object could not be found</p>
             </td>
             <td>
-              <p>페더레이션된 페더레이션되거나 암호 해시 동기화되어 자신의 암호를 재설정하려는 사용자는 서비스 문제가 나타나는 암호를 제출한 후 오류가 나타납니다.</p>
+              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
 
               </p>
-              <p>이외에 암호 재설정 작업 중에 Azure AD Connect 서비스에서 이벤트 로그에 "개체를 찾을 수 없습니다"라는 오류가 나타날 수 있습니다.</p>
+              <p>In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating an “Object could not be found” error.</p>
             </td>
             <td>
-              <p>이 오류는 일반적으로 동기화 엔진이 AAD 커넥터 공간 또는 연결된 MV에서 사용자 개체 또는 AD 커넥터 공간 개체를 찾을 수 없음을 나타냅니다. </p>
+              <p>This error usually indicates that the sync engine is unable to find either the user object in the AAD connector space or the linked MV or AD connector space object. </p>
               <p>
 
               </p>
-              <p>이 문제를 해결하려면 Azure AD Connect의 현재 인스턴스를 통해 사용자가 온-프레미스에서 AAD에 실제로 동기화되었는지 확인하고 커넥터 공간 및 MV에서 개체의 상태를 검사합니다. AD CS 개체가 "Microsoft.InfromADUserAccountEnabled.xxx" 규칙을 통한 MV 개체의 커넥터인지 확인합니다.</p>
+              <p>To troubleshoot this, make sure that the user is indeed synced from on-prem to AAD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the AD CS object is connector to the MV object via the “Microsoft.InfromADUserAccountEnabled.xxx” rule.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>재설정 작업은 여러 일치 항목이 오류를 찾아내면 실패합니다</p>
+              <p>Reset operations fails with Multiple matches found eror</p>
             </td>
             <td>
-              <p>페더레이션된 페더레이션되거나 암호 해시 동기화되어 자신의 암호를 재설정하려는 사용자는 서비스 문제가 나타나는 암호를 제출한 후 오류가 나타납니다.</p>
+              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
 
               </p>
-              <p>이외에 암호 재설정 작업 중에 Azure AD Connect 서비스에서 이벤트 로그에 "여러 에러를 찾았습니다"라는 오류가 나타날 수 있습니다.</p>
+              <p>In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating a “Multiple maches found” error.</p>
             </td>
             <td>
-              <p>이는 MV 개체가 "Microsoft.InfromADUserAccountEnabled.xxx"를 통해 둘 이상의 연결된 AD CS 개체라는 점을 동기화 엔진이 감지했음을 나타냅니다. 이는 사용자에게 둘 이상의 포리스트에 활성화된 계정이 있음을 의미합니다. </p>
+              <p>This indicates that the sync engine detected that the MV object is connected to more than one AD CS objects via the “Microsoft.InfromADUserAccountEnabled.xxx”. This means that the user has an enabled account in more than one forest. </p>
               <p>
 
               </p>
-              <p>현재 시나리오는 암호 쓰기 저장을 지원하지 않습니다.</p>
+              <p>Currently this scenario is not supported for Password Writeback.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>구성 오류가 있으면 암호 작업은 실패합니다.</p>
+              <p>Password operations fail with a configuration error.</p>
             </td>
             <td>
-              <p>구성 오류가 있으면 암호 작업은 실패합니다. 응용 프로그램 이벤트 로그는 텍스트와 함께 Azure AD Connect 오류 6329를 포함합니다. 0x8023061f (이 관리 에이전트에서 암호 동기화를 사용하지 않기 때문에 작업이 실패했습니다.)</p>
+              <p>Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with text: 0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent.)</p>
             </td>
             <td>
-              <p>암호 쓰기 저장 기능이 이미 설정된 <strong>후에</strong> Azure AD Connect이 새 AD 포리스트를 추가(또는 기존 포리스트를 제거하고 다시 추가)하여 변경하려는 경우 발생합니다. 이렇게 새로 추가된 포리스트에서 사용자용 암호 작업은 실패합니다. 이 문제를 해결하려면 포리스트 구성이 변경된 후에 비활성화 및 재활성화된 암호 쓰기 저장 기능을 완료합니다.</p>
+              <p>This occurs if the Azure AD Connect configuration is changed to add&nbsp;a new AD forest (or to remove and re-add an existing forest) <strong>after</strong> the Password Writeback feature has already been enabled. Password operations for users in such newly added forests will fail. To fix the problem, disable and re-enable the Password Writeback feature after the forest configuration changes have been completed.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>사용자가 적절하게 재설정한 암호 쓰기 저장이지만 사용자가 변경하거나 관리자가 사용자용으로 재설정한 암호 쓰기 저장은 실패합니다.</p>
+              <p>Writing back passwords that have been reset by users works properly, but writing back passwords changed by a user or reset for a user by an administrator fails.</p>
             </td>
             <td>
-              <p>Azure 관리 포털에서 사용자를 대신하여 암호를 재설정하려고 할 때 다음과 같은 내용의 메시지가 표시됩니다. “온-프레미스 환경에서 실행되는 암호 재설정 서비스는 관리자가 사용자 암호 재설정하도록 지원하지 않습니다. 이 문제를 해결하려면 Azure AD Connect최신 버전으로 업그레이드하십시오.”</p>
+              <p>When attempting to reset a password on behalf of a user from the Azure Management Portal, you see a message stating: “The password reset service running in your on-premises environment does not support administrators resetting user passwords. Please upgrade to the latest version of Azure AD Connect to resolve this.”</p>
             </td>
             <td>
-              <p>이는 동기화 엔진 버전이 사용된 특정 암호 쓰기 저장 작업을 지원하지 않는 경우 발생합니다. Azure AD Connect 1.0.0419.0911 이후 버전은 Azure 관리 포털에서 암호를 재설정 쓰기 저장, 암호 변경 쓰기 저장 및 관리자가 시작한 암호 재설정 쓰기 저장을 포함하는 모든 암호 관리 작업을 지원합니다.&#160; DirSync 1.0.6862 이후 버전이 암호 재설정 쓰기 저장을 지원합니다. 이 문제를 해결하려면 Azure AD Connect 또는 Azure Active Directory Connect의 최신 버전을 설치하여(자세한 내용은 <a href="active-directory-aadconnect">디렉터리 통합 도구</a>를 참조) 조직에서 이 문제를 해결 하고 암호 쓰기 저장을 최대한 활용하는 것이 좋습니다</p>
+              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect (for more information, see <a href="active-directory-aadconnect">Directory Integration Tools</a>) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## 암호 쓰기 저장 이벤트 로그 오류 코드
-암호 쓰기 저장과 관련된 문제를 해결할 때 가장 좋은 방법은 Azure AD Connect 컴퓨터에서 해당 응용 프로그램 이벤트 로그를 검사하는 것입니다. 이 이벤트 로그는 암호 쓰기 저장에 관심을 둔 두 개의 소스에서 비롯된 이벤트를 포함합니다. PasswordResetService 소스는 암호 쓰기 저장 작업에 관련된 작업 및 문제를 설명합니다. ADSync 소스는 AD 환경에서 암호 설정과 관련된 작업 및 문제를 설명합니다.
+## <a name="password-writeback-event-log-error-codes"></a>Password Writeback event log error codes
+A best practice when troubleshooting issues with Password Writeback is to inspect that Application Event Log on your Azure AD Connect machine. This event log will contain events from two sources of interest for Password Writeback. The PasswordResetService source will describe operations and issues related to the operation of Password Writeback. The ADSync source will describe operations and issues related to setting passwords in your AD environment.
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>코드</strong>
+                <strong>Code</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>이름 / 메시지</strong>
+                <strong>Name / Message</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>원본</strong>
+                <strong>Source</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>설명</strong>
+                <strong>Description</strong>
               </p>
             </td>
           </tr>
@@ -692,28 +693,28 @@
               <p>6329</p>
             </td>
             <td>
-              <p>재귀 한도 초과: MMS(4924) 0x80230619 – "제한은 암호가 지정된 현재 공급자로 변경되지 않도록 방지합니다."</p>
+              <p>BAIL: MMS(4924) 0x80230619 – “A restriction prevents the password from being changed to the current one specified.”</p>
             </td>
             <td>
               <p>ADSync</p>
             </td>
             <td>
-              <p>이 이벤트는 암호 쓰기 저장 서비스가 암호 사용 기간, 기록, 복잡성 또는 도메인의 필터링 요구 사항에 맞지 않는 로컬 디렉터리에 암호를 설정하려고 할 때 발생 합니다.</p>
+              <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
               <ul>
                 <li class="unordered">
-										최소 암호 사용 기간을 사용하고 최근 시간의 해당 창 내에서 암호를 변경하는 경우 사용자 도메인에 지정된 보존 기간에 도달할 때까지 다시 암호를 변경할 수 없습니다. 테스트를 위해 최소 보존 기간을 0으로 설정해야 합니다. <br\><br\></li>
+If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										암호 기록 요구 사항을 활성화하는 경우 마지막 N 번에서 사용되지 않은 암호를 선택해야 합니다. 여기서 N은 암호 기록 설정입니다. 마지막 N 번에서 사용된 암호를 선택하는 경우 오류가 나타납니다. 테스트를 위해 기록을 0으로 설정해야 합니다. <br\><br\></li>
+If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										암호 복잡성 요구 사항이 있는 경우 사용자가 암호를 변경하거나 재설정하려고 할 때 이들 모두를 강제제합니다. <br\><br\></li>
+If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										암호 필터를 사용하고 사용자가 필터링 조건을 충족하지 않는 암호를 선택한 경우 재설정 또는 변경 작업이 실패합니다. <br\><br\></li>
+If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -722,15 +723,15 @@
               <p>HR 8023042</p>
             </td>
             <td>
-              <p>동기화 엔진이 오류 hr=80230402를 반환했습니다. 메시지= 동일한 앵커를 가진 중복된 항목이 있기 때문에 개체를 가져오려는 시도가 실패했습니다.</p>
+              <p>Synchronization Engine returned an error hr=80230402, message=An attempt to get an object failed because there are duplicated entries with the same anchor</p>
             </td>
             <td>
               <p>ADSync</p>
             </td>
             <td>
-              <p>이 이벤트는 여러 도메인에 동일한 사용자 ID가 설정된 경우에 발생합니다. 예를 들어 계정/리소스 포리스트를 동기화하고 각각에서 동일한 사용자 ID가 나타나고 사용된 경우 이 오류가 발생할 수 있습니다.  </p>
-              <p>사용자가 고유하지 않은 앵커 특성(예: 별칭 또는 UPN)을 사용하고 두 명의 사용자가 해당하는 동일한 앵커 특성을 공유하는 경우 이 오류가 발생할 수 있습니다.</p>
-              <p>이 문제를 해결하려면 도메인 내에서 중복된 사용자가 없도록 하고 각 사용자에 고유한 앵커 특성을 사용하고 있는지를 확인합니다.</p>
+              <p>This event occurs when the same user id is enabled in multiple domains.  For example, if you are syncing Account/Resource forests, and have the same user id present and enabled in each, this error may occur.  </p>
+              <p>This error can also occur if you are using a non-unique anchor attribute (like alias or UPN) and two users share that same anchor attribute.</p>
+              <p>To resolve this issue, ensure that you do not have any duplicated users within your domains and that you are using a unique anchor attribute for each user.</p>
             </td>
           </tr>
           <tr>
@@ -744,7 +745,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 온-프레미스 서비스가 클라우드에서 시작한 페더레이션되거나 암호 해시 동기화된 사용자를 위해 암호 재설정 요구를 검색하도록 합니다. 이 이벤트는 쓰기 저장 작업을 재설정한 모든 암호의 첫 번째 이벤트입니다.</p>
+              <p>This event indicates that the on-premises service detected a password reset request for a federated or password hash sync’d user originating from the cloud. This event is the first event in every password reset writeback operation.</p>
             </td>
           </tr>
           <tr>
@@ -758,7 +759,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 사용자가 암호 재설정 작업 중 새 암호를 선택함을 나타냅니다. 이 암호는 기업의 암호 요구 사항을 만족하고 해당 암호가 다시 로컬 AD 환경에 성공적으로 작성되었음을 확인합니다.</p>
+              <p>This event indicates that a user selected a new password during a password reset operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
             </td>
           </tr>
           <tr>
@@ -772,20 +773,20 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 사용자가 암호를 선택하고 암호가 온-프레미스 환경에 성공적으로 도달했지만 로컬 AD 환경에서 암호를 설정하려고 할 때 오류가 발생했음을 나타냅니다. 이 옵션은 다음과 같은 이유로 발생할 수 있습니다.</p>
+              <p>This event indicates that a user selected a password, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하십시오. <br\><br\></li>
+The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
+The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
+The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하십시오.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -799,7 +800,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 Azure AD Connect로 암호 쓰기 저장을 사용하도록 설정하는 경우 발생하며 암호 쓰기 저장 웹 서비스에 사용자의 조직을 온보딩하기 시작했음을 나타냅니다.</p>
+              <p>This event occurs if you enable Password Writeback with Azure AD Connect and indicates that we started onboarding your organization to the Password Writeback web service.</p>
             </td>
           </tr>
           <tr>
@@ -813,7 +814,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 온보딩 프로세스가 완료되었으며 암호 쓰기 저장 기능을 사용할 준비가 되었음을 나타냅니다.</p>
+              <p>This event indicates the onboarding process was successful and that Password Writeback capability is ready to use.</p>
             </td>
           </tr>
           <tr>
@@ -827,7 +828,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 온-프레미스 서비스가 클라우드에서 시작한 페더레이션되거나 암호 해시 동기화된 사용자를 위해 암호 변경 요구를 검색하도록 합니다. 이 이벤트는 쓰기 저장 작업을 변경한 모든 암호의 첫 번째 이벤트입니다.</p>
+              <p>This event indicates that the on-premises service detected a password change request for a federated or password hash sync’d user originating from the cloud. This event is the first event in every password change writeback operation.</p>
             </td>
           </tr>
           <tr>
@@ -841,7 +842,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 사용자가 암호 변경 작업 중 새 암호를 선택함을 나타냅니다. 이 암호는 기업의 암호 요구 사항을 만족하고 해당 암호가 다시 로컬 AD 환경에 성공적으로 작성되었음을 확인합니다.</p>
+              <p>This event indicates that a user selected a new password during a password change operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
             </td>
           </tr>
           <tr>
@@ -855,20 +856,20 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 사용자가 암호를 선택하고 암호가 온-프레미스 환경에 성공적으로 도달했지만 로컬 AD 환경에서 암호를 설정하려고 할 때 오류가 발생했음을 나타냅니다. 이 옵션은 다음과 같은 이유로 발생할 수 있습니다.</p>
+              <p>This event indicates that a user selected a password, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하십시오. <br\><br\></li>
+The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
+The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
+The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하십시오.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situations can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -882,7 +883,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>온-프레미스 서비스는 사용자 대신 관리자에서 시작한 페더레이션되거나 암호 해시 동기화된 사용자를 위해 암호 재설정 요구를 검색합니다. 이 이벤트는 쓰기 저장 작업을 재설정한 모든 관리자가 시작한 암호의 첫 번째 이벤트입니다.</p>
+              <p>The on-premises service detected a password reset request for a federated or password hash sync’d user originating from the administrator on behalf of a user. This event is the first event in every admin-initiated password reset writeback operation.</p>
             </td>
           </tr>
           <tr>
@@ -896,7 +897,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>관리자가 스스로 시작한 암호 재설정 작업 중 새 암호를 선택합니다. 이 암호는 기업의 암호 요구 사항을 만족하고 해당 암호가 다시 로컬 AD 환경에 성공적으로 작성되었음을 확인합니다.</p>
+              <p>The admin selected a new password during an admin-initiated password reset operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
             </td>
           </tr>
           <tr>
@@ -910,20 +911,20 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>관리자가 사용자 대신 암호를 선택하고 암호가 온-프레미스 환경에 성공적으로 도달했지만 로컬 AD 환경에서 암호를 설정하려고 할 때 오류가 발생했음을 나타냅니다. 이 옵션은 다음과 같은 이유로 발생할 수 있습니다.</p>
+              <p>The admin selected a password on behalf of a user, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하십시오. <br\><br\></li>
+The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
+The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
+The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하십시오.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -937,7 +938,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 Azure AD Connect로 암호 쓰기 저장을 사용하지 않는 경우에 발생하며 사용자 조직을 암호 쓰기 저장 웹 서비스로 오프보딩하기 시작했음을 나타냅니다.</p>
+              <p>This event occurs if you disable Password Writeback with Azure AD Connect and indicates that we started offboarding your organization to the Password Writeback web service.</p>
             </td>
           </tr>
           <tr>
@@ -951,7 +952,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 오프보딩 프로세스가 완료되었으며 암호 쓰기 저장 기능이 성공적으로 비활성화되었음을 나타냅니다.</p>
+              <p>This event indicates the offboarding process was successful and that Password Writeback capability has been successfully disabled.</p>
             </td>
           </tr>
           <tr>
@@ -965,7 +966,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 오프보딩 프로세스가 성공했는지를 나타냅니다. 이는 구성하는 동안 지정된 클라우드 또는 온-프레미스 관리자 계정에서 발생한 사용 권한 오류 때문이거나 또는 암호 쓰기 저장을 비활성화하는 경우 페더레이션된 클라우드 전역 관리자를 사용하려고 했기 때문일 수 있습니다. 이 문제를 해결하려면 암호 쓰기 저장 기능을 구성하는 동안 관리 권한과 페더레이션된 계정을 사용하지 않는지를 확인합니다.</p>
+              <p>This event indicates the offboarding process was not successful. This could be due to a permissions error on the cloud or on-premises administrator account specified during configuration, or because you are attempting to use a federated cloud global administrator when disabling Password Writeback. To fix this, check your administrative permissions and that you are not using any federated account while configuring the Password Writeback capability.</p>
             </td>
           </tr>
           <tr>
@@ -979,7 +980,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 암호 쓰기 저장 서비스를 성공적으로 시작하고 클라우드에서 암호 관리 요청을 받을 준비가 되었음을 나타냅니다.</p>
+              <p>This event indicates that the Password Writeback service has started successfully and is ready to accept password management requests from the cloud.</p>
             </td>
           </tr>
           <tr>
@@ -993,7 +994,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 암호 쓰기 저장 서비스가 중지되고 클라우드에서 모든 암호 관리 요청이 성공할 수 없음을 나타냅니다.</p>
+              <p>This event indicates that the Password Writeback service has stopped and that any password management requests from the cloud will not be successful.</p>
             </td>
           </tr>
           <tr>
@@ -1007,7 +1008,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 오프보딩 또는 온보딩 프로세스를 시작하기 위해 Azure AD Connect 설치 중에 지정된 전역 관리자에 대한 권한 부여 토큰을 성공적으로 검색했음을 나타냅니다.</p>
+              <p>This event indicates that we successfully retrieved an authorization token for the global admin specified during Azure AD Connect setup in order to start the offboarding or onboarding process.</p>
             </td>
           </tr>
           <tr>
@@ -1021,7 +1022,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 클라우드에서 온-프레미스 환경에 보내야 하는 암호를 암호화하는 데 사용할 암호 암호화 키를 성공적으로 만들었음을 나타냅니다.</p>
+              <p>This event indicates that we successfully created the password encryption key that will be used to encrypt passwords from the cloud to be sent to your on-premises environment.</p>
             </td>
           </tr>
           <tr>
@@ -1035,7 +1036,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 암호 관리 작업을 하는 동안 알 수 없는 오류를 나타냅니다. 자세한 내용은 이벤트에서 예외 텍스트를 확인합니다. 문제가 발생하는 경우 암호 쓰기 저장 기능을 비활성화하고 재활성화하여 시도하십시오. 이렇게 해도 도움이 되지 않으면 지원 담당 엔지니어에 지정된 소식지 추적 id와 함께 이벤트 로그의 복사본을 포함합니다.</p>
+              <p>This event indicates an unknown error during a password management operation. Look at the exception text in the event for more details. If you are having problems, try disabling and re-enabling Password Writeback. If this does not help, include a copy of your event log along with the tracking id specified insider to your support engineer.</p>
             </td>
           </tr>
           <tr>
@@ -1049,7 +1050,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 클라우드 암호 재설정 서비스에 연결된 오류가 있음을 나타내며 일반적으로 온-프레미스 서비스가 암호 재설정 웹 서비스에 연결할 수 없을 때 발생합니다. </p>
+              <p>This event indicates there was an error connecting to the cloud password reset service, and generally occurs when the on-premises service was unable to connect to the password reset web service. </p>
             </td>
           </tr>
           <tr>
@@ -1063,7 +1064,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 테넌트의 서비스 버스 인스턴스에 연결하는 오류가 발생했음을 나타냅니다. 이는 온-프레미스 환경에서 아웃 바운드 연결을 차단하기 때문에 발생할 수 있습니다. TCP 443을 통해 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>로 연결을 허용하도록 방화벽을 확인하고 다시 시도하십시오. 여전히 문제가 발생하는 경우 암호 쓰기 저장 기능을 비활성화하고 재활성화하여 시도하십시오.</p>
+              <p>This event indicates there was an error connecting to your tenant’s service bus instance. This could happen because you are blocking outbound connections in your on-premises environment. Check your firewall to ensure you allow connections over TCP 443 and to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and try again. If you are still having problems, try disabling and re-enabling Password Writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1077,7 +1078,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 웹 서비스 API에 전달 된 입력이 잘못되었음을 나타냅니다. 작업을 다시 시도합니다.</p>
+              <p>This event indicates that the input passed to our web service API was invalid. Try the operation again.</p>
             </td>
           </tr>
           <tr>
@@ -1091,7 +1092,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 클라우드에서 도착하는 암호를 해독하는 오류가 발생했음을 나타냅니다. 클라우드 서비스 및 온-프레미스 환경 간에 암호 해독 키가 불일치하기 때문일 수 있습니다. 이를 해결하기 위해 온-프레미스 환경에서 암호 쓰기 저장을 비활성화하고 재활성화합니다.</p>
+              <p>This event indicates that there was an error decrypting the password that arrived from the cloud. This could be because of a decryption key mismatch between the cloud service and your on-premises environment. In order to resolve this, disable and re-enable Password Writeback in your on-premises environment.</p>
             </td>
           </tr>
           <tr>
@@ -1105,7 +1106,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>온보딩하는 동안 온-프레미스 환경의 구성 파일에서 테넌트 관련 정보를 저장합니다. 이 이벤트는 이 파일을 저장하는 오류가 발생했거나 서비스를 시작할 때 파일을 읽는 오류가 발생함을 나타냅니다. 이 문제를 해결하려면 이 구성 파일을 다시 작성하도록 강제하여 암호 쓰기 저장을 비활성화 및 재활성화하십시오. </p>
+              <p>During onboarding, we save tenant-specific information in a configuration file in your on-premises environment. This event indicates there was an error saving this file or that when the service was started there was an error reading the file. To fix this issue, try disabling and re-enabling Password Writeback to force a re-write of this configuration file. </p>
             </td>
           </tr>
           <tr>
@@ -1119,7 +1120,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>사용되지 않음 –이 이벤트는 Azure AD Connect에 나타나지 않으며 쓰기 저장을 지원하는 DirSync의 초기 빌드입니다.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1133,7 +1134,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>온보딩하는 동안 데이터를 클라우드에서 온-프레미스 암호 재설정 서비스로 보냅니다. 그런 다음 해당 데이터가 동기화 서비스에 전송되어 디스크에 이 정보를 안전하게 저장하기 전에 메모리 내 파일에 기록됩니다. 이 이벤트는 메모리에서 해당 데이터를 작성하거나 업데이트하는 데 문제가 있음을 나타냅니다. 이 문제를 해결하려면 이 구성을 다시 작성하도록 강제하여 암호 쓰기 저장을 비활성화 및 재활성화하십시오.</p>
+              <p>During onboarding, we send data from the cloud to the on-premises password reset service. That data is then written to an in-memory file before being sent to the sync service to store this information securely on disk. This event indicates a problem with writing or updating that data in memory. To fix this issue, try disabling and re-enabling Password Writeback to force a re-write of this configuration.</p>
             </td>
           </tr>
           <tr>
@@ -1147,7 +1148,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 암호 재설정 웹 서비스에서 잘못된 응답을 받았음을 나타냅니다. 이 문제가 해결하려면 암호 쓰기 저장 기능을 비활성화하고 재활성화하여 시도하십시오.</p>
+              <p>This event indicates we received an invalid response from the password reset web service. To fix this issue, try disabling and re-enabling Password Writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1161,7 +1162,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 Azure AD Connect 설치 중에 지정된 전역 관리자 계정에 대한 권한 부여 토큰을 가져올 수 없음을 나타냅니다. 이 오류는 전역 관리자 계정으로 지정된 잘못된 사용자 이름 또는 암호 또는 지정된 전역 관리자 계정이 페더레이션되어 발생할 수 있습니다. 이 문제를 해결 하려면 올바른 사용자 이름과 암호를 사용하여 구성을 다시 실행하고 관리자가 관리된(클라우드 전용 또는 암호 동기화된) 계정인지를 확인합니다.</p>
+              <p>This event indicates that we could not get an authorization token for the global administrator account specified during Azure AD Connect setup. This error can be caused by a bad username or password specified for the global admin account or because the global admin account specified is federated. To fix this issue, re-run configuration with the correct username and password and ensure the administrator is a managed (cloud-only or password-sync’d) account.</p>
             </td>
           </tr>
           <tr>
@@ -1175,7 +1176,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 클라우드 서비스에서 도달한 암호 암호화 키를 생성하거나 암호를 해독할 때 오류가 발생 했음을 나타냅니다. 이 오류가 환경에 문제가 있음을 나타낼 수 있습니다. 이 문제를 해결하고 자세한 이벤트 로그에서 세부 정보를 확인합니다. 이를 해결하려면 암호 쓰기 저장 서비스를 비활성화하고 재활성화할 수 있습니다.</p>
+              <p>This event indicates there was an error when generating the password encryption key or decrypting a password that arrives from the cloud service. This error likely indicates an issue with your environment. Look at the details of your event log to learn more and resolve this issue. You may also try disabling and re-enabling the Password Writeback service to resolve this.</p>
             </td>
           </tr>
           <tr>
@@ -1189,7 +1190,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 온보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이는 테넌트에 대한 인증 토큰을 가져오는 방화벽 규칙 또는 문제 때문일 수 있습니다. 이를 해결하려면 TCP 443 및 TCP 9350-9354를 통해 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>로 아웃 바운드 연결을 차단하지 않았는지와 온보드에 사용하는 AAD 관리자 계정이 페더레이션되었는지를 확인합니다. </p>
+              <p>This event indicates that the on-premises service could not properly communicate with the password reset web service to initiate the onboarding process. This may be because of a firewall rule or problem getting an auth token for your tenant. To fix this, ensure that you are not blocking outbound connections over TCP 443 and TCP 9350-9354 or to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and that the AAD admin account you are using to onboard is not federated. </p>
             </td>
           </tr>
           <tr>
@@ -1203,7 +1204,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>사용되지 않음 –이 이벤트는 Azure AD Connect에 나타나지 않으며 쓰기 저장을 지원하는 DirSync의 초기 빌드입니다.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1217,7 +1218,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 오프보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이는 테넌트에 대한 인증 토큰을 가져오는 방화벽 규칙 또는 문제 때문일 수 있습니다. 이를 해결하려면 443을 통해 또는 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>로 아웃 바운드 연결을 차단하지 않았는지와 오프보드에 사용하는 AAD 관리자 계정이 페더레이션되었는지를 확인합니다. </p>
+              <p>This event indicates that the on-premises service could not properly communicate with the password reset web service to initiate the offboarding process. This may be because of a firewall rule or problem getting an authorization token for your tenant. To fix this, ensure that you are not blocking outbound connections over 443 or to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and that the AAD admin account you are using to offboard is not federated. </p>
             </td>
           </tr>
           <tr>
@@ -1231,7 +1232,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 테넌트의 서비스 버스 인스턴스에 연결하려고 재시도해야 함을 나타냅니다. 정상 조건에서 우려해야 하지만 여러 번 이 이벤트가 나타나는 경우, 특히 긴 대기 시간 또는 낮은 대역폭 연결이면 서비스 버스에 대한 네트워크 연결을 확인합니다.</p>
+              <p>This event indicates that we had to retry to connect to your tenant’s service bus instance. Under normal conditions, this should not be a concern, but if you see this event many times, consider checking your network connection to service bus, especially if it’s a high latency or low-bandwidth connection.</p>
             </td>
           </tr>
           <tr>
@@ -1245,7 +1246,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>암호 쓰기 저장 서비스의 상태를 모니터링하려면 5분 마다 Heartbeat 데이터를 암호 재설정 웹 서비스로 보냅니다. 이 이벤트는 클라우드 웹 서비스에 이 상태 정보를 보낼 때 오류가 발생했음을 나타냅니다. 이 상태 정보는 OII 또는 PII 데이터를 포함하지 않고 순수하게 Heartbeat 및 기본 서비스 통계이므로 클라우드에서 서비스 상태 정보를 제공할 수 있습니다.</p>
+              <p>In order to monitor the health of your Password Writeback service, we send heartbeat data to our password reset web service every 5 minutes. This event indicates that there was an error when sending this health information back to the cloud web service. This health information does not include an OII or PII data, and is purely a heartbeat and basic service statistics so that we can provide service status information in the cloud.</p>
             </td>
           </tr>
           <tr>
@@ -1259,7 +1260,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 AD가 반환한 알 수 없는 오류가 있음을 나타냅니다. 이 오류에 대한 자세한 내용은 ADSync 소스에서 이벤트에 대한 Azure AD Connect 서버 이벤트 로그를 확인하십시오.</p>
+              <p>This event indicates that there was an unknown error returned by AD, check the Azure AD Connect server event log for events from the ADSync source for more information about this error.</p>
             </td>
           </tr>
           <tr>
@@ -1273,7 +1274,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 암호를 재설정 또는 변경하려는 사용자를 온-프레미스 디렉터리에서 찾지 못했음을 나타냅니다. 사용자가 온-프레미스 삭제되지만 클라우드에서 삭제되지 않았을 때 또는 동기화에 문제가 있는 경우 이 문제가 발생할 수 있습니다. 자세한 정보는 마지막 동기화 실행 세부 정보 및 동기화 로그를 확인하십시오.</p>
+              <p>This event indicates that the user who is trying to reset or change a password was not found in the on-premises directory. This could occur when the user has been deleted on-premises but not in the cloud, or if there is an issue with sync. Check your sync logs, as well as the last few sync run details for more information.</p>
             </td>
           </tr>
           <tr>
@@ -1287,7 +1288,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>암호를 재설정하거나 클라우드에서 시작된 변경을 요청한 경우 Azure AD Connect의 설치 프로세스 중에 지정된 클라우드 앵커를 사용하여 온-프레미스 환경에서 사용자에게 해당 요청을 다시 연결하는 방법을 결정합니다. 이 이벤트는 같은 클라우드 앵커 특성을 가진 온-프레미스 디렉터리에 두 사용자가 있음을 나타냅니다. 자세한 정보는 마지막 동기화 실행 세부 정보 및 동기화 로그를 확인하십시오.</p>
+              <p>When a password reset or change request originates from the cloud, we use the cloud anchor specified during the setup process of Azure AD Connect to determine how to link that request back to a user in your on-premises environment. This event indicates that we found two users in your on-premises directory with the same cloud anchor attribute. Check your sync logs, as well as the last few sync run details for more information.</p>
             </td>
           </tr>
           <tr>
@@ -1301,7 +1302,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 관리 에이전트 서비스 계정이 해당 계정에 새 암호를 설정할 적절한 권한을 가지지 않음을 나타냅니다. 사용자의 포리스트에서 MA 계정이 포리스트의 모든 개체에 암호 재설정 및 변경 권한이 있는지 확인합니다. 이를 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">4단계: 적절한 Active Directory 사용 권한 설정</a>을 참조하십시오.</p>
+              <p>This event indicates that the Management Agent service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the MA account in the user’s forest has Reset and Change password permissions on all objects in the forest.  For more information on how do to this, see <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Step 4: Set up the appropriate Active Directory permissions</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1315,7 +1316,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 온-프레미스에서 사용하지 않도록 설정된 계정의 암호를 변경 또는 재설정하려고 시도했음을 나타냅니다. 계정을 활성화하고 작업을 다시 시도합니다.</p>
+              <p>This event indicates that we attempted to reset or change a password for an account that was disabled on premises. Enable the account and try the operation again.</p>
             </td>
           </tr>
           <tr>
@@ -1329,7 +1330,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이벤트는 온-프레미스에서 잠긴 계정의 암호를 변경 또는 재설정하려고 시도했음을 나타냅니다. 사용자가 짧은 기간 동안 너무 여러 번 암호 작업을 변경 또는 재설정하려는 경우 잠겨질 수 있습니다. 계정의 잠금을 풀고 작업을 다시 시도합니다.</p>
+              <p>Event indicates that we attempted to reset or change a password for an account that was locked out on premises. Lockouts can occur when a user has tried a change or reset password operation too many times in a short period. Unlock the account and try the operation again.</p>
             </td>
           </tr>
           <tr>
@@ -1343,7 +1344,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 사용자가 변경 작업을 수행할 때 잘못된 현재 암호를 지정했음을 나타냅니다. 올바른 현재 암호를 지정하고 다시 시도하십시오.</p>
+              <p>This event indicates that the user specified an incorrect current password when performing a password change operation. Specify the correct current password and try again.</p>
             </td>
           </tr>
           <tr>
@@ -1357,22 +1358,22 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 암호 쓰기 저장 서비스가 암호 사용 기간, 기록, 복잡성 또는 도메인의 필터링 요구 사항에 맞지 않는 로컬 디렉터리에 암호를 설정하려고 할 때 발생 합니다.</p>
+              <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
               <ul>
                 <li class="unordered">
-										최소 암호 사용 기간을 사용하고 최근 시간의 해당 창 내에서 암호를 변경하는 경우 사용자 도메인에 지정된 보존 기간에 도달할 때까지 다시 암호를 변경할 수 없습니다. 테스트를 위해 최소 보존 기간을 0으로 설정해야 합니다. <br\><br\></li>
+If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										암호 기록 요구 사항을 활성화하는 경우 마지막 N 번에서 사용되지 않은 암호를 선택해야 합니다. 여기서 N은 암호 기록 설정입니다. 마지막 N 번에서 사용된 암호를 선택하는 경우 오류가 나타납니다. 테스트를 위해 기록을 0으로 설정해야 합니다. <br\><br\></li>
+If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										암호 복잡성 요구 사항이 있는 경우 사용자가 암호를 변경하거나 재설정하려고 할 때 이들 모두를 강제제합니다. <br\><br\></li>
+If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										암호 필터를 사용하고 사용자가 필터링 조건을 충족하지 않는 암호를 선택한 경우 재설정 또는 변경 작업이 실패합니다. <br\><br\></li>
+If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -1387,7 +1388,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 Active Directory 구성 문제로 인해 암호를 다시 온-프레미스 디렉터리로 작성하는 문제가 있음을 나타냅니다. 어떤 오류가 발생했는지에 대한 자세한 내용은 ADSync 서비스로부터 온 메시지용 Azure AD Connect 컴퓨터의 응용 프로그램 이벤트 로그를 확인하십시오. </p>
+              <p>This event indicates there was an issue writing a password back to your on-premises directory due to a configuration issue with Active Directory. Check the Azure AD Connect machine’s Application event log for messages from the ADSync service for more information on what error occurred. </p>
             </td>
           </tr>
           <tr>
@@ -1401,7 +1402,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>사용되지 않음 –이 이벤트는 Azure AD Connect에 나타나지 않으며 쓰기 저장을 지원하는 DirSync의 초기 빌드입니다.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1415,7 +1416,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>사용되지 않음 –이 이벤트는 Azure AD Connect에 나타나지 않으며 쓰기 저장을 지원하는 DirSync의 초기 빌드입니다.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1429,84 +1430,87 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>사용되지 않음 –이 이벤트는 Azure AD Connect에 나타나지 않으며 쓰기 저장을 지원하는 DirSync의 초기 빌드입니다.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
         </tbody></table>
 
-## 암호 쓰기 저장 연결 문제 해결
+## <a name="troubleshoot-password-writeback-connectivity"></a>Troubleshoot Password Writeback connectivity
 
-Azure AD Connect의 암호 쓰기 저장 구성 요소로 서비스 중단이 발생하는 경우 이 문제를 해결하기 위해 수행할 수 있는 빠른 단계는 다음과 같습니다.
+If you are experiencing service interruptions with the Password Writeback component of Azure AD Connect, here are some quick steps you can take to resolve this:
 
- - [Azure AD Connect 동기화 서비스 다시 시작](#restart-the-azure-AD-Connect-sync-service)
- - [암호 쓰기 저장 기능을 비활성화 및 재활성화](#disable-and-re-enable-the-password-writeback-feature)
- - [최신 Azure AD Connect 릴리스 설치](#install-the-latest-azure-ad-connect-release)
- - [암호 쓰기 저장 문제 해결](#troubleshoot-password-writeback)
+ - [Restart the Azure AD Connect Sync Service](#restart-the-azure-AD-Connect-sync-service)
+ - [Disable and re-enable the Password Writeback feature](#disable-and-re-enable-the-password-writeback-feature)
+ - [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
+ - [Troubleshoot Password Writeback](#troubleshoot-password-writeback)
 
-일반적으로 가장 빠른 방법으로 서비스를 복구하기 위해 위의 순서로 이 단계를 실행하는 것이 좋습니다.
+In general, we recommend that you execute these steps in the order above in order to recover your service in the most rapid manner.
 
-### Azure AD Connect 동기화 서비스 다시 시작
-Azure AD Connect 동기화 서비스를 다시 시작하면 연결 문제 또는 서비스와 관련된 다른 일시적인 문제를 해결하는 데 도움이 됩니다.
+### <a name="restart-the-azure-ad-connect-sync-service"></a>Restart the Azure AD Connect Sync Service
+Restarting the Azure AD Connect Sync Service can help to resolve connectivity issues or other transient issues with the service.
 
- 1.	관리자로써 **Azure AD Connect**를 실행하는 서버에서 **시작**을 클릭합니다.
- 2.	검색 상자에서 **"services.msc"**를 입력하고 **Enter** 키를 누릅니다.
- 3.	**Microsoft Azure AD Connect** 항목을 찾습니다.
- 4.	서비스 항목을 마우스 오른쪽 단추로 클릭하여 **다시 시작**을 클릭하고 작업이 완료되기를 기다립니다.
+ 1. As an administrator, click **Start** on the server running **Azure AD Connect**.
+ 2. Type **“services.msc”** in the search box and press **Enter**.
+ 3. Look for the **Microsoft Azure AD Connect** entry.
+ 4. Right-click on the service entry, click **Restart**, and wait for the operation to complete.
 
     ![][002]
 
-이러한 단계는 클라우드 서비스를 사용하여 연결을 다시 설정하고 발생한 중단이 해결할 수 있습니다. 동기화 서비스를 다시 시작해도 문제가 해결되지 않으면 다음 단계로 암호 쓰기 저장 기능을 비활성화 및 재활성화하는 것이 좋습니다.
+These steps will re-establish your connection with the cloud service and resolve any interruptions you may be experiencing.  If restarting the Sync Service does not resolve your issue, we recommend that you try to disable and re-enable the Password Writeback feature as a next step.
 
-### 암호 쓰기 저장 기능을 비활성화 및 재활성화
-다시 암호 쓰기 저장 기능을 비활성화 및 재활성화하면 연결 문제를 해결할 수 있습니다.
+### <a name="disable-and-re-enable-the-password-writeback-feature"></a>Disable and re-enable the Password Writeback feature
+Disabling and re-enabling the Password Writeback feature can help to resolve connectivity issues.
 
- 1.	관리자 권한으로 **Azure AD Connect 구성 마법사**를 엽니다.
- 2.	**Azure AD에 연결** 대화 상자에서 **Azure AD 전역 관리자 자격 증명**을 입력합니다
- 3.	**AD DS에 연결** 대화 상자에서 **AD 도메인 서비스 관리자 자격 증명**을 입력합니다
- 4.	**고유하게 식별하는 사용자** 대화 상자에서 **다음** 단추를 클릭합니다.
- 5.	**선택적 기능** 대화 상자에서 **암호 쓰기 저장** 확인란을 선택 취소합니다.
+ 1. As an administrator, open the **Azure AD Connect configuration wizard**.
+ 2. On the **Connect to Azure AD** dialog, enter your **Azure AD global admin credentials**
+ 3. On the **Connect to AD DS** dialog, enter your **AD Domain Services admin credentials**.
+ 4. On the **Uniquely identifying your users** dialog, click the **Next** button.
+ 5. On the **Optional features** dialog, uncheck the **Password write-back** checkbox.
 
     ![][003]
 
- 6.	**구성할 준비** 페이지에 도달할 때까지 아무것도 변경하지 않고 남은 대화 상자 페이지를 통해 **다음**을 클릭합니다.
- 7.	구성 페이지가 **암호 쓰기 저장 옵션을 사용 안함으로** 표시하는지 확인하고 변경 내용을 적용하려면 녹색 **구성** 단추를 클릭합니다.
- 8.	**마침** 대화 상자에서 **지금 동기화** 옵션을 선택 취소한 다음 마법사를 닫기 위해 **마침**을 클릭합니다.
- 9.	**Azure AD Connect 구성 마법사**를 다시 엽니다.
- 10.	서비스를 다시 활성화하는 **선택적 기능 **화면에서 **암호 쓰기 저장 옵션을 선택**했는지 확인한 후 **2-8 단계를 반복합니다**.
+ 6. Click **Next** through the remaining dialog pages without changing anything until you get to the **Ready to configure** page.
+ 7. Ensure that the configure page shows the **Password write-back option as disabled** and then click the green **Configure** button to commit your changes.
+ 8. On the **Finished** dialog, deselect the **Synchronize now** option, and then click **Finish** to close the wizard.
+ 9. Re-open the **Azure AD Connect configuration wizard**.
+ 10.    **Repeat steps 2-8**, except ensure you **check the Password write-back option** on the **Optional features** screen to re-enable the service.
 
     ![][004]
 
-이러한 단계를 실행하여 클라우드 서비스를 사용하여 연결을 다시 설정하고 발생할 수 있는 중단이 해결될 수 있습니다.
+These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
 
-암호 쓰기 저장 기능을 비활성화 및 재활성화해도 문제가 해결되지 않으면 다음 단계로 Azure AD Connect를 재설치하는 것이 좋습니다.
+If disabling and re-enabling the Password Writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Connect as a next step.
 
-### 최신 Azure AD Connect 릴리스 설치
-Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또는 로컬 AD 환경에서 암호를 관리하는 능력에 영향을 미칠 수 있는 모든 구성 문제를 해결할 것입니다. 위에서 설명한 처음 두 단계를 시도한 후에 이 단계를 수행하는 것이 좋습니다.
+### <a name="install-the-latest-azure-ad-connect-release"></a>Install the latest Azure AD Connect release
+Re-installing the Azure AD Connect package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment.
+We recommend, you perform this step only after attempting the first two steps described above.
 
- 1.	최신 버전의 Azure AD Connect을 [여기서](active-directory-aadconnect.md#install-azure-ad-connect) 다운로드
- 2.	Azure AD Connect를 이미 설치했기 때문에 Azure AD Connect 설치를 최신 버전으로 업데이트하려면 바로 업그레이드를 수행해야 합니다.
- 3.	다운로드한 패키지를 실행하고 화면에 나타나는 지침을 따라 Azure AD Connect 컴퓨터를 업데이트하십시오. 상자 동기화 규칙 중 사용자 지정을 하지 않으면 추가 수동 단계가 필요하지 않으며 이 경우 **업그레이드를 계속하기 전에 이를 백업하고 완료된 이후 수동으로 다시 배포**해야 합니다.
+ 1. Download the latest version of Azure AD Connect [here](active-directory-aadconnect.md#install-azure-ad-connect).
+ 2. Since you have already installed Azure AD Connect, you will only need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
+ 3. Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required unless you have customized the out of box sync rules, in which case you should **back these up before proceeding with upgrade and manually re-deploy them after you are finished**.
 
-이러한 단계를 실행하여 클라우드 서비스를 사용하여 연결을 다시 설정하고 발생할 수 있는 중단이 해결될 수 있습니다.
+These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
 
-최신 버전의 Azure AD Connect 서버를 설치해도 문제가 해결되지 않으면 최신 동기화 QFE를 설치한 후에 마지막 단계로서 암호 쓰기 저장 기능을 비활성화 및 재활성화하는 것이 좋습니다.
+If installing the latest version of the Azure AD Connect server does not resolve your issue, we recommend that you try disabling and re-enabling Password Writeback as a final step after installing the latest sync QFE.
 
-문제를 해결되지 않으면 [암호 쓰기 저장 문제 해결](#troubleshoot-password-writeback) 및 [Azure AD 암호 관리 FAQ](active-directory-passwords-faq.md)에서 문제를 논의했는지 확인하기 위해 살펴보는 것이 좋습니다
+If that does not resolve your issue, then we recommend that you take a look at [Troubleshoot Password Writeback](#troubleshoot-password-writeback) and the [Azure AD password Management FAQ](active-directory-passwords-faq.md) to see if your issue may be discussed there.
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-## 암호 재설정 설명서에 대한 링크
-다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
+## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
-* [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
-* [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
-* [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
-* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
-* [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
-* [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 
@@ -1515,4 +1519,8 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

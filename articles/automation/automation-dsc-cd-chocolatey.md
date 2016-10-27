@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Chocolatey를 사용한 Azure 자동화 DSC 연속 배포 | Microsoft Azure"
-   description="Azure 자동화 DSC 및 Chocolatey패키지 관리자를 사용한 DevOps 연속 배포 전체 JSON ARM 템플릿 및 PowerShell 소스가 있는 예"
+   pageTitle="Azure Automation DSC Continuous Deployment with Chocolatey | Microsoft Azure"
+   description="DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source."
    services="automation"
    documentationCenter=""
    authors="sebastus"
@@ -16,88 +16,89 @@
    ms.date="08/08/2016"
    ms.author="golive"/>
 
-# 사용 예: 자동화 DSC 및 Chocolatey를 사용하여 가상 컴퓨터에 연속 배포
 
-DevOps 업계에는 연속 통합 파이프라인의 여러 시점에서 개발자를 지원하는 여러 도구가 있습니다. Azure 자동화 DSC(필요한 상태 구성)는 DevOps 팀이 채택할 수 있는 새로운 옵션이 추가되는 것을 환영합니다. 이 문서에서는 Windows 컴퓨터에 대 한 CD(연속 배포)를 보여줍니다. 이 방법을 간편하게 확장하여 역할(예: 웹 사이트)에서 필요한 만큼의 Windows 컴퓨터를 포함하고 추가적인 역할도 구성할 수 있습니다.
+# <a name="usage-example:-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
 
-![IaaS VM에 대한 연속 배포](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
+In a DevOps world there are many tools to assist with various points in the Continuous Integration pipeline.  Azure Automation Desired State Configuration (DSC) is a welcome new addition to the options that DevOps teams can employ.  This article demonstrates setting up Continuous Deployment (CD) for a Windows computer.  You can easily extend the technique to include as many Windows computers as necessary in the role (a web site, for example), and from there to additional roles as well.
 
-## 높은 수준
+![Continuous Deployment for IaaS VMs](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
 
-이 단계는 상당 부분 진행 중이지만 다행스럽게도 두 가지 기본 프로세스로 나눌 수 있습니다.
+## <a name="at-a-high-level"></a>At a high level
 
-  - 즉 코드를 작성하여 테스트한 다음 시스템의 주 버전과 부 버전에 대해 설치 패키지를 만들고 게시하는 것입니다.
-  - 패키지에서 코드를 설치 및 실행할 VM을 만들고 관리합니다.
+There is quite a bit going on here, but fortunately it can be broken into two main processes: 
 
-이 핵심 프로세스가 둘 다 배치되어 있으면 새 버전을 만들어 배포할 때 특정 VM에서 실행되는 패키즈를 자동으로 업데이트하는 단계는 간단합니다.
+  - Writing code and testing it, then creating and publishing installation packages for major and minor versions of the system. 
+  - Creating and managing VMs that will install and execute the code in the packages.  
 
-## 구성 요소 개요
+Once both of these core processes are in place, it’s a short step to automatically update the package running on any particular VM as new versions are created and deployed.
 
-[apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 같은 패키지 관리자는 Linux 분야에서 잘 알려져 있지만 Windows 분야에서는 그렇지 않습니다. [Chocolatey](https://chocolatey.org/)도 마찬가지입니다. Scott Hanselman의 [블로그](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)에서 이 항목에 대해 잘 소개하고 있습니다. 간단히 말해 Chocolatey를 사용하면 패키지의 중앙 리포지토리에 있는 패키지를 명령줄을 사용하여 Winodws 시스템에 설치할 수 있습니다. 자체 리포지토리를 만들어 관리할 수 있고 Chocolatey가 사용자가 지정한 수 만큼의 리포지토리에서 패키지를 설치할 수 있습니다.
+## <a name="component-overview"></a>Component overview
 
-DSC(필요한 상태 구성)([개요](https://technet.microsoft.com/library/dn249912.aspx))는 컴퓨터에 원하는 구성을 선언할 수 있는 PowerShell 도구입니다. 예를 들어, "Chocolatey와 IIS를 설치하고 포트 80을 개방하며 웹 사이트 설치의 1.0.0 버전을 원합니다."라고 말할 수 있습니다. DSC LCM(로컬 구성 관리자)이 이러한 구성을 구현합니다. DSC 풀 서버가 컴퓨터에 대한 구성 리포지토리를 담고 있습니다. 각 컴퓨터의 LCM이 주기적인 검사를 통해 자신의 구성이 저장된 구성과 일치하는지 확인합니다. 상태를 보고하거나, 컴퓨터를 저장된 구성과 일치하는 상태로 되돌리는 작업을 수행할 수 있습니다. 풀 서버에서 저장된 구성을 편집하여 컴퓨터나 컴퓨터 집합이 변경된 구성과 일치하게 만들 수 있습니다.
+Package managers such as [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) are pretty well known in the Linux world, but not so much in the Windows world.  [Chocolatey](https://chocolatey.org/) is such a thing, and Scott Hanselman’s [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) on the topic is a great intro.  In a nutshell, Chocolatey allows you to install packages from a central repository of packages into a Windows system using the command line.  You can create and manage your own repository, and Chocolatey can install packages from any number of repositories that you designate.
 
-Azure 자동화는 사용자가 일정 및 전역 변수와 같은 Runbook, 노드, 자산을 사용하여 다양한 작업을 자동화할 수 있도록 하는 Microsoft Azure의 관리되는 서비스입니다. Azure 자동화 DSC는 PowerShell DSC 도구를 포함하도록 자동화 기능을 확장합니다. 여기서 알맞은 [개요](automation-dsc-overview.md)를 제공합니다.
+Desired State Configuration (DSC) ([overview](https://technet.microsoft.com/library/dn249912.aspx)) is a PowerShell tool that allows you to declare the configuration that you want for a machine.  For example, you can say, “I want Chocolatey installed, I want IIS installed, I want port 80 opened, I want version 1.0.0 of my website installed.”  The DSC Local Configuration Manager (LCM) implements that configuration. A DSC Pull Server holds a repository of configurations for your machines. The LCM on each machine checks in periodically to see if its configuration matches the stored configuration. It can either report status or attempt to bring the machine back into alignment with the stored configuration. You can edit the stored configuration on the pull server to cause a machine or set of machines to come into alignment with the changed configuration.
 
-DSC 리소스는 네트워크 관리, Active Directory 또는 SQL Server 등과 같은 특정 기능을 갖는 코드 모듈입니다. Chocolatey DSC 리소스는 NuGet 서버 액세스(서로 간), 패키지 다운로드, 패키지 설치 방법 등을 이해하고 있습니다. 여러 다른 DSC 리소스는 [PowerShell 갤러리](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)에 있습니다. 이러한 모듈은 사용자가 구성에서 사용할 수 있게 Azure 자동화 DSC 풀 서버에 설치됩니다.
+Azure Automation is a managed service in Microsoft Azure that allows you to automate various tasks using runbooks, nodes, credentials, resources and assets such as schedules and global variables. Azure Automation DSC extends this automation capability to include PowerShell DSC tools.  Here’s a great [overview](automation-dsc-overview.md).
 
-ARM 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음은 ARM 배포 모델(선언적)과 Azure 서비스 관리(ASM 또는 기본) 배포 모델(명령적) 비교하는 [문서](../resource-manager-deployment-model.md)입니다. 핵심 리소스 공급자, 계산, 저장소, 네트워크 등에 대한 다른 [문서](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)도 있습니다.
+A DSC Resource is a module of code that has specific capabilities, such as managing networking, Active Directory, or SQL Server.  The Chocolatey DSC Resource knows how to access a NuGet Server (among others), download packages, install packages, and so on.  There are many other DSC Resources in the [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).  These modules are installed into your Azure Automation DSC Pull Server (by you) so they can be used by your configurations.
 
-ARM 템플릿의 핵심 기능은 프로비전되었을 때 VM에 VM 확장을 설치하는 것입니다. VM 확장에는 사용자 지정 스크립트 실행, 바이러스 백신 소프트웨어 설치, DSC 구성 스크립트 실행 등과 같은 특정 기능이 있습니다. VM 확장에는 여러 다른 형식이 있습니다.
+ARM templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](../resource-manager-deployment-model.md) that compares the ARM deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative).  And another [article](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) about the core resource providers, compute, storage and network.
 
-## 간략히 다이어그램 둘러보기
+One key feature of an ARM template is its ability to install a VM extension into the VM as it’s provisioned.  A VM extension has specific capabilities such as running a custom script, installing anti-virus software, or running a DSC configuration script.  There are many other types of VM extensions.
 
-맨 위쪽부터 코드를 작성하고 빌드 및 테스트한 다음 설치 패키지를 만듭니다. Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지를 읽을 수 있는 특정 위치, 즉 패키지 리포지토리에 넣습니다. 이 사용 예는 Auzre Blob 저장소 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed)에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
+## <a name="quick-trip-around-the-diagram"></a>Quick trip around the diagram
 
-그림의 왼쪽 하단에는 ARM(Azure 리소스 관리자) 템플릿이 있습니다. 이 사용 예에서는 VM 확장이 VM을 Azure 자동화 DSC 풀 서버(즉, 풀 서버)에 노드로 등록합니다. 구성은 풀 서버에 저장됩니다. 사실 일반 텍스트로 1번, MOF 파일로 컴파일 1번 등(이에 대해 알고 있는 상황), 두 번 저장됩니다. 포털에서 MOF는 "노드 구성"입니다(단순 "구성"과 반대). 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
+Starting at the top, you write your code, build and test, then create an installation package.  Chocolatey can handle various types of installation packages, such as MSI, MSU, ZIP.  And you have the full power of PowerShell to do the actual installation if Chocolatey’s native capabilities aren’t quite up to it.  Put the package into someplace reachable – a package repository.  This usage example uses a public folder in an Azure blob storage account, but it can be anywhere.  Chocolatey works natively with NuGet servers and a few others for management of package metadata.  [This article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) describes the options.  This usage example uses NuGet.  A Nuspec is metadata about your packages.  The Nuspec’s are “compiled” into NuPkg’s and stored in a NuGet server.  When your configuration requests a package by name, and references a NuGet server, the Chocolatey DSC Resource (now on the VM) grabs the package and installs it for you.  You can also request a specific version of a package.
 
-아마도 이미 윗 부분 또는 대부분을 수행하고 있을 것입니다. Nuspec를 생성, 컴파일 및 NuGet 서버에 저장하는 작업은 간단합니다. 이미 VM을 관리하고 있습니다. 연속 배포의 다음 단계로 이동하려면 풀 서버를 설정하고(1회), 노드를 풀 서버에 등록하고(1회), 여기에 구성을 만들어 저장해야 합니다(최초). 그러면 패키지가 업그레이드되어 리포지토리에 배포되며 풀 서버에서 구성 및 노드 구성을 새로 고칩니다.(필요에 따라 반복)
+In the bottom left portion of the picture, there is an Azure Resource Manager (ARM) template.  In this usage example, the VM extension registers the VM with the Azure Automation DSC Pull Server (that is, a pull server) as a Node.  The configuration is stored in the pull server.  Actually, it’s stored twice: once as plain text and once compiled as an MOF file (for those that know about such things.)  In the portal, the MOF is a “node configuration” (as opposed to simply “configuration”).  It’s the artifact that’s associated with a Node so the node will know its configuration.  Details below show how to assign the node configuration to the node.
 
-ARM 템플릿으로 시작하지 않아도 괜찮습니다. VM을 풀 서버 및 나머지 모두에 등록하는 데 도움이 되도록 설계된PowerShell cmdlet이 있습니다. 자세한 내용은 다음 문서, [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)를 참조하세요.
+Presumably you’re already doing the bit at the top, or most of it.  Creating the nuspec, compiling and storing it in a NuGet server is a small thing.  And you’re already managing VMs.  Taking the next step to continuous deployment requires setting up the pull server (once), registering your nodes with it (once), and creating and storing the configuration there (initially).  Then as packages are upgraded and deployed to the repository, refresh the Configuration and Node Configuration in the pull server (repeat as needed).
+
+If you’re not starting with an ARM template, that’s also OK.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest. For more details, see this article: [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 
 
-## 1단계: 풀 서버 및 자동화 계정 설정
+## <a name="step-1:-setting-up-the-pull-server-and-automation-account"></a>Step 1: Setting up the pull server and automation account
 
-인증된(Add-AzureRmAccount) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
+At an authenticated (Add-AzureRmAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
-자동화 계정을 미국 동부 2, 미국 중남부, 미국 버지니아 주 정부, 유럽 서부, 동남 아시아, 일본 동부, 인도 중부 및 오스트레일리아 남동부 등의 지역 중 하나에 놓을 수 있습니다(즉, 위치).
+You can put your automation account into any of the following regions (aka location):  East US 2, South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and Australia Southeast.
 
-## 2단계: ARM 템플릿에 대한 VM 확장 조정
+## <a name="step-2:-vm-extension-tweaks-to-the-arm-template"></a>Step 2: VM extension tweaks to the ARM template
 
-VM 등록에 대한 세부 정보(PowerShell DSC VM 확장 사용)는 이 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver)에서 제공합니다. 이 단계는 새 VM을 DSC 노드 목록의 풀 서버에 등록합니다. 이 등록의 일부는 노드에 적용할 노드 구성을 지정하고 있습니다. 이 노드 구성은 끌어오기 서버에 있을 필요가 없으므로 4단계에서 이 작업을 처음으로 수행해도 됩니다. 하지만 여기 2단계에서 노드의 이름 및 구성의 이름을 결정해야 합니다. 이 사용 예에서 노드는 'isvbox'이고 구성은 'ISVBoxConfig'입니다. 따라서 (DeploymentTemplate.json 지정할) 노드 구성 이름은 'ISVBoxConfig.isvbox'입니다.
+Details for VM registration (using the PowerShell DSC VM extension) provided in this [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).  This step registers your new VM with the pull server in the list of DSC Nodes.  Part of this registration is specifying the node configuration to be applied to the node.  This node configuration doesn't have to exist yet in the pull server, so it's OK that Step 4 is where this is done for the first time.  But here in Step 2 you do need to have decided the name of the node and the name of the configuration.  In this usage example, the node is 'isvbox' and the configuration is 'ISVBoxConfig'.  So the node configuration name (to be specified in DeploymentTemplate.json) is 'ISVBoxConfig.isvbox'.  
 
-## 3단계: 필요한 DSC 리소스를 풀 서버에 추가
+## <a name="step-3:-adding-required-dsc-resources-to-the-pull-server"></a>Step 3: Adding required DSC resources to the pull server
 
-Azure 자동화 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러리가 계측됩니다. 원하는 리소스로 이동한 다음 "Azure 자동화에 배포" 단추를 클릭합니다.
+The PowerShell Gallery is instrumented to install DSC resources into your Azure Automation account.  Navigate to the resource you want and click the “Deploy to Azure Automation” button.
 
-![PowerShell 갤러리 예](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
+![PowerShell Gallery example](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
-Azure 포털에 최근에 추가된 또 다른 방법을 사용하면 새 모듈을 당겨오거나 기존 모듈을 업데이트할 수 있습니다. 자동화 계정 리소스, 자산 타일 및 모듈 타일을 차례로 클릭합니다. 갤러리 찾아보기 아이콘을 사용하면 갤러리에서 모듈의 목록을 보고 세부 정보로 드릴다운하고 궁극적으로 자동화 계정으로 가져올 수 있습니다. 이는 모듈을 최신 상태로 유지할 수 있는 좋은 방법입니다. 그리고 가져오기 기능은 다른 모듈의 종속성을 확인하여 동기화에서 빠져 나가지 않도록 합니다.
+Another technique recently added to the Azure Portal allows you to pull in new modules or update existing modules. Click through the Automation Account resource, the Assets tile, and finally the Modules tile.  The Browse Gallery icon allows you to see the list of modules in the gallery, drill down into details and ultimately import into your Automation Account. This is a great way to keep your modules up to date from time to time. And, the import feature checks dependencies with other modules to ensure nothing gets out of sync.
 
-또는 수동 방법이 있습니다. Windows 컴퓨터용 PowerShell 통합 모듈의 폴더 구조는 Azure 자동화에서의 예상 폴더 구조와 다소 차이가 있습니다. 여기에는 약간의 사용자 조정 작업이 필요합니다. 어려운 작업도 아니고 리소스당 한 번만 수행합니다(향후 업그레이드하지 않으려는 경우). PowerShell 통합 모듈 제작에 대한 자세한 내용은 다음 문서를 참조하세요. [Azure 자동화에 대한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+Or, there’s the manual approach.  The folder structure of a PowerShell Integration Module for a Windows computer is a little different from the folder structure expected by the Azure Automation.  This requires a little tweaking on your part.  But it’s not hard, and it’s done only once per resource (unless you want to upgrade it in future.)  For more information on authoring PowerShell Integration Modules, see this article: [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
--   다음과 같이 사용자 워크스테이션에 필요한 모듈을 설치합니다.
-    -   [Windows Management Framework, v5](http://aka.ms/wmf5latest) 설치(Windows 10에는 필요 없음)
-    -   `Install-Module –Name MODULE-NAME` <- PowerShell 갤러리에서 모듈 가져오기
--   `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME`의 모듈 폴더를 임시 폴더에 복사
--   주 폴더에서 샘플 및 설명서 삭제
--   주 폴더를 압축하고 ZIP 파일 이름을 폴더와 정확히 같게 지정
--   ZIP 파일을 Azure 저장소 계정의 Blob 저장소와 같은 연결할 수 있는 HTTP 위치에 배치합니다.
--   이 PowerShell 실행:
+-   Install the module that you need on your workstation, as follows:
+    -   Install [Windows Management Framework, v5](http://aka.ms/wmf5latest) (not needed for Windows 10)
+    -   `Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery 
+-   Copy the module folder from `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` to a temp folder 
+-   Delete samples and documentation from the main folder 
+-   Zip the main folder, naming the ZIP file exactly the same as the folder 
+-   Put the ZIP file into a reachable HTTP location, such as blob storage in an Azure Storage Account.
+-   Run this PowerShell:
 
         New-AzureRmAutomationModule `
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
-포함된 예는 cChoco 및xNetworking에 대해 이 절차를 수행합니다. cChoco에 대한 특수 처리는 [참고 사항](#notes)을 참조하세요.
+The included example performs these steps for cChoco and xNetworking. See the [Notes](#notes) for special handling for cChoco.
 
-## 4단계: 노드 구성을 풀 서버에 추가
+## <a name="step-4:-adding-the-node-configuration-to-the-pull-server"></a>Step 4: Adding the node configuration to the pull server
 
-구성을 풀 서버로 처음 가져와 컴파일하는 데는 별다른 사항이 없습니다. 동일한 구성에 대한 차후의 모든 가져오기/컴파일은 정확히 같습니다. 패키지를 업데이트하고 프러덕션에 푸시해야 할 때마다 구성 파일이 정확한지 확인한 후(새 패키지 버전 포함) 이 단계를 수행합니다. 구성 파일 및 PowerShell은 다음과 같습니다.
+There’s nothing special about the first time you import your configuration into the pull server and compile.  All subsequent import/compiles of the same configuration look exactly the same.  Each time you update your package and need to push it out to production you do this step after ensuring the configuration file is correct – including the new version of your package.  Here’s the configuration file and PowerShell:
 
 ISVBoxConfig.ps1:
 
@@ -161,30 +162,34 @@ New-ConfigurationScript.ps1:
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -Id $compilationJobId
 
-이 단계에서는 끌어오기 서버에 위치하며 이름이 "ISVBoxConfig.isvbox"인 새 노드 구성이 생깁니다. 노드 구성 이름이 "configurationName.nodeName"으로 빌드됩니다.
+These steps result in a new node configuration named “ISVBoxConfig.isvbox” being placed on the pull server.  The node configuration name is built as “configurationName.nodeName”.
 
-## 5단계: 패키지 메타데이터 만들기 및 유지 관리
+## <a name="step-5:-creating-and-maintaining-package-metadata"></a>Step 5: Creating and maintaining package metadata
 
-패키지 리포지토리에 넣는 각 패키지에 대해 이를 설명하는 nuspec이 필요합니다. 해당 nuspec은 NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](http://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. MyGet.org를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 판매하고 있지만 스타터 SKU는 무료입니다. NuGet.org에서 개인 패키지에 대 한 자체 NuGet 서버 설치 관련 지침을 찾을 수 있습니다.
+For each package that you put into the package repository, you need a nuspec that describes it.  That nuspec must be compiled and stored in your NuGet server. This process is described [here](http://docs.nuget.org/create/creating-and-publishing-a-package).  You can use MyGet.org as a NuGet server.  They sell this service, but have a starter SKU that’s free.  At NuGet.org you’ll find instructions on installing your own NuGet server for your private packages.
 
-## 6단계: 모든 항목 요약
+## <a name="step-6:-tying-it-all-together"></a>Step 6: Tying it all together
 
-각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다. 해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Visual Studio Team Services의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 자세한 내용은 [이 문서](https://www.visualstudio.com/ko-KR/docs/alm-devops-feature-index#continuous-delivery)가 제공합니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks)는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
+Each time a version passes QA and is approved for deployment, the package is created, nuspec and nupkg updated and deployed to the NuGet server.  In addition, the configuration (Step 4 above) must be updated to agree with the new version number.  It must be sent to the pull server and compiled.  From that point on, it's up to the VMs that depend on that configuration to pull the update and install it.  Each of these updates are simple - just a line or two of PowerShell.  In the case of Visual Studio Team Services, some of them are encapsulated in build tasks that can be chained together in a build.  This [article](https://www.visualstudio.com/en-us/docs/alm-devops-feature-index#continuous-delivery) provides more details.  This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the various available build tasks.
 
-## 참고 사항
+## <a name="notes"></a>Notes
 
-이 사용 예에서는 Azure 갤러리의 일반 Windows Server 2012 R2 이미지에서 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다. 그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.
+This usage example starts with a VM from a generic Windows Server 2012 R2 image from the Azure gallery.  You can start from any stored image and then tweak from there with the DSC configuration.  However, changing configuration that is baked into an image is much harder than dynamically updating the configuration using DSC.
 
-이 방법을 VM에 사용하기 위해 ARM 템플릿이나 VM 확장을 사용할 필요는 없습니다. 또한 VM이 CD 관리를 위해 Azure에 있을 필요도 없습니다. 오직 Chocolatey을 설치하고 풀 서버 위치를 알 수 있게 VM에 LCM을 구성하기만 하면 됩니다.
+You don’t have to use an ARM template and the VM extension to use this technique with your VMs.  And your VMs don’t have to be on Azure to be under CD management.  All that’s necessary is that Chocolatey be installed and the LCM configured on the VM so it knows where the pull server is.  
 
-물론, 프러덕션 상태인 VM에서 패키지를 업데이트할 때는 업데이트가 설치되는 동안 VM을 로테이션에서 배제해야 합니다. 이를 수행하는 방법은 크게 다릅니다. 예를 들어, Azure 부하 분산 장치 뒤에 있는 VM에서는 사용자 지정 프로브를 추가할 수 있습니다. VM을 업데이트하는 동안 프로브 끝점이 400을 반환하게 합니다. 이 변경을 위해 필요한 조정은 구성 안에 있을 수 있습니다. 업데이트가 완료되면 조정에서 200을 반환하도록 복귀되기 때문입니다.
+Of course, when you update a package on a VM that’s in production, you need to take that VM out of rotation while the update is installed.  How you do this varies widely.  For example, with a VM behind an Azure Load Balancer, you can add a Custom Probe.  While updating the VM, have the probe endpoint return a 400.  The tweak necessary to cause this change can be inside your configuration, as can the tweak to switch it back to returning a 200 once the update is complete.
 
-이 사용 예의 전체 원본은 GitHub의 [이 Visual Studio 프로젝트](https://github.com/sebastus/ARM/tree/master/CDIaaSVM)에 있습니다.
+Full source for this usage example is in [this Visual Studio project](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) on GitHub.
 
-##관련 문서##
+##<a name="related-articles##"></a>Related Articles##
 
-- [Azure 자동화 DSC 개요](automation-dsc-overview.md)
-- [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
-- [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
+- [Azure Automation DSC Overview] (automation-dsc-overview.md)
+- [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
+- [Onboarding machines for management by Azure Automation DSC] (automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Wikispaces와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Wikispaces를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with Wikispaces | Microsoft Azure" 
+    description="Learn how to use Wikispaces with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,129 +14,135 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-#자습서: Wikispaces와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Azure Active Directory integration with Wikispaces
   
-이 자습서는 Azure 및 Wikispaces의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and Wikispaces.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Wikispaces Single Sign-On이 설정된 구독
+-   A valid Azure subscription
+-   A Wikispaces single sign-on enabled subscription
   
-이 자습서를 완료한 후 Wikispaces에 할당한 Azure AD 사용자가 Wikispaces 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to Wikispaces will be able to single sign into the application at your Wikispaces company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Wikispaces에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Wikispaces
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "시나리오")
+![Sceanrio](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Sceanrio")
 
-##Wikispaces에 응용 프로그램 통합 사용
+##<a name="enabling-the-application-integration-for-wikispaces"></a>Enabling the application integration for Wikispaces
   
-이 섹션은 Wikispaces에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for Wikispaces.
 
-###Wikispaces에 응용 프로그램 통합을 사용하도록 설정하려면
+###<a name="to-enable-the-application-integration-for-wikispaces,-perform-the-following-steps:"></a>To enable the application integration for Wikispaces, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-wikispaces-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **Wikispaces**를 입력합니다.
+6.  In the **search box**, type **Wikispaces**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "응용 프로그램 갤러리")
+    ![Application Gallery](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Application Gallery")
 
-7.  결과 창에서 **Wikispaces**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Wikispaces**, and then click **Complete** to add the application.
 
     ![Wikispaces](./media/active-directory-saas-wikispaces-tutorial/IC787187.png "Wikispaces")
 
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Wikispaces에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable users to authenticate to Wikispaces with their account in Azure AD using federation based on the SAML protocol.
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Wikispaces** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Wikispaces** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configure Single Sign-On")
 
-2.  **Wikispaces에 대한 사용자 로그온 방법을 선택하십시오** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to Wikispaces** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configure Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **Wikispaces Sign-on URL** 텍스트 상자에 다음 패턴 "*http://company.wikispaces.net*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  On the **Configure App URL** page, in the **Wikispaces Sign On URL** textbox, type your URL using the following pattern "*http://company.wikispaces.net*", and then click **Next**.
 
-    ![앱 URL 구성](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configure App URL")
 
-4.  **Wikispaces에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
+4.  On the **Configure single sign-on at Wikispaces** page, click **Download metadata**, and then save the metadata file on your computer.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configure Single Sign-On")
 
-5.  메타데이터를 Wikispaces 지원팀에 보냅니다.
+5.  Send the metadatafile to the Wikispaces support team.
 
-    >[AZURE.NOTE] Single Sign-On 구성을 Wikispaces 지원팀에서 수행할 수 있습니다. 구성이 완료되는 즉시 알림을 받아볼 수 있습니다.
+    >[AZURE.NOTE] The single sign-on configuration has to be performed by the Wikispaces support team. You will get a notification as soon as the configuration has been completed.
 
-6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Single Sign-On 구성")
+    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configure Single Sign-On")
 
-##사용자 프로비전 구성
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Wikispaces로 프로비전되어야 합니다. Wikispaces의 경우 프로비전은 수동 작업입니다.
+In order to enable Azure AD users to log into Wikispaces, they must be provisioned into Wikispaces.  
+In the case of Wikispaces, provisioning is a manual task.
 
-###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  **Wikispaces** 회사 사이트에 관리자 권한으로 로그인합니다.
+1.  Log in to your **Wikispaces** company site as an administrator.
 
-2.  **멤버**로 이동합니다.
+2.  Go to **Members**.
 
-    ![멤버](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "멤버")
+    ![Members](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Members")
 
-3.  **피플 초대**를 클릭합니다.
+3.  Click the **Invite People**.
 
-    ![피플 초대](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "피플 초대")
+    ![Invite People](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invite People")
 
-4.  **피플 초대** 페이지에서 다음 단계를 수행합니다.
+4.  In the **Invite People** section, perform the following steps:
 
-    ![피플 초대](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "피플 초대")
+    ![Invite People](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invite People")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **사용자 이름 또는 이메일 주소**를 입력합니다.
-    2.  **보내기**를 클릭합니다.
+    1.  Type the **Usernames or Email Address** of a valid AAD account you want to provision into the related textboxes.
+    2.  Click **Send**.  
 
-        >[AZURE.NOTE] Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다.
+        >[AZURE.NOTE] The Azure Active Directory account holder receives an email including a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] 다른 Wikispaces 사용자 계정 생성 도구 또는 Wikispaces가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] You can use any other Wikispaces user account creation tools or APIs provided by Wikispaces to provision AAD user accounts.
 
-##사용자 할당
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Wikispaces에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-wikispaces,-perform-the-following-steps:"></a>To assign users to Wikispaces, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Wikispaces** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Wikispaces **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "사용자 할당")
+    ![Assign Users](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Assign Users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Yes")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,76 +1,81 @@
 <properties
-	pageTitle="Azure AD 도메인 서비스: 암호 동기화 활성화 | Microsoft Azure"
-	description="Azure Active Directory 도메인 서비스 시작"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Domain Services: Enable password synchronization | Microsoft Azure"
+    description="Getting started with Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/20/2016"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/20/2016"
+    ms.author="maheshu"/>
 
-# Azure AD 도메인 서비스에 대한 암호 동기화 활성화
-앞의 태스크에서 Azure AD 테넌트에 대한 Azure AD 도메인 서비스를 활성화했습니다. 다음 태스크는 NTLM 및 Kerberos 인증에 필요한 자격 증명 해시를 사용하도록 설정하여 Azure AD 도메인 서비스를 동기화하는 것입니다. 자격 증명 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
 
-관련된 단계는 조직에 클라우드 전용 Azure AD 테넌트가 있는지, 아니면 Azure AD Connect를 사용하여 온-프레미스 디렉터리와 동기화되도록 설정되었는지에 따라 다릅니다.
+# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Enable password synchronization to Azure AD Domain Services
+In preceding tasks, you enabled Azure AD Domain Services for your Azure AD tenant. The next task is to enable credential hashes required for NTLM and Kerberos authentication to synchronize to Azure AD Domain Services. Once credential synchronization is set up, users can sign in to the managed domain using their corporate credentials.
+
+The steps involved are different based on whether your organization has a cloud-only Azure AD tenant or is set to synchronize with your on-premises directory using Azure AD Connect.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [클라우드 전용 Azure AD 테넌트](active-directory-ds-getting-started-password-sync.md)
-- [동기화된 Azure AD 테넌트](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Cloud-only Azure AD tenant](active-directory-ds-getting-started-password-sync.md)
+- [Synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
 
-## 작업 5: 클라우드 전용 Azure AD 테넌트에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화
-관리되는 도메인에 대한 사용자를 인증하려면 Azure AD 도메인 서비스에는 NTLM 및 Kerberos 인증에 적합한 형식으로 해시 자격 증명이 필요합니다. 테넌트에 AAD 도메인 서비스를 사용하지 않으면 Azure AD는 NTLM 또는 Kerberos 인증에 필요한 형식으로 자격 증명 해시를 생성하거나 저장하지 않습니다. 확실한 보안을 위해 Azure AD는 일반 텍스트 형식으로 자격 증명을 저장하지 않습니다. 따라서 Azure AD를 통해 사용자의 기존 자격 증명에 따라 이러한 NTLM 또는 Kerberos 자격 증명 해시를 생성할 수 없습니다.
+## <a name="task-5:-enable-password-synchronization-to-aad-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Task 5: Enable password synchronization to AAD Domain Services for a cloud-only Azure AD tenant
+Azure AD Domain Services needs credential hashes in a format suitable for NTLM and Kerberos authentication, to authenticate users on the managed domain. Unless you enable AAD Domain Services for your tenant, Azure AD does not generate or store credential hashes in the format required for NTLM or Kerberos authentication. For obvious security reasons, Azure AD also does not store any credentials in clear-text form. Therefore, Azure AD does not have a way to generate these NTLM or Kerberos credential hashes based on users' existing credentials.
 
-> [AZURE.NOTE] 조직에 클라우드 전용 Azure AD 테넌트가 있는 경우 Azure AD 도메인 서비스를 사용해야 하는 사용자는 암호를 변경해야 합니다.
+> [AZURE.NOTE] If your organization has a cloud-only Azure AD tenant, users that need to use Azure AD Domain Services must change their passwords.
 
-암호 변경 프로세스를 수행하면 Kerberos 및 NTLM 인증을 위해 Azure AD 도메인 서비스에 필요한 자격 증명 해시가 Azure AD에서 생성됩니다. Azure AD 도메인 서비스를 사용해야 하는 테넌트의 모든 사용자에 대한 암호를 만료시키거나, 암호를 변경하도록 이러한 사용자에게 지시할 수 있습니다.
+This password change process causes the credential hashes required by Azure AD Domain Services for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire passwords for all users in the tenant that need to use Azure AD Domain Services or instruct these users to change their passwords.
 
 
-### 클라우드 전용 Azure AD 테넌트에 대해 NTLM 및 Kerberos 자격 증명 해시 생성 활성화
-다음과 같은 최종 사용자에게 제공해야 하는 지침을 따라 암호를 변경할 수 있습니다.
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Enable NTLM and Kerberos credential hash generation for a cloud-only Azure AD tenant
+Here are instructions you need to provide end users, so they can change their passwords:
 
-1. [http://myapps.microsoft.com](http://myapps.microsoft.com)에서 조직의 Azure AD 액세스 패널 페이지로 이동합니다.
+1. Navigate to the Azure AD Access Panel page for your organization at [http://myapps.microsoft.com](http://myapps.microsoft.com).
 
-2. 이 페이지에서 **프로필** 탭을 선택합니다.
+2. Select the **profile** tab on this page.
 
-3. 이 페이지에서 **암호 변경** 타일을 클릭합니다.
+3. Click the **Change password** tile on this page.
 
-    ![Azure AD 도메인 서비스에 대한 가상 네트워크를 만듭니다.](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-    > [AZURE.NOTE] 액세스 패널 페이지에서 **암호 변경** 옵션이 표시되지 않으면 조직이 [Azure AD에서 암호 관리](../active-directory/active-directory-passwords-getting-started.md)를 구성하도록 합니다.
+    > [AZURE.NOTE] If you do not see the **Change password** option on the Access Panel page, ensure that your organization has configured [password management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 
-4. **암호 변경** 페이지에서 이전 암호를 입력하고 새 암호를 입력한 다음 확인합니다. **제출**을 클릭합니다.
+4. On the **change password** page, type your existing (old) password and then type a new password and confirm it. Click **submit**.
 
-    ![Azure AD 도메인 서비스에 대한 가상 네트워크를 만듭니다.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
+    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-암호를 변경한 후에 새 암호를 즉시 Azure AD 도메인 서비스에 사용할 수 있습니다. 몇 분(일반적으로 약 20분) 후에 새로 변경한 암호를 사용하여 관리되는 도메인에 가입된 컴퓨터에 로그인할 수 있습니다.
+After you have changed your password, the new password will be usable in Azure AD Domain Services shortly. After a few minutes (typically, about 20 minutes), you can sign in to computers joined to the managed domain using the newly changed password.
 
 <br>
 
-## 관련 콘텐츠
+## <a name="related-content"></a>Related Content
 
-- [고유한 암호를 업데이트하는 방법](../active-directory/active-directory-passwords-update-your-own-password.md)
+- [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md)
 
-- [Azure AD에서 암호 관리 시작](../active-directory/active-directory-passwords-getting-started.md)
+- [Getting started with Password Management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 
-- [동기화된 Azure AD 테넌트에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Enable password synchronization to AAD Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
-- [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
+- [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 
-- [Windows 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
+- [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 
-- [Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+- [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!-----HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

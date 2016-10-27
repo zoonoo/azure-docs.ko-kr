@@ -1,13 +1,13 @@
 <properties
-   pageTitle="REST API를 통해 Azure 컨테이너 서비스 컨테이너 관리 | Microsoft Azure"
-   description="Marathon REST API를 사용하여 컨테이너를 Azure 컨테이너 서비스 Mesos 클러스터에 배포합니다."
+   pageTitle="Azure Container Service container management through the REST API | Microsoft Azure"
+   description="Deploy containers to an Azure Container Service Mesos cluster by using the Marathon REST API."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, 컨테이너, 마이크로 서비스, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,28 +16,29 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/13/2016"
-   ms.author="nepeters"/>
+   ms.author="timlt"/>
 
-# REST API를 통해 컨테이너 관리
 
-DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로드를 배포 및 확장하기 위한 환경을 제공합니다. DC/OS의 상단에 계산 워크로드의 예약 및 실행을 관리하는 프레임워크가 있습니다.
+# <a name="container-management-through-the-rest-api"></a>Container management through the REST API
 
-프레임워크는 수많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon을 사용하여 컨테이너 배포를 만들고 확장할 수 있는 방법을 설명합니다. 이러한 예제를 통해 작업하기 전에 Azure 컨테이너 서비스에 구성된 DC/OS 클러스터가 필요합니다. 또한 이 클러스터에 원격으로 연결해야 합니다. 이러한 항목에 대한 자세한 내용은 다음 문서를 참조하세요.
+DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
-- [Azure 컨테이너 서비스 클러스터 배포](container-service-deployment.md)
-- [Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md)
+Although frameworks are available for many popular workloads, this document describes how you can create and scale container deployments by using Marathon. Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
-Azure 컨테이너 서비스 클러스터에 연결한 후에 http://localhost:local-port을 통해 DC/OS 및 관련된 REST API에 액세스할 수 있습니다. 이 문서의 예제에서는 포트 80에서 터널링하는 것을 가정합니다. 예를 들어, Marathon 끝점은 있으신 `http://localhost/marathon/v2/`에 도달할 수 있습니다. 다양한 API에 대한 자세한 내용은 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 및 [Chronos API](https://mesos.github.io/chronos/docs/api.html)에 대한 Mesosphere 문서와 [Mesos 스케줄러 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)에 대한 Apache 문서를 참조하세요.
+- [Deploying an Azure Container Service cluster](container-service-deployment.md)
+- [Connecting to an Azure Container Service cluster](container-service-connect.md)
 
-## DC/OS 및 Marathon에서 정보 수집
+After you are connected to the Azure Container Service cluster, you can access the DC/OS and related REST APIs through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoint can be reached at `http://localhost/marathon/v2/`. For more information on the various APIs, see the Mesosphere documentation for the [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the [Chronos API](https://mesos.github.io/chronos/docs/api.html), and the Apache documentation for the [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
-DC/OS 클러스터에 컨테이너를 배포하기 전에 이름, DC/OS 에이전트의 현재 상태와 같은 DC/OS 클러스터에 대한 정보를 수집합니다. 이렇게 하려면 DC/OS REST API에서 `master/slaves` 끝점을 쿼리합니다. 모든 작업이 제대로 진행되었다면 DC/OS 에이전트와 각각에 대한 여러 속성 목록이 표시됩니다.
+## <a name="gather-information-from-dc/os-and-marathon"></a>Gather information from DC/OS and Marathon
+
+Before you deploy containers to the DC/OS cluster, gather some information about the DC/OS cluster, such as the names and current status of the DC/OS agents. To do so, query the `master/slaves` endpoint of the DC/OS REST API. If everything goes well, you will see a list of DC/OS agents and several properties for each.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-이제는 Marathon `/apps` 끝점을 사용하여 DC/OS 클러스터에 대한 현재 응용 프로그램 배포를 확인합니다. 새 클러스터인 경우에 앱에 대한 빈 배열이 표시됩니다.
+Now, use the Marathon `/apps` endpoint to check for current application deployments to the DC/OS cluster. If this is a new cluster, you will see an empty array for apps.
 
 ```
 curl localhost/marathon/v2/apps
@@ -45,9 +46,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Docker로 포맷된 컨테이너 배포
+## <a name="deploy-a-docker-formatted-container"></a>Deploy a Docker-formatted container
 
-Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 Docker로 포맷된 컨테이너를 배포합니다. 다음 샘플은 Nginx 컨테이너를 배포하며 DC/OS 에이전트의 포트 80을 컨테이너의 포트 80에 바인딩합니다. ‘acceptedResourceRoles’ 속성은 ‘slave\_public’으로 설정됩니다. 이렇게 하면 컨테이너가 공용 에이전트 규모 집합의 에이전트에 배포됩니다.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. Also note that the ‘acceptedResourceRoles’ property is set to ‘slave_public’. This will deploy the container to an agent in the public-facing agent scale set.
 
 ```json
 {
@@ -71,57 +72,57 @@ Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 
 }
 ```
 
-Docker로 포맷된 컨테이너를 배포하기 위해 사용자 고유의 JSON 파일을 만들거나 [Azure 컨테이너 서비스 데모](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json)에 제공된 샘플을 사용합니다. 액세스할 수 있는 위치에 저장합니다. 다음으로 컨테이너를 배포하려면 다음 명령을 실행합니다. JSON 파일의 이름을 지정합니다.
+In order to deploy a Docker-formatted container, create your own JSON file, or use the sample provided at [Azure Container Service demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Store it in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file.
 
 ```
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
-다음과 유사하게 출력됩니다.
+The output will be similar to the following:
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-이제 응용 프로그램에 대해 Marathon을 쿼리하면 이 새 응용 프로그램이 출력에 표시됩니다.
+Now, if you query Marathon for applications, this new application will show in the output.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## 컨테이너 확장
+## <a name="scale-your-containers"></a>Scale your containers
 
-Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또는 감축할 수도 있습니다. 앞의 예제에서 응용 프로그램의 인스턴스를 하나 배포했습니다. 응용 프로그램의 세 인스턴스를 확장해 보겠습니다. 이렇게 하려면 다음 JSON 텍스트를 사용하여 JSON 파일을 만들고 액세스 가능한 위치에 저장합니다.
+You can also use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file by using the following JSON text, and store it in an accessible location.
 
 ```json
 { "instances": 3 }
 ```
 
-응용 프로그램의 규모를 확장하려면 다음 명령을 실행합니다.
+Run the following command to scale out the application.
 
->[AZURE.NOTE] URI는 http://localhost/marathon/v2/apps/이며 확장할 응용 프로그램의 ID입니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
+>[AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 
 ```json
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-마지막으로, 응용 프로그램에 대해 Marathon 끝점을 쿼리합니다. 이제 세 가지 Nginx 컨테이너가 표시됩니다.
+Finally, query the Marathon endpoint for applications. You will see that there are now three of the Nginx containers.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## 다음 연습에 대해 PowerShell을 사용합니다. PowerShell과 Marathon REST API 상호 작용
+## <a name="use-powershell-for-this-exercise:-marathon-rest-api-interaction-with-powershell"></a>Use PowerShell for this exercise: Marathon REST API interaction with PowerShell
 
-Windows 시스템에서 PowerShell 명령을 사용하여 이러한 동일한 작업을 수행할 수 있습니다.
+You can perform these same actions by using PowerShell commands on a Windows system.
 
-에이전트 이름 및 에이전트 상태와 같은 DC/OS 클러스터에 대한 정보를 수집 하려면 다음 명령을 실행합니다.
+To gather information about the DC/OS cluster, such as agent names and agent status, run the following command.
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 Docker로 포맷된 컨테이너를 배포합니다. 다음 샘플은 Nginx 컨테이너를 배포하며 DC/OS 에이전트의 포트 80을 컨테이너의 포트 80에 바인딩합니다.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container.
 
 ```json
 {
@@ -142,29 +143,33 @@ Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 
 }
 ```
 
-사용자 고유의 JSON 파일을 만들거나 [Azure 컨테이너 서비스 데모](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json)에 제공된 샘플을 사용합니다. 액세스할 수 있는 위치에 저장합니다. 다음으로 컨테이너를 배포하려면 다음 명령을 실행합니다. JSON 파일의 이름을 지정합니다.
+Create your own JSON file, or use the sample provided at [Azure Container Service demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Store it in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file.
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또는 감축할 수도 있습니다. 앞의 예제에서 응용 프로그램의 인스턴스를 하나 배포했습니다. 응용 프로그램의 세 인스턴스를 확장해 보겠습니다. 이렇게 하려면 다음 JSON 텍스트를 사용하여 JSON 파일을 만들고 액세스 가능한 위치에 저장합니다.
+You can also use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file by using the following JSON text, and store it in an accessible location.
 
 ```json
 { "instances": 3 }
 ```
 
-응용 프로그램의 규모를 확장하려면 다음 명령을 실행합니다.
+Run the following command to scale out the application.
 
-> [AZURE.NOTE] URI는 http://localhost/marathon/v2/apps/이며 확장할 응용 프로그램의 ID입니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
+> [AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [Mesos HTTP 끝점에 대해 자세히 알아봅니다](http://mesos.apache.org/documentation/latest/endpoints/).
-- [Marathon REST API에 대해 자세히 알아봅니다](https://mesosphere.github.io/marathon/docs/rest-api.html).
+- [Read more about the Mesos HTTP endpoints]( http://mesos.apache.org/documentation/latest/endpoints/).
+- [Read more about the Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

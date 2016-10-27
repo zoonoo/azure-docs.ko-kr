@@ -1,10 +1,10 @@
 <properties
 pageTitle="Wunderlist | Microsoft Azure"
-description="Azure 앱 서비스로 논리 앱을 만듭니다. Wunderlist는 사람들이 작업할 수 있도록 할 일 목록 및 작업 관리자를 제공합니다. 친구와 식료품 목록 공유하거나 프로젝트에 대해 작업하고 휴가를 계획할 경우 Wunderlist를 사용하여 할 일을 쉽게 캡처하고 공유하며 완료할 수 있습니다. Wunderlist는 어디에서든 모든 작업에 액세스할 수 있도록 전화, 태블릿 및 컴퓨터 간을 즉시 동기화합니다."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. Wunderlist provide a todo list and task manager to help people get their stuff done.  Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your to¬dos. Wunderlist instantly syncs between your phone, tablet and computer, so you can access all your tasks from anywhere."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,885 +17,889 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Wunderlist 커넥터 시작
 
-Wunderlist는 사람들이 작업할 수 있도록 할 일 목록 및 작업 관리자를 제공합니다. 친구와 식료품 목록 공유하거나 프로젝트에 대해 작업하고 휴가를 계획할 경우 Wunderlist를 사용하여 할 일을 쉽게 캡처하고 공유하며 완료할 수 있습니다. Wunderlist는 어디에서든 모든 작업에 액세스할 수 있도록 전화, 태블릿 및 컴퓨터 간을 즉시 동기화합니다.
+# <a name="get-started-with-the-wunderlist-connector"></a>Get started with the Wunderlist connector
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+Wunderlist provide a todo list and task manager to help people get their stuff done.  Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your to¬dos. Wunderlist instantly syncs between your phone, tablet and computer, so you can access all your tasks from anywhere.
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## 트리거 및 작업
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Wunderlist 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- Wunderlist 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
+The Wunderlist connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### Wunderlist 작업
-다음 작업을 수행할 수 있습니다.
+ The Wunderlist connector has the following action(s) and/or trigger(s) available:
 
-|작업|설명|
+### <a name="wunderlist-actions"></a>Wunderlist actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|[RetrieveLists](connectors-create-api-wunderlist.md#retrievelists)|계정에 연결된 목록을 검색합니다.|
-|[CreateList](connectors-create-api-wunderlist.md#createlist)|목록을 만듭니다.|
-|[ListTasks](connectors-create-api-wunderlist.md#listtasks)|특정 목록에서 작업을 검색합니다.|
-|[CreateTask](connectors-create-api-wunderlist.md#createtask)|작업을 만듭니다.|
-|[ListSubTasks](connectors-create-api-wunderlist.md#listsubtasks)|특정 목록 또는 특정 작업에서 하위 작업을 검색합니다.|
-|[CreateSubTask](connectors-create-api-wunderlist.md#createsubtask)|특정 작업 내에서 하위 작업을 만듭니다.|
-|[ListNotes](connectors-create-api-wunderlist.md#listnotes)|특정 목록이나 특정 작업에 대한 정보를 검색합니다.|
-|[CreateNote](connectors-create-api-wunderlist.md#createnote)|특정 작업에 참고 사항을 추가합니다.|
-|[ListComments](connectors-create-api-wunderlist.md#listcomments)|특정 목록이나 특정 작업에 대한 작업 주석을 검색합니다.|
-|[CreateComment](connectors-create-api-wunderlist.md#createcomment)|특정 작업에 주석을 추가합니다.|
-|[RetrieveReminders](connectors-create-api-wunderlist.md#retrievereminders)|특정 목록이나 특정 작업에 대한 미리 알림을 검색합니다.|
-|[CreateReminder](connectors-create-api-wunderlist.md#createreminder)|미리 알림을 설정합니다.|
-|[RetrieveFiles](connectors-create-api-wunderlist.md#retrievefiles)|특정 목록이나 특정 작업에 대한 파일을 검색합니다.|
-|[GetList](connectors-create-api-wunderlist.md#getlist)|특정 목록을 검색합니다.|
-|[DeleteList](connectors-create-api-wunderlist.md#deletelist)|목록을 삭제합니다|
-|[UpdateList](connectors-create-api-wunderlist.md#updatelist)|특정 목록을 업데이트합니다.|
-|[GetTask](connectors-create-api-wunderlist.md#gettask)|특정 작업을 검색합니다.|
-|[UpdateTask](connectors-create-api-wunderlist.md#updatetask)|특정 작업을 업데이트합니다.|
-|[DeleteTask](connectors-create-api-wunderlist.md#deletetask)|특정 작업을 삭제합니다.|
-|[GetSubTask](connectors-create-api-wunderlist.md#getsubtask)|특정 하위 작업을 검색합니다.|
-|[UpdateSubTask](connectors-create-api-wunderlist.md#updatesubtask)|특정 하위 작업을 업데이트합니다.|
-|[DeleteSubTask](connectors-create-api-wunderlist.md#deletesubtask)|특정 하위 작업을 삭제합니다.|
-|[GetNote](connectors-create-api-wunderlist.md#getnote)|특정 참고 사항을 검색합니다.|
-|[UpdateNote](connectors-create-api-wunderlist.md#updatenote)|특정 참고 사항을 업데이트합니다.|
-|[DeleteNote](connectors-create-api-wunderlist.md#deletenote)|특정 참고 사항을 삭제합니다.|
-|[GetComment](connectors-create-api-wunderlist.md#getcomment)|특정 작업 주석을 검색합니다.|
-|[UpdateReminder](connectors-create-api-wunderlist.md#updatereminder)|특정 미리 알림을 업데이트합니다.|
-|[DeleteReminder](connectors-create-api-wunderlist.md#deletereminder)|특정 미리 알림을 삭제합니다.|
-### Wunderlist 트리거
-다음 이벤트를 수신할 수 있습니다.
+|[RetrieveLists](connectors-create-api-wunderlist.md#retrievelists)|Retrieve the lists associated with your account.|
+|[CreateList](connectors-create-api-wunderlist.md#createlist)|Create a list.|
+|[ListTasks](connectors-create-api-wunderlist.md#listtasks)|Retrieve tasks from a specific list.|
+|[CreateTask](connectors-create-api-wunderlist.md#createtask)|Create a task|
+|[ListSubTasks](connectors-create-api-wunderlist.md#listsubtasks)|Retrieve subtasks from a specific list or from a specific task.|
+|[CreateSubTask](connectors-create-api-wunderlist.md#createsubtask)|Create a subtask within a specific task|
+|[ListNotes](connectors-create-api-wunderlist.md#listnotes)|Retrieve notes for a specific list or a specific task.|
+|[CreateNote](connectors-create-api-wunderlist.md#createnote)|Add a note to a specific task|
+|[ListComments](connectors-create-api-wunderlist.md#listcomments)|Retrieve task comments for a specific list or a specific task.|
+|[CreateComment](connectors-create-api-wunderlist.md#createcomment)|Add a comment to a specific task|
+|[RetrieveReminders](connectors-create-api-wunderlist.md#retrievereminders)|Retrieve reminders for a specific list or a specific task.|
+|[CreateReminder](connectors-create-api-wunderlist.md#createreminder)|Set a reminder.|
+|[RetrieveFiles](connectors-create-api-wunderlist.md#retrievefiles)|Retrieve files for a specific list or a specific task.|
+|[GetList](connectors-create-api-wunderlist.md#getlist)|Retrieves a specific list|
+|[DeleteList](connectors-create-api-wunderlist.md#deletelist)|Deletes a list|
+|[UpdateList](connectors-create-api-wunderlist.md#updatelist)|Update a specific list|
+|[GetTask](connectors-create-api-wunderlist.md#gettask)|Retrieves a specific task|
+|[UpdateTask](connectors-create-api-wunderlist.md#updatetask)|Updates a specific task|
+|[DeleteTask](connectors-create-api-wunderlist.md#deletetask)|Deletes a specific task|
+|[GetSubTask](connectors-create-api-wunderlist.md#getsubtask)|Retrieves a specific subtask|
+|[UpdateSubTask](connectors-create-api-wunderlist.md#updatesubtask)|Updates a specific subtask|
+|[DeleteSubTask](connectors-create-api-wunderlist.md#deletesubtask)|Deletes a specific subtask|
+|[GetNote](connectors-create-api-wunderlist.md#getnote)|Retrieve a specific note|
+|[UpdateNote](connectors-create-api-wunderlist.md#updatenote)|Update a specific note|
+|[DeleteNote](connectors-create-api-wunderlist.md#deletenote)|Delete a specific note|
+|[GetComment](connectors-create-api-wunderlist.md#getcomment)|Retrieve a specific task comment|
+|[UpdateReminder](connectors-create-api-wunderlist.md#updatereminder)|Update a specific reminder|
+|[DeleteReminder](connectors-create-api-wunderlist.md#deletereminder)|Delete a specific reminder|
+### <a name="wunderlist-triggers"></a>Wunderlist triggers
+You can listen for these event(s):
 
-|트리거 | 설명|
+|Trigger | Description|
 |--- | ---|
-|작업이 만료되는 경우|목록의 작업이 만료되는 경우 새 흐름을 트리거합니다.|
-|새 작업을 만든 경우|목록에 새 작업을 만든 경우 새 흐름을 트리거합니다.|
-|미리 알림이 발생할 경우|미리 알림이 발생하는 경우 새 흐름을 트리거합니다.|
+|When a task is due|Triggers a new flow when a task in the list is due|
+|When a new task is created|Triggers a new flow when a new task is created in the list|
+|When a reminder occurs|Triggers a new flow when a reminder occurs|
 
 
-## Wunderlist에 대한 연결 만들기
-Wunderlist로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다.
+## <a name="create-a-connection-to-wunderlist"></a>Create a connection to Wunderlist
+To create Logic apps with Wunderlist, you must first create a **connection** then provide the details for the following properties: 
 
-|속성| 필수|설명|
+|Property| Required|Description|
 | ---|---|---|
-|위임|예|Wunderlist 자격 증명을 제공 합니다.|
-연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
+|Token|Yes|Provide Wunderlist Credentials|
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
 
 
->[AZURE.INCLUDE [Wunderlist에 대한 연결을 만드는 단계](../../includes/connectors-create-api-wunderlist.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)] 
 
 
->[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-## Wunderlist에 대한 참조
-적용 버전: 1.0
+## <a name="reference-for-wunderlist"></a>Reference for Wunderlist
+Applies to version: 1.0
 
-## TriggerTaskDue
-작업이 만료되는 경우: 목록의 작업이 만료되는 경우 새 흐름을 트리거합니다.
+## <a name="triggertaskdue"></a>TriggerTaskDue
+When a task is due: Triggers a new flow when a task in the list is due 
 
-```GET: /trigger/tasksdue```
+```GET: /trigger/tasksdue``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
+|list_id|integer|yes|query|none|List ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation successful|
 
 
-## TriggerTaskNew
-새 작업을 만든 경우: 목록에 새 작업을 만든 경우 새 흐름을 트리거합니다.
+## <a name="triggertasknew"></a>TriggerTaskNew
+When a new task is created: Triggers a new flow when a new task is created in the list 
 
-```GET: /trigger/tasksnew```
+```GET: /trigger/tasksnew``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
+|list_id|integer|yes|query|none|List ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation successful|
 
 
-## TriggerReminder
-미리 알림이 발생할 경우: 미리 알림이 발생하는 경우 새 흐름을 트리거합니다.
+## <a name="triggerreminder"></a>TriggerReminder
+When a reminder occurs: Triggers a new flow when a reminder occurs 
 
-```GET: /trigger/reminders```
+```GET: /trigger/reminders``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|task\_id|정수|no|쿼리|없음|작업 ID|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
+|200|Operation successful|
 
 
-## RetrieveLists
-목록 가져오기: 계정에 연결된 목록을 검색합니다.
+## <a name="retrievelists"></a>RetrieveLists
+Get lists: Retrieve the lists associated with your account. 
 
-```GET: /lists```
+```GET: /lists``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|400|잘못된 요청|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateList
-목록 만들기: 목록을 만듭니다.
+## <a name="createlist"></a>CreateList
+Create a list: Create a list. 
 
-```POST: /lists```
+```POST: /lists``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |yes|body|없음|만들 새 목록|
+|post| |yes|body|none|New list to be created|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|default|Operation Failed.|
 
 
-## ListTasks
-작업 가져오기: 특정 목록에서 작업을 검색합니다.
+## <a name="listtasks"></a>ListTasks
+Get tasks: Retrieve tasks from a specific list. 
 
-```GET: /tasks```
+```GET: /tasks``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|완료됨|부울|no|쿼리|없음|Completed|
+|list_id|integer|yes|query|none|List ID|
+|completed|boolean|no|query|none|Completed|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|400|잘못된 요청|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateTask
-작업 만들기: 작업을 만듭니다.
+## <a name="createtask"></a>CreateTask
+Create a task: Create a task 
 
-```POST: /tasks```
+```POST: /tasks``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |yes|body|없음|만들 새 작업|
+|post| |yes|body|none|New task to be created|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|201|작성자|
+|201|Created|
 
 
-## ListSubTasks
-하위 작업 가져오기: 특정 목록 또는 특정 작업에서 하위 작업을 검색합니다.
+## <a name="listsubtasks"></a>ListSubTasks
+Get subtasks: Retrieve subtasks from a specific list or from a specific task. 
 
-```GET: /subtasks```
+```GET: /subtasks``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|task\_id|정수|no|쿼리|없음|작업 ID|
-|완료됨|부울|no|쿼리|없음|Completed|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
+|completed|boolean|no|query|none|Completed|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|400|잘못된 요청|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateSubTask
-하위 작업 만들기: 특정 작업 내에서 하위 작업을 만듭니다.
+## <a name="createsubtask"></a>CreateSubTask
+Create a subtask: Create a subtask within a specific task 
 
-```POST: /subtasks```
+```POST: /subtasks``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |yes|body|없음|만들 새 하위 작업|
+|post| |yes|body|none|New subtask to be created|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|201|작성자|
+|201|Created|
 
 
-## ListNotes
-참고 사항 가져오기: 특정 목록이나 특정 작업에 대한 정보를 검색합니다.
+## <a name="listnotes"></a>ListNotes
+Get notes: Retrieve notes for a specific list or a specific task. 
 
-```GET: /notes```
+```GET: /notes``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|task\_id|정수|no|쿼리|없음|작업 ID|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|400|잘못된 요청|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateNote
-참고 사항 만들기: 특정 작업에 참고 사항을 추가합니다.
+## <a name="createnote"></a>CreateNote
+Create a note: Add a note to a specific task 
 
-```POST: /notes```
+```POST: /notes``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |yes|body|없음|만들 새 참고 사항|
+|post| |yes|body|none|New note to be created|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|201|작성자|
+|201|Created|
 
 
-## ListComments
-작업 주석 가져오기: 특정 목록이나 특정 작업에 대한 작업 주석을 검색합니다.
+## <a name="listcomments"></a>ListComments
+Get task comments: Retrieve task comments for a specific list or a specific task. 
 
-```GET: /task_comments```
+```GET: /task_comments``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|task\_id|정수|no|쿼리|없음|작업 ID|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|400|잘못된 요청|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateComment
-작업에 주석 추가: 특정 작업에 주석을 추가합니다.
+## <a name="createcomment"></a>CreateComment
+Add a comment to a task: Add a comment to a specific task 
 
-```POST: /task_comments```
+```POST: /task_comments``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |yes|body|없음|만들 새 작업 주석|
+|post| |yes|body|none|New task comment to be created|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|201|작성자|
+|201|Created|
 
 
-## RetrieveReminders
-미리 알림 가져오기: 특정 목록이나 특정 작업에 대한 미리 알림을 검색합니다.
+## <a name="retrievereminders"></a>RetrieveReminders
+Get reminders: Retrieve reminders for a specific list or a specific task. 
 
-```GET: /reminders```
+```GET: /reminders``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|task\_id|정수|no|쿼리|없음|작업 ID|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|400|잘못된 요청|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateReminder
-미리 알림 설정: 미리 알림을 설정합니다.
+## <a name="createreminder"></a>CreateReminder
+Set a reminder: Set a reminder. 
 
-```POST: /reminders```
+```POST: /reminders``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |yes|body|없음|만들 새 미리 알림|
+|post| |yes|body|none|New reminder to be created|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|default|Operation Failed.|
 
 
-## RetrieveFiles
-파일 가져오기: 특정 목록이나 특정 작업에 대한 파일을 검색합니다.
+## <a name="retrievefiles"></a>RetrieveFiles
+Get files: Retrieve files for a specific list or a specific task. 
 
-```GET: /files```
+```GET: /files``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|task\_id|정수|no|쿼리|없음|작업 ID|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|작업이 성공했습니다.|
-|400|잘못된 요청|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## GetList
-목록 가져오기: 특정 목록을 검색합니다.
+## <a name="getlist"></a>GetList
+Get list: Retrieves a specific list 
 
-```GET: /lists/{id}```
+```GET: /lists/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|없음|목록 ID|
+|id|string|yes|path|none|List ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## DeleteList
-목록 삭제: 목록을 삭제합니다.
+## <a name="deletelist"></a>DeleteList
+Delete list: Deletes a list 
 
-```DELETE: /lists/{id}```
+```DELETE: /lists/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|정수|yes|path|없음|목록 ID|
-|revision|정수|yes|쿼리|없음|수정 버전|
+|id|integer|yes|path|none|List ID|
+|revision|integer|yes|query|none|Revision|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|204|내용 없음|
+|204|No Content|
 
 
-## UpdateList
-목록 업데이트: 특정 목록을 업데이트합니다.
+## <a name="updatelist"></a>UpdateList
+Update a list: Update a specific list 
 
-```PATCH: /lists/{id}```
+```PATCH: /lists/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|정수|yes|path|없음|목록 ID|
-|post| |yes|body|없음|목록 세부 정보|
+|id|integer|yes|path|none|List ID|
+|post| |yes|body|none|List details|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## GetTask
-작업 가져오기: 특정 작업을 검색합니다.
+## <a name="gettask"></a>GetTask
+Get task: Retrieves a specific task 
 
-```GET: /tasks/{id}```
+```GET: /tasks/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|id|정수|yes|path|없음|작업 ID|
+|list_id|integer|yes|query|none|List ID|
+|id|integer|yes|path|none|Task ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## UpdateTask
-작업 업데이트: 특정 작업을 업데이트합니다.
+## <a name="updatetask"></a>UpdateTask
+Update a task: Updates a specific task 
 
-```PATCH: /tasks/{id}```
+```PATCH: /tasks/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|id|정수|yes|path|없음|작업 ID|
-|post| |yes|body|없음|태스크 세부 정보|
+|list_id|integer|yes|query|none|List ID|
+|id|integer|yes|path|none|Task ID|
+|post| |yes|body|none|Task details|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## DeleteTask
-작업 삭제: 특정 작업을 삭제합니다.
+## <a name="deletetask"></a>DeleteTask
+Delete task: Deletes a specific task 
 
-```DELETE: /tasks/{id}```
+```DELETE: /tasks/{id}``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|정수|yes|쿼리|없음|목록 ID|
-|id|정수|yes|path|없음|작업 ID|
-|revision|정수|yes|쿼리|없음|수정 버전|
+|list_id|integer|yes|query|none|List ID|
+|id|integer|yes|path|none|Task ID|
+|revision|integer|yes|query|none|Revision|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|204|내용 없음|
+|204|No Content|
 
 
-## GetSubTask
-하위 작업 가져오기: 특정 하위 작업을 검색합니다.
+## <a name="getsubtask"></a>GetSubTask
+Get subtask: Retrieves a specific subtask 
 
-```GET: /subtasks/{id}```
+```GET: /subtasks/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|없음|하위 작업 ID|
+|id|string|yes|path|none|Subtask ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## UpdateSubTask
-하위 작업 업데이트: 특정 하위 작업을 업데이트합니다.
+## <a name="updatesubtask"></a>UpdateSubTask
+Update a subtask: Updates a specific subtask 
 
-```PATCH: /subtasks/{id}```
+```PATCH: /subtasks/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|정수|yes|path|없음|하위 작업 ID|
-|post| |yes|body|없음|하위 작업 세부 정보|
+|id|integer|yes|path|none|Subtask ID|
+|post| |yes|body|none|Subtask details|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## DeleteSubTask
-하위 작업 삭제: 특정 하위 작업을 삭제합니다.
+## <a name="deletesubtask"></a>DeleteSubTask
+Delete a subtask: Deletes a specific subtask 
 
-```DELETE: /subtasks/{id}```
+```DELETE: /subtasks/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|정수|yes|path|없음|하위 작업 ID|
-|revision|정수|yes|쿼리|없음|수정 버전|
+|id|integer|yes|path|none|Subtask ID|
+|revision|integer|yes|query|none|Revision|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|204|내용 없음|
+|204|No Content|
 
 
-## GetNote
-참고 사항 가져오기: 특정 참고 사항을 검색합니다.
+## <a name="getnote"></a>GetNote
+Get a note: Retrieve a specific note 
 
-```GET: /notes/{id}```
+```GET: /notes/{id}``` 
 
-| Name| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|없음|참고 ID|
+|id|string|yes|path|none|Note ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## UpdateNote
-참고 사항 업데이트: 특정 참고 사항을 업데이트합니다.
+## <a name="updatenote"></a>UpdateNote
+Update a note: Update a specific note 
 
-```PATCH: /notes/{id}```
+```PATCH: /notes/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|정수|yes|path|없음|참고 ID|
-|post| |yes|body|없음|참고 사항 세부 정보|
+|id|integer|yes|path|none|Note ID|
+|post| |yes|body|none|Note details|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## DeleteNote
-참고 사항 삭제: 특정 참고 사항을 삭제합니다.
+## <a name="deletenote"></a>DeleteNote
+Delete a note: Delete a specific note 
 
-```DELETE: /notes/{id}```
+```DELETE: /notes/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|정수|yes|path|없음|참고 ID|
-|revision|정수|yes|쿼리|없음|수정 버전|
+|id|integer|yes|path|none|Note ID|
+|revision|integer|yes|query|none|Revision|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|204|내용 없음|
+|204|No Content|
 
 
-## GetComment
-작업 주석 가져오기: 특정 작업 주석을 검색합니다.
+## <a name="getcomment"></a>GetComment
+Get task comment: Retrieve a specific task comment 
 
-```GET: /task_comments/{id}```
+```GET: /task_comments/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|없음|주석 ID|
+|id|string|yes|path|none|Comment ID|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## UpdateReminder
-미리 알림 업데이트: 특정 미리 알림을 업데이트합니다.
+## <a name="updatereminder"></a>UpdateReminder
+Update a reminder: Update a specific reminder 
 
-```PATCH: /reminders/{id}```
+```PATCH: /reminders/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|정수|yes|path|없음|미리 알림 ID|
-|post| |yes|body|없음|미리 알림 세부 정보|
+|id|integer|yes|path|none|Reminder ID|
+|post| |yes|body|none|Reminder details|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
+|200|OK|
 
 
-## DeleteReminder
-미리 알림 삭제: 특정 미리 알림을 삭제합니다.
+## <a name="deletereminder"></a>DeleteReminder
+Delete a reminder: Delete a specific reminder 
 
-```DELETE: /reminders/{id}```
+```DELETE: /reminders/{id}``` 
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|정수|yes|path|없음|미리 알림의 ID|
-|revision|정수|yes|쿼리|없음|수정 버전|
+|id|integer|yes|path|none|ID of the reminder.|
+|revision|integer|yes|query|none|Revision|
 
-#### 응답
+#### <a name="response"></a>Response
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|204|내용 없음|
+|204|No Content|
 
 
-## 개체 정의 
+## <a name="object-definitions"></a>Object definitions 
 
-### 나열
+### <a name="list"></a>List
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|created\_at|string|아니요 |
-|title|string|아니요 |
-|list\_type|string|아니요 |
-|type|string|아니요 |
-|revision|정수|아니요 |
+|id|integer|No |
+|created_at|string|No |
+|title|string|No |
+|list_type|string|No |
+|type|string|No |
+|revision|integer|No |
 
 
 
-### CreatedList
+### <a name="createdlist"></a>CreatedList
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|created\_at|string|아니요 |
-|title|string|아니요 |
-|revision|정수|아니요 |
-|type|string|아니요 |
+|id|integer|No |
+|created_at|string|No |
+|title|string|No |
+|revision|integer|No |
+|type|string|No |
 
 
 
-### 작업
+### <a name="task"></a>Task
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|assignee\_id|정수|아니요 |
-|assigner\_id|정수|아니요 |
-|created\_at|string|아니요 |
-|created\_by\_id|정수|아니요 |
-|due\_date|string|아니요 |
-|list\_id|정수|아니요 |
-|revision|정수|아니요 |
-|starred|부울|아니요 |
-|title|string|아니요 |
+|id|integer|No |
+|assignee_id|integer|No |
+|assigner_id|integer|No |
+|created_at|string|No |
+|created_by_id|integer|No |
+|due_date|string|No |
+|list_id|integer|No |
+|revision|integer|No |
+|starred|boolean|No |
+|title|string|No |
 
 
 
-### 하위 작업
+### <a name="subtask"></a>Subtask
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|task\_id|정수|아니요 |
-|created\_at|string|아니요 |
-|created\_by\_id|정수|아니요 |
-|revision|string|아니요 |
-|title|string|아니요 |
+|id|integer|No |
+|task_id|integer|No |
+|created_at|string|No |
+|created_by_id|integer|No |
+|revision|string|No |
+|title|string|No |
 
 
 
-### 참고
+### <a name="note"></a>Note
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|task\_id|정수|아니요 |
-|콘텐츠|string|아니요 |
-|created\_at|string|아니요 |
-|updated\_at|string|아니요 |
-|revision|정수|아니요 |
+|id|integer|No |
+|task_id|integer|No |
+|content|string|No |
+|created_at|string|No |
+|updated_at|string|No |
+|revision|integer|No |
 
 
 
-### 주석
+### <a name="comment"></a>Comment
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|task\_id|정수|아니요 |
-|revision|정수|아니요 |
-|텍스트|string|아니요 |
-|type|string|아니요 |
-|created\_at|string|아니요 |
+|id|integer|No |
+|task_id|integer|No |
+|revision|integer|No |
+|text|string|No |
+|type|string|No |
+|created_at|string|No |
 
 
 
-### 미리 알림
+### <a name="reminder"></a>Reminder
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|date|string|아니요 |
-|task\_id|정수|아니요 |
-|revision|정수|아니요 |
-|type|string|아니요 |
-|created\_at|string|아니요 |
-|updated\_at|string|아니요 |
+|id|integer|No |
+|date|string|No |
+|task_id|integer|No |
+|revision|integer|No |
+|type|string|No |
+|created_at|string|No |
+|updated_at|string|No |
 
 
 
-### CreatedReminder
+### <a name="createdreminder"></a>CreatedReminder
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|date|string|아니요 |
-|task\_id|정수|아니요 |
-|revision|정수|아니요 |
-|created\_at|string|아니요 |
-|updated\_at|string|아니요 |
+|id|integer|No |
+|date|string|No |
+|task_id|integer|No |
+|revision|integer|No |
+|created_at|string|No |
+|updated_at|string|No |
 
 
 
-### 파일
+### <a name="file"></a>File
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|정수|아니요 |
-|url|string|아니요 |
-|task\_id|정수|아니요 |
-|list\_id|정수|아니요 |
-|user\_id|정수|아니요 |
-|file\_name|string|아니요 |
-|content\_type|string|아니요 |
-|file\_size|정수|아니요 |
-|local\_created\_at|string|아니요 |
-|created\_at|string|아니요 |
-|updated\_at|string|아니요 |
-|type|string|아니요 |
-|revision|정수|아니요 |
+|id|integer|No |
+|url|string|No |
+|task_id|integer|No |
+|list_id|integer|No |
+|user_id|integer|No |
+|file_name|string|No |
+|content_type|string|No |
+|file_size|integer|No |
+|local_created_at|string|No |
+|created_at|string|No |
+|updated_at|string|No |
+|type|string|No |
+|revision|integer|No |
 
 
 
-### NewTask
+### <a name="newtask"></a>NewTask
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|정수|예 |
-|title|string|예 |
-|assignee\_id|정수|아니요 |
-|완료됨|부울|아니요 |
-|recurrence\_type|string|아니요 |
-|recurrence\_count|정수|아니요 |
-|due\_date|string|아니요 |
-|starred|부울|아니요 |
+|list_id|integer|Yes |
+|title|string|Yes |
+|assignee_id|integer|No |
+|completed|boolean|No |
+|recurrence_type|string|No |
+|recurrence_count|integer|No |
+|due_date|string|No |
+|starred|boolean|No |
 
 
 
-### NewList
+### <a name="newlist"></a>NewList
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|title|string|예 |
+|title|string|Yes |
 
 
 
-### NewSubtask
+### <a name="newsubtask"></a>NewSubtask
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|정수|예 |
-|task\_id|정수|예 |
-|title|string|예 |
-|완료됨|부울|아니요 |
+|list_id|integer|Yes |
+|task_id|integer|Yes |
+|title|string|Yes |
+|completed|boolean|No |
 
 
 
-### NewNote
+### <a name="newnote"></a>NewNote
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|정수|예 |
-|task\_id|정수|예 |
-|콘텐츠|string|예 |
+|list_id|integer|Yes |
+|task_id|integer|Yes |
+|content|string|Yes |
 
 
 
-### NewComment
+### <a name="newcomment"></a>NewComment
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|정수|예 |
-|task\_id|정수|예 |
-|텍스트|string|예 |
+|list_id|integer|Yes |
+|task_id|integer|Yes |
+|text|string|Yes |
 
 
 
-### NewReminder
+### <a name="newreminder"></a>NewReminder
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|정수|예 |
-|task\_id|정수|예 |
-|date|string|예 |
+|list_id|integer|Yes |
+|task_id|integer|Yes |
+|date|string|Yes |
 
 
 
-### UpdateTask
+### <a name="updatetask"></a>UpdateTask
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|revision|정수|아니요 |
-|title|string|아니요 |
-|assignee\_id|정수|아니요 |
-|완료됨|부울|아니요 |
-|recurrence\_type|string|아니요 |
-|recurrence\_count|정수|아니요 |
-|due\_date|string|아니요 |
-|starred|부울|아니요 |
+|revision|integer|No |
+|title|string|No |
+|assignee_id|integer|No |
+|completed|boolean|No |
+|recurrence_type|string|No |
+|recurrence_count|integer|No |
+|due_date|string|No |
+|starred|boolean|No |
 
 
 
-### UpdateList
+### <a name="updatelist"></a>UpdateList
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|revision|정수|아니요 |
-|title|string|아니요 |
+|revision|integer|No |
+|title|string|No |
 
 
 
-### UpdateSubtask
+### <a name="updatesubtask"></a>UpdateSubtask
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|revision|정수|아니요 |
-|title|string|아니요 |
-|완료됨|부울|아니요 |
+|revision|integer|No |
+|title|string|No |
+|completed|boolean|No |
 
 
 
-### UpdateNote
+### <a name="updatenote"></a>UpdateNote
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|revision|정수|아니요 |
-|콘텐츠|string|아니요 |
+|revision|integer|No |
+|content|string|No |
 
 
 
-### UpdateReminder
+### <a name="updatereminder"></a>UpdateReminder
 
 
-| 속성 이름 | 데이터 형식 | 필수 |
+| Property Name | Data Type | Required |
 |---|---|---|
-|date|string|아니요 |
-|revision|정수|아니요 |
+|date|string|No |
+|revision|integer|No |
 
 
-## 다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

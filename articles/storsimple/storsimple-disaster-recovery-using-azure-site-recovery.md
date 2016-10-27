@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Site Recovery를 사용하여 StorSimple의 파일 공유에 대한 DR 자동화 | Microsoft Azure"
-   description="StorSimple 저장소에서 호스트되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계 및 모범 사례를 설명합니다."
+   pageTitle="Automate DR for file shares on StorSimple using Azure Site Recovery| Microsoft Azure"
+   description="Describes the steps and best practices for creating a disaster recovery solution for file shares hosted on StorSimple storage."
    services="storsimple"
    documentationCenter="NA"
    authors="vidarmsft"
@@ -15,392 +15,397 @@
    ms.date="05/16/2016"
    ms.author="vidarmsft" />
 
-# StorSimple에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 자동화된 재해 복구 솔루션
 
-## 개요
+# <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
 
-Microsoft Azure StorSimple은 일반적으로 파일 공유와 연결된 구조화되지 않은 데이터의 복잡성을 해결하는 하이브리드 클라우드 저장소 솔루션입니다. StorSimple은 온-프레미스 솔루션의 확장으로 클라우드 저장소를 사용하여 자동으로 온-프레미스 솔루션 및 클라우드 저장소에서 데이터를 계층화합니다. 로컬 및 클라우드 스냅숏과 함께 통합 데이터 보호 기능은 제멋대로 늘어나는 저장소 인프라의 필요성을 없애줍니다.
+## <a name="overview"></a>Overview
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md)는 가상 컴퓨터의 복제, 장애 조치(failover) 및 복구를 오케스트레이션하여 DR(재해 복구) 기능을 제공하는 Azure 기반 서비스입니다. Azure Site Recovery는 가상 컴퓨터 및 응용 프로그램을 일관되게 복제하고 보호하며 사설/공용 클라우드 또는 호스트된 클라우드로 원활하게 장애 조치(failover)하기 위한 다양한 복제 기술을 지원합니다.
+Microsoft Azure StorSimple is a hybrid cloud storage solution that addresses the complexities of unstructured data commonly associated with file shares. StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and cloud storage. Integrated data protection, with local and cloud snapshots, eliminates the need for a sprawling storage infrastructure.
 
-Azure Site Recovery, 가상 컴퓨터 복제 및 StorSimple 클라우드 스냅숏 기능을 사용하여 전체 파일 서버 환경을 보호할 수 있습니다. 중단이 발생할 경우 클릭 한 번으로 단 몇 분 만에 Azure에서 파일 공유를 온라인 상태로 만들 수 있습니다.
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) is an Azure-based service that provides disaster recovery (DR) capabilities by orchestrating replication, failover, and recovery of virtual machines. Azure Site Recovery supports a number of replication technologies to consistently replicate, protect, and seamlessly fail over virtual machines and applications to private/public or hosted clouds.
 
-이 문서에서는 StorSimple 저장소에서 호스트되는 파일 공유를 위한 재해 복구 솔루션을 만들고 원클릭 복구 계획을 사용하여 계획된 장애 조치(failover), 계획되지 않은 장애 조치(failover) 및 테스트 장애 조치(failover)를 수행하는 방법을 자세히 설명합니다. 기본적으로 Azure Site Recovery 자격 증명 모음에서 복구 계획을 수정하여 재해 시나리오 중에 StorSimple 장애 조치(failover)를 사용하도록 설정하는 방법을 보여 줍니다. 또한 지원되는 구성 및 필수 조건을 설명합니다. 이 문서에서는 사용자가 Azure Site Recovery 및 StorSimple 아키텍처의 기본 사항을 잘 알고 있다고 가정합니다.
+Using Azure Site Recovery, virtual machine replication, and StorSimple cloud snapshot capabilities, you can protect the complete file server environment. In the event of a disruption, you can use a single click to bring your file shares online in Azure in just a few minutes.
 
-## 지원되는 Azure Site Recovery 배포 옵션
+This document explains in detail how you can create a disaster recovery solution for your file shares hosted on StorSimple storage, and perform planned, unplanned, and test failovers using a one-click recovery plan. In essence, it shows how you can modify the Recovery Plan in your Azure Site Recovery vault to enable StorSimple failovers during disaster scenarios. In addition, it describes supported configurations and prerequisites. This document assumes that you are familiar with the basics of Azure Site Recovery and StorSimple architectures.
 
-고객은 파일 서버를 Hyper-V 또는 VMware에서 실행되는 물리적 서버 또는 VM(가상 컴퓨터)으로 배포한 다음 StorSimple 저장소의 잘라낸 볼륨에서 파일 공유를 만들 수 있습니다. Azure Site Recovery는 보조 사이트 또는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다. 이 문서에서는 Hyper-V에서 호스트되는 파일 서버 VM에 대한 복구 사이트로 Azure를 사용하고 StorSimple 저장소의 파일 공유를 사용하는 DR 솔루션의 세부 정보를 다룹니다. 파일 서버 VM이 VMware VM 또는 물리적 컴퓨터에 있는 다른 시나리오도 유사하게 구현할 수 있습니다.
+## <a name="supported-azure-site-recovery-deployment-options"></a>Supported Azure Site Recovery deployment options
 
-## 필수 조건
+Customers can deploy file servers as physical servers or virtual machines (VMs) running on Hyper-V or VMware, and then create file shares from volumes carved out of StorSimple storage. Azure Site Recovery can protect both physical and virtual deployments to either a secondary site or to Azure. This document covers details of a DR solution with Azure as the recovery site for a file server VM hosted on Hyper-V and with file shares on StorSimple storage. Other scenarios in which the file server VM is on a VMware VM or a physical machine can be implemented similarly.
 
-StorSimple 저장소에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 원클릭 재해 복구 솔루션을 구현할 경우 다음과 같은 필수 조건이 있습니다.
+## <a name="prerequisites"></a>Prerequisites
 
--   Hyper-V 또는 VMware나 물리적 컴퓨터에서 호스트되는 온-프레미스 Windows Server 2012 R2 파일 서버 VM
+Implementing a one-click disaster recovery solution that uses Azure Site Recovery for file shares hosted on StorSimple storage has the following prerequisites:
 
--   Azure StorSimple Manager에 등록된 온-프레미스 StorSimple 저장소 장치
+-   On-premises Windows Server 2012 R2 File server VM hosted on Hyper-V or VMware or a physical machine
 
--   Azure StorSimple Manager에서 만들어진 StorSimple Cloud Appliance(종료 상태로 유지될 수 있음)
+-   StorSimple storage device on-premises registered with Azure StorSimple manager
 
--   StorSimple 저장소 장치에 구성된 볼륨에서 호스트되는 파일 공유
+-   StorSimple Cloud Appliance created in the Azure StorSimple manager (this can be kept in shut down state)
 
--   Microsoft Azure 구독에서 만들어진 [Azure Site Recovery 서비스 자격 증명 모음](../site-recovery/site-recovery-vmm-to-vmm.md)
+-   File shares hosted on the volumes configured on the StorSimple storage device
 
-또한 Azure가 복구 사이트인 경우 VM에서 [Azure 가상 컴퓨터 준비 평가 도구](http://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 Azure VM 및 Azure Site Recovery 서비스와 호환되는지 확인합니다.
+-   [Azure Site Recovery services vault](../site-recovery/site-recovery-vmm-to-vmm.md) created in a Microsoft Azure subscription
 
-대기 시간 문제(많은 비용을 유발할 수 있음)를 방지하려면 StorSimple Cloud Appliance, 자동화 계정 및 저장소 계정을 같은 지역에서 만들도록 합니다.
+In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
 
-## StorSimple 파일 공유에 DR 사용  
+To avoid latency issues (which might result in higher costs), make sure that you create your StorSimple Cloud Appliance, automation account, and storage account(s) in the same region.
 
-완전한 복제 및 복구를 위해서는 온-프레미스 환경의 각 구성 요소를 보호해야 합니다. 이 섹션에서는 다음 방법을 설명합니다.
+## <a name="enable-dr-for-storsimple-file-shares"></a>Enable DR for StorSimple file shares  
 
--   Active Directory 및 DNS 복제 설정(선택 사항)
+Each component of the on-premises environment needs to be protected to enable complete replication and recovery. This section describes how to:
 
--   Azure Site Recovery를 사용하여 파일 서버 VM의 보호 사용
+-   Set up Active Directory and DNS replication (optional)
 
--   StorSimple 볼륨의 보호 사용
+-   Use Azure Site Recovery to enable protection of the file server VM
 
--   네트워크 구성
+-   Enable protection of StorSimple volumes
 
-### Active Directory 및 DNS 복제 설정(선택 사항)
+-   Configure the network
 
-DR 사이트에서 사용할 수 있도록 Active Directory 및 DNS를 실행하는 컴퓨터를 보호하려는 경우 인증을 통한 장애 조치(failover) 후 파일 서버에 액세스할 수 있도록 이러한 컴퓨터를 명시적으로 보호해야 합니다. 고객의 온-프레미스 환경 복잡도에 따라 권장되는 두 가지 옵션이 있습니다.
+### <a name="set-up-active-directory-and-dns-replication-(optional)"></a>Set up Active Directory and DNS replication (optional)
 
-#### 옵션 1
+If you want to protect the machines running Active Directory and DNS so that they are available on the DR site, you need to explicitly protect them (so that the file servers are accessible after fail over with authentication). There are two recommended options based on the complexity of the customer’s on-premises environment.
 
-고객이 적은 수의 응용 프로그램과 전체 온-프레미스 사이트에 대한 단일 도메인 컨트롤러를 보유하고 있고 전체 사이트를 장애 조치(failover)하려는 경우 Azure Site Recovery 복제를 사용하여 도메인 컨트롤러 컴퓨터를 보조 사이트로 복제하는 것이 좋습니다(사이트 간 및 사이트-Azure에 적용 가능).
+#### <a name="option-1"></a>Option 1
 
-#### 옵션 2
+If the customer has a small number of applications, a single domain controller for the entire on-premises site, and will be failing over the entire site, then we recommend using Azure Site Recovery replication to replicate the domain controller machine to a secondary site (this is applicable for both site-to-site and site-to-Azure).
 
-고객이 많은 수의 응용 프로그램을 보유하고 있고 Active Directory 포리스트를 실행 중이며 한 번에 소수의 응용 프로그램을 장애 조치(failover)하려는 경우 DR 사이트(보조 사이트 또는 Azure)에 추가 도메인 컨트롤러를 설정하는 것이 좋습니다.
+#### <a name="option-2"></a>Option 2
 
-DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하는 경우의 지침은 [Azure Site Recovery를 사용한 Active Directory 및 DNS용 자동화된 DR 솔루션](../site-recovery/site-recovery-active-directory.md)을 참조하세요. 이 문서의 나머지 부분에서는 DR 사이트에서 도메인 컨트롤러를 사용할 수 있다고 가정합니다.
+If the customer has a large number of applications, is running an Active Directory forest, and will be failing over a few applications at a time, then we recommend setting up an additional domain controller on the DR site (either a secondary site or in Azure).
 
-### Azure Site Recovery를 사용하여 파일 서버 VM의 보호 사용
+Please refer to [Automated DR solution for Active Directory and DNS using Azure Site Recovery](../site-recovery/site-recovery-active-directory.md) for instructions when making a domain controller available on the DR site. For the remainder of this document, we will assume a domain controller is available on the DR site.
 
-이 단계를 수행하려면 온-프레미스 파일 서버 환경을 준비하고, Azure Site Recovery 자격 증명 모음을 만들고 준비하며, VM의 파일 보호를 사용하도록 설정해야 합니다.
+### <a name="use-azure-site-recovery-to-enable-protection-of-the-file-server-vm"></a>Use Azure Site Recovery to enable protection of the file server VM
 
-#### 온-프레미스 파일 서버 환경을 준비하려면
+This step requires that you prepare the on-premises file server environment, create and prepare an Azure Site Recovery vault, and enable file protection of the VM.
 
-1.  **사용자 계정 컨트롤**을 **알리지 않음**으로 설정합니다. Azure Site Recovery로 장애 조치(failover) 후 Azure 자동화 스크립트를 사용하여 iSCSI 대상을 연결할 수 있도록 이 작업이 필요합니다.
+#### <a name="to-prepare-the-on-premises-file-server-environment"></a>To prepare the on-premises file server environment
 
-    1.  Windows 키+Q를 누르고 **UAC**를 검색합니다.
+1.  Set the **User Account Control** to **Never Notify**. This is required so that you can use Azure automation scripts to connect the iSCSI targets after fail over by Azure Site Recovery.
 
-    2.  **사용자 계정 컨트롤 설정 변경**을 선택합니다.
+    1.  Press the Windows key +Q and search for **UAC**.
 
-    3.  막대를 **알리지 않음**을 향해 아래쪽으로 끕니다.
+    2.  Select **Change User Account Control settings**.
 
-    4.  **확인**을 클릭한 다음 메시지가 표시되면 **예**를 선택합니다.
+    3.  Drag the bar to the bottom towards **Never Notify**.
 
-		![](./media/storsimple-dr-using-asr/image1.png)
+    4.  Click **OK** and then select **Yes** when prompted.
 
-1.  각 파일 서버 VM에 VM 에이전트를 설치합니다. 장애 조치(failover)된 VM에 대해 Azure 자동화 스크립트를 실행할 수 있도록 이 작업이 필요합니다.
+        ![](./media/storsimple-dr-using-asr/image1.png)
 
-    1.  `C:\\Users\<username>\\Downloads`에 [에이전트를 다운로드](http://aka.ms/vmagentwin)합니다.
+1.  Install the VM Agent on each of the file server VMs. This is required so that you can run Azure automation scripts on the failed over VMs.
 
-    2.  관리자 모드(관리자 권한으로 실행)에서 Windows PowerShell을 열고 다음 명령을 입력하여 다운로드 위치로 이동합니다.
+    1.  [Download the agent](http://aka.ms/vmagentwin) to `C:\\Users\\<username>\\Downloads`.
 
-		`cd C:\\Users\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
+    2.  Open Windows PowerShell in Administrator mode (Run as Administrator), and then enter the following command to navigate to the download location:
 
-		> [AZURE.NOTE] 파일 이름은 버전에 따라 변경될 수 있습니다.
+        `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
 
-1.  **다음**을 클릭합니다.
+        > [AZURE.NOTE] The file name may change depending on the version.
 
-2.  **Terms of Agreement(계약 조건)**에 동의하고 **다음**을 클릭합니다.
+1.  Click **Next**.
 
-3.  **마침**을 클릭합니다.
+2.  Accept the **Terms of Agreement** and then click **Next**.
 
+3.  Click **Finish**.
 
-1.  StorSimple 저장소의 잘라낸 볼륨을 사용하여 파일 공유를 만듭니다. 자세한 내용은 [StorSimple Manager 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes.md)를 참조하세요.
 
-    1.  온-프레미스 VM에서 Windows 키+Q를 누르고 **iSCSI**를 검색합니다.
+1.  Create file shares using volumes carved out of StorSimple storage. For more information, see [Use the StorSimple Manager service to manage volumes](storsimple-manage-volumes.md).
 
-    2.  **iSCSI 초기자**를 선택합니다.
+    1.  On your on-premises VMs, press the Windows key +Q and search for **iSCSI**.
 
-    3.  **구성** 탭을 선택하고 초기자 이름을 복사합니다.
+    2.  Select **iSCSI initiator**.
 
-    4.  [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
+    3.  Select the **Configuration** tab and copy the initiator name.
 
-    5.  **StorSimple** 탭을 선택한 다음 물리적 장치를 포함하는 StorSimple Manager 서비스를 선택합니다.
+    4.  Log in to the [Azure classic portal](https://manage.windowsazure.com/).
 
-    6.  볼륨 컨테이너를 만든 다음 볼륨을 만듭니다. (이러한 볼륨은 파일 서버 VM의 파일 공유용입니다.) 초기자 이름을 복사하고 볼륨을 만들 때 액세스 제어 레코드에 적절한 이름을 지정합니다.
+    5.  Select the **StorSimple** tab and then select the StorSimple Manager Service that contains the physical device.
 
-    7.  **구성** 탭을 선택하고 장치의 IP 주소를 적어둡니다.
+    6.  Create volume container(s) and then create volume(s). (These volumes are for the file share(s) on the file server VMs). Copy the initiator name and give an appropriate name for the Access Control Records when you create the volumes.
 
-    8.  온-프레미스 VM에서 다시 **iSCSI 초기자**로 이동하여 빠른 연결 섹션에 IP를 입력합니다. **빠른 연결**을 클릭합니다(이제 장치가 연결됨).
+    7.  Select the **Configure** tab and note down the IP address of the device.
 
-    9.  Azure 관리 포털을 열고 **볼륨 및 장치** 탭을 선택합니다. **자동 구성**을 클릭합니다. 방금 만든 볼륨이 표시됩니다.
+    8.  On your on-premises VMs, go to the **iSCSI initiator** again and enter the IP in the Quick Connect section. Click **Quick Connect** (the device should now be connected).
 
-    10. 포털에서 **장치** 탭을 선택한 다음 **Create a New Virtual Device(새 가상 장치 만들기)**를 선택합니다. (이 가상 장치는 장애 조치(failover)가 발생하는 경우 사용됩니다.) 이 새 가상 장치는 추가 비용을 방지하기 위해 오프라인 상태로 유지될 수 있습니다. 가상 장치를 오프라인 상태로 전환하려면 포털에서 **가상 컴퓨터** 섹션으로 이동하여 해당 가상 장치를 종료합니다.
+    9.  Open the Azure Management Portal and select the **Volumes and Devices** tab. Click **Auto Configure**. The volume that you just created should appear.
 
-    11. 온-프레미스 VM으로 돌아가 디스크 관리를 엽니다(Windows 키+X를 누르고 **디스크 관리**를 선택).
+    10. In the portal, select the **Devices** tab and then select **Create a New Virtual Device.** (This virtual device will be used if a failover occurs). This new virtual device can be kept in an offline state to avoid extra costs. To take the virtual device offline, go to the **Virtual Machines** section on the Portal and shut it down.
 
-    12. 만든 볼륨 수에 따라 몇 가지 추가 디스크가 표시될 수 있습니다. 첫 번째 디스크를 마우스 오른쪽 단추로 클릭하고 **디스크 초기화**를 선택한 다음 **확인**을 선택합니다. **할당되지 않음** 섹션에서 마우스 오른쪽 단추를 클릭하고 **새 단순 볼륨**을 선택한 다음 드라이브 문자를 할당하고 마법사를 마칩니다.
+    11. Go back to the on-premises VMs and open Disk Management (press the Windows key + X and select **Disk Management**).
 
-    13. 모든 디스크에 대해 l단계를 반복합니다. 이제 Windows 탐색기에서 **내 PC**의 모든 디스크를 볼 수 있습니다.
+    12. You will notice some extra disks (depending on the number of volumes you have created). Right-click the first one, select **Initialize Disk**, and select **OK**. Right-click the **Unallocated** section, select **New Simple Volume**, assign it a drive letter, and finish the wizard.
 
-    14. 파일 및 저장소 서비스 역할을 사용하여 이러한 볼륨에서 파일 공유를 만듭니다.
+    13. Repeat step l for all the disks. You can now see all the disks on **This PC** in the Windows Explorer.
 
-#### Azure Site Recovery 자격 증명 모음을 만들고 준비하려면
+    14. Use the File and Storage Services role to create file shares on these volumes.
 
-파일 서버 VM을 보호하기 전에 [Azure Site Recovery 설명서](../site-recovery/site-recovery-hyper-v-site-to-azure.md)를 참조하여 Azure Site Recovery를 시작합니다.
+#### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>To create and prepare an Azure Site Recovery vault
 
-#### 보호를 사용하도록 설정하려면
+Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-hyper-v-site-to-azure.md) to get started with Azure Site Recovery before protecting the file server VM.
 
-1.  Azure Site Recovery를 통해 보호하려는 온-프레미스 VM에서 iSCSI 대상의 연결을 끊습니다.
+#### <a name="to-enable-protection"></a>To enable protection
 
-    1.  Windows 키+Q를 누르고 **iSCSI**를 검색합니다.
+1.  Disconnect the iSCSI target(s) from the on-premises VMs that you want to protect through Azure Site Recovery:
 
-    2.  **iSCSI 초기자 설정**을 선택합니다.
+    1.  Press Windows key + Q and search for **iSCSI**.
 
-    3.  이전에 연결한 StorSimple 장치의 연결을 끊습니다. 또는 보호를 사용하도록 설정할 때 몇 분간 파일 서버를 끌 수 있습니다.
+    2.  Select **Set up iSCSI initiator**.
 
-	> [AZURE.NOTE] 이렇게 하면 파일 공유를 일시적으로 사용할 수 없게 됩니다.
+    3.  Disconnect the StorSimple device that you connected previously. Alternatively, you can switch off the file server for a few minutes when enabling protection.
 
-1.  Azure Site Recovery 포털에서 파일 서버 VM의 [가상 컴퓨터 보호를 사용](../site-recovery/site-recovery-hyper-v-site-to-azure.md##step-6-enable-replication)하도록 설정합니다.
+    > [AZURE.NOTE] This will cause the file shares to be temporarily unavailable
 
-2.  초기 동기화가 시작되면 대상을 다시 연결할 수 있습니다. iSCSI 초기자로 이동하여 StorSimple 장치를 선택한 다음 **연결**을 클릭합니다.
+1.  [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md##step-6-enable-replication) of the file server VM from the Azure Site Recovery portal.
 
-3.  동기화가 완료되고 VM 상태가 **보호됨**이면 VM을 선택하고 **구성** 탭을 선택한 다음 VM 네트워크(장애 조치(failover)된 VM이 속할 네트워크)를 적절하게 업데이트합니다. 네트워크가 표시되지 않으면 동기화가 아직 진행되고 있는 것입니다.
+2.  When the initial synchronization begins, you can reconnect the target again. Go to the iSCSI initiator, select the StorSimple device, and click **Connect**.
 
-### StorSimple 볼륨의 보호 사용
+3.  When the synchronization is complete and the status of the VM is **Protected**, select the VM, select the **Configure** tab, and update the network of the VM accordingly (this is the network that the failed over VM(s) will be a part of). If the network doesn’t show up, it means that the sync is still going on.
 
-StorSimple 볼륨에 대해 **이 볼륨에 대한 기본 백업 사용** 옵션을 선택하지 않은 경우 StorSimple Manager 서비스의 **백업 정책**으로 이동하여 모든 볼륨에 적합한 백업 정책을 만듭니다. 응용 프로그램에 대해 확인할 RPO(복구 지점 목표)의 백업 빈도를 설정하는 것이 좋습니다.
+### <a name="enable-protection-of-storsimple-volumes"></a>Enable protection of StorSimple volumes
 
-### 네트워크 구성
+If you have not selected the **Enable a default backup for this volume** option for the StorSimple volumes, go to **Backup Policies** in the StorSimple Manager service, and create a suitable backup policy for all the volumes. We recommend that you set the frequency of backups to the recovery point objective (RPO) that you would like to see for the application.
 
-파일 서버 VM의 경우 VM 네트워크가 장애 조치(failover) 후 올바른 DR 네트워크에 연결되도록 Azure Site Recovery에서 네트워크 설정을 구성합니다.
+### <a name="configure-the-network"></a>Configure the network
 
-다음 그림과 같이 **VMM 클라우드** 또는 **보호 그룹**에서 VM을 선택하여 네트워크 설정을 구성할 수 있습니다.
+For the file server VM, configure network settings in Azure Site Recovery so that the VM networks are attached to the correct DR network after failover.
+
+You can select the VM in the **VMM Cloud** or the **Protection Group** to configure the network settings, as shown in the following illustration.
 
 ![](./media/storsimple-dr-using-asr/image2.png)
 
-## 복구 계획 만들기
+## <a name="create-a-recovery-plan"></a>Create a recovery plan
 
-ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) 프로세스를 자동화할 수 있습니다. 중단이 발생할 경우 클릭 한 번으로 몇 분 만에 파일 공유를 온라인 상태로 만들 수 있습니다. 이 자동화를 사용하도록 설정하려면 Azure 자동화 계정이 필요합니다.
+You can create a recovery plan in ASR to automate the failover process of the file shares. If a disruption occurs, you can bring the file shares up in a few minutes with just a single click. To enable this automation, you will need an Azure automation account.
 
-#### 계정을 만들려면
+#### <a name="to-create-the-account"></a>To create the account
 
-1.  Azure 클래식 포털로 이동한 다음 **자동화** 섹션으로 이동합니다.
+1.  Go to the Azure classic portal and go to the **Automation** section.
 
-1.  새 자동화 계정을 만듭니다. 이 계정을 StorSimple Cloud Appliance 및 저장소 계정을 만든 것과 동일한 지역/하위 지역에 유지합니다.
+1.  Create a new automation account. Keep it in the same geo/region in which the StorSimple Cloud Appliance and storage accounts were created.
 
-2.  **새로 만들기** &gt; **앱 서비스** &gt; **자동화** &gt; **Runbook** &gt; **갤러리에서**를 클릭하여 필요한 모든 Runbook을 자동화 계정으로 가져옵니다.
+2.  Click **New** &gt; **App Services** &gt; **Automation** &gt; **Runbook** &gt; **From Gallery** to import all the required runbooks into the automation account.
 
-	![](./media/storsimple-dr-using-asr/image3.png)
+    ![](./media/storsimple-dr-using-asr/image3.png)
 
-1.  갤러리의 **재해 복구** 창에서 다음 Runbook을 추가합니다.
+1.  Add the following runbooks from the **Disaster Recovery** pane in the gallery:
 
-	-   StorSimple 볼륨 컨테이너 장애 조치(failover)
+    -   Fail over StorSimple volume containers
 
-	-   TFO(테스트 장애 조치(failover)) 후 StorSimple 볼륨 정리
+    -   Clean up of StorSimple volumes after Test Failover (TFO)
 
-	-   장애 조치(failover) 후 StorSimple 장치에서 볼륨 탑재
+    -   Mount volumes on StorSimple device after failover
 
-	-   StorSimple 가상 어플라이언스 시작
+    -   Start StorSimple Virtual Appliance
 
-	-   Azure VM에서 사용자 지정 스크립트 확장 제거
+    -   Uninstall custom script extension in Azure VM
 
-		![](./media/storsimple-dr-using-asr/image4.png)
+        ![](./media/storsimple-dr-using-asr/image4.png)
 
 
-1.  자동화 계정에서 Runbook을 선택하고 **작성자** 탭으로 이동하여 모든 스크립트를 게시합니다. 이 단계 후에 **Runbook** 탭은 다음과 같이 표시됩니다.
+1.  Publish all the scripts by selecting the runbook in the automation account and going to **Author** tab. After this step, the **Runbooks** tab will appear as follows:
 
-	 ![](./media/storsimple-dr-using-asr/image5.png)
+     ![](./media/storsimple-dr-using-asr/image5.png)
 
-1.  자동화 계정에서 **자산** 탭으로 이동하여 **설정 추가** &gt; **자격 증명 추가**를 클릭하고 Azure 자격 증명을 추가한 후 자산 이름을 AzureCredential로 지정합니다.
+1.  In the automation account go to the **Assets** tab, click **Add Setting** &gt; **Add Credential**, and add your Azure credentials – name the asset AzureCredential.
 
-	Windows PowerShell 자격 증명을 사용합니다. 이 자격 증명은 이 Azure 구독에 대한 액세스 권한이 있고 다단계 인증이 사용하지 않도록 설정된 조직 ID 사용자 이름 및 암호를 포함하는 자격 증명이어야 합니다. 이 자격 증명은 장애 조치(failover) 중에 사용자를 대신하여 인증하고 DR 사이트에서 파일 서버 볼륨을 온라인 상태로 만드는 데 필요합니다.
+    Use the Windows PowerShell Credential. This should be a credential that contains an Org ID user name and password with access to this Azure subscription and with multi-factor authentication disabled. This is required to authenticate on behalf of the user during the failovers and to bring up the file server volumes on the DR site.
 
-1.  자동화 계정에서 **자산** 탭을 선택한 다음 **설정 추가** &gt; **변수 추가**를 클릭하고 다음 변수를 추가합니다. 이러한 자산을 암호화하도록 선택할 수 있습니다. 이러한 변수는 복구 계획과 관련됩니다. 복구 계획(다음 단계에서 만듦) 이름이 TestPlan이면 변수는 TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName 등과 같아야 합니다.
+1.  In the automation account, select the **Assets** tab and then click **Add Setting** &gt; **Add variable** and add the following variables. You can choose to encrypt these assets. These variables are recovery plan–specific. If your recovery plan (which you will create in the next step) name is TestPlan, then your variables should be TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, and so on.
 
-	-   *RecoveryPlanName***-StorSimRegKey**: StorSimple Manager 서비스의 등록 키입니다.
+    -   *RecoveryPlanName***-StorSimRegKey**: The registration key for the StorSimple Manager service.
 
-	-   *RecoveryPlanName***-AzureSubscriptionName**: Azure 구독의 이름입니다.
+    -   *RecoveryPlanName***-AzureSubscriptionName**: The name of the Azure subscription.
 
-	-   *RecoveryPlanName***-ResourceName**: StorSimple 장치를 포함하는 StorSimple 리소스의 이름입니다.
+    -   *RecoveryPlanName***-ResourceName**: The name of the StorSimple resource that has the StorSimple device.
 
-	-   *RecoveryPlanName***-DeviceName**: 장애 조치(failover)해야 할 장치입니다.
+    -   *RecoveryPlanName***-DeviceName**: The device that has to be failed over.
 
-	-   *RecoveryPlanName***-TargetDeviceName**: 컨테이너를 장애 조치(failover)할 StorSimple Cloud Appliance입니다.
+    -   *RecoveryPlanName***-TargetDeviceName**: The StorSimple Cloud Appliance on which the containers are to be failed over.
 
-	-   *RecoveryPlanName***-VolumeContainers**: 장애 조치(failover)해야 할 장치에 있는 볼륨 컨테이너의 쉼표로 구분된 문자열입니다(예: volcon1,volcon2, volcon3).
+    -   *RecoveryPlanName***-VolumeContainers**: A comma-separated string of volume containers present on the device that need to be failed over; for example, volcon1,volcon2, volcon3.
 
-	-   RecoveryPlanName**-TargetDeviceDnsName**: 대상 장치의 서비스 이름입니다(**가상 컴퓨터** 섹션에서 찾을 수 있으며, 서비스 이름은 DNS 이름과 같음).
+    -   RecoveryPlanName**-TargetDeviceDnsName**: The service name of the target device (this can be found in the **Virtual Machine** section: the service name is the same as the DNS name).
 
-	-   *RecoveryPlanName***-StorageAccountName**: 스크립트(장애 조치(failover)된 VM에서 실행해야 함)를 저장할 저장소 계정 이름입니다. 이 계정 이름은 스크립트를 임시로 저장할 공간이 있는 모든 저장소 계정일 수 있습니다.
+    -   *RecoveryPlanName***-StorageAccountName**: The storage account name in which the script (which has to run on the failed over VM) will be stored. This can be any storage account that has some space to store the script temporarily.
 
-	-   *RecoveryPlanName***-StorageAccountKey**: 위 저장소 계정의 액세스 키입니다.
+    -   *RecoveryPlanName***-StorageAccountKey**: The access key for the above storage account.
 
-	-   *RecoveryPlanName***-ScriptContainer**: 클라우드에서 스크립트를 저장할 컨테이너의 이름입니다. 컨테이너가 없으면 컨테이너가 만들어집니다.
+    -   *RecoveryPlanName***-ScriptContainer**: The name of the container in which the script will be stored in the cloud. If the container doesn’t exist, it will be created.
 
-	-   *RecoveryPlanName***-VMGUIDS**: VM을 보호할 때 Azure Site Recovery에서는 모든 VM에 장애 조치(failover)된 VM의 세부 정보를 제공하는 고유 ID를 할당합니다. VMGUID를 가져오려면 **복구 서비스** 탭을 선택한 다음 **보호된 항목** &gt; **보호 그룹** &gt; **컴퓨터** &gt; **속성**을 클릭합니다. 여러 VM이 있는 경우 GUID를 쉼표로 구분된 문자열로 추가합니다.
+    -   *RecoveryPlanName***-VMGUIDS**: Upon protecting a VM, Azure Site Recovery assigns every VM a unique ID that gives the details of the failed over VM. To obtain the VMGUID, select the **Recovery Services** tab and then click **Protected Item** &gt; **Protection Groups** &gt; **Machines** &gt; **Properties**. If you have multiple VMs, then add the GUIDs as a comma-separated string.
 
-	-   *RecoveryPlanName***-AutomationAccountName**: Runbook 및 자산을 추가한 자동화 계정의 이름입니다.
+    -   *RecoveryPlanName***-AutomationAccountName** – The name of the automation account in which you have added the runbooks and the assets.
 
-	예를 들어 복구 계획 이름이 fileServerpredayRP인 경우 모든 자산을 추가한 후에 **자산** 탭이 다음과 같이 표시됩니다.
+    For example, if the name of the recovery plan is fileServerpredayRP, then your **Assets** tab should appear as follows after you add all the assets.
 
-	![](./media/storsimple-dr-using-asr/image6.png)
+    ![](./media/storsimple-dr-using-asr/image6.png)
 
 
-1.  **복구 서비스** 섹션으로 이동하여 앞서 만든 Azure Site Recovery 자격 증명 모음을 선택합니다.
+1.  Go to the **Recovery Services** section and select the Azure Site Recovery vault that you created earlier.
 
-2.  **복구 계획** 탭을 선택하고 다음과 같이 새 복구 계획을 만듭니다.
+2.  Select the **Recovery Plans** tab and create a new recovery plan as follows:
 
-	a. 이름을 지정하고 적절한 **보호 그룹**을 선택합니다.
+    a.  Specify a name and select the appropriate **Protection Group**.
 
-	b. 보호 그룹에서 복구 계획에 포함할 VM을 선택합니다.
+    b.  Select the VMs from the protection group that you want to include in the recovery plan.
 
-	c. 복구 계획이 만들어진 후 복구 계획 사용자 지정 보기를 선택하여 엽니다.
+    c.  After the recovery plan is created, select it to open the Recovery plan customization view.
 
-	d. **모든 그룹 종료**를 선택하고 **스크립트**를 클릭한 다음 **모든 그룹 종료 전에 기본 측 스크립트 추가**를 선택합니다.
+    d.  Select **All groups shutdown**, click **Script**, and choose **Add a primary side script before all Group shutdown**.
 
-	e. 자동화 계정(Runbook을 추가하는 데 사용한 자동화 계정)을 선택한 다음 **Fail over-StorSimple-Volume-Containers** Runbook을 선택합니다.
+    e.  Select the automation account (in which you added the runbooks) and then select the **Fail over-StorSimple-Volume-Containers** runbook.
 
-	f. **그룹 1: 시작**을 클릭하고 **가상 컴퓨터**를 선택한 다음 복구 계획에서 보호할 VM을 추가합니다.
+    f.  Click **Group 1: Start**, choose **Virtual Machines**, and add the VMs that are to be protected in the recovery plan.
 
-    g. **그룹 1: 시작**을 클릭하고 **스크립트**를 선택한 다음 **그룹 1 이후** 단계에서의 순서대로 다음 스크립트를 모두 추가합니다.
+    g.  Click **Group 1: Start**, choose **Script**, and add all the following scripts in order as **After Group 1** steps.
 
-	- Start-StorSimple-Virtual-Appliance Runbook
-	- Fail over-StorSimple-volume-containers Runbook
-	- Mount-volumes-after-failover Runbook
-	- Uninstall-custom-script-extension Runbook
+    - Start-StorSimple-Virtual-Appliance runbook
+    - Fail over-StorSimple-volume-containers runbook
+    - Mount-volumes-after-failover runbook
+    - Uninstall-custom-script-extension runbook
 
-1.  같은 **그룹 1: 사후 단계** 섹션에서 위의 4개 스크립트 뒤에 수동 작업을 추가합니다. 이 작업은 모든 항목이 제대로 작동하는지 확인할 수 있는 지점입니다. 이 작업은 테스트 장애 조치(failover)의 일부로만 추가해야 합니다(따라서 **테스트 장애 조치(failover)** 확인란만 선택).
+1.  Add a manual action after the above 4 scripts in the same **Group 1: Post-steps** section. This action is the point at which you can verify that everything is working correctly. This action needs to be added only as a part of test failover (so only select the **Test Failover** checkbox).
 
-2.  수동 작업 뒤에 다른 Runbook에 사용한 것과 동일한 절차를 사용하여 정리 스크립트를 추가합니다. 복구 계획을 저장합니다.
+2.  After the manual action, add the Cleanup script using the same procedure that you used for the other runbooks. Save the recovery plan.
 
-	> [AZURE.NOTE] 테스트 장애 조치(failover)를 실행할 때, 대상 장치에 복제된 StorSimple 볼륨이 수동 작업이 완료된 후 정리의 일부로 삭제되므로 수동 작업 단계에서 모든 항목을 확인해야 합니다.
+    > [AZURE.NOTE] When running a test failover, you should verify everything at the manual action step because the StorSimple volumes that had been cloned on the target device will be deleted as a part of the cleanup after the manual action is completed.
 
-	![](./media/storsimple-dr-using-asr/image7.png)
+    ![](./media/storsimple-dr-using-asr/image7.png)
 
-## 테스트 장애 조치(failover) 수행
+## <a name="perform-a-test-failover"></a>Perform a test failover
 
-테스트 장애 조치(failover) 중 Active Directory 관련 고려 사항은 [Active Directory DR 솔루션](../site-recovery/site-recovery-active-directory.md) 도우미 가이드를 참조하세요. 테스트 장애 조치(failover) 발생 시 온-프레미스 설치는 전혀 방해받지 않습니다. 온-프레미스 VM에 연결된 StorSimple 볼륨은 Azure에서 StorSimple Cloud Appliance에 복제됩니다. 테스트 목적의 VM은 Azure에서 온라인 상태가 되며 복제된 볼륨은 VM에 연결됩니다.
+Refer to the [Active Directory DR Solution](../site-recovery/site-recovery-active-directory.md) companion guide for considerations specific to Active Directory during the test failover. The on-premises setup is not disturbed at all when the test failover occurs. The StorSimple volumes that were attached to the on-premises VM are cloned to the StorSimple Cloud Appliance on Azure. A VM for test purposes is brought up in Azure and the cloned volumes are attached to the VM.
 
-#### 테스트 장애 조치(failover)를 수행하려면
+#### <a name="to-perform-the-test-failover"></a>To perform the test failover
 
-1.  Azure 클래식 포털에서 사이트 복구 자격 증명 모음을 선택합니다.
+1.  In the Azure classic portal, select your site recovery vault.
 
-1.  파일 서버 VM에 대해 만든 복구 계획을 클릭합니다.
+1.  Click the recovery plan created for the file server VM.
 
-2.  **테스트 장애 조치(failover)**를 클릭합니다.
+2.  Click **Test Failover**.
 
-3.  테스트 장애 조치(failover) 프로세스를 시작할 가상 네트워크를 선택합니다.
+3.  Select the virtual network to start the test failover process.
 
-	![](./media/storsimple-dr-using-asr/image8.png)
+    ![](./media/storsimple-dr-using-asr/image8.png)
 
-1.  보조 환경이 가동 중인 경우 유효성 검사를 수행할 수 있습니다.
+1.  When the secondary environment is up, you can perform your validations.
 
-2.  유효성 검사가 완료된 후 **유효성 검사 완료**를 클릭합니다. 테스트 장애 조치(failover) 환경이 정리되고 TFO 작업이 완료됩니다.
+2.  After the validations are complete, click **Validations Complete**. The test failover environment will be cleaned, and the TFO operation will be completed.
 
-## 계획되지 않은 장애 조치(failover) 수행
+## <a name="perform-an-unplanned-failover"></a>Perform an unplanned failover
 
-계획되지 않은 장애 조치(failover) 중에 StorSimple 볼륨이 가상 장치에 장애 조치(failover)되고, 복제본 VM이 Azure에서 온라인 상태가 되며, 볼륨이 VM에 연결됩니다.
+During an unplanned failover, the StorSimple volumes are failed over to the virtual device, a replica VM will be brought up on Azure, and the volumes are attached to the VM.
 
-#### 계획되지 않은 장애 조치(failover)를 수행하려면
+#### <a name="to-perform-an-unplanned-failover"></a>To perform an unplanned failover
 
-1.  Azure 클래식 포털에서 사이트 복구 자격 증명 모음을 선택합니다.
+1.  In the Azure classic portal, select your site recovery vault.
 
-1.  파일 서버 VM에 대해 만든 복구 계획을 클릭합니다.
+1.  Click the recovery plan created for file server VM.
 
-2.  **장애 조치(failover)**를 클릭한 다음 **계획되지 않은 장애 조치(failover)**를 선택합니다.
+2.  Click **Failover** and then select **Unplanned Failover**.
 
-	![](./media/storsimple-dr-using-asr/image9.png)
+    ![](./media/storsimple-dr-using-asr/image9.png)
 
-1.  대상 네트워크를 선택한 다음 확인 아이콘 ✓을 클릭하여 장애 조치(failover) 프로세스를 시작합니다.
+1.  Select the target network and then click the check icon ✓ to start the failover process.
 
-## 계획된 장애 조치(failover) 수행
+## <a name="perform-a-planned-failover"></a>Perform a planned failover
 
-계획된 장애 조치(failover) 중에 온-프레미스 파일 서버 VM은 정상적으로 종료되고 StorSimple 장치에서 볼륨의 클라우드 백업 스냅숏이 만들어집니다. StorSimple 볼륨이 가상 장치에 장애 조치(failover)되고, 복제본 VM이 Azure에서 온라인 상태가 되며, 볼륨이 VM에 연결됩니다.
+During a planned failover, the on-premises file server VM is shut down gracefully and a cloud backup snapshot of the volumes on StorSimple device is taken. The StorSimple volumes are failed over to the virtual device, a replica VM is brought up on Azure, and the volumes are attached to the VM.
 
-#### 계획된 장애 조치(failover)를 수행하려면
+#### <a name="to-perform-a-planned-failover"></a>To perform a planned failover
 
-1.  Azure 클래식 포털에서 사이트 복구 자격 증명 모음을 선택합니다.
+1.  In the Azure classic portal, select your site recovery vault.
 
-1.  파일 서버 VM에 대해 만든 복구 계획을 클릭합니다.
+1.  Click the recovery plan created for the file server VM.
 
-2.  **장애 조치(failover)**를 클릭한 다음 **계획된 장애 조치(failover)**를 선택합니다.
+2.  Click **Failover** and then select **Planned Failover**.
 
-3.  대상 네트워크를 선택한 다음 확인 아이콘 ✓을 클릭하여 장애 조치(failover) 프로세스를 시작합니다.
+3.  Select the target network and then click the check icon ✓ to start the failover process.
 
-## 장애 복구(failback) 수행
+## <a name="perform-a-failback"></a>Perform a failback
 
-장애 복구(failback) 중에 StorSimple 볼륨 컨테이너는 백업이 만들어진 후 물리적 장치에 장애 복구(failback)됩니다.
+During a failback, StorSimple volume containers are failed over back to the physical device after a backup is taken.
 
-#### 장애 복구(failback)를 수행하려면
+#### <a name="to-perform-a-failback"></a>To perform a failback
 
-1.  Azure 클래식 포털에서 사이트 복구 자격 증명 모음을 선택합니다.
+1.  In the Azure classic portal, select your site recovery vault.
 
-1.  파일 서버 VM에 대해 만든 복구 계획을 클릭합니다.
+1.  Click the recovery plan created for the file server VM.
 
-2.  **장애 조치(failover)**를 클릭하고 **계획된 장애 조치(failover)** 또는 **계획되지 않은 장애 조치(failover)**를 선택합니다.
+2.  Click **Failover** and select **Planned failover** or **Unplanned failover**.
 
-3.  **방향 변경**을 클릭합니다.
+3.  Click **Change Direction**.
 
-4.  적절한 데이터 동기화 및 VM 만들기 옵션을 선택합니다.
+4.  Select the appropriate data synchronization and VM creation options.
 
-5.  확인 아이콘 ✓을 클릭하여 장애 복구(failback) 프로세스를 시작합니다.
+5.  Click the check icon ✓ to start the failback process.
 
-	![](./media/storsimple-dr-using-asr/image10.png)
+    ![](./media/storsimple-dr-using-asr/image10.png)
 
-## 모범 사례
+## <a name="best-practices"></a>Best Practices
 
-### 용량 계획 및 준비 평가
+### <a name="capacity-planning-and-readiness-assessment"></a>Capacity planning and readiness assessment
 
 
-#### Hyper-V 사이트
+#### <a name="hyper-v-site"></a>Hyper-V site
 
-[User Capacity planner tool(사용자 Capacity Planner 도구)](http://www.microsoft.com/download/details.aspx?id=39057)을 사용하여 Hyper-V 복제본 환경에 대한 서버, 저장소 및 네트워크 인프라를 디자인합니다.
+Use the [User Capacity planner tool](http://www.microsoft.com/download/details.aspx?id=39057) to design the server, storage, and network infrastructure for your Hyper-V replica environment.
 
-#### Azure
+#### <a name="azure"></a>Azure
 
-VM에서 [Azure 가상 컴퓨터 준비 평가 도구](http://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 VM이 Azure VM 및 Azure Site Recovery 서비스와 호환되는지 확인할 수 있습니다. 준비 평가 도구는 VM 구성을 확인하고 구성이 Azure와 호환되지 않는 경우 경고합니다. 예를 들어 C: 드라이브가 127GB 보다 큰 경우 경고가 발생합니다.
+You can run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery Services. The Readiness Assessment Tool checks VM configurations and warns when configurations are incompatible with Azure. For example, it issues a warning if a C: drive is larger than 127 GB.
 
 
-용량 계획은 다음과 같은 두 개 이상의 중요 프로세스로 구성됩니다.
+Capacity planning is made up of at least two important processes:
 
--   온-프레미스 Hyper-V VM을 Azure VM 크기(예: A6, A7, A8, A9)에 매핑
+-   Mapping on-premises Hyper-V VMs to Azure VM sizes (such as A6, A7, A8, and A9).
 
--   필요한 인터넷 대역폭 확인
+-   Determining the required Internet bandwidth.
 
-## 제한 사항
+## <a name="limitations"></a>Limitations
 
-- .현재는 StorSimple 장치 1개만 장애 조치(failover)할 수 있습니다(단일 StorSimple Cloud Appliance에). 여러 StorSimple 장치에 걸쳐 있는 파일 서버 시나리오는 아직 지원되지 않습니다.
+- Currently, only 1 StorSimple device can be failed over (to a single StorSimple Cloud Appliance). The scenario of a file server that spans several StorSimple devices is not yet supported.
 
-- VM에 대한 보호를 사용하도록 설정하는 동안 오류가 발생하는 경우 iSCSI 대상의 연결을 끊었는지 확인합니다.
+- If you get an error while enabling protection for a VM, make sure that you have disconnected the iSCSI targets.
 
-- 볼륨 컨테이너에 걸쳐 있는 백업 정책으로 인해 함께 그룹화된 모든 볼륨 컨테이너는 함께 장애 조치(failover)됩니다.
+- All the volume containers that have been grouped together because of backup policies spanning across volume containers will be failed over together.
 
-- 선택한 볼륨 컨테이너에 있는 모든 볼륨은 장애 조치(failover)됩니다.
+- All the volumes in the volume containers you have chosen will be failed over.
 
-- 64TB 이상까지 추가되는 볼륨은 단일 StorSimple Cloud Appliance의 최대 용량이 64TB이므로 장애 조치(failover)될 수 없습니다.
+- Volumes that add up to more than 64 TB can’t be failed over because the maximum capacity of a single StorSimple Cloud Appliance is 64 TB.
 
-- 계획된/계획되지 않은 장애 조치(failover)가 실패하고 Azure에서 VM이 만들어지는 경우 VM을 정리하지 마세요. 대신 장애 복구(failback)를 수행하세요. VM을 삭제하는 경우 온-프레미스 VM을 다시 켤 수 없습니다.
+- If the planned/unplanned failover fails and the VMs are created in Azure, then do not clean up the VMs. Instead, do a failback. If you delete the VMs then the on-premises VMs cannot be turned on again.
 
-- 장애 조치(failover) 후 볼륨이 표시되지 않는 경우 VM으로 이동하여 디스크 관리를 열고 디스크를 다시 검색한 다음 온라인 상태로 만듭니다.
+- After a failover, if you are not able to see the volumes, go to the VMs, open Disk Management, rescan the disks, and then bring them online.
 
-- 일부 경우 DR 사이트의 드라이브 문자가 온-프레미스의 드라이브 문자와 다를 수 있습니다. 이 문제가 발생할 경우 장애 조치(failover)가 완료된 후 수동으로 문제를 해결해야 합니다.
+- In some instances, the drive letters in the DR site might be different than the letters on-premises. If this occurs, you will need to manually correct the problem after the failover is finished.
 
-- 자동화 계정에 자산으로 입력된 Azure 자격 증명에 대해 다단계 인증을 사용하지 않도록 설정해야 합니다. 이 인증을 사용하지 않도록 설정하지 않으면 스크립트를 자동으로 실행할 수 없어 복구 계획이 실패합니다.
+- Multi-factor authentication should be disabled for the Azure credential that is entered in the automation account as an asset. If this authentication is not disabled, scripts will not be allowed to run automatically and the recovery plan will fail.
 
-- 장애 조치(failover) 작업 시간 제한: 볼륨 컨테이너의 장애 조치(failover)에 스크립트당 Azure Site Recovery 제한(현재 120분)보다 많은 시간이 걸리는 경우 StorSimple 스크립트 시간 제한이 초과합니다.
+- Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 
-- 백업 작업 시간 제한: 볼륨의 백업에 스크립트당 Azure Site Recovery 제한(현재 120분)보다 많은 시간이 걸리는 경우 StorSimple 스크립트 시간 제한이 초과합니다.
+- Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
  
-	> [AZURE.IMPORTANT] Azure 포털에서 수동으로 백업을 실행한 다음 다시 복구 계획을 실행합니다.
+    > [AZURE.IMPORTANT] Run the backup manually from the Azure portal and then run the recovery plan again.
 
-- 복제 작업 시간 제한: 볼륨의 복제에 스크립트당 Azure Site Recovery 제한(현재 120분)보다 많은 시간이 걸리는 경우 StorSimple 스크립트 시간 제한이 초과합니다.
+- Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 
-- 시간 동기화 오류: 포털에서 백업에 성공한 경우에도 백업에 실패했다는 StorSimple 스크립트 오류가 발생합니다. 이 오류의 가능한 원인은 StorSimple 어플라이언스의 시간이 표준 시간대의 현재 시간과 동기화되지 않았기 때문일 수 있습니다.
+- Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
  
-	> [AZURE.IMPORTANT] 어플라이언스 시간을 표준 시간대의 현재 시간과 동기화합니다.
+    > [AZURE.IMPORTANT] Sync the appliance time with the current time in the time zone.
 
-- 어플라이언스 장애 조치(failover) 오류: 복구 계획이 실행 중일 때 어플라이언스 장애 조치(failover)가 있는 경우 StorSimple 스크립트가 실패할 수 있습니다.
-	
-	> [AZURE.IMPORTANT] 어플라이언스 장애 조치(failover)가 완료된 후 복구 계획을 다시 실행합니다.
+- Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
+    
+    > [AZURE.IMPORTANT] Rerun the recovery plan after the appliance failover is complete.
 
-## 요약
+## <a name="summary"></a>Summary
 
-Azure Site Recovery를 사용하여 StorSimple 저장소에 호스트된 파일 공유가 있는 파일 서버 VM에 대한 전체 자동화된 재해 복구 계획을 만들 수 있습니다. 중단이 발생할 경우 어디서나 몇 초 이내에 장애 조치(failover)를 시작하고 몇 분 만에 응용 프로그램을 가동할 수 있습니다.
+Using Azure Site Recovery, you can create a complete automated disaster recovery plan for a file server VM having file shares hosted on StorSimple storage. You can initiate the failover within seconds from anywhere in the event of a disruption and get the application up and running in a few minutes.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

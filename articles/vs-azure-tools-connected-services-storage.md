@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Visual Studio에서 연결된 서비스를 사용하여 Azure 저장소 추가 | Microsoft Azure"
-   description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure 저장소를 앱에 추가"
+   pageTitle="Add Azure Storage by using Connected Services in Visual Studio | Microsoft Azure"
+   description="Add Azure Storage to your app by using the Visual Studio Add Connected Services dialog box"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,83 +15,89 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Visual Studio 연결 서비스를 사용하여 Azure 저장소 추가
 
-## 개요
+# <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Adding Azure storage by using Visual Studio Connected Services
 
-Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용하여 C# 클라우드 서비스, .NET 백 엔드 모바일 서비스, ASP.NET 웹 사이트 또는 서비스, ASP.NET 5 서비스 또는 Azure WebJob 서비스를 Azure 저장소에 연결할 수 있습니다. 연결된 서비스 기능은 필요한 모든 참조와 연결 코드를 추가하고 구성 파일을 적절하게 수정합니다. 대화 상자를 통해 blob 저장소, 큐 및 테이블을 시작하는 다음 단계를 알려주는 설명서로 이동합니다.
+## <a name="overview"></a>Overview
 
-## 지원되는 프로젝트 형식
+With Visual Studio 2015, you can connect any C# cloud service, .NET backend mobile service, ASP.NET website or service, ASP.NET 5 service, or Azure WebJob service to Azure Storage by using the **Add Connected Services** dialog. The connected service functionality adds all the needed references and connection code, and modifies your configuration files appropriately. The dialog also takes you to documentation that tells you what the next steps are to start blob storage, queues, and tables.
 
-다음 프로젝트 형식으로 Azure 저장소에 연결하려면 연결된 서비스 대화 상자를 사용할 수 있습니다.
+## <a name="supported-project-types"></a>Supported Project Types
 
-- ASP.NET 웹 프로젝트
+You can use the Connected Services dialog to connect to Azure Storage in the following project types.
 
-- ASP.NET 5 프로젝트
+- ASP.NET Web Projects
 
-- .NET 클라우드 서비스 웹 역할 및 작업자 역할 프로젝트
+- ASP.NET 5 Projects
 
-- .NET 모바일 서비스 프로젝트
+- .NET Cloud Service Web Role and Worker Role Projects
 
-- Azure WebJob 프로젝트
+- .NET Mobile Services Projects
+
+- Azure WebJob Projects
 
 
-## 연결된 서비스 대화 상자를 사용하여 Azure 저장소에 연결
+## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Connect to Azure Storage using the Connected Services dialog
 
-1. Azure 계정이 있어야 합니다. Azure 계정이 없으면 [무료 평가판](http://go.microsoft.com/fwlink/?LinkId=518146)에 등록할 수 있습니다. Azure 계정이 있으면 저장소 계정을 만들고, 모바일 서비스를 작성하고, Azure Active Directory를 구성할 수 있습니다.
+1. Make sure you have an Azure account. If you don't have an Azure account, you can sign up for a [free trial](http://go.microsoft.com/fwlink/?LinkId=518146). Once you have an Azure account, you can create storage accounts, create mobile services, and configure Azure Active Directory.
 
-1. Visual Studio에서 프로젝트를 열고, 솔루션 탐색기에서 **참조** 노드의 상황에 맞는 메뉴를 연 다음 **연결된 서비스 추가**를 선택합니다.
+1. Open your project in Visual Studio, open the context menu for the **References** node in Solution Explorer, and then choose **Add Connected Service**.
 
-    ![연결된 서비스 추가](./media/vs-azure-tools-connected-services-storage/IC796702.png)
+    ![Adding a connected service](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. **연결 서비스 추가** 대화 상자에서 **Azure 저장소**를 선택한 다음 **구성** 단추를 선택합니다. 아직 수행하지 않은 경우 Azure에 로그인하라는 메시지가 표시될 수 있습니다.
+1. In the **Add Connected Service** dialog box, choose **Azure Storage**, and then choose the **Configure** button. You may be prompted to log into Azure if you haven't already done so.
 
-    ![연결된 서비스 추가 대화 상자 - 저장소](./media/vs-azure-tools-connected-services-storage/IC796703.png)
+    ![Add Connected Service dialog box - Storage](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. **Azure 저장소** 대화 상자에서, 기존 저장소 계정을 선택한 다음 **추가**를 선택합니다.
+1. In the **Azure Storage** dialog box, select an existing storage account, and select **Add**.
 
-    새 저장소 계정을 만들어야 하는 경우 다음 단계로 이동합니다. 그렇지 않은 경우, 6단계로 건너뜁니다.
+    If you need to create a new storage account, go to the next step. Otherwise, skip to step 6.
 
-    ![Azure 저장소 대화 상자](./media/vs-azure-tools-connected-services-storage/IC796704.png)
+    ![Azure Storage dialog box](./media/vs-azure-tools-connected-services-storage/IC796704.png)
 
-1. 새 저장소 계정 만들기:
+1. To create a new storage account: 
 
-    1. Azure 저장소 대화 상자 하단에 있는 **새 저장소 계정 만들기** 단추를 선택합니다.
+    1. Choose the **Create a New Storage Account** button at the bottom of the Azure Storage dialog box.
 
-    1. **저장소 계정 만들기** 대화 상자를 채운 다음 **만들기** 단추를 선택합니다.
+    1. Fill out the **Create Storage Account** dialog box and then choose the **Create** button.
     
-        ![Azure 저장소 대화 상자](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
+        ![Azure Storage dialog box](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
 
-        **Azure 저장소** 대화 상자로 돌아가면 새 저장소가 목록에 나타납니다.
+        When you're back in the **Azure Storage** dialog box, the new storage appears in the list.
 
-    1. 목록에서 새 저장소를 선택하고 **추가**를 선택합니다.
+    1. Select the new storage in the list, and select **Add**.
 
-1. 연결된 저장소 서비스가 WebJob 프로젝트의 서비스 참조 노드 아래에 나타납니다.
+1. The  storage connected service appears under the Service References node of your WebJob project.
 
-    ![웹 작업 프로젝트에서 Azure 저장소](./media/vs-azure-tools-connected-services-storage/IC796705.png)
+    ![Azure storage in web jobs project](./media/vs-azure-tools-connected-services-storage/IC796705.png)
 
-1. 표시되는 시작 페이지를 검토하고 프로젝트를 수정하는 방법에 대해 알아봅니다. 연결된 서비스를 추가할 때마다 시작 페이지가 브라우저에 나타납니다. 제안된 다음 단계 및 코드 예제를 검토하거나 변경된 내용 페이지로 전환하여 프로젝트에 추가된 참조 및 코드와 구성 파일이 수정된 방법을 볼 수 있습니다.
+1. Review the Getting Started page that appears and find out how your project was modified. A Getting Started page appears in your browser whenever you add a connected service. You can review the suggested next steps and code examples, or switch to the What Happened page to see what references were added to your project, and how your code and configuration files were modified.
 
-## 프로젝트를 수정하는 방법
+## <a name="how-your-project-is-modified"></a>How your project is modified
 
-대화 상자를 완료하면 Visual Studio는 참조를 추가하고 특정 구성 파일을 수정합니다. 특정 변경 내용은 프로젝트 형식에 따라 달라집니다.
+When you finish the dialog, Visual Studio adds references and modifies certain configuration files. The specific changes depend on the project type. 
 
- - ASP.NET 프로젝트는 [변경된 내용 – ASP.NET 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513126)를 참조하세요.
- - ASP.NET 5 프로젝트는 [변경된 내용 – ASP.NET 5 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513124)를 참조하세요.
- - 클라우드 서비스 프로젝트(웹 역할 및 작업자 역할)는 [변경된 내용 – 클라우드 서비스 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=516965)를 참조하세요.
- - WebJob 프로젝트는 [변경된 내용 -WebJob 프로젝트](./storage/vs-storage-webjobs-what-happened.md)를 참조하세요.
+ - For ASP.NET projects, see [What happened – ASP.NET Projects](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
+ - For ASP.NET 5 projects, see [What happened – ASP.NET 5 Projects](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
+ - For cloud service projects (web roles and worker roles), see [What happened – Cloud Service projects](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
+ - For WebJob projects, see [What happened - WebJob projects](./storage/vs-storage-webjobs-what-happened.md).
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-1. 시작 코드 샘플을 가이드로 사용하여 원하는 저장소 유형을 만든 다음 저장소 계정에 액세스하는 코드 작성을 시작합니다!
+1. Using the Getting Started code samples as a guide, create the type of storage that you want, and then start writing code to access your storage account!
 
-1. 질문하고 도움 받기
-     - [MSDN 포럼: Azure 저장소](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+1. Ask questions and get help
+     - [MSDN Forum: Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 
-     - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
+     - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [azure.microsoft.com의 저장소](https://azure.microsoft.com/services/storage/)
+     - [Storage at azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [azure.microsoft.com의 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
+     - [Storage Documentation at azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="PowerShell을 통해 배포 작업 보기 | Microsoft Azure"
-   description="Azure PowerShell을 사용하여 리소스 관리자 배포의 문제를 감지하는 방법에 대해 설명합니다."
+   pageTitle="View deployment operations with PowerShell | Microsoft Azure"
+   description="Describes how to use the Azure PowerShell to detect issues from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,27 +17,28 @@
    ms.date="06/14/2016"
    ms.author="tomfitz"/>
 
-# Azure PowerShell을 통해 배포 작업 보기
+
+# <a name="view-deployment-operations-with-azure-powershell"></a>View deployment operations with Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [포털](resource-manager-troubleshoot-deployments-portal.md)
+- [Portal](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Azure PowerShell을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 중에 오류가 나타날 때 작업을 보는 데 가장 많은 관심을 가질 수 있으므로 이 문서에서는 실패한 작업을 보는 것에 대해 중점적으로 설명합니다. PowerShell은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 cmdlet을 제공합니다.
+You can view the operations for a deployment through the Azure PowerShell. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. PowerShell provides cmdlets that enable you to easily find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-배포하기 전에 템플릿 및 인프라의 유효성을 검사하여 몇 가지 오류를 방지할 수 있습니다. 배포 중에 이후 문제 해결에 도움이 될 만한 추가 요청과 응답 정보를 기록할 수 있습니다. 유효성 검사와 요청 및 응답 정보 기록에 관한 자세한 내용은 [Azure Resource Manager 템플릿으로 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
+You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-## 배포 작업을 사용하여 문제 해결
+## <a name="use-deployment-operations-to-troubleshoot"></a>Use deployment operations to troubleshoot
 
-1. 배포의 전반적인 상태를 가져오려면 **Get-AzureRmResourceGroupDeployment** 명령을 사용합니다. 실패한 배포에 대해서만 결과를 필터링할 수 있습니다.
+1. To get the overall status of a deployment, use the **Get-AzureRmResourceGroupDeployment** command. You can filter the results for only those deployments that have failed.
 
         Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
         
-    실패한 배포는 다음과 같은 형식으로 반환됩니다.
+    Which returns the failed deployments in the following format:
         
         DeploymentName          : Microsoft.Template
         ResourceGroupName       : ExampleGroup
@@ -65,11 +66,11 @@ Azure PowerShell을 통해 배포에 대한 작업을 볼 수 있습니다. 배�
         Outputs                 :
         DeploymentDebugLogLevel :
 
-2. 각 배포는 일반적으로 배포 프로세스의 단계를 나타내는 각 작업을 사용하여 여러 작업으로 구성됩니다. 배포에서 무엇이 잘못 되었는지 검색하려면 일반적으로 배포 작업에 대한 세부 정보를 확인해야 합니다. **Get-AzureRmResourceGroupDeploymentOperation**을 사용하여 작업의 상태를 확인할 수 있습니다.
+2. Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
 
         Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName Microsoft.Template
         
-    여러 작업이 각각 다음과 같은 형식으로 반환됩니다.
+    Which returns multiple operations with each one in the following format:
         
         Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
         OperationId    : A3EB2DA598E0A780
@@ -79,11 +80,11 @@ Azure PowerShell을 통해 배포에 대한 작업을 볼 수 있습니다. 배�
         PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
                          serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
 
-3. 실패한 작업에 대한 자세한 정보를 얻으려면 상태가 **Failed**인 작업에 대한 속성을 검색합니다.
+3. To get more details about failed operations, retrieve the properties for operations with **Failed** state.
 
         (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
         
-    모든 실패한 작업이 각각 다음과 같은 형식으로 반환됩니다.
+    Which returns all of the failed operations with each one in the following format:
         
         provisioningOperation : Create
         provisioningState     : Failed
@@ -97,41 +98,42 @@ Azure PowerShell을 통해 배포에 대한 작업을 볼 수 있습니다. 배�
                                 Microsoft.Network/publicIPAddresses/myPublicIP;
                                 resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 
-    작업에 대한 추적 ID를 적어둡니다. 특정 작업에 집중하기 위해 다음 단계에서 사용할 예정입니다.
+    Note the tracking ID for the operation. You will use that in the next step to focus on a particular operation.
 
-4. 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
+4. To get the status message of a particular failed operation, use the following command:
 
         ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
         
-    반환하는 내용은 다음과 같습니다.
+    Which returns:
         
         code           message                                                                        details
         ----           -------                                                                        -------
         DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
-## 감사 로그를 사용하여 문제 해결
+## <a name="use-audit-logs-to-troubleshoot"></a>Use audit logs to troubleshoot
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-배포 오류를 확인하려면 다음 단계를 사용합니다.
+To see errors for a deployment, use the following steps:
 
-1. 로그 항목을 검색하려면 **Get-AzureRmLog** 명령을 실행합니다. **ResourceGroup** 및 **Status** 매개 변수를 사용하여 단일 리소스 그룹에 대해 실패한 이벤트만 반환할 수 있습니다. 시작 및 종료 시간을 지정하지 않으면 지난 시간에 대한 항목이 반환됩니다. 예를 들어 지난 시간 동안 실패한 작업을 검색하려면 다음을 실행합니다.
+1. To retrieve log entries, run the **Get-AzureRmLog** command. You can use the **ResourceGroup** and **Status** parameters to return only events that failed for a single resource group. If you do not specify a start and end time, entries for the last hour are returned.
+For example, to retrieve the failed operations for the past hour run:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
-    특정 시간 범위를 지정할 수 없습니다. 다음 예제에서는 마지막 날 실패한 작업을 찾아봅니다.
+    You can specify a particular timespan. In the next example, we'll look for failed actions for the last day. 
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -Status Failed
       
-    또는 실패한 작업의 정확한 시작 시간 및 종료 시간을 설정할 수 있습니다.
+    Or, you can set an exact start and end time for failed actions:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
 
-2. 이 명령이 너무 많은 항목 및 속성을 반환하는 경우 **Properties** 속성을 검색하여 감사에 집중할 수 있습니다. 또한 **DetailedOutput** 매개 변수를 포함하여 오류 메시지를 참조합니다.
+2. If this command returns too many entries and properties, you can focus your auditing efforts by retrieving the **Properties** property. We'll also include the **DetailedOutput** parameter to see the error messages.
 
         (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -DetailedOutput).Properties
         
-    로그 항목의 속성은 다음과 같은 형식으로 반환됩니다.
+    Which returns properties of the log entries in the following format:
         
         Content
         -------
@@ -139,11 +141,11 @@ Azure PowerShell을 통해 배포에 대한 작업을 볼 수 있습니다. 배�
         {[statusCode, BadRequest], [statusMessage, {"error":{"code":"DnsRecordInUse","message":"DNS record dns.westus.clouda...
         {[statusCode, BadRequest], [serviceRequestId, a426f689-5d5a-448d-a2f0-9784d14c900a], [statusMessage, {"error":{"code...
 
-3. 이러한 결과를 기반으로 두 번째 요소를 집중적으로 살펴보겠습니다. 해당 항목에 대한 상태 메시지를 보고 결과를 더욱 구체화할 수 있습니다.
+3. Based on these results, let's focus on the second element. You can further refine the results by looking at the status message for that entry.
 
         ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput -StartTime (Get-Date).AddDays(-1)).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
         
-    반환하는 내용은 다음과 같습니다.
+    Which returns:
         
         code           message                                                                        details
         ----           -------                                                                        -------
@@ -151,10 +153,15 @@ Azure PowerShell을 통해 배포에 대한 작업을 볼 수 있습니다. 배�
 
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- 특정 배포 오류에 대한 도움말은 [ Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
-- 감사 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법을 알아보려면 [Resource Manager를 사용하여 작업 감사](resource-group-audit.md)를 참조하세요.
-- 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

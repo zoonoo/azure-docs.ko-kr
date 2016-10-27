@@ -17,13 +17,14 @@
   ms.date="09/09/2016"
   ms.author="cjiang"/>
 
-# Azure에서 새 Linux 가상 컴퓨터 생성 관련 Resource Manager 배포 문제 해결
+
+# <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure에서 새 Linux 가상 컴퓨터 생성 관련 Resource Manager 배포 문제 해결
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## 감사 로그 수집
+## <a name="collect-audit-logs"></a>감사 로그 수집
 
 문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 감사 로그를 수집합니다. 다음 링크에는 수행할 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
@@ -55,9 +56,9 @@
 
 **해결 방법:**
 
-이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](virtual-machines-linux-capture-image.md)합니다.
+이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](virtual-machines-linux-capture-image.md) 합니다.
 
-## 문제: 사용자 지정/ 갤러리/ 마켓플레이스 이미지; 할당 오류
+## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>문제: 사용자 지정/ 갤러리/ 마켓플레이스 이미지; 할당 오류
 이 오류는 요청되는 VM 크기를 지원할 수 없거나 요청을 수용할 여유 공간이 없는 클러스터에 새 VM 요청이 고정된 상황에서 발생합니다.
 
 **원인 1:** 클러스터가 요청한 VM 크기를 지원할 수 없습니다.
@@ -66,7 +67,8 @@
 
 - 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
 - 요청한 VM의 크기를 변경할 수 없으면:
-  - 가용성 집합의 VM을 모두 중지합니다. **리소스 그룹** > *사용자의 리소스 그룹* > **리소스** > *사용자의 가용성 집합* > **가상 컴퓨터** > *사용자의 가상 컴퓨터* > **중지**를 클릭합니다.
+  - 가용성 집합의 VM을 모두 중지합니다.
+  **리소스 그룹** > *사용자의 리소스 그룹* > **리소스** > *사용자의 가용성 집합* > **가상 컴퓨터** > *사용자의 가상 컴퓨터* > **중지**를 클릭합니다.
   - VM을 모두 중지한 후에, 원하는 크기로 VM을 새로 만듭니다.
   - 먼저 VM을 시작한 후에 중지된 각각의 VM을 선택하고 **시작**을 클릭합니다.
 
@@ -79,7 +81,11 @@
   - 다른 가용성 집합(동일한 지역의)에 새 VM을 만듭니다.
   - 새 VM을 동일한 가상 네트워크에 추가합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 중지된 Linux VM을 시작하거나 Azure에서 기존 Linux VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](virtual-machines-linux-restart-resize-error-troubleshooting.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

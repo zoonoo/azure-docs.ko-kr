@@ -1,9 +1,9 @@
 
 <properties
-    pageTitle="Azure RemoteApp 이미지 요구 사항 | Microsoft Azure"
-    description="RemoteApp과 함께 사용할 이미지를 만들기 위한 요구 사항 알아보기"
+    pageTitle="Azure RemoteApp image requirements | Microsoft Azure"
+    description="Learn about the requirements for creating images to be used with Azure RemoteApp"
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -18,34 +18,39 @@
 
 
 
-# Azure RemoteApp 이미지에 대한 요구 사항
+
+# <a name="requirements-for-azure-remoteapp-images"></a>Requirements for Azure RemoteApp images
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Azure RemoteApp은 Windows Server 2012 R2 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 이미지를 만들려면, 기존 이미지로 시작하거나 [새 이미지를 만듭니다](remoteapp-create-custom-image.md).
+Azure RemoteApp uses a Windows Server 2012 R2 image to host all the programs that you want to share with your users. To create a custom image, you can start with an existing image or [create a new one](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP] Azure RemoteApp 구독에서 사용자가 고유의 템플릿 이미지를 만드는데 사용할 수 있는 Azure VM 갤러리의 Windows Server 2012 R2 이미지에 액세스할 수 있다는 사실을 아십니까? [확인하십시오](remoteapp-image-on-azurevm.md).
-
-
-Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
+> [AZURE.TIP] Did you know that your Azure RemoteApp subscription gives you access to a Windows Server 2012 R2 image in the Azure VM gallery that you can use to create your own template image? [Check it out](remoteapp-image-on-azurevm.md).  
 
 
-- 사용자 지정 응용 프로그램은 이미지에 데이터를 로컬로 저장하지 않습니다. 이러한 이미지는 상태 비저장 방식이며 응용 프로그램만 포함해야 합니다.
-- 이미지는 손실될 수 있는 데이터를 포함하지 않습니다.
-- 이미지 크기는 MB 단위의 배수여야 합니다. 크기가 정확한 배수가 아닌 이미지는 업로드에 실패합니다.
-- 이미지 크기는 127GB 이하여야 합니다.
-- VHD 파일에 있어야 합니다. VHDX 파일은 현재 지원되지 않습니다.
-- VHD는 세대 2 가상 컴퓨터가 아니어야 합니다.
-- VHD는 고정 크기이거나 동적으로 확장될 수 있습니다. 고정 크기의 VHD 파일보다 Azure에 업로드하는 시간이 짧으므로 동적으로 확장되는 VHD가 권장됩니다.
-- 디스크는 MBR(마스터 부트 레코드) 파티션 스타일을 사용하여 초기화해야 합니다. GPT(GUID 파티션 테이블) 파티션 스타일은 지원되지 않습니다.
-- VHD는 Windows Server 2012 R2의 단일 설치를 포함해야 합니다. 여러 볼륨을 포함할 수 있지만 한 볼륨만 Windows의 설치를 포함합니다.
-- RDSH(원격 데스크톱 세션 호스트) 역할 및 데스크톱 경험 기능을 설치해야 합니다.
-- 원격 데스크톱 연결 브로커 역할은 설치하면 *안 됩니다*.
-- EFS(파일 시스템 암호화)를 사용하지 않도록 설정해야 합니다.
-- 이미지에 **/oobe /generalize /shutdown** 매개 변수를 사용하여 sysprep을 실행해야 합니다. **/mode:vm** 매개 변수는 사용하지 마세요.
-- 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
+The requirements for the image that can be uploaded for use with Azure RemoteApp are:
 
-Azure RemoteApp에 대한 이미지 만들기에 대한 자세한 내용은 [Azure RemoteApp 이미지 만들기](remoteapp-imageoptions.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+- Custom applications don’t store data locally on the image. These images are stateless and should only contain applications.
+- The image does not contain data that can be lost.
+- The image size should be a multiple of MBs. If you try to upload an image that is not an exact multiple, the upload will fail.
+- The image size must be 127 GB or smaller.
+- It must be on a VHD file (VHDX files are not currently supported).
+- The VHD must not be a generation 2 virtual machine.
+- The VHD can be either fixed-size or dynamically expanding. A dynamically expanding VHD is recommended because it takes less time to upload to Azure than a fixed-size VHD file.
+- The disk must be initialized using the Master Boot Record (MBR) partitioning style. The GUID partition table (GPT) partition style is not supported.
+- The VHD must contain a single installation of Windows Server 2012 R2. It can contain multiple volumes, but only one that contains an installation of Windows.
+- The Remote Desktop Session Host (RDSH) role and the Desktop Experience feature must be installed.
+- The Remote Desktop Connection Broker role must *not* be installed.
+- The Encrypting File System (EFS) must be disabled.
+- The image must be SYSPREPed using the parameters **/oobe /generalize /shutdown** (DO NOT use the **/mode:vm** parameter).
+- Uploading your VHD from a snapshot chain is not supported.
+
+See [Create an Azure RemoteApp image](remoteapp-imageoptions.md) for more information about creating images for Azure RemoteApp.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,95 +1,100 @@
 <properties
-	pageTitle="Azure 데이터 카탈로그 | Microsoft Azure"
-	description="이 문서는 Azure 데이터 카탈로그에 대한 키보드 바로 가기를 보여줍니다."
-	services="data-catalog"
-	documentationCenter=""
-	authors="spelluru"
-	manager="NA"
-	editor=""
-	tags=""/>
+    pageTitle="Azure Data Catalog  | Microsoft Azure"
+    description="This article shows the Keyboard shortcuts for Azure Data Catalog."
+    services="data-catalog"
+    documentationCenter=""
+    authors="spelluru"
+    manager="NA"
+    editor=""
+    tags=""/>
 <tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="09/13/2016"
-	ms.author="spelluru"/>
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="09/13/2016"
+    ms.author="spelluru"/>
 
-# Azure 데이터 카탈로그에 대한 키보드 바로 가기
 
-## 데이터 카탈로그 데이터 원본 등록 도구에 대한 바로 가기 키
+# <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Keyboard shortcuts for Azure Data Catalog
 
-### 일반 키보드 바로 가기
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Keyboard shortcuts for the Data Catalog data source registration tool
 
-|작업|누르기
+### <a name="general-keyboard-shortcuts"></a>General keyboard shortcuts
+
+|Operation|Press
 |---|---
-|페이지의 각 컨트롤에 대해 탭|탭
-|옵션 선택|입력 또는 스페이스바
-|페이지 최대화|WIN+위쪽 화살표
-|페이지 복원/최소화 | WIN+아래쪽 화살표
-|페이지 메뉴 열기| ALT+스페이스바
+|Tab to each control on a page|Tab
+|Choose an option|Enter or Spacebar
+|Maximize page|WIN+UP
+|Restore/minimize page | WIN+DOWN
+|Open page menu| ALT+SPACEBAR
 
 
-### 인증 페이지
+### <a name="authentication-page"></a>Authentication page
 
-|작업|누르기
+|Operation|Press
 |---|---
-|서비스에 로그인|ALT+S
+|Sign into service|ALT+S
 
-### 데이터 원본 선택 페이지
+### <a name="data-source-selection-page"></a>Data source selection page
 
-|작업|누르기
+|Operation|Press
 |---|---
-|다음 페이지로 이동(설정된 경우)|ALT+N
-|타일에 포커스가 있을 때 선택한 형식 변경|왼쪽, 위쪽, 오른쪽 또는 아래쪽 화살표
+|Go to next page (if enabled)|ALT+N
+|Change selected type when the focus is on a tile|LEFT, UP, RIGHT, or DOWN ARROW
 
-### 데이터 원본 연결 페이지
+### <a name="data-source-connection-page"></a>Data source connection page
 
-|작업|누르기
+|Operation|Press
 |---|---
-|이전 페이지로 이동(설정된 경우).|ALT+P
-|연결 단추를 선택합니다.| ALT+C
+|Go to previous page (if enabled)|ALT+P
+|Choose Connect button.| ALT+C
 
-### 연결 컨텍스트 페이지
+### <a name="connection-context-page"></a>Connection context page
 
-|작업|누르기
+|Operation|Press
 |---|---
-|등록 단추(설정된 경우)| ALT+R
-|미리 보기 포함 확인란(사용 가능한 경우).|ALT+P
-|데이터 프로필 포함 확인란(사용 가능한 경우).|ALT+D
-|각 목록 항목으로 이동|위쪽 또는 아래쪽 화살표
-| 서버 계층 구조, 트리 보기 노드 확장 |오른쪽 화살표
-| **사용 가능한 개체** 또는 **등록할 개체**에 대해 선택한 항목 이동 | 스페이스바
+|Register button (if enabled)| ALT+R
+|Include Preview checkbox (if available)|ALT+P
+|Include Data Profile checkbox (if available)|ALT+D
+|Navigate to each list item|UP or DOWN ARROW
+| Server Hierarchy, expand a tree view's node |RIGHT ARROW
+| Move selected items for **Available Objects** or **Objects to be registered** | SPACEBAR
 
-### 진행률 페이지 게시
+### <a name="publish-progress-page"></a>Publish progress page
 
-|작업|누르기
+|Operation|Press
 |---|---
-|취소 단추|ALT+C
-|추가 개체 등록 단추| ALT+R
-|포털 보기 단추 | ALT + V
+|Cancel button|ALT+C
+|Register More Objects button| ALT+R
+|View Portal button  | ALT+V
 
-### 진행률 페이지 게시
+### <a name="publish-progress-page"></a>Publish progress page
 
-|작업|누르기
+|Operation|Press
 |---|---
-|저장 단추(설정된 경우)| ALT+S
-|취소 단추|ALT+C
+|Save button (if enabled)| ALT+S
+|Cancel button|ALT+C
 
-## 데이터 카탈로그 포털에 대한 바로 가기 키
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Keyboard shortcuts for the Data Catalog portal
 
-|작업|누르기
+|Operation|Press
 |---|---
-|이동| TAB 및 SHIFT+TAB
-|항목 클릭| 스페이스바 또는 ENTER
-|섹션으로 드릴다운| 스페이스바 또는 ENTER
-|섹션 종료| ESC
-|자산 고정/고정 해제| ALT+P
-|검색 페이지에서 자산에 포커스가 있을 때 자산 선택| 스페이스바 또는 ENTER
-|다중 선택에서 자산 추가/제거| CTRL+스페이스바 또는 ENTER
-|검색 일치 메뉴 토글| ALT+S
-|**열기** 메뉴 토글 | ALT + O
-|자산이 컨테이너인 경우 컨테이너 탐색 | ALT+L
+|Navigate| TAB and SHIFT+TAB
+|Click an item| SPACE or ENTER
+|Drill down into a section| SPACE or ENTER
+|Exit out of a section| ESC
+|Pin/unpin an asset| ALT+P
+|On the discover page, when an asset has focus, select asset| SPACE or ENTER
+|Adds/remove asset from multi-select| CTRL+SPACE or ENTER
+|Toggle the search matches menu| ALT+S
+|Toggle **Open In** menu | ALT+O
+|Explore container, if the asset is a container | ALT+L
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

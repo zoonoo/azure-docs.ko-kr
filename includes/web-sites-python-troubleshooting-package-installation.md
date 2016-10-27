@@ -1,71 +1,74 @@
-일부 패키지는 Azure에서 실행할 때 pip를 사용하여 설치되지 않을 수 있습니다. 단순히 Python Package Index에 해당 패키지가 없기 때문일 수 있습니다. 아니면, 컴파일러가 필요할 수도 있습니다(Azure 앱 서비스에서 웹앱을 실행하는 컴퓨터에서는 컴파일러를 사용할 수 없음).
+Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).
 
-이 섹션에서는 이 문제를 처리하는 방법을 살펴봅니다.
+In this section, we'll look at ways to deal with this issue.
 
-### 휠 요청
+### <a name="request-wheels"></a>Request wheels
 
-패키지를 설치하는 데 컴파일러가 필요한 경우 패키지 소유자에게 문의하여 해당 패키지에 대해 휠을 사용할 수 있도록 요청해야 합니다.
+If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.
 
-최근 [Microsoft Visual C++ Compiler for Python 2.7][]을 출시한 이후로, 이제 Python 2.7용 네이티브 코드가 있는 패키지를 빌드하는 것이 더 쉬워졌습니다.
+With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][], it is now easier to build packages that have native code for Python 2.7.
 
-### 휠 빌드(Windows 필요)
+### <a name="build-wheels-(requires-windows)"></a>Build wheels (requires Windows)
 
-참고: 이 옵션을 사용할 때는 Azure 앱 서비스의 웹앱에서 사용되는 플랫폼/아키텍처/버전(Windows/32비트/2.7 또는 3.4)과 일치하는 Python 환경을 사용하여 패키지를 컴파일해야 합니다.
+Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
-컴파일러가 필요하므로 패키지가 설치되지 않는 경우에는 로컬 컴퓨터에 컴파일러를 설치하고 패키지용 휠을 빌드할 수 있습니다. 그런 다음 이 휠을 리포지토리에 포함합니다.
+If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
 
-Mac/Linux 사용자: Windows 컴퓨터에 액세스할 수 없는 경우 Azure에서 VM을 만드는 방법에 대한 자세한 내용은 [Windows를 실행하는 가상 컴퓨터 만들기][]를 참조하세요. 이 내용을 참조하여 휠을 빌드하여 리포지토리에 추가하고 원하는 경우 VM을 취소할 수 있습니다.
+Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
 
-Python 2.7의 경우 [Microsoft Visual C++ Compiler for Python 2.7][]을 설치하면 됩니다.
+For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7][].
 
-Python 3.4의 경우 [Microsoft Visual C++ 2010 Express][]를 설치하면 됩니다.
+For Python 3.4, you can install [Microsoft Visual C++ 2010 Express][].
 
-휠을 빌드하려면 휠 패키지가 필요합니다.
+To build wheels, you'll need the wheel package:
 
     env\scripts\pip install wheel
 
-`pip wheel`을 사용하여 종속성을 컴파일합니다.
+You'll use `pip wheel` to compile a dependency:
 
     env\scripts\pip wheel azure==0.8.4
 
-이렇게 하면 \\wheelhouse 폴더에 .whl 파일이 만들어집니다. \\wheelhouse 폴더 및 휠 파일을 리포지토리에 추가합니다.
+This creates a .whl file in the \wheelhouse folder.  Add the \wheelhouse folder and wheel files to your repository.
 
-requirements.txt를 편집하여 맨 위에 `--find-links` 옵션을 추가합니다. 이렇게 하면 Python Package Index로 이동하기 전에 로컬 폴더에 정확한 일치 항목이 있는지 찾아 보도록 pip에게 지시합니다.
+Edit your requirements.txt to add the `--find-links` option at the top. This tells pip to look for an exact match in the local folder before going to the python package index.
 
     --find-links wheelhouse
     azure==0.8.4
 
-모든 종속성을 \\wheelhouse 폴더에 포함하고 Python Package Index는 전혀 사용하지 않으려는 경우 requirements.txt 맨 위에 `--no-index`를 추가하여 pip가 패키지 인덱스를 무시하도록 만들면 됩니다.
+If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding `--no-index` to the top of your requirements.txt.
 
     --no-index
 
-### 설치 사용자 지정
+### <a name="customize-installation"></a>Customize installation
 
-easy\_install 같은 대체 설치 관리자를 사용하여 가상 환경에서 패키지를 설치하도록 배포 스크립트를 사용자 지정할 수 있습니다. deploy.cmd에서 주석 처리된 예제를 확인합니다. 해당 패키지가 requirements.txt에 나열되지 않도록 해야 pip가 해당 패키지를 설치하지 않습니다.
+You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.  See deploy.cmd for an example that is commented out.  Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.
 
-다음을 배포 스크립트에 추가합니다.
+Add this to the deployment script:
 
     env\scripts\easy_install somepackage
 
-easy\_install를 사용하여 exe 설치 파일에서 설치할 수도 있습니다(일부는 압축 호환되므로 easy\_install에서 지원됨). 리포지토리에 설치 관리자를 추가하고 실행 파일 경로를 전달하여 easy\_install을 호출합니다.
+You may also be able to use easy\_install to install from an exe installer (some are zip compatible, so easy\_install supports them).  Add the installer to your repository, and invoke easy\_install by passing the path to the executable.
 
-다음을 배포 스크립트에 추가합니다.
+Add this to the deployment script:
 
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
-### 리포지토리에 가상 환경 포함(Windows 필요)
+### <a name="include-the-virtual-environment-in-the-repository-(requires-windows)"></a>Include the virtual environment in the repository (requires Windows)
 
-참고: 이 옵션을 사용할 때는 Azure 앱 서비스의 웹앱에서 사용되는 플랫폼/아키텍처/버전(Windows/32비트/2.7 또는 3.4)과 일치하는 가상 환경을 사용해야 합니다.
+Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
-리포지토리에 가상 환경을 포함하는 경우 배포 스크립트가 빈 파일 생성을 통해 Azure에서 가상 환경을 관리하는 일을 방지할 수 있습니다.
+If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
 
     .skipPythonDeployment
 
-가상 환경이 자동 관리될 때 잔존 파일들이 사용되지 않도록 하기 위해 앱의 기존 가상 환경을 삭제하는 것이 좋습니다.
+We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.
 
 
-[Windows를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

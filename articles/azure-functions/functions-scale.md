@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Azure Functions 크기 조정 방법 | Microsoft Azure"
-   description="Azure Functions에서 이벤트 기반 워크로드의 수요를 충족하도록 크기를 조정하는 방식을 이해합니다."
+   pageTitle="How to scale Azure Functions | Microsoft Azure"
+   description="Understand how Azure Functions scale to meet the needs of your event-driven workloads."
    services="functions"
    documentationCenter="na"
    authors="dariagrigoriu"
    manager="erikre"
    editor=""
    tags=""
-   keywords="Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
+   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
    ms.service="functions"
@@ -18,33 +18,40 @@
    ms.date="08/03/2016"
    ms.author="dariagrigoriu"/>
 
-# Azure Functions 크기 조정 방법
 
-## 소개
+# <a name="how-to-scale-azure-functions"></a>How to scale Azure Functions
 
-Azure Functions의 장점은 필요할 때 계산 리소스에서만 사용한다는 점입니다. 즉, 유휴 상태의 VM에 대한 비용을 지불하거나 필요할 때를 대비해서 용량을 남겨 둘 필요가 없다는 점입니다. 그 대신, 플랫폼에서 코드가 실행될 경우 계산 역량을 할당하고 로드를 처리하는 데 필요하면 크기를 확장하며 코드가 실행되지 않을 경우 축소합니다.
+## <a name="introduction"></a>Introduction
 
-이런 새로운 기능의 메커니즘은 동적 서비스 계획입니다.
+An advantage of Azure Functions is that compute resources are only consumed when needed. This means that you don’t pay for idle VMs or have to reserve capacity for when you might need it. Instead, the platform allocates compute power when your code is running, scales up as necessary to handle load, and then scales down when code is not running.
 
-이 문서는 동적 서비스 계획의 작동 원리 및 플랫폼이 코드를 실행하는 수요에 따라 크기를 조정하는 방식에 대한 개요를 제공합니다.
+The mechanism for this new capability is the Dynamic Service plan.  
 
-Azure Functions에 익숙하지 않다면 해당 기능을 더 잘 이해할 수 있도록 [Azure Functions 개요](functions-overview.md) 문서를 확인하도록 합니다.
+This article provides an overview of how the Dynamic Service plan works and how the platform scales on demand to run your code.
 
-## Azure Functions 구성
+If you are not yet familiar with Azure Functions, make sure to check the [Azure Functions overview](functions-overview.md) article to better understand its capabilities.
 
-크기 조정과 관련된 두 가지 주요 설정이 있습니다.
+## <a name="configure-azure-functions"></a>Configure Azure Functions
 
-* [Azure 앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 또는 동적 서비스 계획
-* 실행 환경을 위한 메모리 크기
+Two main settings are related to scaling:
 
-함수의 비용은 선택하는 서비스 계획에 따라 달라집니다. 동적 서비스 계획에서 비용은 실행 시간, 메모리 크기, 실행 수의 함수입니다. 요금은 코드가 실제로 실행 중인 경우에만 누적됩니다.
+* [Azure App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Service plan
+* Memory size for the execution environment
 
-앱 서비스 계획은 기존 VM에 함수를 호스팅하며 다른 코드를 실행하는 데 사용될 수도 있습니다. 매달 이 VM에 대한 비용을 지불하면 이 곳에서 함수를 실행하는 데 대한 추가 요금이 발생하지 않습니다.
+The cost of a function changes depending on the service plan that you select. With a Dynamic Service plan, cost is a function of execution time, memory size, and number of executions. Charges accrue only when your code is actually running.
 
-## 서비스 계획 선택
+An App Service plan hosts your functions on existing VMs, which might also be used to run other code. After you pay for these VMs each month, there is no extra charge for execution functions on them.
 
-함수를 만들 경우 동적 서비스 계획에서 실행할지 또는 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)에서 실행할지를 선택할 수 있습니다. 현재 기본, 표준 또는 프리미엄 SKU에서 웹앱이 작동하는 것처럼 앱 서비스 계획에서 사용자의 함수는 전용 VM에서 실행됩니다. 전용 VM은 사용자의 앱 및 함수에 할당되며 코드가 활발히 실행되고 있는지와 상관 없이 언제든 사용할 수 있습니다. 이미 다른 코드를 실행하고 있는 기존의 활용도가 낮은 VM이 있거나 함수를 계속해서 또는 거의 끊임없이 실행할 예정인 경우에 유용한 옵션입니다. VM은 런타임 및 메모리에서 비용을 분리합니다. 결과적으로 많은 장기 실행 함수의 비용을 해당 함수가 실행되는 하나 이상의 VM의 비용으로 제한할 수 있습니다.
+## <a name="choose-a-service-plan"></a>Choose a service plan
 
-[AZURE.INCLUDE [동적 서비스 계획](../../includes/functions-dynamic-service-plan.md)]
+When you create functions, you can select to run them on a Dynamic Service plan or an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+In the App Service plan, your functions will run on a dedicated VM, just like web apps work today for Basic, Standard, or Premium SKUs.
+This dedicated VM is allocated to your apps and functions and is always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the one or more VMs that they run on.
 
-<!---HONumber=AcomDC_0803_2016-->
+[AZURE.INCLUDE [Dynamic Service plan](../../includes/functions-dynamic-service-plan.md)]
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

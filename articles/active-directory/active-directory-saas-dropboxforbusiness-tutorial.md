@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Dropbox for Business와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Dropbox for Business를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory integration with Dropbox for Business | Microsoft Azure" 
+    description="Learn how to use Dropbox for Business with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,204 +14,209 @@
     ms.date="08/16/2016" 
     ms.author="jeedes" />
 
-#자습서: Dropbox for Business와 Azure Active Directory 통합
+
+#<a name="tutorial:-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: Azure Active Directory integration with Dropbox for Business
   
-이 자습서는 Azure 및 Dropbox for Business의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+The objective of this tutorial is to show the integration of Azure and Dropbox for Business.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   유효한 Azure 구독
--   Dropbox for Business의 테스트 테넌트
+-   A valid Azure subscription
+-   A test tenant in Dropbox for Business
   
-이 자습서를 완료한 후 Dropbox for Business에 할당한 Azure AD 사용자가 Dropbox for Business 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+After completing this tutorial, the Azure AD users you have assigned to Dropbox for Business will be able to single sign into the application at your Dropbox for Business company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Dropbox for Business에 응용 프로그램 통합 사용
-2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
-4.  사용자 할당
+1.  Enabling the application integration for Dropbox for Business
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![시나리오](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769508.png "시나리오")
+![Scenario](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769508.png "Scenario")
 
 
 
-##Dropbox for Business에 응용 프로그램 통합 사용
+##<a name="enabling-the-application-integration-for-dropbox-for-business"></a>Enabling the application integration for Dropbox for Business
   
-이 섹션은 Dropbox for Business에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable the application integration for Dropbox for Business.
 
-###Dropbox for Business에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###<a name="to-enable-the-application-integration-for-dropbox-for-business,-perform-the-following-steps:"></a>To enable the application integration for Dropbox for Business, perform the following steps:
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-dropboxforbusiness-tutorial/IC700993.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-dropboxforbusiness-tutorial/IC700994.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-dropboxforbusiness-tutorial/IC700994.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749321.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749321.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **Dropbox for Business**를 입력합니다.
+6.  In the **search box**, type **Dropbox for Business**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "응용 프로그램 갤러리")
+    ![Application gallery](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Application gallery")
 
-7.  결과 창에서 **Dropbox for Businesss**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Dropbox for Business**, and then click **Complete** to add the application.
 
     ![Dropbox for Business](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701011.png "Dropbox for Business")
 
-##Single Sign-On 구성
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Dropbox for Business에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
+The objective of this section is to outline how to enable users to authenticate to Dropbox for Business with their account in Azure AD using federation based on the SAML protocol.
 
-이 절차의 일부로 base-64로 인코딩된 인증서를 Dropbox for Business 테넌트로 업로드 해야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+As part of this procedure, you are required to upload a base-64 encoded certificate to your Dropbox for Business tenant. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Azure 클래식 포털의 **Dropbox for Busines** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Dropbox for Business** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Configure single sign-on")
 
-2.  **Dropbox for Busines에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to Dropbox for Business** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749327.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749327.png "Configure single sign-on")
 
-3.  **앱 URL 구성** 페이지에서 다음 단계를 수행합니다.
+3.  On the **Configure App URL** page, perform the following steps:
 
-	a. Dropbox for business 테넌트에 로그온합니다.
+    a. Sign-on to your Dropbox for business tenant. 
 
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Configure single sign-on")
 
-	b. 왼쪽의 탐색 창에서 **관리 콘솔**을 클릭합니다.
+    b. In the navigation pane on the left side, click **Admin Console**. 
 
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Configure single sign-on")
 
-	c. **관리 콘솔**에서 왼쪽 탐색 창의 **인증**을 클릭합니다.
+    c. On the **Admin Console**, click **Authentication** in the left navigation pane. 
 
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configure single sign-on")
 
-	d. **Single sign-on** 섹션에서 **single sign-on 사용**을 선택한 다음 **추가**를 클릭하여 이 섹션을 확장합니다.
+    d. In the **Single sign-on** section, select **Enable single sign-on**, and then click **More** to expand this section.  
 
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configure single sign-on")
 
-	e. **자신의 전자 메일 주소를 입력하여 사용자가 로그인하거나 직접 이동할 수 있습니다.** 옆의 URL을 복사합니다.
+    e. Copy the URL next to **Users can sign in by entering their email address or they can go directly to**. 
 
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configure single sign-on")
 
-	f. Azure 클래식 포털의 **DropBox for business 로그인** URL 텍스트 상자에 URL을 붙여 넣습니다.
+    f. On the Azure classic portal, in the **DropBox for business sign in** URL textbox, paste the URL. 
 
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Single Sign-On 구성")
-
-
-
-4. **Dropbox for Business에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
-
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769515.png "Single Sign-On 구성")
-
-
-5. Dropbox for Business 테넌트의 **인증** 페이지의 **Single sign-on** 섹션에서 다음 단계를 수행합니다.
-
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Single Sign-On 구성")
-
-	a. **필수**를 클릭합니다.
-
-	b. Azure 클래식 포털의 **Dropbox for Business에서 Single Sign-On 설정** 대화 상자 페이지에서 **로그인 페이지 URL** 값을 복사하여, **로그인 URL** 텍스트 상자에 붙여 넣습니다.
-
-
-	c. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
-
-	> [AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
-
-
-	d. **인증서 선택** 단추를 클릭한 다음 **base-64로 인코드된 인증서 파일**을 업로드합니다.
-
-
-	e. **”변경 내용 저장”** 단추를 클릭하여 DropBox for Business 테넌트의 구성을 완료할 수 있습니다.
-
-
-6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
-
-	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configure single sign-on")  
 
 
 
-##사용자 프로비전 구성
+4. On the **Configure single sign-on at Dropbox for Business** page, click **Download certificate**, and then save the certificate file on your computer.  
+
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769515.png "Configure single sign-on")
+
+
+5. On your Dropbox for Business tenant, in the **Single sign-on** section of the **Authentication** page, perform the following steps: 
+
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configure single sign-on")
+
+    a. Click **Required**.
+
+    b. In the Azure classic portal, on the **Configure single sign-on at Dropbox for Business** dialog page, copy the **Sign-in page URL** value, and then paste it into the **Sign in URL** textbox.
+
+
+    c. Create a **Base-64 encoded** file from your downloaded certificate. 
+
+    > [AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+
+
+    d. Click **"Choose certificate"** button, and then browse to your **base-64 encoded certificate file**.
+
+
+    e. Click **"Save changes"** button to complete the configuration on your DropBox for Business tenant.
+
+
+6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog. 
+
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Configure single sign-on")
+
+
+
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-이 섹션에서는 Dropbox for Business에 Active Directory 사용자 계정을 프로비저닝할 수 있도록 설정하는 방법을 간략하게 설명합니다.
+The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Dropbox for Business.
 
 
-### 사용자 프로비저닝을 구성하려면
+### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1. Azure 클래식 포털의 **Dropbox for Business** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭하여 **사용자 프로비전 구성** 대화 상자를 엽니다.
+1. In the Azure classic Portal, on the **Dropbox for Business** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog.
 
-2. DropBox for Business에 사용자 프로비전 사용 페이지에서, Azure AD 대화 상자와 연결하려면 사용자 프로비전을 사용을 클릭하여 로그인을 엽니다.
+2. On the Enable user provisioning to DropBox for Business page, click Enable user provisioning to open the Sign in to Dropbox to link with Azure AD dialog.  
 
-	![사용자 프로비전](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "사용자 프로비전")
+    ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "User provisioning")
 
-3. **Azure AD와 연결하기 위해 Dropbox에 로그인** 대화 상자에서 Dropbox for Business 테넌트에 로그인합니다.
+3. On the **Sign in to Dropbox to link with Azure AD** dialog, sign in to your Dropbox for Business tenant. 
 
-	![사용자 프로비전](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "사용자 프로비전")
-
-
-
-4. **허용**을 클릭하여 Azure AD에 Dropbox에 대한 액세스를 허용합니다.
-
-	![사용자 프로비전](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "사용자 프로비전")
+    ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "User provisioning")
 
 
 
-5. 구성을 마치려면 **완료** 단추를 클릭합니다.
+4. Click **Allow** to grant Azure AD to access to Dropbox. 
 
-	![사용자 프로비전](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769520.png "사용자 프로비전")
-
-
+    ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "User provisioning")
 
 
-##사용자 할당
+
+5. To finish the configuration, click the **Complete** button.  
+
+    ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769520.png "User provisioning")
+
+
+
+
+##<a name="assigning-users"></a>Assigning users
   
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Dropbox for Business에 사용자를 할당하려면 다음 단계를 수행합니다.
+###<a name="to-assign-users-to-dropbox-for-business,-perform-the-following-steps:"></a>To assign users to Dropbox for Business, perform the following steps:
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
+1.  In the Azure classic portal, create a test account.
 
-2.  **Dropbox for Business** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  On the **Dropbox for Business **application integration page, click **Assign users**.
 
-    ![사용자 할당](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "사용자 할당")
+    ![Assign users](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Assign users")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![예](./media/active-directory-saas-dropboxforbusiness-tutorial/IC767830.png "예")
+    ![Yes](./media/active-directory-saas-dropboxforbusiness-tutorial/IC767830.png "Yes")
   
 
 
-이제 10분 동안 기다린 후 계정이 비즈니스용 Dropbox에 동기화되었는지 확인해야 합니다.
+You should now wait for 10 minutes and verify that the account has been synchronized to Dropbox for Business.
 
-첫 번째 확인 단계로 Azure 클래식 포털의 **Dropbox for Business** 응용 프로그램 통합 페이지의 **대시보드**를 클릭하여 프로비전 상태를 확인할 수 있습니다.
+As a first verification step, you can check the provisioning status, by clicking **Dashboard** in the **Dropbox for Business** application integration page on the Azure classic Portal.
 
-![사용자 할당](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769522.png "사용자 할당")
-
-
-주기를 프로비전하는 성공적으로 완료된 사용자는 관련된 상태에서 표시됩니다.
-
-![사용자 할당](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "사용자 할당")
+![Assign users](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769522.png "Assign users")
 
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+A successfully completed user provisioning cycle is indicated by a related status.
+
+![Assign users](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Assign users")
+
+
+If you want to test your single sign-on settings, open the Access Panel.
+For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-## 추가 리소스
+## <a name="additional-resources"></a>Additional Resources
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

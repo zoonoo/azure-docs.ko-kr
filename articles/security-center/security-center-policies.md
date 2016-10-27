@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Security Center에서 보안 정책 설정 | Microsoft Azure"
-   description="이 문서에서는 Azure 보안 센터에서 보안 정책을 구성하는 방법을 설명합니다."
+   pageTitle="Set security policies in Azure Security Center | Microsoft Azure"
+   description="This document helps you to configure security policies in Azure Security Center."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,95 +16,100 @@
    ms.date="09/22/2016"
    ms.author="yurid"/>
 
-# Azure Security Center에서 보안 정책 설정
-이 문서에서는 보안 센터에 보안 정책을 구성하는 작업을 수행하는 데 필요한 단계를 안내합니다.
 
-## 보안 정책이란?
-보안 정책은 지정된 구독 또는 리소스 그룹 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. 보안 센터에서 회사의 보안 요구 사항 및 응용 프로그램 유형 또는 각 구독의 데이터 민감도에 따라 Azure 구독 또는 리소스 그룹에 대한 정책을 정의합니다.
+# <a name="set-security-policies-in-azure-security-center"></a>Set security policies in Azure Security Center
+This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task.
 
-예를 들어 개발 또는 테스트에 사용되는 리소스는 프로덕션 응용 프로그램에 사용되는 리소스와 보안 요구 사항이 다릅니다. 마찬가지로 PII(Personally Identifiable Information) 같은 규제된 데이터를 가진 응용 프로그램에는 더 높은 수준의 보안이 필요할 수 있습니다. Azure Security Center에서 활성화된 보안 정책에 따라 잠재적 취약점을 파악하고 위험을 완화하는 데 도움이 되는 보안 권장 사항과 모니터링이 결정됩니다. 더 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure Security Center 계획 및 운영 가이드](security-center-planning-and-operations-guide.md)를 참고하세요.
+## <a name="what-are-security-policies?"></a>What are security policies?
+A security policy defines the set of controls, which are recommended for resources within the specified subscription or resource group. In Security Center, you define policies for your Azure subscriptions or resource group according to your company security needs and the type of applications or sensitivity of the data in each subscription.
 
-## 구독에 대한 보안 정책 설정
+For example, resources that are used for development or test might have different security requirements from resources that are used for production applications. Likewise, applications that use regulated data like personally identifiable information might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. Read [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) for more information about how to determine the option that is appropriate for you.
 
-각 구독 또는 리소스 그룹에 대한 보안 정책을 구성할 수 있습니다. 보안 정책을 수정하려면 해당 구독의 소유자 또는 참여자여야 합니다. Azure Portal에 로그인하고 다음 단계에 따라 Security Center에서 보안 정책을 구성합니다.
+## <a name="set-security-policies-for-subscriptions"></a>Set security policies for subscriptions
 
-1. 보안 센터 대시보드에서 **정책** 타일을 클릭합니다.
+You can configure security policies for each subscription or resource group. To modify a security policy, you must be an owner or contributor of that subscription. Sign in to the Azure portal and follow the succeeding steps to configure security polices in Security Center:
 
-2. 열리는 **보안 정책 - 구독 또는 리소스 그룹당 정책 정의** 블레이드에서 보안 정책을 활성화할 구독을 선택합니다. 전체 구독이 아닌 리소스 그룹에 보안 정책을 사용하려는 경우 리소스 그룹에 대한 보안 정책을 설정하는 방법에 대한 설명하는 다음 섹션까지 아래로 스크롤합니다.
+1. Click the **Policy** tile in the Security Center dashboard.
 
-    ![정책 정의](./media/security-center-policies/security-center-policies-fig1-ga.png)
+2. In the **Security Policy - Define policy per subscription or resource group** blade that opens, select the subscription on which you want to enable the security policy. If you prefer to enable the security policy for a resource group instead of the entire subscription, scroll down to the next section that talks about how to set up security policies for resource groups.
 
-3. 선택한 구독에 대한 **보안 정책** 블레이드가 다음 화면과 비슷한 일련의 옵션과 함께 열립니다.
+    ![Defining policy](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
-    ![데이터 수집 사용](./media/security-center-policies/security-center-policies-fig2-ga.png)
+3. The **Security policy** blade for the selected subscription opens with a set of options like the options in the following screenshot:
 
-	이 블레이드에서 사용할 수 있는 옵션은 다음과 같습니다.
-	- **방지 정책**: 이 옵션을 사용하여 구독 또는 리소스 그룹당 정책을 구성할 수 있습니다.
-	- **전자 메일 알림**: 이 옵션을 사용하여 최초로 일별 경고가 발생할 때와 높은 심각도 경고가 발생하는 경우에 전송되는 전자 메일 알림을 구성합니다. 전자 메일 기본 설정은 구독 정책에 대해서만 구성할 수 있습니다. 전자 메일 알림을 구성하는 방법에 대한 자세한 내용은 [Azure Security Center에 보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md)을 참고하세요.
-	- **가격 책정 계층**: 이 옵션을 사용하여 가격 책정 계층 선택을 업그레이드합니다. 가격 책정 옵션에 대한 자세한 내용은 [Security Center 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig2-ga.png)
+
+    The available options in this blade are:
+    - **Prevention policy**: Use this option to configure policies per subscription or resource group.  
+    - **Email notification**: Use this option to configure an email notification that's sent on the first daily occurrence of an alert and for high severity alerts. Email preferences can be configured only for subscription policies. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information about how to configure an email notification.
+    - **Pricing tier**: Use this option to upgrade the pricing tier selection. See [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing options.
 
 
-4.  **가상 컴퓨터에서 데이터 수집** 옵션을 **켜기**로 설정합니다. 이 옵션은 기존 및 새 리소스에 대한 자동 로그 수집을 활성화합니다.
+4.  Make sure that **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources.
 
-    >[AZURE.NOTE] 기존 VM 및 새 VM에 보안 모니터링을 사용할 수 있도록 각 구독에 데이터 수집을 설정하는 것이 좋습니다. 데이터 수집을 활성화하면 모니터링 에이전트가 설치됩니다. 지금 이 위치에서 데이터 수집을 활성화하지 않더라도 나중에 **상태** 및 **권장 사항** 보기에서 활성화할 수 있습니다. 또한 구독 전용 또는 선택한 VM에 대해 데이터 수집을 활성화할 수 있습니다. 지원되는 VM에 대한 자세한 내용은 [Azure 보안 센터 FAQ](security-center-faq.md)를 참조하세요.
+    >[AZURE.NOTE] We recommend that you turn on data collection for each of your subscriptions to ensure that security monitoring is available for all existing and new VMs. Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the **Health** and **Recommendations** views. You can also enable data collection for only the subscription or for select VMs. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
 
-5. 아직 저장소 계정이 구성되지 않았으면 **보안 정책**을 열었을 때 다음 스크린샷과 비슷한 경고가 표시될 수 있습니다.
+5. If your storage account is not configured yet, you might see a warning like the one in the following screenshot when you open **Security Policy**:
 
-    ![저장소 선택](./media/security-center-policies/security-center-policies-fig2.png)
+    ![Storage selection](./media/security-center-policies/security-center-policies-fig2.png)
 
-6. 이 경고가 표시되면 이 옵션을 클릭하고 다음 스크린샷에서 보여준 대로 지역을 선택합니다.
+6. If you see this warning, click this option and select the region as shown in the following screenshot:
 
-    ![저장소 선택](./media/security-center-policies/security-center-policies-fig3-ga.png)
+    ![Storage selection](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
-7. 가상 컴퓨터를 실행 중인 각 영역에 대해 가상 컴퓨터에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 이렇게 하면 쉽게 개인 정보 및 데이터 독립성과 같은 지리적 영역에 데이터를 유지할 수 있습니다. 사용할 영역을 결정한 후에 해당 영역을 선택하고 저장소 계정을 선택합니다.
+7. For each region in which you have running virtual machines, choose the storage account where data that's collected from those virtual machines is stored. This makes it easy to keep data in the same geographic area for privacy and data sovereignty purposes. After you decide the region that you will use, select the region, and then select the storage account.
 
-8. **저장소 계정 선택** 블레이드에서 **확인**을 클릭합니다.
+8. In the **Choose storage accounts** blade, click **OK**.
 
-    > [AZURE.NOTE] 원한다면 여러 지역에 있는 가상 컴퓨터의 데이터를 중앙 저장소 계정 하나에 집계할 수 있습니다. 자세한 내용은 [Azure 보안 센터 FAQ](security-center-faq.md)를 참조하세요.
+    > [AZURE.NOTE] If you prefer, you can aggregate data in one central storage account for virtual machines that are in various regions. Refer to the [Azure Security Center FAQ](security-center-faq.md) for more information.
 
-9. **보안 정책** 블레이드에서 **켜기**를 클릭하고 이 구독에 사용할 보안 권장 사항을 활성화합니다. **방지 정책**을 클릭하면 다음 스크린샷과 같은 옵션이 표시됩니다.
+9. In the **Security Policy** blade, click **On** to enable the security recommendations that you want to use on this subscription. Click **Prevention policy** to see options like those in the following screenshot:
 
-	![보안 정책 선택](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
-다음 테이블을 참조로 사용하여 각 옵션을 이해합니다.
+Use the following table as a reference to understand each option:
 
-| 정책 | 상태가 켜진 경우 |
+| Policy | When state is on |
 |----- |-----|
-| 시스템 업데이트 | Windows 업데이트 또는 Windows Server Update Services에서 사용 가능한 보안 및 중요 업데이트의 일일 목록을 검색합니다. 검색된 목록은 해당 가상 컴퓨터에 구성된 서비스에 따라 다르고 누락된 업데이트를 적용하도록 권장합니다. Linux 시스템의 경우 정책은 배포판에서 제공한 패키지 관리 시스템을 사용하여 사용 가능한 업데이트가 있는 패키지를 확인합니다. 또한 [Azure Cloud Services](./cloud-services/cloud-services-how-to-configure.md) 가상 컴퓨터에서 보안 및 중요 업데이트를 확인합니다. |
-| OS 취약성 | 운영 체제 구성을 매일 분석하여 가상 컴퓨터를 공격에 취약하게 만들 수 있는 문제를 확인합니다. 또한 정책은 이러한 취약점을 해결하는 구성 변경 내용을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장 기준 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. |
-| Endpoint Protection | 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 파악하여 제거할 수 있도록 모든 Windows 가상 컴퓨터에 Endpoint Protection을 프로비전하도록 권장합니다.|
-| 디스크 암호화 | 모든 가상 컴퓨터에서 디스크 암호화를 사용하여 휴지 상태의 데이터 보호 기능을 향상시키는 것이 좋습니다.
-| 네트워크 보안 그룹 | 공용 끝점을 사용하여 VM에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 구성하는 것이 좋습니다. 별도로 지정하지 않는 한, 서브넷에 대해 구성된 네트워크 보안 그룹은 모든 가상 컴퓨터 네트워크 인터페이스에서 상속됩니다. 네트워크 보안 그룹이 구성되었는지 확인하는 것 외에도 이 정책은 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙을 식별합니다. |
-| 웹 응용 프로그램 방화벽 | </br></br>ILPIP[(인스턴스 수준 공용 IP)](../virtual-network/virtual-networks-instance-level-public-ip.md)를 사용하고 연결된 네트워크 보안 그룹에 대한 인바운드 보안 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성한 경우 가상 컴퓨터에 웹 응용 프로그램 방화벽을 프로비전하도록 권장합니다.</br></br>부하 분산된 IP를 사용하고 연결된 부하 분산 및 인바운드 NAT(Network Address Translation) 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성했습니다. 자세한 내용은 [Load Balancer에 대한 Azure Resource Manager 지원](../load-balancer/load-balancer-arm.md)을 참조하세요. |
-| 차세대 방화벽 | Azure에 기본 제공되는 네트워크 보안 그룹 외에도 네트워크 보호 기능을 확장합니다. Security Center는 차세대 방화벽을 권장하는 배포를 검색하고 가상 어플라이언스를 프로비전할 수 있도록 합니다. |
-| SQL 감사 및 위협 감지 | 조사를 위해 규정 준수 및 고급 위협 감지에 대해 Azure 데이터베이스에 대한 액세스 감사를 활성화하는 것이 좋습니다. |
-| SQL 투명한 데이터 암호화 | Azure SQL Database, 연결된 백업 및 트랜잭션 로그 파일에 대해 휴지 상태의 암호화를 활성하는 것이 좋습니다. 데이터 위반이 있더라도 데이터를 읽을 수 없습니다. |
-| 취약점 평가 | VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
+| System updates | Retrieves a daily list of available security and critical updates from Windows Update or Windows Server Update Services. The retrieved list depends on the service that's configured for that virtual machine and recommends that the missing updates be applied. For Linux systems, the policy uses the distro-provided package management system to determine packages that have available updates. It also checks for security and critical updates from [Azure Cloud Services](./cloud-services/cloud-services-how-to-configure.md) virtual machines. |
+| OS vulnerabilities | Analyzes operating system configurations daily to determine issues that could make the virtual machine vulnerable to attack. The policy also recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information about the specific configurations that are being monitored. |
+| Endpoint protection | Recommends endpoint protection to be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software.|
+| Disk encryption | Recommends enabling disk encryption in all virtual machines to enhance data protection at rest.
+| Network security groups | Recommends that [network security groups](../virtual-network/virtual-networks-nsg.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |
+| Web application firewall | Recommends that a web application firewall be provisioned on virtual machines when either of the following is true:</br></br>[Instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the inbound security rules for the associated network security group are configured to allow access to port 80/443.</br></br>Load-balanced IP is used and the associated load balancing and inbound network address translation (NAT) rules are configured to allow access to port 80/443. (For more information, see [Azure Resource Manager support for Load Balancer](../load-balancer/load-balancer-arm.md). |
+| Next generation firewall | Extends network protections beyond network security groups, which are built into Azure. Security Center will discover deployments for which a next generation firewall is recommended and enable you to provision a virtual appliance. |
+| SQL auditing & Threat detection | Recommends that auditing of access to Azure Database be enabled for compliance and also advanced threat detection, for investigation purposes. |
+| SQL transparent data encryption | Recommends that encryption at rest be enabled for your Azure SQL Database, associated backups, and transaction log files. Even if your data is breached, it will not be readable. |
+| Vulnerability assessment | Recommends that you install a vulnerability assessment solution on your VM. |
 
-옵션을 모두 구성하면 권장 사항이 있는 **보안 정책** 블레이드에서 **확인**을 클릭하고 초기 설정이 있는 **보안 정책** 블레이드에서 **저장**을 클릭합니다.
+After you configure all options, click **OK** in the **Security Policy** blade that has the recommendations, and then click **Save** in the **Security Policy** blade that  has the initial settings.
 
-## 리소스 그룹에 대한 보안 정책 설정
+## <a name="set-security-policies-for-resource-groups"></a>Set security policies for resource groups
 
-리소스 그룹당 보안 정책을 구성하는 단계는 구독에 대한 보안 정책을 설정하는 데 사용하는 단계와 같습니다. 주요 차이점은 구독 이름을 확장하고 고유한 보안 정책을 구성하려는 리소스 그룹을 선택해야 한다는 점입니다.
+If you prefer to configure your security policies per resource group, the steps are like those that you use to set up security policies for subscriptions. The main difference is that you will need to expand the subscription name and select the resource group for which you want to configure the unique security policy:
 
-![리소스 그룹 선택](./media/security-center-policies/security-center-policies-fig5-ga.png)
+![Resource group selection](./media/security-center-policies/security-center-policies-fig5-ga.png)
 
-리소스 그룹을 선택한 후에 **보안 정책** 블레이드가 열립니다. 기본적으로 **상속** 옵션을 사용합니다. 즉, 이 리소스 그룹에 대한 모든 보안 정책은 구독 수준에서 상속됩니다. 리소스 그룹에 대한 보안 정책을 사용자 지정하려는 경우 이 구성을 변경할 수 있습니다. 이런 경우 **고유**를 선택하고 **방지 정책** 옵션에서 변경 사항을 만듭니다.
+After you select the resource group, the **Security policy** blade opens. By default, the **Inheritance** option is enabled. This means that all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy for a resource group. If that's the case, you need to select **Unique** and make the changes under the **Prevention policy** option.
 
-![리소스 그룹당 보안 정책](./media/security-center-policies/security-center-policies-fig6-ga.png)
+![Security policy per resource group](./media/security-center-policies/security-center-policies-fig6-ga.png)
 
-> [AZURE.NOTE] 구독 수준 정책과 리소스 그룹 수준 정책이 충돌하는 경우 리소스 그룹 수준 정책이 우선 적용됩니다.
+> [AZURE.NOTE] In case of a conflict between subscription-level policy and resource group-level policy, the resource group-level policy takes precedence.
 
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-이 문서에서는 Azure 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-- [Azure Security Center 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.
-- [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-- [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
-- [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-- [Azure Security Center FAQ](security-center-faq.md) 서비스 사용에 관한 질문과 대답을 찾습니다.
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+- [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). Learn how to plan and understand the design considerations to adopt Azure Security Center.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
+- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

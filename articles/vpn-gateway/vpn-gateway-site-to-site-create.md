@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 클래식 포털을 사용하여 사이트 간 VPN 게이트웨이 연결로 가상 네트워크 만들기 | Microsoft Azure"
-   description="클래식 배포 모델을 사용하여 프레미스 간 구성과 하이브리드 구성에 대해 사이트 간 S2S VPN 게이트웨이 연결로 VNet를 만듭니다."
+   pageTitle="Create a virtual network with a site-to-site VPN Gateway connection using the Azure classic portal | Microsoft Azure"
+   description="Create a VNet with a S2S VPN Gateway connection for cross-premises and hybrid configurations using the classic deployment model."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
@@ -17,93 +17,98 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Azure 클래식 포털을 사용하여 사이트 간 연결로 VNet 만들기
+
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Create a VNet with a Site-to-Site connection using the Azure classic portal
 
 > [AZURE.SELECTOR]
 - [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-- [클래식 - 클래식 포털](vpn-gateway-site-to-site-create.md)
+- [Classic - Classic Portal](vpn-gateway-site-to-site-create.md)
 
-이 문서에서는 **클래식 배포 모델** 및 크래식 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 현재는 Azure 포털을 사용하여 클래식 배포 모델에 대한 종단 간 사이트 간 구성을 만들 수 없습니다.
+This article walks you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the **classic deployment model** and the classic portal. Site-to-Site connections can be used for cross-premises and hybrid configurations. Currently, you cannot create an end-to-end Site-to-Site configuration for the classic deployment model using the Azure portal.
 
-![사이트 간 다이어그램](./media/vpn-gateway-site-to-site-create/site2site.png "사이트 간")
+![Site-to-Site diagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
 
-### 사이트 간 연결에 대한 배포 모델 및 도구
+### <a name="deployment-models-and-tools-for-site-to-site-connections"></a>Deployment models and tools for Site-to-Site connections
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
+If you want to connect VNets together, see [Configure a VNet-to-VNet connection for the classic deployment model](virtual-networks-configure-vnet-to-vnet-connection.md). 
  
-## 시작하기 전에
+## <a name="before-you-begin"></a>Before you begin
 
-구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
+Verify that you have the following items before beginning configuration.
 
-- 호환되는 VPN 장치 및 구성할 수 있는 사람. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
+- A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 
-- VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
+- An externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 
-- Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## 가상 네트워크 만들기
+## <a name="create-your-virtual-network"></a>Create your virtual network
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com/).
 
-2. 화면의 왼쪽 아래 모서리에서 **새로 만들기**를 클릭합니다. 탐색 창에서 **네트워크 서비스**를 클릭한 다음 **가상 네트워크**를 클릭합니다. **사용자 지정 만들기**를 클릭하여 구성 마법사를 시작합니다.
+2. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
-3. VNet을 만들려면 다음 페이지에서 구성 설정을 입력합니다.
+3. To create your VNet, enter your configuration settings on the following pages:
 
-## 가상 네트워크 세부 정보 페이지
+## <a name="virtual-network-details-page"></a>Virtual network details page
 
-다음 정보를 입력합니다.
+Enter the following information:
 
-- **이름**: 가상 네트워크 이름입니다. 예: *EastUSVNet*. VM 및 PaaS 인스턴스를 배포할 때 이름이 너무 복잡하지 않도록 이 가상 네트워크 이름을 사용하는 것이 좋습니다.
-- **위치**: 위치는 리소스(VM)를 배치할 실제 위치(지역)과 직접적인 관련이 있습니다. 예를 들어, 이 가상 네트워크에 배포할 VM이 *미국 동부*에 물리적으로 있도록 하려면 해당 위치를 선택합니다. 만든 후 가상 네트워크와 연결된 지역을 변경할 수 없습니다.
+- **Name**: Name your virtual network. For example, *EastUSVNet*. You'll use this virtual network name when you deploy your VMs and PaaS instances, so you may not want to make the name too complicated.
+- **Location**: The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in *East US*, select that location. You can't change the region associated with your virtual network after you create it.
 
-## DNS 서버 및 VPN 연결 페이지
+## <a name="dns-servers-and-vpn-connectivity-page"></a>DNS servers and VPN connectivity page
 
-다음 정보를 입력한 후 오른쪽 아래에서 다음 화살표를 클릭합니다.
+Enter the following information, and then click the next arrow on the lower right.
 
-- **DNS 서버**: DNS 서버 이름 및 IP 주소를 입력하거나 바로 가기 메뉴에서 이전에 등록된 DNS 서버를 선택합니다. 이 설정은 DNS 서버를 만들지 않습니다. 이렇게 하면 이 가상 네트워크에 대한 이름 확인에 사용하려는 DNS 서버를 지정할 수 있습니다.
-- **사이트 간 VPN 구성**: **사이트 간 VPN 구성** 확인란을 선택합니다.
-- **로컬 네트워크**: 로컬 네트워크는 실제 온-프레미스 위치를 나타냅니다. 이전에 만든 로컬 네트워크를 선택하거나 새 로컬 네트워크를 만들 수 있습니다. 하지만 이전에 만든 로컬 네트워크를 사용하려면 **로컬 네트워크** 구성 페이지로 이동하여 이 연결에 사용 중인 VPN 장치의 VPN 장치 IP 주소(공용 IPv4 주소)가 정확한지 확인합니다.
+- **DNS Servers**: Enter the DNS server name and IP address, or select a previously registered DNS server from the shortcut menu. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
+- **Configure Site-To-Site VPN**: Select the checkbox for **Configure a site-to-site VPN**.
+- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network. However, if you select to use a local network that you previously created, go to the **Local Networks** configuration page and verify that the VPN Device IP address (public facing IPv4 address) for the VPN device is accurate.
 
-## 사이트 간 연결 페이지
+## <a name="site-to-site-connectivity-page"></a>Site-to-site connectivity page
 
-새 로컬 네트워크를 만들 경우 **사이트 간 연결** 페이지가 표시됩니다. 이전에 만든 로컬 네트워크를 사용하려는 경우 이 페이지가 마법사에 나타나지 않고 다음 섹션으로 이동할 수 있습니다.
+If you're creating a new local network, you'll see the **Site-To-Site Connectivity** page. If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section.
 
-다음 정보를 입력하고 다음 화살표를 클릭합니다.
+Enter the following information, and then click the next arrow.
 
-- 	**이름**: 로컬(온-프레미스) 네트워크 사이트를 호출할 이름입니다.
-- 	**VPN 장치 IP 주소**: Azure에 연결하는 데 사용할 온-프레미스 VPN 장치의 공용 IPv4 주소입니다. VPN 장치는 NAT 뒤에 배치할 수 없습니다.
-- 	**주소 공간**: 시작 IP 및 CIDR(주소 수)를 포함합니다. 가상 네트워크 게이트웨이를 통해 로컬 온-프레미스 위치로 보낼 주소 범위를 지정합니다. 대상 IP 주소가 여기서 지정한 범위 내에 포함되는 경우 가상 네트워크 게이트웨이를 통해 라우팅됩니다.
-- 	**주소 공간 추가**: 가상 네트워크 게이트웨이를 통해 여러 주소 범위를 보낼 경우 각 추가 주소 범위를 지정합니다. 나중에 **로컬 네트워크** 페이지에서 범위를 추가하거나 제거할 수 있습니다.
+-   **Name**: The name you want to call your local (on-premises) network site.
+-   **VPN Device IP Address**: The public facing IPv4 address of your on-premises VPN device that you use to connect to Azure. The VPN device cannot be located behind a NAT.
+-   **Address Space**: Include Starting IP and CIDR (Address Count). You specify the address range(s) that you want to be sent through the virtual network gateway to your local on-premises location. If a destination IP address falls within the ranges that you specify here, it is routed through the virtual network gateway.
+-   **Add address space**: If you have multiple address ranges that you want to be sent through the virtual network gateway, specify each additional address range. You can add or remove ranges later on the **Local Network** page.
 
-## 가상 네트워크 주소 공간 페이지
+## <a name="virtual-network-address-spaces-page"></a>Virtual network address spaces page
 
-가상 네트워크에 사용할 주소 범위를 지정합니다. 이 범위의 DIPS(동적 IP 주소)가 해당 가상 네트워크에 배포하는 VM 및 기타 역할 인스턴스에 할당됩니다.
+Specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network.
 
-특히 온-프레미스 네트워크에 사용되는 범위와 겹치지 않는 범위를 선택하는 것이 중요합니다. 네트워크 관리자와 조정해야 합니다. 네트워크 관리자가 가상 네트워크에 사용할 온-프레미스 네트워크 주소 공간에서 일정 범위의 IP 주소를 지정해야 할 수 있습니다.
+It's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You need to coordinate with your network administrator. Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
 
-다음 정보를 입력하고 오른쪽 아래의 확인 표시를 클릭하여 네트워크를 구성합니다.
+Enter the following information, and then click the checkmark on the lower right to configure your network.
 
-- **주소 공간**: 시작 IP 및 주소 수를 포함합니다. 지정한 주소 공간이 온-프레미스 네트워크에 가지고 있는 주소 공간과 겹치지 않는지 확인하세요.
-- **서브넷 추가**: 시작 IP 및 주소 수를 포함합니다. 추가 서브넷은 필요하지 않지만 고정 DIPS가 있는 VM에 대해 별도의 서브넷을 만들 수 있습니다. 또는 기타 역할 인스턴스와 별도의 서브넷에 VM을 배치할 수 있습니다.
-- **게이트웨이 서브넷 추가**: 게이트웨이 서브넷을 추가하려면 클릭합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이에 대해서만 사용되며 이 구성에 필요합니다.
+- **Address Space**: Include Starting IP and Address Count. Verify that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.
+- **Add subnet**: Include Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
+- **Add gateway subnet**: Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway and is required for this configuration.
 
-페이지 아래에 있는 확인 표시를 클릭하면 가상 네트워크 만들기가 시작됩니다. 완료되면 Azure 클래식 포털의 **네트워크** 페이지에 있는 **상태**에 **생성됨**이 표시됩니다. VNet를 만든 후에 가상 네트워크 게이트웨이를 구성할 수 있습니다.
+Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Azure Classic Portal. After the VNet has been created, you can then configure your virtual network gateway.
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
-## 가상 네트워크 게이트웨이 구성
+## <a name="configure-your-virtual-network-gateway"></a>Configure your virtual network gateway
 
-보안 사이트 간 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성합니다. [Azure 클래식 포털에서 가상 네트워크 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
+Configure the virtual network gateway to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md).
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
+Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) documentation for more information.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,64 +1,69 @@
 <properties
-	pageTitle="Azure 포털을 사용하여 Azure 검색 인덱스 만들기 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
-	description="Azure 포털을 사용하여 인덱스를 만듭니다."
-	services="search"
-	authors="ashmaka"
-	documentationCenter=""/>
+    pageTitle="Create an Azure Search index using the Azure Portal | Microsoft Azure | Hosted cloud search service"
+    description="Create an index using the Azure Portal."
+    services="search"
+    authors="ashmaka"
+    documentationCenter=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
-	ms.author="ashmaka"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.date="08/29/2016"
+    ms.author="ashmaka"/>
 
-# Azure 포털을 사용하여 Azure 검색 인덱스 만들기
+
+# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Create an Azure Search index using the Azure Portal
 > [AZURE.SELECTOR]
-- [개요](search-what-is-an-index.md)
-- [포털](search-create-index-portal.md)
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
-- [REST (영문)](search-create-index-rest-api.md)
+- [REST](search-create-index-rest-api.md)
 
-이 문서는 Azure 포털을 사용하여 Azure 검색 [인덱스](search-what-is-an-index.md)를 만드는 프로세스를 안내합니다.
+This article will walk you through the process of creating an Azure Search [index](search-what-is-an-index.md) using the Azure Portal.
 
-이 가이드를 수행하고 인덱스를 만들기 전에 이미 [Azure 검색 서비스를 만들어야](search-create-service-portal.md) 합니다.
+Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
 
 
-## I. Azure 검색 블레이드로 이동
-1. [Azure 포털](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 왼쪽에 있는 메뉴에서 "모든 리소스"를 클릭합니다.
-2. Azure 검색 서비스 선택
+## <a name="i.-go-to-your-azure-search-blade"></a>I. Go to your Azure Search blade
+1. Click on "All resources" in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+2. Select your Azure Search service
 
-## II. 인덱스 추가 및 명명
-1. "인덱스 추가" 단추를 클릭합니다.
-2. Azure 검색 인덱스를 명명합니다. 이 가이드에서 호텔을 검색하는 인덱스를 만들고 있으므로 인덱스를 "호텔"로 명명합니다.
-  * 인덱스 이름은 문자로 시작하고 소문자, 숫자 또는 대시("-")만 포함해야 합니다.
-  * 또한 서비스 이름과 마찬가지로 선택한 인덱스 이름은 Azure 검색 API에 대한 HTTP 요청을 보내는 끝점 URL의 일부입니다.
-3. "필드" 항목을 클릭하여 새 블레이드를 엽니다.
+## <a name="ii.-add-and-name-your-index"></a>II. Add and name your index
+1. Click on the "Add index" button
+2. Name your Azure Search index. Since we are creating an index to search for hotels in this guide, we have named our index "hotels".
+  * The index name must start with a letter and contain only lowercase letters, digits, or dashes ("-").
+  * Similar to your service name, the index name you pick will also be part of the endpoint URL where you will send your HTTP requests for the Azure Search API
+3. Click on the "Fields" entry to open a new blade
 
 ![](./media/search-create-index-portal/add-index.png)
 
 
-## III. 인덱스의 필드 만들기 및 정의
-1. "필드" 항목을 선택하여 인덱스 정의를 입력하라는 양식과 함께 새 블레이드가 열립니다.
-2. 양식을 사용하여 인덱스에 필드를 추가합니다.
+## <a name="iii.-create-and-define-the-fields-of-your-index"></a>III. Create and define the fields of your index
+1. By selecting the "Fields" entry, a new blade will open with a form to enter your index definition.
+2. Add fields to your index using the form.
 
-  * Edm.String 형식의 *키* 필드는 모든 Azure 검색 인덱스에 필수입니다. 이 키 필드는 기본적으로 필드 이름 "ID"로 만들어집니다. 인덱스에서 "hotelId"로 변경했습니다.
-  * 인덱스 스키마의 특정 속성을 한 번만 설정할 수 있고 나중에 업데이트할 수 없습니다. 이 때문에 필드 형식을 변경하는 등 인덱싱을 다시 수행해야 하는 모든 스키마 업데이트는 초기 구성 후인 현재에도 가능하지 않습니다.
-  * 응용 프로그램에서 사용되는 방법에 따라 각 필드에 대한 속성 값을 신중하게 선택했습니다. 인덱스를 각 필드로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적합한 속성](https://msdn.microsoft.com/library/azure/dn798941.aspx)으로 할당해야 한다는 점을 염두합니다. 이러한 속성은 어떤 검색 기능(전체 텍스트 검색의 필터링, 패싯, 정렬 등)이 어떤 필드에 적용될지를 제어합니다. 예를 들어 호텔을 검색 중인 사용자에게는 "설명" 필드에서 키워드 일치 항목이 유용할 수 있으므로 "검색 가능" 속성을 설정하여 해당 필드에 대한 전체 텍스트 검색을 사용하도록 설정합니다.
-	* 또한 블레이드 맨 위에 있는 "분석기" 탭을 클릭하여 각 필드에 [언어 분석기](https://msdn.microsoft.com/ko-KR/library/azure/dn879793.aspx)를 설정할 수 있습니다. 프랑스어 텍스트를 위한 인덱스의 필드에 프랑스어 분석기를 선택하였음을 아래에서 확인할 수 있습니다.
+  * A *key* field of type Edm.String is mandatory for every Azure Search index. This key field is created by default with the field name "id". We have changed it to "hotelId" in our index.
+  * Certain properties of your index schema can only be set once and cannot be updated in the future. Because of this, any schema updates that would require re-indexing such as changing field types are not currently possible after the initial configuration.
+  * We have carefully chosen the property values for each field based on how we think they will be used in an application. Keep your search user experience and business needs in mind when designing your index as each field must be assigned the [appropriate properties](https://msdn.microsoft.com/library/azure/dn798941.aspx). These properties control which search features (filtering, faceting, sorting, full-text search, etc.) apply to which fields. For example, it is likely that people searching for hotels will be interested in keyword matches on the "description" field, so we enable full-text search for that field by setting the "Searchable" property.
+    * You can also set the [language analyzer](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx) for each field by clicking on the "Analyzer" tab at the top of the blade. You can see below that we have selected a French analyzer for a field in our index intended for French text.
 
-3. "필드" 블레이드에서 **확인**을 클릭하여 필드 정의 확인합니다.
-4. "인덱스 추가" 블레이드에서 **확인**을 클릭하여 방금 정의한 인덱스를 저장하고 만듭니다.
+3. Click **OK** on the "Fields" blade to confirm your field definitions
+4. Click **OK** on the "Add index" blade to save and create the index you just defined.
 
-아래 스크린샷에서 이름을 지정하고 "호텔" 인덱스에 대한 필드를 정의하는 방법을 볼 수 있습니다.
+In the screenshots below, you can see how we have named and defined the fields for our "hotels" index.
 
 ![](./media/search-create-index-portal/field-definitions.png)
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## 다음
-Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md)할 준비가 되었습니다.
+## <a name="next"></a>Next
+After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

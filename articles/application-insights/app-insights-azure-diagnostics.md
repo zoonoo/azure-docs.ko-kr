@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Application Insights에 Azure 진단 로그 보내기"
-    description="Application Insights 포털로 전송되는 Azure 클라우드 서비스 진단 로그에 대한 세부 정보를 구성합니다."
+    pageTitle="Send Azure Diagnostic logs to Application Insights"
+    description="Configure the details of the Azure Cloud Services diagnostic logs that are sent to the Application Insights portal."
     services="application-insights"
     documentationCenter=".net"
     authors="sbtron"
@@ -9,48 +9,49 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
+    ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="11/17/2015"
+    ms.date="11/17/2015"
     ms.author="awills"/>
 
-# Application Insights에 대해 Azure 진단 로깅 구성
 
-Microsoft Azure에서 클라우드 서비스 프로젝트나 가상 컴퓨터를 설정하는 경우 [Azure는 진단 로그를 생성할 수 있습니다](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). 이것을 Application Insights로 보내도록 설정하여 Application Insights SDK에 의해 앱 내부에서 전송되는 진단 및 사용량 원격 분석 자료와 함께 분석할 수 있습니다. Azure 로그는 시작, 중지, 충돌은 물론 성능 카운터와 같은 앱에 대한 관리의 이벤트를 포함합니다. 로그는 앱의 호출을 System.Diagnostics.Trace에 포함합니다.
+# <a name="configure-azure-diagnostic-logging-to-application-insights"></a>Configure Azure Diagnostic logging to Application Insights
 
-이 문서는 진단 캡처에 대한 구성을 자세히 설명합니다.
+When you set up a Cloud Services project or a Virtual Machine in Microsoft Azure, [Azure can generate a diagnostic log](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). You can have this sent on to Application Insights so that you can analyze it along with diagnostic and usage telemetry sent from within the app by the Application Insights SDK. The Azure log includes events in the management of the app such as start, stop, crashes, as well as performance counters. The log also includes calls in the app to System.Diagnostics.Trace.
 
-Visual Studio에 Azure SDK 2.8이 설치되어 있어야 합니다.
+This article describes configuration of the diagnostic capture in detail.
 
-## Application Insights 리소스 가져오기
+You need Azure SDK 2.8 installed in Visual Studio.
 
-최상의 환경을 위해 [Application Insights SDK를 클라우드 서비스 앱의 각 역할에 추가](app-insights-cloudservices.md)하거나 [VM에서 실행할 앱](app-insights-overview.md)에 추가합니다. 그 후 진단하고 표시할 진단 데이터를 동일한 Application Insights 리소스에 보냅니다.
+## <a name="get-an-application-insights-resource"></a>Get an Application Insights resource
 
-또는 SDK를 사용하지 않으려면(예를 들어, 앱이 이미 라이브 상태인 경우), Azure 포털에서 [새로운 Application Insights 리소스를 만듭니다](app-insights-create-new-resource.md). **Azure 진단**을 응용 프로그램 종류로 선택합니다.
+For the best experience, [add the Application Insights SDK to each role of your Cloud Services app](app-insights-cloudservices.md), or [to whatever app you will run in your VM](app-insights-overview.md). You can then send the diagnostic data to be  analyzed and displayed the same Application Insights resource.
+
+Alternatively, if you don't want to use the SDK - for example, if the app is already live - you can just [create a new Application Insights resource](app-insights-create-new-resource.md) in the Azure portal. Choose **Azure Diagnostics** as the application type.
 
 
-## Azure 진단을 Application Insights에 보내기
+## <a name="send-azure-diagnostics-to-application-insights"></a>Send Azure diagnostics to Application Insights
 
-앱 프로젝트를 업데이트할 수 있는 경우에는 Visual Studio에서 각 역할을 선택하고 해당 속성을 선택한 다음 구성 탭에서 **진단 데이터를 Application Insights로 보내기**를 선택합니다.
+If you are able to update your app project, then in Visual Studio select each role, choose its Properties, and in the Configuration tab, select **Send diagnostics to Application Insights**.
 
-앱이 이미 라이브 상태이면 Visual Studio의 서버 탐색기 또는 클라우드 서비스 탐색기를 사용하여 앱의 속성을 엽니다. **진단 데이터를 Application Insights로 보내기**를 선택합니다.
+If your app is already live, use Visual Studio's Server Explorer or Cloud Services explorer to open the properties of the app. Select **Send diagnostics to Application Insights**.
 
-매번 생성한 Application Insights 리소스에 대한 세부 정보를 묻는 메시지가 표시됩니다.
+In each case you'll be asked for the details of the Application Insights resource you created.
 
-[클라우드 서비스 앱에 대해 Application Insights를 설정하는 방법에 대해 자세히 알아봅니다](app-insights-cloudservices.md).
+[Learn more about setting up Application Insights for a Cloud Services app](app-insights-cloudservices.md).
 
-## Azure 진단 어댑터 구성
+## <a name="configuring-the-azure-diagnostics-adapter"></a>Configuring the Azure diagnostics adapter
 
-Application Insights에 보내는 로그의 일부를 선택하려는 경우에만 계속 읽으십시오. 기본적으로 Microsoft Azure 이벤트, 성능 카운터, 앱에서 System.Diagnostics.Trace로 추적 호출을 비롯한 모든 것이 전송됩니다.
+Read on only if you want to select the parts of the log that you send to Application Insights. By default, everything is sent, including: Microsoft Azure events; performance counters; trace calls from the app to System.Diagnostics.Trace.
 
-Azure 진단은 데이터를 Azure 저장소 테이블에 저장합니다. 그러나 또한 Azure 진단 확장 1.5 이상을 사용하는 경우 구성에서 "싱크" 및 "채널"을 구성하여 모든 데이터 또는 데이터의 하위 집합을 Application Insights로 파이프할 수 있습니다.
+Azure diagnostics stores data to Azure Storage tables. However, you can also pipe all or a subset of the data to Application Insights by configuring "sinks" and "channels" in your configuration when using Azure Diagnostics extension 1.5 or later.
 
-### Application Insights를 싱크로 구성
+### <a name="configure-application-insights-as-a-sink"></a>Configure Application Insights as a Sink
 
-역할 속성을 이용하여 “진단 데이터를 Application Insights로 보내기”를 설정하는 경우, Azure SDK(2.8 이상)는 `<SinksConfig>` 요소를 역할의 공용 [Azure 진단 구성 파일](https://msdn.microsoft.com/library/azure/dn782207.aspx)에 추가합니다.
+When you use the role properties to set "Send data to Application Insights", the Azure SDK (2.8 or later) adds a `<SinksConfig>` element to the public [Azure Diagnostics configuration file](https://msdn.microsoft.com/library/azure/dn782207.aspx) of the role.
 
-`<SinksConfig>`는 Azure 진단 데이터를 보낼 수 있는 추가적인 싱크를 정의합니다. `SinksConfig`의 예는 다음과 같습니다.
+`<SinksConfig>` defines the additional sink where the Azure diagnostics data can be sent.  An example `SinksConfig` looks like this:
 
 ```xml
 
@@ -66,40 +67,40 @@ Azure 진단은 데이터를 Azure 저장소 테이블에 저장합니다. 그�
 
 ```
 
-`ApplicationInsights` 요소는 Azure 진단 데이터가 전송될 Application Insights 리소스를 식별하는 계측 키를 지정합니다. 리소스를 선택하면 `APPINSIGHTS_INSTRUMENTATIONKEY` 서비스 구성을 근거로 자동으로 채워집니다. (수동으로 설정하려면, 리소스의 Essentials 드롭다운에서 키를 가져옵니다.)
+The `ApplicationInsights` element specifies the instrumentation key which identifies the Application Insights resource to which the Azure diagnostics data will be sent. When you select the resource, it is automatically populated based on the `APPINSIGHTS_INSTRUMENTATIONKEY` service configuration. (If you want to set it manually, get the key from the Essentials drop-down of the resource.)
 
-`Channels`는 싱크로 보낼 데이터를 정의합니다. 채널은 필터처럼 작동합니다. `loglevel` 특성을 사용하면 채널이 보내는 로그 수준을 지정할 수 있습니다. 사용 가능한 값은 `{Verbose, Information, Warning, Error, Critical}`입니다.
+`Channels` define the data that will be sent to the sink. The channel acts like a filter. The `loglevel` attribute lets you specify the log level that the channel will send. The available values are: `{Verbose, Information, Warning, Error, Critical}`.
 
-### 데이터를 싱크에 보내기
+### <a name="send-data-to-the-sink"></a>Send data to the sink
 
-DiagnosticMonitorConfiguration 노드에 sinks 특성을 추가하여 데이터를 Application Insights 싱크에 보냅니다. sinks 요소를 각 노드에 추가하는 작업은 해당 노드 및 모든 노드에서 지정된 싱크로 전송할 수 있도록 수집하려는 데이터를 지정합니다.
+Send data to the Application Insights sink by adding the sinks attribute under the DiagnosticMonitorConfiguration node. Adding the sinks element to each node specifies that you want data collected from that node and any node under it to be sent to the sink specified.
 
-예를 들어, Azure SDK에서 생성되는 기본값은 모든 Azure 진단 데이터를 보냅니다.
+For example, the default created by the Azure SDK is to send all the Azure diagnostic data:
 
 ```xml
 
     <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
 ```
 
-하지만 오류 로그만 보내려면, 싱크 이름을 채널 이름으로 한정합니다.
+But if you want to send only error logs, qualify the sink name with a channel name:
 
 ```xml
 
     <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
 ```
 
-정의한 싱크 이름과 위에서 정의한 채널 이름을 함께 사용한다는 점에 유의합니다.
+Notice that we're using the name of the Sink that we defined, together with the name of a channel that we defined above.
 
-Application Insights에 Verbose 응용 프로그램 로그만 보내려면, `Logs` 노드에 sinks 특성을 추가해야 합니다.
+If you only wanted to send Verbose application logs to Application Insights then you would add the sinks attribute to the `Logs` node.
 
 ```xml
 
     <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 ```
 
-또한 계층 구조에서 다양한 수준의 구성에 여러 싱크를 포함할 수 있습니다. 이 경우에 계층 구조의 최상위 수준에서 지정된 싱크는 전역 설정이며 개별 요소에 지정된 싱크는 전역 설정에 재정의와 같은 역할을 합니다.
+You can also include multiple sinks in the configuration at different levels in the hierarchy. In that case the sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element element acts like an override to that global setting.
 
-다음은 Application Insights에 모든 오류를 보내는(`DiagnosticMonitorConfiguration` 노드에 구성된) 공용 구성 파일 및 응용 프로그램 로그에 대한 Verbose 수준 로그(`Logs` 노드에 구성된)의 전체 예입니다.
+Here is a complete example of the public configuration file that sends all errors to Application Insights (specified at the `DiagnosticMonitorConfiguration` node) and in addition Verbose level logs for the Application Logs (specified at the `Logs` node).
 
 ```xml
 
@@ -134,16 +135,20 @@ Application Insights에 Verbose 응용 프로그램 로그만 보내려면, `Log
 
 ![](./media/app-insights-azure-diagnostics/diagnostics-publicconfig.png)
 
-이 기능을 사용할 경우 주의해야 할 몇 가지 제한 사항이 있습니다.
+There are some limitations to be aware of with this functionality:
 
-* 채널은 성능 카운터가 아닌 로그 형식으로만 작업할 수 있다는 의미입니다. 성능 카운터 요소를 사용하여 채널을 지정하는 경우 무시됩니다.
-* 채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다. 예를 들어 로그 요소에서 응용 프로그램 로그 오류를 수집하고 Application Insight 동기화에 자세한 정보 로그를 보내려고 시도할 수 없습니다. scheduledTransferLogLevelFilter 특성은 항상 싱크에 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다.
-* Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다. 예를 들어 Directories 노드에 지정된 모든 항목입니다. 크래시 덤프의 경우 실제 크래시 덤프는 Blob 저장소에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다.
+* Channels are only meant to work with log type and not performance counters. If you specify a channel with a performance counter element it will be ignored.
+* The log level for a channel cannot exceed the log level for what is being collected by Azure diagnostics. For example: you cannot collect Application Log errors in the Logs element and try to send Verbose logs to the Application Insight sync. The scheduledTransferLogLevelFilter attribute must always collect equal or more logs than the logs you are trying to send to a sink.
+* You cannot send any blob data collected by Azure diagnostics extension to Application Insights. For example anything specified under the Directories node. For Crash Dumps the actual crash dump will still be sent to blob storage and only a notification that the crash dump was generated will be sent to Application Insights.
 
-## 관련된 항목
+## <a name="related-topics"></a>Related topics
 
-* [Application Insights로 Azure 클라우드 서비스 모니터링](app-insights-cloudservices.md)
-* [PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기](app-insights-powershell-azure-diagnostics.md)
-* [Azure 진단 구성 파일](https://msdn.microsoft.com/library/azure/dn782207.aspx)
+* [Monitoring Azure Cloud Services with Application Insights](app-insights-cloudservices.md)
+* [Using PowerShell to send Azure diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Azure Diagnostics Configuration file](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

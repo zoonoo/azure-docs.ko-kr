@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Active Directory Reporting: 시작 | Microsoft Azure"
-   description="Azure Active Directory Reporting에 사용할 수 있는 다양한 보고서를 나열합니다."
+   pageTitle="Azure Active Directory Reporting: Getting started | Microsoft Azure"
+   description="Lists the various available reports in Azure Active Directory reporting"
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
@@ -16,144 +16,149 @@
    ms.date="03/07/2016"
    ms.author="dhanyahk"/>
 
-# Azure Active Directory Reporting 시작하기
 
-## 정의
+# <a name="getting-started-with-azure-active-directory-reporting"></a>Getting started with Azure Active Directory Reporting
 
-Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및 감사 보고서가 포함되어 있습니다. 포함된 보고서 목록은 다음과 같습니다.
+## <a name="what-it-is"></a>What it is
 
-### 보안 보고서
+Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. Here's a list of the reports included:
 
-- 알 수 없는 원본에서 로그인
-- 여러 번의 실패 후 로그인
-- 여러 지역에서의 로그인
-- 의심스러운 작업이 있는 IP 주소에서 로그인
-- 비정상적인 로그인 작업
-- 감염 가능성이 있는 장치에서 로그인
-- 비정상적인 로그인 활동을 포함하는 사용자
+### <a name="security-reports"></a>Security reports
 
-### 작업 보고서
+- Sign-ins from unknown sources
+- Sign-ins after multiple failures
+- Sign-ins from multiple geographies
+- Sign-ins from IP addresses with suspicious activity
+- Irregular sign-in activity
+- Sign-ins from possibly infected devices
+- Users with anomalous sign-in activity
 
-- 응용 프로그램 사용: 요약
-- 응용 프로그램 사용: 세부
-- 응용 프로그램 대시보드
-- 계정 프로비전 오류
-- 개별 사용자 장치
-- 개별 사용자 활동
-- 그룹 활동 보고서
-- 암호 재설정 등록 활동 보고서
-- 암호 재설정 활동
+### <a name="activity-reports"></a>Activity reports
 
-### 감사 보고서
+- Application usage: summary
+- Application usage: detailed
+- Application dashboard
+- Account provisioning errors
+- Individual user devices
+- Individual user Activity
+- Groups activity report
+- Password Reset Registration Activity Report
+- Password reset activity
 
-- 디렉터리 감사 보고서
+### <a name="audit-reports"></a>Audit reports
 
-> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+- Directory audit report
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
-## 작동 방법
 
+## <a name="how-it-works"></a>How it works
 
-### 보고 파이프라인
 
-보고 파이프라인은 세 가지 주요 단계로 구성됩니다. 사용자가 로그인하거나 인증이 이루어질 때마다 다음 상황이 발생합니다.
+### <a name="reporting-pipeline"></a>Reporting pipeline
 
-- 먼저, 사용자가 인증되면(성공 또는 실패) 결과가 Azure Active Directory 서비스 데이터베이스에 저장됩니다.
-- 정기적으로 최근의 모든 로그인이 처리됩니다. 이때 보안 및 비정상적인 활동 알고리즘은 최근의 모든 로그인에서 의심스러운 활동을 검색합니다.
-- 처리 후에 보고서가 Azure 클래식 포털에 기록되고, 캐시되며, 제공됩니다.
+The reporting pipeline consists of three main steps. Every time a user signs in, or an authentication is made, the following happens:
 
-### 보고서 생성 시간
+- First, the user is authenticated (successfully or unsuccessfully), and the result is stored in the Azure Active Directory service databases.
+- At regular intervals, all recent sign ins are processed. At this point, our security and anomalous activity algorithms are searching all recent sign ins for suspicious activity.
+- After processing, the reports are written, cached, and served in the Azure classic portal.
 
-Azure AD 플랫폼에서 처리한 수많은 인증 및 로그인으로 인해 최근에 처리된 로그인은 평균적으로 한 시간 전입니다. 드문 경우이지만 가장 최근 로그인을 처리하는 데 최대 8시간이 걸릴 수 있습니다.
+### <a name="report-generation-times"></a>Report generation times
 
-각 보고서의 위쪽에 있는 도움말 텍스트를 검사하여 가장 최근에 처리된 로그인을 찾을 수 있습니다.
+Due to the large volume of authentications and sign ins processed by the Azure AD platform, the most recent sign-ins processed are, on average, one hour old. In rare cases, it may take up to 8 hours to process the most recent sign-ins.
 
-![각 보고서의 위쪽에 도움말 텍스트](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
+You can find the most recent processed sign-in by examining the help text at the top of each report.
 
-> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+![Help text at the top of each report](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
-## 시작
 
+## <a name="getting-started"></a>Getting started
 
-### Azure 클래식 포털에 로그인하기
 
-먼저, [Azure 클래식 포털](https://manage.windowsazure.com)에 전역 또는 준수 관리자로 로그인해야 합니다. Azure 구독 서비스 관리자 또는 공동 관리자이어야 하거나, "Azure AD에 액세스" Azure 구독을 사용해야 합니다.
+### <a name="sign-into-the-azure-classic-portal"></a>Sign into the Azure classic portal
 
-### 보고서 탐색
+First, you'll need to sign into the [Azure classic portal](https://manage.windowsazure.com)  as a global or compliance administrator. You must also be an Azure subscription service administrator or co-administrator, or be using the "Access to Azure AD" Azure subscription.
 
-보고서를 보려면 디렉터리 맨 위에 있는 보고서 탭으로 이동합니다.
+### <a name="navigate-to-reports"></a>Navigate to Reports
 
-처음 보고서를 보는 경우 대화 상자에 동의해야 보고서를 볼 수 있습니다. 이는 조직의 관리자가 이 데이터를 보기에 적합한지 확인하기 위한 것입니다. 이 데이터는 일부 국가에서는 개인 정보로 간주될 수 있습니다.
+To view Reports, navigate to the Reports tab at the top of your directory.
 
-![대화 상자](./media/active-directory-reporting-getting-started/dialogBox.png)
+If this is your first time viewing the reports, you'll need to agree to a dialog box before you can view the reports. This is to ensure that it's acceptable for admins in your organization to view this data, which may be considered private information in some countries.
 
-### 각 보고서 탐색
+![Dialog box](./media/active-directory-reporting-getting-started/dialogBox.png)
 
-각 보고서로 이동하여 수집된 데이터와 처리된 로그인을 확인합니다. [여기서 모든 보고서 목록](active-directory-reporting-guide.md)을 찾을 수 있습니다.
+### <a name="explore-each-report"></a>Explore each report
 
-![모든 보고서](./media/active-directory-reporting-getting-started/reportsMain.png)
+Navigate into each report to see the data being collected and the sign-ins processed. You can find a [list of all the reports here](active-directory-reporting-guide.md).
 
-### 보고서를 CSV로 다운로드
+![All reports](./media/active-directory-reporting-getting-started/reportsMain.png)
 
-각 보고서를 CSV(쉼표로 구분 된 값) 파일로 다운로드할 수 있습니다. Excel, PowerBI 또는 타사 분석 프로그램에서 이러한 파일을 사용하여 데이터를 분석할 수 있습니다.
+### <a name="download-the-reports-as-csv"></a>Download the reports as CSV
 
-모든 보고서를 CSV로 다운로드하려면 보고서로 이동하고 맨 아래에 있는 "다운로드"를 클릭합니다.
+Each report can be downloaded as a CSV (comma-separated value) file. You can use these files in Excel, PowerBI or third-party analysis programs to further analyze your data.
 
-![다운로드 단추](./media/active-directory-reporting-getting-started/downloadButton.png)
+To download any report as a CSV, navigate to the report and click "Download" at the bottom.
 
-> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+![Download button](./media/active-directory-reporting-getting-started/downloadButton.png)
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
 
 
-## 다음 단계
 
-### 비정상적인 로그인 활동에 대한 경고 사용자 지정
+## <a name="next-steps"></a>Next steps
 
-디렉터리의 "구성" 탭으로 이동합니다.
+### <a name="customize-alerts-for-anomalous-sign-in-activity"></a>Customize alerts for anomalous sign in activity
 
-"알림" 섹션으로 스크롤합니다.
+Navigate to the "Configure" tab of your directory.
 
-“Email Notifications of Anomalous sign ins(비정상적인 로그인에 대해 전자 메일 알림)” 섹션을 사용하거나 사용하지 않도록 설정합니다.
+Scroll to the "Notifications" section.
 
-![알림 섹션](./media/active-directory-reporting-getting-started/notificationsSection.png)
+Enable or disable the "Email Notifications of Anomalous sign-ins" section.
 
-### Azure AD Reporting API와 통합
+![The Notifications section](./media/active-directory-reporting-getting-started/notificationsSection.png)
 
-[Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
+### <a name="integrate-with-the-azure-ad-reporting-api"></a>Integrate with the Azure AD Reporting API
 
-### 사용자에 대해 Multi-Factor Authentication 적용
+See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md).
 
-보고서에서 사용자를 선택합니다.
+### <a name="engage-multi-factor-authentication-on-users"></a>Engage Multi-Factor Authentication on users
 
-화면 맨 아래에 있는 "Enable MFA(MFA 사용)" 단추를 클릭합니다.
+Select a user in a report.
 
-![화면 맨 아래에 있는 Multi-Factor Authentication 단추](./media/active-directory-reporting-getting-started/mfaButton.png)
+Click the "Enable MFA" button at the bottom of the screen.
 
-> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+![The Multi-Factor Authentication button at the bottom of the screen](./media/active-directory-reporting-getting-started/mfaButton.png)
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
 
-## 자세한 정보
 
+## <a name="learn-more"></a>Learn more
 
-### 감사 이벤트
 
-[Azure Active Directory Reporting 감사 이벤트](active-directory-reporting-audit-events.md)에서 디렉터리에서 감사된 이벤트에 대해 알아봅니다.
+### <a name="audit-events"></a>Audit events
 
-### API 통합
+Learn about what events are audited in the directory in [Azure Active Directory Reporting Audit Events](active-directory-reporting-audit-events.md).
 
-[Reporting API 시작](active-directory-reporting-api-getting-started.md) 및 [API 참조 설명서](https://msdn.microsoft.com/library/azure/mt126081.aspx)를 참조하세요.
+### <a name="api-integration"></a>API Integration
 
-### 문의하기
+See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md) and the [API reference documentation](https://msdn.microsoft.com/library/azure/mt126081.aspx).
 
-피드백을 제공하거나, 도움이 필요하거나, 질문이 있는 경우 [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com)으로 전자 메일을 보내세요.
+### <a name="get-in-touch"></a>Get in touch
 
-> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+Email [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) for feedback, help, or any questions you might have.
 
-<!---HONumber=AcomDC_0928_2016-->
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

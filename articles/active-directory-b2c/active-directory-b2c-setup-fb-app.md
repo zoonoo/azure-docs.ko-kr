@@ -1,76 +1,81 @@
 <properties
-	pageTitle="Azure Active Directory B2C: Facebook 구성 | Microsoft Azure"
-	description="소비자에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 Facebook 계정으로 등록 및 로그인 제공"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Facebook configuration | Microsoft Azure"
+    description="Provide sign-up and sign-in to consumers with Facebook accounts in your applications that are secured by Azure Active Directory B2C."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: 고객에게 Facebook 계정으로 등록 및 로그인 제공
 
-## Facebook 응용 프로그램 만들기
+# <a name="azure-active-directory-b2c:-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Facebook accounts
 
-Azure Active Directory(Azure AD) B2C에서 Facebook을 ID 공급자로 사용하려면 Facebook 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. 이 작업을 수행하려면 Facebook 계정이 필요합니다. 계정이 없는 경우 [https://www.facebook.com/](https://www.facebook.com/)에서 가져올 수 있습니다.
+## <a name="create-a-facebook-application"></a>Create a Facebook application
 
-1. [Facebook 개발자 웹 사이트](https://developers.facebook.com/)로 이동한 다음 Facebook 계정 자격 증명으로 로그인합니다.
-2. 아직 등록하지 않은 경우 Facebook 개발자로 등록해야 합니다. 등록하려면 페이지의 오른쪽 위에서 **등록**을 클릭하고 Facebook의 정책에 동의하고 등록 단계를 완료합니다.
-3. **내 앱**을 클릭한 후 **새 앱 추가**를 클릭합니다. **웹 사이트**를 플랫폼으로 선택하고 **앱 ID 건너뛰기 및 만들기**를 클릭합니다.
+To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a Facebook application and supply it with the right parameters. You need a Facebook account to do this. If you don’t have one, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
 
-    ![Facebook - 새 앱 추가](./media/active-directory-b2c-setup-fb-app/fb-add-new-app.png)
+1. Go to the [Facebook for developers](https://developers.facebook.com/) website and sign in with your Facebook account credentials.
+2. If you have not already done so, you need to register as a Facebook developer. To do this, click **Register** (on the upper-right corner of the page), accept Facebook's policies, and complete the registration steps.
+3. Click **My Apps** and then click **Add a new App**. Choose **Website** as the platform, and then click **Skip and Create App ID**.
 
-    ![Facebook - 새 앱 추가 - 웹 사이트](./media/active-directory-b2c-setup-fb-app/fb-add-new-app-website.png)
+    ![Facebook - Add a new App](./media/active-directory-b2c-setup-fb-app/fb-add-new-app.png)
 
-    ![Facebook - 앱 ID 만들기](./media/active-directory-b2c-setup-fb-app/fb-new-app-skip.png)
+    ![Facebook - Add a New App - Website](./media/active-directory-b2c-setup-fb-app/fb-add-new-app-website.png)
 
-4. 폼에서 **표시 이름**, 유효한 **연락처 전자 메일**, 적절한 **범주**를 제공한 후 **앱 ID 만들기**를 클릭합니다. Facebook 플랫폼 정책을 수용하고 온라인 보안 검사를 완료해야 합니다.
+    ![Facebook - Create App ID](./media/active-directory-b2c-setup-fb-app/fb-new-app-skip.png)
 
-    ![Facebook - 새 앱 ID 만들기](./media/active-directory-b2c-setup-fb-app/fb-create-app-id.png)
+4. On the form, provide a **Display Name**, a valid **Contact Email**, an appropriate **Category**, and click **Create App ID**. This requires you to accept Facebook platform policies and complete an online security check.
 
-5. 왼쪽 탐색에서 **설정**을 클릭합니다.
-6. **+플랫폼 추가**를 클릭한 다음 **웹 사이트**를 선택합니다.
+    ![Facebook - Create a New App ID](./media/active-directory-b2c-setup-fb-app/fb-create-app-id.png)
 
-    ![Facebook - 설정](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
+5. Click **Settings** on the left navigation.
+6. Click **+Add Platform** and then select **Website**.
 
-    ![Facebook - 설정 - 웹 사이트](./media/active-directory-b2c-setup-fb-app/fb-website.png)
+    ![Facebook - Settings](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
 
-7. **사이트 URL** 필드의 [https://login.microsoftonline.com/](https://login.microsoftonline.com/)를 입력한 다음 **변경 내용 저장**을 클릭합니다.
+    ![Facebook - Settings - Website](./media/active-directory-b2c-setup-fb-app/fb-website.png)
 
-    ![Facebook - 사이트 URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
+7. Enter [https://login.microsoftonline.com/](https://login.microsoftonline.com/) in the **Site URL** field and then click **Save Changes**.
 
-8. **앱 ID**의 값을 복사합니다. **표시**를 클릭하고 **앱 암호**의 값을 복사합니다. 테넌트에서 Facebook을 ID 공급자로 구성하려면 둘 다 필요합니다. **앱 암호**는 중요한 보안 자격 증명입니다.
+    ![Facebook - Site URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 
-    ![Facebook - 앱 ID 및 앱 암호](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
+8. Copy the value of **App ID**. Click **Show** and copy the value of **App Secret**. You will need both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
 
-9. 왼쪽 탐색 영역에서 **+ 제품 추가**를 클릭하고 **Facebook 로그인** 옆에 있는 **시작** 단추를 클릭합니다.
+    ![Facebook - App ID & App Secret](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
 
-    ![Facebook - Facebook 로그인](./media/active-directory-b2c-setup-fb-app/fb-login.png)
+9. Click **+ Add Product** on the left navigation and then the **Get Started** button next to **Facebook Login**.
 
-10. **클라이언트 OAuth 설정** 섹션의 **유효한 OAuth 리디렉션 URI** 필드에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}**를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다. 페이지 아래쪽에 있는 **변경 내용 저장**을 클릭합니다.
+    ![Facebook - Facebook Login](./media/active-directory-b2c-setup-fb-app/fb-login.png)
 
-    ![Facebook - OAuth 리디렉션 URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
+10. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Valid OAuth redirect URIs** field in the **Client OAuth Settings** section. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
 
-11. Facebook 응용 프로그램을 Azure AD B2C에서 사용할 수 있도록 하려면 공개적으로 사용할 수 있도록 해야 합니다. 이렇게 하려면 왼쪽 탐색 창에서 **앱 검토**를 클릭하고 페이지의 위쪽에 있는 스위치를 **예**로 설정하고 **확인**을 클릭합니다.
+    ![Facebook - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
 
-    ![Facebook - 앱 공개](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
+11. To make your Facebook application usable by Azure AD B2C, you need to make it publicly available. You can do this by clicking **App Review** on the left navigation and by turning the switch at the top of the page to **YES** and clicking **Confirm**.
 
-## 테넌트에서 Facebook을 ID 공급자로 구성
+    ![Facebook - App public](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
-3. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
-4. ID 공급자 구성에 친숙한 **이름**을 제공합니다. 예를 들어 "FB"를 입력합니다.
-5. **ID 공급자 형식**을 클릭하고 **Facebook**을 선택한 다음 **확인**을 클릭합니다.
-6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 Facebook 응용 프로그램의 앱 ID 및 앱 암호를 **클라이언트 ID** 및 **클라이언트 암호** 필드에 각각 입력합니다.
-7. **확인**, **만들기**를 차례로 클릭하여 Facebook 구성을 저장합니다.
+## <a name="configure-facebook-as-an-identity-provider-in-your-tenant"></a>Configure Facebook as an identity provider in your tenant
 
-<!---HONumber=AcomDC_0727_2016-->
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+2. On the B2C features blade, click **Identity providers**.
+3. Click **+Add** at the top of the blade.
+4. Provide a friendly **Name** for the identity provider configuration. For example, enter "FB".
+5. Click **Identity provider type**, select **Facebook**, and click **OK**.
+6. Click **Set up this identity provider** and enter the app ID and app secret (of the Facebook application that you created earlier) in the **Client ID** and **Client secret** fields respectively.
+7. Click **OK**, and then click **Create** to save your Facebook configuration.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

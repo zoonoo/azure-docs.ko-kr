@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Azure 컨테이너 서비스 클러스터에 연결 | Microsoft Azure"
-   description="SSH 터널을 사용하여 Azure 컨테이너 서비스 클러스터에 연결합니다."
+   pageTitle="Connect to an Azure Container Service cluster | Microsoft Azure"
+   description="Connect to an Azure Container Service cluster by using an SSH tunnel."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, 컨테이너, 마이크로 서비스, DC/OS, Azure"/>
+   keywords="Docker, Containers, Micro-services, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -19,99 +19,108 @@
    ms.author="rogardle"/>
 
 
-# Azure 컨테이너 서비스 클러스터에 연결
 
-Azure 컨테이너 서비스에 의해 배포되는 DC/OS 및 Docker Swarm 클러스터는 REST 끝점을 노출합니다. 그러나 이러한 끝점 외부에 열려 있지 않습니다. 이러한 끝점을 관리하기 위해 SSH(보안 셸) 터널을 만들어야 합니다. SSH 터널이 설정되면 클러스터 끝점에 대해 명령을 실행하고 사용자 자신의 시스템에 있는 브라우저를 통해 클러스터 UI를 볼 수 있습니다. 이 문서에서는 Linux, OSX 및 Windows에서 SSH 터널을 만드는 방법을 안내합니다.
+# <a name="connect-to-an-azure-container-service-cluster"></a>Connect to an Azure Container Service cluster
 
->[AZURE.NOTE] 클러스터 관리 시스템으로 SSH 세션을 만들 수 있습니다. 그러나 권장하지 않습니다. 관리 시스템에서 직접 작업하면 의도하지 않은 구성 변경에 대한 위험에 노출됩니다.
+The DC/OS and Docker Swarm clusters that are deployed by Azure Container Service expose REST endpoints. However, these endpoints are not open to the outside world. In order to manage these endpoints, you must create a Secure Shell (SSH) tunnel. After an SSH tunnel has been established, you can run commands against the cluster endpoints and view the cluster UI through a browser on your own system. This document walks you through creating an SSH tunnel from Linux, OS X, and Windows.
 
-## Linux 또는 OS X에서 SSH 터널 만들기
+>[AZURE.NOTE] You can create an SSH session with a cluster management system. However, we don't recommend this. Working directly on a management system exposes the risk for inadvertent configuration changes.   
 
-Linux 또는 OS X에서 SSH 터널을 만들 때 먼저 수행할 작업은 부하 분산된 마스터의 공용 DNS 이름을 찾는 것입니다. 이렇게 하려면 리소스 그룹을 확장하여 각 리소스가 표시되도록 합니다. 마스터의 공용 IP 주소를 찾아 선택합니다. 그러면 DNS 이름이 포함된 공용 IP 주소에 대한 정보가 있는 블레이드가 열립니다. 이 이름은 나중에 사용되므로 저장합니다. <br />
+## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Create an SSH tunnel on Linux or OS X
+
+The first thing that you do when you create an SSH tunnel on Linux or OS X is to locate the public DNS name of load-balanced masters. To do this, expand the resource group so that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade that contains information about the public IP address, which includes the DNS name. Save this name for later use. <br />
 
 
-![공용 DNS 이름](media/pubdns.png)
+![Public DNS name](media/pubdns.png)
 
-이제, 셸을 열고 다음 명령을 실행합니다. 여기서,
+Now open a shell and run the following command where:
 
-**PORT**는 노출하려는 끝점의 포트입니다. Swarm의 경우 2375입니다. DC/OS의 경우 포트 80을 사용합니다. **USERNAME**은 클러스터를 배포할 때 제공된 사용자 이름입니다. **DNSPREFIX**는 클러스터를 배포할 때 제공한 DNS 접두사입니다. **REGION**은 리소스 그룹이 있는 하위 지역입니다. **PATH\_TO\_PRIVATE\_KEY** [선택 사항]은 컨테이너 서비스 클러스터를 만들 때 제공한 공개 키에 해당하는 개인 키에 대한 경로입니다. -i 플래그와 함께 이 옵션을 사용합니다.
+**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For DC/OS, use port 80.  
+**USERNAME** is the user name that was provided when you deployed the cluster.  
+**DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
+**REGION** is the region in which your resource group is located.  
+**PATH_TO_PRIVATE_KEY** [OPTIONAL] is the path to the private key that corresponds to the public key you provided when you created the Container Service cluster. Use this option with the -i flag.
 
 ```bash
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
-> SSH 연결 포트는 표준 22가 아니라 2200입니다.
+> The SSH connection port is 2200--not the standard port 22.
 
-## DC/OS 터널
+## <a name="dc/os-tunnel"></a>DC/OS tunnel
 
-DC/OS 관련 끝점에 대한 터널을 열려면 다음과 비슷한 명령을 실행합니다.
+To open a tunnel to the DC/OS-related endpoints, execute a command that is similar to the following:
 
 ```bash
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-이제 다음에서 DC/OS 관련 끝점에 액세스할 수 있습니다.
+You can now access the DC/OS-related endpoints at:
 
 - DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
 - Mesos: `http://localhost/mesos`
 
-마찬가지로, 각 응용 프로그램에 대한 rest API는 이 터널을 통해 도달할 수 있습니다.
+Similarly, you can reach the rest APIs for each application through this tunnel.
 
-## Swarm 터널
+## <a name="swarm-tunnel"></a>Swarm tunnel
 
-Swarm 끝점에 대한 터널을 열려면 다음과 비슷한 명령을 실행합니다.
+To open a tunnel to the Swarm endpoint, execute a command that looks similar to the following:
 
 ```bash
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-이제 다음과 같이 DOCKER\_HOST 환경 변수를 설정할 수 있습니다. 정상적으로 Docker CLI(명령줄 인터페이스)를 계속 사용할 수 있습니다.
+Now you can set your DOCKER_HOST environment variable as follows. You can continue to use your Docker command-line interface (CLI) as normal.
 
 ```bash
 export DOCKER_HOST=:2375
 ```
 
-## Windows에서 SSH 터널 만들기
+## <a name="create-an-ssh-tunnel-on-windows"></a>Create an SSH tunnel on Windows
 
-Windows에서 SSH 터널을 만드는 방법은 여러 가지가 있습니다. 이 문서에서는 PuTTY를 사용하여 이 작업을 수행하는 방법을 설명합니다.
+There are multiple options for creating SSH tunnels on Windows. This document will describe how to use PuTTY to do this.
 
-Windows 시스템으로 PuTTY를 다운로드하고 응용 프로그램을 실행합니다.
+Download PuTTY to your Windows system and run the application.
 
-클러스터 관리 사용자 이름 및 클러스터에서 첫 번째 마스터의 공용 DNS 이름으로 구성된 호스트 이름을 입력합니다. **호스트 이름**은 다음과 같이 표시됩니다. `adminuser@PublicDNS`. **포트**에 2200을 입력합니다.
+Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** will look like this: `adminuser@PublicDNS`. Enter 2200 for the **Port**.
 
-![PuTTY 구성 1](media/putty1.png)
+![PuTTY configuration 1](media/putty1.png)
 
-**SSH** 및 **인증**을 선택합니다. 인증을 위한 개인 키 파일을 추가합니다.
+Select **SSH** and **Authentication**. Add your private key file for authentication.
 
-![PuTTY 구성 2](media/putty2.png)
+![PuTTY configuration 2](media/putty2.png)
 
-**터널**을 선택하고 다음 전달된 포트를 구성합니다.
-- **원본 포트:** 기본 설정은 DC/OS의 경우 80 또는 Swarm의 경우 2375를 사용합니다.
-- **대상:** localhost:80(DC/OS) 또는 localhost:2375(Swarm)를 사용합니다.
+Select **Tunnels** and configure the following forwarded ports:
+- **Source Port:** Your preference--use 80 for DC/OS or 2375 for Swarm.
+- **Destination:** Use localhost:80 for DC/OS or localhost:2375 for Swarm.
 
-다음 예제에서는 DC/OS에 대해 구성되었지만 Docker Swarm에 대한 구성도 이와 유사합니다.
+The following example is configured for DC/OS, but will look similar for Docker Swarm.
 
->[AZURE.NOTE] 이 터널을 만들 때 포트 80은 사용 중이 아니어야 합니다.
+>[AZURE.NOTE] Port 80 must not be in use when you create this tunnel.
 
-![PuTTY 구성 3](media/putty3.png)
+![PuTTY configuration 3](media/putty3.png)
 
-완료하면 연결 구성을 저장하고 PuTTY 세션에 연결합니다. 연결하면 PuTTY 이벤트 로그에서 포트 구성을 볼 수 있습니다.
+When you're finished, save the connection configuration, and connect the PuTTY session. When you connect, you can see the port configuration in the PuTTY event log.
 
-![PuTTY 이벤트 로그](media/putty4.png)
+![PuTTY event log](media/putty4.png)
 
-DC/OS에 터널을 구성한 경우 다음에서 관련된 끝점에 액세스할 수 있습니다.
+When you've configured the tunnel for DC/OS, you can access the related endpoint at:
 
 - DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
 - Mesos: `http://localhost/mesos`
 
-Docker Swarm에 터널을 구성한 경우 Docker CLI를 통해 Swarm 클러스터에 액세스할 수 있습니다. 먼저 ` :2375` 값과 함께 `DOCKER_HOST`로 명명된 Windows 환경 변수를 구성해야 합니다.
+When you've configured the tunnel for Docker Swarm, you can access the Swarm cluster through the Docker CLI. You will first need to configure a Windows environment variable named `DOCKER_HOST` with a value of ` :2375`.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-DC/OS 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
+Deploy and manage containers with DC/OS or Swarm:
 
-- [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
-- [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
+- [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
+- [Work with the Azure Container Service and Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

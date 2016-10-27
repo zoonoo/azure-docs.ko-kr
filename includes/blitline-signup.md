@@ -1,42 +1,42 @@
 
-### Blitline 계정을 등록하려면
+### <a name="to-sign-up-for-a-blitline-account"></a>To sign up for a Blitline account
 
-1. [Azure 관리 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
 
-2. 관리 포털의 아래쪽 창에서 **New**를 클릭합니다.
+2. In the lower pane of the management portal, click **New**.
 
-	![command-bar-new][command-bar-new]
+    ![command-bar-new][command-bar-new]
 
-3. **Store**를 클릭합니다.
+3. Click **Store**.
 
-	![blitline-store][blitline-store]
+    ![blitline-store][blitline-store]
 
-4. **Choose an Add-on** 대화 상자에서 **Blitline**을 선택하고 오른쪽 화살표를 클릭합니다.
+4. In the **Choose an Add-on** dialog, select **Blitline** and click the right arrow.
 
-5. **Personalize Add-on** 대화 상자에서 등록하려는 **Blitline** 요금제를 선택합니다.
+5. In the **Personalize Add-on** dialog select the **Blitline** plan you want to sign up for.
 
-6. Azure 설정에서 **Blitline** 서비스를 식별할 이름을 입력하거나 기본값 **Blitline**을 사용합니다. 이름은 1자에서 100자 사이의 문자여야 하며, 영숫자, 대시, 점, 밑줄만 포함됩니다. 이 이름은 가입한 Azure 저장소 항목 목록에서 고유해야 합니다.
+6. Enter a name to identify your **Blitline** service in your Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
 
-	![store-screen-1][store-screen-1]
+    ![store-screen-1][store-screen-1]
 
-7. 지역 값(예: 미국 서부)을 선택합니다.
+7. Choose a value for the region; for example, West US. 
 
-8. 오른쪽 화살표를 클릭합니다.
+8. Click the right arrow.
 
-9. **Review Purchase** 탭에서 요금제 및 가격 정보를 검토하고 약관을 확인합니다. 약관에 동의하면 확인 표시를 클릭합니다. 확인 표시를 클릭하면 Blitline 계정이 프로비저닝 프로세스를 시작합니다.
+9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your Blitline account will begin the provisioning process. 
 
 
-Blitline을 사용하려면 응용 프로그램 ID가 있어야 합니다.
+To use Blitline you need to have your Application ID.
 
-### Blitline 응용 프로그램 ID를 찾으려면 ###
+### <a name="to-find-your-blitline-application-id"></a>To find your Blitline Application ID ###
 
-1. **Connection Info**를 클릭합니다.
+1. Click **Connection Info**.
 
-	![blitline-connection-info-button][blitline-connection-info-button]
+    ![blitline-connection-info-button][blitline-connection-info-button]
 
-2. *Connection info* 대화 상자에서 응용 프로그램 ID를 확인할 수 있습니다.
+2. In the *Connection info* dialog, you can see your Application ID
 
-	![blitline-connection-info][blitline-connection-info]
+    ![blitline-connection-info][blitline-connection-info]
 
 <!--images-->
 
@@ -46,4 +46,8 @@ Blitline을 사용하려면 응용 프로그램 ID가 있어야 합니다.
 [blitline-connection-info-button]: ./media/blitline-signup/blitline_connection_info_button.png
 [blitline-connection-info]: ./media/blitline-signup/blitline_connection_info_screen.jpeg
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

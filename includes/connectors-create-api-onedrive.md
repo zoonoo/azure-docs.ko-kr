@@ -1,17 +1,25 @@
-#### 필수 조건
-- Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
-- [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 계정
+#### <a name="prerequisites"></a>Prerequisites
+- An Azure account; you can create a [free account](https://azure.microsoft.com/free)
+- A [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) account 
 
-논리 앱에서 OneDrive 계정을 사용하려면 먼저 OneDrive 계정에 연결하도록 논리 앱에 권한을 부여합니다. Azure 포털의 논리 앱 내에서 이 작업을 쉽게 수행할 수 있습니다.
+Before you can use your OneDrive account in a logic app, authorize the logic app to connect to your OneDrive account.  You can do this easily within your logic app on the Azure portal. 
 
-다음 단계를 사용하여 OneDrive 계정에 연결하도록 논리 앱에 권한을 부여합니다.
+Authorize your logic app to connect to your OneDrive account using the following steps:
 
-1. 논리 앱을 만듭니다. 논리 앱 디자이너의 드롭다운 목록에서 **Microsoft 관리되는 API 표시**를 선택한 다음 검색 상자에 "OneDrive"를 입력합니다. 트리거 또는 동작 중 하나를 선택합니다. ![](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. 이전에 OneDrive에 대한 연결을 만들지 않은 경우 OneDrive 자격 증명을 사용하여 로그인하라는 메시지가 표시됩니다. ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. **로그인**을 선택하고 사용자 이름 및 암호를 입력합니다. **로그인**을 선택합니다. ![](./media/connectors-create-api-onedrive/onedrive-3.png)
+1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "onedrive" in the search box. Select one of the triggers or actions:  
+  ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+2. If you haven't previously created any connections to OneDrive, you are prompted to sign in using your OneDrive credentials:  
+  ![](./media/connectors-create-api-onedrive/onedrive-2.png)
+3. Select **Sign in**, and enter your user name and password. Select **Sign in**:  
+  ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
 
-	이러한 자격 증명을 사용하여 OneDrive 계정의 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다.
-4. **예**를 선택하여 OneDrive 계정에 사용할 논리 앱에 권한을 부여합니다. ![](./media/connectors-create-api-onedrive/onedrive-4.png)
-5. 연결이 만들어졌는지 확인합니다. 이제 논리 앱의 다른 단계를 진행합니다. ![](./media/connectors-create-api-onedrive/onedrive-5.png)
+    These credentials are used to authorize your logic app to connect to, and access the data in your OneDrive account. 
+4. Select **Yes** to authorize the logic app to use your OneDrive account:  
+  ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
+5. Notice the connection has been created. Now, proceed with the other steps in your logic app:  
+  ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

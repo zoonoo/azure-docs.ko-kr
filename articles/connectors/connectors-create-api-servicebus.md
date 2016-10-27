@@ -1,8 +1,8 @@
 <properties
-pageTitle="논리 앱에서 Azure 서비스 버스 커넥터 사용 방법 알아보기 | Microsoft Azure"
-description="Azure 앱 서비스로 논리 앱을 만듭니다. Azure 서비스 버스에 연결하여 메시지를 보내고 받습니다. 큐에 보내기, 항목에 보내기, 큐에서 수신, 구독에서 수신 등의 동작을 수행할 수 있습니다."
+pageTitle="Learn to use the Azure Service Bus connector in your logic apps | Microsoft Azure"
+description="Create logic apps with Azure App service. Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription."
 services="logic-apps"
-documentationCenter=".net,nodejs,java" 	
+documentationCenter=".net,nodejs,java"  
 authors="msftman"
 manager="erikre"
 editor=""
@@ -17,168 +17,173 @@ ms.workload="integration"
 ms.date="08/02/2016"
 ms.author="deonhe"/>
 
-# Azure 서비스 버스 커넥터 시작
 
-Azure 서비스 버스에 연결하여 메시지를 보내고 받습니다. 큐에 보내기, 항목에 보내기, 큐에서 수신, 구독에서 수신 등의 동작을 수행할 수 있습니다.
+# <a name="get-started-with-the-azure-service-bus-connector"></a>Get started with the Azure Service Bus connector
 
-[커넥터](./apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../app-service-logic/app-service-logic-create-a-logic-app.md) 시작할 수 있습니다.
+Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription.
 
-## 서비스 버스에 연결
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 연결을 만들어야 합니다. [연결](./connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.
+## <a name="connect-to-service-bus"></a>Connect to Service Bus
 
->[AZURE.INCLUDE [Azure 서비스 버스에 대한 연결을 만드는 단계](../../includes/connectors-create-api-servicebus.md)]
+Before your logic app can access any service, you first need to create a connection to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
-## 서비스 버스 트리거 사용
+>[AZURE.INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
 
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+## <a name="use-a-service-bus-trigger"></a>Use a Service Bus trigger
 
->[AZURE.INCLUDE [서비스 버스 트리거를 만드는 단계](../../includes/connectors-create-api-servicebus-trigger.md)]
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-## 서비스 버스 동작 사용
+>[AZURE.INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]  
 
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [동작에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+## <a name="use-a-service-bus-action"></a>Use a Service Bus action
 
-[AZURE.INCLUDE [서비스 버스 작업을 만드는 단계](../../includes/connectors-create-api-servicebus-action.md)]
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## 기술 세부 정보
+[AZURE.INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]  
 
-이 연결에서 지원하는 트리거, 동작 및 응답에 대한 세부 정보는 다음과 같습니다.
+## <a name="technical-details"></a>Technical details
 
-### 서비스 버스 트리거
+Here are the details about the triggers, actions, and responses that this connection supports.
 
-서비스 버스에는 다음과 같은 트리거가 있습니다.
+### <a name="service-bus-triggers"></a>Service Bus triggers
 
-|트리거 | 설명|
+Service Bus has the following triggers:  
+
+|Trigger | Description|
 |--- | ---|
-|[큐에 메시지가 수신될 때](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|이 작업은 큐에 메시지가 수신될 때 흐름을 트리거합니다.|
-|[항목 구독에 메시지가 수신될 때](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|이 작업은 항목 구독에 메시지가 수신될 때 흐름을 트리거합니다.|
+|[When a message is received in a queue](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
+|[When a message is received in a topic subscription](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
 
 
-### 서비스 버스 작업
+### <a name="service-bus-actions"></a>Service Bus actions
 
-서비스 버스에는 다음과 같은 작업이 있습니다.
+Service Bus has the following actions:
 
 
-|작업|설명|
+|Action|Description|
 |--- | ---|
-|[메시지 보내기](connectors-create-api-servicebus.md#send-message)|이 작업은 큐 또는 항목에 메시지를 보냅니다.|
-### 작업 및 트리거 세부 정보
+|[Send message](connectors-create-api-servicebus.md#send-message)|This operation sends a message to a queue or topic.|
+### <a name="action-and-trigger-details"></a>Action and trigger details
 
-이 커넥터에 대한 동작 및 트리거 세부 정보와 해당 응답은 다음과 같습니다.
+Here are the details for the actions and triggers for this connector, along with their responses.
 
 
 
-#### 메시지 보내기
+#### <a name="send-message"></a>Send message
 
-|속성 이름| 표시 이름|설명|
+|Property name| Display name|Description|
 | ---|---|---|
-|ContentData*|Content|메시지의 콘텐츠입니다.|
-|ContentType|콘텐츠 형식|메시지 콘텐츠의 콘텐츠 형식입니다.|
-|속성|속성|각 조정된 속성의 키-값 쌍입니다.|
-|entityName*|큐/항목 이름|큐 또는 항목의 이름입니다.|
+|ContentData*|Content|Content of the message.|
+|ContentType|Content Type|Content type of the message content.|
+|Properties|Properties|Key-value pairs for each brokered property.|
+|entityName*|Queue/Topic name|Name of the queue or topic.|
 
-이 고급 매개 변수를 사용할 수도 있습니다.
+These advanced parameters are also available:
 
-|속성 이름| 표시 이름|설명|
+|Property name| Display name|Description|
 | ---|---|---|
-|MessageId|메시지 ID|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
-|받는 사람|받는 사람|보낼 주소입니다.|
-|ReplyTo|회신|회신할 큐의 주소입니다.|
-|ReplyToSessionId|세션 ID에 회신|회신할 세션의 식별자입니다.|
-|레이블|레이블|응용 프로그램 관련 레이블입니다.|
-|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|큐에 메시지가 추가될 날짜 및 시간(UTC)입니다.|
-|SessionId|세션 ID|세션의 식별자입니다.|
-|CorrelationId|상관관계 ID|상관 관계의 식별자입니다.|
-|TimeToLive|TTL(Time to live)|메시지가 유효한 기간(틱)입니다. 이 기간은 메시지를 서비스 버스로 보낼 때부터 시작됩니다.|
+|MessageId|Message Id|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|To|Address to send to.|
+|ReplyTo|Reply To|Address of the queue to reply to.|
+|ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to.|
+|Label|Label|Application-specific label.|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue.|
+|SessionId|Session Id|Identifier of the session.|
+|CorrelationId|Correlation Id|Identifier of the correlation.|
+|TimeToLive|Time To Live|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required.
 
 
-#### 큐에 메시지가 수신될 때
+#### <a name="when-a-message-is-received-in-a-queue"></a>When a message is received in a queue
 
-|속성 이름| 표시 이름|설명|
+|Property name| Display name|Description|
 | ---|---|---|
-|queueName*|큐 이름|큐의 이름입니다.|
+|queueName*|Queue name|Name of the queue.|
 
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required.
 
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output details
 
-ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속성을 포함합니다.
+ServiceBusMessage: This object has the content and properties of a Service Bus message.
 
 
-| 속성 이름 | 데이터 형식 | 설명 |
+| Property name | Data type | Description |
 |---|---|---|
-|ContentData|string|메시지의 콘텐츠입니다.|
-|ContentType|string|메시지 콘텐츠의 콘텐츠 형식입니다.|
-|속성|object|각 조정된 속성의 키-값 쌍입니다.|
-|MessageId|string|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
-|받는 사람|string|주소로 보냅니다.|
-|ReplyTo|string|회신할 큐의 주소입니다.|
-|ReplyToSessionId|string|회신할 세션의 식별자입니다.|
-|레이블|string|응용 프로그램 관련 레이블입니다.|
-|ScheduledEnqueueTimeUtc|string|큐에 메시지가 추가될 날짜 및 시간(UTC)입니다.|
-|SessionId|string|세션의 식별자입니다.|
-|CorrelationId|string|상관 관계의 식별자입니다.|
-|TimeToLive|string|메시지가 유효한 기간(틱)입니다. 이 기간은 메시지를 서비스 버스로 보낼 때부터 시작됩니다.|
+|ContentData|string|Content of the message.|
+|ContentType|string|Content type of the message content.|
+|Properties|object|Key-value pairs for each brokered property.|
+|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|string|Send to address.|
+|ReplyTo|string|Address of the queue to reply to.|
+|ReplyToSessionId|string|Identifier of the session to reply to.|
+|Label|string|Application-specific label.|
+|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
+|SessionId|string|Identifier of the session.|
+|CorrelationId|string|Identifier of the correlation.|
+|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
 
-#### 항목 구독에 메시지가 수신될 때
+#### <a name="when-a-message-is-received-in-a-topic-subscription"></a>When a message is received in a topic subscription
 
-|속성 이름| 표시 이름|설명|
+|Property name| Display name|Description|
 | ---|---|---|
-|topicName*|항목 이름|항목의 이름입니다.|
-|subscriptionName*|항목 구독 이름|항목 구독의 이름입니다.|
+|topicName*|Topic name|Name of the topic.|
+|subscriptionName*|Topic subscription name|Name of the topic subscription.|
 
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required.
 
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output details
 
-ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속성을 포함합니다.
+ServiceBusMessage: This object has the content and properties of a Service Bus message.
 
 
-| 속성 이름 | 데이터 형식 | 설명 |
+| Property name | Data type | Description |
 |---|---|---|
-|ContentData|string|메시지의 콘텐츠입니다.|
-|ContentType|string|메시지 콘텐츠의 콘텐츠 형식입니다.|
-|속성|object|각 조정된 속성의 키-값 쌍입니다.|
-|MessageId|string|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
-|받는 사람|string|주소로 보냅니다.|
-|ReplyTo|string|회신할 큐의 주소입니다.|
-|ReplyToSessionId|string|회신할 세션의 식별자입니다.|
-|레이블|string|응용 프로그램 관련 레이블입니다.|
-|ScheduledEnqueueTimeUtc|string|큐에 메시지가 추가될 날짜 및 시간(UTC)입니다.|
-|SessionId|string|세션의 식별자입니다.|
-|CorrelationId|string|상관 관계의 식별자입니다.|
-|TimeToLive|string|메시지가 유효한 기간(틱)입니다. 이 기간은 메시지를 서비스 버스로 보낼 때부터 시작됩니다.|
+|ContentData|string|Content of the message.|
+|ContentType|string|Content type of the message content.|
+|Properties|object|Key-value pairs for each brokered property.|
+|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|string|Send to address.|
+|ReplyTo|string|Address of the queue to reply to.|
+|ReplyToSessionId|string|Identifier of the session to reply to.|
+|Label|string|Application-specific label.|
+|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
+|SessionId|string|Identifier of the session.|
+|CorrelationId|string|Identifier of the correlation.|
+|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
-### HTTP 응답
+### <a name="http-responses"></a>HTTP responses
 
-위의 동작 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다.
+The preceding actions and triggers can return one or more of the following HTTP status codes:
 
-|Name|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|202|수락됨|
-|400|잘못된 요청|
-|401|권한 없음|
-|403|사용할 수 없음|
-|404|찾을 수 없음|
-|500|내부 서버 오류. 알 수 없는 오류 발생.|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|202|Accepted|
+|400|Bad request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not found|
+|500|Internal server error. Unknown error occurred.|
+|default|Operation failed.|
 
-## 다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!----HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

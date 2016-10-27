@@ -1,10 +1,10 @@
 <properties
 pageTitle="SMTP | Microsoft Azure"
-description="Azure 앱 서비스로 논리 앱을 만듭니다. SMTP에 연결하여 전자 메일을 보냅니다."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create logic apps with Azure App service. Connect to SMTP to send email."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,121 +17,125 @@ ms.workload="integration"
 ms.date="07/15/2016"
 ms.author="deonhe"/>
 
-# SMTP 커넥터 시작
 
-SMTP에 연결하여 전자 메일을 보냅니다.
+# <a name="get-started-with-the-smtp-connector"></a>Get started with the SMTP connector
 
-[커넥터](./apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../app-service-logic/app-service-logic-create-a-logic-app.md) 시작할 수 있습니다.
+Connect to SMTP to send email.
 
-## SMTP에 연결
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](./connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 SMTP에 연결하려면 먼저 SMTP *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 제공해야 합니다. 따라서 SMTP 예제에서는 SMTP에 대한 연결을 만들기 위해 연결 이름, SMTP 서버 주소 및 사용자 로그인 정보에 대한 자격 증명이 필요합니다. [연결에 대한 자세한 정보]()
+## <a name="connect-to-smtp"></a>Connect to SMTP
 
-### SMTP에 대한 연결 만들기
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service. For example, in order to connect to SMTP, you first need an SMTP *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the SMTP example, you would need the credentials to your connection name, SMTP server address, and user login information in order to create the connection to SMTP. [Learn more about connections]()  
 
->[AZURE.INCLUDE [SMTP에 대한 연결을 만드는 단계](../../includes/connectors-create-api-smtp.md)]
+### <a name="create-a-connection-to-smtp"></a>Create a connection to SMTP
 
-## SMTP 트리거 사용
+>[AZURE.INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
 
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+## <a name="use-an-smtp-trigger"></a>Use an SMTP trigger
 
-이 예제에서는 SMTP가 자체 트리거를 포함하지 않으므로 **Salesforce - 개체를 만들 때** 트리거를 사용합니다. 이 트리거는 Salesforce에서 새 개체를 만들 때 활성화됩니다. 예제에서는 Salesforce에서 새 잠재 고객이 생성될 때마다 새 잠재 고객이 생성되었다는 알림과 함께 SMTP 커넥터를 통해 *메일 보내기* 작업이 발생하도록 설정합니다.
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-1. 논리 앱 디자이너에서 검색 상자에 *salesforce*를 입력한 후 **Salesforce - 개체를 만들 때** 트리거를 선택합니다.  
+In this example, because SMTP does not have a trigger of its own, we'll use the **Salesforce - When an object is created** trigger. This trigger will activate when a new object is created in Salesforce. For our example, we'll set it up such that every time a new lead is created in Salesforce, a *send email* action occurs via the SMTP connector with a notification of the new lead being created.
+
+1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created** trigger.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 
-2. **개체를 만들 때** 컨트롤이 표시됩니다.  
+2. The **When an object is created** control is displayed.
  ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
 
-3. **개체 형식**을 선택하고 개체 목록에서 *Lead*를 선택합니다. 이 단계에서는 Salesforce에서 새 잠재 고객을 만들 때마다 논리 앱에 알리는 트리거를 만들고 있음을 지정합니다.  
+3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 
-4. 트리거를 만들었습니다.  
+4. The trigger has been created.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
-## SMTP 작업 사용
+## <a name="use-an-smtp-action"></a>Use an SMTP action
 
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-이제 트리거가 추가되었고 다음 단계에 따라 Salesforce에 새 잠재 고객이 생성될 대 발생할 SMTP 작업을 추가합니다.
+Now that the trigger has been added, follow these steps to add an SMTP action that will occur when a new lead is created in Salesforce.
 
-1. **+ 새 단계**를 선택하여 새 잠재 고객이 생성될 때 수행할 작업을 추가합니다.  
+1. Select **+ New Step** to add the action you would like to take when a new lead is created.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
 
-2. **작업 추가**를 선택합니다. 수행할 작업을 검색할 수 있는 검색 상자가 열립니다.  
+2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 
-3. *smtp*를 입력하여 SMTP와 관련된 작업을 검색합니다.
+3. Enter *smtp* to search for actions related to SMTP.  
 
-4. 새 잠재 고객이 생성될 때 수행할 작업으로 **SMTP - 전자 메일 보내기**를 선택합니다. 작업 제어 블록이 열립니다. 아직 수행하지 않은 경우 디자이너 블록에서 smtp 연결을 설정해야 합니다.  
- ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
+4. Select **SMTP - Send Email** as the action to take when the new lead is created. The action control block opens. You will have to establish your smtp connection in the designer block if you have not done so previously.  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
 
-5. **SMTP - 전자 메일 보내기** 블록에 원하는 전자 메일 정보를 입력합니다.  
+5. Input your desired email information in the **SMTP - Send Email** block.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 
-6. 워크플로를 활성화하려면 작업을 저장합니다.
+6. Save your work in order to activate your workflow.  
 
-## 기술 세부 정보
+## <a name="technical-details"></a>Technical details
 
-이 연결에서 지원하는 트리거, 작업 및 응답에 대한 세부 정보는 다음과 같습니다.
+Here are the details about the triggers, actions and responses that this connection supports:
 
-## SMTP 트리거
+## <a name="smtp-triggers"></a>SMTP triggers
 
-SMTP에는 트리거가 없습니다.
+SMTP has no triggers. 
 
-## SMTP 작업
+## <a name="smtp-actions"></a>SMTP actions
 
-SMTP에는 다음 작업이 포함됩니다.
+SMTP has the following action:
 
 
-|작업|설명|
+|Action|Description|
 |--- | ---|
-|[전자 메일 보내기](connectors-create-api-smtp.md#send-email)|이 작업은 한 명 이상의 받는 사람에게 전자 메일을 보냅니다.|
+|[Send Email](connectors-create-api-smtp.md#send-email)|This operation sends an email to one or more recipients.|
 
-### 작업 세부 정보
+### <a name="action-details"></a>Action details
 
-이 커넥터에 대한 작업 및 해당 응답은 다음과 같습니다.
-
-
-### 전자 메일 보내기
-이 작업은 한 명 이상의 받는 사람에게 전자 메일을 보냅니다.
+Here are the details for the action of this connector, along with its responses:
 
 
-|속성 이름| 표시 이름|설명|
+### <a name="send-email"></a>Send Email
+This operation sends an email to one or more recipients. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|받는 사람|받는 사람|recipient1@domain.com;recipient2@domain.com처럼 세미콜론으로 구분된 전자 메일 주소를 지정합니다.|
-|CC|cc|recipient1@domain.com;recipient2@domain.com처럼 세미콜론으로 구분된 전자 메일 주소를 지정합니다.|
-|제목|제목|전자 메일 제목|
-|본문|본문|전자 메일 본문|
-|원본|원본|보낸 사람의 전자 메일 주소(예: sender@domain.com)|
-|IsHtml|Is Html|HTML로 전자 메일 보내기(true/false)|
-|Bcc|bcc|recipient1@domain.com;recipient2@domain.com처럼 세미콜론으로 구분된 전자 메일 주소를 지정합니다.|
-|중요도|중요도|전자 메일의 중요도(높음, 보통, 낮음)|
-|ContentData|첨부 파일 콘텐츠 데이터|콘텐츠 데이터(스트림의 경우 base64 인코딩 및 문자열의 경우 있는 그대로)|
-|ContentType|첨부 파일 콘텐츠 형식|콘텐츠 형식|
-|ContentTransferEncoding|첨부 파일 콘텐츠 전송 인코딩|콘텐츠 전송 인코딩(base64 또는 없음)|
-|FileName|첨부 파일 이름|파일 이름|
-|ContentId|첨부 파일 콘텐츠 ID|콘텐츠 ID|
+|To|To|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|CC|cc|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|Subject|Subject|Email subject|
+|Body|Body|Email body|
+|From|From|Email address of sender like sender@domain.com|
+|IsHtml|Is Html|Send the email as HTML (true/false)|
+|Bcc|bcc|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|Importance|Importance|Importance of the email (High, Normal, or Low)|
+|ContentData|Attachments Content Data|Content data (base64 encoded for streams and as-is for string)|
+|ContentType|Attachments Content Type|Content type|
+|ContentTransferEncoding|Attachments Content Transfer Encoding|Content Transfer Encoding (base64 or none)|
+|FileName|Attachments File Name|File name|
+|ContentId|Attachments Content ID|Content id|
 
-*는 필수 속성을 나타냅니다.
+An * indicates that a property is required
 
 
-## HTTP 응답
+## <a name="http-responses"></a>HTTP responses
 
-위의 작업 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다.
+The actions and triggers above can return one or more of the following HTTP status codes: 
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|202|수락됨|
-|400|잘못된 요청|
-|401|권한 없음|
-|403|사용할 수 없음|
-|404|찾을 수 없음|
-|500|내부 서버 오류. 알 수 없는 오류 발생.|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
+|default|Operation Failed.|
 
-## 다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

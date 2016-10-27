@@ -1,6 +1,6 @@
 <properties
-   pageTitle="테스트 용이성 작업 | Microsoft Azure"
-   description="이 문서에서는 Microsoft Azure 서비스 패브릭에서 발견되는 테스트 용이성 작업에 대해 다룹니다."
+   pageTitle="Testability action | Microsoft Azure"
+   description="This article talks about the testability actions found in Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
@@ -13,62 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2016"
+   ms.date="10/03/2016"
    ms.author="motanv;heeldin"/>
 
-# 테스트 용이성 작업
-불안정한 인프라를 시뮬레이트할 수 있도록 Azure 서비스 패브릭에서는 개발자에게 다양한 실제 오류 및 상태 전환을 시뮬레이트할 수 있는 방법을 제공합니다. 이러한 작업을 테스트 용이성 작업이라고 합니다. 이러한 작업은 특정 오류 주입, 상태 전환 또는 유효성 검사를 발생시키는 저수준 API입니다. 이러한 작업을 결합하여 서비스에 대한 포괄적인 테스트 시나리오를 작성할 수 있습니다.
 
-서비스 패브릭은 이러한 작업으로 구성된 몇 가지 일반 테스트 시나리오를 제공합니다. 이러한 기본 제공 시나리오는 일반 상태 전환 및 장애 사례를 테스트하기 위해 신중하게 선택된 시나리오이므로 적극적으로 활용하는 것이 좋습니다. 그러나 기본 제공 시나리오에 포함되지 않거나 사용자 지정 응용 프로그램에 맞게 조정된 범위를 추가하려는 경우 작업을 사용하여 사용자 지정 테스트 시나리오를 만들 수 있습니다.
+# <a name="testability-actions"></a>Testability actions
+In order to simulate an unreliable infrastructure, Azure Service Fabric provides you, the developer, with ways to simulate various real-world failures and state transitions. These are exposed as testability actions. The actions are the low-level APIs that cause a specific fault injection, state transition, or validation. By combining these actions, you can write comprehensive test scenarios for your services.
 
-C#으로 구현한 작업은 System.Fabric.dll 어셈블리에 있습니다. 시스템 패브릭 PowerShell 모듈은 Microsoft.ServiceFabric.Powershell.dll 어셈블리에 있습니다. 런타임 설치의 일부로 간편한 사용을 위해 ServiceFabric PowerShell 모듈이 설치됩니다.
+Service Fabric provides some common test scenarios composed of these actions. We highly recommend that you utilize these built-in scenarios, which are carefully chosen to test common state transitions and failure cases. However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are not covered by the built-in scenarios yet or that are custom tailored for your application.
 
-## 정상적인 오류 작업과 비정상적인 오류 작업 비교
-테스트 용이성 작업은 두 주요 버킷으로 분류됩니다.
+C# implementations of the actions are found in the System.Fabric.dll assembly. The System Fabric PowerShell module is found in the Microsoft.ServiceFabric.Powershell.dll assembly. As part of runtime installation, the ServiceFabric PowerShell module is installed to allow for ease of use.
 
-* 비정상적 오류: 이러한 오류는 컴퓨터 재시작, 프로세스 충돌 같은 실패를 시뮬레이션합니다. 이러한 실패의 경우 프로세스의 실행 컨텍스트가 갑자기 중지합니다. 즉, 응용 프로그램을 다시 시작하기 전에 상태 정리를 실행할 수 없습니다.
+## <a name="graceful-vs.-ungraceful-fault-actions"></a>Graceful vs. ungraceful fault actions
+Testability actions are classified into two major buckets:
 
-* 정상적인 오류: 이러한 오류는 부하 분산에 의해 트리거되는 복제본 이동 또는 삭제 등의 정상적인 작업을 시뮬레이션합니다. 이러한 경우에는 서비스에서 종료에 대한 알림을 가져와서 상태 정리 후 종료할 수 있습니다.
+* Ungraceful faults: These faults simulate failures like machine restarts and process crashes. In such cases of failures, the execution context of process stops abruptly. This means no cleanup of the state can run before the application starts up again.
 
-다양한 정상 및 비정상 오류를 유도하면서 서비스 및 비즈니스 작업을 실행하면 보다 완벽하게 품질을 확인할 수 있습니다. 비정상적 오류의 경우 워크플로 도중에 서비스 프로세스가 갑자기 종료되는 시나리오를 실행합니다. 이 시나리오는 서비스 패브릭에서 서비스 복제본을 복원할 때 복구 경로를 테스트합니다. 데이터 일관성을 테스트하고 실패 후 서비스 상태가 올바르게 유지되는지 테스트하는 데 도움이 됩니다. 다른 실패 집합(정상적인 실패)은 서비스 패브릭에 의해 이동되는 복제본에 대해 서비스가 올바르게 반응하는지를 테스트 합니다. 이 테스트는 RunAsync 메서드의 취소 처리를 테스트합니다. 서비스에서 설정되는 취소 토큰을 확인하고 상태를 올바르게 저장한 후 RunAsync 메서드를 종료해야 합니다.
+* Graceful faults: These faults simulate graceful actions like replica moves and drops triggered by load balancing. In such cases, the service gets a notification of the close and can clean up the state before exiting.
 
-## 테스트 용이성 작업 목록
+For better quality validation, run the service and business workload while inducing various graceful and ungraceful faults. Ungraceful faults exercise scenarios where the service process abruptly exits in the middle of some workflow. This tests  the recovery path once the service replica is restored by Service Fabric. This will help test data consistency and whether the service state is maintained correctly after failures. The other set of failures (the graceful failures) test that the service correctly reacts to replicas being moved around by Service Fabric. This tests handling of cancellation in the RunAsync method. The service needs to check for the cancellation token being set, correctly save its state, and exit the RunAsync method.
 
-| 작업 | 설명 | 관리 API | PowerShell cmdlet | 정상/비정상 오류 |
+## <a name="testability-actions-list"></a>Testability actions list
+
+| Action | Description | Managed API | PowerShell cmdlet | Graceful/ungraceful faults |
 |---------|-------------|-------------|-------------------|------------------------------|
-|CleanTestState| 테스트 드라이버가 비정상적으로 종료될 경우 클러스터에서 모든 테스트 상태를 제거합니다. | CleanTestStateAsync | Remove-ServiceFabricTestState | 해당 없음 |
-| InvokeDataLoss | 서비스 파티션으로 데이터 손실을 유도합니다. | InvokeDataLossAsync | Invoke-ServiceFabricPartitionDataLoss | 정상 |
-| InvokeQuorumLoss | 지정된 상태 저장 서비스 파티션을 쿼럼 손실에 배치합니다. | InvokeQuorumLossAsync | Invoke-ServiceFabricQuorumLoss | 정상 |
-| Move Primary | 상태 저장 서비스의 지정된 주 복제본을 지정된 클러스터 노드로 이동합니다. | MovePrimaryAsync | Move-ServiceFabricPrimaryReplica | 정상 |
-| Move Secondary | 상태 저장 서비스의 현재 보조 복제본을 다른 클러스터 노드로 이동합니다. | MoveSecondaryAsync | Move-ServiceFabricSecondaryReplica | 정상 |
-| RemoveReplica | 클러스터에서 복제본을 제거하여 복제 오류를 시뮬레이션합니다. 그러면 복제본이 닫히고 역할 '없음'으로 전환되어 클러스터에서 해당 복제본의 모든 상태가 제거됩니다. | RemoveReplicaAsync | Remove-ServiceFabricReplica | 정상 |
-| RestartDeployedCodePackage | 클러스터의 노드에 배포된 코드 패키지를 다시 시작하여 코드 패키지 프로세스 오류를 시뮬레이션합니다. 그러면 코드 패키지 프로세스가 취소되고 해당 프로세스에서 호스팅되는 모든 사용자 서비스 복제본이 다시 시작됩니다. | RestartDeployedCodePackageAsync | Restart-ServiceFabricDeployedCodePackage | 비정상 |
-| RestartNode | 노드를 다시 시작하여 서비스 패브릭 클러스터 노드 오류를 시뮬레이션합니다. | RestartNodeAsync | Restart-ServiceFabricNode | 비정상 |
-| RestartPartition | 파티션의 일부 또는 모든 복제본을 다시 시작하여 데이터 센터 블랙아웃 또는 클러스터 블랙아웃 시나리오를 시뮬레이션합니다. | RestartPartitionAsync | Restart-ServiceFabricPartition | 정상 |
-| RestartReplica | 클러스터에 보관된 복제본을 다시 시작하고, 복제본을 닫은 후 다시 열어서 복제본 오류를 시뮬레이션합니다. | RestartReplicaAsync | Restart-ServiceFabricReplica | 정상 |
-| StartNode | 클러스터에서 이미 중지된 노드를 시작합니다. | StartNodeAsync | Start-ServiceFabricNode | 해당 없음 |
-| StopNode | 클러스터의 노드를 중지하여 노드 오류를 시뮬레이션합니다. StartNode가 호출될 때까지 노드가 계속 중지됩니다. | StopNodeAsync | Stop-ServiceFabricNode | 비정상 |
-| ValidateApplication | 일반적으로 시스템에 일부 오류를 유도한 후 응용 프로그램 내의 모든 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. | ValidateApplicationAsync | Test-ServiceFabricApplication | 해당 없음 |
-| ValidateService | 일반적으로 시스템에 일부 오류를 유도한 후 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. | ValidateServiceAsync | Test-ServiceFabricService | 해당 없음 |
+|CleanTestState| Removes all the test state from the cluster in case of a bad shutdown of the test driver. | CleanTestStateAsync | Remove-ServiceFabricTestState | Not applicable |
+| InvokeDataLoss | Induces data loss into a service partition. | InvokeDataLossAsync | Invoke-ServiceFabricPartitionDataLoss | Graceful |
+| InvokeQuorumLoss | Puts a given stateful service partition into quorum loss. | InvokeQuorumLossAsync | Invoke-ServiceFabricQuorumLoss | Graceful |
+| Move Primary | Moves the specified primary replica of a stateful service to the specified cluster node. | MovePrimaryAsync | Move-ServiceFabricPrimaryReplica | Graceful |
+| Move Secondary | Moves the current secondary replica of a stateful service to a different cluster node. | MoveSecondaryAsync | Move-ServiceFabricSecondaryReplica | Graceful |
+| RemoveReplica | Simulates a replica failure by removing a replica from a cluster. This will close the replica and will transition it to role 'None', removing all of its state from the cluster. | RemoveReplicaAsync | Remove-ServiceFabricReplica | Graceful |
+| RestartDeployedCodePackage | Simulates a code package process failure by restarting a code package deployed on a node in a cluster. This aborts the code package process, which will restart all the user service replicas hosted in that process. | RestartDeployedCodePackageAsync | Restart-ServiceFabricDeployedCodePackage | Ungraceful |
+| RestartNode | Simulates a Service Fabric cluster node failure by restarting a node. | RestartNodeAsync | Restart-ServiceFabricNode | Ungraceful |
+| RestartPartition | Simulates a datacenter blackout or cluster blackout scenario by restarting some or all replicas of a partition. | RestartPartitionAsync | Restart-ServiceFabricPartition | Graceful |
+| RestartReplica | Simulates a replica failure by restarting a persisted replica in a cluster, closing the replica and then reopening it. | RestartReplicaAsync | Restart-ServiceFabricReplica | Graceful |
+| StartNode | Starts a node in a cluster that is already stopped. | StartNodeAsync | Start-ServiceFabricNode | Not applicable |
+| StopNode | Simulates a node failure by stopping a node in a cluster. The node will stay down until StartNode is called. | StopNodeAsync | Stop-ServiceFabricNode | Ungraceful |
+| ValidateApplication | Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system. | ValidateApplicationAsync | Test-ServiceFabricApplication | Not applicable |
+| ValidateService | Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system. | ValidateServiceAsync | Test-ServiceFabricService | Not applicable |
 
-## PowerShell을 사용하여 테스트 용이성 작업 실행
+## <a name="running-a-testability-action-using-powershell"></a>Running a testability action using PowerShell
 
-이 자습서에서는 PowerShell을 사용하여 테스트 용이성 작업을 실행하는 방법을 보여 줍니다. 로컬(one-box) 클러스터 또는 Azure 클러스터에 대해 테스트 용이성 작업을 실행하는 방법을 배울 것입니다. Microsoft.Fabric.Powershell.dll(서비스 패브릭PowerShell 모듈)은 Microsoft 서비스 패브릭 MSI를 설치할 때 자동으로 설치됩니다. PowerShell 프롬프트를 열면 이 모듈이 자동으로 로드됩니다.
+This tutorial shows you how to run a testability action by using PowerShell. You will learn how to run a testability action against a local (one-box) cluster or an Azure cluster. Microsoft.Fabric.Powershell.dll--the Service Fabric PowerShell module--is installed automatically when you install the Microsoft Service Fabric MSI. The module is loaded automatically when you open a PowerShell prompt.
 
-자습서 세그먼트:
+Tutorial segments:
 
-- [one-box 클러스터에 대해 작업 실행](#run-an-action-against-a-one-box-cluster)
-- [Azure 클러스터에 대해 작업 실행](#run-an-action-against-an-azure-cluster)
+- [Run an action against a one-box cluster](#run-an-action-against-a-one-box-cluster)
+- [Run an action against an Azure cluster](#run-an-action-against-an-azure-cluster)
 
-### one-box 클러스터에 대해 작업 실행
+### <a name="run-an-action-against-a-one-box-cluster"></a>Run an action against a one-box cluster
 
-로컬 클러스터에 대해 테스트 용이성 작업을 실행하려면 먼저 클러스터에 연결하고 관리자 모드에서 PowerShell 프롬프트를 엽니다. **Restart-ServiceFabricNode** 작업을 살펴보겠습니다.
+To run a testability action against a local cluster, first connect to the cluster and open the PowerShell prompt in administrator mode. Let us look at the **Restart-ServiceFabricNode** action.
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-"Node1"이라는 노드에서 **Restart-ServiceFabricNode** 작업이 실행되고 있습니다. 완료 모드는 다시 시작 노드 작업이 실제로 성공했는지 여부를 확인하지 말라고 지정합니다. 완료 모드를 "Verify"로 지정하면 다시 시작 작업이 실제로 성공했는지 여부를 확인합니다. 노드 이름을 사용하여 직접 지정하는 대신 다음과 같이 파티션 키와 복제본의 종류를 통해 지정할 수 있습니다.
+Here the action **Restart-ServiceFabricNode** is being run on a node named "Node1". The completion mode specifies that it should not verify whether the restart-node action actually succeeded. Specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded. Instead of directly specifying the node by its name, you can specify it via a partition key and the kind of replica, as follows:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -83,35 +84,36 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-**Restart-ServiceFabricNode**를 사용하여 클러스터의 서비스 패브릭 노드를 다시 시작해야 합니다. 이 방법을 사용하면 Fabric.exe 프로세스가 중지됩니다. 이 프로세스는 해당 노드에 호스팅되는 모든 시스템 서비스 및 사용자 서비스 복제본을 다시 시작합니다. 이 API를 사용하여 서비스를 테스트하면 장애 조치(failover) 복구 경로를 따라 버그를 발견할 수 있습니다. 이는 클러스터의 노드 오류를 시뮬레이션하는 데 도움이 됩니다.
+**Restart-ServiceFabricNode** should be used to restart a Service Fabric node in a cluster. This will stop the Fabric.exe process, which will restart all of the system service and user service replicas hosted on that node. Using this API to test your service helps uncover bugs along the failover recovery paths. It helps simulate node failures in the cluster.
 
-다음 스크린샷은 동작 중인 **Restart-ServiceFabricNode** 테스트 용이성 명령을 보여 줍니다.
+The following screenshot shows the **Restart-ServiceFabricNode** testability command in action.
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-첫 번째 **Get-ServiceFabricNode**(서비스 패브릭 PowerShell 모듈의 cmdlet)의 출력은 로컬 클러스터에 다섯 개의 노드(Node.1~Node.5)가 있음을 보여 줍니다. Node.4 노드에서 테스트 용이성 작업(cmdlet) **Restart-ServiceFabricNode**를 실행하면 노드의 가동 시간이 다시 설정된 것을 알 수 있습니다.
+The output of the first **Get-ServiceFabricNode** (a cmdlet from the Service Fabric PowerShell module) shows that the local cluster has five nodes: Node.1 to Node.5. After the testability action (cmdlet) **Restart-ServiceFabricNode** is executed on the node, named Node.4, we see that the node's uptime has been reset.
 
-### Azure 클러스터에 대해 작업 실행
+### <a name="run-an-action-against-an-azure-cluster"></a>Run an action against an Azure cluster
 
-PowerShell을 사용하여 Azure 클러스터에 대해 테스트 용이성 작업을 실행하는 방법은 로컬 클러스터에 대해 작업을 실행하는 방법과 비슷합니다. 작업을 실행하려면 로컬 클러스터 대신 Azure 클러스터에 먼저 연결해야 한다는 점만 다릅니다.
+Running a testability action (by using PowerShell) against an Azure cluster is similar to running the action against a local cluster. The only difference is that before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure cluster first.
 
-## C&#35;을 사용하여 테스트 용이성 작업 실행
+## <a name="running-a-testability-action-using-c&#35;"></a>Running a testability action using C&#35;
 
-C#을 사용하여 테스트 용이성 작업을 실행하려면 먼저 FabricClient를 사용하여 클러스터에 연결해야 합니다. 그런 다음 작업 실행에 필요한 매개 변수를 가져옵니다. 다른 매개 변수를 사용하여 같은 작업을 실행할 수 있습니다. RestartServiceFabricNode 작업을 살펴보면 노드 정보(노드 이름 및 노드 인스턴스 ID)를 사용하여 노드를 실행할 수 있습니다.
+To run a testability action by using C#, first you need to connect to the cluster by using FabricClient. Then obtain the parameters needed to run the action. Different parameters can be used to run the same action.
+Looking at the RestartServiceFabricNode action, one way to run it is by using the node information (node name and node instance ID) in the cluster.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
 ```
 
-매개 변수 설명:
+Parameter explanation:
 
-- **CompleteMode**는 모드에서 다시 시작 작업이 실제로 성공했는지 여부를 확인하지 말라고 지정합니다. 완료 모드를 "Verify"로 지정하면 다시 시작 작업이 실제로 성공했는지 여부를 확인합니다.
-- **OperationTimeout**은 TimeoutException 예외가 throw되기 전에 작업이 완료되어야 하는 시간을 설정합니다.
-- **CancellationToken**은 보류 중인 호출을 취소할 수 있습니다.
+- **CompleteMode** specifies that the mode should not verify whether the restart action actually succeeded. Specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.  
+- **OperationTimeout** sets the amount of time for the operation to finish before a TimeoutException exception is thrown.
+- **CancellationToken** enables a pending call to be canceled.
 
-노드 이름을 사용하여 직접 지정하는 대신 파티션 키와 복제본의 종류를 통해 지정할 수 있습니다.
+Instead of directly specifying the node by its name, you can specify it via a partition key and the kind of replica.
 
-자세한 내용은 [PartitionSelector 및 ReplicaSelector](#partition_replica_selector)를 참조하세요.
+For further information, see [PartitionSelector and ReplicaSelector](#partition_replica_selector).
 
 
 ```csharp
@@ -180,12 +182,12 @@ class Test
 }
 ```
 
-## PartitionSelector 및 ReplicaSelector
+## <a name="partitionselector-and-replicaselector"></a>PartitionSelector and ReplicaSelector
 
-### PartitionSelector
-PartitionSelector는 테스트 용이성에 노출되는 도우미이며 테스트 용이성 작업을 수행할 특정 파티션을 선택하는 데 사용됩니다. 파티션 ID가 이미 알려져 있는 경우 특정 파티션을 선택하는 데 사용할 수 있습니다. 또는 파티션 키를 제공하면 작업에서 파티션 ID를 내부적으로 해결합니다. 또한 임의의 파티션을 선택하는 옵션도 있습니다.
+### <a name="partitionselector"></a>PartitionSelector
+PartitionSelector is a helper exposed in testability and is used to select a specific partition on which to perform any of the testability actions. It can be used to select a specific partition if the partition ID is known beforehand. Or, you can provide the partition key and the operation will resolve the partition ID internally. You also have the option of selecting a random partition.
 
-이 도우미를 사용하려면 PartitionSelector 개체를 만들고 Select* 메서드 중 하나를 사용하여 파티션을 선택합니다. 그런 다음 PartitionSelector 개체를 필요로 하는 API에 전달합니다. 옵션을 선택하지 않으면 기본적으로 임의의 파티션이 사용됩니다.
+To use this helper, create the PartitionSelector object and select the partition by using one of the Select* methods. Then pass in the PartitionSelector object to the API that requires it. If no option is selected, it defaults to a random partition.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -206,10 +208,10 @@ PartitionSelector namedPartitionSelector = PartitionSelector.PartitionKeyOf(serv
 PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf(serviceName, partitionKeyUniformInt64);
 ```
 
-### ReplicaSelector
-ReplicaSelector는 테스트 용이성에 노출되는 도우미이며 테스트 용이성 작업을 수행할 특정 복제본을 선택하는 데 사용됩니다. 복제본 ID가 이미 알려져 있는 경우 특정 복제본을 선택하는 데 사용할 수 있습니다. 또한 주 복제본 또는 임의의 보조 복제본을 선택하는 옵션도 있습니다. ReplicaSelector는 PartitionSelector에서 파생되므로 테스트 용이성 작업을 수행할 복제본과 파티션을 모두 선택해야 합니다.
+### <a name="replicaselector"></a>ReplicaSelector
+ReplicaSelector is a helper exposed in testability and is used to help select a replica on which to perform any of the testability actions. It can be used to select a specific replica if the replica ID is known beforehand. In addition, you have the option of selecting a primary replica or a random secondary. ReplicaSelector derives from PartitionSelector, so you need to select both the replica and the partition on which you wish to perform the testability operation.
 
-이 도우미를 사용하려면 ReplicaSelector 개체를 만들고 복제본 및 파티션을 선택하는 방법을 설정합니다. 그런 다음 개체를 필요로 하는 API에 전달할 수 있습니다. 옵션을 선택하지 않으면 기본적으로 임의의 복제본 및 파티션이 사용됩니다.
+To use this helper, create a ReplicaSelector object and set the way you want to select the replica and the partition. You can then pass it into the API that requires it. If no option is selected, it defaults to a random replica and random partition.
 
 ```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
@@ -229,11 +231,15 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [테스트 용이성 시나리오](service-fabric-testability-scenarios.md)
-- 서비스를 테스트하는 방법
-   - [서비스 작업 중 오류 시뮬레이션](service-fabric-testability-workload-tests.md)
-   - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
+- [Testability scenarios](service-fabric-testability-scenarios.md)
+- How to test your service
+   - [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
+   - [Service-to-service communication failures](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure 스케줄러의 버전 및 요금 청구"
- description="Azure 스케줄러의 버전 및 요금 청구"
+ pageTitle="Plans and Billing in Azure Scheduler"
+ description="Plans and Billing in Azure Scheduler"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,83 +13,88 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
-# Azure 스케줄러의 버전 및 요금 청구
 
-## 작업 컬렉션 버전
+# <a name="plans-and-billing-in-azure-scheduler"></a>Plans and Billing in Azure Scheduler
 
-작업 컬렉션은 Azure 스케줄러에서 청구 가능한 엔터티입니다. 작업 컬렉션은 많은 작업을 포함하며 Free, Standard, Premium 등, 3가지 버전으로 제공됩니다.
+## <a name="job-collection-plans"></a>Job Collection Plans
 
-|**작업 컬렉션 버전**|**작업 컬렉션당 최대 작업 수**|**최대 되풀이**|**구독당 최대 작업 컬렉션**|**제한**|
+Job collections are the billable entity in Azure Scheduler. Job collections contain a number of jobs and come in three plans – Free, Standard, and Premium – that are described below.
+
+|**Job Collection Plan**|**Max # of Jobs per Job Collection**|**Max Recurrence**|**Max Job Collections per Subscription**|**Limits**|
 |:---|:---|:---|:---|:---|
-|**Free**|작업 컬렉션당 5개 작업|시간당 1회. 한 시간에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 1개의 Free 작업 컬렉션이 허용됩니다.|[HTTP 아웃바운드 권한 부여 개체](scheduler-outbound-authentication.md)를 사용할 수 없습니다.
-|**Standard**|작업 컬렉션당 50개 작업|1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 100개의 Standard 작업 컬렉션이 허용됩니다.|스케줄러의 모든 기능 액세스|
-|**P10 Premium**|작업 컬렉션당 50개 작업|1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 10,000개의 P10 Premium 작업 컬렉션이 허용됩니다. 자세한 내용은 <a href="mailto:wapteams@microsoft.com">저희에게 문의</a>하세요.|스케줄러의 모든 기능 액세스|
-|**P20 Premium**|작업 컬렉션당 1,000개 작업|1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 10,000개의 P20 Premium 작업 컬렉션이 허용됩니다. 자세한 내용은 <a href="mailto:wapteams@microsoft.com">저희에게 문의</a>하세요.|스케줄러의 모든 기능 액세스|
+|**Free**|5 jobs per job collection|Once per hour. Cannot execute jobs more often than once an hour|A subscription is allowed up to 1 free job collection|Cannot use [HTTP outbound authorization object](scheduler-outbound-authentication.md)
+|**Standard**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 100 standard job collections|Access to full feature set of Scheduler|
+|**P10 Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P10 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
+|**P20 Premium**|1000 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P20 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
 
-## 작업 컬렉션 버전의 업그레이드 및 다운그레이드
+## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Upgrades and Downgrades of Job Collection Plans
 
-작업 컬렉션 버전은 Free, Standard 및 Premium 버전 간에 언제든 업그레이드 또는 다운그레이드할 수 있습니다. 그러나 Free 작업 컬렉션으로 다운그레이드할 때 다음과 같은 이유 중 하나로 다운그레이드가 실패할 수 있습니다.
+You may upgrade or downgrade a job collection plan anytime among the Free, Standard, and Premium plans. However, when downgrading to a free job collection, the downgrade may fail for one of the following reasons:
 
-- 구독에 Free 작업 컬렉션이 이미 존재합니다.
-- 작업 컬렉션의 작업이 Free 작업 컬렉션에 허용되는 작업보다 더 많이 되풀이됩니다. Free 작업 컬렉션에 허용되는 최대 되풀이는 시간당 1회입니다.
-- 작업 컬렉션의 작업이 5개가 넘습니다.
-- 작업 컬렉션의 작업에 [HTTP 아웃바운드 권한 부여 개체](scheduler-outbound-authentication.md)를 사용하는 HTTP 또는 HTTPS 동작이 있습니다.
+- A free job collection already exists in the subscription
+- A job in the job collection has a higher recurrence than allowed for jobs in free job collections. The maximum recurrence allowed in a free job collection is once per hour
+- There are more than 5 jobs in the job collection
+- A job in the job collection has an HTTP or HTTPS action that uses an [HTTP outbound authorization object](scheduler-outbound-authentication.md)
 
-## 청구 및 Azure 버전
+## <a name="billing-and-azure-plans"></a>Billing and Azure Plans
 
-Free 작업 컬렉션에서는 구독이 청구되지 않습니다. Standard 작업 컬렉션이 100개가 넘을 경우(Standard 청구 단위 10개) 모든 작업 컬렉션을 Premium 버전으로 하는 것이 더 낫습니다.
+Subscriptions are not charged for free job collections. If you have more than 100 standard job collections (10 standard billing units), then it's a better deal to have all job collections in the premium plan.
 
-Standard 작업 컬렉션이 하나이고 Premium 작업 컬렉션이 하나라면 Standard 청구 단위 1개_와_ Premium 청구 단위 1개가 청구됩니다. 스케줄러 서비스는 Standard 또는 Premium 버전으로 설정된 활성 작업 컬렉션의 수에 따라 청구되며 이에 대해서는 다음 두 섹션에서 상세히 설명하겠습니다.
+If you have one standard job collection and one premium job collection, you are billed one standard billing unit _and_ one premium billing unit. The Scheduler service bills based on the number of active job collections that are set to either standard or premium; this is explained further in the next two sections.
 
-## Standard 청구 가능 단위
+## <a name="standard-billable-units"></a>Standard Billable Units
 
-Standard 청구 가능 단위는 최대 10개의 Standard 작업 컬렉션을 포함할 수 있습니다. Standard 작업 컬렉션에는 작업 컬렉션당 최대 50개의 작업이 있을 수 있으므로 Standard 청구 단위 1개에서는 최대 500개 작업(매월 최대 약 2,200만 개의 작업 실행)이 있을 수 있습니다.
+A standard billable unit can include up to 10 standard job collections. Since a standard job collection can have up to 50 jobs per job collection, one standard billing unit allows a subscription to have up to 500 jobs – up to almost 22 million job executions per month.
 
-Standard 작업 컬렉션 수가 1~10인 경우 1개의 Standard 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 11~20인 경우 2개의 Standard 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 21~30인 경우 3개의 Standard 청구 단위에 대해 청구되는 식입니다.
+If you have between 1 and 10 standard job collections, you'll be billed for 1 standard billing unit. If you have between 11 and 20 standard job collections, you'll be billed for 2 standard billing units. If you have between 21 and 30 standard job collections, you'll be billed for 3 standard billing units, and so on.
 
-## P10 Premium 청구 가능 단위
+## <a name="p10-premium-billable-units"></a>P10 Premium Billable Units
 
-P10 Premium 청구 가능 단위는 최대 10,000개의 P10 Premium 작업 컬렉션을 포함할 수 있습니다. P10 Premium 작업 컬렉션에는 작업 컬렉션당 최대 50개의 작업이 있을 수 있습니다. 따라서, 1개의 프리미엄 청구 단위로 구독에서 최대 500,000개 작업(매월 최대 약 220억 개의 작업 실행)이 있을 수 있습니다.
+A P10 premium billable unit can include up to 10,000 P10 premium job collections. Since a P10 premium job collection can have up to 50 jobs per job collection, one premium billing unit allows a subscription to have up to 500,000 jobs – up to almost 22 billion job executions per month.
 
-Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 P10 Premium 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 10,001~20,000인 경우 2개의 P10 Premium 청구 단위에 대해 청구됩니다.
+If you have between 1 and 10,000 premium job collections, you'll be billed for 1 P10 premium billing unit. If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 P10 premium billing units, and so on.
 
-따라서 P10 Premium 작업 컬렉션은 Standard 작업 컬렉션과 동일하게 작동하지만, 응용 프로그램에 작업 컬렉션이 많은 경우 경제적입니다.
+Thus, P10 premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.
 
-## P20 Premium 청구 가능 단위
+## <a name="p20-premium-billable-units"></a>P20 Premium Billable Units
 
-P20 Premium 청구 가능 단위는 최대 5,000개의 P20 Premium 작업 컬렉션을 포함할 수 있습니다. P20 Premium 작업 컬렉션에는 작업 컬렉션당 최대 1,000개의 작업이 있을 수 있습니다. 따라서, 1개의 프리미엄 청구 단위로 구독에서 최대 5,000,000개 작업(매월 최대 약 2200억 개의 작업 실행)이 있을 수 있습니다.
+A P20 premium billable unit can include up to 5,000 P20 premium job collections. Since a P20 premium job collection can have up to 1,000 jobs per job collection, one premium billing unit allows a subscription to have up to 5,000,000 jobs – up to almost 220 billion job executions per month.
 
-P20 Premium 작업 컬렉션은 P10 Premium 작업 컬렉션과 동일한 기능을 제공하지만, 작업 컬렉션당 훨씬 더 많은 수의 작업을 지원하며, P10 Premium에 비해 총 작업 수도 훨씬 더 많으므로 확장성도 높아집니다.
+P20 premium job collections provides the same capabilities as P10 premium job collections but also supports a greater number jobs per job collection and a greater total number of jobs overall than P10 premium allowing you to have more scalability.
 
-## 청구 및 활성 상태
+## <a name="billing-and-active-status"></a>Billing and Active Status
 
-전체 구독이 청구상의 문제로 일시적으로 비활성화되지 않는 한 작업 컬렉션은 항상 활성 상태입니다. 작업 컬렉션이 청구되지 않게 하는 유일한 방법은 _Free_ 버전으로 설정하거나 작업 컬렉션을 삭제하는 것입니다.
+Job collections are always active unless your entire subscription has gone into some temporary disabled state due to billing issues. The only way to ensure that a job collection is not billed is to either set it to the _Free_ plan or to delete the job collection.
 
-단일 작업에서 작업 컬렉션 안의 모든 작업을 비활성화할 수 있으나 작업 컬렉션의 청구 상태가 바뀌지는 않으며 작업 컬렉션은 _계속_ 청구됩니다. 마찬가지로 빈 작업 컬렉션도 활성 상태로 간주되어 청구됩니다.
+Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will _still_ be billed. Similarly, empty job collections are considered active and will be billed.
 
-## 가격
+## <a name="pricing"></a>Pricing
 
-가격 세부 정보는 [스케줄러 가격 책정](https://azure.microsoft.com/pricing/details/scheduler/)을 참조하세요.
+For pricing details, please see [Scheduler Pricing](https://azure.microsoft.com/pricing/details/scheduler/).
 
-## 참고 항목
+## <a name="see-also"></a>See Also
 
 
- [스케줄러란?](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

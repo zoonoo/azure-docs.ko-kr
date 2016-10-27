@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure 자동화의 자식 runbook | Microsoft Azure"
-   description="다른 Runbook에서 Azure 자동화의 Runbook을 시작하고 서로 정보를 공유하는 다양한 방법을 설명합니다."
+   pageTitle="Child runbooks in Azure Automation | Microsoft Azure"
+   description="Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -15,82 +15,87 @@
    ms.date="08/17/2016"
    ms.author="magoedte;bwren" />
 
-# Azure 자동화의 자식 runbook
 
-다른 runbook에서 사용할 수 있는 불연속 함수를 사용하여 다시 사용할 수 있는 모듈식 runbook을 작성하는 Azure 자동화의 모범 사례입니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 두 가지 방법으로 자식 runbook을 호출하고 각각 서로 다른 차이점을 이해하여 다양한 시나리오에 가장 적합하게 결정하도록 합니다.
+# <a name="child-runbooks-in-azure-automation"></a>Child runbooks in Azure Automation
 
-##  인라인 실행을 사용하여 자식 runbook 호출
+It is a best practice in Azure Automation to write reusable, modular runbooks with a discrete function that can be used by other runbooks. A parent runbook will often call one or more child runbooks to perform required functionality. There are two ways to call a child runbook, and each has distinct differences that you should understand so that you can determine which will be best for your different scenarios.
 
-다른 runbook에서 runbook 인라인을 호출하려면 runbook의 이름을 사용하고 활동 또는 cmdlet을 사용하는 것처럼 정확하게 해당 매개 변수에 대한 값을 제공합니다. 같은 자동화 계정에서 모든 runbook이 이런 방식으로 사용할 다른 모든 사용자에게 제공됩니다. 부모 runbook은 다음 줄으로 이동하기 전에 자식 runbook이 완료하기를 기다리고 어떤 출력도 직접 부모에게 반환됩니다.
+##  <a name="invoking-a-child-runbook-using-inline-execution"></a>Invoking a child runbook using inline execution
 
-runbook 인라인을 호출하면 동일한 작업에서 부모 runbook으로 실행됩니다. 실행된 자식 runbook의 작업 기록에는 표시가 없습니다. 자식 runbook에서 모든 예외 및 출력 스트림을 부모와 연결합니다. 자식 runbook에서 throw된 예외 및 해당 스트림 출력 중 하나가 부모 작업과 연결되므로 이것은 더 적은 작업에서 발생하며 쉽게 추적 및 문제 해결이 가능합니다.
+To invoke a runbook inline from another runbook, you use the name of the runbook and provide values for its parameters exactly like you would use an activity or cmdlet.  All runbooks in the same Automation account are available to all others to be used in this manner. The parent runbook will wait for the child runbook to complete before moving to the next line, and any output is returned directly to the parent.
 
-runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되어야 합니다. runbook이 컴파일될 때 Azure 자동화가 모든 자식 runbook과 연결을 빌드하기 때문입니다. 그렇지 않은 경우 부모 runbook은 올바르게 게시되도록 표시하지만 시작되면 예외를 생성합니다. 이 경우 자식 runbook을 제대로 참조하기 위해 부모 runbook을 다시 게시할 수 있습니다. 자식 runbook 중 하나가 변경되면 연결이 이미 만들어지기 때문에 부모 runbook을 다시 게시할 필요가 없습니다.
+When you invoke a runbook inline, it runs in the same job as the parent runbook. There will be no indication in the job history of the child runbook that it ran. Any exceptions and any stream output from the child runbook will be associated with the parent. This results in fewer jobs and makes them easier to track and to troubleshoot since any exceptions thrown by the child runbook and any of its stream output are associated with the parent job.
 
-인라인을 호출하는 자식 runbook의 매개 변수는 복잡한 개체를 포함한 모든 데이터 형식이 될 수 있습니다. 그리고 Azure 관리 포털을 사용하거나 Start-AzureRmAutomationRunbook cmdlet과 함께 runbook을 시작하는 경우 [JSON 직렬화](automation-starting-a-runbook.md#runbook-parameters)는 없습니다.
+When a runbook is published, any child runbooks that it calls must already be published. This is because Azure Automation builds an association with any child runbooks when a runbook is compiled. If they aren’t, the parent runbook will appear to publish properly, but will generate an exception when it’s started. If this happens, you can republish the parent runbook in order to properly reference the child runbooks. You do not need to republish the parent runbook if any of the child runbooks are changed because the association will have already been created.
 
-
-### Runbook 형식
-
-서로를 호출할 수 있는 형식:
-
-- [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 인라인으로 서로를 호출할 수 있습니다(둘 다 PowerShell 기반임).
-- [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)및 그래픽 PowerShell 워크플로 Runbook은 인라인으로 서로를 호출할 수 있습니다(둘 다 PowerShell 워크플로 기반임).
-- PowerShell 형식과 PowerShell 워크플로 형식은 인라인으로 서로를 호출할 수 없으므로 Start-AzureRmAutomationRunbook을 사용해야 합니다.
-	
-게시 순서가 중요한 경우:
-
-- Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 Runbook에서만 중요합니다.
+The parameters of a child runbook called inline can be any data type including complex objects, and there is no [JSON serialization](automation-starting-a-runbook.md#runbook-parameters) as there is when you start the runbook using the Azure Management Portal or with the Start-AzureRmAutomationRunbook cmdlet.
 
 
-인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름만 사용합니다. PowerShell 자식 Runbook을 호출하는 경우 스크립트가 로컬 디렉터리에 있음을 지정하기 위해 이름 앞에 *.\*를 추가해야 합니다.
+### <a name="runbook-types"></a>Runbook types
 
-### 예
+Which types can call each other:
 
-다음 예제는 세 매개 변수인 복잡한 개체, 정수 및 부울 값을 허용하는 테스트 자식 runbook을 호출합니다. 자식 runbook의 출력을 변수에 할당합니다. 이 경우 자식 Runbook은 PowerShell 워크플로 Runbook입니다.
+- A [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) and [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) can call each other inline (both are PowerShell based).
+- A [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) and Graphical PowerShell Workflow runbooks can call each other inline (both are PowerShell Workflow based)
+- The PowerShell types and the PowerShell Workflow types can’t call each other inline, and must use Start-AzureRmAutomationRunbook.
+    
+When does publish order matter:
 
-	$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+- The publish order of runbooks only matters for PowerShell Workflow and Graphical PowerShell Workflow runbooks.
+
+
+When you call a Graphical or PowerShell Workflow child runbook using inline execution, you just use the name of the runbook.  When you call a PowerShell child runbook, you must preceded its name with *.\\* to specify that the script is located in the local directory. 
+
+### <a name="example"></a>Example
+
+The following example invokes a test child runbook that accepts three parameters, a complex object, an integer, and a boolean. The output of the child runbook is assigned to a variable.  In this case, the child runbook is a PowerShell Workflow runbook
+
+    $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
-다음은 PowerShell Runbook을 자식으로 사용하는 동일한 예제입니다.
+Following is the same example using a PowerShell runbook as the child.
 
-	$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+    $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = .\PS-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
 
 
-##  cmdlet을 사용하여 자식 runbook 시작
+##  <a name="starting-a-child-runbook-using-cmdlet"></a>Starting a child runbook using cmdlet
 
-[Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet을 사용하여 [Windows PowerShell에서 Runbook 시작](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell)에서 설명한 대로 Runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다. 한 가지 모드에서 cmdlet은 자식 runbook에 자식 작업이 만들어지는 즉시 작업 ID를 반환합니다. **-wait** 매개 변수를 지정하여 사용하도록 설정할 수 있는 다른 모드에서 cmdlet은 자식 작업이 완료될 때까지 대기하고 자식 Runbook의 출력을 반환합니다.
+You can use the [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet to start a runbook as described in [To start a runbook with Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). There are two modes of use for this cmdlet.  In one mode, the cmdlet returns the job id as soon as the child job is created for the child runbook.  In the other mode, which you enable by specifying the **-wait** parameter, the cmdlet will wait until the child job finishes and will return the output from the child runbook.
 
-cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 작업에서 실행됩니다. Runbook 인라인을 호출하는 것 보다 많은 작업이 발생하고 추적하기 어려울 수 있습니다. 부모는 각각이 완료되기를 기다리지 않고 비동기식으로 여러 자식 runbook을 시작할 수 있습니다. 인라인에서 자식 Runbook을 호출하는 동일한 종류의 병렬 실행에 대해 부모 Runbook은 [parallel 키워드](automation-powershell-workflow.md#parallel-processing)를 사용해야 합니다.
+The job from a child runbook started with a cmdlet will run in a separate job from the parent runbook. This results in more jobs than invoking the runbook inline and makes them more difficult to track. The parent can start multiple child runbooks asynchronously without waiting for each to complete. For that same kind of parallel execution calling the child runbooks inline, the parent runbook would need to use the [parallel keyword](automation-powershell-workflow.md#parallel-processing).
 
-[Runbook 매개 변수](automation-starting-a-runbook.md#runbook-parameters)에서 설명한 대로 cmdlet을 사용하여 시작된 자식 Runbook에 대한 매개 변수는 해시 테이블로 제공됩니다. 단순한 데이터 형식만 사용할 수 있습니다. runbook에 복잡한 데이터 형식을 가진 매개 변수가 있는 경우 인라인으로 호출해야 합니다.
+Parameters for a child runbook started with a cmdlet are provided as a hashtable as described in [Runbook Parameters](automation-starting-a-runbook.md#runbook-parameters). Only simple data types can be used. If the runbook has a parameter with a complex data type, then it must be called inline.
 
-### 예
+### <a name="example"></a>Example
 
-다음 예제는 매개 변수로 자식 runbook를 시작한 다음 Start-AzureRmAutomationRunbook -wait 매개 변수를 사용하여 완료되기를 기다립니다. 완료되면 자식 runbook에서 해당 출력을 수집합니다.
+The following example starts a child runbook with parameters and then waits for it to complete using the Start-AzureRmAutomationRunbook -wait parameter. Once completed, its output is collected from the child runbook.
 
-	$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
+    $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
     $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
 
 
-## 자식 runbook을 호출하기 위한 방법 비교
+## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Comparison of methods for calling a child runbook
 
-다음 테이블은 다른 runbook에서 runbook을 호출하기 위한 두 메서드 간의 차이점을 요약합니다.
+The following table summarizes the differences between the two methods for calling a runbook from another runbook.
 
-| | 인라인| Cmdlet|
+| | Inline| Cmdlet|
 |:---|:---|:---|
-|작업|자식 runbook은 부모와 동일한 작업을 실행합니다.|자식 runbook에 대한 별도 작업을 만듭니다.|
-|실행|계속하기 전에 부모 runbook은 자식 runbook이 완료되기를 기다립니다.|자식 Runbook이 시작된 후에 즉시 부모 Runbook이 계속되거나 *또는* 자식 작업이 완료될 때까지 부모 Runbook이 대기합니다.|
-|출력|부모 runbook은 자식 runbook에서 출력을 직접 가져올 수 있습니다.|부모 Runbook은 자식 Runbook 작업에서 출력을 검색하거나 *또는* 자식 Runbook에서 출력을 직접 가져올 수 있습니다.|
-|매개 변수|자식 runbook 매개 변수 값은 별도로 지정되며 모든 데이터 형식을 사용할 수 있습니다.|자식 runbook 매개 변수 값은 단일 hashtable로 결합해야 하며 JSON 직렬화를 활용하는 간단한 배열 및 개체 데이터 형식만을 포함할 수 있습니다.|
-|자동화 계정|부모 runbook은 같은 자동화 계정에서 자식 runbook을 사용할 수 있습니다.|부모 runbook은 연결된 경우 동일한 Azure 구독 및 심지어 다른 구독의 자동화 계정에서 자식 runbook을 사용할 수 있습니다.|
-|게시|부모 runbook을 게시하기 전에 자식 runbook을 게시해야 합니다.|부모 runbook을 시작하기 전 언제든 자식 runbook을 게시해야 합니다.|
+|Job|Child runbooks run in the same job as the parent.|A separate job is created for the child runbook.|
+|Execution|Parent runbook waits for the child runbook to complete before continuing.|Parent runbook continues immediately after child runbook is started *or* parent runbook waits for the child job to finish.|
+|Output|Parent runbook can directly get output from child runbook.|Parent runbook must retrieve output from child runbook job *or* parent runbook can directly get output from child runbook.|
+|Parameters|Values for the child runbook parameters are specified separately and can use any data type.|Values for the child runbook parameters must be combined into a single hashtable and can only include simple, array, and object data types that leverage JSON serialization.|
+|Automation Account|Parent runbook can only use child runbook in the same automation account.|Parent runbook can use child runbook from any automation account from the same Azure subscription and even a different subscription if you have a connection to it.|
+|Publishing|Child runbook must be published before parent runbook is published.|Child runbook must be published any time before parent runbook is started.|
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
-- [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
+- [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
+- [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

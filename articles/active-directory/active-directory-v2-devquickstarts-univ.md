@@ -1,28 +1,33 @@
 <properties
-	pageTitle="Azure AD v2.0 Windows 범용 앱 | Microsoft Azure"
-	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 Windows 유니버설 앱을 빌드하는 방법입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD v2.0 Windows Universal App | Microsoft Azure"
+    description="How to build an Windows Universal app that signs users in with both personal Microsoft Account and work or school accounts."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.topic="article"
-  	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.date="02/20/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.topic="article"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.date="02/20/2016"
+    ms.author="dastrock"/>
 
-  # v2.0 끝점을 사용하여 Windows 범용 앱에 로그인을 추가합니다. Windows 범용 앱에 대한 빠른 시작 자습서는 아직 준비되지 않았습니다... 나중에 다시 Twitter에서 @AzureAD를 다시 방문하여 업데이트를 확인하세요.
+  
+# <a name="add-sign-in-to-a-windows-universal-app-using-the-v2.0-endpoint"></a>Add sign-in to a Windows Universal app using the v2.0 endpoint
+  The quick-start tutorial for Windows Universal apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 
 > [AZURE.NOTE]
-	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
-	
-	## Get security updates for our products
+    Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+    
+    ## Get security updates for our products
 
-[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
 
-<!---HONumber=AcomDC_0601_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

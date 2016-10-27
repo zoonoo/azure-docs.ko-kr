@@ -1,71 +1,77 @@
 <properties
-	pageTitle="Azure AD 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대한 조건부 액세스"
-	description="Azure AD 응용 프로그램 프록시를 사용하여, 게시하는 응용 프로그램에 대해 조건부 액세스를 설정하는 방법을 설명합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+    pageTitle="Conditional Access for Applications Published with Azure AD Application Proxy"
+    description="Covers how to set up conditional access for applications you publish to be accessed remotely using Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="kgremban"/>
-
-# 조건부 액세스로 작업하기
-
-응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대한 조건부 액세스 권한을 부여하도록 액세스 규칙을 구성할 수 있습니다. 다음을 수행할 수 있습니다.
-
-- 응용 프로그램 당 Multi-Factor Authentication 요구
-- 사용자가 직장이 아닌 경우 Multi-Factor Authentication 요구
-- 사용자가 직장이 아닌 경우 응용 프로그램에 액세스를 차단
-
-모든 사용자 및 그룹 또는 특정 사용자 및 그룹에만 이러한 규칙을 적용할 수 있습니다. 기본적으로 규칙은 응용 프로그램에 대한 액세스 권한이 있는 모든 사용자에게 적용됩니다. 그러나 규칙은 지정된 보안 그룹의 구성원인 사용자로만 제한될 수도 있습니다.
-
-사용자가 OAuth 2.0, OpenID Connect, SAML 또는 WS-Federation을 사용하는 페더레이션된 응용 프로그램에 액세스할 때 액세스 규칙이 평가됩니다. 또한 액세스 규칙은 새로 고침 토큰을 사용하여 액세스 토큰을 확보할 때 OAuth 2.0 및 OpenID Connect로 평가됩니다.
-
-## 조건부 액세스 필수 조건
-
-- Azure Active Directory Premium 구독
-- 페더레이션 또는 관리되는 Azure Active Directory 테넌트
-- 페더레이션된 테넌트가 해당 MFA(Multi-Factor Authentication)의 사용 요구 ![액세스 규칙 구성 - 다단계 인증 필요](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
-
-## 응용 프로그램당 Multi-Factor Authentication 구성
-1. Azure 클래식 포털에서 관리자로 로그인합니다.
-2. Active Directory로 이동하여 응용 프로그램 프록시를 사용하도록 설정할 디렉터리를 선택합니다.
-3. **응용 프로그램**을 클릭하고 아래로 스크롤하여 **액세스 규칙** 섹션을 클릭합니다. 액세스 규칙 섹션은 페더레이션 인증을 사용하는 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대해서만 표시됩니다.
-4. **액세스 규칙 사용**을 **켜기**로 설정하여 규칙을 사용합니다.
-5. 규칙을 적용할 사용자 및 그룹을 지정합니다. **그룹 추가** 단추를 사용하여 액세스 규칙이 적용되는 하나 이상의 그룹을 선택합니다. 이 대화 상자는 선택한 그룹을 제거하는 데 사용할 수도 있습니다. 그룹에 적용할 규칙이 선택되면 액세스 규칙이 지정된 보안 그룹 중 하나에 속한 사용자에 대해서만 적용됩니다.  
-
-  - 규칙에서 보안 그룹을 명시적으로 제외하려면 **제외**를 선택하고 하나 이상의 그룹을 지정합니다. 제외 목록에 있는 그룹 회원인 사용자는 Multi-Factor Authentication을 수행하지 않아도 됩니다.  
-
-  - 사용자별 다단계 인증 기능을 사용하여 사용자가 구성된 경우 이 설정이 응용 프로그램 다단계 인증 규칙보다 우선적으로 적용됩니다. 즉, 사용자별 Multi-Factor Authentication을 위해 구성된 사용자는 응용 프로그램의 Multi-Factor Authentication 규칙에서 제외되더라도 Multi-Factor Authentication을 수행해야 함을 의미합니다. [Multi-Factor Authentication 및 사용자별 설정](../multi-factor-authentication/multi-factor-authentication.md)에 대해 자세히 알아보세요.
-
-6. 설정하려는 액세스 규칙을 선택합니다.
-	- **Multi-Factor Authentication 필요**: 액세스 규칙이 적용되는 사용자는 규칙이 적용되는 응용 프로그램에 액세스하기 전에 Multi-Factor Authentication을 완료해야 합니다.
-	- **직장이 아닐 때 Multi-Factor Authentication 요구**: 신뢰되는 IP 주소에서 응용 프로그램에 액세스하고자 하는 사용자는 Multi-Factor Authentication을 수행하지 않아도 됩니다. 신뢰되는 IP 주소 범위는 Multi-Factor Authentication 설정 페이지에서 구성할 수 있습니다.
-	- **직장이 아닐 때 액세스 차단**: 회사 네트워크 외부에서 응용 프로그램에 액세스하고자 하는 사용자는 응용 프로그램에 액세스할 수 없습니다.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/22/2016"
+    ms.author="kgremban"/>
 
 
-## 페더레이션 서비스에 대한 MFA 구성
-페더레이션된 테넌트의 경우 MFA(다단계 인증)를 Azure Active Directory 또는 온-프레미스 AD FS 서버에서 수행할 수 있습니다. 기본적으로 MFA는 Azure Active Directory에서 호스팅되는 모든 페이지에 발생합니다. MFA 온-프레미스를 구성하려면 Windows PowerShell을 실행하고 Azure AD 모듈을 설정하려면 – SupportsMFA 속성을 사용합니다.
+# <a name="working-with-conditional-access"></a>Working with conditional access
 
-다음 예제는 contoso.com 테넌트에서 [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx)을 사용하여 온-프레미스 MFA를 사용하도록 설정하는 방법을 보여 줍니다. `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+You can configure access rules to grant conditional access to applications published using Application Proxy. This enables you to:
 
-이 플래그를 설정하는 것 외에도 페더레이션 테넌트 AD FS 인스턴스에서 다단계 인증을 수행하도록 구성해야 합니다. [온-프레미스에 Microsoft Azure Multi-Factor Authentication을 배포](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)하기 위한 지침을 따르세요.
+- Require multi-factor authentication per application
+- Require multi-factor authentication only when users are not at work
+- Block users from accessing the application when they are not at work
+
+These rules can be applied to all users and groups or only to specific users and groups. By default the rule will apply to all users who have access to the application. However the rule can also be restricted to users that are members of specified security groups.  
+
+Access rules are evaluated when a user accesses a federated application that uses OAuth 2.0, OpenID Connect, SAML or WS-Federation. In addition, access rules are evaluated with OAuth 2.0 and OpenID Connect when a refresh token is used to acquire an access token.
+
+## <a name="conditional-access-prerequisites"></a>Conditional access prerequisites
+
+- Subscription to Azure Active Directory Premium
+- A federated or managed Azure Active Directory tenant
+- Federated tenants require that multi-factor authentication (MFA) be enabled  
+    ![Configure access rules - require multi-factor authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
+
+## <a name="configure-per-application-multi-factor-authentication"></a>Configure per-application multi-factor authentication
+1. Sign in as an administrator in the Azure classic portal.
+2. Go to Active Directory and select the directory in which you want to enable Application Proxy.
+3. Click **Applications** and scroll down to the **Access Rules** section. The access rules section only appears for applications published using Application Proxy that use federated authentication.
+4. Enable the rule by selecting **Enable Access Rules** to **On**.
+5. Specify the users and groups to whom the rules will apply. Use the **Add Group** button  to select one or more groups to which the access rule will apply. This dialog can also be used to remove selected groups.  When the rules are selected to apply to groups, the access rules will only be enforced for users that belong to one of the specified security groups.  
+
+  - To explicitly exclude security groups from the rule, check **Except**  and specify one or more groups. Users who are members of a group in the Except list will not be required to perform multi-factor authentication.  
+
+  - If a user was configured using the per-user multi-factor authentication feature, this setting will take precedence over the application multi-factor authentication rules. This means that a user who has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application's multi-factor authentication rules. Learn more about [multi-factor authentication and per-user settings](../multi-factor-authentication/multi-factor-authentication.md).
+
+6. Select the access rule you want to set:
+    - **Require Multi-factor authentication**: Users to whom access rules apply will be required to complete multi-factor authentication before accessing the application to which the rule applies.
+    - **Require Multi-factor authentication when not at work**: Users trying to access the application from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
+    - **Block access when not at work**: Users trying to access the application from outside your corporate network will not be able to access the application.
 
 
-## 참고 항목
+## <a name="configuring-mfa-for-federation-services"></a>Configuring MFA for federation services
+For federated tenants, multi-factor authentication (MFA) may be performed by Azure Active Directory or by the on-premises AD FS server. By default, MFA will occur on any page hosted by Azure Active Directory. In order to configure MFA on-premises, run Windows PowerShell and use the –SupportsMFA property to set the Azure AD module.
 
-- [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
-- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
-- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-- [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
+The following example shows how to enable on-premises MFA by using the [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) on the contoso.com tenant: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
-최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
+In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for [deploying Microsoft Azure multi-factor authentication on-premises](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+## <a name="see-also"></a>See also
+
+- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
+- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
+
+For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

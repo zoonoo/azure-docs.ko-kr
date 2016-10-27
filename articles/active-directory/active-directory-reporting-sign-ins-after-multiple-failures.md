@@ -1,22 +1,23 @@
 <properties
-	pageTitle="여러 번의 실패 후 로그인"
-	description="여러 번의 로그인 시도를 연속해서 실패한 이후 로그인에 성공한 사용자를 나타내는 보고서입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="femila"
-	editor=""/>
+    pageTitle="여러 번의 실패 후 로그인"
+    description="여러 번의 로그인 시도를 연속해서 실패한 이후 로그인에 성공한 사용자를 나타내는 보고서입니다."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
-# 여러 번의 실패 후 로그인
+
+# <a name="sign-ins-after-multiple-failures"></a>여러 번의 실패 후 로그인
 이 보고서에는 여러 번의 로그인 시도를 연속해서 실패한 이후 로그인에 성공한 사용자가 표시됩니다. 가능한 원인은 다음과 같습니다.
 
 - 사용자가 암호를 잊어버린 경우</li><li>사용자의 계정이 암호 추측 무차별 암호 대입 공격(brute force attack)에 당한 경우
@@ -28,4 +29,8 @@
 
 ![여러 번의 실패 후 로그인](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(PolyBase) | Microsoft Azure"
-   description="bcp를 사용하여 SQL Server에서 플랫 파일로 데이터를 내보내고 AZCopy를 사용하여 Azure Blob 저장소로 데이터를 가져오고, PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 수집합니다."
+   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Microsoft Azure"
+   description="Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="ckarst"
@@ -17,28 +17,29 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
-# SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(AZCopy)
 
-SQL Server에서 Azure Blob 저장소로 데이터를 로드하려면 bcp 및 AZCopy 명령줄 유틸리티를 사용합니다. 그 다음 PolyBase 또는 Azure Data Factory를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 로드합니다.
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-(azcopy)"></a>Load data from SQL Server into Azure SQL Data Warehouse (AZCopy)
+
+Use bcp and AZCopy command-line utilities to load data from SQL Server to Azure blob storage. Then use PolyBase or Azure Data Factory to load the data into Azure SQL Data Warehouse. 
 
 
-## 필수 조건
+## <a name="prerequisites"></a>Prerequisites
 
-이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
+To step through this tutorial, you need:
 
-- SQL 데이터 웨어하우스 데이터베이스
-- 설치된 bcp 명령줄 유틸리티
-- 설치된 SQLCMD 명령줄 유틸리티
+- A SQL Data Warehouse database
+- The bcp command line utility installed
+- The SQLCMD command line utility installed
 
->[AZURE.NOTE] [Microsoft 다운로드 센터][]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
+>[AZURE.NOTE] You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
 
-## SQL 데이터 웨어하우스로 데이터 로드
+## <a name="import-data-into-sql-data-warehouse"></a>Import data into SQL Data Warehouse
 
-이 자습서에서는 Azure SQL 데이터 웨어하우스에서 테이블을 만들고 테이블로 데이터를 가져옵니다.
+In this tutorial, you will create a table in Azure SQL Data Warehouse and import data into the table.
 
-### 1단계: Azure SQL 데이터 웨어하우스에서 테이블 만들기
+### <a name="step-1:-create-a-table-in-azure-sql-data-warehouse"></a>Step 1: Create a table in Azure SQL Data Warehouse
 
-명령 프롬프트에서 sqlcmd를 사용하여 다음 쿼리를 실행하여 인스턴스에 테이블을 만듭니다.
+From a command prompt, use sqlcmd to run the following query to create a table on your instance:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -56,11 +57,11 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] SQL 데이터 웨어하우스에서 테이블을 만드는 방법과 WITH 절에서 사용 가능한 옵션에 대한 자세한 내용은 [테이블 개요][] 또는 [CREATE TABLE 구문][]을 참조하세요.
+>[AZURE.NOTE] See [Table Overview][] or [CREATE TABLE syntax][] for more information about creating a table on SQL Data Warehouse and the  options available in the WITH clause.
 
-### 2단계: 원본 데이터 파일 만들기
+### <a name="step-2:-create-a-source-data-file"></a>Step 2: Create a source data file
 
-메모장을 열고 다음 데이터 줄을 새 텍스트 파일에 복사한 다음 이 파일을 로컬 임시 디렉터리 C:\\Temp\\DimDate2.txt에 저장합니다.
+Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -77,22 +78,22 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 20150101,1,3
 ```
 
-> [AZURE.NOTE] 해당 bcp.exe는 UTF-8 파일 인코딩을 지원하지 않습니다. bcp.exe 사용 시 파일에 ASCII 파일 또는 UTF-16 인코딩 파일을 사용하세요.
+> [AZURE.NOTE] It is important to remember that bcp.exe does not support the UTF-8 file encoding. Please use ASCII files or UTF-16 encoded files when using bcp.exe.
 
-### 3단계: 데이터 연결 및 가져오기
-bcp를 사용하여, 연결하고 값을 적절하게 대체하는 다음 명령을 사용하여 데이터를 가져올 수 있습니다.
+### <a name="step-3:-connect-and-import-the-data"></a>Step 3: Connect and import the data
+Using bcp, you can connect and import the data using the following command replacing the values as appropriate:
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
-sqlcmd에서 다음 쿼리를 실행하여 데이터가 로드되었음을 확인할 수 있습니다.
+You can verify the data was loaded by running the following query using sqlcmd:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-다음 결과를 반환해야 합니다.
+This should return the following results:
 
 DateId |CalendarQuarter |FiscalQuarter
 ----------- |--------------- |-------------
@@ -109,11 +110,11 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### 4단계: 새로 로드한 데이터에 대한 통계 만들기
+### <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Step 4: Create Statistics on your newly loaded data
 
-Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요. 다음은 이 예제에 로드한 테이블에 대한 통계를 만드는 방법을 간략히 보여주는 예입니다.
+Azure SQL Data Warehouse does not yet support auto create or auto update statistics. In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data. For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics. Below is a quick example of how to create statistics on the tabled loaded in this example
 
-sqlcmd 프롬프트에서 다음 CREATE STATISTICS 문을 실행합니다.
+Execute the following CREATE STATISTICS statements from a sqlcmd prompt:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -123,17 +124,17 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## SQL 데이터 웨어하우스에서 데이터 내보내기
-이 자습서에서는 SQL 데이터 웨어하우스의 테이블에서 데이터 파일이 만들어집니다. 위에서 만든 데이터를 DimDate2\_export.txt라는 새 데이터 파일로 내보냅니다.
+## <a name="export-data-from-sql-data-warehouse"></a>Export data from SQL Data Warehouse
+In this tutorial, you will create a data file from a table in SQL Data Warehouse. We will export the data we created above to a new data file called DimDate2_export.txt.
 
-### 1단계: 데이터 내보내기
+### <a name="step-1:-export-the-data"></a>Step 1: Export the data
 
-bcp 유틸리티를 사용하여, 값을 적절하게 대체하는 다음 명령을 사용하여 연결하고 데이터를 내보낼 수 있습니다.
+Using the bcp utility, you can connect and export data using the following command replacing the values as appropriate:
 
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-새 파일을 열어 데이터를 올바르게 내보냈는지 확인할 수 있습니다. 파일의 데이터는 아래 텍스트와 일치해야 합니다.
+You can verify the data was exported correctly by opening the new file. The data in the file should match the text below:
 
 ```
 20150301,1,3
@@ -150,25 +151,30 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 20150101,1,3
 ```
 
->[AZURE.NOTE] 분산된 시스템의 특성상 데이터 순서는 SQL 데이터 웨어하우스 데이터베이스에서 동일하지 않을 수 있습니다. 또 다른 옵션은 전체 테이블을 내보내는 것이 아니라 쿼리 추출을 작성하는 bcp의 **queryout** 함수를 사용하는 것입니다.
+>[AZURE.NOTE] Due to the nature of distributed systems, the data order may not be the same across SQL Data Warehouse databases. Another option is to use the **queryout** function of bcp to write a query extract rather than export the entire table.
 
-## 다음 단계
-로드 개요는 [SQL 데이터 웨어하우스로 데이터 로드][]를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
+## <a name="next-steps"></a>Next steps
+For an overview of loading, see [Load data into SQL Data Warehouse][].
+For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[SQL 데이터 웨어하우스로 데이터 로드]: ./sql-data-warehouse-overview-load.md
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
-[테이블 개요]: ./sql-data-warehouse-tables-overview.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE 구문]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft 다운로드 센터]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

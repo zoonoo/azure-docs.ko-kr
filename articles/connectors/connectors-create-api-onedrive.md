@@ -1,12 +1,12 @@
 <properties
-	pageTitle="논리 앱에 OneDrive 커넥터 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 OneDrive 커넥터 개요"
-	services="logic-apps"    
-	documentationCenter=""     
-	authors="MandiOhlinger"    
-	manager="erikre"    
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the OneDrive connector in your Logic Apps | Microsoft Azure"
+    description="Overview of the OneDrive connector with REST API parameters"
+    services="logic-apps"    
+    documentationCenter=""     
+    authors="MandiOhlinger"    
+    manager="anneta"    
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -14,404 +14,409 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/26/2016"
+   ms.date="10/18/2016"
    ms.author="mandia"/>
 
-# OneDrive 커넥터 시작
 
-OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하여 파일을 관리합니다.
+# <a name="get-started-with-the-onedrive-connector"></a>Get started with the OneDrive connector
 
-OneDrive를 사용하여 다음과 같은 작업을 수행합니다.
+Connect to OneDrive to manage your files, including upload, get, delete files, and more. 
 
-- OneDrive에서 파일을 저장하여 워크플로를 작성하거나 OneDrive의 기존 파일을 업데이트합니다.
-- 트리거를 사용하여 OneDrive 내에서 파일이 만들어지거나 업데이트될 때 워크플로를 시작합니다.
-- 파일 만들기, 파일 삭제 등의 작업을 사용합니다. 예를 들어 새 Office 365 전자 메일이 첨부 파일과 함께 수신되면(트리거) OneDrive에 새 파일을 만듭니다(작업).
+With OneDrive, you: 
 
-이 항목에서는 논리 앱에서 OneDrive 커넥터를 사용하는 방법을 보여 주고 트리거 및 작업을 나열합니다.
+- Build your workflow by storing files in OneDrive, or update existing files in OneDrive. 
+- Use triggers to start your workflow when a file is created or updated within your OneDrive.
+- Use actions to create a file, delete a file, and more. For example, when a new Office 365 email is received with an attachment (a trigger), create a new file in OneDrive (an action).
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다.
+This topic shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
 
-논리 앱에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../app-service-logic/app-service-logic-what-are-logic-apps.md) 및 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-## OneDrive에 연결
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 OneDrive에 연결하려면 먼저 OneDrive *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 OneDrive를 사용하는 경우 OneDrive 계정에 대한 자격 증명을 입력하여 연결을 만듭니다.
+## <a name="connect-to-onedrive"></a>Connect to OneDrive
 
-### 연결 만들기
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to OneDrive, you first need a OneDrive *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So, with OneDrive, enter the credentials to your OneDrive account  to create the connection.
 
->[AZURE.INCLUDE [OneDrive에 대한 연결을 만드는 단계](../../includes/connectors-create-api-onedrive.md)]
+### <a name="create-the-connection"></a>Create the connection
 
-## 트리거 사용
+>[AZURE.INCLUDE [Steps to create a connection to OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. 원하는 간격 및 빈도로 서비스의 "폴링"을 트리거합니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+## <a name="use-a-trigger"></a>Use a trigger
 
-1. 논리 앱에서 트리거 목록을 가져오려면 "onedrive"를 입력합니다.
+A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-	![](./media/connectors-create-api-onedrive/onedrive-1.png)
+1. In the logic app, type "onedrive" to get a list of the triggers:  
 
-2. **파일을 수정할 때**를 선택합니다. 연결이 이미 있는 경우 선택 표시 단추를 선택하여 폴더를 선택합니다.
+    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
-	![](./media/connectors-create-api-onedrive/sample-folder.png)
+2. Select **When a file is modified**. If a connection already exists, then select the Show Picker button to select a folder.
 
-	로그인하라는 메시지가 표시되면 로그인 세부 정보를 입력하여 연결을 만듭니다. 이 항목의 [연결 만들기](connectors-create-api-onedrive.md#create-the-connection)에 단계가 표시됩니다.
+    ![](./media/connectors-create-api-onedrive/sample-folder.png)
 
-	> [AZURE.NOTE] 이 예제에서는 선택한 폴더의 파일이 업데이트되면 논리 앱이 실행됩니다. 이 트리거의 결과를 보려면 전자 메일을 보내는 다른 작업을 추가합니다. 예를 들어 파일이 업데이트될 때 전자 메일을 보내는 Office 365 Outlook *전자 메일 보내기* 작업을 추가합니다.
+    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic lists the steps. 
 
-3. **편집** 단추를 선택하고 **빈도** 및 **간격** 값을 설정합니다. 예를 들어 15분마다 폴링을 트리거하려면 **빈도**를 **분**으로, **간격**을 **15**로 설정합니다.
+    > [AZURE.NOTE] In this example, the logic app runs when a file in the folder you choose is updated. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 Outlook *Send an email* action that emails you when a file is updated. 
 
-	![](./media/connectors-create-api-onedrive/trigger-properties.png)
+3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
 
-4. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
+    ![](./media/connectors-create-api-onedrive/trigger-properties.png)
 
-
-## 작업 사용
-
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
-
-1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 등이 표시됩니다.
-
-	![](./media/connectors-create-api-onedrive/add-action.png)
-
-2. **작업 추가**를 선택합니다.
-
-3. 텍스트 상자에 "onedrive"를 입력하여 사용 가능한 모든 작업의 목록을 표시합니다.
-
-	![](./media/connectors-create-api-onedrive/onedrive-actions.png)
-
-4. 이 예제에서는 **OneDrive - 파일 만들기**를 선택합니다. 연결이 이미 존재하는 경우 **폴더 경로**를 선택하여 파일을 입력하고 **파일 이름**을 입력한 후 원하는 **파일 콘텐츠**를 선택합니다.
-
-	![](./media/connectors-create-api-onedrive/sample-action.png)
-
-	연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 항목의 [연결 만들기](connectors-create-api-onedrive.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다.
-
-	> [AZURE.NOTE] 이 예제에서는 OneDrive 폴더에 새 파일을 만듭니다. 다른 트리거의 출력을 사용하여 OneDrive 파일을 만들 수 있습니다. 예를 들어 Office 365 Outlook *새 전자 메일이 도착했을 때* 트리거를 추가합니다. 그런 후 ForEach 내에서 Attachments 및 Content-Type 필드를 사용하는 OneDrive *파일 만들기* 작업을 추가하여 OneDrive에서 새 파일을 만듭니다.
-	> 
-	> ![](./media/connectors-create-api-onedrive/foreach-action.png)
-
-5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
+4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
-## 기술 세부 정보
+## <a name="use-an-action"></a>Use an action
 
-## 트리거
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-|트리거 | 설명|
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+
+    ![](./media/connectors-create-api-onedrive/add-action.png)
+
+2. Choose **Add an action**.
+
+3. In the text box, type “onedrive” to get a list of all the available actions.
+
+    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+
+4. In our example, choose **OneDrive - Create file**. If a connection already exists, then select the **Folder Path** to put the file, enter the **File Name**, and choose the **File Content** you want:  
+
+    ![](./media/connectors-create-api-onedrive/sample-action.png)
+
+    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic describes these properties. 
+
+    > [AZURE.NOTE] In this example, we create a new file in a OneDrive folder. You can use output from another trigger to create the OneDrive file. For example, add the Office 365 Outlook *When a new email arrives* trigger. Then add the OneDrive *Create file* action that uses the Attachments and Content-Type fields within a ForEach to create the new file in OneDrive. 
+    > 
+    > ![](./media/connectors-create-api-onedrive/foreach-action.png)
+
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+
+
+## <a name="technical-details"></a>Technical Details
+
+## <a name="triggers"></a>Triggers
+
+|Trigger | Description|
 |--- | ---|
-|[파일을 만들 때](connectors-create-api-onedrive.md#when-a-file-is-created)|이 작업은 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.|
-|[파일을 수정할 때](connectors-create-api-onedrive.md#when-a-file-is-modified)|이 작업은 폴더에서 파일을 수정할 때 흐름을 트리거합니다.|
+|[When a file is created](connectors-create-api-onedrive.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a folder.|
+|[When a file is modified](connectors-create-api-onedrive.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a folder.|
 
 
-## 동작
+## <a name="actions"></a>Actions
 
-|작업|설명|
+|Action|Description|
 |--- | ---|
-|[파일 메타데이터 가져오기](connectors-create-api-onedrive.md#get-file-metadata)|이 작업은 파일에 대한 메타데이터를 가져옵니다.|
-|[파일 업데이트](connectors-create-api-onedrive.md#update-file)|이 작업은 파일을 업데이트합니다.|
-|[파일 삭제](connectors-create-api-onedrive.md#delete-file)|이 작업은 파일을 삭제합니다.|
-|[경로를 사용하여 파일 메타데이터 가져오기](connectors-create-api-onedrive.md#get-file-metadata-using-path)|이 작업은 경로를 사용하여 파일의 메타데이터를 가져옵니다.|
-|[경로를 사용하여 파일 콘텐츠 가져오기](connectors-create-api-onedrive.md#get-file-content-using-path)|이 작업은 경로를 사용하여 파일의 콘텐츠를 가져옵니다.|
-|[파일 콘텐츠 가져오기](connectors-create-api-onedrive.md#get-file-content)|이 작업은 파일의 콘텐츠를 가져옵니다.|
-|[파일 만들기](connectors-create-api-onedrive.md#create-file)|이 작업은 파일을 만듭니다.|
-|[파일 복사](connectors-create-api-onedrive.md#copy-file)|이 작업은 OneDrive에 파일을 복사합니다.|
-|[폴더의 파일 나열](connectors-create-api-onedrive.md#list-files-in-folder)|이 작업은 폴더의 파일 및 하위 폴더 목록을 가져옵니다.|
-|[루트 폴더의 파일 나열](connectors-create-api-onedrive.md#list-files-in-root-folder)|이 작업은 루트 폴더의 파일 및 하위 폴더 목록을 가져옵니다.|
-|[폴더에 보관 추출](connectors-create-api-onedrive.md#extract-archive-to-folder)|이 작업은 보관 파일을 FTP 서버의 폴더에 추출합니다(예: .zip).|
+|[Get file metadata](connectors-create-api-onedrive.md#get-file-metadata)|This operation gets the metadata for a file.|
+|[Update file](connectors-create-api-onedrive.md#update-file)|This operation updates a file.|
+|[Delete file](connectors-create-api-onedrive.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-onedrive.md#get-file-metadata-using-path)|This operation gets the metadata of a file using the path.|
+|[Get file content using path](connectors-create-api-onedrive.md#get-file-content-using-path)|This operation gets the content of a file using the path.|
+|[Get file content](connectors-create-api-onedrive.md#get-file-content)|This operation gets the content of a file.|
+|[Create file](connectors-create-api-onedrive.md#create-file)|This operation creates a file.|
+|[Copy file](connectors-create-api-onedrive.md#copy-file)|This operation copies a file to OneDrive.|
+|[List files in folder](connectors-create-api-onedrive.md#list-files-in-folder)|This operation gets the list of files and subfolders in a folder.|
+|[List files in root folder](connectors-create-api-onedrive.md#list-files-in-root-folder)|This operation gets the list of files and subfolders in the root folder.|
+|[Extract archive to folder](connectors-create-api-onedrive.md#extract-archive-to-folder)|This operation extracts an archive file into a folder (example: .zip).|
 
-### 작업 세부 정보
+### <a name="action-details"></a>Action details
 
-이 섹션에서는 모든 필수 또는 선택적 입력 속성 및 커넥터와 연결된 모든 해당 출력을 비롯한 각 작업에 대한 특정 세부 정보를 참조하세요.
+In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
 
 
-#### 파일 메타데이터 가져오기
-이 작업은 파일에 대한 메타데이터를 가져옵니다.
+#### <a name="get-file-metadata"></a>Get file metadata
+This operation gets the metadata for a file. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|파일|파일 선택|
+|id*|File|Select a file|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### 파일 업데이트
-이 작업은 파일을 업데이트합니다.
+#### <a name="update-file"></a>Update file
+This operation updates a file. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|파일|파일 선택|
-|body*|파일 콘텐츠|파일 콘텐츠|
+|id*|File|Select a file|
+|body*|File content|Content of the file|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### 파일 삭제
-이 작업은 파일을 삭제합니다.
+#### <a name="delete-file"></a>Delete file
+This operation deletes a file. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|파일|파일 선택|
+|id*|File|Select a file|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-없음
+##### <a name="output-details"></a>Output Details
+None.
 
-#### 경로를 사용하여 파일 메타데이터 가져오기
-이 작업은 경로를 사용하여 파일의 메타데이터를 가져옵니다.
+#### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+This operation gets the metadata of a file using the path. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|파일 경로|파일 선택|
+|path*|File path|Select a file|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### 경로를 사용하여 파일 콘텐츠 가져오기
-이 작업은 경로를 사용하여 파일의 콘텐츠를 가져옵니다.
+#### <a name="get-file-content-using-path"></a>Get file content using path
+This operation gets the content of a file using the path. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|파일 경로|파일 선택|
+|path*|File path|Select a file|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-없음
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### 파일 콘텐츠 가져오기
-이 작업은 파일의 콘텐츠를 가져옵니다.
+#### <a name="get-file-content"></a>Get file content
+This operation gets the content of a file. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|파일|파일 선택|
+|id*|File|Select a file|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-없음
+##### <a name="output-details"></a>Output Details
+None.
 
-#### 파일 만들기
-이 작업은 파일을 만듭니다.
+#### <a name="create-file"></a>Create file
+This operation creates a file. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderPath*|폴더 경로|폴더 선택|
-|name*|파일 이름|파일의 이름|
-|body*|파일 콘텐츠|파일 콘텐츠|
+|folderPath*|Folder path|Select a folder|
+|name*|File name|Name of the file|
+|body*|File content|Content of the file|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### 파일 복사
-이 작업은 OneDrive에 파일을 복사합니다.
+#### <a name="copy-file"></a>Copy file
+This operation copies a file to OneDrive. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|원본 URL|원본 파일에 대한 URL|
-|destination*|대상 파일 경로|대상 파일 이름을 포함한 대상 파일 경로|
-|overwrite|덮어쓰기|'true'로 설정할 경우 대상 덮어쓰기|
+|source*|Source url|Url to source file|
+|destination*|Destination file path|Destination file path, including target filename|
+|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### 파일을 만들 때
-이 작업은 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.
+#### <a name="when-a-file-is-created"></a>When a file is created
+This operation triggers a flow when a new file is created in a folder. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderId*|폴더|폴더 선택|
+|folderId*|Folder|Select a folder|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-없음
+##### <a name="output-details"></a>Output Details
+None.
 
-#### 파일을 수정할 때
-이 작업은 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
+#### <a name="when-a-file-is-modified"></a>When a file is modified
+This operation triggers a flow when a file is modified in a folder. 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderId*|폴더|폴더 선택|
+|folderId*|Folder|Select a folder|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
-없음
+##### <a name="output-details"></a>Output Details
+None.
 
-#### 폴더의 파일 나열
-이 작업은 폴더의 파일 및 하위 폴더 목록을 가져옵니다.
+#### <a name="list-files-in-folder"></a>List files in folder
+This operation gets the list of files and subfolders in a folder.
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|폴더|폴더 선택|
+|id*|Folder|Select a folder|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string||
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### 루트 폴더의 파일 나열
-이 작업은 루트 폴더의 파일 및 하위 폴더 목록을 가져옵니다.
+#### <a name="list-files-in-root-folder"></a>List files in root folder
+This operation gets the list of files and subfolders in the root folder. 
 
-이 호출에 대한 매개 변수는 없습니다.
+There are no parameters for this call.
 
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
-#### 폴더에 보관 추출
-이 작업은 보관 파일을 FTP 서버의 폴더에 추출합니다(예: .zip).
+#### <a name="extract-archive-to-folder"></a>Extract archive to folder
+This operation extracts an archive file into a folder (example: .zip). 
 
-|속성 이름| 표시 이름|설명|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|원본 보관 파일 경로|보관 파일의 경로|
-|destination*|대상 폴더 경로|보관 콘텐츠를 추출할 경로|
-|overwrite|덮어쓰기|'true'로 설정할 경우 대상 파일 덮어쓰기|
+|source*|Source archive file path|Path to the archive file|
+|destination*|Destination folder path|Path to extract the archive contents|
+|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
 
-별표(*)는 속성이 필수 사항임을 의미합니다.
+An asterisk (*) means the property is required.
 
-##### 출력 세부 정보
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| 속성 이름 | 데이터 형식 |
+| Property Name | Data Type |
 |---|---|
 |Id|string|
-|이름|string|
+|Name|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|크기|정수|
+|Size|integer|
 |MediaType|string|
-|IsFolder|부울|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-## HTTP 응답
+## <a name="http-responses"></a>HTTP responses
 
-다음 표에서는 작업 및 트리거에 대한 응답과 응답 설명을 요약해서 보여 줍니다.
+The following table outlines the responses to the actions and triggers, and the response descriptions:  
 
-|이름|설명|
+|Name|Description|
 |---|---|
-|200|확인|
-|202|수락됨|
-|400|잘못된 요청|
-|401|권한 없음|
-|403|사용할 수 없음|
-|404|찾을 수 없음|
-|500|내부 서버 오류. 알 수 없는 오류 발생|
-|기본값|작업이 실패했습니다.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
+|default|Operation Failed.|
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next Steps
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

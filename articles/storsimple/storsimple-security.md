@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 보안 | Microsoft Azure" 
-   description="온 프레미스 및 클라우드에서 StorSimple 서비스, 장치 및 데이터를 보호하는 보안 및 개인정보 보호 기능에 대해 설명합니다." 
+   pageTitle="StorSimple security | Microsoft Azure" 
+   description="Describes the security and privacy features that protect your StorSimple service, device, and data on premises and in the cloud." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -16,257 +16,262 @@
    ms.date="05/03/2016"
    ms.author="v-sharos"/>
 
-# StorSimple 보안 및 데이터 보호
 
-## 개요
+# <a name="storsimple-security-and-data-protection"></a>StorSimple security and data protection
 
-보안은 특히 기술이 기밀 또는 소유 데이터와 함께 사용 되는 경우 새로운 기술을 채택하는 사람들에게는 주요 관심사입니다. 다양한 기술을 평가하는 동안 데이터 보호에 대한 비용 및 위험 증가를 고려해야 합니다. Microsoft Azure StorSimple은 보안 및 개인정보 솔루션 데이터 보호 모두를 제공하며 다음을 수행할 수 있도록 돕습니다.
+## <a name="overview"></a>Overview
 
-- **기밀성** – 권한 있는 엔터티만 데이터를 볼 수 있습니다. 
-- **무결성** – 권한 있는 엔터티만 데이터를 수정하거나 삭제할 수 있습니다.
+Security is a major concern for anyone who is adopting a new technology, especially when the technology is used with confidential or proprietary data. As you evaluate different technologies, you must consider increased risks and costs for data protection. Microsoft Azure StorSimple provides both a security and privacy solution for data protection, helping to ensure: 
 
-Microsoft Azure StorSimple 솔루션은 서로 상호 작용 하는 네 가지 기본 구성 요소로 이루어져 있습니다.
+- **Confidentiality** – Only authorized entities can view your data. 
+- **Integrity** – Only authorized entities can modify or delete your data.
 
-- **Microsoft Azure에서 호스팅되는 StorSimple Manager 서비스** - StorSimple 장치를 구성하고 프로비전하는 데 사용하는 관리 서비스입니다.
-- **StorSimple 장치** – 데이터 센터에 설치된 물리적 장치입니다. StorSimple 장치에 연결하는 데이터를 생성하는 모든 호스트와 클라이언트이며, 해당 장치는 데이터를 관리하여 적절한 경우 Azure 클라우드로 이동합니다.
-- **장치에 연결된 클라이언트/호스트** – StorSimple 장치에 연결되고 보호되어야 하는 데이터를 생성하는 인프라 내의 클라이언트입니다.
-- **클라우드 저장소** – 데이터가 저장되는 Azure 클라우드의 위치입니다.
+The Microsoft Azure StorSimple solution consists of four main components that interact with each other:
 
-다음 섹션에서는 각 이러한 구성 요소와 구성요소에 저장된 데이터를 보호할 수 있는 StorSimple 보안 기능에 대해 설명합니다. 또한 Microsoft Azure StorSimple 보안 및 해당 답변에 대해 있을 수 있는 질문의 목록이 포함됩니다.
+- **StorSimple Manager service hosted in Microsoft Azure** – The management service that you use to configure and provision the StorSimple device.
+- **StorSimple device** – A physical device installed in your datacenter. All hosts and clients that generate data connect to the StorSimple device, and the device manages the data and moves it to the Azure cloud as appropriate.
+- **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the StorSimple device and generate data that needs to be protected.
+- **Cloud storage** – The location in the Azure cloud where data is stored.
 
-## StorSimple 관리자 서비스 보호
+The following sections describe the StorSimple security features that help protect each of these components and the data stored on them. It also includes a list of questions that you might have about Microsoft Azure StorSimple security, and the corresponding answers.
 
-StorSimple 관리자 서비스는 Microsoft Azure에서 호스트되고 조직에 조달하는 모든 StorSimple 장치를 관리하는데 사용되는 관리 서비스입니다. 웹 브라우저를 통해 Azure 클래식 포털에 로그온 후, 조직 자격 증명을 사용하여 StorSimple 관리자 서비스에 액세스할 수 있습니다.
+## <a name="storsimple-manager-service-protection"></a>StorSimple Manager service protection
 
-StorSimple Manager 서비스에 액세스하려면 StorSimple을 포함하는 Azure 구독 조직에 있어야 합니다. 구독은 Azure 클래식 포털에 액세스할 수 있는 기능을 제어합니다. 조직에 Azure 구독이 없고 이에 대한 자세한 정보를 알려면 [조직으로 Azure에 등록](../active-directory/sign-up-organization.md)을 참조하세요.
+The StorSimple Manager service is a management service hosted in Microsoft Azure and used to manage all StorSimple devices that your organization has procured. You can access the StorSimple Manager service by using your organizational credentials to log on to the Azure classic portal through a web browser. 
 
-StorSimple 관리자 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)로 이동합니다.
+Access to the StorSimple Manager service requires that your organization have an Azure subscription that includes StorSimple. Your subscription governs the features that you can access in the Azure classic portal. If your organization does not have an Azure subscription and you want to learn more about them, see [Sign up for Azure as an organization](../active-directory/sign-up-organization.md). 
 
-## StorSimple 장치 보호
+Because the StorSimple Manager service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
-안정된 상태를 포함하는 온-프레미스 하이브리드 저장소 장치 및 드라이브 (Ssd) 및 하드 디스크 드라이브(HDD)로, 중복 컨트롤러 및 자동 장애 조치 기능을 함께 제공합니다. 컨트롤러는 현재 사용되는(또는 핫) 데이터를 로컬 저장소(StoreSimple 장치 또는 온-프레미스 서버)에 배치하고 덜 자주 사용되는 데이터는 클라우드로 이동하여 저장소 계층화를 관리합니다.
+## <a name="storsimple-device-protection"></a>StorSimple device protection
 
-인증된 StorSimple 장치만이 Azure 구독에서 만든 StorSimple Manager 서비스에 가입할 수 있습니다. 장치를 인증하려면 서비스 등록 키를 입력하여 StorSimple Manager 서비스에 등록해야 합니다. 서비스 등록 키는 Azure 클래식 포털에서 제공된 임의의 128비트 키입니다.
+The StorSimple device is an on-premises hybrid storage device that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities. The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the StorSimple device or on-premises servers), while moving less frequently used data to the cloud.
 
-![서비스 등록 키](./media/storsimple-security/ServiceRegistrationKey.png)
+Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription. To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key. The service registration key is a 128-bit random key generated in the Azure classic portal. 
 
-서비스 등록 키 받기에 대해 알려면 [2 단계:서비스 등록 키 가져오기](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key)로 이동합니다.
+![Service registration key](./media/storsimple-security/ServiceRegistrationKey.png)
 
-서비스 등록 키는 100자 이상의 문자를 포함 하는 긴 키입니다. 키를 복사해서 안전한 위치에 텍스트 파일로 저장해두면 필요에 따라 추가 장치를 인증하는 데 사용할 수 있습니다. 첫 번째 장치 등록 후 서비스 등록 키를 손실한 경우 StorSimple Manager 서비스에서 새 키를 생성할 수 있습니다. 기존 장치의 작동에 영향을 주지 않습니다.
+To learn how get a service registration key, go to [Step 2: Get the service registration key](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
-장치를 등록 한 후에 토큰을 사용하여 Microsoft Azure와 통신할 수 있습니다. 장치를 등록한 후 서비스 등록 키는 사용되지 않습니다.
+The service registration key is a long key that contains 100+ characters. You can copy the key and save it in a text file in a secure location so that you can use it to authorize additional devices as necessary. If the service registration key is lost after you register your first device, you can generate a new key from the StorSimple Manager service. This will not affect the operation of existing devices. 
 
-> [AZURE.NOTE] 사용한 후 항상 서비스 등록 키를 다시 생성하는 것이 좋습니다.
+After a device is registered, it uses tokens to communicate with Microsoft Azure. The service registration key is not used after device registration.
 
-## 암호를 통해 StorSimple 솔루션 보호
+> [AZURE.NOTE] We recommend that you regenerate the service registration key after every use.
 
-암호는 컴퓨터 보안의 중요한 사항으로, 권한이 있는 사용자만 데이터에 액세스할 수 있도록 하기 위해서 StorSimple 솔루션에서 광범위하게 사용됩니다. StorSimple을 사용하면 다음과 같은 암호를 구성할 수 있습니다.
+## <a name="protect-your-storsimple-solution-via-passwords"></a>Protect your StorSimple solution via passwords
 
-- StorSimple 장치 관리자 암호
-- 핸드셰이크 인증 프로토콜(CHAP) 초기자 및 대상 암호 문제
-- StorSimple 스냅숏 관리자 암호
+Passwords are an important aspect of computer security and are used extensively in the StorSimple solution to help ensure that your data is accessible to authorized users only. StorSimple allows you to configure the following passwords:
 
-### StorSimple 및 StorSimple 용 Windows PowerShell 장치 관리자 암호
+- StorSimple device administrator password
+- Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords
+- StorSimple Snapshot Manager password
 
-StorSimple용 Windows PowerShel은 StorSimple 장치를 관리하는데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 장치의 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
+### <a name="windows-powershell-for-storsimple-and-the-storsimple-device-administrator-password"></a>Windows PowerShell for StorSimple and the StorSimple device administrator password
 
-PowerShell 원격은 HTTPS 또는 HTTP를 통해 수행할 수 있습니다. HTTPS 통한 원격 관리를 사용하는 경우, 장치에서 원격 관리 인증서를 다운로드하고 원격 클라이언트에 설치해야 합니다. PowerShell 원격에 대한 자세한 내용을 보려면 [StorSimple 장치에 원격으로 연결](storsimple-remote-connect.md)로 이동하세요.
+Windows PowerShell for StorSimple is a command-line interface that you can use to manage the StorSimple device. Windows PowerShell for StorSimple has features that allow you to register your device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state. You can access Windows PowerShell for StorSimple by connecting to the serial console on the device or by using Windows PowerShell remoting.
 
-StorSimple용 Windows PowerShell을 사용하여 장치에 연결 후 장치에 로그온하려면 장치 관리자 암호를 입력해야 합니다.
+PowerShell remoting can be done over HTTPS or HTTP. If remote management over HTTPS is enabled, you will need to download the remote management certificate from the device and install it on the remote client. For more information about PowerShell remoting, go to [Connect remotely to your StorSimple device](storsimple-remote-connect.md).
 
-![장치 관리자 암호](./media/storsimple-security/DeviceAdminPW.png)
+After you use Windows PowerShell for StorSimple to connect to the device, you will need to provide the device administrator password to log on to the device.
 
-다음 모범 사례를 고려하세요.
+![Device administrator password](./media/storsimple-security/DeviceAdminPW.png)
 
-- 원격 관리는 기본적으로 꺼져 있습니다. StorSimple 관리자 서비스를 사용하여 활성화할 수 있습니다. 실제로 필요한 기간 동안에만 원격 액세스를 사용하는 것이 좋습니다.
-- 암호를 변경하는 경우 예기치 않은 연결 끊김을 겪지 않도록 모든 원격 액세스 사용자에게 알려야 합니다.
-- StorSimple Manager 서비스는 기존 암호를 검색할 수 없습니다. 재설정만 가능합니다. 잊어버린 경우 암호를 재설정할 필요가 없도록 모든 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호를 재설정해야 하는 경우 재설정 하기 전에 모든 사용자에게 알려야 합니다. 
+Keep the following best practices in mind:
 
-장치에 대한 직렬 연결을 사용하여 Windows PowerShell 인터페이스에 액세스 할 수 있습니다. 또한 보안이 강화된 HTTP 또는 HTTPS를 사용하여 원격으로 액세스할 수도 있습니다. HTTPS는 직렬 또는 HTTP 연결보다 더 높은 수준의 보안을 제공합니다. 그러나 HTTPS를 사용하려면 먼저 장치에 액세스하는 클라이언트 컴퓨터에 인증서를 설치해야 합니다. StorSimple 관리자 서비스의 장치 구성 페이지에서 원격 액세스 인증서를 다운로드할 수 있습니다. 원격 액세스에 대한 인증서를 분실한 경우 새 인증서를 다운로드하고 원격 관리를 사용할 수 있는 권한이 있는 모든 클라이언트에 전파해야 합니다.
+- Remote management is turned off by default. You can use the StorSimple Manager service to enable it. As a security best practice, remote access should be enabled only during the time period that it is actually needed.
+- If you change the password, be sure to notify all remote access users so that they do not experience an unexpected connectivity loss.
+- The StorSimple Manager service cannot retrieve existing passwords: it can only reset them. We recommend that you store all passwords in a secure place so that you do not have to reset a password if it is forgotten. If you do need to reset a password, be sure to notify all users before you reset it. 
 
-### 핸드셰이크 인증 프로토콜(CHAP) 초기자 및 대상 암호 문제
+You can access the Windows PowerShell interface by using a serial connection to the device. You can also access it remotely by using either HTTP or HTTPS, which provide additional security. HTTPS provides a higher level of security than either a serial or HTTP connection. However, to use HTTPS, you must first install a certificate on the client computer that will access the device. You can download the remote access certificate from the device configuration page in the StorSimple Manager service. If the certificate for remote access is lost, you must download a new certificate and propagate it to all clients that are authorized to use remote management.
 
-CHAP는 StorSimple 장치에서 원격 클라이언트의 ID를 확인하는데 사용하는 인증 체계입니다. 확인은 공유 암호를 기반으로 합니다. CHAP는 일방(단방향)이거나 상호적(양방향)일 수 있습니다. 단방향 CHAP의 대상 (StorSimple 장치)은 초기자 (호스트)를 인증합니다. 상호 또는 역방향 CHAP는 대상이 초기자를 인증한 다음 초기자에서 대상을 인증해야 합니다. Azure StorSimple은 두 방법 중 하나를 사용하여 구성할 수 있습니다.
+### <a name="challenge-handshake-authentication-protocol-(chap)-initiator-and-target-passwords"></a>Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords
 
-CHAP를 구성하는 경우 다음 사항에 유의하세요.
+CHAP is an authentication scheme used by the StorSimple device to validate the identity of remote clients. The verification is based on a shared password. CHAP can be one-way (unidirectional) or mutual (bidirectional). With one-way CHAP, the target (the StorSimple device) authenticates an initiator (host). Mutual or reverse CHAP requires that the target authenticate the initiator and then the initiator authenticate the target. Your StorSimple can be configured to use either method.
 
-- CHAP 사용자 이름은 233 미만의 문자를 포함해야 합니다.
-- CHAP 암호는 12 ~ 16 자 사이여야 합니다. 더 긴 사용자 이름이나 암호를 사용하려고 하면 Windows 호스트에서 인증 오류가 발생합니다.
-- CHAP 초기자와 CHAP 대상 모두에 대해 동일한 암호를 사용할 수 없습니다.
-- 암호를 설정한 후 변경할 수 있지만 검색할 수 없습니다. 암호가 변경되는 경우 StorSimple 장치에 연결할 수 있도록 모든 원격 액세스 사용자에게 알려야 합니다.
+Be aware of the following when you configure CHAP:
 
-CHAP에 대한 자세한 내용 및 StorSimple을 구성하는 방법을 보려면 [StorSimple 장치에 대한 CHAP 구성](storsimple-configure-chap.md)으로 이동하세요.
+- The CHAP user name must contain fewer than 233 characters.
+- The CHAP password must be between 12 and 16 characters. Attempting to use a longer user name or password will result in an authentication failure on the Windows host.
+- You cannot use the same password for both the CHAP initiator and the CHAP target.
+- After you set the password, it can be changed but it cannot be retrieved. If the password is changed, be sure to notify all remote access users so that they can successfully connect to the StorSimple device.
 
-### StorSimple 스냅숏 관리자 암호
+For more information about CHAP and how to configure it for your StorSimple solution, go to [Configure CHAP for your StorSimple device](storsimple-configure-chap.md).
 
-StorSimple 스냅숏 관리자는 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 응용 프로그램에 일관된 백업을 생성하는 Microsoft Management Console (MMC) 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다.
+### <a name="storsimple-snapshot-manager-password"></a>StorSimple Snapshot Manager password
 
-StorSimple 스냅숏 관리자를 사용하여 장치를 구성할 때 StorSimple 스냅숏 관리자 암호를 제공해야 합니다. 이 암호는 등록 중 StorSimple에 대한 Windows PowerShell에서 먼저 설정됩니다. StorSimple Manager 서비스에서 암호를 설정하고 변경할 수도 있습니다. 이 암호는 StorSimple 스냅숏 관리자 장치를 인증합니다.
+StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups. In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes.
 
-![StorSimple 스냅숏 관리자 암호](./media/storsimple-security/SnapshotMgrPassword.png)
+When you configure a device to use StorSimple Snapshot Manager, you will be required to provide the StorSimple Snapshot Manager password. This password is first set in Windows PowerShell for StorSimple during registration. The password can also be set and changed from the StorSimple Manager service. This password authenticates the device with StorSimple Snapshot Manager.
 
-StorSimple 스냅숏 관리자 암호는 14 ~ 15자여야 하며 대문자, 소문자, 숫자 및 특수 문자의 조합을 3개 이상 포함해야 합니다. StorSimple 스냅숏 관리자 암호를 설정한 후 변경될 수 있지만 검색할 수 없습니다. 암호를 변경하는 경우에 모든 원격 사용자에게 알려야 합니다.
+![StorSimple Snapshot Manager password](./media/storsimple-security/SnapshotMgrPassword.png)
 
-StorSimple 스냅숏 관리자에 대한 자세한 내용을 보려면 [StorSimple 스냅숏 관리자란?](storsimple-what-is-snapshot-manager.md)으로 이동하세요.
+The StorSimple Snapshot Manager password must be 14 to 15 characters and must contain 3 or more of a combination of uppercase, lowercase, numeric, and special characters. After you set the StorSimple Snapshot Manager password, it can be changed but it cannot be retrieved. If you change the password, be sure to notify all remote users.
 
-### 암호 모범 사례
+For more information about StorSimple Snapshot Manager, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-StorSimple 암호를 강력하고 잘 보호되도록 만들기 위해서 다음 지침을 사용하는 것이 좋습니다.
+### <a name="password-best-practices"></a>Password best practices
 
-- 3개월 마다 암호를 변경합니다. 매년 암호 변경이 강제로 적용됩니다.
-- 강력한 암호를 사용합니다. 자세한 내용을 보려면 [보다 강력한 암호 만들기 및 보호](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/)로 이동하세요.
-- 서로 다른 액세스 메커니즘에 대해 항상 다른 암호를 사용합니다. 지정한 각 암호는 고유해야 합니다.
-- StorSimple 장치에 액세스할 권한이 없는 사용자와 암호를 공유하지 않습니다.
-- 다른 사람 앞에서 암호에 대해 얘기하거나 암호 형식에 대한 힌트를 제공하지 마세요.
-- 계정이나 암호가 손상된 것 같은 경우 정보 보안 부서에 보고합니다.
-- 모든 암호는 중요한 기밀 정보로 취급됩니다. 
+We recommend that you use the following guidelines to help ensure that StorSimple passwords are strong and well-protected:
 
-## StorSimple 데이터 보호
+- Change your passwords every three months. Changing the passwords is enforced annually.
+- Use strong passwords. For more information, go to [Create stronger passwords and protect them](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+- Always use different passwords for different access mechanisms; each of the passwords you specify should be unique.
+- Do not share passwords with anyone who is not authorized to access the StorSimple device.
+- Do not speak about a password in front of others or hint at the format of a password.
+- If you suspect that an account or password has been compromised, report the incident to your information security department.
+- Treat all passwords as sensitive, confidential information. 
 
-이 섹션은 전송 중인 데이터와 저장된 데이터를 보호하는 StorSimple 보안 기능을 설명합니다.
+## <a name="storsimple-data-protection"></a>StorSimple data protection
 
-다른 섹션에서 설명한 것처럼 암호는 StorSimple 솔루션에 대한 액세스 권한을 얻기 전에 사용자를 인증하고 권한을 부여하는데 사용됩니다. 다른 보안 고려 사항은 저장하는 동안 및 저장소 시스템 간에 전송되는 동안 권한이 없는 사용자로부터 데이터를 보호하기 위한 것입니다. 다음 섹션은 StorSimple에 제공되는 데이터 보호 기능을 설명합니다.
+This section describes the StorSimple security features that protect data in transit and stored data.
 
-> [AZURE.NOTE] 중복 제거는 StorSimple 장치에 및 Microsoft Azure 저장소에 저장된 데이터에 대한 추가 보호를 제공합니다. 데이터가 중복 제거된 경우, 데이터 개체는 이들 항목에 매핑 및 액세스하는데 사용되는 메타데이터와 별도로 저장됩니다. 볼륨 구조, 파일 시스템 또는 파일 이름에 따라 데이터를 다시 구성하는 사용 가능한 저장소 수준의 컨텍스트가 없습니다.
+As described in other sections, passwords are used to authorize and authenticate users before they can gain access to your StorSimple solution. Another security consideration is protecting data from unauthorized users while it is being transferred between storage systems and while it is being stored. The following sections describe the data protection features provided with StorSimple.
 
-## 서비스를 통해 흐르는 데이터 보호
+> [AZURE.NOTE] Deduplication provides additional protection for data stored on the StorSimple device and in Microsoft Azure storage. When data is deduplicated, the data objects are stored separately from the metadata used to map and access them: there is no available storage-level context to reconstruct the data based on volume structure, file system, or file name.
 
-StorSimple Manager 서비스의 주요 목적은 StorSimple 장치를 관리하고 구성하는 것입니다. StorSimple 관리자 서비스는 Microsoft Azure에서 실행됩니다. Azure 클래식 포털을 사용하여 장치 구성 데이터를 입력한 후, Microsoft Azure가 StorSimple Manager 서비스를 사용하여 장치에 데이터를 보내도록 합니다. StorSimple은 비대칭 키 쌍 시스템을 사용하여 Azure 서비스의 손상으로 인해 저장된 정보가 손상되지 않도록 지원합니다.
+## <a name="protect-data-flowing-through-the-service"></a>Protect data flowing through the service
 
-![기내 데이터 암호화](./media/storsimple-security/DataEncryption.png)
+The primary purpose of the StorSimple Manager service is to manage and configure the StorSimple device. The StorSimple Manager service runs in Microsoft Azure. You use the Azure classic portal to enter device configuration data, and then Microsoft Azure uses the StorSimple Manager service to send the data to the device. StorSimple uses a system of asymmetric key pairs to help ensure that a compromise of the Azure service will not result in a compromise of stored information. 
 
-비대칭 키 시스템은 다음과 같이 서비스를 통해 흐르는 데이터를 보호할 수 있습니다.
+![Data encryption in flight](./media/storsimple-security/DataEncryption.png)
 
-1. 비대칭 공개 및 개인 키 쌍 장치를 사용하는 데이터 암호화 인증서가 장치에 생성되고 데이터를 보호하는데 사용됩니다. 키는 첫 번째 장치를 등록하는 경우에 생성됩니다. 
-2. 데이터 암호화 인증서 키는 등록 중 첫 번째 장치에서 임의로 생성된 강력한 128 비트 키인 서비스 데이터 암호화 키로 보호되는 개인정보 교환(.pfx) 파일로 내보내집니다.
-3. 인증서의 공개키는 StorSimple Manager 서비스에 대해 안전하게 사용할 수 있으며 개인 키는 장치와 같이 그대로 유지됩니다.
-4. 서비스를 입력하는 데이터는 공용 키를 사용하여 암호화되며 장치에 저장된 개인 키를 사용하여 암호가 해독되어, Azure 서비스는 장치에 이동하는 데이터를 암호 해독할 수 없습니다.
+The asymmetric key system helps protect the data that flows through the service as follows:
 
-서비스 데이터 암호화 키는 서비스에 등록된 첫 번째 장치에만 생성됩니다. 서비스에 등록되는 모든 후속 장치는 동일한 서비스 데이터 암호화 키를 사용해야 합니다.
+1. A data encryption certificate that uses an asymmetric public and private key pair is generated on the device and is used to protect the data. The keys are generated when the first device is registered. 
+2. The data encryption certificate keys are exported into a Personal Information Exchange (.pfx) file that is protected by the service data encryption key, which is a strong 128-bit key that is randomly generated by the first device during registration.
+3. The public key of the certificate is securely made available to the StorSimple Manager service, and the private key remains with the device.
+4. Data entering the service is encrypted using the public key and decrypted using the private key stored on the device, ensuring that the Azure service cannot decrypt the data flowing to the device.
+
+The service data encryption key is generated on only the first device registered with the service. All subsequent devices that are registered with the service must use the same service data encryption key. 
 
 > [AZURE.IMPORTANT] 
 > 
-> 서비스 데이터 암호화 키의 복사본을 만들어 안전한 위치에 저장하는 것이 매우 중요합니다. 서비스 데이터 암호화 키의 복사본은 권한 있는 사용자가 액세스하고 장치 관리자에게 쉽게 전달될 수 있는 방식으로 저장되어야 합니다.
+> It is very important to make a copy of the service data encryption key and save it in a secure location. A copy of the service data encryption key should be stored in such a way that it can be accessed by an authorized person and can be easily communicated to the device administrator.
 >
-> 서비스 데이터 암호화 키를 분실한 경우 Microsoft 지원 담당자가 온라인 상태에서 장비가 있는 경우 검색을 도와줄 수 있습니다. 검색 후 서비스 데이터 암호화 키를 변경하는 것이 좋습니다. 자세한 내용을 보려면 [서비스 데이터 암호화 키 변경](storsimple-service-dashboard.md#change-the-service-data-encryption-key)으로 이동하세요.
+> If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-서비스 대시보드에서 **서비스 데이터 암호화 키 변경** 옵션을 선택하면 서비스 데이터 암호화 키 및 해당 데이터 암호화 인증서를 변경할 수 있습니다. 데이터 보안이 손상되지 않도록 서비스 데이터 암호화 키를 변경하는 데 물리적 StorSimple 장치를 사용해야 합니다. 암호화 키를 변경하면 새 키로 모든 장치를 업데이트해야 합니다. 따라서 모든 장치가 온라인 상태이면 키를 변경하는 것이 좋습니다. 장치가 오프라인 상태인 경우 다른 시간에 해당 키를 변경할 수 있습니다. 오래된 키와 장치로 여전히 백업을 실행할 수 있지만 키가 업데이트 될 때까지 데이터를 복원할 수 없습니다. 자세한 내용을 보려면 [StorSimple Manager 서비스 대시보드](storsimple-service-dashboard.md)로 이동하세요.
+You can change the service data encryption key and the corresponding data encryption certificate by selecting the **Change service data encryption key** option on the service dashboard. To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Use the StorSimple Manager service dashboard](storsimple-service-dashboard.md).
 
-서비스 데이터 암호화 키 및 데이터 암호화 인증서가 만료되지 않았습니다. 그러나 키 손상을 방지하려면 매년 서비스 데이터 암호화 키를 변경하는 것이 좋습니다.
+The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key annually to help prevent key compromise.
 
-## 휴지 상태의 데이터 보호
+## <a name="protect-data-at-rest"></a>Protect data at rest
 
-StorSimple 장치는 사용 빈도에 따라 데이터를 로컬과 클라우드 계층에 저장하여 관리합니다. 장치에 연결된 모든 호스트 컴퓨터는 데이터를 장치로 보낸 다음 적절한 경우 클라우드로 이동합니다. 데이터는 인터넷을 통해 장치에서 클라우드로 안전하게 전송됩니다. 각 장치에는 해당 장치의 모든 공유 볼륨을 표시하는 하나의 iSCSI 대상이 있습니다. 클라우드 저장소에 전송되기 전에 모든 데이터는 암호화 됩니다.
+The StorSimple device manages data by storing it in tiers locally and in the cloud, depending on frequency of use. All host machines that are connected to the device send data to the device, which then moves data to the cloud, as appropriate. Data is transferred from the device to the cloud securely over the Internet. Each device has one iSCSI target that surfaces all shared volumes on that device. All data is encrypted before it is sent to cloud storage. 
 
-![클라우드 저장소 암호화 키](./media/storsimple-security/CloudStorageEncryption.png)
+![Cloud storage encryption key](./media/storsimple-security/CloudStorageEncryption.png)
 
-클라우드로 이동하는 데이터의 보안 및 무결성 보장을 지원하기 위해서 StorSimple은 다음과 같이 클라우드 저장소 암호화 키를 정의하도록 허용합니다.
+To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to define cloud storage encryption keys as follows:
 
-- 볼륨 컨테이너를 만들 때 클라우드 저장소 암호화 키를 지정합니다. 키를 수정하거나 나중에 추가할 수 없습니다. 
-- 볼륨 컨테이너의 모든 볼륨은 동일한 암호화 키를 공유합니다. 특정 볼륨에 대해 다른 형식의 암호화를 원하는 경우, 해당 볼륨을 호스트하는 새 볼륨 컨테이너를 만드는 것이 좋습니다.
-- StorSimple 관리자 서비스에서 클라우드 저장소 암호화 키를 입력하면 키는 서비스 데이터 암호화 키의 공개 부분을 사용하여 암호화한 후 장치에 전달됩니다.
-- 클라우드 저장소 암호화 키는 서비스에 저장되지 않으며 장치에만 알려집니다.
-- 클라우드 저장소 암호화 키 지정은 선택 사항입니다. 장치에 대한 호스트에서 암호화된 데이터를 보낼 수 있습니다.
+- You specify the cloud storage encryption key when you create a volume container. The key cannot be modified or added later. 
+- All volumes in a volume container share the same encryption key. If you want a different form of encryption for a specific volume, we recommend that you create a new volume container to host that volume.
+- When you enter the cloud storage encryption key in the StorSimple Manager service, the key is encrypted using the public portion of the service data encryption key and then sent to the device.
+- The cloud storage encryption key is not stored anywhere in the service and is known only to the device.
+- Specifying a cloud storage encryption key is optional. You can send data that has been encrypted at the host to the device.
 
-### 추가 보안 모범 사례
+### <a name="additional-security-best-practices"></a>Additional security best practices
 
-- 트래픽 분할: 완전히 분리된 네트워크를 배포하고 물리적 격리가 옵션이 아닌 VLAN을 사용하여 회사 LAN의 사용자 트래픽에서 iSCSI SAN을 격리합니다. iSCSI 저장소에 대한 전용 네트워크는 주요 비즈니스 데이터의 안전 및 성능을 보장합니다. 회사 LAN을 통한 저장소 및 사용자 트래픽 혼합은 권장하지 않으며 대기 시간이 증가하고 네트워크 오류를 일으킬 수 있습니다.
+- Split traffic: isolate your iSCSI SAN from user traffic on a corporate LAN by deploying a totally separated network and using VLANs where physical isolation is not an option. A dedicated network for iSCSI storage will guarantee the safety and performance of your business-critical data. Mixing storage and user traffic over a corporate LAN is not recommended and can increase latency and cause network failures.
 
-- 호스트 측 네트워크 보안은 TCP/IP 오프로드 엔진(TOE)을 지원하는 네트워크 인터페이스를 사용합니다. TOE는 네트워크 어댑터에서 TCP를 처리하여 CPU 부하를 줄입니다.
+- For host-side network security, use network interfaces that support TCP/IP Offload Engine (TOE). TOE reduces CPU load by processing TCP on the network adapter.
 
-## 저장소 계정을 통해 데이터 보호
+## <a name="protect-data-via-storage-accounts"></a>Protect data via storage accounts
 
-각 Microsoft Azure 구독에 하나 이상의 저장소 계정을 만들 수 있습니다. (저장소 계정은 Azure 클라우드에 저장 된 데이터로 작업하기 위한 고유한 네임스페이스를 제공합니다 .) 저장소 계정에 대한 액세스는 해당 저장소 계정과 연결된 구독 및 액세스 키에 의해 제어됩니다.
+Each Microsoft Azure subscription can create one or more storage accounts. (A storage account provides a unique namespace for working with data stored in the Azure cloud.) Access to a storage account is controlled by the subscription and access keys associated with that storage account. 
 
-저장소 계정을 만들 때 Microsoft Azure는 두 개의 512비트 저장소 액세스 키를 생성하며, StorSimple 장치가 저장소 계정에 액세스할 때 사용된 키 중 하나입니다. 이 키 중 하나만 사용 중입니다. 주기적으로 키를 회전하도록 다른 키를 예약 상태로 둡니다. 키를 회전하려면 보조키를 활성화한 다음, 기본 키를 삭제합니다. 그런 후 다음 회전 시 사용할 새 키를 만들 수 있습니다. (보안상의 이유로 많은 데이터 센터 키 회전이 필요합니다.)
+When you create a storage account, Microsoft Azure generates two 512-bit storage access keys, one of which is used for authentication when the StorSimple device accesses the storage account. Note that only one of these keys is in use. The other key is held in reserve, allowing you to rotate the keys periodically. To rotate keys, you make the secondary key active, and then delete the primary key. You can then create a new key for use during the next rotation. (For security reasons, many datacenters require key rotation.) 
 
-키 회전에 대해 이 모범 사례를 따르는 것이 좋습니다.
+We recommend that you follow these best practices for key rotation:
 
-- 권한이 없는 사용자가 저장소 계정에 액세스하지 않도록 정기적으로 저장소 계정 키를 회전해야 합니다.
-- 정기적으로 Azure 관리자는 직접 저장소 계정에 액세스하기 위해 Azure 클래식 포털의 저장소 섹션을 사용하여 기본 또는 보조 키를 변경하거나 다시 제공해야 합니다.
+- You should rotate storage account keys regularly to help ensure that your storage account is not accessed by unauthorized users.
+- Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Azure classic portal to directly access the storage account.
 
 
-## 암호화를 통해 데이터 보호
+## <a name="protect-data-via-encryption"></a>Protect data via encryption
 
-StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저장된 데이터를 보호하기 위해 다음 암호화 알고리즘을 사용합니다.
+StorSimple uses the following encryption algorithms to protect data stored in or traveling between the components of your StorSimple solution.
 
-| 알고리즘 | 키 길이 | 프로토콜/응용 프로그램/주석 |
+| Algorithm | Key length | Protocols/applications/comments |
 | --------- | ---------- | ------------------------------- |
-| RSA | 2048 | Azure 클래식 포털은 RSA PKCS 1 v1.5를 사용하여 장치(예: 저장소 계정 자격 증명, StorSimple 장치 구성, 클라우드 저장소 암호화 키)에 전송되는 구성 데이터를 암호화합니다. |
-| AES | 256 | 서비스 데이터 암호화 키의 공개 부분을 StorSimple 장치에서 Azure 클래식 포털에 전송하기 전에 AES를 포함한 CBC 포털은 공개 부분을 암호화하는데 사용됩니다. 또한 클라우드 저장소 계정에 데이터를 보내기 전에 데이터를 암호화하도록 StorSimple 장치에서 사용됩니다. |
+| RSA       | 2048       | RSA PKCS 1 v1.5 is used by the Azure classic portal to encrypt configuration data that is sent to the device: for example, storage account credentials, StorSimple device configuration, and cloud storage encryption keys. |
+| AES       | 256        | AES with CBC is used to encrypt the public portion of the service data encryption key before it is sent to the Azure classic portal from the StorSimple device. It is also used by the StorSimple device to encrypt data before the data is sent to the cloud storage account. |
 
 
-## StorSimple 가상 장치 보안
+## <a name="storsimple-virtual-device-security"></a>StorSimple virtual device security
 
-[AZURE.INCLUDE [storsimple 가상 장치 보안](../../includes/storsimple-virtual-device-security.md)]
+[AZURE.INCLUDE [storsimple virtual device security](../../includes/storsimple-virtual-device-security.md)]
 
-## 질문과 대답(FAQ)
+## <a name="frequently-asked-questions-(faq)"></a>Frequently asked questions (FAQ)
 
-보안 및 Microsoft Azure StorSimple에 대한 질문과 답변은 다음과 같습니다.
+The following are some questions and answers about security and Microsoft Azure StorSimple.
 
-**Q:** 서비스가 손상되었습니다. 다음 단계에서 어떻게 해야 합니까?
+**Q:** My service is compromised. What should be my next steps?
 
-**A:** 데이터를 계층화하는데 사용되는 저장소 계정에 대한 서비스 데이터 암호화 키 및 저장소 계정 키를 즉시 변경해야 합니다. 자세한 내용은 다음을 참조하세요.
+**A:** You should immediately change the service data encryption key and the storage account keys for the storage account that is being used for tiering data. For instructions, go to: 
 
-- [서비스 데이터 암호화 키 변경](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
-- [저장소 계정의 키 회전](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
+- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Key rotation of storage accounts](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**Q:** 서비스 등록 키를 요청하는 새 StorSimple 장치가 있습니다. 어떻게 장치를 검색하나요?
+**Q:** I have a new StorSimple device that is asking for the service registration key. How do I retrieve it?
 
-**A:** StorSimple Manager 서비스를 처음 만들 때 이 키가 생성 됩니다. StorSimple Manager 서비스를 사용 하여 장치에 연결하는 경우 빠른 시작 페이지를 사용하여 서비스 등록 키를 보거나 다시 생성할 수 있습니다. 새 서비스 등록 키를 생성해도 기존에 등록된 장치에는 영향을 주지 않습니다. 자세한 내용은 다음을 참조하세요.
+**A:** This key was created when you first created the StorSimple Manager service. When you use the StorSimple Manager service to connect to the device, you can use the service quick start page to view or regenerate the service registration key. Generating a new service registration key will not affect the existing registered devices. For instructions, go to:
 
-- [서비스 등록 키 보기 또는 다시 생성](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
+- [View or regenerate the service registration key](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
-**Q:** 서비스 데이터 암호화 키를 잃어버렸습니다. 어떻게 해야 합니까?
+**Q:** I lost my service data encryption key. What do I do?
 
-**A:** Microsoft 지원에 문의하세요. Microsoft 지원 담당자가 장치의 지원 세션에 로그온하여 키를 검색할 수 있습니다(한 대 이상의 장치가 온라인 상태인 경우). 서비스 데이터 암호화 키를 가져온 직후에 새 키를 사용자만 알 수 있도록 키를 변경해야 합니다. 자세한 내용은 다음을 참조하세요.
+**A:** Contact Microsoft Support. They can log on to a support session on your device and help you retrieve the key (provided at least one device is online). Immediately after you obtain the service data encryption key, you should change it to ensure that the new key is known only to you. For instructions, go to:
 
-- [서비스 데이터 암호화 키 변경](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
-**Q:** 서비스 데이터 암호화 키 변경을 위해 장치를 인증했지만 키 변경 프로세스를 시작하지 못했습니다. 어떻게 해야 하나요?
+**Q:**  I authorized a device for a service data encryption key change, but did not start the key change process. What should I do?
 
-**A:** 제한 시간이 만료된 경우 서비스 데이터 암호화 키 변경에 대한 장치를 다시 인증하고 프로세스를 다시 시작해야 합니다.
+**A:** If the time-out period has expired, you will need to reauthorize the device for the service data encryption key change and start the process again.
 
-**Q:** 서비스 데이터 암호화 키를 변경했지만 4시간 내에 다른 장치를 업데이트할 수 없습니다. 다시 시작해야 하나요?
+**Q:**  I changed the service data encryption key, but I was not able to update the other devices within 4 hours. Do I have to start again?
 
-**A:** 4시간이라는 기간은 변경을 초기화하기 위한 시간입니다. 인증된 StorSimple 장치에서 업데이트 프로세스를 시작한 후 모든 장치가 업데이트 될 때까지 인증은 유효합니다.
+**A:** The 4-hour time period is only for initiating the change. After you start the update process on the authorized StorSimple device, the authorization is valid until all devices are updated.
 
-**Q:** StorSimple 관리자가 회사를 그만두었습니다. 어떻게 해야 하나요?
+**Q:** Our StorSimple administrator has left the company. What should I do?
 
-**A:** StorSimple 장치에 대한 액세스를 허용하는 암호를 변경하고 재설정하고, 서비스 데이터 암호화 키를 변경하여 새 정보가 인증되지 않은 사람에게 알려지지 않도록 합니다. 자세한 내용은 다음을 참조하세요.
+**A:** Change and reset the passwords that allow access to the StorSimple device, and change the service data encryption key to ensure that the new information is not known to unauthorized personnel. For instructions, go to:
 
-- [StorSimple 관리자 서비스를 사용하여 StorSimple 암호 변경](storsimple-change-passwords.md)
-- [서비스 데이터 암호화 키 변경](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
-- [StorSimple 장치에 대한 CHAP 구성](storsimple-configure-chap.md)
+- [Use the StorSimple Manager service to change your storsimple passwords](storsimple-change-passwords.md)
+- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Configure CHAP for your StorSimple device](storsimple-configure-chap.md)
 
-**Q:** StorSimple 장치에 연결하는 호스트에 StorSimple 스냅숏 관리자 암호를 입력하고 싶지만 암호가 없습니다. 어떻게 해야 하나요?
+**Q:** I want to provide the StorSimple Snapshot Manager password to a host that is connecting to the StorSimple device, but the password is not available. What can I do?
 
-**A:** 암호를 잊어버린 경우 새 암호를 만들어야 합니다. 그런 다음 기존의 모든 사용자에게 암호가 변경되었으며 클라이언트를 업데이트해야 새 암호를 사용할 수 있음을 알려야 합니다. 자세한 내용은 다음을 참조하세요.
+**A:** If you have forgotten the password, you should create a new one. Then, be sure to inform all existing users that the password has been changed and that they should update their clients to use the new password. For instructions, go to:
 
-- [StorSimple 스냅숏 관리자 암호 변경](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
-- [장치 인증](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
+- [Change the StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+- [Authenticate a device](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**Q:** StorSimple용 Windows PowerShell에 대한 원격 액세스에 대한 인증서가 장치에서 변경되었습니다. 내 원격 액세스 클라이언트를 업데이트하려면 어떻게 해야 하나요?
+**Q:** The certificate for remote access to the Windows PowerShell for StorSimple has been changed on the device. How do I update my remote access clients?
 
-**A:** StorSimple Manager 서비스에서 새 인증서를 다운로드하고 원격 액세스 클라이언트의 인증서 저장소에 설치될 수 있도록 제공합니다. 자세한 내용은 다음을 참조하세요.
+**A:** You can download the new certificate from the StorSimple Manager service, and then provide it to be installed in the certificate store of your remote access clients. For instructions, go to:
 
-- [가져오기-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+- [Import-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
 
-**Q:** StorSimple Manager 서비스가 손상되어도 데이터가 보호되나요?
+**Q:** Is my data protected if the StorSimple Manager service is compromised?
 
-**A:** 서비스 구성 데이터는 웹 브라우저에서 볼 때 항상 공용 키로 암호화 됩니다. 서비스가 개인 키에 액세스 할 수 없으므로 서비스는 어떠한 데이터도 볼 수 없습니다. StorSimple Manager 서비스가 손상 되면 StorSimple 관리자 서비스에 저장된 키가 없기 때문에 영향이 없습니다.
+**A:** Service configuration data is always encrypted with your public key when you view it in a web browser. Because the service doesn’t have access to the private key, the service will not be able to see any data. If the StorSimple Manager service is compromised, there is no impact, as there are no keys stored in the StorSimple Manager service.
 
-**Q:** 누군가가 데이터 암호화 인증서에 대한 액세스 권한을 얻은 경우, 내 데이터가 손상되나요?
+**Q:** If someone gains access to the data encryption certificate, will my data be compromised?
 
-**A:** Microsoft Azure는 고객의 데이터 암호화 키(.pfx 파일)를 암호화된 형식으로 저장합니다. .pfx 파일은 암호화되어 있으므로 StorSimple 서비스는.pfx 파일을 해독하는 서비스 데이터 암호화 키가 없으므로 .pfx 파일에 대한 액세스 권한을 갖는 것만으로는 비밀이 노출되지 않습니다.
+**A:** Microsoft Azure stores the customer’s data encryption key (.pfx file) in an encrypted format. Because the .pfx file is encrypted and the StorSimple service doesn’t have the service data encryption key to decrypt the .pfx file, simply getting access to the .pfx file will not expose any secrets.
 
-**Q:** 정부 기관이 Microsoft에 내 데이터를 요청하는 경우 어떻게 되나요?
+**Q:** What happens if a governmental entity asks Microsoft for my data?
 
-**A:** 서비스에서 모든 데이터는 암호화되고 개인 키가 장치와 함께 유지되므로 정부 기관이 고객에게 데이터를 요청해야 합니다.
+**A:** Because all of the data is encrypted on the service and the private key is kept with the device, the governmental entity must ask the customer for the data. 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-[StorSimple 장치 배포](storsimple-deployment-walkthrough.md)
+[Deploy your StorSimple device](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

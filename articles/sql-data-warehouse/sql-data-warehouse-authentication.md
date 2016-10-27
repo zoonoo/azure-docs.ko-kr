@@ -17,7 +17,8 @@
    ms.date="09/24/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
-# Azure SQL 데이터 웨어하우스에 대한 인증
+
+# <a name="authentication-to-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 대한 인증
 
 > [AZURE.SELECTOR]
 - [보안 개요](sql-data-warehouse-overview-manage-security.md)
@@ -25,11 +26,11 @@
 - [암호화(포털)](sql-data-warehouse-encryption-tde.md)
 - [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.
+SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.  
 
 보안에 대한 자세한 내용과 데이터 웨어하우스에 대한 연결을 설정하는 방법은 [SQL 데이터 웨어하우스에서 데이터베이스 보호][]를 참조하세요.
 
-## SQL 인증
+## <a name="sql-authentication"></a>SQL 인증
 SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 합니다.
 
 - 정규화된 서버 이름
@@ -43,13 +44,13 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 - SSDT, SSMS 또는 응용 프로그램 연결 문자열에서 SQL Server 개체 탐색기에 서버를 등록할 때 기본 데이터베이스를 지정합니다. 예를 들어 ODBC 연결에 대해 InitialCatalog 매개 변수를 포함합니다.
 - SSDT에서 세션을 만들기 전에 사용자 데이터베이스를 강조 표시합니다.
 
-> [AZURE.NOTE] 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE MyDatabase;**는 지원되지 않습니다. SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [Visual Studio로 쿼리][] 문서를 참조하세요.
+> [AZURE.NOTE] 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE MyDatabase;** 는 지원되지 않습니다. SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [Visual Studio로 쿼리][] 문서를 참조하세요.
 
-## AAD(Azure Active Directory) 인증
+## <a name="azure-active-directory-(aad)-authentication"></a>AAD(Azure Active Directory) 인증
 
-[Azure Active Directory][What is Azure Active Directory] 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL 데이터 웨어하우스에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터 웨어하우스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.
+[Azure Active Directory][Azure Active Directory] 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL Data Warehouse에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터 웨어하우스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 
 
-### 이점
+### <a name="benefits"></a>이점
 
 Azure Active Directory의 이점은 다음과 같습니다.
 
@@ -64,7 +65,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 
 > [AZURE.NOTE] Azure Active Directory는 비교적 새로운 기능으로, 몇 가지 제한 사항이 있습니다. Azure Active Directory가 작업 환경에 적합한지 확인하려면 [Azure AD 기능 및 제한 사항][], 특히 추가 고려 사항을 참조하세요.
 
-### 구성 단계
+### <a name="configuration-steps"></a>구성 단계
 
 다음 단계에 따라 Azure Active Directory 인증을 구성합니다.
 
@@ -75,21 +76,24 @@ Azure Active Directory의 이점은 다음과 같습니다.
 5. Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자 만들기
 6. Azure AD ID를 사용하여 데이터 웨어하우스에 연결합니다.
 
-현재 Azure Active Directory 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
+현재 Azure Active Directory 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
   
-### 세부 정보 찾기
-- 자세한 단계를 완료합니다. Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스를 구성하고 Azure Active Directory 인증을 사용하는 자세한 단계는 거의 동일합니다. [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스 연결](../sql-database/sql-database-aad-authentication.md) 토픽의 자세한 단계를 따릅니다.
+### <a name="find-the-details"></a>세부 정보 찾기
+- 자세한 단계를 완료합니다. Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스를 구성하고 Azure Active Directory 인증을 사용하는 자세한 단계는 거의 동일합니다. [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스 연결](../sql-database/sql-database-aad-authentication.md)항목의 자세한 단계를 따릅니다.
 - 사용자 지정 데이터베이스 역할을 만들고 역할에 사용자를 추가 합니다. 그런 다음 역할에 세부적인 권한을 부여합니다. 자세한 내용은 [데이터베이스 엔진 권한 시작](https://msdn.microsoft.com/library/mt667986.aspx)을 참조하세요.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][]를 참조하세요.
 
 <!-- Article references -->
 [SQL 데이터 웨어하우스에서 데이터베이스 보호]: ./sql-data-warehouse-overview-manage-security.md
-[Visual Studio로 쿼리]: ./sql-data-warehouse-query-visual-studio.md
 [Visual Studio를 사용하여 쿼리]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
+[Azure Active Directory란?]: ../active-directory/active-directory-whatis.md
 [Azure AD 기능 및 제한 사항]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 앱의 용량 계획 | Microsoft Azure"
-   description="서비스 패브릭 응용 프로그램에 필요한 계산 노드 수를 확인하는 방법 설명"
+   pageTitle="Capacity planning for Service Fabric apps | Microsoft Azure"
+   description="Describes how to identify the number of compute nodes required for a Service Fabric application"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -17,24 +17,25 @@
    ms.author="subramar"/>
 
 
-# 서비스 패브릭 응용 프로그램의 용량 계획
+
+# <a name="capacity-planning-for-service-fabric-applications"></a>Capacity planning for Service Fabric applications
 
 
-이 문서에서는 Azure 서비스 패브릭 응용 프로그램을 실행하는 데 필요한 리소스(CPU, RAM, 디스크 저장소) 양을 추정하는 방법을 배웁니다. 대부분의 경우 시간이 지나면서 리소스 요구 사항도 변합니다. 일반적으로 서비스를 개발/테스트하는 단계에서는 리소스가 적게 필요하고, 프로덕션 단계로 넘어가서 응용 프로그램의 인기가 높아지면 더 많은 리소스가 필요하게 됩니다. 응용 프로그램을 설계할 때에는 현재의 장기 요구 사항을 고려하고 고객의 높은 요구 사항에 따라 서비스를 확장할 수 있도록 선택을 내리도록 합니다.
+This document teaches you how to estimate the amount of resources (CPUs, RAM, disk storage) you need to run your Azure Service Fabric applications. It is common for your resource requirements to change over time. You typically require few resources as you develop/test your service, and then require more resources as you go into production and your application grows in popularity. When you design your application, think through the long-term requirements and make choices that allow your service to scale to meet high customer demand.
 
- 서비스 패브릭 클러스터를 만들 때 클러스터를 구성할 VM(가상 컴퓨터) 종류를 결정합니다. 각 VM과 함께 제한된 양의 리소스가 CPU(코어 및 속도), 네트워크 대역폭, RAM 및 디스크 저장소의 형태로 제공됩니다. 시간이 지나면서 서비스가 성장하면 더 많은 리소스를 제공하는 VM으로 업그레이드하거나 클러스터에 더 많은 VM을 추가할 수 있습니다. 후자를 선택하려면 클러스터에 동적으로 추가되는 새 VM을 활용할 수 있도록 처음부터 서비스를 설계해야 합니다.
+ When you create a Service Fabric cluster, you decide what kinds of virtual machines (VMs) make up the cluster. Each VM comes with a limited amount of resources in the form of CPUs (cores and speed), network bandwidth, RAM, and disk storage. As your service grows over time, you can upgrade to VMs that offer greater resources and/or add more VMs to your cluster. To do the latter, you must architect your service initially so it can take advantage of new VMs that get dynamically added to the cluster.
 
-일부 서비스는 VM 자체에서 데이터를 거의 또는 전혀 관리하지 않습니다. 따라서 이러한 서비스에 대한 용량 계획은 주로 성능에 초점을 맞춥니다. 즉, VM의 해당 CPU(코어 및 속도)를 선택해야 합니다. 또한 네트워크 대역폭을 고려해야 하고 네트워크 전송 빈도와 전송되는 데이터 양을 고려해야 합니다. 서비스 사용량이 증가하더라도 서비스가 원활하게 수행될 수 있도록 클러스터에 더 많은 VM을 추가하여 모든 VM에 네트워크 요청을 분산할 수 있습니다.
+Some services manage little to no data on the VMs themselves. Therefore, capacity planning for these services should focus primarily on performance, which means selecting the appropriate CPUs (cores and speed) of the VMs. In addition, you should consider network bandwidth, including how frequently network transfers are occurring and how much data is being transferred. If your service needs to perform well as service usage increases, you can add more VMs to the cluster and load balance the network requests across all the VMs.
 
-VM에서 많은 양의 데이터를 관리하는 서비스의 경우 용량 계획의 초점을 크기에 집중해야 합니다. 따라서 VM의 RAM 및 디스크 저장소 용량을 신중하게 고려해야 합니다. Windows의 가상 메모리 관리 시스템은 디스크 공간을 응용 프로그램 코드의 RAM처럼 표시합니다. 또한 서비스 패브릭 런타임에서는 핫 데이터만 메모리에 저장하고 콜드 데이터는 디스크로 이동하여 스마트 페이징을 제공합니다. 따라서 응용 프로그램에서는 VM에 실제로 제공되는 것보다 더 많은 메모리를 사용할 수 있습니다. RAM이 늘어나면 VM에서 RAM에 더 많은 디스크 저장소를 보관할 수 있기 때문에 성능이 향상됩니다. 선택한 VM에는 원하는 데이터를 VM에 저장하기에 충분히 큰 디스크가 있어야 합니다. 마찬가지로 VM에는 사용자가 원하는 성능을 제공하기에 충분한 RAM이 있어야 합니다. 시간이 지나면서 서비스의 데이터가 늘어나면 클러스터에 더 많은 VM을 추가하고 모든 VM에 데이터를 분할할 수 있습니다.
+For services that manage large amounts of data on the VMs, capacity planning should focus primarily on size. Thus, you should carefully consider the capacity of the VM's RAM and disk storage. The virtual memory management system in Windows makes disk space look like RAM to application code. In addition, the Service Fabric runtime provides smart paging keeping only hot data in memory and moving the cold data to disk. Applications can thus use more memory than is physically available on the VM. Having more RAM simply increases performance, since the VM can keep more disk storage in RAM. The VM you select should have a disk large enough to store the data that you want on the VM. Similarly, the VM should have enough RAM to provide you with the performance you desire. If your service's data grows over time, you can add more VMs to the cluster and partition the data across all the VMs.
 
-## 필요한 노드 수를 결정합니다.
+## <a name="determine-how-many-nodes-you-need"></a>Determine how many nodes you need
 
-서비스를 분할하여 서비스의 데이터를 확장할 수 있습니다. 분할에 대한 자세한 내용은 [서비스 패브릭 분할](service-fabric-concepts-partitioning.md)을 참조하세요. 각 파티션은 단일 VM에 맞는 크기여야 합니다. 하지만 여러(작은) 파티션을 단일 VM에 배치할 수도 있습니다. 따라서 큰 파티션을 몇 개만 두는 것보다 작은 파티션을 여러 개 두는 것이 훨씬 유연합니다. 하지만 파티션이 늘어날수록 서비스 패브릭 오버헤드도 증가하기 때문에 파티션 간에 트랜잭션 처리된 작업을 수행할 수 없다는 단점이 있습니다. 뿐만 아니라 서비스 코드에서 여러 파티션의 데이터에 자주 액세스해야 하는 경우 네트워크 트래픽 가능성이 있습니다. 서비스를 설계할 때에는 이러한 장단점을 신중하게 고려하여 효과적인 분할 전략을 세워야 합니다.
+Partitioning your service allows you to scale out your service's data. For more information on partitioning, see [Partitioning Service Fabric](service-fabric-concepts-partitioning.md). Each partition must fit within a single VM, but multiple (small) partitions can be placed on a single VM. So, having more small partitions gives you greater flexibility than having a few larger partitions. The trade-off is that having lots of partitions increases Service Fabric overhead and you cannot perform transacted operations across partitions. There is also more potential network traffic if your service code frequently needs to access pieces of data that live in different partitions. When designing your service, you should carefully consider these pros and cons to arrive at an effective partitioning strategy.
 
-응용 프로그램에 상태 저장 서비스가 하나 있는데 이 서비스의 저장 크기가 1년 후 DB\_Size GB로 늘어날 것으로 예상된다고 가정해 봅시다. 만약 그 해에 성장세가 예상치를 뛰어넘으면 응용 프로그램(및 파티션)을 추가할 생각입니다. 서비스에 대한 복제본 수를 결정하는 RF(복제 계수)는 총 DB\_Size에 영향을 미칩니다. 모든 복제본에서 총 DB\_Size는 복제 계수를 DB\_Size에 곱한 값입니다. Node\_Size는 서비스에 사용할 노드당 디스크 공간/RAM을 나타냅니다. 최상의 성능을 위해서는 DB\_Size가 클러스터의 메모리에 맞아야 하고, VM의 RAM에 가까운 Node\_Size를 선택해야 합니다. RAM 용량보다 큰 Node\_Size를 할당하면 서비스 패브릭 런타임이 제공하는 페이징에 의존하게 됩니다. 따라서 전체 데이터가 핫 데이터로 간주될 경우(데이터가 페이징 인/페이징 아웃됨) 성능이 최적화되지 않을 수 있습니다. 그러나 데이터의 일부만 핫 데이터인 많은 서비스에서는 이 방식이 좀 더 비용 효과적입니다.
+Let's assume your application has a single stateful service that has a store size that you expect to grow to DB_Size GB in a year. You are willing to add more applications (and partitions) as you experience growth beyond that year.  The replication factor (RF), which determines the number of replicas for your service impacts the total DB_Size. The total DB_Size across all replicas is the Replication Factor multiplied by DB_Size.  Node_Size represents the disk space/RAM per node you want to use for your service. For best performance, the DB_Size should fit into memory across the cluster, and a Node_Size that is around the RAM of the VM should be chosen. By allocating a Node_Size that is larger than the RAM capacity, you are relying on the paging provided by the Service Fabric runtime. Thus, your performance may not be optimal if your entire data is considered to be hot (since then the data is paged in/out). However, for many services where only a fraction of the data is hot, it is more cost-effective.
 
-최대 성능을 얻기 위해 필요한 노드 수는 다음과 같이 계산할 수 있습니다.
+The number of nodes required for maximum performance can be computed as follows:
 
 ```
 Number of Nodes = (DB_Size * RF)/Node_Size
@@ -42,30 +43,30 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 ```
 
 
-## 성장 고려
+## <a name="account-for-growth"></a>Account for growth
 
-사용자 입장에서는 처음 시작할 DB\_Size와 향후 예상되는 DB\_Size 성장 추정치를 기반으로 노드 수를 계산하고 싶을 것입니다. 그런 다음 서비스가 성장하는 만큼 노드 수를 늘려서 노드 수를 과도하게 프로비전하는 일이 없도록 하고 싶을 것입니다. 하지만 파티션 수는 최대 성장 속도에서 서비스를 실행할 때 필요한 노드 수를 기반으로 해야 합니다.
+You may want to compute the number of nodes based on the DB_Size that you expect your service to grow to, in addition to the DB_Size that you began with. Then, grow the number of nodes as your service grows so that you are not over-provisioning the number of nodes. But the number of partitions should be based on the number of nodes that are needed when you're running your service at maximum growth.
 
-모든 예기치 않은 스파이크 또는 오류(예: 일부 VM이 작동 중단됨)를 처리할 수 있도록 언제든지 추가 컴퓨터를 사용할 수 있게 준비하는 것이 좋습니다. 예비 용량은 고객의 스파이크 예상치에 따라 결정되겠지만, 처음에는 약간의 예비 VM(5-10%)으로 시작하는 것이 좋습니다.
+It is good to have some extra machines available at any time so that you can handle any unexpected spikes or failure (for example, if a few VMs go down).  While the extra capacity should be determined by using your expected spikes, a starting point is to reserve a few extra VMs (5-10 percent extra).
 
-위에서는 상태 저장 서비스가 하나라고 간주합니다. 상태 저장 서비스가 여러 개 있으면 다른 서비스와 관련된 DB\_Size를 방정식에 추가해야 합니다. 또는 각 상태 저장 서비스에 대해 별도로 노드 수를 계산할 수 있습니다. 분산되지 않은 복제본 또는 파티션이 서비스 내에 존재할 수 있습니다. 파티션이 다른 파티션보다 더 많은 데이터를 포함할 수도 있습니다. 분할에 대한 자세한 내용은 [모범 사례의 분할 문서](service-fabric-concepts-partitioning.md)을 참조하세요. 하지만 위의 방정식은 서비스 패브릭이 최적화된 방식으로 복제본을 여러 노드에 분산시키므로 어떤 파티션 및 복제본에도 관계없이 적용됩니다.
-
-
-## 비용 계산을 위한 스프레드시트 사용
-
-이제 공식에 실제 숫자를 대입해 보겠습니다. [예제 스프레드시트](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx)는 세 가지 유형의 데이터 개체가 포함된 응용 프로그램의 용량을 계획하는 방법을 보여줍니다. 각 개체에 대해 크기 그리고 예상되는 개체 수를 추정합니다. 또한 각 개체 유형에 대해 원하는 복제본 수를 선택합니다. 스프레드시트가 클러스터에 저장될 총 메모리 양을 계산해줍니다.
-
-그런 다음 VM 크기와 월간 비용을 입력합니다. 스프레드시트에서는 이 VM을 기반으로 노드와 물리적으로 맞추기 위해 데이터를 분할하는 데 사용해야 하는 최소 파티션 수를 알려줍니다. 응용 프로그램의 특정 계산 및 네트워크 트래픽 요구 사항을 수용할 수 있도록 파티션 수를 많이 늘리고 싶은 분들도 있을 것입니다. 스프레드시트에서는 사용자 프로필 개체를 관리하는 파티션 수를 1~6개로 늘려가면서 보여줍니다.
-
-이제 이 모든 정보를 기반으로, 파티션 및 복제본 수를 원하는 만큼 두고 모든 데이터를 26노드 클러스터에 물리적으로 저장할 수 있다는 정보가 스프레드시트에 제공됩니다. 그러나 이 클러스터는 밀도가 높기 때문에 노드 장애 및 업그레이드를 대비하여 노드를 좀 더 추가해야 할 수도 있습니다. 또한 노드 수가 57개를 초과하면 빈 노드만 남게 되므로 더 이상의 가치가 없다는 정보가 스프레드시트에 제공됩니다. 마찬가지로, 노드 장애 및 업그레이드를 대비하여 위의 57노드를 선택하는 분들도 있을 것입니다. 응용 프로그램의 특정 요구에 맞게 스프레드시트를 조정할 수 있습니다.
-
-![비용 계산을 위한 스프레드시트][Image1]
+The preceding assumes a single stateful service. If you have more than one stateful service, you have to add the DB_Size associated with the other services into the equation. Alternatively, you can compute the number of nodes separately for each stateful service.  Your service may have replicas or partitions that aren't balanced. Keep in mind that partitions may also have more data than others. For more information on partitioning, see [partitioning article on best practices](service-fabric-concepts-partitioning.md). However, the preceding equation is partition and replica agnostic, because Service Fabric ensures that the replicas are spread out among the nodes in an optimized manner.
 
 
+## <a name="use-a-spreadsheet-for-cost-calculation"></a>Use a spreadsheet for cost calculation
 
-## 다음 단계
+Now let's put some real numbers in the formula. An [example spreadsheet](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) shows how to plan the capacity for an application that contains three types of data objects. For each object, we approximate its size and how many objects we expect to have. We also select how many replicas we want of each object type. The spreadsheet calculates the total amount of memory to be stored in the cluster.
 
-서비스 분할에 대한 자세한 내용은 [서비스 패브릭 서비스의 분할][10]을 참조하세요.
+Then we enter a VM size and monthly cost. Based on the VM size, the spreadsheet tells you the minimum number of partitions you must use to split your data to physically fit on the nodes. You may desire a larger number of partitions to accommodate your application's specific computation and network traffic needs. The spreadsheet shows the number of partitions that are managing the user profile objects has increased from one to six.
+
+Now, based on all this information, the spreadsheet shows that you could physically get all the data with the desired partitions and replicas on a 26-node cluster. However, this cluster would be densely packed, so you may want some additional nodes to accommodate node failures and upgrades. The spreadsheet also shows that having more than 57 nodes provides no additional value because you would have empty nodes. Again, you may want to go above 57 nodes anyway to accommodate node failures and upgrades. You can tweak the spreadsheet to match your application's specific needs.   
+
+![Spreadsheet for cost calculation][Image1]
+
+
+
+## <a name="next-steps"></a>Next steps
+
+Check out [Partitioning Service Fabric services][10] to learn more about partitioning your service.
 
 
 
@@ -75,4 +76,8 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="오류 분석 서비스 개요 | Microsoft Azure"
-   description="이 문서는 결함을 유도하고 서비스에 대한 테스트 시나리오를 실행하기 위한 서비스 패브릭의 오류 분석 서비스를 설명합니다."
+   pageTitle="Fault Analysis Service overview | Microsoft Azure"
+   description="This article describes the Fault Analysis Service in Service Fabric for inducing faults and running test scenarios against your services."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -16,108 +16,113 @@
    ms.date="04/06/2016"
    ms.author="rsinha"/>
 
-# 오류 분석 서비스 소개
 
-오류 분석 서비스는 Microsoft Azure Service Fabric에서 작성된 서비스 테스트를 위해 설계되었습니다. 오류 분석 서비스를 통해 의미 있는 결함을 유도하고 응용 프로그램에 대해 전체 테스트 시나리오를 실행할 수 있습니다. 이러한 오류와 시나리오는 다양한 상태를 실행하고 유효성을 검사하며 서비스가 수명 전반에서 일관되게 제어되고 안전한 방식으로 경험할 수 있도록 전환합니다.
+# <a name="introduction-to-the-fault-analysis-service"></a>Introduction to the Fault Analysis Service
 
-작업은 오류를 테스트할 서비스를 대상으로 하는 개별 오류입니다. 서비스 개발자는 이러한 기본 구성 요소를 사용하여 복잡한 시나리오를 작성할 수 있습니다. 예:
+The Fault Analysis Service is designed for testing services that are built on Microsoft Azure Service Fabric. With the Fault Analysis Service you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
 
-  * 노드를 다시 시작하여 컴퓨터 또는 VM이 재부팅되는 다양한 상황을 시뮬레이션합니다.
+Actions are the individual faults targeting a service for testing it. A service developer can use these as building blocks to write complicated scenarios. For example:
 
-  * 상태 저장 서비스의 복제본을 이동하여 부하 분산, 장애 조치(failover) 또는 응용 프로그램 업그레이드를 시뮬레이션합니다.
+  * Restart a node to simulate any number of situations where a machine or VM is rebooted.
 
-  * 상태 저장 서비스에 대해 쿼럼 손실을 호출하여 새 데이터를 허용하기에 충분한 "백업" 또는 "보조" 복제본이 없어서 쓰기 작업을 계속할 수 없는 상황을 만듭니다.
+  * Move a replica of your stateful service to simulate load balancing, failover, or application upgrade.
 
-  * 상태 저장 서비스에 대해 데이터 손실을 호출하여 모든 메모리 내 상태가 지워진 상황을 만듭니다.
+  * Invoke quorum loss on a stateful service to create a situation where write operations can't proceed because there aren't enough "back-up" or "secondary" replicas to accept new data.
 
-시나리오는 하나 이상의 작업으로 구성되는 복잡한 작업입니다. 오류 분석 서비스는 두 가지 기본 제공 전체 시나리오를 제공합니다.
+  * Invoke data loss on a stateful service to create a situation where all in-memory state is completely wiped out.
 
-  * 비정상 상황 시나리오
-  * 장애 조치 시나리오
+Scenarios are complex operations composed of one or more actions. The Fault Analysis Service provides two built-in complete scenarios:
 
-## Testing as a service
+  * Chaos Scenario
+  * Failover Scenario
 
-오류 분석 서비스는 서비스 패브릭 클러스터로 자동 시작되는 서비스 패브릭 시스템 서비스입니다. 오류 주입, 테스트 시나리오 실행 및 상태 분석을 위한 호스트 역할을 수행하는 서비스입니다.
+## <a name="testing-as-a-service"></a>Testing as a service
 
-![오류 분석 서비스][0]
+The Fault Analysis Service is a Service Fabric system service that is automatically started with a Service Fabric cluster. This is service acts as the host for fault injection, test scenario execution, and health analysis. 
 
-오류 작업 또는 테스트 시나리오가 시작되면 오류 분석 서비스에 명령을 보내 오류 작업이나 테스트 시나리오를 실행합니다. 오류 분석 서비스는 상태를 저장하므로 안정적으로 오류 및 시나리오를 실행하고 결과에서 유효성을 검사할 수 있습니다. 예를 들어, 오류 분석 서비스를 통해 장기 실행 테스트 시나리오를 안정적으로 실행할 수 있습니다. 또한 테스트가 클러스터 안에서 실행되기 때문에 서비스가 클러스터와 서비스의 상태를 조사하여 결함에 관한 더 심층적인 정보를 제공할 수 있습니다.
+![Fault Analysis Service][0]
 
-## 분산 시스템 테스트
+When a fault action or test scenario is initiated, a command is sent to the Fault Analysis Service to run the fault action or test scenario. The Fault Analysis Service is stateful so that it can reliable run faults and scenarios and validate results. For example, a long-running test scenario can be reliably executed by the Fault Analysis Service. And because tests are being executed inside the cluster, the service can examine the state of the cluster and your services to provide more in-depth information about failures.
 
-서비스 패브릭을 사용하면 확장 가능한 분산 응용 프로그램의 쓰기 및 관리 작업을 훨씬 간편하게 처리할 수 있습니다. 오류 분석 서비스는 마찬가지로 간편하게 분산된 응용 프로그램을 테스트합니다. 테스트 중에 해결해야 하는 세 가지 중요한 문제가 있습니다.
+## <a name="testing-distributed-systems"></a>Testing distributed systems
 
-1. 실제 시나리오에서 발생할 수 있는 오류를 시뮬레이션/생성: 서비스 패브릭의 중요한 측면 중 하나는 분산 응용 프로그램이 다양한 오류를 복구할 수 있다는 점입니다. 그러나 응용 프로그램이 이러한 오류를 복구할 수 있는지 테스트하려면 통제된 테스트 환경에서 실제 오류를 시뮬레이션/생성하는 메커니즘이 필요합니다.
+Service Fabric makes the job of writing and managing distributed scalable applications significantly easier. The Fault Analysis Service makes testing a distributed application similarly easier. There are three main issues that need to be solved while testing:
 
-2. 상호 관련된 오류를 생성하는 기능: 네트워크 오류 및 컴퓨터 오류와 같은 시스템의 기본적인 오류를 개별적으로 생성하기란 쉬운 일입니다. 하지만 이러한 개별 오류의 상호 작용으로 인해 실제 환경에서 발생할 수 있는 수많은 시나리오를 생성하기는 어렵습니다.
+1. Simulating/generating failures that might occur in real-world scenarios: One of the important aspects of Service Fabric is that it enables distributed applications to recover from various failures. However, to test that the application is able to recover from these failures, we need a mechanism to simulate/generate these real-world failures in a controlled test environment.
 
-3. 다양한 개발 및 배포 수준에서 통합되지 않은 환경: 다양한 실패 유형을 테스트할 수 있는 여러 오류 주입 시스템이 있습니다. 그러나 one-box 개발자 시나리오에서 대규모 테스트 환경에서 동일한 테스트를 실행하고 프로덕션 환경에서 테스트하기 위해 사용하도록 전환할 때 이러한 모든 환경은 일정하지 않습니다.
+2. The ability to generate correlated failures: Basic failures in the system, such as network failures and machine failures, are easy to produce individually. Generating a significant number of scenarios that can happen in the real world as a result of the interactions of these individual failures is non-trivial.
 
-문제를 해결하는 여러 메커니즘이 있지만 one-box 개발자 환경부터 프로덕션 클러스터의 테스트까지 필요한 보증으로 동일한은 기능을 수행하는 시스템은 없습니다 오류 분석 서비스는 응용 프로그램 개발자가 비즈니스 논리를 테스트하는 데에 집중할 수 있게 해줍니다. 오류 분석 서비스는 서비스와 기본 분산 시스템 간의 상호 작용을 테스트하는 데 필요한 모든 기능을 제공합니다.
+3. Unified experience across various levels of development and deployment: There are many fault injection systems that can do various types of failures. However, the experience in all of these is poor when moving from one-box developer scenarios, to running the same tests in large test environments, to using them for tests in production.
+
+While there are many mechanisms to solve these problems, a system that does the same with required guarantees--all the way from a one-box developer environment, to test in production clusters--is missing. The Fault Analysis Service helps the application developers concentrate on testing their business logic. The Fault Analysis Service provides all the capabilities needed to test the interaction of the service with the underlying distributed system.
 
 
 
-### 실제 오류 시나리오 시뮬레이션/생성
+### <a name="simulating/generating-real-world-failure-scenarios"></a>Simulating/generating real-world failure scenarios
 
-분산 시스템의 오류에 대한 견고성을 테스트하려면 오류를 생성하는 메커니즘이 필요합니다. 이론적으로는 노드 다운 같은 오류를 생성하기가 쉬워 보이지만 오류 생성은 서비스 패브릭에서도 아직 해결하지 못한 일관성 문제에서 시작합니다. 예를 들어 한 노드를 종료하려면 다음과 같은 워크플로가 필요합니다.
+To test the robustness of a distributed system against failures, we need a mechanism to generate failures. While in theory, generating a failure like a node down seems easy, it starts hitting the same set of consistency problems that Service Fabric is trying to solve. As an example, if we want to shut down a node, the required workflow is the following:
 
-1. 클라이언트에서 노드 종료 요청을 발급합니다.
+1. From the client, issue a shutdown node request.
 
-2. 올바른 노드에 요청을 보냅니다.
+2. Send the request to the right node.
 
-    a. 노드를 찾을 수 없으면 요청이 실패합니다.
+    a. If the node is not found, it should fail.
 
-    b. 노드가 발견되면 노드가 종료된 경우에만 요청이 반환됩니다.
+    b. If the node is found, it should return only if the node is shut down.
 
-테스트 관점에서 오류를 확인하려면 테스트는 이 오류가 유도될 때 오류가 실제로 발생하는지를 알아야 합니다. 서비스 패브릭은 명령이 노드에 도달했을 때 노드가 다운되거나 이미 다운된 상태임을 보증합니다. 어떤 경우든 테스트에서 유효성 검사의 상태와 성공 또는 실패 여부를 올바르게 추론할 수 있습니다. 같은 오류 집합을 수행하도록 서비스 패브릭 외부에서 구현된 시스템은 네트워크, 하드웨어 및 소프트웨어 문제를 과다하게 생성할 수 있고, 이로 인해 이전의 보장을 제공하지 못합니다. 앞에서 언급한 문제가 있으면 서비스 패브릭에서는 클러스터 상태를 다시 구성하여 문제를 해결합니다. 따라서 오류 분석 서비스에서 올바른 보증을 제공할 수 있습니다.
+To verify the failure from a test perspective, the test needs to know that when this failure is induced, the failure actually happens. The guarantee that Service Fabric provides is that either the node will go down or was already down when the command reached the node. In either case the test should be able to correctly reason about the state and succeed or fail correctly in its validation. A system implemented outside of Service Fabric to do the same set of failures could hit many network, hardware, and software issues, which would prevent it from providing the preceding guarantees. In the presence of the issues stated before, Service Fabric will reconfigure the cluster state to work around the issues, and hence the Fault Analysis Service will still be able to give the right set of guarantees.
 
-### 필요한 이벤트 및 시나리오 생성
+### <a name="generating-required-events-and-scenarios"></a>Generating required events and scenarios
 
-실제 오류를 일관적으로 시뮬레이션하기란 시작부터 어려운 일이지만 상호 관련된 오류를 생성하는 기능은 훨씬 더 어렵습니다. 예를 들어 다음 상황이 발생하면 상태 저장 지속형 서비스에서 데이터 손실이 발생합니다.
+While simulating a real-world failure consistently is tough to start with, the ability to generate correlated failures is even tougher. For example, a data loss happens in a stateful persisted service when the following things happen:
 
-1. 복제본의 쓰기 쿼럼만 복제본에 catch됩니다. 모든 보조 복제본은 주 복제본 뒤에 지연됩니다.
+1. Only a write quorum of the replicas are caught up on replication. All the secondary replicas lag behind the primary.
 
-2. (코드 패키지 또는 노드가 중지되어)복제본이 중지되면 쓰기 쿼럼도 중지됩니다.
+2. The write quorum goes down because of the replicas going down (due to a code package or node going down).
 
-3. (디스크 손상 또는 컴퓨터 이미지 다시 설치로 인해)복제본에 대한 데이터가 손실되면 쓰기 쿼럼을 복원할 수 없습니다.
+3. The write quorum cannot come back up because the data for the replicas is lost (due to disk corruption or machine reimaging).
 
-이러한 상호 관련된 오류는 개별 오류만큼 자주는 아니지만 실제 환경에서 분명 발생합니다. 이러한 오류가 발생하기 전에 프로덕션 환경에서 이러한 시나리오를 테스트하는 기능이 매우 중요합니다. 더욱 중요한 점은 (낮에 모든 엔지니어가 작업 중인)제어된 환경에서 프로덕션 워크로드로 이러한 시나리오를 시뮬레이션하는 기능입니다. 오전 2시에 프로덕션 환경에서 처음으로 발생하는 것 보다 훨씬 좋습니다.
+These correlated failures do happen in the real world, but not as frequently as individual failures. The ability to test for these scenarios before they happen in production is critical. Even more important is the ability to simulate these scenarios with production workloads in controlled circumstances (in the middle of the day with all engineers on deck). That is much better than having it happen for the first time in production at 2:00 A.M.
 
-### 여러 환경에서 통합되지 않은 경험
+### <a name="unified-experience-across-different-environments"></a>Unified experience across different environments
 
-개발 환경용으로 하나, 테스트용으로 하나, 프로덕션용으로 하나를 포함해 세 가지 환경을 만드는 것이 전통적인 관례였습니다. 이 모델은 다음과 같습니다.
+The practice traditionally has been to create three different sets of experiences, one for the development environment, one for tests, and one for production. The model was:
 
-1. 개발 환경에서 개별 메서드의 단위 테스트를 허용하는 상태 전환을 생성합니다.
+1. In the development environment, produce state transitions that allow unit tests of individual methods.
 
-2. 테스트 환경에서 다양한 오류 시나리오를 실행하는 종단 간 테스트를 허용하는 오류를 생성합니다.
+2. In the test environment, produce failures to allow end-to-end tests that exercise various failure scenarios.
 
-3. 프로덕션 환경을 처음 그대로 유지하여 인위적인 오류를 방지하고 사람이 오류에 대해 매우 신속하게 반응하도록 합니다.
+3. Keep the production environment pristine to prevent any non-natural failures and to ensure that there is extremely quick human response to failure.
 
-서비스 패브릭에서는 오류 분석 서비스를 통해 개발자 환경부터 프로덕션 환경까지 동일한 방법으로 이 문제를 해결할 것을 제안합니다. 두 가지 방법으로 이 작업을 수행할 수 있습니다.
+In Service Fabric, through the Fault Analysis Service, we are proposing to turn this around and use the same methodology from developer environment to production. There are two ways to achieve this:
 
-1. 제어된 오류를 유도하려면 one-box 환경부터 프로덕션 클러스터까지 오류 분서 서비스 API를 사용합니다.
+1. To induce controlled failures, use the Fault Analysis Service APIs from a one-box environment all the way to production clusters.
 
-2. 클러스터에 자동 오류를 유도하려면 오류 분석 서비스를 사용하여 자동 오류를 생성합니다. 구성을 통해 오류 비율을 제어하여 같은 서비스를 다른 환경에서 다른 방법으로 테스트할 수 있습니다.
+2. To give the cluster a fever that causes automatic induction of failures, use the Fault Analysis Service to generate automatic failures. Controlling the rate of failures through configuration enables the same service to be tested differently in different environments.
 
-서비스 패브릭에서 오류 규모는 환경에 따라 다를 수 있지만 실제 메커니즘은 동일합니다. 따라서 코드-배포 파이프라인 및 기능이 훨씬 빠르게 실제 부하에서 서비스를 테스트할 수 있습니다.
+With Service Fabric, though the scale of failures would be different in the different environments, the actual mechanisms would be identical. This allows for a much quicker code-to-deployment pipeline and the ability to test the services under real-world loads.
 
-## 오류 분석 서비스 사용
+## <a name="using-the-fault-analysis-service"></a>Using the Fault Analysis Service
 
 **C#**
 
-오류 분석 서비스 기능은 Microsoft.ServiceFabric NuGet 패키지의 System.Fabric 네임스페이스에 있습니다. 오류 분석 서비스를 사용하려면 NuGet 패키지를 프로젝트에 참조로 포함하세요.
+Fault Analysis Service features are in the System.Fabric namespace in the Microsoft.ServiceFabric NuGet package. To use the Fault Analysis Service features, include the nuget package as a reference in your project.
 
 **PowerShell**
 
-PowerShell을 사용하려면 서비스 패브릭 SDK를 설치해야 합니다. SDK 설치 후에는 사용할 수 있도록 ServiceFabric PowerShell 모듈이 자동으로 로드됩니다.
+To use PowerShell, you must install the Service Fabric SDK. After the SDK is installed, the ServiceFabric PowerShell module is auto loaded for you to use.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-진정한 클라우드 규모 서비스를 만들려면 배포 전과 후에 모두 서비스가 실제 오류를 견딜 수 있도록 하는 것이 중요합니다. 오늘날의 서비스 환경에서 신속하게 혁신하고 코드를 프로덕션 환경으로 신속하게 이동하는 기능이 매우 중요합니다. 오류 분석 서비스는 서비스 개발자가 정확하게 작업을 수행하는 데 도움이 됩니다.
+To create truly cloud-scale services, it is critical to ensure, both before and after deployment, that services can withstand real world failures. In the services world today, the ability to innovate quickly and move code to production quickly is very important. The Fault Analysis Service helps service developers to do precisely that.
 
-기본 제공 [테스트 시나리오](service-fabric-testability-scenarios.md)를 사용하여 응용 프로그램 테스트를 시작하거나 오류 분석 서비스에서 제공하는 [오류 작업](service-fabric-testability-actions.md)을 사용하여 자체 테스트 시나리오를 작성합니다.
+Begin testing your applications and services using the built-in [test scenarios](service-fabric-testability-scenarios.md), or author your own test scenarios using the [fault actions](service-fabric-testability-actions.md) provided by the Fault Analysis Service.
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

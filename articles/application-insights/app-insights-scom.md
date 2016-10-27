@@ -1,113 +1,118 @@
 <properties 
-	pageTitle="Application Insights로 SCOM 통합 | Microsoft Azure" 
-	description="SCOM 사용자인 경우 Application Insights로 성능을 모니터링하고 문제를 진단합니다. 포괄적 대시보드, 스마트 경고, 강력한 진단 도구 및 분석 쿼리." 
-	services="application-insights" 
+    pageTitle="SCOM integration with Application Insights | Microsoft Azure" 
+    description="If you're an SCOM user, monitor performance and diagnose issues with Application Insights. Comprehensive dashboards, smart alerts, powerful diagnostic tools and analysis queries." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2016" 
+    ms.author="awills"/>
  
-# SCOM에 대해 Application Insights를 사용하여 응용 프로그램 성능 모니터링
 
-서버를 관리하는 데 SCOM(System Center Operations Manager)을 사용하는 경우 [Visual Studio Application Insights](app-insights-asp-net.md)를 활용해 성능을 모니터링하고 성능 문제를 진단할 수 있습니다. Application Insights는 사용자 웹 응용 프로그램에 들어오는 요청과 나가는 REST 및 SQL 호출, 예외 및 로그 추적을 모니터링합니다. 메트릭 차트 및 스마트 경고뿐만 아니라 이 원격 분석을 통한 강력한 진단 검색 및 분석 쿼리가 포함된 대시보드를 제공합니다.
+# <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Application Performance Monitoring using Application Insights for SCOM
 
-SCOM 관리 팩을 사용하여 Application Insights 모니터링으로 전환할 수 있습니다.
+If you use System Center Operations Manager (SCOM) to manage your servers, you can monitor performance and diagnose performance issues with the help of [Visual Studio Application Insights](app-insights-asp-net.md). Application Insights monitors your web application's incoming requests, outgoing REST and SQL calls, exceptions, and log traces. It provides dashboards with metric charts and smart alerts, as well as powerful diagnostic search and analytical queries over this telemetry. 
 
-## 시작하기 전에
+You can switch on Application Insights monitoring by using an SCOM management pack.
 
-다음을 가정합니다.
+## <a name="before-you-start"></a>Before you start
 
-* SCOM에 대해 잘 알고 있으며 SCOM 2012 R2 또는 2016을 사용하여 IIS 웹 서버를 관리합니다.
-* 서버에 Application Insights로 모니터링하려는 웹 응용 프로그램을 이미 설치했습니다.
-* 앱 프레임워크 버전은 .NET 4.5 이상입니다.
-* [Microsoft Azure](https://azure.com)에서 구독에 액세스하여 [Azure 포털](https://portal.azure.com)에 로그인할 수 있습니다. 조직에 구독이 있으면 해당 구독에 Microsoft 계정을 추가할 수 있습니다.
+We assume:
 
-(개발 팀은 [Application Insights SDK](app-insights-asp-net.md)를 웹앱으로 빌드할 수 있습니다. 이 빌드 시간 계측은 사용자 지정 원격 분석을 작성하는 데 더 많은 유연성을 제공합니다. 하지만 이것은 크게 중요하지 않습니다. SDK가 기본 제공되는지 여부에 관계없이 여기에 설명된 단계를 따르면 됩니다.)
+* You're familiar with SCOM, and that you use SCOM 2012 R2 or 2016 to manage your IIS web servers.
+* You have already installed on your servers a web application that you want to monitor with Application Insights.
+* App framework version is .NET 4.5 or later.
+* You have access to a subscription in [Microsoft Azure](https://azure.com) and can sign in to the [Azure portal](https://portal.azure.com). Your organization may have a subscription, and can add your Microsoft account to it.
 
-## (한 번) Application Insights 관리 팩 설치
+(The development team might build the [Application Insights SDK](app-insights-asp-net.md) into the web app. This build-time instrumentation gives them greater flexibility in writing custom telemetry. However, it doesn't matter: you can follow the steps described here either with or without the SDK built in.)
 
-Operations Manager를 실행하는 컴퓨터에서 다음을 수행합니다.
+## <a name="(one-time)-install-application-insights-management-pack"></a>(One time) Install Application Insights management pack
 
-2. 이전 버전의 관리 팩을 제거합니다.
- 1. Operations Manager에서 관리, 관리 팩을 엽니다.
- 2. 이전 버전을 삭제합니다.
-1. 카탈로그에서 관리 팩을 다운로드하여 설치합니다.
-2. Operations Manager를 다시 시작합니다.
+On the machine where you run Operations Manager:
+
+2. Uninstall any old version of the management pack:
+ 1. In Operations Manager, open Administration, Management Packs. 
+ 2. Delete the old version.
+1. Download and install the management pack from the catalog.
+2. Restart Operations Manager.
 
 
-## 관리 팩 만들기
+## <a name="create-a-management-pack"></a>Create a management pack
 
-1. Operations Manager에서 **작성**, **.NET...with Application Insights**, **모니터링 추가 마법사**를 열고 **.NET...with Application Insights**를 한 번 더 선택합니다.
+1. In Operations Manager, open **Authoring**, **.NET...with Application Insights**, **Add Monitoring Wizard**, and again choose **.NET...with Application Insights**.
 
     ![](./media/app-insights-scom/020.png)
 
-2. 앱 다음에 구성의 이름을 지정합니다. (한 번에 하나의 앱을 계측해야 합니다.)
+2. Name the configuration after your app. (You have to instrument one app at a time.)
     
     ![](./media/app-insights-scom/030.png)
 
-3. 동일한 마법사 페이지에서 새 관리 팩을 만들거나 Application Insights에 대해 이전에 만든 팩을 선택합니다.
+3. On the same wizard page, either create a new management pack, or select a pack that you created for Application Insights earlier.
 
-     (Application Insights [관리 팩](https://technet.microsoft.com/library/cc974491.aspx)은 인스턴스를 만들 수 있는 템플릿입니다. 동일한 인스턴스를 나중에 재사용할 수 있습니다.)
+     (The Application Insights [management pack](https://technet.microsoft.com/library/cc974491.aspx) is a template, from which you create an instance. You can reuse the same instance later.)
 
 
-    ![일반 속성 탭에서 앱의 이름을 입력합니다. 새로 만들기를 클릭하고 관리 팩의 이름을 입력합니다. 확인을 클릭한 후 다음을 클릭합니다.](./media/app-insights-scom/040.png)
+    ![In the General Properties tab, type the name of the app. Click New and type a name for a management pack. Click OK, then click Next.](./media/app-insights-scom/040.png)
 
-4. 모니터링할 앱을 하나 선택합니다. 검색 기능으로 서버에 설치된 앱을 검색합니다.
+4. Choose one app that you want to monitor. The search feature searches among apps installed on your servers.
 
-    ![모니터링할 항목 탭에서 추가를 클릭하고 앱 이름 부분을 입력하며, 검색을 클릭하고 앱을 선택한 후 추가, 확인을 선택합니다.](./media/app-insights-scom/050.png)
+    ![On What to Monitor tab, click Add, type part of the app name, click Search, choose the app, and then Add, OK.](./media/app-insights-scom/050.png)
 
-    일부 서버의 앱만 모니터링하려는 경우 모니터링 범위 필드(선택 사항)를 사용하여 서버의 서브넷을 지정할 수 있습니다.
+    The optional Monitoring scope field can be used to specify a subset of your servers, if you don't want to monitor the app in all servers.
 
-5. 다음 마법사 페이지에서는 먼저 Microsoft Azure에 로그인할 자격 증명을 제공해야 합니다.
+5. On the next wizard page, you must first provide your credentials to sign in to Microsoft Azure.
 
-    이 페이지에서 원격 분석 데이터를 분석하고 표시할 Application Insights 리소스를 선택합니다.
+    On this page, you choose the Application Insights resource where you want the telemetry data to be analyzed and displayed. 
 
- * 개발 중에 Application Insights에 대해 응용 프로그램이 구성된 경우 기존 리소스를 선택합니다.
- * 그렇지 않은 경우 해당 앱에 대해 명명된 새 리소스를 만듭니다. 동일한 시스템의 구성 요소인 다른 앱이 있는 경우 이를 동일한 리소스 그룹에 배치하면 원격 분석에 보다 쉽게 액세스하여 관리할 수 있습니다.
+ * If the application was configured for Application Insights during development, select its existing resource.
+ * Otherwise, create a new resource named for the app. If there are other apps that are components of the same system, put them in the same resource group, to make access to the telemetry easier to manage.
 
-    나중에 이러한 설정을 변경할 수 있습니다.
+    You can change these settings later.
 
-    ![Application Insights 설정 탭에서 '로그인'을 클릭하고 Azure에 대한 Microsoft 계정 자격 증명을 제공합니다. 그런 다음 구독, 리소스 그룹 및 리소스를 선택합니다.](./media/app-insights-scom/060.png)
+    ![On Application Insights settings tab, click 'sign in' and provide your Microsoft account credentials for Azure. Then choose a subscription, resource group, and resource.](./media/app-insights-scom/060.png)
 
-6. 마법사를 완료합니다.
+6. Complete the wizard.
 
-    ![만들기 클릭](./media/app-insights-scom/070.png)
+    ![Click Create](./media/app-insights-scom/070.png)
     
-모니터링할 각 앱에 대해 다음 절차를 반복합니다.
+Repeat this procedure for each app that you want to monitor.
 
-나중에 설정을 변경해야 하는 경우 작업 창에서 모니터의 속성을 다시 엽니다.
+If you need to change settings later, re-open the properties of the monitor from the Authoring window.
 
-![작성에서 .NET Application Performance Monitoring with Application Insights를 선택하고 모니터를 선택한 후 속성을 클릭합니다.](./media/app-insights-scom/080.png)
+![In Authoring, select .NET Application Performance Monitoring with Application Insights, select your monitor, and click Properties.](./media/app-insights-scom/080.png)
 
-## 모니터링 확인
+## <a name="verify-monitoring"></a>Verify monitoring
 
-설치한 모니터가 모든 서버에서 앱을 검색합니다. 여기서 앱을 찾으면 Application Insights 상태 모니터를 구성하여 앱을 모니터링합니다. 필요한 경우 먼저 서버에 상태 모니터를 설치합니다.
+The monitor that you have installed searches for your app on every server. Where it finds the app, it configures Application Insights Status Monitor to monitor the app. If necessary, it first installs Status Monitor on the server.
 
-찾은 앱의 인스턴스를 확인할 수 있습니다.
+You can verify which instances of the app it has found:
 
-![모니터링에서 Application Insights를 엽니다.](./media/app-insights-scom/100.png)
-
-
-## Application Insights에서 원격 분석 보기
-
-[Azure 포털](https://portal.azure.com)에서 앱에 대한 리소스로 이동합니다. 앱에서 [원격 분석을 보여 주는 차트를 확인](app-insights-dashboards.md)합니다. (기본 페이지에 표시되지 않으면 라이브 메트릭 스트림을 클릭합니다.)
+![In Monitoring, open Application Insights](./media/app-insights-scom/100.png)
 
 
-## 다음 단계
+## <a name="view-telemetry-in-application-insights"></a>View telemetry in Application Insights
 
-* [대시보드를 설정](app-insights-dashboards.md)하여 현재 항목 및 기타 앱을 모니터링하는 가장 중요한 차트를 모읍니다.
-* [매트릭에 대해 알아보기](app-insights-metrics-explorer.md)
-* [경고 설정](app-insights-alerts.md)
-* [성능 문제 진단](app-insights-detect-triage-diagnose.md)
-* [강력한 분석 쿼리](app-insights-analytics.md)
-* [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)
+In the [Azure portal](https://portal.azure.com), browse to the resource for your app. You [see charts showing telemetry](app-insights-dashboards.md) from your app. (If it hasn't shown up on the main page yet, click Live Metrics Stream.)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+## <a name="next-steps"></a>Next steps
+
+* [Set up a dashboard](app-insights-dashboards.md) to bring together the most important charts monitoring this and other apps.
+* [Learn about metrics](app-insights-metrics-explorer.md)
+* [Set up alerts](app-insights-alerts.md)
+* [Diagnosing performance issues](app-insights-detect-triage-diagnose.md)
+* [Powerful Analytics queries](app-insights-analytics.md)
+* [Availability web tests](app-insights-monitor-web-app-availability.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

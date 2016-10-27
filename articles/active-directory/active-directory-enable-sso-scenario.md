@@ -13,10 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="07/20/2016"
+      ms.date="10/10/2016"
       ms.author="markvi"/>
 
-# Azure Active Directory로 응용 프로그램 관리
+
+# <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory로 응용 프로그램 관리
 
 실제 워크플로 또는 콘텐츠를 넘어 비즈니스에는 모든 응용 프로그램에 대한 두 가지 기본 요구 사항이 있습니다.
 
@@ -32,7 +33,7 @@
 
 - *무엇*은 *액세스 관리*입니다. - 보호된 리소스에 대한 액세스 관리
 
-두 구성 요소는 모두 *IAM(ID 및 액세스 관리)*로 알려져 있으며 [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) 그룹에서 “*적당한 사람이 적당한 때에 적당한 이유로 적당한 리소스에 액세스할 수 있도록 하는 보안 분야*”로 정의됩니다.
+두 구성 요소는 모두 *IAM(ID 및 액세스 관리)*으로 알려져 있으며 [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) 그룹에서 “*적당한 사람이 적당한 때에 적당한 이유로 적당한 리소스에 액세스할 수 있도록 하는 보안 분야*”로 정의됩니다.
 
 그럼 무엇이 문제입니까? IAM이 한 곳에서 통합 솔루션으로 *관리되지 않는* 경우 다음과 같습니다.
 
@@ -50,18 +51,18 @@
 
 - 보안 및 모니터링 도구는 포괄적인 E2E 시나리오를 달성하기 위해 추가 사용자 지정 및 통합이 필요합니다.
 
-## 응용 프로그램과 통합된 Azure Active Directory
+## <a name="azure-active-directory-integrated-with-applications"></a>응용 프로그램과 통합된 Azure Active Directory
 
 Azure Active Directory는 Microsoft의 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
 
-- 클라우드 서비스로 IAM 사용
+- 클라우드 서비스로 IAM 사용 
 
-- 중앙 액세스 관리, SSO(Single Sign-On) 및 보고 제공
+- 중앙 액세스 관리, SSO(Single Sign-On) 및 보고 제공 
 
-- Salesforce, Google Apps, Box, Concur 등을 포함하여 응용 프로그램 갤러리에서 [수천 개의 응용 프로그램](https://azure.microsoft.com/marketplace/active-directory/)에 대한 통합된 액세스 관리를 지원합니다.
+- Salesforce, Google Apps, Box, Concur 등을 포함하여 응용 프로그램 갤러리에서 [수천 개의 응용 프로그램](https://azure.microsoft.com/marketplace/active-directory/) 에 대한 통합된 액세스 관리를 지원합니다. 
 
 
-Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시한 모든 응용 프로그램에는 동일한 ID 및 액세스 관리 기능이 있습니다.<br> 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
+Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시한 모든 응용 프로그램에는 동일한 ID 및 액세스 관리 기능이 있습니다.<br>  이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 응용 프로그램 갤러리에 아직 나열되지 않은 응용 프로그램을 구현해야 하는 경우 어떻게 합니까? 응용 프로그램 갤러리에서 응용 프로그램에 SSO를 구성하는 것 보다 약간 더 시간이 걸리지만 Azure AD는 구성에 도움이 되는 마법사를 제공합니다.
 
@@ -75,7 +76,7 @@ Azure AD의 값은 “그저” 클라우드 응용 프로그램의 수준을 �
 
 사용자 및 회사에 주는 혜택은 분명합니다. ID 관리자 및 조직에 대한 혜택은 좀 더 자세히 살펴보겠습니다.
 
-## 통합된 응용 프로그램 혜택
+## <a name="integrated-application-benefits"></a>통합된 응용 프로그램 혜택
 
 SSO 프로세스는 두 단계로 진행됩니다.
 
@@ -99,40 +100,44 @@ Azure AD를 사용하여 응용 프로그램을 관리하고 SSO를 사용하도
 
 예를 들어 사용자가 조직에 합류하는 경우 기본 로그인 작업에 Azure AD의 사용자에 대한 계정을 만들어야 합니다. 이 사용자가 Salesforce와 같은 관리 응용 프로그램에 대한 액세스를 필요로 하는 경우 또한 Salesforce에서 이 사용자에 대한 계정을 만들고 Azure 계정에 연결하여 SSO를 작동시킵니다. 사용자가 조직을 떠나는 경우 Azure AD 계정 및 사용자가 액세스한 응용 프로그램의 IAM 스토어에서 모든 해당 사용자 계정을 삭제하는 것이 좋습니다.
 
-## 액세스 감지
+## <a name="access-detection"></a>액세스 감지
 
 오늘날 기업에서 IT 부서가 사용되는 클라우드 응용 프로그램의 일부를 인지하지 못하는 경우가 있습니다. 클라우드 앱 검색과 함께 Azure AD는 이러한 응용 프로그램을 검색하는 솔루션을 제공합니다.
 
-## 계정 관리
+## <a name="account-management"></a>계정 관리
 
 일반적으로 다양한 응용 프로그램의 계정을 관리하는 작업은 조직의 IT 또는 지원 담당자가 수행하는 수동 프로세스입니다. Azure AD는 모든 서비스 공급자 통합 응용 프로그램에 걸쳐 계정 관리를 완전히 자동화했으며 해당 응용 프로그램은 Microsoft가 지원하는 자동화된 사용자 프로비전 또는 SAML JIT에서 사전 통합되었습니다.
 
-## 자동화된 사용자 프로비전
+## <a name="automated-user-provisioning"></a>자동화된 사용자 프로비전
 
 일부 응용 프로그램은 계정 만들기 및 제거(또는 비활성화)에 자동화 인터페이스를 제공합니다. 공급자가 이러한 인터페이스를 제공하는 경우 Azure AD에서 활용됩니다. 관리 작업이 자동으로 발생하기 때문에 운영 비용을 감소하고 무단으로 액세스할 가능성이 줄어들기 때문에 사용자 환경의 보안을 향상시킵니다.
 
-## 액세스 관리
+## <a name="access-management"></a>액세스 관리
 
 Azure AD를 사용하여 개별 또는 규칙 기반 할당을 사용하는 응용 프로그램에 대한 액세스를 관리할 수 있습니다. 또한 최상의 감독을 보장하고 Helpdesk의 부담을 줄이는 조직에서 적당한 사람에게 액세스 관리를 위임할 수 있습니다.
 
-## 온-프레미스 응용 프로그램
+## <a name="on-premises-applications"></a>온-프레미스 응용 프로그램
 
 기본 제공 응용 프로그램 프록시를 사용하면 결과적으로 사용자에게 최신 클라우드 응용 프로그램과 함께 일관된 액세스 환경 및 Azure AD 모니터링, 보고 및 보안 기능에서 혜택을 주어 온-프레미스 응용 프로그램을 게시할 수 있습니다.
 
-## 보고 및 모니터링
+## <a name="reporting-and-monitoring"></a>보고 및 모니터링
 
 Azure AD는 응용 프로그램에 액세스하는 사람과 응용 프로그램을 실제로 사용한 시간을 알 수 있도록 사전 통합된 보고 및 모니터링 기능을 제공합니다.
 
-## 관련 기능
+## <a name="related-capabilities"></a>관련 기능
 
 Azure AD를 사용하여 세부적인 액세스 정책 및 사전 통합된 MFA로 응용 프로그램을 보호할 수 있습니다. Azure MFA에 대해 자세히 알아보려면 [Azure MFA](https://azure.microsoft.com/services/multi-factor-authentication/)를 참조하세요.
 
-## 시작
+## <a name="getting-started"></a>시작
 
 응용 프로그램을 Azure AD와 통합하기 시작하려면 [응용 프로그램과 Azure Active Directory 통합 시작 가이드](active-directory-integrating-applications-getting-started.md)를 살펴봅니다.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 
 [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

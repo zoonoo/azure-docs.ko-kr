@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 응용 프로그램 추적 저장소와 같은 Elasticsearch 사용 | Microsoft Azure"
-   description="서비스 패브릭 응용 프로그램이 Elasticsearch 및 Kibana를 사용하여 응용 프로그램 추적을 통해 저장, 인덱싱 및 검색하는 방법에 대해 설명합니다."
+   pageTitle="Using Elasticsearch as a Service Fabric application trace store | Microsoft Azure"
+   description="Describes how Service Fabric applications can use Elasticsearch and Kibana to store, index, and search through application traces (logs)"
    services="service-fabric"
    documentationCenter=".net"
    authors="karolz-ms"
@@ -16,165 +16,166 @@
    ms.date="08/09/2016"
    ms.author="karolz@microsoft.com"/>
 
-# 서비스 패브릭 응용 프로그램 추적 저장소로 ElasticSearch 사용
-## 소개
-이 문서에서는 [Azure 서비스 패브릭](https://azure.microsoft.com/documentation/services/service-fabric/) 응용 프로그램이 프로그램 추적 저장소, 인덱싱 및 검색을 위해 **Elasticsearch** 및 **Kibana**를 사용할 수 있는 방법에 대해 설명합니다. [Elasticsearch](https://www.elastic.co/guide/index.html)는 이 작업에 적합한 공개 소스, 분산 및 확장 가능한 실시간 검색 및 분석 엔진이며 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 컴퓨터에 설치할 수 있습니다. Elasticsearch는 **ETW(Windows용 이벤트 추적)**와 같은 기술을 사용하여 생성된 *구조화된* 추적을 효율적으로 처리할 수 있습니다.
 
-ETW는 서비스 패브릭 런타임에서 진단 정보(추적)를 얻는 데 사용됩니다. 이는 서비스 패브릭 응용 프로그램에서 응용 프로그램의 진단 정보를 얻는 데에도 권장되는 방법입니다. 동일한 메커니즘을 사용하면 런타임 제공 및 응용 프로그램 제공 추적 사이의 상관관계를 허용하고 문제를 보다 쉽게 해결할 수 있습니다. Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 기본적으로 ETW 추적을 내보내는 로깅 API(.NET **EventSource** 클래스 기반)가 포함됩니다. ETW를 사용한 서비스 패브릭 응용 프로그램 추적에 대한 일반적인 개요는 [로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)를 참조하세요.
+# <a name="use-elasticsearch-as-a-service-fabric-application-trace-store"></a>Use Elasticsearch as a Service Fabric application trace store
+## <a name="introduction"></a>Introduction
+This article describes how [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) applications can use **Elasticsearch** and **Kibana** for application trace storage, indexing, and search. [Elasticsearch](https://www.elastic.co/guide/index.html) is an open-source, distributed, and scalable real-time search and analytics engine that is well-suited for this task. It can be installed on Windows and Linux virtual machines running in Microsoft Azure. Elasticsearch can efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
 
-Elasticsearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) Elasticsearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
+ETW is used by Service Fabric runtime to source diagnostic information (traces). It is the recommended method for Service Fabric applications to source their diagnostic information, too. Using the same mechanism allows for correlation between runtime-supplied and application-supplied traces and makes troubleshooting easier. Service Fabric project templates in Visual Studio include a logging API (based on the .NET **EventSource** class) that emits ETW traces by default. For a general overview of Service Fabric application tracing using ETW, see [Monitoring and diagnosing services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-+ **In Process 추적 캡처**
-응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(Elasticsearch).
+For the traces to show up in Elasticsearch, they need to be captured at the Service Fabric cluster nodes in real time (while the application is running) and sent to an Elasticsearch endpoint. There are two major options for trace capturing:
 
-+ **Out of Process 추적 캡처**
-별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
++ **In-process trace capturing**  
+The application, or more precisely, service process, is responsible for sending out the diagnostic data to the trace store (Elasticsearch).
 
-아래에서 Azure에 Elasticsearch를 설정하는 방법을 설명하고 캡처 옵션의 장단점에 대해 알아보고 Elasticsearch에 데이터를 전송하도록 서비스 패브릭 서비스를 구성하는 방법을 설명합니다.
++ **Out-of-process trace capturing**  
+A separate agent is capturing traces from the service process or processes and sending them to the trace store.
+
+Below, we describe how to set up Elasticsearch on Azure, discuss the pros and cons for both capture options, and explain how to configure a Service Fabric service to send data to Elasticsearch.
 
 
-## Azure에 Elasticsearch 설정
-Azure에 Elasticsearch 서비스를 설정하는 가장 간단한 방법은 [**Azure 리소스 관리자 템플릿**](../resource-group-overview.md)을 통하는 것입니다. 포괄적인 [Elasticsearch에 대한 빠른 시작 Azure 리소스 관리자 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch)은 Azure 빠른 시작 템플릿 리포지토리에서 사용할 수 있습니다. 이 템플릿에서는 규모 단위(노드 그룹)에 대한 별도의 저장소 계정을 사용합니다. 또한 서로 다른 구성 및 여러 개의 연결된 데이터 디스크를 사용하여 별개의 클라이언트 및 서버 노드를 프로비전할 수 있습니다.
+## <a name="set-up-elasticsearch-on-azure"></a>Set up Elasticsearch on Azure
+The most straightforward way to set up the Elasticsearch service on Azure is through [**Azure Resource Manager templates**](../resource-group-overview.md). A comprehensive [Quickstart Azure Resource Manager template for Elasticsearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure Quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes). It can also provision separate client and server nodes with different configurations and various numbers of data disks attached.
 
-여기에서 [Azure 진단 도구 저장소](https://github.com/Azure/azure-diagnostics-tools)의 **ES-MultiNode**라는 다른 템플릿을 사용합니다. 이 템플릿은 사용하기 쉬우며 HTTP 기본 인증으로 보호되는 Elasticsearch 클러스터를 만듭니다. 계속하기 전에 리포지토리를 복제하거나 zip 파일을 다운로드하여 GitHub에서 컴퓨터로 리포지토리를 다운로드하세요. ES-MultiNode 템플릿은 동일한 이름의 폴더에 있습니다.
+Here, we use another template, called **ES-MultiNode** from the [Azure diagnostic tools repository](https://github.com/Azure/azure-diagnostics-tools). This template is easier to use, and it creates an Elasticsearch cluster protected by HTTP basic authentication. Before you proceed, download the repository from GitHub to your machine (by either cloning the repository or downloading a zip file). The ES-MultiNode template is located in the folder with the same name.
 
-### Elasticsearch 설치 스크립트를 실행하도록 컴퓨터 준비
-ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSearchCluster`라는 제공된 Azure PowerShell 스크립트를 통하는 것입니다. 이 스크립트를 사용하려면 PowerShell 모듈 및 **openssl**이라는 도구를 설치해야 합니다. 후자는 Elasticsearch 클러스터를 원격으로 관리하는 데 사용될 수 있는 SSH 키를 만들기 위해 필요합니다.
+### <a name="prepare-a-machine-to-run-elasticsearch-installation-scripts"></a>Prepare a machine to run Elasticsearch installation scripts
+The easiest way to use the ES-MultiNode template is through a provided Azure PowerShell script called `CreateElasticSearchCluster`. To use this script, you need to install PowerShell modules and a tool called **openssl**. The latter is needed for creating an SSH key that can be used to administer your Elasticsearch cluster remotely.
 
-`CreateElasticSearchCluster` 스크립트는 Windows 컴퓨터에서 ES-MultiNode 템플릿을 보다 쉽게 사용할 수 있도록 디자인되었습니다. 비Windows 컴퓨터에서 템플릿을 사용할 수도 있지만 해당 시나리오가 이 문서의 범위를 벗어납니다.
+`CreateElasticSearchCluster` script is designed for ease of use with the ES-MultiNode template from a Windows machine. It is possible to use the template on a non-Windows machine, but that scenario is beyond the scope of this article.
 
-1. 아직 설치하지 않은 경우 [**Azure PowerShell 모듈**](http://aka.ms/webpi-azps)을 설치합니다. 메시지가 표시되면 **실행**을 클릭한 다음 **설치**합니다. Azure PowerShell 1.3 이상이 필요합니다.
+1. If you haven't installed them already, install [**Azure PowerShell modules**](http://aka.ms/webpi-azps). When prompted, click **Run**, then **Install**. Azure PowerShell 1.3 or newer is required.
 
-2. **openssl** 도구는 [**Windows용 Git**](http://www.git-scm.com/downloads)의 배포에 포함되어 있습니다. [Windows용 GIT](http://www.git-scm.com/downloads)를 아직 설치하지 않은 경우 지금 설치하세요. (기본 설치 옵션도 적합합니다.)
+2. The **openssl** tool is included in the distribution of [**Git for Windows**](http://www.git-scm.com/downloads). If you have not done so already, install [Git for Windows](http://www.git-scm.com/downloads) now. (The default installation options are OK.)
 
-3. Git가 설치되었지만 시스템 경로에 포함되지 않았다고 가정하면 Microsoft Azure PowerShell 창을 열고 다음 명령을 실행합니다.
+3. Assuming that Git has been installed but not included in the system path, open a Microsoft Azure PowerShell window and run the following commands:
 
     ```powershell
     $ENV:PATH += ";<Git installation folder>\usr\bin"
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
 
-    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 **"C:\\Program Files\\Git"** 입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
+    Replace the `<Git installation folder>` with the Git location on your machine; the default is **"C:\Program Files\Git"**. Note the semicolon character at the beginning of the first path.
 
-4. Azure에 로그온하고([`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet를 통해) Elastic Search 클러스터를 만드는 데 사용되어야 하는 구독을 선택했는지 확인합니다. `Get-AzureRmContext` 및 `Get-AzureRmSubscription` cmdlet를 사용하여 올바른 구독을 선택했는지 확인할 수 있습니다.
+4. Ensure that you are logged on to Azure (via [`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet) and that you have selected the subscription that should be used to create your Elastic Search cluster. You can verify that correct subscription is selected using `Get-AzureRmContext` and `Get-AzureRmSubscription` cmdlets.
 
-5. 아직 수행하지 않은 경우 현재 디렉터리를 ES-MultiNode 폴더로 변경합니다.
+5. If you haven't done so already, change the current directory to the ES-MultiNode folder.
 
-### CreateElasticSearchCluster 스크립트 실행
-스크립트를 실행하기 전에 `azuredeploy-parameters.json` 파일을 열고 스크립트 매개 변수에 대한 값을 확인하거나 제공합니다. 다음 매개 변수가 제공됩니다.
+### <a name="run-the-createelasticsearchcluster-script"></a>Run the CreateElasticSearchCluster script
+Before you run the script, open the `azuredeploy-parameters.json` file and verify or provide values for the script parameters. The following parameters are provided:
 
-|매개 변수 이름 |설명|
+|Parameter Name           |Description|
 |-----------------------  |--------------------------|
-|dnsNameForLoadBalancerIP |Elasticsearch 클러스터에 대해 공개적으로 표시되는 DNS 이름을 만드는 데 사용되는 이름입니다(Azure 지역 도메인을 제공된 이름에 추가하여). 예를 들어 이 매개 변수 값이 "myBigCluster"인 경우 선택한 Azure 지역은 미국 서부이며 클러스터에 대한 결과 DNS 이름이 myBigCluster.westus.cloudapp.azure.com이 됩니다. <br /><br />이 이름은 데이터 노드 이름 같은 Elasticsearch 클러스터와 관련된 많은 아티팩트에 대한 이름의 루트로 제공됩니다.|
-|adminUsername |Elasticsearch 클러스터를 관리하기 위한 관리자 계정 이름입니다(해당 SSH 키는 자동으로 생성됨).|
-|dataNodeCount |Elasticsearch 클러스터의 노드 수입니다. 스크립트의 현재 버전은 데이터와 쿼리 노드를 구분하지 않습니다. 모든 노드는 두 역할을 모두 수행합니다. 기본 노드 수는 3개입니다.|
-|dataDiskSize |각 데이터 노드에 할당되는 데이터 디스크의 크기(GB)입니다. 각 노드는 Elasticsearch 서비스 전용으로 4개의 데이터 디스크를 받게 됩니다.|
-|region |Elasticsearch 클러스터가 위치해야 하는 Azure 지역의 이름입니다.|
-|esUserName |ES 클러스터에 액세스하도록 구성할 사용자의 사용자 이름입니다(HTTP 기본 인증에 따라 달라짐). 암호는 매개 변수 파일의 일부가 아니며 `CreateElasticSearchCluster` 스크립트가 호출될 때 제공됩니다.|
-|vmSizeDataNodes |Elasticsearch 클러스터 노드에 대한 Azure 가상 컴퓨터 크기입니다. 기본값은 Standard\_D2입니다.|
+|dnsNameForLoadBalancerIP |The name that is used to create the publicly visible DNS name for the Elastic Search cluster (by appending the Azure region domain to the provided name). For example, if this parameter value is "myBigCluster" and the chosen Azure region is West US, the resulting DNS name for the cluster is myBigCluster.westus.cloudapp.azure.com. <br /><br />This name also serves as a root name for many artifacts associated with the Elastic Search cluster, such as data node names.|
+|adminUsername           |The name of the administrator account for managing the Elastic Search cluster (corresponding SSH keys are generated automatically).|
+|dataNodeCount           |The number of nodes in the Elastic Search cluster. The current version of the script does not distinguish between data and query nodes; all nodes play both roles. Defaults to 3 nodes.|
+|dataDiskSize            |The size of data disks (in GB) that is allocated for each data node. Each node receives 4 data disks, exclusively dedicated to Elastic Search service.|
+|region                  |The name of Azure region where the Elastic Search cluster should be located.|
+|esUserName              |The user name of the user that is configured to have access to ES cluster (subject to HTTP basic authentication). The password is not part of parameters file and must be provided when `CreateElasticSearchCluster` script is invoked.|
+|vmSizeDataNodes         |The Azure virtual machine size for Elastic Search cluster nodes. Defaults to Standard_D2.|
 
-이제 스크립트를 실행할 준비가 되었습니다. 다음 명령을 실행합니다.
+Now you are ready to run the script. Issue the following command:
 
 ```powershell
 CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-region> -EsPassword <es-password>
 ```
 
-여기서,
+where 
 
-|매개 변수 이름 |설명|
+|Script Parameter Name    |Description|
 |-----------------------  |--------------------------|
-|`<es-group-name>` |모든 Elasticsearch 클러스터 리소스를 포함하는 Azure 리소스 그룹의 이름입니다.|
-|`<azure-region>` |Elasticsearch 클러스터를 만들어야 하는 Azure 지역의 이름입니다.|         
-|`<es-password>` |Elasticsearch 사용자의 암호입니다.|
+|`<es-group-name>`        |The name of the Azure resource group that will contain all Elastic Search cluster resources.|
+|`<azure-region>`         |The name of the Azure region where the Elastic Search cluster should be created.|         
+|`<es-password>`          |The password for the Elastic Search user.|
 
->[AZURE.NOTE] Test-AzureResourceGroup cmdlet에서 NullReferenceException을 받는 경우 Azure에 로그온하는 것을 잊은 것입니다(`Add-AzureRmAccount`).
+>[AZURE.NOTE] If you get a NullReferenceException from the Test-AzureResourceGroup cmdlet, you have forgotten to log on to Azure (`Add-AzureRmAccount`).
 
-스크립트 실행에서 오류가 발생하고 잘못된 템플릿 매개 변수 값으로 오류가 발생한 것을 결정하는 경우 매개 변수 파일을 수정하고 다른 리소스 그룹 이름으로 스크립트를 다시 실행합니다. 동일한 리소스 그룹 이름을 다시 사용하고 `-RemoveExistingResourceGroup` 매개 변수를 스크립트 호출에 추가하여 스크립트에서 이전 것을 정리할 수 있습니다.
+If you get an error from running the script and you determine that the error was caused by a wrong template parameter value, correct the parameter file and run the script again with a different resource group name. You can also reuse the same resource group name and have the script clean up the old one by adding the `-RemoveExistingResourceGroup` parameter to the script invocation.
 
-### CreateElasticSearchCluster 스크립트 실행 결과
-`CreateElasticSearchCluster` 스크립트를 실행한 후 다음과 같은 주요 아티팩트가 생성됩니다. 이 예제에서는 `dnsNameForLoadBalancerIP` 매개 변수의 값에 대해 "myBigCluster"를 사용했고 클러스터를 만든 지역을 미국 서부라고 가정합니다.
+### <a name="result-of-running-the-createelasticsearchcluster-script"></a>Result of running the CreateElasticSearchCluster script
+After you run the `CreateElasticSearchCluster` script, the following main artifacts will be created. For this example we assume that you have used "myBigCluster" as the value of the `dnsNameForLoadBalancerIP` parameter and that the region where you created the cluster is West US.
 
-|아티팩트|이름, 위치 및 설명|
+|Artifact|Name, location, and remarks|
 |----------------------------------|----------------------------------|
-|원격 관리를 위한 SSH 키 |myBigCluster.key 파일(CreateElasticSearchCluster가 실행된 디렉터리에 있음). <br /><br />이 키 파일을 클러스터의 데이터 노드에 관리자 노드를 연결하는 데(관리자 노드를 통해) 사용할 수 있습니다.|
-|관리 노드 |myBigCluster-admin.westus.cloudapp.azure.com <br /><br />원격 Elasticsearch 클러스터 관리를 위한 외부 SSH 연결을 허용하는 유일한 전용 VM입니다. 모든 Elasticsearch 클러스터 노드와 동일한 가상 네트워크에서 실행되지만 Elasticsearch 서비스를 실행하지 않습니다.|
-|데이터 노드 |myBigCluster1 … myBigCluster*N* <br /><br />Elasticsearch 및 Kibana 서비스를 실행하는 데이터 노드입니다. 각 노드에 SSH를 통해 연결할 수 있지만 관리자 노드를 통해서만 연결할 수 있습니다.|
-|Elasticsearch 클러스터 |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />Elasticsearch 클러스터에 대한 기본 끝점입니다(/es 접미사). 기본 HTTP 인증으로 보호됩니다. 자격 증명은 ES-MultiNode 템플릿의 esUserName/esPassword 매개 변수로 지정됩니다. 클러스터에는 기본 클러스터 관리를 위해 설치된(http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) 헤드 플러그 인도 있습니다.|
-|Kibana 서비스 |http://myBigCluster.westus.cloudapp.azure.com <br /><br />만든 Elasticsearch 클러스터에 데이터가 표시되도록 Kibana 서비스가 설정되었습니다. 클러스터 자체와 동일한 인증 자격 증명으로 보호됩니다.|
+|SSH key for remote administration |myBigCluster.key file (in the directory from which the CreateElasticSearchCluster was run). <br /><br />This key file can be used to connect to the admin node and (through the admin node) to data nodes in the cluster.|
+|Admin node                        |myBigCluster-admin.westus.cloudapp.azure.com <br /><br />A dedicated VM for remote Elasticsearch cluster administration--the only one that allows external SSH connections. It runs on the same virtual network as all the Elasticsearch cluster nodes, but it does not run any Elasticsearch services.|
+|Data nodes                        |myBigCluster1 … myBigCluster*N* <br /><br />Data nodes that are running Elasticsearch and Kibana services. You can connect via SSH to each node, but only via the admin node.|
+|Elasticsearch cluster             |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />The primary endpoint for the Elasticsearch cluster (note the /es suffix). It is protected by basic HTTP authentication (the credentials were the specified esUserName/esPassword parameters of the ES-MultiNode template). The cluster has also the head plug-in installed (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) for basic cluster administration.|
+|Kibana service                    |http://myBigCluster.westus.cloudapp.azure.com <br /><br />The Kibana service is set up to show data from the created Elasticsearch cluster. It is protected by the same authentication credentials as the cluster itself.|
 
-## In-proces와 out-of-process 추적 캡처 비교
-소개 부분에서 진단 데이터 수집의 두 가지 기본 방법(In Process 및 Out of Process)을 언급했습니다. 각각은 강점 및 약점이 있습니다.
+## <a name="in-process-versus-out-of-process-trace-capturing"></a>In-process versus out-of-process trace capturing
+In the introduction, we mentioned two fundamental ways of collecting diagnostic data: in-process and out-of-process. Each has strengths and weaknesses.
 
-다음은 **in-process 추적 캡처**의 장점입니다.
+Advantages of the **in-process trace capturing** include:
 
-1. *쉬운 구성 및 배포*
+1. *Easy configuration and deployment*
 
-    * 진단 데이터 수집 구성은 응용 프로그램 구성의 일부입니다. 응용 프로그램 나머지와 항상 "동기화" 상태로 쉽게 유지할 수 있습니다.
+    * The configuration of diagnostic data collection is just part of the application configuration. It is easy to always keep it "in sync" with the rest of the application.
 
-    * 응용 프로그램당 또는 서비스당 구성은 쉽게 달성할 수 있습니다.
+    * Per-application or per-service configuration is easily achievable.
 
-    * Out of Proces 추적 캡처는 일반적으로 추가 관리 작업 및 잠재적인 오류 소스인 진단 에이전트의 별도 배포 및 구성이 필요합니다. 특정 에이전트 기술은 가상 컴퓨터(노드) 당 하나의 에이전트 인스턴스만 허용하는 경우가 종종 있습니다. 이는 진단 구성 수집에 대한 구성이 해당 노드에서 실행되는 모든 응용 프로그램 및 서비스에서 공유된다는 것입니다.
+    * Out-of-process trace capturing usually requires a separate deployment and configuration of the diagnostic agent, which is an extra administrative task and a potential source of errors. The particular agent technology often allows only one instance of the agent per virtual machine (node). This means that configuration for the collection of the diagnostic configuration is shared among all applications and services running on that node.
 
-2. *유연성*
+2. *Flexibility*
 
-    * 응용 프로그램은 대상 데이터 저장소 시스템을 지원하는 클라이언트 라이브러리가 있는 한 데이터를 필요한 어느 곳이든 보낼 수 있습니다. 새로운 싱크를 원하는 대로 추가할 수 있습니다.
+    * The application can send the data wherever it needs to go, as long as there is a client library that supports the targeted data storage system. New sinks can be added as desired.
 
-    * 복잡한 캡처, 필터링 및 데이터 집계 규칙을 구현할 수 있습니다.
+    * Complex capture, filtering, and data-aggregation rules can be implemented.
 
-    * out-of-process 추적 캡처는 종종 에이전트가 지원하는 데이터 싱크에 의해 제한됩니다. 일부 에이전트는 확장할 수 있습니다.
+    * An out-of-process trace capturing is often limited by the data sinks that the agent supports. Some agents are extensible.
 
-3. *내부 응용 프로그램 데이터 및 컨텍스트에 대한 액세스*
+3. *Access to internal application data and context*
 
-    * 응용 프로그램/서비스 프로세스 내에서 실행되는 진단 하위 시스템은 컨텍스트 정보와 함께 추적을 쉽게 보강할 수 있습니다.
+    * The diagnostic subsystem running inside the application/service process can easily augment the traces with contextual information.
 
-    * Out of Process 방식에서 ETW(Windows용 이벤트 추적)와 같은 일부 프로세스간 통신 메커니즘을 통해 에이전트에 데이터를 보내야 합니다. 이 메커니즘에 따라 추가 제한 사항이 적용될 수 있습니다.
+    * In the out-of-process approach, the data must be sent to an agent via some inter-process communication mechanism, such as Event Tracing for Windows. This mechanism could impose additional limitations.
 
-다음은 **out-of-process 추적 캡처**의 장점입니다.
+Advantages of the **out-of-process trace capturing** include:
 
-1. *응용 프로그램을 모니터링하고 크래시 덤프를 수집하는 기능*
+1. *The ability to monitor the application and collect crash dumps*
 
-    * 응용 프로그램이 시작하지 못하거나 충돌하는 경우 In Process 추적 캡처는 실패할 수 있습니다. 독립 에이전트는 중요한 문제 해결 정보를 캡처할 가능성이 훨씬 큽니다.<br /><br />
+    * In-process trace capturing may be unsuccessful if the application fails to start or crashes. An independent agent has a much better chance of capturing crucial troubleshooting information.<br /><br />
 
-2. *완성도, 견고성 및 검증된 성능*
+2. *Maturity, robustness, and proven performance*
 
-    * 플랫폼 공급업체(예: Microsoft Azure 진단 에이전트)에서 개발한 에이전트는 엄격한 테스트 및 강화를 받습니다.
+    * An agent developed by a platform vendor (such as a Microsoft Azure Diagnostics agent) has been subject to rigorous testing and battle-hardening.
 
-    * In Process 추적 캡처로 응용 프로그램 프로세스의 진단 데이터 전송 작업이 응용 프로그램 주요 작업을 방해하거나 타이밍 또는 성능 문제가 발생하지 않도록 처리되어야 합니다. 독립적으로 실행 중인 에이전트는 이러한 문제가 발생할 가능성이 작고 시스템에 해당 영향을 제한하도록 특별히 설계되었습니다.
+    * With in-process trace capturing, care must be taken to ensure that the activity of sending diagnostic data from an application process does not interfere with the application's main tasks or introduce timing or performance problems. An independently running agent is less prone to these issues and is specifically designed to limit its impact on the system.
 
-두 가지 접근법을 결합하여 양쪽의 이점을 누릴 수도 있습니다. 실제로 많은 응용 프로그램에는 이 방법이 최적의 솔루션일 수 있습니다.
+It is possible to combine and benefit from both approaches. Indeed, it might be the best solution for many applications.
 
-여기에서 **Microsoft.Diagnostic.Listeners 라이브러리** 및 In Process 추적 캡처를 사용하여 서비스 패브릭 응용 프로그램에서 Elasticsearch 클러스터에 데이터를 보냅니다.
+Here, we use the **Microsoft.Diagnostic.Listeners library** and the in-process trace capturing to send data from a Service Fabric application to an Elasticsearch cluster.
 
-## 수신기 라이브러리를 사용하여 Elasticsearch에 진단 데이터 보내기
-Microsoft.Diagnostic.Listeners 라이브러리는 PartyCluster 샘플 서비스 패브릭 응용 프로그램의 일부입니다. 이를 사용하려면:
+## <a name="use-the-listeners-library-to-send-diagnostic-data-to-elasticsearch"></a>Use the Listeners library to send diagnostic data to Elasticsearch
+The Microsoft.Diagnostic.Listeners library is part of PartyCluster sample Service Fabric application. To use it:
 
-1. GitHub에서 [PartyCluster 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster)을 다운로드합니다.
+1. Download [the PartyCluster sample](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) from GitHub.
 
-2. PartyCluster 샘플 디렉터리에서 Microsoft.Diagnostics.Listeners 및 Microsoft.Diagnostics.Listeners.Fabric 프로젝트(전체 폴더)를 데이터를 Elasticsearch에 전송하는 응용 프로그램의 솔루션 폴더에 복사합니다.
+2. Copy the Microsoft.Diagnostics.Listeners and Microsoft.Diagnostics.Listeners.Fabric projects (whole folders) from the PartyCluster sample directory to the solution folder of the application that is supposed to send the data to Elasticsearch.
 
-3. 대상 솔루션을 열고 솔루션 탐색기에서 솔루션 노드를 마우스 오른쪽 단추로 클릭하고 **기존 프로젝트 추가**를 선택합니다. Microsoft.Diagnostics.Listeners 프로젝트를 솔루션에 추가합니다. Microsoft.Diagnostics.Listeners.Fabric 프로젝트에 대해 동일한 절차를 반복합니다.
+3. Open the target solution, right-click the solution node in the Solution Explorer, and choose **Add Existing Project**. Add the Microsoft.Diagnostics.Listeners project to the solution. Repeat the same for the Microsoft.Diagnostics.Listeners.Fabric project.
 
-4. 서비스 프로젝트의 프로젝트 참조를 두 개의 추가된 프로젝트에 추가합니다. (데이터를 Elasticsearch에 전송하는 각 서비스는 Microsoft.Diagnostics.EventListeners 및 Microsoft.Diagnostics.EventListeners.Fabric을 참조해야 합니다.)
+4. Add a project reference from your service project(s) to the two added projects. (Each service that is supposed to send data to Elasticsearch should reference Microsoft.Diagnostics.EventListeners and Microsoft.Diagnostics.EventListeners.Fabric).
 
-    ![Microsoft.Diagnostics.EventListeners 및 Microsoft.Diagnostics.EventListeners.Fabric 라이브러리에 대한 프로젝트 참조][1]
+    ![Project references to Microsoft.Diagnostics.EventListeners and Microsoft.Diagnostics.EventListeners.Fabric libraries][1]
 
-### 서비스 패브릭 일반 공급 릴리스 및 Microsoft.Diagnostics.Tracing Nuget 패키지
-서비스 패브릭 일반 공급 릴리스(2.0.135, 2016년 3월 31일 출시)를 사용하여 빌드한 응용 프로그램은 **.NET Framework 4.5.2**를 대상으로 합니다. 이 버전은 GA 릴리스 시 Azure에서 지원하는 가장 높은 버전의 .NET Framework입니다. 아쉽게도 이 버전의 프레임워크는 Microsoft.Diagnostics.Listeners 라이브러리에서 필요한 특정 EventListener API가 부족합니다. EventSource(패브릭 응용 프로그램에서 API 로깅의 기본을 형성하는 구성 요소) 및 EventListener는 강력하게 결합되므로 Microsoft.Diagnostics.Listeners 라이브러리를 사용하는 모든 프로젝트는 EventSource의 대체 구현을 사용해야 합니다. 이 구현은 Microsoft에서 작성한 **Microsoft.Diagnostics.Tracing Nuget 패키지**에서 제공됩니다. 패키지는 프레임워크에 포함된 이전 버전인 EventSource와 완벽하게 호환되므로 참조된 네임스페이스 변경 이외의 다른 코드 변경이 필요하지 않습니다.
+### <a name="service-fabric-general-availability-release-and-microsoft.diagnostics.tracing-nuget-package"></a>Service Fabric General Availability release and Microsoft.Diagnostics.Tracing Nuget package
+Applications built with Service Fabric General Availability release (2.0.135, released March 31, 2016) target **.NET Framework 4.5.2**. This version is the highest version of the .NET Framework supported by Azure at the time of the GA release. Unfortunately, this version of the framework lacks certain EventListener APIs that the Microsoft.Diagnostics.Listeners library needs. Because EventSource (the component that forms the basis of logging APIs in Fabric applications) and EventListener are tightly coupled, every project that uses the Microsoft.Diagnostics.Listeners library must use an alternative implementation of EventSource. This implementation is provided by the **Microsoft.Diagnostics.Tracing Nuget package**, authored by Microsoft. The package is fully backward-compatible with EventSource included in the framework, so no code changes should be necessary other than referenced namespace changes.
 
-EventSource 클래스의 Microsoft.Diagnostics.Tracing 구현을 사용하여 시작하려면 Elasticsearch에 데이터를 보내야 하는 각 서비스 프로젝트에 대해 이 단계를 따릅니다.
+To start using the Microsoft.Diagnostics.Tracing implementation of the EventSource class, follow these steps for each service project that needs to send data to Elasticsearch:
 
-1. 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 선택합니다.
+1. Right-click on the service project and choose **Manage Nuget Packages**.
 
-2. nuget.org 패키지 원본으로 전환하고(선택되지 않은 경우) "**Microsoft.Diagnostics.Tracing**"을 검색합니다.
+2. Switch to the nuget.org package source (if it is not already selected) and search for "**Microsoft.Diagnostics.Tracing**".
 
-3. `Microsoft.Diagnostics.Tracing.EventSource` 패키지 및 해당 종속성을 설치합니다.
+3. Install the `Microsoft.Diagnostics.Tracing.EventSource` package (and its dependencies).
 
-4. 서비스 프로젝트에서 **ServiceEventSource.cs** 또는 **ActorEventSource.cs** 파일을 열고 파일 상단의 `using System.Diagnostics.Tracing` 지시문을 `using Microsoft.Diagnostics.Tracing` 지시문으로 대체합니다.
+4. Open the **ServiceEventSource.cs** or **ActorEventSource.cs** file in your service project and replace the `using System.Diagnostics.Tracing` directive on top of the file with the `using Microsoft.Diagnostics.Tracing` directive.
 
-이러한 단계는 **.NET Framework 4.6**이 Microsoft Azure에서 지원되면 필요하지 않습니다.
+These steps will not be necessary once the **.NET Framework 4.6** is supported by Microsoft Azure.
 
-### Elasticsearch 수신기 인스턴스화 및 구성
-진단 데이터를 Elasticsearch에 보내는 마지막 단계는 `ElasticSearchListener`의 인스턴스를 만들고 Elasticsearch 연결 데이터와 구성하는 것입니다. 수신기는 서비스 프로젝트에 정의된 EventSource 클래스를 통해 발생한 모든 이벤트를 자동으로 캡처합니다. 서비스 수명 동안 유지해야 하므로 서비스 초기화 코드에서 만드는 것이 적합합니다. 상태 비저장 서비스에 대한 초기화 코드는 필요한 변경 후 다음과 같이 보입니다(`****`(으)로 시작하는 주석에서 지적한 추가).
+### <a name="elasticsearch-listener-instantiation-and-configuration"></a>Elasticsearch listener instantiation and configuration
+The final step for sending diagnostic data to Elasticsearch is to create an instance of `ElasticSearchListener` and configure it with Elasticsearch connection data. The listener automatically captures all events raised via EventSource classes defined in the service project. It needs to be alive during the lifetime of the service, so the best place to create it is in the service initialization code. Here is how the initialization code for a stateless service could look after the necessary changes (additions pointed out in comments starting with `****`):
 
 ```csharp
 using System;
@@ -233,7 +234,7 @@ namespace Stateless1
 }
 ```
 
-Elasticsearch 연결 데이터는 서비스 구성 파일(**PackageRoot\\Config\\Settings.xml**)에서 별도 섹션에 넣어야 합니다. 섹션의 이름은 `FabricConfigurationProvider` 생성자에 전달된 값에 해당해야 합니다. 예는 다음과 같습니다.
+Elasticsearch connection data should be put in a separate section in the service configuration file (**PackageRoot\Config\Settings.xml**). The name of the section must correspond to the value passed to the `FabricConfigurationProvider` constructor, for example:
 
 ```xml
 <Section Name="ElasticSearchEventListener">
@@ -243,18 +244,22 @@ Elasticsearch 연결 데이터는 서비스 구성 파일(**PackageRoot\\Config\
   <Parameter Name="indexNamePrefix" Value="myapp" />
 </Section>
 ```
-`serviceUri`, `userName` 및 `password` 매개 변수의 값은 Elasticsearch 클러스터 끝점 주소, Elasticsearch 사용자 이름 및 암호에 각각 해당됩니다. `indexNamePrefix`는 Elasticsearch 인덱스에 대한 접두사입니다. Microsoft.Diagnostics.Listeners 라이브러리는 매일 해당 데이터에 대한 새 인덱스를 만듭니다.
+The values of `serviceUri`, `userName` and `password` parameters correspond to the Elasticsearch cluster endpoint address, Elasticsearch user name, and password, respectively. `indexNamePrefix` is the prefix for Elasticsearch indexes; the Microsoft.Diagnostics.Listeners library creates a new index for its data daily.
 
-### 확인
-이것으로 끝입니다. 이제 서비스가 실행될 때마다 구성에 지정된 Elasticsearch 서비스에 추적을 보내기 시작합니다. 대상 Elasticsearch 인스턴스와 연결된 Kibana UI를 열어 이 작업을 확인할 수 있습니다. 이 예제에서는 페이지 주소가 http://myBigCluster.westus.cloudapp.azure.com/입니다. `ElasticSearchListener` 인스턴스에 대해 선택한 이름 접두사를 포함하는 인덱스가 실제로 만들어졌으며 데이터로 채워졌는지 확인합니다.
+### <a name="verification"></a>Verification
+That's it! Now, whenever the service is run, it starts sending traces to the Elasticsearch service specified in the configuration. You can verify this by opening the Kibana UI associated with the target Elasticsearch instance. In our example, the page address is http://myBigCluster.westus.cloudapp.azure.com/. Check that indexes with the name prefix chosen for the `ElasticSearchListener` instance have indeed been created and populated with data.
 
-![PartyCluster 응용 프로그램 이벤트를 보여 주는 Kibana][2]
+![Kibana showing PartyCluster application events][2]
 
-## 다음 단계
-- [서비스 패브릭 서비스 진단 및 모니터링에 대한 자세한 정보](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+## <a name="next-steps"></a>Next steps
+- [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

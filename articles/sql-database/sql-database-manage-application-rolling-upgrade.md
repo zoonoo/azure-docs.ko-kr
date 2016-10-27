@@ -1,6 +1,6 @@
 <properties
-   pageTitle="클라우드 재해 복구 솔루션 - SQL 데이터베이스 활성 지역 복제 | Microsoft Azure"
-   description="Azure SQL 데이터베이스 지역에서 복제를 사용하여 클라우드 응용 프로그램의 온라인 업그레이드를 지원하는 방법을 알아봅니다."
+   pageTitle="Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Microsoft Azure"
+   description="Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application."
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
@@ -16,129 +16,135 @@
    ms.date="07/16/2016"
    ms.author="sashan"/>
 
-# SQL 데이터베이스 활성 지역 복제를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드 관리
+
+# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
 
 
-> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md)는 현재 모든 계층의 모든 데이터베이스에 대해 제공됩니다.
+> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
 
 
-SQL 데이터베이스의 [지역에서 복제](sql-database-geo-replication-overview.md)를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드를 사용하도록 설정하는 방법을 알아봅니다. 업그레이드는 중단 작업이기 때문에 무중단 업무 방식 계획 및 디자인의 일부여야 합니다. 이 문서에서는 업그레이드 프로세스를 오케스트레이션하는 두 가지 다른 방법을 살펴보고 각 옵션의 이점 및 장단점을 설명합니다. 이 문서의 목적에 맞게 해당 데이터 계층으로 단일 데이터베이스에 연결된 웹 사이트로 구성된 간단한 응용 프로그램을 사용합니다. 우리의 목표는 최종 사용자 환경에 많은 영향을 주지 않고 응용 프로그램의 버전 1을 버전 2로 업그레이드하는 것입니다.
+Learn how to use [Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
 
-업그레이드 옵션을 평가할 때 다음과 같은 요소를 고려해야 합니다.
+When evaluating the upgrade options you should consider the following factors:
 
-+ 업그레이드 중에 응용 프로그램 가용성에 미치는 영향 응용 프로그램의 기능이 제한되거나 저하될 수 있는 기간
-+ 업그레이드 오류가 발생할 경우 롤백할 수 있는 기능
-+ 업그레이드 중에 관련 없는 치명적인 오류가 발생하는 경우 응용 프로그램의 취약성
-+ 총 달러 비용. 여기에는 업그레이드 프로세스에서 사용되는 임시 구성 요소의 추가 중복 및 증분 비용이 포함됩니다.
++ Impact on application availability during upgrades. How long the application function may be limited or degraded.
++ Ability to roll back in case of an upgrade failure.
++ Vulnerability of the application if an unrelated catastrophic failure occurs during the upgrade.
++ Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
 
-## 재해 복구에 대해 데이터베이스 백업을 사용하는 응용 프로그램 업그레이드 
+## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Upgrading applications that rely on database backups for disaster recovery 
 
-응용 프로그램이 재해 복구에 대해 자동 데이터베이스 백업을 사용하고 지역 복원을 사용하는 경우 일반적으로 단일 Azure 지역에 배포됩니다. 이 경우 업그레이드 프로세스에는 업그레이드에 포함된 모든 응용 프로그램 구성 요소의 백업 배포를 만드는 것이 포함됩니다. 최종 사용자 중단을 최소화하려면 장애 조치(failover) 프로필에 Azure 트래픽 관리자(WATM)를 활용합니다. 다음 다이어그램에서는 업그레이드 프로세스 전의 운영 환경을 보여 줍니다. <i>contoso-1.azurewebsites.net</i> 끝점은 업그레이드해야 하는 응용 프로그램의 프로덕션 슬롯을 나타냅니다. 업그레이드를 롤백할 수 있는 기능을 사용하려면 응용 프로그램의 완전히 동기화된 복사본으로 스테이지 슬롯을 만들어야 합니다. 다음 단계는 업그레이드에 대해 응용 프로그램을 준비하는 데 필요합니다.
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.azurewebsites.net</i> represents a production slot of the application that needs to be upgraded. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
 
-1.  업그레이드에 대한 스테이지 슬롯을 만듭니다. 이를 수행하려면 보조 데이터베이스를 만들고(1) 동일한 Azure 지역에서 동일한 웹 사이트를 배포합니다. 보조 데이터베이스를 모니터링하여 시딩 프로세스가 완료되었는지 확인합니다.
-3.  <i>contoso-1.azurewebsites.net</i>을 온라인 끝점으로 하고 <i>contoso-2.azurewebsites.net</i>을 오프라인으로 하여 WATM에서 장애 조치(failover) 프로필을 만듭니다.
+1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
+3.  Create a failover profile in WATM with <i>contoso-1.azurewebsites.net</i> as online endpoint and <i>contoso-2.azurewebsites.net</i> as offline. 
 
-> [AZURE.NOTE] 준비 단계는 프로덕션 슬롯의 응용 프로그램에 영향을 주지 않으며 모든 권한 모드에서 작동할 수 있습니다.
+> [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![SQL Database Go-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
-준비 단계가 완료되면 응용 프로그램이 실제 업그레이드할 준비가 된 것입니다. 다음 다이어그램에서는 업그레이드 프로세스에 관련된 단계를 보여 줍니다.
+Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. 
 
-1. 프로덕션 슬롯의 주 데이터베이스를 읽기 전용 모드로 설정합니다(3). 이렇게 하면 응용 프로그램(V1)의 생산 인스턴스가 업그레이드 중에 읽기 전용으로 유지되어 V1 및 V2 데이터베이스 인스턴스 간의 데이터 확산을 방지할 수 있습니다.
-2. 계획된 종료 모드를 사용하여 보조 데이터베이스의 연결을 끊습니다(4). 이렇게 하면 주 데이터베이스의 완전히 동기화된 독립 복사본이 만들어집니다. 이 데이터베이스가 업그레이드됩니다.
-3. 주 데이터베이스를 읽기-쓰기 모드로 설정하고 스테이지 슬롯에서 업그레이드 스크립트를 실행합니다(5).
+1. Set the primary database in the production slot to read-only mode (3). This will guarantee that the production instance of the application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
+2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
+3. Turn the primary database to read-write mode and run the upgrade script in the stage slot  (5).     
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
-업그레이드가 완료되면 이제 최종 사용자를 응용 프로그램의 준비된 복사본으로 전환할 준비가 된 것입니다. 이제 응용 프로그램의 프로덕션 슬롯이 됩니다. 여기에 다음 다이어그램에 설명된 것과 같이 몇 가지 추가 단계가 포함됩니다.
+If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
 
-1. WATM 프로필의 온라인 끝점을 V2 버전의 웹 사이트를 가리키는 <i>contoso-2.azurewebsites.net</i>으로 전환합니다(6). 이제 V2 응용 프로그램이 포함된 프로덕션 슬롯이 되며 최종 사용자 트래픽이 여기로 이동됩니다.
-2. 더 이상 V1 응용 프로그램 구성 요소가 필요하지 않은 경우 안전하게 제거할 수 있습니다(7).
+1. Switch the online endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end user traffic is directed to it.  
+2. If you no longer need the V1 application components so you can safely remove them (7).   
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
-예를 들어 업그레이드 스크립트의 오류로 인해 업그레이드 프로세스가 실패할 경우 스테이지 슬롯은 손상된 것으로 간주해야 합니다. 응용 프로그램을 업그레이드 전 상태로 롤백하려면 프로덕션 슬롯의 응용 프로그램을 모든 권한으로 되돌리면 됩니다. 다음 다이어그램에 관련된 단계가 표시되어 있습니다.
+If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
 
-1. 데이터베이스 복사본을 읽기-쓰기 모드로 설정합니다(8). 이렇게 하면 프로덕션 슬롯에서 전체 V1을 기능적으로 복원하게 됩니다.
-2. 근본 원인 분석을 수행하고 스테이지 슬롯의 손상된 구성 요소를 제거합니다(9).
+1. Set the database copy to read-write mode (8). This will restore the full V1 functionally in the production slot.
+2. Perform the root cause analysis and remove the compromised components in the stage slot (9). 
 
-이 시점에서 응용 프로그램은 완벽하게 작동하며 업그레이드 단계는 반복할 수 있습니다.
+At this point the application is fully functional and the upgrade steps can be repeated.
 
-> [AZURE.NOTE] 롤백은 이미 <i>contoso-1.azurewebsites.net</i>을 활성 끝점으로 가리키고 있으므로 WATM 프로필의 변경이 필요하지 않습니다.
+> [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
-이 옵션의 핵심 **이점**은 일련의 간단한 단계를 사용하여 단일 지역의 응용 프로그램을 업그레이드할 수 있다는 것입니다. 업그레이드의 달러 비용은 상대적으로 낮습니다. 주 **단점**은 업그레이드 중에 치명적인 오류가 발생하는 경우 업그레이드 전 상태로의 복구에 다른 지역에서 응용 프로그램을 다시 배포하고 지역 복원을 사용하여 백업에서 데이터베이스를 복원하는 것이 포함된다는 것입니다. 이 프로세스를 통해 상당한 가동 중지 시간이 발생합니다.
+The key **advantage** of this option is that you can upgrade a application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.   
 
-## 재해 복구에 대해 데이터베이스 지역에서 복제를 사용하는 응용 프로그램 업그레이드
+## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Upgrading applications that rely on database Geo-Replication for disaster recovery
 
-응용 프로그램이 무중단 업무 방식을 위해 지역에서 복제를 활용하는 경우 주 지역에서 활성 배포를 사용하고 백업 지역에서 대기 배포를 사용하여 두 개 이상의 다른 지역에 배포됩니다. 앞에서 언급한 요인 외에도 업그레이드 프로세스는 다음을 보장해야 합니다.
+If your application leverages Geo-Replication for business continuity, it is deployed  to at least two different regions with an active deployment in Primary region and a standby deployment in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
 
-+ 응용 프로그램이 업그레이드 프로세스 중에 치명적인 오류로부터 항상 보호된 상태로 유지됨
-+ 응용 프로그램의 지역 중복 구성 요소가 활성화된 구성 요소와 함께 병렬로 업그레이드됨
++ The application remains protected from catastrophic failures at all times during the upgrade process
++ The geo-redundant components of the application are upgraded in parallel with the active components
 
-이러한 목표를 달성하기 위해 하나의 활성 및 세 개의 백업 끝점과 함께 장애 조치(failover) 프로필을 사용하여 Azure 트래픽 관리자(WATM)를 활용하게 됩니다. 다음 다이어그램에서는 업그레이드 프로세스 전의 운영 환경을 보여 줍니다. <i>contoso-1.azurewebsites.net</i> 및 <i>contoso-dr.azurewebsites.net</i> 웹 사이트는 전체 지역 중복이 포함된 응용 프로그램의 프로덕션 슬롯을 나타냅니다. 업그레이드를 롤백할 수 있는 기능을 사용하려면 응용 프로그램의 완전히 동기화된 복사본으로 스테이지 슬롯을 만들어야 합니다. 업그레이드 프로세스 중에 치명적인 오류가 발생할 경우 응용 프로그램이 빠르게 복구될 수 있음을 보장해야 하기 때문에 스테이지 슬롯도 지역 중복이어야 합니다. 다음 단계는 업그레이드에 대해 응용 프로그램을 준비하는 데 필요합니다.
+To achieve these goals you will leverage Azure Traffic Manager (WATM) using the failover profile with one active and three backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites <i>contoso-1.azurewebsites.net</i> and <i>contoso-dr.azurewebsites.net</i> represent a production slot of the application with full geographic redundancy. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. Because you you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process the stage slot needs to be geo-redundant as well. The following steps are required to prepare the application for the upgrade:
 
-1.  업그레이드에 대한 스테이지 슬롯을 만듭니다. 이를 수행하려면 보조 데이터베이스를 만들고(1) 동일한 Azure 지역에서 웹 사이트의 동일한 복사본을 배포합니다. 보조 데이터베이스를 모니터링하여 시딩 프로세스가 완료되었는지 확인합니다.
-2.  보조 데이터베이스를 백업 지역에 지역 복제하여 스테이지 슬롯에서 지역 중복 보조 데이터베이스를 만듭니다("연결된 지역에서 복제"라고 함). 백업 보조 데이터베이스를 모니터링하여 시딩 프로세스가 완료되었는지 확인합니다(3).
-3.  백업 지역에 웹 사이트의 대기 복사본을 만들고 지역 중복 보조 데이터베이스에 연결합니다(4).
-4.  <i>contoso-2.azurewebsites.net</i> 및 <i>contoso-3.azurewebsites.net</i> 추가 끝점을 WATM의 장애 조치(failover) 프로필에 오프라인 끝점으로 추가합니다(5).
+1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical copy of the web site in the same Azure region . Monitor the secondary to see if the seeding process is completed.
+2.  Create a geo-redundant secondary database in the stage slot by geo-replicating the secondary database to the backup region (this is called "chained geo-replication"). Monitor the backup secondary to see if the seeding process is completed (3).
+3.  Create a standby copy of the web site in the backup region and link it to the geo-redundant secondary (4).  
+4.  Add the additional endpoints <i>contoso-2.azurewebsites.net</i> and <i>contoso-3.azurewebsites.net</i> to the failover profile in WATM as offline endpoints (5). 
 
-> [AZURE.NOTE] 준비 단계는 프로덕션 슬롯의 응용 프로그램에 영향을 주지 않으며 모든 권한 모드에서 작동할 수 있습니다.
+> [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
-준비 단계가 완료되면 스테이지 슬롯이 업그레이드할 준비가 된 것입니다. 다음 다이어그램에서는 업그레이드 단계를 보여 줍니다.
+Once the preparation steps are completed, the stage slot is ready for the upgrade. The following diagram illustrates the upgrade steps.
 
-1. 프로덕션 슬롯의 주 데이터베이스를 읽기 전용 모드로 설정합니다(6). 이렇게 하면 응용 프로그램(V1)의 생산 인스턴스가 업그레이드 중에 읽기 전용으로 유지되어 V1 및 V2 데이터베이스 인스턴스 간의 데이터 확산을 방지할 수 있습니다.
-2. 계획된 종료 모드를 사용하여 동일한 지역의 보조 데이터베이스의 연결을 끊습니다(7). 이렇게 하면 주 데이터베이스의 완전히 동기화된 독립 복사본이 만들어지고 이는 종료 후 자동으로 주 데이터베이스가 됩니다. 이 데이터베이스가 업그레이드됩니다.
-3. 스테이지 슬롯의 주 데이터베이스를 읽기-쓰기 모드로 설정하고 업그레이드 스크립트를 실행합니다(8).
+1. Set the primary database in the production slot to read-only mode (6). This will guarantee that the production instance of the application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
+2. Disconnect the secondary database in the same region using the planned termination mode (7). It will create a fully synchronized independent copy of the primary database, which will automatically become a primary after the termination. This database will be upgraded.
+3. Turn the primary database in the stage slot to read-write mode and run the upgrade script (8).    
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
-업그레이드가 완료되면 이제 최종 사용자를 응용 프로그램의 V2 버전으로 전환할 준비가 된 것입니다. 다음 다이어그램은 관련 단계를 보여 줍니다.
+If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
-1. WATM 프로필의 활성 끝점을 이제 V2 버전의 웹 사이트를 가리키는 <i>contoso-2.azurewebsites.net</i>으로 전환합니다(9). 이제 V2 응용 프로그램이 포함된 프로덕션 슬롯이 되며 최종 사용자 트래픽이 여기로 이동됩니다.
-2. 더 이상 V1 응용 프로그램이 필요하지 않은 경우 안전하게 제거할 수 있습니다(10, 11).
+1. Switch the active endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which now points to the V2 version of the web site (9). It now becomes a production slot with the V2 application and end user traffic is directed to it. 
+2. If you no longer need the V1 application so you can safely remove it (10 and 11).  
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
-예를 들어 업그레이드 스크립트의 오류로 인해 업그레이드 프로세스가 실패할 경우 스테이지 슬롯은 손상된 것으로 간주해야 합니다. 응용 프로그램을 업그레이드 전 상태로 롤백하려면 프로덕션 슬롯의 모든 권한이 있는 응용 프로그램을 사용하도록 되돌리면 됩니다. 다음 다이어그램에 관련된 단계가 표시되어 있습니다.
+If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert to using the application in the production slot with full access. The steps involved are shown on the next diagram.    
 
-1. 프로덕션 슬롯의 주 데이터베이스 복사본을 읽기-쓰기 모드로 설정합니다(12). 이렇게 하면 프로덕션 슬롯에서 전체 V1을 기능적으로 복원하게 됩니다.
-2. 근본 원인 분석을 수행하고 스테이지 슬롯의 손상된 구성 요소를 제거합니다(13, 14).
+1. Set the primary database copy in the production slot to read-write mode (12). This will restore the full V1 functionally in the production slot.
+2. Perform the root cause analysis and remove the compromised components in the stage slot (13 and 14). 
 
-이 시점에서 응용 프로그램은 완벽하게 작동하며 업그레이드 단계는 반복할 수 있습니다.
+At this point the application is fully functional and the upgrade steps can be repeated.
 
-> [AZURE.NOTE] 롤백은 이미 <i>contoso-1.azurewebsites.net</i>을 활성 끝점으로 가리키고 있으므로 WATM 프로필의 변경이 필요하지 않습니다.
+> [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to  <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
-이 옵션의 핵심 **이점**은 업그레이드하는 동안 무중단 업무 방식을 손상시키지 않고 응용 프로그램 및 해당 지역 중복 복사본 모두를 병렬로 업그레이드할 수 있다는 것입니다. 주 **단점**은 각 응용 프로그램 구성 요소의 이중 중복이 필요하므로 더 높은 달러 비용이 발생한다는 것입니다. 또한 더 복잡한 워크플로가 사용됩니다.
+The key **advantage** of this option is that you can upgrade both the application and its geo-redundant copy in parallel without compromising your business continuity during the upgrade. The main **tradeoff** is that it requires double redundancy of each application component and therefore incurs higher dollar cost. It also involves a more complicated workflow. 
 
-## 요약
+## <a name="summary"></a>Summary
 
-문서에서 설명된 두 개의 업그레이드 방법은 복잡성과 달러 비용에서 차이가 있지만 둘 다 최종 사용자가 읽기 전용 작업으로 제한될 때 시간을 최소화하는 데 집중합니다. 해당 시간은 업그레이드 스크립트의 기간으로 직접 정의됩니다. 데이터베이스 크기, 선택한 서비스 계층, 웹 사이트 구성 및 쉽게 제어할 수 없는 기타 요인에 따라 달라지지 않습니다. 이는 모든 준비 단계가 업그레이드 단계에서 분리되고 프로덕션 응용 프로그램에 영향을 주지 않고 수행될 수 있기 때문입니다. 업그레이드 스크립트의 효율성은 업그레이드하는 동안 최종 사용자 환경을 결정하는 핵심 요소입니다. 따라서 사용자 환경을 개선하는 가장 좋은 방법은 업그레이드 스크립트를 가능한 한 효율적으로 만드는 데 집중하는 것입니다.
+The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines the end-user experience during upgrades. So the best way you can improve it is by focusing your efforts on making the upgrade script as efficient as possible.  
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
-- Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
-- 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [자동화된 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
-- 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
-- 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from automated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 
-## 추가 리소스
+## <a name="additionale-resources"></a>Additionale Resources
 
-다음 페이지는 업그레이드 워크플로 구현에 필요한 특정 작업을 이해하는 데 도움이 됩니다.
+The following pages will help you learn about the specific operations required to implement the upgrade workflow:
 
-- [보조 데이터베이스 추가](https://msdn.microsoft.com/library/azure/mt603689.aspx)
-- [보조로 데이터베이스 장애 조치(Failover)](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [지역에서 복제 보조 데이터베이스 연결 끊기](https://msdn.microsoft.com/library/azure/mt603457.aspx)
-- [데이터베이스 지역 복원](https://msdn.microsoft.com/library/azure/mt693390.aspx)
-- [데이터베이스 삭제](https://msdn.microsoft.com/library/azure/mt619368.aspx)
-- [데이터베이스 복사](https://msdn.microsoft.com/library/azure/mt603644.aspx)
-- [데이터베이스를 읽기 전용 또는 읽기-쓰기 모드로 설정](https://msdn.microsoft.com/library/bb522682.aspx)
+- [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
+- [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
+- [Disconnect Geo-Replication secondary](https://msdn.microsoft.com/library/azure/mt603457.aspx)
+- [Geo-restore database](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
+- [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
+- [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
+- [Set database to read-only or read-write mode](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
