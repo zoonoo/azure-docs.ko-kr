@@ -1,62 +1,61 @@
 <properties 
-    pageTitle="Create a Logic App using Azure Resource Manager templates in Azure App Service | Microsoft Azure" 
-    description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
-    services="logic-apps" 
-    documentationCenter="" 
-    authors="MSFTMan" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Azure 앱 서비스에서 Azure 리소스 관리자 템플릿을 사용하여 논리 앱 만들기 | Microsoft Azure" 
+	description="Azure 리소스 관리자 템플릿을 사용하여 워크플로를 정의하기 위한 빈 논리 앱을 배포합니다." 
+	services="logic-apps" 
+	documentationCenter="" 
+	authors="MSFTMan" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/25/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/25/2016" 
+	ms.author="deonhe"/>
 
+# 템플릿을 사용하여 논리 앱 만들기
 
-# <a name="create-a-logic-app-using-a-template"></a>Create a Logic App using a template
+Azure 리소스 관리자 템플릿을 사용하여 워크플로 정의에 사용할 수 있는 빈 논리 앱을 만듭니다. 배포할 리소스를 배포를 실행할 때 매개 변수를 지정하는 방법을 정의할 수 있습니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-Use an Azure Resource Manager template to create an empty logic app that can be used to define workflows. You can define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+논리 앱 속성에 대한 자세한 내용은 [논리 앱 워크플로 관리 API](https://msdn.microsoft.com/library/azure/mt643788.aspx)를 참조하십시오.
 
-For more details on the Logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/mt643788.aspx). 
+정의 자체의 예는 [작성자 논리 앱 정의](app-service-logic-author-definitions.md)를 참조하십시오.
 
-For examples of the definition itself, see [Author Logic App definitions](app-service-logic-author-definitions.md). 
+템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
+전체 템플릿에 대해서는 [논리 앱 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)을 참조하십시오.
 
-For the complete template, see [Logic App template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
+## 배포할 내용
 
-## <a name="what-you-will-deploy"></a>What you will deploy
+이 서식 파일로 논리 앱을 배포합니다:
 
-With this template, you deploy a logic app.
+배포를 자동으로 실행하려면 다음 단추를 선택합니다.
 
-To run the deployment automatically, select the following button:  
+[![Azure에 배포](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)로 바꿉니다.
 
-[![Deploy to Azure](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
-
-## <a name="parameters"></a>Parameters
+## 매개 변수
 
 [AZURE.INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-### <a name="testuri"></a>testUri
+### testUri
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/status/feed/"
       }
     
-## <a name="resources-to-deploy"></a>Resources to deploy
+## 배포할 리소스
 
-### <a name="logic-app"></a>Logic app
+### 논리 앱
 
-Creates the logic app.
+논리 앱을 만듭니다.
 
-The templates uses a parameter value for the logic app name. It sets the location of the logic app to the same location as the resource group. 
+템플릿은 논리 앱 이름에 대한 매개 변수 값을 사용합니다. 논리 앱의 위치를 리소스 그룹과 같은 위치로 설정합니다.
 
-This particular definition runs once an hour, and pings the location specified in the **testUri** parameter. 
+이 특정 정의는 한 시간에 한 번 실행되며, **testUri** 매개 변수에서 지정된 위치를 ping합니다.
 
     {
       "type": "Microsoft.Logic/workflows",
@@ -102,23 +101,19 @@ This particular definition runs once an hour, and pings the location specified i
     }
 
 
-## <a name="commands-to-run-deployment"></a>Commands to run deployment
+## 배포 실행 명령
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### <a name="powershell"></a>PowerShell
+### PowerShell
 
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
-### <a name="azure-cli"></a>Azure CLI
+### Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

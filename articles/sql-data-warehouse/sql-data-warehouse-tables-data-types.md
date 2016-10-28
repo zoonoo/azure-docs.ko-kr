@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Data types for tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with data types for Azure SQL Data Warehouse tables."
+   pageTitle="SQL 데이터 웨어하우스 테이블의 데이터 형식 | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스 테이블에 대한 데이터 형식으로 시작"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,21 +16,20 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-
-# <a name="data-types-for-tables-in-sql-data-warehouse"></a>Data types for tables in SQL Data Warehouse
+# SQL 데이터 웨어하우스 테이블의 데이터 형식
 
 > [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
+- [개요][]
+- [데이터 형식][]
+- [배포][]
 - [Index][]
-- [Partition][]
-- [Statistics][]
-- [Temporary][]
+- [파티션][]
+- [통계][]
+- [임시][]
 
-SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.  For additional details on data type support, see [create table][].
+SQL 데이터 웨어하우스는 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 다음은 SQL 데이터 웨어하우스에서 지원하는 데이터 형식 목록입니다. 데이터 형식 지원에 대한 자세한 내용은 [테이블 만들기][]를 참조하세요.
 
-|**Supported Data Types**|||
+|**지원되는 데이터 형식**|||
 |---|---|---|
 [bigint][]|[decimal][]|[smallint][]|
 [binary][]|[float][]|[smallmoney][]|
@@ -42,34 +41,34 @@ SQL Data Warehouse supports the most commonly used data types.  Below is a list 
 [datetimeoffset][]|[smalldatetime][]|[varchar][]|
 
 
-## <a name="data-type-best-practices"></a>Data type best practices
+## 데이터 형식 모범 사례
 
- When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
+ 열 형식을 정의할 때 데이터를 지원할 가장 작은 데이터 형식을 사용하면 쿼리 성능이 향상됩니다. 이것은 CHAR 및 VARCHAR 열에 대해 특히 중요합니다. 열에서 가장 긴 값이 25자인 경우 열을 VARCHAR(25)로 정의합니다. 모든 문자 열을 큰 기본 길이로 정의하지 마세요. 또한 반드시 필요한 경우에는 열을 [NVARCHAR][]를 사용하는 것보다 VARCHAR로 정의하세요. 가능한 경우 NVARCHAR(MAX) 또는 VARCHAR(MAX) 대신 NVARCHAR(4000) 또는 VARCHAR(8000)를 사용하세요.
 
-## <a name="polybase-limitation"></a>Polybase limitation
+## Polybase 제한
 
-If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
+Polybase를 사용하여 테이블을 로드하려면 가변 길이 열의 전체 길이를 포함하여 가능한 최대 행 크기가 32,767바이트를 초과하지 않도록 테이블을 정의합니다. 이 너비를 초과할 수 있는 가변 길이 데이터로 행을 정의할 수 있고 BCP를 사용하여 행을 로드할 수 있는 반면 이 데이터를 로드하는 데 Polybase를 사용할 수 없습니다. 넓은 행에 대한 Polybase 지원이 곧 추가될 예정입니다.
 
-## <a name="unsupported-data-types"></a>Unsupported data types
+## 지원되지 않는 데이터 형식
 
-If you are migrating your database from another SQL platform like Azure SQL Database, as you migrate, you may encounter some data types that are not supported on SQL Data Warehouse.  Below are unsupported data types as well as some alternatives you can use in place of unsupported data types.
+Azure SQL 데이터베이스 등의 다른 SQL 플랫폼에서 데이터베이스를 마이그레이션하려는 경우 마이그레이션할 때 SQL 데이터 웨어하우스에서 지원되지 않는 일부 데이터 형식이 나타날 수 있습니다. 다음은 지원하지 않는 데이터 형식 대신 사용할 수 있는 일부 대안 및 지원되지 않는 데이터 형식입니다.
 
-|Data Type|Workaround|
+|데이터 형식|해결 방법|
 |---|---|
 |[geometry][]|[varbinary][]|
 |[geography][]|[varbinary][]|
-|[hierarchyid][]|[nvarchar][](4000)|
-|[image][ntext,text,image]|[varbinary][]|
-|[text][ntext,text,image]|[varchar][]|
+|[hierarchyid][]|[nvarchar][]\(4000)|
+|[이미지][ntext,text,image]|[varbinary][]|
+|[텍스트][ntext,text,image]|[varchar][]|
 |[ntext][ntext,text,image]|[nvarchar][]|
-|[sql_variant][]|Split column into several strongly typed columns.|
-|[table][]|Convert to temporary tables.|
-|[timestamp][]|Rework code to use [datetime2][] and `CURRENT_TIMESTAMP` function.  Only constants are supported as defaults, therefore current_timestamp cannot be defined as a default constraint. If you need to migrate row version values from a timestamp typed column then use [BINARY][](8) or [VARBINARY][BINARY](8) for NOT NULL or NULL row version values.|
+|[sql\_variant][]|열을 강력한 형식의 열로 분할합니다.|
+|[테이블][]|임시 테이블로 변환합니다.|
+|[timestamp][]|[datetime2][] 및 `CURRENT_TIMESTAMP` 함수를 사용하도록 코드 재작업을 수행합니다. 상수만 기본값으로 지원됩니다. 따라서 current\_timestamp는 기본 제약 조건으로 정의할 수 없습니다. rowversion 값을 타임스탬프 형식의 열에서 마이그레이션해야 하는 경우, NOT NULL 또는 NULL 행 버전 값으로 [BINARY][]\(8) 또는 [VARBINARY][BINARY](8)를 사용합니다.|
 |[xml][]|[varchar][]|
-|[user defined types][]|convert back to their native types where possible|
-|default values|default values support literals and constants only.  Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.|
+|[사용자 정의 형식][]|가능한 경우 해당 네이티브 형식으로 다시 변환합니다.|
+|기본값|기본값은 리터럴 및 상수만 지원합니다. `GETDATE()` 또는 `CURRENT_TIMESTAMP`와 같은 명확하지 않은 식 또는 함수는 지원되지 않습니다.|
 
-The below SQL can be run on your current SQL database to identify columns which are not be supported by Azure SQL Data Warehouse:
+아래의 SQL은 Azure SQL 데이터 웨어하우스에서 지원되지 않는 열을 식별하기 위해 현재 SQL 데이터베이스에 대해 실행할 수 있습니다.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -80,26 +79,31 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
  AND  y.[is_user_defined] = 1;
 ```
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-To learn more, see the articles on [Table Overview][Overview], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][].
+자세히 알아보려면 [테이블 개요][Overview], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition], [테이블 통계 유지 관리][Statistics] 및 [임시 테이블][Temporary]에 대한 문서를 참조하세요. 모범 사례에 대한 자세한 내용은 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[개요]: ./sql-data-warehouse-tables-overview.md
+[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
+[배포]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
+[파티션]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[임시]: ./sql-data-warehouse-tables-temporary.md
+[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[create table]: https://msdn.microsoft.com/library/mt203953.aspx
+[테이블 만들기]: https://msdn.microsoft.com/library/mt203953.aspx
 [bigint]: https://msdn.microsoft.com/library/ms187745.aspx
 [binary]: https://msdn.microsoft.com/library/ms188362.aspx
 [bit]: https://msdn.microsoft.com/library/ms177603.aspx
@@ -122,9 +126,9 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 [smalldatetime]: https://msdn.microsoft.com/library/ms182418.aspx
 [smallint]: https://msdn.microsoft.com/library/ms187745.aspx
 [smallmoney]: https://msdn.microsoft.com/library/ms179882.aspx
-[sql_variant]: https://msdn.microsoft.com/library/ms173829.aspx
+[sql\_variant]: https://msdn.microsoft.com/library/ms173829.aspx
 [sysname]: https://msdn.microsoft.com/library/ms186939.aspx
-[table]: https://msdn.microsoft.com/library/ms175010.aspx
+[테이블]: https://msdn.microsoft.com/library/ms175010.aspx
 [time]: https://msdn.microsoft.com/library/bb677243.aspx
 [timestamp]: https://msdn.microsoft.com/library/ms182776.aspx
 [tinyint]: https://msdn.microsoft.com/library/ms187745.aspx
@@ -132,10 +136,6 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 [varbinary]: https://msdn.microsoft.com/library/ms188362.aspx
 [varchar]: https://msdn.microsoft.com/library/ms186939.aspx
 [xml]: https://msdn.microsoft.com/library/ms187339.aspx
-[user defined types]: https://msdn.microsoft.com/library/ms131694.aspx
+[사용자 정의 형식]: https://msdn.microsoft.com/library/ms131694.aspx
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

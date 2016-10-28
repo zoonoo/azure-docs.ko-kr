@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for resource locks | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying resource locks through a template."
+   pageTitle="리소스 잠금에 대한 리소스 관리자 템플릿 | Microsoft Azure"
+   description="템플릿을 통해 리소스 잠금을 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,17 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/03/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
+# 리소스 잠금 템플릿 스키마
 
-# <a name="resource-locks-template-schema"></a>Resource locks template schema
+리소스 및 해당 자식 리소스에 새 잠금을 만듭니다.
 
-Creates a lock on a resource and its child resources.
+## 스키마 형식
 
-## <a name="schema-format"></a>Schema format
-
-To create a lock, add the following schema to the resources section of your template.
+잠금을 만들려면 템플릿의 리소스 섹션에 다음 스키마를 추가합니다.
     
     {
         "type": enum,
@@ -39,46 +38,47 @@ To create a lock, add the following schema to the resources section of your temp
 
 
 
-## <a name="values"></a>Values
+## 값
 
-The following tables describe the values you need to set in the schema.
+다음 표에서는 스키마에 설정해야 하는 값에 대해 설명합니다.
 
-| Name | Required | Description |
-| ---- | -------- | ----------- |
-| type | Yes | The resource type to create.<br /><br />For resources:<br />**{namespace}/{type}/providers/locks**<br /><br/>For resource groups:<br />**Microsoft.Authorization/locks** |
-| apiVersion | Yes | The API version to use for creating the resource.<br /><br />Use:<br />**2015-01-01**<br /><br /> |
-| name | Yes | A value that specifies both the resource to lock and a name for the lock. Can be up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />For resources:<br />**{resource}/Microsoft.Authorization/{lockname}**<br /><br />For resource groups:<br />**{lockname}** |
-| dependsOn | No | A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
-| properties | Yes | An object that identifies the type of lock, and notes about the lock.<br /><br />See [properties object](#properties-object). |  
+| 이름 | 값 |
+| ---- | ---- | 
+| type | 열거형<br />필수<br />**{namespace}/{type}/providers/locks** - 리소스의 경우 또는<br />**Microsoft.Authorization/locks** - 리소스 그룹의 경우<br /><br />만들려는 리소스 종류입니다. |
+| apiVersion | 열거형<br />필수<br />**2015-01-01**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |  
+| name | 문자열<br />필수<br />**{resource}/Microsoft.Authorization/{lockname}** - 리소스의 경우 또는<br />**{lockname}** - 리소스 그룹의 경우<br />최대 64자이며, <, > %, &, ? 또는 제어 문자를 포함할 수 없습니다.<br /><br />잠그려는 리소스와 잠금 이름을 둘 다 지정하는 값입니다. |
+| dependsOn | 배열<br />선택<br />쉼표로 구분된 리소스 이름 또는 리소스 고유 식별자 목록입니다.<br /><br />이 잠금에 따라 달라지는 리소스 컬렉션입니다. 잠그려는 리소스가 동일한 템플릿에서 배포되면 해당 리소스 이름을 이 요소에 포함하여 리소스가 먼저 배포되도록 합니다. | 
+| properties | 개체<br />필요<br />[properties 개체](#properties)<br /><br />잠금 유형을 식별하고 잠금에 대해 설명하는 개체입니다. |  
 
-### <a name="properties-object"></a>properties object
+<a id="properties" />
+### properties 개체
 
-| Name | Required | Description |
-| ---- | -------- | ----------- |
-| level   | Yes | The type of lock to apply to the scope.<br /><br />**CannotDelete** - users can modify resource but not delete it.<br />**ReadOnly** - users can read from a resource, but they can't delete it or perform any actions on it. |
-| notes   | No | Description of the lock. Can be up to 512 characters. |
+| 이름 | 값 |
+| ------- | ---- |
+| level | 열거형<br />필수<br />**CannotDelete**<br /><br />범위에 적용되는 잠금 유형입니다. CanNotDelete을 사용하면 수정할 수 있지만 삭제는 할 수 없습니다. |
+| 정보 | 문자열<br />선택<br />최대 512자<br /><br />잠금에 대한 설명입니다. |
 
 
-## <a name="how-to-use-the-lock-resource"></a>How to use the lock resource
+## 잠금 리소스를 사용하는 방법
 
-You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups.
+이 리소스를 템플릿에 추가하여 리소스에서 지정된 작업을 수행하지 못하도록 할 수 있습니다. 모든 사용자 및 그룹에 잠금을 적용합니다. 일반적으로 제한된 기간(예: 프로세스가 실행되는 중에 조직의 누군가가 실수로 리소스를 수정하거나 삭제하지 못하도록 하려는 경우) 동안만 잠금을 적용합니다.
 
-To create or delete management locks, you must have access to **Microsoft.Authorization/*** or **Microsoft.Authorization/locks/*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions. For information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
+관리 잠금을 만들거나 삭제하려면 **Microsoft.Authorization/*** 또는 **Microsoft.Authorization/locks/*** 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-The lock is applied to the specified resource and any child resources.
+지정된 리소스 및 모든 하위 리소스에 잠금을 적용합니다.
 
-You can remove a lock with the PowerShell command **Remove-AzureRmResourceLock** or with the [delete operation](https://msdn.microsoft.com/library/azure/mt204562.aspx) of the REST API.
+PowerShell 명령 **Remove-AzureRmResourceLock** 또는 REST API의 [삭제 작업](https://msdn.microsoft.com/library/azure/mt204562.aspx)으로 잠금을 제거할 수 있습니다.
 
-## <a name="examples"></a>Examples
+## 예
 
-The following example applies a cannot-delete lock to a web app.
+다음 예제에서는 웹앱에 삭제 불가 잠금을 적용합니다.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "hostingPlanName": {
-                "type": "string"
+      			"type": "string"
             }
         },
         "variables": {
@@ -109,7 +109,7 @@ The following example applies a cannot-delete lock to a web app.
         "outputs": {}
     }
 
-The next example applies a cannot-delete lock to the resource group.
+다음 예제에서는 리소스 그룹에 삭제 불가 잠금을 적용합니다.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -131,13 +131,9 @@ The next example applies a cannot-delete lock to the resource group.
         "outputs": {}
     }
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-- For more information about locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+- 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+- 잠금에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,45 +1,44 @@
 <properties
-    pageTitle="Azure Functions triggers and bindings for Azure Storage | Microsoft Azure"
-    description="Understand how to use Azure Storage triggers and bindings in Azure Functions."
-    services="functions"
-    documentationCenter="na"
-    authors="christopheranderson"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
+	pageTitle="Azure Storage에 대한 Azure Functions 트리거 및 바인딩 | Microsoft Azure"
+	description="Azure Functions에서 Azure Storage 트리거 및 바인딩을 사용하는 방법을 파악합니다."
+	services="functions"
+	documentationCenter="na"
+	authors="christopheranderson"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="multiple"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="08/22/2016"
-    ms.author="chrande"/>
+	ms.service="functions"
+	ms.devlang="multiple"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/22/2016"
+	ms.author="chrande"/>
 
-
-# <a name="azure-functions-triggers-and-bindings-for-azure-storage"></a>Azure Functions triggers and bindings for Azure Storage
+# Azure 저장소에 대한 Azure Functions 트리거 및 바인딩
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Storage triggers and bindings in Azure Functions. 
+이 문서에서는 Azure Functions에서 Azure 저장소 트리거 및 바인딩을 구성하고 코딩하는 방법을 설명합니다.
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="<a-id="storagequeuetrigger"></a>-azure-storage-queue-trigger"></a><a id="storagequeuetrigger"></a> Azure Storage queue trigger
+## <a id="storagequeuetrigger"></a> Azure 저장소 큐 트리거
 
-#### <a name="function.json-for-storage-queue-trigger"></a>function.json for storage queue trigger
+#### 저장소 큐 트리거에 대한 function.json
 
-The *function.json* file specifies the following properties.
+*function.json* 파일은 다음 속성을 지정합니다.
 
-- `name` : The variable name used in function code for the queue or the queue message. 
-- `queueName` : The name of the queue to poll. For queue naming rules, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
-- `type` : Must be set to *queueTrigger*.
-- `direction` : Must be set to *in*. 
+- `name`: 큐 또는 큐 메시지에 대한 함수 코드에 사용되는 변수 이름입니다.
+- `queueName`: 폴링할 큐의 이름입니다. 큐 명명 규칙은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx)을 참조하세요.
+- `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 트리거는 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
+- `type`: *queueTrigger*로 설정해야 합니다.
+- `direction`: *in*으로 설정해야 합니다.
 
-Example *function.json* for a storage queue trigger:
+저장소 큐 트리거에 대한 *function.json* 예제:
 
 ```json
 {
@@ -56,18 +55,18 @@ Example *function.json* for a storage queue trigger:
 }
 ```
 
-#### <a name="queue-trigger-supported-types"></a>Queue trigger supported types
+#### 큐 트리거를 지원하는 형식
 
-The queue message can be deserialized to any of the following types:
+큐 메시지를 다음 중 원하는 형식으로 역직렬화할 수 있습니다.
 
-* Object (from JSON)
+* 개체(JSON의)
 * String
-* Byte array 
-* `CloudQueueMessage` (C#) 
+* 바이트 배열
+* `CloudQueueMessage`(C#)
 
-#### <a name="queue-trigger-metadata"></a>Queue trigger metadata
+#### 큐 트리거 메타데이터
 
-You can get queue metadata in your function by using these variable names:
+이러한 변수 이름을 사용하여 함수에서 큐 메타데이터를 얻을 수 있습니다.
 
 * expirationTime
 * insertionTime
@@ -75,9 +74,9 @@ You can get queue metadata in your function by using these variable names:
 * id
 * popReceipt
 * dequeueCount
-* queueTrigger (another way to retrieve the queue message text as a string)
+* queueTrigger(큐 메시지 텍스트를 문자열로 검색하는 다른 방법)
 
-This C# code example retrieves and logs queue metadata:
+이 C# 코드 예제에서는 큐 메타데이터를 검색하고 기록합니다.
 
 ```csharp
 public static void Run(string myQueueItem, 
@@ -101,29 +100,29 @@ public static void Run(string myQueueItem,
 }
 ```
 
-#### <a name="handling-poison-queue-messages"></a>Handling poison queue messages
+#### 포이즌 큐 메시지 처리
 
-Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
+함수가 실패하게 만드는 내용이 포함된 메시지를 *포이즌 메시지*라고 합니다. 함수가 실패할 경우 큐 메시지가 삭제되지 않고 결국 다시 선택되어 주기가 반복됩니다. SDK에서 제한된 반복 횟수 후에 자동으로 주기를 중단하거나 수동으로 중단할 수 있습니다.
 
-The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue.
+SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다. 다섯 번째 시도가 실패하면 메시지가 포이즌 큐로 이동됩니다.
 
-The poison queue is named *{originalqueuename}*-poison. You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed. 
+포이즌 큐의 이름은 *{originalqueuename}*-poison으로 지정됩니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
 
-If you want to handle poison messages manually, you can get the number of times a message has been picked up for processing by checking `dequeueCount`.
+포이즌 메시지를 수동으로 처리하려는 경우 `dequeueCount`을 확인하여 처리를 위해 메시지를 선택한 횟수를 가져올 수 있습니다.
 
-## <a name="<a-id="storagequeueoutput"></a>-azure-storage-queue-output-binding"></a><a id="storagequeueoutput"></a> Azure Storage queue output binding
+## <a id="storagequeueoutput"></a> Azure 저장소 큐 출력 바인딩
 
-#### <a name="function.json-for-storage-queue-output-binding"></a>function.json for storage queue output binding
+#### 저장소 큐 출력 바인딩에 대한 function.json 예제
 
-The *function.json* file specifies the following properties.
+*function.json* 파일은 다음 속성을 지정합니다.
 
-- `name` : The variable name used in function code for the queue or the queue message. 
-- `queueName` : The name of the queue. For queue naming rules, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
-- `type` : Must be set to *queue*.
-- `direction` : Must be set to *out*. 
+- `name`: 큐 또는 큐 메시지에 대한 함수 코드에 사용되는 변수 이름입니다.
+- `queueName`: 큐의 이름입니다. 큐 명명 규칙은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx)을 참조하세요.
+- `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 트리거는 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
+- `type`: *queue*로 설정해야 합니다.
+- `direction`: *out*으로 설정해야 합니다.
 
-Example *function.json* for a storage queue output binding that uses a queue trigger and writes a queue message:
+큐 트리거를 사용하고 큐 메시지를 쓰는 저장소 큐 출력 바인딩에 대한 *function.json* 예제:
 
 ```json
 {
@@ -147,20 +146,20 @@ Example *function.json* for a storage queue output binding that uses a queue tri
 }
 ``` 
 
-#### <a name="queue-output-binding-supported-types"></a>Queue output binding supported types
+#### 큐 출력 바인딩을 지원하는 형식
 
-The `queue` binding can serialize the following types to a queue message:
+`queue` 바인딩은 다음 형식을 큐 메시지로 직렬화할 수 있습니다.
 
-* Object (`out T` in C#, creates a message with a null object if the parameter is null when the function ends)
-* String (`out string` in C#, creates queue message if parameter value is non-null when the function ends)
-* Byte array (`out byte[]` in C#, works like string) 
-* `out CloudQueueMessage` (C#, works like string) 
+* 개체(C#의 경우 `out T`, 함수가 종료될 때 매개 변수가 null인 경우 null 개체가 포함된 메시지 생성)
+* 문자열(C#의 경우 `out string`, 함수가 종료될 때 매개 변수 값이 null이 아닌 경우 큐 메시지 생성)
+* 바이트 배열(C#의 경우 `out byte[]`, 문자열처럼 작동)
+* `out CloudQueueMessage`(C#, 문자열처럼 작동)
 
-In C# you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
+C#의 경우 `ICollector<T>` 또는 `IAsyncCollector<T>`에 바인딩할 수 있으며, 여기서 `T`는 지원되는 형식 중 하나입니다.
 
-#### <a name="queue-output-binding-code-examples"></a>Queue output binding code examples
+#### 큐 출력 바인딩 코드 예제
 
-This C# code example writes a single output queue message for each input queue message.
+이 C# 코드 예제에서는 각 입력 큐 메시지에 단일 출력 큐 메시지를 작성합니다.
 
 ```csharp
 public static void Run(string myQueueItem, out string myOutputQueueItem, TraceWriter log)
@@ -169,7 +168,7 @@ public static void Run(string myQueueItem, out string myOutputQueueItem, TraceWr
 }
 ```
 
-This C# code example writes multiple messages by using  `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
+이 C# 코드 예제는 `ICollector<T>`을 사용하여 여러 메시지를 작성합니다(비동기 함수에 `IAsyncCollector<T>`을 사용).
 
 ```csharp
 public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
@@ -179,19 +178,19 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-## <a name="<a-id="storageblobtrigger"></a>-azure-storage-blob-trigger"></a><a id="storageblobtrigger"></a> Azure Storage blob trigger
+## <a id="storageblobtrigger"></a> Azure 저장소 Blob 트리거
 
-#### <a name="function.json-for-storage-blob-trigger"></a>function.json for storage blob trigger
+#### 저장소 Blob 트리거에 대한 function.json
 
-The *function.json* file specifies the following properties.
+*function.json* 파일은 다음 속성을 지정합니다.
 
-- `name` : The variable name used in function code for the blob. 
-- `path` : A path that specifies the container to monitor, and optionally a blob name pattern.
-- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
-- `type` : Must be set to *blobTrigger*.
-- `direction` : Must be set to *in*.
+- `name`: Blob에 대한 함수 코드에 사용되는 변수 이름입니다.
+- `path`: 모니터링할 컨테이너를 지정하는 경로 및 선택적으로 Blob 이름 패턴입니다.
+- `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 트리거는 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
+- `type`: *blobTrigger*로 설정해야 합니다.
+- `direction`: *in*으로 설정해야 합니다.
 
-Example *function.json* for a storage blob trigger that watches for blobs that are added to the samples-workitems container:
+samples-workitems 컨테이너에 추가된 Blob을 감시하는 저장소 Blob 트리거에 대한 *function.json* 예제:
 
 ```json
 {
@@ -208,14 +207,14 @@ Example *function.json* for a storage blob trigger that watches for blobs that a
 }
 ```
 
-#### <a name="blob-trigger-supported-types"></a>Blob trigger supported types
+#### Blob 트리거를 지원하는 형식
 
-The blob can be deserialized to any of the following types in Node or C# functions:
+BLOB을 Node 또는 C# 함수에서 다음 중 원하는 형식으로 역직렬화할 수 있습니다.
 
-* Object (from JSON)
+* 개체(JSON의)
 * String
 
-In C# functions you can also bind to any of the following types:
+C# 함수에서 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
 * `TextReader`
 * `Stream`
@@ -226,11 +225,11 @@ In C# functions you can also bind to any of the following types:
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
-* Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
+* [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)에 의해 deserialize된 다른 유형
 
-#### <a name="blob-trigger-c#-code-example"></a>Blob trigger C# code example
+#### Blob 트리거 C# 코드 예제
 
-This C# code example logs the contents of each blob that is added to the monitored container.
+이 C# 코드 예제에서는 모니터링되는 컨테이너에 추가된 각 Blob의 콘텐츠를 기록합니다.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -239,79 +238,79 @@ public static void Run(string myBlob, TraceWriter log)
 }
 ```
 
-#### <a name="blob-trigger-name-patterns"></a>Blob trigger name patterns
+#### Blob 트리거 이름 패턴
 
-You can specify a blob name pattern in the `path` property. For example:
+`path` 속성에 Blob 이름 패턴을 지정할 수 있습니다. 예:
 
 ```json
 "path": "input/original-{name}",
 ```
 
-This path would find a blob named *original-Blob1.txt* in the *input* container, and the value of the `name` variable in function code would be `Blob1`.
+이 경로에는 *input* 컨테이너에 *original-Blob1.txt*라는 Blob이 있으며 함수 코드에 있는 `name` 변수의 값은 `Blob1`입니다.
 
-Another example:
+다른 예제:
 
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
 
-This path would also find a blob named *original-Blob1.txt*, and the value of the `blobname` and `blobextension` variables in function code would be *original-Blob1* and *txt*.
+또한 이 경로에는 *original-Blob1.txt*라는 Blob이 있으며 함수 코드에 있는 `blobname` 및 `blobextension` 변수의 값은 *original-Blob1* 및 *txt*입니다.
 
-You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
+파일 확장명에 대한 고정된 값으로 패턴을 지정하여 함수를 트리거하는 Blob의 종류를 제한할 수 있습니다. `path`을 *samples/{name}.png*로 설정하는 경우 *samples* 컨테이너의 *.png* Blob만 함수를 트리거합니다.
 
-If you need to specify a name pattern for blob names that have curly braces in the name, double the curly braces. For example, if you want to find blobs in the *images* container that have names like this:
+이름에 중괄호가 있는 Blob 이름에 대한 이름 패턴을 지정해야 하는 경우 이중 중괄호를 사용합니다. 예를 들어 *images* 컨테이너에서 이름이 다음과 같은 Blob를 찾은 경우
 
-        {20140101}-soundfile.mp3
+		{20140101}-soundfile.mp3
 
-use this for the `path` property:
+`path` 속성에 사용합니다.
 
-        images/{{20140101}}-{name}
+		images/{{20140101}}-{name}
 
-In the example, the `name` variable value would be *soundfile.mp3*. 
+예제에서 `name` 변수 값은 *soundfile.mp3*입니다.
 
-#### <a name="blob-receipts"></a>Blob receipts
+#### Blob 수신 확인
 
-The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
+Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 대해 Blob 트리거 함수가 두 번 이상 호출되지 않도록 합니다. 이를 위해 *blob 수신 확인*을 유지 관리하여 지정된 Blob 버전이 처리되었는지 확인합니다.
 
-Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account specified by the AzureWebJobsStorage connection string. A blob receipt has the following  information:
+Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 저장소 계정의 *azure-webjobs-hosts*라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* The function that was called for the blob ("*{function app name}*.Functions.*{function name}*", for example: "functionsf74b96f7.Functions.CopyBlob")
-* The container name
-* The blob type ("BlockBlob" or "PageBlob")
-* The blob name
-* The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+* Blob에 대해 호출된 함수("*{함수 앱 이름}*.Functions.*{함수 이름}*", 예: "functionsf74b96f7.Functions.CopyBlob")
+* 컨테이너 이름
+* Blob 유형("BlockBlob" 또는 "PageBlob")
+* Blob 이름
+* ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
-If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
+Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다.
 
-#### <a name="handling-poison-blobs"></a>Handling poison blobs
+#### 포이즌 Blob 처리
 
-When a blob trigger function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
+Blob 트리거 함수가 일시적인 오류로 인해 실패할 경우 SDK에서 이 함수를 다시 호출합니다. 그러나 Blob의 콘텐츠로 인해 실패한 경우에는 Blob을 처리하려고 할 때마다 함수가 실패합니다. 기본적으로 SDK는 지정된 Blob에 대해 함수를 최대 5번 호출합니다. 5번의 시도에 실패하면 *webjobs-blobtrigger-poison*이라는 큐에 메시지를 추가합니다.
 
-The queue message for poison blobs is a JSON object that contains the following properties:
+포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
-* FunctionId (in the format *{function app name}*.Functions.*{function name}*)
-* BlobType ("BlockBlob" or "PageBlob")
+* FunctionId(*{함수 앱 이름}*.함수.*{함수 이름}* 형식)
+* BlobType("BlockBlob" 또는 "PageBlob")
 * ContainerName
 * BlobName
-* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+* ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
-#### <a name="blob-polling-for-large-containers"></a>Blob polling for large containers
+#### 큰 컨테이너에 대한 Blob 폴링
 
-If the blob container that the trigger is monitoring contains more than 10,000 blobs, the Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
+트리거가 모니터링하는 Blob 컨테이너가 10,000개 이상의 Blob를 포함하는 경우 함수 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob를 확인합니다. 이 프로세스는 실시간으로 처리되지 않으므로 Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그를 만들기 위해 “최선”](https://msdn.microsoft.com/library/azure/hh343262.aspx)을 다하고 있지만 모든 이벤트를 캡처하는 것을 보장하지는 않습니다. 경우에 따라 로그가 누락될 수 있습니다. 응용 프로그램에서 큰 컨테이너에 대한 Blob 트리거의 속도 및 안정성 제한 사항이 적합하지 않을 경우, Blob를 만들 때 큐 메시지를 만들고 Blob를 처리하는 Blob 트리거 대신 큐 트리거를 사용하는 것이 좋습니다.
  
-## <a name="<a-id="storageblobbindings"></a>-azure-storage-blob-input-and-output-bindings"></a><a id="storageblobbindings"></a> Azure Storage blob input and output bindings
+## <a id="storageblobbindings"></a> Azure 저장소 Blob 입력 및 출력 바인딩
 
-#### <a name="function.json-for-a-storage-blob-input-or-output-binding"></a>function.json for a storage blob input or output binding
+#### 저장소 Blob 입력 또는 출력 바인딩에 대한 function.json 예제
 
-The *function.json* file specifies the following properties.
+*function.json* 파일은 다음 속성을 지정합니다.
 
-- `name` : The variable name used in function code for the blob . 
-- `path` : A path that specifies the container to read the blob from or write the blob to, and optionally a blob name pattern.
-- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the binding will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
-- `type` : Must be set to *blob*.
-- `direction` : Set to *in* or *out*. 
+- `name`: Blob에 대한 함수 코드에 사용되는 변수 이름입니다.
+- `path`: Blob을 읽어오거나 Blob을 기록할 컨테이너를 지정하는 경로이며, 선택적으로 Blob 이름 패턴입니다.
+- `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 바인딩은 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
+- `type`: *Blob*으로 설정해야 합니다.
+- `direction`: *in* 또는 *out*으로 설정합니다.
 
-Example *function.json* for a storage blob input or output binding, using a queue trigger to copy a blob:
+저장소 Blob 입력 또는 출력 바인딩에 대한 *function.json* 예제로 큐 트리거를 사용하여 Blob을 복사합니다.
 
 ```json
 {
@@ -342,26 +341,26 @@ Example *function.json* for a storage blob input or output binding, using a queu
 }
 ``` 
 
-#### <a name="blob-input-and-output-supported-types"></a>Blob input and output supported types
+#### Blob 입력 및 출력을 지원하는 형식
 
-The `blob` binding can serialize or deserialize the following types in Node.js or C# functions:
+`blob` 바인딩은 Node.js 또는 C# 함수의 다음 형식을 직렬화 또는 역직렬화할 수 있습니다.
 
-* Object (`out T` in C# for output blob: creates a blob as null object if parameter value is null when the function ends)
-* String (`out string` in C# for output blob: creates a blob only if the string parameter is non-null when the function returns)
+* 개체(출력 Blob에 대해 C#의 경우 `out T`, 함수가 종료될 때 매개 변수 값이 null이면 Blob을 null 개체로 생성)
+* 문자열(출력 Blob에 대해 C#의 경우 `out string`, 함수가 반환될 때 문자열 매개 변수가 null이 아닌 경우에만 Blob 생성)
 
-In C# functions, you can also bind to the following types:
+C# 함수에서 다음 형식으로 바인딩할 수 있습니다.
 
-* `TextReader` (input only)
-* `TextWriter` (output only)
+* `TextReader`(입력에만 해당)
+* `TextWriter`(출력에만 해당)
 * `Stream`
-* `CloudBlobStream` (output only)
+* `CloudBlobStream`(출력에만 해당)
 * `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
+* `CloudBlockBlob`
+* `CloudPageBlob`
 
-#### <a name="blob-output-c#-code-example"></a>Blob output C# code example
+#### Blob 출력 C# 코드 예제
 
-This C# code example copies a blob whose name is received in a queue message.
+이 C# 코드 예제에서는 이름이 큐 메시지에 수신되는 Blob를 복사합니다.
 
 ```csharp
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
@@ -371,22 +370,22 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-## <a name="<a-id="storagetablesbindings"></a>-azure-storage-tables-input-and-output-bindings"></a><a id="storagetablesbindings"></a> Azure Storage tables input and output bindings
+## <a id="storagetablesbindings"></a> Azure 저장소 테이블 입력 및 출력 바인딩
 
-#### <a name="function.json-for-storage-tables"></a>function.json for storage tables
+#### 저장소 테이블에 대한 function.json
 
-The *function.json* specifies the following properties.
+*function.json*은 다음 속성을 지정합니다.
 
-- `name` : The variable name used in function code for the table binding. 
-- `tableName` : The name of the table.
-- `partitionKey` and `rowKey` : Used together to read a single entity in a C# or Node function, or to write a single entity in a Node function.
-- `take` : The maximum number of rows to read for table input in a Node function.
-- `filter` : OData filter expression for table input in a Node function.
-- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the binding will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
-- `type` : Must be set to *table*.
-- `direction` : Set to *in* or *out*. 
+- `name`: 테이블 바인딩에 대한 함수 코드에 사용되는 변수 이름입니다.
+- `tableName`: 테이블의 이름입니다.
+- `partitionKey` 및 `rowKey`: 함께 사용되어 C# 또는 노드 함수에서 단일 엔터티를 읽거나 노드 함수에서 단일 엔터티를 작성합니다.
+- `take`: 노드 함수에서 테이블 입력에 대해 읽는 행의 최대 수입니다.
+- `filter`: 노드 함수에서 테이블 입력에 대한 OData 필터 식입니다.
+- `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 바인딩은 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
+- `type`: *table*로 설정해야 합니다.
+- `direction`: *in* 또는 *out*으로 설정합니다.
 
-The following example *function.json* uses a queue trigger to read a single table row. The JSON provides a hard-coded partition key value and specifies that the row key comes from the queue message.
+다음 예제 *function.json*은 큐 트리거를 사용하여 단일 테이블 행을 읽습니다. JSON은 하드 코드된 파티션 키 값을 제공하고 행 키를 큐 메시지에서 가져온 것으로 지정합니다.
 
 ```json
 {
@@ -412,40 +411,40 @@ The following example *function.json* uses a queue trigger to read a single tabl
 }
 ```
 
-#### <a name="storage-tables-input-and-output-supported-types"></a>Storage tables input and output supported types
+#### 저장소 테이블 입력 및 출력 지원 형식
 
-The `table` binding can serialize or deserialize objects in Node.js or C# functions. The objects will have RowKey and PartitionKey properties. 
+`table` 바인딩은 Node.js 또는 C# 함수에서 개체를 직렬화 또는 역직렬화할 수 있습니다. 개체는 RowKey 및 PartitionKey 속성을 갖습니다.
 
-In C# functions, you can also bind to the following types:
+C# 함수에서 다음 형식으로 바인딩할 수 있습니다.
 
-* `T` where `T` implements `ITableEntity`
-* `IQueryable<T>` (input only)
-* `ICollector<T>` (output only)
-* `IAsyncCollector<T>` (output only)
+* `T` 여기서 `T`는 `ITableEntity`를 구현
+* `IQueryable<T>`(입력에만 해당)
+* `ICollector<T>`(출력에만 해당)
+* `IAsyncCollector<T>`(출력에만 해당)
 
-#### <a name="storage-tables-binding-scenarios"></a>Storage tables binding scenarios
+#### 저장소 테이블 바인딩 시나리오
 
-The table binding supports the following scenarios:
+테이블 바인딩은 다음과 같은 시나리오를 지원합니다.
 
-* Read a single row in a C# or Node function.
+* C# 또는 노드 함수에서 단일 행을 읽습니다.
 
-    Set `partitionKey` and `rowKey`. The `filter` and `take` properties are not used in this scenario.
+	`partitionKey` 및 `rowKey`를 설정합니다. `filter` 및 `take` 속성은 이 시나리오에서 사용되지 않습니다.
 
-* Read multiple rows in a C# function.
+* C# 함수에서 여러 행을 읽습니다.
 
-    The Functions runtime provides an `IQueryable<T>` object bound to the table. Type `T` must derive from `TableEntity` or implement `ITableEntity`. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario; you can use the `IQueryable` object to do any filtering required. 
+	함수 런타임은 테이블에 바인딩된 `IQueryable<T>` 개체를 제공합니다. `T` 형식은 `TableEntity`에서 파생되거나 `ITableEntity`를 구현해야 합니다. `partitionKey`, `rowKey`, `filter` 및 `take` 속성은 이 시나리오에서 사용되지 않습니다. `IQueryable` 개체를 사용하여 필요한 모든 필터링 작업을 수행할 수 있습니다.
 
-* Read multiple rows in a Node function.
+* 노드 함수에서 여러 행을 읽습니다.
 
-    Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`.
+	`filter` 및 `take` 속성을 설정합니다. `partitionKey` 또는 `rowKey`를 설정하지 않습니다.
 
-* Write one or more rows in a C# function.
+* C# 함수에서 하나 이상의 행을 작성합니다.
 
-    The Functions runtime provides an `ICollector<T>` or `IAsyncCollector<T>` bound to the table, where `T` specifies the schema of the entities you want to add. Typically, type `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.
+	함수 런타임에서는 테이블에 바인딩된 `ICollector<T>` 또는 `IAsyncCollector<T>`를 제공하며 여기서 `T`은 추가하려는 엔터티의 스키마를 지정합니다. 일반적으로 `T` 형식은 `TableEntity`에서 파생되거나 `ITableEntity`을 구현하지만 반드시 그런 것은 아닙니다. `partitionKey`, `rowKey`, `filter` 및 `take` 속성은 이 시나리오에서 사용되지 않습니다.
 
-#### <a name="storage-tables-example:-read-a-single-table-entity-in-c#-or-node"></a>Storage tables example: Read a single table entity in C# or Node
+#### Storage 테이블 예제: C# 또는 노드에서 단일 테이블 엔터티 읽기
 
-The following C# code example works with the preceding *function.json* file shown earlier to read a single table entity. The queue message has the row key value and the table entity is read into a type that is defined in the *run.csx* file. The type includes `PartitionKey` and `RowKey` properties and does not derive from `TableEntity`. 
+다음 C# 코드 예제에서는 앞에 표시된 *function.json* 파일로 작업하여 단일 테이블 엔터티를 읽습니다. 큐 메시지에는 행 키 값이 있고 *run.csx* 파일에 정의된 형식으로 테이블 엔터티를 읽습니다. 형식은 `PartitionKey` 및 `RowKey` 속성을 포함하며 `TableEntity`에서 파생되지 않습니다.
 
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
@@ -462,7 +461,7 @@ public class Person
 }
 ```
 
-The following F# code example also works with the preceding *function.json* file to read a single table entity.
+또한 다음 F# 코드 예제에서는 앞의 *function.json* 파일로 작업하여 단일 테이블 엔터티를 읽습니다.
 
 ```fsharp
 [<CLIMutable>]
@@ -477,7 +476,7 @@ let Run(myQueueItem: string, personEntity: Person) =
     log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
-The following Node code example also works with the preceding *function.json* file to read a single table entity.
+또한 다음 노드 코드 예제에서는 앞의 *function.json* 파일로 작업하여 단일 테이블 엔터티를 읽습니다.
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -487,9 +486,9 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### <a name="storage-tables-example:-read-multiple-table-entities-in-c#"></a>Storage tables example: Read multiple table entities in C# 
+#### Storage 테이블 예제: C에서 여러 테이블 엔터티 읽기# 
 
-The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
+다음 *function.json* 및 C# 코드 예제에서는 큐 메시지에 지정된 파티션 키에 대한 엔터티를 읽습니다.
 
 ```json
 {
@@ -513,7 +512,7 @@ The following *function.json* and C# code example reads entities for a partition
 }
 ```
 
-The C# code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`.
+C# 코드는 엔터티 형식이 `TableEntity`에서 파생할 수 있도록 Azure 저장소 SDK에 대한 참조를 추가합니다.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -534,9 +533,9 @@ public class Person : TableEntity
 }
 ``` 
 
-#### <a name="storage-tables-example:-create-table-entities-in-c#"></a>Storage tables example: Create table entities in C# 
+#### Storage 테이블 예제: C로 테이블 엔터티 만들기# 
 
-The following *function.json* and *run.csx* example shows how to write table entities in C#.
+다음 *function.json* 및 *run.csx* 예제에서는 C#에서 테이블 엔터티를 작성하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -583,9 +582,9 @@ public class Person
 
 ```
 
-#### <a name="storage-tables-example:-create-table-entities-in-f#"></a>Storage tables example: Create table entities in F#
+#### Storage 테이블 예제: F에서 테이블 엔터티 만들기#
 
-The following *function.json* and *run.fsx* example shows how to write table entities in F#.
+다음 *function.json* 및 *run.fsx* 예제에서는 F#에서 테이블 엔터티를 작성하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -624,9 +623,9 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
               Name = "Name" + i.ToString() })
 ```
 
-#### <a name="storage-tables-example:-create-a-table-entity-in-node"></a>Storage tables example: Create a table entity in Node
+#### Storage 테이블 예제: Node에서 테이블 엔터티 만들기
 
-The following *function.json* and *run.csx* example shows how to write a table entity in Node.
+다음 *function.json* 및 *run.csx* 예제에서는 노드에서 테이블 엔터티를 작성하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -660,12 +659,8 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
+[AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

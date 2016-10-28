@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage Azure Data Lake Analytics using Azure Command-line Interface | Azure" 
-   description="Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure CLI" 
+   pageTitle="Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 데이터 레이크 분석 관리 | Azure" 
+   description="Azure CLI를 사용하여 데이터 레이크 분석 계정, 데이터 원본, 작업, 사용자를 관리하는 방법을 알아봅니다." 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
@@ -16,209 +16,202 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
-
-# <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-(cli)"></a>Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)
+# Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 데이터 레이크 분석 관리
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure. To see management topic using other tools, click the tab select above.
+Azure를 사용하여 Azure 데이터 레이크 분석 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
 
-**Prerequisites**
+**필수 구성 요소**
 
-Before you begin this tutorial, you must have the following:
+이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
-    - Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
-- **Authentication**, using the following command:
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- **Azure CLI**. [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+	- 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases)를 다운로드하여 설치합니다.
+- **인증**. 다음 명령을 사용합니다.
 
-        azure login
-    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
-- **Switch to the Azure Resource Manager mode**, using the following command:
+		azure login
+	회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
+- **Azure 리소스 관리자 모드로 전환**. 다음 명령을 사용합니다.
 
-        azure config mode arm
+		azure config mode arm
 
-**To list the Data Lake Store and Data Lake Analytics commands:**
+**데이터 레이크 저장소 및 데이터 레이크 분석 명령을 나열하려면:**
 
-    azure datalake store
-    azure datalake analytics
-
-<!-- ################################ -->
-<!-- ################################ -->
-## <a name="manage-accounts"></a>Manage accounts
-
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not running a job.  You only pay for the time when it is running a job.  For more information, see [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
-
-###<a name="create-accounts"></a>Create accounts
-
-    azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
-
-
-###<a name="update-accounts"></a>Update accounts
-
-The following command updates the properties of an existing Data Lake Analytics Account
-    
-    azure datalake analytics account set "<Data Lake Analytics Account Name>"
-
-
-###<a name="list-accounts"></a>List accounts
-
-List Data Lake Analytics accounts 
-
-    azure datalake analytics account list
-
-List Data Lake Analytics accounts within a specific resource group
-
-    azure datalake analytics account list -g "<Azure Resource Group Name>"
-
-Get details of a specific Data Lake Analytics account
-
-    azure datalake analytics account show -g "<Azure Resource Group Name>" -n "<Data Lake Analytics Account Name>"
-
-###<a name="delete-data-lake-analytics-accounts"></a>Delete Data Lake Analytics accounts
-
-    azure datalake analytics account delete "<Data Lake Analytics Account Name>"
-
+	azure datalake store
+	azure datalake analytics
 
 <!-- ################################ -->
 <!-- ################################ -->
-## <a name="manage-account-data-sources"></a>Manage account data sources
+## 계정 관리
 
-Data Lake Analytics currently supports the following data sources:
+데이터 레이크 분석 작업을 실행하려면 데이터 레이크 분석 계정이 있어야 합니다. Azure HDInsight와 달리 작업을 실행하지 않는 경우 분석 계정에 대해 비용을 지불하지 않습니다. 작업이 실행되는 시간에 대해서만 비용을 지불합니다. 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-- [Azure Storage](../storage/storage-introduction.md)
+###계정 만들기
 
-When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default storage account. The default ADL storage account is used to store job metadata and job audit logs. After you have created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account. 
+  	azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
-### <a name="find-the-default-adl-storage-account"></a>Find the default ADL storage account
 
-    azure datalake analytics account show "<Data Lake Analytics Account Name>"
+###계정 업데이트
 
-The value is listed under properties:datalakeStoreAccount:name.
+다음 명령은 기존 데이터 레이크 분석 계정의 속성을 업데이트합니다.
+  	
+	azure datalake analytics account set "<Data Lake Analytics Account Name>"
 
-### <a name="add-additional-azure-blob-storage-accounts"></a>Add additional Azure Blob storage accounts
 
-    azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
+###계정 나열
 
->[AZURE.NOTE] Only Blob storage short names are supported.  Don't use FQDN, for example "myblob.blob.core.windows.net".
+데이터 레이크 분석 계정을 나열합니다.
 
-### <a name="add-additional-data-lake-store-accounts"></a>Add additional Data Lake Store accounts
+	azure datalake analytics account list
 
-    azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -l "<Data Lake Store Account Name>" [-d]
+특정 리소스 그룹 내의 데이터 레이크 분석 계정 나열
 
-[-d] is an optional switch to indicate whether the Data Lake being added is the default Data Lake account. 
+	azure datalake analytics account list -g "<Azure Resource Group Name>"
 
-### <a name="update-existing-data-source"></a>Update existing data source
+특정 데이터 레이크 분석 계정의 세부 정보 가져오기
 
-To set an existing Data Lake Store account to be the default:
+	azure datalake analytics account show -g "<Azure Resource Group Name>" -n "<Data Lake Analytics Account Name>"
 
-    azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -l "<Azure Data Lake Store Account Name>" -d
-      
-To update an existing Blob storage account key:
+###데이터 레이크 분석 계정 삭제
 
-    azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -b "<Blob Storage Account Name>" -k "<New Blob Storage Account Key>"
+  	azure datalake analytics account delete "<Data Lake Analytics Account Name>"
 
-### <a name="list-data-sources:"></a>List data sources:
 
-    azure datalake analytics account show "<Data Lake Analytics Account Name>"
-    
-![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+<!-- ################################ -->
+<!-- ################################ -->
+## 계정 데이터 원본 관리
 
-### <a name="delete-data-sources:"></a>Delete data sources:
+데이터 레이크 분석은 현재 다음 데이터 원본을 지원합니다.
 
-To delete a Data Lake Store account:
+- [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md)
+- [Azure 저장소](../storage/storage-introduction.md)
 
-    azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Azure Data Lake Store Account Name>"
+분석 계정을 만들 때 Azure 데이터 레이크 저장소 계정이 기본 저장소 계정이 되도록 지정해야 합니다. 기본 ADL 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 저장소 계정 및/또는 Azure 저장소 계정을 더 추가할 수 있습니다.
 
-To delete a Blob storage account:
+### 기본 ADL 저장소 계정 찾기
 
-    azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Blob Storage Account Name>"
+	azure datalake analytics account show "<Data Lake Analytics Account Name>"
 
-## <a name="manage-jobs"></a>Manage jobs
+properties:datalakeStoreAccount:name 아래에 값이 나열됩니다.
 
-You must have a Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-accounts).
+### Azure Blob 저장소 계정 추가
 
-### <a name="list-jobs"></a>List jobs
+  	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
 
-    azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
+>[AZURE.NOTE] Blob 저장소 짧은 이름만 지원됩니다. FQDN(예: “myblob.blob.core.windows.net”)을 사용하지 마십시오.
 
-![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
+### 데이터 레이크 저장소 계정 추가
 
-### <a name="get-job-details"></a>Get job details
+  	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -l "<Data Lake Store Account Name>" [-d]
 
-    azure datalake analytics job show -n "<Data Lake Analytics Account Name>" -j "<Job ID>"
-    
-### <a name="submit-jobs"></a>Submit jobs
+[-d]는 추가되는 데이터 레이크가 기본 데이터 레이크 계정인지를 나타내는 선택적 스위치입니다.
 
-> [AZURE.NOTE] The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
+### 기존 데이터 원본 업데이트
 
-    azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
+기존 데이터 레이크 저장소 계정을 기본으로 설정하려면:
 
-### <a name="cancel-jobs"></a>Cancel jobs
+  	azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -l "<Azure Data Lake Store Account Name>" -d
+	  
+기존 Blob 저장소 계정 키를 업데이트하려면:
 
-Use the list command to find the job id, and then use cancel to cancel the job.
+  	azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -b "<Blob Storage Account Name>" -k "<New Blob Storage Account Key>"
 
-    azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
-    azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job ID>"
+### 데이터 원본 나열:
 
-## <a name="manage-catalog"></a>Manage catalog
+	azure datalake analytics account show "<Data Lake Analytics Account Name>"
+	
+![데이터 레이크 분석은 데이터 원본을 나열합니다.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
-The U-SQL catalog is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake. For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
+### 데이터 원본 삭제:
+
+데이터 레이크 저장소 계정을 삭제하려면:
+
+  	azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Azure Data Lake Store Account Name>"
+
+Blob 저장소 계정을 삭제하려면:
+
+  	azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Blob Storage Account Name>"
+
+## 작업 관리
+
+작업을 만들려면 데이터 레이크 분석 계정이 있어야 합니다. 자세한 내용은 [데이터 레이크 분석 계정 관리](#manage-accounts)를 참조하세요.
+
+### 작업 나열
+
+  	azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
+
+![데이터 레이크 분석은 데이터 원본을 나열합니다.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
+
+### 작업 세부 정보 가져오기
+
+  	azure datalake analytics job show -n "<Data Lake Analytics Account Name>" -j "<Job ID>"
+	
+### 작업 제출
+
+> [AZURE.NOTE] 작업의 기본 우선 순위는 1000이고 작업에 대한 기본 병렬 처리 수준은 1입니다.
+
+	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
+
+### 작업 취소
+
+list 명령을 사용하여 Job ID를 찾은 후 cancel을 사용하여 작업을 취소합니다.
+
+  	azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
+  	azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job ID>"
+
+## 카탈로그 관리
+
+U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터 및 코드를 구성하는 데 사용됩니다. 카탈로그를 사용하면 가능한 가장 높은 성능으로 Azure 데이터 레이크의 데이터를 사용할 수 있습니다. 자세한 내용은 [U-SQL 카탈로그 사용](data-lake-analytics-use-u-sql-catalog.md)을 참조하세요.
  
-###<a name="list-catalog-items"></a>List catalog items
+###카탈로그 항목 나열
 
-    #List databases
-    azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t database
+	#List databases
+	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t database
 
-    #List tables
-    azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
-    
-The types include database, schema, assembly, external data source, table, table valued function or table statistics.
+	#List tables
+	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
+	
+데이터베이스, 스키마, 어셈블리, 외부 데이터 소스, 테이블, 테이블 값 함수 또는 테이블 통계가 형식에 포함됩니다.
 
-###<a name="create-catalog-secret"></a>Create catalog secret
+###카탈로그 암호 만들기
 
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+	azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
-### <a name="modify-catalog-secret"></a>Modify catalog secret
+### 카탈로그 암호 수정
 
-    azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+  	azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
-###<a name="delete-catalog-secret"></a>Delete catalog secret
+###카탈로그 암호 삭제
 
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+	azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 <!-- ################################ -->
 <!-- ################################ -->
-## <a name="use-arm-groups"></a>Use ARM groups
+## ARM 그룹 사용
 
-Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](../resource-group-overview.md). 
+응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
-A Data Lake Analytics service can include the following components:
+데이터 레이크 분석 서비스는 다음 구성 요소를 포함할 수 있습니다.
 
-- Azure Data Lake Analytics account
-- Required default Azure Data Lake Storage account
-- Additional Azure Data Lake Storage accounts
-- Additional Azure Storage accounts
+- Azure 데이터 레이크 분석 계정
+- 필수 기본 Azure 데이터 레이크 저장소 계정
+- 추가 Azure 데이터 레이크 저장소 계정
+- 추가 Azure 저장소 계정
 
-You can create all these components under one ARM group to make them easier to manage.
+이러한 모든 구성을 쉽게 관리할 수 있도록 하나의 ARM 그룹 아래 만들 수 있습니다.
 
-![Azure Data Lake Analytics account and storage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
+![Azure 데이터 레이크 분석 계정 및 저장소](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-A Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
-The ARM group however can be located in a different data center.  
-
-
-##<a name="see-also"></a>See also 
-
-- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
-- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
-- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+데이터 레이크 분석 계정 및 종속 저장소 계정은 동일한 Azure 데이터 센터에 있어야 합니다. 그러나 ARM 그룹은 다른 데이터 센터에 있을 수 있습니다.
 
 
+##참고 항목 
 
+- [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
+- [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
+- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

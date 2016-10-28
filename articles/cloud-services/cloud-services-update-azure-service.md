@@ -1,6 +1,6 @@
 <properties
-pageTitle="How to update a cloud service | Microsoft Azure"
-description="Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability."
+pageTitle="클라우드 서비스를 업데이트하는 방법 | Microsoft Azure"
+description="Azure에서 클라우드 서비스를 업데이트하는 방법에 대해 알아봅니다. 가용성을 보장하도록 클라우드 서비스에서 업데이트가 진행되는 방법에 대해 알아봅니다."
 services="cloud-services"
 documentationCenter=""
 authors="Thraka"
@@ -15,183 +15,176 @@ ms.topic="article"
 ms.date="08/10/2016"
 ms.author="adegeo"/>
 
+# 클라우드 서비스를 업데이트하는 방법
 
-# <a name="how-to-update-a-cloud-service"></a>How to update a cloud service
+## 개요
+10,000피트에서 해당 역할 및 게스트 OS를 포함한 클라우드 서비스 업데이트는 3단계 프로세스입니다. 먼저 새 클라우드 서비스 또는 OS 버전에 대한 이진 및 구성 파일을 업로드해야 합니다. 다음으로 Azure는 새 클라우드 서비스 버전의 요구 사항에 따라 클라우드 서비스에 대한 계산 및 네트워크 리소스를 예약합니다. 마지막으로 Azure는 가용성을 유지하면서 새 버전 또는 게스트 OS로 테넌트를 증분 방식으로 업데이트하도록 롤링 업그레이드를 수행합니다. 이 문서에서는 롤링 업그레이드 마지막 단계에 대한 세부 정보를 설명합니다.
 
-## <a name="overview"></a>Overview
-At 10,000 feet, updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
+## Azure 서비스 업데이트
 
-## <a name="update-an-azure-service"></a>Update an Azure Service
+Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 인스턴스를 구성합니다. 업그레이드 도메인(UD)은 그룹으로 업데이트되는 역할 인스턴스의 논리적 집합입니다. Azure는 클라우드 서비스를 한 번에 하나의 UD로 업데이트하며 이는 다른 UD의 인스턴스를 계속해서 트래픽을 제공하도록 합니다.
 
-Azure organizes your role instances into logical groupings called upgrade domains (UD). Upgrade domains (UD) are logical sets of role instances that are updated as a group.  Azure updates a cloud service one UD at a time, which allows instances in other UDs to continue serving traffic.
+업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. UpgradeDomainCount 특성에 대한 자세한 내용은 [WebRole 스키마](https://msdn.microsoft.com/library/azure/gg557553.aspx) 또는 [WorkerRole 스키마](https://msdn.microsoft.com/library/azure/gg557552.aspx)를 참조하세요.
 
-The default number of upgrade domains is 5. You can specify a different number of upgrade domains by including the upgradeDomainCount attribute in the service’s definition file (.csdef). For more information about the upgradeDomainCount attribute, see [WebRole Schema](https://msdn.microsoft.com/library/azure/gg557553.aspx) or [WorkerRole Schema](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+서비스에서 하나 이상의 역할에 대한 전체 업데이트를 수행하면 Azure는 자신이 속한 업그레이드 도메인에 따라 역할 인스턴스의 집합을 업데이트합니다. Azure는 주어진 업그레이드 도메인 - 중지, 업데이트, 다시 온라인으로 전환 - 으로 모든 인스턴스를 업데이트하고 다음 도메인으로 이동합니다. 현재 업그레이드 도메인에서 실행 중인 인스턴스만 중지하여 Azure는 실행 중인 서비스에 가능한 한 최소한의 영향으로 업데이트를 발생하도록 합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [업데이트 진행 방법](#howanupgradeproceeds)을 참조하세요.
 
-When you perform an in-place update of one or more roles in your service, Azure updates sets of role instances according to the upgrade domain to which they belong. Azure updates all of the instances in a given upgrade domain – stopping them, updating them, bringing them back on-line – then moves onto the next domain. By stopping only the instances running in the current upgrade domain, Azure makes sure that an update occurs with the least possible impact to the running service. For more information, see [How the update proceeds](#howanupgradeproceeds) later in this article.
+> [AZURE.NOTE] 용어 **업데이트** 및 **업그레이드**는 Azure 컨텍스트에서 의미가 약간 다르지만 이 문서의 기능 프로세스 및 설명에 대해 같은 의미로 사용될 수 있습니다.
 
-> [AZURE.NOTE] While the terms **update** and **upgrade** have slightly different meaning in the context Azure, they can be used interchangeably for the processes and descriptions of the features in this document.
+서비스는 해당 역할이 가동 중지 시간 없이 전체 업데이트되도록 적어도 두 개의 역할 인스턴스를 정의해야 합니다. 서비스가 하나의 역할의 하나의 인스턴스만으로 구성된 경우 서비스는 전체 업데이트가 끝날 때까지 사용할 수 없습니다.
 
-Your service must define at least two instances of a role for that role to be updated in-place without downtime. If the service consists of only one instance of one role, your service will be unavailable until the in-place update has finished.
+이 항목에서는 Azure 업데이트에 대한 다음 정보를 다룹니다.
 
-This topic covers the following information about Azure updates:
-
--   [Allowed service changes during an update](#AllowedChanges)
--   [How an upgrade proceeds](#howanupgradeproceeds)
--   [Rollback of an update](#RollbackofanUpdate)
--   [Initiating multiple mutating operations on an ongoing deployment](#multiplemutatingoperations)
--   [Distribution of roles across upgrade domains](#distributiondfroles)
+-   [업데이트 중 허용된 서비스 변경 내용](#AllowedChanges)
+-   [업그레이드 진행 방법](#howanupgradeproceeds)
+-   [업데이트 롤백](#RollbackofanUpdate)
+-   [진행 중인 배포에 여러 변경 작업 시작](#multiplemutatingoperations)
+-   [업그레이드 도메인 간 역할의 배포](#distributiondfroles)
 
 <a name="AllowedChanges"></a>
-## <a name="allowed-service-changes-during-an-update"></a>Allowed service changes during an update
-The following table shows the allowed changes to a service during an update:
+## 업데이트 중 허용된 서비스 변경 내용
+다음 표에서 업데이트 중 서비스에 허용된 변경 내용을 보여 줍니다.
 
-|Changes permitted to hosting, services, and roles|In-place update|Staged (VIP swap)|Delete and re-deploy|
+|호스팅, 서비스 및 역할에 허용된 변경 사항|전체 업데이트|스테이징(VIP 교체)|삭제 및 다시 배포|
 |---|---|---|---|
-|Operating system version|Yes|Yes|Yes
-|.NET trust level|Yes|Yes|Yes|
-|Virtual machine size<sup>1</sup>|Yes<sup>2</sup>|Yes|Yes|
-|Local storage settings|Increase only<sup>2</sup>|Yes|Yes|
-|Add or remove roles in a service|Yes|Yes|Yes|
-|Number of instances of a particular role|Yes|Yes|Yes|
-|Number or type of endpoints for a service|Yes<sup>2</sup>|No|Yes|
-|Names and values of configuration settings|Yes|Yes|Yes|
-|Values (but not names) of configuration settings|Yes|Yes|Yes|
-|Add new certificates|Yes|Yes|Yes|
-|Change existing certificates|Yes|Yes|Yes|
-|Deploy new code|Yes|Yes|Yes|
-<sup>1</sup>Size change limited to the subset of sizes available for the cloud service.
+|운영 체제 버전|예|예|예
+|.NET 신뢰 수준|예|예|예|
+|가상 컴퓨터 크기<sup>1</sup>|예<sup>2</sup>|예|예|
+|로컬 저장소 설정|증가만<sup>2</sup>|예|예|
+|서비스에서 역할 추가 또는 제거|예|예|예|
+|특정 역할의 인스턴스 수|예|예|예|
+|서비스에 대한 끝점의 개수 또는 유형|예<sup>2</sup>|아니요|예|
+|구성 설정의 이름 및 값|예|예|예|
+|구성 설정의 값(이름 제외)|예|예|예|
+|새 인증서 추가|예|예|예|
+|기존 인증서 변경|예|예|예|
+|새 코드 배포|예|예|예|
+<sup>1</sup>크기 변경이 클라우드 서비스에 대해 사용할 수 있는 크기의 일부로 제한되었습니다.
 
-<sup>2</sup>Requires Azure SDK 1.5 or later versions.
+<sup>2</sup>Azure SDK 1.5 이상 버전이 필요합니다.
 
-> [AZURE.WARNING] Changing the virtual machine size will destroy local data.
+> [AZURE.WARNING] 가상 컴퓨터 크기를 변경하면 로컬 데이터가 소멸됩니다.
 
 
-The following items are not supported during an update:
+업데이트 중 다음과 같은 항목이 지원되지 않습니다.
 
--   Changing the name of a role. Remove and then add the role with the new name.
--   Changing of the Upgrade Domain count.
--   Decreasing the size of the local resources.
+-   역할 이름 변경. 제거한 다음 새 이름으로 역할을 추가합니다.
+-   업그레이드 도메인 수 변경
+-   로컬 리소스의 크기 줄이기.
 
-If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+서비스 정의에 로컬 리소스의 크기 줄이기와 같은 다른 업데이트를 하는 경우 대신 VIP 교환 업데이트를 수행해야 합니다. 자세한 내용은 [교환 배포](https://msdn.microsoft.com/library/azure/ee460814.aspx)를 참조하세요.
 
 <a name="howanupgradeproceeds"></a>
-## <a name="how-an-upgrade-proceeds"></a>How an upgrade proceeds
-You can decide whether you want to update all of the roles in your service or a single role in the service. In either case, all instances of each role that is being upgraded and belong to the first upgrade domain are stopped, upgraded, and brought back online. Once they are back online, the instances in the second upgrade domain are stopped, upgraded, and brought back online. A cloud service can have at most one upgrade active at a time. The upgrade is always performed against the latest version of the cloud service.
+## 업그레이드 진행 방법
+서비스에서 모든 역할 또는 단일 역할을 업데이트할 것인지 여부를 결정할 수 있습니다. 두 경우 모두 업그레이드되고 첫 번째 업그레이드 도메인에 속해 있는 각 역할의 모든 인스턴스는 중지, 업그레이드 및 다시 온라인으로 전환됩니다. 다시 온라인 상태가 되면 두 번째 업그레이드 도메인의 인스턴스는 중지, 업그레이드 및 다시 온라인으로 전환됩니다. 클라우드 서비스는 한 번에 하나의 업그레이드를 활성화할 수 있습니다. 업그레이드는 클라우드 서비스의 최신 버전에 대해 항상 수행됩니다.
 
-The following diagram illustrates how the upgrade proceeds if you are upgrading all of the roles in the service:
+다음 다이어그램에서는 서비스에서 모든 역할을 업그레이드하는 경우 업그레이드 진행 방법을 보여 줍니다.
 
-![Upgrade service](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
+![서비스 업그레이드](media/cloud-services-update-azure-service/IC345879.png "서비스 업그레이드")
 
-This next diagram illustrates how the update proceeds if you are upgrading only a single role:
+다음 다이어그램에서는 단일 역할만 업그레이드하는 경우 업데이트 진행 방법을 보여 줍니다.
 
-![Upgrade role](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
+![역할 업그레이드](media/cloud-services-update-azure-service/IC345880.png "역할 업그레이드")
 
-> [AZURE.NOTE] When upgrading a service from a single instance to multiple instances your service will be brought down while the upgrade is performed due to the way Azure upgrades services. The service level agreement guaranteeing service availability only applies to services that are deployed with more than one instance. The following list describes how the data on each drive is affected by each Azure service upgrade scenario:
+> [AZURE.NOTE] 단일 인스턴스에서 여러 인스턴스로 서비스를 업그레이드하는 경우 업그레이드가 Azure 업그레이드 서비스 방식으로 인해 수행되는 동안 서비스는 중단됩니다. 서비스 수준 계약 보장 서비스 가용성은 두 개 이상의 인스턴스로 배포된 서비스에만 적용됩니다. 다음 목록에서는 각 Azure 서비스 업그레이드 시나리오에 따라 각 드라이브의 데이터에 미치는 영향을 설명합니다.
 >
->VM Reboot:
+>VM 재부팅:
 >
--   C: Preserved
--   D: Preserved
--   E: Preserved
+-   C: 유지됨
+-   D: 유지됨
+-   E: 유지됨
 >
->Portal Reboot:
+>포털 재부팅:
 >
--   C: Preserved
--   D: Preserved
--   E: Destroyed
+-   C: 유지됨
+-   D: 유지됨
+-   E: 제거됨
 >
->Portal Reimage:
+>포털 이미지로 다시 설치:
 >
--   C: Preserved
--   D: Destroyed
--   E: Destroyed
+-   C: 유지됨
+-   D: 제거됨
+-   E: 제거됨
 
->In-Place Upgrade:
+>전체 업그레이드:
 >
--   C: Preserved
--   D: Preserved
--   E: Destroyed
+-   C: 유지됨
+-   D: 유지됨
+-   E: 제거됨
 >
->Node migration:
+>노드 마이그레이션:
 >
--   C: Destroyed
--   D: Destroyed
--   E: Destroyed
+-   C: 제거됨
+-   D: 제거됨
+-   E: 제거됨
 
->Note that, in the above list, the E: drive represents the role’s root drive, and should not be hard-coded. Instead, use the %RoleRoot% environment variable to represent the drive.
+>위 목록에서 E: 드라이브는 역할의 루트 드라이브를 나타내며 하드 코드되면 안됩니다. 대신 %RoleRoot% 환경 변수를 사용하여 드라이브를 표시합니다.
 
->To minimize the downtime when upgrading a single-instance service, deploy a new multi-instance service to the staging server and perform a VIP swap.
+>단일 인스턴스 서비스를 업그레이드할 때 가동 중지 시간을 최소화하려면 스테이징 서버에 새로운 다중 인스턴스 서비스를 배포하고 VIP 교환을 수행합니다.
 
-During an automatic update, the Azure Fabric Controller periodically evaluates the health of the cloud service to determine when it’s safe to walk the next UD. This health evaluation is performed on a per-role basis and considers only instances in the latest version (i.e. instances from UDs that have already been walked). It verifies that a minimum number of role instances, for each role, have achieved a satisfactory terminal state.
+자동 업데이트 중 Azure 패브릭 컨트롤러는 다음 UD로 이동하는 안전한 시기를 결정하도록 클라우드 서비스의 상태를 주기적으로 평가합니다. 이 상태 평가는 역할별로 수행되며 최신 버전의 인스턴스만 고려합니다(즉, 이미 이동된 UD에서 인스턴스). 각 역할에 대해 최소 수의 역할 인스턴스가 만족스러운 터미널 상태로 수행됐는지 확인합니다.
 
-### <a name="role-instance-start-timeout"></a>Role Instance Start Timeout
-The Fabric Controller will wait 30 minutes for each role instance to reach a Started state. If the timeout duration elapses, the Fabric Controller will continue walking to the next role instance.
+### 역할 인스턴스 시작 시간 제한
+패브릭 컨트롤러는 각 역할 인스턴스가 시작됨 상태에 도달할 때까지 30분 동안 기다립니다. 시간 제한 기간이 경과하면 패브릭 컨트롤러는 다음 역할 인스턴스로 계속 이동합니다.
 
 <a name="RollbackofanUpdate"></a>
-## <a name="rollback-of-an-update"></a>Rollback of an update
-Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations, is set to true.
+## 업데이트 롤백
+Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 수락된 후 서비스에 추가 작업을 시작할 수 있도록 하여 업데이트하는 동안 서비스 관리에 유연성을 제공합니다. 배포에서 업데이트(구성 변경) 또는 업그레이드가 **진행 중** 상태일 때 롤백을 수행할 수 있습니다. 업데이트 또는 업그레이드는 아직 새 버전으로 업데이트되지 않은 서비스의 인스턴스가 하나 이상 있는 한 진행 중인 것으로 간주됩니다. 롤백이 허용되는지 여부를 테스트하려면 [배포 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 및 [클라우드 서비스 속성 가져오기](https://msdn.microsoft.com/library/azure/ee460806.aspx) 작업으로 반환되는 RollbackAllowed 플래그의 값이 true로 설정되었는지 확인합니다.
 
-> [AZURE.NOTE] It only makes sense to call Rollback on an **in-place** update or upgrade because VIP swap upgrades involve replacing one entire running instance of your service with another.
+> [AZURE.NOTE] VIP 교환 업그레이드는 실행 중인 서비스의 전체 인스턴스를 다른 것으로 교체하는 것을 포함하므로 **전체** 업데이트 또는 업그레이드의 롤백을 호출하는 것이 적합합니다.
 
-Rollback of an in-progress update has the following effects on the deployment:
+진행 중인 업데이트 롤백에는 배포에 대해 다음과 같은 효과가 있습니다.
 
--   Any role instances which had not yet been updated or upgraded to the new version are not updated or upgraded, because those instances are already running the target version of the service.
--   Any role instances which had already been updated or upgraded to the new version of the service package (\*.cspkg) file or the service configuration (\*.cscfg) file (or both files) are reverted to the pre-upgrade version of these files.
+-   이러한 인스턴스는 서비스의 대상 버전을 이미 실행 중이기 때문에 새 버전으로 업데이트 또는 업그레이드되지 않은 모든 역할 인스턴스는 업데이트되거나 업그레이드되지 않습니다.
+-   서비스 패키지(\*.cspkg) 파일 또는 서비스 구성(\*.cscfg) 파일(또는 두 파일)의 새 버전으로 업데이트 또는 업그레이드된 모든 역할 인스턴스는 해당 파일의 업그레이드 전 버전으로 되돌려집니다.
 
-This functionally is provided by the following features:
+다음과 같은 기능으로 이 기능이 제공됩니다.
 
--   The [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation, which can be called on a configuration update (triggered by calling [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx)) or an upgrade (triggered by calling [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx)) as long as there is at least one instance in the service which has not yet been updated to the new version.
--   The Locked element and the RollbackAllowed element, which are returned as part of the response body of the [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations:
-    1.  The Locked element allows you to detect when a mutating operation can be invoked on a given deployment.
-    2.  The RollbackAllowed element allows you to detect when the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation can be called on a given deployment.
+-   아직 새 버전으로 업데이트되지 않은 서비스에 하나 이상의 인스턴스가 있는 한 구성 업데이트([배포 구성 변경](https://msdn.microsoft.com/library/azure/ee460809.aspx)을 호출하여 트리거됨) 또는 업그레이드([업그레이드 배포](https://msdn.microsoft.com/library/azure/ee460793.aspx)를 호출하여 트리거됨)에서 호출될 수 있는 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업.
+-   [배포 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 및 [클라우드 서비스 속성 가져오기](https://msdn.microsoft.com/library/azure/ee460806.aspx) 작업의 응답 본문의 일부로 반환되는 Locked 요소 및 RollbackAllowed 요소
+    1.  Locked 요소를 사용하면 지정된 배포에서 변경 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
+    2.  RollbackAllowed 요소를 사용하면 지정된 배포에서 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
 
-    In order to perform a rollback, you do not have to check both the Locked and the RollbackAllowed elements. It suffices to confirm that RollbackAllowed is set to true. These elements are only returned if these methods are invoked by using the request header set to “x-ms-version: 2011-10-01” or a later version. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+    롤백을 수행하려면 Locked 및 RollbackAllowed 요소를 모두 확인할 필요가 없습니다. RollbackAllowed가 true로 설정되어 있는지 확인하는 것으로 충분합니다. "x-ms-버전: 2011-10-01" 이상 버전으로 설정된 요청 헤더를 사용하여 해당 메서드가 호출되는 경우 해당 요소는 반환됩니다. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](https://msdn.microsoft.com/library/azure/gg592580.aspx)를 참조하세요.
 
-There are some situations where a rollback of an update or upgrade is not supported, these are as follows:
+업데이트 또는 업그레이드의 롤백이 지원되지 않는 경우는 다음과 같습니다.
 
--   Reduction in local resources - If the update increases the local resources for a role the Azure platform does not allow rolling back. 
--   Quota limitations - If the update was a scale down operation you may no longer have sufficient compute quota to complete the rollback operation. Each Azure subscription has a quota associated with it that specifies the maximum number of cores which can be consumed by all hosted services that belong to that subscription. If performing a rollback of a given update would put your subscription over quota then that a rollback will not be enabled.
--   Race condition - If the initial update has completed, a rollback is not possible.
+-   로컬 리소스 감소 - 업데이트에서 역할에 대한 로컬 리소스를 증가시키는 경우 Azure 플랫폼은 롤백을 허용하지 않습니다.
+-   할당량 제한 - 업데이트가 규모 축소 작업이었던 경우 롤백 작업을 완료할 충분한 계산 할당량이 없게 됩니다. 각 Azure 구독에는 해당 구독에 속하는 모든 호스팅된 서비스에서 사용할 수 있는 코어의 최대 수를 지정하는 연결된 할당량이 있습니다. 특정 업데이트의 롤백 수행으로 구독이 할당량을 초과하게 되는 경우 해당 롤백을 사용할 수 없습니다.
+-   경합 상태 - 초기 업데이트가 완료된 경우 롤백할 수 없습니다.
 
-An example of when the rollback of an update might be useful is if you are using the [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) operation in manual mode to control the rate at which a major in-place upgrade to your Azure hosted service is rolled out.
+업데이트 롤백이 유용한 경우의 예는 Azure 호스티드 서비스로 주요 전체 업그레이드가 롤아웃되는 속도를 제어하도록 수동 모드에서 [업그레이드 배포](https://msdn.microsoft.com/library/azure/ee460793.aspx)작업을 수행하는 경우입니다.
 
-During the rollout of the upgrade you call [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) in manual mode and begin to walk upgrade domains. If at some point, as you monitor the upgrade, you note some role instances in the first upgrade domains that you examine have become unresponsive, you can call the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation on the deployment, which will leave untouched the instances which had not yet been upgraded and rollback instances which had been upgraded to the previous service package and configuration.
+업그레이드를 롤아웃하는 동안 수동 모드에서 [배포 업그레이드](https://msdn.microsoft.com/library/azure/ee460793.aspx)를 호출하고 업그레이드 도메인을 시작합니다. 어느 시점에서 업그레이드를 모니터링할 때 검사하는 첫 번째 업그레이드 도메인의 일부 역할 인스턴스가 응답하지 않게 되는 경우 배포에서 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업을 호출할 수 있습니다. 이 작업은 업그레이드되지 않은 인스턴스 및 이전 서비스 패키지 및 구성으로 업그레이드된 롤백 인스턴스를 그대로 유지합니다.
 
 <a name="multiplemutatingoperations"></a>
-## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Initiating multiple mutating operations on an ongoing deployment
-In some cases you may want to initiate multiple simultaneous mutating operations on an ongoing deployment. For example, you may perform a service update and, while that update is being rolled out across your service, you want to make some change, e.g. to roll the update back, apply a different update, or even delete the deployment. A case in which this might be necessary is if a service upgrade contains buggy code which causes an upgraded role instance to repeatedly crash. In this case, the Azure Fabric Controller will not be able to make progress in applying that upgrade because an insufficient number of instances in the upgraded domain are healthy. This state is referred to as a *stuck deployment*. You can unstick the deployment by rolling back the update or applying a fresh update over top of the failing one.
+## 진행 중인 배포에 여러 변경 작업 시작
+일부 경우에서 진행 중인 배포에 여러 동시 변경 작업을 시작할 수 있습니다. 예를 들어 서비스 업데이트를 수행할 수 있으며 해당 업데이트가 서비스에서 롤아웃되는 동안 업데이트 롤백, 다른 업데이트 적용 또는 배포 삭제와 같은 다른 변경을 수행하려고 합니다. 이러한 작업이 필요한 경우는 서비스 업그레이드가 업그레이드된 역할 인스턴스를 반복적으로 충돌을 일으키는 버그가 있는 코드를 포함 하는 경우입니다. 이 경우 업그레이드된 도메인의 부족한 인스턴스 수가 정상이므로 Azure 패브릭 컨트롤러는 해당 업그레이드 적용 절차를 진행할 수 없습니다. 이 상태를 *배포 중단*이라고 합니다. 업데이트를 롤백하거나 새 업데이트를 실패한 배포의 위쪽에 적용하여 배포 중단을 해결할 수 있습니다
 
-Once the initial request to update or upgrade the service has been received by the Azure Fabric Controller, you can start subsequent mutating operations. That is, you do not have to wait for the initial operation to complete before you can start another mutating operation.
+Azure 패브릭 컨트롤러에서 서비스 업데이트 또는 업그레이드에 대한 초기 요청을 받으면 후속 변경 작업을 시작할 수 있습니다. 즉, 다른 변경 작업을 시작할 수 있기 전에 초기 작업이 완료될 때까지 기다릴 필요가 없습니다.
 
-Initiating a second update operation while the first update is ongoing will perform similar to the rollback operation. If the second update is in automatic mode, the first upgrade domain will be upgraded immediately, possibly leading to instances from multiple upgrade domains being offline at the same point in time.
+첫 번째 업데이트가 진행 중일 동안 두 번째 업데이트 작업을 시작하는 것은 롤백 작업과 유사하게 수행됩니다. 두 번째 업데이트가 자동 모드에 있는 경우 첫 번째 업그레이드 도메인은 동일한 지점에서 오프라인되는 여러 업그레이드 도메인에서 인스턴스를 이끌도록 즉시 업그레이드됩니다.
 
-The mutating operations are as follows: [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Update Deployment Status](https://msdn.microsoft.com/library/azure/ee460808.aspx), [Delete Deployment](https://msdn.microsoft.com/library/azure/ee460815.aspx), and [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+변경 작업은 다음과 같습니다. [배포 구성 변경](https://msdn.microsoft.com/library/azure/ee460809.aspx), [배포 업그레이드](https://msdn.microsoft.com/library/azure/ee460793.aspx), [배포 상태 업데이트](https://msdn.microsoft.com/library/azure/ee460808.aspx), [배포 삭제](https://msdn.microsoft.com/library/azure/ee460815.aspx) 및 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx).
 
-Two operations, [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), return the Locked flag which can be examined to determine whether a mutating operation can be invoked on a given deployment.
+두 작업 [배포 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 및 [클라우드 서비스 속성 가져오기](https://msdn.microsoft.com/library/azure/ee460806.aspx)는 지정된 배포에서 변경 작업을 호출할 수 있는지 여부를 확인하도록 검사할 수 있는 Locked 플래그를 반환합니다.
 
-In order to call the version of these methods which returns the Locked flag, you must set request header to “x-ms-version: 2011-10-01” or a later. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+Locked 플래그를 반환하는 이러한 메서드의 버전을 호출하려면 요청 헤더를 "x-ms-버전: 2011-10-01" 이상으로 설정해야 합니다. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](https://msdn.microsoft.com/library/azure/gg592580.aspx)를 참조하세요.
 
 <a name="distributiondfroles"></a>
-## <a name="distribution-of-roles-across-upgrade-domains"></a>Distribution of roles across upgrade domains
-Azure distributes instances of a role evenly across a set number of upgrade domains, which can be configured as part of the service definition (.csdef) file. The max number of upgrade domains is 20 and the default is 5. For more information about how to modify the service definition file, see [Azure Service Definition Schema (.csdef File)](cloud-services-model-and-package.md#csdef).
+## 업그레이드 도메인 간 역할의 배포
+Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업그레이드 도메인의 수에 대해 역할의 인스턴스를 균등하게 배포합니다. 업그레이드 도메인의 최대값은 20이며 기본값은 5입니다. 서비스 정의 파일을 수정하는 방법에 대한 자세한 내용은 [Azure 서비스 정의 스키마(.csdef 파일)](cloud-services-model-and-package.md#csdef)를 참조하세요.
 
-For example, if your role has ten instances, by default each upgrade domain contains two instances. If your role has 14 instances, then four of the upgrade domains contain three instances, and a fifth domain contains two.
+예를 들어 역할에 10개의 인스턴스가 있는 경우 기본적으로 각 업그레이드 도메인에는 두 개의 인스턴스가 포함됩니다. 역할에 14개의 인스턴스가 있는 경우 4개의 업그레이드 도메인은 3개의 인스턴스를 포함하고 5번째 도메인은 2개의 인스턴스를 포함합니다.
 
-Upgrade domains are identified with a zero-based index: the first upgrade domain has an ID of 0, and the second upgrade domain has an ID of 1, and so on.
+업그레이드 도메인은 0부터 시작하는 인덱스로 식별됩니다. 첫 번째 업그레이드 도메인의 ID가 0이면 두 번째 업그레이드 도메인은 ID가 1입니다.
 
-The following diagram illustrates how a service than contains two roles are distributed when the service defines two upgrade domains. The service is running eight instances of the web role and nine instances of the worker role.
+다음 다이어그램에서는 서비스가 두 개의 업그레이드 도메인을 정의하는 경우 두 개의 역할을 포함하는 서비스가 배포되는 방법을 보여 줍니다. 서비스는 8개의 웹 역할 인스턴스 및 9개의 작업자 역할 인스턴스를 실행하고 있습니다.
 
-![Distribution of Upgrade Domains](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
+![업그레이드 도메인 배포](media/cloud-services-update-azure-service/IC345533.png "업그레이드 도메인 배포")
 
-> [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
+> [AZURE.NOTE] Azure는 업그레이드 도메인에 인스턴스가 할당되는 방식을 제어합니다. 어떤 도메인에 어떤 인스턴스를 할당할지를 지정하는 것은 불가능합니다.
 
-## <a name="next-steps"></a>Next steps
-[How to Manage Cloud Services](cloud-services-how-to-manage.md)  
-[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)  
+## 다음 단계
+[클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md) [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md) [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

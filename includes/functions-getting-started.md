@@ -1,7 +1,5 @@
-Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure application platform with capabilities to implement code triggered by events occurring in other Azure services, SaaS products, and on-premises systems. With Azure Functions, your applications scale based on demand and you pay only for the resources you consume. Azure Functions provides an intuitive, browser-based user interface allowing you to create scheduled or triggered pieces of code implemented in a variety of programming languages. 
+Azure 기능은 기타 Azure 서비스, SaaS 제품 및 온-프레미스 시스템에서 발생하는 이벤트로 트리거되는 코드를 구현하는 기능과 함께 기존 Azure 응용 프로그램 플랫폼을 확장하는 이벤트 기반의 주문형 계산 환경입니다. Azure 기능으로 응용 프로그램은 요구에 따라 확장하고 사용한 리소스에 대해서만 비용을 지불합니다. Azure 함수는 다양한 프로그래밍 언어에서 구현되는 코드의 조각을 예약하거나 트리거할 수 있도록 직관적인 브라우저 기반 사용자 인터페이스를 제공합니다.
 
-This getting started video shows how to create a function app, modify the code, as well as how to interact with the triggers and bindings.
+이 시작 비디오는 트리거 및 바인딩과 상호 작용하는 방법 뿐만 아니라 함수 앱을 만들고 코드를 수정하는 방법을 보여줍니다.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

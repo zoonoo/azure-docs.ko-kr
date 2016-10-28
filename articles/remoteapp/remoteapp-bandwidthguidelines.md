@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Azure RemoteApp network bandwidth - general guidelines | Microsoft Azure"
-    description="Understand some basic network bandwidth guidelines for your Azure RemoteApp collections and apps."
-    services="remoteapp"
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+    pageTitle="Azure RemoteApp 네트워크 대역폭 - 일반적인 지침 | Microsoft Azure"
+	description="Azure RemoteApp 컬렉션 및 앱에 대한 몇 가지 기본 네트워크 대역폭 지침을 알아봅니다."
+	services="remoteapp"
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,39 +15,35 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
     
-
-# <a name="azure-remoteapp-network-bandwidth---general-guidelines-(if-you-can't-test-your-own)"></a>Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)
+# Azure RemoteApp 네트워크 대역폭 - 일반적인 지침(자체 테스트를 수행할 수 없는 경우)
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-If you do not have the time or capability to run the [network bandwidth tests](remoteapp-bandwidthtests.md) for Azure RemoteApp, here are some fairly generic guidelines that can help you estimate network bandwidth per user.
+Azure RemoteApp에 대한 [네트워크 대역폭 테스트](remoteapp-bandwidthtests.md)를 실행할 시간 또는 능력이 없는 경우 사용자당 네트워크 대역폭을 예측하는 데 도움이 될 수 있는 일반적인 지침이 있습니다.
 
-If you have a mix of these scenarios, we don't recommend anything less than (or equal to) 10 MB/s as the MINIMUM network bandwidth for modern Internet-connected apps in a remote environment. (Although, as discussed, this will not guarantee a better than average user experience.)
+이러한 시나리오가 혼합된 경우에는 원격 환경의 최신 인터넷 연결 앱에 대해 10MB/s 이하는 최소 네트워크 대역폭으로 권장되지 않습니다. 이는 평균 사용자 환경보다 더 나은 환경을 보장하지 않습니다.
 
-## <a name="complex-powerpoint,-simple-powerpoint"></a>Complex PowerPoint, simple PowerPoint
+## 복잡한 PowerPoint, 단순한 PowerPoint
 
-Azure RemoteApp does best on 100 MB LAN. At the 10 MB/s network profile, when jitter above 120 ms is more than 5%, the user will see an average experience. At 1 MB/s the different is glaring - for example, in a slide show, the user might not see animated transitions at all because frames are skipped.
+Azure RemoteApp은 100MB LAN에서 가장 효율적으로 작동합니다. 10MB/s 네트워크 프로필에서 120밀리초가 넘는 지터가 5%를 초과하는 경우 평균적인 사용자 환경이 제공됩니다. 1MB/s에서는 다릅니다. 예를 들어 슬라이드 쇼에서 프레임을 건너뛰어 애니메이션된 전환이 보이지 않을 수 있습니다.
 
-## <a name="internet-explorer,-mixed-pdf,-pdf,-text"></a>Internet Explorer, mixed PDF, PDF, Text
+## Internet Explorer, 혼합된 PDF, PDF, 텍스트
 
-10 MB/s network profile is close to LAN in most aspects. 1 MB/s will provide an OK experience, although there may be some jitter when a user scrolls while there are images on the screen.
+10MB/s 네트워크 프로필은 대부분의 측면에서 LAN에 가깝습니다. 1MB/s는 화면에 이미지가 있는 경우 사용자가 스크롤할 때 일부 지터가 발생할 수 있지만 정상적인 환경을 제공합니다.
 
-## <a name="flash-video-(youtube)"></a>Flash video (YouTube)
+## Flash 비디오(YouTube)
 
-100 MB/s LAN provides the best experience, while 10 MB/s is acceptable (meaning we keep up with the frame rate but jitter increases). At 1 MB/s, jitter is very high and noticeable.
+100MB/s LAN은 최상의 환경을 제공하고, 10MB/s는 허용되는 환경(즉, 프레임 속도를 유지하지만 지터가 증가함)을 제공합니다. 1MB/s에서는 지터가 매우 높습니다.
 
-## <a name="word-typing-(word-remote-input)"></a>Word typing (Word remote input)
-This is a low-bandwidth usage scenario. At 256 KB/s we provide as good of an experience as LAN.
+## Word 입력(Word 원격 입력)
+낮은 대역폭을 사용하는 시나리오입니다. 256KB/s에서 LAN만큼 적절한 환경을 제공합니다.
 
-## <a name="learn-more"></a>Learn more
-- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
+## 자세한 정보
+- [Azure RemoteApp 네트워크 대역폭 사용량 예측](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+- [Azure RemoteApp - 네트워크 대역폭과 환경 품질을 함께 작동하는 방식은 무엇인가요?](remoteapp-bandwidthexperience.md)
 
-- [Azure RemoteApp - tseting your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
+- [Azure RemoteApp - 몇 가지 일반적인 시나리오로 네트워크 대역폭 사용량 테스트](remoteapp-bandwidthtests.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
-   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
+   pageTitle="Azure 포털 바로 가기 키 | Microsoft Azure"
+   description="이 문서는 Azure 포털에서 작동하는 바로 가기 키의 최신 목록입니다. 개별 서비스에는 특수화된 자신의 바로 가기 키가 있을 수 있습니다."
    services="azure-portal"
    documentationCenter=""
    authors="flanakin"
@@ -16,39 +16,33 @@
    ms.date="02/07/2016"
    ms.author="micflan"/>
 
+# Azure 포털 바로 가기 키
 
-# <a name="azure-portal-keyboard-shortcuts"></a>Azure portal keyboard shortcuts
+## 허브 열기
 
-## <a name="open-hubs"></a>Open hubs
-
-| Shortcut | Action |
+| 바로 가기 | 작업 |
 |--------|----------|
-| N | Notifications |
-| / | Browse services |
-| A | Active sessions |
-| B | Billing |
-| C | Create |
+| N | 알림 |
+| / | 서비스 찾아보기 |
+| 문자열(UTF-8 형식) 또는 | 활성 세션 |
+| B | 결제 |
+| C | 생성 |
 
-## <a name="navigation"></a>Navigation
+## 탐색
 
-| Shortcut | Action |
+| 바로 가기 | 작업 |
 |--------|----------|
-| H | Azure Start dashboard |
-| F | First open blade |
-| J | Previous open blade |
-| K | Next open blade |
-| L | Last open blade |
-| - | Minimize blade or restore from maximized |
-| + | Maximize blade or restore from minimized |
-| # | Close current blade |
-| ¦ | Close all blades |
-| , | Move focus to command bar |
-| . | Move focus to navigation bar |
-| ? | View keyboard shortcuts |
+| H | Azure 시작 대시보드 |
+| F | 첫 번째 열린 블레이드 |
+| J | 이전에 열린 블레이드 |
+| K | 다음 열린 블레이드 |
+| L | 마지막 열린 블레이드 |
+| - | 블레이드 최소화 또는 최대화에서 복원 |
+| + | 블레이드 최대화 또는 최소화에서 복원 |
+| # | 현재 블레이드 닫기 |
+| ¦ | 모든 블레이드 닫기 |
+| , | 명령 모음으로 포커스 이동 |
+| . | 탐색 모음으로 포커스 이동 |
+| ? | 바로 가기 키 보기 |
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

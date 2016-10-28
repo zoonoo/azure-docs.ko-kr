@@ -1,57 +1,52 @@
 <properties 
-    pageTitle="Windows Phone Silverlight SDK Release Notes" 
-    description="Azure Mobile Engagement - Windows Phone Silverlight SDK Release Notes"                     
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Windows Phone Silverlight SDK 릴리스 정보" 
+	description="Azure Mobile Engagement - Windows Phone Silverlight SDK 릴리스 정보" 					
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-windows-phone" 
-    ms.devlang="na"
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="na"
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
+
+#Windows Phone Silverlight SDK 릴리스 정보
 
 
-#<a name="windows-phone-silverlight-sdk-release-notes"></a>Windows Phone Silverlight SDK Release Notes
+##3\.3.0(2016/04/19)
+*MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.4.0**의 일부
 
+-   SDK로 내보낸 콘솔 로그를 사용/사용 안 함/필터링하기 위해 "TestLogLevel" API를 추가했습니다.
 
-##<a name="3.3.0-(04/19/2016)"></a>3.3.0 (04/19/2016)
-Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.4.0**
+##3\.2.0(2016/01/22)
+*MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.3.0**의 일부
 
--   Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
-
-##<a name="3.2.0-(01/22/2016)"></a>3.2.0 (01/22/2016)
-Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.3.0**
-
--   Custom schemes, ms-appx and ms-appdata available on action urls.
--   Stability improvements.
+-   사용자 지정 스키마, ms-appx 및 ms-appdata를 작업 URL에 사용할 수 있습니다.
+-   안정성 향상
   
-##<a name="3.1.0-(11/20/2015)"></a>3.1.0 (11/20/2015)
-Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.2.0**
+##3\.1.0(11/20/2015)
+*MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.2.0**의 일부
 
--   Fixed crash while requesting the device id just after the initialization.
--   Console logs improvements.
+-   초기화 바로 다음에 장치 ID를 요청하는 동안 크래시를 수정하였습니다.
+-   콘솔은 향상된 기능을 기록합니다.
 
-##<a name="3.0.0-(04/03/2015)"></a>3.0.0 (04/03/2015)
+##3\.0.0(2015/04/03)
 
--   Default notification icon updated.
--   Send back system notification action feedback when a notification is clicked.
--   Fixed a race condition on system notification.
+-   기본 알림 아이콘이 업데이트되었습니다.
+-   알림을 클릭할 때 백 시스템 알림 작업 피드백을 보냅니다.
+-   시스템 알림 경합 상태를 고정합니다.
 
-##<a name="2.0.0-(02/17/2015)"></a>2.0.0 (02/17/2015)
+##2\.0.0(2015/02/17)
 
--   Initial Release of Azure Mobile Engagement.
--   appId/sdkKey configuration is replaced by a connection string configuration.
--   Security improvements.
+-   Azure Mobile Engagement의 최초 릴리스입니다.
+-   appId/sdkKey 구성이 연결 문자열 구성으로 바뀌었습니다.
+-   보안이 개선되었습니다.
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Slack | Microsoft Azure" 
-    description="Learn how to use Slack with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="자습서: Slack과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Slack을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,138 +14,130 @@
     ms.date="09/19/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-slack"></a>Tutorial: Azure Active Directory integration with Slack
+#자습서: Slack과 Azure Active Directory 통합
   
-The objective of this tutorial is to show the integration of Azure and Slack.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+이 자습서는 Azure 및 Slack의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
--   A valid Azure subscription
--   A Slack single sign-on enabled subscription
+-   유효한 Azure 구독
+-   Slack Single Sign-On이 설정된 구독
   
-After completing this tutorial, the Azure AD users you have assigned to Slack will be able to single sign into the application at your Slack company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+이 자습서를 완료한 후 Slack에 할당한 Azure AD 사용자가 Slack 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
   
-The scenario outlined in this tutorial consists of the following building blocks:
+이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
-1.  Enabling the application integration for Slack
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Slack에 응용 프로그램 통합 사용
+2.  Single Sign-On 구성
+3.  사용자 프로비전 구성
+4.  사용자 할당
 
-![Scenario](./media/active-directory-saas-slack-tutorial/IC794980.png "Scenario")
+![시나리오](./media/active-directory-saas-slack-tutorial/IC794980.png "시나리오")
 
-##<a name="enabling-the-application-integration-for-slack"></a>Enabling the application integration for Slack
+##Slack에 응용 프로그램 통합 사용
   
-The objective of this section is to outline how to enable the application integration for Slack.
+이 섹션은 Slack에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-###<a name="to-enable-the-application-integration-for-slack,-perform-the-following-steps:"></a>To enable the application integration for Slack, perform the following steps:
+###Slack에 응용 프로그램 통합을 사용하도록 설정하려면
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-slack-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
 
-    ![Applications](./media/active-directory-saas-slack-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-slack-tutorial/IC700994.png "응용 프로그램")
 
-4.  Click **Add** at the bottom of the page.
+4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
 
-    ![Add application](./media/active-directory-saas-slack-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-slack-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
-    ![Add an application from gallerry](./media/active-directory-saas-slack-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-slack-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
-6.  In the **search box**, type **Slack**.
+6.  **검색 상자**에 **Slack**을 입력합니다.
 
-    ![Application Gallery](./media/active-directory-saas-slack-tutorial/IC794981.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-slack-tutorial/IC794981.png "응용 프로그램 갤러리")
 
-7.  In the results pane, select **Slack**, and then click **Complete** to add the application.
+7.  결과 창에서 **Slack**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
-    ![Scenario](./media/active-directory-saas-slack-tutorial/IC796925.png "Scenario")
+    ![시나리오](./media/active-directory-saas-slack-tutorial/IC796925.png "시나리오")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Single Sign-On 구성
   
-The objective of this section is to outline how to enable users to authenticate to Slack with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Slack에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  In the Azure classic portal, on the **Slack** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Azure 클래식 포털의 **Slack** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794982.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-slack-tutorial/IC794982.png "Single Sign-On 구성")
 
-2.  On the **How would you like users to sign on to Slack** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  **에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794983.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-slack-tutorial/IC794983.png "Single Sign-On 구성")
 
-3.  On the **Configure App URL** page, in the **Slack Sign In URL** textbox, type the URL of your Slack tenant (e.g.: "*https://azuread.slack.com*"), and then click **Next**.
+3.  **앱 URL 구성** 페이지에 있는 **Slack 로그인 URL** 텍스트 상자에 Slack 테넌트(예: "*https://azuread.slack.com*")를 입력하고 *다음*을 클릭하십시오**.
 
-    ![Configure App URL](./media/active-directory-saas-slack-tutorial/IC794984.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-slack-tutorial/IC794984.png "앱 URL 구성")
 
-4.  On the **Configure single sign-on at Slack** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  **Slack에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794985.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-slack-tutorial/IC794985.png "Single Sign-On 구성")
 
-5.  In a different web browser window, log into your Slack company site as an administrator.
+5.  다른 웹 브라우저 창에서 Slack 회사 사이트에 관리자로 로그인합니다.
 
-6.  Go to **to Microsoft Azure AD \> Team Settings**.
+6.  **Microsoft Azure AD > 팀 설정**으로 이동합니다.
 
-    ![Team Settings](./media/active-directory-saas-slack-tutorial/IC794986.png "Team Settings")
+    ![팀 설정](./media/active-directory-saas-slack-tutorial/IC794986.png "팀 설정")
 
-7.  In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
+7.  **팀 설정** 섹션에 있는 **인증** 탭을 클릭한 다음 **설정 변경**을 클릭합니다.
 
-    ![Team Settings](./media/active-directory-saas-slack-tutorial/IC794987.png "Team Settings")
+    ![팀 설정](./media/active-directory-saas-slack-tutorial/IC794987.png "팀 설정")
 
-8.  On the **SAML Authentication Settings** dialog, perform the following steps:
+8.  **SAML 인증 설정** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![SAML Settings](./media/active-directory-saas-slack-tutorial/IC794988.png "SAML Settings")
+    ![SAML 설정](./media/active-directory-saas-slack-tutorial/IC794988.png "SAML 설정")
 
-    1.  In the Azure classic portal, on the **Configure single sign-on at Slack** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML 2.0 Endpoint (HTTP)** textbox.
-    2.  In the Azure classic portal, on the **Configure single sign-on at Slack** dialog page, copy the **Issuer URL** value, and then paste it into the **Identity Provider Issuer** textbox.
-    3.  Create a **base-64 encoded** file from your downloaded certificate.
+    1.  Azure 클래식 포털의 **Slack에서 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **SAML 2.0 끝점(HTTP)** 텍스트 상자에 붙여 넣습니다.
+    2.  Azure 클래식 포털의 **Slack에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **ID 공급자 발급자** 텍스트 상자에 붙여 넣습니다.
+    3.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
     
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-    4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
-    5.  Deselect **Allow users to change their email address**.
-    6.  Select **Allow users to choose their own username**.
-    7.  As **Authentication for your team must be used by**, select **It’s optional**.
-    8.  Click **Save Configuration**.
+    4.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **공용 인증서** 텍스트 상자에 붙여 넣습니다.
+    5.  **사용자가 이메일 주소를 변경할 수 있도록 허용**을 선택 취소하십시오.
+    6.  **사용자가 자신의 사용자 이름을 선택할 수 있도록 허용**을 선택하십시오.
+    7.  **팀이 사용해야 할 인증으로** **선택 사항**을 선택하십시오.
+    8.  **구성 저장**을 클릭하십시오.
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794989.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-slack-tutorial/IC794989.png "Single Sign-On 구성")
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##사용자 프로비전 구성
   
-In order to enable Azure AD users to log into Slack, they must be provisioned into Slack.
+Azure AD 사용자가 Slack에 로그인할 수 있도록 하려면 Slack으로 프로비전되어야 합니다.
   
-There is no action item for you to configure user provisioning to Slack.  
-When an assigned user tries to log into Slack, a Slack account is automatically created if necessary.
+Slack을 프로비전하는 사용자를 구성할 작업 항목이 없습니다. 할당된 사용자가 Slack에 로그인하려고 하면 필요한 경우 Slack 계정이 자동으로 생성됩니다.
 
-##<a name="assigning-users"></a>Assigning users
+##사용자 할당
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-###<a name="to-assign-users-to-slack,-perform-the-following-steps:"></a>To assign users to Slack, perform the following steps:
+###Slack에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  In the Azure classic portal, create a test account.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  On the **Slack **application integration page, click **Assign users**.
+2.  **Slack** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
-    ![Assign Users](./media/active-directory-saas-slack-tutorial/IC794990.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-slack-tutorial/IC794990.png "사용자 할당")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
-    ![Yes](./media/active-directory-saas-slack-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-slack-tutorial/IC767830.png "예")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

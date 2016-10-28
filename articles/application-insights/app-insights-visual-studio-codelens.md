@@ -1,78 +1,73 @@
 <properties 
-    pageTitle="Application Insights telemetry in Visual Studio CodeLens | Microsoft Azure" 
-    description="Quickly access your Application Insights request and exception telemetry with CodeLens in Visual Studio." 
-    services="application-insights" 
+	pageTitle="Visual Studio CodeLens에서 Application Insights 원격 분석 | Microsoft Azure" 
+	description="Visual Studio에서 CodeLens를 사용하여 Application Insights 요청 및 예외 원격 분석에 빠르게 액세스합니다." 
+	services="application-insights" 
     documentationCenter=".net"
-    authors="numberbycolors" 
-    manager="douge"/>
+	authors="numberbycolors" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/30/2016" 
-    ms.author="daviste"/>
-    
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/30/2016" 
+	ms.author="daviste"/>
+	
+# Visual Studio CodeLens에서 Application Insights 원격 분석
 
-# <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights telemetry in Visual Studio CodeLens
-
-Methods in the code of your web app can be annotated with telemetry about run-time exceptions and request response times. If you install [Visual Studio Application Insights](app-insights-overview.md) in your application, the telemetry appears in Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - the notes at the top of each function where you're used to seeing useful information such as the number of places the function is referenced or the last person who edited it.
+웹앱의 코드에 있는 메서드는 런타임 예외 및 요청 응답 시간에 대한 원격 분석을 사용하여 주석이 추가될 수 있습니다. 응용 프로그램에 [Visual Studio Application Insights](app-insights-overview.md)를 설치하는 경우 원격 분석은 Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx)에 표시됩니다. - 각 함수가 참조된 횟수 또는 마지막으로 편집한 사용자 등 유용한 정보를 확인하는 데 사용한 함수의 맨 위에 있는 메모입니다.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
-> [AZURE.NOTE] Application Insights in CodeLens is available in Visual Studio 2015 Update 3 and later, or with the latest version of [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a). CodeLens is available in the Enterprise and Professional editions of Visual Studio.
+> [AZURE.NOTE] CodeLens에서 Application Insights는 Visual Studio 2015 업데이트 3 이상에서 또는 최신 버전의 [개발자 분석 도구 확장](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a)과 함께 사용할 수 있습니다. CodeLens는 Visual Studio의 Enterprise 및 Professional edition에서 사용할 수 있습니다.
 
-## <a name="where-to-find-application-insights-data"></a>Where to find Application Insights data
+## Application Insights 데이터의 위치
 
-Look for Application Insights telemetry in the CodeLens indicators of the public request methods of your web application. CodeLens indicators are shown above method and other declarations in C# and Visual Basic code. If Application Insights data is available for a method, you'll see indicators for requests and exceptions such as "100 requests, 1% failed" or "10 exceptions." Click a CodeLens indicator for more details. 
+웹 응용 프로그램의 공용 요청 메서드의 CodeLens 지표에서 Application Insights 원격 분석을 찾습니다. CodeLens 지표는 C# 및 Visual Basic 코드로 위의 메서드 및 다른 선언을 보여 줍니다. Application Insights 데이터를 메서드에 사용할 수 있는 경우 "100개의 요청, 1% 실패함" 또는 "10개의 예외"와 같은 요청 및 예외에 대한 표시를 볼 수 있습니다. 자세한 내용은 CodeLens 지표를 클릭합니다.
 
-> [AZURE.TIP] Application Insights request and exception indicators may take a few extra seconds to load after other CodeLens indicators appear.
+> [AZURE.TIP] Application Insights 요청 및 예외 지표를 로드하려면 다른 CodeLens 지표가 표시된 후에 몇 초가 더 걸릴 수 있습니다.
 
-## <a name="exceptions-in-codelens"></a>Exceptions in CodeLens
+## CodeLens의 예외
 
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
-The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occurring exceptions in your application during that period, while processing the request served by the method.
+예외 CodeLens 지표는 해당 기간 동안 응용 프로그램에서 가장 자주 발생한 15개의 예외 지난 24시간 동안 발생한 예외의 수를 보여 주고 메서드에서 제공한 요청을 처리합니다.
 
-To see more details, click the exceptions CodeLens indicator:
+자세한 세부 정보를 보려면 예외 CodeLens 지표를 클릭합니다.
 
-* The percentage change in number of exceptions from the most recent 24 hours relative to the prior 24 hours
-* Choose **Go to code** to navigate to the source code for the function throwing the exception
-* Choose **Search** to query all instances of this exception that have occurred in the past 24 hours
-* Choose **Trend** to view a trend visualization for occurrences of this exception in the past 24 hours
-* Choose **View all exceptions in this app** to query all exceptions that have occurred in the past 24 hours
-* Choose **Explore exception trends** to view a trend visualization for all exceptions that have occurred in the past 24 hours. 
+* 가장 최근 24시간 동안 발생한 예외의 수에서 발생한 비율 변화는 전기 24시간에 비해 상대적입니다.
+* **코드로 이동**을 선택하여 예외를 throw하는 함수에 대한 소스 코드로 이동합니다.
+* **검색**을 선택하여 지난 24시간 동안 발생한 이러한 예외의 모든 인스턴스를 쿼리합니다.
+* **추세**를 선택하여 지난 24시간 동안 발생한 이러한 예외의 추세 시각화를 봅니다.
+* **이 앱에서 모든 예외 보기**를 선택하여 지난 24시간 동안 발생한 모든 예외를 쿼리합니다.
+* **예외 추세 탐색**을 선택하여 지난 24시간 동안 발생한 모든 예외의 추세 시각화를 봅니다.
 
-> [AZURE.TIP] If you see "0 exceptions" in CodeLens but you know there should be exceptions, check to make sure the right Application Insights resource is selected in CodeLens. To select another resource, right-click on your project in the Solution Explorer and choose **Application Insights > Choose Telemetry Source**. CodeLens is only shown for the 15 most frequently occurring exceptions in your application in the past 24 hours, so if an exception is the 16th most frequently or less, you'll see "0 exceptions." Exceptions from ASP.NET views may not appear on the controller methods that generated those views.
+> [AZURE.TIP] CodeLens에서 "0개의 예외"가 표시되지만 예외가 있다는 점을 아는 경우 CodeLens에서 올바른 Application Insights 리소스가 선택되었는지 확인합니다. 다른 리소스를 선택하려면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights > 원격 분석 원본 선택**을 선택합니다. CodeLens는 지난 24시간 동안 응용 프로그램에서 가장 자주 발생한 15개의 예외에서 나타납니다. 따라서 가장 자주 발생하는 16번째 이후의 예외인 경우 "0개의 예외"가 표시됩니다. ASP.NET 보기에서 예외는 해당 보기를 생성하는 컨트롤러 메서드에 나타나지 않을 수 있습니다.
 
-> [AZURE.TIP] If you see "? exceptions" in CodeLens, you need to associate your Azure account with Visual Studio or your Azure account credential may have expired. In either case, click "? exceptions" and choose **Add an account...** to enter your credentials.
+> [AZURE.TIP] CodeLens에 "?개의 예외"가 표시되면 Visual Studio를 사용하여 Azure 계정에 연결해야 하거나 Azure 계정 자격 증명이 만료될 수 있습니다. 두 경우 모두 "?개의 예외"를 클릭하고 **계정 추가...**를 선택하여 자격 증명을 입력합니다.
 
-## <a name="requests-in-codelens"></a>Requests in CodeLens
+## CodeLens에서 요청
 
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
-The request CodeLens indicator shows the number of HTTP requests that been serviced by a method in the past 24 hours, plus the percentage of those requests that failed.
+요청 CodeLens 지표는 지난 24시간 동안 메서드에서 제공한 HTTP 요청의 수와 실패한 해당 요청의 비율을 보여 줍니다.
 
-To see more details, click the requests CodeLens indicator:
+자세한 세부 정보를 보려면 요청 CodeLens 지표를 클릭합니다.
 
-* The absolute and percentage changes in number of requests, failed requests, and average response times over the past 24 hours compared to the prior 24 hours
-* The reliability of the method, calculated as the percentage of requests that did not fail in the past 24 hours
-* Choose **Search** for requests or failed requests to query all the (failed) requests that occurred in the past 24 hours
-* Choose **Trend** to view a trend visualization for requests, failed requests, or average response times in the past 24 hours.
-* Choose the name of the Application Insights resource in the upper left corner of the CodeLens details view to change which resource is the source for CodeLens data.
+* 전기 24시간에 비한 지난 24시간 동안 발생한 요청, 실패한 요청의 수 및 평균 응답 시간 절대 값과 비율 변경
+* 지난 24시간 동안 실패하지 않은 요청의 백분율로 계산된 메서드의 안정성
+* 요청 또는 실패한 요청에 대한 **검색** 선택하여 지난 24시간 동안 발생한 모든(실패한) 요청을 쿼리합니다.
+* **추세**를 선택하여 지난 24시간 동안 발생한 요청, 실패한 요청 또는 평균 응답 시간에 대한 추세 시각화를 봅니다.
+* CodeLens 세부 정보 보기의 왼쪽 위 모퉁이에 있는 Application Insights 리소스의 이름을 선택하여 CodeLens 데이터의 원본인 리소스를 변경합니다.
 
-## <a name="<a-name="next"></a>next-steps"></a><a name="next"></a>Next steps
+## <a name="next"></a>다음 단계
 
 ||
 |---|---
-|**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio-codelens/34.png)
-|**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-visual-studio-codelens/64.png)
-|**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio-codelens/62.png)
+|**[Visual Studio에서 Application Insights로 작업](app-insights-visual-studio.md)**<br/>원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. |![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 검색을 선택합니다.](./media/app-insights-visual-studio-trends/34.png)
+|**[더 많은 데이터](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. | ![Visual Studio](./media/app-insights-visual-studio-trends/64.png)
+|**[Application Insights 포털로 작업](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/app-insights-visual-studio-trends/62.png)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

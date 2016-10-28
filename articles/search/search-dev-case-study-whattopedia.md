@@ -1,139 +1,137 @@
 <properties 
-    pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
-    description="Learn how to build an information portal and meta search engine using Azure Search, a cloud hosted search service for developers." 
-    services="search, sql-database,  storage, web-sites" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="jhubbard"/>
+	pageTitle="Azure 검색 개발자 사례 연구: WhatToPedia가 Microsoft Azure에서 정보 미디어 포털을 구축한 방법 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
+	description="개발자를 위한 클라우드 호스팅 검색 서비스인 Azure 검색을 사용하여 정보 포털 및 메타 검색 엔진을 구축하는 방법을 알아봅니다." 
+	services="search, sql-database,  storage, web-sites" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="jhubbard"/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="NA" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="search" 
-    ms.date="08/29/2016" 
-    ms.author="heidist"/>
+	ms.service="search" 
+	ms.devlang="NA" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="search" 
+	ms.date="08/29/2016" 
+	ms.author="heidist"/>
+
+# Azure 검색 개발자 사례 연구
+
+## [WhatToPedia.com](http://whattopedia.com/)이 Microsoft Azure에서 정보 미디어 포털을 구축한 방법
+
+ ![][6] &nbsp;&nbsp;&nbsp; <font size="9">주요 개념</font>
 
 
-# <a name="azure-search-developer-case-study"></a>Azure Search Developer Case Study
+우리의 아이디어는 여행객이 미지의 지역에 있을 때 여행 포털에서 여행객을 호텔, 레스토랑 및 엔터테인먼트와 일치시키는 방법과 유사하게 관련성이 높은 범위 지정 검색 환경을 통해 쇼핑객을 판매점과 연결하도록 도와주는 정보 포털을 구축하는 것입니다.
 
-## <a name="how-[whattopedia.com](http://whattopedia.com/)-built-an-infomedia-portal-on-microsoft-azure"></a>How [WhatToPedia.com](http://whattopedia.com/) built an infomedia portal on Microsoft Azure
+우리가 추구하는 포털은 지정된 시장의 판매점 데이터에 대한 뛰어난 품질의 검색 환경을 제공하여 쇼핑객이 위치 및 기타 판매점에서 제공하는 서비스에 따라 매장을 쉽게 찾을 수 있도록 도와줍니다. 검색 엔진은 초기 데이터 집합으로 구성되지만 시간이 지남에 따라 자신의 비즈니스에 대한 정보를 게시하는 판매점 구독자의 도움으로 더 높은 가치가 축적될 것입니다. 프로모션, 신상품, 인기 있는 브랜드, 사내 전문 서비스 등은 사이트에 가치를 더해 주는 데이터의 예입니다. 판매자가 구독자로 등록하면 이 데이터가 자체 보고되며 검색 모음에 통합됩니다. 광고는 구독 모델과 함께 우리의 새 비즈니스에 대한 수익원을 제공합니다.
 
- ![][6]  &nbsp;&nbsp;&nbsp;  <font size="9">The big idea</font> 
+검색은 순수 클라우드 플랫폼에서 주된 사용자 상호 작용 모델이 될 것입니다. 확장성 및 비용 절감을 위해 포털 환경부터 원본 제어까지 우리가 수행하는 거의 모든 작업은 온라인 서비스를 통해 이루어집니다. 필요한 기능을 즉시 제공하는 검색 엔진을 사용하면 검색 엔진을 직접 구축 및 관리하지 않고도 검색 응용 프로그램을 신속하게 만들 수 있습니다.
 
+## 구축 내용
 
-Our idea is to build an information portal that helps shoppers connect with retailers through a highly-relevant, scoped-search experience, similar to how travel portals match tourists up with the hotels, restaurants, and entertainment when in uncharted territory. 
+WhatToPedia는 스타트업 정보 미디어 회사입니다. 우리는 [WhatToPedia.com](http://whattopedia.com/)을 구축했으며, 2015년 2월 2일 출시를 목표로 현재 북유럽 시장에서 테스트 중입니다. 우리의 소비자층은 주로 관리 및 유지 보수가 간편한 경제적인 온라인 서비스를 필요로 하는 오프라인 매장입니다.
 
-The portal we envision will deliver an exceptionally high-quality search experience over retailer data in a given market, helping shoppers find stores based on location and other amenities the retailer provides. We will seed the search engine with an initial dataset, but deeper value will be built over time, with the help of retailer subscribers who post information about their business. Promotions, new merchandise, popular brands, in-house specialty services -– all are examples of data that adds value to our site. This data is self-reported and integrated into the search corpus, once the retailer signs up as a subscriber. Advertising, plus the subscription model, provide the revenue stream for our new business.
+우리의 작업은 뛰어난 온라인 검색 환경을 통해 쇼핑객을 유치하여 도시 또는 인접 지역, 브랜드, 매장 이름, 매장 유형 등에 따라 결과를 향상시키는 것입니다. 쇼핑객 유치는 판매점이 우리의 포털 사이트를 구독하게 만드는 파급 효과가 있습니다. 구독은 유료이며 요금이 저렴합니다.
 
-Search will be the predominant user interaction model, on a pure cloud platform. For purposes of scale and low-costs, almost everything we do, from the portal experience to source control, will be through an online service. Using a search engine that provides the features we need out of the box, we can create a search application quickly, without having to build and manage a search engine ourselves.
+ ![][7]
 
-## <a name="what-we-built"></a>What we built
+구독에 등록한 후에는 판매점이 프로모션, 주요 브랜드 또는 공지 사항에 대한 추가 데이터로 업데이트하여 자신의 기존 프로필(초기에는 우리가 구매 데이터를 바탕으로 생성)을 관리할 수 있습니다. 구사하는 언어, 허용되는 통화, 면세 쇼핑 등의 내부 기능은 이러한 서비스를 찾는 쇼핑객을 보다 잘 유치하도록 자체 보고될 수 있습니다.
 
-WhatToPedia is a start-up infomedia company. We built [WhatToPedia.com](http://whattopedia.com/) –- currently in test-market in northern Europe with a go-live date of February 2, 2015. Our customer base is primarily brick-and-mortar shops who need an affordable online presence that is easy to manage and maintain.
+## 회사 소개
 
-Our task is to attract shoppers through a great online search experience, boosting results based on city or neighborhood, brands, store names, or store types. Attracting shoppers has a ripple effect, motivating retailers to subscribe to our portal site. Subscriptions are fee-based, at an affordable rate.
+저는 Thomas Segato(Microsoft Consulting)이며, WhatToPedia의 수석 개발자인 Jesper Boelling과 함께 솔루션을 디자인했습니다.
 
- ![][7] 
+WhatToPedia는 60,000만 개의 판매점 대부분이 오프라인 SME(중소기업)인 스웨덴에서 새로운 포털 비즈니스를 시험 출시한 신생 기업입니다. 유럽의 쇼핑객은 여러 언어를 구사하고 다양한 통화를 사용하기 때문에 우리는 다국어 쇼핑객을 수용할 수 있는 솔루션을 구축해야 했습니다. 따라서 다국어 요구 사항을 지원하는 검색 엔진이 필요했으며 Azure 검색에서 이를 찾았습니다.
 
-After signing up for a subscription, a retailer takes over their existing profile (created initially by us from purchased data), updating it with additional data about promotions, featured brands, or announcements. In-house capabilities, such as languages spoken, currencies accepted, tax-free shopping, can be self-reported to better attract shoppers who are looking for those amenities.
+Azure 검색은 우리 프로젝트의 판도를 바꾸어 놓았습니다. Azure 검색을 사용할 수 있기 전까지는 자체 검색 엔진을 구축하는 방법을 고민하는 데 많은 에너지를 소모했습니다. Azure 검색을 온라인 서비스로 채택함으로써 솔루션의 최대 난간인 기술 및 관리 문제가 해결되어 시장 출시 시점이 단축되고 검색 환경이 더욱 강력해졌습니다.
 
-## <a name="who-we-are"></a>Who we are
+## 구축 방법
 
-My name is Thomas Segato (Microsoft Consulting) and I worked with Jesper Boelling, Lead Developer at WhatToPedia, to design the solution. 
-
-WhatToPedia is a start-up, test marketing its new portal business in Sweden, where most of the 60,000 retailers are brick-and-mortar SMEs (small and medium sized enterprises). Because we know that a person shopping in Europe speaks multiple languages and carries multiple currencies, we build solutions that accommodate a multilingual shopper. We needed, and found, a search engine that supports our multilingual requirements in Azure Search.
-
-Azure Search was a game-changer for our project. Prior to the availability of Azure Search, we expended considerable energy working through the kinks of building our own search engine. Having Azure Search as an online service removed the biggest technical and administrative hurdle from our solution, which meant getting to market faster, and with a more robust search experience.  
-
-## <a name="how-we-did-it"></a>How we did it
-
-Our vision was to build a complete infrastructure based on cloud services only. Microsoft was chosen as the strategic platform because it was the provider that offered the necessary services (for both collaboration and development), scale on demand, and affordable pricing.
+우리의 비전은 클라우드 서비스만을 기반으로 하는 완벽한 인프라를 구축하는 것이었습니다. Microsoft를 전략적 플랫폼으로 선택한 이유는 공동 작업 및 개발 모두에 필요한 서비스, 주문형 확장 및 경제적인 가격을 제공하는 공급자였기 때문입니다.
  
-### <a name="high-level-components"></a>High-level components
+### 대략적인 구성 요소
 
-We built a business, not just a site. Supporting the entire effort required a full range of tools and applications. We adopted Visual Studio and Visual Studio Team Services for development, Team Foundation Service (TFS) Online for source control and scrum management, Office 365 for communication and collaboration, and of course Microsoft Azure for all site-related operations and storage. With Visual Studio, the IDE provided direct provisioning to Azure, with integration to TFS Online providing an additional productivity boost.
+우리는 사이트가 아니라 비즈니스를 구축했습니다. 전체 작업을 지원하기 위해 광범위한 도구와 응용 프로그램이 필요했습니다. 우리는 모든 사이트 관련 작업 및 저장소에 Microsoft Azure를 도입했을 뿐만 아니라 개발에 Visual Studio 및 Visual Studio Team Services를 도입하고, 원본 제어 및 스크럼 관리에 TFS(Team Foundation Service) Online을 도입하고, 통신 및 공동 작업에 Office 365를 도입했습니다. Visual Studio를 통해 IDE는 생산성을 향상시키는 TFS Online과의 통합으로 Azure에 대한 직접 프로비전닝을 제공했습니다.
 
-The diagram below illustrates the high-level components used in the WhatToPedia infrastructure.
+아래 다이어그램에서는 WhatToPedia 인프라에서 사용되는 대략적인 구성 요소를 보여 줍니다.
 
    ![][8]
 
-### <a name="how-we-use-microsoft-azure"></a>How we use Microsoft Azure
+### Microsoft Azure 사용 방법
 
-Looking at the green boxes in the previous diagram, you’ll see that the WhatToPedia solution is built on these services:
+위 다이어그램의 녹색 상자를 살펴보면 WhatToPedia 솔루션이 다음 서비스를 기반으로 하고 있음을 알 수 있습니다.
 
-- [Azure Search](https://azure.microsoft.com/services/search/)
-- [Azure Websites using MVC 4](https://azure.microsoft.com/services/websites/)
-- [Azure WebJobs for scheduled tasks](../app-service-web/websites-webjobs-resources.md)
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Azure BLOB Storage](https://azure.microsoft.com/services/storage/)
-- [SendGrid Email Delivery](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Azure 검색](https://azure.microsoft.com/services/search/)
+- [MVC 4를 사용하는 Azure 웹 사이트](https://azure.microsoft.com/services/websites/)
+- [예약된 작업을 위한 Azure WebJobs](../app-service-web/websites-webjobs-resources.md)
+- [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)
+- [Azure Blob 저장소](https://azure.microsoft.com/services/storage/)
+- [SendGrid 전자 메일 서비스](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
-The very heart of the solution is data and search. The flow of data from the Reseller provider to the end customer is illustrated below:
+솔루션의 핵심은 데이터와 검색입니다. Reseller 공급자에서 최종 소비자로의 데이터 흐름은 다음과 같습니다.
 
   ![][9]
 
-Primary data storage is the reseller and accounting data in Azure SQL Database. This consists of the initial dataset, plus retailer-specific data added over time. We’re using an Azure WebJob to post updates from SQL Database to the search corpus in Azure Search.
+주 데이터 저장소는 Azure SQL 데이터베이스의 판매점 및 계정 데이터입니다. 이는 초기 데이터 집합과 시간이 지남에 따라 추가되는 판매점 관련 데이터로 구성됩니다. 우리는 Azure WebJob을 사용하여 SQL 데이터베이스에서 Azure 검색의 검색 모음으로 업데이트를 게시합니다.
 
-### <a name="presentation-layer"></a>Presentation layer
+### 프레젠테이션 계층
 
-The portal is an Azure Website, implemented in MVC 4 and [Twitter Bootstrap](http://en.wikipedia.org/wiki/Bootstrap_%28front-end_framework%29). We chose MVC because it offers a much cleaner approach to HTML than ASP.NET forms-based development. To avoid having to create apps for multiple devices and maintain multiple mobile platforms, Twitter Bootstrap was chosen to support all devices and platforms.
+이 포털은 MVC4와 [Twitter Bootstrap](http://en.wikipedia.org/wiki/Bootstrap_%28front-end_framework%29)으로 구현된 Azure 웹 사이트입니다. MVC를 선택한 이유는 HTML에 대한 접근 방법이 ASP.NET 양식 기반 개발보다 훨씬 깔끔하기 때문입니다. 또한 여러 장치용 앱을 만들고 여러 모바일 플랫폼을 유지 관리해야 하는 필요성을 없애기 위해 모든 장치 및 플랫폼을 지원하는 Twitter Bootstrap을 선택했습니다.
 
-### <a name="authentication,-permissions-and-sensitive-data"></a>Authentication, permissions and sensitive data
+### 인증, 권한 및 중요한 데이터
 
-Shoppers browse the site anonymously. As such, there are no login requirements for shoppers, nor do we store any consumer data. 
+쇼핑객은 사이트를 익명으로 검색합니다. 따라서 쇼핑객에 대한 로그인 요구 사항이 없으며 소비자 데이터가 저장되지도 않습니다.
 
-Retailers are a different story. Here, we store public-facing profile information, billing information, and media content that they want to expose on the site. Every retailer who subscribes to the site get a user login, used to authenticate the user prior to making updates to the subscriber’s profile.  We securely store all subscriber data in Azure SQL Database and Azure BLOB storage.
-We opted for an authentication model based on .NET forms-based authentication. We chose this approach for its simplicity; we didn’t need the roles, UI support and other extraneous features that come with other approaches. 
+그러나 판매점은 다릅니다. 공용 프로필 정보, 대금 청구 정보 및 사이트에 노출할 미디어 콘텐츠가 저장됩니다. 사이트를 구독한 모든 판매점은 구독자의 프로필을 업데이트하기 전에 사용자를 인증하는 데 필요한 사용자 로그인을 가져옵니다. 모든 구독자 데이터는 Azure SQL 데이터베이스 및 Azure BLOB 저장소에 안전하게 저장됩니다. 인증 모델은 .NET 양식 기반 인증을 기반으로 합니다. 이 방법을 선택한 이유는 간소성 때문입니다. 다른 방법과 달리 역할, UI 지원 및 기타 불필요한 기능이 필요 없습니다.
 
-To ensure that retailers only see the data that belongs to them, we created a retailer ID for each retailer that is subsequently used on all read and write operations involving retailer-specific data. With this approach, we found that we did not need to grant database permissions to individual retailers. All retailers interact with the system under a single database role, with the retailer ID as our data isolation technique.
+판매점이 해당 판매점에 속한 데이터만 볼 수 있도록 하기 위해 각 판매점에 대한 판매점 ID를 만들었으며, 이 ID는 이후에 판매점 관련 데이터가 포함된 모든 읽기 및 쓰기 작업에서 사용됩니다. 이 방법을 사용하면 개별 판매점에 데이터베이스 권한을 부여할 필요가 없습니다. 모든 판매점은 판매점 ID를 데이터 격리 기술로 사용하는 단일 데이터베이스 역할을 통해 시스템과 상호 작용합니다.
 
-Because our business is all about the downstream effects (driving more business to retailers, creating incentive to advertise and subscribe), we can draw the line at handling purchases over the web. As such, you won’t find a shopping cart on our site, which simplifies our security requirements. 
+우리의 비즈니스는 다운스트림 효과(판매점에 대한 더 많은 비즈니스를 유도하여 광고 및 구독에 대한 인센티브 생성)와 관련이 있으므로 웹을 통해 구매를 처리할 수 있습니다. 따라서 사이트에서 쇼핑 카트를 찾을 필요가 없으므로 보안 요구 사항이 간소화됩니다.
 
-Another simplification we employed was to outsource our billing and accounts payable operations. By routing customer payment information directly to a third-party ([SveaWebPay](http://www.sveawebpay.se/)), we reduce the risks associating with storing and protecting sensitive data in our data stores. 
+또한 대금 청구 및 외상 매입금 작업을 아웃소싱하는 것도 간소화되었습니다. 소비자 지불 정보를 타사([SveaWebPay](http://www.sveawebpay.se/))에 직접 라우팅하므로 데이터 저장소에 중요한 데이터를 저장하고 보호하는 것과 관련된 위험이 줄어듭니다.
 
-### <a name="search-engine"></a>Search Engine
+### 검색 엔진
 
-The core of our solution is the search engine built on Azure Search service. Initially, we built a custom search engine, but during this process, we realized the complexity and effort was very high indeed, and that prompted us to consider other alternatives. 
+우리 솔루션 핵심은 Azure 검색 서비스를 기반으로 하는 검색 엔진입니다. 처음에는 사용자 지정 검색 엔진을 구축했지만 이 과정에서 복잡성과 매우 많은 노력이 필요하다는 것을 깨닫고 다른 대안을 찾기 시작했습니다.
 
-Basic features that were most important to us included:
+우리에게 가장 중요한 기본 기능은 다음과 같습니다.
 
-- Filters
-- Faceted navigation
-- Boosting results
-- Paging through AJAX
+- 필터
+- 패싯 탐색
+- 결과 강화
+- AJAX를 통한 페이징
 
-An internet search brought us to the following video, which inspired us to give Azure Search a try: [Deep Dive at TechEd Europe](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410) 
+우리는 인터넷 검색에서 찾은 [TechEd Europe의 심층 분석](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410)이라는 비디오를 통해 Azure 검색을 시도해 볼 영감을 얻었습니다.
 
-After watching the video, we were ready to build a prototype based on what we saw. Because we already had a data model in MVC, creating the prototype was straightforward because the data contained searchable terms, and we had already worked out the requirements for how we wanted to sort, facet, and filter the data. 
+비디오를 시청한 후 이를 기반으로 프로토타입을 만들 준비가 완료되었습니다. MVC에 데이터 모델이 이미 있었기 때문에 프로토타입 만들기가 간단했습니다. 즉, 데이터에 검색 가능한 용어가 포함되어 있고 데이터를 정렬, 패싯 및 필터링할 방법에 대한 요구 사항을 이미 마련해 두었기 때문입니다.
 
-This is how we built the prototype.
+프로토타입을 구축한 방법은 다음과 같습니다.
 
-**Configure Azure Search Service**
+**Azure 검색 서비스 구성**
 
-1. Login to Azure Classic Portal and added the Search service to our subscription. We used the shared version (free with our subscription).
-2. Create an index. For the prototype, we used the portal UI to define the search fields and create the scoring profiles. Our scoring profile is based on location data: country | city |address (see: Add scoring profiles).
-3. Copy the service URL and admin api-key to our configuration files. This key is on the Search service page in the portal, and it’s used to authenticate to the service.
-    
-**Develop a Search Indexer Job – Windows Console**
+1. Azure 클래식 포털에 로그인하여 검색 서비스를 구독에 추가했습니다. 공유 버전(구독에 무료로 제공)을 사용했습니다.
+2. 인덱스를 만듭니다. 프로토타입에는 포털 UI를 사용하여 검색 필드를 정의하고 점수 매기기 프로필을 만들었습니다. 점수 매기기 프로필은 위치 데이터인 국가 | 도시 | 주소(점수 매기기 프로필 추가 참조)를 기반으로 합니다.
+3. 서비스 URL 및 admin api-key를 구성 파일에 복사합니다. 이 키는 포털의 검색 서비스 페이지에 있으며, 서비스를 인증하는 데 사용됩니다.
+	
+**검색 인덱서 작업 개발 – Windows 콘솔**
 
-1. Read all resellers from database.
-2. Call the Azure Search Service API to upload resellers one by one (see: http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. Set a property in database that reseller is indexed for incremental indexing. We did this by adding an ‘indexer’ field that stores the index status of each profile (indexed or not). 
+1. 데이터베이스에서 모든 판매점을 읽습니다.
+2. Azure 검색 서비스 API를 호출하여 판매점을 하나씩 업로드합니다(http://msdn.microsoft.com/library/azure/dn798930.aspx 참조).
+3. 데이터베이스에서 판매점을 증분 인덱싱하는 속성을 설정합니다. 이를 위해 각 프로필의 인덱스 상태(인덱싱 여부에 상관없음)를 저장하는 'indexer' 필드를 추가했습니다.
 
-See the appendix for the code snippet that builds the indexer job.
+인덱서 작업을 작성하는 코드 조각은 부록을 참조하세요.
 
-**Develop a Search Web Portal – MVC**
+**검색 웹 포털 개발 – MVC**
 
-1. Call Azure Search Service to get all documents from search (see: http://msdn.microsoft.com/library/azure/dn798927.aspx)
-2. Extract following from the search service response (by using json.net http://james.newtonking.com/json)
-   - Results
-   - Facets
-   - Result counts
-   - Develop a user interface for displaying search results, facets and counts (we already had this).
+1. Azure 검색 서비스를 호출하여 검색에서 모든 문서를 가져옵니다(http://msdn.microsoft.com/library/azure/dn798927.aspx 참조).
+2. 검색 서비스 응답에서 다음을 추출합니다(json.net http://james.newtonking.com/json 사용).
+   - 결과
+   - 패싯
+   - 결과 개수
+   - 검색 결과, 패싯 및 개수를 표시하는 사용자 인터페이스를 개발합니다(이미 가지고 있음).
 
-This is the code we used to get the results from Azure Search:
+Azure 검색에서 결과를 가져오는 데 사용한 코드는 다음과 같습니다.
 
     string requestUrl = 
     string.Format("https://{0}.search.windows.net/indexes/profiles/docs?searchMode=all&$count=true&search={1}&facet=city,count:20&facet=category&$top=10&$skip={2}&api-version=2014-07-31-Preview{3}", Config.SearchServiceName, EscapeODataString(q), skip, filter);
@@ -141,91 +139,91 @@ This is the code we used to get the results from Azure Search:
       response.EnsureSuccessStatusCode();
      dynamic json = JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
 
-**Boosting by location**
+**위치에 따라 상위에 배치**
 
-Probably the most important requirement to verify in the prototype included adding a location search keyword to the query. It is vital to our portal that if a user enters a city name in the search query, that the resellers in the given city would rank higher than resellers having the city keyword in the description. For this requirement, we used a scoring profile to rank the city field higher than other fields.
+프로토타입에서 확인할 가장 중요한 요구 사항은 쿼리에 위치 검색 키워드를 추가하는 것과 관련이 있습니다. 포털에서는 사용자가 검색 쿼리에 도시 이름을 입력한 경우 지정된 도시에 있는 판매점이 설명에 있는 도시 키워드를 가진 판매점보다 높은 순위로 지정되어야 합니다. 이 요구 사항을 위해 점수 매기기 프로필을 사용하여 도시 필드를 다른 필드보다 높은 순위로 지정했습니다.
 
-**Supporting multiple languages**
+**여러 언어 지원**
 
-We needed to display correct search results in correct languages, and provide an option for finding the same results in different languages. The two sides to this problem were: 
+올바른 검색 결과를 올바른 언어로 표시하고 같은 결과를 여러 언어로 찾을 수 있는 옵션을 제공해야 했습니다. 이 문제에는 다음 두 가지 측면이 있습니다.
 
-- Search for words in multiple languages
-- Display search results in correct language
+- 여러 언어의 단어 검색
+- 올바른 언어로 검색 결과 표시
 
-We solved the presentation part by adding a document for each language with localized text and a property with the language. When a user enters a search term, we user `$filter` expressions to filter on the language the user has chosen.
+우리는 지역화된 텍스트가 있는 각 언어의 문서와 해당 언어의 속성을 추가하여 프레젠테이션 부분을 해결했습니다. 사용자가 검색 용어를 입력한 경우 `$filter` 식을 사용하여 사용자가 선택한 언어를 필터링했습니다.
 
-Each of the documents has a hidden property called "cities" built on the collection type. This property stores city names in all languages, enabling the user to search in multiple languages.
+각 문서에는 컬렉션 형식을 기반으로 하는 "cities"라는 숨겨진 속성이 있습니다. 이 속성은 사용자가 여러 언어로 검색할 수 있도록 도시 이름을 모든 언어로 저장합니다.
 
-###<a name="data-storage"></a>Data storage
+###데이터 저장소
 
-All data (profile, subscription, and accounting) is stored in SQL Database. All media files are stored in Azure BLOB storage, including images and videos provided by the retailer. Using separate BLOB storage isolates the effects of uploading files; files are never co-mingled with the website, so we don’t need to rebuild the site whenever we add files.
+모든 데이터(프로필, 구독 및 계정)는 SQL 데이터베이스에 저장됩니다. 판매점에서 제공하는 이미지와 비디오를 포함하여 모든 미디어 파일은 Azure BLOB 저장소에 저장됩니다. 개별 BLOB 저장소를 사용하면 파일 업로드 효과가 격리됩니다. 즉, 파일이 웹 사이트와 혼합되지 않으므로 파일을 추가할 때마다 사이트를 다시 빌드할 필요가 없습니다.
 
-An important benefit of our storage design is that multiple developers can share a single development storage. One of the requirements for the WhatToPedia project was to be able to create a development environment within 15 minutes, including reseller data, images, and videos. By getting the latest data from TFS Online, running a SQL script, and running the import job, a complete environment can be stood up in no time at all. This practice also improves the staging process.
+이 저장소 디자인의 중요한 이점은 여러 개발자가 단일 개발 저장소를 공유할 수 있다는 점입니다. WhatToPedia 프로젝트의 요구 사항 중 하나는 판매점 데이터, 이미지 및 비디오를 포함하여 개발 환경을 15분 이내에 만들 수 있도록 하는 것이었습니다. TFS Online에서 최신 데이터를 가져오고, SQL 스크립트를 실행하고, 가져오기 작업을 실행하여 전체 환경을 신속하게 구축할 수 있습니다. 이 방법은 준비 프로세스도 향상시킵니다.
 
-###<a name="webjobs"></a>WebJobs
+###웹 작업
 
-We use Azure WebJobs to update data to the index. By creating a search indexer job, the indexing part was very easy to integrate into our solution. The only code change we made was to accommodate the indexer job was to add an `Indexed` field to our data model to indicate the index state. Whenever a new profile is added or updated, the `Indexed` field is set to false. The same applies if the retailer changes his or her profile data through the portal.  
+Azure WebJobs를 사용하여 데이터를 인덱스에 업데이트합니다. 검색 인덱서 작업을 만들어 인덱싱 부분을 솔루션에 매우 쉽게 통합할 수 있었습니다. 인덱서 작업을 적용하기 위해 수행한 코드 변경은 인덱스 상태를 나타내는 `Indexed` 필드를 데이터 모델에 추가한 것뿐이었습니다. 새 프로필을 추가하거나 업데이트할 때마다 `Indexed` 필드는 false로 설정됩니다. 이는 판매점이 포털을 통해 프로필 데이터를 변경한 경우에도 마찬가지입니다.
 
-The job looks for all rows having `Indexed` set to false. When it finds the row, the document is posted to Azure Search, and then the `Indexed` field is set to true. We didn’t have to plan for adding versus updating data because the Azure Search service actually takes care of this. If you add a document that is already present, the service will do an update automatically.
+작업에서는 `Indexed`가 false로 설정된 모든 행을 찾습니다. 행을 찾으면 문서가 Azure 검색에 게시되고 `Indexed` 필드가 true로 설정됩니다. 데이터 추가 및 업데이트는 실제로 Azure 검색 서비스에서 처리하기 때문에 이에 대한 계획을 세울 필요가 없었습니다. 이미 있는 문서를 추가하면 서비스에서 자동으로 업데이트를 수행합니다.
 
-All web jobs have been developed as console applications that can be uploaded to Azure web sites as ZIP files, unzipped, and then scheduled.
+모든 웹 작업은 Azure 웹 사이트에 ZIP 파일로 업로드하고, 압축을 푼 다음, 예약할 수 있는 콘솔 응용 프로그램으로 개발되었습니다.
 
-The job is scheduled to run every 5 minutes as a scheduled web task. We calculated that the service takes approximately three minutes to upload 3,000 documents, which was within our requirements. 
+작업은 예약된 웹 작업으로 5분마다 실행되도록 예약됩니다. 서비스에서 3,000개의 문서를 업로드하는 데 약 3분 정도 걸리는 것으로 계산되었으며, 이는 우리의 요구 사항에 부합했습니다.
 
-> [AZURE.NOTE] There is a prototype indexer feature that was recently introduced in Azure Search. This feature came too late for us to use it in our first release, but it appears to solve the same problem we used our indexer job for, which is to automate data load operations.
-
-
-###<a name="backup-strategy"></a>Backup strategy
-
-We designed a multi-tiered backup strategy to recover from a range of scenarios, from catastrophic failure, down to recovery of an individual transaction. The assets to protect include three kinds of data (web site, subscriber data, and media files). 
-
-First, by keeping the web site source code in TFS Online, we know that if the site goes down, we can rebuild it by republishing from TFS. 
-
-Subscriber data in Azure SQL Database is the most sensitive asset. We back this up using the built-in feature (see [Azure SQL Database Backup and Restore](http://msdn.microsoft.com/library/azure/jj650016.aspx)). The backup schedule is full database backup once a week, differential database backups once a day, and transaction log backups every 5 minutes.  Given the size of the data, this solution is more than adequate for our immediate and projected data volumes.
-
-Third, we store image and video files in Azure BLOB storage. We are still evaluating the ultimate backup plan for this data, considering Cloudberry Explorer for Azure as a potential solution. For now, we use a WebJob to copy images and videos to another location.
-
-##<a name="what-we-learned"></a>What we learned
-
-Because we already had data, it was easy to establish proof-of-concept. Within hours, we had a prototype with facets and counters, paging, ranked profiles, and search results. The search results were so precise, we decided to remove some of the filters presented to the end customer. 
-
-The biggest surprise for us was how fast we could learn Azure Search, and how much we got back. Literally, we established proof-of-concept in a few hours (see the note below), replacing 500 lines of code with 3 lines of code in the front end application (plus a new WebJob), and getting better results. 
-
-Previously, our code implemented paging, counts, and other behaviors that are standard to search. Using Azure Search, the results we get back include the search hits, facets, paging data, counts -- all the stuff we needed and were having to supply ourselves. It also included boosting and built-in faceted navigation, which we didn’t have in our original solution.
-
-The greatest challenge during implementation was that it was a Preview version and finding information and shared experiences was difficult. Once we connected a few dots, we found that using Azure Search Service was pretty simple due to its REST API and JSON data format. We could call the framework directly from most open source plugins like JQuery JSON.Net, and we could use tools like Fiddler for fast experimentation and debugging. 
-
-> [AZURE.NOTE] Besides having the data prepped, it helped that those of us building the prototype already understood how search technology works, making us more productive, and more appreciative of the built-in features. If you need to ramp up on search query construction, faceted navigation, filters, etc. you should expect prototyping to take longer. 
-
-###<a name="controlling-facets-in-the-search-presentation-page"></a>Controlling facets in the search presentation page
-
-One of our learnings during the proof-of-concept was to plan facets carefully upfront. After loading a lot of data into the solution, we saw that the sheer volume of facets was too high to present to the users. 
-
-We solved this by constraining the facet count parameter. The count parameter imposes a hard limit on the number of facets returned to the user. A link that includes a discussion of the count parameter can be found [here](search-faceted-navigation.md).
-
-###<a name="webjobs-for-scheduling-tasks"></a>WebJobs for scheduling tasks
-
-Azure Search wasn’t the only pleasant surprise for us. We discovered that using WebJobs to automate our data load operations to Azure Search was vastly superior to our previous approach, which entailed using a dedicated VM running Windows Scheduler, with scheduled tasks for updating the search index. WebJobs was simpler to configure and easier to debug, and of course much cheaper than having to pay for a dedicated VM.
-
-###<a name="azure-blob-storage-explorer-for-updating-images"></a>Azure BLOB Storage Explorer for updating images
-
-We found that using [Azure BLOB Storage Explorer](https://azurestorageexplorer.codeplex.com/) (available on codeplex) to be very helpful in managing image and video updates to the site. We use it as a developer tool to manually update images and videos that are part of our main site. We found it to be more flexible than deploying changes to the portal, and eliminates a complete test iteration whenever we need to update an image. 
-
-##<a name="a-few-final-words"></a>A few final words
-
-Thanks to the great folks at WhatToPedia for allowing us to share their story!  
-
-We hope you found this case study useful. If you go on to use Azure Search, I recommend a few resources to speed you along:
-
-- [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
-- [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
-- [Documentation page on Azure.com](https://azure.microsoft.com/documentation/services/search/)
-- [Azure Search documentation on MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)
+> [AZURE.NOTE] 최근에 Azure 검색에 도입된 프로토타입 인덱서 기능이 있습니다. 이 기능은 우리의 첫 번째 릴리스에서 사용하기에는 너무 늦게 제공되었지만 인덱서 작업을 사용한 것과 동일한 문제, 즉 데이터 로드 작업 자동화를 해결합니다.
 
 
-##<a name="appendix:-search-indexer-webjob"></a>Appendix: Search Indexer WebJob
+###백업 전략
 
-The following code builds the indexer mentioned in the section on building the prototype.
+치명적인 오류에서 개별 트랜잭션 복구에 이르는 다양한 시나리오에서 복구할 수 있는 다중 계층 백업 전략을 개발했습니다. 보호할 자산은 세 가지 데이터, 즉 웹 사이트, 구독자 데이터 및 미디어 파일입니다.
+
+첫째, 웹 사이트 원본 코드를 TFS Online에 유지함으로써 사이트 작동이 중단된 경우 TFS에서 다시 게시하여 사이트를 다시 구축할 수 있습니다.
+
+Azure SQL 데이터베이스의 구독자 데이터는 가장 중요한 자산입니다. 이 데이터는 기본 제공 기능을 사용하여 백업합니다([Azure SQL 데이터베이스 백업 및 복원](http://msdn.microsoft.com/library/azure/jj650016.aspx) 참조). 백업은 일주일에 한 번씩 전체 데이터베이스 백업이 수행되고, 하루에 한 번씩 차등 데이터베이스 백업이 수행되며, 5분마다 트랜잭션 로그 백업이 수행되도록 예약됩니다. 데이터 크기가 지정된 경우 이 솔루션은 우리의 즉각적이고 프로젝션된 데이터 볼륨에 보다 적합합니다.
+
+셋째, 이미지 및 비디오 파일을 Azure BLOB 저장소에 저장합니다. 우리는 이 데이터에 대한 최종 백업 계획을 여전히 평가하는 중이며, Cloudberry Explorer for Azure를 잠재적 솔루션으로 고려하고 있습니다. 현재는 WebJob을 사용하여 이미지 및 비디오를 다른 위치에 복사하고 있습니다.
+
+##습득한 지식
+
+우리에게는 데이터가 이미 있었기 때문에 개념 증명을 쉽게 설정할 수 있었습니다. 몇 시간 이내에 패싯과 카운터, 페이징, 순위가 매겨진 프로필 및 검색 결과로 프로토타입을 만들었습니다. 검색 결과가 매우 정확하여 최종 소비자에게 제공되는 일부 필터를 제거하기로 결정했습니다.
+
+가장 놀라운 점은 Azure 검색을 습득한 속도와 이를 적용한 범위였습니다. 프런트 엔드 응용 프로그램(및 새 WebJob)에서 500개의 코드 줄을 3개의 코드 줄로 바꿔 개념 증명을 몇 시간 내에 설정하여 더 나은 결과를 얻을 수 있었습니다(아래 참고 참조).
+
+이전 코드는 페이징, 개수 및 검색에 표준인 기타 동작을 구현했습니다. Azure 검색을 사용하니 결과에 검색 적중 항목, 패싯, 페이지 데이터, 개수 등 필요한 모든 항목이 포함되어 직접 제공할 필요가 없어졌습니다. 또한 원래 솔루션에 없던 향상된 패싯 탐색 및 기본 제공 패싯 탐색 기능도 포함되었습니다.
+
+구현 과정에서 가장 큰 과제는 미리 보기 버전이기 때문에 정보 찾기 및 공유 환경이 까다롭다는 점이었습니다. 몇 가지 정보를 연관지어 생각한 후 우리는 Azure 검색 서비스는 REST API 및 JSON 데이터 형식 때문에 사용하기 매우 간편하다는 사실을 알았습니다. JQuery JSON.Net과 같은 대부분의 오픈 소스 플러그 인에서 프레임워크를 직접 호출할 수 있으며, Fiddler와 같은 도구를 사용하여 신속하게 실험 및 디버그할 수 있습니다.
+
+> [AZURE.NOTE] 데이터를 준비된 상태로 유지하는 것 외에 프로토타입을 이미 구축한 경우 검색 기술의 작동 방식을 이해하여 생산성을 높이고 기본 제공 기능을 보다 효율적으로 활용할 수 있습니다. 검색 쿼리 생성, 패싯 탐색, 필터 등을 늘려야 하는 경우 프로토타이핑 시간이 더 오래 걸립니다.
+
+###검색 프레젠테이션 페이지의 패싯 제어
+
+개념 증명 중에 배운 한 가지는 패싯을 사전에 신중하게 계획해야 한다는 점이었습니다. 많은 데이터를 솔루션에 로드한 후 사용자에게 제공할 패싯 양이 급상승한다는 것을 알았습니다.
+
+패싯 개수 매개 변수를 제한하여 이 문제를 해결했습니다. 개수 매개 변수는 사용자에게 반환되는 패싯 수를 강제로 제한합니다. 개수 매개 변수에 대한 설명이 포함된 링크는 [여기](search-faceted-navigation.md)에서 확인할 수 있습니다.
+
+###작업 예약을 위한 WebJobs
+
+Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJobs를 사용하여 Azure 검색에 대한 데이터 로드 작업을 자동화하는 것이 이전 방법보다 훨씬 뛰어나며, 여기에는 예약된 작업에서 Windows Scheduler를 실행하는 전용 VM을 사용하여 검색 인덱스를 업데이트하는 기능이 포함되어 있다는 것을 발견했습니다. WebJobs는 구성이 보다 간단하고 디버그하기 쉬우며 전용 VM보다 훨씬 저렴합니다.
+
+###이미지 업데이트를 위한 Azure BLOB 저장소 탐색기
+
+우리는 [Azure BLOB 저장소 탐색기](https://azurestorageexplorer.codeplex.com/)(codeplex에서 사용 가능)를 사용할 경우 사이트에서 이미지 및 비디오 업데이트를 관리하는 것이 매우 편리하다는 것을 알았습니다. 이를 개발자 도구로 사용하여 기본 사이트의 일부인 이미지 및 비디오를 수동으로 업데이트합니다. 이는 변경 내용을 포털에 배포하는 것보다 훨씬 유연하며, 이미지를 업데이트할 때마다 전체 테스트를 반복해야 할 필요가 없습니다.
+
+##맺음말
+
+사례를 공유할 수 있게 해준 WhatToPedia의 동료들에게 감사드립니다.
+
+이 사례 연구가 도움이 되시기를 바랍니다. Azure 검색을 사용하려는 경우 도움이 되는 몇 가지 권장 리소스는 다음과 같습니다.
+
+- [Azure 검색 전용 MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
+- [StackOverflow에도 태그가 있음](http://stackoverflow.com/questions/tagged/azure-search)
+- [Azure.com의 설명서 페이지](https://azure.microsoft.com/documentation/services/search/)
+- [MSDN의 Azure 검색 설명서](http://msdn.microsoft.com/library/azure/dn798933.aspx)
+
+
+##부록: 검색 인덱서 WebJob
+
+다음 코드는 프로토타입 구축에 관한 섹션에서 언급한 인덱서를 작성합니다.
 
         static void Main(string[] args)
         {
@@ -423,8 +421,4 @@ The following code builds the indexer mentioned in the section on building the p
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

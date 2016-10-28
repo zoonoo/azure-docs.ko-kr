@@ -1,9 +1,9 @@
 <properties
-   pageTitle="How to Integrate with Azure Active Directory | Microsoft Azure"
-   description="A guide to benefits of and resources for integration with Azure Active Directory."
+   pageTitle="Azure Active Directory와 통합하는 방법 | Microsoft Azure"
+   description="Azure Active Directory와의 통합의 이점 및 리소스에 대한 설명입니다."
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="bryanla"
+   authors="msmbaldwin"
    manager="mbaldwin"
    editor=""/>
 
@@ -16,83 +16,78 @@
    ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
-
-# <a name="integrating-with-azure-active-directory"></a>Integrating with Azure Active Directory
+# Azure Active Directory와의 통합
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure Active Directory provides organizations with enterprise-grade identity management for cloud applications.  Azure AD integration gives your users a streamlined sign-in experience, and helps your application conform to IT policy.
+Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프라이즈급 ID 관리를 조직에 제공합니다. Azure AD 통합은 사용자에게 효율적인 로그인 환경을 제공하고 응용 프로그램이 IT 정책을 준수하도록 돕습니다.
 
-## <a name="how-to-integrate"></a>How To Integrate
+## 통합하는 방법
 
-There are several ways for your application to integrate with Azure AD.  Take advantage of as many or as few of these scenarios as is appropriate for your application.
+여러 가지 방법으로 응용 프로그램을 Azure AD와 통합할 수 있습니다. 응용 프로그램에 맞게 이 시나리오를 활용하세요.
 
-### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Support Azure AD as a Way to Sign In to Your Application
+### 응용 프로그램에 로그인하기 위한 방법으로 Azure AD 지원
 
-**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember.  As a developer, you'll have one less password to store and protect.  Not having to handle forgotten password resets may be a significant savings alone.  Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure.  With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD.  Learn more about [adding support for Azure AD sign in](active-directory-authentication-scenarios.md).
+**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Azure AD를 사용하여 응용 프로그램에 로그인하면 사용자는 이름 및 암호를 기억하지 않아도 되며 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Azure AD에서는 Office 365, Microsoft Azure 등과 같이 전 세계에서 인기가 많은 다양한 클라우드 응용 프로그램에 로그인할 수 있도록 지원합니다. 약 500만 개의 조직에서 4억 3천 만명 이상이 사용 중이므로 사용자가 이미 Azure AD에 로그인되어 있을 가능성이 높습니다. [Azure AD 로그인 지원 추가](active-directory-authentication-scenarios.md)에 대해 자세히 알아보세요.
 
-**Simplify sign up for your application.**  During sign up for your application, Azure AD can send essential information about a user so that you can pre-fill your sign up form or eliminate it completely.  Users can sign up for your application using their Azure AD account via a familiar consent experience similar to those found in social media and mobile applications.  Any user can sign up and sign in to an application that is integrated with Azure AD without requiring IT involvement.  Learn more about [signing up your application for Azure AD Account login](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md) .
+**응용 프로그램 등록을 단순화합니다.** 응용 프로그램을 등록하는 동안 등록 양식을 사전에 입력하거나 완전히 제거할 수 있도록 Azure AD가 사용자에 대한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 응용 프로그램에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 응용 프로그램을 등록할 수 있습니다. 모든 사용자는 IT 담당자의 도움 없이 Azure AD와 통합된 응용 프로그램을 등록 및 로그인할 수 있습니다. [Azure AD 계정 로그인을 위해 응용 프로그램 등록](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md)에 대해 자세히 알아보세요.
 
-### <a name="browse-for-users,-manage-user-provisioning,-and-control-access-to-your-application"></a>Browse for Users, Manage User Provisioning, and Control Access to Your Application
+### 사용자 검색, 사용자 프로비전 관리, 응용 프로그램에 대한 액세스 제어
 
-**Browse for users in the directory.**  Use the Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses.  Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy.  Learn more about the [Graph API](active-directory-graph-api.md).
+**디렉터리에서 사용자를 찾습니다.** 다른 사람을 초대하거나 액세스 권한을 부여할 때 사용자가 메일 주소를 입력할 필요 없이 Graph API를 사용하면 조직에서 다른 사람을 검색하고 찾는 데 도움이 됩니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
 
-**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access.  Using the Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application.  Group information can also be sent to your application in sign in tokens.  Learn more about the [Graph API](active-directory-graph-api.md).
+**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.** Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. 고객이 응용 프로그램에서 별도의 그룹 집합을 만들고 관리할 필요 없이 Graph API를 사용하여 그룹을 다시 사용하세요. 로그인 토큰의 응용 프로그램에 그룹 정보가 전송될 수도 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
 
-**Use Azure AD to control who has access to your application.**  Administrators and application owners in Azure AD can assign access to applications to specific users and groups.  Using the Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.  
+**Azure AD를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 사용자를 제어합니다.** Azure AD의 관리자 및 응용 프로그램 소유자는 응용 프로그램에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다. Graph API를 사용하여 이 목록을 읽고 리소스의 프로비전 및 프로비전 해제와 응용 프로그램 내의 액세스를 제어할 수 있습니다.
 
-**Use Azure AD for Roles Based Access Control.**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD.  Role information is sent to your application in sign in tokens and can also be read using the Graph API.  Learn more about [using Azure AD for authorization](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Azure AD를 사용하여 역할 기반 액세스를 제어합니다.** 관리자와 응용 프로그램 소유자는 Azure AD에 응용 프로그램을 등록할 때 정의하는 역할에 사용자 및 그룹을 할당할 수 있습니다. 역할 정보는 로그인 토큰의 응용 프로그램에 전송되며 Graph API를 사용해서도 읽을 수 있습니다. [Azure AD를 사용하여 권한 부여](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx)에 대해 자세히 알아보세요.
 
-### <a name="get-access-to-user's-profile,-calendar,-email,-contacts,-files,-and-more"></a>Get Access to User's Profile, Calendar, Email, Contacts, Files, and More
+### 사용자의 프로필, 일정, 메일, 연락처, 파일 등에 액세스
 
-**Azure AD is the authorization server for Office 365 and other Microsoft business services.**  If you support Azure AD for sign in to your application or support linking your current user accounts to Azure AD user accounts using OAuth 2.0, you can request read and write access to a user's profile, calendar, email, contacts, files, and other information.  You can seamlessly write events to user's calendar, and read or write files to their OneDrive.  Learn more about [accessing the Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
+**Azure AD는 Office 365 및 기타 Microsoft 비즈니스 서비스의 권한 부여 서버입니다.** 응용 프로그램 로그인에 Azure AD를 지원하거나 OAuth 2.0을 사용하는 Azure AD 사용자 계정에 현재 사용자 계정 연결을 지원하는 경우 사용자의 프로필, 일정, 메일, 연락처, 파일 및 기타 정보에 대한 읽기 및 쓰기 권한을 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Office 365 API 액세스](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)에 대해 자세히 알아보세요.
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promote Your Application in the Azure and Office 365 Marketplaces
+### Azure 및 Office 365 마켓플레이스에서 응용 프로그램 홍보
 
-**Promote your application to the millions of organizations who are already using Azure AD.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers.  Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
+**이미 Azure AD를 사용 중인 수백만 개의 조직에 응용 프로그램을 홍보합니다.** 이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partner-program/)에서 응용 프로그램 홍보하기에 대해 자세히 알아보세요.
 
-**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement.  Learn more about the [Azure AD access panel](active-directory-saas-access-panel-introduction.md).
+**사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.** 사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
 
-### <a name="secure-device-to-service-and-service-to-service-communication"></a>Secure Device-to-Service and Service-to-Service Communication
+### 장치와 서비스 및 서비스와 서비스 간의 안전한 통신
 
-**Using Azure AD for identity management of services and devices reduces the code you need to write and enables IT to manage access.**  Services and devices can get tokens from Azure AD using OAuth and use those tokens to access web APIs.  Using Azure AD you can avoid writing complex authentication code.  Since the identities of the services and devices are stored in Azure AD, IT can manage keys and revocation in one place instead of having to do this separately in your application.
+**서비스 및 장치의 ID 관리에 Azure AD를 사용하면 써야 할 코드를 줄일 수 있으며 IT 담당자가 액세스를 관리할 수 있습니다.** 서비스 및 장치는 OAuth를 사용하여 Azure AD에서 토큰을 가져올 수 있으며 이 토큰으로 웹 API에 액세스할 수 있습니다. Azure AD를 사용하면 복잡한 인증 코드를 작성할 필요가 없습니다. 서비스 및 장치의 ID가 Azure AD에 저장되므로 IT 담당자는 키 및 해지를 응용 프로그램에서 별도로 수행하지 않고도 한 곳에서 관리할 수 있습니다.
 
-## <a name="benefits-of-integration"></a>Benefits of Integration
+## 통합의 이점
 
-Integration with Azure AD comes with benefits that do not require you to write additional code.
+Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점이 있습니다.
 
-### <a name="integration-with-enterprise-identity-management"></a>Integration with Enterprise Identity Management
+### 엔터프라이즈 ID 관리와의 통합
 
-**Help your application comply with IT policies.**  Organizations integrate their enterprise identity management systems with Azure AD, so when a person leaves an organization, they will automatically lose access to your application without IT needing to take extra steps.  IT can manage who can access your application and determine what access policies are required - for example multi-factor authentication - reducing your need to write code to comply with complex corporate policies.  Azure AD provides administrators with a detailed audit log of who signed in to your application so IT can track usage.
+**응용 프로그램이 IT 정책을 준수하도록 합니다.** 조직에서는 Azure AD와 조직의 엔터프라이즈 ID 관리 시스템을 통합하므로 조직을 떠날 경우 IT 담당자가 추가 단계를 수행할 필요 없이 자동으로 응용 프로그램에 대한 액세스 권한이 사라집니다. IT 담당자는 응용 프로그램에 액세스할 수 있는 사람을 관리하고 필요한 액세스 정책(예: 다단계 인증)을 결정할 수 있어 복잡한 회사 정책을 준수하기 위해 작성해야 하는 코드가 줄어듭니다. Azure AD는 응용 프로그램에 로그인한 사람의 세부적인 감사 로그를 관리자에게 제공하므로 IT 담당자가 사용 현황을 추적할 수 있습니다.
 
-**Azure AD extends Active Directory to the cloud so that your application can integrate with AD.**  Many organizations around the world use Active Directory as their principal sign-in and identity management system, and require their applications to work with AD.  Integrating with Azure AD integrates your app with Active Directory.
+**Azure AD는 응용 프로그램을 AD와 통합할 수 있도록 Active Directory를 클라우드로 확장합니다.** 전 세계 많은 조직에서 Active Directory를 기본 로그인 및 ID 관리 시스템으로 사용하며 응용 프로그램에 AD와 함께 작업하도록 요구합니다. Azure AD와 통합하면 응용 프로그램이 Active Directory와 통합됩니다.
 
-### <a name="advanced-security-features"></a>Advanced Security Features
+### 고급 보안 기능
 
-**Multi-factor authentication.**  Azure AD provides native multi-factor authentication.  IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself.  Learn more about [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**다단계 인증.** Azure AD는 네이티브 다단계 인증을 제공합니다. 응용 프로그램에 액세스하기 위해 IT 관리자가 다단계 인증을 요구할 수 있으므로 이 지원을 직접 코딩할 필요가 없습니다. [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)에 대해 자세히 알아보세요.
 
-**Anomalous sign in detection.**  Azure AD processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems.  By supporting Azure AD sign-in, your application gets the benefit of this protection. Learn more about [viewing Azure Active Directory access report](active-directory-view-access-usage-reports.md).
+**비정상적인 로그인 감지.** Azure AD는 의심스러운 활동을 감지하고 발생 가능한 문제를 IT 관리자에게 알리는 기계 학습 알고리즘을 사용하면서 하루 10억 개가 넘는 로그인을 처리합니다. Azure AD 로그인을 지원함으로써 응용 프로그램이 보호됩니다. [Azure Active Directory 액세스 보고서 보기](active-directory-view-access-usage-reports.md)에 대해 자세히 알아보세요.
 
-**Conditional access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application.  Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access.  Learn more about [Azure Active Directory conditional access](active-directory-conditional-access.md).
+**조건부 액세스.** 관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 응용 프로그램에 로그인할 수 있도록 요구할 수 있습니다. 클라이언트 장치의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 장치의 상태 조건을 설정할 수 있습니다. [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)에 대해 자세히 알아보세요.
 
-### <a name="easy-development"></a>Easy Development
+### 손쉬운 배포
 
-**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](active-directory-authentication-protocols.md).
+**산업 표준 프로토콜.** Microsoft는 산업 표준을 지원합니다. Azure AD는 SAML 2.0, OpenID Connect 1.0, OAuth 2.0, Ws-federation 1.2 인증 프로토콜을 지원합니다. Graph API는 OData 4.0을 따릅니다. 응용 프로그램이 페더레이션된 로그인에 대해 이미 SAML 2.0 또는 OpenID Connect 1.0 프로토콜을 지원하는 경우 Azure AD 지원을 추가하는 것은 간단합니다. [Azure AD 지원 인증 프로토콜](active-directory-authentication-protocols.md)에 대해 자세히 알아보세요.
 
-**Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development.  The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects.  Learn more about [Azure AD authentication libraries](active-directory-authentication-libraries.md).
+**오픈 소스 라이브러리.** Microsoft는 인기 있는 언어 및 플랫폼에 대해 개발에 박차를 가하기 위해 완벽하게 지원되는 오픈 소스 라이브러리를 제공합니다. 소스 코드는 Apache 2.0에 따라 사용이 허가되며, 원하는 대로 소스 코드를 분기하여 프로젝트에 다시 제공할 수 있습니다. [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md)에 대해 자세히 알아보세요.
 
-### <a name="worldwide-presence-and-high-availability"></a>Worldwide Presence and High Availability
+### 전 세계 제공 및 고가용성
 
-**Azure AD is deployed in datacenters around the world and is managed and monitored around the clock.**  Azure AD is the identity management system for Microsoft Azure and Office 365 and is deployed in 28 datacenters around the world.  Directory data is guaranteed to be replicated to at least three datacenters.  Global load balancers ensure users access the closest copy of Azure AD containing their data, and automatically re-route requests to other datacenters if a problem is detected.
+**Azure AD는 전 세계 데이터 센터에 배포되어 24시간 내내 관리 및 모니터링됩니다.** Azure AD는 Microsoft Azure 및 Office 365의 ID 관리 시스템이며 전 세계 28곳의 데이터 센터에 배포됩니다. 디렉터리 데이터는 3개 이상의 데이터 센터에 복제되어야 합니다. 전역 부하 분산 장치는 사용자가 자신의 데이터가 들어 있는 Azure AD의 가장 근접한 복사본에 액세스하도록 하며 문제가 감지되면 요청을 다른 데이터 센터로 자동으로 다시 라우팅합니다.
 
-## <a name="next-steps"></a>Next Steps
+## 다음 단계
 
-[Get started writing code](active-directory-developers-guide.md#getting-started).
+[코드 작성 시작하기](active-directory-developers-guide.md#getting-started).
 
-[Sign Users In Using Azure AD](active-directory-authentication-scenarios.md)
+[Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

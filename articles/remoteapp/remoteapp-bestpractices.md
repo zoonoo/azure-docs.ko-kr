@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure RemoteApp best practices | Microsoft Azure"
-    description="Best practices for configuring and using Azure RemoteApp."
+    pageTitle="Azure RemoteApp 모범 사례 | Microsoft Azure"
+    description="Azure RemoteApp 구성 및 사용 모범 사례"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -15,40 +15,35 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
-
-# <a name="best-practices-for-configuring-and-using-azure-remoteapp"></a>Best practices for configuring and using Azure RemoteApp
+# Azure RemoteApp 구성 및 사용 모범 사례
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-The following information can help you configure and use Azure RemoteApp productively.
+다음 정보는 Azure RemoteApp을 생산적으로 구성하고 사용하는 데 도움이 됩니다.
 
-## <a name="connectivity"></a>Connectivity
-
-
-- Always use the latest client version. Using older clients might result in connectivity issues and other degraded experiences. Enabling automatic application updates for your device will ensure that the latest client is always installed.
-- Always use the most stable and reliable internet connection available to you.  
-- Use only supported proxy connections for optimal connectivity performance.  The SOCKS proxy is not supported.
-
-## <a name="applications"></a>Applications
+## 연결
 
 
-- Save and close RemoteApp applications when you are done with the application. Not closing the application might result in data loss.
-- Validate custom applications before using them in Azure RemoteApp. This includes ensuring they work on a multi-session platform and don’t consume unnecessary resources such as memory and CPU that might starve another user in the same collection. For information, download and review the [Application Compatibility Best Practices for Remote Desktop Services](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf).
+- 항상 최신 클라이언트 버전을 사용합니다. 이전 클라이언트를 사용하면 연결 문제 및 기타 성능 저하가 발생할 수 있습니다. 장치에 자동 응용 프로그램 업데이트를 사용하면 항상 최신 클라이언트가 설치됩니다.
+- 항상 사용 가능한 가장 안정적이고 신뢰할 수 있는 인터넷 연결을 사용합니다.
+- 최적 연결 성능을 위해 지원되는 프록시 연결만 사용합니다. SOCKS 프록시는 지원되지 않습니다.
 
-## <a name="configuration-and-management"></a>Configuration and management
-
-
-- Keep your template images up to date, installing software updates and other critical fixes as needed. This ensures that as Azure RemoteApp auto-scales to meet your capacity, each instance is patched.  
-- Make sure your Active Directory Federation Services (AD FS) deployment is secure and reliable. Otherwise client authentications might fail, preventing users from accessing Azure RemoteApp.
-- Configure template images with installed applications, roles, or features such that they are stateless. They should not rely on any instances of the virtual machines in a RemoteApp service being in a persistent state.
-    - Store all user data in user profiles or other storage locations external to the service, such as on-premises file shares or OneDrive.
-    - Store shared data in storage locations external to the service, such as on-premises file shares or OneDrive.
-    - Configure any system-wide settings in the template image rather than on individual virtual machines in a service.
-    - Disable automatic software updates for published applications - instead apply them manually to the template image and test them before you deploy  from the template.
+## 응용 프로그램
 
 
+- 응용 프로그램에서 작업을 마치면 RemoteApp 응용 프로그램을 저장하고 닫습니다. 응용 프로그램을 닫지 않으면 데이터가 손실될 수도 있습니다.
+- Azure RemoteApp에서 사용하기 전에 사용자 지정 응용 프로그램의 유효성을 검사합니다. 여기에는 다중 세션 플랫폼에서 작동하는지, 그리고 동일한 컬렉션의 다른 사용자가 이용할 수 없도록 메모리, CPU 등의 리소스를 불필요하게 소모하지 않는지 확인하는 작업이 포함됩니다. 자세한 내용을 보려면 [원격 데스크톱 서비스에 대한 응용 프로그램 호환성 모범 사례](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf)를 다운로드하여 검토하세요.
 
-<!--HONumber=Oct16_HO2-->
+## 구성 및 관리
 
 
+- 필요에 따라 소프트웨어 업데이트 및 기타 중요 수정 프로그램을 설치하여 템플릿 이미지를 최신 상태로 유지합니다. 그러면 Azure RemoteApp이 용량을 충족하기 위해 자동으로 크기를 조정할 때 각 인스턴스에 패치가 적용됩니다.
+- AD FS(Active Directory Federation Services) 배포가 안전하고 신뢰할 수 있는지 확인합니다. 그렇지 않으면 클라이언트 인증이 실패하여 사용자가 Azure RemoteApp에 액세스하지 못할 수 있습니다.
+- 설치된 응용 프로그램, 역할 또는 기능이 포함된 템플릿 이미지를 상태 비저장이 되도록 구성합니다. RemoteApp 서비스의 가상 컴퓨터 인스턴스가 영구 상태에 있는 것으로 간주해서는 안 됩니다.
+	- 모든 사용자 데이터를 사용자 프로필이나 서비스 외부의 기타 저장소 위치(예: 온-프레미스 파일 공유 또는 OneDrive)에 저장합니다.
+	- 공유 데이터를 서비스 외부의 기타 저장소 위치(예: 온-프레미스 파일 공유 또는 OneDrive)에 저장합니다.
+	- 서비스의 개별 가상 컴퓨터 대신 템플릿 이미지에서 시스템 수준 설정을 구성합니다.
+	- 게시된 응용 프로그램에 자동 소프트웨어 업데이트를 사용하지 않도록 설정합니다. 대신, 게시된 응용 프로그램을 템플릿 이미지에 수동으로 적용하고, 템플릿에서 배포하기 전에 테스트합니다.
+
+<!---HONumber=AcomDC_0921_2016-->

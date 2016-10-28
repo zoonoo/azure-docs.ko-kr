@@ -1,80 +1,75 @@
 <properties
-    pageTitle="SQL Database downlevel clients support and IP endpoint changes for Auditing| Microsoft Azure"
-    description="Learn about SQL Database downlevel clients support and IP endpoint changes for Auditing."
-    services="sql-database"
-    documentationCenter=""
-    authors="ronitr"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="SQL 데이터베이스 하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경| Microsoft Azure"
+	description="SQL 데이터베이스 하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경에 대해 알아봅니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="ronitr"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/10/2016"
-    ms.author="ronitr"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/10/2016"
+	ms.author="ronitr"/>
+
+# SQL 데이터베이스 - 하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경
 
 
-# <a name="sql-database---downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database -  Downlevel clients support and IP endpoint changes for Auditing
+[감사](sql-database-auditing-get-started.md)는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 자동으로 작동합니다.
 
 
-[Auditing](sql-database-auditing-get-started.md) works automatically with SQL clients that support TDS redirection.
+##<a id="subheading-1"></a>하위 클라이언트 지원
 
+TDS 7.4를 구현하는 모든 클라이언트는 리디렉션도 지원해야 합니다. 이에 대한 예외에는 리디렉션 기능이 완전히 지원되지 않는 JDBC 4.0 및 리디렉션이 구현되지 않은 Node.JS용 Tedious가 포함됩니다.
 
-##<a name="<a-id="subheading-1"></a>downlevel-clients-support"></a><a id="subheading-1"></a>Downlevel clients support
+TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결 문자열에서 서버 FQDN을 수정해야 합니다.
 
-Any client which implements TDS 7.4 should also support redirection. Exceptions to this include JDBC 4.0 in which the redirection feature is not fully supported and Tedious for Node.JS in which redirection was not implemented.
+연결 문자열에서 원래 서버 FQDN: <*서버 이름*>.database.windows.net
 
-For "Downlevel clients", i.e. which support TDS version 7.3 and below - the server FQDN in the connection string should be modified:
+연결 문자열에서 수정된 서버 FQDN: <*서버 이름*>.database.**secure**.windows.net
 
-Original server FQDN in the connection string: <*server name*>.database.windows.net
+"하위 클라이언트"의 일부 목록에는 다음이 포함됩니다.
 
-Modified server FQDN in the connection string: <*server name*>.database.**secure**.windows.net
+- .NET 4.0 이하
+- ODBC 10.0 이하
+- JDBC(JDBC는 TDS 7.4를 지원하지만 TDS 리디렉션 기능은 완전히 지원되지 않음)
+- Tedious(Node.JS용)
 
-A partial list of "Downlevel clients" includes:
+**주석:** 위의 서버 FDQN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.
 
-- .NET 4.0 and below,
-- ODBC 10.0 and below.
-- JDBC (while JDBC does support TDS 7.4, the TDS redirection feature is not fully supported)
-- Tedious (for Node.JS)
+##<a id="subheading-2"></a>감사를 사용하도록 설정할 때 IP 끝점 변경
 
-**Remark:** The above server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).
+감사를 사용하도록 설정하면 데이터베이스의 IP 끝점이 변경됩니다. 엄격한 방화벽 설정이 있으면 해당 방화벽 설정을 적절하게 업데이트하세요.
 
-##<a name="<a-id="subheading-2"></a>ip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>IP endpoint changes when enabling Auditing
+새 데이터베이스 IP 끝점은 데이터베이스 지역에 따라 달라집니다.
 
-Please note that when you enable Auditing, the IP endpoint of your database will change. If you have strict firewall settings, please update those firewall settings accordingly.
-
-The new database IP endpoint will depend on the database region:
-
-| Database Region | Possible IP endpoints |
+| 데이터베이스 지역 | 가능한 IP 끝점 |
 |----------|---------------|
-| China North  | 139.217.29.176, 139.217.28.254 |
-| China East  | 42.159.245.65, 42.159.246.245 |
-| Australia East  | 104.210.91.32, 40.126.244.159, 191.239.64.60, 40.126.255.94 |
-| Australia Southeast | 191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
-| Brazil South  | 104.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
-| Central US  | 104.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
-| East Asia   | 23.99.125.133, 13.75.40.42, 23.97.71.138, 13.94.43.245 |
-| East US 2 | 104.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
-| East US   | 23.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
-| Central India  | 104.211.98.219, 104.211.103.71 |
-| South India   | 104.211.227.102, 104.211.225.157 |
-| West India  | 104.211.161.152, 104.211.162.21 |
-| Japan East   | 104.41.179.1, 40.115.253.81, 23.102.64.207, 40.115.250.196 |
-| Japan West    | 104.214.140.140, 104.214.146.31, 191.233.32.34, 104.214.146.198 |
-| North Central US  | 191.236.155.178, 23.96.192.130, 23.96.177.169, 23.96.193.231 |
-| North Europe  | 104.41.209.221, 40.85.139.245, 137.116.251.66, 40.85.142.176 |
-| South Central US  | 191.238.184.128, 40.84.190.84, 23.102.160.153, 40.84.186.66 |
-| Southeast Asia  | 104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
-| West Europe  | 104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
-| West US  | 191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
-| Canada Central  | 13.88.248.106 |
-| Canada East  |  40.86.227.82 |
+| 중국 북부 | 139\.217.29.176, 139.217.28.254 |
+| 중국 동부 | 42\.159.245.65, 42.159.246.245 |
+| 오스트레일리아 동부 | 104\.210.91.32, 40.126.244.159, 191.239.64.60, 40.126.255.94 |
+| 오스트레일리아 남동부 | 191\.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
+| 브라질 남부 | 104\.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
+| 미국 중부 | 104\.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
+| 동아시아 | 23\.99.125.133, 13.75.40.42, 23.97.71.138, 13.94.43.245 |
+| 미국 동부 2 | 104\.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
+| 미국 동부 | 23\.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
+| 인도 중부 | 104\.211.98.219, 104.211.103.71 |
+| 인도 남부 | 104\.211.227.102, 104.211.225.157 |
+| 인도 서부 | 104\.211.161.152, 104.211.162.21 |
+| 일본 동부 | 104\.41.179.1, 40.115.253.81, 23.102.64.207, 40.115.250.196 |
+| 일본 서부 | 104\.214.140.140, 104.214.146.31, 191.233.32.34, 104.214.146.198 |
+| 미국 중북부 | 191\.236.155.178, 23.96.192.130, 23.96.177.169, 23.96.193.231 |
+| 북유럽 | 104\.41.209.221, 40.85.139.245, 137.116.251.66, 40.85.142.176 |
+| 미국 중남부 | 191\.238.184.128, 40.84.190.84, 23.102.160.153, 40.84.186.66 |
+| 동남아시아 | 104\.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
+| 서유럽 | 104\.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
+| 미국 서부 | 191\.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
+| 캐나다 중부 | 13\.88.248.106 |
+| 캐나다 동부 | 40\.86.227.82 |
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

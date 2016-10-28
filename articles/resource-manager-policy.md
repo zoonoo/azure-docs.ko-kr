@@ -1,58 +1,56 @@
 <properties
-    pageTitle="Azure Resource Manager Policy | Microsoft Azure"
-    description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like subscription, resource groups or individual resources."
-    services="azure-resource-manager"
-    documentationCenter="na"
-    authors="ravbhatnagar"
-    manager="ryjones"
-    editor="tysonn"/>
+	pageTitle="Azure 리소스 관리자 정책 | Microsoft Azure"
+	description="Azure 리소스 관리자 정책을 사용하여 구독, 리소스 그룹 또는 개별 리소스 등 서로 다른 범위에서 위반을 방지하는 방법을 설명합니다."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="ravbhatnagar"
+	manager="ryjones"
+	editor="tysonn"/>
 
 <tags
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="07/12/2016"
-    ms.author="gauravbh;tomfitz"/>
+	ms.service="azure-resource-manager"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="07/12/2016"
+	ms.author="gauravbh;tomfitz"/>
 
+# 정책을 사용하여 리소스 및 컨트롤 액세스 관리
 
-# <a name="use-policy-to-manage-resources-and-control-access"></a>Use Policy to manage resources and control access
+이제 Azure 리소스 관리자를 사용하여 사용자 지정 정책을 통해 액세스를 제어할 수 있습니다. 정책을 사용하면 조직의 사용자가 조직의 리소스를 관리하는 데 필요한 규칙을 위반하지 않도록 방지할 수 있습니다.
 
-Azure Resource Manager now allows you to control access through custom policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
+구체적으로 거부되는 작업 또는 리소스를 설명하는 정책 정의를 만듭니다. 구독, 리소스 그룹 또는 개별 리소스와 같이 원하는 범위에서 해당 정책 정의를 할당합니다.
 
-You create policy definitions that describe the actions or resources that are specifically denied. You assign those policy definitions at the desired scope, such as the subscription, resource group, or an individual resource. 
+이 문서에서는 정책을 만드는 데 사용할 수 있는 정책 정의 언어의 기본 구조를 설명합니다. 그런 다음 이 정책을 서로 다른 범위에서 적용하는 방법을 설명하고 REST API를 통해 이를 달성할 수 있는 방법에 관한 몇 가지 예제를 보여 줍니다.
 
-In this article, we will explain the basic structure of the policy definition language that you can use to create policies. Then we will describe how you can apply these policies at different scopes and finally we will show some examples of how you can achieve this through REST API.
+## RBAC와 어떻게 다르나요?
 
-## <a name="how-is-it-different-from-rbac?"></a>How is it different from RBAC?
+정책과 역할 기반 액세스 제어 사이에는 몇 가지 주요 차이가 있지만, 가장 먼저 알아야 할 사항은 정책과 RBAC가 함께 작동한다는 점입니다. 사용자는 RBAC를 통해 인증받아야 정책을 사용할 수 있습니다. RBAC와는 달리 정책은 기본적으로 허용 및 명시적 거부 시스템입니다.
 
-There are a few key differences between policy and role-based access control, but the first thing to understand is that policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike RBAC, policy is a default allow and explicit deny system. 
+RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업에 중점을 둡니다. 예를 들어 특정 사용자는 원하는 범위에서 리소스 그룹에 대한 참가자 역할에 추가됩니다. 따라서 사용자는 해당 리소스 그룹을 변경할 수 있습니다.
 
-RBAC focuses on the actions a **user** can perform at different scopes. For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that resource group. 
+정책은 다양한 범위의 **리소스** 작업에 중점을 둡니다. 예를 들어 정책을 통해 프로비전할 수 있는 리소스 종류를 제어하거나 리소스를 프로비전할 수 있는 위치를 제한할 수 있습니다.
 
-Policy focuses on **resource** actions at various scopes. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned.
+## 일반적인 시나리오
 
-## <a name="common-scenarios"></a>Common Scenarios
+일반적인 시나리오 중 하나는 비용 청구 용도로 부서별 태그를 요구하는 것입니다. 조직은 적절한 비용 센터가 관련된 경우에만 작업을 허용하고 그렇지 않으면 요청을 거부하는 것이 좋습니다. 이는 수행된 작업에 적절한 비용 센터를 청구하는 데 도움이 될 수 있습니다.
 
-One common scenario is to require departmental tags for chargeback purpose. An organization might want to allow operations only when the appropriate cost center is associated; otherwise, they will deny the request.
-This would help them charge the appropriate cost center for the operations performed.
+또 다른 일반적인 시나리오는 조직이 리소스가 만들어지는 위치를 제어하고자 하는 경우입니다. 또는 특정 유형의 시나리오만 프로비전할 수 있도록 하여 리소스 액세스를 제어하고자 할 수 있습니다.
 
-Another common scenario is that the organization might want to control the locations where resources are created. Or they might want to control access to the resources by allowing only certain types of resources to be provisioned.
+마찬가지로, 조직은 서비스 카탈로그를 제어하거나 리소스에 대해 원하는 명명 규칙을 적용할 수 있습니다.
 
-Similarly, an organization can control the service catalog or enforce the desired naming conventions for the resources.
+정책을 사용하면 아래에 설명하는 것처럼 이러한 시나리오를 쉽게 달성할 수 있습니다.
 
-Using policies, these scenarios can easily be achieved as described below.
+## 정책 정의 구조
 
-## <a name="policy-definition-structure"></a>Policy Definition structure
+정책 정의 JSON는 JSON을 사용하여 생성됩니다. 이는 작업을 정의하는 하나 이상의 조건/논리 연산자 및 조건이 충족될 때 일어나는 일을 알려 주는 효과로 구성됩니다. 스키마는 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)에 게시되어 있습니다.
 
-Policy definition is created using JSON. It consists of one or more conditions/logical operators which define the actions and an effect which tells what happens when the conditions are fulfilled. The schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
+기본적으로 정책은 다음을 포함합니다.
 
-Basically, a policy contains the following:
+**조건/논리 연산자:** 논리 연산자 집합을 통해 조작할 수 있는 조건의 집합을 포함합니다.
 
-**Condition/Logical operators:** It contains a set of conditions which can be manipulated through a set of logical operators.
-
-**Effect:** This describes what the effect will be when the condition is satisfied – either deny or audit. An audit effect will emit a warning event service log. For example, an administrator can create a policy which causes an audit if anyone creates a large VM, then review the logs later.
+**효과:** 조건이 만족될 때의 효과 - 거부 또는 감사를 설명합니다. 감사 효과는 경고 이벤트 서비스 로그를 내보냅니다. 예를 들어 관리자는 누군가가 큰 VM을 만들 경우 감사를 수행하게 하는 정책을 만든 다음 나중에 로그를 검토할 수 있습니다.
 
     {
       "if" : {
@@ -63,104 +61,104 @@ Basically, a policy contains the following:
       }
     }
     
-## <a name="policy-evaluation"></a>Policy Evaluation
+## 정책 평가
 
-Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
+HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하는 경우 정책이 평가됩니다. 템플릿 배포의 경우 템플릿에서 각 리소스 생성 중에 정책이 평가됩니다.
 
-> [AZURE.NOTE] Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types will be applied for all types. In that case, a template deployment may fail in the future if there is a nested resource that don't support tag, and the deployment resource type has been added to policy evaluation. 
+> [AZURE.NOTE] 현재 정책은 태그, 종류 및 위치를 지원하지 않는 리소스 종류(예: Microsoft.Resources/deployments)를 평가하지 않습니다. 이 지원은 나중에 추가됩니다. 이전 버전과의 호환성 문제를 방지하기 위해 정책을 작성할 때 유형을 명시적으로 지정해야 합니다. 예를 들어 유형을 지정하지 않은 태그 정책이 모든 유형에 적용됩니다. 이 경우 태그를 지원하지 않는 중첩된 리소스가 있고 배포 리소스 종류가 정책 평가에 추가된 경우 나중에 템플릿 배포에 실패할 수 있습니다.
 
-## <a name="logical-operators"></a>Logical Operators
+## 논리 연산자
 
-The supported logical operators along with the syntax are listed below:
+지원되는 논리 연산자와 구문은 다음과 같습니다.
 
-| Operator Name     | Syntax         |
+| 연산자 이름 | 구문 |
 | :------------- | :------------- |
-| Not            | "not" : {&lt;condition  or operator &gt;}             |
-| And           | "allOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
-| Or                         | "anyOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
+| Not | "not" : {&lt;condition or operator &gt;} |
+| 및 | "allOf" : [ {&lt;조건 또는 연산자 &gt;},{&lt;조건 또는 연산자 &gt;}] |
+| 또는 | "anyOf" : [ {&lt;조건 또는 연산자 &gt;},{&lt;조건 또는 연산자&gt;}] |
 
-Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is shown below.
+리소스 관리자를 사용하면 중첩된 연산자를 통해 정책에서 복잡한 논리를 지정할 수 있습니다. 예를 들어 지정된 리소스 종류에 대한 특정 위치에서 리소스 만들기를 거부할 수 있습니다. 아래에 중첩된 연산자의 예제가 나와 있습니다.
 
-## <a name="conditions"></a>Conditions
+## 조건
 
-A condition evaluates whether a **field** or **source** meets certain criteria. The supported condition names and syntax are listed below:
+조건은 **필드** 또는 **소스**가 특정 기준을 충족하는지를 평가합니다. 지원되는 조건 이름과 구문은 다음과 같습니다.
 
-| Condition Name | Syntax                |
+| 조건 이름 | 구문 |
 | :------------- | :------------- |
-| Equals             | "equals" : "&lt;value&gt;"               |
-| Like                  | "like" : "&lt;value&gt;"                   |
-| Contains          | "contains" : "&lt;value&gt;"|
-| In                        | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
-| ContainsKey    | "containsKey" : "&lt;keyName&gt;" |
-| Exists     | "exists" : "&lt;bool&gt;" |
+| 같음 | "equals" : "&lt;value&gt;" |
+| 유사함 | "like" : "&lt;value&gt;" |
+| 포함 | "contains" : "&lt;value&gt;"|
+| 내용 | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
+| ContainsKey | "containsKey" : "&lt;keyName&gt;" |
+| Exists | "exists" : "&lt;bool&gt;" |
 
-### <a name="fields"></a>Fields
+### 필드
 
-Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
+조건은 필드와 소스를 사용하여 형성됩니다. 필드는 리소스의 상태를 설명하는 데 사용되는 리소스 요청 페이로드의 속성을 나타냅니다. 원본은 요청 자체의 특성을 나타냅니다.
 
-The following fields and sources are supported:
+다음과 같은 필드와 소스가 지원됩니다.
 
-Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
+필드: **name**, **kind**, **type**, **location**, **tags**, **tags.*** 및 **property alias**.
 
-### <a name="property-aliases"></a>Property aliases 
-Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and skus. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
+### 속성 별칭 
+속성 별칭은 설정 및 sku와 같은 리소스 종류 특정 속성에 액세스하는 정책 정의에 사용될 수 있는 이름입니다. 속성이 존재하는 모든 API 버전에서 작동합니다. 아래 표시된 REST API를 사용하여 별칭을 검색할 수 있습니다(Powershell 지원은 향후 추가될 예정).
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
-    
-The definition of an alias is shown below. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
+	
+별칭에 대한 정의는 아래와 같습니다. 여기에서 볼 수 있듯이 별칭은 속성 이름을 변경하는 경우에도 서로 다른 API 버전에 경로를 정의합니다.
 
-    "aliases": [
-        {
-          "name": "Microsoft.Storage/storageAccounts/sku.name",
-          "paths": [
-            {
-              "path": "properties.accountType",
-              "apiVersions": [
-                "2015-06-15",
-                "2015-05-01-preview"
-              ]
-            },
-            {
-              "path": "sku.name",
-              "apiVersions": [
-                "2016-01-01"
-              ]
-            }
-          ]
-        }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
-Currently, the supported aliases are:
+현재 지원되는 별칭:
 
-| Alias name | Description |
+| 별칭 이름 | 설명 |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
-| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
-| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
-| Microsoft.Compute/virtualMachines/imagePublisher |  |
-| Microsoft.Compute/virtualMachines/imageOffer  |  |
-| Microsoft.Compute/virtualMachines/imageSku  |  |
-| Microsoft.Compute/virtualMachines/imageVersion  |  |
-| Microsoft.Cache/Redis/enableNonSslPort |  |
-| Microsoft.Cache/Redis/shardCount |  |
-| Microsoft.SQL/servers/version |  |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveId |  |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveName |  |
-| Microsoft.SQL/servers/databases/edition |  |
-| Microsoft.SQL/servers/databases/elasticPoolName |  |
-| Microsoft.SQL/servers/elasticPools/dtu |  |
-| Microsoft.SQL/servers/elasticPools/edition |  |
+| {resourceType}/sku.name | 지원되는 리소스 유형: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
+| {resourceType}/sku.family | 지원되는 리소스 종류: Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | 지원되는 리소스 종류: Microsoft.Cache/Redis |
+| Microsoft.Compute/virtualMachines/imagePublisher | |
+| Microsoft.Compute/virtualMachines/imageOffer | |
+| Microsoft.Compute/virtualMachines/imageSku | |
+| Microsoft.Compute/virtualMachines/imageVersion | |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+| Microsoft.SQL/servers/version | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
+| Microsoft.SQL/servers/databases/edition | |
+| Microsoft.SQL/servers/databases/elasticPoolName | |
+| Microsoft.SQL/servers/elasticPools/dtu | |
+| Microsoft.SQL/servers/elasticPools/edition | |
 
-Currently, policy only works on PUT requests. 
+현재 정책은 PUT 요청에만 작동합니다.
 
-## <a name="effect"></a>Effect
-Policy supports three types of effect - **deny**, **audit**, and **append**. 
+## 결과
+정책은 **거부**, **감사** 및 **추가**의 세 가지 유형의 효과를 지원합니다.
 
-- Deny generates an event in the audit log and fails the request
-- Audit generates an event in audit log but does not fail the request
-- Append adds the defined set of fields to the request 
+- 거부는 감사 로그에 이벤트를 생성하고 요청을 실패합니다.
+- 감사는 감사 로그에 이벤트를 생성하지만 요청을 실패하지는 않습니다.
+- 추가는 정의된 필드 집합을 요청에 추가합니다.
 
-For **append**, you must provide the details as shown below:
+**추가**의 경우 아래와 같이 세부 정보를 제공해야 합니다.
 
     ....
     "effect": "append",
@@ -171,15 +169,15 @@ For **append**, you must provide the details as shown below:
       }
     ]
 
-The value can be either a string or a JSON format object. 
+값은 문자열 또는 JSON 형식의 개체일 수 있습니다.
 
-## <a name="policy-definition-examples"></a>Policy Definition Examples
+## 정책 정의 예제
 
-Now let's take a look at how we will define the policy to achieve the scenarios listed above.
+이제 정책을 사용하여 위에 열거한 시나리오를 달성하는 방법을 살펴보겠습니다.
 
-### <a name="chargeback:-require-departmental-tags"></a>Chargeback: Require departmental tags
+### 차지백: 부서 태그 필요
 
-The below policy denies all requests which don’t have a tag containing "costCenter" key.
+아래 정책은 "costCenter" 키를 포함하고 있는 태그가 없는 모든 요청을 거부합니다.
 
     {
       "if": {
@@ -193,55 +191,55 @@ The below policy denies all requests which don’t have a tag containing "costCe
       }
     }
 
-The below policy appends costCenter tag with a predefined value if no tags are present. 
+태그가 없는 경우 아래 정책은 미리 정의된 값으로 costCenter 태그를 추가합니다.
 
-    {
-      "if": {
-        "field": "tags",
-        "exists": "false"
-      },
-      "then": {
-        "effect": "append",
-        "details": [
-          {
-            "field": "tags",
-            "value": {"costCenter":"myDepartment" }
-          }
-        ]
-      }
-    }
-    
-The below policy appends costCenter tag with a predefined value if other tags are present. 
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": {"costCenter":"myDepartment" }
+	      }
+	    ]
+	  }
+	}
+	
+다른 태그가 있는 경우 아래 정책은 미리 정의된 값으로 costCenter 태그를 추가합니다.
 
-    {
-      "if": {
-        "allOf": [
-          {
-            "field": "tags",
-            "exists": "true"
-          },
-          {
-            "field": "tags.costCenter",
-            "exists": "false"
-          }
-        ]
-    
-      },
-      "then": {
-        "effect": "append",
-        "details": [
-          {
-            "field": "tags.costCenter",
-            "value": "myDepartment"
-          }
-        ]
-      }
-    }
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
-### <a name="geo-compliance:-ensure-resource-locations"></a>Geo Compliance: Ensure resource locations
+### 지리적 준수: 리소스 위치 확인
 
-The below example shows a policy which will deny all requests where location is not North Europe or West Europe.
+아래 예제에서는 위치가 북유럽 또는 서유럽이 아닌 모든 요청을 거부하는 정책을 보여줍니다.
 
     {
       "if" : {
@@ -255,9 +253,9 @@ The below example shows a policy which will deny all requests where location is 
       }
     }
 
-### <a name="service-curation:-select-the-service-catalog"></a>Service Curation: Select the service catalog
+### 서비스 큐레이션: 서비스 카탈로그 선택
 
-The below example shows the use of source. It shows that actions only on the services of type Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\* are allowed. Anything else will be denied.
+아래 예제는 소스 사용을 보여줍니다. 이는 Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/*, Microsoft.Network/* 유형의 서비스에 대한 작업만 허용된다는 것을 나타냅니다. 그외 모든 것은 거부됩니다.
 
     {
       "if" : {
@@ -287,9 +285,9 @@ The below example shows the use of source. It shows that actions only on the ser
       }
     }
 
-### <a name="use-approved-skus"></a>Use Approved SKUs
+### 승인된 SKU 사용
 
-The below example shows the use of property alias to restrict SKUs. In the example below, only Standard_LRS and Standard_GRS is approved to use for storage accounts.
+아래 예제에서는 SKU를 제한하는 속성 별칭의 사용을 보여 줍니다. 아래 예제에서는 Standard\_LRS 및 Standard\_GRS만 저장소 계정에 대한 사용이 승인됩니다.
 
     {
       "if": {
@@ -316,9 +314,9 @@ The below example shows the use of property alias to restrict SKUs. In the examp
     }
     
 
-### <a name="naming-convention"></a>Naming Convention
+### 명명 규칙
 
-The below example shows the use of wildcard which is supported by the condition "like". The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request.
+아래 예제는 "like" 같은 조건에 의해 지원되는 와일드 카드 사용을 보여줍니다. 이 조건은 이름이 앞에 말한 패턴(namePrefix * nameSuffix)과 일치하면 요청을 거부한다는 것을 나타냅니다.
 
     {
       "if" : {
@@ -332,9 +330,9 @@ The below example shows the use of wildcard which is supported by the condition 
       }
     }
     
-### <a name="tag-requirement-just-for-storage-resources"></a>Tag requirement just for Storage resources
+### 저장소 리소스 전용 태그 요구 사항
 
-The below example shows how to nest logical operators to require an application tag for only Storage resources.
+아래 예제에서는 저장소 리소스에만 응용 프로그램 태그를 요구하도록 논리 연산자를 중첩하는 방법을 보여 줍니다.
 
     {
         "if": {
@@ -356,23 +354,23 @@ The below example shows how to nest logical operators to require an application 
         }
     }
 
-## <a name="policy-assignment"></a>Policy Assignment
+## 정책 할당
 
-Policies can be applied at different scopes like subscription, resource groups and individual resources. Policies are inherited by all child resources. So if a policy is applied to a resource group, it will be applicable to all the resources in that resource group.
+정책을 구독, 리소스 그룹 및 개별 리소스 등 서로 다른 범위에서 적용할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 따라서 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 정책을 적용할 수 있습니다.
 
-## <a name="creating-a-policy"></a>Creating a Policy
+## 정책 만들기
 
-This section provides detail on how a policy can be created using REST API.
+이 섹션에서는 REST API를 사용하여 정책을 만들 수 있는 방법에 대한 세부 정보를 제공합니다.
 
-### <a name="create-policy-definition-with-rest-api"></a>Create Policy Definition with REST API
+### REST API를 사용하여 정책 정의 만들기
 
-You can create a policy with the [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx). The REST API enables you to create and delete policy definitions, and get information about existing definitions.
+[정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 사용하여 정책을 만들 수 있습니다. REST API를 사용하여 정책 정의를 만들고, 삭제하고, 기존 정의에 관한 정보를 가져올 수 있습니다.
 
-To create a new policy, run:
+새 정책을 만들려면 다음을 실행합니다.
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-With a request body similar to the following:
+요청 본문이 다음과 유사한 경우:
 
     {
       "properties":{
@@ -394,39 +392,38 @@ With a request body similar to the following:
     }
 
 
-The policy-definition can be defined as one of the examples shown above.
-For api-version use *2016-04-01*. For examples and more details, see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+정책 정의를 위에 나오는 예제 중 하나로 정의할 수 있습니다. api-version에는 *2016-04-01*을 사용합니다. 예제 및 더 자세한 세부 정보는 [정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 참조하세요.
 
-### <a name="create-policy-definition-using-powershell"></a>Create Policy Definition using PowerShell
+### PowerShell을 사용하여 정책 정의 만들기
 
-You can create a new policy definition using the New-AzureRmPolicyDefinition cmdlet as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
+아래와 같이 New-AzureRmPolicyDefinition cmdlet을 사용하여 새 정책 정의를 만들 수 있습니다. 아래 예제는 북유럽과 서유럽에서만 리소스를 허용하기 위한 정책을 만듭니다.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{  
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
       "if" : {
         "not" : {
           "field" : "location",
           "in" : ["northeurope" , "westeurope"]
-        }
+    	}
       },
       "then" : {
         "effect" : "deny"
       }
-    }'          
+    }'    		
 
-The output of execution is stored in $policy object, and can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
+실행의 출력은 $policy 개체에 저장되어 나중에 정책 할당 중에 사용할 수 있습니다. 정책 매개 변수의 경우 아래 나와 있는 것처럼 정책 인라인을 지정하지 않고 정책이 포함된 .json 파일에 대한 경로가 제공될 수도 있습니다.
 
-    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain    regions" -Policy "path-to-policy-json-on-disk"
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
-### <a name="create-policy-definition-using-azure-cli"></a>Create Policy Definition using Azure CLI
+### Azure CLI를 사용하여 정책 정의 만들기
 
-You can create a new policy definition using the azure CLI with the policy definition command as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
+아래와 같이 정책 정의 명령과 함께 azure CLI를 사용하여 새 정책 정의를 만들 수 있습니다. 아래 예제는 북유럽과 서유럽에서만 리소스를 허용하기 위한 정책을 만듭니다.
 
-    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{   
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
       "if" : {
         "not" : {
           "field" : "location",
           "in" : ["northeurope" , "westeurope"]
-        }
+    	}
       },
       "then" : {
         "effect" : "deny"
@@ -434,25 +431,24 @@ You can create a new policy definition using the azure CLI with the policy defin
     }'    
     
 
-It is possible to specify the path to a .json file containing the policy instead of specifying the policy inline as shown below.
+아래 나와 있는 것처럼 정책 인라인을 지정하지 않고 정책이 포함된 .json 파일에 대한 경로를 지정할 수 있습니다.
 
     azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
 
 
-## <a name="applying-a-policy"></a>Applying a Policy
+## 정책 적용
 
-### <a name="policy-assignment-with-rest-api"></a>Policy Assignment with REST API
+### REST API를 사용하여 정책 할당
 
-You can apply the policy definition at the desired scope through the [REST API for policy assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
-The REST API enables you to create and delete policy assignments, and get information about existing assignments.
+[정책 할당에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)를 통해 원하는 범위에 정책 정의를 적용할 수 있습니다. REST API를 사용하여 정책 할당을 만들고, 삭제하고, 기존 할당에 관한 정보를 가져올 수 있습니다.
 
-To create a new policy assignment, run:
+새 정책 할당을 만들려면 다음을 실행합니다.
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-The {policy-assignment} is the name of the policy assignment. For api-version use *2016-04-01*. 
+{policy-assignment}는 정책 할당의 이름입니다. api-version에는 *2016-04-01*을 사용합니다.
 
-With a request body similar to the following:
+요청 본문이 다음과 유사한 경우:
 
     {
       "properties":{
@@ -463,68 +459,64 @@ With a request body similar to the following:
       "name":"VMPolicyAssignment"
     }
 
-For examples and more details, see [REST API for Policy Assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+예제 및 보다 자세한 세부 정보는 [정책 할당에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)를 참조하세요.
 
-### <a name="policy-assignment-using-powershell"></a>Policy Assignment using PowerShell
+### PowerShell을 사용하여 정책 할당
 
-You can apply the policy created above through PowerShell to the desired scope by using the New-AzureRmPolicyAssignment cmdlet as shown below:
+PowerShell을 통해 위에서 만든 정책을 아래 나와 있는 것처럼 New-AzureRmPolicyAssignment cmdlet을 사용하여 원하는 범위에 적용할 수 있습니다.
 
     New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-Here $policy is the policy object that was returned as a result of executing the New-AzureRmPolicyDefinition cmdlet as shown above. The scope here is the name of the resource group you specify.
+여기서 $policy는 아래 나와 있는 것처럼 New-AzureRmPolicyDefinition cmdlet을 실행한 결과로 반환된 정책 개체입니다. 여기서 범위는 지정하는 리소스 그룹의 이름입니다.
 
-If you want to remove the above policy assignment, you can do it as follows:
+위의 정책 할당을 제거하려는 경우 다음과 같이 수행하면 됩니다.
 
     Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-You can get, change or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition and Remove-AzureRmPolicyDefinition cmdlets respectively.
+Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolicyDefinition cmdlet을 통해 각각 정책 정의를 가져오거나 변경 또는 제거할 수 있습니다.
 
-Similarly, you can get, change or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment and Remove-AzureRmPolicyAssignment cmdlets respectively.
+마찬가지로 Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment 및 Remove-AzureRmPolicyAssignment cmdlet을 통해 각각 정책 할당을 가져오거나 변경 또는 제거할 수 있습니다.
 
-### <a name="policy-assignment-using-azure-cli"></a>Policy Assignment using Azure CLI
+### Azure CLI를 사용하여 정책 할당
 
-You can apply the policy created above through Azure CLI to the desired scope by using the policy assignment command as shown below:
+Azure CLI를 통해 위에서 만든 정책을 아래 나와 있는 것처럼 정책 할당 명령을 사용하여 원하는 범위에 적용할 수 있습니다.
 
     azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-The scope here is the name of the resource group you specify. If the value of the parameter policy-definition-id is unknown, it is possible to obtain it through the Azure CLI as shown below: 
+여기서 범위는 지정하는 리소스 그룹의 이름입니다. 매개 변수 정책 정의 ID 값을 알 수 없는 경우 아래와 같이 Azure CLI를 통해 얻을 수 있습니다.
 
     azure policy definition show <policy-name>
 
-If you want to remove the above policy assignment, you can do it as follows:
+위의 정책 할당을 제거하려는 경우 다음과 같이 수행하면 됩니다.
 
-    azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-You can get, change or remove policy definitions through policy definition show, set and delete commands respectively.
+정책 정의 표시, 설정 및 삭제 명령 각각을 통해 정책 정의를 가져오거나, 변경하거나 또는 제거할 수 있습니다.
 
-Similarly, you can get, change or remove policy assignments through the policy assignment show and delete commands respectively.
+마찬가지로 정책 할당 표시 및 삭제 명령 각각을 통해 정책 할당을 가져오거나 변경하거나 제거할 수 있습니다.
 
-##<a name="policy-audit-events"></a>Policy Audit Events
+##정책 감사 이벤트
 
-After you have applied your policy, you will begin to see policy-related events. You can either go to portal, use PowerShell or the Azure CLI to get this data. 
+정책을 적용한 후 정책 관련 이벤트를 보려면 시작합니다. 포털로 이동하거나 PowerShell 또는 Azure CLI를 사용하여 이 데이터를 가져올 수 있습니다.
 
-### <a name="policy-audit-events-using-powershell"></a>Policy Audit Events using PowerShell
+### PowerShell을 사용하여 정책 감사 이벤트
 
-To view all events that related to deny effect, you can use the following PowerShell command. 
+거부 효과와 관련된 모든 이벤트를 보려면 다음 PowerShell 명령을 사용할 수 있습니다.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
-To view all events related to audit effect, you can use the following command. 
+감사 효과와 관련된 모든 이벤트를 보려면 다음 명령을 사용합니다.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
 
-### <a name="policy-audit-events-using-azure-cli"></a>Policy Audit Events using Azure CLI
+### Azure CLI를 사용하여 정책 감사 이벤트
 
-To view all events from a resource group that related to deny effect, you can use the following CLI command. 
+거부 효과와 관련된 리소스 그룹의 모든 이벤트를 보려면 다음 CLI 명령을 사용할 수 있습니다.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/deny/action\")"
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
 
-To view all events related to audit effect, you can use the following CLI command. 
+감사 효과와 관련된 모든 이벤트를 보려면 다음 CLI 명령을 사용할 수 있습니다.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/audit/action\")"
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

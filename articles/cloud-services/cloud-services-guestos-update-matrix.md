@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Learn about the latest Azure Guest OS Releases | Microsoft Azure" 
-   description="The latest release news and SDK compatibility for Azure Cloud Services Guest OS." 
+   pageTitle="최신 Azure 게스트 OS 릴리스에 대해 알아보기 | Microsoft Azure" 
+   description="Azure 클라우드 서비스 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="raiye" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,204 +13,200 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/18/2016"
+   ms.date="07/13/2016"
    ms.author="raiye"/>
 
+# Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
+클라우드 서비스용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
 
-# <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases and SDK compatibility matrix
-Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
-
-> [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
+> [AZURE.IMPORTANT] 이 페이지는 게스트 OS를 기반으로 실행하는 클라우드 서비스 웹 및 작업자 역할에 적용됩니다. IaaS 가상 컴퓨터에 **적용되지 않습니다**.
 
 <!-- -->
 
-> [AZURE.TIP] Subscribe to the [Guest OS Update RSS Feed][rss] to receive the most timely notification on all Guest OS changes.
+> [AZURE.TIP] [게스트 OS 업데이트 RSS 피드][rss]를 구독하여 모든 게스트 OS 변경 사항에 가장 시기 적절한 알림을 받을 수 있습니다.
 
-Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
+게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
-## <a name="news-updates"></a>News updates
-###### <a name="**september-13-2016**"></a>**September 13 2016**
-September Guest OS rollout is starting September 13 2016, and projected to be released on October 13 2016.
+## 새 업데이트
+###### **2016년 9월 13일**
+게스트 OS 9월 롤아웃은 2016년 9월 13일에 시작되며 2016년 10월 13일에 출시될 예정입니다.
 
-###### <a name="**august-9-2016**"></a>**August 9 2016**
-August Guest OS rollout is starting August 9 2016, and projected to be released on September 8 2016. 
+###### **2016년 8월 9일**
+게스트 OS 롤아웃은 2016년 8월 9일에 시작되며 2016년 9월 8일에 출시될 예정입니다.
 
-###### <a name="**july-13-2016**"></a>**July 13 2016**
-July Guest OS rollout is starting July 13 2016, and projected to be released on August 12 2016. 
+###### **2016년 7월 13일**
+게스트 OS 7월 롤아웃은 2016년 7월 13일에 시작되며 2016년 8월 12일에 출시될 예정입니다.
 
-###### <a name="**june-15-2016**"></a>**June 15 2016**
-June Guest OS rollout is starting June 15 2016, and projected to be released on July 14 2016. 
+###### **2016년 6월 15일**
+게스트 OS 6월 롤아웃은 2016년 6월 15일에 시작되며 2016년 7월 14일에 출시될 예정입니다.
 
-###### <a name="**may-17-2016**"></a>**May 17 2016**
-May Guest OS rollout is starting May 17 2016, and projected to be released on June 10 2016. 
+###### **2016년 5월 17일**
+게스트 OS 5월 롤아웃은 오늘 2016년 5월 17일에 시작되며 2016년 6월 10일에 출시될 예정입니다.
 
-###### <a name="**april-18-2016**"></a>**April 18 2016**
-April Guest OS rollout is starting April 18 2016, and projected to be released on May 12 2016. 
+###### **2016년 4월 18일**
+게스트 OS 4월 롤아웃은 2016년 4월 18일에 시작되며 2016년 5월 12일에 출시될 예정입니다.
 
-###### <a name="**march-14-2016**"></a>**March 14 2016**
-March Guest OS rollout is starting March 14 2016, and projected to be released on April 8 2016. 
+###### **2016년 3월 14일**
+게스트 OS 3월 롤아웃은 2016년 3월 14일에 시작되며 2016년 4월 8일에 출시될 예정입니다.
 
-###### <a name="**february-22-2016**"></a>**February 22 2016**
-February Guest OS rollout is starting February 22 2016, and projected to be released on March 9 2016.
+###### **2016년 2월 22일**
+게스트 OS 2월 롤아웃은 2016년 2월 22일에 시작되며 2016년 3월 9일에 출시될 예정입니다.
 
-###### <a name="**january-18-2016**"></a>**January 18 2016**
-January Guest OS rollout is starting January 18 2016, and projected to be released on February 12 2016.
+###### **2016년 1월 18일**
+게스트 OS 1월 롤아웃은 2016년 1월 18일에 시작되며 2016년 2월 12일에 출시될 예정입니다.
 
-###### <a name="**january-4-2016**"></a>**January 4 2016**
-November 201511-02 Guest OS was released on January 4, 2016 for deployment. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. 
+###### **2016년 1월 4일**
+11월 201511-02 게스트 OS는 2016년 1월 4일에 배포용으로 릴리스되었습니다. 이 OS 버전은 자동 업데이트에 대한 기본 OS로 설정되지 않았기 때문에 11월 201511-02 OS 버전에 대한 게스트 OS 배포의 프로비전 시간이 약간 길어질 수 있습니다.
 
-## <a name="releases"></a>Releases
+## 릴리스
 
-## <a name="family-4-releases"></a>Family 4 releases
+## 제품군 4 릴리스
 **Windows Server 2012 R2**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET 4.0, 4.5, 4.5.1, 4.5.2 지원
 
->[AZURE.NOTE] Dates with a * are subject to change
+>[AZURE.NOTE] *가 표시된 날짜는 변경될 수 있음
 
-| Configuration String           | Release date    | Disable date  | Expired date |
+| 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.36_201609-01     | Oct 13 2016     | Post 4.38     | TBD |
-| WA-GUEST-OS-4.35_201608-01     | Sept 13 2016    | Post 4.37     | TBD |
-| WA-GUEST-OS-4.34_201607-01     | Aug 8 2016      | Post 4.36     | TBD |
-| WA-GUEST-OS-4.33_201606-01     | July 13 2016    | Oct 13 2016   | TBD |
-| WA-GUEST-OS-4.32_201605-01     | June 10 2016    | Sept 8 2016   | TBD |
-| WA-GUEST-OS-4.31_201604-01     | May 2 2016      | Aug 13 2016   | TBD |
-| WA-GUEST-OS-4.30_201603-01     | April 7 2016    | July 10 2016  | TBD |
-| WA-GUEST-OS-4.29_201602-02     | March 12 2016   | June 2 2016   | TBD |
-| WA-GUEST-OS-4.28_201601-01     | Feb 12 2016     | May 7 2016    | TBD | 
-| WA-GUEST-OS-4.27_201512-01     | Jan 12 2016     | April 12 2016 | TBD |
-| ~~WA-GUEST-OS-4.26_201511-02~~ | Jan 4 2016      | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-4.26_201511-01~~ | Dec 10 2015     | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-4.25_201510-01~~ | Nov 6 2015      | Feb 12 2016   | TBD |
-| ~~WA-GUEST-OS-4.24_201509-01~~ | Oct 1 2015      | Jan 10 2016   | TBD |
-| ~~WA-GUEST-OS-4.23_201508-02~~ | Sep 9 2015      | Dec 6 2015    | TBD |
-| ~~WA-GUEST-OS-4.22_201507-02~~ | Aug 7 2015      | Nov 1 2015    | TBD |
-| ~~WA-GUEST-OS-4.21_201506-01~~ | July 9 2015     | Oct 9 2015    | TBD |
-| ~~WA-GUEST-OS-4.20_201505-02~~ | June 12 2015    | Sep 7 2015    | TBD |
-| ~~WA-GUEST-OS-4.19_201504-01~~ | April 17 2015   | Aug 9 2015    | TBD |
+| WA-GUEST-OS-4.36\_201609-01 | 2016년 10월 13일 | Post 4.38 | TBD |
+| WA-GUEST-OS-4.35\_201608-01 | 2016년 9월 13일 | Post 4.37 | TBD |
+| WA-GUEST-OS-4.34\_201607-01 | 2016년 8월 8일 | 4\.36 후 | TBD |
+| WA-GUEST-OS-4.33\_201606-01 | 2016년 7월 13일 | 2016년 10월 13일 | TBD |
+| WA-GUEST-OS-4.32\_201605-01 | 2016년 6월 10일 | 2016년 9월 8일 | TBD |
+| WA-GUEST-OS-4.31\_201604-01 | 2016년 5월 2일 | 2016년 8월 13일 | TBD |
+| WA-GUEST-OS-4.30\_201603-01 | 2016년 4월 7일 | 2016년 7월 10일 | TBD |
+| WA-GUEST-OS-4.29\_201602-02 | 2016년 3월 12일 | 2016년 6월 2일 | TBD |
+| WA-GUEST-OS-4.28\_201601-01 | 2016년 2월 12일 | 2016년 5월 7일 | TBD | 
+| WA-GUEST-OS-4.27\_201512-01 | 2016년 1월 12일 | 2016년 4월 12일 | TBD |
+| ~~WA-GUEST-OS-4.26\_201511-02~~ | 2016년 1월 4일 | 2016년 3월 12일 | TBD |
+| ~~WA-GUEST-OS-4.26\_201511-01~~ | 2015년 12월 10일 | 2016년 3월 12일 | TBD |
+| ~~WA-GUEST-OS-4.25\_201510-01~~ | 2015년 11월 6일 | 2016년 2월 12일 | TBD |
+| ~~WA-GUEST-OS-4.24\_201509-01~~ | 2015년 10월 1일 | 2016년 1월 10일 | TBD |
+| ~~WA-GUEST-OS-4.23\_201508-02~~ | 2015년 9월 9일 | 2015년 12월 6일 | TBD |
+| ~~WA-GUEST-OS-4.22\_201507-02~~ | 2015년 8월 7일 | 2015년 11월 1일 | TBD |
+| ~~WA-GUEST-OS-4.21\_201506-01~~ | 2015년 7월 9일 | 2015년 10월 9일 | TBD |
+| ~~WA-GUEST-OS-4.20\_201505-02~~ | 2015년 6월 12일 | 2015년 9월 7일 | TBD |
+| ~~WA-GUEST-OS-4.19\_201504-01~~ | 2015년 4월 17일 | 2015년 8월 9일 | TBD |
 
-## <a name="family-3-releases"></a>Family 3 releases
+## 제품군 3 릴리스
 
 **Windows Server 2012**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET 4.0, 4.5, 4.5.1, 4.5.2 지원
 
->[AZURE.NOTE] Dates with a * are subject to change
+>[AZURE.NOTE] *가 표시된 날짜는 변경될 수 있음
 
-| Configuration String           | Release date   | Disable date  | Expired date |
+| 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.43_201609-01     | Oct 13 2016    | Post 3.45     | TBD |
-| WA-GUEST-OS-3.42_201608-01     | Sept 13 2016   | Post 3.44     | TBD |
-| WA-GUEST-OS-3.41_201607-01     | Aug 8 2016     | Post 3.43     | TBD |
-| WA-GUEST-OS-3.40_201606-01     | July 13 2016   | Oct 13 2016   | TBD |
-| WA-GUEST-OS-3.39_201605-01     | June 10 2016   | Sept 8 2016   | TBD |
-| WA-GUEST-OS-3.38_201604-01     | May 2 2016     | Aug 13 2016   | TBD |
-| WA-GUEST-OS-3.37_201603-01     | April 7 2016   | July 10 2016  | TBD |
-| WA-GUEST-OS-3.36_201602-02     | March 12 2016  | June 2 2016   | TBD |
-| WA-GUEST-OS-3.35_201601-01     | Feb 12 2016    | May 7 2016    | TBD |
-| WA-GUEST-OS-3.34_201512-01     | Jan 12 2016    | April 12 2016 | TBD |
-| ~~WA-GUEST-OS-3.33_201511-02~~ | Jan 4 2016     | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-3.33_201511-01~~ | Dec 10 2015    | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-3.32_201510-01~~ | Nov 6 2015     | Feb 12 2016   | TBD |
-| ~~WA-GUEST-OS-3.31_201509-01~~ | Oct 1 2015     | Jan 10 2016   | TBD |
-| ~~WA-GUEST-OS-3.30_201508-02~~ | Sep 9 2015     | Dec 6 2015    | TBD |
-| ~~WA-GUEST-OS-3.29_201507-02~~ | Aug 7 2015     | Nov 1 2015    | TBD |
-| ~~WA-GUEST-OS-3.28_201506-01~~ | July 9 2015    | Oct 9 2015    | TBD |
-| ~~WA-GUEST-OS-3.27_201505-02~~ | June 12 2015   | Sep 7 2015    | TBD |
-| ~~WA-GUEST-OS-3.26_201504-01~~ | April 17 2015  | Aug 9 2015    | TBD |
+| WA-GUEST-OS-3.43\_201609-01 | 2016년 10월 13일 | Post 3.45 | TBD |
+| WA-GUEST-OS-3.42\_201608-01 | 2016년 9월 13일 | Post 3.44 | TBD |
+| WA-GUEST-OS-3.41\_201607-01 | 2016년 8월 8일 | 3\.43 후 | TBD |
+| WA-GUEST-OS-3.40\_201606-01 | 2016년 7월 13일 | 2016년 10월 13일 | TBD |
+| WA-GUEST-OS-3.39\_201605-01 | 2016년 6월 10일 | 2016년 9월 8일 | TBD |
+| WA-GUEST-OS-3.38\_201604-01 | 2016년 5월 2일 | 2016년 8월 13일 | TBD |
+| WA-GUEST-OS-3.37\_201603-01 | 2016년 4월 7일 | 2016년 7월 10일 | TBD |
+| WA-GUEST-OS-3.36\_201602-02 | 2016년 3월 12일 | 2016년 6월 2일 | TBD |
+| WA-GUEST-OS-3.35\_201601-01 | 2016년 2월 12일 | 2016년 5월 7일 | TBD |
+| WA-GUEST-OS-3.34\_201512-01 | 2016년 1월 12일 | 2016년 4월 12일 | TBD |
+| ~~WA-GUEST-OS-3.33\_201511-02~~ | 2016년 1월 4일 | 2016년 3월 12일 | TBD |
+| ~~WA-GUEST-OS-3.33\_201511-01~~ | 2015년 12월 10일 | 2016년 3월 12일 | TBD |
+| ~~WA-GUEST-OS-3.32\_201510-01~~ | 2015년 11월 6일 | 2016년 2월 12일 | TBD |
+| ~~WA-GUEST-OS-3.31\_201509-01~~ | 2015년 10월 1일 | 2016년 1월 10일 | TBD |
+| ~~WA-GUEST-OS-3.30\_201508-02~~ | 2015년 9월 9일 | 2015년 12월 6일 | TBD |
+| ~~WA-GUEST-OS-3.29\_201507-02~~ | 2015년 8월 7일 | 2015년 11월 1일 | TBD |
+| ~~WA-GUEST-OS-3.28\_201506-01~~ | 2015년 7월 9일 | 2015년 10월 9일 | TBD |
+| ~~WA-GUEST-OS-3.27\_201505-02~~ | 2015년 6월 12일 | 2015년 9월 7일 | TBD |
+| ~~WA-GUEST-OS-3.26\_201504-01~~ | 2015년 4월 17일 | 2015년 8월 9일 | TBD |
 
 
-## <a name="family-2-releases"></a>Family 2 releases
+## 제품군 2 릴리스
 
 **Windows Server 2008 R2 SP1**
 
-Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2 지원
 
->[AZURE.NOTE] Dates with a * are subject to change
+>[AZURE.NOTE] *가 표시된 날짜는 변경될 수 있음
 
-| Configuration String           | Release date  | Disable date  | Expired date |
+| 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.55_201609-01     | Oct 13 2016   | Post 2.57     | TBD |
-| WA-GUEST-OS-2.54_201608-01     | Sept 13 2016  | Post 2.56     | TBD |
-| WA-GUEST-OS-2.53_201607-01     | Aug 8 2016    | Post 2.55     | TBD |
-| WA-GUEST-OS-2.52_201606-01     | July 13 2016  | Oct 13 2016   | TBD |
-| WA-GUEST-OS-2.51_201605-01     | June 10 2016  | Sept 8 2016   | TBD |
-| WA-GUEST-OS-2.50_201604-01     | May 2 2016    | Aug 13 2016   | TBD |
-| WA-GUEST-OS-2.49_201603-01     | April 7 2016  | July 10 2016  | TBD |
-| WA-GUEST-OS-2.48_201602-02     | March 12 2016 | June 2 2016   | TBD |
-| WA-GUEST-OS-2.47_201601-01     | Feb 12 2016   | May 7 2016    | TBD |
-| WA-GUEST-OS-2.46_201512-01     | Jan 12 2016   | April 12 2016 | TBD |
-| ~~WA-GUEST-OS-2.45_201511-02~~ | Jan 4 2016    | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-2.45_201511-01~~ | Dec 10 2015   | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-2.44_201510-01~~ | Nov 6 2015    | Feb 12 2016   | TBD |
-| ~~WA-GUEST-OS-2.43_201509-01~~ | Oct 1 2015    | Jan 10 2016   | TBD |
-| ~~WA-GUEST-OS-2.42_201508-02~~ | Sep 9 2015    | Dec 6 2015    | TBD |
-| ~~WA-GUEST-OS-2.41_201507-02~~ | Aug 7 2015    | Nov 1 2015    | TBD |
-| ~~WA-GUEST-OS-2.40_201506-01~~ | July 9 2015   | Oct 9 2015    | TBD |
-| ~~WA-GUEST-OS-2.39_201505-02~~ | June 12 2015  | Sep 7 2015    | TBD |
-| ~~WA-GUEST-OS-2.38_201504-01~~ | April 17 2015 | Aug 9 2015    | TBD |
+| WA-GUEST-OS-2.55\_201609-01 | 2016년 10월 13일 | Post 2.57 | TBD |
+| WA-GUEST-OS-2.54\_201608-01 | 2016년 9월 13일 | Post 2.56 | TBD |
+| WA-GUEST-OS-2.53\_201607-01 | 2016년 8월 8일 | 2\.55 후 | TBD |
+| WA-GUEST-OS-2.52\_201606-01 | 2016년 7월 13일 | 2016년 10월 13일 | TBD |
+| WA-GUEST-OS-2.51\_201605-01 | 2016년 6월 10일 | 2016년 9월 8일 | TBD |
+| WA-GUEST-OS-2.50\_201604-01 | 2016년 5월 2일 | 2016년 8월 13일 | TBD |
+| WA-GUEST-OS-2.49\_201603-01 | 2016년 4월 7일 | 2016년 7월 10일 | TBD |
+| WA-GUEST-OS-2.48\_201602-02 | 2016년 3월 12일 | 2016년 6월 2일 | TBD |
+| WA-GUEST-OS-2.47\_201601-01 | 2016년 2월 12일 | 2016년 5월 7일 | TBD |
+| WA-GUEST-OS-2.46\_201512-01 | 2016년 1월 12일 | 2016년 4월 12일 | TBD |
+| ~~WA-GUEST-OS-2.45\_201511-02~~ | 2016년 1월 4일 | 2016년 3월 12일 | TBD |
+| ~~WA-GUEST-OS-2.45\_201511-01~~ | 2015년 12월 10일 | 2016년 3월 12일 | TBD |
+| ~~WA-GUEST-OS-2.44\_201510-01~~ | 2015년 11월 6일 | 2016년 2월 12일 | TBD |
+| ~~WA-GUEST-OS-2.43\_201509-01~~ | 2015년 10월 1일 | 2016년 1월 10일 | TBD |
+| ~~WA-GUEST-OS-2.42\_201508-02~~ | 2015년 9월 9일 | 2015년 12월 6일 | TBD |
+| ~~WA-GUEST-OS-2.41\_201507-02~~ | 2015년 8월 7일 | 2015년 11월 1일 | TBD |
+| ~~WA-GUEST-OS-2.40\_201506-01~~ | 2015년 7월 9일 | 2015년 10월 9일 | TBD |
+| ~~WA-GUEST-OS-2.39\_201505-02~~ | 2015년 6월 12일 | 2015년 9월 7일 | TBD |
+| ~~WA-GUEST-OS-2.38\_201504-01~~ | 2015년 4월 17일 | 2015년 8월 9일 | TBD |
 
-## <a name="msrc-patch-updates"></a>MSRC patch updates
-The list of patches that are included with each monthly Guest OS release is available [here][patches].
+## MSRC 패치 업데이트
+매달 각 게스트 OS 릴리스에 포함된 패치 목록은 [여기][patches]에서 사용 가능합니다.
 
-## <a name="sdk-support"></a>SDK support
+## SDK 지원
 
-Even though the [retirement policy for the Azure SDK][retire policy sdk] indicates that only versions above 2.2 are supported, specific Guest OS families allow you to use earlier versions. You should always use the latest supported SDK. 
+[Azure SDK에 대한 사용 중지 정책][retire policy sdk]에 2.2 이후 버전만 지원된다고 나와 있더라도 특정 게스트 OS 제품군을 통해 이전 버전을 사용할 수 있습니다. 항상 지원되는 최신 SDK를 사용해야 합니다.
 
-| Guest OS Family | Compatible SDK Versions |
+| 게스트 OS 제품군 | 호환되는 SDK 버전 |
 | --------------- | ----------------------- |
-| 4               | Version 2.1+ |
-| 3               | Version 1.8+ |
-| 2               | Version 1.3+ |
-| 1               | Version 1.0+ |
+| 4 | 버전 2.1 이상 |
+| 3 | 버전 1.8 이상 |
+| 2 | 버전 1.3 이상 |
+| 1 | 버전 1.0 이상 |
 
-## <a name="guest-os-release-information"></a>Guest OS Release Information
-There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS hits the **disabled** date it is removed from Azure. However, any Cloud Service targetting that Guest OS will still operate as normal. 
+## 게스트 OS 릴리스 정보
+게스트 OS 릴리스에 있어서 중요한 날짜 세 개는 **릴리스** 날짜, **비활성화** 날짜 및 **만료** 날짜입니다. 포털에 있고 대상 게스트 OS로 선택할 수 있는 게스트 OS는 사용 가능한 것으로 간주됩니다. 게스트 OS가 **비활성화** 날짜에 도달하면 Azure에서 제거됩니다. 그러나 해당 게스트 OS를 대상으로 하는 모든 클라우드 서비스는 계속 정상적으로 작동합니다.
 
-The window between the **disabled** date and the **expiration** date provide you with a buffer to easily transition from one Guest OS to one newer. If you're using *automatic* as your Guest OS, you'll always be on the latest version and you don't have to worry about it expiring. 
+**비활성화** 날짜와 **만료** 날짜 사이의 기간 동안 한 게스트 OS에서 다른 게스트 OS로 간편하게 전환할 수 있습니다. 게스트 OS로 *자동*을 사용하는 경우 항상 최신 버전이 유지되므로 만료에 대해 걱정할 필요가 없습니다.
 
-When the **expiration** date passes and any Cloud Service still using that Guest OS will be stopped, deleted, or forced to upgrade. You can read more about the retirement policy [here][retirepolicy].
+**만료** 날짜가 지났는데 여전히 해당 게스트 OS를 사용 중인 클라우드 서비스는 중지, 삭제 또는 강제 업그레이드됩니다. 사용 중지 정책에 대한 자세한 내용은 [여기][retirepolicy]서 확인할 수 있습니다.
 
-## <a name="guest-os-family-version-explanation"></a>Guest OS Family-Version Explanation
-The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services run on. Each Guest OS has a family, version and release number. 
+## 게스트 OS 제품군 버전 설명
+게스트 OS 제품군은 출시된 Microsoft Windows Server 버전을 기반으로 합니다. 게스트 OS는 Azure 클라우드 서비스에서 실행되는 기본 운영 체제입니다. 각 게스트 OS에는 제품군, 버전 및 릴리스 번호가 있습니다.
 
-- **Guest OS family**  
-A Windows Server operating system release that a Guest OS is based on. For example, *family 3* is based on Windows Server 2012.
+- **게스트 OS 제품군**은 게스트 OS가 기반으로 하는 Windows Server 운영 체제 릴리스입니다. 예를 들어 *제품군 3*은 Windows Server 2012를 기반으로 합니다.
 
-- **Guest OS version**  
-Specific to a Guest OS family image plus relevant [Microsoft Security Response Center (MSRC)][msrc] patches that are available at the date the new Guest OS version is produced. Not all patches may be included. 
+- **게스트 OS 버전**은 새 게스트 OS 버전이 생성되는 날짜에 사용 가능한 게스트 OS 제품군 이미지 및 관련 [MSRC(Microsoft 보안 대응 센터)][msrc] 패치로 한정됩니다. 일부 패치는 포함될 수 있습니다.
 
-    Numbers start at 0 and increment by 1 each time a new set of updates is added. Trailing zeros are only shown if important. That is, version 2.10 is a different, much later version than version 2.1.
+    0에서 시작하고 새 업데이트 집합이 추가 될 때마다 1씩 증가하는 숫자입니다. 중요한 경우.후행 0만 표시됩니다. 즉, 버전 2.10은 다르며, 버전 2.1 버전보다 더 한참 후의 버전입니다.
 
-- **Guest OS release**  
-A rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing; requiring changes. The latest release always supersedes any previous releases, public or not. The Azure classic portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug. 
+- **게스트 OS 릴리스** 게스트 OS 버전의 릴리스입니다. 필요한 변경 내용을 테스트하는 동안 Microsoft가 문제를 발견하는 경우에 릴리스가 발생합니다. 최신 릴리스는 항상 이전의 모든 릴리스를 공개이든 또는 비공개이든 대체합니다. Azure 클래식 포털에서 사용자는 지정된 버전에 대한 최신 릴리스를 선택할 수만 있습니다. 이전 릴리스에서 실행 중인 배포는 일반적으로 버그의 심각도 따라 강제 업그레이드되지 않습니다.
 
-In the example below, 2 is the family, 12 is the version and "rel2" is the release.
+아래 예제에서 2는 제품군이며, 12는 버전이고 "rel2"는 릴리스입니다.
 
-**Guest OS release** - 2.12 rel2
+**게스트 OS 릴리스** -2.12 rel2
 
-**Configuration string for this release** - WA-GUEST-OS-2.12_201208-02
+**이 릴리스에 대한 구성 문자열** -WA-GUEST-OS-2.12\_201208-02
 
-The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image. 
+게스트 OS에 대한 구성에는 문자열에서 보여주는 MSRC 패치가 해당 릴리스에 대한 것으로 간주된 날짜와 함께 여기에 포함된 동일한 정보가 있습니다. 이 예에서는 Windows Server 2008 R2에 대한 MSRC 패치가 생성되며 2012년 8월포함이 고려되었습니다. 특히 해당 버전의 Windows Server에 적용되는 패치만 포함됩니다. 예를 들어 MSRC 패치가 Microsoft office에 적용되는 경우, 해당 제품이 Windows Server 기본 이미지의 일부가 아니므로 포함되지 않습니다.
 
-## <a name="guest-os-system-update-process"></a>Guest OS System Update Process
-This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur at least 5 days after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family. 
+## 게스트 OS 시스템 업데이트 프로세스
+이 페이지에 예정된 게스트 OS 릴리스에 대한 정보가 포함됩니다. "자동" 업데이트로 설정된 경우 해당 클라우드 서비스 역할이 다시 부팅되기때문에 릴리스가 발생하는 시기를 알고 싶어하는지 표시합니다. 게스트 OS 릴리스는 매달 두째 주 화요일에 발생하는 MSRC 업데이트 릴리스 5일 후에 발생합니다. 새 릴리스는 각 게스트 OS 제품군에 대 한 모든 관련 MSRC 패치를 포함합니다.
 
-Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by a number of factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We will update the [Guest OS Update RSS Feed][rss] with the latest information we have, but consider that time an approximate window. We are aware that this is problematic for customers and working on a plan to limit or time reboots. 
+Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다. 이러한 업데이트로 게스트 OS가 파이프라인에서 유일합니다. 릴리스는 다양한 요인에 의해 영향을 받을 수 있어 나열할 수 없습니다. 또한 Azure는 수백 대의 컴퓨터에서 실행 됩니다. 역할이 다시 부팅 되는 정확한 날짜와 시간을 제공할 수 있다는 것을 의미합니다. 최신 정보가 있는 [게스트 OS 업데이트 RSS 피드][rss]를 업데이트하지만 대략적인 시기 창 정보를 참조합니다. 고객에 문제가 있어 재부팅 시간을 제한하도록 작업 중인 것으로 알고 있습니다.
 
-When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure classic portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. 
+게스트 OS의 새 릴리스를 게시하는 경우 Azure에 완전히 전파하는데 시간이 걸릴 수 있습니다. 서비스가 새 게스트 OS에 대해 업데이트되므로 업데이트 도메인을 구분하지 않고 다시 부팅됩니다. "자동" 업데이트를 사용하도록 설정된 서비스가 처음 릴리스됩니다. 업데이트 후 Azure 클래식 포털에서 서비스에 대해 나열된 새 게스트 OS 버전을 볼 수 있습니다. 이 기간 동안 다시 릴리스할 수 있습니다. 일부 버전은 오랜 시간을 통해 배포할 수 있으며 공식 릴리스 날짜 이후 수 주 동안 자동 업그레이드 재부팅이 발생하지 않을 수 있습니다. 게스트 OS를 사용할 수 있으면, 구성 파일이나 포털에서 해당 버전을 명시적으로 찾을 수 있습니다.
 
-For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled [Role Instance Restarts Due to OS Upgrades][restarts].
+게스트 및 호스트 OS 업데이트의 기술 세부 정보에 대한 포인터 및 시작에 관한 중요 정보 처리는 [OS 업그레이드로 인한 역할 인스턴스 다시 시작][restarts]이라는 MSDN 블로그 게시물을 참조하세요.
 
-If you manually update your Guest OS, please read the [Guest OS retirement policy][retirepolicy].
+게스트 OS를 수동으로 업데이트하는 경우 [게스트 OS 사용 중지 정책][retirepolicy]을.읽으세요.
 
 
-## <a name="guest-os-supportability-and-retirement-policy"></a>Guest OS Supportability and Retirement Policy
-The Guest OS supportability and retirement policy is explained [here][retirepolicy].
+## 게스트 OS 지원 가능성 및 사용 중지 정책
+게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/ko-KR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Azure 게스트 OS 업데이트 설정]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -230,8 +226,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

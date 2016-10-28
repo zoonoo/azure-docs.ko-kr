@@ -1,131 +1,130 @@
 <properties
-    pageTitle="Manage and Monitor your Connectors and API Apps in App Service | Microsoft Azure"
-    description="View performance of your Connectors and API Apps in Logic Apps; microservices architecture"
-    services="app-service\logic"
-    documentationCenter=".net,nodejs,java"
-    authors="MandiOhlinger"
-    manager="anneta"
-    editor="cgronlun"/>
+	pageTitle="Azure 앱 서비스에서 커넥터 및 API 앱 관리 및 모니터링 | Microsoft Azure"
+	description="논리 앱에서 커넥터 및 API 앱의 성능 보기, 마이크로 서비스 아키텍처"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="MandiOhlinger"
+	manager="dwrede"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="logic-apps"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="mandia"/>
+	ms.service="logic-apps"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="mandia"/>
 
+# 기본 제공 API 앱 및 커넥터 관리 및 모니터
 
-# <a name="manage-and-monitor-your-built-in-api-apps-and-connectors"></a>Manage and Monitor your built-in API Apps and Connectors
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+기본 제공 API 앱을 만들었습니다. 이제 어떻게 합니까?
 
-You created a built-in API App. Now what?
+Azure에서 모든 API 앱은 Azure상에 호스팅되는 별도 웹 사이트입니다. 결과적으로, 수행되는 요청의 개수와 데이터의 양을 커넥터를 통해 쉽게 확인할 수 있습니다. API 앱을 백업, 알림 생성, 은박 보안 작동, 사용자 및 역할을 추가할 수도 있습니다.
 
-In Azure, every API App is a separate web site hosted on Azure. As a result, you can easily see how many requests are made, and see how much data is being used by the connector. You can also backup your API App, create alerts, enable Tinfoil Security, and add users and roles.
+이 항목은 API 앱을 관리하는 다른 옵션 중 일부에 대해 설명합니다.
 
-This topic describes some of the different options to manage your API App.
-
-To see these built-in features, open your API App in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). If the API App is on your startboard, select it to open the properties. You can also select **Browse**, select **API Apps**, and then select your API App:
+이러한 기본 제공 기능을 보려면 [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 API 앱을 엽니다. API 앱이 시작 보드에 포함된 경우 선택하여 속성을 엽니다. 또한 **찾아보기** 및 **API 앱**을 선택한 다음 API 앱을 선택할 수 있습니다.
 
 ![][browse]
 
-## <a name="see-the-properties-you-entered"></a>See the properties you entered
+## 입력한 속성을 참조 하십시오
 
-When you open the API App, there are several features and tasks available:
+API 앱을 열 때 사용할 수 있는 여러 기능과 작업은 다음과 같습니다.
 
 ![][settings]
 
-You can:
+다음을 수행할 수 있습니다.
 
-- **Settings** shows specific information on the API App, including your subscription details, and lists the users who have access to your API app. You can also increase or decrease the number of instances of your API App using the Scale feature; among other features.
-- Use the **Start** and **Stop** buttons to control the API App.
-- When product updates are made to the underlying files used by your API App, you can click **Update** to get the latest versions. For example, if there is a fix or a security update released by Microsoft, clicking **Update** automatically updates your API App to include this fix.
-- Select **Change Plan** to upgrade or downgrade based on the data usage of the API App. You can also use this feature to see your data usage.
-- When you create a connector that has tables, like the SQL connector, you can optionally enter a table name to connect to. A schema based on the table is automatically created and available when you click **Download Schemas**. You can then use this downloaded schema to create a transform or a map.
+- **설정**은 API 앱상의 구독 세부 정보를 포함한 특정 정보를 보여 주고, API 앱에 액세스할 수 있는 사용자를 나열합니다. 여러 기능중의 하나인 규모 기능을 사용하여 API 앱의 인스턴스 수를 증가시키거나 감소시킬 수도 있습니다.
+- **시작** 및 **중지** 단추를 사용하여 API 앱을 제어합니다.
+- API 앱에서 사용되는 기본 파일이 업데이트 되면 **업데이트**를 클릭하여 최신 버전을 가져올 수 있습니다. 예를 들어 Microsoft에서 수정 또는 보안 업데이트를 출시한 경우 **업데이트**를 클릭하면 이 수정 프로그램을 포함한 API 앱을 자동으로 업데이트합니다.
+- **변경 계획**을 선택하여 API 앱의 데이터 사용량에 따라 업그레이드하거나 다운그레이드합니다. 또한, 이 기능을 사용하여 데이터 사용 현황을 확인할 수 있습니다.
+- SQL 커넥터와 같이 테이블을 포함한 커넥터를 만들 때 연결한 테이블 이름을 선택적으로 입력할 수 있습니다. 테이블 기반 스키마는 **스키마 다운로드**를 클릭할 때 자동으로 만들어지고 사용할 수 있게 됩니다. 다운로드한 스키마를 사용하여 변환 또는 지도를 만들수 있습니다.
 
-## <a name="change-your-connector-or-api-configuration-values-you-entered"></a>Change your connector or API configuration values you entered
+## 커넥터 또는 입력한 API 구성값 변경
 
-After you configured or created your built-connector, you can change the values you entered. For example, if you configured the SQL Connector and you want to change the SQL Server name or table name, you can do this in the API App blade for your connector.
+빌드 커넥터를 구성하거나 만든 후에 입력 한 값을 변경할 수 있습니다. 예를들어 SQL 커넥터를 구성 하 고 SQL 서버 이름 또는 테이블 이름을 변경하려는 경우, 커넥터의 API 앱 블레이드에서 실행할 수 있습니다.
 
-Steps include:
+단계는 다음과 같습니다.
 
-1. Open your connector or API App. When you do, the API App blade opens.
-2. In **Essentials**, click the hyperlink under the Host property. The hyperlink is named something like *slackconnector* or *microsoftsqlconnector123*:
+1. 커넥터 또는 API 앱을 엽니다. 이렇게 해서 API 앱 블레이드를 엽니다.
+2. **Essentials**에서 호스트 속성 내의 하이퍼링크를 클릭합니다. 하이퍼링크 이름은*slackconnector* 또는 *microsoftsqlconnector123*과 같이 명명됩니다.
 
-    ![][apiapphost]
+	![][apiapphost]
 
-3. In the API App Host blade, select **Settings**. In the Settings blade, select **Application Settings**. Your configuration values are listed under **App Settings**:
+3. API 앱 호스트 블레이드에서 **설정**을 선택합니다. 설정 블레이드에서 **응용 프로그램 설정**을 선택합니다. **앱 설정**에 구성 값 목록이 있습니다.
 
-    ![][hostsettings]
+	![][hostsettings]
 
-4. Click the setting you want to change, enter the new value, and **Save** your changes.
+4. 변경을 원하는 설정을 클릭하여 새 값을 입력 후, 변경 내용을 **저장**합니다.
 
 
-## <a name="install-the-hybrid-connection-manager---optional"></a>Install the Hybrid Connection Manager - Optional
+## 하이브리드 연결 관리자 설치 - 선택적
 
 ![][hcsetup]
 
-The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and to control the security between your Azure resources and your on-premises resources.
+하이브리드 연결 관리자는 SQL Server 또는 SAP와 같이 온-프레미스 시스템에 연결 기능을 제공합니다. 이 하이브리드 연결은 Azure 리소스와 온-프레미스 리소스 간의 보안을 연결하고 제어하기 위해 Azure 서비스 버스를 사용합니다.
 
-See [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md).
+[Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)을 참조하세요.
 
-> [AZURE.NOTE] Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall. If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.
+> [AZURE.NOTE] 방화벽 뒤의 온-프레미스 리소스에 연결하는 경우에만 하이브리드 연결 관리자가 필요합니다. 온-프레미스 시스템에 연결하지 않으려면, 하이브리드 연결 관리자 목록이 커넥터 블레이드에 나타나지 않을 수 있습니다.
 
-## <a name="monitor-the-performance"></a>Monitor the performance
-Performance metrics are built-in features and included with every API App you create. These metrics are specific to your API App hosted in Azure. Sample metrics:
+## 성능 모니터
+성능 메트릭은 기본 제공 기능이며 생성된 모든 API 앱에 포함됩니다. 이러한 메트릭은 Azure에 호스트된 API 앱에 한정됩니다. 샘플 메트릭:
 
 ![][monitoring]
 
-You can:
+다음을 수행할 수 있습니다.
 
-- Select **Requests and errors** to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes. You can also see response times,  see how many requests are made to the API App, and see how much data comes in and how much data goes out. Based on the performance metrics, you can create email Alerts if a metric exceeds a threshold of your choosing.
-- In **Usage**, you can see how much **CPU** is used by the API App, review the current **Usage Quota** in MB, and see your maximum data usage based on your cost tier. **Estimated spend**  can help you determine the potential costs of running your API App.
-- Select **Processes** to open Process Explorer. This shows your web instances and their properties, including thread count and memory usage.
+- 200, 400, 또는 500 HTTP 상태 코드와 같은 일반적으로 알려진 HTTP 오류 코드를 포함하여 다양한 성능 메트릭을 추가하기 위해 **요청 및 오류**를 선택합니다 응답 시간, API 앱에 대한 요청 수 및 유입 및 유출되는 데이터 양을 참조하십시오. 성능 기준에 따라, 메트릭을 선택한 임계값을 초과할 경우 경고 전자 메일을 만들 수 있습니다.
+- **사용량**에서 API 앱이 사용하는 **CPU** 양을 확인하고 현재 **사용 할당량**(MB)을 검토하며 비용 계층에 기반한 최대 데이터 사용량을 볼 수 있습니다. **예상 지출**은 API 앱 실행의 잠재적인 비용을 결정하는 데 도움이 됩니다.
+- 프로세스 탐색기를 열려면 **프로세스**를 선택합니다. 이것은 스레드 수 및 메모리 사용을 포함하여 사용자의 웹 인스턴스 및 해당 속성을 보여줍니다.
 
-Using these tools, you can determine if the App Service Plan should be scaled up or scaled down, based on your business needs. These features are built-in to the portal with no additional tools required.
+이 도구들을 사용하여, 비즈니스 요구 사항에 따라 앱 서비스 계획을 확장시킬지 혹은 축소시킬지 결정할 수 있습니다. 이 기능들은 필요없는 추가 도구와 함께 포털에서 기본 제공 됩니다.
 
-## <a name="control-the-security"></a>Control the security
+## 보안 제어
 
-API Apps use role-based security. These roles apply to the entire Azure experience, including API Apps and other Azure resources. The roles include:
+API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 다른 Azure 리소스를 포함하여 전체 Azure 환경에 적용됩니다. 역할은 다음을 포함합니다.
 
-Role | Description
+역할 | 설명
 --- | ---
-Owner | Have full access to the management experience and can give access to other users or groups.
-Contributor | Have full access to the management experience. Cannot give access to other users or groups.
-Reader | Can view all resources except secrets.
-User Access Administrator | Can view all resources, create/manage roles, and create/manage support tickets.
+소유자 | 관리환경에 대해 전체적으로 액세스 되고 다른 사용자나 그룹에 접속 권한을 줄 수 있습니다.
+참여자 | 관리 환경에 대한 모든 권한을 가집니다. 다른 사용자 또는 그룹에게 접속 권한을 줄 수 없습니다.
+판독기 | 암호를 제외한 모든 리소스를 볼 수 있습니다.
+사용자 액세스 관리자 | 모든 리소스를 볼 수 있고, 역할 및 지원 티켓을 생성 및 관리할수 있습니다.
 
-See [Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md).
+[Microsoft Azure 포털에서의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-You can easily add users and assign them specific roles to your API App. The portal shows you the users that have access and their assigned role:
+사용자를 쉽게 추가하고 API 앱에 특정 역할을 할당할 수 있습니다. 포털에서는 사용자의 권한과 할당된 역할을 보여줍니다.
 
-![][access]  
+![][access]
 
-- Select **Users** to add a user, assign a role, and remove a user.
-- Select **Roles** to see all the users in a specific role, add a user to a role, and remove a user from a role.
+- **사용자**를 선택하여 사용자를 추가하고, 역할을 할당하고, 사용자를 제거합니다.
+- **역할**을 선택하여 특정 역할의 모든 사용자를 확인하고, 역할에 사용자를 추가하고, 역할에서 사용자를 제거합니다.
 
 
-## <a name="more-good-stuff"></a>More Good Stuff
-- Select **API definition** to open the automatically-created Swagger file for your specific API app.
-- Select **Dependencies** to view the files required by your API App. For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager. These dependencies are shown in your API app blade.
+## 더 좋은 정보
+- **API 정의**선택하여 특정 API 앱에 대해 자동으로 만들어진 Swagger 파일을 엽니다.
+- **종속성**을 선택하여 API 앱이 요구하는 파일을 볼 수 있습니다. 예를 들어, SAP 커넥터를 사용하는 경우 일부 추가 파일을 온-프레미스 하이브리드 연결 관리자에서 설치 합니다. 이러한 종속성은 API 앱 블레이드에서 보여 줍니다.
 
->[AZURE.IMPORTANT] When you open your API app properties and look under **Essentials**, there are **Host** and **Gateway** links that open new blades:
+>[AZURE.IMPORTANT] API 앱 속성을 열면 **Essentials** 아래에 새 블레이드를 여는 **호스트** 및 **게이트웨이** 링크가 있습니다.
 >
 > ![][host]
 >
->These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. <br/><br/>
+>이 속성은 API 앱을 호스팅하는 웹사이트에 한정됩니다. 기본 제공 API 앱이나 커넥터를 사용할 때 대부분의 속성들이 실제로 적용되지 않기 때문에 이 속성들을 업데이트하는 것을 권장하지는 않습니다. 비주얼 스튜디오에서 API 앱을 생성하거나 Azure 구독을 배포할 때, 호스트와 게이트웨이 블레이드를 사용할 수 있습니다. <br/><br/>
 
 
->[AZURE.NOTE] To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can create a short-lived starter logic app. No credit cards required and no commitments.
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 수명이 짧은 스타터 논리 앱을 만들 수 있습니다. 신용 카드 및 약정은 필요하지 않습니다.
 
-## <a name="read-more"></a>Read More
+## 자세히 알아보기
 
-[Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Connectors and API Apps List in App Service](app-service-logic-connectors-list.md)<br/>
-[Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md)<br/>
-[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)
+[논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/>
+[ 앱 서비스의 커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/>
+[Microsoft Azure 포털에서 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)<br/>
+[Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -138,8 +137,4 @@ You can easily add users and assign them specific roles to your API App. The por
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

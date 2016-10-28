@@ -1,194 +1,181 @@
 <properties 
-    pageTitle="Enterprise integration with EDIFACT | Microsoft Azure" 
-    description="Learn how to use EDIFACT agreements to create Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="jeffhollan" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="EDIFACT와 엔터프라이즈 통합 | Microsoft Azure" 
+	description="EDIFACT 규약을 사용하여 논리 앱을 만드는 방법 알아보기" 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="jeffhollan" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="app-service-logic" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/26/2016" 
-    ms.author="jonfan"/>
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/26/2016" 
+	ms.author="jonfan"/>
+
+# EDIFACT와 엔터프라이즈 통합 
+
+> [AZURE.NOTE] 이 페이지에서는 논리 앱의 EDIFACT 기능을 다룹니다. X12에 대한 내용은 [여기](app-service-logic-enterprise-integration-x12.md)를 클릭하세요.
+
+## EDIFACT 규약 만들기 
+EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 만들고 통합 계정에 저장해야 합니다. 다음 단계에서는 EDIFACT 규약을 만드는 프로세스를 안내합니다.
+
+### 시작하기 전에 필요한 항목은 다음과 같습니다.
+- Azure 구독에 정의된 [통합 계정](./app-service-logic-enterprise-integration-accounts.md)
+- 통합 계정에 이미 정의된 둘 이상의 [파트너](./app-service-logic-enterprise-integration-partners.md)
+
+>[AZURE.NOTE]규약을 만들 때 사용자가 파트너와 수신/송신한 메시지의 콘텐츠는 규약 유형이 일치해야 합니다.
 
 
-# <a name="enterprise-integration-with-edifact"></a>Enterprise integration with EDIFACT 
+[통합 계정을 만들고](./app-service-logic-enterprise-integration-accounts.md) [파트너를 추가](./app-service-logic-enterprise-integration-partners.md)한 후에 다음과 같은 단계에 따라 EDIFACT 규약을 만들 수 있습니다.
 
-> [AZURE.NOTE] This page covers the EDIFACT features of Logic Apps. For information on X12 click [here](app-service-logic-enterprise-integration-x12.md).
+### Azure 포털 홈페이지에서
 
-## <a name="create-an-edifact-agreement"></a>Create an EDIFACT agreement 
-Before you can exchange EDIFACT messages, you need to create an EDIFACT agreement and store it in your integration account. The following steps will walk you through the process of creating an EDIFACT agreement.
+[Azure 포털](http://portal.azure.com "Azure 포털")에 로그인한 후에 다음을 수행합니다.
+1. 왼쪽 메뉴에서 **찾아보기**를 선택합니다.
 
-### <a name="here's-what-you-need-before-you-get-started"></a>Here's what you need before you get started
-- An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
-- At least two [partners](./app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
+>[AZURE.TIP]**찾아보기** 링크가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 왼쪽 위에 있는 **표시 메뉴** 링크를 선택하여 이 작업을 수행합니다.
 
->[AZURE.NOTE]When creating an agreement, the content in the messages you will receive/send to and from the partner must match the agreement type.    
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-0.png)
+2. 필터 검색 상자에 *통합*을 입력하고 결과 목록에서 **통합 계정**을 선택합니다. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-3.png)
+3. 열린 **통합 계정** 블레이드에서 규약을 만들 통합 계정을 선택합니다. 통합 계정 목록이 표시되지 않으면 [먼저 계정을 만듭니다](./app-service-logic-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보"). ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-4.png)
+4.  **규약** 타일을 선택합니다. 규약 타일이 표시되지 않으면 먼저 추가합니다. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-5.png)
+5. 열린 규약 블레이드에서 **추가** 단추를 선택합니다. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-agreement-2.png)
+6. 규약의 **이름**을 입력한 다음 열린 규약 블레이드에서 EDIFACT의 **규약 형식**, **호스트 파트너**, **호스트 ID**, **게스트 파트너**, **게스트 ID**를 선택합니다. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1.png)
+7. 규약 속성을 설정한 후 **수신 설정**을 선택하여 규약을 통해 수신된 메시지를 처리하는 방법을 구성합니다.
+8. 수신 설정 컨트롤은 식별자, 승인, 스키마, 컨트롤 번호, 유효성 검사, 내부 설정 및 배치 처리 등의 섹션으로 구분됩니다. 메시지를 교환할 파트너와의 규약에 따라 이러한 속성을 구성합니다. 다음은 이러한 컨트롤의 보기입니다. 이러한 컨트롤을 해당 규약에서 들어오는 메시지를 식별하고 처리하는 방식에 맞게 구성할 수 있습니다. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-2.png)
+9. **확인** 단추를 선택하여 설정을 저장합니다.
 
+### 식별자
 
-After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an EDIFACT agreement by following these steps:  
-
-### <a name="from-the-azure-portal-home-page"></a>From the Azure portal home page
-
-After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
-1. Select **Browse** from the menu on the left.  
-
->[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
-
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-0.png)    
-2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-3.png)    
-3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-4.png)  
-4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-5.png)     
-5. Select the **Add** button in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-agreement-2.png)  
-6. Enter a **Name** for your agreement then select the **Agreement type** for EDIFACT, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1.png)  
-7. After you have set the agreement properties, select **Receive Settings** to configure how messages received via this agreement are to be handled.  
-8. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Control Numbers, Validation, Internal Settings and Batch processing. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-2.png)  
-9. Select the **OK** button to save your settings.  
-
-### <a name="identifiers"></a>Identifiers
-
-|Property|Description |
+|속성|설명 |
 |---|---|
-|UNB6.1 (Recipient Reference Password)|Enter an alphanumeric value ranging between 1 and 14 characters.|
-|UNB6.2 (Recipient Reference Qualifier)|Enter an alphanumeric value with a minimum of one character and a maximum of two characters.|
+|UNB6.1(받는 사람 참조 암호)|1 ~ 14자 사이의 영숫자 값을 입력합니다.|
+|UNB6.2(받는 사람 참조 한정자)|1 ~ 2자의 영숫자 값을 입력합니다.|
 
-### <a name="acknowledgments"></a>Acknowledgments 
+### 승인 
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Receipt of Message (CONTRL)|Select this checkbox to return a technical (CONTRL) acknowledgment to the interchange sender. The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement.|
-|Acknowledgement (CONTRL)|Select this checkbox to return a functional (CONTRL) acknowledgment to the interchange sender The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement.|
+|메시지(CONTRL) 수신|기술(CONTRL) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 승인은 규약의 송신 설정을 기준으로 교환 발신자에게 전송됩니다.|
+|승인(CONTRL)|기능(CONTRL) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 승인은 규약의 송신 설정을 기준으로 교환 발신자에게 전송됩니다.|
 
-### <a name="schemas"></a>Schemas
+### 스키마
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|UNH2.1 (TYPE)|Select a transaction set type.|
-|UNH2.2 (VERSION)|Enter the message version number. (Minimum, one character; maximum, three characters).|
-|UNH2.3 (RELEASE)|Enter the message release number. (Minimum, one character; maximum, three characters).|
-|UNH2.5 (ASSOCIATED ASSIGNED CODE)|Enter the assigned code. (Maximum, six characters. Must be alphanumeric).|
-|UNG2.1 (APP SENDER ID)|Enter an alphanumeric value with a minimum of one character and a maximum of 35 characters.|
-|UNG2.2 (APP SENDER CODE QUALIFIER)|Enter an alphanumeric value, with a maximum of four characters.|
-|SCHEMA|Select the previously uploaded schema you want to use from your associated Integration Account.|
+|UNH2.1(유형)|트랜잭션 집합 유형을 선택합니다.|
+|UNH2.2(버전)|메시지 버전 번호를 입력합니다. (최소 1자, 최대 3자)|
+|UNH2.3(릴리스)|메시지 릴리스 번호를 입력합니다. (최소 1자, 최대 3자)|
+|UNH2.5(연결 할당 코드)|할당된 코드를 입력합니다. (최대 6자. 영숫자여야 함)|
+|UNG2.1(앱 보낸 사람 ID)|1 ~ 35자의 영숫자 값을 입력합니다.|
+|UNG2.2(앱 보낸 사람 코드 한정자)|최대 4자의 영숫자 값을 입력합니다.|
+|스키마|연결된 통합 계정으로부터 사용하려는 이전에 업로드한 스키마를 선택합니다.|
 
-### <a name="control-numbers"></a>Control Numbers
+### 컨트롤 번호
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Disallow Interchange Control Number duplicates|Select this checkbox to block duplicate interchanges. If selected, the EDIFACT Decode Action checks that the interchange control number (UNB5) for the received interchange does not match a previously processed interchange control number. If a match is detected, then the the interchange is not processed.
-|Check for duplicate UNB5 every (days)|If you opted to disallow duplicate interchange control numbers, you can specify the number of days at which the check is performed by giving the appropriate value for **Check for duplicate UNB5 every (days)** option.|
-|Disallow Group control number duplicates|Select this checkbox to block interchanges with duplicate group control numbers (UNG5).|
-|Disallow Transaction set control number duplicates|Select this checkbox to block interchanges with duplicate transaction set control numbers (UNH1).|
-|EDIFACT Acknowledgement Control Number|To designate the transaction set reference numbers to be used in an acknowledgment, enter a value for the prefix, a range of reference numbers, and a suffix.|
+|교환 컨트롤 번호 중복 허용 안 함|중복 교환을 차단하려면 이 확인란을 선택합니다. 이 확인란을 선택한 경우 EDIFACT 디코딩 작업에서 수신된 교환의 교환 컨트롤 번호(UNB5)가 이전에 처리된 교환 컨트롤 번호와 일치하지 않는지 확인합니다. 두 번호가 일치하는 경우 교환은 처리되지 않습니다.
+|(일)마다 중복 UNB5 확인|중복된 교환 컨트롤 번호를 허용하지 않도록 선택한 경우 **(일)마다 중복 UNB5 확인**에 대해 적합한 값을 지정하여 확인을 수행하는 일 수를 지정할 수 있습니다.|
+|그룹 컨트롤 번호 중복 허용 안 함|중복 그룹 컨트롤 번호(UNG5)가 있는 교환을 차단하려면 이 확인란을 선택합니다.|
+|트랜잭션 집합 컨트롤 번호 중복 허용 안 함|중복 트랜잭션 집합 컨트롤 번호(UNH1)가 있는 교환을 차단하려면 이 확인란을 선택합니다.|
+|EDIFACT 승인 컨트롤 번호|승인에 사용할 트랜잭션 집합 참조 번호를 지정하려면 접두사, 참조 번호의 범위 및 접미사에 대한 값을 입력합니다.|
 
-### <a name="validations"></a>Validations
+### 유효성 검사
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Message Type|Specify the message type. As each validation row is completed, another will be automatically added. If no rules are specified, then the row marked as default is used for validation.|
-|EDI Validation|Select this check box to perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators.|
-|Extended Validation|Select this check box to enable extended (XSD) validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation.|
-|Allow Leading/Trailing Zeroes|Select **Allow** to allow leading/trailing zeros; **NotAllowed** to not allow leading/trailing zeros, or **Trim** to trim the leading and trailing zeroes.|
-|Trim Leading/Trailing Zeroes|Select this check box to trim any leading or trailing zeroes|
-|Trailing Separator Policy|Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid. Select **Optional** to accept interchanges with or without trailing delimiters and separators. Select **Mandatory** if the received interchange must contain trailing delimiters and separators.|
+|메시지 유형|메시지 유형을 지정합니다. 각 유효성 검사 행이 완료되면 다른 행이 자동으로 추가됩니다. 규칙이 지정되지 않은 경우 기본으로 표시된 행이 유효성 검사에 사용됩니다.|
+|EDI 유효성 검사|이 확인란을 선택하여 스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다.|
+|확장 유효성 검사|이 확인란을 선택하여 교환 발신자로부터 받은 교환에 대해 확장(XSD) 유효성 검사를 수행할 수 있습니다. 이 유효성 검사에는 XSD 데이터 형식 유효성 검사 외에 필드 길이, 옵션 및 반복 횟수 유효성 검사도 포함됩니다.|
+|선행/후행 0 허용|**허용**을 선택하여 선행/후행 0을 허용하거나, **허용 안 함**을 선택하여 선행/후행 0을 허용하지 않거나 **자르기**를 선택하여 선행/후행 0을 자릅니다.|
+|선행/후행 0 자르기|이 확인란을 선택하여 선행 또는 후행 0을 자릅니다.|
+|후행 구분 기호 정책|교환 발신자로부터 받은 교환에 후행 구분 기호를 허용하지 않을 경우 **허용 안 함**을 선택합니다. 이 경우 교환에 후행 구분 기호가 포함되면 잘못된 것으로 선언됩니다. 후행 구분 기호 존재 여부에 관계없이 교환을 허용하려면 **옵션**을 선택합니다. 수신된 교환에 후행 구분 기호를 반드시 포함해야 하는 경우 **필수**를 선택합니다.|
 
-### <a name="internal-settings"></a>Internal Settings
+### 내부 설정
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Create empty XML tags if trailing separators are allowed|Select this check box to have the interchange sender include empty XML tags for trailing separators.|
-|Inbound batching processing|Options include:</br></br>**Split Interchange as Transaction Sets - suspend Transaction Sets on Error**: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, if one or more transaction sets in the interchange fail validation, then only those transaction sets are suspended. Split Interchange as Transaction Sets - suspend Interchange on Error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, if one or more transaction sets in the interchange fail validation, then the entire interchange will be suspended.</br></br>**Preserve Interchange - suspend Transaction Sets on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then only those transaction sets are suspended, while all other transaction sets are processed.</br></br>**Preserve Interchange - suspend Interchange on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then the entire interchange is suspended.|
+|후행 구분 기호가 허용되는 경우 빈 XML 태그 만들기|교환 발신자가 후행 구분 기호에 대해 빈 XML 태그를 포함하도록 하려면 이 확인란을 선택합니다.|
+|인바운드 일괄 처리|옵션은 다음과 같습니다.</br></br>**교환을 트랜잭션 집합으로 분할 - 오류 시 트랜잭션 집합 일시 중단**: 트랜잭션 집합에 적합한 봉투를 적용하여 교환의 각 트랜잭션 집합을 개별 XML 문서로 구문 분석합니다. 이 옵션을 사용할 경우 교환에 포함된 하나 이상의 트랜잭션 집합에 대한 유효성 검사가 실패하는 경우 해당 트랜잭션 집합만 일시 중단됩니다. 교환을 트랜잭션 집합으로 분할 - 오류 시 교환 일시 중단: 적합한 봉투를 적용하여 교환의 각 트랜잭션 집합을 개별 XML 문서로 구문 분석합니다. 이 옵션을 사용하는 경우 교환에 포함된 하나 이상의 트랜잭션 집합 유효성 검사가 실패하면 전체 교환이 일시 중단됩니다.</br></br>**교환 유지 - 오류 시 트랜잭션 집합 일시 중단**: 교환을 그대로 유지하고 전체 배치 교환에 대해 XML 문서를 만듭니다. 이 옵션을 사용하는 경우 교환에 포함된 하나 이상의 트랜잭션 집합 유효성 검사가 실패하면 해당 트랜잭션 집합만 일시 중단되고 다른 모든 트랜잭션 집합은 처리됩니다.</br></br>**교환 유지 - 오류 시 교환 일시 중단**: 교환을 그대로 유지하고 전체 배치 교환에 대해 XML 문서를 만듭니다. 이 옵션을 사용하면 교환에 포함된 하나 이상의 트랜잭션 집합에 대한 유효성 검사가 실패하는 경우 전체 교환은 일시 중단됩니다.|
 
-Your agreement is ready to handle incoming messages that conform to the settings you selected.
+규약은 선택한 설정에 맞는 들어오는 메시지를 처리할 준비가 되었습니다.
 
-To configure the settings that handle messages you send to partners:  
-10. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
+파트너에게 보내는 메시지를 처리하는 설정을 구성하려면
+10. **송신 설정**을 선택하여 규약을 통해 전송된 메시지를 처리하는 방법을 구성합니다.
 
-The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers and Validation. 
+송신 설정 컨트롤은 식별자, 승인, 스키마, 봉투, 문자 집합 및 구분 기호, 컨트롤 번호, 유효성 검사 등의 섹션으로 구분됩니다.
 
-Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-3.png)    
-11. Select the **OK** button to save your settings.  
+다음은 이러한 컨트롤의 보기입니다. 이 규약을 통해 파트너에게 보내는 메시지를 처리하는 방식을 기준으로 항목을 선택합니다. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-3.png)
+11. **확인** 단추를 선택하여 설정을 저장합니다.
 
-### <a name="identifiers"></a>Identifiers
-|Property|Description |
+### 식별자
+|속성|설명 |
 |----|----|
-|UNB1.2 (Syntax version)|Select a value between **1** and **4**.|
-|UNB2.3 (Sender Reverse Routing Address)|Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters.|
-|UNB3.3 (Recipient Reverse Routing Address)|Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters.|
-|UNB6.1 (Recipient Reference Password)|Enter an alphanumeric value with a minimum of one and a maximum of 14 characters.|
-|UNB6.2 (Recipient Reference Qualifier)|Enter an alphanumeric value with a minimum of one character and a maximum of two characters.|
-|UNB7 (Application Reference ID)|Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters|
+|UNB1.2(구문 버전)|**1**과 **4** 사이의 값을 선택합니다.|
+|UNB2.3(보낸 사람 역라우팅 주소)|1 ~ 14자의 영숫자 값을 입력합니다.|
+|UNB3.3(받는 사람 역라우팅 주소)|1 ~ 14자의 영숫자 값을 입력합니다.|
+|UNB6.1(받는 사람 참조 암호)|1 ~ 14자의 영숫자 값을 입력합니다.|
+|UNB6.2(받는 사람 참조 한정자)|1 ~ 2자의 영숫자 값을 입력합니다.|
+|UNB7(응용 프로그램 참조 ID)|1 ~ 14자의 영숫자 값을 입력합니다.|
 
-### <a name="acknowledgment"></a>Acknowledgment
-|Property|Description |
+### 승인
+|속성|설명 |
 |----|----|
-|Receipt of Message (CONTRL)|Select this checkbox if the hosted partner expects to receive to receive a technical (CONTRL) acknowledgment. This setting specifies that the hosted partner, who is sending the message, requests an acknowledgement from the guest partner.|
-|Acknowledgement (CONTRL)|Select this checkbox if the hosted partner expects to receive a functional (CONTRL) acknowledgment. This setting specifies that the hosted partner, who is sending the message, requests an acknowledgement from the guest partner.|
-|Generate SG1/SG4 loop for accepted transaction sets|If you chose to request a functional acknowledgement, select this checkbox to force generation of SG1/SG4 loops in functional CONTRL acknowledgments for accepted transaction sets.|
+|메시지(CONTRL) 수신|호스트 파트너가 기술(CONTRL) 승인을 받을 것으로 예상하는 경우 이 확인란을 선택합니다. 이 설정은 메시지를 보내는 호스트 파트너가 게스트 파트너의 승인을 요청하도록 지정합니다.|
+|승인(CONTRL)|호스트 파트너가 기능(CONTRL) 승인을 받을 것으로 예상하는 경우 이 확인란을 선택합니다. 이 설정은 메시지를 보내는 호스트 파트너가 게스트 파트너의 승인을 요청하도록 지정합니다.|
+|허용된 트랜잭션 집합에 대해 SG1/SG4 루프 생성|기능 승인을 요청하기로 선택한 경우 허용된 트랜잭션 집합에 대한 기능 CONTRL 승인에서 SG1/SG4 루프를 강제로 생성하려면 이 확인란을 선택합니다.|
 
-### <a name="schemas"></a>Schemas
-|Property|Description |
+### 스키마
+|속성|설명 |
 |----|----|
-|UNH2.1 (TYPE)|Select a transaction set type.|
-|UNH2.2 (VERSION)|Enter the message version number.|
-|UNH2.3 (RELEASE)|Enter the message release number.|
-|SCHEMA|Select the schema to use. Schemas are located in your integration account. To access your schemas, first link your integration account to your Logic app.|
+|UNH2.1(유형)|트랜잭션 집합 유형을 선택합니다.|
+|UNH2.2(버전)|메시지 버전 번호를 입력합니다.|
+|UNH2.3(릴리스)|메시지 릴리스 번호를 입력합니다.|
+|스키마|사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마에 액세스하려면 먼저 통합 계정을 논리 앱에 연결합니다.|
 
-### <a name="envelopes"></a>Envelopes
-|Property|Description |
+### 봉투
+|속성|설명 |
 |----|----|
-|UNB8 (Processing Priority Code)|Enter an alphabetical value which is not more than one character long.|
-|UNB10 (Communication Agreement)|Enter an alphanumeric value with a minimum of one character and a maximum of 40 characters.|
-|UNB11 (Test Indicator)|Select this checkbox to indicate that the interchange generated is test data|
-|Apply UNA Segment (Service String Advice)|Select this checkbox to generate a UNA segment for the interchange to be sent.|
-|Apply UNG Segments (Function Group Header)|Select this checkbox to create grouping segments in the functional group header in the messages sent to the guest partner. The following values are used to create the UNG segments:</br></br>For **UNG1**, enter an alphanumeric value with a minimum of one character and a maximum of six characters.</br></br>For **UNG2.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters.</br></br>For **UNG2.2**, enter an alphanumeric value, with a maximum of four characters.</br></br>For **UNG3.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters.</br></br>For **UNG3.2**, enter an alphanumeric value, with a maximum of four characters.</br></br>For **UNG6**, enter an alphanumeric value with a minimum of one and a maximum of three characters.</br></br>For **UNG7.1**, enter an alphanumeric value with a minimum of one character and a maximum of three characters.</br></br>For **UNG7.2**, enter an alphanumeric value with a minimum of one character and a maximum of three characters.</br></br>For **UNG7.3**, enter an alphanumeric value with a minimum of 1 character and a maximum of 6 characters.</br></br>For **UNG8**, enter an alphanumeric value with a minimum of one character and a maximum of 14 characters.|
+|UNB8(처리 우선 순위 코드)|1자를 넘지 않는 문자는 영문자 값을 입력합니다.|
+|UNB10(통신 규약)|1 ~ 40자의 영숫자 값을 입력합니다.|
+|UNB11(테스트 표시기)|생성된 교환이 테스트 데이터임을 표시하려면 이 확인란을 선택합니다.|
+|UNA 세그먼트 적용(서비스 문자열 도움말)|보낼 교환에 대해 UNA 세그먼트를 생성하려면 이 확인란을 선택합니다.|
+|UNG 세그먼트 적용(기능 그룹 헤더)|게스트 파트너에게 보낸 메시지의 기능 그룹 헤더에 그룹화 세그먼트를 만들려면 이 확인란을 선택합니다. UNG 세그먼트를 만드는 데 다음 값이 사용됩니다.</br></br>**UNG1**의 경우, 1 ~ 6자의 영숫자 값을 입력 합니다.</br></br>**UNG2.1**의 겨우, 1 ~ 35자의 영숫자 값을 입력합니다.</br></br>**UNG2.2**의 경우, 최대 4 자의 영숫자 값을 입력합니다.</br></br>**UNG3.1**의 경우, 1 ~ 35자의 영숫자 값을 입력합니다.</br></br>**UNG3.2**의 경우, 최대 4자의 영숫자 값을 입력합니다.</br></br>**UNG6**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다.</br></br>**UNG7.1**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다.</br></br>**UNG7.2**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다.</br></br>**UNG7.3**의 경우, 1 ~ 6자의 영숫자 값을 입력합니다.</br></br>**UNG8**의 경우, 1 ~ 14자의 영숫자 값을 입력합니다.|
 
-### <a name="character-sets-and-separators"></a>Character Sets and Separators
-Other than the character set, you can enter a different set of delimiters to be used for each message type. If a character set is not specified for a given message schema, then the default character set is used.
+### 문자 집합 및 구분 기호
+문자 집합 외에 각 메시지 유형에 사용할 다른 구분 기호 집합을 입력할 수 있습니다. 주어진 메시지 스키마의 문자 집합이 지정되지 않은 경우 기본 문자 집합이 사용됩니다.
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|UNB1.1 (System Identifier)|Select the EDIFACT character set to be applied on the outgoing interchange.|
-|Schema|Select a schema from the drop-down list. As each row is completed a new row will be added. For the selected schema, select the separators set to be used:</br></br>**Component element separator** – Enter a single character to separate composite data elements.</br></br>**Data Element Separator** – Enter a single character to separate simple data elements within composite data elements.</br></br></br></br>**Replacement Character** – Select this check box if the payload data contains characters that are also used as data, segment, or component separators. You can then enter a replacement character. When generating the outbound EDIFACT message, all instances of separator characters in the payload data are replaced with the specified character.</br></br>**Segment Terminator** – Enter a single character to indicate the end of an EDI segment.</br></br>**Suffix** – Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix.|
+|UNB1.1(시스템 식별자)|나가는 교환에서 적용할 EDIFACT 문자 집합을 선택합니다.|
+|스키마|드롭다운 목록에서 스키마를 선택합니다. 각 행의 완료되면 새 행이 추가됩니다. 선택한 스키마에 대해 사용할 구분 기호 집합을 선택합니다.</br></br>**구성 요소 구분 기호** – 복합 데이터 요소를 구분하는 문자 하나를 입력합니다.</br></br>**데이터 요소 구분 기호** – 복합 데이터 요소 내의 단순 데이터 요소를 구분하는 문자 하나를 입력합니다.</br></br></br></br>**대체 문자** – 데이터, 세그먼트 또는 구성 요소 구분 기호로도 사용되는 문자가 페이로드 데이터에 포함되어 있으면 이 확인란을 선택합니다. 그런 다음 대체 문자를 입력할 수 있습니다. 아웃바운드 EDIFACT 메시지를 생성할 때는 페이로드 데이터의 모든 구분 기호 문자 인스턴스가 지정한 문자로 바뀝니다.</br></br>**세그먼트 마침 표시** - EDI 세그먼트의 끝을 나타내는 문자 하나를 입력합니다.</br></br>**접미사** – 세그먼트 식별자와 함께 사용할 문자를 선택합니다. 접미사를 지정하면 세그먼트 마침 표시 데이터 요소를 비워 둘 수 있습니다. 세그먼트 마침 표시를 비워 두는 경우 접미사를 지정해야 합니다.|
 
-### <a name="control-numbers"></a>Control Numbers
-|Property|Description |
+### 컨트롤 번호
+|속성|설명 |
 |----|----|
-|UNB5 (Interchange Control Number)|Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate an outgoing interchange. The prefix and suffix are optional; the control number is required. The control number is incremented for each new message; the prefix and suffix remain the same.|
-|UNG5 (Group Control Number)|Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the group control number. The prefix and suffix are optional; the control number is required. The control number is incremented for each new message until the maximum value is reached; the prefix and suffix remain the same.|
-|UNH1 (Message Header Reference Number)|Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the message header reference number. The prefix and suffix are optional; the reference number is required. The reference number is incremented for each new message; the prefix and suffix remain the same.|
+|UNB5(교환 컨트롤 번호)|접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 나가는 교환을 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이며, 컨트롤 번호는 필수입니다. 컨트롤 번호는 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다.|
+|UNG5(그룹 컨트롤 번호)|접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 그룹 컨트롤 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이며, 컨트롤 번호는 필수입니다. 컨트롤 번호는 최대값에 도달할 때까지 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다.|
+|UNH1(메시지 헤더 참조 번호)|접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 메시지 헤더 참조 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이며, 참조 번호는 필수입니다. 참조 번호는 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다.|
 
-### <a name="validations"></a>Validations
-|Property|Description |
+### 유효성 검사
+|속성|설명 |
 |----|----|
-|Message Type|Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction-set data elements, validating data types, length restrictions, and empty data elements and training separators.|
-|EDI Validation|Select this check box to perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators.|
-|Extended Validation|Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa.|
-|Allow leading/trailing zeroes|Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed.|
-|Trim Leading/Trailing Zeroes|Selecting this option will trim the leading and trailing zeroes.|
-|Trailing separator|Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid.</br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the received interchange must contain trailing delimiters and separators.|
+|메시지 유형|이 옵션을 선택하면 교환 받는 사람에 대한 유효성을 검사할 수 있습니다. 이 유효성 검사에서는 트랜잭션 집합 데이터 요소에 대해 EDI 유효성 검사를 수행하여 데이터 유형, 길이 제한 및 빈 데이터 요소와 학습 구분 기호의 유효성을 검사합니다.|
+|EDI 유효성 검사|이 확인란을 선택하여 스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다.|
+|확장 유효성 검사|이 옵션을 선택하면 교환 보낸 사람으로부터 받은 교환에 대해 확장 유효성 검사를 수행할 수 있습니다. 이 유효성 검사에는 XSD 데이터 형식 유효성 검사 외에 필드 길이, 옵션 및 반복 횟수 유효성 검사도 포함됩니다. EDI 유효성 검사와 확장 유효성 검사는 서로 독립적으로 사용할 수 있습니다.|
+|선행/후행 0 허용|이 옵션을 선택하면 당사자로부터 받은 EDI 교환의 데이터 요소가 후행 공백으로 인해 길이 요구 사항을 준수하지 않지만, 해당 공백을 제거하면 길이 요구 사항을 준수하는 경우 해당 교환에 대한 유효성 검사가 실패하지 않도록 지정합니다.|
+|선행/후행 0 자르기|이 옵션을 선택하면 선행/후행 0이 잘립니다.|
+|후행 구분 기호|이 옵션을 선택하면 당사자로부터 받은 EDI 교환의 데이터 요소가 선행 또는 후행 0이나 후행 공백으로 인해 길이 요구 사항을 준수하지 않지만, 해당 0이나 공백을 제거하면 길이 요구 사항을 준수하는 경우 해당 교환에 대한 유효성 검사가 실패하지 않도록 지정합니다.</br></br>교환 보낸 사람으로부터 받은 교환에서 후행 구분 기호를 허용하지 않으려면 **허용 안 함**을 선택합니다. 후행 구분 기호를 포함하는 교환은 잘못된 교환으로 선언됩니다.</br></br>후행 구분 기호 포함 여부에 관계없이 교환을 수락하려면 **옵션**을 선택합니다.</br></br>받은 교환에 후행 구분 기호가 포함되어야 하도록 지정하려면 **필수**를 선택합니다.|
 
-After you select **OK** on the open blade:  
-12. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-4.png)   
+열린 블레이드에서 **확인**을 선택한 후에 다음을 수행합니다.
+12. 통합 계정 블레이드에서 **규약** 타일을 선택하면 새로 추가한 규약이 나열됩니다. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-4.png)
 
-## <a name="learn-more"></a>Learn more
-- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+## 자세한 정보
+- [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

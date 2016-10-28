@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Deactivate and delete a StorSimple Virtual Array | Microsoft Azure"
-   description="Describes how to remove StorSimple device from service by  first deactivating it and then deleting it."
+   pageTitle="StorSimple 가상 배열 비활성화 및 삭제 | Microsoft Azure"
+   description="먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,94 +15,90 @@
    ms.date="06/20/2016"
    ms.author="alkohli" />
 
+# StorSimple 가상 배열 비활성화 및 삭제
 
-# <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Deactivate and delete a StorSimple Virtual Array
+## 개요
 
-## <a name="overview"></a>Overview
+StorSimple 가상 배열을 비활성화하면 장치 및 해당 StorSimple Manager 서비스 간의 연결이 끊깁니다. 비활성화는 영구 작업이며 실행 취소할 수 없습니다. 비활성화된 장치는 StorSimple Manager 서비스에 다시 등록할 수 없습니다.
 
-When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again.
-
-You may need to deactivate and delete a StorSimple virtual device in the following scenarios:
+다음과 같은 시나리오에서 StorSimple 가상 장치를 비활성화 및 삭제해야 합니다.
 
 
-- Your device is online and you plan to fail over this device. You may need to do this if you are planning  to upgrade to a larger device. After the device data is transferred and the failover is complete, you can then delete the device.
+- 장치가 온라인 상태이고 이 장치를 장애 조치할 계획입니다. 더 큰 장치로 업그레이드하려는 경우 이 작업을 수행해야 합니다. 장치 데이터를 전송하고 장애 조치가 완료된 후 장치를 삭제할 수 있습니다.
 
-- Your device is offline and you plan to fail over this device. This may happen in the event of a disaster where due to an outage in the datacenter, your primary device is down. You plan to fail over the device to a secondary device. After the device data is transferred and the failover is complete, you can delete the device.
+- 장치가 오프라인 상태이고 이 장치를 장애 조치할 계획입니다. 데이터 센터 가동 중단으로 인해 재해가 발생한 경우 발생할 수 있으며 기본 장치가 종료됩니다. 장치를 보조 장치로 장애 조치하려고 합니다. 장치 데이터를 전송하고 장애 조치가 완료된 후 장치를 삭제할 수 있습니다.
 
-- You want to decommission the device and then delete it. 
+- 장치를 서비스 해제한 다음 삭제하려고 합니다.
  
 
-When you deactivate a device, any data that was stored locally will no longer be accessible. Only the data stored in the cloud can be recovered. If you plan to keep the device data after deactivation, then you should take a cloud snapshot of all your data before you deactivate a device. This will allow you to recover all the data at a later stage.
+장치를 비활성화하면 로컬로 저장된 데이터에 더 이상 액세스할 수 없게 됩니다. 클라우드에 저장된 데이터만 복구할 수 있습니다. 비활성화 후 장치 데이터를 유지하려는 경우 장치를 비활성화하기 전에 모든 데이터의 클라우드 스냅숏을 만들어야 합니다. 이렇게 하면 이후 단계에서 모든 데이터를 복구할 수 있습니다.
 
 
-This tutorial explains how to:
+이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
-- Deactivate a device 
-- Delete a deactivated device
+- 장치 비활성화 
+- 비활성화된 장치 삭제
 
 
-## <a name="deactivate-a-device"></a>Deactivate a device
+## 장치 비활성화
 
-Perform the following steps to deactivate your device.
+다음 단계를 수행하여 장치를 비활성화합니다.
 
-#### <a name="to-deactivate-the-device"></a>To deactivate the device   
+#### 장치를 비활성화하려면   
 
-1. Go to **Devices** page. Select the device that you wish to deactivate.
+1. **장치 페이지** 페이지로 이동합니다. 비활성화하려는 장치를 선택합니다.
 
-    ![Select device to deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate1m.png)
+	![비활성화할 장치 선택](./media/storsimple-ova-deactivate-and-delete-device/deactivate1m.png)
 
-3. At the bottom of the page, click **Deactivate**.
+3. 페이지 맨 아래에서 **비활성화**를 클릭합니다.
 
-    ![Click deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate2m.png)
+	![비활성화 클릭](./media/storsimple-ova-deactivate-and-delete-device/deactivate2m.png)
 
-4. A confirmation message will appear. Click **Yes** to continue. 
+4. 확인 메시지가 표시됩니다. **예**를 클릭하여 계속합니다.
 
-    ![Confirm deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate3m.png)
+	![비활성화 확인](./media/storsimple-ova-deactivate-and-delete-device/deactivate3m.png)
 
-    The deactivate process will start and take a few minutes to complete.
+	비활성화 프로세스가 시작되고 완료하는 데 몇 분이 소요됩니다.
 
-    ![Deactivate in progress](./media/storsimple-ova-deactivate-and-delete-device/deactivate4m.png)
+	![진행 중인 비활성화](./media/storsimple-ova-deactivate-and-delete-device/deactivate4m.png)
 
-3. After deactivation, the list of the devices will be refreshed. 
+3. 비활성화 후 장치 목록이 새로 고쳐집니다.
 
-    ![Deactivate complete](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
+	![비활성화 완료](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
 
-    You can now delete this device. 
+	이제 이 장치를 삭제할 수 있습니다.
 
-## <a name="delete-the-device"></a>Delete the device
+## 장치 삭제
 
-A device has to be first deactivated in order to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device will however remain in the cloud. Be aware that this data will then accrue charges. 
+삭제하려면 먼저 장치를 비활성화해야 합니다. 장치를 삭제하면 서비스에 연결된 장치 목록에서 제거됩니다. 그러면 서비스에서 삭제된 장치를 더 이상 관리할 수 없습니다. 그러나 장치와 연결된 데이터는 클라우드에 유지됩니다. 이 데이터는 요금이 부과됩니다.
 
-Complete the following steps to delete the device:
+장치를 삭제하려면 다음 단계를 완료합니다.
 
-#### <a name="to-delete-the-device"></a>To delete the device 
+#### 장치를 삭제하려면 
 
- 1. On the StorSimple Manager service **Devices** page, select a deactivated device that you wish to delete.
+ 1. StorSimple Manager 서비스 **장치**페이지에서 삭제할 비활성화된 장치를 선택합니다.
 
-    ![Select device to delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
+	![삭제할 장치 선택](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
 
- 2. On the bottom on the page, click **Delete**.
+ 2. 페이지 맨 아래에서 **삭제**를 클릭합니다.
  
-    ![Click delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate6m.png)
+	![삭제 클릭](./media/storsimple-ova-deactivate-and-delete-device/deactivate6m.png)
 
- 3. You will be prompted for confirmation. Type the device name to confirm device deletion. Note that deleting the device will not delete the cloud data associated with the device. Click the check icon to continue.
+ 3. 확인하라는 메시지가 표시됩니다. 장치 이름을 입력하여 장치 삭제를 확인합니다. 장치 삭제는 장치와 연결된 클라우드 데이터를 삭제하지 않습니다. 확인 아이콘을 클릭하여 계속합니다.
  
-    ![Confirm delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate7m.png) 
+	![삭제 확인](./media/storsimple-ova-deactivate-and-delete-device/deactivate7m.png)
 
- 5. It may take a few minutes for the device to be deleted. 
+ 5. 장치를 삭제하는 데는 몇 분 정도 걸릴 수 있습니다.
 
-    ![Delete in progress](./media/storsimple-ova-deactivate-and-delete-device/deactivate8m.png)
+	![진행 중인 삭제](./media/storsimple-ova-deactivate-and-delete-device/deactivate8m.png)
 
-    After the device is deleted, the list of devices will be refreshed.
+ 	장치를 삭제한 후 장치 목록이 새로 고쳐집니다.
 
-    ![Delete complete](./media/storsimple-ova-deactivate-and-delete-device/deactivate9m.png)
-
-
-## <a name="next-steps"></a>Next steps
-
-- To learn more about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md). 
+	![삭제 완료](./media/storsimple-ova-deactivate-and-delete-device/deactivate9m.png)
 
 
-<!--HONumber=Oct16_HO2-->
+## 다음 단계
 
+- StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-manager-service-administration.md)로 이동하세요. 
 
+<!---HONumber=AcomDC_0622_2016-->

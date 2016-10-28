@@ -1,135 +1,147 @@
 <properties
-    pageTitle="Traffic Manager Endpoint Types | Microsoft Azure"
-    description="This article explains different types of endpoints that can be used with Azure Traffic Manager"
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
+   pageTitle="트래픽 관리자 끝점 유형 | Microsoft Azure"
+   description="이 문서에서는 Azure 트래픽 관리자와 함께 사용할 수 있는 다양한 유형의 끝점을 설명합니다."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn" />
 <tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="06/08/2016"
+   ms.author="sewhee" />
 
+# 트래픽 관리자 끝점
 
-# <a name="traffic-manager-endpoints"></a>Traffic Manager endpoints
+Microsoft Azure 트래픽 관리자를 사용하면 전 세계의 서로 다른 데이터 센터 또는 다른 위치에서 실행 중인 응용 프로그램 배포에 사용자 트래픽을 분산하는 방법을 제어할 수 있습니다.
 
-Microsoft Azure Traffic Manager allows you to control how network traffic is distributed to application deployments running in different datacenters. You configure each application deployment as an 'endpoint' in Traffic Manager. When Traffic Manager receives a DNS request, it chooses an available endpoint to return in the DNS response. Traffic manager bases the choice on the current endpoint status and the traffic-routing method. For more information, see [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md).
+각 응용 프로그램 배포는 트래픽 관리자에서 '끝점'으로 구성되어야 합니다. 트래픽 관리자가 DNS 요청을 받으면 이러한 끝점 중 하나를 선택하여 현재 끝점 가용성 및 선택한 트래픽 라우팅 방법에 따라 DNS 응답에서 반환합니다. 자세한 내용은 [트래픽 관리자 작동 방식](traffic-manager-how-traffic-manager-works.md)을 참조하세요.
 
-There are three types of endpoint supported by Traffic Manager:
+이 페이지에서는 트래픽 관리자가 서로 다른 형식의 끝점을 지원하는 방법을 설명합니다.
 
-- **Azure endpoints** are used for services hosted in Azure.
-- **External endpoints** are used for services hosted outside Azure, either on-premises or with a different hosting provider.
-- **Nested endpoints** are used to combine Traffic Manager profiles to create more flexible traffic-routing schemes to support the needs of larger, more complex deployments.
+## 트래픽 관리자 끝점 유형
 
-There is no restriction on how endpoints of different types are combined in a single Traffic Manager profile. Each profile can contain any mix of endpoint types.
+트래픽 관리자에서 지원되는 끝점에는 세 가지 종류가 있습니다.
 
-The following sections describe each endpoint type in greater depth.
+- **Azure 끝점**은 Azure에서 호스팅되는 서비스에 사용됩니다.
+- **외부 끝점**은 온-프레미스 또는 다른 호스팅 공급자 중 하나로 Azure 외부에서 호스팅되는 서비스에 사용됩니다.
+- **중첩 끝점**은 더 크고 복잡한 배포에 대한 요구 사항을 지원하는 더 유연한 트래픽 라우팅 체계를 만들도록 트래픽 관리자 프로필을 결합하는 데 사용됩니다.
 
-## <a name="azure-endpoints"></a>Azure endpoints
+단일 트래픽 관리자 프로필에서 서로 다른 유형의 끝점을 결합하는 방법에는 제한이 없습니다. 각 프로필은 모든 끝점 유형의 혼합을 포함할 수 있습니다.
 
-Azure endpoints are used for Azure-based services in Traffic Manager. The following Azure resource types are supported:
+다음 섹션에서는 각 끝점 유형을 자세히 설명합니다.
 
-- 'Classic' IaaS VMs and PaaS cloud services.
-- Web Apps
-- PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer). The publicIpAddress must have a DNS name assigned to be used in a Traffic Manager profile.
+### Azure 끝점
 
-PublicIPAddress resources are Azure Resource Manager resources. They do not exist in the classic deployment model. Thus they are only supported in Traffic Manager's Azure Resource Manager experiences. The other endpoint types are supported via both Resource Manager and the classic deployment model.
+Azure 끝점은 트래픽 관리자에서 Azure 기반 서비스를 구성하는 데 사용됩니다. Azure 끝점은 현재 다음과 같은 Azure 리소스 유형을 지원합니다.
 
-When using Azure endpoints, Traffic Manager detects when a 'Classic' IaaS VM, cloud service, or a Web App is stopped and started. This status is reflected in the endpoint status. See [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status) for details. When the underlying service is stopped, Traffic Manager does not perform endpoint health checks or direct traffic to the endpoint. No Traffic Manager billing events occur for the stopped instance. When the service is restarted, billing resumes and the endpoint is eligible to receive traffic. This detection does not apply to PublicIpAddress endpoints.
+- '클래식' IaaS VM 및 PaaS 클라우드 서비스.
+- 웹앱
+- PublicIPAddress 리소스(직접 또는 Azure Load Balancer를 통해 VM에 연결할 수 있음) publicIpAddress에는 트래픽 관리자에서 사용되도록 지정된 DNS 이름이 있어야 합니다.
 
-## <a name="external-endpoints"></a>External endpoints
+PublicIPAddress 리소스는 Azure Resource Manager 리소스이며 Azure Service Management API에 존재하지 않습니다. 따라서 트래픽 관리자의 Azure Resource Manager 환경에서만 지원됩니다. 다른 끝점 유형은 트래픽 관리자에서 리소스 관리자 및 서비스 관리 환경을 통해 지원됩니다.
 
-External endpoints are used for services outside of Azure. For example, a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile. Combining Azure endpoints with External endpoints enables various scenarios:
+Azure 끝점을 사용하는 경우 트래픽 관리자는 '클래식' IaaS VM 또는 PaaS 클라우드 서비스 또는 웹앱이 중지되고 시작되는 시기를 감지합니다. 끝점 상태에서 반영됩니다(자세한 내용은 [트래픽 관리자 끝점 모니터링](traffic-manager-monitoring.md#endpoint-and-profile-status) 참조). 기본 서비스가 중지되면 트래픽 관리자는 더 이상 끝점 상태 검사에 대한 요금을 청구하지 않고 끝점에 트래픽을 보내지 않습니다. 서비스가 다시 시작되면 청구를 다시 시작하고 끝점은 트래픽을 받을 수 있게 됩니다. PublicIpAddress 끝점에는 적용되지 않습니다.
 
-- In either an active-active or active-passive failover model, use Azure to provide increased redundancy for an existing on-premises application.
-- To reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](traffic-manager-routing-methods.md#performance-traffic-routing-method).
-- Use Azure to provide additional capacity for an existing on-premises application, either continuously or as a 'burst-to-cloud' solution to meet a spike in demand.
+### 외부 끝점
 
-In certain cases, it is useful to use External endpoints to reference Azure services (for examples, see the [FAQ](#faq)). In this case, health checks are billed at the Azure endpoints rate, not the External endpoints rate. However, unlike Azure endpoints, if you stop or delete the underlying service, health check billing continues until you disable or delete the endpoint in Traffic Manager.
+외부 끝점은 Azure 외부의 서비스(예: 온-프레미스에서 호스팅되는 서비스 또는 다른 공급자로 호스팅되는 서비스)에 트래픽을 보내도록 트래픽 관리자를 구성하는 데 사용됩니다.
 
-## <a name="nested-endpoints"></a>Nested endpoints
+외부 끝점은 자체적으로 사용되거나 동일한 트래픽 관리자 프로필에서 Azure 끝점과 결합될 수 있습니다. 외부 끝점과 Azure 끝점을 결합하여 다양한 시나리오를 사용할 수 있습니다.
 
-Nested endpoints combine multiple Traffic Manager profiles to create flexible traffic-routing schemes and support the needs of larger, complex deployments. With Nested endpoints, a 'child' profile is added as an endpoint to a 'parent' profile. Both the child and parent profiles can contain other endpoints of any type, including other nested profiles. For more information, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
+- 활성-활성 또는 활성-수동 장애 조치(Failover) 모델에서 기존 온-프레미스 응용 프로그램에 대한 향상된 중복성을 제공하는 데 Azure 사용.
+- 응용 프로그램 대기 시간을 줄이고 최종 사용자에 대한 성능을 향상하도록 [트래픽 관리자 '성능' 트래픽 라우팅](traffic-manager-routing-methods.md#performance-traffic-routing-method)과 함께 추가 지리적 위치에 대한 기존 온-프레미스 응용 프로그램을 확장하는 데 Azure 사용.
+- 지속적으로 또는 스파이크 수요를 처리하기 위해 ‘클라우드로 버스트'로 기존 온-프레미스 응용 프로그램에 대한 추가 용량을 제공하는 데 Azure 사용.
 
-## <a name="web-apps-as-endpoints"></a>Web Apps as endpoints
+경우에 따라 Azure 서비스를 참조하는 데 외부 끝점을 사용하는 것이 유용할 수 있습니다(예는 [FAQ](#faq) 참조). 이 경우 상태 검사에 대한 청구는 외부 끝점 비율이 아닌 Azure 끝점 비율입니다. 그러나 Azure 끝점과 달리 기본 서비스를 중지하거나 삭제하는 경우 트래픽 관리자에서 끝점을 명시적으로 비활성화하거나 삭제하기 전까지 해당 상태 검사에 대한 요금이 계속해서 청구됩니다.
 
-Some additional considerations apply when configuring Web Apps as endpoints in Traffic Manager:
+### 중첩 끝점
 
-1. Only Web Apps at the 'Standard' SKU or above are eligible for use with Traffic Manager. Attempts to add a Web App of a lower SKU fail. Downgrading the SKU of an existing Web App results in Traffic Manager no longer sending traffic to that Web App.
+중첩 끝점은 더 크고 복잡한 배포에 대한 요구 사항을 지원하는 더 유연한 트래픽 라우팅 체계를 만들도록 트래픽 관리자 프로필을 결합하는 데 사용됩니다.
 
-2. When an endpoint receives an HTTP request, it uses the 'host' header in the request to determine which Web App should service the request. The host header contains the DNS name used to initiate the request, for example 'contosoapp.azurewebsites.net'. To use a different DNS name with your Web App, the DNS name must be registered as a custom domain name for the App. When adding a Web App endpoint as an Azure endpoint, the Traffic Manager profile DNS name is automatically registered for the App. This registration is automatically removed when the endpoint is deleted.
+중첩 끝점을 사용하면 'child' 프로필이 'parent' 프로필에 끝점으로 추가되어 계층을 만듭니다. 자식 및 부모 프로필은 다른 중첩 프로필을 포함하여 모든 유형의 다른 끝점을 포함할 수 있습니다.
 
-3. Each Traffic Manager profile can have at most one Web App endpoint from each Azure region. To work around for this constraint, you can configure a Web App as an External endpoint. For more information, see the [FAQ](#faq).
+자세한 내용은 [중첩 트래픽 관리자 프로필](traffic-manager-nested-profiles.md)을 참조하세요.
 
-## <a name="enabling-and-disabling-endpoints"></a>Enabling and disabling endpoints
+## 끝점으로 웹앱
 
-Disabling an endpoint in Traffic Manager can be useful to temporarily remove traffic from an endpoint that is in maintenance mode or being redeployed. Once the endpoint is running again, it can be re-enabled.
+트래픽 관리자에서 끝점으로 웹앱을 구성하는 경우 몇 가지 추가 고려 사항이 적용됩니다.
 
-Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, all of which are supported in both Resource Manager and the classic deployment model.
+1. '표준' SKU 이상에서의 웹앱만 트래픽 관리자와 함께 사용할 수 있습니다. 더 낮은 SKU의 웹앱을 추가하도록 트래픽 관리자로 호출에 실패합니다. 기존 웹앱의 SKU를 다운그레이드하면 트래픽 관리자는 해당 웹앱에 더 이상 트래픽을 전송하지 않으며 끝점은 트래픽 관리자에서 제거될 수 있습니다.
 
->[AZURE.NOTE] Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App remains running and able to receive traffic even when disabled in Traffic Manager. Traffic can be addressed directly to the service instance rather than via the Traffic Manager profile DNS name. For more information, see [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
+2. 웹앱 서비스에서 HTTP 요청을 받으면 요청의 '호스트' 헤더를 사용하여 요청을 처리해야 하는 웹앱을 결정합니다. 호스트 헤더는 요청을 시작하는 데 사용된 DNS 이름을 포함합니다(예: 'contosoapp.azurewebsites.net'). 웹앱에 다른 DNS 이름을 사용하려면 DNS 이름은 앱에 대한 사용자 지정 도메인으로 등록되어야 합니다. Azure 끝점으로 트래픽 관리자 프로필에 웹앱 끝점을 추가하면 트래픽 관리자 프로필 DNS 이름은 앱에 대한 사용자 지정 도메인으로 자동으로 등록됩니다. 이 등록은 끝점이 삭제될 때 자동으로 제거됩니다.
 
-The current eligibility of each endpoint to receive traffic depends on the following factors:
+3. 일반적으로 웹앱은 Azure 끝점으로 구성됩니다. 그러나 외부 끝점을 사용하여 웹앱을 구성하는 것이 유용한 경우가 있습니다(예는 다음 항목 참조). 리소스 관리자 트래픽 관리자 환경을 사용하는 경우 웹앱은 트래픽 관리자에서 외부 끝점으로 구성될 수 있습니다. 이는 서비스 관리 환경을 통해 지원되지 않습니다.
 
-- The profile status (enabled/disabled)
-- The endpoint status (enabled/disabled)
-- The results of the health checks for that endpoint
+4. 각 트래픽 관리자 프로필은 각 Azure 지역에서 최대 하나의 웹앱 끝점을 가질 수 있습니다. 이 제약 조건에 대한 해결책은 [FAQ](#faq)에서 제공됩니다.
 
-For details, see [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status).
+## 끝점 활성화 및 비활성화
 
->[AZURE.NOTE] Since Traffic Manager works at the DNS level, it is unable to influence existing connections to any endpoint. When an endpoint is unavailable, Traffic Manager directs new connections to another available endpoint. However, the host behind the disabled or unhealthy endpoint may continue to receive traffic via existing connections until those sessions are terminated. Applications should limit the session duration to allow traffic to drain from existing connections.
+트래픽 관리자에서 끝점 비활성화는 유지 관리 모드이거나 다시 배포할 예정인 끝점에서 트래픽을 일시적으로 제거하는 데 매우 유용합니다. 끝점이 다시 작동하여 실행 중이면 다시 활성화할 수 있습니다.
 
-If all endpoints in a profile are disabled, or if the profile itself is disabled, then Traffic Manager sends an 'NXDOMAIN' response to a new DNS query.
+끝점은 리소스 관리자 및 서비스 관리 환경 모두에서 지원되는 트래픽 관리자 포털, PowerShell, CLI 또는 REST API를 통해 활성화 및 비활성화될 수 있습니다.
 
-## <a name="faq"></a>FAQ
+>[AZURE.NOTE] Azure 끝점을 해제해도 Azure의 배포 상태에는 영향을 주지 않습니다. Azure 서비스(예: VM 또는 웹앱)는 트래픽이 트래픽 관리자 프로필 DNS 이름을 통해서가 아닌 해당 서비스로 직접 주소가 지정된 경우 실행 상태를 유지하고 트래픽 관리자에서 비활성화되었을 때에도 트래픽을 수신할 수 있습니다. 자세한 내용은 [트래픽 관리자 작동 방식](traffic-manager-how-traffic-manager-works.md)을 참조하세요.
 
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions?"></a>Can I use Traffic Manager with endpoints from multiple subscriptions?
+끝점이 비활성화되면 DNS 응답에 더 이상 반환되지 않고 따라서 끝점에 트래픽을 보내지 않습니다. 또한 끝점에 대한 상태 검사는 중지되고 더 이상 요금이 청구되지 않습니다. 끝점 비활성화는 끝점을 삭제하는 것과 동일하고 이를 제외하고 다시 활성화하는 것이 쉽습니다.
 
-Using endpoints from multiple subscriptions is not possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It is not possible to use Web Apps from multiple subscriptions with the same domain name.
+트래픽을 받는 각 끝점의 현재 자격은 프로필 상태(사용/사용 안 함), 끝점 상태(사용/사용 안 함) 및 해당 끝점에 대한 상태 검사의 결과에 따라 다릅니다. 자세한 내용은 [트래픽 관리자 끝점 모니터링](traffic-manager-monitoring.md#endpoint-and-profile-status)을 참조하세요.
 
-For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. How you configure Traffic Manager depends on whether you are using the classic deployment model or the Resource Manager experience.
+>[AZURE.NOTE] 트래픽 관리자는 DNS 수준에서 작동하므로 모든 끝점에 대한 기존 연결에 영향을 미칠 수 없습니다. 끝점 간에 트래픽을 전달할 때는(프로필 설정을 변경하거나 장애 조치 또는 장애 복구 중) 트래픽 관리자가 사용 가능한 끝점에 새 연결을 전달합니다. 그러나 다른 끝점은 해당 세션이 종료될 때까지 기존 연결을 통해 트래픽을 계속 수신할 수 있습니다. 트래픽이 기존 연결에서 비워지도록 하기 위해 응용 프로그램은 각 끝점에 사용된 세션 기간을 제한해야 합니다.
 
-- In Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
-- In the classic deployment model interface, Traffic Manager requires that Cloud Services or Web Apps configured as Azure endpoints reside in the same subscription as the Traffic Manager profile. Cloud Service endpoints in other subscriptions can be added to Traffic Manager as 'external' endpoints. These external endpoints are billed as Azure endpoints, rather than the external rate.
+프로필의 모든 끝점이 비활성화되거나 프로필 자체가 비활성화된 경우 DNS 쿼리는 'NXDOMAIN' 응답에 충족됩니다. 프로필이 삭제된 경우와 동일합니다.
 
-### <a name="can-i-use-traffic-manager-with-cloud-service-'staging'-slots?"></a>Can I use Traffic Manager with Cloud Service 'Staging' slots?
+## FAQ
 
-Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as External endpoints. Health checks are still be charged at the Azure Endpoints rate. Because the External endpoint type is in use, changes to the underlying service are not picked up automatically. With external endpoints, Traffic Manager cannot detect when the Cloud Service is stopped or deleted. Therefore, the Traffic Manager continues billing for health checks until the endpoint is disabled or deleted.
+### 여러 구독에서 끝점으로 트래픽 관리자를 사용할 수 있습니까?
+Azure 웹앱에 대해 이것이 불가능합니다. 이는 웹앱이 단일 구독 내에서만 함께 사용되는 모든 사용자 지정 도메인 이름을 사용할 것을 요구하기 때문입니다. 여러 구독에서 동일한 도메인 이름을 가지고 웹앱을 사용하는 것은 불가능하며, 따라서 트래픽 관리자와 함께 사용할 수 없습니다.
 
-### <a name="does-traffic-manager-support-ipv6-endpoints?"></a>Does Traffic Manager support IPv6 endpoints?
+다른 끝점 형식의 경우 트래픽 관리자를 둘 이상의 구독에서 끝점과 함께 사용할 수 있습니다. 이 방법은 트래픽 관리자에 Service Management API 또는 리소스 관리자 API를 사용 중인지 여부에 따라 달라집니다. [Azure 포털](https://portal.azure.com)은 리소스 관리자를 사용하고 ['클래식' 포털](https://manage.windowsazure.com)은 서비스 관리를 사용합니다.
 
-Traffic Manager does not currently provide IPv6-addressible name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints. A client does not make DNS requests directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. Then the recursive service should be able to contact the Traffic Manager name servers using IPv4.
+리소스 관리자에서 모든 구독의 끝점은 트래픽 관리자 프로필을 구성하는 사용자가 끝점에 대한 읽기 액세스가 있는 한 트래픽 관리자에 추가될 수 있습니다. 이러한 권한은 [Azure Resource Manager 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-configure.md)를 사용하여 부여될 수 있습니다.
 
-Traffic Manager responds with the DNS name of the endpoint. To support an IPv6 endpoint, a DNS AAAA record pointing the endpoint DNS name to the IPv6 address must exist. Traffic Manager health checks only support IPv4 addresses. The service needs to expose an IPv4 endpoint on the same DNS name.
+서비스 관리에서 트래픽 관리자는 트래픽 관리자 프로필과 동일한 구독에 있는 Azure 끝점으로 구성된 모든 클라우드 서비스 또는 웹앱이 필요합니다. 다른 구독의 클라우드 서비스 끝점은 '외부' 끝점으로 트래픽 관리자에 추가될 수 있습니다('내부' 끝점 비율로 요금이 청구됨).
 
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region?"></a>Can I use Traffic Manager with more than one Web App in the same region?
+### 클라우드 서비스 '스테이징' 슬롯으로 트래픽 관리자를 사용할 수 있습니까?
+예. 클라우드 서비스 '스테이징' 슬롯은 외부 끝점으로 트래픽 관리자에서 구성될 수 있습니다.
 
-Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
+끝점에서 참조하는 서비스는 Azure에 있으므로 상태 검사는 여전히 Azure 끝점에서 사용되는 비율로 요금이 청구됩니다.
 
-The following steps provide a workaround to this constraint:
+외부 끝점 유형을 사용 중이므로 기본 서비스에 대한 변경 내용은 자동으로 선택되지 않습니다. 따라서 클라우드 서비스가 중지되거나 삭제되면 트래픽 관리자 끝점은 끝점이 트래픽 관리자 내에서 비활성화되거나 삭제될 때까지 상태 검사에 대한 비용이 계속해서 청구됩니다.
 
-1. Check that your endpoints are in different web app 'scale units'. A domain name must map to a single site in a given scale unit. Therefore, two Web Apps in the same scale unit cannot share a Traffic Manager profile.
-2. Add your vanity domain name as a custom hostname to each Web App. Each Web App must be in a different scale unit. All Web Apps must belong to the same subscription.
-3. Add one (and only one) Web App endpoint to your Traffic Manager profile, as an Azure endpoint.
-4. Add each additional Web App endpoint to your Traffic Manager profile as an External endpoint. External endpoints can only be added using the Resource Manager deployment model.
-5. Create a DNS CNAME record in your vanity domain that points to your Traffic Manager profile DNS name (<...>.trafficmanager.net).
-6. Access your site via the vanity domain name, not the Traffic Manager profile DNS name.
+### 트래픽 관리자는 IPv6 끝점을 지원하나요?
 
-## <a name="next-steps"></a>Next steps
+예. 트래픽 관리자는 현재 IPv6으로 주소 지정이 가능한 이름 서버를 제공하지 않지만 IPv6 끝점에 연결된 IPv6 클라이언트에서 여전히 사용될 수 있습니다.
 
-- Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
-- Learn about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
-- Learn about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
+클라이언트는 트래픽 관리자에 직접 DNS 요청을 만들지 않고 재귀 DNS 서비스를 사용하므로 IPv6 전용 클라이언트는 여전히 트래픽 관리자를 사용할 수 있습니다. IPv6을 통해 이 서비스에 요청할 수 있으며 재귀 서비스는 IPv4를 사용하여 트래픽 관리자 이름 서버에 연결할 수 있어야 합니다.
 
+DNS 쿼리를 받으면 트래픽 관리자는 클라이언트가 연결해야 하는 끝점의 DNS 이름으로 응답합니다. IPv6 끝점은 간단히 끝점 DNS 이름이 IPv6 주소를 가리키는 DNS AAAA 레코드를 구성하여 지원될 수 있습니다.
 
+트래픽 관리자의 경우 상태 검사를 제대로 작동하려면 서비스는 IPv4 끝점을 노출해야 합니다. DNS A 레코드를 사용하여 동일한 끝점 DNS 이름에서 매핑되어야 합니다.
 
-<!--HONumber=Oct16_HO2-->
+### 동일한 지역에서 둘 이상의 웹앱에 트래픽 관리자를 사용할 수 있습니까?
 
+일반적으로 트래픽 관리자는 다른 지역에 배포된 응용 프로그램에 트래픽을 보내는 데 사용됩니다. 그러나 응용 프로그램이 동일한 지역에 둘 이상의 배포를 가지는 곳에 사용될 수도 있습니다.
 
+웹앱의 경우 트래픽 관리자 Azure 끝점은 동일한 트래픽 관리자 프로필에 추가되는 동일한 Azure 지역에서 둘 이상의 웹앱 끝점을 허용하지 않습니다. 다음 단계는 이 제약 조건에 대한 해결 방법을 제공합니다.
+
+1.	동일한 지역 내의 웹앱이 다른 웹앱 ‘배율 단위', 즉 서로 다른 웹앱 서비스의 인스턴스에 있는지 확인합니다. 이를 수행하기 위해 <...>.azurewebsites.net DNS 항목에 대한 DNS 경로를 확인합니다. 배율 단위는 ‘waws-prod-xyz-123.vip.azurewebsites.net’과 같은 모양이 됩니다. 지정된 도메인 이름은 지정된 배율 단위의 단일 사이트로 매핑되어야 합니다. 이러한 이유로 동일한 배율 단위의 두 웹앱은 트래픽 관리자 프로필을 공유할 수 없습니다.
+2.	각 웹앱이 다른 배율 단위에 있다고 가정할 경우 각 웹앱에 사용자 지정 호스트 이름으로 베니티 도메인 이름을 추가합니다. 모든 웹앱은 동일한 구독에 속해야 합니다.
+3.	Azure 끝점으로 트래픽 관리자 프로필에 평소와 같이 하나(및 하나만)의 웹앱 끝점을 추가합니다.
+4.	외부 끝점으로 트래픽 관리자 프로필에 각 추가 웹앱 끝점을 추가합니다. 트래픽 관리자에 서비스 관리 환경이 아닌 리소스 관리자 환경을 사용해야 합니다.
+5.	트래픽 관리자 프로필 DNS 이름(<…>.trafficmanager.net)에 베니티 도메인(위의 2단계에서 사용한 것처럼)의 DNS CNAME 레코드를 만듭니다.
+6.	트래픽 관리자 프로필 DNS 이름이 아닌 베니티 도메인 이름을 통해 사이트에 액세스합니다.
+
+## 다음 단계
+
+- [트래픽 관리자 작동 방식](traffic-manager-how-traffic-manager-works.md)에 대해 알아봅니다.
+
+- 트래픽 관리자 [끝점 모니터링 및 자동 장애 조치(failover)](traffic-manager-monitoring.md)에 대해 알아봅니다.
+
+- 트래픽 관리자 [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 알아봅니다.
+
+<!---HONumber=AcomDC_0824_2016-->

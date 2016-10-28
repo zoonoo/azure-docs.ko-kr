@@ -1,32 +1,27 @@
 <properties
-    pageTitle="Azure App Service Security"
-    description="Learn how to secure Web, Mobile, API and Logic apps in Azure App Service."
-    services="app-service"
-    documentationCenter=""
-    authors="naziml"
-    manager="yochayk"
-    editor="wpickett"/>
+	pageTitle="Azure 앱 서비스 보안"
+	description="Azure 앱 서비스에서 웹, 모바일, API 및 논리 앱의 보안 방법을 알아봅니다."
+	services="app-service"
+	documentationCenter=""
+	authors="naziml"
+	manager="yochayk"
+	editor="wpickett"/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/16/2015"
-    ms.author="naziml"/>
+	ms.service="app-service"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/16/2015"
+	ms.author="naziml"/>
 
+# Azure 앱 서비스 보안
 
-# <a name="azure-app-service-security"></a>Azure App Service Security
-
-Azure App Services complies with the key industry standards for security and reliability to provide our customers a secure platform. We have several easy-to-use features to help secure both inbound and outbound traffic for your app. We also help customers secure their application code by providing externally provided functionality to scan your web application for vulnerabilities.
+Azure 앱 서비스는 고객에게 안전한 플랫폼을 제공하기 위해 보안 및 안정성을 위한 주요 업계 표준을 준수합니다. 앱에 대한 안전한 인바운드 및 아웃바운드 트래픽에 도움이 되는 사용하기 쉬운 기능이 몇 가지 있습니다. 또한 웹 응용 프로그램에서 취약점을 검색하는 기능을 외부적으로 제공함으로써 응용프로그램 코드의 보안에 도움이 됩니다.
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Azure App Service uses the same Antimalware solution used by Azure Cloud Services and Virtual Machines. To learn more about this refer to our [Antimalware documentation](../security/azure-security-antimalware.md) 
+Azure 앱 서비스는 Azure 클라우드 서비스 및 가상 컴퓨터에서 사용하는 것과 동일한 맬웨어 방지 솔루션을 사용합니다. 자세한 내용은 [맬웨어 방지 설명서](../security/azure-security-antimalware.md)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

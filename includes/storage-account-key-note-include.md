@@ -1,6 +1,3 @@
->[AZURE.IMPORTANT] Your storage account key is similar to the root password for your storage account. Always be careful to protect your account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your account key using the Azure Portal if you believe it may have been compromised. To learn how to regenerate your account key, see [How to create, manage, or delete a storage account in the Azure Portal](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+>[AZURE.IMPORTANT] 저장소 계정 키는 저장소 계정의 루트 암호와 비슷합니다. 항상 계정 키를 보호해야 합니다. 다른 사용자에게 배포하거나 하드 코딩하거나 다른 사람이 액세스할 수 있는 일반 텍스트 파일에 저장하지 마십시오. 손상되었다고 생각되면 Azure 포털을 사용하여 계정 키를 다시 생성합니다. 계정 키를 다시 생성하는 방법에 대해 알아보려면 [Azure 포털에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](../articles/storage/storage-create-storage-account.md#manage-your-storage-account)을 참조하세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

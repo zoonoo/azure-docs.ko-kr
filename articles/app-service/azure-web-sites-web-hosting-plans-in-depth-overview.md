@@ -1,115 +1,106 @@
 <properties
-    pageTitle="Azure App Service plans in-depth overview | Microsoft Azure"
-    description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience."
-    keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
-    services="app-service"
-    documentationCenter=""
-    authors="btardif"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Azure 앱 서비스 계획의 포괄 개요 | Microsoft Azure"
+	description="Azure 앱 서비스에 대한 앱 서비스 계획의 작동 방식 및 이러한 계획을 통해 관리 환경을 향상시킬 수 있는 방법을 알아봅니다."
+	keywords="앱 서비스, Azure 앱 서비스, 규모, 확장성, 앱 서비스 계획, 앱 서비스 비용"
+	services="app-service"
+	documentationCenter=""
+	authors="btardif"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/13/2016"
-    ms.author="byvinyal"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/07/2016"
+	ms.author="byvinyal"/>
 
+# Azure 앱 서비스 계획의 포괄 개요#
 
-# <a name="azure-app-service-plans-in-depth-overview#"></a>Azure App Service plans in-depth overview#
+앱 서비스 계획은 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱, 모바일 앱, 논리 앱 또는 API 앱을 포함하는 여러 앱에서 공유할 수 있는 기능 및 용량 집합을 나타냅니다. 이러한 계획은 5가지 가격 책정 계층인 *무료*, *공유*, *기본*, *표준* 및 *프리미엄*을 지원합니다. 각 계층에는 고유한 기능 및 용량이 있습니다. 동일한 구독 및 지리적 위치에 있는 앱은 계획을 공유할 수 있습니다. 계획을 공유하는 모든 앱은 계획 계층에서 정의된 모든 기능 및 특징을 사용할 수 있습니다. 계획과 관련된 모든 앱은 계획에서 정의한 리소스에서 실행됩니다.
 
-An App Service plan represents a set of features and capacity that you can share across multiple apps. Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) all run in an App Service plan. These plans support five pricing tiers: *Free*, *Shared*, *Basic*, *Standard*, and *Premium*. Each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps that share a plan can use all the capabilities and features that are defined by the plan's tier. All apps that are associated with a plan run on the resources that the plan defines.
+예를 들어 계획이 표준 서비스 계층의 "작은" 인스턴스 2개를 사용하도록 구성되어 있으면 해당 계획과 연결된 모든 앱이 두 인스턴스에서 모두 실행되고 표준 서비스 계층 기능에 액세스할 수 있습니다. 앱을 실행 중인 계획 인스턴스는 완전히 관리되며 가용성이 높습니다.
 
-For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances and have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available.
+이 문서에서는 앱 서비스 계획의 계층 및 크기와 앱을 관리하는 동안 계획이 진행되는 방식과 같은 주요 특징을 살펴보겠습니다.
 
-This article explores the key characteristics, such as tier and scale, of an App Service plan and how they come into play while managing your apps.
+## 앱 및 앱 서비스 계획
 
-## <a name="apps-and-app-service-plans"></a>Apps and App Service plans
+앱 서비스의 앱은 주어진 시간에 항상 하나의 앱 서비스 계획에만 연결될 수 있습니다.
 
-An app in App Service can be associated with only one App Service plan at any given time.
+앱과 계획은 둘 다 리소스 그룹에 포함됩니다. 리소스 그룹은 그룹 내에 포함된 모든 리소스에 대한 수명 주기 경계 역할을 합니다. 리소스 그룹을 사용하여 응용 프로그램의 모든 부분을 함께 관리할 수 있습니다.
 
-Both apps and plans are contained in a resource group. A resource group serves as the lifecycle boundary for every resource that's within it. You can use resource groups to manage all the pieces of an application together.
+단일 리소스 그룹은 여러 앱 서비스 계획을 가질 수 있으므로 각 물리적 리소스에 다른 앱을 할당할 수 있습니다. 예를 들어 개발, 테스트 및 프로덕션 환경 간에 리소스를 구분할 수 있습니다. 이러한 시나리오는 프로덕션 앱에 대해 전용 리소스 집합을 포함하는 계획을 할당하고 개발 및 테스트 환경에 대해 다른 계획을 할당하려는 경우입니다. 이렇게 하면 새 버전의 앱에 대한 부하 테스트가 실제 고객에게 서비스를 제공하는 프로덕션 앱과 동일한 리소스를 경쟁하지 않습니다.
 
-Because a single resource group can have multiple App Service plans, you can allocate different apps to different physical resources. For example, you can separate resources among dev, test, and production environments. Having separate environments for production and dev/test lets you isolate resources. In this way, load testing against a new version of your apps does not compete for the same resources as your production apps, which are serving real customers.
+단일 리소스 그룹에 여러 계획이 있는 경우 지역에 걸쳐 있는 응용 프로그램을 정의할 수도 있습니다. 예를 들어 두 개의 지역에서 실행되는 고가용성 앱에는 각 지역별로 하나씩 두 개의 계획이 포함되고 각 계획과 연결된 앱이 하나씩 포함됩니다. 이러한 경우 앱의 모든 복사본이 단일 리소스 그룹과 연결됩니다. 여러 계획과 여러 앱을 포함하는 리소스 그룹의 단일 보기를 통해 응용 프로그램의 상태를 쉽게 관리, 제어 및 확인할 수 있습니다.
 
-When you have multiple plans in a single resource group, you can also define an application that spans geographical regions. For example, a highly available app running in two regions includes at least two plans, one for each region, and one app associated with each plan. In such a situation, all the copies of the app are then contained in a single resource group. Having a resource group with multiple plans and multiple apps makes it easy to manage, control, and view the health of the application.
+## 새로운 앱 서비스 계획 만들기 및 기존 계획 사용
 
-## <a name="create-an-app-service-plan-or-use-existing-one"></a>Create an App Service plan or use existing one
+새 앱을 만들 때 새 리소스 그룹을 만드는 것을 고려해야 합니다. 반면, 만들려는 앱이 대규모 응용 프로그램의 구성 요소인 경우 대규모 응용 프로그램에 대해 할당된 리소스 그룹 내에 이 앱을 만들어야 합니다.
 
-When you create an  app, you should consider creating a resource group. On the other hand, if the app that you are about to create is a component for a larger application, this app should be created within the resource group that's allocated for that larger application.
+새 앱이 완전히 새로운 응용 프로그램이든, 대규모 응용 프로그램의 일부이든 관계없이 기존 앱 서비스 계획을 사용하여 앱을 호스트하거나 새 계획을 만들 수 있습니다. 이 선택은 용량과 예상 부하에 따라 결정됩니다.
 
-Whether the new app is an altogether new application or part of a larger one, you can choose to use an existing App Service plan to host it or create a new one. This decision is more a question of capacity and expected load.
+새 앱이 많은 리소스를 사용하며 기존 계획에 호스팅된 기타 앱과 다른 배율 인수를 사용하는 경우 고유한 계획에 격리시키는 것이 좋습니다.
 
-If this new app is going to use many resources and have different scaling factors from the other apps hosted in an existing plan, we recommend that you isolate it in its own plan.
+새 계획을 만들면 앱에 대해 새 리소스 집합을 할당할 수 있으며 각 계획이 고유한 인스턴스 집합을 얻게 되므로 리소스 할당을 보다 강력하게 제어할 수 있습니다.
 
-When you create a plan, you can allocate a new set of resources for your app and gain greater control over resource allocation because each plan gets its own set of instances.
+계획 간에 앱을 이동할 수 있으므로 대규모 응용 프로그램에서 리소스가 할당되는 방법을 변경할 수 있습니다.
 
-Because you can move apps across plans, you can change the way that resources are allocated across the bigger application.
+마지막으로, 다른 지역에 새 앱을 만들려고 하며 해당 지역에 기존 계획이 없는 경우 이 지역에서 새 계획을 만들어야 앱을 호스트할 수 있습니다.
 
-Finally, if you want to create an app in a different region, and that region doesn't have an existing plan, create a plan in that region to be able to host your app there.
+## 앱 서비스 계획 만들기
 
-## <a name="create-an-app-service-plan"></a>Create an App Service plan
+앱 서비스 계획 찾아보기 환경에서 또는 앱 만들기 과정의 일부로 빈 앱 서비스 계획을 만들 수 있습니다.
 
->[AZURE.TIP] If you have an App Service Environment you can review the documentation specific to App Service Environments here: [Create an App Service Plan in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
+[Azure 포털](https://portal.azure.com)에서 **새로 만들기**를 클릭하고 **웹 + 모바일**을 클릭한 다음 **웹앱**, **모바일 앱**, **API 앱** 또는 **논리 앱**을 클릭합니다. ![Azure 포털에서 앱을 만듭니다.][createWebApp]
 
-You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
+그런 다음 새 앱에 대한 앱 서비스 계획을 선택하거나 만들 수 있습니다.
 
-In the [Azure portal](https://portal.azure.com), click **New** > **Web + mobile**, and then select **Web App** or other App Service app kind.
-![Create an app in the Azure portal.][createWebApp]
+ ![앱 서비스 계획을 만듭니다.][createASP]
 
-You can then select or create the App Service plan for the new app.
+새 앱 서비스 계획을 만들려면 **[+] 새로 만들기**를 클릭하고 **앱 서비스 계획** 이름을 입력한 다음 적절한 **위치**를 선택합니다. **가격 책정 계층**을 클릭한 다음 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다. 가격 책정 계층을 선택한 다음 **선택** 단추를 클릭합니다.
 
- ![Create an App Service plan.][createASP]
+## 다른 앱 서비스 계획으로 앱 이동
 
-To create a new App Service plan, click **[+] Create New**, type the **App Service plan** name, and then select an appropriate **Location**. Click **Pricing tier**, and then select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. After you have selected the pricing tier, click the **Select** button.
+[Azure 포털](https://portal.azure.com)에서 앱을 다른 앱 서비스 계획으로 이동할 수 있습니다. 계획이 동일한 리소스 그룹 및 지리적 지역에 있는 한 계획 간에 앱을 이동할 수 있습니다.
 
-## <a name="move-an-app-to-a-different-app-service-plan"></a>Move an app to a different App Service plan
+앱을 다른 계획으로 이동하려면 이동할 앱으로 이동합니다. **설정** 메뉴에서 **앱 서비스 계획 변경**을 찾습니다.
 
-You can move an app to a different app service plan in the [Azure portal](https://portal.azure.com). You can move apps between plans as long as the plans are in the same resource group and geographical region.
+그러면 **앱 서비스 계획** 선택기가 열립니다. 이때 기존 계획을 선택하거나 새 계획을 만들 수 있습니다. 유효한 계획(동일한 리소스 그룹 및 지리적 위치에 있음)만 표시됩니다.
 
-To move an app to another plan, go to the app that you want to move. On the **Settings** menu, look for **Change App Service Plan**.
+![앱 서비스 계획 선택기입니다.][change]
 
-**Change App Service Plan** opens the **App Service plan** selector. At this point, you can either pick an existing plan or create a new one. Only valid plans (in the same resource group and geographical location) are shown.
+각 계획에는 고유한 가격 책정 계층이 있습니다. 예를 들어 무료 계층에서 표준 계층으로 사이트를 이동하는 경우 앱이 표준 계층의 모든 기능과 리소스를 사용할 수 있습니다.
 
-![App Service plan selector.][change]
+## 앱을 다른 앱 서비스 계획으로 변경
+앱을 다른 지역으로 이동하는 한 가지 대안은 앱 복제입니다. 복제를 수행하면 모든 지역의 새로운 또는 기존 앱 서비스 계획이나 앱 서비스 환경으로 앱이 복사됩니다.
 
-Each plan has its own pricing tier. For example, when you move a site from a Free tier to a Standard tier, your app now can use all the features and resources of the Standard tier.
+ ![앱을 복제합니다.][appclone]
 
-## <a name="clone-an-app-to-a-different-app-service-plan"></a>Clone an app to a different App Service plan
-If you want to move the app to a different region, one alternative is app cloning. Cloning makes a copy of your app in a new or existing App Service plan or App Service environment in any region.
+**도구** 메뉴에서 **앱 복제**를 찾을 수 있습니다.
 
- ![Clone an app.][appclone]
+복제에는 몇 가지 제한이 있으며 [Azure 포털을 사용하여 Azure 앱 서비스 앱 복제](../app-service-web/app-service-web-app-cloning-portal.md)에서 이에 대해 읽을 수 있습니다.
 
-You can find **Clone App** on the **Tools** menu.
+## 앱 서비스 계획 크기 조정
 
-Cloning has some limitations that you can read about at [Azure App Service App cloning using Azure portal](../app-service-web/app-service-web-app-cloning-portal.md).
+계획의 크기를 조정하는 세 가지 방법이 있습니다.
 
-## <a name="scale-an-app-service-plan"></a>Scale an App Service plan
+- **계획의 가격 책정 계층을 변경합니다**. 예를 들어 기본 계층의 계획을 표준 또는 프리미엄 계층으로 변환할 수 있으며 해당 계획과 연결된 모든 앱이 새 서비스 계층에 제공된 기능을 사용할 수 있습니다.
+- **계획의 인스턴스 크기를 변경합니다**. 예를 들어 작은 인스턴스를 사용하는 기본 계층의 계획을 큰 인스턴스를 사용하도록 변경할 수 있습니다. 해당 계획과 연결된 모든 앱이 큰 인스턴스 크기에서 제공하는 추가 메모리 및 CPU 리소스를 사용할 수 있습니다.
+- **계획의 인스턴스 수를 변경합니다**. 예를 들어 3개의 인스턴스로 확장되는 표준 계획을 10개의 인스턴스로 확장할 수 있습니다. 프리미엄 계획은 20개의 인스턴스로 확장될 수 있습니다(가용성에 따라). 해당 계획과 연결된 모든 앱이 큰 인스턴스 크기에서 제공하는 추가 메모리 및 CPU 리소스를 사용할 수 있습니다.
 
-There are three ways to scale a plan:
+앱 또는 앱 서비스 계획에 대한 설정에서 **강화** 항목을 클릭하여 가격 책정 계층과 인스턴스 크기를 변경할 수 있습니다. 변경 내용이 앱 서비스 계획에 적용되고 호스팅하는 모든 앱에 영향을 미칩니다.
 
-- **Change the plan’s pricing tier**. For example, a plan in the Basic tier can be converted to a Standard or Premium tier, and all apps that are associated with that plan now can use the features that the new service tier offers.
-- **Change the plan’s instance size**. As an example, a plan in the Basic tier that uses small instances can be changed to use large instances. All apps that are associated with that plan now can use the additional memory and CPU resources that the larger instance size offers.
-- **Change the plan’s instance count**. For example, a Standard plan that's scaled out to three instances can be scaled to 10 instances. A Premium plan can be scaled out to 20 instances (subject to availability). All apps that are associated with that plan now can use the additional memory and CPU resources that the larger instance count offers.
+ ![앱을 강화하도록 값을 설정합니다.][pricingtier]
 
-You can change the pricing tier and instance size by clicking the **Scale Up** item under settings for either the app or the App Service plan. Changes apply to the App Service plan and affect all apps that it hosts.
+## 요약
 
- ![Set values to scale up an app.][pricingtier]
+앱 서비스 계획은 앱 간에 공유할 수 있는 기능 및 용량 집합을 나타냅니다. 앱 서비스 계획은 리소스 집합에 특정 앱을 할당하고 Azure 리소스 사용률을 더욱 최적화하는 유연성을 제공합니다. 따라서 테스트 환경에서 비용을 절약하려는 경우 여러 앱에서 계획을 공유할 수 있습니다. 여러 지역과 계획에 걸쳐 크기를 조정하여 프로덕션 환경의 생산량을 최대화할 수도 있습니다.
 
-## <a name="app-service-plan-cleanup"></a>App Service Plan cleanup
-**App Service plans** that have no apps associated to them still incur charges since they continue to reserve the compute capacity configured in the App Service plan scale properties.
-To avoid unexpected charges, when the last app hosted in an App Service plan is deleted, the resulting empty App Service plan is also deleted.
+## 변경된 내용
 
-
-## <a name="summary"></a>Summary
-
-App Service plans represent a set of features and capacity that you can share across your apps. App Service plans give you the flexibility to allocate specific apps to a set of resources and further optimize your Azure resource utilization. This way, if you want to save money on your testing environment, you can share a plan across multiple apps. You can also maximize throughput for your production environment by scaling it across multiple regions and plans.
-
-## <a name="what's-changed"></a>What's changed
-
-* For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
@@ -118,8 +109,4 @@ App Service plans represent a set of features and capacity that you can share ac
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

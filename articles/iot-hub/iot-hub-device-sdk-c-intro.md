@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Using the Azure IoT device SDK for C | Microsoft Azure"
-    description="Learn about and get started working with the sample code in the Azure IoT device SDK for C."
-    services="iot-hub"
-    documentationCenter=""
-    authors="olivierbloch"
-    manager="timlt"
-    editor=""/>
+	pageTitle="C용 Azure IoT 장치 SDK 사용 | Microsoft Azure"
+	description="C용 Azure IoT 장치 SDK에 대해 알아보고 샘플 코드로 작업을 시작합니다."
+	services="iot-hub"
+	documentationCenter=""
+	authors="olivierbloch"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -16,168 +16,167 @@
      ms.date="09/06/2016"
      ms.author="obloch"/>
 
+# C용 Azure IoT 장치 SDK 소개
 
-# <a name="introducing-the-azure-iot-device-sdk-for-c"></a>Introducing the Azure IoT device SDK for C
+**Azure IoT 장치 SDK**는 이벤트를 전송하고 **Azure IoT Hub** 서비스에서 메시지를 수신하는 프로세스를 단순화하도록 설계된 라이브러리 집합입니다. 각각 특정 플랫폼을 대상으로 하는 다양하게 변형된 SDK가 제공되지만 이 문서에서는 **C용 Azure IoT 장치 SDK**를 설명합니다.
 
-The **Azure IoT device SDK** is a set of libraries designed to simplify the process of sending events and receiving messages from the **Azure IoT Hub** service. There are different variations of the SDK, each targeting a specific platform, but this article describes the **Azure IoT device SDK for C**.
+C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이렇게 하면 다양한 플랫폼 및 장치에서 잘 작동하며 특히 디스크 및 메모리 사용 공간을 최소화하는 것이 우선 시 되는 곳에서 적합합니다.
 
-The Azure IoT device SDK for C is written in ANSI C (C99) to maximize portability. This makes it well-suited to operate on a number of platforms and devices, especially where minimizing disk and memory footprint is a priority.  
+이 SDK는 광범위한 플랫폼에서 테스트되었습니다(자세한 내용은 [플랫폼 및 호환성 목록](iot-hub-tested-configurations.md) 참조). 이 문서는 Windows 플랫폼에서 실행되는 샘플 코드 연습을 포함하지만 이 문서에 설명된 코드는 지원되는 모든 플랫폼에서 정확히 동일합니다.
 
-There are a broad range of platforms on which the SDK has been tested (see the [platforms and compatibility list](iot-hub-tested-configurations.md) for details). Although this article includes walkthroughs of sample code running on the Windows platform, keep in mind that the code described in this article is exactly the same across the range of supported platforms.
+이 문서에서는 C용 Azure IoT 장치 SDK의 아키텍처를 소개합니다. 장치 라이브러리를 초기화하고 IoT Hub로 이벤트를 전송하며 메시지를 수신하는 방법을 보여줍니다. 이 문서의 정보로 SDK 사용을 시작하기에 충분하지만 라이브러리에 대한 추가 정보에 대한 포인터도 제공합니다.
 
-In this article you'll be introduced to the architecture of the Azure IoT device SDK for C. We'll demonstrate how to initialize the device library, send events to IoT Hub as well as receive messages from it. The information in this article should be enough to get started using the SDK, but also provides pointers to additional information about the libraries.
+>> [AZURE.NOTE] 이 문서는 SDK의 C 라이브러리의 *장치 관리* 기능 사용 방법에 대한 정보를 포함하지 않습니다. 장치 관리 기능을 사용하는 방법을 알아보려면 [C용 Azure IoT Hub 장치 관리 라이브러리 소개](iot-hub-device-management-library.md)를 참조하세요.
 
-## <a name="sdk-architecture"></a>SDK architecture
+## SDK 아키텍처
 
-You can find the **Azure IoT device SDK for C** in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+[Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 **C에 대한 Azure IoT 장치 SDK**를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
 
-The latest version of the libraries can be found in the **master** branch of this repository:
+최신 버전의 라이브러리를 이 리포지토리의 **마스터** 분기에서 찾을 수 있습니다.
 
   ![](media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
 
-This repository contains the entire family of Azure IoT device SDKs. However, this article is about the Azure IoT device SDK *for C* which can be found in the **c** folder.
+이 리포지토리는 Azure IoT 장치 SDK의 전체 제품군을 포함합니다. 하지만 이 문서는 **c** 폴더에서 찾을 수 있는 *C용* Azure IoT 장치 SDK에 대해 다룹니다.
 
   ![](media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
 
-* The core implementation of the SDK can be found in the **iothub\_client** folder which contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs implementing raw messaging for sending messages to IoT Hub as well as receiving messages from it. When using this library, you are responsible for implementing message serialization (eventually using the serializer sample described below), but other details of communicating with IoT Hub are handled for you.
-* The **serializer** folder contains helper functions and samples showing how to serialize data before sending to Azure IoT Hub using the client library. Note that the use of the serializer is not mandatory and only provided as a convenience. If you use the **serializer** library, you start by defining a model that specifies the events you want to send to IoT Hub as well as the messages you expect to receive from it. Once the model is defined, the SDK provides you an API surface that enables you to easily work with events and messages without having to worry about serialization details.
-The library depends on other open source libraries that implement transport using several protocols (AMQP, MQTT).
-* The **IoTHubClient** library depends on other open source libraries:
-   * The [Azure C shared utility](https://github.com/Azure/azure-c-shared-utility) library which provides common functionality for basic tasks (like string, list manipulation, IO, etc. ...) needed across several Azure-related C SDKs
-   * The [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) library which is client side implementation of AMQP optimized for resource constraint devices.
-   * The [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) library which is a general-purpose library implementing the MQTT protocol and optimized for resource constraint devices.
+* SDK의 핵심 구현은 **iothub\_client** 폴더에서 찾을 수 있습니다. 이 폴더에는 SDK의 최하위 API 계층에 대한 구현인 **IoTHubClient** 라이브러리가 포함되어 있습니다. 이 **IoTHubClient** 라이브러리에는 IoT Hub와 메시지를 보내고 받기 위한 원시 메시징을 구현하는 API가 포함되어 있습니다. 이 라이브러리를 사용하는 경우 사용자가 메시지 직렬화를 구현해야 하며(아래 설명된 직렬 변환기 샘플 사용) IoT Hub와 통신하기 위한 기타 세부 사항도 직접 처리해야 합니다.
+* **serializer** 폴더에는 클라이언트 라이브러리를 사용하여 Azure IoT Hub로 보내기 전에 데이터를 직렬화하는 방법을 보여 주는 샘플 및 도우미 함수가 포함되어 있습니다. 직렬 변환기 사용은 필수 사항이 아니며, 편의를 위해 제공될 뿐입니다. **직렬 변환기** 라이브러리를 사용하는 경우 IoT Hub로 전송할 이벤트와 수신하려는 메시지를 지정하는 모델을 정의하는 것으로 시작합니다. 모델을 정의한 후에는 SDK에서 API 노출 영역을 제공하므로 직렬화 세부 사항에 대해 신경쓰지 않고도 이벤트 및 메시지에 대해 쉽게 작업할 수 있습니다. 라이브러리는 몇 가지 프로토콜(AMQP, MQTT)을 사용하여 전송을 구현하는 다른 오픈 소스 라이브러리에 의존합니다.
+* **IoTHubClient** 라이브러리는 다른 오픈 소스 라이브러리에 따라 달라집니다.
+   * 여러 Azure 관련 C SDK에서 필요한 기본 작업(예: 문자열, 목록 조작, IO 등)에 대한 공통 기능을 제공하는 [Azure C 공유 유틸리티](https://github.com/Azure/azure-c-shared-utility) 라이브러리
+   * 리소스 제한 장치에 최적화된 AMQP의 클라이언트 측 구현인 [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) 라이브러리
+   * 리소스 제한 장치에 최적화되고 MQTT 프로토콜을 구현하는 범용 라이브러리인 [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) 라이브러리
 
-All of this is easier to understand by looking at example code. The following sections walk you through a couple of the sample applications that are included in the SDK. This should give you a good feel for the various capabilities of the architectural layers of the SDK as well as an introduction to how the APIs work.
+이러한 모든 내용은 예제 코드를 살펴보면서 쉽게 이해할 수 있습니다. 다음 섹션에서는 SDK에 포함된 몇 가지 샘플 응용 프로그램을 안내합니다. SDK 아키텍처 계층의 다양한 기능에 대해 쉽게 설명하고 API의 작동 방식을 소개합니다.
 
-## <a name="before-running-the-samples"></a>Before running the samples
+## 샘플을 실행하기 전에
 
-Before you can run the samples in the Azure IoT device SDK for C you must create an instance of the service on your Azure subscription if you don't already have one and complete 2 tasks:
-* prepare your development environment
-* obtain device credentials.
+C용 Azure IoT 장치 SDK를 실행하려면 먼저 Azure 구독에 대한 서비스 인스턴스를 만들고(아직 없는 경우) 다음 두 작업을 완료해야 합니다.
+* 개발 환경 준비
+* 장치 자격 증명 가져오기
 
-If you need to create an instance of Azure IoT Hub on your Azure subscription, follow the instructions [here](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md).
+Azure 구독에서 Azure IoT Hub 인스턴스를 만들어야 하는 경우 [여기](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md)의 지침을 따르세요.
 
-The [readme file](https://github.com/Azure/azure-iot-sdks/tree/master/c) included with the SDK provides instructions for preparing your development environment and obtain device credentials.
-The following sections include some additional commentary on those instructions.
+SDK에 포함된 [추가 정보 파일](https://github.com/Azure/azure-iot-sdks/tree/master/c)에서 개발 환경을 준비하고 장치 자격 증명을 가져올 수 있는 지침을 제공합니다. 다음 섹션에서는 이러한 지침에 대한 몇 가지 추가 설명을 포함합니다.
 
-### <a name="preparing-your-development-environment"></a>Preparing your development environment
+### 개발 환경 준비
 
-While packages are provided for some platforms (such as NuGet for Windows or apt_get for Debian and Ubuntu) and the samples use these packages when available, the below instructions detail how to build the library and the samples directly form the code.
+일부 플랫폼에는 패키지가 제공되고(예: Windows의 경우 NuGet 또는 Debian 및 Ubuntu의 경우 apt\_get) 샘플에서는 가능한 경우 이러한 패키지를 사용하지만 아래 지침에서는 라이브러리를 빌드하고 샘플에서 직접 코드를 구성하는 방법을 자세히 설명합니다.
 
-First, you'll need to obtain a copy of the SDK from GitHub and then build the source. You should get a copy of the source from the **master** branch of the [GitHub repository](https://github.com/Azure/azure-iot-sdks).
+먼저, GitHub에서 SDK의 복사본을 가져온 후 소스를 빌드해야 합니다. [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdks)의 **마스터** 분기에서 원본의 복사본을 가져와야 합니다.
 
-When you’ve downloaded a copy of the source, you must complete the steps described in the SDK article ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md).
+소스의 복사본을 다운로드한 경우 SDK 문서 ["개발 환경 준비"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md)에 설명된 단계를 완료해야 합니다.
 
 
-The following are a few tips to help you complete the procedure described in the preparation guide:
+다음은 준비 가이드에 설명된 절차를 완료하는 데 도움이 되는 몇 가지 팁입니다.
 
--   When you install the **CMake** utility, choose the option to add **CMake** to the system PATH for **all users** (adding to **the current user** works as well):
+-   **CMake** 유틸리티를 설치하는 경우 **CMake**를 **모든 사용자**를 위한 시스템 PATH에 추가하는 옵션을 선택합니다(**현재 사용자**를 추가하는 것도 잘 작동함).
 
   ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
 
 
--   Before you open the **Developer Command Prompt for VS2015**, install the Git command-line tools. To install these tools, complete the following steps:
+-   **VS2015용 개발자 명령 프롬프트**를 열기 전에 Git 명령줄 도구를 설치합니다. 이러한 도구를 설치하려면 다음 단계를 수행합니다.
 
-    1. Launch the **Visual Studio 2015** setup program (or chose **Microsoft Visual Studio 2015** from the **Programs and Features** control panel and select **Change**).
-    
-    2. Make sure the **Git for Windows** feature is selected in the installer but you may also want to check the **GitHub Extension for Visual Studio** option to provide IDE integration:
+	1. **Visual Studio 2015** 설치 프로그램을 시작하거나 **프로그램 및 기능** 제어판에서 **Microsoft Visual Studio 2015**를 선택하고 **변경**을 선택합니다.
+	
+	2. 설치 프로그램에서 **Windows용 Git** 기능이 선택되어 있지만 **Visual Studio용 GitHub 확장** 옵션을 확인하여 IDE 통합 기능을 제공하려 할 수도 있습니다.
 
-        ![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
+  		![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
 
-    3. Complete the setup wizard to install the tools.
+	3. 설치 마법사를 완료하여 도구를 설치합니다.
 
-    4. Add the Git tools **bin** directory to the system **PATH** environment variable. On Windows, this looks like the following:
+	4. Git 도구 **bin** 디렉터리를 시스템 **PATH** 환경 변수에 추가합니다. Windows에서는 다음과 같이 표시됩니다.
 
-        ![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
+  		![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
 
-When you have completed all the steps described in the ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) page, you're ready to compile the sample applications.
+["개발 환경 준비"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) 페이지에 설명된 모든 단계를 완료한 경우 샘플 응용 프로그램 컴파일을 시작할 수 있습니다.
 
-### <a name="obtaining-device-credentials"></a>Obtaining device credentials
+### 장치 자격 증명 가져오기
 
-Now that your development environment is set up, the next thing to do is to get a set of device credentials.  For a device to be able to access an IoT hub, you must first add the device to the IoT Hub device registry. When you add your device you'll get a set of device credentials which you'll need in order for the device to be able to connect to an IoT hub. The sample applications that we’ll look at in the next section expect these credentials in the form of a **device connection string**.
+개발 환경이 설정되었으므로 이제 장치 자격 증명 집합을 가져와야 합니다. IoT Hub에 액세스할 수 있는 장치의 경우 장치를 IoT Hub 장치 레지스트리에 먼저 추가해야 합니다. 장치를 추가하면 장치를 IoT Hub에 연결하기 위해 필요한 장치 자격 증명 집합을 얻게 됩니다. 다음 섹션에서 살펴볼 샘플 응용 프로그램은 이러한 자격 증명을 **장치 연결 문자열**로 예상합니다.
 
-There are a couple tools provided in the SDK open source repository to help managing the IoT Hub. One is a Windows application called Device Explorer, the second one is a node.js based cross platform CLI tool called iothub-explorer. You can learn more about these tools [here](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
+IoT Hub 관리에 도움이 되도록 SDK 오픈 소스 리포지토리에서 제공하는 두 가지 도구가 있습니다. 하나는 장치 탐색기라는 Windows 응용 프로그램이고, 다른 하나는 iothub-explorer라는 node.js 기반의 플랫폼 간 CLI 도구입니다. 이러한 도구에 대한 자세한 내용은 [여기](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md)에서 확인할 수 있습니다.
 
-As we are going through running the samples on Windows in this article, we are using the Device Explorer tool. But you can also use iothub-explorer if you prefer CLI tools.
+이 문서에서는 Windows에서 샘플을 실행하므로 장치 탐색기 도구를 사용합니다. 그러나 CLI 도구를 선호하는 경우 iothub-explorer를 사용할 수도 있습니다.
 
-The [Device Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) tool uses the Azure IoT service libraries to perform various functions on IoT Hub, including adding devices. If you use Device Explorer to add a device, you’ll get a corresponding connection string. You need this connection string to make the sample applications run.
+[장치 탐색기](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) 도구는 Azure IoT 서비스 라이브러리를 사용하여 장치 추가 등 IoT Hub에서 다양한 기능을 수행합니다. 장치 탐색기를 사용하여 장치를 추가하는 경우 해당 연결 문자열을 얻습니다. 이 연결 문자열은 응용 프로그램 예제를 실행하는 데 필요합니다.
 
-In case you're not already familiar with the process, the following procedure describes how to use Device Explorer to add a device and obtain a device connection string.
+이러한 프로세스에 익숙하지 않은 사용자를 위해 다음 절차에서는 장치 탐색기를 사용하여 장치를 추가하고 장치 연결 문자열을 가져오는 방법에 대해 설명합니다.
 
-You can find a Windows installer for the Device Explorer tool on the [SDK release page](https://github.com/Azure/azure-iot-sdks/releases). But you can also run the tool directly from its code opening **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** in **Visual Studio 2015** and building the solution.
+장치 탐색기 도구의 Windows Installer는 [SDK 릴리스 페이지](https://github.com/Azure/azure-iot-sdks/releases)에서 찾을 수 있습니다. 그러나 **Visual Studio 2015**에서 **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)**을 열고 솔루션을 빌드하여 해당 코드에서 직접 도구를 실행할 수도 있습니다.
 
-When you run the program you’ll see this interface:
+프로그램을 실행하면 다음 인터페이스가 표시됩니다.
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Enter your **IoT Hub Connection String** in the first field and click **Update**. This configures the tool so that it can communicate with IoT Hub.
+첫 번째 필드에 **IoT Hub 연결 문자열**을 입력하고 **업데이트**를 클릭합니다. 그러면 IoT Hub와 통신할 수 있도록 도구가 구성됩니다.
 
-Once the IoT Hub connection string is configured click the **Management** tab:
+IoT Hub 연결 문자열이 구성되었으면 **관리** 탭을 클릭합니다.
 
   ![](media/iot-hub-device-sdk-c-intro/04-ManagementTab.PNG)
 
-This is where you’ll manage the devices registered in your IoT hub.
+여기서 IoT Hub에 등록된 장치를 관리할 수 있습니다.
 
-You can create a device by clicking the **Create** button. A dialog is displayed with a set of pre-populated keys (primary and secondary). All you have to do is enter a **Device ID** and then click **Create**.
+**만들기** 단추를 클릭하여 장치를 만들 수 있습니다. 키 집합(기본 및 보조)이 미리 채워진 상태로 대화 상자가 표시됩니다. 이제 **장치 ID**를 입력하고 **만들기**를 클릭하면 됩니다.
 
   ![](media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
 
-Once the device is created, the Devices list is updated with all registered devices, including the one you just created. If you right-click your new device, you’ll see this menu:
+장치를 만들었으면 방금 만든 장치와 함께 등록된 모든 장치로 장치 목록이 업데이트됩니다. 새 장치를 마우스 오른쪽 단추로 클릭할 경우 이 메뉴가 표시됩니다.
 
   ![](media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
-If you choose the **Copy connection string for selected device** option, the connection string for your device is copied to the clipboard. Keep a copy of the connection string. You’ll need it when running the sample applications described in the next sections.
+**선택한 장치에 대한 연결 문자열 복사** 옵션을 선택하면 장치에 대한 연결 문자열이 클립보드에 복사됩니다. 연결 문자열의 복사본을 보관하세요. 다음 섹션에 설명된 응용 프로그램 예제를 실행할 때 필요합니다.
 
-Once you've completed the steps above, you're ready to start running some code. Both samples have a constant at the top of the main source file that enables you to enter a connection string. For example, the corresponding line from the **iothub\_client\_sample\_amqp** application appears as follows.
+위의 단계를 완료했으면 일부 코드를 실행할 준비가 되었습니다. 두 샘플에는 주요 원본 파일의 맨 위에 연결 문자열을 입력할 수 있는 상수가 포함되어 있습니다. 예를 들어 **iothub\_client\_sample\_amqp** 응용 프로그램의 해당 줄은 다음과 같이 나타납니다.
 
 ```
 static const char* connectionString = "[device connection string]";
 ```
 
-If you want to follow along, enter your device connection string here, recompile the solution, and you'll be able to run the sample.
+다음을 수행하려면 여기에 장치 연결 문자열을 입력하고 솔루션을 다시 컴파일하면 샘플을 실행할 수 있습니다.
 
-## <a name="iothubclient"></a>IoTHubClient
+## IoTHubClient
 
-Within the **iothub\_client** folder in the azure-iot-sdks repository, there is a **samples** folder that contains an application called **iothub\_client\_sample\_amqp**.
+azure-iot-sdks 리포지토리의 **iothub\_client** 폴더 내에는 **iothub\_client\_sample\_amqp**라는 응용 프로그램이 포함된 **samples** 폴더가 있습니다.
 
-The Windows version of the **iothub\_client\_sample\_ampq** application includes the following Visual Studio solution:
+Windows 버전의 **iothub\_client\_sample\_ampq** 응용 프로그램은 다음과 같은 Visual Studio 솔루션을 포함합니다.
 
   ![](media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-amqp.PNG)
 
-This solution contains a single project. It is worth noting that there are four NuGet packages installed in this solution:
+이 솔루션에는 다음의 단일 프로젝트가 포함됩니다. 이 솔루션에 설치된 네 가지 NuGet 패키지는 주목할 만한 가치가 있습니다.
 
 - Microsoft.Azure.C.SharedUtility
 - Microsoft.Azure.IoTHub.AmqpTransport
 - Microsoft.Azure.IoTHub.IoTHubClient
 - Microsoft.Azure.uamqp
 
-You always need the **Microsoft.Azure.C.SharedUtility** package when you are working with the SDK. Since this sample relies on AMQP, you must also include the **Microsoft.Azure.uamqp** and **Microsoft.Azure.IoTHub.AmqpTransport** packages (there are equivalent packages for HTTP and MQTT). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in your solution.
+SDK를 사용하여 작업하는 경우 항상 **Microsoft.Azure.C.SharedUtility** 패키지가 필요합니다. 이 샘플은 AMQP에 의존하므로 **Microsoft.Azure.uamqp** 및 **Microsoft.Azure.IoTHub.AmqpTransport** 패키지도 포함해야 합니다(HTTP 및 MQTT에 대한 해당 패키지가 존재함). 이 샘플에서는 **IoTHubClient** 라이브러리를 사용하므로 솔루션에 **Microsoft.Azure.IoTHub.IoTHubClient** 패키지도 포함해야 합니다.
 
-You can find the implementation for the sample application in the **iothub\_client\_sample\_amqp.c** source file.
+**iothub\_client\_sample\_amqp.c** 원본 파일에서 샘플 응용 프로그램에 대한 구현을 찾을 수 있습니다.
 
-We'll use this sample application to walk you through what’s required to use the **IoTHubClient** library.
+이 샘플 응용 프로그램을 사용하여 **IoTHubClient** 라이브러리를 사용하는 데 필요한 내용을 안내합니다.
 
-### <a name="initializing-the-library"></a>Initializing the library
+### 라이브러리 초기화
 
-> [AZURE.NOTE] Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQPS on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdks) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdks) to determine whether you need to include any platform initialization code in your client.
+> [AZURE.NOTE] 라이브러리 작업을 시작하기 전에 일부 플랫폼별 초기화를 수행해야 할 수 있습니다. 예를 들어 Linux에서 AMQPS를 사용할 계획인 경우 OpenSSL 라이브러리를 초기화해야 합니다. [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdks)에 있는 샘플은 클라이언트가 시작될 때 유틸리티 함수 **platform\_init**를 호출하고 종료하기 전에 **platform\_deinit** 함수를 호출합니다. 이러한 함수는 "platform.h" 헤더 파일에 선언됩니다. [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 대상 플랫폼에 대해 이러한 함수의 정의를 확인하여 클라이언트에 플랫폼 초기화 코드를 포함해야 하는지 여부를 결정합니다.
 
-To start working with the libraries you must first allocate an IoT Hub client handle:
+라이브러리로 작업을 시작하려면 먼저 IoT Hub 클라이언트 핸들을 할당해야 합니다.
 
 ```
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-Note that we’re passing a copy of our device connection string to this function (the one we obtained from Device Explorer). We also designate the protocol that we want to use. This example uses AMQP, but MQTT and HTTP are also an option.
+장치 탐색기에서 얻은 이 함수에 장치 연결 문자열의 복사본을 전달합니다. 사용하고자 하는 프로토콜도 지정합니다. 이 예제에서는 AMQP를 사용하지만 MQTT 및 HTTP도 옵션입니다.
 
-When you have a valid **IOTHUB\_CLIENT\_HANDLE**, you can start calling the APIs to send events and receive messages from IoT Hub. We’ll look at that next.
+유효한 **IOTHUB\_CLIENT\_HANDLE**이 있는 경우 API 호출을 시작하여 이벤트를 전송하고 IoT Hub에서 메시지를 수신할 수 있습니다. 이에 대해서는 다음에 살펴보겠습니다.
 
-### <a name="sending-events"></a>Sending events
+### 이벤트 전송
 
-Sending events to IoT Hub requires that you complete the following steps:
+IoT Hub로 이벤트를 전송하려면 다음 단계를 완료해야 합니다.
 
-First, create a message:
+먼저, 메시지를 만듭니다.
 
 ```
 EVENT_INSTANCE message;
@@ -185,13 +184,13 @@ sprintf_s(msgText, sizeof(msgText), "Message_%d_From_IoTHubClient_Over_AMQP", i)
 message.messageHandle = IoTHubMessage_CreateFromByteArray((const unsigned char*)msgText, strlen(msgText);
 ```
 
-Next, send the message:
+다음으로 메시지를 전송합니다.
 
 ```
 IoTHubClient_SendEventAsync(iotHubClientHandle, message.messageHandle, SendConfirmationCallback, &message);
 ```
 
-Every time you send a message, you specify a reference to a callback function that’s invoked when the data is sent:
+메시지를 전송할 때마다 데이터가 전송될 때 호출되는 콜백 함수에 대한 참조를 지정합니다.
 
 ```
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -204,20 +203,20 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-Note the call to the **IoTHubMessage\_Destroy** function when you’re done with the message. You must make this call to free the resources allocated when you created the message.
+메시지 작업을 완료했으면 **IoTHubMessage\_Destroy** 함수에 대한 호출을 확인합니다. 이 호출을 통해 메시지를 만들 때 할당된 리소스를 해제해야 합니다.
 
-### <a name="receiving-messages"></a>Receiving messages
+### 메시지 수신
 
-Receiving a message is an asynchronous operation. First, you register a callback to be invoked when the device receives a message:
+메시지 수신은 비동기 작업입니다. 먼저, 장치에서 메시지를 수신할 때 호출할 콜백을 등록합니다.
 
 ```
 int receiveContext = 0;
 IoTHubClient_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext);
 ```
 
-The last parameter is a void pointer to whatever you want. In the sample, it’s a pointer to an integer but it could be a pointer to a more complex data structure. This enables the callback function to operate on shared state with the caller of this function.
+마지막 매개 변수는 원하는 항목에 대한 void 포인터입니다. 이 샘플에서는 정수에 대한 포인터지만 보다 복잡한 데이터 구조체에 대한 포인터일 수 있습니다. 이렇게 하면 이 함수의 호출자와 함께 콜백 함수가 공유 상태로 작동하도록 할 수 있습니다.
 
-When the device receives a message, the registered callback function is invoked:
+장치가 메시지를 수신할 때는 등록된 콜백 함수가 호출됩니다.
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -236,31 +235,31 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-Note that you use the **IoTHubMessage\_GetByteArray** function to retrieve the message, which in this example is a string.
+**IoTHubMessage\_GetByteArray** 함수를 사용하여 메시지를 검색하는 방법을 확인합니다. 이 예제에서는 문자열입니다.
 
-### <a name="uninitializing-the-library"></a>Uninitializing the library
+### 라이브러리 초기화 취소
 
-When you’re done sending events and receiving messages, you can uninitialize the IoT library. To do so, issue the following function call:
+이벤트 전송 및 메시지 수신을 완료했으면 IoT 라이브러리를 초기화 취소할 수 있습니다. 이렇게 하려면 다음 함수 호출을 실행합니다.
 
 ```
 IoTHubClient_Destroy(iotHubClientHandle);
 ```
 
-This frees up the resources previously allocated by the **IoTHubClient\_CreateFromConnectionString** function.
+이 작업은 **IoTHubClient\_CreateFromConnectionString** 함수로 이전에 할당한 리소스를 해제합니다.
 
-As you can see, it’s easy to send events and receive messages with the **IoTHubClient** library. The library handles the details of communicating with IoT Hub, including which protocol to use (from the perspective of the developer, this is a simple configuration option).
+표시된 것처럼 **IoTHubClient** 라이브러리로 간편하게 이벤트를 전송하고 메시지를 수신할 수 있습니다. 라이브러리가 사용할 프로토콜 등 IoT Hub와의 통신에 대한 세부 사항을 처리합니다(개발자 관점에서는 간단한 구성 옵션).
 
-The **IoTHubClient** library also provides precise control over how to serialize the events your device sends to IoT Hub. In some cases this is an advantage, but in other cases this is an implementation detail with which you don’t want to be concerned. If that's the case, you might consider using the **serializer** library, which we'll describe in the next section.
+**IoTHubClient** 라이브러리로 장치에서 IoT Hub로 전송한 이벤트를 직렬화하는 방법을 정밀하게 제어할 수도 있습니다. 이것이 장점인 경우도 있지만 신경쓰지 않아도 되는 구현 세부 사항인 경우도 있습니다. 이 경우 **serializer** 라이브러리를 사용하는 것이 좋습니다. 이 내용은 다음 섹션에서 설명합니다.
 
-## <a name="serializer"></a>Serializer
+## 직렬 변환기
 
-Conceptually the **serializer** library sits on top of the **IoTHubClient** library in the SDK. It uses the **IoTHubClient** library for the underlying communication with IoT Hub, but it adds modeling capabilities that remove the burden of dealing with message serialization from the developer. How this library works is best demonstrated by an example.
+개념적으로 **serializer** 라이브러리는 SDK의 **IoTHubClient** 라이브러리 위쪽에 있습니다. IoT Hub와의 기본 통신에 **IoTHubClient**를 사용하지만 개발자가 메시지 직렬화를 처리하는 부담을 없애주는 모델링 기능을 추가합니다. 이 라이브러리가 동작하는 방식은 예제를 통해 가장 잘 이해할 수 있습니다.
 
-Within the **serializer** folder in the azure-iot-sdks repository is a **samples** folder that contains an application called **simplesample\_amqp**. The Windows version of this sample includes the following Visual Studio solution:
+azure-iot-sdks 리포지토리의 **serializer** 폴더 내에는 **simplesample\_amqp**라는 응용 프로그램이 포함된 **samples** 폴더가 있습니다. Windows 버전의 이 샘플은 다음과 같은 Visual Studio 솔루션을 포함합니다.
 
   ![](media/iot-hub-device-sdk-c-intro/14-simplesample_amqp.PNG)
 
-As with the previous sample, this one includes several NuGet packages:
+이전 샘플과 마찬가지로 이 하나에는 여러 NuGet 패키지가 포함됩니다.
 
 - Microsoft.Azure.C.SharedUtility
 - Microsoft.Azure.IoTHub.AmqpTransport
@@ -268,15 +267,15 @@ As with the previous sample, this one includes several NuGet packages:
 - Microsoft.Azure.IoTHub.Serializer
 - Microsoft.Azure.uamqp
 
-We've seen most of these in the previous sample, but **Microsoft.Azure.IoTHub.Serializer** is new. This is required when we use the **serializer** library.
+이전 샘플에서 이 중 대부분을 살펴봤지만 **Microsoft.Azure.IoTHub.Serializer**는 새롭습니다. **serializer** 라이브러리를 사용할 경우 필요합니다.
 
-You can find the implementation of the sample application in the **simplesample\_amqp.c** file.
+**simplesample\_amqp.c** 파일에서 응용 프로그램 예제에 대한 구현을 찾을 수 있습니다.
 
-The following sections walk you through the key parts of this sample.
+다음 섹션에서는 이 샘플의 주요 부분을 안내합니다.
 
-### <a name="initializing-the-library"></a>Initializing the library
+### 라이브러리 초기화
 
-To start working with the **serializer** library, you must call the initialization APIs:
+**직렬 변환기** 라이브러리 작업을 시작하려면 초기화 API를 호출해야 합니다.
 
 ```
 serializer_init(NULL);
@@ -286,13 +285,13 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionStrin
 ContosoAnemometer* myWeather = CREATE_MODEL_INSTANCE(WeatherStation, ContosoAnemometer);
 ```
 
-The call to the **serializer\_init** function is a one-time call and is used to initialize the underlying library. Then, you call the **IoTHubClient\_CreateFromConnectionString** function, which is the same API as in the **IoTHubClient** sample. This call sets your device connection string (this is also where you choose the protocol you want to use). Note that this sample uses AMQP as the transport, but could have used HTTP.
+**serializer\_init** 함수에 대한 호출은 기본 라이브러리를 초기화하는 데 사용되는 일회성 호출입니다. 그런 다음 **IoTHubClient** 샘플과 동일한 API인 **IoTHubClient\_CreateFromConnectionString** 함수를 호출합니다. 이 호출은 장치 연결 문자열을 설정하며 이 연결 문자열로도 사용할 프로토콜을 선택할 수 있습니다. 이 샘플에서는 전송으로 AMQP를 사용하지만 HTTP를 사용할 수도 있습니다.
 
-Finally, call the **CREATE\_MODEL\_INSTANCE** function. Note that **WeatherStation** is the namespace of the model and **ContosoAnemometer** is the name of the model. Once the model instance is created, you can use it to start sending events and receiving messages. However, it's important to understand what a model is.
+마지막으로 **CREATE\_MODEL\_INSTANCE** 함수를 호출합니다. **WeatherStation**은 모델의 네임스페이스이며 **ContosoAnemometer**는 모델의 이름입니다. 모델 인스턴스를 만들면 이를 사용하여 이벤트 전송 및 메시지 수신을 시작할 수 있습니다. 하지만 모델을 이해하는 것이 중요합니다.
 
-### <a name="defining-the-model"></a>Defining the model
+### 모델 정의
 
-A model in the **serializer** library defines the events that your device can send to IoT Hub and the messages, called *actions* in the modeling language, which it can receive. You define a model using a set of C macros as in the **simplesample\_amqp** sample application:
+**serializer** 라이브러리의 모델은 장치에서 IoT Hub로 전송할 수 있는 이벤트와 모델링 언어에서 *동작*이라고 하는 수신할 수 있는 메시지를 정의합니다. **simplesample\_amqp** 샘플 응용 프로그램에서처럼 C 매크로 집합을 사용하여 모델을 정의합니다.
 
 ```
 BEGIN_NAMESPACE(WeatherStation);
@@ -308,21 +307,21 @@ WITH_ACTION(SetAirResistance, int, Position)
 END_NAMESPACE(WeatherStation);
 ```
 
-The **BEGIN\_NAMESPACE** and **END\_NAMESPACE** macros both take the namespace of the model as an argument. It’s expected that anything between these macros is the definition of your model(s) and the data structures that the models use.
+**BEGIN\_NAMESPACE** 및 **END\_NAMESPACE** 매크로 모두 인수로 모델의 네임스페이스를 사용합니다. 이러한 매크로 사이에 있는 모든 내용은 모델의 정의와 모델에서 사용하는 데이터 구조체로 간주됩니다.
 
-In this example, there is a single model called **ContosoAnemometer**. This model defines two events that your device can send to IoT Hub: **DeviceId** and **WindSpeed**. It also defines three actions (messages) that your device can receive: **TurnFanOn**, **TurnFanOff**, and **SetAirResistance**. Each event has a type, and each action has a name (and optionally a set of parameters).
+이 예에서는 **ContosoAnemometer**라는 단일 모델이 있습니다. 이 모델은 장치에서 IoT Hub로 전송할 수 있는 두 이벤트로 **DeviceId** 및 **WindSpeed**를 정의합니다. 또한 장치에서 수신할 수 있는 세 가지 동작(메시지)으로 **TurnFanOn**, **TurnFanOff** 및 **SetAirResistance**를 정의합니다. 각 이벤트에는 형식이 있고 각 동작에는 이름(필요에 따라 매개 변수 집합)이 있습니다.
 
-The events and actions defined in the model define an API surface that you can use to send events to IoT Hub, as well as respond to messages being sent to the device. This is best understood through an example.
+모델에 정의된 이벤트 및 동작은 이벤트를 IoT Hub에 전송하고 장치에 전송된 메시지에 응답하는 데 사용할 수 있는 API 노출 영역을 정의합니다. 예제를 통해 가장 잘 이해할 수 있습니다.
 
-### <a name="sending-events"></a>Sending events
+### 이벤트 전송
 
-The model defines the events that you can send to IoT Hub. In this example, that means one of the two events defined using the **WITH_DATA** macro. For example, if you want to send a **WindSpeed** event to an IoT hub, there are a few steps involved in making this happen. The first is to set the data we want to send:
+모델은 IoT Hub로 전송할 수 있는 이벤트를 정의합니다. 이 예제에서는 **WITH\_DATA** 매크로를 사용하여 정의된 두 이벤트 중 하나입니다. 예를 들어 **WindSpeed** 이벤트를 IoT Hub에 전송하려면 몇 가지 단계를 거쳐야 합니다. 먼저, 전송할 데이터를 설정합니다.
 
 ```
 myWeather->WindSpeed = 15;
 ```
 
-The model we defined earlier allows us to do this by setting a member of a **struct**. Next, we serialize the event we want to send:
+이전에 정의한 모델을 통해 **구조체**의 멤버를 설정하여 수행할 수 있습니다. 다음으로 전송할 이벤트를 직렬화합니다.
 
 ```
 unsigned char* destination;
@@ -331,13 +330,13 @@ size_t destinationSize;
 SERIALIZE(&destination, &destinationSize, myWeather->WindSpeed);
 ```
 
-This code serializes the event to a buffer (referenced by **destination**). Finally, we’ll send the event to IoT hub with this code:
+다음 코드는 이벤트를 버퍼에 직렬화합니다(**대상**으로 참조). 마지막으로 다음 코드를 사용하여 이벤트를 IoT Hub로 전송합니다.
 
 ```
 sendMessage(iotHubClientHandle, destination, destinationSize);
 ```
 
-This is a helper function in the sample application that sends our serialized event to IoT Hub:
+다음은 직렬화된 이벤트를 IoT Hub로 전송하는 샘플 응용 프로그램의 도우미 함수입니다.
 
 ```
 static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -362,9 +361,9 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 }
 ```
 
-This code is very similar to what we saw in the **iothub\_client\_sample\_amqp** application, in which we created a message from a byte array and then used **IoTHubClient\_SendEventAsync** to send it to IoT Hub. After that we just have to free the message handle and serialized data buffer we allocated earlier.
+이 코드는 바이트 배열에서 메시지를 만든 후 **IoTHubClient\_SendEventAsync**를 사용하여 IoT Hub로 전송했던 **iothub\_client\_sample\_amqp** 응용 프로그램의 내용과 매우 유사합니다. 그런 다음 이전에 할당한 메시지 핸들 및 직렬화된 데이터 버퍼를 해제해야 합니다.
 
-The second to last parameter of **IoTHubClient\_SendEventAsync** is a reference to a callback function that’s called when the data is successfully sent. Here's an example of a callback function:
+**IoTHubClient\_SendEventAsync**의 끝에서 두 번째 매개 변수는 데이터를 성공적으로 전송할 때 호출되는 콜백 함수에 대한 참조입니다. 다음은 호출 함수의 예입니다.
 
 ```
 void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -377,19 +376,19 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 }
 ```
 
-The second parameter is a pointer to user context; the same pointer we passed to **IoTHubClient\_SendEventAsync**. In this case the context is a simple counter, but it can be anything you want.
+두 번째 매개 변수는 사용자 컨텍스트에 대한 포인터로, **IoTHubClient\_SendEventAsync**로 전달한 것과 같은 포인터입니다. 이 경우 이 컨텍스트는 간단한 카운터이지만 사용자가 원하는 대로 정할 수 있습니다.
 
-That's all there is to sending events. The only thing left to cover is how to receive messages.
+이제 이벤트 전송이 끝났습니다. 이제 메시지를 수신하는 방법을 알아보겠습니다.
 
-### <a name="receiving-messages"></a>Receiving messages
+### 메시지 수신
 
-Receiving a message works similarly to the way messages work in the **IoTHubClient** library. First, you register a message callback function:
+메시지 수신은 **IoTHubClient** 라이브러리에서 메시지가 작동하는 방식과 유사하게 작동합니다. 먼저 메시지 호출 함수를 등록합니다.
 
 ```
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
 ```
 
-Then, you write the callback function that's invoked when a message is received:
+그런 다음 메시지를 수신할 때 호출되는 호출 함수를 작성합니다.
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -427,15 +426,15 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-This code is boilerplate -- it's the same for any solution. This function receives the message and takes care of routing it to the appropriate function through the call to **EXECUTE\_COMMAND**. The function called at this point depends on the definition of the actions in our model.
+다음 코드는 상용구로 모든 솔루션에 대해 동일합니다. 이 함수는 메시지를 수신하고 **EXECUTE\_COMMAND** 호출을 통해 적절한 함수로 라우팅합니다. 해당 시점에 호출하는 함수는 모델에서 동작 정의에 따라 달라집니다.
 
-When you define an action in your model, you're required to implement a function that's called when your device receives the corresponding message. For example, if your model defines this action:
+모델에서 동작을 정의할 때 장치에서 해당 메시지를 수신할 때 호출되는 함수를 구현해야 합니다. 예를 들어 모델에서 다음 동작을 정의하는 경우:
 
 ```
 WITH_ACTION(SetAirResistance, int, Position)
 ```
 
-You must define a function with this signature:
+다음 서명과 함께 함수를 정의해야 합니다.
 
 ```
 EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
@@ -446,13 +445,13 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 }
 ```
 
-Note that the name of the function matches the name of the action in the model and that the parameters of the function match the parameters specified for the action. The first parameter is always required and contains a pointer to the instance of our model.
+함수 이름은 모델에서 동작 이름과 일치하고 함수 매개 변수는 동작에 대해 지정된 매개 변수와 일치하는 것을 알 수 있습니다. 첫 번째 매개 변수는 항상 필수이며 모델 인스턴스에 대한 포인터를 포함합니다.
 
-When the device receives a message that matches this signature, the corresponding function is called. Therefore, aside from having to include the boilerplate code from **IoTHubMessage**, receiving messages is just a matter of defining a simple function for each action defined in your model.
+장치에서 이 서명과 일치하는 메시지를 수신하면 해당 함수가 호출됩니다. 따라서 **IoTHubMessage**의 상용구 코드를 포함해야 하는 것 외에도 메시지 수신은 모델에 정의된 각 작업에 대한 간단한 함수를 정의하는 정도의 문제입니다.
 
-### <a name="uninitializing-the-library"></a>Uninitializing the library
+### 라이브러리 초기화 취소
 
-When you’re done sending data and receiving messages, you can uninitialize the IoT library:
+데이터 전송 및 메시지 수신을 완료했으면 IoT 라이브러리를 초기화 취소할 수 있습니다.
 
 ```
         DESTROY_MODEL_INSTANCE(myWeather);
@@ -462,28 +461,31 @@ When you’re done sending data and receiving messages, you can uninitialize the
 serializer_deinit();
 ```
 
-Each of these three functions aligns with the three initialization functions described previously. Calling these APIs ensures that you free previously allocated resources.
+이러한 세 함수 각각은 앞에서 설명한 세 초기화 함수에 맞춰집니다. 이러한 API를 호출하면 이전에 할당된 리소스를 해제합니다.
 
-## <a name="next-steps"></a>Next Steps
+## 다음 단계
 
-This article covered the basics of using the libraries in the **Azure IoT device SDK for C**. It provided you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](iot-hub-device-sdk-c-iothubclient.md).
+이 문서에서는 **C용 Azure IoT 장치 SDK**에서 라이브러리 사용에 대한 기본 사항을 다룹니다. SDK에 포함된 사항, 아키텍처 및 Windows 샘플 작업을 시작하는 방법을 이해하기에 충분한 정보를 제공합니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
 
-To learn more about developing for IoT Hub, see the [IoT Hub SDKs][lnk-sdks].
+**C용 Azure IoT 장치 SDK**에서 장치 관리 기능을 사용하는 방법을 알아보려면 [C용 Azure IoT Hub 장치 관리 라이브러리 소개](iot-hub-device-management-library.md)를 참조하세요.
 
-To further explore the capabilities of IoT Hub, see:
+IoT Hub를 개발하는 방법에 대한 자세한 내용은 [IoT Hub SDK][lnk-sdks]를 참조하세요.
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
+- [솔루션 디자인][lnk-design]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
+[lnk-sdks]: iot-hub-sdks-summary.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

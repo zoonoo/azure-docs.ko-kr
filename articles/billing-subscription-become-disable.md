@@ -1,80 +1,89 @@
 <properties
-    pageTitle="Reactivate disabled Azure subscription | Microsoft Azure"
-    description="Describes when you might have an Azure subscription disabled and how to reactivate it."
-    keywords="azure subscription disabled"
-    services=""
-    documentationCenter=""
-    authors="genlin"
-    manager="mbaldwin"
-    editor=""
-    tags="billing"
-    />
+	pageTitle="Azure 구독이 비활성화된 경우 어떻게 해야 합니까? | Microsoft Azure"
+	description="Azure 구독이 비활성화되는 원인과 해결 방법을 설명"
+	services=""
+	documentationCenter=""
+	authors="genlin"
+	manager="msmbaldwin"
+	editor=""
+	tags="billing"
+	/>
 
 <tags
-    ms.service="billing"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="genli"/>
+	ms.service="billing"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2016"
+	ms.author="genli"/>
 
+# Azure 구독을 사용하지 않도록 설정할 경우 어떻게 해야 하나요?
 
-# <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it?"></a>Why is my Azure subscription disabled and how do I reactivate it?
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
-You might have your Azure subscription disabled because you reached your spending limit, have an overdue bill, hit your credit card limit, or because the subscription was canceled by the account administrator. See what issue applies to you and follow the steps in this article to get your subscription reactivated. 
+Azure 구독이 사용하지 않도록 설정되면 이 문서의 단계를 사용하여 다시 사용하도록 설정할 수 있습니다. 다음과 같은 이유로 Azure 구독이 비활성화될 수 있습니다.
 
-## <a name="you-reached-your-spending-limit"></a>You reached your spending limit
+## 지출 한도에 도달했습니다.
 
-When your usage exhausts the monthly amounts included with your subscription, we disable your service for the remainder of that billing month. Your service is disabled to protect you from accidentally incurring charges for usage beyond the amount included with your subscription. You can remove the spending limit and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
+사용자가 제품에 포함된 사용량을 실수로 초과하여 요금이 부과되는 일이 없도록 보호하기 위해 [지출 한도](https://azure.microsoft.com/pricing/spending-limits/) 기능을 도입했습니다. 제안에 포함된 월별 할당량을 모두 사용할 경우 해당 청구월의 나머지 기간 동안 서비스가 비활성화되는 내용을 설명합니다. 이 지출 한도를 제거하여 이 문제를 방지하고 [Microsoft Azure 구독에 대한 청구 경고를 설정](billing-set-up-alerts.md)하여 Azure 계정에 대한 청구 작업을 모니터링 및 관리할 수 있습니다.
 
-To remove your spending limit,
+다음은 지출 한도를 제거하는 방법입니다.
 
-1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
+1. [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인합니다.
 
-2. Click **Subscriptions**.
+2. **구독**을 클릭합니다.
 
-3. Select a subscription.
+3. 구독을 선택합니다.
 
-4. Click **Subscription reached the Spending Limit and has been disabled to prevent charges**.
+4. *구독이 지출 한도에 도달하여 요금이 부과되지 않도록 비활성화되었습니다*라는 메시지가 표시되면 클릭합니다.
 
-    If you don't see that option, click **Remove spending limit** in the subscription **Status** area.
+	또는 **구독 상태** 영역에서 **지출 한도 제거**를 클릭합니다.
 
-5. Select one of the following options:
+5. 다음 중 적절한 옵션을 선택합니다.
 
-|Option|Effect|
+|옵션|결과|
 |------|------|
-|Remove spending limit indefinitely|Removes the spending limit until you turn it back on.|
-|Remove spending limit for the current billing period|Removes the spending limit but the spending limit restarts for the next billing period.|
+|지출 한도 무기한 제거|다음 청구 기간 시작 시 자동으로 설정되지 않도록 지출 한도를 제거합니다.|
+|현재 청구 기간에 대한 지출 한도 제거|다음 청구 기간 시작 시 자동으로 다시 설정되도록 지출 한도를 제거합니다.|
 
-If you have a Free Trial subscription and you remove the spending limits, your subscription converts to Pay-As-You-Go at the end of the free trial.
+>[AZURE.NOTE] 무료 평가판 구독을 사용하는 경우 지출 한도를 제거하면 무료 평가판이 끝나고 종량제로 구독을 변환합니다.
 
-## <a name="your-bill-is-past-due"></a>Your bill is past due
+## 청구 기한 경과
 
-Pay your outstanding balance in full. See the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
+전체 금액에서 미지불된 금액을 결제하면 됩니다. 이렇게 하려면 문서 [Azure 구독에 미지불액이 있다는 알림을 받는지 궁금하신가요?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)를 참조하세요.
 
-## <a name="the-bill-exceeds-your-credit-card-limit"></a>The bill exceeds your credit card limit
+## 신용 카드 한도 초과
 
-To resolve this issue, [switch to a different credit card](billing-how-to-change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](https://azure.microsoft.com/pricing/invoicing/).
+이 문제를 해결하려면 다음 방법 중 하나를 사용합니다.
 
-## <a name="the-subscription-was-canceled-by-the-account-administrator"></a>The subscription was canceled by the Account Administrator
+- [다른 신용 카드로 전환](billing-how-to-change-credit-card.md)합니다.
+- 비즈니스와 관련된 경우 [지불의 송장 방법으로 전환할](https://azure.microsoft.com/pricing/invoicing/) 수 있습니다.
 
-If you're the account administrator, reactivate your Pay-As-You-Go subscription by using the following steps: 
+## 구독이 계정 관리자에 의해 취소됨
 
-1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
-2. Select the canceled subscription.
-3. Click **Reactivate**.
+>[AZURE.NOTE] 현재 이 방법은 종량제 구독에만 적용됩니다. 다른 구독 유형인 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)해야 합니다.
 
-![Screenshot that shows reactivate links on the right pane.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+계정 관리자인 경우 다음 단계를 수행하여 종량제 구독을 다시 활성화할 수 있습니다.
 
-For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
+- 취소된 구독을 선택합니다.
+- 구독 세부 정보 페이지에서 **다시 활성화** 링크 중 하나를 클릭합니다.
 
-## <a name="need-help?-contact-support."></a>Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
+## 비종량제 구독을 다시 활성화하는 방법
 
+사용하지 않도록 설정된 구독을 다시 활성화하려면 지원 티켓을 만들어야 합니다. [Azure 포털](https://portal.azure.com/)에 로그인하여 **도움말 + 지원**>**새 지원 요청**을 선택합니다.
 
+![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
-<!--HONumber=Oct16_HO2-->
+포털에 액세스할 수 없으면 Azure 지원 웹 사이트 또는 Azure 계정 센터에서 지원 요청을 제출합니다.
 
+ * [Azure 지원 웹 사이트](https://azure.microsoft.com/support/options/)에서 지원 티켓을 제출하려면 **지원 받기**를 클릭합니다.
+ * [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원 티켓을 제출하려면 구독을 선택하고 **Microsoft 지원에 문의**를 클릭합니다.
 
+자세한 내용은 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md)을 참조하세요.
+
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0914_2016-->

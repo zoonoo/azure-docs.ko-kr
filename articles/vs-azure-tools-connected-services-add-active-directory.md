@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Adding an Azure Active Directory by using Connected Services in Visual Studio | Microsoft Azure"
-   description="Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box"
+   pageTitle="Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가 | Microsoft Azure"
+   description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure Active Directory 추가"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,48 +15,47 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가 
 
-# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adding an Azure Active Directory by using Connected Services in Visual Studio 
+##개요
+Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로그램 또는 웹 API 서비스에서 AD 인증을 위한 SSO(Single Sign-on)을 지원할 수 있습니다. Azure AD 인증을 사용하면 사용자가 Azure AD의 자신의 계정을 사용하여 웹 응용 프로그램에 연결할 수 있습니다. Azure AD 인증의 장점으로 웹 응용 프로그램에서 API를 표시하는 경우 향상된 데이터 보안을 들 수 있습니다. Azure AD를 사용하면, 자체 계정 및 사용자 관리를 사용하는 별도 인증 시스템을 관리할 필요가 없습니다.
 
-##<a name="overview"></a>Overview
-By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or AD Authentication in Web API services. With Azure AD Authentication, your users can use their accounts from Azure AD to connect to your web applications. The advantages of Azure AD Authentication with Web API include enhanced data security when exposing an API from a web application. With Azure AD, you do not have to manage a separate authentication system with its own account and user management.
+## 지원되는 프로젝트 형식
 
-## <a name="supported-project-types"></a>Supported Project Types
+연결된 서비스 대화 상자에서 다음 프로젝트 형식으로 Azure AD에 연결할 수 있습니다.
 
-You can use the Connected Services dialog to connect to Azure AD in the following project types.
+- ASP.NET MVC 프로젝트
 
-- ASP.NET MVC Projects
-
-- ASP.NET Web API Projects
-
-
-### <a name="connect-to-azure-ad-using-the-connected-services-dialog"></a>Connect to Azure AD using the Connected Services dialog
-
-1. Make sure you have an Azure account. If you don't have an Azure account, you can sign up for a [free trial](http://go.microsoft.com/fwlink/?LinkId=518146).
-
-1. In Visual Studio, open the shortcut menu of the **References** node in your project and choose **Add Connected Services**.
-1. Select **Azure AD Authentication** and then choose **Configure**.
-
-    ![Choose Add Azure AD Authentication](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
-
-1. On the first page of the **Configure Azure AD Authentication**, check **Configure Single Sign-on using Azure AD**.
-
-    If your project is configured with another authentication configuration, the wizard warns you that continuing will disable the previous configuration.
-
-    ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
-
-1.  On the second page, select a domain from the **Domain** drop-down list. The list of domains contains all domains accessible by the accounts listed in the Account Settings dialog. As an alternative, you can enter a domain name if you don’t find the one you’re looking for, such as mydomain.onmicrosoft.com. You can choose the option to create a new Azure AD app or use the settings from an existing Azure AD app. 
-
-    ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
+- ASP.NET 웹 API 프로젝트
 
 
-1. On the third page of the wizard, make sure that **Read directory data** is checked. The wizard will fill in the **Client secret**. 
+### 연결된 서비스 대화 상자를 사용하여 Azure AD에 연결
 
-    ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
+1. Azure 계정이 있어야 합니다. Azure 계정이 없으면 [무료 평가판](http://go.microsoft.com/fwlink/?LinkId=518146)에 등록할 수 있습니다.
 
-1. Choose the **Finish** button. The dialog adds the necessary configuration code and references to enable your project for Azure AD authentication. You can see the AD domain on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Visual Studio의 프로젝트에서 **참조** 바로 가기 메뉴를 열고 **연결된 서비스 추가**를 선택합니다.
+1. **Azure AD 인증**을 선택한 다음 **구성**을 선택합니다.
 
-1. Review the Getting Started page that appears in your browser for ideas on next steps, and the What Happened page to see how your project was modified. If you want to check that everything worked, open one of the modified configuration files and verify that the settings mentioned in What Happened are there. For example, the main web.config in an ASP.NET MVC project will have these settings added:
+    ![Azure AD 인증 추가 선택](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
+
+1. **Azure AD 인증 구성**의 첫 페이지에서 **Azure AD를 사용하여 Single Sign-on 구성**을 확인합니다.
+
+    프로젝트가 다른 인증 구성과 함께 구성된 경우, 마법사는 이전 구성을 사용하지 않다고 설정한 경고를 표시합니다.
+
+    ![마법사에서 Azure AD 구성](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
+
+1.  두 번째 페이지의 **도메인** 드롭다운 목록에서 도메인을 선택합니다. 도메인 목록에는 계정 설정 대화 상자에 나열된 계정으로 액세스할 수 있는 모든 도메인을 포함합니다. 대신, 도메인을 찾을 수 없는 경우 mydomain.onmicrosoft.com 등과 같은 도메인 이름을 입력할 수 있습니다. 새 Azure AD 앱을 만들거나 기존 Azure AD 앱의 설정을 사용하는 옵션을 선택할 수 있습니다.
+
+    ![마법사에서 Azure AD 구성](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
+
+
+1. 마법사의 세 번째 페이지에서 **디렉터리 데이터 읽기**가 선택되어야 합니다. 마법사는 **클라이언트 암호**를 채웁니다.
+
+    ![마법사에서 Azure AD 구성](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
+
+1. **마침** 단추를 선택합니다. 대화 상자는 Azure AD 인증을 위한 프로젝트를 사용 가능하도록 필요한 구성 코드 및 참조를 추가합니다. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 AD 도메인을 볼 수 있습니다.
+
+1. 다음 단계에 대한 아이디어를 위해 브라우저에 표시되는 시작 페이지 및 프로젝트를 수정한 방법을 보기 위해 변경된 내용 페이지를 검토합니다. 모든 항목이 제대로 작동하는지 확인하려면 수정된 구성 파일 중 하나를 열고 변경된 내용에 언급된 설정이 있는지 확인합니다. 예를 들어, ASP.NET MVC 프로젝트의 기본 web.config에 다음 설정이 추가됩니다.
 
         <appSettings> 
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
@@ -66,23 +65,18 @@ You can use the Connected Services dialog to connect to Azure AD in the followin
             <add key="ida:PostLogoutRedirectUri" value="The default redirect URI from the project" />
         </appSettings>
 
-## <a name="how-your-project-is-modified"></a>How your project is modified
+## 프로젝트를 수정하는 방법
 
-When you run the wizard, Visual Studio adds Azure AD and associated references to your project. Configuration files and code files in your project are also modified to add support for Azure AD. The specific modifications that Visual Studio makes depend on the project type. For detailed information about how ASP.NET MVC projects are modified, see [What happened– MVC Projects](http://go.microsoft.com/fwlink/p/?LinkID=513809). For Web API projects, see [What happened – Web API Projects](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+마법사를 실행하면 Visual Studio는 Azure AD 및 연관된 참조를 프로젝트에 추가합니다. 또한 프로젝트의 구성 파일 및 코드 파일이 수정되어 Azure AD용 지원을 추가합니다. Visual Studio가 작성한 특정 수정 내용은 프로젝트 형식에 따라 달라집니다. ASP.NET MVC 프로젝트를 수정하는 방법에 대한 자세한 정보는 [변경된 내용 – MVC 프로젝트](http://go.microsoft.com/fwlink/p/?LinkID=513809)를 참조하세요. 웹 API 프로젝트는 [변경된 내용 - 웹 API 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513810)를 참조하세요.
 
-##<a name="next-steps"></a>Next steps
+##다음 단계
 
-Ask questions and get help.
+질문하고 도움 받기.
 
- - [MSDN Forum: Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
+ - [MSDN 포럼: Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Azure AD Documentation](https://azure.microsoft.com/documentation/services/active-directory/)
+ - [Azure AD 설명서](https://azure.microsoft.com/documentation/services/active-directory/)
 
- - [Blog Post: Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
+ - [블로그 게시물: Azure AD에 대한 소개](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

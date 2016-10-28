@@ -1,6 +1,6 @@
 <properties
-   pageTitle="View deployment operations with REST API | Microsoft Azure"
-   description="Describes how to use the Azure Resource Manager REST API to detect issues from Resource Manager deployment."
+   pageTitle="REST API를 사용하여 배포 작업 보기 | Microsoft Azure"
+   description="Azure Resource Manager REST API를 사용하여 리소스 관리자 배포의 문제를 감지하는 방법에 대해 설명합니다."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,24 +17,23 @@
    ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-
-# <a name="view-deployment-operations-with-azure-resource-manager-rest-api"></a>View deployment operations with Azure Resource Manager REST API
+# Azure 리소스 관리자 REST API를 통해 배포 작업 보기
 
 > [AZURE.SELECTOR]
-- [Portal](resource-manager-troubleshoot-deployments-portal.md)
+- [포털](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. The REST API provides operations that enable you to find the errors and determine potential fixes.
+Azure에 리소스를 배포할 때 오류가 발생하는 경우 실행된 배포 작업에 대한 더욱 자세한 정보가 필요할 수 있습니다. REST API는 오류를 찾고 잠재적 해결 방법을 확인할 수 있도록 하는 작업을 제공합니다.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-rest.md).
+배포하기 전에 템플릿 및 인프라의 유효성을 검사하여 몇 가지 오류를 방지할 수 있습니다. 배포 중에 이후 문제 해결에 도움이 될 만한 추가 요청과 응답 정보를 기록할 수 있습니다. 유효성 검사와 요청 및 응답 정보 기록에 관한 자세한 내용은 [Azure Resource Manager 템플릿으로 리소스 그룹 배포](resource-group-template-deploy-rest.md)를 참조하세요.
 
-## <a name="troubleshoot-with-rest-api"></a>Troubleshoot with REST API
+## REST API 문제 해결
 
-1. Deploy your resources with the [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) operation. To retain information that may be helpful for debugging, set the **debugSetting** property in JSON request to **requestContent** and/or **responseContent**. 
+1. [템플릿 배포 만들기](https://msdn.microsoft.com/library/azure/dn790564.aspx) 작업을 사용하여 리소스를 배포합니다. 디버깅에 도움이 될 수 있는 정보를 유지하려면 JSON 요청의 **debugSetting** 속성을 **requestContent** 및/또는 **responseContent**로 설정합니다. 
 
         PUT https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
           <common headers>
@@ -55,13 +54,13 @@ You can avoid some errors by validating your template and infrastructure prior t
             }
           }
 
-    By default, the **debugSetting** value is set to **none**. When specifying the **debugSetting** value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations. 
+    기본적으로 **debugSetting** 값은 **none**으로 설정되어 있습니다. **debugSetting** 값을 지정하는 경우 배포 동안 제공할 정보 형식을 신중히 고려하세요. 요청 또는 응답에 대한 정보를 로깅하게 되면 배포 작업을 통해 검색되는 중요한 데이터가 노출될 가능성이 있기 때문입니다.
 
-2. Get information about a deployment with the [Get information about a template deployment](https://msdn.microsoft.com/library/azure/dn790565.aspx) operation.
+2. [템플릿 배포에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/dn790565.aspx) 작업을 사용하여 배포에 대한 정보를 가져옵니다.
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 
-    In the response, note in particular the **provisioningState** , **correlationId** and **error** elements. The **correlationId** is used to track related events, and can be helpful when working with technical support to troubleshoot an issue.
+    응답에서 **provisioningState**, **correlationId** 및 **error** 요소에 특히 유의합니다. **correlationId**는 관련 이벤트를 추적하는 데 사용되며 기술 지원과 함께 문제를 해결할 때 유용할 수 있습니다.
     
         { 
           ...
@@ -71,16 +70,16 @@ You can avoid some errors by validating your template and infrastructure prior t
             ...
             "error":{
               "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
-              "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
+              "details":[{"code":"Conflict","message":"{\r\n  "error": {\r\n    "message": "Conflict",\r\n    "code": "Conflict"\r\n  }\r\n}"}]
             }  
           }
         }
 
-3. Get information about deployment operations with the [List all template deployment operations](https://msdn.microsoft.com/library/azure/dn790518.aspx) operation. 
+3. [모든 템플릿 배포 작업 나열](https://msdn.microsoft.com/library/azure/dn790518.aspx) 작업을 사용하여 배포 작업에 대한 정보를 가져오세요.
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
 
-    The response will include request and/or response information based on what you specified in the **debugSetting** property during deployment.
+    응답에는 배포 중에 **debugSetting** 속성에 지정하는 설정을 기준으로 요청 및/또는 응답 정보가 포함됩니다.
     
         {
           ...
@@ -105,19 +104,15 @@ You can avoid some errors by validating your template and infrastructure prior t
           }
         }
 
-4. Get events from the audit logs for the deployment with the [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx) operation.
+4. [구독에서 관리 이벤트 나열](https://msdn.microsoft.com/library/azure/dn931934.aspx) 작업을 사용하여 배포에 대한 감사 로그에서 이벤트를 가져오세요.
 
         GET https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version={api-version}&$filter={filter-expression}&$select={comma-separated-property-names}
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
-- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+- 특정 배포 오류에 대한 도움말은 [ Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
+- 감사 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법을 알아보려면 [Resource Manager를 사용하여 작업 감사](resource-group-audit.md)를 참조하세요.
+- 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

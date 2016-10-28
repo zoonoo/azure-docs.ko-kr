@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to annotate data sources | Microsoft Azure"
-   description="How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts."
+   pageTitle="데이터 원본에 주석을 추가하는 방법 | Microsoft Azure"
+   description="Azure 데이터 카탈로그의 데이터 자산에 친숙한 이름, 태그, 설명 및 전문가를 포함한 주석을 추가하는 방법을 강조 표시한 방법 문서"
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -17,56 +17,50 @@
    ms.author="maroche"/>
 
 
+# 데이터 원본에 주석을 추가하는 방법
 
-# <a name="how-to-annotate-data-sources"></a>How to annotate data sources
+## 소개
+**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 데이터 카탈로그는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. 데이터 카탈로그를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다. 데이터 카탈로그를 통해 사용자는 설명 및 태그와 같은 설명이 포함된 자신의 메타데이터를 제공하여 데이터 원본에서 추출된 메타데이터를 보완하고 데이터 원본을 더 많은 사람들이 더 이해할 수 있도록 합니다.
 
-## <a name="introduction"></a>Introduction
-**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, Data Catalog is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. When a data source is registered with Data Catalog, its metadata is copied and indexed by the service, but the story doesn’t end there. Data Catalog allows users to provide their own descriptive metadata – such as descriptions and tags – to supplement the metadata extracted from the data source, and to make the data source more understandable to more people.
+## 주석 및 크라우드소싱
+모든 사람은 의견이 있습니다. 이는 좋은 일입니다. 데이터 카탈로그는 다양한 사용자는 엔터프라이즈 데이터 원본에 대해 다양한 관점이 있으며 각 관점은 가치가 있다는 것을 인식하고 있습니다. 다음과 같은 시나리오를 고려해 보세요.
 
-## <a name="annotation-and-crowdsourcing"></a>Annotation and crowdsourcing
-Everyone has an opinion. And this is a good thing.
-Data Catalog recognizes that different users have different perspectives on enterprise data sources, and that each of these perspectives can be valuable. Consider the following scenario:
+* 시스템 관리자는 데이터 원본을 호스트하는 서버 또는 서비스에 대한 서비스 수준 계약을 알고 있습니다.
+* 데이터베이스 관리자는 각 데이터베이스 및 허용된 ETL 처리 창에 대한 백업 일정을 알고 있습니다.
+* 시스템 소유자는 사용자가 데이터 원본에 대한 액세스를 요청하는 프로세스를 알고 있습니다.
+* 데이터 관리자는 데이터 원본의 자산 및 특성을 엔터프라이즈 데이터 모델에 매핑하는 방법을 알고 있습니다.
+* 분석가는 데이터가 지원하는 비즈니스 프로세스의 컨텍스트에서 어떻게 사용되는지 알고 있습니다.
 
-* The system administrator knows the service level agreement for the servers or services that host the data source.
-* The database administrator knows the backup schedule for each database, and the allowed ETL processing windows.
-* The system owner knows the process for users to request access to the data source.
-* The data steward knows how the assets and attributes in the data source map to the enterprise data model.
-* The analyst knows how the data is used in the context of the business processes he supports.
+각 관점은 가치가 있으며 데이터 카탈로그는 각각 서로 캡처되고 사용되도록 허용하는 메타데이터에 크라우드소싱 접근을 사용하여 등록된 데이터 원본에 대한 전체적인 그림을 제공합니다. 데이터 카탈로그 포털을 사용하여 각각의 사용자는 다른 사용자가 제공하는 주석을 볼 수 있는 동안 자신의 주석을 추가하고 편집할 수 있습니다.
 
-Each of these perspectives is valuable, and Data Catalog uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources. Using the Data Catalog portal, each user can add and edit his own annotations, while being able to view annotations provided by other users.
+## 다양한 유형의 주석
+데이터 카탈로그는 다음과 같은 형식의 주석을 지원합니다.
 
-## <a name="different-types-of-annotations"></a>Different types of annotations
-Data Catalog supports the following types of annotations:
-
-| Annotation     | Notes                                                                                                                                                                                                                                                                                                                                                           |
+| 주석 | 참고 사항 |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Friendly name  | Friendly names can be supplied at the data asset level, to make the data assets more easily understood. Friendly names are most useful when the underlying object name is cryptic, abbreviated or otherwise not meaningful to users.                                                                                                                            |
-| Description    | Descriptions can be supplied at the data asset and attribute / column levels. Descriptions are free-form short text annotations that describe the user’s perspective on the data asset or its use.                                                                                                                                                              |
-| Tags (user tags)          | Tags can be supplied at the data asset and attribute / column levels. User tags are user-defined labels that can be used to categorize data assets or attributes.                                                                                                                                                                                                    |
-| Tags (glossary tags)          | Tags can be supplied at the data asset and attribute / column levels. Glossary tags are centrally-defined glossary terms that can be used to categorize data assets or attributes using a common business taxonomy. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)                                                                                                                                                                                                    |
-| Experts        | Experts can be supplied at the data asset level. Experts identify users or groups with expert perspectives on the data and can serve as points of contact for users who discover the registered data sources and have questions that are not answered by the existing annotations.  |
-| Request access | Request access information can be supplied at the data asset level. This information is for users who discover a data source that they do not yet have permissions to access. Users can enter the email address of the user or group who grants access, the URL of the process or tool that users need to gain access, or can enter the process itself as text. |
-| Documentation | Documentation can be supplied at the data asset level. Asset documentation is rich text information that can include links and images, and which can provide any information not conveyed through descriptions and tags. |
+| 친숙한 이름 | 데이터 자산 수준에서 친숙한 이름을 제공하여 데이터 자산을 보다 쉽게 이해할 수 있도록 할 수 있습니다. 친숙한 이름은 기본 개체 이름이 수수께끼, 약식일 경우 가장 유용하며 그렇지 않은 경우 사용자에게 의미가 없습니다. |
+| 설명 | 데이터 자산 및 특성 / 열 수준에서 설명을 제공할 수 있습니다. 설명은 데이터 자산에 대한 사용자의 관점 또는 사용을 설명하는 자유 형식의 짧은 텍스트 주석입니다. |
+| 태그(사용자 태그) | 데이터 자산 및 특성 / 열 수준에서 태그를 제공할 수 있습니다. 사용자 태그는 데이터 자산 또는 특성을 분류하는데 사용할 수 있는 사용자 정의 레이블입니다. |
+| 태그(용어집 태그) | 데이터 자산 및 특성 / 열 수준에서 태그를 제공할 수 있습니다. 용어집 태그는 일반적인 비즈니스 분류법을 사용하여 데이터 자산 또는 속성을 분류하는 데 사용할 수 있는 중앙에서 정의되는 용어입니다. 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)을 참조하세요. |
+| 전문가 | 데이터 자산 수준에서 전문가를 제공할 수 있습니다. 전문가는 데이터에 대한 전문적 관점으로 사용자 또는 그룹을 식별하고 등록된 데이터 원본을 검색하고 기존 주석에서 대답하지 않은 질문이 있는 사용자에 대한 연락처의 지점으로 쓰일 수 있습니다. |
+| 액세스 요청 | 데이터 자산 수준에서 액세스 요청 정보를 제공할 수 있습니다. 이 정보는 아직 액세스 권한이 없는 데이터 원본을 검색하는 사용자를 위한 것입니다. 사용자는 액세스, 액세스를 얻기 위해 필요한 프로세스 또는 도구의 URL을 부여하는 사용자 또는 그룹의 메일 주소를 입력할 수 있으며 또는 텍스트로 프로세스 자체를 입력할 수 있습니다. |
+| 설명서 | 데이터 자산 수준에서 설명서를 제공할 수 있습니다. 자산 설명서는 링크와 이미지를 포함할 수 있으며 설명과 태그를 통해 전달되지 않은 어떠한 정보든 제공할 수 있는 서식 있는 텍스트 정보입니다. |
 
 
-## <a name="annotating-multiple-assets"></a>Annotating multiple assets
-When selecting multiple data assets in the Data Catalog portal, users can annotate all selected assets in a single operation. Annotations will apply to all selected assets, making it easy to select and provide a consistent description and sets of tags and experts for related data assets.
+## 여러 자산 주석 지정
+데이터 카탈로그 포털에서 여러 데이터 자산을 선택하는 경우 사용자는 단일 작업에서 선택한 모든 자산에 주석을 지정할 수 있습니다. 관련 데이터 자산에 대한 일관된 설명 및 태그와 전문가 집합을 쉽게 선택하고 제공할 수 있도록 주석이 선택된 모든 자산에 적용됩니다.
 
-> [AZURE.NOTE] Tags and experts can also be provided when registering data assets using the Data Catalog data source registration tool.
+> [AZURE.NOTE] 데이터 카탈로그 데이터 원본 등록 도구를 사용하여 데이터 자산을 등록하는 경우 태그 및 전문가를 제공할 수도 있습니다.
 
-When selecting multiple tables and views, only columns that all selected data assets have in common will be displayed in the Data Catalog portal. This allows users to provide tags and descriptions for all columns with the same name for all selected assets.
+여러 테이블 및 뷰를 선택하는 경우 선택된 모든 데이터 자산과 공통된 열만 데이터 카탈로그 포털에 표시됩니다. 이를 통해 사용자에게 선택한 모든 자산에 대해 동일한 이름을 가진 모든 열에 대한 태그 및 설명을 제공할 수 있습니다.
 
-## <a name="annotations-and-discovery"></a>Annotations and discovery
-Just as the metadata extracted from the data source during registration is added to the Data Catalog search index, user-supplied metadata is also indexed. This means that not only do annotations make it easier for users to understand the data they discover, annotations also make it easier for users to discover the annotated data assets by searching using the terms that make sense to them.
+## 주석 및 검색
+등록이 데이터 카탈로그 검색 인덱스에 추가되는 동안 데이터 원본에서 추출한 메타데이터와 마찬가지로 사용자가 제공한 메타데이터도 인덱싱됩니다. 이는 주석이 사용자가 검색한 데이터를 이해하기 쉽도록 하는 것은 물론 사용자가 이해할 수 있는 용어를 사용하여 검색하여 주석이 지정된 데이터 자산을 검색하기 쉽도록 하는 것을 의미합니다.
 
-## <a name="summary"></a>Summary
-Registering a data source with Data Catalog makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, users can provide annotations to make easier to discover and understand from within the Data Catalog portal.
+## 요약
+데이터 원본을 데이터 카탈로그에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터를 검색할 수 있게 합니다. 데이터 원본이 등록되면 사용자가 데이터 카탈로그 포털 내에서 보다 쉽게 검색하고 이해할 수 있도록 주석을 제공할 수 있습니다.
 
-## <a name="see-also"></a>See also
-- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to annotate data sources.
+## 참고 항목
+- 데이터 원본에 주석을 추가하는 방법에 대한 단계별 세부 정보에 대한 [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

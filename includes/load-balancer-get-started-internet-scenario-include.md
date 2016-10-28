@@ -1,12 +1,9 @@
-The following tasks will be done in this scenario:
+이 시나리오에서는 다음 작업이 수행 됩니다.
 
-* Create a load balancer that receives network traffic on port 80 and send load-balanced traffic to virtual machines "web1" and "web2"
-* Create NAT rules for remote desktop access/SSH for virtual machines behind the load balancer
-* Create health probes
+* 포트 80의 네트워크 트래픽을 수신하는 부하 분산 장치를 만들고 부하가 분산된 트래픽을 가상 컴퓨터 "web1" 및 "web2"에 전송합니다.
+* 부하 분산 장치 뒤에 있는 가상 컴퓨터의 원격 데스크톱 액세스/SSH에 대한 NAT 규칙 만들기
+* 상태 프로브 만들기
 
-![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+![부하 분산 장치 시나리오](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

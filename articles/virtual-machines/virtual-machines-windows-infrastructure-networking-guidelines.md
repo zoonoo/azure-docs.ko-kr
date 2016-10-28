@@ -1,114 +1,110 @@
 <properties
-    pageTitle="Networking Infrastructure Guidelines | Microsoft Azure"
-    description="Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services."
-    documentationCenter=""
-    services="virtual-machines-windows"
-    authors="iainfoulds"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="네트워킹 인프라 지침 | Microsoft Azure"
+	description="Azure 인프라 서비스에서 가상 네트워킹을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
+	documentationCenter=""
+	services="virtual-machines-windows"
+	authors="iainfoulds"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/08/2016"
-    ms.author="iainfou"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2016"
+	ms.author="iainfou"/>
+
+# 네트워킹 인프라 지침
+
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
+
+이 문서에서는 Azure 내의 가상 네트워킹 및 기존 온-프레미스 환경 간 연결에 필요한 계획 단계를 집중적으로 살펴봅니다.
 
 
-# <a name="networking-infrastructure-guidelines"></a>Networking infrastructure guidelines
+## 가상 네트워크에 대한 구현 지침
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
+의사 결정:
 
-This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.
+- IT 작업 또는 인프라를 호스트하는 데 필요한 가상 네트워크는 어떤 유형인가(클라우드 전용 또는 크로스-프레미스)?
+- 크로스-프레미스 가상 네트워크의 경우, 현재 서브넷 및 VM을 호스트하고 향후 타당한 확장에 주소 공간이 얼마나 필요한가?
+- 각 리소스 그룹에 대해 중앙 집중식 가상 네트워크를 만들려고 하나? 아니면 개별 가상 네트워크를 만들려고 하나?
 
+작업:
 
-## <a name="implementation-guidelines-for-virtual-networks"></a>Implementation guidelines for virtual networks
-
-Decisions:
-
-- What type of virtual network do you need to host your IT workload or infrastructure (cloud-only or cross-premises)?
-- For cross-premises virtual networks, how much address space do you need to host the subnets and VMs now and for reasonable expansion in the future?
-- Are you going to create centralized virtual networks or create individual virtual networks for each resource group?
-
-Tasks:
-
-- Define the address space for the virtual networks to be created.
-- Define the set of subnets and the address space for each.
-- For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the VMs in the virtual network need to reach.
-- Work with on-premises networking team to ensure the appropriate routing is configured when creating cross-premises virtual networks.
-- Create the virtual network using your naming convention.
+- 생성할 가상 네트워크에 대한 주소 공간을 정의합니다.
+- 각각에 대한 주소 공간 및 서브넷 집합을 정의합니다.
+- 크로스-프레미스 가상 네트워크의 경우, 가상 네트워크의 VM이 도달에 필요한 온-프레미스 위치의 로컬 네트워크 주소 공간 집합을 정의합니다.
+- 크로스-프레미스 가상 네트워크를 만들 때 온-프레미스 네트워킹 팀과 협력하여 적절한 라우팅이 구성되도록 합니다.
+- 명명 규칙을 사용하여 가상 네트워크를 만듭니다.
 
 
-## <a name="virtual-networks"></a>Virtual networks
+## 가상 네트워크
 
-Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, as with physical networks. By using a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route circuit](../expressroute/expressroute-introduction.md), you can connect Azure virtual networks to your on-premises networks. You can read more about [virtual networks and their components](../virtual-network/virtual-networks-overview.md).
+가상 네트워크는 VM(가상 컴퓨터) 간 통신을 지원하는 데 필요합니다. 물리적 네트워크의 경우와 마찬가지로 서브넷, 사용자 지정 IP 주소, DNS 설정, 보안 필터링 및 부하 분산을 정의할 수 있습니다. [사이트 간 VPN](../vpn-gateway/vpn-gateway-topology.md) 또는 [Express 경로 회로](../expressroute/expressroute-introduction.md)를 사용하여 Azure 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. [가상 네트워크 및 해당 구성 요소](../virtual-network/virtual-networks-overview.md)에 대해 자세히 읽어보세요.
 
-By using Resource Groups, you have flexibility in how you design your virtual networking components. VMs can connect to virtual networks outside of their own resource group. A common design approach would be to create centralized resource groups that contain your core networking infrastructure that can be managed by a common team, and then VMs and their applications deployed to separate resource groups. This approach allows application owners access to the resource group that contains their VMs without opening up access to the configuration of the wider virtual networking resources.
+리소스 그룹을 사용하여 보다 유연하게 가상 네트워킹 구성 요소를 디자인할 수 있습니다. VM은 자체 리소스 그룹 외부의 가상 네트워크에 연결할 수 있습니다. 일반적인 디자인 방법은 일반 팀에서 관리할 수 있는 핵심 네트워킹 인프라를 포함하는 중앙 집중식 리소스 그룹을 만든 다음, VM 및 해당 응용 프로그램을 별도의 리소스 그룹에 배포하는 것입니다. 이 방법을 사용하면 응용 프로그램 소유자가 좀 더 광범위한 가상 네트워킹 리소스 구성에 대한 액세스 권한을 얻지 않고도 VM을 포함하는 리소스 그룹에 액세스할 수 있습니다.
 
-## <a name="site-connectivity"></a>Site connectivity
+## 사이트 연결
 
-### <a name="cloud-only-virtual-networks"></a>Cloud-only virtual networks
-If on-premises users and computers do not require ongoing connectivity to VMs in an Azure virtual network, your virtual network design is straight forward:
+### 클라우드 전용 가상 네트워크
+온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 VM에 지속적인 연결을 필요로 하지 않는 경우, 상당히 직관적으로 가상 네트워크를 디자인할 수 있습니다.
 
-![Basic cloud-only virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![기본 클라우드 전용 가상 네트워크 다이어그램](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
-This approach is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these VMs using RDP or point-to-site VPN connections.
+이 방법은 일반적으로 인터넷 기반 웹 서버와 같은 인터넷 연결 작업을 위한 것입니다. RDP 또는 지점-사이트 간 VPN 연결을 사용하여 이러한 VM을 관리할 수 있습니다.
 
-Because they do not connect to your on-premises network, Azure-only virtual networks can use any portion of the private IP address space, even if the same private space is in use on-premises.
+온-프레미스 네트워크에 연결하지 않기 때문에, 온-프레미스에서 동일한 개인 공간이 사용되고 있더라도 Azure 전용 가상 네트워크는 개인 IP 주소 공간의 일부를 사용할 수 있습니다.
 
 
-### <a name="cross-premises-virtual-networks"></a>Cross-premises virtual networks
-If on-premises users and computers require ongoing connectivity to VMs in an Azure virtual network, create a cross-premises virtual network.  Connect it to your on-premises network with an ExpressRoute or site-to-site VPN connection.
+### 크로스-프레미스 가상 네트워크
+온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 가상 컴퓨터에 지속적인 연결을 필요로 하지 않는 경우, 크로스-프레미스 가상 네트워크를 만듭니다. Express 경로 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크에 연결합니다.
 
-![Cross-premises virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![프레미스 간 가상 네트워크 다이어그램](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
-In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
+이 구성에서 Azure 가상 네트워크는 기본적으로 온-프레미스 네트워크의 클라우드 기반 확장입니다.
 
-Because they connect to your on-premises network, cross-premises virtual networks must use a portion of the address space used by your organization that is unique. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend out your network.
+크로스-프레미스 가상 네트워크는 온-프레미스 네트워크에 연결되므로 조직에서 사용하는 고유한 주소 공간 일부를 사용해야 합니다. 여러 다른 회사에 특정 IP 서브넷이 할당되게 되는 동일한 방식에서, 사용자가 네트워크를 확장하면 Azure는 다른 위치가 됩니다.
 
-To allow packets to travel from your cross-premises virtual network to your on-premises network, you must configure the set of relevant on-premises address prefixes as part of the local network definition for the virtual network. Depending on the address space of the virtual network and the set of relevant on-premises locations, there can be many address prefixes in the local network.
+크로스-프레미스 가상 네트워크에서 온-프레미스 네트워크로 이동하는 패킷을 허용하려면 가상 네트워크에 대한 로컬 네트워크 정의의 일부로 관련 온-프레미스 주소 접두사의 집합을 구성해야 합니다. 가상 네트워크의 주소 공간 및 관련 온-프레미스 위치의 집합에 따라 로컬 네트워크의 많은 주소 접두사가 될 수 있습니다.
 
-You can convert a cloud-only virtual network to a cross-premises virtual network, but it most likely requires you to re-IP your virtual network address space and Azure resources. Therefore, carefully consider if a virtual network needs to be connected to your on-premises network when you assign an IP subnet.
+클라우드 전용 가상 네트워크를 크로스-프레미스 가상 네트워크로 변환할 수 있지만 가상 네트워크 주소 공간 및 Azure 리소스를 다시 IP해야 할 수 있습니다. 따라서 IP 서브넷을 할당할 때 가상 네트워크를 온-프레미스 네트워크에 연결해야 할지를 신중히 고려해야 합니다.
 
-## <a name="subnets"></a>Subnets
-Subnets allow you to organize resources that are related, either logically (for example, one subnet for VMs associated to the same application), or physically (for example, one subnet per resource group). You can also employ subnet isolation techniques for added security.
+## 서브넷
+서브넷을 사용하면 관련된 리소스를 로컬로(예: 동일한 응용 프로그램에 관련된 VM에 대한 하나의 서브넷) 또는 물리적으로(예: 리소스 그룹당 하나의 서브넷) 조직할 수 있습니다. 또한 보안 강화를 위해 서브넷 격리 기술을 이용할 수도 있습니다.
 
-For cross-premises virtual networks, you should design subnets with the same conventions that you use for on-premises resources. **Azure always uses the first three IP addresses of the address space for each subnet**. To determine the number of addresses needed for the subnet, start by counting the number of VMs that you need now. Estimate for future growth, and then use the following table to determine the size of the subnet.
+크로스-프레미스 가상 네트워크의 경우 온-프레미스 리소스에 사용하는 동일한 규칙으로 서브넷을 설계해야 합니다. **Azure는 항상 각 서브넷에 해당 주소 공간의 처음 3개의 IP 주소를 사용합니다**. 서브넷에 필요한 주소 수를 확인하려면 지금 필요한 VM 수를 계산하여 시작합니다. 향후 성장을 예측한 후 다음 표를 사용하여 서브넷의 크기를 결정합니다.
 
-Number of VMs needed | Number of host bits needed | Size of the subnet
+필요한 VM 수 | 필요한 호스트 비트 수 | 서브넷 크기
 --- | --- | ---
 1–3 | 3 | /29
-4–11     | 4 | /28
+4–11 | 4 | /28
 12–27 | 5 | /27
 28–59 | 6 | /26
 60–123 | 7 | /25
 
-> [AZURE.NOTE] For normal on-premises subnets, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 2. For an Azure subnet, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 5 (2 plus 3 for the addresses that Azure uses on each subnet).
+> [AZURE.NOTE] 일반적인 온-프레미스 서브넷의 경우, n개의 호스트 비트를 포함하는 서브넷에 대한 호스트 주소의 최대 수는 2<sup>n</sup> – 2입니다. Azure 서브넷의 경우, n개의 호스트 비트를 포함하는 서브넷에 대한 호스트 주소의 최대 수는 2<sup>n</sup> – 5입니다(Azure가 각 서브넷에서 사용하는 주소에 대해 2+3).
 
-If you choose a subnet size that is too small, you have to re-IP and redeploy the VMs in the subnet.
-
-
-## <a name="network-security-groups"></a>Network Security Groups
-You can apply filtering rules to the traffic that flows through your virtual networks by using Network Security Groups. You can build granular filtering rules to secure your virtual networking environment, controlling inbound and outbound traffic, source and destination IP ranges, allowed ports, etc. Network Security Groups can be applied to subnets within a virtual network or directly to a given virtual network interface. It is recommended to have some level of Network Security Group filtering traffic on your virtual networks. You can read more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+서브넷 크기를 너무 작게 선택하면 해당 서브넷에서 VM을 다시 IP하고 다시 배포해야 합니다.
 
 
-## <a name="additional-network-components"></a>Additional network components
-As with an on-premises physical networking infrastructure, Azure virtual networking can contain more than subnets and IP addressing. As you design your application infrastructure, you may want to incorporate some of these additional components:
-
-- [VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) - connect Azure virtual networks to other Azure virtual networks, or connect to on-premises networks through a Site-to-Site VPN connection. Implement Express Route connections for dedicated, secure connections. You can also provide users direct access with Point-to-Site VPN connections.
-- [Load balancer](../load-balancer/load-balancer-overview.md) - provides load balancing of traffic for both external and internal traffic as desired.
-- [Application Gateway](../application-gateway/application-gateway-introduction.md) - HTTP load-balancing at the application layer, providing some additional benefits for web applications rather than deploying the Azure load balancer.
-- [Traffic Manager](../traffic-manager/traffic-manager-overview.md) - DNS-based traffic distribution to direct end-users to the closest available application endpoint, allowing you to host your application out of Azure datacenters in different regions.
+## 네트워크 보안 그룹
+네트워크 보안 그룹을 사용하여 가상 네트워크를 따라 흐르는 트래픽에 필터링 규칙을 적용할 수 있습니다. 가상 네트워킹 환경 보안 유지를 위해 세밀한 필터링 규칙을 작성하여 인바운드 및 아웃바운드 트래픽, 소스 및 대상 IP 범위, 허용 포트 등을 제어할 수 있습니다. 가상 네트워크 내의 서브넷이나 지정된 가상 네트워크 인터페이스에 직접 네트워크 보안 그룹을 적용할 수 있습니다. 가상 네트워크의 트래픽을 필터링하는 일정 수준의 네트워크 보안 그룹을 유지하는 것이 좋습니다. [네트워크 보안 그룹 정보](../virtual-network/virtual-networks-nsg.md)에 관해 더 읽을 수 있습니다.
 
 
-## <a name="next-steps"></a>Next steps
+## 네트워크 구성 요소 추가
+온-프레미스 물리적 네트워킹 인프라의 경우와 마찬가지로, Azure 가상 네트워킹에는 서브넷 및 IP 주소 지정 이상의 기능이 포함될 수 있습니다. 응용 프로그램 인프라를 디자인할 경우 다음과 같은 일부 추가 구성 요소를 포함하려고 할 수 있습니다.
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)] 
+- [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) - 사이트 간 VPN 연결을 통해 Azure 가상 네트워크를 다른 Azure 가상 네트워크에 연결하거나 온-프레미스 네트워크에 연결합니다. 전용, 보안 연결을 위해 Express 경로 연결을 구현합니다. 지점 및 사이트 간 VPN 연결로 사용자 직접 액세스를 제공할 수도 있습니다.
+- [부하 분산 장치](../load-balancer/load-balancer-overview.md) - 필요에 따라 외부 및 내부 트래픽에 대한 부하 분산을 제공합니다.
+- [Application Gateway](../application-gateway/application-gateway-introduction.md) - 응용 프로그램 계층의 HTTP 부하 분산을 통해 단순히 Azure 부하 분산 장치를 배포하는 것보다는, 웹 응용 프로그램을 위한 몇 가지 추가적인 혜택을 제공합니다.
+- [트래픽 관리자](../traffic-manager/traffic-manager-overview.md) - DNS 기반 트래픽 분산을 통해 최종 사용자를 사용 가능한 가장 가까운 응용 프로그램 끝점으로 보낼 수 있도록 지원하므로 Azure 데이터 센터의 응용 프로그램을 여러 다른 지역에 호스트할 수 있습니다.
 
 
-<!--HONumber=Oct16_HO2-->
+## 다음 단계
 
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
+<!---HONumber=AcomDC_0914_2016-->

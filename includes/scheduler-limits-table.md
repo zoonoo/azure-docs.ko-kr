@@ -1,22 +1,19 @@
-The following table describes each of the major quotas, limits, defaults, and throttles in Azure Scheduler.
+다음 표에서는 Azure 스케줄러의 주요 할당량, 제한, 기본값 및 한계를 각각 설명합니다.
 
-|Resource|Limit Description|
+|리소스|제한 설명|
 |---|---|
-|**Job size**|The maximum job size is 16K. If a PUT or a PATCH results in a job larger than these limits, a 400 Bad Request status code is returned.|
-|**Request URL size**|Maximum size of the request URL is 2048 chars.|
-|**Aggregate header size**|Maximum aggregate header size is 4096 chars.|
-|**Header count**|Maximum header count is 50 headers.|
-|**Body size**|Maximum body size is 8192 chars.|
-|**Recurrence span**|Maximum recurrence span is 18 months.|
-|**Time to start time**|Maximum “time to start time” is 18 months.|
-|**Job history**|Maximum response body stored in job history is 2048 bytes.|
-|**Frequency**|The default max frequency quota is 1 hour in a free job collection and 1 minute in a standard job collection. The max frequency is configurable on a job collection to be lower than the maximum. All jobs in the job collection are limited the value set on the job collection. If you attempt to create a job with a higher frequency than the maximum frequency on the job collection then request will fail with a 409 Conflict status code.|
-|**Jobs**|The default max jobs quota is 5 jobs in a free job collection and 50 jobs in a standard job collection. The maximum number of jobs is configurable on a job collection. All jobs in the job collection are limited the value set on the job collection. If you attempt to create more jobs than the maximum jobs quota, then the request fails with a 409 Conflict status code.|
-|**Job history retention**|Job history is retained for up to 2 months or up to the last 1000 executions.|
-|**Completed and faulted job retention**|Completed and faulted jobs are retained for 60 days.|
-|**Timeout**|There’s a static (not configurable) request timeout of 60 seconds for HTTP actions. For longer running operations, follow HTTP asynchronous protocols; for example, return a 202 immediately but continue working in the background.|
+|**작업 크기**|최대 작업 크기는 16K입니다. PUT 또는 PATCH가 이 제한보다 큰 작업을 반환할 경우 400 잘못된 요청 상태 코드가 반환됩니다.|
+|**요청 URL 크기**|요청 URL의 최대 크기는 2048자입니다.|
+|**집계 헤더 크기**|최대 집계 헤더 크기는 4096자입니다.|
+|**헤더 수**|최대 헤더 수는 50개입니다.|
+|**본문 크기**|최대 본문 크기는 8192자입니다.|
+|**되풀이 범위**|최대 되풀이 범위는 18개월입니다.|
+|**시작 시간**|최대 "시작 시간"은 18 개월입니다.|
+|**작업 기록**|작업 기록에 저장되는 최대 응답 본문은 2048바이트입니다.|
+|**Frequency(빈도)**|기본 최대 빈도 할당량은 Free 작업 컬렉션에서 1시간, Standard 작업 컬렉션에서 1분입니다. 최대 빈도는 작업 컬렉션에서 최대값보다 낮게 구성할 수 있습니다. 작업 컬렉션의 모든 작업은 작업 컬렉션에서 설정한 값으로 제한됩니다. 작업 컬렉션의 최대 빈도보다 더 높은 빈도로 작업을 만들려고 시도하면 요청이 실패하고 409 충돌 상태 코드가 반환됩니다.|
+|**작업**|기본 최대 작업 할당량은 Free 작업 컬렉션에서 5개, Standard 작업 컬렉션에서 50개입니다. 최대 작업 수는 작업 컬렉션에서 구성할 수 있습니다. 작업 컬렉션의 모든 작업은 작업 컬렉션에서 설정한 값으로 제한됩니다. 최대 작업 할당량보다 많은 작업을 만들려고 하면 요청이 실패하고 409 충돌 상태 코드가 반환됩니다.|
+|**작업 기록의 보존**|작업 기록은 최대 2개월 동안 또는 최대 마지막 1000개 실행까지 보존됩니다.|
+|**완료 및 오류 작업 보존**|완료된 작업과 오류가 발생한 작업은 60일 동안 유지됩니다.|
+|**시간 제한**|HTTP 동작에는 30초의 고정(구성 불가) 요청 시간 제한이 적용됩니다. 더 오래 실행되는 작업의 경우 HTTP 비공기 프로토콜을 따릅니다. 예를 들어, 즉시 202를 반환하나 백그라운드에서 작업을 계속합니다.|
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0316_2016-->

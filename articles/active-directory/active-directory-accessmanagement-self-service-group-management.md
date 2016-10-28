@@ -1,65 +1,58 @@
 <properties
-    pageTitle="Setting up Azure Active Directory for self service application access management| Microsoft Azure"
-    description="Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory and offers users the possibility to request security group or Office 365 group memberships"
-    services="active-directory"
-    documentationCenter=""
+	pageTitle="셀프 서비스 응용 프로그램 액세스 관리를 위한 Azure Active Directory 설정 | Microsoft Azure"
+	description="셀프 서비스 그룹 관리를 사용하면 사용자가 Azure Active Directory에서 보안 그룹 또는 Office 365 그룹을 만들고 관리할 수 있으며 사용자가 보안 그룹 또는 Office 365 그룹 멤버 자격을 요청하는 가능성을 제공합니다."
+	services="active-directory"
+	documentationCenter=""
   authors="curtand"
-    manager="femila"
-    editor=""
-    />
+	manager="femila"
+	editor=""
+	/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/10/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/10/2016"
+	ms.author="curtand"/>
 
+# 셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정
 
-# <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>Setting up Azure Active Directory for self-service group management
+셀프 서비스 그룹 관리를 사용하면 사용자가 Azure AD(Azure Active Directory)에서 보안 그룹 또는 Office 365 그룹을 만들고 관리할 수 있습니다. 사용자는 보안 그룹 또는 Office 365 그룹 멤버 자격을 요청할 수도 있고 그룹의 소유자는 멤버 자격을 수락하거나 거부할 수 있습니다. 이러한 방식으로 그룹 멤버 자격에 대한 일상적인 제어를 해당 멤버 자격에 대한 비즈니스 컨텍스트를 이해하는 사람에게 위임할 수 있습니다. 셀프 서비스 그룹 관리 기능은 보안 그룹 및 Office 365 그룹에 대해서만 사용할 수 있지만 메일 사용 가능 보안 그룹 및 메일 그룹에는 사용할 수 없습니다.
 
-Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory (Azure AD). Users can also request security group or Office 365 group memberships, and then the owner of the group can approve or deny membership. In this way, day-to-day control of group membership can be delegated to people who understand the business context for that membership. Self-service group management features are available only for security groups and Office 365 groups, but not for mail-enabled security groups or distribution lists.
+셀프 서비스 그룹 관리는 현재 위임된 그룹 관리 및 셀프 서비스 그룹 관리 등 두 개의 중요한 시나리오로 구성되어 있습니다.
 
-Self-service group management currently comprises two essential scenarios: delegated group management and self-service group management.
+- **위임된 그룹 관리** 회사에서 사용하고 있는 SaaS 응용 프로그램에 대한 액세스를 관리하는 관리자를 예로 들 수 있습니다. 이러한 액세스 권한 관리가 번거로워지자 관리자는 비즈니스 소유자에게 요청하여 새 그룹을 만듭니다. 관리자는 새 그룹에 응용 프로그램에 대한 액세스를 할당하고 이미 응용 프로그램에 액세스할 권한이 있는 모든 사용자 그룹에 추가합니다. 그러면 비즈니스 소유자가 더 많은 사용자를 추가할 수 있으며 해당 사용자는 응용 프로그램에 자동으로 프로비전됩니다. 비즈니스 소유자는 사용자에 대한 액세스를 관리하는 관리자를 대기할 필요가 없습니다. 관리자가 다른 비즈니스 그룹의 관리자에게 동일한 사용 권한을 부여하는 경우 해당 사용자는 고유한 사용자에 대한 액세스를 관리할 수도 있습니다. 비즈니스 소유자와 관리자는 모두 다른 사용자를 보거나 관리할 수 없습니다. 관리자는 계속 해당 응용 프로그램에 액세스할 수 있는 모든 사용자를 보고 필요한 경우 액세스 권한을 차단할 수 있습니다.
 
-- **Delegated group management**
-    An example is an administrator who is managing access to a SaaS application that the company is using. Managing these access rights is becoming cumbersome, so this administrator asks the business owner to create a new group. The administrator assigns access for the application to the new group, and adds to the group all people already accessing to the application. The business owner then can add more users, and those users are automatically provisioned to the application. The business owner doesn't need to wait for the administrator to manage access for users. If the administrator grants the same permission to a manager in a different business group, then that person can also manage access for their own users. Neither the business owner nor the manager can view or manage each other’s users. The administrator can still see all users who have access to the application and block access rights if needed.
+- **셀프 서비스 그룹 관리** - 이 시나리오의 예제에서는 독립적으로 설정한 SharePoint Online 사이트를 보유한 두 사용자를 가정합니다. 이들은 상대방 팀을 해당 사이트에 액세스할 수 있도록 하려고 합니다. 이를 위해서 두 사용자는 Azure AD에 하나의 그룹을 만들고 각각 SharePoint Online에서 해당 사이트에 대한 액세스 권한을 제공할 그룹을 선택합니다. 사용자가 액세스 권한이 필요하면 액세스 패널에서 요청하고 승인을 받으면 자동으로 두 SharePoint Online 사이트에 대한 액세스 권한을 얻습니다. 이후 사이트에 액세스하는 모든 사용자가 특정 SaaS 응용 프로그램에 대한 액세스 권한도 가져야 하는지를 둘 중 한 명이 결정할 수 있습니다. SaaS 응용 프로그램의 관리자는 응용 프로그램에 대한 액세스 권한을 SharePoint Online 사이트에 추가할 수 있습니다. 이후로 승인된 모든 요청은 두 SharePoint Online 사이트 및 해당 SaaS 응용 프로그램에 대한 액세스 권한을 부여합니다.
 
-- **Self-service group management**
-    An example of this scenario is two users who both have SharePoint Online sites that they set up independently. They want to give each other’s teams access to their sites. To accomplish this, they can create one group in Azure AD, and in SharePoint Online each of them selects that group to provide access to their sites. When someone wants access, they request it from the Access Panel, and after approval they get access to both SharePoint Online sites automatically. Later, one of them decides that all people accessing the site should also get access to a particular SaaS application. The administrator of the SaaS application can add access rights for the  application to the SharePoint Online site. From then on, any requests that get approved gives access to the two SharePoint Online sites and also to this SaaS application.
+## 최종 사용자 셀프 서비스에서 그룹을 사용할 수 있도록 지정
 
-## <a name="making-a-group-available-for-end-user-self-service"></a>Making a group available for end user self-service
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 Azure AD 디렉터리로 이동합니다.
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), open your Azure AD directory.
+2. **구성** 탭에 **위임된 그룹 관리**를 사용하도록 설정합니다.
 
-2. On the **Configure** tab, set **Delegated group management** to Enabled.
+3. **사용자가 보안 그룹을 만들 수 있음** 또는 **사용자가 Office 그룹을 만들 수 있음**를 사용하도록 설정합니다.
 
-3. Set **Users can create security groups** or **Users can create Office groups** to Enabled.
+**사용자가 보안 그룹을 만들 수 있음**을 사용하도록 설정하면 디렉터리의 모든 사용자가 새 보안 그룹을 만들고 이러한 그룹에 멤버를 추가할 수 있습니다. 이러한 새 그룹은 다른 모든 사용자에 대한 액세스 패널에도 표시됩니다. 그룹에 대한 정책 설정에서 허용하는 경우 다른 사용자가 이러한 그룹에 가입하도록 요청할 수 있습니다. **사용자가 보안 그룹을 만들 수 있음**을 사용하지 않도록 설정한 경우 사용자 그룹을 만들 수 없고 기존 그룹의 소유자를 변경할 수 없습니다. 그러나 여전히 해당 그룹의 구성원을 관리하고 다른 사용자의 해당 그룹 가입 요청을 승인할 수 있습니다.
 
-When **Users can create security groups** is enabled, all users in your directory are allowed to create new security groups and add members to these groups. These new groups would also show up in the Access Panel for all other users. If the policy setting on the group allows it, other users can create requests to join these groups. If **Users can create security groups** is disabled, users can't create groups and can't change existing groups for which they are an owner. However, they can still manage the memberships of those groups and approve requests from other users to join their groups.
+또한 **보안 그룹에 셀프 서비스를 사용할 수 있는 사용자**를 사용하여 사용자의 셀프 서비스 그룹 관리에 대한 액세스를 더 세밀하게 제어할 수 있습니다. **사용자가 그룹을 만들 수 있음**을 사용하도록 설정하면 디렉터리의 모든 사용자가 새 그룹을 만들고 이러한 그룹에 멤버를 추가할 수 있습니다. 또한 **보안 그룹에 대해 셀프 서비스를 사용할 수 있는 사용자**를 일부로 설정하면 그룹 관리를 제한된 사용자 그룹으로 제한합니다. 이 스위치가 일부로 설정되면 새 그룹을 만들고 멤버를 추가하기 전에 SSGMSecurityGroupsUsers 그룹에 사용자를 추가해야 합니다. **보안 그룹에 대해 셀프 서비스를 사용할 수 있는 사용자**를 모두로 설정하면 디렉터리의 모든 사용자가 새 그룹을 만들 수 있습니다.
 
-You can also use **Users who can use self-service for security groups** to achieve a more fine-grained access control over self-service group management for your users. When **Users can create groups** is enabled, all users in your directory are allowed to create new groups and add members to these groups. By also setting **Users who can use self-service for security groups** to Some, you are restricting group management to only a limited group of users. When this switch is set to Some, you must add users to the group SSGMSecurityGroupsUsers before they can create new groups and add members to them. By setting **Users who can use self-service for security groups** to All, you enable all users in your directory to create new groups.
+**보안 그룹에 셀프 서비스를 사용할 수 있는 그룹** 상자를 사용하여 멤버가 셀프 서비스를 사용할 수 있는 그룹에 대한 사용자 지정 이름을 지정할 수도 있습니다.
 
-You can also use the **Group that can use self-service for security groups** box to specify a custom name for a group whose members can use self-service.
+## 추가 정보
 
-## <a name="additional-information"></a>Additional information
+이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
-These articles provide additional information on Azure Active Directory.
+* [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [그룹 설정을 구성하는 Azure Active Directory cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [Azure Active Directory란?](active-directory-whatis.md)
 
-* [What is Azure Active Directory?](active-directory-whatis.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

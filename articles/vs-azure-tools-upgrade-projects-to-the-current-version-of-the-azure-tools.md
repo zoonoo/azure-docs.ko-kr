@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to upgrade projects to the current version of the Azure tools | Microsoft Azure"
-   description="Learn how to upgrade an Azure project in Visual Studio to the current version of the Azure tools"
+   pageTitle="프로젝트를 현재 버전의 Azure 도구로 업그레이드하는 방법 | Microsoft Azure"
+   description="Azure 프로젝트를 Visual Studio에서 현재 버전의 Azure 도구로 업그레이드하는 방법을 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,45 +15,40 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# 프로젝트를 현재 버전의 Visual Studio 용 Azure 도구로 업그레이드하는 방법
 
-# <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>How to upgrade projects to the current version of the Azure Tools for Visual Studio
+## 개요
 
-## <a name="overview"></a>Overview
+Azure 도구의 현재 릴리스 (또는 1.6 이후 버전인 이전 릴리스)를 설치한 후에 1.6 (2011년 11월) 버전 전에 Azure 도구를 사용하여 생성된 모든 프로젝트는 여는 즉시 자동으로 업그레이드됩니다. 도구의 1.6 버전 (2011년 11월) 릴리스를 사용하여 프로젝트를 생성하고 여전히 그 릴리스가 설치되어 있는 경우 이전 릴리스에서 해당 프로젝트를 열고 나중에 업그레이드 여부를 결정할 수 있습니다.
 
-After you install the current release of the Azure Tools (or a previous release that's newer than 1.6), any projects that were created by using a Azure Tools release before 1.6 (November 2011) will be automatically upgraded as soon as you open them. If you created projects by using the 1.6 (November 2011) release of those tools and you still have that release installed, you can open those projects in the older release and decide later whether to upgrade them.
+## 업그레이드 시 프로젝트의 변경 내용
 
-## <a name="how-your-project-changes-when-you-upgrade-it"></a>How your project changes when you upgrade it
+프로젝트가 자동으로 업그레이드되거나 업그레이드하려고 지정한 경우 프로젝트는 특정 어셈블리의 현재 버전을 사용하여 작업하도록 수정되고 일부 속성도 이 섹션에 설명된 것처럼 변경됩니다. 프로젝트가 도구의 새로운 버전과 호환되기 위한 다른 변경을 필요로 할 경우 수동으로 해당 변경을 진행해야 합니다.
 
-If a project is automatically upgraded or you specify that you want to upgrade it, your project is modified to work with current versions of certain assemblies, and some properties are also changed as this section describes. If your project requires other changes to be compatible with the newer version of the tools, you must make those changes manually.
+- 웹 역할에 대한 web.config 파일 및 작업자 역할에 대한 app.config 파일은 최신 버전의 Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitoirTraceListener.dll을 참조하도록 업데이트됩니다.
 
-- The web.config file for web roles and the app.config file for worker roles are updated to reference the newer version of Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitoirTraceListener.dll.
+- Microsoft.WindowsAzure.StorageClient.dll, Microsoft.WindowsAzure.Diagnostics.dll 및 Microsoft.WindowsAzure.ServiceRuntime.dll 어셈블리가 새 버전으로 업그레이드됩니다.
 
-- The Microsoft.WindowsAzure.StorageClient.dll, Microsoft.WindowsAzure.Diagnostics.dll, and Microsoft.WindowsAzure.ServiceRuntime.dll assemblies are upgraded to the new versions.
+- Azure 프로젝트 파일 (.ccproj)에 저장된 게시 프로필은 **게시** 하위 디렉터리에서 확장명 .azurePubXml로 별도 파일에 이동됩니다.
 
-- Publish profiles that were stored in the Azure project file (.ccproj) are moved to a separate file, with the extension .azurePubXml, in the **Publish** subdirectory.
+- 게시 프로필의 일부 속성은 새로운 기능과 변경된 기능을 지원하도록 업데이트됩니다. 배포된 클라우드 서비스를 동시에 또는 중분 방식으로 업데이트할 수 있으므로 **AllowUpgrade**은(는) **DeploymentReplacementMethod**(으)로 대체됩니다.
 
-- Some properties in the publish profile are updated to support new and changed features. **AllowUpgrade** is replaced by **DeploymentReplacementMethod** because you can update a deployed cloud service simultaneously or incrementally.
+- 속성 **UseIISExpressByDefault**이(가) 추가되고 false로 설정되어 디버깅에 사용되는 웹 서버가 인터넷 정보 서비스 (IIS)에서 IIS Express로 자동 변경하지 않도록 합니다. IIS Express는 최신 버전의 도구를 사용하여 만든 프로젝트에 대한 기본 웹 서버입니다.
 
-- The property **UseIISExpressByDefault** is added and set to false so that the web server that’s used for debugging won’t automatically change from Internet Information Services (IIS) to IIS Express. IIS Express is the default web server for projects that are created with the newer releases of the tools.
+- Azure 캐싱이 하나 이상의 프로젝트 역할에서 호스팅되는 경우 프로젝트를 업그레이드할 때 서비스 구성 (.cscfg 파일) 및 서비스 정의 (.csdef 파일)의 일부 속성이 변경됩니다. 프로젝트가 Azure 캐싱 NuGet 패키지를 사용하는 경우 프로젝트는 패키지의 가장 최신 버전으로 업그레이드됩니다. Web.config 파일을 열고 업그레이드 프로세스 중에 클라이언트 구성이 올바르게 유지되었는지 확인해야 합니다. NuGet 패키지를 사용하지 않고 Azure 캐싱 클라이언트 어셈블리에 대한 참조를 추가한 경우 어셈블리는 업데이트되지 않습니다. 참조는 새 버전으로 수동 업데이트해야 합니다.
 
-- If Azure Caching is hosted in one or more of your project’s roles, some properties in the service configuration (.cscfg file) and service definition (.csdef file) are changed when a project is upgraded. If the project uses the Azure Caching NuGet package, the project is upgraded to the most recent version of the package. You should open the web.config file and verify that the client configuration was maintained properly during the upgrade process. If you added the references to Azure Caching client assemblies without using the NuGet package, these assemblies won't be updated; you must manually update these references to the new versions.
+>[AZURE.IMPORTANT] F# 프로젝트의 경우 Azure 어셈블리에 대한 참조를 수동으로 업데이트하여 어셈블리의 최신 버전을 참조할 수 있도록 해야 합니다.
 
->[AZURE.IMPORTANT] For F# projects, you must manually update references to Azure assemblies so that they reference the newer versions of those assemblies.
+### Azure 프로젝트를 현재 릴리스로 업그레이드하는 방법
 
-### <a name="how-to-upgrade-an-azure-project-to-the-current-release"></a>How to upgrade an Azure project to the current release
+1. 업그레이드된 프로젝트에 대해 사용하려는 Visual Studio의 설치에 Azure 도구의 현재 버전을 설치하고 업그레이드할 프로젝트를 엽니다. 1.6 이전 (2011년 11월)의 Azure 도구 릴리스로 프로젝트를 만든 경우 프로젝트는 현재 버전으로 자동으로 업그레이드됩니다. 2011년 11월 릴리스를 사용하여 프로젝트를 만들고 해당 릴리스가 여전히 설치되어 있는 경우 프로젝트는 해당 릴리스에서 열립니다.
 
-1. Install the current version of the Azure Tools into the installation of Visual Studio that you want to use for the upgraded project, and then open the project that you want to upgrade. If the project was created with a Azure Tools release before 1.6 (November 2011), the project is automatically upgraded to the current version. If the project was created with the November 2011 release and that release is still installed, the project opens in that release.
+1. 솔루션 탐색기에서 프로젝트 노드에 대한 바로 가기 메뉴를 열고 **속성**을 선택한 다음 나타나는 대화 상자의 **응용 프로그램** 탭을 선택합니다.
 
-1. In Solution Explorer, open the shortcut menu for the project node, choose **Properties**, and then choose the **Application** tab of the dialog box that appears.
+    **응용 프로그램** 탭은 프로젝트와 연결된 도구 버전을 표시합니다. Azure 도구의 현재 버전이 표시된 경우 프로젝트가 이미 업그레이드된 것입니다. 탭에 표시된 것보다 보다 최신 버전의 도구를 설치한 경우 **업그레이드** 단추가 나타납니다.
 
-    The **Application** tab shows the tools version that’s associated with the project. If the current version of Azure Tools appears, the project has already been upgraded. If you've installed a newer version of the tools than what the tab shows, an **Upgrade** button appears.
+1. **업그레이드** 단추를 선택하여 도구의 현재 버전에 프로젝트를 업그레이드합니다.
 
-1. Choose the **Upgrade** button to upgrade a project to the current version of the tools.
+1. 프로젝트를 빌드한 후 API 변경으로 인해 발생하는 오류를 해결합니다. 새 버전에 대한 코드를 수정하는 방법에 대한 자세한 내용은 특정 API에 대한 설명서를 참조하세요.
 
-1. Build the project, and then address any errors that result from API changes. For information about how to modify your code for the new version, see the documentation for the specific API.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

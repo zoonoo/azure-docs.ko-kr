@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Monitor user queries in Azure SQL Data Warehouse | Microsoft Azure"
-   description="Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse"
+   pageTitle="Azure SQL 데이터 웨어하우스의 사용자 쿼리 모니터링 | Microsoft Azure"
+   description="고려 사항, 모범 사례 및 Azure SQL 데이터 웨어하우스의 사용자 쿼리 모니터링 작업 개요입니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,41 +16,36 @@
    ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
+# Azure SQL 데이터 웨어하우스의 사용자 쿼리 모니터링
 
-# <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Monitor user queries in Azure SQL Data Warehouse
-
-Overview of the considerations, best practices, and tasks for monitoring user queries in SQL Data Warehouse.
-
+고려 사항, 모범 사례 및 SQL 데이터 웨어하우스의 사용자 쿼리 모니터링 작업 개요입니다.
 
 
-| Category                | Task or consideration                           | Description  |
+
+| Category | 작업 또는 고려 사항 | 설명 |
 | :-----------------------| :---------------------------------------------- | :----------- |
-| Slow performance        | Find a long-running user query                  | [Find long-running queries][] |
-| Concurrency             | Assign concurrent resources to user queries     | [Concurrency and workload management][] |
+| 성능 저하 | 장기 실행 사용자 쿼리 찾기 | [장기 실행 쿼리 찾기][] |
+| 동시성 | 사용자 쿼리에 동시 리소스 할당 | [동시성 및 워크로드 관리][] |
 
 
 
 
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-For more management tips, head over to the [Management overview][].
+관리에 대한 추가 팁을 보려면 [관리][] 개요를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[Find long-running queries]: sql-data-warehouse-manage-monitor.md
-[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
-[Management overview]: sql-data-warehouse-overview-manage.md
+[장기 실행 쿼리 찾기]: sql-data-warehouse-manage-monitor.md
+[동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md
+[관리]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

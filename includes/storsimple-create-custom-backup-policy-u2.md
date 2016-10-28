@@ -1,37 +1,32 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
+#### 사용자 지정 백업 정책을 만들려면
 
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
+1. **장치** 페이지에서 **백업 정책**을 클릭하고 **추가**를 클릭합니다.
 
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+2. **백업 정책 추가** 대화 상자의 **백업 정책 정의**에서:
 
-    1. Specify a backup policy name.
+    1. 백업 정책 이름을 지정합니다.
 
-    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting multiple check boxes.
+    2. 이 정책에 추가할 볼륨을 선택합니다. 여러 확인란을 선택하여 여러 볼륨을 추가할 수 있습니다.
 
-    3. Click the arrow icon ![check icon](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
+    3. 화살표 아이콘 ![확인 아이콘](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png)을 클릭합니다.
 
-6. Under **Define a Schedule**:
+6. **일정 정의**에서 다음을 수행합니다.
 
-    1. Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).
+    1. **백업 유형**(**로컬 스냅숏** 또는 **클라우드 스냅숏**)을 선택합니다.
 
-    3. Specify the backup frequency in minutes, hours, days, or weeks.
+    3. 백업 빈도를 분, 시간, 일 또는 주 단위로 지정합니다.
 
-    4. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. 
+    4. 드롭다운 목록에서 보존 일정을 선택합니다. 보존 선택 항목은 백업 빈도에 따라 달라집니다.
  
-    5. Select the starting time and date for the policy.
+    5. 정책의 시작 시간과 날짜를 선택합니다.
 
-    6. Select the check box to enable the policy.
+    6. 확인란을 선택하여 정책을 사용하도록 설정합니다.
 
-7. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to finish.
+7. 확인 아이콘![확인 아이콘](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png)을 클릭하여 마칩니다.
 
-8. You will return to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the custom policy.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
+8. **백업 정책** 페이지로 돌아갑니다. 백업 정책의 테이블 형식 목록이 사용자 지정 정책을 표시하도록 업데이트됩니다.
 
 

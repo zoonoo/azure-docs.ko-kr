@@ -1,36 +1,35 @@
 <properties
-    pageTitle="Handling State in Resource Manager Templates | Microsoft Azure"
-    description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
-    services="azure-resource-manager"
-    documentationCenter=""
-    authors="tfitzmac"
-    manager="timlt"
-    editor="tysonn"/>
+	pageTitle="Resource Manager 템플릿의 상태 처리 | Microsoft Azure"
+	description="복잡한 개체를 사용하여 Azure 리소스 관리자 템플릿 및 연결된 템플릿과 상태 데이터를 공유하는 권장 방법을 보여 줍니다."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
-    ms.service="azure-resource-manager"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="tomfitz"/>
+
+# Azure 리소스 관리자 템플릿에서 상태 공유
+
+이 항목에서는 템플릿 내에서 상태를 관리 및 공유하는 방법에 대한 모범 사례를 보여 줍니다. 이 항목에 표시된 매개 변수 및 변수는 배포 요구 사항을 편리하게 구성하기 위해 정의할 수 있는 개체 유형의 예입니다. 이러한 예를 통해 사용자 환경에 맞는 속성 값으로 고유한 개체를 구현할 수 있습니다.
+
+이 항목은 더 큰 백서의 일부입니다. 전체 문서를 읽으려면 [세계 클래스 ARM 템플릿 고려 사항 및 입증된 사례](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World 클래스 ARM 템플릿 - 고려 사항 및 입증된 사례.pdf)를 다운로드합니다.
 
 
-# <a name="sharing-state-in-azure-resource-manager-templates"></a>Sharing state in Azure Resource Manager templates
+## 표준 구성 설정 제공
 
-This topic shows best practices for managing and sharing state within templates. The parameters and variables shown in this topic are examples of the type of objects you can define to conveniently organize your deployment requirements. From these examples, you can implement your own objects with property values that make sense for your environment.
+절대적인 유연성과 수많은 변형을 제공하는 템플릿을 제공하는 대신 알려진 구성(실제로 샌드박스, 대, 중, 소 같은 표준 티셔츠 크기)을 선택하는 기능을 제공하는 것이 일반적인 패턴입니다. 티셔츠 크기의 다른 예에는 커뮤니티 버전이나 엔터프라이즈 버전 같은 제품이 있습니다. 그 외 경우에는 Map Reduce 또는 No SQL 같은 특정 워크로드에 대한 기술 구성이 있습니다.
 
-This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+복잡한 개체의 경우 "속성 모음"이라고도 하는 데이터 컬렉션을 포함하는 변수를 만들고 해당 데이터를 사용하여 템플릿에서 리소스 선언을 실행할 수 있습니다. 이러한 접근 방식은 고객을 위해 미리 구성된 다양한 크기의 좋은, 알려진 구성을 제공합니다. 알려진 구성이 없는 경우, 최종 고객은 자체적으로 클러스터 크기, 플랫폼 리소스 제약 조건의 요소를 결정해야 하고 그에 따라 파생되는 저장소 계정 및 기타 리소스(클러스터 크기 및 리소스 제약 조언에 따른)에 대한 분할을 식별하기 위해 수학을 해야 합니다. 고객을 위한 환경을 개선하는 것 외에도, 소수의 알려진 구성은 지원하기가 쉽고 높은 수준의 밀도를 제공하는데 도움이 됩니다.
 
-
-## <a name="provide-standard-configuration-settings"></a>Provide standard configuration settings
-
-Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload specific configurations of a technology – such as map reduce or no sql.
-
-With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). In addition to making a better experience for the customer, a small number of known configurations is easier to support and can help you deliver a higher level of density.
-
-The following example shows how to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, operating system settings and availability settings.
+다음 예제에서는 데이터 컬렉션을 나타내기 위한 복잡한 개체를 포함하는 변수의 정의 방법을 보여 줍니다. 이 컬렉션은 가상 컴퓨터 크기, 네트워크 설정, 운영 체제 설정 및 가용성 설정에 사용되는 값을 정의합니다.
 
     "variables": {
       "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
@@ -109,9 +108,9 @@ The following example shows how to define variables that contain complex objects
       }
     }
 
-Notice that the **tshirtSize** variable concatenates the t-shirt size you provided through a parameter (**Small**, **Medium**, **Large**) to the text **tshirtSize**. You will use this variable to retrieve the associated complex object variable for that t-shirt size.
+**tshirtSize** 변수는 매개 변수(**Small**, **Medium**, **Large**)를 통해 제공한 티셔츠 크기를 **tshirtSize** 텍스트에 연결합니다. 이 변수를 사용하여 해당 티셔츠 크기에 대한 연결된 복잡한 개체 변수를 검색합니다.
 
-You can then reference these variables later in the template. The ability to reference named-variables and their properties simplifies the template syntax, and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown above to set values. For example, note that the VM size is set by retrieving the value for `variables('tshirtSize').vmSize` while the value for the disk size is retrieved from `variables('tshirtSize').diskSize`. In addition, the URI for a linked template is set with the value for `variables('tshirtSize').vmTemplate`.
+그런 다음 템플릿의 뒷부분에서 이러한 변수를 참조할 수 있습니다. 명명된 변수 및 해당 속성을 참조하는 기능이 구현되면 템플릿 구문이 단순화되며 컨텍스트를 쉽게 이해할 수 있습니다. 다음 예제에서는 위에 표시된 개체를 통해 값을 설정하여 배포할 리소스를 정의합니다. 예를 들어 디스크 크기 값은 `variables('tshirtSize').diskSize`에서 검색되지만 VM 크기는 `variables('tshirtSize').vmSize` 값을 검색하여 설정합니다. 또한 연결된 템플릿에 대한 URI는 `variables('tshirtSize').vmTemplate` 값으로 설정됩니다.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -166,24 +165,24 @@ You can then reference these variables later in the template. The ability to ref
       }
     }
 
-## <a name="pass-state-to-a-template"></a>Pass state to a template
+## 템플릿에 상태 전달
 
-You share state into a template through parameters that you provide directly during deployment.
+배포 중에 직접 제공한 매개 변수를 통해 템플릿으로 상태를 공유합니다.
 
-The following table lists commonly-used parameters in templates.
+다음 표에는 템플릿 내에서 일반적으로 사용되는 매개 변수가 나와 있습니다.
 
-Name | Value | Description
+이름 | 값 | 설명
 ---- | ----- | -----------
-location    | String from a constrained list of Azure regions   | The location where the resources will be deployed.
-storageAccountNamePrefix    | String    | Unique DNS name for the Storage Account where the VM's disks will be placed
-domainName  | String    | Domain name of the publicly accessible jumpbox VM in the format: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com**
-adminUsername   | String    | Username for the VMs
-adminPassword   | String    | Password for the VMs
-tshirtSize  | String from a constrained list of offered t-shirt sizes   | The named scale unit size to provision. For example, "Small", "Medium", "Large"
-virtualNetworkName  | String    | Name of the virtual network that the consumer wants to use.
-enableJumpbox   | String from a constrained list (enabled/disabled) | Parameter that identifies whether to enable a jumpbox for the environment. Values: "enabled", "disabled"
+location | 제한된 Azure 영역 목록의 문자열 | 리소스가 배포될 위치입니다.
+storageAccountNamePrefix | 문자열 | VM의 디스크가 배치될 저장소 계정의 고유 DNS 이름
+domainName | 문자열 | 공개적으로 액세스할 수 있는 jumpbox VM의 도메인 이름 형식: **{domainName}.{location}.cloudapp.com** 예: **mydomainname.westus.cloudapp.azure.com**
+adminUsername | 문자열 | VM의 사용자 이름
+adminPassword | 문자열 | VM에 대한 암호
+tshirtSize | 제공된 티셔츠 크기의 제한된 목록에서 가져온 문자열 | 프로비전할 명명된 배율 단위 크기. 예: "Small", "Medium", "Large"
+virtualNetworkName | 문자열 | 소비자가 사용하려는 가상 네트워크의 이름.
+enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | 환경에 대해 jumpbox를 사용하도록 설정할지 여부를 식별하는 매개 변수입니다. 값: "enabled", "disabled"
 
-The **tshirtSize** parameter used in the previous section is defined as:
+이전 섹션에서 사용된 **tshirtSize** 매개 변수는 다음으로 정의됩니다.
 
     "parameters": {
       "tshirtSize": {
@@ -201,17 +200,17 @@ The **tshirtSize** parameter used in the previous section is defined as:
     }
 
 
-## <a name="pass-state-to-linked-templates"></a>Pass state to linked templates
+## 연결된 템플릿에 상태 전달
 
-When connecting to linked templates, you will often use a mix of static and generated variables.
+연결된 템플릿에 연결할 경우 정적 변수와 생성된 변수를 혼합해서 사용하게 됩니다.
 
-### <a name="static-variables"></a>Static variables
+### 정적 변수
 
-Static variables are often used to provide base values, such as URLs, that are used throughout a template.
+정적 변수는 템플릿 전체에서 사용되는 URL과 같은 기본값을 제공하는 데 종종 사용됩니다.
 
-In the template excerpt below, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that, a complex object variable is used to store a t-shirt size, where the base URL is concatenated to the known configuration template location and stored in the `vmTemplate` property.
+아래에 발췌한 템플릿에서 `templateBaseUrl`은 GitHub에서 템플릿의 루트 위치를 지정합니다. 다음 줄은 기본 URL을 공유 리소스 템플릿의 알려진 이름에 연결하는 새 변수 `sharedTemplateUrl`을 작성합니다. 그 아래에 나오는 복잡한 개체 변수는 티셔츠 크기를 저장하는 데 사용됩니다. 여기서 기본 URL은 알려진 구성 템플릿 위치에 연결되어 `vmTemplate` 속성에 저장됩니다.
 
-The benefit of this approach is that if the template location changes, you only need to change the static variable in one place which passes it throughout the linked templates.
+이 접근 방식의 이점은 템플릿 위치가 변경된 경우 한 곳에서만 정적 변수를 변경하면 된다는 점입니다. 그러면 연결된 템플릿 전체로 전달됩니다.
 
     "variables": {
       "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -232,19 +231,19 @@ The benefit of this approach is that if the template location changes, you only 
       }
     }
 
-### <a name="generated-variables"></a>Generated variables
+### 생성된 변수
 
-In addition to static variables, a number of variables are generated dynamically. This section identifies some of the common types of generated variables.
+정적 변수 외에도 다양한 변수가 동적으로 생성됩니다. 이 섹션에서는 생성된 변수의 몇 가지 일반적인 유형에 대해 설명합니다.
 
-#### <a name="tshirtsize"></a>tshirtSize
+#### tshirtSize
 
-You are familiar with this generated variable from the examples above.
+위 예제에서 생성된 이 변수는 이미 잘 알고 있을 것입니다.
 
-#### <a name="networksettings"></a>networkSettings
+#### networkSettings
 
-In a capacity, capability, or end-to-end scoped solution template, the linked templates typically create resources that exist on a network. One straightforward approach is to use a complex object to store network settings and pass them to linked templates.
+용량, 기능 또는 전체 범위의 솔루션 템플릿에서 연결된 템플릿은 일반적으로 네트워크에 존재하는 리소스를 만듭니다. 한 가지 간단한 방법은 복잡한 개체를 사용하여 네트워크 설정을 저장하고 연결된 템플릿에 전달하는 것입니다.
 
-An example of communicating network settings can be seen below.
+아래에서 네트워크 설정을 전달하는 예제를 볼 수 있습니다.
 
     "networkSettings": {
       "vnetName": "[parameters('virtualNetworkName')]",
@@ -263,9 +262,9 @@ An example of communicating network settings can be seen below.
       }
     }
 
-#### <a name="availabilitysettings"></a>availabilitySettings
+#### availabilitySettings
 
-Resources created in linked templates are often placed in an availability set. In the following example, the availability set name is specified and also the fault domain and update domain count to use.
+연결된 템플릿에서 만든 리소스는 종종 가용성 집합에 배치됩니다. 다음 예에서는 가용성 집합 이름이 지정되고, 사용할 장애 도메인 및 업데이트 도메인 수도 지정됩니다.
 
     "availabilitySetSettings": {
       "name": "pgsqlAvailabilitySet",
@@ -273,11 +272,11 @@ Resources created in linked templates are often placed in an availability set. I
       "udCount": 5
     }
 
-If you need multiple availability sets (for example, one for master nodes and another for data nodes), you can use a name as a prefix, specify multiple availability sets, or follow the model shown earlier for creating a variable for a specific t-shirt size.
+여러 가용성 집합(예를 들어 마스터 노드용 하나와 데이터 노드용 하나)이 필요한 경우 이름을 접두사로 사용하거나, 여러 가용성 집합을 지정하거나, 앞서 제시된 특정 티셔츠 크기에 해당하는 변수 생성 방법 예를 따라 진행할 수 있습니다.
 
-#### <a name="storagesettings"></a>storageSettings
+#### storageSettings
 
-Storage details are often shared with linked templates. In the example below, a *storageSettings* object provides details about the storage account and container names.
+저장소 세부 정보는 연결된 템플릿과 종종 공유됩니다. 아래 예제에서 *storageSettings* 개체는 저장소 계정 및 컨테이너 이름에 대한 세부 정보를 제공합니다.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -285,11 +284,11 @@ Storage details are often shared with linked templates. In the example below, a 
         "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]"
     }
 
-#### <a name="ossettings"></a>osSettings
+#### osSettings
 
-With linked templates, you may need to pass operating system settings to various nodes types across different known configuration types. A complex object is an easy way to store and share operating system information and also makes it easier to support multiple operating system choices for deployment.
+연결된 템플릿을 사용할 경우 알려진 여러 구성 유형의 다양한 노드 형식에 운영 체제 설정을 전달해야 할 수 있습니다. 복잡한 개체는 운영 체제 정보를 쉽게 저장 및 공유하고 운영 체제에서 제공되는 다양한 배포 옵션을 보다 쉽게 지원할 수 있도록 하는 간편한 방법입니다.
 
-The following example shows an object for *osSettings*:
+다음 예제에는 *osSettings*용 개체가 나와 있습니다.
 
     "osSettings": {
       "imageReference": {
@@ -300,9 +299,9 @@ The following example shows an object for *osSettings*:
       }
     }
 
-#### <a name="machinesettings"></a>machineSettings
+#### machineSettings
 
-A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a new VM: administrator user name and password, a prefix for the VM names, and an operating system image reference as shown below:
+생성된 변수 *machineSettings*는 새 VM을 만들기 위한 핵심 변수인 관리자의 사용자 이름과 암호, VM 이름의 접두사 및 운영 체제 이미지 참조 등을 포함하는 복잡한 개체입니다.
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -316,19 +315,19 @@ A generated variable, *machineSettings* is a complex object containing a mix of 
         }
     },
 
-Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM—entirely or based on the preference of a template consumer.
+*osImageReference*는 주 템플릿에 정의된 *osSettings* 변수에서 값을 검색합니다. 즉, VM에 대한 운영 체제를 완전히 또는 템플릿 소비자의 기본 설정에 따라 쉽게 변경할 수 있습니다.
 
-#### <a name="vmscripts"></a>vmScripts
+#### vmScripts
 
-The *vmScripts* object contains details about the scripts to download and execute on a VM instance, including outside and inside references. Outside references include the infrastructure. Inside references include the installed software installed and configuration.
+*vmScripts* 개체에는 외부 및 내부 참조를 포함하여 VM 인스턴스에서 다운로드 및 실행할 스크립트에 대한 세부 정보가 포함됩니다. 외부 참조는 인프라를 포함합니다. 내부 참조에는 설치된 소프트웨어와 구성이 포함됩니다.
 
-You use the *scriptsToDownload* property to list the scripts to download to the VM.
+*scriptsToDownload* 속성을 사용하여 VM으로 다운로드할 스크립트 목록을 표시합니다.
 
-As the example below shows, this object also contains references to command-line arguments for different types of actions. These actions include executing the default installation for each individual node, an installation that runs after all nodes are deployed, and any additional scripts that may be specific to a given template.
+아래 예제에 표시된 것처럼 이 개체에는 다양한 유형의 동작에 대한 명령줄 인수의 참조도 포함됩니다. 이러한 동작에는 각 개별 노드에 대한 기본 설치, 모든 노드를 배포한 후에 실행되는 설치 및 지정된 템플릿에서만 사용할 수 있는 추가 스크립트의 실행이 포함됩니다.
 
-This example is from a template used to deploy MongoDB, which requires an arbiter to deliver high availability. The *arbiterNodeInstallCommand* has been added to *vmScripts* to install the arbiter.
+이 예제는 MongoDB를 배포하는 데 사용되는 템플릿에서 가져온 것입니다. 여기서 중재자는 고가용성을 제공해야 합니다. 중재자를 설치하기 위해 *vmScripts*에 *arbiterNodeInstallCommand*가 추가되었습니다.
 
-The variables section is where you’ll find the variables that define the specific text to execute the script with the proper values.
+변수 섹션은 적절한 값으로 스크립트를 실행하기 위해 특정 텍스트를 정의하는 변수를 찾는 위치입니다.
 
     "vmScripts": {
         "scriptsToDownload": [
@@ -341,11 +340,11 @@ The variables section is where you’ll find the variables that define the speci
     },
 
 
-## <a name="return-state-from-a-template"></a>Return state from a template
+## 템플릿에서 상태 반환
 
-Not only can you pass data into a template, you can also share data back to the calling template. In the **outputs** section of a linked template, you can provide key/value pairs that can be consumed by the source template.
+템플릿으로 데이터를 전달할 뿐만 아니라 호출 템플릿과 다시 데이터를 공유할 수도 있습니다. 연결된 템플릿의 **출력** 섹션에서는 원본 템플릿에서 사용될 수 있는 키/값 쌍을 제공할 수 있습니다.
 
-The following example shows how to pass the private IP address generated in a linked template.
+다음 예제에서는 연결된 템플릿에서 생성된 개인 IP 주소를 전달하는 방법을 보여 줍니다.
 
     "outputs": {
         "masterip": {
@@ -354,11 +353,11 @@ The following example shows how to pass the private IP address generated in a li
          }
     }
 
-Within the main template, you can use that data with the following syntax:
+주 템플릿 내에서 다음 구문을 사용하여 해당 데이터를 사용할 수 있습니다.
 
     "[reference('master-node').outputs.masterip.value]"
 
-You can use this expression in either the outputs section or the resources section of the main template. You cannot use the expression in the variables section because it relies on the runtime state. To return this value from the main template, use:
+주 템플릿의 출력 섹션 또는 리소스 섹션에서 이 식을 사용할 수 있습니다. 변수 섹션은 런타임 상태에 의존하므로 이 식을 사용할 수 없습니다. 주 템플릿에서 이 값을 반환하려면 다음을 사용합니다.
 
     "outputs": { 
       "masterIpAddress": {
@@ -366,11 +365,11 @@ You can use this expression in either the outputs section or the resources secti
         "type": "string"
       }
      
-For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
+연결된 템플릿의 출력 섹션을 사용하여 가상 컴퓨터에 대한 데이터 디스크를 반환하는 예제는 [가상 컴퓨터에 대한 여러 데이터 디스크 만들기](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine)를 참조하세요.
 
-## <a name="define-authentication-settings-for-virtual-machine"></a>Define authentication settings for virtual machine
+## 가상 컴퓨터에 대한 인증 설정 정의
 
-You can use the same pattern shown above for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
+위에 표시된 동일한 패턴을 구성 설정에 사용하여 가상 컴퓨터의 인증 설정을 지정할 수 있습니다. 인증 형식을 전달하기 위한 매개 변수를 만듭니다.
 
     "parameters": {
       "authenticationType": {
@@ -386,7 +385,7 @@ You can use the same pattern shown above for configuration settings to specify t
       }
     }
 
-You add variables for the different authentication types, and a variable to store which type is used for this deployment based on the value of the parameter.
+다른 인증 형식에 대한 변수 및 매개 변수 값에 따라 이 배포에 사용되는 형식을 저장할 변수를 추가합니다.
 
     "variables": {
       "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
@@ -414,7 +413,7 @@ You add variables for the different authentication types, and a variable to stor
       }
     }
 
-When defining the virtual machine, you set the **osProfile** to the variable you created.
+가상 컴퓨터를 정의할 때 **osProfile**을 사용자가 만든 변수로 설정합니다.
 
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -423,13 +422,8 @@ When defining the virtual machine, you set the **osProfile** to the variable you
     }
 
 
-## <a name="next-steps"></a>Next steps
-- To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
-- To see the functions that are available within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+## 다음 단계
+- 템플릿의 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+- 템플릿 내에서 사용할 수 있는 모든 함수는 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

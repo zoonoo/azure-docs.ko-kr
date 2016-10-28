@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshoot Application Gateway Bad Gateway (502) errors | Microsoft Azure"
-   description="Learn how to troubleshoot Application Gateway 502 errors"
+   pageTitle="응용 프로그램 게이트웨이 잘못된 게이트웨이 502 오류 문제 해결 | Microsoft Azure"
+   description="응용 프로그램 게이트웨이 502 오류를 해결하는 방법을 알아봅니다"
    services="application-gateway"
    documentationCenter="na"
    authors="amitsriva"
@@ -17,136 +17,131 @@
    ms.date="09/02/2016"
    ms.author="amitsriva" />
 
+# 응용 프로그램 게이트웨이의 잘못된 게이트웨이 오류 문제 해결
 
-# <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Troubleshooting bad gateway errors in Application Gateway
+## 개요
 
-## <a name="overview"></a>Overview
+Azure 응용 프로그램 게이트웨이를 구성한 후에 발생할 수 있는 오류 중 하나는 "서버 오류: 502 - 웹 서버는 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 받았습니다."입니다. 이 문제는 다음과 같은 주요 이유로 인해 발생할 수 있습니다.
 
-After configuring an Azure Application Gateway, one of the errors which users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This may happen due to the following main reasons:
+- Azure Application Gateway의 백 엔드 풀은 구성되지 않았거나 비어 있습니다.
+- VM 또는 VM 크기 조정 설정의 인스턴스는 모두 정상이 아닙니다.
+- 백 엔드 VM 또는 VM 크기 조정 설정의 인스턴스는 기본 상태 프로브에 응답하지 않습니다.
+- 사용자 지정 상태 프로브의 구성이 잘못되었거나 부적절합니다.
+- 사용자 요청과 관련된 요청 시간 초과 또는 연결 문제입니다.
 
-- Azure Application Gateway's back-end pool is not configured or empty.
-- None of the VMs or instances in VM Scale Set are healthy.
-- Back-end VMs or instances of VM Scale Set are not responding to the default health probe.
-- Invalid or improper configuration of custom health probes.
-- Request time out or connectivity issues with user requests.
+## 비어 있는 BackendAddressPool
 
-## <a name="empty-backendaddresspool"></a>Empty BackendAddressPool
+### 원인
 
-### <a name="cause"></a>Cause
+Application Gateway에 백 엔드 주소 풀에 구성된 VM 또는 VM 크기 조정 설정이 없는 경우 고객의 요청을 라우팅할 수 없고 잘못된 게이트웨이 오류를 throw할 수 없습니다.
 
-If the Application Gateway has no VMs or VM Scale Set configured in the back-end address pool, it cannot route any customer request and throws a bad gateway error.
+### 해결 방법
 
-### <a name="solution"></a>Solution
+백 엔드 주소 풀이 비어 있지 않은지 확인합니다. PowerShell, CLI 또는 포털을 통해 수행할 수 있습니다.
 
-Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI, or portal.
+	Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 
-    Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
-
-The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
-    
-    BackendAddressPoolsText: 
-            [{
-                "BackendAddresses": [{
-                    "ipAddress": "10.0.0.10",
-                    "ipAddress": "10.0.0.11"
-                }],
-                "BackendIpConfigurations": [],
-                "ProvisioningState": "Succeeded",
-                "Name": "Pool01",
-                "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-                "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-            }, {
-                "BackendAddresses": [{
-                    "Fqdn": "xyx.cloudapp.net",
-                    "Fqdn": "abc.cloudapp.net"
-                }],
-                "BackendIpConfigurations": [],
-                "ProvisioningState": "Succeeded",
-                "Name": "Pool02",
-                "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-                "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-            }]
-
-
-## <a name="unhealthy-instances-in-backendaddresspool"></a>Unhealthy instances in BackendAddressPool
-
-### <a name="cause"></a>Cause
-
-If all the instances of BackendAddressPool are unhealthy, then Application Gateway would not have any back-end to route user request to. This could also be the case when back-end instances are healthy but do not have the required application deployed.
-
-### <a name="solution"></a>Solution
-
-Ensure that the instances are healthy and the application is properly configured. Check if the back-end instances are able to respond to a ping from another VM in the same VNet. If configured with a public end point, ensure that a browser request to the web application is serviceable.
-
-## <a name="problems-with-default-health-probe"></a>Problems with default health probe
-
-### <a name="cause"></a>Cause
-
-502 errors can also be frequent indicators that the default health probe is not able to reach back-end VMs. When an Application Gateway instance is provisioned, it automatically configures a default health probe to each BackendAddressPool using properties of the BackendHttpSetting. No user input is required to set this probe. Specifically, when a load balancing rule is configured, an association is made between a BackendHttpSetting and BackendAddressPool. A default probe is configured for each of these associations and Application Gateway initiates a periodic health check connection to each instance in the BackendAddressPool at the port specified in the BackendHttpSetting element. Following table lists the values associated with the default health probe.
+앞의 cmdlet에서 출력은 비어 있지 않은 백 엔드 주소 풀을 포함해야 합니다. 다음은 백 엔드 VM에 대한 FQDN 또는 IP 주소로 구성된 두 개의 풀을 반환하는 예제입니다. BackendAddressPool의 상태를 프로비전하는 작업은 '성공'해야 합니다.
+	
+	BackendAddressPoolsText: 
+			[{
+				"BackendAddresses": [{
+					"ipAddress": "10.0.0.10",
+					"ipAddress": "10.0.0.11"
+				}],
+				"BackendIpConfigurations": [],
+				"ProvisioningState": "Succeeded",
+				"Name": "Pool01",
+				"Etag": "W/"00000000-0000-0000-0000-000000000000"",
+				"Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+			}, {
+				"BackendAddresses": [{
+					"Fqdn": "xyx.cloudapp.net",
+					"Fqdn": "abc.cloudapp.net"
+				}],
+				"BackendIpConfigurations": [],
+				"ProvisioningState": "Succeeded",
+				"Name": "Pool02",
+				"Etag": "W/"00000000-0000-0000-0000-000000000000"",
+				"Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+			}]
 
 
-|Probe property | Value | Description|
+## BackendAddressPool의 비정상 인스턴스
+
+### 원인
+
+BackendAddressPool의 모든 인스턴스가 정상이 아닌 경우 Application Gateway에는 사용자 요청을 라우팅할 백 엔드가 없습니다. 백 엔드 인스턴스가 정상이지만 필요한 응용 프로그램이 배포되지 않은 경우일 수도 있습니다.
+
+### 해결 방법
+
+인스턴스가 정상이고 응용 프로그램이 올바르게 구성되어 있는지 확인합니다. 백 엔드 인스턴스가 동일한 VNet의 다른 VM에서 ping에 응답할 수 있는지를 확인합니다. 공용 끝점으로 구성된 경우 웹 응용 프로그램에 대한 브라우저 요청을 서비스할 수 있는지를 확인합니다.
+
+## 기본 상태 검색의 문제
+
+### 원인
+
+502 오류는 종종 기본 상태 프로브가 백 엔드 VM에 연결할 수 없다는 지표일 수도 있습니다. 응용 프로그램 게이트웨이 인스턴스를 프로비전할 경우 BackendHttpSetting의 속성을 사용하여 각 BackendAddressPool에 대한 기본 상태 프로브를 자동으로 구성합니다. 이 프로브를 설정하기 위해 사용자 입력이 필요하지 않습니다. 특히, 부하 분산 규칙을 구성한 경우 BackendHttpSetting와 BackendAddressPool 간에 연결이 만들어집니다. 기본 검색이 다음 연결 각각에 대해 구성되고 응용 프로그램 게이트웨이가 BackendHttpSetting 요소에 지정된 포트에서 BackendAddressPool의 각 인스턴스에 대한 정기 상태 검사 연결을 시작합니다. 다음 테이블에서는 기본 상태 프로브로 연결된 값을 나열합니다.
+
+
+|프로브 속성 | 값 | 설명|
 |---|---|---|
-| Probe URL| http://127.0.0.1/ | URL path |
-| Interval | 30 | Probe interval in seconds |
-| Time-out  | 30 | Probe time-out in seconds |
-| Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
+| 프로브 URL| http://127.0.0.1/ | URL 경로 |
+| 간격 | 30 | 프로브 간격(초) |
+| 시간 제한 | 30 | 프로브 시간 제한(초) |
+| 비정상 임계값 | 3 | 프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
 
-### <a name="solution"></a>Solution
+### 해결 방법
 
-- Ensure that a default site is configured and is listening at 127.0.0.1.
-- If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
-- The call to http://127.0.0.1:port should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
-- Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
-- If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) is opened.
-- If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/virtual-networks-nsg.md) must be configured to allow access on the desired port.
+- 기본 사이트를 구성하고 127.0.0.1에서 수신 대기 중인지를 확인합니다.
+- BackendHttpSetting이 포트 80이 아닌 다른 포트를 지정하는 경우 기본 사이트는 해당 포트에서 수신하도록 구성되어야 합니다.
+- http://127.0.0.1:port에 대한 호출은 HTTP 결과 코드 200을 반환해야 합니다. 30초 제한 시간 내에 반환되어야 합니다.
+- 구성된 포트가 열려 있고 방화벽 규칙 또는 Azure 네트워크 보안 그룹이 없는지를 확인합니다. 여기서 구성된 포트에서 들어오거나 나가는 트래픽을 차단합니다.
+- Azure 클래식 VM 또는 클라우드 서비스를 FQDN 또는 공용 IP와 사용하는 경우 해당 [끝점](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)이 열려 있는지 확인합니다.
+- VM이 Azure Resource Manager를 통해 구성되고 응용 프로그램 게이트웨이가 배포된 VNet의 외부에 있는 경우 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 원하는 포트에 대한 액세스를 허용하도록 구성해야 합니다.
 
 
-## <a name="problems-with-custom-health-probe"></a>Problems with custom health probe
+## 사용자 지정 상태 검색의 문제
 
-### <a name="cause"></a>Cause
+### 원인
 
-Custom health probes allow additional flexibility to the default probing behavior. When using custom probes, users can configure the probe interval, the URL, and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy. The following additional properties are added.
+사용자 지정 상태 프로브를 사용하면 기본 검사 동작에 추가적인 유연성을 제공할 수 있습니다. 사용자 지정 프로브를 사용하는 경우 사용자는 프로브 간격, 테스트할 URL 및 경로, 백 엔드 풀 인스턴스를 비정상으로 표시하기 전에 허용할 실패 응답 횟수를 구성할 수 있습니다. 다음과 같은 추가 속성이 추가됩니다.
 
-|Probe property| Description|
+|프로브 속성| 설명|
 |---|---|
-| Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
-| Protocol | Protocol used to send the probe. HTTP is the only valid protocol. |
-| Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway. This is different from VM host name.  |
-| Path | Relative path of the probe. The valid path starts from '/'. The probe is sent to \<protocol\>://\<host\>:\<port\>\<path\> |
-| Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
-| Time-out | Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
-| Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
+| Name | 프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
+| 프로토콜 | 프로브를 보내는 데 사용하는 프로토콜입니다. HTTP만 유효한 프로토콜입니다. |
+| 호스트 | 프로브에 보낼 호스트 이름입니다. 다중 사이트를 응용 프로그램 게이트웨이에 구성하는 경우에만 적용할 수 있습니다. VM 호스트 이름과 다릅니다. |
+| Path | 프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 <protocol>://<host>:<port><path>에 보내집니다. |
+| 간격 | 프로브 간격(초). 연속된 두 프로브 사이의 시간 간격입니다.|
+| 시간 제한 | 프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브는 실패로 표시됩니다. |
+| 비정상 임계값 | 프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
 
 
-### <a name="solution"></a>Solution
+### 해결 방법
 
-Validate that the Custom Health Probe is configured correctly as the preceding table. In addition to the preceding troubleshooting steps, also ensure the following:
+앞의 테이블처럼 사용자 지정 상태 프로브를 올바르게 구성했는지 유효성을 검사합니다. 앞의 문제 해결 단계 외에도 다음 사항을 확인합니다.
 
-- Ensure that the Protocol is set to HTTP only. HTTPS is not currently supported.
-- Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
-- If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
-- Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
-- Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
+- 프로토콜이 HTTP로만 설정되어 있는지 확인합니다. HTTPS는 현재 지원되지 않습니다.
+- 프로브가 [가이드](application-gateway-create-probe-ps.md)를 기준으로 올바르게 지정되어 있는지 확인합니다.
+- 응용 프로그램 게이트웨이가 단일 사이트에 대해 구성된 경우 기본적으로 호스트 이름은 '127.0.0.1'로 지정해야 합니다. 그렇지 않으면 사용자 지정 프로브에서 구성되어야 합니다.
+- http://\<host>:<port><path>에 대한 호출은 HTTP 결과 코드 200을 반환해야 합니다.
+- 간격, 제한 시간 및 UnhealtyThreshold이 허용 가능한 범위 내에 있는지 확인합니다.
 
-## <a name="request-time-out"></a>Request time out
+## 요청 시간 초과
 
-### <a name="cause"></a>Cause
+### 원인
 
-When a user request is received, Application Gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **30 seconds**. If Application Gateway does not receive a response from back-end application in this interval, user request would see a 502 error.
+사용자 요청이 수신되면 Application Gateway가 요청에 구성된 규칙을 적용하고 백 엔드 풀 인스턴스를 라우팅합니다. 백 엔드 인스턴스의 응답에 대해 구성 가능한 시간 간격을 기다립니다. 기본적으로 이 간격은 **30초**입니다. Application Gateway가 이 간격에서 백 엔드 응용 프로그램의 응답을 수신하지 않으면 사용자 요청에 502 오류가 표시됩니다.
 
-### <a name="solution"></a>Solution
+### 해결 방법
 
-Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time out configured.
+Application Gateway를 사용하면 사용자가 다른 풀에 적용할 수 있는 BackendHttpSetting을 통해 이 설정을 구성할 수 있습니다. 다른 백 엔드 풀에서는 다른 BackendHttpSetting 및 다른 요청 시간 초과를 구성할 수 있습니다.
 
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+	New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
+앞의 단계에서 문제가 해결되지 않으면 [지원 티켓](https://azure.microsoft.com/support/options/)을 엽니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

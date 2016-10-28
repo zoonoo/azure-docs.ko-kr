@@ -1,16 +1,14 @@
-You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic.
+서브넷 또는 VM 네트워크 인터페이스에서 네트워크 필터를 만들어, Azure에서 VM(가상 컴퓨터)에 대한 포트를 열거나 끝점을 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다.
 
-Let's use a common example of web traffic on port 80. Once you have a VM that is configured to serve web requests on the standard TCP port 80 (remember to start the appropriate services and open any OS firewall rules on the VM as well), you:
+포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다. 표준 TCP 포트 80에 대한 웹 요청을 처리하도록 구성된 VM이 있는 경우(적절한 서비스를 시작하고 VM에서 OS 방화벽 규칙을 열어야 함) 다음을 수행합니다.
 
-1. Create a Network Security Group.
-2. Create an inbound rule allowing traffic with:
-  - the destination port range of "80"
-  - the source port range of "*" (allowing any source port)
-  - a priority value of less 65,500 (to be higher in priority than the default catch-all deny inbound rule)
-3. Associate the Network Security Group with the VM network interface or subnet.
+1. 네트워크 보안 그룹을 만듭니다.
+2. 다음을 사용하여 트래픽을 허용하는 인바운드 규칙을 만듭니다.
+  - 대상 포트 범위 "80"
+  - 원본 포트 범위 "*"(모든 원본 포트 가능).
+  - 우선 순위 값 65,500 이하(기본 범용 거부 인바운드 규칙보다 우선 순위 높음)
+3. 네트워크 보안 그룹을 VM 네트워크 인터페이스 또는 서브넷에 연결합니다.
     
-You can create complex network configurations to secure your environment using Network Security Groups and rules. Our example uses only one or two rules that allow HTTP traffic or remote management. For more information, see the following ['More Information'](#more-information-on-network-security-groups) section or [What is a Network Security Group?](../articles/virtual-network/virtual-networks-nsg.md)
+네트워크 보안 그룹 및 규칙을 사용하여 환경을 보호하는 복잡한 네트워크 구성을 만들 수 있습니다. 이 예제에서는 HTTP 트래픽 또는 원격 관리를 허용하는 하나 이상의 규칙을 사용합니다. 자세한 내용은 다음 ['자세한 내용'](#more-information-on-network-security-groups) 섹션 또는 [네트워크 보안 그룹이란?](../articles/virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

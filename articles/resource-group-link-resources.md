@@ -1,33 +1,32 @@
 <properties 
-    pageTitle="Linking resources in Azure Resource Manager | Microsoft Azure" 
-    description="Create a link between related resources in different resource groups in Azure Resource Manager." 
-    services="azure-resource-manager" 
-    documentationCenter="" 
-    authors="tfitzmac" 
-    manager="timlt" 
-    editor="tysonn"/>
+	pageTitle="Azure Resource Manager에서 리소스 연결 | Microsoft Azure" 
+	description="Azure Resource Manager에서 다른 리소스 그룹의 관련 리소스 간에 링크를 만듭니다." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
-    ms.service="azure-resource-manager" 
-    ms.workload="multiple" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/01/2016" 
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/01/2016" 
+	ms.author="tomfitz"/>
 
+# Azure 리소스 관리자에서 리소스 연결
 
-# <a name="linking-resources-in-azure-resource-manager"></a>Linking resources in Azure Resource Manager
+배포 중 다른 리소스에 종속적인 것으로 리소스를 표시할 수 있지만 배포 시 라이프사이클은 종료됩니다. 배포 후에는 종속 리소스 간에 관계가 식별되지 않습니다. Resource Manager는 리소스 간에 지속적인 관계를 설정하기 위해 리소스 연결이라는 기능을 제공합니다.
 
-During deployment, you can mark a resource as dependent on another resource, but that lifecycle ends at deployment. After deployment, there is no identified relationship between dependent resources. Resource Manager provides a feature called resource linking to establish persistent relationships between resources.
+리소스 연결을 통해 리소스 그룹에 걸쳐 있는 관계를 문서화할 수 있습니다. 예를 들어 자체 수명 주기를 갖는 데이터베이스를 하나의 리소스 그룹에 두고 다른 주기를 갖는 앱을 다른 리소스 그룹에 두는 것이 일반적입니다. 응용 프로그램은 응용 프로그램과 데이터베이스 간 연결을 표시하도록 데이터베이스에 연결합니다.
 
-With resource linking, you can document relationships that span resource groups. For example, it is common to have a database with its own lifecycle reside in one resource group, and an app with a different lifecycle reside in a different resource group. The app connects to the database so you want to mark a link between the app and the database. 
+연결된 모든 리소스는 동일한 구독에 속해야 합니다. 각 리소스는 다른 50개의 리소스에 연결될 수 있습니다. 관련된 리소스 쿼리는 REST API를 통해서만 가능합니다. 연결된 리소스 중 하나가 삭제되거나 이동되면 링크 소유자는 나머지 링크를 청정리해야 합니다. 다른 리소스에 연결된 리소스를 삭제하는 경우 경고가 나타나지 **않습니다**.
 
-All linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. The only way to query related resources is through the REST API. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link. You are **not** warned when deleting a resource that is linked to other resources.
+## 템플릿 안에서 연결
 
-## <a name="linking-in-templates"></a>Linking in templates
-
-To define a link in a template, you include a resource type that combines the resource provider namespace and type of the source resource with **/providers/links**. The name must include the name of the source resource. You provide the resource id of the target resource. The following example establishes a link between a web site and a storage account.
+템플릿 안에서 연결을 정의하기 위해 **/providers/links**와 리소스 공급자 네임스페이스 및 원본 리소스 형식을 통합한 리소스 형식을 포함합니다. 이름은 원본 리소스의 이름을 포함해야 합니다. 대상 리소스의 리소스 ID를 제공 합니다. 다음 예제에서는 웹 사이트와 저장소 계정 간 연결을 설정합니다.
 
     {
       "type": "Microsoft.Web/sites/providers/links",
@@ -41,17 +40,17 @@ To define a link in a template, you include a resource type that combines the re
     }
 
 
-For a full description of the template format, see [Resource links - template schema](resource-manager-template-links.md).
+템플릿 포맷에 대한 전체 설명은 [리소스 연결 - 템플릿 스키마](resource-manager-template-links.md)를 참조하십시오.
 
-## <a name="linking-with-rest-api"></a>Linking with REST API
+## REST API를 사용하여 연결
 
-To define a link between deployed resources, run:
+배포된 리소스 간 링크를 정의하려면 다음을 실행합니다.
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{provider-namespace}/{resource-type}/{resource-name}/providers/Microsoft.Resources/links/{link-name}?api-version={api-version}
 
-Replace {subscription-id} with your subscription id. Replace {resource-group}, {provider-namespace, {resource-type}, and {resource-name} with the values that identify the first resource in the link. Replace {link-name} with the name of the link to create. Use 2015-01-01 for the api-version.
+{subscription-id}를 구독 ID로 바꿉니다. {resource-group}, {provider-namespace, {resource-type} 및 {resource-name}을 링크의 첫 번째 리소스를 식별하는 값으로 바꿉니다. {link-name}을 만들려는 링크의 이름으로 바꿉니다. api-version으로 2015-01-01을 사용합니다.
 
-In the request, include an object that defines the second resource in the link:
+요청에서 다음과 같이 링크의 두 번째 리소스를 정의하는 개체를 포함합니다.
 
     {
         "name": "{new-link-name}",
@@ -61,21 +60,17 @@ In the request, include an object that defines the second resource in the link:
         }
     }
 
-The properties element contains the identifier for the second resource.
+properties 요소는 두 번째 리소스에 대한 식별자를 포함합니다.
 
-You can query links in your subscription with:
+다음 구독에 대한 연결을 쿼리할 수 있습니다.
 
     https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Resources/links?api-version={api-version}
 
-For more examples, including how to retrieve information about links, see [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx).
+링크에 대한 정보를 검색하는 방법을 비롯한 추가 예제를 보려면 [연결된 리소스](https://msdn.microsoft.com/library/azure/mt238499.aspx)를 참조하세요.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- You can also organize your resources with tags. To learn about tagging resources, see [Using tags to organize your resources](resource-group-using-tags.md).
-- For a description of how to create templates and define the resources to be deployed, see [Authoring templates](resource-group-authoring-templates.md).
+- 태그를 사용하여 리소스를 구성할 수도 있습니다. 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
+- 템플릿을 만들고 배포할 리소스를 정의하는 방법에 대한 설명을 보려면 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,74 +1,70 @@
 <properties
-    pageTitle="Configure a virtual network in Azure DevTest Labs  | Microsoft Azure"
-    description="Learn how to configure an existing virtual network and subnet, and use them in a VM with Azure DevTest Labs"
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Azure DevTest Labs에서 가상 네트워크 구성 | Microsoft Azure"
+	description="기존 가상 네트워크 및 서브넷을 구성하고 Azure DevTest Labs를 통해 VM에서 사용하는 방법에 대해 알아봅니다."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="tarcher"/>
 
+# Azure DevTest Labs에서 가상 네트워크 구성
 
-# <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configure a virtual network in Azure DevTest Labs
+[아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md) 문서에 설명된 대로 랩에 VM을 만들 때 구성된 가상 네트워크를 지정할 수 있습니다. 이 작업을 수행하는 시나리오 중 하나는 Express 경로 또는 사이트 간 VPN으로 구성된 가상 네트워크를 사용하여 VM에서 회사 네트워크 리소스에 액세스해야 하는 경우입니다. 다음 섹션에서는 VM을 만들 때 선택할 수 있도록 랩의 가상 네트워크 설정으로 기존 가상 네트워크를 추가하는 방법을 보여 줍니다.
 
-As explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, you can specify a configured virtual network. One scenario for doing this is if you need to access your corpnet resources from your VMs using the virtual network that was configured with ExpressRoute or site-to-site VPN. The following sections illustrate how to add your existing virtual network into a lab's Virtual Network settings so that it is available to choose when creating VMs.
+## Azure 포털을 사용하여 랩에 대한 가상 네트워크 구성
+다음 단계에서는 동일한 랩에서 VM을 만들 때 사용할 수 있도록 랩에 기존 가상 네트워크(및 서브넷)를 추가하는 방법을 안내합니다.
 
-## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Configure a virtual network for a lab using the Azure portal
-The following steps walk you through adding an existing virtual network (and subnet) to a lab so that it can be used when creating a VM in the same lab. 
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. **서비스 더 보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
 
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. 랩 목록에서 원하는 랩을 탭합니다.
 
-1. From the list of labs, select the desired lab. 
+1. 랩의 블레이드에서 **구성**을 선택합니다.
 
-1. On the lab's blade, select **Configuration**.
+1. 랩의 **구성** 블레이드에서 **가상 네트워크**를 선택합니다.
 
-1. On the lab's **Configuration** blade, select **Virtual networks**.
+1. **가상 네트워크** 블레이드에서 현재 랩에 대해 구성한 가상 네트워크 및 랩에 대해 만들어진 기본 가상 네트워크의 목록이 표시됩니다.
 
-1. On the **Virtual networks** blade, you see a list of virtual networks configured for the current lab as well as the default virtual network that is created for your lab. 
+1. **+추가**를 선택합니다.
 
-1. Select **+ Add**.
+	![랩에 기존 가상 네트워크 추가](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
+	
+1. **가상 네트워크** 블레이드에서 **[가상 네트워크 선택]**을 탭합니다.
 
-    ![Add an existing virtual network to your lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
-    
-1. On the **Virtual network** blade, select **[Select virtual network]**.
+	![기존 가상 네트워크 선택](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
+	
+1. **가상 네트워크 선택** 블레이드에서 원하는 가상 네트워크를 선택합니다. 블레이드에는 구독의 동일 지역에 속하는 모든 가상 네트워크가 랩으로 표시됩니다.
 
-    ![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
-    
-1. On the **Choose virtual network** blade, select the desired virtual network. The blade shows all the virtual networks that are under the same region in the subscription as the lab.  
+1. 가상 네트워크를 선택하면 **가상 네트워크** 블레이드로 되돌아가며, 몇 개의 필드가 사용 가능하게 설정됩니다.
 
-1. After selecting a virtual network, you are returned to the **Virtual network** blade and several fields are enabled.  
+	![기존 가상 네트워크 선택](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
 
-    ![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
+1. 가상 네트워크 / 랩 조합에 대한 설명을 지정합니다.
 
-1. Specify a description for your virtual network / lab combination.
+1. 서브넷이 랩 VM 생성에 사용되도록 하려면 **VM을 만들 때 사용**을 선택합니다.
 
-1. To allow a subnet to be used in lab VM creation, select **USE IN VIRTUAL MACHINE CREATION**.
+1. 서브넷에서 공용 IP 주소를 허용하려면 **공용 IP 허용**을 선택합니다.
 
-1. To allow public IP addresses in a subnet, select **ALLOW PUBLIC IP**.
+1. **사용자당 최대 가상 컴퓨터** 필드에서 각 서브넷에 대한 사용자당 최대 VM 지정합니다. VM 수에 제한을 두지 않으려면 이 필드는 공백으로 둡니다.
 
-1. In the **MAXIMUM VIRTUAL MACHINES PER USER** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
+1. **저장**을 선택합니다.
 
-1. Select **Save**.
-
-1. Now that the virtual network is configured, it can be selected when creating a VM. To see how to create a VM and specify a virtual network, refer to the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md). 
+1. 이제 가상 네트워크를 구성했으므로 VM을 만들 때 선택할 수 있습니다. VM을 만들고 가상 네트워크를 지정하는 방법을 확인하려면 [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md) 문서를 참조하세요.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Once you have added the desired virtual network to your lab, the next step is to [add a VM to your lab](devtest-lab-add-vm-with-artifacts.md).
+랩에 원하는 가상 네트워크를 추가한 후에는 [랩에 VM을 추가](devtest-lab-add-vm-with-artifacts.md)해야 합니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

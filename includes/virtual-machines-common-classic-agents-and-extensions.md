@@ -2,48 +2,45 @@
 
 
 
-VM extensions can help you:
+VM 확장은 다음과 같은 작업에 도움이 될 수 있습니다.
 
--   Modify security and identity features, such as resetting account values and using antimalware
--   Start, stop, or configure monitoring and diagnostics
--   Reset or install connectivity features, such as RDP and SSH
--   Diagnose, monitor, and manage your VMs
+-   보안 및 ID 기능 수정(예: 계정 값 재설정 및 맬웨어 방지 프로그램)
+-   모니터링 및 진단 시작, 중지 또는 구성
+-   연결 기능 재설정 또는 설치(예: RDP 및 SSH)
+-   VM 진단, 모니터링 및 관리
 
-There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).
+그 밖에 다른 기능도 많으며 새로운 VM 확장 기능이 정기적으로 추가됩니다. 이 문서에서는 Windows 및 Linux용 Azure VM 에이전트와, 해당 에이전트의 VM 확장 기능 지원 방법에 대해 설명합니다. 기능 범주별 VM 확장 목록은 [Azure VM 확장 및 기능](../articles/virtual-machines/virtual-machines-windows-extensions-features.md)을 참조하세요.
 
-##<a name="azure-vm-agents-for-windows-and-linux"></a>Azure VM Agents for Windows and Linux
+##Windows 및 Linux 용 Azure VM 에이전트
 
-The Azure Virtual Machines Agent (VM Agent) is a secured, light-weight process that installs, configures, and removes VM extensions on instances of Azure Virtual Machines from the Image Gallery and on custom VM instances if they have the VM Agent installed. The VM Agent acts as the secure local control service for your Azure VM. The extensions that the agent loads provide specific features to increase your productivity using the instance.
+Azure 가상 컴퓨터 에이전트(VM 에이전트)은 VM 에이전트가 설치된 경우 사용자 지정 VM 인스턴스와 이미지 갤러리에서 Azure 가상 컴퓨터의 인스턴스에 대한 VM 확장을 설치, 구성 및 제거하는 안전하고 가벼운 프로세스입니다. VM 에이전트는 Azure VM에 대해 안전한 로컬 제어 서비스 형태로 작동합니다. 에이전트가 로드하는 확장은 인스턴스를 사용한 생산성을 증대하기 위한 특정 기능을 제공합니다.
 
-There are two Azure VM Agents, one for Windows VMs and one for Linux VMs. By default, the VM Agent is automatically installed when you create a VM from the Image Gallery, but you can also install the VM Agent after the instance is created or install it in a custom VM image that you then upload yourself.
+Windows VM용 에이전트와 Linux VM용 에이전트 등, 두 가지 Azure VM 에이전트가 있습니다. 기본적으로 VM 에이전트는 이미지 갤러리에서 VM을 만들 때 자동으로 설치되지만, 인스턴스를 만든 후에 VM 에이전트를 설치하거나 사용자 지정 VM 이미지에 설치한 다음 직접 업로드할 수 있습니다.
 
->[AZURE.IMPORTANT] These VM Agents are very light-weight, services that enable secured administration of virtual machine instances. There might be cases in which you do not want the VM Agent. If so, be sure to create VMs that do not have the VM Agent installed. Although the VM Agent can be removed physically, the behavior of any VM Extensions on the instance is undefined. As a result, removing the VM Agent once it is installed is not supported at this time.
+>[AZURE.IMPORTANT] 이러한 VM 에이전트는 가상 컴퓨터 인스턴스의 보안 관리를 구현하는 매우 가벼운 서비스입니다. VM 에이전트를 원하지 않는 경우도 있을 수 있습니다. 이 경우에는 VM 에이전트가 설치되지 않는 VM을 만들어야 합니다. VM 에이전트를 물리적으로 제거할 수는 있지만 인스턴스에서 VM 확장의 동작은 정의되지 않은 상태입니다. 이 때문에 VM 에이전트를 설치 후 제거하는 것은 현재는 지원되지 않습니다.
 
-The VM Agent is enabled in the following situations:
+VM 에이전트는 다음과 같은 상황에서 사용됩니다.
 
--   When you create an instance of a VM by using the **Quick Create** method in the Azure classic portal, or by using the **Custom Create** method in the Azure classic portal and making sure that the **Install the VM Agent** checkbox is selected (as shown in the image below). For more information, see [How to Create a Custom Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-createportal.md).
+-   Azure 클래식 포털에서 **Quick Create** 메서드를 사용하거나, Azure 클래식 포털에서 **Custom Create** 메서드를 사용하고 **VM 에이전트 설치** 확인란을 선택하여(아래 이미지처럼) VM의 인스턴스를 만들 때. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법](../articles/virtual-machines/virtual-machines-windows-classic-createportal.md)을 참조하세요.
 
-    ![VM Agent Checkbox](./media/virtual-machines-common-classic-agents-and-extensions/IC719409.png)
+    ![VM 에이전트 확인란](./media/virtual-machines-common-classic-agents-and-extensions/IC719409.png)
 
--   When you create an instance of a VM by using the [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) or the [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) cmdlet. You can create a VM without the VM Agent installed by adding the **–DisableGuestAgent** parameter to the [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) cmdlet.
+-   [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) 또는 [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) cmdlet을 사용하여 VM의 인스턴스를 만들 때. **–DisableGuestAgent** 매개 변수를 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) cmdlet에 추가하면 VM 에이전트 설치 없이 VM을 만들 수 있습니다.
 
--   By manually downloading and installing the VM Agent (either the Windows or Linux version) on an existing VM instance and then setting the **ProvisionGuestAgent** value to **true** using PowerShell or a REST call. (If you do not set this value after manually installing the VM Agent, the addition of the VM Agent is not detected properly.) The following code example shows how to do this using PowerShell where the `$svc` and `$name` arguments have already been determined.
+-   PowerShell 또는 REST 호출을 사용하여 기존 VM 인스턴스에 VM 에이전트(Windows 또는 Linux 버전)를 수동으로 다운로드 및 설치한 다음 **ProvisionGuestAgent** 값을 **true**로 설정할 수 있습니다. VM 에이전트를 수동으로 설치한 후 이 값을 설정하지 않으면 VM 에이전트의 추가가 제대로 검색되지 않습니다. 다음 코드 예제에서는 `$svc` 및 `$name` 인수가 이미 결정된 상황에서 PowerShell을 사용하여 이 작업을 수행하는 방법을 보여 줍니다.
 
         $vm = Get-AzureVM –ServiceName $svc –Name $name
         $vm.VM.ProvisionGuestAgent = $TRUE
         Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
--   By creating a VM image that has the VM Agent installed prior to uploading it to Azure. For a Windows VM, download the [Windows VM Agent .msi file](http://go.microsoft.com/fwlink/?LinkID=394789) and install the VM Agent. For a Linux VM, you will install it from the GitHub repository located at <https://github.com/Azure/WALinuxAgent>. For more information on how to install the VM Agent on Linux, see the [Azure Linux VM Agent User Guide](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
+-   Azure에 업로드하기 전에 VM 에이전트가 설치된 VM 에이전트 만들기. Windows VM의 경우 [Windows VM 에이전트 .msi 파일](http://go.microsoft.com/fwlink/?LinkID=394789)을 다운로드하여 VM 에이전트를 설치합니다. Linux VM의 경우 <https://github.com/Azure/WALinuxAgent>에 있는 GitHub 리포지토리에서 설치합니다. Linux에서 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 [Azure Linux VM 에이전트 사용자 가이드](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md)를 참조하세요.
 
->[AZURE.NOTE]In PaaS, the VM Agent is called **WindowsAzureGuestAgent**, and is always available on Web and Worker Role VMs. (For more information, see [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) The VM Agent for Role VMs can now add extensions to the cloud service VMs in the same way that it does for persistent Virtual Machines. The biggest difference between VM Extensions on role VMs and persistent VMs is that with role VMs, extensions are added to the cloud service first and then to the deployments within that cloud service.
+>[AZURE.NOTE]PaaS에서는 VM 에이전트를 **WindowsAzureGuestAgent**라고 하며 웹 및 작업자 역할 VM에서 항상 사용할 수 있습니다. 자세한 내용은 [Azure 역할 아키텍처](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx)를 참조하세요. 역할 VM에 대한 VM 에이전트는 이제 영구 가상 컴퓨터와 동일한 방식으로 클라우드 서비스 VM에 확장을 추가할 수 있습니다. 역할 VM에서의 VM 확장과 영구 VM 간의 가장 큰 차이는, 역할 VM에서는 확장이 먼저 클라우드 서비스에 추가된 다음 해당 클라우드 서비스 내 배포에 추가된다는 점입니다.
 
->Use the [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet to list all available role VM extensions.
+>사용 가능한 모든 역할 VM 확장을 나열하려면 [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet을 사용합니다.
 
-##<a name="find,-add,-update,-and-remove-vm-extensions"></a>Find, Add, Update, and Remove VM Extensions  
+##VM 확장 찾기, 추가, 업데이트 및 제거  
 
-For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+이러한 작업에 대한 자세한 내용은 [Azure VM 확장 추가, 찾기, 업데이트 및 제거](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md)를 참조하세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

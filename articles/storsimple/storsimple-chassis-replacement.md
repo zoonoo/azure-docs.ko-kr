@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Replace the chassis on a StorSimple device | Microsoft Azure"
-   description="Describes how to remove and replace the chassis for your StorSimple primary enclosure or EBOD enclosure."
+   pageTitle="StorSimple 장치의 섀시 교체 | Microsoft Azure"
+   description="StorSimple 기본 엔클로저 또는 EBOD 엔클로저에 섀시를 꺼내고 교체하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,58 +15,52 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+# StorSimple 장치의 섀시 교체
 
-# <a name="replace-the-chassis-on-your-storsimple-device"></a>Replace the chassis on your StorSimple device
+## 개요
 
-## <a name="overview"></a>Overview
+이 자습서에서는 StorSimple 8000 시리즈 장치의 섀시를 꺼내고 교체하는 방법을 설명합니다. StorSimple 8100 모델은 단일 엔클로저 장치(섀시 1개)인 반면 8600은 이중 엔클로저 장치(섀시 2개)입니다. 8600 모델의 경우 장치에 오류가 발생할 수 있는 두 개의 섀시(기본 엔클로저용 섀시 또는 EBOD 엔클로저용 섀시)가 있습니다.
 
-This tutorial explains how to remove and replace a chassis in a StorSimple 8000 series device. The StorSimple 8100 model is a single enclosure device (one chassis), whereas the 8600 is a dual enclosure device (two chassis). For an 8600 model, there are potentially two chassis that could fail in the device: the chassis for the primary enclosure or the chassis for the EBOD enclosure.
+두 경우 모두 Microsoft에서 제공한 교체 섀시가 비게 됩니다. PCM(전원 및 냉각 모듈), 컨트롤러 모듈, SSD(반도체 디스크 드라이브), HDD(하드 디스크 드라이브) 또는 EBOD 모듈은 포함되지 않습니다.
 
-In either case, the replacement chassis that is shipped by Microsoft is empty. No Power and Cooling Modules (PCMs), controller modules, solid state disk drives (SSDs), hard disk drives (HDDs), or EBOD modules will be included.
+>[AZURE.IMPORTANT] 섀시를 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
 
->[AZURE.IMPORTANT] Before removing and replacing the chassis, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+## 섀시 꺼내기
 
-## <a name="remove-the-chassis"></a>Remove the chassis
+StorSimple 장치의 섀시를 꺼내려면 다음 단계를 따르세요.
 
-Perform the following steps to remove the chassis on your StorSimple device.
+#### 섀시를 꺼내려면
 
-#### <a name="to-remove-a-chassis"></a>To remove a chassis
+1. StorSimple 장치가 종료되고 모든 전원에서 연결이 끊어졌는지 확인합니다.
 
-1. Make sure that the StorSimple device is shut down and disconnected from all the power sources.
+2. 해당하는 경우 모든 네트워크 및 SAS 케이블을 뺍니다.
 
-2. Remove all the network and SAS cables, if applicable.
+3. 랙에서 장치를 꺼냅니다.
 
-3. Remove the unit from the rack.
+4. 각 드라이브를 꺼내고 들어 있던 슬롯을 적어둡니다. 자세한 내용은 [디스크 드라이브 꺼내기](storsimple-disk-drive-replacement.md#remove-the-disk-drive)를 참조하세요.
 
-4. Remove each of the drives and note the slots from which they are removed. For more information, see [Remove the disk drive](storsimple-disk-drive-replacement.md#remove-the-disk-drive).
+5. EBOD 엔클로저에서(이 섀시에서 오류가 발생한 경우) EBOD 컨트롤러 모듈을 꺼냅니다. 자세한 내용은 [EBOD 컨트롤러 꺼내기](storsimple-ebod-controller-replacement.md#remove-an-ebod-controller)를 참조하세요.
 
-5. On the EBOD enclosure (if this is the chassis that failed), remove the EBOD controller modules. For more information, see [Remove an EBOD controller](storsimple-ebod-controller-replacement.md#remove-an-ebod-controller). 
+    기본 엔클로저에서(이 섀시에서 오류가 발생한 경우) 컨트롤러를 꺼내고 들어 있던 슬롯을 적어둡니다. 자세한 내용은 [컨트롤러 꺼내기](storsimple-controller-replacement.md#remove-a-controller)를 참조하세요.
 
-    On the primary enclosure (if this is the chassis that failed), remove the controllers and note the slots from which they are removed. For more information, see [Remove a controller](storsimple-controller-replacement.md#remove-a-controller).
+## 섀시 설치
 
-## <a name="install-the-chassis"></a>Install the chassis
+StorSimple 장치에 섀시를 설치하려면 다음 단계를 따르세요.
 
-Perform the following steps to install the chassis on your StorSimple device.
+#### 섀시를 설치하려면
 
-#### <a name="to-install-a-chassis"></a>To install a chassis
+1. 섀시를 랙에 탑재합니다. 자세한 내용은 [StorSimple 8100 장치 랙 탑재](storsimple-8100-hardware-installation.md#rack-mount-your-storsimple-8100-device) 또는 [StorSimple 8600 장치 랙 탑재](storsimple-8600-hardware-installation.md#rack-mount-your-storsimple-8600-device)를 참조하세요.
 
-1. Mount the chassis in the rack. For more information, see [Rack-mount your StorSimple 8100 device](storsimple-8100-hardware-installation.md#rack-mount-your-storsimple-8100-device) or [Rack-mount your StorSimple 8600 device](storsimple-8600-hardware-installation.md#rack-mount-your-storsimple-8600-device).
+2. 섀시를 랙에 탑재한 후 이전에 설치된 곳과 동일한 위치에 컨트롤러 모듈을 설치합니다.
 
-2. After the chassis is mounted in the rack, install the controller modules in the same positions that they were previously installed in.
+3. 이전에 설치된 곳과 동일한 위치 및 슬롯에 드라이브를 설치합니다.
 
-3. Install the drives in the same positions and slots that they were previously installed in.
+    >[AZURE.NOTE] SSD를 먼저 슬롯에 설치한 다음 HDD를 설치하는 것이 좋습니다.
 
-    >[AZURE.NOTE] We recommend that you install the SSDs in the slots first, and then install the HDDs.
+2. 장치를 랙에 탑재하고 구성 요소를 설치한 후 장치를 해당 전원에 연결하고 장치를 켭니다. 자세한 내용은 [StorSimple 8100 장치 케이블 연결](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) 또는 [StorSimple 8600 장치 케이블 연결](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device)을 참조하세요.
 
-2. With the device mounted in the rack and the components installed, connect your device to the appropriate power sources, and turn on the device. For details, see [Cable your StorSimple 8100 device](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) or [Cable your StorSimple 8600 device](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+## 다음 단계
 
-## <a name="next-steps"></a>Next steps
+[StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

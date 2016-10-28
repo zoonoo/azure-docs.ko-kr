@@ -1,60 +1,53 @@
 <properties
-    pageTitle="SQL Database tutorial: Getting Started with Security"
-    description="Learn how to create user accounts to access and to manage a database."
-    keywords=""
-    services="sql-database"
-    documentationCenter=""
-    authors="CarlRabeler"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="SQL 데이터베이스 자습서: 보안 시작"
+	description="데이터베이스에 액세스하고 관리하기 위해 사용자 계정을 만드는 방법에 대해 알아봅니다."
+	keywords=""
+	services="sql-database"
+	documentationCenter=""
+	authors="CarlRabeler"
+	manager="jhubbard"
+	editor=""/>
 
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/17/2016"
-    ms.author="carlrab"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="08/17/2016"
+	ms.author="carlrab"/>
 
-
-# <a name="sql-database-tutorial:-create-sql-database-user-accounts-to-access-and-manage-a-database"></a>SQL Database tutorial: Create SQL database user accounts to access and manage a database
+# SQL 데이터베이스 자습서: 데이터베이스에 액세스하고 관리하도록 SQL 데이터베이스 사용자 계정 만들기
 
 
 > [AZURE.SELECTOR]
-- [Get started tutorial](sql-database-get-started-security.md)
-- [Grant access](sql-database-manage-logins.md)
+- [시작 자습서](sql-database-get-started-security.md)
+- [액세스 권한 부여](sql-database-manage-logins.md)
 
-In this tutorial, you learn how to use SQL Server Management Studio (SSMS) to:
+이 자습서에서는 SSMS(SQL Server Management Studio)를 사용하는 방법을 알아봅니다.
 
-- Log in to SQL Database using a server-level principal login.
-- Create a SQL Database user account.
-- Grant a SQL Database user [db_owner permissions](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0).
-- Connect to a SQL database with a user account that is not a server-level principal.
+- 서버 수준 보안 주체 로그인을 사용하여 SQL 데이터베이스에 로그인
+- SQL 데이터베이스 사용자 계정 만들기
+- SQL 데이터베이스 사용자 [db\_owner 권한 부여](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0)
+- 서버 수준의 주체가 아닌 사용자 계정으로 SQL 데이터베이스에 연결
 
-[AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
-
-
-[AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
+[AZURE.INCLUDE [로그인](../../includes/azure-getting-started-portal-login.md)]
 
 
-[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-database-user.md)]
+[AZURE.INCLUDE [SQL 데이터베이스 논리 서버 만들기](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
 
-[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
+[AZURE.INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-create-new-database-user.md)]
 
 
-[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
+[AZURE.INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
 
 
-## <a name="next-steps"></a>Next steps
-Now that you've completed this SQL Database tutorial and created a user account and granted the user account dbo permissions, you are ready to learn more about [SQL Database security](sql-database-manage-logins.md).
+[AZURE.INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
 
 
+## 다음 단계
+이제 이 SQL 데이터베이스 자습서를 완료하고 사용자 계정을 만들고 사용자 계정 dbo 권한을 부여했으므로 [SQL 데이터베이스 보안](sql-database-manage-logins.md)에 대해 자세히 알아볼 준비가 되었습니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

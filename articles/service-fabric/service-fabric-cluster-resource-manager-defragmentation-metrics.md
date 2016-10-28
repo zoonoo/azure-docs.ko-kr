@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Defragmentation of Metrics in Azure Service Fabric | Microsoft Azure"
-   description="An overview of using defragmentation or packing as a strategy for metrics in Service Fabric"
+   pageTitle="Azure 서비스 패브릭에서 메트릭의 조각 모음 | Microsoft Azure"
+   description="서비스 패브릭에서 메트릭에 대한 전략으로써 조각 모음 또는 압축 사용의 개요"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,33 +16,32 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
+# 서비스 패브릭에서 부하 및 메트릭의 조각 모음
+서비스 패브릭 클러스터 리소스 관리자는 클러스터의 모든 노드가 동일하게 활용되도록 하는 부하 분산 측면에서 균형 조정과 주로 관련이 있습니다. 지정된 실패가 지정된 작업의 많은 부분을 사용하지 않도록 하기 때문에 오류를 극복하는 측면에서 일반적으로 가장 안전하고 스마트한 레이아웃입니다. 서비스 패브릭 클러스터 리소스 관리자는 조각 모음이라는 다른 전략을 지원합니다. 조각 모음은 일반적으로 클러스터 전체에 걸쳐 메트릭의 사용률을 배분하려는 대신 실제로 통합하려고 하는 것을 의미합니다. 이 방식은 일반적인 전략을 뒤집는 것입니다. 지정된 메트릭의 메트릭 부하에 대한 평균 표준 편차 최소화를 토대로 클러스터를 최적화하는 대신, 편차 증가에 대한 최적화를 시작합니다. 그러나 이 전략을 선택하는 이유는 무엇인가요?
 
-# <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentation of metrics and load in Service Fabric
-The Service Fabric Cluster Resource Manager mainly is concerned with balancing in terms of distributing the load – making sure that all of the nodes in the cluster are equally utilized. This is usually the safest and smartest layout in terms of surviving failures since it makes sure that any given failure doesn’t take out the some large percentage of a given workload. The Service Fabric Cluster Resource Manager does support a different strategy as well, which is defragmentation. Defragmentation generally means that instead of trying to distribute the utilization of a metric across the cluster, we should actually try to consolidate it. This is a fortunate inversion of our normal strategy – instead of optimizing the cluster based on minimizing the average standard deviation of metric load for a given metric, we start optimizing for increases in deviation. But why would you want this strategy?
+물론 클러스터의 노드 간에 부하를 균등하게 분배한 경우 노드에서 제공해야 하는 리소스의 일부를 사용하게 됩니다. 보통 문제가 되지는 않지만 일부 워크로드는 매우 큰 서비스를 만들고 대부분의 노드를 사용합니다. 노드 리소스의 75%~95%가 단일 서비스 인스턴스 또는 복제본에 전용으로 사용될 수 있습니다. 따라서 큰 문제가 되지는 않지만 서비스 생성 시에 큰 워크로드를 위한 공간 확보 및 실행에 대한 설정을 위해 클러스터를 다시 구성해야 하지만 그동안 해당 워크로드가 클러스터에서 예약될 때까지 대기해야 한다는 점을 클러스터 Resource Manager가 감지합니다.
 
-Well, if you’ve spread the load out evenly among the nodes in the cluster then you’ve eaten up some of the resources that the nodes have to offer. Normally this isn’t a problem, but sometimes some workloads create services which are exceptionally large and consume the vast majority of a node – say 75% to 95% of a node’s resources would end up dedicated to a single service instance or replica. This isn’t a problem, the Cluster Resource Manager will detect at service creation time that it needs to reorganize the cluster in order to make room for this large workload and set about making it happen, but in the meantime that workload has to wait to be scheduled in the cluster.
+새 워크로드의 일정이 일반적으로 약간 대기 시간에 민감하다는 점을 고려할 때 이동할 서비스 및 상태가 많은 경우 어떤 부분을 다르게 하지 않으면 때로는 해당 SLA에 의해 손상이 발생할 수 있습니다. 클러스터의 워크로드가 일반적으로 큰 경우(그에 따라 클러스터에서 이동하는 데 시간이 더 오래 걸릴 경우)에 이러한 현상이 더욱 두드러집니다. 실제로 실제 클러스터 데이터를 기반으로 하는 시뮬레이션에서 생성 시간을 측정했을 때 서비스가 충분히 크고 클러스터가 꽤 활용된 경우 해당하는 큰 서비스가 느려지더라도 조각 모음 메트릭의 정책을 사용하여 이를 개선할 수 있다는 것을 확인했습니다.
 
-Given that the scheduling of new workloads is usually at least a little latency sensitive, if we don’t do anything differently we can sometimes blow right by those SLAs if there’s a lot of services and state to move around, particularly if workloads in the cluster are generally large (and hence taking longer to move around in the cluster). Indeed, when we measured creation times in simulations based on real cluster data, we saw that if services were large enough and the cluster was fairly utilized that the creation of those large services would be slowed down, and that we could improve this by introducing the policy of defragmentation metrics.
+더 큰 인접 블록을 사용할 수 있도록 연속 컴퓨터의 하드 디스크가 조각화되고 드라이브를 조각 모음하여 소진한 경우 파일 생성 또는 액세스가 느려졌던 것과 마찬가지로, 조각 모음 메트릭을 구성하여 클러스터 Resource Manager가 적극적으로 적은 노드에 서비스의 부하를 압축하려고 할 수 있습니다. 그러면 언제나 큰 서비스를 위한 공간을 마련하여 서비스가 신속하게 만들어질 수 있습니다. 대부분의 사용자에게는 이것이 필요하지 않습니다. 서비스가 일반적으로 작아서 서비스를 포함할 공간을 찾기가 어렵지 않기 때문입니다. 그렇지만 서비스가 크고 빠르게 만들어야 할 경우(또한 워크로드가 예약될 때까지 기다리는 동안 장애로 인한 영향이 커지고 일부 리소스를 사용할 수 없게 되는 것과 같은 다른 부정적 측면을 용인할 경우) 조각 모음 전략이 적합합니다.
 
-Just like file creation or access could get slowed down if a computer’s hard disk was fragmented and could be sped up by defragmenting the drive so that there were larger contiguous blocks available, you can configure defragmentation metrics to have the Cluster Resource Manager to proactively try to condense the load of the services into fewer nodes so that there is (almost) always room for even large services, enabling them to be created quickly. Most people won’t need this, because services should usually be small and hence it’s not hard to find room for them, but if you have large services and need them created quickly (and are willing to accept the other tradeoffs such as increased impactfulness of failures and some resources being left unutilized while they wait for workloads to be scheduled) then the defragmentation strategy is for you.
+아래 다이어그램은 하나는 조각 모음되고 하나는 조각 모음되지 않는 서로 다른 두 클러스터의 시각적 표시를 제공합니다. 분산된 경우에서 새 것이 만들어졌을 경우 조각 모음된 클러스터에 비해 가장 큰 서비스 개체 중 하나를 배치하는 데 필요한 이동을 고려합니다. 여기에서 즉시 노드 4 또는 5로 배치될 수 있습니다.
 
-The diagram below gives a visual representation of two different clusters, one which is defragmented and one which is not. In the balanced case, consider the movements which would be necessary to place one of the largest service objects, if a new one were to be created, compared to the defragmented cluster, where it could be immediately placed on nodes 4 or 5.
+![분산된 클러스터 및 조각 모음 클러스터 비교][Image1]
 
-![Comparing Balanced and Defragmented Clusters][Image1]
+## 조각 모음 장점 및 단점
+그러면 다른 개념적 절충은 무엇입니까? 조각 모음 메트릭을 설정하기 전에 워크로드를 철저하게 측정하는 것이 좋습니다. 다음은 생각해 볼 사항을 간단한 테이블로 보여줍니다.
 
-## <a name="defragmentation-pros-and-cons"></a>Defragmentation pros and cons
-So what are those other conceptual tradeoffs? We recommend thorough measurement of your workloads before turning on defragmentation metrics. Here’s a quick table of things to think about:
-
-| Defragmentation Pros  | Defragmentation Cons |
+| 조각 모음 장점 | 조각 모음 단점 |
 |----------------------|----------------------|
-|Allows faster creation of large services | Concentrates load onto fewer nodes, increasing contention
-|Enables lower data movement during creation    | Failures can impact more services and cause more churn
-|Allows rich description of requirements and reclamation of space | More complex overall Resource Management configuration
+|큰 서비스를 빠르게 만들 수 있습니다 |	더 적은 노드에 부하가 집중되어 경합을 늘립니다
+|생성하는 동안 데이터 이동을 줄입니다 | 실패한 경우 더 많은 서비스에 영향을 주고 더 많은 이탈이 발생할 수 있습니다
+|풍부한 요구 사항에 대한 설명 및 공간의 확보가 가능합니다. |	전체 리소스 관리 구성이 더 복잡합니다
 
-You can mix defragmented and normal metrics in the same cluster and the Resource Manager will do it’s best to ensure that you get a layout that consolidates as much of the defragmentation metrics as it can while trying to spread out the rest. The exact results you’ll get will depend on the number of balancing metrics compared to the number of defragmentation metrics and their weights, current loads, etc.
+동일한 클러스터에서 조각 모음 및 일반 메트릭을 혼합할 수 있습니다. 또한 리소스 관리자는 나머지를 확산하려는 동안 가능한 많은 조각 모음 메트릭을 통합하는 레이아웃을 얻도록 최선을 다할 것입니다. 얻을 수 있는 정확한 결과는 조각 모음 메트릭의 수, 해당 가중치, 현재 부하 등에 비교되는 메트릭 분산의 수에 따라 달라집니다.
 
-## <a name="configuring-defragmentation-metrics"></a>Configuring defragmentation metrics
-Configuring defragmentation metrics is a global decision in the cluster, and individual metrics can be selected for defragmentation:
+## 조각 모음 메트릭 구성
+조각 모음 메트릭을 구성하는 작업은 클러스터에서 전역적인 의사 결정이며 개별 메트릭은 조각 모음에서 선택될 수 있습니다.
 
 ClusterManifest.xml:
 
@@ -53,14 +52,10 @@ ClusterManifest.xml:
 </Section>
 ```
 
-## <a name="next-steps"></a>Next steps
-- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](service-fabric-cluster-resource-manager-metrics.md)
+## 다음 단계
+- 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
+- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
 
-[Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
+[Image1]: ./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

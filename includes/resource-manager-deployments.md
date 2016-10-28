@@ -1,22 +1,19 @@
-## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
+## 증분 및 전체 배포
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+기본적으로 리소스 관리자는 리소스 그룹에 대한 증분 업데이트로 배포를 처리합니다. 증분 배포를 통해 리소스 관리자는 다음을 수행합니다.
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
-- **re-provisions** existing resources that have updated settings in the template
+- 리소스 그룹에 존재하지만 템플릿에 지정되지 않는 리소스를 **변경되지 않은 상태로 유지**
+- 템플릿에 지정되어 있지만 리소스 그룹에 없는 리소스를 **추가**
+- 템플릿에 정의된 동일한 조건으로 리소스 그룹에 존재하는 리소스를 **다시 프로비전하지 않음**
+- 템플릿에서 설정을 업데이트한 기존 리소스를 **다시 프로비전**
 
-With complete deployment, Resource Manager:
+전체 배포를 통해 리소스 관리자는 다음을 수행합니다.
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
-- **re-provisions** existing resources that have updated settings in the template
+- 리소스 그룹에 존재하지만 템플릿에 지정되지 않는 리소스를 **삭제**
+- 템플릿에 지정되어 있지만 리소스 그룹에 없는 리소스를 **추가**
+- 템플릿에 정의된 동일한 조건으로 리소스 그룹에 존재하는 리소스를 **다시 프로비전하지 않음**
+- 템플릿에서 설정을 업데이트한 기존 리소스를 **다시 프로비전**
  
-You specify the type of deployment through the **Mode** property.
+**Mode** 속성을 통해 배포 유형을 지정합니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

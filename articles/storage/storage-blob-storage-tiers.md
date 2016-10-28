@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure cool storage for blobs | Microsoft Azure"
-    description="Storage tiers for Azure Blob storage offer cost-efficient storage for object data based on access patterns. The cool storage tier is optimized for data that is accessed less frequently."
+    pageTitle="Blob용 Azure 쿨 저장소 | Microsoft Azure"
+    description="Azure Blob 저장소용 저장소 계층에서 액세스 패턴에 기반하여 개체 데이터에 대한 비용 효율적인 저장소를 제공합니다. 쿨 저장소 계층은 비교적 드물게 액세스하는 데이터에 최적화되어 있습니다."
     services="storage"
     documentationCenter=""
     authors="michaelhauss"
@@ -17,345 +17,327 @@
     ms.author="mihauss;robinsh"/>
 
 
+# Azure Blob 저장소: 핫 및 쿨 저장소 계층
 
-# <a name="azure-blob-storage:-hot-and-cool-storage-tiers"></a>Azure Blob Storage: Hot and cool storage tiers
+## 개요
 
-## <a name="overview"></a>Overview
+Azure 저장소에서 데이터 사용 방식에 따라 비용 효율이 가장 높은 방식으로 데이터를 저장할 수 있도록 Blob 저장소(개체 저장소)에 대해 두 가지 저장소 계층을 제공합니다. Azure **핫 저장소 계층**은 자주 액세스하는 데이터 저장에 최적화되어 있습니다. Azure **쿨 저장소 계층**은 드물게 액세스하는 오래 지속되는 데이터 저장에 최적화되어 있습니다. 쿨 저장소 계층의 데이터는 가용성이 다소 떨어져도 괜찮지만 영속성은 여전히 높아야 하며, 핫 데이터와 비슷한 수준의 액세스 시간과 처리량 특징이 요구됩니다. 쿨 데이터의 경우 저장소 비용을 크게 낮추기 위해 가용성 SLA는 약간 낮고 액세스 비용은 다소 높아도 됩니다.
 
-Azure Storage now offers two storage tiers for Blob storage (object storage), so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool storage tier can tolerate a slightly lower availability, but still requires high durability and similar time to access and throughput characteristics as hot data. For cool data, slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
+오늘날 클라우드에 저장된 데이터는 기하급수적으로 증가하고 있습니다. 높아지는 저장소 수요에 대한 비용을 관리하기 위해, 액세스 빈도 및 계획된 보존 기간과 같은 특성을 기반으로 데이터를 구성하는 것이 좋습니다. 클라우드에 저장되는 데이터는 수명 기간 동안 생성, 처리 및 액세스하는 방식에 큰 차이가 있습니다. 일부 데이터는 수명 기간 전반에 걸쳐 활발하게 액세스되고 수정됩니다. 일부 데이터는 수명 기간 초반에는 매우 빈번하게 액세스되지만 데이터가 오래될수록 액세스 빈도가 급격하게 떨어집니다. 일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다.
 
-Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency of access and planned retention period. Data stored in the cloud can be quite different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed very frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
+위에서 설명한 이러한 각각의 데이터 액세스 시나리오에서는 특정 액세스 패턴에 맞게 최적화되어 차별화된 저장소 계층이 유익합니다. Azure Blob 저장소는 핫 및 쿨 저장소 계층의 도입과 함께, 별도의 가격 책정 모델을 통한 차별화된 저장소 계층에 대한 수요에 대처하고 있습니다.
 
-Each of these data access scenarios described above benefits from a differentiated tier of storage that is optimized for a particular access pattern. With the introduction of hot and cool storage tiers, Azure Blob storage now addresses this need for differentiated storage tiers with separate pricing models.
+## Blob 저장소 계정
 
-## <a name="blob-storage-accounts"></a>Blob storage accounts
+**Blob 저장소 계정**은 Azure 저장소에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 저장소 계정입니다. 이제 Blob 저장소 계정에서 핫 및 쿨 저장소 계층을 선택하여 비교적 드물게 액세스하는 쿨 데이터를 더 저렴한 저장소 비용으로 저장하고, 더 자주 액세스하는 핫 데이터를 더 낮은 액세스 비용으로 저장할 수 있습니다. Blob 저장소 계정은 기존 범용 저장소 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다.
 
-**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage tiers to store your less frequently accessed cool data at a lower storage cost, and store more frequently accessed hot data at a lower access cost. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
+> [AZURE.NOTE] Blob 저장소 계정은 블록 및 추가 Blob만 지원하고 페이지 Blob은 지원하지 않습니다.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+Blob 저장소 계정은 계정에 저장된 데이터에 따라 저장소 계층을 **핫** 또는 **쿨**로 지정하는 **액세스 계층** 속성을 표시합니다. 데이터의 사용 패턴에 변화가 있으면 언제든 이 저장소 계층 간을 전환할 수 있습니다.
 
-Blob storage accounts expose the **Access Tier** attribute, which allow you to specify the storage tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time.
+> [AZURE.NOTE] 저장소 계층을 변경하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 및 대금 청구](storage-blob-storage-tiers.md#pricing-and-billing)를 참조하세요.
 
-> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+핫 저장소 계층에 대한 사용 예시 시나리오는 다음과 같습니다.
 
-Example usage scenarios for the hot storage tier include:
+- 현재 사용 중이거나 자주 액세스할 것으로 예상되는 데이터(읽기 및 쓰기)
+- 처리 및 쿨 저장소 계층으로의 마이그레이션이 준비된 데이터
 
-- Data that is in active use or expected to be accessed (read from and written to) frequently.
-- Data that is staged for processing and eventual migration to the cool storage tier.
+쿨 저장소 계층에 대한 사용 예시 시나리오는 다음과 같습니다.
 
-Example usage scenarios for the cool storage tier include:
+- 백업, 보관 및 재해 복구 데이터 집합
+- 자주 감상하지 않으나, 액세스할 때 즉시 사용할 수 있어야 하는 오래된 미디어 콘텐츠
+- 추가 처리를 위해 다른 데이터를 수집하는 동안 경제적으로 저장되어야 하는 대용량 데이터 집합(*예:* 과학적 데이터의 장기 저장, 제조 설비의 원시 원격 분석 데이터)
+- 사용 가능한 최종 형태로 처리된 후에도 보존이 필요한 원래(원시) 데이터(*예:*: 다른 형식으로 코드 변환한 원시 미디어 파일)
+- 장기간 동안 저장이 필요하나 거의 액세스하지 않는 규정 준수 및 보관 데이터(*예:* 보안 카메라 영상, 의료 기관의 오래된 X레이/MRI, 금융 기관에서 고객 통화의 오디오 녹음 및 내용 자료)
 
-- Backup, archival and disaster recovery datasets.
-- Older media content not viewed frequently anymore but is expected to be available immediately when accessed.
-- Large data sets that need to be stored cost effectively while more data is being gathered for future processing. (*e.g.*, long-term storage of scientific data, raw telemetry data from a manufacturing facility)
-- Original (raw) data that must be preserved, even after it has been processed into final usable form. (*e.g.*, Raw media files after transcoding into other formats)
-- Compliance and archival data that needs to be stored for a long time and is hardly ever accessed. (*e.g.*, Security camera footage, old X-Rays/MRIs for healthcare organizations, audio recordings and transcripts of customer calls for financial services)
+저장소 계정에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)를 참조하세요.
 
-See [About Azure storage accounts](storage-create-storage-account.md) for more information on storage accounts.
+블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하여 차별화된 계층형 저장소 가격 모델을 활용하는 것이 좋습니다. 그러나 범용 저장소 계정을 사용하는 다음과 같은 특정 상황에서 이것이 불가능할 수 있습니다.
 
-For applications requiring only block or append blob storage, we recommend using Blob storage accounts, to take advantage of the differentiated pricing model of tiered storage. However, we understand that this might not be possible under certain circumstances where using general-purpose storage accounts would be the way to go, such as:
+- 테이블, 쿼리 또는 파일을 사용하고 동일한 저장소 계정에 Blob를 저장하려는 경우. 동일한 공유 키를 갖는 경우를 제외하고 동일한 계정에 이 모두를 저장하는 데는 기술적인 이점이 없습니다.
+- 여전히 클래식 배포 모델을 사용해야 합니다. Blob 저장소 계정은 Azure 리소스 관리자 배포 모델을 통해서만 사용할 수 있습니다.
+- 페이지 Blob을 사용해야 합니다. Blob 저장소 계정은 페이지 Blob을 지원하지 않습니다. 일반적으로 페이지 Blob가 특별히 필요한 상황이 아니라면 블록 Blob를 사용하는 것이 좋습니다.
+- 2014-02-14 이전 버전인 [저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx)나, 4.x 미만인 클라이언트 라이브러리를 사용하며 응용 프로그램을 업그레이드할 수 없습니다.
 
-- You need to use tables, queues, or files and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
-- You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
-- You need to use page blobs. Blob storage accounts do not support page blobs. We generally recommend using block blobs unless you have a specific need for page blobs.
-- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
+> [AZURE.NOTE] Blob 저장소 계정은 현재 대부분의 Azure 지역에서 지원되며 앞으로 더 추가될 것입니다. 사용할 수 있는 지역 목록 업데이트는 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services) 페이지에서 확인할 수 있습니다.
 
-> [AZURE.NOTE] Blob storage accounts are currently supported in a majority of Azure regions with more to follow. You can find the updated list of available regions on the [Azure Services by Region](https://azure.microsoft.com/regions/#services) page.
+## 저장소 계층 간 비교
 
-## <a name="comparison-between-the-storage-tiers"></a>Comparison between the storage tiers
-
-The following table highlights the comparison between the two storage tiers:
+다음 표에서는 두 저장소 계층 간의 비교를 조명합니다.
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
-<col width="250">
-<col width="250">
-<col width="250">
+<col width="250"> <col width="250"> <col width="250">
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>Hot storage tier</center></strong></td>
-    <td><strong><center>Cool storage tier</center></strong></td
+    <td><strong><center>핫 저장소 계층</center></strong></td>
+    <td><strong><center>쿨 저장소 계층</center></strong>&lt;/td
 </tr>
 <tr>
-    <td><strong><center>Availability</center></strong></td>
+    <td><strong><center>가용성</center></strong></td>
     <td><center>99.9%</center></td>
     <td><center>99%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Availability<br>(RA-GRS reads)</center></strong></td>
+    <td><strong><center>가용성<br>(RA-GRS 읽기)</center></strong></td>
     <td><center>99.99%</center></td>
     <td><center>99.9%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Usage charges</center></strong></td>
-    <td><center>Higher storage costs<br>Lower access and transaction costs</center></td>
-    <td><center>Lower storage costs<br>Higher access and transaction costs</center></td>
+    <td><strong><center>사용 요금</center></strong></td>
+    <td><center>저장소 비용 더 높음<br>액세스 및 트랜잭션 비용 더 낮음</center></td>
+    <td><center>저장소 비용 더 낮음<br>액세스 및 트랜잭션 비용 더 높음</center></td>
 </tr>
 <tr>
-    <td><strong><center>Minimum object size<center></strong></td>
-    <td colspan="2"><center>N/A</center></td>
+    <td><strong><center>최소 개체 크기<center></strong></td>
+    <td colspan="2"><center>해당 없음</center></td>
 </tr>
 <tr>
-    <td><strong><center>Minimum storage duration<center></strong></td>
-    <td colspan="2"><center>N/A</center></td>
+    <td><strong><center>최소 저장 기간<center></strong></td>
+    <td colspan="2"><center>해당 없음</center></td>
 </tr>
 <tr>
-    <td><strong><center>Latency<br>(Time to first byte)<center></strong></td>
-    <td colspan="2"><center>milliseconds</center></td>
+    <td><strong><center>대기 시간 <br>(첫 번째 바이트까지의 시간)<center></strong></td>
+    <td colspan="2"><center>밀리초</center></td>
 </tr>
 <tr>
-    <td><strong><center>Scalability and performance targets<center></strong></td>
-    <td colspan="2"><center>Same as general-purpose storage accounts</center></td>
+    <td><strong><center>확장성 및 성능 대상<center></strong></td>
+    <td colspan="2"><center>범용 저장소 계정과 동일</center></td>
 </tr>
 </tbody>
 </table>
 
-> [AZURE.NOTE] Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for more information.
+> [AZURE.NOTE] Blob 저장소 계정은 범용 저장소 계정과 동일한 성능 및 확장성 목표를 지원합니다. 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)(영문)를 참조하십시오.
 
-## <a name="pricing-and-billing"></a>Pricing and Billing
+## 가격 책정 및 대금 청구
 
-Blob storage accounts use a new pricing model for blob storage based on the storage tier. When using a Blob storage account, the following billing considerations apply:
+Blob 저장소 계정에서는 저장소 계층에 따라 Blob 저장소에 새 가격 책정 모델을 사용합니다. Blob 저장소 계정을 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
-- **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage tier. The per-gigabyte cost is lower for the cool storage tier than for the hot storage tier.
-- **Data access costs**: For data in the cool storage tier, you will be charged a per-gigabyte data access charge for reads and writes.
-- **Transaction costs**: There is a per-transaction charge for both tiers. However, the per-transaction cost for the cool storage tier is higher than that for the hot storage tier.
-- **Geo-Replication data transfer costs**: This only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
-- **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
-- **Changing the storage tier**: Changing the storage tier from cool to hot will incur a charge equal to reading all the data existing in the storage account for every transition. On the other hand, changing the storage tier from hot to cool will be free of cost.
+- **저장소 비용**: 저장된 데이터 크기 외에도, 데이터 저장 비용은 저장소 계층에 따라 달라집니다. 기가바이트당 비용은 핫 저장소 계층보다 쿨 저장소 계층이 더 저렴합니다.
+- **데이터 액세스 비용**: 쿨 저장소 계층의 데이터의 경우 읽기 및 쓰기에 대해 기가바이트당 데이터 액세스 요금이 청구됩니다.
+- **트랜잭션 비용**: 두 계층에 모두 트랜잭션당 요금이 있습니다. 그러나 쿨 저장소 계층의 트랜잭션당 비용이 핫 저장소 계층보다 높습니다.
+- **지역에서 복제 데이터 전송 비용**: GRS 및 RA-GRS를 포함하여 지역에서 복제가 구성된 계정에만 해당합니다. 지역 복제 데이터 전송에는 기가바이트당 요금이 발생합니다.
+- **아웃바운드 데이터 전송 비용**: 아웃바운드 데이터 전송(Azure 지역 밖으로 전송된 데이터)에서는 기가바이트당 요금을 기준으로 대역폭 사용 요금이 발생하며 범용 저장소 계정과 같습니다.
+- **저장소 계층 변경**: 저장소 계층을 쿨에서 핫으로 변경하면 트랜잭션마다 저장소 계정에서 모든 기존 데이터를 읽는 것과 같은 요금이 발생합니다. 반대로 저장소 계층을 핫에서 쿨로 변경하는 것은 무료입니다.
 
-> [AZURE.NOTE] In order to allow users to try out the new storage tiers and validate functionality post launch, the charge for changing the storage tier from cool to hot will be waived off until June 30th 2016. Starting July 1st 2016, the charge will be applied to all transitions from cool to hot. For more details on the pricing model for Blob storage accounts see, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more details on the outbound data transfer charges see, [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
+> [AZURE.NOTE] 사용자가 새 저장소 계층을 테스트해 보고 기능의 사후 실행을 검증해 볼 수 있게, 저장소 계층을 쿨에서 핫으로 변경하는 경우의 요금이 2016년 6월 30일까지 면제됩니다. 2016년 7월 1일부터는 쿨에서 핫으로의 모든 전환에 요금이 부과됩니다. Blob 저장소 계정의 가격 책정 모델에 대한 자세한 내용은 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/) 페이지를 참조하세요. 아웃바운드 데이터 전송 요금에 대한 자세한 내용은 [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지를 참조하세요.
 
-## <a name="quick-start"></a>Quick Start
+## 빠른 시작
 
-In this section we will demonstrate the following scenarios using the Azure portal:
+이 섹션에서는 Azure 포털을 사용하여 다음 시나리오를 시연하겠습니다.
 
-- How to create a Blob storage account.
-- How to manage a Blob storage account.
+- 방법: Blob 저장소 계정 만들기
+- 방법: Blob 저장소 계정 관리
 
-### <a name="using-the-azure-portal"></a>Using the Azure portal
+### Azure 포털 사용
 
-#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Create a Blob storage account using the Azure portal
+#### Azure 포털을 사용하여 Blob 저장소 계정 만들기
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. On the Hub menu, select **New** > **Data + Storage** > **Storage account**.
+2. 허브 메뉴에서 **새로 만들기** > **데이터 + 저장소** > **저장소 계정**을 선택합니다.
 
-3. Enter a name for your storage account.
+3. 저장소 계정의 이름을 입력합니다.
 
-    This name must be globally unique; it is used as part of the URL used to access the objects in the storage account.  
+	이 이름은 전역적으로 고유해야 합니다. 저장소 계정의 개체에 액세스하는 데 사용되는 URL의 일부로 사용됩니다.
 
-4. Select **Resource Manager** as the deployment model.
+4. **Resource Manager**를 배포 모델로 선택합니다.
 
-    Tiered storage can only be used with Resource Manager storage accounts; this is the recommended deployment model for new resources. For more information, check out the [Azure Resource Manager overview](../resource-group-overview.md).  
+	계층화된 저장소는 Resource Manager 저장소 계정과 함께 사용할 수 있습니다. 새 리소스에 권장되는 배포 모델입니다. 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 확인합니다.
 
-5. In the Account Kind dropdown list, select **Blob Storage**.
+5. 계정 종류 드롭다운 목록에서 **Blob 저장소**를 선택합니다.
 
-    This is where you select the type of storage account. Tiered storage is not available in general-purpose storage; it is only available in the Blob storage type account.    
+	저장소 계정 유형을 선택하는 위치입니다. 범용 저장소에서 계층화된 저장소를 사용할 수 없습니다. Blob 저장소 유형 계정에서만 사용할 수 있습니다.
 
-    Note that when you select this, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
+	이를 선택하면 성능 계층은 표준으로 설정됩니다. 계층화된 저장소는 프리미엄 성능 계층과 함께 사용할 수 없습니다.
 
-6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
+6. 저장소 계정에 대한 복제 옵션을 **LRS**, **GRS** 또는 **RA-GRS**로 선택합니다. 기본값은 **RA-GRS**입니다.
 
-    LRS = locally redundant storage; GRS = geo-redundant storage (2 regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
+	LRS = 로컬 중복 저장소; GRS = 지역 중복 저장소(2개 지역); RA-GRS는 읽기 액세스 지역 중복 저장소입니다(두 번째 저장소에 대한 읽기 액세스 권한이 있는 2개 지역).
 
-    For more details on Azure Storage replication options, check out [Azure Storage replication](storage-redundancy.md).
+	Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [Azure 저장소 복제](storage-redundancy.md)를 확인하세요.
 
-7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
+7. 필요에 맞는 올바른 저장소 계층 선택: **액세스 계층**을 **쿨** 또는 **핫**으로 설정합니다. 기본값은 **핫**입니다.
 
-8. Select the subscription in which you want to create the new storage account.
+8. 새 저장소 계정을 만들려는 구독을 선택합니다.
 
-9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
+9. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
-10. Select the region for your storage account.
+10. 저장소 계정에 대한 지역을 선택합니다.
 
-11. Click **Create** to create the storage account.
+11. **만들기**를 클릭하여 저장소 계정을 만들 수 있습니다.
 
-#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Change the storage tier of a Blob storage account using the Azure portal
+#### Azure 포털을 사용하여 Blob 저장소 계정의 저장소 계층 변경
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. To navigate to your storage account, select All Resources, then select your storage account.
+2. 저장소 계정으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택합니다.
 
-3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
+3. 설정 블레이드에서 **구성**을 클릭하여 계정 구성을 보기 및/또는 변경합니다.
 
-4. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
+4. 필요에 맞는 올바른 저장소 계층 선택: **액세스 계층**을 **쿨** 또는 **핫**으로 설정합니다.
 
-5. Click Save at the top of the blade.
+5. 블레이드 위쪽에서 저장을 클릭합니다.
 
-> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+> [AZURE.NOTE] 저장소 계층을 변경하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 및 대금 청구](storage-blob-storage-tiers.md#pricing-and-billing)를 참조하세요.
 
-## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evaluating and migrating to Blob storage accounts
+## Blob 저장소 계정 평가 및 Blob 저장소 계정으로 마이그레이션
 
-The purpose of this section is to help users to make a smooth transition to using Blob storage accounts. There are two user scenarios:
+이 섹션은 Blob 저장소 계정 사용으로의 원활한 마이그레이션을 지원하기 위한 것입니다. 두 가지 사용자 시나리오가 있습니다.
 
-- You have an existing general-purpose storage account and want to evaluate a change to a Blob storage account with the right storage tier.
-- You have decided to use a Blob storage account or already have one and want to evaluate whether you should use the hot or cool storage tier.
+- 기존 범용 저장소 계정이 있고 올바른 저장소 계층을 사용하여 Blob 저장소 계정에 대한 변경을 평가하려고 합니다.
+- Blob 저장소 계정을 사용하도록 결정했거나 이미 저장소 계정이 하나 있고 핫 또는 쿨 저장소 계층을 사용해야 하는지 여부를 평가하려고 합니다.
 
-In both cases, the first order of business is to estimate the cost of storing and accessing your data stored in a Blob storage account and compare that against your current costs.
+두 경우 모두 비즈니스의 첫 번째 순서는 Blob 저장소 계정에 저장된 데이터를 저장 및 액세스하는 비용을 예측하고 현재 비용과 비교하는 것입니다.
 
-### <a name="evaluating-blob-storage-account-tiers"></a>Evaluating Blob storage account tiers
+### Blob 저장소 계정 계층 평가
 
-In order to estimate the cost of storing and accessing data stored in a Blob storage account, you will need to evaluate your existing usage pattern or approximate your expected usage pattern. In general, you will want to know:
+Blob 저장소 계정에 저장된 데이터를 저장 및 액세스하는 비용을 예상하기 위해 기존 사용 패턴을 평가하거나 예상된 사용 패턴을 계산해야 합니다. 일반적으로 다음을 파악해야 합니다.
 
-- Your storage consumption - How much data is being stored and how does this change on a monthly basis?
-- Your storage access pattern - How much data is being read from and written to the account (including new data)? How many transactions are used for data access, and what kinds of transactions are they?
+- 저장소 사용량 – 데이터 저장 규모 및 월 기준 변화
+- 저장소 액세스 패턴 - 계정에서 읽고 쓰는 데이터의 크기(새 데이터 포함) 데이터 액세스에 사용되는 트랜잭션 양 및 트랜잭션 유형
 
-#### <a name="monitoring-existing-storage-accounts"></a>Monitoring existing storage accounts
+#### 기존 저장소 계정 모니터링
 
-To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics which performs logging and provides metrics data for a storage account.
-Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts.
-This data is stored in well-known tables in the same storage account.
+기존 저장소 계정을 모니터링하고 이 데이터를 수집하기 위해 로깅을 수행하고 저장소 계정에 대한 메트릭 데이터를 제공하는 Azure 저장소 분석을 사용할 수 있습니다. 저장소 분석으로 범용 저장소 계정 및 Blob 저장소 계정을 위한 Blob 저장소 서비스에 대한 요청에 대한 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 이 데이터는 동일한 저장소 계정에서 잘 알려진 테이블에 저장됩니다.
 
-For more details, please see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+자세한 내용은 [저장소 분석 메트릭 정보](https://msdn.microsoft.com/library/azure/hh343258.aspx) 및 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요.
 
-> [AZURE.NOTE] Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account.
+> [AZURE.NOTE] Blob 저장소 계정은 해당 계정에 대한 메트릭 데이터 저장 및 액세스에 대해서만 테이블 서비스 끝점을 노출합니다.
 
-To monitor the storage consumption for the Blob storage service, you will need to enable the capacity metrics.
-With this enabled, capacity data is recorded daily for a storage account’s Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
+Blob 저장소 서비스에 대한 저장소 사용량을 모니터링하려면 용량 메트릭을 활성화해야 합니다. 이를 활성화하면 용량 데이터는 저장소 계정의 Blob 서비스에 대해 매일 기록되고 동일한 저장소 계정 내에서 *$MetricsCapacityBlob* 테이블에 작성된 테이블 항목으로 기록됩니다.
 
-To monitor the data access pattern for the Blob storage service, you will need to enable the hourly transaction metrics at an API level.
-With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint in case of RA-GRS storage accounts.
+Blob 저장소 서비스에 대한 데이터 액세스 패턴을 모니터링하려면 API 수준에서 시간당 트랜잭션 메트릭을 활성화해야 합니다. 이를 활성화하면 API당 트랜잭션은 매시간 집계되며 동일한 저장소 계정 내에서 *$MetricsHourPrimaryTransactionsBlob* 테이블로 작성된 테이블 항목으로 기록됩니다. *$MetricsHourSecondaryTransactionsBlob* 테이블은 RA-GRS 저장소 계정의 경우 보조 끝점에 트랜잭션을 기록합니다.
 
-> [AZURE.NOTE] In case you have a general-purpose storage account in which you have stored page blobs and virtual machine disks alongside block and append blob data, this estimation process is not applicable. This is because you will have no way of distinguishing capacity and transaction metrics based on the type of blob for only block and append blobs which can be migrated to a Blob storage account.
+> [AZURE.NOTE] 페이지 Blob과 블록 및 추가 Blob 데이터와 함께 가상 컴퓨터 디스크를 저장한 범용 저장소 계정이 있는 경우 이 예측 프로세스는 적용되지 않습니다. 블록에 대한 Blob의 유형 및 Blob 저장소 계정으로 마이그레이션될 수 있는 추가 Blob에 따라 용량 및 트랜잭션 메트릭을 구별하는 방법이 없기 때문입니다.
 
-To get a good approximation of you data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage, and extrapolate.
-One option is to retain the metrics data for 7 days and collect the data every week, for analysis at the end of the month.
-Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30 day period.
+데이터 소비 및 액세스 패턴의 근사치를 얻으려면 일반 사용을 대표하는 메트릭에 대한 보존 기간을 선택하고 추론하는 것이 좋습니다. 하나의 옵션은 7일 동안 메트릭 데이터를 보유하고 월말에 분석을 위해 매주 데이터를 수집하는 것입니다. 다른 옵션은 지난 30일에 대한 메트릭 데이터를 보유하고 30일 기간의 끝에 데이터를 수집하고 분석하는 것입니다.
 
-For details on enabling, collecting and viewing metrics data, please see, [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md).
+메트릭 데이터 사용, 수집 및 보기는 [Azure 저장소 메트릭 사용 및 메트릭 데이터 보기](storage-enable-and-view-metrics.md)를 참조하세요.
 
-> [AZURE.NOTE] Storing, accessing and downloading analytics data is also charged just like regular user data.
+> [AZURE.NOTE] 분석 데이터 저장, 액세스 및 다운로드는 일반 사용자 데이터와 마찬가지로 청구됩니다.
 
-#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Utilizing usage metrics to estimate costs
+#### 사용 현황 메트릭을 활용하여 비용 추정
 
-##### <a name="storage-costs"></a>Storage costs
+##### 저장소 비용
 
-The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data.
-The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'analytics'* shows the storage capacity consumed by the analytics logs.
+행 키 *'data'*를 가진 용량 메트릭 테이블 *$MetricsCapacityBlob*에서 최신 항목은 사용자 데이터에서 사용되는 저장소 용량을 보여 줍니다. 행 키 *'analytics'*를 가진 용량 메트릭 테이블 *$MetricsCapacityBlob*에서 최신 항목은 분석 로그에서 사용되는 저장소 용량을 보여 줍니다.
 
-This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account.
-The same method can also be used for estimating storage costs for block and append blobs in general-purpose storage accounts.
+사용자 데이터 및 분석 로그(활성화된 경우)에서 소비되는 이 전체 용량은 저장소 계정에서 데이터 저장의 비용을 예측하는 데 사용할 수 있습니다. 범용 저장소 계정에서 블록 및 추가 Blob에 대한 저장소 비용을 예상하는 데 동일한 메서드를 사용할 수도 있습니다.
 
-##### <a name="transaction-costs"></a>Transaction costs
+##### 트랜잭션 비용
 
-The sum of *'TotalBillableRequests'*, across all entries for an API in the transaction metrics table indicates the total number of transactions for that particular API. *e.g.*, the total number of *'GetBlob'* transactions in a given period can be calculated by the sum of total billable requests for all entries with the row key *'user;GetBlob'*.
+트랜잭션 메트릭 테이블에서 API에 대한 모든 항목에 대한 *'TotalBillableRequests'*의 합계는 특정 API에 대한 트랜잭션의 총 수를 나타냅니다. *예:* 지정된 기간에서 *'GetBlob'* 트랜잭션의 총 수는 행 키 *'user;GetBlob'*을 가진 모든 항목에 대한 총 청구 가능한 요청의 합으로 계산될 수 있습니다.
 
-In order to estimate transaction costs for Blob storage accounts, you will need to break down the transactions into three groups since they are priced differently.
+트랜잭션은 서로 다른 가격이 책정되므로 Blob 저장소 계정에 대한 트랜잭션 비용을 예상하려면 트랜잭션을 3개의 그룹으로 세분화해야 합니다.
 
-- Write transactions such as *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'*, and *'CopyBlob'*.
-- Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
-- All other transactions.
+- *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* 및 *'CopyBlob'*과 같은 쓰기 트랜잭션.
+- *'DeleteBlob'* 및 *'DeleteContainer'*와 같은 삭제 트랜잭션.
+- 모든 다른 트랜잭션.
 
-In order to estimate transaction costs for general-purpose storage accounts, you need to aggregate all transactions irrespective of the operation/API.
+범용 저장소 계정에 대한 트랜잭션 비용을 예상하려면 작업/API에 관계 없이 모든 트랜잭션을 집계해야 합니다.
 
-##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Data access and geo-replication data transfer costs
+##### 데이터 액세스 및 지역에서 복제 데이터 전송 비용
 
-While storage analytics does not provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table.
-The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API.
-Similarly the sum of *'TotalEgress'* indicates the total amount of egress data, in bytes.
+저장소 분석은 저장소 계정에서 읽고 쓰는 데이터의 양을 제공하지 않지만 트랜잭션 메트릭 테이블을 확인하여 대략적으로 예상할 수 있습니다. 트랜잭션 메트릭 테이블에서 API에 대한 모든 항목에 대한 *'TotalIngress'*의 합계는 특정 API에 대한 수신 데이터의 총 크기를 바이트로 나타냅니다. 마찬가지로 *'TotalEgress'*의 합계는 송신 데이터의 총 크기를 바이트로 나타냅니다.
 
-In order to estimate the data access costs for Blob storage accounts, you will need to break down the transactions into two groups.
+Blob 저장소 계정에 대한 데이터 액세스 비용을 예상하려면 트랜잭션을 2개의 그룹으로 세분화해야 합니다.
 
-- The amount of data retrieved from the storage account can be estimated by looking at the sum of *'TotalEgress'* for primarily the *'GetBlob'* and *'CopyBlob'* operations.
-- The amount of data written to the storage account can be estimated by looking at the sum of *'TotalIngress'* for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
+- 저장소 계정에서 검색되는 데이터 크기는 주로 *'GetBlob'* 및 *'CopyBlob'* 작업에 대한 *'TotalEgress'*의 합계를 확인하여 예상할 수 있습니다.
+- 저장소 계정에 작성되는 데이터 크기는 주로 *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* 및 *'AppendBlock'* 작업에 대한 *'TotalIngress'*의 합계를 확인하여 예상할 수 있습니다.
 
-The cost of geo-replication data transfer for Blob storage accounts can also be calculated by using the estimate for the amount of data written in case of a GRS or RA-GRS storage account.
+Blob 저장소 계정에 대한 지역에서 복제 데이터 전송의 비용은 GRS 또는 RA-GRS 저장소 계정의 경우 작성된 데이터의 양에 대한 추정을 사용하여 계산할 수도 있습니다.
 
-> [AZURE.NOTE] For a more detailed example about calculating the costs for using the hot or cool storage tier, please take a look at the FAQ titled *'What are Hot and Cool access tiers and how should I determine which one to use?'* in the [Azure Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/).
+> [AZURE.NOTE] 핫 또는 쿨 저장소 계층을 사용하는 비용 계산에 대한 자세한 예제는 [Azure 저장소 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)에서 *핫 및 쿨 액세스 계층이란 무엇이며 무슨 계층을 사용할지 어떻게 결정하나요?*라는 제목의 FAQ를 살펴보세요.
 
-### <a name="migrating-existing-data"></a>Migrating existing data
+### 기존 데이터 마이그레이션
 
-A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
-You can use the following methods to migrate existing data into Blob storage accounts from on-premise storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
+Blob 저장소 계정은 저장 전용 블록 및 추가 Blob에 맞게 특별히 설정됩니다. 테이블, 큐, 파일 및 디스크는 물론 Blob도 저장할 수 있는 기존의 범용 저장소 계정은 Blob 저장소 계정으로 변환할 수 없습니다. 저장소 계층을 사용하려면, 새로운 Blob 저장소 계정을 만들어서 기존 데이터를 새로 만든 계정으로 마이그레이션해야 합니다. 다음 방법을 통해 기존 데이터를 온-프레미스 저장소 장치, 타사 클라우드 저장소 공급자 또는 기존 Azure 범용 저장소 계정에서 Blob 저장소 계정으로 마이그레이션할 수 있습니다.
 
-#### <a name="azcopy"></a>AzCopy
+#### AzCopy
 
-AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.
+AzCopy는 Azure 저장소의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 저장소 계정의 데이터를 Blob 저장소 계정으로 복사하거나, 온-프레미스 저장소 장치의 데이터를 Blob 저장소 계정에 업로드할 수 있습니다.
 
-For more details, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
+자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
-#### <a name="data-movement-library"></a>Data Movement Library
+#### 데이터 이동 라이브러리
 
-Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable and easy data transfer operations similar to AzCopy. This allows you to take full benefits of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy.
+.NET용 Azure 저장소 데이터 이동 라이브러리는 AzCopy를 구동하는 핵심 데이터 이동 프레임워크를 기반으로 합니다. 이 라이브러리는 AzCopy와 유사하게 성능이 높고 안정적이며 사용이 간편한 데이터 전송 작업을 제공합니다. 이 라이브러리를 사용하면 AzCopy의 외부 인스턴스를 실행 및 모니터링하지 않고도 응용 프로그램에서 기본적으로 AzCopy가 제공하는 기능을 완벽히 활용할 수 있습니다.
 
-For more details, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+자세한 내용은 [.NET용 Azure 저장소 데이터 이동 라이브러리](https://github.com/Azure/azure-storage-net-data-movement)를 참조하세요.
 
-#### <a name="rest-api-or-client-library"></a>REST API or Client Library
+#### REST API 또는 클라이언트 라이브러리
 
-You can create a custom application to migrate your data into a Blob storage account using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
+Azure 클라이언트 라이브러리 또는 Azure 저장소 서비스 REST API 중 하나를 통해 데이터를 Blob 저장소 계정으로 마이그레이션하는 사용자 지정 응용 프로그램을 만들 수 있습니다. Azure 저장소는 NET, Java, C++, Node.JS, PHP, Ruby, Python 등, 여러 언어와 플랫폼을 위한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
 
-For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md).
+자세한 내용은 [Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 
-> [AZURE.NOTE] Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content will not be retrievable again. For more details regarding encryption-related metadata, see [Azure Storage client side encryption](storage-client-side-encryption.md).
+> [AZURE.NOTE] 클라이언트 쪽 암호화를 사용하여 암호화된 BLOB은 BLOB과 함께 저장되는 암호화 관련 메타데이터를 저장합니다. 이것은 모든 복사 메커니즘이 Blob 메타데이터 특히, 암호화 관련 메타데이터가 보존되는지 확인해야 하기 때문에 매우 중요합니다. BLOB을 이러한 메타데이터 없이 복사하면 BLOB 콘텐츠를 다시 조회할 수 없게 됩니다. 암호화 관련 메타데이터에 대한 자세한 내용은 [Azure 저장소 클라이언트 쪽 암호화](storage-client-side-encryption.md)를 참조하세요.
 
-## <a name="faqs"></a>FAQs
+## FAQ
 
-1. **Are existing storage accounts still available?**
+1. **기존 저장소 계정을 계속 사용할 수 있나요?**
 
-    Yes, existing storage accounts are still available and are unchanged in pricing or functionality.  They do not have the ability to choose an storage tier and will not have tiering capabilities in the future.
+    예, 기존 저장소 계정은 계속 사용할 수 있으며 가격 책정이나 기능은 바뀌지 않습니다. 저장소 계층을 선택하는 기능은 없고 향후에도 계층 지정 기능은 없을 것입니다.
 
-2. **Why and when should I start using Blob storage accounts?**
+2. **Blob 저장소 계정을 왜 사용해야 하며 언제 사용을 시작해야 하나요?**
 
-    Blob storage accounts are specialized for storing blobs and allow us to introduce new blob-centric features. Going forward, Blob storage accounts are the recommended way for storing blobs, as future capabilities such as hierarchical storage and tiering will be introduced based on this account type. However, it is up to you when you would like to migrate based on your business requirements.
+    Blob 저장소 계정은 Blob 저장에 특화된 계정이며 Blob 중심적인 새 기능을 제공 받을 수 있습니다. 앞으로 계층형 저장소 및 계층 지정 등과 같은 기능이 이 계정 유형에 맞춰 도입될 것이므로 Blob 저장에는 Blob 저장소 계정을 권장합니다. 그러나 비즈니스 요구 사항에 맞게 마이그레이션 시점을 결정하는 것은 사용자의 몫입니다.
 
-3. **Can I convert my existing storage account to a Blob storage account?**
+3. **기존 저장소 계정을 Blob 저장소 계정으로 변환할 수 있나요?**
 
-    No. Blob storage account is a different kind of storage account and you will need to create it new and migrate your data as explained above.
+    아니요. Blob 저장소 계정은 다른 종류의 저장소 계정이며, 새로 계정을 만들고 앞서 설명한 대로 데이터를 마이그레이션해야 합니다.
 
-4. **Can I store objects in both storage tiers in the same account?**
+4. **동일한 계정에서 두 저장소 계층에 모두 데이터를 저장할 수 있나요?**
 
-    The *'Access Tier'* attribute which indicates the storage tier is set at an account level and applies to all objects in that account. You cannot set the access tier attribute at an object level.
+    저장소 계층을 나타내는 *’액세스 계층’* 특성은 계정 수준에서 설정되며 해당 계정의 모든 개체에 적용됩니다. 개체 수준에서 액세스 계층 특성을 설정할 수 없습니다.
 
-5. **Can I change the storage tier of my Blob storage account?**
+5. **Blob 저장소 계정의 저장소 계층을 변경할 수 있나요?**
 
-    Yes. You will be able to change the storage tier by setting the *'Access Tier'* attribute on the storage account. Changing the storage tier will apply to all objects stored in the account. Change the storage tier from hot to cool will not incur any charges, while changing from cool to hot will incur a per GB cost for reading all the data in the account.
+    예. 저장소 계정에 *’액세스 계층'* 특성을 설정하여 저장소 계층을 변경할 수 있습니다. 저장소 계층을 변경하면 계정에 저장된 모든 개체에 적용됩니다. 저장소 계층을 핫에서 쿨로 변경하면 요금이 발생하지 않지만, 쿨에서 핫으로 변경하면 계정의 모든 데이터 읽기에 대해 GB 기준 요금이 발생합니다.
 
-6. **How frequently can I change the storage tier of my Blob storage account?**
+6. **Blob 저장소 계정의 저장소 계층을 얼마나 자주 변경할 수 있나요?**
 
-    While we do not enforce a limitation on how frequently the storage tier can be changed, please be aware that changing the storage tier from cool to hot will incur significant charges. We do not recommend changing the storage tier frequently.
+    저장소 계층을 변경하는 빈도에 대해서는 제약을 적용하지 않고 있으나 저장소 계층을 쿨에서 핫으로 변경하면 상당한 요금이 발생한다는 점을 인지해야 합니다. 자주 저장소 계층을 변경하는 것은 좋지 않습니다.
 
-7. **Will the blobs in the cool storage tier behave differently than the ones in the hot storage tier?**
+7. **쿨 저장소 계층의 Blob이 핫 저장소 계층의 Blob과 다르게 작동하나요?**
 
-    Blobs in the hot storage tier have the same latency as blobs in general-purpose storage accounts. Blobs in the cool storage tier have a similar latency (in milliseconds) as blobs in general-purpose storage accounts.
+    핫 저장소 계층의 Blob에는 범용 저장소 계정의 Blob과 같은 대기 시간이 있습니다. 쿨 저장소 계층의 Blob에는 범용 저장소 계정의 Blob과 유사한(밀리초 단위) 대기 시간이 있습니다.
 
-    Blobs in the cool storage tier will have a slightly lower availability service level (SLA) than the blobs stored in the hot storage tier. For more details, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage).
+    쿨 저장소 계층의 Blob은 핫 저장소 계층의 Blob보다 가용성 서비스 수준(SLA)이 약간 낮습니다. 자세한 내용은 [저장소용 SLA](https://azure.microsoft.com/support/legal/sla/storage)를 참조하세요.
 
-8. **Can I store page blobs and virtual machine disks in Blob storage accounts?**
+8. **페이지 Blob과 가상 컴퓨터 디스크를 Blob 저장소 계정에 저장할 수 있나요?**
 
-    Blob storage accounts support only block and append blobs, and not page blobs. Azure virtual machine disks are backed by page blobs and as a result Blob storage accounts cannot be used to store virtual machine disks. However it is possible to store backups of the virtual machine disks as block blobs in a Blob storage account.
+    Blob 저장소 계정은 블록 및 추가 Blob만 지원하고 페이지 Blob은 지원하지 않습니다. Azure 가상 컴퓨터 디스크는 페이지 Blob에 의해 지원되며, 결과적으로 Blob 저장소 계정은 가상 컴퓨터 디스크를 저장하는 데 사용될 수 없습니다. 하지만 가상 컴퓨터 디스크의 백업을 Blob 저장소 계정의 블록 Blob으로 저장하는 것은 가능합니다.
 
-9. **Will I need to change my existing applications to use Blob storage accounts?**
+9. **Blob 저장소 계정을 사용하려면 기존 응용 프로그램을 변경해야 하나요?**
 
-    Blob storage accounts are 100% API consistent with general-purpose storage accounts for block and append blobs. As long as your application is using block blobs or append blobs, and you are using the 2014-02-14 version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) or greater then your application should just work. If you are using an older version of the protocol, then you will need to update your application to use the new version so as to work seamlessly with both types of storage accounts. In general, we always recommend using the latest version regardless of which storage account type you use.
+    Blob 저장소 계정은 블록 및 추가 Blob에 대한 범용 저장소 계정과 API가 100% 동일합니다. 응용 프로그램이 블록 Blob 또는 추가 Blob을 사용하는 한, 그리고 [저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 2014-02-14 버전 이상을 사용하는 한, 응용 프로그램은 작동됩니다. 구 프로토콜 버전을 사용할 경우 응용 프로그램을 업데이트하여 새 버전을 사용해야 두 저장소 계정에서 모두 원활하게 작업할 수 있습니다. 일반적으로 사용하는 저장소 계정 유형에 관계없이 항상 최신 버전을 권장합니다.
 
-10. **Will there be a change in user experience?**
+10. **사용자 환경이 바뀌나요?**
 
-    Blob storage accounts are very similar to a general-purpose storage accounts for storing block and append blobs, and support all the key features of Azure Storage, including high durability and availability, scalability, performance, and security. Other than the features and restrictions specific to Blob storage accounts and its storage tiers that have been called out above, everything else remains the same.
+    Blob 저장소 계정은 블록 및 추가 Blob 저장에 대해 범용 저장소 계정과 매우 유사하며, 높은 내구성 및 가용성, 확장성, 성능, 및 보안을 비롯한 Azure 저장소의 모든 주요 기능을 지원합니다. Blob 저장소 계정 고유의 특징 및 제한 사항과 위에서 설명한 저장소 계층을 제외한 나머지는 모두 같습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-### <a name="evaluate-blob-storage-accounts"></a>Evaluate Blob storage accounts
+### Blob 저장소 계정 평가
 
-[Check availability of Blob storage accounts by region](https://azure.microsoft.com/regions/#services)
+[지역별 Blob 저장소 계정의 가용성 확인](https://azure.microsoft.com/regions/#services)
 
-[Evaluate usage of your current storage accounts by enabling Azure Storage metrics](storage-enable-and-view-metrics.md)
+[Azure 저장소 메트릭을 활성화하여 현재 저장소 계정의 사용 현황 평가](storage-enable-and-view-metrics.md)
 
-[Check Blob storage pricing by region](https://azure.microsoft.com/pricing/details/storage/)
+[지역별 Blob 저장소 가격 확인](https://azure.microsoft.com/pricing/details/storage/)
 
-[Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)
+[데이터 전송 가격 확인](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-### <a name="start-using-blob-storage-accounts"></a>Start using Blob storage accounts
+### Blob 저장소 계정 사용 시작
 
-[Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md)
+[Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
 
-[Moving data to and from Azure Storage](storage-moving-data.md)
+[Azure 저장소의 데이터 이동](storage-moving-data.md)
 
-[Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+[AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-[Browse and explore your storage accounts](http://storageexplorer.com/)
+[저장소 계정 찾아보기 및 탐색](http://storageexplorer.com/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

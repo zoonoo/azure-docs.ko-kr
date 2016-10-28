@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Integrate Azure Active Directory single sign-on with SaaS apps |  Microsoft Azure"
-    description="Enable single sign-on authentication and user provisioning centralized access management of SaaS apps in Azure Active Directory. An overview of how to integrate Azure Active Directory to SaaS apps."
+    pageTitle="Azure Active Directory Single Sign-On과 SaaS 앱 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 SaaS 앱의 Single Sign-On 인증과 사용자 프로비전 집중식 액세스 관리를 사용하도록 설정합니다. SaaS 앱에 Azure Active Directory를 통합하는 방법의 개요입니다."
     services="active-directory"
-      keywords="integrate Azure AD with SaaS apps"
+	  keywords="Azure AD와 SaaS 앱 통합"
     documentationCenter=""
     authors="curtand"
     manager="femila"
@@ -14,71 +14,62 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/30/2016"
+    ms.date="07/20/2016"
     ms.author="curtand"/>
 
-
-# <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integrate Azure Active Directory single sign-on with SaaS apps  
-
-> [AZURE.SELECTOR]
-- [Azure portal](active-directory-enterprise-apps-manage-sso.md)
-- [Azure classic portal](active-directory-sso-integrate-saas-apps.md)
+# Azure Active Directory Single Sign-On과 SaaS 앱 통합  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-To get started setting up single sign-on for an app that you’re bringing into your organization, you will be using an existing directory in Azure Active Directory (Azure AD). You can use an Azure AD directory that you obtain through Microsoft Azure, Office 365, or Windows Intune. If you have two or more of these, see [Administer your Azure AD directory](active-directory-administer.md) to determine which one to use.
+조직으로 가져오는 앱에 대한 Single Sign-On 설정을 시작하려면 Azure AD(Azure Active Directory)에서 기존 디렉터리를 사용하게 됩니다. Microsoft Azure, Office 365 또는 Windows Intune을 통해 얻은 Azure AD 디렉터리를 사용할 수 있습니다. 이러한 항목이 두 개 이상 있는 경우 사용할 것을 결정하려면 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요.
 
-## <a name="authentication"></a>Authentication
+## 인증
 
-For applications that support the SAML 2.0, WS-Federation, or OpenID Connect protocols, Azure Active Directory uses signing certificates to establish trust relationships. For more information about this, see [Managing certificates for federated single sign-on](active-directory-sso-certs.md).
+SAML 2.0, WS-Federation 또는 OpenID Connect 프로토콜을 지원하는 응용 프로그램의 경우 Azure Active Directory는 서명 인증서를 사용하여 트러스트 관계를 설정합니다. 이에 대한 자세한 내용은 [페더레이션된 Single Sign-On에 대한 인증서 관리](active-directory-sso-certs.md)를 참조하세요.
 
-For applications that support only HTML forms-based sign-in, Azure Active Directory uses ‘password vaulting’ to establish trust relationships. This enables the users in your organization to be automatically signed in to a SaaS application by Azure AD using the user account information from the SaaS application. Azure AD collects and securely stores the user account information and the related password. For more information, see [Password-based single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+HTML 폼 기반 로그인만 지원하는 응용 프로그램의 경우 Azure Active Directory는 ‘암호 보관'을 사용하여 트러스트 관계를 설정합니다. 이에 따라 조직의 사용자가 SaaS 응용 프로그램에서 사용자 계정 정보를 사용하여 Azure AD에 의해 SaaS 응용 프로그램에 자동으로 로그인될 수 있습니다. Azure AD는 사용자 계정 정보 및 관련된 암호를 수집하고 안전하게 저장합니다. 자세한 내용은 [암호 기반 Single Sign-On](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)을 참조하세요.
 
-## <a name="authorization"></a>Authorization
+## 권한 부여
 
-A provisioned account enables a user to be authorized to use an application after they have authenticated through single sign-on. User provisioning can be done manually, or in some cases you can add and remove user information from the SaaS app based on changes made in Azure Active Directory. For more information on using existing Azure AD connectors for automated provisioning, see  [Automated user provisioning and de-provisioning for SaaS applications](active-directory-saas-app-provisioning.md).
+Single Sign-On을 통해 인증한 후에는 사용자에게 프로비전된 계정을 사용하여 응용 프로그램을 사용하도록 권한을 부여할 수 있습니다. 사용자 프로비저닝은 수동으로 수행할 수 있으며, Azure Active Directory에서 변경한 사항에 따라 SaaS 앱에서 사용자 정보를 추가하고 제거할 수 있는 경우도 있습니다. 자동화된 프로비저닝을 위해 기존 Azure AD 커넥터를 사용하는 방법에 대한 자세한 내용은 [SaaS 응용 프로그램에 대한 자동화된 사용자 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)를 참조하세요.
 
-Otherwise, you can manually add user information to an app, or use other provisioning solutions that are available in the marketplace.
+또는 수동으로 사용자 정보를 앱에 추가하거나 마켓플레이스에서 사용할 수 있는 다른 프로비저닝 솔루션을 사용할 수 있습니다.
 
-## <a name="access"></a>Access
+## Access
 
-Azure AD provides several customizable ways to deploy applications to end users in your organization. You are not locked into any particular deployment or access solution. You can use [the solution that best suits your needs](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는 여러 가지 사용자 지정 가능한 방법을 제공합니다. 특정 배포 또는 액세스 솔루션으로 제한되지 않으며, [요구 사항에 가장 적합한 솔루션](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)을 사용할 수 있습니다.
 
-## <a name="additional-considerations-for-applications-already-in-use"></a>Additional considerations for applications already in use
+## 이미 사용 중인 응용 프로그램에 대한 추가 고려 사항
 
-Setting up single sign on for an application that your organization already uses is a different process from the process of creating new accounts for a new application. There are a couple of preliminary steps including: mapping user identities in the application to Azure AD identities, and understanding how users will experience logging in to an application after it is integrated.
+조직이 사용하는 응용 프로그램에 Single Sign-On을 설치하는 작업은 새 응용 프로그램에 새 계정을 만드는 것과 다른 프로세스입니다. 다음 몇 가지 준비 단계를 포함합니다. 응용 프로그램에서 Azure AD ID에 사용자 ID를 매핑하고 통합된 후에 사용자가 응용 프로그램에 로그인하는 방법을 이해합니다.
 
-> [AZURE.NOTE] To set up SSO for an existing application, you need to have global administrator rights in both Azure AD and the SaaS application.
+> [AZURE.NOTE] 기존 응용 프로그램에 대한 SSO를 설정하려면 Azure AD와 SaaS 응용 프로그램에서 전역 관리자 권한이 있어야 합니다.
 
-### <a name="mapping-user-accounts"></a>Mapping user accounts
+### 사용자 계정 매핑
 
-A user's identity typically has a unique identifier that could be an email address, or user principal name (UPN). You will need to link (map) each user's application identity to their respective Azure AD identity. There are a couple of ways to accomplish this depending on how the requirement of your application authentication.
+사용자의 ID에는 일반적으로 전자 메일 주소 또는 사용자 계정 이름(UPN)일 수 있는 고유 식별자가 있습니다. 각 사용자의 응용 프로그램 ID를 해당 Azure AD ID에 링크(맵핑)해야 합니다. 응용 프로그램 인증이 요구하는 방법에 따라 이 작업을 수행하는 몇 가지 방법이 있습니다.
 
-For more information about mapping application identities with Azure AD identities, see [Customizing claims issued in the SAML token](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) and [Customizing attribute mappings for provisioning](active-directory-saas-customizing-attribute-mappings.md).
+응용 프로그램 ID를 Azure AD ID와 매핑하는 방법에 대한 자세한 내용은 [SAML 토큰에서 발급된 클레임 사용자 지정](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) 및 [프로비전을 위한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
 
-### <a name="understanding-the-user's-log-in-experience"></a>Understanding the user's log in experience
+### 사용자의 로그인 환경 이해
 
-When you integrate SSO for an application that’s already in use, it’s important to realize that the user experience will be affected. For all applications, users will start using their Azure AD credentials to sign in. It could also be that they must use a different portal to access the applications.
+이미 사용 중인 응용 프로그램에 대한 SSO를 통합할 때 사용자 환경이 영향을 받게 된다는 사실을 알고 있어야 합니다. 모든 응용 프로그램의 경우 사용자는 먼저 Azure AD 자격 증명을 사용하여 로그인합니다. 또한 다른 포털을 사용하여 응용 프로그램에 액세스해야 할 수도 있습니다.
 
-SSO for some applications can be done on the application's sign in interface, but for other applications, the user will have to go through a central portal such as ([My Apps](http://myapps.microsoft.com) or [Office365](http://portal.office.com/myapps)) to sign in. Learn more about the different types of SSO and their user experiences in [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+응용 프로그램에 따라 SSO가 응용 프로그램의 로그인 인터페이스에서 수행될 수도 있고, 사용자가 [내 앱](http://myapps.microsoft.com) 또는 [Office365](http://portal.office.com/myapps)와 같은 중앙 포털을 통해 로그인해야 할 수도 있습니다. 다양한 유형의 SSO 및 해당 사용자 환경에 대한 자세한 내용은 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
-Another valuable resource is *Suppressing user consent* in the [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md) article.
+또 다른 중요한 리소스는 [개발자 가이드](active-directory-applications-guiding-developers-for-lob-applications.md) 문서에 있는 *사용자 동의 억제*입니다.
 
-## <a name="next-steps"></a>Next steps
-
-
-For SaaS apps that you find in the App Gallery, Azure AD provides a number of [tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
-
-If app is not in App Gallery, you can [add it to the Azure AD App Gallery as a custom application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
-
-There is much more detail on all of these issues in the Azure.com library, beginning with [What is application access and single sign-on with Azure Active Directory.](active-directory-appssoaccess-whatis.md).
-
-## <a name="see-also"></a>See also
-
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+## 다음 단계
 
 
+앱 갤러리에서 찾은 SaaS 앱의 경우 Azure AD는 [SaaS 앱을 통합하는 방법에 대한 자습서](active-directory-saas-tutorial-list.md)를 다양하게 제공합니다.
 
-<!--HONumber=Oct16_HO2-->
+앱이 앱 갤러리에 없는 경우 [해당 앱을 사용자 지정 응용 프로그램으로 Azure AD 앱 갤러리에 추가](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)할 수 있습니다.
 
+[Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)부터 시작하여 Azure.com 라이브러리에는 이러한 모든 문제에 대한 자세한 내용이 포함되어 있습니다.
 
+## 참고 항목
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0727_2016-->

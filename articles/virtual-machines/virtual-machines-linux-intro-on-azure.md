@@ -1,107 +1,101 @@
 <properties
-    pageTitle="Introduction to Linux in Azure | Microsoft Azure"
-    description="Learn about using Linux virtual machines on Azure."
-    services="virtual-machines-linux"
-    documentationCenter="python"
-    authors="szarkos"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager,azure-service-management"/>
+	pageTitle="Azure의 Linux 소개 | Microsoft Azure"
+	description="Azure에서 Linux 가상 컴퓨터를 사용하는 방법에 대해 알아봅니다."
+	services="virtual-machines-linux"
+	documentationCenter="python"
+	authors="szarkos"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/24/2016"
-    ms.author="szark"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2016"
+	ms.author="szark"/>
+
+#Azure의 Linux 소개
+
+이 항목에서는 Azure 클라우드에서 Linux 가상 컴퓨터를 사용하는 몇 가지 측면을 간략하게 설명합니다. 갤러리의 기존 이미지를 사용하여 Linux 가상 컴퓨터 배포는 간단한 프로세스입니다.
 
 
-#<a name="introduction-to-linux-on-azure"></a>Introduction to Linux on Azure
+## 인증: 사용자 이름, 암호 및 SSH 키
 
-This topic provides an overview of some aspects of using Linux virtual machines in the Azure cloud. Deploying a Linux virtual machine is a straightforward process using an image from the gallery.
-
-
-## <a name="authentication:-usernames,-passwords-and-ssh-keys"></a>Authentication: Usernames, Passwords and SSH Keys
-
-When creating a Linux virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
+Azure 클래식 포털을 사용하여 Linux 가상 컴퓨터를 만들 때, 사용자 이름, 암호 또는 SSH 공개 키가 요구됩니다. Azure에 Linux 가상 컴퓨터를 배포할 때 선택하는 사용자 이름에는 다음과 같은 제약이 있습니다. 가상 컴퓨터에 이미 존재하던 시스템 계정의 이름(UID <100)(예: 'root')은 허용되지 않습니다.
 
 
- - See [Create a Virtual Machine Running Linux](virtual-machines-linux-quick-create-cli.md)
- - See [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md)
+ - [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md) 참조
+ - [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-mac-create-ssh-keys.md) 참조
 
 
-## <a name="obtaining-superuser-privileges-using-`sudo`"></a>Obtaining Superuser Privileges Using `sudo`
+## `sudo`를 사용하여 Superuser 권한 얻기
 
-The user account that is specified during virtual machine instance deployment on Azure is a privileged account. This account is configured by the Azure Linux Agent to be able to elevate privileges to root (superuser account) using the `sudo` utility. Once logged in using this user account, you will be able to run commands as root using the command syntax
+Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사용자 계정이 권한 있는 계정입니다. Azure Linux 에이전트에서 `sudo` 유틸리티를 사용하여 루트(superuser 계정)로 권한을 상승하도록 이 계정을 구성할 수 있습니다. 이 사용자 계정을 사용하여 로그인한 후 다음 명령 구문을 사용하여 루트로 명령을 실행할 수 있습니다.
 
-    # sudo <COMMAND>
+	# sudo <COMMAND>
 
-You can optionally obtain a root shell using **sudo -s**.
+선택적으로 **sudo -s**를 사용하여 루트 셸을 얻을 수 있습니다.
 
-- See [Using root privileges on Linux virtual machines in Azure](virtual-machines-linux-use-root-privileges.md)
-
-
-## <a name="firewall-configuration"></a>Firewall Configuration
-
-Azure provides an inbound packet filter that restricts connectivity to ports specified in the Azure classic portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by configuring endpoints in the Azure classic portal:
-
- - See: [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md)
-
-The Linux images in the Azure Gallery do not enable the *iptables* firewall by default. If desired, the firewall may be configured to provide additional filtering.
+- [Azure의 Linux 가상 컴퓨터에서 루트 권한 사용](virtual-machines-linux-use-root-privileges.md) 참조
 
 
-## <a name="hostname-changes"></a>Hostname Changes
+## 방화벽 구성
 
-When you initially deploy an instance of a Linux image, you are required to provide a host name for the virtual machine. Once the virtual machine is running, this hostname is published to the platform DNS servers so that multiple virtual machines connected to each other can perform IP address lookups using hostnames.
+Azure는 Azure 클래식에서 지정된 포트에 연결을 제한하는 인바운드 패킷 필터를 제공합니다. 기본적으로 허용되는 유일한 포트는 SSH입니다. Azure 클래식 포털에서 끝점을 구성하여 Linux 가상 컴퓨터의 추가 포트 액세스를 열 수 있습니다.
 
-If hostname changes are desired after a virtual machine has been deployed, please use the command
+ - 참고: [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)
 
-    # sudo hostname <newname>
-
-The Azure Linux Agent includes functionality to automatically detect this name change and appropriately configure the virtual machine to persist this change and publish this change to the platform DNS servers.
-
- - [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
-
-### <a name="cloud-init"></a>Cloud-Init
-**Ubuntu** and **CoreOS** images utilize cloud-init on Azure, which provides additional capabilities for bootstrapping a virtual machine.
-
- - [How to Inject Custom Data](virtual-machines-windows-classic-inject-custom-data.md)
- - [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
- - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [How to Use CoreOS on Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
+Azure 갤러리의 Linux 이미지는 기본적으로 *iptables* 방화벽을 사용하도록 설정하지 않습니다. 원하는 경우 추가 필터링을 제공하도록 이 방화벽을 구성할 수 있습니다.
 
 
-## <a name="virtual-machine-image-capture"></a>Virtual Machine Image Capture
+## 호스트 이름 변경
 
-Azure provides the ability to capture the state of an existing virtual machine into an image that can subsequently be used to deploy additional virtual machine instances. The Azure Linux Agent may be used to rollback some of the customization that was performed during the provisioning process. You may follow the steps below to capture a virtual machine as an image:
+Linux 이미지의 인스턴스를 처음 배포할 때 가상 컴퓨터의 호스트 이름을 지정해야 합니다. 가상 컴퓨터를 실행하면 이 호스트 이름이 플랫폼 DNS 서버에 게시되므로 서로 연결된 여러 가상 컴퓨터에서 호스트 이름을 사용하여 IP 주소를 조회할 수 있습니다.
 
-1. Run **waagent -deprovision** to undo provisioning customization. Or **waagent -deprovision+user** to optionally, delete the user account specified during provisioning and all associated data.
+가상 컴퓨터를 배포한 후 호스트 이름을 변경해야 하는 경우 다음 명령을 사용하세요.
 
-2. Shut down/power off the virtual machine.
+	# sudo hostname <newname>
 
-3. Click *Capture* in the Azure classic portal or use the Powershell or CLI tools to capture the virtual machine as an image.
+Azure Linux 에이전트에는 이 이름 변경을 자동으로 검색하여 이 변경 내용을 기억하도록 가상 컴퓨터를 적절히 구성하고 플랫폼 DNS 서버에 이 변경 내용을 게시하는 기능이 포함되어 있습니다.
 
- - See: [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-classic-capture-image.md)
+ - [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)
 
+### Cloud-Init
+**Ubuntu** 및 **CoreOS** 이미지는 cloud-init pn Azure를 활용하여 가상 컴퓨터를 부트스트랩하기 위한 추가 기능을 제공합니다.
 
-## <a name="attaching-disks"></a>Attaching Disks
-
-Each virtual machine has a temporary, local *resource disk* attached. Because data on a resource disk may not be durable across reboots, it is often used by applications and processes running in the virtual machine for transient and **temporary** storage of data. It is also used to store the page or swap files for the operating system.
-
-On Linux, the resource disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images).
-
-
->[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
-
-On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](virtual-machines-linux-classic-attach-disk.md).
-
- - **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md) & [Configure LVM on a Linux VM in Azure](virtual-machines-linux-configure-lvm.md)
+ - [사용자 지정 데이터를 삽입 하는 방법](virtual-machines-windows-classic-inject-custom-data.md)
+ - [Microsoft Azure의 사용자 지정 데이터 및 Cloud-Init](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Init 클라우드를 사용하여 Azure 스왑 파티션 만들기](https://wiki.ubuntu.com/AzureSwapPartitions)
+ - [Azure에서 CoreOS를 사용하는 방법](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
+## 가상 컴퓨터 이미지 캡처
+
+Azure는 기존 가상 컴퓨터의 상태를 이미지로 캡처하는 기능을 제공합니다. 이 이미지는 이후에 추가 가상 컴퓨터 인스턴스를 배포하는 데 사용할 수 있습니다. Azure Linux 에이전트는 프로비전 프로세스 중 수행된 일부 사용자 지정을 롤백하는 데 사용할 수 있습니다. 아래 단계를 따르면 가상 컴퓨터를 이미지로 캡처할 수 있습니다.
+
+1. **waagent -deprovision**을 실행하여 사용자 지정 프로비전을 실행 취소합니다. 또는 선택적으로 프로비전 중 지정한 사용자 계정 및 연결된 모든 데이터를 삭제하려면 **waagent -deprovision+user**를 실행합니다.
+
+2. 가상 컴퓨터를 종료합니다.
+
+3. Azure 클래식 포털에서 *캡쳐*를 클릭하거나 PowerShell 또는 CLI 도구를 사용하여 가상 컴퓨터를 이미지로 캡쳐할 수 있습니다.
+
+ - 참고: [Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법](virtual-machines-linux-classic-capture-image.md)
 
 
-<!--HONumber=Oct16_HO2-->
+## 디스크 연결
+
+각 가상 컴퓨터에는 임시 로컬 *리소스 디스크*가 연결되어 있습니다. 리소스 디스크의 데이터는 다시 부팅 후 지속되지 않을 수도 있으므로 가상 컴퓨터에서 실행되는 응용 프로그램 및 프로세스에서 **임시** 데이터 저장소에 사용되는 경우가 많습니다. 또한 운영 체제의 페이지 또는 스왑 파일을 저장하는 데 사용됩니다.
+
+Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다.
 
 
+>[AZURE.NOTE] 리소스 디스크는 **임시** 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
+
+Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. [데이터 디스크를 가상 컴퓨터에 연결하는 방법](virtual-machines-linux-classic-attach-disk.md)에 대한 자습서의 단계를 다루었습니다.
+
+ - **참고 항목:** [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md) 및 [Azure에서 Linux VM에 대해 LVM 구성](virtual-machines-linux-configure-lvm.md)
+
+<!---HONumber=AcomDC_0831_2016-->

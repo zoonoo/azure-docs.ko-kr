@@ -1,91 +1,86 @@
 <properties
-    pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
-    description="Azure Search is a fully-managed hosted cloud search service. Learn more in this feature overview."
-    services="search"
-    authors="ashmaka"
-    documentationCenter=""/>
+	pageTitle="Azure 검색이란 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
+	description="Azure 검색은 완벽하게 관리되는 호스트된 클라우드 검색 서비스입니다. 이 기능 개요에 대해 자세히 알아보세요."
+	services="search"
+	authors="ashmaka"
+	documentationCenter=""/>
 
 <tags
-    ms.service="search"
-    ms.devlang="NA"
-    ms.workload="search"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+	ms.service="search"
+	ms.devlang="NA"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="08/29/2016"
+	ms.author="ashmaka"/>
 
+# Azure 검색이란?
 
-# <a name="what-is-azure-search?"></a>What is Azure Search?
+Azure 검색은 서버 및 인프라 관리를 Microsoft에 위한 클라우드 SaaS(Search-as-a-Service) 솔루션으로, 사용자는 데이터를 채운 다음 웹 또는 모바일 응용 프로그램에 검색을 추가하는 데 사용할 수 있는 즉시 사용 가능한 서비스입니다. Azure 검색을 사용하면 검색 인프라를 관리할 필요가 없고 검색 전문가가 아니라도 간단한 [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 사용하여 응용 프로그램에 강력한 검색 환경을 쉽게 추가할 수 있습니다.
 
-Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then use to add search to your web or mobile application. Azure Search allows you to easily add a robust search experience to your applications using a simple [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) or [.NET SDK](search-howto-dotnet-sdk.md) without managing search infrastructure or becoming an expert in search.
+## 사용자에게 강력한 검색 환경 제공
 
-## <a name="give-your-users-a-powerful-search-experience"></a>Give your users a powerful search experience
+논리 연산자, 구문 검색 연산자, 후위 연산자, 선행 연산자를 제공하는 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용하여 **강력한 쿼리**를 공식화할 수 있습니다. 뿐만 아니라 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)은 유사 항목 검색, 근접 검색, 용어 승격 및 정규식을 사용할 수 있습니다. 또한 Azure 검색은 응용 프로그램에서 음성 일치를 사용하는 복잡한 검색 쿼리와 정규식을 처리할 수 있도록 사용자 지정 어휘 분석기를 지원합니다.
 
-**Powerful queries** can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports custom lexical analyzers to allow your application to handle complex search queries using phonetic matching and regular expressions.
+**언어 지원**은 [56개 언어](https://msdn.microsoft.com/library/azure/dn879793.aspx)로 제공됩니다. Lucene 분석기와 Microsoft 분석기를 사용하여(Office 및 Bing에서 자연어를 처리에 온 연 수 만큼 개선됨) Azure 검색은 응용 프로그램의 검색 상자에서 텍스트를 분석하여 동사 시제, 성, 불규칙 복수 명사(예: ‘쥐들'과 ‘쥐'), 분리된 단어, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 포함하여 언어별 언어를 지능적으로 처리할 수 있습니다.
 
-**Language support** is [included for 56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (e.g. 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
+**제안 검색**은 자동 완성 검색 표시줄과 자동 완성 쿼리에 사용할 수 있습니다. 사용자가 검색어의 일부를 입력하면 [인덱스의 실제 문서가 제안됩니다](https://msdn.microsoft.com/library/azure/dn798936.aspx).
 
-**Search suggestions** can be enabled for autocompleted search bars and type-ahead queries. [Actual documents in your index are suggested](https://msdn.microsoft.com/library/azure/dn798936.aspx) as users enter partial search input.
+**적중 항목 강조 표시**는 쿼리와 일치하는 항목이 포함된 각 결과의 텍스트 조각을 사용자가 볼 수 있게 [허용](https://msdn.microsoft.com/library/azure/dn798927.aspx)합니다. 강조 표시된 조각을 반환할 필드를 선택할 수 있습니다.
 
-**Hit highlighting** [allows](https://msdn.microsoft.com/library/azure/dn798927.aspx) users to see the snippet of text in each result that contains the matches for their query. You can pick and choose which fields return highlighted snippets.
+**패싯 탐색**은 Azure 검색을 사용하는 검색 결과 페이지에 간단하게 추가됩니다. [쿼리 매개 변수 하나만 사용하면](https://msdn.microsoft.com/library/azure/dn798927.aspx) Azure 검색이 앱 UI에 패싯 검색 환경을 구축하는 데 필요한 모든 정보를 반환하므로 사용자가 검색 결과를 드릴다운 및 필터링할 수 있습니다(예: 가격 범위 또는 브랜드로 카탈로그 항목 필터링).
 
-**Faceted navigation** is easily added to your search results page with Azure Search. Using [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search will return all the necessary information to construct a faceted search experience in your app's UI to allow your users to drill-down and filter search results  (e.g. filter catalog items by price-range or brand).
+**지리 공간** 지원을 사용하여 지리적 위치를 지능적으로 처리, 필터링 및 표시할 수 있습니다. Azure 검색을 통해 사용자는 지정된 위치와 검색 결과의 근접도에 따라 또는 특정 지리적 영역에 따라 데이터를 검색할 수 있습니다. [채널 9: Azure 검색 및 지리 공간적 데이터](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) 동영상에서 작동 방법을 설명합니다.
 
-**Geo-spatial** support allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
+**필터**를 사용하여 간단하게 패싯 탐색을 응용 프로그램 UI에 통합하고, 쿼리 작성 능력을 향상하고, 사용자 또는 개발자가 지정한 기준에 따라 필터링할 수 있습니다. [OData 구문](https://msdn.microsoft.com/library/azure/dn798921.aspx)을 사용하여 강력한 필터를 만듭니다.
 
-**Filters** can be used to easily incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
+## 사용하기 편한 서비스를 통해 개발자의 역량 강화
 
-## <a name="empower-your-developers-with-an-easy-to-use-service"></a>Empower your developers with an easy-to-use service
+**고가용성**은 매우 안정적인 검색 서비스 환경을 보장합니다. 규모를 적절하게 조정하면 [Azure 검색은 99.9%의 SLA를 제공](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.
 
-**High availability** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+**완벽하게 관리되는** 종합 솔루션인 Azure 검색은 인프라 관리가 전혀 필요 없습니다. 더 많은 문서 저장소, 더 많은 쿼리 부하 또는 둘 모두를 처리할 수 있도록 두 가지 크기를 조정하여 요구 사항에 따라 간편하게 서비스를 맞춤 구성할 수 있습니다.
 
-**Fully managed** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be easily tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
+[인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 사용하는 **데이터 통합** 덕분에 Azure 검색은 자동으로 Azure SQL 데이터베이스, Azure DocumentDB 또는 [Azure Blob 저장소](search-howto-indexing-azure-blob-storage.md)를 크롤링하여 검색 인덱스의 콘텐츠를 주 데이터 저장소와 동기화할 수 있습니다.
 
-**Data integration** using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) allows Azure Search to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
+**문서 해독**을 사용(현재 미리 보기에서)하여 Microsoft Office와 PDF 및 HTML 문서를 포함한 [주요 파일 형식을 읽고 인덱싱할 수 있습니다](search-howto-indexing-azure-blob-storage.md).
 
-**Document cracking** is available (currently in preview) [to read and index major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office as well as PDF and HTML documents.
+**검색 트래픽 분석**을 [간편하게 수집 및 분석](search-traffic-analytics.md)하여 사용자가 검색 상자에 입력하는 내용으로부터 정보를 얻을 수 있습니다.
 
-**Search traffic analytics** are [easily collected and analyzed](search-traffic-analytics.md) to unlock insights from what users are typing into the search box.
+**간단한 점수 매기기**는 Azure 검색의 핵심적인 장점입니다. [점수 매기기 프로필](https://msdn.microsoft.com/library/azure/dn798928.aspx)은 조직에서 문서 자체의 값에 대한 함수로써 관련성을 모델링할 수 있도록 허용하는 데 사용됩니다. 예를 들어 최신 제품 또는 할인 제품을 검색 결과의 더 높은 부분에 나타내려고 할 수 있습니다. 또한 따로 추적하고 저장한 고객 검색 기본 설정에 따라 개인화된 점수에 태그를 사용하여 점수 매기기 프로필을 만들 수도 있습니다.
 
-**Simple scoring** is a key benefit of Azure Search. [Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are used to allow organizations to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.
+**정렬**은 인덱스 스키마를 통해 여러 필드에 제공된 후 쿼리 시 단일 검색 매개 변수를 통해 전환됩니다.
 
-**Sorting** is offered for multiple fields via the index schema and then toggled at query-time with a single search parameter.
+검색 결과에 대해 Azure 검색에서 제공하는 [정교하게 조정된 컨트롤을 사용](search-pagination-page-layout.md)하면 검색 결과를 간편하게 **페이징** 및 제한할 수 있습니다.
 
-**Paging** and throttling your search results is [straightforward with the finely tuned control](search-pagination-page-layout.md) that Azure Search offers over your search results.  
+**검색 탐색기**를 사용하여 해당 계정의 Azure 포털에서 바로 모든 인덱스에 대해 쿼리를 실행할 수 있으므로 간편하게 쿼리를 테스트하고 점수 매기기 프로필을 조정할 수 있습니다.
 
-**Search explorer** allows you to issue queries against all of your indexes right from your account's Azure portal so you can easily test queries and refine scoring profiles.
+## 작동 방법
 
-## <a name="how-it-works"></a>How it works
+### 1\. 서비스 프로비전
+[Azure 포털](https://portal.azure.com/) 또는 [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn832684.aspx)를 사용하여 Azure 검색 서비스를 스핀업할 수 있습니다.
 
-### <a name="1.-provision-service"></a>1. Provision service
-You can spin up an Azure Search service using either the [Azure Portal](https://portal.azure.com/) or the [Azure Resource Management API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
+검색 서비스를 구성하는 방법에 따라 다른 Azure 검색 구독자와 공유되는 서비스의 무료 계층 또는 서비스에만 사용하는 전용 리소스를 제공하는 [유료 계층](https://azure.microsoft.com/pricing/details/search/)을 사용합니다. 서비스를 프로비전 할 때 서비스를 호스트하는 데이터 센터의 위치도 선택합니다.
 
-Depending on how you configure the search service, you'll use either the free tier of service that is shared with other Azure Search subscribers, or a [paid tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources to be used only by your service. When provisioning your service, you also choose the region of the data center that hosts your service.
+선택한 서비스 계층에 따라 1) 더 많은 쿼리 부하를 처리할 수 있도록 복제본을 추가하여 용량을 확장하고 2) 더 많은 문서를 저장할 수 있도록 파티션을 추가하여 저장소를 추가하는 두 가지 방법으로 서비스를 확장할 수 있습니다. 문서 저장소 및 쿼리 처리량을 따로 처리하면 요구 사항에 맞게 검색 서비스를 사용자 지정할 수 있습니다.
 
-Depending on which tier of service you choose, you can scale your service in two dimensions: 1) Add Replicas to grow your capacity to handle heavy query loads and 2) add Partitions to add storage for more documents. By handling document storage and query throughput separately, you can customize your search service for your specific needs.
+### 2\. 인덱스 만들기
+Azure 검색 서비스에 콘텐츠를 업로드하려면 먼저 Azure 검색 인덱스를 정의해야 합니다. 인덱스는 데이터가 보관된 데이터베이스 테이블과 비슷하며 검색 쿼리를 수용할 수 있습니다. 데이터베이스의 필드와 마찬가지로, 검색하려는 문서의 구조에 매핑할 인덱스 스키마를 정의합니다.
 
-### <a name="2.-create-index"></a>2. Create index
-Before you can upload your content to your Azure Search service, you must first define an Azure Search index. An index is like a database table that holds your data and can accept search queries. You define the index schema to map to the structure of the documents you wish to search, similar to fields in a database.
+이러한 인덱스의 스키마는 Azure 포털에서 만들거나 [.NET SDK](search-howto-dotnet-sdk.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 프로그래밍 방식으로 만들 수 있습니다. 인덱스를 정의한 다음 데이터를 Azure 검색 서비스에 업로드할 수 있으며 이후에는 이 서비스에서 데이터가 인덱싱됩니다.
 
-The schema of these indexes can either be created in the Azure Portal, or programmatically [using the .NET SDK](search-howto-dotnet-sdk.md) or [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Once the index is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.
+### 3\. 데이터 인덱싱
+인덱스의 필드 및 특성이 정의되면 인덱스에 콘텐츠를 업로드할 준비가 완료된 것입니다. 밀어넣기 또는 끌어오기 모델을 사용하여 데이터를 인덱스에 업로드할 수 있습니다.
 
-### <a name="3.-index-data"></a>3. Index data
-Once you have defined the fields and attributes of your index, you're ready to upload your content into the index. You can use either a push or pull model to upload data to the index.
+끌어오기 모델은 요청 시 또는 예약 업데이트에 맞게 구성할 수 있는 인덱서를 통해 제공되며([인덱서 작업(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx) 참조), Azure DocumentDB, Azure SQL 데이터베이스, Azure Blob 저장소 또는 Azure VM에서 호스트되는 SQL Server에서 데이터 및 데이터 변경 내용을 쉽게 수집할 수 있습니다.
 
-The pull model is provided through indexers that can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), allowing you to easily ingest data and data changes from an Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM.
+밀어넣기 모델은 SDK 또는 업데이트된 문서를 인덱스에 보내기 위해 사용되는 REST API를 통해 제공됩니다. JSON 형식을 사용하여 거의 모든 데이터 집합에서 데이터를 밀어넣을 수 있습니다. 데이터 로드에 대한 지침은 [문서 추가, 업데이트 또는 삭제](https://msdn.microsoft.com/library/azure/dn798930.aspx) 또는 [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-The push model is provided through the SDK or REST APIs used for sending updated documents to an index. You can push data from virtually any dataset using the JSON format. See [Add, update, or delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
+### 4\. 검색
+Azure 검색 인덱스를 채웠으면 REST API 또는 .NET SDK와 함께 간단한 HTTP 요청을 사용하여 서비스 끝점에 [검색 쿼리를 실행](https://msdn.microsoft.com/library/azure/dn798927.aspx)할 수 있습니다.
 
-### <a name="4.-search"></a>4. Search
-Once you have populated your Azure Search index, you can now [issue search queries](https://msdn.microsoft.com/library/azure/dn798927.aspx) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
+## 지금 평가판 사용(무료!)
+지금 당장 Azure 검색을 사용해 볼 수 있습니다! Azure 계정이 있는 분은 [무료 계층에서 서비스를 프로비전](search-create-service-portal.md)할 수 있습니다.
 
-## <a name="try-it-now-(for-free!)"></a>Try it now (for free!)
-You can try Azure Search today! If you already have an Azure account, you can [provision a service in the Free tier](search-create-service-portal.md).
+Azure 계정이 없는 분은 등록 없이 무료 60분 세션을 사용할 수 있습니다. [Azure 앱 서비스 시도](http://go.microsoft.com/fwlink/p/?LinkId=618214)로 이동하여 "웹앱"을 선택하세요. 그런 다음 "ASP.NET + Azure 검색" 템플릿을 선택하여 시작하세요.
 
-If you don't have an Azure account you can try a free, 60-minute session with no sign up required. Go to the [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) and select "Web App." Then select the "ASP.NET + Azure Search" template to get started.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

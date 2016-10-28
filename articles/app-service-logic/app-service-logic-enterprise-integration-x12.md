@@ -1,206 +1,192 @@
 <properties 
-    pageTitle="Overview of X12 and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-    description="Learn how to use X12 agreements to create Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="msftman" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="X12 및 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
+	description="X12 규약을 사용하여 논리 앱을 만드는 방법 알아보기" 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="msftman" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="app-service-logic" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/08/2016" 
+	ms.author="deonhe"/>
+
+# X12와 엔터프라이즈 통합 
+
+>[AZURE.NOTE]이 페이지에서는 논리 앱의 X12 기능을 다룹니다. EDIFACT에 대한 내용은 [여기](app-service-logic-enterprise-integration-edifact.md)를 클릭하세요.
+
+## X12 규약 만들기 
+X12 메시지를 교환하기 전에 X12 규약을 만들고 통합 계정에 저장해야 합니다. 다음 단계에서는 X12 규약을 만드는 프로세스를 안내합니다.
+
+### 시작하기 전에 필요한 항목은 다음과 같습니다.
+- Azure 구독에 정의된 [통합 계정](./app-service-logic-enterprise-integration-accounts.md)
+- 통합 계정에 이미 정의된 둘 이상의 [파트너](./app-service-logic-enterprise-integration-partners.md)
+
+>[AZURE.NOTE]규약을 만들 때 규약 파일의 내용이 규약 형식과 일치해야 합니다.
 
 
-# <a name="enterprise-integration-with-x12"></a>Enterprise integration with X12 
+[통합 계정을 만들고](./app-service-logic-enterprise-integration-accounts.md) [파트너를 추가](./app-service-logic-enterprise-integration-partners.md)한 후에 다음과 같은 단계에 따라 X12 규약을 만들 수 있습니다.
 
->[AZURE.NOTE]This page covers the X12 features of Logic Apps. For information on EDIFACT click [here](app-service-logic-enterprise-integration-edifact.md).
+### Azure 포털 홈페이지에서
 
-## <a name="create-an-x12-agreement"></a>Create an X12 agreement 
-Before you can exchange X12 messages, you need to create an X12 agreement and store it in your integration account. The following steps will walk you through the process of creating an X12 agreement.
+[Azure 포털](http://portal.azure.com "Azure 포털")에 로그인한 후에 다음을 수행합니다.
+1. 왼쪽 메뉴에서 **찾아보기**를 선택합니다.
 
-### <a name="here's-what-you-need-before-you-get-started"></a>Here's what you need before you get started
-- An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
-- At least two [partners](./app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
+>[AZURE.TIP]**찾아보기** 링크가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 왼쪽 위에 있는 **표시 메뉴** 링크를 선택하여 이 작업을 수행합니다.
 
->[AZURE.NOTE]When creating an agreement, the content in the agreement file must match the agreement type.    
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+2. 필터 검색 상자에 *통합*을 입력하고 결과 목록에서 **통합 계정**을 선택합니다. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)
+3. 열린 **통합 계정** 블레이드에서 규약을 만들 통합 계정을 선택합니다. 통합 계정 목록이 표시되지 않으면 [먼저 계정을 만듭니다](./app-service-logic-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보"). ![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)
+4.  **규약** 타일을 선택합니다. 규약 타일이 표시되지 않으면 먼저 추가합니다. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)
+5. 열린 규약 블레이드에서 **추가** 단추를 선택합니다. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)
+6. 규약의 **이름**을 입력한 다음 열린 규약 블레이드에서 **규약 형식**, **호스트 파트너**, **호스트 ID**, **게스트 파트너**, **게스트 ID**를 선택합니다. ![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)
+7. 수신 설정 속성을 설정한 후 **확인** 단추를 선택하여 계속 진행합니다.
+8. **수신 설정**을 선택하여 규약을 통해 수신된 메시지를 처리하는 방법을 구성합니다.
+9. 수신 설정 컨트롤은 식별자, 승인, 스키마, 봉투, 컨트롤 번호, 유효성 검사 및 내부 설정 등의 섹션으로 구분됩니다. 메시지를 교환할 파트너와의 규약에 따라 이러한 속성을 구성합니다. 다음은 이러한 컨트롤의 보기입니다. 이러한 컨트롤을 해당 규약에서 들어오는 메시지를 식별하고 처리하는 방식에 맞게 구성할 수 있습니다. ![](./media/app-service-logic-enterprise-integration-x12/x12-2.png)
 
+![](./media/app-service-logic-enterprise-integration-x12/x12-3.png)
+10. **확인** 단추를 선택하여 설정을 저장합니다.
 
-After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an X12 agreement by following these steps:  
+### 식별자
 
-### <a name="from-the-azure-portal-home-page"></a>From the Azure portal home page
-
-After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
-1. Select **Browse** from the menu on the left.  
-
->[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
-
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
-2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)    
-3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
-![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)  
-4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)     
-5. Select the **Add** button in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
-6. Enter a **Name** for your agreement then select the **Agreement type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)  
-7. After you have set the receive settings properties, select the **OK** button  
-Let's continue:  
-8. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
-9. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations and Internal Settings. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
-![](./media/app-service-logic-enterprise-integration-x12/x12-2.png)  
-
-![](./media/app-service-logic-enterprise-integration-x12/x12-3.png)  
-10. Select the **OK** button to save your settings.  
-
-### <a name="identifiers"></a>Identifiers
-
-|Property|Description |
+|속성|설명 |
 |---|---|
-|ISA1 (Authorization Qualifier)|Select the Authorization qualifier value from the drop-down list.|
-|ISA2|Optional. Enter Authorization information value. If the value you entered for ISA1 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10.|
-|ISA3 (Security Qualifier)|Select the Security qualifier value from the drop-down list.|
-|ISA4|Optional. Enter the Security information value. If the value you entered for ISA3 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10.|
+|ISA1(인증 한정자)|드롭다운 목록에서 권한 부여 한정자 값을 선택합니다.|
+|ISA2|선택 사항입니다. 권한 부여 정보 값을 입력합니다. ISA1에 대해 입력한 값이 00이 아니면 영숫자 문자를 1~10개 사이로 입력합니다.|
+|ISA3(보안 한정자)|드롭다운 목록에서 보안 한정자 값을 선택합니다.|
+|ISA4|선택 사항입니다. 보안 정보 값을 입력합니다. ISA3에 대해 입력한 값이 00이 아니면 영숫자 문자를 1~10개 사이로 입력합니다.|
 
-### <a name="acknowledgments"></a>Acknowledgments 
+### 승인 
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|TA1 expected|Select this checkbox to return a technical (TA1) acknowledgment to the interchange sender. These acknowledgments are sent to the interchange sender based on the Send Settings for the agreement.|
-|FA expected|Select this checkbox to return a functional (FA) acknowledgment to the interchange sender. Then select whether you want the 997 or 999 acknowledgements, based on the schema versions you are working with. These acknowledgments are sent to the interchange sender based on the Send Settings for the agreement.|
-|Include AK2/IK2 Loop|Select this checkbox to enable generation of AK2 loops in functional acknowledgments for accepted transaction sets.Note: This checkbox is enabled only if you selected the FA expected checkbox.|
+|TA1이 예상됨|기술(TA1) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 이러한 승인은 규약의 송신 설정을 기준으로 교환 발신자에게 전송됩니다.|
+|FA가 예상됨|기능(FA) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 그런 다음 사용 중인 스키마 버전에 따라 원하는 승인의 종류(997 또는 999)를 선택합니다. 이러한 승인은 규약의 송신 설정을 기준으로 교환 발신자에게 전송됩니다.|
+|AK2/IK2 루프 포함|수락된 트랜잭션 집합에 대한 기능 승인에서 AK2 루프가 생성되게 하려면 이 확인란을 선택합니다. 참고: 이 확인란은 FA가 예상됨 확인란을 선택한 경우에만 사용되도록 설정됩니다.|
 
-### <a name="schemas"></a>Schemas
+### 스키마
 
-Choose a schema for each transaction type (ST1) and Sender Application (GS2). The receive pipeline disassembles the incoming message by matching the values for ST1 and GS2 in the incoming message with the values you set here, and the schema of the incoming message with the schema you set here.
+각 트랜잭션 유형(ST1) 및 발신자 응용 프로그램(GS2)에 대한 스키마를 선택합니다. 수신 파이프라인은 들어오는 메시지의 ST1 및 GS2 값을 여기에서 설정한 값과 일치하는지 검색하고, 들어오는 메시지의 스키마를 여기에서 설정한 스키마와 일치하는지 검색하여 들어오는 메시지를 디스어셈블합니다.
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Version|Select the X12 version|
-|Transaction Type (ST01)|Select the transaction type|
-|Sender Application (GS02)|Select the sender application|
-|Schema|Select the schema file you want to us. Schema files are located in your integration account.|
+|버전|X12 버전 선택|
+|트랜잭션 유형(ST01)|트랜잭션 유형 선택|
+|발신자 응용 프로그램(GS02)|발신자 응용 프로그램 선택|
+|스키마|원하는 스키마 파일을 선택합니다. 스키마 파일은 통합 계정에 있습니다.|
 
-### <a name="envelopes"></a>Envelopes
+### 봉투
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|ISA11 Usage|Use this field to specify the separator in a transaction set:</br></br>Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^).|
+|ISA11 사용|트랜잭션 집합에 구분 기호를 지정하려면 이 필드를 사용합니다.</br></br>EDI 수신 파이프라인에서 들어오는 문서의 십진수 표기법 대신 십진수 표기법 "."을 사용하려면 표준 식별자를 선택합니다.</br></br>반복해서 나타나는 단순 데이터 요소 또는 반복 데이터 구조의 구분 기호를 지정하려면 반복 구분 기호를 선택합니다. 예를 들어 (^)은 일반적으로 반복 구분 기호로 사용됩니다. HIPAA 스키마의 경우 (^)만 사용할 수 있습니다.|
 
-### <a name="control-numbers"></a>Control Numbers
+### 컨트롤 번호
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Disallow Interchange Control Number duplicates|Check this option to block duplicate interchanges. If selected, the BizTalk Services Portal checks that the interchange control number (ISA13) for the received interchange does not match the interchange control number. If a match is detected, the receive pipeline does not process the interchange.<br/>If you opted to disallow duplicate interchange control numbers, then you can specify the number of days at which the check is performed by giving the appropriate value for Check for duplicate ISA13 every x days.|
-|Disallow Group control number duplicates|Check this option to block interchanges with duplicate group control numbers.|
-|Disallow Transaction set control number duplicates|Check this option to block interchanges with duplicate transaction set control numbers.|
+|교환 컨트롤 번호 중복 허용 안 함|중복 교환을 차단하려면 이 옵션을 선택합니다. 이 옵션을 선택한 경우 BizTalk 서비스 포털에서 수신된 교환의 교환 컨트롤 번호(ISA13)가 교환 컨트롤 번호와 일치하지 않는지 확인합니다. 일치하는 항목이 발견되면 수신 파이프라인은 교환을 처리하지 않습니다.<br/>중복된 교환 컨트롤 번호를 허용하지 않도록 선택한 경우 x일마다 중복 ISA13 확인에 대해 적합한 값을 지정하여 확인이 수행되는 일 수를 지정할 수 있습니다.|
+|그룹 컨트롤 번호 중복 허용 안 함|중복 그룹 컨트롤 번호를 갖는 교환을 차단하려면 이 옵션을 선택합니다.|
+|트랜잭션 집합 컨트롤 번호 중복 허용 안 함|중복 트랜잭션 집합 컨트롤 번호를 갖는 교환을 차단하려면 이 옵션을 선택합니다.|
 
-### <a name="validations"></a>Validations
+### 유효성 검사
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Message Type|EDI Message type, like 850-Purchase Order or 999-Implementation Acknowledgement.|
-|EDI Validation|Performs EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators.|
-|Extended Validation|If the data type is not EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max).|
-|Allow Leading/Trailing Zeroes|Any additional space and zero characters that are leading or trailing are retained. They are not removed.|
-|Trailing Separator Policy|Generates trailing separators on the interchange received. Options include NotAllowed, Optional, and Mandatory.|
+|메시지 유형|EDI 메시지 유형(예: 850-구매 주문 또는 999-구현 승인)|
+|EDI 유효성 검사|스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다.|
+|확장 유효성 검사|데이터 형식이 EDI가 아니면 데이터 요소 요구 사항, 허용되는 반복, 열거 및 데이터 요소 길이 유효성 검사(최소값/최대값)에 대해 유효성 검사를 수행합니다.|
+|선행/후행 0 허용|선행 또는 후행 위치의 추가 공백 및 0 문자가 유지됩니다. 제거되지 않습니다.|
+|후행 구분 기호 정책|수신된 교환에서 후행 구분 기호를 생성합니다. 옵션에는 NotAllowed, Optional 및 Mandatory가 포함됩니다.|
 
-### <a name="internal-settings"></a>Internal Settings
+### 내부 설정
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Convert implied decimal format Nn to base 10 numeric value|Converts an EDI number that is specified with the format Nn into a base-10 numeric value in the intermediate XML in the BizTalk Services Portal.|
-|Create empty XML tags if trailing separators are allowed|Select this check box to have the interchange sender include empty XML tags for trailing separators.|
-|Inbound batching processing|Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets. </br></br>Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br></br>Preserve Interchange - suspend transaction sets on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if onAe or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets, while continuing to process all other transaction sets.</br></br>Preserve Interchange - suspend interchange on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br></br>|
+|10진수 형식 Nn을 밑수 10 숫자 값으로 변환|Nn 형식으로 지정된 EDI 번호를 BizTalk 서비스 포털의 중간 XML에서 밑수 10 숫자 값으로 변환합니다.|
+|후행 구분 기호가 허용되는 경우 빈 XML 태그 만들기|교환 발신자가 후행 구분 기호에 대해 빈 XML 태그를 포함하도록 하려면 이 확인란을 선택합니다.|
+|인바운드 일괄 처리|교환을 트랜잭션 집합으로 분할 - 오류 시 트랜잭션 집합 일시 중단: 트랜잭션 집합에 적합한 봉투를 적용하여 교환의 각 트랜잭션 집합을 개별 XML 문서로 구문 분석합니다. 이 옵션을 사용할 경우 교환에 포함된 하나 이상의 트랜잭션 집합에 대한 유효성 검사가 실패하는 경우 BizTalk 서비스는 해당 트랜잭션 집합만 일시 중단합니다. </br></br>교환을 트랜잭션 집합으로 분할 - 오류 시 교환 일시 중단: 적합한 봉투를 적용하여 교환의 각 트랜잭션 집합을 개별 XML 문서로 구문 분석합니다. 이 옵션을 사용하는 경우 교환에 포함된 하나 이상의 트랜잭션 집합 유효성 검사가 실패하면 BizTalk 서비스에서 전체 교환을 일시 중단합니다.</br></br>교환 유지 - 오류 시 트랜잭션 집합 일시 중단: 교환을 그대로 유지하고 일괄 처리된 전체 교환에 대해 XML 문서를 만듭니다. 이 옵션을 사용하는 경우 교환에 포함된 하나 이상의 트랜잭션 집합 유효성 검사가 실패하면 BizTalk 서비스에서 해당 트랜잭션 집합만 일시 중단하고 다른 모든 트랜잭션 집합은 계속 처리합니다.</br></br>교환 유지 - 오류 시 교환 일시 중단: 교환을 그대로 유지하고 일괄 처리된 전체 교환에 대해 XML 문서를 만듭니다. 이 옵션을 사용하면 교환에 포함된 하나 이상의 트랜잭션 집합에 대한 유효성 검사가 실패하는 경우 BizTalk 서비스는 전체 교환을 일시 중단합니다.</br></br>|
 
-Your agreement is ready to handle incoming messages that conform to the schema you selected.
+규약이 선택한 스키마를 준수하는 들어오는 메시지를 처리할 준비가 되었습니다.
 
-To configure the settings that handle messages you send to partners:  
-11. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
+파트너에게 보내는 메시지를 처리하는 설정을 구성하려면
+11. **송신 설정**을 선택하여 규약을 통해 전송된 메시지를 처리하는 방법을 구성합니다.
 
-The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Character Sets and Separators and  Validation. 
+송신 설정 컨트롤은 식별자, 승인, 스키마, 봉투, 컨트롤 번호, 문자 집합 및 구분 기호, 유효성 검사 등의 섹션으로 구분됩니다.
 
-Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
-![](./media/app-service-logic-enterprise-integration-x12/x12-4.png)  
+다음은 이러한 컨트롤의 보기입니다. 이 규약을 통해 파트너에게 보내는 메시지를 처리하는 방식을 기준으로 항목을 선택합니다. ![](./media/app-service-logic-enterprise-integration-x12/x12-4.png)
 
-![](./media/app-service-logic-enterprise-integration-x12/x12-5.png)  
+![](./media/app-service-logic-enterprise-integration-x12/x12-5.png)
 
-![](./media/app-service-logic-enterprise-integration-x12/x12-6.png)  
-12. Select the **OK** button to save your settings.  
+![](./media/app-service-logic-enterprise-integration-x12/x12-6.png)
+12. **확인** 단추를 선택하여 설정을 저장합니다.
 
-### <a name="identifiers"></a>Identifiers
-|Property|Description |
+### 식별자
+|속성|설명 |
 |----|----|
-|Authorization qualifier (ISA1)|Select the Authorization qualifier value from the drop-down list.|
-|ISA2|Enter Authorization information value. If this value is other than 00, then enter a minimum of one alphanumeric character and a maximum of 10.|
-|Security qualifier (ISA3)|Select the Security qualifier value from the drop-down list.|
-|ISA4|Enter the Security information value. If this value is other than 00, for the Value (ISA4) text box, then enter a minimum of one alphanumeric value and a maximum of 10.|
+|권한 부여 한정자(ISA1)|드롭다운 목록에서 권한 부여 한정자 값을 선택합니다.|
+|ISA2|권한 부여 정보 값을 입력합니다. 이 값이 00이 아니면 영숫자 문자를 1~10개 사이로 입력합니다.|
+|보안 한정자(ISA3)|드롭다운 목록에서 보안 한정자 값을 선택합니다.|
+|ISA4|보안 정보 값을 입력합니다. 이 값이 00이 아니면 값(ISA4) 텍스트 상자에 영숫자 값을 1~10개 사이로 입력합니다.|
 
-### <a name="acknowledgment"></a>Acknowledgment
-|Property|Description |
+### 승인
+|속성|설명 |
 |----|----|
-|TA1 expected|Select this checkbox to return a technical (TA1) acknowledgment to the interchange sender. This setting specifies that the host partner who is sending the message requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement.|
-|FA expected|Select this checkbox to return a functional (FA) acknowledgment to the interchange sender, and then select whether you want the 997 or 999 acknowledgements, based on the schema versions you are working with. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement.|
-|FA Version|Select the FA version|
+|TA1이 예상됨|기술(TA1) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 이 설정은 메시지를 보내는 호스트 파트너가 규약의 게스트 파트너의 승인을 해당 게스트 파트너에게 요청하도록 지정합니다. 규약의 수신 설정에 따라 호스트 파트너는 이러한 승인을 확인해야 합니다.|
+|FA가 예상됨|교환 발신자에게 기능(FA) 승인을 반환하려면 이 확인란을 선택한 다음 사용 중인 스키마 버전에 따라 원하는 승인의 종류(997 또는 999)를 선택합니다. 규약의 수신 설정에 따라 호스트 파트너는 이러한 승인을 확인해야 합니다.|
+|FA 버전|FA 버전 선택|
 
-### <a name="schemas"></a>Schemas
-|Property|Description |
+### 스키마
+|속성|설명 |
 |----|----|
-|Version|Select the X12 version|
-|Transaction Type (ST01)|Select the transaction type|
-|SCHEMA|Select the schema to use. Schemas are located in your integration account. To access your schemas, first link your integration account to your Logic app.|
+|버전|X12 버전 선택|
+|트랜잭션 유형(ST01)|트랜잭션 유형 선택|
+|스키마|사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마에 액세스하려면 먼저 통합 계정을 논리 앱에 연결합니다.|
 
-### <a name="envelopes"></a>Envelopes
-|Property|Description |
+### 봉투
+|속성|설명 |
 |----|----|
-|ISA11 Usage|Use this field to specify the separator in a transaction set:</br></br>Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^).</br>|
-|Repetition separator|Enter the repetition separator|
-|Control Version Number (ISA12)|Select the version of the X12 standard that is used by the BizTalk Services Portal for generating an outgoing interchange.|
-|Usage Indicator (ISA15)|Enter whether the context of an interchange is information (I), production data (P), or test data (T). The EDI receive pipeline promotes this property to the context.|
-|Schema|You can enter how the BizTalk Services Portal generates the GS and ST segments for an X12-encoded interchange that it sends to the Send Pipeline.</br></br>You can associate values of the GS1, GS2, GS3, GS4, GS5, GS7, and GS8 data elements with values of the Transaction Type, and Version/Release data elements. When the BizTalk Services Portal determines that an XML message has the values set for the Transaction Type, and Version/Release elements in a row of the grid, then it populates the GS1, GS2, GS3, GS4, GS5, GS7, and GS8 data elements in the envelope of the outgoing interchange with the values from the same row of the grid. The values of the Transaction Type, and Version/Release elements must be unique.</br></br>Optional. For GS1, select a value for the functional code from the drop-down list.</br></br>Required. For GS2, enter an alphanumeric value for the application sender with a minimum of two characters and a maximum of 15 characters.</br></br>Required. For GS3, enter an alphanumeric value for the application receiver with a minimum of two characters and a maximum of 15 characters.</br></br>Optional. For GS4, select CCYYMMDD or YYMMDD.</br></br>Optional. For GS5, select HHMM, HHMMSS, or HHMMSSdd.</br></br>Optional. For GS7, select a value for the responsible agency from the drop-down list.</br></br>Optional. For GS8, enter an alphanumeric value for the document identified with a minimum of one character and a maximum of 12 characters.</br></br>**Note**:These are the values that the BizTalk Services Portal enters in the GS fields of the interchange it is building if the Transaction Type, and Version/Release elements in the same row are a match for those associated with the interchange.|
+|ISA11 사용|트랜잭션 집합에 구분 기호를 지정하려면 이 필드를 사용합니다.</br></br>EDI 수신 파이프라인에서 들어오는 문서의 십진수 표기법 대신 십진수 표기법 "."을 사용하려면 표준 식별자를 선택합니다.</br></br>반복해서 나타나는 단순 데이터 요소 또는 반복 데이터 구조의 구분 기호를 지정하려면 반복 구분 기호를 선택합니다. 예를 들어 (^)은 일반적으로 반복 구분 기호로 사용됩니다. HIPAA 스키마의 경우 (^)만 사용할 수 있습니다.</br>|
+|반복 구분 기호|반복 구분 기호 입력|
+|컨트롤 버전 번호(ISA12)|BizTalk 서비스 포털에서 나가는 교환을 생성하는 데 사용하는 X12 표준의 버전을 선택합니다.|
+|사용 표시기(ISA15)|교환 컨텍스트를 정보(I), 프로덕션 데이터(P) 또는 테스트 데이터(T) 중에서 선택하여 입력합니다. EDI 수신 파이프라인은 이 속성을 컨텍스트로 승격합니다.|
+|스키마|BizTalk 서비스 포털에서 송신 파이프라인으로 보내는 X12 인코딩 교환에 대해 GS 및 ST 세그먼트를 생성하는 방법을 입력할 수 있습니다.</br></br>GS1, GS2, GS3, GS4, GS5, GS7, GS8 데이터 요소의 값을 트랜잭션 유형 및 버전/릴리스 데이터 요소의 값과 연결할 수 있습니다. BizTalk 서비스 포털에서는 XML 메시지에 트랜잭션 유형 및 버전/릴리스 요소에 대한 값 집합이 표의 행에 포함되어 있음을 확인하면, 나가는 교환의 봉투에 포함된 GS1, GS2, GS3, GS4, GS5, GS7, GS8 데이터 요소에 동일한 표 행의 값을 채웁니다. 트랜잭션 유형 및 버전/릴리스 요소의 값은 고유해야 합니다.</br></br>선택적 요소입니다. GS1에 대해 드롭다운 목록에서 기능 코드의 값을 선택합니다.</br></br>필수 사항입니다. GS2의 경우 응용 프로그램 보낸 사람에 해당하는 영숫자 값을 2~15자 사이로 입력합니다.</br></br>필수 사항입니다. GS3의 경우 응용 프로그램 받는 사람에 해당하는 영숫자 값을 2~15자 사이로 입력합니다.</br></br>선택 사항입니다. GS4의 경우 CCYYMMDD 또는 YYMMDD를 선택합니다.</br></br>선택 사항입니다. GS5의 경우 HHMM, HHMMSS 또는 HHMMSSdd를 선택합니다.</br></br>선택 사항입니다. GS7의 경우 드롭다운 목록에서 담당 에이전시의 값을 선택합니다.</br></br>선택 사항입니다. GS8의 경우 확인된 문서에 해당하는 영숫자 값을 1~12자 사이로 입력합니다.</br></br>**참고**: BizTalk 서비스 포털에서는 같은 행의 트랜잭션 유형 및 버전/릴리스 요소가 교환과 연결된 요소와 일치하는 경우 작성 중인 교환의 GS 필드에 이러한 값을 입력합니다.|
 
-### <a name="control-numbers"></a>Control Numbers
-|Property|Description |
+### 컨트롤 번호
+|속성|설명 |
 |----|----|
-|Interchange Control Number (ISA13)|Required. Enter a range of values for the interchange control number used by the BizTalk Services Portal in generating an outgoing interchange. Enter a numeric value with a minimum of 1 and a maximum of 999999999.|
-|Group Control Number (GS06)|Required. Enter the range of numbers that the BizTalk Services Portal should use for the group control number. Enter a numeric value with a minimum of one character and a maximum of nine characters.|
-|Transaction Set Control Number (ST02)|For Transaction Set Control number (ST02), enter a range of numeric values for the required middle fields, and alphanumeric values for the optional prefix and suffix. The maximum length of all four fields is nine characters.|
-|Prefix|To designate the range of transaction set control numbers used in an acknowledgment, enter values in the ACK Control number (ST02) fields. Enter a numeric value for the middle two fields, and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number; the prefix and suffix are optional. The maximum length for all three fields is nine characters.|
-|Suffix|To designate the range of transaction set control numbers used in an acknowledgment, enter values in the ACK Control number (ST02) fields. Enter a numeric value for the middle two fields, and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number; the prefix and suffix are optional. The maximum length for all three fields is nine characters.|
+|교환 컨트롤 번호(ISA13)|필수입니다. BizTalk 서비스 포털에서 나가는 교환을 생성하는 데 사용하는 교환 컨트롤 번호의 값 범위를 입력합니다. 1~999999999 사이의 숫자 값을 입력합니다.|
+|그룹 컨트롤 번호(GS06)|필수입니다. BizTalk 서비스 포털에서 그룹 컨트롤 번호에 사용해야 하는 숫자 범위를 입력합니다. 1~9자 사이의 숫자 값을 입력합니다.|
+|트랜잭션 집합 컨트롤 번호(ST02)|트랜잭션 집합 컨트롤 번호(ST02)에는 중간 필드(필수)의 숫자 값 범위와 접두사/접미사(옵션)의 영숫자 값을 입력합니다. 4개 필드의 최대 길이는 모두 9자입니다.|
+|접두사|승인에 사용되는 트랜잭션 집합 컨트롤 번호의 범위를 지정하려면 ACK 컨트롤 번호(ST02) 필드에 값을 입력합니다. 중간의 두 필드에는 숫자 값을 입력하고 접두사/접미사 필드에는 원하는 경우 영숫자 값을 입력합니다. 컨트롤 번호의 최소값과 최대값이 포함되는 중간 필드는 필수이고 접두사 및 접미사는 선택 사항입니다. 3개 필드의 최대 길이는 모두 9자입니다.|
+|접미사|승인에 사용되는 트랜잭션 집합 컨트롤 번호의 범위를 지정하려면 ACK 컨트롤 번호(ST02) 필드에 값을 입력합니다. 중간의 두 필드에는 숫자 값을 입력하고 접두사/접미사 필드에는 원하는 경우 영숫자 값을 입력합니다. 컨트롤 번호의 최소값과 최대값이 포함되는 중간 필드는 필수이고 접두사 및 접미사는 선택 사항입니다. 3개 필드의 최대 길이는 모두 9자입니다.|
 
-### <a name="character-sets-and-separators"></a>Character Sets and Separators
-Other than the character set, you can enter a different set of delimiters to be used for each message type. If a character set is not specified for a given message schema, then the default character set is used.
+### 문자 집합 및 구분 기호
+문자 집합 외에 각 메시지 유형에 사용할 다른 구분 기호 집합을 입력할 수 있습니다. 주어진 메시지 스키마의 문자 집합이 지정되지 않은 경우 기본 문자 집합이 사용됩니다.
 
-|Property|Description |
+|속성|설명 |
 |----|----|
-|Character Set to be used|Select the X12 character set to validate the properties that you enter for the agreement.</br></br>**Note**: The BizTalk Services Portal only uses this setting to validate the values entered for the related agreement properties. The receive pipeline or send pipeline ignores this character-set property when performing run-time processing.|
-|Schema|Select the (+) symbol and select a schema from the drop-down list. For the selected schema, select the separators set to be used:</br></br>Component element separator – Enter a single character to separate composite data elements.</br></br>Data Element Separator – Enter a single character to separate simple data elements within composite data elements.</br></br></br></br>Replacement Character – Select this check box if the payload data contains characters that are also used as data, segment, or component separators. You can then enter a replacement character. When generating the outbound X12 message, all instances of separator characters in the payload data are replaced with the specified character.</br></br>Segment Terminator – Enter a single character to indicate the end of an EDI segment.</br></br>Suffix – Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix.|
+|사용할 문자 집합|규약에 대해 입력하는 속성의 유효성을 검사하는 X12 문자 집합을 선택합니다.</br></br>**참고**: BizTalk 서비스 포털에서는 관련 규약 속성에 대해 입력한 값의 유효성을 검사하는 용도로만 이 설정을 사용합니다. 수신 파이프라인 또는 송신 파이프라인은 런타임 처리를 수행할 때 이 문자 집합 속성을 무시합니다.|
+|스키마|(+) 기호를 선택하고 드롭다운 목록에서 스키마를 선택합니다. 선택한 스키마에 대해 사용할 구분 기호 집합을 선택합니다.</br></br>구성 요소 구분 기호 – 복합 데이터 요소를 구분하는 문자 하나를 입력합니다.</br></br>데이터 요소 구분 기호 – 복합 데이터 요소 내의 단순 데이터 요소를 구분하는 문자 하나를 입력합니다.</br></br></br></br>대체 문자 – 데이터, 세그먼트 또는 구성 요소 구분 기호로도 사용되는 문자가 페이로드 데이터에 포함되어 있으면 이 확인란을 선택합니다. 그런 다음 대체 문자를 입력할 수 있습니다. 아웃바운드 X12 메시지를 생성할 때는 페이로드 데이터의 모든 구분 기호 문자 인스턴스가 지정한 문자로 바뀝니다.</br></br>세그먼트 마침 표시 - EDI 세그먼트의 끝을 나타내는 문자 하나를 입력합니다.</br></br>접미사 – 세그먼트 식별자와 함께 사용할 문자를 선택합니다. 접미사를 지정하면 세그먼트 마침 표시 데이터 요소를 비워 둘 수 있습니다. 세그먼트 마침 표시를 비워 두는 경우 접미사를 지정해야 합니다.|
 
-### <a name="validation"></a>Validation
-|Property|Description |
+### 유효성 검사
+|속성|설명 |
 |----|----|
-|Message Type|Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction-set data elements, validating data types, length restrictions, and empty data elements and trailing separators.|
-|EDI Validation||
-|Extended Validation|Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa.|
-|Allow leading/ trailing zeroes|Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed.|
-|Trailing separator|Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select Not Allowed if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the received interchange must contain trailing delimiters and separators.|
+|메시지 유형|이 옵션을 선택하면 교환 받는 사람에 대한 유효성을 검사할 수 있습니다. 이 유효성 검사에서는 트랜잭션 집합 데이터 요소에 대해 EDI 유효성 검사를 수행하여 데이터 유형, 길이 제한 및 빈 데이터 요소와 후행 구분 기호의 유효성을 검사합니다.|
+|EDI 유효성 검사||
+|확장 유효성 검사|이 옵션을 선택하면 교환 보낸 사람으로부터 받은 교환에 대해 확장 유효성 검사를 수행할 수 있습니다. 이 유효성 검사에는 XSD 데이터 형식 유효성 검사 외에 필드 길이, 옵션 및 반복 횟수 유효성 검사도 포함됩니다. EDI 유효성 검사와 확장 유효성 검사는 서로 독립적으로 사용할 수 있습니다.|
+|선행/후행 0 허용|이 옵션을 선택하면 당사자로부터 받은 EDI 교환의 데이터 요소가 후행 공백으로 인해 길이 요구 사항을 준수하지 않지만, 해당 공백을 제거하면 길이 요구 사항을 준수하는 경우 해당 교환에 대한 유효성 검사가 실패하지 않도록 지정합니다.|
+|후행 구분 기호|이 옵션을 선택하면 당사자로부터 받은 EDI 교환의 데이터 요소가 선행 또는 후행 0이나 후행 공백으로 인해 길이 요구 사항을 준수하지 않지만, 해당 0이나 공백을 제거하면 길이 요구 사항을 준수하는 경우 해당 교환에 대한 유효성 검사가 실패하지 않도록 지정합니다.</br></br>교환 보낸 사람으로부터 받은 교환에서 후행 구분 기호를 허용하지 않으려면 허용 안 함을 선택합니다. 후행 구분 기호를 포함하는 교환은 잘못된 교환으로 선언됩니다.</br></br>후행 구분 기호 포함 여부에 관계없이 교환을 수락하려면 옵션을 선택합니다.</br></br>받은 교환에 후행 구분 기호가 포함되어야 하도록 지정하려면 필수를 선택합니다.|
 
-After you select **OK** on the open blades:  
-13. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-![](./media/app-service-logic-enterprise-integration-x12/x12-7.png)   
+열린 블레이드에서 **확인**을 선택한 후에 다음을 수행합니다.
+13. 통합 계정 블레이드에서 **규약** 타일을 선택하면 새로 추가한 규약이 나열됩니다. ![](./media/app-service-logic-enterprise-integration-x12/x12-7.png)
 
-## <a name="learn-more"></a>Learn more
-- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+## 자세한 정보
+- [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

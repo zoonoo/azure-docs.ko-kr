@@ -1,14 +1,11 @@
-Resource|Default Limit|Maximum Limit
+리소스|기본 제한|최대 제한
 ---|---|---
-Resources per [resource group](../articles/resource-group-overview.md#resource-groups) (per resource type)|800|800
-Deployments per resource group|800|800
-Resources per deployment|800|800
-Management Locks (per unique scope)|20|20
-Number of Tags (per resource or resource group)|15|15
-Tag key length|512|512
-Tag value length|256|256
+[리소스 그룹](../articles/resource-group-overview.md#resource-groups)당 리소스(리소스 유형당)|800|800
+리소스 그룹당 배포|800|800
+배포당 리소스|800|800
+관리 잠금(고유 범위당)|20|20
+태그 수(리소스당 또는 리소스 그룹당)|15|15
+태그 키 길이|512|512
+태그 값 길이|256|256
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

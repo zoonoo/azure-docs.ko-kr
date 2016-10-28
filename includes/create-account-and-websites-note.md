@@ -1,8 +1,4 @@
 
-> [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. You can <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">activate your Visual Studio subscriber benefits</a> or <a href="/pricing/free-trial/" target="_blank">sign up for a free trial</a>.
+> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">Visual Studio 구독자 혜택을 활성화</a>하거나 <a href="/pricing/free-trial/" target="_blank">무료 평가판을 등록</a>할 수 있습니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1203_2015-->

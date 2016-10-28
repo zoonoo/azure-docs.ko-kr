@@ -1,138 +1,137 @@
 <properties 
-    pageTitle="How to delegate user registration and product subscription" 
-    description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." 
-    services="api-management" 
-    documentationCenter="" 
-    authors="antonba" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="사용자 등록 및 제품 구독을 위임하는 방법" 
+	description="Azure API 관리에서 사용자 등록 및 제품 구독을 타사에 위임하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="antonba" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="api-management" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/25/2016" 
-    ms.author="antonba"/>
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="antonba"/>
+
+# 사용자 등록 및 제품 구독을 위임하는 방법
+
+위임을 통해 개발자 로그인/등록 및 제품 구독을 처리하는 데 개발자 포털의 기본 제공된 기능이 아닌 기존 웹 사이트를 사용할 수 있습니다. 따라서 웹 사이트에서 사용자 데이터를 소유하고 이러한 단계에 대한 유효성 검사를 편리한 방식으로 수행할 수 있습니다.
+
+## <a name="delegate-signin-up"> </a>개발자 로그인 및 등록 위임
+
+개발자 로그인 및 등록을 기존 웹 사이트에 위임하려면 API 관리 개발자 포털에서 시작된 이러한 요청에 대한 진입점 역할을 하는 특수한 위임 끝점을 사이트에 만들어야 합니다.
+
+최종 워크플로는 다음과 같습니다.
+
+1. 개발자가 API 관리 개발자 포털의 로그인 또는 등록 링크를 클릭합니다.
+2. 브라우저가 위임 끝점으로 리디렉션됩니다.
+3. 위임 끝점이 리디렉션되거나 사용자에게 로그인 또는 등록을 요청하는 UI를 표시합니다.
+4. 성공하면 사용자가 처음 시작했던 API 관리 개발자 포털 페이지로 다시 리디렉션됩니다.
 
 
-# <a name="how-to-delegate-user-registration-and-product-subscription"></a>How to delegate user registration and product subscription
+먼저, 위임 끝점을 통해 요청을 라우팅하도록 API 관리를 설정하겠습니다. API 관리 게시자 포털에서 **보안**을 클릭하고 **위임** 탭을 클릭합니다. '위임 로그인 및 등록' 확인란을 클릭하여 사용하도록 설정합니다.
 
-Delegation allows you to use your existing website for handling developer sign-in/sign-up and subscription to products as opposed to using the built-in functionality in the developer portal. This enables your website to own the user data and perform the validation of these steps in a custom way.
+![위임 페이지][api-management-delegation-signin-up]
 
-## <a name="<a-name="delegate-signin-up">-</a>delegating-developer-sign-in-and-sign-up"></a><a name="delegate-signin-up"> </a>Delegating developer sign-in and sign-up
+* 특수한 위임 끝점의 URL을 결정하고 **위임 끝점 URL** 필드에 이 URL을 입력합니다.
 
-To delegate developer sign-in and sign-up to your existing website you will need to create a special delegation endpoint on your site that acts as the entry-point for any such request initiated from the API Management developer portal.
+* **위임 인증 키** 필드에서 요청이 Azure API 관리에서 들어오는지 확인하기 위해 사용자에게 제공된 서명을 계산하는 데 사용되는 암호를 입력합니다. **생성** 단추를 클릭하여 API 관리가 임의로 사용자를 위해 키를 생성하도록 할 수 있습니다.
 
-The final workflow will be as follows:
+이제 **위임 끝점**을 만들어야 합니다. 몇 가지 작업을 수행해야 합니다.
 
-1. Developer clicks on the sign-in or sign-up link at the API Management developer portal
-2. Browser is redirected to the delegation endpoint
-3. Delegation endpoint in return redirects to or presents UI asking user to sign-in or sign-up
-4. On success, the user is redirected back to the API Management developer portal page they started from
+1. 다음 형식의 요청을 받습니다.
 
+	> *원본 페이지의 http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL}&salt={문자열}&sig={문자열}*
 
-To begin, let's first set-up API Management to route requests via your delegation endpoint. In the API Management publisher portal, click on **Security** and then click the **Delegation** tab. Click the checkbox to enable 'Delegate sign-in & sign-up'.
+	로그인/등록 케이스의 쿼리 매개 변수:
+	- **operation**: 위임 요청의 유형을 식별합니다. 이 경우 **SignIn**만 가능합니다.
+	- **returnUrl**: 사용자가 로그인 또는 등록 링크를 클릭하는 페이지의 URL입니다.
+	- **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+	- **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
-![Delegation page][api-management-delegation-signin-up]
+2. 요청이 Azure API 관리에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
 
-* Decide what the URL of your special delegation endpoint will be and enter it in the **Delegation endpoint URL** field. 
+	* **returnUrl** 및 **salt** 쿼리 매개 변수([아래 제공된 예제 코드])에 따라 문자열의 HMAC-SHA512 해시를 계산합니다.
+        > HMAC(**salt** + '\\n' + **returnUrl**)
+		 
+	* 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
 
-* Within the **Delegation authentication key** field enter a secret that will be used to compute a signature provided to you for verification to ensure that the request is indeed coming from Azure API Management. You can click the **generate** button to have API Managemnet randomly generate a key for you.
+2. 로그인/등록에 대한 요청을 받고 있음을 확인합니다. **작업** 쿼리 매개 변수는 "**SignIn**"으로 설정됩니다.
 
-Now you need to create the **delegation endpoint**. It has to perform a number of actions:
+3. 로그인 또는 등록에 대한 UI를 사용자에게 표시합니다.
 
-1. Receive a request in the following form:
+4. 사용자가 등록하고 있는 경우 API 관리에서 사용자의 해당 계정을 만들어야 합니다. API 관리 REST API로 [사용자를 만듭니다]. 이때 사용자 ID를 사용자 저장소에 있는 것과 동일한 사용자 ID 또는 추적할 수 있는 사용자 ID로 설정해야 합니다.
 
-    > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+5. 사용자가 인증되면
 
-    Query parameters for the sign-in / sign-up case:
-    - **operation**: identifies what type of delegation request it is - it can only be **SignIn** in this case
-    - **returnUrl**: the URL of the page where the user clicked on a sign-in or sign-up link
-    - **salt**: a special salt string used for computing a security hash
-    - **sig**: a computed security hash to be used for comparison to your own computed hash
+	* API 관리 REST API를 통해 [SSO(Single-Sign-On) 토큰을 요청]합니다.
 
-2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
+	* returnUrl 쿼리 매개 변수를 위의 API 호출에서 받은 SSO URL에 추가합니다.
+		> 예: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url
 
-    * Compute an HMAC-SHA512 hash of a string based on the **returnUrl** and **salt** query parameters ([example code provided below]):
-        > HMAC(**salt** + '\n' + **returnUrl**)
-         
-    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
+	* 사용자를 위에서 생성한 URL로 리디렉션합니다.
 
-2. Verify that you are receiving a request for sign-in/sign-up: the **operation** query parameter will be set to "**SignIn**".
+이전 단계를 수행하고 다음 작업 중 하나를 사용하여 **SignIn** 작업뿐만 아니라 계정 관리도 수행할 수 있습니다.
 
-3. Present the user with UI to sign-in or sign-up
+-	**ChangePassword**
+-	**ChangeProfile**
+-	**CloseAccount**
 
-4. If the user is signing-up you have to create a corresponding account for them in API Management. [Create a user] with the API Management REST API. When doing so, ensure that you set the user ID to the same it is in your user store or to an ID that you can keep track of.
+계정 관리 작업에 대한 다음 쿼리 매개 변수를 전달해야 합니다.
 
-5. When the user is successfully authenticated:
+-	**operation**: 위임 요청의 유형을 식별합니다(ChangePassword, ChangeProfile 또는 CloseAccount).
+-	**userId**: 관리할 계정의 사용자 ID입니다.
+-	**salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+-	**sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
-    * [request a single-sign-on (SSO) token] via the API Management REST API
+## <a name="delegate-product-subscription"> </a>제품 구독 위임
 
-    * append a returnUrl query parameter to the SSO URL you have received from the API call above:
-        > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+제품 구독 위임은 사용자 로그인/등록과 유사하게 작동합니다. 최종 워크플로는 다음과 같습니다.
 
-    * redirect the user to the above produced URL
-
-In addition to the **SignIn** operation, you can also perform account management by following the previous steps and using one of the following operations.
-
--   **ChangePassword**
--   **ChangeProfile**
--   **CloseAccount**
-
-You must pass the following query parameters for account management operations.
-
--   **operation**: identifies what type of delegation request it is (ChangePassword, ChangeProfile, or CloseAccount)
--   **userId**: the user id of the account to manage
--   **salt**: a special salt string used for computing a security hash
--   **sig**: a computed security hash to be used for comparison to your own computed hash
-
-## <a name="<a-name="delegate-product-subscription">-</a>delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegating product subscription
-
-Delegating product subscription works similarly to delegating user sign-in/-up. The final workflow would be as follows:
-
-1. Developer selects a product in the API Management developer portal and clicks on the Subscribe button
-2. Browser is redirected to the delegation endpoint
-3. Delegation endpoint performs required product subscription steps - this is up to you and may entail redirecting to another page to request billing information, asking additional questions, or simply storing the information and not requiring any user action
+1. 개발자는 API 관리 개발자 포털에서 제품을 선택하고 구독 단추를 클릭합니다.
+2. 브라우저가 위임 끝점으로 리디렉션됩니다.
+3. 위임 끝점에서 필요한 제품 구독 단계를 수행합니다. 이 단계는 사용자가 수행하며, 여기에는 청구 정보를 요청하는 다른 페이지로 리디렉션, 추가 질문 요청 또는 사용자 작업 없이 정보 저장 등이 포함될 수 있습니다.
 
 
-To enable the functionality, on the **Delegation** page click **Delegate product subscription**.
+이 기능을 사용하려면 **위임** 페이지에서 **제품 구독 위임**을 클릭합니다.
 
-Then ensure the delegation endpoint performs the following actions:
-
-
-1. Receive a request in the following form:
-
-    > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
-
-    Query parameters for the product subscription case:
-    - **operation**: identifies what type of delegation request it is. For product subscription requests the valid options are:
-        - "Subscribe": a request to subscribe the user to a given product with provided ID (see below)
-        - "Unsubscribe": a request to unsubscribe a user from a product
-        - "Renew": a requst to renew a subscription (e.g. that may be expiring)
-    - **productId**: the ID of the product the user requested to subscribe to
-    - **userId**: the ID of the user for whom the request is made
-    - **salt**: a special salt string used for computing a security hash
-    - **sig**: a computed security hash to be used for comparison to your own computed hash
+그런 다음 위임 끝점에서 다음 작업을 수행하는지 확인합니다.
 
 
-2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
+1. 다음 형식의 요청을 받습니다.
 
-    * Compute an HMAC-SHA512 of a string based on the **productId**, **userId** and **salt** query parameters:
-        > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
-         
-    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
-    
-3. Perform any product subscription processing based on the type of operation requested in **operation** - e.g. billing, further questions, etc.
+	> *구독하려는 http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product}&userId={요청하는 사용자}&salt={문자열}&sig={문자열}*
 
-4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for product subscription].
+	제품 구독 케이스에 대한 쿼리 매개 변수:
+	- **operation**: 위임 요청 유형을 식별합니다. 제품 구독 요청의 경우 유효한 옵션은 다음과 같습니다.
+		- "Subscribe": 사용자가 제공된 ID를 사용하여 지정된 제품을 구독하도록 하는 요청입니다(아래 참조).
+		- "Unsubscribe": 제품에 대한 사용자 구독을 취소하는 요청입니다.
+		- "Renew": 구독을 갱신하는 요청입니다(예: 만료일이 다가오는 경우).
+	- **productId**: 사용자가 구독을 요청한 제품의 ID입니다.
+	- **userId**: 요청을 생성한 사용자의 ID입니다.
+	- **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+	- **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
-## <a name="<a-name="delegate-example-code">-</a>-example-code"></a><a name="delegate-example-code"> </a> Example Code ##
 
-These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the publisher portal, to create a HMAC which is then used to validate the signature, proving the validity of the passed returnUrl. The same code works for the productId and userId with slight modification.
+2. 요청이 Azure API 관리에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
 
-**C# code to generate hash of returnUrl**
+	* **productId**, **userId** 및 **salt** 쿼리 매개 변수를 기반으로 하여 문자열의 HMAC-SHA512를 다음과 같이 계산합니다.
+		> HMAC(**salt** + '\\n' + **productId** + '\\n' + **userId**)
+		 
+	* 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
+	
+3. **operation**에 요청된 작업의 유형(예: 청구, 추가 질문 등)을 기반으로 하여 제품 구독 처리를 수행합니다.
+
+4. 사용자의 제품 구독을 마치면 [제품 구독을 위해 REST API를 호출]하여 사용자가 API 관리 제품도 구독하도록 합니다.
+
+## <a name="delegate-example-code"> </a>예제 코드 ##
+
+이러한 코드 샘플에서는 서명의 유효성을 검사하는 데 사용될 HMAC를 만들어 전달된 returnUrl의 유효성을 증명하기 위해 게시자 포털의 위임 화면에 설정된 *위임 유효성 검사 키*를 가져오는 방법을 보여 줍니다. 약간만 수정하면 동일한 코드를 productId 및 userId에도 사용할 수 있습니다.
+
+**returnUrl의 해시를 생성하는 C# 코드**
 
     using System.Security.Cryptography;
 
@@ -148,38 +147,35 @@ These code samples show how to take the *delegation validation key*, which is se
     }
 
 
-**NodeJS code to generate hash of returnUrl**
+**returnUrl의 해시를 생성하는 NodeJS 코드**
 
-    var crypto = require('crypto');
-    
-    var key = 'delegation validation key'; 
-    var returnUrl = 'returnUrl query parameter';
-    var salt = 'salt query parameter';
-    
-    var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
-    var digest = hmac.update(salt + '\n' + returnUrl).digest();
+	var crypto = require('crypto');
+	
+	var key = 'delegation validation key'; 
+	var returnUrl = 'returnUrl query parameter';
+	var salt = 'salt query parameter';
+	
+	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
+	var digest = hmac.update(salt + '\n' + returnUrl).digest();
     // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
     // compare signature to sig query parameter
-    
-    var signature = digest.toString('base64');
+	
+	var signature = digest.toString('base64');
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-For more information on delegation, see the following video.
+위임에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
 > [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[request a single-sign-on (SSO) token]: http://go.microsoft.com/fwlink/?LinkId=507409
-[create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
-[calling the REST API for product subscription]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[SSO(Single-Sign-On) 토큰을 요청]: http://go.microsoft.com/fwlink/?LinkId=507409
+[사용자를 만듭니다]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[제품 구독을 위해 REST API를 호출]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
-[example code provided below]: #delegate-example-code
+[아래 제공된 예제 코드]: #delegate-example-code
 
-[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
+[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

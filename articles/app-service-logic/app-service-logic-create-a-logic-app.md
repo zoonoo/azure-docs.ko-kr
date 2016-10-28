@@ -1,74 +1,67 @@
 <properties
-    pageTitle="Create a Logic App | Microsoft Azure"
-    description="Learn how to create a Logic App connecting SaaS services"
-    authors="jeffhollan"
-    manager="dwrede"
-    editor=""
-    services="logic-apps"
-    documentationCenter=""/>
+	pageTitle="논리 앱 만들기 | Microsoft Azure"
+	description="SaaS 서비스에 연결하는 논리 앱을 만드는 방법에 대해 알아보세요."
+	authors="jeffhollan"
+	manager="dwrede"
+	editor=""
+	services="logic-apps"
+	documentationCenter=""/>
 
 <tags
-    ms.service="logic-apps"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="10/18/2016"
-    ms.author="jehollan"/>
+	ms.service="logic-apps"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/16/2016"
+	ms.author="jehollan"/>
 
+# SaaS 서비스에 연결하는 새 논리 앱 만들기
 
-# <a name="create-a-new-logic-app-connecting-saas-services"></a>Create a new logic app connecting SaaS services
+이 항목에서는 단 몇 분 안에 [Azure Logic Apps](app-service-logic-what-are-logic-apps.md)를 시작할 수 있는 방법을 보여 줍니다. 전자 메일에 흥미로운 트윗을 보낼 수 있는 간단한 워크플로를 안내합니다.
 
-This topic demonstrates how, in just a few minutes, you can get started with [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a simple workflow that lets you send interesting tweets to your email.
+이 시나리오를 사용하려면 다음이 필요합니다.
 
-To use this scenario, you need:
+- Azure 구독
+- Twitter 계정
+- Outlook.com 또는 호스팅된 Office 365 사서함
 
-- An Azure subscription
-- A Twitter account
-- A Outlook.com or hosted Office 365 mailbox
+## 트윗으로 전자 메일을 보낼 새 논리 앱 만들기
 
-## <a name="create-a-new-logic-app-to-email-you-tweets"></a>Create a new logic app to email you tweets
+1. [Azure 포털 대시보드](https://portal.azure.com)에서 **새로 만들기**를 선택합니다.
+2. 검색 표시줄에서 '논리 앱'을 검색한 다음 **논리 앱**을 선택합니다. 또한 **새로 만들기**, **웹 + 모바일**을 선택하고 **논리 앱**을 선택할 수도 있습니다.
+3. 논리 앱의 이름을 입력하고 위치, 리소스 그룹을 선택한 다음 **만들기**를 선택합니다. **대시보드에 고정**을 선택하는 경우 논리 앱이 배포된 후에 자동으로 열립니다.
+4. 논리 앱을 처음으로 연 후에 시작하려는 템플릿에서 선택할 수 있습니다. 지금은 **빈 논리 앱**을 클릭하여 처음부터 구축합니다.
+1. 만들어야 하는 첫 번째 항목은 트리거입니다. 논리 앱을 시작하는 이벤트입니다. 트리거 검색 상자에서 **twitter**를 검색하고 선택합니다.
+7. 이제는 트리거할 검색 단어에 입력할 수 있습니다. **주파수** 및 **간격**은 논리 앱이 새 트윗을 확인\(및 시간 범위 동안 모든 트윗을 반환\)하는 빈도를 결정합니다. ![Twitter 검색](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
-1. On the [Azure portal dashboard](https://portal.azure.com), select **New**. 
-2. In the search bar, search for 'logic app', and then select **Logic App**. You can also select **New**, **Web + Mobile**, and select **Logic App**. 
-3. Enter a name for your logic app, select a location, resource group, and select **Create**.  If you select **Pin to Dashboard** the logic app will automatically open once deployed.  
-4. After opening your logic app for the first time you can select from a template to start.  For now click **Blank Logic App** to build this from scratch. 
-1. The first item you need to create is the trigger.  This is the event that will start your logic app.  Search for **twitter** in the trigger search box, and select it.
-7. Now you'll type in a search term to trigger on.  The **Frequency** and **Interval** will determine how often your logic app will check for new tweets (and return all tweets during that time span).
-    ![Twitter search](./media/app-service-logic-create-a-logic-app/twittersearch.png)
+5. **새 단계** 단추를 선택한 다음 **작업 추가** 또는 **조건 추가**를 선택합니다.
+6. **동작 추가**를 선택하면 [사용 가능한 커넥터](../connectors/apis-list.md)에서 검색하여 작업을 선택할 수 있습니다. 예를 들어 **Outlook.com - 전자 메일 보내기**를 선택하여 outlook.com 주소에서 메일을 보낼 수 있습니다. ![동작](./media/app-service-logic-create-a-logic-app/actions.png)
 
-5. Select the **New step** button, and then choose **Add an action** or **Add a condition**
-6. When you select **Add an Action**, you can search from the [available connectors](../connectors/apis-list.md) to choose an action. For example, you can select **Outlook.com - Send Email** to send mail from an outlook.com address:  
-    ![Actions](./media/app-service-logic-create-a-logic-app/actions.png)
+7. 이제 원하는 전자 메일에 대한 매개 변수를 입력해야 합니다. ![매개 변수](./media/app-service-logic-create-a-logic-app/parameters.png)
 
-7. Now you have to fill out the parameters for the email you want:  ![Parameters](./media/app-service-logic-create-a-logic-app/parameters.png)
+8. 마지막으로 **저장**을 선택하여 논리 앱을 라이브 상태로 만듭니다.
 
-8. Finally, you can select **Save** to make your logic app live.
+## 논리 앱 생성 후 관리
 
-## <a name="manage-your-logic-app-after-creation"></a>Manage your logic app after creation
+이제 논리 앱이 실행됩니다. 정기적으로 입력한 검색 용어를 포함한 트윗을 확인합니다. 일치하는 트윗을 찾으면 전자 메일을 전송합니다. 마지막으로, 앱을 비활성화하는 방법 또는 그 작동 방법을 살펴보겠습니다.
 
-Now your logic app is up and running. It will periodically check for tweets with the search term entered. When it finds a matching tweet, it will send you an email. Finally, you'll see how to disable the app, or see how it’s doing.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
-1. Go to the [Azure Portal](https://portal.azure.com)
+1. 화면의 왼쪽에서 **찾아보기**를 클릭하고 **논리 앱**을 선택합니다.
 
-1. Click **Browse** on the left side of the screen and select **Logic Apps**.
+2. 방금 만든 새 논리 앱을 클릭하여 현재 상태 및 일반 정보를 표시합니다.
 
-2. Click the new logic app that you just created to see current status and general information.
+3. 새 논리 앱을 편집하려면 **편집**을 클릭합니다.
 
-3. To edit your new logic app, click **Edit**.
+5. 앱을 끄려면 명령 모음에서 **사용 안 함**을 클릭합니다.
 
-5. To turn off the app, click **Disable** in the command bar.
+1. 논리 앱이 실행되는 경우 모니터링할 실행 및 트리거 기록을 봅니다. 최신 데이터를 확인하려면 **새로 고침**을 클릭하면 됩니다.
 
-1. View run and trigger histories to monitor when your logic app is running.  You can click **Refresh** to see the latest data.
-
-In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features]. To learn about the Logic App definitions themselves, see [author Logic App definitions](app-service-logic-author-definitions.md).
+5분 이내에 클라우드에서 간단한 논리 앱이 실행되도록 설정할 수 있습니다. 논리 앱 기능을 사용하는 방법에 대한 자세한 내용은 [논리 앱 기능 사용]을 참조하세요. 논리 앱 정의 자체에 대해 알아보려면 [논리 응용 프로그램 정의 작성](app-service-logic-author-definitions.md)을 참조하세요.
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
-[Use logic app features]: app-service-logic-create-a-logic-app.md
+[논리 앱 기능 사용]: app-service-logic-create-a-logic-app.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

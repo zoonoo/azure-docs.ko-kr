@@ -1,12 +1,9 @@
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.
+Azure 리소스 관리자 및 Azure 리소스 그룹만을 사용하는 경우 다음과 같은 제한이 적용됩니다.
 
-Resource|Default Limit
+리소스|기본 제한
 ---|---
-Storage account management operations (read)|800 per 5 minutes
-Storage account management operations (write)|200 per hour
-Storage account management operations (list)|100 per 5 minutes
+저장소 계정 관리 작업(읽기)|5분당 800
+저장소 계정 관리 작업(쓰기)|시간당 200
+저장소 계정 관리 작업(목록)|5분당 100
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Nov15_HO3-->

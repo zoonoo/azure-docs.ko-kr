@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="What kind of collection do you need for Azure RemoteApp? | Microsoft Azure" 
-    description="Learn about the types of collections available with Azure RemoteApp." 
+    pageTitle="Azure RemoteApp에 필요한 컬렉션의 종류는 무엇입니까? | Microsoft Azure " 
+    description="Azure RemoteApp과 함께 사용할 수 있는 컬렉션의 형식에 알아봅니다." 
     services="remoteapp" 
-    documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -17,86 +17,81 @@
 
 
 
-
-# <a name="what-kind-of-collection-do-you-need-for-azure-remoteapp?"></a>What kind of collection do you need for Azure RemoteApp?
+# Azure RemoteApp에 필요한 컬렉션의 종류는 무엇입니까?
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-Azure RemoteApp lets you share apps and resources with users on any device. We do this by creating collections to hold the apps and resources, and then you share those collections with users. There are 2 different collection options, with different network and authentication options - which is right for you?
+Azure RemoteApp를 사용하면 어떠한 장치의 사용자와도 앱 및 리소스를 공유할 수 있습니다. 앱 및 리소스를 포함할 컬렉션을 만든 다음 해당 컬렉션을 사용자와 공유하면 됩니다. 서로 다른 네트워크 및 인증 옵션을 사용하는 두 가지 컬렉션 옵션이 있습니다. 어느 옵션이 사용자에게 적합합니까?
 
-Let's walk through the different considerations and choices you need to make to get the most out of your Azure RemoteApp collection. 
+Azure RemoteApp 컬렉션을 최대한 활용하는 데 필요한 여러 가지 고려 사항과 선택을 살펴보겠습니다.
 
 
-## <a name="quick-differences-between-the-collection-types"></a>Quick differences between the collection types
+## 컬렉션 유형 간의 차이점 요약
 
-|           | Cloud | Hybrid |
+| | 클라우드 | 하이브리드 |
 |-----------|-------|--------|
-|Use an existing VNET| Yes| Yes|
-|Requires AD-connected accounts (DirSync)| No| Yes|
-|Requires domain join| No| Yes|
-|Requires domain controller accessible to VNET| No| Yes|
+|기존 VNET 사용| 예| 예|
+|AD에 연결된 계정(DirSync)이 필요합니다.| 아니요| 예|
+|도메인 가입이 필요합니다.| 아니요| 예|
+|도메인 컨트롤러를 VNET에 액세스할 수 있어야 합니다.| 아니요| 예|
 
-## <a name="cloud-collections"></a>Cloud collections
-- Quick to create - the collection is quickly provisioned, meaning your apps get to users quicker.
-- Bring your own apps or share ours. You can use a custom image (built from an Azure VM) or one of the images included with your subscription.
-- You don't need to configure a connection between your collection and your on-premises domain.
-- But you can optionally use your own Azure VNET to provide access into your on-premises environment for data sharing or to use non-Windows authentication into resources like SQL Server (using database authentication).
+## 클라우드 컬렉션
+- 신속하게 만들기 - 컬렉션이 신속하게 프로비전되므로 앱이 사용자에게 더 빨리 다가갑니다.
+- 자신의 앱을 가져오거나 우리의 앱을 공유합니다. 사용자 지정 이미지(Azure VM에서 빌드된) 또는 구독에 포함된 이미지 중 하나를 사용할 수 있습니다.
+- 사용자의 컬렉션과 온-프레미스 도메인 사이의 연결을 구성하지 않아도 됩니다.
+- 하지만 선택적으로 자기만의 Azure VNET를 사용하여 데이터 공유를 위해 온-프레미스 환경에 대한 액세스를 제공하거나 Windows 이외의 인증을 SQL Server 같은 리소스에 사용할 수 있습니다(데이터베이스 인증을 사용하여).
 
 
-Ok, how do I create one?
+그렇다면 어떻게 만드나요?
 
-- Cloud only? Create with the **Quick Create** option in the portal.
-- Cloud + VNET? Create using the **Create with VNET** option but do NOT choose to join a domain.
+- 클라우드 전용입니까? 포털에서 **빠른 생성** 옵션으로 만듭니다.
+- 클라우드 + VNET입니까? **VNET을 사용하여 만들기** 옵션을 사용하여 만들지만 도메인에 가입을 선택하지 마십시오.
 
-## <a name="hybrid-collections"></a>Hybrid collections
-- Provide full access to on-premises network + Azure VNET.
-- Includes domain join access for apps and data. Remote applications can authentication against your on-premises Active Directory - they can then access resources in your domain.
-- Enable advanced monitoring and management with existing System Center solutions and Windows Group Policies (through a custom image built on Windows Server 2012 R2)
-- Support [ExpressRoute](https://azure.microsoft.com/services/expressroute/) to connect your Azure VNET to your local VNET.
+## 하이브리드 컬렉션
+- 온-프레미스 네트워크 + Azure VNET에 대한 전체 액세스를 제공합니다.
+- 앱 및 데이터에 대한 도메인 조인 액세스를 포함합니다. 원격 응용 프로그램은 사용자의 온-프레미스 Active Directory에 대해 인증한 다음 사용자 도메인의 리소스에 액세스할 수 있습니다.
+- 기존 시스템 센터 솔루션 및 Windows 그룹 정책을 사용하여 고급 모니터링 및 관리를 사용하도록 설정합니다(Windows Server 2012 R2에서 만든 사용자 지정 이미지를 통해).
+- Azure VNET을 로컬 VNET에 연결하는 [Express 경로](https://azure.microsoft.com/services/expressroute/)를 지원합니다.
 
-Create using the **Create with VNET** option and DO choose to join a domain.
+**VNET을 사용하여 만들기** 옵션을 사용하여 만들고 도메인에 가입을 선택합니다.
 
-## <a name="authentication-options"></a>Authentication options
-Azure RemoteApp supports both Microsoft accounts and Azure Active Directory accounts, but not all collections support all methods. 
+## 인증 옵션
+Azure RemoteApp은 Microsoft 계정과 Azure Active Directory 계정을 모두 지원하지만 일부 컬렉션은 일부 방법을 지원하지 않을 수 있습니다.
 
-| Account type                      |                                                             | Cloud | Cloud + VNET | Hybrid |
+| 계정 유형 | | 클라우드 | 클라우드 + VNET | 하이브리드 |
 |-----------------------------------|-------------------------------------------------------------|-------|--------------|--------|
-| Microsoft Account                 |                                                             | Yes   | Yes          | No     |
-| Azure Active Directory (Azure AD) |                                                             |       |              |        |
-|                                   | Azure AD only                                               | Yes   | Yes          | No     |
-|                                   | AD Connect with password sync                               | Yes   | Yes          | Yes    |
-|                                   | AD Connect without password sync                            | Yes   | Yes          | No     |
-|                                   | AD Connect with AD FS                                       | Yes   | Yes          | Yes    |
-|                                   | 3rd-party Azure-supported identity providers (such as Ping) | Yes   | Yes          | Yes    |
-| Multi-Factor Authentication       |                                                             | Yes   | Yes          | Yes    |
+| Microsoft 계정 | | 예 | 예 | 아니요 |
+| Azure AD(Azure Active Directory) | | | | |
+| | Azure AD만 | 예 | 예 | 아니요 |
+| | 암호 동기화를 사용하는 AD Connect | 예 | 예 | 예 |
+| | 암호 동기화를 사용하지 않는 AD Connect | 예 | 예 | 아니요 |
+| | AD FS를 사용하는 AD Connect | 예 | 예 | 예 |
+| | 타사 Azure 지원 ID 공급자(예: Ping) | 예 | 예 | 예 |
+| Multi-Factor Authentication | | 예 | 예 | 예 |
 
 
 
-### <a name="cloud-and-cloud-+-vnet"></a>Cloud and Cloud + VNET 
-With cloud collections, you can use Microsoft accounts, Azure AD accounts, or a mix of the two. Use the accounts that work best for your users.
+### 클라우드 및 클라우드 + VNET 
+클라우드 컬렉션을 사용하면 Microsoft 계정, Azure AD 계정 또는 둘의 혼합을 사용할 수 있습니다. 사용자에게 가장 적합한 계정을 사 합니다.
 
-There are no specific requirements for using Microsoft accounts. 
+Microsoft 계정을 사용하기 위한 특정 요구 사항이 없습니다.
 
-If you want to use Azure AD accounts, you need to make sure that your Azure AD tenant matches the one associated with your subscription. When you created your Azure RemoteApp subscription, the Azure AD tenant you were using was automatically associated with your subscription. Any Azure AD user you give permission to needs to be that same tenant. If needed, you can [change the Azure AD tenant](remoteapp-changetenant.md) associated with your subscription.
+Azure AD 계정을 사용하려는 경우 Azure AD 테넌트가 구독에 연결된 테넌트와 일치하는지 확인해야 합니다. Azure RemoteApp 구독을 만들 때 사용한 Azure AD 테넌트는 사용자의 구독에 자동으로 연결되었습니다. 권한을 부여하는 모든 Azure AD 사용자는 같은 테넌트여야 합니다. 필요한 경우 구독과 관련된 [Azure AD 테넌트를 변경](remoteapp-changetenant.md)할 수 있습니다.
  
-### <a name="hybrid-(or-cloud-+-azure-ad-+-ad)"></a>Hybrid (or cloud + Azure AD + AD)
+### 하이브리드(또는 클라우드 + Azure AD + AD)
 
-Using Azure AD + on-premises Active Directory is a prerequisite for a hybrid collection. You need to use AD Connect to integrate the two directories. But you do have some choice when it comes to how you configure AD Connect. 
+Azure AD + 온-프레미스 Active Directory 사용은 하이브리드 컬렉션에 대한 전제 조건입니다. 두 디렉터리를 통합하려면 AD Connect를 사용해야 합니다. 하지만 AD 연결을 구성하는 방법의 경우 몇 가지 선택이 있습니다.
 
-There are 2 AD Connect scenarios - using password synchronization or using AD federation. Check out the [AD Connect information](../active-directory/active-directory-aadconnect.md) to figure out which of these works best for you.
+암호 동기화 사용 또는 AD 페더레이션 사용 등 두 가지 AD Connect 시나리오가 있습니다. [AD Connect 정보](../active-directory/active-directory-aadconnect.md)를 체크 아웃하여 둘 중 가장 적합한 시나리오를 알아냅니다.
 
-You can also use Azure AD + AD with a cloud collection. Make sure you follow the same set up steps.
+또한 Azure AD + AD를 클라우드 컬렉션과 함께 사용할 수 있습니다. 같은 설정 단계를 수행해야 합니다.
 
-Check out [Azure AD + Active Directory requirements for Azure RemoteApp](remoteapp-ad.md) for the steps required to configure Azure AD and Active Directory.
+Azure AD 및 Active Directory를 구성하는 데 필요한 단계는 [Azure RemoteApp에 대한 Azure AD + Active Directory 요구 사항](remoteapp-ad.md)을 확인하세요.
 
-## <a name="go-create-your-collection!"></a>Go create your collection!
-Ok, I think we've figured it out now, so there's just one thing left to do - create your first Azure RemoteApp collection.
+## 사용자의 컬렉션을 만드십시오!
+알겠습니다. 방법을 알았으므로 첫 번째 Azure RemoteApp 컬렉션을 만드는 한 가지만 남았습니다.
 
-[Create a cloud collection](remoteapp-create-cloud-deployment.md) or [create a hybrid collection](remoteapp-create-hybrid-deployment.md) - just get creating.
+[클라우드 컬렉션을 만들](remoteapp-create-cloud-deployment.md) 또는 [하이브리드 컬렉션을 만들기](remoteapp-create-hybrid-deployment.md) - 만들기만 하면 됩니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

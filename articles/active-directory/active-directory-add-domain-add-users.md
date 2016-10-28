@@ -1,70 +1,65 @@
 <properties
-    pageTitle="Assign users to a custom domain in Azure Active Directory | Microsoft Azure"
-    description="How to populate a custom domain in Azure Active Directory with user accounts."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeffsta"
-    manager="femila"
-    editor=""/>
+	pageTitle="Azure Active Directory의 사용자 지정 도메인에 사용자 할당 | Microsoft Azure"
+	description="사용자 계정으로 Azure Active Directory의 사용자 지정 도메인을 채우는 방법"
+	services="active-directory"
+	documentationCenter=""
+	authors="jeffsta"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="curtand;jeffsta"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/18/2016"
+	ms.author="curtand;jeffsta"/>
 
+# 사용자 지정 도메인에 사용자 할당
 
-# <a name="assign-users-to-a-custom-domain"></a>Assign users to a custom domain
+Azure Active Directory에 사용자 지정 도메인을 추가한 후에 인증을 시작할 수 있도록 이 도메인에 대한 사용자 계정을 추가해야 합니다.
 
-After you have added your custom domain to Azure Active Directory, you must add the user accounts for this domain so that you can begin authenticating them.
+## 회사 네트워크의 디렉터리에서 동기화된 사용자
 
-## <a name="users-synced-in-from-a-directory-on-your-corporate-network"></a>Users synced in from a directory on your corporate network
+온-프레미스 Active Directory와 Azure Active Directory 간의 연결을 이미 설정한 경우 동기화로 계정을 채울 수 있습니다. Azure Active Directory를 온-프레미스 Active Directory와 동기화하는 방법에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)을 참조하세요.
 
-If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+## 클라우드에 추가되고 관리되는 사용자
 
-## <a name="users-added-and-managed-in-the-cloud"></a>Users added and managed in the cloud
+기존 사용자 계정에 대한 도메인을 변경하려면
 
-To change the domain for an existing user account:
+1.  전역 관리자 또는 사용자 관리자인 계정을 사용하여 Azure 클래식 포털을 엽니다.
 
-1.  Open the Azure classic portal using an account that is a global admin or a user admin.
+2.  디렉터리를 엽니다.
 
-2.  Open your directory.
+3.  **사용자** 탭을 선택합니다.
 
-3.  Select the **Users** tab.
+4.  목록에서 사용자를 선택합니다.
 
-4.  Select the user from the list.
+5.  사용자에 대한 도메인을 변경한 다음 **저장**을 선택합니다.
 
-5.  Change the domain for the user, and then select **Save**.
+이 작업은 [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 또는 [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)를 사용하여 수행할 수도 있습니다.
 
-This can also be done using [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) or the [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
+## 새 사용자를 만들 때 사용자 지정 도메인 선택
 
-## <a name="select-a-custom-domain-when-creating-a-new-user"></a>Select a custom domain when creating a new user
+1.  전역 관리자 또는 사용자 관리자인 계정을 사용하여 Azure 클래식 포털을 엽니다.
 
-1.  Open the Azure classic portal using an account that is a global admin or a user admin.
+2.  디렉터리를 엽니다.
 
-2.  Open your directory.
+3.  **사용자** 탭을 선택합니다.
 
-3.  Select the **Users** tab.
+4.  명령 모음에서 **추가**를 선택합니다.
 
-4.  In the command bar, select **Add**.
+5.  사용자 이름에 추가할 때 도메인 목록에서 사용자 지정 도메인을 선택합니다.
 
-5.  When you add the user name, choose the custom domain from the domain list.
+6.  **저장**을 선택합니다.
 
-6.  Select **Save**.
+## 다음 단계
 
-## <a name="next-steps"></a>Next steps
+-   [사용자 지정 도메인 이름을 사용하여 사용자의 로그인 환경 간소화](active-directory-add-domain.md)
 
--   [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
+-   [사용자 지정 도메인 이름 관리](active-directory-add-manage-domain-names.md)
 
--   [Manage custom domain names](active-directory-add-manage-domain-names.md)
+-   [Azure AD에서 도메인 관리 개념 알아보기](active-directory-add-domain-concepts.md)
 
--   [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

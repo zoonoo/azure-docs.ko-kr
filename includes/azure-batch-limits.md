@@ -1,14 +1,11 @@
-**Resource**|**Default Limit**|**Maximum Limit**
+**리소스**|**기본 제한**|**최대 제한**
 ---|---|---
-Cores per Batch account|20|N/A<sup>1</sup>
-Jobs and job schedules<sup>2</sup> per Batch account|20|10,000
-Pools per Batch account|20|5000
+일괄 처리 계정당 코어|20|해당 없음<sup>1</sup>
+배치 계정당 작업 및 작업 일정<sup>2</sup>|20|10000
+Batch 계정당 풀|20|5000
 
-<sup>1</sup> The number of cores per Batch account can be increased, but the maximum number is unspecified. Contact customer support to discuss increase options.
+<sup>1</sup> 일괄 처리 계정당 코어 수는 증가할 수 있지만 최대 수가 지정되지 않았습니다. 증가 옵션에 대해서는 고객 지원에 문의하세요.  
 
-<sup>2</sup> Includes run-once active jobs and active job schedules. Completed jobs and job schedules are not limited.
+<sup>2</sup> 한 번 실행 활성 작업 및 활성 작업 일정을 포함합니다. 완료된 작업과 작업 일정은 제한이 없습니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

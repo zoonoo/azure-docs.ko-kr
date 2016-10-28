@@ -1,105 +1,100 @@
 <properties
-    pageTitle="Troubleshooting Azure CDN endpoints returning 404 status | Microsoft Azure"
-    description="Troubleshoot 404 response codes with Azure CDN endpoints."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="404 상태를 반환하는 Azure CDN 끝점 문제 해결 | Microsoft Azure"
+	description="Azure CDN 끝점에서 404 응답 코드 문제를 해결합니다."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
     
+# 404 상태를 반환하는 CDN 끝점 문제 해결
 
-# <a name="troubleshooting-cdn-endpoints-returning-404-statuses"></a>Troubleshooting CDN endpoints returning 404 statuses
+이 문서는 404 오류를 반환하는 [CDN 끝점](cdn-create-new-endpoint.md) 관련 문제를 해결하는 데 도움이 됩니다.
 
-This article helps you troubleshoot issues with [CDN endpoints](cdn-create-new-endpoint.md) returning 404 errors.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
+## 증상
 
-## <a name="symptom"></a>Symptom
+CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수 없습니다. CDN URL을 통해 콘텐츠에 액세스하려는 사용자가 HTTP 404 상태 코드를 수신합니다.
 
-You've created a CDN profile and an endpoint, but your content doesn't seem to be available on the CDN.  Users who attempt to access your content via the CDN URL receive HTTP 404 status codes. 
+## 원인
 
-## <a name="cause"></a>Cause
+몇 가지 가능한 원인은 다음과 같습니다.
 
-There are several possible causes, including:
+- 파일 원본이 CDN에 표시되지 않음
+- 끝점이 잘못 구성되어 CDN이 엉뚱한 위치에 보임
+- 호스트가 CDN의 호스트 헤더를 거부
+- 끝점이 CDN 전체에 전파할 시간이 부족했음
 
-- The file's origin isn't visible to the CDN
-- The endpoint is misconfigured, causing the CDN to look in the wrong place
-- The host is rejecting the host header from the CDN
-- The endpoint hasn't had time to propagate throughout the CDN
+## 문제 해결 단계
 
-## <a name="troubleshooting-steps"></a>Troubleshooting steps
+> [AZURE.IMPORTANT] CDN 끝점을 만든 후 등록이 CDN 네트워크 전체에 전파되는 데 시간이 걸리기 때문에 끝점을 즉시 사용할 수는 없습니다. <b>Akamai의 Azure CDN</b> 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. <b>Verizon의 Azure CDN</b> 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다. 이 문서의 단계를 완료한 후에도 여전히 404 응답이 반환되면 몇 시간 정보 기다렸다가 다시 확인한 후 지원 티켓을 열어 보세요.
 
-> [AZURE.IMPORTANT] After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation usually completes within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.  If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
+### 원본 파일 확인
 
-### <a name="check-the-origin-file"></a>Check the origin file
+먼저, 원하는 캐시된 파일이 원본에서 사용할 수 있으며 공개적으로 액세스할 수 있는지 확인해야 합니다. 이 작업을 수행하는 가장 빠른 방법은 In-Private 또는 Incognito 세션에서 브라우저를 열고 해당 파일을 직접 찾아보는 것입니다. 주소 상자에 URL을 직접 입력하거나 붙여넣고 기대하는 파일이 나오는지 확인합니다. 이 예에서는 Azure 저장소 계정에 있는 파일을 사용하겠습니다. `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`에서 액세스할 수 있습니다. 보시다시피 성공적으로 테스트를 통과합니다.
 
-First, we should verify the that the file we want cached is available on our origin and is publicly accessible.  The quickest way to do that is to open a browser in an In-Private or Incognito session and browse directly to the file.  Just type or paste the URL into the address box and see if that results in the file you expect.  For this example, I'm going to use a file I have in an Azure Storage account, accessible at `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`.  As you can see, it successfully passes the test.
+![성공!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
-![Success!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+> [AZURE.WARNING] 이 방법은 파일이 공개적으로 사용 가능한지 확인하는 가장 빠르고 쉬운 방법이지만 조직의 일부 네트워크 구성에 따라 사실은 이 파일이 네트워크 사용자에게만 보이는(심지어 Azure에 호스팅되는) 경우에도 공개적으로 사용 가능한 것으로 착각할 수 있습니다. 조직의 네트워크에 연결되지 않은 모바일 장치나 Azure의 가상 컴퓨터처럼 테스트 가능한 외부 브라우저를 사용하는 것이 가장 좋습니다.
 
-> [AZURE.WARNING] While this is the quickest and easiest way to verify your file is publicly available, some network configurations in your organization could give you the illusion that this file is publicly available when it is, in fact, only visible to users of your network (even if it's hosted in Azure).  If you have an external browser from which you can test, such as a mobile device that is not connected to your organization's network, or a virtual machine in Azure, that would be best.
+### 원본 설정 확인
 
-### <a name="check-the-origin-settings"></a>Check the origin settings
+파일이 인터넷에서 공개적으로 사용할 수 있는 것을 확인했으니, 이제 원본 설정을 확인해야 합니다. [Azure 포털](https://portal.azure.com)에서 CDN 프로필을 찾아서 문제를 해결하려는 끝점을 클릭합니다. 그 결과로 표시되는 **끝점** 블레이드에서 원본을 클릭합니다.
 
-Now that we've verified the file is publicly available on the internet, we should verify our origin settings.  In the [Azure Portal](https://portal.azure.com), browse to your CDN profile and click the endpoint you're troubleshooting.  In the resulting **Endpoint** blade, click the origin.  
+![원본이 강조 표시된 끝점 블레이드](./media/cdn-troubleshoot-endpoint/cdn-endpoint.png)
 
-![Endpoint blade with origin highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint.png)
+**원본** 블레이드가 나타납니다.
 
-The **Origin** blade appears. 
+![원본 블레이드](./media/cdn-troubleshoot-endpoint/cdn-origin-settings.png)
 
-![Origin blade](./media/cdn-troubleshoot-endpoint/cdn-origin-settings.png)
+#### 원본 유형 및 호스트 이름
 
-#### <a name="origin-type-and-hostname"></a>Origin type and hostname
+**원본 유형**이 올바른지 확인하고 **원본 호스트 이름**을 확인합니다. 이 예의 `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`에서 URL의 호스트 이름 부분은 `cdndocdemo.blob.core.windows.net`입니다. 스크린샷에서 보시는 것처럼 올바른 유형입니다. Azure 저장소, 웹앱 및 클라우드 서비스 원본의 경우 **원본 호스트 이름** 필드가 드롭다운이므로 철자를 신경 쓸 필요가 없습니다. 그러나 사용자 지정 원본을 사용하는 경우 *반드시* 호스트 이름 철자를 올바르게 입력해야 합니다.
 
-Verify the **Origin type** is correct, and verify the **Origin hostname**.  In my example, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, the hostname portion of the URL is `cdndocdemo.blob.core.windows.net`.  As you can see in the screenshot, this is correct.  For Azure Storage, Web App, and Cloud Service origins, the **Origin hostname** field is a dropdown, so we don't need to worry about spelling it correctly.  However, if you're using a custom origin, it is *absolutely critical* your hostname is spelled correctly!
+#### HTTP 및 HTTPS 포트
 
-#### <a name="http-and-https-ports"></a>HTTP and HTTPS ports
+여기서 확인할 또 다른 사항은 **HTTP** 및 **HTTPS 포트**입니다. 대부분의 경우 80 및 443이 올바르며, 포트를 변경할 필요가 없습니다. 그러나 원본 서버가 다른 포트에서 수신하는 경우 해당 사실을 여기에 나타내야 합니다. 확실하지 않은 경우 원본 파일의 URL을 살펴보기만 하세요. HTTP 및 HTTPS 사양은 포트 80 및 443을 기본값으로 지정합니다. 이 예의 URL `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`에서는 포트가 지정되지 않았기 때문에 기본값이 443인 것으로 가정하며 설정이 올바릅니다.
 
-The other thing to check here is your **HTTP** and **HTTPS ports**.  In most cases, 80 and 443 are correct, and you will require no changes.  However, if the origin server is listening on a different port, that will need to be represented here.  If you're not sure, just look at the URL for your origin file.  The HTTP and HTTPS specifications specify ports 80 and 443 as the defaults. In my URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, a port is not specified, so the default of 443 is assumed and my settings are correct.  
+하지만 앞에서 테스트한 원본 파일의 URL이 `http://www.contoso.com:8080/file.txt`라고 가정해 봅시다. 호스트 이름 세그먼트의 끝부분에 있는 `:8080`에 주목하세요. 브라우저에 `8080` 포트를 사용하여 `www.contoso.com`의 웹 서버에 연결하라고 지시하는 것이므로 **HTTP 포트** 필드에 8080을 입력해야 합니다. 이러한 포트 설정은 끝점이 원본에서 정보를 검색할 때 사용하는 포트에만 영향을 줍니다.
 
-However, say the URL for your origin file that you tested earlier is `http://www.contoso.com:8080/file.txt`.  Note the `:8080` at the end of the hostname segment.  That tells the browser to use port `8080` to connect to the web server at `www.contoso.com`, so you'll need to enter 8080 in the **HTTP port** field.  It's important to note that these port settings only affect what port the endpoint uses to retrieve information from the origin.
-
-> [AZURE.NOTE] **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
+> [AZURE.NOTE] **Akamai의 Azure CDN** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai 허용된 원본 포트의 Azure CDN](https://msdn.microsoft.com/library/mt757337.aspx)을 참조하세요.
   
-### <a name="check-the-endpoint-settings"></a>Check the endpoint settings
+### 끝점 설정 검사
 
-Back on the **Endpoint** blade, click the **Configure** button.
+**끝점** 블레이드로 돌아가서 **구성** 단추를 클릭합니다.
 
-![Endpoint blade with configure button highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint-configure-button.png)
+![구성 단추가 강조 표시된 끝점 블레이드](./media/cdn-troubleshoot-endpoint/cdn-endpoint-configure-button.png)
 
-The endpoint's **Configure** blade appears.
+끝점의 **구성** 블레이드가 나타납니다.
 
-![Configure blade](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
+![구성 블레이드](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
 
-#### <a name="protocols"></a>Protocols
+#### 프로토콜
 
-For **Protocols**, verify that the protocol being used by the clients is selected.  The same protocol used by the client will be the one used to access the origin, so it's important to have the origin ports configured correctly in the previous section.  The endpoint only listens on the default HTTP and HTTPS ports (80 and 443), regardless of the origin ports.
+**프로토콜**의 경우 클라이언트에서 사용하는 프로토콜이 선택되었는지 확인합니다. 클라이언트에서 사용한 것과 동일한 프로토콜이 원본 액세스에 사용됩니다. 따라서 이전 섹션에서 원본 포트를 올바르게 구성하는 것이 중요합니다. 끝점은 원본 포트에 관계없이 기본 HTTP 및 HTTPS 포트(80 및 443)에서만 수신합니다.
 
-Let's return to our hypothetical example with `http://www.contoso.com:8080/file.txt`.  As you'll remember, Contoso specified `8080` as their HTTP port, but let's also assume they specified `44300` as their HTTPS port.  If they created an endpoint named `contoso`, their CDN endpoint hostname would be `contoso.azureedge.net`.  A request for `http://contoso.azureedge.net/file.txt` is an HTTP request, so the endpoint would use HTTP on port 8080 to retrieve it from the origin.  A secure request over HTTPS, `https://contoso.azureedge.net/file.txt`, would cause the endpoint to use HTTPS on port 44300 when retriving the file from the origin.
+가상의 예 `http://www.contoso.com:8080/file.txt`로 돌아가 봅시다. 기억하시겠지만 Contoso는 HTTP 포트로 `8080`을 지정했습니다. 거기에 덧붙여 HTTPS 포트로 `44300`을 지정했다고 가정해 봅시다. `contoso`라는 끝점을 만들었다면 CDN 끝점 호스트 이름은 `contoso.azureedge.net`입니다. `http://contoso.azureedge.net/file.txt`에 대한 요청은 HTTP 요청이므로 끝점이 포트 8080에서 HTTP를 사용하여 원본에서 파일을 검색합니다. HTTPS 통한 보안 요청 `https://contoso.azureedge.net/file.txt`는 끝점이 포트 44300에서 HTTPS를 사용하여 원본에서 파일을 검색하게 만듭니다.
 
-#### <a name="origin-host-header"></a>Origin host header
+#### 원본 호스트 헤더
 
-The **Origin host header** is the host header value sent to the origin with each request.  In most cases, this should be the same as the **Origin hostname** we verified earlier.  An incorrect value in this field won't generally cause 404 statuses, but is likely to cause other 4xx statuses, depending on what the origin expects.
+**원본 호스트 헤더**는 각 요청과 함께 원본으로 전송되는 호스트 헤더 값입니다. 대부분의 경우 앞에서 확인한 **원본 호스트 이름**과 같아야 합니다. 이 필드의 값이 잘못되어도 일반적으로 404 상태가 발생하지 않지만 원본이 예상하는 것이 무엇인지에 따라 다른 4xx 상태가 발생할 가능성이 있습니다.
 
-#### <a name="origin-path"></a>Origin path
+#### 원본 경로
 
-Lastly, we should verify our **Origin path**.  By default this is blank.  You should only use this field if you want to narrow the scope of the origin-hosted resources you want to make available on the CDN.  
+마지막으로 **원본 경로**를 확인해야 합니다. 기본적으로 원본 경로는 비어 있습니다. CDN에서 사용 가능하게 만들려는 원본 호스트 리소스의 범위를 좁히려는 경우에만 이 필드를 사용해야 합니다.
 
-For example, in my endpoint, I wanted all resources on my storage account to be available, so I left **Origin path** blank.  This means that a request to `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` results in a connection from my endpoint to `cdndocdemo.core.windows.net` that requests `/publicblob/lorem.txt`.  Likewise, a request for `https://cdndocdemo.azureedge.net/donotcache/status.png` results in the endpoint requesting `/donotcache/status.png` from the origin.
+예를 들어 제가 예로 든 끝점에서는 저장소 계정의 모든 리소스를 사용 가능하게 만들기 위해 **원본 경로**를 비워 두었습니다. 다시 말해서 `https://cdndocdemo.azureedge.net/publicblob/lorem.txt`에 대한 요청은 끝점에서 `/publicblob/lorem.txt`를 요청하는 `cdndocdemo.core.windows.net`으로의 연결이 됩니다. 이와 마찬가지로, `https://cdndocdemo.azureedge.net/donotcache/status.png`에 대한 요청은 원본의 `/donotcache/status.png`를 요청하는 끝점이 됩니다.
 
-But what if I don't want to use the CDN for every path on my origin?  Say I only wanted to expose the `publicblob` path.  If I enter */publicblob* in my **Origin path** field, that will cause the endpoint to insert */publicblob* before every request being made to the origin.  This means that the request for `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` will now actually take the request portion of the URL, `/publicblob/lorem.txt`, and append `/publicblob` to the beginning. This results in a request for `/publicblob/publicblob/lorem.txt` from the origin.  If that path doesn't resolve to an actual file, the origin will return a 404 status.  The correct URL to retrieve lorem.txt in this example would actually be `https://cdndocdemo.azureedge.net/lorem.txt`.  Note that we don't include the */publicblob* path at all, because the request portion of the URL is `/lorem.txt` and the endpoint adds `/publicblob`, resulting in `/publicblob/lorem.txt` being the request passed to the origin.
+그러나 원본의 모든 경로에 CDN을 사용하지 않으려면 어떻게 해야 할까요? `publicblob` 경로만 노출하려 한다고 가정해 봅시다. **원본 경로** 필드에 */publicblob*를 입력하면 끝점이 원본에 대해 만들어지는 모든 요청 앞에 */publicblob*를 삽입하게 됩니다. 다시 말해서 `https://cdndocdemo.azureedge.net/publicblob/lorem.txt`에 대한 요청이 이제 URL의 요청 부분인 `/publicblob/lorem.txt`를 가져와서 앞부분에 `/publicblob`를 추가합니다. 이것은 원본의 `/publicblob/publicblob/lorem.txt`에 대한 요청이 됩니다. 해당 경로가 실제 파일을 확인하지 못하면 원본이 404 상태를 반환합니다. 이 예에서 lorem.txt를 검색하는 올바른 URL은 `https://cdndocdemo.azureedge.net/lorem.txt`입니다. 이 예에서는 */publicblob* 경로를 전혀 포함하지 않았습니다. 왜냐하면 URL의 요청 부분이 `/lorem.txt`인데 끝점이 `/publicblob`를 추가하면 `/publicblob/lorem.txt`가 되어, 원본에 전달되는 요청이 되기 때문입니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

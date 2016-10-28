@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use VS Code with Resource Manager templates | Microsoft Azure"
-   description="Shows how to set up Visual Studio Code to create Azure Resource Manager templates."
+   pageTitle="Resource Manager 템플릿을 포함한 VS Code 사용 | Microsoft Azure"
+   description="Visual Studio Code를 설정하여 Azure Resource Manager 템플릿을 만드는 방법을 보여 줍니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="cmatskas"
@@ -16,129 +16,124 @@
    ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
 
+# Visual Studio Code에서 Azure Resource Manager 템플릿으로 작업
 
-# <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Working with Azure Resource Manager Templates in Visual Studio Code
+Azure Resource Manager 템플릿은 리소스 및 관련 종속성을 설명하는 JSON 파일입니다. 이러한 파일 크거나 복잡할 수 있으므로 도구 지원이 중요합니다. Visual Studio Code는 새롭고 간단한 오픈 소스 크로스 플랫폼 코드 편집기입니다. [새 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)을 통해 Resource Manager 템플릿을 만들고 편집하도록 지원합니다. VS Code는 어디서나 실행할 수 있고 Resource Manager 템플릿을 배포하려는 경우가 아니면 인터넷 액세스가 필요하지 않습니다.
 
-Azure Resource Manager templates are JSON files that describe a resource and related dependencies. These files can sometimes be large and complicated so tooling support is important. Visual Studio Code is a new, lightweight, open-source, cross-platform code editor. It supports creating and editing Resource Manager templates through a [new extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code runs everywhere and doesn't require Internet access unless you also want to deploy your Resource Manager templates.
+VS Code가 아직 설치되지 않은 경우 [https://code.visualstudio.com/](https://code.visualstudio.com/)에서 설치할 수 있습니다.
 
-If you do not already have VS Code, you can install it at [https://code.visualstudio.com/](https://code.visualstudio.com/).
+## Resource Manager 확장 설치
 
-## <a name="install-the-resource-manager-extension"></a>Install the Resource Manager extension
+VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다. 다음 단계는 Resource Manager JSON 템플릿에 대한 언어 지원을 다운로드하고 설치합니다.
 
-To work with the JSON templates in VS Code, you need to install an extension. The following steps download and install the language support for Resource Manager JSON templates:
-
-1. Launch VS Code 
-2. Open Quick Open (Ctrl+P) 
-3. Run the following command: 
+1. VS Code 시작
+2. 빠른 열기 열기(Ctrl+P)
+3. 다음 명령을 실행합니다.
 
         ext install azurerm-vscode-tools
 
-4. Restart VS Code when prompted to enable the extension. 
+4. 확장을 사용할 수 있다는 메시지가 나타나면 VS Code를 다시 시작합니다.
 
- Job done!
+ 작업을 완료했습니다!
 
-## <a name="set-up-resource-manager-snippets"></a>Set up Resource Manager snippets
+## Resource Manager 코드 조각 설정
 
-The previous steps installed the tooling support, but now we need to configure VS Code to use JSON template snippets.
+이전 단계에서는 도구 지원을 설치했지만 이제 VS Code를 구성하여 JSON 템플릿 코드 조각을 사용해야 합니다.
 
-1. Copy the contents of the file from the [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) repository to your clipboard.
-2. Launch VS Code 
-3. In VS Code, you can open the JSON snippets file by either navigating to **File** -> **Preferences** -> **User Snippets** -> **JSON**, or by selecting **F1** and typing **preferences** until you can select **Preferences: Snippets**.
+1. [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) 리포지토리에서 파일의 내용을 클립보드에 복사합니다.
+2. VS Code 시작
+3. VS 코드에서 **파일** -> **기본 설정** -> **사용자 코드 조각** -> **JSON**을 탐색하거나 **기본 설정: 코드 조각**을 선택하기 위해 **F1**을 선택하고 **기본 설정**을 입력하여 JSON 코드 조각 파일을 열 수 있습니다.
 
-    ![preference snippets](./media/resource-manager-vs-code/preferences-snippets.png)
+    ![기본 설정 코드 조각](./media/resource-manager-vs-code/preferences-snippets.png)
 
-    From the options, select **JSON**.
+    옵션에서 **JSON**을 선택합니다.
 
-    ![select json](./media/resource-manager-vs-code/select-json.png)
+    ![json 선택](./media/resource-manager-vs-code/select-json.png)
 
-4. Paste the contents of the file on step 1 into your user snippets file before the final "}" 
-5. Make sure the JSON looks OK and there are no squiggles anywhere. 
-6. Save and close the user snippets file.
+4. 마지막 "}"의 앞에서 사용자 코드 조각 파일에 1단계의 파일 내용을 붙여 넣습니다.
+5. JSON 항목이 정상으로 보이고 물결 기호가 없는지를 확인합니다.
+6. 사용자 코드 조각 파일을 저장하고 닫습니다.
 
-That's all that's needed to start using the Resource Manager snippets. Next, we'll put this setup to the test.
+이제 Resource Manager 코드 조각을 사용하여 시작하는 데 필요한 작업을 마쳤습니다. 다음으로 이 설정을 테스트합니다.
 
-## <a name="work-with-template-in-vs-code"></a>Work with template in VS Code
+## VS Code에서 템플릿 사용
 
-The easiest way to start working with a template is to either grab one of the Quick Start Templates available on [Github](https://github.com/Azure/azure-quickstart-templates) or use one of your own. You can easily [export a template](resource-manager-export-template.md) for any of your resource groups through the portal. 
+템플릿으로 작업을 시작하는 가장 쉬운 방법은 [Github](https://github.com/Azure/azure-quickstart-templates)에서 사용할 수 있는 빠른 시작 템플릿 중 하나를 선택하거나 고유한 템플릿을 사용하는 것입니다. 포털을 통해 리소스 그룹에 대한 [템플릿을 쉽게 내보낼](resource-manager-export-template.md) 수 있습니다.
 
-1. If you exported a template from a resource group, open the extracted files in VS Code.
+1. 리소스 그룹에서 템플릿을 내보낸 경우 VS Code에서 추출된 파일을 엽니다.
 
-    ![show files](./media/resource-manager-vs-code/show-files.png)
+    ![파일 표시](./media/resource-manager-vs-code/show-files.png)
 
-2. Open the template.json file so that you can edit it and add some additional resources. After the **"resources": [** press enter to start a new line. If you type **arm**, you'll be presented with a list of options. These options are the template snippets you installed. It should look like this: 
+2. 몇 가지 추가 리소스를 편집하고 추가할 수 있도록 template.json 파일을 엽니다. **"resources": [** 다음에 enter 키를 눌러서 새 줄을 시작합니다. **arm**을 입력하는 경우 옵션 목록이 제공됩니다. 이러한 옵션은 설치한 템플릿 코드 조각입니다. 다음과 같이 표시되어야 합니다.
 
-    ![show snippets](./media/resource-manager-vs-code/type-snippets.png)
+    ![코드 조각 표시](./media/resource-manager-vs-code/type-snippets.png)
 
-3. Choose the snippet you wish. For this article, I am choosing **arm-ip** to create a new public IP address. Put a comma after the closing bracket "}" of the newly created resource to make sure your template syntax is valid.
+3. 원하는 코드 조각을 선택합니다. 이 문서의 경우 **arm-ip**를 선택하여 새 공용 IP 주소를 만듭니다. 새로 만든 리소스의 닫는 괄호("}") 다음에 쉼표를 추가하여 템플릿 구문이 유효하도록 합니다.
 
-     ![add comma](./media/resource-manager-vs-code/add-comma.png)
+     ![쉼표 추가](./media/resource-manager-vs-code/add-comma.png)
 
-4. VS Code has built-in IntelliSense. As you edit your templates, VS Code suggests available values. For example, to add a variables section to your template, add **""** (two double-quotes) and select **Ctrl+Space** between those quotes. You will be presented with options including **variables**.
+4. VS Code에는 기본 제공 IntelliSense가 있습니다. 템프릿을 편집할 때 VS Code에서는 사용할 수 있는 값을 제안합니다. 예를 들어 변수 섹션을 템플릿에 추가하려면 **""**(두 개의 큰따옴표)를 추가하고 따옴표 사이에 **Ctrl+스페이스바**를 선택합니다. **변수**를 비롯한 옵션이 나타납니다.
 
-    ![add variables](./media/resource-manager-vs-code/add-variables.png)
+    ![변수 추가](./media/resource-manager-vs-code/add-variables.png)
 
-5. IntelliSense can also suggest available values or functions. To set a property to a parameter value, create an expression with **"[]"** and **Ctrl+Space**. You can start typing the name of a function. Select **Tab** when you have found the function you want.
+5. IntelliSense에서는 사용 가능한 값 또는 함수를 제안할 수도 있습니다. 매개 변수 값을 속성으로 설정하려면 **""** 및 **Ctr+스페이스바**를 사용하여 식을 만듭니다. 함수 이름을 입력하기 시작할 수 있습니다. 원하는 함수를 발견하면 **탭**을 선택합니다.
 
-    ![add parameter](./media/resource-manager-vs-code/select-parameters.png)
+    ![매개 변수 추가](./media/resource-manager-vs-code/select-parameters.png)
 
-6. Select **Ctrl+Space** again within the function to see a list of the available parameters within your template.
+6. 함수 내에서 **Ctrl+스페이스바**를 다시 선택하여 템플릿 내에서 사용할 수 있는 매개 변수 목록을 참조합니다.
 
-    ![add parameter](./media/resource-manager-vs-code/select-avail-parameters.png)
+    ![매개 변수 추가](./media/resource-manager-vs-code/select-avail-parameters.png)
 
-7. If you have any schema validation issues in your template, you'll see the familiar squiggles in the editor. You can view the list of errors and warnings by typing **Ctrl+Shift+M** or selecting the glyphs in the lower left status bar.
+7. 템플릿에 스키마 유효성 검사 문제가 있는 경우 편집기에 친숙한 물결선이 표시됩니다. **Ctrl+Shift+M**을 입력하거나 왼쪽 아래 상태 표시줄에서 문자를 선택하여 오류 및 경고 목록을 볼 수 있습니다.
 
     ![errors](./media/resource-manager-vs-code/errors.png)
 
-    Validation of your template can help you detect syntax problems; however, you may also see errors that you can ignore. In some cases, the editor is comparing your template against a schema that is not up-to-date and therefore reports an error even though you know it is correct. For example, suppose a function has recently been added to Resource Manager but the schema has not been updated. The editor reports an error despite the fact the function works correctly during deployment.
+    템플릿의 유효성 검사는 구문 문제를 감지하도록 도울 수 있습니다. 그러나 무시할 수 있는 오류도 나타날 수 있습니다. 경우에 따라 편집기는 최신 상태가 아닌 스키마와 템플릿을 비교합니다. 따라서 정확하다는 사실을 알고 있더라도 오류를 보고합니다. 예를 들어 함수가 최근에 Resource Manager에 추가되었지만 스키마가 업데이트되지 않았다고 가정합니다. 배포하는 동안 함수가 올바르게 작동하지 않았음에도 불구하고 편집기는 오류를 보고합니다.
 
-    ![error message](./media/resource-manager-vs-code/unrecognized-function.png)
+    ![오류 메시지](./media/resource-manager-vs-code/unrecognized-function.png)
 
-## <a name="deploy-your-new-resources"></a>Deploy your new resources
+## 새 리소스 배포
 
-When your template is ready, you can deploy the new resources following the instructions below: 
+템플릿이 준비되면 다음 지침을 따라 새 리소스를 배포할 수 있습니다.
 
-### <a name="windows"></a>Windows
+### Windows
 
-1. Open a PowerShell command prompt 
-2. To login type: 
+1. PowerShell 명령 프롬프트 열기
+2. 로그인하려면 다음을 입력합니다.
 
         Login-AzureRmAccount 
 
-3. If you have multiple subscriptions, get a list of the subscriptions with:
+3. 구독이 여러 개인 경우 사용할 구독 목록을 가져옵니다.
 
         Get-AzureRmSubscription
 
-    And select the subscription to use.
+    그리고 사용할 구독을 선택합니다.
    
         Select-AzureRmSubscription -SubscriptionId <Subscription Id>
 
-4. Update the parameters in your parameters.json file
-5. Run the Deploy.ps1 to deploy your template on Azure
+4. parameters.json 파일에서 매개 변수 업데이트
+5. Azure에서 템플릿을 배포하려면 Deploy.ps1 실행
 
-### <a name="osx/linux"></a>OSX/Linux
+### OSX/Linux
 
-1. Open a terminal window 
-2. To login type:
+1. 터미널 창 열기
+2. 로그인하려면 다음을 입력합니다.
 
         azure login 
 
-3. If you have multiple subscriptions, select the right subscription with:
+3. 구독이 여러 개인 경우 사용할 올바른 구독을 선택합니다.
 
         azure account set <subscriptionNameOrId> 
 
-4. Update the parameters in the parameters.json file.
-5. To deploy the template, run:
+4. parameters.json 파일에서 매개 변수를 업데이트합니다.
+5. 템플릿을 배포하려면 다음을 실행합니다.
 
         azure group deployment create -f <PathToTemplate> 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-- To learn about template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
-- For more examples of working with Visual Studio Code, see [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+- 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+- 템플릿 함수에 대해 알아보려면 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
+- Visual Studio 코드를 사용한 작업의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 연결 [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Visual Studio Code를 사용한 클라우드 앱 빌드](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code)를 참조하세요. HealthClinic.biz 데모에서 빠른 시작을 더 살펴보려면 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

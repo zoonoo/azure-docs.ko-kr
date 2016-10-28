@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Testing Azure Functions | Microsoft Azure"
-   description="Test your Azure Functions using Postman, cURL, and Node.js."
+   pageTitle="Azure Functions 테스트 | Microsoft Azure"
+   description="Postman, cURL 및 Node.js를 사용하여 Azure Functions 테스트"
    services="functions"
    documentationCenter="na"
    authors="wesmc7777"
    manager="erikre"
    editor=""
    tags=""
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, testing"/>
+   keywords="Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처, 테스트"/>
 
 <tags
    ms.service="functions"
@@ -18,371 +18,370 @@
    ms.date="08/19/2016"
    ms.author="wesmc"/>
 
+# Azure Functions 테스트
 
-# <a name="testing-azure-functions"></a>Testing Azure Functions
+## 개요
 
-## <a name="overview"></a>Overview
+이 자습서에서는 함수 테스트에 대한 다른 접근 방법을 살펴보겠습니다. 쿼리 문자열 매개 변수 또는 요청 본문을 통해 입력을 허용하는 http 트리거 함수를 정의합니다. 기본 **HttpTrigger Node.js 함수** 템플릿 코드는 `name` 쿼리 문자열 매개 변수를 지원합니다. 또한 요청 본문의 사용자에 대한 `address` 정보와 함께 해당 매개 변수를 지원하는 코드를 추가합니다.
 
-In this tutorial, we will walk through different approaches to testing functions. We will define a http trigger function that accepts input through a query string parameter, or the request body. The default **HttpTrigger Node.js Function** template code supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
+## 테스트용 함수 만들기
 
-## <a name="create-a-function-for-testing"></a>Create a function for testing
+이 자습서의 대부분에서는 새 함수를 만들 때 사용할 수 있는 **HttpTrigger Nodejs 함수** 템플릿의 약간 수정된 버전을 사용합니다. 새 함수를 만드는 데 도움이 필요한 경우 [첫 번째 Azure 함수 만들기 자습서](functions-create-first-azure-function.md)를 검토할 수 있습니다. [Azure 포털]에서 테스트 함수를 만들 때에는 **HttpTrigger Nodejs 함수** 템플릿만 선택하면 됩니다.
 
-For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
+기본 함수 템플릿은 기본적으로 요청 본문 또는 쿼리 문자열 매개 변수의 이름(`name=<your name>`)을 되돌려 주는 hello world 함수입니다. 또한 요청 본문의 JSON 콘텐츠로 이름 및 주소를 제공할 수 있도록 하는 코드를 업데이트합니다. 그러면 함수는 사용 가능한 경우 클라이언트에 다시 표시합니다.
 
-The default function template is basically a hello world function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client when available.   
+함수를 테스트에 사용할 다음 코드로 업데이트합니다.
 
-Update the function with the following code which we will use for testing:
-
-    module.exports = function(context, req) {
-        context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-        context.log("Request Headers = " + JSON.stringify(req.headers));    
-    
-        if (req.query.name || (req.body && req.body.name)) {
-            if (typeof req.query.name != "undefined") {
-                context.log("Name was provided as a query string param..."); 
-                ProcessNewUserInformation(context, req.query.name);
-            }
-            else {
-                context.log("Processing user info from request body..."); 
-                ProcessNewUserInformation(context, req.body.name, req.body.address);
-            }
-        }
-        else {
-            context.res = {
-                status: 400,
-                body: "Please pass a name on the query string or in the request body"
-            };
-        }
-        context.done();
-    };
-    
-    function ProcessNewUserInformation(context, name, address)
-    {    
-        context.log("Processing User Information...");            
-        context.log("name = " + name);            
-        echoString = "Hello " + name;
-        
-        if (typeof address != "undefined")
-        {
-            echoString += "\n" + "The address you provided is " + address;
-            context.log("address = " + address);            
-        }
-        
-        context.res = {
-                // status: 200, /* Defaults to 200 */
-                body: echoString
-            };
-    }
+	module.exports = function(context, req) {
+	    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+	    context.log("Request Headers = " + JSON.stringify(req.headers));    
+	
+	    if (req.query.name || (req.body && req.body.name)) {
+	        if (typeof req.query.name != "undefined") {
+	            context.log("Name was provided as a query string param..."); 
+	            ProcessNewUserInformation(context, req.query.name);
+	        }
+	        else {
+	            context.log("Processing user info from request body..."); 
+	            ProcessNewUserInformation(context, req.body.name, req.body.address);
+	        }
+	    }
+	    else {
+	        context.res = {
+	            status: 400,
+	            body: "Please pass a name on the query string or in the request body"
+	        };
+	    }
+	    context.done();
+	};
+	
+	function ProcessNewUserInformation(context, name, address)
+	{    
+	    context.log("Processing User Information...");            
+	    context.log("name = " + name);            
+	    echoString = "Hello " + name;
+	    
+	    if (typeof address != "undefined")
+	    {
+	        echoString += "\n" + "The address you provided is " + address;
+	        context.log("address = " + address);            
+	    }
+	    
+	    context.res = {
+	            // status: 200, /* Defaults to 200 */
+	            body: echoString
+	        };
+	}
 
 
-## <a name="test-a-function-with-tools"></a>Test a function with Tools
+## 도구를 사용하여 함수 테스트
 
-### <a name="test-with-curl"></a>Test with cURL
+### cURL을 사용하여 테스트
 
-Often when testing software, it's not necessary to look any further than the command-line to help debug your application, this is no different with functions.
+종종 소프트웨어를 테스트할 때 명령줄이 응용 프로그램을 디버그하는 데 도움이 되며 함수와 차이가 없습니다.
 
-To test the function above, copy the **Function Url** from the portal. It will have the following form: 
+위의 함수를 테스트하려면 포털에서 **함수 Url**을 복사합니다. 다음과 같은 형식이 됩니다.
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
     
-This is the Url for triggering your function, we can test this by using the cURL command on the command-line to make a Get (`-G` or `--get`) request against our function:
+이는 함수를 트리거하는 Url이며, 함수에 대한 Get(`-G` 또는 `--get`) 요청을 수행하는 명령줄에서 cURL 명령을 사용하여 테스트할 수 있습니다.
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
     
-This particular example above requires a query string parameter which can be passed as Data (`-d`) in the cURL command:
+이 특정 예제에서는 cURL 명령에서 데이터(`-d`)로 전달될 수 있는 쿼리 문자열 매개 변수가 필요합니다.
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
     
-Hit enter and you will see the output of the function on the command-line.
+Enter 키를 누르면 명령줄에 함수의 출력이 표시됩니다.
 
 ![](./media/functions-test-a-function/curl-test.png)
 
-In the portal **Logs** window, output similar to the following is logged while executing the function:
+포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
 
     2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
     2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
     2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
     2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
 
-### <a name="test-with-a-browser"></a>Test with a browser
+### 브라우저를 사용하여 테스트
 
-Functions that do not require parameters, or only need query string parameters, can be tested using a browser.
+매개 변수가 필요하지 않거나 쿼리 문자열 매개 변수만 필요한 함수는 브라우저를 사용하여 테스트할 수 있습니다.
 
-To test the function we defined above, copy the **Function Url** from the portal. It will have the following form:
+위에서 정의한 함수를 테스트하려면 포털에서 **함수 Url**을 복사합니다. 다음과 같은 형식이 됩니다.
 
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+	https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Append the `name` query string parameter as follows, using an actual name for the `<Enter a name here>` placeholder.
+`<Enter a name here>` 자리 표시자에 대한 실제 이름을 사용하여 다음과 같이 `name` 쿼리 문자열 매개 변수를 추가합니다.
 
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
+	https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
-Paste the URL into your browser and you should get a response similar to the following.
+브라우저에 URL을 붙여넣으면 다음과 유사한 응답을 얻게 됩니다.
 
 ![](./media/functions-test-a-function/browser-test.png)
 
-In the portal **Logs** window, output similar to the following is logged while executing the function:
+포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
 
-    2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
-    2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
-    2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T07:35:10.338 Name was provided as a query string param.
-    2016-03-23T07:35:10.338 Processing User Information...
-    2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
+	2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
+	2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
+	2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
+	2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"ko-KR"}
+	2016-03-23T07:35:10.338 Name was provided as a query string param.
+	2016-03-23T07:35:10.338 Processing User Information...
+	2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
 
-### <a name="test-with-postman"></a>Test with Postman
+### Postman을 사용하여 테스트
 
-The recommended tool to test most of your functions is Postman. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
+Postman은 대부분의 함수 테스트에 권장되는 도구입니다. Postman을 설치하려면 [Postman 가져오기](https://www.getpostman.com/)를 참조하세요. Postman은 다양한 특성의 HTTP 요청에 대한 제어를 제공합니다.
 
-> [AZURE.TIP] Use the REST Client in which you are comfortable. Here are some alternatives to Postman:  
+> [AZURE.TIP] 익숙한 REST 클라이언트를 사용합니다. 다음은 Postman의 몇 가지 대안입니다.
 > 
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw)  
+> * [Fiddler](http://www.telerik.com/fiddler)
+> * [Paw](https://luckymarmot.com/paw)
 
-To test the function with a request body in Postman: 
+Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 
-1. Launch Postman from the **Apps** button in the upper left of corner of a Chrome browser window.
-2. Copy your **Function Url** and paste it into Postman. It includes the access code query string parameter.
-3. Change the HTTP method to **POST**.
-4. Click **Body** > **raw** and add JSON request body similar to the following:
+1. Chrome 브라우저 창의 왼쪽 위에 있는 **앱** 단추를 눌러 Postman을 시작합니다.
+2. **함수 Url**을 복사하여 Postman에 붙여넣습니다. 액세스 코드 쿼리 문자열 매개 변수를 포함합니다.
+3. HTTP 메서드를 **POST**로 변경합니다.
+4. **본문** > **원시**를 클릭하여 다음과 유사한 JSON 요청 본문을 추가합니다.
 
-        {
-            "name" : "Wes testing with Postman",
-            "address" : "Seattle, W.A. 98101"
-        }
+		{
+		    "name" : "Wes testing with Postman",
+		    "address" : "Seattle, W.A. 98101"
+		}
 
-5. Click **Send**.
+5. **보내기**를 클릭합니다.
 
-The following image shows testing the simple echo function example in this tutorial. 
+다음 이미지는 이 자습서의 간단한 에코 함수 예제 테스트를 보여 줍니다.
 
 ![](./media/functions-test-a-function/postman-test.png)
 
-In the portal **Logs** window, output similar to the following is logged while executing the function:
+포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
 
-    2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
-    2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T08:04:57.763 Processing user info from request body...
-    2016-03-23T08:04:57.763 Processing User Information...
-    2016-03-23T08:04:57.763 name = Wes testing with Postman
-    2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
-    2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
+	2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
+	2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
+	2016-03-23T08:04:57.763 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
+	2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"ko-KR"}
+	2016-03-23T08:04:57.763 Processing user info from request body...
+	2016-03-23T08:04:57.763 Processing User Information...
+	2016-03-23T08:04:57.763 name = Wes testing with Postman
+	2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
+	2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
     
-### <a name="test-a-blob-trigger-using-storage-explorer"></a>Test a blob trigger using Storage Explorer
+### 저장소 탐색기를 사용하여 Blob 트리거 테스트
 
-You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+[Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)를 사용하여 Blob 트리거 함수를 테스트할 수 있습니다.
 
-1. In the [Azure Portal] for your Functions app, create a new C#, F# or Node blob trigger function. Set the path to monitor to the name of your blob container. For example:
+1. 함수 앱에 대한 [Azure Portal]에서 새 C#, F# 또는 노드 Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예:
 
-        files
+		files
 
-2. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
+2. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
 
-3. Create a text file with the following text and save it:
+3. 다음 텍스트로 텍스트 파일을 만들고 저장합니다.
 
-        A text file for blob trigger function testing.
+		A text file for blob trigger function testing.
 
-4. Run [Microsoft Azure Storage Explorer](http://storageexplorer.com/) and connect to the blob container in the storage account being monitored.
+4. [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)를 실행하고 모니터링되고 있는 저장소 계정의 Blob 컨테이너에 연결합니다.
 
-5. Click the **Upload** button and upload the text file.
+5. **업로드** 단추를 클릭하고 텍스트 파일을 업로드합니다.
 
-    ![](./media/functions-test-a-function/azure-storage-explorer-test.png)
-
-
-    The default blob trigger function code will report the processing of the blob in the logs:
-
-        2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
-        2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-        2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
-        2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-
-## <a name="test-a-function-within-functions"></a>Test a function within functions
-
-### <a name="test-with-the-functions-portal-run-button"></a>Test with the functions portal run button
-
-The portal provides a **Run** button which will allow you to do some limited testing. You can provide a request body using the run button but, you can't provide query string parameters or update request headers.
-
-Test the HTTP trigger function we created earlier by adding a JSON string similar to the following in the **Request body** field then click the **Run** button.
-
-    {
-        "name" : "Wes testing Run button",
-        "address" : "USA"
-    } 
-
-In the portal **Logs** window, output similar to the following is logged while executing the function:
-
-    2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
-    2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T08:03:18.697 Processing user info from request body...
-    2016-03-23T08:03:18.697 Processing User Information...
-    2016-03-23T08:03:18.697 name = Wes testing Run button
-    2016-03-23T08:03:18.697 address = USA
-    2016-03-23T08:03:18.744 Function completed (Success, Id=753a01b0-45a8-4125-a030-3ad543a89409)
+	![](./media/functions-test-a-function/azure-storage-explorer-test.png)
 
 
-### <a name="test-with-a-timer-trigger"></a>Test with a timer trigger
+	기본 Blob 트리거 함수 코드는 로그에서 Blob 처리를 보고합니다.
 
-Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). You could always write code to drop a message into your queue and an example of this in a console project is provided below. However, there is another approach you can use to test with functions directly.  
+		2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
+		2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+		2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
+		2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
-You could use a timer trigger configured with a queue output binding. That timer trigger code could then write the test messages to the queue. This section will walk through through an example. 
+## 함수 내에서 함수 테스트
 
-For more in-depth information on using bindings with Azure Functions, see the [Azure Functions developer reference](functions-reference.md). 
+### 함수 포털 실행 단추를 사용하여 테스트
 
+포털에서는 몇 가지 제한된 테스트를 수행할 수 있는 **실행** 단추를 제공합니다. 실행 단추를 사용하여 요청 본문을 제공할 수 있지만 쿼리 문자열 매개 변수를 제공하거나 요청 헤더를 업데이트할 수 없습니다.
 
-#### <a name="create-queue-trigger-for-testing"></a>Create queue trigger for testing
+**요청 본문** 필드에서 다음과 유사한 JSON 문자열을 추가하여 앞에서 만든 HTTP 트리거 함수를 테스트한 다음 **실행** 단추를 클릭합니다.
 
-To demonstrate this approach, we will first create a queue trigger function that we want to test for a queue named `queue-newusers`. This function will process name and address information for a new user dropped into Azure queue storage. 
+	{
+		"name" : "Wes testing Run button",
+		"address" : "USA"
+	} 
 
-> [AZURE.NOTE] If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules.  Otherwise, you will get a HTTP Status code 400 : Bad Request. 
+포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
 
-1. In the [Azure Portal] for your Functions app, click **New Function** > **QueueTrigger - C#**.
-2. Enter the queue name to be monitored by the queue function 
-
-        queue-newusers 
-
-3. Click the **+** (add) button to select or create the storage account you want to use. Then click **Create**.
-4. Leave this portal browser window opened so you can monitor the log entries for the default queue function template code.
-
-
-#### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Create a timer trigger to drop a message in the queue
-
-1. Open the [Azure Portal] in a new browser window and navigate to your Function app.
-2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code will execute testing your queue function. Then click **Create**. If you want the test to run every 30 seconds you can use the following [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression):
-
-        */30 * * * * *
+	2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
+	2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
+	2016-03-23T08:03:18.697 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
+	2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"ko-KR"}
+	2016-03-23T08:03:18.697 Processing user info from request body...
+	2016-03-23T08:03:18.697 Processing User Information...
+	2016-03-23T08:03:18.697 name = Wes testing Run button
+	2016-03-23T08:03:18.697 address = USA
+	2016-03-23T08:03:18.744 Function completed (Success, Id=753a01b0-45a8-4125-a030-3ad543a89409)
 
 
-2. Click the **Integrate** tab for your new timer trigger.
-3. Under **Output**, click the **+ New Output** button. Then click **queue** and the **Select** button.
-4. Note the name you use for the **queue message object** you will use this in the timer function code.
+### 타이머 트리거를 사용하여 테스트
 
-        myQueue
+일부 함수는 앞에서 언급한 도구를 사용하여 제대로 테스트할 수 없습니다. 예를 들어 [Azure 큐 저장소](../storage/storage-dotnet-how-to-use-queues.md)에 메시지를 놓을 때 실행되는 큐 트리거 함수입니다. 언제나 큐에 메시지를 놓는 코드를 작성할 수 있으며 콘솔 프로젝트의 이러한 예는 아래 제공됩니다. 그러나 함수를 직접 테스트하는 데 사용할 수 있는 또 다른 방법이 있습니다.
 
-4. Enter the queue name where the message will be sent: 
+큐 출력 바인딩으로 구성된 타이머 트리거를 사용할 수 있습니다. 타이머 트리거 코드가 해당 큐에 테스트 메시지를 작성할 수 있습니다. 이 섹션에서는 예제를 통해 살펴봅니다.
 
-        queue-newusers 
+Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 개발자 참조](functions-reference.md)를 참조하세요.
 
-3. Click the **+** (add) button to select the storage account you used previously with the queue trigger. Then click **Save**.
-4. Click the **Develop** tab for your timer trigger.
-5. You can use the following code for the C# timer function as long as you used the same queue message object name shown above. Then click **Save**
 
-        using System;
-        
-        public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
-        {
-            String newUser = 
-            "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
-        
-            log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
-            log.Verbose($"{newUser}");   
-            
-            myQueue = newUser;
-        }
+#### 테스트용 큐 트리거 만들기
 
-At this point C# timer function will execute every 30 seconds if you used the example cron expression. The logs for the timer function will report each execution:
+이 방법을 시연하려면 먼저 `queue-newusers`라는 큐를 테스트하려는 큐 트리거 함수를 만듭니다. 이 함수는 Azure 큐 저장소에 놓은 새 사용자에 대한 이름 및 주소 정보를 처리합니다.
 
-    2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
-    2016-03-24T10:27:30.004 C# Timer trigger function executed at: 3/24/2016 10:27:30 AM
-    2016-03-24T10:27:30.004 {"name":"User testing from C# timer function","address":"XYZ"}
-    2016-03-24T10:27:30.004 Function completed (Success, Id=04061790-974f-4043-b851-48bd4ac424d1)
+> [AZURE.NOTE] 다른 큐 이름을 사용하는 경우 해당 이름이 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx) 규칙을 준수해야 합니다. 그러지 않으면 HTTP 상태 코드 400(“잘못된 요청”)이 발생합니다.
 
-In the browser window for the queue function, you will see the each message being processed:
+1. 함수 앱에 대한 [Azure 포털]에서 **새 함수** > **QueueTrigger - C#**을 클릭합니다.
+2. 큐 함수가 모니터링할 큐 이름을 입력합니다.
 
-    2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-    2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"User testing from C# timer function","address":"XYZ"}
-    2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
+		queue-newusers 
+
+3. **+**(추가) 단추를 클릭하여 사용하려는 저장소 계정을 선택하거나 만듭니다. 그런 다음 **Create**를 클릭합니다.
+4. 기본 큐 함수 템플릿 코드에 대한 로그 항목을 모니터링할 수 있도록 포털 브라우저 창을 그대로 열어 둡니다.
+
+
+#### 큐에 메시지를 놓는 타이머 트리거 만들기
+
+1. 새 브라우저 창에서 [Azure 포털]을 열고 함수 앱으로 이동합니다.
+2. **새 함수** > **TimerTrigger - C#**을 클릭합니다. 타이머 코드가 큐 함수 테스트를 실행하는 빈도를 설정하는 cron 식을 입력합니다. 그런 다음 **Create**를 클릭합니다. 테스트를 30초마다 실행하려는 경우 다음 [CRON 식](https://wikipedia.org/wiki/Cron#CRON_expression)을 사용할 수 있습니다.
+
+		*/30 * * * * *
+
+
+2. 새 타이머 트리거에 대한 **통합** 탭을 클릭합니다.
+3. **출력**에서 **+ 새 출력** 단추를 클릭합니다. 그런 다음 **큐** 및 **선택** 단추를 클릭합니다.
+4. 타이머 함수 코드에서 사용할 **큐 메시지 개체**에 사용하는 이름을 확인합니다.
+
+		myQueue
+
+4. 메시지가 전송될 큐 이름을 입력합니다.
+
+		queue-newusers 
+
+3. **+**(추가) 단추를 클릭하여 큐 트리거와 함께 이전에 사용한 저장소 계정을 선택합니다. 그런 다음 **Save**를 클릭합니다.
+4. 타이머 트리거에 대한 **개발** 탭을 클릭합니다.
+5. 위에 표시된 동일한 큐 메시지 개체 이름을 사용하는 한 C# 타이머 함수에 대해 다음 코드를 사용할 수 있습니다. 그런 다음 **저장**을 클릭합니다.
+
+		using System;
+		
+		public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+		{
+		    String newUser = 
+		    "{"name":"User testing from C# timer function","address":"XYZ"}";
+		
+		    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
+		    log.Verbose($"{newUser}");   
+		    
+		    myQueue = newUser;
+		}
+
+이때 예제 cron 식을 사용하는 경우 C# 타이머 함수가 30초마다 실행됩니다. 타이머 함수에 대한 로그에서 각 실행을 보고합니다.
+
+	2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
+	2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
+	2016-03-24T10:27:30.004 C# Timer trigger function executed at: 3/24/2016 10:27:30 AM
+	2016-03-24T10:27:30.004 {"name":"User testing from C# timer function","address":"XYZ"}
+	2016-03-24T10:27:30.004 Function completed (Success, Id=04061790-974f-4043-b851-48bd4ac424d1)
+
+큐 함수에 대한 브라우저 창에 처리 중인 각 메시지가 나타납니다.
+
+	2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
+	2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
+	2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"User testing from C# timer function","address":"XYZ"}
+	2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
+	
+## 코드를 사용하여 함수 테스트
+
+### 코드를 사용하여 HTTP 트리거 함수 테스트: Node.js
+
+http 요청을 실행하는 Node.js 코드를 사용하여 Azure 함수를 테스트할 수 있습니다.
+
+다음을 수행해야 합니다.
+
+- 요청 옵션에서 `host`를 함수 앱 호스트로 설정
+- `path`에서 함수 이름 설정
+- `path`에서 액세스 코드(`<your code>`) 설정
+
+코드 예제:
+
+	var http = require("http");
+	
+	var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
+	
+	var nameBodyJSON = {
+	    name : "Wes testing with Node.JS code",
+	    address : "Dallas, T.X. 75201"
+	};
+	
+	var bodyString = JSON.stringify(nameBodyJSON);
+	
+	var options = {
+	  host: "functions841def78.azurewebsites.net",
+	  //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
+	  path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
+	  method: "POST",
+	  headers : {
+	      "Content-Type":"application/json",
+	      "Content-Length": Buffer.byteLength(bodyString)
+	    }    
+	};
+	
+	callback = function(response) {
+	  var str = ""
+	  response.on("data", function (chunk) {
+	    str += chunk;
+	  });
+	
+	  response.on("end", function () {
+	    console.log(str);
+	  });
+	}
+	
+	var req = http.request(options, callback);
+	console.log("*** Sending name and address in body ***");
+	console.log(bodyString);
+	req.end(bodyString);
+
+
+
+출력:
+
+	C:\Users\Wesley\testing\Node.js>node testHttpTriggerExample.js
+	*** Sending name and address in body ***
+	{"name" : "Wes testing with Node.JS code","address" : "Dallas, T.X. 75201"}
+	Hello Wes testing with Node.JS code
+	The address you provided is Dallas, T.X. 75201
+		
+포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
+
+	2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
+	2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
+	2016-03-23T08:09:01.153 Node.js HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
+	2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
+	2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
+	2016-03-23T08:09:01.153 Request Body Type = object
+	2016-03-23T08:09:01.153 Request Body = [object Object]
+	2016-03-23T08:09:01.153 Processing User Information...
+	2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
     
-## <a name="test-a-function-with-code"></a>Test a function with Code
 
-### <a name="test-a-http-trigger-function-with-code:-node.js"></a>Test a HTTP trigger function with Code: Node.js
+### 코드를 사용하여 큐 트리거 함수 테스트: C# #
 
-You can use Node.js code to execute a http request to test your Azure Function. 
+앞에서 큐에 메시지를 놓는 코드를 사용하여 큐 트리거를 테스트하는 방법에 대해 설명했습니다. 다음 예제 코드는 [Azure 큐 저장소 시작](../storage/storage-dotnet-how-to-use-queues.md) 자습서에 제공된 C# 코드를 기반으로 합니다. 해당 링크에서 다른 언어에 대한 코드를 사용할 수도 있습니다.
 
-Make sure to set:
+콘솔 앱에서 이 코드를 테스트하려면 다음을 수행해야 합니다.
 
-- The `host` in the request options to your function app host
-- Your function name in the `path`.
-- Your access code (`<your code>`) in the `path`.
-
-Code Example:
-
-    var http = require("http");
-    
-    var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
-    
-    var nameBodyJSON = {
-        name : "Wes testing with Node.JS code",
-        address : "Dallas, T.X. 75201"
-    };
-    
-    var bodyString = JSON.stringify(nameBodyJSON);
-    
-    var options = {
-      host: "functions841def78.azurewebsites.net",
-      //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
-      path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
-      method: "POST",
-      headers : {
-          "Content-Type":"application/json",
-          "Content-Length": Buffer.byteLength(bodyString)
-        }    
-    };
-    
-    callback = function(response) {
-      var str = ""
-      response.on("data", function (chunk) {
-        str += chunk;
-      });
-    
-      response.on("end", function () {
-        console.log(str);
-      });
-    }
-    
-    var req = http.request(options, callback);
-    console.log("*** Sending name and address in body ***");
-    console.log(bodyString);
-    req.end(bodyString);
+- [app.config 파일에서 저장소 연결 문자열을 구성합니다](../storage/storage-dotnet-how-to-use-queues.md#setup-a-storage-connection-string).
+- 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다. 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 예를 들어 `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`과 같습니다.
 
 
-
-Output:
-
-    C:\Users\Wesley\testing\Node.js>node testHttpTriggerExample.js
-    *** Sending name and address in body ***
-    {"name" : "Wes testing with Node.JS code","address" : "Dallas, T.X. 75201"}
-    Hello Wes testing with Node.JS code
-    The address you provided is Dallas, T.X. 75201
-        
-In the portal **Logs** window, output similar to the following is logged while executing the function:
-
-    2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 Node.js HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
-    2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
-    2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
-    2016-03-23T08:09:01.153 Request Body Type = object
-    2016-03-23T08:09:01.153 Request Body = [object Object]
-    2016-03-23T08:09:01.153 Processing User Information...
-    2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    
-
-### <a name="test-a-queue-trigger-function-with-code:-c#"></a>Test a queue trigger function with Code: C# #
-
-We mentioned earlier that you could test a queue trigger by using code to drop a message in your queue. The following example code is based off the C# code presented in the [Getting started with Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md) tutorial. Code for other languages is also available from that link.
-
-To test this code in a console app you must:
-
-- [Configure your storage connection string in the app.config file](../storage/storage-dotnet-how-to-use-queues.md#setup-a-storage-connection-string).
-- This code accepts the name and address for a new user as command-line arguments during runtime. Pass a `name` and `address` as parameters to the app. For example, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`
-
-
-Example C# code:
+C# 코드 예제:
 
     static void Main(string[] args)
     {
@@ -416,9 +415,9 @@ Example C# code:
         if (name != null)
         {
             if (address != null)
-                JSON = String.Format("{{\"name\":\"{0}\",\"address\":\"{1}\"}}", name, address);
+                JSON = String.Format("{{"name":"{0}","address":"{1}"}}", name, address);
             else
-                JSON = String.Format("{{\"name\":\"{0}\"}}", name);
+                JSON = String.Format("{{"name":"{0}"}}", name);
         }
 
         Console.WriteLine("Adding message to " + queueName + "...");
@@ -428,20 +427,17 @@ Example C# code:
         queue.AddMessage(message);
     }
 
-In the browser window for the queue function, you will see the each message being processed:
+큐 함수에 대한 브라우저 창에 처리 중인 각 메시지가 나타납니다.
 
-    2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-    2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"Wes testing queues","address":"in a console app"}
-    2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
+	2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
+	2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
+	2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"Wes testing queues","address":"in a console app"}
+	2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

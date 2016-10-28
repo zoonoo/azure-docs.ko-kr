@@ -1,15 +1,12 @@
 
-| Transactions Type | Max transactions allowed in 10 seconds, per vault per region
+| 트랜잭션 유형 | 지역당 자격 증명 모음당 10초 내에 허용되는 최대 트랜잭션
 --- | ---
-| HSM- CREATE KEY | 5
-| HSM- other transactions | 1000
-| Soft-key CREATE KEY | 10
-| Soft-key other transactions | 1500
-| All secrets, vault related transactions | 2000
+| HSM - 키 만들기 | 5
+| HSM - 다른 트랜잭션 | 1000
+| 소프트 키 만들기 키 | 10
+| 소프트 키 다른 트랜잭션 | 1500
+| 모든 암호, 자격 증명 모음 관련 트랜잭션 | 2000
  
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

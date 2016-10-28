@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Connecting DocumentDB with Azure Search using indexers | Microsoft Azure"
-    description="This article shows you how to use to Azure Search indexer with DocumentDB as a data source."
+    pageTitle="인덱서를 사용해서 DocumentDB를 Azure 검색에 연결 | Microsoft Azure"
+    description="이 문서에서는 DocumentDB에서 Azure 검색 인덱서를 데이터 소스로 사용하는 방법을 보여 줍니다."
     services="documentdb"
     documentationCenter=""
-    authors="dennyglee"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -14,79 +14,78 @@
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
     ms.date="07/08/2016"
-    ms.author="denlee"/>
+    ms.author="anhoh"/>
+
+#인덱서를 사용해서 DocumentDB를 Azure 검색에 연결
+
+DocumentDB 데이터에 대해 뛰어난 검색 환경을 구현하기 위해서는 DocumentDB에 대한 Azure 검색 인덱서를 사용할 수 있습니다. 이 문서에서는 인덱싱 인프라를 유지 관리하기 위해 어떠한 코드도 작성할 필요 없이 Azure DocumentDB를 Azure 검색과 통합하는 방법을 보여 줍니다.
+
+이를 설정하기 위해서는 [Azure 검색 계정을 설정](../search/search-create-service-portal.md)하고(표준 검색으로 업그레이드할 필요 없음), [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 호출해서 DocumentDB **데이터 소스** 및 이 데이터 소스에 대한 **인덱서**를 만들어야 합니다.
+
+REST API와 상호 작용하기 위한 요청을 보내려면 [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler) 또는 기본 설정 도구를 사용할 수 있습니다.
 
 
-#<a name="connecting-documentdb-with-azure-search-using-indexers"></a>Connecting DocumentDB with Azure Search using indexers
+##<a id="Concepts"></a>Azure 검색 인덱서 개념
 
-If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
+Azure 검색에서는 데이터 소스(DocumentDB 포함) 및 데이터 소스에 대해 작동하는 인덱서의 생성 및 관리가 지원됩니다.
 
-To set this up, you have to [setup an Azure Search account](../search/search-create-service-portal.md) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
+**데이터 소스**는 인덱싱해야 하는 데이터, 데이터에 액세스하기 위한 자격 증명, Azure 검색이 데이터 변경 사항(컬렉션 내에서 수정 또는 삭제된 문서)을 효율적으로 식별하기 위한 정책을 지정합니다. 데이터 소스는 독립 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
 
-In order send requests to interact with the REST APIs, you can use [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler), or any tool of your preference.
+**인덱서**는 데이터 소스에서 대상 검색 인덱스로 데이터 흐름 방법을 설명합니다. 모든 대상 인덱스 및 데이터 소스 조합에 대해 하나의 인덱스를 생성하도록 계획해야 합니다. 동일한 인덱스에 여러 인덱서 쓰기를 설정할 수 있지만 인덱서는 단일 인덱스에만 쓸 수 있습니다. 인덱서는 다음 목적으로 사용됩니다.
 
+- 인덱스를 채우기 위해 데이터에 대한 일회성 복사를 수행합니다.
+- 예약에 따라 인덱스를 데이터 소스의 변경 사항과 동기화합니다. 일정은 인덱서 정의의 일부입니다.
+- 필요에 따라 인덱스에 대해 요청 시 업데이트를 호출합니다.
 
-##<a name="<a-id="concepts"></a>azure-search-indexer-concepts"></a><a id="Concepts"></a>Azure Search indexer concepts
+##<a id="CreateDataSource"></a>1단계: 데이터 소스 만들기
 
-Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
-
-A **data source** specifies what data needs to be indexed, credentials to access the data, and policies to enable Azure Search to efficiently identify changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
-
-An **indexer** describes how the data flows from your data source into a target search index. You should plan on creating one indexer for every target index and data source combination. While you can have multiple indexers writing into the same index, an indexer can only write into a single index. An indexer is used to:
-
-- Perform a one-time copy of the data to populate an index.
-- Sync an index with changes in the data source on a schedule. The schedule is part of the indexer definition.
-- Invoke on-demand updates to an index as needed.
-
-##<a name="<a-id="createdatasource"></a>step-1:-create-a-data-source"></a><a id="CreateDataSource"></a>Step 1: Create a data source
-
-Issue a HTTP POST request to create a new data source in your Azure Search service, including the following request headers.
+HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤더를 포함하는 새로운 데이터 소스를 만듭니다.
 
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
-The `api-version` is required. Valid values include `2015-02-28` or a later version. Visit [API versions in Azure Search](../search/search-api-versions.md) to see all supported Search API versions.
+`api-version`은 필수 사항입니다. 유효한 값에는 `2015-02-28` 이상 버전이 포함됩니다. 지원되는 모든 검색 API 버전을 보려면 [Azure 검색의 API 버전](../search/search-api-versions.md)을 확인하세요.
 
-The body of the request contains the data source definition, which should include the following fields:
+요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-- **name**: Choose any name to represent your DocumentDB database.
+- **이름**: DocumentDB 데이터베이스를 표시할 이름을 선택합니다.
 
-- **type**: Use `documentdb`.
+- **형식**: `documentdb`를 사용합니다.
 
-- **credentials**:
+- **자격 증명**:
 
-    - **connectionString**: Required. Specify the connection info to your Azure DocumentDB database in the following format: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+    - **connectionString**: 필수입니다. Azure DocumentDB 데이터베이스에 대한 연결 정보를 다음 형식으로 지정합니다.`AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
 
-- **container**:
+- **컨테이너**:
 
-    - **name**: Required. Specify the id of the DocumentDB collection to be indexed.
+    - **이름**: 필수입니다. 인덱싱할 DocumentDB 컬렉션의 ID를 지정합니다.
 
-    - **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
+    - **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure 검색이 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.
 
-- **dataChangeDetectionPolicy**: Optional. See [Data Change Detection Policy](#DataChangeDetectionPolicy) below.
+- **dataChangeDetectionPolicy**: 선택 사항입니다. 아래의 [데이터 변경 감지 정책](#DataChangeDetectionPolicy)을 참조하십시오.
 
-- **dataDeletionDetectionPolicy**: Optional. See [Data Deletion Detection Policy](#DataDeletionDetectionPolicy) below.
+- **dataDeletionDetectionPolicy**: 선택 사항입니다. 아래의 [데이터 삭제 감지 정책](#DataDeletionDetectionPolicy)을 참조하십시오.
 
-See below for an [example request body](#CreateDataSourceExample).
+아래 [요청 본문 예제](#CreateDataSourceExample)를 참조하세요.
 
-###<a name="<a-id="datachangedetectionpolicy"></a>capturing-changed-documents"></a><a id="DataChangeDetectionPolicy"></a>Capturing changed documents
+###<a id="DataChangeDetectionPolicy"></a>변경된 문서 캡처
 
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` last-modified timestamp property provided by DocumentDB - which is specified as follows:
+데이터 변경 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재까지 지원되는 유일한 정책은 DocumentDB에서 제공된 마지막으로 수정된 타임스탬프 속성인 `_ts`를 사용하는 `High Water Mark` 정책입니다. 이는 다음과 같이 지정됩니다.
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
 
-You will also need to add `_ts` in the projection and `WHERE` clause for your query. For example:
+또한 프로젝션에 `_ts`를 추가하고 쿼리에 대한 `WHERE` 절을 추가해야 합니다. 예:
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
 
-###<a name="<a-id="datadeletiondetectionpolicy"></a>capturing-deleted-documents"></a><a id="DataDeletionDetectionPolicy"></a>Capturing deleted documents
+###<a id="DataDeletionDetectionPolicy"></a>삭제된 문서 캡처
 
-When rows are deleted from the source table, you should delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
+소스 테이블에서 행을 삭제할 때는 검색 인덱스에서도 해당 행을 삭제해야 합니다. 데이터 삭제 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재까지 지원되는 유일한 정책은 다음과 같이 지정되는 `Soft Delete` 정책입니다(삭제 시 일부 유형의 플래그로 표시됨).
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -94,11 +93,11 @@ When rows are deleted from the source table, you should delete those rows from t
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-> [AZURE.NOTE] You will need to include the softDeleteColumnName property in your SELECT clause if you are using a custom projection.
+> [AZURE.NOTE] 사용자 지정 프로젝션을 사용할 경우에는 SELECT 절에 softDeleteColumnName 속성을 포함해야 합니다.
 
-###<a name="<a-id="createdatasourceexample"></a>request-body-example"></a><a id="CreateDataSourceExample"></a>Request body example
+###<a id="CreateDataSourceExample"></a>요청 본문 예
 
-The following example creates a data source with a custom query and policy hints:
+다음 예제에서는 사용자 지정 쿼리 및 정책 힌트를 사용해서 데이터 소스를 만듭니다.
 
     {
         "name": "mydocdbdatasource",
@@ -121,39 +120,39 @@ The following example creates a data source with a custom query and policy hints
         }
     }
 
-###<a name="response"></a>Response
+###응답
 
-You will receive an HTTP 201 Created response if the data source was successfully created.
+데이터 소스가 성공적으로 생성되었으면, HTTP 201 생성된 응답이 표시됩니다.
 
-##<a name="<a-id="createindex"></a>step-2:-create-an-index"></a><a id="CreateIndex"></a>Step 2: Create an index
+##<a id="CreateIndex"></a>2단계: 인덱스 만들기
 
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](../search/search-create-index-portal.md) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 포털 UI](../search/search-create-index-portal.md) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
 
-    POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
-    Content-Type: application/json
-    api-key: [Search service admin key]
+	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
+	Content-Type: application/json
+	api-key: [Search service admin key]
 
 
-Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
+대상 인덱스의 스키마가 소스 JSON 문서의 스키마 또는 사용자 지정 쿼리 프로젝션의 출력과 호환되는지 확인합니다.
 
->[AZURE.NOTE] For partitioned collections, the default document key is DocumentDB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, DocumentDB's `_rid` values contain characters that are invalid in Azure Search keys; therefore, the `_rid` values are Base64 encoded.
+>[AZURE.NOTE] 분할된 컬렉션의 경우 기본 문서 키는 DocumentDB의 `_rid` 속성이며 Azure 검색에서 이름을 `rid`로 변경합니다. 또한 DocumentDB의 `_rid` 값은 Azure 검색 키에 유효하지 않은 문자를 포함합니다. 따라서 `_rid` 값은 Base64로 인코딩됩니다.
 
-###<a name="figure-a:-mapping-between-json-data-types-and-azure-search-data-types"></a>Figure A: Mapping between JSON Data Types and Azure Search Data Types
+###그림 A: JSON 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
 
-| JSON DATA TYPE|   COMPATIBLE TARGET INDEX FIELD TYPES|
+| JSON 데이터 형식|	호환되는 대상 인덱스 필드 형식|
 |---|---|
 |Bool|Edm.Boolean, Edm.String|
-|Numbers that look like integers|Edm.Int32, Edm.Int64, Edm.String|
-|Numbers that look like floating-points|Edm.Double, Edm.String|
+|정수와 같이 보이는 숫자|Edm.Int32, Edm.Int64, Edm.String|
+|부동소수점처럼 보이는 숫자|Edm.Double, Edm.String|
 |String|Edm.String|
-|Arrays of primitive types e.g. "a", "b", "c" |Collection(Edm.String)|
-|Strings that look like dates| Edm.DateTimeOffset, Edm.String|
-|GeoJSON objects e.g. { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
-|Other JSON objects|N/A|
+|기본 형식의 배열, 예: "a", "b", "c" |Collection(Edm.String)|
+|날짜처럼 보이는 문자열| Edm.DateTimeOffset, Edm.String|
+|GeoJSON 개체, 예: { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
+|기타 JSON 개체|해당 없음|
 
-###<a name="<a-id="createindexexample"></a>request-body-example"></a><a id="CreateIndexExample"></a>Request body example
+###<a id="CreateIndexExample"></a>요청 본문 예
 
-The following example creates an index with an id and description field:
+다음 예제에서는 id 및 설명 필드를 사용해서 인덱스를 만듭니다.
 
     {
        "name": "mysearchindex",
@@ -172,39 +171,39 @@ The following example creates an index with an id and description field:
        }]
      }
 
-###<a name="response"></a>Response
+###응답
 
-You will receive an HTTP 201 Created response if the index was successfully created.
+인덱스가 생성되었으면 HTTP 201 생성 응답이 수신됩니다.
 
-##<a name="<a-id="createindexer"></a>step-3:-create-an-indexer"></a><a id="CreateIndexer"></a>Step 3: Create an indexer
+##<a id="CreateIndexer"></a>3단계: 인덱서 만들기
 
-You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.
+다음 헤더와 함께 HTTP, POST 요청을 사용해서 Azure 검색 서비스 내에서 새 인덱서를 만듭니다.
 
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
-The body of the request contains the indexer definition, which should include the following fields:
+요청 본문에는 다음 필드를 포함해야 하는 인덱서 정의가 포함됩니다.
 
-- **name**: Required. The name of the indexer.
+- **이름**: 필수입니다. 인덱서의 이름입니다.
 
-- **dataSourceName**: Required. The name of an existing data source.
+- **dataSourceName**: 필수입니다. 기존 데이터 소스의 이름입니다.
 
-- **targetIndexName**: Required. The name of an existing index.
+- **targetIndexName**: 필수입니다. 기존 인덱스의 이름입니다.
 
-- **schedule**: Optional. See [Indexing Schedule](#IndexingSchedule) below.
+- **일정**: 선택 사항입니다. 아래의 [인덱싱 예약](#IndexingSchedule)을 참조하십시오.
 
-###<a name="<a-id="indexingschedule"></a>running-indexers-on-a-schedule"></a><a id="IndexingSchedule"></a>Running indexers on a schedule
+###<a id="IndexingSchedule"></a>일정에 따라 인덱서 실행
 
-An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. Schedule has the following attributes:
+인덱서는 선택적으로 일정을 지정할 수 있습니다. 일정이 제공된 경우, 인덱서가 일정에 따라 주기적으로 실행됩니다. 일정은 다음과 같은 특성을 갖습니다.
 
-- **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
+- **간격**: 필수입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
-- **startTime**: Required. An UTC datetime that specifies when the indexer should start running.
+- **startTime**: 필수입니다. 인덱서 실행을 시작해야 할 경우를 지정하는 UTC 날짜/시간입니다.
 
-###<a name="<a-id="createindexerexample"></a>request-body-example"></a><a id="CreateIndexerExample"></a>Request body example
+###<a id="CreateIndexerExample"></a>요청 본문 예
 
-The following example creates an indexer that copies data from the collection referenced by the `myDocDbDataSource` data source to the `mySearchIndex` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly.
+다음 예에서는 `myDocDbDataSource` 데이터 원본에서 참조되는 컬렉션에서 2015년 1월 1일 UTC에 시작하고 시간별로 실행되는 일정의 `mySearchIndex` 인덱스로 데이터를 복사하는 인덱서를 만듭니다.
 
     {
         "name" : "mysearchindexer",
@@ -213,33 +212,33 @@ The following example creates an indexer that copies data from the collection re
         "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-###<a name="response"></a>Response
+###응답
 
-You will receive an HTTP 201 Created response if the indexer was successfully created.
+인덱서를 만든 다음에는 HTTP 201 응답 생성이 수신됩니다.
 
-##<a name="<a-id="runindexer"></a>step-4:-run-an-indexer"></a><a id="RunIndexer"></a>Step 4: Run an indexer
+##<a id="RunIndexer"></a>4단계: 인덱서 실행
 
-In addition to running periodically on a schedule, an indexer can also be invoked on demand by issuing the following HTTP POST request:
+일정에 따라 주기적으로 실행하는 것 외에도 다음 HTTP POST 요청을 실행해서 요청 시에 인덱서를 호출할 수도 있습니다.
 
     POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [Search service admin key]
 
-###<a name="response"></a>Response
+###응답
 
-You will receive an HTTP 202 Accepted response if the indexer was successfully invoked.
+인덱서를 호출한 다음에는 HTTP 202 수락된 응답이 수신됩니다.
 
-##<a name="<a-name="getindexerstatus"></a>step-5:-get-indexer-status"></a><a name="GetIndexerStatus"></a>Step 5: Get indexer status
+##<a name="GetIndexerStatus"></a>5단계: 인덱서 상태 가져오기
 
-You can issue a HTTP GET request to retrieve the current status and execution history of an indexer:
+HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 검색할 수 있습니다.
 
     GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
     api-key: [Search service admin key]
 
-###<a name="response"></a>Response
+###응답
 
-You will see a HTTP 200 OK response returned along with a response body that contains information about overall indexer health status, the last indexer invocation, as well as the history of recent indexer invocations (if present).
+전반적인 인덱서 상태, 마지막 인덱서 호출에 대한 정보와 최근 인덱서 호출 기록(있는 경우)이 포함된 응답 본문과 함께 HTTP 200 OK 응답이 표시됩니다.
 
-The response should look similar to the following:
+응답은 다음과 같아야 합니다.
 
     {
         "status":"running",
@@ -267,18 +266,14 @@ The response should look similar to the following:
         }]
     }
 
-Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).
+실행 기록은 50개의 최근에 완료한 실행까지 포함할 수 있으며, 시간 순서의 반대로 정렬됩니다(최신 항목이 응답에서 먼저 표시됨)
 
-##<a name="<a-name="nextsteps"></a>next-steps"></a><a name="NextSteps"></a>Next steps
+##<a name="NextSteps"></a>다음 단계
 
-Congratulations! You have just learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.
+축하합니다. 지금까지 DocumentDB의 인덱서를 사용해서 Azure 검색에 Azure DocumentDB를 통합하는 방법에 대해 배웠습니다.
 
- - To learn how more about Azure DocumentDB, see the [DocumentDB service page](https://azure.microsoft.com/services/documentdb/).
+ - Azure DocumentDB에 대해 알아보려면 [DocumentDB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
 
- - To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
+ - Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

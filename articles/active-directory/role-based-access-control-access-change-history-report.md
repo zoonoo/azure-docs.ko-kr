@@ -1,68 +1,63 @@
 <properties
-    pageTitle="Create an access change history report | Microsoft Azure"
-    description="Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="액세스 변경 기록 보고서 만들기 | Microsoft Azure"
+	description="지난 90일 동안 역할 기반 액세스 제어와 함께 Azure 구독 액세스에 대한 모든 변경 내용을 나열하는 보고서를 생성합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="08/03/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/03/2016"
+	ms.author="kgremban"/>
 
+# 액세스 변경 기록 보고서 만들기
 
-# <a name="create-an-access-change-history-report"></a>Create an access change history report
+언제든지 누군가가 구독 내부의 액세스를 부여하거나 취소하면 변경 내용이 Azure 이벤트에 기록됩니다. 지난 90일 동안 모든 변경 내용을 보려면 액세스 변경 기록 보고서를 만들 수 있습니다.
 
-Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
+## Azure PowerShell에서 보고서 만들기
+PowerShell에서 액세스 변경 기록 보고서를 만들려면 `Get-AzureRMAuthorizationChangeLog` 명령을 사용합니다. 이 cmdlet에 대한 자세한 내용은 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1)에서 확인할 수 있습니다.
 
-## <a name="create-a-report-with-azure-powershell"></a>Create a report with Azure PowerShell
-To create an access change history report in PowerShell, use the `Get-AzureRMAuthorizationChangeLog` command. More details about this cmdlet are available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
+이 명령을 호출하는 경우 다음을 비롯하여 나열하려는 할당의 속성을 지정할 수 있습니다.
 
-When you call this command, you can specify which property of the assignments you want listed, including the following:
-
-| Property | Description |
+| 속성 | 설명 |
 | -------- | ----------- |
-| **Action** | Whether access was granted or revoked |
-| **Caller** | The owner responsible for the access change |
-| **Date** | The date and time that access was changed |
-| **DirectoryName** | The Azure Active Directory directory |
-| **PrincipalName** | The name of the user, group, or application |
-| **PrincipalType** | Whether the assignment was for a user, group, or application |
-| **RoleId** | The GUID of the role that was granted or revoked |
-| **RoleName** | The role that was granted or revoked |
-| **ScopeName** | The name of the subscription, resource group, or resource |
-| **ScopeType** | Whether the assignment was at the subscription, resource group, or resource scope |
-| **SubscriptionId** | The GUID of the Azure subscription |
-| **SubscriptionName** | The name of the Azure subscription |
+| **작업** | 액세스를 부여 또는 취소했는지 여부 |
+| **Caller** | 액세스 변경을 담당하는 소유자 |
+| **Date** | 액세스가 변경된 날짜 및 시간 |
+| **DirectoryName** | Azure Active Directory 디렉터리 |
+| **PrincipalName** | 사용자, 그룹 또는 응용 프로그램의 이름 |
+| **PrincipalType** | 사용자, 그룹 또는 응용 프로그램에 대한 할당인지 여부 |
+| **RoleId** | 부여되었거나 해지된 역할의 GUID |
+| **RoleName** | 부여되었거나 해지된 역할 |
+| **ScopeName** | 구독, 리소스 그룹 또는 리소스의 이름 |
+| **ScopeType** | 할당이 구독, 리소스 그룹 또는 리소스 범위에서 이루어졌는지 여부 |
+| **SubscriptionId** | Azure 구독의 GUID |
+| **SubscriptionName** | Azure 구독의 이름 |
 
-This example command lists all access changes in the subscription for the past seven days:
+이 예제 명령은 지난 7일 동안 구독에서 발생한 모든 액세스 변경 내용을 나열합니다.
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - screenshot](./media/role-based-access-control-configure/access-change-history.png)
+![PowerShell Get-AzureRMAuthorizationChangeLog - 스크린샷](./media/role-based-access-control-configure/access-change-history.png)
 
-## <a name="create-a-report-with-azure-cli"></a>Create a report with Azure CLI
-To create an access change history report in the Azure command-line interface (CLI), use the `azure role assignment changelog list` command.
+## Azure CLI에서 보고서 만들기
+Azure 명령줄 인터페이스(CLI)에서 액세스 변경 기록 보고서를 만들려면 `azure role assignment changelog list` 명령을 사용합니다.
 
-## <a name="export-to-a-spreadsheet"></a>Export to a spreadsheet
-To save the report, or manipulate the data, export the access changes into a .csv file. You can then view the report in a spreadsheet for review.
+## 스프레드시트로 내보내기
+보고서를 저장하거나 데이터를 조작하거나 액세스 변경을 .csv 파일로 내보냅니다. 그런 다음 검토를 위해 스프레드시트에서 보고서를 볼 수 있습니다.
 
-![Changelog viewed as spreadsheet - screenshot](./media/role-based-access-control-configure/change-history-spreadsheet.png)
+![Changelog가 스크린샷으로 표시됨 - 스크린샷](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="see-also"></a>See also
-- Get started with [Azure Role-Based Access Control](role-based-access-control-configure.md)
-- Work with [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
+## 참고 항목
+- [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md) 시작
+- [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 작업
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

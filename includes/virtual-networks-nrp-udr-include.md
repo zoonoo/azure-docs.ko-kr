@@ -1,63 +1,61 @@
-## <a name="route-tables"></a>Route tables
-Route table resources contains routes used to define how traffic flows within your Azure infrastructure. You can use user defined routes (UDR) to send all traffic from a given subnet to a virtual appliance, such as a firewall or intrusion detection system (IDS). You can associate a route table to subnets. 
+## 경로 테이블
+경로 테이블 리소스는 Azure 인프라 내에서 트래픽의 흐름 방식을 정의하는 데 사용되는 경로를 포함합니다. UDR(사용자 정의 경로)을 사용하여 제공된 서브넷의 모든 트래픽을 방화벽 또는 IDS(침입 검색 시스템)와 같은 가상 어플라이언스로 보낼 수 있습니다. 경로 테이블은 서브넷에 연결할 수 있습니다.
 
-Route tables contain the following properties.
+경로 테이블에는 다음 속성이 포함될 수 있습니다.
 
-|Property|Description|Sample values|
+|속성|설명|샘플 값|
 |---|---|---|
-|**routes**|Collection of user defined routes in the route table|see [user defined routes](#User-defined-routes)|
-|**subnets**|Collection of subnets the route table is applied to|see [subnets](#Subnets)|
+|**routes**|경로 테이블의 사용자 정의 경로 컬렉션|[사용자 정의 경로](#User-defined-routes) 참조|
+|**서브넷**|경로 테이블이 적용되는 서브넷의 컬렉션|[서브넷](#Subnets) 참조|
 
 
-### <a name="user-defined-routes"></a>User defined routes
-You can create UDRs to specify where traffic should be sent to, based on its destination address. You can think of a route as the default gateway definition based on the destination address of a network packet.
+### 사용자 정의 경로
+UDR을 만들어 대상 주소에 따라 트래픽을 보낼 위치를 지정할 수 있습니다. 경로를 네트워크 패킷의 대상 주소에 기반한 기본 게이트웨이 정의로 간주해도 됩니다.
 
-UDRs contain the following properties. 
+UDR에는 다음 속성이 포함될 수 있습니다.
 
-|Property|Description|Sample values|
+|속성|설명|샘플 값|
 |---|---|---|
-|**addressPrefix**|Address prefix, or full IP address for the destination|192.168.1.0/24, 192.168.1.101|
-|**nextHopType**|Type of device the traffic will be sent to|VirtualAppliance, VPN Gateway, Internet|
-|**nextHopIpAddress**|IP address for the next hop|192.168.1.4|
+|**addressPrefix**|대상의 주소 접두사 또는 전체 IP 주소|192\.168.1.0/24, 192.168.1.101|
+|**nextHopType**|트래픽을 보낼 장치의 유형|VirtualAppliance, VPN 게이트웨이, 인터넷|
+|**nextHopIpAddress**|다음 홉에 대한 IP 주소|192\.168.1.4|
 
 
-Sample route table in JSON format:
+JSON 형식의 샘플 경로 테이블:
 
-    {
-        "name": "UDR-BackEnd",
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd",
-        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-        "type": "Microsoft.Network/routeTables",
-        "location": "westus",
-        "properties": {
-            "provisioningState": "Succeeded",
-            "routes": [
-                {
-                    "name": "RouteToFrontEnd",
-                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd/routes/RouteToFrontEnd",
-                    "etag": "W/\"v\"",
-                    "properties": {
-                        "provisioningState": "Succeeded",
-                        "addressPrefix": "192.168.1.0/24",
-                        "nextHopType": "VirtualAppliance",
-                        "nextHopIpAddress": "192.168.0.4"
-                    }
-                }
-            ],
-            "subnets": [
-                {
-                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd"
-                }
-            ]
-        }
-    }
+	{
+	    "name": "UDR-BackEnd",
+	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd",
+	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+	    "type": "Microsoft.Network/routeTables",
+	    "location": "westus",
+	    "properties": {
+	        "provisioningState": "Succeeded",
+	        "routes": [
+	            {
+	                "name": "RouteToFrontEnd",
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd/routes/RouteToFrontEnd",
+	                "etag": "W/"v"",
+	                "properties": {
+	                    "provisioningState": "Succeeded",
+	                    "addressPrefix": "192.168.1.0/24",
+	                    "nextHopType": "VirtualAppliance",
+	                    "nextHopIpAddress": "192.168.0.4"
+	                }
+	            }
+	        ],
+	        "subnets": [
+	            {
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd"
+	            }
+	        ]
+	    }
+	}
 
-### <a name="additional-resources"></a>Additional resources
+### 추가 리소스
 
-- Get more information about [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).
-- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502549.aspx) for route tables.
-- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502539.aspx) for user defined routes (UDRs).
+- [UDR](../articles/virtual-network/virtual-networks-udr-overview.md)에 대해 자세히 알아보세요.
+- 경로 테이블에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt502549.aspx)를 읽어보세요.
+- UDR(사용자 정의 경로)에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt502539.aspx)를 읽어보세요.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

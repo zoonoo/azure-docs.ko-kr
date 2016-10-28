@@ -1,444 +1,442 @@
 <properties
-    pageTitle="Send push notifications to Chrome apps with Azure Notification Hubs | Microsoft Azure"
-    description="Learn how to use Azure Notification Hubs to send push notifications to a Chrome App."
-    services="notification-hubs"
-    keywords="mobile push notifications,push notifications,push notification,chrome push notifications"
-    documentationCenter=""
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Azure 알림 허브를 사용하여 Chrome 앱에 푸시 알림 보내기 | Microsoft Azure"
+	description="Azure 알림 허브를 사용하여 Chrome 앱에 푸시 알림을 보내는 방법을 알아봅니다."
+	services="notification-hubs"
+    keywords="모바일 푸시 알림, 푸시 알림, 푸시 알림, Chrome 푸시 알림"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-chrome"
-    ms.devlang="JavaScript"
-    ms.topic="hero-article"
-    ms.date="10/03/2016"
-    ms.author="wesmc"/>
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-chrome"
+	ms.devlang="JavaScript"
+	ms.topic="hero-article"
+	ms.date="10/03/2016"
+	ms.author="wesmc"/>
 
-
-# <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Send push notifications to Chrome apps with Azure Notification Hubs
+# Azure 알림 허브를 사용하여 Chrome 앱에 푸시 알림 보내기
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-This topic shows you how to use Azure Notification Hubs to send push notifications to a Chrome App, which will be displayed within the context of the Google Chrome browser. In this tutorial, we will create a Chrome app that receives push notifications by using [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). 
+이 항목에서는 Azure Notification Hubs를 사용하여 Google Chrome 브라우저의 컨텍스트 내에서 표시되는 Chrome 앱에 푸시 알림을 보내는 방법을 보여줍니다. 이 자습서에서는 [GCM(Google Cloud Messaging)](https://developers.google.com/cloud-messaging/)을 사용하여 푸시 알림을 받는 Chrome 앱을 만듭니다.
 
->[AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
+>[AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)을 참조하세요.
 
-The tutorial walks you through these basic steps to enable push notifications:
+이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 차례로 안내합니다.
 
-* [Enable Google Cloud Messaging](#register)
-* [Configure your notification hub](#configure-hub)
-* [Connect your Chrome App to the notification hub](#connect-app)
-* [Send a push notification to your Chrome App](#send)
-* [Additional functionality & capabilities](#next-steps)
+* [Google Cloud Messaging 사용](#register)
+* [알림 허브 구성](#configure-hub)
+* [알림 허브에 Chrome 앱 연결](#connect-app)
+* [Chrome 앱에 푸시 알림 보내기](#send)
+* [추가 기능 및 성능](#next-steps)
 
->[AZURE.NOTE] Chrome app push notifications are not generic in-browser notifications - they are specific to the browser extensibility model (see [Chrome Apps Overview] for details). In addition to the desktop browser, Chrome apps run on mobile (Android and iOS) through Apache Cordova. See [Chrome Apps on Mobile] to learn more.
+>[AZURE.NOTE] Chrome 앱 푸시 알림은 일반적인 브라우저 내 알림이 아닙니다. 브라우저 확장성 모델에 특정됩니다(자세한 내용은 [Chrome 앱 개요] 참조). 데스크톱 브라우저 외에도 Chrome 앱은 모바일(Android 및 iOS)에서 Apache Cordova를 통해 실행됩니다. 자세한 내용은 [모바일의 Chrome 앱]을 참조하십시오.
 
-Configuring GCM and Azure Notification Hubs is identical to configuring for Android, since [Google Cloud Messaging for Chrome] has been deprecated and the same GCM now supports both Android devices and Chrome instances.
+GCM과 Azure 알림 허브를 구성하는 작업은 Android용 구성 작업과 같습니다. [Google Cloud Messaging for Chrome]은 더 이상 사용되지 않으며, 이제는 동일한 GCM이 Android 장치와 Chrome 인스턴스를 모두 지원하기 때문입니다.
 
-##<a name="<a-id="register"></a>enable-google-cloud-messaging"></a><a id="register"></a>Enable Google Cloud Messaging
+##<a id="register"></a>Google Cloud Messaging 사용
 
-1. Navigate to the [Google Cloud Console] website, sign in with your Google account credentials, and then click the **Create Project** button. Provide an appropriate **Project Name**, and then click the **Create** button.
+1. [Google 클라우드 콘솔] 웹 사이트로 이동하여 Google 계정 자격 증명으로 로그인한 후에 **프로젝트 만들기** 단추를 클릭합니다. 적합한 **프로젝트 이름**을 입력하고 **만들기** 단추를 클릭합니다.
 
-    ![Google Cloud Console - Create Project][1]
+   	![Google 클라우드 콘솔 - 프로젝트 만들기][1]
 
-2. Make a note of the **Project Number** on the **Projects** page for the project that you just created. You will use this as the **GCM Sender ID** in the Chrome App to register with GCM.
+2. 방금 만든 프로젝트의 **프로젝트** 페이지에서 **프로젝트 번호**를 적어 둡니다. 이 번호를 Chrome 앱에서 GCM에 등록하기 위한 **GCM 보낸 사람 ID**로 사용합니다.
 
-    ![Google Cloud Console - Project Number][2]
+   	![Google 클라우드 콘솔 - 프로젝트 번호][2]
 
-3. In the left pane, click **APIs & auth**, and then scroll down and click the toggle to enable **Google Cloud Messaging for Android**. You don't have to enable **Google Cloud Messaging for Chrome**.
+3. 왼쪽 창에서 **API 및 인증**을 클릭하고 아래로 스크롤한 다음 토글을 클릭하여 **Google Cloud Messaging for Android**를 사용하도록 설정합니다. **Google Cloud Messaging for Chrome**을 사용하도록 설정할 필요는 없습니다.
 
-    ![Google Cloud Console - Server Key][3]
+   	![Google 클라우드 콘솔 - 서버 키][3]
 
-4. In the left pane, click **Credentials** > **Create New Key** > **Server Key** > **Create**.
+4. 왼쪽 창에서 **자격 증명** -> **새 키 만들기** -> **서버 키** -> **만들기**를 클릭합니다.
 
-    ![Google Cloud Console - Credentials][4]
+   	![Google 클라우드 콘솔 - 자격 증명][4]
 
-5. Make a note of the server **API Key**. You will configure this in your notification hub next, to enable it to send push notifications to GCM.
+5. 서버 **API 키** 값을 적어 둡니다. 다음으로 알림 허브에서 이 키를 구성하여 GCM으로 푸시 알림을 보내도록 설정합니다.
 
-    ![Google Cloud Console - API Key][5]
+   	![Google 클라우드 콘솔 - API 키][5]
 
-##<a name="<a-id="configure-hub"></a>configure-your-notification-hub"></a><a id="configure-hub"></a>Configure your notification hub
+##<a id="configure-hub"></a>알림 허브 구성
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-&emsp;&emsp;6.   In the **Settings** blade, select **Notification Services** and then **Google (GCM)**. Enter the API key and save.
+&emsp;&emsp;6. **설정** 블레이드에서 **알림 서비스**를 선택한 다음 **Google(GCM)**을 선택합니다. API 키를 입력하고 저장합니다.
 
-&emsp;&emsp;![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+&emsp;&emsp;![Azure 알림 허브 - Google(GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
-##<a name="<a-id="connect-app"></a>connect-your-chrome-app-to-the-notification-hub"></a><a id="connect-app"></a>Connect your Chrome App to the notification hub
+##<a id="connect-app"></a>알림 허브에 Chrome 앱 연결
 
-Your notification hub is now configured to work with GCM, and you have the connection strings to register your app to both receive and send push notifications. LK
+이제 알림 허브가 GCM과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다. LK
 
-###<a name="create-a-new-chrome-app"></a>Create a new Chrome App
+###새 Chrome 앱 만들기
 
-The sample below is based on the [Chrome App GCM Sample] and uses the recommended way to create a Chrome App. We will highlight the steps specifically related to Azure Notification Hubs. 
+[Chrome App GCM 샘플]을 기반으로 하는 아래 샘플에서는 권장되는 방식으로 Chrome 앱을 만듭니다. Azure 알림 허브에 관련된 단계를 중점적으로 설명합니다.
 
->[AZURE.NOTE] We recommend that you download the source for this Chrome App from [Chrome App Notification Hub Sample].
+>[AZURE.NOTE] [Chrome 앱 알림 허브 샘플]에서 이 Chrome 앱용 소스를 다운로드하는 것이 좋습니다.
 
-The Chrome App is created via JavaScript, and you can use any of your preferred word editors for creating it. Below is what this Chrome App will look like.
+JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 편집기를 사용하면 됩니다. 아래에 이 Chrome 앱이 나와 있습니다.
 
-![Google Chrome App][15]
+![Google Chrome 앱][15]
 
-1. Create a folder and name it `ChromePushApp`. Of course, the name is arbitrary - if you name it something different, make sure you substitute the path in the required code segments.
+1. 폴더를 만들고 이름을 `ChromePushApp`로 지정합니다. 물론 이름은 임의입니다. 이름이 다른 경우 필요한 코드 세그먼트에서 경로를 대체하도록 합니다.
 
-2. Download the [crypto-js library] in the folder you created in the second step. This library folder will contain two subfolders: `components` and `rollups`.
+2. 두 번째 단계에서 만든 폴더에 [crypto-js 라이브러리]를 다운로드합니다. 이 라이브러리 폴더에는 `components` 및 `rollups`이라는 두 하위 폴더가 포함됩니다.
 
-3. Create a `manifest.json` file. All Chrome Apps are backed by a manifest file that contains the app metadata and, most importantly, all permissions that are granted to the app when the user installs it.
+3. `manifest.json` 파일을 만듭니다. 모든 Chrome 앱은 앱 메타데이터 및 사용자가 설치하는 경우 앱에 부여된 권한을 모두 포함하는 매니페스트 파일에서 지원됩니다.
 
-        {
-          "name": "NH-GCM Notifications",
-          "description": "Chrome platform app.",
-          "manifest_version": 2,
-          "version": "0.1",
-          "app": {
-            "background": {
-              "scripts": ["background.js"]
-            }
-          },
-          "permissions": ["gcm", "storage", "notifications", "https://*.servicebus.windows.net/*"],
-          "icons": { "128": "gcm_128.png" }
-        }
+		{
+		  "name": "NH-GCM Notifications",
+		  "description": "Chrome platform app.",
+		  "manifest_version": 2,
+		  "version": "0.1",
+		  "app": {
+		    "background": {
+		      "scripts": ["background.js"]
+		    }
+		  },
+		  "permissions": ["gcm", "storage", "notifications", "https://*.servicebus.windows.net/*"],
+		  "icons": { "128": "gcm_128.png" }
+		}
 
-    Notice the `permissions` element, which specifies that this Chrome App will be able to receive push notifications from GCM. It must also specify the Azure Notification Hubs URI where the Chrome App will make a REST call to register.
-    Our sample app also uses an icon file, `gcm_128.png`, that you will find at the source that's reused from the original GCM sample. You can substitute it for any image that fits the [icon criteria](https://developer.chrome.com/apps/manifest/icons).
+	위 코드에서는 이 Chrome 앱이 GCM에서 푸시 알림을 받을 수 있도록 지정하는 `permissions` 요소를 확인할 수 있습니다. 이 요소는 Chrome 앱이 등록을 위한 REST 호출을 수행하는 Azure 알림 허브 URI도 지정해야 합니다. 또한 샘플 앱은 원본 GCM 샘플에서 다시 사용되는 소스에 들어 있는 `gcm_128.png` 아이콘 파일을 사용합니다. [아이콘 조건](https://developer.chrome.com/apps/manifest/icons)에 맞는 이미지로 대체할 수 있습니다.
 
-4. Create a file called `background.js` with the following code:
+4. 다음 코드를 사용하여 `background.js`라는 파일을 만듭니다.
 
-        // Returns a new notification ID used in the notification.
-        function getNotificationId() {
-          var id = Math.floor(Math.random() * 9007199254740992) + 1;
-          return id.toString();
-        }
+		// Returns a new notification ID used in the notification.
+		function getNotificationId() {
+		  var id = Math.floor(Math.random() * 9007199254740992) + 1;
+		  return id.toString();
+		}
 
-        function messageReceived(message) {
-          // A message is an object with a data property that
-          // consists of key-value pairs.
+		function messageReceived(message) {
+		  // A message is an object with a data property that
+		  // consists of key-value pairs.
 
-          // Concatenate all key-value pairs to form a display string.
-          var messageString = "";
-          for (var key in message.data) {
-            if (messageString != "")
-              messageString += ", "
-            messageString += key + ":" + message.data[key];
-          }
-          console.log("Message received: " + messageString);
+		  // Concatenate all key-value pairs to form a display string.
+		  var messageString = "";
+		  for (var key in message.data) {
+		    if (messageString != "")
+		      messageString += ", "
+		    messageString += key + ":" + message.data[key];
+		  }
+		  console.log("Message received: " + messageString);
 
-          // Pop up a notification to show the GCM message.
-          chrome.notifications.create(getNotificationId(), {
-            title: 'GCM Message',
-            iconUrl: 'gcm_128.png',
-            type: 'basic',
-            message: messageString
-          }, function() {});
-        }
+		  // Pop up a notification to show the GCM message.
+		  chrome.notifications.create(getNotificationId(), {
+		    title: 'GCM Message',
+		    iconUrl: 'gcm_128.png',
+		    type: 'basic',
+		    message: messageString
+		  }, function() {});
+		}
 
-        var registerWindowCreated = false;
+		var registerWindowCreated = false;
 
-        function firstTimeRegistration() {
-          chrome.storage.local.get("registered", function(result) {
+		function firstTimeRegistration() {
+		  chrome.storage.local.get("registered", function(result) {
 
-            registerWindowCreated = true;
-            chrome.app.window.create(
-              "register.html",
-              {  width: 520,
-                 height: 500,
-                 frame: 'chrome'
-              },
-              function(appWin) {}
-            );
-          });
-        }
+		    registerWindowCreated = true;
+		    chrome.app.window.create(
+		      "register.html",
+		      {  width: 520,
+		         height: 500,
+		         frame: 'chrome'
+		      },
+		      function(appWin) {}
+		    );
+		  });
+		}
 
-        // Set up a listener for GCM message event.
-        chrome.gcm.onMessage.addListener(messageReceived);
+		// Set up a listener for GCM message event.
+		chrome.gcm.onMessage.addListener(messageReceived);
 
-        // Set up listeners to trigger the first-time registration.
-        chrome.runtime.onInstalled.addListener(firstTimeRegistration);
-        chrome.runtime.onStartup.addListener(firstTimeRegistration);
+		// Set up listeners to trigger the first-time registration.
+		chrome.runtime.onInstalled.addListener(firstTimeRegistration);
+		chrome.runtime.onStartup.addListener(firstTimeRegistration);
 
-    This is the file that pops up the Chrome App window HTML (**register.html**) and also defines the handler **messageReceived** to handle the incoming push notification.
+	이 파일은 Chrome 앱 창 HTML(**register.html**) 팝업을 표시하며 들어오는 푸시 알림을 처리하는 처리기 **messageReceived**도 정의합니다.
 
-5. Create a file called `register.html` - this defines the UI of the Chrome App. 
+5. `register.html`라는 파일 만들기 - Chrome 앱의 UI를 정의합니다.
 
-   >[AZURE.NOTE] This sample uses **CryptoJS v3.1.2**. If you downloaded another version of the library, make sure you properly substitute the version in the `src` path.
+   >[AZURE.NOTE] 이 샘플은 **CryptoJS v3.1.2**를 사용합니다. 다른 버전의 라이브러리를 다운로드한 경우 `src` 경로에서 버전을 제대로 대체하도록 합니다.
 
-        <html>
-
-        <head>
-        <title>GCM Registration</title>
-        <script src="register.js"></script>
-        <script src="CryptoJS v3.1.2/rollups/hmac-sha256.js"></script>
-        <script src="CryptoJS v3.1.2/components/enc-base64-min.js"></script>
-        </head>
-
-        <body>
-
-        Sender ID:<br/><input id="senderId" type="TEXT" size="20"><br/>
-        <button id="registerWithGCM">Register with GCM</button>
-        <br/>
-        <br/>
-        <br/>
-
-        Notification Hub Name:<br/><input id="hubName" type="TEXT" style="width:400px"><br/><br/>
-        Connection String:<br/><textarea id="connectionString" type="TEXT" style="width:400px;height:60px"></textarea>
-
-        <br/>
-
-        <button id="registerWithNH" disabled="true">Register with Azure Notification Hubs</button>
-
-        <br/>
-        <br/>
-
-        <textarea id="console" type="TEXT" readonly style="width:500px;height:200px;background-color:#e5e5e5;padding:5px"></textarea>
-
-        </body>
-
-        </html>
-
-6. Create a file called `register.js` with the code below. This file specifies the script behind `register.html`. Chrome Apps do not allow inline execution, so you have to create a separate backing script for your UI.
-
-        var registrationId = "";
-        var hubName        = "", connectionString = "";
-        var originalUri    = "", targetUri = "", endpoint = "", sasKeyName = "", sasKeyValue = "", sasToken = "";
-
-        window.onload = function() {
-           document.getElementById("registerWithGCM").onclick = registerWithGCM;  
-           document.getElementById("registerWithNH").onclick = registerWithNH;
-           updateLog("You have not registered yet. Please provider sender ID and register with GCM and then with  Notification Hubs.");
-        }
-
-        function updateLog(status) {
-          currentStatus = document.getElementById("console").innerHTML;
-          if (currentStatus != "") {
-            currentStatus = currentStatus + "\n\n";
-          }
-
-          document.getElementById("console").innerHTML = currentStatus  + status;
-        }
-
-        function registerWithGCM() {
-          var senderId = document.getElementById("senderId").value.trim();
-          chrome.gcm.register([senderId], registerCallback);
-
-          // Prevent register button from being clicked again before the registration finishes.
-          document.getElementById("registerWithGCM").disabled = true;
-        }
-
-        function registerCallback(regId) {
-          registrationId = regId;
-          document.getElementById("registerWithGCM").disabled = false;
-
-          if (chrome.runtime.lastError) {
-            // When the registration fails, handle the error and retry the
-            // registration later.
-            updateLog("Registration failed: " + chrome.runtime.lastError.message);
-            return;
-          }
-
-          updateLog("Registration with GCM succeeded.");
-          document.getElementById("registerWithNH").disabled = false;
-
-          // Mark that the first-time registration is done.
-          chrome.storage.local.set({registered: true});
-        }
-
-        function registerWithNH() {
-          hubName = document.getElementById("hubName").value.trim();
-          connectionString = document.getElementById("connectionString").value.trim();
-          splitConnectionString();
-          generateSaSToken();
-          sendNHRegistrationRequest();
-        }
-
-        // From http://msdn.microsoft.com/library/dn495627.aspx
-        function splitConnectionString()
-        {
-          var parts = connectionString.split(';');
-          if (parts.length != 3)
-          throw "Error parsing connection string";
-
-          parts.forEach(function(part) {
-            if (part.indexOf('Endpoint') == 0) {
-            endpoint = 'https' + part.substring(11);
-            } else if (part.indexOf('SharedAccessKeyName') == 0) {
-            sasKeyName = part.substring(20);
-            } else if (part.indexOf('SharedAccessKey') == 0) {
-            sasKeyValue = part.substring(16);
-            }
-          });
-
-          originalUri = endpoint + hubName;
-        }
-
-        function generateSaSToken()
-        {
-          targetUri = encodeURIComponent(originalUri.toLowerCase()).toLowerCase();
-          var expiresInMins = 10; // 10 minute expiration
-
-          // Set expiration in seconds.
-          var expireOnDate = new Date();
-          expireOnDate.setMinutes(expireOnDate.getMinutes() + expiresInMins);
-          var expires = Date.UTC(expireOnDate.getUTCFullYear(), expireOnDate
-            .getUTCMonth(), expireOnDate.getUTCDate(), expireOnDate
-            .getUTCHours(), expireOnDate.getUTCMinutes(), expireOnDate
-            .getUTCSeconds()) / 1000;
-          var tosign = targetUri + '\n' + expires;
-
-          // Using CryptoJS.
-          var signature = CryptoJS.HmacSHA256(tosign, sasKeyValue);
-          var base64signature = signature.toString(CryptoJS.enc.Base64);
-          var base64UriEncoded = encodeURIComponent(base64signature);
-
-          // Construct authorization string.
-          sasToken = "SharedAccessSignature sr=" + targetUri + "&sig="
-                          + base64UriEncoded + "&se=" + expires + "&skn=" + sasKeyName;
-        }
-
-        function sendNHRegistrationRequest()
-        {
-          var registrationPayload =
-          "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-          "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
-              "<content type=\"application/xml\">" +
-                  "<GcmRegistrationDescription xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/netservices/2010/10/servicebus/connect\">" +
-                      "<GcmRegistrationId>{GCMRegistrationId}</GcmRegistrationId>" +
-                  "</GcmRegistrationDescription>" +
-              "</content>" +
-          "</entry>";
-
-          // Update the payload with the registration ID obtained earlier.
-          registrationPayload = registrationPayload.replace("{GCMRegistrationId}", registrationId);
-
-          var url = originalUri + "/registrations/?api-version=2014-09";
-          var client = new XMLHttpRequest();
-
-          client.onload = function () {
-            if (client.readyState == 4) {
-              if (client.status == 200) {
-                updateLog("Notification Hub Registration succesful!");
-                updateLog(client.responseText);
-              } else {
-                updateLog("Notification Hub Registration did not succeed!");
-                updateLog("HTTP Status: " + client.status + " : " + client.statusText);
-                updateLog("HTTP Response: " + "\n" + client.responseText);
-              }
-            }
-          };
-
-          client.onerror = function () {
-                updateLog("ERROR - Notification Hub Registration did not succeed!");
-          }
-
-          client.open("POST", url, true);
-          client.setRequestHeader("Content-Type", "application/atom+xml;type=entry;charset=utf-8");
-          client.setRequestHeader("Authorization", sasToken);
-          client.setRequestHeader("x-ms-version", "2014-09");
-
-          try {
-              client.send(registrationPayload);
-          }
-          catch(err) {
-              updateLog(err.message);
-          }
-        }
-
-    The above script has the following key parameters:
-    - **window.onload** defines the button-click events of the two buttons on the UI. One registers with GCM, and the other uses the registration ID that's returned after registration with GCM to register with Azure Notification Hubs.
-    - **updateLog** is the function that allows us to handle simple logging capabilities.
-    - **registerWithGCM** is the first button-click handler, which makes the `chrome.gcm.register` call to GCM to register the current Chrome App instance.
-    - **registerCallback** is the callback function that gets called when the GCM registration call returns.
-    - **registerWithNH** is the second button-click handler, which registers with Notification Hubs. It gets `hubName` and `connectionString` (which the user has specified) and crafts the Notification Hubs Registration REST API call.
-    - **splitConnectionString** and **generateSaSToken** are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](http://msdn.microsoft.com/library/dn495627.aspx).
-    - **sendNHRegistrationRequest** is the function that makes a HTTP REST call to Azure Notification Hubs.
-    - **registrationPayload** defines the registration XML payload. For more information, see [Create Registration NH REST API]. We update the registration ID in it with what we received from GCM.
-    - **client** is an instance of **XMLHttpRequest** that we use to make the HTTP POST request. Note that we update the `Authorization` header with `sasToken`. Successful completion of this call will register this Chrome App instance with Azure Notification Hubs.
-
-
-The overall folder structure for this project should resemble this:     ![Google Chrome App - Folder Structure][21]
-
-###<a name="set-up-and-test-your-chrome-app"></a>Set up and test your Chrome App
-
-1. Open your Chrome browser. Open **Chrome extensions** and enable **Developer mode**.
-
-    ![Google Chrome - Enable Developer Mode][16]
-
-2. Click **Load unpacked extension** and navigate to the folder where you created the files. You can also optionally use the **Chrome Apps & Extensions Developer Tool**. This tool is a Chrome App in itself (installed from the Chrome Web Store) and provides advanced debugging capabilities for your Chrome App development.
-
-    ![Google Chrome - Load Unpacked Extension][17]
-
-3. If the Chrome App is created without any errors, then you will see your Chrome App show up.
-
-    ![Google Chrome - Chrome App Display][18]
-
-4. Enter the **Project Number** that you got earlier from the **Google Cloud Console** as the sender ID, and click **Register with GCM**. You must see the message **Registration with GCM succeeded.**
-
-    ![Google Chrome - Chrome App Customization][19]
-
-5. Enter your **Notification Hub Name** and the **DefaultListenSharedAccessSignature** that you obtained from the portal earlier, and click **Register with Azure Notification Hub**. You must see the message **Notification Hub Registration successful!** and the details of the registration response, which contains the Azure Notification Hubs registration ID.
-
-    ![Google Chrome - Specify Notification Hub Details][20]  
-
-##<a name="<a-name="send"></a>send-a-notification-to-your-chrome-app"></a><a name="send"></a>Send a notification to your Chrome App
-
-For testing purposes, we will send Chrome push notifications by using a .NET console application. 
-
->[AZURE.NOTE] You can send push notifications with Notification Hubs from any backend via our public <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. Check out our [documentation portal](https://azure.microsoft.com/documentation/services/notification-hubs/) for more cross-platform examples.
-
-1. In Visual Studio, from the **File** menu, select **New** and then **Project**. Under **Visual C#**, click **Windows** and **Console Application**, and then click **OK**.  This creates a new console application project.
-
-2. From the **Tools** menu, click **Library Package Manager** and then **Package Manager Console**. This displays the Package Manager Console.
-
-3. In the console window, execute the following command:
+		<html>
+
+		<head>
+		<title>GCM Registration</title>
+		<script src="register.js"></script>
+		<script src="CryptoJS v3.1.2/rollups/hmac-sha256.js"></script>
+		<script src="CryptoJS v3.1.2/components/enc-base64-min.js"></script>
+		</head>
+
+		<body>
+
+		Sender ID:<br/><input id="senderId" type="TEXT" size="20"><br/>
+		<button id="registerWithGCM">Register with GCM</button>
+		<br/>
+		<br/>
+		<br/>
+
+		Notification Hub Name:<br/><input id="hubName" type="TEXT" style="width:400px"><br/><br/>
+		Connection String:<br/><textarea id="connectionString" type="TEXT" style="width:400px;height:60px"></textarea>
+
+		<br/>
+
+		<button id="registerWithNH" disabled="true">Register with Azure Notification Hubs</button>
+
+		<br/>
+		<br/>
+
+		<textarea id="console" type="TEXT" readonly style="width:500px;height:200px;background-color:#e5e5e5;padding:5px"></textarea>
+
+		</body>
+
+		</html>
+
+6. 아래 코드로 `register.js`이라는 파일을 만듭니다. 이 파일은 `register.html`의 스크립트를 지정합니다. Chrome 앱은 인라인 실행을 허용하지 않으므로 UI에 대해 별도의 지원 스크립트를 만들어야 합니다.
+
+		var registrationId = "";
+		var hubName        = "", connectionString = "";
+		var originalUri    = "", targetUri = "", endpoint = "", sasKeyName = "", sasKeyValue = "", sasToken = "";
+
+		window.onload = function() {
+		   document.getElementById("registerWithGCM").onclick = registerWithGCM;  
+		   document.getElementById("registerWithNH").onclick = registerWithNH;
+		   updateLog("You have not registered yet. Please provider sender ID and register with GCM and then with  Notification Hubs.");
+		}
+
+		function updateLog(status) {
+		  currentStatus = document.getElementById("console").innerHTML;
+		  if (currentStatus != "") {
+		    currentStatus = currentStatus + "\n\n";
+		  }
+
+		  document.getElementById("console").innerHTML = currentStatus  + status;
+		}
+
+		function registerWithGCM() {
+		  var senderId = document.getElementById("senderId").value.trim();
+		  chrome.gcm.register([senderId], registerCallback);
+
+		  // Prevent register button from being clicked again before the registration finishes.
+		  document.getElementById("registerWithGCM").disabled = true;
+		}
+
+		function registerCallback(regId) {
+		  registrationId = regId;
+		  document.getElementById("registerWithGCM").disabled = false;
+
+		  if (chrome.runtime.lastError) {
+		    // When the registration fails, handle the error and retry the
+		    // registration later.
+		    updateLog("Registration failed: " + chrome.runtime.lastError.message);
+		    return;
+		  }
+
+		  updateLog("Registration with GCM succeeded.");
+		  document.getElementById("registerWithNH").disabled = false;
+
+		  // Mark that the first-time registration is done.
+		  chrome.storage.local.set({registered: true});
+		}
+
+		function registerWithNH() {
+		  hubName = document.getElementById("hubName").value.trim();
+		  connectionString = document.getElementById("connectionString").value.trim();
+		  splitConnectionString();
+		  generateSaSToken();
+		  sendNHRegistrationRequest();
+		}
+
+		// From http://msdn.microsoft.com/library/dn495627.aspx
+		function splitConnectionString()
+		{
+		  var parts = connectionString.split(';');
+		  if (parts.length != 3)
+		  throw "Error parsing connection string";
+
+		  parts.forEach(function(part) {
+		    if (part.indexOf('Endpoint') == 0) {
+		    endpoint = 'https' + part.substring(11);
+		    } else if (part.indexOf('SharedAccessKeyName') == 0) {
+		    sasKeyName = part.substring(20);
+		    } else if (part.indexOf('SharedAccessKey') == 0) {
+		    sasKeyValue = part.substring(16);
+		    }
+		  });
+
+		  originalUri = endpoint + hubName;
+		}
+
+		function generateSaSToken()
+		{
+		  targetUri = encodeURIComponent(originalUri.toLowerCase()).toLowerCase();
+		  var expiresInMins = 10; // 10 minute expiration
+
+		  // Set expiration in seconds.
+		  var expireOnDate = new Date();
+		  expireOnDate.setMinutes(expireOnDate.getMinutes() + expiresInMins);
+		  var expires = Date.UTC(expireOnDate.getUTCFullYear(), expireOnDate
+		    .getUTCMonth(), expireOnDate.getUTCDate(), expireOnDate
+		    .getUTCHours(), expireOnDate.getUTCMinutes(), expireOnDate
+		    .getUTCSeconds()) / 1000;
+		  var tosign = targetUri + '\n' + expires;
+
+		  // Using CryptoJS.
+		  var signature = CryptoJS.HmacSHA256(tosign, sasKeyValue);
+		  var base64signature = signature.toString(CryptoJS.enc.Base64);
+		  var base64UriEncoded = encodeURIComponent(base64signature);
+
+		  // Construct authorization string.
+		  sasToken = "SharedAccessSignature sr=" + targetUri + "&sig="
+		                  + base64UriEncoded + "&se=" + expires + "&skn=" + sasKeyName;
+		}
+
+		function sendNHRegistrationRequest()
+		{
+		  var registrationPayload =
+		  "<?xml version="1.0" encoding="utf-8"?>" +
+		  "<entry xmlns="http://www.w3.org/2005/Atom">" +
+		      "<content type="application/xml">" +
+		          "<GcmRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">" +
+		              "<GcmRegistrationId>{GCMRegistrationId}</GcmRegistrationId>" +
+		          "</GcmRegistrationDescription>" +
+		      "</content>" +
+		  "</entry>";
+
+		  // Update the payload with the registration ID obtained earlier.
+		  registrationPayload = registrationPayload.replace("{GCMRegistrationId}", registrationId);
+
+		  var url = originalUri + "/registrations/?api-version=2014-09";
+		  var client = new XMLHttpRequest();
+
+		  client.onload = function () {
+		    if (client.readyState == 4) {
+		      if (client.status == 200) {
+		        updateLog("Notification Hub Registration succesful!");
+		        updateLog(client.responseText);
+		      } else {
+		        updateLog("Notification Hub Registration did not succeed!");
+		        updateLog("HTTP Status: " + client.status + " : " + client.statusText);
+		        updateLog("HTTP Response: " + "\n" + client.responseText);
+		      }
+		    }
+		  };
+
+		  client.onerror = function () {
+		        updateLog("ERROR - Notification Hub Registration did not succeed!");
+		  }
+
+		  client.open("POST", url, true);
+		  client.setRequestHeader("Content-Type", "application/atom+xml;type=entry;charset=utf-8");
+		  client.setRequestHeader("Authorization", sasToken);
+		  client.setRequestHeader("x-ms-version", "2014-09");
+
+		  try {
+		      client.send(registrationPayload);
+		  }
+		  catch(err) {
+		      updateLog(err.message);
+		  }
+		}
+
+	위의 스크립트에는 다음과 같은 주요 매개 변수가 있습니다.
+	- **window.onload**는 UI에서 두 단추의 단추 클릭 이벤트를 정의합니다. 하나는 GCM으로 등록하고 다른 하나는 GCM으로 등록한 후에 반환되는 등록 ID를 사용하여 Azure 알림 허브로 등록합니다.
+	- **updateLog**는 간단한 로깅 기능을 처리하도록 허용하는 함수입니다.
+	- **registerWithGCM**은 GCM에 대한 `chrome.gcm.register` 호출을 수행하여 현재 Chrome 앱 인스턴스를 등록하는 첫 번째 단추 클릭 처리기입니다.
+	- **registerCallback**은 GCM 등록 호출이 반환될 때 호출되는 콜백 함수입니다.
+	- **registerWithNH**는 알림 허브로 등록하는 두 번째 단추 클릭 처리기입니다. 사용자가 지정한 `hubName` 및 `connectionString`을 가져와 알림 허브 등록 REST API 호출을 만듭니다.
+	- **splitConnectionString** 및 **generateSaSToken**은 모든 REST API 호출에서 사용되어야 하는 SaS 토큰 만들기 프로세스의 JavaScript 구현을 나타내는 도우미입니다. 자세한 내용은 [일반적인 개념](http://msdn.microsoft.com/library/dn495627.aspx)을 참조하세요.
+	- **sendNHRegistrationRequest**는 Azure 알림 허브에 대한 HTTP REST 호출을 수행하는 함수입니다.
+	- **registrationPayload**는 등록 XML 페이로드를 정의합니다. 자세한 내용은 [등록 NH REST API 만들기]를 참조하세요. 여기서는 GCM에서 받은 정보를 사용하여 등록 ID를 업데이트합니다.
+	- **클라이언트**는 HTTP 게시 요청을 수행하는 데 사용하는 **XMLHttpRequest** 인스턴스입니다. 여기서는 `sasToken`를 사용하여 `Authorization` 헤더를 업데이트합니다. 이 호출이 정상적으로 완료되면 이 Chrome 앱 인스턴스가 Azure 알림 허브에 등록됩니다.
+
+
+이 프로젝트에 대한 전체 폴더 구조는 ![Google Chrome 앱 - 폴더 구조][21]과 비슷합니다.
+
+###Chrome 앱 설치 및 테스트
+
+1. Chrome 브라우저를 엽니다. **Chrome 확장**을 열고 **개발자 모드**를 사용하도록 설정합니다.
+
+   	![Google Chrome - 개발자 모드 사용][16]
+
+2. **압축 해제된 확장 로드**를 클릭하고 파일을 만든 폴더로 이동합니다. 또한 선택적으로 **크롬 앱 및 확장 개발자 도구**를 사용할 수 있습니다. 이 도구는(Chrome 웹 스토어에서 설치된) Chrome 응용 프로그램 자체이며 크롬 앱 개발에 대한 고급 디버깅 기능을 제공합니다.
+
+   	![Google Chrome - 압축 해제된 확장 로드][17]
+
+3. Chrome 앱이 오류 없이 작성되면 다음과 같이 표시됩니다.
+
+   	![Google Chrome - Chrome 앱 표시][18]
+
+4. 이전에 **Google 클라우드 콘솔**에서 확인한 **프로젝트 번호**를 보낸 사람 ID로 입력하고 **GCM에 등록**을 클릭합니다. **GCM로 등록 성공** 메시지가 나타납니다.
+
+   	![Google Chrome - Chrome 앱 사용자 지정][19]
+
+5. 앞에서 포털에서 확인한 **알림 허브 이름** 및 **DefaultListenSharedAccessSignature**를 입력하고 **Azure 알림 허브에 등록**을 클릭합니다. 그러면 **성공적으로 알림 허브 등록!** 메시지가 표시되고 Azure 알림 허브 등록 ID가 포함된 등록 응답 세부 정보도 함께 표시됩니다.
+
+   	![Google Chrome - 알림 허브 세부 정보 지정][20]
+
+##<a name="send"></a>Chrome 앱에 알림 보내기
+
+테스트를 위해 .NET 콘솔 응용 프로그램을 사용하여 Chrome 푸시 알림을 보냅니다.
+
+>[AZURE.NOTE] 공용 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 알림 허브를 사용하여 푸시 알림을 보낼 수 있습니다. 더 많은 플랫폼 간 예제는 [설명서 포털](https://azure.microsoft.com/documentation/services/notification-hubs/)을 확인합니다.
+
+1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#**에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 그러면 새 콘솔 응용 프로그램 프로젝트가 만들어집니다.
+
+2. **도구** 메뉴에서 **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 패키지 관리자 콘솔이 표시됩니다.
+
+3. 콘솔 창에서 다음 명령을 실행합니다.
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-    This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
+   	이 명령은 <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다.
 
-4. Open `Program.cs` and add the following `using` statement:
+4. `Program.cs`을 열고 다음 `using` 문을 추가합니다.
 
         using Microsoft.Azure.NotificationHubs;
 
-5. In the `Program` class, add the following method:
+5. `Program` 클래스에 다음 메서드를 추가합니다.
 
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            String message = "{\"data\":{\"message\":\"Hello Chrome from Azure Notification Hubs\"}}";
+            String message = "{"data":{"message":"Hello Chrome from Azure Notification Hubs"}}";
             await hub.SendGcmNativeNotificationAsync(message);
         }
 
-    Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub blade. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
+   	`<hub name>` 자리 표시자를 알림 허브 블레이드의 [포털](https://portal.azure.com)에 나타나는 알림 허브의 이름으로 바꿔야 합니다. 또한 연결 문자열 자리 표시자를 알림 허브 구성 섹션에서 가져온 `DefaultFullSharedAccessSignature`이라는 연결 문자열로 바꿉니다.
 
-    >[AZURE.NOTE] Make sure that you use the connection string with **Full** access, not **Listen** access. The **Listen** access connection string does not grant permissions to send push notifications.
+	>[AZURE.NOTE] **수신 대기** 권한이 아니라 **모든** 권한을 가진 연결 문자열을 사용해야 합니다. **수신** 액세스 연결 문자열은 푸시 알림을 보내는 권한을 부여하지 않습니다.
 
-5. Add the following calls in the `Main` method:
+5. `Main` 메서드에 다음 호출을 추가합니다.
 
          SendNotificationAsync();
-         Console.ReadLine();
+		 Console.ReadLine();
          
-6. Make sure that Chrome is running, and run the console application.
+6. Chrome을 실행하도록 하고 콘솔 응용 프로그램을 실행합니다.
 
-7. You should see the following notification pop up on your desktop.
+7. 바탕 화면에 다음 알림 팝업이 표시됩니다.
 
-    ![Google Chrome - Notification][13]
+   	![Google Chrome - 알림][13]
 
-8. You can also see all your notifications by using the Chrome Notifications window in the taskbar (in Windows) when Chrome is running.
+8. 또한 Chrome이 실행 중일 때 Window의 작업 표시줄에서 Chrome 알림 창을 사용하여 모든 알림을 확인할 수도 있습니다.
 
-    ![Google Chrome - Notifications List][14]
+   	![Google Chrome - 알림 목록][14]
 
->[AZURE.NOTE] You don't need to have the Chrome App running or open in the browser (though the Chrome browser itself must be running). You also get a consolidated view of all your notifications in the Chrome Notifications window.
+>[AZURE.NOTE] 크롬 앱을 실행하거나 브라우저에서 열 필요가 없습니다.(Chrome 브라우저 자체를 실행해야 함) 또한 Chrome 알림 창에서 모든 알림의 통합된 보기가 표시됩니다.
 
-## <a name="<a-name="next-steps">-</a>next-steps"></a><a name="next-steps"> </a>Next steps
+## <a name="next-steps"> </a>다음 단계
 
-Learn more about Notification Hubs in [Notification Hubs Overview].
+알림 허브에 대한 자세한 내용은 [알림 허브 개요]를 참조하세요.
 
-To target specific users, refer to the [Azure Notification Hubs Notify Users] tutorial. 
+특정 사용자를 대상으로 하려면 [Azure Notification Hubs 사용자에게 알림] 자습서를 참조하세요.
 
-If you want to segment your users by interest groups, you can follow the [Azure Notification Hubs breaking news] tutorial.
+사용자를 관심 그룹별로 분할하려면 [Azure Notification Hubs 뉴스 속보] 자습서를 수행합니다.
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
@@ -464,23 +462,19 @@ If you want to segment your users by interest groups, you can follow the [Azure 
 [21]: ./media/notification-hubs-chrome-get-started/FinalFolderView.png
 
 <!-- URLs. -->
-[Chrome App Notification Hub Sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
-[Google Cloud Console]: http://cloud.google.com/console
+[Chrome 앱 알림 허브 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
+[Google 클라우드 콘솔]: http://cloud.google.com/console
 [Azure Classic Portal]: https://manage.windowsazure.com/
-[Notification Hubs Overview]: notification-hubs-push-notification-overview.md
-[Chrome Apps Overview]: https://developer.chrome.com/apps/about_apps
-[Chrome App GCM Sample]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
+[알림 허브 개요]: notification-hubs-push-notification-overview.md
+[Chrome 앱 개요]: https://developer.chrome.com/apps/about_apps
+[Chrome App GCM 샘플]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
-[Chrome Apps on Mobile]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Create Registration NH REST API]: http://msdn.microsoft.com/library/azure/dn223265.aspx
-[crypto-js library]: http://code.google.com/p/crypto-js/
+[모바일의 Chrome 앱]: https://developer.chrome.com/apps/chrome_apps_on_mobile
+[등록 NH REST API 만들기]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[crypto-js 라이브러리]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Azure Notification Hubs breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Azure Notification Hubs 사용자에게 알림]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Azure Notification Hubs 뉴스 속보]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

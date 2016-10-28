@@ -1,34 +1,29 @@
 <properties
-    pageTitle="Virtual Machines and Containers | Microsoft Azure"
-    description="Describes virtual machines, Docker and Linux containers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well."
-    services="virtual-machines-windows"
-    documentationCenter="virtual-machines"
-    authors="squillace"
-    manager="timlt"
-    tags="azure-resource-manager,azure-service-management"
+	pageTitle="Azure 가상 컴퓨터 및 컨테이너 | Microsoft Azure"
+	description="가상 컴퓨터, Docker, Linux 컨테이너 및 Azure에서 함께 사용할 때 각각의 활용 방법에 대해 설명합니다. 이 활용 방법에는 각각의 장점과 각 접근 방법을 사용하기에 가장 좋은 시나리오가 포함되어 있습니다."
+	services="virtual-machines-windows"
+	documentationCenter="virtual-machines"
+	authors="squillace"
+	manager="timlt"
+	tags="azure-resource-manager,azure-service-management"
 />
 
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure"
-    ms.date="08/23/2016"
-    ms.author="rasquill"
+	ms.service="virtual-machines-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure"
+	ms.date="08/23/2016"
+	ms.author="rasquill"
 />
 
 
-
-# <a name="virtual-machines-and-containers-in-azure"></a>Virtual machines and containers in Azure
+# Azure의 가상 컴퓨터 및 컨테이너
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a custom probe for Application Gateway by using PowerShell in the classic deployment model | Microsoft Azure"
-   description="Learn how to create a custom probe for Application Gateway by using PowerShell in the classic deployment model"
+   pageTitle="클래식 배포 모델에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기 | Microsoft Azure"
+   description="클래식 배포 모델에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다."
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -17,67 +17,66 @@
    ms.date="08/09/2016"
    ms.author="gwallace" />
 
-
-# <a name="create-a-custom-probe-for-azure-application-gateway-(classic)-by-using-powershell"></a>Create a custom probe for Azure Application Gateway (classic) by using PowerShell
+# PowerShell을 사용하여 Azure 응용 프로그램 게이트웨이(클래식)에 대한 사용자 지정 프로브 만들기
 
 > [AZURE.SELECTOR]
-- [Azure portal](application-gateway-create-probe-portal.md)
+- [Azure 포털](application-gateway-create-probe-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+- [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
 
 <BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](application-gateway-create-probe-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](application-gateway-create-probe-ps.md)하는 방법을 알아봅니다.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## <a name="create-a-application-gateway"></a>Create a application gateway
+## 응용 프로그램 게이트웨이 만들기
 
-To create an application gateway:
+응용 프로그램 게이트웨이를 만들려면
 
-1. Create an application gateway resource.
-2. Create a configuration XML file or a configuration object.
-3. Commit the configuration to the newly created application gateway resource.
+1. 응용 프로그램 게이트웨이 리소스를 만듭니다.
+2. 구성 XML 파일 또는 구성 개체를 만듭니다.
+3. 구성을 새로 만든 응용 프로그램 게이트웨이 리소스에 커밋합니다.
 
-### <a name="create-an-application-gateway-resource"></a>Create an application gateway resource
+### 응용 프로그램 게이트웨이 리소스 만들기
 
-To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+게이트웨이를 만들려면 **New-AzureApplicationGateway** cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
 
-The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
+다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
 
-    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
+생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용합니다.
 
-    Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
->[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium, and Large.
+>[AZURE.NOTE]  *InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 
- *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
+ 게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
 
-## <a name="configure-an-application-gateway"></a>Configure an application gateway
+## 응용 프로그램 게이트웨이 구성
 
-You can configure the application gateway by using XML or a configuration object.
+XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성할 수 있습니다.
 
-## <a name="configure-an-application-gateway-by-using-xml"></a>Configure an application gateway by using XML
+## XML을 사용하여 응용 프로그램 게이트웨이 구성
 
-In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
+다음 예제에서는 XML 파일을 사용하여 모든 응용 프로그램 게이트웨이 설정을 구성하고 응용 프로그램 게이트웨이 리소스에 커밋합니다.
 
-### <a name="step-1"></a>Step 1
+### 1단계
 
-Copy the following text to Notepad.
+다음 텍스트를 메모장에 복사합니다.
 
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
         <FrontendIPConfiguration>
             <Name>fip1</Name>
             <Type>Private</Type>
         </FrontendIPConfiguration>
     </FrontendIPConfigurations>    
-    <FrontendPorts>
+	<FrontendPorts>
         <FrontendPort>
             <Name>port1</Name>
             <Port>80</Port>
@@ -99,7 +98,7 @@ Copy the following text to Notepad.
             <Name>pool1</Name>
             <IPAddresses>
                 <IPAddress>1.1.1.1</IPAddress>
-                <IPAddress>2.2.2.2</IPAddress>
+				<IPAddress>2.2.2.2</IPAddress>
             </IPAddresses>
         </BackendAddressPool>
     </BackendAddressPools>
@@ -117,7 +116,7 @@ Copy the following text to Notepad.
         <HttpListener>
             <Name>listener1</Name>
             <FrontendIP>fip1</FrontendIP>
-        <FrontendPort>port1</FrontendPort>
+	    <FrontendPort>port1</FrontendPort>
             <Protocol>Http</Protocol>
         </HttpListener>
     </HttpListeners>
@@ -130,44 +129,44 @@ Copy the following text to Notepad.
             <BackendAddressPool>pool1</BackendAddressPool>
         </HttpLoadBalancingRule>
     </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
+	</ApplicationGatewayConfiguration>
 
 
-Edit the values between the parentheses for the configuration items. Save the file with extension .xml.
+구성 항목에 대한 괄호 사이의 값을 편집합니다. 확장명이 .xml인 파일을 저장합니다.
 
-The following example shows how to use a configuration file to set up the application gateway, to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.
+다음 예제에서는 구성 파일을 사용하여 공용 포트 80에서 HTTP 트래픽의 부하를 분산하는 응용 프로그램 게이트웨이를 설정하고 사용자 지정 프로브를 사용하여 두 IP 주소 사이의 백 엔드 포트 80으로 네트워크 트래픽을 전송하는 방법을 보여 줍니다.
 
->[AZURE.IMPORTANT] The protocol item Http or Https is case-sensitive.
+>[AZURE.IMPORTANT] Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
 
-A new configuration item <Probe> is added to configure custom probes.
+새 구성 항목 <Probe>를 추가하여 사용자 지정 프로브를 구성합니다.
 
-The configuration parameters are:
+구성 매개 변수:
 
-- **Name** - Reference name for custom probe.
-- **Protocol** - Protocol used (possible values are HTTP or HTTPS).
-- **Host** and **Path** - Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
-- **Interval** - Configures the probe interval checks in seconds.
-- **Timeout** - Defines the probe time-out for an HTTP response check.
-- **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
+- **Name** - 사용자 지정 프로브에 대한 참조 이름
+- **Protocol** - 사용되는 프로토콜(가능한 값은 HTTP 또는 HTTPS)
+- **Host** 및 **Path** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.
+- **Interval** - 프로브 간격 확인(초)을 구성합니다.
+- **Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한을 정의합니다.
+- **UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수입니다.
 
-The probe name is referenced in the <BackendHttpSettings> configuration to assign which back-end pool uses custom probe settings.
+프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 <BackendHttpSettings> 구성에서 참조합니다.
 
-## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Add a custom probe configuration to an existing application gateway
+## 기존 응용 프로그램 게이트웨이에 사용자 지정 프로브 구성 추가
 
-Changing the current configuration of an application gateway requires three steps: Get the current XML configuration file, modify to have a custom probe, and configure the application gateway with the new XML settings.
+현재 응용 프로그램 게이트웨이 구성 변경에 필요한 세 단계는 현재 XML 구성 파일 가져오기, 사용자 지정 프로브 수정 및 새 XML 설정으로 응용 프로그램 게이트웨이 구성입니다.
 
-### <a name="step-1"></a>Step 1
+### 1단계
 
-Get the XML file by using get-AzureApplicationGatewayConfig. This exports the configuration XML to be modified to add a probe setting.
+get-AzureApplicationGatewayConfig를 사용하여 XML 파일을 가져옵니다. 이렇게 하면 프로브 설정을 추가하기 위해 수정할 XML 구성을 내보냅니다.
 
-    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
-### <a name="step-2"></a>Step 2
+### 2단계
 
-Open the XML file in a text editor. Add a `<probe>` section after `<frontendport>`.
+텍스트 편집기에서 XML 파일을 엽니다. `<frontendport>` 뒤에 `<probe>` 섹션을 추가합니다.
 
-    <Probes>
+	<Probes>
         <Probe>
             <Name>Probe01</Name>
             <Protocol>Http</Protocol>
@@ -179,7 +178,7 @@ Open the XML file in a text editor. Add a `<probe>` section after `<frontendport
         </Probe>
     </Probes>
 
-In the backendHttpSettings section of the XML, add the probe name as shown in the following example:
+XML의 backendHttpSettings 섹션에서 다음 예제에 표시된 대로 프로브 이름을 추가합니다.
 
         <BackendHttpSettings>
             <Name>setting1</Name>
@@ -190,23 +189,19 @@ In the backendHttpSettings section of the XML, add the probe name as shown in th
             <Probe>Probe01</Probe>
         </BackendHttpSettings>
 
-Save the XML file.
+XML 파일을 저장합니다.
 
-### <a name="step-3"></a>Step 3
+### 3단계
 
-Update the application gateway configuration with the new XML file by using **Set-AzureApplicationGatewayConfig**. This updates your application gateway with the new configuration.
+**Set-AzureApplicationGatewayConfig**를 사용하여 새 XML 파일로 응용 프로그램 게이트웨이 구성을 업데이트합니다. 이렇게 하면 응용 프로그램 게이트웨이가 새 구성으로 업데이트됩니다.
 
-    Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
-
-
-## <a name="next-steps"></a>Next steps
-
-If you want to configure Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
-
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
+## 다음 단계
 
-<!--HONumber=Oct16_HO2-->
+SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
 
+내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
+<!---HONumber=AcomDC_0907_2016-->

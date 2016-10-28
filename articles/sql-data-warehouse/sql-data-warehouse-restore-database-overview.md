@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL Data Warehouse restore | Microsoft Azure"
-   description="Overview of the database restore options for recovering a database in Azure SQL Data Warehouse."
+   pageTitle="Azure SQL 데이터 웨어하우스 복원(개요) | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스의 데이터베이스를 복구하기 위한 데이터베이스 복원 옵션 개요입니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="Lakshmi1812"
@@ -13,102 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/29/2016"
+   ms.date="06/28/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
 
-
-# <a name="sql-data-warehouse-restore"></a>SQL Data Warehouse restore
+# Azure SQL 데이터 웨어하우스 복원(개요)
 
 > [AZURE.SELECTOR]
-- [Overview][]
-- [Portal][]
+- [개요][]
+- [포털][]
 - [PowerShell][]
-- [REST][]
+- [REST (영문)][]
 
-SQL Data Warehouse offers both local and geographical restores as part of its data warehouse disaster recovery capabilities. Use data warehouse backups to restore your data warehouse to a restore point in the primary region, or use geo-redundant backups to restore to a different geographical region. This article explains the specifics of restoring a data warehouse.
+Azure SQL 데이터 웨어하우스는 로컬 중복 저장소 및 자동화된 백업을 사용하여 데이터를 보호합니다. 자동화된 백업은 별도의 관리 방법 없이 실수로 손상 또는 삭제되지 않도록 데이터베이스를 보호합니다. 사용자가 실수로 또는 우연하게 데이터를 수정하거나 삭제한 경우 이전 시점으로 데이터베이스를 복원하여 비즈니스 연속성을 보장할 수 있습니다. SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 가동 중지 시간 없이 원활하게 데이터베이스를 백업합니다.
 
-## <a name="what-is-a-data-warehouse-restore?"></a>What is a data warehouse restore?
+## 자동화된 백업
 
-A data warehouse restore is a new data warehouse that is created from a backup of an existing or deleted data warehouse. The restored data warehouse re-creates the backed-up data warehouse at a specific time. Since SQL Data Warehouse is a distributed system, a data warehouse restore is created from many backup files that are stored in Azure blobs. 
+**활성** 데이터베이스는 자동으로 최소 8시간마다 백업되고 7일 동안 유지됩니다. 이 옵션을 사용하면 지난 7일 동안의 여러 복원 지점 중 하나로 활성 데이터베이스를 복원할 수 있습니다.
 
-Database restore is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion.
+데이터베이스가 일시 중지되면 새 백업은 중지되고 이전 백업은 7일에 도달하면 없어집니다. 데이터베이스가 7일을 초과하여 일시 중지되는 경우 최소 하나의 백업이 항상 있도록 가장 최근 백업이 저장됩니다.
 
-For more information, see:
+데이터베이스가 삭제되는 경우 마지막 백업이 7일 동안 저장됩니다.
 
--  [SQL Data Warehouse backups](sql-data-warehouse-backup.md)
--  [Business continuity overview](../sql-database/sql-database-business-continuity.md)
+마지막 백업이 수행된 때를 확인하려면 활성 SQL 데이터 웨어하우스에서 이 쿼리를 실행합니다.
 
-## <a name="data-warehouse-restore-points"></a>Data warehouse restore points
+```sql
+select top 1 *
+from sys.pdw_loader_backup_runs 
+order by run_id desc;
+```
 
-As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Storage Blob snapshots to backup the primary data warehouse. Each snapshot has a restore point that represents the time the snapshot started. To restore a data warehouse, you choose a restore point and issue a restore command.  
+7일 이상 백업을 유지해야 할 경우 복원 지점 중 하나를 새 데이터베이스로 복원한 다음 해당 백업의 저장 공간에 대한 비용만 부담하도록 필요에 따라 해당 데이터베이스를 일시 중지할 수 있습니다.
 
-SQL Data Warehouse always restores the backup to a new data warehouse. You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it.
+## 데이터 중복
 
-If you need to restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). 
+백업 외에도 SQL 데이터 웨어하우스는 [로컬 중복(LRS)][] Azure 프리미엄 저장소를 사용하여 데이터를 보호합니다. 데이터의 여러 동기 복사본은 지역화된 오류 발생 시 투명 한 데이터 보호를 보장하기 위해 로컬 데이터 센터에 유지됩니다. 데이터 중복을 사용하면 데이터는 디스크 오류 등의 인프라 문제를 감당할 수 있습니다. 데이터 중복은 내결함성이 있는 비즈니스 연속성 및 고가용성 인프라를 보장합니다.
 
-<!-- 
-### Can I restore a deleted data warehouse?
+## 데이터베이스 복원
 
-Yes, you can restore the last available restore point.
-
-Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
-
-## <a name="geo-redundant-restore"></a>Geo-redundant restore
-
-If you are using the geo-redundant storage, you can restore the data warehouse to your [paired data center](../best-practices-availability-paired-regions.md) in a different geographical region. The data warehouse is restored from the last daily backup. 
-
-## <a name="restore-timeline"></a>Restore timeline
-
-You can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
-
-## <a name="restore-costs"></a>Restore costs
-
-The storage charge for the restored data warehouse is billed at the Azure Premium Storage rate. 
-
-If you pause a restored data warehouse, you are charged for storage at the Azure Premium Storage rate. The advantage of pausing is you are not charged for the DWU computing resources.
-
-For more information about SQL Data Warehouse pricing, see [SQL Data Warehouse Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
-
-## <a name="uses-for-restore"></a>Uses for restore
-
-The primary use for data warehouse restore is to recover data after accidental data loss or corruption.
-
-You can also use data warehouse restore to retain a backup for longer than seven days. Once the backup is restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. 
-
-## <a name="related-topics"></a>Related topics
-
-### <a name="scenarios"></a>Scenarios
-
-- For a business continuity overview, see [Business continuity overview](../sql-database/sql-database-business-continuity.md)
+SQL 데이터 웨어하우스 복원은 Azure 포털에서 수행되거나 PowerShell 또는 REST API를 사용하여 자동화될 수 있는 간단한 작업입니다.
 
 
-<!-- ### Tasks -->
-
-To perform a data warehouse restore, restore using:
-
-- Azure portal, see [Restore a data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md)
-- PowerShell cmdlets, see [Restore a data warehouse using PowerShell cmdlets](sql-data-warehouse-restore-database-powershell.md)
-- REST APIs, see [Restore a data warehouse using the REST APIs](sql-data-warehouse-restore-database-rest-api.md)
-
-<!-- ### Tutorials -->
+## 다음 단계
+Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 알아보려면 [Azure SQL 데이터베이스 무중단 업무 방식 개요][]를 읽으세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[Azure SQL 데이터베이스 무중단 업무 방식 개요]: ./sql-database-business-continuity.md
+[로컬 중복(LRS)]: ../storage/storage-redundancy.md
+[개요]: ./sql-data-warehouse-restore-database-overview.md
+[포털]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[REST (영문)]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

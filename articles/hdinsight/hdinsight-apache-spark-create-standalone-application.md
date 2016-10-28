@@ -1,215 +1,210 @@
 <properties
-    pageTitle="Create standalone scala applications to run on HDInsight Spark clusters | Microsoft Azure"
-    description="Learn how to create a standalone Spark application to run on HDInsight Spark clusters."
-    services="hdinsight"
-    documentationCenter=""
-    authors="nitinme"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal"/>
+	pageTitle="독립 실행형 Scala 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하기 | Microsoft Azure"
+	description="독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="jhubbard"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/25/2016"
-    ms.author="nitinme"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/25/2016"
+	ms.author="nitinme"/>
 
 
+# HDInsight Linux의 Apache Spark에서 실행할 독립 실행형 Scala 응용 프로그램 만들기
 
-# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight-linux"></a>Create a standalone Scala application to run on Apache Spark cluster on HDInsight Linux
+이 문서에서는 IntelliJ IDEA와 함께 Maven을 사용하여 Scala로 작성된 독립 실행형 Spark 응용 프로그램 개발에 대한 단계별 지침을 제공합니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다. IntelliJ IDEA에서 전반적인 Scala 응용 프로그램 만들기는 다음 단계를 포함합니다.
 
-This article provides step-by-step guidance on developing standalone Spark applications written in Scala using Maven with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  At a high-level, creating a Scala application in IntelliJ IDEA will involve the following steps:
 
+* 빌드 시스템으로 Maven을 사용합니다.
+* POM(프로젝트 개체 모델) 파일을 업데이트하여 Spark 모듈 종속성을 해결합니다.
+* Scala에서 응용 프로그램을 작성합니다.
+* HDInsight Spark 클러스터에 제출할 수 있는 jar 파일을 생성합니다.
+* Livy를 사용하여 Spark 클러스터에서 응용 프로그램을 실행합니다.
 
-* Use Maven as the build system.
-* Update Project Object Model (POM) file to resolve Spark module dependencies.
-* Write your application in Scala.
-* Generate a jar file that can be submitted to HDInsight Spark clusters.
-* Run the application on Spark cluster using Livy.
+>[AZURE.NOTE] 또한 HDInsight는 Linux의 HDInsight Spark 클러스터에 대한 응용 프로그램을 만들고 제출하는 과정을 용이하게 하는 IntelliJ IDEA 플러그 인 도구를 제공합니다. 자세한 내용은 [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)을 참조하세요.
 
->[AZURE.NOTE] HDInsight also provides an IntelliJ IDEA plugin tool to ease the process of creating and submitting applications to an HDInsight Spark cluster on Linux. For more information, see [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark applications](hdinsight-apache-spark-intellij-tool-plugin.md).
 
+**필수 구성 요소**
 
-**Prerequisites**
+* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
+* Java IDE. 이 문서에서는 IntelliJ IDEA 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
+## IntelliJ IDEA용 Scala 플러그 인 설치
 
-## <a name="install-scala-plugin-for-intellij-idea"></a>Install Scala plugin for IntelliJ IDEA
+IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 IntelliJ IDEA를 시작하고 다음 단계를 진행하여 플러그 인을 설치합니다.
 
-If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, launch IntelliJ IDEA and go through the following steps to install the plugin:
+1. IntelliJ IDEA를 시작하고 시작 화면에서 **구성**을 클릭한 다음 **플러그 인**을 클릭합니다.
 
-1. Start IntelliJ IDEA and from welcome screen click **Configure** and then click **Plugins**.
+	![scala 플러그 인 활성화](./media/hdinsight-apache-spark-create-standalone-application/enable-scala-plugin.png)
 
-    ![Enable scala plugin](./media/hdinsight-apache-spark-create-standalone-application/enable-scala-plugin.png)
+2. 다음 화면에서 왼쪽 아래 모서리에서 **JetBrains 플러그 인 설치**를 클릭합니다. 열리는 **JetBrains 플러그 인 찾아보기** 대화 상자에서Scala를 검색한 다음 **설치**를 클릭합니다.
 
-2. In the next screen, click **Install JetBrains plugin** from the lower left corner. In the **Browse JetBrains Plugins** dialog box that opens, search for Scala and then click **Install**.
+	![scala 플러그 인 설치](./media/hdinsight-apache-spark-create-standalone-application/install-scala-plugin.png)
 
-    ![Install scala plugin](./media/hdinsight-apache-spark-create-standalone-application/install-scala-plugin.png)
+3. 플러그 인이 성공적으로 설치되면 **IntelliJ IDEA 다시 시작 단추**를 클릭하여 IDE를 다시 시작합니다.
 
-3. After the plugin installs successfully, click the **Restart IntelliJ IDEA button** to restart the IDE.
+## 독립 실행형 Scala 프로젝트 만들기
 
-## <a name="create-a-standalone-scala-project"></a>Create a standalone Scala project
+1. IntelliJ IDEA를 시작하고 새 프로젝트를 만듭니다. 새 프로젝트 대화 상자에서 다음과 같이 선택하고 **다음**을 클릭합니다.
 
-1. Launch IntelliJ IDEA and create a new project. In the new project dialog box, make the following choices, and then click **Next**.
+	![Maven 프로젝트 만들기](./media/hdinsight-apache-spark-create-standalone-application/create-maven-project.png)
 
-    ![Create Maven project](./media/hdinsight-apache-spark-create-standalone-application/create-maven-project.png)
+	* 프로젝트 유형으로 **Maven**을 선택합니다.
+	* **프로젝트 SDK**를 지정합니다. 새로 만들기를 클릭하여 Java 설치 디렉터리, 일반적으로 `C:\Program Files\Java\jdk1.8.0_66`(으)로 이동합니다.
+	* **원형으로부터 만들기** 옵션을 선택합니다.
+	* 원형 목록에서 **org.scala-tools.archetypes:scala-archetype-simple**을 선택합니다. 이는 올바른 디렉터리 구조를 만들고 Scala 프로그램 작성에 필요한 기본 종속성을 다운로드합니다.
 
-    * Select **Maven** as the project type.
-    * Specify a **Project SDK**. Click New and navigate to the Java installation directory, typically `C:\Program Files\Java\jdk1.8.0_66`.
-    * Select the **Create from archetype** option.
-    * From the list of archetypes, select **org.scala-tools.archetypes:scala-archetype-simple**. This will create the right directory structure and download the required default dependencies to write Scala program.
+2. **GroupId**, **ArtifactId** 및 **버전**에 관련 값을 제공합니다. **다음**을 클릭합니다.
 
-2. Provide relevant values for **GroupId**, **ArtifactId**, and **Version**. Click **Next**.
+3. Maven 홈 디렉터리 및 기타 사용자 설정을 지정하는 다음 대화 상자에서 기본값을 적용하고 **다음**을 클릭합니다.
 
-3. In the next dialog box, where you specify Maven home directory and other user settings, accept the defaults and click **Next**.
+4. 마지막 대화 상자에서 프로젝트 이름 및 위치를 지정한 다음 **마침**을 클릭합니다.
 
-4. In the last dialog box, specify a project name and location and then click **Finish**.
+5. **src\\test\\scala\\com\\microsoft\\spark\\example**에서 **MySpec.Scala** 파일을 삭제합니다. 응용 프로그램에 필요하지 않습니다.
 
-5. Delete the **MySpec.Scala** file at **src\test\scala\com\microsoft\spark\example**. You do not need this for the application.
+6. 필요한 경우 기본 원본 및 테스트 파일의 이름을 바꿉니다. IntelliJ IDEA의 왼쪽 창에서 **src\\main\\scala\\com.microsoft.spark.example**로 이동합니다. **App.scala**를 마우스 오른쪽 단추로 클릭하고 **Refactor**를 클릭하고 파일 이름 바꾸기를 클릭하고 대화 상자에서 응용 프로그램에 대한 새 이름을 제공한 다음 **Refactor**를 클릭합니다.
 
-6. If required, rename the default source and test files. From the left pane in the IntelliJ IDEA, navigate to **src\main\scala\com.microsoft.spark.example**. Right-click **App.scala**, click **Refactor**, click Rename file, and in the dialog box, provide the new name for the application and then click **Refactor**.
+	![파일 이름 바꾸기](./media/hdinsight-apache-spark-create-standalone-application/rename-scala-files.png)
 
-    ![Rename files](./media/hdinsight-apache-spark-create-standalone-application/rename-scala-files.png)  
+7. 이후 단계에서는 pom.xml을 업데이트하여 Spark Scala 응용 프로그램에 대한 종속성을 정의합니다. 다운로드되고 자동으로 해결되는 이러한 종속성의 경우 Maven을 적절하게 구성해야 합니다.
 
-7. In the subsequent steps, you will update the pom.xml to define the dependencies for the Spark Scala application. For those dependencies to be downloaded and resolved automatically, you must configure Maven accordingly.
+	![자동 다운로드를 위해 Maven 구성](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
-    ![Configure Maven for automatic downloads](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
+	1. **파일** 메뉴에서 **설정**을 클릭합니다.
+	2. **설정** 대화 상자에서 **빌드, 실행, 배포** > **빌드 도구** > **Maven** > **가져오기**로 이동합니다.
+	3. **Maven 프로젝트 자동으로 가져오기**에 옵션을 선택합니다.
+	4. **적용**을 클릭한 다음 **확인**을 클릭합니다.
 
-    1. From the **File** menu, click **Settings**.
-    2. In the **Settings** dialog box, navigate to **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
-    3. Select the option to **Import Maven projects automatically**.
-    4. Click **Apply**, and then click **OK**.
 
+8. Scala 소스 파일을 업데이트하여 응용 프로그램 코드를 포함합니다. 기존 샘플 코드를 열고 다음 코드로 바꾸고 변경 내용을 저장합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, 여섯 번째 열에 한 자리만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 **/HVACOut**에 씁니다.
 
-8. Update the Scala source file to include your application code. Open and replace the existing sample code with the following code and save the changes. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the sixth column, and writes the output to **/HVACOut** under the default storage container for the cluster.
+		package com.microsoft.spark.example
 
-        package com.microsoft.spark.example
+		import org.apache.spark.SparkConf
+		import org.apache.spark.SparkContext
 
-        import org.apache.spark.SparkConf
-        import org.apache.spark.SparkContext
+		/**
+		  * Test IO to wasb
+		  */
+		object WasbIOTest {
+		  def main (arg: Array[String]): Unit = {
+		    val conf = new SparkConf().setAppName("WASBIOTest")
+		    val sc = new SparkContext(conf)
 
-        /**
-          * Test IO to wasb
-          */
-        object WasbIOTest {
-          def main (arg: Array[String]): Unit = {
-            val conf = new SparkConf().setAppName("WASBIOTest")
-            val sc = new SparkContext(conf)
+		    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		    //find the rows which have only one digit in the 7th column in the CSV
+		    val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 
-            //find the rows which have only one digit in the 7th column in the CSV
-            val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
+		    rdd1.saveAsTextFile("wasbs:///HVACout")
+		  }
+		}
 
-            rdd1.saveAsTextFile("wasbs:///HVACout")
-          }
-        }
 
+9. pom.xml를 업데이트합니다.
 
-9. Update the pom.xml.
+	1.  `<project><properties>`에 다음을 추가합니다.
 
-    1.  Within `<project>\<properties>` add the following:
+			<scala.version>2.10.4</scala.version>
+    		<scala.compat.version>2.10.4</scala.compat.version>
+			<scala.binary.version>2.10</scala.binary.version>
 
-            <scala.version>2.10.4</scala.version>
-            <scala.compat.version>2.10.4</scala.compat.version>
-            <scala.binary.version>2.10</scala.binary.version>
+	2. `<project><dependencies>`에 다음을 추가합니다.
 
-    2. Within `<project>\<dependencies>` add the following:
+			<dependency>
+		      <groupId>org.apache.spark</groupId>
+		      <artifactId>spark-core_${scala.binary.version}</artifactId>
+		      <version>1.4.1</version>
+		    </dependency>
 
-            <dependency>
-              <groupId>org.apache.spark</groupId>
-              <artifactId>spark-core_${scala.binary.version}</artifactId>
-              <version>1.4.1</version>
-            </dependency>
+	pom.xml에 변경 내용을 저장합니다.
 
-    Save changes to pom.xml.
+10. .jar 파일을 만듭니다. IntelliJ IDEA는 프로젝트의 아티팩트로 JAR을 작성할 수 있습니다. 다음 단계를 수행합니다.
 
-10. Create the .jar file. IntelliJ IDEA enables creation of JAR as an artifact of a project. Perform the following steps.
+	1. **파일** 메뉴에서 **프로젝트 구조**를 클릭합니다.
+	2. **프로젝트 구조** 대화 상자에서 **아티팩트**를 클릭한 다음 더하기 기호를 클릭합니다. 팝업 대화 상자에서 **JAR**을 클릭한 다음 **종속성이 있는 모듈에서**를 클릭합니다.
 
-    1. From the **File** menu, click **Project Structure**.
-    2. In the **Project Structure** dialog box, click **Artifacts** and then click the plus symbol. From the pop-up dialog box, click **JAR**, and then click **From modules with dependencies**.
+		![JAR 만들기](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
 
-        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
+	3. **모듈에서 JAR 만들기** 대화 상자에서 **기본 클래스**에 대해 줄임표(![줄임표](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png))를 클릭합니다.
 
-    3. In the **Create JAR from Modules** dialog box, click the ellipsis (![ellipsis](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png) ) against the **Main Class**.
+	4. **기본 클래스 선택** 대화 상자에서 기본적으로 표시되는 클래스를 선택한 다음 **확인**을 클릭합니다.
 
-    4. In the **Select Main Class** dialog box, select the class that appears by default and then click **OK**.
+		![JAR 만들기](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
 
-        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
+	5. **모듈에서 JAR 만들기** 대화 상자에서 **대상 JAR에 추출**에 대한 옵션이 선택되었는지 확인한 다음 **확인**을 클릭합니다. 이렇게 하면 모든 종속성이 있는 단일 JAR이 만들어집니다.
 
-    5. In the **Create JAR from Modules** dialog box, make sure that the option to **extract to the target JAR** is selected, and then click **OK**. This creates a single JAR with all dependencies.
+		![JAR 만들기](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
 
-        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
+	6. 출력 레이아웃 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 응용 프로그램을 선택하고 삭제할 수 있습니다. 여기에서 만드는 응용 프로그램의 경우 마지막 것(**SparkSimpleApp 컴파일 출력**)을 제외한 모두를 제거할 수 있습니다. jar을 선택하여 삭제한 다음 **삭제** 아이콘을 클릭합니다.
 
-    6. The output layout tab lists all the jars that are included as part of the Maven project. You can select and delete the ones on which the Scala application has no direct dependency. For the application we are creating here, you can remove all but the last one (**SparkSimpleApp compile output**). Select the jars to delete and then click the **Delete** icon.
+		![JAR 만들기](./media/hdinsight-apache-spark-create-standalone-application/delete-output-jars.png)
 
-        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/delete-output-jars.png)
+		프로젝트를 작성하거나 업데이트할 때마다 jar이 생성되는지 확인하는 **Build on make** 확인란이 선택되었는지 확인합니다. **적용**을 클릭한 다음 **확인**을 클릭합니다.
 
-        Make sure **Build on make** box is selected, which ensures that the jar is created every time the project is built or updated. Click **Apply** and then **OK**.
+	7. 메뉴 모음에서 **빌드**를 클릭한 다음 **프로젝트 만들기**를 클릭합니다. **빌드 아티팩트**를 클릭하여 jar을 만들 수도 있습니다. **\\out\\artifacts** 아래에 출력 jar이 만들어집니다.
 
-    7. From the menu bar, click **Build**, and then click **Make Project**. You can also click **Build Artifacts** to create the jar. The output jar is created under **\out\artifacts**.
+		![JAR 만들기](./media/hdinsight-apache-spark-create-standalone-application/output.png)
 
-        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/output.png)
+## Spark 클러스터에서 응용 프로그램 실행
 
-## <a name="run-the-application-on-the-spark-cluster"></a>Run the application on the Spark cluster
+클러스터에서 응용 프로그램을 실행하려면 다음을 수행해야 합니다.
 
-To run the application on the cluster, you must do the following:
+* 클러스터와 연결된 **Azure 저장소 Blob에 응용 프로그램 jar을 복사**합니다. 이렇게 하기 위해 명령줄 유틸리티 [**AzCopy**](../storage/storage-use-azcopy.md)를 사용할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
-* **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../storage/storage-use-azcopy.md), a command line utility, to do so. There are a lot of other clients as well that you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).
+* **Livy를 사용하여 응용 프로그램 작업을 원격으로** Spark 클러스터에 제출합니다. HDInsight의 Spark 클러스터에는 Spark 작업을 원격으로 제출하는 REST 끝점을 노출하는 Livy가 포함됩니다. 자세한 내용은 [HDInsight의 Spark 클러스터와 함께 Livy를 사용하여 원격으로 Spark 작업 제출](hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요.
 
-* **Use Livy to submit an application job remotely** to the Spark cluster. Spark clusters on HDInsight includes Livy that exposes REST endpoints to remotely submit Spark jobs. For more information, see [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight](hdinsight-apache-spark-livy-rest-interface.md).
 
+## <a name="seealso"></a>참고 항목
 
-## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
 
+* [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
-* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+### 시나리오
 
-### <a name="scenarios"></a>Scenarios
+* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### 응용 프로그램 만들기 및 실행
 
-### <a name="create-and-run-applications"></a>Create and run applications
+* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
 
-* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
+### 도구 및 확장
 
-### <a name="tools-and-extensions"></a>Tools and extensions
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+### 리소스 관리
 
-### <a name="manage-resources"></a>Manage resources
+* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

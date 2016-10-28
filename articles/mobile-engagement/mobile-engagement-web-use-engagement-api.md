@@ -1,246 +1,240 @@
 <properties
-    pageTitle="Azure Mobile Engagement Web SDK APIs | Microsoft Azure"
-    description="The latest updates and procedures for the Web SDK for Azure Mobile Engagement"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="erikre"
-    editor="" />
+	pageTitle="Azure Mobile Engagement 웹 SDK API | Microsoft Azure"
+	description="Azure Mobile Engagement용 웹 SDK의 최신 업데이트 및 절차"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="web"
-    ms.devlang="js"
-    ms.topic="article"
-    ms.date="06/07/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="web"
+	ms.devlang="js"
+	ms.topic="article"
+	ms.date="06/07/2016"
+	ms.author="piyushjo" />
 
+# 웹 응용 프로그램에서 Azure Mobile Engagement API 사용
 
-# <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Use the Azure Mobile Engagement API in a web application
+이 문서는 [웹 응용 프로그램에 Mobile Engagement를 통합](mobile-engagement-web-integrate-engagement.md)하는 방법을 안내하는 문서를 보완하는 추가 문서로, Azure Mobile Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
-This document is an addition to the document that tells you how to [integrate Mobile Engagement in a web application](mobile-engagement-web-integrate-engagement.md). It provides in-depth details about how to use the Azure Mobile Engagement API to report your application statistics.
+Mobile Engagement API는 `engagement.agent` 개체를 통해 제공됩니다. 기본 Azure Mobile Engagement 웹 SDK 별칭은 `engagement`입니다. SDK 구성에서 이 별칭을 재정의할 수 있습니다.
 
-The Mobile Engagement API is provided by the `engagement.agent` object. The default Azure Mobile Engagement Web SDK alias is `engagement`. You can redefine this alias from the SDK configuration.
+## Mobile Engagement 개념
 
-## <a name="mobile-engagement-concepts"></a>Mobile Engagement concepts
+다음 요소는 웹 플랫폼과 관련된 일반적인 [Mobile Engagement 개념](mobile-engagement-concepts.md)을 구체화합니다.
 
-The following parts refine common [Mobile Engagement concepts](mobile-engagement-concepts.md) for the web platform.
+### `Session` 및 `Activity`
 
-### <a name="`session`-and-`activity`"></a>`Session` and `Activity`
+두 활동 간에 몇 초 넘게 유휴 상태로 있는 경우 활동의 사용자 시퀀스가 두 개의 세션으로 분할됩니다. 이러한 몇 초를 세션 제한 시간이라고 합니다.
 
-If the user stays idle for more than a few seconds between two activities, the user's sequence of activities is split into two distinct sessions. These few seconds are called the session timeout.
-
-If your web application doesn't declare the end of user activities by itself (by calling the `engagement.agent.endActivity` function), the Mobile Engagement server automatically expires the user session within three minutes after the application page is closed. This is called the server session timeout.
+웹 응용 프로그램이 직접 사용자 활동 종료를 선언하지 않으면(`engagement.agent.endActivity` 함수 호출), Mobile Engagement 서버에서 응용 프로그램 페이지가 닫히고 3분 이내에 사용자 세션을 자동 만료시킵니다. 이를 서버 세션 시간 제한이라고 합니다.
 
 ### `Crash`
 
-Automated reports of uncaught JavaScript exceptions are not created by default. However, you can report crashes manually by using the `sendCrash` function (see the section on reporting crashes).
+기본적으로 catch되지 않은 JavaScript 예외에 대한 자동화된 보고서는 생성되지 않습니다. 그러나 `sendCrash` 함수를 사용하면 수동으로 작동 중단을 보고할 수 있습니다(작동 중단 보고에 대한 섹션 참조).
 
-## <a name="reporting-activities"></a>Reporting activities
+## 활동 보고
 
-Reporting on user activity includes when a user starts a new activity, and when the user ends the current activity.
+사용자 활동에 대한 보고에는 사용자가 새 활동을 시작한 시간 및 사용자가 현재 활동을 종료한 시간이 포함됩니다.
 
-### <a name="user-starts-a-new-activity"></a>User starts a new activity
+### 사용자가 새 활동을 시작함
 
-    engagement.agent.startActivity("MyUserActivity");
+	engagement.agent.startActivity("MyUserActivity");
 
-You need to call `startActivity()` each time user activity changes. The first call to this function starts a new user session.
+사용자 활동이 변경될 때마다 `startActivity()`을(를) 호출해야 합니다. 이 함수를 처음 호출하면 새 사용자 세션이 시작됩니다.
 
-### <a name="user-ends-the-current-activity"></a>User ends the current activity
+### 사용자가 현재 활동을 종료함
 
-    engagement.agent.endActivity();
+	engagement.agent.endActivity();
 
-You need to call `endActivity()` at least once when the user finishes their last activity. This informs the Mobile Engagement Web SDK that the user is currently idle, and that the user session needs to be closed after the session timeout expires. If you call `startActivity()` before the session timeout expires, the session is simply resumed.
+사용자가 마지막 활동을 완료하면 `endActivity()`을(를) 한 번 이상 호출해야 합니다. 이 작업은 Mobile Engagement 웹 SDK에 사용자가 현재 유휴 상태이며, 세션 제한 시간이 만료되면 사용자 세션을 종료해야 한다는 것을 알립니다. 세션 제한 시간이 만료되기 전에 `startActivity()`를 호출하는 경우 세션이 다시 시작됩니다.
 
-Because there's no reliable call for when the navigator window is closed, it's often difficult or impossible to catch the end of user activities inside a web environment. That's why the Mobile Engagement server automatically expires the user session within three minutes after the application page is closed.
+탐색기 창이 닫혔을 때는 신뢰할 수 있는 호출 없으므로 웹 환경 내에서는 사용자가 활동을 종료한 것을 알아내기 어렵거나 불가능한 경우가 많습니다. 그래서 Mobile Engagement 서버에서 응용 프로그램 페이지가 닫히고 3분 이내에 사용자 세션을 자동 만료시키는 것입니다.
 
-## <a name="reporting-events"></a>Reporting events
+## 이벤트 보고
 
-Reporting on events covers session events and standalone events.
+이벤트에 대한 보고에서는 세션 이벤트와 독립 실행형 이벤트를 다룹니다.
 
-### <a name="session-events"></a>Session events
+### 세션 이벤트
 
-Session events usually are used to report the actions performed by a user during the user's session.
+세션 이벤트는 일반적으로 사용자가 세션 중에 사용자가 수행하는 동작을 보고하는 데 사용됩니다.
 
-**Example without extra data:**
+**추가 데이터가 없는 예제:**
 
-    loginButton.onclick = function() {
-      engagement.agent.sendSessionEvent('login');
-      // [...]
-    }
+	loginButton.onclick = function() {
+	  engagement.agent.sendSessionEvent('login');
+	  // [...]
+	}
 
-**Example with extra data:**
+**추가 데이터가 있는 예제:**
 
-    loginButton.onclick = function() {
-      engagement.agent.sendSessionEvent('login', {user: 'alice'});
-      // [...]
-    }
+	loginButton.onclick = function() {
+	  engagement.agent.sendSessionEvent('login', {user: 'alice'});
+	  // [...]
+	}
 
-### <a name="standalone-events"></a>Standalone events
+### 독립 실행형 이벤트
 
-Unlike session events, standalone events can occur outside the context of a session.
+세션 이벤트와 달리 독립 실행형 이벤트는 세션의 컨텍스트 외부에서 발생할 수 있습니다.
 
-For that, use ``engagement.agent.sendEvent`` instead of ``engagement.agent.sendSessionEvent``.
+이를 위해서는 ``engagement.agent.sendSessionEvent`` 대신 ``engagement.agent.sendEvent``를 사용합니다.
 
-## <a name="reporting-errors"></a>Reporting errors
+## 오류 보고
 
-Reporting on errors covers session errors and standalone errors.
+오류에 대한 보고에서는 세션 오류와 독립 실행형 오류를 다룹니다.
 
-### <a name="session-errors"></a>Session errors
+### 세션 오류
 
-Session errors usually are used to report the errors that have an impact on the user during the user's session.
+세션 오류는 일반적으로 사용자 세션 중에 사용자에게 영향을 주는 오류를 보고하는 데 사용됩니다.
 
-**Example without extra data:**
+**추가 데이터가 없는 예제:**
 
-    var validateForm = function() {
-      // [...]
-      if (password.length < 6) {
-        engagement.agent.sendSessionError('password_too_short');
-      }
-      // [...]
-    }
+	var validateForm = function() {
+	  // [...]
+	  if (password.length < 6) {
+	    engagement.agent.sendSessionError('password_too_short');
+	  }
+	  // [...]
+	}
 
-**Example with extra data:**
+**추가 데이터가 있는 예제:**
 
-    var validateForm = function() {
-      // [...]
-      if (password.length < 6) {
-        engagement.agent.sendSessionError('password_too_short', {length: 4});
-      }
-      // [...]
-    }
+	var validateForm = function() {
+	  // [...]
+	  if (password.length < 6) {
+	    engagement.agent.sendSessionError('password_too_short', {length: 4});
+	  }
+	  // [...]
+	}
 
-### <a name="standalone-errors"></a>Standalone errors
+### 독립 실행형 오류
 
-Unlike session errors, standalone errors can occur outside the context of a session.
+세션 오류와 달리 독립 실행형 오류는 세션의 컨텍스트 외부에서 발생할 수 있습니다.
 
-For that, use `engagement.agent.sendError` instead of `engagement.agent.sendSessionError`.
+이를 위해서는 `engagement.agent.sendSessionError` 대신 `engagement.agent.sendError`를 사용합니다.
 
-## <a name="reporting-jobs"></a>Reporting jobs
+## 작업 보고
 
-Reporting on jobs covers reporting errors and events that occur during a job, and reporting crashes.
+작업에 대한 보고에서는 작업 중에 발생한 오류 및 이벤트 보고와 작동 중단 보고를 다룹니다.
 
-**Example:**
+**예제:**
 
-If you want to monitor an AJAX request, you'd use the following:
+AJAX 요청을 모니터링하려는 경우 다음을 사용합니다.
 
-    // [...]
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) {
-      // [...]
-        engagement.agent.endJob('publish');
-      }
-    }
-    engagement.agent.startJob('publish');
-    xhr.send();
-    // [...]
+	// [...]
+	xhr.onreadystatechange = function() {
+	  if (xhr.readyState == 4) {
+	  // [...]
+	    engagement.agent.endJob('publish');
+	  }
+	}
+	engagement.agent.startJob('publish');
+	xhr.send();
+	// [...]
 
-### <a name="reporting-errors-during-a-job"></a>Reporting errors during a job
+### 작업 중 오류 보고
 
-Errors can be related to a running job instead of to the current user session.
+오류는 현재 사용자 세션이 아닌 실행 중인 작업에 관련될 수 있습니다.
 
-**Example:**
+**예제:**
 
-If you want to report an error if an AJAX request fails:
+AJAX 요청이 실패하면 오류를 보고하고자 합니다.
 
-    // [...]
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) {
-        // [...]
-        if (xhr.status == 0 || xhr.status >= 400) {
-          engagement.agent.sendJobError('publish_xhr', 'publish', {status: xhr.status, statusText: xhr.statusText});
-        }
-        engagement.agent.endJob('publish');
-      }
-    }
-    engagement.agent.startJob('publish');
-    xhr.send();
-    // [...]
+	// [...]
+	xhr.onreadystatechange = function() {
+	  if (xhr.readyState == 4) {
+	    // [...]
+	    if (xhr.status == 0 || xhr.status >= 400) {
+	      engagement.agent.sendJobError('publish_xhr', 'publish', {status: xhr.status, statusText: xhr.statusText});
+	    }
+	    engagement.agent.endJob('publish');
+	  }
+	}
+	engagement.agent.startJob('publish');
+	xhr.send();
+	// [...]
 
-### <a name="reporting-events-during-a-job"></a>Reporting events during a job
+### 작업 중 이벤트 보고
 
-Events can be related to a running job instead of to the current user session, thanks to the `engagement.agent.sendJobEvent` function.
+`engagement.agent.sendJobEvent` 함수를 사용하면 이벤트를 현재 사용자 세션이 아니라 실행 중인 작업과 연결할 수 있습니다.
 
-This function works exactly like `engagement.agent.sendJobError`.
+이 함수는 `engagement.agent.sendJobError`와 똑같이 동작합니다.
 
-### <a name="reporting-crashes"></a>Reporting crashes
+### 작동 중단 보고
 
-Use the `sendCrash` function to report crashes manually.
+`sendCrash` 함수는 수동으로 작동 중단을 보고할 때 사용합니다.
 
-The `crashid` argument is a string that identifies the type of crash.
-The `crash` argument usually is the stack trace of the crash as a string.
+`crashid` 인수는 작동 중단 유형을 식별하는 문자열입니다. `crash` 인수는 일반적으로 문자열로 된 작동 중단의 스택 추적입니다.
 
-    engagement.agent.sendCrash(crashid, crash);
+	engagement.agent.sendCrash(crashid, crash);
 
-## <a name="extra-parameters"></a>Extra parameters
+## extras 매개 변수
 
-You can attach arbitrary data to an event, error, activity, or job.
+이벤트, 오류, 활동 또는 작업에 임의 데이터를 연결할 수 있습니다.
 
-The data can be any JSON object (but not an array or primitive type).
+이 데이터는 배열 또는 기본 형식을 제외한 어떤 JSON 개체도 될 수 있습니다.
 
-**Example:**
+**예제:**
 
-    var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
-    engagement.agent.sendEvent("video_clicked", extras);
+	var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
+	engagement.agent.sendEvent("video_clicked", extras);
 
-### <a name="limits"></a>Limits
+### 제한
 
-Limits that apply to extra parameters are in the areas of regular expressions for keys, value types, and size.
+extras 매개 변수에 적용할 제한은 키, 값 형식 및 크기에 대한 정규식의 영역에 있습니다.
 
-#### <a name="keys"></a>Keys
+#### 구성
 
-Each key in the object must match the following regular expression:
+개체의 각 키는 다음 정규식과 일치해야 합니다.
 
-    ^[a-zA-Z][a-zA-Z_0-9]*
+	^[a-zA-Z][a-zA-Z_0-9]*
 
-This means that keys must start with at least one letter, followed by letters, digits, or underscores (\_).
+즉, 키는 하나 이상의 문자로 시작해야 하며 그 뒤에 문자, 숫자 또는 밑줄(\_)이 붙어야 합니다.
 
-#### <a name="values"></a>Values
+#### 값
 
-Values are limited to string, number, and Boolean types.
+값은 문자열, 숫자, 부울 형식으로 제한됩니다.
 
-#### <a name="size"></a>Size
+#### 크기
 
-Extras are limited to 1,024 characters per call (after the Mobile Engagement Web SDK encodes it in JSON).
+extras는 호출당 1,024자(Mobile Engagement 웹 SDK가 JSON에서 인코딩된 후)로 제한됩니다.
 
-## <a name="reporting-application-information"></a>Reporting application information
+## 응용 프로그램 정보 보고
 
-You can manually report tracking information (or any other application-specific information) by using the `sendAppInfo()` function.
+`sendAppInfo()` 함수를 사용하면 추적 정보 또는 기타 응용 프로그램 관련 정보를 수동으로 보고할 수 있습니다.
 
-Note that this information can be sent incrementally. Only the latest value for a specific key will be kept for a specific device.
+이 정보는 증분 방식으로 전송할 수 있습니다. 특정 장치에는 특정 키에 대한 최신 값만 유지됩니다.
 
-Like event extras, you can use any JSON object to abstract application information. Note that arrays or sub-objects are treated as flat strings (using JSON serialization).
+이벤트 extras처럼 JSON 개체를 사용하여 응용 프로그램 정보를 추상화할 수 있습니다. 배열 또는 하위 개체는 플랫 문자열(JSON 직렬화 사용)로 처리됩니다.
 
-**Example:**
+**예제:**
 
-Here is a code sample for sending the user's gender and birth date:
+사용자 성별 및 생년월일을 보내는 코드 샘플은 다음과 같습니다.
 
-    var appInfos = {"birthdate":"1983-12-07","gender":"female"};
-    engagement.agent.sendAppInfo(appInfos);
+	var appInfos = {"birthdate":"1983-12-07","gender":"female"};
+	engagement.agent.sendAppInfo(appInfos);
 
-### <a name="limits"></a>Limits
+### 제한
 
-Limits that apply to application information are in the areas of regular expressions for keys, and size.
+응용 프로그램에 적용할 제한은 키 및 크기에 대한 정규식의 영역에 있습니다.
 
-#### <a name="keys"></a>Keys
+#### 구성
 
-Each key in the object must match the following regular expression:
+개체의 각 키는 다음 정규식과 일치해야 합니다.
 
-    ^[a-zA-Z][a-zA-Z_0-9]*
+	^[a-zA-Z][a-zA-Z_0-9]*
 
-This means that keys must start with at least one letter, followed by letters, digits, or underscores (\_).
+즉, 키는 하나 이상의 문자로 시작해야 하며 그 뒤에 문자, 숫자 또는 밑줄(\_)이 붙어야 합니다.
 
-#### <a name="size"></a>Size
+#### 크기
 
-Application information is limited to 1,024 characters per call (after the Mobile Engagement Web SDK encodes it in JSON).
+응용 프로그램 정보는 호출당 1,024자(Mobile Engagement 웹 SDK가 JSON에서 인코딩된 후)로 제한됩니다.
 
-In the preceding example, the JSON sent to the server is 44 characters long:
+이전 예제에서 서버로 전송된 JSON의 길이는 44자입니다.
 
-    {"birthdate":"1983-12-07","gender":"female"}
+	{"birthdate":"1983-12-07","gender":"female"}
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

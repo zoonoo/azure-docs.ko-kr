@@ -1,11 +1,9 @@
-**Virtual machine disks: per disk limits**
+**가상 컴퓨터 디스크: 디스크 제한당**
 
- VM Tier | Basic Tier VM | Standard Tier VM
+ VM 계층 | 기본 계층 VM | 표준 계층 VM
 ---|---|---
-Disk size | 1023 GB | 1023 GB
-Max 8 KB IOPS per persistent disk | 300 | 500
-Max number of disks performing max IOPS | 66 | 40
+디스크 크기 | 1023GB | 1023GB
+영구 디스크당 최대 8KB IOPS | 300 | 500
+최대 IOPS를 수행하는 최대 디스크 수 | 66 | 40
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,45 +1,40 @@
-## <a name="connect-to-azure-sql-database-as-a-user"></a>Connect to Azure SQL Database as a user
+## 사용자로 Azure SQL 데이터베이스에 연결
 
-Use the following steps to connect to Azure SQL Database with SSMS as a user.
+사용자로 SSMS를 사용하여 Azure SQL 데이터베이스에 연결하려면 다음 단계를 사용합니다.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
+1. Windows 검색 상자에 "Microsoft SQL Server Management Studio"를 입력한 다음 데스크톱 응용 프로그램을 클릭하여 SSMS를 시작합니다.
 
-2. In the Connect to Server window, enter the following information:
+2. 서버에 연결 창에서 다음 정보를 입력합니다.
 
-- **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+- **서버 유형**: 기본값은 데이터베이스 엔진입니다. 이 값을 변경하지 마십시오.
+ - **서버 이름**: *&lt;servername>*.**database.windows.net** 형식으로 SQL 데이터베이스를 호스팅하는 서버 이름을 입력합니다.
+ - **인증 유형**: 방금 시작한 경우 SQL 인증을 선택합니다. SQL 데이터베이스 논리 서버에 Active Directory를 사용하는 경우 Active Directory 암호 인증 또는 Active Directory 통합 인증을 선택할 수 있습니다.
+ - **사용자 이름**: SQL 인증 또는 Active Directory 암호 인증을 선택한 경우 서버의 데이터베이스에 대한 액세스로 사용자의 이름을 입력합니다.
+ - **암호**: SQL 인증 또는 Active Directory 암호 인증을 선택한 경우 지정된 사용자에 대한 암호를 입력합니다.
    
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
+       ![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
-3. Click **Options** to specify the database to which you want to connect.
+3. **옵션**을 클릭하여 연결하려는 데이터베이스를 지정합니다.
 
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
-4. In the **Connect to Database**, select the database to which you wish to connect.
+4. **데이터베이스에 연결**에서 연결하려는 데이터베이스를 선택합니다.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
-5. Click **Connect**.
+5. **Connect**를 클릭합니다.
  
-6. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, Click **Sign in** to create a server-level firewall rule. If not, have an administrator create either a server-level firewall rule or a database-level firewall rule in the database to which you are trying to connect.
+6. 클라이언트의 IP 주소에 SQL 데이터베이스 논리 서버에 대한 액세스가 없는 경우 Azure 계정에 로그인하고 서버 수준 방화벽 규칙을 만들라는 메시지가 표시됩니다. Azure 구독 관리자인 경우 **로그인**을 클릭하여 서버 수준 방화벽 규칙을 만듭니다. 그렇지 않은 경우 관리자 권한을 갖고 연결하려는 데이터베이스에서 서버 수준 방화벽 규칙 또는 데이터베이스 수준 방화벽 규칙을 만듭니다.
  
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
-7. If your credentials grant you access to the specified database, Object Explorer opens and you can now perform administrative tasks or query data, depending upon the user permissions.
+7. 자격 증명이 지정된 데이터베이스에 대한 액세스를 부여하는 경우 개체 탐색기가 열리고 이제 사용자 권한에 따라 관리 작업 또는 데이터 쿼리를 수행할 수 있습니다.
   
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
-## <a name="troubleshoot-connection-failures"></a>Troubleshoot connection failures
+## 연결 오류 문제 해결
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+연결 실패에 대한 가장 일반적인 이유는 보안상의 이유로 연결을 허용하지 않도록 하는 서버와 서버 이름, 사용자 이름 또는 암호에 대한 실수입니다. <*servername*>은 데이터베이스가 아닌 논리적 서버의 이름임을 기억하세요.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

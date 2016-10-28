@@ -1,347 +1,342 @@
 <properties
-    pageTitle="Azure AD federation compatibility list"
-    description="This page has non-Microsoft identity providers that can be used to implement single sign-on."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Azure AD 페더레이션 호환성 목록"
+	description="이 페이지에 Single Sign-On을 구현하는 데 사용할 수 있는 타사 ID 공급자가 있습니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="billmath"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="billmath"/>
 
+# Azure AD 페더레이션 호환성 목록
+Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 Office 365용 Single Sign-On과 강화된 응용 프로그램 액세스 보안 및 하이브리드와 클라우드 전용 구현에 대한 기타 Microsoft Online Services를 제공합니다. 대부분의 Microsoft Online Services와 마찬가지로 Office 365는 디렉터리 서비스, 인증 및 권한 부여에 대해 Azure Active Directory와 통합되어 있습니다. 또한 Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에도 Single Sign-On을 제공합니다. 지원되는 SaaS 응용 프로그램에 대한 Azure Active Directory 응용 프로그램 갤러리를 참조하세요.
 
-# <a name="azure-ad-federation-compatibility-list"></a>Azure AD federation compatibility list
-Azure Active Directory provides single-sign on and enhanced application access security for Office 365 and other Microsoft Online services for hybrid and cloud-only implementations without requiring any non-Microsoft solution. Office 365, like most of Microsoft’s Online services, is integrated with Azure Active Directory for directory services, authentication and authorization. Azure Active Directory also provides single sign-on to thousands of SaaS applications and on-premises web applications. Please see the Azure Active Directory application gallery for supported SaaS applications.
-
-For organizations that have invested in non-Microsoft federation solutions, this topic contains guidance for configuring single sign-on for their Windows Server Active Directory users with Microsoft Online services by using non-Microsoft identity providers from the “Azure Active Directory federation compatibility list” below. 
+타사 페더레이션 솔루션에 투자한 조직의 경우 이 항목에는 해당 조직의 Windows Server Active Directory 사용자를 위해 아래 "Azure Active Directory 페더레이션 호환성 목록"의 타사 ID 공급자를 사용하여 Microsoft Online Services로 Single Sign-On을 구성하는 지침이 포함되어 있습니다.
 
 
 ![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
-[Oxford Computer Group](http://oxfordcomputergroup.com/), a third-party, on behalf of Microsoft, tested these single sign-on experiences using non-Microsoft identity providers against a set of use cases common with Azure Active Directory.
+[Oxford Computer Group](http://oxfordcomputergroup.com/)은 Microsoft를 대신하여 이러한 Single Sign-On 환경을 Azure Active Directory와 공통된 사용 사례 집합에 대해 타사 ID 공급자를 사용하여 테스트했습니다.
 
-For information on how you can get your third-party identity provider listed here, contact Oxford Computer Group at [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
+여기에 나열된 타사 ID 공급자를 가져오는 방법에 대한 내용은 Oxford Computer Group([idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com))에 문의하세요.
 
->[AZURE.IMPORTANT] Oxford Computer Group tested only the federation functionality of these single sign-on scenarios. Oxford Computer Group did not perform any testing of the synchronization, two-factor authentication, etc. components of these single sign-on scenarios.
+>[AZURE.IMPORTANT] Oxford Computer Group은 이러한 Single Sign-On 시나리오의 페더레이션 기능만을 테스트했습니다. Oxford Computer Group은 이러한 Single Sign-On 시나리오의 동기화, 2단계 인증 등 구성 요소에 대한 테스트는 수행하지 않았습니다.
 
->Use of Sign-in by Alternate ID to UPN is also not tested in this program.
+>UPN에 대한 대체 ID 로그인의 사용도 이 프로그램에서 테스트되지 않았습니다.
 
 
 
 - [Azure Active Directory](#azure-active-directory)
-- [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
-- [PingFederate 6.11](#pingfederate-611) 
-- [PingFederate 7.2](#pingfederate-72) 
+- [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services)
+- [PingFederate 6.11](#pingfederate-611)
+- [PingFederate 7.2](#pingfederate-72)
 - [PingFederate 8.x](#pingfederate-8x)
-- [Centrify](#centrify) 
-- [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
-- [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
-- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4) 
-- [RadiantOne CFS 3.0](#radiantone-cfs-30) 
-- [Okta](#okta) 
-- [OneLogin](#onelogin) 
-- [NetIQ Access Manager 4.0.1](#netiq-access-manager-401) 
-- [BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x) 
-- [VMware  Workspace Portal version 2.1](#vmware-workspace-portal-version-21) 
-- [Sign&go 5.3](#signampgo-53) 
-- [IceWall Federation Version 3.0](#icewall-federation-version-30) 
-- [CA Secure Cloud](#ca-secure-cloud) 
-- [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
-- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45) 
+- [Centrify](#centrify)
+- [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
+- [SecureAuth IdP 7.2.0](#secureauth-idp-720)
+- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4)
+- [RadiantOne CFS 3.0](#radiantone-cfs-30)
+- [Okta](#okta)
+- [OneLogin](#onelogin)
+- [NetIQ Access Manager 4.0.1](#netiq-access-manager-401)
+- [BIG-IP with Access Policy Manager BIG-IP 버전 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x)
+- [VMware Workspace Portal 버전 2.1](#vmware-workspace-portal-version-21)
+- [Sign&go 5.3](#signampgo-53)
+- [IceWall Federation 버전 3.0](#icewall-federation-version-30)
+- [CA Secure Cloud](#ca-secure-cloud)
+- [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71)
+- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
 
->[AZURE.IMPORTANT] Since these are third-party products, Microsoft does not provide support for the deployment, configuration, troubleshooting, best practices, etc. issues and questions regarding these identity providers. For support and questions regarding these identity providers, contact the supported third-parties directly.
+>[AZURE.IMPORTANT] 이러한 제품은 타사 제품이므로 Microsoft는 배포, 구성, 문제 해결, 모범 사례 등 이러한 ID 공급자에 관한 문제 및 질문에 대한 지원을 제공하지 않습니다. 이러한 ID 공급자에 관한 지원 및 질문은 타사 담당자에게 직접 문의하세요.
 
->These third-party identity providers were tested for interoperability with Microsoft cloud services using WS-Federation and WS-Trust protocols only. Testing did not include using the SAML protocol.
+>이러한 타사 ID 공급자는 Microsoft 클라우드 서비스와의 상호 운용성에 대해 WS-Federation 및 WS-Trust 프로토콜만 사용하여 테스트되었습니다. SAML 프로토콜을 사용한 테스트는 포함되지 않았습니다.
 
-## <a name="azure-active-directory"></a>Azure Active Directory 
-Azure Active Directory can authenticate users by federating with your on-premises Active-Directory or without an on-premises federation server through the use of password sync. 
+## Azure Active Directory 
+Azure Active Directory는 온-프레미스 Active Directory와 페더레이션하거나 암호 동기화 사용을 통해 온-프레미스 페더레이션 서버 없이 사용자를 인증할 수 있습니다.
 
-The following is the scenario support matrix for this sign-on experience: 
+다음은 이 로그온 환경에 대한 시나리오 지원 매트릭스입니다.
 
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
-|Modern Applications using ADAL such as Office 2016| Supported|None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
+|Office 2016과 같은 ADAL을 사용하는 최신 응용 프로그램| 지원됨|없음|
 
-For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+AD FS를 통해 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [ADFS(Active Directory Federation Services)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)를 참조하세요.
 
-For more information about using Azure Active Directory with Password sync see [Azure AD Connect](active-directory-aadconnect.md).
-
-
-## <a name="optimal-idm-virtual-identity-server-federation-services"></a>Optimal IDM Virtual Identity Server Federation Services 
-Optimal IDM Virtual Identity Server Federation Services can authenticate users that reside in customers’ on-premises Active Directories.
-
-The following is the scenario support matrix this single sign-on experience:
+암호 동기화를 통해 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure AD Connect](active-directory-aadconnect.md)를 참조하세요.
 
 
-| Client |Support  |Exceptions|
+## Optimal IDM Virtual Identity Server Federation Services 
+Optimal IDM Virtual Identity Server Federation Services는 고객의 온-프레미스 Active Directory에 있는 사용자를 인증할 수 있습니다.
+
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
+
+
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/library/hh526961.aspx)|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |클라이언트 액세스 정책에 대한 자세한 내용은 [클라이언트 위치 기반 Office 365 서비스에 대한 액세스 제한](https://technet.microsoft.com/library/hh526961.aspx)을 참조하세요.|
 
 
 
-## <a name="pingfederate-6.11"></a>PingFederate 6.11 
+## PingFederate 6.11 
 
-PingFederate 6.11 implements the widely used WS Federation identity standard to provide a single sign-on and attribute exchange framework.
+PingFederate 6.11은 널리 사용되는 WS Federation ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None (earlier versions must upgrade to 6.11|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음(이전 버전은 6.11로 업그레이드해야 함)|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For the PingFederate instructions on how to configure this STS to provide the single sign-on experience to your Active Directory users, download the pdf [here.](http://go.microsoft.com/fwlink/?LinkID=266321)
+Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 PingFederate 지침은 [여기](http://go.microsoft.com/fwlink/?LinkID=266321)서 pdf 파일을 다운로드하세요.
 
-## <a name="pingfederate-7.2"></a>PingFederate 7.2 
-PingFederate 7.2 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## PingFederate 7.2 
+PingFederate 7.2는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For the PingFederate instructions on how to configure this STS to provide the single sign-on experience to your Active Directory users, see [here.](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
+Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 PingFederate 지침은 [여기](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)를 참조하세요.
 
-## <a name="pingfederate-8.x"></a>PingFederate 8.x 
-PingFederate 8.x implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## PingFederate 8.x 
+PingFederate 8.x는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For the PingFederate instructions on how to configure this STS to provide the single sign-on experience to your Active Directory users, see [here.](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)
+Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 PingFederate 지침은 [여기](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)를 참조하세요.
 
-## <a name="centrify"></a>Centrify 
-Centrify helps provide a federated single sign-on experience for Office 365 without the requirement of hosting an on-premises Federation server.
+## Centrify 
+Centrify는 온-프레미스 페더레이션 서버를 호스트할 필요 없이 Office 365에 대한 페더레이션된 Single Sign-On 환경을 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |Client Access Control is not supported 
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |클라이언트 액세스 제어는 지원되지 않습니다. 
 
-For more information about Centrify, see [here.](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)|
+Centrify에 대한 자세한 내용은 [여기](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)를 참조하세요.
 
-## <a name="ibm-tivoli-federated-identity-manager-6.2.2"></a>IBM Tivoli Federated Identity Manager 6.2.2 
-IBM Tivoli Federated Identity Manager 6.2.2 with IBM Security Access Manager for Microsoft Applications 1.4 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## IBM Tivoli Federated Identity Manager 6.2.2 
+Microsoft Applications 1.4용 IBM Security Access Manager가 포함된 IBM Tivoli Federated Identity Manager 6.2.2는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience: 
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about IBM Tivoli Federated Identity Manager, see [IBM Security Access Manager for Microsoft Applications.](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)
+IBM Tivoli Federated Identity Manager에 대한 자세한 내용은 [Microsoft 응용 프로그램용 IBM Security Access Manager](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)를 참조하세요.
 
-## <a name="secureauth-idp-7.2.0"></a>SecureAuth IdP 7.2.0 
-SecureAuth IdP 7.2.0 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on experience and attribute exchange framework.
+## SecureAuth IdP 7.2.0 
+SecureAuth IdP 7.2.0은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 환경 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience: 
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about SecureAuth, see [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
+SecureAuth에 대한 자세한 내용은 [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293)를 참조하세요.
 
-## <a name="ca-siteminder-12.52-sp1-cumulative-release-4"></a>CA SiteMinder 12.52 SP1 Cumulative Release 4
-CA SiteMinder Federation 12.52 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## CA SiteMinder 12.52 SP1 누적 릴리스 4
+CA SiteMinder Federation 12.52는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience: 
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about CA SiteMinder, see [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html) 
+CA SiteMinder에 대한 자세한 내용은 [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html)을 참조하세요.
 
-## <a name="radiantone-cfs-3.0"></a>RadiantOne CFS 3.0 
-RadiantOne Cloud Federation Service (CFS) 3.0 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## RadiantOne CFS 3.0 
+RadiantOne CFS(Cloud Federation Service) 3.0은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience: 
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about RadiantOne CFS, see [RadiantOne CFS.](http://www.radiantlogic.com/products/radiantone-cfs/)
-
-
-## <a name="okta"></a>Okta 
-Okta implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
-
-The following is the scenario support matrix for this single sign-on experience: 
+RadiantOne CFS에 대한 자세한 내용은 [RadiantOne CFS](http://www.radiantlogic.com/products/radiantone-cfs/)를 참조하세요.
 
 
-| Client |Support  |Exceptions|
+## Okta 
+Okta는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
+
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
+
+
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication requires setup of additional web server and Okta application.|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |Windows 통합 인증에는 추가 웹 서버 및 Okta 응용 프로그램 설치가 필요합니다.|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about Okta, see [Okta.](https://www.okta.com/)
+Okta에 대한 자세한 내용은 [Okta](https://www.okta.com/)를 참조하세요.
  
-## <a name="onelogin"></a>OneLogin 
-OneLogin as tested in May 2014 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## OneLogin 
+2014년 5월에 테스트된 OneLogin은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience: 
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |Windows 통합 인증|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about OneLogin, see [OneLogin.](https://www.onelogin.com/)
+OneLogin에 대한 자세한 내용은 [OneLogin](https://www.onelogin.com/)을 참조하세요.
 
-## <a name="netiq-access-manager-4.0.1"></a>NetIQ Access Manager 4.0.1 
-NetIQ Access Manager 4.0.1 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## NetIQ Access Manager 4.0.1 
+NetIQ Access Manager 4.0.1은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |*Kerberos Contracts supported|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication is not supported|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |*Kerberos 계약 지원됨|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-*NetIQ support Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact NetIQ or view the setup guide. For more information about NetIQ Access Manager, see [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
+*NetIQ는 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니다. 이 구성에 지원이 필요한 경우 NetIQ에 문의하거나 설치 가이드를 확인하세요. NetIQ Access Manager에 대한 자세한 내용은 [NetIQ Access Manager](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)를 참조하세요.
 
-## <a name="big-ip-with-access-policy-manager-big-ip-ver.-11.3x-–-11.6x"></a>BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x 
-The BIG-IP with Access Policy Manager, (APM) BIG-IP ver. 11.3x – 11.6x implements the widely used SAML identity standard to provide a single sign-on experience and attribute exchange framework.
+## BIG-IP with Access Policy Manager BIG-IP 버전 11.3x – 11.6x 
+BIG-IP with Access Policy Manager(APM) BIG-IP 버전 11.3x – 11.6x는 널리 사용되는 SAML ID 표준을 구현하여 Single Sign-On 환경 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience: 
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Not Supported |Not Supported|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원되지 않음 |지원되지 않음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about BIG-IP Access Policy Manager, see [BIG-IP Access Policy Manager.](https://f5.com/products/modules/access-policy-manager) 
+BIG-IP Access Policy Manager에 대한 자세한 내용은 [BIG-IP Access Policy Manager](https://f5.com/products/modules/access-policy-manager)를 참조하세요.
 
-For the BIG-IP Access Policy Manager instructions on how to configure this STS to provide the single sign-on experience to your Active Directory Users, download the pdf [here.](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)
+Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 BIG-IP Access Policy Manager 지침은 [여기](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)서 pdf 파일을 다운로드하세요.
 
-## <a name="vmware-workspace-portal-version-2.1"></a>VMware  Workspace Portal version 2.1 
-VMware  Workspace Portal version 2.1 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## VMware Workspace Portal 버전 2.1 
+VMware Workspace Portal 버전 2.1은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about VMware  Workspace Portal version 2.1, download the pdf [here.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
+VMware Workspace Portal 버전 2.1에 대한 자세한 내용은 [여기](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)서 pdf 파일을 다운로드하세요.
 
-## <a name="sign&go-5.3"></a>Sign&go 5.3 
-Sign&go 5.3 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## Sign&go 5.3 
+Sign&go 5.3은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Kerberos Contracts supported |
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |Kerberos 계약 지원됨 |
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
 
-Sign&go 5.3 supports Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact Ilex or view the setup guide [here.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+Sign&go 5.3은 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니다. 이 구성에 지원이 필요한 경우 Ilex에 문의하거나 [여기](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)서 설치 가이드를 확인하세요.
 
 
-## <a name="icewall-federation-version-3.0"></a>IceWall Federation Version 3.0 
-IceWall Federation Version 3.0 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## IceWall Federation 버전 3.0 
+IceWall Federation 버전 3.0은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about IceWall Federation, see [here](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) and [here.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
+IceWall Federation에 대한 자세한 내용은 [여기](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) 및 [여기](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)를 참조하세요.
 
-## <a name="ca-secure-cloud"></a>CA Secure Cloud 
+## CA Secure Cloud 
 
-CA Secure Cloud implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+CA Secure Cloud는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about CA Secure Cloud, see [CA Secure Cloud.](http://www.ca.com/us/products/security-as-a-service.aspx)
+CA Secure Cloud에 대한 자세한 내용은 [CA Secure Cloud](http://www.ca.com/us/products/security-as-a-service.aspx)를 참조하세요.
 
-## <a name="dell-one-identity-cloud-access-manager-v7.1"></a>Dell One Identity Cloud Access Manager v7.1 
-Dell One Identity Cloud Access Manager implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## Dell One Identity Cloud Access Manager v7.1 
+Dell One Identity Cloud Access Manager는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-For more information about Dell One Identity Cloud Access Manager, see [Dell One Identity Cloud Access Manager.](http://software.dell.com/products/cloud-access-manager)
+Dell One Identity Cloud Access Manager에 대한 자세한 내용은 [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager)를 참조하세요.
 
- For the instructions on how to configure this STS to provide the single sign-on experience to your Office 365 Users, see [Configure Office 365 Users.](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365) 
+ Office 365 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 지침은 [Office 365 사용자 구성](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365)을 참조하세요.
 
-## <a name="authanvil-single-sign-on-4.5"></a>AuthAnvil Single Sign On 4.5 
-AuthAnvil Single Sign On 4.5 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+## AuthAnvil Single Sign On 4.5 
+AuthAnvil Single Sign On 4.5는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
-The following is the scenario support matrix for this single sign-on experience:
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
-| Client |Support  |Exceptions|
+| 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
-| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
 
-For more information, see [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
+자세한 내용은 [AuthAnvil Single Sign-On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

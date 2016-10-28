@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Informix connector in Microsoft Azure App Service | Microsoft Azure"
-   description="How to use the Informix connector with Logic app triggers and actions"
+   pageTitle="Microsoft Azure 앱 서비스에서 Informix 커넥터 사용 | Microsoft Azure"
+   description="논리 앱 트리거 및 동작을 통해 Informix 커넥터를 사용하는 방법"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
@@ -16,70 +16,68 @@
    ms.date="05/31/2016"
    ms.author="plarsen"/>
 
+# Informix 커넥터
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
-# <a name="informix-connector"></a>Informix connector
->[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
+Informix용 Microsoft 커넥터는 Azure 앱 서비스를 통해 IBM Informix 데이터베이스에 저장된 리소스에 응용 프로그램을 연결하기 위한 API 앱입니다. 커넥터는 Azure 서비스 버스 릴레이를 사용하여 온-프레미스 Informix 서버에 Azure 하이브리드 연결을 비롯한 TCP/IP 네트워크 연결을 통해 원격 Informix 서버 컴퓨터에 연결하는 Microsoft 클라이언트를 포함합니다. 커넥터는 다음 데이터베이스 작업을 지원합니다.
 
-Microsoft connector for Informix is an API app for connecting applications through Azure App Service to resources stored in an IBM Informix database. Connector includes a Microsoft Client to connect to remote Informix server computers across a TCP/IP network connection, including Azure hybrid connections to on-premises Informix servers using the Azure Service Bus Relay. Connector supports the following database operations:
+- SELECT를 사용하여 행 읽기
+- SELECT 뒤에 SELECT COUNT를 사용하여 행을 읽도록 폴링
+- INSERT를 사용하여 한 행 또는 여러(대량으로) 행 추가
+- UPDATE를 사용하여 한 행 또는 여러(대량으로) 행 변경
+- DELETE를 사용하여 한 행 또는 여러(대량으로) 행 삭제
+- 현재의 커서 위치를 업데이트 뒤에 커서 선택을 사용하여 행을 변경하도록 읽기
+- 현재의 커서 위치를 업데이트 뒤에 커서 선택을 사용하여 행을 삭제하도록 읽기
+- 호출을 사용하여 입력 및 출력 매개 변수, 반환 값, resultset이 있는 프로시저 실행
+- SELECT, INSERT, UPDATE, DELETE를 사용하는 사용자 지정 명령 및 복합 작업
 
-- Read rows using SELECT
-- Poll to read rows using SELECT COUNT followed by SELECT
-- Add one row or multiple (bulk) rows using INSERT
-- Alter one row or multiple (bulk) rows using UPDATE
-- Remove one row or multiple (bulk) rows using DELETE
-- Read to alter rows using SELECT CURSOR followed by UPDATE WHERE CURRENT OF CURSOR
-- Read to remove rows using SELECT CURSOR followed by UPDATE WHERE CURRENT OF CURSOR
-- Run procedure with input and output parameters, return value, resultset, using CALL
-- Custom commands and composite operations using SELECT, INSERT, UPDATE, DELETE
+## 트리거 및 작업
+커넥터는 다음 논리 앱 트리거 및 동작을 지원합니다.
 
-## <a name="triggers-and-actions"></a>Triggers and actions
-Connector supports the following Logic app triggers and actions:
-
-Triggers | Actions
+트리거 | 동작
 --- | ---
-<ul><li>Poll Data</li></ul> | <ul><li>Bulk Insert</li><li>Insert</li><li>Bulk Update</li><li>Update</li><li>Call</li><li>Bulk Delete</li><li>Delete</li><li>Select</li><li>Conditional update</li><li>Post to EntitySet</li><li>Conditional delete</li><li>Select single entity</li><li>Delete</li><li>Upsert to EntitySet</li><li>Custom commands</li><li>Composite operations</li></ul>
+<ul><li>데이터 폴링</li></ul> | <ul><li>대량 삽입</li><li>삽입</li><li>대량 업데이트</li><li>업데이트</li><li>호출</li><li>대량 삭제</li><li>삭제</li><li>선택</li><li>조건부 업데이트</li><li>EntitySet에 게시</li><li>조건부 삭제</li><li>단일 엔터티 선택</li><li>삭제</li><li>Upsert to EntitySet</li><li>사용자 지정 명령</li><li>복합 작업</li></ul>
 
 
-## <a name="create-the-informix-connector"></a>Create the Informix connector
-You can define a connector within a Logic app or from the Azure Marketplace, like in the following example:  
+## Informix 커넥터 만들기
+다음 예와 같이 논리 앱 내에서 또는 Azure 마켓플레이스에서 커넥터를 정의할 수 있습니다.
 
-1. In the Azure startboard, select **Marketplace**.
-2. In the **Everything** blade, type **informix** in the **Search Everything** box, and then click the enter key.
-3. In the search everything results pane, select **Informix connector**.
-4. In the Informix connector description blade, select **Create**.
-5. In the Informix connector package blade, enter the Name (e.g. "InformixConnectorNewOrders"), App Service Plan, and other properties.
-6. Select **Package settings**, and enter the following package settings.
+1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
+2. **모든** 블레이드에서 **모두 검색** 상자에 **informix**를 입력한 다음 입력 키를 클릭합니다.
+3. 모든 결과 검색 창에서 **informix 커넥터**를 선택합니다.
+4. informix 커넥터 설명 블레이드에서 **만들기**를 선택합니다.
+5. Informix 커넥터 패키지 블레이드에서 이름(예: "InformixConnectorNewOrders"), 앱 서비스 계획 및 기타 속성을 입력합니다.
+6. **패키지 설정**을 선택하고 다음 패키지 설정을 입력합니다.
 
-    Name | Required |  Description
+	이름 | 필수 | 설명
 --- | --- | ---
-ConnectionString | Yes | Informix Client connection string (e.g., "Network Address=servername;Network Port=9089;User ID=username;Password=password;Initial Catalog=nwind;Default Schema=informix").
-Tables | Yes | Comma separated list of table, view and alias names required for OData operations and to generate swagger documentation with examples (e.g. "NEWORDERS").
-Procedures | Yes | Comma separated list of procedure and function names (e.g. "SPORDERID").
-OnPremise | No | Deploy on-premises using Azure Service Bus Relay.
-ServiceBusConnectionString | No | Azure Service Bus Relay connection string.
-PollToCheckData | No | SELECT COUNT statement to use with a Logic app trigger (e.g. "SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL").
-PollToReadData | No | SELECT statement to use with a Logic app trigger (e.g. "SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE").
-PollToAlterData | No | UPDATE or DELETE statement to use with a Logic app trigger (e.g. "UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;").
+ConnectionString | 예 | Informix 클라이언트 연결 문자열(e.g., "Network Address=servername;Network Port=9089;User ID=username;Password=password;Initial Catalog=nwind;Default Schema=informix").
+테이블 | 예 | 쉼표로 구분된 OData 작업에 요구되는 테이블, 뷰 및 별칭 이름 목록 및 예제를 사용한 swagger 문서 생성(예: "NEWORDERS").
+프로시저 | 예 | 쉼표로 구분된 프로시저 목록 및 함수 이름 (예: "SPORDERID").
+OnPremise | 아니요 | Azure 서비스 버스 릴레이를 사용하여 온-프레미스 배포.
+ServiceBusConnectionString | 아니요 | Azure 서비스 버스 릴레이 연결 문자열.
+PollToCheckData | 아니요 | 논리 앱 트리거와 함께 사용하는 SELECT COUNT 문 (예: "SHIPDATE가 NULL인 NEWORDERS에서 개수(*) 선택")
+PollToReadData | 아니요 | 논리 앱 트리거와 함께 사용하는 SELECT 문 (예: "SHIPDATE가 업데이트에 대해 NULL인 NEWORDERS에서 * 선택")
+PollToAlterData | 아니요 | 논리 앱 트리거와 함께 사용하는 UPDATE or 또는 DELETE 문.(예: “NEWORDERS 설정 SHIPDATE 업데이트 = &lt;CURSOR&gt;인 곳의 현재 날짜”)
 
-7. Select **OK**, and then Select **Create**.
-8. When complete, the Package Settings look similar to the following:  
-![][1]
+7. **확인**을 선택하고 **만들기**를 선택합니다.
+8. 완료되면 패키지 설정은 다음과 유사하게 됩니다. ![][1]
 
 
-## <a name="logic-app-with-informix-connector-action-to-add-data"></a>Logic app with Informix connector action to add data ##
-You can define a Logic app action to add data to an Informix table using an API Insert or Post to Entity OData operation. For example, you can insert a new customer order record, by processing a SQL INSERT statement against a table defined with an identity column, returning the identity value or the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Informix 커넥터 작업을 통해 데이터를 추가하는 논리 앱 ##
+API 삽입 또는 OData 항목에 게시 작업을 사용하여 Informix 테이블에 데이터를 추가하기 위해 논리 앱 작업을 정의할 수 있습니다. 예를 들어 ID 열로 정의된 테이블에 대해 SQL INSERT 문을 처리하거나 논리 앱에 영향을 준 ID 값 또는 행을 반환하여 새 고객 주문 레코드를 삽입할 수 있습니다.(최종 테이블에서 ORDID 선택(NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) 값에 삽입(?,?,?,?,?,?)))
 
-> [AZURE.TIP] Informix Connection "*Post to EntitySet*" returns the identity column value and "*API Insert*" returns rows affected
+> [AZURE.TIP] Informix 연결 "*EntitySet에 게시*"는 ID 열 값을 반환하고 "*API 삽입*"은 영향을 받는 행을 반환합니다.
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "NewOrdersInformix"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **Recurrence**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **Informix connector**, expand the operations list to select **Insert into NEWORDER**.
-7. Expand the parameters list to enter the following values:  
+1. Azure 시작 보드에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
+2. 이름(예: "NewOrdersInformix"), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
+3. Azure 시작 보드에서 방금 만든 논리 앱, **설정**, **트리거 및 동작**을 차례로 선택합니다.
+4. 트리거 및 동작 블레이드의 논리 앱 템플릿 내에서 **처음부터 새로 만들기**를 선택합니다.
+5. API 앱 패널에서 **되풀이**를 선택하고 빈도 및 간격, **확인 표시**를 차례로 설정합니다.
+6. API 앱 패널에서 **Informix 커넥터**를 선택하고 작업 목록을 확장하여 **NEWORDER에 삽입**을 선택합니다.
+7. 매개 변수 목록을 확장하여 다음 값을 입력합니다.
 
-    Name | Value
+	이름 | 값
 --- | --- 
 CUSTID | 10042
 SHIPID | 10000
@@ -89,185 +87,175 @@ SHIPCITY | Walla Walla
 SHIPREG | WA
 SHIPZIP | 99362 
 
-8. Select the **checkmark** to save the action settings, and then **Save**.
-9. The settings should look as follows:  
-![][3]  
-10. In the **All runs** list under **Operations**, select the first-listed item (most recent run). 
-11. In the **Logic app run** blade, select the **ACTION** item **informixconnectorneworders**.
-12. In the **Logic app action** blade, select the **INPUTS LINK**. Informix connector uses the inputs to process a parameterized INSERT statement.
-13. In the **Logic app action** blade, select the **OUTPUTS LINK**. The inputs should look as follows:  
-![][4]
+8. 작업 설정을 저장하려면 **확인 표시**, **저장**을 차례로 선택합니다.
+9. 설정은 다음과 같이 표시되어야 합니다. ![][3]
+10. **작업**의 **모두 실행** 목록에서 첫 번째 나열된 항목(가장 최근 실행)을 선택합니다.
+11. **논리 앱 실행** 블레이드에서 **작업** 항목 **informixconnectorneworders**을 선택합니다.
+12. **논리 앱 작업** 블레이드에서 **입력 링크**를 선택합니다. Informix 커넥터는 입력을 사용하여 매개 변수가 있는 INSERT 문을 처리합니다.
+13. **논리 앱 작업** 블레이드에서 **출력 링크**를 선택합니다. 입력은 다음과 같이 표시되어야 합니다. ![][4]
 
-#### <a name="what-you-need-to-know"></a>What you need to know
+#### 알아야 하는 작업
 
-- Connector truncates Informix table names when forming Logic app action names. For example, the operation **Insert into NEWORDERS** is truncated to **Insert into NEWORDER**.
-- After saving the Logic app **Triggers and actions**, Logic app processes the operation. There may be a delay of a number of seconds (e.g. 3-5 seconds) before Logic app processes the operation. Optionally, you can click **Run Now** to process the operation.
-- Informix connector defines EntitySet members with attributes, including whether the member corresponds to an Informix column with a default or generated columns (e.g. identity). Logic app displays a red asterisk next to the EntitySet member ID name, to denote Informix columns that require values. You should not enter a value for the ORDID member, which corresponds to Informix identity column. You may enter values for other optional members (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), which correspond to Informix columns with default values. 
-- Informix connector returns to Logic app the response on the Post to EntitySet that includes the values for identity columns, which is derived from the DRDA SQLDARD (SQL Data Area Reply Data) on the prepared SQL INSERT statement. Informix server does not return the inserted values for columns with default values.  
+- 논리 앱 작업 이름을 형성하는 경우 커넥터는 Informix 테이블 이름을 자릅니다. 예를 들어 작업 **NEWORDERS에 삽입**은 **NEWORDER에 삽입**에 대해 잘립니다.
+- 논리 앱 **트리거 및 동작**을 저장한 후에 논리 앱은 작업을 처리합니다. 논리 앱이 작업을 처리하기 전까지 몇 초가 지연될 수 있습니다.(예: 3-5 초) 필요에 따라 **지금 실행**을 클릭하여 작업을 처리할 수 있습니다.
+- Informix 커넥터는 멤버가 기본값 또는 생성된 열(예: ID)을 통해 Informix 열에 해당하는지 여부를 포함하여 특성을 가진 EntitySet 멤버를 정의합니다. 논리 앱에는 EntitySet 멤버 ID 이름 옆에 빨간색 별표를 표시하여 값을 필요로 하는 Informix 열을 나타냅니다. Informix ID 열에 해당하는 ORDID 멤버에 대한 값을 입력하지 말아야 합니다. 기본 값으로 Informix 열에 해당하는 다른 선택적 멤버(ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY)에 대한 값을 입력할 수 있습니다.
+- Informix 커넥터는 준비된 SQL INSERT 문에서 DRDA SQLDARD(SQL 데이터 영역 응답 데이터)에서 파생되는 ID 열에 대한 값을 포함하는 EntitySet에 게시에 있는 응답을 논리 앱에 반환합니다. Informix 서버는 기본값이 있는 열에 삽입된 값을 반환하지 않습니다.
 
 
-## <a name="logic-app-with-informix-connector-action-to-add-bulk-data"></a>Logic app with Informix connector action to add bulk data ##
-You can define a Logic app action to add data to an Informix table using an API Bulk Insert operation. For example, you can insert two new customer order records, by processing a SQL INSERT statement using an array of row values against a table defined with an identity column, returning the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Informix 커넥터 작업을 통해 데이터를 대량으로 추가하는 논리 앱 ##
+API 대량 삽입 작업을 사용하여 Informix 테이블에 데이터를 추가하기 위해 논리 앱 작업을 정의할 수 있습니다. 예를 들어 ID 열로 정의된 테이블에 대해 행 값의 배열을 사용하는 SQL INSERT 문을 처리하거나 논리 앱에 영향을 준 행을 반환하여 두 개의 새 고객 주문 레코드를 삽입할 수 있습니다.(최종 테이블에서 ORDID 선택(NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) 값에 삽입(?,?,?,?,?,?)))
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "NewOrdersBulkInformix"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **Recurrence**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **Informix connector**, expand the operations list to select **Bulk Insert into NEW**.
-7. Enter the **rows** value as an array. For example, copy and paste the following:  
+1. Azure 시작 보드에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
+2. 이름(예: "NewOrdersBulkInformix"), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
+3. Azure 시작 보드에서 방금 만든 논리 앱, **설정**, **트리거 및 동작**을 차례로 선택합니다.
+4. 트리거 및 동작 블레이드의 논리 앱 템플릿 내에서 **처음부터 새로 만들기**를 선택합니다.
+5. API 앱 패널에서 **되풀이**를 선택하고 빈도 및 간격, **확인 표시**를 차례로 설정합니다.
+6. API 앱 패널에서 **Informix 커넥터**를 선택하고 작업 목록을 확장하여 **NEW에 대량 삽입**을 선택합니다.
+7. **행** 값을 배열로 입력합니다. 예를 들어 다음을 복사하여 붙여넣습니다.
 
-    ```
+	```
     [{"custid":10081,"shipid":10000,"shipname":"Trail's Head Gourmet Provisioners","shipaddr":"722 DaVinci Blvd.","shipcity":"Kirkland","shipreg":"WA","shipzip":"98034"},{"custid":10088,"shipid":10000,"shipname":"White Clover Markets","shipaddr":"305 14th Ave. S. Suite 3B","shipcity":"Seattle","shipreg":"WA","shipzip":"98128","shipctry":"USA"}]
-    ```
+	```
         
-8. Select the **checkmark** to save the action settings, and then **Save**. The settings should look as follows:  
-![][6]
+8. 작업 설정을 저장하려면 **확인 표시**, **저장**을 차례로 선택합니다. 설정은 다음과 같이 표시되어야 합니다. ![][6]
 
-9. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-10. In the **Logic app run** blade, click the **ACTION** item.
-11. In the **Logic app action** blade, click the **INPUTS LINK**. The outputs should look as follows:  
-[][7]
-12. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][8]
+9. **작업**의 **모두 실행** 목록에서 첫 번째 나열된 항목(가장 최근 실행)을 클릭합니다.
+10. **논리 앱 실행** 블레이드에서 **작업** 항목을 클릭합니다.
+11. **논리 앱 작업** 블레이드에서 **입력 링크**를 클릭합니다. 출력은 다음과 같이 표시되어야 합니다. [][7]
+12. **논리 앱 작업** 블레이드에서 **출력 링크**를 클릭합니다. 출력은 다음과 같이 표시되어야 합니다. ![][8]
 
-#### <a name="what-you-need-to-know"></a>What you need to know
+#### 알아야 하는 작업
 
-- Connector truncates Informix table names when forming Logic app action names. For example, the operation **Bulk Insert into NEWORDERS** is truncated to **Bulk Insert into NEW**.
-- Informix database may be case sensitive to table and column names. For example, the Bulk Insert operation array column names may need to be specified in lower case ("custid") instead of upper case ("CUSTID").
-- By omitting identity columns (e.g. ORDID), nullable columns (e.g. SHIPDATE), and columns with default values (e.g. ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), Informix database generates values.
-- By specifying "today" and "tomorrow", Informix connector generates "CURRENT DATE" and "CURRENT DATE + 1 DAY" functions (e.g. REQDATE). 
+- 논리 앱 작업 이름을 형성하는 경우 커넥터는 Informix 테이블 이름을 자릅니다. 예를 들어 작업 **NEWORDERS에 대량 삽입**은 **NEW에 대량 삽입**에 대해 잘립니다.
+- Informix 데이터베이스는 테이블 및 열 이름에 대해 대/소문자를 구분할 수 있습니다. 예를 들어 대량 삽입 작업 배열 열 이름은 대문자(“CUSTID”) 대신 소문자("custid")로 지정해야 합니다.
+- ID 열(예: ORDID), nullable 열(예: SHIPDATE) 및 기본 값이 있는 열(예: ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY)을 생략하여 Informix 데이터베이스가 값을 생성합니다.
+- "현재" 및 "내일"을 지정하여 Informix 커넥터는 "현재 날짜" 및 "현재 날짜 + 1일"(예: REQDATE)을 생성합니다.
 
 
-## <a name="logic-app-with-informix-connector-trigger-to-read,-alter-or-delete-data"></a>Logic app with Informix connector trigger to read, alter or delete data ##
-You can define a Logic app trigger to poll and read data from an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, returning the records to the Logic app. The Informix Connection package/app settings should look as follows:
+## Informix 커넥터 트리거를 통해 데이터를 읽기, 변경 또는 삭제하려는 논리 앱 ##
+API 데이터 폴링 복합 작업을 사용하여 Informix 테이블에서 데이터를 폴링하고 읽도록 논리 앱 트리거를 정의할 수 있습니다. 예를 들어 논리 앱에 레코드를 반환하여 한 개 이상의 새 고객 주문 레코드를 읽을 수 있습니다. Informix 연결 패키지/앱 설정을 다음과 같이 표시되어야 합니다.
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-PollToAlterData | <no value specified>
+PollToCheckData | SHIPDATE가 NULL인 NEWORDERS에서 개수(*) 선택
+PollToReadData | "SHIPDATE가 업데이트에 대해 NULL인 NEWORDERS에서 * 선택"
+PollToAlterData | <지정된 값 없음>
 
 
-Also, you can define a Logic app trigger to poll, read and alter data in an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, update the row values, returning the selected (before update) records to the Logic app. The Informix Connection package/app settings should look as follows:
+또한 API 데이터 폴링 복합 작업을 사용하여 Informix 테이블에서 데이터를 폴링하고 읽으며 변경하도록 논리 앱 트리거를 정의할 수 있습니다. 예를 들어 논리 앱에 (업데이트 전에) 선택한 레코드를 반환하여 한 개 이상의 새 고객 주문 레코드를 읽고 행 값을 업데이트할 수 있습니다. Informix 연결 패키지/앱 설정을 다음과 같이 표시되어야 합니다.
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-PollToAlterData | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;
+PollToCheckData | SHIPDATE가 NULL인 NEWORDERS에서 개수(*) 선택
+PollToReadData | "SHIPDATE가 업데이트에 대해 NULL인 NEWORDERS에서 * 선택"
+PollToAlterData | NEWORDERS 설정 SHIPDATE 업데이트 = &lt;CURSOR&gt;인 곳의 현재 날짜
 
 
-Further, you can define a Logic app trigger to poll, read and remove data from an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, delete the rows, returning the selected (before delete) records to the Logic app. The Informix Connection package/app settings should look as follows:
+또한 API 데이터 폴링 복합 작업을 사용하여 Informix 테이블에서 데이터를 폴링하고 읽으며 이동하도록 논리 앱 트리거를 정의할 수 있습니다. 예를 들어 논리 앱에 (삭제 전에) 선택한 레코드를 반환하여 한 개 이상의 새 고객 주문 레코드를 읽고 행을 삭제할 수 있습니다. Informix 연결 패키지/앱 설정을 다음과 같이 표시되어야 합니다.
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
+PollToCheckData | SHIPDATE가 NULL인 NEWORDERS에서 개수(*) 선택
+PollToReadData | "SHIPDATE가 업데이트에 대해 NULL인 NEWORDERS에서 * 선택"
+PollToAlterData | &lt;CURSOR&gt;인 곳의 NEWORDERS 삭제
 
-In this example, Logic app will poll, read, update, and then re-read data in the Informix table.
+이 예제에서 논리 앱은 Informix 테이블의 데이터를 폴링하고 읽으며 업데이트한 다음 다시 읽습니다.
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "ShipOrdersInformix"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **Informix connector**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **Informix connector**, expand the operations list to select **Select from NEWORDERS**.
-7. Select the **checkmark** to save the action settings, and then **Save**. The settings should look as follows:  
-![][10]
-8. Click to close the **Triggers and actions** blade, and then click to close the **Settings** blade.
-9. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-10. In the **Logic app run** blade, click the **ACTION** item.
-11. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][11]
+1. Azure 시작 보드에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
+2. 이름(예: "ShipOrdersInformix"), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
+3. Azure 시작 보드에서 방금 만든 논리 앱, **설정**, **트리거 및 동작**을 차례로 선택합니다.
+4. 트리거 및 동작 블레이드의 논리 앱 템플릿 내에서 **처음부터 새로 만들기**를 선택합니다.
+5. API 앱 패널에서 **Informix 커넥터**를 선택하고 빈도 및 간격, **확인 표시**를 차례로 설정합니다.
+6. API 앱 패널에서 **Informix 커넥터**를 선택하고 작업 목록을 확장하여 **NEWORDERS에서 선택**을 선택합니다.
+7. 작업 설정을 저장하려면 **확인 표시**, **저장**을 차례로 선택합니다. 설정은 다음과 같이 표시되어야 합니다. ![][10]
+8. **트리거 및 동작** 블레이드를 닫으려면 클릭한 다음 **설정** 블레이드를 클릭합니다.
+9. **작업**의 **모두 실행** 목록에서 첫 번째 나열된 항목(가장 최근 실행)을 클릭합니다.
+10. **논리 앱 실행** 블레이드에서 **작업** 항목을 클릭합니다.
+11. **논리 앱 작업** 블레이드에서 **출력 링크**를 클릭합니다. 출력은 다음과 같이 표시되어야 합니다. ![][11]
 
 
-## <a name="logic-app-with-informix-connector-action-to-remove-data"></a>Logic app with Informix connector action to remove data ##
-You can define a Logic app action to remove data from an Informix table using an API Delete or Post to Entity OData operation. For example, you can insert a new customer order record, by processing a SQL INSERT statement against a table defined with an identity column, returning the identity value or the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Informix 커넥터 작업을 통해 데이터를 삭제하는 논리 앱 ##
+API 삭제 또는 OData 항목에 게시 작업을 사용하여 Informix 테이블에서 데이터를 제거하도록 논리 앱 작업을 정의할 수 있습니다. 예를 들어 ID 열로 정의된 테이블에 대해 SQL INSERT 문을 처리하거나 논리 앱에 영향을 준 ID 값 또는 행을 반환하여 새 고객 주문 레코드를 삽입할 수 있습니다.(최종 테이블에서 ORDID 선택(NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) 값에 삽입(?,?,?,?,?,?)))
 
-## <a name="create-logic-app-using-informix-connector-to-remove-data"></a>Create Logic app using Informix connector to remove data ##
-You can create a new Logic app from within the Azure Marketplace, and then use the Informix connector as an action to remove customer orders. For example, you can use the Informix connector conditional Delete operation to process a SQL DELETE statement (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
+## Informix 커넥터를 사용하여 데이터를 제거하는 논리 앱 만들기 ##
+Azure 마켓플레이스 내에서 새 논리 앱을 만들고 Informix 커넥터를 작업으로 사용하여 고객 주문을 제거할 수 있습니다. 예를 들어 SQL DELETE 문을 처리하는 Informix 커넥터 조건부 삭제 작업을 사용할 수 있습니다. (ORDID >= 10000인 NEWORDERS에서 삭제)
 
-1. In the hub menu of the Azure **Start** board, click **+** (plus sign), click **Web + Mobile**, and then click **Logic app**. 
-2. In the **Create Logic app** blade, type a **Name**, for example **RemoveOrdersInformix**.
-3. Select or define values for the other settings (e.g. service plan, resource group).
-4. The settings should look as follows. Click **Create**:  
-![][12]
-5. In the **Settings** blade, click **Triggers and actions**.
-6. In the **Triggers and actions** blade, in the **Logic app Templates** list, click **Create from Scratch**.
-7. In the **Triggers and actions** blade, in the **API Apps** panel, within the resource group, click **Recurrence**.
-8. On the Logic app design surface, click the **Recurrence** item, set a **Frequency** and **Interval**, for example **Days** and **1**, and then click the **checkmark** to save the recurrence item settings.
-9. In the **Triggers and actions** blade, in the **API Apps** panel, within the resource group, click **Informix connector**.
-10. On the Logic app design surface, click the **Informix connector** action item, click the ellipses (**...**) to expand the operations list, and then click **Conditional delete from N**.
-11. On the Informix connector action item, type **ordid ge 10000** for an **expression that identifies a subset of entries**.
-12. Click the **checkmark** to save the action settings, and then click **Save**. The settings should look as follows:  
-![][13]
-13. Click to close the **Triggers and actions** blade, and then click to close the **Settings** blade.
-14. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-15. In the **Logic app run** blade, click the **ACTION** item.
-16. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][14]
+1. Azure **시작** 보드의 허브 메뉴에서 **+**(더하기 기호)를 클릭하고 **웹 + 모바일**을 클릭한 다음 **논리 앱**을 클릭합니다.
+2. **논리 앱 만들기** 블레이드에서 **이름**을 입력합니다.(예: **RemoveOrdersInformix**)
+3. 다른 설정(예: 서비스 계획, 리소스 그룹)에 대한 값을 선택하거나 정의합니다.
+4. 설정은 다음과 같이 표시되어야 합니다. **만들기**를 클릭합니다. ![][12]
+5. **설정** 블레이드에서 **트리거 및 동작**을 클릭합니다.
+6. **트리거 및 동작** 블레이드의 **논리 앱 템플릿** 목록에서 **처음부터 새로 만들기**를 클릭합니다.
+7. **트리거 및 동작** 블레이드의 리소스 그룹 내 **API 앱** 패널에서 **되풀이**를 클릭합니다.
+8. 논리 앱 설계 화면에서 **되풀이** 항목을 클릭하고 **주파수** 및 **간격**을 설정한 다음(예: **일** 및 **1**) **확인 표시**를 클릭하여 되풀이 항목 설정을 저장합니다.
+9. **트리거 및 동작** 블레이드의 리소스 그룹 내 **API 앱** 패널에서 **Informix 커넥터**를 클릭합니다.
+10. 논리 앱 설계 화면에서 **Informix 커넥터** 작업 항목을 클릭하고 줄임표(**...**)를 클릭하여 작업 목록을 확장한 다음 **N에서 조건부 삭제**를 클릭합니다.
+11. Informix 커넥터 작업 항목에서 **항목 하위 집합을 식별하는 식**에 **ordid ge 10000**을 입력합니다.
+12. 작업 설정을 저장하려면 **확인 표시**, **저장**을 차례로 클릭합니다. 설정은 다음과 같이 표시되어야 합니다. ![][13]
+13. **트리거 및 동작** 블레이드를 닫으려면 클릭한 다음 **설정** 블레이드를 클릭합니다.
+14. **작업**의 **모두 실행** 목록에서 첫 번째 나열된 항목(가장 최근 실행)을 클릭합니다.
+15. **논리 앱 실행** 블레이드에서 **작업** 항목을 클릭합니다.
+16. **논리 앱 작업** 블레이드에서 **출력 링크**를 클릭합니다. 출력은 다음과 같이 표시되어야 합니다. ![][14]
 
-**Note:** Logic app designer truncates table names. For example the operation **Conditional delete from NEWORDERS** is truncated to **Conditional delete from N**.
+**참고:** 논리 앱 설계자는 테이블 이름을 자릅니다. 예를 들어 작업 **NEWORDERS에서 조건부 삭제**는 **N에서 조건부 삭제**에 잘립니다.
 
 
-> [AZURE.TIP] Use the following SQL statements to create the sample table and stored procedures. 
+> [AZURE.TIP] 다음 SQL 문을 사용하여 샘플 테이블 및 저장 프로시저를 만듭니다.
 
-You can create the sample NEWORDERS table using the following Informix SQL DDL statements:
+다음 Informix SQL DDL 문을 사용하여 샘플 NEWORDERS 테이블을 만들 수 있습니다.
  
     create table neworders (  
-        ordid serial(10000) unique ,  
-        custid int not null ,  
-        empid int not null default 10000 ,  
-        orddate date not null default today ,  
-        reqdate date default today ,  
-        shipdate date ,  
-        shipid int not null default 10000 ,  
-        freight decimal (9,2) not null default 0.00 ,  
-        shipname char (40) not null ,  
-        shipaddr char (60) not null ,  
-        shipcity char (20) not null ,  
-        shipreg char (15) not null ,  
-        shipzip char (10) not null ,  
-        shipctry char (15) not null default ''USA'' 
-        )
+ 		ordid serial(10000) unique ,  
+ 		custid int not null ,  
+ 		empid int not null default 10000 ,  
+ 		orddate date not null default today ,  
+ 		reqdate date default today ,  
+ 		shipdate date ,  
+ 		shipid int not null default 10000 ,  
+ 		freight decimal (9,2) not null default 0.00 ,  
+ 		shipname char (40) not null ,  
+ 		shipaddr char (60) not null ,  
+ 		shipcity char (20) not null ,  
+ 		shipreg char (15) not null ,  
+ 		shipzip char (10) not null ,  
+ 		shipctry char (15) not null default ''USA'' 
+ 		)
 
 
-You can create the sample SPORDERID stored procedure using the following Informix DDL statement:
+다음 Informix DDL 문을 사용하여 샘플 SPORDERID 저장 프로시저를 만들 수 있습니다.
  
     create procedure sporderid ( ord_id int)  
-        returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
-        define xordid, xcustid, xempid, xshipid int;  
-        define xorddate, xreqdate, xshipdate date;  
-        define xfreight decimal (9,2);  
-        define xshipname char (40);  
-        define xshipaddr char (60);  
-        define xshipcity char (20);  
-        define xshipreg, xshipctry char (15);  
-        define xshipzip char (10);  
-        select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
-            into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
-            from neworders where ordid = ord_id;  
-        return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
+ 		returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
+ 		define xordid, xcustid, xempid, xshipid int;  
+ 		define xorddate, xreqdate, xshipdate date;  
+ 		define xfreight decimal (9,2);  
+ 		define xshipname char (40);  
+ 		define xshipaddr char (60);  
+ 		define xshipcity char (20);  
+ 		define xshipreg, xshipctry char (15);  
+ 		define xshipzip char (10);  
+ 		select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
+ 			into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
+ 			from neworders where ordid = ord_id;  
+ 		return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
     end procedure; 
 
 
-## <a name="hybrid-configuration-(optional)"></a>Hybrid configuration (Optional)
+## 하이브리드 구성(선택 사항)
 
-> [AZURE.NOTE] This step is required only if you are using DB2 connector on-premises behind your firewall.
+> [AZURE.NOTE] 이 단계는 방화벽 뒤의 DB2 커넥터 온-프레미스를 사용하는 경우에만 필요합니다.
 
-App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If connector uses an on-premises IBM DB2 Server for Windows, the Hybrid Connection Manager is required.
+앱 서비스는 하이브리드 구성 관리자를 사용하여 온-프레미스 시스템에 안전하게 연결합니다. 커넥터가 Windows용 온-프레미스 IBM DB2 Server를 사용하는 경우 하이브리드 연결 관리자가 필요합니다.
 
-See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
+[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)을 참조하세요.
 
 
-## <a name="do-more-with-your-connector"></a>Do more with your connector
-Now that the connector is created, you can add it to a business workflow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
-Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)를 참조하세요.
 
-You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and connectors](app-service-logic-monitor-your-connectors.md).
+커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
 
 <!--Image references-->
@@ -286,10 +274,4 @@ You can also review performance statistics and control security to the connector
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

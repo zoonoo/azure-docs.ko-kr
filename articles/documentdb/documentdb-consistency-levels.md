@@ -1,133 +1,122 @@
 <properties
-    pageTitle="Consistency levels in DocumentDB | Microsoft Azure"
-    description="DocumentDB has four consistency levels to help balance eventual consistency, availability, and latency trade-offs."
-    keywords="eventual consistency, documentdb, azure, Microsoft azure"
-    services="documentdb"
-    authors="syamkmsft"
-    manager="jhubbard"
-    editor="cgronlun"
-    documentationCenter=""/>
+	pageTitle="DocumentDB에서 일관성 수준 | Microsoft Azure"
+	description="DocumentDB에는 최종 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 네 가지 일관성 수준이 있습니다."
+	keywords="최종 일관성, Documentdb, Azure, Microsoft Azure"
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="cgronlun"
+	documentationCenter=""/>
 
 <tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/24/2016"
-    ms.author="syamk"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2016"
+	ms.author="mimig"/>
 
+# DocumentDB의 일관성 수준
 
-# <a name="consistency-levels-in-documentdb"></a>Consistency levels in DocumentDB
+Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 99.99% 가용성 SLA와 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 DocumentDB는 4가지 일관성 수준(강력, 제한된 부실, 세션, 최종)을 제공합니다. DocumentDB는 다른 NoSQL 데이터베이스에서 흔히 제공하는 **강력**하고 **최종 일관성**있는 모델 외에도 두 가지 신중하게 변환된 조작 가능한 일관성 모델(**제한된 부실**과 **세션**)을 제공합니다. DocumentDB는 실제 사용 사례에서도 유용하다는 것이 입증되었습니다. 이 네 가지 일관성 수준을 통해 일관성, 가용성, 대기 시간 사이에서 타당하게 절충합니다.
 
-Azure DocumentDB is designed from the ground up with global distribution in mind. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, DocumentDB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, DocumentDB also offers two carefully codified and operationalized consistency models – **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
+## 일관성 범위
 
-## <a name="scope-of-consistency"></a>Scope of consistency
+일관성의 세분성은 단일 사용자 요청에 따라 범위가 지정됩니다. 쓰기 요청은 삽입, 바꾸기, 업데이트 및 삽입, 삭제 트랜잭션에 해당합니다(관련 사전 또는 사후 트리거 실행 포함/미포함). 또는, 쓰기 요청은 파티션 내의 여러 문서에서 작동하는 JavaScript 저장 절차를 트랜잭션 실행하는 것에 해당할 수 있습니다. 쓰기와 마찬가지로 읽기/쿼리 트랜잭션도 단일 사용자 요청에 대해 범위가 지정됩니다. 사용자는 여러 파티션에 걸친 대량의 결과 세트에 페이지를 매겨야 할 수 있지만, 각 읽기 트랜잭션은 단일 페이지에 따라 범위가 지정되고 단일 패턴 내에서 서비스가 제공됩니다.
 
-The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction (with or without the execution of an associated pre or post trigger). Or a write request may correspond to the transactional execution of a JavaScript stored procedure operating over multiple documents within a partition. As with the writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
+## 일관성 수준
 
-## <a name="consistency-levels"></a>Consistency levels
+데이터베이스 계정 아래의 모든 컬렉션(모든 데이터베이스)에 적용되는 기본 일관성 수준을 데이터베이스 계정에 구성할 수 있습니다. 기본적으로 사용자 정의 리소스에 대해 실행되는 모든 읽기 및 쿼리는 데이터베이스 계정에 지정된 기본 일관성 수준을 사용합니다. 그러나 [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) 요청 헤더를 지정하여 특정 읽기/쿼리 요청의 일관성 수준을 낮출 수 있습니다. DocumentDB 복제 프로토콜에서 지원하는 일관성 수준은 4가지 형식이 있습니다. 이는 아래 설명한 바와 같이 특정 일관성 보증과 성능 간을 명확히 절충합니다.
 
-You can configure a default consistency level on your database account that applies to all the collections (across all of the databases) under your database account. By default, all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. However, you can relax the consistency level of a specific read/query request by specifying the [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header. There are four types of consistency levels supported by the DocumentDB replication protocol that provide a clear trade-off between specific consistency guarantees and performance, as described below.
+![DocumentDB는 선택 가능한 여러 개의 잘 정의된(관대한) 일관성 모델을 제공합니다.][1]
 
-![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
+**강력**:
 
-**Strong**: 
-
-- Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of a document. 
-- Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries, or it is aborted. A read is always acknowledged by the majority read quorum, a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
-- DocumentDB accounts that are configured to use strong consistency cannot associate more than one Azure region with their DocumentDB account. 
-- The cost of a read operation (in terms of [request units](documentdb-request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
+- 강력한 일관성은 [원자성(linearizability)](https://aphyr.com/posts/313-strong-consistency-models)을 보증하고, 읽기는 가장 최신 문서 버전을 반환합니다.
+- 강력한 일관성은 과반수 쿼럼의 복제본에서 지속적으로 커밋된 후에만 쓰기가 표시되도록 합니다. 쓰기는 동기적으로 주 복제본 및 쿼럼의 보조 복제본 둘 다에서 지속적으로 커밋되거나 중단됩니다. 읽기는 항상 과반수의 읽기 쿼럼에서 승인됩니다. 클라이언트는 커밋되지 않은 쓰기나 부분 쓰기를 볼 수 없으며 항상 승인된 최신 쓰기를 읽습니다.
+- 강력한 일관성을 사용하도록 구성된 DocumentDB 계정은 DocumentDB 계정과 두개 이상의 Azure 지역을 연결할 수 없습니다.
+- 강력한 일관성이 적용된 읽기 작업(사용한 [요청 단위](documentdb-request-units.md) 기준)의 비용은 세션 및 최종보다 많지만, 제한된 경의와 같습니다.
  
 
-**Bounded staleness**: 
+**제한된 부실**
 
-- Bounded staleness consistency guarantees that the reads may lag behind writes by at most *K* versions or prefixes of a document or *t* time-interval. 
-- Consequently, when choosing bounded staleness, the “staleness” can be configured in two ways: 
-    - Number of versions *K* of the document by which the reads lag behind the writes
-    - Time interval *t* 
-- Bounded staleness offers total global order except within the “staleness window”. Note that the monotonic read guarantees exists within a region both inside and outside the “staleness window”. 
-- Bounded staleness provides a stronger consistency guarantee than session or eventual consistency. For globally distributed applications, we recommend you use bounded staleness for scenarios where you would like to have strong consistency but also want 99.99% availability and low latency. 
-- DocumentDB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their DocumentDB account. 
-- The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
+- 제한된 부실 일관성은 적어도 문서의 *K* 버전이나 접두어, 또는 *t* 시간 간격에 읽기가 쓰기보다 뒤처지게 합니다.
+- 따라서 제한된 부실을 선택하면 “부실"은 두 가지 방식으로 설정할 수 있습니다.
+    - 읽기보다 쓰기가 뒤처지는 문서의 *K* 버전 수
+    - 시간 간격 *t*
+- 제한된 부실은 “부실 창" 내부를 제외하고 전체 전역 순서를 제공합니다. 참고로 “부실 창” 내부 및 외부 지역에 단조 읽기 보증이 존재합니다.
+- 제한된 부실은 세션이나 최종 일관성보다 강력한 일관성 보증을 제공합니다. 전역에 배포되는 응용 프로그램의 경우, 강력한 일관성을 가지기를 바라지만 가용성이 99.99%이고 대기 시간이 짧은 시나리오에서는 제한된 부실을 사용하는 것이 좋습니다.
+- 제한된 일관성으로 구성된 DocumentDB 계정은 DocumentDB 계정이 있는 모든 Azure 지역과 연결할 수 있습니다.
+- 제한된 부실이 적용된 읽기 작업(사용한 요청 단위 기준)의 비용은 세션 및 최종 일관성보다 높지만, 강력한 일관성과 동일합니다.
 
-**Session**: 
+**세션**:
 
-- Unlike the global consistency models offered by strong and bounded staleness consistency levels, session consistency is scoped to a client session. 
-- Session consistency is ideal for all scenarios where a device or user session is involved since it guarantees monotonic reads, monotonic writes, and read your own writes (RYW) guarantees. 
-- Session consistency provides predictable consistency for a session, and maximum read throughput while offering the lowest latency writes and reads. 
-- DocumentDB accounts that are configured with session consistency can associate any number of Azure regions with their DocumentDB account. 
-- The cost of a read operation (in terms of RUs consumed) with session consistency level is less than strong and bounded staleness, but more than eventual consistency
+- 강력한 일관성 수준과 제한된 부실 종속성 수준이 제공하는 전역 일관성 모델과 달리 세션 일관성 범위는 클라이언트 세션에 따라 범위가 지정됩니다.
+- 세션 일관성은 단조 읽기, 단조 쓰기, 사용자 고유 쓰기 읽기(RYW)를 보증하므로 장치 또는 사용자 세션이 관련된 모든 시나리오에 이상적입니다.
+- 세션 일관성으로 특정 세션에 예측 가능한 일관성을 제공하고, 쓰기 및 읽기 대기 시간이 가장 짧으면서도 최대한 많은 읽기 처리량을 처리합니다.
+- 세션 일관성으로 구성된 DocumentDB 계정은 DocumentDB 계정이 있는 모든 Azure 지역과 연결할 수 있습니다.
+- 세션 일관성 수준의 읽기 작업의 비용(사용한 RU 기준)은 강력 및 제한된 부실 일관성 수준보다 적지만, 최종 일관성보다는 높습니다.
  
 
-**Eventual**: 
+**최종**:
 
-- Eventual consistency guarantees that in absence of any further writes, the replicas within the group will eventually converge. 
-- Eventual consistency is the weakest form of consistency where a client may get the values that are older than the ones it had seen before.
-- Eventual consistency provides the weakest read consistency but offers the lowest latency for both reads and writes.
-- DocumentDB accounts that are configured with eventual consistency can associate any number of Azure regions with their DocumentDB account. 
-- The cost of a read operation (in terms of RUs consumed) with the eventual consistency level is the lowest of all the DocumentDB consistency levels.
+- 최종 일관성은 추가 쓰기가 없을 경우 그룹 내의 복제본이 결국 수렴되도록 보장합니다.
+- 최종 일관성은 가장 약한 형태의 일관성으로, 클라이언트가 이전에 확인한 것보다 오래된 값을 얻을 수 있습니다.
+- 최종 일관성은 읽기 일관성이 가장 약하지만 읽기와 쓰기 둘 다에서 대기 시간이 가장 짧습니다.
+- 최종 일관성으로 구성된 DocumentDB 계정은 DocumentDB 계정이 있는 모든 Azure 지역과 연결할 수 있습니다.
+- 최종 일관성 수준의 읽기 작업 비용(사용한 RU 기준)은 모든 DocumentDB 일관성 수준에서 가장 낮습니다.
 
 
-## <a name="consistency-guarantees"></a>Consistency guarantees
+## 일관성 보증
 
-The following table captures various consistency guarantees corresponding to the four consistency levels.
+다음 표는 4가지 일관성 수준에 대응하는 다양한 일관성 보증을 나타냅니다.
 
-| Guarantee                                                         |    Strong                                       |    Bounded Staleness                                                                           |    Session                                       |    Eventual                                 |
+| 보증 | 강력 | 제한된 부실 | 세션 | 최종 |
 |----------------------------------------------------------|-------------------------------------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
-|    **Total global order**                                |    Yes                                          |    Yes, outside of the “staleness window”                                                      |    No, partial “session” order                   |    No                                            |
-|    **Consistent prefix guarantee**                       |    Yes                                          |    Yes                                                                                         |    Yes                                           |    Yes                                           |
-|    **Monotonic reads**                                   |    Yes                                          |    Yes, across   regions outside of the staleness window and within a region all the time.     |    Yes, for the given session                    |    No                                            |
-|    **Monotonic writes**                                  |    Yes                                          |    Yes                                                                                         |    Yes                                           |    Yes                                           |
-|    **Read your writes**                                  |    Yes                                          |    Yes                                                                                         |    Yes (in the write region)                      |    No                                            |
+| **전체 전역 순서** | 예 | 예, “부실 창" 외부 | 아니요, 부분 “세션" 순서 | 아니요 |
+| **일관적인 접두사 보증** | 예 | 예 | 예 | 예 |
+| **단조 읽기** | 예 | 예, 항상 부실 창 바깥의 전체 지역 및 지역 내부. | 예, 주어진 세션 | 아니요 |
+| **단조 쓰기** | 예 | 예 | 예 | 예 |
+| **자신의 쓰기 읽기** | 예 | 예 | 예(쓰기 지역) | 아니요 |
 
 
-## <a name="configuring-the-default-consistency-level"></a>Configuring the default consistency level
+## 기본 일관성 수준 구성
 
-1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**.
+1.  [Azure 포털](https://portal.azure.com/)의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭합니다.
 
-2. In the **DocumentDB (NoSQL)** blade, select the database account to modify.
+2. **DocumentDB(NoSQL)** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
 
-3. In the account blade, click **Default consistency**.
+3. 계정 블레이드에서 **기본 일관성**을 클릭합니다.
 
 
-4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
+4. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
 
-    ![Screen shot highlighting the Settings icon and Default Consistency entry](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+	![설정 아이콘 및 기본 일관성 항목이 강조 표시된 스크린샷](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-## <a name="consistency-levels-for-queries"></a>Consistency levels for queries
+## 쿼리에 대한 일관성 수준
 
-By default, for user defined resources, the consistency level for queries is the same as the consistency level for reads. By default, the index is updated synchronously on each insert, replace, or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes, synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
+기본적으로 사용자 정의 리소스에 대한 쿼리의 일관성 수준은 읽기 일관성 수준과 같습니다. 기본적으로 컬렉션의 문서를 삽입하거나 바꾸거나 삭제할 때마다 인덱스가 동기적으로 업데이트됩니다. 이렇게 하면 쿼리에 문서 읽기와 동일한 일관성 수준을 적용할 수 있습니다. DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리 및 일관성 있는 쿼리 처리, 지속적인 대량 문서 쓰기를 지원하지만 인덱스를 지연 업데이트하도록 특정 컬렉션을 구성할 수 있습니다. 지연 인덱싱은 쓰기 성능을 더욱 향상하며 워크로드가 주로 읽기 중심인 대량 수집 시나리오에 적합합니다.
 
-Indexing Mode|  Reads|  Queries  
+인덱싱 모드|	읽기|	쿼리  
 -------------|-------|---------
-Consistent (default)|   Select from strong, bounded staleness, session, or eventual|    Select from strong, bounded staleness, session, or eventual|
-Lazy|   Select from strong, bounded staleness, session, or eventual|    Eventual  
+일관성(기본값)|	강력, 제한된 부실, 세션 또는 최종에서 선택|	강력, 제한된 부실, 세션 또는 최종에서 선택|
+지연|	강력, 제한된 부실, 세션 또는 최종에서 선택|	최종  
 
-As with read requests, you can lower the consistency level of a specific query request by specifying the [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header.
+읽기 요청과 마찬가지로 [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx) 요청 헤더를 지정하여 특정 쿼리 요청의 일관성 수준을 낮출 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
+장단점 및 일관성 수준에 대 한 더 많은 읽기를 수행 하려는 경우 다음 리소스를 좋습니다.
 
--   Doug Terry. Replicated Data Consistency explained through baseball (video).   
-[https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
--   Doug Terry. Replicated Data Consistency explained through baseball.   
-[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
--   Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
-[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--   Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
-[http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
--   Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
-[http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--   Werner Vogels. Eventual Consistent - Revisited.    
-[http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+-	Doug Terry. 야구(비디오)를 통해 복제된 데이터 일관성을 설명합니다. [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+-	Doug Terry. 야구를 통해 복제된 데이터 일관성을 설명합니다. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+-	Doug Terry. 약하게 일관된 복제 데이터에 대한 세션 보장입니다. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
+-	Daniel Abadi. 최신 분산 데이터베이스 시스템 디자인에서 일관성 균형: CAP는 스토리의 일부일 뿐입니다”. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+-	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. 실용적인 부분 쿼럼에 대한 PBS(확률적 제한된 부실)입니다. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+-	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

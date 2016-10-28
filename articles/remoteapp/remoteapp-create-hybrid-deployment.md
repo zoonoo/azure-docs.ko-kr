@@ -1,160 +1,155 @@
 <properties
-    pageTitle="How to create a hybrid collection for Azure RemoteApp | Microsoft Azure"
-    description="Learn how to create a deployment of RemoteApp that connects to your internal network."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법 | Microsoft Azure"
+	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo"/>
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/15/2016"
+	ms.author="elizapo"/>
 
-
-# <a name="how-to-create-a-hybrid-collection-for-azure-remoteapp"></a>How to create a hybrid collection for Azure RemoteApp
+# Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-There are two kinds of Azure RemoteApp collections:
+다음과 같은 두 가지 종류의 Azure RemoteApp 컬렉션이 있습니다.
 
-- Cloud: resides completely in Azure. You can choose to save all data in the cloud (so a cloud-only collection) or to connect your collection to a VNET and save data there.   
-- Hybrid: includes a virtual network for on-premises access - this requires the use of Azure AD and an on-premises Active Directory environment.
+- 클라우드: Azure에 완전히 상주합니다. 클라우드에 모든 데이터를 저장(클라우드 전용 컬렉션)하거나 컬렉션을 VNET에 연결하고 해당 위치에 데이터를 저장하도록 선택할 수 있습니다.
+- 하이브리드: 온-프레미스 액세스를 위해 가상 네트워크를 포함합니다. 이 경우 Azure AD 및 온-프레미스 Active Directory 환경을 사용해야 합니다.
 
-Don't know which you need? Check out [Which kind of collection do you need for Azure RemoteApp](remoteapp-collections.md).
+필요한 사항을 모르십니까? [Azure RemoteApp에 필요한 컬렉션의 종류](remoteapp-collections.md)를 확인합니다.
 
-This tutorial walks you through the process of creating a hybrid collection. There are eight steps:
+이 자습서에서는 하이브리드 컬렉션을 만드는 프로세스를 단계별로 안내합니다. 8가지 단계가 있습니다.
 
-1.  Decide what [image](remoteapp-imageoptions.md) to use for your collection. You can create a custom image or use one of the Microsoft images included with your subscription.
-2. Set up your virtual network. Check out the [VNET planning](remoteapp-planvnet.md) and [sizing](remoteapp-vnetsizing.md) information.
-2.  Create a collection.
-2.  Join your collection to your local domain.
-3.  Add a template image to your collection.
-4.  Configure directory synchronization. Azure RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring Azure Active Directory Sync with the Password Sync option, or 2) configuring Azure Active Directory Sync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](remoteapp-ad.md).
-5.  Publish RemoteApp apps.
-6.  Configure user access.
+1.	컬렉션에 사용할 [이미지](remoteapp-imageoptions.md)를 결정합니다. 사용자 지정 이미지를 만들거나 구독에 포함된 Microsoft 이미지 중 하나를 선택할 수 있습니다.
+2. 가상 네트워크를 설정합니다. [VNET 계획](remoteapp-planvnet.md) 및 [크기 조정](remoteapp-vnetsizing.md) 정보를 확인하세요.
+2.	컬렉션을 만듭니다.
+2.	컬렉션을 로컬 도메인에 연결합니다.
+3.	템플릿 이미지를 컬렉션에 추가합니다.
+4.	디렉터리 동기화를 구성합니다. RemoteApp은 1) 암호 동기화 옵션을 포함하여 Azure Active Directory 동기화를 구성하거나 2) 암호 동기화 옵션을 포함하지 않지만 AD FS로 페더레이션되는 도메인을 사용하여 Azure Active Directory 동기화를 구성하는 방식으로 Azure Active Directory와 통합해야 합니다. [RemoteApp과 함께 Active Directory에 대한 구성 정보](remoteapp-ad.md)를 확인합니다.
+5.	RemoteApp 앱을 게시합니다.
+6.	사용자 액세스를 구성합니다.
 
-**Before you begin**
+**시작하기 전에**
 
-You need to do the following before creating the collection:
+컬렉션을 만들기 전에 다음을 수행해야 합니다.
 
-- [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp.
-- Create a user account in Active Directory to use as the Azure RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
-- Gather information about your on-premises network: IP address information and VPN device details.
-- Install the [Azure PowerShell](../powershell-install-configure.md) module.
-- Gather information about the users that you want to grant access to. You will need the Azure Active Directory user principal name (for example, name@contoso.com) for each user. Make sure that the UPN matches between Azure AD and Active Directory.
-- Choose your template image. An Azure RemoteApp template image contains the apps and programs that you want to publish for your users. See [Azure RemoteApp image options](remoteapp-imageoptions.md) for more information.
-- Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).
-- [Configure Active Directory for RemoteApp](remoteapp-ad.md).
-
-
-
-## <a name="step-1:-set-up-your-virtual-network"></a>Step 1: Set up your virtual network
-You can deploy a hybrid collection that uses an existing Azure virtual network, or you can create a new virtual network. A virtual network lets your users access data on your local network through RemoteApp remote resources. Using an Azure virtual network gives your collection direct network access to other Azure services and virtual machines deployed to that virtual network.
-
-Make sure you review the [VNET planning](remoteapp-planvnet.md) and [VNET size](remoteapp-vnetsizing.md) information before you create your VNET.
-
-### <a name="create-an-azure-vnet-and-join-it-to-your-active-directory-deployment"></a>Create an Azure VNET and join it to your Active Directory deployment
-
-Start by creating a [virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). This is done on the **Network** tab in the Azure portal. You need to connect your virtual network to the Active Directory deployment that is synchronized to your Azure Active Directory tenant.
-
-See [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) for more information.
-
-### <a name="make-sure-your-virtual-network-is-ready-for-azure-remoteapp"></a>Make sure your virtual network is ready for Azure RemoteApp
-Before you create your collection, let's make sure that your new virtual network is ready. You can validate this by doing the following:
-
-1. Create an Azure virtual machine inside the subnet of the virtual network you just created for RemoteApp.
-2. Use Remote Desktop to connect to the virtual machine. (Click **Connect**.)
-3. Join it to the same Active Directory deployment that you want to use for RemoteApp.
-
-Did that work? Your virtual network and subnet are ready for Azure RemoteApp!
-
-You can find more information about creating Azure virtual machines and connecting to them with Remote Desktop [here](https://msdn.microsoft.com/library/azure/jj156003.aspx).
-
-## <a name="step-2:-create-an-azure-remoteapp-collection"></a>Step 2: Create an Azure RemoteApp collection ##
+- Azure RemoteApp에 [등록](https://azure.microsoft.com/services/remoteapp/)합니다.
+- Azure RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
+- 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
+- [Azure PowerShell](../powershell-install-configure.md) 모듈을 설치합니다.
+- 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 사용자당 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com)이 필요합니다. Azure AD와 Active Directory 간에 UPN이 일치하는지 확인합니다.
+- 템플릿 이미지를 선택합니다. Azure RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [Azure RemoteApp 이미지 옵션](remoteapp-imageoptions.md)을 참조하세요.
+- Office 365 ProPlus 이미지를 사용하려는 경우 [여기](remoteapp-officesubscription.md)서 정보를 확인하세요.
+- [RemoteApp에 대해 Azure Active Directory를 구성합니다](remoteapp-ad.md).
 
 
 
-1. In the [Azure portal](http://manage.windowsazure.com), go to the Azure RemoteApp page.
-2. Click **New > Create with VNET**.
-3. Enter a name for your collection.
-4. Choose the plan that you want to use - standard or basic.
-5. Choose your VNET from the drop down list and then your subnet.
-6. Choose to join it to your domain.
-5. Click **Create RemoteApp collection**.
+## 1단계: 가상 네트워크를 설정합니다.
+기존 Azure 가상 네트워크를 사용하는 하이브리드 컬렉션을 배포하거나 새 가상 네트워크를 만들 수 있습니다. 가상 네트워크를 사용하여 사용자는 RemoteApp 원격 리소스를 통해 로컬 네트워크의 데이터에 액세스할 수 있습니다. Azure 가상 네트워크를 사용하여 다른 Azure 서비스 및 해당 가상 네트워크에 배포된 가상 컴퓨터에 대한 직접 네트워크 액세스를 컬렉션에 제공합니다.
 
-After your Azure RemoteApp collection has been created, double-click the name of the collection. That will bring up the **Quick Start** page - this is where you finish configuring the collection.
+VNET을 만들기 전에 [VNET 계획](remoteapp-planvnet.md) 및 [VNET 크기](remoteapp-vnetsizing.md) 정보를 검토해야 합니다.
 
-Did something go wrong? Check out the [hybrid collection troubleshooting information](remoteapp-hybridtrouble.md).
+### Azure VNET을 만들고 Active Directory 배포에 조인
 
-## <a name="step-3:-link-your-collection-to-the-local-domain"></a>Step 3: Link your collection to the local domain ##
+[가상 네트워크](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 만들기 시작합니다. 이 작업은 Azure 포털의 **네트워크** 탭에서 수행됩니다. Azure Active Directory 테넌트로 동기화되는 Active Directory 배포에 가상 네트워크를 연결해야 합니다.
 
+자세한 내용은 [Azure 포털을 사용하여 가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
 
-1. On the **Quick Start** page, click **join a local domain**.
-2. Add the Azure RemoteApp service account to your local Active Directory domain. You will need the domain name, organizational unit, service account user name and password.
+### 가상 네트워크가 Azure RemoteApp에 대해 사용할 수 있는지 확인합니다.
+컬렉션을 만들기 전에 새 가상 네트워크를 사용할 수 있는지 확인해 보겠습니다. 다음을 수행하여 이를 확인할 수 있습니다.
 
-    This is the information you gathered if you followed the steps in [Configure Active Directory for Azure RemoteApp](remoteapp-ad.md).
+1. RemoteApp에 대해 방금 만든 가상 네트워크의 서브넷 내에 Azure 가상 컴퓨터를 만듭니다.
+2. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결합니다. (**연결**을 클릭합니다.)
+3. RemoteApp에 사용하려는 것과 동일한 Active Directory 배포에 조인합니다.
 
+작동했나요? 가상 네트워크 및 서브넷을 Azure RemoteApp에 사용할 수 있습니다!
 
-## <a name="step-4:-link-to-an-azure-remoteapp-image"></a>Step 4: Link to an Azure RemoteApp image ##
+Azure 가상 컴퓨터 만들기 및 원격 데스크톱을 사용하여 연결하기에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/azure/jj156003.aspx)에서 찾을 수 있습니다.
 
-An Azure RemoteApp template image contains the programs that you want to share with users. You can either create a new [template image](remoteapp-imageoptions.md) or link to an existing image (one already imported or uploaded to Azure RemoteApp). You can also link to one of the Azure RemoteApp [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs.
-
-If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Windows PowerShell prompt to upload the specified image.
-
-If you are linking to an existing template image, simply specify the image name, location, and associated Azure subscription.
+## 2단계: Azure RemoteApp 컬렉션을 만듭니다. ##
 
 
 
-## <a name="step-5:-configure-active-directory-directory-synchronization"></a>Step 5: Configure Active Directory directory synchronization ##
+1. [Azure 포털](http://manage.windowsazure.com)에서 Azure RemoteApp 페이지로 이동합니다.
+2. **새로 만들기 > VNET으로 만들기**를 클릭합니다.
+3. 컬렉션의 이름을 입력합니다.
+4. 사용할 계획(표준 또는 기본)을 선택합니다.
+5. 드롭다운 목록에서 VNET을 선택한 다음 해당 서브넷을 선택합니다.
+6. 도메인에 연결하도록 선택합니다.
+5. **RemoteApp 컬렉션 만들기**를 클릭합니다.
 
-Azure RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring Azure Active Directory Sync with the Password Sync option, or 2) configuring Azure Active Directory Sync without the Password Sync option but using a domain that is federated to AD FS.
+Azure RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며, 여기서 컬렉션 구성을 완료합니다.
 
-Check out [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) - this article helps you set up directory integration in 4 steps.
+뭔가 잘못된 경우 [하이브리드 컬렉션 문제 해결 정보](remoteapp-hybridtrouble.md)를 확인합니다.
 
-See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure/hh967642.aspx) for planning information and detailed steps.
-
-## <a name="step-6:-publish-apps"></a>Step 6: Publish apps ##
-
-An Azure RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, it appears to run in their local environment, but it is really running in Azure.
-
-Before your users can access apps, you need to publish them – this lets your users access the apps through the Remote Desktop client.
-
-You can publish multiple apps to your collection. From the publishing page, click **Publish** to add an app. You can either publish from the **Start** menu of the template image or by specifying the path on the template image for the app. If you choose to add from the **Start** menu, choose the program to add. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
-
-## <a name="step-7:-configure-user-access"></a>Step 7: Configure user access ##
-
-Now that you have created your collection, you need to add the users that you want to be able to use your remote resources. The users that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this Azure RemoteApp collection.
-
-1.  From the Quick Start page, click **Configure user access**.
-2.  Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
-
-    **Notes:**
-
-    Make sure that you use the “user@domain.com” format.
-
-    If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing.
+## 3단계: 로컬 도메인에 컬렉션 가입 ##
 
 
-3.  Once the users are validated, click **Save**.
+1. **빠른 시작** 페이지에서 **로컬 도메인 가입**을 클릭합니다.
+2. 로컬 Active Directory 도메인에 Azure RemoteApp 서비스 계정을 추가합니다. 도메인 이름, 조직 구성 단위, 서비스 계정 사용자 이름 및 암호가 필요합니다.
+
+	[Azure RemoteApp에 대해 Active Directory 구성](remoteapp-ad.md)에서 단계를 수행하면 수집되는 정보입니다.
 
 
-## <a name="next-steps"></a>Next steps ##
-That's it - you have successfully created and deployed your Azure RemoteApp hybrid collection. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the Azure RemoteApp Quick Start page. Then, have users log into the client and access the apps you published.
+## 4단계: Azure RemoteApp 이미지에 연결 ##
+
+Azure RemoteApp 템플릿 이미지에는 사용자와 공유할 프로그램이 포함됩니다. 새 [템플릿 이미지](remoteapp-imageoptions.md) 또는 기존 이미지(Azure RemoteApp에서 이미 가져오거나 업로드된 것)에 연결할 수 있습니다. Office 365 또는 Office 2013(평가판 사용) 프로그램을 포함하는 Azure RemoteApp [템플릿 이미지](remoteapp-images.md) 중 하나에 연결할 수도 있습니다.
+
+새 이미지를 업로드하는 경우 이름을 입력하고 이미지의 위치를 선택해야 합니다. 마법사의 다음 페이지에는 PowerShell cmdlet 집합이 표시됩니다. 관리자 권한 Windows PowerShell 프롬프트에서 이러한 cmdlet을 복사하고 실행하여 지정된 이미지를 업로드합니다.
+
+기존 템플릿 이미지에 연결하는 경우 단지 이미지 이름, 위치 및 연결된 Azure 구독을 지정하기만 하면 됩니다.
 
 
 
-### <a name="help-us-help-you"></a>Help us help you
-Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
+## 5단계 : Active Directory 디렉터리 동기화 구성 ##
+
+RemoteApp은 1) 암호 동기화 옵션을 포함하여 Azure Active Directory 동기화를 구성하거나 2) 암호 동기화 옵션을 포함하지 않지만 AD FS로 페더레이션되는 도메인을 사용하여 Azure Active Directory 동기화를 구성하는 방식으로 Azure Active Directory와 통합해야 합니다.
+
+[AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/)를 확인합니다. 이 문서는 4단계에서 디렉터리 통합을 설정하는 데 도움이 됩니다.
+
+계획 정보 및 자세한 단계에 대해서는 [디렉터리 동기화 로드맵](http://msdn.microsoft.com//library/azure/hh967642.aspx)을 참조하세요.
+
+## 6단계: 앱 게시 ##
+
+Azure RemoteApp 앱은 사용자에게 제공하는 앱 또는 프로그램입니다. 이 프로그램은 컬렉션에 대해 업로드한 템플릿 이미지에 있습니다. 사용자가 앱에 액세스할 때 앱이 로컬 환경에서 실행하는 것처럼 보이지만 실제로는 Azure에서 실행됩니다.
+
+사용자가 앱에 액세스할 수 있도록 하려면 해당 앱을 게시해야 합니다. 이렇게 하면 사용자가 원격 데스크톱 클라이언트를 통해 해당 앱에 액세스할 수 있습니다.
+
+컬렉션에 여러 앱을 게시할 수 있습니다. 게시 페이지에서 **게시**를 클릭하여 앱을 추가합니다. 템플릿 이미지의 **시작** 메뉴에서 또는 앱의 템플릿 이미지에 경로를 지정하여 게시할 수 있습니다. **시작** 메뉴에서 추가하도록 선택한 경우 추가할 프로그램을 선택합니다. 앱의 경로를 제공하도록 선택한 경우 앱의 이름 및 템플릿 이미지에서 앱이 설치된 경로를 입력합니다.
+
+## 7단계: 사용자 액세스 구성 ##
+
+컬렉션을 만들었으므로 원격 리소스를 사용할 수 있는 사용자를 추가해야 합니다. 액세스 권한을 제공하는 사용자는 이 Azure RemoteApp 컬렉션을 만드는 데 사용한 구독과 연결된 Active Directory 테넌트에 존재해야 합니다.
+
+1.	빠른 시작 페이지에서 **사용자 액세스 구성**을 클릭합니다.
+2.	액세스 권한을 부여할 Microsoft 계정이나 Active Directory의 작업 계정을 입력합니다.
+
+	**참고:**
+
+	"user@domain.com" 형식을 사용해야 합니다.
+
+	컬렉션에서 Office 365 ProPlus를 사용하는 경우 사용자에 대해 Active Directory ID를 사용해야 합니다. 그러면 라이선스 유효성 검사에 도움이 됩니다.
+
+
+3.	사용자가 확인되면 **저장**을 클릭합니다.
+
+
+## 다음 단계 ##
+Azure RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했습니다. 다음 단계는 사용자가 원격 데스크톱 클라이언트를 다운로드하여 설치하도록 설정하는 것입니다. Azure RemoteApp 빠른 시작 페이지에서 클라이언트의 URL을 찾을 수 있습니다. 그런 다음 사용자가 클라이언트에 로그인하여 게시된 앱에 액세스하도록 합니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+### 의견 보내기
+이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-
+<!---HONumber=AcomDC_0817_2016-->

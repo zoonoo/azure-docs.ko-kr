@@ -1,134 +1,129 @@
 <properties
-    pageTitle="Create a VM running MySQL | Microsoft Azure"
-    description="Create an Azure virtual machine running Windows Server 2012 R2 and the MySQL database using the classic deployment model."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management"/>
+	pageTitle="MySQL을 실행하는 VM 만들기 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 Windows Server 2012 R2와 MySQL 데이터베이스를 실행하는 Azure 가상 컴퓨터를 만듭니다."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/25/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/25/2016"
+	ms.author="cynthn"/>
 
 
+# 클래식 배포 모델을 사용하여 만든, Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL 설치
 
-# <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2012-r2"></a>Install MySQL on a virtual machine created with the classic deployment model running Windows Server 2012 R2
-
-[MySQL](http://www.mysql.com) is a popular open source, SQL database. This tutorial shows you how to install and run the community version of MySQL 5.6.23 as a MySQL Server on a virtual machine running Windows Server 2012 R2. For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-mysql-install.md).
+[MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL Server로 커뮤니티 버전의 MySQL 5.6.23을 설치하고 실행하는 방법을 보여 줍니다. Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설치하는 방법](virtual-machines-linux-mysql-install.md)을 참조하세요.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## <a name="create-a-virtual-machine-running-windows-server-2012-r2"></a>Create a virtual machine running Windows Server 2012 R2
+## Windows Server 2012 R2를 실행하는 가상 컴퓨터 만들기
 
-If you don't already have a VM running Windows Server 2012 R2, you can use this [tutorial](virtual-machines-windows-classic-tutorial.md) to create the virtual machine. 
+Windows Server 2012 R2를 실행하는 VM이 아직 없는 경우 이 [자습서](virtual-machines-windows-classic-tutorial.md)를 사용하여 가상 컴퓨터를 만들 수 있습니다.
 
-## <a name="attach-a-data-disk"></a>Attach a data disk
+## 데이터 디스크 연결
 
-After the virtual machine is created, you can optionally attach an additional data disk. This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which  includes the operating system.
+가상 컴퓨터가 만들어진 후에 선택적으로 추가 데이터 디스크를 연결할 수 있습니다. 이는 프로덕션 작업에 권장되며, 운영 체제를 포함하는 OS 드라이브(C:)의 공간 부족을 방지합니다.
 
-See [How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
+[Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)을 참조하고 빈 디스크를 연결하는 방법에 대한 지침을 따르세요. 호스트 캐시 설정을 **없음** 또는 **읽기 전용**으로 설정합니다.
 
-## <a name="log-on-to-the-virtual-machine"></a>Log on to the virtual machine
+## 가상 컴퓨터에 로그온
 
-Next, you'll [log on to the virtual machine](virtual-machines-windows-classic-connect-logon.md) so you can install MySQL.
+다음으로, MySQL을 설치할 수 있도록 [가상 컴퓨터에 로그온](virtual-machines-windows-classic-connect-logon.md)합니다.
 
-##<a name="install-and-run-mysql-community-server-on-the-virtual-machine"></a>Install and run MySQL Community Server on the virtual machine
+##가상 컴퓨터에서 MySQL Community Server 설치 및 실행
 
-Follow these steps to install, configure, and run the Community version of MySQL Server:
+커뮤니티 버전의 MySQL Server를 설치, 구성 및 실행하려면 다음 단계를 따르세요.
 
-> [AZURE.NOTE] These steps are for the 5.6.23.0 Community version of MySQL and Windows Server 2012 R2. Your experience might be different for different versions of MySQL or Windows Server.
+> [AZURE.NOTE] 다음 단계는 5.6.23.0 커뮤니티 버전의 MySQL 및 Windows Server 2012 R2에 적용됩니다. 다른 버전의 MySQL 또는 Windows Server에서는 작업 단계가 다를 수 있습니다.
 
-1.  After you've connected to the virtual machine using Remote Desktop, click **Internet Explorer** from the start screen.
-2.  Select the **Tools** button in the upper-right corner (the cogged wheel icon), and then click **Internet Options**. Click the **Security** tab, click the **Trusted Sites** icon, and then click the **Sites** button. Add http://*.mysql.com to the list of trusted sites. Click **Close**, and then click **OK**.
-3.  In the address bar of Internet Explorer, type http://dev.mysql.com/downloads/mysql/.
-4.  Use the MySQL site to locate and download the latest version of the MySQL Installer for Windows. When choosing the MySQL Installer, download the version that has the complete file set (for example, the mysql-installer-community-5.6.23.0.msi with a file size of 282.4 MB), and save the installer.
-5.  When the installer has finished downloading, click **Run** to launch setup.
-6.  On the **License Agreement** page, accept the license agreement and click **Next**.
-7.  On the **Choosing a Setup Type** page, click the setup type that you want, and then click **Next**. The following steps assume the selection of the **Server only** setup type.
-8.  On the **Installation** page, click **Execute**. When installation is complete, click **Next**.
-9.  On the **Product Configuration** page, click **Next**.
-10. On the **Type and Networking** page, specify your desired configuration type and connectivity options, including the TCP port if needed. Select **Show Advanced Options**, and then click **Next**.
+1.	원격 데스크톱을 사용하여 가상 컴퓨터에 연결한 후 시작 화면에서 **Internet Explorer**를 클릭합니다.
+2.	오른쪽 위에 있는 **도구** 단추(톱니바퀴 아이콘)를 선택하고 **인터넷 옵션**을 클릭합니다. **보안** 탭을 클릭하고, **신뢰할 수 있는 사이트** 아이콘, **사이트** 단추를 차례로 클릭합니다. 신뢰할 수 있는 사이트 목록에 http://*.mysql.com을 추가합니다. **닫기**를 클릭한 후 **확인**을 클릭합니다.
+3.	Internet Explorer 주소 표시줄에 http://dev.mysql.com/downloads/mysql/을 입력합니다.
+4.	MySQL 사이트를 사용하여 최신 버전의 Windows용 MySQL Installer를 찾아서 다운로드합니다. MySQL Installer를 선택한 경우 전체 파일 집합이 있는 버전(예: 파일 크기가 282.4MB인 mysql-installer-community-5.6.23.0.msi)을 다운로드하고 설치 관리자를 저장합니다.
+5.	설치 관리자가 다운로드를 마치면 **실행**을 클릭하여 설정을 시작합니다.
+6.	**사용권 계약** 페이지에서 사용권 계약에 동의하고 **다음**을 클릭합니다.
+7.	**설치 유형 선택** 페이지에서 원하는 설치 유형을 클릭한 후 **다음**을 클릭합니다. 다음 단계에서는 **서버만** 설치 유형을 선택한 것으로 가정합니다.
+8.	**설치** 페이지에서 **실행**을 클릭합니다. 설치가 완료되면 **다음**을 클릭합니다.
+9.	**제품 구성** 페이지에서 **다음**을 클릭합니다.
+10.	**유형 및 네트워킹** 페이지에서 원하는 구성 유형 및 연결 옵션을 지정합니다(필요한 경우 TCP 포트 포함). **고급 옵션 표시**를 선택하고 **다음**을 클릭합니다.
 
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_TypeNetworking.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_TypeNetworking.png)
 
-11. On the **Accounts and Roles** page, specify a strong MySQL root password. Add additional MySQL user accounts as needed, and then click **Next**.
+11.	**계정 및 역할** 페이지에서 강력한 MySQL 루트 암호를 지정합니다. 필요에 따라 추가 MySQL 사용자 계정을 추가하고 **다음**을 클릭합니다.
 
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AccountsRoles_Filled.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AccountsRoles_Filled.png)
 
-12. On the **Windows Service** page, specify changes to the default settings for running the MySQL Server as a Windows service as needed, and then click **Next**.
+12.	**Windows 서비스** 페이지에서 필요에 따라 Windows 서비스로 실행 중인 MySQL Server에 대한 기본 설정을 변경하고 **다음**을 클릭합니다.
 
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_WindowsService.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_WindowsService.png)
 
-13. On the **Advanced Options** page, specify changes to logging options as needed, and then click **Next**.
+13.	**고급 옵션** 페이지에서 필요에 따라 로깅 옵션을 변경하고 **다음**을 클릭합니다.
 
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AdvOptions.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AdvOptions.png)
 
-14. On the **Apply Server Configuration** page, click **Execute**. When the configuration steps are complete, click **Finish**.
-15. On the **Product Configuration** page, click **Next**.
-16. On the **Installation Complete** page, click **Copy Log to Clipboard** if you want to examine it later, and then click **Finish**.
-17. From the start screen, type **mysql**, and then click **MySQL 5.6 Command Line Client**.
-18. Enter the root password that you specified in step 11 and you'll be presented with a prompt where you can issue commands to configure MySQL. For the details of commands and syntax, see [MySQL Reference Manuals](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+14.	**서버 구성 적용** 페이지에서 **실행**을 클릭합니다. 구성 단계가 완료되면 **마침**을 클릭합니다.
+15.	**제품 구성** 페이지에서 **다음**을 클릭합니다.
+16.	**설치 완료** 페이지에서 **클립보드에 로그 복사**를 클릭(나중에 검사하려는 경우)하고 **마침**을 클릭합니다.
+17.	시작 화면에서 **mysql**을 입력하고 **MySQL 5.6 명령줄 클라이언트**를 클릭합니다.
+18.	11단계에서 지정한 루트 암호를 입력하면 명령을 실행하여 MySQL을 구성할 수 있는 프롬프트가 표시됩니다. 명령 및 구문에 대한 자세한 내용은 [MySQL 참조 설명서](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)를 참조하세요.
 
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_CommandPrompt.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_CommandPrompt.png)
 
-19. You can also configure server configuration default settings, such as the base and data directories and drives, with entries in the C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini file. For more information, see [5.1.2 Server Configuration Defaults](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19.	또한 C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini 파일의 항목을 사용하여 기본/데이터 디렉터리 및 드라이브와 같은 서버 구성 기본 설정을 구성할 수 있습니다. 자세한 내용은 [5\.1.2 서버 구성 기본값](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)을 참조하세요.
 
-## <a name="configure-endpoints"></a>Configure endpoints
+## 끝점 구성
 
-If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port on which the MySQL Server service is listening and create an additional Windows Firewall rule. This is TCP port 3306 unless you specified a different port on the **Type and Networking** page (step 10 of the previous procedure).
-
-
-> [AZURE.NOTE] You should carefully consider the security implications of doing this, because this will make the MySQL Server service available to all computers on the Internet. You can define the set of source IP addresses that are allowed to use the endpoint with an Access Control List (ACL). For more information, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
+MySQL 클라이언트 컴퓨터에서 인터넷을 통해 MySQL Server 서비스를 사용할 수 있도록 하려면 MySQL Server 서비스가 수신 대기 중인 TCP 포트의 끝점을 구성하고 추가 Windows 방화벽 규칙을 만들어야 합니다. **유형 및 네트워킹** 페이지(위 절차의 10단계)에서 다른 포트를 지정하지 않은 경우 이는 TCP 포트 3306입니다.
 
 
-To configure an endpoint for the MySQL Server service:
-
-1.  In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL virtual machine, and then click **Endpoints**.
-2.  In the command bar, click **Add**.
-3.  On the **Add an endpoint to a virtual machine** page, click the right arrow.
-4.  If you are using the default MySQL TCP port of 3306, click **MySQL** in **Name**, and then click the check mark.
-5.  If you are using a different TCP port, type a unique name in **Name**. Select **TCP** in protocol, type the port number in both **Public Port** and **Private Port**, and then click the check mark.
-
-## <a name="add-a-windows-firewall-rule-to-allow-mysql-traffic"></a>Add a Windows Firewall rule to allow MySQL traffic
-
-To add a Windows Firewall rule that allows MySQL traffic from the Internet, run the following command at an elevated Windows PowerShell command prompt on the MySQL server virtual machine.
-
-    New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
+> [AZURE.NOTE] 이 경우 인터넷상의 모든 컴퓨터가 MySQL Server 서비스를 사용할 수 있으므로 보안에 주의해야 합니다. ACL(액세스 제어 목록)에서 끝점을 사용할 수 있는 원본 IP 주소 집합을 정의할 수 있습니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
 
 
-    
-## <a name="test-your-remote-connection"></a>Test your remote connection
+MySQL Server 서비스의 끝점을 구성하려면
+
+1.	Azure 클래식 포털에서 **가상 컴퓨터**를 클릭하고 MySQL 가상 컴퓨터의 이름을 클릭한 다음 **끝점**을 클릭합니다.
+2.	명령 모음에서 **추가**를 클릭합니다.
+3.	**가상 컴퓨터에 끝점 추가** 페이지에서 오른쪽 화살표를 클릭합니다.
+4.	기본 MySQL TCP 포트 3306을 사용하는 경우 **이름**에서 **MySQL**을 클릭한 후 확인 표시를 클릭합니다.
+5.	다른 TCP 포트를 사용하는 경우 **이름**에 고유한 이름을 입력합니다. 프로토콜에서 **TCP**를 선택하고 **공용 포트**와 **개인 포트** 둘 다에 포트 번호를 입력한 후 확인 표시를 클릭합니다.
+
+## MySQL 트래픽을 허용하도록 Windows 방화벽 규칙 추가
+
+인터넷에서의 MySQL 트래픽을 허용하는 Windows 방화벽 규칙을 추가하려면 MySQL 서버 가상 컴퓨터의 관리자 권한 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+
+	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
 
-To test your remote connection to the MySQL Server service running on the Azure virtual machine, you must first determine the DNS name corresponding to the cloud service that contains the virtual machine running MySQL Server.
-
-1.  In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL server virtual machine, and then click **Dashboard**.
-2.  From the virtual machine dashboard, note the **DNS Name** value under the **Quick Glance** section. Here is an example:
-
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_DNSName.png)
-
-3.  From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.
-
-        mysql -u <yourMysqlUsername> -p -h <yourDNSname>
-
-    For example, for the MySQL user name dbadmin3 and the testmysql.cloudapp.net DNS name for the virtual machine, use the following command.
-
-        mysql -u dbadmin3 -p -h testmysql.cloudapp.net
+	
+## 원격 연결 테스트
 
 
-## <a name="next-steps"></a>Next steps
+Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원격 연결을 테스트하려면 먼저 MySQL Server를 실행 중인 가상 컴퓨터가 포함된 클라우드 서비스에 해당하는 DNS 이름을 확인해야 합니다.
 
-To learn more about running MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/).
+1.	Azure 클래식 포털에서 **가상 컴퓨터**를 클릭하고 MySQL 서버 가상 컴퓨터의 이름을 클릭한 다음 **대시보드**를 클릭합니다.
+2.	가상 컴퓨터 대시보드에서 **빠른 보기** 섹션에 있는 **DNS 이름** 값을 적어 둡니다. 다음은 예제입니다.
+
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_DNSName.png)
+
+3.	MySQL을 실행 중인 로컬 컴퓨터 또는 MySQL 클라이언트에서 다음 명령을 실행하여 MySQL 사용자로 로그인합니다.
+
+		mysql -u <yourMysqlUsername> -p -h <yourDNSname>
+
+	예를 들어 MySQL 사용자 이름이 dbadmin3이고, 가상 컴퓨터의 DNS 이름이 testmysql.cloudapp.net인 경우 다음 명령을 실행합니다.
+
+		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 
+## 다음 단계
 
-<!--HONumber=Oct16_HO2-->
+MySQL 실행에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-
+<!---HONumber=AcomDC_0727_2016-->

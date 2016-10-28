@@ -1,111 +1,111 @@
 <properties 
-    pageTitle="Build and deploy a Node.js web app to Azure using WebMatrix" 
-    description="A tutorial that teaches you how to use WebMatrix to develop a Node.js application and deploy it to Azure App Service Web Apps." 
-    services="app-service\web" 
-    documentationCenter="nodejs" 
-    authors="rmcmurray" 
-    manager="wpickett" 
-    editor=""/>
+	pageTitle="WebMatrix를 사용하여 Node.js 웹앱 빌드 및 Azure에 배포" 
+	description="이 자습서에서는 WebMatrix를 사용하여 Node.js 응용 프로그램을 개발하고 Azure 앱 서비스 웹앱에 배포하는 방법을 설명합니다." 
+	services="app-service\web" 
+	documentationCenter="nodejs" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service-web" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="nodejs" 
-    ms.topic="article" 
-    ms.date="08/11/2016"
-    ms.author="robmcm"/>
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>
 
 
+# WebMatrix를 사용하여 Node.js 웹앱 빌드 및 Azure에 배포
 
-# <a name="build-and-deploy-a-node.js-web-app-to-azure-using-webmatrix"></a>Build and deploy a Node.js web app to Azure using WebMatrix
+이 자습서에서는 WebMatrix를 사용하여 Node.js 응용 프로그램을 개발하고 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱에 배포하는 방법을 보여 줍니다. WebMatrix는 웹 사이트 또는 웹앱 개발에 필요한 모든 기능이 포함된 Microsoft의 무료 웹 개발 도구입니다. WebMatrix에는 코드 완성, 미리 빌드된 템플릿, Jade, LESS 및 CoffeeScript에 대한 편집기 지원 등 Node.js를 쉽게 사용할 수 있는 몇 가지 기능이 포함되어 있습니다. [WebMatrix](https://www.microsoft.com/web/webmatrix/)에 대해 자세히 알아봅니다.
 
-This tutorial shows you how to use WebMatrix to develop a Node.js application and deploy it to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. WebMatrix is a free web development tool from Microsoft that includes everything you need for website or web app development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix](https://www.microsoft.com/web/webmatrix/).
-
-Upon completing this guide, you will have a Node.js web app running in Azure App Service.
+이 가이드를 완료하면 Azure 앱 서비스에서 실행되는 Node.js 웹앱이 완성됩니다.
  
-A screenshot of the completed application is below:
+아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Azure node Web site][webmatrix-node-completed]
+![Azure 노드 웹 사이트][webmatrix-node-completed]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-## <a name="sign-into-azure"></a>Sign into Azure
+## Azure에 로그인
 
-Follow these steps to create a web app in Azure App Service.
+Azure 앱 서비스에서 웹앱을 만들려면 다음 단계를 따르세요.
 
-1. Launch WebMatrix
-2. If this is the first time you've used WebMatrix, you will be prompted to sign into Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Select to **Sign in** using your Microsoft Account.
+1. WebMatrix를 시작합니다.
+2. 이번에 처음으로 WebMatrix를 사용하는 경우 Azure에 로그인하라는 메시지가 표시됩니다. 또는 **로그인** 단추를 클릭하고 **계정 추가**를 선택할 수 있습니다. Microsoft 계정을 사용하여 **로그인**하도록 선택합니다.
 
-    ![Add Account][addaccount]
+	![계정 추가][addaccount]
 
-3. If you have signed up for an Azure account, you may log in using your Microsoft Account:
+3. Azure 계정을 등록한 경우 Microsoft 계정을 사용하여 로그인할 수 있습니다.
 
-    ![Sign into Azure][signin]  
+	![Azure에 로그인][signin]
 
 
-## <a name="create-a-site-using-a-built-in-template-for-azure"></a>Create a site using a built in template for Azure
+## Azure용 기본 제공 템플릿을 사용하여 사이트 만들기
 
-1. On the start screen, click the **New** button, and choose **Template Gallery** to create a new site from the Template Gallery:
+1. 시작 화면에서 **새로 만들기** 단추를 클릭하고 **템플릿 갤러리**를 선택하여 템플릿 갤러리에서 새 사이트를 만듭니다.
 
-    ![New site from Template Gallery][sitefromtemplate]
+	![템플릿 갤러리에서 새 사이트 만들기][sitefromtemplate]
 
-2. In the **Site from Template** dialog, select **Node** and then select **Express Site**. Finally, click **Next**. If you are missing any prerequisites for the **Express Site** template, you will be prompted to install them.
+2. **템플릿의 사이트** 대화 상자에서 **노드**를 선택한 후 **빠른 사이트**를 선택합니다. 마지막으로 **다음**을 클릭합니다. **빠른 사이트** 템플릿의 필수 조건  
+이 없는 경우 해당 요소를 설치하라는 메시지가 표시됩니다.
 
-    ![select express template][webmatrix-templates]
+	![빠른 템플릿 선택][webmatrix-templates]
 
-3. If you are signed into Azure, you now have the option to create an App Service web app for your local site.  Choose a unique name, and select the datacenter where you would like your App Service web app to be created: 
+3. Azure에 로그인한 경우 로컬 사이트에 대한 앱 서비스 웹앱을 만들 수 있는 옵션이 제공됩니다. 고유한 이름을 선택하고 앱 서비스 웹앱을 만들 데이터 센터를 선택합니다.
 
-    ![Create site on Azure][nodesitefromtemplateazure]
-    
-4. After WebMatrix finishes building the local site and creating the App Service web app, the WebMatrix IDE is displayed.
+	![Azure에서 사이트 만들기][nodesitefromtemplateazure]
+	
+4. WebMatrix에서 로컬 사이트를 빌드하고 앱 서비스 웹앱을 만들고 나면 WebMatrix IDE가 표시됩니다.
 
-    ![webmatrix ide][webmatrix-ide]
+	![WebMatrix IDE][webmatrix-ide]
 
-##<a name="publish-your-application-to-azure"></a>Publish your application to Azure
+##Azure에 응용 프로그램 게시
 
-1. In WebMatrix, click **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the site.
+1. WebMatrix의 **홈** 리본에서 **게시**를 클릭하여 사이트의 **게시 미리 보기** 대화 상자를 표시합니다.
 
-    ![publish preview][webmatrix-node-publishpreview]
+	![게시 미리 보기][webmatrix-node-publishpreview]
 
-2. Click **Continue**. When publishing is complete, the URL for the App Service web app is displayed at the bottom of the WebMatrix IDE
+2. **계속**을 클릭합니다. 게시가 완료되면 앱 서비스 웹앱의 URL이 WebMatrix IDE 아래쪽에 표시됩니다.
 
-    ![publish complete][webmatrix-publish-complete]
+	![게시 완료][webmatrix-publish-complete]
 
-3. Click the link to open the App Service web app in your browser.
+3. 링크를 클릭하여 브라우저에서 앱 서비스 웹앱을 엽니다.
 
-    ![Express web app][webmatrix-node-express-site]
+	![빠른 웹앱][webmatrix-node-express-site]
 
-##<a name="modify-and-republish-your-application"></a>Modify and republish your application
+##응용 프로그램 수정 및 다시 게시
 
-You can easily modify and republish your application. Here, you will make a simple change to the heading in in the **index.jade** file, and republish the application.
+응용 프로그램을 쉽게 수정하고 다시 게시할 수 있습니다. 여기서는 **index.jade** 파일의 제목을 바꾸고 응용 프로그램을 다시 게시해 보겠습니다.
 
-1. In WebMatrix, select **Files**, and then expand the **views** folder. Open the **index.jade** file by double-clicking it.
+1. WebMatrix에서 **파일**을 선택한 후 **views** 폴더를 확장합니다. **index.jade** 파일을 두 번 클릭하여 엽니다.
 
-    ![webmatrix viewing index.jade][webmatrix-modify-index]
+	![index.jade를 표시하는 WebMatrix][webmatrix-modify-index]
 
-2. Change the paragraph line to the following:
+2. 단락 줄을 다음으로 변경합니다.
 
-        p Welcome to #{title} with WebMatrix on Azure!
+		p Welcome to #{title} with WebMatrix on Azure!
 
-3. Save your changes, and then click the publish icon. Finally, click **Continue** in the **Publish Preview** dialog and wait for the update to be published.
+3. 변경 내용을 저장한 후 게시 아이콘을 클릭합니다. 마지막으로, **게시 미리 보기** 대화 상자에서 **계속**을 클릭하고 업데이트가 게시될 때까지 기다립니다.
 
-    ![publish preview][webmatrix-republish]
+	![게시 미리 보기][webmatrix-republish]
 
-4. When publishing has completed, use the link returned when the publish process is complete to see the updated App Service web app.
+4. 게시가 완료되면 게시 프로세스가 완료될 때 반환된 링크를 사용하여 업데이트된 앱 서비스 웹앱을 확인합니다.
 
-    ![Azure node web app][webmatrix-node-completed]
+	![Azure 노드 웹앱][webmatrix-node-completed]
 
-##<a name="next-steps"></a>Next steps
+##다음 단계
 
-To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](../nodejs-specify-node-version-azure-apps.md).
+Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](../nodejs-specify-node-version-azure-apps.md)(영문)을 참조하십시오.
 
-If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
+응용 프로그램을 Azure에 배포한 후 문제가 발생한 경우 [Azure 웹 사이트에서 Node.js 웹앱을 디버그하는 방법](web-sites-nodejs-debug.md)에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
 
-## <a name="what's-changed"></a>What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
 [WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
 [WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
@@ -126,7 +126,4 @@ If you encounter problems with your application after it has been deployed to Az
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

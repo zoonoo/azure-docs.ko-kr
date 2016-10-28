@@ -1,100 +1,98 @@
 <properties
-    pageTitle="Import a BACPAC file to create an Azure SQL database | Microsoft Azure"
-    description="Create an Azure SQL database by importing an existing BACPAC file."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기 | Microsoft Azure"
+	description="기존 BACPAC 파일을 가져와 Azure SQL 데이터베이스를 만듭니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="08/31/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="08/31/2016"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
 
 
+# BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기
 
-# <a name="import-a-bacpac-file-to-create-an-azure-sql-database"></a>Import a BACPAC file to create an Azure SQL database
 
-
-**Single database**
+**단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-import.md)
+- [Azure 포털](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 
-This article provides directions for creating an Azure SQL database from a BACPAC file using the [Azure portal](https://portal.azure.com).
+이 문서에서는 [Azure 포털](https://portal.azure.com)을 사용하여 BACPAC 파일에서 Azure SQL 데이터베이스를 만드는 방법에 대한 지침을 제공합니다.
 
-A BACPAC is a .bacpac file that contains a database schema and data. The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-export.md).
-
-
-> [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파일입니다. 데이터베이스는 Azure 저장소 Blob 컨테이너에서 가져온 BACPAC으로 만들어집니다. Azure 저장소에 .bacpac 파일이 없는 경우 [Azure SQL 데이터베이스의 BACPAC 만들기 및 내보내기](sql-database-export.md)의 단계에 따라 새로 만들 수 있습니다.
 
 
-To import a SQL database from a .bacpac you need the following:
-
-- An Azure subscription. 
-- An Azure SQL Database V12 server. If you do not have a V12 server, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- A .bacpac file of the database you want to import in an [Azure Storage account (standard)](../storage/storage-create-storage-account.md) blob container.
-
-> [AZURE.IMPORTANT] When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
+> [AZURE.NOTE] Azure SQL 데이터베이스는 모든 사용자 데이터베이스에 대해 복원할 수 있는 백업을 자동으로 만들고 유지 관리합니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
 
-## <a name="select-the-server-to-host-the-database"></a>Select the server to host the database
+.bacpac에서 SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 
-Open the SQL Server blade:
+- Azure 구독.
+- Azure SQL 데이터베이스 V12 서버. V12 서버가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 문서의 단계에 따라 만듭니다.
+- [Azure 저장소 계정(표준)](../storage/storage-create-storage-account.md) Blob 컨테이너에서 가져오려는 데이터베이스의 .bacpac 파일
 
-1.  Go to the [Azure portal](https://portal.azure.com).
-2.  Click **SQL servers**.
-3.  Click the server to restore the database into.
-4.  In the SQL Server blade click **Import database** to open the **Import database** blade:
+> [AZURE.IMPORTANT] Azure Blob 저장소에서 BACPAC를 가져올 때 표준 저장소를 사용합니다. 프리미엄 저장소에서 BACPAC 가져오기는 지원되지 않습니다.
 
-    ![import database][1]
 
-1.  Click **Storage** and select your storage account, blob container, and .bacpac file and click **OK**.
+## 데이터베이스를 호스트할 서버 선택
 
-    ![configure storage options][2]
+SQL Server 블레이드를 엽니다.
 
-1.  Select the pricing tier for the new database and click **Select**. Importing a database directly into an elastic pool is not supported, but you can first import into a single database and then move the database into a pool.
+1.	[Azure 포털](https://portal.azure.com)로 이동합니다.
+2.	**SQL Server**를 클릭합니다.
+3.	데이터베이스를 복원할 서버를 클릭합니다.
+4.	SQL Server 블레이드에서 **데이터베이스 가져오기**를 클릭하여 **데이터베이스 가져오기** 블레이드를 엽니다.
 
-    ![select pricing tier][3]
+    ![데이터베이스 가져오기][1]
 
-1.  Enter a **DATABASE NAME** for the database you are creating from the BACPAC file.
-2.  Choose the authentication type and then provide the authentication information for the server. 
-3.  Click **Create** to create the database from the BACPAC.
+1.  **저장소**를 클릭하고 저장소 계정, Blob 컨테이너 및 .bacpac 파일을 선택한 다음 **확인**을 클릭합니다.
 
-    ![create database][4]
+    ![저장소 옵션 구성][2]
 
-Clicking **Create** submits an import database request to the service. Depending on the size of your database, the import operation may take some time to complete.
+1.  새 데이터베이스에 대한 가격 책정 계층을 선택하고 **선택**을 클릭합니다. 탄력적 풀에 직접 데이터베이스 가져오기는 지원되지 않지만 먼저 단일 데이터베이스로 가져온 다음 데이터베이스를 풀로 이동할 수 있습니다.
 
-## <a name="monitor-the-progress-of-the-import-operation"></a>Monitor the progress of the import operation
+    ![가격 책정 계층 선택][3]
 
-1.  Click **SQL servers**.
-2.  Click the server you are restoring to.
-3.  In the SQL server blade, in the Operations area, click **Import/Export history**:
+1.  BACPAC 파일에서 만들 데이터베이스에 대한 **데이터베이스 이름**을 입력합니다.
+2.  인증 유형을 선택한 후 서버에 대한 인증 정보를 제공합니다.
+3.  **만들기**를 클릭하여 BACPAC에서 데이터베이스를 만듭니다.
 
-    ![import export history][5]
-    ![import export history][6]
+    ![데이터베이스 만들기][4]
 
+**만들기**를 클릭하면 데이터베이스 가져오기 요청이 서비스에 제출됩니다. 데이터베이스 크기에 따라 가져오기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
+
+## 가져오기 작업의 진행률 모니터링
+
+1.	**SQL Server**를 클릭합니다.
+2.	복원할 서버를 클릭합니다.
+3.	SQL Server 블레이드의 작업 영역에서 **가져오기/내보내기 기록**을 클릭합니다.
+
+    ![가져오기 내보내기 기록][5] ![가져오기 내보내기 기록][6]
 
 
 
 
-## <a name="verify-the-database-is-live-on-the-server"></a>Verify the database is live on the server
 
-1.  Click **SQL databases** and verify the new database is **Online**.
+## 데이터베이스가 서버에서 라이브 상태인지 확인
+
+1.	**SQL 데이터베이스**를 클릭하고 새 데이터베이스가 **온라인** 상태인지 확인합니다.
 
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
+- 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
 
 
 <!--Image references-->
@@ -105,8 +103,4 @@ Clicking **Create** submits an import database request to the service. Depending
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

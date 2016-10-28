@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with private Templates | Microsoft Azure"
-   description="Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell."
+   pageTitle="개인 템플릿을 사용하여 시작 | Microsoft Azure"
+   description="Azure 포털, Azure CLI, PowerShell을 사용하여 개인 템플릿을 추가, 관리 및 공유합니다."
    services="marketplace-customer"
    documentationCenter=""
    authors="VybavaRamadoss"
@@ -18,125 +18,117 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
+# Azure 포털에서 개인 템플릿을 사용하여 시작
 
-# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Get started with private Templates on the Azure Portal
+[Azure Resource Manager](../resource-group-authoring-templates.md) 템플릿은 배포를 정의하는 데 사용된 선언적 템플릿입니다. 솔루션에 대해 배포할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
 
-An [Azure Resource Manager](../resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+[Azure 포털](https://portal.azure.com)에서 [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/)의 확장으로 **Microsoft.Gallery** 리소스 공급자와 함께 새 **템플릿** 기능을 사용하여 사용자가 개인 라이브러리에서 개인 템플릿을 만들고 관리하며 배포하도록 할 수 있습니다.
 
-You can use the new **Templates** capability in the [Azure Portal](https://portal.azure.com) along with the **Microsoft.Gallery** resource provider as an extension of the [Azure Marketplace](https://azure.microsoft.com/marketplace/) to enable users to create, manage and deploy private templates from a personal library.
+이 문서는 Azure 포털을 사용하여 개인 **템플릿**을 추가, 관리 및 공유하는 과정을 안내합니다.
 
-This document walks you through adding, managing and sharing a private **Template** using the Azure Portal.
+## 지침
 
-## <a name="guidance"></a>Guidance
+다음 제안으로 솔루션으로 작업할 때 **템플릿**을 완벽하게 활용할 수 있습니다.
 
-The following suggestions will help you take full advantage of **Templates** when working with your solutions:
+- **템플릿**은 Resource Manager 템플릿 및 추가 메타데이터를 포함하는 캡슐화된 리소스입니다. 마켓플레이스에 있는 항목과 매우 비슷하게 작동합니다. 주요 차이점은 공용 마켓플레이스 항목이 아니라 비공개 항목이라는 점입니다.
+- **템플릿** 라이브러리는 자신의 배포를 사용자 지정해야 하는 사용자에 대해 제대로 작동합니다.
+- **템플릿**은 Azure 내에서 간단한 리포지토리가 필요한 사용자에 대해 제대로 작동합니다.
+- 기존 Resource Manager 템플릿으로 시작합니다. [github](https://github.com/Azure/azure-quickstart-templates)에서 템플릿을 찾거나 기존 리소스 그룹에서 [템플릿을 내보냅니다](../resource-manager-export-template.md).
+- **템플릿**은 템플릿을 게시하는 사용자와 연결됩니다. 게시자 이름은 읽기 액세스 권한이 있는 모든 사람에게 표시됩니다.
+- **템플릿**은 Resource Manager 리소스이며 게시된 후에는 이름을 바꿀 수 없습니다.
 
-- A **Template** is an encapsulating resource that contains an Resource Manager template and additional metadata. It behaves very similarly to an item in the Marketplace. The key difference is that it is a private item as opposed to the public Marketplace items.
-- The **Templates** library works well for users who need to customize their deployments.
-- **Templates** work well for users who need a simple repository within Azure.
-- Start with an existing Resource Manager template. Find templates in [github](https://github.com/Azure/azure-quickstart-templates) or [Export template](../resource-manager-export-template.md) from an existing resource group.
-- **Templates** are tied to the user who publishes them. The publisher name is visible to everyone who has read access to it.
-- **Templates** are Resource Manager resources and cannot be renamed once published.
+## 템플릿 리소스 추가
 
-## <a name="add-a-template-resource"></a>Add a Template resource
+Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있습니다.
 
-There are two ways to create a **Template** resource in the Azure portal.
+### 방법 1: 실행 중인 리소스 그룹에서 새 템플릿 리소스 만들기
 
-### <a name="method-1-:-create-a-new-template-resource-from-a-running-resource-group"></a>Method 1 : Create a new Template resource from a running resource group
+1. Azure 포털에서 기존 리소스 그룹으로 이동합니다. **설정**에서 **템플릿 내보내기**를 선택합니다.
+2. Resource Manager 템플릿을 내보낸 후는 **템플릿 저장** 단추를 사용하여 **템플릿** 리포지토리에 저장합니다. 템플릿 내보내기에 대한 전체 세부 정보는 [여기](../resource-manager-export-template.md)에서 확인하세요. <br /><br /> ![리소스 그룹 내보내기](media/rg-export-portal1.PNG) <br />
 
-1. Navigate to an existing resource group on the Azure Portal. Select **Export template** in **Settings**.
-2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](../resource-manager-export-template.md).
-<br /><br />
-![Resource group export](media/rg-export-portal1.PNG)  <br />
+3. **템플릿에 저장** 명령 단추를 선택합니다. <br /><br />
 
-3. Select the **Save to Template** command button.
-<br /><br />
+4. 다음 정보를 입력합니다.
 
-4. Enter the following information:
+    - 이름 – 템플릿 개체의 이름(참고: Azure Resource Manager 기반 이름입니다. 모든 명명 제한 사항을 적용하고 만든 후에는 변경할 수 없습니다).
+    - 설명 – 템플릿에 대한 간단한 요약입니다.
 
-    - Name – Name of the template object (NOTE: This is an Azure Resource Manager based name. All naming restrictions apply and it cannot be changed once created).
-    - Description – Quick summary about the template.
+    ![템플릿 저장](media/save-template-portal1.PNG) <br />
 
-    ![Save Template](media/save-template-portal1.PNG)  <br />
+5. **Save**를 클릭합니다.
 
-5. Click **Save**.
+    > [AZURE.NOTE] 내보낸 Resource Manager 템플릿에 오류가 있는 경우 내보내기 템플릿 블레이드에 알림이 표시되지만 이 Resource Manager 템플릿을 해당 템플릿에 계속 저장할 수 있게 됩니다. 내보낸 Resource Manager 템플릿을 다시 배포하기 전에 Resource Manager 템플릿 문제를 확인하여 수정해야 합니다.
 
-    > [AZURE.NOTE] The Export template blade shows notifications when the exported Resource Manager template has errors, but you will still be able to save this Resource Manager template to the Templates. Ensure that you check and fix any Resource Manager template issues before redeploying the exported Resource Manager template.
+### B. 방법 2: 찾아보기에서 새 템플릿 리소스 추가
 
-### <a name="b.-method-2-:-add-a-new-template-resource-from-browse"></a>B. Method 2 : Add a new Template resource from browse
+**찾아보기 > 템플릿**에서 +추가 명령 단추를 사용하여 처음부터 새 **템플릿**을 추가할 수도 있습니다. 이름, 설명 및 Resource Manager 템플릿 JSON을 제공해야 합니다.
 
-You can also add a new **Template** from scratch using the +Add command button in **Browse > Templates**. You will need to provide a Name, Description and the Resource Manager template JSON.
+![템플릿 추가](media/add-template-portal1.PNG) <br />
 
-![Add Template](media/add-template-portal1.PNG)  <br />
+> [AZURE.NOTE] Microsoft.Gallery는 테넌트 기반 Azure 리소스 공급자입니다. 템플릿 리소스는 리소스를 만든 사용자와 연결됩니다. 특정 구독에 연결되지 않습니다. 구독은 템플릿을 배포하는 경우에만 선택해야 합니다.
 
-> [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
+## 템플릿 리소스 보기
 
-## <a name="view-template-resources"></a>View Template resources
+사용 가능한 모든 **템플릿**은 **찾아보기 > 템플릿**에서 볼 수 있습니다. 여기에는 만든 **템플릿**과 다양한 수준의 권한으로 공유한 템플릿이 포함됩니다. 자세한 정보는 아래 [액세스 제어](#access-control-for-a-tenant-resource-provider) 섹션에 나와 있습니다.
 
-All **Templates** available to you can be seen at **Browse > Templates**. This includes **Templates** you have created as well as ones that have been shared with you with varying levels of permissions. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
+![템플릿 보기](media/view-template-portal1.PNG) <br />
 
-![View Template](media/view-template-portal1.PNG)  <br />
+목록에 있는 항목을 클릭하여 **템플릿**에 대한 세부 정보를 볼 수 있습니다.
 
-You can view the details of a **Template** by clicking into an item in the list.
+![템플릿 보기](media/view-template-portal2c.png) <br />
 
-![View Template](media/view-template-portal2c.png)  <br />
+## 템플릿 리소스 편집
 
-## <a name="edit-a-template-resource"></a>Edit a Template resource
+찾아보기 목록에서 항목을 마우스 오른쪽 단추로 클릭하거나 편집 명령 단추를 선택하여 **템플릿**에 대한 편집 흐름을 시작할 수 있습니다.
 
-You can initiate the edit flow for a **Template** by right clicking the item on the Browse list or by choosing the Edit command button.
+![템플릿 편집](media/edit-template-portal1a.PNG) <br />
 
-![Edit Template](media/edit-template-portal1a.PNG)  <br />
+설명 또는 Resource Manager 템플릿 텍스트를 편집할 수 있습니다. Resource Manager 리소스 이름이기 때문에 이름은 편집할 수 없습니다. Resource Manager 템플릿 JSON을 편집할 때 유효한 JSON인지 확인하기 위해 유효성을 확인합니다. **확인**을 선택한 후 **저장**을 선택하여 업데이트된 템플릿을 저장합니다.
 
-You can edit the description or Resource Manager template text. You cannot edit the name since it is an Resource Manager resource name. When you edit the Resource Manager template JSON we will validate to ensure that it is valid JSON. Choose **OK** and then **Save** to save your updated template.
+![템플릿 편집](media/edit-template-portal2a.PNG) <br />
 
-![Edit Template](media/edit-template-portal2a.PNG)  <br />
+**템플릿**이 저장된 후에는 확인 알림이 표시됩니다.
 
-Once the **Template** is saved you will see a confirmation notification.
+![템플릿 편집](media/edit-template-portal3b.png) <br />
 
-![Edit Template](media/edit-template-portal3b.png)  <br />
+## 템플릿 리소스 배포
 
-## <a name="deploy-a-template-resource"></a>Deploy a Template resource
+**읽기** 권한이 있는 **템플릿**을 배포할 수 있습니다. 배포 흐름에서 표준 Azure 템플릿을 배포 블레이드를 시작합니다. 배포를 진행하기 위해 Resource Manager 템플릿 매개 변수의 값을 입력합니다.
 
-You can deploy any **Template** that you have **Read** permissions on. The deployment flow launches the standard Azure Template deployment blade. Fill out the values for the Resource Manager template parameters to proceed with the deployment.
+![템플릿 배포](media/deploy-template-portal1b.png) <br />
 
-![Deploy Template](media/deploy-template-portal1b.png)  <br />
+## 템플릿 리소스 공유
 
-## <a name="share-a-template-resource"></a>Share a Template resource
+**템플릿** 리소스를 동료와 공유할 수 있습니다. 공유는 [Azure에서 모든 리소스에 대한 역할 할당](../active-directory/role-based-access-control-configure.md)과 유사하게 동작합니다. **템플릿** 소유자는 템플릿 리소스와 상호 작용할 수 있는 다른 사용자에게 사용 권한을 제공합니다. **템플릿**을 공유하는 개인 또는 사용자 그룹은 Resource Manager 템플릿 및 해당 갤러리 속성을 볼 수 있습니다.
 
-A **Template** resource can be shared with your peers. Sharing behaves similarly to [role assignment for any resource on Azure](../active-directory/role-based-access-control-configure.md). The **Template** owner provides permissions to other users who can interact with a Template resource. The person or group of people you share the **Template** with will be able to see the Resource Manager template and its gallery properties.
+### Microsoft.Gallery 리소스에 대한 액세스 제어
 
-### <a name="access-control-for-the-microsoft.gallery-resources"></a>Access control for the Microsoft.Gallery resources
-
-Role | Permissions
+역할 | 권한
 ---|----
-Owner | Allows full control on the Template resource including Share
-Reader | Allows Read and Execute(Deploy) on the Template resource
-Contributor | Allows Edit and Delete permission on the Template resource. User cannot Share the Template with others
+소유자 | 공유를 포함하여 템플릿 리소스에 대한 모든 권한 허용
+판독기 | 템플릿 리소스에 대한 읽기 및 실행(배포) 허용
+참여자 | 템플릿 리소스에 대한 편집 및 삭제 권한 허용. 사용자는 다른 사용자와 템플릿을 공유할 수 없습니다.
 
-Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience.
+마우스 오른쪽 단추를 클릭하면 표시되는 찾아보기 항목이나 특정 항목의 보기 블레이드에서 **공유**를 선택합니다. 그러면 공유 환경이 시작됩니다.
 
-![Share Template](media/share-template-portal1a.png)  <br />
+![템플릿 공유](media/share-template-portal1a.png) <br />
 
- You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section above.
+ 이제 특정 **템플릿**에 대한 액세스를 제공하는 데 역할, 사용자 또는 그룹을 선택할 수 있습니다. 사용 가능한 역할은 소유자, 판독기 및 참가자입니다. 자세한 정보는 위의 [액세스 제어](#access-control-for-a-tenant-resource-provider) 섹션에 나와 있습니다.
 
-![Share Template](media/share-template-portal2b.png)  <br />
+![템플릿 공유](media/share-template-portal2b.png) <br />
 
-![Share Template](media/share-template-portal3b.png)  <br />
+![템플릿 공유](media/share-template-portal3b.png) <br />
 
-Click **Select** and **Ok**. You can now see the users or groups you added to the resource.
+**선택** 및 **확인**을 클릭합니다. 이제 리소스에 추가된 사용자 또는 그룹을 확인할 수 있습니다.
 
-![Share Template](media/share-template-portal4b.png)  <br />
+![템플릿 공유](media/share-template-portal4b.png) <br />
 
-> [AZURE.NOTE] A Template can only be shared with users and groups in the same Azure Active Directory tenant. If you share a Template with an email address that is not in your tenant, an invitation will be sent asking the user to join the tenant as a guest.
+> [AZURE.NOTE] 템플릿은 동일한 Azure Active Directory 테넌트의 사용자 및 그룹과만 공유할 수 있습니다. 테넌트에 없는 전자 메일 주소와 템플릿을 공유하는 경우 사용자에게 게스트로 테넌트에 가입하라는 초대가 전송됩니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- To learn about creating Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md)
-- To understand the functions you can use in an Resource Manager template, see [Template functions](../resource-group-template-functions.md)
-- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
+- Resource Manager 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+- Resource Manager 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
+- 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](../best-practices-resource-manager-design-templates.md)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

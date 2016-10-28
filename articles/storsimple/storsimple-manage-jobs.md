@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="View and manage StorSimple jobs | Microsoft Azure"
-   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent, current, and scheduled backup jobs."
+   pageTitle="StorSimple 작업 보기 및 관리 | Microsoft Azure"
+   description="StorSimple Manager 서비스 작업 페이지에 대해 설명하고 이 페이지를 사용하여 최근, 현재 및 예약된 백업 작업을 추적하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,87 +15,82 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-
-# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs"></a>Use the StorSimple Manager service to view and manage StorSimple jobs
+# StorSimple 관리자 서비스를 사용하여 StorSimple 작업 보기 및 관리
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
-## <a name="overview"></a>Overview
+## 개요
 
-The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, and failed jobs for multiple devices. Results are presented in a tabular format. 
+**작업** 페이지에서는 StorSimple 관리자 서비스에 연결된 장치에서 시작한 작업을 보고 관리하기 위한 하나 중앙 포털을 제공합니다. 여러 장치에 대한 예약, 실행, 완료 및 실패한 작업을 볼 수 있습니다. 결과는 표 형식으로 나타납니다.
 
-![Jobs page](./media/storsimple-manage-jobs/HCS_JobsPage.png)
+![작업 페이지](./media/storsimple-manage-jobs/HCS_JobsPage.png)
 
-You can quickly find the jobs you are interested in by filtering on fields such as:
+다음과 같이 필드에서 필터링하여 관심 있는 작업을 빠르게 찾을 수 있습니다.
 
-- **Status** – Jobs can be running, scheduled, failed, completed, canceling, or canceled.
+- **상태** – 작업 상태는 실행 중, 예약, 실패, 완료, 취소 중 또는 취소입니다.
 
-- **Type** – Jobs can be created as a result of a scheduled or an on-demand backup (**Take Backup**), cloning, a device restore, or an update operation.
+- **유형** – 작업은 예약 또는 요청 시 백업(**백업 수행**), 복제, 장치 복원, 업데이트 작업의 결과로 만들어질 수 있습니다.
 
-- **Devices** – Jobs are initiated on a certain device connected to your service.
+- **장치** – 작업은 서비스에 연결된 특정 장치에서 시작됩니다.
 
-- **From and To** – Jobs can be filtered based on the date and time range.
+- **시작 및 종료** – 작업은 날짜 및 시간 범위에 따라 필터링할 수 있습니다.
 
-The filtered jobs are then tabulated on the basis of the following attributes:
+필터링된 작업은 다음과 같은 특성을 기반으로 표로 정리됩니다.
 
-- **Type** – Backup, clone, restore, failover, or update.
+- **유형** – 백업, 복제, 복원, 장애 조치(failover) 또는 업데이트입니다.
 
-- **Status** – Running, scheduled, failed, completed, canceling, or canceled.
+- **상태** – 실행 중, 예약, 실패, 완료, 취소 중 또는 취소입니다.
 
-- **Entity** – The jobs can be associated with a volume, a backup policy, or a device. A clone job is associated with a volume, whereas a scheduled backup job is associated with a backup policy. A device job is created as a result of a disaster recovery (DR) or a restore operation.
+- **엔터티** – 작업은 볼륨, 백업 정책 또는 장치에 연관될 수 있습니다. 복제 작업은 볼륨과 연관되는 반면, 예약된 백업 작업은 백업 정책과 연관됩니다. 장치 작업은 DR(재해 복구) 또는 복원 작업의 결과로 만들어집니다.
 
-- **Device** – The name of the device on which the job was started.
+- **장치** – 작업이 시작된 장치의 이름입니다.
 
-- **Started On** – The time when the job was started.
+- **시작 시간** – 작업이 시작된 시간입니다.
 
-- **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
+- **진행률** – 실행 중인 작업의 완료율입니다. 완료된 작업의 경우 항상 100%여야 합니다.
 
-The list of jobs is refreshed every 30 seconds.
+작업 목록은 30초마다 새로 고쳐집니다.
 
-You can perform the following job-related actions on this page:
+이 페이지에서 다음 작업과 관련된 작업을 수행할 수 있습니다.
 
-- View job details
+- 작업 세부 정보 보기
 
-- Cancel a job
+- 작업 취소
 
-## <a name="view-job-details"></a>View job details
+## 작업 세부 정보 보기
 
-Perform the following steps to view the details of any job.
+다음 단계에 따라 작업 세부 정보를 봅니다.
 
-#### <a name="to-view-job-details"></a>To view job details
+#### 작업 세부 정보 보는 방법
 
-1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed, running, or canceled jobs.
+1. **작업** 페이지에서 적절한 필터와 함께 쿼리를 실행하여 관심 있는 작업을 표시합니다. 완료되거나, 실행 중이거나, 취소된 작업을 검색할 수 있습니다.
 
-2. Select a job.
+2. 작업을 선택합니다.
 
-3. At the bottom of the page, click **Details**.
+3. 페이지 맨 아래에서 **세부 정보**를 클릭합니다.
 
-4. In the **Backup Job Details** dialog box, you can view the status, details, time statistics, and data statistics.
+4. **백업 작업 세부 정보** 대화 상자에서 상태, 세부 정보, 시간 통계 및 데이터 통계를 볼 수 있습니다.
 
-## <a name="cancel-a-job"></a>Cancel a job
+## 작업 취소
 
-Perform the following steps to cancel a running job.
+다음 단계에 따라 실행 중인 작업을 취소합니다.
 
-### <a name="to-cancel-a-job"></a>To cancel a job
+### 작업 취소 방법
 
-1. On the **Jobs** page, display the running job(s) that you want to cancel by running a query with appropriate filters.
+1. **작업** 페이지에서 적절한 필터와 함께 쿼리를 실행하여 취소하려는 실행 중인 작업을 표시합니다.
 
-1. Select the job.
+1. 작업을 선택합니다.
 
-1. At the bottom of the page, click **Cancel**.
+1. 페이지 맨 아래에서 **취소**를 클릭합니다.
 
-1. When prompted for confirmation, click **Yes**.
+1. 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
 
-This job is now canceled.
+이 작업은 이제 취소됩니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
+- [StorSimple 백업 정책을 관리](storsimple-manage-backup-policies.md)하는 방법을 알아봅니다.
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

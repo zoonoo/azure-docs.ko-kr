@@ -1,6 +1,6 @@
 <properties
-    pageTitle="What is a Cloud Service model and package | Microsoft Azure"
-    description="Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure"
+    pageTitle="클라우드 서비스 모델 및 패키지 정의 | Microsoft Azure"
+    description="Azure의 클라우드 서비스 모델(.csdef,.cscfg) 및 패키지(.cspkg)에 대해 설명합니다."
     services="cloud-services"
     documentationCenter=""
     authors="Thraka"
@@ -15,26 +15,25 @@
     ms.date="09/06/2016"
     ms.author="adegeo"/>
 
+# 클라우드 서비스 모델 정의 및 패키지 방법
+클라우드 서비스는 서비스 정의_(.csdef)_, 서비스 구성_(.cscfg)_, 서비스 패키지_(.cspkg)_의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
 
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it?"></a>What is the Cloud Service model and how do I package it?
-A cloud service is created from three components, the service definition _(.csdef)_, the service config _(.cscfg)_, and a service package _(.cspkg)_. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all of the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
+Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** 파일을 통해 다시 구성할 수 있지만 정의는 변경할 수 없습니다.
 
-Once the cloud service is running in Azure, you can reconfigure it through the **ServiceConfig.cscfg** file, but you cannot alter the definition.
+## 자세하게 알고 싶은 내용이 무엇인가요?
 
-## <a name="what-would-you-like-to-know-more-about?"></a>What would you like to know more about?
-
-* I want to know more about the [ServiceDefinition.csdef](#csdef) and [ServiceConfig.cscfg](#cscfg) files.
-* I already know about that, give me [some examples](#next-steps) on what I can configure.
-* I want to create the [ServicePackage.cspkg](#cspkg).
-* I am using Visual Studio and I want to...
-    * [Create a new cloud service][vs_create]
-    * [Reconfigure an existing cloud service][vs_reconfigure]
-    * [Deploy a Cloud Service project][vs_deploy]
-    * [Remote desktop into a cloud service instance][remotedesktop]
+* [ServiceDefinition.csdef](#csdef) 및 [ServiceConfig.cscfg](#cscfg) 파일에 대해 자세하게 알고 싶습니다.
+* 이미 내용을 알고 있으므로 무엇을 구성할 수 있는지에 대한 [몇 가지 예](#next-steps)를 보여 주세요.
+* [ServicePackage.cspkg](#cspkg)를 만들려고 합니다.
+* Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
+    * [새 클라우드 서비스 만들기][vs_create]
+    * [기존 클라우드 서비스 재구성][vs_reconfigure]
+    * [클라우드 서비스 프로젝트 배포][vs_deploy]
+    * [원격 데스크톱에서 클라우드 서비스 인스턴스에 연결][remotedesktop]
 
 <a name="csdef"></a>
-## <a name="servicedefinition.csdef"></a>ServiceDefinition.csdef
-The **ServiceDefinition.csdef** file specifies the settings that are used by Azure to configure a cloud service. The [Azure Service Definition Schema (.csdef File)](https://msdn.microsoft.com/library/azure/ee758711.aspx) provides the allowable format for a service definition file. The following example shows the settings that can be defined for the Web and Worker roles:
+## ServiceDefinition.csdef
+**ServiceDefinition.csdef** 파일은 클라우드 서비스를 구성하기 위해 Azure에서 사용되는 설정을 지정합니다. [Azure 서비스 정의 스키마(.csdef 파일)](https://msdn.microsoft.com/library/azure/ee758711.aspx)는 서비스 정의 파일에 허용되는 형식을 제공합니다. 다음 예제에서는 웹 및 작업자 역할에 정의할 수 있는 설정을 보여 줍니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -85,39 +84,31 @@ The **ServiceDefinition.csdef** file specifies the settings that are used by Azu
 </ServiceDefinition>
 ```
 
-You can refer to the [Service Definition Schema][] for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
+여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 정의 스키마][]를 참조하면 됩니다. 그러나 여기서 간략하게 몇 가지 요소를 설명합니다.
 
-**Sites**  
-Contains the definitions for websites or web applications that are hosted in IIS7.
+**Sites** IIS7에서 호스트되는 웹 사이트 또는 웹 응용 프로그램에 대한 정의를 포함합니다.
 
-**InputEndpoints**  
-Contains the definitions for endpoints that are used to contact the cloud service.
+**InputEndpoints** 클라우드 서비스에 연결하는 데 사용되는 끝점에 대한 정의를 포함합니다.
 
-**InternalEndpoints**  
-Contains the definitions for endpoints that are used by role instances to communicate with each other.
+**InternalEndpoints** 서로 통신하기 위해 역할 인스턴스에서 사용되는 끝점에 대한 정의를 포함합니다.
 
-**ConfigurationSettings**  
-Contains the setting definitions for features of a specific role.
+**ConfigurationSettings** 특정 역할의 기능에 대한 설정 정의를 포함합니다.
 
-**Certificates**  
-Contains the definitions for certificates that are needed for a role. The previous code example shows a certificate that is used for the configuration of Azure Connect.
+**Certificates** 역할에 필요한 인증서에 대한 정의를 포함합니다. 앞의 코드 예제에서는 Azure Connect 구성에 사용되는 인증서를 보여 줍니다.
 
-**LocalResources**  
-Contains the definitions for local storage resources. A local storage resource is a reserved directory on the file system of the virtual machine in which an instance of a role is running.
+**LocalResources** 로컬 저장소 리소스에 대한 정의를 포함합니다. 로컬 저장소 리소스는 역할의 인스턴스가 실행 중인 가상 컴퓨터의 파일 시스템에 예약된 디렉터리입니다.
 
-**Imports**  
-Contains the definitions for imported modules. The previous code example shows the modules for Remote Desktop Connection and Azure Connect.
+**Imports** 가져온 모듈에 대한 정의를 포함합니다. 앞의 코드 예제에서는 원격 데스크톱 연결 및 Azure Connect에 대한 모듈을 보여 줍니다.
 
-**Startup**  
-Contains tasks that are run when the role starts. The tasks are defined in a .cmd or executable file.
+**Startup** 역할이 시작될 때 실행되는 작업을 포함합니다. 작업은 .cmd 또는 실행 파일에 정의됩니다.
 
 
 
 <a name="cscfg"></a>
-## <a name="serviceconfiguration.cscfg"></a>ServiceConfiguration.cscfg
-The configuration of the settings for your cloud service is determined by the values in the **ServiceConfiguration.cscfg** file. You specify the number of instances that you want to deploy for each role in this file. The values for the configuration settings that you defined in the service definition file are added to the service configuration file. The thumbprints for any management certificates that are associated with the cloud service are also added to the file. The [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx) provides the allowable format for a service configuration file.
+## ServiceConfiguration.cscfg
+클라우드 서비스에 대한 설정 구성은 **ServiceConfiguration.cscfg** 파일의 값에 따라 결정됩니다. 이 파일의 각 역할에 배포하려는 인스턴스 수를 지정합니다. 서비스 정의 파일에서 정의한 구성 설정에 대한 값이 서비스 구성 파일에 추가됩니다. 클라우드 서비스와 연결된 모든 관리 인증서의 지문도 파일에 추가됩니다. [Azure 서비스 구성 스키마(.cscfg 파일)](https://msdn.microsoft.com/library/azure/ee758710.aspx)에서 서비스 구성 파일에 허용되는 형식을 제공합니다.
 
-The service configuration file is not packaged with the application, but is uploaded to Azure as a separate file and is used to configure the cloud service. You can upload a new service configuration file without redeploying your cloud service. The configuration values for the cloud service can be changed while the cloud service is running. The following example shows the configuration settings that can be defined for the Web and Worker roles:
+서비스 구성 파일은 응용 프로그램과 함께 패키지되지 않지만 별도 파일로 Azure에 업로드되어 클라우드 서비스를 구성하는 데 사용됩니다. 클라우드 서비스를 다시 배포하지 않고 새 서비스 구성 파일을 업로드할 수 있습니다. 클라우드 서비스가 실행되는 동안 클라우드 서비스에 대한 구성 값을 변경할 수 있습니다. 다음 예제에서는 웹 및 작업자 역할에 정의할 수 있는 구성 설정을 보여 줍니다.
 
 ```xml
 <?xml version="1.0"?>
@@ -137,27 +128,24 @@ The service configuration file is not packaged with the application, but is uplo
 </ServiceConfiguration>
 ```
 
-You can refer to the [Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710.aspx) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
+여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710.aspx)를 참조하면 됩니다. 그러나 여기서 간략하게 요소를 설명합니다.
 
-**Instances**  
-Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommend that you deploy more than one instance of your web-facing roles. By doing this, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
+**Instances** 역할에 대해 실행 중인 인스턴스 수를 구성합니다. 업그레이드하는 동안 잠재적으로 클라우드 서비스를 사용할 수 없게 되는 것을 방지하려면 웹과 관련된 역할의 인스턴스를 두 개 이상 배포하는 것이 좋습니다. 그렇게 하면 [Azure 계산 SLA(서비스 수준 계약)](http://azure.microsoft.com/support/legal/sla/)의 지침을 준수하게 되므로 서비스를 위해 둘 이상의 역할 인스턴스가 배포될 때 인터넷 연결 역할에 대한 99.95%의 외부 연결을 보증합니다.
 
-**ConfigurationSettings**  
-Configures the settings for the running instances for a role. The name of the `<Setting>` elements must match the setting definitions in the service definition file.
+**ConfigurationSettings** 역할에 대해 실행 중인 인스턴스의 설정을 구성합니다. `<Setting>` 요소의 이름은 서비스 정의 파일에 있는 설정 정의와 일치해야 합니다.
 
-**Certificates**  
-Configures the certificates that are used by the service. The previous code example shows how to define the certificate for the RemoteAccess module. The value of the *thumbprint* attribute must be set to the thumbprint of the certificate to use.
+**Certificates** 서비스에서 사용되는 인증서를 구성합니다. 앞의 코드 예제에서는 RemoteAccess 모듈의 인증서를 정의하는 방법을 보여 줍니다. *thumbprint* 특성 값은 사용할 인증서의 지문으로 설정되어야 합니다.
 
 <p/>
 
- >[AZURE.NOTE] The thumbprint for the certificate can be added to the configuration file by using a text editor, or the value can be added on the **Certificates** tab of the **Properties** page of the role in Visual Studio.
+ >[AZURE.NOTE] 인증서의 지문은 텍스트 편집기를 사용하여 구성 파일에 추가하거나 Visual Studio에서 역할 **속성** 페이지의 **인증서** 탭에서 값을 추가할 수도 있습니다.
 
 
 
-## <a name="defining-ports-for-role-instances"></a>Defining ports for role instances
-Azure allows only one entry point to a web role. This means that all traffic occurs through one IP address. You can configure your websites to share a port by configuring the host header to direct the request to the correct location. You can also configure your applications to listen to well-known ports on the IP address.
+## 역할 인스턴스에 대한 포트 정의
+Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP 주소를 통해 모든 트래픽이 발생합니다. 올바른 위치로 요청을 전송하도록 호스트 헤더를 구성하여 포트를 공유하도록 웹 사이트를 구성할 수 있습니다. IP 주소에서 잘 알려진 포트를 수신 대기하도록 응용 프로그램을 구성할 수도 있습니다.
 
-The following sample shows the configuration for a web role with a website and web application. The website is configured as the default entry location on port 80, and the web applications are configured to receive requests from an alternate host header that is called “mail.mysite.cloudapp.net”.
+다음 샘플은 웹 사이트 및 웹 응용 프로그램에서 웹 역할 구성 방법을 보여 줍니다. 웹 사이트는 포트 80에서 기본 입력 위치로 구성되어 있고 웹 응용 프로그램은 “mail.mysite.cloudapp.net”이라는 대체 호스트 헤더에서 요청을 수신하도록 구성되어 있습니다.
 
 ```xml
 <WebRole>
@@ -192,90 +180,84 @@ The following sample shows the configuration for a web role with a website and w
 ```
 
 
-## <a name="changing-the-configuration-of-a-role"></a>Changing the configuration of a role
-You can update the configuration of your cloud service while it is running in Azure, without taking the service offline. To change configuration information, you can either upload a new configuration file, or edit the configuration file in place and apply it to your running service. The following changes can be made to the configuration of a service:
+## 역할의 구성 변경
+클라우드 서비스가 Azure에서 실행 중인 상태에서 서비스를 오프라인으로 전환하지 않고 클라우드 서비스의 구성을 업데이트할 수 있습니다. 구성 정보를 변경하려면 새 구성 파일을 업로드하거나 가동 중인 구성 파일을 편집하고 실행 중인 서비스에 적용하면 됩니다. 서비스 구성에서 변경할 수 있는 사항은 다음과 같습니다.
 
-- **Changing the values of configuration settings**  
-When a configuration setting changes, a role instance can choose to apply the change while the instance is online, or to recycle the instance gracefully and apply the change while the instance is offline.
+- **구성 설정 값 변경** 구성 설정 변경 시 인스턴스가 온라인인 상태에서 역할 인스턴스가 변경 사항을 적용하도록 선택하거나, 인스턴스가 오프라인인 상태에서 인스턴스를 정상적으로 재활용하여 변경 사항을 적용할 수 있습니다.
 
-- **Changing the service topology of role instances**  
-Topology changes do not affect running instances, except where an instance is being removed. All remaining instances generally do not need to be recycled; however, you can choose to recycle role instances in response to a topology change.
+- **역할 인스턴스의 서비스 토폴로지 변경** 인스턴스가 제거되는 경우를 제외하고 토폴로지 변경은 실행 중인 인스턴스에 영향을 주지 않습니다. 일반적으로 나머지 모든 인스턴스는 재활용하지 않아도 됩니다. 하지만 토폴로지 변경에 대한 응답으로 역할 인스턴스를 재활용하도록 선택할 수는 있습니다.
 
-- **Changing the certificate thumbprint**  
-You can only update a certificate when a role instance is offline. If a certificate is added, deleted, or changed while a role instance is online, Azure gracefully takes the instance offline to update the certificate and bring it back online after the change is complete.
+- **인증서 지문 변경** 역할 인스턴스가 오프라인인 상태에서는 인증서만 업데이트할 수 있습니다. 역할 인스턴스가 온라인인 상태에서 인증서를 추가, 삭제 또는 변경하면 Azure가 정상적으로 인스턴스를 오프라인 상태로 전환하여 인증서를 업데이트하고 변경이 완료되면 온라인 상태로 다시 전환합니다.
 
-### <a name="handling-configuration-changes-with-service-runtime-events"></a>Handling configuration changes with Service Runtime Events
-The [Azure Runtime Library](https://msdn.microsoft.com/library/azure/mt419365.aspx) includes the [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) namespace, which provides classes for interacting with the Azure environment from code running in an instance of a role. The [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) class defines the following events that are raised before and after a configuration change:
+### 서비스 런타임 이벤트를 사용하여 구성 변경 사항 처리
+[Azure 런타임 라이브러리](https://msdn.microsoft.com/library/azure/mt419365.aspx)는 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) 네임스페이스를 포함하여 역할 인스턴스에서 실행되는 코드에서 Azure 환경과 상호 작용하기 위한 클래스를 제공합니다. [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 클래스는 구성 변경 전후 발생하는 다음 이벤트를 정의합니다.
 
-- **[Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) event**  
-This occurs before the configuration change is applied to a specified instance of a role giving you a chance to take down the role instances if required.
-- **[Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) event**  
-Occurs after the configuration change is applied to a specified instance of a role.
+- **이벤트 [변경](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)** 필요한 경우 구성 변경이 지정된 역할 인스턴스에 적용되어 역할 인스턴스가 작동 중지하는 기회가 생기기 전에 발생합니다.
+- **[변경된](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) 이벤트** 지정된 역할 인스턴스에 구성 변경이 적용된 후 발생합니다.
 
-> [AZURE.NOTE] Because certificate changes always take the instances of a role offline, they do not raise the RoleEnvironment.Changing or RoleEnvironment.Changed events.
+> [AZURE.NOTE] 인증서 변경 사항이 있으면 항상 역할 인스턴스가 오프라인으로 전환되기 때문에 RoleEnvironment.Changing 또는 RoleEnvironment.Changed 이벤트가 발생하지 않습니다.
 
 <a name="cspkg"></a>
-## <a name="servicepackage.cspkg"></a>ServicePackage.cspkg
-To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](https://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio.
+## ServicePackage.cspkg
+응용 프로그램을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 응용 프로그램을 패키지해야 합니다. **CSPack** 명령줄 도구([Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
 
-**CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
+**CSPack**은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack**은 [Azure 포털](cloud-services-how-to-create-deploy-portal.md#create-and-deploy)을 사용하여 Azure에 업로드할 수 있는 응용 프로그램 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack**의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
 
-**CSPack** is generally located at  
-`C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
+**CSPack**은 일반적으로 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`에 있습니다.
 
 >[AZURE.NOTE]
-CSPack.exe (on windows) is available by running the **Microsoft Azure Command Prompt** shortcut that is installed with the SDK.  
+CSPack.exe(Windows)는 SDK로 설치되는 **Microsoft Azure 명령 프롬프트** 바로 가기를 실행하여 사용할 수 있습니다.
 >  
->Run the CSPack.exe program by itself to see documentation about all of the possible switches and commands.
+>가능한 모든 스위치 및 명령에 대한 설명서를 보려면 자체적으로 CSPack.exe 프로그램을 실행합니다.
 
 <p />
 
 >[AZURE.TIP]
-Run your cloud service locally in the **Microsoft Azure Compute Emulator**, use the **/copyonly** option This option copies the binary files for the application to a directory layout from which they can be run in the compute emulator.
+**Microsoft Azure 계산 에뮬레이터**에서 로컬로 클라우드 서비스를 실행하고 **/copyonly** 옵션을 사용합니다. 이 옵션은 응용 프로그램에 대한 이진 파일을 계산 에뮬레이터에서 실행할 수 있는 디렉터리 레이아웃에 복사합니다.
 
-### <a name="example-command-to-package-a-cloud-service"></a>Example command to package a cloud service
-The following example creates an application package that contains the information for a web role. The command specifies the service definition file to use, the directory where binary files can be found, and the name of the package file.
+### 클라우드 서비스를 패키지하는 예제 명령
+다음 예제에서는 웹 역할에 대한 정보를 포함하는 응용 프로그램 패키지를 만듭니다. 명령으로 사용할 서비스 정의 파일, 이진 파일을 찾을 수 있는 디렉터리 및 패키지 파일의 이름을 지정합니다.
 
-    cspack [DirectoryName]\[ServiceDefinition]
+    cspack [DirectoryName][ServiceDefinition]
            /role:[RoleName];[RoleBinariesDirectory]
            /sites:[RoleName];[VirtualPath];[PhysicalPath]
            /out:[OutputFileName]
 
-If the application contains both a web role and a worker role, the following command is used:
+응용 프로그램에 웹 역할 및 작업자 역할이 포함된 경우 다음 명령이 사용됩니다.
 
-    cspack [DirectoryName]\[ServiceDefinition]
+    cspack [DirectoryName][ServiceDefinition]
            /out:[OutputFileName]
            /role:[RoleName];[RoleBinariesDirectory]
            /sites:[RoleName];[VirtualPath];[PhysicalPath]
            /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
 
-Where the variables are defined as follows:
+여기서는 변수가 다음과 같이 정의됩니다.
 
-| Variable                  | Value |
+| 변수 | 값 |
 | ------------------------- | ----- |
-| \[DirectoryName\]         | The subdirectory under the root project directory that contains the .csdef file of the Azure project.|
-| \[ServiceDefinition\]     | The name of the service definition file. By default, this file is named ServiceDefinition.csdef.  |
-| \[OutputFileName\]        | The name for the generated package file. Typically, this is set to the name of the application. If no file name is specified, the application package is created as \[ApplicationName\].cspkg.|
-| \[RoleName\]              | The name of the role as defined in the service definition file.|
-| \[RoleBinariesDirectory] | The location of the binary files for the role.|
-| \[VirtualPath\]           | The physical directories for each virtual path defined in the Sites section of the service definition.|
-| \[PhysicalPath\]          | The physical directories of the contents for each virtual path defined in the site node of the service definition.|
-| \[RoleAssemblyName\]      | The name of the binary file for the role.| 
+| [DirectoryName] | Azure 프로젝트의 .csdef 파일을 포함하는 루트 프로젝트 디렉터리의 하위 디렉터리입니다.|
+| [ServiceDefinition] | 서비스 정의 파일의 이름입니다. 기본적으로 이 파일의 이름은 ServiceDefinition.csdef입니다. |
+| [OutputFileName] | 생성된 패키지 파일의 이름입니다. 일반적으로 응용 프로그램의 이름으로 설정됩니다. 파일 이름이 지정되지 않은 경우 응용 프로그램 패키지는 [ApplicationName].cspkg로 만들어집니다.|
+| [RoleName] | 서비스 정의 파일에서 정의된 역할 이름입니다.|
+| [RoleBinariesDirectory] | 역할에 대한 이진 파일의 위치입니다.|
+| [VirtualPath] | 서비스 정의의 Sites 섹션에서 정의된 각 가상 경로에 대한 실제 디렉터리입니다.|
+| [PhysicalPath] | 서비스 정의의 사이트 노드에서 정의된 각 가상 경로에 대한 콘텐츠의 실제 디렉터리입니다.|
+| [RoleAssemblyName] | 역할에 대한 이진 파일의 이름입니다.| 
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-I'm creating a cloud service package and I want to...
+클라우드 서비스 패키지를 만들고 있으며 다음 작업을 수행하려고 합니다.
 
-* [Setup remote desktop for a cloud service instance][remotedesktop]
-* [Deploy a Cloud Service project][deploy]
+* [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][remotedesktop]
+* [클라우드 서비스 프로젝트 배포][deploy]
 
-I am using Visual Studio and I want to...
+Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 
-* [Create a new cloud service][vs_create]
-* [Reconfigure an existing cloud service][vs_reconfigure]
-* [Deploy a Cloud Service project][vs_deploy]
-* [Setup remote desktop for a cloud service instance][vs_remote]
+* [새 클라우드 서비스 만들기][vs_create]
+* [기존 클라우드 서비스 재구성][vs_reconfigure]
+* [클라우드 서비스 프로젝트 배포][vs_deploy]
+* [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
@@ -284,8 +266,4 @@ I am using Visual Studio and I want to...
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

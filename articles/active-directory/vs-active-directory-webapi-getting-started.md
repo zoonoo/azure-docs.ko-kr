@@ -1,36 +1,32 @@
 <properties 
-    pageTitle="Get Started with Azure Active Directory and Visual Studio connected services (WebApi projects) | Microsoft Azure" 
-    description="How to get started using Azure Active Directory in WebApi projects after connecting to or creating an Azure AD using Visual Studio connected services" 
+	pageTitle="Azure Active Directory 및 Visual Studio 연결 서비스 시작(WebApi 프로젝트) | Microsoft Azure" 
+	description="Visual Studio 연결 서비스를 사용하여 Azure AD를 만들거나 연결한 후에 WebApi 프로젝트에 Azure Active Directory를 사용하여 시작하는 방법입니다." 
   services="active-directory"
-    documentationCenter="" 
-    authors="TomArcher" 
-    manager="douge" 
-    editor=""/>
+	documentationCenter="" 
+	authors="TomArcher" 
+	manager="douge" 
+	editor=""/>
   
 <tags 
-    ms.service="active-directory" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="vs-getting-started" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016"
-    ms.author="tarcher"/>
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016"
+	ms.author="tarcher"/>
 
-
-# <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-(webapi-projects)"></a>Get Started with Azure Active Directory and Visual Studio connected services (WebApi projects)
+# Azure Active Directory 및 Visual Studio 연결 서비스 시작(WebApi 프로젝트)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [시작](vs-active-directory-webapi-getting-started.md)
+> - [변경된 내용](vs-active-directory-webapi-what-happened.md)
 
-##<a name="requiring-authentication-to-access-controllers"></a>Requiring authentication to access controllers
+##컨트롤러에 액세스하려면 인증 필요
  
-All controllers in your project were adorned with the **Authorize** attribute. This attribute will require the user to be authenticated before accessing the APIs defined by these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller. If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.
+프로젝트의 모든 컨트롤러는 **Authorize** 특성으로 표시되었습니다. 이 특성으로 인해 사용자가 인증해야만 이러한 컨트롤러에서 정의한 API에 액세스할 수 있습니다. 컨트롤러에 익명으로 액세스할 수 있도록 하려면 컨트롤러에서 이 특성을 제거하세요. 더 세부적인 수준에서 권한을 설정하려면 특성을 컨트롤러 클래스에 적용하는 대신 인증이 필요한 각 메서드에 적용하세요.
 
-[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

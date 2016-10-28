@@ -1,109 +1,104 @@
 <properties
-    pageTitle="Disable Stretch Database and bring back remote data | Microsoft Azure"
-    description="Learn how to disable Stretch Database for a table and optionally bring back remote data."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+	pageTitle="스트레치 데이터베이스를 사용하지 않고 원격 데이터 다시 가져오기 | Microsoft Azure"
+	description="테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정하고 필요에 따라 원격 데이터를 다시 가져오는 방법을 알아봅니다."
+	services="sql-server-stretch-database"
+	documentationCenter=""
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/05/2016"
-    ms.author="douglasl"/>
+	ms.service="sql-server-stretch-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2016"
+	ms.author="douglasl"/>
 
+# 스트레치 데이터베이스를 사용하지 않고 원격 데이터 다시 가져오기
 
-# <a name="disable-stretch-database-and-bring-back-remote-data"></a>Disable Stretch Database and bring back remote data
+테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정하려면 SQL Server Management Studio에서 해당 테이블에 대해 **스트레치**를 선택합니다. 그런 후 다음 옵션 중 하나를 선택합니다.
 
-To disable Stretch Database for a table, select **Stretch** for a table in SQL Server Management Studio. Then select one of the following options.
+-   **사용 안 함| Bring data back from Azure**. Azure에서 테이블의 원격 데이터를 SQL Server에 다시 복사한 다음 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정합니다. 이 작업은 데이터 전송 비용이 소요되며, 취소할 수 없습니다.
 
--   **Disable | Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This operation incurs data transfer costs, and it can't be canceled.
+-   **사용 안 함| Leave data in Azure**. 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정합니다.  Azure에서 테이블에 대한 원격 데이터를 중단합니다.
 
--   **Disable | Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+Transact-SQL을 사용하여 테이블 또는 데이터베이스에 대해 스트레치 데이터베이스를 사용하지 않도록 설정할 수도 있습니다.
 
-You can also use Transact\-SQL to disable Stretch Database for a table or for a database.
+테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정한 후에는 데이터 마이그레이션이 중지되고 원격 테이블의 결과가 더 이상 쿼리 결과에 포함되지 않습니다.
 
-After you disable Stretch Database for a table, data migration stops and query results no longer include results from the remote table.
+데이터 마이그레이션을 일시 중지하려면 [스트레치 데이터베이스 일시 중지 및 다시 시작](sql-server-stretch-database-pause.md)을 참조하세요.
 
-If you simply want to pause data migration, see [Pause and resume Stretch Database](sql-server-stretch-database-pause.md).
+>   [AZURE.NOTE] 테이블 또는 데이터베이스에 대해 스트레치 데이터베이스를 사용하지 않도록 설정하면 원격 개체를 삭제하지 않습니다. 원격 테이블 또는 원격 데이터베이스를 삭제하려면 Azure 관리 포털을 사용하여 삭제해야 합니다. 원격 개체를 삭제할 때까지 계속해서 Azure 비용이 발생합니다. 자세한 내용은 [SQL Server 스트레치 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)을 참조하세요.
 
->   [AZURE.NOTE] Disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+## 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정
 
-## <a name="disable-stretch-database-for-a-table"></a>Disable Stretch Database for a table
+### SQL Server Management Studio를 사용하여 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정
 
-### <a name="use-sql-server-management-studio-to-disable-stretch-database-for-a-table"></a>Use SQL Server Management Studio to disable Stretch Database for a table
+1.  SQL Server Management Studio의 개체 탐색기에서 스트레치 데이터베이스를 사용하지 않도록 설정할 테이블을 선택합니다.
 
-1.  In SQL Server Management Studio, in Object Explorer, select the table for which you want to disable Stretch Database.
+2.  마우스 오른쪽 단추를 클릭하고 **스트레치**를 선택한 후 다음 옵션 중 하나를 선택합니다.
 
-2.  Right\-click and select **Stretch**, and then select one of the following options.
+    -   **사용 안 함| Bring data back from Azure**. Azure에서 테이블의 원격 데이터를 SQL Server에 다시 복사한 다음 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정합니다. 이 명령은 취소할 수 없습니다.
 
-    -   **Disable | Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This command can't be canceled.
+        >   [AZURE.NOTE] 테이블에 대한 원격 데이터를 Azure에서 SQL Server로 복사할 경우 데이터 전송 비용이 발생합니다. 자세한 내용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/)를 참조하세요.
 
-        >   [AZURE.NOTE] Copying the remote data for the table from Azure back to SQL Server incurs data transfer costs. For more info, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
+        Azure에서 SQL Server로 모든 원격 데이터가 다시 복사된 후에는 테이블에 대해 스트레치가 사용하지 않도록 설정됩니다.
 
-        After all the remote data has been copied from Azure back to SQL Server, Stretch is disabled for the table.
+    -   **사용 안 함| Leave data in Azure**. 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정합니다.  Azure에서 테이블에 대한 원격 데이터를 중단합니다.
 
-    -   **Disable | Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+    >   [AZURE.NOTE] 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정하면 원격 데이터 또는 원격 테이블을 삭제하지 않습니다. 원격 테이블을 삭제하려면 Azure 관리 포털을 사용하여 삭제해야 합니다. 원격 테이블을 삭제할 때까지 계속해서 Azure 비용이 발생합니다. 자세한 내용은 [SQL Server 스트레치 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)을 참조하세요.
 
-    >   [AZURE.NOTE] Disabling Stretch Database for a table does not delete the remote data or the remote table. If you want to delete the remote table, you have to drop it by using the Azure management portal. The remote table continues to incur Azure costs until you delete it. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+### Transact-SQL을 사용하여 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정
 
-### <a name="use-transact\-sql-to-disable-stretch-database-for-a-table"></a>Use Transact\-SQL to disable Stretch Database for a table
+-   테이블에 대해 스트레치를 사용하지 않도록 설정하고 Azure에서 SQL Server로 테이블의 원격 데이터를 다시 복사하려면 다음 명령을 실행합니다. Azure에서 SQL Server로 모든 원격 데이터가 다시 복사된 후에는 테이블에 대해 스트레치가 사용하지 않도록 설정됩니다.
 
--   To disable Stretch for a table and copy the remote data for the table from Azure back to SQL Server, run the following command. After all the remote data has been copied from Azure back to SQL Server, Stretch is disabled for the table.
-
-    This command can't be canceled.
+    이 명령은 취소할 수 없습니다.
 
     ```tsql
-    USE <Stretch-enabled database name>;
+	USE <Stretch-enabled database name>;
     GO
     ALTER TABLE <Stretch-enabled table name>  
        SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
     GO
     ```
-    >   [AZURE.NOTE] Copying the remote data for the table from Azure back to SQL Server incurs data transfer costs. For more info, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
+    >   [AZURE.NOTE] 테이블에 대한 원격 데이터를 Azure에서 SQL Server로 복사할 경우 데이터 전송 비용이 발생합니다. 자세한 내용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/)를 참조하세요.
 
--   To disable Stretch for a table and abandon the remote data, run the following command.
+-   테이블에 대해 스트레치를 사용하지 않도록 설정하고 원격 데이터를 중단하려면 다음 명령을 실행합니다.
 
     ```tsql
     ALTER TABLE <table_name>
        SET ( REMOTE_DATA_ARCHIVE = OFF_WITHOUT_DATA_RECOVERY ( MIGRATION_STATE = PAUSED ) ) ;
     ```
 
->   [AZURE.NOTE] Disabling Stretch Database for a table does not delete the remote data or the remote table. If you want to delete the remote table, you have to drop it by using the Azure management portal. The remote table continues to incur Azure costs until you delete it. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+>   [AZURE.NOTE] 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정하면 원격 데이터 또는 원격 테이블을 삭제하지 않습니다. 원격 테이블을 삭제하려면 Azure 관리 포털을 사용하여 삭제해야 합니다. 원격 테이블을 삭제할 때까지 계속해서 Azure 비용이 발생합니다. 자세한 내용은 [SQL Server 스트레치 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)을 참조하세요.
 
-## <a name="disable-stretch-database-for-a-database"></a>Disable Stretch Database for a database
-Before you can disable Stretch Database for a database, you have to disable Stretch Database on the individual Stretch\-enabled tables in the database.
+## 데이터베이스에 대해 스트레치 데이터베이스를 사용하지 않도록 설정
+데이터베이스에 대해 스트레치 데이터베이스를 사용하지 않도록 설정하려면 먼저 데이터베이스의 개별 스트레치 지원 테이블에서 스트레치 데이터베이스를 사용하지 않도록 설정해야 합니다.
 
-### <a name="use-sql-server-management-studio-to-disable-stretch-database-for-a-database"></a>Use SQL Server Management Studio to disable Stretch Database for a database
+### SQL Server Management Studio를 사용하여 데이터베이스에 대해 스트레치 데이터베이스를 사용하지 않도록 설정
 
-1.  In SQL Server Management Studio, in Object Explorer, select the database for which you want to disable Stretch Database.
+1.  SQL Server Management Studio의 개체 탐색기에서 스트레치 데이터베이스를 사용하지 않도록 설정할 데이터베이스를 선택합니다.
 
-2.  Right\-click and select **Tasks**, and then select **Stretch**, and then select **Disable**.
+2.  마우스 오른쪽 단추를 클릭하고 **작업**, **스트레치**, **사용 안 함**을 차례로 선택합니다.
 
->   [AZURE.NOTE] Disabling Stretch Database for a database does not delete the remote database. If you want to delete the remote database, you have to drop it by using the Azure management portal. The remote database continues to incur Azure costs until you delete it. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+>   [AZURE.NOTE] 데이터베이스에 대해 스트레치 데이터베이스를 사용하지 않도록 설정하면 원격 데이터베이스를 삭제하지 않습니다. 원격 데이터베이스를 삭제하려면 Azure 관리 포털을 사용하여 삭제해야 합니다. 원격 데이터베이스를 삭제할 때까지 계속해서 Azure 비용이 발생합니다. 자세한 내용은 [SQL Server 스트레치 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)을 참조하세요.
 
-### <a name="use-transact\-sql-to-disable-stretch-database-for-a-database"></a>Use Transact\-SQL to disable Stretch Database for a database
-Run the following command.
+### Transact-SQL을 사용하여 데이터베이스에 대해 스트레치 데이터베이스를 사용하지 않도록 설정
+다음 명령을 실행합니다.
 
 ```tsql
 ALTER DATABASE <database name>
     SET REMOTE_DATA_ARCHIVE = OFF ;
 ```
 
->   [AZURE.NOTE] Disabling Stretch Database for a database does not delete the remote database. If you want to delete the remote database, you have to drop it by using the Azure management portal. The remote database continues to incur Azure costs until you delete it. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+>   [AZURE.NOTE] 데이터베이스에 대해 스트레치 데이터베이스를 사용하지 않도록 설정하면 원격 데이터베이스를 삭제하지 않습니다. 원격 데이터베이스를 삭제하려면 Azure 관리 포털을 사용하여 삭제해야 합니다. 원격 데이터베이스를 삭제할 때까지 계속해서 Azure 비용이 발생합니다. 자세한 내용은 [SQL Server 스트레치 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)을 참조하세요.
 
-## <a name="see-also"></a>See also
+## 참고 항목
 
-[ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+[ALTER DATABASE SET 옵션(TRANSACT-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-[Pause and resume Stretch Database](sql-server-stretch-database-pause.md)
+[스트레치 데이터베이스 일시 중지 및 다시 시작](sql-server-stretch-database-pause.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Indexing CSV blobs with Azure Search blob indexer | Microsoft Azure"
-description="Learn how to index CSV blobs with Azure Search"
+pageTitle="Azure 검색 Blob 인덱서를 사용하여 CSV Blob 인덱싱 | Microsoft Azure"
+description="Azure 검색을 사용하여 CSV Blob을 인덱싱하는 방법 알아보기"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -15,77 +15,72 @@ ms.tgt_pltfrm="na"
 ms.date="07/12/2016"
 ms.author="eugenesh" />
 
+# Azure 검색 Blob 인덱서를 사용하여 CSV Blob 인덱싱 
 
-# <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexing CSV blobs with Azure Search blob indexer 
+기본적으로 [Azure 검색 Blob 인덱서](search-howto-indexing-azure-blob-storage.md)는 단일 텍스트 청크로 구분된 텍스트 Blob을 구문 분석합니다. 그러나 CSV 데이터를 포함하는 Blob을 사용하는 경우 Blob의 각 줄을 별도 파일로 처리하려고 합니다. 예를 들어 다음 구분된 텍스트가 제공됩니다.
 
-By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses delimited text blobs as a single chunk of text. However, with blobs containing CSV data, you often want to treat each line in the blob as a separate document. For example, given the following delimited text: 
+	id, datePublished, tags
+	1, 2016-01-12, "azure-search,azure,cloud" 
+	2, 2016-07-07, "cloud,mobile" 
 
-    id, datePublished, tags
-    1, 2016-01-12, "azure-search,azure,cloud" 
-    2, 2016-07-07, "cloud,mobile" 
+각각 "id", "datePublished" 및 "tags" 필드를 포함하는 두 개의 문서로 구문 분석하려고 할 수 있습니다.
 
-you might want to parse it into 2 documents, each containing "id", "datePublished", and "tags" fields.
+이 문서에서는 Azure 검색 Blob 인덱서를 사용하여 CSV Blob을 구문 분석하는 방법을 배웁니다.
 
-In this article you will learn how to parse CSV blobs with an Azure Search blob indexer. 
+> [AZURE.IMPORTANT] 이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 
-> [AZURE.IMPORTANT] This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
+## CSV 인덱싱 설정
 
-## <a name="setting-up-csv-indexing"></a>Setting up CSV indexing
+CSV Blob을 인덱싱하려면 `delimitedText` 구문 분석 모드를 사용하여 인덱서 정의를 만들거나 업데이트합니다.
 
-To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode:  
+	{
+	  "name" : "my-csv-indexer",
+	  ... other indexer properties
+	  "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
+	}
 
-    {
-      "name" : "my-csv-indexer",
-      ... other indexer properties
-      "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
-    }
+인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](search-api-indexers-2015-02-28-preview.md#create-indexer)를 확인하세요.
 
-For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
+`firstLineContainsHeaders`은(는) 각 Blob의 첫 번째(비어 있지 않은) 줄이 헤더를 포함하는 것을 나타냅니다. Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구성에서 지정되어야 합니다.
 
-`firstLineContainsHeaders` indicates that the first (non-blank) line of each blob contains headers.
-If blobs don't contain an initial header line, the headers should be specified in the indexer configuration: 
+	"parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
+현재는 UTF-8 인코딩만 지원됩니다. 또한 쉼표 `','` 문자만 구분 기호로 지원됩니다. 다른 인코딩 또는 구분 기호에 대한 지원이 필요한 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
 
-Currently, only the UTF-8 encoding is supported. Also, only the comma `','` character is supported as the delimiter. If you need support for other encodings or delimiters, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+> [AZURE.IMPORTANT] 구분된 텍스트 구문 분석 모드를 사용하는 경우 Azure 검색은 데이터 원본의 모든 Blob을 CSV로 가정합니다. 동일한 데이터 원본에서 CSV 및 비 CSV Blob을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
 
-> [AZURE.IMPORTANT] When you use the delimited text parsing mode, Azure Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+## 요청 예제
 
-## <a name="request-examples"></a>Request examples
+다음은 이를 모두 포함한 전체 페이로드 예제입니다.
 
-Putting this all together, here are the complete payload examples. 
+데이터 원본:
 
-Datasource: 
+	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	{
+	    "name" : "my-blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<my storage connection string>" },
+	    "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
+	}   
 
-    {
-        "name" : "my-blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
-    }   
+인덱서:
 
-Indexer:
+	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "name" : "my-csv-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
+	{
+	  "name" : "my-csv-indexer",
+	  "dataSourceName" : "my-blob-datasource",
+	  "targetIndexName" : "my-target-index",
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
-    }
+	}
 
-## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
+## Azure 검색 개선 지원
 
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

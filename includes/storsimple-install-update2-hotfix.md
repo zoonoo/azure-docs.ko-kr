@@ -1,48 +1,47 @@
 <!--author=alkohli last changed: 03/17/16-->
 
-#### <a name="to-download-hotfixes"></a>To download hotfixes
+#### 핫픽스를 다운로드하려면
 
-Perform the following steps to download the software update from the Microsoft Update Catalog.
+Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운로드하려면 다음 단계를 수행합니다.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com)으로 이동합니다.
 
-2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
-    ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치**를 클릭합니다. ![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3121901**, and then click **Search**.
+3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호(예: **3121901**)를 입력하고 **검색**을 클릭합니다.
 
-    The hotfix listing appears, for example, **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**.
+    핫픽스 목록이 나타납니다(예: **StorSimple 8000 시리즈용 누적 소프트웨어 번들 업데이트 2.0**).
 
-    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
+    ![카탈로그 검색](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Click **Add**. The update is added to the basket.
+4. **추가**를 클릭합니다. 업데이트는 장바구니에 추가됩니다.
 
-5. Search for any additional hotfixes listed in the table above (**3121900**, **3080728**, **3090322**, and **3121899**), and add each the basket.
+5. 위의 표에 나열된 추가적인 핫픽스(**3121900**, **3080728**, **3090322** 및 **3121899**)를 검색하고, 각각 바구니에 추가합니다.
 
-5. Click **View Basket**.
+5. **바구니 보기**를 클릭합니다.
 
-6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
+6. **다운로드**를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **찾습니다**. 업데이트가 지정된 위치에 다운로드되고 업데이트와 같은 이름의 하위 폴더에 배치됩니다. 장치에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 
 >   [AZURE.NOTE]
-The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
+피어 컨트롤러의 잠재적 오류 메시지를 검색하려면 컨트롤러 둘 다에서 핫픽스에 액세스할 수 있어야 합니다.
 
-#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>To install and verify regular mode hotfixes
+#### 일반 모드 핫픽스를 설치 및 확인하려면
 
-Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure Portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
+일반 모드 핫픽스를 설치 및 확인하려면 다음 단계를 수행합니다. 이미 Azure 포털을 사용하여 설치한 경우 [유지 관리 모드 핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfixes)으로 건너뜁니다.
 
-1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
+1. 핫픽스를 설치하려면 StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)에서 자세한 지침을 따르세요. 명령 프롬프트에서 **Enter** 키를 누릅니다.
 
-4. Select **Option 1** to log on to the device with full access.
+4. **옵션 1**을 선택하여 모든 권한으로 장치에 로그온합니다.
 
-5. To install the hotfix, at the command prompt, type:
+5. 핫픽스를 설치하려면 명령 프롬프트에 다음을 입력합니다.
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share.
+    위 명령에서 공유 경로에 DNS 대신 IP를 사용합니다. 자격 증명 매개 변수는 인증된 공유에 액세스하는 경우에만 사용됩니다.
 
-    We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+	자격 증명 매개 변수를 사용하여 공유에 액세스하는 것이 좋습니다. 일반적으로 "모든 사용자"에게 개방된 공유도 인증되지 않은 사용자에게는 개방되지 않습니다.
 
-    A sample output is shown below.
+    샘플 출력은 다음과 같습니다.
 
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -57,11 +56,11 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
         ````
 
-6. Type **Y** when prompted to confirm the hotfix installation.
+6. 핫픽스 설치를 확인하라는 메시지가 표시되면 **Y**를 입력합니다.
 
-7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet.
+7. `Get-HcsUpdateStatus` cmdlet을 사용하여 업데이트를 모니터링합니다.
 
-    The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
+    다음 샘플 출력에서는 진행 중인 업데이트를 보여줍니다. 업데이트가 진행 중이면 `RunInprogress`가 `True`입니다.
 
         ````
         Controller0>Get-HcsUpdateStatus
@@ -72,7 +71,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
         Controller1Events   :
         ````
 
-     The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
+     다음 샘플 출력은 업데이트가 완료되었음을 나타냅니다. 업데이트가 완료되면 `RunInProgress`가 `False`입니다.
 
         ````
         Controller1>Get-HcsUpdateStatus
@@ -85,150 +84,147 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
         ````
 
-    > [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
+	> [AZURE.NOTE] 업데이트가 진행 중일 때 cmdlet에서 `False`를 보고하는 경우도 있습니다. 핫픽스가 완료되었는지 확인하려면 몇 분 동안 기다린 후 이 명령을 다시 실행하고 `RunInProgress`가 `False`인지 확인합니다. 맞으면 핫픽스가 완료된 것입니다.
 
-8. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent . Ensure that `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe` is installed before `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`.
+8. 소프트웨어 업데이트가 완료되면 3-5단계를 반복하여 SaaS 에이전트 및 MDS 에이전트를 설치 및 모니터링합니다. `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe` 이전에 `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe`가 설치되었는지 확인합니다.
 
-9. Verify the system software versions. Type:
+9. 시스템 소프트웨어 버전을 확인합니다. 형식:
 
     `Get-HcsSystem`
 
-    You should see the following versions:
+    다음 버전이 표시되어야 합니다.
 
     - HcsSoftwareVersion: 6.3.9600.17673
     - CisAgentVersion: 1.0.9150.0
     - MdsAgentVersion: 30.0.4698.13
 
-    If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
+	업데이트를 적용한 후 버전 번호가 변경되지 않으면 핫픽스를 적용하지 못한 것입니다. 이 경우 추가 지원을 받으려면 [Microsoft 지원](storsimple-contact-microsoft-support.md)에 문의하세요.
 
-9. Repeat steps 3-5 to install the remaining regular-mode hotfixes.
+9. 나머지 일반 모드 핫픽스를 설치하려면 3-5단계를 반복합니다.
 
-    - The LSI driver - KB3121900
-    - The Storport update - KB3080728
-    - The Spaceport update - KB3090322
+	- LSI 드라이버 - KB3121900
+	- Storport 업데이트 - KB3080728
+	- Spaceport 업데이트 - KB3090322
 
-#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>To install and verify maintenance mode hotfixes
+#### 유지 관리 모드 핫픽스를 설치 및 확인하려면
 
-Use KB3121899 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
+KB3121899를 사용하여 디스크 펌웨어 업데이트를 설치합니다. 작업 중단 업데이트이며 완료하는 데 약 30분이 소요됩니다. 장치 직렬 콘솔에 연결하여 계획된 유지 관리 기간에 설치하도록 선택할 수 있습니다.
 
-Note that if your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
+디스크 펌웨어가 이미 최신 상태인 경우 이러한 업데이트를 설치할 필요가 없습니다. 장치 일련 번호 콘솔에서 `Get-HcsUpdateAvailability` cmdlet을 실행하여 업데이트가 사용 가능한지 여부와 중단 업데이트(유지 관리 모드) 또는 무중단 업데이트(일반 모드) 업데이트인지에 대한 알림이 표시됩니다.
 
-To install the disk firmware updates, follow the instructions below.
+디스크 펌웨어 업데이트를 설치하려면 아래 지침을 따릅니다.
 
-1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console. Type:
+1. 장치를 유지 관리 모드로 설정합니다. 유지 관리 모드에서 장치에 연결할 때는 Windows PowerShell 원격을 사용해서는 안 됩니다. 장치 직렬 콘솔을 통해 연결된 경우에는 장치 컨트롤러에서 이 cmdlet을 실행해야 합니다. 형식:
 
-    `Enter-HcsMaintenanceMode`
+	`Enter-HcsMaintenanceMode`
 
-    A sample output is shown below.
+	샘플 출력은 다음과 같습니다.
 
-        Controller0>Enter-HcsMaintenanceMode
-        Checking device state...
+		Controller0>Enter-HcsMaintenanceMode
+		Checking device state...
 
-        In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
-        [Y] Yes [N] No (Default is "Y"): Y
+		In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
+		[Y] Yes [N] No (Default is "Y"): Y
 
-        -----------------------MAINTENANCE MODE------------------------
-        Microsoft Azure StorSimple Appliance Model 8100
-        Name: Update2-8100-SHG0997879L76YD
-        Software Version: 6.3.9600.17664
-        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-        You are connected to Controller0 - Passive
-        ---------------------------------------------------------------
+		-----------------------MAINTENANCE MODE------------------------
+		Microsoft Azure StorSimple Appliance Model 8100
+		Name: Update2-8100-SHG0997879L76YD
+		Software Version: 6.3.9600.17664
+		Copyright (C) 2014 Microsoft Corporation. All rights reserved.
+		You are connected to Controller0 - Passive
+		---------------------------------------------------------------
 
-        Serial Console Menu
-        [1] Log in with full access
-        [2] Log into peer controller with full access
-        [3] Connect with limited access
-        [4] Change language
-        Please enter your choice>
+		Serial Console Menu
+		[1] Log in with full access
+		[2] Log into peer controller with full access
+		[3] Connect with limited access
+		[4] Change language
+		Please enter your choice>
 
-    Both the controllers then restart into Maintenance mode.
+	두 컨트롤러가 모두 유지 관리 모드로 다시 시작됩니다.
 
-3. To install the disk firmware update, type:
+3. 디스크 펌웨어 업데이트를 설치하려면 다음을 입력합니다.
 
-    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
+	`Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    A sample output is shown below.
+	샘플 출력은 다음과 같습니다.
 
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
-        Enter Password:
-        WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
-        Confirm
-        This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
-        [Y] Yes [N] No (Default is "Y"): Y
-        WARNING: Installation is currently in progress. This operation can take several minutes to complete.
+		Enter Password:
+		WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
+		Confirm
+		This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
+		[Y] Yes [N] No (Default is "Y"): Y
+		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 
-1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
+1.  `Get-HcsUpdateStatus` 명령을 사용하여 설치 진행 상황을 모니터링합니다. `RunInProgress`가 `False`로 변경되면 업데이트가 완료됩니다.
 
-2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Log in as option 1 with full access and verify the disk firmware version. Type:
+2.  설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 모든 권한이 있는 옵션 1로 로그인하고 디스크 펌웨어 버전을 확인합니다. 형식:
 
-    `Get-HcsFirmwareVersion`
+	`Get-HcsFirmwareVersion`
 
-    The expected disk firmware versions are:
+	예상된 디스크 펌웨어 버전은 다음과 같습니다.
 
-    `XMGG, XGEG, KZ50, F6C2, VR08`
+	`XMGG, XGEG, KZ50, F6C2, VR08`
 
-    A sample output is shown below.
+	샘플 출력은 다음과 같습니다.
 
         -----------------------MAINTENANCE MODE------------------------
-        Microsoft Azure StorSimple Appliance Model 8100
-        Name: Update2-8100-SHG0997879L76YD
-        Software Version: 6.3.9600.17664
-        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-        You are connected to Controller1
-        ---------------------------------------------------------------
+    	Microsoft Azure StorSimple Appliance Model 8100
+    	Name: Update2-8100-SHG0997879L76YD
+    	Software Version: 6.3.9600.17664
+    	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
+    	You are connected to Controller1
+    	---------------------------------------------------------------
 
-        Controller1>Get-HcsFirmwareVersion
+    	Controller1>Get-HcsFirmwareVersion
 
-        Controller0 : TalladegaFirmware
-          ActiveBIOS:0.45.0006
-          BackupBIOS:0.45.0008
-          MainCPLD:17.0.0005
-          ActiveBMCRoot:2.0.000E
-          BackupBMCRoot:2.0.000E
-          BMCBoot:2.0.0001
-          LsiFirmware:19.00.00.00
-          LsiBios:07.37.00.00
-          Battery1Firmware:06.29
-          Battery2Firmware:06.29
-          DomFirmware:X231600
-          CanisterFirmware:3.5.0.32
-          CanisterBootloader:5.03
-          CanisterConfigCRC:0xD1B030A4
-          CanisterVPDStructure:0x06
-          CanisterGEMCPLD:0x17
-          CanisterVPDCRC:0xEE3504B4
-          MidplaneVPDStructure:0x0C
-          MidplaneVPDCRC:0xA6BD4F64
-          MidplaneCPLD:0x10
-          PCM1Firmware:1.00|1.05
-          PCM1VPDStructure:0x05
-          PCM1VPDCRC:0x41BEF99C
-          PCM2Firmware:1.00|1.05
-          PCM2VPDStructure:0x05
-          PCM2VPDCRC:0x41BEF99C
+    	Controller0 : TalladegaFirmware
+    	  ActiveBIOS:0.45.0006
+    	  BackupBIOS:0.45.0008
+    	  MainCPLD:17.0.0005
+    	  ActiveBMCRoot:2.0.000E
+    	  BackupBMCRoot:2.0.000E
+    	  BMCBoot:2.0.0001
+    	  LsiFirmware:19.00.00.00
+    	  LsiBios:07.37.00.00
+    	  Battery1Firmware:06.29
+    	  Battery2Firmware:06.29
+    	  DomFirmware:X231600
+    	  CanisterFirmware:3.5.0.32
+    	  CanisterBootloader:5.03
+    	  CanisterConfigCRC:0xD1B030A4
+    	  CanisterVPDStructure:0x06
+    	  CanisterGEMCPLD:0x17
+    	  CanisterVPDCRC:0xEE3504B4
+    	  MidplaneVPDStructure:0x0C
+    	  MidplaneVPDCRC:0xA6BD4F64
+    	  MidplaneCPLD:0x10
+    	  PCM1Firmware:1.00|1.05
+    	  PCM1VPDStructure:0x05
+    	  PCM1VPDCRC:0x41BEF99C
+    	  PCM2Firmware:1.00|1.05
+    	  PCM2VPDStructure:0x05
+    	  PCM2VPDCRC:0x41BEF99C
 
-          DisksFirmware
-          SEAGATE:ST400FM0073:XGEG
-          SEAGATE:ST400FM0073:XGEG
-          SEAGATE:ST400FM0073:XGEG
-          SEAGATE:ST400FM0073:XGEG
-          SEAGATE:ST4000NM0023:XMGG
-          SEAGATE:ST4000NM0023:XMGG
-          SEAGATE:ST4000NM0023:XMGG
-          SEAGATE:ST4000NM0023:XMGG
-          SEAGATE:ST4000NM0023:XMGG
-          SEAGATE:ST4000NM0023:XMGG
-          SEAGATE:ST4000NM0023:XMGG
-          SEAGATE:ST4000NM0023:XMGG
+    	  DisksFirmware
+    	  SEAGATE:ST400FM0073:XGEG
+    	  SEAGATE:ST400FM0073:XGEG
+    	  SEAGATE:ST400FM0073:XGEG
+    	  SEAGATE:ST400FM0073:XGEG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
 
-     Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. To do so, type the following command for each device controller:
+	 두 번째 컨트롤러에서 `Get-HcsFirmwareVersion` 명령을 실행하여 해당 소프트웨어 버전이 업데이트되었는지 확인합니다. 그런 다음 유지 관리 모드를 끝낼 수 있습니다. 이렇게 하려면 각 장치 컨트롤러에 대해 다음 명령을 입력합니다.
 
     `Exit-HcsMaintenanceMode`
 
-1. The controllers restart when you exit Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the Maintenance mode updates for 24 hours.
+1. 유지 관리 모드를 종료하면 컨트롤러가 다시 시작됩니다. 디스크 펌웨어 업데이트가 성공적으로 적용되고 장치가 유지 관리 모드를 종료한 후 Azure 클래식 포털로 돌아갑니다. 유지 관리 모드 업데이트가 설치되었는지 24시간 동안 포털에 표시되지 않을 수도 있습니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

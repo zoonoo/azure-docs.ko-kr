@@ -1,74 +1,67 @@
 <properties
-    pageTitle="Azure AD Connect sync: Best practices for changing the default configuration | Microsoft Azure"
-    description="Provides best practices for changing the default configuration of Azure AD Connect sync."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+	pageTitle="Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례 | Microsoft Azure"
+	description="Azure AD Connect 동기화의 기본 구성을 변경의 모범 사례를 제공합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="markvi;andkjell"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="markvi;andkjell"/>
 
 
+# Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례
+이 항목에서는 Azure AD Connect 동기화에 지원되거나 지원되지 않는 변경사항을 설명합니다.
 
-# <a name="azure-ad-connect-sync:-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect sync: Best practices for changing the default configuration
-The purpose of this topic is to describe supported and unsupported changes to Azure AD Connect sync.
+Azure AD Connect에 의해 만들어진 구성은 온-프레미스 Active Directory와 Azure AD를 동기화하는 대부분의 환경에 대해 “있는 그대로” 작동합니다. 그러나 일부 경우에는, 특정 필요 또는 요구 사항을 충족시키기 위해 구성에 일부 변경 내용을 적용할 필요가 있습니다.
 
-The configuration created by Azure AD Connect works “as is” for most environments that synchronize on-premises Active Directory with Azure AD. However, in some cases, it is necessary to apply some changes to a configuration to satisfy a particular need or requirement.
+## 서비스 계정의 변경 내용
+Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에서 실행 중입니다. 이 서비스 계정은 동기화에 의해 사용되는 데이터베이스에 대한 암호화 키를 보유합니다. 127자의 긴 암호로 만들어지며, 만료되지 않도록 설정됩니다.
 
-## <a name="changes-to-the-service-account"></a>Changes to the service account
-Azure AD Connect sync is running under a service account created by the installation wizard. This service account holds the encryption keys to the database used by sync. It is created with a 127 characters long password and the password is set to not expire.
+- 서비스 계정의 암호는 변경 또는 초기화가 **지원되지 않습니다**. 이렇게 하면 암호화 키는 파기되고 서비스는 데이터베이스에 액세스할 수 없으며, 서비스를 시작할 수 없습니다.
 
-- It is **unsupported** to change or reset the password of the service account. Doing so destroys the encryption keys and the service is not able to access the database and is not able to start.
+## 스케줄러에 대한 변경 사항
+빌드 1.1(2016년 2월)의 릴리스부터 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)가 기본값 30분이 아닌 다른 동기화 주기를 사용하도록 구성할 수 있습니다.
 
-## <a name="changes-to-the-scheduler"></a>Changes to the scheduler
-Starting with the releases from build 1.1 (February 2016) you can configure the [scheduler](active-directory-aadconnectsync-feature-scheduler.md) to have a different sync cycle than the default 30 minutes.
+## 동기화 규칙 변경
+설치 마법사는 가장 일반적인 시나리오에 대한 작업으로 간주되는 구성을 제공합니다. 구성을 변경해야 할 경우에도 여전히 지원되는 구성이 포함된 이 규칙을 따라야 합니다.
 
-## <a name="changes-to-synchronization-rules"></a>Changes to Synchronization Rules
-The installation wizard provides a configuration that is supposed to work for the most common scenarios. In case you need to make changes to the configuration, then you must follow these rules to still have a supported configuration.
+- 기본 직접 특성 흐름이 조직에 적합하지 않은 경우 [특성 흐름을 변경](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes)할 수 있습니다.
+- [특성을 전달되지 않도록](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) 하고 Azure AD에서 기존 특성 값을 제거하려면 이 시나리오에 대한 규칙을 만들어야 합니다.
+- 삭제하는 대신 [원치 않는 동기화 규칙을 사용하지 않습니다](#disable-an-unwanted-sync-rule). 삭제된 규칙을 업그레이드 중 다시 만듭니다.
+- [기본 규칙을 변경하려면](#change-an-out-of-box-rule) 원래 규칙의 복사본을 만든 다음 기본 규칙을 사용하지 않도록 설정해야 합니다. 동기화 규칙 편집기에서 도움이 되는 메시지가 표시됩니다.
+- 동기화 규칙 편집기를 사용하여 사용자 지정 동기화 규칙을 내보냅니다. 이 편집기는 재해 복구 시나리오에서 쉽게 다시 만드는 데 사용할 수 있는 PowerShell 스크립트를 제공합니다.
 
-- You can [change attribute flows](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) if the default direct attribute flows are not suitable for your organization.
-- If you want to [not flow an attribute](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) and remove any existing attribute values in Azure AD, then you need to create a rule for this scenario.
-- [Disable an unwanted Sync Rule](#disable-an-unwanted-sync-rule) rather than deleting it. A deleted rule is recreated during an upgrade.
-- To [change an out-of-box rule](#change-an-out-of-box-rule), you should make a copy of the original rule and disable the out-of-box rule. The Sync Rule Editor prompts and helps you.
-- Export your custom synchronization rules using the Synchronization Rules Editor. The editor provides you with a PowerShell script you can use to easily recreate them in a disaster recovery scenario.
+>[AZURE.WARNING] 기본 동기화 규칙에는 지문이 포함되어 있습니다. 이들 규칙을 변경하면 지문이 더 이상 일치하지 않습니다. 나중에 Azure AD Connect의 새 릴리스를 적용할 때 문제가 될 수 있습니다. 이 문서에 유일하게 변경하는 방법이 설명되어 있습니다.
 
->[AZURE.WARNING] The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
+### 원치 않는 동기화 규칙 사용 안 함
+기본 동기화 규칙을 삭제하지 마십시오. 다음 업그레이드 도중에 다시 만들어집니다.
 
-### <a name="disable-an-unwanted-sync-rule"></a>Disable an unwanted Sync Rule
-Do not delete an out-of-box sync rule. It is recreated during next upgrade.
+경우에 따라 설치 마법사가 사용 중인 토폴로지에 대해 작동하지 않는 구성을 생성합니다. 예를 들어, 계정 리소스 포리스트 토폴로지를 가지고 있지만 계정 포리스트의 스키마를 Exchange 스키마로 확장한 경우 Exchange에 대한 규칙은 계정 포리스트와 리소스 포리스트에 대해 생성됩니다. 이 경우 Exchange에 대한 동기화 규칙을 사용하지 않아야 합니다.
 
-In some cases, the installation wizard has produced a configuration that is not working for your topology. For example, if you have an account-resource forest topology but you have extended the schema in the account forest with the Exchange schema, then rules for Exchange are created for the account forest and the resource forest. In this case, you need to disable the Sync Rule for Exchange.
+![비활성화된 동기화 규칙](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
 
-![Disabled sync rule](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
+위의 그림에서 설치 마법사가 계정 포리스트의 이전 버전 Exchange 2003 스키마를 발견했습니다. 이 스키마 확장은 리소스 포리스트가 Fabrikam의 환경에 도입되기 전에 추가되었습니다. 동기화된 이전 버전의 Exchange 구현에 대한 특성이 없는지 확인하려면 동기화 규칙을 보여지는 것처럼 사용하지 않도록 설정해야 합니다.
 
-In the picture above, the installation wizard has found an old Exchange 2003 schema in the account forest. This schema extension was added before the resource forest was introduced in Fabrikam's environment. To ensure no attributes from the old Exchange implementation are synchronized, the sync rule should be disabled as shown.
+### 기본 규칙 변경
+기본 규칙을 변경해야 할 경우 기본 규칙의 복사본을 만든 다음 원래 규칙을 사용하지 않도록 설정해야 합니다. 그런 다음 복제된 규칙을 변경합니다. 동기화 규칙 편집기가 이들 단계를 수행하도록 도와줍니다. 기본 규칙을 열면 이 대화 상자가 나타납니다.![경고 받은 기본 규칙](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
-### <a name="change-an-out-of-box-rule"></a>Change an out-of-box rule
-If you need to make changes to an out-of-box rule, then you should make a copy of the out-of-box rule and disable the original rule. Then make the changes to the cloned rule. The Sync Rule Editor is helping you with those steps. When you open an out-of-box rule, you are presented with this dialog box:  
-![Warning out of box rule](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
+**예**를 선택하여 규칙의 복사본을 만듭니다. 그런 다음 복제된 규칙이 열립니다.![복제된 규칙](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/clonedrule.png)
 
-Select **Yes** to create a copy of the rule. The cloned rule is then opened.  
-![Cloned rule](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/clonedrule.png)
+이 복제된 규칙에서 범위, 조인 및 변환에 필요한 사항을 변경합니다.
 
-On this cloned rule, make any necessary changes to scope, join, and transformations.
+## 다음 단계
 
-## <a name="next-steps"></a>Next steps
+**개요 항목**
 
-**Overview topics**
+- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
+- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

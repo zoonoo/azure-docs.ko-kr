@@ -1,134 +1,130 @@
 <properties
-    pageTitle="Collecting Data to Train your Model: Machine Learning Recommendations API | Microsoft Azure"
-    description="Azure Machine Learning Recommendations - Collecting Data to Train your Model"
-    services="cognitive-services"
-    documentationCenter=""
-    authors="luiscabrer"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="모델 학습을 위한 데이터 수집: 기계 학습 권장 사항 API | Microsoft Azure"
+	description="Azure 기계 학습 권장 사항 - 모델 학습을 위한 데이터 수집"
+	services="cognitive-services"
+	documentationCenter=""
+	authors="luiscabrer"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="cognitive-services"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="luisca"/>
+	ms.service="cognitive-services"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="luisca"/>
+
+#  모델 학습을 위한 데이터 수집 #
+
+권장 사항 API에서는 지난 트랜잭션을 학습하여 특정 사용자에게 권장되어야 하는 항목을 찾습니다.
+
+모델을 만든 후 카탈로그 파일 및 사용 현황 데이터 등 교육을 수행하기 전에 두 가지 정보를 제공해야 합니다.
+
+>   아직 수행하지 않은 경우 [빠른 시작 가이드](cognitive-services-recommendations-quick-start.md)를 완료하는 것이 좋습니다.
 
 
-#  <a name="collecting-data-to-train-your-model"></a>Collecting Data to Train your Model #
+## 카탈로그 데이터 ##
 
-The Recommendations API learns from your past transactions to find what items should be recommended to a particular user.
+### 카탈로그 파일 형식 ###
 
-After you have created a model, you will need to provide two piece of information before you can do any training: a catalog file, and usage data.
+카탈로그 파일은 고객에게 제공하는 항목에 대한 정보를 포함합니다. 카탈로그 데이터는 다음 형식을 따라야 합니다.
 
->   If you have not done so already, we encourage you to complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
+- 기능 사용 안 함 - `<Item Id>,<Item Name>,<Item Category>[,<Description>]`
 
+- 기능 사용 - `<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
 
-## <a name="catalog-data"></a>Catalog Data ##
+#### 카탈로그 파일의 샘플 행
 
-### <a name="catalog-file-format"></a>Catalog file format ###
-
-The catalog file contains information about the items you are offering to your customer.
-The catalog data should follow the following format:
-
-- Without features - `<Item Id>,<Item Name>,<Item Category>[,<Description>]`
-
-- With features - `<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
-
-#### <a name="sample-rows-in-a-catalog-file"></a>Sample Rows in a Catalog File
-
-Without features:
+기능 사용 안 함:
 
     AAA04294,Office Language Pack Online DwnLd,Office
     AAA04303,Minecraft Download Game,Games
     C9F00168,Kiruna Flip Cover,Accessories
 
-With features:
+기능 사용:
 
     AAA04294,Office Language Pack Online DwnLd,Office,, softwaretype=productivity, compatibility=Windows
     BAB04303,Minecraft DwnLd,Games, softwaretype=gaming,, compatibility=iOS, agegroup=all
     C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
-#### <a name="format-details"></a>Format details
+#### 형식 세부 정보
 
-| Name | Mandatory | Type |  Description |
+| 이름 | 필수 | 형식 | 설명 |
 |:---|:---|:---|:---|
-| Item Id |Yes | [A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50 | Unique identifier of an item. |
-| Item Name | Yes | Any alphanumeric characters<br> Max length: 255 | Item name. |
-| Item Category | Yes | Any alphanumeric characters <br> Max length: 255 | Category to which this item belongs (e.g. Cooking Books, Drama…); can be empty. |
-| Description | No, unless features are present (but can be empty) | Any alphanumeric characters <br> Max length: 4000 | Description of this item. |
-| Features list | No | Any alphanumeric characters <br> Max length: 4000; Max number of features:20 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation.|
+| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50 | 항목의 고유 식별자 |
+| Item Name | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름 |
+| Item Category | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리책, 드라마...). 비어 있을 수 있습니다. |
+| 설명 | 아니요, 기능이 없는 경우(그러나 비어 있을 수 있음) | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목에 대한 설명 |
+| Features list | 아니요 | 영숫자 문자 <br> 최대 길이: 4000; 최대 기능 수: 20 | 쉼표로 구분된 기능 이름 목록 = 모델 권장 사항을 향상시키기는 데 사용할 수 있는 기능 값.|
 
-#### <a name="uploading-a-catalog-file"></a>Uploading a Catalog file
+#### 카탈로그 파일 업로드
 
-Look at the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e1) for uploading a catalog file.  
+카탈로그 파일을 업로드하는 방법은 [API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e1)를 살펴봅니다.
 
-Note that the content of the catalog file should be passed as the request body.
+카탈로그 파일의 콘텐츠를 요청 본문으로 전달해야 합니다.
 
-If you upload several catalog files to the same model with several calls, we will insert only the new catalog items. Existing items will remain with the original values. You cannot update catalog data by using this method.
+여러 번 호출하여 여러 카탈로그 파일을 같은 모델에 업로드하면 새 카탈로그 항목만 삽입됩니다. 기존 항목은 원래 값으로 유지됩니다. 이 메서드를 사용하여 카탈로그 데이터를 업데이트할 수 없습니다.
 
->   Note: The maximum file size is 200MB.
->   The maximum number of items in the catalog supported is 100,000 items.
-
-
-## <a name="why-add-features-to-the-catalog?"></a>Why add features to the catalog?
-
-The recommendations engine creates a statistical model that tells you what items are likely to be liked or purchased by a customer. When you have a new product that has never been interacted with it is not possible to create a model on co-occurrences alone. Let's say you start offering a new "children's violin" in your store, since you have never sold that violin before you cannot tell what other items to recommend with that violin.
-
-That said, if the engine knows information about that violin (i.e. It's a musical instrument, it is for children ages 7-10, it is not an expensive violin, etc.), then the engine can learn from other products with similar features. For instance, you have sold violin's in the past and usually people that buy violins tend to buy classical music CDs and sheet music stands.  The system can find these connections between the features and provide recommendations based on the features while your new violin has little usage.
-
-Features are imported as part of the catalog data, and then their rank (or the importance of the feature in the model) is associated when a rank build is done. Feature rank can change according to the pattern of usage data and type of items. But for consistent usage/items, the rank should have only small fluctuations. The rank of features is a non-negative number. The number 0 means that the feature was not ranked (happens if you invoke this API prior to the completion of the first rank build). The date at which the rank was attributed is called the score freshness.
+>   참고: 최대 파일 크기는 200MB입니다. 지원되는 카탈로그에 있는 항목의 최대 수는 100,000개 항목입니다.
 
 
-###<a name="features-are-categorical"></a>Features are Categorical
+## 카탈로그에 기능을 추가하는 이유는 무엇인가요?
 
-This means that you should create features that resemble a category. For instance, price=9.34 is not a categorical feature. On the other hand, a feature like priceRange=Under5Dollars is a categorical feature. Another common mistake is to use the name of the item as a feature. This would cause the name of an item to be unique so it would not describe a category. Make sure the features represent categories of items.
+권장 사항 엔진은 고객이 선호하거나 구매할 가능성이 높은 항목을 알려 주는 통계 모델을 만듭니다. 상호 작용하지 않은 새 제품이 있는 경우 동시 발생 상태인 모델을 만드는 것이 불가능합니다. 저장소에서 새 "어린이용 바이올린"을 제공하기 시작한다고 가정하면 해당 바이올린을 이전에 판매하지 않았기 때문에 해당 바이올린을 권장하는 다른 항목을 제시할 수 없습니다.
 
+즉, 엔진이 해당 바이올린에 대한 정보를 알고 있는 경우(즉, 악기이며 7-10살 어린이용으로 비싼 바이올린이 아니라는 점 등) 엔진은 유사한 기능을 가진 다른 제품을 학습할 수 있습니다. 예를 들어, 과거에 바이올린을 판매해왔다면 일반적으로 바이올린을 구입하는 사람은 클래식 음악 CD와 악보 스탠드를 구입하는 경향이 있음을 알 수 있습니다. 시스템은 기능 간에 이러한 연결을 찾아서 새 바이올린이 사용되지 않는 동안 기능에 따라 권장 사항을 제공할 수 있습니다.
 
-###<a name="how-many/which-features-should-i-use?"></a>How many/which features should I use?
-
-
-Ultimately the Recommendations build supports building a model with up to 20 features. You could assign more than 20 features to the items in your catalog, but you are expected to do a ranking build and pick only the features that rank high. (A feature with a rank of 2.0 or more is a really good feature to use!). 
+기능은 카탈로그 데이터의 일부로 가져오고, 순위 작성이 완료되면 순위(또는 모델에서 기능의 중요도)가 연결됩니다. 기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다. 기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
 
 
-###<a name="when-are-features-actually-used?"></a>When are features actually used?
+###기능은 범주별
 
-Features are used by the model when there is not enough transaction data to provide recommendations on transaction information alone. So features will have the greatest impact on “cold items” – items with few transactions. If all your items have sufficient transaction information you may not need to enrich your model with features.
+범주와 유사한 기능을 만들어야 함을 의미합니다. 예를 들어 price=9.34는 범주별 기능이 아닙니다. 반면에 priceRange=Under5Dollars와 같은 기능은 범주별 기능입니다. 또 다른 일반적인 실수는 항목의 이름을 기능으로 사용하는 것입니다. 이 경우 항목의 이름이 고유하게 되므로 범주를 설명하지 않게 됩니다. 기능이 항목의 범주를 나타내도록 해야 합니다.
 
 
-###<a name="using-product-features"></a>Using product features
+###어떤 기능을 얼마나 많이 사용해야 하나요?
 
-To use features as part of your build you need to:
 
-1. Make sure your catalog has features when you upload it.
+최종적으로 Recommendations 빌드는 최대 20개의 기능이 있는 모델의 빌드를 지원합니다. 카탈로그의 항목에 20개가 넘는 기능을 할당할 수 있으나 순위 작성을 수행해야 하며 순위가 높은 기능만 선택합니다. (순위가 2.0 이상인 기능이 실제로 사용하기 좋은 기능입니다!).
 
-2. Trigger a ranking build. This will do the analysis on the importance/rank of the features.
 
-3. Trigger a recommendations build, setting the following build parameters: Set useFeaturesInModel to true, allowColdItemPlacement to true, and modelingFeatureList should be set to the comma separated list of features that you want to use to enhance your model. See [Recommendations build type parameters](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) for more information.
+###기능은 실제로 언제 사용되나요?
 
+기능은 트랜잭션 정보만으로 권장 사항을 제공하기에 트랜잭션 데이터가 충분하지 않을 때 모델에 의해 사용됩니다. 따라서 기능은 트랜잭션이 적은 항목인 "콜드 항목"에 큰 영향을 줍니다. 모든 항목에 충분한 트랜잭션 정보가 있는 경우 기능으로 모델을 보강할 필요가 없습니다.
+
+
+###제품 기능 사용
+
+빌드의 일부로 기능을 사용하려면 다음을 수행해야 합니다.
+
+1. 카탈로그를 업로드하는 경우 기능이 있는지 확인합니다.
+
+2. 순위 작성을 트리거합니다. 그렇게 하면 기능의 중요성/순위에 대한 분석을 수행합니다.
+
+3. 권장 사항 작성을 트리거하면 다음 작성 매개 변수를 설정합니다. useFeaturesInModel을 true로 설정하고 allowColdItemPlacement를 true로 설정하고 modelingFeatureList는 모델을 강화하기 위해 사용하려는 쉼표로 구분된 기능 목록으로 설정해야 합니다. 자세한 내용은 [권장 사항 작성 형식 매개 변수](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0)를 참조하세요.
 
 
 
 
-## <a name="usage-data"></a>Usage Data ##
-A usage file contains information about how those items are used, or the transactions from your business.
 
-#### <a name="usage-format-details"></a>Usage Format details
-A usage file is a CSV (comma separated value) file where each row in a usage file represents an interaction between a user and an item. Each row is formatted as follows:<br>
-`<User Id>,<Item Id>,<Time>,[<Event>]`
+## 사용 데이터 ##
+사용 파일에는 해당 항목을 사용하는 방법 또는 비즈니스에서 트랜잭션에 대한 정보가 있습니다.
+
+#### 사용 형식 세부 정보
+사용 파일은 사용 파일의 각 행이 사용자와 항목 간에 상호 작용을 나타내는 CSV(쉼표로 구분된 값) 파일입니다. 각 행은 다음과 같이 형식이 지정됩니다.<br> `<User Id>,<Item Id>,<Time>,[<Event>]`
 
 
 
-| Name  | Mandatory | Type | Description
+| 이름 | 필수 | 형식 | 설명
 |-------|------------|------|---------------
-|User Id|         Yes|[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 255 |Unique identifier of a user.
-|Item Id|Yes|[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50|Unique identifier of an item.
-|Time|Yes|Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)|Time of data.
-|Event|No | One of the following:<br>• Click<br>• RecommendationClick<br>•  AddShopCart<br>• RemoveShopCart<br>• Purchase| The type of transaction. |
+|User Id| 예|[A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 255 |사용자의 고유 식별자입니다.
+|항목 ID|예|[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50|항목의 고유 식별자
+|Time|예|날짜(형식): YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)|데이터의 시간입니다.
+|이벤트|아니요 | 다음 중 하나입니다.<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| 트랜잭션 형식입니다. |
 
-#### <a name="sample-rows-in-a-usage-file"></a>Sample Rows in a Usage File
+#### 사용 파일의 샘플 행
 
     00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase
     0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase
@@ -137,28 +133,22 @@ A usage file is a CSV (comma separated value) file where each row in a usage fil
     0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase
     00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
 
-#### <a name="uploading-a-usage-file"></a>Uploading a usage file
+#### 사용 파일 업로드
 
-Look at the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e2) for uploading usage files.
-Note that you need to pass the content of the usage file as the body of the HTTP call.
+사용 파일을 업로드하는 방법은 [API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e2)를 살펴봅니다. 사용 파일의 내용을 HTTP 호출의 본문으로 전달해야 합니다.
 
->  Note:
+>  참고:
 
->  Maximum file size: 200MB. You may upload several usage files.
+>  최대 파일 크기 200MB 몇 가지 사용 파일을 업로드할 수 있습니다.
 
->  You need to upload a catalog file before you start adding usage data to your model. Only items in the catalog file will be used during the training phase. All other items will be ignored.
+>  모델에 사용 데이터를 추가하기 전에 카탈로그 파일을 업로드해야 합니다. 교육 단계 중에서 카탈로그 파일의 항목만 사용됩니다. 다른 모든 항목은 무시됩니다.
 
-## <a name="how-much-data-do-you-need?"></a>How much data do you need?
+## 얼마나 많은 데이터가 필요합니까?
 
-The quality of your model is heavily dependent on the quality and quantity of your data.
-The system learns when users buy different items (We call this co-occurrences). For FBT builds, it is also important to know which items are purchased in the same transactions. 
+모델의 품질은 데이터의 품질과 수량에 따라 크게 달라 집니다. 이 시스템은 사용자가 다양한 항목을 구매할 때 학습합니다(이것이 동시 발생입니다). FBT 작성의 경우 동일한 트랜잭션에서 어떤 항목이 구매되는지도 알아야 합니다.
 
-A good rule of thumb is to have most items be in 20 transactions or more, so if you had 10,000 items in your catalog, we would recommend that you have at least 20 times that number of transactions or about 200,000 transactions. Once again, this is a rule of thumb. You will need to experiment with your data.
+그간의 경험에 따르면 대부분의 항목이 20개 이상의 트랜잭션에 포함되는 것이 좋습니다. 예를 들어 카탈로그에 10,000개의 항목이 있다면 그보다 20배 많은 트랜잭션, 다시 말해서 약 200,000 트랜잭션이 있는 것이 좋습니다. 다시 말씀 드리지만, 이는 경험에 근거하였습니다. 각자 본인의 데이터로 실험이 필요합니다.
 
-Once you have created a model, you can perform an [offline evaluation](cognitive-services-recommendations-buildtypes.md) to check how well your model is likely to perform.
+모델을 만든 후에 [오프라인 평가](cognitive-services-recommendations-buildtypes.md)를 수행하여 모델의 성능이 얼마나 좋은지 확인할 수 있습니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,310 +1,309 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Skydesk Email | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Skydesk Email."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="자습서: Skydesk Email과 Azure Active Directory 통합 | Microsoft Azure"
+	description="Azure Active Directory 및 Skydesk Email 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/29/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2016"
+	ms.author="jeedes"/>
+
+
+# 자습서: Skydesk Email과 Azure Active Directory 통합
+
+이 자습서에서는 Skydesk Email과 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
+
+Skydesk Email을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+
+- Skydesk Email에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+- 사용자가 자신의 Azure AD 계정으로 Skydesk Email에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+- 단일 중앙 위치인 Azure Active Directory 클래식 포털에서 계정을 관리할 수 있습니다.
+
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
+
+## 필수 조건
+
+Skydesk Email와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+
+- Azure AD 구독
+- Skydesk Email Single Sign-On이 설정된 구독
+
+
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+
+
+이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
+
+- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+
+
+## 시나리오 설명
+이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
+
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+
+1. 갤러리에서 Skydesk Email 추가
+2. Azure AD Single Sign-on 구성 및 테스트
+
+
+## 갤러리에서 Skydesk Email 추가
+Skydesk Email의 Azure AD 통합을 구성하려면 갤러리의 Skydesk Email을 관리되는 SaaS 앱 목록에 추가해야 합니다.
+
+**갤러리에서 Skydesk Email을 추가하려면 다음 단계를 수행합니다.**
+
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+
+	![Active Directory][1]
+
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+
+3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+
+	![응용 프로그램][2]
+
+4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
+
+	![응용 프로그램][3]
+
+5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+
+	![응용 프로그램][4]
+
+6. 검색 상자에 **Skydesk Email**을 입력합니다.
+
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_01.png)
+
+7. 결과 창에서 **Skydesk Email**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_02.png)
+
+##  Azure AD Single Sign-on 구성 및 테스트
+이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Skydesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
+
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Skydesk Email 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Skydesk Email의 관련 사용자 간에 연결 관계가 형성되어야 합니다.
+
+이 연결 관계는 Azure AD의 **사용자 이름** 값을 Skydesk Email의 **Username** 값으로 할당하여 설정합니다.
+
+Skydesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+
+1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[Skydesk Email 테스트 사용자 만들기](#creating-a-Skydesk-Email-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Skydesk Email에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+
+### Azure AD Single Sign-On 구성
+
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 Skydesk Email 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
 
 
 
-# <a name="tutorial:-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Azure Active Directory integration with Skydesk Email
+**Skydesk Email에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-The objective of this tutorial is to show you how to integrate Skydesk Email with Azure Active Directory (Azure AD).
+1. Azure 클래식 포털의 **Skydesk Email** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
 
-Integrating Skydesk Email with Azure AD provides you with the following benefits:
+	![Single Sign-On 구성][6]
 
-- You can control in Azure AD who has access to Skydesk Email
-- You can enable your users to automatically get signed-on to Skydesk Email (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory classic portal
+2. **Skydesk Email에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
-## <a name="prerequisites"></a>Prerequisites
-
-To configure Azure AD integration with Skydesk Email, you need the following items:
-
-- An Azure AD subscription
-- A Skydesk Email single-sign on enabled subscription
+	![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_03.png)
 
 
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
-
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
-
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. 
-
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Skydesk Email from the gallery
-2. Configuring and testing Azure AD single sign-on
-
-
-## <a name="adding-skydesk-email-from-the-gallery"></a>Adding Skydesk Email from the gallery
-To configure the integration of Skydesk Email into Azure AD, you need to add Skydesk Email from the gallery to your list of managed SaaS apps.
-
-**To add Skydesk Email from the gallery, perform the following steps:**
-
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
-
-    ![Active Directory][1]
-
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Skydesk Email**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_01.png)
-
-7. In the results pane, select **Skydesk Email**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_02.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with Skydesk Email based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Skydesk Email to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Skydesk Email needs to be established.
-
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Skydesk Email.
-
-To configure and test Azure AD single sign-on with Skydesk Email, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Skydesk Email test user](#creating-a-Skydesk-Email-test-user)** - to have a counterpart of Britta Simon in Skydesk Email that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
-
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Skydesk Email application.
-
-
-
-**To configure Azure AD single sign-on with Skydesk Email, perform the following steps:**
-
-1. In the Azure classic portal, on the **Skydesk Email** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-
-    ![Configure Single Sign-On][6] 
-
-2. On the **How would you like users to sign on to Skydesk Email** page, select **Azure AD Single Sign-On**, and then click **Next**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_03.png) 
-
-
-3. On the **Configure App Settings** dialog page, perform the following steps:
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_04.png) 
+	![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_04.png)
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Skydesk Email application using the following pattern: **“https://mail.skydesk.jp/portal/\<company name\>”**.
+    a. 로그인 URL 텍스트 상자에 다음의 **“https://mail.skydesk.jp/portal/<company name>”** 패턴을 사용하여 사용자가 Skydesk Email 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 
-    b. Click **Next**.
-
-
-4. On the **Configure single sign-on at Skydesk Email** page, perform the following steps:
-
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_05.png) 
-
-    a. Click **Download certificate**, and then save the file on your computer.
-
-    b. Click **Next**.
+    b. **다음**을 클릭합니다.
 
 
-5. To enable SSO in **Skydesk Email**, perform the following steps:
+4. **Skydesk Email에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
+
+	![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_05.png)
+
+    a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
+
+    b. **다음**을 클릭합니다.
+
+
+5. **Skydesk Email**에서 SSO를 사용하려면 다음 단계를 수행합니다.
  
-    a. Sign-on to your Skydesk Email account as administrator.
+    a. Skydesk Email 계정에 관리자 권한으로 로그온합니다.
 
-    b. In the menu on the top, click Setup, and select Org. 
+    b. 위쪽 메뉴에서 Setup(설정)을 클릭한 다음 Org.(조직)를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_51.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_51.png)
 
-    c. Click on Domains from the left panel.
+    c. 왼쪽 패널에서 Domains(도메인)을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_53.png)
 
-    d. Click on Add Domain.
+    d. Add Domain(도메인 추가)를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_54.png)
 
-    e. Enter your Domain name, and then verify the Domain.
+    e. 도메인 이름을 입력하고 도메인을 확인합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_55.png)
 
-    f. Click on **SAML Authentication** from the left panel
+    f. 왼쪽 패널에서 **SAML 인증**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 
-6. On the **SAML Authentication** dialog page, perform the following steps:
+6. **SAML 인증** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_56.png)
 
-    > [AZURE.NOTE] To use SAML based authentication, you should either have **verified domain** or **portal URL** setup. You can set the portal URL with the unique name.
+	> [AZURE.NOTE] SAML 기반 인증을 사용하려면 **확인된 도메인** 또는 **포털 URL** 설정이 있어야 합니다. 고유의 이름으로 포털 URL을 설정할 수 있습니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_57.png)
-
-
-    a. In Azure AD classic portal, copy the **SAML SSO URL** value, and then paste it into the **Login URL** textbox.
-
-    b. In Azure AD classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Logout** URL textbox.
-
-    c. **Change Password URL** is optional so leave it blank.
-
-    d. Click on **Get Key From File** to select your downloaded Skydesk Email certificate, and then click **Open** to upload the certificate.
-
-    e. As **Algorithm**, select **RSA**.
-
-    f. Click **Ok** to save the changes.
+	![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
 
-7. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    a. Azure AD 클래식 포털에서 **SAML SSO URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    ![Azure AD Single Sign-On][10]
+    b. Azure AD 클래식 포털에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-8. On the **Single sign-on confirmation** page, click **Complete**.  
+    c. **암호 변경 URL**은 선택 사항이므로 비워 둡니다.
+
+    d. **Get Key From File**(파일에서 키 가져오기)을 클릭하여 다운로드한 Skydesk Email 인증서를 선택하고 **열기**를 클릭하여 인증서를 업로드합니다.
+
+    e. **알고리즘**으로 **RSA**를 선택합니다.
+
+    f. **확인**을 클릭하여 변경 내용을 저장합니다.
+
+
+7. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+
+	![Azure AD Single Sign-On][10]
+
+8. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
   
-    ![Azure AD Single Sign-On][11]
+	![Azure AD Single Sign-On][11]
 
 
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
+### Azure AD 테스트 사용자 만들기
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-![Create Azure AD User][20]
+![Azure AD 사용자 만들기][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_09.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_03.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_04.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_05.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. Click **Next**.
+    c. **다음**을 클릭합니다.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_06.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
 
-    d. In the **Role** list, select **User**.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. Click **Next**.
+    e. **다음**을 클릭합니다.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_07.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_08.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. **새 암호** 값을 적어둡니다.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-a-skydesk-email-test-user"></a>Creating a Skydesk Email test user
-
-In this section, you create a user called Britta Simon in Skydesk Email.
-
-a. Click on **User Access** from the left panel in Skydesk Email and then enter your username. 
-
-![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_58.png)
+    b. **완료**를 클릭합니다.
 
 
-[AZURE.NOTE] If you need to create bulk users, you need to contact the Skydesk Email support team.
+
+### Skydesk Email 테스트 사용자 만들기
+
+이 섹션에서는 Skydesk Email에서 Britta Simon이라는 사용자를 만듭니다.
+
+a. Skydesk Email의 왼쪽 패널에서 **User Access**(사용자 액세스)를 클릭하고 사용자 이름을 입력합니다.
+
+![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+[AZURE.NOTE] 일괄 사용자를 만들어야 하는 경우에는, Skydesk Email 지원 팀에 문의해야 합니다.
 
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Skydesk Email.
 
-![Assign User][200] 
+### Azure AD 테스트 사용자 할당
 
-**To assign Britta Simon to Skydesk Email, perform the following steps:**
+이 섹션의 목적은 Britta Simon에게 Skydesk Email 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다.
 
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+![사용자 할당][200]
+
+**Britta Simon을 Skydesk Email에 할당하려면 다음 단계를 수행합니다.**
+
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
  
-    ![Assign User][201] 
+	![사용자 할당][201]
 
-2. In the applications list, select **Skydesk Email**.
+2. 응용 프로그램 목록에서 **Skydesk Email**를 선택합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_50.png) 
+	![Single Sign-On 구성](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_50.png)
 
-1. In the menu on the top, click **Users**.
+1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
 
-    ![Assign User][203] 
+	![사용자 할당][203]
 
-1. In the Users list, select **Britta Simon**.
+1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-2. In the toolbar on the bottom, click **Assign**.
+2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
 
-    ![Assign User][205]
-
-
-
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
-
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Skydesk Email tile in the Access Panel, you should get automatically signed-on to your Skydesk Email application.
+	![사용자 할당][205]
 
 
-## <a name="additional-resources"></a>Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### Single Sign-On 테스트
+
+이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
+
+액세스 패널에서 Skydesk Email 타일을 클릭하면 Skydesk Email 응용 프로그램에 자동으로 로그온됩니다.
+
+
+## 추가 리소스
+
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -326,8 +325,4 @@ When you click the Skydesk Email tile in the Access Panel, you should get automa
 [204]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

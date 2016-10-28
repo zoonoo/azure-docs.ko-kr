@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Best practices for Azure RemoteApp clients | Microsoft Azure"
-    description="Learn about best practices for using the RemoteApp clients"
+    pageTitle="Azure RemoteApp 클라이언트 모범 사례 | Microsoft Azure"
+    description="RemoteApp 클라이언트를 사용하기 위한 모범 사례를 알아봅니다."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,20 +18,15 @@
 
 
 
-
-# <a name="best-practices-for-azure-remoteapp-clients"></a>Best practices for Azure RemoteApp clients
+# Azure RemoteApp 클라이언트 모범 사례
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-The following information can help you use Azure RemoteApp clients:
+다음 정보는 Azure RemoteApp 클라이언트를 사용하는 데 도움이 됩니다.
 
-- Always use the latest client. This ensures that the client version you are running has the latest bug fixes, improvements and features. You might need to sign up to automatically receive updates for the client in the appropriate Store.
+- 항상 최신 클라이언트를 사용합니다. 이렇게 하면 실행 중인 클라이언트 버전에 최신 버그 수정, 향상된 기능 및 특성이 포함됩니다. 해당 스토어에서 클라이언트 업데이트를 자동으로 받기 위해 등록해야 할 수도 있습니다.
 
-- RemoteApp will automatically log you off if you are inactive for a certain period of time. In order to prevent data loss, we recommend closing your applications when you finish using the service.
+- 일정 기간 동안 비활성 상태이면 RemoteApp에서 자동으로 로그오프됩니다. 데이터 손실을 방지하려면 서비스 사용을 마쳤을 때 응용 프로그램을 닫는 것이 좋습니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

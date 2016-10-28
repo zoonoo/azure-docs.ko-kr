@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Release annotations for Application Insights | Microsoft Azure"
-    description="Add deployment or build markers to your metrics explorer charts in Application Insights."
+    pageTitle="Application Insights에 대한 릴리스 주석 | Microsoft Azure"
+    description="Application Insights에서 배포 또는 빌드 표식을 메트릭 탐색기 차트에 추가합니다."
     services="application-insights"
     documentationCenter=".net"
     authors="alancameronwills"
@@ -12,71 +12,70 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/28/2016"
+	ms.date="06/28/2016"
     ms.author="awills"/>
 
+# Application Insights의 릴리스 주석
 
-# <a name="release-annotations-in-application-insights"></a>Release annotations in Application Insights
+[메트릭 탐색기](app-insights-metrics-explorer.md) 차트의 릴리스 주석은 새 빌드를 배포한 위치를 표시합니다. 릴리스 주석으로 변경 내용이 응용 프로그램의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. [Visual Studio Team Services 빌드 시스템](https://www.visualstudio.com/ko-KR/get-started/build/build-your-app-vs)에서 자동으로 만들 수 있고 사용자가 [PowerShell에서 직접 만들 수도](#create-annotations-from-powershell) 있습니다.
 
-Release annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), and you can also [create them from PowerShell](#create-annotations-from-powershell).
+![서버 응답 시간과 상관 관계가 표시된 주석 예제](./media/app-insights-annotations/00.png)
 
-![Example of annotations with visible correlation with server response time](./media/app-insights-annotations/00.png)
+릴리스 주석은 클라우드 기반 빌드 기능 및 Visual Studio Team Services 릴리스 서비스입니다.
 
-Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services. 
+## 주석 확장 설치(한 번)
 
-## <a name="install-the-annotations-extension-(one-time)"></a>Install the Annotations extension (one time)
+릴리스 주석을 만들려면 Visual Studio 마켓플레이스에서 사용 가능한 여러 Team Service 확장 중 하나를 설치해야 합니다.
 
-To be able to create release annotations, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
+1. [Visual Studio Team Services](https://www.visualstudio.com/ko-KR/get-started/setup/sign-up-for-visual-studio-online) 프로젝트에 로그인합니다.
+2. Visual Studio 마켓플레이스의 [릴리스 주석 확장을 가져와서](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) 팀 서비스 계정에 추가합니다.
 
-1. Sign in to your [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) project.
-2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Team Services account.
+![Team Services 웹 페이지의 오른쪽 위에서 마켓플레이스를 엽니다. Visual Team Services를 선택하고 빌드 및 릴리스에서 자세히 보기를 선택합니다.](./media/app-insights-annotations/10.png)
 
-![At top right of Team Services web page, open Marketplace. Select Visual Team Services and then under Build and Release, choose See More.](./media/app-insights-annotations/10.png)
+Visual Studio Team Services 계정에 대해 이 작업을 한 번만 수행하면 됩니다. 이제 계정의 모든 프로젝트에 대해 릴리스 주석을 구성할 수 있습니다.
 
-You only need to do this once for your Visual Studio Team Services account. Release annotations can now be configured for any project in your account. 
+## Application Insights에서 API 키 가져오기
 
-## <a name="get-an-api-key-from-application-insights"></a>Get an API key from Application Insights
-
-You need to do this for each release template that you want to create release annotations.
-
-
-1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](app-insights-overview.md), if you haven't done so yet.)
-2. Open **API Access**, and take a copy of **Application Insights Id**.
-
-    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/app-insights-annotations/20.png)
-
-2. In a separate browser window, open (or create) the release template that manages your deployments from Visual Studio Team Services. 
-
-    Add a task, and select the Application Insights Release Annotation task from the menu.
-
-    Paste the **Application Id** that you copied from the API Access blade.
-
-    ![In Visual Studio Team Services, open Release, select a release definition, and choose Edit. Click Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/app-insights-annotations/30.png)
-
-3. Set the **APIKey** field to a variable `$(ApiKey)`.
-
-4. Back in the API Access blade, create a new API Key and take a copy of it.
-
-    ![In the API Access blade in the Azure window, click Create API Key. Provide a comment, check Write annotations, and click Generate Key. Copy the new key.](./media/app-insights-annotations/40.png)
-
-4. Open the Configuration tab of the release template.
-
-    Create a variable definition for `ApiKey`.
-
-    Paste your API key to the ApiKey variable definition.
-
-    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated.](./media/app-insights-annotations/50.png)
+릴리스 주석을 만들려는 각 릴리스 템플릿에 대해 이 작업을 수행해야 합니다.
 
 
-5. Finally, **Save** the release definition.
+1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인하고 응용 프로그램을 모니터링하는 Application Insights 리소스를 엽니다. (또는 아직 만들지 않은 경우 [지금 만듭니다](app-insights-overview.md).)
+2. **API 액세스**를 차례로 열어 **Application Insights ID**를 복사합니다.
 
-## <a name="create-annotations-from-powershell"></a>Create annotations from PowerShell
+    ![portal.azure.com에서 Application Insights 리소스를 열고 설정을 선택합니다. API 액세스를 엽니다. 응용 프로그램 ID를 복사합니다.](./media/app-insights-annotations/20.png)
 
-You can also create annotations from any process you like (without using VS Team System). 
+2. 별도의 브라우저 창에서, Visual Studio Team Services에서 배포를 관리하는 릴리스 템플릿을 열거나 만듭니다.
 
-Get the [Powershell script from GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+    작업을 추가하고 메뉴에서 Application Insights 릴리스 주석 작업을 선택합니다.
 
-Use it like this:
+    API 액세스 블레이드에서 복사한 **응용 프로그램 ID**를 붙여넣습니다.
+
+    ![Visual Studio Team Services에서 릴리스를 열고 릴리스 정의를 선택하고 편집을 선택합니다. 작업 추가를 클릭하고 Application Insights 릴리스 주석을 선택합니다. Application Insights ID를 붙여넣습니다.](./media/app-insights-annotations/30.png)
+
+3. **APIKey** 필드를 변수 `$(ApiKey)`로 설정합니다.
+
+4. API 액세스 블레이드로 돌아가 새 API 키를 만들어 복사합니다.
+
+    ![Azure 창의 API 액세스 블레이드에서 API 키 만들기를 클릭합니다. 설명을 입력하고 주석 쓰기를 선택하고 키 생성을 클릭합니다. 새 키를 복사합니다.](./media/app-insights-annotations/40.png)
+
+4. 릴리스 템플릿의 구성 탭을 엽니다.
+
+    `ApiKey`에 대한 변수 정의를 만듭니다.
+
+    ApiKey 변수 정의에 API 키를 붙여넣습니다.
+
+    ![Team Services 창에서 구성 탭을 선택하고 변수 추가를 클릭합니다. ApiKey에 대한 이름을 설정하고 값에 방금 생성한 키를 붙여넣습니다.](./media/app-insights-annotations/50.png)
+
+
+5. 마지막으로 릴리스 정의를 **저장**합니다.
+
+## PowerShell에서 주석 만들기
+
+VS Team 시스템을 사용하지 않고 원하는 모든 프로세스에서 주석을 만들 수도 있습니다.
+
+[GitHub에서 Powershell 스크립트](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)를 가져옵니다.
+
+다음과 같이 사용합니다.
 
     .\CreateReleaseAnnotation.ps1 `
       -applicationId "<applicationId>" `
@@ -86,19 +85,15 @@ Use it like this:
           "ReleaseDescription"="a description";
           "TriggerBy"="My Name" }
 
-Get the `applicationId` and an `apiKey` from your Application Insights resource: Open Settings, API Access, and copy the Application ID. Then click Create API Key and copy the key. 
+Application Insights 리소스에서 `applicationId` 및 `apiKey`를 가져옵니다. 설정, API 액세스를 차례로 열고 응용 프로그램 ID를 복사합니다. 그런 다음 API 키 만들기를 클릭하고 해당 키를 복사합니다.
 
-## <a name="release-annotations"></a>Release annotations
+## 릴리스 주석
 
-Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.
+이제 릴리스 템플릿을 사용하여 새 릴리스를 배포할 때마다 주석이 Application Insights로 전송됩니다. 주석은 메트릭 탐색기의 차트에 표시됩니다.
 
-Click on any annotation marker to open details about the release, including requestor, source control branch, release definition, environment, and more.
-
-
-![Click any release annotation marker.](./media/app-insights-annotations/60.png)
+주석 마커를 클릭하면 요청자, 소스 제어 분기, 릴리스 정의, 환경 등 릴리스에 대한 세부 정보가 열립니다.
 
 
+![릴리스 주석 마커를 클릭합니다.](./media/app-insights-annotations/60.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

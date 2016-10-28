@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with Azure SQL Data Warehouse Tables."
+   pageTitle="SQL 데이터 웨어하우스의 테이블 개요 | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스 테이블로 시작"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,78 +16,77 @@
    ms.date="08/04/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
-
-# <a name="overview-of-tables-in-sql-data-warehouse"></a>Overview of tables in SQL Data Warehouse
+# SQL 데이터 웨어하우스의 테이블 개요
 
 > [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
+- [개요][]
+- [데이터 형식][]
+- [배포][]
 - [Index][]
-- [Partition][]
-- [Statistics][]
-- [Temporary][]
+- [파티션][]
+- [통계][]
+- [임시][]
 
-Getting started with creating tables in SQL Data Warehouse is simple.  The basic [CREATE TABLE][] syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table, you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
+SQL 데이터 웨어하우스에서 테이블을 만드는 과정은 간단합니다. 기본 [CREATE TABLE][] 구문은 다른 데이터베이스를 사용하면서 가장 익숙해졌을 수 있는 일반적인 구문을 따릅니다. 테이블을 만들려면 테이블 및 열에 이름을 지정하고 각 열의 데이터 형식을 정의하면 됩니다. 다른 데이터베이스에서 테이블을 작성했으므로 이 작업은 아주 익숙해 보일 수도 있습니다.
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
  ``` 
 
-The above example creates a table named Customers with two columns, FirstName and LastName.  Each column is defined with a data type of VARCHAR(25), which limits the data to 25 characters.  These fundamental attributes of a table, as well as others, are mostly the same as other databases.  Data types are defined for each column and ensure the integrity of your data.  Indexes can be added to improve performance by reducing I/O.  Partitioning can be added to improve performance when you need to modify data.
+위의 예제에서는 FirstName 및 LastName의 두 열을 가진 Customers라는 테이블을 만듭니다. 각 열은 VARCHAR(25) 데이터 형식으로 정의됩니다. 이 형식에서는 데이터가 25자로 제한됩니다. 이러한 기본적인 테이블 특성 및 기타 특성은 다른 데이터베이스와 거의 동일합니다. 데이터 형식이 각 열에 대해 정의되어 데이터 무결성을 보장합니다. I/O를 줄임으로써 성능 향상을 위해 인덱스를 추가할 수 있습니다. 데이터를 수정해야 하는 경우 성능 향상을 위해 분할을 추가할 수 있습니다.
 
-[Renaming][RENAME] a SQL Data Warehouse table looks like this:
+SQL 데이터 웨어하우스 테이블 [이름 바꾸기][RENAME] 작업은 다음과 같습니다.
 
 ```sql  
 RENAME OBJECT Customer TO CustomerOrig; 
  ```
 
-## <a name="distributed-tables"></a>Distributed tables
+## 분산 테이블
 
-A new fundamental attribute introduced by distributed systems like SQL Data Warehouse is the **distribution column**.  The distribution column is very much what it sounds like.  It is the column that determines how to distribute, or divide, your data behind the scenes.  When you create a table without specifying the distribution column, the table is automatically distributed using **round robin**.  While round robin tables can be sufficient in some scenarios, defining distribution columns can greatly reduce data movement during queries, thus optimizing performance.  See [Distributing a Table][Distribute] to learn more about how to select a distribution column.
+SQL 데이터 웨어하우스와 같은 분산 시스템에 의해 도입된 새로운 기본 특성은 **배포 열**입니다. 배포 열은 표현 그대로입니다. 백그라운드에서 데이터를 분산 또는 분할하는 방법을 결정하는 열입니다. 배포 열을 지정하지 않고 테이블을 만들면 테이블이 **라운드 로빈**을 사용하여 자동으로 분산됩니다. 일부 시나리오에서는 라운드 로빈 테이블로 충분할 수 있지만 배포 열을 정의하면 쿼리 중에 데이터 이동을 크게 줄일 수 있으므로 성능이 최적화됩니다. 배포 열을 선택하는 방법에 대한 자세한 내용을 [테이블 배포][Distribute]를 참조하세요.
 
-## <a name="indexing-and-partitioning-tables"></a>Indexing and partitioning tables
+## 테이블 인덱싱 및 분할
 
-As you become more advanced in using SQL Data Warehouse and want to optimize performance, you'll want to learn more about Table Design.  To learn more, see the articles on [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index] and  [Partitioning a Table][Partition].
+더욱 수준 높은 방식으로 SQL 데이터 웨어하우스를 사용하고 성능을 최적화하기 위해 테이블 디자인에 대해 알아보려고 할 수 있습니다. 자세한 내용은 [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index] 및 [테이블 분할][Partition]에 대한 문서를 참조하세요.
 
-## <a name="table-statistics"></a>Table statistics
+## 테이블 통계
 
-Statistics are an extremely important to getting the best performance out of your SQL Data Warehouse.  Since SQL Data Warehouse does not yet automatically create and update statistics for you, like you may have come to expect in Azure SQL Database, reading our article on [Statistics][] might be one of the most important articles you read to ensure that you get the best performance from your queries.
+통계는 SQL 데이터 웨어하우스의 성능을 극대화하는 데 매우 중요합니다. Azure SQL 데이터베이스에서 예상할 수 있는 것처럼 SQL 데이터 웨어하우스는 통계를 아직 자동으로 만들고 업데이트하지 않으므로 쿼리의 성능을 극대화하기 위해 [통계][]에 대한 문서를 반드시 읽어야 합니다.
 
-## <a name="temporary-tables"></a>Temporary tables
+## 임시 테이블
 
-Temporary tables are tables which only exist for the duration of your logon and cannot be seen by other users.  Temporary tables can be a good way to prevent others from seeing temporary results and also reduce the need for cleanup.  Since temporary tables also utilize local storage, they can offer faster performance for some operations.  See the [Temporary Table][Temporary] articles for more details about temporary tables.
+임시 테이블은 로그온 중에만 존재하고 다른 사용자는 볼 수 없는 테이블입니다. 임시 테이블은 다른 사람들이 일시적인 결과를 보지 못하도록 하여 정리할 필요를 없애주는 유용한 방법일 수 있습니다. 임시 테이블은 로컬 저장소를 활용하므로 일부 작업에 대해 더 빠른 성능을 제공할 수 있습니다. 임시 테이블에 대한 자세한 내용은 [임시 테이블][Temporary] 문서를 참조하세요.
 
-## <a name="external-tables"></a>External tables
+## 외부 테이블
 
-External tables, also known as Polybase tables, are tables which can be queried from SQL Data Warehouse, but point to data external from SQL Data Warehouse.  For example, you can create an external table which points to files on Azure Blob Storage.  For more details on how to create and query an external table, see [Load data with Polybase][].  
+Polybase 테이블이라고도 하는 외부 테이블은 SQL 데이터 웨어하우스에서 쿼리될 수 있지만 SQL 데이터 웨어하우스 외부의 데이터를 가리킬 수 있는 테이블입니다. 예를 들어 Azure Blob 저장소의 파일을 가리키는 외부 테이블을 만들 수 있습니다. 외부 테이블을 만들고 쿼리하는 방법에 대한 자세한 내용은 [Polybase 사용하여 데이터 로드][]를 참조하세요.
 
-## <a name="unsupported-table-features"></a>Unsupported table features
+## 지원되지 않는 테이블 기능
 
-While SQL Data Warehouse contains many of the same table features offered by other databases, there are some features which are not yet supported.  Below is a list of some of the table features which are not yet supported.
+SQL 데이터 웨어하우스에는 다른 데이터베이스에서 제공하는 동일한 테이블 기능을 많이 포함하지만 아직 지원되지 않는 기능도 일부 있습니다. 다음은 아직 지원되지 않는 일부 테이블 기능 목록입니다.
 
-| Unsupported features |
+| 지원되지 않는 기능 |
 | --- |
-|[Identity Property][] (see [Assigning Surrogate Key Workaround][])|
-|Primary key, Foreign keys, Unique and Check [Table Constraints][]|
-|[Unique Indexes][]|
-|[Computed Columns][]|
-|[Sparse Columns][]|
-|[User-Defined Types][]|
-|[Sequence][]|
-|[Triggers][]|
-|[Indexed Views][]|
-|[Synonyms][]|
+|[Identity 속성][] \([대체 키 해결 방법 할당][])|
+|기본 키, 외래 키, 고유 및 검사 [테이블 제약 조건][]|
+|[고유 인덱스][]|
+|[계산된 열][]|
+|[스파스 열][]|
+|[사용자 정의 형식][]|
+|[시퀀스][]|
+|[트리거][]|
+|[인덱싱된 뷰][]|
+|[동의어][]|
 
-## <a name="table-size-queries"></a>Table size queries
+## 테이블 크기 쿼리
 
-One simple way to identify space and rows consumed by a table in each of the 60 distributions, is to use [DBCC PDW_SHOWSPACEUSED][].
+60개의 각 배포에서 한 테이블에 사용되는 공간 및 행을 식별하는 한 가지 간단한 방법은 [DBCC PDW\_SHOWSPACEUSED][]를 사용하는 것입니다.
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-However, using DBCC commands can be quite limiting.  Dynamic management views (DMVs) will allow you to see much more detail as well as give you much greater control over the query results.  Start by creating this view, which will be referred to by many of our examples in this and other articles.
+그러나 DBCC 명령을 사용하면 작업이 상당히 제한될 수 있습니다. DMV(동적 관리 뷰)를 사용하면 훨씬 더 많은 세부 정보를 볼 수 있을 뿐만 아니라 쿼리 결과를 보다 강력하게 제어할 수 있습니다. 먼저 이 문서 및 다른 문서의 많은 예제에서 참조되는 이 뷰를 만들어보세요.
 
 ```sql
 CREATE VIEW dbo.vTableSizes
@@ -201,9 +200,9 @@ FROM size
 ;
 ```
 
-### <a name="table-space-summary"></a>Table space summary
+### 테이블 공간 요약
 
-This query returns the rows and space by table.  It is a great query to see which tables are your largest tables and whether they are round robin or hash distributed.  For hash distributed tables it also shows the distribution column.  In most cases your largest tables should be hash distributed with a clustered columnstore index.
+이 쿼리는 테이블에 의해 행 및 공간을 반환합니다. 가장 큰 테이블이 어느 테이블인지 그리고 해당 테이블이 라운드 로빈인지 또는 해시 분산인지를 확인하는 것이 좋은 쿼리입니다. 해시 분산 테이블의 경우 배포 열도 보여 줍니다. 대부분의 경우 가장 큰 테이블은 클러스터된 columnstore 인덱스로 배포된 해시여야 합니다.
 
 ```sql
 SELECT 
@@ -211,7 +210,7 @@ SELECT
 ,    schema_name
 ,    table_name
 ,    distribution_policy_name
-,     distribution_column
+,	  distribution_column
 ,    index_type_desc
 ,    COUNT(distinct partition_nmbr) as nbr_partitions
 ,    SUM(row_count)                 as table_row_count
@@ -226,14 +225,14 @@ GROUP BY
 ,    schema_name
 ,    table_name
 ,    distribution_policy_name
-,     distribution_column
+,	  distribution_column
 ,    index_type_desc
 ORDER BY
     table_reserved_space_GB desc
 ;
 ```
 
-### <a name="table-space-by-distribution-type"></a>Table space by distribution type
+### 배포 유형별 테이블 공간
 
 ```sql
 SELECT 
@@ -248,7 +247,7 @@ GROUP BY distribution_policy_name
 ;
 ```
 
-### <a name="table-space-by-index-type"></a>Table space by index type
+### 인덱스 유형별 테이블 공간
 
 ```sql
 SELECT 
@@ -263,7 +262,7 @@ GROUP BY index_type_desc
 ;
 ```
 
-### <a name="distribution-space-summary"></a>Distribution space summary
+### 배포 공간 요약
 
 ```sql
 SELECT 
@@ -279,43 +278,44 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-To learn more, see the articles on [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][].
+자세히 알아보려면 [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition], [테이블 통계 유지 관리][Statistics] 및 [임시 테이블][Temporary]에 대한 문서를 참조하세요. 모범 사례에 대한 자세한 내용은 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
+[개요]: ./sql-data-warehouse-tables-overview.md
 [Data Types]: ./sql-data-warehouse-tables-data-types.md
+[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
+[배포]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
+[파티션]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[임시]: ./sql-data-warehouse-tables-temporary.md
+[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
+[Polybase 사용하여 데이터 로드]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
 <!--MSDN references-->
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
-[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
-[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
-[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
-[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
-[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
-[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
-[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
-[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
-[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
-[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
+[DBCC PDW\_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
+[Identity 속성]: https://msdn.microsoft.com/library/ms186775.aspx
+[대체 키 해결 방법 할당]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[테이블 제약 조건]: https://msdn.microsoft.com/library/ms188066.aspx
+[계산된 열]: https://msdn.microsoft.com/library/ms186241.aspx
+[스파스 열]: https://msdn.microsoft.com/library/cc280604.aspx
+[사용자 정의 형식]: https://msdn.microsoft.com/library/ms131694.aspx
+[시퀀스]: https://msdn.microsoft.com/library/ff878091.aspx
+[트리거]: https://msdn.microsoft.com/library/ms189799.aspx
+[인덱싱된 뷰]: https://msdn.microsoft.com/library/ms191432.aspx
+[동의어]: https://msdn.microsoft.com/library/ms177544.aspx
+[고유 인덱스]: https://msdn.microsoft.com/library/ms188783.aspx
 
 <!--Other Web references-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

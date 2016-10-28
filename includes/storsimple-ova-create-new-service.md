@@ -1,39 +1,36 @@
-#### <a name="to-create-a-new-service"></a>To create a new service
+#### 새 서비스를 만들려면
 
-1.  Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). If deploying the device in Government portal, log in at:  [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
+1.  이 URL [https://manage.windowsazure.com/](https://manage.windowsazure.com/)에서 Microsoft 계정 자격 증명을 사용하여 Azure 클래식 포털에 로그온합니다. 정부 포털에서 장치를 배포하는 경우 [https://manage.windowsazure.us/](https://manage.windowsazure.us/)에 로그인합니다.
 
-2.  In the portal, click **New > Data Services > StorSimple Manager > Quick Create**.
+2.  포털에서 **새로 만들기 > 데이터 서비스 > StorSimple Manager > 빠른 생성**을 클릭합니다.
 
-3.  In the form that is displayed, do the following:
+3.  표시되는 양식에서 다음을 수행합니다.
 
-    1.  Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+	1.  서비스에 고유한 **이름**을 지정합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이름은 문자, 숫자 및 하이픈이 될 수 있는 2자에서 50자 사이여야 합니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
 
-    2.  For a service to manage a StorSimple virtual device, from the drop down list for **Managed devices type**, choose **Virtual device series**.
+	2.  StorSimple 가상 장치를 관리하는 서비스의 경우 **관리되는 장치 유형** 드롭다운 목록에서 **가상 장치 시리즈**를 선택합니다.
 
-    3.  Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device.
+	3.  서비스의 **위치**를 지정합니다. 위치는 장치를 배포하려는 지리적 영역을 가리킵니다.
 
-     -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
+	 -   Azure에 StorSimple 장치에 배포하려는 다른 작업이 있는 경우에는 해당 데이터 센터를 사용하는 것이 좋습니다.
 
-     -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#optional-step-configure-a-new-storage-account-for-the-service).
-     
-     -   If deploying the virtual device in the Government Portal, the StorSimple Manager service is available in US Iowa and US Virginia locations.
-     
-        
-    1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
+   	 -   StorSimple Manager 및 Azure 저장소는 두 곳의 다른 위치에 있을 수 있습니다. そのような場合、StorSimple Manager と Azure Storage のアカウントを別々に作成する必要があります。 Azure 저장소 계정을 만들려면 포털의 Azure 저장소 서비스로 이동하고 [Azure 저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account)의 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 저장소 계정 구성](#optional-step-configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple Manager 서비스에 계정을 추가합니다.
+   	 
+   	 -   정부 포털에서 가상 장치를 배포하는 경우 미국 아이오와 및 미국 버지니아 위치에서 StorSimple Manager 서비스를 사용할 수 있습니다.
+   	 
+   	 	
+	1.  드롭다운 목록에서 **구독**을 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 이 필드는 구독이 하나만 있는 경우에는 나타나지 않습니다.
 
-    1.  Select **Create a new Azure storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf". If you need your data in a different location, clear this check box.
+	1.  **새 Azure 저장소 계정 만들기**를 선택하여 서비스를 포함하는 저장소 계정을 자동으로 만듭니다. 이 저장소 계정에는 "storsimplebwv8c6dcnf"와 같은 특수한 이름이 주어집니다. 다른 위치에 있는 데이터가 필요하면 확인란의 선택을 취소합니다.
 
-    1.  Click **Create StorSimple Manager** to create the service.
+	1.  **StorSimple 관리자 만들기**를 클릭하여 서비스를 만듭니다.
 
-        ![](./media/storsimple-ova-create-new-service/image1m-include.png)
+		![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
-    You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately.
+	**서비스** 방문 페이지로 이동됩니다. 서비스 만들기에는 몇 분 정도 소요됩니다. 서비스가 성공적으로 만들어진 후 적절한 알림이 표시됩니다.
 
-    ![](./media/storsimple-ova-create-new-service/image2-include.png)
+	![](./media/storsimple-ova-create-new-service/image2-include.png)
 
-    The status of the service will change to **Active**.
+	서비스의 상태가 **활성**으로 변경됩니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0316_2016-->

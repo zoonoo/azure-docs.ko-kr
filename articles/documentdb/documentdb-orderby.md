@@ -1,55 +1,54 @@
 <properties 
-    pageTitle="Sorting DocumentDB data using Order By | Microsoft Azure" 
-    description="Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries." 
-    services="documentdb" 
-    authors="arramac" 
-    manager="jhubbard" 
-    editor="cgronlun" 
-    documentationCenter=""/>
+	pageTitle="Order By를 사용하여 DocumentDB 데이터 정렬 | Microsoft Azure" 
+	description="LINQ 및 SQL의 DocumentDB 쿼리에서 ORDER BY를 사용하는 방법 및 ORDER BY 쿼리에 대한 인덱싱 정책을 지정하는 방법에 대해 알아봅니다." 
+	services="documentdb" 
+	authors="arramac" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
 <tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/03/2016" 
-    ms.author="arramac"/>
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/07/2016" 
+	ms.author="arramac"/>
 
+# Order By를 사용하여 DocumentDB 데이터 정렬
+Microsoft Azure DocumentDB는 JSON 문서에 대해 SQL을 사용한 문서 쿼리를 지원합니다. SQL 쿼리 문에서 ORDER BY 절을 사용하여 쿼리 결과를 주문할 수 있습니다.
 
-# <a name="sorting-documentdb-data-using-order-by"></a>Sorting DocumentDB data using Order By
-Microsoft Azure DocumentDB supports querying documents using SQL over JSON documents. Query results can be ordered using the ORDER BY clause in SQL query statements.
+이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
-After reading this article, you'll be able to answer the following questions: 
+- 어떻게 Order By로 쿼리합니까?
+- Order By에 대한 색인 정책 구성 방법
+- 다음 단계
 
-- How do I query with Order By?
-- How do I configure an indexing policy for Order By?
-- What's coming next?
+[샘플](#samples) 및 [FAQ](#faq)도 제공됩니다.
 
-[Samples](#samples) and an [FAQ](#faq) are also provided.
+SQL 쿼리에 대한 전체 참조는 [DocumentDB 쿼리 자습서](documentdb-sql-query.md)를 참조하세요.
 
-For a complete reference on SQL querying, see the [DocumentDB Query tutorial](documentdb-sql-query.md).
+## Order By로 쿼리하는 방법
+ANSI-SQL에서와 마찬가지로, 이제 DocumentDB를 쿼리할 때 SQL문에 선택적 Order By절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다.
 
-## <a name="how-to-query-with-order-by"></a>How to Query with Order By
-Like in ANSI-SQL, you can now include an optional Order By clause in SQL statements when querying DocumentDB. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. 
-
-### <a name="ordering-using-sql"></a>Ordering using SQL
-For example here's a query to retrieve the top 10 books in descending order of their titles. 
+### SQL을 사용하여 순서 지정
+예를 들어 다음은 해당 제목의 내림차순으로 상위 10개 설명서를 검색하는 쿼리입니다.
 
     SELECT TOP 10 * 
     FROM Books 
     ORDER BY Books.Title DESC
 
-### <a name="ordering-using-sql-with-filtering"></a>Ordering using SQL with Filtering
-You can order using any nested property within documents like Books.ShippingDetails.Weight, and you can specify additional filters in the WHERE clause in combination with Order By like in this example:
+### 필터링된 SQL을 사용하여 순서 지정
+Books.ShippingDetails.Weight와 같은 문서 내에서 중첩된 모든 속성을 사용하여 주문할 수 있으며, 이 예제에서와 같이 Order By와 함께 WHERE절에서 추가 필터를 지정할 수 있습니다.
 
     SELECT * 
     FROM Books 
     WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
-### <a name="ordering-using-the-linq-provider-for-.net"></a>Ordering using the LINQ Provider for .NET
-Using the .NET SDK version 1.2.0 and higher, you can also use the OrderBy() or OrderByDescending() clause within LINQ queries like in this example:
+### .NET용 LINQ 공급자를 사용하여 순서 지정
+.NET SDK 버전 1.2.0 이상을 사용하여 이예제에서와 같이 LINQ 쿼리 내에서 OrderBy() 또는 OrderByDescending() 절을 사용할 수도 있습니다.
 
     foreach (Book book in client.CreateDocumentQuery<Book>(UriFactory.CreateDocumentCollectionUri("db", "books"))
         .OrderBy(b => b.PublishTimestamp)
@@ -58,20 +57,20 @@ Using the .NET SDK version 1.2.0 and higher, you can also use the OrderBy() or O
         // Iterate through books
     }
 
-DocumentDB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon. Please see [What's coming next](#Whats_coming_next) for more details.
+DocumentDB는 곧 추가 쿼리 형식을 가진 단일 숫자, 문자열 또는 쿼리 당 부울 속성으로 순서를 지정하도록 지원합니다. 자세한 내용은 [다음 단계](#Whats_coming_next)를 참조하세요.
 
-## <a name="configure-an-indexing-policy-for-order-by"></a>Configure an indexing policy for Order By
+## Order By로 색인 정책 구성
 
-Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By. 
+DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 특정 경로/속성, 데이터 형식(문자열/숫자) 및 다른 전체 자릿수 값(최대 전체 자릿수 또는 고정된 전체 자릿수 값)에 대해 설정된다는 사실에 유의하십시오. DocumentDB가 기본적으로 인덱싱 해시를 사용하기 때문에 Order By를 사용하려면 숫자, 문자열 또는 둘 모두의 범위에 사용자 지정 인덱싱 정책을 사용하여 새 컬렉션을 만들어야 합니다.
 
->[AZURE.NOTE] String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03. In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.
+>[AZURE.NOTE] 문자열 범위 인덱스는 2015년 7월 7일에 REST API 버전 2015-06-03에서 도입되었습니다. 문자열에 대해 Order By을 위한 정책을 만들려면 NET SDK의 SDK 버전 1.2.0. 또는 버전 1.1.0 Python, Node.js 또는 Java SDK를 사용해야 합니다.
 >
->Prior to REST API version 2015-06-03, the default collection indexing policy was Hash for both strings and numbers. This has been changed to Hash for strings, and Range for numbers. 
+>REST API 버전 2015-06-03 전에 기본 컬렉션 인덱싱 정책은 문자열과 숫자를 위한 해시였습니다. 문자열을 위한 해시 및 숫자에 대한 범위로 변경되었습니다.
 
-For more details see [DocumentDB indexing policies](documentdb-indexing-policies.md).
+자세한 내용은 [DocumentDB 색인 정책](documentdb-indexing-policies.md)을 참조하세요.
 
-### <a name="indexing-for-order-by-against-all-properties"></a>Indexing for Order By against all properties
-Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it. Here we override the default index type for string values to Range, and at the maximum precision (-1).
+### 모든 속성에 대한 Order By의 인덱싱
+다음은 JSON 문서 내에서 표시되는 임의/모든 숫자 또는 문자열 속성에 대해 Order By로 인덱싱된 "모든 범위"를 가지고 컬렉션을 만들 수 있는 방법입니다. 다음은 최대 전체 자릿수(-1)에서 범위에 대한 문자열 값의 기본 인덱스 유형을 무시합니다.
                    
     DocumentCollection books = new DocumentCollection();
     books.Id = "books";
@@ -79,10 +78,12 @@ Here's how you can create a collection with "All Range" indexing for Order By ag
     
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
->[AZURE.NOTE] Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex. For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.
+>[AZURE.NOTE] 오직 Order By이 RangeIndex로 인덱싱되는 데이터 형식(문자열 및 숫자)의 결과를 반환합니다. 예를 들어 숫자에 RangeIndex가 있는 기본 인덱싱 정책이 있다면 문자열 값을 가진 경로에 대한 Order By는 어떤 문서도 반환하지 않습니다.
+>
+> 컬렉션에 대한 파티션 키를 정의하는 경우 Order By는 단일 분할 키에 대해 필터링되는 쿼리 내에서만 지원됩니다.
 
-### <a name="indexing-for-order-by-for-a-single-property"></a>Indexing for Order By for a single property
-Here's how you can create a collection with indexing for Order By against just the Title property, which is a string. There are two paths, one for the Title property ("/Title/?") with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.                    
+### 단일 속성에 대한 Order By의 인덱싱
+다음은 문자열인 제목 속성에 대해 인덱스가 Order By인 컬렉션을 만들 수 있는 방법입니다. 범위 인덱싱을 가진 제목 속성("/Title/?")에 대한 경로와 기본 인덱싱 체계를 가진 다른 모든 속성에 대해 문자열에 대한 해시 및 숫자에 대한 범위인 경로 등 두 개의 경로가 있습니다.
     
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -94,56 +95,45 @@ Here's how you can create a collection with indexing for Order By against just t
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
 
 
-## <a name="samples"></a>Samples
-Take a look at this [Github samples project](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) that demonstrates how to use Order By, including creating indexing policies and paging using Order By. The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
+## 샘플
+정책 인덱싱 정책 만들기 및 Order By를 사용한 페이징을 포함하여 Order By를 사용하는 방법을 나타내는 이 [Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)을 살펴 보세요. 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)을 참조하세요.
 
-## <a name="faq"></a>FAQ
+## FAQ
 
-**What is the expected Request Unit (RU) consumption of Order By queries?**
+**Order By 쿼리의 예상된 요청 단위(RU) 소비**
 
-Since Order By utilizes the DocumentDB index for lookups, the number of request units consumed by Order By queries will be similar to the equivalent queries without Order By. Like any other operation on DocumentDB, the number of request units depends on the sizes/shapes of documents as well as the complexity of the query. 
+Order By는 조회에 대한 DocumentDB 인덱스를 사용하므로 Order By 쿼리에서 사용되는 요청 단위의 수는 Order By 없이 해당 쿼리와 유사합니다. DocumentDB에서의 다른 모든 작업과 마찬가지로, 요청 단위 수는 문서의 크기/모양 및 쿼리의 복잡성에 따라 달라집니다.
 
 
-**What is the expected indexing overhead for Order By?**
+**Order By에 대한 예상 인덱싱 오버헤드**
 
-The indexing storage overhead will be proportionate to the number of properties. In the worst case scenario, the index overhead will be 100% of the data. There is no difference in throughput (Request Units) overhead between Range/Order By indexing and the default Hash indexing.
+인덱싱 저장소 오버헤드는 속성의 수에 비례합니다. 최악의 경우, 인덱스 오버헤드는 데이터의 100%가 됩니다. 범위/Order By 인덱싱 및 기본 해시 인덱싱 사이의 처리량(요청 단위) 오버헤드에는 차이가 없습니다.
 
-**How do I query my existing data in DocumentDB using Order By?**
+**Order By를 사용하여 DocumentDB에서 기존 내 데이터를 쿼리하는 방법**
 
-In order to sort query results using Order By, you must modify the indexing policy of the collection to use a Range index type against the property used to sort. See [Modifying Indexing Policy](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection). 
+Order By를 사용하여 쿼리 결과를 정렬하기 위해 컬렉션의 인덱싱 정책을 수정하여 정렬하는 데 사용된 속성에 대해 범위 인덱스 형식을 사용해야 합니다. [인덱싱 정책 수정](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection)을 참조하세요.
 
-**What are the current limitations of Order By?**
+**Order By의 현재 제한 사항은 무엇입니까?**
 
-Order By can be specified only against a property, either numeric or String when it is range indexed with the Maximum Precision (-1).
+Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 인덱스된 범위인 경우에만 지정될 수 있습니다.
 
-You cannot perform the following:
+다음을 수행할 수 없습니다.
  
-- Order By with internal string properties like id, _rid, and _self (coming soon).
-- Order By with properties derived from the result of an intra-document join (coming soon).
-- Order By multiple properties (coming soon).
-- Order By with queries on databases, collections, users, permissions or attachments (coming soon).
-- Order By with computed properties e.g. the result of an expression or a UDF/built-in function.
+- id, \_rid 및 \_self(서비스 예정)와 같은 내부 문자열 속성으로 Order By
+- 문서 간 조인의 결과로 파생된 속성으로 Order By(서비스 예정).
+- 다중 속성으로 Order By(서비스 예정).
+- 데이터베이스, 컬렉션, 사용자, 사용 권한 또는 첨부 파일에 대한 쿼리로 Order By.(서비스 예정)
+- 표현식 또는 UDF/내장 함수의 결과와 같은 계산된 속성으로 Order By.
 
-Order By is not currently supported for cross-partition queries when using Query Explorer in the Azure portal.
+## 다음 단계
 
-## <a name="troubleshooting"></a>Troubleshooting
+[Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)를 분기하고 주문 데이터를 시작합니다.
 
-If you receive an error that Order By is not supported, check to ensure that you're using a version of the [SDK](documentdb-sdk-dotnet.md) that supports Order By. 
-
-## <a name="next-steps"></a>Next steps
-
-Fork the [Github samples project](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) and start ordering your data! 
-
-## <a name="references"></a>References
-* [DocumentDB Query Reference](documentdb-sql-query.md)
-* [DocumentDB Indexing Policy Reference](documentdb-indexing-policies.md)
-* [DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
+## 참조
+* [DocumentDB 쿼리 참조](documentdb-sql-query.md)
+* [DocumentDB 인덱싱 정책 참조](documentdb-indexing-policies.md)
+* [DocumentDB SQL 참조(영문)](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+* [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

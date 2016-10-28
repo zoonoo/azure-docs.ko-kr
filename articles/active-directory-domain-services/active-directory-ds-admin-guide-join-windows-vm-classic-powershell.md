@@ -1,126 +1,125 @@
 <properties
-    pageTitle="Azure Active Directory Domain Services: Administration Guide | Microsoft Azure"
-    description="Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model."
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+	pageTitle="Azure Active Directory Domain Services: 관리 가이드 | Microsoft Azure"
+	description="Windows 가상 컴퓨터를 Azure PowerShell 및 클래식 배포 모델을 사용하여 관리되는 도메인에 가입합니다."
+	services="active-directory-ds"
+	documentationCenter=""
+	authors="mahesh-unnikrishnan"
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="maheshu"/>
+	ms.service="active-directory-ds"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/20/2016"
+	ms.author="maheshu"/>
 
 
-
-# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>Join a Windows Server virtual machine to a managed domain using PowerShell
+# PowerShell을 사용하여 Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
 
 > [AZURE.SELECTOR]
-- [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
+- [Azure 클래식 포털 - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 - [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 
 <br>
 
-> [AZURE.IMPORTANT] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure AD Domain Services does not currently support the Resource Manager model.
+> [AZURE.IMPORTANT] Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. Azure AD 도메인 서비스는 현재 리소스 관리자 모델을 지원하지 않습니다.
 
-These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. These steps help you build a Windows-based Azure virtual machine and join it to an Azure AD Domain Services managed domain.
+다음 단계에서는 구성 요소 접근 방식을 사용하여 Windows 기반 Azure 가상 컴퓨터를 만들고 미리 구성하는 Azure PowerShell 명령 집합을 사용자 지정하는 방법을 보여 줍니다. 다음 단계는 Windows 기반 Azure 가상 컴퓨터를 빌드하고 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 데 도움이 됩니다.
 
-These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
+다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값을 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
+[Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
 
-## <a name="step-1:-add-your-account"></a>Step 1: Add your account
+## 1단계: 사용자 계정 추가
 
-1. At the PowerShell prompt, type **Add-AzureAccount** and click **Enter**.
-2. Type in the email address associated with your Azure subscription and click **Continue**.
-3. Type in the password for your account.
-4. Click **Sign in**.
+1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **입력**을 클릭합니다.
+2. Azure 구독과 연관된 메일 주소를 입력하고 **계속**을 클릭합니다.
+3. 계정에 암호를 입력합니다.
+4. **로그인**을 클릭합니다.
 
-## <a name="step-2:-set-your-subscription-and-storage-account"></a>Step 2: Set your subscription and storage account
+## 2단계: 구독 및 저장소 계정 설정
 
-Set your Azure subscription and storage account by running these commands at the Windows PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
+Windows PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure 구독 및 저장소 계정을 설정합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
-    $subscr="<subscription name>"
-    $staccount="<storage account name>"
-    Select-AzureSubscription -SubscriptionName $subscr –Current
-    Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
+	$subscr="<subscription name>"
+	$staccount="<storage account name>"
+	Select-AzureSubscription -SubscriptionName $subscr –Current
+	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you run the **Select-AzureSubscription** command.
+**Get-AzureSubscription** 명령의 출력에 표시된 SubscriptionName 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Select-AzureSubscription** 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 Label 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다.
 
 
-## <a name="step-3:-step-by-step-walkthrough---provision-the-virtual-machine-and-join-it-to-the-managed-domain"></a>Step 3: Step-by-step walkthrough - provision the virtual machine and join it to the managed domain
-Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.
+## 3단계: 단계별 연습 - 가상 컴퓨터 프로비전 및 관리되는 도메인에 가입
+다음은 이 가상 컴퓨터를 만드는 해당 Azure PowerShell 명령 집합입니다. 각 블록 사이의 빈 줄은 가독성을 위해 추가된 것입니다.
 
-Specify information about the Windows virtual machine to be provisioned.
+프로비전할 Windows 가상 컴퓨터에 대한 정보를 지정합니다.
 
     $family="Windows Server 2012 R2 Datacenter"
     $vmname="Contoso100-test"
     $vmsize="ExtraSmall"
 
-For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+D-, DS- 또는 G-시리즈 가상 컴퓨터에 대한 InstanceSize 값은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
-Provide information about the managed domain.
+관리되는 도메인에 대한 정보를 제공합니다.
 
     $domaindns="contoso100.com"
     $domacctdomain="contoso100"
 
-Specify the name of the cloud service.
+클라우드 서비스의 이름을 지정합니다.
 
     $svcname="Contoso100-test"
 
-Specify the name of the virtual network to which the VM should be joined. Ensure that the AAD-DS managed domain is available in this virtual network.
+VM이 가입되는 가상 네트워크의 이름을 지정합니다. AAD-DS 관리되는 도메인을 이 가상 네트워크에서 사용할 수 있는지 확인합니다.
 
     $vnetname="MyPreviewVnet"
 
-Select the VM image to be used to provision the VM.
+VM을 프로비전하는 데 사용할 VM 이미지를 선택합니다.
 
     $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-Configure the VM - set VM name, instance size & image to be used.
+VM을 구성합니다. VM 이름, 인스턴스 크기 및 사용할 이미지를 설정합니다.
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-Obtain local administrator credentials for the VM. Choose a strong local administrator password.
+VM에 대한 로컬 관리자 자격 증명을 가져옵니다. 강력한 로컬 관리자 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
 
     $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
 
-Obtain credentials for a user account belonging to 'AAD DC Administrators' group to join VM to the managed domain. Do not specify the domain name - for instance, in our example, we specify 'bob' as the user name.
+VM이 관리되는 도메인에 가입하려면 'AAD DC 관리자' 그룹에 속하는 사용자 계정의 자격 증명을 얻습니다. 도메인 이름을 지정하지 않습니다. 예를 들어 예제에서는 'bob'을 사용자 이름으로 지정합니다.
 
     $domainadmincred=Get-Credential –Message "Now type the name (DO NOT INCLUDE THE DOMAIN) and password of an account in the AAD DC Administrators group, that has permission to add the machine to the domain."
 
-Configure the VM - specify domain join requirement & required credentials.
+VM을 구성합니다. 도메인 가입 요구 사항 및 필요한 자격 증명을 지정합니다.
 
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $localadmincred.Username -Password $localadmincred.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $domainadmincred.Username -DomainPassword $domainadmincred.GetNetworkCredential().Password -JoinDomain $domaindns
 
-Set a subnet for the VM.
+VM에 대한 서브넷을 설정합니다.
 
     $vm1 | Set-AzureSubnet -SubnetNames "Subnet-1"
 
-Optional: Point to the IP address of the domain. If you set the IP addresses of the Azure AD Domain Services managed domain to be the DNS servers for the virtual network, this step is not required.
+선택 사항: 도메인의 IP 주소를 가리키도록 합니다. 가상 네트워크에 대한 DNS 서버가 되도록 Azure AD 도메인 서비스 관리되는 도메인의 IP 주소를 설정하는 경우 이 단계가 필요하지 않습니다.
 
     $dns = New-AzureDns -Name 'contoso100-dc1' -IPAddress '10.0.0.4'
 
-Now, provision the domain-joined Windows VM.
+이제 도메인에 가입된 Windows VM을 프로비전합니다.
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
 <br>
 
-## <a name="script-to-provision-a-windows-vm-and-automatically-join-it-to-an-aad-domain-services-managed-domain"></a>Script to provision a Windows VM and automatically join it to an AAD Domain Services managed domain
-This PowerShell command set creates a virtual machine for a line-of-business server that:
+## Windows VM을 프로비전하고 AAD 도메인 서비스 관리되는 도메인에 자동으로 가입하는 스크립트
+이 PowerShell 명령 집합은 다음과 같은 LOB(기간 업무) 서버용 가상 컴퓨터를 만듭니다.
 
-- Uses the Windows Server 2012 R2 Datacenter image.
-- Is an extra small virtual machine.
-- Has the name contoso-test.
-- Is automatically domain joined to the contoso100 managed domain.
-- Is added to the same virtual network as the managed domain.
+- Windows Server 2012 R2 Datacenter 이미지를 사용함
+- 매우 작은 가상 컴퓨터임
+- 이름이 contoso-test임
+- contoso100 관리되는 도메인에 자동으로 가입된 도메인임
+- 관리되는 도메인과 동일한 가상 네트워크에 추가됨
 
-Here is the full sample script to create the Windows virtual machine and automatically join it to the Azure AD Domain Services managed domain.
+Windows 가상 컴퓨터를 만들고 자동으로 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 전체 샘플 스크립트는 다음과 같습니다.
 
     $family="Windows Server 2012 R2 Datacenter"
     $vmname="Contoso100-test"
@@ -150,13 +149,9 @@ Here is the full sample script to create the Windows virtual machine and automat
 
 <br>
 
-## <a name="related-content"></a>Related Content
-- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
+## 관련 콘텐츠
+- [Azure AD 도메인 서비스 - 시작 가이드](./active-directory-ds-getting-started.md)
 
-- [Administer an Azure AD Domain Services managed domain](./active-directory-ds-admin-guide-administer-domain.md)
+- [Azure AD 도메인 서비스 관리되는 도메인 관리](./active-directory-ds-admin-guide-administer-domain.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

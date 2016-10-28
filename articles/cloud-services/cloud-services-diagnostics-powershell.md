@@ -1,135 +1,130 @@
 <properties
-    pageTitle="Enable diagnostics in Azure Cloud Services using PowerShell | Microsoft Azure"
-    description="Learn how to enable diagnostics for cloud services using PowerShell"
-    services="cloud-services"
-    documentationCenter=".net"
-    authors="Thraka"
-    manager="timlt"
-    editor=""/>
+	pageTitle="PowerShell을 사용하여 Azure 클라우드 서비스에 진단 사용 | Microsoft Azure"
+	description="PowerShell을 사용하여 클라우드 서비스에 진단을 사용하도록 설정하는 방법을 알아봅니다."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="adegeo"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="adegeo"/>
 
 
+# PowerShell을 사용하여 Azure 클라우드 서비스에 진단 사용
 
-# <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Enable diagnostics in Azure Cloud Services using PowerShell
+Azure 진단 확장을 사용하여 클라우드 서비스로부터 응용 프로그램 로그, 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 PowerShell을 사용하여 클라우드 서비스에 대해 Azure 진단 확장을 사용하도록 설정하는 방법을 설명합니다. 이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
-You can collect diagnostic data like application logs, performance counter etc. from a Cloud Service using the Azure Diagnostics extension. This article describes how to enable the Azure Diagnostics extension for a Cloud Service using PowerShell.  See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the prerequisites needed for this article.
+## 클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
 
-## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Enable diagnostics extension as part of deploying a Cloud Service
+이 접근 방식은 진단 확장이 클라우드 서비스의 배포 중 일부로 사용될 수 있는 연속 통합 형식의 시나리오에 유용합니다. 새 클라우드 서비스 배포를 만들 경우 *ExtensionConfiguration* 매개 변수에서 [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx) cmdlet으로 전달하여 진단 확장을 사용할 수 있습니다. *ExtensionConfiguration* 매개 변수는 [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx) cmdlet을 사용하여 만들 수 있는 진단 구성 배열을 사용합니다.
 
-This approach of good for continuous integration type of scenarios where the diagnostics extension can be enabled as part of deploying the cloud service. When creating a new Cloud Service deployment you can enable the diagnostics extension by passing in the *ExtensionConfiguration* parameter to the [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx) cmdlet. The *ExtensionConfiguration* parameter takes an array of diagnostics configurations that can be created using the [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx) cmdlet.
+다음 예제는 각각 진단 구성이 다른 WebRole 및 WorkerRole을 사용하여 클라우드 서비스에 대해 진단을 사용하도록 설정하는 방법을 보여줍니다.
 
-The following example shows how you can enable diagnostics for a cloud service with a WebRole and WorkerRole each having a different diagnostics configuration.
+	$service_name = "MyService"
+	$service_package = "CloudService.cspkg"
+	$service_config = "ServiceConfiguration.Cloud.cscfg"
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
+	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-    $service_name = "MyService"
-    $service_package = "CloudService.cspkg"
-    $service_config = "ServiceConfiguration.Cloud.cscfg"
-    $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
-    $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
 
-    $webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
-    $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
+	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 
-    New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
+진단 구성 파일이 저장소 계정 이름으로 StorageAccount 요소를 지정할 경우 New-AzureServiceDiagnosticsExtensionConfig cmdlet에서 해당 저장소 계정을 자동으로 사용합니다. 이렇게 작동하려면, 저장소 계정이 배포된 클라우드 서비스와 동일한 구독에 있어야 합니다.
 
-If the diagnostics configuration file specifies a StorageAccount element with a storage account name, then the New-AzureServiceDiagnosticsExtensionConfig cmdlet will automatically use that storage account. For this to work, the storage account needs to be in the same subscription as the Cloud Service being deployed.
+Azure SDK 2.6 이후부터 MSBuild 게시 대상 출력에 의해 생성된 확장 구성 파일은 서비스 구성 파일(.cscfg)에 지정된 진단 구성 문자열에 기반한 저장소 계정 이름을 포함합니다. 아래의 스크립트에서는 게시 대상 출력에서 확장 구성 파일을 구문 분석하고 클라우드 서비스를 배포할 때 각 역할에 대한 진단 확장을 구성하는 방법을 보여줍니다.
 
-From Azure SDK 2.6 onward the extension configuration files generated by the MSBuild publish target output will include the storage account name based on the diagnostics configuration string specified in the service configuration file (.cscfg). The script below shows you how to parse the Extension configuration files from the publish target output and configure diagnostics extension for each role when deploying the cloud service.
+	$service_name = "MyService"
+	$service_package = "C:\build\output\CloudService.cspkg"
+	$service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
 
-    $service_name = "MyService"
-    $service_package = "C:\build\output\CloudService.cspkg"
-    $service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
+	#Find the Extensions path based on service configuration file
+	$extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
 
-    #Find the Extensions path based on service configuration file
-    $extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
+	$diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
+	$diagnosticsConfigurations = @()
+	foreach ($extPath in $diagnosticsExtensions)
+	{
+	#Find the RoleName based on file naming convention PaaSDiagnostics.<RoleName>.PubConfig.xml
+	$roleName = ""
+	$roles = $extPath -split ".",0,"simplematch"
+	if ($roles -is [system.array] -and $roles.Length -gt 1)
+	    {
+	    $roleName = $roles[1]
+	    $x = 2
+	    while ($x -le $roles.Length)
+	        {
+	           if ($roles[$x] -ne "PubConfig")
+	            {
+	                $roleName = $roleName + "." + $roles[$x]
+	            }
+	            else
+	            {
+	                break
+	            }
+	            $x++
+	        }
+	    $fullExtPath = Join-Path -path $extensionsSearchPath -ChildPath $extPath
+	    $diagnosticsconfig = New-AzureServiceDiagnosticsExtensionConfig -Role $roleName -DiagnosticsConfigurationPath $fullExtPath
+	    $diagnosticsConfigurations += $diagnosticsconfig
+	    }
+	}
+	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
 
-    $diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
-    $diagnosticsConfigurations = @()
-    foreach ($extPath in $diagnosticsExtensions)
-    {
-    #Find the RoleName based on file naming convention PaaSDiagnostics.<RoleName>.PubConfig.xml
-    $roleName = ""
-    $roles = $extPath -split ".",0,"simplematch"
-    if ($roles -is [system.array] -and $roles.Length -gt 1)
-        {
-        $roleName = $roles[1]
-        $x = 2
-        while ($x -le $roles.Length)
-            {
-               if ($roles[$x] -ne "PubConfig")
-                {
-                    $roleName = $roleName + "." + $roles[$x]
-                }
-                else
-                {
-                    break
-                }
-                $x++
-            }
-        $fullExtPath = Join-Path -path $extensionsSearchPath -ChildPath $extPath
-        $diagnosticsconfig = New-AzureServiceDiagnosticsExtensionConfig -Role $roleName -DiagnosticsConfigurationPath $fullExtPath
-        $diagnosticsConfigurations += $diagnosticsconfig
-        }
-    }
-    New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
+Visual Studio Online은 진단 확장으로 클라우드 서비스의 자동화된 배포에 대해 유사한 접근 방식을 사용합니다. 전체 예제는 [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1)을 참조하세요.
 
-Visual Studio Online uses a similar approach for automated deploymnts of Cloud Services with the diagnostics extension. See [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) for a complete example.
+진단 구성에 StorageAccount가 지정되지 않은 경우 cmdlet에 StorageAccountName 매개 변수를 전달해야 합니다. StorageAccountName 매개 변수가 지정된 경우 cmdlet은 항상 진단 구성 파일에 지정된 저장소 계정이 아닌 매개 변수에 지정된 저장소 계정을 사용합니다.
 
-If no StorageAccount was specified in the diagnostics configuration, then you need to pass in the StorageAccountName parameter to the cmdlet. If the StorageAccountName parameter is specified, then the cmdlet will always use the storage account that is specified in the parameter and not the one that is specified in the diagnostics configuration file.
+진단 저장소 계정이 클라우드 서비스와 다른 구독에 있는 경우 StorageAccountName 및 StorageAccountKey 매개 변수를 cmdlet에 명시적으로 전달해야 합니다. 진단 저장소 계정이 동일한 구독에 있는 경우 진단 확장을 사용하도록 설정하면 cmdlet이 키 값을 자동으로 쿼리하고 설정할 수 있으므로 StorageAccountKey 매개 변수가 필요하지 않습니다. 하지만 진단 저장소 계정이 다른 구독에 있는 경우에는 cmdlet이 자동으로 키를 얻지 못할 수 있으며, 사용자가 StorageAccountKey 매개 변수를 통해 키를 명시적으로 지정해야 합니다.
 
-If the diagnostics storage account is in a different subscription from the Cloud Service, then you need to explicitly pass in the StorageAccountName and StorageAccountKey parameters to the cmdlet. The StorageAccountKey parameter is not needed when the diagnostics storage account is in the same subscription, as the cmdlet can automatically query and set the key value when enabling the diagnostics extension. However, if the diagnostics storage account is in a different subscription, then the cmdlet might not be able to get the key automatically and you need to explicitly specify the key through the StorageAccountKey parameter.
-
-    $webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
-    $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
-
-
-## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>Enable diagnostics extension on an existing Cloud Service
-
-You can use the [Set-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589140.aspx) cmdlet to enable or update diagnostics configuration on a Cloud Service that is already running.
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
 
-    $service_name = "MyService"
-    $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
-    $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
+## 기존 클라우드 서비스에 진단 확장을 사용하도록 설정
 
-    $webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
-    $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-
-    Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name
+[Set-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589140.aspx) cmdlet을 사용하여 이미 실행 중인 클라우드 서비스에 진단 구성을 사용하거나 업데이트할 수 있습니다.
 
 
-## <a name="get-current-diagnostics-extension-configuration"></a>Get current diagnostics extension configuration
-Use the [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) cmdlet to get the current diagnostics configuration for a cloud service.
+	$service_name = "MyService"
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
+	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-    Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
 
-## <a name="remove-diagnostics-extension"></a>Remove diagnostics extension
-To turn off diagnostics on a cloud service you can use the [Remove-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589183.aspx) cmdlet.
-
-    Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
-
-If you enabled the diagnostics extension using either *Set-AzureServiceDiagnosticsExtension* or the *New-AzureServiceDiagnosticsExtensionConfig* without the *Role* parameter then you can remove the extension using *Remove-AzureServiceDiagnosticsExtension* without the *Role* parameter. If the *Role* parameter was used when enabling the extension then it must also be used when removing the extension.
-
-To remove the diagnostics extension from each individual role:
-
-    Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
+	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name
 
 
-## <a name="next-steps"></a>Next Steps
+## 현재 진단 확장 구성 가져오기
+[Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) cmdlet을 사용하여 클라우드 서비스에 대한 현재 진단 구성을 가져올 수 있습니다.
 
-- For additional guidance on using Azure diagnostics and other techniques to troubleshoot problems, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md).
-- The [Diagnostics Configuration Schema](https://msdn.microsoft.com/library/azure/dn782207.aspx) explains the various xml configurations options for the diagnostics extension.
-- To learn how to enable the diagnostics extension for Virtual Machines, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)  
+	Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
+
+## 진단 확장 제거
+클라우드 서비스에서 진단을 해제하려면 [Remove-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589183.aspx) cmdlet을 사용합니다.
+
+	Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
+
+*Role* 매개 변수 없이 *Set-AzureServiceDiagnosticsExtension* 또는 *New-AzureServiceDiagnosticsExtensionConfig*를 사용하여 진단 확장을 사용하도록 설정한 경우에는 *Role* 매개 변수 없이 *Remove-AzureServiceDiagnosticsExtension*을 사용하여 확장을 제거할 수 있습니다. *Role* 매개 변수가 확장을 사용하도록 설정할 때 사용되었으면, 확장을 제거할 때도 사용되어야 합니다.
+
+각각의 개별 역할에서 진단 확장을 제거하려면:
+
+	Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 
+## 다음 단계
 
-<!--HONumber=Oct16_HO2-->
+- 문제 해결을 위한 Azure 진단 및 기타 기법 사용에 대한 추가 지침은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
+- [진단 구성 스키마](https://msdn.microsoft.com/library/azure/dn782207.aspx)는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
+- 가상 컴퓨터에 대해 진단 확장을 사용하도록 설정하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿을 사용한 모니터링 및 진단으로 Windows 가상 컴퓨터 만들기(영문)](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)를 참조하세요.
 
-
+<!---HONumber=AcomDC_0914_2016-->

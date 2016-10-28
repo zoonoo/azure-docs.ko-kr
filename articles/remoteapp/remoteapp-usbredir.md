@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="How do you redirect USB devices in Azure RemoteApp? | Microsoft Azure" 
-    description="Learn how to use redirection for USB devices in Azure RemoteApp." 
+    pageTitle="Azure RemoteApp에서 USB 장치를 리디렉션하려면 어떻게 합니까? | Microsoft Azure" 
+    description="Azure RemoteApp에서 USB 장치에 대해 리디렉션을 사용하는 방법을 알아봅니다." 
     services="remoteapp" 
-    documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -17,74 +17,67 @@
 
 
 
-
-# <a name="how-do-you-redirect-usb-devices-in-azure-remoteapp?"></a>How do you redirect USB devices in Azure RemoteApp?
+# Azure RemoteApp에서 USB 장치를 리디렉션하려면 어떻게 합니까?
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-Device redirection lets users use the USB devices attached to their computer or tablet with the apps in Azure RemoteApp. For example, if you shared Skype through Azure RemoteApp, your users need to be able to use their device cameras.
+장치 리디렉션을 통해 사용자가 자신의 컴퓨터나 Azure RemoteApp의 앱과 태블릿에 연결된 USB 장치를 사용할 수 있습니다. 예를 들어 Azure RemoteApp을 통해 Skype를 공유한 경우 사용자가 자신의 장치 카메라를 사용할 수 있어야 합니다.
 
-Before you go further, make sure you read the USB redirection information in [Using redirection in Azure RemoteApp](remoteapp-redirection.md). However the recommended  nusbdevicestoredirect:s:* won't work for USB web cameras and may not work for some USB printers or USB multifunctional devices. By design and for security reasons, the Azure RemoteApp administrator has to enable redirection either by device class GUID or by device instance ID before your users can use those devices.
+계속 진행하기 전에 [Azure RemoteApp에서 리디렉션 사용](remoteapp-redirection.md)의 USB 리디렉션 정보를 읽으세요. 그러나 권장 nusbdevicestoredirect:s:*는 USB 웹 카메라에 대해 작동하지 않으며 일부 USB 프린터 또는 USB 다기능 장치에 대해 작동하지 않을 수 있습니다. 설계 특성상 그리고 보안상의 이유로 Azure RemoteApp 관리자가 장치 클래스 GUID 또는 장치 인스턴스 ID에 의해 리디렉션을 사용하도록 설정해야 사용자가 해당 장치를 사용할 수 있습니다.
 
-Although this article talks about web camera redirection, you can use a similar approach to redirect USB printers and other USB multifunctional devices that are not redirected by the **nusbdevicestoredirect:s:*** command.
+이 문서에서는 웹 카메라 리디렉션에 대해 이야기하고 있지만 USB 프린터 및 **nusbdevicestoredirect:s:*** 명령으로 리디렉션하지 않는 기타 USB 다기능 장치를 리디렉션할 때에도 유사한 방법을 사용할 수 있습니다.
 
-## <a name="redirection-options-for-usb-devices"></a>Redirection options for USB devices
-Azure RemoteApp uses very similar mechanisms for redirecting USB devices as the ones available for Remote Desktop Services. The underlying technology lets you choose the correct redirection method for a given device, to get the best of both high-level and RemoteFX USB device redirection using the **usbdevicestoredirect:s:** command. There are four elements to this command:
+## USB 장치에 대한 리디렉션 옵션
+Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 것과 매우 유사한 메커니즘을 USB 장치 리디렉션에 사용합니다. 기반 기술을 통해 지정된 장치에 알맞은 리디렉션 방법을 선택하고**usbdevicestoredirect:s:** 명령을 사용하여 고급 및 RemoteFX USB 장치 리디렉션을 모두 최대한 이용할 수 있습니다. 이 명령에 4개의 요소가 있습니다.
 
-| Processing order | Parameter           | Description                                                                                                                |
+| 처리 순서 | 매개 변수 | 설명 |
 |------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|
-| 1                | *                   | Selects all devices that aren't picked up by high-level redirection. Note: By design, * doesn't work for USB web cameras.  |
-|                  | {Device class GUID} | Selects all devices that match the specified device setup class.                                                           |
-|                  | USB\InstanceID      | Selects a USB device specified for the given instance ID.                                                                  |
-| 2                | -USB\Instance ID    | Removes the redirection settings for the specified device.                                                                 |
+| 1 | * | 고급 리디렉션에 의해 선택되지 않은 모든 장치를 선택합니다. 참고: 설계상 USB 웹 카메라에 대해서는 *가 작동하지 않습니다. |
+| | {장치 클래스 GUID} | 지정된 장치 설정 클래스와 일치하는 모든 장치를 선택합니다. |
+| | USB\\InstanceID | 지정된 인스턴스 ID에 대해 지정된 USB 장치를 선택합니다. |
+| 2 | -USB\\인스턴스 ID | 지정된 장치에 대한 리디렉션 설정을 제거합니다. |
 
-## <a name="redirecting-a-usb-device-by-using-the-device-class-guid"></a>Redirecting a USB device by using the device class GUID
-There are two ways to find the device class GUID that can be used for redirection. 
+## 장치 클래스 GUID를 사용하여 USB 장치 리디렉션
+두 가지 방법으로 리디렉션에 사용할 수 있는 장치 클래스 GUID를 찾을 수 있습니다.
 
-The first option is to use the [System-Defined Device Setup Classes Available to Vendors](https://msdn.microsoft.com/library/windows/hardware/ff553426.aspx). Pick the class that most closely matches the device attached to the local computer. For digital cameras this could be an Imaging Device class or Video Capture Device class. You'll need to do some experimentation with the device classes to find the correct class GUID that works with the locally attached USB device (in our case the web camera).
+첫 번째 옵션은 [공급업체에 사용할 수 있도록 시스템에서 정의한 장치 설정 클래스](https://msdn.microsoft.com/library/windows/hardware/ff553426.aspx)를 사용하는 것입니다. 로컬 컴퓨터에 연결된 장치와 가장 가깝게 일치하는 클래스를 선택합니다. 디지털 카메라의 경우 이 클래스는 이미징 장치 클래스 또는 비디오 캡처 장치 클래스일 수 있습니다. 로컬 컴퓨터에 연결된 USB 장치(이 경우 웹 카메라)에서 작동하는 정확한 클래스 GUID를 찾으려면 장치 클래스를 몇 번 실험해 보아야 합니다.
 
-A better way, or the second option, is to follow these steps to find the specific device class GUID:
+더 나은 방법 또는 두 번째 옵션은 다음 단계를 수행하여 특정 장치 클래스 GUID를 찾는 것입니다.
 
-1. Open the Device Manager, locate the device that will be redirected and right-click it, and then open the properties.
-![Open the Device Manager](./media/remoteapp-usbredir/ra-devicemanager.png)
-2. On the **Details** tab, choose the property **Class Guid**. The value which appears is the Class GUID for that type of device.
-![Camera properties](./media/remoteapp-usbredir/ra-classguid.png)
-3. Use the Class Guid value to redirect devices that match it.
+1. 장치 관리자를 열고 리디렉션할 장치를 찾아서 마우스 오른쪽 단추로 클릭한 다음 속성을 엽니다. ![장치 관리자 열기](./media/remoteapp-usbredir/ra-devicemanager.png)
+2. **세부 정보** 탭에서 속성 **클래스 Guid**를 선택합니다. 이때 나타나는 값이 해당 유형의 장치에 대한 클래스 GUID입니다. ![카메라 속성](./media/remoteapp-usbredir/ra-classguid.png)
+3. 클래스 Guid 값을 사용하여 일치하는 장치를 리디렉션합니다.
 
-For example:
+예:
 
-        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
-You can combine multiple device redirections in the same cmdlet. For example: to redirect local storage and a USB web camera, cmdlet looks like this:
+동일한 Cmdlet에서 여러 장치 리디렉션을 결합할 수 있습니다. 예: 로컬 저장소와 USB 웹 카메라를 리디렉션하려면 Cmdlet은 다음과 같습니다.
 
-        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
-When you set device redirection by class GUID all devices that match that class GUID in the specified collection are redirected. For example, if there are multiple computers on the local network that have the same USB web cameras, you can run a single cmdlet to redirect all of the web cameras.
+클래스 GUID에 의해 장치 리디렉션을 설정하면 지정된 컬렉션에서 해당 클래스 GUID와 일치하는 모든 장치가 리디렉션됩니다. 예를 들어 로컬 네트워크에 동일한 USB 웹 카메라를 가진 여러 대의 컴퓨터가 있는 경우 단일 Cmdlet을 실행하여 모든 웹 카메라를 리디렉션할 수 있습니다.
 
-## <a name="redirecting-a-usb-device-by-using-the-device-instance-id"></a>Redirecting a USB device by using the device instance ID
+## 장치 인스턴스 GUID를 사용하여 USB 장치 리디렉션
 
-If you want more fine-grained control and want to control redirection per device, you can use the **USB\InstanceID** redirection parameter.
+더 정밀한 제어를 원하여 장치별로 리디렉션을 제어하려면 **USB\\InstanceID** 리디렉션 매개 변수를 사용할 수 있습니다.
 
-The hardest part of this method is finding the USB device instance ID. You'll need access to the computer and the specific USB device. Then follow these steps:
+이 방법의 가장 어려운 부분은 USB 장치 인스턴스 ID를 찾는 것입니다. 컴퓨터 및 특정 USB 장치에 액세스해야 합니다. 그러고 나서 다음 단계를 수행합니다.
 
-1. Enable the device redirection in Remote Desktop Session as described in [How can I use my devices and resources in a Remote Desktop session?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
-2. Open a Remote Desktop Connection and click **Show Options**.
-3. Click **Save as** to save the current connection settings to an RDP file.  
-    ![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
-4. Choose a file name and a location, for example “MyConnection.rdp” and “This PC\Documents”, and save the file.
-5. Open the MyConnection.rdp file using a text editor and find the instance ID of the device you want to redirect.
+1. [Remote Desktop 세션에서 내 장치와 리소스를 어떻게 사용할 수 있습니까?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)에서 설명한 대로 원격 데스크톱 세션에서 장치 리디렉션을 사용하도록 설정합니다.
+2. 원격 데스크톱 연결을 열고 **옵션 표시**를 클릭합니다.
+3. **다른 이름으로 저장**을 클릭하여 현재 연결 설정을 RDP 파일에 저장합니다. ![설정을 RDP 파일로 저장](./media/remoteapp-usbredir/ra-saveasrdp.png)
+4. 파일 이름과 위치, 예를 들어 “MyConnection.rdp” 및 “This PC\\Documents”를 선택하고 파일을 저장합니다.
+5. 텍스트 편집기를 사용하여 MyConnection.rdp 파일을 열고 리디렉션할 장치의 인스턴스 ID를 찾습니다.
 
-Now, use the instance ID in the following cmdlet:
+이제 다음 Cmdlet에서 인스턴스 ID를 사용합니다.
 
-    Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB\<Device InstanceID value>"
+	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
-### <a name="help-us-help-you"></a>Help us help you 
-Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
+### 의견 보내기 
+이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,129 +1,134 @@
 <properties
-    pageTitle="How Traffic Manager Works | Microsoft Azure"
-    description="This article explains how Azure Traffic Manager works"
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
+   pageTitle="트래픽 관리자 작동 방식 | Microsoft Azure"
+   description="이 문서는 Azure 트래픽 관리자 작동 방식을 이해하는 데 도움이 됩니다."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn"/>
+
 <tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="06/07/2016"
+   ms.author="sewhee"/>
 
+# 트래픽 관리자 작동 방식
 
-# <a name="how-traffic-manager-works"></a>How Traffic Manager works
+Azure 트래픽 관리자를 사용하면 응용 프로그램 끝점에서 트래픽을 분산하는 방법을 제어할 수 있습니다. 끝점은 Azure에 호스트되거나 또는 Azure 외부에 있는 모든 인터넷 연결 끝점이 될 수 있습니다.
 
-Azure Traffic Manager enables you to control the distribution of traffic across your application endpoints. An endpoint is any Internet-facing service hosted inside or outside of Azure.
+트래픽 관리자는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
-Traffic Manager provides two key benefits:
+1. 여러 가지 [트래픽 라우팅 메서드](traffic-manager-routing-methods.md) 중 하나에 따라 트래픽 분산
+2. [끝점 상태 연속 모니터링](traffic-manager-monitoring.md) 및 끝점이 실패할 경우 자동 장애 조치(failover)
 
-1. Distribution of traffic according to one of several [traffic-routing methods](traffic-manager-routing-methods.md)
-2. [Continuous monitoring of endpoint health](traffic-manager-monitoring.md) and automatic failover when endpoints fail
+최종 사용자가 서비스 끝점에 연결하려고 하는 경우 먼저 해당 클라이언트(PC, 휴대폰 등)가 해당 끝점의 DNS 이름을 IP 주소로 확인해야 합니다. 그런 다음 클라이언트는 해당 IP 주소에 연결하여 서비스에 액세스합니다.
 
-When a client attempts to connect to a service, it must first resolve the DNS name of the service to an IP address. The client then connects to that IP address to access the service.
+**가장 중요한 사항은 트래픽 관리자가 DNS 수준에서 작동한다는 점입니다.** 트래픽 관리자는 DNS를 사용하여 최종 사용자를 선택된 트래픽 라우팅 메서드 및 현재 끝점 상태에 따라 특정 서비스 끝점으로 보냅니다. 그러면 클라이언트는 선택한 끝점에 **직접** 연결됩니다. 트래픽 관리자는 프록시가 아니며 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
 
-**The most important point to understand is that Traffic Manager works at the DNS level.**  Traffic Manager uses DNS to direct clients to specific service endpoints based on the rules of the traffic-routing method. Clients connect to the selected endpoint **directly**. Traffic Manager is not a proxy or a gateway. Traffic Manager does not see the traffic passing between the client and the service.
+## 트래픽 관리자 예제
 
-## <a name="traffic-manager-example"></a>Traffic Manager example
+Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털에 대한 URL은 https://partners.contoso.com/login.aspx입니다. 응용 프로그램은 Azure에 호스트되며 가용성을 개선하고 전역 성능을 최대화하기 위해 전 세계 3개 지역에 응용 프로그램을 배포하고 트래픽 관리자를 사용하여 최종 사용자를 사용 가능한 가장 가까운 끝점에 분산하고자 합니다.
 
-Contoso Corp have developed a new partner portal. The URL for this portal is https://partners.contoso.com/login.aspx. The application is hosted in three regions of Azure. To improve availability and maximize global performance, they use Traffic Manager to distribute client traffic to the closest available endpoint.
+이 구성을 설정하려면
 
-To achieve this configuration:
+- 3개의 서비스 인스턴스를 배포합니다. 이러한 배포의 DNS 이름은 'contoso us.cloudapp.net', 'contoso eu.cloudapp.net' 및 'contoso asia.cloudapp.net'입니다.
+- 그런 다음 위에 명시된 3개의 끝점에서 '성능' 트래픽 라우팅 메서드를 사용하도록 구성된 'contoso.trafficmanager.net'이라는 이름의 트래픽 관리자 프로필을 만듭니다.
+- 마지막으로, DNS CNAME 레코드를 사용하여 'contoso.trafficmanager.net'을 가리키는 베니티 도메인 'partners.contoso.com'을 구성합니다.
 
-- They deploy three instances of their service. The DNS names of these deployments are 'contoso-us.cloudapp.net', 'contoso-eu.cloudapp.net', and 'contoso-asia.cloudapp.net'.
-- They then create a Traffic Manager profile, named 'contoso.trafficmanager.net', and configure it to use the 'Performance' traffic-routing method across the three endpoints.
-- Finally, they configure their vanity domain name, 'partners.contoso.com', to point to 'contoso.trafficmanager.net', using a DNS CNAME record.
+![트래픽 관리자 DNS 구성][1]
 
-![Traffic Manager DNS configuration][1]
+> [AZURE.NOTE] Azure 트래픽 관리자에서 베니티 도메인을 사용할 때는 베니티 도메인 이름을 트래픽 관리자 도메인 이름으로 가리키는 CNAME을 사용해야 합니다.
 
-> [AZURE.NOTE] When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards do not allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you cannot create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend using a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
+> DNS 표준의 제한으로 인해 도메인의 '루트'에서 CNAME을 만들 수 없습니다. 따라서 'contoso.com'('naked' 도메인이라고도 함)에 대한 CNAME을 만들 수 없습니다. 'contoso.com'의 도메인(예: 'www.contoso.com')에 대해서만 CNAME을 만들 수 있습니다.
 
-## <a name="how-clients-connect-using-traffic-manager"></a>How clients connect using Traffic Manager
+> 따라서 naked 도메인과 직접 트래픽 관리자를 사용할 수 없습니다. 이 문제를 해결하려면 간단한 HTTP 리디렉션을 사용하여 대체 이름(예: 'www.contoso.com')으로 'contoso.com'에 대한 요청을 보내는 것이 좋습니다.
 
-Continuing from the previous example, when a client requests the page https://partners.contoso.com/login.aspx, the client performs the following steps to resolve the DNS name and establish a connection:
+## 트래픽 관리자를 사용하여 클라이언트를 연결하는 방법
 
-![Connection establishment using Traffic Manager][2]
+위 예제에 설명된 대로 최종 사용자가 https://partners.contoso.com/login.aspx 페이지를 요청하는 경우 해당 클라이언트는 다음 단계를 수행하여 DNS 이름을 확인하고 연결합니다.
 
-1. The client sends a DNS query to its configured recursive DNS service to resolve the name 'partners.contoso.com'. A recursive DNS service, sometimes called a 'local DNS' service, does not host DNS domains directly. Rather, the client off-loads the work of contacting the various authoritative DNS services across the Internet needed to resolve a DNS name.
-2. To resolve the DNS name, the recursive DNS service finds the name servers for the 'contoso.com' domain. It then contacts those name servers to request the 'partners.contoso.com' DNS record. The contoso.com DNS servers return the CNAME record that points to contoso.trafficmanager.net.
-3. Next, the recursive DNS service finds the name servers for the 'trafficmanager.net' domain, which are provided by the Azure Traffic Manager service. It then sends a request for the 'contoso.trafficmanager.net' DNS record to those DNS servers.
-4. The Traffic Manager name servers receive the request. They choose an endpoint based on:
+![트래픽 관리자를 사용하여 연결 설정][2]
 
-    * The configured state of each endpoint (disabled endpoints are not returned)
-    * The current health of each endpoint, as determined by the Traffic Manager health checks. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md).
-    * The chosen traffic-routing method. For more information, see [Traffic Manager Routing Methods](traffic-manager-routing-methods.md).
+1.	클라이언트(PC, 휴대폰 등)는 'partners.contoso.com'에 대한 DNS 쿼리를 구성된 재귀 DNS 서비스로 만듭니다. ('로컬 DNS' 서비스라고도 하는 재귀 DNS 서비스는 DNS 도메인을 직접 호스트하지 않습니다. 대신 DNS 이름을 확인하는 데 필요한 인터넷에서 권한 있는 다양한 DNS 서비스를 연결하는 작업을 오프로드하기 위해 클라이언트에서 사용합니다.
+2.	이제 재귀 DNS 서비스가 'partners.contoso.com' DNS 이름을 확인합니다. 먼저 재귀 DNS 서비스는 'contoso.com' 도메인에 대한 이름 서버를 찾습니다. 그런 다음 이러한 이름 서버에 연결하여 'partners.contoso.com' DNS 레코드를 요청합니다. contoso.trafficmanager.net에 대한 CNAME이 반환됩니다.
+3.	이제 재귀 DNS 서비스는 Azure 트래픽 관리자 서비스에서 제공하는 'trafficmanager.net' 도메인에 대한 이름 서버를 찾습니다. 이러한 이름 서버에 연결하여 'contoso.trafficmanager.net' DNS 레코드를 요청합니다.
+4.	트래픽 관리자 이름 서버가 요청을 받습니다. 그런 다음, 다음 사항에 따라 어떤 끝점이 반환되어야 하는지 선택합니다. a. 각 끝점의 사용/사용 안 함 상태(사용하지 않는 끝점은 반환되지 않음) b. 트래픽 관리자 상태 검사에서 확인된 각 끝점의 현재 상태. 자세한 내용은 트래픽 관리자 끝점 모니터링을 참조하세요. c. 선택된 트래픽 라우팅 메서드. 자세한 내용은 트래픽 관리자 트래픽 라우팅 메서드를 참조하세요.
+5.	선택한 끝점이 다른 DNS CNAME 레코드로 반환되며 이 경우 contoso-us.cloudapp.net이 반환된다고 가정합니다.
+6.	이제 재귀 DNS 서비스가 'cloudapp.net' 도메인에 대한 이름 서버를 찾습니다. 이러한 이름 서버에 연결하여 'contoso-us.cloudapp.net' DNS 레코드를 요청합니다. 미국 기반 서비스 끝점의 IP 주소를 포함하는 DNS 'A' 레코드가 반환됩니다.
+7.	재귀 DNS 서비스는 위 시퀀스의 클라이언트에 대한 이름 확인의 통합된 결과를 반환합니다.
+8.	클라이언트는 재귀 DNS 서비스에서 DNS 결과를 받고 지정 IP 주소에 연결합니다. 트래픽 관리자를 통해서가 아니라 직접 응용 프로그램 서비스 끝점에 연결합니다. 해당 끝점은 HTTPS 끝점이므로 필요한 SSL/TLS 핸드셰이크를 수행한 다음 ‘/login.aspx’ 페이지에 대해 HTTP GET 요청을 합니다.
 
-5. The chosen endpoint is returned as another DNS CNAME record. In this case, let us suppose contoso-us.cloudapp.net is returned.
-6. Next, the recursive DNS service finds the name servers for the 'cloudapp.net' domain. It contacts those name servers to request the 'contoso-us.cloudapp.net' DNS record. A DNS 'A' record containing the IP address of the US-based service endpoint is returned.
-7. The recursive DNS service consolidates the results and returns a single DNS response to the client.
-8. The client receives the DNS results and connects to the given IP address. The client connects to the application service endpoint directly, not through Traffic Manager. Since it is an HTTPS endpoint, the client performs the necessary SSL/TLS handshake, and then makes an HTTP GET request for the '/login.aspx' page.
+재귀 DNS 서비스는 최종 사용자의 장치에서 DNS 클라이언트처럼 수신하는 DNS 응답을 캐시합니다. 그러면 후속 DNS 쿼리는 다른 이름 서버를 쿼리하는 대신 캐시의 데이터를 사용하여 더 신속하게 답변을 받을 수 있습니다. 캐시의 기간은 각 DNS 레코드의 ‘TTL’(time-to-live) 속성에 의해 결정됩니다. 값이 짧을수록 캐시 만료가 더 빠르고 이에 따라 트래픽 관리자 이름 서버로의 왕복이 많아집니다. 값이 길수록 실패한 끝점에서 트래픽을 보내는 데 더 오래 걸릴 수 있음을 의미합니다. 트래픽 관리자를 사용하면 응용 프로그램의 요구를 가장 잘 분산하는 값을 선택할 수 있도록 트래픽 관리자 DNS 응답에 사용되는 TTL을 구성할 수 있습니다.
 
-The recursive DNS service caches the DNS responses it receives. The DNS resolver on the client device also caches the result. Caching enables subsequent DNS queries to be answered more quickly by using data from the cache rather than querying other name servers. The duration of the cache is determined by the 'time-to-live' (TTL) property of each DNS record. Shorter values result in faster cache expiry and thus more round-trips to the Traffic Manager name servers. Longer values mean that it can take longer to direct traffic away from a failed endpoint. Traffic Manager allows you to configure the TTL used in Traffic Manager DNS responses, enabling you to choose the value that best balances the needs of your application.
+## FAQ
 
-## <a name="faq"></a>FAQ
+### 트래픽 관리자가 사용하는 IP 주소는 어떻게 되나요?
 
-### <a name="what-ip-address-does-traffic-manager-use?"></a>What IP address does Traffic Manager use?
+트래픽 관리자 작동 방식에서 설명했듯이 트래픽 관리자는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 그러면 클라이언트는 트래픽 관리자를 통해서가 아니라 직접 서비스 끝점에 연결합니다.
 
-As explained in How Traffic Manager Works, Traffic Manager works at the DNS level. It sends DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager.
+따라서 트래픽 관리자는 클라이언트가 연결할 끝점 또는 IP 주소를 제공하지 않습니다. 따라서 예를 들어 고정 IP 주소가 필요한 경우 트래픽 관리자에서가 아니라 서비스에서 구성해야 합니다.
 
-Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. Therefore, if you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
+### 트래픽 관리자는 '고정' 세션을 지원하나요?
 
-### <a name="does-traffic-manager-support-'sticky'-sessions?"></a>Does Traffic Manager support 'sticky' sessions?
+[위](#how-clients-connect-using-traffic-manager)에 설명된 것처럼 트래픽 관리자는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 그러면 클라이언트는 트래픽 관리자를 통해서가 아니라 직접 서비스 끝점에 연결합니다. 따라서 트래픽 관리자는 쿠키를 비롯하여 클라이언트 및 서버 간 HTTP 트래픽을 표시하지 않습니다.
 
-As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients connect to the service endpoint directly, not through Traffic Manager. Therefore, Traffic Manager does not see the HTTP traffic between the client and the server.
+또한 트래픽 관리자에서 수신하는 DNS 쿼리의 원본 IP 주소는 클라이언트의 IP 주소가 아니라 재귀 DNS 서비스의 IP 주소입니다.
 
-Additionally, the source IP address of the DNS query received by Traffic Manager belongs to the recursive DNS service, not the client. Therefore, Traffic Manager has no way to track individual clients and cannot implement 'sticky' sessions. This limitation is common to all DNS-based traffic management systems and is not specific to Traffic Manager.
+따라서 트래픽 관리자에서 개별 클라이언트를 식별 또는 추적할 방법이 없으므로 '고정' 세션을 구현할 수 없습니다. 이것은 모든 DNS 기반 트래픽 관리 시스템에 공통적으로 적용되며, 트래픽 관리자를 사용할 때로 국한되지 않습니다.
 
-### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager?"></a>Why am I seeing an HTTP error when using Traffic Manager?
+### 트래픽 관리자를 사용할 때 HTTP 오류가 나타나는 이유는 무엇인가요?
 
-As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager. Traffic Manager does not see HTTP traffic between client and server. Therefore, any HTTP error you see must be coming from your application. For the client to connect to the application, all DNS resolution steps are complete. That includes any interaction that Traffic Manager has on the application traffic flow.
+[위](#how-clients-connect-using-traffic-manager)에 설명된 것처럼 트래픽 관리자는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 그러면 클라이언트는 트래픽 관리자를 통해서가 아니라 직접 서비스 끝점에 연결합니다.
 
-Further investigation should therefore focus on the application.
+따라서 트래픽 관리자는 클라이언트 및 서버 간 HTTP 트래픽을 표시하지 않으며 HTTP 수준 오류를 생성할 수 없습니다. 표시된 모든 HTTP 오류는 응용 프로그램에서 가져온 것이어야 합니다. 클라이언트가 응용 프로그램에 연결되는 중이므로 트래픽 관리자의 역할을 포함한 DNS 확인이 완료되어야 합니다.
 
-The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+따라서 추가 조사는 응용 프로그램에 중점을 두어야 합니다.
 
-### <a name="what-is-the-performance-impact-of-using-traffic-manager?"></a>What is the performance impact of using Traffic Manager?
+트래픽 관리자를 사용할 때 일반적인 문제는 브라우저에서 응용 프로그램으로 전달된 'host' HTTP 헤더에 브라우저에 사용된 도메인 이름이 표시되는 것입니다. 테스트 중에 도메인 이름을 사용하는 경우 트래픽 관리자 도메인 이름(예: myprofile.trafficmanager.net)이거나 트래픽 관리자 도메인 이름을 가리키도록 구성된 베니티 도메인 CNAME일 수 있습니다. 어떤 경우든 이 host 헤더를 수락하도록 응용 프로그램이 구성되어 있는지 확인합니다..
 
-As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. Since clients connect to your service endpoints directly, there is no performance impact incurred when using Traffic Manager once the connection is established.
+응용 프로그램이 Azure 앱 서비스에서 호스팅되는 경우 [트래픽 관리자를 사용하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름 구성](../app-service-web/web-sites-traffic-manager-custom-domain-name.md)을 참조하세요.
 
-Since Traffic Manager integrates with applications at the DNS level, it does require an additional DNS lookup to be inserted into the DNS resolution chain (see [Traffic Manager examples](#traffic-manager-example)). The impact of Traffic Manager on DNS resolution time is minimal. Traffic Manager uses a global network of name servers, and uses [anycast](https://en.wikipedia.org/wiki/Anycast) networking to ensure DNS queries are always routed to the closest available name server. In addition, caching of DNS responses means that the additional DNS latency incurred by using Traffic Manager applies only to a fraction of sessions.
+### 트래픽 관리자를 사용할 때 성능 영향은 무엇인가요?
 
-The Performance method routes traffic to the closest available endpoint. The net result is that the overall performance impact associated with this method should be minimal. Any increase in DNS latency should be offset by lower network latency to the endpoint.
+[위](#how-clients-connect-using-traffic-manager)에 설명된 것처럼 트래픽 관리자는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 그러면 클라이언트는 트래픽 관리자를 통해서가 아니라 직접 서비스 끝점에 연결합니다.
 
-### <a name="what-application-protocols-can-i-use-with-traffic-manager?"></a>What application protocols can I use with Traffic Manager?
+클라이언트가 서비스 끝점에 직접 연결되므로 연결이 설정된 후 트래픽 관리자를 사용하면 성능 영향이 발생하지 않습니다.
 
-As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. Once the DNS lookup is complete, clients connect to the application endpoint directly, not through Traffic Manager. Therefore the connection can use any application protocol. However, Traffic Manager's endpoint health checks require either an HTTP or HTTPS endpoint. The endpoint for a health check can be different than the application endpoint that clients connect to.
+트래픽 관리자는 DNS 수준에서 응용 프로그램과 통합되므로 추가 DNS 조회를 을 DNS 확인 체인에 삽입해야 합니다([트래픽 관리자 예제](#traffic-manager-example) 참조). DNS 확인 시간에 대한 트래픽 관리자의 영향은 최소입니다. 트래픽 관리자는 이름 서버의 글로벌 네트워크를 사용하며 DNS 쿼리가 사용 가능한 가장 가까운 이름 서버로 라우팅되도록 애니캐스트 네트워킹을 사용합니다. 또한 DNS 응답의 캐싱은 트래픽 관리자를 사용하여 발생한 추가 DNS 대기 시간이 세션 중 일부에만 적용되는 것을 의미합니다.
 
-### <a name="can-i-use-traffic-manager-with-a-'naked'-domain-name?"></a>Can I use Traffic Manager with a 'naked' domain name?
+최종적인 결론은 트래픽 관리자를 응용 프로그램에 통합하는 것과 관련한 전체 성능 영향이 최소여야 합니다.
 
-No. The DNS standards do not permit CNAMEs to co-exist with other DNS records of the same name. The apex (or root) of a DNS zone always contains two pre-existing DNS records; the SOA and the authoritative NS records. This means a CNAME record cannot be created at the zone apex without violating the DNS standards.
+또한 트래픽 관리자의 ['성능' 트래픽 라우팅 메서드](traffic-manager-routing-methods.md#performance-traffic-routing-method)가 사용되는 경우 DNS 대시 시간의 증가는 최종 사용자를 사용 가능한 가장 가까운 끝점에 라우팅하여 달성할 수 있는 성능 향상 오프셋보다 훨씬 많습니다.
 
-As explained in the [Traffic Manager example](#traffic-manager-example), Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For example, you map www.contoso.com to the Traffic Manager profile DNS name contoso.trafficmanager.net. Additionally, the Traffic Manager profile returns a second DNS CNAME to indicate which endpoint the client should connect to.
+### 트래픽 관리자에는 어떤 응용 프로그램 프로토콜을 사용할 수 있나요?
+[위](#how-clients-connect-using-traffic-manager)에 설명된 것처럼 트래픽 관리자는 DNS 수준에서 작동합니다. DNS 조회가 완료되면 클라이언트는 트래픽 관리자를 통해서가 아닌 응용 프로그램 끝점에 직접 연결됩니다. 따라서 이 연결에서 모든 응용 프로그램 프로토콜을 사용할 수 있습니다.
 
-To work around this issue, we recommend using an HTTP redirect to direct traffic from the naked domain name to a different URL, which can then use Traffic Manager. For example, the naked domain 'contoso.com' can redirect users to the CNAME 'www.contoso.com' that points to the Traffic Manager DNS name.
+그러나 트래픽 관리자의 끝점 상태 검사에는 HTTP 또는 HTTPS 끝점이 필요합니다. 이 끝점은 트래픽 관리자 프로필 상태 검사 설정에 다른 TCP 포트 또는 URI 경로를 지정하여 클라이언트에서 연결되는 응용 프로그램 끝점과 구분될 수 있습니다.
 
-Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+### 'Naked'(www 없는) 도메인 이름으로 트래픽 관리자를 사용할 수 있나요?
 
-## <a name="next-steps"></a>Next steps
+현재는 아닙니다.
 
-Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
+한 DNS 이름에서 다른 이름으로 매핑을 만드는 데 DNS CNAME 레코드 유형을 사용합니다. [트래픽 관리자 예제](#traffic-manager-example)에 설명된 대로 트래픽 관리자에는 베니티 DNS 이름(예: www.contoso.com)을 트래픽 관리자 프로필 DNS 이름(예: contoso.trafficmanager.net)에 매핑할 DNS CNAME 레코드가 필요합니다. 또한 트래픽 관리자 프로필 자체에서 클라이언트가 연결할 끝점을 나타내는 보조 DNS CNAME을 반환합니다.
 
-Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
+DNS 표준은 CNAME이 동일한 형식의 다른 DNS 레코드와 함께 존재하는 것을 허용하지 않습니다. DNS 영역의 루트에는 항상 두 개의 기존 DNS 레코드(SOA 및 권한 있는 NS 레코드)가 있으므로 DNS 표준을 위반하지 않고 루트에 CNAME 레코드를 만들 수 없습니다.
+
+이 문제를 해결하려면 트래픽 관리자를 사용하려는 naked(www 없는) 도메인을 사용하는 서비스가 HTTP 리디렉션을 사용하여 naked 도메인에서 다른 URL로 트래픽을 보내야 하며 그런 다음 트래픽 관리자를 사용할 수 있습니다. 예를 들어 naked 도메인 'contoso.com'에서 사용자를 'www.contoso.com'으로 리디렉션한 후 트래픽 관리자를 사용할 수 있습니다.
+
+트래픽 관리자에서 naked 도메인에 대한 전체 지원은 기능 백로그에서 추적됩니다. 이 기능에 관심이 있는 경우 [커뮤니티 피드백 사이트에서 투표](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)하여 지원에 등록해 주세요.
+
+## 다음 단계
+
+트래픽 관리자 [끝점 모니터링 및 자동 장애 조치(failover)](traffic-manager-monitoring.md)에 대해 자세히 알아봅니다.
+
+트래픽 관리자 [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

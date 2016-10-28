@@ -1,57 +1,54 @@
-# <a name="internet-of-things-security-best-practices"></a>Internet of Things security best practices
+# 사물 인터넷 보안 모범 사례
 
-To secure an Internet of Things (IoT) infrastructure requires a rigorous security-in-depth strategy. This strategy requires you to secure data in the cloud, protect data integrity while in transit over the public internet, and securely provision devices. Each layer builds greater security assurance in the overall infrastructure.
+IoT(사물 인터넷) 인프라를 보호하려면 엄격한 보안 심층 전략이 필요합니다. 이 전략을 위해서는 클라우드의 데이터를 보호하고, 공용 인터넷을 통해 전송되는 데이터의 무결성을 보호하고, 장치를 안전하게 프로비전해야 합니다. 각 계층은 전체 인프라에서 보다 강력한 보안 보증을 빌드합니다.
 
-## <a name="secure-an-iot-infrastructure"></a>Secure an IoT infrastructure
+## IoT 인프라 보안 유지
 
-This security-in-depth strategy can be developed and executed with active participation of various players involved with the manufacturing, development, and deployment of IoT devices and infrastructure. Following is a high-level description of these players.  
+IoT 장치 및 인프라의 제조, 개발 및 배포와 관련된 다양한 주체가 적극적으로 참가하여 이 보안 심층 전략을 개발하고 실행할 수 있습니다. 다음은 이러한 주체에 대한 개략적인 설명입니다.
 
-- **IoT hardware manufacturer/integrator**: Typically, these are the manufacturers of IoT hardware being deployed, integrators assembling hardware from various manufacturers, or suppliers providing hardware for an IoT deployment manufactured or integrated by other suppliers.
-- **IoT solution developer**: The development of an IoT solution is typically done by a solution developer. This developer may part of an in-house team or a system integrator (SI) specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various off-the-shelf or open-source components, or adopt preconfigured solutions with minor adaptation.
-- **IoT solution deployer**: After an IoT solution is developed, it needs to be deployed in the field. This involves deployment of hardware, interconnection of devices, and deployment of solutions in hardware devices or the cloud.
-- **IoT solution operator**: After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance. This can be done by an in-house team that comprises information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of overall IoT infrastructure.
+- **IoT 하드웨어 제조업체/통합업체**: 배포되는 IoT 하드웨어 제조업체, 여러 제조업체의 다양한 하드웨어를 조립하는 통합업체 또는 다른 공급업체에 의해 제조되거나 통합된 IoT 배포용 하드웨어를 제공하는 공급업체가 일반적으로 여기에 해당합니다.
+- **IoT 솔루션 개발자**: IoT 솔루션 개발은 일반적으로 솔루션 개발자가 수행합니다. 이 개발자는 이러한 활동에 특화된 사내 팀 또는 SI(시스템 통합업체)에 속할 수 있습니다. IoT 솔루션 개발자는 다양한 IoT 솔루션 구성 요소를 처음부터 개발하거나, 다양한 기성품 또는 오픈 소스 구성 요소를 통합하거나, 미리 구성된 솔루션을 약간 변경하여 도입합니다.
+- **IoT 솔루션 배포자**: IoT 솔루션이 개발된 후에는 현장에 배포해야 합니다. 여기에는 하드웨어를 배포하고, 장치를 상호 연결하고, 하드웨어 장치 또는 클라우드에 솔루션을 배포하는 작업이 포함됩니다.
+- **IoT 솔루션 운영자**: IoT 솔루션이 배포된 후에는 장기적인 운영, 모니터링, 업그레이드 및 유지 관리가 필요합니다. 이 작업은 정보 기술 전문가, 하드웨어 운영 및 유지 관리 팀, 전체 IoT 인프라의 올바른 동작을 모니터링하는 도메인 전문가로 구성된 사내 팀이 수행합니다.
 
-The sections that follow provide best practices for each of these players to help develop, deploy, and operate a secure IoT infrastructure.
+이후에 이어지는 섹션에서는 안전한 IoT 인프라를 개발, 배포 및 운영하기 위한 각 플레이어의 모범 사례를 설명하겠습니다.
 
-## <a name="iot-hardware-manufacturer/integrator"></a>IoT hardware manufacturer/integrator
+## IoT 하드웨어 제조업체/통합업체
 
-The following are the best practices for IoT hardware manufacturers and hardware integrators.
+IoT 하드웨어 제조업체 및 하드웨어 통합업체를 위한 모범 사례는 다음과 같습니다.
 
-- **Scope hardware to minimum requirements**: The hardware design should include the minimum features required for operation of the hardware, and nothing more. An example is to include USB ports only if necessary for the operation of the device. These additional features open the device for unwanted attack vectors that should be avoided.
-- **Make hardware tamper proof**: Build in mechanisms to detect physical tampering, such as opening of the device cover or removing a part of the device. These tamper signals may be part of the data stream uploaded to the cloud, which could alert operators of these events.
-- **Build around secure hardware**: If COGS permits, build security features such as secure and encrypted storage, or boot functionality based on Trusted Platform Module (TPM). These features make devices more secure and help protect the overall IoT infrastructure.
-- **Make upgrades secure**: Firmware upgrades during the lifetime of the device are inevitable. Building devices with secure paths for upgrades and cryptographic assurance of firmware versions will allow the device to be secure during and after upgrades.
+- **하드웨어의 최소 요구 사항 범위 설정**: 하드웨어 설계에는 하드웨어 운영에 필요한 최소한의 기능만 들어 있고 그 외에는 아무 것도 없어야 합니다. 예를 들어 장치 운영에 필요한 경우에만 USB 포트를 포함해야 합니다. 이러한 추가 기능은 원치 않는 공격 벡터를 열어 주기 때문에 피해야 합니다.
+- **하드웨어 변조 방지**: 장치 커버를 열거나 장치 부품을 제거하는 등, 물리적 변조를 감지하는 메커니즘을 빌드합니다. 운영자에게 이러한 이벤트를 알리기 위해 클라우드로 업로드되는 데이터 스트림에 이러한 변조 신호가 포함될 수 있습니다.
+- **보안 하드웨어를 중심으로 빌드**: COGS가 허용된다면 안전하게 암호화되는 저장소 및 TPM(신뢰할 수 있는 플랫폼 모듈) 기반 부팅 기능 같은 보안 기능을 빌드합니다. 이러한 기능을 통해 장치가 보다 안전해지고 전체 IoT 인프라가 보호됩니다.
+- **업그레이드 보안 강화**: 장치의 수명 동안 펌웨어 업그레이드는 피할 수 없습니다. 업그레이드 경로가 안전하고 펌웨어 버전이 암호화로 보장되는 장치를 빌드하면 업그레이드 전과 후에 장치가 안전하게 보호됩니다.
 
-## <a name="iot-solution-developer"></a>IoT solution developer
+## IoT 솔루션 개발자
 
-The following are the best practices for IoT solution developers:
+다음은 IoT 솔루션 개발자를 위한 모범 사례입니다.
 
-- **Follow secure software development methodology**: Development of secure software requires ground-up thinking about security, from the inception of the project all the way to its implementation, testing, and deployment. The choices of platforms, languages, and tools are all influenced with this methodology. The Microsoft Security Development Lifecycle provides a step-by-step approach to building secure software.
-- **Choose open-source software with care**: Open-source software provides an opportunity to quickly develop solutions. When you're choosing open-source software, consider the activity level of the community for each open-source component. An active community ensures that software is supported and that issues are discovered and addressed. Alternatively, an obscure and inactive open-source software might not be supported and issues will probably not be discovered.
-- **Integrate with care**: Many software security flaws exist at the boundary of libraries and APIs. Functionality that may not be required for the current deployment might still be available via an API layer. To ensure overall security, make sure to check all interfaces of components being integrated for security flaws.      
+- **보안 소프트웨어 개발 방법론 준수**: 보안 소프트웨어를 개발하려면 프로젝트 시작부터 구현, 테스트 및 배포까지 처음부터 보안을 고려해야 합니다. 플랫폼, 언어 및 도구 선택은 전부 이 방법론의 영향을 받습니다. Microsoft 보안 개발 수명 주기는 보안 소프트웨어를 구축하는 단계별 접근 방식을 제공합니다.
+- **신중하게 오픈 소스 소프트웨어 선택**: 오픈 소스 소프트웨어는 솔루션을 신속하게 개발할 수 있는 기회를 제공합니다. 오픈 소스 소프트웨어를 선택할 때 각 오픈 소스 구성 요소에 대한 커뮤니티의 활동 수준을 고려해야 합니다. 활발한 커뮤니티는 소프트웨어를 지원하고, 문제를 찾아서 해결합니다. 반면, 모호하고 활동이 활발하지 않은 오픈 소스 소프트웨어는 지원을 받지 못하고, 문제를 발견하지 못할 수 있습니다.
+- **신중하게 통합**: 소프트웨어 보안 결함의 상당수가 라이브러리 및 API 경계에 존재합니다. 현재 배포에 필요하지 않을 수 있는 기능이 API 계층을 통해 제공될 수 있습니다. 전반적인 보안을 유지하려면 통합되는 모든 구성 요소 인터페이스에서 보안 결함이 있는지 확인해야 합니다.
 
-## <a name="iot-solution-deployer"></a>IoT solution deployer
+## IoT 솔루션 배포자
 
-The following are best practices for IoT solution deployers:
+다음은 IoT 솔루션 개발자를 위한 모범 사례입니다.
 
-- **Deploy hardware securely**: IoT deployments may require hardware to be deployed in unsecure locations, such as in public spaces or unsupervised locales. In such situations, ensure that hardware deployment is tamper-proof to the maximum extent. If USB or other ports are available on the hardware, ensure that they are covered securely. Many attack vectors can use these as entry points.
-- **Keep authentication keys safe**: During deployment, each device requires device IDs and associated authentication keys generated by the cloud service. Keep these keys physically safe even after the deployment. Any compromised key can be used by a malicious device to masquerade as an existing device.
+- **안전하게 하드웨어 배포**: IoT를 배포할 때 공공 장소나 감독되지 않는 현장처럼 안전하지 않은 위치에 하드웨어를 배포해야 할 수도 있습니다. 이러한 상황에서는 하드웨어 배포 시 변조 방지 기능을 최대 한도로 높여야 합니다. USB 또는 기타 포트가 하드웨어에 제공되는 경우 안전하게 보호해야 합니다. 많은 공격 벡터가 이러한 것들을 진입점으로 사용할 수 있습니다.
+- **인증 키를 안전하게 보관**: 배포하는 동안 각 장치에는 장치 ID 그리고 클라우드 서비스에서 생성하는 해당 ID와 연결된 인증 키가 필요합니다. 배포 후에도 이러한 키를 물리적으로 안전하게 보관해야 합니다. 손상된 키는 악의적인 장치에서 기존 장치로 위장하는 데 사용될 수 있습니다.
 
-## <a name="iot-solution-operator"></a>IoT solution operator
+## IoT 솔루션 운영자
 
-The following are the best practices for IoT solution operators:
+다음은 IoT 솔루션 운영자를 위한 모범 사례입니다.
 
-- **Keep the system up to date**: Ensure that device operating systems and all device drivers are upgraded to the latest versions. If you turn on automatic updates in Windows 10 (IoT or other SKUs), Microsoft keeps it up to date, providing a secure operating system for IoT devices. Keeping other operating systems (such as Linux) up to date helps ensure that they are also protected against malicious attacks.
-- **Protect against malicious activity**: If the operating system permits, install the latest antivirus and antimalware capabilities on each device operating system. This can help mitigate most external threats. You can protect most modern operating systems against threats by taking appropriate steps.
-- **Audit frequently**: Auditing IoT infrastructure for security-related issues is key when responding to security incidents. Most operating systems provide built-in event logging that should be reviewed frequently to make sure no security breach has occurred. Audit information can be sent as a separate telemetry stream to the cloud service where it can be analyzed.
-- **Physically protect the IoT infrastructure**: The worst security attacks against IoT infrastructure are launched using physical access to devices. One important safety practice is to protect against malicious use of USB ports and other physical access. One key to uncovering breaches that might have occurred is logging of physical access, such as USB port use. Again, Windows 10 (IoT and other SKUs) enables detailed logging of these events.
-- **Protect cloud credentials**: Cloud authentication credentials used for configuring and operating an IoT deployment are possibly the easiest way to gain access and compromise an IoT system. Protect the credentials by changing the password frequently, and refrain from using these credentials on public machines.
+- **시스템을 최신 상태로 유지**: 장치 운영 체제 및 모든 장치 드라이버를 최신 버전으로 업그레이드합니다. Windows 10(IoT 또는 기타 SKU)에서 자동 업데이트를 켜 놓으면 Microsoft에서 IoT 장치를 최신 상태로 유지하고 안전한 운영 체제를 제공합니다. Linux를 비롯한 기타 운영 체제 역시 최신 상태로 유지하면 악의적인 공격으로부터 보호할 수 있습니다.
+- **악의적인 활동으로부터 보호**: 운영 체제에서 허용하는 경우 각 장치 운영 체제에 최신 바이러스 백신 및 맬웨어 방지 기능을 배치합니다. 그러면 대부분의 외부 위협을 완화할 수 있습니다. 적절한 단계를 수행하여 대부분의 최신 운영 체제를 위협으로부터 보호할 수 있습니다.
+- **자주 감사**: 보안 사고에 대응할 때에는 보안 관련 문제에 대한 IoT 인프라를 감사하는 것이 핵심입니다. 대부분의 운영 체제는 이벤트 로깅 기능이 기본적으로 제공되는데, 보안 위반이 발생하지 않도록 이벤트 로그를 자주 검토해야 합니다. 감사 정보를 클라우드 서비스에 별도의 원격 분석 스트림으로 보내서 분석할 수 있습니다.
+- **IoT 인프라를 물리적으로 보호**: IoT 인프라에 대한 최악의 보안 공격은 장치에 물리적으로 액세스하여 시작됩니다. 안전 및 보안을 위해 USB 포트의 악용 및 기타 물리적 액세스를 방지하는 것이 중요합니다. 발생했을지도 모르는 보안 위반을 발견하려면 USB 포트 사용 같은 물리적 액세스를 로깅하는 것이 중요합니다. 다시 말씀 드리지만, Windows 10(IoT 및 기타 SKU)은 이러한 이벤트를 구체적으로 로깅할 수 있습니다.
+- **클라우드 자격 증명 보호**: IoT 배포를 구성 및 운영하는 데 사용되는 클라우드 인증 자격 증명은 액세스 권한을 획득하고 IoT 시스템을 손상시킬 수 있는 가장 간단한 방법입니다. 자격 증명을 보호하기 위해 암호를 자주 변경하고 공용 컴퓨터에서 이러한 자격 증명을 사용하지 않도록 해야 합니다.
 
-Capabilities of different IoT devices vary. Some devices might be computers running common desktop operating systems, and some devices might be running very light-weight operating systems. The security best practices described previously might be applicable to these devices in varying degrees. If provided, additional security and deployment best practices from the manufacturers of these devices should be followed.
+IoT 장치마다 기능이 다릅니다. 일부 장치는 일반적인 데스크톱 운영 체제를 실행하는 컴퓨터이고, 일부 장치는 초경량 운영 체제를 실행할 수 있습니다. 앞서 설명한 보안 모범 사례를 이러한 장치에 다양한 수준으로 적용할 수 있습니다. 장치 제조업체에서 추가 보안 및 배포 모범 사례를 제공하는 경우 이렇나 지침도 따라야 합니다.
 
-Some legacy and constrained devices might not have been designed specifically for IoT deployment. These devices might lack the capability to encrypt data, connect with the Internet, or provide advanced auditing. In these cases, a modern and secure field gateway can aggregate data from legacy devices and provide the security required for connecting these devices over the Internet. Field gateways can provide secure authentication, negotiation of encrypted sessions, receipt of commands from the cloud, and many other security features.
+일부 기존 장치 및 제한된 장치는 IoT 배포용으로 설계되지 않을 수 있습니다. 이러한 장치는 데이터 암호화, 인터넷 연결, 고급 감사 기능이 없을 수 있습니다. 이와 같은 경우에는 안전한 최신 현장 게이트웨이를 사용하여 기존 장치에서 데이터를 집계하고 인터넷을 통해 이러한 장치를 연결하는 데 필요한 보안을 제공할 수 있습니다. 현장 게이트웨이는 보안 인증, 암호화된 세션 협상, 클라우드로부터 명령 수신 및 기타 여러 보안 기능을 제공합니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

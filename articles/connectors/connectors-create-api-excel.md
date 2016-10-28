@@ -1,6 +1,6 @@
 <properties
-pageTitle="Add the Excel connector | Microsoft Azure"
-description="Overview of the Excel connector with REST API parameters"
+pageTitle="Excel 커넥터 추가 | Microsoft Azure"
+description="REST API 매개 변수를 사용하는 Excel 커넥터 개요"
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,13 +17,12 @@ ms.workload="na"
 ms.date="08/23/2016"
 ms.author="deonhe"/>
 
+# Excel 커넥터 시작
 
-# <a name="get-started-with-the-excel-connector"></a>Get started with the Excel connector
+현재는 논리 앱에 Excel 커넥터가 없습니다.
 
-Currently, there is no Excel connector in Logic Apps. 
-
-## <a name="to-use-excel-data"></a>To use Excel data
-You can store Excel data as a comma-separated value (CSV) file in a storage folder, such as [OneDrive](connectors-create-api-onedrive.md). You can also use this CSV file with the [flat-file connector](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
+## Excel 데이터를 사용하려면
+Excel 데이터를 저장소 폴더(예: [OneDrive](connectors-create-api-onedrive.md))에 쉼표로 구분된 값(CSV)으로 저장할 수 있습니다. 또한 이 CSV 파일을 [플랫 파일 커넥터](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md)와 함께 사용할 수도 있습니다.
 
 <!---
 
@@ -215,8 +214,4 @@ Applies to version: 1.0.
 
 -->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

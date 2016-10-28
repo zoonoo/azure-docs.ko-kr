@@ -1,48 +1,43 @@
 <properties
-    pageTitle="Azure Active Directory preview explainer | Microsoft Azure"
-    description="A topic that explains the differences between Azure Active Directory in the classic portal and the Azure Active Directory preview in the Azure portal."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Azure Active Directory 미리 보기 설명자 | Microsoft Azure"
+	description="클래식 포털의 Azure Active Directory와 Azure 포털의 Azure Active Directory 미리 보기 간의 차이점을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
 
+# Azure 포털에서 Azure Active Directory 관리 환경의 미리 보기
 
-# <a name="preview-of-the-azure-active-directory-management-experience-in-the-azure-portal"></a>Preview of the Azure Active Directory management experience in the Azure portal
-
-The Azure Active Directory (Azure AD) management experience is in preview in the Azure portal. You can try it out by signing in to [the Azure portal](https://portal.azure.com) as a global administrator of your directory. Then, select Azure Active Directory in the services list if it is visible, or select **More services** to view the list of all services. You do not need an Azure subscription to use the Azure AD management experience in the Azure portal.
+Azure Active Directory(Azure AD) 관리 환경은 Azure 포털에서 미리 보기 상태입니다. 해당 디렉터리의 전역 관리자로 [Azure 포털](https://portal.azure.com)에 로그인하여 시도할 수 있습니다. 그런 다음 표시된 경우 서비스 목록에서 Azure Active Directory를 선택하거나 **더 많은 서비스**를 선택하여 모든 서비스의 목록을 볼 수 있습니다. Azure 포털에서 Azure AD 관리 환경을 사용하는 데 Azure 구독이 필요하지 않습니다.
 
 
-## <a name="capabilities-of-the-preview-experience"></a>Capabilities of the preview experience
+## 미리 보기 환경의 기능
 
-The preview experience enables you to manage many directory resources such as users, groups, and applications, as well as directory settings, in the Azure portal. We are improving this experience to include all the capabilities that exist in the Azure AD management experience in the [Azure classic portal](https://manage.windowsazure.com). Until then, there are some directory management tasks that you must still complete in the classic portal.
+미리 보기 환경을 사용하면 사용자, 그룹, 응용 프로그램과 Azure 포털에서 디렉터리 설정과 같은 많은 디렉터리 리소스를 관리할 수 있습니다. [Azure 클래식 포털](https://manage.windowsazure.com)에서 Azure AD 관리 환경에 존재하는 모든 기능을 포함하도록 이러한 환경을 개선하고 있습니다. 그때까지 사용자가 클래식 포털에서 여전히 완료해야 하는 몇 가지 디렉터리 관리 작업이 있습니다.
 
-## <a name="manage-the-same-azure-ad-tenants"></a>Manage the same Azure AD tenants
+## 동일한 Azure AD 테넌트 관리
 
-The preview experience reads and writes to the same Azure Active Directory tenant as the classic portal, and the Office 365 Admin center. Changes made in any of these portals are reflected in all of the others.
+미리 보기 환경은 클래식 포털과 동일한 Azure Active Directory 테넌트 및 Office 365 관리 센터에 대해 읽고 씁니다. 이러한 포털 중 하나에서 변경한 내용은 다른 모두에 반영됩니다.
 
-## <a name="use-the-same-authorization-logic"></a>Use the same authorization logic
+## 동일한 권한 부여 논리 사용
 
-The preview experience uses the same authorization logic as existing Active Directory clients. Users are authorized to make changes to directory resources based on their directory role, such as global administrator, user administrator, password administrator. Having a role on Azure resources or an Azure subscription does not authorize a user to manage directory resources. For more information Azure AD management roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md). 
+미리 보기 환경은 기존 Active Directory 클라이언트와 동일한 권한 부여 논리를 사용합니다. 사용자는 전역 관리자, 사용자 관리자, 암호 관리자와 같은 해당 디렉터리 역할에 따라 디렉터리 리소스를 변경할 수 있는 권한이 있습니다. Azure 리소스 또는 Azure 구독에 대한 역할을 가지는 것은 사용자에게 디렉터리 리소스를 관리할 수 있는 권한을 부여하지 않습니다. Azure AD 관리 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
 
-The preview experience is optimized for global administrators. If you use the preview experience while signed in as a user that is not a global administrator, you may have a degraded experience. For example, you might be able to select a button that lets you begin a task that you can't complete in the directory. We are improving this experience soon.
+미리 보기 환경은 전역 관리자에 대해 최적화됩니다. 전역 관리자가 아닌 사용자로 로그인한 동안 미리 보기 환경을 사용하는 경우 성능 저하를 경험할 수 있습니다. 예를 들어 디렉터리에서 완료할 수 없는 작업을 시작하도록 하는 단추를 선택할 수 있습니다. 이 환경을 곧 개선할 예정입니다.
  
-## <a name="tell-us-what-you-think"></a>Tell us what you think
+## 의견을 알려 주세요.
 
-You can provide feedback on the preview experience in the admin portal section of the [Azure AD feedback forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
+[Azure AD 피드백 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc)의 관리 포털 섹션에서 미리 보기 환경에 대한 피드백을 제공할 수 있습니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

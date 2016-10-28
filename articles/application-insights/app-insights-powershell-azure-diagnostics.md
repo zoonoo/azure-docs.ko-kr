@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Using PowerShell to send Azure Diagnostics to Application Insights | Microsoft Azure"
-    description="Automate configuring Azure Diagnostics to pipe to Application Insights."
+    pageTitle="PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기 | Microsoft Azure"
+    description="Application Insights에 대한 파이프에 Azure 진단 자동화 구성"
     services="application-insights"
     documentationCenter=".net"
     authors="sbtron"
@@ -9,20 +9,19 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza" 
+	ms.tgt_pltfrm="ibiza" 
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="11/17/2015"
+	ms.date="11/17/2015"
     ms.author="awills"/>
 
+# PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기
 
-# <a name="using-powershell-to-send-azure-diagnostics-to-application-insights"></a>Using PowerShell to send Azure Diagnostics to Application Insights
+[Microsoft Azure](https://azure.com)는 [Visual Studio Application Insights](app-insights-overview.md)에 [Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)될 수 있습니다. 진단은 Azure 클라우드 서비스 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
 
-[Microsoft Azure](https://azure.com) can be [configured to send Azure Diagnostics](app-insights-azure-diagnostics.md) to [Visual Studio Application Insights](app-insights-overview.md). The diagnostics relate to Azure Cloud Services and Azure VMs. They complement the telemetry that you send from within the app using the Application Insights SDK. As part of automating the process of creating new resources in Azure, you can configure diagnostics using PowerShell.
+## 클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
 
-## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Enable diagnostics extension as part of deploying a Cloud Service
-
-The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which takes an array of diagnostics configurations. These can be created using the `New-AzureServiceDiagnosticsExtensionConfig` cmdlet. For example:
+`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 예:
 
 ```ps
 
@@ -57,9 +56,9 @@ The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which
 
 ``` 
 
-## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>Enable diagnostics extension on an existing Cloud Service
+## 기존 클라우드 서비스에 진단 확장을 사용하도록 설정
 
-On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
+기존 서비스에서 `Set-AzureServiceDiagnosticsExtension`을 사용합니다.
 
 ```ps
  
@@ -87,7 +86,7 @@ On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
         -Role "WorkerRole"
 ```
 
-## <a name="get-current-diagnostics-extension-configuration"></a>Get current diagnostics extension configuration
+## 현재 진단 확장 구성 가져오기
 
 ```ps
 
@@ -95,16 +94,16 @@ On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
 ```
 
 
-## <a name="remove-diagnostics-extension"></a>Remove diagnostics extension
+## 진단 확장 제거
 
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-If you enabled the diagnostics extension using either `Set-AzureServiceDiagnosticsExtension` or `New-AzureServiceDiagnosticsExtensionConfig` without the Role parameter, then you can remove the extension using `Remove-AzureServiceDiagnosticsExtension` without the Role parameter. If the Role parameter was used when enabling the extension then it must also be used when removing the extension.
+Role 매개 변수 없이 `Set-AzureServiceDiagnosticsExtension` 또는 `New-AzureServiceDiagnosticsExtensionConfig`를 사용하여 진단 확장을 사용하도록 설정했다면, Role 매개 변수 없이 `Remove-AzureServiceDiagnosticsExtension`을 사용하여 확장을 제거할 수 있습니다. Role 매개 변수가 확장을 사용하도록 설정할 때 사용되었으면, 확장을 제거할 때도 사용되어야 합니다.
 
-To remove the diagnostics extension from each individual role:
+각각의 개별 역할에서 진단 확장을 제거하려면:
 
 ```ps
 
@@ -112,15 +111,10 @@ To remove the diagnostics extension from each individual role:
 ```
 
 
-## <a name="see-also"></a>See also
+## 참고 항목
 
-* [Monitor Azure Cloud Services apps with Application Insights](app-insights-cloudservices.md)
-* [Send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
-* [Automate configuring alerts](app-insights-powershell-alerts.md)
+* [Application Insights로 Azure 클라우드 서비스 앱 모니터링](app-insights-cloudservices.md)
+* [Application Insights에 Azure 진단 보내기](app-insights-azure-diagnostics.md)
+* [구성 경고 자동화](app-insights-powershell-alerts.md)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

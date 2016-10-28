@@ -1,13 +1,11 @@
-You pay for two things: the hourly compute costs for the virtual network gateway, and the egress data transfer from the virtual network gateway. Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
+가상 네트워크 게이트웨이에 대한 시간당 계산 비용 및 가상 네트워크 게이트웨이에서 송신 데이터 전송 등 두 가지에 대한 비용을 지불합니다. 가격 책정 정보는 [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway) 페이지에 있습니다.
 
-**Virtual network gateway compute costs**<br>Each virtual network gateway has an hourly compute cost. The price is based on the gateway SKU that you specify when you create a virtual network gateway. The cost is for the gateway itself and is in addition to the data transfer that flows through the gateway.
+**가상 네트워크 게이트웨이 계산 비용**<br>각 가상 네트워크 게이트웨이에는 시간당 계산 비용이 포함됩니다. 가격은 가상 네트워크 게이트웨이를 만들 때 지정한 게이트웨이 SKU에 따라 다릅니다. 비용은 게이트웨이 자체에 대한 것이며 게이트웨이를 통해 전달되는 데이터 전송에 추가됩니다.
 
-**Data transfer costs**<br>Data transfer costs are calculated based on egress traffic from the source virtual network gateway.
+**데이터 전송 비용**<br>데이터 전송 비용은 원본 가상 네트워크 게이트웨이의 송신 트래픽에 따라 계산됩니다.
 
-- If you are sending traffic to your on-premises VPN device, it will be charged with the Internet egress data transfer rate.
-- If you are sending traffic between virtual networks in different regions, the pricing is based the region.
-- If you are sending traffic only between virtual networks that are in the same region, there are no data costs. Traffic between VNets in the same region is free.
+- 온-프레미스 VPN 장치에 트래픽을 보내는 경우 인터넷 송신 데이터 전송율을 사용하여 청구됩니다.
+- 다른 지역에 있는 가상 네트워크 간의 트래픽을 보내는 경우 가격 책정은 지역에 따라 다릅니다.
+- 동일한 지역에 있는 가상 네트워크 간에 트래픽을 보내는 경우 데이터 비용이 없습니다. 동일한 지역에 있는 VNet 간의 트래픽은 무료입니다.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

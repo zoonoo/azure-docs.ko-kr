@@ -1,97 +1,88 @@
 <properties 
-    pageTitle="Move data to an Azure SQL Database for Azure Machine Learning | Azure" 
-    description="Create SQL Table and load data to SQL Table" 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun" />
+	pageTitle="Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동 | Azure" 
+	description="SQL 테이블 만들기 및 SQL 테이블로 데이터 로드" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev"
+	manager="jhubbard"
+	editor="cgronlun" />
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/14/2016"
-    ms.author="bradsev" /> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2016"
+	ms.author="bradsev" />
 
+# Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동
 
-# <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Move data to an Azure SQL Database for Azure Machine Learning
+이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장된 데이터에서 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하기 위한 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
 
-This topic outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premise SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Team Data Science Process.
+기계 학습을 위해 온-프레미스 SQL Server로 데이터를 이동하기 위한 옵션을 설명하는 토픽은 [Azure 가상 컴퓨터의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md)을 참조하세요.
 
-For a topic that outlines the options for moving data to an on-premise SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md).
-
-The following **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
+다음 **메뉴**는 팀 데이터 과학 프로세스 중 데이터를 저장하고 처리할 수 있는 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-The following table summarizes the options for moving data to an Azure SQL Database.
+다음 표에서는 Azure SQL 데이터베이스로 데이터를 이동하는 옵션을 요약합니다.
 
-<b>SOURCE</b> |<b>DESTINATION: Azure SQL Database</b> |
+<b>원본</b> |<b>대상: Azure SQL 데이터베이스</b> |
 -------------- |--------------------------------|
-<b>Flat file (CSV or TSV formatted)</b> |<a href="#bulk-insert-sql-query">Bulk Insert SQL Query |
-<b>On-premise SQL Server</b> | 1. <a href="#export-flat-file">Export to Flat File<br> 2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br> 3. <a href="#db-migration">Database back up and restore<br> 4. <a href="#adf">Azure Data Factory |
+<b>플랫 파일(CSV 또는 TSV 형식)</b> |<a href="#bulk-insert-sql-query">대량 삽입 SQL 쿼리 |
+<b>온-프레미스 SQL Server</b> | 1\. <a href="#export-flat-file">플랫 파일로 내보내기<br> 2. <a href="#insert-tables-bcp">SQL 데이터베이스 마이그레이션 마법사<br> 3. <a href="#db-migration">데이터베이스 백업 및 복원<br> 4. <a href="#adf">Azure Data Factory |
 
 
-## <a name="<a-name="prereqs"></a>prerequisites"></a><a name="prereqs"></a>Prerequisites
-The procedures outlined here require that you have:
+## <a name="prereqs"></a>필수 조건
+여기에 설명된 절차를 위해서는 다음이 필요합니다.
 
-* An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**. You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database](../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
-* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
+* **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+* **Azure SQL 데이터베이스**에 대한 액세스. Azure SQL 데이터베이스를 설정해야 하는 경우, [Microsoft Azure SQL 데이터베이스 시작](../sql-database/sql-database-get-started.md)에서 Azure SQL 데이터베이스의 새 인스턴스를 프로비전하는 방법에 대한 정보를 제공합니다.
+* 로컬로 설치 및 구성된 **Azure PowerShell**. 자세한 내용은 [Azure PowerShell 설치 및 구성법](../powershell-install-configure.md)을 참조하세요.
 
-**Data**: The migration processes are demonstrated using the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/). The NYC Taxi dataset contains information on trip data and fairs and is available, as noted that post, on Azure blob storage: [NYC Taxi Data](http://www.andresmh.com/nyctaxitrips/). A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+**데이터**: [NYC Taxi 데이터 집합](http://chriswhong.com/open-data/foil_nyc_taxi/)을 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 집합은 여정 데이터 및 요금에 대한 정보를 포함하며 Azure blob 저장소 [NYC Taxi 데이터](http://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 집합 설명](machine-learning-data-science-process-sql-walkthrough.md#dataset)에 제공됩니다.
  
-You can either adapt the procedures described here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premise SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premise SQL Server is the same.
+자신의 데이터 집합에 여기에 설명된 절차를 도입하거나 NYC Taxi 데이터 집합을 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 집합을 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](machine-learning-data-science-process-sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure 가상 컴퓨터의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
 
-## <a name="<a-name="file-to-azure-sql-database"></a>-moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a> Moving data from a flat file source to an Azure SQL database
+## <a name="file-to-azure-sql-database"></a>플랫 파일 원본에서 Azure SQL 데이터베이스로 데이터 이동
 
-Data in flat files (CSV or TSV formatted) can be moved to an Azure SQL database using a Bulk Insert SQL Query.
+대량 삽입 SQL 쿼리를 사용하여 플랫 파일(CSV 또는 TSV 형식)의 데이터를 Azure SQL 데이터베이스로 이동할 수 있습니다.
 
-### <a name="<a-name="bulk-insert-sql-query"></a>-bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a> Bulk Insert SQL Query
+### <a name="bulk-insert-sql-query"></a> 대량 삽입 SQL 쿼리
 
-The steps for the procedure using the Bulk Insert SQL Query are similar to those covered in the sections for moving data from a flat file source to SQL Server on an Azure VM. For details, see [Bulk Insert SQL Query](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery).
-
-
-##<a name="<a-name="sql-on-prem-to-sazure-sql-database"></a>-moving-data-from-on-premise-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a> Moving Data from on-premise SQL Server to an Azure SQL database
-
-If the source data is stored in an on-premise SQL Server, there are various possibilities for moving the data to an Azure SQL database:
-
-1. [Export to Flat File](#export-flat-file) 
-2. [SQL Database Migration Wizard](#insert-tables-bcp)
-3. [Database back up and restore](#db-migration)
-4. [Azure Data Factory](#adf)
-
-The steps for the first three are very similar to those sections in [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md) that cover these same procedures. Links to the appropriate sections in that topic are provided in the following instructions.
-
-###<a name="<a-name="export-flat-file"></a>export-to-flat-file"></a><a name="export-flat-file"></a>Export to Flat File
-
-The steps for this exporting to a flat file are similar to those covered in [Export to Flat File](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file).
-
-###<a name="<a-name="insert-tables-bcp"></a>sql-database-migration-wizard"></a><a name="insert-tables-bcp"></a>SQL Database Migration Wizard
-
-The steps for using the SQL Database Migration Wizard are similar to those covered in [SQL Database Migration Wizard](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration).
-
-###<a name="<a-name="db-migration"></a>database-back-up-and-restore"></a><a name="db-migration"></a>Database back up and restore
-
-The steps for using database back up and restore are similar to those covered in [Database back up and restore](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup).
-
-###<a name="<a-name="adf"></a>azure-data-factory"></a><a name="adf"></a>Azure Data Factory
-
-The procedure for moving data to an Azure SQL database with Azure Data Factory (ADF) is provided in the topic [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). This topic shows how to move data from an on-premise SQL Server database to an Azure SQL database via Azure Blob Storage using ADF. 
-
-Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it when being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations.
+대량 삽입 SQL 쿼리를 사용하는 절차에 대한 단계는 플랫 파일 원본에서 Azure VM의 SQL Server로 데이터를 이동하는 섹션의 내용과 유사합니다. 자세한 내용은 [대량 삽입 SQL 쿼리](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery)를 참조하세요.
 
 
+##<a name="sql-on-prem-to-sazure-sql-database"></a> 온-프레미스 SQL Server에서 Azure SQL 데이터베이스로 데이터 이동
 
+원본 데이터가 온-프레미스 SQL Server에 저장된 경우 다양한 방법으로 Azure SQL 데이터베이스로 데이터를 이동할 수 있습니다.
 
+1. [플랫 파일로 내보내기](#export-flat-file)
+2. [SQL 데이터베이스 마이그레이션 마법사](#insert-tables-bcp)
+3. [데이터베이스 백업 및 복원](#db-migration)
+4. [Azure 데이터 팩터리](#adf)
 
+처음 세 개 단계는 이와 동일한 절차를 다루는 [Azure 가상 컴퓨터의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md)의 해당 섹션과 매우 유사합니다. 이 항목의 해당 섹션에 대한 링크가 다음 절차에 제공됩니다.
 
+###<a name="export-flat-file"></a>플랫 파일로 내보내기
 
-<!--HONumber=Oct16_HO2-->
+플랫 파일로 내보내기 위한 단계는 [플랫 파일로 내보내기](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file)에서 다루는 내용과 유사합니다.
 
+###<a name="insert-tables-bcp"></a>SQL 데이터베이스 마이그레이션 마법사
 
+SQL 데이터베이스 마이그레이션 마법사를 사용하는 단계는 [SQL 데이터베이스 마이그레이션 마법사](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration)에서 다루는 내용과 유사합니다.
+
+###<a name="db-migration"></a>데이터베이스 백업 및 복원
+
+데이터베이스 백업 및 복원을 사용하는 단계는 [데이터베이스 백업 및 복원](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup)에서 다루는 내용과 유사합니다.
+
+###<a name="adf"></a>Azure Data Factory
+
+ADF(Azure Data Factory)를 사용하여 Azure SQL 데이터베이스로 데이터를 이동하는 절차는 [Azure 데이터 팩터리를 사용하여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동](machine-learning-data-science-move-sql-azure-adf.md) 항목에 제공됩니다. 이 항목에서는 ADF를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server 데이터베이스에서 Azure SQL 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
+
+온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션할 때 비즈니스 논리를 추가해야 하는 경우 ADF를 사용하는 것이 좋습니다. ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다.
+
+<!---HONumber=AcomDC_0921_2016-->

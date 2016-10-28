@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Best practices for StorSimple Virtual Array | Microsoft Azure"
-   description="Describes the best practices for deploying and managing the StorSimple Virtual Array."
+   pageTitle="StorSimple 가상 배열 모범 사례 | Microsoft Azure"
+   description="StorSimple 가상 배열을 배포하고 관리하는 모범 사례를 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,344 +15,338 @@
    ms.date="08/09/2016"
    ms.author="alkohli" />
 
+# StorSimple 가상 배열 모범 사례
 
-# <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices
+## 개요
 
-## <a name="overview"></a>Overview
+Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azure 클라우드 저장소에서 실행되는 온-프레미스 가상 장치 간의 저장소 작업을 관리하는 통합 저장소 솔루션입니다. StorSimple 가상 배열은 8000 시리즈 물리적 배열을 대신하는 효율적이고 경제적인 대체 수단입니다. 가상 배열은 기존 하이퍼바이저 인프라에서 실행할 수 있고, iSCSI와 SMB 프로토콜을 모두 지원하며, 원격 사무실/지점 시나리오에 적합합니다. StorSimple 솔루션에 대한 자세한 내용은 [Microsoft Azure StorSimple 개요](https://www.microsoft.com/ko-KR/server-cloud/products/storsimple/overview.aspx)를 참조하세요.
 
-Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. StorSimple Virtual Array is an efficient, cost-effective alternative to the 8000 series physical array. The virtual array can run on your existing hypervisor infrastructure, supports both the iSCSI and the SMB protocols, and is well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
+이 문서는 StorSimple 가상 배열의 초기 설치, 배포 및 관리에서 구현된 모범 사례를 다룹니다. 이러한 모범 사례는 가상 배열의 설치 및 관리에 대한 검증된 지침을 제공합니다. 이 문서는 데이터 센터에 가상 배열을 배포하고 관리하는 IT 관리자를 대상으로 합니다.
 
-This article covers the best practices implemented during the initial setup, deployment, and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators who deploy and manage the virtual arrays in their datacenters.
+설치 또는 작업 흐름에 변경 사항이 있더라도 장치가 계속해서 규정을 준수하도록 모범 사례를 주기적으로 검토하는 것이 좋습니다. 가상 배열에 이러한 모범 사례를 구현하는 동안 문제가 발생할 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하시기 바랍니다.
 
-We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
+## 구성 모범 사례 
 
-## <a name="configuration-best-practices"></a>Configuration best practices 
+이 모범 사례에서는 가상 배열의 초기 설치 및 배포 시 따라야 하는 지침을 다룹니다. 이 모범 사례에는 가상 컴퓨터 프로비전, 그룹 정책 설정, 크기 조정, 네트워킹 설정, 저장소 계정 구성, 가상 배열에 대한 공유 및 볼륨 만들기와 관련된 예가 포함됩니다.
 
-These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These best practices include those related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
+### 프로비전 
 
-### <a name="provisioning"></a>Provisioning 
+StorSimple 가상 배열은 호스트 서버의 하이퍼바이저(Hyper-V 또는 VMware)에 프로비전된 VM(가상 컴퓨터)입니다. 가상 컴퓨터를 프로비전할 때 호스트에서 사용 가능한 리소스가 충분한지 확인해야 합니다. 자세한 내용은 배열을 프로비전하기 위한 [최소 리소스 요구 사항](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)을 참조하세요.
 
-StorSimple Virtual Array is a virtual machine (VM) provisioned on the hypervisor (Hyper-V or VMware) of your host server. When provisioning the virtual machine, ensure that your host is able to dedicate sufficient resources. For more information, go to [minimum resource requirements](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) to provision an array. 
-
-Implement the following best practices when provisioning the virtual array:
+가상 배열을 프로비전할 때에는 다음 모범 사례를 구현하세요.
 
 
-|                        | Hyper-V                                                                                                                                        | VMware                                                                                                               |
+| | Hyper-V | VMware |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Virtual machine type**   | **Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image.                                                                                                              | Use virtual machine version 8 - 11 when using *.vmdk* image.                                                                      |
-| **Memory type**            | Configure as **static memory**. <br></br> Do not use the **dynamic memory** option.            |                                                    |
-| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** takes a long time. <br></br> Do not use the **differencing** option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
-| **Data disk modification** | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device.                       | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |
+| **가상 컴퓨터 유형** | Windows Server 2012 이상 및 *.vhdx* 이미지와 함께 사용할 **2세대** VM. <br></br> Windows Server 2008 이상 및 *.vhd* 이미지와 함께 사용할 **1세대** VM. | *.vmdk* 이미지를 사용할 경우에는 가상 컴퓨터 버전 8 - 11을 사용합니다. |
+| **메모리 유형** | **정적 메모리**로 구성합니다. <br></br> **동적 메모리** 옵션은 사용하지 마세요. | |
+| **데이터 디스크 유형** | **동적 확장**으로 프로비전합니다.<br></br> **고정 크기**는 시간이 오래 걸립니다. <br></br> **차이점 보관용** 옵션은 사용하지 마세요. | **씬 프로비전** 옵션을 사용하세요. |
+| **데이터 디스크 수정** | 확장 또는 축소는 허용되지 않습니다. 확장 또는 축소를 시도하면 장치의 모든 로컬 데이터가 손실됩니다. | 확장 또는 축소는 허용되지 않습니다. 확장 또는 축소를 시도하면 장치의 모든 로컬 데이터가 손실됩니다. |
 
-### <a name="sizing"></a>Sizing
+### 크기 조정
 
-When sizing your StorSimple Virtual Array, consider the following factors:
+StorSimple 가상 배열 크기를 조정할 때 다음 요소를 고려합니다.
 
-- Local reservation for volumes or shares. Approximately 12% of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10% of the space is also reserved for a locally pinned volume for file system.
-- Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
-- Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size or larger.
-- Some buffer should be allocated for any unexpected growth.
+- 볼륨 또는 공유에 사용할 로컬 예약. 프로비전되고 계층화된 볼륨 또는 공유 각각에 대한 로컬 계층에서 공간의 약 12%가 예약되어 있습니다. 파일 시스템에 로컬로 고정된 볼륨에 공간의 대략 10%가 예약되어 있습니다.
+- 스냅숏 오버헤드. 로컬 계층의 공간 약 15%가 스냅숏에 대해 예약됩니다.
+- 복원이 필요합니다. 새 작업으로 복원을 수행하는 경우 크기 조정 시 복원에 필요한 공간을 고려해야 합니다. 복원은 크기가 같거나 좀 더 큰 공유 또는 볼륨에 수행됩니다.
+- 예기치 않은 증가를 대비하여 버퍼를 약간 할당해야 합니다.
 
-Based on the preceding factors, the sizing requirements can be represented by the following equation:
+앞의 요소를 기반으로 크기 조정 요구 사항을 다음과 같은 수식으로 나타낼 수 있습니다.
 
 `Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
 `Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
 
-The following examples illustrate how you can size a virtual array based on your requirements.
+다음 예에서는 요구 사항을 기반으로 가상 배열의 크기를 조정하는 방법을 보여 줍니다.
 
-#### <a name="example-1:"></a>Example 1:
-On your virtual array, you want to be able to 
+#### 예제 1:
+가상 배열에서 다음 작업을 수행할 수 있습니다.
 
-- provision a 2 TB tiered volume or share.
-- provision a 1 TB tiered volume or share.
-- provision a 300 GB of locally pinned volume or share.
-
-
-For the preceding volumes or shares, let us calculate the space requirements on the local tier. 
-
-First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation would be 10 % of the volume/share size. In this example, you need
-
-- 240 GB local reservation (for a 2 TB tiered volume/share)
-- 120 GB local reservation (for a 1 TB tiered volume/share)
-- 330 GB for locally pinned volume or share
-
-The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB = 690 GB.
-
-Second, we need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
-If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
-
-Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it is available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
-
-Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
-
-> [AZURE.NOTE] We also recommend that the local disk is thinly provisioned. This recommendation is because the restore space is only needed when you want to restore data that is older than five days. Item-level recovery allows you to restore data for the last five days without requiring the extra space for restore.
-
-#### <a name="example-2:"></a>Example 2: 
-On your virtual array, you want to be able to 
-
-- provision a 2 TB tiered volume
-- provision a 300 GB locally pinned volume
-
-Based on 12 % of local space reservation for tiered volumes/shares and 10 % for locally pinned volumes/shares, we need
-
-- 240 GB local reservation (for 2 TB tiered volume/share)
-- 330 GB for locally pinned volume or share
-
-Total space required on the local tier is: 240 GB + 330 GB = 570 GB
-
-The minimum local space needed for restore is 330 GB. 
-
-15 % of your total disk is used to store snapshots so that only 0.85 is available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
-
-Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
+- 2TB 계층화 볼륨 또는 공유 프로비전.
+- 1TB 계층화 볼륨 또는 공유 프로비전.
+- 로컬로 고정된 300GB 볼륨 또는 공유 프로비전.
 
 
-### <a name="group-policy"></a>Group policy
+앞의 볼륨 또는 공유에 필요한 로컬 계층의 공간을 계산해 보겠습니다.
 
-Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory Domain Services (AD DS) containers: sites, domains, or organizational units (OUs). 
+첫째, 각 계층화 볼륨/공유의 경우 로컬 예약은 볼륨/공유 크기의 12%입니다. 로컬로 고정된 볼륨/공유의 경우 로컬 예약은 볼륨/공유 크기의 10%입니다. 이 예제에는 다음 사항이 필요합니다.
 
-If your virtual array is domain-joined, GPOs can be applied to it. These GPOs can install applications such as an antivirus software that can adversely impact the operation of the StorSimple Virtual Array.
+- 240GB 로컬 예약(2TB 계층화 볼륨/공유의 경우)
+- 120GB 로컬 예약(1TB 계층화 볼륨/공유의 경우)
+- 로컬로 고정된 330GB 볼륨 또는 공유
 
-Therefore, we recommend that you:
+지금까지 로컬 계층에 필요한 총 공간은 240GB + 120GB + 330GB = 690GB입니다.
 
--   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. 
+둘째, 적어도 로컬 계층에 가장 큰 단일 예약만큼의 공간이 필요합니다. 이 추가 용량 클라우드 스냅숏으로 복원해야 할 경우에 사용됩니다. 이 예에서 가장 큰 로컬 예약은 330GB(파일 시스템에 대한 예약 포함)이므로 660GB에 이 공간을 더하면 660GB + 330GB = 990GB가 됩니다. 후속 추가 복원을 수행할 경우 항상 이전 복원 작업에서 공간을 확보할 수 있습니다.
 
--   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
+셋째, 지금까지 계산한 총 로컬 공간의 15%는 로컬 스냅숏을 저장하는 데 필요하므로 총 공간의 85%만 사용할 수 있습니다. 이 예에서는 약 990GB = 0.85&ast;프로비전된 데이터 디스크(TB)입니다. 따라서 프로비전된 데이터 디스크는 (990&ast;(1/0.85))= 1164GB = 1.16TB ~ 1.25TB(가장 가까운 사분위 수로 반올림)입니다.
 
+예기치 않은 증가 및 새로운 복원 작업을 대비하여 약 1.25-1.5TB의 로컬 디스크를 프로비전해야 합니다.
 
-### <a name="networking"></a>Networking
+> [AZURE.NOTE] 또한 로컬 디스크는 씬 프로비전이 좋습니다. 복원 공간은 5일을 초과한 데이터를 복원하려는 경우에만 필요하기 때문에 좋습니다. 항목 수준 복구를 사용하면 복원에 필요한 추가 공간 없이 최근 5일의 데이터를 복원할 수 있습니다.
 
-The network configuration for your virtual array is done through the local web UI. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. Use the [Network Settings](storsimple-ova-deploy3-fs-setup.md) page to configure the virtual network interface IP address, subnet, and gateway.  You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
+#### 예 2: 
+가상 배열에서 다음 작업을 수행할 수 있습니다.
 
-When deploying your virtual array, we recommend that you follow these best practices:
+- 2TB 계층화 볼륨 프로비전
+- 로컬로 고정된 300GB 볼륨 프로비전
 
--   Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more). 
+계층화 볼륨/공유에 필요한 로컬 공간 예약의 12% 및 로컬로 고정된 볼륨/공유의 10%를 기반으로 필요한 공간을 계산해 보면 다음과 같습니다.
 
-    -   Internet bandwidth need varies depending on your workload characteristics and the rate of data change.
+- 240GB 로컬 예약(2TB 계층화 볼륨/공유의 경우)
+- 로컬로 고정된 330GB 볼륨 또는 공유
 
-    -   The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB). 
+로컬 계층에 필요한 총 공간은 240GB + 330GB = 570GB입니다.
 
--   Ensure connectivity to the Internet is always available. Sporadic or unreliable Internet connections to the devices may result in a loss of access to data in the cloud and could result in an unsupported configuration.
+복원에 필요한 최소 로컬 공간은 330GB입니다.
 
--   If you plan to deploy your device as an iSCSI server: 
-    -   We recommend that you disable the **Get IP address automatically** option (DHCP). 
-    -   Configure static IP addresses. You must configure a primary and a secondary DNS server.
+총 디스크의 15%는 스냅숏을 저장하는 데 사용되므로 0.85만 사용할 수 있습니다. 따라서 디스크 크기는 (900&ast;(1/0.85)) = 1.06TB ~ 1.25TB(가장 가까운 사분위 수로 반올림)입니다.
 
-    -   If defining multiple network interfaces on your virtual array, only the first network interface (by default, this interface is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those interfaces to different subnets.
-
--   To throttle the cloud bandwidth only (used by the virtual array), configure throttling on the router or the firewall. If you define throttling in your hypervisor, it will throttle all the protocols including iSCSI and SMB instead of just the cloud bandwidth. 
-
--   Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services**, and ensure that the **Time synchronization** is checked.
-
-### <a name="storage-accounts"></a>Storage accounts
-
-StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service, or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
-
-Use the following recommendations for storage accounts associated with your virtual array.
-
--   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity (64 TB) for a virtual array and the maximum size (500 TB) for a storage account. This limits the number of full-sized virtual arrays that can be associated with that storage account to about 7.
-
--   When creating a new storage account
-    -   We recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
-
-    -   Bear in mind that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
-
-    -   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](../storage/storage-redundancy.md).
+예기치 않은 증가를 고려하여 1.25-1.5TB 로컬 디스크를 프로비전할 수 있습니다.
 
 
-### <a name="shares-and-volumes"></a>Shares and volumes
+### 그룹 정책
 
-For your StorSimple Virtual Array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes are related to the size and the type configured.
+그룹 정책은 사용자 및 컴퓨터에 대한 특정 구성을 구현할 수 있는 인프라입니다. 그룹 정책 설정은 GPO(그룹 정책 개체)에 포함되어 있으며 사이트, 도메인, OU(조직 구성 단위) 등과 같은 Active Directory 도메인 서비스(AD DS) 컨테이너에 연결됩니다.
 
-#### <a name="volume/share-size"></a>Volume/Share size
+가상 배열이 도메인에 가입된 경우 GPO를 적용할 수 있습니다. 이러한 GPO는 StorSimple 가상 배열의 작동에 부정적인 영향을 줄 수 있는 바이러스 백신 소프트웨어 같은 응용 프로그램을 설치할 수 있습니다.
 
-On your virtual array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes relate to the size and the type configured. 
+따라서 다음 작업을 수행하는 것이 좋습니다.
 
-Keep in mind the following best practices when provisioning shares or volumes on your virtual device.
+-   가상 배열이 Active Directory용 자체 OU(조직 구성 단위)에 있는지 확인합니다.
 
--   The file sizes relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in a slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
+-   GPO(그룹 정책 개체)가 가상 배열에 적용되지 않도록 합니다. 가상 배열(자식 노드)이 부모로부터 GPO를 자동으로 상속하지 않도록 상속을 차단할 수 있습니다. 자세한 내용은 [블록 상속](https://technet.microsoft.com/library/cc731076.aspx)으로 이동합니다.
 
--   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
 
--   When creating a volume, factor in the expected data consumption as well as future growth. While the volume cannot be expanded later, you can always restore to a larger volume.
+### 네트워킹
 
--   Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
+가상 배열에 대한 네트워크 구성은 로컬 웹 UI를 통해 수행됩니다. 가상 네트워크 인터페이스는 가상 배열이 프로비전되는 하이퍼바이저를 통해 설정됩니다. [네트워크 설정](storsimple-ova-deploy3-fs-setup.md) 페이지를 사용하여 가상 네트워크 인터페이스 IP 주소, 서브넷 및 게이트웨이를 구성하세요. 또한 장치의 기본 및 보조 DNS 서버, 시간 설정 그리고 선택적으로 프록시 설정을 구성할 수 있습니다. 대부분의 네트워크 구성은 일 회 설정입니다. 가상 배열을 배포하기 전에 [StorSimple 네트워킹 요구 사항](storsimple-ova-system-requirements.md#networking-requirements)을 검토하세요.
+
+가상 배열을 배포할 때에는 다음과 같은 모범 사례를 따르는 것이 좋습니다.
+
+-   가상 배열이 배포되는 네트워크에 항상 5Mbps 이상 인터넷 대역폭을 사용할 수 있는 용량이 있는지 확인합니다.
+
+    -   필요한 인터넷 대역폭은 워크로드 특성 및 데이터 변경 속도에 따라 달라집니다.
+
+    -   처리 가능한 데이터 변경은 인터넷 대역폭에 정비례합니다. 예를 들어 백업을 수행할 때 5Mbps 대역폭은 8시간에 약 18GB의 데이터를 변경할 수 있습니다. 대역폭이 4배 증가하면(20Mbps) 4배 더 많은 데이터 변경(72GB)을 처리할 수 있습니다.
+
+-   항상 인터넷에 연결되어야 합니다. 장치의 인터넷 연결이 자주 끊기거나 불안정하면 클라우드 데이터 액세스가 손상될 수 있으며 구성이 지원되지 않을 수 있습니다.
+
+-   장치를 iSCSI 서버로 배포하려는 경우:
+	-   **자동으로 IP 주소 받기** 옵션(DHCP)을 비활성화하는 것이 좋습니다.
+	-   고정 IP 주소를 구성합니다. 기본 및 보조 DNS 서버를 구성해야 합니다.
+
+	-   가상 배열에 여러 네트워크 인터페이스를 정의하는 경우 첫 번째 네트워크 인터페이스만(기본적으로 이 인터페이스는 **이더넷**) 클라우드에 연결할 수 있습니다. 트래픽 유형을 제어하려면 가상 배열(iSCSI 서버로 구성된)에 여러 가상 네트워크 인터페이스를 만들어서 여러 서브넷에 연결하면 됩니다.
+
+-   클라우드 대역폭만(가상 배열에서 사용하는) 제한하려면 라우터 또는 방화벽에서 제한을 구성합니다. 하이퍼바이저에서 제한을 정의하면 클라우드 대역폭뿐 아니라 iSCSI 및 SMB를 비롯한 모든 프로토콜이 제한됩니다.
+
+-   하이퍼바이저에 대한 시간 동기화를 확인합니다. Hyper-V를 사용할 경우 Hyper-V 관리자에서 가상 배열을 선택하고, **설정 &gt; 통합 서비스**로 이동하여 **시간 동기화**를 선택합니다.
+
+### 저장소 계정
+
+StorSimple 가상 배열은 단일 저장소 계정과 연결할 수 있습니다. 이 저장소 계정은 자동으로 생성된 저장소 계정, 서비스와 동일한 구독의 계정 또는 또 다른 구독에 관련된 저장소 계정일 수 있습니다. 자세한 내용은 [가상 배열에 대한 저장소 계정 관리](storsimple-ova-manage-storage-accounts.md)를 참조하세요.
+
+가상 배열과 연결된 저장소 계정의 경우 다음 권장 사항을 따릅니다.
+
+-   단일 저장소 계정에 여러 가상 배열을 연결할 경우 가상 배열의 최대 용량(64TB)과 저장소 계정의 최대 크기(500TB)를 고려해야 합니다. 이것은 해당 저장소 계정과 연결할 수 있는 전체 크기 가상 배열의 수를 7개로 제한합니다.
+
+-   새 저장소 계정을 만드는 경우
+	-   대기 시간이 최소화되도록 StorSimple 가상 배열이 배포된 원격 사무실/지사와 가장 가까운 지역에 저장소 계정을 만드는 것이 좋습니다.
+
+	-   지역 간에 저장소 계정을 이동할 수 없다는 점을 염두에 두어야 합니다. 또한 구독 간에 서비스를 이동할 수 없습니다.
+
+	-   데이터 센터 간에 중복성을 구현하는 저장소 계정을 사용합니다. GRS(지역 중복 저장소), ZRS(영역 중복 저장소) 및 LRS(로컬 중복 저장소)는 모두 가상 배열에 사용할 수 있습니다. 다양한 저장소 계정에 대한 자세한 내용은 [Azure Storage 복제](../storage/storage-redundancy.md)를 참조하세요.
+
+
+### 공유 및 볼륨
+
+StorSimple 가상 배열이 파일 서버로 구성되면 공유를 프로비전할 수 있고, iSCSI 서버로 구성되면 볼륨을 프로비전할 수 있습니다. 공유 및 볼륨 만들기에 대한 모범 사례는 구성된 유형 및 크기와 관련이 있습니다.
+
+#### 볼륨/공유 크기
+
+가상 배열이 파일 서버로 구성되면 공유를 프로비전할 수 있고, iSCSI 서버로 구성되면 볼륨을 프로비전할 수 있습니다. 공유 및 볼륨 만들기에 대한 모범 사례는 구성된 유형 및 크기와 관련이 있습니다.
+
+가상 장치에 공유 또는 볼륨을 프로비전 할 때에는 다음과 같은 모범 사례를 염두에 두어야 합니다.
+
+-   계층화 공유의 프로비전된 크기와 관련된 파일 크기가 계층화 성능에 영향을 줄 수 있습니다. 큰 파일로 작업하면 계층화가 매우 느려질 수 있습니다. 큰 파일을 사용하는 경우 가장 큰 파일이 공유 크기의 3% 보다 작은 것이 좋습니다.
+
+-   가상 배열에 최대 16개 볼륨/공유를 만들 수 있습니다. 로컬로 고정되면 볼륨/공유는 50GB에서 2TB 사이일 수 있습니다. 계층화된 경우 볼륨/공유가 500GB에서 20TB 사이여야 합니다.
+
+-   볼륨을 만들 때에는 향후 성장뿐 아니라 예상 데이터 사용량을 고려해야 합니다. 볼륨은 나중에 확장할 수 없지만 언제나 좀 더 큰 볼륨으로 복원할 수 있습니다.
+
+-   볼륨을 만든 후 StorSimple 볼륨의 크기를 축소할 수 없습니다.
    
--   When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data or restore the volume to a larger volume (volume expansion is currently not supported).
+-   StorSimple 의 계층화 볼륨에 쓸 경우 볼륨 데이터가 특정 임계값(볼륨에 대해 예약된 로컬 공간에 비례)에 도달하면 IO가 제한됩니다. 이 볼륨에 계속 쓰면 IO가 현저하게 느려집니다. 프로비전된 용량을 초과하여 계층화 볼륨에 계속 쓸 수는 있지만(당사에서는 사용자가 프로비전된 용량을 초과하여 쓰는 것을 적극적으로 제지하지 않음) 용량을 초과하여 사용한 영향에 대해 알리는 경고 알림이 표시됩니다. 경고가 표시되면 볼륨 데이터를 삭제하거나 볼륨을 더 큰 볼륨에 복원(볼륨 확장은 현재 지원되지 않음)하는 등의 문제 해결 조치를 수행해야 합니다.
 
--   For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs. 
+-   재해 복구 사용 사례의 경우 허용되는 공유/볼륨의 수가 16개이고 병렬로 처리할 수 있는 최대 공유/볼륨 수가 16이므로 공유/볼륨의 수와 RPO 및 RTO 사이에는 아무 관계가 없습니다.
 
-#### <a name="volume/share-type"></a>Volume/Share type
+#### 볼륨/공유 유형
 
-StorSimple supports two volume/share types based on the usage: locally pinned and tiered. Locally pinned volumes/shares are thickly provisioned whereas the tiered volumes/shares are thinly provisioned. 
+StorSimple은 용도에 따라 로컬 고정 및 계층화의 두 가지 볼륨/공유 유형을 지원합니다. 로컬로 고정된 볼륨/공유는 씩 프로비전되는 반면 계층화 볼륨/공유는 씬 프로비전됩니다.
 
-We recommend that you implement the following best practices when configuring StorSimple volumes/shares:
+StorSimple 볼륨/공유를 구성할 때에는 다음과 같은 모범 사례를 구현하는 것이 좋습니다.
 
--   Identify the volume type based on the workloads that you intend to deploy before you create a volume. Use locally pinned volumes for workloads that require local guarantees of data (even during a cloud outage) and that require low cloud latencies. Once you create a volume on your virtual array, you cannot change the volume type from locally pinned to tiered or *vice-versa*. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs); use tiered volumes for file share workloads.
+-   볼륨을 만들기 전에 배포하려는 워크로드에 따라 볼륨 유형을 결정합니다. 데이터 로컬 보증이 필요하고(클라우드가 중단되더라도) 클라우드 대기 시간이 낮아야 하는 워크로드에는 로컬로 고정된 볼륨을 사용합니다. 가상 배열에 볼륨을 만든 후에는 로컬로 고정된 볼륨에서 계층화 볼륨으로 또는 *반대로* 유형을 변경할 수 없습니다. 예를 들어 SQL 워크로드 또는 VM(가상 컴퓨터)을 호스팅하는 워크로드를 배포할 때에는 파일 공유 워크로드를 위한 계층화 볼륨을 사용합니다.
 
--   Check the option for less frequently used archival data when dealing with large file sizes. A larger deduplication chunk size of 512 K is used when this option is enabled to expedite the data transfer to the cloud.
+-   대용량 파일을 처리할 때에는 사용 빈도가 낮은 보관 데이터에 대한 옵션을 선택합니다. 이 옵션을 사용하면 클라우드로 신속하게 데이터를 전송하기 위해 보다 큰 중복 제거 청크 크기인 512K가 사용됩니다.
 
-#### <a name="volume-format"></a>Volume format
+#### 볼륨 형식
 
-After you create StorSimple volumes on your iSCSI server, you need to initialize, mount, and format the volumes. This operation is performed on the host connected to your StorSimple device. Following best practices are recommended when mounting and formatting volumes on the StorSimple host.
+iSCSI 서버에 StorSimple 볼륨을 만든 후에는 볼륨을 초기화하고, 탑재하고, 포맷해야 합니다. 이 작업은 StorSimple 장치에 연결된 호스트에서 수행합니다. 다음은 StorSimple 호스트의 볼륨을 탑재하고 포맷할 때 권장되는 모범 사례입니다.
 
--   Perform a quick format on all StorSimple volumes.
+-   모든 StorSimple 볼륨에서 빠른 포맷을 수행합니다.
 
--   When formatting a StorSimple volume, use an allocation unit size (AUS) of 64 KB (default is 4 KB). The 64 KB AUS is based on testing done in-house for common StorSimple workloads and other workloads.
+-   StorSimple 볼륨을 포맷할 때에는 할당 단위 크기(AUS) 64KB(기본값은 4KB)를 사용합니다. 64KB AUS는 다른 워크로드 및 일반적인 StorSimple 워크로드에 대해 사내에서 수행된 테스트를 기반으로 합니다.
 
--   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these volumes or disks are not supported by StorSimple.
+-   이러한 볼륨 및 디스크는 StorSimple에서 지원되지 않으므로 iSCSI 서버로 구성된 StorSimple 가상 배열을 사용할 경우 스팬된 볼륨 또는 동적 디스크를 사용하지 않습니다.
 
-#### <a name="share-access"></a>Share access
+#### 공유 액세스
 
-When creating shares on your virtual array file server, follow these guidelines:
+가상 배열 파일 서버에 공유를 만들 때에는 다음 지침을 따르세요.
 
--   When creating a share, assign a user group as a share administrator instead of a single user.
+-   공유를 만들 때 사용자 그룹을 단일 사용자 대신 공유 관리자로 할당합니다.
 
--   You can manage the NTFS permissions after the share is created by editing the shares through Windows Explorer.
+-   공유를 만든 후에는 Windows 탐색기를 통해 공유를 편집하여 NTFS 사용 권한을 관리할 수 있습니다.
 
-#### <a name="volume-access"></a>Volume access
+#### 볼륨 액세스
 
-When configuring the iSCSI volumes on your StorSimple Virtual Array, it is important to control access wherever necessary. To determine which host servers can access volumes, create, and associate access control records (ACRs) with StorSimple volumes.
+StorSimple 가상 배열에 iSCSI 볼륨을 구성할 경우 필요한 모든 곳의 액세스를 제어하는 것이 중요 합니다. 볼륨에 액세스할 수 있는 호스트 서버를 결정하려면 ACR(액세스 제어 레코드)를 만들고 StorSimple 볼륨에 연결합니다.
 
-Use the following best practices when configuring ACRs for StorSimple volumes:
+StorSimple 볼륨에 대한 ACR을 구성할 때에는 다음 모범 사례를 사용합니다.
 
--   Always associate at least one ACR with a volume.
+-   볼륨 하나에 반드시 하나 이상의 ACR을 연결합니다.
 
--   Define multiple ACRs only in a clustered environment.
+-   클러스터된 환경에 여러 ACR을 정의합니다.
 
--   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message pops up for you to review your configuration.
+-   볼륨에 두 개 이상의 ACR을 할당할 경우 해당 볼륨에 둘 이상의 클러스터되지 않은 호스트가 동시에 액세스할 수 있는 방식으로 볼륨이 노출되면 안 됩니다. 한 볼륨에 여러 ACR을 할당한 경우 구성을 검토하라는 경고 메시지가 표시됩니다.
 
-### <a name="data-security-and-encryption"></a>Data security and encryption
+### 데이터 보안 및 암호화
 
-Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
+StorSimple 가상 배열에는 데이터의 기밀성과 무결성을 보장하는 데이터 보안 및 암호화 기능이 있습니다. 이러한 기능을 사용할 때에는 다음과 같은 모범 사례를 따르는 것이 좋습니다.
 
--   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to begin with. The key can be generated and kept safe using a key management system such as [Azure key vault](../key-vault/key-vault-whatis.md).
+-   가상 배열에서 클라우드로 데이터를 전송하기 전에 AES-256 암호화를 생성하는 클라우드 저장소 암호화 키를 정의합니다. 데이터가 처음부터 암호화되는 경우에는 이 키가 필요하지 않습니다. [Azure 주요 자격 증명 모음](../key-vault/key-vault-whatis.md) 같은 키 관리 시스템을 사용하면 키를 생성하여 안전하게 보관할 수 있습니다.
 
--   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
+-   StorSimple Manager 서비스를 통해 저장소 계정을 구성할 때 StorSimple 장치와 클라우드 간 네트워크 통신을 위한 보안 채널이 생성되도록 SSL 모드를 사용해야 합니다.
 
--   Regenerate the keys for your storage accounts (by accessing the Azure Storage service) periodically to account for any changes to access based on the changed list of administrators.
+-   변경된 관리자 목록을 기반으로 모든 액세스 변경 사항을 설명할 수 있도록 주기적으로 저장소 계정의 키를 다시 생성(Azure 저장소 서비스에 액세스)합니다.
 
--   Data on your virtual array is compressed and deduplicated before it is sent to Azure. We don't recommend using the Data Deduplication role service on your Windows Server host.
+-   가상 배열의 데이터는 압축 및 중복 제거된 후 Azure로 전송됩니다. Windows Server 호스트에서 데이터 중복 제거 역할 서비스를 사용하지 않는 것이 좋습니다.
 
 
-## <a name="operational-best-practices"></a>Operational best practices
+## 운영 모범 사례
 
-The operational best practices are guidelines that should be followed during the day-to-day management or operation of the virtual array. These practices cover specific management tasks such as taking backups, restoring from a backup set, performing a failover, deactivating and deleting the array, monitoring system usage and health, and running virus scans on your virtual array.
+운영 모범 사례는 일상적인 관리나 가상 배열 운영에서 따라야 하는 지침입니다. 이 사례에서는 백업 수행, 백업 세트에서 복원, 장애 조치(Failover) 수행, 배열 비활성화 및 삭제, 시스템 사용량 및 상태 모니터링, 가상 배열의 바이러스 스캔 실행 등과 같은 특정 관리 작업에 대해 다룹니다.
 
-### <a name="backups"></a>Backups
+### 백업
 
-The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-ova-backup.md).
+가상 배열의 데이터를 클라우드에 백업하는 두 가지 방법이 있는데, 하나는 날마다 22:30에 전체 장치 백업을 시작하는 기본 백업이고, 다른 하나는 수동 주문형 백업입니다. 기본적으로 장치에 상주하는 모든 데이터의 클라우드 스냅숏이 날마다 자동으로 만들어집니다. 자세한 내용은 [StorSimple 가상 배열 백업](storsimple-ova-backup.md)을 참조하세요.
 
-The frequency and retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
+기본 백업과 연결된 빈도 및 보존 기간은 변경할 수 없지만 일일 백업이 시작되는 시간을 구성할 수 있습니다. 자동 백업의 시작 시간을 구성할 때에는 다음과 같이 하는 것이 좋습니다.
 
--   Schedule your backups for off-peak hours. Backup start time should not coincide with numerous host IO.
+-   사용량이 적은 시간에 백업을 예약합니다. 백업 시작 시간에 수많은 호스트 IO가 발생하지 않아야 합니다.
 
--   Initiate a manual on-demand backup when planning to perform a device failover or prior to the maintenance window, to protect the data on your virtual array.
+-   장애 조치(Failover)를 수행할 계획이거나 유지 관리 기간 전에 가상 배열의 데이터를 보호할 계획이라면 수동 주문형 백업을 시작합니다.
 
-### <a name="restore"></a>Restore
+### 복원
 
-You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-ova-restore.md).
+백업 세트에서 복원하는 두 가지 방법이 있는데, 하나는 다른 볼륨 또는 공유로 복원하는 것이고, 다른 하나는 항목 수준 복구(파일 서버로 구성된 가상 배열에서만 사용 가능)를 수행하는 것입니다. 항목 수준 복구를 사용하여 StorSimple 장치에 있는 모든 공유의 클라우드 백업에서 파일과 폴더를 세부적으로 복원할 수 있습니다. 자세한 내용은 [백업에서 복구](storsimple-ova-restore.md)를 참조하세요.
 
-When performing a restore, keep the following guidelines in mind:
+복원을 수행할 때 다음 지침에 유의해야 합니다.
 
--   Your StorSimple Virtual Array does not support in-place restore. This can however be readily achieved by a two-step process: make space on the virtual array and then restore to another volume/share.
+-   StorSimple 가상 배열은 바로 복원을 지원하지 않습니다. 하지만 언제든지 가상 배열에 공간을 확보한 후 다른 볼륨/공유에 복원하는 2단계 프로세스를 통해 복원을 수행할 수 있습니다.
 
--   When restoring from a local volume, keep in mind the restore will be a long running operation. Though the volume may quickly come online, the data continues to be hydrated in the background.
+-   로컬 볼륨에서 복원할 경우 복원 작업이 오래 걸린다는 사실을 염두에 두어야 합니다. 볼륨이 신속하게 온라인 상태가 될 수는 있지만 데이터가 백그라운드에서 계속 하이드레이션됩니다.
 
--   The volume type remains the same during the restore process. A tiered volume is restored to another tiered volume and a locally pinned volume to another locally pinned volume.
+-   복원 프로세스가 진행되는 동안에는 볼륨 유형이 전과 동일하게 유지됩니다. 계층화 볼륨은 또 다른 계층화 볼륨에 복원되고 로컬로 고정된 볼륨은 또 다른 로컬로 고정된 볼륨에 복원됩니다.
 
--   When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this unused target volume or share in the portal to minimize any future issues arising from this element.
+-   백업 집합에서 볼륨 또는 공유를 복원할 때 복원 작업에 실패한 경우 포털에서 대상 볼륨 또는 공유를 계속 만들 수 있습니다. 향후 이 요소로 인해 발생하는 문제를 최소화하려면 포털에서 이 사용되지 않는 대상 볼륨 또는 공유를 삭제해야 합니다.
 
-### <a name="failover-and-disaster-recovery"></a>Failover and disaster recovery
+### 장애 조치(Failover) 및 재해 복구
 
-A device failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
+장치 장애 조치(Failover)를 통해 데이터 센터에 있는 *원본* 장치의 데이터를 동일한 또는 다른 지리적 위치에 있는 별개의 *대상* 장치로 마이그레이션할 수 있습니다. 장치 장애 조치는 전체 장치를 대상으로 합니다. 장애 조치를 수행하는 동안 원본 장치의 클라우드 데이터는 대상 장치의 그것으로 소유권이 변경됩니다.
 
-For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to an 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr.md).
+StorSimple 가상 배열의 경우 동일한 StorSimple Manager 서비스에서 관리하는 또 다른 가상 배열로만 장애 조치(Failover)할 수 있습니다. 8000 시리즈 장치 또는 다른 StorSimple Manager 서비스에서 관리하는 배열로의 장애 조치(Failover)는 허용되지 않습니다. 장애 조치(Failover) 고려 사항에 대한 자세한 내용은 [장치 장애 조치(Failover)에 대한 필수 구성 요소](storsimple-ova-failover-dr.md)를 참조하세요.
 
-When performing a fail over for your virtual array, keep the following in mind:
+가상 배열에 대한 장애 조치(Failover)를 수행할 때에는 다음 사항에 유의해야 합니다.
 
--   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Follow the operating system-specific instructions to take the volumes/shares offline on the host first and then take those offline on your virtual device.
+-   계획된 장애 조치(Failover)의 경우 장애 조치(Failover)를 수행하기 전에 모든 볼륨/공유를 오프라인으로 전환하는 것이 좋습니다. 운영 체제별 지침에 따라 먼저 호스트에서 볼륨/공유를 오프라인으로 전환한 후 가상 장치에서 볼륨/공유를 오프라인으로 전환합니다.
 
--   For a file server disaster recovery (DR), we recommend that you join the target device to the same domain as the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
+-   파일 서버 DR(재해 복구)의 경우 공유 권한이 자동으로 해결되도록 대상 장치를 원본과 같은 도메인에 가입하는 것이 좋습니다. 이 릴리스에서는 같은 도메인에 있는 대상 장치에 대한 장애 조치만 지원됩니다.
 
--   Once the DR is successfully completed, the source device is automatically deleted. Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. We recommend that you delete this virtual machine from your host system to prevent any charges from accruing.
+-   DR이 완료되면 원본 장치가 자동으로 삭제됩니다. 장치를 더 이상 사용할 수 없지만, 호스트 시스템에서 프로비전한 가상 컴퓨터는 여전히 자원을 소비합니다. 요금이 발생하지 않도록 호스트 시스템에서 이 가상 컴퓨터를 삭제하는 것이 좋습니다.
 
--   Do note that even if the failover is unsuccessful, **the data is always safe in the cloud**. Consider the following three scenarios in which the failover did not complete successfully:
+-   장애 조치(Failover)가 실패하더라도 **데이터가 항상 클라우드에서 안전하게 보관**됩니다. 장애 조치(Failover)가 실패하는 다음 세 가지 시나리오를 고려해 보세요.
 
-    -   A failure occurred in the initial stages of the failover such as when the DR pre-checks are being performed. In this situation, your target device is still usable. You can retry the failover on the same target device.
+    -   DR 사전 검사 같은 장애 조치(Failover)의 초기 단계에서 오류가 발생했습니다. 이 경우 대상 장치를 여전히 사용할 수 있습니다. 동일한 대상 장치에서 장애 조치(Failover)를 다시 시도할 수 있습니다.
 
-    -   A failure occurred during the actual failover process. In this case, the target device is marked unusable. You must provision and configure another target virtual array and use that for failover.
+    -   실제 장애 조치(Failover) 프로세스 동안 오류가 발생했습니다. 이 경우 대상 장치가 사용할 수 없는 것으로 표시됩니다. 다른 대상 가상 배열을 프로비전 및 구성한 후 장애 조치(Failover)에 사용해야 합니다.
 
-    -   The failover was complete following which the source device was deleted but the target device has issues and you cannot access any data. The data is still safe in the cloud and can be easily retrieved by creating another virtual array and then using it as a target device for the DR.
+    -   장애 조치(Failover)가 완료된 후 원본 장치가 삭제되었지만 대상 장치에 문제가 있어서 데이터에 액세스할 수 없습니다. 데이터는 여전히 클라우드에서 안전하게 보관되며 다른 가상 배열을 만들어서 DR에 대한 대상 장치로 사용하면 간편하게 데이터를 검색할 수 있습니다.
 
-### <a name="deactivate"></a>Deactivate
+### 비활성화
 
-When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a **permanent** operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-deactivate-and-delete-device.md).
+StorSimple 가상 배열을 비활성화하면 장치 및 해당 StorSimple Manager 서비스 간의 연결이 끊깁니다. 비활성화는 **영구** 작업이며 실행 취소할 수 없습니다. 비활성화된 장치는 StorSimple Manager 서비스에 다시 등록할 수 없습니다. 자세한 내용은 [StorSimple 가상 배열 비활성화 및 삭제](storsimple-deactivate-and-delete-device.md)를 참조하세요.
 
-Keep the following best practices in mind when deactivating your virtual array:
+가상 배열을 비활성화할 때에는 다음과 같은 모범 사례를 따라야 합니다.
 
--   Take a cloud snapshot of all the data prior to deactivating a virtual device. When you deactivate a virtual array, all the local device data is lost. Taking a cloud snapshot will allow you to recover data at a later stage.
+-   가상 장치를 비활성화하기 전에 모든 데이터의 클라우드 스냅숏을 만듭니다. 가상 배열을 비활성화하면 모든 로컬 장치 데이터가 손실됩니다. 클라우드 스냅샷을 만들면 나중에 데이터를 복구할 수 있습니다.
 
--   Before you deactivate a StorSimple Virtual Array, make sure to stop or delete clients and hosts that depend on that device.
+-   StorSimple 가상 배열을 비활성화하기 전에 해당 장치에 의존하는 클라이언트와 호스트를 중지하거나 삭제했는지 확인합니다.
 
--   Delete a deactivated device if you are no longer using so that it doesn't accrue charges.
+-   비용이 발생하지 않도록 장치를 더 이상 사용하지 않으려면 장치를 비활성화합니다.
 
-### <a name="monitoring"></a>Monitoring
+### 모니터링
 
-To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
+StorSimple 가상 배열을 계속해서 정상 상태로 유지하려면 배열을 모니터링하면서 시스템에서 경고를 포함한 정보를 받아야 합니다. 가상 배열의 전반적인 상태를 모니터링하려면 다음 모범 사례를 구현합니다.
 
-- Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
+- OS 디스크뿐 아니라 가상 배열 데이터 디스크의 디스크 사용량을 추적하도록 모니터링을 구성합니다. Hyper-V를 실행하는 경우 SCVMM(System Center Virtual Machine Manager) 및 SCOM(System Center Operations Manager)을 사용하여 가상화 호스트를 모니터링할 수 있습니다.
 
-- Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
+- 특정 사용량 수준에 도달하면 경고를 보내도록 가상 배열에서 전자 메일 알림을 구성합니다.
 
-### <a name="index-search-and-virus-scan-applications"></a>Index search and virus scan applications
+### 인덱스 검색 및 바이러스 스캔 응용 프로그램
 
-A StorSimple Virtual Array can automatically tier data from the local tier to the Microsoft Azure cloud. When an application such as an index search or a virus scan is used to scan the data stored on StorSimple, you need to take care that the cloud data does not get accessed and pulled back to the local tier.
+StorSimple 가상 배열은 데이터를 로컬 계층에서 Microsoft Azure 클라우드로 자동 계층화할 수 있습니다. StorSimple에 저장된 데이터를 검색하기 위해 인덱스 검색이나 바이러스 스캔 같은 응용 프로그램을 사용할 경우 클라우드 데이터에 액세스할 수 없으며 클라우드 데이터가 로컬 계층으로 돌아갑니다.
 
-We recommend that you implement the following best practices when configuring the index search or virus scan on your virtual array:
+가상 배열에서 인덱스 검색 또는 바이러스 스캔을 구성할 때에는 다음 모범 사례를 구현하는 것이 좋습니다.
 
--   Disable any automatically configured full scan operations.
+-   자동으로 구성된 모든 전체 스캔 작업을 사용하지 않도록 설정합니다.
 
--   For tiered volumes, configure the index search or virus scan application to perform an incremental scan. This would scan only the new data likely residing on the local tier. The data that is tiered to the cloud is not accessed during an incremental operation.
+-   계층화 볼륨의 경우 증분 스캔을 수행하도록 인덱스 검색 또는 바이러스 스캔 응용 프로그램을 구성합니다. 이렇게 하면 로컬 계층에 상주할 가능성이 있는 새 데이터만 검색합니다. 증분 작업 중에는 클라우드에 계층화된 데이터에 액세스할 수 없습니다.
 
--   Ensure the correct search filters and settings are configured so that only the intended types of files get scanned. For example, image files (JPEG, GIF, and TIFF) and engineering drawings should not be scanned during the incremental or full index rebuild.
+-   원하는 파일 유형만 스캔되도록 검색 필터 및 설정을 올바르게 구성해야 합니다. 예를 들어 이미지 파일(JPEG, GIF 및 TIFF) 및 엔지니어링 드로잉은 증분 또는 전체 인덱스를 다시 작성하는 동안 스캔하면 안 됩니다.
 
-If using Windows indexing process, follow these guidelines:
+Windows 인덱싱 프로세스를 사용하는 경우 다음 지침을 따르세요.
 
--   Do not use the Windows Indexer for tiered volumes as it recalls large amounts of data (TBs) from the cloud if the index needs to be rebuilt frequently. Rebuilding the index would retrieve all file types to index their content.
+-   Windows 인덱서는 클라우드에서 대량의 데이터(TB)를 회수하므로 인덱스를 자주 다시 작성해야 하는 경우에는 계층화 볼륨에 Windows 인덱서를 사용하지 마세요. 인덱스 다시 작성 작업은 모든 파일 유형을 검색하여 콘텐츠를 인덱싱합니다.
 
--   Use the Windows indexing process for locally pinned volumes as this would only access data on the local tiers to build the index (the cloud data will not be accessed).
+-   로컬로 고정된 볼륨의 경우 Windows 인덱싱이 로컬 계층의 데이터에만 액세스하므로(클라우드 데이터는 액세스되지 않음) Windows 인덱싱 프로세스를 사용합니다.
 
-### <a name="byte-range-locking"></a>Byte range locking
+### 바이트 범위 잠금
 
-Applications can lock a specified range of bytes within the files. If byte range locking is enabled on the applications that are writing to your StorSimple, then tiering does not work on your virtual array. For the tiering to work, all areas of the files accessed should be unlocked. Byte range locking is not supported with tiered volumes on your virtual array.
+응용 프로그램에서 파일 내의 지정된 바이트 범위를 잠글 수 있습니다. StorSimple에 데이터를 쓰는 응용 프로그램에서 바이트 범위 잠금이 활성화되면 가상 배열에서 계층화가 작동하지 않습니다. 계층화가 작동하게 하려면 액세스되는 파일의 모든 영역을 잠그면 안 됩니다. 가상 배열의 가상화 볼륨에는 바이트 범위 잠금이 지원되지 않습니다.
 
-Recommended measures to alleviate byte range locking include:
+바이트 범위 잠금을 완화하기 위한 권고 조치는 다음과 같습니다.
 
--   Turn off byte range locking in your application logic.
+-   응용 프로그램 논리에서 바이트 범위 잠금을 해제합니다.
 
--   Use locally pinned volumes (instead of tiered) for the data associated with this application. Locally pinned volumes do not tier into the cloud.
+-   이 응용 프로그램과 관련된 데이터에 계층화 볼륨 대신 로컬로 고정된 볼륨을 사용합니다. 로컬로 고정된 볼륨은 클라우드에 계층화되지 않습니다.
 
--   When using locally pinned volumes with byte range locking enabled, the volume can come online before the restore is complete. In these instances, you must wait for the restore to be complete.
+-   로컬로 고정된 볼륨에서 바이트 범위 잠금을 사용할 경우 복원이 완료되기 전에 볼륨이 온라인 상태가 될 수 있습니다. 이 경우 복원이 완료되기를 기다려야 합니다.
 
-## <a name="multiple-arrays"></a>Multiple arrays
+## 다중 배열
 
-Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This requires one or more devices to be added in the on-premises data center. When adding the devices, you could:
+클라우드에 점점 더 많은 데이터 작업 집합이 쏟아져서 장치 성능이 저하되는 일이 없도록 다중 가상 배열을 배포해야 하는 경우가 있습니다. 이 경우 작업 집합이 증가하는 만큼 장치를 확장하는 것이 가장 좋습니다. 그러려면 온-프레미스 데이터 센터에 추가할 하나 이상의 장치가 필요합니다. 장치를 추가할 때 다음과 같이 할 수 있습니다.
 
--   Split the current set of data.
--   Deploy new workloads to new device(s).
--   If deploying multiple virtual arrays, we recommend that from load-balancing perspective, distribute the array across different hypervisor hosts.
+-   현재 데이터 집합을 분할합니다.
+-   새 장치에 새 워크로드를 배포합니다.
+-   다중 가상 배열을 배포할 경우 부하 분산의 관점에서 여러 하이퍼바이저 호스트에 배열을 분산하는 것이 좋습니다.
 
--  Multiple virtual arrays (when configured as a file server or an iSCSI server) can be deployed in a Distributed File System Namespace. For detailed steps, go to [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System Replication is currently not recommended for use with the virtual array. 
+-  다중 가상 배열(파일 서버 또는 iSCSI 서버로 구성된 경우)을 분산 파일 시스템 네임스페이스에 배포할 수 있습니다. 자세한 단계는 [하이브리드 클라우드 저장소 배포 가이드를 사용하는 분산 파일 시스템 네임스페이스 솔루션](https://www.microsoft.com/download/details.aspx?id=45507)을 참조하세요. 현재는 가상 배열에 분산 파일 시스템 복제를 사용하지 않는 것이 좋습니다.
 
 
-## <a name="see-also"></a>See also
-Learn how to [administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) via the StorSimple Manager service.
+## 참고 항목
+StorSimple Manager 서비스를 통해 [StorSimple 가상 배열을 관리하는 방법](storsimple-ova-manager-service-administration.md)에 대해 알아봅니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

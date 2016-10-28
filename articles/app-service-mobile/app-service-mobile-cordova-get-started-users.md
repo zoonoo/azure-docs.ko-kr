@@ -1,68 +1,67 @@
 <properties
-    pageTitle="Add authentication on Apache Cordova with Mobile Apps | Azure App Service"
-    description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Apache Cordova app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
-    services="app-service\mobile"
-    documentationCenter="javascript"
-    authors="adrianhall"
-    manager="erikre"
-    editor=""/>
+	pageTitle="모바일 앱을 사용하여 Apache Cordova에 인증 추가| Azure 앱 서비스"
+	description="Azure 앱 서비스에서 모바일 앱을 사용하여 Google, Facebook, Twitter, Microsoft를 비롯한 다양한 ID 공급자를 통해 Apache Cordova 앱의 사용자를 인증하는 방법을 알아봅니다."
+	services="app-service\mobile"
+	documentationCenter="javascript"
+	authors="adrianhall"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="na"
-    ms.tgt_pltfrm="mobile-html"
-    ms.devlang="javascript"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+	ms.service="app-service-mobile"
+	ms.workload="na"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="08/11/2016"
+	ms.author="glenga"/>
 
-
-# <a name="add-authentication-to-your-apache-cordova-app"></a>Add authentication to your Apache Cordova app
+# Apache Cordova 앱에 인증 추가
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-    
-## <a name="summary"></a>Summary
 
-In this tutorial, you add authentication to the todolist quickstart project on Apache Cordova using a supported identity provider. This tutorial is based on the [Get started with Mobile Apps] tutorial, which you must complete first.
+## 요약
 
-##<a name="<a-name="register"></a>register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Register your app for authentication and configure the App Service
+이 자습서에서는 지원되는 ID 공급자를 사용하여 Apache Cordova의 할 일 모음 빠른 시작 프로젝트에 인증을 추가합니다. 이 자습서는 [모바일 앱 시작] 자습서를 기반으로 하며 이를 먼저 완료해야 합니다.
+
+##<a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
+[유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-##<a name="<a-name="permissions"></a>restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restrict permissions to authenticated users
+##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Now, you can verify that anonymous access to your backend has been disabled. In Visual Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then run your application in the **Google Android Emulator** and verify that an Unexpected Connection Failure is shown after the app starts.
+이제 백 엔드에 대한 익명 액세스가 비활성화되었는지 확인할 수 있습니다. Visual Studio에서 [모바일 앱 시작] 자습서를 완료했을 때 만든 프로젝트를 연 다음 **Google Android 에뮬레이터**에서 응용 프로그램을 실행하고 앱이 시작된 후 예기치 않은 연결 오류가 표시되는지 확인합니다.
 
-Next, you will update the app to authenticate users before requesting resources from the Mobile App backend.
+다음으로 앱을 업데이트하여 모바일 앱 백 엔드에서 리소스를 요청하기 전에 사용자를 인증하도록 합니다.
 
-##<a name="<a-name="add-authentication"></a>add-authentication-to-the-app"></a><a name="add-authentication"></a>Add authentication to the app
+##<a name="add-authentication"></a>앱에 인증 추가
 
-1. Open your project in **Visual Studio**, then open the `www/index.html` file for editing.
+1. **Visual Studio**에서 프로젝트를 연 다음 편집을 위해 `www/index.html` 파일을 엽니다.
 
-2. Locate the `Content-Security-Policy` meta tag in the head section.  You will need to add the OAuth host to the list of allowed sources.
+2. 헤드 섹션에서 `Content-Security-Policy` META 태그를 찾습니다. 허용된 원본 목록에 OAuth 호스트를 추가해야 합니다.
 
-  	| Provider               | SDK Provider Name | OAuth Host                  |
-  	| :--------------------- | :---------------- | :-------------------------- |
-  	| Azure Active Directory | aad               | https://login.windows.net   |
-  	| Facebook               | facebook          | https://www.facebook.com    |
-  	| Google                 | google            | https://accounts.google.com |
-  	| Microsoft              | microsoftaccount  | https://login.live.com      |
-  	| Twitter                | twitter           | https://api.twitter.com     |
+    | 공급자 | SDK 공급자 이름 | OAuth 호스트 |
+    | :--------------------- | :---------------- | :-------------------------- |
+    | Azure Active Directory | aad | https://login.windows.net |
+    | Facebook | facebook | https://www.facebook.com |
+    | Google | google | https://accounts.google.com |
+    | Microsoft | microsoftaccount | https://login.live.com |
+    | Twitter | twitter | https://api.twitter.com |
 
-    An example Content-Security-Policy (implemented for Azure Active Directory) is as follows:
+    다음은 Content-Security-Policy(Azure Active Directory용으로 구현됨) 예제입니다.
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-            data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
-    You should replace `https://login.windows.net` with the OAuth host from the table above.  Consult the [Content-Security-Policy documentation] for more information about this meta tag.
+    `https://login.windows.net`을 위 표의 OAuth 호스트로 바꿔야 합니다. 이 Meta 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
 
-    Note that some authentication providers do not require Content-Security-Policy changes when used on appropriate mobile devices.  For example, no Content-Security-Policy changes are required when using Google authentication on an Android device.
+    일부 인증 공급자에서는 적절한 모바일 장치에서 사용하는 경우 Content-Security-Policy 변경이 필요하지 않습니다. 예를 들어 Android 장치에서 Google 인증을 사용하는 경우 Content-Security-Policy를 변경하지 않아도 됩니다.
 
-3. Open the `www/js/index.js` file for editing, locate the `onDeviceReady()` method, and under the client creation code add the following:
+3. 편집을 위해 `www/js/index.js` 파일을 열고 `onDeviceReady()` 메서드를 찾아 클라이언트 생성 코드에서 다음을 추가합니다.
 
         // Login to the service
         client.login('SDK_Provider_Name')
@@ -84,36 +83,32 @@ Next, you will update the app to authenticate users before requesting resources 
 
             }, handleError);
 
-    Note that this code replace the existing code that creates the table reference and refreshes the UI.
+    테이블 참조를 만들고 UI를 새로 고치는 기존 코드를 이 코드로 바꿉니다.
 
-    The login() method starts authentication with the provider. The login() method is an async function that returns a JavaScript Promise.  The rest of the initialization is placed inside the promise response so that it is not executed until the login() method completes.
+    login() 메서드는 공급자를 사용하여 인증을 시작합니다. login() 메서드는 JavaScript 프라미스를 반환하는 비동기 함수입니다. 초기화의 나머지는 login() 메서드가 완료될 때까지 실행되지 않도록 프라미스 응답 안에 배치됩니다.
 
-4. In the code that you just added, replace `SDK_Provider_Name` with the name of your login provider. For example, for Azure Active Directory, use `client.login('aad')`.
+4. 방금 추가한 코드에서 `SDK_Provider_Name`를 로그인 공급자 이름으로 바꿉니다. 예를 들어 Azure Active Directory의 경우 `client.login('aad')`를 사용합니다.
 
-4. Run your project.  When the project has finished initializing, your application will show the OAuth login page for the chosen authentication provider.
+4. 프로젝트를 실행합니다. 프로젝트 초기화가 완료되면 응용 프로그램에서 선택한 인증 공급자에 대한 OAuth 로그인 페이지를 표시합니다.
 
-##<a name="<a-name="next-steps"></a>next-steps"></a><a name="next-steps"></a>Next Steps
+##<a name="next-steps"></a>다음 단계
 
-* Learn more [About Authentication] with Azure App Service.
-* Continue the tutorial by adding [Push Notifications] to your Apache Cordova app.
+* Azure 앱 서비스의 [인증 정보]에 대해 자세히 알아봅니다.
+* [푸시 알림]을 Apache Cordova 앱에 추가하여 자습서를 계속합니다.
 
-Learn how to use the SDKs.
+SDK 사용 방법을 알아봅니다.
 
 * [Apache Cordova SDK]
-* [ASP.NET Server SDK]
-* [Node.js Server SDK]
+* [ASP.NET 서버 SDK]
+* [Node.js 서버 SDK]
 
 <!-- URLs. -->
-[Get started with Mobile Apps]: app-service-mobile-cordova-get-started.md
-[Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
-[Push Notifications]: app-service-mobile-cordova-get-started-push.md
-[About Authentication]: app-service-mobile-auth.md
-[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md 
-[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
+[모바일 앱 시작]: app-service-mobile-cordova-get-started.md
+[Content-Security-Policy 설명서]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
+[푸시 알림]: app-service-mobile-cordova-get-started-push.md
+[인증 정보]: app-service-mobile-auth.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

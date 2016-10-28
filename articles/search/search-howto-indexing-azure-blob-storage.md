@@ -1,6 +1,6 @@
 <properties
-pageTitle="Indexing Azure Blob Storage with Azure Search"
-description="Learn how to index Azure Blob Storage and extract text from documents with Azure Search"
+pageTitle="Azure 검색으로 Azure Blob 저장소 인덱싱"
+description="Azure Blob 저장소를 인덱싱하고 Azure 검색을 사용하여 문서에서 텍스트를 추출하는 방법에 대해 알아보세요."
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -15,297 +15,292 @@ ms.tgt_pltfrm="na"
 ms.date="08/16/2016"
 ms.author="eugenesh" />
 
+# Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
 
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexing Documents in Azure Blob Storage with Azure Search
+이 문서에서는 Azure 검색을 사용하여 Azure Blob 저장소에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 새로운 Azure 검색 Blob 인덱서로 이 과정을 신속하게 원활하게 수행할 수 있습니다.
 
-This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. The new Azure Search blob indexer makes this process quick and seamless. 
+> [AZURE.IMPORTANT] 이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 
-> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+## 지원되는 문서 형식
 
-## <a name="supported-document-formats"></a>Supported document formats
-
-The blob indexer can extract text from the following document formats:
+BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 수 있습니다.
 
 - PDF
-- Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+- Microsoft Office 형식: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG(Outlook 전자 메일)
 - HTML
 - XML
 - ZIP
 - EML
-- Plain text files  
-- JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details)
-- CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) for details)
+- 일반 텍스트 파일
+- JSON(자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 참조)
+- CSV (자세한 내용은 [CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 참조)
 
-## <a name="setting-up-blob-indexing"></a>Setting up blob indexing
+## BLOB 인덱싱 설정
 
-To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) of the .NET SDK. In the future, support for blob indexing will be added to the Azure Portal.
+Azure Blob 저장소 인덱서를 설정 및 구성하려면 [이 문서](https://msdn.microsoft.com/library/azure/dn946891.aspx)에 설명된 대로 Azure 검색 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다. .NET SDK의 [버전 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)도 사용할 수 있습니다. 향후에는 Blob 인덱싱에 대한 지원이 Azure 포털에 추가될 예정입니다.
 
-To set up an indexer, do the following three steps: create a data source, create an index, configure the indexer.
+인덱서를 설정하려면, 데이터 원본 만들기, 인덱스 만들기, 인덱서 구성의 세 단계를 수행합니다.
 
-### <a name="step-1:-create-a-data-source"></a>Step 1: Create a data source
+### 1단계: 데이터 소스 만들기
 
-A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same subscription.
+데이터 원본은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명, Azure 검색에서 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 데이터 원본을 동일한 구독의 여러 인덱서에서 사용할 수 있습니다.
 
-For blob indexing, the data source must have the following required properties: 
+데이터 원본에는 BLOB 인덱싱을 위한 다음과 같은 필수 속성이 있어야 합니다.
 
-- **name** is the unique name of the data source within your search service. 
+- **이름**은 검색 서비스 내 데이터 원본의 고유 이름입니다.
 
-- **type** must be `azureblob`. 
+- **형식**은 `azureblob`여야 합니다.
 
-- **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure Portal by navigating to the desired storage account blade > **Settings** > **Keys** and use the "Primary Connection String" or "Secondary Connection String" value. Since the connection string is bound to a storage account, specifying the connection string implicitly identifies the storage account providing the data.
+- **자격 증명**은 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 제공합니다. Azure 포털에서 연결 문자열을 가져올 수 있습니다. 이를 위해 원하는 저장소 계정 블레이드 > **설정** > **키** 로 이동하고 "기본 연결 문자열" 또는 "보조 연결 문자열" 값을 사용합니다. 연결 문자열이 저장소 계정에 바인딩되어 있으므로 연결 문자열을 지정하는 것은 데이터를 제공하는 저장소 계정을 암시적으로 밝히는 것과 같습니다.
 
-- **container** specifies a container in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter. 
+- **컨테이너**는 저장소 계정에 있는 컨테이너를 지정합니다. 기본적으로 컨테이너 내의 모든 BLOB은 검색 가능합니다. 특정 가상 디렉터리의 BLOB만 인덱싱하려면 선택 사항인 **쿼리** 매개 변수를 사용하여 해당 디렉터리를 지정할 수 있습니다,
 
-The following example illustrates a data source definition:
+다음 예제에서는 데이터 원본 정의을 설명합니다.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
-    }   
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<my storage connection string>" },
+	    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
+	}   
 
-For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
+데이터 원본 만들기 API에 대한 자세한 내용은 [데이터 원본 만들기](search-api-indexers-2015-02-28-preview.md#create-data-source)를 참조하세요.
 
-### <a name="step-2:-create-an-index"></a>Step 2: Create an index 
+### 2단계: 인덱스 만들기 
 
-The index specifies the fields in a document, attributes, and other constructs that shape the search experience.  
+인덱스는 문서의 필드, 특성, 및 검색 경험을 형성하는 기타 항목을 지정합니다.
 
-For blob indexing, be sure that your index has a searchable `content` field for storing the blob.
+BLOB 인덱싱에 대해 인덱스에 BLOB을 저장하기 위한 검색 가능한 `content` 필드가 있는지 확인합니다.
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
-    Content-Type: application/json
-    api-key: [admin key]
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-        "name" : "my-target-index",
-        "fields": [
-            { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-            { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
-        ]
-    }
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+  		]
+	}
 
-For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+인덱스 만들기 API에 대한 자세한 내용은 [인덱스 만들기](https://msdn.microsoft.com/library/dn798941.aspx) 참조
 
-### <a name="step-3:-create-an-indexer"></a>Step 3: Create an indexer 
+### 3단계: 인덱서 만들기 
 
-An indexer connects data sources with target search indexes, and provides scheduling information so that you can automate data refresh. Once the index and data source have been created, its relatively simple to create an indexer that references the data source and a target index. For example:
+인덱서는 데이터 새로 고침을 자동화할 수 있게 데이터 원본을 대상 검색 인덱스에 연결하고 일정 정보를 제공합니다. 인덱스 및 데이터 원본이 만들어지면 데이터 원본 및 대상 인덱스를 참조하는 인덱서를 만드는 것은 비교적 간단합니다. 예:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      "name" : "blob-indexer",
-      "dataSourceName" : "blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" }
-    }
+	{
+	  "name" : "blob-indexer",
+	  "dataSourceName" : "blob-datasource",
+	  "targetIndexName" : "my-target-index",
+	  "schedule" : { "interval" : "PT2H" }
+	}
 
-This indexer will run every two hours (schedule interval is set to "PT2H"). To run an  indexer every 30 minutes, set the interval to "PT30M". Shortest supported interval is 5 minutes. Schedule is optional - if omitted, an indexer runs only once when created. However, you can run an indexer on-demand at any time.   
+이 인덱서는 2시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.
 
-For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
+인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](search-api-indexers-2015-02-28-preview.md#create-indexer)를 확인하세요.
 
 
-## <a name="document-extraction-process"></a>Document extraction process
+## 문서 추출 프로세스
 
-Azure Search indexes each document (blob) as follows:
+Azure 검색은 각 문서(BLOB)를 다음과 같이 인덱싱합니다.
 
-- The entire text content of the document is extracted into a string field named `content`. Note that we currently don't provide support for extracting multiple documents from a single blob:
-    - For example, a CSV file is indexed as a single document. If you need to treat each line in a CSV as a separate document, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
-    - A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email with a PDF attachment) is also indexed as a single document.
+- 문서의 전체 텍스트 내용이 `content`라는 문자열 필드로 추출됩니다. 현재는 단일 BLOB에서 여러 문서를 추출하는 것은 지원되지 않습니다.
+	- 예를 들어, CSV 파일은 단일 문서로 인덱싱됩니다. CSV의 각 라인을 별도의 문서로 취급해야 하는 경우 [이 UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate)에 투표하세요.
+	- 복합 또는 포함된 문서(예: ZIP 보관 파일 또는 PDF 첨부 파일이 있는 Outlook 메일이 포함된 Word 문서)도 단일 문서로 인덱싱됩니다.
 
-- User-specified metadata properties present on the blob, if any, are extracted verbatim. The metadata properties can also be used to control certain aspects of the document extraction process – see [Using Custom Metadata to Control Document Extraction](#CustomMetadataControl) for more details.
+- BLOB에 있는 사용자 지정 메타데이터 속성은 그대로 추출됩니다(있는 경우). 메타데이터 속성은 문서 추출 프로세스의 특정 부분을 제어하는 데 사용할 수 있습니다. 자세한 내용은 [사용자 지정 메타데이터를 사용하여 문서 추출 제어](#CustomMetadataControl)를 참조하세요.
 
-- Standard blob metadata properties are extracted into the following fields:
+- 표준 BLOB 메타데이터 속성이 다음 필드로 추출됩니다.
 
-    - **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
+	- **metadata\_storage\_name**(Edm.String) - BLOB의 파일 이름. 예를 들어 blob /my-container/my-folder/subfolder/resume.pdf를 포함하는 경우 이 필드의 값은 `resume.pdf`입니다.
 
-    - **metadata\_storage\_path** (Edm.String) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+	- **metadata\_storage\_path**(Edm.String) - 저장소 계정을 포함한 BLOB의 전체 URI. 예: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-    - **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
+	- **metadata\_storage\_content\_type**(Edm.String) - BLOB를 업로드하기 위해 사용한 코드에 지정된 콘텐츠 형식. 예: `application/octet-stream`
 
-    - **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, in order to avoid re-indexing everything after the initial indexing.
+	- **metadata\_storage\_last\_modified**(Edm.DateTimeOffset) - BLOB에 대해 마지막으로 수정된 타임스탬프. Azure 검색은 이 타임스탬프로 변경된 BLOB를 식별하여 초기 인덱싱 후 모든 항목을 다시 인덱싱하지 않도록 합니다.
 
-    - **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
+	- **metadata\_storage\_size**(Edm.Int64) - BLOB 크기(바이트).
 
-    - **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
+	- **metadata\_storage\_content\_md5**(Edm.String) - BLOB 콘텐츠의 MD5 해시(사용 가능한 경우).
 
-- Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
+- 각 문서 형식과 관련된 메타데이터 속성이 [여기](#ContentSpecificMetadata) 나열된 필드로 추출됩니다.
 
-You don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application. 
+검색 인덱스에서 위의 모든 속성에 대한 필드를 정의하지 않아도 되는 경우 응용 프로그램에 필요한 속성만 캡처합니다.
 
-> [AZURE.NOTE] Often, the field names in your existing index will be different from the field names generated during document extraction. You can use **field mappings** to map the property names provided by Azure Search to the field names in your search index. You will see an example of field mappings use below. 
+> [AZURE.NOTE] 기존 인덱스의 필드 이름이 문서 추출 중에 생성된 필드 이름과 달라지는 경우가 있습니다. **필드 매핑**을 사용하여 Azure 검색에서 제공한 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다. 아래에 필드 매핑 사용 예제가 있습니다.
 
-## <a name="picking-the-document-key-field-and-dealing-with-different-field-names"></a>Picking the document key field and dealing with different field names
+## 문서 키 필드 선택 및 다른 필드 이름 처리
 
-In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
+Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모든 검색 인덱스는 Edm.String 형식의 키 필드를 정확히 하나만 포함해야 합니다. 인덱스에 추가할 각 문서에는 키 필드가 필요합니다(이 필드는 실제로 유일한 필수 필드임).
    
-You should carefully consider which extracted field should map to the key field for your index. The candidates are:
+어떤 추출된 필드를 인덱스에 대한 키 필드에 매핑할지 신중하게 고려해야 합니다. 후보는 다음과 같습니다.
 
-- **metadata\_storage\_name** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
+- **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. 인덱서 속성에서 `base64EncodeKeys` 옵션을 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. (예를 들어, .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 를 사용할 수 있습니다).
 
-- **metadata\_storage\_path** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](https://msdn.microsoft.com/library/azure/dn857353.aspx).  As above, you have the option of encoding the keys using the `base64EncodeKeys` option.
+- **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](https://msdn.microsoft.com/library/azure/dn857353.aspx) `/` 문자가 분명히 포함됩니다. 위와 같이 `base64EncodeKeys` 옵션을 사용하여 키를 인코딩하는 옵션이 제공됩니다.
 
-- If none of the options above work for you, you have the ultimate flexibility of adding a custom metadata property to the blobs. This option does, however, require your blob upload process to add that metadata property to all blobs. Since the key is a required property, all blobs that don't have that property will fail to be indexed.
+- 위의 옵션이 작동하지 않는 경우 BLOB에 사용자 지정 메타데이터 속성을 추가하는 뛰어난 유연성이 제공됩니다. 그러나 이 옵션에는 해당 메타데이터 속성을 모든 BLOB에 추가하는 BLOB 업로드 프로세스가 필요합니다. 키는 필수 속성이므로 해당 속성이 없는 모든 BLOB는 인덱싱에 실패합니다.
 
-> [AZURE.IMPORTANT] If there is no explicit mapping for the key field in the index, Azure Search will automatically use `metadata_storage_path` (the second option above) as the key and enable base-64 encoding of keys.
+> [AZURE.IMPORTANT] 인덱스의 키 필드에 대한 명시적인 매핑이 없는 경우 Azure 검색은 키로 `metadata_storage_path`(위의 두 번째 옵션)를 자동으로 사용하고 키의 base-64 인코딩을 사용합니다.
 
-For this example, let's pick the `metadata_storage_name` field as the document key. Let's also assume your index has a key field named `key` and a field `fileSize` for storing the document size. To wire things up as desired, specify the following field mappings when creating or updating your indexer:
+이 예제에서는 문서 키로 `metadata_storage_name` 필드를 선택하겠습니다. 또한 인덱스에 `key` 키 필드와 문서 크기를 저장하는 `fileSize` 필드가 있다고 가정해보겠습니다. 원하는 대로 연결하려면 인덱서를 만들거나 업데이트할 때 다음 필드 매핑을 지정합니다.
 
-    "fieldMappings" : [
-      { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
-      { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-    ]
+	"fieldMappings" : [
+	  { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+	  { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+	]
 
-To bring this all together, here's how you can add field mappings and enable base-64 encoding of keys for an existing indexer:
+이를 모두 함께 연결하기 위해 필드 매핑을 추가하고 기존 인덱서에 대한 키의 base-64 인코딩을 사용하도록 설정하는 방법은 다음과 같습니다.
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      "dataSourceName" : " blob-datasource ",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
-        { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-      ],
-      "parameters" : { "base64EncodeKeys": true }
-    }
+	{
+	  "dataSourceName" : " blob-datasource ",
+	  "targetIndexName" : "my-target-index",
+	  "schedule" : { "interval" : "PT2H" },
+	  "fieldMappings" : [
+	    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+	    { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+	  ],
+	  "parameters" : { "base64EncodeKeys": true }
+	}
 
-> [AZURE.NOTE] To learn more about field mappings, see [this article](search-indexer-field-mappings.md).
+> [AZURE.NOTE] 필드 매핑에 대한 자세한 내용은 [이 문서](search-indexer-field-mappings.md)를 참조하세요.
 
-## <a name="incremental-indexing-and-deletion-detection"></a>Incremental indexing and deletion detection
+## 증분 인덱싱 및 삭제 감지
 
-When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
+일정에 따라 실행할 BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `LastModified` 타임스탬프에 지정된 대로 변경된 BLOB만 다시 인덱싱합니다.
 
-> [AZURE.NOTE] You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.
+> [AZURE.NOTE] 변경 감지 정책을 지정하지 않아도 됩니다. 증분 인덱싱이 자동으로 사용됩니다.
 
-To indicate that certain documents must be removed from the index, you should use a soft delete strategy - instead of deleting the corresponding blobs, add a custom metadata property to indicate that they're deleted, and set up a soft deletion detection policy on the data source.
+인덱스에서 특정 문서를 제거해야 함을 나타내려면 소프트 삭제 전략을 사용합니다. 해당 BLOB를 삭제하는 대신, 삭제됨을 나타내는 사용자 지정 메타데이터 속성을 추가하고 데이터 원본에 대한 소프트 삭제 감지 정책을 설정합니다.
 
-> [AZURE.WARNING] If you just delete the blobs instead of using a deletion detection policy, corresponding documents will not be removed from the search index.
+> [AZURE.WARNING] 삭제 감지 정책을 사용하는 대신 BLOB를 삭제하려면 해당 문서가 검색 인덱스에서 제거되지 않습니다.
 
-For example, the policy shown below will consider that a blob is deleted if it has a metadata property `IsDeleted` with the value `true`:
+예를 들어 아래에 표시된 정책은 `true` 값의 메타데이터 속성 `IsDeleted`가 있는 경우 BLOB이 삭제됨을 고려합니다.
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
-        "dataDeletionDetectionPolicy" : {
-            "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",   
-            "softDeleteColumnName" : "IsDeleted",
-            "softDeleteMarkerValue" : "true"
-        }
-    }   
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<your storage connection string>" },
+		"container" : { "name" : "my-container", "query" : "my-folder" },
+		"dataDeletionDetectionPolicy" : {
+			"@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", 	
+			"softDeleteColumnName" : "IsDeleted",
+			"softDeleteMarkerValue" : "true"
+		}
+	}   
 
 <a name="ContentSpecificMetadata"></a>
-## <a name="content-type-specific-metadata-properties"></a>Content type-specific metadata properties
+## 콘텐츠 형식별 메타데이터 속성
 
-The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Search.
+다음 표에서는 각 문서 형식에 대해 수행된 처리를 요약하고 Azure 검색에서 추출한 메타데이터 속성에 대해 설명합니다.
 
-Document format / content type | Content-type specific metadata properties | Processing details
+문서 형식/콘텐츠 형식 | 콘텐츠 형식별 메타데이터 속성 | 처리 세부 정보
 -------------------------------|-------------------------------------------|-------------------
-HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | Strip HTML markup and extract text
-PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| Extract text, including embedded documents (excluding images)
-DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extract text, including embedded documents
-DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extract text, including embedded documents
-XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extract text, including embedded documents
-XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extract text, including embedded documents
-PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extract text, including embedded documents
-PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extract text, including embedded documents
-MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extract text, including attachments
-ZIP (application/zip) | `metadata_content_type` | Extract text from all documents in the archive
-XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Strip XML markup and extract text
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details
-EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extract text, including attachments
-Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
+HTML(`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | HTML 태그를 제거하고 텍스트 추출
+PDF(`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| 포함된 문서를 비롯한 텍스트 추출(이미지 제외)
+DOCX(application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | 포함된 문서를 비롯한 텍스트 추출
+DOC(application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | 포함된 문서를 비롯한 텍스트 추출
+XLSX(application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | 포함된 문서를 비롯한 텍스트 추출
+XLS(application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | 포함된 문서를 비롯한 텍스트 추출
+PPTX(application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | 포함된 문서를 비롯한 텍스트 추출
+PPT(application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | 포함된 문서를 비롯한 텍스트 추출
+MSG(application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | 첨부 파일을 비롯한 텍스트 추출
+ZIP(application/zip) | `metadata_content_type` | 보관 파일의 모든 문서에서 텍스트 추출
+XML(application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | XML 태그를 제거하고 텍스트 추출
+JSON(application/json) | `metadata_content_type`</br>`metadata_content_encoding` | 텍스트 추출<br/>참고: JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요.
+EML(메시지/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | 첨부 파일을 비롯한 텍스트 추출
+일반 텍스트(text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
-## <a name="using-custom-metadata-to-control-document-extraction"></a>Using custom metadata to control document extraction
+## 사용자 지정 메타데이터를 사용하여 문서 추출 제어
 
-You can add metadata properties to a blob to control certain aspects of the blob indexing and document extraction process. Currently the following properties are supported:
+BLOB에 BLOB 인덱싱 및 문서 추출 프로세스의 특정 측면을 제어하는 메타데이터 속성을 추가할 수 있습니다. 현재는 다음과 같은 속성이 지원됩니다.
 
-Property name | Property value | Explanation
+속성 이름 | 속성 값 | 설명
 --------------|----------------|------------
-AzureSearch_Skip | "true" | Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted. This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
-AzureSearch_SkipContent | "true" | Instructs the blob indexer to only index the metadata and skip extracting content of the blob. This is useful if the blob content is not interesting, but you still want to index the metadata attached to the blob.
+AzureSearch\_Skip | "true" | BLOB 인덱서에 BLOB를 완전히 건너뛰도록 지시합니다. 메타데이터와 콘텐츠 추출을 시도하지 않습니다. 특정 콘텐츠 형식을 건너뛰거나 특정 BLOB가 반복적으로 실패하고 인덱싱 프로세스를 중단하는 경우 유용합니다.
+AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인덱싱하고 Blob의 콘텐츠를 압축 해제하는 과정을 건너뛰도록 지시합니다. Blob 콘텐츠에는 관심이 없지만 Blob에 연결된 메타데이터는 인덱싱하려는 경우 유용합니다.
 
 <a name="IndexerParametersConfigurationControl"></a>
-## <a name="using-indexer-parameters-to-control-document-extraction"></a>Using indexer parameters to control document extraction
+## 인덱서 매개 변수를 사용하여 문서 추출 제어
 
-Several indexer configuration parameters are available to control which blobs, and which parts of a blob's content and metadata, will be indexed. 
+인덱싱될 Blob 및 Blob의 콘텐츠 및 메타데이터 부분을 제어하는 데 여러 인덱서 구성 매개 변수를 사용할 수 있습니다.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Index only the blobs with specific file extensions
+### 특정 파일 확장명을 가진 Blob만 인덱싱
 
-You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this: 
+`indexedFileNameExtensions` 인덱서 구성 매개 변수를 사용하여 지정한 파일 이름 확장명을 가진 Blob만 인덱싱할 수 있습니다. 값은 파일 확장명의 쉼표로 구분된 목록을 포함하는 문자열입니다(선행 점 포함). 예를 들어 .PDF 및 .DOCX Blob만을 인덱싱하려면 다음을 수행합니다.
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
-    }
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
+	}
 
-### <a name="exclude-blobs-with-specific-file-extensions-from-indexing"></a>Exclude blobs with specific file extensions from indexing
+### 인덱싱에서 특정 파일 확장명으로 Blob 제외
 
-You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this: 
+`excludedFileNameExtensions` 구성 매개 변수를 사용하여 인덱싱에서 특정 파일 이름 확장명으로 Blob를 제외할 수 있습니다. 값은 파일 확장명의 쉼표로 구분된 목록을 포함하는 문자열입니다(선행 점 포함). 예를 들어 .PNG 및 .JPEG 확장명을 가진 Blob을 제외한 모든 Blob을 인덱싱하려면 다음을 수행합니다.
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
-    }
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
+	}
 
-If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing. 
+`indexedFileNameExtensions` 및 `excludedFileNameExtensions` 매개 변수가 모두 있는 경우 Azure 검색은 먼저 `indexedFileNameExtensions`를 확인한 후 `excludedFileNameExtensions`를 찾습니다. 동일한 파일 확장명이 두 목록 모두에 있는 경우 인덱싱에서 제외되는 것을 의미합니다.
 
-### <a name="index-storage-metadata-only"></a>Index storage metadata only
+### 저장소 메타데이터만 인덱싱
 
-You can index only the storage metadata and completely skip the document extraction process using the `indexStorageMetadataOnly` configuration property. This is useful when you don't need the document content, nor do you need any of the content type-specific metadata properties. To do this, set the `indexStorageMetadataOnly` property to `true`: 
+`indexStorageMetadataOnly` 구성 속성을 사용하여 저장소 메타데이터만을 인덱싱하고 문서 추출 프로세스를 완전히 건너뛸 수 있습니다. 문서 콘텐츠 또는 콘텐츠 형식별 메타데이터 속성이 필요하지 않은 경우에 유용합니다. 이렇게 하려면 `true`에 `indexStorageMetadataOnly` 속성을 설정합니다.
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "indexStorageMetadataOnly" : true } }
-    }
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexStorageMetadataOnly" : true } }
+	}
 
-### <a name="index-both-storage-and-content-type-metadata,-but-skip-content-extraction"></a>Index both storage and content type metadata, but skip content extraction
+### 저장소와 콘텐츠 형식 메타데이터를 인덱싱하지만 콘텐츠 추출은 건너뜀
 
-If you need to extract all of the metadata but skip content extraction for all blobs, you can request this behavior using the indexer configuration, instead of having to add `AzureSearch_SkipContent` metadata to each blob individually. To do this, set the `skipContent` indexer configuration configuration property to `true`: 
+모든 메타데이터를 추출하려 하지만 모든 Blob에 대한 콘텐츠 추출은 건너뛰어야 하는 경우 각 Blob에 개별적으로 `AzureSearch_SkipContent` 메타데이터를 추가하지 않고도 인덱서 구성을 사용하여 이 동작을 요청할 수 있습니다. 이렇게 하려면 `true`에 `skipContent` 인덱서 구성 속성을 설정합니다.
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "skipContent" : true } }
-    }
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "skipContent" : true } }
+	}
 
-## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
+## Azure 검색 개선 지원
 
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

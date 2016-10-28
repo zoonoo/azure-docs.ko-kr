@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Free 30 day trial of Azure RemoteApp | Microsoft Azure"
-    description="Check out the 30 day free trial for Azure RemoteApp."
+    pageTitle="Azure RemoteApp 30일 무료 평가판 | Microsoft Azure"
+    description="Azure RemoteApp 30일 무료 평가판을 확인해보세요."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,24 +18,19 @@
 
 
 
-
-# <a name="free-30-day-trial-of-azure-remoteapp"></a>Free 30 day trial of Azure RemoteApp
+# Azure RemoteApp 30일 무료 평가판
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-If you have an Azure subscription, you can try [Azure RemoteApp free for 30 days](https://www.remoteapp.windowsazure.com/en/tour.aspx). To start, simply sign in to the Azure Management Portal, navigate to the Azure RemoteApp node, and then create a collection. This is a great way to test drive the full administrative experience before converting to a paid subscription of Azure RemoteApp.  
+Azure를 구독하는 경우 [30일 동안 무료로 Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/tour.aspx)을 사용해 볼 수 있습니다. 사용을 시작하려면 Azure 관리 포털에 로그인하여 Azure RemoteApp 노드로 이동한 다음 컬렉션을 만들기만 하면 됩니다. Azure RemoteApp의 유료 구독으로 변환하기 전에 전체적으로 관리해 볼 수 있는 좋은 테스트 방법입니다.
 
-While in trial mode, you can create two collections with a 10 user per collection limit. There are no other limitations. You can convert your trial to a paid subscription at any time. After 30 days your collections will go into disabled state if you don’t convert to paid subscription.
+평가 모드에서 작업하는 동안 컬렉션 제한당 10명의 사용자와 두 개의 컬렉션을 만들 수 있습니다. 기타 제한은 없습니다. 언제든지 유료 구독으로 사용자가 평가판을 변환할 수 있습니다. 유료 구독으로 변환하지 않는 경우 30일 후 컬렉션은 비활성화됩니다.
 
->[AZURE.NOTE] The Azure SLA does not apply to collections created in trial mode.  
+>[AZURE.NOTE] Azure SLA는 평가 모드에서 작성된 컬렉션에 적용되지 않습니다.
 
-Can’t wait? Watch a quick video on how to [create a cloud deployment](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
+기다릴 수 없나요? [클라우드 배포를 만드는](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/) 방법에 대한 간단한 비디오를 보세요.
 
-Got feedback? Post questions to [the discussion forums](https://feedback.azure.com/forums/247748-azure-remoteapp/). If you have an [Azure support plan](https://azure.microsoft.com/support/plans/), you can submit a support case. Everyone can submit feedback on our [Feedback forum](https://feedback.azure.com/forums/247748-azure-remoteapp/).  
+피드백이 있나요? [토론 포럼](https://feedback.azure.com/forums/247748-azure-remoteapp/)에 질문을 게시하세요. [Azure 지원 계획](https://azure.microsoft.com/support/plans/)이 있는 경우 지원 사례를 제출할 수 있습니다. 누구나 [피드백 포럼](https://feedback.azure.com/forums/247748-azure-remoteapp/)에 피드백을 제출할 수 있습니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

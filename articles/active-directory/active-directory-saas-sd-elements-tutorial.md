@@ -1,339 +1,334 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with SD Elements | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and SD Elements."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="자습서: SD Elements와 Azure Active Directory 통합 | Microsoft Azure"
+	description="Azure Active Directory 및 SD Elements 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2016"
+	ms.author="jeedes"/>
 
 
+# 자습서: SD Elements와 Azure Active Directory 통합
 
-# <a name="tutorial:-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Azure Active Directory integration with SD Elements
+이 자습서에서는 SD Elements와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다. SD Elements를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-The objective of this tutorial is to show you how to integrate SD Elements with Azure Active Directory (Azure AD).  
-Integrating SD Elements with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to SD Elements
-- You can enable your users to automatically get signed-on to SD Elements (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory 
+- SD Elements에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+- 사용자가 해당 Azure AD 계정으로 SD Elements에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+- 단일 중앙 위치인 Azure Active Directory에서 계정을 관리할 수 있습니다.
 
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
-## <a name="prerequisites"></a>Prerequisites
+## 필수 조건
 
-To configure Azure AD integration with SD Elements, you need the following items:
+SD Elements와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-- An Azure AD subscription
-- A SD Elements single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Azure AD 구독
+- SD Elements Single Sign-On이 설정된 구독
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of two main building blocks:
+이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
-1. Adding SD Elements from the gallery
-2. Configuring and testing Azure AD single sign-on
+- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 
-## <a name="adding-sd-elements-from-the-gallery"></a>Adding SD Elements from the gallery
-To configure the integration of SD Elements into Azure AD, you need to add SD Elements from the gallery to your list of managed SaaS apps.
+## 시나리오 설명
+이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-**To add SD Elements from the gallery, perform the following steps:**
+1. 갤러리에서 SD Elements 추가
+2. Azure AD Single Sign-on 구성 및 테스트
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-    ![Active Directory][1]
+## 갤러리에서 SD Elements 추가
+SD Elements의 Azure AD 통합을 구성하려면 갤러리의 SD Elements를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+**갤러리에서 SD Elements를 추가하려면 다음 단계를 수행합니다.**
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
-    ![Applications][2]
+	![Active Directory][1]
 
-4. Click **Add** at the bottom of the page.
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-    ![Applications][3]
+3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+	![응용 프로그램][2]
 
-    ![Applications][4]
+4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
 
-6. In the search box, type **SD Elements**.
+	![응용 프로그램][3]
+
+5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+
+	![응용 프로그램][4]
+
+6. 검색 상자에 **SD Elements**를 입력합니다.
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)
 
-7. In the results pane, select **SD Elements**, and then click **Complete** to add the application.
+7. 결과 창에서 **SD Elements**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_02.png)
-
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with SD Elements based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in SD Elements to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in SD Elements needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in SD Elements.
-
-To configure and test Azure AD single sign-on with SD Elements, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a SD Elements test user](#creating-a-sd-elements-test-user)** - to have a counterpart of Britta Simon in SD Elements that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
-
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your SD Elements application.
-
-Your SD Elements application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration. The following screenshot shows an example for this:
-
-![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_14.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_02.png)
 
 
+##  Azure AD Single Sign-on 구성 및 테스트
+이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 SD Elements에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
-**To configure Azure AD single sign-on with SD Elements, perform the following steps:**
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 SD Elements 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 SD Elements의 관련 사용자 간에 연결이 형성되어야 합니다. 이 연결 관계는 Azure AD의 **사용자 이름** 값을 SD Elements의 **Username** 값으로 할당하여 설정합니다.
 
-1. In the Azure classic portal, on the **SD Elements** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+SD Elements에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-    ![Configure Single Sign-On][6] 
+1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+4. **[SD Elements 테스트 사용자 만들기](#creating-a-sd-elements-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SD Elements에 만듭니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-2. On the **How would you like users to sign on to SD Elements** page, select **Azure AD Single Sign-On**, and then click **Next**.
+### Azure AD Single Sign-On 구성
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_03.png) 
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 SD Elements 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+
+![Single Sign-On 구성](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_14.png)
+
+
+
+**SD Elements에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+
+1. Azure 클래식 포털의 **SD Elements** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+
+	![Single Sign-On 구성][6]
+
+2. **SD Elements에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+
+	![Single Sign-On 구성](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_03.png)
+
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_04.png) 
+	![Single Sign-On 구성](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_04.png)
 
 
-    a. In the **Issuer** textbox, type your tenant's issuer URL using the following pattern: *https://\<your tenant name\>.sdelements.com/sso/saml2/metadata*
+    a. **발급자** 텍스트 상자에서 다음과 같은 패턴을 사용하여 테넌트의 발급자 URL을 입력합니다. *https://\<your tenant name>.sdelements.com/sso/saml2/metadata*
    
-    b. In the **Reply URL** textbox, type your tenant's reply URL using the following pattern: *https://\<your tenant name\>.sdelements.com/sso/saml2/acs/*       
+    b. **회신 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 테넌트의 회신 URL을 입력합니다. *https://\<your tenant name>.sdelements.com/sso/saml2/acs/*
 
-    > [AZURE.NOTE] If you need the actual Issuer URL and Reply URL for your tenant, contact your [SD Elements support team](mailto:support@sdelements.com).
+    > [AZURE.NOTE] 테넌트에 대한 실제 발급자 URL 및 회신 URL이 필요한 경우 [SD Elements 지원 팀](mailto:support@sdelements.com)에 문의합니다.
       
-    c. Click **Next**.
+    c. **Next**를 클릭합니다.
 
 
-4. On the **Configure single sign-on at SD Elements** page, perform the following steps:
+4. **SD Elements에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_05.png) 
+	![Single Sign-On 구성](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. Click **Next**.
-
-
-1. To get single sign-on enabled, contact your [SD Elements support team](mailto:support@sdelements.com) and provide them with the downloaded certificate file.
+    b. **다음**을 클릭합니다.
 
 
-5. In a different browser window, singn-on to your SD Elements tenant as an administrator.
-
-6. In the menu on the top, click System, and then Single Sign-on. 
-
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_09.png) 
+1. Single Sign-On을 사용하려면 [SD Elements 지원 팀](mailto:support@sdelements.com)에 문의하고 다운로드한 인증서 파일을 제공합니다.
 
 
-7. On the **Single Sign-On Settings** dialog, perform the following steps:
+5. 다른 브라우저 창에서 SD Elements 테넌트에 관리자 권한으로 로그인합니다.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_10.png) 
+6. 위쪽의 메뉴에서 시스템 및 Single Sign-On을 차례로 클릭합니다.
 
-    a. As **SSO Type**, select **SAML**.
+	![Single Sign-On 구성](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_09.png)
 
-    b. In the Azure classic portal, on the **Configure single sign-on at SD Elements** dialog page, copy the **Issuer URL** value, and then paste it into the **Identity Provider Entity ID** textbox.
 
-    c. In the Azure classic portal, on the **Configure single sign-on at SD Elements** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity Provider Single Sign-On Service** textbox.
+7. **Single Sign-On 설정** 대화 상자에서 다음 단계를 수행합니다.
 
-    d. Click **Save**.
+	![Single Sign-On 구성](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_10.png)
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    a. **SSO 형식**으로 **SAML**을 선택합니다.
 
-    ![Azure AD Single Sign-On][10]
+    b. Azure 클래식 포털의 **SD Elements에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여 넣습니다.
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+    c. Azure 클래식 포털의 **SD Elements에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 Single Sign-On 서비스** 텍스트 상자에 붙여 넣습니다.
 
-    ![Azure AD Single Sign-On][11]
+    d. **Save**를 클릭합니다.
 
-1. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. 
+6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+
+	![Azure AD Single Sign-On][10]
+
+7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
+
+	![Azure AD Single Sign-On][11]
+
+1. 위쪽 메뉴에서 **특성**을 클릭하여 **SAML 토큰 특성** 대화 상자를 엽니다.
     
-    ![Configure Single Sign-On][21]
+	![Single Sign-On 구성][21]
 
 
-2. For each row in the following table, perform the following steps:
+2. 다음 테이블에서 각 행에 대해 다음 단계를 수행합니다.
 
-  	| Attribute Name | Attribute Value |
-  	| ---            | ---             |
-  	| email          | user.mail       |
-  	| firstname      | user.givenname  |
-  	| lastname       | user.surname    |
+    | 특성 이름 | 특성 값 |
+    | ---            | ---             |
+    | email | user.mail |
+    | firstname | user.givenname |
+    | lastname | user.surname |
 
 
-    a. Click **add user attribute**. 
+    a. **사용자 특성 추가**를 클릭합니다.
     
-    ![Configure Single Sign-On][23]
+	![Single Sign-On 구성][23]
 
-    b. In the **Attribute Name** textbox, type the **Attribute Name** and as **Attribute Value**, select the Attribute Value shown for that row.
+    b. **특성 이름** 텍스트 상자에 **특성 이름**을 입력하고 **특성 값**으로 해당 행에 대해 표시되는 특성 값을 선택합니다.
     
-    ![Configure Single Sign-On][22]
+	![Single Sign-On 구성][22]
 
-    c. Click **add user attribute**. 
+    c. **사용자 특성 추가**를 클릭합니다.
     
-    ![Configure Single Sign-On][23]
+	![Single Sign-On 구성][23]
 
-1. Click **Apply Changes**. 
+1. **변경 내용 적용**을 클릭합니다.
     
-    ![Configure Single Sign-On][24]
+	![Single Sign-On 구성][24]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
+### Azure AD 테스트 사용자 만들기
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-![Create Azure AD User][20]
+![Azure AD 사용자 만들기][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_09.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. Click **Next**.
+    c. **Next**를 클릭합니다.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_06.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
 
-    d. In the **Role** list, select **User**.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. Click **Next**.
+    e. **Next**를 클릭합니다.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_07.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_08.png) 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. **새 암호** 값을 적어둡니다.
 
-    b. Click **Complete**.   
+    b. **완료**를 클릭합니다.
 
 
 
-### <a name="creating-a-sd-elements-test-user"></a>Creating a SD Elements test user
+### SD Elements 테스트 사용자 만들기
 
-The objective of this section is to create a user called Britta Simon in SD Elements. In the case of SD Elements, creating SD Elements users is a manual task.
+이 섹션은 SD Elements에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. SD Elements의 경우 SD Elements 사용자를 만드는 작업은 수동입니다.
 
-**To create Britta Simon in SD Elements, perform the following steps:**
+**SD Elements에서 Britta Simon을 만들려면 다음 단계를 수행합니다.**
 
-1.  In a web browser window, sign-on to your SD Elements company site as an administrator.
+1.	웹 브라우저 창에서 SD Elements 회사 사이트에 관리자로 로그인합니다.
 
-2.  In the menu on the top, click User Management, and then Users.
+2.	위쪽 메뉴에서 사용자 관리를 클릭한 다음 사용자를 클릭합니다.
  
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png) 
+	![SD Elements 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png)
 
-3.  Click Add New User.
+3.	새 사용자 추가를 클릭합니다.
  
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png) 
+    ![SD Elements 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png)
 
-4.  On the Add New User dialog, perform the following steps:
+4.	새 사용자 추가 대화 상자에서 다음 단계를 수행합니다.
 
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
+    ![SD Elements 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png)
 
-    a. In the **E-mail** textbox, type Britta's email address in Azure AD.
+    a. **전자 메일** 텍스트 상자에 Azure AD의 Britta Simon 메일 주소를 입력합니다.
 
-    b. In the **First Name** textbox, type **Britta**.
+    b. **이름** 텍스트 상자에 **Britta**를 입력합니다.
 
-    c. In the **Last Name** textbox, type **Simon**.
+    c. **성** 텍스트 상자에 **Simon**을 입력합니다.
 
-    d. As **Role**, select **User**. 
+    d. **역할**로 **사용자**를 선택합니다.
 
-    e. Click **Create User**.
-
-
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to SD Elements.
-
-![Assign User][200] 
-
-**To assign Britta Simon to SD Elements, perform the following steps:**
-
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **SD Elements**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_50.png) 
-
-1. In the menu on the top, click **Users**.
-
-    ![Assign User][203] 
-
-1. In the **Users** list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+    e. **사용자 만들기**를 클릭합니다.
 
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the SD Elements tile in the Access Panel, you should get automatically signed-on to your SD Elements application.
+### Azure AD 테스트 사용자 할당
+
+이 섹션은 Britta Simon에게 SD Elements에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하기 위한 것입니다.
+
+![사용자 할당][200]
+
+**Britta Simon을 SD Elements에 할당하려면 다음 단계를 수행합니다.**
+
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+
+	![사용자 할당][201]
+
+2. 응용 프로그램 목록에서 **SD Elements**를 선택합니다.
+
+	![Single Sign-On 구성](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_50.png)
+
+1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
+
+	![사용자 할당][203]
+
+1. **사용자** 목록에서 **Britta Simon**을 선택합니다.
+
+2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
+
+	![사용자 할당][205]
 
 
-## <a name="additional-resources"></a>Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### Single Sign-On 테스트
+
+이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다. 액세스 패널에서 SD Elements 타일을 클릭하면 SD Elements 응용 프로그램에 자동으로 로그온됩니다.
+
+
+## 추가 리소스
+
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -360,8 +355,4 @@ When you click the SD Elements tile in the Access Panel, you should get automati
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

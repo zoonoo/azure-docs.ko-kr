@@ -1,59 +1,52 @@
 <properties
-    pageTitle="Working with Claims Aware Apps in Application Proxy"
-    description="Covers how to get up and running with Azure AD Application Proxy."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="응용 프로그램 프록시에서 클레임 인식 앱으로 작업"
+	description="Azure AD 응용 프로그램 프록시를 작동시키는 방법에 대해 설명합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/22/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/22/2016"
+	ms.author="kgremban"/>
 
 
 
+# 응용 프로그램 프록시에서 클레임 인식 앱으로 작업
 
-# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Working with claims aware apps in Application Proxy
+클레임 인식 앱은 STS(보안 토큰 서비스)에 리디렉션을 수행하며, 이에 대한 반응으로 사용자를 응용 프로그램에 리디렉션하기 전에 토큰 대신 사용자에게 자격 증명을 요청합니다. 이러한 리디렉션에서 응용 프로그램 프록시를 사용하려면 다음 단계를 수행해야 합니다.
 
-Claims aware apps perform a redirection to the Security Token Service (STS), which in turn requests credentials from the user in exchange for a token before redirecting the user to the application. To enable Application Proxy to work with these redirects, the following steps need to be taken.
+## 필수 조건
+이 절차를 수행하기 전에 클레임 인식 앱이 리디렉션되는 STS가 온-프레미스 네트워크 외부에서 사용 가능한지 확인합니다.
 
-## <a name="prerequisites"></a>Prerequisites
-Before performing this procedure, make sure that the STS the claims aware app redirects to is available outside of your on-premises network.
+## Azure 클래식 포털 구성
 
-## <a name="azure-classic-portal-configuration"></a>Azure classic portal configuration
-
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
-2. In the list of applications, select the claims aware app and click **Configure**.
-3. If you chose **Passthrough** as your **Preauthentication Method**, make sure to select **HTTPS** as your **External URL** scheme.
-4. If you chose **Azure Active Directory** as your **Preauthentication Method**, select **None** as your **Internal Authentication Method**.
-
-
-## <a name="adfs-configuration"></a>ADFS configuration
-
-1. Open ADFS Management.
-2. Go to **Relying Party Trusts**, right click on the app you are publishing with Application Proxy, and choose **Properties**.  
-  ![Relying Party Trusts right click on app name - screentshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
-3. On the **Endpoints** tab, under **Endpoint type**, select **WS-Federation**.
-4. Under **Trusted URL** enter the URL you entered in the Application Proxy under **External URL** and click **OK**.  
-  ![Add an Endpoint - set Trusted URL value - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
-
-## <a name="see-also"></a>See also
-
-- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
-- [Enable native client apps to interact with proxy applications](active-directory-application-proxy-native-client.md)
-
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+1. [응용 프로그램 프록시로 응용 프로그램 게시](active-directory-application-proxy-publish.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다.
+2. 응용 프로그램 목록에서 클레임 인식 앱을 선택하고 **구성**을 클릭합니다.
+3. **통과**를 **사전 인증 메서드**로 선택한 경우 **HTTPS**를 **외부 URL** 구성표로 선택해야 합니다.
+4. **Azure Active Directory**를 **사전 인증 메서드**로 선택했다면 **없음**을 **내부 인증 방법**으로 선택합니다.
 
 
+## ADFS 구성
 
-<!--HONumber=Oct16_HO2-->
+1. ADFS 관리를 엽니다.
+2. **신뢰 당사자 트러스트**로 이동하여 응용 프로그램 프록시로 게시하고자 하는 앱을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. ![신뢰 당사자 트러스트 앱 이름을 마우스 오른쪽 단추로 클릭 - 스크린샷](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+3. **끝점** 탭에 있는 **끝점 유형** 아래에서 **WS-Federation**을 선택합니다.
+4. **신뢰할 수 있는 URL** 아래에 **외부 URL** 아래에 있는 응용 프로그램 프록시에 입력한 URL을 입력하고 **확인**을 클릭합니다. ![끝점 추가 - 신뢰할 수 있는 URL 값 설정 - 스크린샷](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
+## 참고 항목
 
+- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
+- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+- [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
+- [네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용](active-directory-application-proxy-native-client.md)
+
+최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
+
+<!---HONumber=AcomDC_0622_2016-->

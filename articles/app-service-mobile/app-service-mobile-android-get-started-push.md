@@ -1,94 +1,84 @@
 <properties
-    pageTitle="Add Push Notifications to Android App with Azure  Mobile Apps"
-    description="Learn how to use Azure Mobile Apps to send push notifications to your Android app."
-    services="app-service\mobile"
-    documentationCenter="android"
-    manager="erikre"
-    editor=""
-    authors="yuaxu"/>
+	pageTitle="Azure 모바일 앱을 사용하여 Android 앱에 푸시 알림 추가"
+	description="Azure 모바일 앱을 사용하여 Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	services="app-service\mobile"
+	documentationCenter="android"
+	manager="erikre"
+	editor=""
+	authors="RickSaling"/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="yuaxu"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="07/21/2016"
+	ms.author="ricksal"/>
 
-
-# <a name="add-push-notifications-to-your-android-app"></a>Add Push Notifications to your Android App
+# Android 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## <a name="overview"></a>Overview
-This tutorial shows you how to add push notifications to the [Android quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Android quick start] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## 개요
+이 자습서에서는 푸시 알림을 [Android 빠른 시작] 프로젝트에 추가하여 레코드가 삽입될 때마다 푸시 알림이 전송됩니다. 이 자습서는 먼저 완료해야 하는 [Android 빠른 시작 안내서]를 기반으로 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 푸시 알림 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>Prerequisites
+##필수 조건
 
-The following items are needed to complete this tutorial:
+이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address.
+* 검증된 메일 주소를 사용하는 [Google 계정](http://go.microsoft.com/fwlink/p/?LinkId=268302)
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) - Node.js 백 엔드 프로젝트에는 필요하지 않음
+* [빠른 시작 자습서](app-service-mobile-android-get-started.md) 완료
 
-* An IDE depending on your project's backend:
-
-    * [Android Studio](https://developer.android.com/sdk/index.html) if this app has a Node.js backend.
-
-    * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) or later if this app has a .Net backend.
-
-* Complete the [quickstart tutorial](app-service-mobile-android-get-started.md).
-
-## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Create a project that supports Firebase Cloud Messaging
-
-[AZURE.INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
-
-## <a name="create-a-notification-hub"></a>Create a Notification Hub
+##<a name="create-hub"></a>알림 허브 만들기
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
-## <a name="configure-the-mobile-app-backend-for-sending-push-requests"></a>Configure the Mobile App backend for sending push requests
+## Google Cloud Messaging 사용
 
-[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-## <a name="enable-push-notifications-for-the-server-project"></a>Enable push notifications for the server project
+##푸시 요청을 보내도록 모바일 앱 백 엔드 구성
+
+[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
+
+##<a id="update-service"></a>푸시 알림을 전송하도록 서버 프로젝트 업데이트
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Add push notifications to your app
+## 앱에 푸시 알림 추가
 
-In this section, you enable your Android app project to handle push notifications.
+Android 앱 프로젝트가 푸시 알림을 처리할 준비가 되었는지 확인해야 합니다.
 
-### <a name="verify-android-sdk-version"></a>Verify Android SDK Version
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to.
+다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
 
-If you are testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
+이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하십시오.
 
-### <a name="add-google-play-services-to-the-project"></a>Add Google Play Services to the project
+###프로젝트에 Google Play Services 추가
 
-[AZURE.INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+[AZURE.INCLUDE [Play 서비스 추가](../../includes/app-service-mobile-add-google-play-services.md)]
 
-### <a name="add-code"></a>Add code
+###코드 추가
 
 [AZURE.INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
-## <a name="test-the-app-against-the-published-mobile-service"></a>Test the app against the published mobile service
+## 게시된 모바일 서비스에 대해 앱 테스트
 
-You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
+USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
-## <a name="more"></a>More
+##<a id="more"></a>추가 정보
 
-* Tags allow you to target segmented customers with pushes. [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) shows you how to add tags to a device installation.
+* 태그를 사용하면 푸시를 사용하여 여러 조각으로 나뉜 고객을 대상으로 할 수 있습니다. [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)은 장치 설치에 태그를 추가하는 방법을 보여 줍니다.
 
 <!-- URLs -->
-[Android quick start]: app-service-mobile-android-get-started.md
+[Android 빠른 시작]: app-service-mobile-android-get-started.md
+[Android 빠른 시작 안내서]: app-service-mobile-android-get-started.md
 
-[Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup
+[Google Play Services SDK 설정]: https://developers.google.com/android/guides/setup
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

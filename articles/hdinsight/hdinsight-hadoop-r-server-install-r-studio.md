@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Install RStudio with R Server on HDInsight (preview) | Microsoft Azure"
-    description="How to install RStudio with R Server on HDInsight (preview)."
-    services="hdinsight"
-    documentationCenter=""
-    authors="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="HDInsight의 R 서버를 사용하여 RStudio 설치(미리 보기) | Microsoft Azure"
+	description="HDInsight의 R 서버를 사용하여 RStudio를 설치하는 방법"
+	services="hdinsight"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -17,118 +17,113 @@
    ms.author="jeffstok"/>
 
 
+# HDInsight의 R 서버를 사용하여 RStudio 설치(미리 보기)
 
-# <a name="installing-rstudio-with-r-server-on-hdinsight-(preview)"></a>Installing RStudio with R Server on HDInsight (preview)
+현재 R에 사용할 수 있는 IDE(통합 개발 환경)에는 Microsoft에서 최근에 발표한 [R Tools for Visual Studio](https://www.visualstudio.com/ko-KR/features/rtvs-vs.aspx)(RTVS), [RStudio](https://www.rstudio.com/products/rstudio-server/)의 데스크톱 및 서버 도구 집합 또는 Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet)를 포함하여 여러 가지가 있습니다. Linux에서 가장 많이 사용되는 것은 원격 클라이언트에서 사용할 수 있도록 브라우저 기반 IDE를 제공하는 [RStudio 서버](https://www.rstudio.com/products/rstudio-server/)입니다. RStudio 서버를 HDInsight Premium 클러스터의 에지 노드에 설치하면 클러스터의 R 서버를 사용하여 R 스크립트를 개발 및 실행할 수 있는 완벽한 IDE 환경이 제공되므로 R 콘솔의 기본 사용 시보다 생산성을 크게 높일 수 있습니다.
 
-There are multiple integrated development environments (IDE) available for R today, including Microsoft’s recently announced [R Tools for Visual Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx) (RTVS), a family of desktop and server tools from [RStudio](https://www.rstudio.com/products/rstudio-server/), or Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet). Among the most popular on Linux is the use of [RStudio Server](https://www.rstudio.com/products/rstudio-server/) that provides a browser-based IDE for use by remote clients.  Installing RStudio Server on the edge node of an HDInsight Premium cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster, and can be considerably more productive than default use of the R Console.
+이 문서에서는 사용자 지정 스크립트를 사용하여 클러스터의 에지 노드에 RStudio 서버의 커뮤니티(무료) 버전을 설치하는 방법을 알아봅니다. 상업적으로 사용이 허가된 Pro 버전의 RStudio 서버를 사용하려면 [RStudio 서버](https://www.rstudio.com/products/rstudio/download-server/)에서 제공하는 설치 지침을 따라야 합니다.
 
-In this article you will learn how to install the community (free) version of RStudio Server on the edge node of a cluster by using a custom script. If you prefer the commercially licensed Pro version of RStudio Server, you must follow the installation instructions from [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/).
+> [AZURE.NOTE] 이 문서의 단계에는 HDInsight 클러스터의 R 서버가 필요하며 [R 스크립트 작업 설치](hdinsight-hadoop-r-scripts-linux.md)를 사용하여 R이 설치된 HDInsight 클러스터를 사용하는 경우 제대로 작동하지 않습니다.
 
-> [AZURE.NOTE] The steps in this document require an R Server on HDInsight cluster and will not work correctly if you are using an HDInsight cluster where R was installed using the [Install R Script Action](hdinsight-hadoop-r-scripts-linux.md).
+## 필수 조건
 
-## <a name="prerequisites"></a>Prerequisites
-
-* An Azure HDInsight cluster with R Server installed. For instructions, see [Get started with R Server on HDInsight clusters](hdinsight-hadoop-r-server-get-started.md).
-* An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [Cygwin](http://www.redhat.com/services/custom/cygwin/) with the [OpenSSH option](https://www.youtube.com/watch?v=CwYSvvGaiWU), or [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).  
+* R 서버가 설치된 Azure HDInsight 클러스터. 자세한 내용은 [HDInsight 클러스터에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
+* SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [OpenSSH 옵션](https://www.youtube.com/watch?v=CwYSvvGaiWU) 또는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 [Cygwin](http://www.redhat.com/services/custom/cygwin/)를 사용하는 것이 좋습니다.
 
 
-## <a name="install-rstudio-on-the-cluster-using-a-custom-script"></a>Install RStudio on the cluster using a custom script
+## 사용자 지정 스크립트를 사용하여 클러스터에 RStudio 설치
 
-1. Identify the edge node of the cluster. For an HDInsight cluster with R Server, following is the naming convention for head node and edge node.
+1. 클러스터의 에지 노드를 식별합니다. R 서버가 설치된 HDInsight 클러스터의 경우 헤드 노드와 에지 노드에 대한 명명 규칙은 다음과 같습니다.
 
-    * Head node - `CLUSTERNAME-ssh.azurehdinsight.net`
-    * Edge node - `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` 
+	* 헤드 노드 - `CLUSTERNAME-ssh.azurehdinsight.net`
+	* 에지 노드 - `R-Server.CLUSTERNAME-ssh.azurehdinsight.net`
 
-2. SSH into the edge node of the cluster using the above naming pattern. 
+2. 위 명명 패턴을 사용하여 클러스터의 에지 노드로 SSH를 실행합니다.
  
-    * If you are connecting from a Linux client, see [Connect to a Linux-based HDInsight cluster](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
-    * If you are connecting from a Windows client, see [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster).
+	* Linux 클라이언트에서 연결하려면 [Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)을 참조하세요.
+	* Windows 클라이언트에서 연결하려면 [PuTTY를 사용하여 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)을 참조하세요.
 
-3. Once you are connected, become a root user on the cluster. In the SSH session, use the following command.
+3. 연결이 완료되면 클러스터의 루트 사용자가 됩니다. SSH 세션에서 다음 명령을 사용합니다.
 
-        sudo su -
+		sudo su -
 
-4. Download the custom script to install RStudio. Use the following command.
+4. 사용자 지정 스크립트를 다운로드하여 RStudio를 설치합니다. 다음 명령을 사용합니다.
 
-        wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/InstallRStudio.sh
+		wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/InstallRStudio.sh
 
-5. Change the permissions on the custom script file and run the script. Use the following commands.
+5. 사용자 지정 스크립트 파일에 대한 권한을 변경하고 스크립트를 실행합니다. 다음 명령을 사용합니다.
 
-        chmod 755 InstallRStudio.sh
-        ./InstallRStudio.sh
+		chmod 755 InstallRStudio.sh
+		./InstallRStudio.sh
 
-6. If you used an SSH password while creating an HDInsight cluster with R Server, you can skip this step and proceed to the next. If you used an SSH key instead to create the cluster, you must set a password for your SSH user. You will need this password when connecting to RStudio. Run the following commands. When prompted for **Current Kerberos password**, just press **ENTER**.  Note that you must replace `USERNAME` with an SSH user for your HDInsight cluster.
+6. R 서버가 설치된 HDInsight 클러스터를 만드는 동안 SSH 암호를 사용한 경우 이 단계를 건너뛰고 다음 단계로 진행할 수 있습니다. 그렇지 않고 SSH 키를 사용하여 클러스터를 만든 경우 SSH 사용자에 대한 암호를 설정해야 합니다. RStudio에 연결할 때 이 암호가 필요합니다. 다음 명령을 실행합니다. **현재 Kerberos 암호**를 묻는 메시지가 표시되면 **Enter** 키를 누르면 됩니다. `USERNAME`을(를) HDInsight 클러스터에 대한 SSH 사용자로 교체해야 합니다.
 
-        passwd USERNAME
-        Current Kerberos password:
-        New password:
-        Retype new password:
-        Current Kerberos password:
-        
-    If your password is successfully set, you should see a message like this.
+		passwd USERNAME
+		Current Kerberos password:
+		New password:
+		Retype new password:
+		Current Kerberos password:
+		
+	암호가 성공적으로 설정된 경우 다음과 같은 메시지가 표시됩니다.
 
-        passwd: password updated successfully
+		passwd: password updated successfully
 
 
-    Exit the SSH session.
+	SSH 세션을 종료합니다.
 
-7. Create an SSH tunnel to the cluster by mapping `localhost:8787` on the HDInsight cluster to the client machine. You must create an SSH tunnel before opening a new browser session.
+7. HDInsight 클러스터에서 `localhost:8787`을 클라이언트 컴퓨터에 매핑하여 클러스터에 대한 SSH 터널을 만듭니다. 새 브라우저 세션을 열기 전에 SSH 터널을 만들어야 합니다.
 
-    * On a Linux client or a Windows client with [Cygwin](http://www.redhat.com/services/custom/cygwin/) then open a terminal session and use the following command.
+	* [Cygwin](http://www.redhat.com/services/custom/cygwin/)을 사용하는 Linux 클라이언트 또는 Windows 클라이언트에서 터미널 세션을 열고 다음 명령을 사용합니다.
 
-            ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
-            
-        Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster   You can also use a SSH key rather than a password by adding `-i id_rsa_key`     
+			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
+			
+		**USERNAME**을 HDInsight 클러스터에 대한 SSH 사용자로 바꾸고 **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다. `-i id_rsa_key`을(를) 추가하여 암호 대신 SSH 키를 사용할 수도 있습니다.
 
-    * If using a Windows client with PuTTY then
+	* PuTTY와 Windows 클라이언트를 사용하는 경우
 
-        1.  Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on how to use it with HDInsight.
-        2.  In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
-        3.  Provide the following information on the **Options controlling SSH port forwarding** form:
+		1.  PuTTY를 열고 연결 정보를 입력합니다. PuTTY를 잘 알고 있지 않다면 HDInsight와 함께 사용하는 방법에 대한 정보에 대해 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조합니다.
+		2.  대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
+		3.  **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
 
-            * **Source port** - The port on the client that you wish to forward. For example, **8787**.
-            * **Destination** - The destination that must be mapped to the local client machine. For example, **localhost:8787**.
+			* **Source port** - 전달하려는 클라이언트의 포트입니다. 예를 들면 **8787**과 같습니다.
+			* **Destination** - 로컬 클라이언트 컴퓨터에 매핑해야 하는 대상입니다. 예를 들면 **localhost:8787**과 같습니다.
 
-            ![Create an SSH tunnel](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Create an SSH tunnel")
+			![SSH 터널 만들기](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "SSH 터널 만들기")
 
-        4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
-        5. When prompted, log in to the server. This will establish an SSH session and enable the tunnel.
+		4. **Add**를 클릭하여 설정을 추가한 다음 **Open**을 클릭하여 SSH 연결을 엽니다.
+		5. 메시지가 표시되면 서버에 로그인합니다. 이 SSH 세션을 설정하고 터널을 사용하도록 설정합니다.
 
-8. Open a web browser and enter the following URL based on the port you entered for the tunnel.
+8. 웹 브라우저를 열고 터널에 대해 입력한 포트에 따라 다음 URL을 입력합니다.
 
-        http://localhost:8787/ 
+		http://localhost:8787/ 
 
-9. You will be prompted to enter the SSH username and password to connect to the cluster. If you used an SSH key while creating the cluster, you must enter the password you created in step 5 above.
+9. 클러스터에 연결할 SSH 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다. 클러스터를 만드는 동안 SSH 키를 사용한 경우 위 5단계에서 만든 암호를 입력해야 합니다.
 
-    ![Connect to R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Create an SSH tunnel")
+	![R 스튜디오에 연결](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "SSH 터널 만들기")
 
-10. To test whether the RStudio installation was successful, you can run a test script that executes R based MapReduce and Spark jobs on the cluster. Go back to the SSH console and enter the following commands to download the test script to run in RStudio.
+10. RStudio 설치의 성공 여부를 테스트하려면 클러스터에서 R 기반 MapReduce 및 Spark 작업을 실행하는 테스트 스크립트를 실행하면 됩니다. SSH 콘솔로 돌아가 다음 명령을 입력하여 RStudio에서 실행할 테스트 스크립트를 다운로드합니다.
 
-    * If you created a Hadoop cluster with R, use this command.
-        
-            wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi.r
+	* R이 설치된 Hadoop 클러스터를 만든 경우 다음 명령을 사용합니다.
+		
+			wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi.r
 
-    * If you created a Spark cluster with R, use this command.
+	* R이 설치된 Spark 클러스터를 만든 경우 다음 명령을 사용합니다.
 
-            wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
+			wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
 
-11. In RStudio, you will see the test script you downloaded. Double click the file to open it, select the contents of the file, and then click **Run**. You should see the output in the **Console** pane.
+11. RStudio에 다운로드한 테스트 스크립트가 표시됩니다. 파일을 두 번 클릭하여 열고 파일의 내용을 선택한 다음 **Run**을 클릭합니다. **Console** 창에 출력이 표시됩니다.
  
-    ![Test the installation](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Test the installation")
+	![설치 테스트](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "설치 테스트")
 
-Another option would be to type `source(testhdi.r)` or `source(testhdi_spark.r)` to execute the script.
+또 다른 옵션은 `source(testhdi.r)` 또는 `source(testhdi_spark.r)`을(를) 입력하여 스크립트를 실행하는 것입니다.
 
-## <a name="see-also"></a>See also
+## 참고 항목
 
-- [Compute context options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-compute-contexts.md)
+- [HDInsight 클러스터의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
 
-- [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
+- [HDInsight Premium의 R 서버에 대한 Azure 저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

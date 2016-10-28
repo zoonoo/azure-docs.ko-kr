@@ -1,16 +1,13 @@
-1. From the Visual Studio menu, select **File > New > Project**.
+1. Visual Studio 메뉴에서 **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
 
-1. Under the **Templates** section of the **New Project** dialog box, select **Visual C# > Web**.
+1. **새 프로젝트** 대화 상자의 **템플릿** 섹션에서 **Visual C# > 웹**을 선택합니다.
 
-1. Select **ASP.NET Core Web Application (.NET Core)**.
+1. **ASP.NET Core 웹 응용 프로그램(.NET Core)**을 선택합니다.
 
-1. Give your new application a name (or take the default) and select **OK**.
+1. 새 응용 프로그램에 이름을 지정(또는 기본값 사용)하고 **확인**을 선택합니다.
 
-1. Under **ASP.NET Core Templates**, select **Web Application** and select **OK**.
+1. **ASP.NET Core 템플릿** 아래에서, **웹 응용 프로그램**을 선택하고 **확인**을 선택합니다.
 
-1. Unselect **Host in the cloud**. You'll be using Docker as your deployment solution.
+1. **클라우드에 호스트**를 선택 취소합니다. Docker를 배포 솔루션으로 사용할 것입니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

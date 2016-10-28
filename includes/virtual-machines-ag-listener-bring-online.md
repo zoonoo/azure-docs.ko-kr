@@ -1,26 +1,23 @@
-1. Navigate back to Failover Cluster Manager.  Expand **Roles** and then highlight your Availability Group.  On the **Resources** tab, right-click the listener name and click Properties.
+1. 다시 장애 조치(Failover) 클러스터 관리자로 이동합니다. **역할**을 확장한 다음 가용성 그룹을 강조 표시합니다. **리소스** 탭에서 수신기 이름을 마우스 오른쪽 단추로 클릭하고 속성을 클릭합니다.
 
-1. Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies.  Click **OK**.
+1. **종속성** 탭을 클릭합니다. 여러 리소스가 나열되어 있으면 IP 주소에 AND가 아닌 OR 종속성이 있는지 확인합니다. **확인**을 클릭합니다.
 
-1. Right-click the listener name and click **Bring Online**.
+1. 수신기 이름을 마우스 오른쪽 단추로 클릭하고 **온라인 상태로 전환**을 클릭합니다.
 
-1. Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
+1. 수신기가 온라인 상태로 전환되면 **리소스** 탭에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
-    ![Configure the Availability Group Resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+	![가용성 그룹 리소스 구성](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-1. Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
+1. 수신기 이름 리소스(IP 주소 리소스 이름이 아님)에 대한 종속성을 만듭니다. **확인**을 클릭합니다.
 
-    ![Add Dependency on the Listener Name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+	![수신기 이름에 대한 종속성 추가](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-1. Launch **SQL Server Management Studio** and connect to the primary replica.
+1. **SQL Server Management Studio**를 시작하고 주 복제본에 연결합니다.
 
-1. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **<AvailabilityGroupName>** | **Availability Group Listeners**. 
+1. **AlwaysOn 고가용성** | **가용성 그룹** | **<AvailabilityGroupName>** | **가용성 그룹 수신기**로 이동합니다.
 
-3. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
+3. 이제 장애 조치(Failover) 클러스터 관리자에서 만든 수신기 이름이 표시됩니다. 수신기 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
-1. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (in this tutorial, 1433 was the default), then click **OK**.
+1. **포트** 상자에서 이전에 사용한 $EndpointPort(이 자습서에서는 1433이 기본값임)를 사용하여 가용성 그룹 수신기에 대한 포트 번호를 지정한 다음 **확인**을 클릭합니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

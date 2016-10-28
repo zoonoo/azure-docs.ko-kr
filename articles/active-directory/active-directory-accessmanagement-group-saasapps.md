@@ -1,64 +1,59 @@
 
 <properties
-    pageTitle="Using a group to manage access to SaaS Applications | Microsoft Azure"
-    description="How to use groups in Azure Active Directory Premium or Basic to assign access to SaaS applications that are integrated with Azure Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리| Microsoft Azure"
+	description="Azure Active Directory Premium 또는 Basic에서 그룹을 사용하여 Azure Active Directory와 통합되는 SaaS 응용 프로그램에 대한 액세스 권한을 할당하는 방법입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/10/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2016"
+	ms.author="curtand"/>
 
 
+# 그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리
 
-# <a name="using-a-group-to-manage-access-to-saas-applications"></a>Using a group to manage access to SaaS applications
+Azure AD Premium 또는 Azure AD Basic 라이선스로 Azure Active Directory(Azure AD)를 사용하는 경우 그룹을 사용하여 Azure AD와 통합되는 SaaS 응용 프로그램에 액세스 권한을 할당할 수 있습니다. 예를 들어 5가지 SaaS 응용 프로그램을 사용하는 마케팅 부서에 대해 액세스 권한을 할당하려는 경우 마케팅 부서의 사용자가 포함된 그룹을 만든 다음 마케팅 부서에 필요한 이 5가지 SaaS 응용 프로그램에 해당 그룹을 할당할 수 있습니다. 이러한 방식으로 한 곳에서 마케팅 부서의 멤버 자격을 관리하여 시간을 절약할 수 있습니다. 사용자는 마케팅 그룹 멤버로 추가되는 경우 응용 프로그램에 할당되고 마케팅 그룹에서 제거되면 응용 프로그램에서 할당이 제거됩니다.
 
-Using Azure Active Directory (Azure AD) with an Azure AD Premium or Azure AD Basic license, you can use groups to assign access to a SaaS application that's integrated with Azure AD. For example, if you want to assign access for the marketing department to use five different SaaS applications, you can create a group that contains the users in the marketing department, and then assign that group to these five SaaS applications that are needed by the marketing department. This way you can save time by managing the membership of the marketing department in one place. Users then are assigned to the application when they are added as members of the marketing group, and have their assignments removed from the application when they are removed from the marketing group.
+이 기능은 Azure AD 응용 프로그램 갤러리 내에서 추가할 수 있는 수많은 응용 프로그램과 함께 사용할 수 있습니다.
 
-This capability can be used with hundreds of applications that you can add from within the Azure AD Application Gallery.
+**그룹에 대해 SaaS 응용 프로그램 액세스 권한을 할당하려면**
 
-**To assign access for a group to a SaaS application**
+1. [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 모음에서 **Active Directory**를 선택합니다.
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory** on the navigation bar on the left hand side.
+2. **디렉터리** 탭을 선택한 후 그룹에 대해 SaaS 응용 프로그램 액세스 권한을 할당할 디렉터리를 엽니다.
 
-2. Select the **Directory** tab, and then open the directory in which you want to assign access for a group to a SaaS application.
+3. **응용 프로그램** 탭을 선택합니다. 응용 프로그램 갤러리에서 추가한 응용 프로그램을 선택한 다음 **사용자 및 그룹** 탭을 클릭합니다.
 
-3. Select the **Applications** tab. Select an application that you added from the Application Gallery, and then click  the **Users and Groups** tab.
+4. **시작** 필드의 **사용자 및 그룹** 탭에 액세스 권한을 할당할 그룹의 이름을 입력하고 오른쪽 위에 있는 확인 표시를 선택합니다. 그룹 이름의 처음 부분만 입력하면 됩니다.
 
-4. On the **Users and Groups** tab, in the **Starting with** field, enter the name of the group to which you want to assign access, and then select the check mark in the upper right. You only need to type the first part of a group's name.
+5. 그룹을 선택한 후 **액세스 권한 할당** 단추를 선택합니다. 확인 메시지가 표시되면 **예**를 선택합니다. 중첩 그룹 구성원은 이번 응용 프로그램에 대한 그룹 기반 할당에서 지원되지 않습니다.
 
-5. Select the group, then then select the **Assign Access** button. Select **Yes** when you see the confirmation message. Nested group memberships are not supported for group-based assignment to applications at this time.
-
-6. You can also see which users are assigned to the application, either directly or by membership in a group. To do this, change the **Show dropdown from 'Groups'** to **'All Users'**. The list shows users in the directory and whether or not each user is assigned to the application. The list also shows whether the assigned users are assigned to the application directly (assignment type shown as 'Direct'), or by virtue of group membership (assignment type shown as 'Inherited.')
+6. 직접 또는 그룹의 멤버 자격을 통해 응용 프로그램에 할당된 사용자도 볼 수 있습니다. 이 작업을 수행하려면 **'그룹'에서 드롭다운 표시**를 **'모든 사용자**로 변경합니다. 목록은 디렉터리의 사용자와 각 사용자가 응용 프로그램에 할당되었는지 여부를 나타냅니다. 목록은 할당된 사용자가 응용 프로그램에 직접 할당되었는지(할당 형식이 '직접'으로 표시됨) 그룹 멤버 자격에 의해 할당되었는지(할당 형식이 '상속'으로 표시됨) 여부를 표시합니다.
 
 
 > [AZURE.NOTE]
->You can see the Users and Groups tab only after you have enabled Azure AD Premium or Azure AD Basic.
+Azure AD Premium 또는 Azure AD Basic을 사용하도록 설정한 후에 사용자 및 그룹 탭을 볼 수 있습니다.
 
-##<a name="related-articles"></a>Related Articles
+##관련 문서
 
-These articles provide additional information on Azure Active Directory.
+이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [그룹 설정을 구성하는 Azure Active Directory cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-* [What is Azure Active Directory?](active-directory-whatis.md)
+* [Azure Active Directory란?](active-directory-whatis.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

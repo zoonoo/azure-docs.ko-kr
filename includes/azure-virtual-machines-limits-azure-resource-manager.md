@@ -1,11 +1,8 @@
-Resource|Default Limit
+리소스|기본 제한
 ---|---
-Virtual machines per availability set | 100 
-Certificates per subscription|Unlimited<sup>1</sup>
+가용성 집합당 가상 컴퓨터 | 100 
+구독당 인증서|무제한<sup>1</sup>
 
-<sup>1</sup>With Azure Resource Manager, certificates are stored in the Azure Key Vault. Although the number of certificates is unlimited for a subscription, there is still a 1 MB limit of certificates per deployment (which consists of either a single VM or an availability set).
+<sup>1</sup>Azure 리소스 관리자를 사용하면 인증서는 Azure 키 자격 증명 모음에 저장됩니다. 인증서의 수는 구독에 대해 제한이 없지만 배포당 1MB의 인증서 제한이 있습니다.(단일 VM 또는 가용성 집합으로 구성)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

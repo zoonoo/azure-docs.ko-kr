@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Technical Pre-requisites for creating a Data Service for the Marketplace | Microsoft Azure"
-   description="Understand the requirements for creating a Data Service to deploy and sell on the Azure Marketplace"
+   pageTitle="마켓플레이스용 데이터 서비스 생성을 위한 기술 필수 조건 | Microsoft Azure"
+   description="Azure 마켓플레이스에 배포 및 판매할 데이터 서비스를 만들기 위한 요구 사항 이해"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,62 +16,57 @@
    ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
+# Azure 마켓플레이스용 데이터 서비스 제품 생성을 위한 기술 필수 조건
 
-# <a name="technical-pre-requisites-for-creating-a-data-service-offer-for-the-azure-marketplace"></a>Technical Pre-requisites for creating a Data Service offer for the Azure Marketplace
+>[AZURE.IMPORTANT] **현재는 새 데이터 서비스 게시자 등록을 더 이상 받지 않고 있습니다. 따라서 새 데이터 서비스 등재 승인을 받을 수 없습니다.** SaaS 비즈니스 응용 프로그램을 AppSource에 게시하려는 경우 [여기서](https://appsource.microsoft.com/partners) 자세한 내용을 확인할 수 있습니다. IaaS 응용 프로그램 또는 개발자 서비스를 Azure Marketplace에 게시하려는 경우에는 [여기서](https://azure.microsoft.com/marketplace/programs/certified/) 자세한 내용을 확인할 수 있습니다.
 
->[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
+시작하기 전에 프로세스를 자세히 읽고 각 단계를 어디에서, 왜 수행하는지를 이해해야 합니다. 제품 만들기 프로세스를 시작하기 전에 회사 정보와 기타 데이터를 최대한 많이 준비하고 필요한 도구를 다운로드하고 기술 구성 요소를 만들어야 합니다.
 
-Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process.
+프로세스를 시작하기 전에 다음 항목이 준비되어 있어야 합니다.
 
-You should have the following items ready before beginning the process:
+## 데이터 서비스 제품을 게시하는 데 사용할 기술 결정
 
-## <a name="make-a-decision-on-what-technology-will-be-used-to-publish-your-data-service-offer"></a>Make a decision on what technology will be used to publish your Data Service offer
+게시자는 Azure 마켓플레이스에 데이터 서비스를 게시할 때 여러 가지 기술 중 하나를 결정할 수 있습니다. 지원되는 주요 기술은 아래 설명되어 있습니다. 데이터 서비스를 게시하는 데 사용되는 기술이 무엇이든, 최종 사용자는 Azure 마켓플레이스 서비스에 의해 노출되는 **OData 피드**를 통해 데이터를 소비합니다. OData 서비스에 대한 모든 정보는 [http://www.odata.org/](http://www.odata.org/)에서 찾아볼 수 있습니다.
 
-A Publisher can decide between multiple technologies when publishing Data Service in Azure Marketplace. The main technologies that are supported described below. Regardless what technology is used to publish the Data Service, the end-user consumes the data through the **OData feed** exposed by Azure Marketplace Service. Full information about OData service you can find on [http://www.odata.org/](http://www.odata.org/)
+## SQL Azure 데이터베이스
 
-## <a name="sql-azure-database"></a>SQL Azure Database
-
-Having dataset ready in SQL Azure is Publisher’s responsibility. You’ll need to subscribe to Azure, provision appropriate size of Database and upload your Data into SQL Azure DB. Publisher is also responsible to keep his/her data always up-to-date. More information about subscribing to Azure Services you can find on [https://azure.microsoft.com/services/sql-database/](https://azure.microsoft.com/services/sql-database/)
-
-
-When moving the data into SQL Azure, the Azure Marketplace can expose tables and views. The Publisher can specify which tables/views and columns are exposed to the end-user. Further the content provider can also specify which columns can be queried by the end-user and which ones are only returned in the payload. This gives a high level of flexibility about which data in the database should be exposed. Columns that can be queried need to be backed by one or more database indices.
-
-## <a name="rest-based-web-service"></a>REST based web service
-
-Supported protocol: **HTTPS only**
-
-Existing REST based services can be exposed through the Azure Marketplace. Because the dataset is always exposed to the end-user as an OData feed, the Azure Marketplace service needs to be able to map the service to a OData based service. To do so the REST based endpoints need to expose all parameters as HTTP parameters.
-
-The payload needs to be in a form that can be mapped into an ATOM response. Hence the response from the services needs to be in XML format and can only contain one repeating element that contains the payload values (like record set). The Azure Marketplace service will map the repeating node to the entry node in ATOM and the payload values into property nodes within the entry node.
-
-Authorization information (such as API key, authentication token, etc.) needs to be provided as an HTTP parameter or in the HTTP header (key value pair) – basic authentication is also supported. A valid key needs to be provided and all requests through Azure Marketplace are being made through that key. User monitoring and billing happens at the Azure Marketplace layer.
-
-Errors returned by the service need to be mapped into HTTP status codes. In case the service returns a XML that contains the error these are going to be mapped by the Azure Marketplace service to HTTP status codes.
-
-## <a name="soap-based-web-services"></a>SOAP based web services
-
-Protocol: **HTTPS only**
-
-The requirements are the same as in the REST based service section. The only difference is that parameters can also be provided in an XML body that’s being posted to the Publisher’s service with every request made through Azure Marketplace. This means that HTTP parameters the user provides at the front-end are being translated into XML elements of an XML document that’s being posted with the request to the content provider’s web service.
-
-## <a name="odata-based-web-services"></a>OData based web services
-
-Protocol: **HTTPS only**
-
-Data can be exposed as an OData service to Azure Marketplace. The system is going to pass the service through and replaces the root of the service with the Azure Marketplace service root – to ensure all subsequent calls go through Azure Marketplace.
-
-OData services don’t only need to go against a database in the backend. OData supports any kind of storage or business logic to drive the service.
+SQL Azure에 데이터 집합을 준비하는 것은 게시자의 책임입니다. Azure를 구독하고, 적절한 규모의 데이터베이스를 프로비전하고, SQL Azure DB로 데이터를 업로드해야 합니다. 게시자는 자신의 데이터를 항상 최신 상태로 유지할 책임이 있습니다. Azure 서비스 구독에 대한 자세한 정보는 [https://azure.microsoft.com/services/sql-database/](https://azure.microsoft.com/services/sql-database/)에서 찾아볼 수 있습니다.
 
 
-## <a name="next-steps"></a>Next Steps
-Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Data Service offer as detailed in the [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
+SQL Azure로 데이터를 이동할 때 Azure 마켓플레이스는 테이블과 뷰를 표시할 수 있습니다. 게시자는 최종 사용자에게 표시되는 테이블/뷰 및 열을 지정할 수 있습니다. 콘텐츠 공급자는 최종 사용자가 쿼리할 수 있는 열을 지정할 수 있고 페이로드에 포함되어 반환되는 열을 지정할 수도 있습니다. 이런 기능은 데이터베이스에서 어떤 데이터를 노출할지에 대해 높은 수준의 유연성을 제공합니다. 쿼리가 가능한 열은 하나 이상의 데이터베이스 인덱스에 의해 지원을 받아야 합니다.
 
-Or, if you would like to review the overall process and the respective articles for each of the publishing phases, please visit the article [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+## REST 기반 웹 서비스
 
-[link-acct]:marketplace-publishing-accounts-creation-registration.md
+지원되는 프로토콜: **HTTPS만**
+
+기존의 REST 기반 서비스는 Azure 마켓플레이스를 통해 노출될 수 있습니다. 데이터 집합은 항상 OData 피드로 최종 사용자에게 노출되기 때문에, Azure 마켓플레이스 서비스는 서비스를 OData 기반 서비스에 매핑할 수 있어야 합니다. 이렇게 하려면 REST 기반 끝점은 모든 매개 변수를 HTTP 매개 변수로 노출해야 합니다.
+
+페이로드는 ATOM 응답으로 매핑될 수 있는 양식이어야 합니다. 따라서 서비스로부터 받는 응답은 XML 형식이어야 하며 페이로드 값(레코드 집합 처럼)을 포함하는 반복 요소를 하나만 포함할 수 있습니다. Azure 마켓플레이스 서비스는 반복 노드를 ATOM 형식의 엔트리 노드로 매핑하고 페이로드 값을 엔트리 노드 내의 속성 노드로 매핑합니다.
+
+인증 정보(예: API 키, 인증 토큰 등)는 HTTP 매개 변수 또는 HTTP 헤더(키 값 쌍)으로 제공되어야 합니다. 기본 인증도 지원됩니다. 유효한 키가 제공되어야 하며 Azure 마켓플레이스를 거치는 모든 요청은 해당 키를 통과하여 전송됩니다. 사용자 모니터링 및 청구는 Azure 마켓플레이스 계층에서 이루어집니다.
+
+서비스로부터 반환되는 오류는 HTTP 상태 코드로 매핑되어야 합니다. 서비스에서 오류를 포함하는 XML을 반환하면, Azure 마켓플레이스 서비스에 의해 HTTP 상태 코드로 매핑됩니다.
+
+## SOAP 기반 웹 서비스
+
+프로토콜: **HTTPS만**
+
+요구 사항은 REST 기반 서비스 섹션과 동일합니다. 유일한 차이는 매개 변수가 Azure 마켓플레이스를 통해 생성되는 모든 요청과 함께 게시자의 서비스에 포스팅 중인 XML 본문에 제공될 수 있다는 점입니다. 이것은 사용자가 프런트 엔드에 제공하는 HTTP 매개 변수가 요청을 통해 콘텐츠 공급자의 웹 서비스에 포스팅되는 XML 문서의 XML 요소로 변환되고 있다는 것을 의미합니다.
+
+## OData 기반 웹 서비스
+
+프로토콜: **HTTPS만**
+
+데이터는 OData 서비스로 Azure 마켓플레이스에 표시될 수 있습니다. 시스템은 서비스를 전달하고 (모든 후속 호출이 Azure 마켓플레이스를 통과하도록) 서비스 루트를 Azure 마켓플레이스 서비스 루트와 바꿉니다.
+
+OData 서비스는 백 엔드의 데이터베이스에 위배되지만 않으면 됩니다. OData는 서비스를 구동하기 위해 모든 종류의 저장소 또는 비즈니스 논리를 지원합니다.
 
 
+## 다음 단계
+필수 조건을 검토하고 필요한 작업을 마쳤으므로 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)(영문)에 자세히 설명된 데이터 서비스 제품 만들기를 진행할 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+전반적인 과정을 검토하거나 게시의 각 단계에 해당하는 문서를 보려면 [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하세요.
 
+[link-acct]: marketplace-publishing-accounts-creation-registration.md
 
+<!---HONumber=AcomDC_0831_2016-->

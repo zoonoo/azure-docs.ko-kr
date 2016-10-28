@@ -1,22 +1,18 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **Cordova**. Under **Configure your client application**, select **Create a New App**, then click **Download**. This downloads a complete Cordova project for an app pre-configured to connect to your backend.
+1. [Azure 포털]을 방문합니다. **모두 찾아보기** > **모바일 앱** > 방금 만든 백 엔드를 클릭합니다. 모바일 앱 설정에서 **빠른 시작** > **Cordova**를 클릭합니다. **클라이언트 응용 프로그램 구성**에서 **새 앱 만들기**를 선택한 다음 **다운로드**를 클릭합니다. 그러면 사전 구성된 앱을 백 엔드에 연결하기 위한 전체 Cordova 프로젝트가 다운로드됩니다.
 
-2. Unpack the downloaded ZIP file to a directory on your hard drive, navigate to the solution file (.sln) and open it using Visual Studio.
+2. 하드 드라이브의 디렉터리에 다운로드한 ZIP 파일 압축을 풀고, 솔루션 파일(.sln)로 이동하여 Visual Studio를 사용하여 엽니다.
 
-5. In Visual Studio, choose the solution platform (Android, iOS or Windows) from the drop-down next to the start arrow, then select a specific deployment device or emulator by clicking the drop-down on the green arrow. Note that you can use the default Android platform and Ripple emulator. More advanced tutorials will require you to select a supported device or emulator. 
+5. Visual Studio에서 시작 화살표 옆에 있는 드롭다운 목록에서 솔루션 플랫폼(Android, iOS 또는 Windows)을 선택한 다음 녹색 화살표의 드롭다운을 클릭하여 특정 배포 장치 또는 에뮬레이터를 선택합니다. 기본 Android 플랫폼 및 Ripple 에뮬레이터를 사용할 수 있습니다. 더 많은 고급 자습서를 보려면 지원되는 장치 또는 에뮬레이터를 선택합니다.
 
-6. Press F5 or click the green arrow to build and and run your Cordova app. If you see a security dialog in the emulator requesting access to the network, accept it.   
+6. F5 키를 누르거나 녹색 화살표를 클릭하여 Cordova 앱을 빌드하고 실행합니다. 네트워크에 대한 액세스를 요청하는 에뮬레이터에서 보안 대화 상자가 표시되는 경우, 이를 수락합니다.
 
-7. After the the app is started on the device or emulator, type meaningful text in **Enter new text**, such as _Complete the tutorial_ and then click the **Add** button.  
-This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem table in the SQL Database, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list.
+7. 장치 또는 에뮬레이터에서 앱을 시작한 후, **새 텍스트 입력**에 _자습서 완료_와 같은 의미 있는 텍스트를 입력한 다음 **추가** 단추를 클릭입니다. 그러면 이전에 배포한 Azure 백 엔드에 POST 요청을 보냅니다. 요청의 백 엔드 데이터가 SQL 데이터베이스의 TodoItem 테이블에 삽입되고 새로 저장된 항목에 대한 정보를 모바일 앱으로 다시 반환합니다. 모바일 앱이 이 데이터를 목록에 표시합니다.
 
     ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
     
-8. Repeat the previous three steps for each device platform that you plan to support.
+8. 지원하려는 각 장치 플랫폼에 대해 이전의 세 단계를 반복합니다.
 
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

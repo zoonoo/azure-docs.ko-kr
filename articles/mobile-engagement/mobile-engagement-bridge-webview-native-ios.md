@@ -1,279 +1,274 @@
 <properties 
-    pageTitle="Bridge iOS WebView with native Mobile Engagement iOS SDK" 
-    description="Describes how to create a bridge between WebView running Javascript and the native Mobile Engagement iOS SDK"      
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="erikre" 
-    editor="" />
+	pageTitle="iOS WebView와 네이티브 Mobile Engagement iOS SDK 브리지" 
+	description="Javascript를 실행하는 WebView와 네이티브 Mobile Engagement iOS SDK 간의 브리지를 만드는 방법을 설명합니다."		
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="erikre" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-ios" 
-    ms.devlang="objective-c" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
-
-#<a name="bridge-ios-webview-with-native-mobile-engagement-ios-sdk"></a>Bridge iOS WebView with native Mobile Engagement iOS SDK
+#iOS WebView와 네이티브 Mobile Engagement iOS SDK 브리지
 
 > [AZURE.SELECTOR]
-- [Android Bridge](mobile-engagement-bridge-webview-native-android.md)
-- [iOS Bridge](mobile-engagement-bridge-webview-native-ios.md)
+- [Android 브리지](mobile-engagement-bridge-webview-native-android.md)
+- [iOS 브리지](mobile-engagement-bridge-webview-native-ios.md)
 
-Some mobile apps are designed as a hybrid app where the app itself is developed using native iOS Objective-C development but some or even all of the screens are rendered within an iOS WebView. You can still consume Mobile Engagement iOS SDK within such apps and this tutorial describes how to go about doing this. 
+일부 모바일 앱은 앱 자체가 네이티브 iOS Objective-C 개발을 사용하여 개발되지만 화면의 일부 또는 전부가 iOS WebView 내에서 렌더링되는 하이브리드 앱으로 설계됩니다. 이러한 앱 내에서 Mobile Engagement iOS SDK를 계속 사용할 수 있으며, 해당 작업 방법이 이 자습서에 설명되어 있습니다.
 
-There are two approaches to achieve this though both are undocumented:
+다음 두 가지 접근 방식이 있지만 둘 다 문서화되지 않았습니다.
 
-- First one is described on this [link](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip) which involves registering a `UIWebViewDelegate` on your web view and catch-and-immediatly-cancel a location change done in Javascript. 
-- Second one is based on this [WWDC 2013 session](https://developer.apple.com/videos/play/wwdc2013/615), an approach which is cleaner than the first and which we will follow for this guide. Note that this approach only works on iOS7 and above. 
+- 첫 번째 방식은 웹 보기에 `UIWebViewDelegate`를 등록하는 것과 관련된 이 [링크](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip)에 설명되어 있으며, Javascript에서 수행된 위치 변경을 catch하고 즉시 취소합니다.
+- 두 번째 방식은 첫 번째보다 명확한 접근 방식인 이 [WWDC 2013 세션](https://developer.apple.com/videos/play/wwdc2013/615)을 기반으로 합니다. 이 가이드에서는 이 방식을 따릅니다. 이 접근 방식은 iOS7 이상에서만 작동합니다.
 
-Follow the steps below for the iOS bridge sample:
+iOS 브리지 샘플에 대해 아래 단계를 따릅니다.
 
-1. First of all, you need to ensure that you have gone through our [Getting Started tutorial](mobile-engagement-ios-get-started.md) to integrate the Mobile Engagement iOS SDK in your hybrid app. Optionally, you can also enable test logging as follows so that you can see the SDK methods as we trigger them from the webview. 
+1. 먼저 [시작 자습서](mobile-engagement-ios-get-started.md)에 따라 Mobile Engagement iOS SDK를 하이브리드 앱에 통합해야 합니다. 필요에 따라 WebView에서 트리거할 때 SDK 메서드를 볼 수 있도록 다음과 같이 테스트 로깅을 사용할 수도 있습니다.
     
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-           ....
-            [EngagementAgent setTestLogEnabled:YES];
-           ....
-        }
+		- (BOOL)application:(UIApplication ​*)application didFinishLaunchingWithOptions:(NSDictionary *​)launchOptions {
+		   ....
+     		[EngagementAgent setTestLogEnabled:YES];
+		   ....
+		}
 
-2. Now make sure that your hybrid app has a screen with a webview on it. You can add it to the `Main.storyboard` of the app. 
+2. 이제 하이브리드 앱에 WebView가 표시된 화면이 있는지 확인합니다. 앱의 `Main.storyboard`에 추가할 수 있습니다.
 
-3. Associate this webview with your **ViewController** by clicking and dragging the webview from the View Controller Scene to the `ViewController.h` edit screen, placing it just below the `@interface` line. 
+3. View Controller Scene에서 WebView를 클릭하여 `ViewController.h` 편집 화면으로 끌어와 이 WebView를 **ViewController**와 연결합니다. `@interface` 줄 바로 아래에 두면 됩니다.
 
-4. Once you do this, a dialog box will pop up asking for a name. Provide the name as **webView**. Your `ViewController.h` file should look like the following:
+4. 그러면 이름을 묻는 대화 상자가 나타납니다. **webView**로 이름을 입력합니다. `ViewController.h` 파일은 다음과 같아야 합니다.
 
-        #import <UIKit/UIKit.h>
-        #import "EngagementViewController.h"
-        
-        @interface ViewController : EngagementViewController
-        @property (strong, nonatomic) IBOutlet UIWebView *webView;
-        
-        @end
+		#import <UIKit/UIKit.h>
+		#import "EngagementViewController.h"
+		
+		@interface ViewController : EngagementViewController
+		@property (strong, nonatomic) IBOutlet UIWebView *webView;
+		
+		@end
 
-5. We will update the `ViewController.m` file later but first we will create the bridge file which creates a wrapper over some commonly used Mobile Engagement iOS SDK methods. Create a new header file called **EngagementJsExports.h** which uses the `JSExport` mechanism described in the aforementioned [session](https://developer.apple.com/videos/play/wwdc2013/615) to expose the native iOS methods. 
+5. 나중에 `ViewController.m` 파일을 업데이트할 것이지만 먼저 자주 사용되는 몇 가지 Mobile Engagement iOS SDK 메서드에서 래퍼를 만드는 브리지 파일을 만듭니다. 앞서 언급한 [세션](https://developer.apple.com/videos/play/wwdc2013/615)에 설명된 `JSExport` 메커니즘을 사용하는 **EngagementJsExports.h**라는 새 헤더 파일을 만들어 네이티브 iOS 메서드를 노출합니다.
 
-        #import <Foundation/Foundation.h>
-        #import <JavaScriptCore/JavascriptCore.h>
-        
-        @protocol EngagementJsExports <JSExport>
-        
-        + (void) sendEngagementEvent:(NSString*) name :(NSString*)extras;
-        + (void) startEngagementJob:(NSString*) name :(NSString*)extras;
-        + (void) endEngagementJob:(NSString*) name;
-        + (void) sendEngagementError:(NSString*) name :(NSString*)extras;
-        + (void) sendEngagementAppInfo:(NSString*) appInfo;
-        
-        @end
+		#import <Foundation/Foundation.h>
+		#import <JavaScriptCore/JavascriptCore.h>
+		
+		@protocol EngagementJsExports <JSExport>
+		
+		+ (void) sendEngagementEvent:(NSString*) name :(NSString*)extras;
+		+ (void) startEngagementJob:(NSString*) name :(NSString*)extras;
+		+ (void) endEngagementJob:(NSString*) name;
+		+ (void) sendEngagementError:(NSString*) name :(NSString*)extras;
+		+ (void) sendEngagementAppInfo:(NSString*) appInfo;
+		
+		@end
 
-        @interface EngagementJs : NSObject <EngagementJsExports>
+		@interface EngagementJs : NSObject <EngagementJsExports>
 
-        @end
+		@end
 
-6. Next we will create the second part of the bridge file. Create a file called **EngagementJsExports.m** which will contain the implementation creating the actual wrappers by calling the Mobile Engagement iOS SDK methods. Also note that we are parsing the `extras` being passed from the webview javascript and putting that into an `NSMutableDictionary` object to be passed with the Engagement SDK method calls.  
+6. 그런 다음 브리지 파일의 두 번째 부분을 만듭니다. Mobile Engagement iOS SDK 메서드를 호출하여 실제 래퍼를 만드는 구현이 포함된 **EngagementJsExports.m**이라는 파일을 만듭니다. WebView Javascript에서 전달되는 `extras`를 구문 분석하여 Engagement SDK 메서드 호출로 전달할 `NSMutableDictionary` 개체에 배치합니다.
 
-        #import <UIKit/UIKit.h>
-        #import "EngagementAgent.h"
-        #import "EngagementJsExports.h"
-        
-        @implementation EngagementJs
-        
-        +(void) sendEngagementEvent:(NSString*)name :(NSString*)extras {
-           NSMutableDictionary* extrasInput = [self ParseExtras:extras];
-           [[EngagementAgent shared] sendEvent:name extras:extrasInput];
-        }
-        
-        + (void) startEngagementJob:(NSString*) name :(NSString*)extras {
-           NSMutableDictionary* extrasInput = [self ParseExtras:extras];
-           [[EngagementAgent shared] startJob:name extras:extrasInput];
-        }
-        
-        + (void) endEngagementJob:(NSString*) name {
-           [[EngagementAgent shared] endJob:name];
-        }
-        
-        + (void) sendEngagementError:(NSString*) name :(NSString*)extras {
-           NSMutableDictionary* extrasInput = [self ParseExtras:extras];
-           [[EngagementAgent shared] sendError:name extras:extrasInput];
-        }
-        
-        + (void) sendEngagementAppInfo:(NSString*) appInfo {
-           NSMutableDictionary* appInfoInput = [self ParseExtras:appInfo];
-           [[EngagementAgent shared] sendAppInfo:appInfoInput];
-        }
-        
-        + (NSMutableDictionary*) ParseExtras:(NSString*) input {
-           NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding];
-           NSError* error = nil;
-           NSMutableDictionary* extras = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-           
-           return extras;
-        }
-        
-        @end
+		#import <UIKit/UIKit.h>
+		#import "EngagementAgent.h"
+		#import "EngagementJsExports.h"
+		
+		@implementation EngagementJs
+		
+		+(void) sendEngagementEvent:(NSString​*)name :(NSString*​)extras {
+		   NSMutableDictionary* extrasInput = [self ParseExtras:extras];
+		   [[EngagementAgent shared] sendEvent:name extras:extrasInput];
+		}
+		
+		+ (void) startEngagementJob:(NSString*) name :(NSString*)extras {
+		   NSMutableDictionary* extrasInput = [self ParseExtras:extras];
+		   [[EngagementAgent shared] startJob:name extras:extrasInput];
+		}
+		
+		+ (void) endEngagementJob:(NSString*) name {
+		   [[EngagementAgent shared] endJob:name];
+		}
+		
+		+ (void) sendEngagementError:(NSString*) name :(NSString*)extras {
+		   NSMutableDictionary* extrasInput = [self ParseExtras:extras];
+		   [[EngagementAgent shared] sendError:name extras:extrasInput];
+		}
+		
+		+ (void) sendEngagementAppInfo:(NSString*) appInfo {
+		   NSMutableDictionary* appInfoInput = [self ParseExtras:appInfo];
+		   [[EngagementAgent shared] sendAppInfo:appInfoInput];
+		}
+		
+		+ (NSMutableDictionary*) ParseExtras:(NSString*) input {
+		   NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding];
+		   NSError* error = nil;
+		   NSMutableDictionary* extras = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+		   
+		   return extras;
+		}
+		
+		@end
 
-5. Now we come back to the **ViewController.m** and update it with the following code: 
-        
-        #import <JavaScriptCore/JavaScriptCore.h>
-        #import "ViewController.h"
-        #import "EngagementJsExports.h"
-        
-        @interface ViewController ()
-        
-        @end
-        
-        @implementation ViewController
-        
-        - (void)viewDidLoad
-        {
-           self.webView.delegate = self;
-           [super viewDidLoad];
-           [self loadWebView];
-        }
-        
-        - (void)loadWebView {
-           NSBundle* mainBundle = [NSBundle mainBundle];
-           NSURL* htmlPage = [mainBundle URLForResource:@"LocalPage" withExtension:@"html"];
-           
-           NSURLRequest* urlReq = [NSURLRequest requestWithURL:htmlPage];
-           [self.webView loadRequest:urlReq];
-        }
-        
-        - (void)webViewDidFinishLoad:(UIWebView*)wv
-        {
-           JSContext* context = [wv valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-           
-           context[@"EngagementJs"] = [EngagementJs class];
-        }
-        
-        - (void)webView:(UIWebView*)wv didFailLoadWithError:(NSError*)error
-        {
-           NSLog(@"Error for WEBVIEW: %@", [error description]);
-        }
-        
-        - (void)didReceiveMemoryWarning {
-           [super didReceiveMemoryWarning];
-           // Dispose of any resources that can be recreated.
-        }
-        
-        @end
+5. 이제 **ViewController.m**으로 돌아가 다음 코드를 사용하여 업데이트합니다.
+		
+		#import <JavaScriptCore/JavaScriptCore.h>
+		#import "ViewController.h"
+		#import "EngagementJsExports.h"
+		
+		@interface ViewController ()
+		
+		@end
+		
+		@implementation ViewController
+		
+		- (void)viewDidLoad
+		{
+		   self.webView.delegate = self;
+		   [super viewDidLoad];
+		   [self loadWebView];
+		}
+		
+		- (void)loadWebView {
+		   NSBundle* mainBundle = [NSBundle mainBundle];
+		   NSURL* htmlPage = [mainBundle URLForResource:@"LocalPage" withExtension:@"html"];
+		   
+		   NSURLRequest* urlReq = [NSURLRequest requestWithURL:htmlPage];
+		   [self.webView loadRequest:urlReq];
+		}
+		
+		- (void)webViewDidFinishLoad:(UIWebView*)wv
+		{
+		   JSContext* context = [wv valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+		   
+		   context[@"EngagementJs"] = [EngagementJs class];
+		}
+		
+		- (void)webView:(UIWebView​*)wv didFailLoadWithError:(NSError*​)error
+		{
+		   NSLog(@"Error for WEBVIEW: %@", [error description]);
+		}
+		
+		- (void)didReceiveMemoryWarning {
+		   [super didReceiveMemoryWarning];
+		   // Dispose of any resources that can be recreated.
+		}
+		
+		@end
 
-6. Note the following points about the **ViewController.m** file:
+6. **ViewController.m** 파일에 대해 유의할 사항은 다음과 같습니다.
 
-    - In the `loadWebView` method, we are loading a local HTML file called **LocalPage.html** whose code we will review next. 
-    - In the `webViewDidFinishLoad` method, we are grabbing the `JsContext` and associating our wrapper class with it. This will allow calling our wrapper SDK methods using the handle **EngagementJs** from the webView. 
+	- `loadWebView` 메서드에서 다음에 코드를 검토할 **LocalPage.html**이라는 로컬 HTML 파일을 로드합니다.
+	- `webViewDidFinishLoad` 메서드에서 `JsContext`를 가져와 래퍼 클래스와 연결합니다. 그러면 WebView에서 **EngagementJs** 핸들을 사용하여 래퍼 SDK 메서드를 호출할 수 있습니다.
 
-7. Create a file called **LocalPage.html** with the following code:
+7. 다음 코드를 사용하여 **LocalPage.html** 파일을 만듭니다.
 
-        <!doctype html>
-        <html>
-           <head>
-               <style type='text/css'>
-                   html { font-family:Helvetica; color:#222; }
-                   h1 { color:steelblue; font-size:22px; margin-top:16px; }
-                   h2 { color:grey; font-size:14px; margin-top:18px; margin-bottom:0px; }
-               </style>
-               
-               <script type="text/javascript">
-               
-               window.onerror = function(err)
-               {
-                   alert('window.onerror: ' + err);
-               }
-               
-               function send(inputId)
-               {
-                   var input = document.getElementById(inputId);
-                   if(input)
-                   {
-                       var value = input.value;
-                       // Example of how extras info can be passed with the Engagement logs
-                       var extras = '{"CustomerId":"MS290011"}';
-                   }
-                   
-                   if(value && value.length > 0)
-                   {
-                       switch(inputId)
-                       {
-                           case "event":
-                           EngagementJs.sendEngagementEvent(value, extras);
-                           break;
-                           
-                           case "job":
-                           EngagementJs.startEngagementJob(value, extras);
-                           window.setTimeout(
-                           function(){
-                               EngagementJs.endEngagementJob(value);
-                           }, 10000 );
-                           break;
-        
-                           case "error":
-                           EngagementJs.sendEngagementError(value, extras);
-                           break;
-                           
-                           case "appInfo":
-                           var appInfo = '{"customer_name":"' + value + '"}';
-                           EngagementJs.sendEngagementAppInfo(appInfo);
-                           break;
-                       }
-                   }
-               }
-               </script>
-               
-           </head>
-           <body>
-               <h1>Bridge Tester</h1>
-               
-               <div id='engagement'>
-                   
-                   <br/>
-                   <h2>Event</h2>
-                   <input type="text" id="event" size="35">
-                   <button onclick="send('event')">Send</button>
-                   
-                   <br/>
-                   <h2>Job</h2>
-                   <input type="text" id="job" size="35">
-                   <button onclick="send('job')">Send</button>
-                   
-                   <br/>
-                   <h2>Error</h2>
-                   <input type="text" id="error" size="35">
-                   <button onclick="send('error')">Send</button
-                   
-                   <br/>
-                   <h2>AppInfo</h2>
-                   <input type="text" id="appInfo" size="35">
-                   <button onclick="send('appInfo')">Send</button>
-               
-               </div>
-           </body>
-        </html>
+		<!doctype html>
+		<html>
+		   <head>
+		       <style type='text/css'>
+		           html { font-family:Helvetica; color:#222; }
+		           h1 { color:steelblue; font-size:22px; margin-top:16px; }
+		           h2 { color:grey; font-size:14px; margin-top:18px; margin-bottom:0px; }
+		       </style>
+		       
+		       <script type="text/javascript">
+		       
+		       window.onerror = function(err)
+		       {
+		           alert('window.onerror: ' + err);
+		       }
+		       
+		       function send(inputId)
+		       {
+		           var input = document.getElementById(inputId);
+		           if(input)
+		           {
+		               var value = input.value;
+		               // Example of how extras info can be passed with the Engagement logs
+		               var extras = '{"CustomerId":"MS290011"}';
+		           }
+		           
+		           if(value && value.length > 0)
+		           {
+		               switch(inputId)
+		               {
+		                   case "event":
+		                   EngagementJs.sendEngagementEvent(value, extras);
+		                   break;
+		                   
+		                   case "job":
+		                   EngagementJs.startEngagementJob(value, extras);
+		                   window.setTimeout(
+		                   function(){
+		                       EngagementJs.endEngagementJob(value);
+		                   }, 10000 );
+		                   break;
+		
+		                   case "error":
+		                   EngagementJs.sendEngagementError(value, extras);
+		                   break;
+		                   
+		                   case "appInfo":
+		                   var appInfo = '{"customer_name":"' + value + '"}';
+		                   EngagementJs.sendEngagementAppInfo(appInfo);
+		                   break;
+		               }
+		           }
+		       }
+		       </script>
+		       
+		   </head>
+		   <body>
+		       <h1>Bridge Tester</h1>
+		       
+		       <div id='engagement'>
+		           
+		           <br/>
+		           <h2>Event</h2>
+		           <input type="text" id="event" size="35">
+		           <button onclick="send('event')">Send</button>
+		           
+		           <br/>
+		           <h2>Job</h2>
+		           <input type="text" id="job" size="35">
+		           <button onclick="send('job')">Send</button>
+		           
+		           <br/>
+		           <h2>Error</h2>
+		           <input type="text" id="error" size="35">
+		           <button onclick="send('error')">Send</button
+		           
+		           <br/>
+		           <h2>AppInfo</h2>
+		           <input type="text" id="appInfo" size="35">
+		           <button onclick="send('appInfo')">Send</button>
+		       
+		       </div>
+		   </body>
+		</html>
 
-8. Note the following points about the HTML file above:
+8. 위 HTML 파일에 대해 유의할 사항은 다음과 같습니다.
 
-    -   It contains a set of input boxes where you can provide data to be used as names for your Event, Job, Error, AppInfo. When you click on the button next to it, a call is made to the Javascript which eventually calls the methods from the bridge file to pass this call to the Mobile Engagement iOS SDK. 
-    -   We are tagging on some static extra info to the events, jobs and even errors to demonstrate how this could be done. This extra info is sent as a JSON string which, if you look in the `EngagementJsExports.m` file, is parsed and passed along with sending Events, Jobs, Errors. 
-    -   A Mobile Engagement Job is kicked off with the name you specify in the input box, run for 10 seconds and shut down. 
-    -   A Mobile Engagement appinfo or tag is passed with 'customer_name' as the static key and the value that you entered in the input as the value for the tag. 
+	- 	이 파일은 이벤트, 작업, 오류, 앱 정보의 이름으로 사용할 데이터를 제공할 수 있는 입력 상자 집합을 포함합니다. 입력 상자 옆의 단추를 클릭하면 이 호출을 Mobile Engagement iOS SDK로 전달하기 위해 브리지 파일에서 메서드를 호출하는 Javascript가 호출됩니다.
+	- 	작업 방법을 보여 주기 위해 이벤트, 작업 및 오류의 몇 가지 정적 추가 정보에 대한 태그를 지정합니다. 이 추가 정보는 JSON 문자열로 전송됩니다. `EngagementJsExports.m` 파일에서 구문 분석되어 전송되는 이벤트, 작업 및 오류와 함께 전달됩니다.
+	- 	Mobile Engagement 작업은 입력 상자에 지정한 이름으로 시작되며, 10초간 실행된 후 종료됩니다.
+	- 	Mobile Engagement 앱 정보 또는 태그는 입력 상자에 태그 값으로 입력한 값 및 정적 키로 'customer\_name'과 함께 전달됩니다.
  
-9. Run the app and you will see the following. Now provide some name for a test event like the following and click **Send** next to it. 
+9. 앱을 실행하면 다음이 표시됩니다. 이제 다음과 같은 테스트 이벤트의 이름을 제공하고 옆에 있는 **Send**를 클릭합니다.
 
-    ![][1]
+	![][1]
 
-10. Now if you go to the **Monitor** tab of your app and look under **Events -> Details**, you will see this event show up along with the static app-info that we are sending. 
+10. 이제 앱의 **Monitor** 탭으로 이동하면 **Events -> Details** 아래에 전송한 정적 앱 정보와 함께 이 이벤트가 표시됩니다.
 
-    ![][2]
+	![][2]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-bridge-webview-native-ios/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-ios/event-output.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

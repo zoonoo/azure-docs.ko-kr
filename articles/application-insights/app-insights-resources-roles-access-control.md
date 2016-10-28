@@ -1,105 +1,103 @@
 <properties
-    pageTitle="Resources, roles and access control in Application Insights"
-    description="Owners, contributors and readers of your organization's insights."
-    services="application-insights"
+	pageTitle="Application Insights에서 리소스, 역할 및 액세스 제어"
+	description="조직 Insights의 소유자, 참여자 및 읽기 권한자입니다."
+	services="application-insights"
     documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+	authors="alancameronwills"
+	manager="douge"/>
 
 <tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/07/2016"
-    ms.author="awills"/>
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/07/2016"
+	ms.author="awills"/>
+
+# Application Insights에서 리소스, 역할 및 액세스 제어
+
+[Microsoft Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 사용하여 Visual Studio [Application Insights][start]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
+
+> [AZURE.IMPORTANT] 리소스 자체가 아닌 응용 프로그램 리소스가 속한 **리소스 그룹 또는 구독**의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 참여자** 역할을 할당합니다. 이렇게 하면 응용 프로그램 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아봅니다](#access).
 
 
-# <a name="resources,-roles,-and-access-control-in-application-insights"></a>Resources, roles, and access control in Application Insights
+## 리소스, 그룹 및 구독
 
-You can control who has read and update access to your data in Visual Studio [Application Insights][start], by using [Role-based access control in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+먼저 몇 가지를 정의하겠습니다.
 
-> [AZURE.IMPORTANT] Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor** role. This ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
+* **리소스** - Microsoft Azure 서비스의 인스턴스입니다. Application Insights는 응용 프로그램에서 보낸 원격 분석 데이터를 수집, 분석 및 표시합니다. 다른 유형의 Azure 리소스로는 웹 앱, 데이터베이스 및 VM이 있습니다.
 
+    모든 리소스를 보려면 [Azure 포털][portal]로 이동하여 로그인하고 찾아보기를 클릭합니다.
 
-## <a name="resources,-groups-and-subscriptions"></a>Resources, groups and subscriptions
-
-First, some definitions:
-
-* **Resource** - An instance of a Microsoft Azure service. Your Application Insights resource collects, analyzes and displays the telemetry data sent from your application.  Other types of Azure resources include web apps, databases, and VMs.
-
-    To see all your resources, go to the [Azure Portal][portal], sign in, and click Browse.
-
-    ![Choose Browse, then either Everything or Filter by Application Insights](./media/app-insights-resources-roles-access-control/10-browse.png)
+    ![찾아보기를 선택한 다음 모두 또는 Application Insights로 필터링을 선택합니다.](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [**Resource group**][group] - Every resource belongs to one group. A group is a convenient way to manage related resources, particularly for access control. For example, into one resource group you could put a Web App, an Application Insights resource to monitor the app, and a Storage resource to keep exported data.
+* [**리소스 그룹**][group] - 모든 리소스가 하나의 그룹에 속해 있습니다. 그룹은 특히 액세스 제어에 대한 관련 리소스를 간편하게 관리할 수 있는 방법입니다. 예를 들어 한 리소스 그룹에 웹 앱, 앱을 모니터링할 Application Insights 리소스, 내보낸 데이터를 보관할 저장소 리소스를 모두 집어넣을 수 있습니다.
 
 
-    ![Choose Browse, Resource groups, then choose a group](./media/app-insights-resources-roles-access-control/11-group.png)
+    ![찾아보기, 리소스 그룹을 차례로 선택한 다음 그룹을 선택합니다.](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Subscription**](https://manage.windowsazure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions.
-* [**Microsoft account**][account] - The username and password that you use to sign in to Microsoft Azure subscriptions, XBox Live, Outlook.com, and other Microsoft services.
+* [**구독**](https://manage.windowsazure.com) - Application Insights 또는 다른 Azure 리소스를 사용하려면 Azure 구독에 로그인합니다. 모든 리소스 그룹이 하나의 Azure 구독에 속해 있습니다. 이 구독에서 가격 패키지를 선택합니다. 구독이 조직 구독인 경우 멤버 및 멤버의 액세스 권한을 선택합니다.
+* [**Microsoft 계정**][account] - Microsoft Azure 구독, XBox Live, Outlook.com 및 기타 Microsoft 서비스에 로그인할 때 사용하는 사용자 이름과 암호입니다.
 
 
-## <a name="<a-name="access"></a>-control-access-in-the-resource-group"></a><a name="access"></a> Control access in the resource group
+## <a name="access"></a> 리소스 그룹의 액세스 제어
 
-It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-group) as your application. You might also have put other Azure services in there, such as websites or storage.
+응용 프로그램에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. 이러한 리소스는 응용 프로그램과 동일한 [리소스 그룹](#resource-group)에 연결됩니다. 웹 사이트 또는 저장소 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
 
-![Resources in Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
+![Application Insights의 리소스](./media/app-insights-resources-roles-access-control/00-resources.png)
 
-To control access to these resources it's therefore recommended to:
+이러한 리소스에 대한 액세스를 제어하기 위한 권장 사항이 있습니다.
 
-* Control access at the **resource group or subscription** level.
-* Assign the **Application Insights Component contributor** role to users. This allows them to edit web tests, alerts, and Application Insights resources, without providing access to any other services in the group.
+* **리소스 그룹 또는 구독** 수준에서 액세스를 제어합니다.
+* 사용자에게 **Application Insights 구성 요소 참여자** 역할을 할당합니다. 그러면 그룹의 다른 서비스에 대한 액세스 권한을 제공하지 않아도 사용자가 웹 테스트, 경고 및 Application Insights 리소스를 편집할 수 있습니다.
 
-## <a name="to-provide-access-to-another-user"></a>To provide access to another user
+## 다른 사용자에 대한 액세스 권한 제공
 
-You must have Owner rights to the subscription or the resource group.
+구독 또는 리소스 그룹에 대한 소유자 권한이 있어야 합니다.
 
-The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](..\active-directory\sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
+사용자에게 [Microsoft 계정][account]이 있거나 해당 [조직의 Microsoft 계정](..\active-directory\sign-up-organization.md)에 액세스해야 합니다. 개별 사용자에 대한 액세스 권한을 제공할 수 있으며 Azure Active Directory에 정의된 사용자 그룹에 대한 액세스 권한도 제공할 수 있습니다.
 
-#### <a name="navigate-to-the-resource-group"></a>Navigate to the resource group
+#### 리소스 그룹으로 이동
 
-Add the user there.
+그곳에서 사용자를 추가합니다.
 
-![In your application's resource blade, open Essentials, open the resource group, and there select Settings/Users. Click Add.](./media/app-insights-resources-roles-access-control/01-add-user.png)
+![응용 프로그램의 리소스 블레이드에서 필수 항목을 열고, 리소스 그룹을 열고, 설정/사용자를 선택합니다. 추가를 클릭합니다.](./media/app-insights-resources-roles-access-control/01-add-user.png)
 
-Or you could go up another level and add the user to the Subscription.
+또는 한 수준 더 올라가서 사용자를 구독에 추가할 수 있습니다.
 
-#### <a name="select-a-role"></a>Select a role
+#### 역할 선택
 
-![Select a role for the new user](./media/app-insights-resources-roles-access-control/03-role.png)
+![새 사용자에 대한 역할을 선택합니다.](./media/app-insights-resources-roles-access-control/03-role.png)
 
-Role | In the resource group
+역할 | 리소스 그룹에서 할 수 있는 일
 ---|---
-Owner | Can change anything, including user access
-Contributor | Can edit anything, including all resources
-Application Insights Component contributor | Can edit Application Insights resources, web tests and alerts
-Reader | Can view but not change anything
+소유자 | 사용자 액세스를 포함하여 모든 것을 변경할 수 있음
+참여자 | 모든 리소스를 포함하여 모든 것을 편집할 수 있음
+Application Insights 구성 요소 참여자 | Application Insights 리소스, 웹 테스트 및 경고를 편집할 수 있음
+판독기 | 모든 것을 볼 수 있지만 변경할 수는 없음
 
-'Editing' includes creating, deleting and updating:
+'편집'에는 다음 항목을 만들고, 삭제하고, 업데이트하는 작업이 포함됩니다.
 
-* Resources
-* Web tests
-* Alerts
-* Continuous export
+* 리소스
+* 웹 테스트
+* 경고
+* 연속 내보내기
 
-#### <a name="select-the-user"></a>Select the user
-
-
-![Type the email address of a new user. Select the user](./media/app-insights-resources-roles-access-control/04-user.png)
-
-If the user you want isn't in the directory, you can invite anyone with a Microsoft account.
-(If they use services like Outlook.com, OneDrive, Windows Phone, or XBox Live, they have a Microsoft account.)
+#### 사용자 선택
 
 
+![새 사용자의 전자 메일 주소를 입력합니다. 사용자 선택](./media/app-insights-resources-roles-access-control/04-user.png)
 
-## <a name="users-and-roles"></a>Users and roles
+원하는 사용자가 디렉터리에 없는 경우 Microsoft 계정이 있는 사람을 초대할 수 있습니다. Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 Microsoft 계정을 갖고 있습니다.
 
-* [Role based access control in Azure](../active-directory/role-based-access-control-configure.md)
+
+
+## 사용자 및 역할
+
+* [Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
 
 
@@ -110,8 +108,4 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 [portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

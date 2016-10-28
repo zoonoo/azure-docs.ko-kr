@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for a secret in a key vault | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying key vault secrets through a template."
+   pageTitle="키 자격 증명 모음의 암호에 대한 리소스 관리자 템플릿 | Microsoft Azure"
+   description="템플릿을 통해 주요 자격 증명 모음 암호를 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# 키 자격 증명 모음 암호 템플릿 스키마
 
-# <a name="key-vault-secret-template-schema"></a>Key vault secret template schema
+키 자격 증명 모음에 저장되는 암호를 만듭니다. 이 리소스 종류는 종종 [키 자격 증명 모음](resource-manager-template-keyvault.md)의 자식 리소스로 배포됩니다.
 
-Creates a secret that is stored in a key vault. This resource type is frequently deployed as a child resource of [key vault](resource-manager-template-keyvault.md).
+## 스키마 형식
 
-## <a name="schema-format"></a>Schema format
-
-To create a key vault secret, add the following schema to your template. The secret can be defined as either a child resource of a key vault or as top-level resource. You can define it as a child resource when the key vault is deployed in the same template. You will need to define the secret as a top-level resource when the key vault is not deployed in the same template, or when you need to create multiple secrets by looping on the resource type. 
+키 자격 증명 모음 암호를 만들려면 템플릿에 다음 스키마를 추가합니다. 키 자격 증명 모음의 자식 리소스 또는 최상위 리소스로 암호를 정의할 수 있습니다. 주요 자격 증명 모음을 동일한 템플릿에 배포할 경우에는 자식 리소스로 정의할 수 있습니다. 키 자격 증명 모음을 동일한 템플릿에 배포하지 않거나, 리소스 종류에서 반복하여 여러 암호를 만들어야 하는 경우에는 암호를 최상위 리소스로 정의해야 합니다.
 
     {
         "type": enum,
@@ -35,29 +34,29 @@ To create a key vault secret, add the following schema to your template. The sec
         "dependsOn": [ array values ]
     }
 
-## <a name="values"></a>Values
+## 값
 
-The following tables describe the values you need to set in the schema.
+다음 표에서는 스키마에 설정해야 하는 값에 대해 설명합니다.
 
-| Name | Value |
+| 이름 | 값 |
 | ---- | ---- | 
-| type | Enum<br />Required<br />**secrets** (when deployed as a child resource of key vault) or<br /> **Microsoft.KeyVault/vaults/secrets** (when deployed as a top-level resource)<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />A single word when deployed as a child resource of a key vault, or in the format **{key-vault-name}/{secret-name}** when deployed as a top-level resource to be added to an existing key vault.<br /><br />The name of the secret to create. |
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the value of the secret to create. |
-| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
+| type | 열거형<br />필수<br />**secrets** (키 자격 증명 모음의 자식 리소스로 배포된 경우) 또는<br /> **Microsoft.KeyVault/vaults/secrets** (최상위 리소스로 배포된 경우)<br /><br />만들려는 리소스 종류입니다. |
+| apiVersion | 열거형<br />필수<br />**2015-06-01** 또는 **2014-12-19-preview**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. | 
+| name | 문자열<br />필수<br />키 자격 증명 모음의 자식 리소스로 배포되는 경우 단일 단어 또는 기존 키 자격 증명 모음에 추가할 최상위 리소스로 배포되는 경우 **{key-vault-name}/{secret-name}**<br /><br />만들려는 암호의 이름입니다. |
+| properties | 개체<br />필수<br />[속성 개체](#properties)<br /><br />만들려는 암호 값을 지정하는 개체입니다. |
+| dependsOn | 배열<br />선택<br />쉼표로 구분된 리소스 이름 또는 리소스 고유 식별자 목록입니다.<br /><br />이 링크에 따라 달라지는 리소스 컬렉션입니다. 암호의 키 자격 증명 모음을 동일한 템플릿에 배포하는 경우 이 요소에 키 자격 증명 모음의 이름을 포함하여 먼저 배포되도록 합니다. |
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### properties 개체
 
-| Name | Value |
+| 이름 | 값 |
 | ---- | ---- | 
-| value | String<br />Required<br /><br />The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
+| value | 문자열<br />필수<br /><br />키 자격 증명 모음에 저장할 암호 값입니다. 이 속성의 값을 전달할 때는 **securestring** 형식의 매개 변수를 사용합니다. |
 
-    
-## <a name="examples"></a>Examples
+	
+## 예
 
-The first example deploys a secret as a child resource of a key vault.
+첫 번째 예제에서는 키 자격 증명 모음의 자식 리소스로 암호를 배포합니다.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -183,7 +182,7 @@ The first example deploys a secret as a child resource of a key vault.
         }]
     }
 
-The second example deploys the secret as a top-level resource that is stored in an existing key vault.
+두 번째 예제에서는 기존 키 자격 증명 모음에 저장되는 최상위 리소스로 암호를 배포합니다.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -223,15 +222,9 @@ The second example deploys the secret as a top-level resource that is stored in 
     }
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+- 키 자격 증명 모음에 대한 일반 정보는 [Azure 키 자격 증명 모음 시작](./key-vault/key-vault-get-started.md)을 참조하세요.
+- 템플릿을 배포할 때 키 자격 증명 모음 암호를 참조하는 예제는 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

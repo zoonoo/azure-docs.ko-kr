@@ -1,321 +1,320 @@
 <properties
-    pageTitle="Azure AD Java Getting Started | Microsoft Azure"
-    description="How to build a Java web app that signs users in with a work or school account."
-    services="active-directory"
-    documentationCenter="java"
-    authors="brandwe"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Azure AD Java 시작 | Microsoft Azure"
+	description="회사 또는 학교 계정을 사용하여 사용자가 로그인하는 Java 웹앱을 빌드하는 방법."
+	services="active-directory"
+	documentationCenter="java"
+	authors="brandwe"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
+	ms.service="active-directory"
+	ms.workload="identity"
   ms.tgt_pltfrm="na"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="brandwe"/>
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="brandwe"/>
 
 
-
-# <a name="java-web-app-sign-in-&-sign-out-with-azure-ad"></a>Java Web App Sign In & Sign Out with Azure AD
+# Azure AD를 사용하는 Java 웹앱 로그인 및 로그아웃
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD makes it simple and straightforward to outsource your web app's identity management, providing single sign-in and sign-out with only a few lines of code.  In Java web apps, you can accomplish this using Microsoft's implementation of the community-driven ADAL4J.
+Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다. Java 웹앱에서는 Microsoft에서 구현한 커뮤니티 기반 ADAL4J를 사용하여 이 작업을 수행할 수 있습니다.
 
-  Here we'll use ADAL4J to:
-- Sign the user into the app using Azure AD as the identity provider.
-- Display some information about the user.
-- Sign the user out of the app.
+  다음의 경우 ADAL4J를 사용합니다.
+- ID 공급자로 Azure AD를 사용하여 사용자를 앱에 로그인합니다.
+- 사용자에 대한 일부 정보를 표시합니다.
+- 앱에서 사용자를 로그아웃합니다.
 
-In order to do this, you'll need to:
+이 작업을 수행하려면 다음 작업이 필요합니다.
 
-1. Register an application with Azure AD
-2. Set up your app to use the ADAL4J library.
-3. Use the ADAL4J library to issue sign-in and sign-out requests to Azure AD.
-4. Print out data about the user.
+1. Azure AD에 응용 프로그램을 등록합니다.
+2. 앱을 설정하여 ADAL4J 라이브러리를 사용합니다.
+3. ADAL4J 라이브러리를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
+4. 사용자에 대한 데이터를 출력합니다.
 
-To get started, [download the app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) or [download the completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
+시작하려면 [앱 기본 사항을 다운로드](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\/archive/complete.zip)하세요. 응용 프로그램을 등록할 Azure AD 테넌트도 필요합니다. 테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
 
-## <a name="1.-register-an-application-with-azure-ad"></a>1.  Register an Application with Azure AD
-To enable your app to authenticate users, you'll first need to register a new application in your tenant.
+## 1\. Azure AD에 응용 프로그램을 등록합니다.
+앱에서 사용자를 인증할 수 있게 하려면 먼저 새 응용 프로그램을 테넌트에 등록해야 합니다.
 
-- Sign into the Azure Management Portal.
-- In the left hand nav, click on **Active Directory**.
-- Select the tenant where you wish to register the application.
-- Click the **Applications** tab, and click add in the bottom drawer.
-- Follow the prompts and create a new **Web Application and/or WebAPI**.
-    - The **name** of the application will describe your application to end-users
-    - The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
-    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
-- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+- Azure 관리 포털에 로그인합니다.
+- 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+- 응용 프로그램을 등록할 테넌트를 선택합니다.
+- **응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 추가를 클릭합니다.
+- 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI**를 만듭니다.
+    - 응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
+    - **로그온 URL**은 앱의 기본 URL입니다. 기본값은 `http://localhost:8080/adal4jsample/`입니다.
+    - **앱 ID URI**는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>`(예: `http://localhost:8080/adal4jsample/`)을 사용하는 것입니다.
+- 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에서 필요하므로 구성 탭에서 복사해둡니다.
 
-Once in the portal for your app create an **Application Secret** for your application and copy it down.  You will need it shortly.
+앱의 포털에서 응용 프로그램에 **응용 프로그램 암호**를 만든 후 복사해둡니다. 곧 필요합니다.
 
 
-## <a name="2.-set-up-your-app-to-use-adal4j-library-and-prerequisities-using-maven"></a>2. Set up your app to use ADAL4J library and prerequisities using Maven
-Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 2\. Maven을 사용하여 ADAL4J 라이브러리 및 필수 구성 요소를 사용하도록 앱을 설정합니다.
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 ADAL4J를 구성합니다. ADAL4J은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
--   In the root directory of your project, open/create `pom.xml` and locate the `// TODO: provide dependencies for Maven` and replace with the following:
+-	프로젝트의 루트 디렉터리에서 `pom.xml`을 열거나 만들고 `// TODO: provide dependencies for Maven`를 찾아서 다음으로 바꿉니다.
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>adal4jsample</artifactId>
-    <packaging>war</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>adal4jsample</name>
-    <url>http://maven.apache.org</url>
-    <properties>
-        <spring.version>3.0.5.RELEASE</spring.version>
-    </properties>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.microsoft.azure</groupId>
+	<artifactId>adal4jsample</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>adal4jsample</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<spring.version>3.0.5.RELEASE</spring.version>
+	</properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>adal4j</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.nimbusds</groupId>
-            <artifactId>oauth2-oidc-sdk</artifactId>
-            <version>4.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20090211</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-        <!-- Spring 3 dependencies -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-    </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>adal4j</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.nimbusds</groupId>
+			<artifactId>oauth2-oidc-sdk</artifactId>
+			<version>4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<!-- Spring 3 dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+	</dependencies>
 
-    <build>
-        <finalName>sample-for-adal4j</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <warName>${project.artifactId}</warName>
-                    <source>${project.basedir}\src</source>
-                    <target>${maven.compiler.target}</target>
-                    <encoding>utf-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>install</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>sources</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<finalName>sample-for-adal4j</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warName>${project.artifactId}</warName>
+					<source>${project.basedir}\src</source>
+					<target>${maven.compiler.target}</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install</id>
+						<phase>install</phase>
+						<goals>
+							<goal>sources</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
 
 ```
 
 
-## <a name="3.-create-the-java-web-application-files-(web-inf)"></a>3. Create the Java web application files (WEB-INF)
+## 3\. Java 웹 응용 프로그램 파일 만들기(WEB-INF)
 
-Here, we'll configure the Java web app to use the OpenID Connect authentication protocol.  The ADAL4J library will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Java 웹앱을 구성합니다. ADAL4J 라이브러리는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
--   To begin, open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml.
+-	먼저 `\webapp\WEB-INF`에 위치한 `web.xml` 파일을 열고 xml에 앱의 구성 값을 입력합니다.
 
-The file should look like the following:
+파일은 다음과 같아야 합니다.
 
 ```xml
 <?xml version="1.0"?>
 <web-app id="WebApp_ID" version="2.4"
-    xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
     http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-    <display-name>Archetype Created Web Application</display-name>
-    <context-param>
-        <param-name>authority</param-name>
-        <param-value>https://login.windows.net/</param-value>
-    </context-param>
-    <context-param>
-        <param-name>tenant</param-name>
-        <param-value>YOUR_TENANT_NAME</param-value>
-    </context-param>
+	<display-name>Archetype Created Web Application</display-name>
+	<context-param>
+		<param-name>authority</param-name>
+		<param-value>https://login.windows.net/</param-value>
+	</context-param>
+	<context-param>
+		<param-name>tenant</param-name>
+		<param-value>YOUR_TENANT_NAME</param-value>
+	</context-param>
 
-    <filter>
-        <filter-name>BasicFilter</filter-name>
-        <filter-class>com.microsoft.aad.adal4jsample.BasicFilter</filter-class>
-        <init-param>
-            <param-name>client_id</param-name>
-            <param-value>YOUR_CLIENT_ID</param-value>
-        </init-param>
-        <init-param>
-            <param-name>secret_key</param-name>
-            <param-value>YOUR_CLIENT_SECRET</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>BasicFilter</filter-name>
-        <url-pattern>/secure/*</url-pattern>
-    </filter-mapping>
+	<filter>
+		<filter-name>BasicFilter</filter-name>
+		<filter-class>com.microsoft.aad.adal4jsample.BasicFilter</filter-class>
+		<init-param>
+			<param-name>client_id</param-name>
+			<param-value>YOUR_CLIENT_ID</param-value>
+		</init-param>
+		<init-param>
+			<param-name>secret_key</param-name>
+			<param-value>YOUR_CLIENT_SECRET</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>BasicFilter</filter-name>
+		<url-pattern>/secure/*</url-pattern>
+	</filter-mapping>
 
-    <servlet>
-        <servlet-name>mvc-dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+	<servlet>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 
-    <servlet-mapping>
-        <servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
-    </context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+	</context-param>
 
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 </web-app>
 
 ```
 
 
-    -   The `YOUR_CLIENT_ID` is the **Application Id** assigned to your app in the registration portal.
-    -   The `YOUR_CLIENT_SECRET` is the **Application Secret**  you created in the portal.
+    -	The `YOUR_CLIENT_ID` is the **Application Id** assigned to your app in the registration portal.
+    -	The `YOUR_CLIENT_SECRET` is the **Application Secret**  you created in the portal.
     - The `YOUR_TENANT_NAME` is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
 
-Leave the rest of the configuration parameters alone.
+나머지 구성 매개 변수는 단독 그대로 둡니다.
 
 > [AZURE.NOTE]
-As you can see from the XML file we are writing a JSP/Servlet webapp called `mvc-dispatcher` that will use the `BasicFilter` whenever we visit the /secure URL. You'll see in the rest of the same we write that we'll use /secure as a place where our protected content lives and will force authentication to Azure Active Directory.
+XML 파일에서 볼 수 있듯이 /secure URL을 방문할 때마다 `BasicFilter`를 사용하는 `mvc-dispatcher`이라는 JSP/Servlet 웹앱을 작성하고 있습니다. 나머지 동일한 내용에서 /secure를 보호된 콘텐츠가 거주하는 장소로 사용하고 Azure Active Directory에 인증을 강제하도록 작성합니다.
 
--   Next, create the `mvc-dispatcher-servlet.xml` file located under `\webapp\WEB-INF\`, and enter the following:
+-	다음으로 `\webapp\WEB-INF`에 위치한 `mvc-dispatcher-servlet.xml` 파일을 만들고 다음을 입력합니다.
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:component-scan base-package="com.microsoft.aad.adal4jsample" />
+	<context:component-scan base-package="com.microsoft.aad.adal4jsample" />
 
-    <bean
-        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
-    </bean>
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
 
 </beans>
 ```
 
-This will tell the webapp to use Spring and where to find our .jsp file which we will write below.
+웹앱이 Spring 및 위치를 사용하여 아래에서 작성하는 .jsp 파일을 찾도록 합니다.
 
-## <a name="4.-create-the-java-jsp-view-files-(for-basicfilter-mvc)"></a>4. Create the Java JSP View files (for BasicFilter MVC)
+## 4\. Java JSP 보기 파일 만들기(BasicFilter MVC용)
 
-We are only half fished with our setup of our webapp in WEB-INF. Next we will need to create the actual Java Server Pages files that our webapp will execute which we hinted at in our configuration.
+WEB-INF에서 웹앱을 설치를 절반만 완료합니다. 다음으로 구성에서 힌트를 준 웹앱을 실행하는 실제 Java 서버 페이지 파일을 만들어야 합니다.
 
-If you remember, we told Java in our xml configuration files that we have a `/` resource that should load .jsp files, and a `/secure` resource which should pass through a filter we called `BasicFilter`. 
+기억할지 모르겠지만, Java에는 xml 구성 파일에 .jsp 파일을 로드해야 하는 `/` 리소스 및 `BasicFilter`라는 필터를 통과해야 하는 `/secure` 리소스가 있다고 기록했습니다.
 
-Let's make those now.
+해당 파일을 이제 만들어 보겠습니다.
 
--   To begin, create the `index.jsp` file located under `\webapp\`, and cut/paste the following:
+-	먼저 `\webapp`에 `index.jsp` 파일을 만들고 다음을 잘라내어 붙여넣습니다.
 
 ```jsp
 <html>
 <body>
-    <h2>Hello World!</h2>
-    <ul>
-    <li><a href="secure/aad">Secure Page</a></li>
-    </ul>
+	<h2>Hello World!</h2>
+	<ul>
+	<li><a href="secure/aad">Secure Page</a></li>
+	</ul>
 </body>
 </html>
 
 ```
 
-This simply redirects to a secure page that is protected by our filter.
+단순히 필터에서 보호되는 보안 페이지를 리디렉션합니다.
 
-- Next, in the same directory lets create an `error.jsp` file to catch any errors that might happen:
+- 다음으로, 발생하는 모든 오류를 catch하는 `error.jsp` 파일을 동일한 디렉터리에 만듭니다.
 
 ```jsp
 <html>
 <body>
-    <h2>ERROR PAGE!</h2>
-    <p>
-        Exception -
-        <%=request.getAttribute("error")%></p>
-    <ul>
-        <li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
-    </ul>
+	<h2>ERROR PAGE!</h2>
+	<p>
+		Exception -
+		<%=request.getAttribute("error")%></p>
+	<ul>
+		<li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
+	</ul>
 </body>
 </html>
 ```
 
-- Finally, let's make that secure webpage we want by creating a folder under `\webapp` called `\secure` so that the directory us now `\webapp\secure`. 
+- 마지막으로, 디렉터리가 `\webapp\secure`가 되도록 `\webapp`에 `\secure`라는 폴더를 만들어서 원하는 보안 웹 페이지를 만듭니다.
 
-- Inside this directory, let's then create an `aad.jsp` file and cut/paste the following:
+- 이 디렉터리 안에 `aad.jsp` 파일을 만들고 다음을 잘라내어 붙여넣습니다.
 
 ```jsp
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -326,45 +325,45 @@ This simply redirects to a secure page that is protected by our filter.
 </head>
 <body>
 
-    <h1>Directory - Users List</h1>
-    <p>${users}</p>
+	<h1>Directory - Users List</h1>
+	<p>${users}</p>
 
-    <ul>
-        <li><a href="<%=request.getContextPath()%>/secure/aad?cc=1">Get
-                new Access Token via Client Credentials</a></li>
-    </ul>
-    <ul>
-        <li><a href="<%=request.getContextPath()%>/secure/aad?refresh=1">Get
-                new Access Token via Refresh Token</a></li>
-    </ul>
-    <ul>
-        <li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
-    </ul>
+	<ul>
+		<li><a href="<%=request.getContextPath()%>/secure/aad?cc=1">Get
+				new Access Token via Client Credentials</a></li>
+	</ul>
+	<ul>
+		<li><a href="<%=request.getContextPath()%>/secure/aad?refresh=1">Get
+				new Access Token via Refresh Token</a></li>
+	</ul>
+	<ul>
+		<li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
+	</ul>
 </body>
 </html>
 ```
 
-You see that this page will redirect to specific requests which our BasicFilter servlet will read and then execute on using the `ADAJ4J` library. Rather simple, huh?
+BasicFilter 서블릿이 `ADAJ4J` 라이브러리를 사용하여 읽고 실행하는 특정 요청에 이 페이지가 리디렉션하는 것을 확인합니다. 상당히 간단하죠?
 
-Of course, we need now need to set up our Java files so that the servlet can do its work.
+물론 Java 파일을 설정해야 서블릿이 작업을 수행할 수 있습니다.
 
-## <a name="5.-create-some-java-helper-files-(for-basicfilter-mvc)"></a>5. Create some Java helper files (for BasicFilter MVC)
+## 5\. 일부 Java 도우미 파일 만들기(BasicFilter MVC용)
 
-Our goal is to create some Java files that will:
+목표는 다음과 같은 Java 파일을 만드는 것입니다.
 
-1. Allow for sign-in and sign-out of the user
-2. Get some data about the user.
+1. 사용자의 로그인 및 로그아웃 허용
+2. 사용자에 대한 데이터를 가져옵니다.
 
 > [AZURE.NOTE] 
-In order to get data about the user, we need to use the Graph API from Azure Active Directory. The Graph API is a secure webservice that you can use to grab data about your organization, including individual users. This is better than pre-filling sensitive data in tokens as it ensures the user asking for the data is authorized and anyone that may happen to grab the token (from a jailbroken phone or web browser cache on a desktop) won't get a bunch of important details about the user or the organization.
+사용자에 대한 데이터를 가져오기 위해 Azure Active Directory에서 Graph API를 사용해야 합니다. Graph API는 개별 사용자를 포함하여 조직에 대한 데이터를 가져오는 데 사용할 수 있는 안전한 웹 서비스입니다. 데이터를 요청하는 사용자가 권한을 받고 토큰을 가져오게 된 사용자가(데스크톱의 탈옥 전화 또는 웹 브라우저 캐시에서) 사용자 또는 조직에 대한 중요한 세부 정보를 얻지 못하도록 하기 때문에 토큰에 중요한 데이터를 미리 채우는 것 보다 좋습니다.
 
-Let's write some Java files to do this work for us:
+Java 파일을 작성하여 이 작업을 수행해 보겠습니다.
 
-1. create a folder in your root directory called 'adal4jsample` to store all of our java files. 
+1. Java 파일을 저장하기 위해 'adal4jsample'를 호출하는 루트 디렉터리에 폴더를 만듭니다.
 
-We will be using the namespace `com.microsoft.aad.adal4jsample` in our java files. Most IDEs create a nested folder structure for this (e.g. `/com/microsoft/aad/adal4jsample`). You are free to do this, but it is not necessary.
+Java 파일에 네임스페이스 `com.microsoft.aad.adal4jsample`를 사용합니다. 대부분의 IDE는 이에 대한 중첩된 폴더 구조를 만듭니다.(예: `/com/microsoft/aad/adal4jsample`) 이 작업을 수행할 수 있지만 필수는 아닙니다.
 
-2. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can cut/paste this from below:
+2. 이 폴더 안에서 토큰에서 JSON 데이터의 구문 분석에 도움이 되는 `JSONHelper.java`라는 파일을 만듭니다 아래에서 잘라내고 붙여 넣을 수 있습니다.
 
 ```Java
 
@@ -503,7 +502,7 @@ public class JSONHelper {
                         }
                     } else {
                         if (fieldName.equalsIgnoreCase("password")) {
-                            obj.put("passwordProfile", new JSONObject("{\"password\": \"" + param + "\"}"));
+                            obj.put("passwordProfile", new JSONObject("{"password": "" + param + ""}"));
                         } else {
                             obj.put(fieldName, param);
 
@@ -587,7 +586,7 @@ public class JSONHelper {
 
 ```
 
-3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can cut/paste this from below:
+3. 다음으로 AAD 끝점에서 HTTP 데이터의 구문 분석에 도움이 되는 `HttpClientHelper.java`라는 파일을 만듭니다 아래에서 잘라내고 붙여 넣을 수 있습니다.
 
 ```Java
 
@@ -743,11 +742,11 @@ public class HttpClientHelper {
 
 ```
 
-## <a name="6.-create-the-java-graph-api-model-files-(for-basicfilter-mvc)"></a>6. Create the java Graph API Model files (for BasicFilter MVC)
+## 6\. Java Graph API 모델 파일 만들기(BasicFilter MVC용)
 
-As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
+앞서 설명한 대로 Graph API를 사용하여 로그인한 사용자에 대한 데이터를 가져옵니다. 쉽게 수행할 수 있도록 **디렉터리 개체**를 나타내는 파일 및 **사용자**를 나타내는 개별 파일 모두를 만들어서 Java의 OO 패턴을 사용할 수 있도록 합니다.
 
-1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
+1. DirectoryObject에 대한 기본 데이터를 저장하는 데 사용하는 `DirectoryObject.java`라는 파일을 만듭니다.(나중에 수행할 수 있는 다른 Graph 쿼리에 이 파일을 자유롭게 사용할 수 있음) 아래에서 잘라내고 붙여 넣을 수 있습니다.
 
 ```Java
 
@@ -758,51 +757,51 @@ package com.microsoft.aad.adal4jsample;
  *
  */
 public abstract class DirectoryObject {
-    
-    public DirectoryObject() {
-        super();
-    }
-    
-    /**
-     * 
-     * @return
-     */
-    public abstract String getObjectId();
-    
-    /**
-     * @param objectId
-     */
-    public abstract void setObjectId(String objectId);
+	
+	public DirectoryObject() {
+		super();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract String getObjectId();
+	
+	/**
+	 * @param objectId
+	 */
+	public abstract void setObjectId(String objectId);
 
-    /**
-     * 
-     * @return
-     */
-    public abstract String getObjectType();
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract String getObjectType();
 
-    /**
-     * 
-     * @param objectType
-     */
-    public abstract void setObjectType(String objectType);
-    
-    /**
-     * 
-     * @return
-     */
-    public abstract String getDisplayName();
+	/**
+	 * 
+	 * @param objectType
+	 */
+	public abstract void setObjectType(String objectType);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract String getDisplayName();
 
-    /**
-     * 
-     * @param displayName
-     */
-    public abstract void setDisplayName(String displayName);
+	/**
+	 * 
+	 * @param displayName
+	 */
+	public abstract void setDisplayName(String displayName);
 
 }
 
 ```
 
-2. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
+2. 디렉터리에서 사용자에 대한 기본 데이터를 저장하는 데 사용하는 `User.java`라는 파일을 만듭니다. 역시 디렉터리 데이터에 대한 매우 기본적인 getter/setter이므로 아래에서 자르거나 붙여 넣을 수 있습니다.
 
 ```Java
 
@@ -821,463 +820,463 @@ import org.json.JSONObject;
  */
 @XmlRootElement
 public class User extends DirectoryObject{
-    
-    // The following are the individual private members of a User object that holds
-    // a particular simple attribute of an User object.
-    protected String objectId;
-    protected String objectType;
-    protected String accountEnabled;
-    protected String city;
-    protected String country;
-    protected String department;
-    protected String dirSyncEnabled;
-    protected String displayName;
-    protected String facsimileTelephoneNumber;
-    protected String givenName;
-    protected String jobTitle;
-    protected String lastDirSyncTime;
-    protected String mail;
-    protected String mailNickname;
-    protected String mobile;
-    protected String password;
-    protected String passwordPolicies;
-    protected String physicalDeliveryOfficeName;
-    protected String postalCode;
-    protected String preferredLanguage;
-    protected String state;
-    protected String streetAddress;
-    protected String surname;
-    protected String telephoneNumber;
-    protected String usageLocation;
-    protected String userPrincipalName;
-    protected boolean isDeleted;  // this will move to dto
+	
+	// The following are the individual private members of a User object that holds
+	// a particular simple attribute of an User object.
+	protected String objectId;
+	protected String objectType;
+	protected String accountEnabled;
+	protected String city;
+	protected String country;
+	protected String department;
+	protected String dirSyncEnabled;
+	protected String displayName;
+	protected String facsimileTelephoneNumber;
+	protected String givenName;
+	protected String jobTitle;
+	protected String lastDirSyncTime;
+	protected String mail;
+	protected String mailNickname;
+	protected String mobile;
+	protected String password;
+	protected String passwordPolicies;
+	protected String physicalDeliveryOfficeName;
+	protected String postalCode;
+	protected String preferredLanguage;
+	protected String state;
+	protected String streetAddress;
+	protected String surname;
+	protected String telephoneNumber;
+	protected String usageLocation;
+	protected String userPrincipalName;
+	protected boolean isDeleted;  // this will move to dto
 
-    /**
-     * below 4 properties are for future use
-     */
-    // managerDisplayname of this user
-    protected String managerDisplayname;
-    
-    // The directReports holds a list of directReports
-    private ArrayList<User> directReports;
-    
-    // The groups holds a list of group entity this user belongs to. 
-    private ArrayList<Group> groups;
-    
-    // The roles holds a list of role entity this user belongs to. 
-    private ArrayList<Group> roles;
-    
-    
-    /**
-     * The constructor for the User class. Initializes the dynamic lists and managerDisplayname variables.
-     */
-    public User(){
-        directReports = null;
-        groups = new ArrayList<Group>();
-        roles = new ArrayList<Group>();
-        managerDisplayname = null;
-    }
-//  
-//  public User(String displayName, String objectId){
-//      setDisplayName(displayName);
-//      setObjectId(objectId);
-//  }
-//  
-//  public User(String displayName, String objectId, String userPrincipalName, String accountEnabled){
-//      setDisplayName(displayName);
-//      setObjectId(objectId);
-//      setUserPrincipalName(userPrincipalName);
-//      setAccountEnabled(accountEnabled);
-//  }
-//  
+	/**
+	 * below 4 properties are for future use
+	 */
+	// managerDisplayname of this user
+	protected String managerDisplayname;
+	
+	// The directReports holds a list of directReports
+	private ArrayList<User> directReports;
+	
+	// The groups holds a list of group entity this user belongs to. 
+	private ArrayList<Group> groups;
+	
+	// The roles holds a list of role entity this user belongs to. 
+	private ArrayList<Group> roles;
+	
+	
+	/**
+	 * The constructor for the User class. Initializes the dynamic lists and managerDisplayname variables.
+	 */
+	public User(){
+		directReports = null;
+		groups = new ArrayList<Group>();
+		roles = new ArrayList<Group>();
+		managerDisplayname = null;
+	}
+//	
+//	public User(String displayName, String objectId){
+//		setDisplayName(displayName);
+//		setObjectId(objectId);
+//	}
+//	
+//	public User(String displayName, String objectId, String userPrincipalName, String accountEnabled){
+//		setDisplayName(displayName);
+//		setObjectId(objectId);
+//		setUserPrincipalName(userPrincipalName);
+//		setAccountEnabled(accountEnabled);
+//	}
+//	
 
-    /**
-     * @return The objectId of this user.
-     */
-    public String getObjectId() {
-        return objectId;
-    }
-    
-    /**
-     * @param objectId The objectId to set to this User object.
-     */
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }
-
-
-    /**
-     * @return The objectType of this User.
-     */
-    public String getObjectType() {
-        return objectType;
-    }
-
-    /**
-     * @param objectType The objectType to set to this User object.
-     */
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
-    }
-
-    /**
-     * @return The userPrincipalName of this User.
-     */
-    public String getUserPrincipalName() {
-        return userPrincipalName;
-    }
-
-    /**
-     * @param userPrincipalName The userPrincipalName to set to this User object.
-     */
-    public void setUserPrincipalName(String userPrincipalName) {
-        this.userPrincipalName = userPrincipalName;
-    }
-
-    
-    /**
-     * @return The usageLocation of this User.
-     */
-    public String getUsageLocation() {
-        return usageLocation;
-    }
-
-    /**
-     * @param usageLocation The usageLocation to set to this User object.
-     */
-    public void setUsageLocation(String usageLocation) {
-        this.usageLocation = usageLocation;
-    }
-
-    /**
-     * @return The telephoneNumber of this User.
-     */
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    /**
-     * @param telephoneNumber The telephoneNumber to set to this User object.
-     */
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-    /**
-     * @return The surname of this User.
-     */
-    public String getSurname() {
-        return surname;
-    }
-
-    /**
-     * @param surname The surname to set to this User Object.
-     */
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    /**
-     * @return The streetAddress of this User.
-     */
-    public String getStreetAddress() {
-        return streetAddress;
-    }
-
-    /**
-     * @param streetAddress The streetAddress to set to this User.
-     */
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
-    }
-
-    /**
-     * @return The state of this User.
-     */
-    public String getState() {
-        return state;
-    }
-
-    /**
-     * @param state The state to set to this User object.
-     */
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    /**
-     * @return The preferredLanguage of this User.
-     */
-    public String getPreferredLanguage() {
-        return preferredLanguage;
-    }
-
-    /**
-     * @param preferredLanguage The preferredLanguage to set to this User.
-     */
-    public void setPreferredLanguage(String preferredLanguage) {
-        this.preferredLanguage = preferredLanguage;
-    }
-
-    /**
-     * @return The postalCode of this User.
-     */
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    /**
-     * @param postalCode The postalCode to set to this User.
-     */
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    /**
-     * @return The physicalDeliveryOfficeName of this User.
-     */
-    public String getPhysicalDeliveryOfficeName() {
-        return physicalDeliveryOfficeName;
-    }
-
-    /**
-     * @param physicalDeliveryOfficeName The physicalDeliveryOfficeName to set to this User Object.
-     */
-    public void setPhysicalDeliveryOfficeName(String physicalDeliveryOfficeName) {
-        this.physicalDeliveryOfficeName = physicalDeliveryOfficeName;
-    }
-
-    /**
-     * @return The passwordPolicies of this User.
-     */
-    public String getPasswordPolicies() {
-        return passwordPolicies;
-    }
-
-    /**
-     * @param passwordPolicies The passwordPolicies to set to this User object.
-     */
-    public void setPasswordPolicies(String passwordPolicies) {
-        this.passwordPolicies = passwordPolicies;
-    }
-
-    /**
-     * @return The mobile of this User.
-     */
-    public String getMobile() {
-        return mobile;
-    }
-
-    /**
-     * @param mobile The mobile to set to this User object.
-     */
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-    
-    /**
-     * @return The Password of this User.
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password The mobile to set to this User object.
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * @return The mail of this User.
-     */
-    public String getMail() {
-        return mail;
-    }
-
-    /**
-     * @param mail The mail to set to this User object.
-     */
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-    
-    /**
-     * @return The MailNickname of this User.
-     */
-    public String getMailNickname() {
-        return mailNickname;
-    }
-
-    /**
-     * @param mail The MailNickname to set to this User object.
-     */
-    public void setMailNickname(String mailNickname) {
-        this.mailNickname = mailNickname;
-    }
+	/**
+	 * @return The objectId of this user.
+	 */
+	public String getObjectId() {
+		return objectId;
+	}
+	
+	/**
+	 * @param objectId The objectId to set to this User object.
+	 */
+	public void setObjectId(String objectId) {
+		this.objectId = objectId;
+	}
 
 
-    /**
-     * @return The jobTitle of this User.
-     */
-    public String getJobTitle() {
-        return jobTitle;
-    }
+	/**
+	 * @return The objectType of this User.
+	 */
+	public String getObjectType() {
+		return objectType;
+	}
 
-    /**
-     * @param jobTitle The jobTitle to set to this User Object.
-     */
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
+	/**
+	 * @param objectType The objectType to set to this User object.
+	 */
+	public void setObjectType(String objectType) {
+		this.objectType = objectType;
+	}
 
-    /**
-     * @return The givenName of this User.
-     */
-    public String getGivenName() {
-        return givenName;
-    }
+	/**
+	 * @return The userPrincipalName of this User.
+	 */
+	public String getUserPrincipalName() {
+		return userPrincipalName;
+	}
 
-    /**
-     * @param givenName The givenName to set to this User.
-     */
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
-    }
+	/**
+	 * @param userPrincipalName The userPrincipalName to set to this User object.
+	 */
+	public void setUserPrincipalName(String userPrincipalName) {
+		this.userPrincipalName = userPrincipalName;
+	}
 
-    /**
-     * @return The facsimileTelephoneNumber of this User.
-     */
-    public String getFacsimileTelephoneNumber() {
-        return facsimileTelephoneNumber;
-    }
+	
+	/**
+	 * @return The usageLocation of this User.
+	 */
+	public String getUsageLocation() {
+		return usageLocation;
+	}
 
-    /**
-     * @param facsimileTelephoneNumber The facsimileTelephoneNumber to set to this User Object.
-     */
-    public void setFacsimileTelephoneNumber(String facsimileTelephoneNumber) {
-        this.facsimileTelephoneNumber = facsimileTelephoneNumber;
-    }
+	/**
+	 * @param usageLocation The usageLocation to set to this User object.
+	 */
+	public void setUsageLocation(String usageLocation) {
+		this.usageLocation = usageLocation;
+	}
 
-    /**
-     * @return The displayName of this User.
-     */
-    public String getDisplayName() {
-        return displayName;
-    }
+	/**
+	 * @return The telephoneNumber of this User.
+	 */
+	public String getTelephoneNumber() {
+		return telephoneNumber;
+	}
 
-    /**
-     * @param displayName The displayName to set to this User Object.
-     */
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
+	/**
+	 * @param telephoneNumber The telephoneNumber to set to this User object.
+	 */
+	public void setTelephoneNumber(String telephoneNumber) {
+		this.telephoneNumber = telephoneNumber;
+	}
 
-    /**
-     * @return The dirSyncEnabled of this User.
-     */
-    public String getDirSyncEnabled() {
-        return dirSyncEnabled;
-    }
+	/**
+	 * @return The surname of this User.
+	 */
+	public String getSurname() {
+		return surname;
+	}
 
-    /**
-     * @param dirSyncEnabled The dirSyncEnabled to set to this User.
-     */
-    public void setDirSyncEnabled(String dirSyncEnabled) {
-        this.dirSyncEnabled = dirSyncEnabled;
-    }
+	/**
+	 * @param surname The surname to set to this User Object.
+	 */
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
 
-    /**
-     * @return The department of this User.
-     */
-    public String getDepartment() {
-        return department;
-    }
+	/**
+	 * @return The streetAddress of this User.
+	 */
+	public String getStreetAddress() {
+		return streetAddress;
+	}
 
-    /**
-     * @param department The department to set to this User.
-     */
-    public void setDepartment(String department) {
-        this.department = department;
-    }
+	/**
+	 * @param streetAddress The streetAddress to set to this User.
+	 */
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
 
-    /**
-     * @return The lastDirSyncTime of this User.
-     */
-    public String getLastDirSyncTime() {
-        return lastDirSyncTime;
-    }
+	/**
+	 * @return The state of this User.
+	 */
+	public String getState() {
+		return state;
+	}
 
-    /**
-     * @param lastDirSyncTime The lastDirSyncTime to set to this User.
-     */
-    public void setLastDirSyncTime(String lastDirSyncTime) {
-        this.lastDirSyncTime = lastDirSyncTime;
-    }
+	/**
+	 * @param state The state to set to this User object.
+	 */
+	public void setState(String state) {
+		this.state = state;
+	}
 
-    /**
-     * @return The country of this User.
-     */
-    public String getCountry() {
-        return country;
-    }
+	/**
+	 * @return The preferredLanguage of this User.
+	 */
+	public String getPreferredLanguage() {
+		return preferredLanguage;
+	}
 
-    /**
-     * @param country The country to set to this User.
-     */
-    public void setCountry(String country) {
-        this.country = country;
-    }
+	/**
+	 * @param preferredLanguage The preferredLanguage to set to this User.
+	 */
+	public void setPreferredLanguage(String preferredLanguage) {
+		this.preferredLanguage = preferredLanguage;
+	}
 
-    /**
-     * @return The city of this User.
-     */
-    public String getCity() {
-        return city;
-    }
+	/**
+	 * @return The postalCode of this User.
+	 */
+	public String getPostalCode() {
+		return postalCode;
+	}
 
-    /**
-     * @param city The city to set to this User.
-     */
-    public void setCity(String city) {
-        this.city = city;
-    }
+	/**
+	 * @param postalCode The postalCode to set to this User.
+	 */
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
 
-    /**
-     * @return The accountEnabled attribute of this User.
-     */
-    public String getAccountEnabled() {
-        return accountEnabled;
-    }
+	/**
+	 * @return The physicalDeliveryOfficeName of this User.
+	 */
+	public String getPhysicalDeliveryOfficeName() {
+		return physicalDeliveryOfficeName;
+	}
 
-    /**
-     * @param accountEnabled The accountEnabled to set to this User.
-     */
-    public void setAccountEnabled(String accountEnabled) {
-        this.accountEnabled = accountEnabled;
-    }
-    
-    public boolean isIsDeleted() {
-        return this.isDeleted;
-    }
+	/**
+	 * @param physicalDeliveryOfficeName The physicalDeliveryOfficeName to set to this User Object.
+	 */
+	public void setPhysicalDeliveryOfficeName(String physicalDeliveryOfficeName) {
+		this.physicalDeliveryOfficeName = physicalDeliveryOfficeName;
+	}
 
-    public void setIsDeleted(boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
+	/**
+	 * @return The passwordPolicies of this User.
+	 */
+	public String getPasswordPolicies() {
+		return passwordPolicies;
+	}
 
-    @Override
-    public String toString() {
-        return new JSONObject(this).toString();
-    }
-    
-    public String getManagerDisplayname(){
-        return managerDisplayname;
-    }
-    
-    public void setManagerDisplayname(String managerDisplayname){
-        this.managerDisplayname = managerDisplayname;
-    }
+	/**
+	 * @param passwordPolicies The passwordPolicies to set to this User object.
+	 */
+	public void setPasswordPolicies(String passwordPolicies) {
+		this.passwordPolicies = passwordPolicies;
+	}
+
+	/**
+	 * @return The mobile of this User.
+	 */
+	public String getMobile() {
+		return mobile;
+	}
+
+	/**
+	 * @param mobile The mobile to set to this User object.
+	 */
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	
+	/**
+	 * @return The Password of this User.
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password The mobile to set to this User object.
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 * @return The mail of this User.
+	 */
+	public String getMail() {
+		return mail;
+	}
+
+	/**
+	 * @param mail The mail to set to this User object.
+	 */
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	
+	/**
+	 * @return The MailNickname of this User.
+	 */
+	public String getMailNickname() {
+		return mailNickname;
+	}
+
+	/**
+	 * @param mail The MailNickname to set to this User object.
+	 */
+	public void setMailNickname(String mailNickname) {
+		this.mailNickname = mailNickname;
+	}
+
+
+	/**
+	 * @return The jobTitle of this User.
+	 */
+	public String getJobTitle() {
+		return jobTitle;
+	}
+
+	/**
+	 * @param jobTitle The jobTitle to set to this User Object.
+	 */
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	/**
+	 * @return The givenName of this User.
+	 */
+	public String getGivenName() {
+		return givenName;
+	}
+
+	/**
+	 * @param givenName The givenName to set to this User.
+	 */
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
+	}
+
+	/**
+	 * @return The facsimileTelephoneNumber of this User.
+	 */
+	public String getFacsimileTelephoneNumber() {
+		return facsimileTelephoneNumber;
+	}
+
+	/**
+	 * @param facsimileTelephoneNumber The facsimileTelephoneNumber to set to this User Object.
+	 */
+	public void setFacsimileTelephoneNumber(String facsimileTelephoneNumber) {
+		this.facsimileTelephoneNumber = facsimileTelephoneNumber;
+	}
+
+	/**
+	 * @return The displayName of this User.
+	 */
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	/**
+	 * @param displayName The displayName to set to this User Object.
+	 */
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	/**
+	 * @return The dirSyncEnabled of this User.
+	 */
+	public String getDirSyncEnabled() {
+		return dirSyncEnabled;
+	}
+
+	/**
+	 * @param dirSyncEnabled The dirSyncEnabled to set to this User.
+	 */
+	public void setDirSyncEnabled(String dirSyncEnabled) {
+		this.dirSyncEnabled = dirSyncEnabled;
+	}
+
+	/**
+	 * @return The department of this User.
+	 */
+	public String getDepartment() {
+		return department;
+	}
+
+	/**
+	 * @param department The department to set to this User.
+	 */
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	/**
+	 * @return The lastDirSyncTime of this User.
+	 */
+	public String getLastDirSyncTime() {
+		return lastDirSyncTime;
+	}
+
+	/**
+	 * @param lastDirSyncTime The lastDirSyncTime to set to this User.
+	 */
+	public void setLastDirSyncTime(String lastDirSyncTime) {
+		this.lastDirSyncTime = lastDirSyncTime;
+	}
+
+	/**
+	 * @return The country of this User.
+	 */
+	public String getCountry() {
+		return country;
+	}
+
+	/**
+	 * @param country The country to set to this User.
+	 */
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	/**
+	 * @return The city of this User.
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * @param city The city to set to this User.
+	 */
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	/**
+	 * @return The accountEnabled attribute of this User.
+	 */
+	public String getAccountEnabled() {
+		return accountEnabled;
+	}
+
+	/**
+	 * @param accountEnabled The accountEnabled to set to this User.
+	 */
+	public void setAccountEnabled(String accountEnabled) {
+		this.accountEnabled = accountEnabled;
+	}
+	
+	public boolean isIsDeleted() {
+		return this.isDeleted;
+	}
+
+	public void setIsDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	@Override
+	public String toString() {
+		return new JSONObject(this).toString();
+	}
+	
+	public String getManagerDisplayname(){
+		return managerDisplayname;
+	}
+	
+	public void setManagerDisplayname(String managerDisplayname){
+		this.managerDisplayname = managerDisplayname;
+	}
 }
 
 
@@ -1288,49 +1287,49 @@ public class User extends DirectoryObject{
  */
 //class DirectReport extends User{
 //
-//  private String displayName;
-//  private String objectId;
-//   
-//  /**
-//   * Two arguments Constructor for the DirectReport Class.
-//   * @param displayName
-//   * @param objectId
-//   */
-//  public DirectReport(String displayName, String objectId){
-//      this.displayName = displayName;
-//      this.objectId = objectId;
-//  }
+//	private String displayName;
+//	private String objectId;
+//	 
+//	/**
+//	 * Two arguments Constructor for the DirectReport Class.
+//	 * @param displayName
+//	 * @param objectId
+//	 */
+//	public DirectReport(String displayName, String objectId){
+//		this.displayName = displayName;
+//		this.objectId = objectId;
+//	}
 //
-//  /**
-//   * @return The diaplayName of this direct report entry.
-//   */
-//  public String getDisplayName() {
-//      return displayName;
-//  }
+//	/**
+//	 * @return The diaplayName of this direct report entry.
+//	 */
+//	public String getDisplayName() {
+//		return displayName;
+//	}
 //
-//  
-//  /**
-//   *  @return The objectId of this direct report entry. 
-//   */
-//  public String getObjectId() {
-//      return objectId;
-//  }
+//	
+//	/**
+//	 *  @return The objectId of this direct report entry. 
+//	 */
+//	public String getObjectId() {
+//		return objectId;
+//	}
 //
 //}
 
 ```
 
-## <a name="7.-create-the-authentication-model/controller-files-(for-basicfilter)"></a>7. Create the Authentication Model/Controller files (for BasicFilter)
+## 7\. 인증 모델/컨트롤러 파일을 만듭니다.(BasicFilter용)
 
-Yes, Java is rather verbose, but we're almost done. Next to last, before we write the BasicFilter servlet to handle our requests, let's write some more helper files that the `ADAL4J` library needs. 
+예, Java는 보다 자세한 정보지만 작업이 거의 완료되었습니다. 마지막으로 BasicFilter 서블릿을 작성하여 요청을 처리하기 전에 `ADAL4J` 라이브러리가 필요한 자세한 도우미를 작성하겠습니다.
 
-1. Create a file called `AuthHelper.java` which will give us methods that we'll use to determine the state of the logged in use. These include:
+1. 로그인된 사용의 상태를 확인하는 데 사용하는 메서드를 제공하는 `AuthHelper.java`라는 파일을 만듭니다. 내용은 다음과 같습니다.
 
-- `isAuthenticated()` method which returns if the user is logged in or not
-- `containsAuthenticationData()` which will tell us if the token has data or not
-- `isAuthenticationSuccessful()` which will tell us if the authentication was successful for the user.
+- 사용자의 로그인 여부를 반환하는 `isAuthenticated()` 메서드
+- 토큰에 데이터가 있는지 여부를 알려주는 `containsAuthenticationData()`
+- 인증이 사용자에 대해 성공했는지 여부를 알려주는 `isAuthenticationSuccessful()`
 
-Cut/paste the code below:
+아래의 코드를 자르거나 붙여 넣습니다.
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1378,7 +1377,7 @@ public final class AuthHelper {
 }
 ```
 
-2. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:
+2. `ADAL4J`가 필요로 하는 변경할 수 없는 일부 변수를 보내는 `AuthParameterNames.java`라는 파일을 만듭니다. 다음을 자르거나 붙여 넣습니다.
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1396,9 +1395,9 @@ public final class AuthParameterNames {
 }
 ```
 
-3. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.
+3. 마지막으로 JSP 컨트롤러를 제공하고 앱에 대한 `secure/aad` URL 끝점을 노출하는 MVC 패턴의 컨트롤러인 `AadController.java`라는 파일을 만듭니다. 또한 Graph 쿼리를 이 파일에 배치합니다.
 
-Cut/paste the following:
+다음을 자르고 붙여 넣습니다.
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1475,11 +1474,11 @@ public class AadController {
 
 ```
 
-## <a name="8.-create-the-basicfilter-file-(for-basicfilter-mvc)"></a>8. Create the BasicFilter file (for BasicFilter MVC)
+## 8\. BasicFilter 파일 만들기(BasicFilter MVC용)
 
-We are finally ready to create the BasicFilter file to handle our requests from our View (JSP files).
+마지막으로 보기에서 요청을 처리하도록 BasicFilter 파일을 만들 차례입니다.(JSP 파일)
 
-Create a file called `BasicFilter.java` which contains the following:
+다음을 포함하는 `BasicFilter.java`라는 파일을 만듭니다.
 
 ```Java
 
@@ -1721,39 +1720,34 @@ public class BasicFilter implements Filter {
 }
 ```
 
-This servlet exposes all of the methods that `ADAL4J` will expect from our application to run. This includes:
+이 서블릿은 `ADAL4J`이 응용 프로그램에서 실행할 것으로 예상하는 모든 메서드를 노출합니다. 다음 내용이 포함됩니다.
 
-- `getAccessTokenFromClientCredentials()` - gets access token from our secret
-- `getAccessTokenFromRefreshToken()` - gets access token from a refresh token
-- `getAccessToken()` - gets access token from an OpenID Connect flow (which we use)
-- `createSessionPrincipal()` - creates a principal we use for Graph API access
-- `getRedirectUrl()` - gets the redirectURL to compare it with the value you entered in to the portal.
+- `getAccessTokenFromClientCredentials()` - 암호에서 액세스 토큰 가져오기
+- `getAccessTokenFromRefreshToken()` - 새로 고침 토큰에서 액세스 토큰 가져오기
+- `getAccessToken()` - (사용할)OpenID Connect 흐름에서 액세스 토큰 가져오기
+- `createSessionPrincipal()` -Graph API 액세스에 사용할 주체 만들기
+- `getRedirectUrl()` - 포털에 입력한 값과 비교하기 위해 redirectURL 가져오기
 
-##<a name="compile-and-run-the-sample-in-tomcat"></a>Compile and run the sample in Tomcat
+##Tomcat에서 샘플 컴파일 및 실행
 
-Change back out to your root directory and run the following command to build the sample you just put together using `maven`. This will use the `pom.xml` file you wrote for dependencies.
+루트 디렉터리로 다시 변경하고 다음 명령을 실행하여 `maven`을 사용하여 모은 샘플을 빌드합니다. 여기에는 종속성에 대해 작성한 `pom.xml` 파일이 사용됩니다.
 
 `$ mvn package`
 
-You should now have a `adal4jsample.war` file in your `/targets` directory. You may deploy that in your Tomcat container and visit the URL 
+이제 `/targets` 디렉터리에 `adal4jsample.war` 파일이 있습니다. Tomcat 컨테이너에서 해당 파일을 배포하고 URL를 방문할 수 있습니다.
 
 `http://localhost:8080/adal4jsample/`
 
 
 > [AZURE.NOTE] 
-It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your ``adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
+최신 Tomcat 서버를 사용하여 WAR를 쉽게 배포할 수 있습니다. `http://localhost:8080/manager/`로 이동하여 '`adal4jsample.war` 파일을 업로드하는 지침에 따릅니다. 올바른 끝점을 사용하여 자동으로 배포합니다.
 
-##<a name="next-steps"></a>Next Steps
+##다음 단계
 
-Congratulations! You now have a working Java application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.
+축하합니다. 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 Java 응용 프로그램이 작성되었습니다. 아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), or you can clone it from GitHub:
+참조를 위해 완료된 샘플(사용자 구성 값 제외)이 [여기에 .zip으로 제공](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-
-
-
-<!--HONumber=Oct16_HO4-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

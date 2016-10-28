@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Add the Office 365 Outlook connector in your Logic Apps | Microsoft Azure"
-    description="Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items."
+    pageTitle="논리 앱에서 Office 365 Outlook 커넥터 추가 | Microsoft Azure"
+    description="Office 365와 상호 작용할 수 있도록 Office 365 커넥터로 논리 앱을 만듭니다. 예: 연락처 및 일정 항목 만들기, 편집 및 업데이트."
     services=""    
     documentationCenter=""     
     authors="MandiOhlinger"    
-    manager="anneta"    
+    manager="erikre"    
     editor="" 
     tags="connectors" />
 
@@ -14,762 +14,758 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="10/18/2016"
+ms.date="07/26/2016"
 ms.author="mandia"/>
 
+# Office 365 Outlook 커넥터 시작 
 
-# <a name="get-started-with-the-office-365-outlook-connector"></a>Get started with the Office 365 Outlook connector 
+Office 365 Outlook 커넥터를 통해 Office 365에서 Outlook과 상호 작용할 수 있습니다. 이 커넥터를 사용하여 연락처 및 일정 항목을 만들기, 편집 및 업데이트하고 전자 메일을 가져오고 보내며 회신할 수도 있습니다.
 
-The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
+Office 365 Outlook을 사용하여 다음을 수행합니다.
 
-With Office 365 Outlook, you:
+- Office 365 내에서 전자 메일 및 일정 기능을 사용하여 워크플로를 빌드합니다.
+- 새 전자 메일이 있거나 일정 항목이 업데이트될 때 트리거를 사용하여 워크플로를 시작합니다.
+- 전자 메일을 보내고 새 일정 이벤트를 만드는 등의 작업을 사용합니다. 예를 들어 Salesforce에 새 개체(트리거)가 있는 경우 Office 365 Outlook으로 전자 메일을 보냅니다(작업).
 
-- Build your workflow using the email and calendar features within Office 365. 
-- Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
-- Use actions to send an email, create a new calendar event, and more. For example, when there is a new object in Salesforce (a trigger), send an email to your Office 365 Outlook (an action). 
+이 항목에서는 논리 앱에서 Office 365 Outlook 커넥터를 사용하는 방법을 보여 주고 트리거 및 작업을 나열합니다.
 
-This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다.
 
->[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA).
+논리 앱에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../app-service-logic/app-service-logic-what-are-logic-apps.md) 및 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Office 365에 연결
 
-## <a name="connect-to-office-365"></a>Connect to Office 365
-
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Office 365 Outlook, you first need an Office 365 *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Office 365 Outlook, enter the credentials to your Office 365 account to create the connection.
-
-
-## <a name="create-the-connection"></a>Create the connection
-
->[AZURE.INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
-
-## <a name="use-a-trigger"></a>Use a trigger
-
-A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
-
-1. In the logic app, type "office 365" to get a list of the triggers:  
-
-    ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-
-2. Select **Office 365 Outlook - When an upcoming event is starting soon**. If a connection already exists, then select a calendar from the drop-down list.
-
-    ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
-
-    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic lists the steps. 
-
-    > [AZURE.NOTE] In this example, the logic app runs when a calendar event is updated. To see the results of this trigger, add another action that sends you a text message. For example, add the Twilio *Send message* action that texts you when the calendar event is starting in 15 minutes. 
-
-3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
-
-    ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-
-4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 Office 365 Outlook에 연결하려면 먼저 Office 365 *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 Office 365 Outlook을 사용하는 경우 Office 365 계정에 대한 자격 증명을 입력하여 연결을 만듭니다.
 
 
-## <a name="use-an-action"></a>Use an action
+## 연결 만들기
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+>[AZURE.INCLUDE [Office 365에 대한 연결을 만드는 단계](../../includes/connectors-create-api-office365-outlook.md)]
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+## 트리거 사용
 
-    ![](./media/connectors-create-api-office365-outlook/add-action.png)
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. 원하는 간격 및 빈도로 서비스의 "폴링"을 트리거합니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
-2. Choose **Add an action**.
+1. 논리 앱에서 트리거 목록을 가져오려면 "office 365"를 입력합니다.
 
-3. In the text box, type “office 365” to get a list of all the available actions.
+	![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-    ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+2. **Office 365 Outlook - 예정된 이벤트가 곧 시작될 때**를 선택합니다. 연결이 이미 있는 경우 드롭다운 목록에서 일정을 선택합니다.
 
-4. In our example, choose **Office 365 Outlook - Create contact**. If a connection already exists, then choose the **Folder ID**, **Given Name**, and other properties:  
+	![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
 
-    ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+	로그인하라는 메시지가 표시되면 로그인 세부 정보를 입력하여 연결을 만듭니다. 이 항목의 [연결 만들기](connectors-create-api-office365-outlook.md#create-the-connection)에 단계가 표시됩니다.
 
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic describes these properties. 
+	> [AZURE.NOTE] 이 예제에서는 일정 이벤트가 업데이트되면 논리 앱이 실행됩니다. 이 트리거의 결과를 보려면 텍스트 메시지를 보내는 다른 작업을 추가합니다. 예를 들어 일정 이벤트가 15분 내에 시작되는 경우 텍스트를 보내는 Twilio *메시지 보내기* 작업을 추가합니다.
 
-    > [AZURE.NOTE] In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new new contact in Office 365. 
+3. **편집** 단추를 선택하고 **빈도** 및 **간격** 값을 설정합니다. 예를 들어 15분마다 폴링을 트리거하려면 **빈도**를 **분**으로, **간격**을 **15**로 설정합니다.
 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+	![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+4. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
 
 
-## <a name="technical-details"></a>Technical Details
+## 작업 사용
 
-Here are the details about the triggers, actions and responses that this connection supports:
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
-## <a name="office-365-triggers"></a>Office 365 triggers
+1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 등이 표시됩니다.
 
-|Trigger | Description|
+	![](./media/connectors-create-api-office365-outlook/add-action.png)
+
+2. **작업 추가**를 선택합니다.
+
+3. 사용 가능한 모든 작업의 목록을 표시하려면 텍스트 상자에 "office 365"를 입력합니다.
+
+	![](./media/connectors-create-api-office365-outlook/office365-actions.png)
+
+4. 이 예제에서는 **Office 365 Outlook - 연락처 만들기**를 선택했습니다. 연결이 이미 존재하는 경우 **폴더 ID**, **지정된 이름** 및 기타 속성을 선택합니다.
+
+	![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+
+	연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 항목의 [연결 만들기](connectors-create-api-office365-outlook.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다.
+
+	> [AZURE.NOTE] 이 예제에서는 Office 365 Outlook에 새 연락처를 만듭니다. 다른 트리거의 출력을 사용하여 연락처를 만들 수 있습니다. 예를 들어 SalesForce *개체를 만들 때* 트리거를 추가합니다. 그런 다음 SalesForce 필드를 사용하여 Office 365에서 새 연락처를 만드는 Office 365 Outlook *연락처 만들기* 작업을 추가합니다.
+
+5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
+
+
+## 기술 세부 정보
+
+이 연결에서 지원하는 트리거, 작업 및 응답에 대한 세부 정보는 다음과 같습니다.
+
+## Office 365 트리거
+
+|트리거 | 설명|
 |--- | ---|
-|[When an upcoming event is starting soon](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon)|This operation triggers a flow when an upcoming calendar event is starting.|
-|[When a new email arrives](connectors-create-api-office365-outlook.md#when-a-new-email-arrives)|This operation triggers a flow when a new email arrives|
-|[When a new event is created](connectors-create-api-office365-outlook.md#when-a-new-event-is-created)|This operation triggers a flow when a new event is created in a calendar.|
-|[When an event is modified](connectors-create-api-office365-outlook.md#when-an-event-is-modified)|This operation triggers a flow when an event is modified in a calendar.|
+|[예정된 이벤트가 곧 시작될 때](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon)|이 작업은 예정된 일정 이벤트를 시작할 때 흐름을 트리거합니다.|
+|[새 전자 메일이 도착했을 때](connectors-create-api-office365-outlook.md#when-a-new-email-arrives)|이 작업은 새 전자 메일이 도착했을 때 흐름을 트리거합니다.|
+|[새 이벤트를 만들 때](connectors-create-api-office365-outlook.md#when-a-new-event-is-created)|이 작업은 일정에서 새 파일을 만들 때 흐름을 트리거합니다.|
+|[이벤트를 수정할 때](connectors-create-api-office365-outlook.md#when-an-event-is-modified)|이 작업은 일정에서 이벤트를 수정할 때 흐름을 트리거합니다.|
 
 
-## <a name="office-365-actions"></a>Office 365 actions
+## Office 365 작업
 
-|Action|Description|
+|작업|설명|
 |--- | ---|
-|[Get emails](connectors-create-api-office365-outlook.md#get-emails)|This operation gets emails from a folder.|
-|[Send an email](connectors-create-api-office365-outlook.md#send-an-email)|This operation sends an email message.|
-|[Delete email](connectors-create-api-office365-outlook.md#delete-email)|This operation deletes an email by id.|
-|[Mark as read](connectors-create-api-office365-outlook.md#mark-as-read)|This operation marks an email as having been read.|
-|[Reply to email](connectors-create-api-office365-outlook.md#reply-to-email)|This operation replies to an email.|
-|[Get attachment](connectors-create-api-office365-outlook.md#get-attachment)|This operation gets an email attachment by id.|
-|[Send email with options](connectors-create-api-office365-outlook.md#send-email-with-options)|This operation sends an email with multiple options and waits for the recipient to respond back with one of the options.|
-|[Send approval email](connectors-create-api-office365-outlook.md#send-approval-email)|This operation sends an approval email and waits for a response from the recipient.|
-|[Get calendars](connectors-create-api-office365-outlook.md#get-calendars)|This operation lists available calendars.|
-|[Get events](connectors-create-api-office365-outlook.md#get-events)|This operation gets events from a calendar.|
-|[Create event](connectors-create-api-office365-outlook.md#create-event)|This operation creates a new event in a calendar.|
-|[Get event](connectors-create-api-office365-outlook.md#get-event)|This operation gets a specific event from a calendar.|
-|[Delete event](connectors-create-api-office365-outlook.md#delete-event)|This operation deletes an event in a calendar.|
-|[Update event](connectors-create-api-office365-outlook.md#update-event)|This operation updates an event in a calendar.|
-|[Get contact folders](connectors-create-api-office365-outlook.md#get-contact-folders)|This operation lists available contacts folders.|
-|[Get contacts](connectors-create-api-office365-outlook.md#get-contacts)|This operation gets contacts from a contacts folder.|
-|[Create contact](connectors-create-api-office365-outlook.md#create-contact)|This operation creates a new contact in a contacts folder.|
-|[Get contact](connectors-create-api-office365-outlook.md#get-contact)|This operation gets a specific contact from a contacts folder.|
-|[Delete contact](connectors-create-api-office365-outlook.md#delete-contact)|This operation deletes a contact from a contacts folder.|
-|[Update contact](connectors-create-api-office365-outlook.md#update-contact)|This operation updates a contact in a contacts folder.|
+|[전자 메일 가져오기](connectors-create-api-office365-outlook.md#get-emails)|이 작업은 폴더에서 전자 메일을 가져옵니다.|
+|[전자 메일 보내기](connectors-create-api-office365-outlook.md#send-an-email)|이 작업은 전자 메일 메시지를 전송합니다.|
+|[전자 메일 삭제](connectors-create-api-office365-outlook.md#delete-email)|이 작업은 ID별 전자 메일을 삭제합니다.|
+|[읽은 상태로 표시](connectors-create-api-office365-outlook.md#mark-as-read)|이 작업은 전자 메일을 읽은 것으로 표시합니다.|
+|[전자 메일에 회신](connectors-create-api-office365-outlook.md#reply-to-email)|이 작업은 전자 메일에 회신합니다.|
+|[첨부 파일 가져오기](connectors-create-api-office365-outlook.md#get-attachment)|이 작업은 ID별로 전자 메일 첨부 파일을 가져옵니다.|
+|[옵션을 사용하여 메일 전송](connectors-create-api-office365-outlook.md#send-email-with-options)|이 작업은 여러 옵션이 포함된 메일을 보내고 받는 사람이 옵션 중 하나로 다시 응답하기를 대기합니다.|
+|[승인 전자 메일 보내기](connectors-create-api-office365-outlook.md#send-approval-email)|이 작업은 승인 메일을 보내고 받는 사람으로부터 응답을 기다립니다.|
+|[일정 가져오기](connectors-create-api-office365-outlook.md#get-calendars)|이 작업은 사용 가능한 일정을 나열합니다.|
+|[이벤트 가져오기](connectors-create-api-office365-outlook.md#get-events)|이 작업은 일정에서 이벤트를 가져옵니다.|
+|[이벤트 만들기](connectors-create-api-office365-outlook.md#create-event)|이 작업은 일정에서 새 이벤트를 만듭니다.|
+|[이벤트 가져오기](connectors-create-api-office365-outlook.md#get-event)|이 작업은 일정에서 특정 이벤트를 가져옵니다.|
+|[이벤트 삭제](connectors-create-api-office365-outlook.md#delete-event)|이 작업은 일정에서 이벤트를 삭제합니다.|
+|[이벤트 업데이트](connectors-create-api-office365-outlook.md#update-event)|이 작업은 일정에서 이벤트를 업데이트합니다.|
+|[연락처 폴더 가져오기](connectors-create-api-office365-outlook.md#get-contact-folders)|이 작업은 사용 가능한 연락처 폴더를 나열합니다.|
+|[연락처 가져오기](connectors-create-api-office365-outlook.md#get-contacts)|이 작업은 연락처 폴더에서 연락처를 가져옵니다.|
+|[연락처 만들기](connectors-create-api-office365-outlook.md#create-contact)|이 작업은 연락처 폴더에 새 연락처를 만듭니다.|
+|[연락처 가져오기](connectors-create-api-office365-outlook.md#get-contact)|이 작업은 연락처 폴더에서 특정 연락처를 가져옵니다.|
+|[연락처 삭제](connectors-create-api-office365-outlook.md#delete-contact)|이 작업은 연락처 폴더에서 연락처를 삭제합니다.|
+|[연락처 업데이트](connectors-create-api-office365-outlook.md#update-contact)|이 작업은 연락처 폴더에서 연락처를 업데이트합니다.|
 
-### <a name="trigger-and-action-details"></a>Trigger and Action details
+### 트리거 및 작업 세부 정보
 
-In this section, see the specific details about each trigger and action, including any required or optional input properties, and any corresponding output associated with the connector.
+이 섹션에서는 모든 필수 또는 선택적 입력 속성 및 커넥터와 연결된 모든 해당 출력을 비롯한 각 트리거 및 작업에 대한 특정 세부 정보를 참조하세요.
 
-#### <a name="when-an-upcoming-event-is-starting-soon"></a>When an upcoming event is starting soon
-This operation triggers a flow when an upcoming calendar event is starting. 
+#### 예정된 이벤트가 곧 시작될 때
+이 작업은 예정된 일정 이벤트를 시작할 때 흐름을 트리거합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Calendar id|Unique identifier of the calendar|
-|lookAheadTimeInMinutes|Look ahead time|Time (in minutes) to look ahead for upcoming events|
+|table*|일정 ID|일정의 고유 식별자|
+|lookAheadTimeInMinutes|미리 보기 시간|예정된 이벤트에 대해 조회할 시간(분)|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-CalendarItemsList: The list of calendar items
+##### 출력 세부 정보
+CalendarItemsList: 일정 항목의 목록
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|value|array|List of calendar items|
+|value|array|일정 항목의 목록|
 
 
-#### <a name="get-emails"></a>Get emails
-This operation gets emails from a folder. 
+#### 전자 메일 가져오기
+이 작업은 폴더에서 전자 메일을 가져옵니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|folderPath|Folder Path|Path of the folder to retrieve emails (default: 'Inbox')|
-|top|Top|Number of emails to retrieve (default: 10)|
-|fetchOnlyUnread|Fetch Only Unread Messages|Retrieve only unread emails?|
-|includeAttachments|Include Attachments|If set to true, attachments will also be retrieved along with the email|
-|searchQuery|Search Query|Search query to filter emails|
-|skip|Skip|Number of emails to skip (default: 0)|
-|skipToken|Skip Token|Skip token to fetch new page|
+|folderPath|폴더 경로|전자 메일을 검색하는 폴더의 경로(기본값: '받은 편지함')|
+|top|상위|검색할 전자 메일의 수(기본값: 10)|
+|fetchOnlyUnread|읽지 않은 메시지만 가져오기|읽지 않은 전자 메일만 검색할 수 있습니까?|
+|includeAttachments|첨부 파일 포함|true로 설정된 경우 첨부 파일도 전자 메일과 함께 검색됩니다.|
+|searchQuery|검색 쿼리|전자 메일을 필터링하려는 검색 쿼리|
+|skip|Skip|건너뛸 전자 메일의 수(기본값: 0)|
+|skipToken|토큰 건너뛰기|새 페이지를 가져오는 토큰 건너뛰기|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-ReceiveMessage: Receive Email Message
+##### 출력 세부 정보
+ReceiveMessage: 전자 메일 메시지 받기
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|From|string|From|
-|To|string|To|
-|Subject|string|Subject|
-|Body|string|Body|
-|Importance|string|Importance|
-|HasAttachment|boolean|Has Attachment|
-|Id|string|Message Id|
-|IsRead|boolean|Is Read|
-|DateTimeReceived|string|Date time received|
-|Attachments|array|Attachments|
-|Cc|string|Specify email addresses separated by semicolons like someone@contoso.com|
-|Bcc|string|Specify email addresses separated by semicolons like someone@contoso.com|
-|IsHtml|boolean|Is Html|
+|원본|string|원본|
+|받는 사람|string|받는 사람|
+|제목|string|제목|
+|본문|string|본문|
+|중요도|string|중요도|
+|HasAttachment|부울|첨부 파일 포함|
+|Id|string|메시지 ID|
+|IsRead|부울|읽음|
+|DateTimeReceived|string|수신한 날짜 시간|
+|첨부 파일|array|첨부 파일|
+|참조|string|someone@contoso.com처럼 세미콜론으로 구분된 전자 메일 주소를 지정합니다.|
+|Bcc|string|someone@contoso.com처럼 세미콜론으로 구분된 전자 메일 주소를 지정합니다.|
+|IsHtml|부울|Html임|
 
 
-#### <a name="send-an-email"></a>Send an email
-This operation sends an email message. 
+#### 전자 메일 보내기
+이 작업은 전자 메일 메시지를 전송합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
 |emailMessage*|Email|Email|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### 출력 세부 정보
+없음
 
-#### <a name="delete-email"></a>Delete email
-This operation deletes an email by id. 
+#### 전자 메일 삭제
+이 작업은 ID별 전자 메일을 삭제합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|messageId*|Message Id|Id of the email to delete|
+|messageId*|메시지 ID|삭제할 전자 메일의 ID|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### 출력 세부 정보
+없음
 
-#### <a name="mark-as-read"></a>Mark as read
-This operation marks an email as having been read. 
+#### 읽은 상태로 표시
+이 작업은 전자 메일을 읽은 것으로 표시합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|messageId*|Message Id|Id of the email to be marked as read|
+|messageId*|메시지 ID|읽은 상태로 표시될 메시지의 ID|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### 출력 세부 정보
+없음
 
 
-#### <a name="reply-to-email"></a>Reply to email
-This operation replies to an email. 
+#### 전자 메일에 회신
+이 작업은 전자 메일에 회신합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|messageId*|Message Id|Id of the email to reply to|
-|comment*|Comment|Reply comment|
-|replyAll|Reply All|Reply to all recipients|
+|messageId*|메시지 ID|회신할 전자 메일의 ID|
+|comment*|주석|회신 주석|
+|replyAll|전체 회신|모든 받는 사람에게 회신|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### 출력 세부 정보
+없음
 
 
-#### <a name="get-attachment"></a>Get attachment
-This operation gets an email attachment by id. 
+#### 첨부 파일 가져오기
+이 작업은 ID별로 전자 메일 첨부 파일을 가져옵니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|messageId*|Message Id|Id of the email|
-|attachmentId*|Attachment Id|Id of the attachment to download|
+|messageId*|메시지 ID|전자 메일의 ID|
+|attachmentId*|첨부 파일 ID|다운로드할 첨부 파일의 id|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### 출력 세부 정보
+없음
 
 
-#### <a name="when-a-new-email-arrives"></a>When a new email arrives
-This operation triggers a flow when a new email arrives.
+#### 새 전자 메일이 도착했을 때
+이 작업은 새 전자 메일이 도착했을 때 흐름을 트리거합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|folderPath|Folder Path|Email folder to retrieve (default: Inbox)|
-|to|To|Recipient email addresses|
-|from|From|From address|
-|importance|Importance|Importance of the email (High, Normal, Low) (default: Normal)|
-|fetchOnlyWithAttachment|Has Attachments|Retrieve only emails with an attachment|
-|includeAttachments|Include Attachments|Include attachments|
-|subjectFilter|Subject Filter|String to look for in the subject|
+|folderPath|폴더 경로|검색할 전자 메일 폴더(기본값: 받은 편지함)|
+|to|받는 사람|받는 사람 전자 메일 주소|
+|from|원본|보낸 사람 주소|
+|중요도|중요도|전자 메일의 중요도(높음, 보통, 낮음) (기본값: 보통)|
+|fetchOnlyWithAttachment|첨부 파일 있음|첨부 파일이 있는 전자 메일만 검색|
+|includeAttachments|첨부 파일 포함|첨부 파일 포함|
+|subjectFilter|제목 필터|제목에서 찾을 문자열|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
+##### 출력 세부 정보
 TriggerBatchResponse[ReceiveMessage]
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|
 |value|array|
 
 
-#### <a name="send-email-with-options"></a>Send email with options
-This operation sends an email with multiple options and waits for the recipient to respond back with one of the options. 
+#### 옵션을 사용하여 메일 전송
+이 작업은 여러 옵션이 포함된 메일을 보내고 받는 사람이 옵션 중 하나로 다시 응답하기를 대기합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|optionsEmailSubscription*|Subscription request for options email|Subscription request for options email|
+|optionsEmailSubscription*|옵션에 대한 구독 요청 전자 메일|옵션에 대한 구독 요청 전자 메일|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-SubscriptionResponse: Model for Approval Email Subscription
+##### 출력 세부 정보
+SubscriptionResponse: 승인 전자 메일 구독에 대한 모델
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|id|string|Id of the subscription|
-|resource|string|Resource of the subscription request|
-|notificationType|string|Notification Type|
-|notificationUrl|string|Notification Url|
+|id|string|구독의 ID|
+|resource|string|구독 요청의 리소스|
+|notificationType|string|알림 형식|
+|notificationUrl|string|알림 URL|
 
 
-#### <a name="send-approval-email"></a>Send approval email
-This operation sends an approval email and waits for a response from the recipient. 
+#### 승인 전자 메일 보내기
+이 작업은 승인 메일을 보내고 받는 사람으로부터 응답을 기다립니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|approvalEmailSubscription*|Subscription request for approval email|Subscription request for approval email|
+|approvalEmailSubscription*|승인 전자 메일에 대한 구독 요청|승인 전자 메일에 대한 구독 요청|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-SubscriptionResponse: Model for Approval Email Subscription
+##### 출력 세부 정보
+SubscriptionResponse: 승인 전자 메일 구독에 대한 모델
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|id|string|Id of the subscription|
-|resource|string|Resource of the subscription request|
-|notificationType|string|Notification Type|
-|notificationUrl|string|Notification Url|
+|id|string|구독의 ID|
+|resource|string|구독 요청의 리소스|
+|notificationType|string|알림 형식|
+|notificationUrl|string|알림 URL|
 
 
-#### <a name="get-calendars"></a>Get calendars
-This operation lists available calendars. 
+#### 일정 가져오기
+이 작업은 사용 가능한 일정을 나열합니다.
 
-There are no parameters for this call.
+이 호출에 대한 매개 변수는 없습니다.
 
-##### <a name="output-details"></a>Output Details
+##### 출력 세부 정보
 TablesList
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|
 |value|array|
 
 
-#### <a name="get-events"></a>Get events
-This operation gets events from a calendar. 
+#### 이벤트 가져오기
+이 작업은 일정에서 이벤트를 가져옵니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|table*|일정 ID|일정 선택|
+|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-CalendarEventList: The list of calendar items
+##### 출력 세부 정보
+CalendarEventList: 일정 항목의 목록
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|value|array|List of calendar items|
+|value|array|일정 항목의 목록|
 
 
-#### <a name="create-event"></a>Create event
-This operation creates a new event in a calendar. 
+#### 이벤트 만들기
+이 작업은 일정에서 새 이벤트를 만듭니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|item*|Item|Event to create|
+|table*|일정 ID|일정 선택|
+|item*|항목|만들 이벤트|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-CalendarEvent: Connector specific calendar event model class.
+##### 출력 세부 정보
+CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|Id|string|The Event's unique identifier.|
-|Attendees|array|List of attendees for the event.|
-|Body|not defined|The body of the message associated with the event.|
-|BodyPreview|string|The preview of the message associated with the event.|
-|Categories|array|The categories associated with the event.|
-|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
-|DateTimeCreated|string|The date and time that the event was created.|
-|DateTimeLastModified|string|The date and time that the event was last modified.|
-|End|string|The end time of the event.|
-|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
-|HasAttachments|boolean|Set to true if the event has attachments.|
-|Importance|string|The importance of the event: Low, Normal or High.|
-|IsAllDay|boolean|Set to true if the event lasts all day.|
-|IsCancelled|boolean|Set to true if the event has been canceled.|
-|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
-|Location|not defined|The location of the event.|
-|Organizer|not defined|The organizer of the event.|
-|Recurrence|not defined|The recurrence pattern for the event.|
-|Reminder|integer|Time in minutes before event start to remind.|
-|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
-|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
-|SeriesMasterId|string|Unique identifier for Series Master event type.|
-|ShowAs|string|Shows as free or busy.|
-|Start|string|The start time of the event.|
-|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
-|Subject|string|Event subject.|
-|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
-|WebLink|string|The preview of the message associated with the event.|
+|Id|string|이벤트의 고유 식별자입니다.|
+|Attendees|array|이벤트의 참석자 목록입니다.|
+|본문|정의되지 않음|이벤트와 연결된 메시지 본문입니다.|
+|BodyPreview|string|이벤트와 연결된 메시지 미리 보기입니다.|
+|범주|array|이벤트와 연결된 범주입니다.|
+|ChangeKey|string|이벤트 개체의 버전을 식별합니다. 이벤트가 변경될 때마다 ChangeKey도 변경됩니다.|
+|DateTimeCreated|string|이벤트가 생성된 날짜 및 시간입니다.|
+|DateTimeLastModified|string|이벤트가 마지막으로 수정된 날짜 및 시간입니다.|
+|끝|string|이벤트의 종료 시간입니다.|
+|EndTimeZone|string|모임 종료 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: '태평양 표준시').|
+|HasAttachments|부울|이벤트에 첨부 파일이 있으면 true로 설정합니다.|
+|중요도|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
+|IsAllDay|부울|이벤트가 하루 종일 진행되는 경우 true로 설정합니다.|
+|IsCancelled|부울|이벤트가 취소된 경우 true로 설정합니다.|
+|IsOrganizer|부울|메시지 보낸 사람이 이끌이인 경우 true로 설정합니다.|
+|위치|정의되지 않음|이벤트의 위치입니다.|
+|이끌이|정의되지 않음|이벤트의 이끌이입니다.|
+|되풀이|정의되지 않음|이벤트의 되풀이 패턴입니다.|
+|미리 알림|정수|이벤트 시작을 미리 알리는 시간(분)입니다.|
+|ResponseRequested|부울|이벤트가 수락 또는 거절될 때 보낸 사람이 응답하고 싶다면 true로 설정합니다.|
+|ResponseStatus|정의되지 않음|이벤트 메시지에 대한 응답으로 보낸 응답 형식을 나타냅니다.|
+|SeriesMasterId|string|Series Master 이벤트 유형에 대한 고유 식별자입니다.|
+|ShowAs|string|사용 가능 또는 사용 중으로 표시합니다.|
+|시작|string|이벤트의 시간입니다.|
+|StartTimeZone|string|모임 시작 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: "태평양 표준시").|
+|제목|string|이벤트 제목입니다.|
+|형식|string|이벤트 유형: Single Instance, Occurrence, Exception 또는 Series Master.|
+|WebLink|string|이벤트와 연결된 메시지 미리 보기입니다.|
 
 
-#### <a name="get-event"></a>Get event
-This operation gets a specific event from a calendar. 
+#### 이벤트 가져오기
+이 작업은 일정에서 특정 이벤트를 가져옵니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|id*|Item id|Select an event|
+|table*|일정 ID|일정 선택|
+|id*|항목 ID|이벤트 선택|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-CalendarEvent: Connector specific calendar event model class.
+##### 출력 세부 정보
+CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|Id|string|The Event's unique identifier.|
-|Attendees|array|List of attendees for the event.|
-|Body|not defined|The body of the message associated with the event.|
-|BodyPreview|string|The preview of the message associated with the event.|
-|Categories|array|The categories associated with the event.|
-|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
-|DateTimeCreated|string|The date and time that the event was created.|
-|DateTimeLastModified|string|The date and time that the event was last modified.|
-|End|string|The end time of the event.|
-|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
-|HasAttachments|boolean|Set to true if the event has attachments.|
-|Importance|string|The importance of the event: Low, Normal or High.|
-|IsAllDay|boolean|Set to true if the event lasts all day.|
-|IsCancelled|boolean|Set to true if the event has been canceled.|
-|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
-|Location|not defined|The location of the event.|
-|Organizer|not defined|The organizer of the event.|
-|Recurrence|not defined|The recurrence pattern for the event.|
-|Reminder|integer|Time in minutes before event start to remind.|
-|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
-|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
-|SeriesMasterId|string|Unique identifier for Series Master event type.|
-|ShowAs|string|Shows as free or busy.|
-|Start|string|The start time of the event.|
-|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
-|Subject|string|Event subject.|
-|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
-|WebLink|string|The preview of the message associated with the event.|
+|Id|string|이벤트의 고유 식별자입니다.|
+|Attendees|array|이벤트의 참석자 목록입니다.|
+|본문|정의되지 않음|이벤트와 연결된 메시지 본문입니다.|
+|BodyPreview|string|이벤트와 연결된 메시지 미리 보기입니다.|
+|범주|array|이벤트와 연결된 범주입니다.|
+|ChangeKey|string|이벤트 개체의 버전을 식별합니다. 이벤트가 변경될 때마다 ChangeKey도 변경됩니다.|
+|DateTimeCreated|string|이벤트가 생성된 날짜 및 시간입니다.|
+|DateTimeLastModified|string|이벤트가 마지막으로 수정된 날짜 및 시간입니다.|
+|끝|string|이벤트의 종료 시간입니다.|
+|EndTimeZone|string|모임 종료 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: '태평양 표준시').|
+|HasAttachments|부울|이벤트에 첨부 파일이 있으면 true로 설정합니다.|
+|중요도|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
+|IsAllDay|부울|이벤트가 하루 종일 진행되는 경우 true로 설정합니다.|
+|IsCancelled|부울|이벤트가 취소된 경우 true로 설정합니다.|
+|IsOrganizer|부울|메시지 보낸 사람이 이끌이인 경우 true로 설정합니다.|
+|위치|정의되지 않음|이벤트의 위치입니다.|
+|이끌이|정의되지 않음|이벤트의 이끌이입니다.|
+|되풀이|정의되지 않음|이벤트의 되풀이 패턴입니다.|
+|미리 알림|정수|이벤트 시작을 미리 알리는 시간(분)입니다.|
+|ResponseRequested|부울|이벤트가 수락 또는 거절될 때 보낸 사람이 응답하고 싶다면 true로 설정합니다.|
+|ResponseStatus|정의되지 않음|이벤트 메시지에 대한 응답으로 보낸 응답 형식을 나타냅니다.|
+|SeriesMasterId|string|Series Master 이벤트 유형에 대한 고유 식별자입니다.|
+|ShowAs|string|사용 가능 또는 사용 중으로 표시합니다.|
+|시작|string|이벤트의 시간입니다.|
+|StartTimeZone|string|모임 시작 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: "태평양 표준시").|
+|제목|string|이벤트 제목입니다.|
+|형식|string|이벤트 유형: Single Instance, Occurrence, Exception 또는 Series Master.|
+|WebLink|string|이벤트와 연결된 메시지 미리 보기입니다.|
 
 
-#### <a name="delete-event"></a>Delete event
-This operation deletes an event in a calendar. 
+#### 이벤트 삭제
+이 작업은 일정에서 이벤트를 삭제합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|id*|Id|Select an event|
+|table*|일정 ID|일정 선택|
+|id*|Id|이벤트 선택|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### 출력 세부 정보
+없음
 
 
-#### <a name="update-event"></a>Update event
-This operation updates an event in a calendar. 
+#### 이벤트 업데이트
+이 작업은 일정에서 이벤트를 업데이트합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|id*|Id|Select an event|
-|item*|Item|Event to update|
+|table*|일정 ID|일정 선택|
+|id*|Id|이벤트 선택|
+|item*|항목|업데이트할 이벤트|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-CalendarEvent: Connector specific calendar event model class.
+##### 출력 세부 정보
+CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|Id|string|The Event's unique identifier.|
-|Attendees|array|List of attendees for the event.|
-|Body|not defined|The body of the message associated with the event.|
-|BodyPreview|string|The preview of the message associated with the event.|
-|Categories|array|The categories associated with the event.|
-|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
-|DateTimeCreated|string|The date and time that the event was created.|
-|DateTimeLastModified|string|The date and time that the event was last modified.|
-|End|string|The end time of the event.|
-|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
-|HasAttachments|boolean|Set to true if the event has attachments.|
-|Importance|string|The importance of the event: Low, Normal or High.|
-|IsAllDay|boolean|Set to true if the event lasts all day.|
-|IsCancelled|boolean|Set to true if the event has been canceled.|
-|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
-|Location|not defined|The location of the event.|
-|Organizer|not defined|The organizer of the event.|
-|Recurrence|not defined|The recurrence pattern for the event.|
-|Reminder|integer|Time in minutes before event start to remind.|
-|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
-|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
-|SeriesMasterId|string|Unique identifier for Series Master event type.|
-|ShowAs|string|Shows as free or busy.|
-|Start|string|The start time of the event.|
-|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
-|Subject|string|Event subject.|
-|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
-|WebLink|string|The preview of the message associated with the event.|
+|Id|string|이벤트의 고유 식별자입니다.|
+|Attendees|array|이벤트의 참석자 목록입니다.|
+|본문|정의되지 않음|이벤트와 연결된 메시지 본문입니다.|
+|BodyPreview|string|이벤트와 연결된 메시지 미리 보기입니다.|
+|범주|array|이벤트와 연결된 범주입니다.|
+|ChangeKey|string|이벤트 개체의 버전을 식별합니다. 이벤트가 변경될 때마다 ChangeKey도 변경됩니다.|
+|DateTimeCreated|string|이벤트가 생성된 날짜 및 시간입니다.|
+|DateTimeLastModified|string|이벤트가 마지막으로 수정된 날짜 및 시간입니다.|
+|끝|string|이벤트의 종료 시간입니다.|
+|EndTimeZone|string|모임 종료 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: '태평양 표준시').|
+|HasAttachments|부울|이벤트에 첨부 파일이 있으면 true로 설정합니다.|
+|중요도|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
+|IsAllDay|부울|이벤트가 하루 종일 진행되는 경우 true로 설정합니다.|
+|IsCancelled|부울|이벤트가 취소된 경우 true로 설정합니다.|
+|IsOrganizer|부울|메시지 보낸 사람이 이끌이인 경우 true로 설정합니다.|
+|위치|정의되지 않음|이벤트의 위치입니다.|
+|이끌이|정의되지 않음|이벤트의 이끌이입니다.|
+|되풀이|정의되지 않음|이벤트의 되풀이 패턴입니다.|
+|미리 알림|정수|이벤트 시작을 미리 알리는 시간(분)입니다.|
+|ResponseRequested|부울|이벤트가 수락 또는 거절될 때 보낸 사람이 응답하고 싶다면 true로 설정합니다.|
+|ResponseStatus|정의되지 않음|이벤트 메시지에 대한 응답으로 보낸 응답 형식을 나타냅니다.|
+|SeriesMasterId|string|Series Master 이벤트 유형에 대한 고유 식별자입니다.|
+|ShowAs|string|사용 가능 또는 사용 중으로 표시합니다.|
+|시작|string|이벤트의 시간입니다.|
+|StartTimeZone|string|모임 시작 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: "태평양 표준시").|
+|제목|string|이벤트 제목입니다.|
+|형식|string|이벤트 유형: Single Instance, Occurrence, Exception 또는 Series Master.|
+|WebLink|string|이벤트와 연결된 메시지 미리 보기입니다.|
 
 
-#### <a name="when-a-new-event-is-created"></a>When a new event is created
-This operation triggers a flow when a new event is created in a calendar. 
+#### 새 이벤트를 만들 때
+이 작업은 일정에서 새 파일을 만들 때 흐름을 트리거합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|table*|일정 ID|일정 선택|
+|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-CalendarItemsList: The list of calendar items
+##### 출력 세부 정보
+CalendarItemsList: 일정 항목의 목록
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|value|array|List of calendar items|
+|value|array|일정 항목의 목록|
 
 
-#### <a name="when-an-event-is-modified"></a>When an event is modified
-This operation triggers a flow when an event is modified in a calendar. 
+#### 이벤트를 수정할 때
+이 작업은 일정에서 이벤트를 수정할 때 흐름을 트리거합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|table*|일정 ID|일정 선택|
+|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-CalendarItemsList: The list of calendar items
+##### 출력 세부 정보
+CalendarItemsList: 일정 항목의 목록
 
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|value|array|List of calendar items|
+|value|array|일정 항목의 목록|
 
 
-#### <a name="get-contact-folders"></a>Get contact folders
-This operation lists available contacts folders. 
+#### 연락처 폴더 가져오기
+이 작업은 사용 가능한 연락처 폴더를 나열합니다.
 
-There are no parameters for this call.
+이 호출에 대한 매개 변수는 없습니다.
 
-##### <a name="output-details"></a>Output Details
+##### 출력 세부 정보
 TablesList
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|
 |value|array|
 
 
-#### <a name="get-contacts"></a>Get contacts
-This operation gets contacts from a contacts folder. 
+#### 연락처 가져오기
+이 작업은 연락처 폴더에서 연락처를 가져옵니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Folder id|Unique identifier of the contacts folder to retrieve|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|table*|폴더 ID|검색할 연락처 폴더의 고유 식별자|
+|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-ContactList: The list of contacts
+##### 출력 세부 정보
+ContactList: 연락처 목록
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|value|array|List of contacts|
+|value|array|연락처 목록|
 
 
-#### <a name="create-contact"></a>Create contact
-This operation creates a new contact in a contacts folder. 
+#### 연락처 만들기
+이 작업은 연락처 폴더에 새 연락처를 만듭니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Folder id|Select a contacts folder|
-|item*|Item|Contact to create|
+|table*|폴더 ID|연락처 폴더 선택|
+|item*|항목|만들 연락처|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-Contact: Contact
+##### 출력 세부 정보
+Contact: 연락처
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|Id|string|The contact's unique identifier.|
-|ParentFolderId|string|The ID of the contact's parent folder|
-|Birthday|string|The contact's birthday.|
-|FileAs|string|The name the contact is filed under.|
-|DisplayName|string|The contact's display name.|
-|GivenName|string|The contact's given name.|
-|Initials|string|The contact's initials.|
-|MiddleName|string|The contact's middle name.|
-|NickName|string|The contact's nickname.|
-|Surname|string|The contact's surname.|
-|Title|string|The contact's title.|
-|Generation|string|The contact's generation.|
-|EmailAddresses|array|The contact's email addresses.|
-|ImAddresses|array|The contact's instant messaging (IM) addresses.|
-|JobTitle|string|The contact's job title.|
-|CompanyName|string|The name of the contact's company.|
-|Department|string|The contact's department.|
-|OfficeLocation|string|The location of the contact's office.|
-|Profession|string|The contact's profession.|
-|BusinessHomePage|string|The business home page of the contact.|
-|AssistantName|string|The name of the contact's assistant.|
-|Manager|string|The name of the contact's manager.|
-|HomePhones|array|The contact's home phone numbers.|
-|BusinessPhones|array|The contact's business phone numbers|
-|MobilePhone1|string|The contact's mobile phone number.|
-|HomeAddress|not defined|The contact's home address.|
-|BusinessAddress|not defined|The contact's business address.|
-|OtherAddress|not defined|Other addresses for the contact.|
-|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
-|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
-|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
-|Categories|array|The categories associated with the contact.|
-|ChangeKey|string|Identifies the version of the event object|
-|DateTimeCreated|string|The time the contact was created.|
-|DateTimeLastModified|string|The time the contact was modified.|
+|Id|string|연락처의 고유 식별자입니다.|
+|ParentFolderId|string|연락처의 상위 폴더 ID입니다.|
+|Birthday|string|연락처의 생일입니다.|
+|FileAs|string|연락처가 파일화되는 이름입니다.|
+|DisplayName|string|연락처의 표시 이름입니다.|
+|GivenName|string|연락처의 지정된 이름입니다.|
+|Initials|string|연락처의 머리글자입니다.|
+|MiddleName|string|연락처의 중간 이름입니다.|
+|NickName|string|연락처의 별명입니다.|
+|Surname|string|연락처의 성입니다.|
+|제목|string|연락처의 제목입니다.|
+|Generation|string|연락처의 세대입니다.|
+|EmailAddresses|array|연락처의 전자 메일 주소입니다.|
+|ImAddresses|array|연락처의 인스턴트 메시징(IM) 주소입니다.|
+|JobTitle|string|연락처의 직함입니다.|
+|CompanyName|string|연락처의 회사 이름입니다.|
+|Department|string|연락처의 부서입니다.|
+|OfficeLocation|string|연락처의 사무실 위치입니다.|
+|Profession|string|연락처의 전문 분야입니다.|
+|BusinessHomePage|string|연락처의 비즈니스 홈 페이지입니다.|
+|AssistantName|string|연락처의 도우미 이름입니다.|
+|Manager|string|연락처의 관리자 이름입니다.|
+|HomePhones|array|연락처의 집 전화 번호입니다.|
+|BusinessPhones|array|연락처의 회사 전화 번호입니다.|
+|MobilePhone1|string|연락처의 휴대폰 번호입니다.|
+|HomeAddress|정의되지 않음|연락처의 집 주소입니다.|
+|BusinessAddress|정의되지 않음|연락처의 회사 주소입니다.|
+|OtherAddress|정의되지 않음|연락처의 기타 주소입니다.|
+|YomiCompanyName|string|연락처의 음성 일본어 회사 이름입니다.|
+|YomiGivenName|string|연락처의 음성 일본어 지정된 이름(이름)입니다.|
+|YomiSurname|string|연락처의 음성 일본어 성입니다.|
+|범주|array|연락처와 연결된 범주입니다.|
+|ChangeKey|string|이벤트 개체의 버전을 식별합니다.|
+|DateTimeCreated|string|연락처가 생성된 시간입니다.|
+|DateTimeLastModified|string|연락처가 수정된 시간입니다.|
 
 
-#### <a name="get-contact"></a>Get contact
-This operation gets a specific contact from a contacts folder. 
+#### 연락처 가져오기
+이 작업은 연락처 폴더에서 특정 연락처를 가져옵니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Folder id|Select a contacts folder|
-|id*|Item id|Unique identifier of a contact to retrieve|
+|table*|폴더 ID|연락처 폴더 선택|
+|id*|항목 ID|검색할 연락처의 고유 식별자|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-Contact: Contact
+##### 출력 세부 정보
+Contact: 연락처
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|Id|string|The contact's unique identifier.|
-|ParentFolderId|string|The ID of the contact's parent folder|
-|Birthday|string|The contact's birthday.|
-|FileAs|string|The name the contact is filed under.|
-|DisplayName|string|The contact's display name.|
-|GivenName|string|The contact's given name.|
-|Initials|string|The contact's initials.|
-|MiddleName|string|The contact's middle name.|
-|NickName|string|The contact's nickname.|
-|Surname|string|The contact's surname.|
-|Title|string|The contact's title.|
-|Generation|string|The contact's generation.|
-|EmailAddresses|array|The contact's email addresses.|
-|ImAddresses|array|The contact's instant messaging (IM) addresses.|
-|JobTitle|string|The contact's job title.|
-|CompanyName|string|The name of the contact's company.|
-|Department|string|The contact's department.|
-|OfficeLocation|string|The location of the contact's office.|
-|Profession|string|The contact's profession.|
-|BusinessHomePage|string|The business home page of the contact.|
-|AssistantName|string|The name of the contact's assistant.|
-|Manager|string|The name of the contact's manager.|
-|HomePhones|array|The contact's home phone numbers.|
-|BusinessPhones|array|The contact's business phone numbers|
-|MobilePhone1|string|The contact's mobile phone number.|
-|HomeAddress|not defined|The contact's home address.|
-|BusinessAddress|not defined|The contact's business address.|
-|OtherAddress|not defined|Other addresses for the contact.|
-|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
-|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
-|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
-|Categories|array|The categories associated with the contact.|
-|ChangeKey|string|Identifies the version of the event object|
-|DateTimeCreated|string|The time the contact was created.|
-|DateTimeLastModified|string|The time the contact was modified.|
+|Id|string|연락처의 고유 식별자입니다.|
+|ParentFolderId|string|연락처의 상위 폴더 ID입니다.|
+|Birthday|string|연락처의 생일입니다.|
+|FileAs|string|연락처가 파일화되는 이름입니다.|
+|DisplayName|string|연락처의 표시 이름입니다.|
+|GivenName|string|연락처의 지정된 이름입니다.|
+|Initials|string|연락처의 머리글자입니다.|
+|MiddleName|string|연락처의 중간 이름입니다.|
+|NickName|string|연락처의 별명입니다.|
+|Surname|string|연락처의 성입니다.|
+|제목|string|연락처의 제목입니다.|
+|Generation|string|연락처의 세대입니다.|
+|EmailAddresses|array|연락처의 전자 메일 주소입니다.|
+|ImAddresses|array|연락처의 인스턴트 메시징(IM) 주소입니다.|
+|JobTitle|string|연락처의 직함입니다.|
+|CompanyName|string|연락처의 회사 이름입니다.|
+|Department|string|연락처의 부서입니다.|
+|OfficeLocation|string|연락처의 사무실 위치입니다.|
+|Profession|string|연락처의 전문 분야입니다.|
+|BusinessHomePage|string|연락처의 비즈니스 홈 페이지입니다.|
+|AssistantName|string|연락처의 도우미 이름입니다.|
+|Manager|string|연락처의 관리자 이름입니다.|
+|HomePhones|array|연락처의 집 전화 번호입니다.|
+|BusinessPhones|array|연락처의 회사 전화 번호입니다.|
+|MobilePhone1|string|연락처의 휴대폰 번호입니다.|
+|HomeAddress|정의되지 않음|연락처의 집 주소입니다.|
+|BusinessAddress|정의되지 않음|연락처의 회사 주소입니다.|
+|OtherAddress|정의되지 않음|연락처의 기타 주소입니다.|
+|YomiCompanyName|string|연락처의 음성 일본어 회사 이름입니다.|
+|YomiGivenName|string|연락처의 음성 일본어 지정된 이름(이름)입니다.|
+|YomiSurname|string|연락처의 음성 일본어 성입니다.|
+|범주|array|연락처와 연결된 범주입니다.|
+|ChangeKey|string|이벤트 개체의 버전을 식별합니다.|
+|DateTimeCreated|string|연락처가 생성된 시간입니다.|
+|DateTimeLastModified|string|연락처가 수정된 시간입니다.|
 
 
-#### <a name="delete-contact"></a>Delete contact
-This operation deletes a contact from a contacts folder. 
+#### 연락처 삭제
+이 작업은 연락처 폴더에서 연락처를 삭제합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Folder id|Select a contacts folder|
-|id*|Id|Unique identifier of contact to delete|
+|table*|폴더 ID|연락처 폴더 선택|
+|id*|Id|삭제할 연락처의 고유 식별자|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### 출력 세부 정보
+없음
 
 
-#### <a name="update-contact"></a>Update contact
-This operation updates a contact in a contacts folder. 
+#### 연락처 업데이트
+이 작업은 연락처 폴더에서 연락처를 업데이트합니다.
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|table*|Folder id|Select a contacts folder|
-|id*|Id|Unique identifier of contact to update|
-|item*|Item|Contact item to update|
+|table*|폴더 ID|연락처 폴더 선택|
+|id*|Id|업데이트할 연락처의 고유 식별자|
+|item*|항목|업데이트할 연락처 항목|
 
-An asterisk (*) means the property is required.
+별표(*)는 속성이 필수 사항임을 의미합니다.
 
-##### <a name="output-details"></a>Output Details
-Contact: Contact
+##### 출력 세부 정보
+Contact: 연락처
 
-| Property Name | Data Type | Description |
+| 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
-|Id|string|The contact's unique identifier.|
-|ParentFolderId|string|The ID of the contact's parent folder|
-|Birthday|string|The contact's birthday.|
-|FileAs|string|The name the contact is filed under.|
-|DisplayName|string|The contact's display name.|
-|GivenName|string|The contact's given name.|
-|Initials|string|The contact's initials.|
-|MiddleName|string|The contact's middle name.|
-|NickName|string|The contact's nickname.|
-|Surname|string|The contact's surname.|
-|Title|string|The contact's title.|
-|Generation|string|The contact's generation.|
-|EmailAddresses|array|The contact's email addresses.|
-|ImAddresses|array|The contact's instant messaging (IM) addresses.|
-|JobTitle|string|The contact's job title.|
-|CompanyName|string|The name of the contact's company.|
-|Department|string|The contact's department.|
-|OfficeLocation|string|The location of the contact's office.|
-|Profession|string|The contact's profession.|
-|BusinessHomePage|string|The business home page of the contact.|
-|AssistantName|string|The name of the contact's assistant.|
-|Manager|string|The name of the contact's manager.|
-|HomePhones|array|The contact's home phone numbers.|
-|BusinessPhones|array|The contact's business phone numbers|
-|MobilePhone1|string|The contact's mobile phone number.|
-|HomeAddress|not defined|The contact's home address.|
-|BusinessAddress|not defined|The contact's business address.|
-|OtherAddress|not defined|Other addresses for the contact.|
-|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
-|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
-|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
-|Categories|array|The categories associated with the contact.|
-|ChangeKey|string|Identifies the version of the event object|
-|DateTimeCreated|string|The time the contact was created.|
-|DateTimeLastModified|string|The time the contact was modified.|
+|Id|string|연락처의 고유 식별자입니다.|
+|ParentFolderId|string|연락처의 상위 폴더 ID입니다.|
+|Birthday|string|연락처의 생일입니다.|
+|FileAs|string|연락처가 파일화되는 이름입니다.|
+|DisplayName|string|연락처의 표시 이름입니다.|
+|GivenName|string|연락처의 지정된 이름입니다.|
+|Initials|string|연락처의 머리글자입니다.|
+|MiddleName|string|연락처의 중간 이름입니다.|
+|NickName|string|연락처의 별명입니다.|
+|Surname|string|연락처의 성입니다.|
+|제목|string|연락처의 제목입니다.|
+|Generation|string|연락처의 세대입니다.|
+|EmailAddresses|array|연락처의 전자 메일 주소입니다.|
+|ImAddresses|array|연락처의 인스턴트 메시징(IM) 주소입니다.|
+|JobTitle|string|연락처의 직함입니다.|
+|CompanyName|string|연락처의 회사 이름입니다.|
+|Department|string|연락처의 부서입니다.|
+|OfficeLocation|string|연락처의 사무실 위치입니다.|
+|Profession|string|연락처의 전문 분야입니다.|
+|BusinessHomePage|string|연락처의 비즈니스 홈 페이지입니다.|
+|AssistantName|string|연락처의 도우미 이름입니다.|
+|Manager|string|연락처의 관리자 이름입니다.|
+|HomePhones|array|연락처의 집 전화 번호입니다.|
+|BusinessPhones|array|연락처의 회사 전화 번호입니다.|
+|MobilePhone1|string|연락처의 휴대폰 번호입니다.|
+|HomeAddress|정의되지 않음|연락처의 집 주소입니다.|
+|BusinessAddress|정의되지 않음|연락처의 회사 주소입니다.|
+|OtherAddress|정의되지 않음|연락처의 기타 주소입니다.|
+|YomiCompanyName|string|연락처의 음성 일본어 회사 이름입니다.|
+|YomiGivenName|string|연락처의 음성 일본어 지정된 이름(이름)입니다.|
+|YomiSurname|string|연락처의 음성 일본어 성입니다.|
+|범주|array|연락처와 연결된 범주입니다.|
+|ChangeKey|string|이벤트 개체의 버전을 식별합니다.|
+|DateTimeCreated|string|연락처가 생성된 시간입니다.|
+|DateTimeLastModified|string|연락처가 수정된 시간입니다.|
 
 
 
-## <a name="http-responses"></a>HTTP responses
+## HTTP 응답
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+위의 작업 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다.
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
-|default|Operation Failed.|
+|200|확인|
+|202|수락됨|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="next-steps"></a>Next Steps
+## 다음 단계
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

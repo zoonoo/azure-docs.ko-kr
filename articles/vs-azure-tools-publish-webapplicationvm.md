@@ -1,6 +1,6 @@
 <properties
    pageTitle="Publish-WebApplicationVM | Microsoft Azure"
-   description="Learn how to deploy a web application to a virtual machine. This script creates the required resources in your Azure subscription if they don't exist."
+   description="가상 컴퓨터에 웹 응용 프로그램을 배포하는 방법을 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,10 +15,9 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Publish-WebApplicationVM (Windows PowerShell 스크립트)
 
-# <a name="publish-webapplicationvm-(windows-powershell-script)"></a>Publish-WebApplicationVM (Windows PowerShell script)
-
-Deploys a web application to a virtual machine. The script creates the required resources in your Azure subscription if they don't exist.
+가상 컴퓨터에 웹 응용 프로그램을 배포합니다. 없는 경우 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.
 
 ```
 Publish-WebApplicationVM
@@ -31,95 +30,95 @@ Publish-WebApplicationVM
 -Verbose
 ```
 
-### <a name="configuration"></a>Configuration
+### 구성
 
-The path to the JSON configuration file that describes the details of the deployment.
+배포의 세부 정보를 설명하는 JSON 구성 파일에 대한 경로입니다.
 
-|Aliases|none|
+|Aliases|없음|
 |---|---|
 |Required?|true|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|기본값|없음|
+|Accept Pipeline Input?|false|
+|Accept Wildcard Characters?|false|
 
-### <a name="subscriptionname"></a>SubscriptionName
+### SubscriptionName
 
-The name of the Azure subscription in which you want to create the virtual machine.
+가상 컴퓨터를 만들려는 Azure 구독의 이름입니다.
 
-|Aliases|none|
+|Aliases|없음|
 |---|---|
 |Required?|false|
 |Position|named|
-|Default value|Uses the first subscription in the subscription file|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|기본값|구독 파일의 첫 번째 구독을 사용합니다.|
+|Accept Pipeline Input?|false|
+|Accept Wildcard Characters?|false|
 
-### <a name="webdeploypackage"></a>WebDeployPackage
+### WebDeployPackage
 
-The path to the web deployment package to publish to the virtual machine. You can create this package by using the Publish Web wizard in Visual Studio. See [How to: Create a Web Deployment Package in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
+가상 컴퓨터에 게시하는 웹 배포 패키지에 대한 경로입니다. Visual Studio에서 웹 게시 마법사를 사용하여 이 패키지를 만들 수 있습니다. [방법: Visual Studio에서 웹 배포 패키지 만들기](https://msdn.microsoft.com/library/dd465323.aspx)를 참조하세요.
 
-|Aliases|none|
+|Aliases|없음|
 |---|---|
 |Required?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|기본값|없음|
+|Accept Pipeline Input?|false|
+|Accept Wildcard Characters?|false|
 
-### <a name="allowuntrusted"></a>AllowUntrusted
+### AllowUntrusted
 
-If true, allow the use of certificates that aren't signed by a trusted root authority.
+True인 경우 신뢰할 수 있는 루트 인증 기관에서 서명되지 않은 인증서 사용을 허용합니다.
 
-|Aliases|none|
+|Aliases|없음|
 |---|---|
 |Required?|false|
 |Position|named|
-|Default value|false|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|기본값|false|
+|Accept Pipeline Input?|false|
+|Accept Wildcard Characters?|false|
 
-### <a name="vmpassword"></a>VMPassword
+### VMPassword
 
-The credentials for the virtual machine account. Example: -VMPassword @{Name = "admin"; Password = "password"}
+가상 컴퓨터 계정에 대한 자격 증명입니다. 예: -VMPassword @{Name = "admin"; Password = "password"}
 
-|Aliases|none|
+|Aliases|없음|
 |---|---|
 |Required?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|기본값|없음|
+|Accept Pipeline Input?|false|
+|Accept Wildcard Characters?|false|
 
-### <a name="databaseserverpassword"></a>DatabaseServerPassword
+### DatabaseServerPassword
 
-The credentials for the SQL database in Azure. Example: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
+Azure에서 SQL 데이터베이스에 대한 자격 증명입니다. 예: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
-|Aliases|none|
+|Aliases|없음|
 |---|---|
 |Required?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|기본값|없음|
+|Accept Pipeline Input?|false|
+|Accept Wildcard Characters?|false|
 
-### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
+### SendHostMessagesToOutput
 
-If true, print messages from the script to the output stream.
+True이면 스크립트에서 출력 스트림으로 메시지를 프린트합니다.
 
-|Aliases|none|
+|Aliases|없음|
 |---|---|
 |Required?|false|
 |Position|named|
-|Default value|false|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|기본값|false|
+|Accept Pipeline Input?|false|
+|Accept Wildcard Characters?|false|
 
-## <a name="remarks"></a>Remarks
+## 설명
 
-For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](vs-azure-tools-publishing-using-powershell-scripts.md).
+스크립트를 사용하여 개발 및 테스트 환경을 만드는 방법에 대한 전체 설명은 [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시](vs-azure-tools-publishing-using-powershell-scripts.md)를 참조하세요.
 
-The JSON configuration file specifies the details of what is to be deployed. It includes the information that you specified when you created the project, such as the name, affinity group, VHD image, and size of the virtual machine. It also includes the endpoints on the virtual machine, the databases to provision, if any, and web deployment parameters. The following code shows an example JSON configuration file:
+JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 프로젝트를 만들 때 지정한 정보(예: 가상 컴퓨터의 이름, 선호도 그룹, VHD 이미지, 크기)를 포함합니다. 또한 가상 컴퓨터의 끝점, 프로비전할 데이터베이스(있는 경우), 웹 배포 매개 변수를 포함합니다. 다음 코드에서는 JSON 구성 파일을 예로 보여줍니다.
 
 ```
 {
@@ -188,10 +187,6 @@ The JSON configuration file specifies the details of what is to be deployed. It 
 }
 ```
 
-You can edit the JSON configuration file to change what is provisioned. A virtual machine and a cloud service are required, but the database section is optional.
+프로비전한 내용을 변경하도록 JSON 구성 파일을 편집할 수 있습니다. 가상 컴퓨터 및 클라우드 서비스는 필요하지만 데이터베이스 섹션은 선택 사항입니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

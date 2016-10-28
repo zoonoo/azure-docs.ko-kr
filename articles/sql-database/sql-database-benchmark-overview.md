@@ -1,138 +1,133 @@
 <properties
-    pageTitle="Azure SQL Database benchmark overview"
-    description="This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database."
-    services="sql-database"
-    documentationCenter="na"
-    authors="CarlRabeler"
-    manager="jhubbard"
-    editor="monicar" />
+	pageTitle="Azure SQL 데이터베이스 벤치마크 개요"
+	description="이 항목은 Azure SQL 데이터베이스의 성능 측정에 사용된 Azure SQL 데이터베이스 벤치마크에 대해 설명합니다."
+	services="sql-database"
+	documentationCenter="na"
+	authors="CarlRabeler"
+	manager="jhubbard"
+	editor="monicar" />
 
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="06/21/2016"
-    ms.author="carlrab" />
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="06/21/2016"
+	ms.author="carlrab" />
 
+# Azure SQL 데이터베이스 벤치마크 개요
 
-# <a name="azure-sql-database-benchmark-overview"></a>Azure SQL Database benchmark overview
+## 개요
+Microsoft Azure SQL 데이터베이스는 여러 성능 수준의 3가지 [서비스 계층](sql-database-service-tiers.md)을 제공합니다. 각 성능 수준은 증가된 리소스 집합 또는 더욱 높은 처리량을 제공하도록 설계된 '성능'을 제공합니다.
 
-## <a name="overview"></a>Overview
-Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
+각 성능 수준별 증가된 성능으로 데이터베이스 성능이 얼마나 증가되는지 수량화하는 것이 중요합니다. 이를 위해 Microsoft는 ASDB(Azure SQL Database Benchmark)를 개발했습니다. 벤치마크는 모든 OLTP 워크로드에서 찾을 수 있는 혼합된 기본 작업을 실행합니다. Microsoft는 각 성능 수준에서 실행되는 데이터베이스에 대해 달성된 처리량을 측정합니다.
 
-It is important to be able to quantify how the increasing power of each performance level translates into increased database performance. To do this Microsoft has developed the Azure SQL Database Benchmark (ASDB). The benchmark exercises a mix of basic operations found in all OLTP workloads. We measure the throughput achieved for databases running in each performance level.
+각 서비스 계층 및 성능 수준의 리소스와 성능은 [DTU(데이터베이스 트랜잭션 단위)](sql-database-technical-overview.md#understand-dtus)로 나타냅니다. DTU는 각 성능 수준에서 제공하는 읽기/쓰기 속도, 메모리, CPU의 혼합 측정치를 기준으로 성능 수준의 상대적 용량을 설명하는 방법을 제공합니다. 데이터베이스의 DTU 등급을 두 배로 높일 경우 데이터베이스 성능이 두 배 증가하는 것과 같습니다. 이 벤치마크를 사용하면 데이터베이스에 제공된 리소스와 비례하여 데이터베이스 크기, 사용자 수, 트랜잭션 속도를 조정하는 동시에, 실제 데이터 작업을 실행하여 각 성능 수준에서 제공하는 성능을 향상시킬 경우 데이터베이스 성능에 어떤 영향을 미치는지 평가할 수 있습니다.
 
-The resources and power of each service tier and performance level are expressed in terms of [Database Transaction Units (DTUs)](sql-database-technical-overview.md#understand-dtus). DTUs provide a way to describe the relative capacity of a performance level based on a blended measure of CPU, memory, and read and write rates offered by each performance level. Doubling the DTU rating of a database equates to doubling the database power. The benchmark allows us to assess the impact on database performance of the increasing power offered by each performance level by exercising actual database operations, while scaling database size, number of users, and transaction rates in proportion to the resources provided to the database.
+시간단 트랜잭션 수를 사용하는 Basic 서비스 계층, 분당 트랜잭션 수를 사용하는 Standard 서비스 계층, 초당 트랜잭션 수를 사용하는 Premium 서비스 계층으로 처리량을 표현함으로써 각 서비스 계층의 성능 잠재력과 응용 프로그램의 요구 사항 간 관계를 쉽고 빠르게 파악할 수 있습니다.
 
-By expressing the throughput of the Basic service tier using transactions per-hour, the Standard service tier using transactions per-minute, and the Premium service tier using transactions per-second, it makes it easier to quickly relate the performance potential of each service tier to the requirements of an application.
+## 벤치마크 결과와 실제 데이터베이스 성능 간 상관 관계 분석
+ASDB는 모든 벤치마크와 마찬가지로 대표적, 암시적 수치임을 이해하는 것이 중요합니다. 벤치마크 응용 프로그램에서 달성한 트랜잭션 속도는 다른 응용 프로그램에서 달성할 수 있는 속도와 동일하지 않습니다. 벤치마크는 다양한 테이블 및 데이터 유형이 포함된 스키마에 대해 실행되는 다양한 트랜잭션 유형의 컬렉션으로 구성되어 있습니다. 벤치마크는 모든 OLTP 워크로드에 공통적이고 동일한 기본 작업을 실행하며 특정 클래스의 데이터베이스 또는 응용 프로그램을 나타내지 않습니다. 벤치마크의 목표는 성능 수준 사이에서 확장 또는 축소할 경우 예상할 수 있는 데이터베이스의 상대적 성능에 대한 합리적 지침을 제공하는 것입니다. 실제로, 각 데이터베이스는 크기와 복잡성이 다르고 다양하게 혼합된 워크로드를 처리할 수 있으며 각각 다른 방식으로 대응합니다. 예를 들어, IO를 많이 사용하는 응용 프로그램은 IO 임계값에 빠르게 도달할 수 있고 CPU를 많이 사용하는 응용 프로그램은 CPU 한도에 빠르게 도달할 수 있습니다. 부하가 증가할 때 특정 데이터베이스가 벤치마크와 동일하게 확장된다는 보장이 없습니다.
 
-## <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Correlating benchmark results to real world database performance
-It is important to understand that ASDB, like all benchmarks, is representative and indicative only. The transaction rates achieved with the benchmark application will not be the same as those that might be achieved with other applications. The benchmark comprises a collection of different transaction types run against a schema containing a range of tables and data types. While the benchmark exercises the same basic operations that are common to all OLTP workloads, it does not represent any specific class of database or application. The goal of the benchmark is to provide a reasonable guide to the relative performance of a database that might be expected when scaling up or down between performance levels. In reality, databases are of different sizes and complexity, encounter different mixes of workloads, and will respond in different ways. For example, an IO-intensive application may hit IO thresholds sooner, or a CPU-intensive application may hit CPU limits sooner. There is no guarantee that any particular database will scale in the same way as the benchmark under increasing load.
+벤치마크와 그 방법론은 아래에서 더 자세히 설명합니다.
 
-The benchmark and its methodology are described in more detail below.
+## 벤치마크 요약
+ASDB는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하게 발생하는 기본 데이터베이스 작업의 성능을 측정합니다. 클라우드 컴퓨팅을 예상하고 벤치마크를 설계했지만, 데이터베이스 스키마, 데이터 채우기, 트랜잭션은 OLTP 워크로드에서 가장 일반적으로 사용되는 기본 요소를 광범위하게 나타내도록 설계되었습니다.
 
-## <a name="benchmark-summary"></a>Benchmark summary
-ASDB measures the performance of a mix of basic database operations which occur most frequently in online transaction processing (OLTP) workloads. Although the benchmark is designed with cloud computing in mind, the database schema, data population, and transactions have been designed to be broadly representative of the basic elements most commonly used in OLTP workloads.
+## 스키마
+스키마는 다양한 작업을 지원하도록 다양하고 복잡하게 설계되었습니다. 벤치마크는 6개의 테이블로 구성된 데이터베이스에 실행합니다. 테이블은 고정 크기, 확장, 증가의 세 범주로 구분됩니다. 2개의 고정 크기 테이블, 3개의 확장 테이블, 1개의 증가 테이블이 있습니다. 고정 크기 테이블에는 고정된 수의 행이 있습니다. 확장 테이블에는 데이터베이스 성능에 비례하는 카디널리티가 있지만 벤치마크 중에는 변경되지 않습니다. 증가 테이블은 초기 로드 시 확장 테이블과 같은 크기이지만, 행을 삽입 및 증가하면서 벤치마크를 실행하는 동안 카디널리티가 변경됩니다.
 
-## <a name="schema"></a>Schema
-The schema is designed to have enough variety and complexity to support a broad range of operations. The benchmark runs against a database comprised of six tables. The tables fall into three categories: fixed-size, scaling, and growing. There are two fixed-size tables; three scaling tables; and one growing table. Fixed-size tables have a constant number of rows. Scaling tables have a cardinality that is proportional to database performance, but doesn’t change during the benchmark. The growing table is sized like a scaling table on initial load, but then the cardinality changes in the course of running the benchmark as rows are inserted and deleted.
+스키마에는 정수, 숫자, 문자, 날짜/시간 등 혼합된 데이터 유형이 포함되어 있습니다. 스키마에는 기본 및 보조 키가 포함되어 있지만 외부 키가 없습니다. 즉, 테이블 간 참조 무결성 제약 조건이 없습니다.
 
-The schema includes a mix of data types, including integer, numeric, character, and date/time. The schema includes primary and secondary keys, but not any foreign keys – that is, there are no referential integrity constraints between tables.
+데이터 생성 프로그램은 초기 데이터베이스의 데이터를 생성합니다. 정수 및 숫자 데이터는 다양한 전략으로 생성됩니다. 값이 범위에 무작위로 분포되는 경우도 있습니다. 또한 특정 분포를 유지하기 위해 값 집합을 무작위로 변경하는 경우도 있습니다. 가중치를 적용한 단어 목록에서 텍스트 필드를 생성하여 현실적 데이터를 만듭니다.
 
-A data generation program generates the data for the initial database. Integer and numeric data is generated with various strategies. In some cases, values are distributed randomly over a range. In other cases, a set of values is randomly permuted to ensure that a specific distribution is maintained. Text fields are generated from a weighted list of words to produce realistic looking data.
+데이터베이스는 "배율"을 기준으로 크기를 조정합니다. 배율(약어: SF)은 확장 및 증가 테이블의 카디널리티를 결정합니다. 아래의 사용자 및 속도 섹션에 설명된 대로 데이터베이스 크기, 사용자 수, 최대 성능은 모두 서로에 비례하여 확장됩니다.
 
-The database is sized based on a “scale factor.” The scale factor (abbreviated as SF) determines the cardinality of the scaling and growing tables. As described below in the section Users and Pacing, the database size, number of users, and maximum performance all scale in proportion to each other.
+## 트랜잭션
+워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
-## <a name="transactions"></a>Transactions
-The workload consists of nine transaction types, as shown in the table below. Each transaction is designed to highlight a particular set of system characteristics in the database engine and system hardware, with high contrast from the other transactions. This approach makes it easier to assess the impact of different components to overall performance. For example, the transaction “Read Heavy” produces a significant number of read operations from disk.
-
-| Transaction Type | Description |
+| 트랜잭션 유형 | 설명 |
 |---|---|
-| Read Lite | SELECT; in-memory; read-only |
-| Read Medium | SELECT; mostly in-memory; read-only |
-| Read Heavy | SELECT; mostly not in-memory; read-only |
-| Update Lite | UPDATE; in-memory; read-write |
-| Update Heavy | UPDATE; mostly not in-memory; read-write |
-| Insert Lite | INSERT; in-memory; read-write |
-| Insert Heavy | INSERT; mostly not in-memory; read-write |
-| Delete | DELETE; mix of in-memory and not in-memory; read-write |
-| CPU Heavy | SELECT; in-memory; relatively heavy CPU load; read-only |
+| 적은 읽기 작업 | SELECT, 메모리 내, 읽기 전용 |
+| 중간 읽기 작업 | SELECT, 대부분 메모리 내, 읽기 전용 |
+| 많은 읽기 작업 | SELECT, 대부분 메모리 외, 읽기 전용 |
+| 적은 업데이트 작업 | UPDATE, 메모리 내, 읽기-쓰기 |
+| 많은 업데이트 작업 | UPDATE, 대부분 메모리 외, 읽기-쓰기 |
+| 적은 삽입 작업 | INSERT, 메모리 내, 읽기-쓰기 |
+| 많은 삽입 작업 | INSERT, 대부분 메모리 외, 읽기-쓰기 |
+| 삭제 | DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
+| 많은 CPU 사용 | SELECT, 메모리 내, 상대적으로 많은 CPU 부하, 읽기 전용 |
 
-## <a name="workload-mix"></a>Workload mix
-Transactions are selected at random from a weighted distribution with the following overall mix. The overall mix has a read/write ratio of approximately 2:1.
+## 워크로드 혼합
+가중치를 적용한 분포에서 다음과 같은 전반적 혼합을 적용하여 무작위로 트랜잭션을 선택합니다. 전반적 혼합은 읽기/쓰기 비율이 약 2:1입니다.
 
-| Transaction Type | % of Mix |
+| 트랜잭션 유형 | 혼합 비율 |
 |---|---|
-| Read Lite | 35 |
-| Read Medium | 20 |
-| Read Heavy | 5 |
-| Update Lite | 20 |
-| Update Heavy | 3 |
-| Insert Lite | 3 |
-| Insert Heavy | 2 |
-| Delete | 2 |
-| CPU Heavy | 10 |
+| 적은 읽기 작업 | 35 |
+| 중간 읽기 작업 | 20 |
+| 많은 읽기 작업 | 5 |
+| 적은 업데이트 작업 | 20 |
+| 많은 업데이트 작업 | 3 |
+| 적은 삽입 작업 | 3 |
+| 많은 삽입 작업 | 2 |
+| 삭제 | 2 |
+| 많은 CPU 사용 | 10 |
 
-## <a name="users-and-pacing"></a>Users and pacing
-The benchmark workload is driven from a tool that submits transactions across a set of connections to simulate the behavior of a number of concurrent users. Although all of the connections and transactions are machine generated, for simplicity we refer to these connections as “users.” Although each user operates independently of all other users, all users perform the same cycle of steps shown below:
+## 사용자 및 속도
+벤치마크 워크로드는 연결 집합에 트랜잭션을 제출하는 도구를 기반으로 많은 동시 사용자의 동작을 시뮬레이션합니다. 모든 연결과 트랜잭션이 시스템에서 생성된 것이지만, 간단히 이러한 연결을 "사용자"로 지칭합니다. 각 사용자는 나머지 사용자와 독립적으로 운영하지만, 모든 사용자는 아래와 같이 동일한 단계의 주기를 수행합니다.
 
-1. Establish a database connection.
-2. Repeat until signaled to exit:
-    - Select a transaction at random (from a weighted distribution).
-    - Perform the selected transaction and measure the response time.
-    - Wait for a pacing delay.
-3. Close the database connection.
-4. Exit.
+1. 데이터베이스에 연결합니다.
+2. 끝내라는 메시지가 표시될 때까지 계속 반복합니다.
+	- (가중치가 적용된 분포에서) 무작위로 트랜잭션을 선택합니다.
+	- 선택한 트랜잭션을 수행하고 응답 시간을 측정합니다.
+	- 속도 지연을 기다립니다.
+3. 데이터베이스 연결을 종료합니다.
+4. 끝내기를 클릭합니다.
 
-The pacing delay (in step 2c) is selected at random, but with a distribution that has an average of 1.0 second. Thus each user can, on average, generate at most one transaction per second.
+(2c 단계에서) 무작위이지만 평균 1.0초의 분포가 있는 속도 지연을 선택합니다. 따라서 각 사용자는 평균적으로 1초당 최대 1개의 트랜잭션을 생성할 수 있습니다.
 
-## <a name="scaling-rules"></a>Scaling rules
-The number of users is determined by the database size (in scale-factor units). There is one user for every five scale-factor units. Because of the pacing delay, one user can generate at most one transaction per second, on average.
+## 확장 규칙
+사용자 수는 데이터베이스 크기로 결정됩니다(배율 단위). 5개의 배율 단위당 1명의 사용자가 있습니다. 속도 지연으로 인해 1명의 사용자는 평균적으로 초당 최대 1개의 트랜잭션을 생성할 수 있습니다.
 
-For example, a scale-factor of 500 (SF=500) database will have 100 users and can achieve a maximum rate of 100 TPS. To drive a higher TPS rate requires more users and a larger database.
+예를 들어, 배율이 500(SF=500)인 데이터베이스는 사용자가 100명이며 최대 100TPS의 속도를 달성할 수 있습니다. TPS 속도를 높이려면 더 많은 사용자와 더 큰 데이터베이스가 필요합니다.
 
-The table below shows the number of users actually sustained for each service tier and performance level.
+아래 표는 각 서비스 계층 및 성능 수준에서 실제로 유지된 사용자 수를 보여줍니다.
 
-| Service Tier (Performance Level) | Users | Database Size |
+| 서비스 계층(성능 수준) | 사용자 | 데이터베이스 크기 |
 |---|---|---|
-| Basic | 5 | 720 MB |
-| Standard (S0) | 10 | 1 GB |
-| Standard (S1) | 20 | 2.1 GB |
-| Standard (S2) | 50 | 7.1 GB |
-| Premium (P1) | 100 | 14 GB |
-| Premium (P2) | 200 | 28 GB |
-| Premium (P6/P3) | 800 | 114 GB |
+| Basic | 5 | 720MB |
+| Standard(S0) | 10 | 1 GB |
+| Standard(S1) | 20 | 2\.1GB |
+| Standard(S2) | 50 | 7\.1GB |
+| Premium(P1) | 100 | 14 GB |
+| Premium(P2) | 200 | 28GB |
+| Premium(P6/P3) | 800 | 114GB |
 
-## <a name="measurement-duration"></a>Measurement duration
-A valid benchmark run requires a steady-state measurement duration of at least one hour.
+## 측정 기간
+유효한 벤치마크를 실행하려면 한 시간 이상의 안정적 측정 기간이 필요합니다.
 
-## <a name="metrics"></a>Metrics
-The key metrics in the benchmark are throughput and response time.
+## 메트릭
+벤치마크의 핵심 메트릭은 처리량과 응답 시간입니다.
 
-- Throughput is the essential performance measure in the benchmark. Throughput is reported in transactions per unit-of-time, counting all transaction types.
-- Response time is a measure of performance predictability. The response time constraint varies with class of service, with higher classes of service having a more stringent response time requirement, as shown below.
+- 처리량은 벤치마크의 필수 성능 측정값입니다. 처리량은 모든 트랜잭션 유형을 세는 단위 시간당 트랜잭션 수로 보고됩니다.
+- 응답 시간은 성능 예측 가능성에 대한 측정값입니다. 응답 시간 제약 조건은 서비스 클래스에 따라 달라지며, 다음과 같이 서비스 클래스가 높을수록 응답 시간 요구 사항이 더욱 까다로워집니다.
 
-| Class of Service  | Throughput Measure | Response Time Requirement |
+| 서비스 클래스 | 처리량 측정 | 응답 시간 요구 사항 |
 |---|---|---|
-| Premium | Transactions per second | 95th percentile at 0.5 seconds |
-| Standard | Transactions per minute | 90th percentile at 1.0 seconds |
-| Basic | Transactions per hour | 80th percentile at 2.0 seconds |
+| Premium | 초당 트랜잭션 수 | 0\.5초에서 95 백분위수 |
+| Standard | 분당 트랜잭션 수 | 1\.0초에서 90 백분위수 |
+| Basic | 시간당 트랜잭션 수 | 2\.0초에서 80 백분위수 |
 
-## <a name="conclusion"></a>Conclusion
-The Azure SQL Database Benchmark measures the relative performance of Azure SQL Database running across the range of available service tiers and performance levels. The benchmark exercises a mix of basic database operations which occur most frequently in online transaction processing (OLTP) workloads. By measuring actual performance, the benchmark provides a more meaningful assessment of the impact on throughput of changing the performance level than is possible by just listing the resources provided by each level such as CPU speed, memory size, and IOPS. In the future, we will continue to evolve the benchmark to broaden its scope and expand the data provided.
+## 결론
+Azure SQL 데이터베이스 벤치마크는 사용 가능한 다양한 서비스 계층과 성능 수준에서 실행되는 Azure SQL 데이터베이스의 상대적 성능을 측정합니다. 벤치마크는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하게 발생하는 기본 데이터베이스 작업의 혼합을 실행합니다. 벤치마크는 실제 성능을 측정함으로써, 각 수준에서 단순히 CPU 속도, 메모리 크기, IOPS와 같은 리소스를 나열하는 경우에 비해 성능 수준의 변화가 처리량에 미치는 영향을 더욱 의미 있는 평가를 제공할 수 있습니다. Microsoft는 앞으로 계속해서 벤치마크의 범위를 넓히고 제공하는 데이터를 확대할 것입니다.
 
-## <a name="resources"></a>Resources
-[Introduction to SQL Database](sql-database-technical-overview.md)
+## 리소스
+[SQL 데이터베이스 소개](sql-database-technical-overview.md)
 
-[Service tiers and performance levels](sql-database-service-tiers.md)
+[서비스 계층 및 성능 수준](sql-database-service-tiers.md)
 
-[Performance guidance for single databases](sql-database-performance-guidance.md)
+[단일 데이터베이스의 성능 지침](sql-database-performance-guidance.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

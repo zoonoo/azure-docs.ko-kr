@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL Database Advisor" 
-   description="The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance." 
+   pageTitle="Azure SQL 데이터베이스 관리자" 
+   description="Azure SQL 데이터베이스 관리자는 현재 쿼리 성능을 향상시킬 수 있는 기존 SQL 데이터베이스에 대한 권장 사항을 제공합니다." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,75 +13,67 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/30/2016"
+   ms.date="06/23/2016"
    ms.author="sstein"/>
 
-
-# <a name="sql-database-advisor"></a>SQL Database Advisor
+# SQL 데이터베이스 관리자
 
 > [AZURE.SELECTOR]
-- [SQL Database Advisor Overview](sql-database-advisor.md)
-- [Portal](sql-database-advisor-portal.md)
+- [SQL 데이터베이스 관리자 개요](sql-database-advisor.md)
+- [포털](sql-database-advisor-portal.md)
 
-Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. The SQL Database Advisor provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
+Azure SQL 데이터베이스는 인덱스 만들기 및 삭제, 쿼리 매개 변수화, 스키마 문제 해결에 대한 권장 사항을 제공합니다. SQL 데이터베이스 관리자는 SQL 데이터베이스의 사용 기록을 분석하여 성능을 평가합니다. 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 사용하는 것이 좋습니다.
 
-The following recommendations are available for V12 servers (recommendations are not available for V11 servers). Currently you can set the create and drop index recommendations to be applied automatically, see [Automatic index management](sql-database-advisor-portal.md#enable-automatic-index-management) for details.
+다음 권장 사항은 V12 서버에 대해 사용할 수 있습니다(V11 서버에는 권장 사항을 사용할 수 없습니다). 현재는 만들기 및 삭제 인덱스 권장 사항이 자동으로 적용되도록 설정할 수 있습니다. 자세한 내용은 [자동 인덱스 관리](sql-database-advisor-portal.md#enable-automatic-index-management)를 참조하세요.
 
-## <a name="create-index-recommendations"></a>Create Index recommendations 
+## 인덱스 만들기 권장 사항 
 
-**Create Index** recommendations appear when the SQL Database service detects a missing index that if created, can benefit your databases workload (non-clustered indexes only).
+**인덱스 만들기** 권장 사항은 SQL 데이터베이스 서비스에서 인덱스 누락을 감지하면 나타나며(생성된 경우) 데이터베이스 워크로드에 유용할 수 있습니다(비클러스터형 인덱스만).
 
-## <a name="drop-index-recommendations"></a>Drop Index recommendations
+## 인덱스 삭제 권장 사항
 
-**Drop Index** recommendations appear when the SQL Database service detects duplicate indexes (currently in preview and applies to duplicate indexes only).
+**인덱스 삭제** 권장 사항은 SQL 데이터베이스 서비스에서 중복된 인덱스를 감지하면 나타납니다(현재 미리 보기 상태이며 중복 인덱스에만 적용됨).
 
-## <a name="parameterize-queries-recommendations"></a>Parameterize queries recommendations
+## 쿼리 매개 변수화 권장 사항
 
-**Parameterize queries** recommendations appear when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. This condition opens up an opportunity to apply forced parameterization, which will allow query plans to be cached and reused in the future improving performance and reducing resource usage. 
+**쿼리 매개 변수화** 권장 사항은 SQL 데이터베이스 서비스가 사용자에게 지속적으로 다시 컴파일되지만 동일한 쿼리 실행 계획으로 종료되는 하나 이상의 쿼리가 있음을 감지하면 나타납니다. 그러면 강제 매개 변수화를 적용할 기회가 생기며 이를 통해 쿼리 계획을 캐시하고 다시 사용하여 향후 성능을 향상시키고 리소스 사용량을 줄일 수 있습니다.
 
-Every query issued against SQL Server initially needs to be compiled to generate an execution plan. Each generated plan is added to the plan cache and subsequent executions of the same query can reuse this plan from the cache, eliminating the need for additional compilation. 
+SQL Server에 대해 실행되는 모든 쿼리는 쿼리 실행에 사용되는 실행 계획을 생성하기 위해 초기에 컴파일되어야 합니다. 생성된 각 계획은 계획 캐시에 추가되고, 이후에 동일한 쿼리를 실행할 때 캐시에서 이 계획이 다시 사용될 수 있으므로 추가 컴파일이 필요하지 않게 됩니다.
 
-Applications that send queries, which include non-parameterized values, can lead to a performance overhead, where for every such query with different parameter values the execution plan is compiled again. In many cases the same queries with different parameter values generate the same execution plans, but these plans are still separately added to the plan cache. Recompiling execution plans use database resources, increase the query duration time and overflow the plan cache causing plans to be evicted from the cache. This behavior of SQL Server can be altered by setting the forced parameterization option on the database. 
+매개 변수화되지 않은 값을 포함하는 쿼리를 보내는 응용 프로그램은 성능 오버헤드를 야기할 수 있습니다. 다른 매개 변수 값을 갖는 이러한 모든 쿼리의 경우 실행 계획이 다시 컴파일되기 때문입니다. 많은 경우에 다른 매개 변수 값을 갖는 동일한 쿼리가 동일한 실행 계획을 생성하지만 이러한 계획은 여전히 계획 캐시에 개별적으로 추가됩니다. 이러한 재컴파일에서는 데이터베이스 리소스가 사용되고, 쿼리 지속 시간이 늘어나고, 계획 캐시가 과도하게 증가하여 캐시에서 계획이 제거될 수 있습니다. 이러한 SQL Server 동작은 데이터베이스에 대해 강제 매개 변수화 옵션을 설정하여 변경할 수 있습니다.
 
-To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation was applied). In addition to CPU savings, your query duration decreases for the time spent in compilation. There will also be much less overhead on plan cache, allowing majority of the plans to stay in cache and be reused. You can apply this recommendation quickly and easily by clicking on the **Apply** command. 
+이러한 권장 사항의 영향을 예측할 수 있도록 하기 위해 실제 CPU 사용량과 예상 CPU 사용량 간의 비교 결과가 제공됩니다(권장 사항을 적용했다고 가정). CPU 절약 외에도, 컴파일에 소요된 시간에 대한 쿼리 기간이 감소합니다. 계획 캐시의 오버헤드도 훨씬 덜 발생하므로 대부분의 계획이 캐시에 유지되고 다시 사용될 수 있게 됩니다. "적용" 명령을 클릭하여 이 권장 사항을 쉽고 빠르게 적용할 수 있습니다.
 
-Once you apply this recommendation, it will enable forced parameterization within minutes on your database and it starts the monitoring process which approximately lasts for 24 hours. After this period, you will be able to see the validation report that shows CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation in case a performance regression has been detected.
+이 권장 사항을 적용하면 몇 분 이내에 데이터베이스에 대해 강제 매개 변수화가 설정되며, 모니터링 프로세스가 시작됩니다. 이 프로세스는 약 24시간 동안 진행됩니다. 이 기간 후에는 권장 사항을 적용하기 24시간 전 및 24시간 후의 데이터베이스 CPU 사용량을 보여 주는 유효성 검사 보고서를 볼 수 있습니다. SQL 데이터베이스 관리자는 성능 저하가 감지될 경우 적용된 권장 사항을 자동으로 되돌리는 안전 메커니즘을 제공합니다.
 
-## <a name="fix-schema-issues-recommendations"></a>Fix schema issues recommendations
+## 스키마 문제 해결 권장 사항
 
-**Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors happening on your Azure SQL Database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, etc.) within an hour.
+**스키마 문제 해결** 권장 사항은 SQL 데이터베이스 서비스가 Azure SQL 데이터베이스에서 발생하는 여러 스키마 관련 SQL 오류에서 이상을 확인하면 나타납니다. 이 권장 사항은 데이터베이스에서 한 시간 내에 여러 스키마 관련 오류(잘못된 열 이름, 잘못된 개체 이름 등...)를 발견한 경우에 일반적으로 나타납니다.
 
-“Schema issues” are a class of syntax errors in SQL Server that happen when the definition of the SQL query and the definition of the database schema are not aligned. For example, one of the columns expected by the query may be missing in the target table, or vice versa. 
+"스키마 문제"는 SQL 쿼리 정의와 데이터베이스 스키마 정의가 잘 맞지 않을 때(예를 들어 쿼리에서 예상되는 열 중 하나가 대상 테이블에 없거나 그 반대의 경우 발생) 발생하는 SQL Server의 구문 오류 클래스입니다.
 
-“Fix schema issue” recommendation appears when Azure SQL Database service notices an anomaly in the number of schema-related SQL errors happening on your Azure SQL Database. The following table shows the errors that are related to schema issues:
+“스키마 문제 해결” 권장 사항은 Azure SQL 데이터베이스 서비스가 Azure SQL 데이터베이스에서 발생하는 여러 스키마 관련 SQL 오류에서 이상을 확인하면 나타납니다. 아래 표에는 스키마 문제와 관련된 오류가 나와 있습니다.
 
-|SQL Error Code|Message|
+|SQL 오류 코드|Message|
 |--------------|-------|
-|201|Procedure or function '*' expects parameter '*', which was not supplied.|
-|207|Invalid column name '*'.|
-|208|Invalid object name '*'. |
-|213|Column name or number of supplied values does not match table definition. |
-|2812|Could not find stored procedure '*'. |
-|8144|Procedure or function * has too many arguments specified. |
+|201|프로시저 또는 함수 '*'에서 매개 변수 '*'이(가) 필요하지만 제공되지 않았습니다.|
+|207|잘못된 열 이름: '*'.|
+|208|잘못된 개체 이름: '*'. |
+|213|제공된 값의 개수나 열 이름이 테이블 정의와 일치하지 않습니다. |
+|2812|저장 프로시저를 찾을 수 없습니다. '*'. |
+|8144|프로시저 또는 함수 *에 너무 많은 인수가 지정되었습니다. |
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor continues to monitor and provide recommendations that can potentially improve your database's performance. 
+권장 사항을 모니터링하고 개선된 성능을 계속 적용합니다. 데이터베이스 워크로드는 동적 이며 지속적으로 변경합니다. SQL 데이터베이스 관리자는 데이터베이스 성능을 잠재적으로 향상시킬 권장 사항을 계속 제공하고 모니터링할 것입니다.
 
- - See [SQL Database Advisor in the Azure portal](sql-database-advisor-portal.md) for steps on how to use SQL Database Advisor in the Azure portal.
- - See [Query Performance Insights](sql-database-query-performance.md) to learn about and view the performance impact of your top queries.
+ - Azure 포털에서 SQL 데이터베이스 관리자를 사용하는 방법에 대한 단계는 [Azure 포털의 SQL 데이터베이스 관리자](sql-database-advisor-portal.md)를 참조하세요.
+ - 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](sql-database-query-performance.md)를 참조하세요.
 
-## <a name="additional-resources"></a>Additional resources
+## 추가 리소스
 
-- [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+- [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 - [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-- [Role-based access control](../active-directory/role-based-access-control-configure.md)
+- [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

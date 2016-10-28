@@ -1,6 +1,6 @@
 <properties
- pageTitle="Manage HPC Pack cluster compute nodes | Microsoft Azure"
- description="Learn about PowerShell script tools to add, remove, start, and stop HPC Pack cluster compute nodes in Azure"
+ pageTitle="HPC 팩 클러스터 계산 노드 관리 | Microsoft Azure"
+ description="Azure에서 HPC 팩 클러스터 계산 노드를 추가, 제거, 시작, 중지하는 PowerShell 스크립트 도구에 대해 알아보세요."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,23 +16,22 @@ ms.service="virtual-machines-windows"
  ms.date="07/22/2016"
  ms.author="danlep"/>
 
+# Azure의 HPC 팩 클러스터에 있는 계산 노드의 수 및 가용성 관리
 
-# <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
-
-If you created an HPC Pack cluster in Azure VMs, you might want ways to easily add, remove, start (provision), or stop (deprovision) a number of compute node VMs in the cluster. To do these tasks, run Azure PowerShell scripts that are installed on the head node VM. These scripts help you control the number and availability of your HPC Pack cluster resources so you can control costs.
+Azure VM에 HPC 팩 클러스터를 만든 경우 클러스터에서 여러 계산 노드 VM을 손쉽게 추가, 제거, 시작(프로비전), 중지(프로비전 해제)할 수 있어야 합니다. 이러한 작업을 하려면 헤드 노드 VM에 설치된 Azure PowerShell 스크립트를 실행합니다. 이러한 스크립트로 HPC 팩 클러스터 리소스의 수와 가용성을 관리하여 비용을 관리할 수 있습니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-## <a name="prerequisites"></a>Prerequisites
+## 필수 조건
 
-* **HPC Pack cluster in Azure VMs** - Create an HPC Pack cluster in the classic deployment model by using at least HPC Pack 2012 R2 Update 1. For example, you can automate the deployment by using the current HPC Pack VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+* **Azure VM의 HPC Pack 클러스터** - HPC Pack 2012 R2 업데이트 1 이상을 사용하여 클래식 배포 모델로 HPC Pack 클러스터를 만듭니다. 예를 들어 Azure 마켓플레이스 및 Azure PowerShell 스크립트에서 현재 HPC Pack VM 이미지를 사용하여 배포를 자동화할 수 있습니다. 자세한 내용 및 필수 구성 요소는 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
 
-    After deployment, find the node management scripts in the %CCP\_HOME%bin folder on the head node. You must run each of the scripts as an administrator.
+    배포 후 헤드 노드의 %CCP\_HOME%bin 폴더에서 노드 관리 스크립트를 찾습니다. 각 스크립트는 관리자 권한으로 실행해야 합니다.
 
-* **Azure publish settings file or management certificate** - You need to do one of the following on the head node:
+* **Azure 게시 설정 파일 또는 관리 인증서** - 헤드 노드에서 다음 중 하나를 수행해야 합니다.
 
-    * **Import the Azure publish settings file**. To do this, run the following Azure PowerShell cmdlets on the head node:
+    * **Azure 게시 설정 파일을 가져옵니다**. 이렇게 하려면 헤드 노드에서 다음 Azure PowerShell cmdlet을 실행합니다.
 
     ```
     Get-AzurePublishSettingsFile
@@ -40,48 +39,48 @@ If you created an HPC Pack cluster in Azure VMs, you might want ways to easily a
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
 
-    * **Configure the Azure management certificate on the head node**. If you have the .cer file, import it in the CurrentUser\My certificate store and then run the following Azure PowerShell cmdlet for your Azure environment (either AzureCloud or AzureChinaCloud):
+    * **헤드 노드에서 Azure 관리 인증서를 구성합니다**. .cer 파일이 있는 경우 CurrentUser\\My certificate 저장소로 가져온 다음 Azure 환경(AzureCloud 또는 AzureChinaCloud)에 대해 다음 Azure PowerShell cmdlet을 실행합니다.
 
     ```
-    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My\<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
+    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
 
-## <a name="add-compute-node-vms"></a>Add compute node VMs
+## 계산 노드 VM 추가
 
-Add compute nodes with the **Add-HpcIaaSNode.ps1** script.
+**Add-HpcIaaSNode.ps1** 스크립트를 사용하여 계산 노드를 추가합니다.
 
-### <a name="syntax"></a>Syntax
+### 구문
 ```
 Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
  [-Quantity] <Int32> [-InstanceSize] <String> [-DomainUserName] <String> [[-DomainUserPassword] <String>]
  [[-NodeNameSeries] <String>] [<CommonParameters>]
 
 ```
-### <a name="parameters"></a>Parameters
+### 매개 변수
 
-* **ServiceName** - Name of the cloud service that new compute node VMs will be added to.
+* **ServiceName** - 새 계산 노드 VM이 추가될 클라우드 서비스의 이름입니다.
 
-* **ImageName** - Azure VM image name, which can be obtained through the Azure classic portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
+* **ImageName** - Azure VM 이미지 이름으로, Azure 클래식 포털 또는 Azure PowerShell cmdlet **Get-AzureVMImage**를 통해 가져올 수 있습니다. 이 이미지는 다음 요구 사항을 충족해야 합니다.
 
-    1. A Windows operating system must be installed.
+    1. Windows 운영 체제를 설치해야 합니다.
 
-    2. HPC Pack must be installed in the compute node role.
+    2. HPC 팩을 계산 노드 역할로 설치해야 합니다.
 
-    3. The image must be a private image in the User category, not a public Azure VM image.
+    3. 이 이미지는 공용 Azure VM 이미지가 아닌 사용자 범주의 개인 이미지여야 합니다.
 
-* **Quantity** - Number of compute node VMs to be added.
+* **수량** - 추가할 계산 노드 VM의 수입니다.
 
-* **InstanceSize** - Size of the compute node VMs.
+* **InstanceSize** - 계산 노드 VM의 크기입니다.
 
-* **DomainUserName** - Domain user name, which will be used to join the new VMs to the domain.
+* **DomainUserName** - 도메인 사용자 이름으로 새 VM을 도메인에 연결하는 데 사용합니다.
 
-* **DomainUserPassword** - Password of the domain user.
+* **DomainUserPassword** - 도메인 사용자의 암호입니다.
 
-* **NodeNameSeries** (optional) - Naming pattern for the compute nodes. The format must be &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%. For example, MyCN%10% means a series of the compute node names starting from MyCN11. If not specified, the script uses the configured node naming series in the HPC cluster.
+* **NodeNameSeries**(선택 사항) - 계산 노드의 명명 패턴입니다. 형식은 &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%여야 합니다. 예를 들어 MyCN%10%은 MyCN11부터 시작하는 계산 노드 이름의 시리즈를 의미합니다. 이 매개 변수를 지정하지 않을 경우 스크립트는 HPC 클러스터에서 구성된 노드 명명 시리즈를 사용합니다.
 
-### <a name="example"></a>Example
+### 예
 
-The following example adds 20 size Large compute node VMs in the cloud service *hpcservice1*, based on the VM image *hpccnimage1*.
+다음 예제는 VM 이미지인 *hpccnimage1*을 기준으로 클라우드 서비스 *hpcservice1*에 20개의 대형 크기 컴퓨터 노드 VM을 추가합니다.
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -90,11 +89,11 @@ Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
 ```
 
 
-## <a name="remove-compute-node-vms"></a>Remove compute node VMs
+## 계산 노드 VM 제거
 
-Remove compute nodes with the **Remove-HpcIaaSNode.ps1** script.
+**Remove-HpcIaaSNode.ps1** 스크립트를 사용하여 계산 노드를 제거합니다.
 
-### <a name="syntax"></a>Syntax
+### 구문
 
 ```
 Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -102,58 +101,58 @@ Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confir
 Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="parameters"></a>Parameters
+### 매개 변수
 
-* **Name** - Names of cluster nodes to be removed. Wildcards are supported. The parameter set name is Name. You can't specify both the **Name** and **Node** parameters.
+* **Name** - 제거할 클러스터 노드의 이름. 와일드카드가 지원됩니다. 매개 변수 설정 이름은 Name입니다. **Name** 및 **Node** 매개 변수를 모두 지정할 수 없습니다.
 
-* **Node** - The HpcNode object for the nodes to be removed, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You can't specify both the **Name** and **Node** parameters.
+* **Node** - 제거할 노드의 HpcNode 개체로 HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx)를 통해 얻을 수 있습니다. 매개 변수 설정 이름은 Node입니다. **Name** 및 **Node** 매개 변수를 모두 지정할 수 없습니다.
 
-* **DeleteVHD** (optional) - Setting to delete the associated disks for the VMs that are removed.
+* **DeleteVHD**(선택 사항) - 제거된 VM의 관련 디스크를 삭제하는 설정입니다.
 
-* **Force** (optional) - Setting to force HPC nodes offline before removing them.
+* **강제**(선택 사항) - HPC 노드를 제거하기 전에 HPC 노드를 오프라인으로 강제 전환하는 설정입니다.
 
-* **Confirm** (optional) - Prompt for confirmation before executing the command.
+* **확인**(선택 사항) - 명령을 실행하기 전 확인 메시지를 표시합니다.
 
-* **WhatIf** - Setting to describe what would happen if you executed the command without actually executing the command.
+* **WhatIf** - 실제로 명령을 실행하지 않고 명령을 실행할 경우에 상황에 대해 설명하는 설정입니다.
 
-### <a name="example"></a>Example
+### 예
 
-The following example forces offline nodes with names beginning *HPCNode-CN-* and them removes the nodes and their associated disks.
+다음 예제는 이름이 *HPCNode-CN-*으로 시작하는 노드를 오프라인으로 강제 전환한 다음 노드와 관련 디스크를 제거합니다.
 
 ```
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
 ```
 
-## <a name="start-compute-node-vms"></a>Start compute node VMs
+## 계산 노드 VM 시작
 
-Start compute nodes with the **Start-HpcIaaSNode.ps1** script.
+**Start-HpcIaaSNode.ps1** 스크립트를 사용하여 계산 노드를 시작합니다.
 
-### <a name="syntax"></a>Syntax
+### 구문
 
 ```
 Start-HPCIaaSNode.ps1 -Name <String[]> [<CommonParameters>]
 
 Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
-### <a name="parameters"></a>Parameters
+### 매개 변수
 
-* **Name** - Names of the cluster nodes to be started. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
+* **Name** - 시작할 클러스터 노드의 이름 와일드카드가 지원됩니다. 매개 변수 설정 이름은 Name입니다. **Name** 및 **Node** 매개 변수를 모두 지정할 수 없습니다.
 
-* **Node**- The HpcNode object for the nodes to be started, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
+* **Node** - 시작할 노드의 HpcNode 개체로 HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx)를 통해 얻을 수 있습니다. 매개 변수 설정 이름은 Node입니다. **Name** 및 **Node** 매개 변수를 모두 지정할 수 없습니다.
 
-### <a name="example"></a>Example
+### 예
 
-The following example starts nodes with names beginning *HPCNode-CN-*.
+다음 예제는 이름이 *HPCNode-CN-*로 시작하는 노드를 시작합니다.
 
 ```
 Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 ```
 
-## <a name="stop-compute-node-vms"></a>Stop compute node VMs
+## 계산 노드 VM 중지
 
-Stop compute nodes with the **Stop-HpcIaaSNode.ps1** script.
+**Stop-HpcIaaSNode.ps1** 스크립트를 사용하여 컴퓨터 노드를 중지합니다.
 
-### <a name="syntax"></a>Syntax
+### 구문
 
 ```
 Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
@@ -161,27 +160,23 @@ Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
 Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 ```
 
-### <a name="parameters"></a>Parameters
+### 매개 변수
 
 
-* **Name**- Names of the cluster nodes to be stopped. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
+* **Name** - 중지할 클러스터 노드의 이름 와일드카드가 지원됩니다. 매개 변수 설정 이름은 Name입니다. **Name** 및 **Node** 매개 변수를 모두 지정할 수 없습니다.
 
-* **Node** - The HpcNode object for the nodes to be stopped, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
+* **Node** - 중지할 노드의 HpcNode 개체로 HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx)를 통해 얻을 수 있습니다. 매개 변수 설정 이름은 Node입니다. **Name** 및 **Node** 매개 변수를 모두 지정할 수 없습니다.
 
-* **Force** (optional) - Setting to force HPC nodes offline before stopping them.
+* **Force**(선택 사항) - HPC 노드를 중지하기 전에 HPC 노드를 오프라인으로 강제 전환하는 설정입니다.
 
-### <a name="example"></a>Example
+### 예
 
-The following example forces offline nodes with names beginning *HPCNode-CN-* and then stops the nodes.
+다음 예제는 이름이 *HPCNode-CN-*로 시작하는 노드를 오프라인으로 강제 전환한 다음 노드를 중지합니다.
 
 Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-* If you want a way to automatically grow or shrink the cluster nodes according to the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* 클러스터 노드를 현재 클러스터 작업의 워크로드에 따라 자동으로 증가 또는 축소하려는 경우 [클러스터 워크로드에 따라 Azure에서 HPC Pack 클러스터를 자동으로 증가 및 축소](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

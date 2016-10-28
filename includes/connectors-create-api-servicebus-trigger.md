@@ -1,17 +1,14 @@
-Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
+새 항목이 서비스 버스 큐로 보내질 때 **서비스 버스 - 큐에 메시지가 수신될 때** 트리거를 사용하여 논리 앱 워크플로를 시작하는 방법은 다음과 같습니다.
 
->[AZURE.NOTE]You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
+>[AZURE.NOTE]서비스 버스에 대한 연결을 아직 만들지 않은 경우 서비스 버스 연결 문자열을 사용하여 로그인하라는 메시지가 표시됩니다.
 
-1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
-![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-- The **When a message is received in a queue** dialog box is displayed.  
-![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-- Enter the name of the Service Bus queue you would like the trigger to monitor.   
-![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. 논리 앱 디자이너에서 검색 상자에 *서비스 버스* 를 입력한 후 **서비스 버스 - 큐에 메시지가 수신될 때** 트리거를 선택합니다.  
+![서비스 버스 트리거 이미지 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+- **큐에 메시지가 수신될 때** 컨트롤이 표시됩니다.  
+![서비스 버스 트리거 이미지 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+- 트리거가 모니터링할 서비스 버스 큐의 이름을 입력합니다.  
+![서비스 버스 트리거 이미지 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
+이 시점에서 논리 앱은 트리거로 구성되었습니다. 선택한 큐에 새 항목이 수신될 때 트리거는 워크플로의 다른 트리거 및 작업을 실행하기 시작합니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

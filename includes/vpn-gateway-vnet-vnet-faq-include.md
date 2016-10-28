@@ -1,25 +1,23 @@
-- The virtual networks can be in the same or different Azure regions (locations).
+- 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
 
-- A cloud service or a load balancing endpoint CANNOT span across virtual networks, even if they are connected together.
+- 클라우드 서비스 또는 부하 분산 끝점은 연결되어 있더라도 여러 가상 네트워크에 분산될 수 없습니다.
 
-- Connecting multiple Azure virtual networks together doesn't require any on-premises VPN gateways unless cross-premises connectivity is required.
+- 크로스-프레미스 연결이 필요한 경우가 아니면 여러 Azure 가상 네트워크를 연결할 때 온-프레미스 VPN 게이트웨이는 필요하지 않습니다.
 
-- VNet-to-VNet supports connecting virtual networks. It does not support connecting virtual machines or cloud services NOT in a virtual network.
+- VNet 간 연결은 가상 네트워크 연결을 지원합니다. 그러나 가상 네트워크에 포함되어 있지 않은 가상 컴퓨터 또는 클라우드 서비스 연결은 지원하지 않습니다.
 
-- VNet-to-VNet requires Azure VPN gateways with RouteBased (previously called Dynamic Routing) VPN types. 
+- VNet 간 연결에는 RouteBased(이전에는 동적 라우팅으로 지칭) VPN 유형의 Azure VPN 게이트웨이가 필요합니다.
 
-- Virtual network connectivity can be used simultaneously with multi-site VPNs, with a maximum of 10 (Default/Standard Gateways) or 30 (High Performance Gateways) VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks or on-premises sites.
+- 가상 네트워크 연결을 다중 사이트 VPN과 함께 사용할 수 있으며 가상 네트워크 VPN 게이트웨이당 최대 10개(기본/표준 게이트웨이) 또는 30개(고성능 게이트웨이)의 VPN 터널을 다른 가상 네트워크 또는 온-프레미스 사이트에 연결할 수 있습니다.
 
-- The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of VNet-to-VNet connections to fail.
+- 가상 네트워크 및 온-프레미스 로컬 네트워크 사이트의 주소 공간이 겹쳐서는 안 됩니다. 주소 공간이 겹치면 VNet 간 연결 만들기가 실패합니다.
 
-- Redundant tunnels between a pair of virtual networks are not supported.
+- 가상 네트워크 한 쌍 간의 중복 터널은 지원되지 않습니다.
 
-- All VPN tunnels of the virtual network share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
+- 가상 네트워크의 모든 VPN 터널은 Azure VPN 게이트웨이의 사용 가능한 대역폭 및 Azure의 동일 VPN 게이트웨이 작동 시간 SLA를 공유합니다.
 
-- VNet-to-VNet traffic travels across the Microsoft Network, not the Internet.
+- VNet 간 트래픽은 인터넷이 아닌 Microsoft 네트워크를 통해 전달됩니다.
 
-- VNet-to-VNet traffic within the same region is free for both directions; cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Please refer to the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details.
+- 동일한 지역 내의 VNet 간 트래픽은 양방향 모두 무료입니다. 지역 VNet 간 송신 크로스 트래픽은 소스 지역을 기반으로 아웃바운드 VNet 간 데이터 전송 요금으로 청구됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/vpn-gateway/)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

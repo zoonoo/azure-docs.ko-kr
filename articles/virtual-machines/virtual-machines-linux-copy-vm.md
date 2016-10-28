@@ -1,104 +1,103 @@
 <properties
-    pageTitle="Create a copy of your Azure Linux VM | Microsoft Azure"
-    description="Learn how to create a copy of your Azure Linux virtual machine in the Resource Manager deployment model"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    tags="azure-resource-manager"/>
+	pageTitle="Azure Linux VM 복사본 만들기 | Microsoft Azure"
+	description="Resource Manager 배포 모델에서 Azure Linux 가상 컴퓨터의 복사본을 만드는 방법을 알아봅니다."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="cynthn"/>
+
+# Azure에서 실행되는 Linux 가상 컴퓨터의 복사본 만들기
 
 
-# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure"></a>Create a copy of a Linux virtual machine running on Azure
+이 문서는 Resource Manager 배포 모델에서 Linux를 실행하는 Azure VM(가상 컴퓨터)의 복사본을 만드는 방법에 대해 설명합니다. 먼저 운영 체제와 데이터 디스크를 새 컨테이너로 복사한 다음 네트워크 리소스를 설정하고 새 가상 컴퓨터를 만듭니다.
+
+[사용자 지정 디스크 이미지에서 VM 업로드 및 만들](virtual-machines-linux-upload-vhd.md) 수도 있습니다.
 
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the new virtual machine.
+## 시작하기 전에
 
-You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md).
+다음 단계를 시작하기 전에 다음 필수 조건을 충족하는지 확인합니다.
 
+- 컴퓨터에 [Azure CLI](../xplat-cli-install.md)를 다운로드하여 설치했습니다.
 
-## <a name="before-you-begin"></a>Before you begin
+- 또한 기존 Azure Linux VM에 대한 다음과 같은 몇 가지 정보가 필요합니다.
 
-Ensure that you meet the following prerequisites before you start the steps:
-
-- You have the [Azure CLI] (../xplat-cli-install.md) downloaded and installed on your machine. 
-
-- You also need some information about your existing Azure Linux VM:
-
-| Source VM information | Where to get it |
+| 소스 VM 정보 | 가져올 수 있는 위치 |
 |------------|-----------------|
-| VM name | `azure vm list` |
-| Resource Group name | `azure vm list` |
-| Location | `azure vm list` |
-| Storage Account name | `azure storage account list -g <resourceGroup>` |
-| Container name | `azure storage container list -a <sourcestorageaccountname>` |
-| Source VM VHD file name | `azure storage blob list --container <containerName>` |
+| VM 이름 | `azure vm list` |
+| 리소스 그룹 이름 | `azure vm list` |
+| 위치 | `azure vm list` |
+| 저장소 계정 이름 | `azure storage account list -g <resourceGroup>` |
+| 컨테이너 이름 | `azure storage container list -a <sourcestorageaccountname>` |
+| 소스 VM VHD 파일 이름 | `azure storage blob list --container <containerName>` |
 
 
 
-- You will need to make some choices about your new VM:    <br> -Container name    <br> -VM name    <br> -VM size    <br> -vNet name    <br> -SubNet name    <br> -IP Name    <br> -NIC name
-    
+- 새 VM에 대해 다음과 같은 몇 가지 선택 항목을 선택해야 합니다. <br> -컨테이너 이름 <br> -VM 이름 <br> -VM 크기 <br> -vNet 이름 <br> -서브넷 이름 <br> -IP 이름 <br> -NIC 이름
+	
 
-## <a name="login-and-set-your-subscription"></a>Login and set your subscription
+## 로그인 및 구독 설정
 
-1. Login to the CLI.
-        
-        azure login
+1. CLI에 로그인합니다.
+		
+		azure login
 
-2. Make sure you are in Resource Manager mode.
-    
-        azure config mode arm
+2. Resource Manager 모드에 있는지 확인합니다.
+	
+		azure config mode arm
 
-3. Set the correct subscription. You can use 'azure account list' to see all of your subscriptions.
+3. 올바른 구독을 설정합니다. 'azure account list'를 사용하여 모든 구독을 볼 수 있습니다.
 
-        azure account set <SubscriptionId>
-
-
-
-## <a name="stop-the-vm"></a>Stop the VM 
-
-Stop and deallocate the source VM. You can use 'azure vm list' to get a list of all of the VMs in your subscription and their resource group names.
-    
-        azure vm stop <ResourceGroup> <VmName>
-        azure vm deallocate <ResourceGroup> <VmName>
+		azure account set <SubscriptionId>
 
 
 
+## VM을 중지합니다. 
 
-## <a name="copy-the-vhd"></a>Copy the VHD
-
-
-You can copy the VHD from the source storage to the destination using the `azure storage blob copy start`. In this example, we are going to copy the VHD to the same storage account, but a different container.
-
-To copy the VHD to another container in the same storage account, type:
-
-        azure storage blob copy start https://<sourceStorageAccountName>.blob.core.windows.net:8080/<sourceContainerName>/<SourceVHDFileName.vhd> <newcontainerName>
-        
-
-## <a name="set-up-the-virtual-network-for-your-new-vm"></a>Set up the virtual network for your new VM
-
-Set up a virtual network and NIC for your new VM. 
-
-    azure network vnet create <ResourceGroupName> <VnetName> -l <Location>
-
-    azure network vnet subnet create -a <address.prefix.in.CIDR/format> <ResourceGroupName> <VnetName> <SubnetName>
-
-    azure network public-ip create <ResourceGroupName> <IpName> -l <yourLocation>
-
-    azure network nic create <ResourceGroupName> <NicName> -k <SubnetName> -m <VnetName> -p <IpName> -l <Location>
+중지하고 소스 VM 할당을 취소합니다. 'azure vm list'를 사용하여 구독의 모든 VM 목록과 해당 리소스 그룹 이름을 가져올 수 있습니다.
+	
+		azure vm stop <ResourceGroup> <VmName>
+		azure vm deallocate <ResourceGroup> <VmName>
 
 
-## <a name="create-the-new-vm"></a>Create the new VM 
 
-You can now create a VM from your uploaded virtual disk [using a resource manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) or through the CLI by specifying the URI to your copied disk by typing:
+
+## VHD 복사
+
+
+`azure storage blob copy start` 사용하여 소스 저장소에서 대상으로 VHD를 복사할 수 있습니다. 이 예제에서는 VHD를 동일한 저장소 계정의 다른 컨테이너에 VHD를 복사하게 됩니다.
+
+동일한 저장소 계정의 다른 컨테이너에 VHD를 복사하려면 다음을 입력합니다.
+
+		azure storage blob copy start https://<sourceStorageAccountName>.blob.core.windows.net:8080/<sourceContainerName>/<SourceVHDFileName.vhd> <newcontainerName>
+		
+
+## 새 VM에 대한 가상 네트워크 설정
+
+새 VM에 대한 가상 네트워크 및 NIC를 설정합니다.
+
+	azure network vnet create <ResourceGroupName> <VnetName> -l <Location>
+
+	azure network vnet subnet create -a <address.prefix.in.CIDR/format> <ResourceGroupName> <VnetName> <SubnetName>
+
+	azure network public-ip create <ResourceGroupName> <IpName> -l <yourLocation>
+
+	azure network nic create <ResourceGroupName> <NicName> -k <SubnetName> -m <VnetName> -p <IpName> -l <Location>
+
+
+## 새 VM 만들기 
+
+이제 [Resource Manager 템플릿을 사용하거나](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) 다음을 입력하여 복사한 디스크에 대한 URI을 지정하는 방식으로 CLI를 통해 업로드된 가상 디스크에서 VM을 만들 수 있습니다.
 
 ```bash
 azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <newNicName> -z "<vmSize>" -d https://<storageAccountName>.blob.core.windows.net/<containerName/<fileName.vhd> -y Linux
@@ -106,12 +105,8 @@ azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <newNicName
 
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-To learn how to use Azure CLI to manage your new virtual machine, see [Azure CLI commands for the Azure Resource Manager](azure-cli-arm-commands.md).
+Azure CLI를 사용하여 새 가상 컴퓨터를 관리하는 방법을 알아보려면 [Azure Resource Manager의 Azure CLI 명령](azure-cli-arm-commands.md)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

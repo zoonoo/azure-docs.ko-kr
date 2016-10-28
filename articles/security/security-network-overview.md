@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Network Security Overview | Microsoft Azure"
-   description=" This article makes it easy for you to understand what Microsoft Azure has to offer in the area of network security. We provide basic explanations for core network security concepts and requirements and information on what Azure has to offer in each of these areas. "
+   pageTitle="Azure 네트워크 보안 개요 | Microsoft Azure"
+   description=" 이 문서를 통해 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 훨씬 쉽게 이해할 수 있습니다. Azure에서 이러한 각 영역에서 제공해야 하는 사항에 대한 정보는 물론, 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공합니다. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,259 +16,253 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
+# Azure 네트워크 보안 개요
 
-# <a name="azure-network-security-overview"></a>Azure Network Security Overview
+Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
 
-Microsoft Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the Internet and Azure.
+이 문서의 목표는 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 사용자가 훨씬 쉽게 이해할 수 있게 하는 것입니다. 여기서 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공할 뿐만 아니라 이러한 각 영역에서 Azure가 제공해야 하는 것에 대한 정보도 제공합니다. 관심 있는 영역에 대해 더 심층적으로 이해할 수 있도록 다른 콘텐츠에 대한 수많은 링크가 있습니다.
 
-The goal of this article is to make it easier for you to understand what Microsoft Azure has to offer in the area of network security. Here we provide basic explanations for core network security concepts and requirements. We also provide you information on what Azure has to offer in each of these areas. There are numerous links to other content that will enable you to get a deeper understanding for the areas in which you’re interested.
+이 Azure 네트워크 보안 개요 문서는 다음 사항에 대해 자세히 다룹니다.
 
-This Azure Network Security Overview article will focus on the following:
-
-- Azure networking
-- Network access control
-- Secure remote access and cross-premises connectivity
+- Azure 네트워킹
+- 네트워크 액세스 제어
+- 안전한 원격 액세스 및 크로스-프레미스 연결
 - Availability
-- Logging
-- Name resolution
-- DMZ architecture
-- Azure Security Center
+- 로깅
+- 이름 확인
+- DMZ 아키텍처
+- Azure 보안 센터
 
-## <a name="azure-networking"></a>Azure Networking
+## Azure 네트워킹
 
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
+가상 컴퓨터는 네트워크 연결이 필요합니다. 이 요구 사항을 지원하기 위해 Azure에서는 가상 컴퓨터를 Azure 가상 네트워크에 연결해야 합니다. Azure 가상 네트워크는 물리적 Azure 네트워크 패브릭 위에 구축되는 논리적 구조체입니다. 각 논리적 Azure 가상 네트워크는 다른 모든 Azure 가상 네트워크와 격리됩니다. 이 기능을 통해 사용자 배포의 네트워크 트래픽이 다른 Microsoft Azure 고객에게 액세스되지 않게 해줍니다.
 
-Learn more:
+자세한 정보:
 
-- [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
+- [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
 
-## <a name="network-access-control"></a>Network Access Control
-Network access control is the act of limiting connectivity to and from specific devices or subnets within an Azure Virtual Network. The goal of network access control is to make sure that your virtual machines and services are accessible to only users and devices to which you want them accessible. Access controls are based on allow or deny decisions for connections to and from your virtual machine or service.
+## 네트워크 액세스 제어
+네트워크 액세스 제어는 Azure 가상 네트워크 내의 특정 장치 또는 서브넷 간 연결을 제한하는 행위입니다. 네트워크 액세스 제어의 목표는 가상 컴퓨터 및 서비스가 사용자가 액세스하길 원하는 사용자 및 장치에만 액세스 가능하도록 하는 것입니다. 액세스 제어는 가상 컴퓨터 또는 서비스 간 연결에 대한 허용 또는 거부 결정에 기반합니다.
 
-Azure supports several types of network access control. These include:
+Azure는 다양한 유형의 네트워크 액세스 제어를 지원합니다. 내용은 다음과 같습니다.
 
-- Network layer control
-- Route control and forced tunneling
-- Virtual network security appliances
+- 네트워크 계층 제어
+- 경로 제어 및 터널링 적용
+- 가상 네트워크 보안 어플라이언스
 
-### <a name="network-layer-control"></a>Network Layer Control
-Any secure deployment requires some measure of network access control. The goal of network access control is to make sure that your virtual machines and the network services that run on those virtual machines can communicate only with other networked devices that they need to communicate with and all other connection attempts are blocked.
+### 네트워크 계층 제어
+모든 보안 배포에는 몇 가지 네트워크 액세스 제어가 필요합니다. 네트워크 액세스 제어의 목표는 사용자의 가상 컴퓨터와 이러한 가상 컴퓨터에서 실행되는 네트워크 서비스가 통신해야 하는 다른 네트워킹 장치와만 통신하고 모든 다른 연결 시도는 차단되도록 하는 것입니다.
 
-If you need basic network level access control (based on IP address and the TCP or UDP protocols), then you can use Network Security Groups. A Network Security Group (NSG) is a basic stateful packet filtering firewall and it enables you to control access based on a [5-tuple](https://www.techopedia.com/definition/28190/5-tuple). NSGs do not provide application layer inspection or authenticated access controls.
+기본적인 네트워크 수준 액세스 제어(IP 주소 및 TCP 또는 UDP 프로토콜 기반)가 필요하다면 네트워크 보안 그룹을 사용할 수 있습니다. NSG(네트워크 보안 그룹)은 기본적인 상태 저장 패킷 필터링 방화벽으로서, [5개 튜플](https://www.techopedia.com/definition/28190/5-tuple)에 기반하여 액세스를 제어할 수 있습니다. NSG는 응용 프로그램 계층 검사 또는 인증된 액세스 제어를 제공하지 않습니다.
 
-Learn more:
+자세한 정보:
 
-- [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+- [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
 
-### <a name="route-control-and-forced-tunneling"></a>Route Control and Forced Tunneling
-The ability to control routing behavior on your Azure Virtual Networks is a critical network security and access control capability. If routing is configured incorrectly, applications and services hosted on your virtual machine may connect to devices you don’t want them to connect to, including devices owned and operated by potential attackers.
+### 경로 제어 및 터널링 적용
+Azure 가상 네트워크에 라우팅 동작을 제어하는 기능은 중요한 네트워크 보안 및 액세스 제어 기능입니다. 라우팅이 잘못 구성된 경우 가상 컴퓨터에서 호스팅하는 응용 프로그램 및 서비스가 잠재적 공격자가 소유 및 작동하는 장치를 포함해 사용자가 연결하길 원하지 않는 장치에 연결할 수 있습니다.
 
-Azure networking supports the ability to customize the routing behavior for network traffic on your Azure Virtual Networks. This enables you to alter the default routing table entries in your Azure Virtual Network. Control of routing behavior helps you make sure that all traffic from a certain device or group of devices enters or leaves your Azure Virtual Network through a specific location.
+Azure 네트워킹은 Azure 가상 네트워크의 네트워크 트래픽에 대한 라우팅 동작을 사용자 지정할 수 있는 기능을 지원하여 사용자는 Azure 가상 네트워크에서 기본 라우팅 테이블 항목을 변경할 수 있습니다. 라우팅 동작을 제어하면 특정 장치 또는 장치 그룹의 모든 트래픽이 특정 위치를 통해 Azure 가상 네트워크에 진입하거나 떠납니다.
 
-For example, you might have a virtual network security appliance on your Azure Virtual Network. You want to make sure that all traffic to and from your Azure Virtual Network goes through that virtual security appliance. You can do this by configuring [User Defined Routes](../virtual-network/virtual-networks-udr-overview.md) in Azure.
+예를 들어, Azure 가상 네트워크에 가상 네트워크 보안 어플라이언스가 있을 수 있습니다. Azure 가상 네트워크에 들어 오고 나가는 모든 트래픽이 가상 보안 어플라이언스를 거치게 할 수 있습니다. Azure에서 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)를 구성하면 이 작업을 수행할 수 있습니다.
 
-[Forced tunneling](https://www.petri.com/azure-forced-tunneling) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the Internet. Note that this is different from accepting incoming connections and then responding to them. Front-end web servers need to respond to request from Internet hosts, and so Internet-sourced traffic is allowed inbound to these web servers and the web servers are allowed to respond.
+[터널링 적용](https://www.petri.com/azure-forced-tunneling)은 사용자의 서비스가 인터넷에서 장치에 대한 연결을 개시하지 못하게 하도록 사용할 수 있는 메커니즘입니다. 수신 연결을 수락한 다음 응답하는 것과는 다릅니다. 프런트 엔드 웹 서버는 인터넷 호스트의 요청에 응답해야 하므로, 인터넷 출처의 트래픽은 이러한 웹 서버에 대한 인바운드가 허용되며 웹 서버는 응답할 수 있습니다.
 
-What you don’t want to allow is a front-end web server to initiate an outbound request. Such requests may represent a security risk because these connections could be used to download malware. Even if you do wish these front-end servers to initiate outbound requests to the Internet, you might want to force them to go through your on-premises web proxies so that you can take advantage of URL filtering and logging.
+허용하지 않으려는 것은 프런트 엔드 웹 서버가 아웃바운드 요청을 개시하는 것입니다. 이러한 연결이 맬웨어 다운로드에 사용될 수 있으므로 위와 같은 요청은 보안 위험을 나타낼 수 있습니다. 이러한 프런트 엔드 서버가 인터넷에 아웃바운드 요청을 개시하길 원하는 경우에도 URL 필터링 및 로깅을 활용할 수 있도록 온-프레미스 웹 프록시를 거치게 할 수 있습니다.
 
-Instead, you would want to use forced tunneling to prevent this. When you enable forced tunneling, all connections to the Internet are forced through your on-premises gateway. You can configure forced tunneling by taking advantage of User Defined Routes.
+대신, 이를 방지하기 위해 터널링 적용을 사용할 수 있습니다. 터널링 적용을 사용할 경우 인터넷에 대한 모든 연결은 사용자의 온-프레미스 게이트웨이를 통해 강제됩니다. 사용자 정의 경로를 활용하여 터널링 적용을 구성할 수 있습니다.
 
-Learn more:
+자세한 정보:
 
-- [What are User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md)
+- [사용자 정의된 경로 및 IP 전달이란?](../virtual-network/virtual-networks-udr-overview.md)
 
-### <a name="virtual-network-security-appliances"></a>Virtual Network Security Appliances
-While Network Security Groups, User Defined Routes, and forced tunneling provide you a level of security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), there may be times when you want to enable security at levels higher than the network.
+### 가상 네트워크 보안 어플라이언스
+네트워크 보안 그룹, 사용자 정의 경로 및 터널링 적용이 [OSI 모델](https://en.wikipedia.org/wiki/OSI_model)의 네트워크 및 전송 계층에서 어느 정도의 네트워크 보안을 제공할 수 있지만 네트워크보다 상위 수준에서 보안을 구현해야 하는 여러 상황이 발생할 것입니다.
 
-For example, your security requirements might include:
+예를 들어, 다음과 같은 보안 요구 사항이 있을 수 있습니다.
 
-- Authentication and authorization prior to allowing access to your application
-- Intrusion detection and intrusion response
-- Application layer inspection for high-level protocols
-- URL filtering
-- Network level antivirus and antimalware
-- Anti-bot protection
-- Application access control
-- Additional DDoS protection (above the DDoS protection provided the Azure fabric itself)
+- 응용 프로그램에 대한 액세스를 허용하기 전에 인증 및 권한 부여
+- 침입 감지 및 침입 대응
+- 높은 수준의 프로토콜에 대한 응용 프로그램 계층 검사
+- URL 필터링
+- 네트워크 수준 바이러스 백신 및 맬웨어 방지
+- 안티봇 보호
+- 응용 프로그램 액세스 제어
+- 추가적인 DDoS 보호(Azure 패브릭 자체에서 제공하는 DDoS 보호 이외)
 
-You can access these enhanced network security features by using an Azure partner solution. You can find the most current Azure partner network security solutions by visiting the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and searching for “security” and “network security”.
+Azure 파트너 솔루션을 사용하여 이러한 향상된 네트워크 보안 기능에 액세스할 수 있습니다. [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/)에 방문하여 “보안" 및 “네트워크 보안"을 검색하여 가장 최신의 Azure 파트너 네트워크 보안 솔루션을 찾을 수 있습니다.
 
-## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Secure Remote Access and Cross Premises Connectivity
-Setup, configuration and management of your Azure resources needs to be done remotely. In addition, you may want to deploy [hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) solutions that have components on-premises and in the Azure public cloud. These scenarios require secure remote access.
+## 안전한 원격 액세스 및 크로스-프레미스 연결
+Azure 리소스의 설정, 구성 및 관리는 원격으로 수행해야 합니다. 또한, 온-프레미스와 Azure 공용 클라우드에 구성 요소가 있는 [하이브리드 IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) 솔루션을 배포할 수 있습니다. 이러한 시나리오에는 보안 원격 액세스가 필요합니다.
 
-Azure networking supports the following secure remote access scenarios:
+Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합니다.
 
-- Connect individual workstations to an Azure Virtual Network
-- Connect your on-premises network to an Azure Virtual Network with a VPN
-- Connect your on-premises network to an Azure Virtual Network with a dedicated WAN link
-- Connect Azure Virtual Networks to each other
+- Azure 가상 네트워크에 개별 워크스테이션 연결
+- VPN으로 Azure 가상 네트워크에 온-프레미스 네트워크 연결
+- 전용 WAN 링크로 Azure 가상 네트워크에 온-프레미스 네트워크 연결
+- Azure 가상 네트워크 상호 연결
 
-### <a name="connect-individual-workstations-to-an-azure-virtual-network"></a>Connect Individual Workstations to an Azure Virtual Network
-There may be times when you want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For example, you need access to a virtual machine on an Azure Virtual Network and your security policy does not allow RDP or SSH remote access to individual virtual machines. In this case, you can use a point-to-site VPN connection.
+### Azure 가상 네트워크에 개별 워크스테이션 연결
+개별 개발자 또는 작업 작업자가 Azure에서 가상 컴퓨터 및 서비스를 관리하길 원하는 상황이 있을 수 있습니다. 예를 들어, Azure 가상 네트워크의 가상 컴퓨터에 액세스가 필요하지만 사용자의 보안 정책에서는 개별 가상 컴퓨터에 대한 RDP 또는 SSH 원격 액세스를 허용하지 않습니다. 이 경우에는 지점 및 사이트 간 VPN 연결을 사용할 수 있습니다.
 
-The point-to-site VPN connection uses the [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocol to enable you to set up a private and secure connection between the user and the Azure Virtual Network. Once the VPN connection is established, the user will be able to RDP or SSH over the VPN link into any virtual machine on the Azure Virtual Network (assuming that the user can authenticate and is authorized).
+지점 및 사이트 간 VPN 연결에서는 [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) 프로토콜을 사용하여 사용자와 Azure 가상 네트워크 간 비공개 및 보안 연결을 설정할 수 있습니다. VPN 연결이 설정되면 사용자는 VPN 링크를 통해 RDP 또는 SSH를 Azure 가상 네트워크의 가상 컴퓨터에 연결할 수 있게 됩니다(사용자가 인증할 수 있고 권한이 부여되었다고 가장).
 
-Learn more:
+자세한 정보:
 
-- [Configure a Point-to-Site Connection to a Virtual Network using PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+- [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-vpn"></a>Connect Your On-Premises Network to an Azure Virtual Network with a VPN
-You may want to connect your entire corporate network, or portions of it, to an Azure Virtual Network. This is common in hybrid IT scenarios where companies [extend their on-premises datacenter into Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In many cases companies will host parts of a service in Azure and parts on-premises, such as when a solution includes front-end web servers in Azure and back-end databases on-premises. These kind of “cross-premises” connections also make management of Azure located resources more secure and enable scenarios such as extending Active Directory domain controllers into Azure.
+### VPN으로 Azure 가상 네트워크에 온-프레미스 네트워크 연결
+회사 네트워크 전체 또는 일부를 Azure 가상 네트워크에 연결할 수 있습니다. 이것은 회사가 [온-프레미스 데이터 센터를 Azure로 확장](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)하는 하이브리드 IT 시나리오에서 흔하게 일어나는 일입니다. 대부분 경우에 회사는 솔루션에 Azure의 프런트-엔드 웹 서버와 백-엔드 데이터베이스 온-프레미스를 포함하는 경우와 같이 Azure의 서비스 일부 또는 온-프레미스 일부를 호스팅합니다. 이러한 종류의 "크로스-프레미스" 연결은 Azure 위치 리소스를 더 안전하게 리하고 Active Directory 도메인 컨트롤러를 Azure로 확장하는 등의 시나리오를 활성화할 수 있게 줍니다.
 
-One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). The difference between a site-to-site VPN and a point-to-site VPN is that a point-to-site VPN connects a single device to an Azure Virtual Network, while a site-to-site VPN connects an entire network (such as your on-premises network) to an Azure Virtual Network. Site-to-site VPNs to an Azure Virtual Network use the highly secure IPsec tunnel mode VPN protocol.
+이 작업을 수행하는 한 가지 방법은 [사이트 간 VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn)을 사용하는 것입니다. 사이트 간 VPN과 지점 및 사이트 간 VPN의 차이점은 지점 및 사이트 간 VPN이 단일 장치를 Azure 가상 네트워크에 연결하는 반면, 사이트 간 VPN은 네트워크 전체(온-프레미스 네트워크 등)를 Azure 가상 네트워크에 연결합니다. Azure 가상 네트워크에 사이트 간 VPN은 매우 안전한 IPsec 터널 모드 VPN 프로토콜을 사용합니다.
 
-Learn more:
+자세한 정보:
 
-- [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Planning and design for VPN gateway](../vpn-gateway/vpn-gateway-plan-design.md)
+- [Azure 포털을 사용하여 사이트 간 VPN 연결로 리소스 관리자 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [VPN 게이트웨이 계획 및 설계](../vpn-gateway/vpn-gateway-plan-design.md)
 
-### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-dedicated-wan-link"></a>Connect Your On-premises Network to an Azure Virtual Network with a Dedicated WAN Link
-Point-to-site and site-to-site VPN connections are effective for enabling cross-premises connectivity. However, some organizations consider them to have the following drawbacks:
+### 전용 WAN 링크로 Azure 가상 네트워크에 온-프레미스 네트워크 연결
+지점 및 사이트 간과 사이트 간 VPN 연결은 크로스-프레미스 연결에 효과적입니다. 그러나 일부 조직에서는 다음과 같은 장애가 있는지 고려합니다.
 
-- VPN connections move data over the Internet – this exposes these connections to potential security issues involved with moving data over a public network. In addition, reliability and availability for Internet connections cannot be guaranteed.
-- VPN connections to Azure Virtual Networks may be considered bandwidth constrained for some applications and purposes, as they max out at around 200Mbps.
+- VPN 연결은 인터넷을 통해 데이터를 이동합니다. 따라서 이러한 연결은 공용 네트워크를 통한 데이터 이동과 관련된 잠재적인 보안 문제에 노출됩니다. 또한, 인터넷 연결의 안정성 및 가용성을 보장할 수 없습니다.
+- Azure 가상 네트워크에 VPN 연결 시 일부 응용 프로그램 및 목적에 대해 제약된 대역폭(최대 약 200Mbps)을 고려해야 합니다.
 
-Organizations that need the highest level of security and availability for their cross-premises connections typically use dedicated WAN links to connect to remote sites. Azure provides you the ability to use a dedicated WAN link that you can use to connect your on-premises network to an Azure Virtual Network. This is enabled through Azure ExpressRoute.
+크로스-프레미스 연결에 대해 가장 높은 수준의 보안 및 가용성이 필요한 조직은 일반적으로 원격 사이트에 연결하기 위해 전용 WAN 링크를 사용합니다. Azure에서는 Azure 가상 네트워크에 온-프레미스 네트워크를 연결하기 위해 사용할 수 있는 전용 WAN 링크를 사용할 수 있습니다. 이 작업은 Azure Express 경로를 통해 활성화됩니다.
 
-Learn more:
+자세한 정보:
 
-- [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
+- [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)
 
-### <a name="connect-azure-virtual-networks-to-each-other"></a>Connect Azure Virtual Networks to Each Other
-It is possible for you to use many Azure Virtual Networks for your deployments. There are many reasons why you might do this. One of the reasons might be to simplify management; another might be for security reasons. Regardless of the motivation or rationale for putting resources on different Azure Virtual Networks, there may be times when you want resources on each of the networks to connect with one another.
+### Azure 가상 네트워크 상호 연결
+배포에 많은 Azure 가상 네트워크를 사용할 수 있습니다. 이 작업이 가능한 여러 이유가 있습니다. 이유 중 하나가 관리의 단순화이며, 다른 것은 보안 시유에 해당하는 것입니다. 다양한 Azure 가상 네트워크에 리소스를 넣는 동기 또는 이유와 상관 없이 각 네트워크의 리소스가 상호 연결되어야 하는 상황이 있을 수 있습니다.
 
-One option would be for services on one Azure Virtual Network to connect to services on another Azure Virtual Network by “looping back” through the Internet. The connection would start on one Azure Virtual Network, go through the Internet, and then come back to the destination Azure Virtual Network. This option exposes the connection to the security issues inherent to any Internet-based communication.
+한 가지 옵션은 인터넷을 통해 “루프백"을 실행하여 하나의 Azure 가상 네트워크의 서비스가 다른 Azure 가상 네트워크의 서비스에 연결하게 하는 것입니다. 연결은 Azure 가상 네트워크에서 시작하여 인터넷을 거친 다음 다시 대상 Azure 가상 네트워크로 돌아 옵니다. 이 옵션을 사용하면 인터넷 기반 통신에 내재된 보안 문제에 연결이 노출됩니다.
 
-A better option might be to create an Azure Virtual Network-to-Azure Virtual Network site-to-site VPN. This Azure Virtual Network-to-Azure Virtual Network site-to-site VPN uses the same [IPsec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) protocol as the cross-premises site-to-site VPN connection mentioned above.
+더 나은 옵션은 Azure 가상 네트워크-Azure 가상 네트워크의 사이트 간 VPN을 만드는 것입니다. 이 Azure 가상 네트워크-Azure 가상 네트워크의 사이트 간 VPN에서는 위에 언급한 크로스-프레미스 사이트 간 VPN 연결과 같은 [IPsec 터널 모드](https://technet.microsoft.com/library/cc786385.aspx) 프로토콜을 사용합니다.
 
-The advantage of using an Azure Virtual Network-to-Azure Virtual Network site-to-site VPN is that the VPN connection is established over the Azure network fabric; it does not connect over the Internet. This provides you an extra layer of security compared to site-to-site VPNs that connect over the Internet.
+Azure 가상 네트워크-Azure 가상 네트워크의 사이트 간 VPN을 사용하는 이점은 VPN 연결이 Azure 네트워크 패브릭을 통해 설정되며 인터넷을 통해 연결하지 않는다는 것입니다. 따라서 인터넷을 통해 연결하는 사이트 간 VPN에 비해 추가적인 보안 계층을 제공합니다.
 
-Learn more:
+자세한 정보:
 
-- [Configure a VNet-to-VNet Connection by using Azure Resource Manager and PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+- [Azure Resource Manager 및 PowerShell을 사용하여 VNet-VNet 연결 구성](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-## <a name="availability"></a>Availability
-Availability is a key component of any security program. If your users and systems can’t access what they need to access over the network, the service can be considered compromised. Azure has networking technologies that support the following high-availability mechanisms:
+## Availability
+가용성은 보안 프로그램의 핵심 구성 요소입니다. 사용자와 시스템이 네트워크를 통해 액세스하기 위해 필요한 것에 액세스할 수 없는 경우 서비스는 손상된 것으로 간주할 수 있습니다. Azure에는 다음 고가용성 메커니즘을 지원하는 네트워킹 기술이 있습니다.
 
-- HTTP-based load balancing
-- Network level load balancing
-- Global load balancing
+- HTTP 기반 부하 분산
+- 네트워크 수준 부하 분산
+- 전역 부하 분산
 
-Load balancing is a mechanism designed to equally distribute connections among multiple devices. The goals of load balancing are:
+부하 분산은 여러 장치 사이의 연결을 고르게 분산하도록 설계된 메커니즘입니다. 부하 분산의 목표는 다음과 같습니다.
 
-- Increase availability – when you load balance connections across multiple devices, one or more of the devices can become unavailable and the services running on the remaining online devices can continue to serve the content from the service
-- Increase performance – when you load balance connections across multiple devices, a single device doesn’t have to take the processor hit. Instead, the processing and memory demands for serving the content is spread across multiple devices.
+- 가용성 증가 - 여러 장치 전반에서 연결을 부하 분산할 경우 하나 이상의 장치가 사용할 수 없게 되더라도 나머지 온라인 장치에서 실행 중인 서비스는 해당 서비스에서 콘텐츠를 계속 제공할 수 있습니다.
+- 성능 향상 – 여러 장치 전반에서 연결을 부하 분산할 경우 단일 장치는 프로세서 히트를 할 필요가 없습니다. 대신, 콘텐츠 제공에 대한 처리 및 메모리 요구는 여러 장치 전반에서 분산됩니다.
 
-### <a name="http-based-load-balancing"></a>HTTP-based Load Balancing
-Organizations that run web-based services often desire to have an HTTP-based load balancer in front of those web services to help insure adequate levels of performance and high availability. In contrast to traditional network-based load balancers, the load balancing decisions made by HTTP-based load balancers are based on characteristics of the HTTP protocol, not on the network and transport layer protocols.
+### HTTP 기반 부하 분산
+웹 기반 서비스를 실행하는 조직은 적정한 수준의 성능과 고가용성을 보장하기 위해 이러한 웹 서비스 앞에 HTTP 기반 부하 분산 장치를 보유하길 원하는 경우가 있습니다. 기존 네트워크 기반 부하 분산 장치와는 달리, HTTP 기반 부하 분산 장치에서 내리는 부하 분산 결정은 네트워크 및 전송 계층 프로토콜이 아닌 HTTP 프로토콜의 특징에 기반합니다.
 
-To provide you HTTP-based load balancing for your web-based services, Azure provides you the Azure Application Gateway. The Azure Application Gateway supports:
+웹 기반 서비스에 대한 HTTP 기반 부하 분산을 제공하기 위해 Azure는 Azure 응용 프로그램 게이트웨이를 제공하고 있습니다. Azure 응용 프로그램 게이트웨이는 다음 기능을 지원합니다.
 
-- HTTP-based load balancing – load balancing decisions are made based on characteristic special to the HTTP protocol
-- Cookie-based session affinity – this capability makes sure that connections established to one of the servers behind that load balancer stays intact between the client and server. This insures stability of transactions.
-- SSL offload – when a client connection is established with the load balancer, that session between the client and the load balancer is encrypted using the HTTPS (SSL/) protocol. However, in order to increase performance, you have the option to have the connection between the load balancer and the web server behind the load balancer use the HTTP (unencrypted) protocol. This is referred to as “SSL offload” because the web servers behind the load balancer don’t experience the processor overhead involved with encryption, and therefore should be able to service requests more quickly.
-- URL-based content routing – this feature makes it possible for the load balancer to make decisions on where to forward connections based on the target URL. This provides a lot more flexibility than solutions that make load balancing decisions based on IP addresses.
+- HTTP 기반 부하 분산 – 부하 분산 결정을 HTTP 프로토콜에 측수한 특징에 기반하여 내립니다.
+- 쿠키 기반 세션 선호도 – 해당 부하 분산 장치 뒤의 서버 중 하나에 설정된 연결이 클라이언트와 서버 사이에서 그대로 유지되도록 해줍니다. 이렇게 하면 트랜잭션의 안정성이 보장됩니다.
+- SSL 오프로드 – 클라이언트 연결이 로드 분산 장치를 통해 설정된 경우 클라이언트와 부하 분산 장치 사이의 세션은 HTTPS(SSL/) 프로토콜을 사용하여 암호화됩니다. 그러나 성능을 개선하기 위해 부하 분산 장치와 부하 분산 장치 뒤의 웹 서버 간 연결이 HTTP(비암호화된) 프로토콜을 사용하게 하는 옵션이 있습니다. 부하 분산 장치 뒤의 웹 서버가 암호화와 관련된 프로세서 오버헤드를 경험하지 않아 더 신속하게 요청을 제공할 수 있으므로 “SSL 오프로드"라고 합니다.
+- URL 기반 콘텐츠 라우팅 - 이 기능을 통해 부하 분산 장치가 대상 URL에 기반하여 연결을 전달할 위치를 결정할 수 있습니다. IP 주소에 기반하여 부하 분산 결정을 내리는 솔루션보다 훨씬 더 많은 유연성을 제공합니다.
 
-Learn more:
+자세한 정보:
 
-- [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
+- [응용 프로그램 게이트웨이 개요](../application-gateway/application-gateway-introduction.md)
 
-### <a name="network-level-load-balancing"></a>Network Level Load Balancing
-In contrast to HTTP-based load balancing, network level load balancing makes load balancing decisions based on IP address and port (TCP or UDP) numbers.
-You can gain the benefits of network level load balancing in Azure by using the Azure Load Balancer. Some key characteristics of the Azure Load Balancer include:
+### 네트워크 수준 부하 분산
+HTTP 기반 부하 분산과는 달리, 네트워크 수준 부하 분산은 IP 주소 및 포트(TCP 또는 UDP) 번호에 기반하여 부하 분산 결정을 내리게 해줍니다. Azure Load Balancer를 사용하여 Azure에서 네트워크 수준 부하 분산의 이점을 얻을 수 있습니다. Azure Load Balancer의 몇 가지 주요 특징은 다음과 같습니다.
 
-- Network level load balancing based on IP address and port numbers
-- Support for any application layer protocol
-- Load balances to Azure virtual machines and cloud services role instances
-- Can be used for both Internet-facing (external load balancing) and non-Internet facing (internal load balancing) applications and virtual machines
-- Endpoint monitoring, which is used to determine if any of the services behind the load balancer have become unavailable
+- IP 주소와 포트 번호에 기반한 네트워크 수준 부하 분산
+- 모든 응용 프로그램 계층 프로토콜에 대한 지원
+- Azure 가상 컴퓨터 및 클라우드 서비스 역할 인스턴스에 대한 부하 분산
+- 인터넷 연결(외부 부하 분산) 및 비-인터넷 연결(내부 부하 분산) 응용 프로그램과 가상 컴퓨터 모두에 사용할 수 있음
+- 부하 분산 장치 뒤에서 사용할 수 없게 되는 서비스가 있는지 확인하기 위해 사용하는 끝점 모니터링
 
-Learn more:
+자세한 정보:
 
-- [Internet Facing load balancer between multiple Virtual Machines or services](../load-balancer/load-balancer-internet-overview.md)
-- [Internal Load Balancer Overview](../load-balancer/load-balancer-internal-overview.md)
+- [여러 가상 컴퓨터 또는 서비스 간의 인터넷 연결 부하 분산 장치](../load-balancer/load-balancer-internet-overview.md)
+- [내부 부하 분산 장치 개요](../load-balancer/load-balancer-internal-overview.md)
 
-### <a name="global-load-balancing"></a>Global Load Balancing
-Some organizations will want the highest level of availability possible. One way to reach this goal is to host applications in globally distributed datacenters. When an application is hosted in data centers located throughout the world, it’s possible for an entire geopolitical region to become unavailable and still have the application up and running.
+### 전역 부하 분산
+일부 조직에서는 가능한 가장 높은 수준의 가용성을 원합니다. 이 목표에 도달하는 한 가지 방법은 전 세계적으로 분산된 데이터 센터에서 응용 프로그램을 호스팅하는 것입니다. 전 세계적으로 위치한 데이터 센터에서 응용 프로그램을 호스팅할 경우 지역 전체가 사용할 수 없게 되어도 응용 프로그램은 계속 실행할 수 있습니다.
 
-In addition to the availability advantages you get by hosting applications in globally distributed datacenters, you also can get performance benefits. These performance benefits can be obtained by using a mechanism that directs requests for the service to the datacenter that is nearest to the device that is making the request.
+전 세계적으로 분산된 데이터 센터에서 응용 프로그램을 호스팅하면 가용성 이점뿐만 아니라 성능 혜택도 얻을 수 있습니다. 이러한 성능 이점은 서비스에 대한 요청을 해당 요청을 하는 장치에 가장 가까운 데이터 센터로 전달하는 메커니즘을 사용하여 얻을 수 있습니다.
 
-Global load balancing can provide you both of these benefits. In Azure, you can gain the benefits of global load balancing by using Azure Traffic Manager.
+전역 부하 분산은 이러한 두 가지 이점을 모두 제공할 수 있습니다. Azure에서는 Azure 트래픽 관리자를 사용하여 글로벌 부하 분산의 이점을 얻을 수 있습니다.
 
-Learn more:
+자세한 정보:
 
-- [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
+- [트래픽 관리자란?](../traffic-manager/traffic-manager-overview.md)
 
-## <a name="logging"></a>Logging
-Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for Network Security Groups to get network level logging information. With NSG logging, you get information from:
+## 로깅
+네트워크 수준에서 로깅은 네트워크 보안 시나리오의 핵심 기능입니다. Azure에서는 네트워크 보안 그룹에 대해 획득한 정보를 로깅하여 네트워크 수준 로깅 정보를 얻을 수 있습니다. NSG 로깅을 사용하여 다음에서 정보를 얻습니다.
 
-- Audit logs – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal.
-- Event logs – these logs provide information about what NSG rules were applied.
-- Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
+- 감사 로그 – Azure 구독에 제출된 모든 작업을 확인하는 데 사용됩니다. 이러한 로그는 기본적으로 사용 설정되며 Azure 포털 내에서 사용할 수 있습니다.
+- 이벤트 로그 – 어떤 NSG 규칙이 적용 되었는지에 대한 정보를 제공합니다.
+- 카운터 로그 – 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수를 알 수 있습니다.
 
-You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
+또한 강력한 시각화 도구인 [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/)를 사용하여 이러한 로그를 보고 분석할 수도 있습니다.
 
-Learn more:
+자세한 정보:
 
-- [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
+- [NSG(네트워크 보안 그룹)에 대한 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
 
-## <a name="name-resolution"></a>Name Resolution
-Name resolution is a critical function for all services you host in Azure. From a security perspective, compromise of the name resolution function can lead to an attacker redirecting requests from your sites to an attacker’s site. Secure name resolution is a requirement for all your cloud hosted services.
+## 이름 확인
+이름 확인은 Azure에서 호스팅하는 모든 서비스에 대해 중요한 기능입니다. 보안 관점에서 이름 확인 기능이 손상되면 공격자가 사용자의 사이트에서 공격자의 사이트로 요청을 리디렉션할 수 있습니다. 보안 이름 확인은 사용자의 모든 클라우드 호스팅 서비스의 요구 사항입니다.
 
-There are two types of name resolution you need to address:
+해결해야 할 두 가지 유형의 이름 확인이 있습니다.
 
-- Internal name resolution – internal name resolution is used by services on your Azure Virtual Networks, your on-premises networks, or both. Names used for internal name resolution are not accessible over the Internet. For optimal security, it’s important that your internal name resolution scheme is not accessible to external users.
-- External name resolution – external name resolution is used by people and devices outside of your on-premises and Azure Virtual Networks. These are the names that are visible to the Internet and are used to direct connection to your cloud-based services.
+- 내부 이름 확인 - 내부 이름 확인은 Azure 가상 네트워크, 온-프레미스 네트워크 또는 둘 다에 있는 서비스에서 사용합니다. 내부 이름 확인에 상요되는 이름은 인터넷을 통해 액세스할 수 없습니다. 최적의 보안을 위해 외부 사용자가 내부 이름 확인 스킴에 액세스하지 않게 하는 것이 중요합니다.
+- 외부 이름 확인 - 외부 이름 확인은 온-프레미스와 Azure 가상 네트워크 외부의 사용자 및 장치에서 사용합니다. 인터넷에 표시되며 사용자의 클라우드 기반 서비스에 직접 연결하는 데 사용되는 이름입니다.
 
-For internal name resolution, you have two options:
+내부 이름 확인에는 두 가지 옵션이 있습니다.
 
-- An Azure Virtual Network DNS server – when you create a new Azure Virtual Network, a DNS server is created for you. This DNS server can resolve the names of the machines located on that Azure Virtual Network. This DNS server is not configurable and is managed by the Azure fabric manager, thus making it a secure name resolution solution.
-- Bring your own DNS server – you have the option of putting a DNS server of your own choosing on your Azure Virtual Network. This DNS server could be an Active Directory integrated DNS server, or a dedicated DNS server solution provided by an Azure partner, which you can obtain from the Azure Marketplace.
+- Azure 가상 네트워크 DNS 서버 - 새 Azure 가상 네트워크를 만들 경우 사용자에 대한 DNS 서버가 만들어집니다. 이 DNS 서버는 해당 Azure 가상 네트워크에 위치한 컴퓨터의 이름을 확인할 수 있습니다. 이 DNS 서버는 구성할 수 없고 Azure 패브릭 관리자가 관리하므로, 보안 이름 확인 솔루션이 될 수 있습니다.
+- 자체 DNS 서버 가져오기 – Azure 가상 네트워크에서 직접 선택한 DNS 서버를 투입하는 옵션이 있습니다. 이 DNS 서버는 Active Directory 통합 DNS 서버, 또는 Azure 마켓플레이스에서 확보할 수 있는 Azure 파트너가 제공하는 전용 DNS 서버 솔루션이 될 수 있습니다.
 
-Learn more:
+자세한 정보:
 
-- [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
-- [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
+- [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
+- [VNet(가상 네트워크)에서 사용하는 DNS 서버 관리](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
 
-For external DNS resolution, you have two options:
+외부 DNS 확인에는 두 가지 옵션이 있습니다.
 
-- Host your own external DNS server on-premises
-- Host your own external DNS server with a service provider
+- 자체 외부 DNS 서버 온-프레미스 호스팅
+- 서비스 공급자를 통해 자체 외부 DNS 서버 호스팅
 
-Many large organizations will host their own DNS servers on-premises. They can do this because they have the networking expertise and global presence to do so.
+많은 대규모 조직에서는 자체 DNS 서버 온-프레미스를 호스팅합니다. 이를 수행할 수 있는 네트워킹 전문성과 글로벌 입지가 있기 때문에 가능합니다.
 
-In most cases, it’s better to host your DNS name resolution services with a service provider. These service providers have the network expertise and global presence to ensure very high availability for your name resolution services. Availability is essential for DNS services because if your name resolution services fail, no one will be able to reach your Internet facing services.
+대부분 경우에 서비스 공급자를 통해 DNS 이름 확인 서비스를 호스팅하는 것이 좋습니다. 이러한 서비스 공급자는 네트워크 전문성과 글로벌 입지를 보유하고 있으므로 사용자의 이름 확인 서비스에 대한 매우 높은 가용성을 보장합니다. 이름 확인 서비스에 장애가 발생할 경우 아무도 사용자의 인터넷 연결 서비스에 연결할 수 없게 되므로, 가용성은 DNS 서비스에 있어 중요합니다.
 
-Azure provides you a highly available and performant external DNS solution in the form of Azure DNS. This external name resolution solution takes advantage of the worldwide Azure DNS infrastructure. It allows you to host your domain in Azure using the same credentials, APIs, tools, and billing as your other Azure services. As part of Azure, it also inherits the strong security controls built into the platform.
+Azure는 Azure DNS의 형태로 가용성과 성능이 뛰어난 외부 DNS 솔루션을 제공합니다. 이 외부 이름 확인 솔루션은 전 세계 Azure DNS 인프라를 활용합니다. 이를 통해 다른 Azure 서비스와 같은 자격 증명, API, 도구 및 청구를 사용하여 Azure에서 도메인을 호스팅할 수 있습니다. Azure이 일부로, 플랫폼에 구축된 강력한 보안 제어를 상속하기도 합니다.
 
-Learn more:
+자세한 정보:
 
-- [Azure DNS Overview](../dns/dns-overview.md)
+- [Azure DNS 개요](../dns/dns-overview.md)
 
-## <a name="dmz-architecture"></a>DMZ Architecture
-Many enterprise organizations use DMZs to segment their networks to create a buffer-zone between the Internet and their services. The DMZ portion of the network is considered a low-security zone and no high-value assets are placed in that network segment. You’ll typically see network security devices that have a network interface on the DMZ segment and another network interface connected to a network that has virtual machines and services that accept inbound connections from the Internet.
+## DMZ 아키텍처
+많은 엔터프라이즈 조식에서 DMZ를 사용하여 네트워크를 분활하여 인터넷과 서비스 사이에 완충 지대를 만들고 있습니다. 네트워크의 DMZ 부분은 낮은 수준의 보안 영역으로 간주되며 이 네트워크 세그먼트에는 고가의 자산이 배치되지 않습니다. 일반적으로, DMZ 세그먼트의 네트워크 인터페이스와 다른 네트워크 인터페이스가 인터넷에서 인바운드 연결을 수락하는 가상 컴퓨터 및 서비스가 있는 네트워크에 연결되어 있는 네트워크 보안 장치를 보게 됩니다.
 
-There are a number of variations of DMZ design and the decision to deploy a DMZ, and then what type of DMZ to use if you decide to use one, is based on your network security requirements.
+다양한 형태의 DMZ 디자인이 있으며, DMZ 배포 결정과 하나를 사용하기로 결정한 경우 사용할 DMZ 형식은 사용자의 네트워크 보안 요구 사항에 따라 결정됩니다.
 
-Learn more:
+자세한 정보:
 
-- [Microsoft Cloud Services and Network Security](../best-practices-network-security.md)
+- [Microsoft 클라우드 서비스 및 네트워크 보안](../best-practices-network-security.md)
 
-## <a name="azure-security-center"></a>Azure Security Center
-Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+## Azure 보안 센터
+보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 되며 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 제공합니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-Azure Security Center helps you optimize and monitor network security by:
+Azure 보안 센터는 다음과 같은 방법을 통해 네트워크 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
 
-- Providing network security recommendations
-- Monitoring the state of your network security configuration
-- Alerting you to network based threats both at the endpoint and network levels
+- 네트워크 보안 권장 사항 제공
+- 네트워크 보안 구성의 상태 모니터링
+- 끝점 및 네트워크 수준에서 네트워크 기반 위협에 대해 경고
 
-Learn more:
+자세한 정보:
 
-- [Introduction to Azure Security Center](../security-center/security-center-intro.md)
+- [Azure 보안 센터 소개](../security-center/security-center-intro.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

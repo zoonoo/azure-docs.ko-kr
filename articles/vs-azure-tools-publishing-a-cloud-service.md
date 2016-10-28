@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Publishing a Cloud Service using the Azure Tools | Microsoft Azure"
-   description="Learn about how to publish Azure cloud service projects by using Visual Studio."
+   pageTitle="Azure Tools | Microsoft Azure를 사용하여 클라우드 서비스 게시"
+   description="Visual Studio를 사용하여 Azure 클라우드 서비스 프로젝트를 게시하는 방법에 대해 알아보세요."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,167 +15,162 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Azure Tools를 사용하여 클라우드 서비스 게시
 
-# <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Publishing a Cloud Service using the Azure Tools
+Azure Tools for Microsoft Visual Studio를 사용하여 Visual Studio에서 직접 Azure 응용 프로그램을 게시할 수 있습니다. Visual Studio는 클라우드 서비스의 스테이징 또는 프로덕션 환경에 통합 게시를 지원합니다.
 
-By using the Azure Tools for Microsoft Visual Studio, you can publish your Azure application directly from Visual Studio. Visual Studio supports integrated publishing to either the Staging or the Production environment of a cloud service.
+Azure 응용 프로그램을 게시하기 전에 Azure 구독이 있어야 합니다. 또한 응용 프로그램에서 사용할 클라우드 서비스와 저장소 계정을 설정해야 합니다. 이러한 항목은 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 설정할 수 있습니다.
 
-Before you can publish an Azure application, you must have an Azure subscription. You must also set up a cloud service and storage account to be used by your application. You can set these up at the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+>[AZURE.IMPORTANT] 게시할 때에는 클라우드 서비스의 배포 환경을 선택할 수 있습니다. 또한 배포의 응용 프로그램 패키지를 저장하는 데 사용할 저장소 계정을 선택해야 합니다. 배포 후에는 응용 프로그램이 저장소 계정에서 제거됩니다.
 
->[AZURE.IMPORTANT] When you publish, you can select the deployment environment for your cloud service. You must also select a storage account that is used to store the application package for deployment. After deployment, the application package is removed from the storage account.
+Azure 응용 프로그램을 개발 및 테스트할 경우 웹 배포를 사용하여 변경 사항을 웹 역할에 대해 증분적으로 게시할 수 있습니다. 응용 프로그램을 배포 환경에 게시하면 웹 배포를 사용하여 웹 역할을 실행 중인 가상 컴퓨터에 변경 사항을 직접 배포할 수 있습니다. 웹 역할을 업데이트하고 변경 사항을 테스트할 때마다 전체 Azure 응용 프로그램을 패키지로 만들고 게시하지 않아도 됩니다. 이 방법을 사용하면 응용 프로그램을 배포 환경에 게시할 때까지 기다리지 않고도 클라우드에서 웹 역할 변경 사항을 사용하여 테스트할 수 있습니다.
 
-When you are developing and testing an Azure application, you can use Web Deploy to publish changes incrementally for your web roles. After you publish your application to a deployment environment, Web Deploy lets you deploy changes directly to the virtual machine that is running the web role. You do not have to package and publish your entire Azure application each time you want to update your web role to test out the changes. With this approach you can have your web role changes available in the cloud for testing without waiting to have your application published to a deployment environment.
+웹 배포를 사용하여 Azure 응용 프로그램을 게시하고 웹 역할을 업데이트하려면 다음 절차를 수행하십시오.
 
-Use the following procedures to publish your Azure application and to update a web role by using Web Deploy:
+- Visual Studio에서 Azure 응용 프로그램 게시 또는 패키지 작성
 
-- Publish or Package an Azure application from Visual Studio
+- 개발 및 테스트 주기에서 웹 역할 업데이트
 
-- Update a web role as part of the development and testing cycle
+## Visual Studio에서 Azure 응용 프로그램 게시 또는 패키지 작성
 
-## <a name="publish-or-package-an-azure-application-from-visual-studio"></a>Publish or Package an Azure Application from Visual Studio
+Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 수 있습니다.
 
-When you publish your Azure application, you can do one of the following tasks:
+- 서비스 패키지 만들기: [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 이 패키지와 서비스 구성 파일을 사용하여 응용 프로그램을 배포 환경에 게시할 수 있습니다.
 
-- Create a service package: You can use this package and the service configuration file to publish your application to a deployment environment from the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+- Visual Studio에서 Azure 프로젝트 게시: 응용 프로그램을 Azure에 직접 게시하려면 게시 마법사를 사용합니다. 자세한 내용은 [Azure 응용 프로그램 게시 마법사](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요.
 
-- Publish your Azure project from Visual Studio: To publish your application directly to Azure, you use the Publish Wizard. For information, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
+### Visual Studio에서 서비스 패키지를 만들려면
 
-### <a name="to-create-a-service-package-from-visual-studio"></a>To create a service package from Visual Studio
+1. 응용 프로그램에서 게시할 준비가 되었으면 솔루션 탐색기를 열고 사용자의 역할이 포함된 Azure 프로젝트에 대한 바로 가기 메뉴를 연 다음 게시를 선택합니다.
 
-1. When you are ready to publish your application, open Solution Explorer, open the shortcut menu for the Azure project that contains your roles, and choose Publish.
+1. 서비스 패키지만 만들려면 다음 단계를 따릅니다.
 
-1. To create a service package only, follow these steps:  
+  1. Azure 프로젝트의 바로 가기 메뉴를 열고 **패키지**를 선택합니다.
 
-  1. On the shortcut menu for the Azure project, choose **Package**.
+  1. **Azure 응용 프로그램 패키지 작성** 대화 상자에서 패키지를 만들려는 서비스 구성을 선택한 다음 빌드 구성을 선택합니다.
 
-  1. In the **Package Azure Application** dialog box, choose the service configuration for which you want to create a package, and then choose the build configuration.
+  1. (옵션 사항) 클라우드 서비스를 게시한 다음 원격 데스크톱을 사용하도록 설정하려면 **모든 역할에 대해 원격 데스크톱 사용** 확인란을 선택한 다음 **설정**을 선택하여 원격 데스크톱을 구성합니다. 클라우드 서비스를 게시한 다음 디버그하려면 **모든 역할에 대해 원격 디버거 사용**을 선택하여 원격 디버깅을 사용하도록 설정합니다.
 
-  1. (optional) To turn on Remote Desktop for the cloud service after you publish it, select the **Enable Remote Desktop for all Roles** check box, and then select **Settings** to configure Remote Desktop. If you want to debug your cloud service after you publish it, turn on remote debugging by selecting **Enable Remote Debugger for all Roles**.
+      자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-using-remote-desktop-with-azure-roles.md)을 참조하세요.
 
-      For more information, see [Using Remote Desktop with Azure Roles](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
+  1. 패키지를 만들려면 **패키지** 링크를 선택합니다.
 
-  1. To create the package, choose the **Package** link.
+      파일 탐색기에 새로 작성된 패키지의 파일 위치가 표시됩니다. 이 위치를 복사해서 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 사용할 수 있습니다.
 
-      File Explorer shows the file location of the newly created package. You can copy this location so that you can use it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+  1. 이 패키지를 배포 환경에 게시하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용하여 클라우드 서비스를 만들고 이 패키지를 환경에 배포할 때 이 위치를 패키지 위치로 사용해야 합니다.
 
-  1. To publish this package to a deployment environment, you must use this location as the Package location when you create a cloud service and deploy this package to an environment with the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. (선택 사항) 배포 프로세스를 취소하려면 활동 로그의 개별 항목에 대한 바로 가기 메뉴에서 **취소한 후 제거**를 선택합니다. 그러면 배포 프로세스가 중단되고 Azure에서 배포 환경이 삭제됩니다.
 
-1. (Optional) To cancel the deployment process, on the shortcut menu for the line item in the activity log, choose **Cancel and remove**. This stops the deployment process and deletes the deployment environment from Azure.
+    >[AZURE.NOTE] 이 배포 환경을 배포한 후 제거하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용해야 합니다.
 
-    >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. (선택 사항) 역할 인스턴스가 시작되면 Visual Studio에서 서버 탐색기의 **클라우드 서비스**에 자동으로 배포 환경을 표시합니다. 여기에서 개별 역할 인스턴스의 상태를 볼 수 있습니다. [클라우드 탐색기를 사용하여 Azure 리소스 관리](vs-azure-tools-resources-managing-with-cloud-explorer.md)를 참조하세요. 다음 그림은 아직 초기화 중인 역할 인스턴스를 보여 줍니다.
 
-1. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Cloud Services** node in Server Explorer. From here you can see the status of the individual role instances. See [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).The following illustration shows the role instances while they are still in the Initializing state:
+    ![VST\_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
 
-    ![VST_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
+## 개발 및 테스트 주기에서 웹 역할 업데이트
 
-## <a name="update-a-web-role-as-part-of-the-development-and-testing-cycle"></a>Update a Web Role as Part of the Development and Testing Cycle
+앱의 백엔드 인프라가 안정적이지만 웹 역할을 더욱 빈번하게 업데이트해야 할 경우 웹 배포를 사용하여 사용자 프로젝트의 웹 역할만 업데이트할 수 있습니다. 그러면 백엔드 작업자 역할을 재빌드 및 재배포하지 않으려는 경우나 여러 웹 역할이 잇고 하나의 웹 역할만 업데이트하려는 경우 편리합니다.
 
-If your app’s backend infrastructure is stable, but the web roles need more frequent updating, you can use Web Deploy to update only a web role in your project. This is handy when you don’t want to rebuild and redeploy the backend worker roles, or if you have multiple web roles and you want to update only one of the web roles.
+### 요구 사항
 
-### <a name="requirements"></a>Requirements
+다음은 웹 배포를 사용하여 웹 역할을 업데이트할 때 필요한 요구 사항입니다.
 
-Here are the requirements to use Web Deploy to update your web role:
+- **개발 및 테스트 목적이어야 함:** 웹 역할이 실행 중인 가상 컴퓨터에 변경 사항을 직접 적용합니다. 이 가상 컴퓨터를 재순환해야 하는 경우 게시한 원본 패키지를 사용하여 역할의 가상 컴퓨터를 다시 만들기 때문에 변경 사항이 손실됩니다. 웹 역할의 최신 변경 사항을 가져오려면 응용 프로그램을 다시 게시해야 합니다.
 
-- **For development and testing purposes only:** The changes are made directly to the virtual machine where the web role is running. If this virtual machine has to be recycled, the changes are lost because the original package that you published is used to recreate the virtual machine for the role. You must republish your application to get the latest changes for the web role.
+- **웹 역할만 업데이트 가능:** 작업자 역할은 업데이트할 수 없습니다. 또한 웹 role.cs의 RoleEntryPoint는 업데이트할 수 없습니다.
 
-- **Only web roles can be updated:** Worker roles can’t be updated. In addition, you can’t update the RoleEntryPoint in web role.cs.
+- **웹 역할의 단일 인스턴스만 지원할 수 있음:** 배포 환경의 웹 역할에 여러 인스턴스가 허용되지 않습니다. 하지만 각각의 웹 역할에 하나의 인스턴스만 있는 경우는 지원됩니다.
 
-- **Can only support a single instance of a web role:** You can’t have multiple instances of any web role in your deployment environment. However, multiple web roles each with only one instance are supported.
+- **원격 데스크톱 연결을 사용하도록 해야 함:** 웹 배포는 사용자 이름 및 암호를 사용하여 가상 컴퓨터에 연결한 다음 IIS(인터넷 정보 서비스)를 실행하는 서버에 변경 사항을 배포하기 때문입니다. 또한 가상 컴퓨터에 연결하고 이 가상 컴퓨터에 IIS에 대해 신뢰할 수 있는 인증서를 추가해야 할 수 있습니다. 그러면 웹 배포에서 사용하는 IIS 원격 연결의 보안이 유지됩니다.
 
-- **You must enable remote desktop connections:** This is required so that Web Deploy can use the user and password to connect to the virtual machine to deploy the changes to the server that’s running Internet Information Services (IIS). In addition, you might need to connect to the virtual machine to add a trusted certificate to IIS on this virtual machine. (This ensures that the remote connection for IIS that is used by Web Deploy is secure.)
+다음 절차는 **Azure 응용 프로그램 게시** 마법사를 사용하는 경우를 가정합니다.
 
-The following procedure assumes that you are using the **Publish Azure Application** wizard.
+### 응용 프로그램을 게시할 때 웹 배포를 사용하도록 설정하려면
 
-### <a name="to-enable-web-deploy-when-you-publish-your-application"></a>To Enable Web Deploy When You Publish Your Application
+1. 모든 웹 역할 확인란에 대해 **웹 배포 사용**을 활성화하려면 먼저 원격 데스크톱 연결을 구성해야 합니다. 모든 역할에 대해 **원격 데스크톱 사용**을 선택한 다음 **원격 데스크톱 구성** 상자가 나타나면 원격 연결에 사용할 자격 증명을 제공합니다. 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
 
-1. To enable the **Enable Web Deploy** for all web roles check box, you must first configure remote desktop connections. Select **Enable Remote Desktop** for all roles and then supply the credentials that will be used to connect remotely in the **Remote Desktop Configuration** box that appears. See [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md) for more information.
+1. 응용 프로그램의 모든 웹 역할에 웹 배포를 사용하려면 **모든 웹 역할에 웹 배포 사용**을 선택합니다.
 
-1. To enable Web Deploy for all the web roles in your application, select **Enable Web Deploy for all web roles**.
+    노란색 경고 삼각형이 나타납니다. 웹 배포는 기본적으로 신뢰할 수 없는 자체 서명 인증서를 사용하며, 이 인증서는 민감한 데이터를 업로드하는 데 적합하지 않습니다. 민감한 데이터를 위해 이 프로세스의 보안을 보장해야 하는 경우 웹 배포 연결에 사용할 SSL 인증서를 추가할 수 있습니다. 이 인증서는 신뢰할 수 있는 인증서여야 합니다. 이에 대한 자세한 방법은 이 항목 뒷부분에서 **보안 웹 배포 구현** 섹션을 참조하세요.
 
-    A yellow warning triangle appears. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate. For information about how to do this, see the section **To Make Web Deploy Secure** later in this topic.
+1. **다음**을 선택하여 **요약** 화면을 표시한 다음 **게시**를 선택하여 클라우드 서비스를 배포합니다.
 
-1. Choose **Next** to show the **Summary** screen, and then choose **Publish** to deploy the cloud service.
+    클라우드 서비스가 게시됩니다. 생성된 가상 컴퓨터에 IIS에 사용하도록 설정된 원격 연결이 있으므로 웹 배포를 사용하여 웹 역할을 다시 게시하지 않고도 웹 역할을 업데이트할 수 있습니다.
 
-    The cloud service is published. The virtual machine that is created has remote connections enabled for IIS so that Web Deploy can be used to update your web roles without republishing them.
+    >[AZURE.NOTE] 웹 역할에 둘 이상의 인스턴스가 구성된 경우 응용 프로그램을 게시하기 위해 만든 패키지에서 각 웹 역할이 하나의 인스턴스로 제한된다는 내용의 웹 메시지가 나타납니다. **확인**을 선택하여 계속합니다. 요구 사항 섹션에서 설명한 바와 같이 둘 이상의 웹 역할은 지원되지만 역할당 하나의 인스턴스만 허용됩니다.
 
-    >[AZURE.NOTE] If you have more than one instance configured for a web role, a warning message appears, stating that each web role will be limited to one instance only in the package that’s created to publish your application. Select **OK** to continue. As stated in the Requirements section, you can have more than one web role but only one instance of each role.
+### 웹 배포를 사용하여 웹 역할을 업데이트하려면
 
-### <a name="to-update-your-web-role-by-using-web-deploy"></a>To Update Your Web Role by Using Web Deploy
+1. 웹 배포를 사용하려면 Visual Studio에서 게시하려는 웹 역할의 프로젝트에 대해 코드를 변경한 다음 솔루션에서 이 프로젝트 노드를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 가리킵니다. **웹 게시** 대화 상자가 나타납니다.
 
-1. To use Web Deploy, make code changes to the project for any of your web roles in Visual Studio that you want to publish, and then right-click this project node in your solution and point to **Publish**. The **Publish Web** dialog box appears.
+1. (선택 사항) IIS의 원격 연결에 사용하기 위해 신뢰할 수 있는 SSL 인증서를 추가한 경우 **신뢰할 수 없는 인증서 허용** 확인란을 선택 취소합니다. 보안 웹 배포를 위해 인증서를 추가하는 방법은 이 항목의 뒷부분에서 **보안 웹 배포 구현** 섹션을 참조하세요.
 
-1. (Optional) If you added a trusted SSL certificate to use for remote connections for IIS, you can clear the **Allow untrusted certificate** check box. For information about how to add a certificate to make Web Deploy secure, see the section **To Make Web Deploy Secure** later in this topic.
+1. 웹 배포를 사용하려면 처음으로 패키지를 게시한 때 원격에 데스크톱 연결에 설정한 사용자 이름과 암호를 요구하는 게시 메커니즘을 따라야 합니다.
 
-1. To use Web Deploy, the publish mechanism needs the user name and password that you set up for your remote desktop connection when you first published the package.
+  1. **사용자 이름**에 사용자 이름을 입력합니다.
 
-  1. In **User name**, enter the user name.
+  1. **암호**에 암호를 입력합니다.
 
-  1. In **Password**, enter the password.
+  1. (선택 사항) 이 프로필에 이 암호를 저장하려면 **암호 저장**을 선택합니다.
 
-  1. (Optional) If you want to save this password in this profile, choose **Save password**.
+1. 변경 내용을 웹 역할에 게시하려면 **게시**를 선택합니다.
 
-1. To publish the changes to your web role, choose **Publish**.
+    상태 표시줄에 **게시 시작**이 표시됩니다. 게시가 완료되면 **게시 완료**가 나타납니다. 이제 가상 컴퓨터의 웹 역할에 변경 내용이 배포되었습니다. 이제 Azure 환경에서 Azure 응용 프로그램을 사용하여 변경 내용을 테스트할 수 있습니다.
 
-    The status line displays **Publish started**. When the publishing has completed, **Publish succeeded** appears. The changes have now been deployed to the web role on your virtual machine. Now you can start your Azure application in the Azure environment to test your changes.
+### 보안 웹 배포 구현
 
-### <a name="to-make-web-deploy-secure"></a>To Make Web Deploy Secure
+1. 웹 배포는 기본적으로 신뢰할 수 없는 자체 서명 인증서를 사용하며, 이 인증서는 민감한 데이터를 업로드하는 데 적합하지 않습니다. 민감한 데이터를 위해 이 프로세스의 보안을 보장해야 하는 경우 웹 배포 연결에 사용할 SSL 인증서를 추가할 수 있습니다. 이 인증서는 신뢰할 수 있는 인증서여야 하며 CA(인증 기관)에서 얻을 수 있습니다.
 
-1. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate, which you obtain from a certificate authority (CA).
+    각 웹 역할에 대한 각각의 가상 컴퓨터에 보안 웹 배포를 구현하려면 웹 배포에 사용하려는 신뢰할 수 있는 인증서를 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 업로드해야 합니다. 그러면 응용 프로그램을 게시할 때 웹 역할에 대해 만들어지는 가상 컴퓨터에 인증서가 추가됩니다.
 
-    To make Web Deploy secure for each virtual machine for each of your web roles, you must upload the trusted certificate that you want to use for web deploy to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). This makes sure that the certificate is added to the virtual machine that is created for the web role when you publish your application.
+1. IIS에 원격 연결에 사용할 SSL 인증서를 추가하려면 다음 단계를 다릅니다.
 
-1. To add a trusted SSL certificate to IIS to use for remote connections, follow these steps:
+  1. 웹 역할을 실행 중인 가상 컴퓨터에 연결하려면 **클라우드 탐색기** 또는 **서버 탐색기**에서 웹 역할의 인스턴스를 선택한 다음 **원격 데스크톱을 사용하여 연결** 명령을 선택합니다. 가상 컴퓨터에 연결하는 방법의 자세한 단계는 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
 
-  1. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
+      브라우저에 .RDP 파일을 다운로드하라는 메시지가 표시됩니다.
 
-      Your browser will prompt you to download an .RDP file.
+  1. SSL 인증서를 추가하려면 IIS 관리자에서 관리 서비스를 엽니다. IIS 관리자의 **작업** 창에서 **바인딩** 링크를 열어 SSL을 사용하도록 설정합니다. **사이트 바인딩 추가** 대화 상자가 나타납니다. **추가**를 선택한 다음 **유형** 드롭다운 목록에서 HTTPS를 선택합니다. **SSL 인증서** 목록에서 CA에서 서명하고 사용자가 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 업로드한 SSL 인증서를 선택합니다. 자세한 내용은 [관리 서비스의 연결 설정 구성](http://go.microsoft.com/fwlink/?LinkId=215824)을 참조하세요.
 
-  1. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** dropdown list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
+      >[AZURE.NOTE] 신뢰할 수 있는 SSL 인증서를 추가하면 **게시 마법사**에 더 이상 노란색 경고 삼각형이 나타나지 않습니다.
 
-      >[AZURE.NOTE] If you add a trusted SSL certificate, the yellow warning triangle no longer appears in the **Publish Wizard**.
+## 서비스 패키지에 파일 포함
 
-## <a name="include-files-in-the-service-package"></a>Include Files in the Service Package
+역할에 대해 만든 가상 컴퓨터에서 사용할 수 있도록 서비스 패키지에 특정 파일을 포함해야 하는 경우가 있습니다. 예를 들어 서비스 패키지에 시작 스크립트에서 사용하는 .exe 또는 .msi 파일을 추가할 수 있습니다. 또는 웹 역할 또는 작업자 역할 프로젝트에서 요구하는 어셈블리를 추가해야 하는 경우가 있습니다. 파일을 포함하려면 Azure 응용 프로그램의 솔루션에 추가해야 합니다.
 
-You might need to include specific files in your service package so that they are available on the virtual machine that is created for a role. For example, you might want to add an .exe or an .msi file that is used by a startup script to your service package. Or you might need to add an assembly that a web role or worker role project requires. To include files they must be added to the solution for your Azure application.
+### 서비스 패키지에 파일을 포함하려면
 
-### <a name="to-include-files-in-the-service-package"></a>To include files in the service package
+1. 서비스 패키지에 어셈블리를 추가하려면 다음 단계를 사용합니다.
 
-1. To add an assembly to a service package, use the following steps:
+  1. **솔루션 탐색기**에서 참조 어셈블리가 없는 프로젝트의 프로젝트 노드를 엽니다.
 
-  1. In **Solution Explorer** open the project node for the project that is missing the referenced assembly.
+  1. 프로젝트에 어셈블리를 추가하려면 **참조** 폴더의 바로 가기 메뉴를 연 다음 **참조 추가**를 선택합니다. 참조 추가 대화 상자가 나타납니다.
 
-  1. To add the assembly to the project, open the shortcut menu for the **References** folder and then choose **Add Reference**. The Add Reference dialog appears.
+  1. 추가하려는 참조를 선택한 다음 **확인** 단추를 선택합니다.
 
-  1. Choose the reference that you want to add and then choose the **OK** button.
+      **참조** 폴더 아래 목록에 참조가 추가됩니다.
 
-      The reference is added to the list under the **References** folder.
+  1. 추가한 어셈블리의 바로 가기 메뉴를 열고 **속성**을 선택합니다. **속성** 창이 열립니다.
 
-  1. Open the shortcut menu for the assembly that you added and choose **Properties**. The **Properties** window appears.
+      이 어셈블리를 서비스 패키지에 포함하려면 **로컬 복사** 목록에서 **True**를 선택합니다.
 
-      To include this assembly in the service package, in the **Copy Local list** choose **True**.
+1. **솔루션 탐색기**에서 참조 어셈블리가 없는 프로젝트의 프로젝트 노드를 엽니다.
 
-1. In **Solution Explorer** open the project node for the project that is missing the referenced assembly.
+1. 프로젝트에 어셈블리를 추가하려면 **참조** 폴더의 바로 가기 메뉴를 연 다음 **참조 추가**를 선택합니다. **참조 추가** 대화 상자가 나타납니다.
 
-1. To add the assembly to the project, open the shortcut menu for the **References** folder and then choose **Add Reference**. The **Add Reference** dialog appears.
+1. 추가하려는 참조를 선택한 다음 **확인** 단추를 선택합니다.
 
-1. Choose the reference that you want to add and then choose the **OK** button.
+    **참조** 폴더 아래 목록에 참조가 추가됩니다.
 
-    The reference is added to the list under the **References** folder.
+1. 추가한 어셈블리의 바로 가기 메뉴를 열고 **속성**을 선택합니다. 속성 창이 열립니다.
 
-1. Open the shortcut menu for the assembly that you added and choose **Properties**. The Properties window appears.
+1. 이 어셈블리를 서비스 패키지에 포함하려면 **로컬 복사 목록**에서 **True**를 선택합니다.
 
-1. To include this assembly in the service package, in the **Copy Local** list, choose **True**.
+1. 웹 역할 프로젝트에 추가된 서비스 패키지에 파일을 포함하려면 파일의 바로 가기 메뉴를 연 다음 **속성**을 선택합니다. **속성** 창의 **빌드 작업** 목록 상자에서 **콘텐츠**를 선택합니다.
 
-1. To include files in the service package that have been added to your web role project, open the shortcut menu for the file, and then choose **Properties**. From the **Properties** window, choose **Content** from the **Build Action** list box.
+1. 작업자 역할 프로젝트에 추가된 서비스 패키지에 파일을 포함하려면 파일의 바로 가기 메뉴를 연 다음 **속성**을 선택합니다. **속성** 창의 **출력 디렉터리에 복사**에서 **변경된 내용만 복사**를 선택합니다.
 
-1. To include files in the service package that have been added to your worker role project, open the shortcut menu for the file, and then choose **Properties**. From the **Properties** window, choose **Copy if newer** from the **Copy to output directory** list box.
+## 다음 단계
 
-## <a name="next-steps"></a>Next steps
+Visual Studio에서 Azure로 게시하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램 마법사 게시](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요.
 
-To learn more about publishing to Azure from Visual Studio, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

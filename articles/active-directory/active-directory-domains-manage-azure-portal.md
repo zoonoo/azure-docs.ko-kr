@@ -1,86 +1,81 @@
 <properties
-    pageTitle="Managing custom domain names in your Azure Active Directory preview | Microsoft Azure"
-    description="Management concepts and how-tos for managing a domain name in Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="jeffsta"
-    manager="femila"
-    editor=""/>
+	pageTitle="Azure Active Directory 미리 보기에서 사용자 지정 도메인 이름 관리 | Microsoft Azure"
+	description="Azure Active Directory에서 도메인 이름 관리에 대한 관리 개념 및 방법"
+	services="active-directory"
+	documentationCenter=""
+	authors="jeffsta"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="curtand;jeffsta"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand;jeffsta"/>
 
+# Azure Active Directory 미리 보기에서 사용자 지정 도메인 이름 관리
 
-# <a name="managing-custom-domain-names-in-your-azure-active-directory-preview"></a>Managing custom domain names in your Azure Active Directory preview
+도메인 이름은 많은 디렉터리 리소스에 대한 식별자의 중요한 부분입니다. 사용자의 경우 사용자 이름 또는 메일 주소 부분이고 그룹의 경우 주소 부분이며 응용 프로그램의 경우 앱 ID URI 부분일 수 있습니다. Azure Active Directory(Azure AD) 미리 보기의 리소스는 리소스를 포함하는 디렉터리가 소유하는 이미 확인된 도메인 이름을 포함할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 전역 관리자만 Azure AD에서 도메인 관리 작업을 수행할 수 있습니다.
 
-A domain name is an important part of the identifier for many directory resources: it is part of a user name or email address for a user, part of the address for a group, and can be part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) preview can include a domain name that is already verified to be owned by the directory that contains the resource. [What's in the preview?](active-directory-preview-explainer.md) Only a global administrator can perform domain management tasks in Azure AD.
+## Azure AD 디렉터리에 대한 주 도메인 이름 설정
 
-## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Set the primary domain name for your Azure AD directory
+디렉터리를 만든 경우 'contoso.onmicrosoft.com'과 같은 초기 도메인 이름은 주 도메인 이름이기도 합니다. 주 도메인은 새 사용자를 만들 때 새 사용자에 대한 기본 도메인 이름입니다. 관리자에 대한 프로세스를 간소화하여 포털에 새 사용자를 만듭니다. 주 도메인 이름을 변경하려면:
 
-When your directory is created, the initial domain name, such as ‘contoso.onmicrosoft.com,’ is also the primary domain name. The primary domain is the default domain name for a new user when you create a new user. This streamlines the process for an administrator to create new users in the portal. To change the primary domain name:
+1.  디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2.  **더 많은 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음 **Enter**를 선택합니다.
 
-2.  Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+    ![사용자 관리 열기](./media/active-directory-domains-add-azure-portal/user-management.png)
 
-    ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
+3. ***디렉터리-이름*** 블레이드에서 **도메인 이름**을 선택합니다.
 
-3. On the ***directory-name*** blade, select **Domain names**.
+4. ***디렉터리 이름* - 도메인 이름** 블레이드에서 주 도메인 이름을 만들려는 도메인 이름을 선택합니다.
 
-4. On the ***directory-name* - Domain names** blade, select the domain name you would like to make the primary domain name.
+5.  ***domainname*** 블레이드(즉, 제목에 새 도메인 이름이 있는 것을 여는 블레이드)에서 **Make primary**를 선택합니다. 메시지가 표시되면 선택을 확인합니다.
 
-5.  On the ***domainname*** blade (that is, the blade that opens that has your new domain name in the title), select the **Make primary** command. Confirm your choice when prompted.
+    ![주 도메인 이름 만들기](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
-    ![Make a domain name primary](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+페더레이션되지 않은 모든 확인된 사용자 지정 도메인이 되도록 디렉터리에 대한 주 도메인 이름을 변경할 수 있습니다. 디렉터리에 대한 주 도메인을 변경해도 기존 사용자에 대한 사용자 이름은 변경되지 않습니다.
 
-You can change the primary domain name for your directory to be any verified custom domain that is not federated. Changing the primary domain for your directory will not change the user names for any existing users.
+## Azure AD에 사용자 지정 도메인 이름 추가
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Add custom domain names to your Azure AD
+각 Azure AD 디렉터리에 최대 900개의 사용자 지정 도메인 이름을 추가할 수 있습니다. [추가 사용자 지정 도메인 이름을 추가](active-directory-domains-add-azure-portal.md)하는 프로세스는 첫 번째 사용자 지정 도메인 이름에 대해 동일합니다.
 
-You can add up to 900 custom domain names to each Azure AD directory. The process to [add an additional custom domain name](active-directory-domains-add-azure-portal.md) is the same for the first custom domain name.
+## 사용자 지정 도메인의 하위 도메인 추가
 
-## <a name="add-subdomains-of-a-custom-domain"></a>Add subdomains of a custom domain
+디렉터리에 'europe.contoso.com'과 같은 세 번째 수준 도메인 이름을 추가하려면 먼저 contoso.com과 같은 두 번째 수준 도메인을 추가 및 확인해야 합니다. Azure AD에서 자동으로 하위 도메인을 확인합니다. 방금 추가한 하위 도메인이 확인되었는지 보려면 도메인을 나열하는 브라우저의 페이지를 새로 고칩니다.
 
-If you want to add a third-level domain name such as ‘europe.contoso.com’ to your directory, you should first add and verify the second-level domain, such as contoso.com. The subdomain will be automatically verified by Azure AD. To see that the subdomain that you just added has been verified, refresh the page in the browser that lists the domains.
+## 사용자 지정 도메인 이름의 DNS 등록 기관을 변경하는 경우 수행할 작업
 
-## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>What to do if you change the DNS registrar for your custom domain name
+사용자 지정 도메인 이름을 위해 DNS 등록 기관을 변경할 경우 추가 구성 작업 및 중단 없이 Azure AD 자체로 사용자 지정 도메인 이름을 계속 사용할 수 있습니다. Office 365, Intune 또는 Azure AD의 사용자 지정 도메인 이름을 사용하는 다른 서비스에서 사용자 지정 도메인 이름을 사용하는 경우 해당 서비스에 대한 설명서를 참조하세요.
 
-If you change the DNS registrar for your custom domain name, you can continue to use your custom domain name with Azure AD itself without interruption and without additional configuration tasks. If you use your custom domain name with Office 365, Intune, or other services that rely on custom domain names in Azure AD, refer to the documentation for those services.
+## 사용자 지정 도메인 이름 삭제
 
-## <a name="delete-a-custom-domain-name"></a>Delete a custom domain name
+조직이 더 이상 해당 도메인 이름을 사용하지 않는 경우 또는 다른 Azure AD와 해당 도메인 이름을 사용해야 하는 경우, Azure AD에서 사용자 지정 도메인 이름을 삭제할 수 있습니다.
 
-You can delete a custom domain name from your Azure AD if your organization no longer uses that domain name, or if you need to use that domain name with another Azure AD.
+사용자 지정 도메인 이름을 삭제하려면 먼저 디렉터리에 도메인 이름을 사용하는 리소스가 없는지 확인해야 합니다. 다음의 경우 디렉터리에서 도메인 이름을 삭제할 수 없습니다.
 
-To delete a custom domain name, you must first ensure that no resources in your directory rely on the domain name. You can't delete a domain name from your directory if:
+-   임의 사용자가 도메인 이름을 포함하는 사용자 이름, 메일 주소 또는 프록시 주소 사용
 
--   Any user has a user name, email address, or proxy address that includes the domain name.
+-   임의 그룹이 도메인 이름을 포함하는 메일 주소 또는 프록시 주소 사용
 
--   Any group has an email address or proxy address that includes the domain name.
+-   Azure AD의 임의 응용 프로그램이 도메인 이름을 포함하는 앱 ID URI 사용
 
--   Any application in your Azure AD has an app ID URI that includes the domain name.
+사용자 지정 도메인 이름을 삭제하려면 먼저 Azure AD 디렉터리에서 이러한 리소스를 변경 또는 삭제해야 합니다.
 
-You must change or delete any such resource in your Azure AD directory before you can delete the custom domain name.
+## PowerShell 또는 Graph API를 사용하여 도메인 이름 관리
 
-## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Use PowerShell or Graph API to manage domain names
+Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업은 Microsoft PowerShell을 사용하거나 프로그래밍 방식으로 공개 미리 보기에서 Azure AD Graph API를 사용하여 완료할 수도 있습니다.
 
-Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Azure AD Graph API (in public preview).
+-   [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
--   [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+-   [Graph API를 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
--   [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+## 다음 단계
 
-## <a name="next-steps"></a>Next steps
+-   [사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)
 
--   [Add custom domain names](active-directory-domains-add-azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

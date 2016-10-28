@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create self-signed certificates for Point-to-Site virtual network cross-premises connections by using makecert | Microsoft Azure"
-   description="This article contains steps to use makecert to create self-signed certificates on Windows 10."
+   pageTitle="makecert를 사용하여 지점 및 사이트 간 가상 네트워크 크로스-프레미스 연결에 대해 자체 서명된 인증서 만들기 | Microsoft Azure"
+   description="이 문서에는 Windows 10에서 makecert를 사용하여 자체 서명된 인증서를 만드는 단계가 포함되어 있습니다."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -16,110 +16,106 @@
    ms.date="08/22/2016"
    ms.author="cherylmc" />
 
+# 지점 및 사이트 간 연결에 대한 자체 서명된 인증서로 작업
 
-# <a name="working-with-self-signed-certificates-for-point-to-site-connections"></a>Working with self-signed certificates for Point-to-Site connections
+이 문서를 참조하면 **makecert**를 사용하여 자체 서명된 인증서를 만든 후 이 인증서에서 클라이언트 인증서를 생성할 수 있습니다. 해당 단계는 Windows 10의 makecert용으로 작성되었습니다. P2S 연결과 호환되는 인증서를 만들기 위해 Makecert 유효성이 검증되었습니다.
 
-This article helps you create a self-signed certificate using **makecert**, and then generate client certificates from it. The steps are written for makecert on Windows 10. Makecert has been validated to create certificates that are compatible with P2S connections. 
+P2S 연결의 경우, 인증서에 대한 기본 방법은 엔터프라이즈 인증서 솔루션을 사용하여 'NetBIOS domain name\\username' 형식 대신 일반 이름 값 형식인 'name@yourdomain.com'을 사용하여 클라이언트 인증서를 발급하는 것입니다.
 
-For P2S connections, the preferred method for certificates is to use your enterprise certificate solution, making sure to issue the client certificates with the common name value format 'name@yourdomain.com', rather than the 'NetBIOS domain name\username' format.
+엔터프라이즈 솔루션에 없는 경우 P2S 클라이언트가 가상 네트워크에 연결할 수 있게 하도록 자체 서명된 인증서가 필요합니다. makecert는 더 이상 사용되지 않지만 아직 P2S 연결과 호환되는 자체 서명된 인증서를 만들 수 있는 유효한 방법은 있습니다. 자체 서명된 인증서를 만드는 다른 솔루션이 개발되고 있기는 하지만 현재는 makecert가 기본 방법으로 사용됩니다.
 
-If you don't have an enterprise solution, a self-signed certificate is necessary to allow P2S clients to connect to a virtual network. We are aware that makecert has been deprecated, but it is still a valid method for creating self-signed certificates that are compatible with P2S connections. We're working on another solution for creating self-signed certificates, but at this time, makecert is the preferred method.
+## 자체 서명된 인증서 만들기
 
-## <a name="create-a-self-signed-certificate"></a>Create a self-signed certificate
+Makecert는 자체 서명된 인증서를 만드는 한 가지 방법입니다. 다음 단계는 makecert를 사용하여 자체 서명된 인증서를 만드는 과정을 안내합니다. 이러한 단계는 배포 모델에 한정되지 않습니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
 
-Makecert is one way of creating a self-signed certificate. The following steps walk you through creating a self-signed certificate using makecert. These steps are not deployment-model specific. They are valid for both Resource Manager and classic.
+### 자체 서명된 인증서를 만들려면
 
-### <a name="to-create-a-self-signed-certificate"></a>To create a self-signed certificate
+1. Windows 10을 실행하는 컴퓨터에서 [Windows 10용 Windows SDK(소프트웨어 개발 키트)](https://dev.windows.com/ko-KR/downloads/windows-10-sdk)를 다운로드하여 설치합니다.
 
-1. From a computer running Windows 10, download and install the [Windows Software Development Kit (SDK) for Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk).
+2. 설치가 끝나면 C:\\Program Files (x86)\\Windows Kits\\10\\bin<arch> 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다.
+		
+	예제: `C:\Program Files (x86)\Windows Kits\10\bin\x64`
 
-2. After installation, you can find the makecert.exe utility under this path: C:\Program Files (x86)\Windows Kits\10\bin\<arch>. 
-        
-    Example: `C:\Program Files (x86)\Windows Kits\10\bin\x64`
+3. 다음으로 컴퓨터의 개인 인증서 저장소에 인증서를 만들고 설치합니다. 다음 예제에서는 P2S를 구성할 때 Azure에 업로드하는 해당 *.cer* 파일을 만듭니다. 관리자 권한으로 다음 명령을 실행합니다. 이때 *ARMP2SRootCert* 및 *ARMP2SRootCert.cer*은 인증서에 사용하려는 이름으로 바꿉니다.<br><br>인증서는 인증서 - Current User\\Personal\\Certificates에 저장됩니다.
 
-3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Run the following command, as administrator. Replace  *ARMP2SRootCert* and *ARMP2SRootCert.cer* with the name that you want to use for the certificate.<br><br>The certificate will be located in your Certificates - Current User\Personal\Certificates.
-
-        makecert -sky exchange -r -n "CN=ARMP2SRootCert" -pe -a sha1 -len 2048 -ss My "ARMP2SRootCert.cer"
+    	makecert -sky exchange -r -n "CN=ARMP2SRootCert" -pe -a sha1 -len 2048 -ss My "ARMP2SRootCert.cer"
 
 
-###  <a name="<a-name="rootpublickey"></a>to-obtain-the-public-key"></a><a name="rootpublickey"></a>To obtain the public key
+###  <a name="rootpublickey"></a>공개 키를 가져오려면
 
-As part of the VPN Gateway configuration for Point-to-Site connections, the public key for the root certificate is uploaded to Azure.
+지점 및 사이트 간 연결용 VPN Gateway 구성의 일부분으로 루트 인증서의 공개 키가 Azure에 업로드됩니다.
 
-1. To obtain a .cer file from the certificate, open **certmgr.msc**. Right-click the self-signed root certificate, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
+1. 인증서에서 .cer 파일을 가져오려면 **certmgr.msc**를 엽니다. 자체 서명된 루트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭한 후 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다.
 
-2. In the Wizard, click **Next**, select **No, do not export the private key**, and then click **Next**.
+2. 마법사에서 **다음**을 클릭하고 **아니요, 개인 키를 내보내지 않습니다.**를 선택한 후 **다음**을 클릭합니다.
 
-3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).** Then, click **Next**. 
+3. **내보내기 파일 형식** 페이지에서 **Base 64로 인코딩된 X.509(.CER)**를 선택합니다. 그런 후 **다음**을 클릭합니다.
 
-4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
+4. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **Next**를 클릭합니다.
 
-5. Click **Finish** to export the certificate.
+5. **마침**을 클릭하여 인증서를 내보냅니다.
 
  
-### <a name="export-the-self-signed-certificate-(optional)"></a>Export the self-signed certificate (optional)
+### 자체 서명된 인증서 내보내기(선택 사항)
 
-You may want to export the self-signed certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. Any computer with a client certificate installed and that is also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed and that the self-signed certificate is stored safely.
+자체 서명된 인증서를 내보낸 다음 안전하게 저장할 수 있습니다. 필요한 경우 나중에 다른 컴퓨터에서 해당 인증서를 설치하고 더 많은 클라이언트 인증서를 생성하거나 다른 .cer 파일을 내보낼 수 있습니다. 클라이언트 인증서가 설치되어 있으며 적절한 VPN 클라이언트 설정으로 구성되어 있는 모든 컴퓨터는 P2S를 통해 가상 네트워크에 연결할 수 있습니다. 따라서 클라이언트 인증서가 필요할 때만 생성 및 설치되며 자체 서명된 인증서가 안전하게 저장되도록 설정할 수 있습니다.
 
-To export the self-signed certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientkey) to export.
+자체 서명된 인증서를 .pfx로 내보내려면 루트 인증서를 선택하고 [클라이언트 인증서 내보내기](#clientkey)에서 설명하는 것과 같은 단계를 사용하여 인증서를 내보냅니다.
 
-## <a name="create-and-install-client-certificates"></a>Create and install client certificates
+## 클라이언트 인증서 만들기 및 설치
 
-You don't install the self-signed certificate directly on the client computer. You need to generate a client certificate from the self-signed certificate. You then export and install the client certificate to the client computer. The following steps are not deployment-model specific. They are valid for both Resource Manager and classic.
+자체 서명된 인증서를 클라이언트 컴퓨터에 직접 설치하지는 않으며, 자체 서명된 인증서에서 클라이언트 인증서를 생성해야 합니다. 그런 다음 클라이언트 인증서를 클라이언트 컴퓨터로 내보낸 후 설치해야 합니다. 이러한 단계는 배포 모델에 관계없이 적용됩니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
 
-### <a name="part-1---generate-a-client-certificate-from-a-self-signed-certificate"></a>Part 1 - Generate a client certificate from a self-signed certificate
+### 1부 - 자체 서명된 인증서에서 클라이언트 인증서 생성
 
-The following steps walk you through one way to generate a client certificate from a self-signed certificate. You may generate multiple client certificates from the same certificate. Each client certificate can then be exported and installed on the client computer. 
+다음 단계는 자체 서명된 인증서에서 클라이언트 인증서를 생성하는 한 가지 방법을 안내합니다. 동일한 인증서에서 여러 클라이언트 인증서를 생성할 수 있습니다. 그런 다음 각 클라이언트 인증서를 내보내고 클라이언트 컴퓨터에 설치할 수 있습니다.
 
-1. On the same computer that you used to create the self-signed certificate, open a command prompt as administrator.
+1. 자체 서명된 인증서를 만드는 데 사용한 동일한 컴퓨터에서 관리자로 명령 프롬프트를 엽니다.
 
-2. In this example, "ARMP2SRootCert" refers to the self-signed certificate that you generated. 
-    - Change *"ARMP2SRootCert"* to the name of the self-signed root that you are generating the client certificate from. 
-    - Change *ClientCertificateName* to the name you want to generate a client certificate to be. 
+2. 이 예제에서 "ARMP2SRootCert"는 생성한 자체 서명된 인증서를 지칭합니다.
+	- *"ARMP2SRootCert"*는 클라이언트 인증서를 생성 중인 자체 서명된 루트의 이름으로 변경합니다.
+	- *ClientCertificateName*은 생성하는 클라이언트 인증서에 사용할 이름으로 변경합니다.
 
 
-    Modify and run the sample to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named ClientCertificateName in your Personal certificate store that was generated from root certificate ARMP2SRootCert.
+	샘플을 수정 및 실행하여 클라이언트 인증서를 생성합니다. 다음 예제를 수정하지 않고 실행하면 루트 인증서 ARMP2SRootCert에서 생성된 클라이언트 인증서 ClientCertificateName이 개인 인증서 저장소에 저장됩니다.
 
-        makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
+    	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
 
-4. All certificates are stored in your 'Certificates - Current User\Personal\Certificates' store on your computer. You can generate as many client certificates as needed based on this procedure.
+4. 모든 인증서는 컴퓨터의 ‘인증서 - Current User\\Personal\\Certificates’ 저장소에 저장됩니다. 이 절차를 기반으로 필요에 따라 많은 수의 클라이언트 인증서를 생성할 수 있습니다.
 
-### <a name="<a-name="clientkey"></a>part-2---export-a-client-certificate"></a><a name="clientkey"></a>Part 2 - Export a client certificate
+### <a name="clientkey"></a>2부 - 클라이언트 인증서 내보내기
 
-1. To export a client certificate, open **certmgr.msc**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
+1. 클라이언트 인증서를 내보내려면 **certmgr.msc**를 엽니다. 내보낼 클라이언트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭 한 다음 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다.
 
-2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
+2. 마법사에서 **다음**을 클릭하고 **예, 개인 키를 내보냅니다.**를 선택한 후 **다음**을 클릭합니다.
 
-3. On the **Export File Format** page, you can leave the defaults selected. Then click **Next**. 
+3. **파일 내보내기 형식** 페이지에서 선택된 기본값을 유지할 수 있습니다. 그런 후 **Next**를 클릭합니다.
  
-4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then click **Next**.
+4. **보안** 페이지에서 개인 키를 보호해야 합니다. 암호를 사용하도록 선택하는 경우 이 인증서에 대해 설정한 암호를 기록해두거나 기억합니다. 그런 후 **Next**를 클릭합니다.
 
-5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
+5. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **Next**를 클릭합니다.
 
-6. Click **Finish** to export the certificate.  
+6. **마침**을 클릭하여 인증서를 내보냅니다.
 
-### <a name="part-3---install-a-client-certificate"></a>Part 3 - Install a client certificate
+### 3부 - 클라이언트 인증서 설치
 
-Each client that you want to connect to your virtual network by using a Point-to-Site connection must have a client certificate installed. This certificate is in addition to the required VPN configuration package. The following steps walk you through installing the client certificate manually.
+지점 및 사이트 간 연결을 사용하여 가상 네트워크에 연결하려는 각 클라이언트에 클라이언트 인증서가 설치되어 있어야 합니다. 이 인증서는 필수 VPN 구성 패키지 이외의 것입니다. 다음 단계에서는 클라이언트 인증서를 수동으로 설치하는 방법을 안내합니다.
 
-1. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, then click **Next**.
+1. *.pfx* 파일을 찾아 클라이언트 컴퓨터에 복사합니다. 클라이언트 컴퓨터에서 *.pfx* 파일을 두 번 클릭하여 설치합니다. **저장소 위치**를 **현재 사용자**로 유지한 후 **다음**을 클릭합니다.
 
-2. On the **File** to import page, don't make any changes. Click **Next**.
+2. 가져올 **파일** 페이지에서 아무 것도 변경하지 않습니다. **다음**을 클릭합니다.
 
-3. On the **Private key protection** page, input the password for the certificate if you used one, or verify that the security principal that is installing the certificate is correct, then click **Next**.
+3. **개인 키 보호** 페이지에서 인증서를 사용한 경우 인증서에 대한 암호를 입력하거나 인증서를 설치하는 보안 주체가 올바른지 확인한 후 **다음**을 클릭합니다.
 
-4. On the **Certificate Store** page, leave the default location, and then click **Next**.
+4. **인증서 저장소** 페이지에서 기본 위치를 유지한 후 **다음**을 클릭합니다.
 
-5. Click **Finish**. On the **Security Warning** for the certificate installation, click **Yes**. The certificate is now successfully imported.
+5. **마침**을 클릭합니다. 인증서 설치에 대한 **보안 경고**에서 **예**를 클릭합니다. 이제 인증서를 성공적으로 가져왔습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Continue with your Point-to-Site configuration. 
+지점 및 사이트 간 구성을 계속합니다.
 
-- For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a VNet using PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md). 
-- For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet using the classic portal](vpn-gateway-point-to-site-create.md).
+- **Resource Manager** 배포 모델 단계의 경우 [PowerShell을 사용하여 VNet에 지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
+- **클래식** 배포 모델 단계의 경우 [클래식 포털을 사용하여 VNet에 지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

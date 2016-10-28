@@ -1,9 +1,4 @@
-When you try to create a new Azure Virtual Machine (VM), the common errors you encounter are provisioning failures or allocation failures.
+새 Azure 가상 컴퓨터(VM)를 만드는 경우, 접하는 일반적인 오류는 프로비전 실패 또는 할당 실패입니다.
 
-- A provisioning failure happens when the OS image fails to load either due to incorrect preparatory steps or because of selecting the wrong settings during the image capture from the portal.
-- An allocation failure results when the cluster or region either does not have resources available or cannot support the requested VM size.
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+- 프로비전 실패는 포털에서 이미지를 캡처하는 동안 잘못된 설정을 선택했거나 준비 단계가 잘못되었기 때문에 OS 이미지가 로드되지 않아서 발생합니다.
+- 할당 실패는 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없을 때 발생합니다.

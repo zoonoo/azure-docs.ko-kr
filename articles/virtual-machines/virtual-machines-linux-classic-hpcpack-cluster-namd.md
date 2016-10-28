@@ -1,6 +1,6 @@
 <properties
- pageTitle="NAMD with Microsoft HPC Pack on Linux VMs | Microsoft Azure"
- description="Deploy a Microsoft HPC Pack cluster on Azure and run a NAMD simulation with charmrun on multiple Linux compute nodes"
+ pageTitle="Linux VM에 Microsoft HPC 팩과 NAMD | Microsoft Azure"
+ description="Azure에서 Microsoft HPC 팩을 배포하고 여러 Linux 컴퓨터 노드에서 charmrun으로 NAMD 시뮬레이션을 실행합니다."
  services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
@@ -16,58 +16,57 @@
  ms.date="06/23/2016"
  ms.author="danlep"/>
 
+# Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행
 
-# <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure
-
-This article shows you how to deploy a Microsoft HPC Pack cluster on Azure with multiple Linux compute nodes and run a [NAMD](http://www.ks.uiuc.edu/Research/namd/) job with **charmrun** to calculate and visualize the structure of a large biomolecular system.
+이 문서에서는 여러 Linux 계산 노드를 사용하여 Azure에 Microsoft HPC 팩 클러스터를 배포하고 **charmrun**으로 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 작업을 실행하여 규모가 큰 생체 분자 시스템의 구조를 계산 및 시각화하는 방법을 보여 줍니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
-NAMD (for Nanoscale Molecular Dynamics program) is a parallel molecular dynamics package designed for high-performance simulation of large biomolecular systems containing up to millions of atoms, such as viruses, cell structures, and large proteins. NAMD scales to hundreds of cores for typical simulations and to more than 500,000 cores for the largest simulations.
+NAMD(Nanoscale Molecular Dynamics 프로그램용)는 바이러스, 세포 구조, 거대한 단백질 등의 수백 만 원자를 포함하는 규모가 큰 생체 분자 시스템의 고성능 시뮬레이션을 위해 설계된 병렬 분자 동적 패키지입니다. NAMD는 일반적인 시뮬레이션의 경우 수백 개의 코어로 확장되며 가장 큰 규모의 시뮬레이션의 경우 500,000 코어 이상까지 확장됩니다.
 
-Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. Originally developed as a solution for Windows HPC workloads, HPC Pack now supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for an introduction.
-
-
-## <a name="prerequisites"></a>Prerequisites
-
-* **HPC Pack cluster with Linux compute nodes** - Deploy an HPC Pack cluster with Linux compute nodes on Azure using either an [Azure Resource Manager template](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) or an [Azure PowerShell script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for the prerequisites and steps for either option. If you choose the PowerShell script deployment option, see the sample configuration file in the sample files at the end of this article to deploy an Azure-based HPC Pack cluster consisting of a Windows Server 2012 R2 head node and 4 size Large CentOS 6.6 compute nodes. Adapt this as needed for your environment.
+Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. 원래 Windows HPC 워크로드용 솔루션으로 개발된 HPC 팩은 이제 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. 소개는 [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
 
 
-* **NAMD software and tutorial files** - Download NAMD software for Linux from the [NAMD](http://www.ks.uiuc.edu/Research/namd/) site (registration required). This article is based on NAMD version 2.10, and uses the [Linux-x86_64 (64-bit Intel/AMD with Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) archive, which you'll use to run NAMD on multiple Linux compute nodes in a cluster network. Also download the [NAMD tutorial files](http://www.ks.uiuc.edu/Training/Tutorials/#namd). The downloads are .tar files, and you will need a Windows tool to extract the files on the cluster head node. Follow the instructions later in this article to do this. 
+## 필수 조건
 
-* **VMD** (optional) - To see the results of your NAMD job, download and install the molecular visualization program [VMD](http://www.ks.uiuc.edu/Research/vmd/) on a computer of your choice. The current version is 1.9.2. See the VMD download site to get started.  
+* **Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에서 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 Windows Server 2012 R2 헤드 노드와 대형 CentOS 6.6 컴퓨터 노드 4개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 환경에서 필요한 경우 이 파일을 조정합니다.
 
 
-## <a name="set-up-mutual-trust-between-compute-nodes"></a>Set up mutual trust between compute nodes
-Running a cross-node job on multiple Linux nodes requires the nodes to trust each other (by **rsh** or **ssh**). When you create the HPC Pack cluster with the Microsoft HPC Pack IaaS deployment script, the script automatically sets up permanent mutual trust for the administrator account you specify. For non-administrator users you create in the cluster's domain, you have to set up temporary mutual trust among the nodes when a job is allocated to them, and destroy the relationship after the job is complete. To do this for each user, provide an RSA key pair to the cluster which HPC Pack uses to establish the trust relationship. Instructions follow.
+* **NAMD 소프트웨어 및 자습서 파일** - [NAMD](http://www.ks.uiuc.edu/Research/namd/) 사이트(등록 필요)에서 Linux용 NAMD 소프트웨어를 다운로드합니다. 이 문서는 NAMD 버전 2.10을 기반으로 하며 클러스터 네트워크의 여러 Linux 계산 노드에서 NAMD를 실행하는 데 사용할 [Linux-x86\_64(이더넷 포함 64비트 Intel/AMD)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) 보관 파일을 사용합니다. [NAMD 자습서 파일](http://www.ks.uiuc.edu/Training/Tutorials/#namd)도 다운로드합니다. 다운로드는 .tar 파일이며 클러스터 헤드 노드에 파일을 추출하기 위한 Windows 도구가 필요합니다. 이 도구를 사용하여 파일을 추출하려면 하려면 이 문서 뒷부분의 지침을 따릅니다.
 
-### <a name="generate-an-rsa-key-pair"></a>Generate an RSA key pair
-It's easy to generate an RSA key pair, which contains a public key and a private key, by running the Linux **ssh-keygen** command.
+* **VMD**(선택 사항) - NAMD 작업 결과를 보려면 선택한 컴퓨터에 분자 시각화 프로그램인 [VMD](http://www.ks.uiuc.edu/Research/vmd/)를 다운로드하여 설치합니다. 현재 버전은 1.9.2입니다. 시작하려면 VMD 다운로드 사이트를 참조하세요.
 
-1.  Log on to a Linux computer.
 
-2.  Run the following command.
+## 계산 노드 간 상호 트러스트 설정
+여러 Linux 노드에서 크로스 노드 작업을 실행하려면 노드가 서로 신뢰해야 합니다(**rsh** 또는 **ssh** 사용). Microsoft HPC 팩 IaaS 배포 스크립트로 HPC 팩 클러스터를 만드는 경우 스크립트에서 사용자가 지정한 관리자 계정에 대해 영구 상호 트러스트를 자동으로 설정합니다. 클러스터의 도메인에 만든 관리자가 아닌 사용자의 경우 작업이 할당될 때 노드 간에 임시 상호 트러스트를 설정하고 작업이 완료된 후 관계를 삭제해야 합니다. 사용자마다 이 작업을 수행하려면 HPC 팩에서 트러스트 관계를 설정하는 데 사용할 클러스터에 RSA 키 쌍을 제공합니다. 지침이 제공됩니다.
+
+### RSA 키 쌍 생성
+Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함하는 RSA 키 쌍을 간편하게 생성할 수 있습니다.
+
+1.	Linux 컴퓨터에 로그온합니다.
+
+2.	다음 명령을 실행합니다.
 
     ```
     ssh-keygen -t rsa
     ```
 
-    >[AZURE.NOTE] Press **Enter** to use the default settings until the command is completed. Do not enter a passphrase here; when prompted for a password, just press **Enter**.
+    >[AZURE.NOTE] 명령이 완료될 때까지 기본 설정을 사용하려면 **Enter** 키를 누릅니다. 여기에 암호를 입력하지 마십시오. 암호를 묻는 메시지가 표시되면 **Enter** 키만 누르십시오.
 
-    ![Generate an RSA key pair][keygen]
+    ![RSA 키 쌍 생성][keygen]
 
-3.  Change directory to the ~/.ssh directory. The private key is stored in id_rsa and the public key in id_rsa.pub.
+3.	디렉터리를 ~/.ssh 디렉터리로 변경합니다. 개인 키는 id\_rsa에 저장되고 공개 키는 id\_rsa.pub에 저장됩니다.
 
-    ![Private and public keys][keys]
+    ![개인 및 공용 키][keys]
 
-### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Add the key pair to the HPC Pack cluster
-1.  Make a Remote Desktop connnection to your head node with your HPC Pack administrator account (the administrator account you set up when you deployed the cluster).
+### HPC 팩 클러스터에 키 쌍 추가
+1.	HPC Pack 관리자 계정(클러스터를 배포할 때 설정한 관리자 계정)으로 헤드 노드에 원격 데스크톱 연결을 만듭니다.
 
-2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpcuser in the hpclab domain (hpclab\hpcuser).
+2. 표준 Windows Server 절차를 사용하여 클러스터의 Active Directory 도메인에 도메인 사용자 계정을 만듭니다. 예를 들어 헤드 노드에서 Active Directory 사용자 및 컴퓨터 도구를 사용합니다. 이 문서의 예에서는 hpclab 도메인에 hpcuser라는 도메인 사용자를 만든다고 가정합니다(hpclab\\hpcuser).
 
-3. Add the domain user to the HPC Pack cluster as a cluster user. For instructions see [Add or remove cluster users](https://technet.microsoft.com/library/ff919330.aspx).
+3. HPC 팩 클러스터에 도메인 사용자를 클러스터 사용자로 추가합니다. 지침에 대해서는 [클러스터 사용자 추가 또는 제거](https://technet.microsoft.com/library/ff919330.aspx)를 참조하세요.
 
-2.  Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example in the sample files at the end of this article.
+2.	C:\\cred.xml이라는 이름의 파일을 만들고 RSA 키 데이터를 여기에 복사합니다. 이 문서의 끝에 있는 샘플 파일에서 예제를 확인할 수 있습니다.
 
     ```
     <ExtendedData>
@@ -76,32 +75,32 @@ It's easy to generate an RSA key pair, which contains a public key and a private
     </ExtendedData>
     ```
 
-3.  Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of the C:\cred.xml file you created for the key data.
+3.	명령 프롬프트를 열고 다음 명령을 입력하여 hpclab\\hpcuser 계정에 대한 자격 증명 데이터를 설정합니다. 키 데이터를 위해 만든 C:\\cred.xml 파일의 이름을 전달하는 데 **extendeddata** 매개 변수를 사용합니다.
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
     ```
 
-    This command completes successfully without output. After setting the credentials for the user accounts you need to run jobs, store the cred.xml file in a secure location, or delete it.
+    이 명령은 출력 없이 성공적으로 완료됩니다. 작업을 실행하는 데 필요한 사용자의 자격 증명을 설정한 후에 cred.xml 파일을 안전한 위치에 저장하거나 삭제합니다.
 
-5.  If you generated the RSA key pair on one of your Linux nodes, remember to delete the keys after you finish using them. HPC Pack does not set up mutual trust if it finds an existing id_rsa file or id_rsa.pub file.
+5.	Linux 노드 중 하나에서 RSA 키 쌍을 생성한 경우 사용이 끝난 후 키를 삭제해야 합니다. HPC 팩에서는 기존 id\_rsa 파일 또는 id\_rsa.pub 파일이 발견된 경우 상호 트러스트를 설정하지 않습니다.
 
->[AZURE.IMPORTANT] We don’t recommend running a Linux job as a cluster administrator on a shared cluster, because a job submitted by an administrator runs under the root account on the Linux nodes. A job submitted by a non-administrator user runs under a local Linux user account with the same name as the job user, and HPC Pack sets up mutual trust for this Linux user across all the nodes allocated to the job. You can set up the Linux user manually on the Linux nodes before running the job, or HPC Pack creates the user automatically when the job is submitted. If HPC Pack creates the user, HPC Pack deletes it after the job completes. The keys are removed after job completion on the nodes to reduce security threats.
+>[AZURE.IMPORTANT] 공유 클러스터에서 Linux 작업을 클러스터 관리자로 실행하지 않는 것이 좋습니다. 관리자가 제출한 작업이 Linux 노드에서 루트 계정으로 실행되기 때문입니다. 관리자가 아닌 사용자가 제출한 작업은 작업 사용자와 동일한 이름의 로컬 Linux 사용자 계정으로 실행되며 HPC 팩은 작업에 할당된 모든 노드에 걸쳐 이 Linux 사용자에 대해 상호 트러스트를 설정합니다. 작업을 실행하기 전에 Linux 노드에서 Linux 사용자를 수동으로 설정할 수 있습니다. 또는 HPC 팩에서 작업이 제출될 때 사용자를 자동으로 만듭니다. HPC 팩에서 사용자를 만드는 경우 HPC 팩은 작업이 완료된 후 사용자를 삭제합니다. 노드에서 작업이 완료된 후 키가 제거되므로 보안 위협이 줄어듭니다.
 
-## <a name="set-up-a-file-share-for-linux-nodes"></a>Set up a file share for Linux nodes
+## 사용자가 액세스할 파일 공유를 설정합니다.
 
-Now set up an SMB file share, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. Following are steps to mount a shared folder on the head node, which is recommended for distributions such as CentOS 6.6 which currently don’t support the Azure File service. If your Linux nodes support an Azure File share, see [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md).  For additional file sharing options with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+이제 SMB 파일 공유를 설정하고 모든 Linux 노드에서 공유 폴더를 탑재하여 Linux 노드에서 일반 경로로 NAMD 파일에 액세스할 수 있도록 합니다. 아래에는 헤드 노드에서 공유 폴더를 탑재하는 단계가 나와 있습니다. 현재 Azure 파일 서비스를 지원하지 않는 CentOS 6.6 등의 배포에서는 이 단계를 수행하는 것이 좋습니다. Linux 노드에서 Azure 파일 공유를 지원하는 경우 [Linux에서 Azure 파일 저장소 사용 방법](../storage/storage-how-to-use-files-linux.md)을 참조하세요. HPC Pack의 추가 파일 공유 옵션에 대해서는 [Azure의 HPC Pack 클러스터에서 Linux 컴퓨터 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
 
-1.  Create a folder on the head node, and share it to Everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
+1.	헤드 노드에서 폴더를 만들고 읽기/쓰기 권한을 설정하여 모든 사용자에게 공유합니다. 이 예에서, \\\CentOS66HN\\Namd는 폴더의 이름이고 여기서 CentOS66HN은 헤드 노드의 호스트 이름입니다.
 
-2. Create a subfolder named namd2 in the shared folder. In namd2 create another subfolder named namdsample.
+2. 공유 폴더에 namd2라는 하위 폴더를 만듭니다. namd2에 namdsample이라는 또 다른 하위 폴더를 만듭니다.
 
-3. Extract the NAMD files in the folder by using a Windows version of **tar** or another Windows utility that operates on .tar archives. 
-    * Extract the NAMD tar archive to \\\\CentOS66HN\Namd\namd2.
+3. Windows 버전의 **tar** 또는 .tar 보관 파일에 대해 작동하는 다른 Windows 유틸리티를 사용하여 해당 폴더에 NAMD 파일을 추출합니다.
+    * \\\CentOS66HN\\Namd\\namd2에 NAMD tar 보관 파일의 압축을 풉니다.
     
-    * Extract the tutorial files under \\\\CentOS66HN\Namd\namd2\namdsample.
+    * \\\CentOS66HN\\Namd\\namd2\\namdsample 아래에 자습서 파일의 압축을 풉니다.
 
-4. Open a Windows PowerShell window and run the following commands to mount the shared folder on the Linux nodes.
+4. Windows PowerShell 창을 열고 다음 명령을 실행하여 Linux 노드에 공유 폴더를 탑재합니다.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /namd2
@@ -109,22 +108,22 @@ Now set up an SMB file share, and mount the shared folder on all Linux nodes to 
     clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
-The first command creates a folder named /namd2 on all nodes in the LinuxNodes group. The second command mounts the shared folder //CentOS66HN/Namd/namd2 onto the folder with dir_mode and file_mode bits set to 777. The *username* and *password* in the command should be the credentials of a user on the head node.
+첫 번째 명령은 LinuxNodes 그룹의 모든 노드에 /namd2라는 폴더를 만듭니다. 두 번째 명령은 dir\_mode 및 file\_mode 비트를 777로 설정하여 공유 폴더 //CentOS66HN/Namd/namd2를 폴더에 탑재합니다. 명령의 *username*과 *password*는 헤드 노드 사용자의 자격 증명이어야 합니다.
 
->[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means the “,” (comma character) is a part of the command.
+>[AZURE.NOTE]두 번째 명령의 "`" 기호는 PowerShell의 이스케이프 기호입니다. "`,"는 ","(쉼표)가 명령의 일부임을 의미합니다.
 
 
-## <a name="create-a-bash-script-to-run-a-namd-job"></a>Create a Bash script to run a NAMD job
+## NAMD 작업을 실행하기 위한 Bash 스크립트 만들기
 
-Your NAMD job needs a *nodelist* file for **charmrun** to determine the number of nodes to use when starting NAMD processes. You'll use a Bash script that generates the nodelist file and runs **charmrun** with this nodelist file. You can then submit a NAMD job in HPC Cluster Manager that calls this script.
+NAMD 작업을 수행하려면 NAMD 프로세스를 시작할 때 사용할 노드 수를 확인하기 위한 **charmrun**용 *nodelist* 파일이 필요합니다. 이 섹션에서는 nodelist 파일을 생성하고 이 nodelist 파일과 함께 **charmrun**을 실행하는 Bash 스크립트를 사용합니다. 그런 다음 이 스크립트를 호출하는 HPC 클러스터 관리자에서 NAMD 작업을 제출할 수 있습니다.
 
-Using a text editor of your choice, create a Bash script in the /namd2 folder containing the NAMD program files and name it hpccharmrun.sh. You can simply copy the example provided in the sample files at the end of this article. 
+원하는 텍스트 편집기를 사용하여 NAMD 프로그램 파일을 포함하는 /namd2 폴더에 Bash 스크립트를 만들고 hpccharmrun.sh로 이름을 지정합니다. 이 문서 끝부분의 샘플 파일에서 제공하는 예제를 복사하면 됩니다.
 
->[AZURE.TIP] Save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
+>[AZURE.TIP] 스크립트를 Linux 줄 끝(CR LF가 아닌 LF만)을 사용하여 텍스트 파일로 저장하십시오. 이렇게 해야 Linux 노드에서 제대로 실행됩니다.
 
-Following are details about what this bash script does. If you're doing a proof of concept and just want to run a NAMD job, save your hpccharmrun.sh script in the /namd2 folder on the file share and go to [Submit a NAMD job](#submit-a-namd-job).
+아래에서는 이 Bash 스크립트가 수행하는 작업에 대해 자세히 설명합니다. 개념 증명을 수행하는 경우 NAMD 작업만 실행하려면 파일 공유의 /namd2 폴더에 hpccharmrun.sh 스크립트를 저장한 다음 [NAMD 작업 제출](#submit-a-namd-job) 섹션으로 이동하세요.
 
-1.  Define some variables.
+1.	일부 변수를 정의합니다.
 
     ```
     #!/bin/bash
@@ -139,68 +138,68 @@ Following are details about what this bash script does. If you're doing a proof 
     NUMPROCESS="+p"
     ```
 
-2.  Get node information from the environment variables. $NODESCORES stores a list of split words from $CCP_NODES_CORES. $COUNT is the size of $NODESCORES.
+2.	환경 변수에서 노드 정보를 가져옵니다. $NODESCORES는 $CCP\_NODES\_CORES에서 분할 단어 목록을 저장하고 $COUNT는 $NODESCORES의 크기입니다.
     ```
     # Get node information from the environment variables
     NODESCORES=(${CCP_NODES_CORES})
     COUNT=${#NODESCORES[@]}
     ```    
     
-    The format for the $CCP_NODES_CORES variable is as follows:
+    $CCP\_NODES\_CORES 변수의 형식은 다음과 같습니다.
 
     ```
     <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
     ```
 
-    This lists the total number of nodes, node names, and number of cores on each node that are allocated to the job. For example, if the job needs 10 cores to run, the value of $CCP_NODES_CORES will be similar to:
+    위 형식은 총 노드 수, 노드 이름 및 작업에 할당되는 각 노드의 코어 수를 나열합니다. 예를 들어 작업에 실행할 코어가 10개 필요한 경우 $CCP\_NODES\_CORES 값은 다음과 유사합니다.
 
     ```
     3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
     ```
         
-3.  If the $CCP_NODES_CORES variable is not set, just start **charmrun** directly. (This should only occur when you run this script directly on your Linux nodes.)
+3.	$CCP\_NODES\_CORES 변수가 설정되지 않은 경우 **charmrun**을 직접 시작해도 됩니다. (이러한 경우는 Linux 노드에서 이 스크립트를 직접 실행하는 경우에만 발생합니다.)
 
     ```
     if [ ${COUNT} -eq 0 ]
     then
-        # CCP_NODES is_CORES is not found or is empty, so just run charmrun without nodelist arg.
-        #echo ${CHARMRUN} $*
-        ${CHARMRUN} $*
+    	# CCP_NODES is_CORES is not found or is empty, so just run charmrun without nodelist arg.
+    	#echo ${CHARMRUN} $*
+    	${CHARMRUN} $*
     ```
 
-4.  Or create a nodelist file for **charmrun**.
+4.	또는 **charmrun**에 대한 nodelist 파일을 만듭니다.
 
     ```
     else
-        # Create the nodelist file
-        NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
+    	# Create the nodelist file
+    	NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
 
-        # Write the head line
-        echo "group main" > ${NODELIST_PATH}
+    	# Write the head line
+    	echo "group main" > ${NODELIST_PATH}
 
-        # Get every node name and number of cores and write into the nodelist file
-        I=1
-        while [ ${I} -lt ${COUNT} ]
-        do
-            echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
-            let "I=${I}+2"
-        done
+    	# Get every node name and number of cores and write into the nodelist file
+    	I=1
+    	while [ ${I} -lt ${COUNT} ]
+    	do
+    		echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
+    		let "I=${I}+2"
+    	done
 ```
-5.  Run **charmrun** with the nodelist file, get its return status, and remove the nodelist file at the end.
+5.	nodelist 파일과 함께 **charmrun**을 실행하고 반환 상태를 가져오고 끝에는 nodelist 파일을 제거합니다.
 
-    ${CCP_NUMCPUS} is another environment variable set by the HPC Pack head node. It stores the number of total cores allocated to this job. We use it to specify the number of processes for charmrun.
+    ${CCP\_NUMCPUS}는 HPC 팩 헤드 노드에서 설정하는 다른 환경 변수입니다. 여기에는 이 작업에 할당된 총 코어 수가 저장됩니다. charmrun에 대한 프로세스 수를 지정하려면 사용합니다.
 
     ```
-    # Run charmrun with nodelist arg
-    #echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
-    ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+	# Run charmrun with nodelist arg
+	#echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+	${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
 
-    RTNSTS=$?
-    rm -f ${NODELIST_PATH}
+	RTNSTS=$?
+	rm -f ${NODELIST_PATH}
     fi
 
     ```
-6.  Exit with the **charmrun** return status.
+6.	**charmrun** 반환 상태와 함께 종료합니다.
 
     ```
     exit ${RTNSTS}
@@ -208,7 +207,7 @@ Following are details about what this bash script does. If you're doing a proof 
 
 
 
-Following is the information in the nodelist file, which the script will generate:
+다음은 스크립트에서 생성하는 nodelist 파일의 정보입니다.
 
 ```
 group main
@@ -217,7 +216,7 @@ host <Name of node2> ++cpus <Cores of node2>
 …
 ```
 
-For example:
+예:
 
 ```
 group main
@@ -226,65 +225,64 @@ host CENTOS66LN-01 ++cpus 4
 host CENTOS66LN-03 ++cpus 2
 ```
 
-## <a name="submit-a-namd-job"></a>Submit a NAMD job
+## NAMD 작업 제출
 
-Now you are ready to submit a NAMD job in HPC Cluster Manager.
+이제 HPC 클러스터 관리자에서 NAMD 작업을 제출할 준비가 되었습니다.
 
-1.  Connect to your cluster head node and start HPC Cluster Manager.
+1.	클러스터 헤드 노드에 연결하고 HPC 클러스터 관리자를 시작합니다.
 
-2.  In **Resource Management**, ensure that the Linux compute nodes are in the **Online** state. If they are not, select them and click **Bring Online**.
+2.  **리소스 관리에서** Linux 컴퓨터 노드가 **온라인** 상태인지 확인합니다. 온라인 상태가 아닌 경우 노드를 선택하고 **온라인 상태로 전환**을 클릭합니다.
 
-2.  In **Job Management**, click **New Job**.
+2.  **작업 관리**에서 **새 작업**을 클릭합니다.
 
-3.  Enter a name for job such as *hpccharmrun*.
+3.	작업 이름(예: *hpccharmrun*)을 입력합니다.
 
-    ![New HPC job][namd_job]
+    ![새 HPC 작업][namd_job]
 
-4.  On the **Job Details** page, under **Job Resources**, select the type of resource as **Node** and set the **Minimum** to 3. In this example we'll run the job on 3 Linux nodes and each node has 4 cores.
+4.	**작업 세부 정보** 페이지의 **작업 리소스** 아래에서 리소스 유형을 **노드**로 선택하고 **최소**를 3으로 설정합니다. 이 예에서는 Linux 노드 3개에 작업을 실행하며 각 노드는 코어 4개를 포함합니다.
 
-    ![Job resources][job_resources]
+    ![작업 리소스][job_resources]
 
-5. Click **Edit Tasks** in the left navigation, and then click **Add** to add a task to the job.    
+5. 왼쪽 탐색 영역에서 **작업 편집**을 클릭한 다음 **추가**를 클릭하여 작업(job)에 작업(task)을 추가합니다.
 
 
-6. On the **Task Details and I/O Redirection** page, set the following values.
+6. **작업 세부 정보 및 I/O 리디렉션** 페이지에서 다음 값을 설정합니다.
 
-    * **Command line** -
-`/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
+    * **명령줄** - `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
 
-        >[AZURE.TIP] The preceding command line is a single command without line breaks. It will wrap to appear on several lines under **Command line**.
+        >[AZURE.TIP] 위의 명령줄은 줄 바꿈이 없는 하나의 명령이며 **명령줄**에서는 줄이 바뀌어 여러 줄에 표시됩니다.
 
-    * **Working directory** - /namd2
+    * **작업 디렉터리** - /namd2
 
-    * **Minimum** - 3
+    * **최소** - 3
 
-    ![Task details][task_details]
+    ![태스크 세부 정보][task_details]
 
-    >[AZURE.NOTE] You set the working directory here because **charmrun** tries to navigate to the same working directory on each node. If the working directory isn't set, HPC Pack starts the command in a randomly named folder created on one of the Linux nodes. This causes the following error on the other nodes: `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` To avoid this, specify a folder path which can be accessed by all nodes as the working directory.
+    >[AZURE.NOTE] **charmrun**은 각 노드에서 동일한 작업 디렉터리로 이동하려고 시도하므로 여기에서 작업 디렉터리를 설정합니다. 작업 디렉터리가 설정되지 않으면 HPC 팩은 Linux 노드 중 하나에 생성된 무작위로 이름이 지정된 폴더에서 명령을 시작합니다. 이로 인해 다른 노드에서 다음과 같은 오류가 발생합니다. `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` 이 문제를 방지하려면 모든 노드에서 작업 디렉터리로 액세스할 수 있는 폴더 경로를 지정합니다.
 
-5.  Click **OK** and then click **Submit** to run this job.
+5.	**확인**을 클릭하고 **제출**을 클릭하여 이 작업을 실행합니다.
 
-    By default, HPC Pack submits the job as your current logged-on user account. A dialog box might prompt you to enter the user name and password after you click **Submit**.
+    기본적으로 HPC 팩은 현재 로그온한 사용자 계정으로 작업을 제출합니다. **제출**을 클릭한 후 사용자 이름 및 암호를 입력하라는 대화 상자가 표시될 수 있습니다.
 
-    ![Job credentials][creds]
+    ![작업 자격 증명][creds]
 
-    Under some conditions HPC Pack remembers the user information you input before and won’t show this dialog box. To make HPC Pack show it again, enter the following in a Command window and then submit the job.
+    일부 조건에서 HPC 팩이 사용자가 이전에 입력한 사용자 정보를 저장해 두어 이 대화 상자가 표시되지 않습니다. HPC 팩에서 이 대화 상자를 다시 표시하려면 명령 창에 다음을 입력한 후 작업을 제출합니다.
 
     ```
     hpccred delcreds
     ```
 
-6.  The job takes several minutes to finish.
+6.	작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-7.  Find the job log at \\<headnodeName>\Namd\namd2\namd2_hpccharmrun.log and the output files in \\<headnodeName>\Namd\namd2\namdsample\1-2-sphere\.
+7.	작업 로그는 \\<headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log에, 출력 파일은 \\<headnodeName>\\Namd\\namd2\\namdsample\\1-2-sphere에 있습니다.
 
-8.  Optionally, start VMD to view your job results. The steps for visualizing the NAMD output files (in this case, a ubiquitin protein molecule in a water sphere) are beyond the scope of this article. See [NAMD Tutorial](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) for details.
+8.	필요에 따라 VMD를 시작하여 작업 결과를 확인합니다. NAMD 출력 파일을 시각화하는 단계(이 경우, 물 구체에서 유비퀴틴 단백질 분자)는 이 문서의 범위를 벗어납니다. 자세한 내용은 [NAMD 자습서](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf)를 참조하세요.
 
-    ![Job results][vmd_view]
+    ![작업 결과][vmd_view]
 
-## <a name="sample-files"></a>Sample files
+## 샘플 파일
 
-### <a name="sample-xml-configuration-file-for-cluster-deployment-by-powershell-script"></a>Sample XML configuration file for cluster deployment by PowerShell script
+### PowerShell 스크립트를 통한 클러스터 배포용 샘플 XML 구성 파일
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -322,7 +320,7 @@ Now you are ready to submit a NAMD job in HPC Cluster Manager.
 </IaaSClusterConfig>    
 ```
 
-### <a name="sample-cred.xml-file"></a>Sample cred.xml file
+### 샘플 cred.xml 파일
 
 ```
 <ExtendedData>
@@ -357,7 +355,7 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 </ExtendedData>
 ```
 
-### <a name="sample-hpccharmrun.sh-script"></a>Sample hpccharmrun.sh script
+### 샘플 hpccharmrun.sh 스크립트
 
 ```
 #!/bin/bash
@@ -378,30 +376,30 @@ COUNT=${#NODESCORES[@]}
 
 if [ ${COUNT} -eq 0 ]
 then
-    # If CCP_NODES_CORES is not found or is empty, just run the charmrun without nodelist arg.
-    #echo ${CHARMRUN} $*
-    ${CHARMRUN} $*
+	# If CCP_NODES_CORES is not found or is empty, just run the charmrun without nodelist arg.
+	#echo ${CHARMRUN} $*
+	${CHARMRUN} $*
 else
-    # Create the nodelist file
-    NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
+	# Create the nodelist file
+	NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
 
-    # Write the head line
-    echo "group main" > ${NODELIST_PATH}
+	# Write the head line
+	echo "group main" > ${NODELIST_PATH}
 
-    # Get every node name & cores and write into the nodelist file
-    I=1
-    while [ ${I} -lt ${COUNT} ]
-    do
-        echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
-        let "I=${I}+2"
-    done
+	# Get every node name & cores and write into the nodelist file
+	I=1
+	while [ ${I} -lt ${COUNT} ]
+	do
+		echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
+		let "I=${I}+2"
+	done
 
-    # Run the charmrun with nodelist arg
-    #echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
-    ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+	# Run the charmrun with nodelist arg
+	#echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+	${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
 
-    RTNSTS=$?
-    rm -f ${NODELIST_PATH}
+	RTNSTS=$?
+	rm -f ${NODELIST_PATH}
 fi
 
 exit ${RTNSTS}
@@ -422,8 +420,4 @@ exit ${RTNSTS}
 [task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Virtual Array release notes| Microsoft Azure"
-   description="Describes critical open issues and resolutions for the StorSimple Virtual Array."
+   pageTitle="StorSimple 가상 배열 릴리스 정보| Microsoft Azure"
+   description="StorSimple 가상 배열에 대한 중대한 미해결 문제 및 해결책을 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,36 +15,31 @@
    ms.date="05/13/2016"
    ms.author="alkohli" />
 
+# StorSimple 가상 배열 릴리스 정보
 
-# <a name="storsimple-virtual-array-release-notes"></a>StorSimple Virtual Array release notes
+## 개요
 
-## <a name="overview"></a>Overview
+다음 릴리스 정보는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치로 알려짐)의 2016년 3월 GA(일반 공급) 릴리스에 대한 중요한 미해결 문제를 식별합니다. 이 릴리스는 소프트웨어 버전 10.0.10271.0에 해당합니다.
 
-The following release notes identify the critical open issues for the March 2016 general availability (GA) release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). This release corresponds to software version 10.0.10271.0.
+릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. StorSimple 가상 장치를 배포하기 전에 릴리스 정보에 포함된 정보를 주의 깊게 검토하세요.
 
-The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
-
-The following table provides a summary of known issues in this release.
+다음 표에서 이 릴리스의 알려진 문제를 간략하게 설명합니다.
 
 
-| No. | Feature | Issue | Workaround/comments |
+| 번호 | 기능 | 문제 | 해결 방법/설명 |
 |-----|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1.** | Updates | The virtual devices created in the preview release cannot be updated to a supported General Availability version. | These virtual devices must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
-| **2.** | Provisioned data disk | Once you have provisioned a data disk of a certain specified size and created the corresponding StorSimple virtual device, you must not expand or shrink the data disk. Attempting to do so will result in a  loss of all the data in the local tiers of the device. |   |
-| **3.** | Group policy | When a device is domain-joined, applying a group policy can adversely affect the device operation. | Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it.|
-| **4.** | Local web UI | If enhanced security features are enabled in Internet Explorer (IE ESC), some local web UI pages such as Troubleshooting or Maintenance may not work properly. Buttons on these pages may also not work. | Turn off enhanced security features in Internet Explorer.|
-| **5.** | Local web UI | In a Hyper-V virtual machine, the network interfaces in the web UI are displayed as 10 Gbps interfaces. | This behavior is a reflection of Hyper-V. Hyper-V always shows 10 Gbps for virtual network adapters. |
-| **6.** | Tiered volumes or shares | Byte range locking for applications that work with the StorSimple tiered volumes is not supported. If byte range locking is enabled, StorSimple tiering will not work. | Recommended measures include: <br></br>Turn off byte range locking in your application logic.<br></br>Choose to put data for this application in locally pinned volumes as opposed to tiered volumes.<br></br>*Caveat*: If using locally pinned volumes and byte range locking is enabled, be aware that the locally pinned volume can be online even before the restore is complete. In such instances, if a restore is in progress, then you must wait for the restore to complete. |
-| **7.** | Tiered shares | Working with large files could result in slow tier out. | When working with large files, we recommend that the largest file is smaller than 3% of the share size. |
-| **8.** | Used capacity for shares | You may see share consumption in the absence of any data on the share. This is because the used capacity for shares includes metadata. |   |
-| **9.** | Disaster recovery | You can only perform the disaster recovery of a file server to the same domain as that of the source device. Disaster recovery to a target device in another domain is not supported in this release. | This will be implemented in a later release. |
-| **10.** | Azure PowerShell | The StorSimple virtual devices cannot be managed through the Azure PowerShell in this release. | All the management of the virtual devices should be done through the Azure classic portal and the local web UI. |
-| **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
-| **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you will need to take the volumes offline and then bring them online for the change to take effect. | These will be addressed in a later release. |
-| **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
+| **1.** | 업데이트 | 미리 보기 릴리스에서 만든 가상 장치는 지원되는 일반 사용 가능 버전으로 업데이트될 수 없습니다. | 이러한 가상 장치는 재해 복구(DR) 워크플로를 사용하여 일반 사용 가능 릴리스로 장애 조치되어야 합니다. |
+| **2.** | 프로비전된 데이터 디스크 | 특정한 크기의 데이터 디스크를 프로비전하고 해당 StorSimple 가상 장치를 만들고 나면, 데이터 크기를 확장하거나 축소하지 말아야 합니다. 이를 시도하면 장치의 로컬 계층에서 모든 데이터가 손실됩니다. | |
+| **3.** | 그룹 정책 | 장치가 도메인에 가입될 때 그룹 정책을 적용하면 장치 작업에 부정적인 영향이 있을 수 있습니다. | 가상 배열이 Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.|
+| **4.** | 로컬 웹 UI | Internet Explorer (IE ESC)에서 향상된 보안 기능이 활성된 경우 문제 해결 또는 유지 관리와 같은 일부 로컬 웹 UI 페이지가 적절하게 작동하지 않을 수 있습니다. 해당 페이지의 단추도 작동하지 않을 수 있습니다. | Internet Explorer의 보안 강화 기능을 해제하십시오.|
+| **5.** | 로컬 웹 UI | Hyper-V 가상 컴퓨터에서 웹 UI의 네트워크 인터페이스는 10Gbps 인터페이스로 표시됩니다. | 이러한 동작은 Hyper-V를 반영합니다. Hyper-V는 가상 네트워크 어댑터에 10Gbps를 항상 표시합니다. |
+| **6.** | 계층화된 볼륨 또는 공유 | StorSimple 계층화된 볼륨에서 응용 프로그램에 대한 바이트 범위 잠금은 지원되지 않습니다. 바이트 범위 잠금을 사용하도록 설정하면 StorSimple 계층화가 실행되지 않습니다. | 권장되는 측정값은 다음과 같습니다. <br></br>응용 프로그램 논리에서 바이트 범위 잠금을 끕니다.<br></br>계층화된 볼륨과는 반대로 로컬 고정 볼륨에서 이 응용 프로그램에 대한 데이터를 입력하도록 선택합니다.<br></br>* 경고*: 로컬 고정 볼륨을 사용하고 바이트 범위 잠금이 활성화되어 있다면 복원이 완료되기 전에도 로컬 고정 볼륨이 온라인이될 수도 있습니다. 이러한 경우, 복원이 진행 중이면, 복원이 완료될 때까지 반드시 기다려야 합니다. |
+| **7.** | 계층화된 공유 | 큰 파일로 작업하면 계층화가 매우 느려질 수 있습니다. | 큰 파일을 사용하는 경우 가장 큰 파일이 공유 크기의 3% 보다 작은 것이 좋습니다. |
+| **8.** | 공유에 사용된 용량 | 공유에 데이터가 전혀 없어도 공유 사용량이 표시될 수 있습니다. 이것은 공유에 사용된 용량에 메타데이터가 포함되기 때문입니다. | |
+| **9.** | 재해 복구 | 파일 서버에 대한 재해 복구는 원본 장치의 도메인과 같은 도메인에만 수행할 수 있습니다. 다른 도메인의 대상 장치로 재해 복구는 이번 릴리스에서 지원되지 않습니다. | 이후 릴리스에서 구현될 예정입니다. |
+| **10.** | Azure PowerShell | 이번 릴리스에서는 Azure PowerShell을 통해 StorSimple 가상 장치를 관리할 수 없습니다. | 가상 장치에 대한 모든 관리는 Azure 클래식 포털 및 로컬 웹 UI를 통해 수행됩니다. |
+| **11.** | 암호 변경 | 가상 배열 장치 콘솔은 ko-KR 키보드 형식으로 입력하는 것을 허용합니다. | |
+| **12.** | CHAP | CHAP 자격 증명은 일단 한 번 만들면 제거할 수 없습니다. 또한 CHAP 자격 증명을 수정하면 볼륨을 오프라인 상태로 만든 다음 온라인 상태로 변경해야 변경사항이 적용됩니다. | 이것은 이후 릴리스에서 해결될 예정입니다. |
+| **13.** | iSCSI 서버 | iSCSI 볼륨에 대해 표시된 '사용된 저장소'는 StorSimple Manager 서비스 및 iSCSI 호스트에서 다를 수 있습니다. | iSCSI 호스트에는 파일 시스템 보기가 있습니다.<br></br>볼륨이 최대 크기였을 때 장치는 블록이 할당된 것을 봅니다.|
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

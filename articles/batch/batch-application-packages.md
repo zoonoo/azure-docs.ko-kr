@@ -1,193 +1,192 @@
 <properties
-    pageTitle="Easy application installation and management in Azure Batch | Microsoft Azure"
-    description="Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes."
-    services="batch"
-    documentationCenter=".net"
-    authors="mmacy"
-    manager="timlt"
-    editor="" />
+	pageTitle="Azure 배치에서 간편하게 응용 프로그램 설치 및 관리 | Microsoft Azure"
+	description="Azure 배치의 응용 프로그램 패키지 기능을 사용하여 배치 계산 노드에 설치할 여러 응용 프로그램 및 버전을 간편하게 관리하세요."
+	services="batch"
+	documentationCenter=".net"
+	authors="mmacy"
+	manager="timlt"
+	editor="" />
 
 <tags
-    ms.service="batch"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="big-compute"
-    ms.date="08/25/2016"
-    ms.author="marsma" />
+	ms.service="batch"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="08/25/2016"
+	ms.author="marsma" />
 
+# Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포
 
-# <a name="application-deployment-with-azure-batch-application-packages"></a>Application deployment with Azure Batch application packages
+Azure 배치의 응용 프로그램 패키지 기능은 풀의 계산 노드에 태스크 응용 프로그램 및 해당 배포를 간편하게 관리할 수 있는 방법을 제공합니다. 응용 프로그램 패키지를 사용하여 지원 파일을 비롯하여 태스크에서 실행하는 여러 응용 프로그램 버전을 업로드하고 관리할 수 있습니다. 풀의 계산 노드에 이러한 응용 프로그램을 하나 이상 자동으로 배포할 수 있습니다.
 
-The application packages feature of Azure Batch provides easy management of task applications and their deployment to the compute nodes in your pool. With application packages, you can upload and manage multiple versions of the applications your tasks run, including their supporting files. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
+이 문서에서는 Azure 포털을 사용하여 응용 프로그램 패키지를 업로드하고 관리하는 방법을 알아봅니다. [배치 .NET][api_net] 라이브러리를 사용하여 풀의 계산 노드에 설치하는 방법을 알아봅니다.
 
-In this article, you will learn how to upload and manage application packages in the Azure portal. You will then learn how to install them on a pool's compute nodes with the [Batch .NET][api_net] library.
+> [AZURE.NOTE] 여기에서 설명하는 응용 프로그램 패키지 기능은 서비스의 이전 버전에 제공되는 "배치 앱" 기능을 대체합니다.
 
-> [AZURE.NOTE] The application packages feature described here supersedes the "Batch Apps" feature available in previous versions of the service.
+## 응용 프로그램 패키지 요구 사항
 
-## <a name="application-package-requirements"></a>Application package requirements
+응용 프로그램 패키지를 사용하려면 [Azure Storage 계정](#link-a-storage-account)을 배치 계정에 연결해야 합니다.
 
-You must [link an Azure Storage account](#link-a-storage-account) to your Batch account to use application packages.
+이 문서에서 설명하는 응용 프로그램 패키지 기능은 2016년 3월 10일 이후에 만들어진 배치 풀하고*만* 호환됩니다. 이 날짜 전에 만들어진 풀의 계산 노드에는 응용 프로그램 패키지가 배포되지 않습니다.
 
-The application packages feature discussed in this article is compatible *only* with Batch pools that were created after 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
+이 기능은 [배치 REST API][api_rest] 버전 2015-12-01.2.2 및 해당 [배치 .NET][api_net] 라이브러리 버전 3.1.0에서 도입되었습니다. 배치를 사용할 때에는 항상 최신 API 버전을 사용하는 것이 좋습니다.
 
-This feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2 and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
+> [AZURE.IMPORTANT] 현재 *CloudServiceConfiguration* 풀만 응용 프로그램 패키지를 지원합니다. VirtualMachineConfiguration 이미지를 사용하여 만든 풀에는 응용 프로그램 패키지를 사용할 수 없습니다. 두 개의 서로 다른 구성에 대한 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)의 [가상 컴퓨터 구성](batch-linux-nodes.md#virtual-machine-configuration) 섹션을 참조하세요.
 
-> [AZURE.IMPORTANT] Currently, only *CloudServiceConfiguration* pools support application packages. You cannot use Application packages in pools created by using VirtualMachineConfiguration images. See the [Virtual machine configuration](batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two different configurations.
+## 응용 프로그램 및 응용 프로그램 패키지 정보
 
-## <a name="about-applications-and-application-packages"></a>About applications and application packages
+Azure 배치 내에서 *응용 프로그램*이란 풀의 계산 노드에 자동으로 다운로드할 수 있는 버전이 지정된 이진 파일의 집합을 말합니다. *응용 프로그램 패키지*란 이러한 이진 파일의 *특정 집합*을 말하며, 주어진 응용 프로그램 *버전*을 나타냅니다.
 
-Within Azure Batch, an *application* refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An *application package* refers to a *specific set* of those binaries and represents a given *version* of the application.
+![응용 프로그램 및 응용 프로그램 패키지에 대한 개략적인 다이어그램][1]
 
-![High-level diagram of applications and application packages][1]
+### 응용 프로그램
 
-### <a name="applications"></a>Applications
+배치에서 응용 프로그램은 하나 이상의 응용 프로그램을 포함하거나 응용 프로그램에 대한 구성 옵션을 지정합니다. 예를 들어 응용 프로그램은 계산 노드에 설치할 기본 응용 프로그램 패키지 버전, 응용 프로그램 패키지를 업데이트할지 아니면 삭제할 것인지를 지정할 수 있습니다.
 
-An application in Batch contains one or more application packages and specifies configuration options for the application. For example, an application can specify the default application package version to install on compute nodes and whether its packages can be updated or deleted.
+### 응용 프로그램 패키지
 
-### <a name="application-packages"></a>Application packages
+응용 프로그램 패키지는 태스크가 응용 프로그램을 실행하는 데 필요한 응용 프로그램 이진 파일 및 지원 파일이 포함된 .zip 파일입니다. 각 응용 프로그램 패키지는 응용 프로그램의 특정 버전을 나타냅니다.
 
-An application package is a .zip file that contains the application binaries and supporting files that are required for execution by your tasks. Each application package represents a specific version of the application.
+풀 및 태스크 수준에서 응용 프로그램 패키지를 지정할 수 있습니다. 풀 또는 태스크를 만들 때 이러한 패키지 및 버전(선택 사항)을 하나 이상 지정할 수 있습니다.
 
-You can specify application packages at the pool and task level. You can specify one or more of these packages and (optionally) a version when you create a pool or task.
+* **풀 응용 프로그램 패키지**는 *모든* 노드에 배포됩니다. 응용 프로그램은 노드가 풀을 조인하고 다시 부팅되거나 이미지를 다시 설치할 때 배포됩니다.
 
-* **Pool application packages** are deployed to *every* node in the pool. Applications are deployed when a node joins a pool, and when it is rebooted or reimaged.
+    풀 응용 프로그램 패키지는 풀에 있는 모든 노드가 작업의 태스크를 실행할 때 적합합니다. 풀을 만들 때 하나 이상의 응용 프로그램 패키지를 지정할 수 있으며 기존 풀의 패키지를 추가하거나 업데이트할 수 있습니다. 기존 풀의 응용 프로그램 패키지를 업데이트하는 경우 새 패키지를 설치하려면 해당 노드를 다시 설치해야 합니다.
 
-    Pool application packages are appropriate when all nodes in a pool execute a job's tasks. You can specify one or more application packages when you create a pool, and you can add or update an existing pool's packages. If you update an existing pool's application packages, you must restart its nodes to install the new package.
+* **태스크 응용 프로그램 패키지**는 태스크의 명령줄을 실행하기 바로 전에 태스크를 실행하도록 예약된 계산 노드에만 배포됩니다. 지정된 응용 프로그램 패키지 및 버전이 노드에 이미 있는 경우 다시 배포되지 않으며 기존 패키지가 사용됩니다.
 
-* **Task application packages** are deployed only to a compute node scheduled to run a task, just before running the task's command line. If the specified application package and version is already on the node, it is not redeployed and the existing package is used.
+    태스크 응용 프로그램 패키지는 공유 풀 환경에서 유용하며 여기서는 다른 작업이 하나의 풀에서 실행되고 작업이 완료될 때 풀이 삭제되지 않습니다. 작업에 있는 태스크가 풀에 있는 노드보다 적은 경우 태스크를 실행하는 노드에만 응용 프로그램을 배포하므로 태스크 응용 프로그램 패키지는 데이터 전송을 최소화할 수 있습니다.
 
-    Task application packages are useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has less tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
+    태스크 응용 프로그램 패키지를 활용할 수 있는 다른 시나리오는 특별히 큰 응용 프로그램을 사용하지만 태스크 수는 적은 작업입니다. 예를 들어, 전처리 또는 병합 응용 프로그램이 무거운 전처리 단계 또는 병합 태스크입니다.
 
-    Other scenarios that can benefit from task application packages are jobs that use a particularly large application, but for only a small number of tasks. For example, a pre-processing stage or a merge task, where the pre-processing or merge application is heavyweight.
+> [AZURE.IMPORTANT] 배치 계정의 응용 프로그램 및 응용 프로그램 패키지 수와 응용 프로그램 패키지의 최대 크기에 대한 제한이 있습니다. 이러한 제한에 대한 자세한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
-> [AZURE.IMPORTANT] There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details about these limits.
+### 응용 프로그램 패키지의 이점
 
-### <a name="benefits-of-application-packages"></a>Benefits of application packages
+응용 프로그램 패키지는 배치 솔루션의 코드를 단순화하고, 태스크에서 실행하는 응용 프로그램을 관리하는 데 필요한 오버헤드를 낮출 수 있습니다.
 
-Application packages can simplify the code in your Batch solution and lower the overhead required to manage the applications that your tasks run.
+풀의 시작 태스크가 노드에 설치할 긴 개별 리소스 파일 목록을 지정할 필요가 없습니다. Azure Storage 또는 노드에서 응용 프로그램 파일의 여러 버전을 수동으로 관리할 필요가 없습니다. 저장소 계정의 파일에 대한 액세스 권한을 제공하기 위해 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md)을 생성할 필요가 없습니다. 배치는 Azure Storage와 함께 백그라운드에서 작동하여 응용 프로그램 패키지를 저장하고 계산 노드에 배포합니다.
 
-Your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
+## 응용 프로그램 업로드 및 관리
 
-## <a name="upload-and-manage-applications"></a>Upload and manage applications
+[Azure 포털][portal] 또는 [배치 관리 .NET](batch-management-dotnet.md) 라이브러리를 사용하여 배치 계정에서 응용 프로그램 패키지를 관리합니다. 다음 섹션에서는 먼저 저장소 계정을 연결한 후 응용 프로그램 및 패키지를 추가하고 포털에서 관리하는 방법을 설명합니다.
 
-You can use the [Azure portal][portal] or the [Batch Management .NET](batch-management-dotnet.md) library to manage the application packages in your Batch account. In the next few sections, we first link a Storage account, then discuss adding applications and packages and managing them with the portal.
+### 저장소 계정 연결
 
-### <a name="link-a-storage-account"></a>Link a Storage account
+응용 프로그램 패키지를 사용하려면 먼저 Azure Storage 계정을 배치 계정에 연결해야 합니다. 아직 배치 계정에 대해 저장소 계정을 구성하지 않은 경우, **배치 계정** 블레이드에서 **응용 프로그램** 타일을 처음으로 클릭하면 Azure 포털에서 경고가 표시됩니다.
 
-To use application packages, you must first link an Azure Storage account to your Batch account. If you have not yet configured a Storage account for your Batch account, the Azure portal will display a warning the first time you click the **Applications** tile in the **Batch account** blade.
+> [AZURE.IMPORTANT] 배치는 현재 [Azure Storage 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만* 지원합니다. Azure Storage 계정을 배치 계정에 연결할 경우 **범용** 저장소 계정*만* 연결합니다.
 
-> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type as described in step 5, [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, link *only* a **General purpose** storage account.
+![저장소 계정이 구성되지 않았다는 Azure 포털의 경고][9]
 
-![No storage account configured warning in Azure portal][9]
+배치 서비스는 연결된 저장소 계정을 사용하여 응용 프로그램 패키지를 저장 및 검색합니다. 계정 두 개를 연결한 후에 배치는 연결된 저장소 계정에 저장된 패키지를 계산 노드에 자동으로 배포할 수 있습니다. **경고** 블레이드에서 **저장소 계정 설정**을 클릭한 다음 **저장소 계정** 블레이드에서 **저장소 계정**을 클릭하여 저장소 계정을 배치 계정에 연결합니다.
 
-The Batch service uses the associated Storage account for the storage and retrieval of application packages. After you've linked the two accounts, Batch can automatically deploy the packages stored in the linked Storage account to your compute nodes. Click **Storage account settings** on the **Warning** blade, and then click **Storage Account** on the **Storage Account** blade to link a storage account to your Batch account.
+![Azure 포털에서 저장소 계정 블레이드 선택][10]
 
-![Choose storage account blade in Azure portal][10]
+*특별히* 배치 계정과 함께 사용할 저장소 계정을 만든 후 여기에서 선택하는 것이 좋습니다. 저장소 계정을 만드는 방법에 대한 자세한 내용은 [Azure Storage 계정 정보](../storage/storage-create-storage-account.md)의 "저장소 계정 만들기"를 참조하세요. 저장소 계정을 만든 후에 **저장소 계정** 블레이드를 사용하여 배치 계정에 연결할 수 있습니다.
 
-We recommend that you create a storage account *specifically* for use with your Batch account, and select it here. For details about how to create a storage account, see "Create a storage account" in [About Azure storage accounts](../storage/storage-create-storage-account.md). After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** blade.
+> [AZURE.WARNING] 배치는 Azure Storage를 사용하여 응용 프로그램 패키지를 저장하기 때문에 블록 Blob 데이터에 대한 [요금이 정상적으로 청구][storage_pricing]됩니다. 비용을 최소화할 수 있도록 응용 프로그램 패키지의 크기와 숫자에 신경 쓰고, 사용하지 않는 패키지를 주기적으로 제거해 주세요.
 
-> [AZURE.WARNING] Because Batch uses Azure Storage to store your application packages, you are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
+### 현재 응용 프로그램 보기
 
-### <a name="view-current-applications"></a>View current applications
+배치 계정의 응용 프로그램을 보려면 **배치 계정** 블레이드에서 **응용 프로그램** 타일을 클릭합니다.
 
-To view the applications in your Batch account, click the **Applications** tile in the **Batch account** blade.
+![응용 프로그램 타일][2]
 
-![Applications tile][2]
+**응용 프로그램** 블레이드가 열립니다.
 
-This opens the **Applications** blade:
+![응용 프로그램 나열][3]
 
-![List applications][3]
+**응용 프로그램** 블레이드는 계정의 각 응용 프로그램 ID 및 다음 속성을 표시합니다.
 
-The **Applications** blade displays the ID of each application in your account and the following properties:
+* **패키지**--이 응용 프로그램과 연결된 버전 번호입니다.
+* **기본 버전**--풀에 대해 응용 프로그램을 설정할 때 버전을 지정하지 않으면 이 버전이 설치됩니다. 이 설정은 선택 사항입니다.
+* **업데이트 허용**--패키지의 업데이트, 삭제 및 추가 기능을 허용하는지 여부를 지정하는 값입니다. 이 값을 **아니요**로 설정하면 응용 프로그램에 패키지 업데이트 및 삭제를 사용할 수 없습니다. 새 응용 프로그램 패키지 버전만 추가할 수 있습니다. 기본값은 **예**입니다.
 
-* **Packages**--The number of versions associated with this application.
-* **Default version**--The version that will be installed if you do not specify a version when you set the application for a pool. This setting is optional.
-* **Allow updates**--The value that specifies whether package updates, deletions, and additions are allowed. If this is set to **No**, package updates and deletions are disabled for the application. Only new application package versions can be added. The default is **Yes**.
+### 응용 프로그램 세부 정보 보기
 
-### <a name="view-application-details"></a>View application details
+**응용 프로그램** 블레이드에서 응용 프로그램을 클릭하면 해당 응용 프로그램에 대한 세부 정보 블레이드가 열립니다.
 
-Click an application in the **Applications** blade to open the blade that includes the details for that application.
+![응용 프로그램 세부 정보][4]
 
-![Application details][4]
+응용 프로그램 세부 정보 블레이드에서 응용 프로그램에 대해 다음 설정을 구성할 수 있습니다.
 
-In the application details blade, you can configure the following settings for your application.
+* **업데이트 허용**--해당 응용 프로그램 패키지를 업데이트하거나 삭제할 수 있는지를 지정합니다. 이 문서에서 아래의 "응용 프로그램 패키지 업데이트 또는 삭제"를 참조하세요.
+* **기본 버전**--계산 노드에 배포할 기본 응용 프로그램 패키지를 지정합니다.
+* **표시 이름**--배치를 통해 고객에게 제공하는 서비스 UI처럼, 배치 솔루션이 응용 프로그램에 대한 정보를 표시할 때 사용할 수 있는 "친숙한" 이름을 지정합니다.
 
-* **Allow updates**--Specify whether its application packages can be updated or deleted. See "Update or Delete an application package" later in this article.
-* **Default version**--Specify a default application package to deploy to compute nodes.
-* **Display name**--Specify a "friendly" name that your Batch solution can use when it displays information about the application, such as in the UI of a service that you provide your customers through Batch.
+### 새 응용 프로그램 추가
 
-### <a name="add-a-new-application"></a>Add a new application
+새 응용 프로그램을 만들려면 응용 프로그램 패키지를 추가하고 고유한 새 응용 프로그램 ID를 지정합니다. 새 응용 프로그램 ID를 사용하여 추가하는 첫 번째 응용 프로그램 패키지도 새 응용 프로그램을 만듭니다.
 
-To create a new application, add an application package and specify a new, unique application ID. The first application package that you add with the new application ID will also create the new application.
+**응용 프로그램** 블레이드에서 **추가**를 클릭하여 **새 응용 프로그램** 블레이드를 엽니다.
 
-Click **Add** on the **Applications** blade to open the **New application** blade.
+![Azure 포털의 새 응용 프로그램 블레이드][5]
 
-![New application blade in Azure portal][5]
+**새 응용 프로그램** 블레이드는 새 응용 프로그램 및 응용 프로그램 패키지의 설정을 지정하는 다음 필드를 제공합니다.
 
-The **New application** blade provides the following fields to specify the settings of your new application and application package.
+**응용 프로그램 ID**
 
-**Application id**
+이 필드는 새 응용 프로그램의 ID를 지정하며, 표준 Azure 배치 ID 유효성 검사 규칙을 따릅니다.
 
-This field specifies the ID of your new application, which is subject to the standard Azure Batch ID validation rules:
+* 하이픈과 밑줄을 포함하여 모든 영숫자 문자 조합을 포함할 수 있습니다.
+* 포함할 수 있는 최대 문자는 64자입니다.
+* 배치 계정 내에서 고유해야 합니다.
+* 대/소문자를 유지하고 대/소문자를 구분합니다.
 
-* Can contain any combination of alphanumeric characters, including hyphens and underscores.
-* Cannot contain more than 64 characters.
-* Must be unique within the Batch account.
-* Is case preserving and case insensitive.
+**버전**
 
-**Version**
+사용자가 업로드하는 응용 프로그램 패키지의 버전을 지정합니다. 버전 문자열은 다음 유효성 검사 규칙을 따릅니다.
 
-Specifies the version of the application package you are uploading. Version strings are subject to the following validation rules:
+* 하이픈, 밑줄, 마침표를 포함하여 모든 영숫자 문자 조합을 포함할 수 있습니다.
+* 포함할 수 있는 최대 문자는 64자입니다.
+* 응용 프로그램 내에서 고유해야 합니다.
+* 대/소문자를 유지하고, 대/소문자를 구분합니다.
 
-* Can contain any combination of alphanumeric characters, including hyphens, underscores, and periods.
-* Cannot contain more than 64 characters.
-* Must be unique within the application.
-* Case preserving, and case insensitive.
+**응용 프로그램 패키지**
 
-**Application package**
+이 필드는 응용 프로그램 실행에 필요한 응용 프로그램 이진 파일 및 모든 지원 파일을 포함하는 .zip 파일을 지정합니다. **파일 선택** 상자 또는 폴더 아이콘을 클릭하여 응용 프로그램의 파일이 포함된 .zip 파일을 찾고 선택합니다.
 
-This field specifies the .zip file that contains the application binaries and supporting files that are required to execute the application. Click the **Select a file** box or the folder icon to browse to and select a .zip file that contains your application's files.
+파일을 선택했으면 **확인**을 클릭하여 Azure Storage에 업로드를 시작합니다. 업로드 작업이 완료되면 알림이 표시되고 블레이드가 닫힙니다. 업로드하는 파일의 크기 및 네트워크 연결 속도에 따라 작업 시간이 달라질 수 있습니다.
 
-After you've selected a file, click **OK** to begin the upload to Azure Storage. When the upload operation is complete, you will be notified and the blade will close. Depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
+> [AZURE.WARNING] 업로드 작업이 완료되기 전에 **새 응용 프로그램** 블레이드를 닫지 마세요. 만약 닫으면 업로드 프로세스가 중지됩니다.
 
-> [AZURE.WARNING] Do not close the **New application** blade before the upload operation is complete. Doing so will stop the upload process.
+### 새 응용 프로그램 패키지 추가
 
-### <a name="add-a-new-application-package"></a>Add a new application package
+기존 응용 프로그램에 대한 새 응용 프로그램 패키지 버전을 추가하려면 **응용 프로그램** 블레이드에서 응용 프로그램을 선택하고, **패키지**를 클릭한 다음 **추가**를 클릭하여 **패키지 추가** 블레이드를 엽니다.
 
-To add a new application package version for an existing application, select an application in the **Applications** blade, click **Packages**, then click **Add** to open the **Add package** blade.
+![Azure 포털의 응용 프로그램 패키지 추가 블레이드][8]
 
-![Add application package blade in Azure portal][8]
+여기에서 볼 수 있듯이, 필드가 **새 응용 프로그램** 블레이드의 필드와 일치하지만 **응용 프로그램 ID** 상자는 비활성화됩니다. 새 응용 프로그램에서 수행한 대로 새 패키지의 **버전**을 지정하고, **응용 프로그램 패키지** .zip 파일을 찾은 다음 **확인**을 클릭하여 패키지를 업로드합니다.
 
-As you can see, the fields match those of the **New application** blade, but the **Application id** box is disabled. As you did for the new application, specify the **Version** for your new package, browse to your **Application package** .zip file, then click **OK** to upload the package.
+### 응용 프로그램 패키지 업데이트 또는 삭제
 
-### <a name="update-or-delete-an-application-package"></a>Update or delete an application package
+기존 응용 프로그램 패키지를 업데이트 또는 삭제하려면 해당 응용 프로그램의 세부 정보 블레이드를 열고, **패키지**를 클릭하여 **패키지** 블레이드를 열고, 수정하려는 응용 프로그램 패키지의 행에서 **줄임표**를 클릭하고, 수행할 작업을 선택합니다.
 
-To update or delete an existing application package, open the details blade for the application, click **Packages** to open the **Packages** blade, click the **ellipsis** in the row of the application package that you want to modify, and select the action that you want to perform.
+![Azure 포털에서 패키지 업데이트 또는 삭제][7]
 
-![Update or delete package in Azure portal][7]
+**업데이트**
 
-**Update**
+**업데이트**를 클릭하면 *패키지 업데이트* 블레이드가 표시됩니다. 이 블레이드는 *새 응용 프로그램 패키지* 블레이드와 비슷하지만, 패키지 선택 필드만 활성화되므로 업로드할 새 ZIP 파일을 지정할 수 있습니다.
 
-When you click **Update**, the *Update package* blade is displayed. This blade is similar to the *New application package* blade, however only the package selection field is enabled, allowing you to specify a new ZIP file to upload.
+![Azure 포털의 패키지 업데이트 블레이드][11]
 
-![Update package blade in Azure portal][11]
+**삭제**
 
-**Delete**
+**삭제**를 클릭하면 패키지 버전을 삭제할 것인지 묻는 메시지가 나타나고, 배치가 Azure Storage에서 패키지를 삭제합니다. 응용 프로그램의 기본 버전을 삭제하면 해당 응용 프로그램의 **기본 버전** 설정이 제거됩니다.
 
-When you click **Delete**, you are asked to confirm the deletion of the package version, and Batch deletes the package from Azure Storage. If you delete the default version of an application, the **Default version** setting is removed for the application.
+![응용 프로그램 삭제][12]
 
-![Delete application ][12]
+## 계산 노드에 응용 프로그램 설치
 
-## <a name="install-applications-on-compute-nodes"></a>Install applications on compute nodes
+Azure 포털을 사용하여 응용 프로그램 패키지를 관리하는 방법을 살펴보았으며 응용 프로그램 패키지를 계산 노드에 배포하고 배치 작업을 사용하여 실행하는 방법에 대해 설명할 수 있습니다.
 
-Now that you've seen how to manage application packages with the Azure portal, we can discuss how to deploy them to compute nodes and run them with Batch tasks.
+### 풀 응용 프로그램 패키지 설치
 
-### <a name="install-pool-application-packages"></a>Install pool application packages
+풀의 모든 계산 노드에 응용 프로그램 패키지를 설치하려면 풀에 대해 응용 프로그램 패키지 *참조*를 하나 이상 지정해야 합니다. 노드가 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 경우 풀에 대해 지정하는 응용 프로그램 패키지는 각 계산 노드에 설치됩니다.
 
-To install an application package on all compute nodes in a pool, specify one or more application package *references* for the pool. The application packages that you specify for a pool are installed on each compute node when that node joins the pool, and when the node is rebooted or reimaged.
-
-In Batch .NET, specify one or more [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] when you create a new pool, or for an existing pool. The [ApplicationPackageReference][net_pkgref] class specifies an application ID and version to install on a pool's compute nodes.
+배치 .NET에서, 새 풀을 만들 때 또는 기존 풀에 [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]를 하나 이상 지정합니다. [ApplicationPackageReference][net_pkgref] 클래스는 풀의 계산 노드에 설치할 응용 프로그램 ID 및 버전을 지정합니다.
 
 ```csharp
 // Create the unbound CloudPool
@@ -211,13 +210,13 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
->[AZURE.IMPORTANT] If an application package deployment fails for any reason, the Batch service marks the node [unusable][net_nodestate], and no tasks will be scheduled for execution on that node. In this case, you should **restart** the node to reinitiate the package deployment. Restarting the node will also enable task scheduling again on the node.
+>[AZURE.IMPORTANT] 어떤 이유로든 응용 프로그램 패키지 배포가 실패하면 배치 서비스에서는 노드를 [사용할 수 없으며][net_nodestate] 해당 노드에서 실행하기로 예정된 작업이 없다고 표시합니다. 이 경우에 노드를 **다시 시작**하여 패키지 배포를 다시 시작해야 합니다. 또한 노드를 다시 시작하면 노드에서 작업을 다시 예약할 수 있습니다.
 
-### <a name="install-task-application-packages"></a>Install task application packages
+### 태스크 응용 프로그램 패키지 설치
 
-Similar to a pool, you specify application package *references* for a task. When a task is scheduled to run on a node, the package is downloaded and extracted just before the task's command line is executed. If a specified package and version is already installed on the node, the package is not downloaded and the existing package is used.
+풀과 마찬가지로 태스크에 대해 응용 프로그램 패키지 *참조*를 지정합니다. 노드에서 실행하도록 태스크가 예약된 경우 태스크의 명령줄이 실행되기 바로 전에 패키지가 다운로드 및 추출됩니다. 지정된 패키지 및 버전이 노드에 이미 설치되어 있는 경우 패키지는 다운로드되지 않으며 기존 패키지가 사용됩니다.
 
-To install a task application package, configure the task's [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] property:
+태스크 응용 프로그램 패키지를 설치하려면 태스크의 [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] 속성을 구성합니다.
 
 ```csharp
 CloudTask task =
@@ -235,21 +234,21 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 };
 ```
 
-## <a name="execute-the-installed-applications"></a>Execute the installed applications
+## 설치된 응용 프로그램 실행
 
-The packages that you've specified for a pool or task are downloaded and extracted to a named directory within the `AZ_BATCH_ROOT_DIR` of the node. Batch also creates an environment variable that contains the path to the named directory. Your task command lines use this environment variable when referencing the application on the node. The variable is in the following format:
+풀 또는 태스크에 대해 지정한 패키지가 노드의 `AZ_BATCH_ROOT_DIR` 내에 있는 명명된 디렉터리에 다운로드되어 추출됩니다. 또한 배치는 명명된 디렉터리에 대한 경로가 포함된 환경 변수를 생성합니다. 태스크 명령줄은 노드에서 응용 프로그램을 참조할 때 이 환경 변수를 사용합니다. 변수는 다음 형식으로 되어 있습니다.
 
 `AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`
 
-`APPLICATIONID` and `version` are values that correspond to the application and package version you've specified for deployment. For example, if you specifed that version 2.7 of application *blender* should be installed, your task command lines would use this environment variable to access its files:
+`APPLICATIONID` 및 `version`은 배포를 위해 지정한 응용 프로그램 및 패키지 버전에 해당하는 값입니다. 예를 들어 *blender* 응용 프로그램의 2.7 버전을 설치하도록 지정하면 태스크 명령줄은 이 환경 변수를 참조하여 해당 파일에 액세스합니다.
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-If you specify a default version for an application, you can omit the version suffix. For example, if you set "2.7" as the default version for application *blender*, your tasks can reference the following environment variable and they will execute version 2.7:
+응용 프로그램의 기본 버전을 지정하면 버전 접미사를 생략할 수 있습니다. 예를 들어 *blender* 응용 프로그램에 대해 기본 버전으로 "2.7"을 설정한 경우에는 태스크가 다음 환경 변수를 참조할 수 있으며 버전 2.7을 실행합니다.
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-The following code snippet shows an example task command line that launches the default version of the *blender* application:
+다음 코드 조각은 기본 버전의 *blender* 응용 프로그램을 실행하는 태스크 명령줄의 예를 보여 줍니다.
 
 ```csharp
 string taskId = "blendertask01";
@@ -258,17 +257,17 @@ string commandLine =
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
-> [AZURE.TIP] See [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) in the [Batch feature overview](batch-api-basics.md) for more information about compute node environment settings.
+> [AZURE.TIP] 계산 노드 환경 설정에 대한 자세한 내용은 [배치 기능 개요](batch-api-basics.md)의 [태스크에 대한 환경 설정](batch-api-basics.md#environment-settings-for-tasks)을 참조하세요.
 
-## <a name="update-a-pool's-application-packages"></a>Update a pool's application packages
+## 풀의 응용 프로그램 패키지 업데이트
 
-If an existing pool has already been configured with an application package, you can specify a new package for the pool. If you specify a new package reference for a pool, the following apply:
+기존 풀이 이미 응용 프로그램 패키지를 통해 구성된 경우 해당 풀에 대해 새 패키지를 지정할 수 있습니다. 풀에 대한 새 패키지 참조를 지정하면 다음이 적용됩니다.
 
-* All new nodes that join the pool and any existing node that is rebooted or reimaged will install the newly specified package.
-* Compute nodes that are already in the pool when you update the package references do not automatically install the new application package. These compute nodes must be rebooted or reimaged to receive the new package.
-* When a new package is deployed, the created environment variables reflect the new application package references.
+* 풀에 조인하는 새 노드 및 다시 부팅되거나 이미지로 다시 설치되는 기존 노드는 모두 새로 지정된 패키지를 설치합니다.
+* 패키지 참조를 업데이트할 때 이미 풀에 있는 계산 노드는 새 응용 프로그램 패키지를 자동으로 설치하지 않습니다. 이러한 계산 노드를 다시 부팅하거나 이미지로 다시 설치하여 새 패키지를 받아야 합니다.
+* 새 패키지가 배포될 때 만들어진 환경 변수는 새 응용 프로그램 패키지 참조를 반영합니다.
 
-In this example, the existing pool has version 2.7 of the *blender* application configured as one of its [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. To update the pool's nodes with version 2.76b, specify a new [ApplicationPackageReference][net_pkgref] with the new version, and commit the change.
+이 예에서는 기존 풀의 *blender* 응용 프로그램 2.7 버전이 [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] 중 하나로 구성되었습니다. 풀의 노드를 2.76b 버전으로 업데이트하려면 새 버전을 사용하여 [ApplicationPackageReference][net_pkgref]를 지정하고 변경 내용을 커밋합니다.
 
 ```csharp
 string newVersion = "2.76b";
@@ -282,11 +281,11 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Now that the new version has been configured, any *new* node that joins the pool will have version 2.76b deployed to it. To install 2.76b on the nodes that are *already* in the pool, reboot or reimage them. Note that rebooted nodes will retain the files from previous package deployments.
+새 버전이 구성되었으므로 풀에 조인하는 모든 *새* 노드에 2.76b 버전이 배포될 것입니다. *이미* 풀에 있는 노드에 2.76b 버전을 설치하려면 노드를 다시 부팅하거나 이미지로 다시 설치합니다. 다시 부팅된 노드는 이전 패키지 배포의 파일을 보존합니다.
 
-## <a name="list-the-applications-in-a-batch-account"></a>List the applications in a Batch account
+## 배치 계정의 응용 프로그램 나열
 
-You can list the applications and their packages in a Batch account by using the [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries] method.
+[ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries] 메서드를 사용하여 배치 계정의 응용 프로그램 및 응용 프로그램 패키지를 나열할 수 있습니다.
 
 ```csharp
 // List the applications and their application packages in the Batch account.
@@ -302,15 +301,15 @@ foreach (ApplicationSummary app in applications)
 }
 ```
 
-## <a name="wrap-up"></a>Wrap up
+## 마무리
 
-With application packages, you can help your customers select the applications for their jobs and specify the exact version to use when processing jobs with your Batch-enabled service. You might also provide the ability for your customers to upload and track their own applications in your service.
+응용 프로그램 패키지를 사용하면 고객이 작업에 대한 응용 프로그램을 선택하고 배치 지원 서비스를 통해 작업을 처리할 때 사용할 정확한 버전을 지정할 수 있습니다. 또한 고객이 서비스에서 자신의 고유한 응용 프로그램을 업로드 및 추적하는 기능을 제공할 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-* The [Batch REST API][api_rest] also provides support to work with application packages. For example, see the [applicationPackageReferences][rest_add_pool_with_packages] element in [Add a pool to an account][rest_add_pool] for information about how to specify packages to install by using the REST API. See [Applications][rest_applications] for details about how to obtain application information by using the Batch REST API.
+* 또한 [배치 REST API][api_rest]는 응용 프로그램 패키지로 작업하도록 지원합니다. 예를 들어 REST API를 사용하여 설치할 패키지를 지정하는 방법에 대한 자세한 내용은 [계정에 풀 추가][rest_add_pool]에서 [applicationPackageReferences][rest_add_pool_with_packages] 요소를 참조하세요. 배치 REST API를 사용하여 응용 프로그램 정보를 얻는 방법에 대한 자세한 내용은 [응용 프로그램][rest_applications]을 참조하세요.
 
-* Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md). The [Batch Management .NET][api_net_mgmt] library can enable account creation and deletion features for your Batch application or service.
+* 프로그래밍 방식으로 [배치 관리 .NET으로 Azure 배치 계정 및 할당량 관리](batch-management-dotnet.md)를 수행하는 방법을 알아보세요. [배치 관리.NET][api_net_mgmt] 라이브러리는 배치 응용 프로그램 또는 서비스에 대해 계정 만들기 및 삭제 기능을 활성화할 수 있습니다.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -331,20 +330,16 @@ With application packages, you can help your customers select the applications f
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [rest_add_pool_with_packages]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_apkgreference
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "Application packages high-level diagram"
-[2]: ./media/batch-application-packages/app_pkg_02.png "Applications tile in Azure portal"
-[3]: ./media/batch-application-packages/app_pkg_03.png "Applications blade in Azure portal"
-[4]: ./media/batch-application-packages/app_pkg_04.png "Application details blade in Azure portal"
-[5]: ./media/batch-application-packages/app_pkg_05.png "New application blade in Azure portal"
-[7]: ./media/batch-application-packages/app_pkg_07.png "Update or delete packages drop-down in Azure portal"
-[8]: ./media/batch-application-packages/app_pkg_08.png "New application package blade in Azure portal"
-[9]: ./media/batch-application-packages/app_pkg_09.png "No linked Storage account alert"
-[10]: ./media/batch-application-packages/app_pkg_10.png "Choose storage account blade in Azure portal"
-[11]: ./media/batch-application-packages/app_pkg_11.png "Update package blade in Azure portal"
-[12]: ./media/batch-application-packages/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
+[1]: ./media/batch-application-packages/app_pkg_01.png "응용 프로그램 패키지에 대한 개략적인 다이어그램"
+[2]: ./media/batch-application-packages/app_pkg_02.png "Azure 포털의 응용 프로그램 타일"
+[3]: ./media/batch-application-packages/app_pkg_03.png "Azure 포털의 응용 프로그램 블레이드"
+[4]: ./media/batch-application-packages/app_pkg_04.png "Azure 포털의 응용 프로그램 세부 정보 블레이드"
+[5]: ./media/batch-application-packages/app_pkg_05.png "Azure 포털의 새 응용 프로그램 블레이드"
+[7]: ./media/batch-application-packages/app_pkg_07.png "Azure 포털의 패키지 업데이트 또는 삭제 드롭다운"
+[8]: ./media/batch-application-packages/app_pkg_08.png "Azure 포털의 새 응용 프로그램 패키지 블레이드"
+[9]: ./media/batch-application-packages/app_pkg_09.png "연결된 저장소 계정 없음 경고"
+[10]: ./media/batch-application-packages/app_pkg_10.png "Azure 포털에서 저장소 계정 블레이드 선택"
+[11]: ./media/batch-application-packages/app_pkg_11.png "Azure 포털의 패키지 업데이트 블레이드"
+[12]: ./media/batch-application-packages/app_pkg_12.png "Azure 포털의 패키지 삭제 확인 대화 상자"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

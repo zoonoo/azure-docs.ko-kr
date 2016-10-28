@@ -1,6 +1,6 @@
 <properties
-   pageTitle="What's New in Azure Data Catalog | Microsoft Azure"
-   description="This article provides an overview of new capabilities added to Azure Data Catalog."
+   pageTitle="Azure Data Catalog의 새로운 기능 | Microsoft Azure"
+   description="이 문서는 Azure Data Catalog에 추가된 새로운 기능의 개요를 제공합니다."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,284 +16,279 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
+# Azure 데이터 카탈로그의 새로운 기능
 
-# <a name="what's-new-in-azure-data-catalog"></a>What's new in Azure Data Catalog
+**Azure 데이터 카탈로그**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
 
-Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the Azure Data Catalog service.
 
 
+## 2016년 9월 16일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-september-16,-2016-release"></a>What's new for the week of September 16, 2016 release
+2016년 9월 16일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of September 16, 2016, the following capabilities have been added to Azure Data Catalog:
+- IBM DB2 데이터 원본에 대한 지원입니다. 이제 사용자가 DB2 데이터베이스, 테이블 및 뷰를 등록하고 검색할 수 있습니다.
+- Azure DocumentDB 데이터 원본에 대한 지원입니다. 이제 사용자가 DocumentDB 데이터베이스 및 컬렉션을 등록하고 검색할 수 있습니다.
+- 데이터 카탈로그 포털에서 카탈로그 이름을 사용자 지정하는 것에 대한 지원. 이제 카탈로그 관리자는 포털 제목에 표시될, 조직 이름과 같은 텍스트를 제공할 수 있습니다.
 
-- Support for IBM DB2 data sources. Users can now register and discover DB2 databases, tables, and views.
-- Support for Azure DocumentDB data sources. Users can now register and discover DocumentDB databases and collections.
-- Support for customizing the catalog name in the Data Catalog portal. Catalog administrators can now provide text that will be displayed in the portal title, such as the organization name.
+## 2016년 8월 26일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-august-26,-2016-release"></a>What's new for the week of August 26, 2016 release
+2016년 8월 26일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of August 26, 2016, the following capabilities have been added to Azure Data Catalog:
+- SQL Server Master Data Services (MDS) 데이터 원본 등록에 대한 개선. 이제 사용자는 데이터 카탈로그 데이터 원본 등록 도구를 사용하여 MDS 엔터티를 등록할 때 미리 보기 및 데이터 프로필을 포함할 수 있습니다.
+- 관리자 정의된 조직적으로 저장된 검색을 지원합니다. 데이터 카탈로그 포털에서 검색을 저장할 때 데이터 카탈로그 관리자는 이제 개인적인 용도 또는 모든 카탈로그 사용자를 위해 검색을 저장하도록 선택할 수 있습니다. 조직적으로 저장된 검색은 모든 카탈로그 사용자와 공유되며, 데이터 원본 검색에 대한 표준화된 시작점을 제공할 수 있습니다.
 
-- Enhancements for registration of SQL Server Master Data Services (MDS) data sources. Users can now include previews and data profiles when registering MDS entities using the Data Catalog data source registration tool.
-- Support for admin-defined organizational saved searches. When saving a search in the Data Catalog portal, Data Catalog administrators can now choose to save searches for personal use or for all catalog users. Organizational saved searches are shared with all catalog users, and can provide standardized starting points for data source discovery.
+## 2016년 8월 5일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-august-5,-2016-release"></a>What's new for the week of August 5, 2016 release
+2016년 8월 5일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of August 5, 2016, the following capabilities have been added to Azure Data Catalog:
+- 데이터 카탈로그 포털에서 속성 보기를 업데이트합니다. 이제 모든 데이터 자산 속성은 크기 조정이 가능한 단일 창에 표시되고 관리되어 보다 일관되고 검색 가능한 환경을 제공합니다.
 
-- Updates to the properties view in the Data Catalog portal. All data asset properties are now displayed and managed in a single, resizable pane to provide a more consistent and discoverable experience.
+## 2016년 7월 29일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-july-29,-2016-release"></a>What's new for the week of July 29, 2016 release
+2016년 7월 29일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of July 29, 2016, the following capabilities have been added to Azure Data Catalog:
+- SQL Server Master Data Services (MDS) 데이터 원본에 대한 지원. 이제 사용자가 MDS 모델 및 엔터티를 등록하고 검색할 수 있습니다.
 
-- Support for SQL Server Master Data Services (MDS) data sources. Users can now register and discover MDS models and entities.
+## 2016년 7월 22일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-july-22,-2016-release"></a>What's new for the week of July 22, 2016 release
+2016년 7월 22일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of July 22, 2016, the following capabilities have been added to Azure Data Catalog:
+- SQL Server 저장 프로시저에 대한 지원. 이제 사용자는 SQL Server 데이터 원본에서 저장 프로시저 개체를 등록하고 검색할 수 있습니다.
+- Azure Data Catalog 포털 및 데이터 원본 등록 도구에서 추가 언어를 지원하며, 지원되는 언어는 모두 18개입니다. Azure Data Catalog 사용자 환경이 Windows 또는 사용자의 웹 브라우저에 설정된 언어 기본 설정에 따라 지역화됩니다.
 
-- Support for SQL Server stored procedures. Users can now register and discover stored procedure objects in SQL Server data sources.
-- Support for additional languages in the Azure Data Catalog portal and the data source registration tool, for a total of 18 supported languages. The Azure Data Catalog user experience will be localized based on the language preferences set in Windows or in the user’s web browser.
+## 2016년 7월 8일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-july-8,-2016-release"></a>What's new for the week of July 8, 2016 release
+2016년 7월 8일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of July 8, 2016, the following capabilities have been added to Azure Data Catalog:
+- 성능 개선 및 간소화된 사용자 환경을 포함한, 데이터 카탈로그 포털 홈 페이지에 대한 업데이트 및 개선.
 
-- Updates and refinement for the Data Catalog portal home page, including performance improvements and a streamlined user experience.
+## 2016년 6월 24일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-june-24,-2016-release"></a>What's new for the week of June 24, 2016 release
+2016년 6월 24일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of June 24, 2016, the following capabilities have been added to Azure Data Catalog:
+- 데이터 카탈로그 포털에서 데이터 자산을 검색할 때 목록 보기에서 열 크기 조정에 대 한 지원. 이제 사용자는 태그 및 설명과 같은 긴 자산 메타데이터를 보다 쉽게 읽을 수 있도록 열 크기를 개별적으로 조정할 수 있습니다.
+- Excel 용 파워 쿼리가 데이터 카탈로그 포털의 "열기" 메뉴에 추가되었습니다. 이제 사용자는 지원되는 데이터 원본을 [Excel 용 파워 쿼리](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605) 추가 기능이 설치된 Excel 2016이나 Excel 2010 및 Excel 2013에서 열 수 있습니다.
 
-- Support for resizing columns in the list view when discovering data assets in the Data Catalog portal. Users can now resize individual columns to more easily read lengthy asset metadata such as tags and descriptions.
-- Power Query for Excel has been added to the "Open in" menu in the Data Catalog portal. Users can now open supported data sources in Excel 2016 or in Excel 2010 and Excel 2013 with the [Power Query for Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605) add-in installed.
 
+## 2016년 6월 17일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-june-17,-2016-release"></a>What's new for the week of June 17, 2016 release
+2016년 6월 17일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of June 17, 2016, the following capabilities have been added to Azure Data Catalog:
+- Azure Table Storage 데이터 원본에 대한 지원. 이제 사용자는 Azure Storage 데이터 원본에서 테이블 개체를 등록하고 검색할 수 있습니다.
 
-- Support for Azure Table Storage data sources. Users can now register and discover Table objects in Azure Storage data sources.
+## 2016년 5월 20일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-may-20,-2016-release"></a>What's new for the week of May 20, 2016 release
+2016년 5월 20일이 포함된 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of May 20, 2016, the following capabilities have been added to Azure Data Catalog:
+- 사용자가 한 번에 여러 용어를 업데이트할 수 있도록 데이터 카탈로그 비즈니스 용어집이 개선되었습니다. 사용자는 여러 용어를 선택하여 다음 필드를 편집할 수 있습니다.
+    - 상위 용어: 사용자는 새 상위 용어를 선택할 수 있으며, 선택한 모든 용어는 선택한 상위 용어의 하위 용어로 업데이트됩니다. 선택한 용어의 상위 용어가 같으면 해당 상위 용어가 텍스트 상자에 표시되고 그렇지 않으면 상위 용어 필드가 비어 있게 됩니다.
+    - 태그 및 관련자: 여러 데이터 자산에 태그를 지정하는 것과 동일한 환경을 사용하여 여러 용어에 대한 태그 및 관련자를 제거할 수 있습니다.
 
-- Enhancements to the Data Catalog Business Glossary that allows users to update multiple glossary terms in a single operation. Users can select multiple terms to edit the following fields:
-    - Parent Term: The user can select a new parent term, and all selected terms will be updated to be children of the selected parent term. If the selected terms all have the same parent, then that parent is shown in the textbox, otherwise the parent term field will be blank.   
-    - Tags and Stakeholders: Users can add and remove tags and stakeholders for multiple glossary terms using the same experience as tagging multiple data assets.
+비즈니스 용어에 대한 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)을 참조하세요.
 
-For more information on the business glossary, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
+## 2016년 5월 6일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-may-6,-2016-release"></a>What's new for the week of May 6, 2016 release
+2016년 5월 6일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of May 6, 2016, the following capabilities have been added to Azure Data Catalog:
+- 카탈로그 관리자가 일반적인 비즈니스 어휘를 생성하기 위해 비즈니스 용어 및 계층 구조를 정의할 수 있는 비즈니스 용어집. 사용자는 등록된 데이터 자산에 용어를 사용하여 태그를 지정할 수 있고, 카탈로그의 콘텐츠를 보다 쉽게 검색하고 이해할 수 있습니다. 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)을 참조하세요.
 
-- A Business Glossary that allows catalog administrators to define business terms and hierarchies to create a common business vocabulary. Users can tag registered data assets with glossary terms to make it easier to discover and understand the contents of the catalog. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
+> [AZURE.NOTE] 비즈니스 용어집은 Azure Data Catalog 표준 버전에서만 사용할 수 있습니다. 무료 버전에는 관리 태그 지정 또는 비즈니스 용어집 기능이 제공되지 않습니다.
 
-> [AZURE.NOTE] The business glossary is available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
 
+## 2016년 3월 11일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-march-11,-2016-release"></a>What's new for the week of March 11, 2016 release
+2016년 3월 11일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of March 11, 2016, the following capabilities have been added to Azure Data Catalog:
+- Azure Data Catalog 서비스의 검색 기능 및 카탈로그 자산 관리 기능에 프로그래밍 방식으로 액세스하기 위한 통합 REST API 끝점. 기존 검색 API 끝점 및 카탈로그 API 끝점은 더 이상 사용되지 않으며 2016년 3월 21일에 중단될 예정입니다. API의 의미 체계는 달라지지 않으며 끝점 URI만 변경됩니다. 자세한 내용은 [Azure Data Catalog REST API 참조](https://msdn.microsoft.com/library/azure/mt267595.aspx)를 참조하세요. API 샘플을 보려면 [Azure Data Catalog 개발자 샘플](data-catalog-samples.md)을 참조하세요.
 
-- A consolidated REST API endpoint for programmatically accessing the search capabilities and catalog asset management capabilities of the Azure Data Catalog service. The existing search API endpoint and catalog API endpoint are being deprecated and will be discontinued on March 21, 2016. There are no changes to the semantics of the API; only the endpoint URI is changing. For additional information, see the [Azure Data Catalog REST API Reference](https://msdn.microsoft.com/library/azure/mt267595.aspx). For API samples, see [Azure Data Catalog developer samples](data-catalog-samples.md).
+## 2016년 2월 19일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-february-19,-2016-release"></a>What's new for the week of February 19, 2016 release
+2016년 2월 19일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of February 19, 2016, the following capabilities have been added to Azure Data Catalog:
+- Azure Data Catalog 데이터 원본 등록 도구의 데이터 소스 선택 환경이 새로 디자인되었습니다. 사용자가 Azure Data Catalog에서 지원하는 데이터 원본을 더욱 쉽게 찾아서 선택할 수 있도록 데이터 원본 등록 도구가 업데이트되었습니다.
+- Azure Data Catalog 포털 및 데이터 원본 등록 도구에서 추가 언어 10개가 지원됩니다. 이제 Azure Data Catalog 환경이 영어 외에도 독일어, 스페인어, 프랑스어, 이탈리아어, 일본어, 한국어, 포르투갈어(브라질), 러시아어, 중국어 간체 및 중국어 번체로 제공됩니다. Azure Data Catalog 사용자 환경이 Windows 또는 사용자의 웹 브라우저에 설정된 언어 기본 설정에 따라 지역화됩니다.
+- 비즈니스 연속성 및 재해 복구를 위해 Azure Data Catalog 데이터에 대한 지역에서 복제가 지원됩니다. 이제 데이터 원본 메타데이터 및 크라우드소싱 주석을 비롯한 모든 Azure Data Catalog 내용이 두 Azure 지역 간에 무료로 복제됩니다. Azure 지역은 500마일 이상 떨어진 지역이 사전에 쌍으로 연결되며, [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍으로 연결된 지역](../best-practices-availability-paired-regions.md)에 설명된 대로 매핑을 따릅니다.
 
-- A newly redesigned data source selection experience in the Azure Data Catalog data source registration tool. The data source registration tool has been updated to make it easier for users to locate and select from the data sources supported by Azure Data Catalog.
-- Support for ten additional languages in the Azure Data Catalog portal and the data source registration tool. In addition to English, the Azure Data Catalog experience is now available in German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Russian, Simplified Chinese, and Traditional Chinese. The Azure Data Catalog user experience will be localized based on the language preferences set in Windows or in the user’s web browser.
-- Support for geo-replication of Azure Data Catalog data for business continuity and disaster recovery. All Azure Data Catalog contents, including data source metadata and crowdsourced annotations, are now replicated between two Azure regions at no additional cost to customers. The Azure regions are pre-paired, at least 500 miles apart, and follow the mapping as described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
+## 2016년 2월 5일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-february-5,-2016-release"></a>What's new for the week of February 5, 2016 release
+2016년 2월 5일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of February 5, 2016, the following capabilities have been added to Azure Data Catalog:
+- Azure Data Catalog에서 사용하는 Azure 구독을 변경할 수 있습니다. Azure Data Catalog 관리자가 Azure Data Catalog 포털의 설정 페이지에서 청구용으로 다른 Azure 구독을 선택할 수 있습니다.
 
-- Support for changing the Azure subscription used by Azure Data Catalog. Azure Data Catalog administrators can use the Settings page in the Azure Data Catalog portal to select a different Azure subscription for billing purposes.
+## 2016년 1월 29일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-january-29,-2016-release"></a>What's new for the week of January 29, 2016 release
+2016년 1월 29일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of January 29, 2016, the following capabilities have been added to Azure Data Catalog:
+- 추가 데이터 원본의 수동 등록을 지원합니다. 사용자는 이제 Azure Data Catalog 포털에서 "수동 항목 만들기"를 사용하거나 Azure Data Catalog REST API를 사용하여 다음 데이터 원본을 등록할 수 있습니다.
+   + OData - 함수, 엔터티 집합 및 엔터티 컨테이너
+   + HTTP - 파일, 끝점, 보고서 및 사이트
+   + 파일 시스템 - 파일
+   + SharePoint - 목록
+   + FTP - 파일 및 디렉터리
+   + Salesforce.com - 개체
+   + DB2 - 테이블, 보기 및 데이터베이스
+   + PostgreSQL - 테이블, 뷰 및 데이터베이스
+- SQL Server(Azure SQL DB 및 Azure SQL 데이터 웨어하우스 포함) 데이터 원본에 대해 "SQL Server Data Tools에서 열기"가 지원됩니다.
 
-- Support for manually registering additional data sources. Users can now use "Create Manual Entry" in the Azure Data Catalog portal, or use the Azure Data Catalog REST API to register the following data sources:
-   + OData - Function, Entity Set, and Entity Container
-   + HTTP - File, Endpoint, Report, and Site
-   + File System - File
-   + SharePoint - List
-   + FTP - File and Directory
-   + Salesforce.com - Object
-   + DB2 - Table, View, and Database
-   + PostgreSQL - Table, View, and Database
-- Support for "Open in SQL Server Data Tools" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) data sources.  
+> [AZURE.NOTE] "SQL Server Data Tools에서 열기"를 사용하려면 업데이트 4 및 SQL Server 도구가 포함된 Visual Studio 2013을 설치해야 합니다. SQL Server Data Tools 최신 버전을 설치하려면 [SSDT(SQL Server Data Tools) 다운로드](https://msdn.microsoft.com/library/mt204009.aspx)를 방문하세요.
 
-> [AZURE.NOTE] "Open in SQL Server Data Tools" requires Visual Studio 2013 with Update 4 and SQL Server Tooling to be installed. To install the latest version of SQL Server Data Tools, visit [Download SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+## 2016년 1월 22일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-january-22,-2016-release"></a>What's new for the week of January 22, 2016 release
+2016년 1월22일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of January 22, 2016, the following capabilities have been added to Azure Data Catalog:
+- SAP HANA 보기 및 패키지 등록및 검색을 지원합니다. 사용자는 Azure Data Catalog 데이터 원본 등록 도구를 사용하여 SAP HANA 데이터 원본을 등록할 수 있고 Azure Data Catalog 포털을 사용하여 등록된 SAP HANA 데이터 원본에 주석을 추가하고 검색할 수 있습니다.
 
-- Support for registering and discovering SAP HANA views and packages. Users can register SAP HANA data sources using the Azure Data Catalog data source registration tool, and can annotate and discover registered SAP HANA data sources using the Azure Data Catalog portal.
+## 2016년 1월 8일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-january-8,-2016-release"></a>What's new for the week of January 8, 2016 release
+2016년 1월 8일 주를 기준으로 다음과 같은 기능이 Azure 데이터 카탈로그에 추가되었습니다.
 
-As of the week of January 8, 2016, the following capabilities have been added to Azure Data Catalog:
+- Azure Data Catalog 포털에서 데이터 자산을 고정하거나 고정 해제할 수 있습니다. 사용자는 쉽게 다시 검색하고 다시 사용하기 위해 데이터 자산을 고정하도록 선택할 수 있습니다.
+- Azure Data Catalog 포털의 홈 페이지가 새로 디자인되었습니다. 새 홈페이지에는 카탈로그 전체의 활동에 대한 정보뿐만 아니라 최근에 게시된 자산, 고정된 자산 및 저장된 검색 등 현재 사용자 활동에 대한 정보가 포함되어 있습니다.
+- Azure Data Catalog 포털에서 영구 사용자 설정이 지원됩니다. 표 또는 타일 보기, 페이지당 결과 수 및 적중 항목 강조 표시 설정 또는 해제 등 사용자 환경 설정이 사용자 세션 간에 유지됩니다.
+- 이제 새로운 Azure 지역 두 곳에서 Azure Data Catalog를 사용할 수 있습니다. 고객은 미국 동부, 미국 서부, 유럽 서부 및 오스트레일리아 동부 외에도 북유럽과 동남 아시아 지역에서 Azure Data Catalog를 프로비전할 수 있습니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
-- The ability to pin and unpin data assets in the Azure Data Catalog portal. Users can choose to pin data assets to make them easier to re-discover and re-use.
-- A newly redesigned home page in the Azure Data Catalog portal. The new home page includes insight into the current users activity - including recently published assets, pinned assets, and saved searches - as well as insight into the activity in the Catalog as a whole.
-- Support for persistent user settings in the Azure Data Catalog portal. User experience settings - including grid or tile view, the number of results per page, and hit highlighting on or off - are persisted between user sessions.
-- Azure Data Catalog is now available in two new Azure regions. Customers can provision the Azure Data Catalog in the North Europe and Southeast Asia regions, in addition to East US, West US, West Europe, and Australia East. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
+## 2015년 12월 18일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-december-18,-2015-release"></a>What's new for the week of December 18, 2015 release
+2015년 12월 18일 주를 기준으로 다음과 같은 기능이 Azure 데이터 카탈로그에 추가되었습니다.
 
-As of the week of December 18, 2015, the following capabilities have been added to Azure Data Catalog:
+- Azure SQL 데이터 웨어하우스 데이터 원본에 대해 데이터 프로필을 지원합니다. Azure SQL 데이터 웨어하우스 테이블 및 뷰를 등록할 때 사용자가 데이터 원본에서 추출된 메타데이터와 함께 데이터 프로필 메트릭을 포함하도록 선택할 수 있습니다.
+- MySQL 개체 및 데이터베이스 등록 및 검색을 지원합니다. 사용자는 Azure Data Catalog 데이터 원본 등록 도구를 사용하여 MySQL 데이터 원본을 등록할 수 있고 Azure Data Catalog 포털을 사용하여 등록된 MySQL 데이터 원본에 주석을 추가하고 검색할 수 있습니다.
 
-- Support for data profiles for Azure SQL Data Warehouse data sources. When registering Azure SQL Data Warehouse tables and views, users can choose to include data profile metrics with the metadata extracted from the data source.
-- Support for registering and discovering MySQL objects and databases. Users can register MySQL data sources using the Azure Data Catalog data source registration tool, and can annotate and discover registered MySQL data sources using the Azure Data Catalog portal.
+## 2015년 12월 4일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-december-4,-2015-release"></a>What's new for the week of December 4, 2015 release
+2015년 12월 4일 주를 기준으로 다음과 같은 기능이 Azure 데이터 카탈로그에 추가되었습니다.
 
-As of the week of December 4, 2015, the following capabilities have been added to Azure Data Catalog:
+- Teradata 데이터 원본에 대해 SPNEGO 및 Windows 인증이 지원됩니다. Teradata 테이블 및 뷰를 등록할 때 사용자는 SPNEGO 및 Windows 뿐만 아니라 LDAP 및 TD2 인증을 사용하여 Teradata에 연결하도록 선택할 수 있습니다.
+- Azure 데이터 레이크 저장소 데이터 원본을 지원합니다. Azure 데이터 카탈로그를 사용하여 Azure 데이터 레이크 저장소 데이터 원본을 지금 등록하고 검색할 수 있습니다.
+- 수동으로 Azure 데이터 카탈로그 데이터 원본 등록 도구에서 네트워크 프록시 설정을 지정하도록 지원합니다. 사용자는 도구의 시작 페이지에서 "프록시 설정 수정"을 선택하고 도구에서 사용할 프록시 주소 및 포트를 지정할 수 있습니다.
 
-- Support for SPNEGO and Windows authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using SPNEGO and Windows as well as LDAP and TD2 authentication.
-- Support for Azure Data Lake Store data sources. Users can now register and discover Azure Data Lake Store data sources using Azure Data Catalog.
-- Support for manually specifying network proxy settings in the Azure Data Catalog data source registration tool. Users can select "Modify proxy settings" from the tool's welcome page, and can specify the proxy address and port to be used by the tool.
 
+## 2015년 11월 20일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-november-20,-2015-release"></a>What's new for the week of November 20, 2015 release
+2015년 11월 20일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of November 20, 2015, the following capabilities have been added to Azure Data Catalog:
+- Azure Data Catalog 포털 내에서 SQL Server(Azure SQL 데이터베이스 포함) 및 Oracle 데이터 원본에 대한 연결 문자열을 보고 복사할 수 있습니다. 사용자는 SQL Server 또는 Oracle 테이블, 뷰 또는 데이터베이스의 연결 정보에서 "연결 문자열 보기" 링크를 클릭하여 데이터 원본에 연결할 때 사용되는 연결 문자열을 볼 수 있습니다. ADO.NET, ODBC, OLEDB 및 JDBC 연결 문자열은 SQL Server 데이터 원본에 대해 제공됩니다. ODBC 및 OLEDB 연결 문자열은 Oracle 데이터 원본에 대해 제공됩니다.
+- Teradata 테이블 및 뷰를 등록할 때 데이터 프로필을 포함할 수 있습니다.
+- SQL Server(Azure SQL DB 및 Azure SQL 데이터 웨어하우스 포함) 및 SQL Server Analysis Services, Azure 저장소 및 HDFS 원본에 대해 "Power BI Desktop에서 열기"가 지원됩니다.
 
-- The ability to view and copy connection strings from within the Azure Data Catalog portal for SQL Server (including Azure SQL Database) and Oracle data sources. Users can click on the "View Connection Strings" link in the connection information for a SQL Server or Oracle table, view, or database, to see the connection strings used to connect to the data source. ADO.NET, ODBC, OLEDB and JDBC connection strings are provided for SQL Server data sources. ODBC and OLEDB connection strings are provided for Oracle data sources.
-- Support for including data profiles when registering Teradata tables and views.
-- Support for "Open in Power BI Desktop" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse), SQL Server Analysis Services, Azure Storage, and HDFS sources.  
+> [AZURE.NOTE] "Power BI Desktop에서 열기"를 사용하려면 최신 버전의 Power BI Desktop 응용 프로그램이 설치되어 있어야 합니다. 이 기능을 사용하는 중에 문제 또는 오류가 발생한 경우 [PowerBI.com](https://powerbi.com)에서 제공하는 최신 버전의 Power BI Desktop을 사용하고 있는지 확인하세요.
 
-> [AZURE.NOTE] "Open in Power BI Desktop" requires a current version of the Power BI Desktop application to be installed. If you encounter problems or errors using this feature, please ensure that you have the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
+## 2015년 11월 13일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-november-13,-2015-release"></a>What's new for the week of November 13, 2015 release
+2015년 11월 13일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of November 13, 2015, the following capabilities have been added to Azure Data Catalog:
+- Teradata 데이터 원본에 대해 LDAP 인증이 지원됩니다. Teradata 테이블 및 뷰를 등록할 때 사용자는 LDAP 및 TD2 인증을 사용하여 Teradata에 연결하도록 선택할 수 있습니다.
+- Teradata 데이터 원본에 대해 "Excel에서 열기"가 지원됩니다.
+- Azure Data Catalog 포털에서 최신 검색어가 지원됩니다. 포털에서 검색할 때 사용자는 최근에 사용한 검색어를 선택하여 검색 속도를 높일 수 있습니다.
 
-- Support for LDAP authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using LDAP as well as TD2 authentication.
-- Support for "Open in Excel" for Teradata data sources.
-- Support for recent search terms in the Azure Data Catalog portal. When searching in the portal, users can select from recently used search terms to accelerate the discovery experience.
+## 2015년 11월 6일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-november-6,-2015-release"></a>What's new for the week of November 6, 2015 release
+2015년 11월 6일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of November 6, 2015, the following capabilities have been added to Azure Data Catalog:
+- Teradata 데이터 원본 미리 보기를 지원합니다. Teradata 테이블 및 뷰를 등록할 때 사용자가 데이터 원본에서 추출된 메타데이터와 함께 스냅숏 레코드를 포함하도록 선택할 수 있습니다.
+- Azure SQL 데이터 웨어하우스 데이터 원본에 대해 "Excel에서 열기"를 지원합니다.
+- 수동으로 등록된 자산 데이터에 대한 열 수준 스키마 정의 및 편집을 지원합니다. Azure Data Catalog 포털을 사용하여 직접 데이터 자산을 만든 후, 사용자는 데이터 자산 속성에 있는 열 정의를 추가할 수 있습니다.
+- Azure Data Catalog를 검색할 때 특정 메타데이터를 소유하는 등록된 데이터 자산 검색이 가능하도록 "has" 쿼리를 지원합니다. Azure Data Catalog 쿼리 구문은 이제 다음을 포함합니다.
 
-- Support for preview for Teradata data sources. When registering Teradata tables and views, users can choose to include snapshot records with the metadata extracted from the data source.
-- Support for "Open in Excel" for Azure SQL Data Warehouse data sources.
-- Support for defining and editing column-level schemas for manually registered data assets. After manually creating a data asset using the Azure Data Catalog portal, users can add column definitions in the data asset properties.
-- Support for "has" queries when searching Azure Data Catalog, to enable the discovery of registered data assets that possess specific metadata. Azure Data Catalog query syntax now includes:
-
-| Query syntax            | Purpose |
+| 쿼리 구문 | 목적 |
 |-------------------------|---------|
-| has:previews             | Finds data assets that include a preview  |
-| has:documentation       | Finds data assets for which documentation has been provided |
-| has:tableDataProfiles   | Finds data assets with table-level data profile information |
-| has:columnsDataProfiles | Finds data assets with column-level data profile information |
+| has:previews | 미리 보기를 포함하는 데이터 자산을 찾습니다. |
+| has:documentation | 설명서에 제공된 데이터 자산을 찾습니다. |
+| has:tableDataProfiles | 테이블 수준 데이터 프로필 정보를 사용하여 데이터 자산을 찾습니다. |
+| has:columnsDataProfiles | 열 수준 데이터 프로필 정보를 사용하여 데이터 자산을 찾습니다. |
 
 
-## <a name="what's-new-for-the-week-of-october-30,-2015-release"></a>What's new for the week of October 30, 2015 release
+## 2015년 10월 30일 주 릴리스의 새로운 기능
 
-As of the week of October 30, 2015, the following capabilities have been added to Azure Data Catalog:
+2015년 10월 30일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-- Support for encryption at rest of data previews and data profiles for registered data sources. Azure Data Catalog will transparently encrypt any preview records and data profiles data sources registered with the service, without any need for key management by Catalog administrators.
+- 등록된 데이터 원본에 대한 데이터 미리 보기 및 데이터 프로필의 나머지에서 암호화가 지원됩니다. Azure 데이터 카탈로그가 서비스에 등록된 미리 보기 레코드 및 데이터 프로필 데이터 원본을 투명하게 암호화하므로 카탈로그 관리자가 키 관리를 수행할 필요가 없습니다.
 
-## <a name="what's-new-for-the-week-of-october-23,-2015-release"></a>What's new for the week of October 23, 2015 release
+## 2015년 10월 23일 주 릴리스의 새로운 기능
 
-As of the week of October 23, 2015, the following capabilities have been added to Azure Data Catalog:
+2015년 10월 23일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-- Support for Teradata data sources. Users can now register and discover Teradata tables and views.
+- Teradata 데이터 원본에 대한 지원입니다. 이제 사용자가 Teradata 테이블 및 뷰를 등록하고 검색할 수 있습니다.
 
-> [AZURE.NOTE] For the current release, only Teradata TD2 authentication is supported. Additional authentication mechanisms will be supported in future releases.
+> [AZURE.NOTE] 현재 릴리스의 경우 Teradata TD2 인증만 지원 됩니다. 추가 인증 메커니즘은 이후 릴리스에서 지원됩니다.
 
-## <a name="what's-new-for-the-week-of-october-16,-2015-release"></a>What's new for the week of October 16, 2015 release
+## 2015년 10월 16일 주 릴리스의 새로운 기능
 
-As of the week of October 16, 2015, the following capabilities have been added to Azure Data Catalog:
+2015년 10월 16일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-- Support for on-premises Hive data sources. Users can now register and discover Hive tables for Apache Hive in Hadoop on-premises data sources.
-- Support for saved searches in the Azure Data Catalog portal. Users can save search terms and filter selections to easily repeat previous searches and define useful views of the Catalog's contents. User can also mark a saved search as their default search. When a user clicks the "magnifying glass" search icon from the Azure Data Catalog portal home page or from the "getting started" page, the user will be taken directly to the saved search flagged as default.
-
-
-## <a name="what's-new-for-the-week-of-october-9,-2015-release"></a>What's new for the week of October 9, 2015 release
-
-As of the week of October 9, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- Support for rich text documentation for registered data assets and containers in the Azure Data Catalog portal. Users can now provide documentation for data assets such as tables, views, and reports, and for containers such as databases and models, for scenarios where tags and descriptions are not sufficient.
-
-## <a name="what's-new-for-the-week-of-october-2,-2015-release"></a>What's new for the week of October 2, 2015 release
-
-As of the week of October 2, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- Support for manually registering known data source types. Users can manually enter data source information using the Azure Data Catalog portal for all data source types supported by Azure Data Catalog.
-- Support for authorizing Azure Active Directory security groups. Catalog administrators can enable catalog access to security groups as well as to user accounts, making it easier to manage access to Azure Data Catalog.
-- Support for opening Hive data sources in Excel from the Azure Data Catalog portal.
-
-> [AZURE.NOTE] To use the "Open in Excel" feature for Hive data sources, users must have installed the ODBC driver for Hive.
-
-## <a name="what's-new-for-the-week-of-september-25,-2015-release"></a>What's new for the week of September 25, 2015 release
-
-As of the week of September 25, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- Support for including data profiles when registering Hive data sources.
-- Support for programmatically discovering the Catalog API, making it easier for applications to integrate with Azure Data Catalog.
-
-## <a name="what's-new-for-the-week-of-september-18,-2015-release"></a>What's new for the week of September 18, 2015 release
-
-As of the week of September 18, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- A new "getting started" data source discovery experience in the Azure Data Catalog portal. When users enter the "discover" page of the  Azure Data Catalog portal without entering a search term, they will be presented with an overview of the catalog contents including the most frequently used tags, as well as experts, data source types and object types.
-- Support for registering and discovering Azure SQL Data Warehouse objects and databases. For additional information on Azure SQL Data Warehouse, see [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-- Support for registering and discovering SQL Server Analysis Services models and SQL Server Reporting Services servers as containers. When registering SSAS and SSRS objects, Azure Data Catalog will create an entry for the SSAS model and SSRS server as well as for the reports and other objects. The containers can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a model or server in addition to searching and filtering the contents of the catalog.
-
-> [AZURE.NOTE] SSAS and SSRS objects that have been registered prior to the September 18 release must be re-registered using the data source registration tool before the model or server entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
-
-## <a name="what's-new-for-the-week-of-september-11,-2015-release"></a>What's new for the week of September 11, 2015 release
-
-As of the week of September 11, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- Support for registering and discovering SQL Server Analysis Services objects via HTTP/HTTPS. Users can now connect to SSAS servers using a URL (such as https://servername/olap/msmdpump.dll) rather than a server name, and can use Basic authentication and Anonymous connections in addition to Windows authentication. For additional information on HTTP/HTTPS connections to SSAS, see [Configure HTTP Access to Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-- Support for Hive data sources on HDInsight. Users can now register and discover Hive tables for Apache Hive in Hadoop on HDInsight data sources. For additional information on Hive on HDInsight, see the [HDInsight documentation center](../hdinsight/hdinsight-use-hive.md).
-- Support for registering and discovering Oracle databases and HDFS clusters as containers. When registering Oracle tables and views or HDFS , Azure Data Catalog will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a database or cluster in addition to searching and filtering the contents of the catalog.
+- 온-프레미스 Hive 데이터 원본에 대한 지원입니다. 사용자는 이제 Hadoop 온-프레미스 데이터 원본에서 Apache Hive에 대한 Hive 테이블을 등록하고 검색할 수 있습니다.
+- Azure Data Catalog 포털에서 저장된 검색을 지원합니다. 검색 용어를 저장하고 선택을 필터링하여 손쉽게 이전 검색을 반복하고 카탈로그 내용의 유용한 뷰를 정의할 수 있습니다. 또한 사용자는 저장된 검색을 자신의 기본 검색으로 표시할 수 있습니다. 사용자가 Azure Data Catalog 포털 홈페이지 또는 "시작" 페이지에서 "돋보기" 검색 아이콘을 클릭하는 경우 기본값으로 플래그되어 있는 저장된 검색으로 직접 이동합니다.
 
 
-> [AZURE.NOTE] Oracle tables and views and HDFS files and directories that have been registered prior to the September 11 release must be re-registered using the data source registration tool before the database or cluster entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
+## 2015년 10월 9일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-september-4,-2015-release"></a>What's new for the week of September 4, 2015 release
+2015년 10월 9일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of September 4, 2015, the following capabilities have been added to Azure Data Catalog:
+- Azure 데이터 카탈로그 포털의 등록된 데이터 자산 및 컨테이너에 대한 풍부한 텍스트 설명서를 지원합니다. 이제 사용자는 테이블, 뷰 및 보고서 같은 데이터 자산, 데이터베이스 및 모델 같은 컨테이너, 태그 및 설명이 충분하지 않은 시나리오에 대한 설명서를 제공할 수 있습니다.
 
-- Support for manually registering unknown data source types. Users can manually enter data source information using the Azure Data Catalog portal, so that data sources not explicitly supported by the data source registration tool can be annotated and discovered.
-- Support for registering and discovering SQL Server databases as containers. When registering SQL Server tables and views, Azure Data Catalog will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a database in addition to searching and filtering the contents of the catalog.
+## 2015년 10월 2일 주 릴리스의 새로운 기능
 
-> [AZURE.NOTE] SQL Server tables and views that have been registered prior to the September 4 release must be re-registered using the data source registration tool before the database entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
+2015년 10월 2일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-## <a name="what's-new-for-the-week-of-august-28,-2015-release"></a>What's new for the week of August 28, 2015 release
+- 알려진 데이터 원본 유형의 수동 등록을 지원합니다. 사용자는 Azure Data Catalog에서 지원하는 모든 데이터 원본 형식에 대해 Azure Data Catalog 포털을 사용하여 데이터 원본 정보를 수동으로 입력할 수 있습니다.
+- Azure Active Directory 보안 그룹에 권한을 부여하도록 지원합니다. 카탈로그 관리자는 보안 그룹뿐만 아니라 사용자 계정에 액세스할 수 있게 하며 Azure Data Catalog에 대한 액세스를 쉽게 관리하도록 합니다.
+- Azure Data Catalog 포털에서 Excel의 Hive 데이터 원본을 열 수 있도록 지원합니다.
 
-As of the week of August 28, 2015, the following capabilities have been added to Azure Data Catalog:
+> [AZURE.NOTE] Hive 데이터 원본에 "Excel에서 열기" 기능을 사용하려면 사용자가 Hive에 ODBC 드라이버를 설치해야 합니다.
 
-- Support for data profiling of SQL Server and Oracle data sources. When registering SQL Server and Oracle tables and views, users can choose to include data profile information for the objects being registered. The data profile includes object-level and column-level statistics.
-- Support for Hadoop HDFS data sources. Users can now register and discover HDFS files and directories.
+## 2015년 9월 25일 주 릴리스의 새로운 기능
 
-## <a name="what's-new-for-the-week-of-august-21,-2015-release"></a>What's new for the week of August 21, 2015 release
+2015년 9월 25일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-As of the week of August 21, 2015, the following capabilities have been added to Azure Data Catalog:
+- Hive 데이터 원본을 등록하는 경우 데이터 프로필 포함을 지원합니다.
+- 응용 프로그램과 Azure Data Catalog의 통합이 용이하도록 프로그래밍 방식의 카탈로그 API 검색을 지원합니다.
 
-- Support for providing access request information for registered data sources. For any registered data asset, users can now provide instructions for requesting access, including email links or URLs, to easily integrate with existing tools and processes.
-- Tool tips for tags and experts, to make it easier to discover what users have provided what metadata for registered data assets.
-- We’ve added a new “User” button and menu to our top navigation bar. This menu lets the user see the account used to log on to Azure Data Catalog, and to sign out if desired. This menu also displays the catalog name, which is valuable to developers using the Azure Data Catalog REST API.
-- Standard Edition Only: When adding owners to data assets, Azure Data Catalog now supports both user accounts and security groups as owners. To add a security group as an owner for selected data assets, you can enter either the group’s display name or the group’s UPN email address, if it has one.
-- Support for Azure Blob Storage data sources. Users can now register and discover Azure Storage blobs and directories.
+## 2015년 9월 18일 주 릴리스의 새로운 기능
+
+2015년 9월 18일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
+
+- Azure Data Catalog 포털의 새로운 "시작" 데이터 원본 검색 환경을 지원합니다. 사용자가 Azure Data Catalog 포털에서 검색어를 입력하지 않고 "검색" 페이지에 들어가면 가장 자주 사용한 태그, 전문가, 데이터 원본 유형, 개체 유형 등 카탈로그 내용의 개요가 표시됩니다.
+- Azure SQL 데이터 웨어하우스 개체 및 데이터베이스 등록 및 검색을 지원합니다. Azure SQL 데이터 웨어하우스에 대한 추가 정보는 [SQL 데이터 웨어하우스](https://azure.microsoft.com/services/sql-data-warehouse/)를 참조하세요.
+- SQL Server Analysis Services과 SQL Server Reporting Services 서버를 컨테이너로 등록하고 검색할 수 있게 지원합니다. SSAS 및 SSRS 개체를 등록할 때 Azure Data Catalog가 SSAS 모델 및 SSRS 서버와 보고서 및 기타 개체에 대한 항목을 만듭니다. Azure Data Catalog 포털을 사용하여 컨테이너를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 모델 또는 서버의 내용을 검색 및 필터링할 수도 있습니다.
+
+> [AZURE.NOTE] 9월 18일 릴리스 이전에 등록된 SSAS 및 SSRS 개체는 데이터 원본 등록 도구를 사용해서 다시 등록해야 모델 또는 서버 항목이 카탈로그에 추가됩니다. 데이터 원본을 다시 등록해도 Azure Data Catalog 포털에서 사용자가 추가한 주석에는 영향을 주지 않습니다.
+
+## 2015년 9월 11일 주 릴리스의 새로운 기능
+
+2015년 9월 11일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
+
+- HTTP/HTTPS를 통한 SQL Server Analysis Services 개체 등록 및 검색에 대한 지원. 사용자는 이제 서버 이름 대신에 URL(예: https://servername/olap/msmdpump.dll)을 사용하여 SSAS 서버에 연결할 수 있으며 Windows 인증 외에도 기본 인증 및 익명 연결을 사용할 수 있습니다. SSAS에 대한 HTTP/HTTPS 연결의 추가 정보는 [Analysis Services에 대한 HTTP 액세스 구성](https://msdn.microsoft.com/library/gg492140.aspx)을 참조하세요.
+- HDInsight의 Hive 데이터 원본에 대한 지원. 사용자는 이제 HDInsight 데이터 원본의 Hadoop에서 Apache Hive에 대한 Hive 테이블을 등록하고 검색할 수 있습니다. HDInsight의 Hive에 대한 추가 정보는 [HDInsight 설명서 센터](../hdinsight/hdinsight-use-hive.md)를 참조하세요.
+- 컨테이너로 Oracle 데이터베이스 및 HDFS 클러스터 등록 및 검색에 대한 지원. Oracle 테이블 및 뷰 또는 HDFS를 등록하면 Azure Data Catalog에 테이블 및 뷰는 물론 데이터베이스에 대한 항목도 생성됩니다. Azure Data Catalog 포털을 사용하여 데이터베이스를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 데이터베이스 또는 클러스터의 내용을 검색 및 필터링할 수도 있습니다.
 
 
+> [AZURE.NOTE] 9월 11일 릴리스 이전에 등록된 Oracle 테이블, 뷰, HDFS 파일 및 디렉터리는 데이터 원본 등록 도구를 사용해서 다시 등록해야 데이터베이스 또는 클러스터 항목이 카탈로그에 추가됩니다. 데이터 원본을 다시 등록해도 Azure Data Catalog 포털에서 사용자가 추가한 주석에는 영향을 주지 않습니다.
 
-<!--HONumber=Oct16_HO2-->
+## 2015년 9월 4일 주 릴리스의 새로운 기능
 
+2015년 9월 4일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
+- 알 수 없는 데이터 원본 유형의 수동 등록 지원. 사용자는 데이터 원본 등록 도구에서 명시적으로 지원하지 않는 데이터 원본에 주석을 추가하고 검색할 수 있도록 Azure Data Catalog 포털을 사용하여 데이터 원본 정보를 수동으로 입력할 수 있습니다.
+- 컨테이너로 SQL Server 데이터베이스 등록 및 검색 지원. SQL Server 테이블 및 뷰를 등록하면 Azure Data Catalog에 테이블 및 뷰는 물론 데이터베이스에 대한 항목도 생성됩니다. Azure Data Catalog 포털을 사용하여 데이터베이스를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 데이터베이스 내용을 검색 및 필터링할 수도 있습니다.
+
+> [AZURE.NOTE] 9월 4일 릴리스 이전에 등록된 SQL Server 테이블 및 뷰는 데이터 원본 등록 도구를 사용해서 다시 등록해야 데이터베이스 항목이 카탈로그에 추가됩니다. 데이터 원본을 다시 등록해도 Azure Data Catalog 포털에서 사용자가 추가한 주석에는 영향을 주지 않습니다.
+
+## 2015년 8월 28일 주 릴리스의 새로운 기능
+
+2015년 8월 28일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
+
+- SQL Server와 Oracle 데이터 원본의 데이터 프로파일링 지원. SQL Server와 Oracle 테이블 및 뷰를 등록할 때 사용자는 등록되는 개체에 대한 데이터 프로필 정보를 포함하도록 선택할 수 있습니다. 데이터 프로필에는 개체 수준 및 열 수준 통계가 포함됩니다.
+- Hadoop HDFS 데이터 원본 지원. 이제 사용자가 HDFS 파일 및 디렉터리를 등록하고 검색할 수 있습니다.
+
+## 2015년 8월 21일 주 릴리스의 새로운 기능
+
+2015년 8월 21일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
+
+- 등록된 데이터 원본에 대한 액세스 요청 정보 제공에 대한 지원. 모든 등록된 데이터 자산에 대해 사용자는 기존 도구 및 프로세스와 쉽게 통합하도록 전자 메일 링크 또는 URL을 포함하여 액세스 요청에 대한 지침을 제공할 수 있습니다.
+- 태그 및 전문가를 위한 도구 팁은 사용자가 제공한 것과 등록된 데이터 자산에 대한 메타데이터를 쉽게 검색할 수 있도록 합니다.
+- 상단 탐색 모음에 새로운 “사용자” 단추 및 메뉴를 추가했습니다. 이 메뉴를 통해 사용자는 Azure Data Catalog에 로그온하는 데 사용된 계정을 볼 수 있고 원하는 경우 로그아웃하는 데 사용된 계정을 볼 수 있습니다. 이 메뉴는 Azure Data Catalog REST API를 사용하는 개발자에게 유용한 카탈로그 이름도 표시합니다.
+- 표준 버전에만 해당: 이제 데이터 자산에 소유자를 추가하는 경우 Azure Data Catalog에서 사용자 계정과 보안 그룹을 모두 소유자로 지원합니다. 선택한 데이터 자산에 대해 소유자로 보안 그룹을 추가하려면 있는 경우 그룹의 표시 이름 또는 그룹의 UPN 전자 메일 주소를 입력할 수 있습니다.
+- Azure Blob 저장소의 데이터 원본에 대한 지원입니다. 이제 사용자는 Azure 저장소 Blob 및 디렉터리를 등록하고 검색할 수 있습니다.
+
+<!---HONumber=AcomDC_0921_2016-->

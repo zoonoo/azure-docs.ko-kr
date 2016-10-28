@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager and volumes | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups."
+   pageTitle="StorSimple 스냅숏 관리자 및 볼륨 | Microsoft Azure"
+   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하고 백업을 구성하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,265 +15,260 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
+# StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리
 
-# <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager to view and manage volumes
+## 개요
 
-## <a name="overview"></a>Overview
+StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여 볼륨을 선택하고 관련 정보를 볼 수 있습니다. 볼륨은 호스트에 의해 탑재된 볼륨에 해당하는 드라이브로 표시됩니다. **볼륨** 노드는 iSCSI와 장치를 사용하여 검색한 볼륨을 포함하여 StorSimple에서 지원하는 로컬 볼륨 및 볼륨 유형을 표시합니다.
 
-You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** pane) to select volumes and view information about them. The volumes are presented as drives that correspond to the volumes mounted by the host. The **Volumes** node shows local volumes and volume types that are supported by StorSimple, including volumes discovered through the use of iSCSI and a device. 
+지원되는 볼륨에 대한 자세한 내용은 [여러 볼륨 유형에 대한 지원](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types)을 참조하세요.
 
-For more information about supported volumes, go to [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
+![결과 창의 볼륨 목록](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
-![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
+또한 **볼륨** 노드를 사용하면 StorSimple 스냅숏 관리자에서 검색한 후에도 볼륨을 다시 검사하거나 삭제할 수 있습니다.
 
-The **Volumes** node also lets you rescan or delete volumes after StorSimple Snapshot Manager discovers them. 
+이 자습서에서는 볼륨을 탑재, 초기화 및 포맷한 다음 StorSimple 스냅숏 관리자를 사용하여 다음 작업을 수행하는 방법에 대해 설명합니다.
 
-This tutorial explains how you can mount, initialize, and format volumes and then use StorSimple Snapshot Manager to:
+- 볼륨에 대한 정보 보기 
+- 볼륨 삭제
+- 볼륨 다시 검사 
+- 기본 볼륨을 구성하고 백업
+- 동적 미러 볼륨 구성 및 백업
 
-- View information about volumes 
-- Delete volumes
-- Rescan volumes 
-- Configure a basic volume and back it up
-- Configure a dynamic mirrored volume and back it up
-
->[AZURE.NOTE] All of the **Volume** node actions are also available in the **Actions** pane.
+>[AZURE.NOTE] 모든 **볼륨** 노드 작업은 **작업** 창에서도 사용할 수 있습니다.
  
-## <a name="mount-volumes"></a>Mount volumes
+## 볼륨 탑재
 
-Use the following procedure to mount, initialize, and format StorSimple volumes. This procedure uses Disk Management, a system utility for managing hard disks and the corresponding volumes or partitions. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
+다음 절차에 따라 StorSimple 볼륨을 탑재, 초기화 및 포맷할 수 있습니다. 이 절차는 하드 디스크 및 해당 볼륨 또는 파티션을 관리하기 위해 디스크 관리, 시스템 유틸리티를 사용합니다. 디스크 관리에 대한 자세한 내용은 Microsoft TechNet 웹 사이트에서 [디스크 관리](https://technet.microsoft.com/library/cc770943.aspx)로 이동하세요.
 
-#### <a name="to-mount-volumes"></a>To mount volumes
+#### 볼륨을 탑재하려면
 
-1. On your host computer, start the Microsoft iSCSI initiator.
+1. 호스트 컴퓨터에서 Microsoft iSCSI 초기자를 시작합니다.
 
-2. Supply one of the interface IP addresses as the target portal or discovery IP address, and connect to the device. After the device is connected, the volumes will be accessible to your Windows system. For more information about using the Microsoft iSCSI initiator, go to the section “Connecting to an iSCSI target device” in [Installing and Configuring Microsoft iSCSI Initiator][1].
+2. 대상 포털로 인터페이스 IP 주소 중 하나를 제공하거나 IP 주소를 검색한 후 장치에 연결합니다. 장치가 연결된 후 Windows 시스템에서 볼륨에 액세스할 수 있습니다. Microsoft iSCSI 초기자 사용에 대한 자세한 내용은 [Microsoft iSCSI 초기자 설치 및 구성][1]에서 “iSCSI 대상 장치에 연결” 섹션을 참조하세요.
 
-3. Use any of the following options to start Disk Management:
+3. 다음 옵션 중 하나를 사용하여 디스크 관리를 시작합니다.
 
-    - Type Diskmgmt.msc in the **Run** box.
+    - **실행** 상자에 Diskmgmt.msc를 입력합니다.
 
-    - Start Server Manager, expand the **Storage** node, and then select **Disk Management**.
+    - 서버 관리자를 시작하고 **저장소** 노드를 확장한 다음 **디스크 관리**를 선택합니다.
 
-    - Start **Administrative Tools**, expand the **Computer Management** node, and then select **Disk Management**. 
+    - **관리 도구**를 시작하고 **컴퓨터 관리** 노드를 확장한 다음 **디스크 관리**를 선택합니다.
 
-    >[AZURE.NOTE] You must use administrator privileges to run Disk Management.
+    >[AZURE.NOTE] 관리자 권한을 사용하여 디스크 관리를 실행해야 합니다.
  
-4. Take the volume(s) online:
+4. 볼륨을 온라인 상태로 만듭니다.
 
-   1. In Disk Management, right-click any volume marked **Offline**.
+   1. 디스크 관리에서 **오프라인**으로 표시된 볼륨을 마우스 오른쪽 단추로 클릭합니다.
 
-   2. Click **Reactivate Disk**. The disk should be marked **Online** after the disk is reactivated.
+   2. **디스크 다시 활성화**를 클릭합니다. 디스크를 다시 활성화한 후에는 해당 디스크가 **온라인**으로 표시되어야 합니다.
 
-5. Initialize the volume(s):
+5. 볼륨을 초기화합니다.
 
-   1. Right-click the discovered volumes.
+   1. 검색된 볼륨을 마우스 오른쪽 단추로 클릭합니다.
 
-   2. On the menu, select **Initialize Disk**.
+   2. 메뉴에서 **디스크 초기화**를 선택합니다.
 
-   3. In the **Initialize Disk** dialog box, select the disks that you want to initialize, and then click **OK**.
+   3. **디스크 초기화** 대화 상자에서 초기화하려는 디스크를 선택한 다음 **확인**을 클릭합니다.
 
-6. Format simple volumes:
+6. 단순 볼륨을 포맷합니다.
 
-   1. Right-click a volume that you want to format.
+   1. 포맷할 볼륨을 마우스 오른쪽 단추로 클릭합니다.
 
-   2. On the menu, select **New Simple Volume**.
+   2. 메뉴에서 **새 단순 볼륨**을 선택합니다.
 
-   3. Use the New Simple Volume wizard to format the volume:
+   3. 새 단순 볼륨 마법사를 사용하여 볼륨을 포맷합니다.
 
-      - Specify the volume size.
-      - Supply a drive letter.
-      - Select the NTFS file system.
-      - Specify a 64 KB allocation unit size.
-      - Perform a quick format.
+      - 볼륨 크기를 지정합니다.
+      - 드라이브 문자를 지정합니다.
+      - NTFS 파일 시스템을 선택합니다.
+      - 64KB 할당 단위 크기를 지정합니다.
+      - 빠른 포맷을 수행합니다.
 
-7. Format multi-partition volumes. For instructions, go to the section, "Partitions and Volumes" in [Implementing Disk Management](https://msdn.microsoft.com/library/dd163556.aspx).
+7. 다중 파티션 볼륨을 포맷합니다. 자세한 지침은 [디스크 관리 구현](https://msdn.microsoft.com/library/dd163556.aspx)에서 "파티션 및 볼륨" 섹션을 참조하세요.
 
-## <a name="view-information-about-your-volumes"></a>View information about your volumes
+## 볼륨에 대한 정보 보기
 
-Use the following procedure to view information about local and Azure StorSimple volumes.
+다음 절차에 따라 로컬 및 Azure StorSimple 볼륨에 대한 정보를 볼 수 있습니다.
 
-#### <a name="to-view-volume-information"></a>To view volume information
+#### 볼륨 정보를 보려면
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
 
-2. In the **Scope** pane, click the **Volumes** node. A list of local and mounted volumes, including all Azure StorSimple volumes, appears in the **Results** pane. The columns in the **Results** pane are configurable. (Right-click the **Volumes** node, select **View**, and then select **Add/Remove Columns**.)
+2. **범위** 창에서 **볼륨** 노드를 클릭합니다. 모든 Azure StorSimple 볼륨을 포함하여 로컬 볼륨 및 탑재된 볼륨 목록이 **결과** 창에 표시됩니다. **결과** 창의 열은 구성할 수 있습니다. (**볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 선택한 다음 **열 추가/제거**를 선택합니다.)
 
-    ![Configure the columns](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
+    ![열 구성](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
 
-    Results column | Description 
+    결과 열 | 설명 
     :--------------|:-------------
-    Name           | The **Name** column contains the drive letter assigned to each discovered volume.
-    Device         | The **Device** column contains the IP address of the device connected to the host computer.
-    Device Volume Name | The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure classic portal for that specific volume.
-    Access Paths   | The **Access Paths** column displays the access path to the volume. This is the drive letter or mount point at which the volume is accessible on the host computer.
+    이름 | **이름** 열에는 검색된 각 볼륨에 할당된 드라이브 문자가 포함되어 있습니다.
+    장치 | **장치** 열은 호스트 컴퓨터에 연결된 장치의 IP 주소를 포함합니다.
+    장치 볼륨 이름 | **장치 볼륨 이름** 열은 선택한 볼륨이 속한 장치 볼륨의 이름을 포함합니다. 이 이름은 해당 특정 볼륨에 대해 Azure 클래식 포털에서 정의한 볼륨 이름입니다.
+    액세스 경로 | **액세스 경로** 열은 볼륨에 대한 액세스 경로를 표시합니다. 호스트 컴퓨터에서 볼륨에 액세스할 수 있는 드라이브 문자 또는 탑재 지점입니다.
  
-## <a name="delete-a-volume"></a>Delete a volume
+## 볼륨 삭제
 
-Use the following procedure to delete a volume from StorSimple Snapshot Manager.
+다음 절차에 따라 StorSimple 스냅숏 관리자에서 볼륨을 삭제할 수 있습니다.
 
->[AZURE.NOTE] You cannot delete a volume if it is part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
+>[AZURE.NOTE] 볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. (볼륨 그룹에 속한 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다.) 볼륨을 삭제하려면 전체 볼륨 그룹을 삭제해야 합니다.
 
 
-#### <a name="to-delete-a-volume"></a>To delete a volume
+#### 볼륨을 삭제하려면
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
 
-2. In the **Scope** pane, click the **Volumes** node. 
+2. **범위** 창에서 **볼륨** 노드를 클릭합니다.
 
-3. In the **Results** pane, right-click the volume that you want to delete.
+3. **결과** 창에서 삭제하려는 볼륨을 마우스 오른쪽 단추로 클릭합니다.
 
-4. On the menu, click **Delete**. 
+4. 메뉴에서 **삭제**를 클릭합니다.
 
-    ![Delete a volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png) 
+    ![볼륨 삭제](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png)
 
-5. The **Delete Volume** dialog box appears. Type **Confirm** in the text box, and then click **OK**.
+5. **볼륨 삭제** 대화 상자가 나타납니다. 텍스트 상자에 **Confirm**을 입력한 다음 **확인**을 클릭합니다.
 
-6. By default, StorSimple Snapshot Manager backs up a volume before deleting it. This precaution can protect you from data loss if the deletion was unintentional. StorSimple Snapshot Manager displays an **Automatic Snapshot** progress message while it backs up the volume. 
+6. 기본적으로 StorSimple 스냅숏 관리자는 삭제하기 전에 볼륨을 백업합니다. 이 예방 조치를 통해 실수로 삭제하는 경우의 데이터 손실을 방지할 수 있습니다. StorSimple 스냅숏 관리자는 볼륨을 백업하는 동안 **자동 스냅숏** 진행률 메시지를 표시합니다.
 
-    ![Automatic snapshot message](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
+    ![자동 스냅숏 메시지](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png)
 
-## <a name="rescan-volumes"></a>Rescan volumes
+## 볼륨 다시 검사
 
-Use the following procedure to rescan the volumes connected to StorSimple Snapshot Manager.
+다음 절차에 따라 StorSimple 스냅숏 관리자에 연결된 볼륨을 다시 검사할 수 있습니다.
 
-#### <a name="to-rescan-the-volumes"></a>To rescan the volumes
+#### 볼륨을 다시 검사하려면
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
 
-2. In the **Scope** pane, right-click **Volumes**, and then click **Rescan volumes**.
+2. **범위** 창에서 **볼륨**을 마우스 오른쪽 단추로 클릭한 다음 **볼륨 다시 검사**를 클릭합니다.
 
-    ![Rescan volumes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
+    ![볼륨 다시 검사](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
  
-    This procedure synchronizes the volume list with StorSimple Snapshot Manager. Any changes, such as new volumes or deleted volumes, will be reflected in the results.
+    이 절차는 볼륨 목록을 StorSimple 스냅숏 관리자와 동기화합니다. 새로운 볼륨이나 삭제된 볼륨 등의 모든 변경 내용이 결과에 반영됩니다.
 
-## <a name="configure-and-back-up-a-basic-volume"></a>Configure and back up a basic volume
+## 기본 볼륨 구성 및 백업
 
-Use the following procedure to configure a backup of a basic volume, and then either start a backup immediately or create a policy for scheduled backups.
+다음 절차에 따라 기본 볼륨의 백업을 구성한 다음 백업을 즉시 시작하거나 예약된 백업에 대한 정책을 만들 수 있습니다.
 
-### <a name="prerequisites"></a>Prerequisites
+### 필수 조건
 
-Before you begin:
+시작하기 전에
 
-- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
+- StorSimple 장치 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
 
-- Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+- StorSimple 스냅숏 관리자 설치 및 구성 자세한 내용은 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
 
-#### <a name="to-configure-backup-of-a-basic-volume"></a>To configure backup of a basic volume
+#### 기본 볼륨의 백업을 구성하려면
 
-1. Create a basic volume on the StorSimple device.
+1. StorSimple 장치에서 기본 볼륨을 만듭니다.
 
-2. Mount, initialize, and format the volume as described in [Mount volumes](#mount-volumes). 
+2. [볼륨 탑재](#mount-volumes)에 설명된 대로 볼륨을 탑재, 초기화 및 포맷합니다.
 
-3. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. 
+3. 바탕 화면에서 StorSimple 스냅숏 관리자 아이콘을 클릭합니다. StorSimple 스냅숏 관리자 창이 나타납니다.
 
-4. In the **Scope** pane, right-click the **Volumes** node, and then select **Rescan volumes**. When the scan is finished, a list of volumes should appear in the **Results** pane. 
+4. **범위** 창에서 **볼륨** 노드를 마우스 오른쪽 단추로 클릭한 다음 **볼륨 다시 검사**를 선택합니다. 검사가 끝나면 볼륨 목록이 **결과** 창에 나타납니다.
 
-5. In the **Results** pane, right-click the volume, and then select **Create Volume Group**. 
+5. **결과** 창에서 볼륨을 마우스 오른쪽 단추로 클릭한 다음 **볼륨 그룹 만들기**를 선택합니다.
 
-    ![Create volume group](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
+    ![볼륨 그룹 만들기](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png)
 
-6. In the **Create Volume Group** dialog box, type a name for the volume group, assign volumes to it, and then click **OK**.
+6. **볼륨 그룹 만들기** 대화 상자에서 볼륨 그룹의 이름을 입력하고 이 그룹에 볼륨을 할당한 다음 **확인**을 클릭합니다.
 
-7. In the **Scope** pane, expand the **Volume Groups** node. The new volume group should appear under the **Volume Groups** node. 
+7. **범위** 창에서 **볼륨 그룹** 노드를 확장합니다. 새 볼륨 그룹이 **볼륨 그룹** 노드 아래에 나타납니다.
 
-8. Right-click the volume group name.
+8. 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭합니다.
 
-    - To start an interactive (on-demand) backup job, click **Take Backup**. 
+    - 대화형(주문형) 백업 작업을 시작하려면 **백업 수행**을 클릭합니다. 
 
-    - To schedule an automatic backup, click **Create Backup Policy**. On the **General** page, select a volume group from the list. On the **Schedule** page, enter the schedule details. When you are finished, click **OK**. 
+    - 자동 백업을 예약하려면 **백업 정책 만들기**를 클릭합니다. **일반** 페이지의 목록에서 볼륨 그룹을 선택합니다. **일정** 페이지에서 일정 정보를 입력합니다. 작업을 마쳤으면 **확인**을 클릭합니다.
 
-9. To confirm that the backup job has started, expand the **Jobs** node in the **Scope** pane, and then click the **Running** node. The list of currently running jobs appears in the **Results** pane. 
+9. 백업 작업이 시작되었는지 확인하려면 **범위** 창에서 **작업** 노드를 확장한 다음 **실행 중** 노드를 클릭합니다. 현재 실행 중인 작업의 목록이 **결과** 창에 표시됩니다.
 
-## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configure and back up a dynamic mirrored volume
+## 동적 미러 볼륨 구성 및 백업
 
-Complete the following steps to configure backup of a dynamic mirrored volume:
+다음 단계를 완료하여 동적 미러 볼륨에 대한 백업을 구성할 수 있습니다.
 
-- Step 1: Use Disk Management to create a dynamic mirrored volume. 
+- 1단계: 디스크 관리를 사용하여 동적 미러 볼륨 만듭니다. 
 
-- Step 2: Use StorSimple Snapshot Manager to configure backup.
+- 2단계: StorSimple 스냅숏 관리자를 사용하여 백업 구성합니다.
 
-### <a name="prerequisites"></a>Prerequisites
+### 필수 조건
 
-Before you begin:
+시작하기 전에
 
-- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
+- StorSimple 장치 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
 
-- Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+- StorSimple 스냅숏 관리자 설치 및 구성 자세한 내용은 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
 
-- Configure two volumes on the StorSimple device. (In the examples, the available volumes are **Disk 1** and **Disk 2**.) 
+- StorSimple 장치에서 두 개의 볼륨을 구성합니다. (예제에서 사용할 수 있는 볼륨은 **디스크 1** 및 **디스크 2**입니다.)
 
-### <a name="step-1:-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Step 1: Use Disk Management to create a dynamic mirrored volume
+### 1단계: 디스크 관리를 사용하여 동적 미러 볼륨 만들기
 
-Disk Management is a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
+디스크 관리는 하드 디스크 및 볼륨 또는 하드 디스크와 볼륨이 포함된 파티션을 관리하기 위한 시스템 유틸리티입니다. 디스크 관리에 대한 자세한 내용은 Microsoft TechNet 웹 사이트에서 [디스크 관리](https://technet.microsoft.com/library/cc770943.aspx)로 이동하세요.
 
-#### <a name="to-create-a-dynamic-mirrored-volume"></a>To create a dynamic mirrored volume
+#### 동적 미러 볼륨을 만들려면
 
-1. Use any of the following options to start Disk Management: 
+1. 다음 옵션 중 하나를 사용하여 디스크 관리를 시작합니다. 
 
-   - Open the **Run** box, type **Diskmgmt.msc**, and press Enter.
+   - **실행** 상자를 열고 **Diskmgmt.msc**를 입력한 다음 Enter 키를 누릅니다.
 
-   - Start Server Manager, expand the **Storage** node, and then select **Disk Management**. 
+   - 서버 관리자를 시작하고 **저장소** 노드를 확장한 다음 **디스크 관리**를 선택합니다.
 
-   - Start **Administrative Tools**, expand the **Computer Management** node, and then select **Disk Management**. 
+   - **관리 도구**를 시작하고 **컴퓨터 관리** 노드를 확장한 다음 **디스크 관리**를 선택합니다.
 
-2. Make sure that you have two volumes available on the StorSimple device. (In the example, the available volumes are **Disk 1** and **Disk 2**.) 
+2. StorSimple 장치에서 사용할 수 있는 두 볼륨이 있는지 확인합니다. (예제에서 사용할 수 있는 볼륨은 **디스크 1** 및 **디스크 2**입니다.) 
 
-3. In the Disk Management window, in the right column of the lower pane, right-click **Disk 1** and select **New Mirrored Volume**. 
+3. 디스크 관리 창에서 아래쪽 창의 오른쪽 열에 있는 **디스크 1**을 마우스 오른쪽 단추로 클릭하고 **새 미러 볼륨**을 선택합니다.
 
-    ![New Mirrored Volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
+    ![새 미러 볼륨](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png)
 
-4. On the **New Mirrored Volume** wizard page, click **Next**.
+4. **새 미러 볼륨** 마법사 페이지에서 **다음**을 클릭합니다.
 
-5. On the **Select Disks** page, select **Disk 2** in the **Selected** pane, click **Add**, and then click **Next**. 
+5. **디스크 선택** 페이지에서 **선택** 창의 **디스크 2**를 선택하고 **추가**를 클릭한 후 **다음**을 클릭합니다.
 
-6. On the **Assign Drive Letter or Path** page, accept the defaults, and then click **Next**. 
+6. **드라이브 문자 또는 경로를 할당하세요** 페이지에서 기본값을 적용하고 **다음**을 클릭합니다.
 
-7. On the **Format Volume** page, in the **Allocation Unit Size** box, select **64K**. Select the **Perform a quick format** check box, and then click **Next**. 
+7. **볼륨 포맷** 페이지의 **할당 단위 크기** 상자에서 **64K**를 선택합니다. **빠른 포맷 실행** 확인란을 선택하고 **다음**을 클릭합니다.
 
-8. On the **Completing the New Mirrored Volume** page, review your settings, and then click **Finish**. 
+8. **새 미러 볼륨 마법사 완료** 페이지에서 설정을 검토하고 **마침**을 클릭합니다.
 
-9. A message appears to indicate that the basic disk will be converted to a dynamic disk. Click **Yes**.
+9. 기본 디스크가 동적 디스크로 변환된다는 메시지가 나타납니다. **예**를 클릭합니다.
 
-    ![Dynamic disk conversion message](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
+    ![동적 디스크 변환 메시지](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. In Disk Management, verify that Disk 1 and Disk 2 are shown as dynamic mirrored volumes. (**Dynamic** should appear in the status column, and the capacity bar color should change to red, indicating a mirrored volume.) 
+10. 디스크 관리에서 디스크 1과 디스크 2가 동적 미러 볼륨으로 표시되는지 확인합니다. (**동적**이 상태 열에 표시되고 용량 막대의 색은 미러 볼륨을 나타내는 빨강으로 변경되어야 합니다.)
 
-    ![Disk Management mirrored dynamic disks](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
+    ![디스크 관리에서 미러링한 동적 디스크](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
-### <a name="step-2:-use-storsimple-snapshot-manager-to-configure-backup"></a>Step 2: Use StorSimple Snapshot Manager to configure backup
+### 2단계: StorSimple 스냅숏 관리자를 사용하여 백업 구성
 
-Use the following procedure to configure a dynamic mirrored volume, and then either start a backup immediately or create a policy for scheduled backups.
+다음 절차에 따라 동적 미러 볼륨을 구성한 다음 백업을 즉시 시작하거나 예약된 백업에 대한 정책을 만듭니다.
 
-#### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>To configure backup of a dynamic mirrored volume
+#### 동적 미러 볼륨의 백업을 구성하려면
 
-1. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. 
+1. 바탕 화면에서 StorSimple 스냅숏 관리자 아이콘을 클릭합니다. StorSimple 스냅숏 관리자 창이 나타납니다. 
 
-2. In the **Scope** pane, right-click the **Volumes** node and select **Rescan volumes**. When the scan is finished, a list of volumes should appear in the **Results** pane. The dynamic mirrored volume is listed as a single volume. 
+2. **범위** 창에서 **볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **볼륨 다시 검사**를 선택합니다. 검사가 끝나면 볼륨 목록이 **결과** 창에 나타납니다. 동적 미러 볼륨은 단일 볼륨으로 나열됩니다.
 
-3. In the **Results** pane, right-click the dynamic mirrored volume, and then click **Create Volume Group**. 
+3. **결과** 창에서 동적 미러 볼륨을 마우스 오른쪽 단추로 클릭한 다음 **볼륨 그룹 만들기**를 클릭합니다.
 
-4. In the **Create Volume Group** dialog box, type a name for the volume group, assign the dynamic mirrored volume to this group, and then click **OK**. 
+4. **볼륨 그룹 만들기** 대화 상자에서 볼륨 그룹의 이름을 입력하고 이 그룹에 동적 미러 볼륨을 할당한 다음 **확인**을 클릭합니다.
 
-5. In the **Scope** pane, expand the **Volume Groups** node. The new volume group should appear under the  **Volume Groups** node. 
+5. **범위** 창에서 **볼륨 그룹** 노드를 확장합니다. 새 볼륨 그룹이 **볼륨 그룹** 노드 아래에 나타납니다.
 
-6. Right-click the volume group name. 
+6. 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭합니다.
 
-    - To start an interactive (on-demand) backup job, click **Take Backup**. 
+    - 대화형(주문형) 백업 작업을 시작하려면 **백업 수행**을 클릭합니다. 
 
-    - To schedule an automatic backup, click **Create Backup Policy**. On the **General** page, select the volume group from the list. On the **Schedule** page, enter the schedule details. When you are finished, click **OK**. 
+    - 자동 백업을 예약하려면 **백업 정책 만들기**를 클릭합니다. **일반** 페이지의 목록에서 볼륨 그룹을 선택합니다. **일정** 페이지에서 일정 정보를 입력합니다. 작업을 마쳤으면 **확인**을 클릭합니다.
 
-7. You can monitor the backup job as it runs. In the **Scope** pane, expand the **Jobs** node, and then click **Running**, The job details appear in the **Results** pane. When the backup job is finished, the details are transferred to the **Last 24** hours job list. 
+7. 실행되는 백업 작업을 모니터링할 수 있습니다. **범위** 창에서 **작업** 노드를 확장한 다음 **실행 중**을 클릭합니다. 작업 세부 정보가 **결과** 창에 표시됩니다. 백업 작업이 완료되면 세부 정보가 **최근 24시간** 작업 목록으로 전송됩니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
-- Learn how to [use StorSimple Snapshot Manager to create and manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md).
+- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+- [StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹을 만들고 관리](storsimple-snapshot-manager-manage-volume-groups.md)하는 방법을 알아봅니다.
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0511_2016-->

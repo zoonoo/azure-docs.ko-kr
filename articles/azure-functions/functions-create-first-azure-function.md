@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create your first Azure Function | Microsoft Azure"
-   description="Build your first Azure Function, a serverless application, in less than two minutes."
+   pageTitle="첫 번째 Azure Function 만들기 | Microsoft Azure"
+   description="2분 이내에 서버가 없는 응용 프로그램인 첫 번째 Azure Function을 작성합니다."
    services="functions"
    documentationCenter="na"
    authors="ggailey777"
@@ -18,65 +18,56 @@
    ms.date="09/08/2016"
    ms.author="glenga"/>
 
+#첫 번째 Azure Function 만들기
 
-#<a name="create-your-first-azure-function"></a>Create your first Azure Function
+##개요
+Azure 기능은 다른 Azure 서비스, SaaS 제품 및 온-프레미스 시스템에서 발생하는 이벤트에 의해 트리거되는 코드를 구현하는 기능으로 기존 Azure 응용 프로그램 플랫폼을 확장하는 이벤트 기반의 주문형 계산 환경입니다. Azure 기능으로 응용 프로그램은 요구에 따라 확장하고 사용한 리소스에 대해서만 비용을 지불합니다. Azure Functions를 통해 다양한 프로그래밍 언어로 구현된 예약되거나 트리거된 코드 단위를 만들 수 있습니다. Azure Functions에 대해 자세히 알아보려면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 
-##<a name="overview"></a>Overview
-Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure application platform with capabilities to implement code triggered by events occurring in other Azure services, SaaS products, and on-premises systems. With Azure Functions, your applications scale based on demand and you pay only for the resources you consume. Azure Functions enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
+이 항목에서는 포털에서 Azure Functions 빠른 시작을 사용하여 HTTP 트리거에서 호출되는 간단한 "hello world" Node.js 함수를 만드는 방법을 보여 줍니다. 포털에서 이러한 단계는 수행하는 방법을 보여 주는 짧은 비디오를 시청할 수도 있습니다.
 
-This topic shows you how to use the Azure Functions quickstart in the portal to create a simple "hello world"  Node.js function that is invoked by an HTTP-trigger. You can also watch a short video to see how these steps are performed in the portal.
+## 비디오 보기
 
-## <a name="watch-the-video"></a>Watch the video
-
-The following video show how to perform the basic steps in this tutorial. 
+다음 비디오는 이 자습서에서 기본 단계를 수행하는 방법을 보여 줍니다.
 
 [AZURE.VIDEO create-your-first-azure-function-simple]
 
-##<a name="create-a-function-from-the-quickstart"></a>Create a function from the quickstart
+##빠른 시작에서 함수 만들기
 
-A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. The new function app is created with a default configuration. For an example of how to explicitly create your function app, see [the other Azure Functions quickstart tutorial](functions-create-first-azure-function-azure-portal.md).
+함수 앱은 Azure에서 함수 실행을 호스트합니다. 새 함수뿐만 아니라 새 함수 앱을 만들려면 다음 단계를 따릅니다. 새 함수 앱은 기본 구성으로 생성됩니다. 명시적으로 함수 앱을 만드는 방법의 예는 [다른 Azure Functions 빠른 시작 자습서](functions-create-first-azure-function-azure-portal.md)를 참조하세요.
 
-Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
+첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 
-1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
+1. [Azure Functions 포털](https://functions.azure.com/signin)로 이동하여 Azure 계정으로 로그인합니다.
 
-2. Type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. 
+2. 새 함수 앱에 대해 고유한 **이름**을 입력하거나 생성된 이름을 수락하거나 선호하는 **지역**을 선택한 후 **만들기 + 시작**을 클릭합니다.
 
-3. In the **Quickstart** tab, click **WebHook + API** and **JavaScript**, then click **Create a function**. A new predefined Node.js function is created. 
+3. **빠른 시작** 탭에서 **웹후크 + API** 및 **JavaScript**를 클릭한 다음 **함수 만들기**를 클릭합니다. 새로운 미리 정의된 Node.js 함수가 만들어집니다.
 
-    ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+	![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-4. (Optional) At this point in the quickstart, you can choose to take a quick tour of Azure Functions features in the portal.   Once you have completed or skipped the tour, you can test your new function by using the HTTP trigger.
+4. (선택 사항) 빠른 시작의 이 시점에서 포털의 Azure Functions 기능을 둘러보도록 선택할 수 있습니다. 둘러보기를 완료했거나 건너뛴 경우 HTTP 트리거를 사용하여 새 함수를 테스트할 수 있습니다.
 
-##<a name="test-the-function"></a>Test the function
+##함수 테스트
 
-Since the Azure Functions quickstarts contain functional code, you can immediately test your new function.
+Azure Functions 빠른 시작에는 함수 코드가 포함되어 있어 새 함수를 즉시 테스트할 수 있습니다.
 
-1. In the **Develop** tab, review the **Code** window and notice that this Node.js code expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message.
+1. **개발** 탭에서 **코드** 창을 검토하고 이 Node.js 코드에는 메시지 본문 또는 쿼리 문자열에 전달된 *이름* 값과 함께 HTTP 요청이 필요함을 확인합니다. 함수가 실행되면 이 값은 응답 메시지에 반환됩니다.
 
-    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+	![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Scroll down to the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You will see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
+2. **요청 본문** 텍스트 상자 아래로 스크롤하고 *이름* 속성의 값을 이름으로 변경하고 **실행**을 클릭합니다. 실행이 테스트 HTTP 요청에 의해 트리거되고 정보가 스트리밍 로그에 기록되며 "hello" 응답이 **출력**에 표시되는 것을 확인하게 됩니다.
 
-3. To trigger execution of the same function from another browser window or tab, copy the **Function URL** value from the **Develop** tab and paste it in a browser address bar, then append the query string value `&name=yourname` and press enter. The same information is written to the logs and the browser displays the "hello" response as before.
+3. 다른 브라우저 창이나 탭에서 동일한 함수의 실행을 트리거하려면 **개발** 탭에서 **함수 URL**을 복사하여 브라우저 주소 표시줄에 붙여 넣은 다음 쿼리 문자열 값 `&name=yourname`을 추가하고 Enter 키를 누릅니다. 같은 정보가 로그에 기록되고 이전처럼 브라우저에 "hello" 응답이 표시됩니다.
 
-##<a name="next-steps"></a>Next steps
+##다음 단계
 
-This quickstart demonstrates a very simple execution of a basic HTTP-triggered function. See these topics for more information about leveraging the power of Azure Functions in your apps.
+이 빠른 시작은 기본 HTTP 트리거 함수의 매우 간단한 실행을 보여 줍니다. 사용자 앱에서 Azure Functions의 강력한 기능을 활용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-+ [Azure Functions developer reference](functions-reference.md)  
-Programmer reference for coding functions and defining triggers and bindings.
-+ [Testing Azure Functions](functions-test-a-function.md)  
-Describes various tools and techniques for testing your functions.
-+ [How to scale Azure Functions](functions-scale.md)  
-Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan. 
-+ [What is Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
-Azure Functions leverages the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
++ [Azure Functions 개발자 참조](functions-reference.md) 함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
++ [Azure Functions 테스트](functions-test-a-function.md) 함수를 테스트하는 다양한 도구와 기법을 설명합니다.
++ [Azure Functions를 확장하는 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.
++ [Azure 앱 서비스 정의](../app-service/app-service-value-prop-what-is.md) Azure Functions는 배포, 환경 변수 및 진단과 같은 핵심 기능을 위해 Azure 앱 서비스 플랫폼을 활용합니다.
 
-[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+[AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Use dynamic telemetry | Microsoft Azure"
-    description="Follow this tutorial to learn how to use dynamic telemetry with the remote monitoring preconfigured solution."
-    services=""
+	pageTitle="동적 원격 분석 사용 | Microsoft Azure"
+	description="이 자습서를 따라 원격 모니터링 사전 구성 솔루션으로 동적 원격 분석을 사용하는 방법을 익히세요."
+	services=""
     suite="iot-suite"
-    documentationCenter=""
-    authors="dominicbetts"
-    manager="timlt"
-    editor=""/>
+	documentationCenter=""
+	authors="dominicbetts"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-suite"
@@ -17,81 +17,80 @@
      ms.date="08/25/2016"
      ms.author="dobett"/>
 
+# 원격 모니터링 사전 구성 솔루션으로 동적 원격 분석 사용
 
-# <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Use dynamic telemetry with the remote monitoring preconfigured solution
+## 소개
 
-## <a name="introduction"></a>Introduction
+동적 원격 분석을 사용하면 원격 모니터링 사전 구성 솔루션에 전송된 모든 원격 분석을 시각화할 수 있습니다. 미리 구성된 솔루션으로 배포하는 시뮬레이션 장치는 온도와 습도 원격 분석 정보를 전송합니다. 이 정보는 대시보드에서 시각화할 수 있습니다. 기존 시뮬레이션 장치를 사용자 지정하거나 새로운 시뮬레이션 장치를 만들거나 물리적 장치를 사전 구성된 솔루션에 연결할 경우, 외부 온도, RPM, 풍속 등의 다른 원격 분석 값을 전송할 수 있습니다. 대시보드에서 이런 추가 원격 분석을 시각화할 수 있습니다.
 
-Dynamic telemetry enables you to visualize any telemetry sent to the remote monitoring preconfigured solution. The simulated devices that deploy with the preconfigured solution send temperature and humidity telemetry, which you can visualize on the dashboard. If you customize the existing simulated devices, create new simulated devices, or connect physical devices to the preconfigured solution you can send other telemetry values such as the external temperature, RPM, or windspeed. You can then visualize this additional telemetry on the dashboard.
+이 자습서는 간단한 Node.js 시뮬레이션 장치를 사용하므로 쉽게 수정하여 동적 원격 분석으로 실험할 수 있습니다.
 
-This tutorial uses a simple Node.js simulated device that you can easily modify to experiment with dynamic telemetry.
+이 자습서를 완료하려면 다음이 필요합니다.
 
-To complete this tutorial, you’ll need:
+- 활성 Azure 구독. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][lnk_free_trial]을 참조하세요.
+- [Node.js][lnk-node] 버전 0.12.x 이상
 
-- An active Azure subscription. If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
-- [Node.js][lnk-node] version 0.12.x or later.
-
-You can complete this tutorial on any operating system, such as Windows or Linux, where you can install Node.js.
+Windows나 Linux 등의 Node.js를 설치할 수 있는 모든 운영 체제에서 이 자습서를 완료할 수 있습니다.
 
 [AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## <a name="configure-the-node.js-simulated-device"></a>Configure the Node.js simulated device
+## Node.js 시뮬레이션 장치 구성
 
-1. On the remote monitoring dashboard, click **+ Add a device** and then add a custom device. Make a note of the IoT Hub hostname, device id, and device key. You need them later in this tutorial when you prepare the remote_monitoring.js device client application.
+1. 원격 모니터링 대시보드에서 **+ 장치 추가**를 클릭하고 사용자 지정 장치를 추가합니다. IoT Hub 호스트 이름, 장치 ID, 장치 키를 메모합니다. 이 자습서에서 나중에 remote\_monitoring.js 장치 클라이언트 응용 프로그램을 준비할 때 해당 정보가 필요합니다.
 
-2. Ensure that Node.js version 0.12.x or later is installed on your development machine. Run `node --version` at a command prompt or in a shell to check the version. For information about using a package manager to install Node.js on Linux, see [Installing Node.js via package manager][node-linux].
+2. Node.js 버전 0.12.x 이상이 개발 컴퓨터에 설치되었는지 확인합니다. 명령 프롬프트 또는 쉘에서 `node --version`을(를) 실행하고 버전을 확인합니다. Linux에서 Node.js를 설치하기 위한 패키지 관리자 사용에 관한 정보는 [패키지 관리자를 통해 Node.js 설치][node-linux]를 참조하세요.
 
-3. When you have installed Node.js, clone the latest version of the [azure-iot-sdks][lnk-github-repo] repository to your development machine. Always use the **master** branch for the latest version of the libraries and samples.
+3. Node.js를 설치했으면 [azure-iot-sdks][lnk-github-repo] 리포지토리의 최신 버전을 개발 컴퓨터에 복제합니다. 항상 최신 라이브러리와 샘플 버전의 **마스터** 분기를 사용합니다.
 
-4. From your local copy of the [azure-iot-sdks][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to an empty folder on your development machine:
+4. [azure-iot-sdks][lnk-github-repo] 리포지토리의 로컬 사본의 node/device/samples 폴더에서 다음 두 파일을 개발 컴퓨터의 빈 폴더에 복사합니다.
 
   - packages.json
-  - remote_monitoring.js
+  - remote\_monitoring.js
 
-5. Open the remote_monitoring.js file and look for the following variable definition:
+5. remote\_monitoring.js 파일을 열고 다음 변수 정의를 찾습니다.
 
     ```
     var connectionString = "[IoT Hub device connection string]";
     ```
 
-6. Replace **[IoT Hub device connection string]** with your device connection string. Use the values for your IoT Hub hostname, device id, and device key that you made a note of in step 1. A device connection string has the following format:
+6. **[IoT Hub device connection string]**을 장치 연결 문자열로 바꿉니다. 1단계에서 메모한 IoT Hub 호스트 이름, 장치 ID, 장치 키 값을 사용합니다. 장치 연결 문자열은 다음과 같은 형식입니다.
 
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
 
-    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like the following:
+    IoT Hub 호스트 이름이 **contoso**이고 장치 ID가 **mydevice**이면 연결 문자열은 다음과 같습니다.
 
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
 
-7. Save the file. Run the following commands in a shell or command prompt in the folder that contains these files to install the necessary packages and then run the sample application:
+7. 파일을 저장합니다. 이러한 파일이 포함된 폴더에서 쉘 또는 명령 프롬프트에 다음 명령을 입력하고 필요한 패키지를 설치하고 샘플 응용 프로그램을 실행합니다.
 
     ```
     npm install
     node remote_monitoring.js
     ```
 
-## <a name="observe-dynamic-telemetry-in-action"></a>Observe dynamic telemetry in action
+## 작업 중인 동적 원격 분석 관찰
 
-The dashboard shows the temperature and humidity telemetry from the existing simulated devices:
+대시보드는 기존 시뮬레이션 장치의 온도와 습도 원격 분석을 보여줍니다.
 
-![The default dashboard][image1]
+![기본 대시보드][image1]
 
-If you select the Node.js simulated device you ran in the previous section, you see temperature, humidity, and external temperature telemetry:
+이전 섹션에서 실행한 Node.js 시뮬레이션 장치를 선택했다면 온도, 습도, 외부 온도 원격 분석이 보일 것입니다.
 
-![Add external temperature to the dashboard][image2]
+![대시보드에 외부 온도 추가][image2]
 
-The remote monitoring solution automatically detects the additional external temperature telemetry type and adds it to the chart on the dashboard.
+원격 모니터링 솔루션은 추가 외부 온도 원격 분석 형식을 자동으로 인식하고 대시보드 차트에 추가합니다.
 
-## <a name="add-a-telemetry-type"></a>Add a telemetry type
+## 원격 분석 형식 추가
 
-The next step is to replace the telemetry generated by the Node.js simulated device with a new set of values:
+다음 단계는 Node.js 시뮬레이션 장치가 생성한 원격 분석을 새로운 값 집합으로 바꾸는 것입니다.
 
-1. Stop the Node.js simulated device by typing **Ctrl+C** in your command prompt or shell.
+1. 명령 프롬프트 또는 쉘에 **Ctrl+C**를 입력하여 Node.js 시뮬레이션 장치를 중단합니다.
 
-2. In the remote_monitoring.js file, you can see the base data values for the existing temperature, humidity, and external temperature telemetry. Add a base data value for **rpm** as follows:
+2. remote\_monitoring.js 파일에 기존 온도, 습도, 외부 온도 원격 분석의 기본 데이터 값이 표시됩니다. 다음과 같이 **rpm**의 새 기본 데이터 값을 추가합니다.
 
     ```
     // Sensors data
@@ -101,7 +100,7 @@ The next step is to replace the telemetry generated by the Node.js simulated dev
     var rpm = 200;
     ```
 
-3. The Node.js simulated device uses the **generateRandomIncrement** function in the remote_monitoring.js file to add a random increment to the base data values. Randomize the **rpm** value by adding a line of code after the existing randomizations as follows:
+3. Node.js 시뮬레이션 장치는 remote\_monitoring.js 파일의 **generateRandomIncrement** 함수를 사용하여 기본 데이터 값에 무작위 증분을 추가합니다. 기존 불규칙화 뒤에 코드 한 줄을 추가하여 **rpm** 값을 불규칙화합니다.
 
     ```
     temperature += generateRandomIncrement();
@@ -110,7 +109,7 @@ The next step is to replace the telemetry generated by the Node.js simulated dev
     rpm += generateRandomIncrement();
     ```
 
-4. Add the new rpm value to the JSON payload the device sends to IoT Hub:
+4. 장치가 IoT Hub에 전송하는 JSON 페이로드에 새 rpm 값을 추가합니다.
 
     ```
     var data = JSON.stringify({
@@ -122,21 +121,21 @@ The next step is to replace the telemetry generated by the Node.js simulated dev
     });
     ```
 
-5. Run the Node.js simulated device using the following command:
+5. 다음 명령을 사용하여 Node.js 시뮬레이션 장치를 실행합니다.
 
     ```
     node remote_monitoring.js
     ```
 
-6. Observe the new RPM telemetry type that displays on the chart in the dashboard:
+6. 대시보드 차트에 표시되는 새 RPM 원격 분석 형식을 관찰합니다.
 
-![Add RPM to the dashboard][image3]
+![대시보드에 RPM 추가][image3]
 
-> [AZURE.NOTE] You may need to disable and then enable the Node.js device on the **Devices** page in the dashboard to see the change immediately.
+> [AZURE.NOTE] 변경을 즉시 확인하려면 대시보드의 **장치** 페이지에서 Node.js 장치를 비활성화한 다음 활성화해야 할 수 있습니다.
 
-## <a name="customize-the-dashboard-display"></a>Customize the dashboard display
+## 대시보드 디스플레이 사용자 지정
 
-The **Device-Info** message can include metadata about the telemetry the device can send to IoT Hub. This metadata can specify the telemetry types the device sends. Modify the **deviceMetaData** value in the remote_monitoring.js file to include a **Telemetry** definition following the **Commands** definition. The following code snippet shows the **Commands** definition (be sure to add a `,` after the **Commands** definition):
+**Device-Info** 메시지에는 장치가 IoT Hub에 전송 가능한 원격 분석 관련 메타데이터가 포함될 수 있습니다. 이 메타데이터는 장치가 전송하는 원격 분석 형식을 지정할 수 있습니다. **Commands** 정의 다음에 **Telemetry** 정의가 포함되도록 remote\_monitoring.js 파일에서 **deviceMetaData** 값을 수정합니다. 다음 코드 조각에 **Commands** 정의가 나와 있습니다. **Commands** 정의 다음에는 `,`를 추가해야 합니다.
 
 ```
 'Commands': [{
@@ -167,9 +166,9 @@ The **Device-Info** message can include metadata about the telemetry the device 
 }]
 ```
 
-> [AZURE.NOTE] The remote monitoring solution uses a case-insensitive match to compare the metadata definition with data in the telemetry stream.
+> [AZURE.NOTE] 원격 모니터링 솔루션은 대/소문자 구분을 하지 않는 일치를 사용하여 메타데이터 정의와 원격 분석 스트림의 데이터를 비교합니다.
 
-Adding a **Telemetry** definition as shown in the preceding code snippet does not change the behavior of the dashboard. However, the metadata can also include a **DisplayName** attribute to customize the display in the dashboard. Update the **Telemetry** metadata definition as shown in the following snippet:
+위의 코드 조각에 나와 있는 것처럼 **Telemetry** 정의를 추가해도 대시보드의 동작은 변경되지 않습니다. 그러나 대시보드가 표시되는 방식을 사용자 지정하기 위해 메타데이터에 **DisplayName** 특성을 포함할 수도 있습니다. 다음 코드 조각과 같이 **Telemetry** 메타데이터 정의를 업데이트합니다.
 
 ```
 'Telemetry': [
@@ -191,17 +190,17 @@ Adding a **Telemetry** definition as shown in the preceding code snippet does no
 ]
 ```
 
-The following screenshot shows how this change modifies the chart legend on the dashboard:
+다음 스크린샷은 이러한 변경이 대시보드의 차트 범례를 어떻게 수정하는지 보여줍니다.
 
-![Customize the chart legend][image4]
+![차트 범례 사용자 지정][image4]
 
-> [AZURE.NOTE] You may need to disable and then enable the Node.js device on the **Devices** page in the dashboard to see the change immediately.
+> [AZURE.NOTE] 변경 내용을 즉시 확인하려면 대시보드의 **장치** 페이지에서 Node.js 장치를 비활성화한 다음 활성화해야 할 수 있습니다.
 
-## <a name="filter-the-telemetry-types"></a>Filter the telemetry types
+## 원격 분석 형식 필터링
 
-By default, the chart on the dashboard shows every data series in the telemetry stream. You can use the **Device-Info** metadata to suppress the display of specific telemetry types on the chart. 
+기본적으로 대시보드 차트는 원격 분석 스트림의 모든 데이터 계열을 표시합니다. **Device-Info** 메타데이터를 사용하여 차트에서 특정 원격 분석 형식이 표시되지 않게 할 수 있습니다.
 
-To make the chart show only Temperature and Humidity telemetry, omit **ExternalTemperature** from the **Device-Info** **Telemetry** metadata as follows:
+차트가 온도와 습도 원격 분석만 표시하게 하려면 다음과 같이 **Device-Info** **Telemetry** 메타데이터에서 **ExternalTemperature**를 생략합니다.
 
 ```
 'Telemetry': [
@@ -223,21 +222,21 @@ To make the chart show only Temperature and Humidity telemetry, omit **ExternalT
 ]
 ```
 
-The **Outdoor Temperature** no longer displays on the chart:
+이제 차트에서 **Outdoor Temperature**가 표시되지 않습니다.
 
-![Filter the telemetry on the dashboard][image5]
+![대시보드에서 원격 분석 필터링][image5]
 
-This change only affects the chart display. The **ExternalTemperature** data values are still stored and made available for any backend processing.
+이와 같이 변경하면 차트 표시만 변경됩니다. **ExternalTemperature** 데이터 값은 계속 저장되어 있으며 백 엔드 처리에 사용할 수 있습니다.
 
-> [AZURE.NOTE] You may need to disable and then enable the Node.js device on the **Devices** page in the dashboard to see the change immediately.
+> [AZURE.NOTE] 변경 내용을 즉시 확인하려면 대시보드의 **장치** 페이지에서 Node.js 장치를 비활성화한 다음 활성화해야 할 수 있습니다.
 
-## <a name="handle-errors"></a>Handle errors
+## 오류 처리
 
-For a data stream to display on the chart, its **Type** in the **Device-Info** metadata must match the data type of the telemetry values. For example, if the metadata specifies that the **Type** of humidity data is **int** and a **double** is found in the telemetry stream then the humidity telemetry does not display on the chart. However, the **Humidity** values are still stored and made available for any backend processing.
+데이터 스트림을 차트에 표시하려면 **Device-Info** 메타데이터의 **Type**이 원격 분석 값의 데이터 형식과 일치해야 합니다. 예를 들어, 메타데이터에는 습도 데이터의 **Type**이 **int**로 지정되어 있는데 원격 분석 스트림에서는 **double**이 확인되면 습도 원격 분석은 차트에 표시되지 않습니다. 그러나 **Humidity** 값은 계속 저장되어 있으며 백 엔드 처리에 사용할 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Now that you've seen how to use dynamic telemetry, you can learn more about how the preconfigured solutions use device information: [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo].
+지금까지 동적 원격 분석을 사용하는 방법을 살펴보았으므로 이제 미리 구성된 솔루션이 장치 정보를 활용하는 방법을 설명하는 [미리 구성된 원격 모니터링 솔루션의 장치 정보 메타데이터][lnk-devinfo]를 자세히 확인할 수 있습니다.
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
@@ -252,8 +251,4 @@ Now that you've seen how to use dynamic telemetry, you can learn more about how 
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

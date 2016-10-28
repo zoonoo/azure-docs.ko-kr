@@ -1,122 +1,160 @@
 <properties
-    pageTitle="Export Azure Resource Manager template | Microsoft Azure"
-    description="Use Azure Resource Manage to export a template from an existing resource group."
-    services="azure-resource-manager"
-    documentationCenter=""
-    authors="tfitzmac"
-    manager="timlt"
-    editor="tysonn"/>
+	pageTitle="Azure Resource Manager 템플릿 내보내기 | Microsoft Azure"
+	description="Azure Resource Manager를 사용하여 기존 리소스 그룹에서 템플릿을 내보냅니다."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
-    ms.service="azure-resource-manager"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/03/2016"
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/03/2016"
+	ms.author="tomfitz"/>
 
+# 기존 리소스에서 Azure Resource Manager 템플릿 내보내기
 
-# <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Export an Azure Resource Manager template from existing resources
+Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manager 템플릿을 내보낼 수 있습니다. 생성된 템플릿을 사용하여 템플릿 구문에 대해 알아보거나 필요에 따라 솔루션 재배포를 자동화할 수 있습니다.
 
-Resource Manager enables you to export a Resource Manager template from existing resources in your subscription. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed.
+템플릿을 내보내려면 다음과 같은 두 가지 방법이 있습니다.
 
-It is important to note that there are two different ways to export a template:
+- 배포에 사용된 실제 템플릿을 내보낼 수 있습니다. 내보낸 템플릿은 원본 템플릿에 나타난 대로 모든 매개 변수 및 변수를 포함합니다. 이 방법은 포털을 통해 리소스를 배포한 경우에 유용합니다. 이제 템플릿을 생성하여 이러한 리소스를 만드는 방법을 알아보려고 합니다.
+- 리소스 그룹의 현재 상태를 나타내는 템플릿을 내보낼 수 있습니다. 내보낸 템플릿은 배포에 사용된 템플릿에 기초하지 않습니다. 대신 리소스 그룹의 스냅숏인 템플릿을 만듭니다. 내보낸 템플릿에는 하드 코드된 값이 많으며 일반적으로 정의된 경우와 같이 매개 변수가 많이 포함되지 않습니다. 이 방법은 포털 또는 스크립트를 통해 리소스 그룹을 수정한 경우에 유용합니다. 이제 리소스 그룹을 템플릿으로 캡처해야 합니다.
 
-- You can export the actual template that you used for a deployment. The exported template includes all the parameters and variables exactly as they appeared in the original template. This approach is helpful when you have deployed resources through the portal. Now, you want to see how to construct the template to create those resources.
-- You can export a template that represents the current state of the resource group. The exported template is not based on any template that you used for deployment. Instead, it creates a template that is a snapshot of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. This approach is useful when you have modified the resource group through the portal or scripts. Now, you need to capture the resource group as a template.
+이 항목에서는 두 가지 방법을 모두 보여 줍니다. [내보낸 Azure Resource Manager 템플릿 사용자 지정](resource-manager-customize-template.md) 문서에서는 리소스 그룹의 현재 상태에서 생성된 템플릿을 사용하는 방법을 참조하고 솔루션을 다시 배포하는 데 유용하게 사용합니다.
 
-This topic shows both approaches. In the [Customize an exported Azure Resource Manager template](resource-manager-customize-template.md) article, you see how to take a template you generated from the current state of the resource group and make it more useful for redeploying your solution.
+이 자습서에서는 Azure 포털에 로그인하여 저장소 계정을 만들고 해당 저장소 계정에 대한 템플릿을 내보냅니다. 리소스 그룹을 수정하는 가상 네트워크를 추가합니다. 마지막으로 현재 상태를 나타내는 새 템플릿을 내보냅니다. 이 문서는 주로 간단한 인프라에 대해 살펴보지만 이와 동일한 단계를 사용하여 더 복잡한 솔루션의 템플릿을 내보낼 수 있습니다.
 
-In this tutorial, you sign in to the Azure portal, create a storage account, and export the template for that storage account. You add a virtual network to modify the resource group. Finally, you export a new template that represents its current state. Although this article focuses on a simplified infrastructure, you could use these same steps to export a template for a more complicated solution.
+## 저장소 계정 만들기
 
-## <a name="create-a-storage-account"></a>Create a storage account
+1. [Azure 포털](https://portal.azure.com)에서 **새로 만들기** > **데이터 + 저장소** > **저장소 계정**을 차례로 선택합니다.
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Data + Storage** > **Storage account**.
+      ![저장소 만들기](./media/resource-manager-export-template/create-storage.png)
 
-      ![create storage](./media/resource-manager-export-template/create-storage.png)
+2. **저장소** 이름, 사용자의 이니셜 및 날짜로 저장소 계정을 만듭니다. 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 이미 사용 중인 이름을 시도했다면 변형해 보세요. 리소스 그룹에 대해 **ExportGroup**을 사용합니다. 다른 속성에 대해서는 기본값을 사용할 수 있습니다. **만들기**를 선택합니다.
 
-2. Create a storage account with the name **storage**, your initials, and the date. The storage account name must be unique across Azure. If you initially try a name that's already in use, try a variation. For resource group, use **ExportGroup**. You can use the default values for the other properties. Select **Create**.
+      ![저장소 값 제공](./media/resource-manager-export-template/provide-storage-values.png)
 
-      ![provide values for storage](./media/resource-manager-export-template/provide-storage-values.png)
+배포가 완료되면 구독에 저장소 계정이 포함됩니다.
 
-After the deployment finishes, your subscription contains the storage account.
+## 배포 기록에서 템플릿 내보내기
 
-## <a name="export-the-template-from-deployment-history"></a>Export the template from deployment history
+1. 새 리소스 그룹의 리소스 그룹 블레이드로 이동합니다. 블레이드가 최종 배포 결과를 보여 줍니다. 이 링크를 선택합니다.
 
-1. Go to the resource group blade for your new resource group. Notice that the blade shows the result of the last deployment. Select this link.
+      ![리소스 그룹 블레이드](./media/resource-manager-export-template/resource-group-blade.png)
 
-      ![resource group blade](./media/resource-manager-export-template/resource-group-blade.png)
+2. 그룹의 배포 기록을 볼 수 있습니다. 사용자의 경우에 블레이드에 하나의 배포만 나열되어 있을 것입니다. 이 배포를 선택합니다.
 
-2. You see a history of deployments for the group. In your case, the blade probably lists only one deployment. Select this deployment.
+     ![마지막 배포](./media/resource-manager-export-template/last-deployment.png)
 
-     ![last deployment](./media/resource-manager-export-template/last-deployment.png)
+3. 블레이드에 배포 요약이 표시됩니다. 요약에는 배포 상태와 해당 작업, 매개 변수에 입력한 값이 포함됩니다. 배포에 사용된 템플릿을 보려면 **템플릿 보기**를 선택합니다.
 
-3. The blade displays a summary of the deployment. The summary includes the status of the deployment and its operations and the values that you provided for parameters. To see the template that you used for the deployment, select **View template**.
+     ![배포 요약 보기](./media/resource-manager-export-template/deployment-summary.png)
 
-     ![view deployment summary](./media/resource-manager-export-template/deployment-summary.png)
+4. Resource Manager는 다음 6개의 파일을 검색합니다.
 
-4. Resource Manager retrieves the following six files for you:
+   1. **템플릿** - 솔루션의 인프라를 정의하는 템플릿입니다. 포털을 통해 저장소 계정을 만들 때 Resource Manager는 템플릿을 사용하여 배포하고 나중에 참조할 수 있도록 해당 템플릿을 저장했습니다.
+   2. **매개 변수** - 배포하는 동안 값을 전달하는 데 사용할 수 있는 매개 변수 파일. 여기에는 첫 번째 배포 중 입력한 값이 포함되어 있지만 템플릿을 다시 배포할 때 이러한 값을 변경할 수 있습니다.
+   3. **CLI** - 템플릿 배포에 사용할 수 있는 Azure CLI(명령줄 인터페이스) 스크립트 파일.
+   4. **PowerShell** - 템플릿 배포에 사용할 수 있는 Azure PowerShell 스크립트 파일.
+   5. **.NET** - 템플릿 배포에 사용할 수 있는 .NET 클래스.
+   6. **Ruby** - 템플릿 배포에 사용할 수 있는 Ruby 클래스.
 
-   1. **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
-   2. **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment, but you can change any of these values when you redeploy the template.
-   3. **CLI** - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
-   4. **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
-   5. **.NET** - A .NET class that you can use to deploy the template.
-   6. **Ruby** - A Ruby class that you can use to deploy the template.
+     이러한 파일은 전체 블레이드에서 링크를 통해 사용할 수 있습니다. 기본적으로 블레이드가 템플릿을 표시합니다.
 
-     The files are available through links across the blade. By default, the blade displays the template.
+       ![템플릿 보기](./media/resource-manager-export-template/view-template.png)
 
-       ![view template](./media/resource-manager-export-template/view-template.png)
+     템플릿에 특히 주의합니다. 템플릿은 다음과 유사하게 표시됩니다.
 
-     Let's pay particular attention to the template. Your template should look similar to:
-
-        {     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",     "contentVersion": "1.0.0.0",     "parameters": {       "name": {         "type": "String"       },       "accountType": {         "type": "String"       },       "location": {         "type": "String"       },       "encryptionEnabled": {         "defaultValue": false,         "type": "Bool"       }     },     "resources": [       {         "type": "Microsoft.Storage/storageAccounts",         "sku": {           "name": "[parameters('accountType')]"         },         "kind": "Storage",         "name": "[parameters('name')]",         "apiVersion": "2016-01-01",         "location": "[parameters('location')]",         "properties": {           "encryption": {             "services": {               "blob": {                 "enabled": "[parameters('encryptionEnabled')]"               }             },             "keySource": "Microsoft.Storage"           }         }       }     ]   }
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "name": {
+              "type": "String"
+            },
+            "accountType": {
+              "type": "String"
+            },
+            "location": {
+              "type": "String"
+            },
+            "encryptionEnabled": {
+              "defaultValue": false,
+              "type": "Bool"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "sku": {
+                "name": "[parameters('accountType')]"
+              },
+              "kind": "Storage",
+              "name": "[parameters('name')]",
+              "apiVersion": "2016-01-01",
+              "location": "[parameters('location')]",
+              "properties": {
+                "encryption": {
+                  "services": {
+                    "blob": {
+                      "enabled": "[parameters('encryptionEnabled')]"
+                    }
+                  },
+                  "keySource": "Microsoft.Storage"
+                }
+              }
+            }
+          ]
+        }
  
-This template is the actual template used to create your storage account. Notice it contains parameters that enable you to deploy different types of storage accounts. To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). For the complete list of the functions you can use in a template, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+이 템플릿은 저장소 계정을 만드는 데 사용되는 실제 템플릿입니다. 다른 유형의 저장소 계정을 배포할 수 있는 매개 변수를 포함합니다. 템플릿 구조에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하세요. 템플릿에서 사용할 수 있는 전체 함수목록은 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
 
-## <a name="add-a-virtual-network"></a>Add a virtual network
+## 가상 네트워크 추가
 
-The template that you downloaded in the previous section represented the infrastructure for that original deployment. However, it will not account for any changes you make after the deployment.
-To illustrate this issue, let's modify the resource group by adding a virtual network through the portal.
+이전 섹션에서 다운로드한 템플릿은 원래 배포의 인프라를 나타냈습니다. 그러나 배포 이후의 변경 사항은 적용되지 않습니다. 이 문제를 설명하기 위해 포털을 통해 가상 네트워크를 추가하여 리소스 그룹을 수정하겠습니다.
 
-1. In the resource group blade, select **Add**.
+1. 리소스 그룹 블레이드에서 **추가**를 선택합니다.
 
-      ![add resource](./media/resource-manager-export-template/add-resource.png)
+      ![리소스 추가](./media/resource-manager-export-template/add-resource.png)
 
-2. Select **Virtual network** from the available resources.
+2. 사용 가능한 리소스에서 **가상 네트워크**를 선택합니다.
 
-      ![select virtual network](./media/resource-manager-export-template/select-vnet.png)
+      ![가상 네트워크 선택](./media/resource-manager-export-template/select-vnet.png)
 
-2. Name your virtual network **VNET**, and use the default values for the other properties. Select **Create**.
+2. 가상 네트워크의 이름을 **VNET**으로 지정하고 다른 속성은 기본값을 사용합니다. **만들기**를 선택합니다.
 
-      ![set alert](./media/resource-manager-export-template/create-vnet.png)
+      ![경고 설정](./media/resource-manager-export-template/create-vnet.png)
 
-3. After the virtual network has successfully deployed to your resource group, look again at the deployment history. You now see two deployments. If you do not see the second deployment, you may need to close your resource group blade and reopen it. Select the more recent deployment.
+3. 가상 네트워크를 리소스 그룹에 성공적으로 배포한 다음 배포 기록을 다시 확인합니다. 이제 두 개의 배포가 표시됩니다. 두 번째 배포가 표시되지 않으면 리소스 그룹 블레이드를 닫고 다시 열어야 합니다. 최근 배포를 선택합니다.
 
-      ![deployment history](./media/resource-manager-export-template/deployment-history.png)
+      ![배포 기록](./media/resource-manager-export-template/deployment-history.png)
 
-4. Look at the template for that deployment. Notice that it defines only the changes that you have made to add the virtual network.
+4. 해당 배포의 템플릿을 확인합니다. 가상 네트워크를 추가하기 위해 입력한 변경 사항만 정의되어 있습니다.
 
-It is generally a best practice to work with a template that deploys all the infrastructure for your solution in a single operation. This approach is more reliable than remembering many different templates to deploy.
+일반적으로 솔루션의 모든 인프라를 단일 작업으로 배포하는 템플릿을 사용하는 것이 가장 좋습니다. 이 방법은 배포할 여러 템플릿을 기억하는 것보다 안정적입니다.
 
 
-## <a name="export-the-template-from-resource-group"></a>Export the template from resource group
+## 리소스 그룹에서 템플릿 내보내기
 
-Although each deployment shows only the changes that you have made to your resource group, at any time you can export a template to show the attributes of your entire resource group.  
+각 배포에 리소스 그룹에 대해 변경한 사항만 표시되지만 템플릿을 내보내 전체 리소스 그룹의 특성을 표시할 수 있습니다.
 
-> [AZURE.NOTE] You cannot export a template for a resource group that has more than 200 resources.
+> [AZURE.NOTE] 200개 이상의 리소스가 있는 리소스 그룹에 대한 템플릿을 내보낼 수 없습니다.
 
-1. To view the template for a resource group, select **Automation script**.
+1. 리소스 그룹에 대한 템플릿을 보려면 **자동화 스크립트**를 선택합니다.
 
-      ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
+      ![리소스 그룹 내보내기](./media/resource-manager-export-template/export-resource-group.png)
 
-     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
+     모든 리소스 종류가 내보내기 템플릿 함수를 지원하지는 않습니다. 리소스 그룹에 이 문서에 표시된 저장소 계정 및 가상 네트워크만이 있는 경우 오류가 표시되지 않습니다. 그러나 다른 리소스 종류를 만든 경우 내보내기에 문제가 있다는 오류가 표시될 수 있습니다. [내보내기 문제 수정](#fix-export-issues) 섹션에서 이러한 문제를 처리하는 방법을 알아봅니다.
 
       
 
-2. You again see the six files that you can use to redeploy the solution, but this time the template is a little different. This template has only two parameters: one for the storage account name, and one for the virtual network name.
+2. 이 경우에도 솔루션을 재배포하는 데 사용할 수 있는 6개의 파일이 표시되지만 템플릿이 약간 다릅니다. 이 템플릿에는 저장소 계정 이름용 및 가상 네트워크 이름용 등 2개의 매개 변수만이 있습니다.
 
         "parameters": {
           "virtualNetworks_VNET_name": {
@@ -129,7 +167,7 @@ Although each deployment shows only the changes that you have made to your resou
           }
         },
 
-     Resource Manager did not retrieve the templates that you used during deployment. Instead, it generated a new template that's based on the current configuration of the resources. For example, the template sets the storage account location and replication value to:
+     Resource Manager는 배포 중 사용된 템플릿을 검색하지 않았습니다. 대신 현재 리소스 구성을 기준으로 새 템플릿을 생성했습니다. 예를 들어 템플릿은 저장소 계정 위치와 복제 값은 다음으로 설정합니다.
 
         "location": "northeurope",
         "tags": {},
@@ -137,31 +175,31 @@ Although each deployment shows only the changes that you have made to your resou
             "accountType": "Standard_RAGRS"
         },
 
-3. Download the template so that you can work on it locally.
+3. 로컬에서 작업할 수 있도록 템플릿을 다운로드합니다.
 
-      ![download template](./media/resource-manager-export-template/download-template.png)
+      ![템플릿 다운로드](./media/resource-manager-export-template/download-template.png)
 
-4. Find the .zip file that you downloaded and extract the contents. You can use this downloaded template to redeploy your infrastructure.
+4. 다운로드한 .zip 파일을 찾고 압축을 풉니다. 다운로드한 이 템플릿을 사용하여 인프라를 다시 배포할 수 있습니다.
 
-## <a name="fix-export-issues"></a>Fix export issues
+## 내보내기 문제 해결
 
-Not all resource types support the export template function. Resource Manager specifically does not export some resource types to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
+모든 리소스 종류가 내보내기 템플릿 함수를 지원하지는 않습니다. Resource Manager는 중요한 데이터를 노출하지 않기 위해 일부 리소스 유형을 내보내지 않습니다. 예를 들어 사이트 구성에 연결 문자열이 있는 경우 아마도 내보낸 템플릿에서 명시적으로 표시하지 않으려 합니다. 템플릿에 누락된 리소스를 다시 수동으로 추가하여 이 문제를 해결할 수 있습니다.
 
-> [AZURE.NOTE] You only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
+> [AZURE.NOTE] 배포 기록이 아닌 리소스 그룹에서 내보낸 경우 내보내기 문제가 발생합니다. 마지막 배포가 리소스 그룹의 현재 상태를 정확하게 나타내는 경우 리소스 그룹이 아닌 배포 기록에서 템플릿을 내보내야 합니다. 단일 템플릿에서 정의되지 않은 리소스 그룹을 변경한 경우에만 리소스 그룹에서 내보냅니다.
 
-For example, if you export a template for a resource group that contains a web app, SQL Database, and a connection string in the site config, you will see the following message.
+예를 들어 사이트 구성에서 웹앱, SQL 데이터베이스 및 연결 문자열을 포함하는 리소스 그룹에 대한 템플릿을 내보내는 경우 다음과 같은 메시지가 나타납니다.
 
 ![show error](./media/resource-manager-export-template/show-error.png)
 
-Selecting the message shows you exactly which resource types were not exported. 
+메시지를 선택하면 어떤 리소스 유형을 내보내지 않는지 정확하게 보여 줍니다.
      
 ![show error](./media/resource-manager-export-template/show-error-details.png)
 
-This topic shows the following common fixes. To implement these resources, you need to add parameters to template. For more information, see [Customize and redeploy exported template](resource-manager-customize-template.md).
+이 항목에서는 다음과 같은 일반적인 수정을 보여 줍니다. 이러한 리소스를 구현하려면 템플릿에 매개 변수를 추가해야 합니다. 자세한 내용은 [내보낸 템플릿 사용자 지정 및 다시 배포](resource-manager-customize-template.md)를 참조하세요.
 
-### <a name="connection-string"></a>Connection string
+### 연결 문자열
 
-In the web sites resource, add a definition for the connection string to the database:
+웹 사이트 리소스에서 데이터베이스에 연결 문자열에 대한 정의를 추가합니다.
 
 ```
 {
@@ -186,9 +224,9 @@ In the web sites resource, add a definition for the connection string to the dat
 }
 ```    
 
-### <a name="web-site-extension"></a>Web site extension
+### 웹 사이트 확장
 
-In the web site resource, add a definition for the code to install:
+웹 사이트 리소스에서 코드에 대한 정의를 추가하여 다음을 설치합니다.
 
 ```
 {
@@ -216,13 +254,13 @@ In the web site resource, add a definition for the code to install:
 }
 ```
 
-### <a name="virtual-machine-extension"></a>Virtual machine extension
+### 가상 컴퓨터 확장
 
-For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](./virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
+가상 컴퓨터 확장의 예는 [Azure Windows VM 확장 구성 샘플](./virtual-machines/virtual-machines-windows-extensions-configuration-samples.md)을 참조하세요.
 
-### <a name="virtual-network-gateway"></a>Virtual network gateway
+### 가상 네트워크 게이트웨이
 
-Add a virtual network gateway resource type.
+가상 네트워크 게이트웨이 리소스 종류를 추가합니다.
 
 ```
 {
@@ -256,9 +294,9 @@ Add a virtual network gateway resource type.
 },
 ```
 
-### <a name="local-network-gateway"></a>Local network gateway
+### 로컬 네트워크 게이트웨이
 
-Add a local network gateway resource type.
+로컬 네트워크 게이트웨이 리소스 종류를 추가합니다.
 
 ```
 {
@@ -274,9 +312,9 @@ Add a local network gateway resource type.
 }
 ```
 
-### <a name="connection"></a>Connection
+### 연결
 
-Add a connection resource type.
+연결 리소스 종류를 추가합니다.
 
 ```
 {
@@ -299,16 +337,12 @@ Add a connection resource type.
 ```
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Congratulations! You have learned how to export a template from resources that you created in the portal.
+축하합니다. 포털에서 만든 리소스에서 템플릿을 내보내는 방법을 배웠습니다.
 
-- In the second part of this tutorial, you customize the template that you downloaded by adding more parameters and redeploy it through a script. See [Customize and redeploy exported template](resource-manager-customize-template.md).
-- To see how to export a template through PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
-- To see how to export a template through Azure CLI, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+- 이 자습서의 두 번째 부분에서는 스크립트를 통해 매개 변수를 추가하고 다시 배포하여 다운로드한 템플릿을 사용자 지정합니다. [내보낸 템플릿 사용자 지정 및 다시 배포](resource-manager-customize-template.md)를 참조하세요.
+- PowerShell을 통해 템플릿을 내보내는 방법을 알아보려면 [Azure Resource Manager에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
+- Azure CLI를 통해 템플릿을 내보내는 방법은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Autoscale HPC Pack cluster nodes | Microsoft Azure"
- description="Automatically grow and shrink the number of HPC Pack cluster compute nodes in Azure"
+ pageTitle="HPC 팩 클러스터 노드 자동 크기 조정 | Microsoft Azure"
+ description="Azure에서 HPC 팩 클러스터 계산 노드 수를 자동으로 증가 및 축소"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,104 +16,102 @@ ms.service="virtual-machines-windows"
  ms.date="07/22/2016"
  ms.author="danlep"/>
 
-
-# <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload
-
+# 클러스터 워크로드에 따라 Azure에서 HPC 팩 클러스터 리소스를 자동으로 증가 및 축소
 
 
 
-If you deploy Azure “burst” nodes in your HPC Pack cluster, or you create an HPC Pack cluster in Azure VMs, you may want a way to automatically grow or shrink the number of Azure compute resources such as nodes or cores according to the current workload on the cluster. This allows you to use your Azure resources more efficiently and control their costs.
-To do this, set up the HPC Pack cluster property **AutoGrowShrink**. Alternatively, run the **AzureAutoGrowShrink.ps1** HPC PowerShell script that is installed with HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Also, currently you can only automatically grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
+HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 HPC 팩 클러스터를 만드는 경우 클러스터의 현재 워크로드에 따라 노드 또는 코어 등과 같은 Azure 계산 리소스 수를 자동으로 증가 또는 축소하려는 방법이 필요합니다. 그러면 Azure 리소스를 더욱 효율적으로 사용하고 비용을 관리할 수 있습니다. 이렇게 하려면 HPC 팩 클러스터 속성 **AutoGrowShrink**를 설정합니다. 또는 HPC 팩과 함께 설치된 **AzureAutoGrowShrink.ps1** HPC PowerShell 스크립트를 실행합니다.
 
-## <a name="set-the-autogrowshrink-cluster-property"></a>Set the AutoGrowShrink cluster property
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 또한 현재 Windows Server 운영 체제를 실행하는 HPC 팩 계산 리소스만 자동으로 증가 및 축소할 수 있습니다.
 
-### <a name="prerequisites"></a>Prerequisites
+## AutoGrowShrink 클러스터 속성 설정
 
-* **HPC Pack 2012 R2 Update 2 or later cluster** - The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy a HPC Pack cluster in Azure VMs.
+### 필수 조건
 
-
-* **For a cluster with a head node in Azure** - If you use the HPC Pack IaaS deployment script to create the cluster, enable the **AutoGrowShrink** cluster property by setting the AutoGrowShrink option in the cluster configuration file. For details, see the documentation accompanying the [script download](https://www.microsoft.com/download/details.aspx?id=44949). 
-
-    Alternatively, enable the **AutoGrowShrink** cluster property after you deploy the cluster by using HPC PowerShell commands described in the following section. To prepare for this, first complete the following steps:
-    1. Configure an Azure management certificate on the head node and in the Azure subscription. For a test deployment you can use the Default Microsoft HPC Azure self-signed certificate that HPC Pack installs on the head node, and simply upload that certificate to your Azure subscription. For options and steps, see the [TechNet Library guidance](https://technet.microsoft.com/library/gg481759.aspx).
-    2. Run **regedit** on the head node, go to HKLM\SOFTWARE\Micorsoft\HPC\IaasInfo, and add a new string value. Set the Value name to “ThumbPrint”, and Value data to the thumbprint of the certificate in Step 1.
+* **HPC 팩 2012 R2 업데이트 2 또는 이후 버전 클러스터** - 클러스터 헤드 노드는 온-프레미스 또는 Azure VM에 배포할 수 있습니다. 온-프레미스 헤드 노드 및 Azure "버스트" 노드로 시작하려면 [HPC 팩으로 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. Azure VM에 HPC 팩 클러스터를 빠르게 배포하려면 [HPC 팩 IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
 
 
-### <a name="hpc-powershell-commands-to-set-the-autogrowshrink-property"></a>HPC PowerShell commands to set the AutoGrowShrink property
+* **Azure에 헤드 노드를 가진 클러스터** - HPC 팩 IaaS 배포 스크립트를 사용하여 클러스터를 만드는 경우 클러스터 구성 파일의 AutoGrowShrink 옵션을 설정하여 **AutoGrowShrink** 클러스터 속성을 활성화합니다. 자세한 내용은 [스크립트 다운로드](https://www.microsoft.com/download/details.aspx?id=44949)와 함께 제공되는 문서를 참조하세요.
 
-Following are sample HPC PowerShell commands to set **AutoGrowShrink** and to tune its behavior with additional parameters. See [AutoGrowShrink parameters](#AutoGrowShrink-parameters) later in this article for the complete list of settings. 
+    또는 다음 섹션에서 설명하는 HPC PowerShell 명령을 사용하여 클러스터를 배포한 후 **AutoGrowShrink** 클러스터 속성을 사용하도록 설정합니다. 이를 준비하려면 먼저 다음 단계를 완료합니다.
+    1. 헤드 노드 및 Azure 구독에서 Azure 관리 인증서를 구성합니다. 테스트 배포의 경우 HPC 팩이 헤드 노드에 설치하는 기본 Microsoft HPC Azure 자체 서명 인증서를 사용하고 이 인증서를 Azure 구독에 업로드할 수 있습니다. 옵션 및 단계는 [TechNet 라이브러리 지침](https://technet.microsoft.com/library/gg481759.aspx)을 참조하세요.
+    2. 헤드 노드에서 **regedit**을 실행하고 HKLM\\SOFTWARE\\Micorsoft\\HPC\\IaasInfo로 이동한 다음 새 문자열 값을 추가합니다. 값 이름을 “ThumbPrint”로 설정하고 값 데이터를 1단계의 인증서 지문으로 설정합니다.
 
-To run these commands, start HPC PowerShell on the cluster head node as an administrator.
 
-**To enable the AutoGrowShrink property**
+### AutoGrowShrink 속성을 설정하는 HPC PowerShell 명령
+
+다음은 **AutoGrowShrink**를 설정하고 추가 매개 변수를 통해 해당 동작을 조정하는 샘플 HPC PowerShell 명령입니다. 전체 설정 목록은 이 문서의 뒷부분에 나오는 [AutoGrowShrink 매개 변수](#AutoGrowShrink-parameters)를 참조하세요.
+
+이 명령을 시작하려면 관리자 권한으로 클러스터 헤드 노드에서 HPC PowerShell을 시작합니다.
+
+**AutoGrowShrink 속성을 사용하도록 설정하려면**
 
     Set-HpcClusterProperty –EnableGrowShrink 1
 
-**To disable the AutoGrowShrink property**
+**AutoGrowShrink 속성을 사용하지 않도록 설정하려면**
 
     Set-HpcClusterProperty –EnableGrowShrink 0
 
-**To change the grow interval in minutes**
+**분 단위로 증가 간격을 변경하려면**
 
     Set-HpcClusterProperty –GrowInterval <interval>
 
-**To change the shrink interval in minutes**
+**분 단위로 축소 간격을 변경하려면**
 
     Set-HpcClusterProperty –ShrinkInterval <interval>
 
-**To view the current configuration of AutoGrowShrink**
+**AutoGrowShrink의 현재 구성을 보려면**
 
     Get-HpcClusterProperty –AutoGrowShrink
 
-### <a name="autogrowshrink-parameters"></a>AutoGrowShrink parameters
+### AutoGrowShrink 매개 변수
 
-The following are AutoGrowShrink parameters that you can modify by using the **Set-HpcClusterProperty** command.
+다음은 **Set-HpcClusterProperty** 명령을 사용하여 수정할 수 있는 AutoGrowShrink 매개 변수입니다.
 
-* **EnableGrowShrink** - Switch to enable or disable the **AutoGrowShrink** property.
-* **ParamSweepTasksPerCore** - Number of parametric sweep tasks to grow one core. The default is to grow one core per task. 
+* **EnableGrowShrink** - **AutoGrowShrink** 속성을 사용하도록 또는 사용하지 않도록 설정하는 스위치입니다.
+* **ParamSweepTasksPerCore** - 한 코어를 확장하기 위한 매개 변수 스위프 태스크 수입니다. 기본값은 태스크당 코어 한 개를 증가시키는 것입니다.
  
-    >[AZURE.NOTE] HPC Pack QFE KB3134307 changes **ParamSweepTasksPerCore** to **TasksPerResourceUnit**. It is based on the job resource type and can be node, socket, or core.
+    >[AZURE.NOTE] HPC 팩 QFE KB3134307은 **ParamSweepTasksPerCore**를 **TasksPerResourceUnit**으로 변경합니다. 이는 작업 리소스 유형을 기반으로 하며 노드, 소켓 또는 코어일 수 있습니다.
     
-* **GrowThreshold** - Threshold of queued tasks to trigger automatic growth. The default is 1, which means that if there are 1 or more tasks in the queued state, automatically grow nodes.
-* **GrowInterval** - Interval in minutes to trigger automatic growth. The default interval is 5 minutes.
-* **ShrinkInterval** - Interval in minutes to trigger automatic shrinking. The default interval is 5 minutes.|
-* **ShrinkIdleTimes** - Number of continuous checks to shrink to indicate the nodes are idle. The default is 3 times. For example, if the **ShrinkInterval** is 5 minutes, HPC Pack checks whether the node is idle every 5 minutes. If the nodes are in the idle state after 3 continuous checks (15 minutes), then HPC Pack shrinks that node.
-* **ExtraNodesGrowRatio** - Additional percentage of nodes to grow for Message Passing Interface (MPI) jobs. The default value is 1, which means that HPC Pack grows nodes 1% for MPI jobs. 
-* **GrowByMin** - Switch to indicate whether the autogrow policy is based on the minimum resources required for the job. The default is false, which means that HPC Pack grows nodes for jobs based on the maximum resources required for the jobs.
-* **SoaJobGrowThreshold** - Threshold of incoming SOA requests to trigger the automatic grow process. The default value is 50000.  
+* **GrowThreshold** - 자동 증가를 트리거하도록 대기열에 저장된 태스크의 임계값입니다. 기본값은 1이며, 이는 태스크 1 개 이상이 대기열에 저장된 상태이면 자동으로 노드를 증가한다는 것을 의미합니다.
+* **GrowInterval** - 자동 증가를 트리거하는 분 단위의 간격입니다. 기본 간격은 5 분입니다.
+* **ShrinkInterval** - 자동 축소를 트리거하는 분 단위의 간격입니다. 기본 간격은 5 분입니다.|
+* **ShrinkIdleTimes** - 노드가 유휴 상태임을 나타내도록 축소하는 연속 검사 횟수입니다. 기본값은 3회입니다. 예를 들어 **ShrinkInterval**이 5 분인 경우 HPC 팩은 매 5 분마다 노드가 유휴 상태인지 여부를 검사합니다. 노드가 연속 3회 검사(15 분) 후 유휴 상태에 있으면 HPC 팩이 해당 노드를 축소합니다.
+* **ExtraNodesGrowRatio** - 메시지 전달 인터페이스(MPI) 작업에 대해 증가할 노드의 추가 비율입니다. 기본값은 1이며, 이는 HPC 팩이 MPI 작업에 대해 노드 1%를 증가시킨다는 것을 의미합니다.
+* **GrowByMin** - 자동 증가 정책이 작업에 필요한 최소 리소스를 기반으로 하는지 여부를 나타내는 스위치입니다. 기본값은 False이며, 이는 HPC 팩이 작업에 필요한 최대 리소스를 기반으로 작업에 대한 노드를 증가시킨다는 것을 의미합니다.
+* **SoaJobGrowThreshold** - 자동 증가 프로세스를 트리거하는 수신 SQA 요청의 임계값입니다. 기본값은 50000입니다.
     
-    >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
+    >[AZURE.NOTE] 이 매개 변수는 HPC 팩 2012 R2 업데이트 3부터 지원됩니다.
     
-* **SoaRequestsPerCore** -Number of incoming SOA requests to grow one core. The default value is 20000.  
+* **SoaRequestsPerCore** - 코어 한 개를 증가시키기 위한 수신 SOA 요청 수입니다. 기본값은 20000입니다.
 
-    >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
+    >[AZURE.NOTE] 이 매개 변수는 HPC 팩 2012 R2 업데이트 3부터 지원됩니다.
 
-### <a name="mpi-example"></a>MPI example
+### MPI 예제
 
-By default HPC Pack grows 1% extra nodes for MPI jobs (**ExtraNodesGrowRatio** is set to 1). The reason is that MPI may require multiple nodes, and the job can only run when all nodes are ready. When Azure starts nodes, occasionally one node might need more time to start than others, causing other nodes to be idle while waiting for that node to get ready. By growing extra nodes, HPC Pack reduces this resource waiting time, and potentially saves costs. To increase the percentage of extra nodes for MPI jobs (for example, to 10%), run a command similar to
+기본적으로 HPC 팩은 MPI 작업에 대한 추가 노드를 1% 증가시킵니다(**ExtraNodesGrowRatio**가 1로 설정됨). 그 이유는 MPI 노드에 노드 여러 개가 필요할 수 있고 모든 노드가 준비되어야만 작업을 실행할 수 있기 때문입니다. Azure 노드를 시작할 때 경우에 따라 어떤 노드가 다른 노드보다 시작하기 위해 더 많은 시간이 필요하기 때문에 해당 노드가 준비가 될 때까지 다른 노드가 유휴 상태가 될 수 있습니다. HPC 팩은 추가 노드를 증가시켜 이 리소스 대기 시간을 줄이며 잠재적으로 비용을 절감합니다. MPI 작업에 대한 추가 노드의 비율을 증가시키려면(예를 들어 10%) 다음과 유사한 명령을 실행합니다.
 
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
-### <a name="soa-example"></a>SOA example
+### SOA 예제
 
-By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** is set to 200000. If you submit one SOA job with 70000 requests, there will be one queued task and incoming requests are 70000. In this case HPC Pack grows 1 core for the queued task, and for incoming requests, will grow (70000 - 50000)/20000 = 1 core, so in total will grow 2 cores for this SOA job.
+기본적으로 **SoaJobGrowThreshold**는 50000으로 설정되며 **SoaRequestsPerCore**는 200000으로 설정됩니다. 70000 개의 요청을 가진 한 SOA 작업을 제출하는 경우 대기열에 저장된 태스크 하나가 있으며 수신 요청 수는 70000개입니다. 이 경우 HPC 팩은 대기열에 저장된 태스크에 대해 코어 1개를 증가시키며 수신 요청의 경우 (70000 50000) / 20000 = 코어 1개가 증가하므로 모두 합해서 이 SOA 작업에 대해 코어 2개가 증가합니다.
 
-## <a name="run-the-azureautogrowshrink.ps1-script"></a>Run the AzureAutoGrowShrink.ps1 script
+## AzureAutoGrowShrink.ps1 스크립트 실행
 
-### <a name="prerequisites"></a>Prerequisites
+### 필수 조건
 
-* **HPC Pack 2012 R2 Update 1 or later cluster** - The **AzureAutoGrowShrink.ps1** script is installed in the %CCP_HOME%bin folder. The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy a HPC Pack cluster in Azure VMs, or use an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
+* **HPC 팩 2012 R2 업데이트 1 이상 클러스터** - **AzureAutoGrowShrink.ps1** 스크립트는 %CCP\_HOME%bin 폴더에 설치됩니다. 클러스터 헤드 노드는 온-프레미스 또는 Azure VM에 배포할 수 있습니다. 온-프레미스 헤드 노드 및 Azure "버스트" 노드로 시작하려면 [HPC 팩으로 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. Azure VM에 HPC 팩 클러스터를 빠르게 배포하려면 [HPC 팩 IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요. 또는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)을 사용하세요.
 
-* **Azure PowerShell 0.8.12** - The script currently depends on this specific version of Azure PowerShell. If you are running a later version on the head node, you might have to downgrade Azure PowerShell to [version 0.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi) to run the script. 
+* **Azure PowerShell 0.8.12** - 현재 스크립트는 이 특정 버전의 Azure PowerShell에 따라 다릅니다. 헤드 노드에서 이후 버전을 실행하는 경우 스크립트를 실행하려면 Azure PowerShell을 [버전 0.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi)로 다운그레이드해야 할 수 있습니다.
 
-* **For a cluster with Azure burst nodes** - Run the script on a client computer where HPC Pack is installed, or on the head node. If running on a client computer, ensure that you set the variable $env:CCP_SCHEDULER properly to point to the head node. The Azure “burst” nodes must already be added to the cluster, but they may be in the Not-Deployed state.
+* **Azure 버스트 노드가 포함된 클러스터의 경우** - HPC 팩이 설치된 클라이언트 컴퓨터 또는 헤드 노드에서 스크립트를 실행합니다. 클라이언트 컴퓨터에서 실행할 경우 $env:CCP\_SCHEDULER 변수가 헤드 노드를 올바르게 가리키도록 설정합니다. Azure "버스트" 노드는 클러스터에 이미 추가되어 있어야 하지만, 배포되지 않음 상태일 수 있습니다.
 
 
-* **For a cluster deployed in Azure VMs** - Run the script on the head node VM, because it depends on the **Start-HpcIaaSNode.ps1** and **Stop-HpcIaaSNode.ps1** scripts that are installed there. Those scripts additionally require an Azure management certificate or publish settings file (see [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)). Make sure all the compute node VMs you need are already added to the cluster. They may be in the Stopped state.
+* **Azure VM에 배포된 클러스터의 경우** - 여기에 설치된 **Start-HpcIaaSNode.ps1** 및 **Stop-HpcIaaSNode.ps1** 스크립트에 따라 다라지므로 헤드 노드 VM에서 스크립트를 실행합니다. 이러한 스크립트는 추가적으로 Azure 관리 인증서 또는 게시 설정 파일이 필요합니다([Azure의 HPC 팩 클러스터에서 계산 노드 관리](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md) 참조). 필요한 모든 컴퓨터 노드 VM이 클러스터에 이미 추가되어 있는지 확인합니다. 중지된 상태에 있을 수 있습니다.
 
-### <a name="syntax"></a>Syntax
+### 구문
 
 ```
 AzureAutoGrowShrink.ps1
@@ -128,43 +126,43 @@ AzureAutoGrowShrink.ps1
 [<CommonParameters>]
 
 ```
-### <a name="parameters"></a>Parameters
+### 매개 변수
 
- * **NodeTemplates** - Names of the node templates to define the scope for the nodes to grow and shrink. If not specified (the default value is @()), all nodes in the **AzureNodes** node group are in scope when **NodeType** has a value of AzureNodes, and all nodes in the **ComputeNodes** node group are in scope when **NodeType** has a value of ComputeNodes.
+ * **NodeTemplates** - 노드의 증가 및 축소 범위를 정의하는 노드 템플릿의 이름입니다. 이 매개 변수를 지정하지 않을 경우 (기본값은 @()) **NodeType** 값이 AzureNodes이면 **AzureNodes** 노드 그룹의 모든 노드가 범위에 포함되고 **NodeType** 값이 ComputeNodes이면 **ComputeNodes** 노드 그룹의 모든 노드가 범위에 포함됩니다.
 
- * **JobTemplates** - Names of the job templates to define the scope for the nodes to grow.
+ * **JobTemplates** - 노드의 증가 범위를 정의하는 작업 템플릿의 이름입니다.
 
- * **NodeType** - The type of node to grow and shrink. Supported values are:
+ * **NodeType** - 증가 및 축소할 노드의 유형입니다. 지원되는 값은 다음과 같습니다.
 
-     * **AzureNodes** – for Azure PaaS (burst) nodes in an on-premises or Azure IaaS cluster.
+     * **AzureNodes** – 온-프레미스 또는 Azure IaaS 클러스터의 Azure PaaS(버스트) 노드에 사용합니다.
 
-     * **ComputeNodes** - for compute node VMs only in an Azure IaaS cluster.
+     * **ComputeNodes** - Azure IaaS 클러스터의 계산 노드 VM에만 사용합니다.
 
-* **NumOfQueuedJobsPerNodeToGrow** - Number of queued jobs required to grow one node.
+* **NumOfQueuedJobsPerNodeToGrow** - 한 개 노드를 증가하는 데 필요한 큐 작업의 수입니다.
 
-* **NumOfQueuedJobsToGrowThreshold** - The threshold number of queued jobs to start the grow process.
+* **NumOfQueuedJobsToGrowThreshold** - 증가 프로세스를 시작하기 위한 큐 작업 수의 임계치입니다.
 
-* **NumOfActiveQueuedTasksPerNodeToGrow** - The number of active queued tasks required to grow one node. If **NumOfQueuedJobsPerNodeToGrow** is specified with a value greater than 0, this parameter is ignored.
+* **NumOfActiveQueuedTasksPerNodeToGrow** - 한 개 노드를 증가하는 데 필요한 활성 큐 작업의 수입니다. **NumOfQueuedJobsPerNodeToGrow**가 0보다 큰 값으로 지정된 경우 이 매개 변수가 무시됩니다.
 
-* **NumOfActiveQueuedTasksToGrowThreshold** - The threshold number of active queued tasks to start the grow process.
+* **NumOfActiveQueuedTasksToGrowThreshold** - 증가 프로세스를 시작하기 위한 활성 큐 작업 수의 임계치입니다.
 
-* **NumOfInitialNodesToGrow** - The initial minimum number of nodes to grow if all the nodes in scope are **Not-Deployed** or **Stopped (Deallocated)**.
+* **NumOfInitialNodesToGrow** - 범위 내 모든 노드가 **배포되지 않음** 또는 **중지(할당 해제)**일 경우 증가할 초기의 최소 노드 수입니다.
 
-* **GrowCheckIntervalMins** - The interval in minutes between checks to grow.
+* **GrowCheckIntervalMins** - 검사 간 증가할 간격(분)입니다.
 
-* **ShrinkCheckIntervalMins** - The interval in minutes between checks to shrink.
+* **ShrinkCheckIntervalMins** - 검사 간 축소할 간격(분)입니다.
 
-* **ShrinkCheckIdleTimes** - The number of continuous shrink checks (separated by **ShrinkCheckIntervalMins**) to indicate the nodes are idle.
+* **ShrinkCheckIdleTimes** - 노드가 유휴 상태임을 나타낼 연속적 축소 검사의 수(**ShrinkCheckIntervalMins**로 구분)입니다.
 
-* **UseLastConfigurations** - The previous configurations saved in the argument file.
+* **UseLastConfigurations** - 인수 파일에 저장된 이전 구성입니다.
 
-* **ArgFile**- The name of the argument file used to save and update the configurations to run the script.
+* **ArgFile** - 스크립트를 실행하기 위해 구성을 저장 및 업데이트하는 데 사용한 인수 파일의 이름입니다.
 
-* **LogFilePrefix** - The prefix name of the log file. You can specify a path. By default the log is written to the current working directory.
+* **LogFilePrefix** - 로그 파일의 접두사 이름입니다. 경로를 지정할 수 있습니다. 기본적으로 로그는 현재 작업 디렉터리에 기록됩니다.
 
-### <a name="example-1"></a>Example 1
+### 예 1
 
-The following example configures the Azure burst nodes deployed with the Default AzureNode Template to grow and shrink automatically. If all the nodes are initially in the **Not-Deployed** state, at least 3 nodes are started. If the number of queued jobs exceeds 8, the script starts nodes until their number exceeds the ratio of queued jobs to **NumOfQueuedJobsPerNodeToGrow**. If a node is found to be idle in 3 consecutive idle times, it is stopped.
+다음 예제는 자동으로 증가 및 축소하는 기본 AzureNode 템플릿을 배포된 Azure 버스트 노드를 구성합니다. 모든 노드가 초기에 **배포되지 않음** 상태인 경우 최소 3개 노드가 시작됩니다. 큐 작업 수가 8개를 초과할 경우 노드 수가 큐 작업 수 대 **NumOfQueuedJobsPerNodeToGrow**의 비율을 초과할 때까지 스크립트에서 노드를 시작합니다. 노드가 연속 3회 이상 유휴 상태인 것으로 확인되면 중지됩니다.
 
 ```
 .\AzureAutoGrowShrink.ps1 -NodeTemplates @('Default AzureNode
@@ -173,17 +171,12 @@ The following example configures the Azure burst nodes deployed with the Default
  -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 3
 ```
 
-### <a name="example-2"></a>Example 2
+### 예 2
 
-The following example configures the Azure compute node VMs deployed with the Default ComputeNode Template to grow and shrink automatically.
-The jobs configured by the Default job template define the scope of the workload on the cluster. If all the nodes are initially stopped, at least 5 nodes are started. If the number of active queued tasks exceeds 15, the script starts nodes until their number exceeds the ratio of active queued tasks to **NumOfActiveQueuedTasksPerNodeToGrow**. If a node is found to be idle in 10 consecutive idle times, it is stopped.
+다음 예제는 자동으로 증가 및 축소하는 기본 ComputeNode 템플릿을 배포된 Azure 계산 노드를 구성합니다. 기본 작업 템플릿으로 구성된 작업은 클러스터에 워크로드 범위를 정의합니다. 모든 노드가 초기에 중지되어 있으면 최소 5개 노드가 시작됩니다. 활성 큐 작업 수가 15개를 초과할 경우 노드 수가 활성 큐 작업 수 대 **NumOfActiveQueuedTasksPerNodeToGrow**의 비율을 초과할 때까지 스크립트에서 노드를 시작합니다. 노드가 연속 10회 이상 유휴 상태인 것으로 확인되면 중지됩니다.
 
 ```
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,251 +1,250 @@
 <properties 
-    pageTitle="Create a Hello World Web App for Azure in IntelliJ | Microsoft Azure" 
-    description="This tutorial shows you how to use the Azure Toolkit for IntelliJ to create a Hello World Web App for Azure." 
-    services="app-service\web" 
-    documentationCenter="java" 
-    authors="selvasingh" 
-    manager="wpickett" 
-    editor=""/>
+	pageTitle="IntelliJ에서 Azure용 Hello World 웹앱 만들기 | Microsoft Azure" 
+	description="이 자습서에서는 IntelliJ용 Azure 도구 키트를 사용하여 Azure용 Hello World 웹앱을 만드는 방법을 보여 줍니다." 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="selvasingh" 
+	manager="wpickett" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service-web" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="Java" 
-    ms.topic="article" 
-    ms.date="08/11/2016" 
-    ms.author="asirveda;robmcm"/>
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/11/2016" 
+	ms.author="asirveda;robmcm"/>
 
+# IntelliJ에서 Azure용 Hello World 웹앱 만들기
 
-# <a name="create-a-hello-world-web-app-for-azure-in-intellij"></a>Create a Hello World Web App for Azure in IntelliJ
+이 자습서에서는 [IntelliJ용 Azure 도구 키트]를 사용하여 기본 Hello World 응용 프로그램을 만들고 Azure에 웹앱으로 배포하는 방법을 보여 줍니다. 기본 JSP 예제는 편의를 위해 표시되지만 Azure 배포가 관련되는 한 아주 유사한 단계는 Java 서블릿에 적합합니다.
 
-This tutorial shows how to create and deploy a basic Hello World application to Azure as a Web App by using the [Azure Toolkit for IntelliJ]. A basic JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
-
-When you have completed this tutorial, your application will look similar to the following illustration when you view it in a web browser:
+이 자습서를 완료한 경우 웹 브라우저에서 응용 프로그램을 보면 다음 그림과 같이 표시됩니다.
 
 ![][01]
  
-## <a name="prerequisites"></a>Prerequisites
+## 필수 조건
 
-* A Java Developer Kit (JDK), v 1.8 or later.
-* IntelliJ IDEA Ultimate Edition. This can be downloaded from <https://www.jetbrains.com/idea/download/index.html>.
-* A distribution of a Java-based web server or application server, such as Apache Tomcat or Jetty.
-* An Azure subscription, which can be acquired from <https://azure.microsoft.com/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
-* The Azure Toolkit for IntelliJ. For more information, see [Installing the Azure Toolkit for IntelliJ].
+* JDK(Java 개발자 키트), v 1.8 이상.
+* IntelliJ IDEA Ultimate Edition. <https://www.jetbrains.com/idea/download/index.html>에서 다운로드할 수 있습니다.
+* Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat 또는 Jetty)
+* Azure 구독(<https://azure.microsoft.com/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
+* IntelliJ용 Azure 도구 키트. 자세한 내용은 [IntelliJ용 Azure 도구 키트 설치]를 참조하세요.
 
-## <a name="to-create-a-hello-world-application"></a>To Create a Hello World Application
+## Hello World 응용 프로그램을 만들려면
 
-First, we'll start off with creating a Java project.
+먼저 java 프로젝트를 만듭니다.
 
-1. Start IntelliJ, and at the menu click **File**, then **New**, and then click **Project**.
+1. IntelliJ를 시작하고 메뉴에서 **File**을 클릭한 후 **New**를 클릭하고 **Project**를 클릭합니다.
 
    ![][02]
 
-1. In the New Project dialog box, select **Java**, then **Web Application**, and then click **Next**.
+1. New Project 대화 상자에서 **Java**를 선택하고 **Web Application**을 선택한 후 **Next**를 클릭합니다.
 
    ![][03a]
 
-   If prompted to continue with no SDK assigned, click **Yes**.
+   SDK가 할당되지 않은 상태로 계속 진행할지 묻는 메시지가 표시되면 **예**를 클릭합니다.
 
    ![][03b]
 
-1. For purposes of this tutorial, name the project **Java-Web-App-On-Azure**, and then click **Finish**.
+1. 이 자습서의 목적에 따라 프로젝트의 이름을 **Java-Web-App-On-Azure**로 지정하고 **Finish**를 클릭합니다.
 
    ![][04]
 
-1. Within IntelliJ's Project Explorer view, expand **Java-Web-App-On-Azure**, then expand **web**, and then double-click **index.jsp**.
+1. IntelliJ의 Project Explorer 보기 내에서 **Java-Web-App-On-Azure**를 확장한 다음 **web**을 확장하고 **index.jsp**를 두 번 클릭합니다.
 
    ![][05]
 
-1. When your index.jsp file opens in IntelliJ, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should resemble the following example:
+1. Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 콘텐츠는 다음 예제와 유사하게 표시됩니다.
 
-   `<body><b><% out.println("Hello World!"); %></b></body>` 
+   `<body><b><% out.println("Hello World!"); %></b></body>`
 
-1. Save index.jsp.
+1. index.jsp를 저장합니다.
 
-## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>To Deploy your Application to an Azure Web App Container
+## Azure 웹앱 컨테이너에 응용 프로그램을 배포하려면
 
-There are several ways by which you can deploy a Java web application to Azure. This tutorial describes one of the simplest: your application will be deployed to an Azure Web App Container - no special project type nor additional tools are needed. The JDK and the web container software will be provided for you by Azure, so there is no need to upload your own; all you need is your Java Web App. As a result, the publishing process for your application will take seconds, not minutes.
+몇 가지 방법으로 Azure에 Java 웹 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 가장 간단한 방법 중 하나를 설명합니다. 즉, 특별한 프로젝트 형식이나 추가 도구 없이 Azure 웹앱 컨테이너에 응용 프로그램을 배포하는 방법을 설명합니다. JDK 및 웹 컨테이너 소프트웨어는 Azure에서 제공되므로 별도로 업로드할 필요가 없습니다. Java 웹앱만 있으면 됩니다. 따라서 응용 프로그램 게시 프로세스에 걸리는 시간이 몇 분이 아니라 몇 초입니다.
 
-1. In IntelliJ's Project Explorer, right-click the **Java-Web-App-On-Azure** project. When the context menu appears, select **Azure**, and then click **Publish as Azure Web App...**
+1. IntelliJ의 Project Explorer에서 **Java-Web-App-On-Azure** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴가 나타나면 **Azure**를 선택한 다음 **Azure 웹앱으로 게시...**를 선택합니다.
 
    ![][06]
 
-1. If you have not already signed into Azure from IntelliJ, you will be prompted to sign into your Azure account:
+1. IntelliJ에서 Azure에 로그인하지 않은 경우 Azure 계정으로 로그인하라는 메시지가 표시됩니다.
 
    ![][07]
 
-   Note: If you have multiple Azure accounts, some of the prompts during the sign in process may be shown more than once, even if they appear to be the same. When this happens, continue following the sign in instructions.
+   참고: Azure 계정이 여러 개 있으면 로그인 프로세스 중에 일부 메시지가 동일한 것이더라도 두 번 이상 표시될 수 있습니다. 이 경우 로그인 지침에 따라 계속 진행합니다.
 
-1. After you have successfully signed into your Azure account, the **Manage Subscriptions** dialog box will display a list of subscriptions that are associated with your credentials. If there are multiple subscriptions listed and you want to work with only a specific subset of them, you may optionally uncheck the ones you do want to use. When you have selected your subscriptions, click **Close**.
+1. Azure 계정에 성공적으로 로그인하면 **구독 관리** 대화 상자에는 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **닫기**를 클릭합니다.
 
    ![][08]
 
-1. When the **Deploy to Azure Web App Container** dialog box appears, it will display any Web App containers that you have previously created; if you have not created any containers, the list will be empty.   
+1. **Azure 웹앱 컨테이너에 배포** 대화 상자가 나타나는 경우 이전에 만든 웹앱 컨테이너가 표시됩니다. 컨테이너를 만들지 않은 경우에는 목록이 비어 있습니다.
 
    ![][09]
 
-1. If you have not created an Azure Web App Container before, or if you would like to publish your application to a new container, use the following steps. Otherwise, select an existing Web App Container and skip to step 6 below.
+1. 이전에 Azure 웹앱 컨테이너를 만들지 않은 경우 또는 응용 프로그램을 새 컨테이너에 게시하려는 경우 다음 단계를 사용합니다. 그렇지 않으면 기존 웹앱 컨테이너를 선택하고 아래의 6단계로 건너뜁니다.
 
-  1. Click **+**
+  1. **+**를 클릭합니다.
 
         ![][10]
 
-  1. The **New Web App Container** dialog box will be displayed, which will be used for the next several steps.
+  1. 다음 몇 개 단계에서 사용되는 **새 웹앱 컨테이너** 대화 상자가 표시됩니다.
 
         ![][11]
 
-  1. Enter a **DNS Label** for your Web App Container; this will form the leaf DNS label of the host URL for your web application in Azure. Note: The name must be available and conform to Azure Web App naming requirements.
+  1. 웹앱 컨테이너에 **DNS 레이블**을 입력합니다. 이는 Azure에서 웹 응용 프로그램에 대한 호스트 URL의 리프 DNS 레이블을 형성합니다. 참고: 이름은 사용 가능해야 하며, Azure 웹앱 명명 요구 사항을 준수해야 합니다.
 
-  1. In the **Web Container** drop-down menu, select the appropriate software for your application.
+  1. **Web Container**(웹 컨테이너) 드롭다운 메뉴에서 응용 프로그램에 적절한 소프트웨어를 선택합니다.
 
-        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
+        현재, Tomcat 8, Tomcat 7, Jetty 9 중에서 선택할 수 있습니다. 선택한 소프트웨어의 최근 배포는 Azure에서 제공되며, Oracle에서 만들고 Azure에서 제공되는 JDK 8의 최근 배포에서 실행됩니다.
 
-  1. In the **Subscription** drop-down menu, select the subscription you want to use for this deployment.
+  1. **Subscription**(구독) 드롭다운 메뉴에서 이 배포에 사용할 구독을 선택합니다.
 
-  1. In the **Resource Group** drop-down menu, select the Resource Group with which you want to associate your Web App.
+  1. **Resource Group**(리소스 그룹) 드롭다운 메뉴에서 웹앱을 연결할 리소스 그룹을 선택합니다.
 
-        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
+        참고: Azure 리소스 그룹을 사용하여 함께 삭제할 수 있도록 관련된 리소스를 그룹화할 수 있습니다.
 
-        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
+        기존 리소스 그룹(있는 경우)을 선택하고 아래 g 단계로 건너뛰거나 이들 단계를 통해 새 리소스 그룹을 만들 수 있습니다.
 
-      * Click **New...**
+      * **New...**(새로 만들기...)를 클릭합니다.
 
-      * The **New Resource Group** dialog box will be displayed:
+      * **New Resource Group**(새 리소스 그룹) 대화 상자가 표시됩니다.
 
             ![][12]
 
-      * In the the **Name** textbox, specify a name for your new Resource Group.
+      * **Name**(이름) 텍스트 상자에서 새 리소스 그룹의 이름을 지정합니다.
 
-      * In the the **Region** drop-down menu, select the appropriate Azure data center location for your Resource Group.
+      * **Region**(지역) 드롭다운 메뉴에서 리소스 그룹에 적절한 Azure 데이터 센터 위치를 선택합니다.
 
-      * Click **OK**.
+      * **확인**을 클릭합니다.
 
-  1. The **App Service Plan** drop-down menu lists the app service plans that are associated with the Resource Group that you selected.
+  1. **App Service Plan**(앱 서비스 계획) 드롭다운 메뉴에 선택한 리소스 그룹과 연결된 앱 서비스 계획이 나열됩니다.
 
-        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
+        참고: 앱 서비스 계획은 웹 앱, 가격 책정 계층 및 계산 인스턴스 크기의 위치와 같은 정보를 지정합니다. 하나의 앱 서비스 계획은 여러 개의 웹 앱에 대해 사용될 수 있기 때문에 특정 웹 앱 배포와는 별도로 관리됩니다.
 
-        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
+        기존 앱 서비스 계획(있는 경우)을 선택하고 아래 h 단계로 건너뛰거나 이들 단계를 통해 새 앱 서비스 계획을 만들 수 있습니다.
 
-      * Click **New...**
+      * **New...**(새로 만들기...)를 클릭합니다.
 
-      * The **New App Service Plan** dialog box will be displayed:
+      * **New App Service Plan**(새 앱 서비스 계획) 대화 상자가 표시됩니다.
 
             ![][13]
 
-      * In the the **Name** textbox, specify a name for your new App Service Plan.
+      * **Name**(이름) 텍스트 상자에서 새 앱 서비스 계획의 이름을 지정합니다.
 
-      * In the the **Location** drop-down menu, select the appropriate Azure data center location for the plan.
+      * **Location**(위치) 드롭다운 메뉴에서 계획에 적절한 Azure 데이터 센터 위치를 선택합니다.
 
-      * In the the **Pricing Tier** drop-down menu, select the appropriate pricing for the plan. For testing purposes you can choose **Free**.
+      * **Pricing Tier**(가격 책정 계층) 드롭다운 메뉴에서 계획에 적절한 가격 책정을 선택합니다. 테스트 목적으로 **Free**를 선택할 수 있습니다.
 
-      * In the the **Instance Size** drop-down menu, select the appropriate instance size for the plan. For testing purposes you can choose **Small**.
+      * **인스턴스 크기**(Instance Size) 드롭다운 메뉴에서 계획에 적절한 인스턴스 크기를 선택합니다. 테스트 목적으로 **Small**을 선택할 수 있습니다.
 
-  1. Once you have completed all of the above steps, the New Web App Container dialog box should resemble the following illustration:
+  1. 위 단계를 모두 완료한 경우 New Web App Container 대화 상자가 다음 그림과 유사하게 표시됩니다.
 
         ![][14]
 
-  1. Click **OK** to complete the creation of your new Web App container.
+  1. **확인**을 클릭하여 새 웹앱 컨테이너 만들기를 완료합니다.
 
-        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
+        웹 앱 컨테이너의 목록이 새로 고쳐지도록 몇 초 간 기다리고 나면 새로 만든 웹 앱 컨테이너를 목록에서 선택할 수 있게 됩니다.
 
-1. You are now ready to complete the initial deployment of your Web App to Azure; click **OK** to deploy your Java application to the selected Web App container.
+1. 이제 Azure에 대한 웹앱의 초기 배포를 완료할 준비가 되었습니다. **확인**을 클릭하여 Java 응용 프로그램을 선택한 웹앱 컨테이너에 배포합니다.
 
     ![][15]
 
-    Note: By default, your application will be deployed as a subdirectory of the application server. If you want it to be deployed as the root application, check the **Deploy to root** checkbox before clicking **OK**.
+    참고: 기본적으로 응용 프로그램은 응용 프로그램 서버의 하위 디렉터리로 배포됩니다. 루트 응용 프로그램으로 배포하려면 **확인**을 클릭하기 전에 **루트에 배포** 확인란을 선택합니다.
 
-1. Next, you should see the **Azure Activity Log** view, which will indicate the deployment status of your Web App.
+1. 이제 웹앱의 배포 상태를 나타내는 **Azure Activity Log** 보기를 확인합니다.
 
     ![][16]
 
-    The process of deploying your Web App to Azure should take only a few seconds to complete. When your application ready, you will see a link named **Published** in the **Status** column. When you click the link, it will take you to your deployed Web App's home page, or you can use the steps in the following section to browse to your web app.
+    Azure에 웹앱을 배포하는 프로세스는 몇 초 내에 완료됩니다. 응용 프로그램이 준비되면 **Status** 열에 **Published**라는 링크가 표시됩니다. 이 링크를 클릭하여 배포된 웹앱의 홈페이지로 이동하거나, 다음 섹션의 단계를 사용하여 해당 웹앱으로 이동할 수 있습니다.
 
-## <a name="browsing-to-your-web-app-on-azure"></a>Browsing to your Web App on Azure
+## Azure에서 웹앱 검색
 
-To brows to your Web App on Azure, you can use the **Azure Explorer** view.
+Azure에서 웹앱을 검색하려면 **Azure 탐색기** 보기를 사용할 수 있습니다.
 
-If the **Azure Explorer** view is not already open, you can open it by clicking then **View** menu in IntelliJ, then click **Tool Windows**, and then click **Service Explorer**. If you have not previously logged in, it will prompt you to do so.
+**Azure 탐색기** 보기가 열려 있지 않은 경우 IntelliJ에서 **View** 메뉴를 클릭한 다음 **Tools Windows**, **Service Explorer**를 차례로 클릭합니다. 이전에 로그인하지 않은 경우 로그인하라는 메시지가 나타납니다.
 
-When the **Azure Explorer** view is displayed, use follow these steps to stop your Web App: 
+**Azure 탐색기** 보기가 표시되면 다음 단계에 따라 웹앱을 중지합니다.
 
-1. Expand the **Azure** node.
+1. **Azure** 노드를 확장합니다.
 
-1. Expand the **Web Apps** node. 
+1. **웹앱** 노드를 확장합니다.
 
-1. Right-click the desired Web App.
+1. 원하는 웹앱을 마우스 오른쪽 단추로 클릭합니다.
 
-1. When the context menu appears, click **Open in Browser**.
+1. 상황에 맞는 메뉴가 나타나면 **브라우저에서 열기**를 클릭합니다.
 
     ![][17]
 
-## <a name="updating-your-web-app"></a>Updating your Web App
+## 웹앱 업데이트
 
-Updating an existing running Azure Web App is a quick and easy process, and you have two options for updating:
+실행 중인 기존 Azure 웹앱을 빠르고 쉽게 업데이트할 수 있으며, 두 가지 업데이트 옵션이 있습니다.
 
-* You can update the deployment of an existing Java Web App.
-* You can publish an additional Java application to the same Web App Container.
+* 기존 Java 웹앱의 배포를 업데이트할 수 있습니다.
+* 동일한 웹앱 컨테이너에 추가 Java 응용 프로그램을 게시할 수 있습니다.
 
-In either case, the process is identical and takes only a few seconds:
+두 경우 모두 프로세스는 동일하며 몇 초만 소요됩니다.
 
-1. In the IntelliJ project explorer, right-click the Java application you want to update or add to an existing Web App Container.
+1. IntelliJ Project Explorer에서 업데이트하거나 기존 웹앱 컨테이너에 추가할 Java 응용 프로그램을 마우스 오른쪽 단추로 클릭합니다.
 
-1. When the context menu appears, select **Azure** and then **Publish as Azure Web App...**
+1. 상황에 맞는 메뉴가 나타나면 **Azure**를 선택한 다음 **Azure 웹앱으로 게시...**를 선택합니다.
 
-1. Since you have already logged in previously, you will see a list of your existing Web App containers. Select the one you want to publish or re-publish your Java application to and click **OK**.
+1. 이전에 이미 로그인했으므로 기존 웹앱 컨테이너 목록이 표시됩니다. Java 응용 프로그램을 게시하거나 다시 게시할 컨테이너를 선택하고 **확인**을 클릭합니다.
 
-A few seconds later, the **Azure Activity Log** view will show your updated deployment as **Published** and you will be able to verify your updated application in a web browser.
+몇 초 후 **Azure 동작 로그** 보기에 업데이트된 배포가 **게시됨**으로 표시되고, 웹 브라우저에서 업데이트된 응용 프로그램을 확인할 수 있습니다.
 
-## <a name="starting-or-stopping-an-existing-web-app"></a>Starting or Stopping an Existing Web App
+## 기존 웹앱 시작 또는 중지
 
-To start or stop an existing Azure Web App container, (including all the deployed Java applications in it), you can use the **Azure Explorer** view.
+기존 Azure 웹앱 컨테이너(여기에 배포된 모든 Java 응용 프로그램 포함)를 시작 또는 중지하려면 **Azure 탐색기** 보기를 사용하면 됩니다.
 
-If the **Azure Explorer** view is not already open, you can open it by clicking then **View** menu in IntelliJ, then click **Tool Windows**, and then click **Service Explorer**. If you have not previously logged in, it will prompt you to do so.
+**Azure 탐색기** 보기가 열려 있지 않은 경우 IntelliJ에서 **View** 메뉴를 클릭한 다음 **Tools Windows**, **Service Explorer**를 차례로 클릭합니다. 이전에 로그인하지 않은 경우 로그인하라는 메시지가 나타납니다.
 
-When the **Azure Explorer** view is displayed, use follow these steps to start or stop your Web App: 
+**Azure 탐색기** 보기가 표시되면 다음 단계에 따라 웹앱을 시작하거나 중지합니다.
 
-1. Expand the **Azure** node.
+1. **Azure** 노드를 확장합니다.
 
-1. Expand the **Web Apps** node. 
+1. **웹앱** 노드를 확장합니다.
 
-1. Right-click the desired Web App.
+1. 원하는 웹앱을 마우스 오른쪽 단추로 클릭합니다.
 
-1. When the context menu appears, click **Start** or **Stop**. Note that the menu choices are context-aware, so you can only stop a running web app or start a web app which is not currently running.
+1. 상황에 맞는 메뉴가 나타나면 **시작** 또는 **중지**를 클릭합니다. 메뉴 선택 항목은 상황별로 변경되므로 실행 중인 웹앱만 중지하고, 현재 실행되고 있지 않은 웹앱만 시작할 수 있습니다.
 
     ![][18]
 
-## <a name="next-steps"></a>Next Steps
+## 다음 단계
 
-For more information about the Azure Toolkits for Java IDEs, see the following links:
+Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- [Azure Toolkit for Eclipse]
-  - [Installing the Azure Toolkit for Eclipse]
-  - [Create a Hello World Web App for Azure in Eclipse]
-  - [What's New in the Azure Toolkit for Eclipse]
-- [Azure Toolkit for IntelliJ]
-  - [Installing the Azure Toolkit for IntelliJ]
-  - *Create a Hello World Web App for Azure in IntelliJ (This Article)*
-  - [What's New in the Azure Toolkit for IntelliJ]
+- [Eclipse용 Azure 도구 키트]
+  - [Eclipse용 Azure 도구 키트 설치]
+  - [Eclipse에서 Azure용 Hello World 웹앱 만들기]
+  - [Eclipse용 Azure 도구 키트의 새로운 기능]
+- [IntelliJ용 Azure 도구 키트]
+  - [IntelliJ용 Azure 도구 키트 설치]
+  - *IntelliJ에서 Azure용 Hello World 웹앱 만들기(이 문서)*
+  - [IntelliJ용 Azure 도구 키트의 새로운 기능]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
-For additional information about creating Azure Web Apps, see the [Web Apps Overview].
+Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
-[Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij.md
-[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Eclipse용 Azure 도구 키트]: ../azure-toolkit-for-eclipse.md
+[IntelliJ용 Azure 도구 키트]: ../azure-toolkit-for-intellij.md
+[Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[Installing the Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
-[Installing the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[What's New in the Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
-[What's New in the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
+[Eclipse용 Azure 도구 키트 설치]: ../azure-toolkit-for-eclipse-installation.md
+[IntelliJ용 Azure 도구 키트 설치]: ../azure-toolkit-for-intellij-installation.md
+[Eclipse용 Azure 도구 키트의 새로운 기능]: ../azure-toolkit-for-eclipse-whats-new.md
+[IntelliJ용 Azure 도구 키트의 새로운 기능]: ../azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Web Apps Overview]: ./app-service-web-overview.md
+[Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
+[웹앱 개요]: ./app-service-web-overview.md
 
 <!-- IMG List -->
 
@@ -269,8 +268,4 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

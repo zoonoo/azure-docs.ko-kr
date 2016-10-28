@@ -1,28 +1,25 @@
-After the records for your domain name have propagated, you must associate them with your Web App. Use the following steps to enable the domain names using your web browser.
+도메인 이름의 레코드가 전파된 후 해당 레코드를 웹앱과 연결해야 합니다. 웹 브라우저를 사용하여 도메인 이름을 사용하도록 설정하려면 다음 단계를 따르십시오.
 
-> [AZURE.NOTE] It can take some time for TXT records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your web app until the TXT record has propagated. If you are using an A record, you cannot add the A record domain name to your web app until the TXT record created in the previous step has propagated.
+> [AZURE.NOTE] 이전 단계에서 만든 TXT 레코드가 DNS 시스템을 통해 전파되는 데 어느 정도 시간이 걸릴 수 있습니다. TXT 레코드가 전파될 때까지 웹앱에 도메인 이름을 추가할 수 없습니다. A 레코드를 사용하는 경우 이전 단계에서 만든 TXT 레코드가 전파될 때까지 웹앱에 A 레코드 도메인 이름을 추가할 수 없습니다.
 >
-> You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the TXT record is available.
+> <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> 등의 서비스를 사용하여 TXT 레코드를 사용할 수 있는지 확인할 수 있습니다.
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com).
+1. 브라우저에서 [Azure 포털](https://portal.azure.com)을 엽니다.
 
-2. In the **Web Apps** tab, click the name of your web app, and then select **Custom domains**
+2. **웹앱** 탭에서 웹앱의 이름을 클릭하고 **사용자 지정 도메인**을 선택합니다.
 
-    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. In the **Custom domains** blade, click **Add hostname**.
-    
-4. Use the **Hostname** text boxes to enter the domain names to associate with this web app.
+3. **사용자 지정 도메인** 블레이드에서 **호스트 이름 추가**를 클릭합니다.
+	
+4. **호스트 이름** 텍스트 상자에 이 웹앱과 연결할 도메인 이름을 입력합니다.
 
-    ![](./media/custom-dns-web-site/add-custom-domain.png)
+	![](./media/custom-dns-web-site/add-custom-domain.png)
 
-6.  Click **Validate**.
+6.  **유효성 검사**를 클릭합니다.
 
-7.  Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
+7.  **유효성 검사**를 클릭하면 Azure에서 도메인 검증 워크플로가 시작됩니다. 여기서는 호스트 이름 가용성 및 보고서 성공 여부 외에 도메인 소유권을 확인하거나 자세한 오류 사항과 그에 대한 해결 방법을 확인할 수 있습니다.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+이때 브라우저에서 사용자 지정 도메인 이름을 입력해야 웹 앱으로 이동하는지 확인할 수 있습니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

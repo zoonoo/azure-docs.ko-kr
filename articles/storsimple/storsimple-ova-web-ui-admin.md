@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Virtual Array web UI administration | Microsoft Azure"
-   description="Describes how to perform basic device administration tasks through the StorSimple Virtual Array web UI."
+   pageTitle="StorSimple 가상 배열 웹 UI 관리 | Microsoft Azure"
+   description="StorSimple 가상 배열 웹 UI를 통해 기본적인 장치 관리 작업을 수행하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,125 +15,120 @@
    ms.date="04/07/2016"
    ms.author="alkohli" />
 
+# 웹 UI를 사용하여 StorSimple 가상 배열 관리
 
-# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Use the Web UI to administer your StorSimple Virtual Array
+![설정 프로세스 흐름](./media/storsimple-ova-web-ui-admin/manage4.png)
 
-![setup process flow](./media/storsimple-ova-web-ui-admin/manage4.png)
+## 개요
 
-## <a name="overview"></a>Overview
+이 문서의 자습서는 2016년 3월 일반 GA(공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치라고도 함)에 적용됩니다. 이 문서는 StorSimple 가상 배열에서 수행할 수 있는 복잡한 워크플로 및 관리 작업 중 일부를 설명합니다. StorSimple Manager 서비스 UI(포털 UI라고 함) 및 장치에 대한 로컬 웹을 사용하여 StorSimple 가상 배열을 관리할 수 있습니다. 이 문서는 웹 UI를 사용하여 수행할 수 있는 작업에 중점을 둡니다.
 
-The tutorials in this article apply to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) running March 2016 general availability (GA) release. This article describes some of the complex workflows and management tasks that can be performed on the StorSimple Virtual Array. You can manage the StorSimple Virtual Array using the StorSimple Manager service UI (referred to as the portal UI) and the local web UI for the device. This article focuses on the tasks that you can perform using the web UI.
+이 문서에는 다음 자습서가 포함되어 있습니다.
 
-This article includes the following tutorials:
+- 서비스 데이터 암호화 키 가져오기
+- 웹 UI 설정 오류 해결
+- 로그 패키지 생성
+- 장치 종료 또는 다시 시작
 
-- Get the service data encryption key
-- Troubleshoot web UI setup errors
-- Generate a log package
-- Shut down or restart your device
+## 서비스 데이터 암호화 키 가져오기
 
-## <a name="get-the-service-data-encryption-key"></a>Get the service data encryption key
+서비스 데이터 암호화 키는 StorSimple Manager 서비스에 첫 번째 장치를 등록할 때 생성됩니다. 이 키는 StorSimple Manager 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다.
 
-A service data encryption key is generated when you register your first device with the StorSimple Manager service. This key is then required with the service registration key to register additional devices with the StorSimple Manager service.
+서비스 데이터 암호화 키의 위치를 잊어버려서 키를 찾아야 하는 경우에는 서비스에 등록된 장치의 로컬 웹 UI에서 다음 단계를 수행합니다.
 
-If you have misplaced your service data encryption key and need to retrieve it, perform the following steps in the local web UI of the device registered with your service.
+#### 서비스 데이터 암호화 키를 가져오려면
 
-#### <a name="to-get-the-service-data-encryption-key"></a>To get the service data encryption key
-
-1. Connect to the local web UI. Go to **Configuration** > **Cloud Settings**.
+1. 로컬 웹 UI에 연결합니다. **구성** > **클라우드 설정**으로 이동합니다.
   
 
-2. At the bottom of the page, click **Get service data encryption key**. A key will appear. Copy and save this key.
-    
-    ![get service data encryption key 1](./media/storsimple-ova-web-ui-admin/image27.png)
+2. 페이지 아래쪽에서 **서비스 데이터 암호화 키 가져오기**를 클릭합니다. 키가 표시됩니다. 이 키를 복사하여 저장합니다.
+  	
+	![서비스 데이터 암호화 키 가져오기 1](./media/storsimple-ova-web-ui-admin/image27.png)
    
 
 
-## <a name="troubleshoot-web-ui-setup-errors"></a>Troubleshoot web UI setup errors
+## 웹 UI 설정 오류 해결
 
-In some instances when you configure the device through the local web UI, you might run into errors. To diagnose and troubleshoot such errors, you can run the diagnostics tests.
+로컬 웹 UI를 통해 장치를 구성하는 경우에 오류가 발생할 수 있습니다. 오류를 진단하고 해결하기 위해 진단 테스트를 실행합니다.
 
-#### <a name="to-run-the-diagnostic-tests"></a>To run the diagnostic tests
+#### 진단 테스트를 실행하려면
 
-1. In the local web UI, go to **Troubleshooting** > **Diagnostic tests**.
+1. 로컬 웹 UI에서 **문제 해결** > **진단 테스트**로 이동합니다.
 
-    ![run diagnostics 1](./media/storsimple-ova-web-ui-admin/image29.png)
+    ![진단 실행 1](./media/storsimple-ova-web-ui-admin/image29.png)
 
-2. At the bottom of the page, click **Run Diagnostic Tests**. This will initiate tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You will be notified that the device is running tests.
+2. 페이지 아래쪽에서 **진단 테스트 실행**을 클릭합니다. 네트워크, 장치, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 장치에서 테스트가 실행 중이라는 메시지가 표시됩니다.
 
-3. After the tests have completed, the results will be displayed. The following example shows the results of diagnostic tests. Note that the web proxy settings were not configured on this device, and therefore, the web proxy test was not run. All the other tests for network settings, DNS server, and time settings were successful.
+3. 테스트가 완료된 후 결과가 표시됩니다. 다음 예제는 진단 테스트의 결과를 보여줍니다. 웹 프록시 설정이 장치에 구성되어 있지 않기 때문에 웹 프록시 테스트가 실행되지 않았습니다. 네트워크 설정, DNS 서버, 시간 설정에 대한 다른 모든 테스트는 성공적으로 수행되었습니다.
 
-    ![run diagnostics 2](./media/storsimple-ova-web-ui-admin/image30.png)
+    ![진단 실행 2](./media/storsimple-ova-web-ui-admin/image30.png)
 
-## <a name="generate-a-log-package"></a>Generate a log package
+## 로그 패키지 생성
 
-A log package is comprised of all the relevant logs that can assist Microsoft Support with troubleshooting any device issues. In this release, a log package can be generated via the local web UI.
+로크 패키지는 Microsoft 지원에서 장치 문제를 해결하는 데 도움을 줄 수 있는 관련된 로그로 구성됩니다. 이 릴리스에서 로그 패키지는 로컬 웹 UI를 통해 생성될 수 있습니다.
 
-#### <a name="to-generate-the-log-package"></a>To generate the log package
+#### 로그 패키지를 생성하려면
 
-1. In the local web UI, go to **Troubleshooting** > **System logs**.
+1. 로컬 웹 UI에서 **문제 해결** > **시스템 로그**로 이동합니다.
 
-    ![generate log package 1](./media/storsimple-ova-web-ui-admin/image31.png)
+    ![로그 패키지 생성 1](./media/storsimple-ova-web-ui-admin/image31.png)
 
-2. At the bottom of the page, click **Create log package**. A package of the system logs will be created. This will take a couple of minutes.
+2. 페이지 아래쪽에서 **로그 패키지 만들기**를 클릭합니다. 시스템 로그 패키지가 만들어집니다. 이 작업에 몇 분 정도가 소요됩니다.
 
-    ![generate log package 2](./media/storsimple-ova-web-ui-admin/image32.png)
+    ![로그 패키지 생성 2](./media/storsimple-ova-web-ui-admin/image32.png)
 
-    You will be notified after the package is successfully created, and the page will be updated to indicate the time and date when the package was created.
+    패키지가 성공적으로 만들어지면 이를 알리는 메시지가 표시되고, 패키지가 만들어진 날짜와 시간을 나타내도록 페이지가 업데이트됩니다.
 
-    ![generate log package 3](./media/storsimple-ova-web-ui-admin/image33.png)
+    ![로그 패키지 생성 3](./media/storsimple-ova-web-ui-admin/image33.png)
 
-3. Click **Download log package**. A zipped package will be downloaded on your system.
+3. **로그 패키지 다운로드**를 클릭합니다. 압축된 패키지가 시스템에 다운로드됩니다.
 
-    ![generate log package 4](./media/storsimple-ova-web-ui-admin/image34.png)
+    ![로그 패키지 생성 4](./media/storsimple-ova-web-ui-admin/image34.png)
 
-4. You can unzip the downloaded log package and view the system log files.
+4. 다운로드한 로그 패키지의 압축을 풀어서 시스템 로그 파일을 볼 수 있습니다.
 
-## <a name="shut-down-and-restart-your-device"></a>Shut down and restart your device
+## 장치 종료 및 다시 시작
 
-You can shut down or restart your virtual device using the local web UI. We recommend that before you restart, take the volumes or shares offline on the host and then the device. This will minimize any possibility of data corruption. 
+로컬 웹 UI를 사용하여 가상 장치를 종료하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 볼륨 또는 공유를 오프라인으로 전환한 후 장치를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화됩니다.
 
-#### <a name="to-shut-down-your-virtual-device"></a>To shut down your virtual device
+#### 가상 장치를 종료하려면
 
-1. In the local web UI, go to **Maintenance** > **Power settings**.
+1. 로컬 웹 UI에서 **유지 관리** > **전원 설정**으로 이동합니다.
 
-2. At the bottom of the page, click **Shutdown**.
+2. 페이지 아래쪽에서 **종료**를 클릭합니다.
 
-    ![device shutdown 1](./media/storsimple-ova-web-ui-admin/image36.png)
+    ![장치 종료 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. A warning will appear stating that a shutdown of the device will interrupt any IO that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
+3. 장치를 종료하면 진행 중인 IO가(있다면) 중단되고 가동 중지 시간이 발생한다는 내용의 경고가 표시됩니다. 확인 아이콘![확인 아이콘](./media/storsimple-ova-web-ui-admin/image3.png)을 클릭합니다.
 
-    ![device shutdown warning](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![장치 종료 경고](./media/storsimple-ova-web-ui-admin/image37.png)
 
-    You will be notified that the shutdown has been initiated.
+    종료가 시작되었다는 메시지가 표시됩니다.
 
-    ![device shutdown started](./media/storsimple-ova-web-ui-admin/image38.png)
+    ![장치 종료 시작됨](./media/storsimple-ova-web-ui-admin/image38.png)
 
-    The device will now shut down. If you want to start your device, you will need to do that through the Hyper-V Manager.
+    장치가 종료됩니다. 장치를 시작하려면 Hyper-V 관리자를 통해 시작해야 합니다.
 
-#### <a name="to-restart-your-virtual-device"></a>To restart your virtual device
+#### 가상 장치를 다시 시작하려면
 
-1. In the local web UI, go to **Maintenance** > **Power settings**.
+1. 로컬 웹 UI에서 **유지 관리** > **전원 설정**으로 이동합니다.
 
-2. At the bottom of the page, click **Restart**.
+2. 페이지 아래쪽에서 **다시 시작**을 클릭합니다.
 
-    ![device restart](./media/storsimple-ova-web-ui-admin/image36.png)
+    ![장치 다시 시작](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. A warning will appear stating that restarting the device will interrupt any IOs that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
+3. 장치를 다시 시작하면 진행 중인 IO가(있다면) 중단되고 가동 중지 시간이 발생한다는 내용의 경고가 표시됩니다. 확인 아이콘![확인 아이콘](./media/storsimple-ova-web-ui-admin/image3.png)을 클릭합니다.
 
-    ![restart warning](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![다시 시작 경고](./media/storsimple-ova-web-ui-admin/image37.png)
 
-    You will be notified that the restart has been initiated.
+    다시 시작이 시작되었다는 메시지가 표시됩니다.
 
-    ![restart initiated](./media/storsimple-ova-web-ui-admin/image39.png)
+    ![다시 시작 시작됨](./media/storsimple-ova-web-ui-admin/image39.png)
 
-    While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can monitor the device restart status through the Hyper-V Manager.
+    다시 시작을 진행하는 동안 UI에 대한 연결이 끊어집니다. 주기적으로 UI를 새로 고쳐서 다시 시작을 모니터링할 수 있습니다. 또는 Hyper-V 관리자를 통해 장치 다시 시작 상태를 모니터링할 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Learn how to [use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md).
+[StorSimple Manager 서비스를 사용하여 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

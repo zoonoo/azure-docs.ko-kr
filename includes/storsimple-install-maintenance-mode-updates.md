@@ -1,32 +1,29 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>To install Maintenance mode updates via Windows PowerShell for StorSimple
+#### StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트를 설치하려면
 
-1. If you haven't done so already, access the device serial console and select option 1, **Log in with full access**. 
+1. 장치 직렬 콘솔에 액세스한 다음(아직 액세스하지 않은 경우) 옵션 1, **모든 권한으로 로그인**을 선택합니다. 
 
-2. Type the password. The default password is **Password1**.
+2. 암호를 입력합니다. 기본 암호는 **Password1**입니다.
 
-3. At the command prompt, type:
+3. 명령 프롬프트에 다음을 입력합니다.
 
-     `Get-HcsUpdateAvailability` 
+     `Get-HcsUpdateAvailability`
     
-4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Step 2: Enter Maintenance mode](storsimple-update-device.md#step2) for instructions.
+4. 업데이트가 사용 가능한지 여부 및 업데이트 시 장치를 중단해야 하는지 여부에 대한 알림이 표시됩니다. 장치를 중단하는 업데이트를 적용하려면 장치를 유지 관리 모드로 설정해야 합니다. 지침은 [2단계: 유지 관리 모드 전환](storsimple-update-device.md#step2)을 참조하세요.
 
-5. When your device is in Maintenance mode, at the command prompt, type: `Start-HcsUpdate`
+5. 장치가 유지 관리 모드 상태일 때 명령 프롬프트에 다음을 입력합니다. `Start-HcsUpdate`
 
-6. You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart. 
+6. 확인하라는 메시지가 표시됩니다. 업데이트를 확인하고 나면 현재 액세스 중인 컨트롤러에 업데이트가 설치됩니다. 업데이트가 설치되고 나면 컨트롤러가 다시 시작됩니다.
 
-7. Monitor the status of updates. Type:
+7. 업데이트 상태를 모니터링합니다. 형식:
 
-    `Get-HcsUpdateStatus`
-    
-    If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed.  
+	`Get-HcsUpdateStatus`
+	
+	`RunInProgress`가 `True`이면 업데이트가 아직 진행 중입니다. `RunInProgress`가 `False`이면 업데이트가 완료된 것입니다.
 
-7. When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.
+7. 업데이트가 현재 컨트롤러에 설치되고 다시 시작된 경우 다른 컨트롤러에 연결하여 1~6단계를 수행합니다.
 
-8. After both controllers are updated, exit Maintenance mode. See [Step 4: Exit Maintenance mode](storsimple-update-device.md#step4) for instructions.
+8. 두 컨트롤러를 모두 업데이트한 후 유지 관리 모드를 종료합니다. 지침은 [4단계: 유지 관리 모드 종료](storsimple-update-device.md#step4)를 참조하세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

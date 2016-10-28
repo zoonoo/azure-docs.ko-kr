@@ -1,246 +1,240 @@
 <properties
-    pageTitle="In-Memory OLTP improves SQL txn perf | Microsoft Azure"
-    description="Adopt In-Memory OLTP to improve transactional performance in an existing SQL database."
-    services="sql-database"
-    documentationCenter=""
-    authors="jodebrui"
-    manager="jhubbard"
-    editor="MightyPen"/>
+	pageTitle="메모리 내 OLTP이 SQL txn 성능 개선 | Microsoft Azure"
+	description="메모리 내 OLTP를 채택하여 기존 SQL 데이터베이스의 트랜잭션 성능을 향상합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="jodebrui"
+	manager="jhubbard"
+	editor="MightyPen"/>
 
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/03/2016"
-    ms.author="jodebrui"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/18/2016"
+	ms.author="jodebrui"/>
 
 
+# 메모리 내 OLTP(미리 보기)를 사용하여 SQL 데이터베이스에서 응용 프로그램의 성능 향상
 
-# <a name="use-in-memory-oltp-(preview)-to-improve-your-application-performance-in-sql-database"></a>Use In-Memory OLTP (preview) to improve your application performance in SQL Database
+[메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 성능 수준을 높이지 않고 [Premium](sql-database-service-tiers.md) Azure SQL 데이터베이스에서 OLTP 워크로드의 성능을 개선할 수 있습니다.
 
-[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of OLTP workload in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the performance level.
+기존 데이터베이스에서 메모리 내 OLTP를 채택하려면 다음 단계를 따르세요.
 
-Follow these steps to adopt In-Memory OLTP in your existing database.
+## 1단계: Premium 데이터베이스가 메모리 내 OLTP를 지원하는지 확인
 
-## <a name="step-1:-ensure-your-premium-database-supports-in-memory-oltp"></a>Step 1: Ensure your Premium database supports In-Memory OLTP
-
-Premium databases created in November 2015 or later do support the In-Memory feature. You can ascertain whether your Premium database supports the In-Memory feature by running the following Transact-SQL statement. In-Memory is supported if the returned result is 1 (not 0):
+2015년 11월 이후에 만든 Premium 데이터베이스는 메모리 내 기능을 지원합니다. 다음 Transact-SQL 문을 실행하여 Premium 데이터베이스가 메모리 내 기능을 지원하는지를 확인할 수 있습니다. 반환된 결과가 1인 경우(0이 아님) 메모리 내가 지원됩니다.
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 ```
 
-*XTP* stands for *Extreme Transaction Processing*
+*XTP*는 *고도의 트랜잭션 처리*의 약어입니다.
 
-If your existing database must be moved to a new V12 Premium database, you can use the following techniques to export and then import your data.
+새 V12 Premium 데이터베이스에 기존 데이터베이스를 이동해야 하는 경우 다음 기술을 사용하여 데이터를 내보내고 가져올 수 있습니다.
 
-#### <a name="export-steps"></a>Export steps
+#### 내보내기 단계
 
-Export your production database to a bacpac by using either:
+다음 중 하나를 사용하여 프로덕션 데이터베이스를 내보냅니다.
 
-- The [Export](sql-database-export.md) functionality in the [portal](https://portal.azure.com/).
+- [포털](https://portal.azure.com/)에서 [내보내기](sql-database-export.md) 기능.
 
-- The **Export Data-tier Application** functionality in an [up-to-date SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
- 1. In the **Object Explorer**, expand the **Databases** node.
- 2. Right-click your database node.
- 3. Click **Tasks** > **Export Data-tier Application**.
- 4. Operate the wizard window that is displayed.
-
-
-#### <a name="import-steps"></a>Import steps
-
-Import the bacpac into a new Premium database.
-
-1. In the Azure [portal](https://portal.azure.com/),
- - Navigate to the server.
- - Select the [Import Database](sql-database-import.md) option.
- - Select a Premium pricing tier.
-
-2. Use SSMS to import the bacpac:
- - In the **Object Explorer**, right-click the **Databases** node.
- - Click **Import Data-Tier Application**.
- - Operate the wizard window that is displayed.
+- [최신 SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx)(SQL Server Management Studio)에서 **데이터 계층 응용 프로그램 내보내기** 기능.
+ 1. **개체 탐색기**에서 **데이터베이스** 노드를 확장합니다.
+ 2. 데이터베이스 노드를 마우스 오른쪽 단추로 클릭합니다.
+ 3. **작업** > **데이터 계층 응용 프로그램 내보내기**를 클릭합니다.
+ 4. 표시되는 마법사 창을 작동합니다.
 
 
-## <a name="step-2:-identify-objects-to-migrate-to-in-memory-oltp"></a>Step 2: Identify objects to migrate to In-Memory OLTP
+#### 가져오기 단계
 
-SSMS includes a **Transaction Performance Analysis Overview** report that you can run against a database with an active workload. The report identifies tables and stored procedures that are candidates for migration to In-Memory OLTP.
+새로운 Premium 데이터베이스로 bacpac 가져옵니다.
 
-In SSMS, to generate the report:
-- In the **Object Explorer**, right-click your database node.
-- Click **Reports** > **Standard Reports** > **Transaction Performance Analysis Overview**.
+1. Azure [포털](https://portal.azure.com/)에서
+ - 서버로 이동합니다.
+ - [데이터베이스 가져오기](sql-database-import.md) 옵션을 선택합니다.
+ - Premium 가격 책정 계층을 선택합니다.
 
-For more information, see [Determining if a Table or Stored Procedure Should Be Ported to In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
+2. SSMS를 사용하여 bacpac를 가져옵니다.
+ - **개체 탐색기**에서 마우스 오른쪽 단추로 **데이터베이스** 노드를 클릭합니다.
+ - **데이터 계층 응용 프로그램 가져오기**를 클릭합니다.
+ - 표시되는 마법사 창을 작동합니다.
 
 
-## <a name="step-3:-create-a-comparable-test-database"></a>Step 3: Create a comparable test database
+## 2단계: 개체를 식별하여 메모리 내 OLTP로 마이그레이션
 
-Suppose the report indicates your database has a table that would benefit from being converted to a memory-optimized table. We recommend that you first test to confirm the indication by testing.
+SSMS는 활성 워크로드를 사용하여 데이터베이스에 대해 실행할 수 있는 **트랜잭션 성능 분석 개요** 보고서를 포함합니다. 보고서는 메모리 내 OLTP로 마이그레이션하기 위한 후보인 테이블 및 저장된 프로시저를 식별합니다.
 
-You need a test copy of your production database. The test database must be at the same service tier level as your production database.
+SSMS에서 보고서를 생성합니다.
+- **개체 탐색기**에서 데이터베이스 노드를 마우스 오른쪽 단추로 클릭합니다.
+- **보고서** > **표준 보고서** > **트랜잭션 성능 분석 개요**를 클릭합니다.
 
-To ease testing, tweak your test database as follows:
+자세한 내용은 [테이블 또는 저장 프로시저가 메모리 내 OLTP로 이식되어야 하는지 결정](http://msdn.microsoft.com/library/dn205133.aspx)을 참조하세요.
 
-1. Connect to the test database by using SSMS.
 
-2. To avoid needing the WITH (SNAPSHOT) option in queries, set the database option as shown in the following T-SQL statement:
+## 3단계: 비교할 수 있는 테스트 데이터베이스 만들기
+
+보고서는 데이터베이스에 메모리에 최적화된 테이블로 변환하여 이점을 얻을 수 있는 테이블이 있음을 나타낸다고 가정합니다. 이를 확인하기 위해 먼저 테스트하는 것이 좋습니다.
+
+프로덕션 데이터베이스의 테스트 복사본이 필요합니다. 테스트 데이터베이스는 프로덕션 데이터베이스와 동일한 서비스 계층 수준에 있어야 합니다.
+
+쉽게 테스트하려면 테스트 데이터베이스를 다음과 같이 조정합니다.
+
+1. SSMS를 사용하여 테스트 데이터베이스에 연결합니다.
+
+2. 쿼리에서 WITH(SNAPSHOT) 옵션의 필요를 방지하려면 다음 T-SQL 문에서와 같이 데이터베이스 옵션을 설정합니다.
 ```
 ALTER DATABASE CURRENT
-    SET
-        MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
+	SET
+		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
 ```
 
 
-## <a name="step-4:-migrate-tables"></a>Step 4: Migrate tables
+## 4단계: 테이블 마이그레이션
 
-You must create and populate a memory-optimized copy of the table you want to test. You can create it by using either:
+테스트하려는 테이블의 메모리에 최적화된 복사본을 만들고 채워야 합니다. 다음 중 하나를 사용하여 만들 수 있습니다.
 
-- The handy Memory Optimization Wizard in SSMS.
-- Manual T-SQL.
-
-
-#### <a name="memory-optimization-wizard-in-ssms"></a>Memory Optimization Wizard in SSMS
-
-To use this migration option:
-
-1. Connect to the test database with SSMS.
-
-2. In the **Object Explorer**, right-click on the table, and then click **Memory Optimization Advisor**.
- - The **Table Memory Optimizer Advisor** wizard is displayed.
-
-3. In the wizard, click **Migration validation** (or the **Next** button) to see if the table has any unsupported features that are unsupported in memory-optimized tables. For more information, see:
- - The *memory optimization checklist* in [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx).
- - [Transact-SQL Constructs Not Supported by In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx).
- - [Migrating to In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx).
-
-4. If the table has no unsupported features, the advisor can perform the actual schema and data migration for you.
+- SSMS의 편리한 메모리 최적화 마법사.
+- 수동 T-SQL.
 
 
-#### <a name="manual-t-sql"></a>Manual T-SQL
+#### SSMS의 메모리 최적화 마법사.
 
-To use this migration option:
+이 마이그레이션 옵션을 사용하려면.
 
-1. Connect to your test database by using SSMS (or a similar utility).
+1. SSMS를 사용하여 테스트 데이터베이스에 연결합니다.
 
-2. Obtain the complete T-SQL script for your table and its indexes.
- - In SSMS, right-click your table node.
- - Click **Script Table As** > **CREATE To** > **New Query Window**.
+2. **개체 탐색기**에서 테이블을 마우스 오른쪽 단추로 클릭한 다음 **메모리 최적화 관리자**를 클릭합니다.
+ - **테이블 메모리 최적화 관리자** 마법사가 표시됩니다.
 
-3. In the script window, add WITH (MEMORY_OPTIMIZED = ON) to the CREATE TABLE statement.
+3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)을 클릭하여 메모리에 최적화된 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
+ - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)의 *메모리 최적화 검사 목록*.
+ - [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx).
+ - [메모리 내 OLTP로 마이그레이션](http://msdn.microsoft.com/library/dn247639.aspx).
 
-4. If there is a CLUSTERED index, change it to NONCLUSTERED.
+4. 테이블에 지원되지 않는 기능이 없는 경우 관리자는 사용자에게 실제 스키마 및 데이터 마이그레이션을 수행할 수 있습니다.
 
-5. Rename the existing table by using SP_RENAME.
 
-6. Create the new memory-optimized copy of the table by running your edited CREATE TABLE script.
+#### 수동 T-SQL
 
-7. Copy the data to your memory-optimized table by using INSERT...SELECT * INTO:
-    
+이 마이그레이션 옵션을 사용하려면.
+
+1. SSMS(또는 유사한 유틸리티)를 사용하여 테스트 데이터베이스에 연결합니다.
+
+2. 테이블 및 해당 인덱스에 대한 완전한 T-SQL 스크립트를 가져옵니다.
+ - SSMS에서 테이블 노드를 마우스 오른쪽 단추로 클릭합니다.
+ - **으로 테이블 스크립트** > **에 만들기** > **새 쿼리 창**을 클릭합니다.
+
+3. 스크립트 창에서 테이블 만들기 문에 WITH (MEMORY\_OPTIMIZED = ON)을 추가합니다.
+
+4. 클러스터형 인덱스가 있을 경우 비클러스터형으로 변경합니다.
+
+5. SP\_RENAME을 사용하여 기존 테이블의 이름을 바꿉니다.
+
+6. 편집된 만들기 테이블 스크립트를 실행하여 테이블의 새 메모리에 최적화된 복사본을 만듭니다.
+
+7. 삽입을 사용하여 메모리에 최적화된 테이블에 데이터를 복사합니다... *를 다음에 선택합니다.
+	
 ```
 INSERT INTO <new_memory_optimized_table>
-        SELECT * FROM <old_disk_based_table>;
+		SELECT * FROM <old_disk_based_table>;
 ```
 
 
-## <a name="step-5-(optional):-migrate-stored-procedures"></a>Step 5 (optional): Migrate stored procedures
+## 5단계(선택 사항): 저장 프로시저 마이그레이션
 
-The In-Memory feature can also modify a stored procedure for improved performance.
-
-
-### <a name="considerations-with-natively-compiled-stored-procedures"></a>Considerations with natively compiled stored procedures
-
-A natively compiled stored procedure must have the following options on its T-SQL WITH clause:
-
-- NATIVE_COMPILATION
-
-- SCHEMABINDING: meaning tables that the stored procedure cannot have their column definitions changed in any way that would affect the stored procedure, unless you drop the stored procedure.
+또한 메모리 내 기능은 향상된 성능을 위해 저장 프로시저를 수정할 수 있습니다.
 
 
-A native module must use one big [ATOMIC blocks](http://msdn.microsoft.com/library/dn452281.aspx) for transaction management. There is no role for an explicit BEGIN TRANSACTION, or for ROLLBACK TRANSACTION. If your code detects a violation of a business rule, it can terminate the atomic block with a [THROW](http://msdn.microsoft.com/library/ee677615.aspx) statement.
+### 고유하게 컴파일된 저장 프로시저를 사용할 때 고려 사항
+
+고유하게 컴파일된 저장 프로시저에는 절이 있는 해당 T-SQL에서 다음 옵션이 있어야 합니다.
+
+- NATIVE\_COMPILATION
+
+- SCHEMABINDING: 저장 프로시저가 삭제되지 않는 한 스스로에 영향을 주는 방식으로 변경된 해당 열 정의를 가질 수 없는 테이블을 의미합니다.
 
 
-### <a name="typical-create-procedure-for-natively-compiled"></a>Typical CREATE PROCEDURE for natively compiled
+네이티브 모듈은 트랜잭션 관리에 하나의 큰 [ATOMIC 블록](http://msdn.microsoft.com/library/dn452281.aspx)을 사용해야 합니다. 명시적 BEGIN TRANSACTION 또는 ROLLBACK TRANSACTION에 대한 역할이 없습니다. 코드가 비즈니스 규칙 위반을 감지한 경우 [THROW](http://msdn.microsoft.com/library/ee677615.aspx) 문으로 ATOMIC 블록을 종료할 수 있습니다.
 
-Typically the T-SQL to create a natively compiled stored procedure is similar to the following template:
+
+### 고유하게 컴파일된 일반적인 만들기 프로시저
+
+고유하게 컴파일된 저장 프로시저를 만드는 T-SQL은 일반적으로 다음 템플릿과 유사합니다.
 
 ```
 CREATE PROCEDURE schemaname.procedurename
-    @param1 type1, …
-    WITH NATIVE_COMPILATION, SCHEMABINDING
-    AS
-        BEGIN ATOMIC WITH
-            (TRANSACTION ISOLATION LEVEL = SNAPSHOT,
-            LANGUAGE = N'your_language__see_sys.languages'
-            )
-        …
-        END;
+	@param1 type1, …
+	WITH NATIVE_COMPILATION, SCHEMABINDING
+	AS
+		BEGIN ATOMIC WITH
+			(TRANSACTION ISOLATION LEVEL = SNAPSHOT,
+			LANGUAGE = N'your_language__see_sys.languages'
+			)
+		…
+		END;
 ```
 
-- For the TRANSACTION_ISOLATION_LEVEL, SNAPSHOT is the most common value for the natively compiled stored procedure. However,  a subset of the other values are also supported:
- - REPEATABLE READ
- - SERIALIZABLE
+- TRANSACTION\_ISOLATION\_LEVEL의 경우 스냅숏은 고유하게 컴파일된 저장 프로시저에 대한 가장 일반적인 값입니다. 그러나 다른 값의 하위 집합에서도 지원됩니다.
+ - 반복 가능한 읽기
+ - 직렬화 가능
 
 
-- The LANGUAGE value must be present in the sys.languages view.
+- sys.languages 보기에 언어 값이 나탸나야 합니다.
 
 
-### <a name="how-to-migrate-a-stored-procedure"></a>How to migrate a stored procedure
+### 저장 프로시저를 마이그레이션하는 방법
 
-The migration steps are:
-
-
-1. Obtain the CREATE PROCEDURE script to the regular interpreted stored procedure.
-
-2. Rewrite its header to match the previous template.
-
-3. Ascertain whether the stored procedure T-SQL code uses any features that are not supported for natively compiled stored procedures. Implement workarounds if necessary.
- - For details see [Migration Issues for Natively Compiled Stored Procedures](http://msdn.microsoft.com/library/dn296678.aspx).
-
-4. Rename the old stored procedure by using SP_RENAME. Or simply DROP it.
-
-5. Run your edited CREATE PROCEDURE T-SQL script.
+마이그레이션 단계는 다음과 같습니다.
 
 
-## <a name="step-6:-run-your-workload-in-test"></a>Step 6: Run your workload in test
+1. 일반적으로 해석된 저장 프로시저에 프로시저 만들기 스크립트를 가져옵니다.
 
-Run a workload in your test database that is similar to the workload that runs in your production database. This should reveal the performance gain achieved by your use of the In-Memory feature for tables and stored procedures.
+2. 이전 템플릿에 맞게 해당 헤더를 다시 작성합니다.
 
-Major attributes of the workload are:
+3. 저장 프로시저 T-SQL 코드가 고유하게 컴파일된 저장 프로시저에 지원하지 않는 기능을 사용하는지를 확인합니다. 필요한 경우 해결 방법을 구현합니다.
+ - 자세한 내용은 [고유하게 컴파일된 저장 프로시저에 대한 마이그레이션 문제](http://msdn.microsoft.com/library/dn296678.aspx)를 참조하세요.
 
-- Number of concurrent connections.
+4. SP\_RENAME을 사용하여 이전의 저장 프로시저의 이름을 바꿉니다. 또는 단순히 삭제합니다.
 
-- Read/write ratio.
-
-
-To tailor and run the test workload, consider using the handy ostress.exe tool, which illustrated in [here](sql-database-in-memory.md).
+5. 편집된 프로시저 T-SQL 만들기 스크립트를 실행합니다.
 
 
-To minimize network latency, run your test in the same Azure geographic region where the database exists.
+## 6단계: 테스트에서 워크로드 실행
+
+프로덕션 데이터베이스에서 실행되는 워크로드와 비슷한 테스트 데이터베이스에서 워크로드를 실행합니다. 이 옵션은 테이블 및 저장된 프로시저에 메모리 내 기능을 사용하여 얻는 성능 향상을 드러내야 합니다.
+
+워크로드의 주요 특성은 다음과 같습니다.
+
+- 동시 연결 수.
+
+- 읽기/쓰기 비율.
 
 
-## <a name="step-7:-post-implementation-monitoring"></a>Step 7: Post-implementation monitoring
-
-Consider monitoring the performance effects of your In-Memory implementations in production:
-
-- [Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md).
-
-- [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
+테스트 워크로드를 조정하고 실행하려면 [여기](sql-database-in-memory.md)에 설명된 편리한 ostress.exe 도구를 사용하는 것이 좋습니다.
 
 
-## <a name="related-links"></a>Related links
-
-- [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
-
-- [Introduction to Natively Compiled Stored Procedures](http://msdn.microsoft.com/library/dn133184.aspx)
-
-- [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx)
+네트워크 대기 시간을 최소화하려면 데이터베이스가 있는 동일한 Azure 지리적 지역에 있는 테스트를 실행합니다.
 
 
+## 7단계: 사후 실현 모니터링
+
+프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
+
+- [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
+
+- [동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)
 
 
-<!--HONumber=Oct16_HO2-->
+## 관련 링크
 
+- [메모리 내 OLTP(메모리 내 최적화)](http://msdn.microsoft.com/library/dn133186.aspx)
 
+- [고유하게 컴파일된 저장 프로시저의 소개](http://msdn.microsoft.com/library/dn133184.aspx)
+
+- [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)
+
+<!---HONumber=AcomDC_0720_2016-->

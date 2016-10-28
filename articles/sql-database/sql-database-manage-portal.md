@@ -1,180 +1,175 @@
 <properties
-    pageTitle="Manage Azure SQL Database using the Azure Portal | Microsoft Azure"
-    description="Learn how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Azure Portal을 사용하여 Azure SQL Database 관리 | Microsoft Azure"
+	description="Azure 포털을 사용하여 클라우드의 관계형 데이터베이스를 관리하는 방법을 알아보세요."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.date="09/19/2016"
-    ms.author="sstein"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.date="09/19/2016"
+	ms.author="sstein"/>
 
 
-
-# <a name="managing-azure-sql-databases-using-the-azure-portal"></a>Managing Azure SQL Databases using the Azure portal
+# Azure 포털을 사용하여 Azure SQL 데이터베이스 관리
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-manage-portal.md)
+- [Azure 포털](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
-The [Azure portal](https://portal.azure.com/) allows you to create, monitor, and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.
+[Azure Portal](https://portal.azure.com/)을 사용하여 Azure SQL Database 및 서버를 만들고, 모니터링하고, 관리할 수 있습니다. 이 문서에서는 더 많은 일반 작업의 간략한 설명과 더 자세한 설명에 대한 링크를 제공합니다.
 
-## <a name="view-your-azure-sql-databases,-servers,-and-pools"></a>View your Azure SQL databases, servers, and pools
+## Azure SQL Database, 서버 및 풀 보기
 
-To view the available SQL Database services, click **More services**, and type **SQL** in the search box:
+사용 가능한 SQL Database 서비스를 보려면 **서비스 더 보기**를 클릭하고 검색 상자에 **SQL**을 입력합니다.
 
-![SQL Database](./media/sql-database-manage-portal/sql-services.png)
+![SQL 데이터베이스](./media/sql-database-manage-portal/sql-services.png)
 
 
-## <a name="how-do-i-create-or-view-azure-sql-databases?"></a>How do I create or view Azure SQL databases?
+## Azure SQL Database를 만들거나 보는 방법
 
-To open the **SQL databases** blade, click **SQL databases**, and then click the database you want to work with, or click **+Add** to create a SQL database. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
+**SQL 데이터베이스** 블레이드를 열려면 **SQL 데이터베이스**를 클릭한 다음 작업하려는 데이터베이스를 클릭하거나 **+추가**를 클릭하여 SQL 데이터베이스를 만듭니다. 자세한 내용은 [Azure Portal을 사용하여 빠르게 SQL Database 만들기](sql-database-get-started.md)를 참조하세요.
 
 
-![SQL databases](./media/sql-database-manage-portal/sql-databases.png)
+![SQL 데이터베이스](./media/sql-database-manage-portal/sql-databases.png)
 
 
-## <a name="how-do-i-create-or-view-azure-sql-servers?"></a>How do I create or view Azure SQL servers?
+## Azure SQL Server를 만들거나 보는 방법
 
-To open the **SQL servers** blade, click **SQL servers**, and then click the server you want to work with, or click **+Add** to create a SQL server. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
+**SQL 서버** 블레이드를 열려면 **SQL 서버**를 클릭한 다음 작업하려는 서버를 클릭하거나 **+추가**를 클릭하여 SQL Server를 만듭니다. 자세한 내용은 [Azure Portal을 사용하여 빠르게 SQL Database 만들기](sql-database-get-started.md)를 참조하세요.
 
-![SQL servers](./media/sql-database-manage-portal/sql-servers.png)
+![SQL Server](./media/sql-database-manage-portal/sql-servers.png)
 
 
-## <a name="how-do-i-create-or-view-sql-elastic-pools?"></a>How do I create or view SQL elastic pools?
+## SQL 탄력적 풀을 만들거나 보는 방법
 
-To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic database pool with the Azure portal](sql-database-elastic-pool-create-portal.md).
+**SQL 탄력적 풀** 블레이드를 열려면 **SQL 탄력적 풀**을 클릭한 다음 작업하려는 풀을 클릭하거나 **+추가**를 클릭하여 풀을 만듭니다. 자세한 내용은 [Azure Portal로 Elastic Database 풀 만들기](sql-database-elastic-pool-create-portal.md)를 참조하세요.
 
-![SQL elastic pools](./media/sql-database-manage-portal/elastic-pools.png)
+![SQL 탄력적 풀](./media/sql-database-manage-portal/elastic-pools.png)
 
 
 
-## <a name="how-do-i-update-or-view-sql-database-settings?"></a>How do I update or view SQL database settings?
+## SQL 데이터베이스 설정을 업데이트하거나 보는 방법
 
-To view or update your database settings, click the desired setting on the SQL database blade:
+데이터베이스 설정을 보거나 업데이트하려면 SQL 데이터베이스 블레이드에서 원하는 설정을 클릭합니다.
 
 
-![SQL database settings](./media/sql-database-manage-portal/settings.png)
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/settings.png)
 
 
-## <a name="how-do-i-find-a-sql-databases-fully-qualified-server-name?"></a>How do I find a SQL databases fully qualified server name?
+## SQL 데이터베이스 정규화된 서버 이름을 찾는 방법
 
-To view your databases server name, click **Overview** on the **SQL database** blade and note the server name:
+데이터베이스 서버 이름을 보려면 **SQL 데이터베이스** 블레이드에서 **개요**를 클릭하고 서버 이름을 기록해 둡니다.
 
 
-![SQL database settings](./media/sql-database-manage-portal/server-name.png)
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/server-name.png)
 
 
-## <a name="how-do-i-manage-firewall-rules-to-control-access-to-my-sql-server-and-database?"></a>How do I manage firewall rules to control access to my SQL server and database?
+## 내 SQL Server 및 데이터베이스에 대한 액세스를 제어하는 방화벽 규칙을 관리하는 방법
 
-To view, create, or update firewall rules, click **Set server firewall** on the **SQL database** blade. For details, see [Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md).
+방화벽 규칙을 보거나, 만들거나, 업데이트하려면 **SQL 데이터베이스** 블레이드에서 **Set server firewall**(서버 방화벽 설정)을 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
-![firewall rules](./media/sql-database-manage-portal/sql-database-firewall.png)
+![방화벽 규칙](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 
-## <a name="how-do-i-change-my-sql-database-service-tier-or-performance-level?"></a>How do I change my SQL database service tier or performance level?
+## SQL 데이터베이스 서비스 계층 또는 성능 수준을 변경하는 방법
 
 
-To update the service tier or performance level of a SQL database, click **Pricing tier (scale DTUs)** on the **SQL database** blade. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md).
+SQL 데이터베이스의 서비스 계층 또는 성능 수준을 업데이트하려면 **SQL 데이터베이스** 블레이드에서 **가격 책정 계층(DTU 크기 조정)**을 클릭합니다. 자세한 내용은 [SQL Database의 서비스 계층 및 성능 수준(가격 책정 계층) 변경](sql-database-scale-up.md)을 참조하세요.
 
 
-![pricing tiers](./media/sql-database-manage-portal/pricing-tier.png)
+![가격 책정 계층](./media/sql-database-manage-portal/pricing-tier.png)
 
 
-## <a name="how-do-i-configure-auditing-and-threat-detection-for-a-sql-database?"></a>How do I configure auditing and threat detection for a SQL database?
+## SQL 데이터베이스에 대한 감사 및 위협 감지를 구성하는 방법
 
-To configure auditing and threat detection for a SQL database, click **Auditing and Threat detection** on the **SQL database** blade. For details, see [Get started with SQL database auditing](sql-database-auditing-get-started.md), and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
+SQL 데이터베이스에 대한 감사 및 위협 감지를 구성하려면 **SQL 데이터베이스** 블레이드에서 **감사 및 위협 감지**를 클릭합니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md) 및 [SQL Database 위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 
 
-## <a name="how-do-i-configure-dynamic-data-masking-for-a-sql-database?"></a>How do I configure dynamic data masking for a SQL database?
+## SQL 데이터베이스에 대한 동적 데이터 마스킹을 구성하는 방법
 
-To configure dynamic data masking for a SQL database, click **Dynamic data masking** on the **SQL database** blade. For details, see [Get started with SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md).
+SQL 데이터베이스에 대한 동적 데이터 마스킹을 구성하려면 **SQL 데이터베이스** 블레이드에서 **동적 데이터 마스킹**을 클릭합니다. 자세한 내용은 [SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
 
 
-## <a name="how-do-i-configure-transparent-data-encryption-(tde)-for-a-sql-database?"></a>How do I configure transparent data encryption (TDE) for a SQL database?
+## SQL 데이터베이스에 대한 TDE(투명한 데이터 암호화)를 구성하는 방법
 
-To configure transparent data encryption for a SQL database, click **Transparent data encryption** on the **SQL database** blade. For details, see [Enable TDE on a database using the portal](https://msdn.microsoft.com/library/dn948096#Anchor_1).
+SQL 데이터베이스에 대한 투명한 데이터 암호화를 구성하려면 **SQL 데이터베이스** 블레이드에서 **투명한 데이터 암호화**를 클릭합니다. 자세한 내용은 [포털을 사용하여 데이터베이스에 대해 TDE를 사용하도록 설정](https://msdn.microsoft.com/library/dn948096#Anchor_1)을 참조하세요.
 
-## <a name="how-do-i-view-or-change-the-max-size-of-a-sql-database?"></a>How do I view or change the max size of a SQL database?
+## SQL 데이터베이스의 최대 크기를 변경하는 방법
 
-To view or change the size a SQL database, click **Database size** on the **SQL database** blade. Update the max size of a database by changing the service tier or performance level. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md).
+SQL 데이터베이스의 크기를 보거나 변경하려면 **SQL 데이터베이스** 블레이드에서 **데이터베이스 크기**를 클릭합니다. 서비스 계층 또는 성능 수준을 변경하여 데이터베이스의 최대 크기를 업데이트합니다. 자세한 내용은 [SQL Database의 서비스 계층 및 성능 수준(가격 책정 계층) 변경](sql-database-scale-up.md)을 참조하세요.
 
-## <a name="how-do-i-monitor-and-improve-the-performance-of-a-sql-database?"></a>How do I monitor and improve the performance of a SQL database?
+## SQL 데이터베이스의 성능을 모니터링 및 개선하는 방법
 
-To monitor and improve performance characteristics of a SQL database, click **Performance overview** on the **SQL database** blade. For details, see [SQL Database Performance Insight](sql-database-performance.md).
+SQL 데이터베이스의 성능 특성을 모니터링 및 개선하려면 **SQL 데이터베이스** 블레이드에서 **성능 개요**를 클릭합니다. 자세한 내용은 [SQL 데이터베이스 성능 Insight](sql-database-performance.md)를 참조하세요.
 
 
-## <a name="how-do-i-configure-geo-replication?"></a>How do I configure Geo-Replication?
+## 지역에서 복제를 구성하는 방법
 
-To set up Geo-Replication for a SQL database, click **Geo-Replication** on the **SQL database** blade. For details, see [Configure Geo-Replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
+SQL 데이터베이스에 대한 지역에서 복제를 설정하려면 **SQL 데이터베이스** 블레이드에서 **지역에서 복제**를 클릭합니다. 자세한 내용은 [Azure Portal로 Azure SQL Database에 대한 지역에서 복제 구성](sql-database-geo-replication-portal.md)을 참조하세요.
 
 
-## <a name="how-do-i-failover-to-a-geo-replicated-sql-database?"></a>How do I failover to a geo-replicated SQL database?
+## 지역에서 복제된 SQL 데이터베이스로 장애 조치(failover)하는 방법
 
-To failover to a geo-replicated secondary, click **Geo-Replication** on the **SQL database** blade, then click **Failover**. For details, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-failover-portal.md).
+지역에서 복제된 보조 데이터베이스로 장애 조치(failover)하려면 **SQL 데이터베이스** 블레이드에서 **지역에서 복제**를 클릭한 다음 **장애 조치(failover)**를 클릭합니다. 자세한 내용은 [Azure Portal에서 Azure SQL Database에 대해 계획 또는 계획되지 않은 장애 조치(failover) 시작](sql-database-geo-replication-failover-portal.md)을 참조하세요.
 
 
-## <a name="how-do-i-copy-a-sql-database?"></a>How do I copy a SQL database?
+## SQL 데이터베이스를 복사하는 방법
 
-To copy a SQL database, click **Copy** on the **SQL database** blade. For details, see [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md).
+SQL 데이터베이스를 복사하려면 **SQL 데이터베이스** 블레이드에서 **복사**를 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 복사](sql-database-copy-portal.md)를 참조하세요.
 
 
-![SQL database settings](./media/sql-database-manage-portal/sql-database-copy.png)
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-copy.png)
 
-## <a name="how-do-i-archive-an-azure-sql-database-to-a-bacpac-file?"></a>How do I archive an Azure SQL database to a BACPAC file?
+## Azure SQL Database를 BACPAC 파일에 보관하는 방법
 
-To create a BACPAC of a SQL database, click **Export** on the **SQL database** blade. For details, see [Archive an Azure SQL database to a BACPAC file using the Azure portal](sql-database-export.md).
+SQL 데이터베이스의 BACPAC를 만들려면 **SQL 데이터베이스** 블레이드에서 **내보내기**를 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database를 BACPAC 파일에 보관](sql-database-export.md)을 참조하세요.
 
 
-![SQL database export](./media/sql-database-manage-portal/sql-database-export.png)
+![SQL 데이터베이스 내보내기](./media/sql-database-manage-portal/sql-database-export.png)
 
 
 
-## <a name="how-do-i-restore-a-sql-database-to-a-previous-point-in-time?"></a>How do I restore a SQL database to a previous point in time?
+## 이전 시점으로 SQL Database를 복원하는 방법
 
-To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
+SQL 데이터베이스를 복원하려면 **SQL 데이터베이스** 블레이드에서 **복원**을 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 이전 시점으로 Azure SQL Database 복원](sql-database-point-in-time-restore-portal.md)을 참조하세요.
 
 
-![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-restore.png)
 
 
-## <a name="how-do-i-create-an-azure-sql-database-from-a-bacpac-file?"></a>How do I create an Azure SQL database from a BACPAC file?
+## BACPAC 파일에서 Azure SQL Database를 만드는 방법
 
-To create a SQL database from a BACPAC file, click **Import database** on the **SQL server** blade. For details, see [Import a BACPAC file to create an Azure SQL database](sql-database-import.md).
+BACPAC 파일에서 SQL 데이터베이스를 만들려면 **SQL Server** 블레이드에서 **데이터베이스 가져오기**를 클릭합니다. 자세한 내용은 [BACPAC 파일을 가져와 Azure SQL Database 만들기](sql-database-import.md)를 참조하세요.
 
 
-![SQL server](./media/sql-database-manage-portal/server-commands.png)
+![SQL Server](./media/sql-database-manage-portal/server-commands.png)
 
 
-## <a name="how-do-i-restore-a-deleted-sql-database?"></a>How do I restore a deleted SQL database?
+## 삭제된 SQL Database 복원 방법
 
-To restore a deleted SQL database, click **Deleted databases** on the **SQL server** blade (the SQL server that contained the database that was deleted). For details, see [Restore a deleted Azure SQL database using the Azure portal](sql-database-restore-deleted-database-portal.md).
+삭제된 SQL 데이터베이스를 복원하려면 **SQL Server** 블레이드(삭제된 데이터베이스가 포함된 SQL Server)에서 **데이터베이스 삭제**를 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 삭제된 Azure SQL Database 복원](sql-database-restore-deleted-database-portal.md)을 참조하세요.
 
-## <a name="how-do-i-delete-a-sql-database?"></a>How do I delete a SQL database?
+## SQL Database 삭제 방법
 
-To delete a SQL database, click **Delete** on the **SQL database** blade. 
+SQL 데이터베이스를 삭제하려면 **SQL 데이터베이스** 블레이드에서 **삭제**를 클릭합니다.
 
-![SQL database settings](./media/sql-database-manage-portal/sql-database-delete.png)
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 
-## <a name="additional-resources"></a>Additional resources
+## 추가 리소스
 
-- [SQL Database](sql-database-technical-overview.md)
-- [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md)
+- [SQL 데이터베이스](sql-database-technical-overview.md)
+- [Azure 포털을 사용하여 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,44 +1,43 @@
 <properties
-    pageTitle="When to use NoSQL vs SQL | Microsoft Azure"
-    description="Compare the benefits of using NoSQL non-relational solutions versus SQL solutions. Learn whether one of the Microsoft Azure NoSQL services or SQL Server best fits your scenario."
-    keywords="nosql vs sql, when to use NoSQL, sql vs nosql"
-    services="documentdb"
-    documentationCenter=""
-    authors="mimig1"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="NoSQL 및 SQL을 사용하는 경우 | Microsoft Azure"
+	description="SQL 솔루션과 비관계형 NoSQL 솔루션 사용의 이점을 비교합니다. Microsoft Azure NoSQL 서비스 또는 SQL Server 중 무엇이 시나리오에 가장 적합한지를 알아봅니다."
+	keywords="nosql과 sql, NoSQL을 사용하는 경우, sql과 nosql"
+	services="documentdb"
+	documentationCenter=""
+	authors="mimig1"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article" 
-    ms.date="06/24/2016"
-    ms.author="mimig"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article" 
+	ms.date="06/24/2016"
+	ms.author="mimig"/>
 
+# NoSQL과 SQL
 
-# <a name="nosql-vs-sql"></a>NoSQL vs SQL
+SQL Server 및 RDBMS(관계형 데이터베이스)는 20년 넘게 사용하고 있는 데이터베이스입니다. 그러나 더 많은 볼륨 및 빠른 속도로 각종 데이터를 처리해야 할 필요성의 증가로 인해 응용 프로그램 개발자에게 필요한 데이터 저장소 특성이 변경되었습니다. 이 시나리오를 지원하기 위해 대규모로 비구조적 데이터 및 다른 유형의 데이터를 저장할 수 있는 NoSQL 데이터베이스가 인기를 얻었습니다.
 
-SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. 
+NoSQL은 SQL 데이터베이스와는 분명히 다른 데이터베이스의 범주입니다. NoSQL은 "SQL이 아님"인 데이터 관리 시스템 또는 "SQL만이 아님" 데이터 관리 접근 방식을 참조하는 데 자주 사용됩니다. 문서 데이터베이스, 키 값 저장소, 열 패밀리 저장소 및 게임, 소셜, IoT 앱으로 널리 사용되는 그래프 데이터베이스를 포함하여 NoSQL 범주에는 다양한 기술이 있습니다.
 
-NoSQL is a category of databases distinctly different from SQL databases. NoSQL is often used to refer to data management systems that are “Not SQL” or an approach to data management that includes “Not only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, column family stores, and graph databases, which are popular with gaming, social, and IoT apps.
+![일반적인 시나리오와 데이터 모델을 설명하는 NoSQL 및 SQL 개요 다이어그램](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
 
-![NoSQL vs SQL overview diagram demonstrating common scenarios and data models](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
+이 문서에서는 NoSQL 및 SQL 사이의 차이점에 대해 알아보고 Microsoft에서 제공하는 NoSQL 및 SQL에 대해 소개합니다.
 
-The goal of this article is to help you learn about the differences between NoSQL and SQL, and provide you with an introduction to the NoSQL and SQL offerings from Microsoft.  
+## NoSQL을 사용해야 하는 경우
 
-## <a name="when-to-use-nosql?"></a>When to use NoSQL?
+새 소셜 참여 사이트를 구축한다고 가정합시다. 사용자가 게시물을 만들고 사진, 동영상 및 음악을 추가할 수 있습니다. 다른 사용자가 게시물에 의견을 달고 게시물의 등급(좋아요)을 매길 수 있습니다. 방문 페이지에는 사용자가 공유하고 조작할 수 있는 게시물의 피드가 생깁니다.
 
-Let's imagine you're building a new social engagement site. Users can create posts and add pictures, videos and music to them. Other users can comment on the posts and give points (likes) to rate the posts. The landing page will have a feed of posts that users can share and interact with. 
+그렇다면 이 데이터는 어떻게 저장할까요? SQL에 익숙한 경우 다음과 같이 그리기 시작할 수 있습니다.
 
-So how do you store this data? If you're familiar with SQL, you might start drawing something like this:
+![소셜 참여 사이트에 대한 관계형 데이터 모델을 보여 주는 NoSQL 및 SQL 다이어그램](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
 
-![NoSQL vs SQL diagram showing the relational data model for a social engagement site](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
+지금까지는 잘 되고 있습니다. 이제 단일 게시물의 구조 및 그 표시 방법에 대해 알아봅니다. 웹 사이트 또는 응용 프로그램에 게시물 및 연결된 이미지, 오디오, 비디오, 주석, 점수, 사용자 정보를 표시하려는 경우 콘텐츠를 검색하기 위해 8개의 테이블 조인을 사용하여 쿼리를 수행해야 합니다. 동적으로 로드하고 화면에 표시되는 게시물의 스트림을 상상해 보면 작업을 완료하는 데 수천 개의 쿼리와 많은 조인이 필요하리란 것을 쉽게 예측할 수 있습니다.
 
-So far, so good, but now think about the structure of a single post and how to display it. If you want to show the post and the associated images, audio, video, comments, points, and user info on a website or application, you'd have to perform a query with eight table joins just to retrieve the content. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
-
-Now you could use a relational solution like SQL Server to store the data - but there's another option, a NoSQL option that simplifies the approach. By transforming the post into a JSON document like the following and storing it in DocumentDB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
+이제 SQL Server와 같은 관계형 솔루션을 사용하여 데이터를 저장할 수 있지만 또 다른 옵션이 있습니다. 접근 방식을 단순화하는 NoSQL 옵션입니다. 게시물을 다음과 같은 JSON 문서로 변환하고 Azure NoSQL 문서 데이터베이스 서비스인 DocumentDB에 저장하여 성능을 향상시킬 수 있으며 조인 없이 하나의 쿼리로 전체 게시물을 검색할 수 있습니다. 더 단순하고 간단하며 성능이 빨라집니다.
 
     {
         "id":"ew12-res2-234e-544f",
@@ -57,83 +56,78 @@ Now you could use a relational solution like SQL Server to store the data - but 
         ]
     }
 
-In addition, this data can be partitioned by post id allowing the data to scale out naturally and take advantage of NoSQL scale characteristics. Also NoSQL systems allow developers to loosen consistency and offer highly available apps.  Finally, this solution does not require developers to define, manage and maintain schema in the data tier allowing for rapid iteration.
+또한 데이터 규모를 자연스럽게 확장하고 NoSQL 규모 특성을 활용할 수 있도록 이 데이터를 게시 ID별로 분할할 수 있습니다. NoSQL 시스템에서는 개발자가 일관성을 완화하고 사용도가 높은 앱을 제공할 수도 있습니다. 마지막으로, 이 솔루션을 사용하면 개발자가 데이터 계층의 스키마를 정의, 관리 및 유지 관리할 필요가 없으므로 신속하게 반복할 수 있습니다.
 
-You can then build on this solution using other Azure services:
+그 후 다른 Azure 서비스를 사용하여 이 솔루션에서 빌드할 수 있습니다.
 
-- [Azure Search](https://azure.microsoft.com/services/search/) can be used via the web app to enable users to search for posts.
-- [Azure App Services](https://azure.microsoft.com/services/app-service/) can be used to host applications and background processes.
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/) can be used to store full user profiles including images.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used to store massive amounts of data such as login information, and data for usage analytics.
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)  can be used to build knowledge and intelligence that can provide feedback to the process and help deliver the right content to the right users.
+- [Azure 검색](https://azure.microsoft.com/services/search/)은 사용자가 게시물을 검색할 수 있도록 웹앱을 통해 사용할 수 있습니다.
+- [Azure 앱 서비스](https://azure.microsoft.com/services/app-service/)는 호스트 응용 프로그램 및 백그라운드 프로세스에 사용할 수 있습니다.
+- [Azure Blob 저장소](https://azure.microsoft.com/services/storage/)는 이미지를 포함하여 전체 사용자 프로필을 저장하는 데 사용할 수 있습니다.
+- [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)는 로그인 정보와 같은 엄청난 양의 데이터 및 사용 현황 분석에 대한 데이터를 저장하는 데 사용할 수 있습니다.
+- [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/)은 프로세스에 대한 피드백을 제공하고 적절한 사용자에게 적절한 콘텐츠를 제공하는 데 도움이 될 수 있는 인텔리전스 및 정보를 빌드하는 데 사용할 수 있습니다.
 
-This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-apps.md). 
+이 소셜 참여 사이트는 NoSQL 데이터베이스가 이 작업에 대한 적절한 데이터 모델인 단 하나의 시나리오입니다. 이 시나리오 및 소셜 미디어 응용 프로그램에서 DocumentDB에 대한 데이터를 모델링하는 방법에 대한 자세한 내용은 [Going social with DocumentDB(DocumentDB로 소셜 이동)](documentdb-social-media-apps.md)를 참조하세요.
 
-## <a name="nosql-vs-sql-comparison"></a>NoSQL vs SQL comparison
+## NoSQL과 SQL 비교
 
-The following table compares the main differences between NoSQL and SQL. 
+다음 표에서 NoSQL과 SQL 간의 주요 차이점을 비교합니다.
 
-![NoSQL vs SQL diagram showing when to use NoSQL and when to use SQL. SQL vs NoSQL comparison](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
+![NoSQL을 사용하는 경우 및 SQL을 사용하는 경우를 보여 주는 NoSQL 및 SQL 다이어그램입니다. SQL 및 NoSQL 비교](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
 
-If a NoSQL database best suits your requirements, continue to the next section to learn more about the NoSQL services available from Azure. Otherwise, if a SQL database best suits your needs, skip to [What are the Microsoft SQL offerings?](#what-are-the-microsoft-sql-offerings)
+NoSQL 데이터베이스가 요구 사항에 가장 적합한 경우 계속해서 다음 섹션에서 Azure에서 사용할 수 있는 NoSQL 서비스에 대해 자세히 알아봅니다. 그렇지 않고 SQL 데이터베이스가 요구 사항에 가장 적합한 경우 [Microsoft SQL에서 제공하는 서비스](#what-are-the-microsoft-sql-offerings)로 건너뜁니다.
 
-## <a name="what-are-the-microsoft-azure-nosql-offerings?"></a>What are the Microsoft Azure NoSQL offerings?
+## Microsoft Azure NoSQL에서 제공하는 서비스
 
-Azure has four fully-managed NoSQL services: 
+Azure에는 완벽하게 관리되는 4가지의 NoSQL 서비스가 있습니다.
 
 - [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
-- [Azure Table Storage](https://azure.microsoft.com/services/storage/)
-- [Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [Azure Redis Cache](https://azure.microsoft.com/services/cache/)
+- [Azure 테이블 저장소](https://azure.microsoft.com/services/storage/)
+- [HDInsight의 일부인 Azure HBase](https://azure.microsoft.com/services/hdinsight/)
+- [Azure Redis 캐시(영문)](https://azure.microsoft.com/services/cache/)
 
-The following comparison chart maps out the key differentiators for each service. Which one most accurately describes the needs of your application? 
+다음 차트에서는 각 서비스에 대한 주요 차이점을 비교합니다. 응용 프로그램의 요구 사항을 가장 잘 설명하는 서비스는 무엇인가요?
 
-![NoSQL vs SQL diagram showing when to use NoSQL offerings from Microsoft Azure, including DocumentDB, Table Storage, HBase as a part of HDInsight, and Redis Cache](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
+![DocumentDB, 테이블 저장소, HDInsight의 일부인 HBase, Redis 캐시를 포함하여 Microsoft Azure의 NoSQL 제품을 사용하는 경우를 보여 주는 NoSQL 및 SQL 다이어그램입니다.](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
-If one or more of these services might meet the needs of your application, learn more with the following resources: 
+하나 이상의 서비스가 응용 프로그램의 요구 사항을 충족하는 경우 추가로 다음 리소스를 참조하세요.
 
-- [DocumentDB learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) and [DocumentDB use cases](documentdb-use-cases.md)
-- [Get started with Azure table storage](../storage/storage-dotnet-how-to-use-tables.md)
-- [What is HBase in HDInsight](../hdinsight/hdinsight-hbase-overview.md)
-- [Redis Cache learning path](https://azure.microsoft.com/documentation/learning-paths/redis-cache/)
+- [DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/) 및 [DocumentDB 사용 사례](documentdb-use-cases.md)
+- [Azure 테이블 저장소 시작](../storage/storage-dotnet-how-to-use-tables.md)
+- [HDInsight의 HBase는 무엇인가요?](../hdinsight/hdinsight-hbase-overview.md)
+- [Redis Cache 학습 경로](https://azure.microsoft.com/documentation/learning-paths/redis-cache/)
 
-Then go to [Next steps](#next-steps) for free trial information.
+무료 평가판 정보를 보려면 [다음 단계](#next-steps)로 이동합니다.
 
-## <a name="what-are-the-microsoft-sql-offerings?"></a>What are the Microsoft SQL offerings?
+## Microsoft SQL에서 제공하는 서비스
 
-Microsoft has five SQL offerings: 
+Microsoft는 5가지의 SQL 제품을 제공합니다.
 
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+- [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)
+- [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-- [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
-- [Analytics Platform System (on-premises appliance)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
+- [Azure SQL 데이터 웨어하우스(미리 보기)](https://azure.microsoft.com/services/sql-data-warehouse/)
+- [분석 플랫폼 시스템(온-프레미스 어플라이언스)](https://www.microsoft.com/ko-KR/server-cloud/products/analytics-platform-system/)
 
-If you're interested in SQL Server on a Virtual Machine or SQL Database, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) to learn more about the differences between the two.
+가상 컴퓨터 또는 SQL 데이터베이스의 SQL Server에 관심이 있다면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하여 둘 사이의 차이점에 대해 자세히 알아봅니다.
 
-If SQL sounds like the best option, then go to [SQL Server](https://www.microsoft.com/server-cloud/products/) to learn more about what our Microsoft SQL products and services have to offer.
+SQL이 최상의 옵션일 경우 [SQL Server](https://www.microsoft.com/server-cloud/products/)로 이동하여 Microsoft SQL 제품 및 서비스가 제공해야 하는 기능에 대해 자세히 알아봅니다.
 
-Then go to [Next steps](#next-steps) for free trial and evaluation links.
+무료 평가판 및 평가판 링크를 위해 [다음 단계](#next-steps)로 이동합니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-We invite you to learn more about our SQL and NoSQL products by trying them out for free. 
+SQL 및 NoSQL 제품을 자세히 알아볼 수 있도록 무료 이용에 초대합니다.
 
-- For all Azure services, you can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) and receive $200 to spend on any of the Azure services.
+- 모든 Azure 서비스를 위해 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록한 후 $200 상당의 모든 Azure 서비스를 이용할 수 있습니다.
     - [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
-    - [Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)
-    - [Azure Redis Cache](https://azure.microsoft.com/services/cache/)
-    - [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
-    - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-    - [Azure Table Storage](https://azure.microsoft.com/services/storage/)
+    - [HDInsight의 일부인 Azure HBase](https://azure.microsoft.com/services/hdinsight/)
+    - [Azure Redis 캐시(영문)](https://azure.microsoft.com/services/cache/)
+    - [Azure SQL 데이터 웨어하우스(미리 보기)](https://azure.microsoft.com/services/sql-data-warehouse/)
+    - [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)
+    - [Azure 테이블 저장소](https://azure.microsoft.com/services/storage/)
 
-- You can spin up an [evaluation version of SQL Server 2016 on a virtual machine](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/) or download an [evaluation version of SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).
+- [가상 컴퓨터의 SQL Server 2016 평가판](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/)을 스핀업하거나 [SQL Server 평가판](https://www.microsoft.com/ko-KR/evalcenter/evaluate-sql-server-2016)을 다운로드할 수 있습니다.
     - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-    - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+    - [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

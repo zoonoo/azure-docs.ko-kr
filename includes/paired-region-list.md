@@ -1,27 +1,24 @@
-|Primary            |Secondary          |
+|보조 |주 |
 |:-----------------:|:-----------------:|
-|North Central US   |South Central US   |
-|South Central US   |North Central US   |
-|East US            |West US            |
-|West US            |East US            |
-|US East 2          |Central US         |
-|Central US         |US East 2          |
-|North Europe       |West Europe        |
-|West Europe        |North Europe       |
-|South East Asia    |East Asia          |
-|East Asia          |South East Asia    |
-|East China         |North China        |
-|North China        |East China         |
-|Japan East         |Japan West         |
-|Japan West         |Japan East         |
-|Brazil South       |South Central US   |
-|Australia East     |Australia Southeast|
-|Australia Southeast|Australia East     |
-|Canada East        |Canada Central     |
-|Canada Central     |Canada East        |
-|West US 2          |West Central US    |
+|미국 중북부 |미국 중남부 |
+|미국 중남부 |미국 중북부 |
+|미국 동부 |미국 서부 |
+|미국 서부 |미국 동부 |
+|미국 동부 2 |미국 중부 |
+|미국 중부 |미국 동부 2 |
+|북유럽 |서유럽 |
+|서유럽 |북유럽 |
+|동남아시아 |동아시아 |
+|동아시아 |동남아시아 |
+|중국 동부 |중국 북부 |
+|중국 북부 |중국 동부 |
+|일본 동부 |일본 서부 |
+|일본 서부 |일본 동부 |
+|브라질 남부 |미국 중남부 |
+|오스트레일리아 동부 |오스트레일리아 남동부|
+|오스트레일리아 남동부|오스트레일리아 동부 |
+|캐나다 동부 |캐나다 중부 |
+|캐나다 중부 |캐나다 동부 |
+|미국 서부 2 |미국 중서부 |
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

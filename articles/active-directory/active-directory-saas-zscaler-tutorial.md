@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Zscaler | Microsoft Azure" 
-    description="Learn how to use Zscaler with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="자습서: Azure Active Directory와 Zscaler 통합| Microsoft Azure" 
+    description="Azure Active Directory에서 ZScaler을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,199 +14,192 @@
     ms.date="08/16/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-zscaler"></a>Tutorial: Azure Active Directory integration with Zscaler
+#자습서: Azure Active Directory와 Zscaler 통합
   
-The objective of this tutorial is to show the integration of Azure and Zscaler. The scenario outlined in this tutorial assumes that you already have the following items:
+이 자습서에서는 Azure와 Zscaler의 통합을 보여줍니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
--   A valid Azure subscription
--   A tenant in Zscaler
+-   유효한 Azure 구독
+-   Zscaler의 테넌트
   
-The scenario outlined in this tutorial consists of the following building blocks:
+이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
-1.  Enabling the application integration for Zscaler
-2.  Configuring single sign-on
-3.  Configuring proxy settings
-4.  Configuring user provisioning
-5.  Assigning users
+1.  Zscaler에 응용 프로그램 통합 사용
+2.  Single Sign-On 구성
+3.  프록시 설정 구성
+4.  사용자 프로비전 구성
+5.  사용자 할당
 
-![Scenario](./media/active-directory-saas-zscaler-tutorial/IC769226.png "Scenario")
+![시나리오](./media/active-directory-saas-zscaler-tutorial/IC769226.png "시나리오")
 
-##<a name="enabling-the-application-integration-for-zscaler"></a>Enabling the application integration for Zscaler
+##Zscaler에 응용 프로그램 통합 사용
   
-The objective of this section is to outline how to enable the application integration for Zscaler.
+이 섹션에서는 Zscaler에 응용 프로그램 통합 사용 방법을 간략하게 설명합니다.
 
-###<a name="to-enable-the-application-integration-for-zscaler,-perform-the-following-steps:"></a>To enable the application integration for Zscaler, perform the following steps:
+###Zscaler에 응용 프로그램 통합을 사용 하려면 다음 단계를 수행 합니다.
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-zscaler-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
 
-    ![Applications](./media/active-directory-saas-zscaler-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-zscaler-tutorial/IC700994.png "응용 프로그램")
 
-4.  Click **Add** at the bottom of the page.
+4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
 
-    ![Add application](./media/active-directory-saas-zscaler-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-zscaler-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
-    ![Add an application from gallerry](./media/active-directory-saas-zscaler-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-zscaler-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
-6.  In the **search box**, type **Zscaler**.
+6.  **검색 상자**에서 **Zscaler**를 입력합니다.
 
-    ![Application gallery](./media/active-directory-saas-zscaler-tutorial/IC769227.png "Application gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-zscaler-tutorial/IC769227.png "응용 프로그램 갤러리")
 
-7.  In the results pane, select **Zscaler**, and then click **Complete** to add the application.
+7.  결과 창에서 **Zscaler**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Zscaler](./media/active-directory-saas-zscaler-tutorial/IC769228.png "Zscaler")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Single Sign-On 구성
   
-The objective of this section is to outline how to enable users to authenticate to Zscaler with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to upload a certificate to Zscaler.
+이 섹션의 목적은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD에서 자신의 계정으로 Zscaler에 인증할 수 있게 하는 방법을 간략하게 설명하는 것입니다. 이 절차의 일부로 Zscaler에 인증서를 업로드 해야 합니다.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  In the Azure classic portal, on the **Zscaler** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Azure 클래식 포털의 **Zscaler** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign On 구성** 대화 상자를 엽니다.
 
-    ![Enable single sign-on](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Enable single sign-on")
+    ![Single Sign-On 사용](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Single Sign-On 사용")
 
-2.  On the **How would you like users to sign on to Zscaler** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  **ZScaler에 대한 사용자 로그온 방법을 선택하십시오** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택한 후, **다음**을 클릭하세요.
 
-    ![Configure single sign on](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Configure single sign on")
+    ![Single Sign On 구성](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Single sign on 구성")
 
-3.  On the **Configure App URL** page, in the **Zscaler Sign In URL** textbox, type your sign in URL you got from Zscaler, and then click **Next**: 
+3.  **Zscaler Sign In URL** 텍스트 상자의 **앱 URL 구성**페이지에서 Zscaler에서 얻은 로그인 URL을 입력한 후, **다음**을 클릭합니다.
 
-    >[AZURE.NOTE] Please contact the Zscaler support team if you don’t know what your sign in URL is.
+    >[AZURE.NOTE] 로그인 URL을 모를 경우 Zscaler 지원팀에 문의하세요.
 
-    ![Configure app URL](./media/active-directory-saas-zscaler-tutorial/IC769231.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-zscaler-tutorial/IC769231.png "앱 URL 구성")
 
-4.  On the **Configure single sign-on at Zscaler** page, perform the following steps:
+4.  **Zscaler에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure single sign-on](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Single Sign-On 구성")
 
-    1.  Click **Download certificate**, and then save the certificate file locally as **c:\\Zscaler.cer**.
-    2.  Copy the **Authentication request URL** into your clipboard.
+    1.  **인증서 다운로드**를 클릭하고 인증서 파일을 **c:\\Zscaler.cer**로 저장합니다.
+    2.  **인증 요청 URL**을 클립보드에 복사합니다.
 
-5.  Login to your Zscaler tenant.
+5.  Zscaler 테넌트에 로그인합니다.
 
-6.  In the menu on the top, click **Administration**.
+6.  위쪽의 메뉴에서 **관리**를 클릭합니다.
 
-    ![Administration](./media/active-directory-saas-zscaler-tutorial/IC769486.png "Administration")
+    ![관리](./media/active-directory-saas-zscaler-tutorial/IC769486.png "관리")
 
-7.  Under **Manage Administrators & Roles**, click **Mange Users & Authentication**.
+7.  **관리자 & 역할 관리**에서 **사용자 & 인증 관리**를 클릭합니다.
 
-    ![Manage Administrators & Roles](./media/active-directory-saas-zscaler-tutorial/IC769487.png "Manage Administrators & Roles")
+    ![관리자 및 역할 관리](./media/active-directory-saas-zscaler-tutorial/IC769487.png "관리자 및 역할 관리")
 
-8.  In the **Choose Authentication Option for your Organization** section, perform the following steps:
+8.  **구성의 인증 옵션을 선택** 섹션에서 다음 단계를 수행합니다.
 
-    ![Choose Authentication Options](./media/active-directory-saas-zscaler-tutorial/IC769488.png "Choose Authentication Options")
+    ![인증 옵션을 선택 합니다.](./media/active-directory-saas-zscaler-tutorial/IC769488.png "인증 옵션을 선택 합니다.")
 
-    1.  Select **Authenticate using SAML Single Sign-on**.
-    2.  Click **Configure SAML Single Sign-On Parameters**.
+    1.  **SAML Single Sign-On을 사용하여 인증**을 선택합니다.
+    2.  **SAML Single Sign-On 매개 변수 구성**을 클릭합니다.
 
-9.  On the **Configure SAML Single Sign-On Parameters** dialog page, perform the following steps, and then click **Done**:
+9.  **SAML Single Sign-On 매개 변수 구성**대화 상자 페이지에서 다음 단계를 수행하고 **완료**를 클릭합니다.
 
-    ![Upload certificate](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Upload certificate")
+    ![인증서 업로드](./media/active-directory-saas-zscaler-tutorial/IC769489.png "인증서 업로드")
 
-    1.  In the **URL of the SAML Portal to which users are sent for authentication** textbox, paste the value of the **Authentication request URL** field from the Azure classic portal.
-    2.  In the **Attribute containing Login Name** textbox, type **NameID**.
-    3.  In the **Upload SSL Public Certificate** field, upload the certificate you have downloaded from the Azure classic portal.
-    4.  Select **Enable SAML Auto-Provisioning**.
+    1.  **사용자가 인증 요청을 위해 보낸 SAML 포털의 URL** 텍스트 상자에서 Azure 클래식 포털의 **인증 요청 URL** 필드 값을 복사합니다.
+    2.  **로그인 이름을 포함한 특성** 텍스트 상자에 **NameID**를 입력합니다.
+    3.  **SSL 공용 인증서** 필드에서 Azure 클래식 포털에서 다운로드한 인증서를 업로드합니다.
+    4.  **SAML 자동 프로비전 사용**을 선택합니다.
 
-10. On the **Configure User Authentication** dialog page, perform the following steps:
+10. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure User Authentication](./media/active-directory-saas-zscaler-tutorial/IC769490.png "Configure User Authentication")
+    ![사용자 인증을 구성](./media/active-directory-saas-zscaler-tutorial/IC769490.png "사용자 인증을 구성")
 
-    1.  Click **Save**.
-    2.  Click **Activate Now**.
+    1.  **Save**를 클릭합니다.
+    2.  **지금 활성화**를 클릭합니다.
 
-11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+11. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
-    ![Configure single sign-on](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Single Sign-On 구성")
 
-##<a name="configuring-proxy-settings"></a>Configuring proxy settings
+##프록시 설정 구성
 
-###<a name="to-configure-the-proxy-settings-in-internet-explorer"></a>To configure the proxy settings in Internet Explorer
+###Internet Explorer에서 프록시 설정을 구성하려면
 
-1.  Start **Internet Explorer**.
+1.  **Internet Explorer**를 시작합니다.
 
-2.  Select **Internet options** from the **Tools** menu to open the **Internet Options** dialog.
+2.  **도구** 메뉴에서 **인터넷 옵션**을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.
 
-    ![Internet Options](./media/active-directory-saas-zscaler-tutorial/IC769492.png "Internet Options")
+    ![인터넷 옵션](./media/active-directory-saas-zscaler-tutorial/IC769492.png "인터넷 옵션")
 
-3.  Click the **Connections** tab.
+3.  **연결** 탭을 클릭합니다.
 
-    ![Connections](./media/active-directory-saas-zscaler-tutorial/IC769493.png "Connections")
+    ![연결](./media/active-directory-saas-zscaler-tutorial/IC769493.png "연결")
 
-4.  Click **LAN settings** to open the **LAN Settings** dialog.
+4.  **LAN 설정**을 클릭하여 **LAN 설정** 대화 상자를 엽니다.
 
-5.  In the Proxy server section, perform the following steps:
+5.  프록시 서버 섹션에서 다음 단계를 수행합니다.
 
-    ![Proxy server](./media/active-directory-saas-zscaler-tutorial/IC769494.png "Proxy server")
+    ![프록시 서버](./media/active-directory-saas-zscaler-tutorial/IC769494.png "프록시 서버")
 
-    1.  Select Use a proxy server for your LAN.
-    2.  In the Address textbox, type **gateway.zscalertwo.net**.
-    3.  In the Port textbox, type **80**.
-    4.  Select **Bypass proxy server for local addresses**.
-    5.  Click **OK** to close the **Local Area Network (LAN) Settings** dialog.
+    1.  사용자 LAN의 프록시 서버 사용을 선택합니다.
+    2.  주소 텍스트 상자에 **gateway.zscalertwo.net**을 입력합니다.
+    3.  포트 텍스트 상자에 **80**을 입력합니다.
+    4.  **로컬 주소의 바이패스 프록시 서버**를 선택합니다.
+    5.  **확인**을 클릭하여 **LAN(Local Area Network) 설정** 대화 상자를 닫습니다.
 
-6.  Click **OK** to close the **Internet Options** dialog.
+6.  **확인**을 클릭하여 **인터넷 옵션** 대화 상자를 닫습니다.
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##사용자 프로비전 구성
   
-In order to enable Azure AD users to log into Zscaler, they must be provisioned into Zscaler.  
-In the case of Zscaler, provisioning is a manual task.
+Azure AD 사용자가 ZScaler에 로그인할 수 있도록 하려면 사용자 계정이 ZScaler로 프로비전되어야 합니다. Zscaler의 경우, 수동으로 프로비전합니다.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###사용자 프로비저닝을 구성하려면
 
-1.  Log in to your **Zscaler** tenant.
+1.  **Zscaler** 테넌트에 로그인 합니다.
 
-2.  Click **Administration**.
+2.  **관리**를 클릭합니다.
 
-    ![Administration](./media/active-directory-saas-zscaler-tutorial/IC781035.png "Administration")
+    ![관리](./media/active-directory-saas-zscaler-tutorial/IC781035.png "관리")
 
-3.  Click **User Management**.
+3.  **사용자 관리**를 클릭합니다.
 
-    ![User Management](./media/active-directory-saas-zscaler-tutorial/IC781036.png "User Management")
+    ![사용자 관리](./media/active-directory-saas-zscaler-tutorial/IC781036.png "사용자 관리")
 
-4.  In the **Users** tab, click **Add**.
+4.  **사용자** 탭에서 **추가**를 클릭합니다.
 
-    ![Add](./media/active-directory-saas-zscaler-tutorial/IC781037.png "Add")
+    ![추가](./media/active-directory-saas-zscaler-tutorial/IC781037.png "추가")
 
-5.  In the Add User section, perform the following steps:
+5.  사용자 추가 섹션에서 다음 단계를 수행합니다.
 
-    ![Add User](./media/active-directory-saas-zscaler-tutorial/IC781038.png "Add User")
+    ![사용자 추가](./media/active-directory-saas-zscaler-tutorial/IC781038.png "사용자 추가")
 
-    1.  Type the **UserID**, **User Display Name**, **Password**, **Confirm Password**, and then select **Groups** and the **Department** of a valid AAD account you want to provision.
-    2.  Click **Save**.
+    1.  **사용자ID**, **사용자 표시 이름**, **암호**, **암호 확인**을 입력하고, 프로비전하고자 하는 유효한 AAD 계정의 **그룹** 및 **부서**를 선택합니다.
+    2.  **Save**를 클릭합니다.
 
->[AZURE.NOTE] You can use any other Zscaler user account creation tool or APIs provided by Zscaler to provision AAD user accounts.
+>[AZURE.NOTE] 다른 Zscaler 사용자 계정 생성 도구 또는 Zendesk에서 제공하는 APIs를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
-##<a name="assigning-users"></a>Assigning users
+##사용자 할당
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-###<a name="to-assign-users-to-zscaler,-perform-the-following-steps:"></a>To assign users to Zscaler, perform the following steps:
+###Zscaler에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  In the Azure classic portal, create a test account.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  On the **Zscaler** application integration page, click **Assign users**.
+2.  **Zscaler** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
-    ![Assign users](./media/active-directory-saas-zscaler-tutorial/IC769495.png "Assign users")
+    ![사용자 할당](./media/active-directory-saas-zscaler-tutorial/IC769495.png "사용자 할당")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
-    ![Yes](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-zscaler-tutorial/IC767830.png "예")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

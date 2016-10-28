@@ -1,75 +1,69 @@
 <properties
-    pageTitle="Azure AD Connect in Microsoft Cloud Germany"
-    description="Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for Office 365, Azure, and SaaS applications integrated with Azure AD."
-    keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory, Germany, Black Forest"
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor=""/>
+	pageTitle="Microsoft 클라우드 독일의 Azure AD Connect"
+	description="Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure, 및 SaaS 응용 프로그램에 대한 공통 ID를 제공할 수 있습니다."
+    keywords="Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, Active Directory 설치, 독일, Black Forest"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/08/2016"
-    ms.author="billmath"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/08/2016"
+	ms.author="billmath"/>
+
+#Microsoft 클라우드 독일의 Azure AD Connect - 공개 미리 보기
+
+## 소개
+Azure AD Connect는 온-프레미스 Active Directory와 Azure Active Directory 간의 동기화를 제공합니다. 현재 [Microsoft 클라우드 독일](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx)에 있는 대부분의 시나리오는 연산자에 의해 수행되어야 합니다. Microsoft 클라우드 독일을 사용할 경우 다음을 고려해야 합니다.
 
 
-#<a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect in Microsoft Cloud Germany - Public Preview
+- 동기화가 성공적으로 수행되려면 다음 URL은 프록시 서버에 대해 열려 있어야 합니다.
+	- *.microsoftonline.de
+	- *.windows.net
+	- + 인증서 해지 목록
 
-## <a name="introduction"></a>Introduction
-Azure AD Connect provides synchronization between your on-premises Active Directory and Azure Active Directory.
-Currently, many of the scenarios in [Microsoft Cloud Germany](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) must be done by the operator. When using Microsoft Cloud Germany, you must be aware of the following:
+- Azure AD 디렉터리에 로그인할 경우 onmicrosoft.de 도메인의 계정을 사용해야 합니다.
+- 사용할 수 없는 기능은 다음과 같습니다.
+	- Azure AD Connect Health
+	- 자동 업데이트
+	- 비밀번호 쓰기 저장
 
+## 다운로드
+포털 내의 Azure AD Connect 블레이드에서 Azure AD Connect를 다운로드할 수 있습니다. 아래 지침을 사용하여 Azure AD Connect 블레이드를 찾을 수 있습니다.
 
-- The following URLs must be opened on a proxy server for synchronization to occur successfully:
-    - *.microsoftonline.de
-    - *.windows.net
-    - + Certificate Revocation Lists
+### Azure AD Connect 블레이드
 
-- When you sign in to your Azure AD directory, you must use an account in the onmicrosoft.de domain.
-- The following features are not available:
-    - Azure AD Connect Health
-    - Automatic updates
-    - Password writeback
+Azure Portal에 로그인하면 다음을 수행합니다.
 
-## <a name="download"></a>Download
-You can download Azure AD Connect from the Azure AD Connect blade within the portal.  Use the instructions below to locate the Azure AD Connect blade.
+1. 찾아보기로 이동
+2.	Azure Active Directory 선택
+3.	그런 다음 Azure AD Connect 선택
 
-### <a name="the-azure-ad-connect-blade"></a>The Azure AD Connect Blade
+다음이 표시되어야 합니다.
 
-Once you have signed in to the Azure portal, do the following:
-
-1. Go to Browse
-2.  Select Azure Active Directory
-3.  Then select Azure AD Connect
-
-You should see the following:
-
-![Azure AD Connect Blade](media\active-directory-aadconnect-germany\germany1.png)
+![Azure AD Connect 블레이드](media\active-directory-aadconnect-germany\germany1.png)
 
  
-The following table describes the features shown in the blade.
+다음 테이블에서는 블레이드에 표시된 기능을 설명합니다.
 
 
-Title|Description|
+제목|설명|
 ----- | ----- |
-SYNC STATUS|Let's you know whether synchronization is enabled or disabled.|
-LAST SYNC|The last time a successful sync completed.|
-FEDERATED DOMAINS|Shows the number of federated domains currently configured.|
+동기화 상태|동기화가 활성화되었는지 아니면 비활성화되었는지 여부를 알려줍니다.|
+최신 동기화|마지막으로 성공한 동기화가 완료된 시점입니다.|
+페더레이션된 도메인|현재 구성된 페더레이션된 도메인의 수를 보여 줍니다.|
 
 
-## <a name="installation"></a>Installation
-To install Azure AD Connect, you can use the documentation [here](active-directory-aadconnect.md#install-azure-ad-connect).
+## 설치
+Azure AD Connect를 설치하려면 [여기](active-directory-aadconnect.md#install-azure-ad-connect)에서 설명서를 사용할 수 있습니다.
 
-## <a name="advanced-features-and-additional-information"></a>Advanced features and Additional Information
-For additional information and guidance on custom settings or advanced configurations, start with [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).  This page provides information and links to additional guidance.
+## 고급 기능 및 추가 정보
+사용자 지정 설정이나 고급 구성에 대한 추가 정보 및 지침은 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)을 시작하세요. 이 페이지는 추가 지침에 대한 정보 및 링크를 제공합니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

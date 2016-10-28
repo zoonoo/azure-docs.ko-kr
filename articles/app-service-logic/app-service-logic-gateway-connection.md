@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Logic Apps on-premises data gateway connection | Microsoft Azure"
-   description="Information on how to create a connection to the on-premises data gateway from a logic app."
+   pageTitle="논리 앱 온-프레미스 데이터 게이트웨이 연결 | Microsoft Azure"
+   description="논리 앱에서 온-프레미스 데이터 게이트웨이에 대한 연결을 작성하는 방법에 대한 정보입니다."
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,62 +16,58 @@
    ms.date="07/05/2016"
    ms.author="jehollan"/>
 
+# 논리 앱에 대한 온-프레미스 데이터 게이트웨이에 연결
 
-# <a name="connect-to-the-on-premises-data-gateway-for-logic-apps"></a>Connect to the on-premises data gateway for Logic Apps
+지원되는 논리 앱 커넥터를 사용하여 온-프레미스 데이터 게이트웨이를 통해 온-프레미스 데이터에 액세스하도록 연결을 구성할 수 있습니다. 다음 단계에서는 논리 앱에서 작동하도록 온-프레미스 데이터 게이트웨이를 설치 및 구성하는 방법을 안내합니다.
 
-Supported logic apps connectors allow you to configure your connection to access on-premises data via the on-premises data gateway.  The following steps will walk you through how to install and configure the on-premises data gateway to work with a logic app.
+## 필수 조건
 
-## <a name="prerequisites"></a>Prerequisites
+* Azure에서 회사 또는 학교 전자 메일 주소를 사용하여 온-프레미스 데이터 게이트웨이를 계정(Azure Active Directory 기반 계정)으로 연결해야 합니다.
+    * Microsoft 계정(예: @outlook.com, @live.com)을 사용하는 경우 [여기에 나오는 단계에 따라](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) Azure 계정으로 회사 또는 학교 전자 메일 주소를 만들 수 있습니다.
 
-* Must be using a work or school email address in Azure to associate the on-premises data gateway with your account (Azure Active Directory based account)
-    * If you are using a Microsoft Account (e.g. @outlook.com, @live.com) you can use your Azure account to create a work or school email address by [following the steps here](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
+> [AZURE.WARNING] 현재는 Power BI에 등록된 계정을 사용할 때만 온-프레미스 게이트웨이 설치가 완료되는 제한이 있습니다. 그 동안에는 설치를 성공적으로 완료하려면 "Power BI Free"에 계정을 등록하세요.
 
-> [AZURE.WARNING] There is a limitation currently that on-premises gateway install will only complete when using an account that has been registered with Power BI.  In the meantime please register any account with "Power BI Free" to complete the installation successfully.
+* 온-프레미스 데이터 게이트웨이가 [로컬 컴퓨터에 설치](app-service-logic-gateway-install.md)되어 있어야 합니다.
+* 게이트웨이가 다른 Azure 온-프레미스 데이터 게이트웨이에 의해 요청되면 안 됩니다([아래 2단계의 생성에 따라 클레임 발생](#2-create-an-azure-on-premises-data-gateway-resource)). 단일 설치는 하나의 게이트웨이 리소스에만 연결될 수 있습니다.
 
-* Must have the on-premises data gateway [installed on a local machine](app-service-logic-gateway-install.md).
-* Gateway must not have been claimed by another Azure on-premises data gateway ([claim happens with creation of step 2 below](#2-create-an-azure-on-premises-data-gateway-resource)) - an installation can only be associated to one gateway resource.
+## 연결 설치 및 구성
 
-## <a name="installing-and-configuring-the-connection"></a>Installing and configuring the connection
+### 1\. 온-프레미스 데이터 게이트웨이 설치
 
-### <a name="1.-install-the-on-premises-data-gateway"></a>1. Install the on-premises data gateway
+온-프레미스 데이터 게이트웨이 설치에 대한 자세한 내용은 [이 문서](app-service-logic-gateway-install.md)에서 찾을 수 있습니다. 나머지 단계를 계속하기 전에 게이트웨이를 온-프레미스 컴퓨터에 설치해야 합니다.
 
-Information on installing the on-premises data gateway can be found [in this article](app-service-logic-gateway-install.md).  The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
+### 2\. Azure 온-프레미스 데이터 게이트웨이 리소스 만들기
 
-### <a name="2.-create-an-azure-on-premises-data-gateway-resource"></a>2. Create an Azure on-premises data gateway resource
+설치되면 Azure 구독을 온-프레미스 데이터 게이트웨이에 연결해야 합니다.
 
-Once installed, you must associate your Azure subscription with the on-premises data gateway.
+1. 게이트웨이 설치 중에 사용된 동일한 회사 또는 학교 전자 메일 주소를 사용하여 Azure에 로그인합니다.
+1. **새로 만들기** 리소스 단추를 클릭합니다.
+1. **온-프레미스 데이터 게이트웨이**를 검색 및 선택합니다.
+1. 게이트웨이를 계정과 연결하기 위한 정보를 모두 기입합니다. 여기에는 적합한 **설치 이름**을 선택하는 것도 포함됩니다.
 
-1. Login to Azure using the same work or school email address that was used during installation of the gateway
-1. Click **New** resource button
-1. Search and select the **On-premises data gateway**
-1. Complete the information to associate the gateway with your account - including selecting the appropriate **Installation Name**
+    ![온-프레미스 데이터 게이트웨이 연결][1]
+1. **만들기** 단추를 클릭하여 리소스를 만듭니다.
 
-    ![On-Premises Data Gateway Connection][1]
-1. Click the **Create** button to create the resource
+### 3\. 디자이너에서 논리 앱 연결 만들기
 
-### <a name="3.-create-a-logic-app-connection-in-the-designer"></a>3. Create a logic app connection in the designer
+Azure 구독이 온-프레미스 데이터 게이트웨이 인스턴스와 연결되었으므로 논리 앱 내에서 해당 연결을 만들 수 있습니다.
 
-Now that your Azure subscription is associated with an instance of the on-premises data gateway, you can create a connection to it from within a logic app.
+1. 논리 앱을 열고 온-프레미스 연결을 지원하는 커넥터(이 문서 작성 당시에는 SQL Server)를 선택합니다.
+1. **온-프레미스 데이터 게이트웨이를 통해 연결** 확인란을 선택합니다.
 
-1. Open a logic app and choose a connector that supports on-premises connectivity (as of this writing, SQL Server)
-1. Select the checkbox for **Connect via on-premises data gateway**
+    ![논리 앱 디자이너 게이트웨이 만들기][2]
+1. 연결할 **게이트웨이**를 선택하고 필요한 기타 연결 정보를 완료합니다.
+1. **만들기**를 클릭하여 연결을 만듭니다.
 
-    ![Logic App Designer Gateway Creation][2]
-1. Select the **Gateway** to connect to and complete any other connection information required
-1. Click **Create** to create the connection
+이제 논리 앱에서 사용할 수 있게 연결이 구성되었습니다.
 
-The connection should now be successfully configured for use in your logic app.  
-
-## <a name="next-steps"></a>Next Steps
-- [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
-- [Enterprise integration features](app-service-logic-enterprise-integration-overview.md)
+## 다음 단계
+- [논리 앱에 대한 일반적인 예제 및 시나리오](app-service-logic-examples-and-scenarios.md)
+- [엔터프라이즈 통합 기능](app-service-logic-enterprise-integration-overview.md)
 
 <!-- Image references -->
 [1]: ./media/app-service-logic-gateway-connection/createblade.PNG
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

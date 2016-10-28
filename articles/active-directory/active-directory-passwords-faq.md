@@ -1,214 +1,209 @@
 <properties
-    pageTitle="FAQ: Azure AD Password Management | Microsoft Azure"
-    description="Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory ."
-    services="active-directory"
-    documentationCenter=""
-    authors="asteen"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="FAQ: Azure AD 암호 관리 | Microsoft Azure"
+	description="암호 재설정, 등록, 보고서 및 쓰기 저장 온-프레미스 Active Directory를 포함한 Azure AD에서의 암호 관리에 대한 질문과 대답(FAQ)."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="asteen"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="asteen"/>
+
+# 암호 관리 질문과 대답
+
+> [AZURE.IMPORTANT] **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+
+다음은 암호 관리와 관련된 모든 항목에 대한 몇 가지 질문과 대답입니다.
+
+답변을 모르는 질문이 있거나 특정 문제에 대한 도움이 필요한 경우, 다음을 읽고 이미 이 문제를 다루었는지 살펴 볼 수 있습니다. 아직 다루지 않은 경우라도 걱정하지 마세요! [Azure AD 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)에서 다루지 않는 문제에 자유롭게 질문하면 빠른 시일 내에 답변하겠습니다.
+
+이 FAQ는 다음 섹션으로 구분하여 설명합니다.
+
+- [**암호 재설정 등록에 대한 질문**](#password-reset-registration)
+- [**암호 재설정에 대한 질문**](#password-reset)
+- [**암호 관리 보고서에 대한 질문**](#password-management-reports)
+- [**암호 쓰기 저장에 대한 질문**](#password-writeback)
+
+## 암호 재설정 등록
+ - **Q: 내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있습니까?**
+
+ > **A:** 예, 암호 재설정이 사용되고 라이선스가 부여된 경우 http://aka.ms/ssprsetup의 암호 재설정 등록 포털로 이동하여 암호 재설정에 사용될 인증 정보를 등록할 수 있습니다. 사용자는 http://myapps.microsoft.com의 액세스 패널로 이동하고, 프로필 탭을 클릭하고 암호 재설정 등록 옵션을 클릭하여 등록할 수도 있습니다. 사용자가 암호 재설정을 구성하는 방법을 읽어 사용자가 암호 재설정을 구성하는 방법에 대해 알아봅니다.
+
+ - **Q: 내 사용자 대신 암호 재설정 데이터를 정의할 수 있습니까?**
+
+ > **A:** 예, DirSync 또는 PowerShell을 사용하거나 [Azure 관리 포털](https://manage.windowsazure.com) 또는 Office 관리자 포털을 통해 정의할 수 있습니다. 블로그 게시물, Azure AD MFA에 대해 향상된 개인 정보 및 암호 재설정 전화번호 및 데이터가 암호 재설정에 사용되는 방법을 읽어 이 기능에 대해 자세히 알아 봅니다.
+
+ - **Q: 온-프레미스에서 보안 질문에 대한 데이터를 동기화 할 수 있습니까?**
+
+ > **A:** 아니요, 현재 사용할 수 없지만 사용을 고려하는 중입니다.
+
+ - **Q: 내 사용자가 다른 사용자가 이 데이터를 볼 수 없는 방식으로 데이터를 등록할 수 있습니까?**
+
+ > **A:** 예, 사용자가 암호 재설정 등록 포털을 사용하여 데이터를 등록한 경우 전역 관리자 사용자 자신에만 표시되는 개인 인증 필드로 저장됩니다. 블로그 게시물, Azure AD MFA에 대해 향상된 개인 정보 및 암호 재설정 전화번호 및 데이터가 암호 재설정에 사용되는 방법을 읽어 이 기능에 대해 자세히 알아 봅니다.
+
+ - **Q: 내 사용자를 등록해야 암호 재설정을 사용할 수 있습니까?**
+
+ > **A:** 아니요, 충분한 인증 정보를 정의한 경우 사용자를 등록하지 않아도 됩니다. 암호 재설정은 디렉터리의 적절한 필드에 데이터의 형식이 저장되어 있는 한 제대로 작동합니다. 암호 재설정에서 데이터가 사용되는 방법을 읽어 자세히 알아봅니다.
+
+ - **Q: 내 사용자 대신 인증 전화, 인증 전자 메일 인증 또는 대체 인증 전화 필드를 동기화하거나 설정할 수 있습니까?**
+
+ > **A:** 현재 사용할 수 없지만 이 기능 사용을 고려하는 중입니다.
+
+ - **Q: 등록 포털이 사용자에게 표시하는 옵션을 어떻게 확인합니까?**
+
+ > **A:** 암호 재설정 등록 포털은 디렉터리의 구성 탭의 사용자 암호 재설정 정책 섹션에서 사용자에 대해 활성화된 옵션만을 표시합니다. 보안 질문을 할 수 없는 경우, 사용자는 해당 옵션에 대해 등록할 수 없음을 의미합니다.
+
+ - **Q: 사용자가 등록된 것으로 간주되는 경우는 언제입니까?**
+
+ > **A:** 적어도 N개의 인증 정보가 정의된 경우 N이 [Azure 관리 포털](https://manage.windowsazure.com)에서 설정된 필수 인증 방법의 수인 경우 사용자는 등록된 것으로 간주됩니다. 자세한 알아보려면, 암호 재설정 정책 사용자 지정을 참조하세요.
 
 
-# <a name="password-management-frequently-asked-questions"></a>Password Management Frequently Asked Questions
+## 암호 재설정
 
-> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+ - **Q: 암호 재설정에서 전자 메일, SMS 또는 전화 통화를 받으려면 얼마나 오래 대기해야 합니까?**
 
-The following are some frequently asked questions for all things related to password management.
+ > **A:** 전자 메일, SMS 메시지 및 전화 통화는 1초 미만이며, 일반적인 경우 5-20초 대기해야 합니다. 이 시간 내에 알림을 받지 못한 경우, 정크 폴더를 확인하고, 연락하려는 번호 / 전자 메일이고 디렉터리의 인증 데이터의 형식이 올바르게 지정되었는지 확인합니다. 암호 재설정에 사용할 전화번호 및 전자 메일 형식에 대한 자세한 내용은 암호 재설정에서 데이터가 사용되는 방법을 참조하세요.
 
-If you find yourself with a question that you don't know the answer to, or are looking for help with a particular problem you are facing, you can read on below to see if we've covered it already.  If we haven't already, don't worry! Feel free to ask any question you have that's not covered here on the [Azure AD Forums](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) and we'll get back to you as soon as we can.
+ - **Q: 암호 재설정에서 지원되는 언어는 무엇입니까?**
 
-This FAQ is split into the following sections:
+ > **A:** 암호 재설정 UI, SMS 메시지 및 음성 통화는 Office 365에서 지원되는 동일한 40개의 언어로 지역화됩니다. 다음의 언어가 지원됩니다. 아랍어, 불가리아어, 중국어 간체, 중국어 번체, 크로아티아어, 체코어, 덴마크어, 네덜란드어, 영어, 에스토니아어, 핀란드어, 프랑스어, 독일어, 그리스어, 히브리어, 힌디어, 헝가리어, 인도네시아어, 이탈리아어, 일본어, 카자흐어, 한국어, 라트비아어, 리투아니아어, 말레이어(말레이시아), 노르웨이어(복말), 폴란드어, 포르투갈어(브라질), 포르투갈어(포르투갈), 루마니아어, 러시아어, 세르비아어(라틴 문자), 슬로바키아어, 슬로베니아어, 스페인어, 스웨덴어, 태국어, 터키어, 우크라이나어 및 베트남어
 
-- [**Questions about Password Reset Registration**](#password-reset-registration)
-- [**Questions about Password Reset**](#password-reset)
-- [**Questions about Password Management Reports**](#password-management-reports)
-- [**Questions about Password Writeback**](#password-writeback)
+ - **Q: 내 디렉터리의 구성 탭에서 조직 브랜드를 설정하는 경우 암호 재설정의 어느 부분에서 브랜드를 설정합니까?**
 
-## <a name="password-reset-registration"></a>Password reset registration
- - **Q:  Can my users register their own password reset data?**
-
- > **A:** Yes, as long as password reset is enabled and they are licensed, they can go to the Password Reset Registration portal at http://aka.ms/ssprsetup to register their authentication information to be used with password reset. Users can also register by going to the access panel at http://myapps.microsoft.com, clicking the profile tab, and clicking the Register for Password Reset option. Learn more about how to get your users configured for password reset by reading How to get users configured for password reset.
-
- - **Q:  Can I define password reset data on behalf of my users?**
-
- > **A:** Yes, you can do so with DirSync or PowerShell, or through the [Azure Management Portal](https://manage.windowsazure.com) or Office Admin portal. Learn more about this feature on the blog post Improved Privacy for Azure AD MFA and Password Reset Phone Numbers and by reading Learn how data is used by password reset.
-
- - **Q:  Can I synchronize data for security questions from on premises?**
-
- > **A:** No, this is not possible today, but we are considering it.
-
- - **Q:  Can my users register data in such a way that other users cannot see this data?**
-
- > **A:** Yes, when users register data using the Password Reset Registration Portal it gets saved into private authentication fields that are only visible by Global Administrators and the user himself. Learn more about this feature on the blog post Improved Privacy for Azure AD MFA and Password Reset Phone Numbers and by reading Learn how data is used by password reset.
-
- - **Q:  Do my users have to be registered before they can use password reset?**
-
- > **A:** No, if you define enough authentication information on their behalf, users will not have to register. Password reset will work just fine as long as you have properly formatted data stored in the appropriate fields in the directory. Learn more about by reading Learn how data is used by password reset.
-
- - **Q:  Can I synchronize or set the Authentication Phone, Authentication Email or Alternate Authentication Phone fields on behalf of my users?**
-
- > **A:** Not currently, but we are considering enabling this capability.
-
- - **Q:  How does the registration portal know which options to show my users?**
-
- > **A:** The password reset registration portal only shows the options that you have enabled for your users under the User Password Reset Policy section of your directory’s Configure tab. This means that if you do not enable, say, security questions, then users will not be able to register for that option.
-
- - **Q:  When is a user considered registered?**
-
- > **A:** A user is considered registered when he or she has at least N pieces of authentication info defined, where N is the Number of Authentication Methods Required that you have set in the [Azure Management Portal](https://manage.windowsazure.com). To learn more, see Customizing User Password Reset Policy.
-
-
-## <a name="password-reset"></a>Password reset
-
- - **Q:  How long should I wait to receive an email, SMS, or phone call from password reset?**
-
- > **A:** Email, SMS messages, and phone calls should arrive in under 1 minute, with the normal case being 5-20 seconds. If you do not receive the notification in this timeframe, check your junk folder, that the number / email being contacted is the one you expect, and that the authentication data in the directory is correctly formatted. To learn more about formatting phone numbers and email addresses for use with password reset see Learn how data is used by password reset.
-
- - **Q:  What languages are supported by password reset?**
-
- > **A:** The password reset UI, SMS messages, and voice calls are localized in the same 40 languages that are supported in Office 365. Those are: Arabic, Bulgarian, Chinese Simplified, Chinese Traditional, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Kazakh, Korean, Latvian, Lithuanian, Malay (Malaysia), Norwegian (Bokmål), Polish, Portuguese (Brazil), Portuguese (Portugal), Romanian, Russian, Serbian (Latin), Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian, and Vietnamese.
-
- - **Q:  What parts of the password reset experience get branded when I set organizational branding in my directory’s configure tab?**
-
- > **A:** The password reset portal will show your organizational logo and will also allow you to configure the Contact your administrator link to point to a custom email or URL. Any email that gets sent by password reset will include your organization’s logo, colors (in this case red), name in the body of the email, and customized from name. See an example with all the branded elements below. To learn more, read Customizing Password Reset Look and Feel.
+ > **A:** 암호 재설정 포털은 조직 로고를 표시하며 사용자 지정 전자 메일 또는 URL을 가리키는 관리자에게 문의 링크를 구성할 수도 있습니다. 암호 재설정에서 보낸 전자 메일에는 조직의 로고, 색(이 경우 빨간색), 전자 메일 본문의 이름 및 이름으로 사용자 지정이 포함됩니다. 아래의 모든 브랜드가 지정된 요소가 포함된 예를 참조하세요. 자세한 알아보려면, 암호 재설정 모양 및 느낌 사용자 지정을 참조하세요.
 
   ![][001]
 
- - **Q:  How can I educate my users about where to go to reset their passwords?**
+ - **Q: 암호 재설정으로 이동할 수 있는 위치에 대해 사용자에게 어떻게 교육할 수 있습니까?**
 
- > **A:** You can send your users to https://passwordreset.microsoftonline.com directly, or you can instruct them to click on the Can’t access your account link found on any School or Work ID sign in screen. You can feel free to publish these links (or create URL redirects to them) in any place that is easily accessible to your users.
+ > **A:** 사용자를 https://passwordreset.microsoftonline.com에 직접 보내거나, 모든 학교 또는 작업 ID 로그인 화면에서 찾은 계정 링크에 액세스할 수 없음을 클릭하도록 지시합니다. 사용자가 쉽게 액세스할 수 있는 곳에서라면 어디에서나 자유롭게 이 링크를 게시할 수 있습니다(또는 리디렉션하도록 URL을 만들 수 있음).
 
- - **Q:  Can I use this page from a mobile device?**
+ - **Q: 모바일 장치에서 이 페이지를 사용할 수 있습니까?**
 
- > **A:** Yes, this page works on mobile devices.
+ > **A:** 예, 이 페이지는 모바일 장치에서 작동합니다.
 
- - **Q:  Do you support unlocking local active directory accounts when users reset their passwords?**
+ - **Q: 사용자가 암호를 재설정할 때 로컬 활성 디렉터리 계정 잠금해제를 지원합니까?**
 
- > **A:** Yes, when a user resets his or her password and Password Writeback has been deployed with all versions of Azure AD Connect, or versions of Azure AD Sync 1.0.0485.0222 or later, then that user’s account will be automatically unlocked when that user resets his or her password.
+ > **A:** 예, 사용자가 자신의 암호를 재설정하고 비밀번호 쓰기 저장이 모든 버전의 Azure AD Connect 또는 Azure AD Sync 버전 1.0.0485.0222 이상으로 배포되면 해당 사용자가 자신의 암호를 재설정할 때 사용자 계정의 잠금이 자동으로 해제됩니다.
 
- - **Q:  How can I integrate password reset directly into my user’s desktop sign-in experience?**
+ - **Q: 암호 재설정을 내 사용자의 데스크톱 로그인 환경으로 직접 통합하려면 어떻게 해야 합니까?**
 
- > **A:** This is not possible today. However, if you absolutely need this capability and are an Azure AD Premium customer, you can install Microsoft Identity Manager at no additional cost and deploy the on-premises password reset solution found therein to solve this requirement.
+ > **A:** 현재 불가능합니다. 그러나 반드시 이 기능이 필요하고 Azure AD Premium 고객인 경우, 추가 비용 없이 Microsoft Identity Manager를 설치하고 이 요구 사항을 해결하기 위해 그 안에 있는 온-프레미스 암호 재설정 솔루션을 배포할 수 있습니다.
 
- - **Q:  Can I set different security questions for different locales?**
+ - **Q: 서로 다른 로캘로 다른 보안 질문을 설정할 수 있습니까?**
 
- > **A:** No, this is not possible today, but we are considering it.
+ > **A:** 아니요, 현재 사용할 수 없지만 사용을 고려하는 중입니다.
 
- - **Q:  How many questions can we configure for the Security Questions authentication option?**
+ - **Q: 보안 질문 인증 옵션으로 얼마나 많은 질문을 구성할 수 있습니까?**
 
- > **A:** You can configure up to 20 custom security questions in the [Azure Management Portal](https://manage.windowsazure.com).
+ > **A:** [Azure 관리 포털](https://manage.windowsazure.com)에서 최대 20개의 사용자 지정 보안 질문을 구성할 수 있습니다.
 
- - **Q:  How long may security questions be?**
+ - **Q: 질문의 길이는 어떻게 설정할 수 있습니까?**
 
- > **A:** Security questions may be between 3 and 200 characters long.
+ > **A:** 보안 질문은 3자에서 200자 사이일 수 있습니다.
 
- - **Q:  How long may answers to security questions be?**
+ - **Q: 보안 질문에 대한 답변의 길이는 어떻게 설정할 수 있습니까?**
 
- > **A:** Answers may be 3 to 40 characters long.
+ > **A:** 답변은 3자에서 40자 사이일 수 있습니다.
 
- - **Q:  Are duplicate answers to security questions rejected?**
+ - **Q: 보안 질문에 대해 중복 답변은 거부됩니까?**
 
- > **A:** Yes, we reject duplicate answers to security questions.
+ > **A:** 예, 보안 질문에 대한 중복 답변은 거부됩니다.
 
- - **Q:  May a user register more than one of the same security question?**
+ - **Q: 사용자는 동일한 보안 질문 중 둘 이상을 등록할 수 있습니까?**
 
- > **A:** No, once a user registers a particular question, he or she may not register for that question a second time.
+ > **A:** 아니요, 사용자가 특정 질문을 등록하면 해당 질문을 두 번 등록할 수 없습니다.
 
- - **Q:  Is it possible to set a minimum limit of security questions for registration and reset?**
+ - **Q:는 등록을 위한 보안 질문의 최소 제한을 설정할 수 있습니까?**
 
- > **A:** Yes, one limit can be set for registration and another for reset. 3-5 security questions may be required for registration and 3-5 may be required for reset.
+ > **A:** 예, 등록에 대해 하나의 제한, 재설정에 대해 또 하나의 제한을 설정할 수 있습니다. 3-5개의 보안 질문을 등록해야 하며 3-5개질문은 재설정을 위해 필요할 수 있습니다.
 
- - **Q:  If a user has registered more than the maximum number of questions required to reset, how are security questions selected during reset?**
+ - **Q: 사용자가 재설정에 필요한 질문의 최대 개수 보다 많은 질문을 등록한 경우, 재설정 중 보안 질문은 어떻게 선택됩니까?**
 
- > **A:** N security questions are selected at random out of the total number of questions a user has registered for, where N is the minimum number of questions required for password reset. For example, if a user has 5 security questions registered, but only 3 are required to reset, 3 of those 5 will be selected randomly and presented to the user at the time of reset. If the user gets the answers to the questions wrong, the selection process re-occurs to prevent question hammering.
+ > **A:** N개의 보안 질문이 사용자가 등록한 전체 질문 개수에서 임의로 선택되며, 여기서 N은 암호 재설정에 필요한 최소 질문 개수입니다. 예를 들어, 사용자가 5개의 보안 질문을 등록했지만 3개만 재설정에 필요한 경우, 이 5개 중 3개가 임의로 선택되며 재설정 시 사용자에 표시됩니다. 사용자가 질문에 대답을 잘못하면, 선택 프로세스가 다시 시작되어 계속되는 질문을 방지합니다.
 
- - **Q:  Do you prevent users from attempting password reset many times in a short time period?**
+ - **Q: 사용자가 짧은 기간 내에 여러 번 암호 재설정을 시도하지 못합니까?**
 
- > **A:** Yes, there are several security features built into password reset. Users may only try 5 password reset attempts within an hour before being locked out for 24 hours. Users may only try to validate a phone number 5 times within an hour before being locked out for 24 hours. Users may only try a single authentication method 5 times within an hour before being locked out for 24 hours.
+ > **A:** 예, 암호 재설정에 기본 제공되는 몇 가지 보안 기능이 있습니다. 사용자가 24시간 동안 잠그기 전에 한 시간 내에 5번만 암호 재설정을 시도할 수 있습니다. 사용자가 24시간 동안 잠그기 전에 한 시간 내에 5번만 전화 번호의 유효성 검사를 시도할 수 있습니다. 사용자가 24시간 동안 잠그기 전에 한 시간 내에 5번만 단일 인증 방법을 시도할 수 있습니다.
 
- - **Q:  For how long are the email and SMS one-time passcode valid?**
+ - **Q: 얼마 동안 전자 메일 및 SMS 일회용 암호가 유효합니까?**
 
- > **A:** The session lifetime for password reset is 105 minutes. This means that from the beginning of the password reset operation, the user has 105 minutes to reset his or her password. The email and SMS one-time passcode are invalid after this time period expires.
+ > **A:** 암호 재설정을 위한 세션 수명은 105분입니다. 암호 재설정 작업 시작부터를 의미하며, 암호를 재설정하는 데 105분이 사용자에게 주어집니다. 이 기간이 만료된 후 전자 메일 및 SMS 일회용 암호는 유효하지 않습니다.
 
 
-## <a name="password-management-reports"></a>Password Management reports
+## 암호 관리 보고서
 
- - **Q:  How long does it take for data to show up on the password management reports?**
+ - **Q: 데이터가 암호 관리 보고서를 표시하는 데 시간이 얼마나 소요됩니까?**
 
- > **A:** Data should appear on the password management reports within 5-10 minutes. It some instances it may take up to an hour to appear.
+ > **A:** 데이터는 5~10분 내에 암호 관리 보고서를 표시됩니다. 최대 한 시간이 소요되는 경우도 있습니다.
 
- - **Q:  How can I filter the password management reports?**
+ - **Q: 어떻게 암호 관리 보고서를 필터링할 수 있습니까?**
 
- > **A:** You can filter the password management reports by clicking the small magnifying glass to the extreme right of the column labels, towards the top of the report (see screenshot). If you want to do richer filtering, you can download the report to excel and create a pivot table.
+ > **A:** 보고서 위쪽의 열 레이블 맨 오른쪽에 있는 작은 돋보기를 클릭하여 암호 관리 보고서를 필터링할 수 있습니다(스크린샷 참조). 다양한 필터링을 원하는 경우, 보고서를 excel로 다운로드하고 피벗 테이블을 만들 수 있습니다.
 
   ![][002]
 
- - **Q: What is the maximum number of events are stored in the password management reports?**
+ - **Q: 암호 관리 보고서에 저장되는 최대 이벤트 수는 무엇입니까?**
 
- > **A:** Up to 1,000 password reset or password reset registration events are stored in the password management reports.  We are working to expand this number to include more events.
+ > **A:** 최대 1,000개의 암호 재설정 또는 암호 재설정 등록 이벤트가 암호 관리 보고서에 저장됩니다. 이 번호를 확장하여 더 많은 이벤트를 포함하도록 노력하고 있습니다.
 
- - **Q:  How far back do the password management reports go?**
+ - **Q: 암호 관리 보고서는 어디까지 표시할 수 있습니까?**
 
- > **A:** The password management reports show operations occurring within the last 30 days. We are currently investigating how to make this a longer time period. For now, if you need to archive this data, you can download the reports periodically and save them in a separate location.
+ > **A:** 암호 관리 보고서는 지난 30일 내에 발생한 작업을 표시합니다. 현재 이 기간을 더 길게 설정하는 방법을 조사 중입니다. 지금까지는, 이 데이터를 보관해야 하는 경우 보고서를 주기적으로 다운로드하여 별도 위치에 저장할 수 있습니다.
 
- - **Q:  Is there a maximum number of rows that can appear on the password management reports?**
+ - **Q: 암호 관리 보고서에 최대 몇 행을 표시할 수 있습니까?**
 
- > **A:** Yes, a maximum of 1,000 rows may appear on either of the Password Management reports, whether they are being shown in the UI or being downloaded. We are currently investigating how to increase this limit.
+ > **A:** 예, 최대 1,000행이 암호 관리 보고서에 표시될 수 있으며, UI에 표시되거나 다운로드됩니다. 이 제한을 늘리는 방법을 현재 조사 중입니다.
 
- - **Q:  Is there an API to access the password reset or registration reporting data?**
+ - **Q: 암호 재설정 또는 등록 보고 데이터에 액세스하는 API가 있습니까?**
 
- > **A:** Yes, please see the following documentation to learn how you can access the password reset reporting data stream.  [Learn how to access password reset reporting events programmatically](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+ > **A:** 예, 데이터 스트림을 보고하는 암호 재설정에 액세스하는 방법에 대해 알아보려면 다음 설명서를 참조하세요. [이벤트를 프로그래밍 방식으로 보고하는 암호 재설정에 액세스하는 방법을 알아봅니다](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
 
-## <a name="password-writeback"></a>Password Writeback
- - **Q:  How does Password Writeback work behind the scenes?**
+## 암호 쓰기 저장
+ - **Q: 암호 쓰기 저장은 배후에서 어떻게 작동합니까?**
 
- > **A:** See [How Password Writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) for a detailed explanation of what happens when you enable Password Writeback, as well as how data flows through the system back into your on-premises environment. See [Password Writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model) in How Password Writeback works to learn how we ensure Password Writeback is a highly secure service.
+ > **A:** 비밀번호 쓰기 저장을 사용하는 경우 및 시스템을 통해 온-프레미스 환경으로 다시 데이터가 흐르는 경우에 발생하는 일에 대한 자세한 설명은 [비밀번호 쓰기 저장 작동 원리](active-directory-passwords-learn-more.md#how-password-writeback-works)를 참조하세요. 비밀번호 쓰기 저장이 매우 안전한 서비스인지 알 수 있는 방법에 대해 알아보려면 비밀번호 쓰기 저장 작동 원리에서 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model)을 참조하세요.
 
- - **Q:  How long does Password Writeback take to work?  Is there a synchronization delay like with password hash sync?**
+ - **Q: 얼마동안 암호 쓰기 저장이 작동합니까? 암호 해시 동기화와 같이 동기화 지연이 있습니까?**
 
- > **A:** Password Writeback is instant. It is a synchronous pipeline that works fundamentally differently than password hash synchronization. Password Writeback allows users to get realtime feedback about the success of their password reset or change operation. The average time for a successful writeback of a password is under 500 ms.
+ > **A:** 비밀번호 쓰기 저장은 인스턴트입니다. 암호 해시 동기화와는 근본적으로 다르게 작동하는 동기 파이프라인입니다. 암호 쓰기 저장을 사용하면 변경 작업 또는 해당 암호 재설정의 성공 여부에 대한 실시간 피드백을 받을 수 있습니다. 성공적인 쓰기 저장에 대한 평균 시간은 500밀리초 미만입니다.
 
- - **Q:  What types of accounts does Password Writeback work for?**
+ - **Q: 암호 쓰기 저장에 대해 어떤 유형의 계정이 작동합니까?**
 
- > **A:** Password Writeback works for Federated and Password Hash Sync’d users.
+ > **A:** 페더레이션 및 암호 해시 동기화된 사용자에 대한 비밀번호 쓰기 저장이 작동합니다.
 
- - **Q:  Does Password Writeback enforce my domain’s password policies?**
+ - **Q: 암호 쓰기 저장을 내 도메인 암호 정책에 적용합니까?**
 
- > **A:** Yes, Password Writeback enforces password age, history, complexity, filters and any other restriction you may put in place on passwords in your local domain.
+ > **A:** 예, 비밀번호 쓰기 저장을 암호 사용 기간, 기록, 복잡성, 필터 및 로컬 도메인의 암호에 대해 시행할 다른 제한 사항에 적용합니다.
 
- - **Q:  Is Password Writeback secure?  How can I be sure I won’t get hacked?**
+ - **Q: 암호 쓰기 저장은 안전합니까? 해킹을 당하지 않는다고 어떻게 확신할 수 있습니까?**
 
- > **A:** Yes, Password Writeback is extremely secure. To read more about the 4 layers of security implemented by the Password Writeback service, check out the [Password Writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model) in How Password Writeback works.
-
-
+ > **A:** 예, 비밀번호 쓰기 저장은 매우 안전합니다. 비밀번호 쓰기 저장 서비스에서 구현된 4개의 보안 계층 구현에 대한 자세한 내용은 비밀번호 쓰기 저장 작동 원리에서 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model)을 확인합니다.
 
 
-## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
-* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
-* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
+
+## 암호 재설정 설명서에 대한 링크
+다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
+
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
+* [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
+* [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
+* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,111 +1,106 @@
 <properties
-    pageTitle="Recovering data from another DPM server in the backup vault | Microsoft Azure"
-    description="Recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault."
-    services="backup"
-    documentationCenter=""
-    authors="nkolli1"
-    manager="shreeshd"
-    editor=""/>
+	pageTitle="백업 저장소의 다른 DPM 서버에서 데이터 복구 | Microsoft Azure"
+	description="Azure 백업 저장소에 보호해 둔 데이터를 해당 저장소에 등록된 모든 DPM 서버에서 복구할 수 있습니다."
+	services="backup"
+	documentationCenter=""
+	authors="nkolli1"
+	manager="shreeshd"
+	editor=""/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="giridham;jimpark;trinadhk;markgal"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/08/2016"
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
+# 백업 저장소의 다른 DPM 서버에서 데이터 복구
+이제 Azure 백업 저장소에 보호해 둔 데이터를 해당 저장소에 등록된 모든 DPM 서버에서 복구할 수 있습니다. 이를 위한 절차는 DPM 관리 콘솔에 완전히 통합되었으며 다른 복구 워크플로와 비슷합니다.
 
-# <a name="recovering-data-from-another-dpm-server-in-the-backup-vault"></a>Recovering data from another DPM server in the backup vault
-You can now recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault. The process for doing so is completely integrated into the DPM management console and is similar to the other recovery workflows.
+백업 저장소에 있는 다른 DPM 서버에서 데이터를 복구하려면 [System Center Data Protection Manager UR7](https://support.microsoft.com/ko-KR/kb/3065246)과 [최신 Azure 백업 에이전트](http://aka.ms/azurebackup_agent)가 필요합니다.
 
-To recover data from another DPM server inthe backup vault you'll need [System Center Data Protection Manager UR7](https://support.microsoft.com/en-us/kb/3065246) and the [latest Azure Backup agent](http://aka.ms/azurebackup_agent).
+## 다른 DPM 서버에서 데이터 복구
+다른 DPM 서버에서 데이터를 복구하려면:
 
-## <a name="recover-data-from-another-dpm-server"></a>Recover data from another DPM Server
-To recover data from another DPM server:
+1. DPM 관리 콘솔의 **복구** 탭에서 화면 왼쪽 상단에 있는 **‘외부 DPM 추가’**를 클릭합니다.
 
-1. From the **Recovery** tab of the DPM management console, click **'Add External DPM'** (at the top left of the screen).
+    ![외부 DPM 추가](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 
-    ![Ad External DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
+2. 데이터를 복구할 **DPM 서버**와 연결된 자격 증명 모음에서 새 **보관 자격 증명**을 다운로드하고, 백업 자격 증명 모음에 등록된 DPM 서버 목록에서 DPM 서버를 선택하고, 데이터를 복구할 DPM 서버에 연결된 **암호화 암호**를 제공합니다.
 
-2. Download new **vault credentials** from the vault associated with the **DPM server** where the data is being recovered, choose the DPM server from the list of DPM servers registered with the backup vault, and provide the **encryption passphrase** associated with the DPM server whose data is being recovered.
+    ![외부 DPM 자격 증명](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
-    ![External DPM Credentials](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
+    >[AZURE.NOTE] 같은 등록 저장소로 연결된 DPM 서버끼리만 데이터를 복구할 수 있습니다.
 
-    >[AZURE.NOTE] Only DPM servers associated with the same registration vault can recover each other’s data.
+    외부 DPM 서버가 성공적으로 추가되면 **복구** 탭에서 외부 DPM 서버와 로컬 DPM 서버의 데이터를 찾아볼 수 있습니다.
 
-    Once the External DPM server is successfully added, you can browse the data of external DPM server and local DPM server from the **Recovery** tab.
+3. 외부 DPM 서버에서 보호하는 사용 가능한 프로덕션 서버의 목록을 찾아보고 적절한 데이터 원본을 선택합니다.
 
-3. Browse the available list of production servers protected by the external DPM server and select the appropriate data source.
+    ![외부 DPM 서버 찾아보기](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
 
-    ![Browse External DPM Server](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
+4. **복구 지점** 드롭다운에서 **월 및 연도**를 선택하고 **복구 날짜**에서 복구 지점이 생성된 날짜를, **복구 시간**에서 시간을 선택합니다.
 
-4. Select **the month and year** from the **Recovery points** drop down, select the required **Recovery date** for when the recovery point was created, and select the **Recovery time**.
+    아래 창에 파일 및 폴더의 목록이 표시되며 여기서 찾아 어떤 위치로든 복구할 수 있습니다.
 
-    A list of files and folders will appear in the bottom pane which can be browsed and recovered to any location.
+    ![외부 DPM 서버 복구 지점](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
 
-    ![External DPM Server Recovery Points](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
+5. 적절한 항목을 마우스 오른쪽 단추로 클릭하고 **복구**를 클릭합니다.
 
-5. Right click the appropriate item and click **Recover**.
+    ![외부 DPM 복구](./media/backup-azure-alternate-dpm-server/recover.png)
 
-    ![External DPM recovery](./media/backup-azure-alternate-dpm-server/recover.png)
+6. **복구 선택 사항**을 검토합니다. 복구될 백업 복사본의 날짜와 시간, 백업 복사본이 만들어진 원본을 확인합니다. 선택 항목이 올바르지 않으면 **취소**를 클릭하여 다시 백업 탭으로 돌아가 적절한 복구 지점을 선택합니다. 선택 항목이 올바르면 **다음**을 클릭합니다.
 
-6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, click **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, click **Next**.
+    ![외부 DPM 복구 요약](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
 
-    ![External DPM recovery summary](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
+7. **대체 위치로 복구**를 선택합니다. **찾아보기**를 선택하여 복구할 올바른 위치를 찾습니다.
 
-7. Select **Recover to an alternate location**. **Browse** to the correct location for the recovery.
+    ![외부 DPM 복구 대체 위치](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
 
-    ![External DPM recovery alternate location](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
+8. **복사본 만들기**, **건너뛰기** 또는 **덮어쓰기** 옵션 중에서 선택합니다.
+    - **복사본 만들기**를 선택하면 이름이 충돌할 경우 파일의 복사본을 만듭니다.
+    - **건너뛰기**를 선택하면 이름이 충돌할 경우 복구를 건너뜁니다.
+    - **덮어쓰기**를 선택하면 이름이 충돌할 경우 지정된 위치의 기존 복사본을 덮어씁니다.
 
-8. Choose the option related to **create copy**, **Skip**, or **Overwrite**.
-    - **Create copy** will create a copy of the file in the event there is a name collision.
-    - **Skip** will skip recovering the file in the event there is a name collision.
-    - **Overwrite** will overwrite the existing copying in the location specified in the event of a name collision.
+    **복원 보안**에서 적절한 옵션을 선택합니다. 데이터를 복구할 대상 컴퓨터의 보안 설정을 적용하거나 복구 지점이 생성된 시기에 사용된 보안 설정을 적용할 수 있습니다.
 
-    Choose the appropriate option to **Restore security**. You can apply the security settings of the destination computer where the data is being recovered or the security settings that were applicable to product at the time the recovery point was created.
+    복구가 성공적으로 완료되면 **알림**을 전송할지 선택합니다.
 
-    Identify whether a **Notification** will be sent once the recovery completes successfully.
+    ![외부 DPM 복구 알림](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
 
-    ![External DPM Recovery Notifications](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
+9. **요약** 화면에 지금까지 선택한 옵션이 나열됩니다. **'복구'**를 클릭하면 데이터가 적절한 온-프레미스 위치에 복구됩니다.
 
-9. The **Summary** screen lists the options chosen so far. Once you click **‘Recover’**, the data will be recovered to the appropriate on-premises location.
+    ![외부 DPM 복구 옵션 요약](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
-    ![External DPM Recovery Options Summary](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
+    >[AZURE.NOTE] 복구 작업은 DPM의 **모니터링** 탭에서 모니터링할 수 있습니다.
 
-    >[AZURE.NOTE] The recovery job can be monitored in the **Monitoring** tab of the DPM server.
+    ![복구 모니터링](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 
-    ![Monitoring Recovery](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
+10. 외부 DPM 서버를 보지 않으려면 **복구** 탭에서 **외부 DPM 지우기**를 클릭하면 됩니다.
 
-10. You can click **Clear External DPM** on the **Recovery** tab of the DPM server to remove the view of the external DPM server.
+    ![외부 DPM 지우기](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
-    ![Clear External DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
-
-## <a name="troubleshooting-error-messages"></a>Troubleshooting Error Messages
-|No. |  Error Message | Troubleshooting steps |
+## 오류 메시지 문제 해결
+|번호 |	오류 메시지 |	문제 해결 단계 |
 | :-------------: |:-------------| :-----|
-|1.|        This server is not registered to the vault specified by the vault credential.|  **Cause:** This error appears when the vault credential file selected does not belong to the backup vault associated with DPM server on which the recovery is attempted. <br> **Resolution:** Download the vault credential file from the backup vault to which the DPM server is registered.|
-|2.|        Either the recoverable data is not available or the selected server is not a DPM server.|   **Cause:** There are no other DPM servers with DPM 2012 R2 UR7 registered to the backup vault, or the DPM servers with DPM 2012 R2 UR7 have not yet uploaded the metadata, or the selected server is not DPM server (aka Windows Server or Windows Client). <br> **Resolution:** If there are other DPM servers registered to the backup vault, ensure SCDPM 2012 R2 UR7 and latest Azure Backup agent are installed. <br>If there are other DPM servers registered to the backup vault with DPM 2012 R2 UR7, wait for a day after installation of UR7 to start the recovery process. The nightly job will upload the metadata for all the previously protected backups to cloud. The data will be available for recovery.|
-|3.|        No other DPM server is registered to this vault.|   **Cause:** There are no other DPM servers with DPM 2012 R2 UR7 or above that are registered to the vault from which the recovery is being attempted.<br>**Resolution:** If there are other DPM servers registered to the backup vault, ensure SCDPM 2012 R2 UR7 and latest Azure Backup agent are installed.<br>If there are other DPM servers registered to the backup vault with DPM 2012 R2 UR7, wait for a day after installation of UR7 to start the recovery process. The nightly job will upload the metadata for all the previously protected backups to cloud. The data will be available for recovery.|
-|4.|        The encryption passphrase provided does not match with passphrase associated with the following server: **<server name>**|  **Cause:** The encryption passphrase used in the process of encrypting the data from the DPM server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails.<br>**Resolution:** Please provide the exact same encryption passphrase associated with the DPM server whose data is being recovered.|
+|1\.|		이 서버는 저장소 자격 증명을 통해 지정된 저장소에 등록되지 않았습니다.|	**원인:** 이 오류는 선택한 저장소 자격 증명 파일이 복구를 시도하려는 DPM 서버와 연결된 백업 저장소에 속해 있지 않을 때 나타납니다. <br> **해결 방법:** DPM 서버가 등록된 백업 저장소에서 저장소 자격 증명 파일을 다운로드합니다.|
+|2\.|		복구 가능한 데이터가 없거나 선택한 서버가 DPM 서버가 아닙니다.|	**원인:** 백업 저장소에 DPM 2012 R2 UR7 버전의 DPM 서버가 등록되지 않았거나, DPM 2012 R2 UR7 버전인 DPM 서버에서 아직 메타데이터를 업로드하지 않았거나, 선택한 서버가 DPM 서버가 아닙니다(Windows Server 또는 Windows 클라이언트일 수 있음). <br> **해결 방법:** 백업 저장소에 다른 DPM 서버가 등록된 경우 SCDPM 2012 R2 UR7과 최신 Azure 백업 에이전트를 설치하세요. <br>DPM 2012 R2 UR7이 아닌 다른 DPM 서버가 백업 저장소에 등록된 경우, UR7을 설치하고 하루 동안 기다린 다음 복구 프로세스를 시작하세요. 야간 작업을 통해 이전에 보호된 모든 백업에 대한 메타데이터가 클라우드로 업로드됩니다. 이제 데이터를 복구할 수 있습니다.|
+|3\.|		이 저장소에 DPM 서버가 등록되어 있지 않습니다.|	**원인:** 복구가 시도된 저장소에 DPM 2012 R2 UR7 이상의 DPM 서버가 없습니다.<br>**해결 방법:** 백업 저장소에 다른 DPM 서버가 등록된 경우 SCDPM 2012 R2 UR7과 최신 Azure 백업 에이전트를 설치하세요.<br>DPM 2012 R2 UR7 버전의 DPM 서버가 백업 저장소에 등록된 경우 UR7을 설치한 날부터 하루 동안 기다린 다음 복구 프로세스를 시작하세요. 야간 작업을 통해 이전에 보호된 모든 백업에 대한 메타데이터가 클라우드로 업로드됩니다. 이제 데이터를 복구할 수 있습니다.|
+|4\.|		암호화 암호가 다음 서버에 연결된 암호와 일치하지 않습니다. **<server name>**|	**원인:** 데이터를 복구하려는 DPM 서버의 데이터를 암호화하는 데 사용된 암호화 암호가 입력한 암호화 암호와 일치하지 않습니다. 에이전트는 데이터의 암호를 해독할 수 없습니다. 따라서 복구가 실패합니다.<br>**해결 방법:** 데이터를 복구하려는 DPM 서버에 연결된 암호화 암호를 정확하게 입력하세요.|
 
-## <a name="frequently-asked-questions:"></a>Frequently asked questions:
-1. **Why can’t I add an external DPM server from another DPM server after installing the UR7 and latest Azure Backup agent?**
+## 질문과 대답:
+1. **UR7과 최신 Azure 백업 에이전트를 설치한 후에 다른 DPM 서버에서 외부 DPM 서버를 추가할 수 없는 이유는 무엇입니까?**
 
-    A) For the existing DPM servers with data sources that are protected to the cloud (by using an update rollup earlier than Update Rollup 7), you have to wait at least one day after installing the UR7 and latest Azure Backup agent to start *Add External DPM server*. This is needed to upload the metadata of the DPM protection groups to Azure. This occurs the first time through a nightly job.
+    대답) 데이터 원본이 클라우드에 보호되어 있는 기존 DPM 서버의 경우(업데이트 롤업 7 이전의 업데이트 롤업을 사용하여), UR7과 최신 Azure 백업 에이전트를 설치한 다음 하루 이상 기다린 후에 *외부 DPM 서버 추가*를 시작하세요. DPM 보호 그룹의 메타데이터가 Azure에 업로드되어야 합니다. 이 작업은 설치 후 첫 야간 작업을 통해 수행됩니다.
 
-2. **What is the minimum version of Azure Backup agent needed?**
+2. **필요한 Azure 백업 에이전트의 최소 버전은 무엇입니까?**
 
-    A) The Azure Backup agent minimum version to enable this feature is 2.0.8719.0.  Azure Backup agent version can be verified by navigating to Control Panel **>** All Control Panel items **>** Programs and features **>** Microsoft Azure Recovery Services Agent. If the version is less than 2.0.8719.0, download the [latest Azure Backup agent](https://go.microsoft.com/fwLink/?LinkID=288905) and install.
+    대답) 이 기능을 사용하기 위해 필요한 Azure 백업 에이전트의 최소 버전은 2.0.8719.0입니다. 제어판 **>** 모든 제어판 항목 **>** 프로그램 및 기능 **>** Microsoft Azure 복구 서비스 에이전트로 이동하여 Azure 백업 에이전트 버전을 확인할 수 있습니다. 버전이 2.0.8719.0 보다 낮은 경우 [최신 Azure 백업 에이전트](https://go.microsoft.com/fwLink/?LinkID=288905)를 다운로드하여 설치하세요.
 
-    ![Clear External DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
+    ![외부 DPM 지우기](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 
-## <a name="next-steps:"></a>Next Steps:
-•   [Azure Backup FAQ](backup-azure-backup-faq.md)
+## 다음 단계:
+[Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

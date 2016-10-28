@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modify local network gateway IP address prefixes and gateway IP | Microsoft Azure"
-   description="This article walks you through changing IP address prefixes for your local network gateway"
+   pageTitle="로컬 네트워크 게이트웨이 IP 주소 접두사 및 게이트웨이 IP 수정 | Microsoft Azure"
+   description="이 문서는 로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 변경하는 방법을 안내합니다."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,30 +17,24 @@
    ms.date="08/08/2016"
    ms.author="cherylmc"/>
 
+# PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정
 
-# <a name="modify-local-network-gateway-settings-using-powershell"></a>Modify local network gateway settings using PowerShell
+때로는 로컬 네트워크 게이트웨이 AddressPrefix 또는 GatewayIPAddress에 대한 설정을 변경합니다. 아래 지침을 따라 로컬 네트워크 게이트웨이 설정을 수정할 수 있습니다. 또한 Azure 포털에서 이러한 설정을 수정할 수 있습니다.
 
-Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. The instructions below will help you modify your local network gateway settings. You can also modify these settings in the Azure portal.
+## 시작하기 전에
+	
+최신 버전의 Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-## <a name="before-you-begin"></a>Before you begin
-    
-You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
-
-## <a name="to-modify-ip-address-prefixes"></a>To modify IP address prefixes
+## IP 주소 접두사를 수정하려면
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="to-modify-the-gateway-ip-address"></a>To modify the gateway IP address
+## 게이트웨이 IP 주소를 수정하려면
 
 [AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-You can verify your gateway connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).
+게이트웨이 연결을 확인할 수 있습니다. [게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)을 참조하세요.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

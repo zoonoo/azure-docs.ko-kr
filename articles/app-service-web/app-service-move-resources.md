@@ -1,34 +1,29 @@
 <properties
-    pageTitle="Move Web App Resources to another Resource Group"
-    description="Describes the scenarios where you can move Web Apps and App Services from one Resource Group to another."
-    services="app-service"
-    documentationCenter=""
-    authors="ZainRizvi"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="웹앱 리소스를 다른 리소스 그룹으로 이동"
+	description="하나의 리소스 그룹에서 다른 리소스 그룹으로 웹앱 및 앱 서비스를 이동할 수 있는 시나리오를 설명합니다."
+	services="app-service"
+	documentationCenter=""
+	authors="ZainRizvi"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/04/2016"
-    ms.author="zarizvi"/>
-    
+	ms.service="app-service"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
+	ms.author="zarizvi"/>
+	
+# 지원되는 이동 구성
 
-# <a name="supported-move-configurations"></a>Supported Move Configurations
+[ARM 이동 리소스 Api](../resource-group-move-resources.md)를 사용하여 Azure 웹앱 리소스를 이동할 수 있습니다.
 
-You can move Azure Web App resources using the [ARM Move Resources Api](../resource-group-move-resources.md).
+Azure 웹앱은 현재 다음 이동 시나리오를 지원합니다.
 
-Azure Web Apps currently supports the following move scenarios:
+* 리소스 그룹(웹 앱, 앱 서비스 계획 및 인증서)의 전체 내용을 다른 리소스 그룹으로 이동 
+	* 참고: 대상 리소스 그룹은 이 시나리오에서 모든 Microsoft.Web 리소스를 포함할 수 없습니다.
+* 여전히 자신의 현재 앱 서비스 계획(앱 서비스 계획은 이전 리소스 그룹에 유지)에서 호스트하는 동안 다른 리소스 그룹으로 개별 웹앱을 이동
 
-* Moving the entire contents of a resource group (web apps, app service plans, and certificates) to another resource group 
-    * Note: The destination resource group can not contain any Microsoft.Web resources in this scenario
-* Moving individual web apps to a different resource group, while still hosting them in their current app service plan (the app service plan stays in the old resource group)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0107_2016-->

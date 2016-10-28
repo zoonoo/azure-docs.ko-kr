@@ -1,6 +1,6 @@
 <properties
- pageTitle="Sizes for cloud services"
- description="Lists the different virtual machine sizes for Azure cloud service web and worker roles."
+ pageTitle="클라우드 서비스에 적합한 크기"
+ description="Azure 클라우드 서비스 웹 및 작업자 역할에 대한 다양한 가상 컴퓨터 크기를 나열합니다."
  services="cloud-services"
  documentationCenter=""
  authors="Thraka"
@@ -15,142 +15,141 @@
  ms.date="08/10/2016"
  ms.author="adegeo"/>
 
+# 클라우드 서비스에 적합한 크기
 
-# <a name="sizes-for-cloud-services"></a>Sizes for Cloud Services
+이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.
 
-This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources.
+클라우드 서비스는 Azure에서 제공하는 계산 리소스의 여러 형식 중 하나입니다. 클라우드 서비스에 대한 자세한 내용을 보려면 [여기](cloud-services-choose-me.md)를 클릭하세요.
 
-Cloud Services is one of several types of compute resources offered by Azure. Click [here](cloud-services-choose-me.md) for more information about Cloud Services.
+> [AZURE.NOTE]관련 Azure 제한 사항에 대한 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
-> [AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+## 웹 및 작업자 역할 인스턴스에 적합한 크기
 
-## <a name="sizes-for-web-and-worker-role-instances"></a>Sizes for web and worker role instances
+다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 
-The following considerations might help you decide on a size:
+* D 시리즈 VM 인스턴스는 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 가상 컴퓨터 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
 
-* D-series VM instances are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* 원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.1GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
-* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+* 시스템 요구 사항으로 인해 웹 역할 및 작업자 역할에는 Azure 가상 컴퓨터 보다 많은 임시 디스크 공간이 필요합니다. 시스템 파일은 Windows 페이지 파일용으로 4GB, Windows 덤프 파일용으로 2GB의 공간이 예약됩니다.
 
-* Web roles and worker roles require more temporary disk space than Azure Virtual Machines because of system requirements. The system files reserve 4 GB of space for the Windows page file, and 2 GB of space for the Windows dump file.  
+* OS 디스크에는 Windows 게스트 OS가 포함되어 있으며 Program Files 폴더(다른 디스크를 지정하지 않는 경우 시작 작업을 통해 수행되는 설치 포함), 레지스트리 변경 사항, System32 폴더 및 .NET framework가 들어 있습니다.
 
-* The OS disk contains the Windows guest OS and includes the Program Files folder (including installations done via startup tasks unless you specify another disk), registry changes, the System32 folder, and the .NET framework.  
+* **임시 저장소 디스크**에는 Azure 로그와 구성 파일, IIS 로그가 포함된 Azure 진단, 그리고 사용자가 정의하는 로컬 저장소 리소스가 포함되어 있습니다.
 
-* The **temporary storage disk** contains Azure logs and configuration files, Azure Diagnostics (which includes your IIS logs), and any local storage resources you define.  
+* .cspkg가 추출되는 **응용 프로그램 디스크**에는 웹 사이트, 이진 파일, 역할 호스트 프로세스, 시작 작업, web.config 등이 포함됩니다.
 
-* The **application disk** is where your .cspkg is extracted and includes your website, binaries, role host process, startup tasks, web.config, and so on.  
+* A8/A10 및 A9/A11 가상 컴퓨터 크기는 용량이 동일합니다. A8 및 A9 가상 컴퓨터 인스턴스에는 가상 컴퓨터 간의 빠른 통신을 위해 RDMA(원격 직접 메모리 액세스) 네트워크에 연결되는 추가 네트워크 어댑터가 포함됩니다. A8 및 A9 인스턴스는 MPI(메시지 전달 인터페이스)를 사용하는 응용 프로그램 등을 실행하는 동안 노드 간에 지속적이고 대기 시간이 짧은 통신이 필요한 고성능 컴퓨팅 응용 프로그램을 위해 설계되었습니다. A10 및 A11 가상 컴퓨터 인스턴스에는 추가 네트워크 어댑터가 포함되지 않습니다. A10 및 A11 인스턴스는 노드 간에 지속적이고 대기 시간이 짧은 통신을 필요로 하지 않는 고성능 컴퓨팅 응용 프로그램을 위해 설계되었으며 파라메트릭 또는 병렬 응용 프로그램으로 알려져 있습니다.
 
-* The A8/A10 and A9/A11 virtual machine sizes have the same capacities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
+    >[AZURE.NOTE] A8~A11 크기 사용을 고려 중이라면 [이](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) 정보를 확인하세요.
 
-    >[AZURE.NOTE] If you're considering sizes A8 through A11, please read [this](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) information.
+>[AZURE.NOTE] 크기와 관계없이 모든 컴퓨터는 클라우드 서비스 패키지(크기 약 1.5GB)의 모든 파일이 저장되는 **응용 프로그램 디스크**를 제공합니다.
 
->[AZURE.NOTE] All machine sizes provide an **application disk** that stores all the files from your cloud service package; it is around 1.5 GB in size. 
+각 클라우드 서비스 크기의 [가격](https://azure.microsoft.com/pricing/details/cloud-services/)을 검토해야 합니다.
 
-Please make sure you review the [pricing](https://azure.microsoft.com/pricing/details/cloud-services/) of each Cloud Service size.
+## 범용 가상 컴퓨터
 
-## <a name="general-purpose"></a>General purpose
+웹 사이트, 중소 규모의 데이터베이스 및 기타 일상적인 응용 프로그램에 적합합니다.
 
-For websites, small-to-medium databases, and other everyday applications.
+>[AZURE.NOTE] 저장소 용량은 1024^3 바이트를 사용하여 GB의 측정 단위로 표시됩니다. gibibyte, 또는 기본 2 정의라고도 합니다. 다른 기본 시스템을 사용하는 크기와 비교할 때, 기본 2 크기가 기본 10보다 작게 나타날 수 있지만 특정 크기(예: 1GB)의 경우 1024 ^3이 1000^3 보다 크기 때문에 기본 2 시스템은 기본 10 시스템보다 더 많은 용량을 제공합니다.
 
->[AZURE.NOTE] Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3. 
-
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| 크기(ID) | 코어 수 | RAM | 네트워크 대역폭 | 전체 디스크 크기 |
 | --------------- | :-------: | ------: | :-----------: | -------: |
-| ExtraSmall      | 1         | 0.75 GB | Low           | 19 GB    |
-| Small           | 1         | 1.75 GB | Moderate      | 224 GB   |
-| Medium          | 2         | 3.5 GB  | Moderate      | 489 GB   |
-| Large           | 4         | 7 GB    | High          | 999 GB   |
-| ExtraLarge      | 8         | 14 GB   | High          | 2,039 GB |
+| 매우 작음 | 1 | 0\.75GB | 낮음 | 19GB |
+| 작음 | 1 | 1\.75 GB | 보통 | 224GB |
+| 중간 | 2 | 3\.5 GB | 보통 | 489GB |
+| 큼 | 4 | 7 GB | 높음 | 999GB |
+| 매우 큼 | 8 | 14 GB | 높음 | 2,039GB |
 
->[AZURE.NOTE] **ExtraSmall** through **ExtraLarge** can also be named **A0-A4** respectively.
+>[AZURE.NOTE] **매우 작음**~**매우 큼**의 이름을 각각 **A0~A4**로 지정할 수도 있습니다.
 
-## <a name="memory-intensive"></a>Memory intensive
+## 메모리 집약적 가상 컴퓨터
 
-For large databases, SharePoint server farms, and high-throughput applications.
+대형 데이터베이스, SharePoint 서버 팜 및 처리량이 높은 응용 프로그램에 적합합니다.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| 크기(ID) | 코어 수 | RAM | 네트워크 대역폭 | 전체 디스크 크기 |
 | --------------- | :-------: | ------: | :-----------: | ------:  |
-| A5              | 2         | 14 GB   | Moderate      | 489 GB   |
-| A6              | 4         | 28 GB   | High          | 999 GB   |
-| A7              | 8         | 56 GB   | High          | 2,039 GB |
+| A5 | 2 | 14 GB | 보통 | 489GB |
+| A6 | 4 | 28GB | 높음 | 999GB |
+| A7 | 8 | 56GB | 높음 | 2,039GB |
 
-## <a name="network-optimized-with-infiniband-support"></a>Network optimized with InfiniBand support
+## Infiniband 지원을 통해 네트워크용으로 최적화된 가상 컴퓨터
 
-Available in select data centers. A8 and A9 virtual machines feature [Intel® Xeon® E5 processors](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Adds a 32 Gbit/s **InfiniBand** network with remote direct memory access (RDMA) technology. Ideal for Message Passing Interface (MPI) applications, high-performance clusters, modeling and simulations, video encoding, and other compute or network intensive scenarios.
+일부 데이터 센터에서 사용 가능합니다. A8 및 A9 가상 컴퓨터에는 [Intel® Xeon® E5 프로세서](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html)가 장착되어 있습니다. RDMA(원격 직접 메모리 액세스) 기술이 적용된 32Gbit/s **InfiniBand** 네트워크가 추가적으로 제공됩니다. MPI(Message Passing Interface) 응용 프로그램, 고성능 클러스터, 모델링 및 시뮬레이션, 비디오 인코딩, 기타 계산 또는 네트워크 집약적인 시나리오에 적합합니다.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| 크기(ID) | 코어 수 | RAM | 네트워크 대역폭 | 전체 디스크 크기 |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A8              | 8         | 56 GB   | High          | 382 GB  |
-| A9              | 16        | 112 GB  | Very High     | 382 GB  |
+| A8 | 8 | 56GB | 높음 | 382GB |
+| A9 | 16 | 112GB | 매우 높음 | 382GB |
 
-## <a name="compute-intensive"></a>Compute intensive
+## 계산 집약적 가상 컴퓨터
 
-Available in select data centers. A10 and A11 virtual machines feature [Intel® Xeon® E5 processors](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). For high-performance clusters, modeling and simulations, video encoding, and other compute or network intensive scenarios. Similar to A8 and A9 instance configuration without the InfiniBand network and RDMA technology.
+일부 데이터 센터에서 사용 가능합니다. A10 및 A11 가상 컴퓨터에는 [Intel® Xeon® E5 프로세서](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html)가 장착되어 있습니다. 고성능 클러스터, 모델링 및 시뮬레이션, 비디오 인코딩, 기타 계산 또는 네트워크 집약적인 시나리오에 적합합니다. InfiniBand 네트워크 및 RDMA 기술을 제공하지 않는 A8 및 A9 인스턴스 구성과 비슷합니다.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| 크기(ID) | 코어 수 | RAM | 네트워크 대역폭 | 전체 디스크 크기 |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A10             | 8         | 56 GB   | High          | 382 GB  |
-| A11             | 16        | 112 GB  | Very High     | 382 GB  |
+| A10 | 8 | 56GB | 높음 | 382GB |
+| A11 | 16 | 112GB | 매우 높음 | 382GB |
 
-## <a name="d-series:-optimized-compute"></a>D-series: Optimized compute
+## D 시리즈: 최적화된 계산 기능을 제공하는 가상 컴퓨터
 
-D-series virtual machines feature solid state drives (SSDs) and faster processors than the A-series (60% faster) and is also available for web or worker roles in Azure Cloud Services. This series is ideal for applications that demand faster CPUs, better local disk performance, or higher memory.
+SSD(반도체 드라이브) 및 A 시리즈보다 60% 빠른 프로세서가 장착되어 있는 D 시리즈 가상 컴퓨터는 Azure 클라우드 서비스의 웹 또는 작업자 역할에서도 사용할 수 있습니다. 이 시리즈는 더 빠른 CPU, 보다 뛰어난 로컬 디스크 성능 또는 더 많은 메모리가 필요한 응용 프로그램에 적합합니다.
 
-## <a name="general-purpose-(d)"></a>General purpose (D)
+## 범용(D) 가상 컴퓨터
 
-For websites, small-to-medium databases, and other everyday applications.
+웹 사이트, 중소 규모의 데이터베이스 및 기타 일상적인 응용 프로그램에 적합합니다.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| 크기(ID) | 코어 수 | RAM | 네트워크 대역폭 | 전체 디스크 크기 |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D1     | 1         | 3.5 GB  | Moderate      | 50 GB   |
-| Standard_D2     | 2         | 7 GB    | High          | 100 GB  |
-| Standard_D3     | 4         | 14 GB   | High          | 200 GB  |
-| Standard_D4     | 8         | 28 GB   | High          | 400 GB  |
+| Standard\_D1 | 1 | 3\.5 GB | 보통 | 50GB |
+| Standard\_D2 | 2 | 7 GB | 높음 | 100GB |
+| Standard\_D3 | 4 | 14 GB | 높음 | 200GB |
+| Standard\_D4 | 8 | 28GB | 높음 | 400GB |
 
-## <a name="memory-intensive-(d)"></a>Memory intensive (D)
+## 메모리 집약적 가상 컴퓨터(D)
 
-For large databases, SharePoint server farms, and high-throughput applications.
+대형 데이터베이스, SharePoint 서버 팜 및 처리량이 높은 응용 프로그램에 적합합니다.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| 크기(ID) | 코어 수 | RAM | 네트워크 대역폭 | 전체 디스크 크기 |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D11    | 2         | 14 GB   | High          | 100 GB  |
-| Standard_D12    | 4         | 28 GB   | High          | 200 GB  |
-| Standard_D13    | 8         | 56 GB   | High          | 400 GB  |
-| Standard_D14    | 16        | 112 GB  | Very High     | 800 GB  |
+| Standard\_D11 | 2 | 14 GB | 높음 | 100GB |
+| Standard\_D12 | 4 | 28GB | 높음 | 200GB |
+| Standard\_D13 | 8 | 56GB | 높음 | 400GB |
+| Standard\_D14 | 16 | 112GB | 매우 높음 | 800GB |
 
-## <a name="dv2-series:-optimized-compute"></a>Dv2-series: Optimized compute
+## Dv2 시리즈: 최적화된 계산 기능을 제공하는 가상 컴퓨터
 
-Dv2-series instances are the next generation of D-series instances that can be used as Virtual Machines or Cloud Services. Dv2-series instances will carry more powerful CPUs which are on average about 35% faster than D-series instances, and carry the same memory and disk configurations as the D-series. Dv2-series instances are based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with Intel Turbo Boost Technology 2.0 can go to 3.1 GHz. Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or higher memories and offer a powerful combination for many enterprise-grade applications.
+Dv2 시리즈 인스턴스는 가상 컴퓨터 또는 클라우드 서비스로 사용할 수 있는 차세대 D 시리즈 인스턴스입니다. Dv2 시리즈 인스턴스는 D 시리즈 인스턴스보다 평균적으로 35% 정도 더 빠른 강력한 CPU를 제공하면서 메모리 및 디스크는 D 시리즈와 동일한 구성으로 제공합니다. Dv2 시리즈 인스턴스는 최신 세대의 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 채택하여 3.1GHz의 성능을 제공할 수 있습니다. Dv2 시리즈 및 D 시리즈는 더 빠른 CPU, 보다 뛰어난 로컬 디스크 성능 또는 더 많은 메모리가 필요한 응용 프로그램에 적합하며, 이 두 시리즈를 조합하여 사용하는 경우 대부분의 엔터프라이즈급 응용 프로그램을 실행할 수 있습니다.
 
-## <a name="general-purpose-(dv2)"></a>General purpose (Dv2)
+## 범용(Dv2) 가상 컴퓨터
 
-For websites, small-to-medium databases, and other everyday applications.
+웹 사이트, 중소 규모의 데이터베이스 및 기타 일상적인 응용 프로그램에 적합합니다.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| 크기(ID) | 코어 수 | RAM | 네트워크 대역폭 | 전체 디스크 크기 |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D1_v2  | 1         | 3.5 GB  | Moderate      | 50 GB   |
-| Standard_D2_v2  | 2         | 7 GB    | High          | 100 GB  |
-| Standard_D3_v2  | 4         | 14 GB   | High          | 200 GB  |
-| Standard_D4_v2  | 8         | 28 GB   | High          | 400 GB  |
-| Standard_D5_v2  | 16        | 56 GB   | Very High     | 800 GB  |
+| Standard\_D1\_v2 | 1 | 3\.5 GB | 보통 | 50GB |
+| Standard\_D2\_v2 | 2 | 7 GB | 높음 | 100GB |
+| Standard\_D3\_v2 | 4 | 14 GB | 높음 | 200GB |
+| Standard\_D4\_v2 | 8 | 28GB | 높음 | 400GB |
+| Standard\_D5\_v2 | 16 | 56GB | 매우 높음 | 800GB |
 
-## <a name="memory-intensive-(dv2)"></a>Memory intensive (Dv2)
+## 메모리 집약적 가상 컴퓨터(Dv2)
 
-For large databases, SharePoint server farms, and high-throughput applications
+대형 데이터베이스, SharePoint 서버 팜 및 처리량이 높은 응용 프로그램에 적합합니다.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| 크기(ID) | 코어 수 | RAM | 네트워크 대역폭 | 전체 디스크 크기 |
 | --------------- | :-------: | ------: | :-----------: | -------: |
-| Standard_D11_v2 | 2         | 14 GB   | High          | 100 GB   |
-| Standard_D12_v2 | 4         | 28 GB   | High          | 200 GB   |
-| Standard_D13_v2 | 8         | 56 GB   | High          | 400 GB   |
-| Standard_D14_v2 | 16        | 112 GB  | Very High     | 800 GB   |
-| Standard_D15_v2 | 20        | 140 GB  | Very High     | 1,000 GB |
+| Standard\_D11\_v2 | 2 | 14 GB | 높음 | 100GB |
+| Standard\_D12\_v2 | 4 | 28GB | 높음 | 200GB |
+| Standard\_D13\_v2 | 8 | 56GB | 높음 | 400GB |
+| Standard\_D14\_v2 | 16 | 112GB | 매우 높음 | 800GB |
+| Standard\_D15\_v2 | 20 | 140GB | 매우 높음 | 1,000 GB |
 
-## <a name="configure-sizes-for-cloud-services"></a>Configure sizes for Cloud Services
+## 클라우드 서비스에 적합한 크기 구성
 
-You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
+[서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 설명된 서비스 모델의 일부로서 역할 인스턴스의 가상 컴퓨터 크기를 지정할 수 있습니다. 역할의 크기에 따라 실행 인스턴스에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. 응용 프로그램의 리소스 요구 사항에 따라 역할 크기를 선택합니다.
 
-Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
+웹 역할 인스턴스에 역할 크기를 [Standard\_D2](#general-purpose-d)로 설정하는 예는 다음과 같습니다.
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
@@ -158,8 +157,4 @@ Here is an example for setting the role size to be [Standard_D2](#general-purpos
 </WebRole>
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

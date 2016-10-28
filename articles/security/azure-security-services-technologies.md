@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Security Services and Technologies | Microsoft Azure"
-   description="The article provides a curated list of Azure Security services and technologies."
+   pageTitle="Azure 보안 서비스 및 기술 | Microsoft Azure"
+   description="이 문서는 엄선된 Azure 보안 서비스 및 기술 목록입니다."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,63 +16,58 @@
    ms.date="08/09/2016"
    ms.author="yurid"/>
 
+# Azure 보안 서비스 및 기술
 
-# <a name="azure-security-services-and-technologies"></a>Azure Security Services and Technologies
-
-In our discussions with current and future Azure customers, we’re often asked “do you have a list of all the security related services and technologies that Azure has to offer?”
+현재 및 미래 Azure 고객들과 이야기를 나눌 때 우리는 이런 질문을 자주 받습니다. “Azure가 제공하는 모든 보안 관련 서비스 및 기술 목록을 구비하고 계십니까?”
  
-We understand that when you’re evaluating your cloud service provider technical options, it’s helpful to have such a list available that you can use to dig down deeper when the time is right for you.
+클라우드 서비스 공급자 기술 옵션을 평가할 때, 사용 가능한 목록을 갖고 있다면 시간이 맞을 때 더 자세히 알아보는 데 유용할 수도 있습니다.
 
-The following is our initial effort at providing a list. Over time, this list will change and grow, just as Azure does. The list is categorized, and the list of categories will also grow over time. Make sure to check this page on a regular basis to stay up-to-date on our security-related services and technologies. 
+다음은 우리가 목록을 제공하기 위해 기울이는 초기 노력입니다. 시간이 지남에 따라 이 목록은 Azure와 마찬가지로 변경되고 증가합니다. 목록은 분류되며, 범주 목록 또한 시간이 지남에 따라 확장됩니다. 보안 관련 서비스 및 기술을 최신 상태로 유지할 수 있도록 정기적으로 이 페이지를 확인하세요.
 
-## <a name="azure-security---general"></a>Azure Security - General
-- [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)
-- [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)
-- [Azure Disk Encryption](azure-security-disk-encryption.md)
+## Azure 보안-일반
+- [Azure 보안 센터](https://azure.microsoft.com/documentation/services/security-center/)
+- [Azure 키 자격 증명 모음](https://azure.microsoft.com/documentation/services/key-vault/)
+- [Azure 디스크 암호화](azure-security-disk-encryption.md)
 - [Log Analytics](../log-analytics/log-analytics-overview.md)
 - [Azure Dev/Test Labs](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
-## <a name="azure-storage-security"></a>Azure Storage Security
-- [Azure Storage Service Encryption](../storage/storage-service-encryption.md)
-- [StorSimple Encrypted Hybrid Storage](https://azure.microsoft.com/documentation/services/storsimple/)
-- [Azure Client-Side Encryption](../storage/storage-client-side-encryption.md)
-- [Azure Storage Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md)
-- [Azure Storage Account Keys](../storage/storage-create-storage-account.md)
-- [Azure File Shares with SMB 3.0 Encryption](../storage/storage-dotnet-how-to-use-files.md)
-- [Azure Storage Analytics](https://msdn.microsoft.com/library/hh343270.aspx)
+## Azure 저장소 보안
+- [Azure 저장소 서비스 암호화](../storage/storage-service-encryption.md)
+- [StorSimple 암호화된 하이브리드 저장소](https://azure.microsoft.com/documentation/services/storsimple/)
+- [Azure 클라이언트 쪽 암호화](../storage/storage-client-side-encryption.md)
+- [Azure 저장소 공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md)
+- [Azure 저장소 계정 키](../storage/storage-create-storage-account.md)
+- [3\.0 암호화 SMB와 함께 azure 파일 공유](../storage/storage-dotnet-how-to-use-files.md)
+- [Azure 저장소 분석](https://msdn.microsoft.com/library/hh343270.aspx)
 
-## <a name="azure-database-security"></a>Azure Database Security
-- [Azure SQL Firewall](../sql-database/sql-database-firewall-configure.md)
-- [Azure SQL Cell Level Encryption](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-- [Azure SQL Connection Encryption](../sql-database/sql-database-security-guidelines.md)
-- [Azure SQL Authentication](../sql-database/sql-database-security-guidelines.md)
-- [Azure SQL Always Encryption](https://msdn.microsoft.com/library/mt163865.aspx)
-- [Azure SQL Column Level Encryption](https://msdn.microsoft.com/library/ms179331.aspx)
-- [Azure SQL Transparent Data Encryption](https://msdn.microsoft.com/library/dn948096.aspx)
-- [Azure SQL Database Auditing](../sql-database/sql-database-auditing-get-started.md)
+## Azure 데이터베이스 보안
+- [Azure SQL 방화벽](../sql-database/sql-database-firewall-configure.md)
+- [Azure SQL 셀 수준 암호화](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
+- [Azure SQL 연결 암호화](../sql-database/sql-database-security-guidelines.md)
+- [Azure SQL 인증](../sql-database/sql-database-security-guidelines.md)
+- [Azure SQL 항상 암호화](https://msdn.microsoft.com/library/mt163865.aspx)
+- [Azure SQL 열 수준 암호화](https://msdn.microsoft.com/library/ms179331.aspx)
+- [Azure SQL 투명한 데이터 암호화](https://msdn.microsoft.com/library/dn948096.aspx)
+- [Azure SQL 데이터베이스 감사](../sql-database/sql-database-auditing-get-started.md)
 
-## <a name="azure-identity-and-access-management"></a>Azure Identity and Access Management
-- [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md)
+## Azure ID 및 액세스 관리
+- [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 - [Azure Active Directory](../active-directory/active-directory-whatis.md)
 - [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
-- [Azure Active Directory Domain Services](https://azure.microsoft.com/documentation/services/active-directory-ds/)
+- [Azure Active Directory 도메인 서비스](https://azure.microsoft.com/documentation/services/active-directory-ds/)
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-## <a name="backup-and-disaster-recovery"></a>Backup and Disaster Recovery
-- [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
+## 백업 및 재해 복구
+- [Azure 백업](https://azure.microsoft.com/documentation/services/backup/)
 - [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
 
-## <a name="azure-networking"></a>Azure Networking
-- [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
-- [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
-- [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)
-- [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
-- [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
-- [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
-- [Azure Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
+## Azure 네트워킹
+- [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
+- [Azure VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+- [Azure 응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)
+- [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)
+- [Azure express 경로](../expressroute/expressroute-introduction.md)
+- [Azure 트래픽 관리자](../traffic-manager/traffic-manager-overview.md)
+- [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-enable.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

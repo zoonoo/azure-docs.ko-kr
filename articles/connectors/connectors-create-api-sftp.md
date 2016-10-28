@@ -1,10 +1,10 @@
 <properties
-pageTitle="Learn how to use the SFTP connector in your logic apps | Microsoft Azure"
-description="Create logic apps with Azure App service. Connect to SFTP API to send and receive files. You can perform various operations such as create, update, get or delete files."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+pageTitle="논리 앱에 SFTP 커넥터 사용 방법 알아보기 | Microsoft Azure"
+description="Azure 앱 서비스로 논리 앱을 만듭니다. SFTP API에 연결하여 파일을 보내고 받습니다. 파일 만들기, 업데이트, 가져오기 또는 삭제와 같은 다양한 작업을 수행할 수 있습니다."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,399 +17,398 @@ ms.workload="integration"
 ms.date="07/20/2016"
 ms.author="deonhe"/>
 
+# SFTP 커넥터 시작
 
-# <a name="get-started-with-the-sftp-connector"></a>Get started with the SFTP connector
+SFTP 커넥터를 사용하여 SFTP 계정에 액세스하여 파일을 보내고 받습니다. 파일 만들기, 업데이트, 가져오기 또는 삭제와 같은 다양한 작업을 수행할 수 있습니다.
 
-Use the SFTP connector to access an SFTP account to send and receive files. You can perform various operations such as create, update, get or delete files.  
+[커넥터](./apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../app-service-logic/app-service-logic-create-a-logic-app.md) 시작할 수 있습니다.
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## SFTP에 연결
 
-## <a name="connect-to-sftp"></a>Connect to SFTP
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](./connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.
 
-Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
+### SFTP에 대한 연결 만들기
 
-### <a name="create-a-connection-to-sftp"></a>Create a connection to SFTP
+>[AZURE.INCLUDE [SFTP에 대한 연결을 만드는 단계](../../includes/connectors-create-api-sftp.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
+## SFTP 트리거 사용
 
-## <a name="use-an-sftp-trigger"></a>Use an SFTP trigger
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+이 예제에서는 파일이 SFTP 서버에 추가되거나 수정될 때 **SFTP - 파일을 추가하거나 수정할 때** 트리거를 사용하여 논리 앱 워크플로를 시작하는 방법을 보여 줍니다. 예제에서는 새 파일 또는 수정된 파일의 콘텐츠를 확인하는 조건을 추가하고 해당 콘텐츠를 사용하기 전에 추출해야 하는 것으로 나타나는 경우 파일을 추출하도록 결정하는 방법에 대해서도 알아봅니다. 마지막으로, 파일의 콘텐츠를 추출하고 추출한 콘텐츠를 SFTP 서버의 폴더에 배치하는 작업을 추가하는 방법에 대해 알아봅니다.
 
-In this example, I will show you how to use the **SFTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an SFTP server. In the example, you will also learn how to add a condition that checks the contents of the new or modified file and make a decision to extract the file if its contents indicate that it  should be extracted before using the contents. Finally, you will learn how to add an action to extract the contents of a file and place the extracted contents in a folder on the SFTP server. 
+엔터프라이즈 예에서는 이 트리거를 사용하여 고객의 주문을 나타내는 새 파일에 대한 SFTP 폴더를 모니터링할 수 있습니다. 그런 다음 **파일 콘텐츠 가져오기**와 같은 SFTP 커넥터 작업을 사용하여 추가 처리할 주문 및 주문 데이터베이스에 있는 저장소의 콘텐츠를 가져올 수 있습니다.
 
-In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent orders from customers.  You could then use an SFTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
+>[AZURE.INCLUDE [SFTP 트리거를 만드는 단계](../../includes/connectors-create-api-sftp-trigger.md)]
 
->[AZURE.INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
+## 조건 추가
 
-## <a name="add-a-condition"></a>Add a condition
+>[AZURE.INCLUDE [조건을 추가하는 단계](../../includes/connectors-create-api-sftp-condition.md)]
 
->[AZURE.INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
+## SFTP 작업 사용
 
-## <a name="use-an-sftp-action"></a>Use an SFTP action
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
-
->[AZURE.INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
+>[AZURE.INCLUDE [SFTP 작업을 만드는 단계](../../includes/connectors-create-api-sftp-action.md)]
 
 
-## <a name="technical-details"></a>Technical Details
+## 기술 세부 정보
 
-Here are the details about the triggers, actions and responses that this connection supports:
+이 연결에서 지원하는 트리거, 작업 및 응답에 대한 세부 정보는 다음과 같습니다.
 
-## <a name="sftp-triggers"></a>SFTP triggers
+## SFTP 트리거
 
-SFTP has the following trigger(s):  
+SFTP에는 다음과 같은 트리거가 있습니다.
 
-|Trigger | Description|
+|트리거 | 설명|
 |--- | ---|
-|[When a file is added or modified](connectors-create-api-sftp.md#when-a-file-is-added-or-modified)|This operation triggers a flow when a file is added or modified in a folder.|
+|[파일을 추가하거나 수정할 때](connectors-create-api-sftp.md#when-a-file-is-added-or-modified)|이 작업은 폴더에서 파일을 추가하거나 수정할 때 흐름을 트리거합니다.|
 
 
-## <a name="sftp-actions"></a>SFTP actions
+## SFTP 작업
 
-SFTP has the following actions:
+SFTP에는 다음과 같은 작업이 있습니다.
 
 
-|Action|Description|
+|작업|설명|
 |--- | ---|
-|[Get file metadata](connectors-create-api-sftp.md#get-file-metadata)|This operation gets file metadata using the file id.|
-|[Update file](connectors-create-api-sftp.md#update-file)|This operation updates the file content.|
-|[Delete file](connectors-create-api-sftp.md#delete-file)|This operation deletes a file.|
-|[Get file metadata using path](connectors-create-api-sftp.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
-|[Get file content using path](connectors-create-api-sftp.md#get-file-content-using-path)|This operation gets file contents using the file path.|
-|[Get file content](connectors-create-api-sftp.md#get-file-content)|This operation gets file contents using the file id.|
-|[Create file](connectors-create-api-sftp.md#create-file)|This operation uploads a file to an SFTP server.|
-|[Copy file](connectors-create-api-sftp.md#copy-file)|This operation copies a file to an SFTP server.|
-|[List files in folder](connectors-create-api-sftp.md#list-files-in-folder)|This operation gets files contained in a folder.|
-|[List files in root folder](connectors-create-api-sftp.md#list-files-in-root-folder)|This operation gets the files in the root folder.|
-|[Extract folder](connectors-create-api-sftp.md#extract-folder)|This operation extracts an archive file into a folder (example: .zip).|
-### <a name="action-details"></a>Action details
+|[파일 메타데이터 가져오기](connectors-create-api-sftp.md#get-file-metadata)|이 작업은 파일 ID를 사용하여 파일 메타데이터를 가져옵니다.|
+|[파일 업데이트](connectors-create-api-sftp.md#update-file)|이 작업은 파일 콘텐츠를 업데이트합니다.|
+|[파일 삭제](connectors-create-api-sftp.md#delete-file)|이 작업은 파일을 삭제합니다.|
+|[경로를 사용하여 파일 메타데이터 가져오기](connectors-create-api-sftp.md#get-file-metadata-using-path)|이 작업은 파일 경로를 사용하여 파일 메타데이터를 가져옵니다.|
+|[경로를 사용하여 파일 콘텐츠 가져오기](connectors-create-api-sftp.md#get-file-content-using-path)|이 작업은 파일 경로를 사용하여 파일 콘텐츠를 가져옵니다.|
+|[파일 콘텐츠 가져오기](connectors-create-api-sftp.md#get-file-content)|이 작업은 파일 ID를 사용하여 파일 콘텐츠를 가져옵니다.|
+|[파일 만들기](connectors-create-api-sftp.md#create-file)|이 작업은 SFTP 서버에 파일을 업로드합니다.|
+|[파일 복사](connectors-create-api-sftp.md#copy-file)|이 작업은 SFTP 서버에 파일을 복사합니다.|
+|[폴더의 파일 나열](connectors-create-api-sftp.md#list-files-in-folder)|이 작업은 폴더에 포함된 파일을 가져옵니다.|
+|[루트 폴더의 파일 나열](connectors-create-api-sftp.md#list-files-in-root-folder)|이 작업은 루트 폴더의 파일을 가져옵니다.|
+|[폴더 추출](connectors-create-api-sftp.md#extract-folder)|이 작업은 보관 파일을 FTP 서버의 폴더에 추출합니다(예: .zip).|
+### 작업 세부 정보
 
-Here are the details for the actions and triggers for this connector, along with their responses:
-
-
-
-### <a name="get-file-metadata"></a>Get file metadata
-This operation gets file metadata using the file id. 
+이 커넥터에 대한 작업 및 트리거 세부 정보와 해당 응답은 다음과 같습니다.
 
 
-|Property Name| Display Name|Description|
+
+### 파일 메타데이터 가져오기
+이 작업은 파일 ID를 사용하여 파일 메타데이터를 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|id*|File|Specify the file|
+|id*|파일|파일 지정|
 
-An * indicates that a property is required
+*는 필수 속성을 나타냅니다.
 
-#### <a name="output-details"></a>Output Details
+#### 출력 세부 정보
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|---|
 |Id|string|
-|Name|string|
+|이름|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|크기|정수|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|부울|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="update-file"></a>Update file
-This operation updates the file content. 
+### 파일 업데이트
+이 작업은 파일 콘텐츠를 업데이트합니다.
 
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|id*|File|Specify the file|
-|body*|File content|Content of the file to update|
+|id*|파일|파일 지정|
+|body*|파일 콘텐츠|업데이트할 파일의 콘텐츠|
 
-An * indicates that a property is required
+*는 필수 속성을 나타냅니다.
 
-#### <a name="output-details"></a>Output Details
+#### 출력 세부 정보
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|---|
 |Id|string|
-|Name|string|
+|이름|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|크기|정수|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|부울|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="delete-file"></a>Delete file
-This operation deletes a file. 
+### 파일 삭제
+이 작업은 파일을 삭제합니다.
 
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|id*|File|Specify the file|
+|id*|파일|파일 지정|
 
-An * indicates that a property is required
-
-
+*는 필수 속성을 나타냅니다.
 
 
-### <a name="get-file-metadata-using-path"></a>Get file metadata using path
-This operation gets file metadata using the file path. 
 
 
-|Property Name| Display Name|Description|
+### 경로를 사용하여 파일 메타데이터 가져오기
+이 작업은 파일 경로를 사용하여 파일 메타데이터를 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|path*|File path|Unique path of the file|
+|path*|파일 경로|파일의 고유 경로|
 
-An * indicates that a property is required
+*는 필수 속성을 나타냅니다.
 
-#### <a name="output-details"></a>Output Details
+#### 출력 세부 정보
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|---|
 |Id|string|
-|Name|string|
+|이름|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|크기|정수|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|부울|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="get-file-content-using-path"></a>Get file content using path
-This operation gets file contents using the file path. 
+### 경로를 사용하여 파일 콘텐츠 가져오기
+이 작업은 파일 경로를 사용하여 파일 콘텐츠를 가져옵니다.
 
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|path*|File path|Unique path of the file|
+|path*|파일 경로|파일의 고유 경로|
 
-An * indicates that a property is required
-
-
+*는 필수 속성을 나타냅니다.
 
 
-### <a name="get-file-content"></a>Get file content
-This operation gets file contents using the file id. 
 
 
-|Property Name| Display Name|Description|
+### 파일 콘텐츠 가져오기
+이 작업은 파일 ID를 사용하여 파일 콘텐츠를 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|id*|File|Specify the file|
+|id*|파일|파일 지정|
 
-An * indicates that a property is required
-
-
+*는 필수 속성을 나타냅니다.
 
 
-### <a name="create-file"></a>Create file
-This operation uploads a file to an SFTP server. 
 
 
-|Property Name| Display Name|Description|
+### 파일 만들기
+이 작업은 SFTP 서버에 파일을 업로드합니다.
+
+
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|folderPath*|Folder path|Unique path of the folder|
-|name*|File name|Name of the file|
-|body*|File content|Content of the file to create|
+|folderPath*|폴더 경로|폴더의 고유 경로|
+|name*|파일 이름|파일의 이름|
+|body*|파일 콘텐츠|만들 파일의 콘텐츠|
 
-An * indicates that a property is required
+*는 필수 속성을 나타냅니다.
 
-#### <a name="output-details"></a>Output Details
+#### 출력 세부 정보
 
 BlobMetadata
 
 
-|| Property Name | Data Type |
+|| 속성 이름 | 데이터 형식 |
 |---|---|---|
 |Id|string|
-|Name|string|
+|이름|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|크기|정수|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|부울|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="copy-file"></a>Copy file
-This operation copies a file to an SFTP server. 
+### 파일 복사
+이 작업은 SFTP 서버에 파일을 복사합니다.
 
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|source*|Source file path|Path to the source file|
-|destination*|Destination file path|Path to the destination file, including file name|
-|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
+|source*|원본 파일 경로|원본 파일에 대한 경로|
+|destination*|대상 파일 경로|파일 이름을 포함한 대상 파일의 경로|
+|overwrite|덮어쓰기|'true'로 설정할 경우 대상 덮어쓰기|
 
-An * indicates that a property is required
+*는 필수 속성을 나타냅니다.
 
-#### <a name="output-details"></a>Output Details
+#### 출력 세부 정보
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|---|
 |Id|string|
-|Name|string|
+|이름|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|크기|정수|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|부울|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="when-a-file-is-added-or-modified"></a>When a file is added or modified
-This operation triggers a flow when a file is added or modified in a folder. 
+### 파일을 추가하거나 수정할 때
+이 작업은 폴더에서 파일을 추가하거나 수정할 때 흐름을 트리거합니다.
 
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|folderId*|Folder|Specify a folder|
+|folderId*|폴더|폴더 지정|
 
-An * indicates that a property is required
-
-
+*는 필수 속성을 나타냅니다.
 
 
-### <a name="list-files-in-folder"></a>List files in folder
-This operation gets files contained in a folder. 
 
 
-|Property Name| Display Name|Description|
+### 폴더의 파일 나열
+이 작업은 폴더에 포함된 파일을 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|id*|Folder|Specify the folder|
+|id*|폴더|폴더 지정|
 
-An * indicates that a property is required
+*는 필수 속성을 나타냅니다.
 
 
 
-#### <a name="output-details"></a>Output Details
+#### 출력 세부 정보
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|---|
 |Id|string|
-|Name|string|
+|이름|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|크기|정수|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|부울|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="list-files-in-root-folder"></a>List files in root folder
-This operation gets the files in the root folder. 
+### 루트 폴더의 파일 나열
+이 작업은 루트 폴더의 파일을 가져옵니다.
 
 
-There are no parameters for this call
+이 호출에 대한 매개 변수는 없습니다.
 
-#### <a name="output-details"></a>Output Details
+#### 출력 세부 정보
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|---|
 |Id|string|
-|Name|string|
+|이름|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|크기|정수|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|부울|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="extract-folder"></a>Extract folder
-This operation extracts an archive file into a folder (example: .zip). 
+### 폴더 추출
+이 작업은 보관 파일을 FTP 서버의 폴더에 추출합니다(예: .zip).
 
 
-|Property Name| Display Name|Description|
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|source*|Source archive file path|Path to the archive file|
-|destination*|Destination folder path|Path to the destination folder|
-|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
+|source*|원본 보관 파일 경로|보관 파일의 경로|
+|destination*|대상 폴더 경로|대상 폴더에 대한 경로|
+|overwrite|덮어쓰기|'true'로 설정할 경우 대상 파일 덮어쓰기|
 
-An * indicates that a property is required
+*는 필수 속성을 나타냅니다.
 
 
 
-#### <a name="output-details"></a>Output Details
+#### 출력 세부 정보
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| 속성 이름 | 데이터 형식 |
 |---|---|---|
 |Id|string|
-|Name|string|
+|이름|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|크기|정수|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|부울|
 |ETag|string|
 |FileLocator|string|
 
 
 
-## <a name="http-responses"></a>HTTP responses
+## HTTP 응답
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+위의 작업 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다.
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
-|default|Operation Failed.|
+|200|확인|
+|202|수락됨|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생.|
+|기본값|작업이 실패했습니다.|
 
 
 
@@ -417,10 +416,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## 다음 단계
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0803_2016-->

@@ -1,108 +1,102 @@
 <properties
-    pageTitle="Azure Active Directory B2C: Page UI customization helper tool | Microsoft Azure"
-    description="A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C"
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="swkrish"
-    manager="mbaldwin"
-    editor="bryanla"/>
+	pageTitle="Azure Active Directory B2C: 페이지 UI 사용자 지정 도우미 도구 | Microsoft Azure"
+	description="Azure Active Directory B2C에서 페이지 UI 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구"
+	services="active-directory-b2c"
+	documentationCenter=""
+	authors="swkrish"
+	manager="msmbaldwin"
+	editor="bryanla"/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/22/2016"
-    ms.author="swkrish"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2016"
+	ms.author="swkrish"/>
 
+# Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구
 
-# <a name="azure-active-directory-b2c:-a-helper-tool-used-to-demonstrate-the-page-user-interface-(ui)-customization-feature"></a>Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature
+이 문서는 Azure AD(Azure Active Directory) B2C의 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md)에 동반됩니다. 다음 단계는 제공되는 샘플 HTML 및 CSS 콘텐츠를 사용하여 페이지 UI 사용자 지정 기능을 연습하는 방법을 설명합니다.
 
-This article is a companion to the [main UI customization article](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. The following steps describe how to exercise the page UI customization feature by using sample HTML and CSS content that we've provided.
+## Azure AD B2C 테넌트 가져오기
 
-## <a name="get-an-azure-ad-b2c-tenant"></a>Get an Azure AD B2C tenant
+사용자 지정을 수행하기 전에 Azure AD B2C 테넌트가 없다면 [Azure AD B2C 테넌트를 가져와](active-directory-b2c-get-started.md)야 합니다.
 
-Before you can customize anything, you will need to [get an Azure AD B2C tenant](active-directory-b2c-get-started.md) if you don't already have one.
+## 등록 또는 로그인 정책 만들기
 
-## <a name="create-a-sign-up-or-sign-in-policy"></a>Create a sign-up or sign-in policy
+제공한 샘플 콘텐츠는 [등록 또는 로그인 정책](active-directory-b2c-reference-policies.md)의 두 페이지인 [통합된 로그인 페이지](active-directory-b2c-reference-ui-customization.md)와 [자체 어설션된 특성 페이지](active-directory-b2c-reference-ui-customization.md)를 사용자 지정하는 데 사용할 수 있습니다. [등록 또는 로그인 정책을 만드는](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy) 경우 로컬 계정(메일 주소), Facebook, Google, 및 Microsoft를 **ID 공급자**로 추가합니다. 샘플 HTML 콘텐츠에서는 이 항목만을 IDP로 수용합니다. 또한 원하는 경우 이러한 IDP의 하위 집합을 추가할 수 있습니다.
 
-The sample content we've provided can be used to customze two pages in a [sign-up or sign-in policy](active-directory-b2c-reference-policies.md): the [unified sign-in page](active-directory-b2c-reference-ui-customization.md) and the [self-asserted attributes page](active-directory-b2c-reference-ui-customization.md). When [creating your sign-up or sign-in policy](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy), add Local Account (email address), Facebook, Google, and Microsoft as **Identity providers**. These are the only IDPs that our sample HTML content will accept.  You can also add a subset of these IDPs if you wish.
+## 응용 프로그램 등록
 
-## <a name="register-an-application"></a>Register an application
+정책을 실행하는 데 사용할 수 있는 B2C 테넌트에 [응용 프로그램을 등록](active-directory-b2c-app-registration.md)해야 합니다. 응용 프로그램을 등록한 후 등록 정책을 실제로 실행하는데 사용할 수 있는 옵션이 몇 가지 있습니다.
 
-You will need to [register an application](active-directory-b2c-app-registration.md) in your B2C tenant that can be used to execute your policy. After registering your application, you have a few options that you can use to actually run your sign-up policy:
+- [응용 프로그램의 등록 및 로그인 사용자](active-directory-b2c-overview.md#getting-started)의 “시작” 섹션에 나열된 Azure AD B2C 빠른 시작 응용 프로그램 중 하나를 빌드합니다.
+- 미리 빌드해 놓은 [Azure AD B2C 실습](https://aadb2cplayground.azurewebsites.net) 응용 프로그램을 사용합니다. 실습을 사용하기로 선택하는 경우 **리디렉션 URI** `https://aadb2cplayground.azurewebsites.net/`을 사용하여 B2C 테넌트에 응용 프로그램을 등록해야 합니다.
+- [Azure 포털](https://portal.azure.com/)에서 정책의 **지금 실행** 단추를 사용합니다.
 
-- Build one of the Azure AD B2C quick-start applications listed in the "Get started" section of [Sign up and sign in consumers in your applications](active-directory-b2c-overview.md#getting-started).
-- Use the pre-built [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) application. If you choose to use the playground, you must register an application in your B2C tenant using the **redirect URI** `https://aadb2cplayground.azurewebsites.net/`.
-- Use the **Run Now** button on your policy in the [Azure portal](https://portal.azure.com/).
+## 정책 사용자 지정
 
-## <a name="customize-your-policy"></a>Customize your policy
+정책의 모양과 느낌을 사용자 지정하려면 우선 Azure AD B2C의 특정 규칙을 사용하여 HTML 및 CSS 파일을 만들어야 합니다. 그 후 정적 콘텐츠를 Azure AD B2C에서 액세스할 수 있도록 공개적으로 사용 가능한 위치로 업로드할 수 있습니다. 사용자 전용 웹 서버, Azure Blob 저장소, Azure 콘텐츠 배달 네트워크 또는 그 밖의 고정 리소스 호스팅 공급자일 수 있습니다. HTTPS를 통해 콘텐츠를 사용할 수 있고 CORS를 사용하여 액세스할 수 있어야 한다는 것이 유일한 요구 사항입니다. 정적 콘텐츠를 웹에 노출한 후에는 이 위치를 가리키도록 정책을 편집하여 고객에게 해당 콘텐츠를 제공할 수 있습니다. [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md)는 Azure AD B2C 사용자 지정 기능이 작동하는 방식에 대해 자세히 설명합니다.
 
-To customize the look and feel of your policy, you need to first create HTML and CSS files using the specific conventions of Azure AD B2C. You can then upload your static content to a publicly available location so that Azure AD B2C can access it. This could be your own dedicated web server, Azure Blob Storage, Azure Content Delivery Network, or any other static resource-hosting provider. The only requirements are that your content is available over HTTPS and can be accessed by using CORS. Once you've exposed your static content on the web, you can edit your policy to point to this location and present that content to your customers. The [main UI customization article](active-directory-b2c-reference-ui-customization.md) describes in detail how the Azure AD B2C customization feature works.
+이 자습서에 대한 일부 샘플 콘텐츠를 이미 만들어서 Azure Blob 저장소에 호스팅해 두었습니다. 샘플 콘텐츠는 "Wingtip Toys"라는 가상의 회사를 테마로 하는 매우 기본적인 사용자 지정입니다. 사용자의 정책으로 시도해 보려면 다음 단계를 따릅니다.
 
-For the purposes of this tutorial, we've already created some sample content and hosted it on Azure Blob Storage. The sample content is a very basic customization in the theme of our fictional company, "Wingtip Toys". To try it out in your own policy, follow these steps:
+1. [Azure 포털](https://portal.azure.com/)의 테넌트에 로그인하고 B2C 기능 블레이드로 이동합니다.
+2. **등록 또는 로그인 정책**을 클릭한 다음 사용자의 정책(예: "b2c\_1\_sign\_up")을 클릭합니다.
+3. **페이지 UI 사용자 지정**을 클릭한 다음 **통합 등록 또는 로그인 페이지**를 클릭합니다.
+4. **사용자 지정 페이지 사용** 스위치를 **예**로 설정/해제합니다. **사용자 지정 페이지 URI** 필드에서 `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`을 입력합니다. **확인**을 클릭합니다.
+5. **로컬 계정 등록 페이지**를 클릭합니다. **사용자 지정 템플릿 사용** 스위치를 **예**로 설정/해제합니다. **사용자 지정 페이지 URI** 필드에서 `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`을 입력합니다.
+5. 에 대 한 동일한 단계를 반복 하는 **소셜 계정 등록 페이지**합니다. **확인**을 두 번 클릭하여 UI 사용자 지정 블레이드를 닫습니다.
+6. **Save**를 클릭합니다.
 
-1. Sign in to your tenant on the [Azure portal](https://portal.azure.com/) and navigate to the B2C features blade.
-2. Click **Sign-up or sign-in policies** and then click your policy (for example, "b2c\_1\_sign\_up\_sign\_in").
-3. Click **Page UI customization** and then **Unified sign-up or sign-in page**.
-4. Toggle the **Use custom page** switch to **Yes**. In the **Custom page URI** field, enter `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Click **OK**.
-5. Click **Local account sign-up page**. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
-5. Repeat the same step for the **Social account sign-up page**.
- Click **OK** twice to close the UI customization blades.
-6. Click **Save**.
+이제 사용자가 지정한 정책을 사용해 볼 수 있습니다. 사용자의 응용 프로그램이나 원한다면 Azure AD B2C 실습을 사용할 수 있을 뿐만 아니라 정책 블레이드에서 **지금 실행** 명령을 클릭만 할 수도 있습니다. 드롭다운 상자에서 응용 프로그램을 선택하고 적절한 리디렉션 URI를 선택합니다. **지금 실행** 단추를 클릭합니다. 새 브라우저 탭이 열리고 준비된 새 컨텐츠로 응용 프로그램에 등록한 사용자 환경을 실행할 수 있습니다.
 
-Now you can try out your customized policy. You can use your own application or the Azure AD B2C playground if you want to, but you can also simply click the **Run Now** command in the policy blade. Select your application in the drop-down box and choose the appropriate redirect URI. Click the **Run now** button. A new browser tab will open and you can run through the user experience of signing up for your application with the new content in place!
+## 샘플 콘텐츠를 Azure Blob 저장소에 업로드합니다.
 
-## <a name="upload-the-sample-content-to-azure-blob-storage"></a>Upload the sample content to Azure Blob Storage
+Azure Blob 저장소를 사용하여 페이지 콘텐츠를 호스팅하려는 경우, 저장소 계정을 만들고 B2C 도우미 도구를 사용하여 파일을 업로드할 수 있습니다.
 
-If you would like to use Azure Blob Storage to host your page content, you can create your own storage account and use our B2C helper tool to upload your files.
+### 저장소 계정 만들기
 
-### <a name="create-a-storage-account"></a>Create a storage account
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+2. **+새로 만들기** > **데이터 + 저장소** > **저장소 계정**을 클릭합니다. Azure Blob 저장소 계정을 만들려면 Azure 구독이 필요합니다. [Azure 웹 사이트](https://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다.
+3. 저장소 계정에 **이름**(예: "contoso")을 제공하고 **가격 책정 계층**, **리소스 그룹** 및 **구독**에 적절한 항목을 선택합니다. **시작 보드에 고정** 옵션이 선택되었는지 확인합니다. **만들기**를 클릭합니다.
+4. 시작 보드에 돌아가서 방금 만든 저장소 계정을 클릭합니다.
+5. **요약** 섹션에서 **컨테이너** 및 **+추가**를 차례로 클릭합니다.
+6. 컨테이너에 **이름**을 제공하고(예: "b2c") **Blob**를 **액세스 형식**으로 선택합니다. **확인**을 클릭합니다.
+7. 만든 컨테이너는 **Blob** 블레이드에서 목록에 표시됩니다. 컨테이너의 URL을 적어둡니다. 예를 들어 `https://contoso.blob.core.windows.net/b2c`와 유사한 모양이어야 합니다. **Blob** 블레이드를 닫습니다.
+8. 저장소 계정 블레이드에서 **키**를 클릭하고 **저장소 계정 이름** 및 **기본 선택키** 필드의 값을 적어둡니다.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **+ New** > **Data + Storage** > **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial at the [Azure website](https://azure.microsoft.com/pricing/free-trial/).
-3. Provide a **Name** for the storage account (for example, "contoso") and pick the appropriate selections for **Pricing tier**, **Resource group** and **Subscription**. Make sure that you have the **Pin to Startboard** option checked. Click **Create**.
-4. Go back to the Startboard and click the storage account that you just created.
-5. In the **Summary** section, click **Containers**, and then click **+ Add**.
-6. Provide a **Name** for the container (for example, "b2c") and select **Blob** as the **Access type**. Click **OK**.
-7. The container that you created will appear in the list on the **Blobs** blade. Write down the URL of the container; for example, it should look similar to `https://contoso.blob.core.windows.net/b2c`. Close the **Blobs** blade.
-8. On the storage account blade, click **Keys** and write down the values of the **Storage Account Name** and **Primary Access Key** fields.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **+ New** > **Data + Storage** > **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial at the [Azure website](https://azure.microsoft.com/pricing/free-trial/).
-3. Select **Blob Storage** under **Account Kind**, and leave the other values as default.  You can edit the Resource Group & Location if you wish.  Click **Create**.
-4. Go back to the Startboard and click the storage account that you just created.
-5. In the **Summary** section, click **+Container**.
-6. Provide a **Name** for the container (for example, "b2c") and select **Blob** as the **Access type**. Click **OK**.
-7. Open the container **properties**, and  Write down the URL of the container; for example, it should look similar to `https://contoso.blob.core.windows.net/b2c`. Close the container blade.
-8. On the storage account blade, click on the **Key Icon** and write down the values of the **Storage Account Name** and **Primary Access Key** fields.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+2. **+새로 만들기** > **데이터 + 저장소** > **저장소 계정**을 클릭합니다. Azure Blob 저장소 계정을 만들려면 Azure 구독이 필요합니다. [Azure 웹 사이트](https://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다.
+3. **계정 종류** 아래에서 **Blob 저장소**를 선택하고, 다른 값들은 기본값으로 둡니다. 원하는 경우 리소스 그룹 및 위치를 편집할 수 있습니다. **만들기**를 클릭합니다.
+4. 시작 보드에 돌아가서 방금 만든 저장소 계정을 클릭합니다.
+5. **요약** 섹션에서 **+Container컨테이너**를 클릭합니다.
+6. 컨테이너에 **이름**을 제공하고(예: "b2c") **Blob**를 **액세스 형식**으로 선택합니다. **확인**을 클릭합니다.
+7. 컨테이너 **속성**을 열고 컨테이너의 URL을 적어둡니다. 예를 들어 `https://contoso.blob.core.windows.net/b2c`와 유사한 모양이어야 합니다. 컨테이너 블레이드를 닫습니다.
+8. 저장소 계정 블레이드에서 **키 아이콘**을 클릭하고 **저장소 계정 이름** 및 **기본 선택키** 필드의 값을 적어둡니다.
 
 > [AZURE.NOTE]
-    **Primary Access Key** is an important security credential.
+	**기본 선택키**는 중요한 보안 자격 증명입니다.
 
-### <a name="download-the-helper-tool-and-sample-files"></a>Download the helper tool and sample files
+### 도우미 도구 및 샘플 파일을 다운로드합니다.
 
-You can download the [Azure Blob Storage helper tool and sample files as a .zip file](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) or clone it from GitHub:
+[Azure Blob 저장소 도우미 도구 및 샘플 파일(.zip 파일)](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip)을 다운로드하거나 GitHub에서 복제할 수 있습니다.
 
 ```
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-This repository contains a `sample_templates\wingtip` directory, which contains example HTML, CSS, and images. For these templates to reference your own Azure Blob Storage account, you will need to edit the HTML files. Open `unified.html` and `selfasserted.html` and replace any instances of `https://localhost` with the URL of your own container that you wrote down in the previous steps. You must use the absolute path of the HTML files because in this case, the HTML will be served by Azure AD, under the domain `https://login.microsoftonline.com`.
+이 리포지토리는 예제 HTML, CSS 및 이미지를 포함하는 `sample_templates\wingtip` 디렉터리를 포함합니다. 이러한 템플릿에서 Azure Blob 저장소 계정을 참조하도록 하려면 HTML 파일을 편집해야 합니다. `unified.html` 및 `selfasserted.html`을 열어서 `https://localhost` 인스턴스를 위 단계에서 적어둔 컨테이너의 URL로 교체합니다. 이런 경우 `https://login.microsoftonline.com` 도메인의 Azure AD에서 HTML이 제공되기 때문에 HTML 파일의 절대 경로를 사용해야 합니다.
 
-### <a name="upload-the-sample-files"></a>Upload the sample files
+### 샘플 파일 업로드
 
-In the same repository, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureStorageClient.exe` file within. This program will simply upload all the files in the directory that you specify to your storage account, and enable CORS access for those files. If you followed the steps above, the HTML and CSS files will now be pointing to your storage account. Note that the name of your storage account is the part that precedes `blob.core.windows.net`; for example, `contoso`. You can verify that the content has been uploaded correctly by trying to access `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` on a browser. Also use [http://test-cors.org/](http://test-cors.org/) to make sure that the content is now CORS enabled. (Look for "XHR status: 200" in the result.)
+동일한 리포지토리에서 `B2CAzureStorageClient.zip`의 압축을 풀고 그 안에 포함된 `B2CAzureStorageClient.exe` 파일을 실행합니다. 이 프로그램은 저장소 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다. 위 단계를 따랐다면 HTML 및 CSS 파일은 이제 사용자의 저장소 계정을 가리킵니다. 저장소 계정 이름은 `blob.core.windows.net` 앞에 오는 부분(예: `contoso`)입니다. 브라우저에서 `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html`에 액세스를 시도하여 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 또한 [http://test-cors.org/](http://test-cors.org/)를 사용하여 콘텐츠가 사용하도록 설정된 CORS인지 확인합니다. (결과에서 "XHR 상태: 200"을 찾습니다.)
 
-### <a name="customize-your-policy,-again"></a>Customize your policy, again
+### 정책 사용자 지정 다시 하기
 
-Now that you've uploaded the sample content to your own storage account, you must edit your sign-up policy to reference it. Repeat the steps from the ["Customize your policy"](#customize-your-policy) section above, this time using your own storage account's URLs. For instance, the location of your `unified.html` file would be `<url-of-your-container>/wingtip/unified.html`.
+사용자의 저장소 계정에 샘플 콘텐츠를 업로드한 후에는 이를 참조하도록 등록 정책을 편집해야 합니다. 이번에는 사용자 저장소 계정의 URL을 사용하여 위 ["정책 사용자 지정"](#customize-your-policy) 섹션의 단계를 반복합니다. 예를 들어 `unified.html` 파일의 위치는 `<url-of-your-container>/wingtip/unified.html`이 되어야 합니다.
 
-Now you can use the **Run Now** button or your own application to execute your policy again. The result should look almost exactly the same--you used the same sample HTML and CSS in both cases. However, your policies are now referencing your own instance of Azure Blob Storage, and you are free to edit and upload the files again as you please. For more information on customizing the HTML and CSS, refer to the [main UI customization article](active-directory-b2c-reference-ui-customization.md).
+이제 **지금 실행** 단추 또는 자체 응용 프로그램을 사용하여 정책을 다시 실행할 수 있습니다. 두 경우 모두 동일한 샘플 HTML 및 CSS를 사용했으므로 결과는 거의 동일한 모양이어야 합니다. 하지만 사용자의 정책은 자신의 Azure Blob 저장소 인스턴스를 참조하며 원하는 대로 파일을 편집하고 다시 업로드할 수 있습니다. HTML 및 CSS 사용자 지정에 대한 자세한 내용은 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

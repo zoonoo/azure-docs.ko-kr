@@ -1,105 +1,100 @@
 <properties
-    pageTitle="Feature engineering in the Cortana Analytics Process | Microsoft Azure" 
-    description="Explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning."
-    services="machine-learning"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Cortana 분석 프로세스의 기능 엔지니어링 | Microsoft Azure" 
+	description="기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다."
+	services="machine-learning"
+	documentationCenter=""
+	authors="bradsev"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="zhangya;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/19/2016"
+	ms.author="zhangya;bradsev" />
 
 
+# Cortana 분석 프로세스의 기능 엔지니어링 
 
-# <a name="feature-engineering-in-the-cortana-analytics-process"></a>Feature engineering in the Cortana Analytics Process 
-
-This topic explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning. The examples used to illustrate this process are drawn from Azure Machine Learning Studio. 
+이 토픽은 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이 프로세스를 설명하는 데 사용된 예제는 Azure 기계 학습 스튜디오에서 가져온 것입니다.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
-Feature engineering attempts to increase the predictive power of learning algorithms by creating features from raw data that help facilitate the learning process. The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md) Feature engineering and selection are parts of the **Develop features** step of the TDSP. 
+기능 엔지니어링은 원시 데이터에서 학습 프로세스를 용이하게 하는 데 도움이 되는 기능을 만들어 학습 알고리즘의 예측 능력을 높입니다. 기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스란 무엇입니까?](data-science-process-overview.md)에 설명된 TDSP의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다.
 
-* **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase the predictive power of the learning algorithm.
+* **기능 엔지니어링**: 이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
 
-* **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
+* **선택 기능**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
 
-Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.
+일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링**을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택** 단계가 수행됩니다.
 
-The training data used in machine learning can often be enhanced by extraction of features from the raw data collected. An example of an engineered feature in the context of learning how to classify the images of handwritten characters is creation of a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than simply using the raw distribution directly.
+기계 학습에 사용되는 교육 데이터는 수집된 원시 데이터에서 기능을 추출하여 향상시킬 수 있습니다. 필기 문자의 이미지 분류 방법을 배우는 경우 엔지니어링된 기능의 예로는 원시 비트 분산 데이터에서 구성된 비트 밀도 맵 작성이 있습니다. 이 맵을 사용하면 단순히 직접 원시 분산을 사용하는 것보다 효율적으로 문자의 경계를 찾을 수 있습니다.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-## <a name="creating-features-from-your-data---feature-engineering"></a>Creating Features from Your Data - Feature Engineering
+## 데이터에서 기능 만들기 - 기능 엔지니어링
 
-The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional (engineered) features need to be constructed from the features in the raw data to generate an enhanced training dataset.
+학습 데이터는 각각 기능 집합(열에 저장된 변수 또는 필드)이 있는 예제(행에 저장된 레코드 또는 관찰)로 구성된 행렬로 구성됩니다. 실험 디자인에 지정된 기능은 데이터에서 패턴의 특징을 나타내야 합니다. 많은 원시 데이터 필드를 모델을 학습하는 데 사용하는 선택된 기능 집합에 직접 포함할 수 있지만, 향상된 학습 데이터 집합을 생성하기 위해 원시 데이터의 기능에서 추가(엔지니어링된) 기능을 생성해야 하는 경우가 더욱 많습니다.
 
-What kind of features should be created to enhance the dataset when training a model? Engineered features that enhance the training provide information that better differentiates the patterns in the data. We expect the new features to provide additional information that is not clearly captured or easily apparent in the original or existing feature set. But this process is something of an art. Sound and productive decisions often require some domain expertise.
+모델을 학습할 때 데이터 집합을 향상시키기 위해 작성해야 하는 기능의 유형은 무엇인가요? 학습을 향상시키는 엔지니어링된 기능에서는 데이터에서 패턴을 더욱 잘 구분할 수 있는 정보를 제공합니다. 새 기능에서는 원래 또는 기존 기능 집합에서는 명확하게 캡처하지 못하거나 쉽게 구분되지 않는 추가 정보를 제공해야 합니다. 그러나 이 프로세스는 정교한 작업입니다. 안정되고 생산성이 있는 결정을 내리려면 도메인에 대한 전문 지식이 필요한 경우가 많습니다.
 
-When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
+Azure 기계 학습을 시작할 때 스튜디오에 제공된 샘플을 사용하면 이 프로세스를 구체적으로 파악하기가 쉽습니다. 다음은 제공되는 두 가지 예입니다.
 
-* A regression example [Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in a supervised experiment where the target values are known
-* A text mining classification example using [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+* 대상 값이 알려진 감독된 실험에서의 회귀 예제 [자전거 대여 수 예측](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)
+* [기능 해싱](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)을 사용하는 텍스트 마이닝 분류 예제
 
-### <a name="example-1:-adding-temporal-features-for-regression-model"></a>Example 1: Adding Temporal Features for Regression Model ###
+### 예 1: 회귀 모델을 위해 시간 기능 추가 ###
 
-Let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio to demonstrate how to engineer features for a regression task. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month/day/hour. The dataset "Bike Rental UCI dataset" is used as the raw input data. This dataset is based on real data from the Capital Bikeshare company that maintains a bike rental network in Washington DC in the United States. The dataset represents the number of bike rentals within a specific hour of a day in the years 2011 and year 2012 and contains 17379 rows and 17 columns. The raw feature set contains weather conditions (temperature/humidity/wind speed) and the type of the day (holiday/weekday). The field to predict is "cnt", a count which represents the bike rentals within a specific hour and which ranges ranges from 1 to 977.
+Azure 기계 학습 스튜디오의 “자전거 수요 예측" 실험을 사용하여 회귀 작업을 위해 기능을 엔지니어링하는 방법을 설명해 보겠습니다. 이 실험의 목표는 자전거 수요, 즉 특정 월/일/시간에 자전거 대여 수를 예측하는 것입니다. “자전거 대여 UCI 데이터 집합" 데이터 집합을 원시 입력 데이터로 사용합니다. 이 데이터 집합은 미국, 워싱턴 DC에서 자전거 임대망을 유지 관리하는 Capital Bikeshare 회사의 실제 데이터를 기반으로 합니다. 이 데이터 집합에는 2011년과 2012년에 있는 날의 특정 시간 대에 자전거 대여 수가 표시되고, 17379 행과 17열이 포함되어 있습니다. 원시 기능 집합에는 날씨 조건(온도/습도/풍속) 및 날의 유형(휴일/주중)이 포함되어 있습니다. 예측할 수 있는 필드는 “cnt”로서, 특정 시간 대의 자전거 대여 수를 나타내는 수이고, 범위는 1 ~ 977입니다.
 
-With the goal of constructing effective features in the training data, four regression models are built using the same algorithm but with four different training datasets. The four datasets represent the same raw input data, but with an increasing number of features set. These features are grouped into four categories:
+학습 데이터에 효율적인 기능을 생성한다는 목표를 갖고, 알고리즘은 동일하지만 네 개의 서로 다른 학습 데이터 집합이 있는 네 개의 회귀 모델을 빌드합니다. 네 개의 데이터 집합에서는 동일한 원시 입력 데이터를 표시하지만 기능 집합의 수는 증가합니다. 이러한 기능은 다음 네 가지 범주로 그룹화됩니다.
 
-1. A = weather + holiday + weekday + weekend features for the predicted day
-2. B = number of bikes that were rented in each of the previous 12 hours
-3. C = number of bikes that were rented in each of the previous 12 days at the same hour
-4. D = number of bikes that were rented in each of the previous 12 weeks at the same hour and the same day
+1. A = 예측 날에 대한 날씨 + 휴일 + 주중 + 주말 기능
+2. B = 지난 12시간마다 대여된 자전거 대수
+3. C= 지난 12일마다 같은 시간에 대여된 자전거 대수
+4. D = 지난 12주마다 같은 시간, 같은 요일에 대여된 자전거 대수
 
-Besides feature set A, which already exist in the original raw data, the other three sets of features are created through the feature engineering process. Feature set B captures very recent demand for the bikes. Feature set C captures the demand for bikes at a particular hour. Feature set D captures demand for bikes at particular hour and particular day of the week. The four training datasets each includes feature set A, A+B, A+B+C, and A+B+C+D, respectively.
+이미 원래 원시 데이터에 있던 기능 집합 A를 제외하고 나머지 세 개의 기능 집합은 기능 엔지니어링 프로세스를 통해 생성됩니다. 기능 집합 B에서는 자전거의 최신 수요를 파악합니다. 기능 집합 C에서는 특정 시간의 자전거 수요를 파악합니다. 기능 집합 D에서는 특정 시간 및 특정 요일에 자전거에 대한 수요를 파악합니다. 네 개의 학습 데이터 집합 각각에는 A, A+B, A+B+C 및 A+B+C+D가 포함되어 있습니다.
 
-In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an [Execute R Script](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second left branch.
+Azure 기계 학습 실험에서는 사전 처리된 입력 데이터 집합에서 4개의 분기를 통해 이러한 4개의 학습 데이터 집합을 구성합니다. 가장 왼쪽 분기를 제외한 각 분기에는 [R 스크립트 실행](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) 모듈이 포함되어 있습니다. 이 모듈에는 파생 기능 집합(기능 집합 B, C 및 D)이 각각 구성되어 있고, 가져온 데이터 집합에 추가되어 있습니다. 다음 그림에서는 두 번째 왼쪽 분기에서 기능 집합 B를 생성하는 데 사용하는 R 스크립트를 보여줍니다.
 
-![create features](./media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
+![기능 만들기](./media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
 
-The comparison of the performance results of the four models are summarized in the following table. The best results are shown by features A+B+C. Note that the error rate decreases when additional feature set are included in the training data. It verifies our presumption that the feature set B, C provide additional relevant information for the regression task. But adding the D feature does not seem to provide any additional reduction in the error rate.
+네 가지 모델의 성능 결과를 비교한 내용이 다음 테이블에 요약되어 있습니다. 최상의 결과는 A+B+C 기능으로 표시됩니다. 학습 데이터에 추가 기능 집합이 포함되면 오류 비율이 감소됩니다. 따라서 기능 집합 B와 C에서 회귀 작업을 위한 추가 관련 정보를 제공한다는 가정이 검증됩니다. 그러나 D 기능은 오류 비율을 추가적으로 감소시키지 않는 것으로 보입니다.
 
-![result comparison](./media/machine-learning-data-science-create-features/result1.png)
+![결과 비교](./media/machine-learning-data-science-create-features/result1.png)
 
-### <a name="<a-name="example2"></a>-example-2:-creating-features-in-text-mining"></a><a name="example2"></a> Example 2: Creating Features in Text Mining  
+### <a name="example2"></a> 예 2: 텍스트 마이닝에 기능 만들기  
 
-Feature engineering is widely applied in tasks related to text mining, such as document classification and sentiment analysis. For example, when we want to classify documents into several categories, a typical assumption is that the word/phrases included in one doc category are less likely to occur in another doc category. In another words, the frequency of the words/phrases distribution is able to characterize different document categories. In text mining applications, because individual pieces of text-contents usually serve as the input data, the feature engineering process is needed to create the features involving word/phrase frequencies.
+기능 엔지니어링은 문서 분류 및 감성 분석 등의 텍스트 마이닝 관련 작업에 광범위하게 적용됩니다. 예를 들어 문서를 여러 범주로 분류하려는 경우, 일반적으로 한 문서 범주에 포함된 단어/문구가 다른 문서 범주에서 발생할 가능성이 적다고 가정합니다. 즉, 단어/문구 분포 빈도를 통해 서로 다른 문서 범주의 특징을 결정할 수 있습니다. 텍스트 마이닝 응용 프로그램에서는 개별 텍스트 내용이 일반적으로 입력 데이터로 제공되므로, 단어/문구 빈도와 관련된 기능을 생성하려면 기능 엔지니어링 프로세스가 필요합니다.
 
-To achieve this task, a technique called **feature hashing** is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method functions by applying a hash function to the features and using their hash values as indices directly.
+이 작업을 수행하기 위해 **기능 해싱**이라는 기술을 적용하여 임의의 텍스트 기능을 인덱스로 전환합니다. 각 텍스트 기능(단어/문구)을 특정 인덱스에 연관시키는 대신, 이 메서드에서는 해시 함수를 기능에 적용하고 해시 값을 인덱스로 직접 사용하여 작동합니다.
 
-In Azure Machine Learning, there is a [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) module that creates these word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, we need to complete the following steps:
+Azure 기계 학습에는 이러한 단어/문구 기능을 편리하게 생성하는 [기능 해싱](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) 모듈이 있습니다. 다음 그림에서는 이 모듈을 사용하는 예를 보여줍니다. 입력 데이터 집합에는 두 개의 열, 즉 1 ~ 5의 서적 등급과 실제 검토 내용이 들어 있습니다. 이 [기능 해싱](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) 모듈의 목표는 특정 서적 검토에서 해당하는 단어/문구의 발생 빈도를 표시하는 여러 새 기능을 검색하는 것입니다. 이 모듈을 사용하려면 다음 단계를 완료해야 합니다.
 
-* First, select the column that contains the input text ("Col2" in this example).
-* Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number.
-* Third, set the parameter "N-grams" to 2. This gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
+* 먼저 입력 텍스트를 포함하는 열을 선택합니다(이 예에서는 "Col2").
+* 둘째, "Hashing bitsize"를 8로 설정합니다. 즉, 2^8=256개의 기능이 생성됩니다. 모든 텍스트의 단어/문구가 256개의 인덱스로 해시됩니다. "Hashing bitsize" 매개 변수의 범위는 1 ~ 31입니다. 이 변수를 더 큰 수로 설정하면 단어/문구가 동일한 인덱스에 해시될 가능성이 적습니다.
+* 셋째, "N-grams" 매개 변수를 2로 설정합니다. 그러면 입력 텍스트에서 유니그램(단일 단어마다 하나의 기능) 및 바이그램(인접한 단어 쌍마다 하나의 기능) 발생 빈도를 가져옵니다. 매개 변수 "N-grams”의 범위는 0 ~ 10입니다. 즉, 순차 단어의 최대 수가 기능에 포함됩니다.  
 
-!["Feature Hashing" module](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
+!["기능 해싱"모듈](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
 
-The following figure shows what the these new feature look like.
+다음 그림에서는 이러한 새 기능이 어떻게 표시되는지 보여줍니다.
 
-!["Feature Hashing" example](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
+!["기능 해싱" 예](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
 
 
-## <a name="conclusion"></a>Conclusion
+## 결론
 
-Engineered and selected features increase the efficiency of the training process which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
+기능을 엔지니어링하고 선택하면 데이터에 포함된 주요 정보를 추출하려고 하는 학습 프로세스의 효율성이 증가됩니다. 이러한 모델이 입력 데이터를 정확하게 분류하고 원하는 결과를 더욱 안정적으로 예측하는 기능도 향상됩니다. 컴퓨터를 통해 학습을 다루기가 더욱 쉽도록 기능 엔지니어링 및 선택을 결합할 수도 있습니다. 이 작업은 모델을 보정하거나 학습하는 데 필요한 기능을 향상시키고 해당 수를 줄여 수행합니다. 수학적인 관점에서 보자면 모델을 학습하기 위해 선택한 기능은 데이터의 패턴을 설명한 다음 결과를 성공적으로 예측하는 최소한의 독립 변수 집합입니다.
 
-Note that it is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data we have or collect, the algorithm we pick, and the objective of the experiment.
+기능 엔지니어링이나 기능 선택을 반드시 항상 수행할 필요는 없습니다. 이러한 기능의 필요 여부는 보유하거나 수집한 데이터, 선택한 알고리즘 및 실험 목적에 따라 달라집니다.
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

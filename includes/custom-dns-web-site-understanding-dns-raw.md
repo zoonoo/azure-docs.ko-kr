@@ -1,58 +1,55 @@
-The Domain Name System (DNS) is used to locate resources on the internet. For example, when you enter a web app address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+DNS(Domain Name System)는 인터넷에서 리소스를 찾는 데 사용됩니다. 예를 들어 브라우저에서 웹앱 주소를 입력하거나 웹 페이지의 링크를 클릭하면 브라우저에서 DNS를 사용하여 도메인을 IP 주소로 변환합니다. IP 주소는 일종의 거리 주소와 비슷하지만 사람에게 그다지 친화적이지는 않습니다. 예를 들어 192.168.1.88 또는 2001:0:4137:1f67:24a2:3888:9cce:fea3과 같은 IP 주소보다는 **contoso.com**과 같은 DNS 이름을 기억하기는 것이 훨씬 쉽습니다.
 
-The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
+DNS 시스템은 *레코드*를 기반으로 합니다. 레코드는 *contoso.com*과 같은 구체적인 **이름**을 IP 주소 또는 DNS 이름과 연결합니다. 웹 브라우저와 같은 응용 프로그램에서 DNS의 이름을 조회할 경우 레코드를 찾아 해당 레코드가 가리키는 항목을 주소로 사용합니다. 가리키는 값이 IP 주소인 경우 브라우저는 해당 값을 사용합니다. 다른 DNS 이름을 가리키면 응용 프로그램은 다시 확인을 수행해야 합니다. 최종적으로 모든 이름 확인은 IP 주소 확인으로 완료됩니다.
 
-When you create an web app in App Service, a DNS name is automatically assigned to the web app. This name takes the form of **&lt;yourwebappname&gt;.azurewebsites.net**. There is also a virtual IP address available for use when creating DNS records, so you can either create records that point to the **.azurewebsites.net**, or you can point to the IP address.
+앱 서비스에서 웹앱을 만들 때 DNS 이름이 웹앱에 자동으로 할당 됩니다. 이 이름은 **&lt;yourwebappname&gt;.azurewebsites.net** 형식으로 사용됩니다. 또한 DNS 레코드를 만들 때 사용할 수 있는 가상 IP 주소도 있으므로 **.azurewebsites.net**을 가리키는 레코드를 만들거나 IP 주소를 가리킬 수 있습니다.
 
-> [AZURE.NOTE] The IP address of your web app will change if you delete and recreate your web app, or change the App Service plan mode to **Free** after it has been set to **Basic**, **Shared**, or **Standard**.
+> [AZURE.NOTE] 웹앱을 삭제하고 다시 만들거나 앱 서비스 계획 모드가 **기본**, **공유** 또는 **표준**으로 설정된 이후 모드를 **무료**로 변경하면 웹앱의 IP 주소가 변경됩니다.
 
-There are also multiple types of records, each with their own functions and limitations, but for web apps we only care about two, *A* and *CNAME* records.
+레코드의 유형은 여러 가지이며 각 유형에는 고유한 기능 및 제한이 있지만 웹앱의 경우 *A* 및 *CNAME* 레코드, 두 가지만 주의하면 됩니다.
 
-###<a name="address-record-(a-record)"></a>Address record (A record)
+###주소 레코드(A 레코드)
 
-An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of a web app in App Service, either the virtual IP of the service or a specific IP address that you purchased for your web app.
+A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **.contoso.com* 등의 **와일드카드 도메인**을 IP 주소에 매핑합니다. 앱 서비스에서 웹앱의 경우 서비스의 가상 IP 또는 웹앱용으로 구입한 특정 IP 주소입니다.
 
-The main benefits of an A record over a CNAME record are:
+A 레코드가 CNAME 레코드보다 나은 주요 장점은 다음과 같습니다.
 
-* You can map a root domain such as **contoso.com** to an IP address; many registrars only allow this using A records
+* **contoso.com**과 같은 루트 도메인을 IP 주소로 매핑할 수 있습니다. 많은 등록 기관에서 A 레코드 사용만 허용합니다.
 
-* You can have one entry that uses a wildcard, such as **\*.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **blogs.contoso.com**, or **www.contso.com**.
+* ***.contoso.com**과 같이 와일드카드를 사용하는 하나의 항목만 지정하고, 이 항목 하나로 **mail.contoso.com**, **blogs.contoso.com** 또는 **www.contso.com**과 같은 여러 하위 도메인에 대한 요청을 처리할 수 있습니다.
 
-> [AZURE.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web app. An IP address for use with A records is provided when you configure custom domain name settings for your web app; however, this value may change if you delete and recreate your web app, or change the App Service plan mode to back to **Free**.
+> [AZURE.NOTE] A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 웹앱의 IP 주소로 자동으로 확인할 수 없습니다. A 레코드에 사용할 IP 주소는 웹앱에 대한 사용자 지정 도메인 이름 설정을 구성할 때 제공됩니다. 그러나 웹앱을 삭제하고 다시 만들거나 앱 서비스 계획 모드를 다시 **무료**로 변경할 경우 이 값이 변경될 수 있습니다.
 
-###<a name="alias-record-(cname-record)"></a>Alias record (CNAME record)
+###별칭 레코드(CNAME 레코드)
 
-A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of App Service Web Apps, the canonical domain name is the **&lt;yourwebappname>.azurewebsites.net** domain name of your web app. Once created, the CNAME creates an alias for the **&lt;yourwebappname>.azurewebsites.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;yourwebappname>.azurewebsites.net** domain name automatically, so if the IP address of the web app changes, you do not have to take any action.
+CNAME 레코드는 *mail.contoso.com* 또는 **www.contoso.com**과 같은 **특정** DNS 이름을 다른(정식) 도메인 이름으로 매핑합니다. 앱 서비스 웹앱의 경우 정식 도메인 이름은 웹앱의 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름입니다. CNAME을 만들면 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름에 대한 별칭이 생성됩니다. CNAME 항목은 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름의 IP 주소로 확인되므로 웹앱의 IP 주소가 변경되는 경우에도 특별한 조치를 수행할 필요가 없습니다.
 
-> [AZURE.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+> [AZURE.NOTE] **www.contoso.com**과 같은 CNAME 레코드를 사용하고 **contoso.com**과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a> 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
 
-###<a name="web-app-dns-specifics"></a>Web app DNS specifics
+###웹앱 DNS 설명
 
-Using an A record with Web Apps requires you to first create one of the following TXT records:
+웹앱에서 A 레코드를 사용하려면 먼저 다음 TXT 레코드 중 하나를 만들어야 합니다.
 
-* **For the root domain** - A DNS TXT record of **@** to  **&lt;yourwebappname&gt;.azurewebsites.net**.
+* **루트 도메인용** - **&lt;yourwebappname&gt;.azurewebsites.net**에 **@**의 DNS TXT 레코드를 만듭니다.
 
-* **For a specific sub-domain** - A DNS name of **&lt;sub-domain>** to **&lt;yourwebappname&gt;.azurewebsites.net**. For example, **blogs** if the A record is for **blogs.contoso.com**.
+* **특정 하위 도메인용** - **&lt;yourwebappname&gt;.azurewebsites.net**에 **&lt;sub-domain>**의 DNS 이름을 만듭니다. 예를 들어 A 레코드가 **blogs.contoso.com**에 대한 레코드인 경우 **blogs**입니다.
 
-* **For the wildcard sub-dodmains** - A DNS TXT record of ***** to  **&lt;yourwebappname&gt;.azurewebsites.net**.
+* **와일드카드 하위 도메인용** - **&lt;yourwebappname&gt;.azurewebsites.net** 에 *****의 DNS TXT 레코드를 만듭니다.
 
-This TXT record is used to verify that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web app.
+이 TXT 레코드로 사용하려는 도메인을 소유하고 있는지를 확인할 수 있습니다. 또한 이 레코드는 웹앱의 가상 IP 주소를 가리키는 A 레코드를 만듭니다.
 
-You can find the IP address and **.azurewebsites.net** names for your web app by performing the following steps:
+다음 단계를 수행하면 웹앱의 IP 주소 및 **.azurewebsites.net** 이름을 찾을 수 있습니다.
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com).
+1. 브라우저에서 [Azure 포털](https://portal.azure.com)을 엽니다.
 
-2. In the **Web Apps** blade, click the name of your web app, and then select **Custom domains** from the bottom of the page.
+2. **웹앱** 블레이드에서 웹앱의 이름을 클릭하고 페이지 맨 아래에서 **사용자 지정 도메인**을 선택합니다.
 
-    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. In the **Custom domains** blade, you will see the virtual IP address. Save this information, as it will be used when creating DNS records
+3. **사용자 지정 도메인** 블레이드에 가상 IP 주소가 표시됩니다. 이 정보는 DNS 레코드를 만들 때 사용되므로 저장합니다.
 
-    ![](./media/custom-dns-web-site/virtual-ip-address.png)
+	![](./media/custom-dns-web-site/virtual-ip-address.png)
 
-    > [AZURE.NOTE] You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/web-sites-scale.md).
+	> [AZURE.NOTE] 사용자 지정 도메인 이름은 **무료** 웹앱과 함께 사용할 수 없으며, 꼭 앱 서비스 계획을 **공유**, **기본**, **표준**, **프리미엄** 계층으로 업그레이드 해야 합니다. 사용자 웹앱의 가격 책정 계층 변경을 포함한 앱 서비스 계획의 가격 책정 계층에 대한 자세한 정보는 [웹앱 확장하는 방법](../articles/web-sites-scale.md)을 참조하세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

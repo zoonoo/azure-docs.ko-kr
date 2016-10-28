@@ -1,75 +1,75 @@
 <properties
-    pageTitle="What is HBase in HDInsight? | Microsoft Azure"
-    description="An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters."
-    keywords="bigtable,nosql,what is hbase"
-    services="hdinsight"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian" 
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="HDInsight의 HBase | Microsoft Azure"
+	description="Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다."
+	keywords="빅 테이블,nosql, hbase란?"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian" 
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/14/2016"
-    ms.author="jgao"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/14/2016"
+	ms.author="jgao"/>
 
 
 
+# HDInsight의 HBase: Hadoop에 BigTable 같은 기능을 제공하는 NoSQL 데이터베이스
 
-# <a name="what-is-hbase-in-hdinsight:-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>What is HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Hadoop
+Apache HBase는 Hadoop을 기반으로 하고 Google BigTable 이후에 모델링된 오픈 소스 NoSQL 데이터베이스입니다. HBase는 열 패밀리로 구성된 스키마 없는 데이터베이스에서 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공합니다.
 
-Apache HBase is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
+데이터는 테이블의 행에 저장되고 행 내의 데이터는 열 제품군으로 그룹화됩니다. HBase는 사용 전에 열과 열에 저장되는 데이터 형식을 정의할 필요가 없다는 점에서 스키마 없는 데이터베이스입니다. 오픈 소스 코드는 수천 대의 노드에 있는 페타바이트 크기의 데이터를 처리할 수 있을 정도로 선형으로 확장됩니다. Hadoop 에코시스템의 분산 응용 프로그램이 제공하는 데이터 중복, 일괄 처리 및 기타 기능을 사용할 수 있습니다.
 
-Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is a schemaless database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
+## Azure HDInsight에서 HBase를 구현하는 방법
 
-## <a name="how-is-hbase-implemented-in-azure-hdinsight?"></a>How is HBase implemented in Azure HDInsight?
+HDInsight HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능 및 비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다. HBase 및 Hadoop은 Azure의 빅데이터 프로젝트에 유용한 시작점이며, 특히 실시간 응용 프로그램이 대형 데이터 세트로 작동하도록 할 수 있습니다.
 
-HDInsight HBase is offered as a managed cluster that is integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance and cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. HBase and Hadoop are good starting points for big data project in Azure; in particular, they can enable real-time applications to work with large datasets.
-
-The HDInsight implementation leverages the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. Virtual network provisioning is also available for HDInsight HBase. For details, see  [Provision HDInsight clusters on Azure Virtual Network] [hbase-provision-vnet].
-
-## <a name="how-is-data-managed-in-hdinsight-hbase?"></a>How is data managed in HDInsight HBase?
-
-Data can be managed in HBase by using the `create`, `get`, `put`, and `scan` commands from the HBase shell. Data is written to the database by using `put` and read by using `get`. The `scan` command is used to obtain data from multiple rows in a table. Data can also be managed using the HBase C# API, which provides a client library on top of the HBase REST API. An HBase database can also be queried by using Hive. For an introduction to these programming models, see [Get started using HBase with Hadoop in HDInsight][hbase-get-started]. Co-processors are also available, which allow data processing in the nodes that host the database.
+HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이블 자동 분할, 읽기 및 쓰기에 대한 강력한 일관성 및 자동 장애 조치(Failover)를 제공합니다. 읽기를 위한 메모리 내 캐싱과 쓰기를 위한 높은 처리량 스트리밍을 통해 성능이 향상됩니다. HDInsight HBase에 가상 네트워크 프로비전을 사용할 수도 있습니다. 자세한 내용은 [Azure 가상 네트워크에 HDInsight 클러스터 프로비전][hbase-provision-vnet]을 참조하세요.
 
 
-## <a name="scenarios:-use-cases-for-hbase"></a>Scenarios: Use cases for HBase
-The canonical use case for which BigTable (and by extension, HBase) was created was web search. Search engines build indexes that map terms to the web pages that contain them. But there are many other use cases that HBase is suitable for—several of which are itemized in this section.
+## HDInsight HBase에서 데이터를 관리하는 방법
 
-- Key-value store
-
-    HBase can be used as a key-value store, and it is suitable for managing message systems. Facebook uses HBase for their messaging system, and it is ideal for storing and managing Internet communications. WebTable uses HBase to search for and manage tables that are extracted from webpages.
-
-- Sensor data
-
-    HBase is useful for capturing data that is collected incrementally from various sources. This includes social analytics, time series, keeping interactive dashboards up-to-date with trends and counters, and managing audit log systems. Examples include Bloomberg trader terminal and the Open Time Series Database (OpenTSDB), which stores and provides access to metrics collected about the health of server systems.
-
-- Real-time query
-
-    [Phoenix](http://phoenix.apache.org/) is a SQL query engine for Apache HBase. It is accessed as a JDBC driver, and it enables querying and managing HBase tables by using SQL.
-
-- HBase as a platform
-
-    Applications can run on top of HBase by using it as a datastore. Examples include Phoenix, OpenTSDB, Kiji, and Titan. Applications can also integrate with HBase. Examples include Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia, and Drill.
+HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하여 데이터를 관리할 수 있습니다. 데이터는 `put`을 사용하여 데이터베이스에 기록되고 `get`을 사용하여 읽습니다. `scan` 명령은 테이블의 여러 행에서 데이터를 가져오는 데 사용됩니다. HBase REST API에서 클라이언트 라이브러리를 제공하는 HBase C# API를 사용하여 데이터를 관리할 수도 있습니다. 또한 Hive를 사용하여 HBase 데이터베이스를 쿼리할 수 있습니다. 이러한 프로그래밍 모델 소개는 [HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작][hbase-get-started]을 참조하세요. 데이터베이스를 호스트하는 노드에서 데이터를 처리할 수 있도록 하는 보조 프로세서를 사용할 수도 있습니다.
 
 
-##<a name="<a-name="next-steps"></a>next-steps"></a><a name="next-steps"></a>Next steps
+## 시나리오: HBase의 사용 사례
+BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검색입니다. 검색 엔진은 엔진을 포함하는 웹 페이지에 용어를 매핑하는 인덱스를 구축합니다. 그러나 HBase가 적합한 다른 많은 사용 사례가 있으며, 몇 가지 사례가 이 섹션에 나와 있습니다.
 
-- [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
-- [Provision HDInsight clusters on Azure Virtual Network] [hbase-provision-vnet]
-- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md)
-- [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]
-- [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]
+- 키-값 저장소
 
-##<a name="<a-name="see-also"></a>see-also"></a><a name="see-also"></a>See also
+	HBase를 키-값 저장소로 사용할 수 있으며 메시지 시스템 관리에 적합합니다. Facebook은 해당 메시징 시스템에 HBase를 사용하며 인터넷 통신 저장 및 관리에 유용합니다. WebTable은 HBase를 사용하여 웹 페이지에서 추출된 테이블을 검색하고 관리합니다.
+
+- 센서 데이터
+
+	HBase는 다양한 소스에서 증분 방식으로 수집된 데이터를 캡처하는 데 유용합니다. 여기에는 소셜 분석, 시계열, 추세 및 카운터로 대화형 대시보드를 최신 상태로 유지, 감사 로그 시스템 관리가 포함됩니다. 예를 들어 서버 시스템 상태에 대해 수집된 메트릭을 저장하고 액세스를 제공하는 OpenTSDB(Open Time Series Database) 및 Bloomberg 중개인 터미널이 있습니다.
+
+- 실시간 쿼리
+
+	[Phoenix](http://phoenix.apache.org/)는 Apache HBase용 SQL 쿼리 엔진입니다. JDBC 드라이버로 액세스되며 SQL을 사용하여 HBase 테이블을 쿼리하고 관리할 수 있도록 합니다.
+
+- HBase를 플랫폼으로 사용
+
+	HBase를 데이터 저장소로 사용하여 HBase 위에서 응용 프로그램을 실행할 수 있습니다. 예를 들어 Phoenix, OpenTSDB, Kiji, Titan 등이 있습니다. 응용 프로그램이 HBase와 통합될 수도 있습니다. 예를 들어 Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia, Drill 등이 있습니다.
+
+
+##<a name="next-steps"></a>다음 단계
+
+- [HDInsight의 Hadoop에서 HBase 사용 시작][hbase-get-started]
+- [Azure 가상 네트워크에 HDInsight 클러스터 프로비전][hbase-provision-vnet]
+- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md)
+- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]
+- [Maven을 사용하여 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드][hbase-build-java-maven]
+
+##<a name="see-also"></a>참고 항목
 
 - [Apache HBase](https://hbase.apache.org/)
-- [Bigtable: A Distributed Storage System for Structured Data](http://research.google.com/archive/bigtable.html)
+- [Bigtable: 구조화된 데이터의 분산 저장소 시스템](http://research.google.com/archive/bigtable.html)
 
 
 
@@ -94,8 +94,4 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

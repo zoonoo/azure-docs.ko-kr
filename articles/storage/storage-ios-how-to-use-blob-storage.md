@@ -1,6 +1,6 @@
 <properties
-    pageTitle="How to use Azure Blob storage from iOS | Microsoft Azure"
-    description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
+    pageTitle="iOS에서 Azure Blob 저장소를 사용하는 방법 | Microsoft Azure"
+	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -13,86 +13,85 @@
     ms.tgt_pltfrm="na"
     ms.devlang="objective-c"
     ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="micurd"/>
+    ms.date="09/20/2016"
+    ms.author="micurd;tamram"/>
 
-
-# <a name="how-to-use-blob-storage-from-ios"></a>How to use Blob storage from iOS
+# iOS에서 Blob 저장소를 사용하는 방법
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Overview
+## 개요
 
-This article will show you how to perform common scenarios using Microsoft Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
+이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 응용 프로그램에서 Azure 저장소의 사용을 신속하게 볼 수 있습니다.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Import the Azure Storage iOS library into your application
+## Azure 저장소 iOS 라이브러리를 응용 프로그램으로 가져오기
 
-You can import the Azure Storage iOS library into your application either by using the [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) or by importing the **Framework** file.
+[Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient)를 사용하거나 **프레임워크** 파일을 가져와 Azure Storage iOS 라이브러리를 응용 프로그램으로 가져올 수 있습니다.
 
-## <a name="cocoapod"></a>CocoaPod
+## CocoaPod
 
-1. If you haven't done so already, [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) on your computer by opening a terminal window and running the following command
+1. 컴퓨터에 [CocoaPod](https://guides.cocoapods.org/using/getting-started.html#toc_3)를 아직 설치하지 않은 경우 터미널 창을 열고 다음 명령을 실행하여 컴퓨터에 이 프로그램을 설치합니다.
 
         sudo gem install cocoapods
 
-2. Next, in the project directory (the directory containing your `.xcodeproj` file), create a new file called `Podfile`(no file extension). Add the following to `Podfile` and save
+2. 다음에는 프로젝트 디렉터리(`.xcodeproj` 파일이 포함된 디렉터리)에서 `Podfile`(파일 확장명 없음)이라는 새 파일을 만듭니다. `Podfile`에 다음을 추가한 후 저장합니다.
 
         pod 'AZSClient'
 
-3. In the terminal window, navigate to the project directory and run the following command
+3. 터미널 창에서 프로젝트 디렉터리로 이동하고 다음 명령을 실행합니다.
 
         pod install
 
-4. If your `.xcodeproj` is open in Xcode, close it. In your project directory open the newly created project file which will have the `.xcworkspace` extension. This is the file you'll work from for now on.
+4. `.xcodeproj`가 Xcode에서 열리면 닫습니다. 프로젝트 디렉터리에서 새로 만든 프로젝트 파일을 엽니다. 이 파일은 확장명 `.xcworkspace`를 갖게 됩니다. 지금부터 이 파일로 작업하게 됩니다.
 
-## <a name="framework"></a>Framework
-In order to use the Azure Storage iOS library, you will first need to build the framework file.
+## 프레임워크
+Azure 저장소 iOS 라이브러리를 사용하려면 먼저 프레임워크 파일을 빌드해야 합니다.
 
-1. First, download or clone the [azure-storage-ios repo](https://github.com/azure/azure-storage-ios).
+1. 먼저, [azure-storage-ios repo](https://github.com/azure/azure-storage-ios)를 다운로드하거나 복제합니다.
 
-2. Go into *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library*, and open `AZSClient.xcodeproj` in Xcode.
+2. *azure-storage-ios* -> *Lib* -> *Azure 저장소 클라이언트 라이브러리*로 이동하고 X 코드에서 `AZSClient.xcodeproj`를 엽니다.
 
-3. At the top-left of Xcode, change the active scheme from "Azure Storage Client Library" to "Framework".
+3. Xcode의 왼쪽 위에서 "Azure 저장소 클라이언트 라이브러리"의 활성 구성표를 "프레임워크"로 변경합니다.
 
-4. Build the project (⌘+B). This will create a `AZSClient.framework` file on your Desktop.
+4. 프로젝트를 빌드합니다(⌘+B). 그러면 바탕 화면에 `AZSClient.framework` 파일이 만들어집니다.
 
-You can then import the framework file into your application by doing the following:
+그런 후 다음을 수행하여 프레임워크 파일을 응용 프로그램으로 가져올 수 있습니다.
 
-1. Create a new project or open up your existing project in Xcode.
+1. 새 프로젝트를 만들거나 Xcode에서 기존 프로젝트를 엽니다.
 
-2. Click on your project in the left-hand navigation and click the *General* tab at the top of the project editor.
+2. 왼쪽의 탐색에서 프로젝트를 클릭하고 프로젝트 편집기의 위에서 *일반* 탭을 클릭합니다.
 
-3. Under the *Linked Frameworks and Libraries* section, click the Add button (+).
+3. *연결된 프레임워크 및 라이브러리* 섹션 아래에서 추가 단추 (+)를 클릭합니다.
 
-4. Click *Add Other...*. Navigate to and add the `AZSClient.framework` file you just created.
+4. *기타 추가...*를 클릭합니다. 방금 만든 `AZSClient.framework` 파일을 찾아 추가합니다.
 
-5. Under the *Linked Frameworks and Libraries* section, click the Add button (+) again.
+5. *연결된 프레임워크 및 라이브러리* 섹션 아래에서 추가 단추 (+)를 다시 클릭합니다.
 
-6. In the list of libraries already provided, search for `libxml2.2.dylib` and add it to your project.
+6. 이미 제공된 라이브러리 목록에서 `libxml2.2.dylib`를 검색하고 프로젝트에 추가합니다.
 
-7. Click the *Build Settings* tab at the top of the project editor.
+7. 프로젝트 편집기 맨 위에 있는 *빌드 설정* 탭을 클릭합니다.
 
-8. Under the *Search Paths* section, double-click *Framework Search Paths* and add the path to your `AZSClient.framework` file.
+8. *검색 경로* 섹션 아래에서 *프레임워크 검색 경로*를 두 번 클릭하고 `AZSClient.framework` 파일에 경로를 추가합니다.
 
-## <a name="import-statement"></a>Import Statement
-You will need to include the following import statement in the file where you want to invoke the Azure Storage API.
+## Import 문
+Azure 저장소 API를 호출하려는 파일에 다음 import 문을 포함해야 합니다.
 
     // Include the following import statement to use blob APIs.
     #import <AZSClient/AZSClient.h>
 
 [AZURE.INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
-## <a name="asynchronous-operations"></a>Asynchronous Operations
-> [AZURE.NOTE] All methods that perform a request against the service are asynchronous operations. In the code samples, you’ll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
+## 비동기 작업
+> [AZURE.NOTE] 서비스에 대한 요청을 수행하는 모든 메서드는 비동기 작업입니다. 코드 샘플에서 이러한 메서드에는 완료 처리기가 있음을 확인할 수 있습니다. 완료 처리기 내에 있는 코드는 요청이 완료된 **후** 실행됩니다. 완료 처리기 이후 코드는 요청이 이루어지는 **동안** 실행됩니다.
 
-## <a name="create-a-container"></a>Create a container
-Every blob in Azure Storage must reside in a container. The following example shows how to create a container, called *newcontainer*, in your Storage account if it doesn't already exist. When choosing a name for your container, be mindful of the naming rules mentioned above.
+## 컨테이너 만들기
+Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예제에서는 *newcontainer*라는 컨테이너를 저장소 계정에 만드는 방법을 보여 줍니다(아직 없는 경우). 컨테이너에 대한 이름을 선택할 때 위에서 언급한 명명 규칙을 따릅니다.
 
     -(void)createContainer{
       NSError *accountCreationError;
@@ -118,18 +117,18 @@ Every blob in Azure Storage must reside in a container. The following example sh
       }];
     }
 
-You can confirm that this works by looking at the [Microsoft Azure Storage Explorer](http://storageexplorer.com) and verifying that *newcontainer* is in the list of containers for your Storage account.
+[Microsoft Azure Storage Explorer](http://storageexplorer.com)를 확인하고 해당 *newcontainer*가 저장소 계정에 대한 컨테이너 목록에 있는지 확인하여 이 작업을 확인할 수 있습니다.
 
-## <a name="set-container-permissions"></a>Set Container Permissions
-A container's permissions are configured for **Private** access by default. However, containers provide a few different options for container access:
+## 컨테이너 사용 권한 설정
+기본적으로 컨테이너의 사용 권한은 **개인** 액세스용으로 구성됩니다. 그러나 컨테이너는 컨테이너 액세스에 대한 몇 가지 다른 옵션을 제공합니다.
 
-- **Private**: Container and blob data can be read by the account owner only.
+- **개인**: 계정 소유자만 컨테이너 및 Blob 데이터를 읽을 수 있습니다.
 
-- **Blob**: Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request.
+- **Blob**: 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
 
-- **Container**: Container and blob data can be read via anonymous request. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.
+- **컨테이너**: 익명 요청을 통해 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
-The following example shows you how to create a container with **Container** access permissions which will allow public, read-only access for all users on the Internet:
+다음 예제에서는 인터넷에서 모든 사용자의 공용, 읽기 전용 액세스를 허용할 **컨테이너** 액세스 권한으로 컨테이너를 만드는 방법을 보여 줍니다.
 
     -(void)createContainerWithPublicAccess{
         NSError *accountCreationError;
@@ -155,10 +154,10 @@ The following example shows you how to create a container with **Container** acc
         }];
     }
 
-## <a name="upload-a-blob-into-a-container"></a>Upload a blob into a container
-As mentioned in the [Blob service concepts](#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. At this moment, the Azure Storage iOS library only supports block blobs. In the majority of cases, block blob is the recommended type to use.
+## 컨테이너에 Blob 업로드
+[Blob 서비스 개념](#blob-service-concepts) 섹션에서 설명한 것처럼 Blob 저장소는 블록 Blob, 추가 Blob, 페이지 Blob의 서로 다른 Blob 유형을 제공합니다. 현재 Azure 저장소 iOS 라이브러리는 블록 Blob만 지원합니다. 대부분의 경우 블록 Blob을 사용하는 것이 좋습니다.
 
-The following example shows how to upload a block blob from an NSString. If a blob with the same name already exists in this container, the contents of this blob will be overwritten.
+다음 예제에서는 NSString에서 블록 Blob를 업로드하는 방법을 보여줍니다. 같은 이름의 Blob가 이 컨테이너에 이미 있는 경우 이 Blob의 내용을 덮어씁니다.
 
     -(void)uploadBlobToContainer{
         NSError *accountCreationError;
@@ -195,29 +194,29 @@ The following example shows how to upload a block blob from an NSString. If a bl
          }];
     }
 
-You can confirm that this works by looking at the [Microsoft Azure Storage Explorer](http://storageexplorer.com) and verifying that the container, *containerpublic*, contains the blob, *sampleblob*. In this sample, we used a public container so you can also verify that this worked by going to the blobs URI:
+[Microsoft Azure Storage Explorer](http://storageexplorer.com)를 확인하고 컨테이너 *containerpublic*이 Blob *sampleblob*를 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 작업을 확인할 수도 있습니다.
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
-In addition to uploading a block blob from an NSString, similar methods exist for NSData, NSInputStream or a local file.
+NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메서드가 NSData, NSInputStream 또는 로컬 파일에 존재합니다.
 
-## <a name="list-the-blobs-in-a-container"></a>List the blobs in a container
-The following example shows how to list all blobs in a container. When performing this operation, be mindful of the following parameters:     
+## 컨테이너의 Blob 나열
+다음 예제에서는 컨테이너의 모든 Blob를 나열하는 방법을 보여줍니다. 이 작업을 수행할 때는 다음 매개 변수를 염두에 두어야 합니다.
 
-- **continuationToken** - The continuation token represents where the listing operation should start. If no token is provided, it will list blobs from the beginning. Any number of blobs can be listed, from zero up to a set maximum. Even if this method returns zero results, if `results.continuationToken` is not nil, there may be more blobs on the service that have not been listed.
-- **prefix** - You can specify the prefix to use for blob listing. Only blobs that begin with this prefix will be listed.
-- **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](#naming-and-referencing-containers-and-blobs) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported; this is coming soon. For now, this value should be `YES`
-- **blobListingDetails** - You can specify which items to include when listing blobs
-    - `AZSBlobListingDetailsNone`: List only committed blobs, and do not return blob metadata.
-    - `AZSBlobListingDetailsSnapshots`: List committed blobs and blob snapshots.
-    - `AZSBlobListingDetailsMetadata`: Retrieve blob metadata for each blob returned in the listing.
-    - `AZSBlobListingDetailsUncommittedBlobs`: List committed and uncommitted blobs.
-    - `AZSBlobListingDetailsCopy`: Include copy properties in the listing.
-    - `AZSBlobListingDetailsAll`: List all available committed blobs, uncommitted blobs, and snapshots, and return all metadata and copy status for those blobs.
-- **maxResults** - The maximum number of results to return for this operation. Use -1 to not set a limit.
-- **completionHandler** - The block of code to execute with the results of the listing operation.
+- **continuationToken** - 연속 토큰은 목록 작업을 시작할 위치를 나타냅니다. 토큰이 제공되지 않는 경우 처음부터 Blob를 나열합니다. 0에서 최대 설정까지 개수에 관계 없이 Blob를 나열할 수 있습니다. 이 메서드가 0개의 결과를 반환하더라도 `results.continuationToken`이 nil이 아니면 서비스에 나열되지 않은 더 많은 Blob이 있을 수 있습니다.
+- **prefix** - Blob 목록에 사용할 접두사를 지정할 수 있습니다. 이 접두사로 시작하는 Blob만 나열됩니다.
+- **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](#naming-and-referencing-containers-and-blobs) 섹션에서 설명한 것처럼 Blob 서비스가 플랫 저장소 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않으며 곧 제공될 예정입니다. 지금은 이 값이 `YES`여야 합니다.
+- **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
+	- `AZSBlobListingDetailsNone`: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
+	- `AZSBlobListingDetailsSnapshots`: 커밋된 Blob 및 Blob 스냅숏을 나열합니다.
+	- `AZSBlobListingDetailsMetadata`: 목록에 반환된 각 Blob에 대한 Blob 메타데이터를 검색합니다.
+	- `AZSBlobListingDetailsUncommittedBlobs`: 커밋 및 커밋되지 않은 Blob을 나열합니다.
+	- `AZSBlobListingDetailsCopy`: 목록에 복사 속성을 포함합니다.
+	- `AZSBlobListingDetailsAll`: 사용 가능한 모든 커밋된 Blob, 커밋되지 않은 Blob 및 스냅숏을 나열하고 모든 메타데이터와 해당 Blob에 대한 복사 상태를 반환합니다.
+- **maxResults** - 이 작업에 대해 반환할 결과의 최대 수입니다. 제한을 설정하지 않으려면 -1을 사용합니다.
+- **completionHandler** - 나열 작업의 결과와 함께 실행할 코드 블록입니다.
 
-In this example, a helper method is used to recursively call the list blobs method every time a continuation token is returned.
+이 예제에서는 연속 토큰이 반환될 때마다 나열 Blob 메서드를 재귀적으로 호출하는 데 도우미 메서드가 사용됩니다.
 
     -(void)listBlobsInContainer{
         NSError *accountCreationError;
@@ -269,9 +268,9 @@ In this example, a helper method is used to recursively call the list blobs meth
     }
 
 
-## <a name="download-a-blob"></a>Download a blob
+## Blob 다운로드
 
-The following example shows how to download a blob to a NSString object.
+다음 예제에서는 NSString 개체로 Blob를 다운로드하는 방법을 보여줍니다.
 
     -(void)downloadBlobToString{
         NSError *accountCreationError;
@@ -303,9 +302,9 @@ The following example shows how to download a blob to a NSString object.
         }];
     }
 
-## <a name="delete-a-blob"></a>Delete a blob
+## Blob 삭제
 
-The following example shows how to delete a blob.
+다음 예제에서는 Blob를 삭제하는 방법을 보여줍니다.
 
     -(void)deleteBlob{
         NSError *accountCreationError;
@@ -334,9 +333,9 @@ The following example shows how to delete a blob.
         }];
     }
 
-## <a name="delete-a-blob-container"></a>Delete a blob container
+## Blob 컨테이너 삭제
 
-The following example shows how to delete a container.
+다음 예제에서는 컨테이너를 삭제하는 방법을 보여줍니다.
 
     -(void)deleteContainer{
       NSError *accountCreationError;
@@ -362,20 +361,15 @@ The following example shows how to delete a container.
       }];
     }
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Now that you've learned how to use Blob Storage from iOS, follow these links to learn more about the iOS library and the Storage service.
+지금까지 iOS에서 Blob 저장소를 사용하는 방법을 살펴보았으므로 다음 링크를 따라 이동하여 iOS 라이브러리 및 저장소 서비스에 대한 자세한 내용을 확인하세요.
 
-- [Azure Storage Client Library for iOS](https://github.com/azure/azure-storage-ios)
-- [Azure Storage iOS Reference Documentation](http://azure.github.io/azure-storage-ios/)
-- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage)
+- [iOS용 Azure 저장소 클라이언트 라이브러리](https://github.com/azure/azure-storage-ios)
+- [Azure Storage iOS 참조 설명서](http://azure.github.io/azure-storage-ios/)
+- [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage)
 
-If you have questions regarding this library feel free to post to our [MSDN Azure forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
-If you have feature suggestions for Azure Storage, please post to [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
+이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure Storage에 대한 기능 제안 사항이 있는 경우 [Azure Storage 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

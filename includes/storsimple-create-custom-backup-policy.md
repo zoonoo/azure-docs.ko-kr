@@ -1,48 +1,43 @@
 <!--author=SharS last changed: 9/15/15-->
 
-#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
+#### 사용자 지정 백업 정책을 만들려면
 
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
+1. **장치** 페이지에서 **백업 정책**을 클릭하고 **추가**를 클릭합니다.
 
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+2. **백업 정책 추가** 대화 상자의 **백업 정책 정의**에서:
 
-    1. Specify a backup policy name.
+    1. 백업 정책 이름을 지정합니다.
 
-    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting them from the drop-down list.
+    2. 이 정책에 추가할 볼륨을 선택합니다. 드롭다운 목록에서 선택하여 여러 볼륨을 추가하도록 선택할 수 있습니다.
 
-    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
+    3. 확인 아이콘![확인 아이콘](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png)을 클릭합니다.
 
-     You will be notified after the policy is created successfully. The backup policies page will also be updated to show the newly created policy.
+     정책이 성공적으로 만들어진 후 알림이 표시됩니다. 백업 정책 페이지도 새로 만든 정책을 표시하도록 업데이트됩니다.
 
-4. Click the policy name (first column) to drill down into details of the policy you just created.
+4. 방금 만든 정책에 대한 세부 정보로 드릴다운할 정책 이름(첫 번째 열)을 클릭합니다.
 
-5. Click **manage schedules**.
+5. **일정 관리**를 클릭합니다.
 
-6. In the **Manage Schedules** dialog box:
+6. **일정 관리** 대화 상자:
 
-    1. Select **Create new** to add another schedule.
+    1. **새로 만들기**를 선택하여 다른 일정을 추가합니다.
 
-    2. From the drop-down list, choose the backup type as **local** or **cloud** snapshot.
+    2. 드롭다운 목록에서 백업 유형을 **로컬** 또는 **클라우드** 스냅숏으로 선택합니다.
 
-    3. Specify the backup frequency in minutes, hours, days, or weeks.
+    3. 백업 빈도를 분, 시간, 일 또는 주 단위로 지정합니다.
 
-    4. Select a retention. The retention choices depend on the backup frequency.
+    4. 보존 시간을 선택합니다. 보존 선택 항목은 백업 빈도에 따라 달라집니다.
  
-    5. Select the starting time and date for the policy.
+    5. 정책의 시작 시간과 날짜를 선택합니다.
 
-    6. Select the check box to enable the policy.
+    6. 확인란을 선택하여 정책을 사용하도록 설정합니다.
 
-7. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to finish.
+7. 확인 아이콘![확인 아이콘](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png)을 클릭하여 마칩니다.
 
-8. You will return to the policy details. Click **Save** to save the changes you made to this policy. You will be notified when the policy has been saved.
+8. 정책 세부 정보를 반환합니다. **저장**을 클릭하여 이 정책을 만든 변경 내용을 저장합니다. 정책이 저장되면 알림이 표시됩니다.
 
-9. Navigate back to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the modified policy.
+9. **백업 정책** 페이지로 이동됩니다. 백업 정책의 테이블 형식 목록이 수정된 정책을 표시하도록 업데이트됩니다.
 
-    ![Custom backup policy](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
-
-
-
-
-<!--HONumber=Oct16_HO2-->
+    ![사용자 지정 백업 정책](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
 

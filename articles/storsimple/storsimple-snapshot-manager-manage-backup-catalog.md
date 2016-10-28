@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager backup catalog | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage the backup catalog."
+   pageTitle="StorSimple 스냅숏 관리자 백업 카탈로그 | Microsoft Azure"
+   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 백업 카탈로그를 보고 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,203 +15,198 @@
    ms.date="04/26/2016"
    ms.author="v-sharos" />
 
+# StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그 관리
 
-# <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Use StorSimple Snapshot Manager to manage the backup catalog
+## 개요
 
-## <a name="overview"></a>Overview
+StorSimple Snapshot Manager의 기본 기능은 StorSimple 볼륨의 응용 프로그램과 일치하는 백업 복사본을 스냅숏의 형태로 만들 수 있도록 하는 것입니다. 스냅숏은 *백업 카탈로그*라는 XML 파일에 나열됩니다. 백업 카탈로그는 볼륨 그룹별로 스냅숏을 구성한 다음 로컬 스냅숏 또는 클라우드 스냅숏별로 구성합니다.
 
-The primary function of StorSimple Snapshot Manager is to allow you to create application-consistent backup copies of StorSimple volumes in the form of snapshots. Snapshots are then listed in an XML file called a *backup catalog*. The backup catalog organizes snapshots by volume group and then by local snapshot or cloud snapshot. 
+이 자습서에서는 **백업 카탈로그** 노드를 사용하여 다음 작업을 완료하는 방법을 설명합니다.
 
-This tutorial describes how you can use the **Backup Catalog** node to complete the following tasks:
+- 볼륨 복원 
+- 볼륨 또는 볼륨 그룹 복제 
+- 백업 삭제 
+- 파일 복구
+- StorSimple 스냅숏 관리자 데이터베이스 복원
 
-- Restore a volume 
-- Clone a volume or volume group 
-- Delete a backup 
-- Recover a file
-- Restore the Storsimple Snapshot Manager database
+**범위** 창에서 **백업 카탈로그** 노드를 확장한 후 볼륨 그룹을 확장하면 백업 카탈로그를 볼 수 있습니다.
 
-You can view the backup catalog by expanding the **Backup Catalog** node in the **Scope** pane, and then expanding the volume group.
+- 볼륨 그룹 이름을 클릭하면 **결과** 창에 해당 볼륨 그룹에서 사용할 수 있는 로컬 스냅숏 및 클라우드 스냅숏의 개수가 표시됩니다. 
 
-- If you click the volume group name, the **Results** pane shows the number of local snapshots and cloud snapshots available for the volume group. 
+- **로컬 스냅숏** 또는 **클라우드 스냅숏**을 클릭하면 **결과** 창에 각 백업 스냅숏에 대한 다음 정보가 표시됩니다(**보기** 설정에 따라 다름).
 
-- If you click **Local Snapshot** or **Cloud Snapshot**, the **Results** pane shows the following information about each backup snapshot (depending on your **View** settings): 
+    - **이름** – 스냅숏을 만든 시간. 
 
-    - **Name** – the time the snapshot was taken. 
+    - **유형** – 로컬 스냅숏인지 또는 클라우드 스냅숏인지.
 
-    - **Type** – whether this is a local snapshot or a cloud snapshot. 
+    - **소유자** – 콘텐츠 소유자.
 
-    - **Owner** – the content owner. 
+    - **사용 가능** – 스냅숏을 현재 사용할 수 있는지 여부. **True**이면 스냅숏을 사용할 수 있고 복원 가능합니다. **False**이면 스냅숏을 더 이상 사용할 수 없습니다.
 
-    - **Available** – whether the snapshot is currently available. **True** indicates that the snapshot is available and can be restored; **False** indicates that the snapshot is no longer available. 
+    - **가져옴** – 백업을 가져왔는지 여부. **True**이면 StorSimple 스냅숏 관리자에서 장치를 구성했을 때 백업을 StorSimple 관리자 서비스에서 가져왔습니다. **False**이면 백업을 가져오지 않았지만 StorSimple 스냅숏 관리자에서는 만들었습니다. (가져온 볼륨 그룹에는 해당 볼륨 그룹을 가져온 원본 장치를 식별하는 접미사가 추가되므로 쉽게 식별할 수 있습니다.)
 
-    - **Imported** – whether the backup was imported. **True** indicates that the backup was imported from the StorSimple Manager service at the time the device was configured in StorSimple Snapshot Manager; **False** indicates that it was not imported, but was created by StorSimple Snapshot Manager. (You can easily identify an imported volume group because a suffix is added that identifies the device from which the volume group was imported.)
+    ![백업 카탈로그](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
 
-    ![Backup catalog](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
+- **로컬 스냅숏** 또는 **클라우드 스냅숏**을 확장한 다음 개별 스냅숏 이름을 클릭하면 **결과** 창에 선택한 스냅숏에 대해 다음 정보가 표시됩니다.
 
-- If you expand **Local Snapshot** or **Cloud Snapshot**, and then click an individual snapshot name, the **Results** pane shows the following information about the snapshot that you selected:
+    - **이름** – 드라이브 문자로 식별되는 볼륨. 
 
-    - **Name** – the volume identified by drive letter. 
+    - **로컬 이름** – 드라이브의 로컬 이름(있는 경우).
 
-    - **Local Name** – the local name of the drive (if available). 
+    - **장치** – 볼륨이 있는 장치의 이름.
 
-    - **Device** – the name of the device on which the volume resides. 
-
-    - **Available** – whether the snapshot is currently available. **True** indicates that the snapshot is available and can be restored; **False** indicates that the snapshot is no longer available. 
+    - **사용 가능** – 스냅숏을 현재 사용할 수 있는지 여부. **True**이면 스냅숏을 사용할 수 있고 복원 가능합니다. **False**이면 스냅숏을 더 이상 사용할 수 없습니다.
 
 
-## <a name="restore-a-volume"></a>Restore a volume
+## 볼륨 복원
 
-Use the following procedure to restore a volume from backup.
+다음 절차를 사용하여 백업에서 볼륨을 복원합니다.
 
-#### <a name="prerequisites"></a>Prerequisites
+#### 필수 조건
 
-If you have not already done so, create a volume and volume group, and then delete the volume. By default, StorSimple Snapshot Manager backs up a volume before permitting it to be deleted. This precaution can prevent data loss if the volume is deleted unintentionally or if the data needs to be recovered for any reason. 
+아직 하지 않은 경우, 볼륨 및 볼륨 그룹을 만든 다음 볼륨을 삭제합니다. 기본적으로 StorSimple 스냅숏 관리자는 삭제를 허용하기 전에 볼륨을 백업합니다. 이 예방 조치를 통해 볼륨을 실수로 삭제한 경우 또는 어떤 이유로든 데이터를 복구해야 하는 경우 데이터 손실을 방지할 수 있습니다.
 
-StorSimple Snapshot Manager displays the following message while it creates the precautionary backup.
+StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 메시지를 표시합니다.
 
-![Automatic snapshot message](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png) 
+![자동 스냅숏 메시지](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
 
->[AZURE.IMPORTANT] You cannot delete a volume that is part of a volume group. The delete option is unavailable. <br>
+>[AZURE.IMPORTANT] 볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. 삭제 옵션을 사용할 수 없습니다.<br>
 
-#### <a name="to-restore-a-volume"></a>To restore a volume
+#### 볼륨을 복원하려면
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
 
-2. In the **Scope** pane, expand the **Backup Catalog** node, expand a volume group, and then click **Local Snapshots** or **Cloud Snapshots**. A list of backup snapshots appears in the **Results** pane. 
+2. **범위** 창에서 **백업 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음 **로컬 스냅숏** 또는 **클라우드 스냅숏**을 클릭합니다. 백업 스냅숏 목록이 **결과** 창에 표시됩니다.
 
-3. Find the backup that you want to restore, right-click, and then click **Restore**. 
+3. 복원할 백업을 찾아 마우스 오른쪽 단추로 클릭한 다음 **복원**을 클릭합니다.
 
-    ![Restore backup catalog](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_BU_catalog.png) 
+    ![백업 카탈로그 복원](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_BU_catalog.png)
 
-4. On the confirmation page, review the details, type **Confirm**, and then click **OK**. StorSimple Snapshot Manager uses the backup to restore the volume. 
+4. 확인 페이지에서 세부 정보를 검토하고 **Confirm**을 입력한 다음 **확인**을 클릭합니다. StorSimple 스냅숏 관리자가 백업을 사용하여 볼륨을 복원합니다.
 
-    ![Restore confirmation message](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_volume_msg.png) 
+    ![확인 메시지 복원](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_volume_msg.png)
 
-5. You can monitor the restore action as it runs. In the **Scope** pane, expand the **Jobs** node, and then click **Running**. The job details appear in the **Results** pane. When the restore job is finished, the job details are transferred to the **Last 24 hours** list.
+5. 실행되는 복원 작업을 모니터링할 수 있습니다. **범위** 창에서 **작업** 노드를 확장한 다음 **실행 중**을 클릭합니다. 작업 세부 정보가 **결과** 창에 표시됩니다. 복원 작업이 완료되면 작업 세부 정보가 **최근 24시간** 목록으로 전송됩니다.
 
-## <a name="clone-a-volume-or-volume-group"></a>Clone a volume or volume group
+## 볼륨 또는 볼륨 그룹 복제
 
-Use the following procedure to create a duplicate (clone) of a volume or volume group.
+다음 절차를 사용하여 볼륨 또는 볼륨 그룹의 클론을 만듭니다.
 
-#### <a name="to-clone-a-volume-or-volume-group"></a>To clone a volume or volume group
+#### 볼륨 또는 볼륨 그룹을 복제하려면
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
 
-2. In the **Scope** pane, expand the **Backup Catalog** node, expand a volume group, and then click **Cloud Snapshots**. A list of backups appears in the **Results** pane.
+2. **범위** 창에서 **백업 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음 **클라우드 스냅숏**을 클릭합니다. 백업 목록이 **결과** 창에 표시됩니다.
 
-3. Find the volume or volume group that you want to clone, right-click the volume or volume group name, and click **Clone**. The **Clone Cloud Snapshot** dialog box appears.
+3. 복제할 볼륨 또는 볼륨 그룹을 찾아 해당 볼륨 또는 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭하고 **복제**를 클릭합니다. **클라우드 스냅숏 복제** 대화 상자가 나타납니다.
 
-    ![Clone a cloud snapshot](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png) 
+    ![클라우드 스냅숏 복제](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png)
 
-4. Complete the **Clone Cloud Snapshot** dialog box as follows: 
+4. **클라우드 스냅숏 복제** 대화 상자를 다음과 같이 완료합니다.
 
-    1. In the **Name** text box, type a name for the cloned volume. This name will appear in the **Volumes** node. 
+    1. **이름** 텍스트 상자에 복제된 볼륨의 이름을 입력합니다. 이 이름이 **볼륨** 노드에 나타납니다. 
 
-    2. (Optional) select **Drive**, and then select a drive letter from the drop-down list. 
+    2. (선택 사항) **드라이브**를 선택한 다음 드롭다운 목록에서 드라이브 문자를 선택합니다.
 
-    3. (Optional) select **Folder (NTFS)**, and type a folder path or click Browse and select a location for the folder. 
+    3. (선택 사항) **폴더(NTFS)**를 선택하고 폴더 경로를 입력하거나 찾아보기를 클릭하고 폴더 위치를 선택합니다.
 
-    4. Click **Create**.
+    4. **만들기**를 클릭합니다.
 
-5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Mount volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
+5. 복제 프로세스가 완료되면 복제된 볼륨을 초기화해야 합니다. 서버 관리자를 시작한 다음 디스크 관리를 시작합니다. 자세한 지침은 [볼륨 탑재](storsimple-snapshot-manager-manage-volumes.md#mount-volumes)를 참조하세요. 초기화 후 볼륨이 **범위** 창의 **볼륨** 노드 아래에 나열됩니다. 나열된 볼륨이 보이지 않으면 볼륨 목록을 새로 고칩니다(**볼륨** 노드를 마우스 오른쪽 단추로 클릭한 다음 **새로 고침** 클릭).
 
-## <a name="delete-a-backup"></a>Delete a backup
+## 백업 삭제
 
-Use the following procedure to delete a snapshot from the backup catalog. 
+다음 절차를 사용하여 백업 카탈로그에서 스냅숏을 삭제합니다.
 
->[AZURE.NOTE] Deleting a snapshot deletes the backed up data associated with the snapshot. However, the process of cleaning up data from the cloud may take some time.<br>
+>[AZURE.NOTE] 스냅숏을 삭제하면 스냅숏에 연결된 백업된 데이터도 삭제됩니다. 그러나 클라우드에서 데이터를 정리하는 과정에는 시간이 좀 걸릴 수 있습니다.<br>
  
-#### <a name="to-delete-a-backup"></a>To delete a backup
+#### 백업을 삭제하려면
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
 
-2. In the **Scope** pane, expand the **Backup Catalog** node, expand a volume group, and then click **Local Snapshots** or **Cloud Snapshots**. A list of snapshots appears in the **Results** pane. 
+2. **범위** 창에서 **백업 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음 **로컬 스냅숏** 또는 **클라우드 스냅숏**을 클릭합니다. 스냅숏 목록이 **결과** 창에 표시됩니다.
 
-3. Right-click the snapshot you want to delete, and then click **Delete**.
+3. 삭제할 스냅숏을 마우스 오른쪽 단추로 클릭하고 **삭제**를 클릭합니다.
 
-4. When the confirmation message appears, click **OK**. 
+4. 확인 메시지가 나타나면 **확인**을 클릭합니다.
 
-## <a name="recover-a-file"></a>Recover a file
+## 파일 복구
 
-If a file is accidentally deleted from a volume, you can recover the file by retrieving a snapshot that pre-dates the deletion, using the snapshot to create a clone of the volume, and then copying the file from the cloned volume to the original volume.
+볼륨에서 파일을 실수로 삭제하는 경우, 삭제 이전 날짜의 스냅숏을 검색하고 해당 스냅숏을 사용하여 볼륨의 클론을 만든 다음 복제된 볼륨에서 원래 볼륨으로 파일을 복사하면 파일을 복구할 수 있습니다.
 
-#### <a name="prerequisites"></a>Prerequisites
+#### 필수 조건
 
-Before you begin, make sure that you have a current backup of the volume group. Then, delete a file stored on one of the volumes in that volume group. Finally, use the following steps to restore the deleted file from your backup. 
+시작하기 전에 볼륨 그룹의 최신 백업이 있는지 확인합니다. 그런 다음 해당 볼륨 그룹의 볼륨 중 하나에 저장된 파일을 삭제합니다. 마지막으로, 다음 단계를 사용하여 삭제된 파일을 백업에서 복원합니다.
 
-#### <a name="to-recover-a-deleted-file"></a>To recover a deleted file
+#### 삭제된 파일을 복구하려면
 
-1. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager console window appears. 
+1. 바탕 화면에서 StorSimple 스냅숏 관리자 아이콘을 클릭합니다. StorSimple 스냅숏 관리자 콘솔 창이 나타납니다. 
 
-2. In the **Scope** pane, expand the **Backup Catalog** node, and browse to a snapshot that contains the deleted file. Typically, you should select a snapshot that was created just before the deletion. 
+2. **범위** 창에서 **백업 카탈로그** 노드를 확장한 후 삭제된 파일이 포함된 스냅숏을 찾습니다. 일반적으로 삭제되기 바로 전에 만든 스냅숏을 선택해야 합니다.
 
-3. Find the volume that you want to clone, right-click, and click **Clone**. The **Clone Cloud Snapshot** dialog box appears.
+3. 복제할 볼륨을 찾아서 마우스 오른쪽 단추로 클릭한 후 **복제**를 클릭합니다. **클라우드 스냅숏 복제** 대화 상자가 나타납니다.
 
-    ![Clone a cloud snapshot](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png) 
+    ![클라우드 스냅숏 복제](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png)
 
-4. Complete the **Clone Cloud Snapshot** dialog box as follows: 
+4. **클라우드 스냅숏 복제** 대화 상자를 다음과 같이 완료합니다.
 
-   1. In the **Name** text box, type a name for the cloned volume. This name will appear in the **Volumes** node. 
+   1. **이름** 텍스트 상자에 복제된 볼륨의 이름을 입력합니다. 이 이름이 **볼륨** 노드에 나타납니다.
 
-   2. (Optional) Select **Drive**, and then select a drive letter from the drop-down list. 
+   2. (선택 사항) **드라이브**를 선택한 다음 드롭다운 목록에서 드라이브 문자를 선택합니다.
 
-   3. (Optional) Select **Folder (NTFS)**, and type a folder path or click **Browse** and select a location for the folder. 
+   3. (선택 사항) **폴더(NTFS)**를 선택하고 폴더 경로를 입력하거나 **찾아보기**를 클릭하고 폴더 위치를 선택합니다.
 
-   4. Click **Create**. 
+   4. **만들기**를 클릭합니다.
 
-5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Mount volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. 
+5. 복제 프로세스가 완료되면 복제된 볼륨을 초기화해야 합니다. 서버 관리자를 시작한 다음 디스크 관리를 시작합니다. 자세한 지침은 [볼륨 탑재](storsimple-snapshot-manager-manage-volumes.md#mount-volumes)를 참조하세요. 초기화 후 볼륨이 **범위** 창의 **볼륨** 노드 아래에 나열됩니다.
 
-    If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
+    나열된 볼륨이 보이지 않으면 볼륨 목록을 새로 고칩니다(**볼륨** 노드를 마우스 오른쪽 단추로 클릭한 다음 **새로 고침** 클릭).
 
-6. Open the NTFS folder that contains the cloned volume, expand the **Volumes** node, and then open the cloned volume. Find the file that you want to recover, and copy it to the primary volume.
+6. 복제된 볼륨이 있는 NTFS 폴더를 열고 **볼륨** 노드를 확장한 다음 해당 복제된 볼륨을 엽니다. 복구할 파일을 찾아서 기본 볼륨에 복사합니다.
 
-7. After you restore the file, you can delete the NTFS folder that contains the cloned volume.
+7. 파일을 복원한 후에는 복제된 볼륨이 포함되어 있는 NTFS 폴더를 삭제할 수 있습니다.
 
-## <a name="restore-the-storsimple-snapshot-manager-database"></a>Restore the StorSimple Snapshot Manager database
+## StorSimple 스냅숏 관리자 데이터베이스 복원
 
-You should regularly back up the StorSimple Snapshot Manager database on the host computer. If a disaster occurs or the host computer fails for any reason, you can then restore it from the backup. Creating the database backup is a manual process.
+호스트 컴퓨터에서 정기적으로 StorSimple 스냅숏 관리자 데이터베이스를 백업해야 합니다. 재해가 발생하거나 어떤 이유로든 호스트 컴퓨터에서 오류가 발생하면 백업에서 복원할 수 있습니다. 데이터베이스 백업 만들기는 수동 프로세스입니다.
 
-#### <a name="to-back-up-and-restore-the-database"></a>To back up and restore the database
+#### 데이터베이스를 백업 및 복원하려면
 
-1. Stop the Microsoft StorSimple Management Service:
+1. Microsoft StorSimple 관리 서비스를 중지합니다.
 
-    1. Start Server Manager.
+    1. 서버 관리자를 시작합니다.
 
-    2. On the Server Manager dashboard, on the **Tools** menu, select **Services**.
+    2. 서버 관리자 대시보드의 **도구** 메뉴에서 **서비스**를 선택합니다.
 
-    3. On the **Services** window, select the **Microsoft StorSimple Management Service**.
+    3. **서비스** 창에서 **Microsoft StorSimple 관리 서비스**를 선택합니다.
 
-    4. In the right pane, under **Microsoft StorSimple Management Service**, click **Stop the service**.
+    4. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 중지**를 클릭합니다.
 
-2. On the host computer, browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+2. 호스트 컴퓨터에서 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
-    >[AZURE.NOTE] ProgramData is a hidden folder.
+    >[AZURE.NOTE] ProgramData는 숨겨진 폴더입니다.
  
-3. Find the catalog XML file, copy the file, and store the copy in a safe location or in the cloud. If the host fails, you can use this backup file to help recover the backup policies that you created in StorSimple Snapshot Manager.
+3. 카탈로그 XML 파일을 찾아 파일을 복사하고 안전한 위치 또는 클라우드에 복사본을 저장합니다. 호스트에서 오류가 발생하는 경우 이 백업 파일을 사용하여 StorSimple 스냅숏 관리자에서 만든 백업 정책을 복구할 수 있도록 도움을 줄 수 있습니다.
 
-    ![Azure StorSimple backup catalog file](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_bacatalog.png)
+    ![Azure StorSimple 백업 카탈로그 파일](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_bacatalog.png)
 
-4. Restart the Microsoft StorSimple Management Service: 
+4. Microsoft StorSimple 관리 서비스를 다시 시작합니다.
 
-    1. On the Server Manager dashboard, on the **Tools** menu, select **Services**.
+    1. 서버 관리자 대시보드의 **도구** 메뉴에서 **서비스**를 선택합니다.
     
-    2. On the **Services** window, select the **Microsoft StorSimple Management Service**.
+    2. **서비스** 창에서 **Microsoft StorSimple 관리 서비스**를 선택합니다.
 
-    3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**.
+    3. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 다시 시작**을 클릭합니다.
 
-5. On the host computer, browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+5. 호스트 컴퓨터에서 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
-6. Delete the catalog XML file, and replace it with the backup version that you created. 
+6. 카탈로그 XML 파일을 삭제하고 사용자가 만든 백업 버전으로 바꿉니다.
 
-7. Click the desktop StorSimple Snapshot Manager icon to start StorSimple Snapshot Manager. 
+7. 바탕 화면의 StorSimple 스냅숏 관리자 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- Learn more about [using StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
-- Learn more about [StorSimple Snapshot Manager tasks and workflows](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
+- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
+- [StorSimple 스냅숏 관리자 작업 및 워크플로](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)에 대해 자세히 알아봅니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,12 +1,9 @@
-#### <a name="to-shut-down-a-virtual-device"></a>To shut down a virtual device
+#### 가상 장치를 종료하려면
 
-1. Sign in to the Management Portal.
+1. 관리 포털에 로그인합니다.
 
-2. Click **Virtual Machines**, and then select the virtual device.
+2. **가상 컴퓨터**를 클릭한 다음 가상 장치를 선택합니다.
 
-3. Click **Shutdown**.
+3. **종료**를 클릭합니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

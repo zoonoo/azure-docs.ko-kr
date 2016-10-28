@@ -1,56 +1,52 @@
-## <a name="understand-planned-vs.-unplanned-maintenance"></a>Understand planned vs. unplanned maintenance
-There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
+## 계획된 유지 관리 및 계획되지 않은 유지 관리 이해
+가상 컴퓨터의 가용성에 영향을 줄 수 있는 두 가지 유형의 Microsoft Azure Platform 이벤트인 계획된 유지 관리와 계획되지 않은 유지 관리가 있습니다.
 
-- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
+- **계획된 유지 관리 이벤트**는 가상 컴퓨터가 실행 중인 플랫폼 인프라의 전체적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft가 기본 Azure 플랫폼에 적용하는 주기적인 업데이트입니다. 이러한 업데이트 중 대다수는 가상 컴퓨터나 클라우드 서비스에 영향을 미치지 않고 수행됩니다. 하지만 필요한 업데이트를 플랫폼 인프라에 적용하기 위해 이러한 업데이트가 가상 컴퓨터의 재부팅을 필요로 할 때가 있습니다.
 
-- **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot.
+- **계획되지 않은 유지 관리 이벤트**는 가상 컴퓨터의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 컴퓨터를 호스트 중인 비정상 물리적 컴퓨터에서 정상 물리적 컴퓨터로 가상 컴퓨터를 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 컴퓨터가 재부팅되도록 할 수도 있습니다.
 
-## <a name="follow-best-practices-when-you-design-your-application-for-high-availability"></a>Follow best practices when you design your application for high availability
-To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
+## 응용 프로그램을 설계할 때 고가용성을 위한 모범 사례 준수
+이러한 이벤트로 인한 가동 중지 시간의 영향을 줄이기 위해 가상 컴퓨터에 다음과 같은 고가용성 모범 사례를 권장합니다.
 
-* [Configure multiple virtual machines in an availability set for redundancy]
-* [Configure each application tier into separate availability sets]
-* [Combine the Load Balancer with availability sets]
-
-
-### <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configure multiple virtual machines in an availability set for redundancy
-To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
-
-> [AZURE.IMPORTANT] Avoid leaving a single instance virtual machine in an availability set by itself. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events.
-
-Each virtual machine in your availability set is assigned an **update domain** and a **fault domain** by the underlying Azure platform. For a given availability set, five non-user-configurable update domains are assigned by default (resource manager deployments can then be increased to provide up to twenty update domains) to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single availability set, the sixth virtual machine will be placed into the same update domain as the first virtual machine, the seventh in the same update domain as the second virtual machine, and so on. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain will be rebooted at a time.
-
-Fault domains define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your availability set are separated across up to three fault domains for resource manager deployments (two fault domains for Classic). While placing your virtual machines into an availability set does not protect your application from operating system or application-specific failures, it does limit the impact of potential physical hardware failures, network outages, or power interruptions.
-
-<!--Image reference-->
-   ![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+* [중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성]
+* [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]
+* [부하 분산 장치를 가용성 집합과 결합]
 
 
-### <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configure each application tier into separate availability sets
+### 중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성
+응용 프로그램에 중복성을 제공하기 위해 여러 개의 가상 컴퓨터를 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 자세한 내용은 [가상 컴퓨터에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 참조하세요.
 
-If your virtual machines are all nearly identical and serve the same purpose for your application, we recommend that you configure an availability set for each tier of your application.  If you place two different tiers in the same availability set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an availability set for each tier, you guarantee that at least one virtual machine in each tier will be available.
+> [AZURE.IMPORTANT] 가용성 집합 안에 단일 인스턴스 가상 컴퓨터를 단독으로 두지 않도록 하십시오. 이러한 구성의 가상 컴퓨터는 SLA 보증에 맞지 않으며 Azure 계획된 유지 관리 이벤트 중에 가동 중지를 직면하게 됩니다.
 
-For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx, etc., in a single availability set. Make sure that only front-end virtual machines are placed in the same availability set. Similarly, make sure that only data-tier virtual machines are placed in their own availability set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
+기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 컴퓨터를 **업데이트 도메인** 및 **장애 도메인**에 할당합니다. 특정 가용성 집합의 경우 기본적으로 사용자가 구성할 수 없는 다섯 개의 업데이트 도메인이 할당되어(그런 다음 최대 20개의 업데이트 도메인을 제공하도록 Resource Manager 배포를 늘릴 수 있음) 동시에 재부팅할 수 있는 가상 컴퓨터 및 기본 물리적 하드웨어 그룹을 나타냅니다. 단일 가용성 집합 내에 5개 이상의 가상 컴퓨터를 구성한 경우 6번째 가상 컴퓨터는 동일한 업데이트 도메인에 첫 번째 가상 컴퓨터로 배치되고, 7번째 가상 컴퓨터는 동일한 업데이트 도메인에 두 번째 가상 컴퓨터로 배치되는 식입니다. 재부팅되는 업데이트 도메인의 순서는 계획된 유지 보수 중 순차적으로 진행할 수 없으며 한 번에 하나의 업데이트 도메인만이 재부팅됩니다.
+
+장애 도메인은 공통 전원과 네트워크 스위치를 공유하는 가상 컴퓨터 그룹을 정의합니다. 기본적으로 가용성 집합 안에 구성된 가상 컴퓨터는 Resource Manager 배포의 경우 최대 3개의 장애 도메인(클래식의 경우 2개의 장애 도메인)으로 분리됩니다. 가상 컴퓨터를 가용성 집합에 배치한다고 해서 응용 프로그램이 운영 체제 또는 응용 프로그램 고유의 오류로부터 보호되는 것은 아닙니다. 잠재적인 물리적 하드웨어 오류, 네트워크 중단, 전력 차단의 영향이 제한될 뿐입니다.
 
 <!--Image reference-->
-   ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![업데이트 도메인 및 장애 도메인 구성의 개념적 그림](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 
-### <a name="combine-a-load-balancer-with-availability-sets"></a>Combine a load balancer with availability sets
-Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) with an availability set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see [Load Balancing virtual machines](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
+### 각 응용 프로그램 계층을 별도의 가용성 집합으로 구성
 
-If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
+가상 컴퓨터가 모두 거의 동일하고 응용 프로그램에 같은 목적으로 사용될 경우에는 응용 프로그램의 각 계층에 대해 가용성 집합을 구성하는 것이 좋습니다. 동일한 가용성 집합에 두 가지 계층을 배치하면 같은 응용 프로그램 계층에 있는 모든 가상 컴퓨터가 동시에 재부팅될 수 있습니다. 각 계층에 대해 최소 두 개의 가상 컴퓨터를 가용성 집합 안에 구성하면 각 계층에서 최소한 하나의 가상 컴퓨터는 사용할 수 있습니다.
+
+예를 들어 단일 가용성 집합에서 IIS, Apache, Nginx 등을 실행하는 응용 프로그램의 프런트 엔드에 모든 가상 컴퓨터를 배치할 수 있습니다. 프런트 엔드 가상 컴퓨터만 같은 가용성 집합에 배치해야 합니다. 마찬가지로, 복제된 SQL Server 가상 컴퓨터 또는 MySQL 가상 컴퓨터와 같은 데이터 계층 가상 컴퓨터만 자체적인 가용성 집합에 배치해야 합니다.
+
+<!--Image reference-->
+   ![응용 프로그램 계층](./media/virtual-machines-common-manage-availability/application-tiers.png)
+
+
+### 가용성 집합과 부하 분산 장치 결합
+[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md)를 가용성 집합과 결합하여 응용 프로그램 복원력을 극대화하십시오. Azure 부하 분산 장치는 트래픽을 여러 가상 컴퓨터에 분산시킵니다. 표준 계층 가상 컴퓨터의 경우 Azure 부하 분산 장치가 포함되어 있습니다. 모든 가상 컴퓨터 계층에 Azure 부하 분산 장치가 포함되어 있는 것은 아닙니다. 가상 컴퓨터 부하 분산에 대한 자세한 내용은 [가상 컴퓨터 부하 분산](../articles/virtual-machines/virtual-machines-linux-load-balance.md)을 참조하세요.
+
+부하 분산 장치가 트래픽을 여러 가상 컴퓨터에 분산시키도록 구성되지 않은 경우에는 계획된 유지 관리 이벤트가 트래픽 처리 가상 컴퓨터에만 영향을 줌으로써 응용 프로그램 계층에 중단을 일으킬 수 있습니다. 같은 계층의 여러 가상 컴퓨터를 같은 부하 분산 장치와 가용성 집합 아래에 배치하면 언제든지 적어도 하나의 인스턴스에서는 트래픽을 계속 처리할 수 있습니다.
 
  
 
 <!-- Link references -->
-[Configure multiple virtual machines in an availability set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure each application tier into separate availability sets]: #configure-each-application-tier-into-separate-availability-sets
-[Combine the Load Balancer with availability sets]: #combine-the-load-balancer-with-availability-sets
+[중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
+[각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]: #configure-each-application-tier-into-separate-availability-sets
+[부하 분산 장치를 가용성 집합과 결합]: #combine-the-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy a Node.js application to Linux Virtual Machines in Azure"
-   description="Learn how to deploy a Node.js application to Linux virtual machines in Azure."
+   pageTitle="Azure의 Linux 가상 컴퓨터에 Node.js 응용 프로그램 배포"
+   description="Azure의 Linux 가상 컴퓨터에 Node.js 응용 프로그램을 배포하는 방법을 알아봅니다."
    services=""
    documentationCenter="nodejs"
    authors="stepro"
@@ -16,176 +16,175 @@
    ms.date="02/02/2016"
    ms.author="stephpr"/>
 
+# Azure의 Linux 가상 컴퓨터에 Node.js 응용 프로그램 배포
 
-# <a name="deploy-a-node.js-application-to-linux-virtual-machines-in-azure"></a>Deploy a Node.js application to Linux Virtual Machines in Azure
+이 자습서에서는 Node.js 응용 프로그램을 사용하고 Azure에서 실행되는 Linux 가상 컴퓨터에 배포하는 방법을 보여줍니다. 이 자습서의 지침은 Node.js를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
-This tutorial shows how to take a Node.js application and deploy it to Linux virtual machines running in Azure. The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
+이 문서에서 배울 내용은 다음과 같습니다.
 
-You'll learn how to:
-
-- Fork and clone a GitHub repository containing a simple TODO application;
-- Create and configure two Linux virtual machines in Azure to run the application;
-- Iterate on the application by pushing updates to the web frontend virtual machine.
+- 간단한 TODO 응용 프로그램을 포함하는 GitHub 리포지토리 분기 및 복제.
+- Azure에서 Linux 가상 컴퓨터 두 대를 만들고 구성하여 응용 프로그램 실행.
+- 웹 프런트 엔드 가상 컴퓨터에 업데이트를 푸시하여 응용 프로그램 반복.
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need a GitHub account and a Microsoft Azure account, and the ability to use Git from a development machine.
+이 자습서를 완료하려면 GitHub 계정 및 Microsoft Azure 계정과 개발 컴퓨터에서 Git를 사용하는 기능이 필요합니다.
 
-> If you don't have a GitHub account, you can sign up [here](https://github.com/join).
+> 현재 GitHub 계정이 없는 경우 [여기서](https://github.com/join) 등록할 수 있습니다.
 
-> If you don't have a [Microsoft Azure](https://azure.microsoft.com/) account, you can sign up for a FREE trial [here](https://azure.microsoft.com/pricing/free-trial/). This will also lead you through the sign up process for a [Microsoft Account](http://account.microsoft.com) if you do not already have one. Alternatively, if you are a Visual Studio subscriber, you can [activate your MSDN benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+> [Microsoft Azure](https://azure.microsoft.com/) 계정이 없으면 [여기서](https://azure.microsoft.com/pricing/free-trial/) 무료 평가판에 등록할 수 있습니다. 이렇게 하면 계정이 없는 경우 [Microsoft 계정](http://account.microsoft.com)에 대한 등록 프로세스를 안내합니다. 또는 Visual Studio 구독자인 경우 [MSDN 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
-> If you do not have git on your development machine, then if you are using a Macintosh or Windows machine, install git from [here](http://www.git-scm.com). If you are using Linux, install git using the mechanism most appropriate for you, such as `sudo apt-get install git`.
+> 개발 컴퓨터에 Git가 없으며 Macintosh 또는 Windows 컴퓨터를 사용하는 경우 Git를 [여기](http://www.git-scm.com)에서 설치합니다. Linux를 사용하는 경우 `sudo apt-get install git`와 같은 가장 적합한 메커니즘을 사용하여 Git를 설치합니다.
 
-## <a name="forking-and-cloning-the-todo-application"></a>Forking and Cloning the TODO Application
+## TODO 응용 프로그램 분기 및 복제
 
-The TODO application used by this tutorial implements a simple web frontend over a MongoDB instance that keeps track of a TODO list. After signing in to GitHub, go [here](https://github.com/stepro/node-todo) to find the application and fork it using the link in the top right. This should create a repository in your account named *accountname*/node-todo.
+이 자습서에서 사용된 TODO 응용 프로그램은 TODO 목록을 추적하는 MongoDB 인스턴스를 통해 간단한 웹 프런트 엔드를 구현합니다. GitHub에 로그인한 후에 [여기](https://github.com/stepro/node-todo)로 이동하여 응용 프로그램을 찾고 오른쪽 위에 있는 링크를 사용하여 분기합니다. *accountname*/node-todo로 명명된 계정에 리포지토리를 만들어야 합니다.
 
-Now on your development machine, clone this repository:
+이제 개발 컴퓨터에서 이 리포지토리를 복제합니다.
 
     git clone https://github.com/accountname/node-todo.git
 
-We'll use this local clone of the repository a little later when making changes to the source code.
+원본 코드를 변경하는 경우 나중에 리포지토리의 로컬 복제본을 사용합니다.
 
-## <a name="creating-and-configuring-the-linux-virtual-machines"></a>Creating and Configuring the Linux Virtual Machines
+## Linux 가상 컴퓨터 만들기 및 구성
 
-Azure has great support for raw compute using Linux virtual machines. This part of the tutorial shows how you can easily spin up two Linux virtual machines and deploy the TODO application to them, running the web frontend on one and the MongoDB instance on the other.
+Azure는 Linux 가상 컴퓨터를 사용하는 원시 계산을 훌륭히 지원합니다. 자습서의 이 부분에서는 두 대의 Linux 가상 컴퓨터를 스핀업하고 TODO 응용 프로그램을 배포하는 방법을 보여주어 하나의 Linux 가상 컴퓨터에 웹 프런트 엔드를 실행하고 다른 Linux 가상 컴퓨터에 MongoDB 인스턴스를 실행합니다.
 
-### <a name="creating-virtual-machines"></a>Creating Virtual Machines
+### 가상 컴퓨터 만들기
 
-The easiest way to create a new virtual machine in Azure is to use the Azure Portal. Click [here](https://portal.azure.com) to sign in and launch the Azure Portal in your web browser. Once the Azure Portal has loaded, complete the following steps:
+Azure에서 새 가상 컴퓨터를 만드는 가장 쉬운 방법은 Azure 포털을 사용하는 것입니다. [여기](https://portal.azure.com)를 클릭하여 로그인하고 웹 브라우저에서 Azure 포털을 시작합니다. Azure 포털이 로드되면 다음 단계를 완료합니다.
 
-- Click the "+ New" link;
-- Pick the "Compute" category and choose "Ubuntu Server 14.04 LTS";
-- Select the "Resource Manager" deployment model and click "Create";
-- Fill in the basics following these guidelines:
-  - Specify a name you can easily identify later;
-  - For this tutorial, choose Password authentication;
-  - Create a new resource group with an identifiable name.
-- For the Virtual Machine size, "A1 Standard" is a reasonable choice for this tutorial.
-- For additional settings, ensure the disk type is "Standard" and accept all the remaining defaults.
-- Kick off the creation on the summary page.
+- "+ 새로 만들기" 링크를 클릭합니다.
+- "계산" 범주를 선택하고 "Ubuntu Server 14.04 LTS"를 선택합니다.
+- "리소스 관리자" 배포 모델을 선택하고 "만들기"를 클릭합니다.
+- 다음 지침에 따라 기본 사항을 입력합니다.
+  - 나중에 쉽게 식별할 수 있는 이름을 지정합니다.
+  - 이 자습서에서는 암호 인증을 선택합니다.
+  - 식별할 수 있는 이름으로 새 리소스 그룹을 만듭니다.
+- 이 자습서에서는 가상 컴퓨터 크기에 "A1 표준"을 선택하는 것이 좋습니다.
+- 추가 설정에 디스크 형식이 "표준"인지 확인하고 나머지는 모두 기본값을 적용합니다.
+- 요약 페이지에서 만들기를 시작합니다.
 
-Perform the above process twice to create two Linux virtual machines, one for the web frontend and one for the MongoDB instance. Creation of the virtual machines will take about 5-10 minutes.
+위의 프로세스를 두 번 수행하여 웹 프런트 엔드 및 MongoDB 인스턴스에 각각 하나씩, 두 대의 Linux 가상 컴퓨터를 만듭니다. 가상 컴퓨터 만들기는 5-10분 정도 걸립니다.
 
-### <a name="assigning-a-dns-entry-for-virtual-machines"></a>Assigning a DNS entry for Virtual Machines
+### 가상 컴퓨터에 DNS 항목 할당
 
-Virtual machines created in Azure are by default only accessible through a public IP address like 1.2.3.4. Let's make the machines more easily identifiable by assigning them DNS entries.
+Azure에서 만든 가상 컴퓨터는 기본적으로 1.2.3.4와 같은 공용 IP 주소를 통해 액세스할 수 있습니다. DNS 항목을 지정하여 컴퓨터를 보다 쉽게 식별할 수 있도록 해보겠습니다.
 
-Once the portal indicates that the virtual machines have been created, click on the "Virtual machines" link in the left navbar and locate your machines. For each machine:
+포털이 가상 컴퓨터가 만들어졌다고 알리면 왼쪽 탐색 모음에서 "가상 컴퓨터" 링크를 클릭하고 컴퓨터를 찾습니다. 각 컴퓨터에 다음을 수행합니다.
 
-- Locate the Essentials tab and click on the Public IP Address;
-- In the public IP address configuration, assign a DNS name label and save.
+- 필수 탭을 찾아서 공용 IP 주소를 클릭합니다.
+- 공용 IP 주소 구성에서 DNS 이름 레이블을 할당하고 저장합니다.
 
-The portal will ensure that the name you specify is available. After saving the configuration, your virtual machines will have host names similar to `machinename.region.cloudapp.azure.com`.
+포털은 지정한 이름을 사용할 수 있는지 확인합니다. 구성을 저장한 후에 가상 컴퓨터는 `machinename.region.cloudapp.azure.com`과 유사한 호스트 이름을 갖습니다.
 
-### <a name="connecting-to-the-virtual-machines"></a>Connecting to the Virtual Machines
+### 가상 컴퓨터에 연결
 
-When your virtual machines were provisioned, they were pre-configured to allow remote connections over SSH. This is the mechanism we will use to configure the virtual machines. If you are using Windows for your development, you will need to get an SSH client if you do not already have one. A common choice here is PuTTY, which can be downloaded from [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/). Macintosh and Linux OSes come with a version of SSH pre-installed.
+가상 컴퓨터를 프로비전한 경우 SSH에 대해 원격 연결을 허용하도록 미리 구성되었습니다. 가상 컴퓨터를 구성하는 데 사용할 메커니즘입니다. 개발을 위해 Windows를 사용하는 경우 SSH 클라이언트가 없다면 하나를 가져와야 합니다. 여기서 일반적인 선택은 PuTTY이며 [여기](http://www.chiark.greenend.org.uk/~sgtatham/putty/)에서 다운로드할 수 있습니다. Macintosh 및 Linux OS는 미리 설치된 SSH 버전으로 제공됩니다.
 
-### <a name="configuring-the-web-frontend-virtual-machine"></a>Configuring the Web Frontend Virtual Machine
+### 웹 프런트 엔드 가상 컴퓨터 구성
 
-SSH to the web frontend machine you created using PuTTY, ssh command line or your other favorite SSH tool. You should see a welcome message followed by a command prompt.
+PuTTY, SSH 명령줄 또는 다른 즐겨찾는 SSH 도구를 사용하여 만든 웹 프런트 엔드 컴퓨터에 대한 SSH입니다. 명령 프롬프트에서 다음 환영 메시지가 표시되어야 합니다.
 
-First, let's make sure that git and node are both installed:
+우선 Git 및 노드가 모두 설치되었는지 확인해보겠습니다.
 
     sudo apt-get install -y git
     curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
     sudo apt-get install -y nodejs
     
-Since the application's web frontend relies on some native Node.js modules, we also need to install the essential set of build tools:
+응용 프로그램의 웹 프런트 엔드가 일부 네이티브 Node.js 모듈을 사용하기 때문에 필수적인 빌드 도구 집합을 설치해야 합니다.
 
     sudo apt-get install -y build-essential
 
-Finally, let's install a Node.js application called *forever*, which helps to run Node.js server applications:
+마지막으로 *영원히*라는 Node.js 응용 프로그램을 설치하며 이는 Node.js 서버 응용 프로그램을 실행하는 데 도움이 됩니다.
 
     sudo npm install -g forever
     
-These are all the dependencies needed on this virtual machine to be able to run the application's web frontend, so let's get that running. To do this, we will first create a bare clone of the GitHub repository you previously forked so that you can easily publish updates to the virtual machine (we'll cover this update scenario later), and then clone the bare clone to provide a version of the repository that can actually be executed.
+이상은 가상 컴퓨터가 응용 프로그램의 웹 프런트 엔드를 실행하는 데 필요한 종속성입니다. 이제 실행해보겠습니다. 이렇게 하려면 먼저 이전에 분기된 GitHub 리포지토리의 기본 복제본을 만들어서 쉽게 가상 컴퓨터에 게시(이 업데이트는 나중에 다룹니다)한 다음 기본 복제본을 복제하여 실제로 실행될 수 있는 버전의 리포지토리를 제공합니다.
 
-Starting from the home (~) directory, run the following commands (replacing *accountname* with your GitHub user account name):
+홈 (~) 디렉터리를 시작하고 다음 명령을 실행합니다(*accountname*을 GitHub 사용자 계정 이름으로 대체).
 
     git clone --bare https://github.com/accountname/node-todo.git
     git clone node-todo.git
 
-Now enter the node-todo directory and run these commands:
+이제 노드 todo 디렉터리를 입력하고이 명령을 실행합니다.
 
     npm install
     forever start server.js
     
-The application's web frontend is now running, however there is one more step before you can access the application from a web browser. The virtual machine you created is protected by an Azure resource called a *network security group*, which was created for you when you provisioned the virtual machine. Currently, this resource only allows external requests to port 22 to be routed to the virtual machine, which enables SSH communication with the machine but nothing else. So in order to view the TODO application, which is configured to run on port 8080, this port also needs to be opened up.
+응용 프로그램의 웹 프런트 엔드가 이제 실행되지만 웹 브라우저에서 응용 프로그램에 액세스할 수 있기 전에 한 단계가 더 있습니다. 만든 가상 컴퓨터는 *네트워크 보안 그룹*이라는 Azure 리소스에서 보호되며 이는 가상 컴퓨터를 프로비전할 때 만들어졌습니다. 현재 이 리소스를 사용하면 가상 컴퓨터를 라우트할 수 있도록 포트22에 대한 외부 요청을 허용하며 이는 SSH가 오로지 컴퓨터와 통신할 수 있도록 합니다. 따라서 포트8080에서 실행하도록 구성된 TODO 응용 프로그램을 보기 위해 이 포트가 열려야 합니다.
 
-Return to the Azure Portal and complete the following steps:
+Azure 포털로 돌아가 다음 단계를 완료합니다.
 
-- Click on "Resource groups" in the left navbar;
-- Select the resource group that contains your virtual machine;
-- In the resulting list of resources, select the network security group (the one with a shield icon);
-- In the properties, choose "Inbound security rules";
-- In the toolbar, click "Add";
-- Provide a name like "default-allow-todo";
-- Set the protocol to "TCP";
-- Set the destination port range to "8080";
-- Click OK and wait for the security rule to be created.
+- 왼쪽 탐색 모음에서 "리소스 그룹"을 클릭합니다.
+- 가상 컴퓨터를 포함하는 리소스 그룹을 선택합니다.
+- 리소스의 결과 목록에서 네트워크 보안 그룹(방패 아이콘이 있는 그룹)을 선택합니다.
+- 속성에서 "인바운드 보안 규칙"을 선택합니다.
+- 도구 모음에서 "추가"를 클릭합니다.
+- "default-allow-todo"와 같은 이름을 제공합니다.
+- 프로토콜을 "TCP"로 설정합니다.
+- 대상 포트 범위를 "8080"으로 설정합니다.
+- 확인을 클릭하고 보안 규칙이 만들어지기를 기다립니다.
 
-After creating this security rule, the TODO application is publically visible on the internet and you can browse to it, for instance using a URL such as:
+이 보안 규칙을 만든 후에 TODO 응용 프로그램은 인터넷에서 공개적으로 표시되고 예를 들어 URL을 사용하여 찾아볼 수 있습니다.
 
     http://machinename.region.cloudapp.azure.com:8080
 
-You will notice that even though we have not yet configured the MongoDB virtual machine, the TODO application appears to be quite functional. This is because the source repository is hardcoded to use a pre-deployed MongoDB instance. Once we have configured the MongoDB virtual machine, we will go back and change the source code to utilize our private MongoDB instance instead.
+MongoDB 가상 컴퓨터를 아직 구성하지 않았더라도 TODO 응용 프로그램은 상당히 잘 작동한다는 점을 기억합니다. 원본 리포지토리가 미리 배포된 MongoDB 인스턴스를 사용하도록 하드 코드되기 때문입니다. MongoDB 가상 컴퓨터를 구성한 후에 다시 돌아가고 원본 코드를 변경하여 개인 MongoDB 인스턴스를 대신 활용합니다.
 
-### <a name="configuring-the-mongodb-virtual-machine"></a>Configuring the MongoDB Virtual Machine
+### MongoDB 가상 컴퓨터 구성
 
-SSH to the second machine you created using PuTTY, ssh command line or your other favorite SSH tool. After seeing the welcome message and command prompt, install MongoDB (these instructions were taken from [here](https://docs.mongodb.org/master/tutorial/install-mongodb-on-ubuntu/)):
+PuTTY, SSH 명령줄 또는 다른 즐겨찾는 SSH 도구를 사용하여 만든 두 번째 컴퓨터에 대한 SSH입니다. 시작 메시지 및 명령 프롬프트를 확인한 후에 MongoDB를 설치합니다.(이 지침은 [여기](https://docs.mongodb.org/master/tutorial/install-mongodb-on-ubuntu/)에서 가져왔음)
 
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
     echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
     sudo apt-get update
     sudo apt-get install -y mongodb-org
 
-By default, MongoDB is configured so it can only be accessed locally. For this tutorial, we will configure MongoDB so it can be accessed from the application's virtual machine. In a sudo context, open the /etc/mongod.conf file and locate the `# network interfaces` section. Change the `net.bindIp` configuration value to `0.0.0.0`.
+기본적으로 MongoDB는 로컬로 액세스할 수 있도록 구성됩니다. 이 자습서에서는 응용 프로그램의 가상 컴퓨터에서 액세스할 수 있도록 MongoDB을 구성합니다. sudo 컨텍스트에서 /etc/mongod.conf 파일을 열고 `# network interfaces` 섹션을 찾습니다. `net.bindIp` 구성 값을 `0.0.0.0`으로 변경합니다.
 
 > [AZURE.NOTE]
-> This configuration is for the purposes of this tutorial only. It is **NOT** a recommended security practice and should not be used in production environments.
+이 자습서에서만 이렇게 구성합니다. 권장되는 보안 사례가 **아니고** 프로덕션 환경에서는 사용되면 안됩니다.
 
-Now ensure the MongoDB service has been started:
+이제 MongoDB 서비스가 시작되었는지 확인합니다.
 
     sudo service mongod restart
 
-MongoDB operates over port 27017 by default. So, in the same way that we needed to open port 8080 on the web frontend virtual machine, we need to open port 27017 on the MongoDB virtual machine.
+MongoDB는 기본적으로 포트 27017에 대해 작동합니다. 따라서 웹 프런트 엔드 가상 컴퓨터에서 포트 8080을 여는 데 필요한 것과 동일한 방법으로 MongoDB 가상 컴퓨터에서 포트 27017을 열어야 합니다.
 
-Return to the Azure Portal and complete the following steps:
+Azure 포털로 돌아가 다음 단계를 완료합니다.
 
-* Click on "Resource groups" in the left navbar;
-* Select the resource group that contains the MongoDB virtual machine;
-* In the resulting list of resources, select the network security group (the one with a shield icon) with the same name that you gave to the MongoDB virtual machine;
-* In the properties, choose "Inbound security rules";
-* In the toolbar, click "Add";
-* Provide a name like "default-allow-mongo";
-* Set the protocol to "TCP";
-* Set the destination port range to "27017";
-* Click OK and wait for the security rule to be created.
+* 왼쪽 탐색 모음에서 "리소스 그룹"을 클릭합니다.
+* MongoDB 가상 컴퓨터를 포함하는 리소스 그룹을 선택합니다.
+* 리소스의 결과 목록에서 MongoDB 가상 컴퓨터에 지정한 동일한 이름인 네트워크 보안 그룹(방패 아이콘이 있는 그룹)을 선택합니다.
+* 속성에서 "인바운드 보안 규칙"을 선택합니다.
+* 도구 모음에서 "추가"를 클릭합니다.
+* "default-allow-mongo"와 같은 이름을 제공합니다.
+* 프로토콜을 "TCP"로 설정합니다.
+* 대상 포트 범위를 "27017"으로 설정합니다.
+* 확인을 클릭하고 보안 규칙이 만들어지기를 기다립니다.
 
-## <a name="iterating-on-the-todo-application"></a>Iterating on the TODO application
-So far, we have provisioned two Linux virtual machines: one that is running the application's web frontend and one that is running a MongoDB instance. But there is a problem - the web frontend isn't actually using the provisioned MongoDB instance yet. Let's fix that by updating the web frontend code to use an environment variable instead of a hard-coded instance.
+## TODO 응용 프로그램에 반복
+지금까지 각각 응용 프로그램의 웹 프런트 엔드를 실행하고 MongoDB 인스턴스를 실행하는 두 대의 Linux 가상 컴퓨터를 프로비전했습니다. 하지만 웹 프런트 엔드가 프로비전된 MongoDB 인스턴스를 아직 실제로 사용하지 않는다는 문제가 있습니다. 웹 프런트 엔드 코드를 업데이트하여 하드 코드된 인스턴스 대신 환경 변수를 사용하도록 수정해 보겠습니다.
 
-### <a name="changing-the-todo-application"></a>Changing the TODO application
+### TODO 응용 프로그램 변경
 
-On your development machine where you first cloned the node-todo repository, open the `node-todo/config/database.js` file in your favorite editor and change the url value from the hard-coded value like `mongodb://...` to `process.env.MONGODB`.
+먼저 node-todo 리포지토리를 복제한 개발 컴퓨터의 좋아하는 편집기에서 `node-todo/config/database.js` 파일을 열고 `mongodb://...`와 같은 하드 코드된 값에서 `process.env.MONGODB`으로 URL 값을 변경합니다.
 
-Commit your changes and push to the GitHub master:
+변경 내용을 커밋하고 GitHub 마스터로 푸시합니다.
 
     git commit -am "Get MongoDB instance from env"
     git push origin master
 
-Unfortunately, this doesn't publish the change to the web frontend virtual machine. Let's make a few more changes to that virtual machine to enable a simple but effective mechanism for publishing updates so you can quickly observe the effect of the changes in the live environment.
+아쉽게도 웹 프런트 엔드 가상 컴퓨터에 변경 내용을 게시하지 않습니다. 라이브 환경에서 변경의 효과를 신속하게 확인할 수 있도록 해당 가상 컴퓨터에 몇 가지 사항을 더 변경하여 업데이트를 게시하는 데 간단하지만 효과적인 메커니즘을 사용하겠습니다.
 
-### <a name="configuring-the-web-frontend-virtual-machine"></a>Configuring the Web Frontend Virtual Machine
-Recall that we previously created a bare clone of the node-todo repository on the web frontend virtual machine. It turns out that this action created a new Git remote to which changes can be pushed. However, simply pushing to this remote doesn't quite give the rapid iteration model that developers are looking for when working on their code.
+### 웹 프런트 엔드 가상 컴퓨터 구성
+웹 프런트 엔드 가상 컴퓨터에서 이전에 만든 node-todo 리포지토리의 기본 복제본을 회수합니다. 이 작업은 변경 내용을 푸시할 수 있는 새 Git 원격을 만들었습니다. 그러나 이 원격을 단순히 푸시하는 작업은 개발자가 코드에서 작업할 경우 찾고 있는 신속한 반복 모델을 제공하지 않습니다.
 
-What we would like to be able to do is ensure that when a push to the remote repository on the virtual machine occurs, the running TODO application is automatically updated. Fortunately, this is easy to achieve with git.
+실행하려는 작업은 가상 컴퓨터에서 원격 리포지토리에 푸시가 발생할 때 실행 중인 TODO 응용 프로그램이 자동으로 업데이트되는 것입니다. 다행히 Git를 사용하여 쉽게 달성할 수 있습니다.
 
-Git exposes a number of hooks that are called at particular times to react to actions taken on the repository. These are specified using shell scripts in the repository's `hooks` folder. The hook that is most applicable for the auto-update scenario is the `post-update` event.
+Git는 특정 시간에 호출되는 많은 후크를 노출하여 리포지토리에서 수행된 작업에 반응합니다. 이 리포지토리의 `hooks` 폴더에서 셸 스크립트를 사용하여 지정됩니다. 자동 업데이트 시나리오에 가장 적합한 후크는 `post-update` 이벤트입니다.
 
-In a SSH session to the web frontend virtual machine, change to the `~/node-todo.git/hooks` directory and add the following content to a file named `post-update` (replacing `machinename` and `region` with your MongoDB virtual machine information):
+웹 프런트 엔드 가상 컴퓨터에 대한 SSH 세션에서 `~/node-todo.git/hooks` 디렉터리로 변경하고 `post-update`라는 파일에 다음 콘텐츠를 추가합니다(`machinename` 및 `region`를 MongoDB 가상 컴퓨터 정보로 대체).
 
     #!/bin/bash
     
@@ -195,26 +194,26 @@ In a SSH session to the web frontend virtual machine, change to the `~/node-todo
     cd ~/node-todo && git fetch origin && git pull origin master && npm install && forever start ~/node-todo/server.js
     exec git update-server-info
     
-Ensure this file is executable by running the following command:
+다음 명령을 실행하여 이 파일을 실행할 수 있는지 확인합니다.
 
     chmod 755 post-update
 
-This script ensures that the current server application is stopped, the code in the cloned repository is updated to the latest, any updated dependencies are satisfied, and the server is restarted. It also ensures that the environment has been configured in preparation for receiving our first application update to get the MongoDB instance from an environment variable.
+이 스크립트는 현재 서버 응용 프로그램을 중지하고 복제된 리포지토리의 코드를 최신으로 업데이트하며 업데이트된 종속성을 충족하고 서버를 다시 시작하는지 확인합니다. 또한 환경은 첫 번째 응용 프로그램 업데이트를 수신하기 위해 준비되도록 구성되어 환경 변수에서 MongoDB 인스턴스를 가져오는지 확인합니다.
 
-### <a name="configuring-your-development-machine"></a>Configuring your Development Machine
-Now let's get your development machine hooked up to the web frontend virtual machine. This is as simple as adding the bare repository on the virtual machine as a remote. Run the following command to do this (replacing *user* with your web frontend virtual machine login name and *machinename* and *region* as appropriate):
+### 개발 컴퓨터 구성
+이제 웹 프런트 엔드 가상 컴퓨터에 연결된 개발 컴퓨터를 가져와 보겠습니다. 이는 가상 컴퓨터에 리포지토리를 원격으로 추가하는 것 만큼 간단합니다. 이렇게 하려면 다음 명령을 실행합니다(*사용자*를 웹 프런트 엔드 가상 컴퓨터 로그인 이름 및 *machinename*과 *지역*으로 적절하게 대체).
 
     git remote add azure user@machinename.region.cloudapp.azure.com:node-todo.git
 
-This is all that is needed to enable pushing, or in effect publishing, changes to the web frontend virtual machine.
+웹 프런트 엔드 가상 컴퓨터에 대한 푸시, 효과적인 게시, 변경을 사용하는 데 필요한 모든 것입니다.
 
-### <a name="publishing-updates"></a>Publishing Updates
+### 업데이트 게시
 
-Let's publish the one change that has been made so far so that the application will use our own MongoDB instance:
+응용 프로그램이 고유의 MongoDB 인스턴스를 사용하도록 지금까지 변경된 내용을 게시하겠습니다.
 
     git push azure master
 
-You should see output similar to this:
+다음과 유사한 결과가 표시됩니다.
 
     Counting objects: 4, done.
     Delta compression using up to 4 threads.
@@ -240,29 +239,25 @@ You should see output similar to this:
     To username@machinename.region.cloudapp.azure.com:node-todo.git
     5f31fd7..5bc7be5  master -> master
 
-After this command completes, try refreshing the application in a web browser. You should be able to see that the TODO list presented here is empty and no longer tied to the shared deployed MongoDB instance.
+이 명령이 완료된 후에 웹 브라우저에서 응용 프로그램을 새로 고쳐 봅니다. 여기에 제시된 TODO 목록이 비어 있고 더 이상 공유 배포 MongoDB 인스턴스에 연결되지 않는다는 것을 알 수 있어야 합니다.
 
-To complete the tutorial, let's make another, more visible change. On your development machine, open the node-todo/public/index.html file using your favorite editor. Locate the jumbotron header and change  the title from "I'm a Todo-aholic" to "I'm a Todo-aholic on Azure!".
+자습서를 완료하려면 다른 가시적인 사항을 변경하겠습니다. 개발 컴퓨터에서 즐겨찾는 편집기를 사용하여 node-todo/public/index.html 파일을 엽니다. jumbotron 헤더를 찾아서 제목을 "I am Todo-aholic"에서 "I'm a Todo-aholic on Azure!"로 변경합니다.
 
-Now let's commit:
+이제 커밋하겠습니다.
 
     git commit -am "Azurify the title"
 
-This time, let's publish the change to Azure before pushing it to back to the GitHub repo:
+이번에는 변경 사항을 GitHub 리포지토리에 게시하기 전에 Azure에 게시하겠습니다.
 
     git push azure master
 
-Once this command completes, refresh the web page and you will see the changes. Since they look good, push the change back to the origin remote: 
+이 명령이 완료되면 웹 페이지를 새로 고치고 변경 내용을 확인합니다. 보기 좋기 때문에 변경 내용을 다시 원래 원격으로 푸시합니다.
 
     git push origin master
 
-## <a name="next-steps"></a>Next Steps
-This article showed how to take a Node.js application and deploy it to Linux virtual machines running in Azure. To learn more about Linux virtual machines in Azure, see [Introduction to Linux on Azure](/documentation/articles/virtual-machines-linux-introduction/).
+## 다음 단계
+이 문서는 Node.js 응용 프로그램을 사용하고 Azure에서 실행되는 Linux 가상 컴퓨터에 배포하는 방법을 보여주었습니다. Azure의 Linux 가상 컴퓨터에 대해 자세히 알아보려면 [Azure의 Linux 소개](/documentation/articles/virtual-machines-linux-introduction/)를 참조하세요.
     
-For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
+Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

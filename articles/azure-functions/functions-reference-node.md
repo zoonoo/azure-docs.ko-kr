@@ -1,38 +1,37 @@
 <properties
-    pageTitle="Azure Functions NodeJS developer reference | Microsoft Azure"
-    description="Understand how to develop Azure Functions using NodeJS."
-    services="functions"
-    documentationCenter="na"
-    authors="christopheranderson"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+	pageTitle="Azure Functions NodeJS 개발자 참조 | Microsoft Azure"
+	description="NodeJS를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
+	services="functions"
+	documentationCenter="na"
+	authors="christopheranderson"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="nodejs"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="05/13/2016"
-    ms.author="chrande"/>
+	ms.service="functions"
+	ms.devlang="nodejs"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="05/13/2016"
+	ms.author="chrande"/>
 
-
-# <a name="azure-functions-nodejs-developer-reference"></a>Azure Functions NodeJS developer reference
+# Azure Functions NodeJS 개발자 참조
 
 > [AZURE.SELECTOR]
-- [C# script](../articles/azure-functions/functions-reference-csharp.md)
-- [F# script](../articles/azure-functions/functions-reference-fsharp.md)
-- [Node.js](../articles/azure-functions/functions-reference-node.md)
+- [C# 스크립트](../articles/azure-functions/functions-reference-csharp.md)
+- [F# 스크립트](../articles/azure-functions/functions-reference-fsharp.md)
+- [Node.JS](../articles/azure-functions/functions-reference-node.md)
 
-The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
+Azure Functions에 대한 노드/JavaScript 환경은 런타임과 통신하고 바인딩을 통해 데이터를 수신 및 전송하는 `context` 개체가 전달되는 함수를 쉽게 내보낼 수 있도록 합니다.
 
-This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다.
 
-## <a name="exporting-a-function"></a>Exporting a function
+## 함수 내보내기
 
-All JavaScript functions must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always include a `context` object.
+모든 JavaScript 함수는 런타임에 대한 `module.exports`를 통해 단일 `function`을 내보내 함수를 찾고 실행해야 합니다. 이 함수에는 `context` 개체가 항상 포함되어야 합니다.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -48,17 +47,17 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
+`direction === "in"`의 바인딩은 함수 인수로 전달됩니다. 즉, [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx)를 사용하여 동적으로 새 입력을 처리할 수 있습니다(예: 모든 입력에 대해 반복되는 `arguments.length` 사용). 이 기능은 `context` 개체를 참조하지 않고 트리거 데이터에 예측 가능하게 액세스할 수 있으므로 추가 입력을 사용하지 않는 트리거만 있는 경우 아주 편리합니다.
 
-The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify them in your exports statement. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[3]`.
+내보내기 문에 인수를 지정하지 않은 경우에도 *function.json*에서 발생하는 순서에 따라 인수가 항상 함수에 전달됩니다. 예를 들어 `function(context, a, b)`을 `function(context, a)`으로 변경하는 경우 `arguments[3]`를 참조하여 여전히 함수 코드의 `b` 값을 가져올 수 있습니다.
 
-All bindings, regardless of direction, are also passed along on the `context` object (see below). 
+또한 방향에 관계없이 모든 바인딩은 `context` 개체로 전달됩니다(아래 참조).
 
-## <a name="context-object"></a>context object
+## context 개체
 
-The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
+런타임은 함수로 데이터를 전달하거나 전달받으며 사용자가 런타임과 통신할 수 있도록 하는 `context` 개체를 사용합니다.
 
-The context object is always the first parameter to a function and should always be included because it has methods such as `context.done` and `context.log` which are required to correctly use the runtime. You can name the object whatever you like (i.e. `ctx` or `c`).
+context 개체는 항상 함수에 대한 첫 번째 매개 변수이며 런타임을 올바르게 사용하는 데 필요한 `context.done` 및 `context.log`와 같은 메서드를 가지고 있기 때문에 항상 포함되어야 합니다. 원하는 개체 이름(즉, `ctx` 또는 `c`)을 지정할 수 있습니다.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -67,9 +66,9 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="context.bindings"></a>context.bindings
+## context.bindings
 
-The `context.bindings` object collects all your input and output data. The data is added onto the `context.bindings` object via the `name` property of the binding. For instance, given the following binding definition in *function.json*, you can access the contents of the queue via `context.bindings.myInput`. 
+`context.bindings` 개체는 모든 입력 및 출력 데이터를 수집합니다. 데이터는 바인딩의 `name` 속성을 통해 `context.bindings` 개체에 추가됩니다. 예를 들어 다음 바인딩 정의를 *function.json*에 지정하면 `context.bindings.myInput`을 통해 큐의 콘텐츠에 액세스할 수 있습니다.
 
 ```json
     {
@@ -91,9 +90,9 @@ context.bindings.myOutput = {
 
 ## `context.done([err],[propertyBag])`
 
-The `context.done` function tells the runtime that you're done running. This is important to call when you're done with the function; if you don't, the runtime will still never know that your function completed. 
+`context.done` 함수는 실행이 완료된 런타임을 알려줍니다. 함수가 완료되었을 때 호출해야 합니다. 그러지 않으면 런타임은 함수가 완료되었는지 알지 못합니다.
 
-The `context.done` function allows you to pass back a user-defined error to the runtime, as well as a property bag of properties which will overwrite the properties on the `context.bindings` object.
+`context.done` 함수를 사용하면 `context.bindings` 개체에 속성을 덮어쓰는 속성의 속성 모음뿐만 아니라 사용자 정의 오류를 런타임에 다시 전달할 수 있습니다.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -105,9 +104,9 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: hello there, world, noNumber: true
 ```
 
-## <a name="context.log(message)"></a>context.log(message)
+## context.log(message)
 
-The `context.log` method allows you to output log statements that are correlated together for logging purposes. If you use `console.log`, your messages will only show for process level logging, which isn't as useful.
+`context.log` 메서드를 사용하면 로깅을 위해 함께 상호 연결되는 로그 문을 출력할 수 있습니다. `console.log`를 사용하는 경우 메시지는 유용하지 않은 프로세스 수준 로깅에 대해서만 표시합니다.
 
 ```javascript
 /* You can use context.log to log output specific to this 
@@ -115,23 +114,23 @@ function. You can access your bindings via context.bindings */
 context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
 ```
 
-The `context.log` method supports the same parameter format that the Node [util.format method](https://nodejs.org/api/util.html#util_util_format_format) supports. So, for example, code like this:
+`context.log` 메서드는 노드 [util.format method](https://nodejs.org/api/util.html#util_util_format_format)가 지원하는 동일한 매개 변수 형식을 지원합니다. 따라서 예를 들어 코드는 다음과 같습니다.
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-can be written like this:
+다음과 같이 작성할 수 있습니다.
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-## <a name="http-triggers:-context.req-and-context.res"></a>HTTP triggers: context.req and context.res
+## HTTP 트리거: context.req 및 context.res
 
-In the case of HTTP Triggers, because it is such a common pattern to use `req` and `res` for the HTTP request and response objects, we decided to make it easy to access those on the context object, instead of forcing you to use the full `context.bindings.name` pattern.
+HTTP 트리거의 경우 HTTP 요청 및 응답 개체에 대해 `req` 및 `res`를 사용하는 일종의 일반적인 패턴이므로 전체 `context.bindings.name` 패턴을 사용하지 않고도 컨텍스트 개체에서 이에 대해 쉽게 액세스할 수 있도록 하기로 결정했습니다.
 
 ```javascript
 // You can access your http request off of the context ...
@@ -140,23 +139,23 @@ if(context.req.body.emoji === ':pizza:') context.log('Yay!');
 context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
 ```
 
-## <a name="node-version-&-package-management"></a>Node Version & Package Management
+## 노드 버전 및 패키지 관리
 
-The node version is currently locked at `5.9.1`. We're investigating adding support for more versions and making it configurable.
+노드 버전이 현재 `5.9.1`에서 잠겨 있습니다. 더 많은 버전에 대한 지원을 추가하고 구성할 수 있도록 연구 중입니다.
 
-You can include packages in your function by uploading a *package.json* file to your function's folder in the function app's file system. For file upload instructions, see the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
+함수 앱의 파일 시스템에 있는 함수 폴더에 *package.json* 파일을 업로드하여 함수에 패키지를 포함시킬 수 있습니다. 파일 업로드 지침은 [Azure Functions 개발자 참조 토픽](functions-reference.md#fileupdate)의 **함수 앱 파일을 업데이트하는 방법** 섹션을 참조하세요.
 
-You can also use `npm install` in the function app's SCM (Kudu) command line interface:
+함수 앱의 SCM(Kudu) 명령줄 인터페이스에서 `npm install`을 사용할 수도 있습니다.
 
-1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
+1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
 
-2. Click **Debug Console > CMD**.
+2. **디버그 콘솔 > CMD**를 클릭합니다.
 
-3. Navigate to `D:\home\site\wwwroot\<function_name>`.
+3. `D:\home\site\wwwroot<function_name>`로 이동합니다.
 
-4. Run `npm install`.
+4. `npm install`을 실행합니다.
 
-Once the packages you need are installed, you import them to your function in the usual ways (i.e. via `require('packagename')`)
+필요한 패키지가 설치되면 일반적인 방법(예: `require('packagename')`)으로 함수에 가져옵니다.
 
 ```javascript
 // Import the underscore.js library
@@ -169,9 +168,9 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-## <a name="environment-variables"></a>Environment variables
+## 환경 변수
 
-To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
+환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `process.env`를 사용합니다.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -190,21 +189,17 @@ function GetEnvironmentVariable(name)
 }
 ```
 
-## <a name="typescript/coffeescript-support"></a>TypeScript/CoffeeScript support
+## TypeScript/CoffeeScript 지원
 
-There isn't, yet, any direct support for auto-compiling TypeScript/CoffeeScript via the runtime, so that would all need to be handled outside the runtime, at deployment time. 
+아직 런타임을 통해 TypeScript/CoffeeScript 자동 컴파일에 대한 직접 지원이 없으므로 배포 시 런타임 외부에서 모든 필요한 사항이 처리됩니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-For more information, see the following resources:
+자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Azure Functions 개발자 참조](functions-reference.md)
+* [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
+* [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
+* [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

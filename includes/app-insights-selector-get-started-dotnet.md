@@ -1,11 +1,11 @@
 
-*Application Insights is in preview.*
+*Application Insights는 미리 보기 상태입니다.*
 
 <a name="selector1"></a>
 
-[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](../articles/application-insights/app-insights-detect-triage-diagnose.md), and [discover how your app is used](../articles/application-insights/app-insights-overview-usage.md). 
+[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단](../articles/application-insights/app-insights-detect-triage-diagnose.md)하고 [앱이 어떻게 사용되는지 검색](../articles/application-insights/app-insights-overview-usage.md)할 수 있도록 돕습니다.
 
-Install the SDK and then add monitoring for other data:
+SDK를 설치한 다음 다른 데이터에 대한 모니터링을 추가합니다.
 
 > [AZURE.SELECTOR]
 - [Install the SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
@@ -14,8 +14,4 @@ Install the SDK and then add monitoring for other data:
 - [Dependencies](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

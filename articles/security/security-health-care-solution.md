@@ -1,6 +1,6 @@
 <properties
-   pageTitle="A practical guide to designing secure health care solutions in Azure | Microsoft Azure"
-   description=" This article helps you understand how to improve security for your health care solutions by using the Azure services and features that you configure. "
+   pageTitle="Azure에서 보안 의료 서비스 솔루션을 설계하는 실용 가이드 | Microsoft Azure"
+   description=" 이 문서에서는 구성한 Azure 서비스 및 기능을 사용하여 의료 솔루션에 대한 보안을 개선하는 방법을 이해하도록 도움을 줍니다. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,22 +16,16 @@
    ms.date="09/06/2016"
    ms.author="terrylan"/>
 
+# Azure에서 보안 의료 서비스 솔루션을 설계하는 실용 가이드
 
-# <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>A practical guide to designing secure health care solutions in Azure
+Azure로 전환할지를 고려하는 의료 업계 신생 기업, 시스템 통합 업체(SI), 독립 소프트웨어 공급 업체(ISV) 및 의료 조직은 규정 준수 의무를 충족하는 데 도움이 되는 보안 제어를 통합하는 데 도움이 되는 지침을 찾고 있습니다.
 
-Health industry startups, system integrators (SIs), independent software vendors (ISVs), and healthcare organizations considering a move to Azure are looking for guidance that helps them incorporate security controls to meet their compliance obligations.
+[Microsoft Azure에서 보안 의료 솔루션을 설계하기 위한 실용적인 가이드](https://aka.ms/azureindustrysecurity)는 요구 사항에 따라 구성할 수 있는 Azure 서비스 및 기능을 사용하여 솔루션에 대한 보안을 개선하는 방법을 이해하는 데 도움이 됩니다. 콘텐츠는 다음과 같은 세 가지 주요 섹션으로 구분됩니다.
 
-[A Practical Guide to Designing Secure Health Care Solutions in Microsoft Azure](https://aka.ms/azureindustrysecurity) helps you understand how you can improve security for your solutions by using the Azure services and features that you can configure based on your requirements.
-The content is divided into three major sections:
+1. 위험 관리, 공동 책임, 정보 보안 관리 시스템 설정, 산업 및 지역 규정 이해 및 표준 운영 절차 설정을 포함하는 클라우드 기술을 사용하기 위한 고려 사항 지침입니다.
+2. 표준 정보 보안 관리 표준(예: ISO 27001) 및 표준 개발 프로세스(예: Microsoft SDL(Security Development Lifecycle))에 정렬된 주요 보안 원칙입니다.
+3. 솔루션에 대한 요구 사항이 정보 보안 관리 표준에 정렬되어 있는 솔루션 아키텍쳐 관점에서 내역을 표시하여 사례를 사용하는 핵심 원칙을 적용합니다.
 
-1. Considerations guidance for using cloud technology, including risk management, shared responsibility, establishing an information security management system, understanding industry and local regulations, and establishing standard operating procedures.
-2. Key security principles that are both aligned to a standard information security management standard, such as ISO 27001, and standard development processes, such as Microsoft’s Security Development Lifecycle (SDL).
-3. Applying the key principles to use cases by demonstrating alignment from a solution architect perspective, where requirements for the solutions are aligned to the information security management standard.
+[보안 의료 솔루션을 설계하기 위한 실용적인 가이드](https://aka.ms/azureindustrysecurity)를 활용하시고 질문이나 제안이 있다면 아래에 의견을 남겨 두어 알려주시기 바랍니다.
 
-We hope you find [A Practical Guide to Designing Secure Health Care Solutions](https://aka.ms/azureindustrysecurity) helpful and if you have any questions or suggestions, let us know by leaving a comment below.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

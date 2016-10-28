@@ -1,9 +1,9 @@
 <properties
-  pageTitle="Client and server SDK versioning in Mobile Apps and Mobile Services | Azure App Service"
-  description="List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps"
+  pageTitle="모바일 앱 및 모바일 서비스에서 클라이언트 및 서버 SDK 버전 관리 | Azure 앱 서비스"
+  description="모바일 서비스와 Azure 모바일 앱에 대한 클라이언트 SDK의 목록 및 서버 SDK 버전과 호환성"
   services="app-service\mobile"
   documentationCenter=""
-  authors="adrianhall"
+  authors="lindydonna"
   manager="erikre"
   editor=""/>
 
@@ -13,26 +13,24 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="10/01/2016"
-  ms.author="adrianha"/>
+  ms.date="08/22/2016"
+  ms.author="donnam"/>
 
+# 모바일 앱 및 모바일 서비스에서 클라이언트 및 서버 버전 관리
 
-# <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Client and server versioning in Mobile Apps and Mobile Services
+Azure 모바일 서비스의 최신 버전은 Azure 앱 서비스의 **모바일 앱** 기능입니다.
 
-The latest version of Azure Mobile Services is the **Mobile Apps** feature of Azure App Service.
+모바일 앱 클라이언트 및 서버 SDK는 원래 모바일 서비스를 기반으로 하지만 서로 호환되지 *않습니다*. 즉, *모바일 앱* 서버 SDK 및 마찬가지로 *모바일 서비스*를 사용하는 *모바일 앱* 클라이언트 SDK를 사용해야 합니다. 이 계약은 클라이언트 및 서버 SDK인 `ZUMO-API-VERSION`에서 사용하는 특별한 헤더 값을 통해 적용됩니다.
 
-The Mobile Apps client and server SDKs are originally based on those in Mobile Services, but they are *not* compatible with each other.
-That is, you must use a *Mobile Apps* client SDK with a *Mobile Apps* server SDK and similarly for *Mobile Services*. This contract is enforced through a special header value used by the client and server SDKs, `ZUMO-API-VERSION`.
+참고: 이 문서가 *모바일 서비스* 백 엔드를 참조할 때마다 반드시 모바일 서비스에서 호스팅해야 할 필요는 없습니다. 이제 코드를 변경하지 않고 앱 서비스에서 실행되도록 모바일 서비스를 마이그레이션할 수 있지만 서비스는 *모바일 서비스* SDK 버전을 사용합니다.
 
-Note: whenever this document refers to a *Mobile Services* backend, it does not necessarily need to be hosted on Mobile Services. It is now possible to migrate a mobile service to run on App Service without any code changes, but the service would still be using *Mobile Services*  SDK versions.
+코드 변경 없이 앱 서비스에 마이그레이션하는 방법을 자세히 알아보려면 [Azure 앱 서비스에 모바일 서비스 마이그레이션] 문서를 참조하세요.
 
-To learn more about migrating to App Service without any code changes, see the article [Migrate a Mobile Service to Azure App Service].
+## 헤더 사양
 
-## <a name="header-specification"></a>Header specification
+키 `ZUMO-API-VERSION`는 HTTP 헤더 또는 쿼리 문자열에 지정될 수 있습니다. 값은 **x.y.z **형식의 버전 문자열입니다.
 
-The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the query string. The value is a version string in the form **x.y.z**.
-
-For example:
+예:
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -40,109 +38,105 @@ HEADERS: ZUMO-API-VERSION: 2.0.0
 
 POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
-## <a name="opting-out-of-version-checking"></a>Opting out of version checking
+## 버전 확인 건너뛰기
 
-You can opt out of version checking by setting a value of **true** for the app setting **MS_SkipVersionCheck**. Specify this either in your web.config or in the Application Settings section of the Azure portal.
+앱 설정 **MS\_SkipVersionCheck**에 대한 **true** 값을 설정하여 버전 확인을 건너뛸 수 있습니다. Web.config 또는 Azure 포털의 응용 프로그램 설정 섹션에서 이를 지정합니다.
 
-> [AZURE.NOTE] There are a number of behavior changes between Mobile Services and Mobile Apps, particularly in the areas of offline sync, authentication, and push notifications. You should only opt out of version checking after complete testing to ensure that these behavioral changes do not break your app's functionality.
+> [AZURE.NOTE] 오프라인 동기화, 인증 및 푸시 알림 영역에서 특히 모바일 서비스와 모바일 앱 간의 많은 동작 변경 사항이 있습니다. 이러한 동작 변경이 앱의 기능을 중단하지 않도록 테스트를 완료한 후에 버전 확인을 옵트아웃해야 합니다.
 
-## <a name="summary-of-compatibility-for-all-versions"></a>Summary of compatibility for all versions
+## 모든 버전에 대한 호환성 요약
 
-The chart below shows the compatibility between all client and server types. A backend is classified as either Mobile **Services** or Mobile **Apps** based on the server SDK that it uses.
+아래 차트에서는 모든 클라이언트 및 서버 형식 간의 호환성을 보여줍니다. 백 엔드는 사용하는 서버 SDK에 기반하여 모바일 **서비스** 또는 모바일 **앱**으로 구분됩니다.
 
-|                           | **Mobile Services** Node.js or .NET | **Mobile Apps** Node.js or .NET |
+| | **모바일 서비스** Node.js 또는 .NET | **모바일 앱** Node.js 또는 .NET |
 | ----------                | -----------------------             |   ----------------              |
-| [Mobile Services clients] | Ok                                  | Error\*                         |
-| [Mobile Apps clients]     | Error\*                             | Ok                              |
+| [모바일 서비스 클라이언트] | 확인 | 오류* |
+| [모바일 앱 클라이언트] | 오류* | 확인 |
 
-\*This can be controlled by specifying **MS_SkipVersionCheck**.
+***MS\_SkipVersionCheck**를 지정하여 제어될 수 있습니다.
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="<a-name="1.0.0"></a>mobile-services-client-and-server"></a><a name="1.0.0"></a>Mobile Services client and server
+## <a name="1.0.0"></a>모바일 서비스 클라이언트 및 서버
 
-The client SDKs in the table below are compatible with **Mobile Services**.
+아래 테이블의 클라이언트 SDK는 **모바일 서비스**와 호환됩니다.
 
-Note: the Mobile Services client SDKs *do not* send a header value for `ZUMO-API-VERSION`. If the service receives this header or query string value, an error will be returned, unless you have explicitly opted out as described above.
+참고: 모바일 서비스 클라이언트 SDK는 `ZUMO-API-VERSION`에 헤더 값을 보내지 *않습니다*. 서비스가 헤더 또는 쿼리 문자열 값을 수신하는 경우 위에서 설명한 대로 명시적으로 건너뛰지 않으면 오류가 반환됩니다.
 
-### <a name="<a-name="mobileservicesclients"></a>-mobile-*services*-client-sdks"></a><a name="MobileServicesClients"></a> Mobile *Services* client SDKs
+### <a name="MobileServicesClients"></a> 모바일 *서비스* 클라이언트 SDK
 
-| Client platform                   | Version                                                                   | Version header value |
+| 클라이언트 플랫폼 | 버전 | 버전 헤더 값 |
 | -------------------               | ------------------------                                                  | -------------------  |
-| Managed client (Windows, Xamarin) | [1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | n/a                  |
-| iOS                               | [2.2.2](http://aka.ms/gc6fex)                                             | n/a                  |
-| Android                           | [2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126)                   | n/a                  |
-| HTML                              | [1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | n/a     |
+| 관리된 클라이언트(Windows, Xamarin) | [1\.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | 해당 없음 |
+| iOS | [2\.2.2](http://aka.ms/gc6fex) | 해당 없음 |
+| Android | [2\.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) | 해당 없음 |
+| HTML | [1\.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | 해당 없음 |
 
-### <a name="mobile-*services*-server-sdks"></a>Mobile *Services* server SDKs
+### 모바일 *서비스* 서버 SDK
 
-| Server platform  | Version                                                                                                        | Accepted version header |
+| 서버 플랫폼 | 버전 | 수락된 버전 헤더 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **No version header ** |
-| Node.js          | (coming soon)                        | **No version header** |
+| .NET | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **버전 헤더 없음** |
+| Node.js | (서비스 예정) | **버전 헤더 없음** |
 
 <!-- TODO: add Node npm version -->
 
-### <a name="behavior-of-mobile-services-backends"></a>Behavior of Mobile Services backends
+### 모바일 서비스 백 엔드의 동작
 
-| ZUMO-API-VERSION | Value of MS_SkipVersionCheck | Response |
+| ZUMO-API-VERSION | MS\_SkipVersionCheck의 값 | 응답 |
 | ---------------- | ---------------------------- | -------- |
-| Not specified    | Any                          | 200 - OK |
-| Any value        | True                         | 200 - OK |
-| Any value        | False/Not Specified          | 400 - Bad Request |
+| 지정되지 않음 | 모두 | 200 - 확인 |
+| 어떤 값 | True | 200 - 확인 |
+| 어떤 값 | False/지정되지 않음 | 400 - 잘못된 요청 |
 
-## <a name="<a-name="2.0.0"></a>azure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Azure Mobile Apps client and server
+## <a name="2.0.0"></a>Azure 모바일 앱 클라이언트 및 서버
 
-### <a name="<a-name="mobileappsclients"></a>-mobile-*apps*-client-sdks"></a><a name="MobileAppsClients"></a> Mobile *Apps* client SDKs
+### <a name="MobileAppsClients"></a> 모바일 *앱* 클라이언트 SDK
 
-Version checking was introduced starting with the following versions of the client SDK for **Azure Mobile Apps**:
+버전 확인은 **Azure 모바일 앱**에 대한 클라이언트 SDK의 다음 버전부터 도입됩니다.
 
-| Client platform                   | Version                   | Version header value |
+| 클라이언트 플랫폼 | 버전 | 버전 헤더 값 |
 | -------------------               | ------------------------  | -----------------    |
-| Managed client (Windows, Xamarin) | [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2.0.0 |
-| iOS                               | [3.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2.0.0  |
-| Android                           | [3.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3.0.0 |
+| 관리된 클라이언트(Windows, Xamarin) | [2\.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2\.0.0 |
+| iOS | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
+| Android | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3\.0.0 |
 
 <!-- TODO: add HTML version when released -->
 
-### <a name="mobile-*apps*-server-sdks"></a>Mobile *Apps* server SDKs
+### 모바일 *앱* 서버 SDK
 
-Version checking is included in following server SDK versions:
+버전 검사는 다음 서버 SDK 버전에 포함됩니다.
 
-| Server platform  | SDK                                                                                                        | Accepted version header |
+| 서버 플랫폼 | SDK) | 수락된 버전 헤더 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
-| Node.js          | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
+| .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
+| Node.js | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
-### <a name="behavior-of-mobile-apps-backends"></a>Behavior of Mobile Apps backends
+### 모바일 앱 백 엔드의 동작
 
-| ZUMO-API-VERSION | Value of MS_SkipVersionCheck | Response |
+| ZUMO-API-VERSION | MS\_SkipVersionCheck의 값 | 응답 |
 | ---------------- | ---------------------------- | -------- |
-| x.y.z or Null    | True                         | 200 - OK |
-| Null             | False/Not Specified          | 400 - Bad Request |
-| 1.x.y            | False/Not Specified          | 400 - Bad Request |
-| 2.0.0-2.x.y      | False/Not Specified          | 200 - OK |
-| 3.0.0-3.x.y      | False/Not Specified          | 400 - Bad Request |
+| x.y.z 또는 Null | True | 200 - 확인 |
+| Null | False/지정되지 않음 | 400 - 잘못된 요청 |
+| 1\.x.y | False/지정되지 않음 | 400 - 잘못된 요청 |
+| 2\.0.0-2.x.y | False/지정되지 않음 | 200 - 확인 |
+| 3\.0.0-3.x.y | False/지정되지 않음 | 400 - 잘못된 요청 |
 
 
-## <a name="next-steps"></a>Next Steps
+## 다음 단계
 
-- [Migrate a Mobile Service to Azure App Service]
+- [모바일 서비스를 Azure 앱 서비스로 마이그레이션]
 
 
-[Mobile Services clients]: #MobileServicesClients
-[Mobile Apps clients]: #MobileAppsClients
+[모바일 서비스 클라이언트]: #MobileServicesClients
+[모바일 앱 클라이언트]: #MobileAppsClients
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrate a Mobile Service to Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
+[모바일 서비스를 Azure 앱 서비스로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

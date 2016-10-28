@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connect a device using C on Windows | Microsoft Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Windows."
+   pageTitle="Windows에서 C를 사용하여 장치 연결 | Microsoft Azure"
+   description="Windows에서 실행되는 C로 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다."
    services=""
    suite="iot-suite"
    documentationCenter="na"
@@ -14,46 +14,45 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
-
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-(windows)"></a>Connect your device to the remote monitoring preconfigured solution (Windows)
+# 미리 구성된 원격 모니터링 솔루션에 장치 연결(Windows)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## <a name="create-a-c-sample-solution-on-windows"></a>Create a C sample solution on Windows
+## Windows에서 C 샘플 솔루션 만들기
 
-The following steps show you how to use Visual Studio to create a client application written in C that communicates with the Remote Monitoring preconfigured solution.
+다음 단계에서는 Visual Studio를 사용하여 미리 구성된 원격 모니터링 솔루션과 통신하는 C로 작성된 간단한 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다.
 
-Create a starter project in Visual Studio 2015 and add the IoT Hub device client NuGet packages:
+Visual Studio 2015에서 시작 프로젝트를 만들고 IoT Hub 장치 클라이언트 NuGet 패키지를 추가합니다.
 
-1. In Visual Studio 2015, create a C console application using the Visual C++ **Win32 Console Application** template. Name the project **RMDevice**.
+1. Visual Studio 2015에서 Visual C++ **Win32 콘솔 응용 프로그램** 템플릿을 사용하여 새 C 콘솔 응용 프로그램을 만듭니다. 프로젝트 이름을 **RMDevice**로 지정합니다.
 
-2. On the **Applications Settings** page in the **Win32 Application Wizard**, ensure that **Console application** is selected, and uncheck **Precompiled header** and **Security Development Lifecycle (SDL) checks**.
+2. **Win32 응용 프로그램 마법사**의 **응용 프로그램 설정** 페이지에서 **콘솔 응용 프로그램**이 선택되어 있는지 확인하고 **미리 컴파일된 헤더** 및 **SDL(Security Development Lifecycle) 검사**의 선택을 취소합니다.
 
-3. In **Solution Explorer**, delete the files stdafx.h, targetver.h, and stdafx.cpp.
+3. **솔루션 탐색기**에서 stdafx.h, targetver.h 및 stdafx.cpp 파일을 삭제합니다.
 
-4. In **Solution Explorer**, rename the file RMDevice.cpp to RMDevice.c.
+4. **솔루션 탐색기**에서 RMDevice.cpp 파일의 이름을 RMDevice.c로 바꿉니다.
 
-5. In **Solution Explorer**, right-click on the **RMDevice** project and then click **Manage NuGet packages**. Click **Browse**, then search for and install the following NuGet packages into the project:
+5. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다. **찾아보기**를 클릭하고 다음 NuGet 패키지를 검색하여 프로젝트에 설치합니다.
 
     - Microsoft.Azure.IoTHub.Serializer
     - Microsoft.Azure.IoTHub.IoTHubClient
     - Microsoft.Azure.IoTHub.HttpTransport
 
-6. In **Solution Explorer**, right-click on the **RMDevice** project and then click **Properties** to open the project's **Property Pages** dialog box. For details, see [Setting Visual C++ Project Properties][lnk-c-project-properties]. 
+6. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭하여 프로젝트의 **속성 페이지** 대화 상자를 엽니다. 자세한 내용은 [Visual C++ 프로젝트 속성 설정][lnk-c-project-properties]을 참조하세요.
 
-7. Click the **Linker** folder, then click the **Input** property page.
+7. **링커** 폴더를 클릭한 다음 **입력** 속성 페이지를 클릭합니다.
 
-8. Add **crypt32.lib** to the **Additional Dependencies** property. Click **OK** and then **OK** again to save the project property values.
+8. **crypt32.lib**를 **추가 종속성** 속성에 추가합니다. **확인**을 한 번 클릭한 다음 다시 **확인**을 클릭하여 프로젝트 속성 값을 저장합니다.
 
-## <a name="specify-the-behavior-of-the-iot-hub-device"></a>Specify the behavior of the IoT Hub device
+## IoT Hub 장치의 동작 지정
 
-The IoT Hub client libraries use a model to specify the format of the messages the device sends to IoT Hub and the commands it receives from IoT Hub.
+IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메시지의 형식 및 장치에서 응답하는 IoT Hub의 명령을 지정하는 모델을 사용합니다.
 
-1. In Visual Studio, open the RMDevice.c file. Replace the existing `#include` statements with the following code:
+1. Visual Studio에서 RMDevice.c 파일을 엽니다. 기존 `#include` 문을 다음 문으로 바꿉니다.
 
     ```
     #include "iothubtransporthttp.h"
@@ -65,7 +64,7 @@ The IoT Hub client libraries use a model to specify the format of the messages t
     #include "azure_c_shared_utility/platform.h"
     ```
 
-2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
+2. 다음 변수 선언을 `#include` 문 뒤에 추가합니다. 원격 모니터링 솔루션 대시보드에서 자리 표시자 값 [Device Id] 및 [Device Key]를 장치에 대한 값으로 바꿉니다. 대시보드에서 IoT Hub 호스트 이름을 사용하여 [IoTHub Name]을 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 **contoso.azure-devices.net**인 경우 [IoTHub Name]을 **contoso**로 바꿉니다.
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -74,7 +73,7 @@ The IoT Hub client libraries use a model to specify the format of the messages t
     static const char* hubSuffix = "azure-devices.net";
     ```
 
-3. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device sends temperature, external temperature, humidity, and a device id as telemetry. The device also sends metadata about the device to IoT Hub, including a list of commands that the device supports. This device responds to the commands **SetTemperature** and **SetHumidity**:
+3. 다음 코드를 추가하여 장치에서 IoT Hub와 통신하도록 지원하는 모델을 정의합니다. 이 모델은 장치에서 온도, 외부 온도, 습도 및 장치 ID를 원격 분석으로 보내도록 지정합니다. 또한 장치는 지원하는 명령 목록을 포함하여 장치에 대한 메타데이터를 IoT Hub로 보냅니다. 이 장치는 **SetTemperature** 및 **SetHumidity**에 응답합니다.
 
     ```
     // Define the Model
@@ -113,11 +112,11 @@ The IoT Hub client libraries use a model to specify the format of the messages t
     END_NAMESPACE(Contoso);
     ```
 
-## <a name="implement-the-behavior-of-the-device"></a>Implement the behavior of the device
+## 장치의 동작 구현
 
-Now add code that implements the behavior defined in the model.
+이제 모델에 정의된 동작을 구현하는 코드를 추가해야 합니다.
 
-1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands from IoT Hub:
+1. 장치가 IoT Hub에서 **SetTemperature** 및 **SetHumidity** 명령을 받을 때 실행되는 다음 함수를 추가합니다.
 
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -135,7 +134,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-2. Add the following function that sends a message to IoT Hub:
+2. IoT Hub로 메시지를 보내는 다음 함수를 추가합니다.
 
     ```
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -162,7 +161,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-3. Add the following function that hooks up the serialization library in the SDK:
+3. SDK의 serialization 라이브러리를 연결하는 다음 함수를 추가합니다.
 
     ```
     static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -200,7 +199,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub when it connects. This metadata enables the solution to update the status of the device to **Running** on the dashboard:
+4. IoT Hub에 연결하고, 메시지를 보내고 받으며, 허브에서 연결을 해제하는 다음 함수를 추가합니다. 장치가 연결되는 즉시 IoT Hub에 자체에 대한 메타데이터(장치에서 지원하는 명령 포함)를 보내는 방식을 확인할 수 있습니다. 이를 통해 솔루션은 대시보드에서 장치의 상태를 **실행 중**으로 업데이트할 수 있습니다.
 
     ```
     void remote_monitoring_run(void)
@@ -319,7 +318,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
     
-    For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
+    참고로, 시작 시 IoT Hub로 전송되는 샘플 **장치 정보** 메시지는 다음과 같습니다.
 
     ```
     {
@@ -338,13 +337,13 @@ Now add code that implements the behavior defined in the model.
     }
     ```
     
-    For reference, here is a sample **Telemetry** message sent to IoT Hub:
+    참고로, IoT Hub로 전송되는 샘플 **원격 분석** 메시지는 다음과 같습니다.
 
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
-    For reference, here is a sample **Command** received from IoT Hub:
+    참고로, IoT Hub에서 수신되는 샘플 **명령**은 다음과 같습니다.
     
     ```
     {
@@ -355,7 +354,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-5. Replace the **main** function with following code to invoke the **remote_monitoring_run** function:
+5. **remote\_monitoring\_run** 함수를 호출하려면 **main** 함수를 다음 코드로 바꿉니다.
 
     ```
     int main()
@@ -365,16 +364,13 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-6. Click **Build** and then **Build Solution** to build the device application.
+6. **빌드**를 클릭한 다음 **솔루션 빌드**를 클릭하여 장치 응용 프로그램을 빌드합니다.
 
-7. In **Solution Explorer**, right-click the **RMDevice** project, click **Debug**, and then click **Start new instance** to run the sample. The console displays messages as the application sends sample telemetry to IoT Hub and receives commands.
+7. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 클릭한 다음 **새 인스턴스 시작**을 클릭하여 샘플을 실행합니다. 응용 프로그램에서 샘플 원격 분석을 IoT Hub로 보내고 명령을 받을 때 나타나는 메시지가 콘솔에 표시됩니다.
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 
 [lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

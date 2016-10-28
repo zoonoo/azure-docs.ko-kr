@@ -1,181 +1,180 @@
 <properties
-    pageTitle="Extended events in SQL Database | Microsoft Azure"
-    description="Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server."
-    services="sql-database"
-    documentationCenter=""
-    authors="MightyPen"
-    manager="jhubbard"
-    editor=""
-    tags=""/>
+	pageTitle="SQL 데이터베이스의 확장 이벤트 | Microsoft Azure"
+	description="Azure SQL 데이터베이스의 확장 이벤트(XEvent)와 Microsoft SQL Server의 이벤트 세션 간 차이점에 대해 설명합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor=""
+	tags=""/>
 
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/23/2016"
-    ms.author="genemi"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2016"
+	ms.author="genemi"/>
 
 
-
-# <a name="extended-events-in-sql-database"></a>Extended events in SQL Database
+# SQL 데이터베이스의 확장 이벤트
 
 [AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-This topic explains how the implementation of extended events in Azure SQL Database is slightly different compared to extended events in Microsoft SQL Server.
+이 항목은 Azure SQL 데이터베이스의 확장 이벤트 구현과 Mirosoft SQL Server의 확장 이벤트 구현의 작은 차이점에 대해 설명합니다.
 
 
-- SQL Database V12 gained the extended events feature in the second half of calendar 2015.
-- SQL Server has had extended events since 2008.
-- The feature set of extended events on SQL Database is a robust subset of the features on SQL Server.
+- SQL 데이터베이스 V12는 2015년 후반기 확장 이벤트 기능을 추가했습니다.
+- SQL Server는 2008년 이후 확장 이벤트를 추가해 왔습니다.
+- SQL 데이터베이스의 확장 이벤트 기능 집합은 SQL Server 기능의 견고한 하위 집합입니다.
 
 
-*XEvents* is an informal nickname that is sometimes used for 'extended events' in blogs and other informal locations.
+*XEvent*는 블로그 및 기타 비공식 위치에서 '확장 이벤트'를 가리키는 비공식적 별명입니다.
 
 
-> [AZURE.NOTE] As of October 2015, the extended event session feature is activated in Azure SQL Database at the Preview level. The General Availability (GA) date is not yet set.
+> [AZURE.NOTE] 2015 년 10월을 기준으로 확장 이벤트 세션 기능은 Azure SQL 데이터베이스에서 미리 보기 수준으로 활성화됩니다. GA(일반 공급) 날짜는 아직 정해지지 않았습니다.
 >
-> The Azure [Service Updates](https://azure.microsoft.com/updates/?service=sql-database) page has posts when GA announcements are made.
+> Azure [서비스 업데이트](https://azure.microsoft.com/updates/?service=sql-database)페이지에 GA에 대한 공지 사항이 게시됩니다.
 
 
-Additional information about extended events, for Azure SQL Database and Microsoft SQL Server, is available at:
+Azure SQL 데이터베이스 및 Microsoft SQL Server용 확장 이벤트에 대한 추가 정보는 다음에 제공됩니다.
 
-- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-- [Extended Events](http://msdn.microsoft.com/library/bb630282.aspx)
-
-
-## <a name="prerequisites"></a>Prerequisites
+- [빠른 시작: SQL Server의 확장 이벤트](http://msdn.microsoft.com/library/mt733217.aspx)
+- [확장 이벤트](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
-This topic assumes you already have some knowledge of:
+## 필수 조건
 
 
-- [Azure SQL Database service](https://azure.microsoft.com/services/sql-database/).
+이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
 
-- [Extended events](http://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
- - The bulk of our documentation about extended events applies to both SQL Server and SQL Database.
+- [Azure SQL 데이터베이스 서비스](https://azure.microsoft.com/services/sql-database/).
 
 
-Prior exposure to the following items is helpful when choosing the Event File as the [target](#AzureXEventsTargets):
+- Microsoft SQL Server의 [확장 이벤트](http://msdn.microsoft.com/library/bb630282.aspx).
+ - 이 설명서에서 확장 이벤트에 대한 내용의 많은 부분이 SQL Server와 SQL 데이터베이스에 모두 적용됩니다.
 
 
-- [Azure Storage service](https://azure.microsoft.com/services/storage/)
+이벤트 파일을 [대상](#AzureXEventsTargets)으로 선택할 경우 다음 항목에 대한 사전 지식이 있으면 도움이 됩니다.
+
+
+- [Azure 저장소 서비스](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
- - [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+ - [Azure 저장소와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) - PowerShell 및 Azure 저장소 서비스에 대한 포괄적 정보를 제공합니다.
 
 
-## <a name="code-samples"></a>Code samples
+## 코드 샘플
 
 
-Related topics provide two code samples:
+관련 항목에서 두 가지 코드 샘플을 제공합니다.
 
 
-- [Ring Buffer target code for extended events in SQL Database](sql-database-xevent-code-ring-buffer.md)
- - Short simple Transact-SQL script.
- - We emphasize in the code sample topic that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+- [SQL 데이터베이스의 확장 이벤트에 대한 링 버퍼 대상 코드](sql-database-xevent-code-ring-buffer.md)
+ - 짧고 간단한 Transact-SQL 스크립트.
+ - 코드 샘플 항목에서는 링 버퍼 대상을 마칠 때 alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` 문을 실행하여 리소스를 해제해야 함을 강조합니다. 나중에 `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`(으)로 링 버퍼의 다른 인스턴스를 추가할 수 있습니다.
 
 
-- [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
- - Phase 1 is PowerShell to create an Azure Storage container.
- - Phase 2 is Transact-SQL that uses the Azure Storage container.
+- [SQL 데이터베이스의 확장 이벤트에 대한 이벤트 파일 대상 코드](sql-database-xevent-code-event-file.md)
+ - 1단계는 Azure 저장소 컨테이너를 만드는 PowerShell입니다.
+ - 2단계는 Azure 저장소 컨테이너를 사용하는 Transact-SQL입니다.
 
 
-## <a name="transact-sql-differences"></a>Transact-SQL differences
+## Transact-SQL 차이점
 
 
-- When you execute the [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) command on SQL Server, you use the **ON SERVER** clause. But on SQL Database you use the **ON DATABASE** clause instead.
+- SQL Server에서 [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) 명령을 사용하는 경우 **ON SERVER** 절을 사용합니다. 하지만 SQL 데이터베이스에서는 대신 **ON DATABASE** 절을 사용합니다.
 
 
-- The **ON DATABASE** clause also applies to the [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) and [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL commands.
+- **ON DATABASE** 절은 [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) 및 [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL 명령에도 적용됩니다.
 
 
-- A best practice is to include the event session option of **STARTUP_STATE = ON** in your **CREATE EVENT SESSION**  or **ALTER EVENT SESSION** statements.
- - The **= ON** value supports an automatic restart after a reconfiguration of the logical database due to a failover.
+- **CREATE EVENT SESSION** 또는 **ALTER EVENT SESSION** 문에 **STARTUP\_STATE = ON**의 이벤트 세션 옵션을 포함하는 것이 가장 좋습니다.
+ - **= ON** 값은 장애 조치(failover)로 인해 논리적 데이터베이스를 재구성한 다음 자동 재시작을 지원합니다.
 
 
-## <a name="new-catalog-views"></a>New catalog views
+## 새 카탈로그 뷰
 
 
-The extended events feature is supported by several [catalog views](http://msdn.microsoft.com/library/ms174365.aspx). Catalog views tell you about *metadata or definitions* of user-created event sessions in the current database. The views do not return information about instances of active event sessions.
+확장 이벤트 기능은 여러 [카탈로그 뷰](http://msdn.microsoft.com/library/ms174365.aspx)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의*를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
 
 
-| Name of<br/>catalog view | Description |
+| 카탈로그 뷰의 <br/>이름 | 설명 |
 | :-- | :-- |
-| **sys.database_event_session_actions** | Returns a row for each action on each event of an event session. |
-| **sys.database_event_session_events** | Returns a row for each event in an event session. |
-| **sys.database_event_session_fields** | Returns a row for each customize-able column that was explicitly set on events and targets. |
-| **sys.database_event_session_targets** | Returns a row for each event target for an event session. |
-| **sys.database_event_sessions** | Returns a row for each event session in the SQL Database database. |
+| **sys.database\_event\_session\_actions** | 이벤트 세션의 각 이벤트에 있는 각 작업에 대한 행을 반환합니다. |
+| **sys.database\_event\_session\_events** | 이벤트 세션의 각 이벤트에 대한 행을 반환합니다. |
+| **sys.database\_event\_session\_fields** | 이벤트 및 대상에 명시적으로 설정된 사용자 지정 가능한 각 열에 대한 행을 반환합니다. |
+| **sys.database\_event\_session\_targets** | 이벤트 세션의 각 이벤트 대상에 대한 행을 반환합니다. |
+| **sys.database\_event\_sessions** | SQL 데이터베이스의 각 이벤트 세션에 대한 행을 반환합니다. |
 
 
-In Microsoft SQL Server, similar catalog views have names that include *.server\_* instead of *.database\_*. The name pattern is like **sys.server_event_%**.
+Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database\_*가 아닌 *.server\_*가 포함됩니다. 이름 패턴은 **sys.server\_event\_%**와 같습니다.
 
 
-## <a name="new-dynamic-management-views-[(dmvs)](http://msdn.microsoft.com/library/ms188754.aspx)"></a>New dynamic management views [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx)
+## 새로운 [DMV](http://msdn.microsoft.com/library/ms188754.aspx)(동적 관리 뷰)
 
 
-Azure SQL Database has [dynamic management views (DMVs)](http://msdn.microsoft.com/library/bb677293.aspx) that support extended events. DMVs tell you about *active* event sessions.
+Azure SQL 데이터베이스에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](http://msdn.microsoft.com/library/bb677293.aspx)가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
 
 
-| Name of DMV | Description |
+| DMV의 이름 | 설명 |
 | :-- | :-- |
-| **sys.dm_xe_database_session_event_actions** | Returns information about event session actions. |
-| **sys.dm_xe_database_session_events** | Returns information about session events. |
-| **sys.dm_xe_database_session_object_columns** | Shows the configuration values for objects that are bound to a session. |
-| **sys.dm_xe_database_session_targets** | Returns information about session targets. |
-| **sys.dm_xe_database_sessions** | Returns a row for each event session that is scoped to the current database. |
+| **sys.dm\_xe\_database\_session\_event\_actions** | 이벤트 세션 작업에 대한 정보를 반환합니다. |
+| **sys.dm\_xe\_database\_session\_events** | 세션 이벤트에 대한 정보를 반환합니다. |
+| **sys.dm\_xe\_database\_session\_object\_columns** | 세션에 바인딩되는 개체에 대한 구성 값을 보여줍니다. |
+| **sys.dm\_xe\_database\_session\_targets** | 세션 작업에 대한 정보를 반환합니다. |
+| **sys.dm\_xe\_database\_sessions** | 현재 데이터베이스로 범위가 한정된 각 이벤트 세션에 대한 행을 반환합니다. |
 
 
-In Microsoft SQL Server, similar catalog views are named without the *\_database* portion of the name, such as:
+Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름에 *\_database* 부분이 없습니다.
 
 
-- **sys.dm_xe_sessions**, instead of name<br/>**sys.dm_xe_database_sessions**.
+- <br/>**sys.dm\_xe\_database\_sessions**가 아닌 **sys.dm\_xe\_sessions**로 표시됨
 
 
-### <a name="dmvs-common-to-both"></a>DMVs common to both
+### 둘 다에 공통적인 DMV
 
 
-For extended events there are additional DMVs that are common to both Azure SQL Database and Microsoft SQL Server:
+확장 이벤트에는 Azure SQL 데이터베이스와 Microsoft SQL Server에 공통적인 추가 DMV가 있습니다.
 
 
-- **sys.dm_xe_map_values**
-- **sys.dm_xe_object_columns**
-- **sys.dm_xe_objects**
-- **sys.dm_xe_packages**
+- **sys.dm\_xe\_map\_values**
+- **sys.dm\_xe\_object\_columns**
+- **sys.dm\_xe\_objects**
+- **sys.dm\_xe\_packages**
 
 
 
  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
-## <a name="find-the-available-extended-events,-actions,-and-targets"></a>Find the available extended events, actions, and targets
+## 사용 가능한 확장 이벤트, 동작, 대상 찾기
 
 
-You can run a simple SQL **SELECT** to obtain a list of the available events, actions, and target.
+간단한 SQL **SELECT**를 실행하여 사용 가능한 이벤트, 작업, 대상의 목록을 가져올 수 있습니다.
 
 
 ```
 SELECT
-        o.object_type,
-        p.name         AS [package_name],
-        o.name         AS [db_object_name],
-        o.description  AS [db_obj_description]
-    FROM
-                   sys.dm_xe_objects  AS o
-        INNER JOIN sys.dm_xe_packages AS p  ON p.guid = o.package_guid
-    WHERE
-        o.object_type in
-            (
-            'action',  'event',  'target'
-            )
-    ORDER BY
-        o.object_type,
-        p.name,
-        o.name;
+		o.object_type,
+		p.name         AS [package_name],
+		o.name         AS [db_object_name],
+		o.description  AS [db_obj_description]
+	FROM
+		           sys.dm_xe_objects  AS o
+		INNER JOIN sys.dm_xe_packages AS p  ON p.guid = o.package_guid
+	WHERE
+		o.object_type in
+			(
+			'action',  'event',  'target'
+			)
+	ORDER BY
+		o.object_type,
+		p.name,
+		o.name;
 ```
 
 
@@ -184,90 +183,90 @@ SELECT
 
 &nbsp;
 
-## <a name="targets-for-your-sql-database-event-sessions"></a>Targets for your SQL Database event sessions
+## SQL 데이터베이스 이벤트 세션의 대상
 
 
-Here are targets that can capture results from your event sessions on SQL Database:
+SQL 데이터베이스에서 이벤트 세션의 결과를 캡처할 수 있는 대상은 다음과 같습니다.
 
 
-- [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx) - Briefly holds event data in memory.
-- [Event Counter target](http://msdn.microsoft.com/library/ff878025.aspx) - Counts all events that occur during an extended events session.
-- [Event File target](http://msdn.microsoft.com/library/ff878115.aspx) - Writes complete buffers to an Azure Storage container.
+- [링 버퍼 대상](http://msdn.microsoft.com/library/ff878182.aspx) - 이벤트 데이터를 메모리에 잠시 보관합니다.
+- [이벤트 카운터 대상](http://msdn.microsoft.com/library/ff878025.aspx) - 확장 이벤트 세션 동안 발생하는 모든 이벤트의 수를 계산합니다.
+- [이벤트 파일 대상](http://msdn.microsoft.com/library/ff878115.aspx) - Azure 저장소 컨테이너에 전체 버퍼를 기록합니다.
 
 
-The [Event Tracing for Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API is not available for extended events on SQL Database.
+[ETW(Windows 이벤트 추적)](http://msdn.microsoft.com/library/ms751538.aspx) API는 SQL 데이터베이스의 확장 이벤트에서 사용할 수 없습니다.
 
 
-## <a name="restrictions"></a>Restrictions
+## 제한
 
 
-There are a couple of security-related differences befitting the cloud environment of SQL Database:
+SQL 데이터베이스의 클라우드 환경에 적합한 몇 가지 보안 관련 차이점이 있습니다.
 
 
-- Extended events are founded on the single-tenant isolation model. An event session in one database cannot access data or events from another database.
+- 확장 이벤트는 단일 테넌트 격리 모델에서 찾을 수 있습니다. 한 데이터베이스의 이벤트 세션은 다른 데이터베이스의 데이터 또는 이벤트에 액세스할 수 없습니다.
 
-- You cannot issue a **CREATE EVENT SESSION** statement in the context of the **master** database.
-
-
-## <a name="permission-model"></a>Permission model
+- **마스터** 데이터베이스의 컨텍스트에서 **CREATE EVENT SESSION** 문을 실행할 수 없습니다.
 
 
-You must have **Control** permission on the database to issue a **CREATE EVENT SESSION** statement. The database owner (dbo) has **Control** permission.
+## 권한 모델
 
 
-### <a name="storage-container-authorizations"></a>Storage container authorizations
+**CREATE EVENT SESSION** 문을 실행하려면 데이터베이스에 **제어** 권한이 있어야 합니다. 데이터베이스 소유자(dbo)는 **제어** 권한이 있습니다.
 
 
-The SAS token you generate for your Azure Storage container must specify **rwl** for the permissions. The **rwl** value provides the following permissions:
+### 저장소 컨테이너 권한
 
 
-- Read
-- Write
-- List
+Azure 저장소 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **rwl**을 지정해야 합니다. **rwl** 값은 다음과 같은 권한을 제공합니다.
 
 
-## <a name="performance-considerations"></a>Performance considerations
+- 읽기
+- 쓰기
+- 나열
 
 
-There are scenarios where intensive use of extended events can accumulate more active memory than is healthy for the overall system. Therefore the Azure SQL Database system dynamically sets and adjusts limits on the amount of active memory that can be accumulated by an event session. Many factors go into the dynamic calculation.
+## 성능 고려 사항
 
 
-If you receive an error message that says a memory maximum was enforced, some corrective actions you can take are:
+확장 이벤트를 집중적으로 사용할 경우 전체 시스템에 안정적인 메모리보다 더 많은 활성 메모리가 누적되는 시나리오가 있습니다. 따라서 Azure SQL 데이터베이스 시스템은 이벤트 세션이 누적할 수 있는 활성 메모리의 양에 대한 한도를 동적으로 설정 및 조정합니다. 많은 요소가 동적 계산에 활용됩니다.
 
 
-- Run fewer concurrent event sessions.
+메모리 최대 한도가 적용되었다는 오류 메시지가 표시될 경우 다음과 같은 방법으로 해결할 수 있습니다.
 
 
-- Through your **CREATE** and **ALTER** statements for event sessions, reduce the amount of memory you specify on the **MAX\_MEMORY** clause.
+- 실행하는 동시 이벤트 세션 수를 줄입니다.
 
 
-### <a name="network-latency"></a>Network latency
+- 이벤트 세션에 대한 **CREATE** 및 **ALTER** 문을 통해 **MAX\_MEMORY** 절에 지정하는 메모리의 양을 줄입니다.
 
 
-The **Event File** target might experience network latency or failures while persisting data to Azure Storage blobs. Other events in SQL Database might be delayed while they wait for the network communication to complete. This delay can slow your workload.
-
-- To mitigate this performance risk, avoid setting the **EVENT_RETENTION_MODE** option to **NO_EVENT_LOSS** in your event session definitions.
+### 네트워크 대기 시간
 
 
-## <a name="related-links"></a>Related links
+Azure 저장소 BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대상에서 네트워크 지연 또는 오류가 발생할 수 있습니다. 네트워크 통신이 완료될 때까지 기다리는 동안 SQL 데이터베이스의 다른 이벤트가 지연될 수 있습니다. 이 지연으로 인해 워크로드가 느려질 수 있습니다.
+
+- 이러한 성능 위험을 줄이려면 이벤트 세션 정의에서 **EVENT\_RETENTION\_MODE** 옵션을 **NO\_EVENT\_LOSS**로 설정하지 마십시오.
 
 
-- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
-- [Azure Storage Cmdlets](http://msdn.microsoft.com/library/dn806401.aspx)
+## 관련 링크
 
 
-- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
-- [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Azure 저장소와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md)
+- [Azure 저장소 Cmdlet](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [Azure 저장소와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) - PowerShell 및 Azure 저장소 서비스에 대한 포괄적 정보를 제공합니다.
+- [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
-- [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [CREATE CREDENTIAL(Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION(Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 
 
-Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.
+- [Microsoft SQL Server의 확장 이벤트에 대한 Jonathan Kehayias의 블로그](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+
+
+확장 이벤트에 대한 다른 코드 샘플 항목은 다음 링크에서 사용할 수 있습니다. 하지만 어느 샘플이든 Azure SQL 데이터베이스와 Microsoft SQL Server 중 무엇을 대상으로 하는지 늘 확인해야 합니다. 그런 다음 샘플을 실행하기 위해 약간의 변경이 필요한지 결정할 수 있습니다.
 
 
 <!--
@@ -277,8 +276,4 @@ Other code sample topics for extended events are available at the following link
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

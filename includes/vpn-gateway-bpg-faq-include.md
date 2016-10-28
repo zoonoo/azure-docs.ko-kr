@@ -1,85 +1,82 @@
-### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus?"></a>Is BGP supported on all Azure VPN Gateway SKUs?
+### BGP가 모든 Azure VPN 게이트웨이 SKU를 지원하나요?
 
-No, BGP is supported on Azure **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+아니요. BGP는 **표준** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
 
-### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways?"></a>Can I use BGP with Azure Policy-Based VPN gateways?
+### Azure 정책 기반 VPN 게이트웨이에 BGP를 사용할 수 있나요?
 
-No, BGP is supported on Route-Based VPN gateways only.
+아니요. BGP는 경로 기반 VPN 게이트웨이에서만 지원됩니다.
 
-### <a name="can-i-use-private-asns-(autonomous-system-numbers)?"></a>Can I use private ASNs (Autonomous System Numbers)?
+### 개인 ASN(자치 시스템 번호)을 사용할 수 있나요?
 
-Yes, you can use your own public ASNs or private ASNs for both your on-premises networks and Azure virtual networks.
+예. 온-프레미스 네트워크와 Azure 가상 네트워크 모두에 자체 공용 ASN 또는 개인 ASN을 사용할 수 있습니다.
 
-#### <a name="are-there-asns-reserved-by-azure?"></a>Are there ASNs reserved by Azure?
+#### Azure에서 예약된 ASN이 있나요?
 
-Yes, the following ASNs are reserved by Azure for both internal and external peerings:
+예. 다음 ASN은 내부 및 외부 피어링에 대해 Azure에서 예약되어 있습니다.
 
-- Public ASNs: 8075, 8076, 12076
-- Private ASNs: 65515, 65517, 65518, 65519, 65520
+- 공용 ASN: 8075, 8076, 12076
+- 개인 ASN: 65515, 65517, 65518, 65519, 65520
 
-You cannot specify these ASNs for your on premises VPN devices when connecting to Azure VPN gateways.
+Azure VPN 게이트웨이에 연결할 때 온-프레미스 VPN 장치에 대해 이러한 ASN을 지정할 수 없습니다.
 
-### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets?"></a>Can I use the same ASN for both on-premises VPN networks and Azure VNets?
+### 온-프레미스 VPN 네트워크와 Azure VNet에 동일한 ASN을 사용할 수 있나요?
 
-No, you must assign different ASNs between your on-premises networks and your Azure VNets if you are connecting them together with BGP. Azure VPN Gateways have a default ASN of 65515 assigned, whether BGP is enabled for not for your cross-premises connectivity. You can override this default by assigning a different ASN when creating the VPN gateway, or change the ASN after the gateway is created. You will need to assign your on-premises ASNs to the corresponding Azure Local Network Gateways.
+아니요. 온-프레미스 네트워크와 Azure VNet을 함께 BGP에 연결하려면 서로 다른 ASN을 할당해야 합니다. 크로스 프레미스 연결에 대한 BGP 활성화 여부에 관계없이 Azure VPN 게이트웨이에 할당되는 기본 ASN은 65515입니다. VPN 게이트웨이를 만들 때 다른 ASN을 적용하여 이 기본값을 다시 정의하거나, 게이트웨이를 만든 후 ASN을 변경할 수 있습니다. 해당하는 Azure 로컬 네트워크 게이트웨이에 온-프레미스 ASN을 할당해야 합니다.
 
-### <a name="what-address-prefixes-will-azure-vpn-gateways-advertise-to-me?"></a>What address prefixes will Azure VPN gateways advertise to me?
+### Azure VPN 게이트웨이가 나에게 알리는 주소 접두어는 무엇인가요?
 
-Azure VPN gateway will advertise the following routes to your on-premises BGP devices:
+Azure VPN 게이트웨이는 온-프레미스 BGP 장치에 다음 경로를 알립니다.
 
-- Your VNet address prefixes
-- Address prefixes for each Local Network Gateways connected to the Azure VPN gateway
-- Routes learned from other BGP peering sessions connected to the Azure VPN gateway, **except default route or routes overlapped with any VNet prefix**.
+- VNet 주소 접두어
+- Azure VPN 게이트웨이에 연결된 각 로컬 네트워크 게이트웨이의 주소 접두어
+- Azure VPN 게이트웨이에 연결된 다른 BGP 피어링 세션에서 확인한 경로(**기본 경로 또는 다른 VNet 접두어와 겹치는 경로 제외**)
 
-#### <a name="can-i-advertise-default-route-(0.0.0.0/0)-to-azure-vpn-gateways?"></a>Can I advertise default route (0.0.0.0/0) to Azure VPN gateways?
+#### Azure VPN 게이트웨이에 기본 경로(0.0.0.0/0)를 보급할 수 있나요?
 
-Not at this time.
+지금은 없습니다.
 
-#### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes?"></a>Can I advertise the exact prefixes as my Virtual Network prefixes?
+#### 가상 네트워크 접두사로 정확한 접두사를 보급할 수 있나요?
 
-No, advertising the same prefixes as any one of your Virtual Network address prefixes will be blocked or filtered by the Azure platform. However you can advertise a prefix that is a superset of what you have inside your Virtual Network. For example, your Virtual Network could use the address space 10.10.0.0/16 and you could advertise 10.0.0.0/8.
+아니요. 가상 네트워크 주소 접두사와 동일한 접두사의 보급은 Azure 플랫폼에서 차단되거나 필터링됩니다. 그러나 가상 네트워크 내에 포함된 접두사의 상위 집합에 해당하는 접두사를 보급할 수 있습니다. 예를 들어 가상 네트워크는 주소 공간 10.10.0.0/16을 사용할 수 있으며 10.0.0.0/8을 보급할 수 있습니다.
 
-### <a name="can-i-use-bgp-with-my-vnet-to-vnet-connections?"></a>Can I use BGP with my VNet-to-VNet connections?
+### 내 VNet-VNet 연결에 BPG를 사용할 수 있나요?
 
-Yes, you can use BGP for both cross-premises connections and VNet-to-VNet connections.
+예. 크로스 프레미스 연결과 VNet-VNet 연결에 모두 BGP를 사용할 수 있습니다.
 
-### <a name="can-i-mix-bgp-with-non-bgp-connections-for-my-azure-vpn-gateways?"></a>Can I mix BGP with non-BGP connections for my Azure VPN gateways?
+### BGP를 비 BGP 연결과 혼합하여 내 Azure VPN 게이트웨이에 사용할 수 있나요?
 
-Yes, you can mix both BGP and non-BGP connections for the same Azure VPN gateway.
+예. BGP와 비 BGP 연결을 동일한 Azure VPN 게이트웨이에 혼합 사용할 수 있습니다.
 
-### <a name="does-azure-vpn-gateway-support-bgp-transit-routing?"></a>Does Azure VPN gateway support BGP transit routing?
+### Azure VPN 게이트웨이가 BGP 전송 라우팅을 지원하나요?
 
-Yes, BGP transit routing is supported, with the exception that Azure VPN gateways will **NOT** advertise default routes to other BGP peers. To enable transit routing across multiple Azure VPN gateways, you must enable BGP on all intermediate VNet-to-VNet connections.
+예. BGP 전송 라우팅이 지원됩니다. 단 Azure VPN 게이트웨이가 기본 경로를 타 BGP 피어에 알리지 **않는다**는 점이 다릅니다. 여러 Azure VPN 게이트웨이 간 전송 라우팅을 활성화하려면 모든 중간 VNet-VNet 연결에서 BGP를 활성화해야 합니다.
 
-### <a name="can-i-have-more-than-one-tunnels-between-azure-vpn-gateway-and-my-on-premises-network?"></a>Can I have more than one tunnels between Azure VPN gateway and my on-premises network?
+### Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 여러 터널이 있을 수 있나요?
 
-Yes, you can establish more than one S2S VPN tunnels between an Azure VPN gateway and your on-premises network. Please note that all these tunnels will be counted against the total number of tunnels for your Azure VPN gateways. For example, if you have two redundant tunnels between your Azure VPN gateway and one of your on-premises network, they will consume 2 tunnels out of the total quota for your Azure VPN gateway (10 for Standard and 30 for HighPerformance).
+예. Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 여러 S2S VPN 터널을 구축할 수 있습니다. 이러한 모든 터널은 Azure VPN 게이트웨이에 대한 총 처널 수에 대해 산출됩니다. 예를 들어, Azure VPN 게이트웨이와 온-프레미스 네트워크 중 하나 사이에 2개의 중복 터널이 구성되어 있는 경우 총 Azure VPN 게이트웨이 할당량 중 2개의 터널을 사용하는 것입니다(표준 10, HighPerformance 30).
 
-### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp?"></a>Can I have multiple tunnels between two Azure VNets with BGP?
+### 두 Azure VNet과 BGP와 간에 여러 터널이 있을 수 있나요?
 
-No, redundant tunnels between a pair of virtual networks are not supported.
+아니요. 한 쌍의 가상 네트워크 사이에는 중복 구성 터널이 지원되지 않습니다.
 
-### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroute/s2s-vpn-co-existence-configuration?"></a>Can I use BGP for S2S VPN in an ExpressRoute/S2S VPN co-existence configuration?
+### Express 경로/S2S VPN 동시 존재 구성에서 S2S VPN에 BGP를 사용할 수 있나요?
 
-Not at this time.
+지금은 없습니다.
 
-### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip?"></a>What address does Azure VPN gateway use for BGP Peer IP?
+### Azure VPN 게이트웨이는 BGP 피어 IP에 어떤 주소를 사용하나요?
 
-The Azure VPN gateway will allocate a single IP address from the GatewaySubnet range defined for the virtual network. By default, it is the second last address of the range. For example, if your GatewaySubnet is 10.12.255.0/27, ranging from 10.12.255.0 to 10.12.255.31, then the BGP Peer IP address on the Azure VPN gateway will be 10.12.255.30. You can find this information when you list the Azure VPN gateway information.
+Azure VPN 게이트웨이는 가상 네트워크에 대해 정의된 게이트웨이 서브넷 범위로부터 단일 IP 주소를 할당합니다. 기본적으로 이 값은 범위 마지막에서 두 번째의 값입니다. 예를 들어 GatewaySubnet이 10.12.255.0/27이고 범위가 10.12.255.0 ~ 10.12.255.31이라면 Azure VPN 게이트웨이의 BGP 피어 IP 주소는 10.12.255.30입니다. Azure VPN 게이트웨이 정보를 열거할 때 이 정보를 확인할 수 있습니다.
 
-### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device?"></a>What are the requirements for the BGP Peer IP addresses on my VPN device?
+### VPN 장치에서 BGP 피어 IP 주소에 대 한 요구 사항은 무엇인가요?
 
-Your on-premises BGP peer address **MUST NOT** be the same as the public IP address of your VPN device. Use a different IP address on the VPN device for your BGP Peer IP. It can be an address assigned to the loopback interface on the device. Specify this address in the corresponding Local Network Gateway representing the location.
+사용자의 온-프레미스 BGP 피어 주소는 VPN 장치의 공용 IP 주소와 **같을 수 없습니다**. VPN 장치에서 BGP 피어 IP에 다른 IP 주소를 사용합니다. 장치에서 루프백 인터페이스에 할당한 주소가 될 수 있습니다. 위치를 나타내는 해당 로컬 네트워크 게이트웨이에서 이 주소를 지정합니다.
 
-### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp?"></a>What should I specify as my address prefixes for the Local Network Gateway when I use BGP?
+### BGP를 사용할 때 로컬 네트워크 게이트웨이에 대해 내 주소 접두어로 무엇을 지정해야 하나요?
 
-Azure Local Network Gateway specifies the initial address prefixes for the on-premises network. With BGP, you must allocate the host prefix (/32 prefix) of your BGP Peer IP address as the address space for that on-premises network. If your BGP Peer IP is 10.52.255.254, you should specify "10.52.255.254/32" as the localNetworkAddressSpace of the Local Network Gateway representing this on-premises network. This is to ensure that the Azure VPN gateway establishes the BGP session through the S2S VPN tunnel.
+Azure 로컬 네트워크 게이트웨이는 온-프레미스 네트워크에 대해 초기 주소 접두어를 지정합니다. BGP를 사용할 때는 BGP 피어 IP 주소의 호스트 접두어(/32 접두어)를 온-프레미스 네트워크의 주소 공간으로 할당해야 합니다. BGP 피어 IP가 10.52.255.254라면 이 온-프레미스 네트워크를 나타내는 로컬 네트워크 게이트웨이의 localNetworkAddressSpace로 "10.52.255.254/32"를 지정해야 합니다. 이것은 Azure VPN 게이트웨이가 S2S VPN 터널을 통해 BGP 세션을 수립하도록 하기 위한 것입니다.
 
-### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session?"></a>What should I add to my on-premises VPN device for the BGP peering session?
+### BGP 피어링 세션에 대해 온-프레미스 VPN 장치에 무엇을 추가해야 하나요?
 
-You should add a host route of the Azure BGP Peer IP address on your VPN device pointing to the IPsec S2S VPN tunnel. For example, if the Azure VPN Peer IP is "10.12.255.30", you should add a host route for "10.12.255.30" with a nexthop interface of the matching IPsec tunnel interface on your VPN device.
+IPsec S2S VPN 터널을 가리키는 VPN 장치에서 Azure BGP 피어 IP 주소의 호스트 경로를 추가해야 합니다. 예를 들어, Azure VPN 피어 IP가 "10.12.255.30"이라면 VPN 장치에서 일치하는 IPsec 터널 인터페이스의 nexthop 인터페이스와 "10.12.255.30"에 대한 호스트 경로를 추가해야 합니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

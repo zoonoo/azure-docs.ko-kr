@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Adding Mobile Services by using Connected Services in Visual Studio | Microsoft Azure"
-   description="Add Mobile Services by using the Visual Studio Add Connected Services dialog box"
+   pageTitle="Visual Studio에서 연결된 서비스를 사용하여 모바일 서비스 추가 | Microsoft Azure"
+   description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 모바일 서비스 추가"
    services="visual-studio-online"
    documentationCenter="na"
    authors="mlhoop"
@@ -15,88 +15,80 @@
    ms.date="12/16/2015"
    ms.author="mlearned" />
 
+# Visual Studio 연결된 서비스를 사용하여 모바일 서비스 추가
 
-# <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Adding Mobile Services by using Visual Studio Connected Services
+Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용하여 Azure 모바일 서비스에 연결할 수 있습니다. 모든 C# 클라이언트 앱, JavaScript 앱 또는 크로스 플랫폼 Cordova 앱에서 연결할 수 있습니다. 연결되면 데이터를 만들고 액세스하고, 사용자 지정 API 및 예약된 작업을 만들거나 푸시 알림에 대한 지원을 추가합니다. 연결된 서비스 작업은 적절한 참조와 연결 코드를 모두 추가합니다. Azure AD, Facebook, Twitter 및 Microsoft 계정과 같이 여러 인기 있는 ID 스키마로 인증용 기본 제공 지원을 활용할 수도 있습니다.
 
-With Visual Studio 2015, you can connect to Azure Mobile Services using the **Add Connected Service** dialog. You can connect from any C# client app, any JavaScript app, or cross-platform Cordova app. Once you connect, you can create and access data, create custom APIs and scheduled jobs, or add support for push notifications.  The connected services operation adds all appropriate references and connection code. You can also take advantage of built-in support for authentication with a variety of popular identity schemes, such as Azure AD, Facebook, Twitter, and Microsoft Accounts.
+## 지원되는 프로젝트 형식
 
-## <a name="supported-project-types"></a>Supported Project Types
+>[AZURE.NOTE] Visual Studio 2015에서는 Windows Universal(Windows 10) 프로젝트에 Azure 모바일 서비스 추가가 지원되지 않습니다. 프로젝트에 대해 NuGet 패키지 관리자에서 적절한 패키지를 설치하여 Azure 모바일 서비스를 추가할 수 있습니다.
 
->[AZURE.NOTE] In Visual Studio 2015, adding Azure Mobile Services to a Windows Universal (Windows 10) projects by using the Add Connected Services dialog is not supported. You can add Azure Mobile Services by installing the appropriate packages using the NuGet Package Manager for your project.
+연결된 서비스 대화 상자에서 다음 프로젝트 형식으로 Azure 모바일 서비스에 연결할 수 있습니다.
 
-You can use the Connected Services dialog to connect to Azure Mobile Services in the following project types.
+- .NET Windows 8.1 Store, Phone 및 Universal 앱 프로젝트
 
-- .NET Windows 8.1 Store, Phone, and Universal App projects
+- JavaScript Windows 8.1 Store, Phone 및 Universal 앱 프로젝트
 
-- JavaScript Windows 8.1 Store, Phone, and Universal App projects
-
-- Projects created using Visual Studio Tools for Apache Cordova
+- Apache Cordova용 Visual Studio Tools를 사용하여 만든 프로젝트
 
 
-## <a name="connect-to-azure-mobile-services-using-the-add-connected-services-dialog"></a>Connect to Azure Mobile Services using the Add Connected Services dialog
+## 연결된 서비스 추가 대화 상자를 사용하여 Azure 모바일 서비스에 연결
 
-1. Make sure you have an Azure account. If you don't have an Azure account, you can sign up for a [free trial](http://go.microsoft.com/fwlink/?LinkId=518146).
+1. Azure 계정이 있어야 합니다. Azure 계정이 없으면 [무료 평가판](http://go.microsoft.com/fwlink/?LinkId=518146)에 등록할 수 있습니다.
 
-1. Open the **Add Connected Services** dialog box.
- - For .NET apps, open your project in Visual Studio, open the context menu for the **References** node in Solution Explorer, and then choose **Add Connected Service**
+1. **연결된 서비스 추가** 대화 상자를 엽니다.
+ - .NET 앱의 경우, Visual Studio에서 프로젝트를 열고, 솔루션 탐색기에서 **참조** 노드의 상황에 맞는 메뉴를 연 다음 **연결된 서비스 추가**를 선택합니다.
  
         ![Connecting to Azure Mobile Service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797635.png)
 
- - For Apache Cordova app projects, open your project in Visual Studio, open the context menu for the project node in Solution Explorer, and then choose **Add Connected Service**.
+ - Apache Cordova 앱의 경우, Visual Studio에서 프로젝트를 열고, 솔루션 탐색기에서 프로젝트 노드의 상황에 맞는 메뉴를 연 다음 **연결된 서비스 추가**를 선택합니다.
 
-1. In the **Add Connected Service** dialog box, choose **Azure Mobile Services**, and then choose the **Configure** button. You may be prompted to log into Azure if you haven't already done so.
+1. **연결 서비스 추가** 대화 상자에서 **Azure 모바일 서비스**를 선택한 다음 **구성** 단추를 선택합니다. 아직 수행하지 않은 경우 Azure에 로그인하라는 메시지가 표시될 수 있습니다.
 
-    ![Adding an Azure Mobile Service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797636.png)
+    ![Azure 모바일 서비스 추가](./media/vs-azure-tools-connected-services-add-mobile-services/IC797636.png)
 
-1. In the **Azure Mobile Services** dialog box, choose an existing mobile service if you have one. If you need to create a new Azure mobile service, follow the procedure below to do so. Otherwise, skip to the next step.
+1. **Azure 모바일 서비스** 대화 상자에서 기존 모바일 서비스가 있는 경우 이를 선택합니다. 새 Azure 모바일 서비스를 만들어야 하는 경우 이렇게 하려면 다음 절차를 따르십시오. 그렇지 않은 경우 다음 단계로 건너뜁니다.
 
-    To create a new mobile service account:
-    1. choose the **Create Service **link at the bottom of the dialog box.
-        ![Add new mobile connected service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
-
-
+    새 모바일 서비스 계정을 만들려면,
+    1. 대화 상자 맨 아래의 **서비스 만들기 **링크를 선택합니다.
+        ![새 모바일 연결된 서비스 추가](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
-    2. On the **Create Mobile Service** dialog box, you can choose a JavaScript backend mobile service, or a .NET backend mobile service from the **Runtime** drop-down list. 
+
+
+    2. **모바일 서비스 만들기** 대화 상자에서 JavaScript 백 엔드 모바일 서비스 또는 .NET 백 엔드 모바일 서비스를 **런타임** 드롭다운 목록에서 선택할 수 있습니다. 
   
-        ![Creating a mobile service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797638.png)
+        ![모바일 서비스 만들기](./media/vs-azure-tools-connected-services-add-mobile-services/IC797638.png)
 
-        A JavaScript backend service is simple and powerful. If you create a JavaScript backend mobile service, the server-side JavaScript code is stored in the cloud, but you can edit server scripts by using Server Explorer, or the Azure management portal. 
+        JavaScript 백 엔드 서비스는 단순하면서도 강력합니다. JavaScript 백 엔드 모바일 서비스를 만드는 경우 서버 측 JavaScript 코드가 클라우드에서 저장되지만 서버 탐색기 또는 Azure 관리 포털을 사용하여 서버 스크립트를 편집할 수 있습니다.
 
-        A .NET backend mobile service gives you the full power and flexibility of Web API and Entity Framework. If you create a .NET backend mobile service, a project is created for you and added to your solution. 
+        .NET 백 엔드 모바일 서비스는 Web API 및 Entity Framework의 모든 기능 및 유연성을 제공합니다. .NET 백 엔드 모바일 서비스를 만드는 경우, 프로젝트가 만들어져 솔루션에 추가됩니다.
 
-    1. Choose the **Region** where you want the mobile service, and then enter a user name and password for the server.
+    1. 모바일 서비스가 필요한 **지역**을 선택한 다음 서버에 대한 사용자 이름과 암호를 입력합니다.
  
-    1. After you've entered all the required information, choose the **Create** button to create the mobile service.
-    2. The new mobile service should appear in the service list on the **Azure Mobile Services** dialog box. Choose the new mobile service in the list and then choose the **Add** button to add the service to your project.
+    1. 필요한 모든 정보를 입력한 후 **만들기** 단추를 선택하여 모바일 서비스를 만듭니다.
+    2. 새 모바일 서비스는 **Azure 모바일 서비스** 대화 상자의 서비스 목록에 나타나야 합니다. 목록에서 새 모바일 서비스를 선택한 다음 선택는 **추가** 단추를 선택하여 프로젝트에 서비스를 추가합니다.
     
 
-1. Review the getting started page that appears and find out how your project was modified. A Getting Started page appears in your browser whenever you add a connected service. You can review the suggested next steps and code examples, or switch to the What Happened page to see what references were added to your project, and how your code and configuration files were modified.
+1. 표시되는 시작 페이지를 검토하고 프로젝트를 수정하는 방법에 대해 알아봅니다. 연결된 서비스를 추가할 때마다 시작 페이지가 브라우저에 나타납니다. 제안된 다음 단계 및 코드 예제를 검토하거나 변경된 내용 페이지로 전환하여 프로젝트에 추가된 참조 및 코드와 구성 파일이 수정된 방법을 볼 수 있습니다.
 
-1. Using the code samples as a guide, start writing code to access your mobile service!
+1. 코드 샘플을 가이드로 사용하여, 모바일 서비스에 액세스하는 코드를 작성하기 시작합니다!
 
-## <a name="how-your-project-is-modified"></a>How your project is modified
+## 프로젝트를 수정하는 방법
 
-How Visual Studio modifies your project depends on the project type. For C# client apps, see [What happend – C# projects](http://go.microsoft.com/fwlink/p/?LinkId=513119). For JavaScript client apps, see [What happened – JavaScript projects](http://go.microsoft.com/fwlink/p/?LinkId=513120). For Cordova apps, see [What happend – Cordova projects](http://go.microsoft.com/fwlink/p/?LinkId=513116).
-
-
-##<a name="next-steps"></a>Next steps
-
-Ask questions and get help: 
-
- - [MSDN Forum: Azure Mobile Services](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-
- - [Azure Mobile Services at the Microsoft Azure Team Blog](https://azure.microsoft.com/blog/topics/mobile/)
-
- - [Azure Mobile Services at azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
-
- - [Azure Mobile Services Documentation at azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
+Visual Studio가 프로젝트를 수정하는 방법은 프로젝트 형식에 따라 달라집니다. C# 클라이언트 앱의 경우 [변경된 내용 – C# 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513119)를 참조하세요. JavaScript 클라이언트 앱의 경우 [변경된 내용 – JavaScript 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513120)를 참조하세요. Cordova 앱의 경우 [변경된 내용 – Cordova 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513116)를 참조하세요.
 
 
+##다음 단계
 
+질문하고 도움 받기:
 
+ - [MSDN 포럼: Azure 모바일 서비스](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 
+ - [Microsoft Azure Team Blog의 Azure 모바일 서비스](https://azure.microsoft.com/blog/topics/mobile/)
 
-<!--HONumber=Oct16_HO2-->
+ - [azure.microsoft.com의 Azure 모바일 서비스](https://azure.microsoft.com/services/mobile-services/)
 
+ - [azure.microsoft.com의 Azure 모바일 서비스 설명서](https://azure.microsoft.com/documentation/services/mobile-services/)
 
+<!---HONumber=AcomDC_0128_2016-->

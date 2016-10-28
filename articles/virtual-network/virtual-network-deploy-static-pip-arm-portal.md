@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Deploy a VM with a static public IP using the Azure portal in Resource Manager | Microsoft Azure"
-   description="Learn how to deploy VMs with a static public IP using the zure portal in Resource Manager"
+   pageTitle="리소스 관리자에서 Azure 포털을 사용하여 고정 공용 IP로 VM 배포 | Microsoft Azure"
+   description="리소스 관리자에서 Azure 포털을 사용하여 고정 공용 IP를 사용하여 VM을 배포하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,50 +17,46 @@
    ms.date="02/04/2016"
    ms.author="jdial" />
 
-
-# <a name="deploy-a-vm-with-a-static-public-ip-using-the-azure-portal"></a>Deploy a VM with a static public IP using the Azure portal
+# Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## <a name="create-a-vm-with-a-static-public-ip"></a>Create a VM with a static public IP 
+## 고정 공용 IP를 사용하여 VM 만들기 
 
-To create a VM with a static public IP address in the Azure portal, follow the steps below.
+Azure 포털에서 고정 공용 IP 주소의 VM을 만들려면 다음 단계를 수행합니다.
 
-1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. On the top left hand corner of the portal, click **New**>>**Compute**>**Windows Server 2012 R2 Datacenter**.
-3. In the **Select a deployment model** list, select **Resource Manager** and click **Create**.
-4. In the **Basics** blade, enter the VM information as shown below, and then click **OK**.
+1. 브라우저에서 [Azure 포털](https://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+2. 포털의 왼쪽 맨 위에서 **새로 만들기**>>**계산**>**Windows Server 2012 R2 Datacenter**를 차례로 클릭합니다.
+3. **배포 모델 선택** 목록에서 **리소스 관리자**를 선택하고 **만들기**를 클릭합니다.
+4. **기본 사항** 블레이드에서 아래와 같이 VM 정보를 입력한 다음 **확인**을 클릭합니다.
 
-    ![Azure portal - Basics](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
+	![Azure 포털 - 기본 사항](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
 
-5. In the **Choose a size** blade, click **A1 Standard** as shown below, and then click **Select**.
+5. **크기 선택** 블레이드에서 아래와 같이 **A1 표준**을 클릭한 다음 **선택**을 클릭합니다.
 
-    ![Azure portal - Choose a size](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
+	![Azure 포털 - 크기 선택](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
 
-6. In the **Settings** blade, click **Public IP address**, then in the **Create public IP address** blade, under **Assignment**, click **Static** as shown below. And then click **OK**.
+6. **설정** 블레이드에서 **공용 IP 주소**를 클릭한 다음 **공용 IP 주소 만들기** 블레이드의 **할당**에서 아래와 같이 **고정**을 클릭합니다. 그런 다음 **확인**을 클릭합니다.
 
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
+	![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 
-7. In the **Settings** blade, click **OK**.
-8. Review the **Summary** blade, as shown below, and then click **OK**.
+7. **설정** 블레이드에서 **확인**을 클릭합니다.
+8. 아래와 같이 **요약** 블레이드를 검토한 다음 **확인**을 클릭합니다.
 
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
+	![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 
-9. Notice the new tile in your dashboard.
+9. 대시보드에서 새 타일을 확인합니다.
 
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
+	![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
 
-10. Once the VM is created, the **Settings** blade will be displayed as shown below
+10. VM이 만들어지면 아래와 같이 **설정** 블레이드가 표시됩니다.
 
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+	![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

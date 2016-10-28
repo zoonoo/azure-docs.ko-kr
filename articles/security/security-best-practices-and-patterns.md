@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure security best practices and patterns | Microsoft Azure"
-   description="The article provides an introduction about Azure Security Best Practices and Patterns and a curated list of security best practices for different Azure resources."
+   pageTitle="Azure 보안 모범 사례 및 패턴 | Microsoft Azure"
+   description="이 문서는 Azure 보안 모범 사례 및 패턴에 관한 소개와 다른 Azure 리소스에 대한 보안 모범 사례의 엄선된 목록을 제공합니다."
    services="azure-security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,37 +16,32 @@
    ms.date="09/16/2016"
    ms.author="terrylan"/>
 
+# Azure 보안 모범 사례 및 패턴
 
-# <a name="azure-security-best-practices-and-patterns"></a>Azure security best practices and patterns
+현재 다음과 같은 Azure 보안 모범 사례 및 패턴 문서가 있습니다. Azure 보안 모범 사례 및 패턴과 관련하여 늘어가는 목록이 업데이트되는 것을 보려면 이 사이트를 정기적으로 방문하도록 합니다.
 
-We currently have the following Azure security best practices and patterns articles. Make sure to visit this site periodically to see updates to our growing list of Azure security best practices and patterns:  
+- [Azure 네트워크 보안 모범 사례](azure-security-network-security-best-practices.md)
+- [Azure 데이터 보안 및 암호화 모범 사례](azure-security-data-encryption-best-practices.md)
+- [ID 관리 및 액세스 제어 보안 모범 사례](azure-security-identity-management-best-practices.md)
+- [사물 인터넷 보안 모범 사례](azure-security-iot-best-practices.md)
+- [Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례](azure-security-best-practices-software-updates-iaas.md)
+- [Azure 경계 보안 모범 사례](../best-practices-network-security.md)
+- [Azure에서 보안 하이브리드 네트워크 아키텍처 구현](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
-- [Azure network security best practices](azure-security-network-security-best-practices.md)
-- [Azure data security and encryption best practices](azure-security-data-encryption-best-practices.md)
-- [Identity management and access control security best practices](azure-security-identity-management-best-practices.md)
-- [Internet of Things security best practices](azure-security-iot-best-practices.md)
-- [Best practices for software update on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
-- [Azure boundary security best practices](../best-practices-network-security.md)
-- [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+Azure는 솔루션을 빌드할 수 있도록 안전한 플랫폼을 제공합니다. Azure의 솔루션을 보다 안전하게 만들기 위한 서비스와 기술도 제공합니다. 사용할 수 있는 옵션이 많기 때문에 많은 분들이 Microsoft가 보안 개선의 모범 사례 및 패턴으로 추천하는 내용에 관해 관심을 표명했습니다.
 
-Azure provides a secure platform on which you can build your solutions. We also provide services and technologies to make your solutions on Azure more secure. Because of the many options available to you, many of you have voiced an interest in what Microsoft recommends as best practices and patterns for improving security.
+여러분의 관심을 이해하여, 이를 위해 적절한 상황에서 Azure 배포의 보안을 개선하기 위해 여러분이 할 수 있는 일을 설명하는 문서 컬렉션을 만들었습니다.
 
-We understand your interest and have created a collection of documents that describe things you can do, given the right context, to improve the security of Azure deployments.
+이러한 모범 사례 및 패턴 문서에, 특정 항목에 대한 모범 사례 및 유용한 패턴 컬렉션이 설명되어 있습니다. 이러한 모범 사례 및 패턴은 이런 기술에 대한 우리 경험과 여러분 같은 고객의 경험에서 얻은 것입니다.
 
-In these best practices and patterns articles, we discuss a collection of best practices and useful patterns for specific topics. These best practices and patterns are derived from our experiences with these technologies and the experiences of customers like yourself.
+각 모범 사례에 대해 다음 사항을 설명하겠습니다.
 
-For each best practice we strive to explain:
+- 각 모범 사례
+- 해당 모범 사례를 사용해야 하는 이유
+- 해당 모범 사례를 사용하지 않을 경우에 발생할 수 있는 결과
+- 해당 모범 사례를 대체할 수 있는 대안
+- 해당 모범 사례를 사용하는 방법을 알아보는 방법
 
-- What the best practice is
-- Why you want to enable that best practice
-- What might be the result if you fail to enable the best practice
-- Possible alternatives to the best practice
-- How you can learn to enable the best practice
+Azure 보안 아키텍처 및 모범 사례에 대한 많은 문서를 갖추려고 합니다. 추가할 항목이 있으시면 이 페이지의 아래쪽에 있는 토론 영역에서 알려주세요.
 
-We look forward to including many more articles on Azure security architecture and best practices. If there are topics that you'd like us to include, let us know in the discussion area at the bottom of this page.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

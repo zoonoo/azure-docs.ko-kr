@@ -1,84 +1,83 @@
 <properties
-    pageTitle="Upgrading to Version 2 of the Text Analytics API | Microsoft Azure"
-    description="Azure Machine Learning Text Analytics - Upgrade to Version 2"
-    services="cognitive-services"
-    documentationCenter=""
-    authors="onewth"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="텍스트 분석 API 버전 2로 업그레이드 | Microsoft Azure"
+	description="Azure 기계 학습 텍스트 분석 - 버전 2로 업그레이드"
+	services="cognitive-services"
+	documentationCenter=""
+	authors="onewth"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="cognitive-services"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="onewth"/>
+	ms.service="cognitive-services"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/05/2016"
+	ms.author="onewth"/>
 
+# 텍스트 분석 API 버전 2로 업그레이드 #
 
-# <a name="upgrading-to-version-2-of-the-text-analytics-api"></a>Upgrading to Version 2 of the Text Analytics API #
+이 가이드에서는 [첫 번째 버전의 API](../machine-learning/machine-learning-apps-text-analytics.md)를 사용하는 코드를 두 번째 버전으로 업그레이드하는 프로세스를 안내합니다.
 
-This guide will take you through the process of upgrading your code from using the [first version of the API](../machine-learning/machine-learning-apps-text-analytics.md) to using the second version. 
+API를 사용해 본 적이 없는 경우 **[여기에서 API에 대해 자세히 알아보거나](//go.microsoft.com/fwlink/?LinkID=759711)** **[빠른 시작 가이드를 따르세요](//go.microsoft.com/fwlink/?LinkID=760860)**. 기술 참조는 **[API 정의](//go.microsoft.com/fwlink/?LinkID=759346)**를 참조하세요.
 
-If you have not used the API and would like to learn more, you can **[learn more about the API here](//go.microsoft.com/fwlink/?LinkID=759711)** or **[follow the Quick Start Guide](//go.microsoft.com/fwlink/?LinkID=760860)**. For technical reference, refer to the **[API Definition](//go.microsoft.com/fwlink/?LinkID=759346)**.
+### 1부. 새 키 가져오기 ###
 
-### <a name="part-1.-get-a-new-key"></a>Part 1. Get a new key ###
+먼저 **Azure 포털**에서 새 API 키를 가져와야 합니다.
 
-First, you will need to get a new API key from the **Azure Portal**:
+1. [Cortana Intelligence 갤러리](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2)를 통해 텍스트 분석 서비스로 이동합니다. 여기에는 설명서 및 코드 샘플에 대한 링크도 있습니다.
 
-1. Navigate to the Text Analytics service through the [Cortana Intelligence Gallery](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
+1. **등록**을 클릭합니다. 이 링크를 클릭하면 서비스에 등록할 수 있는 Azure 관리 포털로 이동합니다.
 
-1. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
+1. 요금제를 선택합니다. **free tier for 5,000 transactions/month(무료 계층 - 5,000개 트랜잭션/월)**을 선택할 수 있습니다. 무료 요금제이므로 서비스 사용 요금이 청구되지 않습니다. Azure 구독에 로그인해야 합니다.
 
-1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
+1. 텍스트 분석에 등록하면 **API 키**가 제공됩니다. API 서비스를 사용할 때 필요하므로 이 키를 복사해 둡니다.
 
-1. After you sign up for Text Analytics, you'll be given an **API Key**. Copy this key, as you'll need it when using the API services.
+### 2부. 헤더 업데이트 ###
 
-### <a name="part-2.-update-the-headers"></a>Part 2. Update the headers ###
+제출된 헤더 값을 아래와 같이 업데이트합니다. 계정 키는 더 이상 인코딩되지 않습니다.
 
-Update the submitted header values as shown below. Note that the account key is no longer encoded.
-
-**Version 1**
+**버전 1**
 
     Authorization: Basic base64encode(<your Data Market account key>)
     Accept: application/json
 
-**Version 2**
+**버전 2**
 
     Content-Type: application/json
     Accept: application/json
     Ocp-Apim-Subscription-Key: <your Azure Portal account key>
 
 
-### <a name="part-3.-update-the-base-url"></a>Part 3. Update the base URL ###
+### 3부. 기본 URL 업데이트 ###
 
-**Version 1**
+**버전 1**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/
 
-**Version 2**
+**버전 2**
 
     https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/
 
-### <a name="part-4a.-update-the-formats-for-sentiment,-key-phrases-and-languages"></a>Part 4a. Update the formats for sentiment, key phrases and languages ###
+### 4a부. 데이터, 키 구 및 언어에 대한 형식 업데이트 ###
 
-#### <a name="endpoints"></a>Endpoints ####
+#### 끝점 ####
 
-GET endpoints have now been deprecated, so all input should be submitted as a POST request. Update the endpoints to the ones shown below.
+GET 끝점은 이제 사용되지 않으므로 모든 입력을 POST 요청으로 제출해야 합니다. 끝점을 아래와 같은 항목으로 업데이트하세요.
 
-| |Version 1 single endpoint|Version 1 batch endpoint|Version 2 endpoint|
+| |버전 1 단일 끝점|버전 1 배치 끝점|버전 2 끝점|
 |---|---|---|---|
-|Call type|GET|POST|POST|
-|Sentiment|```GetSentiment```|```GetSentimentBatch```|```sentiment```|
-|Key phrases|```GetKeyPhrases```|```GetKeyPhrasesBatch```|```keyPhrases```|
-|Languages|```GetLanguage```|```GetLanguageBatch```|```languages```|
+|호출 유형|GET|POST|POST|
+|데이터|```GetSentiment```|```GetSentimentBatch```|```sentiment```|
+|키 구|```GetKeyPhrases```|```GetKeyPhrasesBatch```|```keyPhrases```|
+|언어|```GetLanguage```|```GetLanguageBatch```|```languages```|
 
-#### <a name="input-formats"></a>Input formats ####
+#### 입력 형식 ####
 
-Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly. Inputs are not case sensitive.
+이제 POST 형식만 허용되므로 이전에 단일 문서 끝점을 사용한 입력의 형식을 다시 지정해야 합니다. 입력은 대/소문자를 구분하지 않습니다.
 
-**Version 1 (batch)**
+**버전 1(배치)**
 
     {
       "Inputs": [
@@ -89,7 +88,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       ]
     }
 
-**Version 2**
+**버전 2**
 
     {
       "documents": [
@@ -100,9 +99,9 @@ Note that only POST format is now accepted, so you should reformat any input whi
       ]
     }
 
-#### <a name="output-from-sentiment"></a>Output from sentiment ####
+#### 데이터의 출력 ####
 
-**Version 1**
+**버전 1**
 
     {
       "SentimentBatch":[{
@@ -115,7 +114,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-**Version 2**
+**버전 2**
 
     {
       "documents":[{
@@ -128,9 +127,9 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-#### <a name="output-from-key-phrases"></a>Output from key phrases ####
+#### 키 구의 출력 ####
 
-**Version 1**
+**버전 1**
 
     {
       "KeyPhrasesBatch":[{
@@ -143,7 +142,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-**Version 2**
+**버전 2**
 
     {
       "documents":[{
@@ -156,10 +155,10 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-#### <a name="output-from-languages"></a>Output from languages ####
+#### 언어의 출력 ####
 
 
-**Version 1**
+**버전 1**
 
     {
       "LanguageBatch":[{
@@ -176,7 +175,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-**Version 2**
+**버전 2**
 
     {
       "documents":[{
@@ -194,18 +193,18 @@ Note that only POST format is now accepted, so you should reformat any input whi
     }
 
 
-### <a name="part-4b.-update-the-formats-for-topics"></a>Part 4b. Update the formats for topics ###
+### 4b부. 토픽 형식 업데이트 ###
 
-#### <a name="endpoints"></a>Endpoints ####
+#### 끝점 ####
 
-| |Version 1 endpoint | Version 2 endpoint|
+| |버전 1 끝점 | 버전 2 끝점|
 |---|---|---|
-|Submit for topic detection (POST)|```StartTopicDetection```|```topics```|
-|Fetch topic results (GET)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
+|토픽 검색을 위해 제출(POST)|```StartTopicDetection```|```topics```|
+|토픽 결과 가져오기(GET)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
 
-#### <a name="input-formats"></a>Input formats ####
+#### 입력 형식 ####
 
-**Version 1**
+**버전 1**
 
     {
       "StopWords": [
@@ -222,7 +221,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       ]
     }
 
-**Version 2**
+**버전 2**
 
     {
       "stopWords": [
@@ -239,26 +238,26 @@ Note that only POST format is now accepted, so you should reformat any input whi
       ]
     }
 
-#### <a name="submission-results"></a>Submission results ####
+#### 제출 결과 ####
 
-**Version 1 (POST)**
+**버전 1(POST)**
 
-Previously, when the job finished, you would receive the following JSON output, where the jobId would be appended to a URL to fetch the output.
+이전에는 작업이 완료된 경우 다음 JSON 출력이 제공되었습니다. 여기서 jobId는 URL에 추가되어 출력을 가져오는 데 사용됩니다.
 
     {
         "odata.metadata":"<url>",
         "JobId":"<JobId>"
     }
 
-**Version 2 (POST)**
+**버전 2(POST)**
 
-The response will now include a header value as follows, where `operation-location` is used as the endpoint to poll for the results:
+이제 응답에 다음과 같이 헤더 값이 포함됩니다. 여기서 `operation-location`은 결과에 대해 폴링할 끝점으로 사용됩니다.
 
     'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
-#### <a name="operation-results"></a>Operation results ####
+#### 작업 결과 ####
 
-**Version 1 (GET)**
+**버전 1(GET)**
 
     {
       "TopicInfo" : [{
@@ -277,11 +276,11 @@ The response will now include a header value as follows, where `operation-locati
       }]
     }
 
-**Version 2 (GET)**
+**버전 2(GET)**
 
-As before, **periodically poll the output** (the suggested period is every minute) until the output is returned. 
+이전처럼 출력이 반환될 때까지 **출력을 주기적으로 폴링**(권장 기간은 매분)합니다.
 
-When the topics API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
+토픽 API가 완료되면 `succeeded`를 나타내는 상태가 반환됩니다. 여기에는 아래와 같은 형식의 출력 결과가 포함됩니다.
 
     {
         "status": "succeeded",
@@ -305,12 +304,8 @@ When the topics API has finished, a status reading `succeeded` will be returned.
         }
     }
 
-### <a name="part-5.-test-it!"></a>Part 5. Test it! ###
+### 5부. 테스트! ###
 
-You should now be good to go! Test your code with a small sample to ensure that you can successfully process your data.
+이제 테스트해 볼 수 있습니다. 작은 샘플로 코드를 테스트하여 데이터를 성공적으로 처리할 수 있는지 확인합니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,120 +1,115 @@
 <properties 
-    pageTitle="Use Logic App features | Microsoft Azure" 
-    description="Learn how to use the advanced features of logic apps." 
-    authors="stepsic-microsoft-com" 
-    manager="erikre" 
-    editor="" 
-    services="logic-apps" 
-    documentationCenter=""/>
+	pageTitle="논리 앱 기능 사용 | Microsoft Azure" 
+	description="논리 앱의 고급 기능을 사용하는 방법을 알아봅니다." 
+	authors="stepsic-microsoft-com" 
+	manager="erikre" 
+	editor="" 
+	services="logic-apps" 
+	documentationCenter=""/>
 
 <tags
-    ms.service="logic-apps"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="stepsic"/> 
-    
+	ms.service="logic-apps"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/28/2016"
+	ms.author="stepsic"/>
+	
+# 논리 앱 기능 사용
 
-# <a name="use-logic-apps-features"></a>Use Logic Apps features
+[이전 항목](app-service-logic-create-a-logic-app.md)에서는 첫 번째 논리 앱을 만들었습니다. 이제 앱 서비스 논리 앱을 사용하여 보다 완전한 프로세스를 빌드하는 방법을 설명하겠습니다. 이 항목에서는 다음과 같은 새 논리 앱 개념을 소개합니다.
 
-In the [previous topic](app-service-logic-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
+- 조건부 논리 - 특정 조건이 충족될 때만 작업을 실행합니다.
+- 기존 논리 앱을 편집하기 위한 코드 보기.
+- 워크플로 시작 옵션.
 
-- Conditional logic, which executes an action only when a certain condition is met.
-- Code view to edit an existing logic app.
-- Options for starting a workflow.
+이 항목을 완료하기 전에 [새 논리 앱 만들기](app-service-logic-create-a-logic-app.md)의 단계를 완료해야 합니다. [Azure 포털]에서 논리 앱을 찾은 다음 요약에서 **트리거 및 동작**을 클릭하여 논리 앱 정의를 편집합니다.
 
-Before you complete this topic, you should complete the steps in [Create a new logic app](app-service-logic-create-a-logic-app.md). In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
+## 참조 자료
 
-## <a name="reference-material"></a>Reference material
+유용한 다음 문서를 볼 수 있습니다.
 
-You may find the following documents useful:
+- [관리와 런타임 REST API](https://msdn.microsoft.com/library/azure/mt643787.aspx) - 논리 앱을 직접 호출 하는 방법 포함
+- [언어 참조](https://msdn.microsoft.com/library/azure/mt643789.aspx) - 모든 지원 되는 함수/식의 포괄적인 목록
+- [트리거 및 작업 형식](https://msdn.microsoft.com/library/azure/mt643939.aspx) - 다양한 유형의 동작 및 동작에 필요한 입력
+- [앱 서비스의 개요](../app-service/app-service-value-prop-what-is.md) - 솔루션을 구축하는 시점을 선택하는 구성 요소의 설명
 
-- [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/mt643787.aspx) - including how to invoke Logic apps directly
-- [Language reference](https://msdn.microsoft.com/library/azure/mt643789.aspx) - a comprehensive list of all supported functions/expressions
-- [Trigger and action types](https://msdn.microsoft.com/library/azure/mt643939.aspx) - the different types of actions and the inputs they take
-- [Overview of App Service](../app-service/app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
+## 조건부 논리 추가
 
-## <a name="adding-conditional-logic"></a>Adding conditional logic
-
-Although the original flow works, there are some areas that could be improved. 
+원래 흐름이 제대로 작동해도 향상시킬 수 있는 일부 영역이 있습니다.
 
 
-### <a name="conditional"></a>Conditional
-This logic app may result in you getting a lot of emails. The following steps add logic to make sure that you only receive an email when the tweet comes from someone with a certain number of followers. 
+### 조건부
+이 논리 앱에서는 많은 전자 메일을 받을 수 있습니다. 다음 단계에서는 특정 수의 팔로워를 보유한 사람으로부터 트윗이 제공된 경우에만 메일을 받도록 하는 논리를 추가합니다.
 
-1. Click the plus and find the action *Get User* for Twitter.
+1. 더하기를 클릭하고 Twitter에 대한 *Get User* 작업을 찾습니다.
 
-2. Pass in the **Tweeted by** field from the trigger to get the information about the Twitter user.
+2. Twitter 사용자에 대한 정보를 가져오기 위해 트리거에서 **Tweeted by** 필드를 전달합니다.
 
-    ![Get user](./media/app-service-logic-use-logic-app-features/getuser.png)
+	![사용자 가져오기](./media/app-service-logic-use-logic-app-features/getuser.png)
 
-3. Click the plus again, but this time select **Add Condition**
+3. 더하기를 다시 클릭하되 이번에는 **Add Condition**을 선택합니다.
 
-4. In the first box, click the **...** underneath **Get User** to find the **Followers count** field.
+4. 첫 번째 상자에서 **Get User** 아래의 **...**를 클릭하여 **Followers count** 필드를 찾습니다.
 
-5. In the dropdown, select **Greater than**
+5. 드롭다운에서 **Greater than**을 선택합니다.
 
-6. In the second box type the number of followers you want users to have.
+6. 두 번째 상자에서 원하는 사용자의 팔로워 수를 입력합니다.
 
-    ![Conditional](./media/app-service-logic-use-logic-app-features/conditional.png)
+	![조건부](./media/app-service-logic-use-logic-app-features/conditional.png)
 
-7.  Finally, drag-and-drop the email box into the **If Yes** box. This will mean you'll only get emails when the follower count is met.
+7.  마지막으로 전자 메일 상자를 **If Yes** 상자로 끌어 놓습니다. 그러면 팔로워 수가 충족되는 경우에만 전자 메일이 제공됩니다.
 
-## <a name="repeating-over-a-list-with-foreach"></a>Repeating over a list with forEach
+## forEach를 포함한 목록 반복
 
-The forEach loop specifies an array to repeat an action over. If it is not an array the flow fails. As an example, if you have action1 that outputs an array of messages, and you want to send each message, you can include this forEach statement in the properties of your action: forEach : "@action('action1').outputs.messages"
+forEach 루프는 작업을 반복하는 배열을 지정합니다. 배열이 아닌 경우 흐름이 실패합니다. 예를 들어 메시지의 배열을 출력하는 동작1이 있고 각 메시지를 전송하려는 경우 이 forEach 문을 작업의 속성에서 포함할 수 있습니다: forEach : "@action('action1').outputs.messages"
  
 
-## <a name="using-the-code-view-to-edit-a-logic-app"></a>Using the code view to edit a Logic App
+## 코드 보기를 사용하여 논리 앱 편집
 
-In addition to the designer, you can directly edit the code that defines a logic app, as follows. 
+디자이너 외에도 논리 앱을 정의하는 코드를 다음과 같이 직접 편집할 수 있습니다.
 
-1. Click on the **Code view** button in the command bar. 
+1. 명령 모음에서 **코드 보기** 단추를 클릭합니다.
 
-    This opens a full editor that shows the definition you just edited.
+	방금 편집한 정의를 표시하는 전체 편집기가 열립니다.
 
-    ![Code view](./media/app-service-logic-use-logic-app-features/codeview.png)
+	![코드 보기](./media/app-service-logic-use-logic-app-features/codeview.png)
 
-    By using the text editor, you can copy and paste any number of actions within the same logic app or between logic apps. You can also easily add or remove entire sections from the definition, and you can also share definitions with others.
+    텍스트 편집기를 사용하여 동일한 논리 앱 내에서 또는 논리 앱 간에 작업을 개수 제한 없이 복사 및 붙여넣을 수 있습니다. 정의에서 전체 섹션을 쉽게 추가하거나 제거하고 정의를 다른 사람들과 공유할 수도 있습니다.
 
-2. After you make your changes in code view, simply click **Save**. 
+2. 코드 보기에서 변경한 후 **저장**을 클릭하기만 하면 됩니다.
 
-### <a name="parameters"></a>Parameters
-There are some capabilities of Logic Apps that can only be used in the code view. One example of these is parameters. Parameters make it easy to re-use values throughout your logic app. For example, if you have an email address that you want use in several actions, you should define it as a parameter.
+### 매개 변수
+코드 보기에서만 사용할 수 있는 논리 앱의 몇 가지 기능이 있습니다. 한 가지 예로 매개 변수가 있습니다. 매개 변수를 통해 논리 앱 전체에서 쉽게 값을 다시 사용할 수 있습니다. 예를 들어 여러 작업에서 사용할 메일 주소가 있는 경우 해당 주소를 매개 변수로 정의해야 합니다.
 
-The following updates your existing logic app to use parameters for the query term.
+다음 단계에서는 쿼리 용어에 매개 변수를 사용하도록 기존 논리 앱을 업데이트합니다.
 
-1. In the code view, locate the `parameters : {}` object and insert the following topic object:
+1. 코드 보기에서 `parameters : {}` 개체를 찾아 다음 topic 개체를 삽입합니다.
 
-        "topic" : {
-            "type" : "string",
-            "defaultValue" : "MicrosoftAzure"
-        }
+	    "topic" : {
+		    "type" : "string",
+		    "defaultValue" : "MicrosoftAzure"
+	    }
     
-2. Scroll to the `twitterconnector` action, locate the query value, and replace it with `#@{parameters('topic')}`.
-    You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
+2. `twitterconnector` 동작으로 스크롤하고 쿼리 값을 찾은 다음 `#@{parameters('topic')}`으로 바꿉니다. **concat** 함수를 사용하여 둘 이상의 문자열을 함께 조인할 수 있습니다. 예를 들어 `@concat('#',parameters('topic'))`는 위의 동일합니다
  
-Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](https://msdn.microsoft.com/library/mt643787.aspx).
+매개 변수는 자주 변경하는 값을 끌어오는 좋은 방법입니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법에 대한 자세한 내용은 [REST API 설명서](https://msdn.microsoft.com/library/mt643787.aspx)를 참조하세요.
 
-Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
+이제 **저장**을 클릭하면 리트윗이 5개를 초과한 새 트윗은 매시간마다 Dropbox의 **tweets** 폴더로 배달됩니다.
 
-To learn more about Logic App definitions, see [author Logic App definitions](app-service-logic-author-definitions.md).
+논리 앱 정의에 대해 더 알아보려면 [논리 응용 프로그램 정의 작성](app-service-logic-author-definitions.md)을 참조하십시오.
 
-## <a name="starting-a-logic-app-workflow"></a>Starting a logic app workflow
-There are several different options for starting the workflow defined in you logic app. A workflow can always be started on-demand in the [Azure portal].
+## 논리 앱 워크플로 시작
+논리 앱에 정의된 워크플로를 시작하는 여러 가지 옵션이 있습니다. [Azure 포털]에서 요청 시 언제든지 워크플로를 시작할 수 있습니다.
 
-### <a name="recurrence-triggers"></a>Recurrence triggers
-A recurrence trigger runs at an interval that you specify. When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run. A trigger indicates it should run by returning a `200` status code. When it does not need to run, it returns a `202` status code.
+### 되풀이 트리거
+되풀이 트리거는 지정한 간격마다 실행됩니다. 트리거에 조건부 논리가 있을 경우 트리거가 워크플로를 실행할지 여부를 결정합니다. 트리거는 `200` 상태 코드를 반환하여 워크플로를 실행하도록 지정합니다. 실행할 필요가 없는 경우 `202` 상태 코드를 반환합니다.
 
-### <a name="callback-using-rest-apis"></a>Callback using REST APIs
-Services can call a logic app endpoint to start a workflow. See [Logic apps as callable endpoints](app-service-logic-connector-http.md) for more information. To start that kind of logic app on-demand, click the **Run now** button on the command bar. 
+### REST API를 사용한 콜백
+서비스에서 논리 앱 끝점을 호출하여 워크플로를 시작할 수 있습니다. 자세한 내용은 [호출 가능 끝점인 논리 앱](app-service-logic-connector-http.md)을 참조하세요. 요청 시 이러한 종류의 논리 앱을 시작하려면 명령 모음에서 **지금 실행** 단추를 클릭합니다.
 
 <!-- Shared links -->
-[Azure portal]: https://portal.azure.com 
+[Azure 포털]: https://portal.azure.com
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

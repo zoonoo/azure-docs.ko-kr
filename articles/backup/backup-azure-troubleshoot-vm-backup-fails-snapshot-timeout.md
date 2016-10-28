@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out | Microsoft Azure"
-   description="Symptoms causes and resolutions for Azure VM backup failures related to could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out error"
+   pageTitle="Azure VM 백업 실패: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없음 - 스냅숏 VM 하위 작업 시간 초과 | Microsoft Azure"
+   description="Azure VM 백업 실패에 대한 증상 원인 및 해결 방법은 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없는 문제와 관련이 있습니다. 스냅숏 VM 하위 작업 시간 초과 오류"
    services="backup"
    documentationCenter=""
    authors="genlin"
@@ -16,129 +16,124 @@
     ms.date="07/14/2016"
     ms.author="jimpark; markgal;genli"/>
 
+# Azure VM 백업 실패: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없음 - 스냅숏 VM 하위 작업 시간 초과
 
-# <a name="azure-vm-backup-fails:-could-not-communicate-with-the-vm-agent-for-snapshot-status---snapshot-vm-sub-task-timed-out"></a>Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
+## 요약
 
-## <a name="summary"></a>Summary
-
-After registering and scheduling a Virtual Machine (VM) for Azure Backup, the Azure Backup service initiates the backup job at the scheduled time by communicating with the backup extension in the VM to take a point-in-time snapshot. There are conditions that may prevent the snapshot from being triggered which leads to a backup failure. This article provides troubleshooting steps for issues related to Azure VM backup failures related to snapshot time out error.
+Azure 백업에 대한 VM(가상 컴퓨터)을 등록 및 예약 후, Azure 백업 서비스는 지정 시간 스냅숏을 생성하는 VM에서 백업 확장과 통신하여 예약된 시간에 백업 작업을 시작합니다. 스냅숏이 트리거되어 백업이 실패하지 않도록 해야 하는 조건이 있습니다. 이 문서에서는 스냅숏 시간 초과 오류와 관련된 Azure VM 백업 오류 관련 문제에 대한 문제 해결 단계를 제공합니다.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="symptom"></a>Symptom
+## 증상
 
-Microsoft Azure Backup for infrastructure as a service (IaaS) VM fails and returns the following error message in the job error details in Azure Portal.
+IaaS(서비스 제공 인프라) VM에 대한 Microsoft Azure 백업이 실패하면 Azure 포털의 작업 오류 세부 정보에 다음 오류 메시지가 반환됩니다.
 
-**Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out.**
+**스냅숏 상태에 대해 VM 에이전트와 통신할 수 없습니다. 스냅숏 VM 하위 작업이 시간 초과되었습니다.**
 
-## <a name="cause"></a>Cause
-There are four common causes for this error:
+## 원인
+이 오류의 일반적인 원인은 다음과 같이 네 가지가 있습니다.
 
-- The VM does not have Internet access.
-- The Microsoft Azure VM agent installed in the VM is out of date (for Linux VMs).
-- The backup extension fails to update or load.
-- The snapshots status cannot be retrieved or the snapshots cannot be taken.
+- VM이 인터넷에 액세스할 수 없습니다.
+- VM에 설치된 Microsoft Azure VM 에이전트가 최신이 아닙니다(Linux VM의 경우).
+- 백업 확장을 업데이트 또는 로드할 수 없습니다.
+- 스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.
 
-## <a name="cause-1:-the-vm-does-not-have-internet-access"></a>Cause 1: The VM does not have Internet access
-Per the deployment requirement, the VM has no Internet access, or has restrictions in place that prevent access to the Azure infrastructure.
+## 원인 1: VM이 인터넷에 액세스할 수 없습니다.
+배포 요구 사항에 따라 VM이 인터넷에 연결되어 있지 않거나 Azure 인프라에 대한 액세스를 차단하는 위치에 대한 제한 사항이 있습니다.
 
-The backup extension requires connectivity to the Azure public IP addresses to function correctly. This is because it sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. If the extension does not have access to the public Internet, the backup eventually fails.
+백업 확장이 제대로 작동하려면 Azure 공용 IP 주소에 연결되어야 하는데 이는 VM의 스냅숏을 관리하도록 Azure 저장소 끝점(HTTP URL)에 명령을 보내기 때문입니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 백업은 결국 실패합니다.
 
-### <a name="solution"></a>Solution
-In this scenario, use one of the following methods to resolve the issue:
+### 해결 방법
+이 시나리오에서 문제를 해결하려면 다음 방법 중 하나를 사용합니다.
 
-- Whitelist the Azure datacenter IP ranges
-- Create a path for HTTP traffic to flow
+- Azure 데이터 센터 IP 범위 허용 목록
+- HTTP 트래픽을 보내는 경로 만들기
 
-### <a name="to-whitelist-the-azure-datacenter-ip-ranges"></a>To whitelist the Azure datacenter IP ranges
+### Azure 데이터 센터 IP 범위 허용 목록에 추가하려면
 
-1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be whitelisted.
-2. Unblock the IPs by using the New-NetRoute cmdlet. Run this cmdlet in the Azure VM in an elevated PowerShell window (run as Administrator).
-3. Add rules to the Network Security Group (NSG) if you have one to allow access to the IPs.
+1. 허용 목록에 추가된 [Azure 데이터 센터 IP 목록](https://www.microsoft.com/download/details.aspx?id=41653)을 가져옵니다.
+2. New-NetRoute cmdlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창(관리자 권한으로 실행)의 Azure VM 내에서 이 cmdlet을 실행합니다.
+3. NSG(네트워크 보안 그룹)가 있는 경우 IP에 대한 액세스를 허용하도록 NSG에 규칙을 추가합니다.
 
-### <a name="to-create-a-path-for-http-traffic-to-flow"></a>To create a path for HTTP traffic to flow
+### HTTP 트래픽을 보내는 경로를 만들려면
 
-1. If you have network restrictions in place (for example, an NSG), deploy an HTTP proxy server to route the traffic.
-2. If you have a network security group (NSG), add rules to allow access to the Internet from the HTTP proxy.
+1. 네트워크 제한이 있는 경우(예: NSG) 트래픽을 라우트하는 HTTP 프록시 서버를 배포합니다.
+2. NSG(네트워크 보안 그룹)가 있는 경우 HTTP 프록시에서 인터넷에 액세스할 수 있도록 규칙을 추가합니다.
 
-Learn how to [set up an HTTP proxy for VM backups](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+[VM 백업에 HTTP 프록시를 설정](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups)하는 방법에 대해 알아봅니다.
 
-## <a name="cause-2:-the-microsoft-azure-vm-agent-installed-in-the-vm-is-out-of-date-(for-linux-vms)"></a>Cause 2: The Microsoft Azure VM agent installed in the VM is out of date (for Linux VMs)
+## 원인 2: VM에 설치된 Microsoft Azure VM 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-### <a name="solution"></a>Solution
-Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an old VM agent. As a general guideline, the first steps to troubleshoot this issue are the following:
+### 해결 방법
+Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 일반적인 지침으로 이 문제를 해결하는 첫 번째 단계는 다음과 같습니다.
 
-1. [Install the latest Azure VM agent](https://github.com/Azure/WALinuxAgent).
-2. Make sure that the Azure agent is running on the VM. To do this, run the following command:     ```ps -e```
+1. [최신 Azure VM 에이전트를 설치합니다](https://github.com/Azure/WALinuxAgent).
+2. VM에 Azure 에이전트가 실행 중인지 확인합니다. 이렇게 하려면 다음 명령을 실행합니다. ```ps -e```
 
-    If this process is not running, use the following commands to restart it.
+    이 프로세스가 실행되고 있지 않으면 다음 명령을 사용하여 다시 시작합니다.
 
-    For Ubuntu:     ```service walinuxagent start```
+    Ubuntu의 경우: ```service walinuxagent start```
 
-    For other distributions:     ```service waagent start
+    기타 배포의 경우: ```service waagent start
 ```
 
-3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
+3. [에이전트 자동 다시 시작을 구성합니다](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 
-4. Run a new test backup. If the failures persist, please collect logs from the following folders for further debugging.
+4. 새 테스트 백업을 실행합니다. 오류가 지속되면 추가 디버깅을 위해 다음 폴더에서 로그를 수집합니다.
 
-    We require the following logs from the customer’s VM:
+    고객의 VM에서 다음 로그가 필요합니다.
 
     - /var/lib/waagent/*.xml
     - /var/log/waagent.log
     - /var/log/azure/*
 
-If we require verbose logging for waagent, follow these steps to enable this:
+waagent의 자세한 로깅이 필요한 경우 다음 단계에 따라 사용하도록 설정합니다.
 
-1. In the /etc/waagent.conf file, locate the following line:
+1. /etc/waagent.conf 파일에서 다음 줄을 찾습니다.
 
     Enable verbose logging (y|n)
 
-2. Change the **Logs.Verbose** value from n to y.
-3. Save the change, and then restart waagent by following the previous steps in this section.
+2. **Logs.Verbose** 값을 n에서 y로 변경합니다.
+3. 변경 내용을 저장하고 이 섹션의 이전 단계를 수행하여 waagent를 다시 시작합니다.
 
-## Cause 3: The backup extension fails to update or load
-If extensions cannot be loaded, then Backup fails because a snapshot cannot be taken.
+## 원인 3: 백업 확장을 업데이트 또는 로드할 수 없습니다.
+확장을 로드할 수 없는 경우 스냅숏을 만들 수 없기 때문에 백업이 실패합니다.
 
-### Solution
-For Windows guests:
+### 해결 방법
+Windows 게스트의 경우:
 
-1. Verify that the iaasvmprovider service is enabled and has a startup type of automatic.
-2. If this is not the configuration, enable the service to determine whether the next backup succeeds.
+1. Iaasvmprovider 서비스가 사용하도록 설정되어 있는지와 자동 시작 유형인지를 확인합니다.
+2. 이렇게 구성되어 있지 않으면 서비스를 사용하도록 설정하여 다음 백업 성공 여부를 결정합니다.
 
-For Linux guests:
+Linux 게스트:
 
-The latest version of VMSnapshot Linux (extension used by backup) is 1.0.91.0
+VMSnapshot Linux 최신 버전(백업에 사용되는 확장)은 1.0.91.0입니다.
 
-If the backup extension still fails to update or load, you can force the VMSnapshot extension to be reloaded by uninstalling the extension. The next backup attempt will reload the extension.
+백업 확장을 여전히 업데이트 또는 로드할 수 없는 경우 확장을 제거하여 VMSnapshot 확장이 다시 로드되도록 할 수 있습니다. 다음 백업 시도 시 확장이 다시 로드됩니다.
 
-### To uninstall the extension
+### 확장을 제거하려면
 
-1. Go to the [Azure portal](https://portal.azure.com/).
-2. Locate the particular VM that has backup problems.
-3. Click **Settings**.
-4. Click **Extensions**.
-5. Click **Vmsnapshot Extension**.
-6. Click **uninstall**.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
+2. 백업 문제가 있는 특정 VM을 찾습니다.
+3. **설정**을 클릭합니다.
+4. **확장**을 클릭합니다.
+5. **Vmsnapshot 확장**을 클릭합니다.
+6. **제거**를 클릭합니다.
 
-This will cause the extension to be reinstalled during the next backup.
+이렇게 하면 다음 백업 동안 확장을 다시 설치해야 합니다.
 
-## Cause 4: The snapshots status cannot be retrieved or the snapshots cannot be taken
-VM backup relies on issuing snapshot command to underlying storage. The backup can fail because it has no access to storage or because of a delay in snapshot task execution.
+## 원인 4: 스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.
+VM 백업은 기본 저장소에 대한 스냅숏 명령 실행을 사용합니다. 저장소에 액세스할 수 없거나 스냅숏 작업 실행이 지연되기 때문에 백업이 실패할 수 있습니다.
 
-### Solution
-The following conditions can cause snapshot task failure:
+### 해결 방법
+다음 조건으로 인해 스냅숏 작업 오류가 발생할 수 있습니다.
 
-| Cause | Solution |
+| 원인 | 해결 방법 |
 | ----- | ----- |
-| VMs that have Microsoft SQL Server Backup configured. By default, VM Backup runs a VSS Full backup on Windows VMs. On VMs that are running SQL Server-based servers and on which SQL Server Backup is configured, snapshot execution delays may occur. | Set following registry key if you are experiencing backup failures because of snapshot issues.<br><br>[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE" |
-| VM status is reported incorrectly because the VM is shut down in RDP. If you shut down the virtual machine in RDP, check the portal to determine whether that VM status is reflected correctly. | If it’s not, shut down the VM in the portal by using the ”Shutdown” option in the VM dashboard. |
-| Many VMs from the same cloud service are configured to back up at the same time. | It’s a best practice to spread out the VMs from the same cloud service to have different backup schedules. |
-| The VM is running at high CPU or memory usage. | If the VM is running at high CPU usage (more than 90 percent) or high memory usage, the snapshot task is queued and delayed and eventually times out. In this situation, try on-demand backup. |
-|The VM cannot get host/fabric address from DHCP.|DHCP must be enabled inside the guest for IaaS VM Backup to work.  If the VM cannot get host/fabric address from DHCP response 245, then it cannot download ir run any extensions. If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled. View more information about [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md).|
+| Microsoft SQL Server가 있는 VM 백업이 구성되었습니다. 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 실행합니다. SQL Server 기반 서버를 실행하고 SQL Server 백업이 구성된 VM에서 스냅숏 실행이 지연될 수 있습니다. | 스냅숏 문제로 인해 백업이 실패하면 다음 레지스트리 키를 설정하세요.<br><br>[HKEY\_LOCAL\_MACHINE\\SOFTWARE\\MICROSOFT\\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE" |
+| VM이 RDP에서 종료되므로 VM 상태가 잘못 보고됩니다. RDP에서 가상 컴퓨터를 종료하는 경우 VM 상태가 올바르게 반영되는지 여부를 확인하려면 포털을 확인합니다. | 그러지 않은 경우 VM 대시보드의 "종료" 옵션을 사용하여 포털에서 VM을 종료합니다. |
+| 동일한 클라우드 서비스에서 여러 VM이 동시에 백업하도록 구성됩니다. | 다른 백업 일정을 갖도록 동일한 클라우드 서비스에서 VM을 분산하는 것이 모범 사례입니다. |
+| VM이 사용량이 높은 CPU 또는 메모리에서 실행 중입니다. | VM이 사용량이 높은 CPU(90% 이상) 또는 메모리에서 실행 중인 경우 스냅숏 작업이 큐에 대기 및 지연되어 결국 시간 초과됩니다. 이 상황에서는 주문형 백업을 시도하세요. |
+|VM이 DHCP에서 호스트/패브릭 주소를 가져올 수 없습니다.|IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트/패브릭 주소를 가져올 수 없는 경우에는 어떤 확장도 다운로드하거나 실행할 수 없습니다. 고정 개인 IP가 필요한 경우 플랫폼을 통해 구성해야 합니다. VM 내 DHCP 옵션은 사용 가능한 상태로 두어야 합니다. [고정 내부 개인 IP 설정](../virtual-network/virtual-networks-reserved-private-ip.md)에 대한 자세한 내용을 확인합니다.|
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

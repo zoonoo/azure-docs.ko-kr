@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Custom Script extension on a Windows VM | Microsoft Azure"
-   description="Automate Azure VM configuration tasks by using the Custom Script extension to run PowerShell scripts on a remote Windows VM"
+   pageTitle="Windows VM의 사용자 지정 스크립트 확장 | Microsoft Azure"
+   description="사용자 지정 스크립트 확장을 통해 원격 Windows VM에서 PowerShell 스크립트를 실행하여 Azure VM 구성 작업을 자동화합니다."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
@@ -17,33 +17,32 @@
    ms.date="08/06/2015"
    ms.author="kundanap"/>
 
+# Windows 가상 컴퓨터용 사용자 지정 스크립트 확장
 
-# <a name="custom-script-extension-for-windows-virtual-machines"></a>Custom Script extension for Windows virtual machines
+이 문서에서는 Azure Service Management API와 함께 Azure PowerShell cmdlet을 사용하여 Windows VM에서 사용자 지정 스크립트 확장을 사용하는 방법을 간략하게 설명합니다.
 
-This article gives an overview of how to use the Custom Script extension on Windows VMs by using Azure PowerShell cmdlets with Azure Service Management APIs.
+VM(가상 컴퓨터) 확장은 VM의 기능을 확장하기 위해 Microsoft 및 신뢰할 수 있는 타사 게시자가 작성하는 기능입니다. VM 확장의 개요는 [Azure VM 확장 및 기능](virtual-machines-windows-extensions-features.md)을 참조하세요.
 
-Virtual machine (VM) extensions are built by Microsoft and trusted third-party publishers to extend the functionality of the VM. For an overview of VM extensions, see [Azure VM extensions and features](virtual-machines-windows-extensions-features.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-machines-windows-extensions-customscript.md)하는 방법을 알아봅니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps by using the Resource Manager model](virtual-machines-windows-extensions-customscript.md).
+## 사용자 지정 스크립트 확장 개요
 
-## <a name="custom-script-extension-overview"></a>Custom Script extension overview
+Windows용 사용자 지정 스크립트 확장을 사용하면 로그인하지 않고도 원격 VM에서 PowerShell 스크립트를 실행할 수 있습니다. 스크립트는 VM을 프로비전한 이후에 실행할 수도 있고 추가 포트를 열지 않고도 VM 수명 주기 중에 언제든지 실행할 수 있습니다. 사용자 지정 스크립트 확장은 VM 프로비전된 후에 작업에서 추가 소프트웨어를 실행, 설치 및 구성할 때 가장 흔히 사용됩니다.
 
-With the Custom Script extension for Windows, you can run PowerShell scripts on a remote VM without signing in to it. You can run the scripts after provisioning the VM, or at any time during the lifecycle of the VM without opening any additional ports. The most common use cases for running Custom Script extension include running, installing, and configuring additional software on the VM after it's provisioned.
+### 사용자 지정 스크립트 확장을 실행하기 위한 필수 조건
 
-### <a name="prerequisites-for-running-the-custom-script-extension"></a>Prerequisites for running the Custom Script extension
+1. <a href="http://azure.microsoft.com/downloads" target="_blank">Azure PowerShell cmdlet</a> 버전 0.8.0 이상을 설치합니다.
+2. 기존 VM에서 스크립트를 실행하는 경우 VM에서 VM 에이전트를 사용할 수 있는지 확인합니다. 설치되지 않은 경우 다음 [단계](virtual-machines-windows-classic-agents-and-extensions.md)를 따릅니다. Azure 포털에서 VM을 만든 경우 VM 에이전트가 기본적으로 설치됩니다.
+3. VM에서 실행할 스크립트를 Azure 저장소에 업로드합니다. 단일 컨테이너 또는 여러 저장소 컨테이너의 스크립트를 업로드할 수 있습니다.
+4. 확장을 통해 시작되는 엔트리 스크립트가 다른 스크립트를 시작하는 방식으로 스크립트를 작성해야 합니다.
 
-1. Install <a href="http://azure.microsoft.com/downloads" target="_blank">Azure PowerShell cmdlets</a> version 0.8.0 or later.
-2. If you want the scripts to run on an existing VM, make sure VM Agent is enabled on the VM. If it is not installed, follow these  [steps](virtual-machines-windows-classic-agents-and-extensions.md). If the VM is created from the Azure portal, then VM Agent is installed by default.
-3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single container or multiple storage containers.
-4. The script should be authored so that the entry script, which is started by the extension, starts other scripts.
+## 사용자 지정 스크립트 확장 시나리오
 
-## <a name="custom-script-extension-scenarios"></a>Custom Script extension scenarios
+### 기본 컨테이너에 파일 업로드
 
-### <a name="upload-files-to-the-default-container"></a>Upload files to the default container
+다음 예제에서는 구독 기본 계정의 저장소 컨테이너에 스크립트가 있는 경우 VM에서 해당 스크립트를 실행하는 방법을 보여 줍니다. ContainerName에 스크립트를 업로드합니다. **Get-AzureSubscription –Default** 명령을 사용하여 기본 저장소 계정을 확인할 수 있습니다.
 
-The following example shows how you can run your scripts on the VM if they are in the storage container of the default account of your subscription. You upload your scripts to ContainerName. You can verify the default storage account by using the **Get-AzureSubscription –Default** command.
-
-The following example creates a VM, but you can also run the same scenario on an existing VM.
+다음 예제에서는 VM을 만들지만 기존 VM에서도 동일한 시나리오를 실행할 수 있습니다.
 
     # Create a new VM in Azure.
     $vm = New-AzureVMConfig -Name $name -InstanceSize Small -ImageName $imagename
@@ -58,41 +57,37 @@ The following example creates a VM, but you can also run the same scenario on an
     # Use the position of the extension in the output as index.
     $vm.ResourceExtensionStatusList[i].ExtensionSettingStatus.SubStatusList
 
-### <a name="upload-files-to-a-non-default-storage-container"></a>Upload files to a non-default storage container
+### 기본 저장소 컨테이너가 아닌 컨테이너에 파일 업로드
 
-This scenario shows how to use a non-default storage container within the same subscription or in a different subscription for uploading scripts and files. This example shows an existing VM, but the same operations can be done while you're creating a VM.
+이 시나리오에서는 스크립트 및 파일 업로드용으로 같은 구독이나 다른 구독 내의 기본 저장소가 아닌 저장소 컨테이너를 사용하는 방법을 보여 줍니다. 이 예제에서는 기존 VM을 사용하지만 새 VM을 만들 때도 같은 작업을 수행할 수 있습니다.
 
         Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileName 'file1.ps1','file2.ps1' -Run 'file.ps1' | Update-AzureVM
 
-### <a name="upload-scripts-to-multiple-containers-across-different-storage-accounts"></a>Upload scripts to multiple containers across different storage accounts
+### 다른 저장소 계정의 여러 컨테이너에 스크립트 업로드
 
-  If the script files are stored across multiple containers, you have to provide the full shared access signatures (SAS) URL for the files to run the scripts.
+  스크립트 파일이 여러 컨테이너에 저장되어 있는 경우 해당 스크립트를 실행하려면 파일의 전체 SAS(공유 액세스 서명) URL을 제공해야 합니다.
 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### <a name="add-the-custom-script-extension-from-the-azure-portal"></a>Add the Custom Script extension from the Azure portal
+### Azure 포털에서 사용자 지정 스크립트 확장 추가
 
-Go to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure portal</a> and add the extension by specifying the script file to run.
+<a href="https://portal.azure.com/ " target="_blank">Azure 포털</a>에서 VM으로 이동한 다음 실행할 스크립트 파일을 지정하여 확장을 추가합니다.
 
-  ![Specify the script file][5]
+  ![스크립트 파일 지정][5]
 
 
-### <a name="uninstall-the-custom-script-extension"></a>Uninstall the Custom Script extension
+### 사용자 지정 스크립트 확장 제거
 
-You can uninstall the Custom Script extension from the VM by using the following command.
+다음 명령을 사용하여 VM에서 사용자 지정 스크립트 확장을 제거할 수 있습니다.
 
       get-azureVM -ServiceName KPTRDemo -Name KPTRDemo | Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
 
-### <a name="use-the-custom-script-extension-with-templates"></a>Use the Custom Script extension with templates
+### 템플릿과 함께 사용자 지정 스크립트 확장 사용
 
-To learn about how to use the Custom Script extension with Azure Resource Manager templates, see [Using the Custom Script extension for Windows VMs with Azure Resource Manager templates](virtual-machines-windows-extensions-customscript.md).
+Azure Resource Manager 템플릿에서 사용자 지정 스크립트 확장을 사용하는 방법에 대해 알아보려면 [Azure Resource Manager 템플릿을 사용하여 Windows VM에 대한 사용자 지정 스크립트 확장 사용](virtual-machines-windows-extensions-customscript.md)을 참조하세요.
 
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

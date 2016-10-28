@@ -1,74 +1,69 @@
 <properties
-    pageTitle="Overriding default HTTP behavior in Azure CDN using the rules engine | Microsoft Azure"
-    description="The rules engine allows you to customize how HTTP requests are handled by Azure CDN, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="규칙 엔진을 사용하여 Azure CDN에서 기본 HTTP 동작 재정의 | Microsoft Azure"
+	description="규칙 엔진을 사용하면 특정 유형의 콘텐츠 전달 차단과 같이 Azure CDN에서 HTTP 요청을 처리하는 방식을 사용자 지정하여 캐싱 정책을 정의하고 HTTP 헤더를 수정할 수 있습니다."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
 
-
-# <a name="override-default-http-behavior-using-the-rules-engine"></a>Override default HTTP behavior using the rules engine
+# 규칙 엔진을 사용하여 기본 HTTP 동작 재정의
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Overview
+## 개요
 
-The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers.  This tutorial will demonstrate creating a rule that will change the caching behavior of CDN assets.  There's also video content available in the "[See also](#see-also)" section.
+규칙 엔진을 사용하면 특정 유형의 콘텐츠 전달 차단과 같이 HTTP 요청이 처리되는 방식을 사용자 지정하여 캐싱 정책을 정의하고 HTTP 헤더를 수정할 수 있습니다. 이 자습서에서는 CDN 자산의 캐싱 동작을 변경하는 규칙을 만드는 방법을 보여 줍니다. "[참고 항목](#see-also)" 섹션에는 동영상 콘텐츠도 있습니다.
 
-## <a name="tutorial"></a>Tutorial
+## 자습서
 
-1. From the CDN profile blade, click the **Manage** button.
+1. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
 
-    ![CDN profile blade manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
+	![CDN 프로필 블레이드 관리 단추](./media/cdn-rules-engine/cdn-manage-btn.png)
 
-    The CDN management portal opens.
+	CDN 관리 포털이 열립니다.
 
-2. Click on the **HTTP Large** tab, followed by **Rules Engine**.
+2. **HTTP Large**(HTTP 크게) 탭, **규칙 엔진**을 차례로 클릭합니다.
 
-    Options for a new rule are displayed.
+	새 규칙에 대한 옵션이 표시됩니다.
 
-    ![CDN new rule options](./media/cdn-rules-engine/cdn-new-rule.png)
+	![CDN 새 규칙 옵션](./media/cdn-rules-engine/cdn-new-rule.png)
 
-    >[AZURE.IMPORTANT] The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
-    
-3. Enter a name in the **Name / Description** textbox.
+	>[AZURE.IMPORTANT] 여러 규칙이 나열된 순서는 규칙이 처리되는 방식에 영향을 줍니다. 후속 규칙은 이전 규칙에서 지정된 동작을 재정의할 수 있습니다.
+	
+3. **이름/설명** 텍스트 상자에 이름을 입력합니다.
 
-4. Identify the type of requests the rule will apply to.  By default, the **Always** match condition is selected.  You'll use **Always** for this tutorial, so leave that selected.
+4. 규칙이 적용되는 요청의 유형을 식별합니다. 기본적으로 **항상** 일치 조건이 선택되어 있습니다. 이 자습서에서는 **항상**을 사용하므로 선택된 상태 그대로 두면 됩니다.
 
-    ![CDN match condition](./media/cdn-rules-engine/cdn-request-type.png)
+	![CDN 일치 조건](./media/cdn-rules-engine/cdn-request-type.png)
 
-    >[AZURE.TIP] There are many types of match conditions available in the dropdown.  Clicking on the blue informational icon to the left of the match condition will explain the currently selected condition in detail.
-    >
-    >For the full list of match conditions in detail, see [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
+	>[AZURE.TIP] 드롭다운 목록에서 사용할 수 있는 다양한 유형의 일치 조건이 있습니다. 일치 조건의 왼쪽에 있는 파란색 정보 아이콘을 클릭하면 현재 선택한 조건을 자세히 설명합니다.
+	>
+	>일치 조건의 전체 목록을 자세하게 보려면 [규칙 엔진 일치 조건 및 기능 세부 정보](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0)를 참조하세요.
 
-5.  Click the **+** button next to **Features** to add a new feature.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**.  Leave the remaining default values.
+5.  **기능** 옆에 있는 **+** 단추를 클릭하여 새 기능을 추가합니다. 왼쪽의 드롭다운 목록에서 **Force Internal Max-Age**(내부 Max-Age 강제)를 선택합니다. 표시되는 텍스트 상자에 **300**을 입력합니다. 나머지 기본값을 그대로 둡니다.
 
-    ![CDN feature](./media/cdn-rules-engine/cdn-new-feature.png)
+	![CDN 기능](./media/cdn-rules-engine/cdn-new-feature.png)
 
-    >[AZURE.NOTE] As with match conditions, clicking the blue informational icon to the left of the new feature will display details about this feature.  In the case of **Force Internal Max-Age**, we are overriding the asset's **Cache-Control** and **Expires** headers to control when the CDN edge node will refresh the asset from the origin.  Our example of 300 seconds means the CDN edge node will cache the asset for 5 minutes before refreshing the asset from its origin.
-    >
-    >For the full list of features in detail, see [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
+	>[AZURE.NOTE] 일치 조건처럼 새 기능의 왼쪽에 있는 파란색 정보 아이콘을 클릭하면 이 기능에 대한 세부 정보가 표시됩니다. **Force Internal Max-Age**(내부 Max-Age 강제)의 경우 자산의 **Cache-Control** 및 **Expires** 헤더를 재정의하여 CDN 에지 노드가 원본에서 자산을 새로 고치는 시기를 제어합니다. 300초의 경우 원본에서 자산을 새로 고치기 전에 CDN 에지 노드가 자산을 5분 동안 캐시한다는 의미입니다.
+	>
+	>기능의 전체 목록을 자세하게 보려면 [규칙 엔진 일치 조건 및 기능 세부 정보](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1)를 참조하세요.
 
-6.  Click the **Add** button to save the new rule.  The new rule is now awaiting approval. Once it has been approved, the status will change from **Pending XML** to **Active XML**.
+6.  **추가** 단추를 클릭하여 새 규칙을 저장합니다. 이제 새 규칙이 승인 대기 중입니다. 승인되면 상태가 **보류 중인 XML**에서 **활성 XML**로 변경됩니다.
 
-    >[AZURE.IMPORTANT] Rules changes may take up to 90 minutes to propagate through the CDN.
+	>[AZURE.IMPORTANT] 규칙 변경이 CDN을 통해 전파되기까지 최대 90분이 소요될 수 있습니다.
 
-## <a name="see-also"></a>See also
-* [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
-* [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx)
+## 참고 항목
+* [Azure Fridays: Azure CDN의 강력하고 새로운 프리미엄 기능](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/)(동영상)
+* [규칙 엔진 일치 조건 및 기능 세부 정보](https://msdn.microsoft.com/library/mt757336.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

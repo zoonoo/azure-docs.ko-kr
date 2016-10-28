@@ -1,139 +1,135 @@
 <properties
-    pageTitle="Azure AD Cordova Getting Started | Microsoft Azure"
-    description="How to build a Cordova application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
-    services="active-directory"
-    documentationCenter=""
-    authors="vibronet"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Azure AD Cordova 시작 | Microsoft Azure"
+	description="로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Cordova 응용 프로그램 빌드 방법"
+	services="active-directory"
+	documentationCenter=""
+	authors="vibronet"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="javascript"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="vittorib"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="vittorib"/>
 
-
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integrate Azure AD with an Apache Cordova app
+# Azure AD를 Apache Cordova 앱에 통합
 
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Apache Cordova makes it possible for you to develop HTML5/JavaScript applications which can run on mobile devices as full-fledged native applications.
-With Azure AD, you can add enterprise grade authentication capabilities to your Cordova applications. Thanks to a Cordova plugin wrapping Azure AD's native SDKs on iOS, Android, Windows Store and Windows Phone, you can enhance your application to support sign on with your users' AD accounts, gain access to Office 365 and Azure API, and even protect calls to your own custom Web API.
+Apache Cordova를 사용하여 모든 기능이 갖춰진 네이티브 응용 프로그램으로 모바일 장치에서 실행될 수 있는 HTML5/JavaScript 응용 프로그램을 개발할 수 있습니다. Azure AD를 사용하면 Cordova 응용 프로그램에 엔터프라이즈급 인증 기능을 추가할 수 있습니다. iOS, Android, Windows 스토어 및 Windows Phone을 래핑하는 Cordova 플러그 인 덕분에, 사용자의 AD 계정을 사용하는 로그온을 지원하고, Office 365 및 Azure API에 액세스하고, 사용자 고유의 사용자 지정 Web API에 대한 호출도 보호하도록 응용 프로그램을 향상시킬 수 있습니다.
 
-In this tutorial we will use the Apache Cordova plugin for Active Directory Authentication Library (ADAL) to improve a simple app with the following features:
+이 자습서에서는 ADAL(Active Directory 인증 라이브러리)에 대한 Apache Cordova 플러그 인을 사용하여 다음 기능으로 간단한 앱을 개선해봅니다.
 
--   With just few lines of code, authenticate an AD user and obtain a token for calling the Azure AD Graph API.
--   Use that token to invoke the Graph API to query that directory and display the results  
--   Leverage the ADAL token cache for minimizing the authentication prompts for the user.
+-	단 몇 줄의 코드로, AD 사용자를 인증하고 Azure AD Graph API를 호출하기 위한 토큰을 가져옵니다.
+-	해당 토큰을 사용하여 해당 디렉터리를 쿼리하고 결과를 표시하는 Graph API를 호출합니다.
+-	사용자에 대한 인증 프롬프트를 최소화하기 위해 ADAL 토큰 캐시를 활용합니다.
 
-In order to do this, you’ll need to:
+이 작업을 수행하려면 다음 작업이 필요합니다.
 
-2. Register an application with Azure AD
-2. Add code to your app to request tokens
-3. Add code to use the token for querying the Graph API and display results.
-4. Create the Cordova deployment project with all the platforms you want to target, and the Cordova ADAL plugin and test the solution in emulators.
+2. Azure AD에 응용 프로그램을 등록합니다.
+2. 앱에 토큰을 요청하는 코드를 추가합니다.
+3. 해당 토큰을 사용하여 Graph API를 쿼리하고 결과를 표시하기 위한 코드를 추가합니다.
+4. 대상으로 지정할 모든 플랫폼 및 Cordova ADAL 플러그 인으로 Cordova 배포 프로젝트를 만들고 에뮬레이터에서 솔루션을 테스트합니다.
 
-## <a name="*0.-prerequisites*"></a>*0.  Prerequisites*
+## *0. 필수 조건*
 
-To complete this tutorial you will need:
+이 자습서를 완료하려면 다음이 필요합니다.
 
-- An Azure AD tenant where you have an account with app development rights
-- A development environment configured to use Apache Cordova  
+- 앱 개발 권한이 있는 계정이 있는 Azure AD 테넌트
+- Apache Cordova를 사용하도록 구성된 개발 환경
 
-If you have both already set up, please proceed directly to step 1.
+위의 두 항목을 모두 설정한 경우 1단계를 바로 진행하세요.
 
-If you don't have an Azure AD tenant, you can find [instructions on how to get one here](active-directory-howto-tenant.md).
+Azure AD 테넌트가 없는 경우 [여기에서 가져오는 방법에 대한 지침](active-directory-howto-tenant.md)을 찾을 수 있습니다.
 
-If you don't have Apache Cordova set up on your machine, please install the following:
+시스템에서 Apache Cordova를 설정하지 않으려면 다음을 설치하세요.
 
 - [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [NodeJS](https://nodejs.org/download/)
-- [Cordova CLI](https://cordova.apache.org/) (can be easily installed via NPM package manager: `npm install -g cordova`)
+- [Cordova CLI](https://cordova.apache.org/)(NPM 패키지 관리자 `npm install -g cordova`를 통해 쉽게 설치 가능)
 
-Note that those should work both on the PC and on the Mac.
+이러한 프로그램은 PC와 Mac 둘 다에서 작동합니다.
 
-Each target platform has different prerequisites.
+대상 플랫폼마다 필수 구성 요소가 다릅니다.
 
-- To build and run Windows Tablet/PC or Phone app version
-    - [Visual Studio 2013 for Windows with Update 2 or later](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express or another version).
-- To build and run for iOS
-    -   Xcode 5.x or greater. Download it at http://developer.apple.com/downloads or the [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-    -   [ios-sim](https://www.npmjs.org/package/ios-sim) – allows you to launch iOS apps into the iOS Simulator from the command line (can be easily installed via the terminal: `npm install -g ios-sim`)
+- Windows Tablet/PC 또는 Phone 앱 버전을 빌드하여 실행하려면
+	- [Windows용 Visual Studio 2013 업데이트 2 이상](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8)(Express 또는 다른 버전)
+- iOS용 버전을 빌드하여 실행하려면
+	-   Xcode 5.x 이상 http://developer.apple.com/downloads 또는 [Mac 앱 스토어](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)에서 다운로드
+	-   [ios sim](https://www.npmjs.org/package/ios-sim) – 명령줄에서 iOS 시뮬레이터로 iOS 앱을 시작할 수 있습니다(`npm install -g ios-sim` 터미널을 통해 쉽게 설치 가능).
 
-- To build and run application for Android
-    - Install [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or later. Make sure `JAVA_HOME` (Environment Variable) is correctly set according to JDK installation path (for example C:\Program Files\Java\jdk1.7.0_75).
-    - Install [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) and add `<android-sdk-location>\tools` location (for example, C:\tools\Android\android-sdk\tools) to your `PATH` Environment Variable.
-    - Open Android SDK Manager (for example, via terminal: `android`) and install
-    - *Android 5.0.1 (API 21)* platform SDK
-    - *Android SDK Build-tools* version 19.1.0 or higher
-    - *Android Support Repository* (Extras)
+- Android용 응용 프로그램을 빌드하고 실행하려면
+	- [JDK(Java Development Kit) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상을 설치합니다. JDK 설치 경로(예: C:\\Program Files\\Java\\jdk1.7.0\_75)에 따라 `JAVA_HOME`(환경 변수)이 올바르게 설정되어 있는지 확인합니다.
+	- [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools)를 설치하고 `<android-sdk-location>\tools` 위치(예: C:\\tools\\Android\\android-sdk\\tools)를 `PATH` 환경 변수에 추가합니다.
+	- Android SDK Manager를 열고(예를 들어 `android` 터미널을 통해) 설치합니다.
+    - *Android 5.0.1(API 21)* 플랫폼 SDK
+    - *Android SDK Build-tools* 버전 19.1.0 이상
+    - *Android 지원 리포지토리*(기타)
 
-  Android sdk doesn't provide any default emulator instance. Create a new one by running `android avd` from terminal and then selecting *Create...* if you want to run Android app on emulator. Recommended *Api Level* is 19 or higher, see [AVD Manager] (http://developer.android.com/tools/help/avd-manager.html) for more information about Android emulator and creation options.
+  Android sdk는 기본 에뮬레이터 인스턴스를 제공하지 않습니다. 에뮬레이터에서 Android 앱을 실행하려는 경우 터미널에서 `android avd`를 실행하고 *만들기...*를 선택하여 새 에뮬레이터를 만듭니다. 권장 *API 수준*은 19 이상입니다. Android 에뮬레이터 및 만들기 옵션에 대한 자세한 내용은 [AVD Manager](http://developer.android.com/tools/help/avd-manager.html)(영문)를 참조하세요.
 
 
-## <a name="*1.-register-an-application-with-azure-ad*"></a>*1.  Register an application with Azure AD*
+## *1. Azure AD에 응용 프로그램 등록*
 
-Note: this __step is optional__. The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant. However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.
+참고: 이 __단계는 선택 사항__입니다. 이 자습서는 자체 테넌트에서 프로비전을 수행하지 않고도 작동하는 샘플을 볼 수 있도록 하는 미리 프로비전된 값을 제공합니다. 그러나 자체 응용 프로그램을 만들 때 필요하므로 이 단계를 수행하고 프로세스에 익숙해지는 것이 좋습니다.
 
-Azure AD will only issue tokens to known applications. Before you can use Azure AD from your app, you need to create an entry for it in your tenant.  To register a new application in your tenant,
+Azure AD는 알려진 응용 프로그램으로만 토큰을 발급합니다. 앱에서 Azure AD를 사용하려면 먼저 테넌트에서 해당 항목을 만들어야 합니다. 테넌트에 새 응용 프로그램을 등록하려면
 
--   Sign into the [Azure Management Portal](https://manage.windowsazure.com)
--   In the left hand nav, click on **Active Directory**
--   Select the tenant where you wish to register the application.
--   Click the **Applications** tab, and click **Add** in the bottom drawer.
--   Follow the prompts and create a new **Native Client Application** (despite the fact that Cordova apps are HTML based, we are creating native client application here so `Native Client Application` option must be selected; otherwise, the application won't work).
-    -   The **Name** of the application will describe your application to end-users
-    -   The **Redirect URI** is the URI used to return tokens to your app. Enter `http://MyDirectorySearcherApp`.
+-	[Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+-	왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+-	응용 프로그램을 등록할 테넌트를 선택합니다.
+-	**응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 **추가**를 클릭합니다.
+-	프롬프트에 따라 새 **네이티브 클라이언트 응용 프로그램**을 만듭니다. Cordova 앱은 HTML 기반이지만 여기에 네이티브 클라이언트 응용 프로그램을 만들므로 `Native Client Application` 옵션을 선택해야 합니다. 그러지 않으면 응용 프로그램이 작동하지 않습니다.
+    -	응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
+    -	**리디렉션 URI**는 앱에 토큰을 반환하는 데 사용되는 URI입니다. `http://MyDirectorySearcherApp`을 입력합니다.
 
-Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections: you can find it in the **Configure** tab of the newly created app.
+등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에 필요하며, 새로 만든 앱의 **구성** 탭에서 찾을 수 있습니다.
 
-In order to run `DirSearchClient Sample`, grant the newly created app permission to query the _Azure AD Graph API_:
--   In **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+`DirSearchClient Sample`을 실행하기 위해 새로 만든 앱에 _Azure AD Graph API_를 쿼리하는 권한을 부여합니다.
+-	**구성** 탭에서 "다른 응용 프로그램에 대한 권한" 섹션을 찾습니다. "Azure Active Directory" 응용 프로그램의 경우 **위임된 권한**에서 **로그인한 사용자로 디렉터리 액세스** 권한을 추가합니다. 이렇게 하면 응용 프로그램은 Graph API에서 사용자를 쿼리할 수 있습니다.
 
-## <a name="*2.-clone-the-sample-app-repository-required-for-the-tutorial*"></a>*2. Clone the sample app repository required for the tutorial*
+## *2. 자습서에 필요한 샘플 앱 리포지토리 복제*
 
-From your shell or command line, type the following command:
+셸 또는 명령줄에서 다음 명령을 입력합니다.
 
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
-## <a name="*3.-create-the-cordova-app*"></a>*3. Create the Cordova app*
+## *3. Cordova 앱 만들기*
 
-There are multiple ways of creating Cordova applications. In this tutorial we will use the Cordova command line interface (CLI).
-From your shell or command line, type the following command:
+여러 가지 방법으로 Cordova 응용 프로그램을 만들 수 있습니다. 이 자습서에서는 Cordova CLI(명령줄 인터페이스)를 사용합니다. 셸 또는 명령줄에서 다음 명령을 입력합니다.
 
 
      cordova create DirSearchClient --copy-from="NativeClient-MultiTarget-Cordova/DirSearchClient"
 
-That will create the folder structure and scaffolding for the Cordova project, copying the content of the starter project in the www subfolder.
-Move to the new DirSearchClient folder.
+이렇게 하면 Cordova 프로젝트에 대한 폴더 구조 및 스캐폴딩이 생성되고, 시작 프로젝트의 콘텐츠가 www 하위 폴더로 복사됩니다. 새 DirSearchClient 폴더로 이동합니다.
 
     cd .\DirSearchClient
 
-Add the whitelist plugin, necessary for invoking the Graph API.
+Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합니다.
 
      cordova plugin add cordova-plugin-whitelist
 
-Next, add all of the platforms you want to support. In order to have a working sample, you will need to execute at least one of the commands below. Note that you will not be able to emulate iOS on Windows, or Windows/Windows Phone on a Mac.
+그럼 후 지원할 모든 플랫폼을 추가합니다. 작업 예제를 사용하려면 아래 명령 중 하나 이상을 실행해야 합니다. Windows에서는 iOS를, Mac에서는 Windows/Windows Phone을 에뮬레이트할 수 없습니다.
 
     cordova platform add android
     cordova platform add ios
     cordova platform add windows
 
-Finally, you can add the ADAL for Cordova plugin to your project.
+마지막으로 Cordova용 ADAL 플러그 인을 프로젝트에 추가할 수 있습니다.
 
     cordova plugin add cordova-plugin-ms-adal
 
-## <a name="*3.-add-code-to-authenticate-users-and-obtain-tokens-from-aad*"></a>*3. Add code to authenticate users and obtain tokens from AAD*
+## *3. 사용자를 인증하고 AAD에서 토큰을 가져오기 위한 코드 추가*
 
-The application you are developing in this tutorial will provide a bare-bone directory search feature, where the end user can type the alias of any user in the directory and visualize some basic attributes.  The starter project contains the definition of the basic user interface of the app (in www/index.html) and the scaffolding that wires up basic app event cycles, user interface bindings and results display logic (in www/js/index.js). The only thing left out for you is to add the logic implementing identity tasks.
+이 자습서에서 개발하는 응용 프로그램은 기본적인 디렉터리 검색 기능 틀을 제공합니다. 최종 사용자는 디렉터리에 임의 사용자의 별칭을 입력하고 일부 기본 특성을 시각화할 수 있습니다. 시작 프로젝트에는 앱의 기본 사용자 인터페이스 정의(www/index.html), 기본 앱 이벤트 주기를 연결하는 스캐폴딩의 정의, 사용자 인터페이스 바인딩 및 결과 표시 논리(www/js/index.js)가 포함되어 있습니다. 따라서 사용자는 ID 작업을 구현하는 논리만 추가하면 됩니다.
 
-The very first thing you need to do is to introduce in your code the protocol values that are used by AAD for identifying your app and the resources you target. Those values will be used to construct the token requests later on. Insert the snippet below at the very top of the index.js file.
+가장 먼저 해야 할 작업은 앱 및 대상 리소스를 식별하기 위해 AAD에서 사용되는 프로토콜 값을 코드에 추가하는 것입니다. 이러한 값은 나중에 토큰 요청을 생성하는 데 사용됩니다. Index.js 파일의 맨 위에 아래의 코드 조각을 삽입합니다.
 
 ```javascript
     var authority = "https://login.windows.net/common",
@@ -143,10 +139,9 @@ The very first thing you need to do is to introduce in your code the protocol va
     graphApiVersion = "2013-11-08";
 ```
 
-The `redirectUri` and `clientId` values should match the values describing your app in AAD. You can find those from the Configure tab in the Azure portal, as described in step 1 earlier in this tutorial.
-Note: if you opted for not registering a new app in your own tenant, you can simply paste the pre-configured values above as is - that will allow you to see the sample running, though you should always create your own entry for your apps meant for production.
+`redirectUri` 및 `clientId` 값은 AAD에서 앱을 설명하는 값과 일치해야 합니다. 이 자습서 앞부분에 나오는 1단계에서 설명한 것처럼 Azure 포털의 구성 탭에서 이러한 값을 찾을 수 있습니다. 참고: 자신의 테넌트에 새 앱을 등록하지 않기로 한 경우 위의 미리 구성된 값을 있는 그대로 붙여 넣어도 됩니다. 프로덕션에 사용하려는 앱의 경우 항상 자체 항목을 만들어야 하지만 미리 구성된 값을 사용해도 샘플이 실행되는 것을 확인할 수 있습니다.
 
-Next, we need to add the actual token request code. Insert the following snippet between the `search `and `renderdata `definitions.
+다음으로 실제 토큰 요청 코드를 추가해야 합니다. `search `및 `renderdata `정의 사이에 다음 코드 조각을 삽입합니다.
 
 ```javascript
     // Shows user authentication dialog if required.
@@ -171,9 +166,7 @@ Next, we need to add the actual token request code. Insert the following snippet
 
     },
 ```
-Let's examine that function by breaking it down in its two main parts.
-This sample is designed to work with any tenant, as opposed to be tied to a particular one. It uses the "/common" endpoint, which allows the user to enter any account at authentication time and directs the request to the tenant it belongs.
-This first part of the method inspects the ADAL cache to see if there is already a stored token - and if there is, it uses the tenants it came from for re-initializing ADAL. This is necessary to avoid extra prompts, as the use of "/common" always results in asking the user to enter a new account.
+두 주요 부분에서 분석하여 해당 함수를 검토해 보겠습니다. 이 샘플은 특정 테넌트에만 국한되지 않고 어떤 테넌트에서도 작동하도록 디자인되어 있습니다. 이 샘플은 인증 시에 사용자가 임의 계정을 입력하도록 하고 계정이 속하는 테넌트로 요청을 전달하는 "/common" 끝점을 사용합니다. 이 메서드의 첫 번째 부분에서는 ADAL 캐시를 조사하여 저장된 토큰이 이미 있는지 확인합니다. 토큰이 있으면 ADAL을 다시 초기화하기 위해 해당 토큰이 있던 테넌트를 사용합니다. "/common"을 사용하면 항상 사용자에게 새 계정을 입력하라는 메시지가 표시되므로 불필요한 확인 메시지가 표시되지 않도록 해야 합니다.
 ```javascript
         app.context = new Microsoft.ADAL.AuthenticationContext(authority);
         app.context.tokenCache.readItems().then(function (items) {
@@ -182,9 +175,7 @@ This first part of the method inspects the ADAL cache to see if there is already
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
 ```
-The second part of the method performs the proper tokewn request.
-The `acquireTokenSilentAsync` method asks to ADAL to return a token for the specified resource without showing any UX. That can happen if the cache already has a suitable access token stored, or if there is a refresh token that can be used to get a new access token without shwoing any prompt.
-If that attempt fails, we fall back on `acquireTokenAsync` - which will visibly prompt the user to authenticate.
+이 메서드의 두 번째 부분에서는 적절한 토큰 요청을 수행합니다. `acquireTokenSilentAsync` 메서드는 UX를 표시하지 않고 ADAL에 지정된 리소스에 대한 토큰의 반환을 요청합니다. 캐시에 이미 적합한 액세스 토큰이 저장되어 있거나 확인 메시지를 표시하지 않고 새 액세스 토큰을 가져오는 데 사용할 수 있는 새로 고침 토큰이 있는 경우 이러한 작업이 진행될 수 있습니다. 이 시도가 실패하면 사용자에게 인증을 요구하는 메시지를 표시하는 `acquireTokenAsync`로 대체할 것입니다.
 ```javascript
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
@@ -196,7 +187,7 @@ If that attempt fails, we fall back on `acquireTokenAsync` - which will visibly 
                 });
             });
 ```
-Now that we have the token, we can finally invoke the Graph API and perform the search query we want. Insert the following snippet right below the `authenticate` definition.
+이제 토큰이 있으므로 마지막으로 Graph API를 호출하고 원하는 검색 쿼리를 수행할 수 있습니다. `authenticate` 정의 바로 아래에 다음 코드 조각을 삽입합니다.
 
 ```javascript
 // Makes Api call to receive user list.
@@ -223,64 +214,59 @@ Now that we have the token, we can finally invoke the Graph API and perform the 
     },
 
 ```
-The starting point files supplied a barebone UX for entering a user's alias in a textbox. This method uses that value to construct a query, combine it with the access token, send it to the Graph, and parse the results. The renderData method, already present in the starting point file, takes care to visualize the results.
+시작점 파일은 텍스트 상자에 사용자의 별칭을 입력하기 위한 기본 UX를 제공했습니다. 이 메서드는 해당 값을 사용하여 쿼리를 생성하고, 액세스 토큰에 결합하고, Graph로 보내고, 결과를 구문 분석합니다. 시작점 파일에 이미 있는 renderData 메서드는 결과를 시각화하려고 합니다.
 
-## <a name="*4.-run*"></a>*4. Run*
-Your app is finally ready to run! Operating it is very simple: once the app starts, enter in the text box the alias of the user you want to look up - then click the button. You will be prompted for authentication. Upon successful authentication and successful search, the attributes of the searched user will be displayed. Subsequent runs will perform the search without showing any prompt, thanks to the presence in cache of the token previously acquired.
-The concrete steps for running the app vary by platform.
+## *4. 실행*
+앱을 실행할 준비가 되었습니다. 작동은 매우 간단합니다. 앱이 시작되면 텍스트 상자에 찾으려는 사용자의 별칭을 입력하고 단추를 클릭합니다. 인증을 위한 메시지가 표시됩니다. 성공적으로 인증하고 검색하면 검색된 사용자의 특성이 표시됩니다. 이전에 가져온 토큰이 캐시에 있기 때문에 후속 검색은 인증을 요구하지 않고 진행됩니다. 앱을 실행하는 구체적인 단계는 플랫폼에 따라 다릅니다.
 
-####<a name="windows-10:"></a>Windows 10:
+####Windows 10:
 
-   Tablet/PC: `cordova run windows --archs=x64 -- --appx=uap`
+   태블릿/PC: `cordova run windows --archs=x64 -- --appx=uap`
 
-   Mobile (requires Windows10 Mobile device connected to PC): `cordova run windows --archs=arm -- --appx=uap --phone`
+   모바일(Windows 10 Mobile 장치가 PC에 연결되어야 함): `cordova run windows --archs=arm -- --appx=uap --phone`
 
-   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
+   __참고__: 처음 실행할 때는 개발자 라이선스를 확인하기 위해 로그인하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발자 라이선스](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx)를 참조하세요.
 
-####<a name="windows-8.1-tablet/pc:"></a>Windows 8.1 Tablet/PC:
+####Windows 8.1 태블릿/PC:
 
    `cordova run windows`
 
-   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
+   __참고__: 처음 실행할 때는 개발자 라이선스를 확인하기 위해 로그인하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발자 라이선스](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx)를 참조하세요.
 
-####<a name="windows-phone-8.1:"></a>Windows Phone 8.1:
+####Windows Phone 8.1:
 
-   To run on connected device: `cordova run windows --device -- --phone`
+   연결된 장치에서 실행하려면: `cordova run windows --device -- --phone`
 
-   To run on default emulator: `cordova emulate windows -- --phone`
+   기본 에뮬레이터에서 실행하려면: `cordova emulate windows -- --phone`
 
-   Use `cordova run windows --list -- --phone` to see all available targets and `cordova run windows --target=<target_name> -- --phone` to run application on specific device or emulator (for example,  `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
+   사용 가능한 모든 대상을 보려면 `cordova run windows --list -- --phone`을 사용하고, 특정 장치 또는 에뮬레이터에서 응용 프로그램을 실행하려면 `cordova run windows --target=<target_name> -- --phone`을 사용합니다(예: `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
-####<a name="android:"></a>Android:
+####Android:
 
-   To run on connected device: `cordova run android --device`
+   연결된 장치에서 실행하려면: `cordova run android --device`
 
-   To run on default emulator: `cordova emulate android`
+   기본 에뮬레이터에서 실행하려면: `cordova emulate android`
 
-   __Note__: Make sure you've created emulator instance using *AVD Manager* as it is showed in *Prerequisites* section.
+   __참고__: *필수 구성 요소* 섹션에 표시된 것처럼 *AVD Manager*를 사용하여 에뮬레이터 인스턴스를 만들었는지 확인합니다.
 
-   Use `cordova run android --list` to see all available targets and `cordova run android --target=<target_name>` to run application on specific device or emulator (for example,  `cordova run android --target="Nexus4_emulator"`).
+   사용 가능한 모든 대상을 보려면 `cordova run android --list`을 사용하고, 특정 장치 또는 에뮬레이터에서 응용 프로그램을 실행하려면 `cordova run android --target=<target_name>`을 사용합니다(예: `cordova run android --target="Nexus4_emulator"`).
 
-####<a name="ios:"></a>iOS:
+####iOS:
 
-   To run on connected device: `cordova run ios --device`
+   연결된 장치에서 실행하려면: `cordova run ios --device`
 
-   To run on default emulator: `cordova emulate ios`
+   기본 에뮬레이터에서 실행하려면: `cordova emulate ios`
 
-   __Note__: Make sure you have `ios-sim` package installed to run on emulator. See *Prerequisites* section for more details.
+   __참고__: `ios-sim` 패키지가 에뮬레이터에서 실행되도록 설치되어 있는지 확인합니다. 자세한 내용은 *필수 구성 요소* 섹션을 참조하세요.
 
     Use `cordova run ios --list` to see all available targets and `cordova run ios --target=<target_name>` to run application on specific device or emulator (for example,  `cordova run android --target="iPhone-6"`).
 
-Use `cordova run --help` to see additional build and run options.
+`cordova run --help`를 사용하여 추가 빌드 및 실행 옵션을 참조하세요.
 
-For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).  You can now move on to more advanced (ok, and more interesting) scenarios.  You may want to try:
+참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient)에 제공됩니다. 이제 좀 더 자세하고 좀 더 흥미로운 시나리오를 진행해 보겠습니다. 다음 작업을 시도할 수 있습니다.
 
-[Secure a Node.js Web API with Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
+[Azure AD를 사용하여 Node.js Web API 보안 유지 >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

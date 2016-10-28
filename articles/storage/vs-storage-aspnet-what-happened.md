@@ -1,28 +1,26 @@
 <properties
-    pageTitle="What happened to my ASP.NET project? | Microsoft Azure | Visual Studio connected services"
-    description="Describes what happens after adding Azure Storage to a ASP.NET project using Visual Studio connected services"
-    services="storage"
-    documentationCenter=""
-    authors="TomArcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="내 ASP.NET 프로젝트의 변경 내용 | Microsoft Azure | Visual Studio 연결 서비스"
+	description="Visual Studio 연결 서비스를 사용하여 ASP.NET 프로젝트에 Azure 저장소를 추가한 후 변경 내용에 대해 설명합니다."
+	services="storage"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="storage"
-    ms.workload="web"
-    ms.tgt_pltfrm="vs-what-happened"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="tarcher"/>
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/15/2016"
+	ms.author="tarcher"/>
 
+# 내 ASP.NET 프로젝트(Visual Studio Azure 저장소 연결 서비스)의 변경 내용
 
-# <a name="what-happened-to-my-asp.net-project-(visual-studio-azure-storage-connected-service)?"></a>What happened to my ASP.NET project (Visual Studio Azure Storage connected service)?
+## 참조 추가됨
 
-## <a name="references-added"></a>References added
-
-The Azure Storage NuGet package was added to your Visual Studio project.  
-This package adds the following .NET references:
+Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습니다. 이 패키지는 다음.NET 참조를 추가합니다.
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -33,13 +31,9 @@ This package adds the following .NET references:
 - **System.Data**
 - **System.Spatial**
 
-##<a name="connection-string-for-azure-storage-added"></a>Connection string for Azure Storage added
-In the web.config file of your project, an element was created with the selected storage account's connection string and key.
+##추가된 Azure 저장소에 대한 연결 문자열
+프로젝트의 web.config 파일에 선택한 저장소 계정의 연결 문자열과 키를 포함하는 요소가 생성되었습니다.
 
-For more information, see [ASP.NET](http://www.asp.net).
+자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

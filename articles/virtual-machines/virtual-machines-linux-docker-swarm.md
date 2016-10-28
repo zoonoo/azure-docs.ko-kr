@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Getting Started using docker with swarm on Azure"
-   description="Describes how to create a group of VMs with the Docker VM Extension and use swarm to create a Docker cluster."
+   pageTitle="Azure에서 Docker와 swarm 사용 시작"
+   description="Docker VM 확장을 사용하여 VM 그룹을 만들고 swarm을 사용하여 Docker 클러스터를 만드는 방법을 설명합니다."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -17,26 +17,25 @@
    ms.date="01/04/2016"
    ms.author="rasquill"/>
 
-
-# <a name="how-to-use-docker-with-swarm"></a>How to use docker with swarm
+# Docker 및 swarm을 사용하는 방법
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it. In addition, the Azure CLI calls in this topic use the service management (asm) mode. 
+이 항목에서는 [docker](https://www.docker.com/)와 [swarm](https://github.com/docker/swarm)을 사용하여 Azure에서 swarm으로 관리되는 클러스터를 만드는 매우 간단한 방법을 설명합니다. 여기서는 Azure에서 가상 컴퓨터 4대를 만드는데, 그 중 하나는 swarm 관리자로 사용되고 나머지 3대는 Docker 호스트 클러스터에 포함됩니다. 작업을 완료한 후에는 swarm을 사용하여 클러스터를 확인한 다음 클러스터에서 Docker 사용을 시작할 수 있습니다. 또한 이 항목의 Azure CLI 호출은 서비스 관리(asm) 모드를 사용합니다.
 
-> [AZURE.NOTE] This topic uses docker with swarm and the Azure CLI *without* using **docker-machine** in order to show how the different tools work together but remain independent. **docker-machine** has **--swarm** switches that enable you to use **docker-machine** to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed **docker-machine** running against Azure VMs, see [How to use docker-machine with Azure](virtual-machines-linux-docker-machine.md).
+> [AZURE.NOTE] 이 항목에서는 각 도구가 서로 독립성을 유지하면서 연동되는 방식을 보여 주기 위해 **docker-machine**을 사용하지 *않고* swarm 및 Azure CLI를 사용합니다. **docker-machine**에 포함된 **--swarm** 스위치를 사용하면 **docker-machine**을 통해 swarm에 노드를 직접 추가할 수 있습니다. 예제를 확인하려면 [docker-machine](https://github.com/docker/machine) 설명서를 참조하세요. Azure VM에서 **docker-machine**을 실행해 본 적이 없다면 [Azure에서 docker-machine을 사용하는 방법](virtual-machines-linux-docker-machine.md)을 참조하세요.
 
-## <a name="create-docker-hosts-with-azure-virtual-machines"></a>Create docker hosts with Azure Virtual Machines
+## Azure 가상 컴퓨터를 사용하여 Docker 호스트 만들기
 
-This topic creates four VMs, but you can use any number you want. Call the following with *&lt;password&gt;* replaced by the password you have chosen.
+이 항목에서는 VM 4대를 만들지만 실제로는 원하는 수의 VM을 만들 수 있습니다. *&lt;password&gt;*를 선택한 암호로 바꿔 다음을 호출합니다.
 
     azure vm docker create swarm-master -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-1 -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-2 -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-3 -l "East US" -e 22 $imagename ops <password>
 
-When you're done you should be able to use **azure vm list** to see your Azure VMs:
+호출이 완료되면 **azure vm list**를 사용하여 Azure VM을 확인할 수 있습니다.
 
     $ azure vm list | grep "swarm-[mn]"
     data:    swarm-master     ReadyRole           East US       swarm-master.cloudapp.net                               100.78.186.65
@@ -44,9 +43,9 @@ When you're done you should be able to use **azure vm list** to see your Azure V
     data:    swarm-node-2     ReadyRole           East US       swarm-node-2.cloudapp.net                               100.72.18.47  
     data:    swarm-node-3     ReadyRole           East US       swarm-node-3.cloudapp.net                               100.78.24.68  
 
-## <a name="installing-swarm-on-the-swarm-master-vm"></a>Installing swarm on the swarm master VM
+## swarm master VM에 swarm 설치
 
-This topic uses the [container model of installation from the docker swarm documentation](https://github.com/docker/swarm#1---docker-image) -- but you could also SSH to the **swarm-master**. In this model, **swarm** is downloaded as a docker container running swarm. Below, we perform this step *remotely from our laptop by using docker* to connect to the **swarm-master** VM and tell it to use the cluster id creation command, **swarm create**. The cluster id is how **swarm** discovers the members of the swarm group. (You can also clone the repository and build it yourself, which will give you full control and enable debugging.)
+이 항목에서는 [Docker swarm 설명서에서 제공되는 설치의 컨테이너 모델](https://github.com/docker/swarm#1---docker-image)을 사용하지만 **swarm-master**에 대해 SSH를 수행할 수도 있습니다. 이 모델에서는 swarm을 실행하는 Docker 컨테이너로 **swarm**을 다운로드합니다. 아래에서는 *Docker를 사용하여 랩톱에서 원격으로* 이 단계를 수행하여 **swarm-master** VM에 연결한 다음 해당 VM이 클러스터 ID 만들기 명령인 **swarm create**를 사용하도록 지정합니다. **swarm**은 클러스터 ID를 사용하여 swarm 그룹 멤버를 검색합니다. 리포지토리를 복제하여 직접 빌드할 수도 있습니다. 그러면 VM을 완전히 제어할 수 있으며 디버깅을 수행할 수 있습니다.
 
     $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm create
     Unable to find image 'swarm:latest' locally
@@ -62,11 +61,11 @@ This topic uses the [container model of installation from the docker swarm docum
     Status: Downloaded newer image for swarm:latest
     36731c17189fd8f450c395db8437befd
 
-That last line is the cluster id; copy it somewhere because you will use it again when you join the node VMs to the swarm master to create the "swarm". In this example, the cluster id is **36731c17189fd8f450c395db8437befd**.
+마지막 줄에 클러스터 ID가 나와 있습니다. 이 ID는 노드 VM을 swarm master에 연결하여 "swarm"을 만들 때 다시 사용해야 하므로 다른 위치에 복사해 둡니다. 이 예제에서 클러스터 ID는 **36731c17189fd8f450c395db8437befd**입니다.
 
-> [AZURE.NOTE] Just to be clear, we are using our local docker installation to connect to the **swarm-master** VM in Azure and instruction **swarm-master** to download, install, and run the **create** command, which returns our cluster id that we use for discovery purposes later.
+> [AZURE.NOTE] 부연 설명을 하자면, 여기서는 로컬 Docker 설치를 사용하여 Azure의 **swarm-master** VM에 연결한 다음 **swarm-master** 명령을 사용하여 **create** 명령을 다운로드, 설치 및 실행합니다. 그러면 나중에 검색용으로 사용할 클러스터 ID가 반환됩니다.
 <!-- -->
-> To confirm this, run `docker -H tcp://`*&lt;hostname&gt;* ` images` to list the container processes on the **swarm-master** machine and on another node for comparison (because we ran the previous swarm command with the **--rm** switch, the container was removed after it finished, so using **docker ps -a** won't return anything).:
+> 이를 확인하려면, `docker -H tcp://`*&lt;hostname&gt;* ` images`을(를) 실행하여 **swarm-master** 컴퓨터의 컨테이너 프로세스를 나열한 다음 비교를 위해 다른 노드의 프로세스를 나열합니다. 여기서는 **--rm** 스위치를 사용하여 이전 swarm 명령을 실행했으므로 컨테이너는 작업이 완료된 후 제거되었으며, 따라서 **docker ps -a** 사용 시 아무 항목도 반환되지 않습니다.
 
 
         $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 images
@@ -76,11 +75,11 @@ That last line is the cluster id; copy it somewhere because you will use it agai
         REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
         $
 <P />
-> If you're familiar with **docker**, you'll know that the other nodes have no entries because no images have been downloaded and run yet.
+> **docker**에 대해 잘 알고 있다면 아직 이미지를 다운로드하여 실행하지 않았으므로 다른 노드에도 항목이 없음을 알 수 있습니다.
 
-## <a name="join-the-node-vms-to-our-docker-cluster"></a>Join the node VMs to our docker cluster
+## Docker 클러스터에 노드 VM 연결
 
-For each node, list the endpoint information using the Azure CLI. Below we do that for the **swarm-node-1** docker host in order to obtain the node's docker port.
+각 노드에 대해 Azure CLI를 사용하여 끝점 정보를 나열합니다. 아래에서는 **swarm-node-1** Docker에 대해 이 작업을 수행하여 노드의 Docker 포트를 가져옵니다.
 
     $ azure vm endpoint list swarm-node-1
     info:    Executing command vm endpoint list
@@ -92,7 +91,7 @@ For each node, list the endpoint information using the Azure CLI. Below we do th
     info:    vm endpoint list command OK
 
 
-Using **docker** and the `-H` option to point the docker client at your node VM, join that node to the swarm you are creating by passing the cluster id and the node's docker port (the latter using **--addr**):
+**docker** 및 `-H` 옵션을 사용하여 노드 VM의 Docker 클라이언트를 가리킨 다음, 클러스터 ID와 노드의 Docker 포트(**--addr** 사용)를 전달하여 해당 노드를 작성 중인 swarm에 연결합니다.
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 run -d swarm join --addr=138.91.112.194:2376 token://36731c17189fd8f450c395db8437befd
     Unable to find image 'swarm:latest' locally
@@ -108,20 +107,20 @@ Using **docker** and the `-H` option to point the docker client at your node VM,
     Status: Downloaded newer image for swarm:latest
     bbf88f61300bf876c6202d4cf886874b363cd7e2899345ac34dc8ab10c7ae924
 
-That looks good. To confirm that **swarm** is running on **swarm-node-1** we type:
+노드가 정상적으로 연결되었습니다. **swarm**이 **swarm-node-1**에서 실행되는지 확인하려면 다음과 같이 입력합니다.
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 ps -a
         CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
         bbf88f61300b        swarm:latest        "/swarm join --addr=   13 seconds ago      Up 12 seconds       2375/tcp            angry_mclean
 
-Repeat for all the other nodes in the cluster. In our case, we do that for **swarm-node-2** and **swarm-node-3**.
+클러스터의 다른 모든 노드에 대해 이 작업을 반복합니다. 여기서는 **swarm-node-2** 및 **swarm-node-3**에 대해 확인을 수행합니다.
 
-## <a name="begin-managing-the-swarm-cluster"></a>Begin managing the swarm cluster
+## swarm 클러스터 관리 시작
 
     $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run -d -p 2375:2375 swarm manage token://36731c17189fd8f450c395db8437befd
     d7e87c2c147ade438cb4b663bda0ee20981d4818770958f5d317d6aebdcaedd5
 
-and then you can list out your nodes in your cluster:
+위 코드를 실행하면 클러스터의 노드 목록을 확인할 수 있습니다.
 
     ralph@local:~$ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm list token://73f8bc512e94195210fad6e9cd58986f
     54.149.104.203:2375
@@ -129,17 +128,13 @@ and then you can list out your nodes in your cluster:
     92.222.76.190:2375
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Go run things on your swarm. To look for inspiration, see [https://github.com/docker/swarm/](https://github.com/docker/swarm/), or perhaps a [video](https://www.youtube.com/watch?v=EC25ARhZ5bI).
+swarm에서 직접 코드를 실행해 보세요. 관련 지침은 [https://github.com/docker/swarm/](https://github.com/docker/swarm/) 또는 [비디오](https://www.youtube.com/watch?v=EC25ARhZ5bI)를 참조하세요.
 
 <!-- links -->
 
 [docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

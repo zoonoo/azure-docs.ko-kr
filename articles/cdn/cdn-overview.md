@@ -1,95 +1,90 @@
 <properties
-    pageTitle="Azure CDN Overview | Microsoft Azure"
-    description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Azure CDN 개요 | Microsoft Azure"
+	description="Azure CDN(콘텐츠 배달 네트워크) 정의와 Blob 및 정적 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하는 데 사용하는 방법을 알아봅니다."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="09/30/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/30/2016"
+	ms.author="casoper"/>
+
+# Azure CDN(콘텐츠 배달 네트워크) 개요
+
+> [AZURE.NOTE] 이 문서에서는 Azure CDN(콘텐츠 배달 네트워크)이 무엇이고 어떻게 작동하며 각 Azure CDN 제품의 기능은 무엇인지에 대해 설명합니다. 이 정보를 건너뛰고 CDN 끝점을 만드는 방법에 대한 자습서로 바로 이동하려면 [Azure CDN 사용](cdn-create-new-endpoint.md)을 참조하세요. 현재 CDN 노드 위치 목록을 보려면 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하세요.
+
+Azure CDN(콘텐츠 배달 네트워크)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다. CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다.
+
+CDN을 사용하여 웹 사이트 자산을 캐시할 경우의 이점은 다음과 같습니다.
+
+- 콘텐츠를 로드하기 위해 많은 왕복이 필요한 응용 프로그램을 사용 중인 최종 사용자의 성능 및 사용자 환경 향상
+- 제품 런칭 이벤트 시작 시와 같이 순간적인 높은 부하를 더 효율적으로 처리하기 위한 대규모 조정
+- 사용자 요청을 분산하고 에지 서버에서 콘텐츠를 제공하여 원본으로 전송되는 트래픽 양이 감소합니다.
 
 
-# <a name="overview-of-the-azure-content-delivery-network-(cdn)"></a>Overview of the Azure Content Delivery Network (CDN)
+## 작동 방법
 
-> [AZURE.NOTE] This document describes what the Azure Content Delivery Network (CDN) is, how it works, and the features of each Azure CDN product.  If you want to skip this information and go straight to a tutorial on how to create a CDN endpoint, see [Using Azure CDN](cdn-create-new-endpoint.md).  If you want to see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
+![CDN 개요](./media/cdn-overview/cdn-overview.png)
 
-The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users.  The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. 
+1. 사용자(Alice)가 특수 도메인 이름(예: `<endpointname>.azureedge.net`)으로 URL을 사용하여 파일(자산이라고도 함)을 요청합니다. DNS는 최고 성능의 POP(상호 접속 위치) 위치로 요청을 라우팅합니다. 일반적으로 이것은 지리적으로 사용자에게 가장 가까운 POP입니다.
 
-The benefits of using the CDN to cache web site assets include:
+2. POP의 에지 서버의 캐시에 파일이 없으면, 에지 서버는 원본에서 파일을 요청합니다. 원본은 Azure 웹앱, Azure 클라우드 서비스, Azure 저장소 계정 또는 공개적으로 액세스할 수 있는 웹 서버입니다.
 
-- Better performance and user experience for end users, especially when using applications where multiple round-trips are required to load content.
-- Large scaling to better handle instantaneous high load, like at the start of a product launch event.
-- By distributing user requests and serving content from edge servers, less traffic is sent to the origin.
+3. 원본은 파일의 TTL(Time-to-Live)을 설명하는 선택적인 HTTP 헤더를 포함하여, 파일을 에지 서버에 반환합니다.
 
+4. 에지 서버는 파일을 캐싱하고 원래 요청자(Alice)에게 파일을 반환합니다. 파일은 TTL이 만료될 때가지 에지 서버에 캐싱된 상태로 남습니다. 원본이 TTL을 지정하지 않은 경우, 기본 TTL은 7일입니다.
 
-## <a name="how-it-works"></a>How it works
+5. 추가 사용자는 같은 URL을 사용하여 같은 파일을 요청할 수 있고, 같은 POP으로 전달될 수 있습니다.
 
-![CDN Overview](./media/cdn-overview/cdn-overview.png)
-
-1. A user (Alice) requests a file (also called an asset) using a URL with a special domain name, such as `<endpointname>.azureedge.net`.  DNS routes the request to the best performing Point-of-Presence (POP) location.  Usually this is the POP that is geographically closest to the user.
-
-2. If the edge servers in the POP do not have the file in their cache, the edge server requests the file from the origin.  The origin can be an Azure Web App, Azure Cloud Service, Azure Storage account, or any publicly accessible web server.
-
-3. The origin returns the file to the edge server, including optional HTTP headers describing the file's Time-to-Live (TTL).
-
-4. The edge server caches the file and returns the file to the original requestor (Alice).  The file remains cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is seven days.
-
-5. Additional users may then request the same file using that same URL, and may also be directed to that same POP.
-
-6. If the TTL for the file hasn't expired, the edge server returns the file from the cache.  This results in a faster, more responsive user experience.
+6. 파일의 TTL이 만료되지 않았으면, 에지 서버는 캐시로부터 파일을 반환합니다. 이렇게 하면 보다 신속하고 응답성이 뛰어난 사용자 환경이 가능합니다.
 
 
-## <a name="azure-cdn-features"></a>Azure CDN Features
+## Azure CDN 기능
 
-There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
+Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Standard**, **Verizon의 Azure CDN Premium**, 세 가지가 있습니다. 다음 표는 각 제품에 사용할 수 있는 기능입니다.
 
-|       | Standard Akamai | Standard Verizon | Premium Verizon |
+| | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
-| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md), and [Media Services](../media-services/media-services-manage-origins.md#enable-cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
-| Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), or [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| HTTPS support | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Load balancing | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) protection | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| IPv4/IPv6 dual-stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Custom domain name support](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Query string caching](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Country filtering](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
-| [Fast purge](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Asset pre-loading](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
-| [Core analytics](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [HTTP/2 support](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
-| [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
-| [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
-| [Real-time alerts](cdn-real-time-alerts.md) | | | **&#x2713;** |
-| [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
-| Cache/header settings (using [rules engine](cdn-rules-engine.md))  | | | **&#x2713;** |
-| URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | | **&#x2713;** |
-| Mobile device rules (using [rules engine](cdn-rules-engine.md))  | | | **&#x2713;** |
+| [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/cdn-websites-with-cdn.md), [미디어 서비스](../media-services/media-services-manage-origins.md#enable-cdn)와 같은 Azure와 간편하게 통합 | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) 또는 [PowerShell](./cdn-manage-powershell.md)을 통한 관리. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| HTTPS 지원 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| 부하 분산 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) 보호 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| IPv4/IPv6 이중 스택 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [사용자 지정 도메인 이름 지원](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [쿼리 문자열 캐싱](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [국가 필터링](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
+| [빠른 삭제](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [자산 미리 로드](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
+| [핵심 분석](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
+| [HTTP/2 지원](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
+| [고급 HTTP 보고서](cdn-advanced-http-reports.md) | | | **&#x2713;** |
+| [실시간 통계](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [실시간 경고](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md) | | | **&#x2713;** |
+| 캐시/헤더 설정([규칙 엔진](cdn-rules-engine.md) 사용) | | | **&#x2713;** |
+| URL 리디렉션/다시 쓰기([규칙 엔진](cdn-rules-engine.md) 사용) | | | **&#x2713;** |
+| 모바일 장치 규칙([규칙 엔진](cdn-rules-engine.md) 사용) | | | **&#x2713;** |
 
->[AZURE.TIP] Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
+>[AZURE.TIP] Azure CDN에서 참조하려는 기능이 있나요? [피드백 보내기](https://feedback.azure.com/forums/169397-cdn)
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
+CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참조하세요.
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
+기존 CDN 고객인 경우 이제 [Microsoft Azure 포털](https://portal.azure.com) 또는 [PowerShell](cdn-manage-powershell.md)을 통해 CDN 끝점을 관리할 수 있습니다.
 
-To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+작동 중인 CDN 작업을 보려면 [빌드 2016 세션 비디오](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 참조하세요.
 
-Learn how to automate Azure CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
+[.NET](./cdn-app-dev-net.md) 또는 [Node.js](./cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
 
-For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).
+가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

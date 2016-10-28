@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Load data from Azure blob storage into Azure SQL Data Warehouse (Azure Data Factory) | Microsoft Azure"
-   description="Learn to load data with Azure Data Factory"
+   pageTitle="Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스(Azure Data Factory)로 데이터 로드 | Microsoft Azure"
+   description="Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -10,148 +10,147 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-
-# <a name="load-data-from-azure-blob-storage-into-azure-sql-data-warehouse-(azure-data-factory)"></a>Load data from Azure blob storage into Azure SQL Data Warehouse (Azure Data Factory)
+# Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스로 데이터 로드(Azure Data Factory)
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+- [데이터 팩터리](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
 - [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
- This tutorial shows you how to create a pipeline in Azure Data Factory to move data from Azure Storage Blob to SQL Data Warehouse. With the following steps you will:
+ 이 자습서는 Azure Data Factory에서 파이프라인을 만들어 Azure 저장소 BLOB에서 SQL 데이터 웨어하우스로 데이터를 이동하는 방법을 보여 줍니다. 다음 단계에서 수행할 작업은 다음과 같습니다.
 
-+ Set-up sample data in an Azure Storage Blob.
-+ Connect resources to Azure Data Factory.
-+ Create a pipeline to move data from Storage Blobs to SQL Data Warehouse.
++ Azure 저장소 BLOB에서 샘플 데이터를 설정합니다.
++ Azure Data Factory로 리소스를 연결합니다.
++ 저장소 BLOB에서 SQL 데이터 웨어하우스로 데이터를 이동하는 파이프라인을 만듭니다.
 
 >[AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
 
 
-## <a name="before-you-begin"></a>Before you begin
+## 시작하기 전에
 
-To familiarize yourself with Azure Data Factory, see [Introduction to Azure Data Factory][].
+Azure Data Factory를 익히려면 [Azure Data Factory 소개][]를 참조하세요.
 
-### <a name="create-or-identify-resources"></a>Create or identify resources
+### 리소스 만들기 또는 식별
 
-Before starting this tutorial, you need to have the following resources.
+이 자습서를 시작하기 전에 다음 리소스를 마련해야 합니다.
 
-   + **Azure Storage Blob**: This tutorial uses Azure Storage Blob as the data source for the Azure Data Factory pipeline, and so you need to have one available to store the sample data. If you don't have one already, learn how to [Create a storage account][].
+   + **Azure 저장소 BLOB**: 이 자습서에서는 Azure Data Factory 파이프라인에 대한 데이터 원본으로 Azure BLOB 저장소를 사용하므로 샘플 데이터를 저장할 Azure BLOB 저장소가 필요합니다. 아직 없는 경우 [저장소 계정을 만드는][] 방법을 알아봅니다.
 
-   + **SQL Data Warehouse**: This tutorial moves the data from Azure Storage Blob to  SQL Data Warehouse and so need to have a data warehouse online that is loaded with the AdventureWorksDW sample data. If you do not already have a data warehouse, learn how to [provision one][Create a SQL Data Warehouse]. If you have a data warehouse but didn't provision it with the sample data, you can [load it manually][Load sample data into SQL Data Warehouse].
+   + **SQL 데이터 웨어하우스**: 이 자습서는 Azure 저장소 BLOB에서 SQL 데이터 웨어하우스로 데이터를 이동하므로 AdventureWorksDW 샘플 데이터와 함께 로드되는 데이터 웨어하우스 온라인이 필요합니다. 데이터 웨어하우스가 아직 없는 경우 [프로비전하는][Create a SQL Data Warehouse] 방법을 알아봅니다. 데이터 웨어하우스가 있지만 샘플 데이터를 사용하여 프로비전하지 않은 경우 [수동으로 로드][Load sample data into SQL Data Warehouse]할 수 있습니다.
 
-   + **Azure Data Factory**: Azure Data Factory will complete the actual load and so you need to have one that you can use to build the data movement pipeline.If you don't have one already, learn how to create one in Step 1 of [Get started with Azure Data Factory (Data Factory Editor)][].
+   + **Azure Data Factory**: Azure Data Factory는 실제 부하를 완료하므로 데이터 이동 파이프라인을 작성하는 데 사용할 수 있는 Azure Data Factory가 필요합니다. 아직 없는 경우 [Azure Data Factory 시작(Data Factory 편집기)][]의 1단계에서 만드는 방법을 알아봅니다.
 
-   + **AZCopy**: You need AZCopy to copy the sample data from your local client to your Azure Storage Blob. For install instructions, see the [AZCopy documentation][].
+   + **AZCopy**: 로컬 클라이언트에서 Azure 저장소 BLOB으로 샘플 데이터를 복사할 AZCopy가 필요합니다. 설치 지침은 [AZCopy 설명서][]를 참조하세요.
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Step 1: Copy sample data to Azure Storage Blob
+## 1단계: 샘플 데이터를 Azure 저장소 Blob에 복사
 
-Once you have all of the pieces ready, you are ready to copy sample data to your Azure Storage Blob.
+모든 부분이 준비되면 샘플 데이터를 Azure 저장소 Blob에 복사할 준비가 됩니다.
 
-1. [Download sample data][]. This data will add another three years of sales data to your AdventureWorksDW sample data.
+1. [샘플 데이터를 다운로드합니다][]. 이 데이터는 AdventureWorksDW 샘플 데이터에 3년의 판매 데이터를 추가합니다.
 
-2. Use this AZCopy command to copy the three years of data to your Azure Storage Blob.
+2. 이 AZCopy 명령을 사용하여 Azure 저장소 Blob에 3년 분량의 데이터를 복사합니다.
 
 ````
 AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
 ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Step 2: Connect resources to Azure Data Factory
+## 2단계: Azure Data Factory로 리소스를 연결합니다.
 
-Now that the data is in place we can create the Azure Data Factory pipeline to move the data from Azure blob storage into SQL Data Warehouse.
+이제 데이터가 생성되었으므로 Azure 데이터 팩터리 파이프라인을 만들어 Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 이동할 수 있습니다.
 
-To get started, open the [Azure portal][] and select your data factory from the left-hand menu.
+시작하려면 [Azure 포털][]을 열고 왼쪽 메뉴에서 사용자의 data factory를 선택합니다.
 
-### <a name="step-2.1:-create-linked-service"></a>Step 2.1: Create Linked Service
+### 2\.1단계: 연결된 서비스 만들기
 
-Link your Azure storage account and SQL Data Warehouse to your data factory.  
+Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리로 연결합니다.
 
-1. First, begin the registration process by clicking the 'Linked Services' section of your data factory and then click 'New data store.' Choose a name to register your azure storage under, select Azure Storage as your type, and then enter your Account Name and Account Key.
+1. 우선 데이터 팩터리의 '연결된 서비스' 섹션을 클릭한 다음 '새 데이터 저장소'를 클릭하여 등록 프로세스를 시작합니다. Azure 저장소를 등록할 이름을 선택하고 유형으로 Azure 저장소를 선택한 다음 계정 이름과 계정 키를 입력합니다.
 
-2. To register SQL Data Warehouse navigate to the 'Author and Deploy' section, select 'New Data Store', and then 'Azure SQL Data Warehouse'. Copy and paste in this template, and then fill in your specific information.
+2. SQL 데이터 웨어하우스를 등록하려면 '작성 및 배포' 섹션을 탐색하고 '새 데이터 저장소'와 'Azure SQL 데이터 웨어하우스'를 차례로 선택합니다. 이 템플릿에 붙여 넣은 다음 특정 정보를 입력합니다.
 
 ```JSON
 {
     "name": "<Linked Service Name>",
     "properties": {
         "description": "",
-        "type": "AzureSqlDW",
-        "typeProperties": {
-             "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+	    "type": "AzureSqlDW",
+	    "typeProperties": {
+	         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
          }
     }
 }
 ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Step 2.2: Define the dataset
+### 2\.2단계: 데이터 집합 정의
 
-After creating the linked services, we will have to define the data sets.  Here this means defining the structure of the data that is being moved from your storage to your data warehouse.  You can read more about creating
+연결된 서비스를 만든 다음 데이터 집합을 정의해야 합니다. 여기서 저장소에서 데이터 웨어하우스로 이동하는 데이터의 구조를 정의하는 것을 의미합니다. 만들기에 대해 자세히 알아볼 수 있습니다.
 
-1. Start this process by navigating to the 'Author and Deploy' section of your data factory.
+1. 이 프로세스를 시작하려면 가장 먼저 사용자 데이터 팩터리의 '작성 및 배포' 섹션으로 이동합니다.
 
-2. Click 'New dataset' and then 'Azure Blob storage' to link your storage to your data factory.  You can use the below script to define your data in Azure Blob storage:
+2. '새 데이터 집합'을 클릭한 다음 'Azure BLOB 저장소'를 클릭하여 저장소를 데이터 팩터리에 연결합니다. 아래 스크립트를 사용하여 Azure BLOB 저장소에서 데이터를 정의할 수 있습니다.
 
 ```JSON
 {
     "name": "<Dataset Name>",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "<linked storage name>",
-        "typeProperties": {
-            "folderPath": "<containter name>",
-            "fileName": "FactInternetSales.csv",
-            "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": "\n"
+	"properties": {
+	    "type": "AzureBlob",
+		"linkedServiceName": "<linked storage name>",
+		"typeProperties": {
+		    "folderPath": "<containter name>",
+			"fileName": "FactInternetSales.csv",
+			"format": {
+			"type": "TextFormat",
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n"
             }
         },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "policy": {
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
+	    "external": true,
+	    "availability": {
+		    "frequency": "Hour",
+		    "interval": 1
+	    },
+	    "policy": {
+	        "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+	        }
         }
-    }
+	}
 }
 ```
 
 
-3. Now we will also define our dataset for SQL Data Warehouse.  We start in the same way, by clicking 'New dataset' and then 'Azure SQL Data Warehouse'.
+3. 이제 SQL 데이터 웨어하우스의 데이터 집합을 정의합니다. 마찬가지로 '새 데이터 집합'을 클릭한 다음 'Azure SQL 데이터 웨어하우스'를 클릭합니다.
 
 ```JSON
 {
     "name": "DWDataset",
-    "properties": {
-        "type": "AzureSqlDWTable",
-        "linkedServiceName": "AzureSqlDWLinkedService",
-        "typeProperties": {
-            "tableName": "FactInternetSales"
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
+	"properties": {
+	    "type": "AzureSqlDWTable",
+	    "linkedServiceName": "AzureSqlDWLinkedService",
+	    "typeProperties": {
+		    "tableName": "FactInternetSales"
+		},
+	    "availability": {
+	        "frequency": "Hour",
+		    "interval": 1
         }
     }
 }
 ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Step 3: Create and run your pipeline
+## 3단계: 파이프라인 만들기 및 실행
 
-Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the operation that will complete the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
+마지막으로 Azure Data Factory에서 파이프라인을 설정 및 실행합니다. 이 작업을 수행하면 실제 데이터 이동이 완료됩니다. [여기][Move data to and from Azure SQL Data Warehouse using Azure Data Factory]에서 SQL 데이터 웨어하우스와 Azure Data Factory를 사용하여 완료할 수 있는 전체 작업을 볼 수 있습니다.
 
-In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
+'작성 및 배포' 섹션에서 이제 '추가 명령'을 클릭한 다음 '새 파이프라인'을 클릭합니다. 파이프라인을 만든 다음 아래 코드를 사용하여 데이터를 데이터 웨어하우스로 전송할 수 있습니다.
 
 ```JSON
 {
@@ -161,86 +160,82 @@ In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipel
         "activities": [
           {
             "type": "Copy",
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource",
-                    "skipHeaderLineCount": 1
-                },
-                "sink": {
-                    "type": "SqlDWSink",
-                    "writeBatchSize": 0,
-                    "writeBatchTimeout": "00:00:10"
-                }
-            },
-            "inputs": [
-              {
-                "name": "<Storage Dataset>"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "<Data Warehouse Dataset>"
-              }
-            ],
-            "policy": {
-                "timeout": "01:00:00",
-                "concurrency": 1
-            },
-            "scheduler": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "name": "Sample Copy",
-            "description": "Copy Activity"
-          }
-        ],
-        "start": "<Date YYYY-MM-DD>",
-        "end": "<Date YYYY-MM-DD>",
-        "isPaused": false
+    		"typeProperties": {
+    		    "source": {
+	    		    "type": "BlobSource",
+	    			"skipHeaderLineCount": 1
+	    	    },
+	    		"sink": {
+	    		    "type": "SqlDWSink",
+	    		    "writeBatchSize": 0,
+	    			"writeBatchTimeout": "00:00:10"
+	    		}
+	    	},
+	    	"inputs": [
+	    	  {
+	    		"name": "<Storage Dataset>"
+	    	  }
+	    	],
+	    	"outputs": [
+	    	  {
+	    	    "name": "<Data Warehouse Dataset>"
+	    	  }
+	    	],
+	    	"policy": {
+	            "timeout": "01:00:00",
+	    	    "concurrency": 1
+	    	},
+	    	"scheduler": {
+	    	    "frequency": "Hour",
+	    		"interval": 1
+	    	},
+	    	"name": "Sample Copy",
+	    	"description": "Copy Activity"
+	      }
+	    ],
+	    "start": "<Date YYYY-MM-DD>",
+	    "end": "<Date YYYY-MM-DD>",
+	    "isPaused": false
     }
 }
 ```
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-To learn more, start by viewing:
+자세한 내용은 다음을 확인하여 시작합니다.
 
-- [Azure Data Factory learning path][].
-- [Azure SQL Data Warehouse Connector][]. This is the core reference topic for using Azure Data Factory with Azure SQL Data Warehouse.
+- [Azure Data Factory 학습 경로][].
+- [Azure SQL 데이터 웨어하우스 커넥터][]. Azure SQL 데이터 웨어하우스와 함께 Azure Data Factory를 사용하기 위한 핵심 참조 항목입니다.
 
 
-These topics provide detailed information about Azure Data Factory. They discuss Azure SQL Database or HDinsight, but the information also applies to Azure SQL Data Warehouse.
+이러한 항목은 Azure Data Factory에 대한 자세한 정보를 제공합니다. Azure SQL 데이터베이스 또는 HDinsight를 설명하지만 해당 정보는 Azure SQL 데이터 웨어하우스에도 적용됩니다.
 
-- [Tutorial: Get started with Azure Data Factory][] This is the core tutorial for processing data with Azure Data Factory. In this tutorial you will build your first pipeline that uses HDInsight to transform and analyze web logs on a monthly basis. Note, there is no copy activity in this tutorial.
-- [Tutorial: Copy data from Azure Storage Blob to Azure SQL Database][]. In this tutorial, you will create a pipeline in Azure Data Factory to copy data from Azure Storage Blob to Azure SQL Database.
+- [자습서: Azure Data Factory 시작][] Azure Data Factory를 사용하여 데이터를 처리하기 위한 핵심 자습서입니다. 이 자습서에서 HDInsight를 사용하여 월별 웹 로그를 변환 및 분석하는 첫 번째 파이프라인을 빌드합니다. 이 자습서에는 복사 작업이 없습니다.
+- [자습서: Azure 저장소 BLOB에서 Azure SQL 데이터베이스로 데이터 복사][] 이 자습서에서는 Azure 저장소 Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인을 Azure 데이터 팩터리에 만듭니다.
 
 
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy documentation]: ../storage/storage-use-azcopy.md
-[Azure SQL Data Warehouse Connector]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[AZCopy 설명서]: ../storage/storage-use-azcopy.md
+[Azure SQL 데이터 웨어하우스 커넥터]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Create a storage account]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[저장소 계정을 만드는]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Get started with Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
-[Introduction to Azure Data Factory]: ../data-factory/data-factory-introduction.md
+[Azure Data Factory 시작(Data Factory 편집기)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
+[Azure Data Factory 소개]: ../data-factory/data-factory-introduction.md
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[Tutorial: Get started with Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
+[자습서: Azure 저장소 BLOB에서 Azure SQL 데이터베이스로 데이터 복사]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[자습서: Azure Data Factory 시작]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory learning path]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[Azure portal]: https://portal.azure.com
-[Download sample data]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
+[Azure Data Factory 학습 경로]: https://azure.microsoft.com/documentation/learning-paths/data-factory
+[Azure 포털]: https://portal.azure.com
+[샘플 데이터를 다운로드합니다]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

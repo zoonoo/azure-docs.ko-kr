@@ -1,33 +1,28 @@
 
-|Resource | Default limit|
+|리소스 | 기본 제한|
 |--------------|--------|
-|Collections per user| 1|
-|Published apps per collection| 100|
-|Trial collection duration| 30 days|
-|Trial collections| 2 per subscription|
-|Users per trial collection| 10|
-|Trial template images| 25|
-|Paid collections| 3 |
-|Paid template images| 25|
-|Users - basic tier*| 400 (default)/ 800 (maximum)|
-|Users - standard tier*| 250 (default)/ 500 (maximum)|
-|Users- premium tier| 100 default.|
-|Users - premium plus tier | 50 default.|
-|Concurrent connections across all collections in a subscription| 5000|
-|User data storage (UPD) per user per collection| 50 GB|
-|Idle timeout| 4 hours|
-|Disconnected timeout| 4 hours|
+|사용자 당 컬렉션| 1|
+|컬렉션당 게시된 앱|	100|
+|평가판 컬렉션 기간| 30일|
+|평가판 컬렉션| 구독 당 2|
+|평가판 컬렉션 당 사용자| 10|
+|평가판 템플릿 이미지|	25|
+|유료 컬렉션| 3 |
+|유료 템플릿 이미지| 25|
+|사용자-기본 계층 *| 400 (기본값) / 800 (최대)|
+|사용자-표준 계층 *| 250 (기본값) / 500 (최대)|
+|사용자 - 프리미엄 계층| 기본값은 100입니다.|
+|사용자 - 프리미엄 플러스 계층 | 기본값은 50입니다.|
+|구독에서 모든 컬렉션에 걸쳐 동시 연결| 5000|
+|컬렉션당 사용자당 사용자 데이터 저장소(UPD)| 50GB|
+|유휴 상태 시간 제한| 4시간|
+|연결 해제 시간 제한| 4시간|
 
-*User limits in basic and standard tiers cannot be increased beyond the maximum limit listed above. 
+**기본 및 표준 계층의 사용자 제한을 위에 나열된 최대 한도를 초과하여 늘릴 수 없습니다.
 
-The number of users is determined by the number of VMs used for your collection:
+사용자 수는 컬렉션에 사용되는 VM의 수에 따라 결정됩니다.
 
-- Basic = 16 users per VM
-- Standard = 10 users per VM
-- Premium = 4 users per VM
-- Premium plus = 2 users per VM
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+- 기본 = VM당 16명의 사용자
+- 표준 = VM당 10명의 사용자
+- 프리미엄 = VM당 4명의 사용자
+- 프리미엄 플러스 = VM당 2명의 사용자

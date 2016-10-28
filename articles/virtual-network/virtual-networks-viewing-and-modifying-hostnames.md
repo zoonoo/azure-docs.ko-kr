@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Viewing and Modifying Hostnames | Microsoft Azure"
-   description="How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution"
+   pageTitle="호스트 이름 보기 및 수정 | Microsoft Azure"
+   description="이름 확인을 위해 Azure 가상 컴퓨터, 웹 및 작업자 역할에 대한 호스트 이름을 보고 변경하는 방법"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,65 +15,60 @@
    ms.date="04/27/2016"
    ms.author="jdial" />
 
+# 호스트 이름 보기 및 수정
 
-# <a name="viewing-and-modifying-hostnames"></a>Viewing and modifying hostnames
+호스트 이름으로 역할 인스턴스를 참조하려면 각 역할의 서비스 구성 파일에서 호스트 이름의 값을 설정해야 합니다. 이렇게 하려면 **역할** 요소의 **vmName** 특성에 원하는 호스트 이름을 추가합니다. **vmName** 특성의 값은 각 역할 인스턴스의 호스트 이름에 대한 기준으로 사용됩니다. 예를 들어 경우 **vmName**이 *webrole*이고 해당 역할의 인스턴스가 3개 있으면 인스턴스의 호스트 이름은 *webrole0*, *webrole1*, *webrole2*가 됩니다. 가상 컴퓨터의 호스트 이름은 가상 컴퓨터 이름을 기준으로 채워지므로 구성 파일에서 가상 컴퓨터의 호스트 이름을 지정하지 않아도 됩니다. Microsoft Azure 서비스 구성에 대한 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg 파일)](https://msdn.microsoft.com/library/azure/ee758710.aspx)를 참조하세요.
 
-To allow your role instances to be referenced by host name, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*. You do not need to specify a host name for virtual machines in the configuration file, because the host name for a virtual machine is populated based on the virtual machine name. For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+## 호스트 이름 보기
 
-## <a name="viewing-hostnames"></a>Viewing hostnames
+아래 도구를 사용하여 가상 컴퓨터의 호스트 이름과 역할 인스턴스를 확인할 수 있습니다.
 
-You can view the host names of virtual machines and role instances in a cloud service by using any of the tools below.
+### Azure 포털
 
-### <a name="azure-portal"></a>Azure Portal
+[Azure 포털](http://portal.azure.com)을 사용하여 가상 컴퓨터의 개요 블레이드에서 가상 컴퓨터의 호스트 이름을 확인할 수 있습니다. 블레이드에는 **이름** 및 **호스트 이름**의 값이 표시됩니다. 이 두 이름은 처음에는 같지만 호스트 이름을 변경해도 가상 컴퓨터나 역할 인스턴스의 이름은 변경되지 않습니다.
 
-You can use the [Azure portal](http://portal.azure.com) to view the host names for virtual machines on the overview blade for a virtual machine. Keep in mind that the blade shows a value for **Name** and **Host Name**. Although they are initially the same, changing the host name will not change the name of the virtual machine or role instance.
+역할 인스턴스는 Azure 포털에서 확인할 수도 있지만 클라우드 서비스에서 인스턴스 목록을 표시해도 호스트 이름은 표시되지 않습니다. 각 인스턴스의 이름은 표시되지만 해당 이름이 호스트 이름을 나타내는 것은 아닙니다.
 
-Role instances can also be viewed in the Azure portal, but when you list the instances in a cloud service, the host name is not displayed. You will see a name for each instance, but that name does not represent the host name.
+### 서비스 구성 파일
 
-### <a name="service-configuration-file"></a>Service configuration file
+Azure 포털의 서비스 **구성** 블레이드에서 배포된 서비스의 서비스 구성 파일을 다운로드할 수 있습니다. 그런 후에 **역할 이름** 요소의 **vmName** 특성에서 호스트 이름을 확인할 수 있습니다. 이 호스트 이름은 각 역할 인스턴스의 호스트 이름 기준으로 사용됩니다. 예를 들어 경우 **vmName**이 *webrole*이고 해당 역할의 인스턴스가 3개 있으면 인스턴스의 호스트 이름은 *webrole0*, *webrole1*, *webrole2*가 됩니다.
 
-You can download the service configuration file for a deployed service from the **Configure** blade of the service in the Azure portal. You can then look for the **vmName** attribute for the **Role name** element to see the host name. Keep in mind that this host name is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*.
+### 원격 데스크톱
 
-### <a name="remote-desktop"></a>Remote Desktop
+가상 컴퓨터 또는 역할 인스턴스에 대한 원격 데스크톱(Windows), Windows PowerShell 원격(Windows) 또는 SSH(Linux/Windows) 연결을 사용하도록 설정하고 나면 여러 가지 방법으로 활성 원격 데스크톱 연결에서 호스트 이름을 확인할 수 있습니다.
 
-After you enable Remote Desktop (Windows), Windows PowerShell remoting (Windows), or SSH (Linux and Windows) connections to your virtual machines or role instances, you can view the host name from an active Remote Desktop connection in various ways:
+- 명령 프롬프트 또는 SSH 터미널에 hostname을 입력합니다.
 
-- Type hostname at the command prompt or SSH terminal.
+- 명령 프롬프트에 ipconfig /all을 입력합니다(Windows에만 해당).
 
-- Type ipconfig /all at the command prompt (Windows only).
+- 시스템 설정에서 컴퓨터 이름을 확인합니다(Windows에만 해당).
 
-- View the computer name in the system settings (Windows only).
+### Azure 서비스 관리 REST API
 
-### <a name="azure-service-management-rest-api"></a>Azure Service Management REST API
+REST 클라이언트에서 다음 지침을 따릅니다.
 
-From a REST client, follow these instructions:
+1. Azure 포털에 연결하기 위한 클라이언트 인증서가 있는지 확인합니다. 클라이언트 인증서를 가져오려면 [방법: 게시 설정과 구독 정보 다운로드 및 가져오기](https://msdn.microsoft.com/library/dn385850.aspx)를 참조하세요.
 
-1. Ensure that you have a client certificate to connect to the Azure portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. 값이 2013-11-01인 x-ms-version 헤더 항목을 설정합니다.
 
-1. Set a header entry named x-ms-version with a value of 2013-11-01.
+1. 다음 형식으로 요청을 보냅니다. https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
-1. Send a request in the following format: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+1. 각 **RoleInstance** 요소에 대해 **HostName** 요소를 찾습니다.
 
-1. Look for the **HostName** element for each **RoleInstance** element.
+>[AZURE.WARNING] **InternalDnsSuffix** 요소를 확인하거나, 원격 데스크톱 세션(Windows)의 명령 프롬프트에서 ipconfig /all을 실행하거나, SSH 터미널(Linux)에서 cat /etc/resolv.conf를 실행하여 REST 호출 응답에서 클라우드 서비스의 내부 도메인 접미사를 확인할 수도 있습니다.
 
->[AZURE.WARNING] You can also view the internal domain suffix for your cloud service from the REST call response by checking the **InternalDnsSuffix** element, or by running ipconfig /all from a command prompt in a Remote Desktop session (Windows), or by running cat /etc/resolv.conf from an SSH terminal (Linux).
+## 호스트 이름 수정
 
-## <a name="modifying-a-hostname"></a>Modifying a hostname
+수정된 서비스 구성 파일을 업로드하거나 원격 데스크톱 세션에서 컴퓨터 이름을 바꿔 역할 인스턴스 또는 가상 컴퓨터의 호스트 이름을 수정할 수 있습니다.
 
-You can modify the host name for any virtual machine or role instance by uploading a modified service configuration file, or by renaming the computer from a Remote Desktop session.
+## 다음 단계
 
-## <a name="next-steps"></a>Next steps
+[이름 확인(DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-[Name Resolution (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+[Azure 서비스 구성 스키마(.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
+[Azure 가상 네트워크 구성 스키마](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
+[네트워크 구성 파일을 사용하여 DNS 설정 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-[Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

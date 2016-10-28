@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Authoring templates with Linux VM extensions | Microsoft Azure"
-   description="Learn about authoring Azure Resource Manager templates with extensions for Linux VMs"
+   pageTitle="Linux VM 확장을 사용하여 템플릿 작성 | Microsoft Azure"
+   description="Linux VM 확장을 사용하여 Azure Resource Manager 템플릿 작성에 대해 알아봅니다."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="kundanap"
@@ -17,39 +17,34 @@
    ms.date="03/29/2016"
    ms.author="kundanap"/>
 
-
-# <a name="authoring-azure-resource-manager-templates-with-linux-vm-extensions"></a>Authoring Azure Resource Manager templates with Linux VM extensions
+# Linux VM 확장을 사용하여 Azure Resource Manager 템플릿 작성
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
-From Azure CLI, run the following commnad:
+Azure CLI에서 다음 명령을 실행합니다.
 
       Azure VM extension list
 
-This command returns the publisher name, extension name and version as following:
+이 명령은 다음과 같이 게시자 이름, 확장 이름 및 버전을 반환합니다.
 
       Publisher                   : Microsoft.Azure.Extensions  
       ExtensionName               : DockerExtension
       Version                     : 1.0
 
-These three properties map to "publisher", "type", and "typeHandlerVersion" respectively in the above template snippet.
+이러한 세 속성은 위의 템플릿 조각에서 각각 "게시자", "유형" 및 "typeHandlerVersion"으로 매핑합니다.
 
->[AZURE.NOTE]It's always recommended to use the latest extension version to get the most updated functionality.
+>[AZURE.NOTE]업데이트된 최신 기능을 얻으려면 최신 확장 버전을 사용하는 것이 좋습니다.
 
-## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>Identifying the schema for the extension configuration parameters
+## 확장 구성 매개 변수에 대한 스키마를 식별합니다.
 
-The next step with authoring an extension template is to identify the format for providing configuration parameters. Each extension supports its own set of parameters.
+확장 템플릿 작성을 사용하는 다음 단계는 구성 매개 변수를 제공하기 위한 형식을 식별하는 것입니다. 각 확장은 자체 매개 변수 집합을 지원합니다.
 
-To look at sample configurations for Linux extensions, click the documentation for see [Linux eExtensions samples](virtual-machines-linux-extensions-configuration-samples.md).
+Linux 확장에 대한 샘플 구성을 보려면 [Linux 확장 샘플](virtual-machines-linux-extensions-configuration-samples.md)에 대한 설명서를 클릭하세요.
 
-Please refer to the following to get a fully complete template with VM Extensions.
+VM 확장으로 템플릿을 완벽하게 완료하려면 다음을 참조하세요.
 
-[Custom script extension on a Linux VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+[Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-After authoring the template, you can deploy it using the Azure CLI.
+템플릿을 작성한 후 Azure CLI를 사용하여 배포할 수 있습니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

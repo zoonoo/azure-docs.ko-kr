@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Public and private IP addressing in Azure Resource Manager | Microsoft Azure"
-   description="Learn about public and private IP addressing in Azure Resource Manager"
+   pageTitle="Azure 리소스 관리자에서 공용 및 개인 IP 주소 지정 | Microsoft Azure"
+   description="Azure 리소스 관리자에서 공용 및 개인 IP 주소 지정 방법에 대해 알아보기"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -16,129 +16,124 @@
    ms.date="04/27/2016"
    ms.author="jdial" />
 
+# Azure의 IP 주소
+다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 두 가지 유형의 IP 주소를 사용할 수 있습니다.
 
-# <a name="ip-addresses-in-azure"></a>IP addresses in Azure
-You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure:
-
-- **Public IP addresses**: Used for communication with the Internet, including Azure public-facing services
-- **Private IP addresses**: Used for communication within an Azure virtual network (VNet), and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
+- **공용 IP 주소**: Azure 공용 웹 서비스를 포함한 인터넷과의 통신에 사용됩니다.
+- **개인 IP 주소**: VPN 게이트웨이 또는 Express 경로 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet) 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 
-If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
+클래식 배포 모델에 익숙한 경우 [클래식과 Resource Manager 간의 IP 주소 차이](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments)를 확인하십시오.
 
-## <a name="public-ip-addresses"></a>Public IP addresses
-Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
+## 공용 IP 주소
+공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/), [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md) 및 [Azure 저장소](../storage/storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
 
-In Azure Resource Manager, a [public IP](resource-groups-networking.md#public-ip-address) address is a resource that has its own properties. You can associate a public IP address resource with any of the following resources:
+Azure 리소스 관리자에서 [공용 IP](resource-groups-networking.md#public-ip-address) 주소는 고유 속성을 가진 리소스입니다. 다음 리소스와 공용 IP 주소 리소스를 연결할 수 있습니다.
 
-- Virtual machines (VM)
-- Internet-facing load balancers
-- VPN gateways
-- Application gateways
+- VM(가상 컴퓨터)
+- 인터넷 연결 부하 분산 장치
+- VPN 게이트웨이
+- 응용 프로그램 게이트웨이
 
-### <a name="allocation-method"></a>Allocation method
-There are two methods in which an IP address is allocated to a *public* IP resource - *dynamic* or *static*. The default allocation method is *dynamic*, where an IP address is **not** allocated at the time of its creation. Instead, the public IP address is allocated when you start (or create) the associated resource (like a VM or load balancer). The IP address is released when you stop (or delete) the resource. This causes the IP address to change when you stop and start a resource.
+### 할당 방법
+IP 주소는 *동적* 또는 *정적*의 두 가지 방법으로 *공용* IP 리소스에 할당됩니다. 기본 할당 방법은 IP 주소를 만들 때 할당하지 **않는** *동적* 방법입니다. 대신, 연결된 리소스(예: VM 또는 부하 분산 장치)를 시작하거나 만들 때 공용 IP 주소가 할당됩니다. 리소스를 중지(또는 삭제)하면 IP 주소가 해제됩니다. 이렇게 하면 리소스를 중지하고 시작할 때 IP 주소가 변경됩니다.
 
-To ensure the IP address for the associated resource remains the same, you can set the allocation method explicitly to *static*. In this case an IP address is assigned immediately. It is released only when you delete the resource or change its allocation method to *dynamic*.
+연결된 리소스의 IP 주소를 동일하게 유지하려면 할당 방법을 명시적으로 *static*으로 설정하면 됩니다. 이 경우 IP 주소가 즉시 할당됩니다. 리소스를 삭제하거나 할당 방법을 *dynamic*으로 변경하는 경우에만 해제됩니다.
 
->[AZURE.NOTE] Even when you set the allocation method to *static*, you cannot specify the actual IP address assigned to the *public IP resource*. Instead, it gets allocated from a pool of available IP addresses in the Azure location the resource is created in.
+>[AZURE.NOTE] 할당 방법을 *static*으로 설정한 경우에도 *공용 IP 리소스*에 할당된 실제 IP 주소를 지정할 수 없습니다. 대신, 리소스가 생성된 Azure 위치의 사용 가능한 IP 주소 풀에서 할당됩니다.
 
-Static public IP addresses are commonly used in the following scenarios:
+정적 공용 IP 주소는 일반적으로 다음과 같은 시나리오에서 사용됩니다.
 
-- End-users need to update firewall rules to communicate with your Azure resources.
-- DNS name resolution, where a change in IP address would require updating A records.
-- Your Azure resources communicate with other apps or services that use an IP address-based security model.
-- You use SSL certificates linked to an IP address.
+- 최종 사용자가 Azure 리소스와 통신하도록 방화벽 규칙을 업데이트해야 하는 경우
+- DNS 이름을 확인, IP 주소를 변경하려면 A 레코드를 업데이트해야 하는 경우
+- Azure 리소스가 IP 기반 보안 모델을 사용하는 다른 앱 또는 서비스와 통신하는 경우
+- IP 주소에 연결된 SSL 인증서를 사용하는 경우
 
->[AZURE.NOTE] The list of IP ranges from which public IP addresses (dynamic/static) are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+>[AZURE.NOTE] 공용 IP 주소(동적/정적)를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
 
-### <a name="dns-hostname-resolution"></a>DNS hostname resolution
-You can specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel*.*location*.cloudapp.azure.com to the public IP address in the Azure-managed DNS servers. For instance, if you create a public IP resource with **contoso** as a *domainnamelabel* in the **West US** Azure *location*, the fully-qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** will resolve to the public IP address of the resource. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
+### DNS 호스트 이름 확인
+Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*location*.cloudapp.azure.com 매핑을 만드는 공용 IP 리소스에 대한 DNS 도메인 이름 레이블을 지정할 수 있습니다. 예를 들어 *domainnamelabel*에 **contoso**를, *location*에 **West US** Azure를 사용하여 공용 IP 리소스를 만들면 FQDN(정규화된 도메인 이름) **contoso.westus.cloudapp.azure.com**이 리소스의 공용 IP 주소로 확인됩니다. 이 FQDN을 사용하여 Azure의 공용 IP 주소를 가리키는 사용자 지정 도메인 CNAME 레코드를 만들 수 있습니다.
 
->[AZURE.IMPORTANT] Each domain name label created must be unique within its Azure location.  
+>[AZURE.IMPORTANT] 생성된 각 도메인 이름은 Azure 위치 내에서 고유해야 합니다.
 
-### <a name="virtual-machines"></a>Virtual machines
-You can associate a public IP address with a [Windows](../virtual-machines/virtual-machines-windows-about.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM by assigning it to its **network interface**. In the case of a multi-network interface VM, you can assign it to the *primary* network interface only. You can assign either a dynamic or a static public IP address to a VM.
+### 가상 컴퓨터
+공용 IP 주소를 **네트워크 인터페이스**에 할당하여 [Windows](../virtual-machines/virtual-machines-windows-about.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-about.md) VM과 연결할 수 있습니다. 멀티 네트워크 인터페이스 VM의 경우 *기본* 네트워크 인터페이스에만 할당할 수 있습니다. VM에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다.
 
-### <a name="internet-facing-load-balancers"></a>Internet-facing load balancers
-You can associate a public IP address with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. This public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front-end. You can also assign multiple public IP addresses to a load balancer front-end, which enables [multi-VIP](../load-balancer/load-balancer-multivip.md) scenarios like a multi-tenant environment with SSL-based websites.
+### 인터넷 연결 부하 분산 장치
+공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip.md) 시나리오를 구현할 수도 있습니다.
 
-### <a name="vpn-gateways"></a>VPN gateways
-[Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) is used to connect an Azure virtual network (VNet) to other Azure VNets or to an on-premises network. You need to assign a public IP address to its **IP configuration** to enable it to communicate with the remote network. Currently, you can only assign a *dynamic* public IP address to a VPN gateway.
+### VPN 게이트웨이
+[Azure VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)는 Azure VNet(가상 네트워크)를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용됩니다. 공용 IP 주소를 해당 **IP 구성**에 할당해야 원격 네트워크와의 통신을 구현할 수 있습니다. 현재는 VPN 게이트웨이에 *동적* 공용 IP 주소만 할당할 수 있습니다.
 
-### <a name="application-gateways"></a>Application gateways
-You can associate a public IP address with an Azure [Application Gateway](../application-gateway/application-gateway-introduction.md), by assigning it to the gateway's **frontend** configuration. This public IP address serves as a load-balanced VIP. Currently, you can only assign a *dynamic* public IP address to an application gateway frontend configuration.
+### 응용 프로그램 게이트웨이
+공용 IP 주소를 게이트웨이의 **프런트 엔드** 구성에 할당하여 Azure [응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 현재는 응용 프로그램 게이트웨이 프런트 엔드 구성에 *동적* 공용 IP 주소만 할당할 수 있습니다.
 
-### <a name="at-a-glance"></a>At-a-glance
-The table below shows the specific property through which a public IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
+### 요약
+아래 표는 공용 IP 주소가 최상위 리소스와 연결될 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 정적)를 보여 줍니다.
 
-|Top-level resource|IP Address association|Dynamic|Static|
+|최상위 리소스|IP 주소 연결|동적|정적|
 |---|---|---|---|
-|Virtual machine|Network interface|Yes|Yes|
-|Load balancer|Front end configuration|Yes|Yes|
-|VPN gateway|Gateway IP configuration|Yes|No|
-|Application gateway|Front end configuration|Yes|No|
+|가상 컴퓨터|네트워크 인터페이스|예|예|
+|부하 분산 장치|프런트 엔드 구성|예|예|
+|VPN 게이트웨이|게이트웨이 IP 구성|예|아니요|
+|응용 프로그램 게이트웨이|프런트 엔드 구성|예|아니요|
 
-## <a name="private-ip-addresses"></a>Private IP addresses
-Private IP addresses allow Azure resources to communicate with other resources in a [virtual network](virtual-networks-overview.md) or an on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.
+## 개인 IP 주소
+개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 Express 경로 회로를 통해 [가상 네트워크](virtual-networks-overview.md) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
 
-In the Azure Resource Manager deployment model, a private IP address is associated to the following types of Azure resources:
+Azure Resource Manager 배포 모델에서 개인 IP 주소는 다음과 같은 유형의 Azure 리소스에 연결됩니다.
 
-- VMs
-- Internal load balancers (ILBs)
-- Application gateways
+- VM
+- 내부 부하 분산 장치(ILB)
+- 응용 프로그램 게이트웨이
 
-### <a name="allocation-method"></a>Allocation method
-A private IP address is allocated from the address range of the subnet to which the resource is attached. The address range of the subnet itself is a part of the VNet's address range.
+### 할당 방법
+리소스가 연결된 서브넷의 주소 범위에서 개인 IP 주소가 할당됩니다. 서브넷 자체의 주소 범위는 VNet 주소 범위의 일부입니다.
 
-There are two methods in which a private IP address is allocated: *dynamic* or *static*. The default allocation method is *dynamic*, where the IP address is automatically allocated from the resource's subnet (using DHCP). This IP address can change when you stop and start the resource.
+개인 IP 주소를 할당하는 방법으로 *동적* 할당 또는 *정적* 할당의 두 가지가 있습니다. 기본 할당 방법은 DHCP를 사용하여 리소스의 서브넷에서 IP 주소가 자동으로 할당되는 *동적* 할당입니다. 이 IP 주소는 리소스를 중지하고 시작할 때 변경될 수 있습니다.
 
-You can set the allocation method to *static* to ensure the IP address remains the same. In this case, you also need to provide a valid IP address that is part of the resource's subnet.
+할당 방법을 *정적*으로 설정하면 IP 주소를 동일하게 유지할 수 있습니다. 이 경우 리소스 서브넷의 일부인 유효한 IP 주소도 제공해야 합니다.
 
-Static private IP addresses are commonly used for:
+정적 개인 IP 주소가 일반적으로 사용되는 대상은 다음과 같습니다.
 
-- VMs that act as domain controllers or DNS servers.
-- Resources that require firewall rules using IP addresses.
-- Resources accessed by other apps/resources through an IP address.
+- 도메인 컨트롤러 또는 DNS 서버 역할을 하는 VM
+- IP 주소를 사용하는 방화벽 규칙이 필요한 리소스
+- IP 주소를 통해 다른 앱/리소스에서 액세스하는 리소스
 
-### <a name="virtual-machines"></a>Virtual machines
-A private IP address is assigned to the **network interface** of a [Windows](../virtual-machines/virtual-machines-windows-about.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM. In case of a multi-network interface VM, each interface gets a private IP address assigned. You can specify the allocation method as either dynamic or static for a network interface.
+### 가상 컴퓨터
+개인 IP 주소는 [Windows](../virtual-machines/virtual-machines-windows-about.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-about.md) VM의 **네트워크 인터페이스**에 할당됩니다. 다중 네트워크 인터페이스 VM의 경우 각 인터페이스에 개인 IP 주소가 할당됩니다. 네트워크 인터페이스의 할당 방법을 동적 또는 정적으로 지정할 수 있습니다.
 
-#### <a name="internal-dns-hostname-resolution-(for-vms)"></a>Internal DNS hostname resolution (for VMs)
-All Azure VMs are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs that reside within the same VNet.
+#### 내부 DNS 호스트 이름 확인(VM)
+모든 Azure VM은 명시적으로 사용자 지정 DNS 서버를 구성하지 않으면 기본적으로 [Azure 관리 DNS 서버](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)로 구성됩니다. 이러한 DNS 서버는 동일한 VNet 내에 있는 VM에 대한 내부 이름 확인을 제공합니다.
 
-When you create a VM, a mapping for the hostname to its private IP address is added to the Azure-managed DNS servers. In case of a multi-network interface VM, the hostname is mapped to the private IP address of the primary network interface.
+VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관리 DNS 서버에 추가됩니다. 다중 네트워크 인터페이스 VM의 경우 기본 네트워크 인터페이스의 개인 IP 주소에 호스트 이름이 매핑됩니다.
 
-VMs configured with Azure-managed DNS servers will be able to resolve the hostnames of all VMs within their VNet to their private IP addresses.
+Azure 관리 DNS 서버를 사용하여 구성된 VM은 해당 VNet 내 모든 VM의 호스트 이름을 개인 IP 주소로 확인할 수 있게 됩니다.
 
-### <a name="internal-load-balancers-(ilb)-&-application-gateways"></a>Internal load balancers (ILB) & Application gateways
-You can assign a private IP address to the **front end** configuration of an [Azure Internal Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) or an [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). This private IP address serves as an internal endpoint, accessible only to the resources within its virtual network (VNet) and the remote networks connected to the VNet. You can assign either a dynamic or static private IP address to the front end configuration.
+### ILB(내부 부하 분산 장치) 및 응용 프로그램 게이트웨이
+[Azure 내부 부하 분산 장치](../load-balancer/load-balancer-internal-overview.md)(ILB) 또는 [Azure 응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 끝점으로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다.
 
-### <a name="at-a-glance"></a>At-a-glance
-The table below shows the specific property through which a private IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
+### 요약
+아래 표는 개인 IP 주소가 최상위 리소스와 연결될 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 정적)를 보여 줍니다.
 
-|Top-level resource|IP address association|Dynamic|Static|
+|최상위 리소스|IP 주소 연결|동적|정적|
 |---|---|---|---|
-|Virtual machine|Network interface|Yes|Yes|
-|Load balancer|Front end configuration|Yes|Yes|
-|Application gateway|Front end configuration|Yes|Yes|
+|가상 컴퓨터|네트워크 인터페이스|예|예|
+|부하 분산 장치|프런트 엔드 구성|예|예|
+|응용 프로그램 게이트웨이|프런트 엔드 구성|예|예|
 
-## <a name="limits"></a>Limits
+## 제한
 
-The limits imposed on IP addressing are indicated in the full set of [limits for networking](azure-subscription-service-limits.md#networking-limits) in Azure. These limits are per region and per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits) 전체 집합에 나와 있습니다. 이러한 제한은 지역별, 구독별로 적용됩니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
-## <a name="pricing"></a>Pricing
+## 가격
 
-Public IP addresses may have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
+대부분의 경우에 공용 IP 주소는 무료입니다. 추가 및/또는 정적 공용 IP 주소를 사용하는 데 명목 요금이 있습니다. [공용 IP에 대한 가격 책정 구조](https://azure.microsoft.com/pricing/details/ip-addresses/)를 이해하도록 합니다.
 
-## <a name="next-steps"></a>Next steps
-- [Deploy a VM with a static public IP using the Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-- [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
-- [Deploy a VM with a static private IP address using the Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
+## 다음 단계
+- [Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-portal.md)
+- [템플릿을 사용하여 고정 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-template.md)
+- [Azure 포털을 사용하여 고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-arm-pportal.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

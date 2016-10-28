@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with ClickTime | Microsoft Azure" 
-    description="Learn how to use ClickTime with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="자습서: ClickTime과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 ClickTime을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
     authors="jeevansd"
     documentationCenter="na" 
@@ -14,212 +14,210 @@
     ms.date="08/16/2016" 
     ms.author="jeedes" />
 
+#자습서: ClickTime과 Azure Active Directory 통합
 
-#<a name="tutorial:-azure-active-directory-integration-with-clicktime"></a>Tutorial: Azure Active Directory integration with ClickTime
+이 자습서에서는 Azure AD(Azure Active Directory)와 ClickTime을 통합하는 방법에 대해 알아봅니다.
 
-In this tutorial, you learn how to integrate ClickTime with Azure Active Directory (Azure AD).
+ClickTime을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-Integrating ClickTime with Azure AD provides you with the following benefits:
+- ClickTime에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+- 사용자가 해당 Azure AD 계정으로 ClickTime(Single Sign-on)에 자동으로 로그온되도록 설정할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
-- You can control in Azure AD who has access to ClickTime
-- You can enable your users to automatically get signed-on to ClickTime (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## 필수 조건
 
-## <a name="prerequisites"></a>Prerequisites
+ClickTime과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-To configure Azure AD integration with ClickTime, you need the following items:
-
-- An Azure AD subscription
-- A ClickTime single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Azure AD 구독
+- ClickTime Single Sign-On이 설정된 구독
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
-The scenario outlined in this tutorial consists of two main building blocks:
+- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
-1. Adding ClickTime from the gallery
-2. Configuring and testing Azure AD single sign-on
 
-##<a name="adding-clicktime-from-the-gallery"></a>Adding ClickTime from the gallery
+## 시나리오 설명
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
 
-The objective of this section is to outline how to enable the application integration for ClickTime.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-###<a name="to-enable-the-application-integration-for-clicktime,-perform-the-following-steps:"></a>To enable the application integration for ClickTime, perform the following steps:
+1. 갤러리에서 ClickTime 추가
+2. Azure AD Single Sign-on 구성 및 테스트
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+##갤러리에서 ClickTime 추가
+
+이 섹션은 ClickTime에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+
+###ClickTime에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-clicktime-tutorial/tic700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
 
-    ![Applications](./media/active-directory-saas-clicktime-tutorial/tic700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-clicktime-tutorial/tic700994.png "응용 프로그램")
 
-4.  Click **Add** at the bottom of the page.
+4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
 
-    ![Add application](./media/active-directory-saas-clicktime-tutorial/tic749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-clicktime-tutorial/tic749321.png "응용 프로그램 추가")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
-    ![Add an application from gallerry](./media/active-directory-saas-clicktime-tutorial/tic749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-clicktime-tutorial/tic749322.png "갤러리에서 응용 프로그램 추가")
 
-6.  In the **search box**, type **ClickTime**.
+6.  **검색 상자**에 **ClickTime**을 입력합니다.
 
-    ![Application gallery](./media/active-directory-saas-clicktime-tutorial/tic777275.png "Application gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-clicktime-tutorial/tic777275.png "응용 프로그램 갤러리")
 
-7.  In the results pane, select **ClickTime**, and then click **Complete** to add the application.
+7.  결과 창에서 **ClickTime**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
     ![ClickTime](./media/active-directory-saas-clicktime-tutorial/tic777276.png "ClickTime")
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with ClickTime based on a test user called "Britta Simon".
+##  Azure AD Single Sign-on 구성 및 테스트
+이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 ClickTime에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in ClickTime is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in ClickTime needs to be established.
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 ClickTime 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 ClickTime의 관련 사용자 간에 연결이 형성되어야 합니다.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ClickTime.
+이 연결 관계는 Azure AD의 **사용자 이름** 값을 ClickTime의 **Username** 값으로 할당하여 설정합니다.
 
-To configure and test Azure AD single sign-on with ClickTime, you need to complete the following building blocks:
+ClickTime에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a ClickTime test user](#creating-a-clicktime-test-user)** - to have a counterpart of Britta Simon in ClickTime that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
-
-The objective of this section is to outline how to enable users to authenticate to ClickTime with their account in Azure AD using federation based on the SAML protocol.  
+1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[ClickTime 테스트 사용자 만들기](#creating-a-clicktime-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ClickTime에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 
->[AZURE.IMPORTANT] In order to be able to configure single sign-on on your ClickTime tenant, you need to contact first the ClickTime technical support to get this feature enabled.
+### Azure AD Single Sign-On 구성
 
-**To configure Azure AD single sign-on with ClickTime, perform the following steps:**
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 ClickTime에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
-1.  In the Azure classic portal, on the **ClickTime** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
 
-    ![Enable single sign-on](./media/active-directory-saas-clicktime-tutorial/tic777277.png "Enable single sign-on")
+>[AZURE.IMPORTANT] ClickTime 테넌트에 대한 single sign-on을 구성하기 위해 먼저 ClickTime 기술 지원에 문의하여 이 기능을 사용하도록 설정합니다.
 
-2.  On the **How would you like users to sign on to ClickTime** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+**ClickTime에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-    ![Configure single sign-on](./media/active-directory-saas-clicktime-tutorial/tic777278.png "Configure single sign-on")
+1.  Azure 클래식 포털의 **ClickTime** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+    ![Single Sign-On 사용](./media/active-directory-saas-clicktime-tutorial/tic777277.png "Single Sign-On 사용")
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tic777286.png) 
+2.  **ClickTime에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
 
-    a. In the **IdentifierL** textbox, type the URL using the following pattern: **https://app.clicktime.com/sp/**
+    ![Single Sign-On 구성](./media/active-directory-saas-clicktime-tutorial/tic777278.png "Single Sign-On 구성")
+
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+
+	![Single Sign-On 구성](./media/active-directory-saas-clicktime-tutorial/tic777286.png)
+
+    a. **식별자** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. **https://app.clicktime.com/sp/**
+	
+	b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. **https://app.clicktime.com/Login/**
+
+	c. **다음**을 클릭합니다.
+
+4.  **ClickTime에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
+
+    ![Single Sign-On 구성](./media/active-directory-saas-clicktime-tutorial/tic777279.png "Single Sign-On 구성")
+
+4.  다른 웹 브라우저 창에서 ClickTime 회사 사이트에 관리자로 로그인합니다.
+
+5.  위쪽에 도구 모음에서 **기본 설정**을 클릭한 다음 **보안 설정** 클릭합니다.
+
+6.  **Single Sign-On 선호도** 섹션에서 다음 단계를 수행합니다.
+
+    ![보안 설정](./media/active-directory-saas-clicktime-tutorial/tic777280.png "보안 설정")
+
+    a. **Azure AD**와 SSO(Single Sign-On)를 사용하여 로그인 **허용**을 선택합니다.
     
-    b. In the **Reply URL** textbox, type the URL using the following pattern: **https://app.clicktime.com/Login/**
+    b. Azure 클래식 포털의 **ClickTime에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 끝점** 텍스트 상자에 붙여 넣습니다.
 
-    c. click **Next**
-
-4.  On the **Configure single sign-on at ClickTime** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
-
-    ![Configure single sign-on](./media/active-directory-saas-clicktime-tutorial/tic777279.png "Configure single sign-on")
-
-4.  In a different web browser window, log into your ClickTime company site as an administrator.
-
-5.  In the toolbar on the top, click **Preferences**, and then click **Security Settings**.
-
-6.  In the **Single Sign-On Preferences** configuration section, perform the following steps:
-
-    ![Security Settings](./media/active-directory-saas-clicktime-tutorial/tic777280.png "Security Settings")
-
-    a.  Select **Allow** sign-in using Single Sign-On (SSO) with **Azure AD**.
+    c. Base 64로 인코딩된 인증서를 **메모장**에서 열고, 내용을 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
     
-    b.  In the Azure classic portal, on the **Configure single sign-on at ClickTime** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity Provider Endpoint** textbox.
+    d. **Save**를 클릭합니다.
 
-    c.  Open the base-64 encoded certificate in **Notepad**, copy the content, and then paste it into the **X.509 Certificate** textbox.
+7.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+
+    ![Single Sign-On 구성](./media/active-directory-saas-clicktime-tutorial/tic777281.png "Single Sign-On 구성")
+
+##사용자 프로비전 구성
+
+Azure AD 사용자가 ClickTime에 로그인할 수 있도록 하려면 ClickTime로 프로비전되어야 합니다. ClickTime의 경우 프로비전은 수동 작업입니다.
+
+###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+
+1.  **ClickTime** 테넌트에 로그인합니다.
+
+2.  위쪽에 도구 모음에서 **회사**를 클릭한 다음 **피플**을 클릭합니다.
+
+    ![피플](./media/active-directory-saas-clicktime-tutorial/tic777282.png "피플")
+
+3.  **사람 추가**를 클릭합니다.
+
+    ![사람 추가](./media/active-directory-saas-clicktime-tutorial/tic777283.png "사람 추가")
+
+4.  새 사람 섹션에서 다음 단계를 수행합니다.
+
+    ![피플](./media/active-directory-saas-clicktime-tutorial/tic777284.png "피플")
+
+    a. **전자 메일** 텍스트 상자에 Azure AD 계정의 전자 메일 주소를 입력합니다.
     
-    d.  Click **Save**.
+    b. **전체 이름** 텍스트 상자에 Azure AD 계정의 이름을 입력합니다.
 
-7.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+    >[AZURE.NOTE] 원한다면 새 사람 개체의 추가 속성을 설정할 수 있습니다.
 
-    ![Configure single sign-on](./media/active-directory-saas-clicktime-tutorial/tic777281.png "Configure single sign-on")
+    c. **Save**를 클릭합니다.
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+>[AZURE.NOTE] 다른 ClickTime 사용자 계정 생성 도구 또는 ClickTime이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비전할 수 있습니다.
 
-In order to enable Azure AD users to log into ClickTime, they must be provisioned into ClickTime.  
-In the case of ClickTime, provisioning is a manual task.
+### Azure AD 테스트 사용자 할당
 
-###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ClickTime에 대한 액세스 권한을 부여합니다.
 
-1.  Log in to your **ClickTime** tenant.
+![사용자 할당][200]
 
-2.  In the toolbar on the top, click **Company**, and then click **People**.
+구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-    ![People](./media/active-directory-saas-clicktime-tutorial/tic777282.png "People")
+**Britta Simon을 ClickTime에 할당하려면 다음 단계를 수행합니다.**
 
-3.  Click **Add Person**.
+1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
 
-    ![Add Person](./media/active-directory-saas-clicktime-tutorial/tic777283.png "Add Person")
+	![사용자 할당][201]
 
-4.  In the New Person section, perform the following steps:
+2. 응용 프로그램 목록에서 **ClickTime**을 선택합니다.
 
-    ![People](./media/active-directory-saas-clicktime-tutorial/tic777284.png "People")
+	![Single Sign-On 구성](./media/active-directory-saas-clicktime-tutorial/tutorial_clicktime_50.png)
 
-    a.  In the **email address** textbox, type the email address of your Azure AD account.
-    
-    b.  In the **full name** textbox, type the name of your Azure AD account.  
+3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
 
-    >[AZURE.NOTE] If you want to, you can set additional properties of the new person object.
+	![사용자 할당][203]
 
-    c.  Click **Save**.
+4. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
->[AZURE.NOTE] You can use any other ClickTime user account creation tools or APIs provided by ClickTime to provision Azure AD user accounts.
+5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+	![사용자 할당][205]
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to ClickTime.
+## Single Sign-On 테스트
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-![Assign User][200]
-
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
-
-**To assign Britta Simon to ClickTime, perform the following steps**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **ClickTime**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tutorial_clicktime_50.png) 
-
-3. In the menu on the top, click **Users**.
-
-    ![Assign User][203]
-
-4. In the Users list, select **Britta Simon**.
-
-5. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
-
-## <a name="testing-single-sign-on"></a>Testing single sign-on
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the ClickTime tile in the Access Panel, you should get automatically signed-on to your ClickTime application.
+액세스 패널에서 ClickTime 타일을 클릭하면 ClickTime 응용 프로그램에 자동으로 로그온됩니다.
 
 
-## <a name="additional-resources"></a>Additional resources
+## 추가 리소스
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -229,7 +227,4 @@ When you click the ClickTime tile in the Access Panel, you should get automatica
 [203]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_203.png
 [205]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_205.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

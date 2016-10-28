@@ -1,77 +1,74 @@
 <properties
-    pageTitle="Azure Toolkit for IntelliJ | Microsoft Azure"
-    description="Learn about the Azure Toolkit for IntelliJ."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="IntelliJ용 Azure 도구 키트 | Microsoft Azure"
+	description="IntelliJ용 Azure 도구 키트에 대해 알아봅니다."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="09/20/2016" 
-    ms.author="robmcm;asirveda"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/20/2016" 
+	ms.author="robmcm;asirveda"/>
 
+# IntelliJ용 Azure 도구 키트
 
-# <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
-
-The Azure Toolkit for IntelliJ provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the IntelliJ development environment. It is an Open Source project, whose source code is available under the MIT License from the project's site at:
+IntelliJ용 Azure 도구 키트는 IntelliJ 개발 환경에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. 다음 프로젝트 사이트를 통해 MIT 라이선스에 따라 소스 코드 사용이 허가된 오픈 소스 프로젝트입니다.
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse].
+> [AZURE.NOTE] Azure Toolkit for Eclipse IDE이기도합니다. 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
 
-## <a name="getting-started-with-the-azure-toolkit-for-intellij"></a>Getting Started with the Azure Toolkit for IntelliJ
+## IntelliJ용 Azure 도구 키트 시작
 
-The following articles will help you get started using the Azure Toolkit for IntelliJ:
+다음은 IntelliJ용 Azure 도구 키트 사용을 시작할 때 도움이 되는 문서입니다.
 
-* [What's New in the Azure Toolkit for IntelliJ]
-* [Installing the Azure Toolkit for IntelliJ]
-* [Create a Hello World Web App for Azure in IntelliJ]
+* [IntelliJ용 Azure 도구 키트의 새로운 기능]
+* [IntelliJ용 Azure 도구 키트 설치]
+* [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
 
-## <a name="using-the-azure-toolkit-for-intellij"></a>Using the Azure Toolkit for IntelliJ
+## IntelliJ용 Azure 도구 키트 사용
 
-The following articles demonstrate using the Azure Toolkit for IntelliJ to add Azure functionality to your Java projects:
+다음 문서는 IntelliJ용 Azure 도구 키트를 사용하여 Java 프로젝트에 Azure 기능을 추가하는 방법을 보여 줍니다.
 
-* [Debug a Java Web App on Azure in IntelliJ]
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for HDInsight Spark Linux cluster][HDInsight Tools Plugin for IntelliJ]
+* [IntelliJ의 Azure에서 Java 웹앱 디버깅]
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기][HDInsight Tools Plugin for IntelliJ]
 
-## <a name="see-also"></a>See Also
+## 참고 항목
 
-For more information about the Azure Toolkits for Java IDEs, see the following links:
+Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- [Azure Toolkit for Eclipse]
-  - [Installing the Azure Toolkit for Eclipse]
-  - [Create a Hello World Web App for Azure in Eclipse]
-  - [What's New in the Azure Toolkit for Eclipse]
-- *Azure Toolkit for IntelliJ (This Article)*
-  - [Installing the Azure Toolkit for IntelliJ]
-  - [Create a Hello World Web App for Azure in IntelliJ]
-  - [What's New in the Azure Toolkit for IntelliJ]
+- [Eclipse용 Azure 도구 키트]
+  - [Eclipse용 Azure 도구 키트 설치]
+  - [Eclipse에서 Azure용 Hello World 웹앱 만들기]
+  - [Eclipse용 Azure 도구 키트의 새로운 기능]
+- *( IntelliJ 용 azure 도구 키트(이 문서)*
+  - [IntelliJ용 Azure 도구 키트 설치]
+  - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
+  - [IntelliJ용 Azure 도구 키트의 새로운 기능]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Eclipse용 Azure 도구 키트]: ./azure-toolkit-for-eclipse.md
+[Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
-[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse-installation.md
+[IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md
+[Eclipse용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-eclipse-whats-new.md
+[IntelliJ용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 
-[Debug a Java Web App on Azure in IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
+[IntelliJ의 Azure에서 Java 웹앱 디버깅]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
 [HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

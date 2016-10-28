@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the query action in logic apps | Microsoft Azure"
-    description="Overview of the query action for performing actions like filter array."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="논리 앱에서 쿼리 작업 추가 | Microsoft Azure"
+	description="배열 필터링과 같은 작업을 수행하기 위한 쿼리 작업의 개요입니다."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,74 +17,68 @@
    ms.date="07/20/2016"
    ms.author="jehollan"/>
 
+# 쿼리 작업 시작
 
-# <a name="get-started-with-the-query-action"></a>Get started with the query action
+쿼리 작업을 사용하면 배치 및 배열을 통해 다음을 수행하는 워크플로를 완료할 수 있습니다.
 
-By using the query action, you can work with batches and arrays to accomplish workflows to:
+- 데이터베이스에서 모든 높은 우선순위 레코드에 대한 작업을 만듭니다.
+- 전자 메일에 대한 모든 PDF 첨부 파일을 Azure Blob에 저장합니다.
 
-- Create a task for all high-priority records from a database.
-- Save all PDF attachments for emails into an Azure blob.
+논리 앱에서 쿼리 작업 사용을 시작하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-To get started using the query action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## 쿼리 작업 사용
 
-## <a name="use-the-query-action"></a>Use the query action
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다](connectors-overview.md).
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
+쿼리 작업에는 디자이너에 표시되는 배열 필터링이라는 작업 한 개가 있습니다. 이를 통해 배열을 쿼리하고 필터링된 결과 집합을 반환할 수 있습니다.
 
-The query action currently has one operation, called the filter array, that is exposed in the designer. This allows you to query an array and return a set of filtered results.
+논리 앱에서 이를 추가하는 방법은 다음과 같습니다.
 
-Here's how you can add it in a logic app:
+1. **새 단계** 단추를 선택합니다.
+2. **작업 추가**를 선택합니다.
+3. 작업 검색 상자에 **filter**를 입력하여 **배열 필터링** 작업을 나열합니다.
 
-1. Select the **New Step** button.
-2. Choose **Add an action**.
-3. In the action search box, type **filter** to list the **Filter array** action.
+	![쿼리 작업 선택](./media/connectors-native-query/using-action-1.png)
 
-    ![Select the query action](./media/connectors-native-query/using-action-1.png)
+4. 필터링할 배열을 선택합니다. (다음 스크린샷은 Twitter 검색에서 결과의 배열을 표시합니다.)
+5. 각 항목에 대해 평가할 조건을 만듭니다. (다음 스크린샷은 폴로워가 100명 이상인 사용자로부터 오는 트윗을 필터링합니다.)
 
-4. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
-5. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
+	![쿼리 작업 완료](./media/connectors-native-query/using-action-2.png)
 
-    ![Complete the query action](./media/connectors-native-query/using-action-2.png)
+	이 작업은 필터 요구 사항을 충족하는 결과만 포함하는 새 배열을 출력합니다.
+6. 도구 모음의 왼쪽 위 모서리를 클릭하여 저장하면 논리 앱이 저장하고 게시합니다(활성화).
 
-    The action will output a new array that contains only results that met the filter requirements.
-6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
+## 쿼리 작업
 
-## <a name="query-action"></a>Query action
+여기에는 이 커넥터가 지원하는 작업에 대한 세부 정보가 나와 있습니다. 커넥터에는 한 개의 가능한 작업이 있습니다.
 
-Here are the details for the action that this connector supports. The connector has one possible action.
-
-|Action|Description|
+|작업|설명|
 |---|---|
-|Filter array|Evaluates a condition for each item in an array and returns the results|
+|배열 필터링|배열에 있는 각 항목에 대한 조건을 평가하고 결과를 반환|
 
-## <a name="action-details"></a>Action details
+## 작업 세부 정보
 
-The query action comes with one possible action. The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
+쿼리 작업은 한 개의 가능한 작업을 제공합니다. 다음 표에서는 작업의 필수 및 선택적 입력 필드와 함께 작업 사용과 연관된 해당 출력 세부 정보를 설명합니다.
 
-### <a name="filter-array"></a>Filter array
-The following are input fields for the action, which makes an HTTP outbound request.
-A * means that it is a required field.
+### 배열 필터링
+HTTP 아웃바운드 요청을 하는 작업에 대한 입력 필드는 다음과 같습니다. *는 필수 필드임을 의미합니다.
 
-|Display name|Property name|Description|
+|표시 이름|속성 이름|설명|
 |---|---|---|
-|From*|from|The array to filter|
-|Condition*|where|The condition to evaluate for each item|
+|원본*|from|필터링할 배열|
+|조건*|여기서,|각 항목에 대해 평가할 조건|
 <br>
 
-### <a name="output-details"></a>Output details
+### 출력 세부 정보
 
-The following are output details for the HTTP response.
+HTTP 요청에 대한 출력 세부 정보는 다음과 같습니다.
 
-|Property name|Data type|Description|
+|속성 이름|데이터 형식|설명|
 |---|---|---|
-|Filtered array|array|An array that contains an object for each filtered result|
+|필터링된 배열|array|각 필터링된 결과에 대한 개체를 포함하는 배열|
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

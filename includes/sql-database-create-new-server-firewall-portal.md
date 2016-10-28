@@ -9,44 +9,41 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## <a name="create-a-new-azure-sql-server-level-firewall"></a>Create a new Azure SQL server-level firewall
+## 새 Azure SQL 서버 수준 방화벽 만들기
 
-Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer) or an entire IP address range to a SQL Database logical server.
+Azure 포털에서 다음 단계를 사용하여 (클라이언트 컴퓨터의)개별 IP 주소 또는 전체 IP 주소 범위에서 SQL 데이터베이스 논리 서버에 연결을 허용하는 서버 수준 방화벽 규칙을 만듭니다.
 
-1. If you're not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. On the default blade, click **SQL servers**.
+1. 연결되어 있지 않은 경우 [Azure Portal](http://portal.azure.com)에 연결합니다.
+2. 기본 블레이드에서 **SQL Server**를 클릭합니다.
 
-    ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
+  	![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 
-3. On the **SQL servers** blade, click the server on which to create the firewall rule.
+3. **SQL Server** 블레이드에서 방화벽 규칙을 만들 서버를 클릭합니다.
 
-    ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
+ 	![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
 
-4. Review the properties of your server.
+4. 서버의 속성을 검토합니다.
 
-    ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
+ 	![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
 
-5. On the **Settings** blade, click **Firewall**.
+5. **설정** 블레이드에서 **방화벽**을 클릭합니다.
 
-    ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
+ 	![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
 
-    > [AZURE.NOTE] You can also access the server-level **Firewall settings** blade from the toolbar of the **Database** blade.
+ 	> [AZURE.NOTE] **데이터베이스** 블레이드의 도구 모음에서 서버 수준 **방화벽 설정** 블레이드에 액세스할 수도 있습니다.
 
-6. Click **Add client IP** to have Azure create a rule for your client IP address.
+6. **클라이언트 IP 추가**를 클릭하여 Azure에서 클라이언트 IP 주소에 대한 규칙을 생성하도록 합니다.
 
-      ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
+      ![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 
-7. Optionally, to allow access to a range of IP addresses, click the IP address that was added to edit the firewall address.
+7. 필요에 따라 IP 주소의 범위에 대한 액세스를 허용하려면 방화벽 주소를 편집하는 데 추가된 IP 주소를 클릭합니다.
 
-      ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
+      ![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
 
-8. Click **Save** to create the server-level firewall rule.
+8. **저장**을 클릭하여 서버 수준 방화벽 규칙을 만듭니다.
 
-     ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
+     ![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
 
-    >[AZURE.IMPORTANT] Your client IP address might change from time to time, and you might not be able to access your server until you create a new firewall rule. You can check your IP address by using [Bing](http://www.bing.com/search?q=my%20ip%20address). Then add a single IP address or a range of IP addresses. See [Manage firewall settings](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) for details.
+	>[AZURE.IMPORTANT] 클라이언트 IP 주소가 수시로 변경될 수 있으면 새 방화벽 규칙을 만들 때까지 서버에 액세스하지 못할 수 있습니다. [Bing](http://www.bing.com/search?q=my%20ip%20address)을 사용하여 IP 주소를 확인할 수 있습니다. 그런 다음 단일 IP 주소 또는 일정 범위의 IP 주소를 추가합니다. 자세한 내용은 [방화벽 설정 관리](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal)를 참조하세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0912_2016--->

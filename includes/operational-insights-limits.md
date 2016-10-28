@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Operational Insights limits table"
-   description="Describes system limits for Operational Insights."
+   pageTitle="Operational Insights 제한 사항 테이블"
+   description="Operational Insights를 위한 시스템 제한 사항을 설명합니다."
    services="operational-insights"
    documentationCenter="NA"
    authors="bandersmsft"
@@ -16,21 +16,16 @@
    ms.author="banders" />
 
 
+Operational Insights 구독에는 다음과 같은 제한이 적용됩니다.
 
-The following limits apply to Operational Insights subscriptions.
 
-
-|   |FREE|STANDARD|PREMIUM|
+| |무료|표준|PREMIUM|
 |---|---|---|---|
-|Daily data transfer limit|500 MB<sup>1</sup>|None|None|
-|Data retention period|7 days|1 month|12 months|
-|Data storage limit|500 MB * 7 days = 3.5 GB|unlimited|unlimited|
+|일별 데이터 전송 제한|500MB<sup>1</sup>|없음|없음|
+|데이터 보존 기간|7 일|1개월|12개월|
+|데이터 저장소 제한|500MB x 7일 = 3.5GB|무제한|무제한|
 
 
-<sup>1</sup>When customers reach their 500MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC.
+<sup>1</sup>고객이 500MB 일별 데이터 전송 제한에 도달한 경우 데이터 분석이 중지되고 다음날 다시 시작됩니다. 1일은 UTC를 기준으로 합니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

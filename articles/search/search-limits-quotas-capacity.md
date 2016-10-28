@@ -1,105 +1,100 @@
 <properties
-    pageTitle="Service limits in Azure Search | Microsoft Azure"
-    description="Service limits used for capacity planning and maximum limits on requests and reponses for Azure Search."
-    services="search"
-    documentationCenter=""
-    authors="HeidiSteen"
-    manager="jhubbard"
-    editor=""
+	pageTitle="Azure 검색의 서비스 제한 사항 | Microsoft Azure"
+	description="용량 계획에 사용되는 서비스 제한 및 Azure 검색에 대한 요청 및 응답의 최대 제한입니다."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="jhubbard"
+	editor=""
     tags="azure-portal"/>
 
 <tags
-    ms.service="search"
-    ms.devlang="NA"
-    ms.workload="search"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.date="10/17/2016"
-    ms.author="heidist"/>
+	ms.service="search"
+	ms.devlang="NA"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="08/03/2016"
+	ms.author="heidist"/>
 
+# Azure 검색의 서비스 제한 사항
 
-# <a name="service-limits-in-azure-search"></a>Service limits in Azure Search
+저장소, 워크로드 및 인덱스, 문서, 기타 개체의 수량에 대한 최대 제한은 **무료**, **기본** 또는 **표준** 가격 책정 계층에서 Azure 검색을 추가하는지 여부에 따라 달라집니다.
 
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you add Azure Search at a **Free**, **Basic**, or **Standard** pricing tier.
+- **무료**는 Azure 구독과 함께 제공되는 다중 테넌트 공유 서비스입니다. 전용 리소스에 등록하기 전에 서비스를 경험해 볼 수 있는 기존 구독자를 위한 추가 비용이 없는 옵션입니다.
+- **기본**은 소규모의 프로덕션 워크로드를 위한 전용 컴퓨팅 리소스를 제공합니다.
+- **표준**은 최소 구성을 포함하여 모든 수준에서 더 많은 저장소 및 처리 용량으로 전용 컴퓨터에서 실행됩니다. 표준은 4가지 수준인 S1, S2, S3 및 S3 HD(S3 고밀도)로 제공됩니다. S3 및 S3 HD 계층은 현재 미리 보기 상태이며 미리 보기 기간 동안 50% 할인된 요금으로 제공됩니다.
 
-- **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources. 
-- **Basic** provides dedicated computing resources for production workloads at a smaller scale. ).
-- **Standard** runs on dedicated machines, with more storage and processing capacity at every level, including the minimum configuration. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD). S3 and S3 HD are currently in Preview and offered at a 50% reduced rate during the Preview period.
+모든 계층은 [포털에 프로비전](search-create-service-portal.md)될 수 있습니다. 처음에는 하나의 서비스에 하나의 파티션과 하나의 복제본이 할당되지만 서비스를 만든 후에는 리소스 할당을 변경할 수 있습니다. 자세한 내용은 [Azure 검색의 쿼리 및 인덱싱 작업을 위한 리소스 수준 확장](search-capacity-planning.md)을 참조하세요.
 
-All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can change the resource allocation once the service is created. See [Scale resource levels for query and indexing workloads](search-capacity-planning.md) for details.
-
-## <a name="per-subscription-limits"></a>Per subscription limits
+## 구독당 제한
 
 [AZURE.INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="per-service-limits"></a>Per service limits ##
+## 서비스당 제한 ##
 
 [AZURE.INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## <a name="per-index-limits"></a>Per index limits ##
+## 인덱스당 제한 ##
 
-There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and indexer datasources is also 200 for the same service.
+인덱스에 대한 제한과 인덱서에 대한 제한 간에는 일대일 대응이 형성됩니다. S2 서비스당 인덱스가 200개로 제한된다고 가정할 경우 같은 서비스에 대해 최대 인덱서 및 인덱서 데이터 원본도 200개입니다.
 
-Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
+리소스|무료|Basic |S1|S2|S3(미리 보기)|S3 HD(미리 보기) 
 ---|---|---|---|---- |---|----
-Index: maximum fields per index|1000|100 <sup>1</sup>|1000|1000|1000|1000 
-Index: maximum scoring profiles per index|16|16|16|16|16|16 
-Index: maximum functions per profile|8|8|8|8|8|8 
-Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|N/A <sup>2</sup> 
-Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours|24 hours|N/A <sup>2</sup> 
-Blob indexer: maximum blob size, MB|16|16|128|256|256|N/A <sup>2</sup> 
-Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|4 million|4 million|4 million|N/A <sup>2</sup> 
+인덱스: 인덱스당 최대 필드|1000|100 <sup>1</sup>|1000|1000|1000|1000 
+인덱스: 인덱스당 최대 점수 매기기 프로필|16|16|16|16|16|16 
+인덱스: 프로필당 최대 함수|8|8|8|8|8|8 
+인덱서: 호출당 최대 인덱싱 로드|10,000개 문서|최대 문서에 의해서만 제한됨|최대 문서에 의해서만 제한됨|최대 문서에 의해서만 제한됨|최대 문서에 의해서만 제한됨|해당 없음<sup>2</sup> 
+인덱서: 최대 실행 시간|3분|24시간|24시간|24시간|24시간|해당 없음<sup>2</sup> 
+Blob 인덱서: 최대 Blob 크기(MB)|16|16|128|256|256|해당 없음<sup>2</sup> 
+Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자|32,000|64,000|400만|400만|400만|해당 없음<sup>2</sup> 
 
-<sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
+<sup>1</sup> 기본 계층은 인덱스당 100개 필드 제한보다 더 낮은 SKU입니다.
 
-<sup>2</sup> S3 HD doesn't currently support indexers or indexer datasources. Please contact Azure Support if you have an urgent need for this capability.
+<sup>2</sup> S3 HD는 현재 인덱서 또는 인덱서 데이터 원본을 지원하지 않습니다. 이 기능이 긴급하게 필요한 경우 Azure 지원 서비스에 문의하세요.
 
-## <a name="document-size-limits"></a>Document size limits ##
+## 문서 크기 제한 ##
 
-Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
+리소스|무료|Basic |S1|S2|S3(미리 보기)|S3 HD(미리 보기) 
 ---|---|---|---|---- |---|----
-Individual document size per Index API|<16 MB|<16 MB|<16 MB |<16 MB|<16 MB|<16 MB
+인덱스 API당 개별 문서 크기|16MB 미만|16MB 미만|16MB 미만 |16MB 미만|16MB 미만|16MB 미만
 
-Refers to the maximum document size when calling an Index API. Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit actually depends on how many documents are in the batch. For a batch with a single document, the maximum document size will be to 16 MB of JSON.
+인덱스 API를 호출할 때 최대 문서 크기를 참조하세요. 문서 크기는 실제로 인덱스 API 요청 본문의 크기를 제한합니다. 여러 문서를 포함하는 배치를 한꺼번에 인덱스 API에 전달할 수 있으므로 실제로 크기 제한은 배치에 포함된 문서 수에 따라 좌우됩니다. 단일 문서를 포함하는 배치의 경우 최대 문서 크기가 16MB의 JSON이 됩니다.
 
-To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a a URL reference to the resource.
+문서 크기를 줄이려면 요청에서 쿼리할 수 없는 데이터를 제외해야 합니다. 이미지 및 기타 이진 데이터는 및 직접 쿼리할 수 없으므로 인덱스에 저장하지 않아야 합니다. 쿼리할 수 없는 데이터를 검색 결과에 통합하려면 리소스에 대한 URL 참조를 저장하는 검색할 수 없는 필드를 정의합니다.
 
-## <a name="workload-limits-(queries-per-second)"></a>Workload limits (Queries per second) ##
+## 작업 제한(초당 쿼리 수) ##
 
-Resource|Free|Basic|S1|S2|S3 (Preview)|S3 HD (Preview)
+리소스|무료|Basic|S1|S2|S3(미리 보기)|S3 HD(미리 보기)
 ---|---|---|---|----|---|----
-QPS|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
+QPS|해당 없음|복제본당 3이하|복제본당 15이하|복제본당 60이하|복제본당 60 초과|복제본당 60미만
 
-Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
+QPS(초당 쿼리 수)는 예상된 값을 파생하는 데 시뮬레이트된 워크로드 및 실제 고객 워크로드를 사용하는 추론을 기반으로 한 근사치입니다. 정확한 QPS 처리량은 데이터 및 쿼리의 특성에 따라 달라집니다.
 
-Although rough estimates are provided above, an actual rate is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. In the Free tier, compute and storage resources are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time. 
+대략적인 예상 값이 위에 제공되지만 실제 비율을 확인하기는 어렵습니다. 특히 시스템 리소스에 대한 경쟁 및 사용 가능한 대역폭에 따라 처리되는 무료 공유 서비스에서는 더욱 그렇습니다. 무료 계층에서 계산 및 저장소 리소스는 여러 구독자가 공유하므로 동시에 실행되는 다른 작업의 수에 따라 솔루션의 QPS가 항상 달라집니다.
 
-At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads. 
+표준 수준에서는 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 워크로드에 대한 QPS를 계산하는 방법에 대한 지침은 [검색 솔루션 관리](search-manage.md)에서 모범 사례 섹션을 참조하세요.
 
-## <a name="api-request-limits"></a>API Request limits
+## API 요청 제한
 
-- Maximum of 16 MB per request <sup>1</sup>
-- Maximum 8 KB URL length
-- Maximum 1000 documents per batch of index uploads, merges, or deletes
-- Maximum 32 fields in $orderby clause
-- Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
+- 요청당 최대 16MB <sup>1</sup>
+- URL 길이 최대 8KB
+- 인덱스 업로드, 병합 또는 삭제 배치당 최대 1000개의 문서
+- $orderby 절에 최대 32개의 필드
+- 최대 검색어 크기는 UTF-8 인코딩된 텍스트로 32766바이트(32KB에서 2바이트를 뺀 값)입니다.
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
+<sup>1</sup> Azure 검색에서는 이론적 제한으로 달리 제한되지 않는 개별 필드 또는 컬렉션의 콘텐츠에 대한 실질적 한도를 부과하기 위해 요청 본문에 16MB의 상한이 적용됩니다(필드 컴퍼지션 및 제한 사항에 대한 자세한 내용은 [지원되는 데이터 형식](https://msdn.microsoft.com/library/azure/dn798938.aspx) 참조).
 
-## <a name="api-response-limits"></a>API Response limits
+## API 응답 제한
 
-- Maximum 1000 documents returned per page of search results
-- Maximum 100 suggestions returned per Suggest API request
+- 검색 결과 페이지당 반환되는 문서 최대 1000개
+- 제안 API 요청당 반환되는 제안 최대 100개
 
-## <a name="api-key-limits"></a>API Key limits
+## API 키 제한
 
-Api-keys are used for service authentication. There are two types. Admin keys are specified in the request header and grant full read-write access to the service. Query keys are read-only, specified on the URL, and typically distributed to client applications.
+API 키는 서비스 인증에 사용됩니다. 두 가지 형식이 있습니다. 관리자 키는 요청 헤더에서 지정되고 서비스에 전체 읽기/쓰기 액세스 권한을 부여합니다. 쿼리 키는 읽기 전용이며 URL에 지정되고 일반적으로 클라이언트 응용 프로그램에 배포됩니다.
 
-- Maximum of 2 admin keys per service
-- Maximum of 50 query keys per service
+- 서비스당 최대 2개의 관리자 키
+- 서비스당 최대 50개의 쿼리 키
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

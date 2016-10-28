@@ -1,179 +1,177 @@
 <properties 
-    pageTitle="Get started with Azure Search | Microsoft Azure | DocumentDB | Cloud search service" 
-    description="Learn how to create your first Azure Search index using this tutorial walkthrough and DocumentDB sample data. This portal-based, code-free exercise uses the Import Data wizard." 
-    services="search" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="jhubbard" 
-    editor=""
+	pageTitle="Azure Search 시작 | Microsoft Azure | DocumentDB | 클라우드 검색 서비스" 
+	description="이 자습서 연습과 DocumentDB 샘플 데이터를 사용하여 첫 번째 Azure Search 인덱스를 만드는 방법을 알아봅니다. 포털 기반의 코드가 없는 연습에서는 데이터 가져오기 마법사를 사용합니다." 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="jhubbard" 
+	editor=""
     tags="azure-portal"/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="na" 
-    ms.workload="search" 
-    ms.topic="hero-article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="10/03/2016" 
-    ms.author="heidist"/>
+	ms.service="search" 
+	ms.devlang="na" 
+	ms.workload="search" 
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="10/03/2016" 
+	ms.author="heidist"/>
 
+# 포털에서 Azure 검색 시작
 
-# <a name="get-started-with-azure-search-in-the-portal"></a>Get started with Azure Search in the portal
+코드가 없는 이 소개를 통해, 포털에 제공된 기능을 사용하는 Microsoft Azure 검색을 시작할 수 있습니다.
 
-This code-free introduction gets you started with Microsoft Azure Search using capabilities built right into the portal. 
+자습서에서는 데이터 및 지침을 사용하여 간단히 만들 수 있는 [샘플 Azure DocumentDB 데이터베이스](#apdx-sampledata)를 가정하지만 DocumentDB 또는 SQL 데이터베이스에서 기존 데이터에 이들 단계를 적용할 수도 있습니다.
 
-The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
-
-> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](/pricing/free-trial/?WT.mc_id=A261C142F) and an [Azure Search service](search-create-service-portal.md). 
+> [AZURE.NOTE] 이 시작 자습서에는 [Azure 구독](/pricing/free-trial/?WT.mc_id=A261C142F) 및 [Azure Search 서비스](search-create-service-portal.md)가 필요합니다.
  
-## <a name="find-your-service"></a>Find your service
+## 서비스 찾기
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
-    - In the Jumpbar, click **Search services**. The Jumpbar lists every service provisioned in your subscription. If a search service has been defined, you see **Search services** in the list.
-    - In the Jumpbar, click **Browse** and then type "search" in the search box to produce a list of all search services created in your subscriptions.
+2. Azure 검색 서비스의 서비스 대시보드를 엽니다. 대시보드를 찾을 수 있는 몇 가지 방법이 있습니다.
+	- 표시줄에서 **검색 서비스**를 클릭합니다. 표시줄은 구독에 프로비전된 모든 서비스를 나열합니다. Search 서비스를 정의한 경우 목록에 **Search 서비스**가 표시됩니다.
+	- 표시줄에서 **찾아보기**를 클릭한 다음 검색 상자에 "검색"을 입력하여 구독에서 만든 모든 검색 서비스의 목록을 생성합니다.
 
-## <a name="check-for-space"></a>Check for space
+## 공간 확인
 
-Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This walkthrough creates one of each object.
+많은 고객이 무료 서비스를 시작합니다. 이 버전은 3개의 인덱스, 3개의 데이터 소스 및 3개의 인덱서로 제한됩니다. 시작하기 전에 추가 항목에 대한 공간이 있는지 확인합니다. 이 연습은 각 개체를 하나씩 만듭니다.
 
-## <a name="create-an-index-and-load-data"></a>Create an index and load data
+## 인덱스 및 부하 데이터 만들기
 
-Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors. As a first step, define and populate an index.
+특정 검색 동작을 최적화하는 데 사용되는 검색 가능한 데이터, 메타데이터 및 구문을 포함하는 *인덱스*에 검색 쿼리가 반복됩니다. 첫 번째 단계로 인덱스를 정의하고 채웁니다.
 
-There are several ways to create an index. If your data is in a store that Azure Search can crawl - such as Azure SQL Database, SQL Server on an Azure VM, or DocumentDB - you can create and populate an index very easily using an *indexer*.
+인덱스를 만드는 몇 가지 방법이 있습니다. Azure 검색에서 크롤링할 수 있는 데이터 저장소에 Azure VM 또는 DocumentDB의 Azure SQL 데이터베이스, SQL Server와 같은 데이터가 있을 경우 *인덱서*를 사용하여 매우 쉽게 인덱스를 만들고 채울 수 있습니다.
 
-To keep this task portal-based, we use data from DocumentDB that can be crawled using an indexer via the **Import data** wizard. 
+이 작업을 포털 기반을 유지하기 위해 **데이터 가져오기** 마법사를 통해 인덱서를 사용하여 DocumentDB로부터 데이터를 크롤링할 수 있다고 가정합니다.
 
-Before you continue, create a [sample DocumentDB database](#apdx-sampledata) to use with this tutorial, and then return to this section to complete the steps below.
+계속하기 전에 [샘플 DocumentDB 데이터베이스](#apdx-sampledata)를 만들어 이 자습서와 함께 사용한 다음, 이 섹션으로 돌아와 아래 단계를 완료합니다.
 
 <a id="defineDS"></a>
-#### <a name="step-1:-define-the-data-source"></a>Step 1: Define the data source
+#### 1단계: 데이터 원본 정의
 
-1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
+1. Azure 검색 서비스 대시보드의 명령 모음에서 **데이터 가져오기**를 클릭하여 인덱스를 만들고 채우는 마법사를 시작합니다.
 
     ![][7]
 
-2. In the wizard, click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
+2. 마법사 내에서 **데이터 원본** > **DocumentDB** > **이름**을 클릭하고 데이터 원본에 이름을 입력합니다. 데이터 원본은 다른 인덱서와 함께 사용할 수 있는 Azure 검색의 연결 개체입니다. 데이터 원본을 만든 후에 서비스에서 "기존 데이터 원본"으로 사용할 수 있습니다.
 
-3. Choose your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition looks like this:
+3. 기존 DocumentDB 계정, 데이터베이스 및 컬렉션을 선택합니다. 제공된 샘플 데이터를 사용하는 경우 데이터 원본 정의는 다음과 같이 표시됩니다.
 
     ![][2]
 
-Notice that we are skipping the query. This is because we're not implementing change tracking in our dataset this time around. If your dataset includes a field that keeps track of when a record is updated, you can configure an Azure Search indexer to use change tracking for selective updates to your index.
+쿼리를 건너뛴다는 점을 기억합니다. 이번에는 데이터 집합의 추적을 변경하지 않기 때문입니다. 데이터 집합이 레코드가 업데이트될 때를 추적하는 필드를 포함하는 경우 Azure 검색 인덱서를 구성하여 인덱스에 대한 선택적 업데이트에 대한 변경 추적을 사용할 수 있습니다.
 
-Click **OK** to complete this step of the wizard.
+**확인**을 클릭하여 마법사의 이 단계를 완료합니다.
 
-#### <a name="step-2:-define-the-index"></a>Step 2: Define the index
+#### 2단계: 인덱스 정의
 
-Still in the wizard, click **Index** and take a look at the design surface used to create an Azure Search index. Minimally, an index requires a name, and a fields collection, with one field marked as the document key. Because we're using a DocumentDB data set, fields are detected by the wizard automatically and the index is preloaded with fields and data type assignments. 
+마법사에서 **인덱스**를 클릭하고 Azure 검색 인덱스를 만드는 데 사용되는 디자인 화면을 살펴봅니다. 최소한, 인덱스는 문서 키로 표시된 하나의 필드가 있는 이름 및 필드 컬렉션이 필요합니다. DocumentDB 데이터 집합을 사용하기 때문에 필드를 마법사에서 자동으로 검색하고 인덱스를 필드와 데이터 형식 할당을 통해 사전에 로드됩니다.
 
   ![][3]
 
-Although the fields and data types are configured, you still need to assign attributes. The check boxes across the top of the field list are *index attributes* that control how the field is used. 
+필드 및 데이터 형식이 구성되어 있지만 속성을 할당해야 합니다. 필드 목록의 위쪽에 있는 확인란은 필드가 사용되는 방법을 제어하는 *인덱스 특성*입니다.
 
-- **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example when fields used only in filter expressions. 
-- **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
-- **Searchable** means that a field is included in full text search. Strings are usually searchable. Numeric fields and Boolean fields are often marked as not searchable. 
+- **조회 가능**은 검색 결과 목록에 표시된다는 의미입니다. 예를 들어 필드가 필터 식에만 사용되는 경우 이 확인란을 지워 검색 결과에 대한 제한 해제로 개별 필드를 표시할 수 있습니다.
+- **필터링 가능**, **정렬 가능** 및 **패싯 가능**은 필드를 필터, 정렬 또는 패싯 탐색 구조에 사용할 수 있는지 여부를 결정합니다.
+- **검색 가능**은 필드가 전체 텍스트 검색에 포함된다는 의미입니다. 문자열은 일반적으로 검색 가능합니다. 숫자 필드와 부울 필드는 종종 검색할 수 없다고 표시됩니다.
 
-Before you leave this page, mark the fields in your index to use the following options (Retrievable, Searchable, and so on). Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
-    
-Field | Type | Options |
+이 페이지를 나가기 전에 다음 옵션(조회 가능, 검색 가능 등)을 사용하도록 인덱스의 필드를 표시합니다. 대부분의 필드는 조회 가능합니다. 대부분의 문자열 필드는 검색 가능입니다(키를 검색 가능하게 만들 필요는 없음). 장르, orderableOnline, 등급, 및 태그는 또한 필터링 가능, 정렬 가능 및 패싯 가능과 같은 필드입니다.
+	
+필드 | 형식 | 옵션 |
 ------|------|---------|
 id | Edm.String | |
-albumTitle | Edm.String | Retrievable, Searchable |
-albumUrl | Edm.String | Retrievable, Searchable |
-genre | Edm.String | Retrievable, Searchable, Filterable, Sortable, Facetable |
-genreDescription | Edm.String | Retrievable, Searchable |
-artistName | Edm.String | Retrievable, Searchable |
-orderableOnline | Edm.Boolean | Retrievable, Filterable, Sortable, Facetable |
-tags | Collection(Edm.String) | Retrievable, Filterable, Facetable |
-price | Edm.Double | Retrievable, Filterable, Facetable |
-margin | Edm.Int32 | |
-rating | Edm.Int32 | Retrievable, Filterable, Sortable, Facetable |
-inventory | Edm.Int32 | Retrievable |
+albumTitle | Edm.String | 조회 가능 및 검색 가능 |
+albumUrl | Edm.String | 조회 가능 및 검색 가능 |
+장르 | Edm.String | 조회 가능, 검색 가능, 필터링 가능, 정렬 가능, 패싯 가능 |
+genreDescription | Edm.String | 조회 가능 및 검색 가능 |
+artistName | Edm.String | 조회 가능 및 검색 가능 |
+orderableOnline | Edm.Boolean | 조회 가능, 필터링 가능, 정렬 가능, 패싯 가능 |
+tags | Collection(Edm.String) | 조회 가능, 필터링 가능, 패싯 가능 |
+가격 | Edm.Double | 조회 가능, 필터링 가능, 패싯 가능 |
+여백 | Edm.Int32 | |
+rating | Edm.Int32 | 조회 가능, 필터링 가능, 정렬 가능, 패싯 가능 |
+인벤토리 | Edm.Int32 | 조회 가능 |
 lastUpdated | Edm.DateTimeOffset | |
 
-As a point of comparison, the following screenshot is an illustration of an index built to the specification in the previous table.
+비교의 지점으로 다음 스크린샷은 앞의 테이블에서 사양에 작성된 인덱스를 보여줍니다.
 
  ![][4]
 
-Click **OK** to complete this step of the wizard.
+**확인**을 클릭하여 마법사의 이 단계를 완료합니다.
 
-#### <a name="step-3:-define-the-indexer"></a>Step 3: Define the indexer
+#### 3단계: 인덱서 정의
 
-Still in the **Import data** wizard, click **Indexer** > **Name**, type a name for the indexer, and use defaults for all the other values. This object defines an executable process. Once you create it, you could put it on recurring schedule, but for now use the default option to run the indexer once, immediately, when you click **OK**. 
+**데이터 가져오기** 마법사에서 **인덱서** > **이름**을 클릭하고 인덱서에 이름을 입력하며 다른 모든 값에 대한 기본값을 사용합니다. 이 개체는 실행 가능한 프로세스를 정의합니다. 이 개체를 만들면 되풀이 일정에 게시할 수 있지만 지금은 **확인**을 클릭할 때 즉시 기본 옵션을 사용하여 인덱서를 한 번 실행합니다.
 
-Your import data entries should be all filled in and ready to go.
+데이터 가져오기 항목은 모두 채워져야 준비가 됩니다.
 
   ![][5]
 
-To run the wizard, click **OK** to start the import and close the wizard.
+마법사를 실행하려면 **확인**을 클릭하여 가져오기를 시작하고 마법사를 닫습니다.
 
-## <a name="check-progress"></a>Check progress
+## 진행 확인
 
-To check progress, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the indexer you just created in the list, and you should see status indicating "in progress" or success, along with the number of documents indexed into Azure Search.
+진행을 확인하고 서비스 대시보드로 돌아가서 아래로 스크롤하고 **인덱서** 타일을 두 번 클릭하여 인덱서 목록을 엽니다. 목록에서 방금 만든 인덱서가 표시되어야 하고 Azure 검색에 인덱싱된 문서 수와 함께 "진행 중" 또는 성공으로 표시되는 상태가 표시되어야 합니다.
 
   ![][6]
 
-## <a name="query-the-index"></a>Query the index
+## 인덱스 쿼리
 
-You now have a search index that's ready to query. 
+이제 쿼리할 준비가 된 검색 인덱스가 있습니다.
 
-**Search explorer** is a query tool built into the portal. It provides a search box so that you can verify a search input returns the data you expect. 
+**검색 탐색기**는 포털에 기본 제공되는 쿼리 도구입니다. 검색 상자를 제공하여 검색 입력이 필요한 데이터를 반환하도록 확인할 수 있습니다.
 
-1. Click **Search explorer** on the command bar.
-2. Notice which index is active. If it's not the one you just created, click **Change index** on the command bar to select the one you want.
-2. Leave the search box empty and then click the **Search** button to execute a wildcard search that returns all documents.
-3. Enter a few full-text search queries. You can review the results from your wildcard search to get familiar with artists, albums, and genres to query.
-4. Try other query syntax using the [examples provided at the end of this article](https://msdn.microsoft.com/library/azure/dn798927.aspx) for ideas, modifying your query to use search strings that are likely to be found in your index.
+1. 명령 모음에서 **검색 탐색기**를 클릭합니다.
+2. 활성화된 인덱스를 알려줍니다. 방금 만든 인덱스가 아닌 경우 명령 모음에서 **인덱스 변경**을 클릭하여 원하는 인덱스를 선택합니다.
+2. 검색 상자를 빈 상태로 두고 **검색** 단추를 클릭하여 모든 문서를 반환하는 와일드카드 검색을 실행합니다.
+3. 전체 텍스트 검색 쿼리를 몇 개 입력합니다. 와일드카드 검색에서 결과를 검토하여 쿼리할 예술가, 앨범 및 장르에 친숙해 질 수 있습니다.
+4. 아이디어에 대한 [이 문서의 끝에서 제공되는 예제](https://msdn.microsoft.com/library/azure/dn798927.aspx)를 사용하여 다른 쿼리 구문을 시도하며 이는 쿼리를 수정하여 인덱스에서 찾을 가능성이 있는 검색 문자열을 사용합니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable. To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects.
+마법사를 실행하면 다시 돌아가서 인덱스, 인덱서 또는 데이터 원본과 같은 개별 구성 요소를 보거나 수정할 수 있습니다. 필드 데이터 형식을 변경하는 등 일부 편집은 인덱스에서 허용되지 않지만 대부분의 속성 및 설정은 수정할 수 있습니다. 개별 구성 요소를 보려면 대시보드에서 **인덱스**, **인덱서** 또는 **데이터 원본** 타일을 클릭하여 기존 개체의 목록을 표시합니다.
 
-To learn more about other features mentioned in this article, visit these links:
+이 문서에 언급된 기타 기능에 대해 자세히 알아보려면 다음 링크를 방문합니다.
 
-- [Indexers](search-indexer-overview.md)
-- [Create Index (includes a detailed explanation of the index attributes)](https://msdn.microsoft.com/library/azure/dn798941.aspx)
-- [Search Explorer](search-explorer.md)
-- [Search Documents (includes examples of query syntax)](https://msdn.microsoft.com/library/azure/dn798927.aspx)
+- [인덱서](search-indexer-overview.md)
+- [인덱스 만들기(인덱스 특성에 대한 자세한 정보 포함)](https://msdn.microsoft.com/library/azure/dn798941.aspx)
+- [검색 탐색기](search-explorer.md)
+- [문서 검색(쿼리 구문의 예제 포함)](https://msdn.microsoft.com/library/azure/dn798927.aspx)
 
-You can try this same workflow, using the Import data wizard for other data sources like Azure SQL Database or SQL Server on Azure virtual machines.
+Azure 가상 컴퓨터에서 Azure SQL 데이터베이스 또는 SQL Server와 같은 다른 데이터 원본에 데이터 가져오기 마법사를 사용하여 동일한 워크플로를 시도할 수 있습니다.
 
-> [AZURE.NOTE] Newly announced is indexer support for crawling Azure Blob Storage, but that feature is in preview and not yet a portal option. To try that indexer, you need to write code. See [Indexing Azure Blob storage in Azure Search](search-howto-indexing-azure-blob-storage.md) for more information.
-<a id="apdx-sampledata"></a>
+> [AZURE.NOTE] 새로 발표된 기능은 Azure Blob 저장소에 대한 인덱서 지원이지만 해당 기능은 미리 보기 상태이며 아직 포털 옵션은 아닙니다. 해당 인덱서를 시도하려면 코드를 작성해야 합니다. 자세한 내용은 [Azure 검색에서 Azure Blob 저장소 인덱싱](search-howto-indexing-azure-blob-storage.md)을 참조하세요. <a id="apdx-sampledata"></a>
 
 
-## <a name="appendix:-create-sample-data-in-documentdb"></a>Appendix: Create sample data in DocumentDB
+## 부록: DocumentDB에서 샘플 데이터 만들기
 
-This section creates a small database in DocumentDB that can be used to complete the tasks in this tutorial.
+이 섹션에서는 DocumentDB에서 이 자습서의 태스크를 완료하는 데 사용될 수 있는 작은 데이터베이스를 만듭니다.
 
-The following instructions give you general guidance, but are not exhaustive. If you need more help with DocumentDB portal navigation or tasks, you can refer to DocumentDB documentation, but most of the commands you need are either in the service command bar at the top of the dashboard or in the database blade. 
+다음 지침에서는 일반적인 지침을 제공하지만 전체 목록은 아닙니다. DocumentDB 포털 탐색 또는 태스크에 대한 지원이 필요한 경우 DocumentDB 설명서를 참조할 수 있지만 필요한 명령의 대부분은 대시보드의 위쪽에 있는 서비스 명령 모음 또는 데이터베이스 블레이드에 있습니다.
 
   ![][1]
 
-### <a name="create-musicstoredb-for-this-tutorial"></a>Create musicstoredb for this tutorial
+### 이 자습서를 위해 musicstoredb 만들기
 
-1. [Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download a ZIP file containing the music store JSON data files. We provide 246 JSON documents for this dataset.
-2. Add DocumentDB to your subscription and then open the service dashboard.
-2. Click **Add Database** to create a new database with an id of `musicstoredb`. It shows up in the database tile further down the page after it's created.
-2. Click on the database name to open the database blade.
-3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
-3. Click **Document Explorer**.
-4. Click **Upload**.
-5. In **Upload Document**, navigate to the local folder that contains the JSON files you downloaded previously. Select JSON files in batches of 100 or fewer.
-    - 386.json
-    - 387.json
-    - . . .
-    - 486.json
-6. Repeat to get the next batch of files until you've uploaded the last one, 669.json.
-7. Click **Query Explorer** to verify the data is uploaded to meet the upload requirements of Document Explorer.
+1. [여기를 클릭](https://github.com/HeidiSteen/azure-search-get-started-sample-data)하여 음악 스토어 JSON 데이터 파일이 포함된 ZIP 파일을 다운로드합니다. 이 데이터 집합에 대한 246 JSON 문서를 제공합니다.
+2. 구독에 DocumentDB를 추가한 다음 서비스 대시보드를 엽니다.
+2. **데이터베이스 추가**를 클릭하여 `musicstoredb`의 ID로 새 데이터베이스를 만듭니다. 생성된 후에 페이지 아래쪽에 있는 데이터베이스 타일에 표시됩니다.
+2. 데이터베이스 이름을 클릭하여 데이터베이스 블레이드를 엽니다.
+3. **컬렉션 추가**를 클릭하여 `musicstorecoll`의 ID로 컬렉션을 만듭니다.
+3. **문서 탐색기**를 클릭합니다.
+4. **업로드**를 클릭합니다.
+5. **문서 업로드**에서 이전에 다운로드한 JSON 파일이 들어 있는 로컬 폴더로 이동합니다. 100개 항목 이하의 일괄 처리를 통해 JSON 파일을 업로드합니다.
+	- 386\.json
+	- 387\.json
+	- . . .
+	- 486\.json
+6. 마지막 항목인 669.json이 업로드될 때까지 다음 파일 일괄 처리 가져오기를 반복합니다.
+7. **쿼리 탐색기**를 클릭하여 데이터 업로드가 문서 탐색기의 업로드 요구 사항을 충족하는지 확인합니다.
 
-An easy way to do this is to use the default query, but you can also modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset).
+이 작업을 수행하는 쉬운 방법은 기본 쿼리를 사용하는 것이지만 기본 쿼리를 수정하여 상위 300개를 선택할 수도 있습니다(데이터 집합의 항목이 300개 이하).
 
-You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [return to the steps in this walkthrough](#defineDS) to build an index using the  **Import data wizard**.
+문서 번호 386부터 시작하여 669까지의 JSON 출력을 다시 가져와야 합니다. 데이터가 로드되면 [이 연습의 단계로 돌아가서](#defineDS) **데이터 가져오기 마법사**를 사용하여 인덱스를 작성할 수 있습니다.
 
 
 <!--Image references-->
@@ -185,8 +183,4 @@ You should get back JSON output, starting with document number 386, and ending w
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

@@ -1,84 +1,74 @@
 <properties
-    pageTitle="Restore a single table from Azure SQL Database backup | Microsoft Azure"
-    description="Learn how to restore a single table from Azure SQL Database backup."
-    services="sql-database"
-    documentationCenter=""
-    authors="dalechen"
-    manager="felixwu"
-    editor=""/>
+	pageTitle="Azure SQL 데이터베이스 백업에서 단일 테이블 복원 | Microsoft Azure"
+	description="Azure SQL 데이터베이스 백업에서 단일 테이블을 복원하는 방법을 알아봅니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="dalechen"
+	manager="felixwu"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="daleche"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="daleche"/>
 
 
+# Azure SQL 데이터베이스 백업에서 단일 테이블을 복원하는 방법
 
-# <a name="how-to-restore-a-single-table-from-an-azure-sql-database-backup"></a>How to restore a single table from an Azure SQL Database backup
+SQL 데이터베이스의 일부 데이터를 실수로 변경했지만 이제 영향을 받는 단일 테이블을 복구하려는 상황에 처할 수 있습니다. 이 문서에서는 SQL 데이터베이스 [자동 백업](sql-database-automated-backups.md) 중 하나에서 데이터베이스의 단일 테이블을 복원하는 방법을 설명합니다.
 
-You may encounter a situation in which you accidentally modified some data in a SQL database and now you want to recover the single affected table. This article describes how to restore a single table in a database from one of the SQL Database [automatic backups](sql-database-automated-backups.md).
+## 준비 단계: 테이블 이름 바꾸기 및 데이터베이스의 복사본 복원
+1. 복원된 복사본으로 대체하려는 Azure SQL 데이터베이스의 테이블을 식별합니다. Microsoft SQL Management Studio를 사용하여 테이블 이름을 바꿉니다. 예를 들어 테이블의 이름을 &lt;table name&gt;\_old로 바꿉니다.
 
-## <a name="preparation-steps:-rename-the-table-and-restore-a-copy-of-the-database"></a>Preparation steps: Rename the table and restore a copy of the database
-1. Identify the table in your Azure SQL database that you want to replace with the restored copy. Use Microsoft SQL Management Studio to rename the table. For example, rename the table as &lt;table name&gt;_old.
+	**참고** 차단되지 않으려면 이름을 바꾸는 테이블에서 실행 중인 작업이 없어야 합니다. 문제가 발생하면 유지 관리 기간 동안 이 절차를 수행해야 합니다.
 
-    **Note** To avoid being blocked, make sure that there's no activity running on the table that you are renaming. If you encounter issues, make sure that perform this procedure during a maintenance window.
+2. [지정 지점 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 단계를 사용하여 복구하려는 시점으로 데이터베이스의 백업을 복원합니다.
 
-2. Restore a backup of your database to a point in time that you want to recover to using the [Point-In_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) steps.
+	**참고**:
+	- 복원된 데이터베이스의 이름은 **Adventureworks2012\_2016-01-01T22-12Z**와 같은 DBName+TimeStamp 형식입니다. 이 단계는 서버에서 기존 데이터베이스 이름을 덮어쓰지 않습니다. 이것은 안전 조치이며 현재 데이터베이스를 삭제하고 프로덕션 사용을 위해 복원된 데이터베이스의 이름을 변경하기 전에 사용자가 복원된 데이터베이스를 확인하려는 용도로 제공됩니다.
+	- 기본에서 프리미엄에 이르는 모든 성능 계층은 계층에 따라 다양한 백업 보존 메트릭이 있는 서비스에 의해 자동으로 백업됩니다.
 
-    **Notes**:
-    - The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to allow you to verify the restored database before they drop their current database and rename the restored database for production use.
-    - All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention metrics, depending on the tier:
-
-| DB Restore | Basic tier | Standard tiers | Premium tiers |
+| DB 복원 | 기본 계층 | 표준 계층 | 프리미엄 계층 |
 | :-- | :-- | :-- | :-- |
-|  Point In Time Restore |  Any restore point within 7 days|Any restore point within 35 days| Any restore point within 35 days|
+| 지정 시간 복원 | 7일 이내의 모든 복원 지점|35일 이내의 모든 복원 지점| 35일 이내의 모든 복원 지점|
 
-## <a name="copying-the-table-from-the-restored-database-by-using-the-sql-database-migration-tool"></a>Copying the table from the restored database by using the SQL Database Migration tool
-1. Download and install the [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
+## SQL 데이터베이스 마이그레이션 도구를 사용하여 복원된 데이터베이스에서 테이블 복사
+1. [SQL 데이터베이스 마이그레이션 마법사](https://sqlazuremw.codeplex.com)를 다운로드하여 설치합니다.
 
-2. Open the SQL Database Migration Wizard, on the **Select Process** page, select **Database under Analyze/Migrate**, and then click **Next**.
-![SQL Database Migration wizard - Select Process](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
-3. In the **Connect to Server** dialog box, apply the following settings:
- - **Server name**: Your SQL Azure instance
- - **Authentication**: **SQL Server Authentication**. Enter your login credentials.
- - **Database**: **Master DB (List all databases)**.
- - **Note** By default the wizard saves your login information. If you don't want it to, select **Forget Login Information**.
-![SQL Database Migration wizard - Select Source - step 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
-4. In the **Select Source** dialog box, select the restored database name from the **Preparation steps** section as your source, and then click **Next**.
+2. SQL 데이터베이스 마이그레이션 마법사를 열고 **프로세스 선택** 페이지에서 **분석/마이그레이션의 데이터베이스**를 선택하고 **다음**을 클릭합니다. ![SQL 데이터베이스 마이그레이션 마법사 - 프로세스 선택](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
+3. **서버에 연결** 대화 상자에서 다음 설정을 적용합니다.
+ - **서버 이름**: SQL Azure 인스턴스
+ - **인증**: **SQL Server 인증**. 로그인 자격 증명을 입력합니다.
+ - **데이터베이스**: **마스터 DB(모든 데이터베이스를 나열)**.
+ - **참고** 기본적으로 마법사는 사용자의 로그인 정보를 저장합니다. 저장하지 않으려면 **로그인 정보 삭제**를 선택합니다. ![SQL 데이터베이스 마이그레이션 마법사 - 원본 선택 - 1단계](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
+4. **원본 선택** 대화 상자에서는 **준비 단계** 섹션의 복원된 데이터베이스 이름을 원본으로 선택하고 **다음**을 클릭합니다.
 
-    ![SQL Database Migration wizard - Select Source - step 2](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/3.png)
+	![SQL 데이터베이스 마이그레이션 마법사 - 원본 선택 - 2단계](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/3.png)
 
-5. In the **Choose Objects** dialog box, select the **Select specific database objects** option, and then select the table(or tables) that you want to migrate to the target server.
-![SQL Database Migration wizard - Choose Objects](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/4.png)
+5. **개체 선택** 대화 상자에서는 **특정 데이터베이스 개체 선택** 옵션을 선택한 다음 대상 서버로 마이그레이션하려는 테이블(다수 가능)을 선택합니다. ![SQL 데이터베이스 마이그레이션 마법사 - 개체 선택](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/4.png)
 
-6. On the **Script Wizard Summary** page, click **Yes** when you’re prompted about whether you’re ready to generate a SQL script. You also have the option to save the TSQL Script for later use.
-![SQL Database Migration wizard - Script Wizard Summary](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/5.png)
+6. **스크립트 마법사 요약** 페이지에서 SQL 스크립트를 생성할 준비가 되었는지 묻는 메시지가 표시되면 **예**를 클릭합니다. 또한 나중에 사용할 TSQL 스크립트를 저장하는 옵션이 있습니다. ![SQL 데이터베이스 마이그레이션 마법사 - 스크립트 마법사 요약](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/5.png)
 
-7. On the **Results Summary** page, click **Next**.
-![SQL Database Migration wizard - Results Summary](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
+7. **결과 요약** 페이지에서 **다음**을 클릭합니다. ![SQL 데이터베이스 마이그레이션 마법사 - 결과 요약](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
 
-8. On the **Setup Target Server Connection** page, click **Connect to Server**, and then enter the details as follows:
-    - **Server Name**: Target server instance
-    - **Authentication**: **SQL Server authentication**. Enter your login credentials.
-    - **Database**: **Master DB (List all databases)**. This option lists all the databases on the target server.
+8. **대상 서버 연결 설정** 페이지에서 **서버에 연결**을 클릭한 다음 세부 정보를 다음과 같이 입력합니다.
+	- **서버 이름**: 대상 서버 인스턴스
+	- **인증**: **SQL Server 인증**. 로그인 자격 증명을 입력합니다.
+	- **데이터베이스**: **마스터 DB(모든 데이터베이스를 나열)**. 이 옵션은 대상 서버에 있는 모든 데이터베이스를 나열합니다.
 
-    ![SQL Database Migration wizard - Setup Target Server Connection](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/7.png)
+	![SQL 데이터베이스 마이그레이션 마법사 - 대상 서버 연결 설정](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/7.png)
 
-9. Click **Connect**, select the target database that you want to move the table to, and then click **Next**. This should finish running the previously generated script, and you should see the newly moved table copied to the target database.
+9. **연결**을 클릭하고 테이블을 이동하려는 대상 데이터베이스를 선택하고 **다음**을 클릭합니다. 이전에 생성된 스크립트의 실행을 완료해야 하고 대상 데이터베이스로 복사된 새로 이동시킨 테이블이 표시되어야 합니다.
 
-## <a name="verification-step"></a>Verification step
-1. Query and test the newly copied table to make sure that the data is intact. Upon confirmation, you can drop the renamed table form **Preparation steps** section. (for example, &lt;table name&gt;_old).
+## 확인 단계
+1. 새로 복사된 테이블을 쿼리하고 테스트하여 데이터가 그대로 유지되는지 확인합니다. 확인되면 이름이 바뀐 테이블 형식 **준비 단계** 섹션을 삭제할 수 있습니다(예: &lt;table name&gt;\_old).
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-[SQL Database automatic backups](sql-database-automated-backups.md)
+[SQL 데이터베이스 자동 백업](sql-database-automated-backups.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

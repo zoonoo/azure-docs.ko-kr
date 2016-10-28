@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Pig with .NET in HDInsight | Microsoft Azure"
-   description="Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight."
+   pageTitle="HDInsight에서 .NET과 Hadoop Pig 사용 | Microsoft Azure"
+   description="HDInsight에서 Hadoop로 Pig 작업을 제출하기 위해 Hadoop용 .NET SDK를 사용하는 방법에 대해 알아봅니다."
    services="hdinsight"
    documentationCenter=".net"
    authors="Blackmist"
@@ -17,60 +17,59 @@
    ms.date="09/06/2016"
    ms.author="larryfr"/>
 
+#HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
 
-#<a name="run-pig-jobs-using-the-.net-sdk-for-hadoop-in-hdinsight"></a>Run Pig jobs using the .NET SDK for Hadoop in HDInsight
+[AZURE.INCLUDE [pig-선택기](../../includes/hdinsight-selector-use-pig.md)]
 
-[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
+이 문서는 HDInsight 클러스터의 Hadoop에 Pig 작업을 제출하기 위해 Hadoop용 .NET SDK를 사용하는 예시를 보여 줍니다.
 
-This document provides an example of using the .NET SDK for Hadoop to submit Pig jobs to a Hadoop on HDInsight cluster.
-
-The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET. Pig allows you to create MapReduce operations by modeling a series of data transformations. You will learn how to use a basic C# application to submit a Pig job to an HDInsight cluster.
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. Pig를 사용하면 일련의 데이터 변환을 모델링하여 MapReduce 작업을 만들 수 있습니다. HDInsight 클러스터에는 Pig 작업을 제출하는 기본 C# 응용 프로그램을 사용하는 방법에 대해 배웁니다.
 
 [AZURE.INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
 
-* [Run Pig jobs using the .NET SDK for Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
+* [HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## 필수 조건
 
-To complete the steps in this article, you will need the following.
+이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-* An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based).
-* Visual Studio 2012 or 2013 or 2015.
+* Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 또는 Linux 기반)
+* Visual Studio 2012, 2013 또는 2015
 
-## <a name="create-the-application"></a>Create the application
+## 응용 프로그램 만들기
 
-The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다.
 
 
-1. Open Visual Studio 2012 or 2013
-2. From the **File** menu, select **New** and then select **Project**.
-3. For the new project, type or select the following values.
+1. Visual Studio 2012 또는 2013 열기
+2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
+3. 새 프로젝트에서 다음 값을 입력하거나 선택합니다.
 
-    <table>
-    <tr>
-    <th>Property</th>
-    <th>Value</th>
-    </tr>
-    <tr>
-    <th>Category</th>
-    <th>Templates/Visual C#/Windows</th>
-    </tr>
-    <tr>
-    <th>Template</th>
-    <th>Console Application</th>
-    </tr>
-    <tr>
-    <th>Name</th>
-    <th>SubmitPigJob</th>
-    </tr>
-    </table>
-4. Click **OK** to create the project.
-5. From the **Tools** menu, select **Library Package Manager** or **Nuget Package Manager**, and then select **Package Manager Console**.
-6. Run the following command in the console to install the .NET SDK packages.
+	<table>
+	<tr>
+	<th>속성</th>
+	<th>값</th>
+	</tr>
+	<tr>
+	<th>Category</th>
+	<th>Templates/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Template</th>
+	<th>콘솔 응용 프로그램</th>
+	</tr>
+	<tr>
+	<th>이름</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
+4. **확인**을 클릭하여 프로젝트를 만듭니다.
+5. **도구** 메뉴에서 **라이브러리 패키지 관리자** 또는 **Nuget 패키지 관리자**를 선택한 다음 **패키지 관리자 콘솔**을 선택합니다.
+6. 콘솔에서 다음 명령을 실행하여 .NET SDK 패키지를 설치합니다.
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-7. From Solution Explorer, double-click **Program.cs** to open it. Replace the existing code with the following.
+7. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 엽니다. 기존 코드를 다음으로 바꿉니다.
 
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -124,27 +123,24 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
         }
 
 
-7. Press **F5** to start the application.
-8. Press **ENTER** to exit the application.
+7. **F5** 키를 눌러 응용 프로그램을 시작합니다.
+8. **Enter** 키를 눌러 응용 프로그램을 종료합니다.
 
-## <a name="summary"></a>Summary
+## 요약
 
-As you can see, the .NET SDK for Hadoop allows you to create .NET applications that submit Pig jobs to an HDInsight cluster, and monitor the job status.
+이처럼 Hadoop용 .NET SDK를 사용하면 Pig 작업을 HDInsight 클러스터를 제출하고, 작업 상태를 모니터링할 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-For general information on Pig in HDInsight.
+HDInsight에서 Pig에 대한 일반 정보.
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-For information on other ways you can work with Hadoop on HDInsight.
+HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니다.
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md) [preview-portal]: https://portal.azure.com/
+* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+[preview-portal]: https://portal.azure.com/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

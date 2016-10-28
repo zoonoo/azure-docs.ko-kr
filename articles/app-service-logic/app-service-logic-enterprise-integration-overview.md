@@ -1,78 +1,70 @@
 <properties 
-    pageTitle="Overview of Enterprise Integration | Microsoft Azure App Service | Microsoft Azure" 
-    description="Use the features of Enterprise Integration to enable business process and integration scenarios using Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="msftman" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="엔터프라이즈 통합 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
+	description="엔터프라이즈 통합의 기능을 사용하여 논리 앱을 사용하는 비즈니스 프로세스 및 통합 시나리오 사용" 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="msftman" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2016" 
+	ms.author="deonhe"/>
 
+# 엔터프라이즈 통합 팩 개요
 
-# <a name="overview-of-the-enterprise-integration-pack"></a>Overview of the Enterprise Integration Pack
+## 엔터프라이즈 통합 팩이란?
+엔터프라이즈 통합 팩은 B2B(기업 간) 통신을 원활하게 사용하기 위한 Microsoft의 클라우드 기반 솔루션입니다. 해당 팩은 [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) 및 [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)를 비롯한 업계 표준 프로토콜을 사용하여 비즈니스 파트너 사이에 메시지를 교환합니다. 암호화 및 디지털 서명을 모두 사용하여 메시지를 선택적으로 보호할 수 있습니다.
 
-## <a name="what-is-the-enterprise-integration-pack?"></a>What is the Enterprise Integration Pack?
-The Enterprise Integration Pack is Microsoft's cloud-based solution for seamlessly enabling business-to-business (B2B) communications. The pack uses industry standard protocols including [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md), and [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) to exchange messages between business partners. Messages can be optionally secured using both encryption and digital signatures. 
+해당 팩은 다른 프로토콜 및 형식을 사용하는 조직이 다양한 형식을 모두 조직의 시스템에서 해석하고 작업을 수행할 수 있는 형식으로 변환하여 메시지를 전자적으로 교환할 수 있도록 합니다.
 
-The pack allows organizations that use different protocols and formats to exchange messages electronically by transforming the different formats into a format that both organizations' systems can interpret and take action on. 
+BizTalk Server 또는 Microsoft Azure BizTalk 서비스를 잘 알고 있다면 개념이 대부분 유사하기 때문에 엔터프라이즈 통합 기능을 쉽게 사용할 수 있습니다. 주요 차이점은 엔터프라이즈 통합이 통합 계정을 사용하여 B2B 통신에 사용한 아티팩트의 저장 및 관리를 간소화한다는 점입니다.
 
-If you are familiar with BizTalk Server or Microsoft Azure BizTalk Services, you'll find it easy to use the Enterprise Integration features because most of the concepts are similar. One major difference is that Enterprise Integration uses integration accounts to simplify the storage and management of artifacts used in B2B communications. 
+엔터프라이즈 통합 팩은 기반 아키텍처 측면에서 B2B 앱을 설계, 배포 및 유지 관리하는 데 사용할 수 있는 모든 아티팩트를 저장하는 **통합 계정**에 기반합니다. 통합 계정이 기본적으로 스키마, 파트너, 인증서, 맵 및 규약 등의 아티팩트를 저장하는 클라우드 기반 컨테이너입니다. 이러한 아티팩트는 논리 앱에서 B2B 워크플로를 빌드하는 데 사용될 수 있습니다. 논리 앱에서 아티팩트를 사용하기 전에 통합 계정을 논리 앱에 연결해야 합니다. 연결한 후에 논리 앱은 통합 계정의 아티팩트에 대한 액세스 권한을 가집니다.
 
-Architecturally, the Enterprise Integration Pack is based on **integration accounts** that store all the artifacts that can be used to design, deploy, and maintain your B2B apps. An integration account is basically a cloud-based container where you store artifacts such as schemas, partners, certificates, maps, and agreements. These artifacts can then be used in Logic apps to build B2B workflows. Before you can use the artifacts in a Logic app, you need to link your integration account to your Logic app. After linking them, your Logic app will have access to the integration account's artifacts.  
+## 엔터프라이즈 통합을 사용하는 이유
+- 엔터프라이즈 통합을 사용하면 한 곳에 모든 아티팩트를 저장할 수 있고 이것이 통합 계정 입니다.
+- 논리 앱 엔진 및 모든 해당 커넥터를 활용하여 B2B 워크플로를 구축하고 사용자 지정 응용 프로그램 뿐만 아니라 타사 SaaS 응용 프로그램, 온-프레미스 앱과 통합할 수 있습니다.
+- Azure Functions를 활용할 수도 있습니다.
 
-## <a name="why-should-you-use-enterprise-integration?"></a>Why should you use enterprise integration?
-- With enterprise integration, you are able to store all your artifacts in one place, which is your integration account. 
-- You can leverage the Logic apps engine and all its connectors to build B2B workflows and integrate with 3rd party SaaS applications, on-premises apps as well as custom applications
-- You can also leverage Azure functions
+## 엔터프라이즈 통합을 시작하는 방법
+**Azure 포털**의 논리 앱 설계자를 통해 엔터프라이즈 통합 팩을 사용하여 B2B 앱을 구축하고 관리할 수 있습니다.
 
-## <a name="how-to-get-started-with-enterprise-integration?"></a>How to get started with enterprise integration?
-You can build and manage B2B apps using the Enterprise Integration Pack via the Logic apps designer on the **Azure portal**.  
+[PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "논리 앱 PowerShell 항목")을 사용하여 논리 앱을 관리할 수도 있습니다.
 
-You can also use [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell topics") to manage your Logic apps. 
+Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요는 다음과 같습니다. ![개요 이미지](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
-Here is an overview of the steps you need to take before you can create apps in the Azure portal: ![overview image](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
+## 몇 가지 일반적인 시나리오는 무엇인가요?
 
-## <a name="what-are-some-common-scenarios?"></a>What are some common scenarios?
+엔터프라이즈 통합은 이러한 업계 표준을 지원합니다.
 
-Enterprise Integration supports these industry standards:   
+- EDI - 전자 데이터 교환
+- EAI - 엔터프라이즈 응용 프로그램 통합
 
-- EDI - Electronic Data Interchange  
-- EAI - Enterprise Application Integration  
+## 시작하기 위해 필요한 항목은 다음과 같습니다.
+- 통합 계정을 사용하는 Azure 구독
+- 맵과 스키마를 만드는 Visual Studio 2015
+- [Visual Studio용 Microsoft Azure Logic Apps 엔터프라이즈 통합 도구 2015 2.0](https://aka.ms/vsmapsandschemas)
 
-## <a name="here's-what-you-need-to-get-started"></a>Here's what you need to get started
-- An Azure subscription with an integration account
-- Visual Studio 2015 to create maps and schemas
-- [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)  
+## 시도
+[지금 시도](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive)하여 논리 앱의 B2B 기능을 사용하는 완벽하게 작동하는 샘플 AS2 송신 및 수신 논리 앱을 배포합니다.
 
-## <a name="try-it"></a>Try it
-[Try it now](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) to deploy a fully operational sample AS2 send & receive logic app that uses the B2B features of Logic Apps.
+## 다음에 대해 자세히 알아봅니다.
+- [규약](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
+- [B2B(기업 간) 시나리오](./app-service-logic-enterprise-integration-b2b.md "B2B 기능으로 논리 앱을 만드는 방법 알아보기")
+- [인증서](./app-service-logic-enterprise-integration-certificates.md "엔터프라이즈 통합 인증서에 대해 알아보기")
+- [플랫 파일 인코딩/디코딩](./app-service-logic-enterprise-integration-flatfile.md "플랫 파일 내용을 인코딩 및 디코딩하는 방법 알아보기")
+- [통합 계정](./app-service-logic-enterprise-integration-accounts.md "통합 계정에 대해 알아보기")
+- [맵](./app-service-logic-enterprise-integration-maps.md "엔터프라이즈 통합 맵에 대해 알아보기")
+- [파트너](./app-service-logic-enterprise-integration-partners.md "엔터프라이즈 통합 파트너에 대해 알아보기")
+- [스키마](./app-service-logic-enterprise-integration-schemas.md "엔터프라이즈 통합 스키마에 대해 알아보기")
+- [XML 메시지 유효성 검사](./app-service-logic-enterprise-integration-xml.md "논리 앱을 사용하여 XML 메시지의 유효성을 검사하는 방법 알아보기")
+- [XML 변환](./app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 맵에 대해 알아보기")
+- [엔터프라이즈 통합 커넥터](../connectors/apis-list.md "엔터프라이즈 통합 팩 커넥터에 대해 알아보기")
 
-## <a name="learn-more-about:"></a>Learn more about:
-- [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
-- [Business to Business (B2B) scenarios](./app-service-logic-enterprise-integration-b2b.md "Learn how to create Logic apps with B2B features ")  
-- [Certificates](./app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
-- [Flat file encoding/decoding](./app-service-logic-enterprise-integration-flatfile.md "Learn how to encode and decode flat file contents")  
-- [Integration accounts](./app-service-logic-enterprise-integration-accounts.md "Learn about integration accounts")
-- [Maps](./app-service-logic-enterprise-integration-maps.md "Learn about enterprise integration maps")
-- [Partners](./app-service-logic-enterprise-integration-partners.md "Learn about enterprise integration partners")
-- [Schemas](./app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
-- [XML message validation](./app-service-logic-enterprise-integration-xml.md "Learn how to validate XML messages with Logic apps")
-- [XML transform](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration maps")
-- [Enterprise Integration Connectors](../connectors/apis-list.md "Learn about enterprise integration pack connectors")
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

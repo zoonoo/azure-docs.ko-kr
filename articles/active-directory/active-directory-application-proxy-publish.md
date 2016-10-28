@@ -1,109 +1,104 @@
 <properties
-    pageTitle="Publish apps with Azure AD Application Proxy | Microsoft Azure"
-    description="Publish on-premises applications to the cloud with Azure AD Application Proxy."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Azure AD 응용 프로그램 프록시를 사용하여 앱 게시 | Microsoft Azure"
+	description="Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 응용 프로그램을 클라우드에 게시합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/19/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/19/2016"
+	ms.author="kgremban"/>
 
 
+# Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
-# <a name="publish-applications-using-azure-ad-application-proxy"></a>Publish applications using Azure AD Application Proxy
+Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램을 인터넷에 액세스되도록 게시하여 원격 작업자를 지원할 수 있습니다. 이제 [Azure 클래식 포털에서 응용 프로그램 프록시를 사용하도록 설정](active-directory-application-proxy-enable.md)했어야 합니다. 이 문서에서는 로컬 네트워크에 실행 중인 응용 프로그램을 게시하는 단계를 안내하고 네트워크 외부에서 안전한 원격 액세스를 제공합니다. 이 문서를 완료하면 응용 프로그램에 개인 설정된 정보 또는 보안 요구 사항을 구성할 준비가 됩니다.
 
-Azure AD Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. By this point, you should already have [enabled Application Proxy in the Azure classic portal](active-directory-application-proxy-enable.md). This article walks you through the steps to publish applications that are running on your local network and provide secure remote access from outside your network. After you complete this article, you'll be ready to configure the application with personalized information or security requirements.
+> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+## 마법사를 사용하여 앱 게시
 
-## <a name="publish-an-app-using-the-wizard"></a>Publish an app using the wizard
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 관리자로 로그인합니다.
+2. Active Directory로 이동하여 응용 프로그램 프록시를 사용하도록 설정한 디렉터리를 선택합니다.
 
-1. Sign in as an administrator in the [Azure classic portal](https://manage.windowsazure.com/).
-2. Go to Active Directory and select the directory where you enabled Application Proxy.
+	![Active Directory - 아이콘](./media/active-directory-application-proxy-publish/ad_icon.png)
 
-    ![Active Directory - icon](./media/active-directory-application-proxy-publish/ad_icon.png)
+3. **응용 프로그램** 탭을 클릭한 다음 화면 맨 위에 있는 **추가** 단추를 클릭합니다.
 
-3. Click the **Applications** tab, and then click the **Add** button at the bottom of the screen
+	![응용 프로그램 추가](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
 
-    ![Add application](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
+4. **네트워크 외부에서 액세스할 수 있는 응용 프로그램 게시**를 선택합니다.
 
-4. Select **Publish an application that will be accessible from outside your network**.
+	![네트워크 외부에서 액세스할 수 있는 응용 프로그램 게시](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
 
-    ![Publish an application that will be accessible from outside your network](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
+5. 응용 프로그램에 대한 다음과 같은 정보를 제공합니다.
 
-5. Provide the following information about your application:
+	- **이름**: 사용자가 알기 쉬운 응용 프로그램의 이름입니다. 디렉터리 내에서 고유해야 합니다.
+	- **내부 URL**: 응용 프로그램 프록시 커넥터가 개인 네트워크 내부에서 응용 프로그램에 액세스하는 데 사용하는 주소입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이러한 방식으로 동일한 서버에 다른 사이트를 게시하고 각각에 고유한 이름 및 액세스 규칙을 부여할 수 있습니다.
 
-    - **Name**: The user-friendly name for your application. It must be unique within your directory.
-    - **Internal URL**: The address that the Application Proxy Connector uses to access the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server, and give each one its own name and access rules.
+		> [AZURE.TIP] 경로를 게시하는 경우 응용 프로그램에 필요한 이미지, 스크립트 및 스타일 시트를 모두 포함하는지 확인합니다. 예를 들어, 앱이 https://yourapp/app에 위치하고 https://yourapp/media에 있는 이미지를 사용하는 경우 https://yourapp/을 경로로 게시해야 합니다.
 
-        > [AZURE.TIP] If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at https://yourapp/app and uses images located at https://yourapp/media, then you should publish https://yourapp/ as the path.
+	- **사전 인증 메서드**: 응용 프로그램 프록시가 응용 프로그램에 대한 액세스를 제공하기 전에 사용자를 확인하는 방법입니다. 드롭다운 메뉴에서 옵션 중 하나를 선택합니다.
 
-    - **Preauthentication Method**: How Application Proxy verifies users before giving them access to your application. Choose one of the options from the drop-down menu.
+		- Azure Active Directory: 응용 프로그램 프록시는 Azure AD를 사용하여 로그인하는 사용자를 리디렉션하여 디렉터리와 응용 프로그램에 대한 사용 권한을 인증합니다.
+		- 통과: 사용자는 응용 프로그램에 액세스하도록 인증할 필요가 없습니다.
 
-        - Azure Active Directory: Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application.
-        - Passthrough: Users don't have to authenticate to access the application.
+	![응용 프로그램 속성](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)
 
-    ![Application properties](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)  
-
-6. To finish the wizard, click the check mark at the bottom of the screen. The application is now defined in Azure AD.
-
-
-## <a name="assign-users-and-groups-to-the-application"></a>Assign users and groups to the application
-
-In order for your users to access your published application, you need to assign them either individually or in groups. (Remember to assign yourself access, too.) This requires that each user have a license for Azure Basic or higher. You can assign licenses individually or to groups. See [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md) for more details. 
-
-For apps that require preauthentication, this grants permissions to use the app. For apps that don't require preauthentication, users can still be assigned to the app so that it appears in their application list, such as MyApps.
-
-1. After finishing the Add App wizard, you see the Quick Start page for your application. To manage who has access to the app, select **Users and groups**.
-
-    ![Application Proxy quick start assign users - screenshot](./media/active-directory-application-proxy-publish/aad_appproxy_usersgroups.png)
-
-2. Search for specific groups in your directory, or show all your users. To display the search results, click the check mark.
-
-    ![Search for groups or users - screenshot](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
-
-2. Select each user or group you want to assign to this app and click **Assign**. You are asked to confirm this action.
-
-> [AZURE.NOTE] For Integrated Windows Authentication apps, you can assign only users and groups that are synced from your on-premises Active Directory. Users who sign in with a Microsoft account and guests cannot be assigned for apps published with Azure Active Directory Application Proxy. Make sure your users sign in with credentials that are part of the same domain as the app you are publishing.
-
-## <a name="test-your-published-application"></a>Test your published application
-
-Once you have published your application, you can test it out by navigating to the URL that you published. Make sure that you can access it, that it renders correctly, and that everything works as expected. If you have trouble or get an error message, try the [troubleshooting guide](active-directory-application-proxy-troubleshoot.md).
-
-## <a name="configure-your-application"></a>Configure your application
-
-You can modify published apps or set up advanced options on the Configure page. On this page, you can customize your app by changing the name or uploading a logo. You can also manage access rules like the preauthentication method or multi-factor authentication.
-
-![Advanced configuration](./media/active-directory-application-proxy-publish/aad_appproxy_configure.png)
+6. 마법사를 마치려면 화면 아래쪽에 있는 확인 표시를 클릭합니다. 이제 응용 프로그램이 Azure AD에 정의되었습니다.
 
 
-After you publish applications using Azure Active Directory Application Proxy, they appear in the Applications list in Azure AD, and you can manage them there.
+## 응용 프로그램에 사용자 및 그룹 할당
 
-If you disable Application Proxy services after you have published applications, they are no longer accessible from outside your private network. This does not delete the applications.
+사용자가 게시된 응용 프로그램에 액세스하기 위해서는 개별적으로 또는 그룹에 할당되어야 합니다. (자신에게도 액세스 권한을 할당합니다.) 각 사용자가 Azure Basic 이상에 대한 라이선스를 가지고 있어야 합니다. 개별적으로 또는 그룹에 라이선스를 할당할 수 있습니다. 세부 내용은 [응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md)을 참조하세요.
 
-To view an application and make sure that it is accessible, double-click the name of the application. If the Application Proxy service is disabled and the application is not available, a warning message appears at the top of the screen.
+사전 인증을 필요로 하는 앱의 경우 이렇게 하면 앱을 사용할 권한이 부여됩니다. 사전 인증을 요구하지 않는 앱의 경우 MyApps과 같이 해당 응용 프로그램 목록에 표시되도록 사용자를 앱에 할당할 수 있습니다.
 
-To delete an application, select an application in the list and then click **Delete**.
+1. 앱 추가 마법사를 마친 후에 응용 프로그램에 대한 빠른 시작 페이지를 확인합니다. 앱에 대한 액세스 권한이 있는 사용자를 관리하려면 **사용자 및 그룹**을 선택합니다.
 
-## <a name="next-steps"></a>Next steps
+	![응용 프로그램 프록시 빠른 시작 할당 사용자 - 스크린샷](./media/active-directory-application-proxy-publish/aad_appproxy_usersgroups.png)
 
-- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
-- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
+2. 디렉터리에서 특정 그룹을 검색 하거나 모든 사용자를 표시합니다. 검색 결과를 표시하려면 확인 표시를 클릭합니다.
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+  	![그룹 또는 사용자 검색 - 스크린샷](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
+
+2. 이 앱에 할당하려는 각 사용자나 그룹을 선택하고 **할당**을 클릭합니다. 이 작업을 확인하라는 메시지가 표시됩니다.
+
+> [AZURE.NOTE] Windows 통합 인증 앱에 대해 온-프레미스 Active Directory에서 동기화되는 사용자와 그룹만 할당할 수 있습니다. Microsoft 계정 및 게스트를 사용하여 로그인하는 사용자는 Azure Active Directory 응용 프로그램 프록시를 사용하여 게시된 앱에 할당할 수 없습니다. 사용자가 게시하는 앱과 동일한 도메인의 일부인 자격 증명을 사용하여 로그인하는지 확인합니다.
+
+## 게시된 응용 프로그램 테스트
+
+응용 프로그램을 게시하면 게시한 URL로 이동하여 테스트할 수 있습니다. 액세스할 수 있는지, 올바르게 렌더링되었는지 및 모든 것이 예상대로 작동하는지 확인합니다. 문제가 발생하거나 오류 메시지가 나타날 경우 [문제 해결 가이드](active-directory-application-proxy-troubleshoot.md)를 사용해 봅니다.
+
+## 응용 프로그램 구성
+
+게시된 앱을 수정하거나 구성 페이지에서 고급 옵션을 설정할 수 있습니다. 이 페이지에서 이름을 변경하거나 로고를 업로드하여 앱을 사용자 지정할 수 있습니다. 또한 사전 인증 방법 또는 Multi-Factor Authentication과 같은 액세스 규칙을 관리할 수 있습니다.
+
+![고급 구성](./media/active-directory-application-proxy-publish/aad_appproxy_configure.png)
 
 
+Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시하면 Azure AD의 응용 프로그램 목록에 표시되므로 해당 위치에서 관리할 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+응용 프로그램을 게시한 후 응용 프로그램 프록시 서비스를 사용하지 않도록 설정하면 개인 네트워크 외부에서 액세스할 수 없습니다. 응용 프로그램을 삭제하지 않습니다.
 
+응용 프로그램을 확인하고 액세스할 수 있는지 확인하려면 응용 프로그램의 이름을 두 번 클릭합니다. 응용 프로그램 프록시 서비스를 사용할 수 없고 응용 프로그램을 사용할 수 없는 경우 화면 위쪽에 경고 메시지가 나타납니다.
 
+응용 프로그램을 삭제하려면 목록에서 응용 프로그램을 선택한 다음 **삭제**를 클릭합니다.
+
+## 다음 단계
+
+- [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
+- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+- [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+- [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
+
+최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
+
+<!---HONumber=AcomDC_0921_2016-->

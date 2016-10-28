@@ -1,362 +1,357 @@
 <properties
-    pageTitle="Running a MariaDB (MySQL) cluster on Azure"
-    description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="sabbour"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management"/>
+	pageTitle="Azure에서 MariaDB(MySQL) 클러스터 실행"
+	description="Azure 가상 컴퓨터에서 MariaDB + Galera MySQL 클러스터 만들기"
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="sabbour"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="04/15/2015"
-    ms.author="v-ahsab"/>
+	ms.service="virtual-machines-linux"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="04/15/2015"
+	ms.author="v-ahsab"/>
 
-
-# <a name="mariadb-(mysql)-cluster---azure-tutorial"></a>MariaDB (MySQL) cluster - Azure tutorial
+# MariaDB(MySQL) 클러스터 - Azure 자습서
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-> [AZURE.NOTE]  MariaDB Enterprise cluster is now available in the Azure Marketplace.  The new offering will automatically deploy a MariaDB Galera cluster on ARM. You should use the new offering from  https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/ 
+> [AZURE.NOTE]  Azure 마켓플레이스에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 이 새로운 서비스는 ARM에 MariaDB Galera 클러스터를 자동 배포합니다. https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/에서 새 기능을 사용해야 합니다.
 
-We're creating a multi-Master [Galera](http://galeracluster.com/products/) cluster of [MariaDBs](https://mariadb.org/en/about/), a robust, scalable, and reliable drop-in replacement for MySQL, to work in a highly available environment on Azure Virtual Machines.
+Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력하고 확장성 있으며 신뢰할 수 있는 MySQL의 드롭인 대체 기능인 [MariaDB](https://mariadb.org/en/about/)의 다중 마스터 [Galera](http://galeracluster.com/products/) 클러스터를 만드는 중입니다.
 
-## <a name="architecture-overview"></a>Architecture overview
+## 아키텍처 개요
 
-This topic performs the following steps:
+이 항목에서는 다음 단계를 수행합니다.
 
-1. Create A 3-node cluster
-2. Separate the Data Disks from the OS Disk
-3. Create the Data Disks in RAID-0/striped setting to increase IOPS
-4. Use the Azure Load Balancer to balance the load for the 3 nodes
-5. To minimize repetitive work, create a VM image containing MariaDB+Galera and use it to create the other cluster VMs.
+1. 3 노드 클러스터를 만듭니다.
+2. OS 디스크에서 데이터 디스크를 분리합니다.
+3. RAID-0/스트라이프 설정으로 데이터 디스크를 만들어 IOPS를 늘립니다.
+4. Azure 부하 분산 장치를 사용하여 3개 노드의 부하를 분산시킵니다.
+5. 반복 작업을 최소화하기 위해 MariaDB+Galera가 포함된 VM 이미지를 만든 후 이 이미지를 사용하여 다른 클러스터 VM을 만듭니다.
 
-![Architecture](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
+![아키텍처](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
-> [AZURE.NOTE]  This topic uses the [Azure CLI](../xplat-cli-install.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference](../virtual-machines-command-line-tools.md). You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
+> [AZURE.NOTE]  이 항목에서는 [Azure CLI] 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용 가능한 명령에 대한 참조가 필요한 경우 이 [Azure CLI 명령 참조] 링크를 확인합니다. 또한 [인증에 사용할 SSH 키를 만들고] **.pem 파일 위치**를 적어 두어야 합니다.
 
 
-## <a name="creating-the-template"></a>Creating the template
+## 템플릿 만들기
 
-### <a name="infrastructure"></a>Infrastructure
+### 인프라
 
-1. Create an Affinity Group to hold the resources together
+1. 리소스를 포함할 선호도 그룹을 만듭니다.
 
-        azure account affinity-group create mariadbcluster --location "North Europe" --label "MariaDB Cluster"
+		azure account affinity-group create mariadbcluster --location "North Europe" --label "MariaDB Cluster"
 
-2. Create a Virtual Network
+2. 가상 네트워크 만들기
 
-        azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
+		azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
 
-3. Create a Storage Account to host all our disks. Note that you shouldn't be placing more than 40 heavily used disks on the same Storage Account to avoid hitting the 20,000 IOPS storage account limit. In this case, we're far off from this number so we'll store everything on the same account for simplicity
+3. 모든 디스크를 호스트할 저장소 계정을 만듭니다. 20,000 IOPS 저장소 계정 한도에 도달하지 않도록 동일한 저장소 계정에 자주 사용하는 디스크가 40개 이상 배치되지 않도록 해야 합니다. 여기서는 이 수치보다 훨씬 작으므로 단순한 구현을 위해 모든 항목을 동일한 계정에 저장하겠습니다.
 
-        azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
+		azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
 
-3. Find the name of the CentOS 7 Virtual Machine image
+3. CentOS 7 가상 컴퓨터 이미지의 이름을 찾습니다.
 
-        azure vm image list | findstr CentOS
-this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`. Use the name in the following step.
+		azure vm image list | findstr CentOS
+`5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`처럼 출력됩니다. 다음 단계에 이름을 사용하세요.
 
-4. Create the VM template replacing **/path/to/key.pem** with the path where you stored the generated .pem SSH key
+4. 생성된 .pem SSH 키를 저장한 경로로 **/path/to/key.pem**을 바꾸어 VM 템플릿을 만듭니다.
 
-        azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
+		azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
 
-5. Attach 4 x 500GB data disks to the VM for use in the RAID configuration
+5. RAID 구성에서 사용할 VM에 4x500GB 데이터 디스크를 연결합니다.
 
-        FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
+		FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
 
-6. SSH into the template VM that you created at **mariadbhatemplate.cloudapp.net:22** and connect using your private key.
+6. **mariadbhatemplate.cloudapp.net:22**에 만든 템플릿 VM에 SSH하고 개인 키를 사용하여 연결합니다.
 
-### <a name="software"></a>Software
+### 소프트웨어
 
-1. Obtain root
+1. 루트를 가져옵니다.
 
         sudo su
 
-2. Install RAID support:
+2. RAID 지원을 설치합니다.
 
-     - Install mdadm
+     - mdadm을 설치합니다.
 
-                yum install mdadm
+        		yum install mdadm
 
-     - Create the RAID0/stripe configuration with an EXT4 file system
+     - EXT4 파일 시스템으로 RAID0/스트라이프 구성을 만듭니다.
 
-                mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
-                mdadm --detail --scan >> /etc/mdadm.conf
-                mkfs -t ext4 /dev/md0
+				mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
+				mdadm --detail --scan >> /etc/mdadm.conf
+				mkfs -t ext4 /dev/md0
 
-     - Create the mount point directory
+     - 탑재 지점 디렉터리를 만듭니다.
 
-                mkdir /mnt/data
+				mkdir /mnt/data
 
-     - Retrieve the UUID of the newly created RAID device
+     - 새로 만든 RAID 장치의 UUID를 검색합니다.
 
-                blkid | grep /dev/md0
+				blkid | grep /dev/md0
 
-     - Edit /etc/fstab
+     - /etc/fstab을 편집합니다.
 
-                vi /etc/fstab
+        		vi /etc/fstab
 
-     - Add the device in there to enable auto mouting on reboot replacing the UUID with the value obtained from the **blkid** command before
+     - 여기에서 UUID를 이전에 **blkid** 명령에서 가져온 값으로 바꿔 재부팅 시 자동 탑재를 사용하도록 장치를 추가합니다.
 
-                UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
+        		UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
 
-     - Mount the new partition
+     - 새 파티션을 탑재합니다.
 
-                mount /mnt/data
+        		mount /mnt/data
 
-3. Install MariaDB:
+3. IMariaDB를 설치합니다.
 
-     - Create the MariaDB.repo file:
+     - MariaDB.repo 파일을 만듭니다.
 
-                vi /etc/yum.repos.d/MariaDB.repo
+              	vi /etc/yum.repos.d/MariaDB.repo
 
-     - Fill it with the below content
+     - 아래 내용으로 파일을 채웁니다.
 
-                [mariadb]
-                name = MariaDB
-                baseurl = http://yum.mariadb.org/10.0/centos7-amd64
-                gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-                gpgcheck=1
+				[mariadb]
+				name = MariaDB
+				baseurl = http://yum.mariadb.org/10.0/centos7-amd64
+				gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+				gpgcheck=1
 
-     - Remove existing postfix and mariadb-libs to avoid conflicts
+     - 충돌을 방지하기 위해 기존 후위와 mariadb-libs를 제거합니다.
 
-            yum remove postfix mariadb-libs-*
+    		yum remove postfix mariadb-libs-*
 
-     - Install MariaDB with Galera
+     - Galera와 함께 MariaDB를 설치합니다.
 
-            yum install MariaDB-Galera-server MariaDB-client galera
+    		yum install MariaDB-Galera-server MariaDB-client galera
 
-4. Move the MySQL data directory to the RAID block device
+4. MySQL 데이터 디렉터리를 RAID 블록 장치로 이동합니다.
 
-     - Copy the current MySQL directory into its new location and remove the old directory
+     - 현재 MySQL 디렉터리를 새 위치에 복사하고 이전 디렉터리를 제거합니다.
 
-            cp -avr /var/lib/mysql /mnt/data  
-            rm -rf /var/lib/mysql
+    		cp -avr /var/lib/mysql /mnt/data  
+    		rm -rf /var/lib/mysql
 
-     - Set permissions on new directory accordingly
+     - 새 디렉터리에 대한 사용 권한을 설정합니다.
 
-            chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/  
+        	chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/  
 
-     - Create a symlink pointing the old directory to the new location on the RAID partition
+     - 이전 디렉터리를 RAID 파티션의 새 위치로 안내하는 symlink를 만듭니다.
 
-            ln -s /mnt/data/mysql /var/lib/mysql
+    		ln -s /mnt/data/mysql /var/lib/mysql
 
-5. Because [SELinux will interfere with the cluster operations](http://galeracluster.com/documentation-webpages/configuration.html#selinux), it is necessary to disable it for the current session (until a compatible version appears). Edit `/etc/selinux/config` to disable it for subsequent restarts:
+5. [SELinux는 클러스터 작업을 방해](http://galeracluster.com/documentation-webpages/configuration.html#selinux)하므로 호환되는 버전이 나타날 때까지 현재 세션에 대해 사용하지 않도록 설정해야 합니다. `/etc/selinux/config`를 편집하여 이후의 다시 시작에서 사용하지 않도록 설정합니다.
 
-            setenforce 0
+	        setenforce 0
 
-       then editing `/etc/selinux/config` to set `SELINUX=permissive`
+       그런 다음 `/etc/selinux/config`를 `SELINUX=permissive`로 설정합니다.
 
-6. Validate MySQL runs
+6. MySQL 실행의 유효성을 확인합니다.
 
-    - Start MySQL
+    - MySQL을 시작합니다.
 
-            service mysql start
+    		service mysql start
 
-    - Secure the MySQL installation, set the root password, remove anonymous users, disabling remote root login and removing the test database
+    - MySQL 설치 보안을 유지하고, 루트 암호를 설정한 다음, 익명 사용자를 제거하여 원격 루트 로그인을 사용하지 않도록 설정하고 테스트 데이터베이스를 제거합니다.
 
             mysql_secure_installation
 
-    - Create a user on the database for cluster operations and optionally, your applications
+    - 클러스터 작업 및 응용 프로그램(선택 사항)에 대한 데이터베이스에서 사용자를 만듭니다.
 
-            mysql -u root -p
-            GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
+			mysql -u root -p
+			GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
             exit
 
-   - Stop MySQL
+   - MySQL을 중지합니다.
 
-            service mysql stop
+			service mysql stop
 
-7. Create configuration placeholder
+7. 구성 자리 표시자를 만듭니다.
 
-    - Edit the MySQL configuration to create a placeholder for the cluster settings. Do not replace the **`<Vairables>`** or uncomment now. That will happen after we create a VM from this template.
+	- MySQL 구성을 편집하여 클러스터 설정에 대한 자리 표시자를 만듭니다. 지금은 **`<Vairables>`**를 바꾸거나 주석을 제거하지 마세요. 이 템플릿에서 VM을 만들면 해당 작업이 수행됩니다.
 
-            vi /etc/my.cnf.d/server.cnf
+			vi /etc/my.cnf.d/server.cnf
 
-    - Edit the **[galera]** section and clear it out
+	- **[galera]** 섹션을 편집하여 지웁니다.
 
-    - Edit the **[mariadb]** section
+	- **[mariadb]** 섹션을 편집합니다.
 
-            wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+			wsrep_provider=/usr/lib64/galera/libgalera_smm.so
             binlog_format=ROW
             wsrep_sst_method=rsync
-            bind-address=0.0.0.0 # When set to 0.0.0.0, the server listens to remote connections
-            default_storage_engine=InnoDB
+			bind-address=0.0.0.0 # When set to 0.0.0.0, the server listens to remote connections
+			default_storage_engine=InnoDB
             innodb_autoinc_lock_mode=2
 
             wsrep_sst_auth=cluster:p@ssw0rd # CHANGE: Username and password you created for the SST cluster MySQL user
             #wsrep_cluster_name='mariadbcluster' # CHANGE: Uncomment and set your desired cluster name
             #wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3" # CHANGE: Uncomment and Add all your servers
             #wsrep_node_address='<ServerIP>' # CHANGE: Uncomment and set IP address of this server
-            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
+			#wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
 
-8. Open required ports on the firewall (using FirewallD on CentOS 7)
+8. 방화벽에서 필요한 포트를 엽니다(CentOS 7의 FirewallD 사용).
 
-    - MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+	- MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
     - GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
     - GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
     - RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-    - Reload the firewall: `firewall-cmd --reload`
+    - 방화벽 다시 로드: `firewall-cmd --reload`
 
-9.  Optimize the system for performance. Refer to this article on [performance tuning strategy](virtual-machines-linux-classic-optimize-mysql.md) for more details
+9.  성능에 대해 시스템을 최적화합니다. 자세한 내용은 [성능 조정 전략]에 대한 이 문서를 참조하세요.
 
-    - Edit the MySQL configuration file again
+	- MySQL 구성 파일을 다시 편집합니다.
 
-            vi /etc/my.cnf.d/server.cnf
+			vi /etc/my.cnf.d/server.cnf
 
-    - Edit the **[mariadb]** section and append the below
+	- **[mariadb]** 섹션을 편집하고 아래 내용을 추가합니다.
 
-    > [AZURE.NOTE] It is recommended that **innodb\_buffer\_pool_size** be 70% of your VM's memory. It has been set at 2.45GB here for the Medium Azure VM with 3.5GB of RAM.
+	> [AZURE.NOTE] **innodb\_buffer\_pool\_size**를 VM 메모리의 70%로 설정하는 것이 좋습니다. 여기서는 RAM이 3.5GB인 Medium Azure VM에 대해 2.45GB로 설정되었습니다.
 
-            innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
+	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
             max_connections = 5000 # A larger value will give the server more time to recycle idled connections
             innodb_file_per_table = 1 # Speed up the table space transmission and optimize the debris management performance
             innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
             innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
-            query_cache_size = 0
+			query_cache_size = 0
 
-10. Stop MySQL, disable MySQL service from running on startup to avoid messing up the cluster when adding a new node, and deprovision the machine.
+10. MySQL을 중지하고, 새 노드를 추가할 때 클러스터가 복잡해지지 않도록 시작 시 MySQL 서비스가 실행되지 않도록 하고, 컴퓨터 프로비전을 해제합니다.
 
-        service mysql stop
+		service mysql stop
         chkconfig mysql off
-        waagent -deprovision
+		waagent -deprovision
 
-11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI] tools describes the fact that images captured by the Azure CLI tools do not capture the attached data disks.)
+11. 포털을 통해 VM을 캡처합니다. (현재 [Azure CLI 도구의 문제 #1268]은 Azure CLI 도구에서 캡처된 이미지가 연결된 데이터 디스크를 캡처하지 않는다는 사실을 설명합니다.)
 
-    - Shutdown the machine through the portal
-    - Click on Capture and specify the image name as **mariadb-galera-image** and provide a  description and check "I have run waagent".
-    ![Capture the Virtual Machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
-    ![Capture the Virtual Machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
+	- 포털을 통해 시스템을 종료합니다.
+    - 캡처를 클릭하고 이미지 이름을 **mariadb-galera-image**로 지정한 다음 설명을 입력하고 "I have run waagent(waagent를 실행했습니다.)"를 선택합니다. ![가상 컴퓨터 캡처](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png) ![가상 컴퓨터 캡처](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
-## <a name="creating-the-cluster"></a>Creating the cluster
+## 클러스터 만들기
 
-Create 3 VMs out of the template you just created and then configure and start the cluster.
+방금 만든 템플릿에서 VM 3개를 만든 후 클러스터를 구성하고 시작합니다.
 
-1. Create the first CentOS 7 VM from the **mariadb-galera-image** image you created, providing the virtual network name **mariadbvnet** and the subnet **mariadb**, machine size **Medium**, passing in the Cloud Service name to be **mariadbha** (or whatever name you want to be accessed through mariadbha.cloudapp.net), setting the name of this machine to be **mariadb1**  and the username to be **azureuser**,  and enabling SSH access and passing the SSH certificate .pem file and replacing **/path/to/key.pem** with the path where you stored the generated .pem SSH key.
+1. 가상 네트워크 이름 **mariadbvnet**, 서브넷 **mariadb**, 컴퓨터 크기 **Medium**을 제공하고 클라우드 서비스 이름을 **mariadbha**(또는 mariadbha.cloudapp.net을 통해 액세스하려는 이름)로 전달하고, 이 컴퓨터의 이름을 **mariadb1**, 사용자 이름을 **azureuser**로 설정하고, SSH 액세스를 사용하도록 설정하고, SSH 인증서 .pem 파일을 전달하고, 생성된 .pem SSH 키를 저장한 경로로 **/path/to/key.pem**을 바꾸어 직접 만든 **mariadb-galera-image** 이미지에서 첫 번째 CentOS 7 VM을 만듭니다.
 
-    > [AZURE.NOTE] The commands below are split over multiple lines for clarity, but you should enter each as one line.
+	> [AZURE.NOTE] 아래 명령은 읽기 쉽도록 여러 줄로 나누어져 있지만 각각 한 줄로 입력해야 합니다.
 
-        azure vm create
+		azure vm create
         --virtual-network-name mariadbvnet
         --subnet-names mariadb
         --availability-set clusteravset
-        --vm-size Medium
-        --ssh-cert "/path/to/key.pem"
-        --no-ssh-password
-        --ssh 22
-        --vm-name mariadb1
-        mariadbha mariadb-galera-image azureuser
+		--vm-size Medium
+		--ssh-cert "/path/to/key.pem"
+		--no-ssh-password
+		--ssh 22
+		--vm-name mariadb1
+		mariadbha mariadb-galera-image azureuser
 
-2. Create 2 more Virtual Machines by _connecting_ them to the currently created **mariadbha** Cloud Service, changing the **VM name** as well as the **SSH port** to a unique port not conflicting with other VMs in the same Cloud Service.
+2. 현재 만들어진 **mariadbha** 클라우드 서비스에 _연결_하고 **VM 이름** 및 **SSH 포트**를 동일한 클라우드 서비스의 다른 VM과 충돌하지 않는 고유한 포트로 변경하여 가상 컴퓨터를 2개 더 만듭니다.
 
-        azure vm create
+		azure vm create
         --virtual-network-name mariadbvnet
         --subnet-names mariadb
         --availability-set clusteravset
-        --vm-size Medium
-        --ssh-cert "/path/to/key.pem"
-        --no-ssh-password
-        --ssh 23
-        --vm-name mariadb2
+		--vm-size Medium
+		--ssh-cert "/path/to/key.pem"
+		--no-ssh-password
+		--ssh 23
+		--vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-and for MariaDB3
+또한 MariaDB3에 대해 다음을 수행합니다.
 
-        azure vm create
+		azure vm create
         --virtual-network-name mariadbvnet
         --subnet-names mariadb
         --availability-set clusteravset
-        --vm-size Medium
-        --ssh-cert "/path/to/key.pem"
-        --no-ssh-password
-        --ssh 24
-        --vm-name mariadb3
+		--vm-size Medium
+		--ssh-cert "/path/to/key.pem"
+		--no-ssh-password
+		--ssh 24
+		--vm-name mariadb3
         --connect mariadbha mariadb-galera-image azureuser
 
-3. You will need to get the internal IP address of each of the 3 VMs for the next step:
+3. 다음 단계를 위해 VM 3개의 내부 IP 주소를 각각 가져와야 합니다.
 
-    ![Getting IP address](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/IP.png)
+	![IP 주소 가져오기](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/IP.png)
 
-4. SSH into the 3 VMs and and edit the configuration file on each
+4. VM 3개에 SSH하고 각 VM에서 구성 파일을 편집합니다.
 
-        sudo vi /etc/my.cnf.d/server.cnf
+		sudo vi /etc/my.cnf.d/server.cnf
 
-    uncommenting **`wsrep_cluster_name`** and **`wsrep_cluster_address`** by removing the **#** at the beginning and validation they are indeed what you want.
-    Additionally, replace **`<ServerIP>`** in **`wsrep_node_address`** and **`<NodeName>`** in **`wsrep_node_name`** with the VM's IP address and name respectively and uncomment those lines as well.
+	시작 부분에 있는 **#**을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`** 주석을 제거하고 원하는 내용이 맞는지 확인합니다. 또한 **`wsrep_node_address`**의 **`<ServerIP>`** 및 **`wsrep_node_name`**의 **`<NodeName>`**을 VM의 IP 주소와 이름으로 각각 바꾸고 해당 줄의 주석도 제거합니다.
 
-5. Start the cluster on MariaDB1 and let it run at startup
+5. MariaDB1에서 클러스터를 시작하고 시작 시 실행되도록 합니다.
 
-        sudo service mysql bootstrap
+		sudo service mysql bootstrap
         chkconfig mysql on
 
-6. Start MySQL on MariaDB2 and MariaDB3 and let it run at startup
+6. MariaDB2 및 MariaDB3에서 MySQL을 시작하고 시작 시 실행되도록 합니다.
 
-        sudo service mysql start
+		sudo service mysql start
         chkconfig mysql on
 
-## <a name="load-balancing-the-cluster"></a>Load balancing the cluster
-When you created the clustered VMs, you added them into an Availablity Set called **clusteravset** to ensure they are put on different fault and update domains and that Azure never does maintenance on all machines at once. This configuration meets the requirements to be supported by that Azure Service Level Agreement (SLA).
+## 클러스터 부하 분산
+클러스터된 VM을 만들 때 **clusteravset**라는 가용성 집합에 추가하여 다른 장애 및 업데이트 도메인에 배치되도록 했으며 Azure가 동시에 모든 컴퓨터에서 유지 관리를 수행하지 않도록 했습니다. 이 구성은 해당 Azure SLA(서비스 수준 계약)에서 지원할 요구 사항을 충족합니다.
 
-Now you use the Azure Load Balancer to balance requests between our 3 nodes.
+이제 Azure 부하 분산 장치를 사용하여 3개 노드 간에 요청을 분산시킵니다.
 
-Run the below commands on your machine using the Azure CLI.
-The command parameters structure is: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명령 매개 변수 구조는 다음과 같습니다. `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
-    azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
+	azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb3 3306:3306:tcp:false:MySQL:tcp:3306
 
-Finally, since the CLI sets the load-balancer probe interval to 15 seconds (which may be a bit too long), change it in the portal under **Endpoints** for any of the VMs
+마지막으로, CLI에서 부하 분산 장치 검색 간격을 조금 길 수 있는 15초로 설정하므로 VM 중 하나에 대한 포털의 **끝점**에서 변경합니다.
 
-![Edit endpoint](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
+![끝점 편집](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
 
-then click on Reconfigure The Load-Balanced Set and go next
+부하 분산 집합 다시 구성을 클릭하고 다음으로 이동합니다.
 
-![Reconfigure Load Balanced Set](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
+![부하 분산된 집합 다시 구성](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
 
-then change the Probe Interval to 5 seconds and save
+검색 간격을 5초로 변경하고 저장합니다.
 
-![Change Probe Interval](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
+![검색 간격 변경](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
 
-## <a name="validating-the-cluster"></a>Validating the cluster
+## 클러스터 유효성 검사
 
-The hard work is done. The cluster should be now accessible at `mariadbha.cloudapp.net:3306` which will hit the load balancer and route requests between the 3 VMs smoothly and efficiently.
+하드 작업이 완료되었습니다. 이제 부하 분산 장치에 도달하고 3개의 VM 간에 요청을 매끄럽고 효율적으로 라우팅하는 `mariadbha.cloudapp.net:3306`에서 클러스터에 액세스할 수 있습니다.
 
-Use your favorite MySQL client to connect or just connect from one of the VMs to verify this cluster is working.
+원하는 MySQL 클라이언트를 사용하여 VM 중 하나에 연결하거나 연결을 끊어 이 클러스터가 작동하는지 확인합니다.
 
-     mysql -u cluster -h mariadbha.cloudapp.net -p
+	 mysql -u cluster -h mariadbha.cloudapp.net -p
 
-Then create a new database and populate it with some data
+새 데이터베이스를 만들고 일부 데이터를 채웁니다.
 
-    CREATE DATABASE TestDB;
+	CREATE DATABASE TestDB;
     USE TestDB;
     CREATE TABLE TestTable (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, value VARCHAR(255));
-    INSERT INTO TestTable (value)  VALUES ('Value1');
-    INSERT INTO TestTable (value)  VALUES ('Value2');
+	INSERT INTO TestTable (value)  VALUES ('Value1');
+	INSERT INTO TestTable (value)  VALUES ('Value2');
     SELECT * FROM TestTable;
 
-Will result in the table below
+아래 표와 같은 결과가 생성됩니다.
 
-    +----+--------+
-  	| id | value  |
-    +----+--------+
-  	|  1 | Value1 |
-  	|  4 | Value2 |
-    +----+--------+
-    2 rows in set (0.00 sec)
+	+----+--------+
+	| id | value  |
+	+----+--------+
+	|  1 | Value1 |
+	|  4 | Value2 |
+	+----+--------+
+	2 rows in set (0.00 sec)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-In this article, you created a 3 node MariaDB + Galera highly-available cluster on Azure Virtual Machines running CentOS 7. The VMs are load balanced with the Azure Load Balancer.
+이 문서에서는 CentOS 7을 실행하는 Azure 가상 컴퓨터에 3 노드 MariaDB+Galera 고가용성 클러스터를 만들었습니다. Azure 부하 분산 장치를 사용하여 VM에 부하가 분산되었습니다.
 
-You may want to take a look at [another way to cluster MySQL on Linux](virtual-machines-linux-classic-mysql-cluster.md) and ways to [optimize and test MySQL performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md).
+[Linux에서 MySQL을 클러스터링하는 다른 방법] 및 [Azure Linux VM에서 MySQL 성능 최적화 및 테스트]를 살펴보는 것이 좋습니다.
 
 <!--Anchors-->
 [Architecture overview]: #architecture-overview
@@ -371,11 +366,12 @@ You may want to take a look at [another way to cluster MySQL on Linux](virtual-m
 <!--Link references-->
 [Galera]: http://galeracluster.com/products/
 [MariaDBs]: https://mariadb.org/en/about/
-[create an SSH key for authentication]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
+[Azure CLI]: ../xplat-cli.md
+[Azure CLI 명령 참조]: ../virtual-machines-command-line-tools.md
+[인증에 사용할 SSH 키를 만들고]: http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
+[성능 조정 전략]: virtual-machines-linux-optimize-mysql-perf.md
+[Azure Linux VM에서 MySQL 성능 최적화 및 테스트]: virtual-machines-linux-optimize-mysql-perf.md
+[Azure CLI 도구의 문제 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
+[Linux에서 MySQL을 클러스터링하는 다른 방법]: virtual-machines-linux-mysql-cluster.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

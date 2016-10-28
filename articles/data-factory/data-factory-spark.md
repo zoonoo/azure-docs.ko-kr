@@ -1,55 +1,50 @@
 <properties 
-    pageTitle="Invoke Spark programs from Azure Data Factory" 
-    description="Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="Azure Data Factory에서 Spark 프로그램 호출" 
+	description="MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/25/2016" 
-    ms.author="spelluru"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2016" 
+	ms.author="spelluru"/>
 
+# Data Factory에서 Spark 프로그램 호출
+## 소개
+Data Factory 파이프라인에서 MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로그램을 실행할 수 있습니다. 활동 사용에 대한 자세한 내용을 보려면 이 문서를 확인하기 전에 [MapReduce 활동](data-factory-map-reduce.md) 문서를 참조하세요.
 
-# <a name="invoke-spark-programs-from-data-factory"></a>Invoke Spark Programs from Data Factory
-## <a name="introduction"></a>Introduction
-You can use the MapReduce Activity in a Data Factory pipeline to run Spark programs on your HDInsight Spark cluster. See [MapReduce Activity](data-factory-map-reduce.md) article for detailed information on using the activity before reading this article. 
+## GitHub의 Spark 샘플
+[Spark - GitHub의 Data Factory 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark)에서는 MapReduce 작업을 사용하여 Spark 프로그램을 호출하는 방법을 보여 줍니다. Spark 프로그램은 단순히 Azure Blob 컨테이너에서 다른 컨테이너로 데이터를 복사합니다.
 
-## <a name="spark-sample-on-github"></a>Spark sample on GitHub
-The [Spark - Data Factory sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) shows how to use MapReduce activity to invoke a Spark program. The spark program just copies data from one Azure Blob container to another. 
+## 데이터 팩터리 엔터티
+**Spark-ADF/src/ADFJsons** 폴더에는 Data Factory 엔터티(연결된 서비스, 데이터 집합, 파이프라인)에 대한 파일이 있습니다.
 
-## <a name="data-factory-entities"></a>Data Factory entities
-The **Spark-ADF/src/ADFJsons** folder contains files for Data Factory entities (linked services, datasets, pipeline).  
+이 샘플에는 두 가지 **연결된 서비스**(Azure 저장소 및 Azure HDInsight)가 있습니다. **StorageLinkedService.json**에서 Azure Storage 이름 및 키 값을 지정하고 **HDInsightLinkedService.json**에서 clusterUri, userName 및 password를 지정합니다.
 
-There are two **linked services** in this sample: Azure Storage and Azure HDInsight. Specify your Azure storage name and key values in **StorageLinkedService.json** and clusterUri, userName, and password in **HDInsightLinkedService.json**.
+이 샘플에는 두 가지 **데이터 집합**(**input.json** 및 **output.json**)이 있습니다. 이러한 파일은 **Datasets** 폴더에 있습니다. 이러한 파일은 MapReduce 작업에 대한 입력 및 출력 데이터 집합을 나타냅니다.
 
-There are two **datasets** in this sample: **input.json** and **output.json**. These files are located in the **Datasets** folder.  These files represent input and output datasets for the MapReduce activity
+샘플 파이프라인은 **ADFJsons/Pipeline** 폴더에 있습니다. 파이프라인을 검토하면 MapReduce 활동을 사용하여 Spark 프로그램을 호출하는 방법을 파악할 수 있습니다.
 
-You find sample pipelines in the **ADFJsons/Pipeline** folder. Review a pipeline to understand how to invoke a Spark program by using the MapReduce activity. 
-
-The MapReduce activity is configured to invoke **com.adf.sparklauncher.jar** in the **adflibs** container in your Azure storage (specified in the StorageLinkedService.json). The source code for this program is in Spark-ADF/src/main/java/com/adf/ folder and it calls spark-submit and run Spark jobs. 
+MapReduce 활동은 StorageLinkedService.json에 지정된 Azure Storage의 **adflibs** 컨테이너에 있는 **com.adf.sparklauncher.jar**을 호출하도록 구성됩니다. 이 프로그램의 소스 코드는 Spark-ADF/src/main/java/com/adf/ 폴더에 있으며 spark-submit을 호출하고 Spark 작업을 실행합니다.
 
 > [AZURE.IMPORTANT] 
-> Read through [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) for the latest and additional information before using the sample. 
+샘플을 사용하기 전에 [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt)를 확인하여 최신 정보와 추가 정보를 파악하세요.
 >  
-> Use your own HDInsight Spark cluster with this approach to invoke Spark programs using the MapReduce activity. Using an on-demand HDInsight cluster is not supported.   
+> MapReduce 활동을 사용하여 Spark 프로그램을 호출하려면 이 방식에서 고유한 HDInsight Spark 클러스터를 사용해야 합니다. 주문형 HDInsight 클러스터 사용은 지원되지 않습니다.
 
 
-## <a name="see-also"></a>See Also
-- [Hive Activity](data-factory-hive-activity.md)
-- [Pig Activity](data-factory-pig-activity.md)
-- [MapReduce Activity](data-factory-map-reduce.md)
-- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
-- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+## 참고 항목
+- [Hive 작업](data-factory-hive-activity.md)
+- [Pig 작업](data-factory-pig-activity.md)
+- [MapReduce 작업](data-factory-map-reduce.md)
+- [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+- [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

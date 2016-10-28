@@ -1,148 +1,147 @@
 <properties 
-    pageTitle="Use Azure CDN in Azure App Service" 
-    description="A tutorial that teaches you how to deploy a web app to Azure App Service that serves content from an integrated Azure CDN endpoint" 
-    services="app-service\web,cdn" 
-    documentationCenter=".net" 
-    authors="cephalin" 
-    manager="wpickett" 
-    editor="jimbe"/>
+	pageTitle="Azure 앱 서비스에서 Azure CDN 사용" 
+	description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 Azure 앱 서비스에 웹앱을 배포하는 방법을 설명하는 자습서입니다." 
+	services="app-service\web,cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="07/01/2016" 
-    ms.author="cephalin"/>
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/01/2016" 
+	ms.author="cephalin"/>
 
 
+# Azure 앱 서비스에서 Azure CDN 사용
 
-# <a name="use-azure-cdn-in-azure-app-service"></a>Use Azure CDN in Azure App Service
+[앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 [Azure CDN](/services/cdn/)과 통합하면 고객 근처의 글로벌 서버 노드에서 웹앱 콘텐츠를 제공하여 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 기본적으로 포함되어 있는 글로벌 크기 조정 기능을 강화할 수 있습니다(모든 현재 노드 위치의 업데이트된 목록은 [여기](http://msdn.microsoft.com/library/azure/gg680302.aspx)서 확인할 수 있음). 정적 이미지 제공과 같은 시나리오에서 이 통합은 Azure 앱 서비스 웹앱의 성능을 훨씬 향상시키고 전 세계 웹앱 사용자 환경을 크게 개선할 수 있습니다.
 
-[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) can be integrated with [Azure CDN](/services/cdn/), adding to the global scaling capabilities inherent in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
+웹앱을 Azure CDN과 통합하면 다음과 같은 이점이 있습니다.
 
-Integrating Web Apps with Azure CDN gives you the following advantages:
+- 콘텐츠 배포(이미지, 스크립트 및 스타일시트)를 웹앱 [연속 배포](app-service-continuous-deployment.md) 프로세스의 일부로 통합
+- Azure 앱 서비스의 웹앱에서 jQuery 또는 부트스트랩 버전과 같은 NuGet 패키지를 쉽게 업그레이드
+- 동일한 Visual Studio 인터페이스에서 웹 응용 프로그램 및 CDN 제공 콘텐츠 관리
+- ASP.NET 묶음 및 축소를 Azure CDN과 통합
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your web app's [continuous deployment](app-service-continuous-deployment.md) process
-- Easily upgrade the NuGet packages in your web app in Azure App Service, such as jQuery or Bootstrap versions 
-- Manage your Web application and your CDN-served content from the same Visual Studio interface
-- Integrate ASP.NET bundling and minification with Azure CDN
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+## 빌드할 내용 ##
 
-## <a name="what-you-will-build"></a>What you will build ##
+Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서비스에 웹앱을 배포하고, 코드를 추가하여 통합 Azure CDN에서 이미지, 컨트롤러 작업 결과, 기본 JavaScript 및 CSS 파일과 같은 콘텐츠를 제공하고, 코드를 작성하여 CDN이 오프라인 상태인 경우에 제공할 번들의 대체 메커니즘을 구성합니다.
 
-You will deploy a web app to Azure App Service using the default ASP.NET MVC template in Visual Studio, add code to serve content from an integrated Azure CDN, such as an image, controller action results, and the default JavaScript and CSS files, and also write code to configure the fallback mechanism for bundles served in the event that the CDN is offline.
+## 필요한 사항 ##
 
-## <a name="what-you-will-need"></a>What you will need ##
+이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
 
-This tutorial has the following prerequisites:
+-	활성 [Microsoft Azure 계정](/account/)
+-	[.NET용 Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)을 사용하는 Visual Studio 2015 Visual Studio를 사용하는 경우 단계가 달라질 수 있습니다.
 
--   An active [Microsoft Azure account](/account/)
--   Visual Studio 2015 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409). If you use Visual Studio, the steps may vary.
-
-> [AZURE.NOTE] You need an Azure account to complete this tutorial:
-> + You can [open an Azure account for free](/pricing/free-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
-> + You can [activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/) - Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
+> + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-## <a name="deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint"></a>Deploy a web app to Azure with an integrated CDN endpoint ##
+## 통합 CDN 끝점으로 Azure에 웹앱 배포 ##
 
-In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2015 to App Service, and then integrate it with a new CDN endpoint. Follow the instructions below:
+이 섹션에서는 Visual Studio 2015의 기본 ASP.NET MVC 응용 프로그램 템플릿을 앱 서비스에 배포한 후 새로운 CDN 끝점과 통합합니다. 아래의 지침을 따르세요.
 
-1. In Visual Studio 2015, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
+1. Visual Studio 2015의 메뉴 모음에서 **파일 > 새로 만들기 > 프로젝트 > 웹 >ASP.NET 웹 응용 프로그램**으로 이동하여 새 ASP.NET 웹 응용 프로그램을 만듭니다. 해당 서비스의 이름을 지정하고 **확인**을 클릭합니다.
 
-    ![](media/cdn-websites-with-cdn/1-new-project.png)
+	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. Select **MVC** and click **OK**.
+3. **MVC**를 선택하고 **확인**을 클릭합니다.
 
-    ![](media/cdn-websites-with-cdn/2-webapp-template.png)
+	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. If you haven't logged into your Azure account yet, click the account icon in the upper-right corner and follow the dialog to log into your Azure account. Once you're done, configure your app as shown below, then click **New** to create a new App Service plan for your app.  
+4. 아직 Azure 계정에 로그인하지 않은 경우 오른쪽 위 모퉁이에서 계정 아이콘을 클릭하고 Azure 계정에 로그인하는 대화 상자를 따릅니다. 수행하면 아래와 같이 앱을 구성한 다음 **새로 만들기**를 클릭하여 앱에 대한 새 앱 서비스 계획을 만듭니다.
 
-    ![](media/cdn-websites-with-cdn/3-configure-webapp.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-5. Configure a new App Service plan in the dialog as shown below and click **OK**. 
+5. 아래와 같이 대화 상자에서 새 앱 서비스 계획을 구성하고 **확인**을 클릭합니다.
 
-    ![](media/cdn-websites-with-cdn/4-app-service-plan.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Click **Create** to create the web app.
+8. **만들기**를 클릭하여 웹앱을 만듭니다.
 
-    ![](media/cdn-websites-with-cdn/5-create-website.png)
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. Once your ASP.NET application is created, publish it to Azure in the Azure App Service Activity pane by clicking **Publish `<app name>` to this Web App now**. Click **Publish** to complete the process.
+9. ASP.NET 응용 프로그램이 만들어지면 **지금 웹앱에 `<app name>` 게시**를 클릭하여 Azure 앱 서비스 활동 창에서 Azure에 해당 응용 프로그램을 게시합니다. **게시**를 클릭하여 프로세스를 완료합니다.
 
-    ![](media/cdn-websites-with-cdn/6-publish-website.png)
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
-    You will see your published web app in the browser when publishing is complete. 
+	게시가 완료되면 브라우저에 게시된 웹앱이 표시됩니다.
 
-1. To create a CDN endpoint, log into the [Azure portal](https://portal.azure.com). 
-2. Click **+ New** > **Media + CDN** > **CDN**.
+1. CDN 끝점을 만들려면 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. **+ 새로 만들기** > **미디어 + CDN** > **CDN**을 클릭합니다.
 
-    ![](media/cdn-websites-with-cdn/create-cdn-profile.png)
+	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
 
-3. Specify the **CDN**, **Location**, **Resource group**,  **Pricing tier**, then click **Create**
+3. **CDN**, **위치**, **리소스 그룹**, **가격 책정 계층**을 지정한 다음 **만들기**를 클릭합니다.
 
-    ![](media/cdn-websites-with-cdn/7-create-cdn.png)   
+	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-4. In the **CDN Profile** blade click on **+ Endpoint** button. Give it a name, select **Web App** in the **Origin Type** dropdown and your web app in the **Origin hostname** dropdown, then click **Add**.  
+4. **CDN 프로필** 블레이드에서 **+ 끝점** 단추를 클릭합니다. 이름을 지정하고 **원본 유형** 드롭다운에서 **웹앱**을 선택하고 **원본 호스트 이름** 드롭다운에서 해당 웹앱을 선택한 다음 **추가**를 클릭합니다.
 
-    ![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
-
-
-
-    > [AZURE.NOTE] Once your CDN endpoint is created, the **Endpoint** blade will show you its CDN URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
-
-3. Back in the **Endpoint** blade, click the name of the CDN endpoint you just created.
-
-    ![](media/cdn-websites-with-cdn/8-select-cdn.png)
-
-3. Click the **Configure** button. In the **Configure** blade, select **Cache every unique URL** in **Query string caching behavior** dropdown, then click the **Save** button.
+	![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
 
 
-    ![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-Once you enable this, the same link accessed with different query strings will be cached as separate entries.
+	> [AZURE.NOTE] CDN 끝점이 생성되면 **끝점** 블레이드에서 해당 CDN URL 및 통합된 원본 도메인이 표시됩니다. 그러나 새 CDN 끝점의 구성이 모든 CDN 노드 위치에 완전히 전파되는 데는 시간이 조금 걸릴 수 있습니다.
 
->[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+3. **끝점** 블레이드로 돌아가 방금 만든 CDN 끝점의 이름을 클릭합니다.
 
-2. Now, navigate to the CDN endpoint address. If the endpoint is ready, you should see your web app displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
+	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-    ![](media/cdn-websites-with-cdn/11-access-success.png)
+3. **구성** 단추를 클릭합니다. **구성** 블레이드의 **쿼리 문자열 캐싱 동작** 드롭다운에서 **각 고유한 URL 캐시**를 선택한 다음 **저장** 단추를 클릭합니다.
 
-1. Next, try to access the **~/Content/bootstrap.css** file in your ASP.NET project. In the browser window, navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**. In my setup, this URL is:
 
-        http://az673227.azureedge.net/Content/bootstrap.css
+	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-    Which corresponds to the following origin URL at the CDN endpoint:
+쿼리 문자열을 사용하도록 설정하면 다른 쿼리 문자열로 액세스하는 동일 링크가 별도의 항목으로 캐시됩니다.
 
-        http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
+>[AZURE.NOTE] 이 자습서 섹션에서는 쿼리 문자열을 사용하지 않아도 되지만, 여기서 변경한 사항이 모든 CDN 노드에 전파되는 데 시간이 걸리기 때문에 그리고 쿼리 문자열을 사용하지 않는 콘텐츠가 CDN 캐시를 막는 것을 방지하기 위해 편의상 가능한 한 빨리 쿼리 문자열을 사용하도록 설정할 수 있습니다(CDN 콘텐츠 업데이트에 대해서는 뒷부분에서 설명).
 
-    When you navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your web app in Azure. 
+2. 이제 CDN 끝점 주소로 이동합니다. 끝점이 준비되면 웹앱이 표시됩니다. **HTTP 404** 오류가 발생하는 경우 CDN 끝점이 준비되지 않은 것입니다. CDN 구성이 모든 에지 노드로 전파될 때까지 최대 1시간 정도 기다려야 할 수 있습니다.
 
-    ![](media/cdn-websites-with-cdn/12-file-access.png)
+	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-You can similarly access any publicly accessible URL at **http://*&lt;serviceName>*.cloudapp.net/**, straight from your CDN endpoint. For example:
+1. 다음으로 ASP.NET 프로젝트의 **~/Content/bootstrap.css** 파일에 액세스합니다. 브라우저 창에서 **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
 
--   A .js file from the /Script path
--   Any content file from the /Content path
--   Any controller/action 
--   If the query string is enabled at your CDN endpoint, any URL with query strings
--   The entire Azure web app, if all content is public
+		http://az673227.azureedge.net/Content/bootstrap.css
 
-Note that it may not be always a good idea (or generally a good idea) to serve an entire Azure web app through Azure CDN. Some of the caveats are:
+	이는 CDN 끝점의 다음 원본 URL과 일치합니다.
 
--   This approach requires your entire site to be public, because Azure CDN cannot serve any private content.
--   If the CDN endpoint goes offline for any reason, whether scheduled maintenance or user error, your entire web app goes offline unless the customers can be redirected to the origin URL **http://*&lt;sitename>*.azurewebsites.net/**. 
--   Even with the custom Cache-Control settings (see [Configure caching options for static files in your Azure web app](#configure-caching-options-for-static-files-in-your-azure-web-app)), a CDN endpoint does not improve the performance of highly-dynamic content. If you tried to load the home page from your CDN endpoint as shown above, notice that it took at least 5 seconds to load the default home page the first time, which is a fairly simple page. Imagine what would happen to the client experience if this page contains dynamic content that must update every minute. Serving dynamic content from a CDN endpoint requires short cache expiration, which translates to frequent cache misses at the CDN endpoint. This hurts the performance of your Azure web app and defeats the purpose of a CDN.
+		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-The alternative is to determine which content to serve from Azure CDN on a case-by-case basis in your Azure web app. To that end, you have already seen how to access individual content files from the CDN endpoint. I will show you how to serve a specific controller action through the CDN endpoint in [Serve content from controller actions through Azure CDN](#serve-content-from-controller-actions-through-azure-cdn).
+	**http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
 
-## <a name="configure-caching-options-for-static-files-in-your-azure-web-app"></a>Configure caching options for static files in your Azure web app ##
+	![](media/cdn-websites-with-cdn/12-file-access.png)
 
-With Azure CDN integration in your Azure web app, you can specify how you want static content to be cached in the CDN endpoint. To do this, open *Web.config* from your ASP.NET project (e.g. **cdnwebapp**) and add a `<staticContent>` element to `<system.webServer>`. The XML below configures the cache to expire in 3 days.  
+마찬가지로 CDN 끝점에서 **http://*&lt;serviceName>*.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예:
+
+-	/Script 경로의 .js 파일
+-	/Content 경로의 모든 콘텐츠 파일
+-	모든 controller/action
+-	CDN 끝점에서 쿼리 문자열을 사용하도록 설정한 경우 쿼리 문자열이 포함된 모든 URL
+-	전체 Azure 웹앱(모든 콘텐츠가 공용인 경우)
+
+Azure CDN을 통해 전체 Azure 웹앱을 제공하는 것이 일반적으로 좋은 생각이거나 항상 좋은 생각은 아닐 수도 있습니다. 다음 사항을 주의해야 합니다.
+
+-	Azure CDN이 개인 콘텐츠를 제공할 수 없으므로 이 접근 방식에서는 전체 사이트가 공용이어야 합니다.
+-	예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 원본 URL인 **http://*&lt;sitename>*.azurewebsites.net/**으로 고객을 리디렉션할 수 없으면 전체 웹앱이 오프라인 상태가 됩니다.
+-	사용자 지정 캐시 컨트롤 설정([Azure 웹앱의 정적 파일에 대한 캐싱 옵션 구성](#configure-caching-options-for-static-files-in-your-azure-web-app) 참조)이 있는 경우에도 CDN 끝점이 높은 수준의 동적 콘텐츠 성능을 개선하지는 않습니다. 위와 같이 CDN 끝점에서 홈페이지를 로드하려는 경우 상당히 단순한 페이지인 기본 홈페이지를 처음 로드하는 데도 5초 이상이 걸립니다. 이 페이지에 매분 업데이트되어야 하는 동적 콘텐츠가 포함되어 있다면 클라이언트 환경이 어떨지 상상해 보세요. CDN 끝점에서 동적 콘텐츠를 제공하려면 캐시 만료가 짧아야 하며 이는 CDN 끝점에서 빈번한 캐시 누락이 발생함을 의미합니다. 그러면 Azure 웹앱의 성능이 저하되며 CDN의 목적이 무산됩니다.
+
+대안은 Azure 웹앱의 사례별로 Azure CDN에서 제공할 콘텐츠를 판단하는 것입니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#serve-content-from-controller-actions-through-azure-cdn)에서는 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
+
+## Azure 웹앱의 정적 파일에 대한 캐싱 옵션 구성 ##
+
+Azure 웹앱에서 Azure CDN 통합을 사용하면 CDN 끝점에서 정적 콘텐츠를 캐시하는 방법을 지정할 수 있습니다. 이렇게 하려면 ASP.NET 프로젝트(예: **cdnwebapp**)에서 *Web.config*를 열고 `<system.webServer>`에 `<staticContent>` 요소를 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다.
 
     <system.webServer>
       <staticContent>
@@ -151,36 +150,36 @@ With Azure CDN integration in your Azure web app, you can specify how you want s
       ...
     </system.webServer>
 
-Once you do this, all static files in your Azure web app will observe the same rule in your CDN cache. For more granular control of cache settings, add a *Web.config* file into a folder and add your settings there. For example, add a *Web.config* file to the *\Content* folder and replace the content with the following XML:
+이렇게 구성하면 Azure 웹앱의 모든 정적 파일이 CDN 캐시에서 동일한 규칙을 준수합니다. 캐싱 설정을 더 세밀하게 제어하려면 *Web.config* 파일을 폴더에 추가하고 이 파일에 해당 설정을 추가합니다. 예를 들어 *Web.config* 파일을 *\\Content* 폴더에 추가하고 다음 XML로 내용을 바꿉니다.
 
-    <?xml version="1.0"?>
-    <configuration>
-      <system.webServer>
-        <staticContent>
-          <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="15.00:00:00"/>
-        </staticContent>
-      </system.webServer>
-    </configuration>
+	<?xml version="1.0"?>
+	<configuration>
+	  <system.webServer>
+	    <staticContent>
+	      <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="15.00:00:00"/>
+	    </staticContent>
+	  </system.webServer>
+	</configuration>
 
-This setting causes all static files from the *\Content* folder to be cached for 15 days.
+이 설정을 통해 *\\Content* 폴더의 모든 정적 파일은 15일 동안 캐시됩니다.
 
-For more information on how to configure the `<clientCache>` element, see [Client Cache &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
+`<clientCache>` 요소를 구성하는 방법에 대한 자세한 내용은 [클라이언트 캐시 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)(영문)를 참조하세요.
 
-In the next section, I will also show you how you can configure cache settings for controller action results in the CDN cache.
+다음 섹션에서는 CDN 캐시의 컨트롤러 작업 결과에 대해 캐시 설정을 구성하는 방법도 설명합니다.
 
-## <a name="serve-content-from-controller-actions-through-azure-cdn"></a>Serve content from controller actions through Azure CDN ##
+## Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공 ##
 
-When you integrate Web Apps with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN. Again, if you decide to serve the entire Azure web app through your CDN, you don't need to do this at all since all the controller actions are reachable through the CDN already. But for the reasons I already pointed out in [Deploy an Azure web app with an integrated CDN endpoint](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), you may decide against this and choose instead to select the controller action you want to serve from Azure CDN. [Maarten Balliauw](https://twitter.com/maartenballiauw) shows you how to do it with a fun MemeGenerator controller in [Reducing latency on the web with the Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). I will simply reproduce it here.
+Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤러 작업의 콘텐츠를 비교적 쉽게 제공할 수 있습니다. 다시 말해서 CDN을 통해 전체 Azure 웹앱을 제공하도록 결정한 경우 CDN을 통해 모든 컨트롤러 작업에 접근 가능하므로 이 작업을 수행할 필요가 없습니다. 하지만 [통합 CDN 끝점으로 Azure 웹앱 배포](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint)에서 이미 지적한 이유 때문에 이와 반대로 Azure CDN에서 제공할 컨트롤러 작업을 대신 선택하기로 결정할 수 있습니다. [Maarten Balliauw](https://twitter.com/maartenballiauw)는 [Azure CDN으로 웹 대기 시간 단축](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)(영문)에서 재미있는 MemeGenerator 컨트롤러로 이 작업을 수행하는 방법을 보여 줍니다. 여기서 그 방법을 간단히 재현해보겠습니다.
 
-Suppose in your web app you want to generate memes based on a young Chuck Norris image (photo by [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) like this:
+웹앱에서 다음과 같은 젊은 척 노리스의 이미지([Alan Light](http://www.flickr.com/photos/alan-light/218493788/) 제공 사진)를 기반으로 하여 밈을 생성하려고 한다고 가정해 보세요.
 
 ![](media/cdn-websites-with-cdn/cdn-5-memegenerator.PNG)
 
-You have a simple `Index` action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action. Since it's Chuck Norris, you would expect this page to become wildly popular globally. This is a good example of serving semi-dynamic content with Azure CDN. 
+고객이 최상급 이미지를 지정한 후 작업에 게시하면 밈이 생성되는 간단한 `Index` 작업이 있습니다. 유명한 척 노리스이기 때문에 이 페이지가 전 세계적으로 널리 알려질 것으로 예상합니다. 이는 Azure CDN으로 동적인 요소가 가미된 콘텐츠를 제공하는 좋은 예입니다.
 
-Follow the steps above to setup this controller action:
+위의 단계에 따라 이 컨트롤러 작업을 설정하려면 다음을 수행합니다.
 
-1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Substitute your file path for `~/Content/chuck.bmp` and your CDN name for `yourCDNName`.
+1. *\\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
 
 
         using System;
@@ -213,7 +212,7 @@ Follow the steps above to setup this controller action:
                 Memes.Add(identifier, new Tuple<string, string>(top, bottom));
               }
 
-              return Content("<a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme</a>");
+              return Content("<a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme</a>");
             }
 
             [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
@@ -278,29 +277,29 @@ Follow the steps above to setup this controller action:
           }
         }
 
-2. Right-click in the default `Index()` action and select **Add View**.
+2. 기본 `Index()` 작업을 마우스 오른쪽 단추로 클릭하고 **뷰 추가**를 선택합니다.
 
-    ![](media/cdn-websites-with-cdn/cdn-6-addview.PNG)
+	![](media/cdn-websites-with-cdn/cdn-6-addview.PNG)
 
-3.  Accept the settings below and click **Add**.
+3.  아래의 설정을 적용하고 **추가**를 클릭합니다.
 
-    ![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
+	![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
 
-4. Open the new *Views\MemeGenerator\Index.cshtml* and replace the content with the following simple HTML for submitting the superlatives:
+4. 새로운 *Views\\MemeGenerator\\Index.cshtml* 파일을 열고 내용을 다음과 같이 최상급을 제출하는 간단한 HTML로 바꿉니다.
 
-        <h2>Meme Generator</h2>
-        
-        <form action="" method="post">
-            <input type="text" name="top" placeholder="Enter top text here" />
-            <br />
-            <input type="text" name="bottom" placeholder="Enter bottom text here" />
-            <br />
-            <input class="btn" type="submit" value="Generate meme" />
-        </form>
+		<h2>Meme Generator</h2>
+		
+		<form action="" method="post">
+		    <input type="text" name="top" placeholder="Enter top text here" />
+		    <br />
+		    <input type="text" name="bottom" placeholder="Enter bottom text here" />
+		    <br />
+		    <input class="btn" type="submit" value="Generate meme" />
+		</form>
 
-5. Publish to the Azure web app again and navigate to **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** in your browser. 
+5. Azure 웹앱을 다시 게시하고 브라우저에서 **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**로 이동합니다.
 
-When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` action method returns a link to the `Show` action method with the respective input identifier. When you click the link, you reach the following code:  
+양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드로 이동합니다.
 
     [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
     public ActionResult Show(string id)
@@ -321,37 +320,37 @@ When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` acti
       }
     }
 
-If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure web app, then it will redirect to:
+로컬 디버거가 연결되어 있다면 로컬로 리디렉션되면서 정규 디버그 환경이 구현됩니다. Azure 웹앱에서 실행 중인 경우에는 다음으로 리디렉션됩니다.
 
-    http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-Which corresponds to the following origin URL at your CDN endpoint:
+이는 CDN 끝점의 다음 원본 URL과 일치합니다.
 
-    http://<yourSiteName>.azurewebsites.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourSiteName>.azurewebsites.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-After URL rewrite rule previously applied, the actual file that gets cached to your CDN endpoint is:
+먼저 URL 다시 쓰기 규칙을 적용한 후라면 CDN 끝점에 캐시되는 실제 파일은 다음과 같습니다.
 
-    http://<yourSiteName>.azurewebsites.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourSiteName>.azurewebsites.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-You can then use the `OutputCacheAttribute` attribute on the `Generate` method to specify how the action result should be cached, which Azure CDN will honor. The code below specify a cache expiration of 1 hour (3,600 seconds).
+그런 다음 `Generate` 메서드의 `OutputCacheAttribute` 특성을 사용하여 작업 결과를 캐시할 방법을 지정할 수 있으며, 이렇게 지정한 설정은 Azure CDN에서 적용됩니다. 다음 코드는 캐시 만료를 1시간(3,600초)으로 지정합니다.
 
     [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 
-Likewise, you can serve up content from any controller action in your Azure web app through your Azure CDN, with the desired caching option.
+마찬가지로 Azure 웹앱에서 Azure CDN을 통해 모든 컨트롤러 작업의 콘텐츠를 원하는 캐싱 옵션으로 제공할 수 있습니다.
 
-In the next section, I will show you how to serve the bundled and minified scripts and CSS through Azure CDN. 
+다음 섹션에서는 Azure CDN을 통해 묶이고 축소된 스크립트 및 CSS를 제공하는 방법을 설명하겠습니다.
 
-## <a name="integrate-asp.net-bundling-and-minification-with-azure-cdn"></a>Integrate ASP.NET bundling and minification with Azure CDN ##
+## ASP.NET 묶음 및 축소를 Azure CDN과 통합 ##
 
-Scripts and CSS stylesheets change infrequently and are prime candidates for the Azure CDN cache. Serving the entire web app through your Azure CDN is the easiest way to integrate bundling and minification with Azure CDN. However, as you may elect against this approach for the reasons described in [Integrate an Azure CDN endpoint with your Azure web app and serve static content in your Web pages from Azure CDN](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), I will show you how to do it while preserving the desired develper experience of ASP.NET bundling and minification, such as:
+스크립트 및 CSS 스타일시트는 드물게 변경되며 Azure CDN 캐시의 주요 후보입니다. Azure CDN을 통해 전체 웹앱을 제공하는 것은 묶음 및 축소를 Azure CDN에 통합하는 가장 쉬운 방법입니다. 그러나 [Azure CDN 끝점을 Azure 웹앱과 통합하고 Azure CDN에서 웹 페이지의 정적 콘텐츠 제공](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint)에 설명된 이유 때문에 사용자가 이 접근 방법을 선택하지 않을 수 있으므로 다음과 같이 바람직한 ASP.NET 묶음 및 축소 개발자 환경을 유지하는 동시에 이 작업을 수행하는 방법을 살펴보겠습니다.
 
--   Great debug mode experience
--   Streamlined deployment
--   Immediate updates to clients for script/CSS version upgrades
--   Fallback mechanism when your CDN endpoint fails
--   Minimize code modification
+-	탁월한 디버그 모드 환경
+-	간소화된 배포
+-	스크립트/CSS 버전 업그레이드를 위한 클라이언트 즉시 업데이트
+-	CDN 끝점의 오류에 대비한 대체 메커니즘
+-	코드 수정의 최소화
 
-In the ASP.NET project that you created in [Integrate an Azure CDN endpoint with your Azure web app and serve static content in your Web pages from Azure CDN](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), open *App_Start\BundleConfig.cs* and take a look at the `bundles.Add()` method calls.
+[Azure CDN 끝점을 Azure 웹앱과 통합하여 Azure CDN에서 웹 페이지의 정적 콘텐츠 제공](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint)에서 만든 ASP.NET 프로젝트에서 *App\_Start\\BundleConfig.cs*를 열고 `bundles.Add()` 메서드 호출을 살펴봅니다.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -360,24 +359,24 @@ In the ASP.NET project that you created in [Integrate an Azure CDN endpoint with
         ...
     }
 
-The first `bundles.Add()` statement adds a script bundle at the virtual directory `~/bundles/jquery`. Then, open *Views\Shared\_Layout.cshtml* to see how the script bundle tag is rendered. You should be able to find the following line of Razor code:
+첫 번째 `bundles.Add()` 문은 가상 디렉터리 `~/bundles/jquery`에 스크립트 번들을 추가합니다. 그런 다음 *Views\\Shared\_Layout.cshtml* 파일을 열고 스크립트 번들 태그가 어떻게 렌더링되는지 살펴보세요. 다음과 같은 Razor 코드 줄이 있습니다.
 
     @Scripts.Render("~/bundles/jquery")
 
-When this Razor code is run in the Azure web app, it will render a `<script>` tag for the script bundle similar to the following: 
+이 Razor 코드가 Azure 웹앱에서 실행되는 경우 다음과 유사한 스크립트 번들의 `<script>` 태그를 렌더링합니다.
 
     <script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
 
-However, when it is run in Visual Studio by typing `F5`, it will render each script file in the bundle individually (in the case above, only one script file is in the bundle):
+그러나 `F5` 키를 눌러 Visual Studio에서 코드가 실행되면 다음과 같이 번들의 각 스크립트 파일을 개별적으로 렌더링합니다(위의 경우에는 하나의 스크립트 파일만 번들에 있음).
 
     <script src="/Scripts/jquery-1.10.2.js"></script>
 
-This enables you to debug the JavaScript code in your development environment while reducing concurrent client connections (bundling) and improving file download performance (minification) in production. It's a great feature to preserve with Azure CDN integration. Furthermore, since the rendered bundle already contains an automatically generated version string, you want to replicate that functionality so that whenever you update your jQuery version through NuGet, it can be updated at the client side as soon as possible.
+그러면 프로덕션 환경에서 클라이언트의 동시 연결은 줄이고(묶음) 파일 다운로드 성능은 향상시키는(축소) 동시에 개발 환경에서 JavaScript 코드를 디버깅할 수 있습니다. 이 방법은 Azure CDN 통합을 유지하는 훌륭한 기능입니다. 또한 렌더링된 번들에는 이미 자동으로 생성된 버전 문자열이 포함되어 있기 때문에 NuGet을 통해 jQuery 버전을 업데이트할 때마다 가능한 한 빠르게 클라이언트 쪽에서 업데이트할 수 있도록 해당 기능을 복제할 수 있습니다.
 
-Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.
+ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따르세요.
 
-1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
-    
+1. *App\_Start\\BundleConfig.cs* 파일로 돌아가서 CDN 주소를 지정한 다른 [Bundle 생성자](http://msdn.microsoft.com/library/jj646464.aspx)를 사용하도록 `bundles.Add()` 메서드를 수정합니다. 이를 수행하려면 `RegisterBundles` 메서드 정의를 다음 코드로 바꿉니다.
+	
         public static void RegisterBundles(BundleCollection bundles)
         {
           bundles.UseCdn = true;
@@ -406,31 +405,31 @@ Follow the steps below to integration ASP.NET bundling and minification with you
         }
 
 
-    Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
+	`<yourCDNName>`을 사용 중인 Azure CDN 이름으로 바꾸세요.
 
-    In plain words, you are setting `bundles.UseCdn = true` and added a carefully crafted CDN URL to each bundle. For example, the first constructor in the code:
+	쉽게 말하면 `bundles.UseCdn = true`를 설정하고 있으며 신중하게 만든 CDN URL을 각 번들에 추가했습니다. 예를 들어 코드의 첫 번째 생성자는 다음과 같습니다.
 
-        new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
 
-    is the same as: 
+	이 코드는 다음과 같습니다.
 
-        new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?<W.X.Y.Z>"))
 
-    This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question. However, note two important characteristics with this carefully crafted CDN URL:
-    
-    - The origin for this CDN URL is `http://<yourSiteName>.azurewebsites.net/bundles/jquery?<W.X.Y.Z>`, which is actually the virtual directory of the script bundle in your Web application.
-    - Since you are using CDN constructor, the CDN script tag for the bundle no longer contains the automatically generated version string in the rendered URL. You must manually generate a unique version string every time the script bundle is modified to force a cache miss at your Azure CDN. At the same time, this unique version string must remain constant through the life of the deployment to maximize cache hits at your Azure CDN after the bundle is deployed.
+	이 생성자에 따라 ASP.NET 묶음 및 축소가 로컬에서 디버깅될 때 개별 스크립트 파일을 렌더링하지만 지정된 CDN 주소를 사용하여 해당 스크립트에 액세스합니다. 그러나 신중하게 만든 이 CDN URL의 두 가지 중요한 특징에서 다음을 주의해야 합니다.
+	
+	- 이 CDN URL의 원본은 `http://<yourSiteName>.azurewebsites.net/bundles/jquery?<W.X.Y.Z>`이며, 실제로는 웹 응용 프로그램에 포함된 스크립트 번들의 가상 디렉터리입니다.
+	- CDN 생성자를 사용하고 있으므로 번들의 CDN 스크립트 태그가 더 이상 렌더링된 URL에 자동으로 생성된 버전 문자열을 포함하지 않습니다. 스크립트 번들이 Azure CDN에서 캐시 누락을 강제하도록 수정될 때마다 고유한 버전 문자열을 수동으로 생성해야 합니다. 동시에 고유한 버전 문자열은 전 배포 수명 동안 일정하게 유지되어 번들이 배포된 이후 Azure CDN에서 캐시 적중을 극대화해야 합니다.
 
-3. The query string `<W.X.Y.Z>` pulls from *Properties\AssemblyInfo.cs* in your ASP.NET project. You can have a deployment workflow that includes incrementing the assembly version every time you publish to Azure. Or, you can just modify *Properties\AssemblyInfo.cs* in your project to automatically increment the version string every time you build, using the wildcard character '*'. For example, change `AssemblyVersion` as shown below:
-    
-        [assembly: AssemblyVersion("1.0.0.*")]
-    
-    Any other strategy to streamline generating a unique string for the life of a deployment will work here.
+3. 쿼리 문자열 `<W.X.Y.Z>`는 ASP.NET 프로젝트의 *Properties\\AssemblyInfo.cs* 파일에서 가져옵니다. Azure에 게시할 때마다 어셈블리 버전 증분 등의 기능을 포함하는 배포 워크플로를 설정할 수 있습니다. 또는 간단히 와일드카드 문자(*)를 사용하여 빌드할 때마다 버전 문자열을 자동으로 증분하도록 프로젝트의 *Properties\\AssemblyInfo.cs* 파일을 수정할 수 있습니다. 예를 들어 다음과 같이 `AssemblyVersion`를 변경합니다.
+	
+		[assembly: AssemblyVersion("1.0.0.*")]
+	
+	배포 수명 동안의 고유한 문자열 생성을 간소화하는 다른 전략도 효과가 있을 수 있습니다.
 
-3. Republish the ASP.NET application and access the home page.
+3. ASP.NET 응용 프로그램을 다시 게시하고 홈페이지에 액세스합니다.
  
-4. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure web app. For example:  
-    
+4. 페이지의 HTML 코드를 확인합니다. 변경 내용을 Azure 웹앱에 다시 게시할 때마다 고유한 버전 문자열과 함께 렌더링된 CDN URL이 표시됩니다. 예:
+	
         ...
         <link href="http://az673227.azureedge.net/Content/css?1.0.0.25449" rel="stylesheet"/>
         <script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25449"></script>
@@ -439,10 +438,10 @@ Follow the steps below to integration ASP.NET bundling and minification with you
         <script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25449"></script>
         ...
 
-5. In Visual Studio, debug the ASP.NET application in Visual Studio by typing `F5`., 
+5. Visual Studio에서 `F5` 키를 눌러 ASP.NET 응용 프로그램을 디버그합니다.
 
-6. View the HTML code for the page. You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.  
-    
+6. 페이지의 HTML 코드를 확인합니다. 개별적으로 렌더링된 각 스크립트 파일을 살펴볼 수 있으므로 Visual Studio의 일관된 디버그 환경을 구현할 수 있습니다.
+	
         ...
         <link href="/Content/bootstrap.css" rel="stylesheet"/>
         <link href="/Content/site.css" rel="stylesheet"/>
@@ -453,14 +452,14 @@ Follow the steps below to integration ASP.NET bundling and minification with you
         <script src="/Scripts/respond.js"></script>
         ...    
 
-## <a name="fallback-mechanism-for-cdn-urls"></a>Fallback mechanism for CDN URLs ##
+## CDN URL의 대체 메커니즘 ##
 
-When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap. It's serious enough to lose images on your web app due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.
+어떤 이유로 Azure CDN 끝점에 문제가 발생한 경우 JavaScript 또는 부트스트랩을 로드하는 대체 옵션으로 원본 웹 서버에 액세스할 수 있을 정도로 지능적인 웹 페이지를 원합니다. CDN을 사용할 수 없어서 웹앱의 이미지가 손실되는 심각한 상황이 올 수도 있지만 좀 더 심각한 경우는 스크립트 및 스타일시트에서 제공하는 중요한 페이지 기능을 사용하지 못하게 되는 것입니다.
 
-The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
+[Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 클래스에는 CDN 오류에 대비해 대체 메커니즘을 구성할 수 있도록 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx)이라는 속성이 포함되어 있습니다. 이 속성을 사용하려면 다음 단계를 따르세요.
 
-1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and add `CdnFallbackExpression` code in four places as shown to add a fallback mechanism to the default bundles.  
-    
+1. ASP.NET 프로젝트에서 각 [Bundle 생성자](http://msdn.microsoft.com/library/jj646464.aspx)의 CDN URL을 추가한 *App\_Start\\BundleConfig.cs*를 열고 다음과 같이 `CdnFallbackExpression` 코드를 네 곳에 추가하여 대체(fallback) 메커니즘을 기본 번들에 추가합니다.
+	
         public static void RegisterBundles(BundleCollection bundles)
         {
           var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
@@ -493,22 +492,22 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
                 "~/Content/site.css"));
         }
 
-    When `CdnFallbackExpression` is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server. This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly. The expression needed to test each bundle differs according to the content. For the default bundles above:
-    
-    - `window.jquery` is defined in jquery-{version}.js
-    - `$.validator` is defined in jquery.validate.js
-    - `window.Modernizr` is defined in modernizer-{version}.js
-    - `$.fn.modal` is defined in bootstrap.js
-    
-    You might have noticed that I did not set CdnFallbackExpression for the `~/Cointent/css` bundle. This is because currently there is a [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) that injects a `<script>` tag for the fallback CSS instead of the expected `<link>` tag.
-    
-    There is, however, a good [Style Bundle Fallback](https://github.com/EmberConsultingGroup/StyleBundleFallback) offered by [Ember Consulting Group](https://github.com/EmberConsultingGroup). 
+	`CdnFallbackExpression`이 null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않는 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
+	
+	- `window.jquery`는 jquery-{version}.js에 정의되어 있습니다.
+	- `$.validator`는 jquery.validate.js에 정의되어 있습니다.
+	- `window.Modernizr`는 modernizer-{version}.js에 정의되어 있습니다.
+	- `$.fn.modal`은 bootstrap.js에 정의되어 있습니다.
+	
+	여기서는 `~/Cointent/css` 번들에 대해 CdnFallbackExpression을 설정하지 않았습니다. 그 이유는 현재 필요한 `<link>` 태그 대신 대체 CSS의 `<script>` 태그를 삽입하는 [System.Web.Optimization에 버그](https://aspnetoptimization.codeplex.com/workitem/104)(영문)가 있기 때문입니다.
+	
+	그러나 [Ember 컨설팅 그룹](https://github.com/EmberConsultingGroup/StyleBundleFallback)(영문)에서 제공한 우수한 [스타일 번들 대체](https://github.com/EmberConsultingGroup)(영문)를 사용할 수 있습니다.
 
-2. To use the workaround for CSS, create a new .cs file in your ASP.NET project's *App_Start* folder called *StyleBundleExtensions.cs*, and replace its content with the [code from GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs). 
+2. CSS에 대해 이 해결 방법을 사용하려면 *StyleBundleExtensions.cs*라는 ASP.NET 프로젝트의 *App\_Start* 폴더에서 새로운 .cs 파일을 만들어 해당 내용을 [GitHub의 코드](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)(영문)로 바꿉니다.
 
-4. In *App_Start\StyleFundleExtensions.cs*, rename the namespace to your ASP.NET application's namespace (e.g. **cdnwebapp**). 
+4. *App\_Start\\StyleFundleExtensions.cs*에서 네임스페이스의 이름을 ASP.NET 응용 프로그램의 네임스페이스(예: **cdnwebapp**)로 바꿉니다.
 
-3. Go back to `App_Start\BundleConfig.cs` and replace the last `bundles.Add` statement with the following code:  
+3. `App_Start\BundleConfig.cs`로 돌아가 마지막 `bundles.Add` 문을 다음 코드로 바꿉니다.
 
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
           .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
@@ -516,14 +515,14 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
             "~/Content/bootstrap.css",
             "~/Content/site.css"));
 
-    This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
+	이 새로운 확장 메서드는 동일한 개념을 사용하여 CSS 번들에 정의된 일치하는 클래스 이름, 규칙 이름 및 규칙 값에 대한 DOM을 확인하고 일치 항목을 찾지 못할 경우 원본 웹 서버로 대체하는 스크립트를 HTML에 삽입합니다.
 
-4. Publish to your Azure web app again and access the home page. 
-5. View the HTML code for the page. You should find injected scripts similar to the following:    
-    
-    ```
-    ...
-    <link href="http://az673227.azureedge.net/Content/css?1.0.0.25474" rel="stylesheet"/>
+4. Azure 웹앱에 다시 게시하고 홈페이지에 액세스합니다.
+5. 페이지의 HTML 코드를 확인합니다. 다음과 비슷한 삽입 스크립트가 표시됩니다.
+	
+	```
+	...
+	<link href="http://az673227.azureedge.net/Content/css?1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
@@ -543,38 +542,33 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
                 return true;
             }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-    <script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25474"></script>
-    <script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
-    ... 
-    <script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25474"></script>
-    <script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25474"></script>
+ 	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
+	... 
+	<script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25474"></script>
+	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
-    <script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25474"></script>
-    <script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
-    ...
-    ```
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25474"></script>
+ 	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
+	...
+	```
 
-    Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
 
-        }())||document.write('<script src="/Content/css"><\/script>');</script>
+		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-    But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	그러나 || 식의 첫 부분이 항상 true를 반환하므로(바로 위의 줄에서) document.write() 함수가 실행되지 않습니다.
 
-6. To test whether the fallback script is working, go back to the your CDN endpoint's blade and click **Stop**.
+6. 대체(fallback) 스크립트가 작동 중인지를 테스트하려면 CDN 끝점의 블레이드로 돌아간 후 **중지**를 클릭합니다.
 
-    ![](media/cdn-websites-with-cdn/13-test-fallback.png)
+	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
-7. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
+7. Azure 웹앱에 대한 브라우저 창을 새로 고칩니다. 이제 모든 스크립트와 스타일시트가 제대로 로드된 것을 확인할 수 있습니다.
 
-## <a name="more-information"></a>More Information 
-- [Overview of the Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md)
-- [Using Azure CDN](../cdn/cdn-create-new-endpoint.md)
-- [Integrate a cloud service with Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
-- [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
+## 추가 정보 
+- [Azure CDN(콘텐츠 배달 네트워크) 개요](../cdn/cdn-overview.md)
+- [Azure CDN 사용](../cdn/cdn-create-new-endpoint.md)
+- [Azure CDN과 클라우드 서비스 통합](../cdn/cdn-cloud-service-with-cdn.md)
+- [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

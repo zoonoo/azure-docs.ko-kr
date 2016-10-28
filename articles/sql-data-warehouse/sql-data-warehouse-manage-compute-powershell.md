@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage compute power in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
-   description="PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
+   pageTitle="Azure SQL 데이터 웨어하우스의 계산 능력 관리(PowerShell) | Microsoft Azure"
+   description="계산 능력을 관리하는 PowerShell 작업 DWU를 조정하여 계산 리소스 크기를 조정합니다. 또는 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -16,40 +16,39 @@
    ms.date="06/13/2016"
    ms.author="barbkess;sonyama"/>
 
-
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-(powershell)"></a>Manage compute power in Azure SQL Data Warehouse (PowerShell)
+# Azure SQL 데이터 웨어하우스의 계산 능력 관리(PowerShell)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-manage-compute-overview.md)
-- [Portal](sql-data-warehouse-manage-compute-portal.md)
+- [개요](sql-data-warehouse-manage-compute-overview.md)
+- [포털](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-- [REST](sql-data-warehouse-manage-compute-rest-api.md)
+- [REST (영문)](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
+워크로드의 변화하는 요구를 충족시키도록 계산 리소스와 메모리를 확장하여 크기 조정을 실시합니다. 사용량이 많지 않은 시간 동안 리소스를 다시 조정하거나 계산 전체를 일시 중지하여 비용을 절감합니다.
 
-This collection of tasks uses the Azure portal to:
+이 작업 컬렉션은 Azure 포털을 사용하여 다음을 수행합니다.
 
-- Scale compute
-- Pause compute
-- Resume compute
+- 계산 조정
+- 계산 일시 중지
+- 계산 다시 시작
 
-To learn about this, see [Manage compute overview][].
+이에 대해 알아보려면 [계산 관리 개요][]를 참조하세요.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## 시작하기 전에
 
-### <a name="install-the-latest-version-of-azure-powershell"></a>Install the latest version of Azure PowerShell
+### Azure PowerShell 최신 버전 설치
 
-> [AZURE.NOTE]  To use Azure PowerShell with SQL Data Warehouse, you need Azure PowerShell version 1.0.3 or greater.  To verify your current version run the command **Get-Module -ListAvailable -Name Azure**. You can install the latest version from [Microsoft Web Platform Installer][].  For more information, see [How to install and configure Azure PowerShell][].
+> [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. 현재 버전을 확인하려면 **Get-Module -ListAvailable -Name Azure** 명령을 실행합니다. [Microsoft 웹 플랫폼 설치 관리자][]를 통해 최신 버전을 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법][]을 참조하세요.
 
-### <a name="get-started-with-azure-powershell-cmdlets"></a>Get started with Azure PowerShell cmdlets
+### Azure PowerShell Cmdlet 시작
 
-To get started:
+시작하기:
 
-1. Open Azure PowerShell. 
-2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
+1. Azure PowerShell을 엽니다.
+2. PowerShell 프롬프트에서 다음 명령을 실행하여 Azure Resource Manager에 로그인하고 구독을 선택합니다.
 
     ```PowerShell
     Login-AzureRmAccount
@@ -57,14 +56,13 @@ To get started:
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
-<a name="scale-performance-bk"></a>
-<a name="scale-compute-bk"></a>
+<a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
-## <a name="scale-compute-power"></a>Scale compute power
+## 계산 능력 크기 조정
 
-[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[AZURE.INCLUDE [SQL 데이터 웨어하우스 크기 조정 DWU 설명](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-To change the DWUs, use the [Set-AzureRmSqlDatabase][] PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer. 
+DWU를 변경하려면 [Set-AzureRmSqlDatabase][] PowerShell cmdlet을 사용합니다. 다음 예제에서는 MyServer에서 호스팅되는 MySQLDW 데이버에스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -72,19 +70,19 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 
 <a name="pause-compute-bk"></a>
 
-## <a name="pause-compute"></a>Pause compute
+## 계산 일시 중지
 
-[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
+[AZURE.INCLUDE [SQL 데이터 웨어하우스 일시 중지 설명](../../includes/sql-data-warehouse-pause-description.md)]
 
-To pause a database, use the [Suspend-AzureRmSqlDatabase][] cmdlet. The following example pauses a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
+데이터베이스를 일시 중지하려면 [Suspend-AzureRmSqlDatabase][] cmdlet을 사용합니다. 다음 예에서는 Server01 서버에서 호스트하는 이름이 Database02인 데이터베이스를 일시 중지합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
 
-> [AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the PowerShell cmdlets.
+> [AZURE.NOTE] 서버가 foo.database.windows.net인 경우 PowerShell cmdlet의 ServerName으로 "foo"를 사용합니다.
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 ```
-A variation, this next example retrieves the database into the $database object. It then pipes the object to [Suspend-AzureRmSqlDatabase][]. The results are stored in the object resultDatabase. The final command shows the results.
+다음 예에서는 이를 변형하여 데이터베이스를 $database 개체로 검색합니다. 그런 다음 개체를 [Suspend-AzureRmSqlDatabase][]에 파이프합니다. 결과는 resultDatabase 개체에 저장됩니다. 마지막 명령은 결과를 보여 줍니다.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -95,18 +93,18 @@ $resultDatabase
 
 <a name="resume-compute-bk"></a>
 
-## <a name="resume-compute"></a>Resume compute
+## 계산 다시 시작
 
-[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
+[AZURE.INCLUDE [SQL 데이터 웨어하우스 다시 시작 설명](../../includes/sql-data-warehouse-resume-description.md)]
 
-To start a database, use the [Resume-AzureRmSqlDatabase][] cmdlet. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
+데이터베이스를 시작하려면 [Resume-AzureRmSqlDatabase][] cmdlet을 사용합니다. 다음 예에서는 Server01 서버에서 호스팅되는 이름이 Database02인 데이터베이스를 시작합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-A variation, this next example retrieves the database into the $database object. It then pipes the object to [Resume-AzureRmSqlDatabase][] and stores the results in $resultDatabase. The final command shows the results.
+다음 예에서는 이를 변형하여 데이터베이스를 $database 개체로 검색합니다. 그런 다음 개체를 [Resume-AzureRmSqlDatabase][]에 파이프하고 결과를 $resultDatabase에 저장합니다. 마지막 명령은 결과를 보여 줍니다.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -117,17 +115,17 @@ $resultDatabase
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-For other management tasks, see [Management overview][].
+다른 관리 작업은 [관리 개요][]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-[Management overview]: ./sql-data-warehouse-overview-manage.md
-[How to install and configure Azure PowerShell]: ./powershell-install-configure.md
-[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
+[관리 개요]: ./sql-data-warehouse-overview-manage.md
+[Azure PowerShell 설치 및 구성하는 방법]: ./powershell-install-configure.md
+[계산 관리 개요]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -135,11 +133,7 @@ For other management tasks, see [Management overview][].
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
 <!--Other Web references-->
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+[Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

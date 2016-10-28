@@ -1,128 +1,123 @@
-Managing identity is just as important in the public cloud as it is on premises. To help with this, Azure supports several different cloud identity technologies. They include these:
+공용 클라우드에서의 ID 관리는 온-프레미스에서만큼 중요합니다. ID 관리 기능을 보다 강화하기 위해 Azure는 다양한 클라우드 ID 기술을 지원합니다. 대표적인 옵션은 다음과 같습니다.
 
-- You can run Windows Server Active Directory (commonly called just AD) in the cloud using virtual machines created with Azure Virtual machines. This approach makes sense when you're using Azure to extend your on-premises datacenter into the cloud.
+- Azure 가상 컴퓨터로 만든 가상 컴퓨터를 사용하여 클라우드에서 Windows Server Active Directory(일반적으로 간단히 AD라고 함)를 실행할 수 있습니다. 이 방법은 Azure를 사용하여 온-프레미스 데이터 센터를 클라우드로 확장할 때 적합합니다.
 
 
-- You can use Azure Active Directory to give your users single sign-on to [Software as a Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications. Microsoft's Office 365 uses this technology, for example, and applications running on Azure or other cloud platforms can also use it.
+- Azure Active Directory를 사용하면 사용자가 [SaaS(Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) 응용 프로그램에서 Single Sign-On을 사용하도록 제공할 수 있습니다. 이 기술은 Microsoft Office 365에서 사용되며, Azure 또는 기타 클라우드 플랫폼에서 실행하는 응용 프로그램에서도 이 기술을 사용할 수 있습니다.
 
 
-- Applications running in the cloud or on-premises can use Azure Active Directory Access Control to let users log in using identities from Facebook, Google, Microsoft, and other identity providers.
+- 클라우드 또는 온-프레미스에서 실행되는 응용 프로그램에서 Azure Active Directory 액세스 제어를 사용하면 Facebook, Google, Microsoft 등 다른 ID 공급자에게서 받은 ID를 사용하여 사용자가 로그인할 수 있게 할 수 있습니다.
 
 
-This article describes all three of these options.
+이 문서에서는 이러한 세 가지 옵션을 모두 설명합니다.
 
-## <a name="table-of-contents"></a>Table of Contents
+## 목차
 
-- [Running Windows Server Active Directory in virtual machines](#adinvm)
+- [가상 컴퓨터에서 Windows Server Active Directory 실행](#adinvm)
 
-- [Using Azure Active Directory](#ad)
+- [Azure Active Directory 사용](#ad)
 
-- [Using Azure Active Directory Access Control](#ac)
+- [Azure Active Directory 액세스 제어 사용](#ac)
 
 
-## <a name="<a-name="adinvm"></a>running-windows-server-active-directory-in-virtual-machines"></a><a name="adinvm"></a>Running Windows Server Active Directory in virtual machines
+## <a name="adinvm"></a>가상 컴퓨터에서 Windows Server Active Directory 실행
 
-Running Windows Server AD in Azure virtual machines is much like running it on-premises. [Figure 1](#fig1) shows a typical example of how this looks.
+Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레미스에서 실행하는 것과 비슷합니다. [그림 1](#fig1)은 일반적인 실행 예시를 보여 줍니다.
 
-![Azure Active Directory in Virtual Machine](./media/identity/identity_01_ADinVM.png)
+![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_01_ADinVM.png)
 
 
-<a name="Fig1"></a>Figure 1: Windows Server Active Directory can run in Azure virtual machines connected to an organization's on-premises datacenter using Azure Virtual Network.
+<a name="Fig1"></a>그림 1: Windows Server Active Directory는 Azure 가상 네트워크를 사용하여 조직의 온-프레미스 데이터 센터에 연결된 Azure 가상 컴퓨터에서 실행할 수 있습니다.
 
-In the example shown here, Windows Server AD is running in VMs created using Azure Virtual Machines, the platform's IaaS technology. These VMs and a few others are grouped into a virtual network connected to an on-premises datacenter using Azure Virtual Network. The virtual network carves out a group of cloud virtual machines that interact with the on-premises network via a virtual private network (VPN) connection. Doing this lets these Azure virtual machines look like just another subnet to the on-premises datacenter. As the figure shows, two of those VMs are running Windows Server AD domain controllers. The other virtual machines in the virtual network might be running applications, such as SharePoint, or being used in some other way, such as for development and testing. The on-premises datacenter is also running two Windows Server AD domain controllers.
+위 예에서 확인할 수 있는 바와 같이 Windows Server AD는 Azure 가상 컴퓨터로 만든 VM에서 플랫폼의 IaaS 기술을 사용하여 실행됩니다. 이러한 VM과 몇몇 다른 VM이 Azure 가상 네트워크를 사용하는 온-프레미스 데이터 센터에 연결된 가상 네트워크로 그룹화됩니다. 가상 네트워크는 VPN(가상 사설망) 연결을 통해 온-프레미스 네트워크와 상호 작용하는 클라우드 가상 컴퓨터 그룹을 만듭니다. 이렇게 하면 Azure 가상 컴퓨터가 온-프레미스 데이터 센터의 다른 서브넷처럼 보이게 됩니다. 그림과 같이 이 두 VM은 Windows Server AD 도메인 컨트롤러를 실행합니다. 가상 네트워크에 있는 기타 가상 컴퓨터는 SharePoint와 같은 응용 프로그램을 실행하거나 개발 또는 테스팅 등의 다른 용도로 사용될 수 있습니다. 또한 온-프레미스 데이터 센터는 또한 두 개의 Windows Server AD 도메인 컨트롤러를 실행합니다.
 
-There are several options for connecting the domain controllers in the cloud with those running on premises:
+클라우드에 있는 도메인 컨트롤러와 온-프레미스에서 실행하는 도메인 컨트롤러를 연결하는 옵션은 다양합니다.
 
-- Make all of them part of a single Active Directory domain.
+- 모든 도메인 컨트롤러를 단일 Active Directory 도메인에 할당할 수 있습니다.
 
-- Create separate AD domains on-premises and in the cloud that are part of the same forest.
+- 동일 포리스트에 속하는 AD 도메인을 온-프레미스와 클라우드별로 따로 만들 수 있습니다.
 
-- Create separate AD forests in the cloud and on-premises, then connect the forests using cross-forest trusts or Windows Server Active Directory Federation Services (AD FS), which can also run in virtual machines on Azure.
+- 온-프레미스와 클라우드에 별도 AD 포리스트를 만든 후에 해당 포리스트를 Azure의 가상 컴퓨터에서 실행 가능한 상호 포리스트 트러스트나 Windows Server ADFS(Active Directory Federation Services)를 사용하여 연결할 수 있습니다.
 
-Whatever choice is made, an administrator should make sure that authentication requests from on-premises users go to cloud domain controllers only when necessary, since the link to the cloud is likely to be slower than on-premises networks. Another factor to consider in connecting cloud and on-premises domain controllers is the traffic generated by replication. Domain controllers in the cloud are typically in their own AD site, which allows an administrator to schedule how often replication is done. Azure charges for traffic sent out of an Azure datacenter, although not for bytes sent in, which might affect the administrator's replication choices. It's also worth pointing out that while Azure does provide its own Domain Name System (DNS) support, this service is missing features required by Active Directory (such as support for Dynamic DNS and SRV records). Because of this, running Windows Server AD on Azure requires setting up your own DNS servers in the cloud.
+어떤 것을 선택하더라도 클라우드 링크가 온-프레미스 네트워크보다 속도가 떨어지므로 관리자는 온-프레미스 사용자 인증 요청이 필요한 경우에만 클라우드 도메인 컨트롤러를 사용하도록 설정해야 합니다. 클라우드와 온-프레미스 도메인 컨트롤러에 연결할 때 고려할 다른 요소는 복제할 때 발생하는 트래픽입니다. 클라우드에 있는 도메인 컨트롤러는 일반적으로 관리자가 얼마나 자주 복제를 할지 일정을 예약할 수 있는 해당 AD 사이트에 있습니다. Azure는 Azure 데이터 센터에서 내보내는 트래픽에 요금을 부과(들어오는 트래픽에는 부과 안 함)하기 때문에 관리자가 복제할 때 이 부분을 고려할 수 있습니다. Azure에서도 자체 DNS(도메인 이름 서비스)를 지원합니다. 다만 이 서비스에는 Active Directory에서 필요한 기능(동적 DNS 및 SRV 레코드 지원)이 빠져있습니다. 이 때문에 Windows Server AD를 Azure에서 실행할 때는 클라우드에서 자체 DNS 서버를 설정해야 합니다.
 
-Running Windows Server AD in Azure VMs can make sense in several different situations. Here are some examples:
+다양한 상황에서 Azure VM에서 Windows Server AD를 실행하는 것이 적합할 수 있습니다. 다음은 몇 가지 예입니다.
 
-- If you're using Azure Virtual Machines as an extension of your own datacenter, you might run applications in the cloud that need local domain controllers to handle things such as Windows Integrated Authentication requests or LDAP queries. SharePoint, for example, interacts frequently with Active Directory, and so while it's possible to run a SharePoint farm on Azure using an on-premises directory, setting up domain controllers in the cloud will significantly improve performance. (It's important to realize that this isn't necessarily required, however; plenty of applications can run successfully in the cloud using only on-premises domain controllers.)
+- 자체 소유의 데이터 센터의 확장으로 Azure 가상 컴퓨터를 사용 중인 경우 Windows 통합 인증 요청, LDAP 쿼리 등을 처리하기 위해 로컬 도메인 컨트롤러가 필요한 응용 프로그램을 실행할 수 있습니다. 예를 들어 SharePoint가 Active Directory와 자주 상호 작용하고 Azure에서 온-프레미스 디렉터리를 사용하여 SharePoint 팜을 실행할 수 있기 때문에 클라우드에 도메인 컨트롤러를 설정하면 성능을 현저하게 향상할 수 있습니다. 필수적인 설정 항목은 아니지만 많은 응용 프로그램이 클라우드에서 온-프레미스 컨트롤러를 사용하여 성공적으로 실행된다는 점은 중요하게 볼 필요가 있습니다.
 
-- Suppose a faraway branch office lacks the resources to run its own domain controllers. Today, its users must authenticate to domain controllers on the other side of the world - logins are slow. Running Active Directory on Azure in a closer Microsoft datacenter can speed this up without requiring more servers in the branch office.
+- 멀리 떨어진 지사에서 자체 도메인 컨트롤러를 실행할 리소스가 부족하다고 가정해 보겠습니다. 현재 이 지사의 사용자들은 지구 반대편에 있는 도메인 컨트롤러에서 인증을 받아야 해서 로그인 속도가 느립니다. 가까운 Microsoft 데이터 센터의 Azure에서 Active Directory를 실행하면 지사에 서버를 늘리지 않고도 속도를 향상할 수 있습니다.
 
-- An organization that uses Azure for disaster recovery might maintain a small set of active VMs in the cloud, including a domain controller. It can then be prepared to expand this site as needed to take over for failures elsewhere.
+- 재난 복구용으로 Azure를 사용하는 조직은 클라우드에 도메인 컨트롤러를 포함하여 소규모로 활성화된 VM 세트를 관리할 수도 있습니다. 이렇게 하면 다른 곳에 오류가 발생했을 때 필요에 따라 이 사이트를 다른 곳으로 확장하도록 준비해둘 수 있습니다.
 
-There are also other possibilities. For example, you're not required to connect Windows Server AD in the cloud to an on-premises datacenter. If you wanted to run a SharePoint farm that served a particular set of users, for instance, all of whom would log in solely with cloud-based identities, you might create a standalone forest on Azure. How you use this technology depends on what your goals are. (For more detailed guidance on using Windows Server AD with Azure, [see here](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).)
+다른 경우도 있습니다. 예를 들어 클라우드에 있는 Windows Server AD를 온-프레미스 데이터 센터에 연결할 필요가 없습니다. 예를 들어 모든 사용자가 클라우드 기반 ID를 가지고 로그인하는 특정 사용자 그룹을 지원하는 SharePoint 팜을 실행하는 경우 Azure에서 독립형 포리스트를 만들 수 있습니다. 원하는 바에 따라 다양하게 기술을 활용할 수 있습니다. Azure에서 Windows Server AD를 사용하는 방법에 대한 자세한 지침을 보려면 [여기를 참조하세요](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
-## <a name="<a-name="ad"></a>using-azure-active-directory"></a><a name="ad"></a>Using Azure Active Directory
+## <a name="ad"></a>Azure Active Directory 사용
 
-As SaaS applications become more and more common, they raise an obvious question: What kind of directory service should these cloud-based applications use? Microsoft's answer to that question is Azure Active Directory.
+SaaS 응용 프로그램이 점차 일반화되면서 당연한 질문이 제기되고 있습니다. 이러한 클라우드 기반 응용 프로그램에는 어떤 종류의 디렉터리 서비스를 사용해야 하나요? 이 질문에 대한 Microsoft의 대답은 Azure Active Directory입니다.
 
-There are two main options for using this directory service in the cloud:
+클라우드에서 이 디렉터리 서비스를 사용하는 데는 두 가지 기본 옵션이 있습니다.
 
-- Individuals and organizations that use only SaaS applications can rely on Azure Active Directory as their sole directory service.
+- SaaS 응용 프로그램만 사용하는 개인 또는 조직은 Azure Active Directory를 단독 디렉터리 서비스로 사용할 수 있습니다.
 
-- Organizations that run Windows Server Active Directory can connect their on-premises directory to Azure Active Directory, then use it to give their users single sign-on to SaaS applications.
+- Windows Server Active Directory를 사용하는 조직이 온-프레미스 디렉터리를 Azure Active Directory에 연결하고 나면, 이를 사용자가 SaaS 응용 프로그램에 Single Sign-On을 하는 데 사용합니다.
 
 
-[Figure 2](#fig2) illustrates the first of these two options, where Azure Active Directory is all that's required.
+[그림 2](#fig2)는 이 두 가지 중에 첫 번째 옵션을 보여 줍니다. 이 옵션에는 Azure Active Directory만 필요합니다.
 
-![Azure Active Directory in Virtual Machine](./media/identity/identity_02_AD.png)
+![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_02_AD.png)
 
-<a name="fig2"></a>Figure 2: Azure Active Directory gives an organization's users single sign-on to SaaS applications, including Office 365.
+<a name="fig2"></a>그림 2: Azure Active Directory를 사용하면 조직의 사용자가 Office 365를 포함한 SaaS 응용 프로그램에 Single Sign-On을 할 수 있습니다.
 
-As the figure shows, Azure AD is a multi-tenant service. This means that it can simultaneously support many different organizations, storing directory information about users at each of them. In this example, a user at organization A is trying to access a SaaS application. This application might be part of Office 365, such as SharePoint Online, or it might be something else - non-Microsoft applications can also use this technology. Because Azure AD supports the SAML 2.0 protocol, all that's required from an application is the ability to interact using this industry standard. (In fact, applications that use Azure AD can run in any datacenter, not just an Azure datacenter.)
+그림에서 알 수 있듯이 Azure AD는 다중 테넌트 서비스입니다. 즉 동시에 많은 다른 조직의 사용자에 대한 디렉터리 정보 저장을 지원할 수 있습니다. 이 예제에서는 조직에 있는 사용자 A가 SaaS 응용 프로그램에 액세스를 시도합니다. 이 응용 프로그램은 SharePoint Online과 같은 Office 365의 일부일 수 있으며, Microsoft 응용 프로그램이 아니어도 이 기술을 사용할 수도 있습니다. Azure AD가 SAML 2.0 프로토콜을 지원하기 때문에 응용 프로그램에서 이 산업 표준을 사용하여 상호 작용할 수 있으면 되기 때문입니다. 사실 Azure AD를 사용하는 응용 프로그램은 Azure 데이터 센터가 아니어도 어느 데이터 센터에서나 실행할 수 있습니다.
 
-The process begins when the user accesses a SaaS application (step 1). To use this application, the user must present a token issued by Azure AD.
+프로세스는 사용자가 SaaS 응용 프로그램에 액세스하면서 시작합니다(1단계). 이 응용 프로그램을 사용하려면 사용자가 Azure AD가 발행한 토큰을 제시해야만 합니다.
 
-This token contains information that identifies the user, and it's digitally signed by Azure AD. To get the token, the user authenticates himself to Azure AD by providing a username and password (step 2). Azure AD then returns the token he needs (step 3).
+이 토큰에는 사용자를 식별하는 정보가 포함되며 Azure AD에서 디지털 서명한 것입니다. 토큰을 얻기 위해 사용자는 Azure AD에 사용자 이름과 암호를 제공하여 사용자 본인을 인증합니다(2단계). Azure AD가 필요한 토큰을 반환합니다(3단계).
 
-This token is then sent to the SaaS application (step 4), which validates the token's signature and uses its contents (step 5). Typically, the application will use the identity information the token contains to decide what information the user is allowed to access and perhaps in other ways.
+이 토큰이 SaaS 응용 프로그램으로 전송되고(4단계) 해당 응용 프로그램이 토큰의 서명을 확인하고 그 내용을 사용합니다(5단계). 다른 경우도 있겠지만, 일반적으로 응용 프로그램은 토큰에 포함된 ID 정보를 사용하여 사용자가 어떤 정보에 액세스가 허용되는지 결정합니다.
 
-If the application needs more information about the user than what's contained in the token, it can request this directly from Azure AD using the Azure AD Graph API (step 6). In the initial version of Azure AD, the directory schema is quite simple: It contains just users and groups and relationships among them. Applications can use this information to learn about connections between users. For example, suppose an application needs to know who this user's manager is to decide whether he's allowed access to some chunk of data. It can learn this by querying Azure AD through the Graph API.
+토큰에 포함된 정보보다 더 많은 사용자 관련 정보가 필요한 경우 응용 프로그램에서 Azure AD Graph API를 사용하여 Azure AD에서 직접 관련 정보를 요청할 수 있습니다(6단계). Azure AD의 초기 버전에서는 디렉터리 스키마에 단순하게 사용자와 그룹, 그리고 둘 사이의 관계만 포함되었습니다. 응용 프로그램은 이 정보를 사용하여 사용자 간의 연결 관계를 알 수 있습니다. 예를 들어 응용 프로그램이 사용자가 어느 부분의 데이터에 액세스할 수 있을지 결정하기 위해 사용자의 관리자가 누구인지 알아야 한다고 가정합시다. 이 정보는 Graph API를 통해 Azure AD에 쿼리하여 알 수 있습니다.
 
-The Graph API uses an ordinary RESTful protocol, which makes it straightforward to use from most clients, including mobile devices. The API also supports the extensions defined by OData, adding things such as a query language to let clients access data in more useful ways. (For more on OData, see [Introducing OData](http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf).) Because the Graph API can be used to learn about relationships between users, it lets applications understand the social graph that's embedded in the Azure AD schema for a particular organization (which is why it's called the Graph API). And to authenticate itself to Azure AD for Graph API requests, an application uses OAuth 2.0.
+Graph API는 일상적인 RESTful 프로토콜을 사용하며, 이 프로토콜은 휴대용 장치를 포함한 대부분 클라이언트에서 간단하게 사용할 수 있습니다. 또한 클라이언트가 OData에서 정의한 확장을 지원하여 클라이언트에서 더욱 유용한 방법으로 데이터에 액세스하도록 돕는 쿼리 언어 등을 추가합니다. OData에 대한 자세한 정보는 [Introducing OData](http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf)를 참조하세요. Graph API를 사용하면 사용자 간의 관계를 알 수 있기 때문에 응용 프로그램에서 특정 조직용 Azure AD 스키마에 포함된 소셜 그래프를 이해할 수 있습니다. 이러한 이유로 Graph API라고 합니다. Graph API 요청에 대해 Azure AD에 인증받기 위해 응용 프로그램은 OAuth 2.0을 사용합니다.
 
-If an organization doesn't use Windows Server Active Directory - it has no on-premises servers or domains - and relies solely on cloud applications that use Azure AD, using just this cloud directory would give the firm's users single sign-on to all of them. Yet while this scenario gets more common every day, most organizations still use on-premises domains created with Windows Server Active Directory. Azure AD has a useful role to play here as well, as [Figure 3](#fig3) shows.
+조직에서 Windows Server Active Directory를 사용하지 않고(온-프레미스 서버나 도메인이 없는 경우) Azure AD를 사용하는 클라우드 응용 프로그램에 전적으로 의지하는 경우, 이 클라우드 디렉터리를 사용하면 조직의 사용자가 모든 응용 프로그램에 Single Sign-On을 할 수 있게 됩니다. 이러한 시나리오가 많이 일반화되기는 했지만, 아직은 대부분 조직이 여전히 Windows Server Active Directory로 만들어진 온-프레미스 도메인을 사용합니다. [그림 3](#fig3)과 같이 Azure AD는 여기에서도 유용한 역할을 합니다.
 
-![Azure Active Directory in Virtual Machine](./media/identity/identity_03_AD.png)
-<a id="fig3"></a>Figure 3: An organization can federate Windows Server Active Directory with Azure Active Directory to give its users single sign-on to SaaS applications.
+![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_03_AD.png) <a id="fig3"></a>그림 3: 조직에서는 Windows Server Active Directory와 Azure Active Directory를 페더레이션하여 조직의 사용자가 SaaS 응용 프로그램에 Single Sign-On하도록 할 수 있습니다.
 
-In this scenario, a user at organization B wishes to access a SaaS application. Before she does this, the organization's directory administrators must establish a federation relationship with Azure AD using AD FS, as the figure shows. Those admins must also configure data synchronization between the organization's on-premises Windows Server AD and Azure AD. This automatically copies user and group information from the on-premises directory to Azure AD. Notice what this allows: In effect, the organization is extending its on-premises directory into the cloud. Combining Windows Server AD and Azure AD in this way gives the organization a directory service that can be managed as a single entity, while still having a footprint both on-premises and in the cloud.
+이 시나리오에서는 조직 B에 있는 사용자가 SaaS 응용 프로그램에 액세스하려고 합니다. 그림에서와 같이 사용자가 액세스하기 전에 조직의 디렉터리 관리자는 AD FS를 사용하여 Azure AD와의 페더레이션 관계를 확립해야 합니다. 이러한 관리자는 또한 조직의 온-프레미스 Windows Server AD와 Azure AD 간의 데이터 동기화를 구성해야 합니다. 이는 자동으로 사용자와 그룹 정보를 온-프레미스 디렉터리에서 Azure AD로 복사합니다. 이를 통해 무엇이 가능해질까요? 사실상 조직이 온-프레미스 디렉터리를 클라우드로 확장하고 있습니다. 이 방법으로 Windows Server AD와 Azure AD를 결합하면 조직에서 디렉터리 서비스가 단일 엔터티로 관리되면서 계속 온-프레미스와 클라우드에도 저장됩니다.
 
-To use Azure AD, the user first logs in to her on-premises Active Directory domain as usual (step 1). When she tries to access the SaaS application (step 2), the federation process results in Azure AD issuing her a token for this application (step 3). (For more on how federation works, see [Claims-Based Identity for Windows: Technologies and Scenarios](http://www.davidchappell.com/writing/white_papers/Claims-Based_Identity_for_Windows_v3.0--Chappell.docx).) As before, this token contains information that identifies the user, and it's digitally signed by Azure AD. This token is then sent to the SaaS application (step 4), which validates the token's signature and uses its contents (step 5). And is in the previous scenario, the SaaS application can use the Graph API to learn more about this user if necessary (step 6).
+Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메인에 평상시처럼 로그인합니다(1단계). 사용자가 SaaS 응용 프로그램에 액세스하려고 하면(2단계) 페더레이션 프로세스를 통해 Azure AD가 이 응용 프로그램을 위한 사용자의 토큰을 발행하게 됩니다(3단계). 페더레이션 작동 방식에 대한 자세한 내용은 [Windows용 클레임 기반 ID: 기술 및 시나리오](http://www.davidchappell.com/writing/white_papers/Claims-Based_Identity_for_Windows_v3.0--Chappell.docx)를 참조하세요. 앞서와 같이 이 토큰은 사용자를 확인하는 정보와 Azure AD의 디지털 서명을 포함합니다. 이 토큰이 SaaS 응용 프로그램으로 전송되고(4단계) 해당 응용 프로그램이 토큰의 서명을 확인하고 그 내용을 사용합니다(5단계). 그리고 이전 시나리오와 마찬가지로 필요한 경우 SaaS 응용 프로그램에서 이 사용자를 더 자세히 알기 위해 Graph API를 사용할 수 있습니다(6단계).
 
-Today, Azure AD isn't a complete replacement for on-premises Windows Server AD. As already mentioned, the cloud directory has a much simpler schema, and it's also missing things such as group policy, the ability to store information about machines, and support for LDAP. (In fact, a Windows machine can't be configured to let users log in to it using nothing but Azure AD - this isn't a supported scenario.) Instead, the initial goals of Azure AD include letting enterprise users access applications in the cloud without maintaining a separate login and freeing on-premises directory administrators from manually synchronizing their on-premises directory with every SaaS application their organization uses. Over time, however, expect this cloud directory service to address a wider range of scenarios.
+오늘날 Azure AD가 온-프레미스 Windows Server AD의 완전한 대안은 아닙니다. 이미 언급한 것과 같이 클라우드 디렉터리는 무척 단순한 스키마를 가지고 있고 그룹 정책, 컴퓨터에 관한 정보 저장 기능, LDAP 지원 등을 제공하지 않습니다. (사실상 Windows 컴퓨터는 사용자가 Azure AD만으로 로그인하도록 구성할 수 없으므로 이는 지원되지 않는 시나리오입니다.) Azure AD의 초기 목표는 엔터프라이즈 사용자가 클라우드에 있는 응용 프로그램에 별도 로그인을 관리하지 않고도 액세스할 수 있도록 하여 온-프레미스 디렉터리 관리자가 직접 온-프레미스 디렉터리를 조직 사용자가 사용하는 모든 SaaS 응용 프로그램에 동기화하는 작업에 매여있지 않도록 하는 데 있었습니다. 시간이 흐르면서 이 클라우드 디렉터리 서비스에 기대되는 시나리오 영역이 더욱 넓어진 것입니다.
 
-## <a name="<a-name="ac"></a>using-azure-active-directory-access-control"></a><a name="ac"></a>Using Azure Active Directory Access Control
+## <a name="ac"></a>Azure Active Directory 액세스 제어 사용
 
-Cloud-based identity technologies can be used to solve a variety of problems. Azure Active Directory can give an organization's users single sign-on to multiple SaaS applications, for example. But identity technologies in the cloud can also be used in other ways.
+클라우드를 기반으로 하는 ID 기술은 다양한 문제를 해결하는 데에 사용될 수 있습니다. 예를 들어 Azure Active Directory를 사용하면 조직의 사용자가 여러 SaaS 응용 프로그램에 Single Sign-On할 수 있습니다. 그러나 클라우드에 있는 ID 기술은 다른 방법으로도 사용될 수 있습니다.
 
-Suppose, for instance, that an application wishes to let its users log in using tokens issued by multiple *identity providers (IdPs)*. Lots of different identity providers exist today, including Facebook, Google, Microsoft, and others, and applications frequently let users sign in using one of these identities. Why should an application bother to maintain its own list of users and passwords when it can instead rely on identities that already exist? Accepting existing identities makes life simpler both for users, who have one less username and password to remember, and for the people who create the application, who no longer need to maintain their own lists of usernames and passwords.
+예를 들어 응용 프로그램에서 사용자가 여러 *IdP(ID 공급자)*가 발행한 토큰을 사용하여 로그인하는 경우를 가정합니다. 현재 Facebook, Google, Microsoft 등 다양한 ID 공급자가 있으며, 대개 응용 프로그램에서는 사용자가 이러한 ID 중 하나를 사용하여 로그인할 수 있도록 해 줍니다. 왜 응용 프로그램에서 기존 ID를 사용하지 않고 자체적으로 사용자와 암호 목록을 관리해야 할까요? 기존의 ID를 사용하면 사용자는 사용자 이름과 암호를 하나 더 적게 기억해도 되고 응용 프로그램 제공자는 자체 사용자 이름과 암호 목록을 더 이상 유지 관리하지 않아도 되므로 편리한 면이 있습니다.
 
-But while every identity provider issues some kind of token, those tokens aren't standard - each IdP has its own format. Furthermore, the information in those tokens also isn't standard. An application that wishes to accept tokens issued by, say, Facebook, Google, and Microsoft is faced with the challenge of writing unique code to handle each of these different formats.
+그러나 ID 공급자는 모두 토큰을 발행하지만 표준을 따르는 것이 아니라 각 IdP마다 자체 형식이 있습니다. 토큰 정보 역시 마찬가지입니다. Facebook, Google, Microsoft 등에서 발행한 토큰을 사용하려는 응용 프로그램은 다른 형식을 처리하기 위해 고유의 코드를 작성해야 하는 문제에 직면합니다.
 
-But why do this? Why not instead create an intermediary that can generate a single token format with a common representation of identity information? This approach would make life simpler for the developers who create applications, since they now need to handle only one kind of token. Azure Active Directory Access Control does exactly this, providing an intermediary in the cloud for working with diverse tokens. [Figure 4](#fig4) shows how it works
+그렇지만 꼭 고유 코드를 일일이 작성해야 할까요? ID 정보를 공통으로 표시하는 공동 단일 토큰 형식을 작성하는 매개자를 생성하면 응용 프로그램을 만드는 개발자도 한 종류의 토큰만 처리하면 되므로 더욱 편안하게 개발할 수 있을 것입니다. 이것이 바로 Azure Active Directory 액세스 제어가 클라우드에서 다양한 형식의 토큰을 처리해 주는 방식입니다. [그림 4](#fig4)에서 작동 과정을 확인하세요.
 
-![Azure Active Directory in Virtual Machine](./media/identity/identity_04_IdentityProviders.png)
-<a id="fig4"></a>Figure 4: Azure Active Directory Access Control makes it easier for applications to accept identity tokens issued by different identity providers.
+![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_04_IdentityProviders.png) <a id="fig4"></a>그림 4: Azure Active Directory 액세스 제어를 사용하면 응용 프로그램이 다른 ID 공급자의 ID 토큰 사용이 쉬워집니다.
 
-The process begins when a user attempts to access the application from a browser. The application redirects her to an IdP of her choice (and that the application also trusts). She authenticates herself to this IdP, such as by entering a username and password (step 1), and the IdP returns a token containing information about her (step 2).
+프로세스는 사용자가 브라우저에서 응용 프로그램에 액세스를 시도하면서 시작됩니다. 응용 프로그램에서는 사용자가 선택하고 응용 프로그램이 신뢰하는 IdP로 사용자를 리디렉션합니다. 사용자가 해당 IdP에서 사용자 이름과 암호를 입력하여 사용자 본인을 인증(1단계)하고, IdP는 사용자 정보를 포함하는 토큰을 반환(2단계)합니다.
 
-As the figure shows, Access Control supports a range of different cloud-based IdPs, including accounts created by Google, Yahoo, Facebook, Microsoft (formerly known as Windows Live ID), and any OpenID provider. It also supports identities created using Azure Active Directory and, through federation with AD FS, Windows Server Active Directory. The goal is to cover the most commonly used identities today, whether they're issued by IdPs in the cloud or on-premises.
+그림과 같이 액세스 제어는 Google, Yahoo, Facebook, Microsoft(이전 Windows Live ID), 기타 OpenID 공급자 등 다양한 클라우드 기반 IdP를 지원합니다. 또한 Azure Active Directory를 사용하고 AD FS, Windows Server Active Directory와 페더레이션하여 생성된 ID를 지원합니다. 목표는 클라우드나 온-프레미스에 상관없이 IdP가 발행하며 오늘날 일반적으로 사용되는 ID를 대부분 지원하는 것입니다.
 
-Once the user's browser has an IdP token from her chosen IdP, it sends this token to Access Control (step 3). Access Control validates the token, making sure that it really was issued by this IdP, then creates a new token according to the rules that have been defined for this application. Like Azure Active Directory, Access Control is a multi-tenant service, but the tenants are applications rather than customer organizations. Each application can get its own namespace, as the figure shows, and can define various rules about authorization and more.
+사용자가 선택한 IdP 토큰이 브라우저에 확인되면, 브라우저에서 이 토큰을 액세스 제어로 보냅니다(3단계). 액세스 제어는 해당 IdP가 발행한 토큰이 맞는지 확인한 후에 해당 응용 프로그램을 위해 정의된 규칙에 따라 새로운 토큰을 만듭니다. Azure Active Directory와 같이 액세스 제어는 다중 테넌트 서비스이지만, 테넌트는 고객 조직이라기보다 응용 프로그램입니다. 그림에서 보이는 것과 같이 각 응용 프로그램은 자체의 네임스페이스를 가질 수 있고 권한 부여 등의 다양한 규칙을 정의할 수 있습니다.
 
-These rules let each application's administrator define how tokens from various IdPs should be transformed into an Access Control token. For example, if different IdPs use different types for representing usernames, Access Control rules can transform all of these into a common username type. Access Control then sends this new token back to the browser (step 4), which submits it to the application (step 5). Once it has the Access Control token, the application verifies that this token really was issued by Access Control, then uses the information it contains (step 6).
+각 응용 프로그램의 관리자가 이러한 규칙을 사용하여 다양한 IdP에서 제공한 토큰을 액세스 제어 토큰으로 변환하는 방법을 정의할 수 있습니다. 예를 들어 다른 IdP가 사용자 이름을 표시할 때 다른 유형을 사용하는 경우 액세스 제어 규칙에서 이러한 유형을 모두 공용 사용자 이름 유형으로 변환할 수 있습니다. 액세스 제어가 이 새로운 토큰을 브라우저에 반환하고(4단계) 브라우저가 이 토큰을 응용 프로그램에 제출합니다(5단계). 응용 프로그램이 액세스 제어 토큰을 획득하고 나면 액세스 제어에서 발행한 토큰이 맞는지 확인한 후에 토큰에 포함된 정보를 확인합니다(6단계).
 
-While this process might seem a little complicated, it actually makes life significantly simpler for the creator of the application. Rather than handle diverse tokens containing different information, the application can accept identities issued by multiple identity providers while still receiving only a single token with familiar information. Also, rather than require each application to be configured to trust various IdPs, these trust relationships are instead maintained by Access Control - an application need only trust it.
+프로세스가 다소 복잡해 보일 수 있겠지만, 실제로는 응용 프로그램 작성자의 작업을 눈에 띄게 단순하게 만들어 줍니다. 응용 프로그램이 다른 정보를 포함하는 다양한 토큰을 처리하는 것이 아니라 여전히 친숙한 정보를 포함하는 단일 토큰만 받으면서 여러 ID 공급자가 발행한 ID를 사용할 수 있기 때문입니다. 또한 각 응용 프로그램이 다양한 IdP를 신뢰하도록 구성하는 대신 액세스 제어에서 신뢰 관계를 유지 관리하므로 응용 프로그램은 이를 신뢰하면 됩니다.
 
-It's worth pointing out that nothing about Access Control is tied to Windows - it could just as well be used by a Linux application that accepted only Google and Facebook identities. And even though Access Control is part of the Azure Active Directory family, you can think of it as an entirely distinct service from what was described in the previous section. While both technologies work with identity, they address quite different problems (although Microsoft has said that it expects to integrate the two at some point).
+액세스 제어가 Windows와 연결되어 있지 않아서 Google이나 Facebook ID만 사용하는 Linux 응용 프로그램도 사용할 수 있다는 것도 중요한 부분입니다. 액세스 제어가 Azure Active Directory 제품군의 일부이긴 하지만,이전 섹션에서 설명한 것처럼 전체적으로는 별도의 서비스로 생각할 수 있습니다. 두 기술이 모두 ID와 관련되어 있으며 Microsoft에서 두 기술을 어느 정도까지는 통합할 것으로 예상한다고 발표해 왔지만, 각자 처리하는 문제는 상당히 다릅니다.
 
-Working with identity is important in nearly every application. The goal of Access Control is to make it easier for developers to create applications that accept identities from diverse identity providers. By putting this service in the cloud, Microsoft has made it available to any application running on any platform.
+ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 차지합니다. 액세스 제어의 목표는 다양한 ID 공급자가 발행하는 ID를 사용하는 응용 프로그램을 작성하는 개발자들을 쉽게 만들어주는 것입니다. 이 서비스를 클라우드에서 제공함으로써 Microsoft는 어떤 플랫폼에서나 어떤 응용 프로그램을 사용할 수 있는 서비스를 구현해냈습니다.
 
-##<a name="about-the-author"></a>About the Author
+##저자 정보
 
-David Chappell is Principal of Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) in San Francisco, California.
+David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이며
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

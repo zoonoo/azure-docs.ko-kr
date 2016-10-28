@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable Network Security Groups in Azure Security Center | Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendation **Enable Network Security Groups**."
+   pageTitle="Azure 보안 센터의 네트워크 보안 그룹 활성화 | Microsoft Azure"
+   description="이 문서에서는 Azure 보안 센터 권장 사항 **네트워크 보안 그룹 활성화**를 구현하는 방법을 보여 줍니다."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,57 +16,51 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Azure 보안 센터의 네트워크 보안 그룹 활성화
 
-# <a name="enable-network-security-groups-in-azure-security-center"></a>Enable Network Security Groups in Azure Security Center
+Azure 보안 센터는 아직 활성화되지 않은 경우 NSG(네트워크 보안 그룹)를 활성화하는 것을 권장합니다. NSG는 ACL(액세스 제어 목록)의 가상 네트워크에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. NSG는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 개별 VM에 대한 트래픽은 해당 VM에 직접 NSG를 연결하여 추가로 제한할 수 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
-Azure Security Center will recommend that you enable a network security group (NSG) if one is not already enabled. NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM. To learn more see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-
-If you do not have NSGs enabled, Security Center will present two recommendations to you: Enable Network Security Groups on subnets and Enable Network Security Groups on virtual machines. You choose which level, subnet or VM, to apply NSGs.
+NSG를 활성화하지 않은 경우 보안 센터는 서브넷에서 네트워크 보안 그룹 활성화 및 가상 컴퓨터에서 네트워크 보안 그룹 활성화라는 두 가지 권장 사항을 제시합니다. NSG를 적용할 수준, 서브넷 또는 VM을 선택합니다.
 
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+## 권장 사항 구현
 
-1. In the **Recommendations** blade, select **Enable Network Security Groups** on subnets or on virtual machines.
-![Enable Network Security Groups][1]
+1. **권장 사항** 블레이드의 서브넷 또는 가상 컴퓨터에서 **네트워크 보안 그룹 활성화**를 선택합니다. ![네트워크 보안 그룹 활성화][1]
 
-2. This opens the blade **Configure Missing Network Security Groups** for subnets or for virtual machines, depending on the recommendation that you selected. Select a subnet or a virtual machine to configure a NSG on.
+2. 이렇게 하면 선택한 권장 사항에 따라 서브넷 또는 가상 컴퓨터에 대한 **누락된 네트워크 보안 그룹 구성** 블레이드가 열립니다. NSG를 구성할 서브넷 또는 가상 컴퓨터를 선택합니다.
 
-  ![Configure NSG for subnet][2]
+  ![서브넷에 대한 NSG 구성][2]
 
-  ![Configure NSG for VM][3]
-3. On the **Choose network security group** blade select an existing NSG or select to create a new NSG.
+  ![VM에 대한 NSG 구성][3]
+3. **네트워크 보안 그룹 선택** 블레이드에서 기존 NSG를 선택하거나 새 NSG 만들기를 선택합니다.
 
-  ![Choose Network Security Group][4]
+  ![네트워크 보안 그룹 선택][4]
 
-If you create a new NSG, follow the steps in [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to create a NSG and set security rules.
+새 NSG를 만드는 경우 [Azure 포털을 사용하여 NSG를 관리하는 방법](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)의 단계에 따라 NSG를 만들고 보안 규칙을 설정합니다.
 
-## <a name="see-also"></a>See also
+## 참고 항목
 
-This article showed you how to implement the Security Center recommendation "Enable Network Security Groups" for subnets or virtual machines. To learn more about enabling NSGs, see the following:
+이 문서에서는 보안 센터 권장 사항 서브넷 또는 가상 컴퓨터에 대한 "네트워크 보안 그룹 활성화"를 구현하는 방법을 보여 주었습니다. NSG 활성화에 대한 자세한 내용은 다음을 참조하세요.
 
-- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-- [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+- [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
+- [Azure 포털을 사용하여 NSG 관리하는 방법](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 
-To learn more about Security Center, see the following:
+보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
+- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) -- 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터 FAQ](security-center-faq.md) -- 서비스 사용에 관한 질문과 대답을 찾습니다.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-nsg/enable-nsg.png
-[2]:./media/security-center-enable-nsg/configure-nsg-for-subnet.png
+[2]: ./media/security-center-enable-nsg/configure-nsg-for-subnet.png
 [3]: ./media/security-center-enable-nsg/configure-nsg-for-vm.png
 [4]: ./media/security-center-enable-nsg/choose-nsg.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

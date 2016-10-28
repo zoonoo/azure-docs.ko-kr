@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (bcp) | Microsoft Azure"
-   description="For a small data size, uses bcp to export data from SQL Server to flat files and import the data directly into Azure SQL Data Warehouse."
+   pageTitle="SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(bcp) | Microsoft Azure"
+   description="데이터의 크기가 작으면, bcp를 사용하여 SQL Server의 데이터를 플랫 파일로 내보내고 Azure SQL 데이터 웨어하우스로 데이터를 직접 가져옵니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -10,55 +10,54 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
-
-# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-(flat-files)"></a>Load data from SQL Server into Azure SQL Data Warehouse (flat files)
+# SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(플랫 파일)
 
 > [AZURE.SELECTOR]
 - [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 - [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 - [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
-For small data sets, you can use the bcp command-line utility to export data from SQL Server and then load it directly to Azure SQL Data Warehouse.
+소규모 데이터 집합의 경우, bcp 명령줄 유틸리티를 사용하여 SQL Server에서 데이터를 내보낸 다음 Azure SQL 데이터 웨어하우스로 데이터를 직접 로드할 수 있습니다.
 
-In this tutorial, you will use bcp to:
+이 자습서에서는 bcp를 사용하여:
 
-- Export a table from from SQL Server by using the bcp out command (or create a simple sample file)
-- Import the table from a flat file to SQL Data Warehouse.
-- Create statistics on the loaded data.
+- bcp out 명령을 사용하여 SQL Server의 테이블을 내보냅니다.(또는 간단한 샘플 파일을 만듭니다.)
+- 플랫 파일의 테이블을 SQL 데이터 웨어하우스로 가져옵니다.
+- 로드한 데이터에 대한 통계를 만듭니다.
 
 >[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
-## <a name="before-you-begin"></a>Before you begin
+## 시작하기 전에
 
-### <a name="prerequisites"></a>Prerequisites
+### 필수 조건
 
-To step through this tutorial, you need:
+이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
-- A SQL Data Warehouse database
-- The bcp command-line utility installed
-- The sqlcmd command-line utility installed
+- SQL 데이터 웨어하우스 데이터베이스
+- 설치된 bcp 명령줄 유틸리티
+- 설치된 sqlcmd 명령줄 유틸리티
 
-You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
+[Microsoft 다운로드 센터][]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
 
-### <a name="data-in-ascii-or-utf-16-format"></a>Data in ASCII or UTF-16 format
+### ASCII 또는 UTF-16 형식 데이터
 
-If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8. 
+사용자의 데이터로 이 자습서를 수행하는 경우에는, bcp가 UTF-8을 지원하지 않으므로, 데이터에 ASCII 또는 UTF-16 인코딩을 사용해야 합니다.
 
-PolyBase supports UTF-8 but doesn't yet support UTF-16. Note that if you want to combine bcp with PolyBase you will need to transform the data to UTF-8 after it is exported from SQL Server. 
+PolyBase는 UTF-8을 지원하지만 아직 UTF-16은 지원하지 않습니다. bcp를 PolyBase와 결합하려면 데이터를 SQL Server에서 내보낸 후 UTF-8로 변환해야 합니다.
 
 
-## <a name="1.-create-a-destination-table"></a>1. Create a destination table
+## 1\. 대상 테이블 만들기
 
-Define a table in SQL Data Warehouse that will be the destination table for the load. The columns in the table must correspond to the data in each row of your data file.
+SQL 데이터 웨어하우스에 로드에 대한 대상 테이블이 될 테이블을 정의합니다. 테이블의 열은 데이터 파일의 각 행에 있는 데이터와 일치해야 합니다.
 
-To create a table, open a command prompt and use sqlcmd.exe to run the following command:
+테이블을 만들려면, 명령 프롬프트를 열고 sqlcmd.exe를 사용하여 다음 명령을 실행합니다.
 
 
 ```sql
@@ -78,9 +77,9 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2.-create-a-source-data-file"></a>2. Create a source data file
+## 2\. 원본 데이터 파일 만들기
 
-Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt. This data is in ASCII format.
+메모장을 열고 다음 데이터 줄을 새 텍스트 파일에 복사한 다음 이 파일을 로컬 임시 디렉터리 C:\\Temp\\DimDate2.txt에 저장합니다. 이 데이터는 ASCII 형식입니다.
 
 ```
 20150301,1,3
@@ -97,7 +96,7 @@ Open Notepad and copy the following lines of data into a new text file and then 
 20150101,1,3
 ```
 
-(Optional) To export your own data from a SQL Server database, open a command prompt and run the following command. Replace TableName, ServerName, DatabaseName, Username, and Password with your own information.
+(선택 사항) SQL Server 데이터베이스에서 사용자의 데이터를 내보내려면, 명령 프롬프트를 열고 다음 명령을 실행합니다. TableName, ServerName, DatabaseName, Username, 및 Password를 사용자의 정보로 바꿉니다.
 
 ```sql
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
@@ -105,20 +104,20 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 
 
 
-## <a name="3.-load-the-data"></a>3. Load the data
-To load the data, open a command prompt and run the following command, replacing the values for Server Name, Database name, Username, and Password with your own information.
+## 3\. 데이터 로드
+데이터를 로드하려면, 명령 프롬프트를 열고 Server Name, Database name, Username, 및 Password 값을 사용자의 정보로 바꿔서 다음 명령을 실행합니다.
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
 ```
 
-Use this command to verify the data was loaded properly
+이 명령을 사용하여 데이터가 제대로 로드되었는지 확인합니다.
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-The results should look like this:
+결과는 다음과 같습니다.
 
 DateId |CalendarQuarter |FiscalQuarter
 ----------- |--------------- |-------------
@@ -135,11 +134,11 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-## <a name="4.-create-statistics"></a>4. Create statistics
+## 4\. 통계 만들기
 
-SQL Data Warehouse does not yet support auto-create or auto-update statistics. To get the best query performance, it's important to create statistics on all columns of all tables after the first load or after any substantial changes occur in the data. For a detailed explanation of statistics, see [Statistics][]. 
+SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 최고의 쿼리 성능을 얻으려면, 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다. 통계에 대한 자세한 설명은 [통계][]를 참조하세요.
 
-Run the following command to create statistics on your newly loaded table.
+다음 명령을 실행하여 새로 로드한 테이블에 대한 통계를 만듭니다.
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -149,19 +148,19 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## <a name="5.-export-data-from-sql-data-warehouse"></a>5. Export data from SQL Data Warehouse
-For fun, you can export the data that you just loaded back out of SQL Data Warehouse.  The command to export is exactly the same as exporting from SQL Server.
+## 5\. SQL 데이터 웨어하우스에서 데이터 내보내기
+재미를 위해 방금 SQL 데이터 웨어하우스에서 로드한 데이터를 내보낼 수 있습니다. 내보내는 명령은 SQL Server에서 내보내는 것과 똑같습니다.
 
-However, there is a difference in the results. Since the data is stored in distributed locations within SQL Data Warehouse, when you export data each Compute node writes it data to the output file. The order of the data in the output file is likely to be different than the order of the data in the input file.
+하지만, 결과에는 차이가 있습니다. 데이터가 SQL 데이터 웨어하우스 내의 분산된 위치에 저장되기 때문에, 데이터를 내보내면 각 계산 노드는 데이터를 출력 파일에 기록합니다. 출력 파일에 포함된 데이터 순서는 입력 파일의 데이터 순서와 다를 수 있습니다.
 
-### <a name="export-a-table-and-compare-exported-results"></a>Export a table and compare exported results
+### 테이블을 내보내고 내보낸 결과 비교
 
-To see the exported data, open a command prompt and run this command using your own parameters. ServerName is the name of your Azure logical SQL Server.
+내보낸 데이터를 보려면, 명령 프롬프트를 열고 사용자의 매개 변수를 사용하여 이 명령을 실행합니다. ServerName은 Azure 논리적 SQL Server의 이름입니다.
 
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-You can verify the data was exported correctly by opening the new file. The data in the file should match the text below, but will likely be sorted in a different order:
+새 파일을 열어 데이터를 올바르게 내보냈는지 확인할 수 있습니다. 파일에 포함된 데이터는 아래 텍스트와 일치해야 하지만, 다른 순서로 정렬되어 있을 수 있습니다.
 
 ```
 20150301,1,3
@@ -178,33 +177,27 @@ You can verify the data was exported correctly by opening the new file. The data
 20150101,1,3
 ```
 
-### <a name="export-the-results-of-a-query"></a>Export the results of a query
+### 쿼리 결과 내보내기
 
-You can use the **queryout** function of bcp to export the results of a query instead of exporting the entire table. 
+bcp의 **queryout** 함수를 사용하면 전체 테이블을 내보내는 대신 쿼리 결과를 내보낼 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
-For an overview of loading, see [Load data into SQL Data Warehouse][].
-For more development tips, see [SQL Data Warehouse development overview][].
-See [Table Overview][] or [CREATE TABLE syntax][] for more information about creating a table on SQL Data Warehouse.
+## 다음 단계
+로드 개요는 [SQL 데이터 웨어하우스로 데이터 로드][]를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요. SQL 데이터 웨어하우스에 테이블을 만드는 방법에 대한 내용은 [테이블 개요][] 또는 [CREATE TABLE 구문][]을 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Table Overview]: ./sql-data-warehouse-tables-overview.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[SQL 데이터 웨어하우스로 데이터 로드]: ./sql-data-warehouse-overview-load.md
+[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
+[테이블 개요]: ./sql-data-warehouse-tables-overview.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE 구문]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft 다운로드 센터]: https://www.microsoft.com/download/details.aspx?id=36433
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

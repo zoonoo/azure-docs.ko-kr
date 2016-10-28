@@ -1,40 +1,39 @@
 <properties 
-    pageTitle="Use Powershell to set alerts in Application Insights" 
-    description="Automate configuration of Application Insights to get emails about metric changes." 
-    services="application-insights" 
+	pageTitle="PowerShell을 사용하여 Application Insights에서 경고 설정" 
+	description="Application Insights의 구성을 자동화하여 메트릭 변경 사항에 대한 전자 메일을 받습니다." 
+	services="application-insights" 
     documentationCenter=""
-    authors="alancameronwills" 
-    manager="douge"/>
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="02/19/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2016" 
+	ms.author="awills"/>
  
+# PowerShell을 사용하여 Application Insights에서 경고 설정
 
-# <a name="use-powershell-to-set-alerts-in-application-insights"></a>Use PowerShell to set alerts in Application Insights
+[Visual Studio Application Insights](app-insights-overview.md)에서 [경고](app-insights-alerts.md)의 구성을 자동화할 수 있습니다.
 
-You can automate the configuration of [alerts](app-insights-alerts.md) in [Visual Studio Application Insights](app-insights-overview.md). 
+또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../azure-portal/insights-webhooks-alerts.md)할 수 있습니다.
 
-In addition, you can [set webhooks to automate your response to an alert](../azure-portal/insights-webhooks-alerts.md).
+## 일 회 설정
 
-## <a name="one-time-setup"></a>One-time setup
+아직 Azure 구독에서 PowerShell을 사용한 적이 없을 경우:
 
-If you haven't used PowerShell with your Azure subscription before:
+스크립트를 실행하려는 컴퓨터에 Azure Powershell 모듈을 설치합니다.
 
-Install the Azure Powershell module on the machine where you want to run the scripts. 
-
- * Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
- * Use it to install Microsoft Azure Powershell
+ * [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](http://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
+ * 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
 
 
-## <a name="connect-to-azure"></a>Connect to Azure
+## Azure에 연결
 
-Start Azure PowerShell and [connect to your subscription](../powershell-install-configure.md):
+Azure PowerShell을 시작하고 [구독에 연결](../powershell-install-configure.md)합니다.
 
 ```PowerShell
 
@@ -43,11 +42,11 @@ Start Azure PowerShell and [connect to your subscription](../powershell-install-
 ```
 
 
-## <a name="get-alerts"></a>Get alerts
+## 경고 받기
 
     Get-AlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## <a name="add-alert"></a>Add alert
+## 경고 추가
 
 
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
@@ -64,11 +63,11 @@ Start Azure PowerShell and [connect to your subscription](../powershell-install-
 
 
 
-## <a name="example-1"></a>Example 1
+## 예 1
 
-Email me if the server's response to HTTP requests, averaged over 5 minutes, is slower than 1 second. My Application Insights resource is called IceCreamWebApp, and it is in resource group Fabrikam. I am the owner of the Azure subscription.
+HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 경우 전자 메일로 알립니다. Application Insights 리소스의 이름이 IceCreamWebApp이며 리소스 그룹 Fabrikam 내에 있습니다. 제가 Azure 구독의 소유자입니다.
 
-The GUID is the subscription ID (not the instrumentation key of the application).
+GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
 
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
@@ -81,9 +80,9 @@ The GUID is the subscription ID (not the instrumentation key of the application)
      -SendEmailToServiceOwners `
      -Location "East US" -RuleType Metric
 
-## <a name="example-2"></a>Example 2
+## 예 2
 
-I have an application in which I use [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
+[TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 응용 프로그램이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -96,60 +95,57 @@ I have an application in which I use [TrackMetric()](app-insights-api-custom-eve
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-The same rule can be used for the metric reported by using the [measurement parameter](app-insights-api-custom-events-metrics.md#properties) of another tracking call such as TrackEvent or trackPageView.
+TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)를 사용하여 보고된 메트릭에도 동일한 규칙을 사용할 수 있습니다.
 
-## <a name="metric-names"></a>Metric names
+## 메트릭 이름
 
-Metric name | Screen name | Description
+메트릭 이름 | 화면 이름 | 설명
 ---|---|---
-`basicExceptionBrowser.count`|Browser exceptions|Count of uncaught exceptions thrown in the browser.
-`basicExceptionServer.count`|Server exceptions|Count of unhandled exceptions thrown by the app
-`clientPerformance.clientProcess.value`|Client processing time|Time between receiving the last byte of a document until the DOM is loaded. Async requests may still be processing.
-`clientPerformance.networkConnection.value`|Page load network connect time| Time the browser takes to connect to the network. Can be 0 if cached.
-`clientPerformance.receiveRequest.value`|Receiving response time| Time between browser sending request to starting to receive response.
-`clientPerformance.sendRequest.value`|Send request time| Time taken by browser to send request.
-`clientPerformance.total.value`|Browser page load time|Time from user request until DOM, stylesheets, scripts and images are loaded.
-`performanceCounter.available_bytes.value`|Available memory|Physical memory immediately available for a process or for system use.
-`performanceCounter.io_data_bytes_per_sec.value`|Process IO Rate|Total bytes per second read and written to files, network and devices.
-`performanceCounter.number_of_exceps_thrown_per_sec`|exception rate|Exceptions thrown per second.
-`performanceCounter.percentage_processor_time.value`|Process CPU|The percentage of elapsed time of all process threads used by the processor to execution instructions for the applications process.
-`performanceCounter.percentage_processor_total.value`|Processor time|The percentage of time that the processor spends in non-Idle threads.
-`performanceCounter.process_private_bytes.value`|Process private bytes|Memory exclusively assigned to the monitored application's processes.
-`performanceCounter.request_execution_time.value`|ASP.NET request execution time|Execution time of the most recent request.
-`performanceCounter.requests_in_application_queue.value`|ASP.NET requests in execution queue|Length of the application request queue.
-`performanceCounter.requests_per_sec`|ASP.NET request rate|Rate of all requests to the application per second from ASP.NET.
-`remoteDependencyFailed.durationMetric.count`|Dependency failures|Count of failed calls made by the server application to external resources.
-`request.duration`|Server response time|Time between receiving an HTTP request and finishing sending the response.
-`request.rate`|Request rate|Rate of all requests to the application per second.
-`requestFailed.count`|Failed requests|Count of HTTP requests that resulted in a response code >= 400 
-`view.count`|Page views|Count of client user requests for a web page. Synthetic traffic is filtered out.
-{your custom metric name}|{Your metric name}|Your metric value reported by [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) or in the [measurements parameter of a tracking call](app-insights-api-custom-events-metrics.md#properties).
+`basicExceptionBrowser.count`|브라우저 예외|브라우저에서 발생한 확인할 수 없는 예외의 개수입니다.
+`basicExceptionServer.count`|서버 예외|앱에서 발생한 처리되지 않은 예외의 개수입니다.
+`clientPerformance.clientProcess.value`|클라이언트 처리 시간|DOM을 로드할 때부터 문서의 마지막 바이트를 받는 사이의 시간입니다. 비동기 요청은 계속 처리 중일 수 있습니다.
+`clientPerformance.networkConnection.value`|페이지 로드 네트워크 연결 시간| 브라우저가 네트워크에 연결하는 데 걸리는 시간입니다. 캐시된 경우 0일 수 있습니다.
+`clientPerformance.receiveRequest.value`|응답 수신 시간| 브라우저가 요청을 보내서 응답을 받기 시작하는 사이의 시간입니다.
+`clientPerformance.sendRequest.value`|요청 전송 시간| 브라우저가 요청을 보내는 데 소요된 시간입니다.
+`clientPerformance.total.value`|브라우저 페이지 로드 시간|사용자가 요청한 때부터 DOM, 스타일시트, 스크립트 및 이미지가 로드될 때까지 소요된 시간입니다.
+`performanceCounter.available_bytes.value`|사용 가능한 메모리|처리를 위해서나 시스템에서 바로 사용할 수 있는 실제 메모리입니다.
+`performanceCounter.io_data_bytes_per_sec.value`|프로세스 IO 속도|파일, 네트워크 및 장치에서 읽고 쓴 초당 총 바이트 수입니다.
+`performanceCounter.number_of_exceps_thrown_per_sec`|예외 속도|초당 발생한 예외입니다.
+`performanceCounter.percentage_processor_time.value`|CPU 프로세스|응용 프로그램 프로세스에 대한 지침 실행을 위해 프로세서가 사용한 모든 프로세스 스레드의 경과 시간 비율입니다.
+`performanceCounter.percentage_processor_total.value`|프로세서 시간|프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다.
+`performanceCounter.process_private_bytes.value`|프로세스 전용 바이트|모니터링되는 응용 프로그램의 프로세스에 독점적으로 할당된 메모리입니다.
+`performanceCounter.request_execution_time.value`|ASP.NET 요청 실행 시간|가장 최근 요청의 실행 시간입니다.
+`performanceCounter.requests_in_application_queue.value`|실행 큐의 ASP.NET 요청|응용 프로그램 요청 큐의 길이입니다.
+`performanceCounter.requests_per_sec`|ASP.NET 요청 속도|ASP.NET에서 응용 프로그램에 전송된 모든 요청의 속도(초)입니다.
+`remoteDependencyFailed.durationMetric.count`|종속성 실패|서버 응용 프로그램에서 외부 리소스에 보낸 호출이 실패한 횟수입니다.
+`request.duration`|서버 응답 시간|HTTP 요청을 받은 후 응답 전송을 완료한 때까지의 시간입니다.
+`request.rate`|요청 속도|응용 프로그램에 전송된 모든 요청의 속도(초)입니다.
+`requestFailed.count`|실패한 요청|응답 코드가 400 이상인 HTTP 요청의 개수입니다. 
+`view.count`|페이지 보기|웹 페이지에 대한 클라이언트 사용자 요청의 수입니다. 가상 트래픽은 필터링됩니다.
+{사용자 지정 메트릭 이름}|{사용자의 메트릭 이름}|메트릭 값은 [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)에 의해 또는 [추적 호출의 측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)에 보고됩니다.
 
-The metrics are sent by different telemetry modules:
+다음과 같은 다양한 원격 분석 모듈에서 메트릭이 전송됩니다.
 
-Metric group | Collector module
+메트릭 그룹 | 수집기 모듈
 ---|---
-basicExceptionBrowser,<br/>clientPerformance,<br/>view | [Browser JavaScript](app-insights-javascript.md)
-performanceCounter | [Performance](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
-remoteDependencyFailed| [Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
-request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
+basicExceptionBrowser,<br/>clientPerformance,<br/>view | [브라우저 JavaScript](app-insights-javascript.md)
+performanceCounter | [성능](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
+remoteDependencyFailed| [종속성](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
+request,<br/>requestFailed|[서버 요청](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
-## <a name="webhooks"></a>Webhooks
+## Webhook
 
-You can [automate your response to an alert](../azure-portal/insights-webhooks-alerts.md). Azure will call a web address of your choice when an alert is raised. 
+[경고에 대한 응답을 자동화](../azure-portal/insights-webhooks-alerts.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
 
-## <a name="see-also"></a>See also
+## 참고 항목
 
 
-* [Script to configure Application Insights](app-insights-powershell-script-create-resource.md)
-* [Create Application Insights and web test resources from templates](app-insights-powershell.md)
-* [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automate your response to an alert](../azure-portal/insights-webhooks-alerts.md)
+* [Application Insights를 구성하는 스크립트](app-insights-powershell-script-create-resource.md)
+* [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](app-insights-powershell.md)
+* [Application Insights에 Microsoft Azure 진단 결합 자동화](app-insights-powershell-azure-diagnostics.md)
+* [경고에 대한 응답 자동화](../azure-portal/insights-webhooks-alerts.md)
 
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0224_2016-->

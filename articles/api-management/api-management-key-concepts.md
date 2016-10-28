@@ -1,103 +1,102 @@
 <properties 
-    pageTitle="API Management key concepts" 
-    description="Learn about APIs, products, roles, groups, and other API Management key concepts." 
-    services="api-management" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="API 관리 주요 개념" 
+	description="API, 제품, 역할, 그룹 및 기타 API 관리의 주요 개념에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="api-management" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="hero-article" 
-    ms.date="10/25/2016" 
-    ms.author="sdanie"/>
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="hero-article" 
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>
 
+#API 관리란?
 
-#<a name="what-is-api-management?"></a>What is API Management?
+API 관리를 사용하여 조직은 외부, 파트너 및 내부의 개발자에게 API를 게시하여 데이터 및 서비스의 잠재성을 활용할 수 있습니다. 모든 곳의 비즈니스는 디지털 플랫폼으로 운영을 확장함으로써 새로운 채널을 생성하고, 새로운 고객을 찾고, 기존 고객과 더 깊은 관계를 구축하고자 합니다. API 관리는 개발자 참여, 비즈니스 통찰력, 분석, 보안과 보호 등을 통해 성공적인 API 프로그램을 보장하는 핵심적인 역량을 제공합니다.
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
-
-Watch the following video for an overview of Azure API Management and learn how to use API Management to add many features to your API, including access control, rate limiting, monitoring, event logging, and response caching, with minimal work on your part.
+Azure API 관리 개요에 관한 다음 비디오를 시청하고 최소한의 작업으로 액세스 제어, 속도 제한, 모니터링, 이벤트 로깅, 응답 캐싱 등 다양한 기능을 API에 추가하기 위해 API 관리를 사용하는 방법을 알아봅니다.
 
 > [AZURE.VIDEO azure-api-management-overview]
 
-To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
+API 관리를 사용하려면 관리자가 API를 만듭니다. 각 API는 하나 이상의 작업으로 구성되며, 각 API는 하나 이상의 제품에 추가할 수 있습니다. API를 사용하려면 개발자는 해당 API가 포함된 제품을 구독합니다. 그런 다음 적용 중인 사용 정책에 따라 API의 작업을 호출할 수 있습니다.
 
-This topic provides an overview of API Management key concepts.
+이 항목에서는 API 관리의 주요 개념을 간략하게 설명합니다.
 
->[AZURE.NOTE] For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
+>[AZURE.NOTE] 자세한 내용은 [클라우드 기반 API 관리: API 기능을 활용](http://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API 관리에 대한 이 소개 백서는 다음을 설명합니다.
 >
-> - Common API requirements and challenges
->     - Decoupling APIs and presenting facades
->     - Getting developers up and running quickly
->     - Securing access
->     - Analytics and metrics
-> - Gaining control and insight with an API Management platform
-> - Using cloud vs on-premise solutions
-> - Azure API Management
+> - 공통 API 요구 사항 및 특징
+>     - API 분리 및 외관 제공
+>     - 개발자가 시작 및 신속하게 실행
+>     - 액세스 보안
+>     - 분석 및 메트릭
+> - API 관리 플랫폼으로 제어 및 파악
+> - 클라우드 대 온-프레미스 솔루션 사용
+> - Azure API 관리
 
-## <a name="<a-name="apis">-</a>apis-and-operations"></a><a name="apis"> </a>APIs and operations
+## <a name="apis"> </a>API 및 작업
 
-APIs are the foundation of an API Management service instance. Each API represents  a set of operations available to developers. Each API contains a reference to the back-end service that implements the API, and its operations map to the operations implemented by the back-end service. Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. Rate limit, quotas, and IP restriction policies can also be implemented at the API or individual operation level.
+API는 API 관리 서비스 인스턴스의 기반입니다. 각 API는 개발자가 사용할 수 있는 작업 집합을 나타냅니다. 각 API에는 API를 구현하는 백 엔드 서비스에 대한 참조가 포함되어 있으며, 해당 작업은 백 엔드 서비스에 의해 구현되는 작업에 매핑됩니다. API 관리의 작업은 매우 다양하게 구성할 수 있으며 URL 매핑, 쿼리 및 경로 매개 변수, 요청 및 응답 콘텐츠, 작업 응답 캐싱 등을 더 효율적으로 제어할 수 있습니다. 속도 제한, 할당량 및 IP 제한 정책 또한 API 또는 개별 작업 수준에서 구현할 수 있습니다.
 
-For more information, see [How to create APIs][] and [How to add operations to an API][].
+자세한 내용은 [API를 관리하는 방법][](영문) 및 [API에 작업을 추가하는 방법][](영문)을 참조하세요.
 
 
-## <a name="<a-name="products">-</a>-products"></a><a name="products"> </a> Products
+## <a name="products"> </a>제품
 
-Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and are configured with a title, description, and terms of use. Products can be **Open** or **Protected**. Protected products must be subscribed to before they can be used, while open products can be used without a subscription. When a product is ready for use by developers it can be published. Once it is published, it can be viewed (and in the case of protected products subscribed to) by developers. Subscription approval is configured at the product level and can either require administrator approval, or be auto-approved.
+제품은 API가 개발자에게 표시되는 방식입니다. API 관리에서 제품은 하나 이상의 API를 가지며 제목, 설명, 사용 약관 등으로 구성됩니다. 제품을 **개방형** 또는 **보호된** 제품일 수 있습니다. 보호된 제품은 사용하기 전에 구독해야 하는 반면, 개방형 제품은 구독하지 않고 사용할 수 있습니다. 제품을 개발자가 사용할 수 있게 되면 제품을 게시할 수 있습니다. 게시되고 나면 개발자가 볼 수 있습니다(보호된 제품의 경우 구독할 수 있음). 구독 승인은 제품 수준에서 구성되며 관리자 승인을 요구하거나 자동 승인될 수 있습니다.
 
-Groups are used to manage the visibility of products to developers. Products grant visibility to groups, and developers can view and subscribe to the products that are visible to the groups in which they belong. 
+그룹은 제품을 개발자에게 표시하는 옵션을 관리하는 데 사용됩니다. 제품은 그룹에 대한 표시 여부를 부여하고, 개발자는 자신이 속한 그룹에게 표시되는 제품을 보고 구독할 수 있습니다.
 
-For more information, see [How to create and publish a product][] and the following video.
+자세한 내용은 [제품을 만들고 게시하는 방법][] 및 다음 비디오를 참조하세요.
 
 > [AZURE.VIDEO using-products]
 
-## <a name="<a-name="groups">-</a>-groups"></a><a name="groups"> </a> Groups
+## <a name="groups"> </a>그룹
 
-Groups are used to manage the visibility of products to developers. API Management has the following immutable system groups.
+그룹은 제품을 개발자에게 표시하는 옵션을 관리하는 데 사용됩니다. API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있습니다.
 
--   **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
--   **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
--   **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
+-	**관리자** - Azure 구독 관리자가 이 그룹의 구성원입니다. 관리자는 API 관리 서비스 인스턴스를 관리하며 개발자가 사용하는 API, 작업 및 제품을 만듭니다.
+-	**개발자** - 인증된 개발자 포털 사용자가 이 그룹에 속합니다. 개발자는 API를 사용하여 응용 프로그램을 빌드하는 고객입니다. 개발자는 개발자 포털에 액세스할 수 있는 권한을 받으며 API의 작업을 호출하는 응용 프로그램을 빌드합니다.
+-	**게스트** - API 관리 인스턴스의 개발자 포털을 방문하는 인증되지 않은 개발자 포털 사용자(예: 잠재 고객)가 이 그룹에 속합니다. 예를 들어 API를 볼 수 있지만 호출할 수는 없는 기능과 같이 특정 읽기 전용 액세스 권한을 받을 수 있습니다.
 
-In addition to these system groups, administrators can create custom groups or [leverage external groups in associated Azure Active Directory tenants](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
+이러한 시스템 그룹 외에도 관리자는 사용자 지정 그룹을 만들거나 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). 사용자 지정 및 외부 그룹은 시스템 그룹과 함께 사용되어 개발자에게 API 제품에 대한 표시 여부 및 액세스를 제공합니다. 예를 들어, 특정 파트너 조직과 관련된 개발자를 위한 하나의 사용자 지정 그룹을 만들고 관련 API만을 포함한 제품에서 API에 대한 액세스를 허용합니다. 사용자는 둘 이상의 그룹의 구성원일 수 있습니다.
 
-For more information, see  [How to create and use groups][].
+자세한 내용은 [그룹을 만들고 사용하는 방법][](영문)을 참조하세요.
 
-## <a name="<a-name="developers">-</a>-developers"></a><a name="developers"> </a> Developers
+## <a name="developers"> </a>개발자
 
-Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][]. Each developer is a member of one or more groups, and can be subscribe to the products that grant visibility to those groups.
+개발자는 API 관리 서비스 인스턴스의 사용자 계정을 나타냅니다. 개발자는 개발자(administrator)가 만들거나 참여하도록 초대할 수 있으며 [개발자 포털][]에서 등록할 수도 있습니다. 각 개발자는 하나 이상의 그룹의 구성원이며 해당 그룹에 대한 가시성을 부여하는 제품을 구독할 수 있습니다.
 
-When developers subscribe to a product they are granted the primary and secondary key for the product. This key is used when making calls into the product's APIs.
+개발자가 제품을 구독하면 제품의 기본 키 및 보조 키를 부여받습니다. 이 키는 제품의 API를 호출할 때 사용됩니다.
 
-For more information, see [How to create or invite developers][] and [How to associate groups with developers][].
+자세한 내용은 [개발자를 만들거나 초대하는 방법][](영문) 및 [그룹을 개발자와 연결하는 방법][](영문)을 참조하세요.
 
-## <a name="<a-name="policies">-</a>-policies"></a><a name="policies"> </a> Policies
+## <a name="policies"> </a>정책
 
-Policies are a powerful capability of API Management that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer, and many other policies are available.
+정책은 게시자가 구성을 통해 API의 동작을 변경할 수 있게 하는 API 관리의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출의 양을 제한하는 호출 속도 한도 등이 포함되며 다양한 다른 정책도 사용할 수 있습니다.
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) and [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies), [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx), and watch the following video.
+정책이 다르게 지정하지 않는 한 정책 식은 어떤 API 관리 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) 및 [변수 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) 및 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 참조하고 다음 비디오를 시청하세요.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
-For a complete list of API Management policies, see [Policy reference][]. For more information on using and configuring policies, see [API Management policies][]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][]. For a demo, see the following video.
+API 관리 정책의 전체 목록을 보려면 [정책 참조][](영문)를 참조하세요. 정책 사용 및 구성에 대한 자세한 내용은 [API 관리 정책][](영문)을 참조하세요. 속도 제한 및 할당량 정책을 사용하여 제품을 만드는 방법에 대한 자습서는 [고급 제품 설정을 만들고 구성하는 방법][]을 참조하세요. 데모는 다음 비디오를 참조하세요.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
 
-## <a name="<a-name="developer-portal">-</a>-developer-portal"></a><a name="developer-portal"> </a> Developer portal
+## <a name="developer-portal"> </a>개발자 포털
 
-The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure Classic Portal for your API Management service instance.
+개발자 포털은 개발자가 API에 대해 알아보고, 작업을 보고 호출하고, 제품을 구독할 수 있는 곳입니다. 잠재 고객은 개발자 포털을 방문하고 API 및 작업을 보고 등록할 수 있습니다. 개발자 포털의 URL은 Azure 클래식 포털에서 해당 API 관리 서비스 인스턴스에 대한 대시보드에서 찾을 수 있습니다.
 
-You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
+사용자 지정 콘텐츠를 추가하고, 스타일을 사용자 지정하고, 브랜딩을 추가하여 개발자 포털의 모양을 사용자 지정할 수 있습니다.
 
-## <a name="api-management-and-the-api-economy"></a>API Management and the API economy
+## API 관리 및 API 경제
 
-To learn more about API Management, watch the following presentation from the Microsoft Ignite 2015 conference.
+API 관리에 대해 자세히 알아보려면 Microsoft Ignite 2015 conference에서 다음 프레젠테이션을 시청하세요.
 
 > [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
 
@@ -106,25 +105,21 @@ To learn more about API Management, watch the following presentation from the Mi
 [Groups]: #groups
 [Developers]: #developers
 [Policies]: #policies
-[Developer portal]: #developer-portal
+[개발자 포털]: #developer-portal
 
-[How to create APIs]: api-management-howto-create-apis.md
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[How to create and use groups]: api-management-howto-create-groups.md
-[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
-[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
-[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
-[Policy reference]: api-management-policy-reference.md
-[API Management policies]: api-management-howto-policies.md
+[API를 관리하는 방법]: api-management-howto-create-apis.md
+[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
+[제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
+[그룹을 만들고 사용하는 방법]: api-management-howto-create-groups.md
+[그룹을 개발자와 연결하는 방법]: api-management-howto-create-groups.md#associate-group-developer
+[고급 제품 설정을 만들고 구성하는 방법]: api-management-howto-product-with-rules.md
+[개발자를 만들거나 초대하는 방법]: api-management-howto-create-or-invite-developers.md
+[정책 참조]: api-management-policy-reference.md
+[API 관리 정책]: api-management-howto-policies.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

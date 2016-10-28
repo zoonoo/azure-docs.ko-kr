@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Install Visual Studio and SSDT for SQL Data Warehouse | Microsoft Azure"
-   description="Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse"
+   pageTitle="SQL 데이터 웨어하우스용 Visual Studio 및 SSDT 설치 | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설치"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -10,55 +10,50 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
+# SQL 데이터 웨어하우스용 Visual Studio 2015 및 SSDT 설치
 
-# <a name="install-visual-studio-2015-and-ssdt-for-sql-data-warehouse"></a>Install Visual Studio 2015 and SSDT for SQL Data Warehouse
+SQL 데이터 웨어하우스용 응용 프로그램을 개발하려면 최신 버전의 SSDT(SQL Server 데이터 도구)와 함께 Visual Studio 2015를 사용하는 것이 좋습니다. 이전 버전과의 호환성을 위해 SSDT와 함께 Visual Studio 2013 업데이트 5도 지원됩니다.
 
-To develop applications for SQL Data Warehouse, we recommend using Visual Studio 2015 with the most recent version of SQL Server Data Tools (SSDT).  Visual Studio 2013 Update 5 with SSDT is also supported for backward compatibility.  
+SSDT로 Visual Studio를 사용하면 시각적 탐색 테이블, 뷰, 저장된 프로시저 및 SQL 데이터 웨어하우스의 더 많은 개체 뿐만 아니라 쿼리 실행에 SQL Server 개체 탐색기를 사용할 수 있습니다.
 
-Using Visual Studio with SSDT will allow you to use the SQL Server Object Explorer to visually explore tables, views, stored procedures and many more objects in your SQL Data Warehouse as well as run queries.
+> [AZURE.NOTE] SQL 데이터 웨어하우스는 아직 Visual Studio 데이터베이스 프로젝트를 지원하지 않습니다. 이 기능은 이후 버전에 추가됩니다.
 
-> [AZURE.NOTE] SQL Data Warehouse does not yet support Visual Studio Database Projects.  This feature will be added in a future version.
+## 1단계: Visual Studio 2015 설치
 
-## <a name="step-1:-install-visual-studio-2015"></a>Step 1: Install Visual Studio 2015
+이 링크를 따라 Visual Studio 2015를 다운로드하고 설치합니다. Visual Studio 2013 또는 2015가 설치되어 있는 경우 2단계로 건너뛰어 SSDT를 설치할 수 있습니다.
 
-Follow these links to download and install Visual Studio 2015. If you already have Visual Studio 2013 or 2015 installed, you can skip to Step 2, install SSDT.
+1. [Visual Studio 2015 다운로드][].
+2. MSDN의 [Visual Studio 설치][] 지침을 따르고 기본 구성을 선택합니다.
 
-1. [Download Visual Studio 2015][].
-2. Follow the [Installing Visual Studio][] guide on MSDN and choose the default configurations.
+## 2단계: SSDT 설치
 
-## <a name="step-2:-install-ssdt"></a>Step 2: Install SSDT
+Visual Studio 용 SSDT를 설치하려면 다음 이 단계를 수행하여 Visual Studio 내에서 SSDT 업데이트를 확인하기만 하면 됩니다.
 
-To install SSDT for Visual Studio simply check for an SSDT update from within Visual Studio by following these steps.
+1. Visual Studio에서 **도구** / **확장 및 업데이트…** / **업데이트**를 클릭합니다.
+2. **제품 업데이트**를 선택한 후 **데이터베이스 도구용 Microsoft SQL Server 업데이트**를 찾습니다.
 
-1. In Visual Studio click on **Tools** / **Extensions and Updates…** / **Updates**
-2. Select **Product Updates** and then look for **Microsoft SQL Server Update for database tooling**
+업데이트가 없는 경우 최신 버전을 설치했어야 합니다. SSDT가 설치되었는지 확인하려면 **도움말** / **Microsoft Visual Studio 정보**를 클릭하여 목록에서 SQL Server 데이터 도구를 찾아봅니다. 최신 버전의 SSDT는 14.0.60525.0입니다. 설치 옵션을 Visual Studio에서 사용할 수 없는 경우 [SSDT 다운로드][] 페이지를 방문하여 SSDT를 수동으로 다운로드하고 설치할 수 있습니다.
 
-If an update is not found, then you should have the latest version installed.  To confirm SSDT is installed, click on **Help** / **About Microsoft Visual Studio** and look for SQL Server Data Tools in the list.  The latest version of SSDT is 14.0.60525.0.  If the option to install is not available from Visual Studio, alternatively you can visit the [SSDT Download][] page to download and install SSDT manually.
+## 다음 단계
 
-## <a name="next-steps"></a>Next steps
-
-Now that you have the latest version of SSDT, you are ready to [connect][] to your SQL Data Warehouse.
+이제 최신 버전의 SSDT가 설치되었으므로 SQL 데이터 웨어하우스에 [연결][]할 수 있습니다.
 
 <!--Anchors-->
 
 <!--Image references-->
 
 <!--Articles-->
-[connect]: ./sql-data-warehouse-query-visual-studio.md
+[연결]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Download Visual Studio 2015]: https://www.visualstudio.com/downloads/
-[Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
-[SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
+[Visual Studio 2015 다운로드]: https://www.visualstudio.com/downloads/
+[Visual Studio 설치]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
+[SSDT 다운로드]: https://msdn.microsoft.com/library/mt204009.aspx
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,153 +1,149 @@
 <properties
-    pageTitle="How to create a custom template image for Azure RemoteApp | Microsoft Azure"
-    description="Learn how to create a custom template image for Azure RemoteApp. You can use this template with either a hybrid or cloud collection."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법 | Microsoft Azure"
+	description="Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법에 대해 알아봅니다. 하이브리드 또는 클라우드 컬렉션에서 이 템플릿을 사용할 수 있습니다."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016" 
-    ms.author="elizapo"/>
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/15/2016" 
+	ms.author="elizapo"/>
 
-
-# <a name="how-to-create-a-custom-template-image-for-azure-remoteapp"></a>How to create a custom template image for Azure RemoteApp
+# Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. 
-
-
-> [AZURE.TIP] Did you know you can create an image from an Azure VM? True story, and it cuts down on the amount of time it takes to import the image. Check out the steps [here](remoteapp-image-on-azurevm.md).
-
-The requirements for the image that can be uploaded for use with Azure RemoteApp are:
+Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 RemoteApp 템플릿 이미지를 만들려면 기존 이미지에서 시작하거나 새 이미지를 만듭니다.
 
 
-- The image size should be a multiple of MBs. If you try to upload an image that is not an exact multiple, the upload will fail.
-- The image size must be 127 GB or smaller.
-- It must be on a VHD file (VHDX files [Hyper-V virtual hard drives] are not currently supported).
-- The VHD must not be a generation 2 virtual machine.
-- The VHD can be either fixed-size or dynamically expanding. A dynamically expanding VHD is recommended because it takes less time to upload to Azure than a fixed-size VHD file.
-- The disk must be initialized using the Master Boot Record (MBR) partitioning style. The GUID partition table (GPT) partition style is not supported.
-- The VHD must contain a single installation of Windows Server 2012 R2. It can contain multiple volumes, but only one that contains an installation of Windows.
-- The Remote Desktop Session Host (RDSH) role and the Desktop Experience feature must be installed.
-- The Remote Desktop Connection Broker role must *not* be installed.
-- The Encrypting File System (EFS) must be disabled.
-- The image must be SYSPREPed using the parameters **/oobe /generalize /shutdown** (DO NOT use the **/mode:vm** parameter).
-- Uploading your VHD from a snapshot chain is not supported.
+> [AZURE.TIP] Azure VM에서 이미지를 만들 수 있다는 것을 알고 있나요? 이 방법을 사용하면 이미지를 가져오는 데 소요되는 시간을 크게 줄일 수 있습니다. [여기](remoteapp-image-on-azurevm.md)서 단계를 확인하세요.
+
+Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
 
 
-**Before you begin**
+- 이미지 크기는 MB 단위의 배수여야 합니다. 크기가 정확한 배수가 아닌 이미지는 업로드에 실패합니다.
+- 이미지 크기는 127GB 이하여야 합니다.
+- VHD 파일에 있어야 합니다. VHDX 파일 [Hyper-V 가상 하드 드라이브]은 현재 지원되지 않습니다.
+- VHD는 세대 2 가상 컴퓨터가 아니어야 합니다.
+- VHD는 고정 크기이거나 동적으로 확장될 수 있습니다. 고정 크기의 VHD 파일보다 Azure에 업로드하는 시간이 짧으므로 동적으로 확장되는 VHD가 권장됩니다.
+- 디스크는 MBR(마스터 부트 레코드) 파티션 스타일을 사용하여 초기화해야 합니다. GPT(GUID 파티션 테이블) 파티션 스타일은 지원되지 않습니다.
+- VHD는 Windows Server 2012 R2의 단일 설치를 포함해야 합니다. 여러 볼륨을 포함할 수 있지만 한 볼륨만 Windows의 설치를 포함합니다.
+- RDSH(원격 데스크톱 세션 호스트) 역할 및 데스크톱 경험 기능을 설치해야 합니다.
+- 원격 데스크톱 연결 브로커 역할은 설치하면 *안 됩니다*.
+- EFS(파일 시스템 암호화)를 사용하지 않도록 설정해야 합니다.
+- 이미지에 **/oobe /generalize /shutdown** 매개 변수를 사용하여 sysprep을 실행해야 합니다. **/mode:vm** 매개 변수는 사용하지 마세요.
+- 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
 
-You need to do the following before creating the service:
 
-- [Sign up](https://azure.microsoft.com/services/remoteapp/) for RemoteApp.
-- Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain. See [Configure Azure Active Directory for RemoteApp](remoteapp-ad.md) for more information.
-- Gather information about your on-premises network: IP address information and VPN device details.
-- Install the [Azure PowerShell](../powershell-install-configure.md) module.
-- Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
+**시작하기 전에**
 
+서비스를 만들기 전에 다음을 수행해야 합니다.
 
-
-## <a name="create-a-template-image"></a>Create a template image ##
-
-These are the high level steps to create a new template image from scratch:
-
-1.  Locate a Windows Server 2012 R2 Update DVD or ISO image.
-2.  Create a VHD file.
-4.  Install Windows Server 2012 R2.
-5.  Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.
-6.  Install additional features required by your applications.
-7.  Install and configure your applications. To make sharing apps easier, add any apps or programs that you want to share to the **Start** menu of the image, specifically in **%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs.
-8.  Perform any additional Windows configurations required by your applications.
-9.  Disable the Encrypting File System (EFS).
-10. **REQUIRED:** Go to Windows Update and install all important updates.
-9.  SYSPREP the image.
-
-The detailed steps for creating a new image are:
-
-1.  Locate a Windows Server 2012 R2 Update DVD or ISO image.
-2.  Create a VHD file by using Disk Management.
-    1.  Launch Disk Management (diskmgmt.msc).
-    2.  Create a dynamically expanding VHD of 40 GB or more in size. (Estimate the amount of space needed for Windows, your applications, and customizations. Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).
-        1.  Click **Action > Create VHD**.
-        2.  Specify the location, size, and VHD format. Select **Dynamically expanding**, and then click **OK**.
-
-            This will run for several seconds. When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.
-
-        - Right-click the disk (not the unallocated space), and then click **Initialize Disk**. Select **MBR** (Master Boot Record) as the partition style, and then click **OK**.
-        - Create a new volume: right-click the unallocated space, and then click **New Simple Volume**. You can accept the defaults in the wizard, but make sure you assign a drive letter to avoid potential problems when you upload the template image.
-        - Right-click the disk, and then click **Detach VHD**.
+- RemoteApp에 [등록](https://azure.microsoft.com/services/remoteapp/)합니다.
+- RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다. 자세한 내용은 [RemoteApp에 대해 Azure Active Directory 구성](remoteapp-ad.md)을 참조하세요.
+- 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
+- [Azure PowerShell](../powershell-install-configure.md) 모듈을 설치합니다.
+- 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 이 정보는 사용자의 Microsoft 계정 정보나 Active Directory 작업 계정 정보가 될 수 있습니다.
 
 
 
+## 템플릿 이미지 만들기 ##
+
+다음은 처음부터 새 템플릿 이미지를 만드는 요약된 단계입니다.
+
+1.	Windows Server 2012 R2 Update DVD 또는 ISO 이미지를 찾습니다.
+2.	VHD 파일을 만듭니다.
+4.	Windows Server 2012 R2를 설치합니다.
+5.	RDSH(원격 데스크톱 세션 호스트) 역할 및 데스크톱 경험 기능을 설치합니다.
+6.	응용 프로그램에 필요한 추가 기능을 설치합니다.
+7.	응용 프로그램을 설치하고 구성합니다. 공유 앱을 만들려면 공유하려는 앱 또는 프로그램을 이미지의 **시작** 메뉴(**%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs)에 추가합니다.
+8.	응용 프로그램에 필요한 추가 Windows 구성을 수행합니다.
+9.	EFS(파일 시스템 암호화)를 사용하지 않도록 설정합니다.
+10.	**필수:** Windows Update로 이동하여 모든 중요 업데이트를 설치합니다.
+9.	이미지에 sysprep을 실행합니다.
+
+새 이미지를 만드는 자세한 단계는 다음과 같습니다.
+
+1.	Windows Server 2012 R2 Update DVD 또는 ISO 이미지를 찾습니다.
+2.	디스크 관리를 사용하여 VHD 파일을 만듭니다.
+	1.	디스크 관리(diskmgmt.msc)를 실행합니다.
+	2.	40GB 크기의 동적으로 확장되는 VHD를 만듭니다. Windows, 응용 프로그램 및 사용자 지정에 필요한 공간의 양을 예상합니다. RDSH 역할 및 데스크톱 경험 기능이 설치된 Windows Server를 사용하려면 약 10GB의 공간이 필요합니다.
+		1.	**작업 > VHD 만들기**를 클릭합니다.
+		2.	위치, 크기 및 VHD 형식을 지정합니다. **동적 확장**을 선택한 다음 **확인**을 클릭합니다.
+
+			그러면 몇 초 정도 실행됩니다. VHD 만들기가 완료되면 디스크 관리 콘솔에 "초기화 안 됨" 상태의 드라이브 문자가 없는 새로운 디스크가 표시됩니다.
+
+		- 디스크(할당되지 않은 공간이 아닌)를 마우스 오른쪽 단추로 클릭한 다음 **디스크 초기화**를 클릭합니다. **MBR**(마스터 부트 레코드)을 파티션 스타일로 선택한 다음 **확인**을 클릭합니다.
+		- 새 볼륨 만들기: 할당되지 않은 공간을 마우스 오른쪽 단추로 클릭한 다음 **새 단순 볼륨**을 클릭합니다. 마법사의 기본값을 그대로 사용하지만 템플릿 이미지를 업로드할 때 잠재적인 문제를 피할 수 있도록 드라이브 문자를 할당해야 합니다.
+		- 디스크를 마우스 오른쪽 단추로 클릭한 다음 **VHD 분리**를 클릭합니다.
 
 
-1. Install Windows Server 2012 R2:
-    1. Create a new virtual machine. Use the New Virtual Machine Wizard in Hyper-V Manager or Client Hyper-V.
-        1. On the Specify Generation page, choose  **Generation 1**.
-        2. On the Connect Virtual Hard Disk page, select **Use an existing virtual hard disk**, and browse to the VHD you created in the previous step.
-        2. On the Installation Options page, select **Install an operating system from a boot CD/DVD_ROM**, and then select the location of your Windows Server 2012 R2 installation media.
-        3. Choose other options in the wizard necessary to install Windows and your applications. Finish the wizard.
-    2.  After the wizard finishes, edit the settings of the virtual machine and make any other changes necessary to install Windows and your programs, such as the number of virtual processors, and then click **OK**.
-    4.  Connect to the virtual machine and install Windows Server 2012 R2.
-1. Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature:
-    1. Launch Server Manager.
-    2. Click **Add Roles and features** on the Welcome screen or from the **Manage** menu.
-    3. Click **Next** on the Before You Begin page.
-    4. Select **Role-based or feature-based installation**, and then click **Next**.
-    5. Select the local machine from the list, and then click **Next**.
-    6. Select **Remote Desktop Services**, and then click **Next**.
-    7. Expand **User Interfaces and Infrastructure** and select **Desktop Experience**.
-    8. Click **Add Features**, and then click **Next**.
-    9. On the Remote Desktop Services page, click **Next**.
-    10. Click **Remote Desktop Session Host**.
-    11. Click **Add Features**, and then click **Next**.
-    12. On the Confirm installation selections page, select **Restart the destination server automatically if required**, and then click **Yes** on the restart warning.
-    13. Click **Install**. The computer will restart.
-1.  Install additional features required by your applications, such as the .NET Framework 3.5. To install the features, run the Add Roles and Features Wizard.
-7.  Install and configure the programs and applications you want to publish through RemoteApp.
+
+
+
+1. Windows Server 2012 R2 설치:
+	1. 새 가상 컴퓨터를 만듭니다. Hyper-V 관리자 또는 클라이언트 Hyper-V에서 새 가상 컴퓨터 마법사를 사용합니다.
+		1. 세대 지정 페이지에서 **세대 1**을 선택합니다.
+		2. 가상 하드 디스크 연결 페이지에서 **기존 가상 하드 디스크 사용**을 선택하고 이전 단계에서 만든 VHD로 이동합니다.
+		2. 설치 옵션 페이지에서 **부팅 CD/DVD-ROM에서 운영 체제 설치**를 선택한 다음 Windows Server 2012 R2 설치 미디어의 위치를 선택합니다.
+		3. 마법사에서 Windows 및 응용 프로그램을 설치하는 데 필요한 다른 옵션을 선택합니다. 마법사를 마칩니다.
+	2.  마법사를 마친 후 가상 컴퓨터의 설정을 편집하고 Windows 및 프로그램을 설치하는 데 필요한 기타 항목(예: 가상 프로세서의 수)을 변경한 다음 **확인**을 클릭합니다.
+	4.  가상 컴퓨터에 연결하여 Windows Server 2012 R2를 설치합니다.
+1. 다음과 같이 RDSH(원격 데스크톱 세션 호스트) 역할 및 데스크톱 경험 기능을 설치합니다.
+	1. 서버 관리자를 실행합니다.
+	2. 시작 화면 또는 **관리** 메뉴에서 **역할 및 기능 추가**를 클릭합니다.
+	3. 시작하기 전에 페이지에서 **다음**을 클릭합니다.
+	4. **역할 기반 또는 기능 기반 설치**를 선택하고 **다음**을 클릭합니다.
+	5. 목록에서 로컬 컴퓨터를 선택하고 **다음**을 클릭합니다.
+	6. **원격 데스크톱 서비스**를 선택하고 **다음**을 클릭합니다.
+	7. **사용자 인터페이스 및 인프라**를 확장하고 **데스크톱 경험**을 선택합니다.
+	8. **기능 추가**를 클릭하고 **다음**을 클릭합니다.
+	9. 원격 데스크톱 서비스 페이지에서 **다음**을 클릭합니다.
+	10. **원격 데스크톱 세션 호스트**를 클릭합니다.
+	11. **기능 추가**를 클릭하고 **다음**을 클릭합니다.
+	12. 설치 선택 확인 페이지에서 **필요한 경우 자동으로 대상 서버 다시 시작**을 선택한 다음, 다시 시작 경고에서 **예**를 클릭합니다.
+	13. **Install**을 클릭합니다. 컴퓨터가 다시 시작됩니다.
+1.	.NET Framework 3.5와 같은 응용 프로그램에 필요한 추가 기능을 설치합니다. 이 기능을 설치하려면 역할 및 기능 추가 마법사를 실행합니다.
+7.	RemoteApp을 통해 게시할 프로그램 및 응용 프로그램을 설치하고 구성합니다.
 
 >[AZURE.IMPORTANT]
 >
->Install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
+>응용 프로그램을 설치하기 전에 RDSH 역할을 설치하여 RemoteApp에 이미지를 업로드하기 전에 응용 프로그램 호환성 문제가 검색되는지 확인합니다.
 >
->Make sure a shortcut to your application (**.lnk** file) appears in the **Start** menu for all users (%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs). Also ensure that the icon you see in the **Start** menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
+>응용 프로그램(**.lnk** 파일)의 바로 가기가 모든 사용자에 대한 **시작** 메뉴(%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs)에 표시되는지 확인합니다. 또한 **시작** 메뉴에 표시되는 아이콘이 사용자에게 표시하려는 아이콘인지 확인합니다. 그렇지 않으면 변경합니다. 응용 프로그램을 시작 메뉴에 추가하지 *않아도 되지만* 추가할 경우 훨씬 쉽게 RemoteApp에 응용 프로그램을 게시할 수 있습니다. 그렇지 않으면 앱을 게시할 때 응용 프로그램의 설치 경로를 제공해야 합니다.
 
 
-8.  Perform any additional Windows configurations required by your applications.
-9.  Disable the Encrypting File System (EFS). Run the following command at an elevated command window:
+8.	응용 프로그램에 필요한 추가 Windows 구성을 수행합니다.
+9.	EFS(파일 시스템 암호화)를 사용하지 않도록 설정합니다. 관리자 권한 명령 창에서 다음 명령을 실행합니다.
 
-        Fsutil behavior set disableencryption 1
+		Fsutil behavior set disableencryption 1
 
-    Alternatively, you can set or add the following DWORD value in the registry:
+	또는 레지스트리에서 다음 DWORD 값을 설정하거나 추가할 수 있습니다.
 
-        HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.  If you are building your image inside an Azure virtual machine, rename the **\%windir%\Panther\Unattend.xml** file, as this will block the upload script used later from working. Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.
-10. Go to Windows Update and install all important updates. You might need to run Windows Update multiple times to get all updates. (Sometimes you install an update, and that update itself requires an update.)
-10. SYSPREP the image. At an elevated command prompt, run the following command:
+		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
+9.	Azure 가상 컴퓨터 내에 이미지를 빌드하는 경우 **\\%windir%\\Panther\\Unattend.xml** 파일의 이름을 바꿉니다. 이름을 그대로 사용하면 나중에 사용하는 업로드 스크립트가 작동하지 않게 됩니다. 배포를 원래대로 되돌려야 하는 경우 파일을 계속 사용할 수 있도록 파일의 이름을 Unattend.old로 변경합니다.
+10.	Windows Update로 이동하여 모든 중요 업데이트를 설치합니다. 모든 업데이트를 가져오려면 여러 번 Windows Update를 실행해야 할 수 있습니다. (경우에 따라 업데이트를 설치하며 자체 해당 업데이트는 업데이트 해야합니다.)
+10.	이미지에 sysprep을 실행합니다. 관리자 권한 명령 프롬프트에서 다음 명령을 실행합니다.
 
-    **C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
+	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
 
-    **Note:** Do not use the **/mode:vm** switch of the SYSPREP command even though this is a virtual machine.
-
-
-## <a name="next-steps"></a>Next steps ##
-Now that you have your custom template image, you need to upload that image to your RemoteApp collection. Use the information in the following articles to create your collection:
+	**참고:** 가상 컴퓨터라도 SYSPREP 명령의 **/mode:vm** 스위치는 사용하지 마세요.
 
 
-- [How to create a hybrid collection of RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [How to create a cloud collection of RemoteApp](remoteapp-create-cloud-deployment.md)
+## 다음 단계 ##
+사용자 지정 템플릿 이미지를 만들었으니 이제 RemoteApp 컬렉션에 해당 이미지를 업로드해야 합니다. 다음 문서의 정보를 사용하여 컬렉션을 만듭니다.
+
+
+- [RemoteApp의 하이브리드 컬렉션을 만드는 방법](remoteapp-create-hybrid-deployment.md)
+- [RemoteApp의 클라우드 컬렉션을 만드는 방법](remoteapp-create-cloud-deployment.md)
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Use request and response actions | Microsoft Azure"
-    description="Overview of the request and response trigger and action in an Azure logic app"
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="요청 및 응답 작업 사용 | Microsoft Azure"
+	description="Azure 논리 앱의 요청, 응답 트리거 및 작업에 대한 개요"
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,105 +17,100 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
+# 요청 및 응답 구성 요소 시작
 
-# <a name="get-started-with-the-request-and-response-components"></a>Get started with the request and response components
+논리 앱의 요청 및 응답 구성 요소를 사용하여 이벤트에 실시간으로 응답할 수 있습니다.
 
-With the request and response components in a logic app, you can respond in real time to events.
+예를 들어 다음을 수행할 수 있습니다.
 
-For example, you can:
+- 논리 앱을 통해 온-프레미스 데이터베이스의 데이터를 사용하여 HTTP 요청에 응답합니다.
+- 외부 웹후크 이벤트에서 논리 앱을 트리거합니다.
+- 다른 논리 앱 내에서 요청 및 응답 작업으로 논리 앱을 호출합니다.
 
-- Respond to an HTTP request with data from an on-premises database through a logic app.
-- Trigger a logic app from an external webhook event.
-- Call a logic app with a request and response action from within another logic app.
+논리 앱에서 요처 및 응답 작업 사용을 시작하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-To get started using the request and response actions in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## HTTP 요청 트리거 사용
 
-## <a name="use-the-http-request-trigger"></a>Use the HTTP Request trigger
+트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요](connectors-overview.md).
 
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+논리 앱 디자이너에서 HTTP 요청을 설정하는 방법의 예제 시퀀스는 다음과 같습니다.
 
-Here’s an example sequence of how to set up an HTTP request in the Logic App Designer.
+1. 논리 앱에서 **요청 - HTTP 요청을 받은 경우** 트리거를 추가합니다. 요청 본문에 대해 JSON 스키마를 선택적으로 제공할 수 있습니다([JSONSchema.net](http://jsonschema.net)과 같은 도구 사용). 이렇게 하면 디자이너가 HTTP 요청에서 속성에 대한 토큰을 생성할 수 있습니다.
+2. 논리 앱을 저장할 수 있도록 다른 작업을 추가합니다.
+3. 논리 앱을 저장한 후 요청 카드에서 HTTP 요청 URL을 가져올 수 있습니다.
+4. URL에 대한 HTTP POST([Postman](https://www.getpostman.com/)과 같은 도구 사용)는 논리 앱을 트리거합니다.
 
-1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (by using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
-2. Add another action so that you can save the logic app.
-3. After saving the logic app, you can get the HTTP request URL from the request card.
-4. An HTTP POST (you can use a tool like [Postman](https://www.getpostman.com/)) to the URL triggers the logic app.
+>[AZURE.NOTE] 응답 작업을 정의하지 않으면 `202 ACCEPTED` 응답이 호출자에게 즉시 반환됩니다. 응답 작업을 사용하여 응답을 사용자 지정할 수 있습니다.
 
->[AZURE.NOTE] If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller. You can use the response action to customize a response.
+![응답 트리거](./media/connectors-native-reqres/using-trigger.png)
 
-![Response trigger](./media/connectors-native-reqres/using-trigger.png)
+## HTTP 응답 작업 사용
 
-## <a name="use-the-http-response-action"></a>Use the HTTP Response action
+HTTP 응답 작업은 HTTP 요청에 의해 트리거되는 워크플로에서 사용할 때만 유효합니다. 응답 작업을 정의하지 않으면 `202 ACCEPTED` 응답이 호출자에게 즉시 반환됩니다. 응답 작업은 워크플로 내의 어느 단계에도 추가할 수 있습니다. 논리 앱은 들어오는 요청이 있을 때 응답을 받기 위해 1분 동안만 열어둡니다. 1분 후에 워크플로에서 전송된 응답이 없으면(정의에는 응답 작업이 있음) `504 GATEWAY TIMEOUT`이 호출자에게 반환됩니다.
 
-The HTTP Response action is only valid when you use it in a workflow that is triggered by an HTTP request. If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller.  You can add a response action at any step within the workflow. The logic app only keeps the incoming request open for one minute for a response.  After one minute, if no response was sent from the workflow (and a response action exists in the definition), a `504 GATEWAY TIMEOUT` is returned to the caller.
+HTTP 응답 작업을 추가하는 방법은 다음과 같습니다.
 
-Here's how to add an HTTP Response action:
+1. **새 단계** 단추를 선택합니다.
+2. **작업 추가**를 선택합니다.
+3. 작업 검색 상자에 **response**를 입력하여 응답 작업을 나열합니다.
 
-1. Select the **New Step** button.
-2. Choose **Add an action**.
-3. In the action search box, type **response** to list the Response action.
+	![응답 작업 선택](./media/connectors-native-reqres/using-action-1.png)
 
-    ![Select the response action](./media/connectors-native-reqres/using-action-1.png)
+4. HTTP 응답 메시지에 필요한 모든 매개 변수를 추가합니다.
 
-4. Add in any parameters that are required for the HTTP response message.
+	![응답 작업 완료](./media/connectors-native-reqres/using-action-2.png)
 
-    ![Complete the response action](./media/connectors-native-reqres/using-action-2.png)
+5. 도구 모음의 왼쪽 위 모서리를 클릭하여 저장하면 논리 앱이 저장하고 게시합니다(활성화).
 
-5. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
+## 요청 트리거
 
-## <a name="request-trigger"></a>Request trigger
+여기에는 이 커넥터가 지원하는 트리거에 대한 세부 정보가 나와 있습니다. 단일 요청 트리거가 있습니다.
 
-Here are the details for the trigger that this connector supports. There is a single request trigger.
-
-|Trigger|Description|
+|트리거|설명|
 |---|---|
-|Request|Occurs when an HTTP request is received|
+|요청|HTTP 요청을 받을 때 발생합니다.|
 
-## <a name="response-action"></a>Response action
+## 응답 작업
 
-Here are the details for the action that this connector supports. There is a single response action that can only be used when it is accompanied by a request trigger.
+여기에는 이 커넥터가 지원하는 작업에 대한 세부 정보가 나와 있습니다. 요청 트리거와 함께 나올 때만 사용할 수 있는 단일 응답 작업이 있습니다.
 
-|Action|Description|
+|작업|설명|
 |---|---|
-|Response|Returns a response to the correlated HTTP request|
+|응답|상호 관련된 HTTP 요청에 대한 응답을 반환합니다.|
 
-### <a name="trigger-and-action-details"></a>Trigger and action details
+### 트리거 및 작업 세부 정보
 
-The following tables describe the input fields for the trigger and action, and the corresponding output details.
+다음 표는 트리거 및 작업에 대한 입력 필드와 해당 출력 세부 정보를 설명합니다.
 
-#### <a name="request-trigger"></a>Request trigger
-The following is an input field for the trigger from an incoming HTTP request.
+#### 요청 트리거
+다음은 들어오는 HTTP 요청의 트리거에 대한 입력 필드입니다.
 
-|Display name|Property name|Description|
+|표시 이름|속성 이름|설명|
 |---|---|---|
-|JSON Schema|schema|The JSON schema of the HTTP request body|
+|JSON 스키마|schema|HTTP 요청 본문의 JSON 스키마|
 <br>
 
-**Output details**
+**출력 세부 정보**
 
-The following are output details for the request.
+다음은 요청에 대한 출력 세부 정보를 출력합니다.
 
-|Property name|Data type|Description|
+|속성 이름|데이터 형식|설명|
 |---|---|---|
-|Headers|object|Request headers|
-|Body|object|Request object|
+|헤더|object|헤더 요청|
+|본문|object|요청 개체|
 
-#### <a name="response-action"></a>Response action
+#### 응답 작업
 
-The following are input fields for the HTTP Response action. A * means that it is a required field.
+다음은 HTTP 응답 작업에 대한 입력 필드입니다. A*는 필수 필드 임을 의미합니다.
 
-|Display name|Property name|Description|
+|표시 이름|속성 이름|설명|
 |---|---|---|
-|Status Code*|statusCode|The HTTP status code|
-|Headers|headers|A JSON object of any response headers to include|
-|Body|body|The response body|
+|상태 코드*|statusCode|HTTP 상태 코드|
+|헤더|headers|포함할 응답 헤더의 JSON 개체|
+|본문|body|응답 본문|
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,109 +1,103 @@
 <properties
-    pageTitle="Azure Machine Learning Web Services: Deployment and consumption | Microsoft Azure"
-    description="Resources for deploying and consuming web services."
-    services="machine-learning"
-    documentationCenter=""
-    authors="vDonGlover"
-    manager="raymondl"
-    editor=""/>
+	pageTitle="Azure 기계 학습 웹 서비스: 배포 및 사용 | Microsoft Azure"
+	description="웹 서비스 배포 및 사용을 위한 리소스입니다."
+	services="machine-learning"
+	documentationCenter=""
+	authors="vDonGlover"
+	manager="raymondl"
+	editor=""/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/12/2016"
-    ms.author="v-donglo"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/19/2016"
+	ms.author="v-donglo"/>
 
+# Azure 기계 학습 웹 서비스: 배포 및 사용
 
-# <a name="azure-machine-learning-web-services:-deployment-and-consumption"></a>Azure Machine Learning Web Services: Deployment and consumption
+Azure 기계 학습을 통해 웹 서비스로 기계 학습 워크플로 및 모델을 배포할 수 있습니다. 그런 다음 이러한 웹 서비스를 실시간으로 또는 배치 모드로 예측을 수행하도록 인터넷을 통해 응용 프로그램에서 기계 학습 모델을 호출하는 데 사용할 수 있습니다. 웹 서비스는 RESTFul이므로 .NET 및 Java와 같은 다양한 프로그래밍 언어 및 플랫폼과 Excel과 같은 응용 프로그램에서 호출될 수 있습니다.
 
-You can use Azure Machine Learning to deploy machine-learning workflows and models as web services. These web services can then be used to call the machine-learning models from applications over the Internet to do predictions in real time or in batch mode. Because the web services are RESTful, you can call them from various programming languages and platforms, such as .NET and Java, and from applications, such as Excel.
+다음 섹션에서는 시작하는 데 도움이 되는 연습, 코드 및 설명서에 대한 링크를 제공합니다.
 
-The next sections provide links to walkthroughs, code, and documentation to help get you started.
+## 웹 서비스 배포
 
-## <a name="deploy-a-web-service"></a>Deploy a web service
+### Azure 기계 학습 스튜디오 사용
 
-### <a name="with-azure-machine-learning-studio"></a>With Azure Machine Learning Studio
+기계 학습 스튜디오 및 Microsoft Azure 기계 학습 웹 서비스 포털은 코드를 작성할 필요 없이 웹 서비스를 배포 및 관리하도록 도와줍니다.
 
-Machine Learning Studio and the Microsoft Azure Machine Learning Web Services portal help you deploy and manage a web service without writing code.
+다음 링크는 새 웹 서비스를 배포하는 방법에 대한 일반 정보를 제공합니다.
 
-The following links provide general Information about how to deploy a new web service:
+* Azure Resource Manager를 기준으로 하는 새 웹 서비스를 배포하는 방법에 대한 개요는 [새 웹 서비스 배포](machine-learning-webservice-deploy-a-web-service.md)를 참조하세요.
+* 웹 서비스를 배포하는 방법에 대한 연습은 [Azure 기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
+* 웹 서비스를 만들고 배포하는 방법에 대한 전체 연습은 [연습 1 단계: 기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)를 참조하세요.
+* 웹 서비스 배포의 특정 예제는 다음을 참조하세요.
 
-* For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md).
-* For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
-* For a full walkthrough about how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md).
-* For specific examples that deploy a web service, see:
+	* [연습 5단계: Azure 기계 학습 웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
+	* [여러 지역에 웹 서비스를 배포하는 방법](machine-learning-how-to-deploy-to-multiple-regions.md)
 
-    * [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md)
-    * [How to deploy a web service to multiple regions](machine-learning-how-to-deploy-to-multiple-regions.md)
+### 웹 서비스 리소스 공급자 API(Azure Resource Manager API) 사용
 
-### <a name="with-web-services-resource-provider-apis-(azure-resource-manager-apis)"></a>With web services resource provider APIs (Azure Resource Manager APIs)
+웹 서비스에 대한 Azure 기계 학습 리소스 공급자는 REST API 호출을 사용하여 웹 서비스의 배포 및 관리를 활성화합니다. 자세한 내용은 MSDN의 [기계 학습 웹 서비스(REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) 참조를 참조하세요.
 
-The Azure Machine Learning resource provider for web services enables deployment and management of web services by using REST API calls. For additional details, see the [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference on MSDN.
+### PowerShell cmdlet 사용
 
-### <a name="with-powershell-cmdlets"></a>With PowerShell cmdlets
+웹 서비스에 대한 Azure 기계 학습 리소스 공급자는 PowerShell cmdlet을 사용하여 웹 서비스의 배포 및 관리를 활성화합니다.
 
-Azure Machine Learning resource provider for web services enables deployment and management of web services by using PowerShell cmdlets.
+cmdlet을 사용하려면 먼저 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../powershell-azure-resource-manager.md#login-to-your-azure-account)을 참조하세요.
 
-To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment by using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
+예측 실험을 내보내려면 이 [샘플 코드](https://github.com/ritwik20/AzureML-WebServices)를 사용합니다. 코드에서 .exe 파일을 만든 후 다음을 입력할 수 있습니다.
 
-To export your predictive experiment, use [this sample code](https://github.com/ritwik20/AzureML-WebServices). After you create the .exe file from the code, you can type:
+	C:<folder>\GetWSD <experiment-url> <workspace-auth-token>
 
-    C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+응용 프로그램을 실행하면 웹 서비스 JSON 템플릿이 만들어집니다. 웹 서비스를 배포하는 데 템플릿을 사용하려면 다음 정보를 추가해야 합니다.
 
-Running the application creates a web service JSON template. To use the template to deploy a web service, you must add the following information:
+* 저장소 계정 이름 및 키
 
-* Storage account name and key
+	[Azure 포털](https://portal.azure.com/) 또는 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 저장소 계정 이름 및 키를 가져올 수 있습니다.
+* 약정 계획 ID
 
-    You can get the storage account name and key from either the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](http://manage.windowsazure.com/).
-* Commitment plan ID
+	로그인하고 계획 이름을 클릭하여 [Azure 기계 학습 웹 서비스](https://services.azureml.net) 포털에서 계획 ID를 얻을 수 있습니다.
 
-    You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by signing in and clicking a plan name.
+*MachineLearningWorkspace* 노드와 동일한 수준에서 *Properties* 노드의 자식으로 JSON 템플릿에 추가합니다.
 
-Add them to the JSON template as children of the *Properties* node at the same level as the *MachineLearningWorkspace* node.
+예를 들면 다음과 같습니다.
 
-Here's an example:
-
-    "StorageAccount": {
+	"StorageAccount": {
             "name": "YourStorageAccountName",
             "key": "YourStorageAccountKey"
-    },
+	},
     "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
     }
 
-See the following articles and sample code for additional details:
+추가 세부 정보는 다음 문서 및 샘플 코드를 참조하세요.
 
-* [Azure Machine Learning Cmdlets]( https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN
-* Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub
+* MSDN에 대한 [Azure 기계 학습 Cmdlet](https://msdn.microsoft.com/library/azure/mt767952.aspx) 참조
+* GitHub의 샘플 [연습](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt)
 
-## <a name="consume-the-web-services"></a>Consume the web services
+## 웹 서비스 사용
 
-### <a name="from-the-azure-machine-learning-web-services-ui-(testing)"></a>From the Azure Machine Learning Web Services UI (Testing)
+### Azure 기계 학습 웹 서비스 UI에서(테스트)
 
-You can test your web service from the Azure Machine Learning Web Services portal. This includes testing the Request-Response service (RRS) and Batch Execution service (BES) interfaces.
+Azure 기계 학습 웹 서비스 포털에서 웹 서비스를 테스트할 수 있습니다. 여기에는 RR(요청-응답 서비스) 및 BES(일괄 처리 실행 서비스) 인터페이스가 포함됩니다.
 
-* [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
-* [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
-* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md)
+* [새 웹 서비스 배포](machine-learning-webservice-deploy-a-web-service.md)
+* [Azure 기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
+* [연습 5단계: Azure 기계 학습 웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
 
-### <a name="from-excel"></a>From Excel
+### 엑셀에서
 
-You can download an Excel template that consumes the web service:
+웹 서비스를 사용하는 Excel 템플릿을 다운로드할 수 있습니다.
 
-* [Consuming an Azure Machine Learning web service from Excel](machine-learning-consuming-from-excel.md)
-* [Excel add-in for Azure Machine Learning Web Services](machine-learning-excel-add-in-for-web-services.md)
-
-
-### <a name="from-a-rest-based-client"></a>From a REST-based client
-
-Azure Machine Learning Web Services are RESTful APIs. You can consume these APIs from various platforms, such as .NET, Python, R, Java, etc. The **Consume** page for your web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code that can help you get started. For more information, see [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
+* [Excel에서 Azure 기계 학습 웹 서비스 사용](machine-learning-consuming-from-excel.md)
+* [Azure 기계 학습 웹 서비스용 Excel 추가 기능](machine-learning-excel-add-in-for-web-services.md)
 
 
+### REST 기반 클라이언트에서
 
+Azure 기계 학습 웹 서비스는 RESTful API입니다. .NET, Python, R, Java 등과 같은 다양한 플랫폼에서 이러한 API를 사용할 수 있습니다. [Microsoft Azure 기계 학습 웹 서비스 포털](https://services.azureml.net)의 웹 서비스에 대한 **사용** 페이지에는 시작하는 데 도움을 줄 수 있는 샘플 코드가 있습니다. 자세한 내용은 [Azure 기계 학습 실험에서 배포된 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

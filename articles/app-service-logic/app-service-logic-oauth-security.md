@@ -1,52 +1,47 @@
 <properties
-    pageTitle="OAUTH Security in SaaS Connectors and API Apps | Azure"
-    description="Read about OAUTH security in the Connectors and API Apps in Azure App Service; microservices architecture; saas"
-    services="logic-apps"
-    documentationCenter=""
-    authors="MandiOhlinger"
-    manager="dwrede"
-    editor="cgronlun"/>
+	pageTitle="SaaS 커넥터 및 API 앱의 OAUTH 보안 | Azure"
+	description="Azure 앱 서비스에서 커넥터 및 API 앱의 OAUTH 보안 알아보기, 마이크로 서비스 아키텍처, saas"
+	services="logic-apps"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="logic-apps"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/23/2016"
-    ms.author="mandia"/>
+	ms.service="logic-apps"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2016"
+	ms.author="mandia"/>
 
 
+# SaaS 커넥터의 OAUTH 보안에 대해 알아보기
 
-# <a name="learn-about-oauth-security-in-saas-connectors"></a>Learn about OAUTH Security in SaaS connectors
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+Facebook, Twitter, DropBox 등 많은 SaaS(Software as a Service)는 사용자가 OAUTH 프로토콜을 사용하여 인증해야 합니다. 사용자가 논리 앱에서 SaaS 커넥터를 사용할 때 논리 앱 프로그램 디자이너에서 "인증"을 클릭하는 간소화된 사용자 환경이 제공됩니다. 사용자가 **인증**하면 로그인 후(아직 하지 않은 경우) 사용자를 대신하여 SaaS 서비스에 연결할 수 있도록 동의해 달라는 메시지가 나타납니다. 요청에 동의하고 인증한 후에 논리 앱에서 이러한 SaaS 서비스에 액세스할 수 있습니다.
 
-Many of the Software as a Service (SaaS) connectors like Facebook, Twitter, DropBox, and so on require users to authenticate using the OAUTH protocol.  When you use these SaaS connectors from Logic Apps, we provide a simplified user experience where you click "Authorize" in the Logic Apps designer. When you **Authorize**, you are asked to sign in (if not already) and provide consent to connect to the SaaS service on your behalf. After you do provide consent and authorize, your Logic Apps can then access these SaaS services.
+## 사용자 고유의 SaaS 앱 만들기
+이 간소화된 환경이 가능한 이유는 이전에 이러한 SaaS 서비스에서 응용 프로그램을 만들고 등록했기 때문입니다. 사용자가 고유의 응용 프로그램을 등록하여 사용하려는 경우가 있습니다. 예를 들어 사용자 지정 응용 프로그램에서 이러한 SaaS 커넥터를 사용하려는 경우에 이 방법이 필요합니다. 이 예에서는 DropBox 커넥터를 사용하지만 OAUTH를 사용하는 모든 커넥터의 프로세스가 동일합니다.
 
-## <a name="create-your-own-saas-app"></a>Create your own SaaS app
-This simplified experience is possible because we previously created and registered our application in these SaaS services.  In certain cases, you may want to register and use your own application.  This is necessary, for instance, when you want to use these SaaS connectors in your custom applications. This example uses the DropBox connector, but the process is the same for all connectors that rely on OAUTH.
+심지어 논리 앱에서도 기본적으로 제공되는 응용 프로그램 대신 사용자 고유의 응용 프로그램을 사용할 수 있습니다. "인증" 단추를 눌러도 연결되지 않으면 사용자 고유의 응용 프로그램을 만들 수 있습니다. 다음은 Twitter 커넥터에서 사용자 고유의 응용 프로그램을 만드는 단계입니다.
 
-Even in the context of Logic Apps, you can use your own application instead of using the default application that we provide. If the "Authorize" button fails to connect, you can try creating your own app. The following lists these steps for the Twitter connector:
+1. Azure Preview 포털에서 Twitter 커넥터를 엽니다. **찾아보기** > **API 앱**으로 이동합니다. Twitter 커넥터를 선택합니다. ![][1]
 
-1. Open your Twitter connector in the Azure preview portal. Go to **Browse** > **API Apps**. Select your Twitter connector:  
-    ![][1]
+2. **설정** > **인증**을 선택합니다. ![][2]
 
-2. Select **Settings** > **Authentication**:  
-    ![][2]
+3. **리디렉션 URI** 값을 복사합니다. ![][3]
 
-3. Copy the **Redirect URI** value:  
-    ![][3]
+4. [Twitter](http://apps.twitter.com)로 이동한 후 **새 앱 만들기**로 이동합니다. Twitter 커넥터에서 복사한 **리디렉션 URL** 값을 **콜백 URI** 속성에 붙여넣습니다. ![][4]
+5. Twitter 앱이 생성되면 **키 및 액세스 토큰**을 선택합니다. 이러한 값을 복사합니다.
+6. Twitter 커넥터 인증 설정에서, 이러한 값을 **클라이언트 ID** 및 **클라이언트 암호** 속성에 붙여넣습니다. ![][5]
+7. 커넥터 설정을 저장합니다.
 
-4. Go to [Twitter](http://apps.twitter.com) and **Create a New App**. In the **Callback URL** property, paste the **Redirect URI** value copied from  your Twitter connector:  ![][4]  
-5. When your Twitter app is created, select **Key and Access Tokens**. Copy these values.
-6. In your Twitter connector authentication settings, paste these values in the **Client ID** and **Client Secret** properties:   
-    ![][5]  
-7. Save your connector settings.  
+이제 논리 앱에서 사용자의 커넥터를 사용할 수 있습니다. 논리 앱에서 이 커넥터를 사용하면 커넥터가 기본 응용 프로그램 대신 사용자 고유의 응용 프로그램을 사용합니다.
 
-Now, you should be able to use your connector from Logic Apps. When you use this connector from Logic Apps, it uses your application instead of the default application.  
-
-> [AZURE.NOTE] If you have authorized an app previously, you may have to reauthorize the app.
+> [AZURE.NOTE] 이전에 앱을 인증했더라도 다시 인증해야 할 수 있습니다.
 
 
 <!--Image references-->
@@ -56,8 +51,4 @@ Now, you should be able to use your connector from Logic Apps. When you use this
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

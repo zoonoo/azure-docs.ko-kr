@@ -1,56 +1,51 @@
 <properties 
-    pageTitle="Customer case studies | Microsoft Azure" 
-    description="Learn about how some of our customers have been using Azure Data Factory." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="sharonlo101" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="고객 사례 연구 | Microsoft Azure" 
+	description="고객들이 Azure 데이터 팩터리를 어떻게 사용하고 있는지 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/20/2016" 
-    ms.author="shlo"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/20/2016" 
+	ms.author="spelluru"/>
 
+# 고객 사례 연구
 
-# <a name="customer-case-studies"></a>Customer case studies
+데이터 팩터리는 데이터의 이동과 변환을 자동화하는 클라우드 기반 정보 관리 서비스입니다. 많은 산업 분야의 고객들이 분석 파이프라인을 제작하고 비즈니스 문제를 해결하기 위해 데이터 팩터리와 기타 Azure 서비스를 사용합니다. 고객으로부터 직접 데이터 팩터리를 사용하는 이유와 방법에 대해 알아봅니다.
 
-Data Factory is a cloud-based information management service that automates the movement and transformation of data. Customers across many industries use Data Factory and other Azure services to build their analytics pipelines and solve their business problems.  Learn directly from our customers how and why they are using Data Factory.
+## Milliman
 
-## <a name="milliman"></a>Milliman
+[보험 업계를 혁신하고 있는 최고의 보험 통계 회사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
-[Top Actuarial firm transforms the insurance industry](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+## Rockwell Automation
 
-## <a name="rockwell-automation"></a>Rockwell Automation
+[빅데이터 솔루션으로 최대 90%의 비용을 절감하고 있는 산업 자동화 회사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
-[Industrial Automation Firm Cuts Costs up to 90 Percent with Big Data Solutions](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+## Ziosk
 
-## <a name="ziosk"></a>Ziosk
+[햄버거를 먹으며 즐길 게임은 어떤 것이 좋을까요? Ziosk는 이미 알고 있습니다.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
-[What game will you want to go with that burger? Ziosk may already know.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+## Alaska Airlines
 
-## <a name="alaska-airlines"></a>Alaska Airlines
+[더 매력적인 기내 엔터테인먼트를 위해 태플릿과 클라우드 서비스를 사용하는 항공사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-[Airline Uses Tablets, Cloud Services to Offer More Engaging In-Flight Entertainment](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
+## Tacoma 공립 학교
 
-## <a name="tacoma-public-schools"></a>Tacoma public schools
+[클라우드 분석으로 학생의 중퇴 위험을 예측하고 졸업률을 향상](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
-[Predicting student dropout risks, increasing graduation rates with cloud analytics](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
+## 레알 마드리드 FC
 
-## <a name="real-madrid-fc"></a>Real Madrid FC
+[Microsoft 클라우드를 통해 전 세계 4억5천만 명에 이르는 팬들을 경기장에 끌어모으는 레알 마드리드](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
-[Real Madrid brings the stadium closer to 450 million fans around the globe, with the Microsoft Cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
+## Pier 1 Imports
 
-## <a name="pier-1-imports"></a>Pier 1 Imports
+[클라우드 기계 학습을 통한 고객 파악으로 관계 개선](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-[Finding a Better Connection with Customers through Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric architecture | Microsoft Azure"
-   description="Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. This article shows the architecture of Service Fabric."
+   pageTitle="서비스 패브릭 아키텍처 | Microsoft Azure"
+   description="서비스 패브릭은 클라우드를 위한 확장 가능하고 안정적이며 쉽게 관리할 수 있는 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다. 이 문서에서는 서비스 패브릭의 아키텍처를 보여줍니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -16,54 +16,49 @@
    ms.date="06/09/2016"
    ms.author="rsinha"/>
 
+# 서비스 패브릭 아키텍처
 
-# <a name="service-fabric-architecture"></a>Service Fabric architecture
+서비스 패브릭은 계층화된 하위 시스템으로 빌드됩니다. 이러한 하위 시스템을 사용하여 다음 특징을 가진 응용 프로그램을 작성할 수 있습니다.
 
-Service Fabric is built with layered subsystems. These subsystems enable you to write applications that are:
+* 고가용성
+* 확장성
+* 관리 가능
+* 테스트 가능
 
-* Highly available
-* Scalable
-* Manageable
-* Testable
+다음 다이어그램은 서비스 패브릭의 주요 하위 시스템을 보여 줍니다.
 
-The following diagram shows the major subsystems of Service Fabric.
+![서비스 패브릭 아키텍처 다이어그램](media/service-fabric-architecture/service-fabric-architecture.png)
 
-![Diagram of Service Fabric architecture](media/service-fabric-architecture/service-fabric-architecture.png)
+분산된 시스템에서는 클러스터의 노드 간에서 안전하게 통신할 수 있는 기능이 매우 중요합니다. 스택의 기본은 전송 하위 시스템으로, 노드 간의 보안 통신을 제공합니다. 전송 하위 시스템 위에는 서로 다른 노드를 단일 엔터티로 클러스터화(클러스터라고 부름)하여 서비스 패브릭이 오류를 감지하고 리더 선택을 수행하며 일관된 라우팅을 제공하는 페더레이션 하위 시스템이 있습니다. 페더레이션 하위 시스템 위에 있는 안정성 하위 시스템은 복제, 리소스 관리 및 장애 조치(failover)와 같은 메커니즘을 통해 서비스 패브릭 서비스의 안정성을 담당합니다. 또한 페더레이션 하위 시스템은 단일 노드에서 응용 프로그램의 수명 주기를 관리하는 호스팅 및 활성화 하위 시스템의 기반이 됩니다. 관리 하위 시스템은 응용 프로그램 및 서비스의 수명 주기를 관리합니다. 테스트 용이성 하위 시스템은 응용 프로그램 개발자가 응용 프로그램 및 서비스를 프로덕션 환경에 배포하기 전후에 시뮬레이트된 오류를 통해 서비스를 테스트할 수 있게 해줍니다. 서비스 패브릭은 자체 통신 하위 시스템을 통해 서비스 위치를 확인하는 기능을 제공합니다. 개발자에게 노출되는 응용 프로그램 프로그래밍 모델은 도구 사용이 가능한 응용 프로그램 모델과 함께 이러한 하위 시스템의 맨 위에 계층화됩니다.
 
-In a distributed system, the ability to securely communicate between nodes in a cluster is crucial. At the base of the stack is the transport subsystem, which provides secure communication between nodes. Above the transport subsystem lies the federation subsystem, which clusters the different nodes into a single entity (named clusters) so that Service Fabric can detect failures, perform leader election, and provide consistent routing. The reliability subsystem, layered on top of the federation subsystem, is responsible for the reliability of Service Fabric services through mechanisms such as replication, resource management, and failover. The federation subsystem also underlies the hosting and activation subsystem, which manages the lifecycle of an application on a single node. The management subsystem manages the lifecycle of applications and services. The testability subsystem helps application developers test their services through simulated faults before and after deploying applications and services to production environments. Service Fabric provides the ability to resolve service locations through its communication subsystem. The application programming models exposed to developers are layered on top of these subsystems along with the application model to enable tooling.
+## 전송 하위 시스템
+전송 하위 시스템은 지점간 데이터그램 통신 채널을 구현합니다. 이 채널은 서비스 패브릭 클러스터 간 통신 및 서비스 패브릭 클러스터와 클라이언트 간의 통신에 사용됩니다. 페더레이션 계층에서의 브로드캐스트 및 멀티캐스트를 구현하는 기반을 제공하는 단방향 및 요청-회신 통신 패턴을 지원합니다. 전송 하위 시스템은 X509 인증서 또는 Windows 보안을 사용하여 통신을 보안합니다. 이 하위 시스템은 서비스 패브릭에 의해 내부적으로 사용되며, 개발자가 응용 프로그램에 직접 액세스할 수는 없습니다.
 
-## <a name="transport-subsystem"></a>Transport subsystem
-The transport subsystem implements a point-to-point datagram communication channel. This channel is used for communication within service fabric clusters and communication between the service fabric cluster and clients. It supports one-way and request-reply communication patterns, which provides the basis for implementing broadcast and multicast in the Federation layer. The transport subsystem secures communication by using X509 certificates or Windows security. This subsystem is used internally by Service Fabric and is not directly accessible to developers for application programming.
+## 페더레이션 하위 시스템
+분산 시스템의 노드 세트를 추론하려면 시스템에 대한 일관적인 시각이 필요합니다. 페더레이션 하위 시스템은 전송 하위 시스템에 의해 제공되는 통신 기본 형식을 사용하며, 추론 가능한 단일 통합된 클러스터에 다양한 노드를 연결합니다. 오류 탐지, 리더 선택, 일관된 라우팅 등 다른 하위 시스템에 필요한 분산 시스템 기본 형식을 제공합니다. 페더레이션 하위 시스템은 분산 해시 테이블 위에 128비트의 토큰 공간으로 빌드됩니다. 이 하위 시스템은 링의 각 노드가 소유권에 대한 토큰 공간의 하위 집합으로 할당되는 노드 간의 링 토폴로지를 만듭니다. 오류 감지의 경우, 해당 계층은 심박 및 중재에 기반한 임대 메커니즘을 사용합니다. 또한 페더레이션 하위 시스템은 복잡한 조인 및 출발 프로토콜을 통해 언제든지 토큰의 소유자가 하나만 존재하도록 합니다. 따라서 리더 선택 및 일관된 라우팅을 보장할 수 있습니다.
 
-## <a name="federation-subsystem"></a>Federation subsystem
-In order to reason about a set of nodes in a distributed system, you need to have a consistent view of the system. The federation subsystem uses the communication primitives provided by the transport subsystem and stitches the various nodes into a single unified cluster that it can reason about. It provides the distributed systems primitives needed by the other subsystems - failure detection, leader election, and consistent routing. The federation subsystem is built on top of distributed hash tables with a 128-bit token space. The subsystem creates a ring topology over the nodes, with each node in the ring being allocated a subset of the token space for ownership. For failure detection, the layer uses a leasing mechanism based on heart beating and arbitration. The federation subsystem also guarantees through intricate join and departure protocols that only a single owner of a token exists at any time. This provide leader election and consistent routing guarantees.
+## 안정성 하위 시스템
+안정성 하위 시스템은 _복제자_, _장애 조치(Failover) 관리자_ 및 _리소스 분산 장치_를 통해 서비스 패브릭 서비스의 상태를 매우 가용성 있게 하는 메커니즘을 제공합니다.
 
-## <a name="reliability-subsystem"></a>Reliability subsystem
-The reliability subsystem provides the mechanism to make the state of a Service Fabric service highly available through the use of the _Replicator_, _Failover Manager_, and _Resource Balancer_.
+* 복제자는 기본 서비스 복제본에서 보조 복제본으로 자동으로 복제되는 변경되는 상태를 확인하고 서비스 복제본 세트에서 기본 및 보조 복제본간의 일관성을 유지합니다. 복제자는 복제본 세트의 복제본 간의 쿼럼 관리를 담당합니다. 장애 조치(failover) 단위와 상호 작용하여 복제할 작업 목록을 가져오고, 재구성 에이전트는 복제본 세트의 구성과 함께 이를 제공합니다. 여기서 구성은 작업을 복제해야 하는 복제본을 나타냅니다. 서비스 패브릭은 패브릭 복제자라고 불리는 기본 복제자를 제공합니다. 이는 프로그래밍 모델 API가 서비스 상태를 높은 가용성과 안정성 있게 만드는 데 이용될 수 있습니다.
+* 장애 조치(Failover) 관리자는 클러스터에 노드가 추가되거나 삭제된 경우 부하가 사용 가능한 노드에 걸쳐 자동으로 재분산되도록 합니다. 클러스터의 노드가 실패한 경우, 해당 클러스터는 자동으로 서비스 복제본을 재구성하여 가용성을 유지합니다.
+* 리소스 관리자는 클러스터의 오류 도메인을 통해 서비스 복제본을 배치하고 모든 장애 조치(failover) 단위가 동작하도록 합니다. 또한 리소스 관리자는 클러스터 노드의 기본 공유 풀을 통해 서비스 리소스를 분산시켜서 최적화된 균일한 부하 분산을 달성합니다.
 
-* The Replicator ensures that state changes in the primary service replica will automatically be replicated to secondary replicas, maintaining consistency between the primary and secondary replicas in a service replica set. The replicator is responsible for quorum management among the replicas in the replica set. It interacts with the failover unit to get the list of operations to replicate, and the reconfiguration agent provides it with the configuration of the replica set. That configuration indicates which replicas the operations need to be replicated. Service Fabric provides a default replicator called Fabric Replicator, which can be used by the programming model API to make the service state highly available and reliable.
-* The Failover Manager ensures that when nodes are added to or removed from the cluster, the load is automatically redistributed across the available nodes. If a node in the cluster fails, the cluster will automatically reconfigure the service replicas to maintain availability.
-* The Resource Manager places service replicas across failure domain in the cluster and ensures that all failover units are operational. The Resource Manager also balances service resources across the underlying shared pool of cluster nodes to achieve optimal uniform load distribution.
+## 관리 하위 시스템
+관리 하위 시스템은 종단간 서비스 및 응용 프로그램 수명 주기 관리를 제공합니다. PowerShell cmdlet 및 관리 API로 가용성의 손실 없이 응용 프로그램을 프로비전, 배포, 패치, 업그레이드 및 프로비전 해제할 수 있습니다. 관리 하위 시스템은 다음 서비스를 통해 이를 수행합니다.
 
-## <a name="management-subsystem"></a>Management subsystem
-The management subsystem provides end-to-end service and application lifecycle management. PowerShell cmdlets and administrative APIs enable you to provision, deploy, patch, upgrade, and de-provision applications without loss of availability. The management subsystem performs this through the following services.
-
-* **Cluster Manager**: This is the primary service that interacts with the Failover Manager from reliability to place the applications on the nodes based on the service placement constraints. The Resource Manager in failover subsystem ensures that the constraints are never broken. The cluster manager manages the lifecycle of the applications from provision to de-provision. It integrates with the health manager to ensure that application availability is not lost from a semantic health perspective during upgrades.
-* **Health Manager**: This service enables health monitoring of applications, services, and cluster entities. Cluster entities (such as nodes, service partitions, and replicas) can report health information, which is then aggregated into the centralized health store. This health information provides an overall point-in-time health snapshot of the services and nodes distributed across multiple nodes in the cluster, enabling you to take any needed corrective actions. Health query APIs enable you to query the health events reported to the health subsystem. The health query APIs return the raw health data stored in the health store or the aggregated, interpreted health data for a specific cluster entity.
-* **Image Store**: This service provides storage and distribution of the application binaries. This service provides a simple distributed file store where the applications are uploaded to and downloaded from.
-
-
-## <a name="hosting-subsystem"></a>Hosting subsystem
-The cluster manager informs the hosting subsystem (running on each node) which services it needs to manage for a particular node. The hosting subsystem then manages the lifecycle of the application on that node. It interacts with the reliability and health components to ensure that the replicas are properly placed and are healthy.
-
-## <a name="communication-subsystem"></a>Communication subsystem
-This subsystem provides reliable messaging within the cluster and service discovery through the Naming service. The Naming service resolves service names to a location in the cluster and enables users to manage service names and properties. Using the Naming service, clients can securely communicate with any node in the cluster to resolve a service name and retrieve service metadata. Using a simple Naming client API, users of Service Fabric can develop services and clients capable of resolving the current network location despite node dynamism or the re-sizing of the cluster.
-
-## <a name="testability-subsystem"></a>Testability subsystem
-Testability is a suite of tools specifically designed for testing services built on Service Fabric. The tools let a developer easily induce meaningful faults and run test scenarios to exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled and safe manner. Testability also provides a mechanism to run longer tests that can iterate through various possible failures without losing availability. This provides you with a test-in-production environment.
+* **클러스터 관리자**: 서비스 배치 제약을 기반으로 노드에 응용 프로그램을 안정적으로 배치하는 장애 조치(Failover) 관리자와 상호 작용하는 기본 서비스입니다. 장애 조치(failover) 하위 시스템의 리소스 관리자는 이 제약이 깨지지 않도록 합니다. 클러스터 관리자는 프로비전에서 프로비전 해제까지 응용 프로그램의 수명 주기를 관리합니다. 상태 관리자와 통합하여 업그레이드하는 동안 의미상 상태 관점에서 상태 응용 프로그램 가용성이 손상되지 않도록 합니다.
+* **상태 관리자**: 이 서비스는 응용 프로그램, 서비스 및 클러스터 엔터티의 상태를 모니터링합니다. 클러스터 엔터티(노드, 서비스 파티션, 복제본 등)는 중앙 집중화된 Health 스토어에 집계된 상태 정보를 보고할 수 있습니다. 이 상태 정보는 클러스터의 여러 노드에 분산된 서비스 및 노드의 전체 지정 시간 상태 스냅숏을 제공하여 필요한 수정 작업을 할 수 있게 합니다. 상태 쿼리 API는 보고된 상태 이벤트를 상태 하위 시스템에 쿼리할 수 있게 합니다. 상태 쿼리 API는 Health 스토어에 저장된 원시 상태 데이터 또는 특정 클러스터 엔터티에 대해 집계 및 해석된 상태 데이터를 반환합니다.
+* **이미지 저장소**: 이 서비스는 응용 프로그램 바이너리의 저장소 및 분산을 제공합니다. 이 서비스는 응용 프로그램이 업로드되고 다운로드되는 단순 분산 파일 저장을 제공합니다.
 
 
+## 호스팅 하위 시스템
+클러스터 관리자는 호스팅 하위 시스템(각 노드에서 실행 중)에 특정 노드를 관리하는 데 필요한 서비스를 알립니다. 그 후 호스팅 하위 시스템은 해당 노드의 응용 프로그램의 수명 주기를 관리합니다. 안정성 및 상태 구성 요소와 상호 작용하여 복제본이 적절히 배치되고 정상이도록 합니다.
 
-<!--HONumber=Oct16_HO2-->
+## 통신 하위 시스템
+이 하위 시스템은 클러스터 내의 안정적인 메시징과 이름 지정 서비스를 통한 서비스 검색을 제공합니다. 이름 지정 서비스는 클러스터의 위치에 서비스 이름을 확인하고 사용자가 서비스 이름 및 속성을 관리할 수 있도록 합니다. 이름 지정 서비스를 사용하면 클라이언트는 클러스터의 모든 노드와 안전하게 통신하여 서비스 네임을 확인하고 서비스 메타데이터를 검색할 수 있습니다. 단순 이름 지정 클라이언트 API를 사용하면 서비스 패브릭 사용자는 노드 동적 특성이나 클러스터의 크기 조정에 관계없이 현재 네트워크 위치를 확인할 수 있는 서비스 및 클라이언트를 개발할 수 있습니다.
 
+## 테스트 용이성 하위 시스템
+테스트 용이성은 서비스 패브릭에서 빌드된 서비스를 테스트하는 데 적합하도록 설계된 도구 모음입니다. 개발자는 이 도구를 사용하여 쉽게 의미 있는 오류를 유도하고 테스트 시나리오를 실행하고 서비스가 수명 기간에 걸쳐 제어되고 안전한 방식으로 연습하게 될 다양한 상태 및 전환을 연습하고 유효성을 검사할 수 있습니다. 또한 테스트 용이성은 가용성을 손상시키지 않고 각종 가능한 오류를 반복할 수 있는 장시간 테스트를 실행하는 메커니즘도 제공합니다. 테스트할 수 있는 프로덕션 환경을 제공합니다.
 
+<!---HONumber=AcomDC_0629_2016-->

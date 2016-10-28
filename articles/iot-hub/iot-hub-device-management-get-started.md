@@ -1,297 +1,200 @@
 <properties
- pageTitle="Get started with device management | Microsoft Azure"
- description="This tutorial shows you how to get started with device management on Azure IoT Hub"
- services="iot-hub"
- documentationCenter=".net"
- authors="juanjperez"
- manager="timlt"
- editor=""/>
+	pageTitle="IoT Hub 장치 관리 시작 | Microsoft Azure"
+	description="C#로 장치 관리에 대한 Azure IoT Hub 시작 자습서입니다. Microsoft Azure IoT SDK를 포함한 Azure IoT Hub 및 C#을 사용하여 장치 관리를 구현합니다."
+	services="iot-hub"
+	documentationCenter=".net"
+	authors="juanjperez"
+	manager="timlt"
+	editor=""/>
 
 <tags
  ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
+ ms.devlang="dotnet"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/30/2016" 
+ ms.date="08/11/2016"
  ms.author="juanpere"/>
 
+# C#(미리 보기)을 사용하여 Azure IoT Hub 장치 관리 시작
 
-# <a name="tutorial:-get-started-with-device-management-(preview)"></a>Tutorial: Get started with device management (preview)
+[AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
-## <a name="introduction"></a>Introduction
-IoT cloud applications can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT cloud application and a device work together to initiate and monitor a remote device reboot using IoT Hub.
+## 소개
+Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hub의 장치를 프로비전하며 여러 시뮬레이션된 장치를 시작하고 장치 관리 샘플 UI에 이러한 장치가 표시되어야 합니다. 이 자습서에서는 다음 단계를 안내합니다.
 
-To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use Azure IoT Hub primitives such as [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you initiate and monitor remote device reboot from IoT Hub.
+> [AZURE.NOTE]  기존 IoT Hub에 아직 이러한 기능이 없기 때문에 기존 IoT Hub가 있더라도 새 IoT Hub를 만들어서 장치 관리 기능을 사용해야 합니다. 장치 관리가 일반적으로 지원되면 모든 기존 IoT Hub는 장치 관리 기능을 가져도록 업그레이드됩니다.
 
-You use a C2D method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
+## 필수 조건
 
-- Handling the method request sent from IoT Hub.
-- Initiating the corresponding device specific action on the device.
-- Providing status updates through the device twin reported properties to IoT Hub.
+이 자습서는 사용자가 Windows 개발 컴퓨터를 사용한다고 가정합니다.
 
-You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
+단계를 완료하려면 다음을 설치해야 합니다.
 
-This tutorial shows you how to:
+- Microsoft Visual Studio 2015
 
-- Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
-- Create a simulated device that has a direct method which enables reboot which can be called by the cloud.
-- Create a console application that calls the reboot direct method on the simulated device via your IoT hub.
+- Git
 
-At the end of this tutorial, you have two Node.js console applications:
+- CMake(버전 2.8이상). <https://cmake.org/download/>에서 CMake를 설치합니다. Windows PC에서 Windows Installer(.msi) 옵션을 선택합니다. CMake를 현재 사용자 경로 변수에 추가하도록 확인란을 선택해야 합니다.
 
-**dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
-
-**dmpatterns_getstarted_service.js**, which calls a direct method on the simulated device, displays the response, and displays the updated device twin reported properties.
+- Node.js 6.1.0 이상. <https://nodejs.org/>의 플랫폼에 Node.js를 설치합니다.
 
-To complete this tutorial, you need the following:
+- 활성 Azure 구독. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][lnk-free-trial]을 참조하세요.
 
-Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+## IoT Hub를 사용하는 장치 관리 만들기
 
-An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
+연결할 시뮬레이션된 장치에 IoT Hub를 사용하는 장치 관리를 만들어야 합니다. 다음 단계는 Azure 포털을 사용하여 이 작업을 완료하는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+1.  [Azure 포털]에 로그인합니다.
+2.  점프 모음에서 **새로 만들기**를 클릭하고 **사물 인터넷**을 클릭한 다음 **Azure IoT Hub**를 클릭합니다.
 
-## <a name="create-a-simulated-device-app"></a>Create a simulated device app
+	![][img-new-hub]
 
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+3.  **IoT Hub** 블레이드에서 IoT Hub의 구성을 선택합니다.
 
-1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
+	![][img-configure-hub]
 
-    ```
-    npm init
-    ```
-    
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+  -   **이름** 상자에 IoT Hub의 이름을 입력합니다. **이름**의 유효하고 사용 가능하면 **이름** 상자에 녹색 확인 표시가 나타납니다.
+  -   **가격 및 크기 조정 계층**을 선택합니다. 이 자습서에는 특정 계층이 필요하지 않습니다.
+  -   **리소스 그룹**에서 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리]를 참조하세요.
+  -   **장치 관리 사용** 상자를 선택합니다.
+  -   **위치**에서 IoT hub를 호스트하는 위치를 선택합니다. IoT Hub 장치 관리는 공개 미리 보기 중 미국 동부, 북유럽, 동아시아에서만 사용할 수 있습니다. 향후에는 모든 지역에서 사용할 수 있습니다.
 
-    ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
-    ```
+    > [AZURE.NOTE]  **장치 관리를 사용하도록 설정**하는 상자를 선택하지 않은 경우 샘플은 작동하지 않습니다.<br/>**장치 관리를 사용하도록 설정**을 선택하여 미국 동부, 북유럽 및 동아시아에서만 지원되고 프로덕션 시나리오에는 적합하지 않은 미리 보기 IoT Hub를 만듭니다. 장치를 장치 관리 사용 허브 내외로 마이그레이션할 수 없습니다.
 
-3. Using a text editor, create a new **dmpatterns_getstarted_device.js** file in the **manageddevice** folder.
+4.  IoT hub 구성 옵션을 선택한 경우 **만들기**를 클릭합니다. Azure가 IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 **시작 보드** 또는 **알림** 패널에서 진행률을 모니터링할 수 있습니다.
 
-4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_device.js** file:
+	![][img-monitor]
 
-    ```
-    'use strict';
+5.  IoT Hub가 성공적으로 생성되면 새 IoT Hub의 블레이드를 열고 **호스트 이름**을 기록해 둔 다음 **공유 액세스 정책**을 클릭합니다.
 
-    var Client = require('azure-iot-device').Client;
-    var Protocol = require('azure-iot-device-mqtt').Mqtt;
-    ```
+	![][img-keys]
 
-5. Add a **connectionString** variable and use it to create a device client.  Replace the connection string with your device connection string.  
+6.  **iothubowner** 정책을 클릭한 다음, **iothubowner** 블레이드에 있는 연결 문자열을 복사하여 기록해둡니다. 이 자습서의 나머지 단계를 완료하는 데 필요하기 때문에 나중에 액세스할 수 있는 위치에 복사합니다.
 
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
+ 	> [AZURE.NOTE] 프로덕션 시나리오에서는 **iothubowner** 자격 증명을 사용하지 않도록 합니다.
 
-6. Add the following function to implement the direct method on the device
+	![][img-connection]
 
-    ```
-    var onReboot = function(request, response) {
-        
-        // Respond the cloud app for the direct method
-        response.send(200, 'Reboot started', function(err) {
-            if (!err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
-            }
-        });
-        
-        // Report the reboot before the physical restart
-        var date = new Date();
-        var patch = {
-            iothubDM : {
-                reboot : {
-                    lastReboot : date.toISOString(),
-                }
-            }
-        };
-
-        // Get device Twin
-        client.getTwin(function(err, twin) {
-            if (err) {
-                console.error('could not get twin');
-            } else {
-                console.log('twin acquired');
-                twin.properties.reported.update(patch, function(err) {
-                    if (err) throw err;
-                    console.log('Device reboot twin state reported')
-                });  
-            }
-        });
-        
-        // Add your device's reboot API for physical restart.
-        console.log('Rebooting!');
-    };
-    ```
-
-7. Open the connection to your IoT hub and start the direct method listener:
-
-    ```
-    client.open(function(err) {
-        if (err) {
-            console.error('Could not open IotHub client');
-        }  else {
-            console.log('Client opened.  Waiting for reboot method.');
-            client.onDeviceMethod('reboot', onReboot);
-        }
-    });
-    ```
-    
-8. Save and close the **dmpatterns_getstarted_device.js** file.
-
- [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
-
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Trigger a remote reboot on the device using a direct method 
-
-In this section, you create a Node.js console app that initiates a remote reboot on a device using a direct method and uses device twin queries to find the last reboot time for that device.
-
-1. Create a new empty folder called **triggerrebootondevice**.  In the **triggerrebootondevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
-
-    ```
-    npm init
-    ```
-    
-2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
-
-    ```
-    npm install azure-iothub@dtpreview --save
-    ```
-    
-3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
-
-4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
-
-    ```
-    'use strict';
-
-    var Registry = require('azure-iothub').Registry;
-    var Client = require('azure-iothub').Client;
-    ```
-
-5. Add the following variable declarations and replace the placeholder values:
-
-    ```
-    var connectionString = '{iothubconnectionstring}';
-    var registry = Registry.fromConnectionString(connectionString);
-    var client = Client.fromConnectionString(connectionString);
-    var deviceToReboot = 'myDeviceId';
-    ```
-    
-6. Add the following function to invoke the device method to reboot the target device:
-
-    ```
-    var startRebootDevice = function(twin) {
-
-        var methodName = "reboot";
-        
-        var methodParams = {
-            methodName: methodName,
-            payload: null,
-            timeoutInSeconds: 30
-        };
-        
-        client.invokeDeviceMethod(deviceToReboot, methodParams, function(err, result) {
-            if (err) { 
-                console.error("Direct method error: "+err.message);
-            } else {
-                console.log("Successfully invoked the device to reboot.");  
-            }
-        });
-    };
-    ```
-
-7. Add the following function to query for the device and get the last reboot time:
-
-    ```
-    var queryTwinLastReboot = function() {
-
-        registry.getTwin(deviceToReboot, function(err, twin){
-
-            if (twin.properties.reported.iothubDM != null)
-            {
-                if (err) {
-                    console.error('Could not query twins: ' + err.constructor.name + ': ' + err.message);
-                } else {
-                    var lastRebootTime = twin.properties.reported.iothubDM.reboot.lastReboot;
-                    console.log('Last reboot time: ' + JSON.stringify(lastRebootTime, null, 2));
-                }
-            } else 
-                console.log('Waiting for device to report last reboot time.');
-        });
-    };
-    ```
-    
-8. Add the following code to call the functions that will trigger the reboot direct method and query for the last reboot time:
-
-    ```
-    startRebootDevice();
-    setInterval(queryTwinLastReboot, 2000);
-    ```
-    
-9. Save and close the **dmpatterns_getstarted_service.js** file.
-
-## <a name="run-the-applications"></a>Run the applications
-
-You are now ready to run the applications.
-
-1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
-
-    ```
-    node dmpatterns_getstarted_device.js
-    ```
-
-2. At the command-prompt in the **triggerrebootondevice** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
-
-    ```
-    node dmpatterns_getstarted_service.js
-    ```
-
-3. You will see the react to the direct method by printing out the message
-
-## <a name="customize-and-extend-the-device-management-actions"></a>Customize and extend the device management actions
-
-Your IoT solutions can expand the defined set of device management patterns or enable custom patterns through the use of the device twin and C2D method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
-
-## <a name="device-maintenance-windows"></a>Device maintenance windows
-
-Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime.  Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
-
-## <a name="next-steps"></a>Next steps
-
-In this tutorial, you used a direct method to trigger a remote reboot on a device, used the device twin reported properties to report the last reboot time from the device, and queried for the device twin to discover the last reboot time of the device from the cloud.
-
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
-
-[Tutorial: How to do a firmware update][lnk-fwupdate]
-
-To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
-
-To continue getting started with IoT Hub, see [Getting started with the Gateway SDK][lnk-gateway-SDK].
+이제 IoT Hub를 사용하는 장치 관리를 만들었습니다. 이 자습서의 나머지 단계를 완료하기 위해 연결 문자열이 필요합니다.
 
+## 샘플 빌드 및 IoT Hub에 장치 프로비전
+
+이 섹션에서는 시뮬레이션된 장치 및 샘플을 빌드하고 IoT Hub의 장치 레지스트리에 일련의 새 장치 ID를 프로비전하는 스크립트를 실행합니다. 장치 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다.
+
+샘플을 빌드하고 IoT Hub에 장치를 프로비전하려면 다음 단계를 수행합니다.
+
+1.  **VS2015용 개발자 명령 프롬프트**를 엽니다.
+
+2.  Github 리포지토리를 복제합니다. **공백이 없는 디렉터리에 복제하도록 합니다.**
+
+	  ```
+	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
+	  ```
+
+3.  **azure-iot-sdks** 리포지토리를 복제한 루트 폴더에서 **\\azure-iot-sdks\\csharp\\service\\samples**로 이동하고 실행하여 자리 표시자 값을 이전 섹션의 연결 문자열로 바꿉니다.
+
+	  ```
+	  setup.bat <IoT Hub Connection String>
+	  ```
+
+이 스크립트는 다음을 수행합니다.
+
+1.  **cmake**를 실행하여 시뮬레이션 장치의 Visual Studio 2015 솔루션을 만듭니다. 이 프로젝트 파일은 **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**입니다. 원본 파일은 ***azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample** 폴더에 있습니다.
+
+2.  시뮬레이션 장치 프로젝트 **iotdm\_simple\_sample.vcxproj**를 빌드합니다.
+
+3.  장치 관리 샘플 **azure-iot-sdks\\csharp\\service\\samples\\GetStartedWithIoTDM\\GetStartedWithIoTDM.sln**을 빌드합니다.
+
+4.  **GenerateDevices.exe**를 실행하여 IoT Hub에 장치 ID를 프로비전합니다. 장치 설명은 **sampledevices.json**(**azure-iot-sdks\\node\\service\\samples** 폴더에 있음)에 있으며 장치를 프로비전한 후 자격 증명은 **devicecreds.txt** 파일(**azure-iot-sdks\\csharp\\service\\samples\\bin** 폴더에 위치)에 저장됩니다.
+
+## 시뮬레이션된 장치 시작
+
+장치가 장치 레지스트리에 추가되었으므로 시뮬레이션된 관리 장치를 시작할 수 있습니다. Azure IoT Hub에 프로비전된 각 장치 ID에 하나의 시뮬레이션된 장치가 시작됩니다.
+
+개발자 명령 프롬프트를 사용하여 **\\azure-iot-sdks\\csharp\\service\\samples\\bin** 폴더에서 다음을 실행합니다.
+
+  ```
+  simulate.bat
+  ```
+
+이 스크립트는 **devicecreds.txt** 파일에 나열된 각 장치에 대해 **iotdm\_simple\_sample.exe** 인스턴스 하나를 실행합니다. 시뮬레이션된 장치는 명령 창을 닫을 때까지 계속 실행됩니다.
+
+**iotdm\_simple\_sample** 샘플 응용 프로그램은 C에 대한 Azure IoT Hub 장치 관리 클라이언트 라이브러리를 사용하여 빌드되며 여기서 Azure IoT Hub으로 관리할 수 있는 IoT 장치를 만들 수 있습니다. 장치 제조업체는 이 라이브러리를 사용하여 장치 속성을 보고하고 장치 작업에 필요한 실행 동작을 구현할 수 있습니다. 이 라이브러리는 오픈 소스 Azure IoT Hub SDK의 일부로 제공되는 구성 요소입니다.
+
+**simulate.bat**을 실행하면 출력 창에 데이터의 스트림이 표시됩니다. 이 출력에서는 들어오고 나가는 트래픽과 응용 프로그램이 지정한 콜백 함수의 **printf** 문을 보여 줍니다. 이 출력을 통해 샘플 응용 프로그램이 디코딩된 패킷을 처리하는 방법과 함께 들어오고 나가는 트래픽을 볼 수 있습니다. 장치가 IoT Hub에 연결된 경우 서비스는 장치에서 리소스를 자동으로 확인하기 시작합니다. 그런 다음 IoT Hub DM 클라이언트 라이브러리는 장치 콜백을 호출하여 장치에서 최신 값을 검색합니다.
+
+다음은 **iotdm\_simple\_sample** 샘플 응용 프로그램의 출력입니다. 맨 위에 성공적인 **등록** 메시지가 표시되며 이는 **Device11-7ce4a850**라는 ID의 장치가 IoT Hub에 연결되었음을 보여 줍니다.
+
+> [AZURE.NOTE]  대략적인 출력을 보려면 소매 구성을 빌드하고 실행합니다.
+
+![][img-output]
+
+다음 섹션을 완료하는 대로 모든 시뮬레이션된 장치를 실행하도록 합니다.
+
+## 장치 관리 샘플 UI 실행
+
+IoT Hub를 프로비전하고 관리를 위해 여러 시뮬레이션된 장치를 실행하고 등록했으니 장치 관리 샘플 UI를 배포할 수 있습니다. 장치 관리 샘플 UI에서는 장치 관리 API를 활용하여 대화형 UI 환경을 구축하는 방법의 작업 예제를 제공합니다. [알려진 문제](https://github.com/Azure/azure-iot-device-management#knownissues)를 포함하여 장치 관리 샘플 UI에 대한 자세한 내용은 [Azure IoT 장치 관리 UI][lnk-dm-github] GitHub 리포지토리를 참조하세요.
+
+장치 관리 샘플 UI를 검색하고 빌드하며 실행하려면 다음 단계를 수행합니다.
+
+1. **명령 프롬프트**를 엽니다.
+
+2. `node --version`을 입력하여 필수 구성 요소 섹션에 따라 Node.js 6.1.0 이상을 설치했는지 확인합니다.
+
+3. 다음 명령을 실행하여 Azure IoT 장치 관리 UI GitHub 리포지토리를 복제합니다.
+
+	```
+	git clone https://github.com/Azure/azure-iot-device-management.git
+	```
+	
+4. Azure IoT 장치 관리 UI 리포지토리에 있는 복제된 복사본의 루트 폴더에서 다음 명령을 실행하여 종속 패키지를 검색합니다.
+
+	```
+	npm install
+	```
+
+5. npm 설치 명령이 완료되면 다음 명령을 실행하여 코드를 작성합니다.
+
+	```
+	npm run build
+	```
+
+6. 텍스트 편집기를 사용하여 복제된 폴더의 루트에서 user-config.json 파일을 엽니다. "&lt;YOUR CONNECTION STRING HERE&gt;"라는 텍스트를 이전 섹션의 IoT Hub 연결 문자열로 바꾸고 파일을 저장합니다.
+
+7. 명령 프롬프트에서 다음 명령을 실행하여 장치 관리 UX 앱을 시작합니다.
+
+	```
+	npm run start
+	```
+
+8. 명령 프롬프트가 "서비스 시작"을 보고하면 웹 브라우저(Edge/IE 11+/Safari/Chrome은 현재 지원됨)를 열고 다음 URL에서 장치 관리 앱으로 이동하여 시뮬레이션된 장치를 봅니다. <http://127.0.0.1:3003>.
+
+	![][img-dm-ui]
+
+다음 장치 관리 자습서를 진행하면서 시뮬레이션된 장치 및 장치 관리 앱을 계속 실행합니다.
+
+
+## 다음 단계
+
+IoT Hub를 계속 시작하려면 [게이트웨이 SDK 시작][lnk-gateway-SDK]을 참조하세요.
+
+Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 [샘플 UI를 사용하여 Azure IoT Hub 장치 관리 탐색][lnk-sample-ui] 자습서를 참조하세요.
 
 <!-- images and links -->
-[img-output]: media/iot-hub-get-started-with-dm/image6.png
-[img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
-
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[img-new-hub]: media/iot-hub-device-management-get-started/image1.png
+[img-configure-hub]: media/iot-hub-device-management-get-started/image2.png
+[img-monitor]: media/iot-hub-device-management-get-started/image3.png
+[img-keys]: media/iot-hub-device-management-get-started/image4.png
+[img-connection]: media/iot-hub-device-management-get-started/image5.png
+[img-output]: media/iot-hub-device-management-get-started/image6.png
+[img-dm-ui]: media/iot-hub-device-management-get-started/dmui.png
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-fwupdate]: iot-hub-firmware-update.md
-[Azure portal]: https://portal.azure.com/
-[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
+[Azure 포털]: https://portal.azure.com/
+[리소스 그룹을 사용하여 Azure 리소스 관리]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
+[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-[lnk-devtwin]: iot-hub-devguide-device-twins.md
-[lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,17 +1,14 @@
-The following table lists the requirements for PolicyBased and RouteBased VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, PolicyBased VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+다음 표에서는 PolicyBased VPN 게이트웨이와 RouteBased VPN 게이트웨이에 대한 요구 사항을 나열합니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다. 클래식 모델의 경우 PolicyBased VPN 게이트웨이는 정적 게이트웨이와 동일하고, Route-based 게이트웨이는 동적 게이트웨이와 동일합니다.
 
 
-|   | **PolicyBased Basic VPN Gateway** | **RouteBased Basic VPN Gateway** | **RouteBased Standard VPN Gateway**   | **RouteBased High Performance VPN Gateway** |
+| | **PolicyBased 기본 VPN 게이트웨이** | **RouteBased 기본 VPN 게이트웨이** | **RouteBased 표준 VPN 게이트웨이** | **RouteBased 고성능 VPN 게이트웨이** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | PolicyBased VPN configuration        | RouteBased VPN configuration  | RouteBased VPN configuration     | RouteBased VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Supported                     | Supported                   |
+| **사이트 간 연결(S2S)** | PolicyBased VPN 구성 | RouteBased VPN 구성 | RouteBased VPN 구성 | RouteBased VPN 구성 |
+| **지점 및 사이트 간 연결(P2S)** | 지원되지 않음 | 지원됨(S2S와 함께 사용할 수 있음) | 지원됨(S2S와 함께 사용할 수 있음) | 지원됨(S2S와 함께 사용할 수 있음) |
+| **인증 방법** | 미리 공유한 키 | -S2S 연결에 대해 미리 공유한 키 -P2S 연결용 인증서 | -S2S 연결에 대해 미리 공유한 키 -P2S 연결용 인증서 | -S2S 연결에 대해 미리 공유한 키 -P2S 연결용 인증서 |
+| **S2S 연결의 최대 수** | 1 | 10 | 10 | 30 |
+| **P2S 연결의 최대 수** | 지원되지 않음 | 128 | 128 | 128 |
+|**활성 라우팅 지원(BGP)** | 지원되지 않음 | 지원되지 않음 | 지원됨 | 지원됨 |
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

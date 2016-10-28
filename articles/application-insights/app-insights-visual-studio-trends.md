@@ -1,108 +1,103 @@
 <properties 
-    pageTitle="Analyzing Trends in Visual Studio | Microsoft Azure" 
-    description="Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio." 
-    services="application-insights" 
+	pageTitle="Visual Studio에서 추세 분석 | Microsoft Azure" 
+	description="Visual Studio의 Application Insights 원격 분석에서 추세를 분석, 시각화 및 탐색합니다." 
+	services="application-insights" 
     documentationCenter=".net"
-    authors="numberbycolors" 
-    manager="douge"/>
+	authors="numberbycolors" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="10/25/2016" 
-    ms.author="daviste"/>
-    
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/08/2016" 
+	ms.author="daviste"/>
+	
+# Visual Studio에서 추세 분석
 
-# <a name="analyzing-trends-in-visual-studio"></a>Analyzing Trends in Visual Studio
+Application Insights 추세 도구는 응용 프로그램의 중요한 원격 분석 이벤트가 시간이 지남에 따라 어떻게 변했는지 시각화하여, 문제와 잘못된 부분을 신속하게 식별하는 데 도움을 줍니다. 더 자세한 진단 정보에 연결하면 추세를 통해 앱의 성능을 향상시키고 예외의 원인을 추적하며 사용자 지정 이벤트로부터 새로운 정보를 발견할 수 있습니다.
 
-The Application Insights Trends tool visualizes how your application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
+![예제 추세 창](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
 
-![Example Trends window](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
+> [AZURE.NOTE] Application Insights 추세는 Visual Studio 2015 업데이트 3 이상에서 또는 [개발자 분석 도구 확장](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) 버전 5.209 이상과 함께 사용할 수 있습니다.
 
-> [AZURE.NOTE] Application Insights Trends is available in Visual Studio 2015 Update 3 and later, or with the [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) version 5.209 and later.
+## Application Insights 추세 열기
 
-## <a name="open-application-insights-trends"></a>Open Application Insights Trends
+Application Insights 추세 창을 열려면:
 
-To open the Application Insights Trends window:
+* Application Insights 도구 모음 단추에서 **원격 분석 추세 탐색**을 선택합니다. 또는
+* 프로젝트 상황에 맞는 메뉴에서 **Application Insights > 원격 분석 추세 탐색**을 선택합니다. 또는
+* Visual Studio 메뉴 모음에서 **보기 > 다른 창 > Application Insights 추세**를 선택합니다.
 
-* From the Application Insights toolbar button, choose **Explore Telemetry Trends**, or
-* From the project context menu, choose **Application Insights > Explore Telemetry Trends**, or
-* From the Visual Studio menu bar, choose **View > Other Windows > Application Insights Trends**.
+리소스를 선택하라는 메시지가 표시될 수 있습니다. **리소스 선택**을 클릭하고 Azure 구독을 사용하여 로그인한 다음, 원격 분석 추세를 분석하려는 목록에서 Application Insights 리소스를 선택합니다.
 
-You may see a prompt to select a resource. Click **Select a resource**, sign in with an Azure subscription, then choose an Application Insights resource from the list for which you'd like to analyze telemetry trends.
+## 추세 분석 선택
 
-## <a name="choose-a-trend-analysis"></a>Choose a trend analysis
+![일반적인 유형의 추세 분석 메뉴](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
 
-![Menu of common types of trend analysis](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
+지난 24시간 동안의 데이터를 각각 분석한 5개의 공통 추세 분석 중에서 하나를 선택하여 다음을 시작합니다.
 
-Get started by choosing from one of five common trend analyses, each analyzing data from the last 24 hours:
+* **서버 요청을 통해 성능 문제 조사** - 서비스에 대한 요청으로, 응답 시간별로 그룹화됨
+* **서버 요청에서 오류 분석** - 서비스에 대한 요청으로, HTTP 응답 코드별로 그룹화됨
+* **응용 프로그램에서 예외 검사** - 서비스의 예외로, 예외 유형별로 그룹화됨
+* **응용 프로그램의 종속성 성능 확인** - 서비스별로 호출된 서비스로, 서비스 응답 시간별로 그룹화됨
+* **사용자 지정 이벤트 검사** - 서비스에 대해 설정한 사용자 지정 이벤트로, 이벤트 유형별로 그룹화됨
 
-* **Investigate performance issues with your server requests** - Requests made to your service, grouped by response times
-* **Analyze errors in your server requests** - Requests made to your service, grouped by HTTP response code
-* **Examine the exceptions in your application** - Exceptions from your service, grouped by exception type
-* **Check the performance of your application's dependencies** - Services called by your service, grouped by response times
-* **Inspect your custom events** - Custom events you've set up for your service, grouped by event type.
+이들 미리 작성된 분석은 추세 창의 왼쪽 위 모서리에 있는 **일반적인 유형의 원격 분석 보기** 단추를 통해 나중에 사용할 수 있습니다.
 
-These pre-built analyses are available later from the **View common types of telemetry analysis** button in the upper-left corner of the Trends window.
+## 응용 프로그램에서 추세 시각화
 
-## <a name="visualize-trends-in-your-application"></a>Visualize trends in your application
+Application Insights 추세는 앱의 원격 분석으로부터 시계열 시각화를 만듭니다. 각 시계열 시각화는 어떤 시간 범위 동안 한 원격 분석 유형을 표시하며, 해당 원격 분석의 한 가지 속성으로 그룹화됩니다. 예를 들어 지난 24시간 동안 출신 국가별로 그룹화하여 서버 요청을 볼 수 있습니다. 이 예에서 시각화의 각 거품은 1시간 동안 일부 국가/지역에 대한 서버 요청 수를 나타낸 것입니다.
 
-Application Insights Trends creates a time series visualization from your app's telemetry. Each time series visualization displays one type of telemetry, grouped by one property of that telemetry, over some time range. For example, you might want to view server requests, grouped by the country from which they originated, over the last 24 hours. In this example, each bubble on the visualization would represent a count of the server requests for some country/region during one hour.
+창 맨 위에 있는 컨트롤을 사용하여 보려는 유형의 원격 분석 데이터를 조정합니다. 첫째, 다음과 같이 관심 있는 원격 분석 유형 선택을 선택합니다.
 
-Use the controls at the top of the window to adjust what types of telemetry you view. First, choose the telemetry types in which you're interested:
+* **원격 분석 유형** - 서버 요청, 예외, 종속성 또는 사용자 지정 이벤트
+* **시간 범위** - 지난 30분에서 지난 3일까지의 범위
+* **그룹별** - 예외 형식, 문제 ID, 국가/지역 등
 
-* **Telemetry Type** - Server requests, exceptions, depdendencies, or custom events
-* **Time Range** - Anywhere from the last 30 minutes to the last 3 days
-* **Group By** - Exception type, problem ID, country/region, and more.
+그런 다음 **분석 원격 분석**을 클릭하여 쿼리를 실행합니다.
 
-Then, click **Analyze Telemetry** to run the query.
+시각화의 거품 사이를 이동하려면:
 
-To navigate between bubbles in the visualization:
+* 한 거품을 클릭하면, 창의 아래쪽에 있는 필터를 업데이트하고 특정 기간 동안 발생한 이벤트만 요약합니다.
+* 거품을 두 번 클릭하여 검색 도구를 이동하고 해당 기간 동안 발생한 개별 원격 분석 이벤트를 모두 확인합니다.
+* 시각화 요소에서 선택 취소하려면 거품을 Ctrl 키를 누르고 클릭합니다.
 
-* Click to select a bubble, which updates the filters at the bottom of the window, summarizing just the events that occurred during a specific time period
-* Double-click a bubble to navigate to the Search tool and see all of the individual telemetry events that occured during that time period
-* Ctrl-click a bubble to de-select it in the visualization.
+> [AZURE.TIP] 추세 및 검색 도구를 함께 사용하면 수천 개의 원격 분석 이벤트 중에서 서비스 문제의 원인을 찾는 데 도움이 됩니다. 예를 들어, 어느 날 오후 고객이 앱의 응답 속도 저하를 인지한 경우 추세를 시작합니다. 지난 몇 시간 동안 서비스에 대한 요청을 분석하여, 응답 시간별로 그룹화합니다. 비정상적으로 큰 느린 요청 클러스터가 있는지 확인합니다. 그런 다음 해당 거품을 두 번 클릭하여 검색 도구로 이동하고 요청 이벤트에 대해 필터링합니다. 검색에서 요청 내용을 탐색할 수 있으며 문제를 해결하기 위해 관련 코드로 이동할 수 있습니다.
 
-> [AZURE.TIP] The Trends and Search tools work together to help you pinpoint the causes of issues in your service among thousands of telemetry events. For example, if one afternoon your customers notice your app is being less responsive, start with Trends. Analyze requests made to your service over the past several hours, grouped by response time. See if there's an unusually large cluster of slow requests. Then double click that bubble to go to the Search tool, filtered to those request events. From Search, you can explore the contents of those requests and navigate to the code involved to resolve the issue.
+## Filter
 
-## <a name="filter"></a>Filter
+창의 맨 아래에서 필터 컨트롤로 보다 구체적인 추세를 검색합니다. 필터를 적용하려면 해당 이름을 클릭합니다. 원격 분석의 특정 차원에 숨어 있을 수 있는 추세를 검색하기 위해 여러 필터 사이를 신속하게 전환할 수 있습니다. 예외 형식 등 한 차원에서 필터를 적용하는 경우, 흐리게 표시되더라도 다른 차원의 필터를 클릭할 수 있습니다. 필터를 적용하지 않으려면 다시 클릭합니다. 동일한 차원의 여러 필터를 선택하려면 Ctrl 키를 누르고 클릭합니다.
 
-Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that may be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, like Exception Type, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again. Ctrl-click to select multiple filters in the same dimension.
+![추세 필터](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
 
-![Trend filters](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
+여러 필터를 적용하려면 어떻게 해야 할까요?
 
-What if you want to apply multiple filters? 
+1. 첫 번째 필터를 적용합니다.
+2. 첫 번째 필터 차원의 이름 옆에 있는 **선택한 필터를 적용하고 다시 쿼리** 단추를 클릭합니다. 이렇게 하면 첫 번째 필터와 일치하는 이벤트에 대해서만 원격 분석을 다시 쿼리합니다.
+3. 두 번째 필터를 적용합니다.
+4. 원격 분석의 특정 하위 집합에서 추세를 찾기 위해 프로세스를 반복합니다. 예를 들어, "GET Home/Index"라는 서버 요청_과_ 독일에서 제공되고 _그리고_ 500 응답 코드를 수신하는 서버 요청입니다.
 
-1. Apply the first filter. 
-2. Click the **Apply selected filters and query again** button by the name of the dimension of your first filter. This will re-query your telemetry for only events that match the first filter. 
-3. Apply a second filter. 
-4. Repeat the process to find trends in specific subsets of your telemetry. For example, server requests named "GET Home/Index" _and_ that came from Germany _and_ that received a 500 response code. 
+이들 필터 중 하나를 적용하지 않으려면 해당 차원의 **선택한 필터를 제거하고 다시 쿼리** 단추를 클릭합니다.
 
-To un-apply one of these filters, click the **Remove selected filters and query again** button for the dimension.
+![여러 필터](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
 
-![Multiple filters](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
+## 잘못된 부분을 찾기
 
-## <a name="find-anomalies"></a>Find anomalies
+추세 도구는 같은 시계열에서 다른 거품에 비해 비정상적인 거품 이벤트를 강조 표시할 수 있습니다. 보기 유형 드롭다운에서 **시간 버킷의 수(변칙 강조 표시)** 또는 **시간 버킷의 백분율(변칙 강조 표시)**를 선택합니다. 빨간색 거품이 잘못된 것입니다. 거품의 개수/비율이 지난 두 기간(지난 24시간을 보는 경우 48시간 등) 동안 발생한 개수/비율의 표준 편차를 2.1배 초과하는 경우 잘못된 것으로 간주됩니다.
 
-The Trends tool can highlight bubbles of events that are anomalous compared to other bubbles in the same time series. In the View Type dropdown, choose **Counts in time bucket (highlight anomalies)** or **Percentages in time bucket (highlight anomalies)**. Red bubbles are anomalous. Anomalies are defined as bubbles with counts/percentages exceeding 2.1 times the standard deviation of the counts/percentages that occured in the past two time periods (48 hours if you're viewing the last 24 hours, etc.).
+![컬러 점은 잘못된 부분을 나타냅니다.](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
 
-![Colored dots indicate anomalies](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
+> [AZURE.TIP] 잘못된 부분을 강조 표시하면, 그렇지 않은 경우 비슷하게 보일 수 있는 작은 거품의 시계열에서 이상값을 찾는 데 특히 유용합니다.
 
-> [AZURE.TIP] Highlighting anomalies is especially helpful for finding outliers in time series of small bubbles that may otherwise look similarly sized.  
-
-## <a name="<a-name="next"></a>next-steps"></a><a name="next"></a>Next steps
+## <a name="next"></a>다음 단계
 
 ||
 |---|---
-|**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio-trends/34.png)
-|**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-visual-studio-trends/64.png)
-|**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio-trends/62.png)
+|**[Visual Studio에서 Application Insights로 작업](app-insights-visual-studio.md)**<br/>원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. |![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 검색을 선택합니다.](./media/app-insights-visual-studio-trends/34.png)
+|**[더 많은 데이터](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. | ![Visual studio](./media/app-insights-visual-studio-trends/64.png)
+|**[Application Insights 포털로 작업](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/app-insights-visual-studio-trends/62.png)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

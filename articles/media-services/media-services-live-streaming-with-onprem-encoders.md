@@ -1,287 +1,280 @@
 <properties 
-    pageTitle="Live streaming with on-premise encoders that create multi-bitrate streams | Microsoft Azure" 
-    description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍 | Microsoft Azure" 
+	description="이 항목에서는 온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH, HDS 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="ne" 
-    ms.topic="article" 
-    ms.date="10/12/2016" 
-    ms.author="cenkdin;juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/19/2016" 
+	ms.author="cenkdin;juliako"/>
+
+#다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍
+
+##개요
+
+Azure 미디어 서비스에서 **채널**은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. **채널**은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
 
-#<a name="live-streaming-with-on-premise-encoders-that-create-multi-bitrate-streams"></a>Live streaming with on-premise encoders that create multi-bitrate streams
+- 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 AMS로 라이브 인코딩을 수행하도록 설정되지 않은 채널에 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 **채널**을 통과합니다. 이 방법을 **통과**라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 Elemental, Envivio, Cisco를 사용할 수 있습니다. RTMP를 출력하는 라이브 인코더는 Adobe Flash Live, Telestream Wirecast 및 Tricaster 트랜스코더입니다. 또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
 
-##<a name="overview"></a>Overview
+	>[AZURE.NOTE] 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
+	
+- 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTP(MPEG-TS), RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 미디어 서비스를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
 
-In Azure Media Services, a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
+미디어 서비스 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스트림을 받는 방법과 채널이 스트림의 라이브 인코딩을 수행할지 여부를 지정할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
+- **없음** – 다중 비트 전송률 스트림(통과 스트림)을 출력할 온-프레미스 라이브 인코더를 사용할 계획인 경우 이 값을 지정합니다. 이 경우 들어오는 스트림이 인코딩 없이 출력으로 전달됩니다. 이것이 2.10 릴리스 이전의 채널 동작입니다. 이 항목에서는 이 형식의 채널을 사용하는 방법에 대한 세부 정보를 제공합니다.
 
-- An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+- **표준** – 미디어 서비스를 사용하여 단일 비트 전송률 라이브 스트림을 다중 비트 전송률 스트림으로 인코딩할 계획인 경우 이 값을 선택합니다. 라이브 인코딩의 청구 영향이 있고 라이브 인코딩 채널을 "실행 중" 상태로 두면 요금이 청구됨을 기억해야 합니다. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
 
-    >[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming.
-    
-- An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
+>[AZURE.NOTE]이 항목에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다(**없음** 인코딩 형식). 라이브 인코딩을 수행할 수 있는 채널 작업에 대한 자세한 내용은 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
-Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
+다음 다이어그램은 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하기 위해 온-프레미스 라이브 인코더를 사용하는 라이브 스트리밍 워크플로를 나타냅니다.
 
-- **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  This topic gives details about working with channels of this type.
+![라이브 워크플로][live-overview]
 
-- **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
-When requested, Media Services delivers the stream to customers. 
+이 항목에서는 다음에 대해 설명합니다.
 
->[AZURE.NOTE]This topic discusses attributes of channels that are not enabled to perform live encoding (**None** encoding type). For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+- [일반적인 라이브 스트리밍 시나리오](media-services-live-streaming-with-onprem-encoders.md#scenario)
+- [채널 및 관련 구성 요소에 대한 설명](media-services-live-streaming-with-onprem-encoders.md#channel)
+- [고려 사항](media-services-live-streaming-with-onprem-encoders.md#considerations)
 
-The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams.
+##<a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
+다음 단계에서는 일반적인 라이브 스트리밍 응용 프로그램을 만드는 데 포함되는 작업을 설명합니다.
 
-![Live workflow][live-overview]
+1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+	
+	이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 
-This topic covers the following:
+1. 채널을 만들고 시작합니다.
+1. 채널 수집 URL을 검색합니다.
 
-- [Common live streaming scenario](media-services-live-streaming-with-onprem-encoders.md#scenario)
-- [Description of a Channel and its related components](media-services-live-streaming-with-onprem-encoders.md#channel)
-- [Considerations](media-services-live-streaming-with-onprem-encoders.md#considerations)
+	수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
+1. 채널 미리 보기 URL을 검색합니다.
 
-##<a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Common live streaming scenario
-The following steps describe tasks involved in creating common live streaming applications.
+	이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
 
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-    
-    This step could also be performed after you create your Channel.
+3. 프로그램을 만듭니다.
 
-1. Create and start a Channel.
-1. Retrieve the Channel ingest URL. 
+	Azure 클래식 포털을 사용하는 경우 프로그램을 만들면 자산도 만들어집니다.
 
-    The ingest URL is used by the live encoder to send the stream to the Channel.
-1. Retrieve the Channel preview URL. 
+	.NET SDK 또는 REST를 사용하는 경우 자산을 만들고 프로그램을 만들 때 이 자산을 사용하도록 지정해야 합니다.
+1. 프로그램과 연결된 자산을 게시합니다.
 
-    Use this URL to verify that your channel is properly receiving the live stream.
+	콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
+1. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
+2. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
+1. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
+1. 프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.
 
-3. Create a program. 
+##<a id="channel"></a>채널 및 관련 구성 요소에 대한 설명
 
-    When using the Azure portal, creating a program also creates an asset. 
+###<a id="channel_input"></a>채널 입력(수집) 구성
 
-    When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
-1. Publish the asset associated with the program.   
+####<a id="ingest_protocols"></a>수집 스트리밍 프로토콜
 
-    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
-1. Start the program when you are ready to start streaming and archiving.
-2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
-1. Stop the program whenever you want to stop streaming and archiving the event.
-1. Delete the Program (and optionally delete the asset).     
+미디어 서비스는 다음 스트리밍 프로토콜을 사용하여 라이브 피드 수집을 지원합니다.
 
-##<a name="<a-id="channel"></a>description-of-a-channel-and-its-related-components"></a><a id="channel"></a>Description of a Channel and its related components
-
-###<a name="<a-id="channel_input"></a>channel-input-(ingest)-configurations"></a><a id="channel_input"></a>Channel input (ingest) configurations
-
-####<a name="<a-id="ingest_protocols"></a>ingest-streaming-protocol"></a><a id="ingest_protocols"></a>Ingest streaming protocol
-
-Media Services supports ingesting live feeds using the following streaming protocol: 
-
-- **Multi-bitrate Fragmented MP4**
+- **다중 비트 전송률 조각화된 MP4**
  
-- **Multi-bitrate RTMP** 
+- **다중 비트 전송률 RTMP**
 
-    When the **RTMP** ingest streaming protocol is selected, two ingest(input) endpoints are created for the channel: 
-    
-    **Primary URL**: Specifies the fully qualified URL of the channel's primary RTMP ingest endpoint.
+	**RTMP** 수집 스트리밍 프로토콜이 선택되면 2개의 수집(입력) 끝점이 해달 채널에 만들어집니다.
+	
+	**기본 URL**: 채널의 기본 RTMP 수집 끝점의 정규화된 URL을 지정합니다.
 
-    **Secondary URL** (optional): Specifies the fully qualified URL of the channel's secondary RTMP ingest endpoint. 
+	**보조 URL**(선택 사항): 채널의 보조 RTMP 수집 끝점의 정규화된 URL을 지정합니다.
 
 
-    Use the secondary URL if you want to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance, especially for the following scenarios.
+	인코더 장애 조치(failover) 및 내결함성뿐 아니라 스트림 수집의 내구성 및 내결함성을 개선하려는 경우, 특히 다음 시나리오에서 보조 URL을 사용합니다.
 
-    - Single encoder double pushing to both Primary and Secondary URLs:
-    
-        The main purpose of this is to provide more resiliency to network fluctuations and jitters. Some RTMP encoders do not handle network disconnects well. When a network disconnect happens, an encoder may stop encoding and will not send the buffered data when reconnect happens, this causes discontinuities and data lost. Network disconnects can happen because of a bad network or a maintenance on Azure side. Primary/secondary URLs reduce the network issues and also provide a controlled upgrade process. Each time a scheduled network disconnect happens, Media Services manages the primary and secondary disconnect and provides a delayed disconnect between the two which gives time for encoders to keep sending data and reconnect again. The order of the disconnects can be random, but there will be always a delay between primary/secondary or secondary/primary. In this scenario encoder is still the single point of failure.
-     
-    - Multiple encoders each encoder pushing to dedicated point:
-        
-        This scenario provides both encoder and ingest redundancy. In this scenario encoder1 pushes to the primary URL and encoder2 pushes to secondary URL. When there is an encoder failure other encoder can still keep sending data. Data redundancy can still be maintained because Media Services does not disconnect primary and secondary at the same time. This scenario assumes encoders are time sync and provides exactly same data.  
+	- 기본 및 보조 URL 모두에 대한 단일 인코더 이중 푸시:
+	
+		이 시나리오의 주요 목적은 네트워크 불안정과 Jitter에 대한 더 큰 복원력을 제공하는 것입니다. 일부 RTMP 인코더는 네트워크 연결 끊기를 잘 처리하지 않습니다. 네트워크 연결 끊기가 발생할 때 인코더가 인코딩을 중지할 수 있고 다시 연결될 때 버퍼링된 데이터를 전송하지 않으면 이로 인해 불연속 및 데이터 손실 문제가 발생합니다. 네트워크 연결 끊기는 Azure 쪽의 유지 관리나 불안정한 네트워크로 인해 발생할 수 있습니다. 기본/보조 URL을 사용하면 네트워크 문제가 감소하고 제어되는 업그레이드 프로세스도 제공됩니다. 예약된 네트워크 연결 끊기가 발생할 때마다 미디어 서비스에서는 기본 및 보조 연결 끊기를 관리하고 두 연결 끊기 사이에 지연된 연결 끊기를 제공하여 인코더가 계속 데이터를 보내고 다시 연결할 시간을 제공합니다. 연결 끊기 순서는 무작위일 수 있지만 항상 기본/보조 또는 보조/기간 사이에 지연이 있습니다. 이 시나리오에서 인코더는 단일 실패 지점입니다.
+	 
+	- 여러 인코더가 있으면 각 인코더는 전용 지점으로 푸시합니다.
+		
+		이 시나리오에서는 두 인코더 및 수집 중복성을 모두 제공합니다. 이 시나리오에서 encoder1은 기본 URL로 푸시하고 encoder2는 보조 URL로 푸시합니다. 인코더 실패가 있으면 다른 인코더가 계속 데이터를 전송할 수 있습니다. 미디어 서비스는 기본 및 보조 연결을 동시에 끊지 않으므로 데이터 중복성을 유지할 수 있습니다. 이 시나리오에서는 인코더가 시간 동기화된다고 가정하고 똑같은 데이터를 제공합니다.
  
-    - Multiple encoder double pushing to both primary and secondary URLs:
-    
-        In this scenario both encoders push data to both primary and secondary URLs. This provides the best reliability and fault tolerance as well as data redundancy. It can tolerate both encoder failures and also disconnects even if one encoder stops working. This scenario assumes encoders are time sync and provides exactly same data.  
+	- 기본 및 보조 URL 모두에 대한 여러 인코더 이중 푸시:
+	
+		이 시나리오에서 두 인코더는 모두 기본 및 보조 URL에 모두 데이터를 푸시합니다. 이를 통해 최고 안정성 및 내결함성과 데이터 중복성이 제공됩니다. 두 인코더 실패를 모두 허용할 수 있고 하나의 인코더가 작동을 중지하는 경우에도 연결이 끊어집니다. 이 시나리오에서는 인코더가 시간 동기화된다고 가정하고 똑같은 데이터를 제공합니다.
 
-For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+RTMP 라이브 인코더에 대한 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
 
-The following considerations apply:
+고려 사항은 다음과 같습니다.
 
-- Make sure you have sufficient free Internet connectivity to send data to the ingest points. 
-- Using secondary ingest URL requires additional bandwidth. 
-- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (aka layers), and a maximum of 5 audio tracks.
-- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps.
-- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps.
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
-- You can ingest a single bitrate into your channel, but since the stream is not processed by the channel, the client applications will also receive a single bitrate stream (this option is not recommended).
+- 수집 포인트로 데이터를 보내기에 충분한 여유 인터넷 연결이 있어야 합니다.
+- 보조 수집 URL 사용에는 추가 대역폭이 필요합니다.
+- 들어오는 다중 비트 전송률 스트림은 최대 10개의 비디오 품질 수준(레이어라고 함) 및 최대 5개의 오디오 트랙을 가질 수 있습니다.
+- 비디오 품질 수준 또는 레이어에 대한 가장 높은 평균 비트 전송률은 10Mbps 이하여야 합니다.
+- 모든 비디오 및 오디오 스트림에 대한 평균 비트 전송률의 집계는 25Mbps 이하여야 합니다.
+- 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
+- 단일 비트 전송률을 사용자의 채널에 수집할 수 있지만 해당 채널이 스트림을 처리하지 않기 때문에 클라이언트 응용 프로그램도 단일 비트 전송률 스트림을 받게 됩니다(이 옵션은 사용하지 않는 것이 좋음).
 
-####<a name="ingest-urls-(endpoints)"></a>Ingest URLs (endpoints) 
+####수집 URL(끝점) 
 
-A Channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your channels.   
+채널이 라이브 인코더에서 지정하는 입력 끝점(수집 URL)을 제공하므로 해당 인코더는 채널에 스트림을 푸시할 수 있습니다.
 
-You can get the ingest URLs when you create the channel. To get these URLs, the channel does not have to be in the **Running** state. When you are ready to start pushing data into the channel, the channel must be in the **Running** state. Once the channel starts ingesting data, you can preview your stream through the preview URL.
+채널을 만들 때 수집 URL을 가져올 수 있습니다. 이러한 URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다. 채널에 데이터 푸시를 시작할 준비가 되면 채널이 **실행 중** 상태여야 합니다. 채널이 데이터 수집을 시작하면 미리 보기 URL을 통해 스트림을 미리 볼 수 있습니다.
 
-You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, you cannot ingest RTMP over SSL. 
+SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스트림 수집 옵션이 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다. 현재 SSL을 통해 RTMP를 수집할 수 없습니다.
 
-####<a name="<a-id="keyframe_interval"></a>keyframe-interval"></a><a id="keyframe_interval"></a>Keyframe interval
+####<a id="keyframe_interval"></a>키 프레임 간격
 
-When using an on-premises live encoder to generate multi-bitrate stream, the keyframe interval specifies GOP duration (as used by that external encoder). Once this incoming stream is received by the Channel, you can then deliver your live stream to client playback applications in any of the following formats: Smooth Streaming, DASH and HLS. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (fragments per segment) based on the keyframe interval, also referred to as Group of Pictures – GOP, that is received from the live encoder. 
+다중 비트 전송률 스트림 생성에 온-프레미스 라이브 인코더를 사용할 때 키 프레임 간격은 GOP 기간(외부 인코더에서 사용됨)을 지정합니다. 이 들어오는 스트림을 채널이 받으면 부드러운 스트리밍, DASH 및 HLS 형식 중 하나로 클라이언트 재생 응용 프로그램에 라이브 스트림을 제공할 수 있습니다. 라이브 스트리밍을 수행할 때 HLS는 항상 동적으로 패키지됩니다. 기본적으로 미디어 서비스는 라이브 인코더에서 수신되는, GOP(Group of Pictures)라고도 하는 키 프레임 간격에 따라 자동으로 HLS 세그먼트 패키징 비율(세그먼트당 조각 수)을 계산합니다.
 
-The following table shows how the segment duration is being calculated:
+다음 표에서는 세그먼트 기간이 계산되는 방식을 보여 줍니다.
 
-Keyframe Interval|HLS segment packaging ratio (FragmentsPerSegment)|Example
+키 프레임 간격|HLS 세그먼트 패키징 비율(FragmentsPerSegment)|예
 ---|---|---
-less than or equal to 3 seconds|3:1|If the KeyFrameInterval (or GOP) is 2 seconds long, the default HLS segment packaging ratio will be 3 to 1, which will create a 6 seconds HLS segment.
-3 to 5  seconds|2:1|If the KeyFrameInterval (or GOP) is 4 seconds long, the default HLS segment packaging ratio will be 2 to 1, which will create a 8 seconds HLS segment.
-greater than 5 seconds|1:1|If the KeyFrameInterval (or GOP) is 6 seconds long, the default HLS segment packaging ratio will be 1 to 1, which will create a 6 second long HLS segment.
+3초보다 작거나 같음|3:1|KeyFrameInterval(또는 GOP)이 2초 길이인 경우, 기본 HLS 세그먼트 패키징 비율은 3-1이 되며, 이는 6초 HLS 세그먼트를 만듭니다.
+3~5초|2:1|KeyFrameInterval(또는 GOP)이 4초 길이인 경우, 기본 HLS 세그먼트 패키징 비율은 2-1이 되며, 이는 8초 HLS 세그먼트를 만듭니다.
+5초보다 큼|1:1|KeyFrameInterval(또는 GOP)이 6초 길이인 경우, 기본 HLS 세그먼트 패키징 비율은 1-1이 되며, 이는 6초 HLS 세그먼트를 만듭니다.
 
 
-You can change the fragments per segment ratio by configuring channel’s output and setting FragmentsPerSegment on ChannelOutputHls. 
+구성 채널의 출력을 구성하고 ChannelOutputHls에서 FragmentsPerSegment를 설정하여 세그먼트당 조각 수 비율을 변경할 수 있습니다.
 
-You can also change the keyframe interval value, by setting the KeyFrameInterval property on ChanneInput. 
+ChanneInput에서 KeyFrameInterval 속성을 설정하여 키 프레임 간격 값을 변경할 수도 있습니다.
 
-If you explicitly set the KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated using the rules described above.  
+KeyFrameInterval을 명시적으로 설정하는 경우 HLS 세그먼트 패키징 비율 FragmentsPerSegment는 위에 설명된 규칙을 이용하여 계산됩니다.
 
-If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Services will use the values set by you. 
-
-
-####<a name="allowed-ip-addresses"></a>Allowed IP addresses
-
-You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’). 
-
-If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
-
-###<a name="channel-preview"></a>Channel preview 
-
-####<a name="preview-urls"></a>Preview URLs
-
-Channels provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
-
-You can get the preview URL when you create the channel. To get the URL, the channel does not have to be in the **Running** state. 
-
-Once the Channel starts ingesting data, you can preview your stream.
-
-Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure portal to view your stream.
+KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 경우 미디어 서비스는 사용자가 설정한 값을 사용합니다.
 
 
-####<a name="allowed-ip-addresses"></a>Allowed IP Addresses
+####허용된 IP 주소
 
-You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified any IP address will be allowed. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).
+이 채널에 비디오를 게시하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: ‘10.0.0.1’), IP 주소와 CIDR 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1/22’) 또는 IP 주소와 점으로 구분된 10진수 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1(255.255.252.0)’)로 지정될 수 있습니다.
 
-###<a name="channel-output"></a>Channel output
+지정된 IP 주소가 없고 정의된 규칙이 없는 경우, IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.
 
-For more information see the [setting keyframe interval](#keyframe_interval) section.
+###채널 미리 보기 
+
+####미리 보기 URL
+
+채널은 추가 처리 및 배달 전에 스트림을 미리 보고 확인하는 데 사용하는 미리 보기 끝점(미리 보기 URL)을 제공합니다.
+
+채널을 만들 때 미리 보기 URL을 가져올 수 있습니다. URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다.
+
+채널이 데이터 수집을 시작하면 스트림을 미리 볼 수 있습니다.
+
+현재 미리 보기 스트림은 지정된 입력 형식에 상관 없이 조각화된 MP4(부드러운 스트리밍) 형식으로만 배달될 수 있습니다. [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 플레이어를 사용하여 부드러운 스트림을 테스트할 수 있습니다. Azure 클래식 포털에 호스팅된 플레이어를 사용하여 스트림을 볼 수도 있습니다.
 
 
-###<a name="channel's-programs"></a>Channel's programs
+####허용된 IP 주소
 
-A channel is associated with programs that enable you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
+끝점을 미리 보려면 연결이 허용된 IP 주소를 정의할 수 있습니다. 지정된 IP 주소가 없는 경우 모든 IP 주소가 허용됩니다. 허용된 IP 주소는 단일 IP 주소(예: ‘10.0.0.1’), IP 주소와 CIDR 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1/22’) 또는 IP 주소와 점으로 구분된 10진수 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1(255.255.252.0)’)로 지정될 수 있습니다.
 
-You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
+###채널 출력
 
-Each program is associated with an Asset which stores the streamed content. An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as blobs in that container. To publish the program so your customers can view the stream you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
+자세한 내용은 [키 프레임 간격 설정](#keyframe_interval) 섹션을 참조하세요.
 
-A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
-You should not reuse existing programs for new events. Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.
+###채널의 프로그램
 
-Start the program when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event. 
+채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어할 수 있는 프로그램과 연결되어 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
 
-To delete archived content, stop and delete the program and then delete the associated asset. An asset cannot be deleted if it is used by a program; the program must be deleted first. 
+**보관 창** 길이를 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
 
-Even after you stop and delete the program, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
+각 프로그램은 스트리밍된 콘텐츠를 저장하는 자산과 연결됩니다. 자산은 Azure 저장소 계정의 Blob 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 Blob으로 저장됩니다. 고객이 스트림을 볼 수 있도록 프로그램을 게시하려면 연결된 자산에 대한 주문형 로케이터를 만들어야 합니다. 이 로케이터가 있으면 클라이언트에 제공할 수 있는 스트리밍 URL을 작성할 수 있습니다.
 
-If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
+채널은 동시 실행 프로그램을 최대 세 개까지 지원하므로 동일한 들어오는 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항에 따라 6시간의 프로그램을 보관하고 마지막 10분만 브로드캐스트해야 할 수 있습니다. 이렇게 하려면 두 개의 동시 실행 프로그램을 만들어야 합니다. 한 프로그램은 6시간의 이벤트를 보관하도록 설정하고 프로그램은 게시하지 않습니다. 다른 프로그램은 10분 동안을 보관하도록 설정하고 프로그램을 게시합니다.
 
-##<a name="<a-id="states"></a>channel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>Channel states and how states map to the billing mode 
+새 이벤트에 기존 프로그램을 다시 사용할 수 없습니다. 대신 프로그래밍 라이브 스트리밍 응용 프로그램 섹션에서 설명한 각각의 이벤트에 대한 새 프로그램을 만들고 시작합니다.
 
-The current state of a Channel. Possible values include:
+스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
 
-- **Stopped**. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
-- **Starting**. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
-- **Running**. The Channel is capable of processing live streams.
-- **Stopping**. The Channel is being stopped. No updates or streaming is allowed during this state.
-- **Deleting**. The Channel is being deleted. No updates or streaming is allowed during this state.
+보관된 콘텐츠를 삭제하려면 프로그램을 중단 및 삭제한 다음 연결된 자산을 삭제합니다. 프로그램이 자산을 사용하는 경우 삭제할 수 없습니다. 프로그램을 먼저 삭제해야 합니다.
 
-The following table shows how Channel states map to the billing mode. 
+프로그램을 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있어야 합니다.
+
+보관된 콘텐츠를 보관하려는데 스트리밍에 사용할 수 있는 콘텐츠가 없는 경우 스트리밍 로케이터를 삭제합니다.
+
+##<a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식 
+
+채널의 현재 상태입니다. 가능한 값은 다음과 같습니다.
+
+- **중지됨**. 만들어진 후 채널의 초기 상태입니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
+- **시작 중**. 채널이 시작 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
+- **실행 중**. 라이브 스트림 처리에 채널을 사용할 수 있습니다.
+- **중지 중**. 채널이 중지 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+- **삭제 중**. 채널이 삭제 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+
+다음 표에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
  
-Channel state|Portal UI Indicators|Billed?
+채널 상태|포털 UI 표시기|청구 여부
 ---|---|---|---
-Starting|Starting|No (transient state)
-Running|Ready (no running programs)<p>or<p>Streaming (at least one running program)|Yes
-Stopping|Stopping|No (transient state)
-Stopped|Stopped|No
+Starting|Starting|없음(일시적인 상태)
+실행 중|준비(실행 중인 프로그램이 없음)<p>또는<p>스트리밍(실행 중인 프로그램이 하나 이상임)|예
+중지 중|중지 중|없음(일시적인 상태)
+중지됨|중지됨|아니요
 
-##<a name="<a-id="cc_and_ads"></a>closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Closed Captioning and Ad Insertion 
+##<a id="cc_and_ads"></a>선택 캡션 및 광고 삽입 
 
-The following table demonstrates supported closed captioning and ad insertion standards.
+다음 표는 지원된 선택 캡션 및 광고 삽입 표준을 설명합니다.
 
-Standard|Notes
+Standard|참고 사항
 ---|---
-CEA-708 and EIA-608 (708/608)|CEA-708 and EIA-608 are closed captioning standards for the United States and Canada.<p><p>Currently, captioning is only supported if carried in the encoded input stream. You need to use a live media encoder that can insert 608 or 708 captions into the encoded stream which is sent to Media Services. Media Services will deliver the content with inserted captions to your viewers.
-TTML inside ismt (Smooth Streaming Text Tracks)|Media Services dynamic packaging enables your clients to stream content in any of the following formats: MPEG DASH, HLS or Smooth Streaming. However, if you ingest fragmented MP4 (Smooth Streaming) with captions inside .ismt (Smooth Streaming text tracks), you would only be able to deliver the stream to Smooth Streaming clients.
-SCTE-35|Digital signaling system used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<p><p>Note that currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming.
+CEA-708 및 EIA-608(708/608)|CEA-708 및 EIA-608은 미국 및 캐나다의 선택 캡션 표준입니다.<p><p>현재 인코딩된 입력 스트림에 수반되는 경우에만 캡션이 지원됩니다. 미디어 서비스에 전송되는 인코딩된 스트림으로 608 또는 708 캡션을 삽입할 수 있는 라이브 미디어 인코더를 사용해야 합니다. 미디어 서비스는 뷰어에 삽입된 선택 캡션이 있는 콘텐츠를 제공합니다.
+TTML inside ismt (부드러운 스트리밍 텍스트 트랙)|미디어 서비스 동적 패키징을 사용하면 클라이언트가 MPEG DASH, HLS 또는 부드러운 스트리밍 형식 중 하나로 콘텐츠를 스트림할 수 있습니다. 하지만 자막 inside .ismt(부드러운 스트리밍 텍스트 트랙)가 포함된 조각화된 MP4(부드러운 스트리밍)을 수집하는 경우 부드러운 스트리밍 클라이언트로만 스트림을 제공할 수 있습니다.
+SCTE-35|디지털 신호 시스템이 큐 광고 삽입에 사용됩니다. 다운스트림 수신기는 할당된 시간 동안 스트림에 광고를 연결하기 위해 신호를 사용합니다. SCTE-35는 입력 스트림에서 스파스 트랙으로 전송되어야 합니다.<p><p>현재 광고 신호를 수반하는 지원되는 입력 스트림 형식만 조각화된 MP4(부드러운 스트리밍)입니다. 또한 지원되는 출력 포맷만 부드러운 스트리밍입니다.
 
 
-##<a name="<a-id="considerations"></a>considerations"></a><a id="Considerations"></a>Considerations
+##<a id="Considerations"></a>고려 사항
 
-When using an on-premises live encoder to send a multi-bitrate stream into a Channel, the following constraints apply:
+다중 비트 전송률 스트림을 채널로 보내기 위해 온-프레미스 라이브 인코드를 사용할 때 다음 고려 사항을 적용합니다.
 
-- Make sure you have sufficient free internet connectivity to send data to the ingest points.
-- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (10 layers), and maximum of 5 audio tracks.
-- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps
-- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- 수집 포인트로 데이터를 보내기에 충분한 여유 인터넷 연결이 있어야 합니다.
+- 들어오는 다중 비트 전송률 스트림은 최대 10개의 비디오 품질 수준(레이어 10개) 및 최대 5개의 오디오 트랙을 가질 수 있습니다.
+- 비디오 품질 수준 또는 레이어에 대한 가장 높은 평균 비트 전송률은 10Mbps 이하여야 합니다.
+- 모든 비디오 및 오디오 스트림에 대한 평균 비트 전송률의 집계는 25Mbps 이하여야 합니다.
+- 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
 
 
-Other considerations related to working with channels and related components:
+다른 고려 사항은 채널 사용과 관련되며 구성 요소와 관련됩니다.
 
-- Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
-- A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
-- By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
-- You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-live-streaming-with-onprem-encoders.md#states) section.
+- 라이브 인코더를 다시 구성할 때마다 채널에 대해 **Reset** 메서드를 호출합니다. 채널을 다시 설정하기 전에 프로그램을 중단해야 합니다. 채널을 다시 설정한 후 프로그램을 다시 시작합니다.
+- 채널이 실행 상태일 때만 중단할 수 있으며 채널의 모든 프로그램이 중단됩니다.
+- 기본적으로 미디어 서비스 계정에 5개의 채널만 추가할 수 있습니다. 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
+- 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
+- 채널이 **실행 중** 상태일 때만 청구됩니다. 자세한 내용은 [이](media-services-live-streaming-with-onprem-encoders.md#states) 섹션을 참조하세요.
 
-##<a name="how-to-create-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>How to create channels that receive multi-bitrate live stream from on-premises encoders
+##온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널을 만드는 방법
 
-For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
+온-프레미스 라이브 인코더에 대한 자세한 내용은 [Azure 미디어 서비스에서 타사 라이브 인코더 사용](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/)을 참조하세요.
 
-Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
+**포털**, **.NET**, **REST API**를 선택하여 채널과 프로그램을 만들고 관리하는 방법을 살펴봅니다.
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+##미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##피드백 제공
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 
-##<a name="related-topics"></a>Related topics
+##관련된 항목
 
-[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+[Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
-[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
+[Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공](media-services-overview.md)
 
-[Media Services Concepts](media-services-concepts.md)
+[미디어 서비스 개념](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

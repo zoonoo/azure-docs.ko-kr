@@ -1,22 +1,16 @@
-#### <a name="prerequisites"></a>Prerequisites
-- An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-- A [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) account 
+#### 필수 조건
+- Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+- [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) 계정
 
-Before using your Dynamics account in a logic app, authorize the logic app to connect to your CRM Online account. You can do this easily within your logic app on the Azure portal. 
+Logic Apps에서 Dynamics 계정을 사용하기 전에 CRM Online 계정에 연결하도록 Logic Apps에 권한을 부여합니다. Azure 포털의 논리 앱 내에서 이 작업을 쉽게 수행할 수 있습니다.
 
-Authorize your logic app to connect to your CRM Online account using the following steps:
+다음 단계를 사용하여 CRM Online 계정에 연결하도록 Logic Apps에 권한을 부여합니다.
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "dynamics" in the search box. Select one of the triggers or actions:  
-  ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
-2. If you haven't previously created any connections to Dynamics, you are prompted to sign in using your Dynamics credentials:  
-  ![](./media/connectors-create-api-crmonline/dynamics-signin.png)
-3. Select **Sign in**, and enter your user name and password. Select **Sign in**. 
+1. 논리 앱을 만듭니다. Logic Apps 디자이너의 드롭다운 목록에서 **Microsoft 관리되는 API 표시**를 선택한 다음 검색 상자에 "dynamics"를 입력합니다. 트리거 또는 동작 중 하나를 선택합니다. ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
+2. 이전에 Dynamics에 대한 연결을 만들지 않은 경우 Dynamics 자격 증명을 사용하여 로그인하라는 메시지가 표시됩니다. ![](./media/connectors-create-api-crmonline/dynamics-signin.png)
+3. **로그인**을 선택하고 사용자 이름 및 암호를 입력합니다. **로그인**을 선택합니다.
 
-    These credentials are used to authorize your logic app to connect to, and access the data in your Dynamics account. 
-4. Notice the connection has been created. Now, proceed with the other steps in your logic app:  
-  ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
+	이러한 자격 증명을 사용하여 Dynamics 계정의 데이터에 연결하도록 Logic Apps에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다.
+4. 연결이 만들어졌는지 확인합니다. 이제 Logic Apps의 다른 단계를 진행합니다. ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

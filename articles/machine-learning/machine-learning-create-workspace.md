@@ -1,93 +1,91 @@
 <properties
-    pageTitle="Create a Machine Learning workspace | Microsoft Azure"
-    description="How to create a workspace for Azure Machine Learning Studio"
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="기계 학습 작업 영역 만들기 | Microsoft Azure"
+	description="Azure 기계 학습 스튜디오의 작업 영역을 만드는 방법"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/16/2016"
-    ms.author="garye;bradsev;ahgyger"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/16/2016"
+	ms.author="garye;bradsev;ahgyger"/>
 
 
+# Azure 기계 학습 작업 영역 만들기 및 공유
 
-# <a name="create-and-share-an-azure-machine-learning-workspace"></a>Create and share an Azure Machine Learning workspace
-
-This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+이 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용하는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-To use Azure Machine Learning Studio, you need to have a Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.
+Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="to-create-a-workspace"></a>To create a workspace
+## 작업 영역을 만들려면
 
-1. Sign-in to the [Microsoft Azure classic portal].
+1. [Microsoft Azure 클래식 포털]에 로그인합니다.
 
-> [AZURE.NOTE] To sign-in, you need to be an Azure subscription administrator. Being the owner of a Machine Learning workspace will not give you access to the [Microsoft Azure classic portal]. See [Privileges of Azure subscription administrator and workspace owner](#subscriptionvsworkspace) for more details.
+> [AZURE.NOTE] 로그인하려면 Azure 구독 관리자여야 합니다. 기계 학습 작업 영역 소유자라고 해서 [Microsoft Azure 클래식 포털]에 대한 액세스가 제공되는 것은 아닙니다. 자세한 내용은 [Azure 구독 관리자 및 작업 영역 소유자의 권한](#subscriptionvsworkspace)을 참조하세요.
 
-2. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
+2. Microsoft Azure 서비스 패널에서 **기계 학습**을 클릭합니다.
 
-    ![Machine Learning service][1]
+    ![기계 학습 서비스][1]
 
-3. Click **+NEW** at the bottom of the window.
-4. Click **DATA SERVICES**, then **MACHINE LEARNING**, then **QUICK CREATE**.
+3. 창 아래쪽에서 **+새로 만들기**를 클릭합니다.
+4. **데이터 서비스**, **기계 학습**, **빠른 생성**을 차례로 클릭합니다.
 
-    ![Quick Create of new workspace][3]
+	![새 작업 영역의 빠른 생성][3]
 
-5. Enter a **WORKSPACE NAME** for your workspace.
-6. Specify the Azure **LOCATION**, then enter an existing Azure **STORAGE ACCOUNT** or select **Create a new storage account** to create a new one.
-7. Click **CREATE AN ML WORKSPACE**.
+5. 작업 영역에 대한 **작업 영역 이름**을 입력합니다.
+6. Azure **위치**를 지정하고 기존 Azure **저장소 계정**을 입력하거나 **새 저장소 계정 만들기**를 클릭하여 새 저장소 계정을 만듭니다.
+7. **기계 학습 작업 영역 만들기**를 클릭합니다.
 
-After your Machine Learning workspace is created, you will see it listed on the **machine learning** page.
+기계 학습 작업 영역이 만들어진 후에는 **기계 학습** 페이지에 나열됩니다.
 
-## <a name="sharing-an-azure-machine-learning-workspace"></a>Sharing an Azure Machine Learning workspace
+## Azure 기계 학습 작업 영역 공유
 
-Once a Machine Learning workspace is created, you can invite users to your workspace and share access to your workspace and all of its experiments. We support two roles of users:
+기계 학습 작업 영역이 만들어진 후에는 사용자를 작업 영역에 초대하고 작업 영역과 모든 실험에 대한 액세스를 공유할 수 있습니다. 두 개의 사용자 역할을 지원합니다.
 
-- **User** - A workspace user can create, open, modify and delete datasets, experiments and web services in the workspace.
-- **Owner** - An owner can invite, remove, and list users with access to the workspace, in addition to what a user can do. He/she also have access to Notebooks.
+- **사용자** - 작업 영역 사용자는 작업 영역에서 데이터 집합, 실험 및 웹 서비스를 만들기, 열기, 수정 및 삭제할 수 있습니다.
+- **소유자** - 소유자는 사용자가 수행할 수 있는 작업 외에도 작업 영역에 대한 액세스와 함께 사용자를 초대, 제거 및 나열할 수 있습니다. Notebook에 대한 액세스 권한도 보유합니다.
 
-### <a name="to-share-a-workspace"></a>To share a workspace
-1. Sign-in to [Machine Learning Studio]
-2. In the Machine Learning Studio panel, click **SETTINGS**
-3. Click **USERS**
-4. Click **INVITE MORE USERS**
+### 작업 영역을 공유하려면
+1. [Azure 기계 학습 스튜디오]에 로그인합니다.
+2. 기계 학습 스튜디오 패널에서 **설정**을 클릭합니다.
+3. **사용자**를 클릭합니다.
+4. **더 많은 사용자 초대**를 클릭합니다.
 
-    ![Invite more users][4]
+    ![더 많은 사용자 초대][4]
 
-5. Enter one or more email address. The user just need a valid Microsoft account (e.g., name@outlook.com) or an organizational account (from Azure Active Directory).
-6. Click the check button.
+5. 하나 이상의 전자 메일 주소를 입력합니다. 사용자에게는 유효한 Microsoft 계정(예: name@outlook.com) 또는 Azure Active Directory의 조직 계정만 필요합니다.
+6. 선택 단추를 클릭합니다.
 
-Each user you added will receive an email with instruction to log-in to the shared workspace.
+추가된 각 사용자는 공유 작업 영역에 로그인하는 명령으로 전자 메일을 받게 됩니다.
 
-For information about managing your workspace, see [Manage an Azure Machine Learning workspace].
-If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to an Machine Learning workspace].
+작업 영역을 관리하는 방법에 대한 자세한 내용은 [Azure 기계 학습 작업 영역 관리]를 참조하세요. 작업 영역을 만드는 데 문제가 발생한 경우 [문제 해결 가이드: 기계 학습 작업 영역 만들기 및 연결]을 참조하세요.
 
-## <a name="<a-name="subscriptionvsworkspace"></a>privileges-of-azure-subscription-administrator-and-of-workspace-owner"></a><a name="subscriptionvsworkspace"></a>Privileges of Azure subscription administrator and of workspace owner
+## <a name="subscriptionvsworkspace"></a>Azure 구독 관리자 및 작업 영역 소유자의 권한
 
-Below is a table clarifying the difference between an Azure subscription administrator and a workspace owner.
+다음은 Azure 구독 관리자와 작업 영역 소유자 간의 차이를 명확히 보여주는 테이블입니다.
 
-| Actions                   | Azure subscription administrator | Workspace owner  |
-| --------------            |:------------------------:| :----------------:|
-| Access [Microsoft Azure classic portal]| Yes         | No                |
-| Create a new workspace                 | Yes         | No                |
-| Delete a workspace                     | Yes         | No                |
-| Add endpoint to a web service          | Yes         | No                |
-| Delete endpoint from a web service     | Yes         | No                |
-| Change concurrency for a web service   | Yes         | No                |
-| Access [Machine Learning Studio]       | No *        | Yes               |
+| 작업 | Azure 구독 관리자 | 작업 영역 소유자 |
+| --------------			|:------------------------:| :----------------:|
+| [Microsoft Azure 클래식 포털] 액세스| 예 | 아니요 |
+| 새 작업 영역 만들기 | 예 | 아니요 |
+| 작업 영역 삭제 | 예 | 아니요 |
+| 웹 서비스에 끝점 추가 | 예 | 아니요 |
+| 웹 서비스에서 끝점 삭제 | 예 | 아니요 |
+| 웹 서비스에 대한 동시성 변경 | 예 | 아니요 |
+| [기계 학습 스튜디오] 액세스 | 아니요 * | 예 |
 
 
-> [AZURE.NOTE] * An Azure subscription administrator is automatically added to the the workspace he/she creates as workspace Owner. However, simply being an Azure subscription administrator doesn't grant him/her access to any workspace under that subscription.
+> [AZURE.NOTE] * Azure 구독 관리자는 작업 영역 소유자 권한으로 만든 작업 영역에 자동으로 추가됩니다. 그러나 단순히 Azure 구독 관리자가 되었다고 해서 해당 구독의 모든 작업 영역에 대한 액세스 권한이 부여되는 것은 아닙니다.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -102,13 +100,10 @@ Below is a table clarifying the difference between an Azure subscription adminis
 
 
 <!--Link references-->
-[Manage an Azure Machine Learning workspace]: machine-learning-manage-workspace.md
-[Troubleshooting guide: Create and connect to an Machine Learning workspace]: machine-learning-troubleshooting-creating-ml-workspace.md
-[Machine Learning Studio]: https://studio.azureml.net/  
-[Microsoft Azure classic portal]: https://manage.windowsazure.com/
+[Azure 기계 학습 작업 영역 관리]: machine-learning-manage-workspace.md
+[문제 해결 가이드: 기계 학습 작업 영역 만들기 및 연결]: machine-learning-troubleshooting-creating-ml-workspace.md
+[Azure 기계 학습 스튜디오]: https://studio.azureml.net/
+[기계 학습 스튜디오]: https://studio.azureml.net/
+[Microsoft Azure 클래식 포털]: https://manage.windowsazure.com/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

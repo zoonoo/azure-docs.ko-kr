@@ -1,153 +1,144 @@
 <properties
-    pageTitle="Azure Active Directory Domain Services: Join a Windows Server VM to a managed domain | Microsoft Azure"
-    description="Join a Windows Server virtual machine to Azure AD Domain Services"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+	pageTitle="Azure Active Directory 도메인 서비스 미리 보기: 관리 가이드 | Microsoft Azure"
+	description="Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스에 가입"
+	services="active-directory-ds"
+	documentationCenter=""
+	authors="mahesh-unnikrishnan"
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/02/2016"
-    ms.author="maheshu"/>
+	ms.service="active-directory-ds"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="maheshu"/>
 
-
-# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Join a Windows Server virtual machine to a managed domain
+# Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
 
 > [AZURE.SELECTOR]
-- [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
+- [Azure 클래식 포털 - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 - [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 
 <br>
 
-This article shows you how to join a virtual machine running Windows Server 2012 R2 to an Azure AD Domain Services managed domain, using the Azure classic portal.
+이 문서에서는 Azure 클래식 포털을 사용하여 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 Azure AD 도메인 서비스는 관리되는 도메인에 가입하는 방법을 보여 줍니다.
 
 
-## <a name="step-1:-create-the-windows-server-virtual-machine"></a>Step 1: Create the Windows Server virtual machine
-Follow the instructions outlined in the [Create a virtual machine running Windows in the Azure classic portal](../virtual-machines/virtual-machines-windows-classic-tutorial.md) tutorial. It is important to ensure that this newly created virtual machine is joined to the same virtual network in which you enabled Azure AD Domain Services. The 'Quick Create' option does not enable you to join the virtual machine to a virtual network. Therefore, you need to use the 'From Gallery' option to create the virtual machine.
+## 1단계: Windows Server 가상 컴퓨터 만들기
+[Azure 클래식 포털에서 Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-classic-tutorial.md) 자습서에 나와 있는 지침을 따릅니다. 이 새로 만든 가상 컴퓨터는 반드시 Azure AD 도메인 서비스가 사용하도록 설정된 동일한 가상 네트워크에 가입되어야 합니다. '빠른 생성' 옵션으로는 가상 컴퓨터를 가상 네트워크에 가입할 수 없습니다. 따라서 가상 컴퓨터를 만들려면 '갤러리에서' 옵션을 사용해야 합니다.
 
-Perform the following steps to create a Windows virtual machine joined to the virtual network in which you've enabled Azure AD Domain Services.
+Azure AD 도메인 서비스가 사용하도록 설정된 가상 네트워크에 가입할 Windows 가상 컴퓨터를 만들기 위해 다음 단계를 수행합니다.
 
-1. In the Azure classic portal, on the command bar at the bottom of the window, click **New**.
+1. Azure 클래식 포털의 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
 
-2. Under **Compute**, click **Virtual Machine**, then click **From Gallery**.
+2. **계산**에서 **가상 컴퓨터**를 클릭한 후 **갤러리에서**를 클릭합니다.
 
-3. The first screen lets you **Choose an Image** for your virtual machine from the list of available images. Pick the appropriate image.
+3. 첫 번째 화면의 사용 가능한 이미지 목록에서 가상 컴퓨터의 **이미지를 선택**할 수 있습니다. 적절한 이미지를 선택합니다.
 
-    ![Select image](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
+    ![이미지 선택](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 
-4. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. The user name you pick here is a local administrator user on the machine. Do not enter a domain user account's credentials here.
+4. 두 번째 화면에서는 컴퓨터 이름, 크기 및 관리자 사용자 이름과 암호를 선택할 수 있습니다. 앱 또는 워크로드를 실행하는 데 필요한 계층과 크기를 사용합니다. 여기에서 선택할 사용자 이름은 컴퓨터에서 로컬 관리자 사용자입니다. 여기에 도메인 사용자 계정 자격 증명을 입력하지 마세요.
 
-    ![Configure virtual machine](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
+    ![가상 컴퓨터 구성](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
 
-5. The third screen lets you configure resources for networking, storage, and availability. Ensure you select the virtual network in which you enabled Azure AD Domain Services from the **Region/Affinity Group/Virtual Network** dropdown. Specify a **Cloud Service DNS Name** as appropriate for the virtual machine.
+5. 세 번째 화면에서는 네트워킹, 저장소 및 가용성에 대한 리소스를 구성할 수 있습니다. **지역/선호도 그룹/가상 네트워크** 드롭다운에서 Azure AD 도메인 서비스를 사용하도록 설정한 가상 네트워크를 선택해야 합니다. 필요에 따라 가상 컴퓨터에 대한 **클라우드 서비스 DNS 이름**을 지정합니다.
 
-    ![Select virtual network for virtual machine](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
+    ![가상 컴퓨터에 대한 가상 네트워크 선택](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
 
     > [AZURE.WARNING]
-    Ensure that you join the virtual machine to the same virtual network in which you've enabled Azure AD Domain Services. As a result, the virtual machine can 'see' the domain and perform tasks such as joining the domain. If you choose to create the virtual machine in a different virtual network, connect that virtual network to the virtual network in which you've enabled Azure AD Domain Services.
+    Azure AD 도메인 서비스를 사용하도록 설정한 동일한 가상 네트워크에 가상 컴퓨터를 가입해야 합니다. 결과적으로 가상 컴퓨터에서 도메인을 '볼' 수 있으며 도메인 가입 등의 작업을 수행할 수 있습니다. 다른 가상 네트워크에 가상 컴퓨터를 만들도록 선택한 경우 가상 네트워크가 Azure AD 도메인 서비스가 사용하도록 설정된 가상 네트워크에 연결되는지 확인합니다.
 
-6. The fourth screen lets you install the VM Agent and configure some of the available extensions.
+6. 네 번째 화면에서는 VM 에이전트를 설치하고 사용 가능한 확장 중 일부를 구성할 수 있습니다.
 
-    ![Done](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
+    ![완료된](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
 
-7. After the virtual machine is created, the classic portal lists the new virtual machine under the **Virtual Machines** node. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
+7. 가상 컴퓨터가 만들어지면 클래식 포털의 **가상 컴퓨터** 노드 아래에 새 가상 컴퓨터가 나열됩니다. 가상 컴퓨터와 클라우드 서비스가 둘 다 자동으로 시작되고 해당 상태가 **실행 중**으로 나열됩니다.
 
-    ![Virtual machine is up and running](./media/active-directory-domain-services-admin-guide/create-windows-vm-running.png)
-
-
-## <a name="step-2:-connect-to-the-windows-server-virtual-machine-using-the-local-administrator-account"></a>Step 2: Connect to the Windows Server virtual machine using the local administrator account
-Now, we connect to the newly created Windows Server virtual machine, to join it to the domain. Use the local administrator credentials you specified when creating the virtual machine, to connect to it.
-
-Perform the following steps to connect to the virtual machine.
-
-1. Navigate to **Virtual Machines** node in the classic portal. Select the virtual machine you created in Step 1 and click **Connect** on the command bar at the bottom of the window.
-
-    ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-
-2. The classic portal prompts you to open or save a file with a '.rdp' extension, which is used to connect to the virtual machine. Click to open the file when it has finished downloading.
-
-3. At the login prompt, enter your **local administrator credentials**, which you specified while creating the virtual machine. For example, we've used 'localhost\mahesh' in this example.
-
-At this point, you should be logged in to the newly created Windows virtual machine using local Administrator credentials. The next step is to join the virtual machine to the domain.
+    ![가상 컴퓨터가 시작되어 실행 중](./media/active-directory-domain-services-admin-guide/create-windows-vm-running.png)
 
 
-## <a name="step-3:-join-the-windows-server-virtual-machine-to-the-aad-ds-managed-domain"></a>Step 3: Join the Windows Server virtual machine to the AAD-DS managed domain
-Perform the following steps to join the Windows Server virtual machine to the AAD-DS managed domain.
+## 2단계: 로컬 관리자 계정을 사용하여 Windows Server 가상 컴퓨터에 연결
+이제 도메인에 가입하기 위해 새로 만든 Windows Server 가상 컴퓨터에 연결합니다. 연결하려면 가상 컴퓨터를 만들 때 지정한 로컬 관리자 자격 증명을 사용합니다.
 
-1. Connect to the Windows Server as shown in Step 2. From the Start screen, open **Server Manager**.
+다음 단계를 수행하여 가상 컴퓨터에 연결합니다.
 
-2. Click **Local Server** in the left pane of the Server Manager window.
+1. 클래식 포털에서 **가상 컴퓨터** 노드로 이동합니다. 1단계에서 만든 가상 컴퓨터를 선택하고 창 아래쪽에 있는 명령 모음에서 **연결**을 클릭합니다.
 
-    ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
+    ![Windows 가상 컴퓨터에 연결](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-3. Click **WORKGROUP** under the **PROPERTIES** section. In the **System Properties** property page, click **Change** to join the domain.
+2. 클래식 포털에 가상 컴퓨터에 연결하는 데 사용되는 ‘.rdp’ 확장명을 가진 파일을 열거나 저장하라는 메시지가 표시됩니다. 다운로드가 완료되면 클릭하여 파일을 엽니다.
 
-    ![System Properties page](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
+3. 로그인 프롬프트에서 가상 컴퓨터를 만드는 동안 지정한 **로컬 관리자 자격 증명**을 입력합니다. 예를 들어 이 예에서 'localhost\\mahesh'를 사용했습니다.
 
-4. Specify the domain name of your Azure AD Domain Services managed domain in the **Domain** textbox and click **OK**.
-
-    ![Specify the domain to be joined](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
-
-5. You are prompted to enter your credentials to join the domain. Ensure that you **specify the credentials for a user belonging to the AAD DC Administrators** group. Only members of this group have privileges to join machines to the managed domain.
-
-    ![Specify credentials for domain join](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
-
-6. You can specify credentials in either of the following ways:
-
-    - UPN format: Specify the UPN suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user 'bob' is 'bob@domainservicespreview.onmicrosoft.com'.
-
-    - SAMAccountName format: You can specify the account name in the SAMAccountName format. In this example, the user 'bob' would need to enter 'CONTOSO100\bob'.
-
-        > [AZURE.NOTE] **We recommend using the UPN format to specify credentials.** The SAMAccountName may be auto-generated if a user's UPN prefix is overly long (for example, 'joereallylongnameuser'). If multiple users have the same UPN prefix (for example, 'bob') in your Azure AD tenant, their SAMAccountName format may be auto-generated by the service. In these cases, the UPN format can be used reliably to log in to the domain.
-
-7. After domain join is successful, you see the following message welcoming you to the domain. Restart the virtual machine for the domain join operation to complete.
-
-    ![Welcome to the domain](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
+이때 로컬 관리자 자격 증명을 사용하여 새로 만든 Windows 가상 컴퓨터에 로그인됩니다. 다음 단계는 가상 컴퓨터를 도메인에 가입하는 것입니다.
 
 
-## <a name="troubleshooting-domain-join"></a>Troubleshooting domain join
-### <a name="connectivity-issues"></a>Connectivity issues
-If the virtual machine is unable to find the domain, refer to the following troubleshooting steps:
+## 3단계: Windows Server 가상 컴퓨터를 AAD-DS 관리되는 도메인에 가입
+Windows Server 가상 컴퓨터를 AAD-DS 관리되는 도메인에 가입하려면 다음 단계를 수행합니다.
 
-- Ensure that the virtual machine is connected to the same virtual network as that you've enabled Domain Services in. If not, the virtual machine is unable to connect to the domain and therefore is unable to join the domain.
+1. 2단계에서와 같이 Windows Server에 연결합니다. 시작 화면에서 **서버 관리자**를 엽니다.
 
-- If the virtual machine is connected to another virtual network, ensure that this virtual network is connected to the virtual network in which you've enabled Domain Services.
+2. 서버 관리자 창의 왼쪽 창에서 **로컬 서버**를 클릭합니다.
 
-- Try to ping the domain using the domain name of the managed domain (for example, 'ping contoso100.com'). If you're unable to do so, try to ping the IP addresses for the domain displayed on the page where you enabled Azure AD Domain Services (for example, 'ping 10.0.0.4'). If you're able to ping the IP address but not the domain, DNS may be incorrectly configured. You may not have configured the IP addresses of the domain as DNS servers for the virtual network.
+    ![가상 컴퓨터에서 서버 관리자 시작](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-- Try flushing the DNS resolver cache on the virtual machine ('ipconfig /flushdns').
+3. **속성** 섹션 아래에서 **작업 그룹**을 클릭합니다. 그러면 **시스템 속성** 속성 페이지가 열립니다. 도메인에 가입하려면 **변경**을 클릭합니다.
 
-If you get to the dialog box that asks for credentials to join the domain, you do not have connectivity issues.
+    ![시스템 속성 페이지](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
 
+4. **도메인** 텍스트 상자에 Azure AD 도메인 서비스 관리되는 도메인의 도메인 이름을 지정하고 **확인**을 클릭합니다.
 
-### <a name="credentials-related-issues"></a>Credentials-related issues
-Refer to the following steps if you're having trouble with credentials and are unable to join the domain.
+    ![가입할 도메인 지정](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
-- Try using the UPN format to specify credentials. The SAMAccountName for your account may be auto-generated if there are multiple users with the same UPN prefix in your tenant or if your UPN prefix is overly long. Therefore, the SAMAccountName format for your account may be different from what you expect or use in your on-premises domain.
+5. 도메인에 가입하려면 자격 증명을 입력하라는 메시지가 표시됩니다. **'AAD DC 관리자' 그룹에 속한 사용자의 자격 증명을 지정**해야 합니다. 이 그룹의 멤버만 관리되는 도메인에 컴퓨터를 가입할 수 있습니다.
 
-- Try to use the credentials of a user account that belongs to the 'AAD DC Administrators' group to join machines to the managed domain.
+    ![도메인 가입에 자격 증명 지정](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
-- Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
+6. 다음 방법 중 하나로 자격 증명을 지정할 수 있습니다.
 
-- Ensure that you use the UPN of the user as configured in Azure AD (for example, 'bob@domainservicespreview.onmicrosoft.com') to sign in.
+    - UPN 형식: Azure AD에 구성된 대로 사용자 계정에 대한 UPN 접미사입니다. 이 예제에서 'bob' 사용자의 UPN 접미사는 'bob@domainservicespreview.onmicrosoft.com'입니다.
 
-- Ensure that you have waited long enough for password synchronization to complete as specified in the Getting Started guide.
+    - SAMAccountName 형식: SAMAccountName 형식으로 계정 이름을 지정할 수 있습니다. 이 예제에서 'bob' 사용자는 'CONTOSO100\\bob'로 입력해야 합니다. Azure AD 테넌트에서 여러 사용자가 동일한 UPN 접미사(예: 'bob')를 포함하는 경우 SAMAccountName 형식을 사용하여 도메인에 로그인하면 문제가 발생합니다. 이러한 경우 UPN 형식을 사용하여 도메인에 안전하게 로그인할 수 있습니다.
 
+7. 도메인 가입에 성공한 후 도메인을 시작한다는 다음 메시지가 표시됩니다. 도메인 가입 작업을 완료하도록 가상 컴퓨터를 다시 시작합니다.
 
-## <a name="related-content"></a>Related Content
-
-- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
-
-- [Administer an Azure AD Domain Services managed domain](./active-directory-ds-admin-guide-administer-domain.md)
+    ![도메인 시작](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
 
+## 도메인 가입 문제 해결
+### 연결 문제
+가상 컴퓨터에서 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+- 가상 컴퓨터가 도메인 서비스를 사용하도록 설정한 동일한 가상 네트워크에 연결되어 있는지 확인합니다. 그렇지 않은 경우 가상 컴퓨터를 도메인에 연결할 수 없으므로 도메인에 가입할 수 없습니다.
+
+- 가상 컴퓨터를 다른 가상 네트워크에 연결하는 경우 이 가상 네트워크가 도메인 서비스가 사용하도록 설정된 가상 네트워크에 연결되는지 확인합니다.
+
+- 관리되는 도메인의 도메인 이름을 사용하여 도메인에 ping을 시도합니다(예: 'ping contoso100.com'). 작업이 불가능한 경우 Azure AD 도메인 서비스를 사용하도록 설정된 페이지에 표시된 도메인의 IP 주소에 ping을 시도합니다(예: 'ping 10.0.0.4'). IP 주소에는 ping을 수행할 수 있지만 도메인에는 수행할 수 없는 경우 DNS가 잘못 구성되었을 수 있습니다. 가상 네트워크에 대한 DNS 서버로 도메인의 IP 주소를 구성하지 않았을 수 있습니다.
+
+- 가상 컴퓨터에서 DNS 확인자 캐시를 플러시해 보세요('ipconfig /flushdns').
+
+도메인 가입을 위한 자격 증명을 묻는 대화 상자가 표시되면 연결 문제는 없는 것입니다.
 
 
+### 자격 증명 관련 문제
+자격 증명을 사용하는 데 문제가 있고 도메인에 가입할 수 없는 경우 다음 단계를 참조하세요.
+
+- 'AAD DC 관리자' 그룹에 속하는 사용자 계정의 자격 증명을 사용하고 있는지 확인합니다. 이 그룹에 속하지 않는 사용자는 컴퓨터를 관리되는 도메인에 가입할 수 없습니다.
+
+- 시작 가이드에 설명된 단계에 따라 [암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md)했는지 확인합니다.
+
+- 로그인하려면 Azure AD에 구성된 대로 사용자의 UPN(예: 'bob@domainservicespreview.onmicrosoft.com')을 사용해야 합니다.
+
+- 시작 가이드에 지정된 대로 암호 동기화가 완료될 때까지 충분히 기다려야 합니다.
+
+
+## 관련 콘텐츠
+
+- [Azure AD 도메인 서비스 - 시작 가이드](./active-directory-ds-getting-started.md)
+
+- [Azure AD 도메인 서비스 관리되는 도메인 관리](./active-directory-ds-admin-guide-administer-domain.md)
+
+<!---HONumber=AcomDC_0907_2016-->

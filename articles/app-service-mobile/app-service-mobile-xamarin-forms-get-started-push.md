@@ -1,201 +1,200 @@
 <properties
-    pageTitle="Add push notifications to your Xamarin.Forms app | Microsoft Azure"
-    description="Learn how to use Azure services to send multi-platform push notifications to your Xamarin.Forms apps."
-    services="app-service\mobile"
-    documentationCenter="xamarin"
-    authors="adrianhall"
-    manager="dwrede"
-    editor=""/>
+	pageTitle="Xamarin.Forms 앱에 푸시 알림 추가 | Microsoft Azure"
+	description="Azure 서비스를 사용하여 Xamarin.Forms 앱에 다중 플랫폼 푸시 알림을 전송하는 방법을 알아봅니다."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-xamarin"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/17/2016"
+	ms.author="wesmc"/>
 
-
-# <a name="add-push-notifications-to-your-xamarin.forms-app"></a>Add push notifications to your Xamarin.Forms app
+# Xamarin.Forms 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-##<a name="overview"></a>Overview
+##개요
 
-This tutorial shows you how to use Azure services to send push notifications to a Xamarin.Forms apps running on the various native device platforms, Android, iOS and Windows. The push notifications are sent from an Azure Mobile Apps backend using Azure Notification Hubs. Template registrations are used so that the same message can be sent to devices running on all platforms using the various push notification services (PNS). For more information about sending cross-platform push notifications, see the [Azure Notification Hubs](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) documentation. 
+이 자습서에서는 Azure 서비스를 사용하여 다양한 네이티브 장치 플랫폼, Android, iOS 및 Windows에서 실행 중인 Xamarin.Forms 앱으로 푸시 알림을 보내는 방법을 보여 줍니다. 푸시 알림은 Azure 알림 허브를 사용하여 Azure 모바일 앱 백 엔드에서 전송됩니다. 다양한 푸시 알림 서비스(PNS)를 사용하는 모든 플랫폼에서 실행되는 장치에 동일한 메시지를 전송할 수 있도록 템플릿 등록이 사용됩니다. 크로스 플랫폼 푸시 알림 전송에 대한 자세한 내용은 [Azure 알림 허브](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 설명서를 참조하세요.
 
-You add push notifications to every project that your Xamarin.Forms app supports. Every time a record is inserted in the backend, a push notification is sent.
+Xamarin.Forms 앱에서 지원하는 모든 프로젝트에 푸시 알림을 추가합니다. 백 엔드에서 레코드가 삽입될 때마다 푸시 알림이 전송됩니다.
 
-##<a name="prerequisites"></a>Prerequisites
+##필수 조건
 
-For the best result with this tutorial, we recommend that you first complete the [Create a Xamarin.Forms app](app-service-mobile-xamarin-forms-get-started.md) tutorial. After you complete this tutorial, you will have a Xamarin.Forms project that is a multi-platform TodoList app. 
+이 자습서를 통한 최상의 결과를 얻기 위해 먼저 [Xamarin.Forms 앱 만들기](app-service-mobile-xamarin-forms-get-started.md) 자습서를 완료하는 것이 좋습니다. 이 자습서를 완료하면 다중 플랫폼 TodoList 앱인 Xamarin.Forms 프로젝트가 생깁니다.
 
-If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 푸시 알림 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-Sending push notifications to iOS devices requires [Apple Developer Program membership](https://developer.apple.com/programs/ios/). Also, you must use a physical iOS device because the [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
+iOS 장치에 푸시 알림을 보내려면 [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)이 필요합니다. 또한 [iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) 실제 iOS 장치를 사용해야 합니다.
 
-##<a name="<a-name="create-hub"></a>create-a-notification-hub"></a><a name="create-hub"></a>Create a Notification Hub
+##<a name="create-hub"></a>알림 허브 만들기
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
-##<a name="update-the-server-project-to-send-push-notifications"></a>Update the server project to send push notifications
+##푸시 알림을 전송하도록 서버 프로젝트 업데이트
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 
-##<a name="(optional)-configure-and-run-the-android-project"></a>(Optional) Configure and run the Android project
+##(선택 사항) Android 프로젝트 구성 및 실행
 
-Complete this section to enable push notifications for the Xamarin.Forms Droid project for Android.
+이 섹션을 완료하여 Android용 Xamarin.Forms Droid 프로젝트에 대한 푸시 알림을 사용하도록 설정합니다.
 
 
-###<a name="enable-google-cloud-messaging-(gcm)"></a>Enable Google Cloud Messaging (GCM)
+###GCM(Google Cloud Messaging) 사용
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-###<a name="configure-the-mobile-app-backend-to-send-push-requests-using-gcm"></a>Configure the Mobile App backend to send push requests using GCM
+###GCM을 사용하여 푸시 요청을 보내도록 모바일 앱 백 엔드 구성
 
 [AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-###<a name="add-push-notifications-to-the-android-project"></a>Add push notifications to the Android project
+###Android 프로젝트에 푸시 알림 추가
 
-With the backend configured to use Google Cloud Messaging (GCM), we can add the components and the code to the client that enables the app to register with GCM, register for push notifications with Azure Notification Hubs through the mobile app backend, and receive notifications.
+GCM(Google Cloud Messaging)을 사용하도록 구성된 백 엔드를 통해 구성 요소 및 코드를 클라이언트에 추가하면 모바일 앱 백 엔드를 통해 앱을 GCM에 등록하고 푸시 알림을 Azure 알림 허브에 등록하며 알림을 수신할 수 있습니다.
 
-1. In the **Droid** project, right-click the **Components** folder, click **Get More Components...**, search for the **Google Cloud Messaging Client** component and add it to the project. This component supports push notifications for a Xamarin Android project.
-
-
-2. Open the MainActivity.cs project file and add the following using statement at the top of the file:
-
-        using Gcm.Client;
-
-3. Add the following code to the **OnCreate** method after the call to **LoadApplication**:
-
-        try
-        {
-            // Check to ensure everything's setup right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
-
-            // Register for push notifications
-            System.Diagnostics.Debug.WriteLine("Registering...");
-            GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
-        }
-        catch (Java.Net.MalformedURLException)
-        {
-            CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
-        }
-        catch (Exception e)
-        {
-            CreateAndShowDialog(e.Message, "Error");
-        }
+1. **Droid** 프로젝트에서 **Components** 폴더를 마우스 오른쪽 단추로 클릭하고 **Get More Components...**를 클릭하고 **Google Cloud Messaging Client** 구성 요소를 검색하여 이를 프로젝트에 추가합니다. 이 구성 요소는 Xamarin Android 프로젝트에 대한 푸시 알림을 지원합니다.
 
 
-4. Add a new **CreateAndShowDialog** helper method, as follows:
+2. MainActivity.cs 프로젝트 파일을 열고 파일의 맨 위에 있는 문을 사용하여 다음을 추가합니다.
 
-        private void CreateAndShowDialog(String message, String title)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		using Gcm.Client;
 
-            builder.SetMessage (message);
-            builder.SetTitle (title);
-            builder.Create().Show ();
-        }
+3. **LoadApplication** 호출 후 다음 코드를 **OnCreate** 메서드에 추가합니다.
 
+	    try
+	    {
+	        // Check to ensure everything's setup right
+	        GcmClient.CheckDevice(this);
+	        GcmClient.CheckManifest(this);
 
-5. Add the following code to the **MainActivity** class:
-
-        // Create a new instance field for this activity.
-        static MainActivity instance = null;
-
-        // Return the current activity instance.
-        public static MainActivity CurrentActivity
-        {
-            get
-            {
-                return instance;
-            }
-        }
-
-    This exposes the current **MainActivity** instance so we can execute on the main UI thread.
-
-6. Initialize the `instance`, variable at the beginning of the **OnCreate** method, as follows.
-
-        // Set the current instance of MainActivity.
-        instance = this;
-
-2. Add a new class file to the **Droid** project named `GcmService.cs`, and make sure the following **using** statements are present at the top of the file:
-
-        using Android.App;
-        using Android.Content;
-        using Android.Media;
-        using Android.Support.V4.App;
-        using Android.Util;
-        using Gcm.Client;
-        using Microsoft.WindowsAzure.MobileServices;
-        using Newtonsoft.Json.Linq;
-        using System;
-        using System.Collections.Generic;
-        using System.Diagnostics;
-        using System.Text;
+	        // Register for push notifications
+	        System.Diagnostics.Debug.WriteLine("Registering...");
+	        GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
+	    }
+	    catch (Java.Net.MalformedURLException)
+	    {
+	        CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
+	    }
+	    catch (Exception e)
+	    {
+	        CreateAndShowDialog(e.Message, "Error");
+	    }
 
 
-9. Add the following permission requests at the top of the file, after the **using** statements and before the **namespace** declaration.
+4. 새 **CreateAndShowDialog** 도우미 메서드를 다음과 같이 추가합니다.
 
-        [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-        [assembly: UsesPermission(Name = "android.permission.INTERNET")]
-        [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-        //GET_ACCOUNTS is only needed for android versions 4.0.3 and below
-        [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
+		private void CreateAndShowDialog(String message, String title)
+		{
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-10. Add the following class definition to the namespace. 
-
-        [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-        {
-            public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
-        }
-
-    >[AZURE.NOTE]Replace **<PROJECT_NUMBER>** with your project number you noted earlier.   
-
-11. Replace the empty **GcmService** class with the following code, which uses the new broadcast receiver:
-
-         [Service]
-         public class GcmService : GcmServiceBase
-         {
-             public static string RegistrationID { get; private set; }
-
-             public GcmService()
-                 : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
-         }
+			builder.SetMessage (message);
+			builder.SetTitle (title);
+			builder.Create().Show ();
+		}
 
 
-12. Add the following code to the **GcmService** class that overrides the **OnRegistered** event handler and implements a **Register** method.
+5. 다음 코드를 **MainActivity** 클래스에 추가합니다.
 
-        protected override void OnRegistered(Context context, string registrationId)
-        {
-            Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
-            RegistrationID = registrationId;
+		// Create a new instance field for this activity.
+		static MainActivity instance = null;
+
+		// Return the current activity instance.
+		public static MainActivity CurrentActivity
+		{
+		    get
+		    {
+		        return instance;
+		    }
+		}
+
+	현재 **MainActivity** 인스턴스를 노출하므로 주 UI 스레드에서 실행할 수 있습니다.
+
+6. 다음과 같이 **OnCreate** 메서드 시작 부분에서 변수 `instance`를 초기화합니다.
+
+		// Set the current instance of MainActivity.
+		instance = this;
+
+2. 새 클래스 파일을 `GcmService.cs`로 명명된 **Droid** 프로젝트에 추가하고 다음 **using** 문이 파일 맨 위에 있는지 확인합니다.
+
+		using Android.App;
+		using Android.Content;
+		using Android.Media;
+		using Android.Support.V4.App;
+		using Android.Util;
+		using Gcm.Client;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
+		using System;
+		using System.Collections.Generic;
+		using System.Diagnostics;
+		using System.Text;
+
+
+9. 파일의 맨 위에서 **using** 문 뒤의 **namespace** 선언 앞에 다음과 같은 사용 권한 요청을 추가합니다.
+
+		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
+		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
+		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
+		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
+		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
+		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
+		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
+
+10. 네임스페이스에 다음과 같은 클래스 정의를 추가합니다.
+
+		[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
+		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
+		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
+		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
+		public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+		{
+		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
+		}
+
+	>[AZURE.NOTE]**<PROJECT\_NUMBER>**를 앞에서 설명한 프로젝트 번호로 바꿉니다.
+
+11. 빈 **GcmService** 클래스를 새 브로드캐스트 수신기를 사용하는 다음 코드로 바꿉니다.
+
+		 [Service]
+		 public class GcmService : GcmServiceBase
+		 {
+		     public static string RegistrationID { get; private set; }
+
+		     public GcmService()
+		         : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
+		 }
+
+
+12. **OnRegistered** 이벤트 처리기를 재정의하고 **Register** 메서드를 구현하는 다음 코드를 **GcmService** 클래스에 추가합니다.
+
+		protected override void OnRegistered(Context context, string registrationId)
+		{
+		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
+		    RegistrationID = registrationId;
 
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 
-            MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-        }
+		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
+		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
         {
             try
             {
-                const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+                const string templateBodyGCM = "{"data":{"message":"$(messageParam)"}}";
 
                 JObject templates = new JObject();
                 templates["genericMessage"] = new JObject
                 {
-                    {"body", templateBodyGCM}
+                	{"body", templateBodyGCM}
                 };
 
                 await push.RegisterAsync(RegistrationID, templates);
@@ -208,44 +207,44 @@ With the backend configured to use Google Cloud Messaging (GCM), we can add the 
             }
         }
 
-        Note that this code uses the `messageParam` parameter in the template registration. 
+		Note that this code uses the `messageParam` parameter in the template registration. 
 
-13. Add the following code that implements **OnMessage**: 
+13. **OnMessage**를 구현하는 다음 코드를 추가합니다.
 
-        protected override void OnMessage(Context context, Intent intent)
-        {
-            Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
+		protected override void OnMessage(Context context, Intent intent)
+		{
+		    Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
 
-            var msg = new StringBuilder();
+		    var msg = new StringBuilder();
 
-            if (intent != null && intent.Extras != null)
-            {
-                foreach (var key in intent.Extras.KeySet())
-                    msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
-            }
+		    if (intent != null && intent.Extras != null)
+		    {
+		        foreach (var key in intent.Extras.KeySet())
+		            msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
+		    }
 
-            //Store the message
-            var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
-            var edit = prefs.Edit();
-            edit.PutString("last_msg", msg.ToString());
-            edit.Commit();
+		    //Store the message
+		    var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
+		    var edit = prefs.Edit();
+		    edit.PutString("last_msg", msg.ToString());
+		    edit.Commit();
 
-            string message = intent.Extras.GetString("message");
-            if (!string.IsNullOrEmpty(message))
-            {
-                createNotification("New todo item!", "Todo item: " + message);
-                return;
-            }
+		    string message = intent.Extras.GetString("message");
+		    if (!string.IsNullOrEmpty(message))
+		    {
+		        createNotification("New todo item!", "Todo item: " + message);
+		        return;
+		    }
 
-            string msg2 = intent.Extras.GetString("msg");
-            if (!string.IsNullOrEmpty(msg2))
-            {
-                createNotification("New hub message!", msg2);
-                return;
-            }
+		    string msg2 = intent.Extras.GetString("msg");
+		    if (!string.IsNullOrEmpty(msg2))
+		    {
+		        createNotification("New hub message!", msg2);
+		        return;
+		    }
 
-            createNotification("Unknown message details", msg.ToString());
-        }
+		    createNotification("Unknown message details", msg.ToString());
+		}
 
         void createNotification(string title, string desc)
         {
@@ -277,70 +276,70 @@ With the backend configured to use Google Cloud Messaging (GCM), we can add the 
             notificationManager.Notify(1, notification);
         }
 
-    This handles incoming notifications and send them to the notification manager to be displayed.
+	이 코드는 들어오는 알림을 처리하고 표시될 알림 관리자로 보냅니다.
 
-14. **GcmServiceBase** also requires you to implement the **OnUnRegistered** and **OnError** handler methods, which you can do as follows:
+14. **GcmServiceBase**를 사용하려면 **OnUnRegistered** 및 **OnError** 처리기 메서드를 구현해야 하며 다음과 같이 수행할 수 있습니다.
 
-        protected override void OnUnRegistered(Context context, string registrationId)
-        {
-            Log.Error("PushHandlerBroadcastReceiver", "Unregistered RegisterationId : " + registrationId);
-        }
+		protected override void OnUnRegistered(Context context, string registrationId)
+		{
+			Log.Error("PushHandlerBroadcastReceiver", "Unregistered RegisterationId : " + registrationId);
+		}
 
-        protected override void OnError(Context context, string errorId)
-        {
-            Log.Error("PushHandlerBroadcastReceiver", "GCM Error: " + errorId);
-        }
+		protected override void OnError(Context context, string errorId)
+		{
+			Log.Error("PushHandlerBroadcastReceiver", "GCM Error: " + errorId);
+		}
 
-Now, you are ready test push notifications in the app running on an Android device or the emulator.
+이제 Android 장치 또는 에뮬레이터에서 실행 중인 앱에서 푸시 알림을 테스트할 준비가 되었습니다.
 
-###<a name="test-push-notifications-in-your-android-app"></a>Test push notifications in your Android app
+###Android 앱에서 푸시 알림 테스트
 
-The first two steps are required only when testing on an emulator.
+처음 두 단계는 에뮬레이터에서 테스트할 때만 필요합니다.
 
-1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager.
+1. 아래와 같이 AVD(Android 가상 장치) 관리자에서 대상으로 설정된 Google API가 있는 가상 장치에 배포하거나 해당 가상 장치에서 디버그해야 합니다.
 
-2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts to use add an existing Google account to the device to create a new one.
+2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 장치에 Google 계정을 추가한 다음 표시되는 메시지에 따라 장치에 기존 Google 계정 추가를 사용하여 새로운 계정을 만듭니다.
 
-1. In Visual Studio or Xamarin Studio, right click the **Droid** project and click **Set as startup project**.
+1. Visual Studio 또는 Xamarin Studio에서 **Droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
 
-2. Press the **Run** button to build the project and start the app on your Android device or emulator.
+2. **실행** 단추를 눌러 프로젝트를 빌드하고 Android 장치 또는 에뮬레이터에서 앱을 시작합니다.
 
-3. In the app, type a task, and then click the plus (**+**) icon.
+3. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
 
-4. Verify that a notification is received when an item is added.
+4. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
 
-##<a name="(optional)-configure-and-run-the-ios-project"></a>(Optional) Configure and run the iOS project
+##(선택 사항) iOS 프로젝트 구성 및 실행
 
-This section is for running the Xamarin iOS project for iOS devices. You can skip this section if you are not working with iOS devices.
+이 섹션에서는 iOS 장치용 Xamarin iOS 프로젝트를 실행합니다. iOS 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 [AZURE.INCLUDE [notification-hubs-xamarin-enable-apple-push-notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
 
-####<a name="configure-the-notification-hub-for-apns"></a>Configure the notification hub for APNS
+####APNS에 대한 알림 허브 구성
 
-1. Log into the [Azure portal](https://portal.azure.com/). Click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Push** > **Apple (APNS)** > **Upload Certificate**. Upload the .p12 push certificate file you exported earlier.  Make sure to select **Sandbox** if you created a development push certificate for development and testing.  Otherwise, choose **Production**. Your service is now configured to work with push notifications for iOS.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
-    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
 
-    Next you will configure the iOS project setting in Xamarin Studio or Visual Studio.
+	다음에는 Xamarin Studio 또는 Visual Studio에서 iOS 프로젝트 설정을 구성합니다.
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
 
-####<a name="add-push-notifications-to-your-ios-app"></a>Add push notifications to your iOS app
+####iOS 앱에 푸시 알림 추가
 
-1. In the **iOS** project, open AppDelegate.cs add the following **using** statement to the top of the code file.
+1. **iOS** 프로젝트에서 AppDelegate.cs를 열고 다음 **using** 문을 코드 파일의 맨 위에 추가합니다.
 
         using Newtonsoft.Json.Linq;
 
-4. In the **AppDelegate** class, add an override for the **RegisteredForRemoteNotifications** event to register for notifications:
+4. 또한 **AppDelegate** 클래스에서 **RegisteredForRemoteNotifications** 이벤트 재정의를 추가하여 알림을 등록합니다.
 
         public override void RegisteredForRemoteNotifications(UIApplication application, 
-            NSData deviceToken)
+			NSData deviceToken)
         {
-            const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
+            const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
@@ -353,10 +352,10 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. In **AppDelegate**, also add the following override for the **DidReceivedRemoteNotification** event handler:
+5. **AppDelegate**에서 **DidReceivedRemoteNotification** 이벤트 처리기에 대한 다음 재정의도 추가합니다.
 
         public override void DidReceiveRemoteNotification(UIApplication application, 
-            NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+			NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
@@ -372,9 +371,9 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
             }
         }
 
-    This method handles incoming notifications while the app is running.
+	이 메서드는 앱을 실행하는 동안 들어오는 알림을 처리합니다.
 
-2. In the **AppDelegate** class, add the following code to the **FinishedLaunching** method: 
+2. **AppDelegate** 클래스에서 다음 코드를 **FinishedLaunching** 메서드에 추가합니다.
 
         // Register for push notifications.
         var settings = UIUserNotificationSettings.GetSettingsForTypes(
@@ -386,52 +385,52 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
         UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
         UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
-    This enables support for remote notifications and requests push registration.
+	이를 통해 원격 알림을 지원하고 푸시 등록을 요청합니다.
 
-Your app is now updated to support push notifications.
+이제 앱이 푸시 알림을 지원하도록 업데이트됩니다.
 
-####<a name="test-push-notifications-in-your-ios-app"></a>Test push notifications in your iOS app
+####iOS 앱에서 푸시 알림 테스트
 
-1. Right click the iOS project, and click **Set as StartPp Project**.
+1. iOS 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
 
-2. Press the **Run** button or **F5** in Visual Studio to build the project and start the app in an iOS device, then click **OK** to accept push notifications.
+2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 눌러 프로젝트를 빌드하고 iOS 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 
-    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
-3. In the app, type a task, and then click the plus (**+**) icon.
+3. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
 
-4. Verify that a notification is received, then click **OK** to dismiss the notification.
-
-
-##<a name="(optional)-configure-and-run-the-windows-projects"></a>(Optional) Configure and run the Windows projects
-
-This section is for running the Xamarin.Forms WinApp and WinPhone81 projects for Windows devices. These steps also support Universal Windows Platform (UWP) projects. You can skip this section if you are not working with Windows devices.
+4. 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다.
 
 
-####<a name="register-your-windows-app-for-push-notifications-with-wns"></a>Register your Windows app for push notifications with WNS
+##(선택 사항) Windows 프로젝트 구성 및 실행
+
+이 섹션에서는 Windows 장치용 Xamarin.Forms WinApp 및 WinPhone81 프로젝트를 실행합니다. 이 단계에서는 UWP(범용 Windows 플랫폼) 프로젝트도 지원합니다. Windows 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+
+
+####WNS를 사용하여 푸시 알림에 대해 Windows 앱 등록
 
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
 
-####<a name="configure-the-notification-hub-for-wns"></a>Configure the notification hub for WNS
+####WNS에 대한 알림 허브 구성
 
 [AZURE.INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
 
-####<a name="add-push-notifications-to-your-windows-app"></a>Add push notifications to your Windows app
+####Windows 앱에 푸시 알림 추가
 
-1. In Visual Studio, open **App.xaml.cs** in a Windows project and add the following **using** statements.
+1. Visual Studio의 Windows 프로젝트에서 **App.xaml.cs**를 열고 다음 **using** 문을 추가합니다.
 
-        using Newtonsoft.Json.Linq;
-        using Microsoft.WindowsAzure.MobileServices;
-        using System.Threading.Tasks;
-        using Windows.Networking.PushNotifications;
-        using <your_TodoItemManager_portable_class_namespace>;
+		using Newtonsoft.Json.Linq;
+		using Microsoft.WindowsAzure.MobileServices;
+		using System.Threading.Tasks;
+		using Windows.Networking.PushNotifications;
+		using <your_TodoItemManager_portable_class_namespace>;
 
-    Replace `<your_TodoItemManager_portable_class_namespace>` with namespace of your portable project that contains the `TodoItemManager` class.
+	`<your_TodoItemManager_portable_class_namespace>`를 `TodoItemManager` 클래스가 들어 있는 이식 가능 프로젝트의 네임스페이스로 바꿉니다.
  
 
-2. In App.xaml.cs add the following **InitNotificationsAsync** method: 
+2. App.xaml.cs에서 다음 **InitNotificationsAsync** 메서드를 추가합니다.
 
         private async Task InitNotificationsAsync()
         {
@@ -439,62 +438,58 @@ This section is for running the Xamarin.Forms WinApp and WinPhone81 projects for
                 .CreatePushNotificationChannelForApplicationAsync();
 
             const string templateBodyWNS = 
-                "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
+				"<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
 
             JObject headers = new JObject();
             headers["X-WNS-Type"] = "wns/toast";
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
-            {
-                {"body", templateBodyWNS},
-                {"headers", headers} // Needed for WNS.
-            };
+			{
+				{"body", templateBodyWNS},
+				{"headers", headers} // Needed for WNS.
+			};
 
             await TodoItemManager.DefaultManager.CurrentClient.GetPush()
-                .RegisterAsync(channel.Uri, templates);
+				.RegisterAsync(channel.Uri, templates);
         }
 
-    This method gets the push notification channel and registers a template to receive template notifications from your notification hub. A template notification that supports *messageParam* will be delivered to this client.
+	이 메서드는 푸시 알림 채널을 가져오고 알림 허브에서 템플릿 알림을 수신하기 위해 템플릿을 등록합니다. *messageParam*을 지원하는 템플릿 알림이 이 클라이언트에 전달됩니다.
 
-3. In App.xaml.cs, update the **OnLaunched** event handler method definition by adding the `async` modifier, then add the following line of code at the end of the method: 
+3. App.xaml.cs에서 `async` 한정자를 추가하여 **OnLaunched** 이벤트 처리기 메서드 정의를 업데이트한 후 다음 코드 줄을 메서드 끝에 추가합니다.
 
         await InitNotificationsAsync();
 
-    This makes sure that the push notification registration is created or refreshed every time the app is launched. It's important to do this to guarantee that the WNS push channel is always active.  
+	이렇게 하면 앱이 시작될 때마다 푸시 알림 등록이 생성 또는 새로 고침됩니다. WNS 푸시 채널이 항상 활성화되도록 이 작업을 수행하는 것이 중요합니다.
 
-4. In Solution Explorer for Visual Studio, open the **Package.appxmanifest** file and set **Toast Capable** to **Yes** under **Notifications**.
+4. Visual Studio용 솔루션 탐색기에서 **Package.appxmanifest** 파일을 열고 **알림** 아래에서 **알림 가능**을 **예**로 설정합니다.
 
-5. Build the app and verify you have no errors.  You client app should now register for the template notifications from the Mobile App backend. Repeat this section for every Windows project in your solution.
+5. 앱을 빌드하고 오류가 없는지 확인합니다. 이제 클라이언트 앱이 모바일 앱 백 엔드에서 템플릿 알림을 등록해야 합니다. 솔루션의 모든 Windows 프로젝트에 대해 이 섹션을 반복합니다.
 
 
-####<a name="test-push-notifications-in-your-windows-app"></a>Test push notifications in your Windows app
+####Windows 앱에서 푸시 알림 테스트
 
-1. In Visual Studio, right click a Windows project and click **Set as startup project**.
+1. Visual Studio에서 Windows 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
 
-2. Press the **Run** button to build the project and start the app.
+2. **실행** 단추를 눌러 프로젝트를 빌드하고 앱을 시작합니다.
 
-3. In the app, type a name for a new todoitem, and then click the plus (**+**) icon to add it.
+3. 앱에서 새 todoitem에 대한 이름을 입력한 다음 더하기(**+**) 아이콘을 클릭하여 추가합니다.
 
-4. Verify that a notification is received when the item is added.
+4. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
-##<a name="next-steps"></a>Next steps
+##다음 단계
 
-Learn more about push notifications:
+푸시 알림에 대해 자세히 알아봅니다.
 
-* [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags)  
-Tags allow you to target segmented customers with pushes.  Learn how to add tags to a device installation.
+* [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) 태그를 사용하면 푸시를 사용하여 여러 조각으로 나뉜 고객을 대상으로 할 수 있습니다. 장치 설치에 태그를 추가하는 방법에 대해 자세히 알아보세요.
 
-* [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-There are various reasons why notifications may get dropped or do not end up on devices. This topic shows you how to analyze and figure out the root cause of push notification failures. 
+* [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md) 장치에서 알림이 삭제되거나 끝나지 않는 다양한 이유가 있습니다. 이 항목에서는 푸시 알림 실패의 근본 원인을 분석 및 파악하는 방법을 보여 줍니다.
 
-Consider continuing on to one of the following tutorials:
+다음 자습서 중 하나를 진행하는 것이 좋습니다.
 
-* [Add authentication to your app ](app-service-mobile-xamarin-forms-get-started-users.md)  
-Learn how to authenticate users of your app with an identity provider.
+* [앱에 인증 추가](app-service-mobile-xamarin-forms-get-started-users.md) ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+* [앱에 오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md) 모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다.
 
 <!-- Images. -->
 
@@ -503,9 +498,4 @@ Learn how to authenticate users of your app with an identity provider.
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

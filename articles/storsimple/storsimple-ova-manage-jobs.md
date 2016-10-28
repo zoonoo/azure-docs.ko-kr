@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="View and manage StorSimple Virtual Array jobs | Microsoft Azure"
-   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent and current jobs for the StorSimple Virtual Array."
+   pageTitle="StorSimple 가상 배열 작업 보기 및 관리 | Microsoft Azure"
+   description="StorSimple Manager 서비스 작업 페이지에 대해 설명하고 이 페이지를 사용하여 StorSimple 가상 배열에 대한 최근 및 현재 작업을 추적하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,66 +15,61 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
+# StorSimple 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기
 
-# <a name="use-the-storsimple-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array
+## 개요
 
-## <a name="overview"></a>Overview
+**작업** 페이지에서는 StorSimple 관리자 서비스에 연결된 가상 배열(온-프레미스 가상 장치라고도 함)에서 시작한 작업을 보고 관리하기 위한 단일 중앙 포털을 제공합니다. 여러 가상 장치에 대한 실행, 완료 및 실패한 작업을 볼 수 있습니다. 결과는 표 형식으로 나타납니다.
 
-The **Jobs** page provides a single central portal for viewing and managing jobs that are started on Virtual Arrays (also known as on-premises virtual devices) that are connected to your StorSimple Manager service. You can view running, completed, and failed jobs for multiple virtual devices. Results are presented in a tabular format. 
+![작업 페이지](./media/storsimple-ova-manage-jobs/ovajobs1.png)
 
-![Jobs page](./media/storsimple-ova-manage-jobs/ovajobs1.png)
+다음과 같이 필드에서 필터링하여 관심 있는 작업을 빠르게 찾을 수 있습니다.
 
-You can quickly find the jobs you are interested in by filtering on fields such as:
+- **상태** – 모두, 실행 중, 완료 또는 실패한 작업을 검색할 수 있습니다.
+- **시작 및 종료** – 작업은 날짜 및 시간 범위에 따라 필터링할 수 있습니다.
+- **유형** – 작업 유형은 모두, 백업, 복원, 장애 조치, 업데이트 다운로드 또는 업데이트 설치일 수 있습니다.
+- **장치** – 작업은 서비스에 연결된 특정 장치에서 시작됩니다. 필터링된 작업은 다음과 같은 특성을 기반으로 표로 정리됩니다.
 
-- **Status** – You can search for all, running, completed, or failed jobs.
-- **From and To** – Jobs can be filtered based on the date and time range.
-- **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
-- **Devices** – Jobs are initiated on a specific device connected to your service. The filtered jobs are then tabulated on the basis of the following attributes:
+    - **유형** – 작업 유형은 모두, 백업, 복원, 장애 조치, 업데이트 다운로드 또는 업데이트 설치일 수 있습니다.
 
-    - **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
+    - **상태** - 작업은 모두, 실행 중, 완료 또는 실패일 수 있습니다.
 
-    - **Status** – Jobs can be all, running, completed, or failed.
+    - **엔터티** – 작업은 볼륨, 공유 또는 장치에 연관될 수 있습니다.
 
-    - **Entity** – The jobs can be associated with a volume, share, or device. 
+    - **장치** – 작업이 시작된 장치의 이름입니다.
 
-    - **Device** – The name of the device on which the job was started.
+    - **시작 시간** – 작업이 시작된 시간입니다.
 
-    - **Started on** – The time when the job was started.
+    - **진행률** – 실행 중인 작업의 완료율입니다. 완료된 작업의 경우 항상 100%여야 합니다.
 
-    - **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
+작업 목록은 30초마다 새로 고쳐집니다.
 
-The list of jobs is refreshed every 30 seconds.
+## 작업 세부 정보 보기
 
-## <a name="view-job-details"></a>View job details
+다음 단계에 따라 작업 세부 정보를 봅니다.
 
-Perform the following steps to view the details of any job.
+#### 작업 세부 정보 보는 방법
 
-#### <a name="to-view-job-details"></a>To view job details
+1. **작업** 페이지에서 적절한 필터와 함께 쿼리를 실행하여 관심 있는 작업을 표시합니다. 완료되거나, 실행 중인 작업을 검색할 수 있습니다.
 
-1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed or running jobs.
+2. 작업 테이블 형식 목록에서 작업을 선택합니다.
 
-2. Select a job from the tabular list of jobs.
+3. 페이지 맨 아래에서 **세부 정보**를 클릭합니다.
 
-3. At the bottom of the page, click **Details**.
-
-4. In the **Details** dialog box, you can view status, details,  and time statistics. The following illustration shows an example of the **Backup Job Details** dialog box.
+4. **세부 정보** 대화 상자에서 상태, 세부 정보 및 시간 통계를 볼 수 있습니다. 다음 그림은 **백업 작업 세부 정보** 대화 상자의 예를 보여 줍니다.
  
-    ![Job details page](./media/storsimple-ova-manage-jobs/ovajobs2.png)
+    ![작업 세부 정보 페이지](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
-#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Job failures when the virtual machine is paused in the hypervisor
+#### 가상 컴퓨터가 하이퍼바이저에서 일시 중지되는 경우 작업 실패
 
-When a job is in progress on your StorSimple Virtual Array and the device (virtual machine provisioned in hypervisor) is paused for greater than 15 minutes, the job will fail. This is due to your StorSimple Virtual Array time being out of sync with the Microsoft Azure time. An example for a restore job failure is shown in the following screenshot.
+StorSimple 가상 배열에서 작업이 진행 중인 경우 장치(하이퍼바이저에 프로비전된 가상 컴퓨터)가 15분 넘게 일시 중지되면 작업이 실패합니다. 이는 StorSimple 가상 배열 시간과 Microsoft Azure 시간이 동기화 해제되기 때문입니다. 복원 작업 실패에 대한 예제는 다음 스크린샷에 나와 있습니다.
 
-![Restore job failure](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+![복원 작업 실패](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
 
-These failures will apply to backup, restore, update, and failover jobs. If your virtual machine is provisioned in Hyper-V, the machine will eventually synchronize time with your hypervisor. Once that happens, you can restart your job. 
+이러한 실패는 백업, 복원, 업데이트 및 장애 조치(failover) 작업에 적용됩니다. 가상 컴퓨터가 Hyper-V에 프로비전된 경우 이 컴퓨터는 최종적으로 하이퍼바이저와 시간을 동기화합니다. 이러한 동기화 후 작업을 다시 시작할 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-[Learn how to use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+[로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리하는 방법을 알아봅니다.](storsimple-ova-web-ui-admin.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

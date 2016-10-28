@@ -1,112 +1,107 @@
 <properties
-    pageTitle="Authentication and Authorization in Azure Mobile Apps | Microsoft Azure"
-    description="Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps"
-    services="app-service\mobile"
-    documentationCenter=""
-    authors="mattchenderson"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Azure 모바일 앱의 인증 및 권한 부여 | Microsoft Azure"
+	description="Azure 모바일 앱에 대한 인증/권한 부여 기능의 개념 참조 및 개요"
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="erikref"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="mahender"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="mahender"/>
 
+# Azure 모바일 앱의 인증 및 권한 부여
 
-# <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Authentication and Authorization in Azure Mobile Apps
+## 앱 서비스 인증/권한 부여란?
 
-## <a name="what-is-app-service-authentication-/-authorization?"></a>What is App Service Authentication / Authorization?
+> [AZURE.NOTE] 이 항목은 웹, 모바일 및 API 앱을 다루는 통합된 [앱 서비스 인증/권한 부여](../app-service/app-service-authentication-overview.md) 항목으로 마이그레이션됩니다.
 
-> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
+앱 서비스 인증/권한 부여는 응용 프로그램이 앱 백 엔드에 필요한 코드 변경 없이 사용자를 로그인할 수 있도록 만드는 기능입니다. 응용 프로그램을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
 
-App Service Authentication / Authorization is a feature which allows your application to log in users with no code changes required on the app backend. It provides an easy way to protect your application and work with per-user data.
+앱 서비스는 페더레이션된 ID를 사용하며 여기서 타사 **ID 공급자**("IDP")는 계정을 저장하고 사용자를 인증하며 응용 프로그램은 자체 ID 대신 이 ID를 사용합니다. 앱 서비스는 기본적으로 _Azure Active Directory_, _Facebook_, _Google_, _Microsoft 계정_, 및 _Twitter_와 같은 다섯 가지 ID 공급자를 지원합니다. 또한 다른 ID 공급자 또는 사용자 고유의 사용자 지정 ID 솔루션을 통합하여 앱에 이 지원을 확장할 수 있습니다.
 
-App Service uses federated identity, in which a 3rd-party **identity provider** ("IDP") stores accounts and authenticates users, and the application uses this identity instead of its own. App Service supports five identity providers out of the box: _Azure Active Directory_, _Facebook_, _Google_, _Microsoft Account_, and _Twitter_. You can also expand this support for your apps by integrating another identity provider or your own custom identity solution.
+앱은 개수에 관계 없이 이러한 ID 공급자를 활용할 수 있으므로 최종 사용자에게 로그인 방법에 대한 옵션을 제공할 수 있습니다.
 
-Your app can leverage any number of these identity providers, so you can provide your end users with options for how they login.
+지금 바로 시작하려는 경우 다음 자습서 중 하나를 참조하세요.
 
-If you wish to get started right away, please see one of the following tutorials:
+- [iOS 앱에 인증 추가]
+- [Xamarin.iOS 앱에 인증 추가]
+- [Xamarin Android 앱에 인증 추가]
+- [Windows 앱에 인증 추가]
 
-- [Add authentication to your iOS app]
-- [Add authentication to your Xamarin.iOS app]
-- [Add authentication to your Xamarin.Android app]
-- [Add Authentication to your Windows app]
+## 인증 작동 방법
 
-## <a name="how-authentication-works"></a>How authentication works
+ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 구성하여 응용 프로그램에 대해 알아야 합니다. 그러면 ID 공급자는 응용 프로그램에 다시 제공하는 ID 및 암호를 제공합니다. 트러스트 관계를 완료하고 앱 서비스가 제공된 ID의 유효성을 검사하도록 합니다.
 
-In order to authenticate using one of the identity providers, you first need to configure the identity provider to know about your application. The identity provider will then provide you with IDs and secrets that you provide back to the application. This completes the trust relationship and allows App Service to validate identities provided to it.
+이러한 단계는 다음 항목에서 자세히 설명합니다.
 
-These steps are detailed in the following topics:
+- [Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법]
+- [Facebook 로그인을 사용하도록 앱을 구성하는 방법]
+- [Google 로그인을 사용하도록 앱을 구성하는 방법]
+- [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]
+- [Twitter 로그인을 사용하도록 앱을 구성하는 방법]
 
-- [How to configure your app to use Azure Active Directory login]
-- [How to configure your app to use Facebook login]
-- [How to configure your app to use Google login]
-- [How to configure your app to use Microsoft Account login]
-- [How to configure your app to use Twitter login]
+모든 것이 백 엔드에서 구성되면 클라이언트를 수정하여 로그인할 수 있습니다. 두 가지 접근 방법은 다음과 같습니다.
 
-Once everything is configured on the backend, you can modify your client to log in. There are two approaches here:
+- 한 줄의 코드를 사용하여 모바일 앱 클라이언트 SDK가 사용자를 로그인하도록 할 수 있습니다.
+- 지정된 ID 공급자를 통해 게시된 SDK를 활용하여 ID를 설정한 다음 앱 서비스에 액세스를 얻습니다.
 
-- Using a single line of code, let the Mobile Apps client SDK sign in users.
-- Leverage an SDK published by a given identity provider to establish identity and then gain access to App Service.
+>[AZURE.TIP] 많은 응용 프로그램은 공급자 SDK를 사용하여 더 원시적인 로그인 환경을 가져오고 새로 고침 지원 및 기타 공급자별 혜택을 활용해야 합니다.
 
->[AZURE.TIP] Most applications should use a provider SDK to get a more native-feeling login experience and to leverage refresh support and other provider-specific benefits.
+### 공급자 SDK 없이 인증 작동 방법
 
-### <a name="how-authentication-without-a-provider-sdk-works"></a>How authentication without a provider SDK works
+공급자 SDK 설정하지 않으려는 경우 모바일 앱이 로그인을 실행하도록 할 수 있습니다. 모바일 앱 클라이언트 SDK는 선택한 공급자에게 웹 보기를 열고 로그인을 완료합니다. 서버가 로그인을 관리하고 클라이언트 SDK가 공급자 토큰을 받지 않기 때문에 경우에 따라 블로그 및 포럼에 "서버 흐름" 또는 "서버에서 제어된 흐름"이라는 것이 나타납니다.
 
-If you do not wish to set up a provider SDK, you can allow Mobile Apps to perform the login for you. The Mobile Apps client SDK will open a web view to the provider of your choosing and complete the sign in. Occasionally on blogs and forums you will see this referred to as the "server flow" or "server-directed flow" since the server is managing the login, and the client SDK never receives the provider token.
+이 흐름을 시작하는 데 필요한 코드는 각 플랫폼에 대한 인증 자습서에서 다룹니다. 흐름의 끝에서 클라이언트 SDK에는 앱 서비스 토큰이 있고 토큰은 백 엔드에 대한 모든 요청에 자동으로 연결됩니다.
 
-The code needed to start this flow is covered in the authentication tutorial for each platform. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the backend.
+### 공급자 SDK를 통한 인증 작동 방법
 
-### <a name="how-authentication-with-a-provider-sdk-works"></a>How authentication with a provider SDK works
+공급자 SDK로 작업하면 로그인 환경이 앱을 실행하는 플랫폼 OS와 더 밀접하게 상호 작용할 수 있습니다. 또한 이렇게 하면 클라이언트의 공급자 토큰 및 사용자 정보를 가져오며 이는 Graph API를 사용하고 사용자 환경을 사용자 지정하는 작업을 용이하게 합니다. 클라이언트의 코드가 로그인을 처리하고 클라이언트 코드가 공급자 토큰에 대한 액세스를 갖기 때문에 경우에 따라 블로그 및 포럼에서 "클라이언트 흐름" 또는 "클라이언트에서 제어된 흐름"이라는 것을 확인합니다.
 
-Working with a provider SDK allows the log-in experience to interact more tightly with the platform OS the app is running on. This also gives you a provider token and some user information on the client, which makes it much easier to consume graph APIs and customize the user experience. Occasionally on blogs and forums you will see this referred to as the "client flow" or "client-directed flow" since code on the client is handling the login, and the client code has access to a provider token.
+공급자 토큰을 가져오면 유효성 검사에 대한 앱 서비스에 전송되어야 합니다. 흐름의 끝에서 클라이언트 SDK에는 앱 서비스 토큰이 있고 토큰은 백 엔드에 대한 모든 요청에 자동으로 연결됩니다. 또한 선택하는 경우 개발자는 공급자 토큰에 대한 참조를 유지할 수 있습니다.
 
-Once a provider token is obtained, it needs to be sent to App Service for validation. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the backend. The developer can also keep a reference to the provider token if they so choose.
+## 권한 부여 작동 원리
 
-## <a name="how-authorization-works"></a>How authorization works
+앱 서비스 인증/권한 부여는 **요청이 인증되지 않을 때 수행할 동작**에 대한 여러 가지 선택을 노출합니다. 코드가 지정된 요청을 받기 전에 앱 서비스가 요청이 인증되지를 확인하도록 하고 그렇지 않은 경우 거부하고 다시 시도하기 전에 사용자가 로그인을 시도할 수 있습니다.
 
-App Service Authentication / Authorization exposes several choices for **Action to take when request is not authenticated**. Before your code receives a given request, you can have App Service check to see if the request is authenticated and if not, reject it and attempt to have the user log in before trying again.
+한 가지 옵션은 ID 공급자 중 하나로 인증되지 않은 요청을 리디렉션하는 것입니다. 웹 브라우저에서 사용자를 새 페이지에 실제로 가져옵니다. 그러나 모바일 클라이언트는 이러한 방식으로 리디렉션할 수 없고 인증되지 않은 응답은 HTTP _401 권한 없는_ 응답을 받습니다. 이 점을 고려하면 클라이언트가 만든 첫 번째 요청은 로그인 끝점에 항상 위치해야 하고 사용자가 다른 API 호출을 만들 수 있습니다. 로그인하기 전에 다른 API를 호출하려면 클라이언트에 오류가 발생합니다.
 
-One option is to have unauthenticated requests redirect to one of the identity providers. In a web browser, this would actually take the user to a new page. However, your mobile client cannot be redirected in this way, and unauthenticated responses will receive an HTTP _401 Unauthorized_ response. Given this, the first request your client makes should always be to the login endpoint, and then you can make calls to any other APIs. If you attempt to call another API before logging in, your client will receive an error.
+또한 어떤 끝점이 인증을 요구하는지에 대해 보다 세부적으로 제어하려는 경우 인증되지 않은 요청에 대한 "작업 없음(요청 허용)"을 선택합니다. 이 경우에 모든 인증 결정은 응용 프로그램 코드에 연기됩니다. 또한 사용자 지정 권한 부여 규칙에 기반하여 특정 사용자에 대한 액세스를 허용할 수 있습니다.
 
-If you wish to have more granular control over which endpoints require authentication, you can also pick "No action (allow request)" for unauthenticated requests. In this case, all authentication decisions are deferred to your application code. This also allows you to allow access to specific users based on custom authorization rules.
+## 설명서
 
-## <a name="documentation"></a>Documentation
+다음 자습서는 앱 서비스를 사용하여 모바일 클라이언트에 인증을 추가하는 방법을 보여줍니다.
 
-The following tutorials show how to add authentication to your mobile clients using App Service:
+- [iOS 앱에 인증 추가]
+- [Xamarin.iOS 앱에 인증 추가]
+- [Xamarin Android 앱에 인증 추가]
+- [Windows 앱에 인증 추가]
 
-- [Add authentication to your iOS app]
-- [Add authentication to your Xamarin.iOS app]
-- [Add authentication to your Xamarin.Android app]
-- [Add Authentication to your Windows app]
+다음 자습서에서는 앱 서비스를 구성하여 다른 인증 공급자를 활용하는 방법을 보여줍니다.
 
-The following tutorials show how to configure App Service to leverage different authentication providers:
+- [Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법]
+- [Facebook 로그인을 사용하도록 앱을 구성하는 방법]
+- [Google 로그인을 사용하도록 앱을 구성하는 방법]
+- [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]
+- [Twitter 로그인을 사용하도록 앱을 구성하는 방법]
 
-- [How to configure your app to use Azure Active Directory login]
-- [How to configure your app to use Facebook login]
-- [How to configure your app to use Google login]
-- [How to configure your app to use Microsoft Account login]
-- [How to configure your app to use Twitter login]
+여기에 제공된 것 이외의 ID 시스템을 사용하려는 경우 [.NET 서버 SDK에서 사용자 지정 인증 지원 미리 보기](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth)를 활용할 수 있습니다.
 
-If you wish to use an identity system other than the ones provided here, you can also leverage the [preview custom authentication support in the .NET server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
+[iOS 앱에 인증 추가]: app-service-mobile-ios-get-started-users.md
+[Xamarin.iOS 앱에 인증 추가]: app-service-mobile-xamarin-ios-get-started-users.md
+[Xamarin Android 앱에 인증 추가]: app-service-mobile-xamarin-android-get-started-users.md
+[Windows 앱에 인증 추가]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[Add authentication to your iOS app]: app-service-mobile-ios-get-started-users.md
-[Add authentication to your Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Add authentication to your Xamarin.Android app]: app-service-mobile-xamarin-android-get-started-users.md
-[Add Authentication to your Windows app]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Google 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-google-authentication.md
+[Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-[How to configure your app to use Azure Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[How to configure your app to use Facebook login]: app-service-mobile-how-to-configure-facebook-authentication.md
-[How to configure your app to use Google login]: app-service-mobile-how-to-configure-google-authentication.md
-[How to configure your app to use Microsoft Account login]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure your app to use Twitter login]: app-service-mobile-how-to-configure-twitter-authentication.md
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

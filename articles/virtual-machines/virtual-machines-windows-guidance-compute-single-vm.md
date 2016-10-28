@@ -1,6 +1,6 @@
 <properties
- pageTitle="Best practices for Windows VMs | Microsoft Azure"
- description="Provides best practice information for running Windows virtual machines in Azure."
+ pageTitle="Windows VM에 대한 모범 사례 | Microsoft Azure"
+ description="Azure에서 Windows 가상 컴퓨터를 실행하기 위한 모범 사례 정보를 제공합니다."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="mikewasson"
@@ -19,16 +19,10 @@ ms.service="virtual-machines-windows"
  
 
 
-
-# <a name="best-practices-for-running-a-windows-vm-on-azure"></a>Best Practices for running a Windows VM on Azure
+# Azure에서 Windows VM 실행에 대한 모범 사례
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 [AZURE.INCLUDE [gudiance-comput-single-vm-windows](../../includes/guidance-compute-single-vm-windows.md)]
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

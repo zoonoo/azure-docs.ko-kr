@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with Data Lake Store using cross-platform command line interface | Microsoft Azure"
-   description="Use Azure cross-platform command line to create a Data Lake Store account and perform basic operations"
+   pageTitle="플랫폼 간 명령줄을 사용하여 데이터 레이크 저장소 시작 | Microsoft Azure"
+   description="Azure 플랫폼 간 명령줄을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다."
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
@@ -16,185 +16,180 @@
    ms.date="09/27/2016"
    ms.author="nitinme"/>
 
-
-# <a name="get-started-with-azure-data-lake-store-using-azure-command-line"></a>Get started with Azure Data Lake Store using Azure Command Line
+# Azure 명령줄을 사용하여 Azure 데이터 레이크 저장소 시작
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-get-started-portal.md)
+- [포털](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Java SDK](data-lake-store-get-started-java-sdk.md)
 - [REST API](data-lake-store-get-started-rest-api.md)
 - [Azure CLI](data-lake-store-get-started-cli.md)
-- [Node.js](data-lake-store-manage-use-nodejs.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
-Learn how to use Azure command line interface to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
+Azure 명령줄 인터페이스를 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크 저장소에 대한 자세한 내용은 [데이터 레이크 저장소 개요](data-lake-store-overview.md)를 참조하세요.
 
-The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. This article covers only using the Azure CLI with Data Lake Store. For a general guide on how to use Azure CLI, see [How to use the Azure CLI] [azure-command-line-tools].
+Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다. Azure CLI는 오픈 소스입니다. 소스 코드는 <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>의 GitHub에서 관리됩니다. 이 문서에서는 데이터 레이크 저장소에서 Azure CLI를 사용하는 방법만 설명합니다. Azure CLI를 사용하는 방법에 대한 일반 가이드는 [Azure CLI를 사용하는 방법][azure-command-line-tools]을 참조하세요.
 
 
-##<a name="prerequisites"></a>Prerequisites
+##필수 조건
 
-Before you begin this article, you must have the following:
+이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-- **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information. Make sure you reboot your computer after you install the CLI.
+- **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요. CLI를 설치한 후 컴퓨터를 다시 부팅해야 합니다.
 
-## <a name="authentication"></a>Authentication
+## 인증
 
-This article uses a simpler authentication approach with Data Lake Store where you log in as an end-user user. The access level to Data Lake Store account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+이 문서는 최종 사용자로 로그인하는 Data Lake Store에 보다 간단한 인증 방식을 사용합니다. Data Lake Store 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준을 따릅니다. 하지만 Data Lake Store에 인증하는 다른 방법도 있으며, 이것은 **최종 사용자 인증** 또는 **서비스간 인증**입니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
-##<a name="login-to-your-azure-subscription"></a>Login to your Azure subscription
+##Azure 구독에 로그인
 
-1. Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the `azure login` method.
+1. [Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에 설명된 단계에 따라 `azure login` 메서드를 사용하여 구독에 연결합니다.
 
-2. List the subscriptions that are associated with your account using the `azure account list` command.
+2. `azure account list` 명령을 사용하여 계정과 연결된 구독을 나열합니다.
 
-        info:    Executing command account list
-        data:    Name              Id                                    Current
-        data:    ----------------  ------------------------------------  -------
-        data:    Azure-sub-1       ####################################  true
-        data:    Azure-sub-2       ####################################  false
+		info:    Executing command account list
+		data:    Name              Id                                    Current
+		data:    ----------------  ------------------------------------  -------
+		data:    Azure-sub-1       ####################################  true
+		data:    Azure-sub-2       ####################################  false
 
-    From the output above, **Azure-sub-1** is currently enabled, and the other subscription is **Azure-sub-2**. 
+	위의 출력에서 **Azure-sub-1**은 현재 활성화되어 있으며 다른 구독은 **Azure-sub-2**입니다.
 
-3. Select the subscription you want to work under. If you want to work under the Azure-sub-2 subscription, use the `azure account set` command.
+3. 작업에 사용하려는 구독을 선택합니다. Azure-sub-2 구독 하에서 작업하려면 `azure account set` 명령을 사용합니다.
 
-        azure account set Azure-sub-2
+		azure account set Azure-sub-2
 
 
-## <a name="create-an-azure-data-lake-store-account"></a>Create an Azure Data Lake Store account
+## Azure 데이터 레이크 저장소 계정 만들기
 
-Open a command prompt, shell, or a terminal session and run the following commands.
+명령 프롬프트, 셸 또는 터미널 세션을 열고 다음 명령을 실행합니다.
 
-2. Switch to Azure Resource Manager mode using the following command:
+2. 다음 명령을 사용하여 Azure 리소스 관리자 모드로 전환합니다.
 
-        azure config mode arm
+		azure config mode arm
 
 
-5. Create a new resource group. In the following command, provide the parameter values you want to use.
+5. 새 리소스 그룹을 만듭니다. 다음 명령에서 사용하려는 매개 변수 값을 제공합니다.
 
-        azure group create <resourceGroup> <location>
+		azure group create <resourceGroup> <location>
 
-    If the location name contains spaces, put it in quotes. For example "East US 2".
+	위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "East US 2"입니다.
 
-5. Create the Data Lake Store account.
+5. 데이터 레이크 저장소 계정을 만듭니다.
 
-        azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
+		azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
 
-## <a name="create-folders-in-your-data-lake-store"></a>Create folders in your Data Lake Store
+## 데이터 레이크 저장소에서 폴더 만들기
 
-You can create folders under your Azure Data Lake Store account to manage and store data. Use the following command to create a folder called "mynewfolder" at the root of the Data Lake Store.
+Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터를 관리하고 저장할 수 있습니다. 다음 명령을 사용하여 데이터 레이크 저장소의 루트에 있는 "mynewfolder"라는 폴더를 만듭니다.
 
-    azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
+	azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
 
-For example:
+예:
 
-    azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
+	azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
 
-## <a name="upload-data-to-your-data-lake-store"></a>Upload data to your Data Lake Store
+## 데이터 레이크 저장소에 데이터 업로드
 
-You can upload your data to Data Lake Store directly at the root level or to a folder that you created within the account. The snippets below demonstrate how to upload some sample data to the folder (**mynewfolder**) you created in the previous section.
+루트 수준에서 데이터 레이크 저장소에 직접 데이터를 업로드하거나 계정 내에서 만든 폴더에 업로드할 수 있습니다. 아래 코드 조각은 이전 섹션에서 만든 폴더(**mynewfolder**)에 일부 샘플 데이터를 업로드하는 방법을 보여 줍니다.
 
-If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
+업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다. 파일을 다운로드하고 컴퓨터의 로컬 디렉터리(예: C:\\sampledata)에 저장합니다.
 
-    azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
+	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
-For example:
+예:
 
-    azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
+	azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
 
 
-## <a name="list-files-in-data-lake-store"></a>List files in Data Lake Store
+## 데이터 레이크 저장소의 파일 나열
 
-Use the following command to list the files in a Data Lake Store account.
+다음 명령을 사용하여 데이터 레이크 저장소 계정의 파일을 나열합니다.
 
-    azure datalake store filesystem list <dataLakeStoreAccountName> <path>
+	azure datalake store filesystem list <dataLakeStoreAccountName> <path>
 
-For example:
+예:
 
-    azure datalake store filesystem list mynewdatalakestore /mynewfolder
+	azure datalake store filesystem list mynewdatalakestore /mynewfolder
 
-The output of this should be similar to the following:
+이 명령의 출력은 다음과 유사합니다.
 
-    info:    Executing command datalake store filesystem list
-    data:    accessTime: 1446245025257
-    data:    blockSize: 268435456
-    data:    group: NotSupportYet
-    data:    length: 1589881
-    data:    modificationTime: 1446245105763
-    data:    owner: NotSupportYet
-    data:    pathSuffix: vehicle1_09142014.csv
-    data:    permission: 777
-    data:    replication: 0
-    data:    type: FILE
-    data:    ------------------------------------------------------------------------------------
-    info:    datalake store filesystem list command OK
+	info:    Executing command datalake store filesystem list
+	data:    accessTime: 1446245025257
+	data:    blockSize: 268435456
+	data:    group: NotSupportYet
+	data:    length: 1589881
+	data:    modificationTime: 1446245105763
+	data:    owner: NotSupportYet
+	data:    pathSuffix: vehicle1_09142014.csv
+	data:    permission: 777
+	data:    replication: 0
+	data:    type: FILE
+	data:    ------------------------------------------------------------------------------------
+	info:    datalake store filesystem list command OK
 
-## <a name="rename,-download,-and-delete-data-from-your-data-lake-store"></a>Rename, download, and delete data from your Data Lake Store
+## 데이터 레이크 저장소에서 데이터 이름 바꾸기, 다운로드 및 삭제
 
-* **To rename a file**, use the following command:
+* **파일의 이름을 바꾸려면** 다음 명령을 사용합니다.
 
-        azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
+    	azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
 
-    For example:
+	예:
 
-        azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
+		azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
 
-* **To download a file**, use the following command. Make sure the destination path you specify already exists.
+* **파일을 다운로드하려면** 다음 명령을 사용합니다. 이미 지정한 대상 경로가 있는지 확인합니다.
 
-        azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
+		azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
 
-    For example:
+	예:
 
-        azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
+		azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
 
-* **To delete a file**, use the following command:
+* **파일을 삭제하려면** 다음 명령을 사용합니다.
 
-        azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
+		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
 
-    For example:
+	예:
 
-        azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
+		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
 
-    When prompted, enter **Y** to delete the item.
+	메시지가 표시되면 **Y**를 입력하여 항목을 삭제합니다.
 
-## <a name="view-the-access-control-list-for-a-folder-in-data-lake-store"></a>View the access control list for a folder in Data Lake Store
+## 데이터 레이크 저장소의 폴더에 대한 액세스 제어 목록 보기
 
-Use the following command to view the ACLs on a Data Lake Store folder. In the current release, ACLs can be set only on the root of the Data Lake Store. So, the path parameter below will always be root (/).
+다음 명령을 사용하여 데이터 레이크 저장소 폴더에 ACL을 봅니다. 현재 릴리스에서 ACL 데이터 레이크 저장소의 루트에 대해서만 설정할 수 있습니다. 따라서 아래 경로 매개 변수는 항상 루트(/)가 됩니다.
 
-    azure datalake store permissions show <dataLakeStoreName> <path>
+	azure datalake store permissions show <dataLakeStoreName> <path>
 
-For example:
+예:
 
-    azure datalake store permissions show mynewdatalakestore /
+	azure datalake store permissions show mynewdatalakestore /
 
 
-## <a name="delete-your-data-lake-store-account"></a>Delete your Data Lake Store account
+## 데이터 레이크 저장소 계정 삭제
 
-Use the following command to delete a Data Lake Store account.
+다음 명령을 사용하여 데이터 레이크 저장소 계정을 삭제합니다.
 
-    azure datalake store account delete <dataLakeStoreAccountName>
+	azure datalake store account delete <dataLakeStoreAccountName>
 
-For example:
+예:
 
-    azure datalake store account delete mynewdatalakestore
+	azure datalake store account delete mynewdatalakestore
 
-When prompted, enter **Y** to delete the account.
+메시지가 표시되면 **Y**를 입력하여 계정을 삭제합니다.
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
+- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

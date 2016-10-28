@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Replace the battery on a StorSimple device | Microsoft Azure"
-   description="Describes how to remove, replace, and maintain the backup battery module on your StorSimple device."
+   pageTitle="StorSimple 장치의 배터리 교체 | Microsoft Azure"
+   description="StorSimple 장치의 백업 배터리 모듈을 꺼내고 교체 및 유지 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,109 +15,104 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+# StorSimple 장치의 백업 배터리 모듈 교체
 
-# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Replace the backup battery module on your StorSimple device
+## 개요
 
-## <a name="overview"></a>Overview
+Microsoft Azure StorSimple 장치의 기본 엔클로저 PCM(전원 및 냉각 모듈)에는 추가 배터리 팩이 있습니다. 이 팩은 기본 엔클로저에 대한 AC 전원이 끊어질 경우 StorSimple 장치가 데이터를 저장할 수 있도록 전원을 공급합니다. 이 배터리 팩을 *백업 배터리 모듈*이라고 합니다. 백업 배터리 모듈은 StorSimple 장치의 기본 엔클로저에만 있습니다(EBOD 엔클로저에는 백업 배터리 모듈이 없음).
 
-The primary enclosure Power and Cooling Module (PCM) on your Microsoft Azure StorSimple device has an additional battery pack. This pack provides power so that the StorSimple device can save data if there is loss of AC power to the primary enclosure. This battery pack is referred to as the *backup battery module*. The backup battery module exists only for the primary enclosure in your StorSimple device (the EBOD enclosure does not contain a backup battery module). 
+이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
-This tutorial explains how to:
+- 백업 배터리 모듈 꺼내기
+- 새 백업 배터리 모듈 설치
+- 백업 배터리 모듈 유지 관리
 
-- Remove the backup battery module 
-- Install a new backup battery module
-- Maintain the backup battery module
+>[AZURE.IMPORTANT] 백업 배터리 모듈을 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체 소개](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
 
->[AZURE.IMPORTANT] Before removing and replacing a backup battery module, review the safety information in the [Introduction to StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+## 백업 배터리 모듈 꺼내기
 
-## <a name="remove-the-backup-battery-module"></a>Remove the backup battery module
+StorSimple 장치에 대한 백업 배터리 모듈은 FRU(현장 교체 장치)입니다. PCM에 설치하기 전에는 원래 포장 안에 배터리 모듈을 보관해야 합니다. 백업 배터리를 꺼내려면 다음 단계를 수행합니다.
 
-The backup battery module for your StorSimple device is a field-replaceable unit. Before it is installed in the PCM, the battery module should be stored in its original packaging. Perform the following steps to remove the backup battery.
+#### 백업 배터리 모듈을 꺼내려면
 
-#### <a name="to-remove-the-backup-battery-module"></a>To remove the backup battery module
+1. Azure 클래식 포털에서 **장치** > **유지 관리** > **하드웨어 상태**로 이동합니다. **공유 구성 요소** 아래에서 배터리 상태를 확인합니다.
 
-1. In the Azure classic portal, go to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, look at the status of the battery.
+2. 배터리에서 오류가 발생한 PCM을 식별합니다. 그림 1은 StorSimple 장치의 뒷면의 보여 줍니다.
 
-2. Identify the PCM in which the battery has failed. Figure 1 shows the back of the StorSimple device.
+    ![장치 기본 엔클로저 모듈의 백플레인](./media/storsimple-battery-replacement/IC740994.png)
 
-    ![Backplane Of Device Primary Enclosure Modules](./media/storsimple-battery-replacement/IC740994.png)
+    **그림 1** PCM 및 컨트롤러 모듈을 표시하는 기본 장치 뒷면
 
-    **Figure 1** Back of primary device showing PCM and controller modules
+    |레이블|설명|
+    |:----|:----------|
+    |1|PCM 0|
+    |2|PCM 1|
+    |3|컨트롤러 0|
+    |4|컨트롤러 1|
 
-  	|Label|Description|
-  	|:----|:----------|
-  	|1|PCM 0|
-  	|2|PCM 1|
-  	|3|Controller 0|
-  	|4|Controller 1|
+    그림 2의 번호 3과 같이 **배터리 결함**에 해당하는 PCM 0의 모니터링 표시기 LED가 켜져야 합니다.
 
-    As shown by number 3 in the Figure 2, the monitoring indicator LED on PCM 0 that corresponds to **Battery Fault** should be lit.
+    ![장치 PCM 모니터링 표시기 LED의 백플레인](./media/storsimple-battery-replacement/IC740992.png)
 
-    ![Backplane Of Device PCM Monitoring Indicator LEDs](./media/storsimple-battery-replacement/IC740992.png)
+    **그림 2** 모니터링 표시기 LED를 표시하는 PCM 뒷면
 
-    **Figure 2** Back of PCM showing the monitoring indicator LEDs
+    |레이블|설명|
+    |:---|:-----------|
+    |1|AC 전원 오류|
+    |2|팬 오류|
+    |3|배터리 결함|
+    |4|PCM 정상|
+    |5|DC 전원 오류|
+    |6|배터리 정상|
 
-  	|Label|Description|
-  	|:---|:-----------|
-  	|1|AC power failure|
-  	|2|Fan failure|
-  	|3|Battery fault|
-  	|4|PCM OK|
-  	|5|DC power failure|
-  	|6|Battery healthy|
+3. 오류가 발생한 배터리가 있는 PCM을 꺼내려면 [PCM 꺼내기](storsimple-power-cooling-module-replacement.md#remove-a-pcm)의 단계를 따르세요.
 
-3. To remove the PCM with a failed battery, follow the steps in [Remove a PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+4. PCM을 꺼낸 후 다음 그림과 같이 배터리 모듈 핸들을 들고 위로 회전해서 당겨 배터리를 꺼냅니다.
 
-4. With the PCM removed, lift and rotate the battery module handle upward as indicated in the following figure, and pull it up to remove the battery.
+    ![PCM에서 배터리 꺼내기](./media/storsimple-battery-replacement/IC741019.png)
 
-    ![Removing Battery From PCM](./media/storsimple-battery-replacement/IC741019.png)
+    **그림 3** PCM에서 배터리 꺼내기
 
-    **Figure 3** Removing the battery from the PCM
+5. FRU(현장 교체 장치) 포장 안에 모듈을 넣습니다.
 
-5. Place the module in the field-replaceable unit packaging.
+6. 적절한 서비스 및 처리를 위해 결함이 있는 장치를 Microsoft에 반환합니다.
 
-6. Return the defective unit to Microsoft for proper servicing and handling.
+## 새 백업 배터리 모듈 설치
 
-## <a name="install-a-new-backup-battery-module"></a>Install a new backup battery module
+StorSimple 장치의 기본 엔클로저의 PCM에 교체 배터리 모듈을 설치하려면 다음 단계를 따르세요.
 
-Perform the following steps to install the replacement battery module in the PCM in the primary enclosure of your StorSimple device.
+#### 배터리 모듈을 설치하려면
 
-#### <a name="to-install-the-battery-module"></a>To install the battery module
+1. 백업 배터리 모듈을 PCM에 올바른 방향으로 놓습니다.
 
-1. Place the backup battery module in the proper orientation in the PCM.
+2. 배터리 모듈 핸들을 아래로 완전히 눌러 커넥터를 장착합니다.
 
-2. Press down the battery module handle all the way to seat the connector.
+3. [StorSimple 장치의 전원 및 냉각 모듈 교체](storsimple-power-cooling-module-replacement.md)의 지침에 따라 기본 엔클로저의 PCM을 교체합니다.
 
-3. Replace the PCM in the primary enclosure by following the guidelines in [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md).
+4. 교체가 완료되면 Azure 클래식 포털에서 **장치** > **유지 관리** > **하드웨어 상태**로 이동합니다. 설치가 성공적으로 수행되었는지 확인하려면 배터리 상태를 확인합니다. 녹색 상태는 배터리가 정상임을 나타냅니다.
 
-4. After the replacement is complete, go to **Devices** > **Maintenance** > **Hardware Status** in the Azure classic portal. Verify the status of the battery to make sure that the installation was successful. A green status indicates that the battery is healthy.
+## 백업 배터리 모듈 유지 관리
 
-## <a name="maintain-the-backup-battery-module"></a>Maintain the backup battery module
+StorSimple 장치에서 백업 배터리 모듈은 전원 손실 이벤트가 발생하는 동안 컨트롤러에 전원을 공급합니다. StorSimple 장치가 종료되기 전에 제어된 방식으로 중요한 데이터를 저장할 수 있게 합니다. PCM에 완전히 충전된 두 개의 배터리가 있으면 시스템이 두 번의 연속된 손실 이벤트를 처리할 수 있습니다.
 
-In your StorSimple device, the backup battery module provides power to the controller during a power loss event. It allows the StorSimple device to save critical data prior to shutting down in a controlled manner. With two fully charged batteries in the PCMs, the system can handle two consecutive loss events.
+Azure 클래식 포털에서 **유지 관리** 페이지의 **하드웨어 상태**는 배터리가 오작동하는지 또는 사용 기간 종료가 임박하는지 여부를 나타냅니다. 배터리 상태는 **공유 구성 요소**에서 **PCM 0의 배터리** 또는 **PCM 1의 배터리**로 표시됩니다. 이 페이지에서 사용 기간 종료가 임박한 경우 **DEGRADED** 상태가 표시되고 사용 기간이 종료된 경우 **FAILED** 상태가 표시됩니다.
 
-In the Azure classic portal, the **Hardware Status** on the **Maintenance** page indicates whether the battery is malfunctioning or the end-of-life is approaching. The battery status is indicated by **Battery in PCM 0** or **Battery in PCM 1** under **Shared Components**. This page will show a **DEGRADED** state for end-of-life approaching, and **FAILED** for end-of-life reached. 
-
->[AZURE.NOTE] The battery can report **FAILED** when it simply needs to be charged.
+>[AZURE.NOTE] 단순히 충전이 필요한 경우 배터리에서 **FAILED**를 보고할 수 있습니다.
  
-If the **DEGRADED** state appears, we recommend the following course of action:
+**DEGRADED** 상태가 표시되는 경우 다음 작업을 수행하는 것이 좋습니다.
 
-- The system may have experienced a recent power loss or the batteries may be undergoing periodic maintenance. Observe the system for 12 hours before proceeding.
+- 시스템에서 최근에 전원 손실이 발생했거나 배터리 정기 유지 관리가 진행 중일 수 있습니다. 계속 진행하기 전에 12시간 동안 시스템을 관찰합니다.
 
-    - If the state is still **DEGRADED** after 12 hours of continuous connection to AC power with the controllers and PCMs running, then the battery needs to be replaced. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) for a replacement backup battery module.
+    - 컨트롤러와 PCM을 실행하여 AC 전원에 12시간 동안 연속해서 연결된 후에도 상태가 여전히 **DEGRADED**이면 배터리를 교체해야 합니다. 교체 백업 배터리 모듈에 대해서는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-    - If the state becomes OK after 12 hours, the battery is operational, and it only needed a maintenance charge.
+    - 12시간 후 정상 상태가 되면 배터리가 작동하는 것이며 유지 관리 충전만 하면 됩니다.
 
-- If there has not been an associated loss of AC power and the PCM is turned on and connected to AC power, the battery needs to be replaced. [Contact Microsoft Support](storsimple-contact-microsoft-support.md) to order a replacement backup battery module.
+- 연결된 AC 전원 손실이 없으며 PCM이 켜져 있고 AC 전원에 연결된 경우 배터리를 교체해야 합니다. 교체 백업 배터리 모듈을 주문하려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
->[AZURE.IMPORTANT] Dispose of the failed battery according to national and regional regulations. 
+>[AZURE.IMPORTANT] 국가 및 지역 규정에 따라 오류가 발생한 배터리를 폐기합니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+[StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

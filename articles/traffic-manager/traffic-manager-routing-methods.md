@@ -1,127 +1,129 @@
-<properties
-    pageTitle="Traffic Manager - traffic routing methods | Microsoft Azure"
-    description="This articles will help you understand the different traffic routing methods used by Traffic Manager"
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
-<tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+<properties 
+   pageTitle="트래픽 관리자 - 트래픽 라우팅 방법 | Microsoft Azure"
+   description="이 문서는 트래픽 관리자에서 사용하는 다양한 트래픽 라우팅 방법을 이해하는 데 도움이 됩니다."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn" />
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="05/25/2016"
+   ms.author="sewhee" />
+
+# 트래픽 관리자 트래픽 라우팅 방법
+
+이 페이지에서는 Azure 트래픽 관리자에서 지원되는 트래픽 라우팅 방법에 대해 설명합니다. 이러한 방법은 최종 사용자를 올바른 서비스 끝점으로 보내는 데 사용됩니다.
+
+> [AZURE.NOTE] 트래픽 관리자용 ARM(Azure Resource Manager) API에서는 ASM(Azure 서비스 관리) API와는 다른 용어를 사용합니다. 이러한 변경은 명확성을 높이고 일반적인 오해를 줄이기 위해 고객의 의견에 따라 구현되었습니다. 이 페이지에는 ARM 용어를 사용합니다. 차이점은 다음과 같습니다.
+
+>- ARM에서는 특정 최종 사용자가 특정 시간에 이동되어야 하는 끝점을 결정하는 데 사용되는 알고리즘을 설명하기 위해 '트래픽 라우팅 방법'이라는 용어를 사용합니다. ASM에서는 '부하 분산 방법'이라고 지칭합니다.
+
+>- ARM에서는 각 끝점에 대해 정의된 가중치에 따라 사용 가능한 모든 끝점에 트래픽을 분산하는 트래픽 라우팅 방법을 나타내기 위해 '가중'이라는 용어를 사용합니다. ASM에서는 용어 ‘라운드 로빈’이 사용됩니다.
+>- ARM에서는 정렬된 목록 중에서 사용 가능한 첫 번째 끝점으로 모든 트래픽을 전달하는 트래픽 라우팅 방법을 나타내기 위해 ’우선 순위’라는 용어를 사용합니다. ASM에서는 용어 ‘장애 조치(Failover)’가 사용됩니다.
+
+> 두 경우에서 유일한 차이점은 이름 뿐입니다. 기능에는 차이가 없습니다.
 
 
-# <a name="traffic-manager-traffic-routing-methods"></a>Traffic Manager traffic-routing methods
+Azure 트래픽 관리자는 최종 사용자가 다양한 서비스 끝점으로 라우팅되는 방식을 결정하기 위해 다양한 알고리즘을 지원합니다. 이것을 트래픽 라우팅 방법이라고 합니다. 트래픽 라우팅 방법은 DNS 응답에 반환될 끝점을 결정하기 위해 수신된 각 DNS 쿼리에 적용됩니다.
 
-Azure Traffic Manager supports three traffic-routing methods to determine how to route network traffic to the various service endpoints. Traffic Manager applies the traffic-routing method to each DNS query it receives. The traffic-routing method determines which endpoint returned in the DNS response.
+트래픽 관리자에서 사용할 수 있는 세 가지 트래픽 라우팅 방법이 있습니다.
 
-The Azure Resource Manager support for Traffic Manager uses different terminology than the classic deployment model. The following table shows the differences between the Resource Manager and Classic terms:
+- **우선 순위:** 모든 트래픽에 대해 기본 서비스 끝점을 사용하고 기본 또는 백업 끝점을 사용할 수 없을 때 백업을 제공하려면 '우선 순위'를 선택합니다. 자세한 내용은 [우선 순위 트래픽 라우팅 방법](#priority-traffic-routing-method)을 참조하세요.
 
-| Resource Manager term | Classic term |
-|-----------------------|--------------|
-| Traffic-routing method | Load-balancing method |
-| Priority method | Failover method |
-| Weighted method | Round-robin method |
-| Performance method | Performance method |
+- **가중:** 여러 끝점에 균일하게 또는 정의한 가중치에 따라 트래픽을 분산하려면 '가중'을 선택합니다. 자세한 내용은 [가중 트래픽 라우팅 방법](#weighted-traffic-routing-method)을 참조하세요.
 
-Based on customer feedback, we changed the terminology to improve clarity and reduce common misunderstandings. There is no difference in functionality.
+- **성능**: 끝점이 서로 다른 지역에 있고 최종 사용자가 가장 짧은 네트워크 대기 시간을 기준으로 "가장 가까운" 끝점을 사용하게 하려는 경우 성능을 선택합니다. 자세한 내용은 [성능 트래픽 라우팅 방법](#performance-traffic-routing-method)을 참조하세요.
 
-There are three traffic routing methods available in Traffic Manager:
+> [AZURE.NOTE] 모든 트래픽 관리자 프로필에는 끝점 상태 및 자동 끝점 장애 조치(Failover)의 연속 모니터링이 포함됩니다. 이 기능은 모든 트래픽 라우팅 방법에 대해 지원됩니다. 자세한 내용은 [트래픽 관리자 끝점 모니터링](traffic-manager-monitoring.md)을 참조하세요.
 
-- **Priority:** Select 'Priority' when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.
-- **Weighted:** Select 'Weighted' when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
-- **Performance:** Select 'Performance' when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
+단일 트래픽 관리자 프로필은 1가지 트래픽 라우팅 방법만 사용할 수 있습니다. 언제든지 프로필에 대해 다른 트래픽 라우팅 방법을 선택할 수 있습니다. 1분 안에 변경 내용이 적용되며 가동 중지는 발생하지 않습니다. 중첩 트래픽 관리자 프로필을 사용하여 트래픽 라우팅 방법을 결합할 수 있습니다. 이를 통해 좀 더 크고 복잡한 응용 프로그램의 요구를 충족할 수 있는 정교하고 유연한 트래픽 라우팅 구성이 만들어질 수 있습니다. 자세한 내용은 [중첩 트래픽 관리자 프로필](traffic-manager-nested-profiles.md)을 참조하세요.
 
-All Traffic Manager profiles include monitoring of endpoint health and automatic endpoint failover. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). A single Traffic Manager profile can use only one traffic routing method. You can select a different traffic routing method for your profile at any time. Changes are applied within one minute, and no downtime is incurred. Traffic-routing methods can be combined by using nested Traffic Manager profiles. Nesting enables sophisticated and flexible traffic-routing configurations that meet the needs of larger, complex applications. For more information, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
+## 우선 순위 트래픽 라우팅 방법
 
-## <a name="priority-traffic-routing-method"></a>Priority traffic-routing method
+종종 조직에서는 해당 서비스에 대해 안정성을 제공하려고 하며 이를 위해 기본 서비스가 중단될 경우에 하나 이상의 백업 서비스를 제공합니다. '우선 순위' 트래픽 라우팅 방법을 사용하여 Azure 고객은 이러한 장애 조치(Failover) 패턴을 쉽게 구현할 수 있습니다.
 
-Often an organization wants to provide reliability for its services by deploying one or more backup services in case their primary service goes down. The 'Priority' traffic-routing method allows Azure customers to easily implement this failover pattern.
+![Azure 트래픽 관리자 ‘우선 순위’ 트래픽 라우팅 방법][1]
 
-![Azure Traffic Manager 'Priority' traffic-routing method][1]
+트래픽 관리자 프로필은 우선 순위로 정렬된 서비스 끝점 목록으로 구성됩니다. 기본적으로 모든 최종 사용자 트래픽은 기본(가장 높은 우선 순위) 끝점으로 전송됩니다. 기본 끝점을 사용할 수 없는 경우(구성된 끝점 사용/사용 안 함 상태 및 지속적인 끝점 모니터링에 따라) 사용자는 두 번째 끝점으로 전송됩니다. 목록의 기본 끝점 및 보조 끝점을 모두 사용할 수 없는 경우 트래픽이 세 번째 끝점 등으로 전송됩니다.
 
-The Traffic Manager profile contains a prioritized list of service endpoints. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. If both the primary and secondary endpoints are not available, the traffic goes to the third, and so on. Availability of the endpoint is based on the configured status (enabled or disabled) and the ongoing endpoint monitoring.
+끝점 우선 순위 구성은 ARM API(및 새로운 Azure 포털)와 ASM API(및 클래식 포털)에서 다르게 수행됩니다.
 
-### <a name="configuring-endpoints"></a>Configuring endpoints
+- ARM API에서 끝점 우선 순위는 각 끝점에 대해 정의된 '우선 순위' 속성을 사용하여 명시적으로 구성됩니다. 이 속성은 1에서 1000 사이의 값을 가지며 값이 낮을수록 우선 순위가 더 높은 것입니다. 두 끝점이 동일한 우선 순위 값을 공유할 수 없습니다. 이 속성은 선택 사항이므로, 지정하지 않으면 끝점 순서에 따른 기본 우선 순위가 사용됩니다.
 
-With Azure Resource Manager, you configure the endpoint priority explicitly using the 'priority' property for each endpoint. This property is a value between 1 and 1000. Lower values represent a higher priority. Endpoints cannot share priority values. Setting the property is optional. When omitted, a default priority based on the endpoint order is used.
+- ASM API에서 끝점 우선 순위는 프로필 정의에서 끝점이 나열된 순서에 따라 암시적으로 구성됩니다. Azure ‘클래식’ 포털에 있는 프로필에 대한 구성 페이지에서 장애 조치(Failover) 순서를 구성할 수도 있습니다.
 
-With the Classic interface, the endpoint priority is configured implicitly. The priority is based on the order in which the endpoints are listed in the profile definition.
+## 가중 트래픽 라우팅 방법
 
-## <a name="weighted-traffic-routing-method"></a>Weighted traffic-routing method
+고가용성을 제공하고 서비스 사용률을 극대화하는 일반적인 방법은 끝점 집합을 제공하고 균일하게 또는 미리 정의된 가중치에 따라 모든 끝점에 트래픽을 분산하는 것입니다. 이 방식은 '가중' 트래픽 라우팅 방법을 통해 지원됩니다.
 
-The 'Weighted' traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.
+![Azure 트래픽 관리자 ‘가중’ 트래픽 라우팅 방법][2]
 
-![Azure Traffic Manager 'Weighted' traffic-routing method][2]
+가중 트래픽 라우팅 방법에서는 트래픽 관리자 프로필 구성의 일부로 각 끝점에 가중치가 할당됩니다. 각 가중치는 1에서 1000 사이의 정수입니다. 이 매개 변수는 선택 사항이므로 생략할 경우 기본 가중치인 '1'이 사용됩니다.
+  
+최종 사용자 트래픽은 사용 가능한 모든 서비스 끝점에 분산됩니다(구성된 끝점 사용/사용 안 함 상태 및 지속적인 끝점 모니터링에 따름). 수신된 각 DNS 쿼리에 대해 사용할 수 있는 끝점이 무작위로 선택됩니다. 선택 가능성은 해당 끝점 및 사용 가능한 다른 끝점에 할당된 가중치에 따라 결정됩니다.
 
-In the Weighted traffic-routing method, you assign a weight to each endpoint in the Traffic Manager profile configuration. The weight is an integer from 1 to 1000. This parameter is optional. If omitted, Traffic Managers uses a default weight of '1'.
+모든 끝점에 동일한 가중치를 적용하면 트래픽이 균일하게 분산됩니다. 이러한 방식은 일련의 동일한 끝점에서 일관된 사용량을 유지하는 데 도움이 됩니다. 특정 끝점에 더 높은(또는 더 낮은) 가중치를 적용하면 해당 끝점이 DNS 응답에서 더(또는 덜) 자주 반환되므로 더 많은 트래픽을 받게 됩니다. 이를 통해 다음과 같은 여러 유용한 시나리오가 가능해집니다.
 
-For each DNS query received, Traffic Manager randomly chooses an available endpoint. The probability of choosing an endpoint is based on the weights assigned to all available endpoints. Using the same weight across all endpoints results in an even traffic distribution. Using higher or lower weights on specific endpoints causes those endpoints to be returned more or less frequently in the DNS responses.
+- 점진적 응용 프로그램 업그레이드: 새 끝점으로 라우팅할 트래픽의 백분율을 할당하고 시간 경과에 따라 점진적으로 트래픽을 100%까지 늘립니다.
 
-The weighted method enables some useful scenarios:
+- Azure로 응용 프로그램 마이그레이션: Azure 끝점과 외부 끝점 둘 다를 사용하여 프로필을 만들고 각 끝점으로 라우팅되는 트래픽의 가중치를 지정합니다.
 
-- Gradual application upgrade: Allocate a percentage of traffic to route to a new endpoint, and gradually increase the traffic over time to 100%.
-- Application migration to Azure: Create a profile with both Azure and external endpoints. Adjust the weight of the endpoints to prefer the new endpoints.
-- Cloud-bursting for additional capacity: Quickly expand an on-premises deployment into the cloud by putting it behind a Traffic Manager profile. When you need extra capacity in the cloud, you can add or enable more endpoints and specify what portion of traffic goes to each endpoint.
+- 추가 용량을 위한 클라우드 버스트: 트래픽 관리자 프로필을 통해 온-프레미스 배포를 클라우드로 신속하게 확장합니다. 클라우드에 추가 용량이 필요한 경우 끝점을 더 추가하거나 사용하도록 설정하고 각 끝점으로 전송되는 트래픽 양을 지정할 수 있습니다.
 
-The new Azure portal supports the configuration of weighted traffic routing. Weights cannot be configured in the Classic portal. You can also configure weights using the Resource Manager and classic versions of Azure PowerShell, CLI, and the REST APIs.
+가중 트래픽 라우팅을 새 Azure 포털을 통해 구성할 수 있지만 '클래식' 포털을 통해서는 가중을 구성할 수 없습니다. 또한 Azure PowerShell, Azure CLI 및 Azure REST API를 사용하여 ASM 및 ARM를 통해서도 구성할 수 있습니다.
 
-It is important to understand that DNS responses are cached by clients and by the recursive DNS servers that the clients use to resolve DNS names. This caching can have an impact on weighted traffic distributions. When the number of clients and recursive DNS servers is large, traffic distribution works as expected. However, when the number of clients or recursive DNS servers is small, caching can significantly skew the traffic distribution.
+참고: DNS 응답은 클라이언트와 해당 클라이언트가 DNS 쿼리를 수행하기 위해 사용하는 재귀 DNS 서버 둘 다에 의해 캐시에 저장됩니다. 이러한 캐시가 가중 트래픽 분산에 미칠 수 있는 잠재적인 영향을 이해하는 것이 중요합니다. 일반적인 인터넷 연결 응용 프로그램의 경우와 마찬가지로, 클라이언트 및 재귀 DNS 서버의 수가 많은 경우 트래픽 분산이 예상대로 작동합니다. 그러나 클라이언트 또는 재귀 DNS 서버의 수가 적을 경우 이 캐싱은 트래픽 배포를 상당히 왜곡시킬 수 있습니다. 이 오류가 발생할 수 있는 일반적인 사용 사례는 다음과 같습니다.
 
-Common use cases include:
+- 개발 및 테스트 환경
+- 응용 프로그램 간 통신
+- 공용 재귀 DNS 인프라를 공유하는 좁은 사용자 기반(한 조직의 직원)을 대상으로 하는 응용 프로그램
 
-- Development and testing environments
-- Application-to-application communications
-- Applications aimed at a narrow user-base that share a common recursive DNS infrastructure (for example, employees of company connecting through a proxy)
+이러한 DNS 캐싱 효과는 Azure 트래픽 관리자만이 아니라 모든 DNS 기반 트래픽 라우팅 시스템에 공통적으로 적용됩니다. 경우에 따라 DNS 캐시를 명시적으로 지우면 문제가 해결될 수도 있습니다. 대체 트래픽 라우팅 방법이 더 적절한 경우도 있습니다.
 
-These DNS caching effects are common to all DNS-based traffic routing systems, not just Azure Traffic Manager. In some cases, explicitly clearing the DNS cache may provide a workaround. In other cases, an alternative traffic-routing method may be more appropriate.
+## 성능 트래픽 라우팅 방법
 
-## <a name="performance-traffic-routing-method"></a>Performance traffic-routing method
+대부분의 응용 프로그램 응답성은 전 세계적으로 둘 이상의 위치에 끝점을 배포하고 최종 사용자를 '가장 가까운' 위치로 라우팅하여 향상시킬 수 있습니다. 이것이 '성능' 트래픽 라우팅 방법의 목적입니다.
 
-Deploying endpoints in two or more locations across the globe can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to you. The 'Performance' traffic-routing method provides this capability.
+![Azure 트래픽 관리자 ‘성능’ 트래픽 라우팅 방법][3]
 
-![Azure Traffic Manager 'Performance' traffic-routing method][3]
+응답성을 극대화하기 위해 '가장 가까운' 끝점이 반드시 지리적 거리를 기준으로 가장 가깝게 지정되는 것은 아닙니다. 대신, '성능' 트래픽 라우팅 방법은 네트워크 대기 시간을 기준으로 최종 사용자에게 가장 가까운 끝점을 결정합니다. 이것은 IP 주소 범위와 각 Azure 데이터 센터 간의 왕복 시간을 표시하는 인터넷 대기 시간 표에 따라 결정됩니다.
 
-The 'closest' endpoint is not necessarily closest as measured by geographic distance. Instead, the 'Performance' traffic-routing method determines the closest endpoint by measuring network latency. Traffic Manager maintains an Internet Latency Table to track the round-trip time between IP address ranges and each Azure datacenter.
+트래픽 관리자는 들어오는 각 DNS 요청을 검사하고 인터넷 대기 시간 표에서 해당 요청의 원본 IP 주소를 조회합니다. 이에 따라 해당 IP 주소에서 각 Azure 데이터 센터로의 대기 시간이 결정됩니다. 트래픽 관리자는 사용 가능한 끝점 중에서 대기 시간이 가장 낮은(구성된 끝점의 사용/사용 안 함 상태 및 지속적인 끝점 모니터링에 기반) 끝점을 선택하고 DNS 응답에 해당 끝점을 반환합니다. 따라서 최종 사용자는 가장 낮은 대기 시간을 나타내고 최상의 성능을 제공하는 끝점으로 이동됩니다.
 
-Traffic Manager looks up the source IP address of the incoming DNS request in the Internet Latency Table. Traffic Manager chooses an available endpoint in the Azure datacenter that has the lowest latency for that IP address range, then returns that endpoint in the DNS response.
+[트래픽 관리자 작동 방식](traffic-manager-how-traffic-manager-works.md)에 설명된 대로 트래픽 관리자는 최종 사용자로부터 직접 DNS 쿼리를 수신하지 않으며, 대신 사용하도록 구성된 재귀 DNS 서비스에서 DNS 쿼리를 수신합니다. 따라서 '가장 가까운' 끝점을 결정하는 데 사용되는 IP 주소는 최종 사용자의 IP 주소가 아니라 해당 재귀 DNS 서비스의 IP 주소입니다. 실제로 이 목적에 따르면 이 IP 주소는 최종 사용자에게 유용한 프록시입니다.
 
-As explained in [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md), Traffic Manager does not receive DNS queries directly from clients. Rather, DNS queries come from the recursive DNS service that the clients are configured to use. Therefore, the IP address used to determine the 'closest' endpoint is not the client's IP address, but it is the IP address of the recursive DNS service. In practice, this IP address is a good proxy for the client.
+전역 인터넷의 변화와 새로운 Azure 지역이 추가되는 상황을 고려하기 위해 트래픽 관리자는 사용하는 인터넷 대기 시간 표를 정기적으로 업데이트합니다. 그러나 인터넷의 실시간 성능 변화나 부하는 고려할 수 없습니다.
 
-Traffic Manager regularly updates the Internet Latency Table to account for changes in the global Internet and new Azure regions. However, application performance varies based on real-time variations in load across the Internet. Performance traffic-routing does not monitor load on a given service endpoint. However, if an endpoint becomes unavailable, Traffic Manager does not it in DNS query responses.
+트래픽 관리자는 끝점을 모니터링하고 사용할 수 없는 끝점은 DNS 쿼리 응답에 포함하지 않지만, 성능 트래픽 라우팅은 주어진 서비스 끝점의 부하를 고려하지 않습니다.
 
-Points to note:
+주의할 사항:
 
-- If your profile contains multiple endpoints in the same Azure region, then Traffic Manager distributes traffic evenly across the available endpoints in that region. If you prefer a different traffic distribution within a region, you can use [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
+- 프로필에 동일한 Azure 지역의 여러 끝점이 포함된 경우 해당 지역으로 전달되는 트래픽은 사용 가능한 끝점에서 균일하게 분산됩니다(구성된 끝점 사용/사용 안 함 상태 및 지속적인 끝점 모니터링에 따름). 지역 내에서 다른 트래픽 분산을 원하는 경우 [중첩 트래픽 관리자 프로필](traffic-manager-nested-profiles.md)을 사용하면 됩니다.
 
-- If all enabled endpoints in a given Azure region are degraded, Traffic Manager distributes traffic across all other available endpoints instead of the next-closest endpoint. This logic prevents a cascading failure from occurring by not overloading the next-closest endpoint. If you want to define a preferred failover sequence, use [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
+- 지정된 Azure 지역에서 사용하도록 설정된 모든 끝점의 성능이 저하될 경우(지속적인 끝점 모니터링에 따라) 해당 끝점에 대한 트래픽이 가장 가까운 다음 끝점이 아니라 프로필에 지정된 다른 사용 가능한 모든 끝점에 분산됩니다. 이는 가장 가까운 다음 끝점이 오버로드되는 경우 발생할 수 있는 연속 오류를 방지하는 데 도움이 됩니다. 끝점 장애 조치(Failover) 순서를 정의하려면 [중첩 트래픽 관리자 프로필](traffic-manager-nested-profiles.md)을 사용하면 됩니다.
 
-- When using the Performance traffic routing method with external endpoints or nested endpoints, you need to specify the location of those endpoints. Choose the Azure region closest to your deployment. Those locations are the values supported by the Internet Latency Table.
+- 외부 끝점 또는 중첩 끝점에서 성능 트래픽 라우팅 방법을 사용하는 경우 해당 끝점의 위치를 지정해야 합니다. 배포에 가장 가까운 Azure 지역을 선택합니다. 사용 가능한 옵션은 인터넷 대기 시간 테이블에서 지원되는 위치인 Azure 지역입니다.
 
-- The algorithm that chooses the endpoint is deterministic. Repeated DNS queries from the same client are directed to the same endpoint. Typically, clients use different recursive DNS servers when traveling. The client may be routed to a different endpoint. Routing can also be affected by updates to the Internet Latency Table. Therefore, the Performance traffic-routing method does not guarantee that a client is always routed to the same endpoint.
+- 지정된 최종 사용자에게 반환할 끝점을 선택하는 알고리즘은 결정적이며 임의성이 없습니다. 동일한 클라이언트에서 반복되는 DNS 쿼리는 동일한 끝점으로 전달됩니다. 그러나 지정된 배포로 지정된 사용자를 보내기 위해 항상 성능 트래픽 라우팅 방법에 의존해야 하는 것은 아닙니다(해당 사용자의 사용자 데이터가 한 위치에만 저장되어 있는 경우에 이러한 방식이 필요할 수 있음). 최종 사용자가 이동할 경우 일반적으로 다른 재귀 DNS 서버를 사용하게 되어 다른 끝점으로 보내지기 때문입니다. 인터넷 대기 시간 표의 업데이트에 의해서도 영향을 받을 수 있습니다.
 
-- When the Internet Latency Table changes, you may notice that some clients are directed to a different endpoint. This routing change is more accurate based on current latency data. These updates are essential to maintain the accuracy of Performance traffic-routing as the Internet continually evolves.
+- 인터넷 대기 시간 표가 업데이트될 경우 일부 클라이언트가 다른 끝점으로 보내진다는 것을 알 수 있습니다. 영향 받는 사용자의 수는 최소로 유지되어야 하며, 현재 대기 시간 데이터에 따라 보다 정확한 라우팅이 반영됩니다. 인터넷이 계속해서 진화함에 따라, 이러한 업데이트는 성능 트래픽 라우팅의 정확성을 유지하는 데 필수적입니다.
 
-## <a name="next-steps"></a>Next steps
 
-Learn how to develop high-availability applications using [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
+## 다음 단계
 
-Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
+[트래픽 관리자 끝점 모니터링](traffic-manager-monitoring.md)을 사용하여 고가용성 응용 프로그램을 개발하는 방법 알아보기
+
+[트래픽 관리자 프로필을 만드는](traffic-manager-manage-profiles.md) 방법 알아보기
+
 
 <!--Image references-->
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

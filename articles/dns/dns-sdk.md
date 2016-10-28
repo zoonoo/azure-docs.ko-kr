@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create DNS zones and record sets in Azure DNS using the .NET SDK | Microsoft Azure" 
-   description="How to create DNS zones and record sets in Azure DNS by using the .NET SDK." 
+   pageTitle=".NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합 만들기 | Microsoft Azure" 
+   description=".NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합을 만드는 방법입니다." 
    services="dns" 
    documentationCenter="na" 
    authors="jtuliani" 
@@ -17,147 +17,142 @@
    ms.author="jtuliani"/>
 
 
+# .NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
-# <a name="create-dns-zones-and-record-sets-using-the-.net-sdk"></a>Create DNS zones and record sets using the .NET SDK
+.NET DNS 관리 라이브러리와 함께 DNS SDK를 사용하여 DNS 영역, 레코드 집합 및 레코드를 만들거나 삭제하거나 업데이트하는 작업을 자동화할 수 있습니다. 전체 Visual Studio 프로젝트는 [여기](https://www.microsoft.com/ko-KR/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)서 사용할 수 있습니다.
 
-You can automate operations to create, delete, or update DNS zones, record sets, and records by using DNS SDK with .NET DNS Management library. A full Visual Studio project is available [here.](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
+## 서비스 주체 계정 만들기
 
-## <a name="create-a-service-principal-account"></a>Create a service principal account
+일반적으로 고유한 사용자 자격 증명 대신 전용 계정을 통해 Azure 리소스에 대한 프로그래밍 방식의 액세스를 부여합니다. 이러한 전용 계정을 '서비스 주체' 계정이라고 합니다. Azure DNS SDK 샘플 프로젝트를 사용하려면 먼저 서비스 주체 계정을 만들고 올바른 사용 권한을 할당해야 합니다.
 
-Typically, programmatic access to Azure resources is granted via a dedicated account rather than your own user credentials. These dedicated accounts are called 'service principal' accounts. To use the Azure DNS SDK sample project, you first need to create a service principal account and assign it the correct permissions.
+1. [이러한 지침](../resource-group-authenticate-service-principal.md)에 따라 서비스 주체 계정을 만듭니다(Azure DNS SDK 샘플 프로젝트는 암호 기반 인증을 가정함).
 
-1. Follow [these instructions](../resource-group-authenticate-service-principal.md) to create a service principal account (the Azure DNS SDK sample project assumes password-based authentication.)
+2. 리소스 그룹을 만듭니다([방법은 다음과 같음](../azure-portal/resource-group-portal.md)).
 
-2. Create a resource group ([here's how](../azure-portal/resource-group-portal.md)).
+3. Azure RBAC를 사용하여 서비스 주체 계정 'DNS 영역 참가자' 권한을 리소스 그룹에 부여합니다([방법은 다음과 같음](../active-directory/role-based-access-control-configure.md)).
 
-3. Use Azure RBAC to grant the service principal account 'DNS Zone Contributor' permissions to the resource group ([here's how](../active-directory/role-based-access-control-configure.md).)
+4. Azure DNS SDK 샘플 프로젝트를 사용하는 경우 'program.cs' 파일을 다음과 같이 편집합니다.
+	* 1단계에서 사용한 대로 tenatId, clientId(계정 ID라고도 함), 암호(서비스 주체 계정 암호) 및 subscriptionId에 대한 올바른 값을 삽입합니다.
+	* 2단계에서 선택한 리소스 그룹 이름을 입력합니다.
+	* 선택한 DNS 영역 이름을 입력합니다.
 
-4. If using the Azure DNS SDK sample project, edit the 'program.cs' file as follows:
-    * Insert the correct values for the tenantId, clientId (also known as account ID), secret (service principal account password) and subscriptionId as used in step 1.
-    * Enter the resource group name chosen in step 2.
-    * Enter a DNS zone name of your choice.
+## NuGet 패키지 및 네임스페이스 선언
 
-## <a name="nuget-packages-and-namespace-declarations"></a>NuGet packages and namespace declarations
-
-To use the Azure DNS .NET SDK, you need to install the **Azure DNS Management Library** NuGet package and other required Azure packages.
+Azure DNS .NET SDK를 사용하려면 **Azure DNS 관리 라이브러리** NuGet 패키지 및 기타 필수 Azure 패키지를 설치해야 합니다.
  
-1. In **Visual Studio**, open a project or new project. 
+1. **Visual Studio**에서 프로젝트 또는 새 프로젝트를 엽니다.
 
-2. Go to **Tools** **>** **NuGet Package Manager** **>** **Manage NuGet Packages for Solution...**. 
+2. **도구** **>** **NuGet 패키지 관리자** **>** **솔루션의 NuGet 패키지 관리**로 이동합니다.
 
-3. Click **Browse**, enable the **Include prerelease** checkbox, and type **Microsoft.Azure.Management.Dns** in the search box.
+3. **찾아보기**를 클릭하고 **시험판 포함** 확인란을 사용하며 검색 상자에 **Microsoft.Azure.Management.Dns**를 입력합니다.
 
-4. Select the package and click **Install** to add it to your Visual Studio project.
+4. 패키지를 선택하고 **설치**를 클릭하여 Visual Studio 프로젝트에 추가합니다.
  
-5. Repeat the process above to also install the following packages: **Microsoft.Rest.ClientRuntime.Azure.Authentication** and **Microsoft.Azure.Management.ResourceManager**.
+5. 또한 위의 프로세스를 반복하여 **Microsoft.Rest.ClientRuntime.Azure.Authentication** 및 **Microsoft.Azure.Management.ResourceManager** 패키지를 설치합니다.
 
-## <a name="add-namespace-declarations"></a>Add namespace declarations
+## 네임스페이스 선언 추가
 
-Add the following namespace declarations
+다음 네임스페이스 선언 추가
 
-    using Microsoft.Rest.Azure.Authentication;
-    using Microsoft.Azure.Management.Dns;
-    using Microsoft.Azure.Management.Dns.Models;
+	using Microsoft.Rest.Azure.Authentication;
+	using Microsoft.Azure.Management.Dns;
+	using Microsoft.Azure.Management.Dns.Models;
 
-## <a name="initialize-the-dns-management-client"></a>Initialize the DNS management client
+## DNS 관리 클라이언트 초기화
 
-The *DnsManagementClient* contains the methods and properties necessary for managing DNS zones and recordsets.  The following code logs in to the service principal account and creates a DnsManagementClient object.
+*DnsManagementClient*에는 DNS 영역 및 레코드 집합 관리에 필요한 메서드 및 속성이 들어 있습니다. 다음 코드는 서비스 주체 계정에 로그인하고 DnsManagementClient 개체를 만듭니다.
 
-    // Build the service credentials and DNS management client
-    var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, secret);
-    var dnsClient = new DnsManagementClient(serviceCreds);
-    dnsClient.SubscriptionId = subscriptionId;
+	// Build the service credentials and DNS management client
+	var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, secret);
+	var dnsClient = new DnsManagementClient(serviceCreds);
+	dnsClient.SubscriptionId = subscriptionId;
 
-## <a name="create-or-update-a-dns-zone"></a>Create or update a DNS zone
+## DNS 영역 만들기 또는 업데이트
 
-To create a DNS zone, first a "Zone" object is created to contain the DNS zone parameters. Because DNS zones are not linked to a specific region, the location is set to 'global'. In this example, an [Azure Resource Manager 'tag'](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) is also added to the zone.
+DNS 영역을 만들려면 먼저 "영역" 개체가 DNS 영역 매개 변수를 포함하도록 만듭니다. DNS 영역은 특정 지역에 연결되어 있지 않기 때문에 위치가 '전역'으로 설정됩니다. 이 예제에서는 [Azure Resource Manager '태그'](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)도 영역에 추가합니다.
 
-To actually create or update the zone in Azure DNS, the zone object containing the zone parameters is passed to the *DnsManagementClient.Zones.CreateOrUpdateAsyc* method.
+실제로 Azure DNS에서 영역을 만들거나 업데이트하려면 영역 매개 변수를 포함하는 영역 개체를 *DnsManagementClient.Zones.CreateOrUpdateAsyc* 메서드에 전달해야 합니다.
 
->[AZURE.NOTE] DnsManagementClient supports three modes of operation: synchronous ('CreateOrUpdate'), asynchronous ('CreateOrUpdateAsync'), or asynchronous with access to the HTTP response ('CreateOrUpdateWithHttpMessagesAsync').  You can choose any of these modes, depending on your application needs.
+>[AZURE.NOTE] DnsManagementClient는 동기('CreateOrUpdate'), 비동기('CreateOrUpdateAsync') 또는 HTTP 응답에 액세스 권한을 가진 비동기('CreateOrUpdateWithHttpMessagesAsync') 등 세 가지 작업 모드를 지원합니다. 응용 프로그램 요구 사항에 따라 이러한 모드 중 하나를 선택할 수 있습니다.
 
-Azure DNS supports optimistic concurrency, called [Etags](dns-getstarted-create-dnszone.md). In this example, specifying "*" for the 'If-None-Match' header tells Azure DNS to create a DNS zone if one does not already exist.  The call fails if a zone with the given name already exists in the given resource group.
+Azure DNS는 [Etag](dns-getstarted-create-dnszone.md)라는 낙관적 동시성을 지원합니다. 이 예제에서 'If-None-Match' 헤더에 "*"를 지정하면 DNS 영역이 아직 없는 경우 Azure DNS에서 만들도록 지시합니다. 지정된 이름을 가진 영역이 지정된 리소스 그룹에 이미 있는 경우 호출은 실패합니다.
 
-    // Create zone parameters
-    var dnsZoneParams = new Zone("global"); // All DNS zones must have location = "global"
-    
-    // Create a Azure Resource Manager 'tag'.  This is optional.  You can add multiple tags
-    dnsZoneParams.Tags = new Dictionary<string, string>();
-    dnsZoneParams.Tags.Add("dept", "finance");
-    
-    // Create the actual zone.
-    // Note: Uses 'If-None-Match *' ETAG check, so will fail if the zone exists already.
-    // Note: For non-async usage, call dnsClient.Zones.CreateOrUpdate(resourceGroupName, zoneName, dnsZoneParams, null, "*")
-    // Note: For getting the http response, call dnsClient.Zones.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, zoneName, dnsZoneParams, null, "*")
-    var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneName, dnsZoneParams, null, "*");
+	// Create zone parameters
+	var dnsZoneParams = new Zone("global"); // All DNS zones must have location = "global"
+	
+	// Create a Azure Resource Manager 'tag'.  This is optional.  You can add multiple tags
+	dnsZoneParams.Tags = new Dictionary<string, string>();
+	dnsZoneParams.Tags.Add("dept", "finance");
+	
+	// Create the actual zone.
+	// Note: Uses 'If-None-Match *' ETAG check, so will fail if the zone exists already.
+	// Note: For non-async usage, call dnsClient.Zones.CreateOrUpdate(resourceGroupName, zoneName, dnsZoneParams, null, "*")
+	// Note: For getting the http response, call dnsClient.Zones.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, zoneName, dnsZoneParams, null, "*")
+	var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneName, dnsZoneParams, null, "*");
 
-## <a name="create-dns-record-sets-and-records"></a>Create DNS record sets and records
+## DNS 레코드 집합 및 레코드 만들기
 
-DNS records are managed as a record set. A record set is a set of records with the same name and record type within a zone.  The record set name is relative to the zone name, not the fully qualified DNS name.
+DNS 레코드는 레코드 집합으로 관리됩니다. 레코드 집합은 영역 내에서 동일한 이름과 레코드 형식을 가진 레코드의 집합입니다. 레코드 집합 이름은 정규화된 DNS 이름이 아닌 영역 이름에 상대적입니다.
 
-To create or update a record set, a "RecordSet" parameters object is created and passed to *DnsManagementClient.RecordSets.CreateOrUpdateAsync*. As with DNS zones, there are three modes of operation: synchronous ('CreateOrUpdate'), asynchronous ('CreateOrUpdateAsync'), or asynchronous with access to the HTTP response ('CreateOrUpdateWithHttpMessagesAsync').
+레코드 집합을 만들거나 업데이트하려면 "RecordSet" 매개 변수 개체를 만들어서 *DnsManagementClient.RecordSets.CreateOrUpdateAsync*로 전달합니다. DNS 영역의 경우 동기('CreateOrUpdate'), 비동기('CreateOrUpdateAsync') 또는 HTTP 응답에 액세스 권한을 가진 비동기('CreateOrUpdateWithHttpMessagesAsync') 등 세 가지 작업 모드가 있습니다.
 
-As with DNS zones, operations on record sets include support for optimistic concurrency.  In this example, since neither 'If-Match' nor 'If-None-Match' are specified, the record set is always created.  This call overwrites any existing record set with the same name and record type in this DNS zone.
+DNS 영역의 경우 레코드 집합에 대한 작업에는 낙관적 동시성에 대한 지원이 포함되어 있습니다. 이 예제에서는 'If-Match' 또는 'If-None-Match'가 지정되지 않았기 때문에 레코드 집합이 항상 만들어집니다. 이 호출은 이 DNS 영역에 있는 동일한 이름과 레코드 형식으로 모든 기존 레코드 집합을 덮어씁니다.
 
-    // Create record set parameters
-    var recordSetParams = new RecordSet();
-    recordSetParams.TTL = 3600;
+	// Create record set parameters
+	var recordSetParams = new RecordSet();
+	recordSetParams.TTL = 3600;
 
-    // Add records to the record set parameter object.  In this case, we'll add a record of type 'A'
-    recordSetParams.ARecords = new List<ARecord>();
-    recordSetParams.ARecords.Add(new ARecord("1.2.3.4"));
+	// Add records to the record set parameter object.  In this case, we'll add a record of type 'A'
+	recordSetParams.ARecords = new List<ARecord>();
+	recordSetParams.ARecords.Add(new ARecord("1.2.3.4"));
 
-    // Add metadata to the record set.  Similar to Azure Resource Manager tags, this is optional and you can add multiple metadata name/value pairs
-    recordSetParams.Metadata = new Dictionary<string, string>();
-    recordSetParams.Metadata.Add("user", "Mary");
+	// Add metadata to the record set.  Similar to Azure Resource Manager tags, this is optional and you can add multiple metadata name/value pairs
+	recordSetParams.Metadata = new Dictionary<string, string>();
+	recordSetParams.Metadata.Add("user", "Mary");
 
-    // Create the actual record set in Azure DNS
-    // Note: no ETAG checks specified, will overwrite existing record set if one exists
-    var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSetParams);
+	// Create the actual record set in Azure DNS
+	// Note: no ETAG checks specified, will overwrite existing record set if one exists
+	var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSetParams);
 
-## <a name="get-zones-and-record-sets"></a>Get zones and record sets
+## 영역 및 레코드 집합 가져오기
 
-The *DnsManagementClient.Zones.Get* and *DnsManagementClient.RecordSets.Get* methods retrieve individual zones and record sets, respectively. RecordSets are identified by their type, name, and the zone and resource group they exist in. Zones are identified by their name and the resource group they exist in.
+*DnsManagementClient.Zones.Get* 및 *DnsManagementClient.RecordSets.Get* 메서드는 각각 개별 영역 및 레코드 집합을 검색합니다. RecordSets은 해당 형식, 이름 및 속해 있는 영역(및 리소스 그룹)으로 식별됩니다. 영역은 해당 이름 및 속해 있는 리소스 그룹으로 식별됩니다.
 
-    var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
-    
-## <a name="update-an-existing-record-set"></a>Update an existing record set
+	var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
+	
+## 기존 레코드 집합 업데이트
 
-To update an existing DNS record set, first retrieve the record set, then update the record set contents, then submit the change.  In this example, we specify the 'Etag' from the retrieved record set in the 'If-Match' parameter. The call fails if a concurrent operation has modified the record set in the meantime.
+기존 DNS 레코드 집합을 업데이트하려면 먼저 레코드 집합을 검색한 후에 레코드 집합 내용을 업데이트하고 변경 내용을 제출합니다. 이 예제에서는 'If-Match' 매개 변수에 있는 검색된 레코드 집합에서 'Etag'를 지정합니다. 동시 작업이 동시에 레코드 집합을 수정하는 경우 호출은 실패합니다.
 
-    var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
+	var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
 
-    // Add a new record to the local object.  Note that records in a record set must be unique/distinct
-    recordSet.ARecords.Add(new ARecord("5.6.7.8"));
+	// Add a new record to the local object.  Note that records in a record set must be unique/distinct
+	recordSet.ARecords.Add(new ARecord("5.6.7.8"));
 
-    // Update the record set in Azure DNS
-    // Note: ETAG check specified, update will be rejected if the record set has changed in the meantime
-    recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSet, recordSet.Etag);
+	// Update the record set in Azure DNS
+	// Note: ETAG check specified, update will be rejected if the record set has changed in the meantime
+	recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSet, recordSet.Etag);
 
-## <a name="list-zones-and-record-sets"></a>List zones and record sets
+## 영역 및 레코드 집합 나열
 
-To list zones, use the *DnsManagementClient.Zones.List...* methods, which support listing either all zones in a given resource group or all zones in a given Azure subscription (across resource groups.) To list record sets, use *DnsManagementClient.RecordSets.List...* methods, which support either listing all record sets in a given zone or only those record sets of a specific type.
+영역을 나열하려면 *DnsManagementClient.Zones.List...* 메서드를 사용하며 이는 여러 리소스 그룹에 걸쳐 지정된 리소스 그룹의 모든 영역 또는 지정된 Azure 구독의 모든 영역을 나열하도록 지원합니다. 레코드 집합을 나열하려면 *DnsManagementClient.RecordSets.List...* 메서드를 사용하며 이는 지정한 영역의 모든 레코드 집합 또는 특정 형식의 해당 레코드 집합만을 지원합니다.
 
-Note when listing zones and record sets that results may be paginated.  The following example shows how to iterate through the pages of results. (An artificially small page size of '2' is used to force paging; in practice this parameter should be omitted and the default page size used.)
+영역을 나열할 때 나오는 레코드 집합은 페이지를 매길 수 있습니다. 다음 예제에서는 결과 페이지를 반복하는 방법을 보여 줍니다. (인위적으로 작은 페이지 크기인 '2'는 페이지를 강제하는 데 사용됩니다. 실제로 이 매개 변수를 생략하고 기본 페이지 크기를 사용해야 합니다.)
 
-    // Note: in this demo, we'll use a very small page size (2 record sets) to demonstrate paging
-    // In practice, to improve performance you would use a large page size or just use the system default
-    int recordSets = 0;
-    var page = await dnsClient.RecordSets.ListAllInResourceGroupAsync(resourceGroupName, zoneName, "2");
-    recordSets += page.Count();
+	// Note: in this demo, we'll use a very small page size (2 record sets) to demonstrate paging
+	// In practice, to improve performance you would use a large page size or just use the system default
+	int recordSets = 0;
+	var page = await dnsClient.RecordSets.ListAllInResourceGroupAsync(resourceGroupName, zoneName, "2");
+	recordSets += page.Count();
 
-    while (page.NextPageLink != null)
-    {
-        page = await dnsClient.RecordSets.ListAllInResourceGroupNextAsync(page.NextPageLink);
-        recordSets += page.Count();
-    }
+	while (page.NextPageLink != null)
+	{
+		page = await dnsClient.RecordSets.ListAllInResourceGroupNextAsync(page.NextPageLink);
+		recordSets += page.Count();
+	}
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Download the [Azure DNS .NET SDK sample project](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), which includes further examples of how to use the Azure DNS .NET SDK, including examples for other DNS record types.
+[Azure DNS .NET SDK 샘플 프로젝트](https://www.microsoft.com/ko-KR/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)를 다운로드하며 여기에는 다른 DNS 레코드 유형에 대한 예제를 비롯한 Azure DNS .NET SDK를 사용하는 방법의 추가 예제가 포함됩니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

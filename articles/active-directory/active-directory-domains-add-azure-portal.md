@@ -1,104 +1,95 @@
 <properties
-    pageTitle="Add your custom domain name to Azure Active Directory preview | Microsoft Azure"
-    description="How to add your company's domain names to Azure Active Directory, and how to verify the domain name."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeffsta"
-    manager="femila"
-    editor=""/>
+	pageTitle="Azure Active Directory 미리 보기에 사용자 지정 도메인 이름 추가 | Microsoft Azure"
+	description="Azure Active Directory에 회사의 도메인 이름을 추가하는 방법 및 도메인 이름을 확인하는 방법."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeffsta"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
+# Azure Active Directory 미리 보기에 사용자 지정 도메인 이름 추가
 
-# <a name="add-a-custom-domain-name-to-azure-active-directory-preview"></a>Add a custom domain name to Azure Active Directory preview
+조직이 비즈니스를 수행하기 위해 사용하는 하나 이상의 도메인 이름이 있다면 조직의 사용자는 회사 도메인 이름을 사용하여 회사 네트워크에 로그인합니다. 이제 Azure Active Directory(Azure AD) 미리 보기를 사용 중이므로 Azure AD에도 회사 도메인 이름을 추가할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 이렇게 하면 사용자에게 친숙한 ‘alice@contoso.com’과 같은 사용자 이름을 디렉터리에 할당할 수 있습니다. 프로세스는 간단합니다.
 
-> [AZURE.SELECTOR]
-- [Azure portal](active-directory-domains-add-qzure-portal.md)
-- [Azure classic portal](active-directory-add-domain.md)
+1. 디렉터리에 사용자 지정 도메인 이름 추가
+2. 도메인 이름 등록 기관의 도메인 이름에 대한 DNS 항목 추가
+3. Azure AD에서 사용자 지정 도메인 이름 확인
 
-You've got one or more domain names that your organization uses to do business, and your users sign in to your corporate network using your corporate domain name. Using Azure Active Directory (Azure AD) preview, you can add your corporate domain name to Azure AD as well. [What's in the preview?](active-directory-preview-explainer.md) This allows you to assign user names in the directory that are familiar to your users, such as ‘alice@contoso.com.’ The process is simple:
+## 도메인 이름을 추가하려면 어떻게 해야 합니까?
 
-1. Add the custom domain name to your directory
-2. Add a DNS entry for the domain name at the domain name registrar
-3. Verify the custom domain name in Azure AD
+1.  디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-## <a name="how-do-i-add-a-domain-name?"></a>How do I add a domain name?
+2.  **더 많은 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음 **Enter**를 선택합니다.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+    ![사용자 관리 열기](./media/active-directory-domains-add-azure-portal/user-management.png)
 
-2.  Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+3. ***디렉터리-이름*** 블레이드에서 **도메인 이름**을 선택합니다.
 
-    ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
+4. ***디렉터리-이름* - 도메인 이름** 블레이드에서 **추가** 명령을 선택합니다.
 
-3. On the ***directory-name*** blade, select **Domain names**.
+  ![추가 명령 선택](./media/active-directory-domains-add-azure-portal/add-command.png)
 
-4. On the ***directory-name* - Domain names** blade, select the **Add** command.
+5. **도메인 이름** 블레이드에서 상자에 'contoso.com'과 같은 사용자 지정 도메인의 이름을 입력한 다음 **도메인 추가**를 선택합니다. .com, .net 또는 그 외 최상위 확장명을 포함해야 합니다.
 
-  ![Selecting the Add command](./media/active-directory-domains-add-azure-portal/add-command.png)
+6. ***domainname*** 블레이드(즉, 제목에 새 도메인 이름이 있는 것을 여는 블레이드)에서 Azure AD가 조직이 사용자 지정 도메인 이름을 소유하는지 확인하는 데 사용할 DNS 항목 정보를 가져옵니다.
 
-5. On the **Domain name** blade, enter the name of your custom domain in the box, such as 'contoso.com', and then select **Add Domain**. Be sure to include the .com, .net, or other top-level extension.
+  ![DNS 항목 정보 가져오기](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
 
-6. On the ***domainname*** blade (that is, the blade that opens that has your new domain name in the title), get the DNS entry information that Azure AD will use to verify that your organization owns the custom domain name.
+이제 도메인 이름을 추가했으므로 Azure AD에서 조직이 해당 도메인 이름을 소유하고 있는지 확인해야 합니다. Azure AD에서 이러한 확인을 수행하기 전에 도메인 이름으로 DNS 영역 파일에 포함된 DNS 항목을 추가해야 합니다. 이 작업은 도메인 이름을 위한 도메인 이름 등록 기관의 웹 사이트에서 수행됩니다.
 
-  ![get DNS entry information](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
+## 도메인에 대한 도메인 이름 등록 기관에 DNS 항목을 추가합니다.
 
-Now that you've added the domain name, Azure AD must verify that your organization owns the domain name. Before Azure AD can perform this verification, you must add a DNS entry in the DNS zone file for the domain name. This task is performed at the website for domain name registrar for the domain name.
+사용자 지정 도메인 이름을 Azure AD로 사용하는 다음 단계에서는 도메인에 대한 DNS 영역 파일을 업데이트합니다. 이를 통해 Azure AD에서는 조직이 사용자 지정 도메인 이름을 소유하는지를 확인합니다.
 
-## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>Add the DNS entry at the domain name registrar for the domain
+1.  도메인에 대한 도메인 이름 등록 기관에 로그인합니다. DNS 항목을 업데이트하기 위해 액세스할 수 없는 경우 액세스 권한이 있는 사용자 또는 팀에게 2단계를 완료하고 완료될 때를 알려주도록 요청합니다.
 
-The next step to use your custom domain name with Azure AD is to update the DNS zone file for the domain. This enables Azure AD to verify that your organization owns the custom domain name.
+2.  Azure AD에서 제공되는 DNS 항목을 추가하여 도메인에 대한 DNS 영역 파일을 업데이트합니다. 이러한 DNS 항목을 통해 Azure AD에서 도메인에 대한 소유권을 확인할 수 있도록 합니다. DNS 항목은 메일 라우팅이나 웹 호스팅 같은 어떠한 동작도 변경하지 않습니다.
 
-1.  Sign in to the domain name registrar for the domain. If you don't have access to update the DNS entry, ask the person or team who has this access to complete step 2 and to let you know when it is completed.
+DNS 항목을 추가하는 방법에 대한 도움말은 [널리 사용되는 DNS 등록 기관에서 DNS 항목을 추가하기 위한 지침](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)을 참고합니다.
 
-2.  Update the DNS zone file for the domain by adding the DNS entry provided to you by Azure AD. This DNS entry enables Azure AD to verify your ownership of the domain. The DNS entry doesn't change any behaviors such as mail routing or web hosting.
+## Azure AD에서 도메인 이름 확인
 
-For help with this adding the DNS entry, read [Instructions for adding a DNS entry at popular DNS registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
+DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 준비가 되었습니다.
 
-## <a name="verify-the-domain-name-with-azure-ad"></a>Verify the domain name with Azure AD
+DNS 레코드가 전파된 후에 도메인 이름을 확인할 수 있습니다. 이 전파는 보통 몇 초 밖에 걸리지 않지만 한 시간 이상이 걸릴 경우도 있습니다. 확인이 처음에 작동하지 않으면 나중에 다시 시도하세요.
 
-Once you have added the DNS entry, you are ready to verify the domain name with Azure AD.
+1.  디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-A domain name can be verified only after the DNS records have propagated. This propagation often takes only seconds, but it can sometimes take an hour or more. If verification doesn’t work the first time, try again later.
+2.  **찾아보기**를 선택하고 텍스트 상자에 사용자 관리를 입력한 다음 **Enter**를 선택합니다.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+    ![사용자 관리 열기](./media/active-directory-domains-add-azure-portal/user-management.png)
 
-2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
+3. **사용자 관리 - 도메인 이름** 블레이드에서 확인하려는 확인되지 않은 도메인 이름을 선택합니다.
 
-    ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
+4. ***domainname*** 블레이드(즉, 제목에 새 도메인 이름이 있는 것을 여는 블레이드)에서 **확인**을 선택하여 확인을 완료합니다.
 
-3. On the **User management - Domain names** blade, select the unverified domain name that you want to verify.
+이제 [사용자 지정 도메인 이름을 포함하는 사용자 이름을 할당](active-directory-create-users-azure-portal.md)할 수 있습니다.
 
-4. On the ***domainname*** blade (that is, the blade that opens that has your new domain name in the title), select **Verify** to complete the verification.
+## 문제 해결
 
-Now you can [assign user names that include your custom domain name](active-directory-users-create-azure-portal.md).
+사용자 지정 도메인 이름을 확인할 수 없는 경우 다음을 시도하세요. 가장 일반적인 것부터 시작하여, 가장 드문 것까지 알아보겠습니다.
 
-## <a name="troubleshooting"></a>Troubleshooting
+1.	**한 시간을 대기합니다**. Azure AD가 도메인을 확인할 수 있기 전에 DNS 레코드를 전파해야 합니다. 이 작업은 한 시간 이상 걸릴 수 있습니다.
 
-If you can't verify a custom domain name, try the following. We'll start with the most common and work down to the least common.
+2.	**DNS 레코드를 입력하고 정확한지 확인합니다**. 도메인에 대한 도메인 이름 등록 기관의 웹 사이트에서 이 단계를 완료합니다. DNS 항목을 DNS 영역 파일에 나타나지 않는 경우 또는 Azure AD에서 제공한 DNS 항목과 정확하게 일치하지 않는 경우 Azure AD는 도메인 이름을 확인할 수 없습니다. 도메인 이름 등록 기관에서 도메인에 대한 DNS 레코드를 업데이트하기 위한 액세스 권한이 없는 경우 조직에서 이 액세스 권한이 있는 사람이나 팀과 DNS 항목을 공유하고 DNS 항목을 추가하도록 요청합니다.
 
-1.  **Wait an hour**. DNS records need to propagate before Azure AD can verify the domain. This can take an hour or more.
+3.	**Azure AD에서 도메인 이름을 다른 디렉터리에서 삭제합니다**. 단일 디렉터리에서 도메인 이름을 확인할 수 있습니다. 다른 디렉터리에서 이전에 도메인 이름을 확인한 경우 새 디렉터리에서 확인할 수 있게 되기 전에 삭제해야 합니다. 도메인 이름을 삭제하는 방법에 대해 자세히 알아보려면 [사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)를 참고합니다.
 
-2.  **Ensure the DNS record was entered, and that it is correct**. Complete this step at the website for the domain name registrar for the domain. Azure AD cannot verify the domain name if the DNS entry is not present in the DNS zone file, or if it is not an exact match with the DNS entry that Azure AD provided you. If you do not have access to update DNS records for the domain at the domain name registrar, share the DNS entry with the person or team at your organization who has this access, and ask them to add the DNS entry.
+## 사용자 지정 도메인 이름 더 추가하기
 
-3.  **Delete the domain name from another directory in Azure AD**. A domain name can be verified in only a single directory. If a domain name was previously verified in another directory, it must be deleted there before it can be verified in your new directory. To learn about deleting domain names, read [Manage custom domain names](active-directory-domains-manage-azure-portal.md).    
+조직에서 사용자 지정 도메인 이름을 여러 개 사용하는 경우(예: ‘contoso.com’ 및 ‘contosobank.com’), 최대 900개의 도메인에 해당 이름을 추가할 수 있습니다. 이 문서의 동일한 단계를 사용하여 각 도메인 이름을 추가합니다.
 
-## <a name="add-more-custom-domain-names"></a>Add more custom domain names
+## 다음 단계
 
-If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them up to a maximum of 900 domain names. Use the same steps in this article to add each of your domain names.
+[사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)
 
-## <a name="next-steps"></a>Next steps
-
-[Manage custom domain names](active-directory-domains-manage-azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

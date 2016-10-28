@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Accessing Azure Virtual Machines from Server Explorer | Microsoft Azure"
-   description="Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio."
+   pageTitle="서버 탐색기에서 Azure 가상 컴퓨터 액세스 | Microsoft Azure"
+   description="Visure Studio에서 Azure 서버 탐색기 (VM) 만들기 및 관리하기를 보는 방법에 대한 개요를 가져옵니다."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,47 +15,42 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# 서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)
 
-# <a name="accessing-azure-virtual-machines-from-server-explorer"></a>Accessing Azure Virtual Machines from Server Explorer
+Visure Studio에서 서버 탐색기를 사용하여 Azure에서 호스팅되는 가상 컴퓨터에 대한 정보를 표시할 수 있습니다.
 
-By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.
+## 서버 탐색기의 Azure 가상 컴퓨터 액세스
 
-## <a name="accessing-virtual-machines-in-server-explorer"></a>Accessing virtual machines in Server Explorer
+Azure에서 호스팅되는 가상 컴퓨터가 있는 경우 서버 탐색기에서 액세스할 수 있습니다. 처음에 Azure 구독에 로그인해야 모바일 서비스를 볼 수 있습니다. 로그인하려면 서버 탐색기에서 Azure 노드에 대한 바로 가기 메뉴를 열고 **Microsoft Azure에 연결**을 선택할 수 있습니다.
 
-If you have virtual machines hosted by Azure, you can access them in Server Explorer. You must first sign in to your Azure subscription to view your mobile services. To sign in, open the shortcut menu for the Azure node in Server Explorer, and choose **Connect to Microsoft Azure**.
+### 가상 컴퓨터에 대한 정보를 가져오려면
 
-### <a name="to-get-information-about-your-virtual-machines"></a>To get information about your virtual machines
+1. 서버 탐색기에서 가상 컴퓨터를 선택한 다음 F4 키를 선택하여 속성 창을 표시합니다.
 
-1. In Server Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.
+    다음의 테이블은 사용 가능하지만 모두 읽기 전용인 속성을 보여줍니다. 변경하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용합니다.
 
-    The following table shows what properties are available, but they are all read-only. To change them, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
-
-  	|Property|Description|
+  	|속성|설명|
   	|---|---|
-  	|DNS Name|The URL with the Internet address of the virtual machine.|
-  	|Environment|For a virtual machine, the value of this property is always Production.|
-  	|Name|The name of the virtual machine.|
-  	|Size|The size of the virtual machine, which reflects the amount of memory and disk space that’s available. For more information, see How To: Configure Virtual Machine Sizes.|
-  	|Status|Values include Starting, Started, Stopping, Stopped, and Retrieving Status. If Retrieving Status appears, the current status is unknown. The values for this property differ from the values that are used on the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).|
-  	|SubscriptionID|The subscription ID for your Azure account. You can show this information on the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) by viewing the properties for a subscription.|
+  	|DNS 이름|가상 컴퓨터의 인터넷 주소 URL입니다.|
+  	|Environment|가상 컴퓨터에 대한 이 속성의 값은 항상 프로덕션입니다.|
+  	|이름|가상 컴퓨터의 이름입니다.|
+  	|크기|사용 가능한 디스크 공간과 메모리의 양이 반영된 가상 컴퓨터의 크기입니다. 자세한 내용은 가상 컴퓨터 구성 방법을 참조하세요.|
+  	|가동 상태|값은 시작, 시작됨, 중지, 중지됨, 및 상태 검색을 포함합니다. 상태 검색이 나타나면 현재 상태는 알 수 없습니다. 이 속성의 값은 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 사용된 값과 다릅니다.|
+  	|구독 ID|Azure 계정에 대한 구독 ID 구독 속성을 확인하여 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 대한 정보를 표시할 수 있습니다.|
 
-1. Choose an endpoint node, and then view the **Properties** window.
+1. 끝점 노드를 선택한 다음 **속성** 창을 확인합니다.
 
-1. The following table describes the available properties of endpoints, but they are read-only. To add or edit the endpoints for a virtual machine, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
+1. 다음 테이블은 사용 가능하지만 읽기 전용인 끝점 속성을 설명합니다. 가상 컴퓨터에 대해 끝점을 추가 또는 편집하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용합니다.
 
-  	|Property|Description|
+  	|속성|설명|
   	|---|---|
-  	|Name|An identifier for the endpoint.|
-  	|Private Port|The port for network access internal to your application.|
-  	|Protocol|The protocol that the transport layer for this endpoint uses, either TCP or UDP.|
-  	|Public Port|The port that’s used for public access to your application.|
+  	|이름|끝점에 대한 식별자입니다.|
+  	|개인 포트|응용 프로그램의 내부 네트워크 액세스 용 포트입니다.|
+  	|프로토콜|이 끝점에 대한 전송 계층이 사용하는 프로토콜로, TCP 또는 UDP입니다.|
+  	|공용 포트|응용 프로그램에 대한 공용 액세스에 사용되는 포트입니다.|
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
+Visual Studio에서 Azure 역할을 사용하는 방법에 대한 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

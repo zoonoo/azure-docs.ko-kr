@@ -1,67 +1,66 @@
 <properties 
-    pageTitle="Debug your Model in Azure Machine Learning | Microsoft Azure" 
-    description="Explains how to How to debug your Model in Azure Machine Learning." 
-    services="machine-learning"
-    documentationCenter="" 
-    authors="garyericson" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Azure 기계 학습에서 모델 디버그 | Microsoft Azure" 
+	description="Azure 기계 학습에서 모델을 디버그하는 방법에 대해 설명합니다." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/09/2016" 
-    ms.author="bradsev;garye" />
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2016" 
+	ms.author="bradsev;garye" />
 
+# Azure 기계 학습에서 모델 디버그
 
-# <a name="debug-your-model-in-azure-machine-learning"></a>Debug your Model in Azure Machine Learning
+이 문서에서는 Microsoft Azure 기계 학습에서 모델을 디버그하는 방법에 대해 설명합니다. 특히 모델을 실행할 때 다음 두 가지 오류 시나리오 중 하나가 발생할 수 있는 잠재적 원인을 알아봅니다.
 
-This article explains of how to debug your models in Microsoft Azure Machine Learning. Specifically, it covers the potential reasons why either of the following two failure scenarios might be encountered when running a model:
-
-* the [Train Model][train-model] module throws an error 
-* the [Score Model][score-model] module produces incorrect results 
+* [모델 학습][train-model] 모듈에서 오류 발생
+* [모델 점수 매기기][score-model] 모듈에서 잘못된 결과 생성
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="train-model-module-throws-an-error"></a>Train Model Module throws an error
+## 모델 학습 모듈에서 오류 발생
 
 ![image1](./media/machine-learning-debug-models/train_model-1.png)
 
-The [Train Model][train-model] Module expects the following 2 inputs:
+[모델 학습][train-model] 모듈에는 다음 두 가지 입력이 필요합니다.
 
-1. The type of Classification/Regression Model from the collection of models provided by Azure Machine Learning
-2. The training data with a specified Label column. The Label column specifies the variable to predict. The rest of the columns included are assumed to be Features.
+1. Azure 기계 학습에서 제공하는 모델 컬렉션에 있는 분류/회귀 모델 유형
+2. 지정된 레이블 열이 있는 학습 데이터. 레이블 열은 예측할 변수를 지정합니다. 포함된 나머지 열은 기능으로 간주됩니다.
 
-This module throws an error in the following cases:
+다음과 같은 경우 이 모듈에서 오류가 발생합니다.
 
-1. The Label column is specified incorrectly because either more than one column is selected as the Label or an incorrect column index is selected. For example, the second case would apply if a column index of 30 was used with an input dataset which had only 25 columns.
+1. 둘 이상의 열을 레이블로 선택하거나 잘못된 열 인덱스를 선택했기 때문에 레이블 열을 잘못 지정한 경우. 예를 들어 두 번째 경우는 열이 25개뿐인 입력 데이터 집합에서 열 인덱스 30을 사용한 경우에 적용됩니다.
 
-2. The dataset does not contain any Feature columns. For example, if the input dataset has only 1 column, which is marked as the Label column, there would be no features with which to build the model. In this case, the [Train Model][train-model] module will throw an error.
+2. 데이터 집합에 기능 열이 없는 경우. 예를 들어 입력 데이터 집합에 열이 1개뿐이고 이 열이 레이블 열로 표시된 경우 모델을 빌드할 기능이 없습니다. 이 경우에는 [모델 학습][train-model] 모듈에서 오류가 발생합니다.
 
-3. The input dataset (Features or Label) contain Infinity as a value.
+3. 입력 데이터 집합(기능 또는 레이블)에 Infinity가 값으로 포함된 경우
 
 
-## <a name="score-model-module-does-not-produce-correct-results"></a>Score Model Module does not produce correct results
+## 모델 점수 매기기 모듈에서 올바른 결과를 생성하지 않음
 
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
 
-In a typical training/testing graph for supervised learning, the [Split Data][split] module divides the original dataset into two parts: the part that is used to train the model and the part that is reserved to score how well the trained model performs on data it did not train on. The trained model is then used to score the test data after which the results are evaluated to determine the accuracy of the model.
+감독 학습에 대한 일반적인 학습/테스트 그래프에서 [데이터 분할][split] 모듈은 원래 데이터 집합을 모델을 학습하는 데 사용되는 부분과 학습된 모델이 학습하지 않은 데이터에서 얼마나 잘 작동하는지 점수를 매기는 데 예약된 부분의 두 부분으로 나눕니다. 그런 다음 학습된 모델은 테스트 데이터의 점수를 매기는 데 사용되며, 그 결과가 모델의 정확도를 확인하기 위해 평가됩니다.
 
-The [Score Model][score-model] module requires two inputs:
+[모델 점수 매기기][score-model] 모듈에는 다음 두 개의 입력이 필요합니다.
 
-1. A trained model output from [Train Model][train-model] module
-2. A scoring dataset not that the model was not trained on
+1. [모델 학습][train-model] 모듈의 학습된 모델 출력
+2. 모델이 학습되지 않은 점수 매기기 데이터 집합
 
-It may happen that even though the experiment succeeds, the [Score Model][score-model] module produces incorrect results. Several scenarios may cause this to happen:
+실험에 성공한 경우에도 [모델 점수 매기기][score-model] 모듈에서 잘못된 결과가 생성될 수 있습니다. 다음과 같은 여러 시나리오에서 이러한 상황이 발생할 수 있습니다.
 
-1. If the specified Label is categorical and a regression model is trained on the data, an incorrect output would be produced by the [Score Model][score-model] module. This is because regression requires a continuous response variable. In this case it should be more suitable to use a classification model. 
-2. Similarly, if a classification model is trained on a dataset having floating point numbers in the Label column, it may produce undesirable results. This is because classification requires a discrete response variable that only allows values that range over a finite and usually somewhat small set of classes.
-3. If the scoring dataset does not contain all the features used to train the model, the [Score Model][score-model] will produce an error.
-4. The [Score Model][score-model] would not produce any output corresponding to a row in the scoring dataset that contains a missing value or an infinite value for any of its features.
-5. The [Score Model][score-model] may produce identical outputs for all rows in the scoring dataset. This could occur, for example, in the when attempting classification using Decision Forests if the minimum number of samples per leaf node is chosen to be more than the number of training examples available.
+1. 지정된 레이블이 범주인 경우 데이터에 대해 회귀 모델이 학습되면 [모델 점수 매기기][score-model] 모듈에서 잘못된 출력이 생성됩니다. 회귀에는 연속 응답 변수가 필요하기 때문입니다. 이 경우 분류 모델을 사용하는 것이 보다 적합합니다.
+2. 마찬가지로 레이블 열에 부동 소수점 숫자가 있는 데이터 집합에 대해 분류 모델이 학습된 경우 바람직하지 않은 결과가 생성될 수 있습니다. 분류에는 범위가 유한하고 일반적으로 클래스 집합이 작은 값만 허용하는 불연속 응답 변수가 필요하기 때문입니다.
+3. 점수 매기기 데이터 집합에 모델을 학습하는 데 사용되는 일부 기능이 포함되지 않은 경우 [모델 점수 매기기][score-model]에서 오류가 생성됩니다.
+4. 해당 기능 중 하나에 대해 무한한 값 또는 누락된 값이 있는 점수 매기기 데이터 집합의 행에 해당하는 출력은 [모델 점수 매기기][score-model]에서 생성되지 않습니다.
+5. [모델 점수 매기기][score-model]에서는 점수 매기기 데이터 집합의 모든 행에 대해 동일한 출력을 생성할 수 있습니다. 예를 들어 선택한 리프 노드당 최소 샘플 수가 사용 가능한 학습 예제 수보다 많은 경우 의사 결정 포리스트를 사용하여 분류할 때 이러한 상황이 발생할 수 있습니다.
 
 
 <!-- Module References -->
@@ -70,8 +69,4 @@ It may happen that even though the experiment succeeds, the [Score Model][score-
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

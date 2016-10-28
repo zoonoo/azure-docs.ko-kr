@@ -1,55 +1,50 @@
 <properties
-    pageTitle="Create multiple virtual machines | Microsoft Azure"
-    description="Options for creating multiple virtual machines on Windows"
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="여러 가상 컴퓨터 만들기 | Microsoft Azure"
+	description="Windows에서 여러 가상 컴퓨터 만들기에 대한 옵션"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="gbowerman"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/02/2016"
-    ms.author="guybo"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/02/2016"
+	ms.author="guybo"/>
 
+# 여러 Azure 가상 컴퓨터 만들기
 
-# <a name="create-multiple-azure-virtual-machines"></a>Create multiple Azure virtual machines
+많은 수의 유사한 VM(가상 컴퓨터)을 만들어야 하는 다양한 시나리오가 있습니다. 일부 예로는 HPC(고성능 컴퓨팅), 대규모 데이터 분석, 확장 가능하며 보통 상태 정보를 저장하지 않는 중간 계층 또는 백 엔드 서버(예: webserver), 분산 데이터베이스가 포함됩니다.
 
-There are many scenarios where you need to create a large number of similar virtual machines (VMs). Some examples include high-performance computing (HPC), large-scale data analysis, scalable and often stateless middle-tier or backend servers (such as webservers), and distributed databases.
+이 문서에서는 Azure에서 여러 VM을 만들기 위해 사용할 수 있는 옵션에 대해 설명합니다. 이러한 옵션은 VM 시리즈를 수동으로 만드는 단순한 경우를 벗어납니다. 많은 VM을 만들어야 하는 경우 일반적으로 사용하는 프로세스는 적절하게 확장되지 않습니다.
 
-This article discusses the available options to create multiple VMs in Azure. These options go beyond the simple cases where you manually create a series of VMs. To create many VMs, the processes that you typically use don't scale well if you need to create more than a handful of VMs.
+여러 개의 유사한 VM을 만드는 한 가지 방법은 Azure Resource Manager의 _리소스 루프_ 구조를 사용하는 것입니다.
 
-One way to create many similar VMs is to use the Azure Resource Manager construct of _resource loops_.
+## 리소스 루프
 
-## <a name="resource-loops"></a>Resource loops
+리소스 루프는 Azure Resource Manager 템플릿에 사용되는 간단한 구문입니다. 리소스 루프는 비슷하게 구성된 리소스 집합을 루프로 만들 수 있습니다. 리소스 루프를 사용하면 여러 개의 저장소 계정, 네트워크 인터페이스 또는 가상 컴퓨터를 만들 수 있습니다. 리소스 루프에 대한 자세한 내용은 [리소스 루프를 사용하여 가용성 집합에 VM 만들기](https://azure.microsoft.com/documentation/templates/201-vm-copy-index-loops/)를 참조하세요.
 
-Resource loops are a syntactical shorthand in Azure Resource Manager templates. Resource loops can create a set of similarly configured resources in a loop. You can use resource loops to create multiple storage accounts, network interfaces, or virtual machines. For more information about resource loops, refer to [Create VMs in availability sets using resource loops](https://azure.microsoft.com/documentation/templates/201-vm-copy-index-loops/).
+## 규모에 따른 해결 과제
 
-## <a name="challenges-of-scale"></a>Challenges of scale
+리소스 루프를 사용하면 대규모 클라우드 인프라를 손쉽게 만들고 좀 더 간결한 템플릿을 생성할 수 있지만 해결해야 할 문제도 있습니다. 예를 들어 리소스 루프를 사용하여 100개의 가상 컴퓨터를 만드는 경우 해당 VM 및 저장소 계정과 NIC(네트워크 인터페이스 컨트롤러) 간에 상관 관계를 구축해야 합니다. VM 수가 저장소 계정의 수와 다를 수 있으므로 다양한 리소스 루프 크기를 처리해야 합니다. 이러한 문제는 해결할 수 있지만 규모에 따라 복잡성이 크게 증가합니다.
 
-Although resource loops make it easier to build out a cloud infrastructure at scale and produce more concise templates, certain challenges remain. For example, if you use a resource loop to create 100 virtual machines, you need to correlate network interface controllers (NICs) with corresponding VMs and storage accounts. Because the number of VMs is likely to be different from the number of storage accounts, you'll have to deal with different resource loop sizes, too. These are solvable problems, but the complexity increases significantly with scale.
+또 다른 과제는 탄력적으로 확장되는 인프라가 필요할 때 발생합니다. 예를 들어 워크로드에 따라 VM 수를 자동으로 늘리거나 줄이는 자동 크기 조정 인프라를 원할 수 있습니다. VM은 수 변경(규모 확장 및 규모 감축)에 대한 통합 메커니즘을 제공하지 않습니다. VM을 제거하여 규모를 줄일 경우 업데이트 및 장애 도메인 간에 VM 균형을 유지하여 고가용성을 보장하는 일이 어려워집니다.
 
-Another challenge occurs when you need an infrastructure that scales elastically. For example, you might want an autoscale infrastructure that automatically increases or decreases the number of VMs in response to workload. VMs don't provide an integrated mechanism to vary in number (scale out and scale in). If you scale in by removing VMs, it's difficult to guarantee high availability by making sure that VMs are balanced across update and fault domains.
+마지막으로 리소스 루프를 사용할 때 리소스를 만들기 위한 여러 번의 호출이 기본 패브릭에 대해 진행됩니다. 여러 호출이 유사한 리소스를 만들 경우 Azure는 이 디자인을 개선하고 최적화하여 배포 안정성 및 성능을 개선할 암시적 기회를 얻게 됩니다. 이로 인해 _가상 컴퓨터 크기 집합_이 탄생했습니다.
 
-Finally, when you use a resource loop, multiple calls to create resources go to the underlying fabric. When multiple calls create similar resources, Azure has an implicit opportunity to improve upon this design and optimize deployment reliability and performance. This is where _virtual machine scale sets_ come in.
+## 가상 컴퓨터 크기 집합
 
-## <a name="virtual-machine-scale-sets"></a>Virtual machine scale sets
+가상 컴퓨터 크기 집합은 동일한 VM 집합을 배포하고 관리하기 위한 Azure 클라우드 서비스 리소스입니다. 모든 VM이 동일하게 구성되면 VM 크기 집합의 규모를 쉽게 감축 및 확장할 수 있습니다. 집합의 VM 수만 변경하면 되기 때문입니다. 또한 워크로드의 요구에 따라 자동으로 크기가 조정되도록 VM 크기 집합을 구성할 수도 있습니다.
 
-Virtual machine scale sets are an Azure Cloud Services resource to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are easy to scale in and scale out. You simply change the number of VMs in the set. You can also configure VM scale sets to autoscale based on the demands of the workload.
+계산 리소스 크기를 조정해야 하는 응용 프로그램의 경우 크기 조정 작업은 장애 도메인 및 업데이트 도메인 간에 암시적으로 균형이 조정됩니다.
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains.
+VM 크기 집합에서는 IC, VM과 같은 여러 리소스 간의 상관 관계를 구성하지 않고 네트워크, 저장소, 가상 컴퓨터, 확장 속성을 중앙 집중적으로 구성할 수 있습니다.
 
-Instead of correlating multiple resources such as NICs and VMs, a VM scale set has network, storage, virtual machine, and extension properties that you can configure centrally.
+VM 크기 집합에 대한 소개 정보를 보려면 [가상 컴퓨터 크기 집합 제품 페이지](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 참조하세요. 자세한 내용은 [가상 컴퓨터 크기 집합 설명서](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)를 참조하세요.
 
-For an introduction to VM scale sets, refer to the [Virtual machine scale sets product page](https://azure.microsoft.com/services/virtual-machine-scale-sets/). For more detailed information, go to the [Virtual machines scale sets documentation](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

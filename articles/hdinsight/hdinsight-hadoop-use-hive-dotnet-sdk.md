@@ -1,51 +1,50 @@
 <properties
-    pageTitle="Run Hive queries using HDInsight .NET SDK | Microsoft Azure"
-    description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop using HDInsight .NET SDK."
-    editor="cgronlun"
-    manager="jhubbard"
-    services="hdinsight"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian"/>
+	pageTitle="HDInsight .NET SDK를 사용하여 Hive 쿼리 실행 | Microsoft Azure"
+	description="HDInsight .NET SDK를 사용하여 Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다."
+	editor="cgronlun"
+	manager="jhubbard"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
    ms.date="09/14/2016"
-    ms.author="jgao"/>
+	ms.author="jgao"/>
+
+# HDInsight .NET SDK를 사용하여 Hive 쿼리 실행
+
+[AZURE.INCLUDE [hive-선택기](../../includes/hdinsight-selector-use-hive.md)]
 
 
-# <a name="run-hive-queries-using-hdinsight-.net-sdk"></a>Run Hive queries using HDInsight .NET SDK
+HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 알아봅니다.
 
-[AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
+> [AZURE.NOTE] 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. Hive와 함께 작동하도록 Linux, OS X 또는 Unix 클라이언트를 사용하는 방법에 대한 정보를 보려면 문서 맨 위에 표시된 탭 선택기를 사용합니다.
 
+##필수 조건
 
-Learn how to submit Hive queries using HDInsight .NET SDK.
+이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-> [AZURE.NOTE] The steps in this article must be performed from a Windows client. For information on using a Linux, OS X, or Unix client to work with Hive, use the tab selector shown on the top of the article.
-
-##<a name="prerequisites"></a>Prerequisites
-
-Before you begin this article, you must have the following:
-
-- **A Hadoop cluster in HDInsight**. See [Create cluster and SQL databvase](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+- **HDInsight에 Hadoop 클러스터**. [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database)를 참조하세요.
 - **Visual Studio 2012/2013/2015**.
 
-##<a name="submit-hive-queries-using-hdinsight-.net-sdk"></a>Submit Hive queries using HDInsight .NET SDK
+##HDInsight .NET SDK를 사용하여 Hive 쿼리 제출
 
-The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다.
 
-**To Submit jobs**
+**작업을 제출하려면**
 
-1. Create a C# console application in Visual Studio.
-2. From the Nuget Package Manager Console, run the following command.
+1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 만듭니다.
+2. NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
 
-        Install-Package Microsoft.Azure.Management.HDInsight.Job
+		Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-2. Use the following code:
+2. 다음 코드를 사용합니다.
 
         using System.Collections.Generic;
         using System.IO;
@@ -128,29 +127,23 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
             }
         }
 
-5. Press **F5** to run the application.
+5. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
+이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Get started with Azure HDInsight][hdinsight-get-started]
-* [Create Hadoop clusters in HDInsight][hdinsight-provision]
-* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md)
-* [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use Sqoop with HDInsight](hdinsight-use-sqoop-mac-linux.md)
-* [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+* [Azure HDInsight 시작][hdinsight-get-started]
+* [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision]
+* [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md)
+* [HDInsight .NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop-mac-linux.md)
+* [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

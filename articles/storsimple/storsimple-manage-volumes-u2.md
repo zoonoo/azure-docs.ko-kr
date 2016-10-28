@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage your StorSimple volumes (U2) | Microsoft Azure"
-   description="Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary."
+   pageTitle="StorSimple 볼륨 관리(U2) | Microsoft Azure"
+   description="StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,293 +15,288 @@
    ms.date="09/21/2016"
    ms.author="alkohli" />
 
-
-# <a name="use-the-storsimple-manager-service-to-manage-volumes-(update-2)"></a>Use the StorSimple Manager service to manage volumes (Update 2)
+# StorSimple 관리자 서비스를 사용하여 볼륨 관리(업데이트 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## <a name="overview"></a>Overview
+## 개요
 
-This tutorial explains how to use the StorSimple Manager service to create and manage volumes on the StorSimple device and StorSimple virtual device with Update 2 installed.
+이 자습서는 StorSimple 관리자 서비스를 사용하여 업데이트 2가 설치된 StorSimple 장치 및 StorSimple 가상 장치에서 볼륨을 만들고 관리하는 방법에 대해 설명합니다.
 
-The StorSimple Manager service is an extension in the Azure classic portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
+StorSimple Manager 서비스는 단일 웹 인터페이스에서 StorSimple 솔루션을 관리하는 Azure 클래식 포털의 확장입니다. 볼륨 관리뿐 아니라 StorSimple 관리자 서비스를 사용하여 StorSimple 서비스를 만들고 관리하며, 장치를 보고 관리하며, 경고를 보고, 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
 
-## <a name="volume-types"></a>Volume types
+## 볼륨 유형
 
-StorSimple volumes can be:
+StorSimple 볼륨은 다음과 같을 수 있습니다.
 
-- **Locally pinned volumes**: Data in these volumes remains on the local StorSimple device at all times.
-- **Tiered volumes**: Data in these volumes can spill to the cloud.
+- **로컬로 고정된 볼륨**: 이러한 볼륨의 데이터를 로컬 StorSimple 장치에 항상 그대로 유지합니다.
+- **계층화된 볼륨**: 이러한 볼륨의 데이터를 클라우드로 분산할 수 있습니다.
 
-An archival volume is a type of tiered volume. The larger deduplication chunk size used for archival volumes allows the device to transfer larger segments of data to the cloud. 
+보관 볼륨은 계층화된 볼륨의 유형입니다. 보관 볼륨에 사용된 더 큰 중복 제거 청크 크기를 통해 장치에서 데이터의 더 큰 세그먼트를 클라우드로 전송할 수 있습니다.
 
-If necessary, you can change the volume type from local to tiered or from tiered to local. For more information, go to [Change the volume type](#change-the-volume-type).
+필요에 따라 로컬에서 계층화 또는 계층화에서 로컬로 볼륨 유형을 변경할 수 있습니다. 자세한 내용은 [볼륨 유형 변경](#change-the-volume-type)으로 이동합니다.
 
-### <a name="locally-pinned-volumes"></a>Locally pinned volumes
+### 로컬로 고정된 볼륨
 
-Locally pinned volumes are fully provisioned volumes that do not tier data to the cloud, thereby ensuring local guarantees for primary data, independent of cloud connectivity. Data on locally pinned volumes is not deduplicated and compressed; however, snapshots of locally pinned volumes are deduplicated. 
+로컬로 고정된 볼륨은 데이터를 클라우드로 계층화하지 않는 완벽하게 프로비전된 볼륨이므로 독립적인 클라우드 연결의 기본 데이터에 대한 로컬 보장을 확인합니다. 로컬로 고정된 볼륨의 데이터는 중복 제거되고 압축되지 않지만 로컬로 고정된 볼륨의 스냅숏은 중복 제거됩니다.
 
-Locally pinned volumes are fully provisioned; therefore, you must have sufficient space on your device when you create them. You can provision locally pinned volumes up to a maximum size of 8 TB on the StorSimple 8100 device and 20 TB on the 8600 device. StorSimple reserves the remaining local space on the device for snapshots, metadata, and data processing. You can increase the size of a locally pinned volume to the maximum space available, but you cannot decrease the size of a volume once created.
+로컬로 고정된 볼륨은 완전히 프로비전되므로 만들 때 장치에 충분한 공간이 있어야 합니다. StorSimple 8100 장치에서는 최대 8TB의 크기를, 8600 장치에서는 20TB까지 로컬 고정 볼륨을 프로비저닝할 수 있습니다. StorSimple은 스냅숏, 메타데이터 및 데이터 처리에 대해 장치에서 나머지 로컬 공간을 예약합니다. 로컬로 고정된 볼륨의 크기를 사용 가능한 최대 공간으로 늘릴 수 있지만 만든 볼륨의 크기를 줄일 수는 없습니다.
 
-When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above. For more information on local volumes, refer to the [frequently asked questions on locally pinned volumes](storsimple-local-volume-faq.md).   
+로컬로 고정된 볼륨을 만드는 경우 계층화된 볼륨을 만드는 데 사용할 수 있는 공간이 줄어듭니다. 반대로도 마찬가지입니다. 기존 계층화된 볼륨이 있는 경우 로컬로 고정된 볼륨을 만드는 데 사용할 수 있는 공간은 위에서 언급한 최대 한도보다 작게 됩니다. 로컬 볼륨에 대한 자세한 내용은 [로컬로 고정된 볼륨에 대한 질문과 대답](storsimple-local-volume-faq.md)을 참조하세요.
 
-### <a name="tiered-volumes"></a>Tiered volumes
+### 계층화된 볼륨
 
-Tiered volumes are thinly provisioned volumes in which the frequently accessed data stays local on the device and less frequently used data is automatically tiered to the cloud. Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because StorSimple can increase or decrease cloud storage to meet changing demands.
+계층화된 볼륨은 장치에서 로컬로 유지되는 빈번히 액세스되는 데이터에서 씬 프로비저닝된 볼륨이며 덜 자주 사용되는 데이터는 클라우드로 자동으로 계층화됩니다. 씬 프로비저닝은 사용 가능한 저장소가 실제 리소스를 초과하는 것처럼 표시하는 가상화 기술입니다. 충분한 저장소를 사전에 예약하는 대신 StorSimple는 씬 프로비저닝을 사용하여 현재 요구 사항에 맞게 충분한 공간을 할당합니다. 클라우드 저장소의 탄력적인 특징은 StorSimple가 변화 하는 요구에 맞게 클라우드 저장소를 늘리거나 줄일 수 있으므로 이 방법을 용이하게 합니다.
 
-If you are using the tiered volume for archival data, selecting the **Use this volume for less frequently accessed archival data** check box changes the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
+보관 데이터에 계층화된 볼륨을 사용하는 경우 **자주 액세스하지 않는 아카이브 데이터에 이 볼륨 사용** 확인란을 선택하면 볼륨의 중복 제거 청크 크기가 512KB로 변경됩니다. 이 옵션을 선택하지 않으면 해당 계층화된 볼륨에서 64KB의 청크 크기를 사용합니다. 중복 제거 청크 크기를 늘리면 장치에서 대용량 아카이브 데이터를 클라우드로 신속하게 전송할 수 있습니다.
 
->[AZURE.NOTE] Archival volumes created with a pre-Update 2 version of StorSimple will be imported as tiered with the archival check box selected.
+>[AZURE.NOTE] StorSimple의 사전 업데이트 2 버전을 사용하여 만든 보관 볼륨을 보관 확인란을 선택하여 계층화로 가져옵니다.
 
-### <a name="provisioned-capacity"></a>Provisioned capacity
+### 프로비전된 용량
 
-Refer to the following table for maximum provisioned capacity for each device and volume type. (Note that locally pinned volumes are not available on a virtual device.)
+각 장치 및 볼륨 유형에 대한 최대 프로비전된 용량에 대해 다음 표를 참조하세요. (로컬로 고정된 볼륨은 가상 장치에서 사용할 수 없습니다.)
 
-|             | Maximum tiered volume size | Maximum locally pinned volume size |
+| | 최대 계층화된 볼륨 크기 | 최대 로컬로 고정된 볼륨 크기 |
 |-------------|----------------------------|------------------------------------|
-| **Physical devices** |       |       |
-| 8100                 | 64 TB | 8 TB |
-| 8600                 | 64 TB | 20 TB |
-| **Virtual devices**  |       |       |
-| 8010                | 30 TB | N/A   |
-| 8020               | 64 TB | N/A   |
+| **물리적 장치** | | |
+| 8100 | 64TB | 8TB |
+| 8600 | 64TB | 20TB |
+| **가상 장치** | | |
+| 8010 | 30TB | 해당 없음 |
+| 8020 | 64TB | 해당 없음 |
 
-## <a name="the-volumes-page"></a>The Volumes page
+## 볼륨 페이지
 
-The **Volumes** page allows you to manage the storage volumes that are provisioned on the Microsoft Azure StorSimple device for your initiators (servers). It displays the list of volumes on your StorSimple device.
+**볼륨** 페이지를 사용하여 초기자(서버)에 대해 Microsoft Azure StorSimple 장치에서 프로비전되는 저장소 볼륨을 관리할 수 있습니다. StorSimple 장치에 볼륨 목록이 표시됩니다.
 
- ![Volumes page](./media/storsimple-manage-volumes-u2/VolumePage.png)
+ ![볼륨 페이지](./media/storsimple-manage-volumes-u2/VolumePage.png)
 
-A volume consists of a series of attributes:
+볼륨은 다음과 같은 특성으로 구성됩니다.
 
-- **Volume Name** – A descriptive name that must be unique and helps identify the volume. This name is also used in monitoring reports when you filter on a specific volume.
+- **볼륨 이름** – 설명이 포함된 이름은 고유해야 하며 볼륨을 식별하는 데 도움이 됩니다. 이 이름은 특정 볼륨에 필터링하는 경우 모니터링 보고서에서도 사용됩니다.
 
-- **Status** – Can be online or offline. If a volume if offline, it is not visible to initiators (servers) that are allowed access to use the volume.
+- **상태** – 온라인 또는 오프라인 상태가 될 수 있습니다. 오프라인인 경우 볼륨은 해당 볼륨을 사용하는 데 액세스가 허용된 초기자(서버)에 보이지 않습니다.
 
-- **Capacity** – specifies the total amount of data that can be stored by the initiator (server). Locally-pinned volumes are fully provisioned and reside on the StorSimple device. Tiered volumes are thinly provisioned and the data is deduplicated. With thinly provisioned volumes, your device doesn’t pre-allocate physical storage capacity internally or on the cloud according to configured volume capacity. The volume capacity is allocated and consumed on demand.
+- **용량** - 용량은 초기자(서버)가 저장할 수 있는 데이터의 전체 크기를 지정합니다. 로컬로 고정된 볼륨은 완전히 프로비전되고 StorSimple 장치에 상주합니다. 계층화된 볼륨은 씬 프로비전되며 데이터는 중복 제거됩니다. 씬 프로비전된 볼륨으로 장치가 구성된 볼륨 용량에 따라 클라우드에서 또는 내부적으로 실제 저장소 용량을 미리 할당하지 않습니다. 볼륨 용량이 할당되고 필요에 따라 사용됩니다.
 
-- **Type** – Indicates whether the volume is **Tiered** (the default) or **Locally pinned**.
+- **유형** – 볼륨이 **계층화**(기본값) 또는 **로컬로 고정**인지를 나타냅니다.
 
-- **Backup** – Indicates whether a default backup policy exists for the volume.
+- **백업** – 볼륨에 대한 기본 백업 정책이 있는지 여부를 나타냅니다.
 
-- **Access** – Specifies the initiators (servers) that are allowed access to this volume. Initiators that are not members of access control record (ACR) that is associated with the volume will not see the volume.
+- **액세스** – 이 볼륨에 대한 액세스가 허용된 초기자(서버)를 지정합니다. 볼륨에 연결된 ACR(액세스 제어 레코드)의 구성원이 아닌 초기자는 해당 볼륨을 보지 못합니다.
 
-- **Monitoring** – Specifies whether or not a volume is being monitored. A volume will have monitoring enabled by default when it is created. Monitoring will, however, be disabled for a volume clone. To enable monitoring for a volume, follow the instructions in [Monitor a volume](#monitor-a-volume). 
+- **모니터링** – 볼륨을 모니터링 하는지 여부를 지정합니다. 볼륨이 만들어질 때 기본적으로 모니터링이 설정됩니다. 하지만 모니터링은 볼륨 클론에 대해서는 해제됩니다. 볼륨에 대한 모니터링을 사용하려면 [볼륨 모니터링](#monitor-a-volume)의 지침을 따릅니다.
 
-Use the instructions in this tutorial to perform the following tasks:
+이 자습서의 지침을 사용하여 다음 작업을 수행합니다.
 
-- Add a volume 
-- Modify a volume 
-- Change the volume type
-- Delete a volume 
-- Take a volume offline 
-- Monitor a volume 
+- 볼륨 추가
+- 볼륨 수정
+- 볼륨 유형 변경
+- 볼륨 삭제
+- 볼륨을 오프라인으로 전환
+- 볼륨 모니터링
 
-## <a name="add-a-volume"></a>Add a volume
+## 볼륨 추가
 
-You [created a volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-volume) during deployment of your StorSimple solution. Adding a volume is a similar procedure.
+StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deployment-walkthrough-u2.md#step-6-create-a-volume). 볼륨 추가는 과정이 비슷합니다.
 
-#### <a name="to-add-a-volume"></a>To add a volume
+#### 볼륨을 추가하려면
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
+1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
-2. Select a volume container from the list and double-click it to access the volumes associated with the container.
+2. 목록에서 볼륨 컨테이너를 선택하고 두 번 클릭하여 컨테이너에 연결된 볼륨에 액세스합니다.
 
-3. Click **Add** at the bottom of the page. The Add a volume wizard starts.
+3. 페이지 맨 아래에 있는 **추가**를 클릭합니다. 볼륨 추가 마법사가 시작됩니다.
 
-     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
+     ![볼륨 추가 마법사 기본 설정](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
-4. In the Add a volume wizard, under **Basic Settings**, do the following:
+4. 볼륨 추가 마법사의 **기본 설정**에서 다음을 수행합니다.
 
-  1. Supply a **Name** for your volume.
-  2. Select a **Usage Type** from the drop-down list. For workloads that require data to be available locally on the device at all times, select **Locally Pinned**. For all other types of data, select **Tiered**. (**Tiered** is the default.)
-  3. If you selected **Tiered** in step 2, you can select the **Use this volume for less frequently accessed archival data** check box to configure an archival volume.
-  4. Enter the **Provisioned Capacity** for your volume in GB or TB. See [Provisioned capacity](#provisioned-capacity) for maximum sizes for each device and volume type. Look at the **Available Capacity** to determine how much storage is actually available on your device.
+  1. 볼륨의 **이름**을 지정합니다.
+  2. 드롭다운 목록에서 **사용 형식**을 선택합니다. 장치에서 데이터를 항상 로컬로 사용 가능해야 하는 작업의 경우 **로컬로 고정**을 선택합니다. 다른 모든 데이터 유형에 대해서는 **계층화**를 선택합니다. (**계층화**가 기본값입니다.)
+  3. 2단계에서 **계층화**를 선택한 경우 **자주 액세스하지 않는 보관 데이터에 대해 이 볼륨 사용** 확인란을 선택하여 보관 볼륨을 구성할 수 있습니다.
+  4. 볼륨의 **프로비전된 용량**을 GB 또는 TB로 입력합니다. 각 장치 및 볼륨 유형에 대한 최대 크기에 대해 [프로비전된 용량](#provisioned-capacity)을 참조하세요. **사용 가능한 용량**을 참조하여 장치에서 실제로 사용 가능한 저장소의 양을 결정합니다.
 
-5. Click the arrow icon![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). If you are configuring a locally pinned volume, you will see the following message.
+5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 클릭합니다. 로컬로 고정된 볼륨을 구성하는 경우 다음과 같은 메시지가 표시됩니다.
 
-    ![Change Volume type message](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+    ![볼륨 유형 메시지 변경](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
    
-5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)again to go to the **Additional Settings** page.
+5. 화살표 아이콘 ![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 다시 클릭하여 **추가 설정** 페이지로 이동합니다.
 
-    ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
+    ![볼륨 추가 마법사 추가 설정](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
 
-6. Under **Additional Settings**, add a new access control record (ACR):
+6. **추가 설정**에서 새 ACR(액세스 제어 레코드)을 추가합니다.
   
-  1. Select an access control record (ACR) from the drop-down list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record. If you do not specify an ACR, you will see the following message.
+  1. 드롭다운 목록에서 ACR(액세스 제어 레코드)을 선택합니다. 또는 새 ACR을 추가할 수 있습니다. ACR은 호스트 IQN을 레코드에 나열된 항목과 비교하여 볼륨에 액세스할 수 있는 호스트를 결정합니다. ACR를 지정하지 않는 경우 다음과 같은 메시지가 표시됩니다.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
 
-  2. We recommend that you select the **Enable a default backup for this volume** checkbox.
-  3. Click the check icon ![Check icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) to create the volume with the specified settings.
+  2. **이 볼륨에 대해 기본 백업 사용** 확인란을 선택하는 것이 좋습니다.
+  3. 확인 아이콘![확인 아이콘](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)을 클릭하여 지정된 설정으로 볼륨을 만듭니다.
 
-Your new volume is now ready to use.
+이제 새 볼륨을 사용할 준비가 되었습니다.
 
->[AZURE.NOTE] If you create a locally pinned volume and then create another locally pinned volume immediately afterwards, the volume creation jobs run sequentially. The first volume creation job must finish before the next volume creation job can begin.
+>[AZURE.NOTE] 로컬로 고정된 볼륨을 만든 다음 그 후에 다른 로컬로 고정된 볼륨을 즉시 만드는 경우 볼륨 만들기 작업은 순차적으로 실행됩니다. 첫 번째 볼륨 만들기 작업은 다음 볼륨 만들기 작업을 시작하기 전에 완료해야 합니다.
 
-## <a name="modify-a-volume"></a>Modify a volume
+## 볼륨 수정
 
-Modify a volume when you need to expand it or change the hosts that access the volume.
+볼륨을 확장하거나 볼륨에 액세스하는 호스트를 변경할 경우 볼륨을 수정합니다.
 
 > [AZURE.IMPORTANT] 
 >
-> - If you modify the volume size on the device, the volume size needs to be changed on the host as well. 
-> - The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
+> - 장치에서 볼륨 크기를 수정하는 경우 볼륨 크기를 호스트에서도 변경해야 합니다.
+> - 여기에 설명된 호스트 쪽 단계는 Windows Server 2012(2012R2)에 해당합니다. Linux 또는 다른 호스트 운영 체제에 대한 절차는 이와 다릅니다. 다른 운영 체제를 실행하는 호스트의 볼륨을 수정하는 경우 해당 호스트 운영 체제 지침을 참조하세요.
 
-#### <a name="to-modify-a-volume"></a>To modify a volume
+#### 볼륨을 수정하려면
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
+1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
-2. Select a volume container from the list and double-click it to view the volumes associated with the container.
+2. 목록에서 볼륨 컨테이너를 선택하고 두 번 클릭하여 컨테이너에 연결된 볼륨을 봅니다.
 
-3. Select a volume, and at the bottom of the page, click **Modify**. The Modify volume wizard starts.
+3. 볼륨을 선택하고 페이지 맨 아래에 있는 **수정**을 클릭합니다. 볼륨 수정 마법사가 시작됩니다.
 
-4. In the Modify volume wizard, under **Basic Settings**, you can do the following:
+4. 볼륨 수정 마법사의 **기본 설정**에서 다음을 수행합니다.
 
-  - Edit the **Name**.
-  - Convert the **Usage Type** from locally pinned to tiered or from tiered to locally pinned (see [Change the volume type](#change-the-volume-type) for more information).
-  - Increase the **Provisioned Capacity**. The **Provisioned Capacity** can only be increased. You cannot shrink a volume after it is created.
+  - **이름**을 편집합니다.
+  - **사용 유형**을 로컬로 고정에서 계층화 또는 계층화에서 로컬로 고정으로 변환합니다(자세한 내용은 [볼륨 유형 변경](#change-the-volume-type) 참조).
+  - **프로비전된 용량**을 늘립니다. **프로비전된 용량**은 늘릴 수만 있습니다. 만든 후에는 볼륨을 축소할 수 없습니다.
 
-5. Under **Additional Settings**, you can modify the ACR, provided that the volume is offline. If the volume is online, you will need to take it offline first. Refer to the steps in [Take a volume offline](#take-a-volume-offline) prior to modifying the ACR.
+5. **추가 설정** 아래에서 볼륨이 오프라인으로 제공된 ACR을 수정할 수 있습니다. 볼륨이 온라인 상태이면 먼저 오프라인 상태로 전환해야 합니다. ACR을 수정하기 전에 [볼륨을 오프라인을 전환](#take-a-volume-offline)에서 단계를 참조하세요.
 
-    > [AZURE.NOTE] You cannot change the **Enable a default backup** option for the volume.
+    > [AZURE.NOTE] 볼륨에 대해 **기본 백업 사용** 옵션을 변경할 수 없습니다.
 
-6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). The Azure classic portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+6. 확인 아이콘![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. Azure 클래식 포털은 업데이트 볼륨 메시지를 표시합니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
 
-7. If you are expanding a volume, complete the following steps on your Windows host computer:
+7. 볼륨을 확장하는 경우 Windows 호스트 컴퓨터에서 다음 단계를 완료합니다.
 
-   1. Go to **Computer Management** ->**Disk Management**.
-   2. Right-click **Disk Management** and select **Rescan Disks**.
-   3. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
-   4. Complete the wizard, accepting the default values. After the wizard is finished, the volume should show the increased size.
+   1. **컴퓨터 관리** -> **디스크 관리**로 이동합니다.
+   2. **디스크 관리**를 마우스 오른쪽 단추로 클릭하고 **디스크 다시 검사**를 선택합니다.
+   3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장**을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음**을 클릭합니다.
+   4. 기본값을 적용하여 마법사를 완료합니다. 마법사가 완료되면 볼륨에 증가된 크기가 표시되어야 합니다.
 
-    >[AZURE.NOTE] If you expand a locally pinned volume and then expand another locally pinned volume immediately afterwards, the volume expansion jobs run sequentially. The first volume expansion job must finish before the next volume expansion job can begin.
+    >[AZURE.NOTE] 로컬로 고정된 볼륨을 확장한 다음 그 후에 다른 로컬로 고정된 볼륨을 즉시 확장하는 경우 볼륨 확장 작업은 순차적으로 실행됩니다. 첫 번째 볼륨 확장 작업은 다음 볼륨 확장 작업을 시작하기 전에 완료해야 합니다.
 
-![Video available](./media/storsimple-manage-volumes-u2/Video_icon.png) **Video available**
+![동영상 사용 가능](./media/storsimple-manage-volumes-u2/Video_icon.png) **동영상 사용 가능**
 
-To watch a video that demonstrates how to expand a volume, click [here](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
+볼륨을 확장하는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/)를 클릭하세요.
 
-## <a name="change-the-volume-type"></a>Change the volume type
+## 볼륨 유형 변경
 
-You can change the volume type from tiered to locally pinned or from locally pinned to tiered. However, this conversion should not be a frequent occurrence. Some reasons for converting a volume from tiered to locally pinned are:
+계층화에서 로컬로 고정 또는 로컬로 고정에서 계층화로 볼륨 유형을 변경할 수 있습니다. 그러나 이 변환은 자주 발생해서는 안됩니다. 볼륨을 계층화에서 로컬로 고정으로 변환하는 몇 가지 이유는 다음과 같습니다.
 
-- Local guarantees regarding data availability and performance
-- Elimination of cloud latencies and cloud connectivity issues.
+- 데이터 가용성 및 성능에 대한 로컬 보장
+- 클라우드 대기 시간 및 클라우드 연결 문제를 제거합니다.
 
-Typically, these are small existing volumes that you want to access frequently. A locally pinned volume is fully provisioned when it is created. If you are converting a tiered volume to a locally pinned volume, StorSimple verifies that you have sufficient space on your device before it starts the conversion. If you have insufficient space, you will receive an error and the operation will be canceled. 
+일반적으로 자주 액세스하려는 작은 기존 볼륨입니다. 로컬로 고정된 볼륨은 생성될 때 완벽하게 프로비전됩니다. 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환하는 경우 StorSimple에서 변환을 시작하기 전에 장치에 공간이 충분한지 확인합니다. 공간이 부족한 경우 오류 메시지가 나타나고 작업이 취소됩니다.
 
-> [AZURE.NOTE] Before you begin a conversion from tiered to locally pinned, make sure that you consider the space requirements of your other workloads. 
+> [AZURE.NOTE] 계층화에서 로컬로 고정으로 변환을 시작하기 전에 다른 작업의 공간 요구 사항을 고려합니다.
 
-You might want to change a locally pinned volume to a tiered volume if you need additional space to provision other volumes. When you convert the locally pinned volume to tiered, the available capacity on the device increases by the size of the released capacity. If connectivity issues prevent the conversion of a volume from the local type to the tiered type, the local volume will exhibit properties of a tiered volume until the conversion is completed. This is because some data might have spilled to the cloud. This spilled data will continue to occupy local space on the device that cannot be freed until the operation is restarted and completed.
+다른 볼륨을 프로비전할 추가 공간이 필요한 경우 로컬로 고정된 볼륨을 계층화된 볼륨으로 변경할 수 있습니다. 로컬로 고정된 볼륨을 계층화로 변환하는 경우 장치의 사용 가능한 용량은 출시된 용량의 크기에 따라 증가합니다. 연결 문제로 인해 로컬 유형에서 계층화 유형으로 볼륨의 변환을 막는 경우 로컬 볼륨은 변환이 완료될 때까지 계층화된 볼륨의 속성을 표시합니다. 일부 데이터가 클라우드로 분산되었을 수 있기 때문입니다. 이 분산된 데이터는 계속해서 장치에서 로컬 공간을 차지하고 작업을 다시 시작하고 완료할 때까지 해제 될 수 없습니다.
 
->[AZURE.NOTE] Converting a volume can take some time and you cannot cancel a conversion after it starts. The volume remains online during the conversion, and you can take backups, but you cannot expand or restore the volume while the conversion is taking place.  
+>[AZURE.NOTE] 볼륨 변환은 다소 시간이 걸릴 수 있으며 시작된 후에 변환을 취소할 수 없습니다. 볼륨을 변환하는 동안 온라인 상태로 유지되고 백업을 가져올 수 있지만 변환이 진행되는 동안 볼륨을 확장하거나 복원할 수 없습니다.
 
-Conversion from a tiered to a locally pinned volume can adversely affect device performance. Additionally, the following factors might increase the time it takes to complete the conversion:
+계층화된 볼륨에서 로컬로 고정된 볼륨으로 변환하면 장치 성능에 부정적인 영향을 줄 수 있습니다. 또한 다음과 같은 요소가 변환을 완료하는 데 걸리는 시간을 증가시킬 수도 있습니다.
 
-- There is insufficient bandwidth.
+- 대역폭이 충분하지 않습니다.
 
-- There is no current backup.
+- 현재 백업이 없습니다.
 
-To minimize the effects that these factors may have:
+이러한 요소에 있는 영향을 최소화하려면
 
-- Review your bandwidth throttling policies and make sure that a dedicated 40 Mbps bandwidth is available.
-- Schedule the conversion for off-peak hours.
-- Take a cloud snapshot before you start the conversion.
+- 대역폭 제한 정책을 검토하고 전용 40Mbps 대역폭을 사용할 수 있는지 확인합니다.
+- 사용량이 적은 시간에 변환을 예약합니다.
+- 변환을 시작하기 전에 클라우드 스냅숏을 작성합니다.
 
-If you are converting multiple volumes (supporting different workloads), then you should prioritize the volume conversion so that higher priority volumes are converted first. For example, you should convert volumes that host virtual machines (VMs) or volumes with SQL workloads before you convert volumes with file share workloads.
+다양한 워크로드를 지원하는 여러 볼륨을 변환하는 경우 우선 순위가 높은 볼륨이 먼저 변환되도록 볼륨 변환의 우선 순위를 지정해야 합니다. 예를 들어 파일 공유 워크로드가 있는 볼륨을 변환하기 전에 VM(가상 컴퓨터)을 호스트하는 볼륨 또는 SQL 워크로드가 있는 볼륨을 변환해야 합니다.
 
-#### <a name="to-change-the-volume-type"></a>To change the volume type
+#### 볼륨 유형을 변경하려면
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
+1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
-2. Select a volume container from the list and double-click it to view the volumes associated with the container.
+2. 목록에서 볼륨 컨테이너를 선택하고 두 번 클릭하여 컨테이너에 연결된 볼륨을 봅니다.
 
-3. Select a volume, and at the bottom of the page, click **Modify**. The Modify volume wizard starts.
+3. 볼륨을 선택하고 페이지 맨 아래에 있는 **수정**을 클릭합니다. 볼륨 수정 마법사가 시작됩니다.
 
-4. On the **Basic Settings** page, change the usage type by selecting the new type from the **Usage Type** drop-down list.
+4. **기본 설정** 페이지의 **사용 형식** 드롭다운 목록에서 새 형식을 선택하여 사용 형식을 변경합니다.
 
-    - If you are changing the type to **Locally pinned**, StorSimple will check to see if there is sufficient capacity.
-    - If you are changing the type to **Tiered** and this volume will be used for archival data, select the **Use this volume for less frequently accessed archival data** check box.
+    - 유형을 **로컬로 고정**으로 변경하는 경우 StorSimple에서 충분한 용량이 있는지 확인합니다.
+    - 유형을 **계층화**로 변경하고 이 볼륨을 보관 데이터에 대해 사용하는 경우 **자주 액세스하지 않는 보관 데이터에 대해 이 볼륨 사용** 확인란을 선택합니다.
 
-        ![Archive checkbox](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
+        ![보관 확인란](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) to go to the **Additional Settings** page. If you are configuring a locally pinned volume, the following message appears.
+5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 클릭하여 **추가 설정** 페이지로 이동합니다. 로컬로 고정된 볼륨을 구성하는 경우 다음과 같은 메시지가 표시됩니다.
 
-    ![Change Volume type message](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
+    ![볼륨 유형 메시지 변경](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
-6. Click the arrow icon ![arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) again to continue.
+6. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 다시 클릭하여 계속합니다.
 
-7. Click the check icon ![Check icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) to start the conversion process. The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+7. 확인 아이콘![확인 아이콘](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)을 클릭하여 변환 프로세스를 시작합니다. Azure 포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
 
-## <a name="take-a-volume-offline"></a>Take a volume offline
+## 볼륨을 오프라인으로 전환
 
-You may need to take a volume offline when you are planning to modify it or delete it. When a volume is offline, it is not available for read-write access. You will need to take the volume offline on the host as well as on the device. 
+볼륨을 수정 또는 삭제하려는 경우 볼륨을 오프라인으로 전환해야 할 수 있습니다. 볼륨이 오프라인 상태인 경우 읽기 전용 액세스를 사용할 수 없습니다. 장치에서뿐 아니라 호스트에서도 볼륨을 오프라인으로 전환해야 합니다.
 
-#### <a name="to-take-a-volume-offline"></a>To take a volume offline
+#### 볼륨을 오프라인으로 전환하려면
 
-1. Make sure that the volume in question is not in use before taking it offline.
+1. 오프라인으로 전환하기 전에 해당 볼륨을 사용 중이 아니어야 합니다.
 
-2. Take the volume offline on the host first. This eliminates any potential risk of data corruption on the volume. For specific steps, refer to the instructions for your host operating system.
+2. 먼저 호스트에서 볼륨을 오프라인으로 전환합니다. 이렇게 하면 볼륨에서 데이터가 손상될 잠재적 위험이 없습니다. 특정 단계의 경우 호스트 운영 체제에 대한 지침을 참조하세요.
 
-3. After the host is offline, take the volume on the device offline by performing the following steps:
+3. 호스트가 오프라인이 되면 다음 단계를 수행하여 장치의 볼륨을 오프라인으로 전환합니다.
 
-  1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab. The **Volume Containers** tab lists in a tabular format all the volume containers that are associated with the device.
-  2. Select a volume container and click it to display the list of all the volumes within the container.
-  3. Select a volume and click **Take offline**.
-  4. When prompted for confirmation, click **Yes**. The volume should now be offline.
+  1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다. **볼륨 컨테이너** 탭은 장치와 연결된 모든 볼륨 컨테이너를 표 형식으로 나열합니다.
+  2. 볼륨 컨테이너를 선택하고 클릭하여 컨테이너 내의 모든 볼륨 목록을 표시합니다.
+  3. 볼륨을 선택하고 **오프라인으로 전환**을 클릭합니다.
+  4. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 이제 볼륨이 오프라인 상태로 전환됩니다.
 
-    After a volume is offline, the **Bring Online** option becomes available.
+    볼륨이 오프라인이 되면 **온라인 상태로 전환** 옵션을 사용할 수 있습니다.
 
-> [AZURE.NOTE] The **Take Offline** command sends a request to the device to take the volume offline. If hosts are still using the volume, this results in broken connections, but taking the volume offline will not fail. 
+> [AZURE.NOTE] **오프라인으로 전환** 명령은 볼륨을 오프라인으로 전환하라는 요청을 장치에 보냅니다. 호스트에서 여전히 해당 볼륨을 사용하는 경우 연결이 끊어지고 볼륨을 오프라인으로 전환이 실패합니다.
 
-## <a name="delete-a-volume"></a>Delete a volume
+## 볼륨 삭제
 
-> [AZURE.IMPORTANT] You can delete a volume only if it is offline.
+> [AZURE.IMPORTANT] 오프라인 상태인 경우에만 볼륨을 삭제할 수 있습니다.
 
-Complete the following steps to delete a volume.
+볼륨을 삭제하려면 다음 단계를 완료합니다.
 
-#### <a name="to-delete-a-volume"></a>To delete a volume
+#### 볼륨을 삭제하려면
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
+1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
-2. Select the volume container that has the volume you want to delete. Click the volume container to access the **Volumes** page.
+2. 삭제하려는 볼륨이 있는 볼륨 컨테이너를 선택합니다. 볼륨 컨테이너를 클릭하여 **볼륨** 페이지에 액세스합니다.
 
-3. All the volumes associated with this container are displayed in a tabular format. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first, following the steps in [Take a volume offline](#take-a-volume-offline).
+3. 이 컨테이너와 연결된 모든 볼륨은 테이블 형식으로 표시됩니다. 삭제하려는 볼륨의 상태를 확인합니다. 삭제하려는 볼륨이 오프라인 상태가 아닌 경우 [볼륨을 오프라인으로 전환](#take-a-volume-offline)의 단계를 따라 먼저 오프라인 상태로 전환합니다.
 
-4. After the volume is offline, click **Delete** at the bottom of the page.
+4. 볼륨이 오프라인 상태가 되면 페이지 맨 아래에서 **삭제**를 클릭합니다.
 
-5. When prompted for confirmation, click **Yes**. The volume will now be deleted and the **Volumes** page will show the updated list of volumes within the container.
+5. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 이제 볼륨이 삭제되며 **볼륨** 페이지가 컨테이너 내의 업데이트된 볼륨 목록을 보여줍니다.
 
-    >[AZURE.NOTE] If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager Service updates the local space available periodically. We suggest you wait for a few minutes before you try to create the new volume.<br> Additionally, if you delete a locally pinned volume and then delete another locally pinned volume immediately afterwards, the volume deletion jobs run sequentially. The first volume deletion job must finish before the next volume deletion job can begin.
+    >[AZURE.NOTE] 로컬에 고정된 볼륨을 삭제하면 새 볼륨에 사용할 수 있는 공간이 즉시 업데이트되지 않을 수 있습니다. StorSimple Manager 서비스는 사용 가능한 로컬 공간을 주기적으로 업데이트합니다. 새 볼륨을 만들기 전에 몇 분 동안 기다려 주세요.<br> 또한 로컬로 고정된 볼륨을 삭제한 다음 그 후에 다른 로컬로 고정된 볼륨을 즉시 삭제하는 경우 볼륨 삭제 작업은 순차적으로 실행됩니다. 첫 번째 볼륨 삭제 작업은 다음 볼륨 삭제 작업을 시작하기 전에 완료해야 합니다.
  
-## <a name="monitor-a-volume"></a>Monitor a volume
+## 볼륨 모니터링
 
-Volume monitoring allows you to collect I/O-related statistics for a volume. Monitoring is enabled by default for the first 32 volumes that you create. Monitoring of additional volumes is disabled by default. Monitoring of cloned volumes is also disabled by default.
+볼륨 모니터링을 사용하면 볼륨에 대한 I/O 관련 통계를 수집할 수 있습니다. 사용자가 만드는 첫 32개의 볼륨에 대해 기본적으로 모니터링을 사용하도록 설정됩니다. 추가 볼륨의 모니터링은 기본적으로 사용하지 않도록 설정됩니다. 복제된 볼륨의 모니터링도 기본적으로 사용하지 않도록 설정됩니다.
 
-Perform the following steps to enable or disable monitoring for a volume.
+볼륨 모니터링을 사용하도록 또는 사용하지 않도록 설정하려면 다음 단계를 수행합니다.
 
-#### <a name="to-enable-or-disable-volume-monitoring"></a>To enable or disable volume monitoring
+#### 볼륨 모니터링을 사용 또는 사용하지 않도록 설정하려면
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
+1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
-2. Select the volume container in which the volume resides, and then click the volume container to access the **Volumes** page.
+2. 볼륨이 있는 볼륨 컨테이너를 선택한 다음 볼륨 컨테이너를 클릭하여 **볼륨** 페이지에 액세스합니다.
 
-3. All the volumes associated with this container are listed in the tabular display. Click and select the volume or volume clone.
+3. 이 컨테이너와 연결된 모든 볼륨은 테이블 형식으로 나열됩니다. 볼륨 또는 볼륨 클론을 클릭하여 선택합니다.
 
-4. At the bottom of the page, click **Modify**.
+4. 페이지 맨 아래에 있는 **수정**을 클릭합니다.
 
-5. In the Modify Volume wizard, under **Basic Settings**, select **Enable** or **Disable** from the **Monitoring** drop-down list.
+5. 볼륨 수정 마법사의 **기본 설정**에 있는 **모니터링** 드롭다운 목록에서 **사용** 또는 **사용 안 함**을 선택합니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
+- [StorSimple 볼륨 복제](storsimple-clone-volume.md) 방법에 대해 배웁니다.
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,50 +1,49 @@
 <properties 
-    pageTitle="Walkthrough: Monitor Microsoft Dynamics CRM with Application Insights" 
-    description="Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export." 
-    services="application-insights" 
+	pageTitle="연습: Application Insights를 사용한 Microsoft Dynamics CRM 모니터링" 
+	description="Application Insights를 사용하여 Microsoft Dynamics CRM Online에서 원격 분석 가져오기 설정, 데이터 가져오기, 시각화 및 내보내기의 연습입니다." 
+	services="application-insights" 
     documentationCenter=""
-    authors="mazharmicrosoft" 
-    manager="douge"/>
+	authors="mazharmicrosoft" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="11/17/2015" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2015" 
+	ms.author="awills"/>
  
+# 연습: Application Insights를 사용하여 Microsoft Dynamics CRM Online 작업에 대한 원격 분석 설정
 
-# <a name="walkthrough:-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online using Application Insights
-
-This article shows you how to get telemetry data from [Microsoft Dynamics CRM Online](https://www.dynamics.com/) using [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). We’ll walk through the complete process of adding Application Insights script to your application, capturing data, and data visualization.
+이 문서는 [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/)를 사용하여 [Microsoft Dynamics CRM Online](https://www.dynamics.com/)에서 원격 분석 데이터를 가져오는 방법을 보여 줍니다. 응용 프로그램에 Application Insights 스크립트 추가, 데이터 캡처 및 데이터 시각화의 전체 프로세스를 연습합니다.
 
 >[AZURE.NOTE] [Browse the sample solution](https://dynamicsandappinsights.codeplex.com/).
 
-## <a name="add-application-insights-to-new-or-existing-crm-online-instance"></a>Add Application Insights to new or existing CRM Online instance 
+## 기존 또는 새 CRM Online 인스턴스에 Application Insights를 추가합니다. 
 
-To monitor your application, you add an Application Insights SDK to your application. The SDK sends telemetry to the [Application Insights portal](https://portal.azure.com), where you can use our powerful analysis and diagnostic tools, or export the data to storage.
+응용 프로그램을 모니터링하려면 응용 프로그램에 Application Insights SDK를 추가합니다. SDK는 [Application Insights 포털](https://portal.azure.com)로 원격 분석을 보내며 여기서 강력한 분석 및 진단 도구를 사용하고 저장소로 데이터를 내보낼 수 있습니다.
 
-### <a name="create-an-application-insights-resource-in-azure"></a>Create an Application Insights resource in Azure
+### Azure에서 Application Insights 리소스 만들기
 
-1. Get [an account in Microsoft Azure](http://azure.com/pricing). 
-2. Sign into the [Azure portal](https://portal.azure.com) and add a new Application Insights resource. This is where your data will be processed and displayed.
+1. [Microsoft Azure에서 계정](http://azure.com/pricing)을 만듭니다. 
+2. [Azure 포털](https://portal.azure.com)에 로그인한 다음 새 Application Insights 리소스를 추가합니다. 데이터가 처리되어 표시될 위치입니다.
 
-    ![Click +, Developer Services, Application Insights.](./media/app-insights-sample-mscrm/01.png)
+    ![\+, 개발자 서비스, Application Insights를 클릭합니다.](./media/app-insights-sample-mscrm/01.png)
 
-    Choose ASP.NET as the application type.
+    응용 프로그램 종류로 ASP.NET을 선택합니다.
 
-3. Open the Quick Start tab and open the code script.
+3. 빠른 시작 탭을 열고 코드 스크립트를 엽니다.
 
     ![](./media/app-insights-sample-mscrm/03.png)
 
-**Keep the code page open** while you do the next step in another browser window. You'll need the code soon. 
+다른 브라우저 창에서 다음 단계를 수행 하는 동안 **코드 페이지를 열린 상태로 유지**합니다. 코드가 곧 필요합니다.
 
-### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Create a JavaScript web resource in Microsoft Dynamics CRM
+### Microsoft Dynamics CRM의 JavaScript 웹 리소스 만들기
 
-1. Open your CRM Online instance and login with administrator privileges.
-2. Open Microsoft Dynamics CRM Settings, Customizations, Customize the System
+1. CRM Online 인스턴스를 열고 관리자 권한으로 로그인합니다.
+2. Microsoft Dynamics CDM 설정, 사용자 지정, 시스템 사용자 지정을 엽니다.
 
     ![](./media/app-insights-sample-mscrm/04.png)
     
@@ -53,64 +52,64 @@ To monitor your application, you add an Application Insights SDK to your applica
 
     ![](./media/app-insights-sample-mscrm/06.png)
 
-3. Create a JavaScript resource.
+3. JavaScript 리소스를 만듭니다.
 
     ![](./media/app-insights-sample-mscrm/07.png)
 
-    Give it a name, select **Script (JScript)** and open the text editor.
+    이름을 지정하고 **스크립트(JScript)**를 선택하고 텍스트 편집기를 엽니다.
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copy the code from Application Insights. While copying make sure to ignore script tags. Refer below screenshot:
+4. Application Insights에서 코드 복사 복사하는 동안 스크립트 태그를 무시합니다. 아래 스크린샷을 참조하세요.
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
-    The code includes the instrumentation key that identifies your Application insights resource.
+    코드는 Application insights 리소스를 식별하는 계측 키를 포함합니다.
 
-5. Save and publish.
+5. 저장하고 게시합니다.
 
     ![](./media/app-insights-sample-mscrm/10.png)
 
-### <a name="instrument-forms"></a>Instrument Forms
+### 계측 양식
 
-1. In Microsoft CRM Online, open the Account form
+1. Microsoft CRM Online에서 계정 양식을 엽니다.
 
     ![](./media/app-insights-sample-mscrm/11.png)
 
-2. Open the form Properties
+2. 양식 속성 열기
 
     ![](./media/app-insights-sample-mscrm/12.png)
 
-3. Add the JavaScript web resource that you created
+3. 만든 JavaScript 웹 리소스를 추가합니다.
 
     ![](./media/app-insights-sample-mscrm/13.png)
 
     ![](./media/app-insights-sample-mscrm/14.png)
 
-4. Save and publish your form customizations.
+4. 양식 사용자 지정 항목을 저장하고 게시합니다.
 
 
-## <a name="metrics-captured"></a>Metrics captured
+## 캡처된 메트릭
 
-You have now set up telemetry capture for the form. Whenever it is used, data will be sent to your Application Insights resource.
+이제 양식에 대한 원격 분석 캡처를 설정했습니다. 사용할 때마다 Application Insights 리소스에 데이터가 전송됩니다.
 
-Here are samples of the data that you'll see.
+표시되는 데이터의 샘플은 다음과 같습니다.
 
-#### <a name="application-health"></a>Application health
+#### 응용 프로그램 상태
 
 ![](./media/app-insights-sample-mscrm/15.png)
 
 ![](./media/app-insights-sample-mscrm/16.png)
 
-Browser exceptions:
+브라우저 예외:
 
 ![](./media/app-insights-sample-mscrm/17.png)
 
-Click the chart to get more detail:
+차트를 클릭하여 자세한 내용을 봅니다.
 
 ![](./media/app-insights-sample-mscrm/18.png)
 
-#### <a name="usage"></a>Usage
+#### 사용 현황
 
 ![](./media/app-insights-sample-mscrm/19.png)
 
@@ -118,19 +117,19 @@ Click the chart to get more detail:
 
 ![](./media/app-insights-sample-mscrm/21.png)
 
-#### <a name="browsers"></a>Browsers
+#### 브라우저
 
 ![](./media/app-insights-sample-mscrm/22.png)
 
 ![](./media/app-insights-sample-mscrm/23.png)
 
-#### <a name="geolocation"></a>Geolocation
+#### 지리적 위치
 
 ![](./media/app-insights-sample-mscrm/24.png)
 
 ![](./media/app-insights-sample-mscrm/25.png)
 
-#### <a name="inside-page-view-request"></a>Inside page view request
+#### 내부 페이지 보기 요청
 
 ![](./media/app-insights-sample-mscrm/26.png)
 
@@ -142,28 +141,24 @@ Click the chart to get more detail:
 
 ![](./media/app-insights-sample-mscrm/30.png)
 
-## <a name="sample-code"></a>Sample code
+## 샘플 코드
 
-[Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
+[샘플 코드를 탐색합니다](https://dynamicsandappinsights.codeplex.com/).
 
-## <a name="power-bi"></a>Power BI
+## Power BI
 
-You can do even deeper analysis if you [export the data to Microsoft Power BI](app-insights-export-power-bi.md).
+[Microsoft Power BI에 데이터를 내보내는](app-insights-export-power-bi.md) 경우 훨씬 심도 깊은 분석을 수행할 수 있습니다.
 
-## <a name="sample-microsoft-dynamics-crm-solution"></a>Sample Microsoft Dynamics CRM Solution
+## 샘플 Microsoft Dynamics CRM 솔루션
 
-[Here is the sample solution implemented in Microsoft Dynamics CRM] (https://dynamicsandappinsights.codeplex.com/).
+[다음은 Microsoft Dynamics CRM에서 구현된 샘플 솔루션입니다.](https://dynamicsandappinsights.codeplex.com/)
 
-## <a name="learn-more"></a>Learn more
+## 자세한 정보
 
-* [What is Application Insights?](app-insights-overview.md)
-* [Application Insights for web pages](app-insights-javascript.md)
-* [More samples and walkthroughs](app-insights-code-samples.md)
+* [Application Insights란?](app-insights-overview.md)
+* [웹 페이지용 Application Insights](app-insights-javascript.md)
+* [추가 샘플 및 연습](app-insights-code-samples.md)
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1125_2015-->

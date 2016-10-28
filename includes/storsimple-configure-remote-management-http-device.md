@@ -1,18 +1,16 @@
 
-####<a name="to-configure-remote-management-on-the-device"></a>To configure remote management on the device
+####장치에서 원격 관리를 구성하려면
 
-1. On your virtual device, go to **Devices > Configure**.
+1. 가상 장치에서 **장치 > 구성**으로 이동합니다.
 
-2. Scroll down to the **Remote Management** section.
+2. **원격 관리** 섹션으로 스크롤합니다.
 
-3. Set **Enable Remote Management** to **Yes**.
+3. **원격 관리 사용**을 **예**로 설정합니다.
 
-4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+4. 이제 HTTP를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통해 연결합니다. HTTP를 통한 연결은 신뢰할 수 있는 네트워크에서만 허용됩니다.
 
-5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
+5. **원격 관리 인증서 다운로드**를 클릭하여 원격 관리 인증서를 다운로드합니다. 이 파일을 저장하는 위치를 지정합니다. 그런 다음 이 인증서는 가상 장치에 연결 하는데 사용할 클라이언트 또는 호스트 컴퓨터에 설치해야 합니다.
 
-6. Click **Save** at the bottom of the page.
+6. 페이지 맨 아래에서 **저장**을 클릭합니다.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

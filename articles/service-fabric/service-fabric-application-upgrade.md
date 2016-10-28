@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric application upgrade | Microsoft Azure"
-   description="This article provides an introduction to upgrading a Service Fabric application, including choosing upgrade modes and performing health checks."
+   pageTitle="서비스 패브릭 응용 프로그램 업그레이드 | Microsoft Azure"
+   description="이 문서에서는 업그레이드 모드 선택 및 상태 확인 수행 등을 포함하여 서비스 패브릭 응용 프로그램 업그레이드를 소개합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -17,62 +17,57 @@
    ms.author="subramar"/>
 
 
+# 서비스 패브릭 응용 프로그램 업그레이드
 
-# <a name="service-fabric-application-upgrade"></a>Service Fabric application upgrade
+Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 서비스 패브릭은 새로운 [응용 프로그램 매니페스트](service-fabric-application-model.md#describe-an-application)를 이전 버전과 비교하여 응용 프로그램의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.
 
-An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-model.md#describe-an-application) with the previous version and determines which services in the application require updates. Service Fabric compares the version numbers in the service manifests with the version numbers in the previous version. If a service has not changed, that service is not upgraded.
+## 롤링 업그레이드 개요
 
-## <a name="rolling-upgrades-overview"></a>Rolling upgrades overview
+롤링 응용 프로그램 업그레이드에서 업그레이드는 여러 단계로 수행됩니다. 각 단계에서 업데이트 도메인이라고 하는 클러스터의 노드 하위 집합에 업그레이드가 적용됩니다. 결과적으로, 전체 업그레이드 과정에서 응용 프로그램 가용성이 유지됩니다. 업그레이드가 진행되는 동안 클러스터에 이전 버전과 새 버전이 동시에 포함될 수 있습니다.
 
-In a rolling application upgrade, the upgrade is performed in stages. At each stage, the upgrade is applied to a subset of nodes in the cluster, called an update domain. As a result, the application remains available throughout the upgrade. During the upgrade, the cluster may contain a mix of the old and new versions.
+이러한 이유로 두 버전이 호환되어야 합니다. 호환되지 않을 경우 응용 프로그램 관리자는 가용성을 유지하려면 다단계 업그레이드를 준비해야 합니다. 다단계 업그레이드에서 첫 번째 단계는 이전 버전과 호환되는 응용 프로그램의 중간 버전으로 업그레이드하는 것입니다. 두 번째 단계는 최종 버전을 업그레이드하는 것입니다. 이러한 최종 버전은 업데이트 전 버전과는 호환되지 않지만 중간 버전과는 호환됩니다.
 
-For that reason, the two versions must be forward and backward compatible. If they are not compatible, the application administrator is responsible for staging a multiple-phase upgrade to maintain availability. In a multiple-phase upgrade, the first step is upgrading to an intermediate version of the application that is compatible with the previous version. The second step is to upgrade the final version that breaks compatibility with the pre-update version, but is compatible with the intermediate version.
+업데이트 도메인은 사용자가 클러스터를 구성할 때 클러스터 매니페스트에 지정됩니다. 업데이트 도메인은 업데이트를 특정 순서로 받지 않습니다. 업데이트 도메인은 응용 프로그램에 대한 배포의 논리 단위입니다. 업데이트 도메인을 사용하면 서비스에 업그레이드가 진행되는 동안 고가용성을 유지합니다.
 
-Update domains are specified in the cluster manifest when you configure the cluster. Update domains do not receive updates in a particular order. An update domain is a logical unit of deployment for an application. Update domains allow the services to remain at high availability during an upgrade.
+클러스터의 모든 노드에 업그레이드가 적용되는 경우 비롤링 업그레이드도 가능합니다. 응용 프로그램에 업데이트 도메인이 하나뿐인 경우가 이에 해당합니다. 업그레이드가 진행되는 동안 서비스 제공이 중지되기 때문에 권장하지 않는 방법입니다. 또한 업데이트 도메인 하나로 클러스터를 설정할 경우 Azure에서 어떤 보증도 제공하지 않습니다.
 
-Non-rolling upgrades are possible if the upgrade is applied to all nodes in the cluster, which is the case when the application has only one update domain. This approach is not recommended, since the service goes down and isn't available at the time of upgrade. Additionally, Azure doesn't provide any guarantees when a cluster is set up with only one update domain.
+## 업그레이드 동안 상태 검사
 
-## <a name="health-checks-during-upgrades"></a>Health checks during upgrades
+업그레이드에 대해 상태 정책을 설정해야 합니다. 설정하지 않으면 기본값이 사용됩니다. 모든 업데이트 도메인이 지정된 시간 제한 내에 업그레이드되고 모든 업데이트 도메인이 정상 상태로 보이면 업그레이드에 성공했다고 합니다. 정상 업데이트 도메인이란 업데이트 도메인이 상태 정책에 지정된 모든 상태 검사를 통과했다는 의미입니다. 예를 들어 상태 정책에 따라 응용 프로그램 인스턴스의 모든 서비스가 *정상*이어햐 하고, 상태는 서비스 패브릭에서 정의됩니다.
 
-For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and when all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be *healthy*, as health is defined by Service Fabric.
+업그레이드가 진행되는 동안 서비스 패브릭에서 수행하는 상태 정책 및 상태 검사는 서비스 및 응용 프로그램을 구분하지 않습니다. 즉, 서비스별 테스트를 수행하지 않습니다. 예를 들어 서비스에는 처리량 요구 사항이 있을 수 있지만 서비스 패브릭에는 처리량을 확인하기 위한 정보가 없습니다. 수행되는 검사는 [상태 문서](service-fabric-health-introduction.md)를 참조하세요. 업그레이드 중에 발생하는 확인은 응용 프로그램 패키지가 올바르게 복사되었는지, 인스턴스가 시작되었는지 등과 같은 여부에 대한 테스트를 포함합니다.
 
-Health policies and checks during upgrade by Service Fabric are service and application agnostic. That is, no service-specific tests are done.  For example, your service might have a throughput requirement, but Service Fabric does not have the information to check throughput. Refer to the [health articles](service-fabric-health-introduction.md) for the checks that are performed. The checks that happen during an upgrade include tests for whether the application package was copied correctly, whether the instance was started, and so on.
+응용 프로그램 상태는 응용 프로그램의 자식 엔터티를 집계한 것입니다. 간단히 말해서 서비스 패브릭에서는 응용 프로그램에 대해 보고되는 상태를 통해 응용 프로그램의 상태를 평가합니다. 또한 응용 프로그램에 대한 모든 서비스의 상태 이러한 방식으로 평가합니다. 서비스 패브릭은 서비스 복제본과 같은 자식의 상태를 집계하여 보다 구체적으로 응용 프로그램 서비스의 상태를 평가합니다. 응용 프로그램 상태 정책이 충족되면 업그레이드를 계속할 수 있습니다. 상태 정책이 위반되면 응용 프로그램 업그레이드는 실패합니다.
 
-The application health is an aggregation of the child entities of the application. In short, Service Fabric evaluates the health of the application through the health that is reported on the application. It also evaluates the health of all the services for the application this way. Service Fabric further evaluates the health of the application services by aggregating the health of their children, such as the service replica. Once the application health policy is satisfied, the upgrade can proceed. If the health policy is violated, the application upgrade fails.
+## 업그레이드 모드
 
-## <a name="upgrade-modes"></a>Upgrade modes
+응용 프로그램 업그레이드에 대해 권장되는 모드는 모니터링된 모드이며 이는 일반적으로 사용됩니다. 모니터링 모드는 하나의 업데이트 도메인에서 업그레이드를 수행하고 정책에 지정된 모든 상태 검사를 통과하면 자동으로 다음 업데이트 도메인으로 이동합니다. 상태 검사가 실패하거나 시간 제한에 도달하면 업그레이드가 업데이트 도메인에 대해 롤백되거나 모드가 모니터링되지 않는 수동으로 변경됩니다. 실패한 업그레이드에 대해 이러한 두 가지 모드 중 하나를 선택하도록 업그레이드를 구성할 수 있습니다.
 
-The mode that we recommend for application upgrade is the monitored mode, which is the commonly used mode. Monitored mode performs the upgrade on one update domain, and if all health checks pass (per the policy specified), moves on to the next update domain automatically.  If health checks fail and/or time-outs are reached, the upgrade is either rolled back for the update domain, or the mode is changed to unmonitored manual. You can configure the upgrade to choose one of those two modes for failed upgrades. 
+모니터링되지 않는 수동 모드는 업데이트 도메인에서 업그레이드가 수행될 때마다 다음 업데이트 도메인에서 업그레이드가 시작하도록 수동 작업이 필요합니다. 서비스 패브릭 상태 검사가 수행되지 않습니다. 관리자는 다음 업데이트 도메인에서 업그레이드가 시작되기 전에 상태 또는 상태 검사를 수행합니다.
 
-Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. No Service Fabric health checks are performed. The administrator performs the health or status checks before starting the upgrade in the next update domain.
+## 응용 프로그램 업그레이드 순서도
 
-## <a name="application-upgrade-flowchart"></a>Application upgrade flowchart
+이 단락 다음에 나오는 순서도는 서비스 패브릭 응용 프로그램의 업그레이드 프로세스를 이해하는 데 도움이 될 수 있습니다. 특히 *HealthCheckStableDuration*, *HealthCheckRetryTimeout* 및 *UpgradeHealthCheckInterval*을 비롯한 시간 제한이 한 업데이트 도메인의 업그레이드를 성공 또는 실패로 간주하는 시간을 어떻게 제어하는지 잘 설명되어 있습니다.
 
-The flowchart following this paragraph can help you understand the upgrade process of a Service Fabric application. In particular, the flow describes how the time-outs, including *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, and *UpgradeHealthCheckInterval*, help control when the upgrade in one update domain is considered a success or a failure.
-
-![The upgrade process for a Service Fabric Application][image]
+![서비스 패브릭 응용 프로그램의 업그레이드 프로세스][image]
 
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-[Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
+[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 응용 프로그램 업그레이드 방법을 제어합니다.
 
-Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
+[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md) 사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 
-Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
+[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
+[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
  
 
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

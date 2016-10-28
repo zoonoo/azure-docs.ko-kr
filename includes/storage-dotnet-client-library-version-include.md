@@ -1,9 +1,5 @@
->[AZURE.NOTE] We recommend that you use the latest version of the Azure Storage Client Library for .NET to complete this tutorial. The latest version of the library is 7.x, available for download on [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/). The source for the client library is available on [GitHub](https://github.com/Azure/azure-storage-net).
+>[AZURE.NOTE] 이 자습서를 완료하려면 최신 버전의 .NET 용 Azure 저장소 클라이언트 라이브러리를 사용하는 것이 좋습니다. 라이브러리의 최신 버전은 [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/)에서 다운로드할 수 있는 7.x입니다. 클라이언트 라이브러리에 대한 원본은 [GitHub](https://github.com/Azure/azure-storage-net)에서 사용 가능합니다.
 >
->If you are using the storage emulator, note that version 7.x of the client library requires at least version 4.3 of the storage emulator 
+>저장소 에뮬레이터를 사용하는 경우 버전 7.x의 클라이언트 라이브러리는 버전 4.3 이상의 저장소 에뮬레이터가 필요합니다.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,95 +1,92 @@
 
 
 
-## <a name="advantages-of-integrating-compute,-network,-and-storage-under-the-azure-resource-manager-deployment-model"></a>Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager deployment model
+## 계산, 네트워크 및 저장소를 Azure Resource Manager 배포 모델에 통합할 경우의 이점
 
-The Azure Resource Manager deployment model offers the ability to easily leverage pre-built application templates or construct an application template to deploy and manage compute, network, and storage resources on Azure. In this section, we’ll walk through the advantages of deploying resources through the Azure Resource Manager deployment model.
+Azure Resource Manager 배포 모델은 미리 빌드된 응용 프로그램 템플릿을 활용하거나 응용 프로그램 템플릿을 생성하여 Azure의 계산, 네트워크 및 저장소 리소스를 손쉽게 배포 및 관리할 수 있는 기능을 제공합니다. 이 섹션에서는 Azure Resource Manager 배포 모델을 통해 리소스를 배포할 경우의 이점에 대해 알아봅니다.
 
--   Complexity made simple -- Build, integrate, and collaborate on complicated applications that can include the entire gamut of Azure resources (such as Websites, SQL Databases, Virtual Machines, or Virtual Networks) from a shareable template file
--   Flexibility to have repeatable deployments for development, devOps, and system administrators when you use the same template file
--   Deep integration of VM Extensions (Custom Scripts, DSC, Chef, Puppet, etc.) with the Azure Resource Manager in a template file allows easy orchestration of in-VM setup configuration
--   Defining tags and the billing propagation of those tags for Compute, Network & Storage resources
--   Simple and precise organizational resource access management using Azure Role-Based Access Control (RBAC)
--   Simplified Upgrade/Update story by modifying the original template and then redeploying it
+-	복잡성 간소화 -- 전체 Azure 리소스(예: 웹 사이트, SQL 데이터베이스, 가상 컴퓨터 또는 가상 네트워크)를 포함할 수 있는 복잡한 응용 프로그램을 공유 가능한 템플릿 파일에서 빌드, 통합 및 공동 작업
+-	동일한 템플릿 파일을 사용할 경우 개발, devOps 및 시스템 관리자를 위해 반복 가능한 배포를 지원하는 유연성
+-	템플릿 파일에서 VM 확장(사용자 지정 스크립트, DSC, Chef, Puppet 등)과 Azure 리소스 관리자의 긴밀한 통합을 통한 VM 내 설치 구성의 간편한 오케스트레이션
+-	계산, 네트워크 및 저장소 리소스의 태그 정의 및 이러한 태그의 청구 전파
+-	Azure RBAC(역할 기반 액세스 제어)를 사용하여 조직의 리소스 액세스에 대한 간단하고 정확한 관리
+-	원본 템플릿을 수정한 후 다시 배포하는 방식의 간소화된 업그레이드/업데이트
 
 
-## <a name="advancements-of-the-compute,-network,-and-storage-apis-under-azure-resource-manager"></a>Advancements of the Compute, Network, and Storage APIs under Azure Resource Manager
+## Azure 리소스 관리자에 통합된 계산, 네트워크 및 저장소 API의 향상된 기능
 
-In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released:
+위에 설명된 이점 외에 릴리스된 API의 성능이 크게 향상되었습니다.
 
--   Enabling massive and parallel deployment of Virtual Machines
--   Support for 3 Fault Domains in Availability Sets
--   Improved Custom Script extension that allows specification of scripts from any publicly accessible custom URL
-- Integration of Virtual Machines with the Azure Key Vault for highly secure storage and private deployment of secrets from [FIPS-validated](http://wikipedia.org/wiki/FIPS_140-2) [Hardware Security Modules](http://wikipedia.org/wiki/Hardware_security_module)
--   Provides the basic building blocks of networking through APIs to enable customers to construct complicated applications that include Network Interfaces, Load Balancers, and Virtual Networks
--   Network Interfaces as a new object allows complicated network configuration to be sustained and reused for Virtual Machines
--   Load Balancers as a first-class resource enables IP Address assignments
--   Granular Virtual Network APIs allow you to simplify the management of individual Virtual Networks
+-	가상 컴퓨터의 대량 동시 배포 지원
+-	가용성 집합에서 3개의 장애 도메인 지원
+-	공개적으로 액세스 가능한 사용자 지정 URL에서 스크립트를 지정할 수 있는 향상된 사용자 지정 스크립트 확장
+- 가상 컴퓨터와 Azure 키 자격 증명 모음의 통합으로 [FIPS 유효성을 검사한](http://wikipedia.org/wiki/FIPS_140-2) [하드웨어 보안 모듈](http://wikipedia.org/wiki/Hardware_security_module)에서 비공개 암호 배포 및 저장소 보안 유지
+-	고객이 네트워크 인터페이스, 부하 분산 장치 및 가상 네트워크를 포함하는 복잡한 응용 프로그램을 생성할 수 있도록 API를 통해 네트워킹의 기본 구성 요소 제공
+-	새로운 개체로서의 네트워크 인터페이스를 통해 복잡한 네트워크 구성을 유지하고 가상 컴퓨터에 재사용
+-	매우 효율적인 리소스로서의 부하 분산 장치를 통해 IP주소 할당
+-	세분화된 가상 네트워크 API를 통해 개별 가상 네트워크 관리 간소화
 
-## <a name="conceptual-differences-with-the-introduction-of-new-apis"></a>Conceptual differences with the introduction of new APIs
+## 새 API 도입에 따른 개념적 차이
 
-In this section, we will walk through some of the most important conceptual differences between the XML based APIs available today and JSON based APIs available through the Azure Resource Manager for Compute, Network & Storage.
+이 섹션에서는 현재 사용되는 XML 기반 API와 Azure 리소스 관리자를 통해 제공되는 계산, 네트워크 및 저장소용 JSON 기반 API 간의 몇 가지 가장 중요한 개념적 차이에 대해 알아봅니다.
 
- Item | Azure Service Management (XML-based)    | Compute, Network & Storage Providers (JSON-based)
+ 항목 | Azure 서비스 관리(XML 기반) | 계산, 네트워크 및 저장소 공급자(JSON 기반)
  ---|---|---
-| Cloud Service for Virtual Machines |  Cloud Service was a container for holding the virtual machines that required Availability from the platform and Load Balancing. | Cloud Service is no longer an object required for creating a Virtual Machine using the new model. |
-| Availability Sets | Availability to the platform was indicated by configuring the same “AvailabilitySetName” on the Virtual Machines. The maximum count of fault domains was 2. | Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
-| Affinity Groups | Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that was not required anymore. |To simplify, the Affinity Groups concept doesn’t exist in the APIs exposed through Azure Resource Manager. |
-| Load Balancing    | Creation of a Cloud Service provides an implicit load balancer for the Virtual Machines deployed. | The Load Balancer is a resource exposed by the Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. [Read more.](../articles/resource-groups-networking.md) |
-|Virtual IP Address | Cloud Services will get a default VIP (Virtual IP Address) when a VM is added to a cloud service. The Virtual IP Address is the address associated with the implicit load balancer.   | Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. Dynamic Public IPs can be assigned to a Load Balancer. Public IPs can be secured using Security Groups. |
-|Reserved IP Address|   You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky.   | Public IP Address can be created in “Static” mode and it offers the same capability as a “Reserved IP Address”. Static Public IPs can only be assigned to a Load balancer right now. |
-|Public IP Address (PIP) per VM | Public IP Addresses can also associated to a VM directly. | Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. However, only dynamic Public IPs can be assigned to a Network Interface to get a Public IP per VM right now. |
-|Endpoints| Input Endpoints needed to be configured on a Virtual Machine to be open up connectivity for certain ports. One of the common modes of connecting to virtual machines done by setting up input endpoints. | Inbound NAT Rules can be configured on Load Balancers to achieve the same capability of enabling endpoints on specific ports for connecting to the VMs. |
-|DNS Name| A cloud service would get an implicit globally unique DNS Name. For example: `mycoffeeshop.cloudapp.net`. | DNS Names are optional parameters that can be specified on a Public IP Address resource. The FQDN will be in the following format - `<domainlabel>.<region>.cloudapp.azure.com`. |
-|Network Interfaces | Primary and Secondary Network Interface and its properties were defined as network configuration of a Virtual machine. | Network Interface is a resource exposed by Microsoft.Network Provider. The lifecycle of the Network Interface is not tied to a Virtual Machine. |
+| 가상 컴퓨터용 클라우드 서비스 |	클라우드 서비스는 플랫폼 가용성 및 부하 분산이 필요한 가상 컴퓨터를 유지하는 컨테이너였습니다. | 클라우드 서비스는 더 이상 새 모델을 사용하여 가상 컴퓨터를 만드는 데 필요한 개체가 아닙니다. |
+| 가용성 집합 | 가상 컴퓨터에서 동일한 “AvailabilitySetName”을 구성하여 플랫폼 가용성을 표시했습니다. 최대 장애 도메인 수는 2개였습니다. | 가용성 집합은 Microsoft.Compute 공급자가 표시하는 리소스입니다. 고가용성이 필요한 가상 컴퓨터는 가용성 집합에 포함되어야 합니다. 최대 장애 도메인 수는 이제 3개입니다. |
+| 선호도 그룹 |	선호도 그룹은 가상 네트워크를 만드는 데 필요했습니다. 그러나 지역 가상 네트워크의 도입으로 더 이상 필요하지 않게 되었습니다. |간단히 말해, Azure 리소스 관리자를 통해 표시되는 API에는 선호도 그룹 개념이 존재하지 않습니다. |
+| 부하 분산 | 클라우드 서비스를 만들면 배포된 가상 컴퓨터에 대한 암시적 부하 분산 장치가 제공됩니다. | 부하 분산 장치는 Microsoft.Network 공급자가 표시하는 리소스입니다. 부하 분산이 필요한 가상 컴퓨터의 기본 네트워크 인터페이스는 부하 분산 장치를 참조해야 합니다. 부하 분산 장치는 내부 또는 외부에 있을 수 있습니다. [자세한 정보](../articles/resource-groups-networking.md) |
+|가상 IP 주소 | 클라우드 서비스는 VM이 클라우드 서비스에 추가될 때 기본 VIP(가상 IP 주소)를 가져옵니다. 가상 IP 주소는 암시적 부하 분산 장치와 연결된 주소입니다. | 공용 IP 주소는 Microsoft.Network 공급자가 표시하는 리소스입니다. 공용 IP 주소는 고정(예약된) 또는 동적일 수 있습니다. 동적 공용 IP는 부하 분산 장치에 할당될 수 있습니다. 보안 그룹을 사용하여 공용 IP의 보안을 유지할 수 있습니다. |
+|예약된 IP 주소|	Azure에서 IP 주소를 예약하고 클라우드 서비스와 연결하여 IP 주소를 고정할 수 있습니다. | 공용 IP 주소는 “고정” 모드에서 만들 수 있으며 “예약된 IP 주소”와 동일한 기능을 제공합니다. 현재 고정 공용 IP만 부하 분산 장치에 할당할 수 있습니다. |
+|VM당 PIP(공용 IP 주소) | 공용 IP 주소를 VM에 직접 연결할 수도 있습니다. | 공용 IP 주소는 Microsoft.Network 공급자가 표시하는 리소스입니다. 공용 IP 주소는 고정(예약된) 또는 동적일 수 있습니다. 그러나 현재 VM당 공용 IP 주소를 가져오려면 동적 공용 IP만 네트워크 인터페이스에 할당할 수 있습니다. |
+|끝점| 특정 포트에 대한 연결을 설정하려면 가상 컴퓨터에서 입력 끝점을 구성해야 했습니다. 가상 컴퓨터에 연결하는 일반적인 모드 중 하나는 입력 끝점을 설정하는 방식으로 수행되었습니다. | 부하 분산 장치에서 인바운드 NAT 규칙을 구성하여 특정 포트의 끝점에서 VM에 연결하도록 지원하는 동일한 기능을 실현할 수 있습니다. |
+|DNS 이름| 클라우드 서비스는 전역적으로 고유한 암시적 DNS 이름을 가져옵니다. 예: `mycoffeeshop.cloudapp.net` | DNS 이름은 공용 IP 주소 리소스에 지정할 수 있는 선택적 매개 변수입니다. FQDN은 다음과 같은 형식입니다. `<domainlabel>.<region>.cloudapp.azure.com` |
+|네트워크 인터페이스 | 기본 및 보조 네트워크 인터페이스와 해당 속성이 가상 컴퓨터의 네트워크 구성으로 정의되었습니다. | 네트워크 인터페이스는 Microsoft.Network 공급자가 표시하는 리소스입니다. 네트워크 인터페이스의 수명 주기는 가상 컴퓨터와 관련이 없습니다. |
 
-## <a name="getting-started-with-azure-templates-for-virtual-machines"></a>Getting Started with Azure Templates for Virtual Machines
+## 가상 컴퓨터용 Azure 템플릿 시작
 
-You can get started with the Azure Templates by leveraging the various tools that we have for developing and deploying to the platform.
+개발 및 플랫폼 배포에 사용하는 다양한 도구를 활용하여 Azure 템플릿을 시작할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### Azure 포털
 
-The Azure portal will continue to have the option to deploy Virtual Machines with the classic deployment model and Virtual Machines with the Resource Manager deployment model simultaneously. The Azure portal will also allow custom template deployments.
+Azure 포털에 클래식 배포 모델로 가상 컴퓨터를 배포하고 동시에 리소스 관리자 배포 모델로 가상 컴퓨터를 배포하는 옵션이 계속 제공됩니다. 또한 Azure 포털에서는 사용자 지정 템플릿 배포도 지원합니다.
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### Azure PowerShell
 
-Azure PowerShell will have two modes of deployment – **AzureServiceManagement** mode and **AzureResourceManager** mode.  AzureResourceManager mode will now also contain the cmdlets to manage Virtual Machines, Virtual Networks, and Storage Accounts. You can read more about it [here](../articles/powershell-azure-resource-manager.md).
+Azure PowerShell에는 **AzureServiceManagement** 모드와 **AzureResourceManager** 모드의 두 가지 배포 모드가 있습니다. 이제 AzureResourceManager 모드에는 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 관리하는 cmdlet도 포함됩니다. 해당 서비스에 대한 자세한 내용은 [여기](../articles/powershell-azure-resource-manager.md)에서 확인할 수 있습니다.
 
-### <a name="azure-cli"></a>Azure CLI
+### Azure CLI
 
-The Azure Command-line Interface (Azure CLI) will have two modes of deployment – **AzureServiceManagement** mode and **AzureResourceManager** mode. The AzureResourceManager mode will now also contain commands to manage Virtual Machines, Virtual Networks, and Storage Accounts. You can read more about it [here](../articles/xplat-cli-azure-resource-manager.md).
+Azure CLI(Azure 명령줄 인터페이스)에는 **AzureServiceManagement** 모드와 **AzureResourceManager** 모드의 두 가지 배포 모드가 있습니다. 이제 AzureResourceManager 모드에는 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 관리하는 명령도 포함됩니다. 해당 서비스에 대한 자세한 내용은 [여기](../articles/xplat-cli-azure-resource-manager.md)에서 확인할 수 있습니다.
 
-### <a name="visual-studio"></a>Visual Studio
+### Visual Studio
 
-With the latest Azure SDK release for Visual Studio, you can author and deploy Virtual Machines and complex applications right from Visual Studio. Visual Studio offers the ability to deploy from a pre-built list of templates or start from an empty template.
+최신 버전의 Visual Studio용 Azure SDK에서는 Visual Studio에서 직접 가상 컴퓨터 및 복잡한 응용 프로그램을 작성하고 배포할 수 있습니다. Visual Studio에서는 미리 작성된 템플릿 목록을 배포하거나 빈 템플릿에서 시작할 수 있는 기능을 제공합니다.
 
-### <a name="rest-apis"></a>REST APIs
+### REST API
 
-You can find the detailed REST API documentation for the Compute, Network & Storage Resource Providers [here](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+계산, 네트워크 및 저장소 리소스 공급자에 대한 자세한 REST API 설명서는 [여기](https://msdn.microsoft.com/library/azure/dn790568.aspx)에서 확인할 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>Frequently Asked Questions
+## 질문과 대답
 
-**Can I create a Virtual Machine using the new Azure Resource Manager to deploy in a Virtual Network or Storage Account created using the Azure Service Management APIs?**
+**새 Azure 리소스 관리자를 사용하여 가상 컴퓨터를 만들어 Azure 서비스 관리 API를 사용하여 만든 가상 네트워크 또는 저장소 계정에 배포할 수 있나요?**
 
-This is not supported at the moment. You cannot deploy using the new Azure Resource Manager APIs to deploy a Virtual Machine into a Virtual Network that was created using the Service Management APIs.
+이 기능은 현재 지원되지 않습니다. 새 Azure 리소스 관리자 API를 사용하여 만든 가상 컴퓨터를 서비스 관리 API를 사용하여 만든 가상 네트워크에 배포할 수 없습니다.
 
-**Can I create a Virtual Machine using the new Azure Resource Manager APIs from a user image that was created using the Azure Service Management APIs?**
+**Azure 서비스 관리 API를 사용하여 만든 사용자 이미지에서 새 Azure 리소스 관리자 API를 사용하여 가상 컴퓨터를 만들 수 있나요?**
 
-This is not supported at the moment. However, you can copy the VHD files from a Storage Account that was created using the Service Management APIs and copy it to a new account created using the using the new Azure Resource Manager APIs.
+이 기능은 현재 지원되지 않습니다. 그러나 서비스 관리 API를 사용하여 만든 저장소 계정에서 새 Azure 리소스 관리자 API를 사용하여 만든 새 계정으로 VHD 파일을 복사할 수 있습니다.
 
-**What is the impact on the quota for my subscription?**
+**내 구독의 할당량에 어떤 영향이 미치나요?**
 
-The quotas for the Virtual Machines, Virtual Networks, and Storage Accounts created through the new Azure Resource Manager APIs  are separate from the quotas that you currently have. Each subscription gets new quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../articles/azure-subscription-service-limits.md).
+새 Azure 리소스 관리자 API를 사용하여 만든 가상 컴퓨터, 가상 네트워크 및 저장소 계정에 대한 할당량은 현재 소유한 할당량과 별개입니다. 각 구독에는 새 API를 사용하여 리소스를 만들 수 있는 새 할당량이 부여됩니다. 추가 할당량에 대한 자세한 내용은 [여기](../articles/azure-subscription-service-limits.md)에서 확인할 수 있습니다.
 
-**Can I continue to use my automated scripts for provisioning Virtual Machines, Virtual Networks, Storage Accounts etc. through the new Azure Resource Manager APIs?**
+**새 Azure 리소스 관리자 API를 통해 가상 컴퓨터, 가상 네트워크, 저장소 계정 등을 프로비전하는 데 자동화된 스크립트를 계속 사용할 수 있나요?**
 
-All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the new Azure Resource Manager mode.
+사용자가 작성한 모든 자동화 및 스크립트는 Azure 서비스 관리 모드에서 만든 기존 가상 컴퓨터 및 가상 네트워크에서 계속 작동합니다. 그러나 새 Azure 리소스 관리자 모드를 통해 동일한 리소스를 만드는 데 새 스키마를 사용하도록 스크립트를 업데이트해야 합니다.
 
-**Where can I find examples of Azure Resource Manager templates?**
+**Azure 리소스 관리자 템플릿 예제는 어디서 찾을 수 있나요?**
 
-A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/).
+[Azure 리소스 관리자 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

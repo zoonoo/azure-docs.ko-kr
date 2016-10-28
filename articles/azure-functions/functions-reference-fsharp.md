@@ -1,44 +1,43 @@
 <properties
-    pageTitle="Azure Functions F# developer reference | Microsoft Azure"
-    description="Understand how to develop Azure Functions using F#."
-    services="functions"
-    documentationCenter="fsharp"
-    authors="sylvanc"
-    manager="jbronsk"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, F#"/>
+	pageTitle="Azure Functions F# 개발자 참조 | Microsoft Azure"
+	description="F#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
+	services="functions"
+	documentationCenter="fsharp"
+	authors="sylvanc"
+	manager="jbronsk"
+	editor=""
+	tags=""
+	keywords="Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처, F#"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="fsharp"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="09/09/2016"
-    ms.author="syclebsc"/>
+	ms.service="functions"
+	ms.devlang="fsharp"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="09/09/2016"
+	ms.author="syclebsc"/>
 
-
-# <a name="azure-functions-f#-developer-reference"></a>Azure Functions F# Developer Reference
+# Azure Functions F# 개발자 참조
 
 > [AZURE.SELECTOR]
-- [C# script](../articles/azure-functions/functions-reference-csharp.md)
-- [F# script](../articles/azure-functions/functions-reference-fsharp.md)
-- [Node.js](../articles/azure-functions/functions-reference-node.md)
+- [C# 스크립트](../articles/azure-functions/functions-reference-csharp.md)
+- [F# 스크립트](../articles/azure-functions/functions-reference-fsharp.md)
+- [Node.JS](../articles/azure-functions/functions-reference-node.md)
 
-F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
+Azure Functions용 F#란 클라우드에서 작은 코드 또는 "함수"를 쉽게 실행하기 위한 솔루션입니다. 데이터는 함수 인수를 통해 F# 함수로 흐릅니다. 인수 이름은 `function.json`에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다.
 
-This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다.
 
-## <a name="how-.fsx-works"></a>How .fsx works
+## .fsx의 작동 방식
 
-An `.fsx` file is an F# script. It can be thought of as an F# project that's contained in a single file. The file contains both the code for your program (in this case, your Azure Function) and directives for managing dependencies.
+`.fsx` 파일은 F# 스크립트입니다. 단일 파일에 포함된 F# 프로젝트로 생각할 수 있습니다. 파일은 프로그램(이 경우 Azure Function)에 대한 코드 및 종속성 관리를 위한 지시문을 모두 포함합니다.
 
-When you use an `.fsx` for an Azure Function, commonly required assemblies are automatically included for you, allowing you to focus on the function rather than "boilerplate" code.
+Azure Function에 `.fsx`를 사용하는 경우 "상용구" 코드 대신 함수에 집중할 수 있도록 자주 필요한 어셈블리가 자동으로 포함됩니다.
 
-## <a name="binding-to-arguments"></a>Binding to arguments
+## 인수에 바인딩
 
-Each binding supports some set of arguments, as detailed in the [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md). For example, one of the argument bindings a blob trigger supports is a POCO, which can be expressed using an F# record. For example:
+각 바인딩은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)에 설명된 대로 일부 인수 집합을 지원합니다. 예를 들어 Blob 트리거가 지원하는 인수 바인딩 중 하나는 F# 레코드를 사용하여 표현될 수 있는 POCO입니다. 예:
 
 ```fsharp
 type Item = { Id: string }
@@ -48,11 +47,11 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-Your F# Azure Function will take one or more arguments. When we talk about Azure Functions arguments, we refer to _input_ arguments and _output_ arguments. An input argument is exactly what it sounds like: input to your F# Azure Function. An _output_ argument is mutable data or a `byref<>` argument that serves as a way to pass data back _out_ of your function.
+이 F# Azure Function에서는 하나 이상의 인수를 사용하게 됩니다. Azure Functions 인수에 대해 이야기할 때 _입력_ 인수 및 _출력_ 인수를 언급합니다. 입력 인수란 표현 그대로 F# Azure Function에 입력하는 것입니다. _출력_ 인수란 함수에서 데이터를 _출력_하여 다시 전달하는 방식으로 사용되는 변경 가능한 데이터 또는 `byref<>` 인수입니다.
 
-In the example above, `blob` is an input argument, and `output` is an output argument. Notice that we used `byref<>` for `output` (there's no need to add the `[<Out>]` annotation). Using a `byref<>` type allows your function to change which record or object the argument refers to.
+위의 예에서 `blob`은 입력 인수이며 `output`은 출력 인수입니다. 여기서는 `output`에 `byref<>`를 사용합니다(`[<Out>]` 주석을 추가할 필요 없음). `byref<>` 형식을 사용하면 인수가 참조하는 레코드 또는 개체를 함수를 통해 변경할 수 있습니다.
 
-When an F# record is used as an input type, the record definition must be marked with `[<CLIMutable>]` in order to allow the Azure Functions framework to set the fields appropriately before passing the record to your function. Under the hood, `[<CLIMutable>]` generates setters for the record properties. For example:
+F# 레코드를 입력 형식으로 사용한 경우, Azure Functions 프레임워크에서 필드를 적절하게 설정하려면 레코드를 함수로 전달하기 전에 레코드 정의를 `[<CLIMutable>]`로 표시해야 합니다. 내부적으로 `[<CLIMutable>]`은 레코드 속성에 대한 setter를 생성합니다. 예:
 
 ```fsharp
 [<CLIMutable>]
@@ -64,7 +63,7 @@ let Run(req: TestObject, log: TraceWriter) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-An F# class can also be used for both in and out arguments. For a class, properties will usually need getters and setters. For example:
+F# 클래스는 들어오고 나가는 인수 모두에 대해서도 사용할 수 있습니다. 클래스의 경우 일반적으로 속성은 getter 및 setter가 필요합니다. 예:
 
 ```fsharp
 type Item() =
@@ -76,9 +75,9 @@ let Run(input: string, item: byref<Item>) =
     item <- result
 ```
 
-## <a name="logging"></a>Logging
+## 로깅
 
-To log output to your [streaming logs](../app-service-web/web-sites-streaming-logs-and-console.md) in F#, your function should take an argument of type `TraceWriter`. For consistency, we recommend this argument is named `log`. For example:
+출력을 F#의 [스트리밍 로그](../app-service-web/web-sites-streaming-logs-and-console.md)에 로그하려면 함수에 `TraceWriter` 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -86,9 +85,9 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     output <- input
 ```
 
-## <a name="async"></a>Async
+## Async
 
-The `async` workflow can be used, but the result needs to return a `Task`. This can be done with `Async.StartAsTask`, for example:
+`async` 워크플로를 사용할 수 있지만 결과는 `Task`를 반환해야 합니다. `Async.StartAsTask`를 사용하여 이를 확인할 수 있습니다. 예:
 
 ```fsharp
 let Run(req: HttpRequestMessage) =
@@ -97,9 +96,9 @@ let Run(req: HttpRequestMessage) =
     } |> Async.StartAsTask
 ```
 
-## <a name="cancellation-token"></a>Cancellation Token
+## 취소 토큰
 
-If your function needs to handle shutdown gracefully, you can give it a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) argument. This can be combined with `async`, for example:
+함수가 정상적인 종료를 처리해야 하는 경우 [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 인수를 사용할 수 있습니다. 이는 `async`와 결합할 수 있습니다. 예:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -110,9 +109,9 @@ let Run(req: HttpRequestMessage, token: CancellationToken)
     Async.StartAsTask(f, token)
 ```
 
-## <a name="importing-namespaces"></a>Importing namespaces
+## 네임스페이스 가져오기
 
-Namespaces can be opened in the usual way:
+네임스페이스는 다음과 같은 일반적인 방법으로 열 수 있습니다.
 
 ```fsharp
 open System.Net
@@ -122,7 +121,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     ...
 ```
 
-The following namespaces are automatically opened:
+다음과 같은 네임스페이스는 자동으로 열립니다.
 
 * `System`
 * `System.Collections.Generic`
@@ -133,9 +132,9 @@ The following namespaces are automatically opened:
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
-## <a name="referencing-external-assemblies"></a>Referencing External Assemblies
+## 외부 어셈블리 참조
 
-Similarly, framework assembly references be added with the `#r "AssemblyName"` directive.
+마찬가지로, 프레임워크 어셈블리 참조에 `#r "AssemblyName"` 지시문이 추가됩니다.
 
 ```fsharp
 #r "System.Web.Http"
@@ -148,7 +147,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     ...
 ```
 
-The following assemblies are automatically added by the Azure Functions hosting environment:
+다음 어셈블리는 Azure Functions 호스팅 환경에 의해 자동으로 추가됩니다.
 
 * `mscorlib`,
 * `System`
@@ -161,7 +160,7 @@ The following assemblies are automatically added by the Azure Functions hosting 
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-In addition, the following assemblies are special cased and may be referenced by simplename (e.g. `#r "AssemblyName"`):
+또한 다음 어셈블리는 특수한 경우이며 simplename으로 참조할 수 있습니다(예: `#r "AssemblyName"`).
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -169,11 +168,11 @@ In addition, the following assemblies are special cased and may be referenced by
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`). For information on how to upload files to your function folder, see the following section on package management.
+개인 어셈블리를 참조해야 하는 경우 어셈블리 파일을 함수에 상대적인 `bin` 폴더에 업로드하고 파일 이름(예: `#r "MyAssembly.dll"`)을 사용하여 참조할 수 있습니다. 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 패키지 관리에 대한 다음 섹션을 참조하세요.
 
-## <a name="editor-prelude"></a>Editor Prelude
+## Editor Prelude
 
-An editor that supports F# Compiler Services will not be aware of the namespaces and assemblies that Azure Functions automatically includes. As such, it can be useful to include a prelude that helps the editor find the assemblies you are using, and to explicitly open namespaces. For example:
+F# 컴파일러 서비스를 지원하는 편집기는 Azure Functions에 자동으로 포함되는 네임스페이스 및 어셈블리를 인식하지 않습니다. 따라서 편집기가 사용 중인 어셈블리를 찾고 네임스페이스를 명시적으로 여는 데 도움이 되는 Prelude를 포함하는 것이 유용할 수 있습니다. 예:
 
 ```fsharp
 #if !COMPILED
@@ -188,11 +187,11 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     ...
 ```
 
-When Azure Functions executes your code, it processes the source with `COMPILED` defined, so the editor prelude will be ignored.
+Azure Functions에서 코드를 실행하는 경우 `COMPILED` 정의된 소스를 처리하므로 Editor Prelude는 무시됩니다.
 
-## <a name="package-management"></a>Package management
+## 패키지 관리
 
-To use NuGet packages in an F# function, add a `project.json` file to the the function's folder in the function app's file system. Here is an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
+F# 함수에서 NuGet 패키지를 사용하려면 `project.json` 파일을 함수 앱의 파일 시스템에 있는 함수의 폴더에 추가합니다. 다음은 NuGet 패키지 참조를 `Microsoft.ProjectOxford.Face` 버전 1.1.0에 추가하는 예제 `project.json` 파일입니다.
 
 ```json
 {
@@ -206,19 +205,19 @@ To use NuGet packages in an F# function, add a `project.json` file to the the fu
 }
 ```
 
-Only the .NET Framework 4.6 is supported, so make sure that your `project.json` file specifies `net46` as shown here.
+.NET Framework 4.6만 지원되므로 `project.json` 파일이 다음과 같이 `net46`을 지정하도록 합니다.
 
-When you upload a `project.json` file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. Just add the required `open` statements to your `.fsx` file.
+`project.json` 파일을 업로드하는 경우 런타임은 패키지를 가져오고 패키지 어셈블리에 참조를 자동으로 추가합니다. `#r "AssemblyName"` 지시문을 추가할 필요가 없습니다. 필요한 `open` 문만 `.fsx` 파일에 추가합니다.
 
-You may wish to put automatically references assemblies in your editor prelude, to improve your editor's interaction with F# Compile Services.
+편집기와 F# Compile Services의 더 나은 상호 작용을 위해 참조 어셈블리를 Editor Prelude에 자동으로 넣고 싶을 수 있습니다.
 
-### <a name="how-to-add-a-`project.json`-file-to-your-azure-function"></a>How to add a `project.json` file to your Azure Function
+### `project.json` 파일을 Azure Function에 추가하는 방법
 
-1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. This also gives access to the streaming logs where package installation output will be displayed.
+1. 함수 앱을 실행하여 시작하며 이는 Azure 포털에서 함수를 열어 수행할 수 있습니다. 또한 패키지 설치 출력이 표시되는 스트리밍 로그에 액세스할 수 있습니다.
 
-2. To upload a `project.json` file, use one of the methods described in [how to update function app files](functions-reference.md#fileupdate). If you are using [Continuous Deployment for Azure Functions](functions-continuous-deployment.md), you can add a `project.json` file to your staging branch in order to experiment with it before adding it to your deployment branch.
+2. `project.json` 파일을 업로드하려면 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)에 설명되어 있는 것 중 하나를 사용합니다. [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)를 사용하는 경우 `project.json` 파일을 배포 분기에 추가하기 전에 시험삼아 스테이징 분기에 추가할 수 있습니다.
 
-3. After the `project.json` file is added, you will see output similar to the following example in your function's streaming log:
+3. `project.json` 파일을 추가하면 함수의 스트리밍 로그에 다음 예제와 유사한 출력이 표시됩니다.
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -237,9 +236,9 @@ You may wish to put automatically references assemblies in your editor prelude, 
 2016-04-04T19:02:57.455 Packages restored.
 ```
 
-## <a name="environment-variables"></a>Environment variables
+## 환경 변수
 
-To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, for example:
+환경 변수 또는 앱 설정 값을 가져오려면 다음 예제와 같이 `System.Environment.GetEnvironmentVariable`을 사용합니다.
 
 ```fsharp
 open System.Environment
@@ -249,9 +248,9 @@ let Run(timer: TimerInfo, log: TraceWriter) =
     log.Info("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
 ```
 
-## <a name="reusing-.fsx-code"></a>Reusing .fsx code
+## .fsx 코드 다시 사용
 
-You can use code from other `.fsx` files by using a `#load` directive. For example:
+`#load` 지시문을 사용하면 다른 `.fsx` 파일의 코드를 사용할 수 있습니다. 예:
 
 `run.fsx`
 
@@ -269,30 +268,26 @@ let mylog(log: TraceWriter, text: string) =
     log.Verbose(text);
 ```
 
-Paths provides to the `#load` directive are relative to the location of your `.fsx` file.
+`#load` 지시문에 제공하는 경로는 `.fsx` 파일의 위치에 상대적입니다.
 
-* `#load "logger.fsx"` loads a file located in the function folder.
+* `#load "logger.fsx"`는 함수 폴더에 있는 파일을 로드합니다.
 
-* `#load "package\logger.fsx"` loads a file located in the `package` folder in the function folder.
+* `#load "package\logger.fsx"`는 함수 폴더의 `package` 폴더에 있는 파일을 로드합니다.
 
-* `#load "..\shared\mylogger.fsx"` loads a file located in the `shared` folder at the same level as the function folder, that is, directly under `wwwroot`.
+* `#load "..\shared\mylogger.fsx"`는 함수 폴더와 동일한 수준의 `shared` 폴더 즉, `wwwroot`에 있는 파일을 로드합니다.
 
-The `#load` directive only works with `.fsx` (F# script) files, and not with `.fs` files.
+`#load` 지시문은 `.fs`파일이 아닌 `.fsx`(F# 스크립트) 파일에서만 작동합니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-For more information, see the following resources:
+자세한 내용은 다음 리소스를 참조하세요.
 
-* [F# Guide](https://docs.microsoft.com/en-us/dotnet/articles/fsharp/index)
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-* [Azure Functions testing](functions-test-a-function.md)
-* [Azure Functions scaling](functions-scale.md)
+* [F# 가이드](https://docs.microsoft.com/ko-KR/dotnet/articles/fsharp/index)
+* [Azure Functions 개발자 참조](functions-reference.md)
+* [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
+* [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
+* [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
+* [Azure Functions 테스트](functions-test-a-function.md)
+* [Azure Functions 크기 조정](functions-scale.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

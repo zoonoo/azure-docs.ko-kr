@@ -1,88 +1,82 @@
 <properties
-    pageTitle="Using the File connector in Logic apps | Microsoft Azure App Service"
-    description="How to create and configure the file connector or API app and use it in a Logic app in Azure App Service"
-    authors="rajeshramabathiran"
-    manager="erikre"
-    editor=""
-    services="logic-apps"
-    documentationCenter=""/>
+	pageTitle="논리 앱에서 File 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="파일 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	authors="rajeshramabathiran"
+	manager="erikre"
+	editor=""
+	services="logic-apps"
+	documentationCenter=""/>
 
 <tags
-    ms.service="logic-apps"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="rajram"/>
+	ms.service="logic-apps"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2016"
+	ms.author="rajram"/>
 
+# 파일 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
-# <a name="get-started-with-the-file-connector-and-add-it-to-your-logic-app"></a>Get started with the file connector and add it to your Logic app
->[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
+파일 시스템에 연결하여 호스트 컴퓨터에서 파일 업로드, 다운로드 등을 수행합니다. 논리 앱은 다양한 데이터 원본을 기반으로 트리거되고 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. 파일 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
-Connect to a file system to upload, download, and more to your files on a host machine. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data. You can add the file connector to your business workflow and process data as part of this workflow within a Logic app. 
+파일 커넥터는 호스트 파일 시스템에 대한 하이브리드 연결에 하이브리드 연결 관리자를 사용합니다.
 
-The file connector uses the Hybrid Connection Manager for hybrid connectivity to the host file system.
+## 논리 앱용 파일 커넥터 만들기 ##
+파일 커넥터를 사용하려면 먼저 파일 커넥터 API 앱의 인스턴스를 만들어야 합니다. 이 작업은 다음과 같이 수행할 수 있습니다.
 
-## <a name="creating-a-file-connector-for-your-logic-app"></a>Creating a file connector for your Logic app ##
-To use the file connector, you need to first create an instance of the file connector API app. This can be done as follows:
+1.	Azure 포털 왼쪽에 있는 + 새로 만들기 옵션을 사용하여 Azure Marketplace를 엽니다.
+2.	"파일 커넥터"를 검색합니다.
+3.	검색 결과에서 **파일 커넥터(미리 보기)**를 선택합니다.
+4.	**만들기** 단추를 선택합니다.
+5.	다음과 같이 파일 커넥터를 구성합니다.![][1]
 
-1.  Open the Azure Marketplace using the + NEW option on the left side of the Azure Portal.
-2.  Search for “file connector”.
-3.  Select **File Connector (preview)** from the search results.
-4.  Select the **Create** button
-5.  Configure the file connector as follows:  
-![][1]
+	- **이름** - 파일 커넥터의 이름을 지정합니다.
+	- **패키지 설정**
+		- **루트 폴더** - 호스트 컴퓨터에서 루트 폴더 경로를 지정합니다. 예: D:\\FileConnectorTest
+		- **서비스 버스 연결 문자열** - 서비스 버스 연결 문자열을 제공합니다. 서비스 버스 릴레이를 사용할 수 있도록 하려면 서비스 버스 네임스페이스는 기본이 아닌 표준 유형이어야 합니다. 서비스 버스 릴레이는 하이브리드 연결 관리자에 연결하는 데 사용됩니다.
+	- **앱 서비스 계획** - 앱 서비스 계획을 선택하거나 만듭니다.
+	- **가격 책정 계층** - 커넥터에 대한 가격 책정 계층을 선택합니다.
+	- **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다.
+	- **구독** - 이 커넥터를 만들 구독을 선택합니다.
+	- **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
 
-    - **Name** - give a name for your file connector
-    - **Package Settings**
-        - **Root Folder** - Specify the root folder path on your host machine. Eg. D:\FileConnectorTest
-        - **Service Bus Connection String** - Provide a Service Bus Connection String. Make sure that the service bus namespace is of type Standard and NOT Basic to allow for use of Service Bus Relays.  Service Bus Relay is used to connect to the Hybrid Connection Manager.
-    - **App Service plan** - select or create a App Service plan
-    - **Pricing tier** - choose a pricing tier for the connector
-    - **Resource group** - select or create a resource group where the connector should reside
-    - **Subscription** - choose a subscription you want this connector to be created in
-    - **Location** - choose the geographic location where you would like the connector to be deployed
+4. 만들기를 클릭합니다. 새 파일 커넥터가 만들어집니다.
 
-4. Click on Create. A new file connector will be created
+## 하이브리드 연결 관리자 구성 ##
+API 앱 인스턴스가 만들어지면 해당 대시보드를 찾습니다. 찾아보기 > API 앱 > 파일 커넥터 API 앱 선택을 클릭하여 완료할 수 있습니다. 여기서 하이브리드 연결 관리자를 구성해야 합니다. 하이브리드 연결 관리자의 구성 및 문제 해결에 대한 자세한 내용은 [하이브리드 연결 관리자 사용]을 참조하십시오.
 
-## <a name="configure-hybrid-connection-manager"></a>Configure Hybrid Connection Manager ##
-Once the API App instance is created, browse to its dashboard.  This can be done by clicking on Browse > API Apps > select your file connector API App.  From here the Hybrid Connection Manager needs to be configured.
-For more information on configuring and trouble shooting the Hybrid Connection Manager see [Using the Hybrid Connection Manager].
+## 논리 앱에서 파일 커넥터 사용 ##
+API 앱을 만들고 나면 이제 파일 커넥터를 논리 앱에 대한 동작으로 사용할 수 있습니다. 이렇게 하려면 다음을 수행해야 합니다.
 
-## <a name="using-the-file-connector-in-your-logic-app"></a>Using the file connector in your Logic app ##
-Once your API app is created, you can now use the file connector as an action for your Logic app. To do this, you need to:
+1.	새 논리 앱을 만들고 파일 커넥터가 있는 동일한 리소스 그룹을 선택합니다. 지침에 따라 [새 논리 앱을 만듭니다].
 
-1.  Create a new Logic app and choose the same resource group which has the file connector. Follow instructions to [Create a new Logic app].
+2.	만들어진 논리 앱 내에서 "트리거 및 작업"을 열어 논리 앱 디자이너를 열고 흐름을 구성합니다.
 
-2.  Open “Triggers and Actions” within the created Logic app to open the Logic apps Designer and configure your flow.
+3.	파일 커넥터가 오른쪽의 갤러리에 있는 "이 리소스 그룹의 API 앱" 섹션에 나타납니다.
 
-3.  The file connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
+4.	"파일 커넥터"를 클릭하여 파일 커넥터 API 앱을 편집기에 놓을 수 있습니다. 파일 커넥터는 트리거 1개 및 동작 4개를 노출합니다. ![][5]
 
-4.  You can drop the file connector API app into the editor by clicking on the “file connector”. file connector exposes one trigger and 4 Actions:  
-![][5]
+6.	각각은 특정 속성을 노출합니다. 아래 이미지는 트리거 및 파일 가져오기 작업에 대한 속성을 나열합니다. ![][6]
 
-6.  Each one of these exposes certain properties. The image below lists the properties for the trigger and Get file Action:  
-![][6]
+7. 이러한 속성이 구성되면 흐름에서 트리거 및 동작을 사용할 수 있습니다. 마찬가지로 다른 동작도 구성할 수 있습니다.
 
-7. Once these are configured, the Trigger and Action can be used in your flow. Similarly, other actions can be configured as well.
+> [AZURE.NOTE] 파일 트리거는 파일을 폴더에서 성공적으로 읽은 후 해당 파일을 삭제합니다.
 
-> [AZURE.NOTE] The file trigger will delete the file after it is successfully read from the folder.
+## 파일 커넥터 REST API ##
+논리 앱 외부에서 커넥터를 사용하려면 커넥터를 통해 노출되는 REST API를 활용할 수 있습니다. 탐색->Api 앱->파일 커넥터를 사용하여 이 API 정의를 볼 수 있습니다. 이제 통계 섹션 아래의 API 정의 렌즈를 클릭하여 이 커넥터를 통해 노출되는 모든 API를 볼 수 있습니다.![][7]
 
-## <a name="file-connector-rest-apis"></a>File connector REST APIs ##
-To use the connector outside of a Logic app, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->file connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector:  
-![][7]
+API의 세부 정보는 [파일 커넥터 API 정의]에서 찾을 수 있습니다.
 
-Details of the APIs can be found at [file connector API definition].
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
-## <a name="do-more-with-your-connector"></a>Do more with your connector
-Now that the connector is created, you can add it to a business workflow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure Logic apps을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. App Service에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
->[AZURE.NOTE] If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
-View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
-
-You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and connector](app-service-logic-monitor-your-connectors.md).
+커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API Apps 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -91,12 +85,8 @@ You can also review performance statistics and control security to the connector
 [7]: ./media/app-service-logic-connector-file/img7.PNG
 
 <!-- Links -->
-[Create a new Logic app]: app-service-logic-create-a-logic-app.md
-[File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
-[Using the Hybrid Connection Manager]: app-service-logic-hybrid-connection-manager.md
+[새 논리 앱을 만듭니다]: app-service-logic-create-a-logic-app.md
+[파일 커넥터 API 정의]: https://msdn.microsoft.com/library/dn936296.aspx
+[하이브리드 연결 관리자 사용]: app-service-logic-hybrid-connection-manager.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

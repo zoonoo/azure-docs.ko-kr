@@ -1,89 +1,88 @@
 <properties
-    pageTitle="How to protect a Web API backend with Azure Active Directory and API Management"
-    description="Learn how to protect a Web API backend with Azure Active Directory and API Management." 
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법"
+	description="Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법에 대해 알아봅니다." 
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/25/2016"
-    ms.author="sdanie"/>
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/09/2016"
+	ms.author="sdanie"/>
 
+# Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
 
-# <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>How to protect a Web API backend with Azure Active Directory and API Management
+다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API 관리로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다. 이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.
 
-The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
-
--   Build a Web API backend and secure it with AAD - starting at 1:30
--   Import the API into API Management - starting at 7:10
--   Configure the Developer portal to call the API - starting at 9:09
--   Configure a desktop application to call the API - starting at 18:08
--   Configure a JWT validation policy to pre-authorize requests - starting at 20:47
+-	Web API 백 엔드 빌드 및 AAD로 보안 유지 - 1시 30분에 시작
+-	API를 API 관리로 가져오기 - 7시 10분에 시작
+-	API를 호출하도록 개발자 포털 구성 - 9시 9분에 시작
+-	API를 호출하도록 데스크톱 응용 프로그램 구성 - 18시 8분에 시작
+-	미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성 - 20시 47분에 시작
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
-## <a name="create-an-azure-ad-directory"></a>Create an Azure AD directory
+## Azure AD 디렉터리 만들기
 
-To secure your Web API backed using Azure Active Directory you must first have a an AAD tenant. In this video a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
+Azure Active Directory를 사용하여 Web API 백 엔드를 보호하려면 먼저 AAD 테넌트가 있어야 합니다. 이 비디오에서는 **APIMDemo**라는 테넌트가 사용됩니다. AAD 테넌트를 만들려면 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인하고 **새로 만들기**->**앱 서비스**->**Active Directory**->**디렉터리**->**사용자 지정 만들기**를 클릭합니다.
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-In this example a directory named **APIMDemo** is created with a default domain named **DemoAPIM.onmicrosoft.com**. This directory is used throughout the video.
+이 예에서 **APIMDemo**라는 디렉터리는 **DemoAPIM.onmicrosoft.com**이라는 기본 도메인 이름으로 만들어집니다. 이 디렉터리는 비디오 전체에서 사용됩니다.
 
 ![Azure Active Directory][api-management-create-aad]
 
-## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Create a Web API service secured by Azure Active Directory
+## Azure Active Directory로 보안이 유지된 Web API 서비스 만들기
 
-In this step, a Web API backend is created using Visual Studio 2013. This step of the video starts at 1:30. To create Web API backend project in Visual Studio click **File**->**New**->**Project**, and choose **ASP.NET Web Application** from the **Web** templates list. In this video the project is named **APIMAADDemo**. Click **OK** to create the project. 
+이 단계에서는 Web API 백 엔드는 Visual Studio 2013을 사용하여 생성됩니다. 이 단계의 비디오는 1분 30초에 시작됩니다. Visual Studio에서 Web API 백 엔드 프로젝트를 만들려면 **파일**->**새로 만들기**->**프로젝트**를 클릭하고 **웹** 템플릿 목록에서 **ASP.NET 웹 응용 프로그램**을 선택합니다. 이 비디오에서 프로젝트의 이름은**APIMAADDemo**입니다. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 ![Visual Studio][api-management-new-web-app]
 
-Click **Web API** from the **Select a template list** to create a Web API project. To configure Azure Directory Authentication click **Change Authentication**.
+**템플릿 목록 선택**에서 **Web API**를 클릭하여 Web API 프로젝트를 만듭니다. Azure 디렉터리의 인증을 구성하려면 **인증 변경**을 클릭합니다.
 
-![New project][api-management-new-project]
+![새 프로젝트][api-management-new-project]
 
-Click **Organizational Accounts**, and specify the **Domain** of your AAD tenant. In this example the domain is **DemoAPIM.onmicrosoft.com**. The domain of your directory can be obtained from the **Domains** tab of your directory.
+**조직 계정**을 클릭하고 AAD 테넌트의 **도메인**을 지정합니다. 이 예에서 도메인은**DemoAPIM.onmicrosoft.com**입니다. 디렉터리의 도메인은 디렉터리의 **도메인** 탭에서 가져올 수 있습니다.
 
-![Domains][api-management-aad-domains]
+![도메인][api-management-aad-domains]
 
-Configure the desired settings in the **Change Authentication** dialog box and click **OK**.
+**인증 변경** 대화 상자에서 원하는 설정을 구성하고 **확인**을 클릭합니다.
 
-![Change authentication][api-management-change-authentication]
+![인증 변경][api-management-change-authentication]
 
-When you click **OK** Visual Studio will attempt to register your application with your Azure AD directory and you may be prompted to sign in by Visual Studio. Sign in using an administrative account for your directory.
+**확인**을 클릭하면 Visual Studio는 Azure AD 디렉터리로 응용 프로그램을 등록하려고 하며 Visual Studio에서 로그인하라는 메시지가 표시될 수 있습니다. 디렉터리에 대한 관리 계정을 사용하여 로그인합니다.
 
-![Sign in to Visual Studio][api-management-sign-in-vidual-studio]
+![Visual Studio에 로그인][api-management-sign-in-vidual-studio]
 
-To configure this project as an Azure Web API check the box for **Host in the cloud** and then click **OK**.
+Azure Web API로 이 프로젝트를 구성하려면 **클라우드에서 호스트** 상자를 선택하고 **확인**을 클릭합니다.
 
-![New project][api-management-new-project-cloud]
+![새 프로젝트][api-management-new-project-cloud]
 
-You may be prompted to sign in to Azure, and then you can configure the Web App.
+Azure에 로그인하라는 메시지가 표시될 수 있으며, 다음 웹앱을 구성할 수 있습니다.
 
-![Configure][api-management-configure-web-app]
+![구성][api-management-configure-web-app]
 
-In this example a new **App Service plan** named **APIMAADDemo** is specified.
+이 예에서는 **APIMAADDemo**라는 새 **앱 서비스 계획**이 지정됩니다.
 
-Click **OK** to configure the Web App and create the project.
+**확인**을 클릭하여 웹앱을 구성하고 프로젝트를 만듭니다.
 
-## <a name="add-the-code-to-the-web-api-project"></a>Add the code to the Web API project
+## Web API 프로젝트에 코드를 추가합니다.
 
-The next step in the video adds the code to the Web API project. This step starts at 4:35.
+비디오의 다음 단계는 Web API 프로젝트에 코드를 추가합니다. 이 단계는 4분 35초에 시작됩니다.
 
-The Web API in this example implements a basic calculator service using a model and a controller. To add the model for the service, right-click **Models** in **Solution Explorer** and choose **Add**, **Class**. Name the class `CalcInput` and click **Add**.
+이 예에서 Web API는 모델과 컨트롤러를 사용하여 기본 계산기 서비스를 구현합니다. 서비스에 대한 모델을 추가하려면 **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 선택합니다. 클래스의 이름을 `CalcInput`로 지정하고 **추가**를 클릭합니다.
 
-Add the following `using` statement to the top of the `CalcInput.cs` file.
+다음 `using` 명령문을 `CalcInput.cs` 파일의 맨 위에 추가합니다.
 
-    using Newtonsoft.Json;
+	using Newtonsoft.Json;
 
- Replace the generated class with the following code.
+ 생성된 클래스를 다음 코드로 바꿉니다.
 
     public class CalcInput
     {
@@ -94,17 +93,17 @@ Add the following `using` statement to the top of the `CalcInput.cs` file.
         public int b;
     }
 
-Right-click **Controllers** in **Solution Explorer** and choose **Add**->**Controller**. Choose **Web API 2 Controller - Empty** and click **Add**. Type **CalcController** for the Controller name and click **Add**.
+**솔루션 탐색기**에서 **컨트롤러**를 마우스 오른쪽 단추로 클릭하고 **추가**->**컨트롤러**를 선택합니다. **Web API 2 컨트롤러 - 비어 있음**을 선택하고 **추가**를 클릭합니다. 컨트롤러 이름으로 **CalcController**를 입력하고 **추가**를 클릭합니다.
 
-![Add Controller][api-management-add-controller]
+![컨트롤러 추가][api-management-add-controller]
 
-Add the following `using` statement to the top of the `CalcController.cs` file.
+다음 `using` 명령문을 `CalcController.cs` 파일의 맨 위에 추가합니다.
 
     using System.IO;
     using System.Web;
     using APIMAADDemo.Models;
 
-Replace the generated controller class with the following code. This code implements the `Add`, `Subtract`, `Multiply`, and `Divide` operations of the Basic Calculator API.
+생성된 컨트롤러를 다음 코드로 바꿉니다. 이 코드는 기본 계산기 API의 `Add`, `Subtract`, `Multiply` 및 `Divide` 작업을 구현합니다.
 
     [Authorize]
     public class CalcController : ApiController
@@ -144,214 +143,214 @@ Replace the generated controller class with the following code. This code implem
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
+    	    HttpResponseMessage response = Request.CreateResponse();
+    	    response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+    	    return response;
+    	}
     }
 
-Press **F6** to build and verify the solution.
+**F6**를 눌러 솔루션을 빌드하고 확인합니다.
 
-## <a name="publish-the-project-to-azure"></a>Publish the project to Azure
+## Azure에 프로젝트 게시
 
-In this step the Visual Studio project is published to Azure. This step of the video starts at 5:45.
+이 단계에서 Visual Studio 프로젝트는 Azure에 게시됩니다. 이 단계의 비디오는 5분 45초에 시작됩니다.
 
-To publish the project to Azure, right-click the **APIMAADDemo** project in Visual Studio and choose **Publish**. Keep the default settings in the **Publish Web** dialog box and click **Publish**.
+프로젝트를 Azure에 게시하려면 Visual Studio에서 **APIMAADDemo** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **웹 게시** 대화 상자에서 기본 설정을 유지하고 **게시**를 클릭합니다.
 
-![Web Publish][api-management-web-publish]
+![웹 게시][api-management-web-publish]
 
-## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Grant permissions to the Azure AD backend service application
+## Azure AD 백 엔드 서비스 응용 프로그램에 권한을 부여합니다.
 
-A new application for the backend service is created in your Azure AD directory as part of the configuring and publishing process of your Web API project. In this step of the video, starting at 6:13, permissions are granted to the Web API backend.
+백 엔드 서비스에 대한 새 응용 프로그램은 Web API 프로젝트의 구성 및 게시 프로세스의 일부로 Azure AD 디렉터리에 만들어집니다. 6분 13초에 시작하는 비디오의 이 단계에서는 Web API 백 엔드에 권한이 부여됩니다.
 
-![Application][api-management-aad-backend-app]
+![응용 프로그램][api-management-aad-backend-app]
 
-Click the name of the application to configure the required permissions. Navigate to the **Configure** tab and scroll down to the **permissions to other applications** section. Click the **Application Permissions** drop-down beside **Windows** **Azure Active Directory**, check the box for **Read directory data**, and click **Save**.
+필요한 권한을 구성하려면 응용 프로그램의 이름을 클릭합니다. **구성** 탭으로 이동하고 **다른 응용 프로그램에 권한 부여** 섹션으로 아래로 스크롤합니다. **Windows** **Azure Active Directory** 옆의 **응용 프로그램 사용 권한** 드롭다운을 클릭하고 **디렉터리 데이터 읽기** 상자를 선택한 다음 **저장**을 클릭합니다.
 
-![Add permissions][api-management-aad-add-permissions]
+![권한 추가][api-management-aad-add-permissions]
 
->[AZURE.NOTE] If **Windows** **Azure Active Directory** is not listed under permissions to other applications, click **Add application** and add it from the list.
+>[AZURE.NOTE] **Windows** **Azure Active Directory**가 다른 응용 프로그램에 대한 사용 권한에 나열되지 않으면 **응용 프로그램 추가**를 클릭하고 목록에서 추가합니다.
 
-Make a note of the **App Id URI** for use in a subsequent step when an Azure AD application is configured for the API Management developer portal.
+Azure AD 응용 프로그램이 API 관리 개발자 포털에 대해 구성된 경우, 다음 단계에서 사용하도록 **앱 ID URI**를 기록합니다.
 
-![App Id URI][api-management-aad-sso-uri]
+![앱 ID URI][api-management-aad-sso-uri]
 
-## <a name="import-the-web-api-into-api-management"></a>Import the Web API into API Management
+## Web API를 API 관리로 가져오기
 
-APIs are configured from the API publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API][] tutorial.
+API는 Azure 클래식 포털을 통해 액세스할 수 있는 API 게시자 포털에서 구성됩니다. 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [첫 번째 API 관리][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
 
-![Publisher portal][api-management-management-console]
+![게시자 포털][api-management-management-console]
 
-Operations can be [added to APIs manually](api-management-howto-add-operations.md), or they can be imported. In this video, operations are imported in Swagger format starting at 6:40.
+작업을 [수동으로 API에 추가](api-management-howto-add-operations.md)하거나 가져올 수 있습니다. 이 비디오에서는 작업을 6분 40초부터 Swagger 형식으로 가져옵니다.
 
-Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example `"host": "apimaaddemo.azurewebsites.net"` is used.
+다음 내용을 포함한 `calcapi.json`이라는 파일을 만들고 컴퓨터에 저장합니다. `host` 특성이 Web API 백 엔드를 가리키는지 확인합니다. 이 예에서는 `"host": "apimaaddemo.azurewebsites.net"`가 사용됩니다.
 
-{ "swagger": "2.0", "info": { "title": "Calculator", "description": "Arithmetics over HTTP!", "version": "1.0" }, "host": "apimaaddemo.azurewebsites.net", "basePath": "/api", "schemes": [ "http" ], "paths": { "/add?a={a}&b={b}": { "get": { "description": "Responds with a sum of two numbers.", "operationId": "Add two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>51</code>.", "required": true, "default": "51", "enum": [ "51" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>49</code>.", "required": true, "default": "49", "enum": [ "49" ] } ], "responses": {} } }, "/sub?a={a}&b={b}": { "get": { "description": "Responds with a difference between two numbers.", "operationId": "Subtract two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>50</code>.", "required": true, "default": "50", "enum": [ "50" ] } ], "responses": {} } }, "/div?a={a}&b={b}": { "get": { "description": "Responds with a quotient of two numbers.", "operationId": "Divide two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] } ], "responses": {} } }, "/mul?a={a}&b={b}": { "get": { "description": "Responds with a product of two numbers.", "operationId": "Multiply two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>5</code>.", "required": true, "default": "5", "enum": [ "5" ] } ], "responses": {} } } } }
+{ "swagger": "2.0", "info": { "title": "Calculator", "description": "Arithmetics over HTTP!", "version": "1.0" }, "host": "apimaaddemo.azurewebsites.net", "basePath": "/api", "schemes": [ "http" ], "paths": { "/add?a={a}&b={b}": { "get": { "description": "Responds with a sum of two numbers.", "operationId": "Add two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. 기본값은 <code>51</code>입니다.", "required": true, "default": "51", "enum": [ "51" ] }, { "name": "b", "in": "query", "description": "Second operand. 기본값은 <code>49</code>입니다.", "required": true, "default": "49", "enum": [ "49" ] } ], "responses": {} } }, "/sub?a={a}&b={b}": { "get": { "description": "Responds with a difference between two numbers.", "operationId": "Subtract two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. 기본값은 <code>100</code>입니다", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. 기본값은 <code>50</code>입니다.", "required": true, "default": "50", "enum": [ "50" ] } ], "responses": {} } }, "/div?a={a}&b={b}": { "get": { "description": "Responds with a quotient of two numbers.", "operationId": "Divide two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. 기본값은 <code>100</code>입니다.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. 기본값은 <code>20</code>입니다.", "required": true, "default": "20", "enum": [ "20" ] } ], "responses": {} } }, "/mul?a={a}&b={b}": { "get": { "description": "Responds with a product of two numbers.", "operationId": "Multiply two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. 기본값은 <code>20</code>입니다.", "required": true, "default": "20", "enum": [ "20" ] }, { "name": "b", "in": "query", "description": "Second operand. 기본값은 <code>5</code>.", "required": true, "default": "5", "enum": [ "5" ] } ], "responses": {} } } } }
 
-To import the calculator API, click **APIs** from the **API Management** menu on the left, and then click **Import API**.
+계산기 API를 가져오려면 왼쪽의 **API 관리 메뉴**에서 **API**를 클릭한 다음 **API 가져오기**를 클릭합니다.
 
-![Import API button][api-management-import-api]
+![API 가져오기 단추][api-management-import-api]
 
-Perform the following steps to configure the calculator API.
+다음 단계를 수행하여 계산기 API를 구성합니다.
 
-1. Click **From file**, browse to the `calculator.json` file you saved, and click the **Swagger** radio button.
-2. Type **calc** into the **Web API URL suffix** textbox.
-3. Click in the **Products (optional)** box and choose **Starter**.
-4. Click **Save** to import the API.
+1. **파일에서**를 클릭하고 저장한 `calculator.json` 파일로 이동한 다음 **Swagger** 라디오 단추를 클릭합니다.
+2. **웹 API URL 접미사** 텍스트 상자에 **calc**를 입력합니다.
+3. **제품(선택 사항)** 상자를 클릭하고 **Starter**를 선택합니다.
+4. **저장**을 클릭하여 API를 가져옵니다.
 
-![Add new API][api-management-import-new-api]
+![새 API 추가][api-management-import-new-api]
 
-Once the API is imported, the summary page for the API is displayed in the publisher portal.
+API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시됩니다.
 
-## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Call the API unsuccessfully from the developer portal
+## 개발자 포털에서 API 호출 실패
 
-At this point, the API has been imported into API Management, but cannot yet be called successfully from the developer portal because the backend service is protected with Azure AD authentication. This is demonstrated in the video starting at 7:40 using the following steps.
+이 시점에서 API를 API 관리로 가져오지만, 백 엔드 서비스는 Azure AD 인증으로 보호되어야 하기 때문에 개발자 포털에서 호출할 수 없습니다. 다음 단계를 통해 7분 40초부터 시작되는 비디오에서 볼 수 있습니다.
 
-Click **Developer portal** from the top-right side of the publisher portal.
+게시자 포털의 오른쪽 위에 있는 메뉴에서 **개발자 포털**을 클릭합니다.
 
-![Developer portal][api-management-developer-portal-menu]
+![개발자 포털][api-management-developer-portal-menu]
 
-Click **APIs** and click the **Calculator** API.
+**API**를 클릭하고 **계산기** API를 클릭합니다.
 
-![Developer portal][api-management-dev-portal-apis]
+![개발자 포털][api-management-dev-portal-apis]
 
-Click **Try it**.
+**사용해 보세요**를 클릭합니다.
 
-![Try it][api-management-dev-portal-try-it]
+![시도][api-management-dev-portal-try-it]
 
-Click **Send** and note the response status of **401 Unauthorized**.
+**보내기**를 클릭하여 **401 권한 없음**의 응답 상태를 기록합니다.
 
-![Send][api-management-dev-portal-send-401]
+![보내기][api-management-dev-portal-send-401]
 
-The request is unauthorized because the backend API is protected by Azure Active Directory. Before successfully calling the API the developer portal must be configured to authorize developers using OAuth 2.0. This process is described in the following sections.
+백 엔드 API는 Azure Active Directory로 보호되기 때문에 요청이 인증되지 않습니다. API를 성공적으로 호출하기 전에 개발자 포털은 OAuth 2.0을 사용하여 개발자에게 권한을 부여하도록 구성되어야 합니다. 이 프로세스는 다음 섹션에 설명되어 있습니다.
 
-## <a name="register-the-developer-portal-as-an-aad-application"></a>Register the developer portal as an AAD application
+## AAD 응용 프로그램으로 개발자 포털 등록
 
-The first step in configuring the developer portal to authorize developers using OAuth 2.0 is to register the developer portal as an AAD application. This is demonstrated starting at 8:27 in the video.
+개발자가 OAuth 2.0을 사용하여 권한을 부여하도록 개발자 포털을 구성하는 첫 번째 단계는 AAD 응용 프로그램으로 개발자 포털을 등록하는 것입니다. 8분 27초에 시작되는 비디오에서 보여줍니다.
 
-Navigate to the Azure AD tenant from the first step of this video, in this example **APIMDemo** and navigate to the **Applications** tab.
+이 비디오의 첫 번째 단계에서 Azure AD 테넌트로 이동하고, 이 예제 **APIMDemo**에서 **응용 프로그램** 탭 으로 이동합니다.
 
-![New application][api-management-aad-new-application-devportal]
+![새 응용 프로그램][api-management-aad-new-application-devportal]
 
-Click the **Add** button to create a new Azure Active Directory application, and choose **Add an application my organization is developing**.
+**추가** 단추를 클릭하여 새 Azure Active Directory 응용 프로그램을 만들고 **내 조직에서 개발 중인 응용 프로그램 추가**를 선택합니다.
 
-![New application][api-management-new-aad-application-menu]
+![새 응용 프로그램][api-management-new-aad-application-menu]
 
-Choose **Web application and/or Web API**, enter a name, and click the next arrow. In this example **APIMDeveloperPortal** is used.
+**웹 응용 프로그램 및/또는 Web API**를 선택하고 이름을 입력한 후 다음 화살표를 클릭합니다. 이 예에서는 **APIMDeveloperPortal**이 사용됩니다.
 
-![New application][api-management-aad-new-application-devportal-1]
+![새 응용 프로그램][api-management-aad-new-application-devportal-1]
 
-For **Sign-on URL** enter the URL of your API Management service and append `/signin`. In this example **https://contoso5.portal.azure-api.net/signin **is used.
+**로그인 URL**로 API 관리 서비스의 URL을 입력하고 `/signin`을 추가합니다. 이 예에서는 **https://contoso5.portal.azure-api.net/signin **이(가) 사용됩니다.
 
-For **App Id URL** enter the URL of your API Management service and append some unique characters. These can be any desired characters and in this example **https://contoso5.portal.azure-api.net/dp** is used. When the  desired **App properties** are configured, click the check mark to create the application.
+**앱 ID URL**로 API 관리 서비스의 URL을 입력하고 일부 고유 문자를 추가합니다. 원하는 문자를 사용할 수 있으며 이 예에서는 **https://contoso5.portal.azure-api.net/dp**이(가) 사용됩니다. 원하는 **앱 속성**이 구성되면, 확인 표시를 클릭하여 응용 프로그램을 만듭니다.
 
-![New application][api-management-aad-new-application-devportal-2]
+![새 응용 프로그램][api-management-aad-new-application-devportal-2]
 
-## <a name="configure-an-api-management-oauth-2.0-authorization-server"></a>Configure an API Management OAuth 2.0 authorization server
+## API 관리 OAuth 2.0 권한 부여 서버 구성
 
-The next step is to configure an OAuth 2.0 authorization server in API Management. This step is demonstrated in the video starting at 9:43.
+다음 단계는 API 관리에서의 OAuth 2.0 권한 부여 서버 구성입니다. 이 단계는 9분 43초에 시작되는 비디오에서 보여 줍니다.
 
-Click **Security** from the API Management menu on the left, click **OAuth 2.0**, and then click **Add authorization** server.
+왼쪽의 API 관리 메뉴에서 **보안**을 클릭하고 **OAuth 2.0**을 클릭한 다음 **권한 부여 추가** 서버를 클릭합니다.
 
-![Add authorization server][api-management-add-authorization-server]
+![권한 부여 서버 추가][api-management-add-authorization-server]
 
-Enter a name and an optional description in the **Name** and **Description** fields. These fields are used to identify the OAuth 2.0 authorization server within the API Management service instance. In this example **Authorization server demo** is used. Later when you specify an OAuth 2.0 server to be used for authentication for an API, you will select this name.
+**이름** 필드에 이름을 입력하고 원하는 경우 **설명** 필드에 설명을 입력합니다. 이러한 필드는 API 관리 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용됩니다. 이 예에서 **권한 부여 서버 데모**가 사용됩니다. 나중에 API에 대한 인증으로 사용되도록 OAuth 2.0 서버를 지정하면 이 이름을 선택합니다.
 
-For the **Client registration page URL** enter a placeholder value such as `http://localhost`.  The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts. In this example users do not create and configure their own accounts so a placeholder is used.
+**클라이언트 등록 페이지 URL**로 `http://localhost`와 같은 자리 표시자 값을 입력합니다. **클라이언트 등록 페이지 URL**은 사용자가 계정의 사용자 관리를 지원하는 OAuth 2.0 공급자에 대한 계정을 만들고 구성하는 데 사용할 수 있는 페이지를 가리킵니다. 이 예에서 자리 표시자를 사용하도록 사용자는 자신의 계정을 만들거나 구성하지 않습니다.
 
-![Add authorization server][api-management-add-authorization-server-1]
+![권한 부여 서버 추가][api-management-add-authorization-server-1]
 
-Next, specify **Authorization endpoint URL** and **Token endpoint URL**.
+그런 다음 **권한 부여 끝점 URL**및**토큰 끝점 URL**을 지정합니다.
 
-![Authorization server][api-management-add-authorization-server-1a]
+![권한 부여 서버][api-management-add-authorization-server-1a]
 
-These values can be retrieved from the **App Endpoints** page of the AAD application you created for the developer portal. To access the endpoints navigate to the **Configure** tab for the AAD application and click **View endpoints**.
+이 값은 개발자 포털에 대해 만든 AAD 응용 프로그램의 **앱 끝점** 페이지에서 검색할 수 있습니다. 끝점에 액세스하려면 AAD 응용 프로그램에 대한 **구성**탭으로 이동하고 **끝점 보기**를 클릭합니다.
 
-![Application][api-management-aad-devportal-application]
+![응용 프로그램][api-management-aad-devportal-application]
 
-![View endpoints][api-management-aad-view-endpoints]
+![끝점 보기][api-management-aad-view-endpoints]
 
-Copy the **OAuth 2.0 authorization endpoint** and paste it into the **Authorization endpoint URL** textbox.
+**OAuth 2.0 권한 부여 끝점**을 복사하여 **권한 부여 끝점 URL** 텍스트 상자에 붙여넣습니다.
 
-![Add authorization server][api-management-add-authorization-server-2]
+![권한 부여 서버 추가][api-management-add-authorization-server-2]
 
-Copy the **OAuth 2.0 token endpoint** and paste it into the **Token endpoint URL** textbox.
+**OAuth 2.0 토큰 끝점**을 복사하여 **토큰 끝점 URL** 텍스트 상자에 붙여넣습니다.
 
-![Add authorization server][api-management-add-authorization-server-2a]
+![권한 부여 서버 추가][api-management-add-authorization-server-2a]
 
-In addition to pasting in the token endpoint, add an additional body parameter named **resource** and for the value use the **App Id URI** from the AAD application for the backend service that was created when the Visual Studio project was published.
+토큰 끝점에 붙여넣기 외에도 **리소스**라는 추가 본문 매개 변수를 추가하고 값으로 Visual Studio 프로젝트를 게시할 때 만들어진 백 엔드 서비스에 대한 AAD 응용 프로그램에서 **앱 ID URI**를 사용합니다.
 
-![App Id URI][api-management-aad-sso-uri]
+![앱 ID URI][api-management-aad-sso-uri]
 
-Next, specify the client credentials. These are the credentials for the resource you want to access, in this case the backend service.
+다음으로 클라이언트 자격 증명을 지정합니다. 액세스할 리소스의 자격 증명이며,이 경우 백 엔드 서비스입니다.
 
-![Client credentials][api-management-client-credentials]
+![클라이언트 자격 증명][api-management-client-credentials]
 
-To get the **Client Id**, navigate to the **Configure** tab of the AAD application for the backend service and copy the **Client Id**.
+**클라이언트 ID**를 가져오려면 백 엔드 서비스에 대한 AAD 응용 프로그램의 **구성** 탭으로 이동하여 **클라이언트 ID**를 복사합니다.
 
-To get the **Client Secret** click the **Select duration** drop-down in the **Keys** section and specify an interval. In this example 1 year is used.
+**클라이언트 암호**를 가져오려면, **키** 섹션의 **기간 선택** 드롭다운을 클릭하고 간격을 지정합니다. 이 예제에서는 1년을 사용합니다.
 
-![Client ID][api-management-aad-client-id]
+![클라이언트 ID][api-management-aad-client-id]
 
-Click **Save** to save the configuration and display the key. 
+**저장**을 클릭하여 구성을 저장하고 키를 표시합니다.
 
->[AZURE.IMPORTANT] Make a note of this key. Once you close the Azure Active Directory configuration window, the key cannot be displayed again.
+>[AZURE.IMPORTANT] 이 키를 기록해 둡니다. Azure Active Directory 구성 창을 닫으면 키를 다시 표시할 수 없습니다.
 
-Copy the key to the clipboard, switch back to the publisher portal, paste the key into the **Client Secret** textbox, and click **Save**.
+키를 클립보드에 복사하고, 게시자 포털로 다시 전환하고 키를 **클라이언트 암호** 텍스트 상자에 붙여넣은 후 **저장**을 클릭합니다.
 
-![Add authorization server][api-management-add-authorization-server-3]
+![권한 부여 서버 추가][api-management-add-authorization-server-3]
 
-Immediately following the client credentials is an authorization code grant. Copy this authorization code and switch back to your Azure AD developer portal application configure page, and paste the authorization grant into the **Reply URL** field, and click **Save** again.
+클라이언트 자격 증명 바로 다음이 인증 코드 권한입니다. 이 권한 부여 코드를 복사하고 Azure AD 개발자 포털 응용 프로그램 구성 페이지로 다시 전환하여 권한 부여를 **회신 URL** 필드에 붙여넣고 **저장**을 다시 클릭합니다.
 
-![Reply URL][api-management-aad-reply-url]
+![회신 URL][api-management-aad-reply-url]
 
-The next step is to configure the permissions for the developer portal AAD application. Click **Application Permissions** and check the box for **Read directory data**. Click **Save** to save this change, and then click **Add application**.
+개발자 포털 AAD 응용 프로그램에 대한 권한 구성이 다음 단계입니다. **응용 프로그램 사용 권한**을 클릭하고 **디렉터리 데이터 읽기** 확인란을 선택합니다. **저장**을 클릭하여 이 변경 내용을 저장한 다음 **응용 프로그램 추가**를 클릭합니다.
 
-![Add permissions][api-management-add-devportal-permissions]
+![권한 추가][api-management-add-devportal-permissions]
 
-Click the search icon, type **APIM** into the Starting with box, select **APIMAADDemo**, and click the check mark to save.
+검색 아이콘을 클릭하고 형식**APIM**을 시작 상자에 입력하고, **APIMAADDemo**를 선택하고 확인 표시를 클릭하여 저장합니다.
 
-![Add permissions][api-management-aad-add-app-permissions]
+![권한 추가][api-management-aad-add-app-permissions]
 
-Click **Delegated Permissions** for **APIMAADDemo** and check the box for **Access APIMAADDemo**, and click **Save**. This allows the developer portal application to access the backend service.
+**APIMAADDemo**에 대해 **권한 위임**을 클릭하고 **APIMAADDemo 액세스** 확인란을 선택하고 **저장**을 클릭합니다. 이렇게 하면 개발자 포털 응용 프로그램이 백 엔드 서비스에 액세스할 수 있습니다.
 
-![Add permissions][api-management-aad-add-delegated-permissions]
+![권한 추가][api-management-aad-add-delegated-permissions]
 
-## <a name="enable-oauth-2.0-user-authorization-for-the-calculator-api"></a>Enable OAuth 2.0 user authorization for the Calculator API
+## 계산기 API에 대해 OAuth 2.0 사용자 권한 부여 사용
 
-Now that the OAuth 2.0 server is configured, you can specify it in the security settings for your API. This step is demonstrated in the video starting at 14:30.
+이제 OAuth 2.0 서버가 구성되었으므로 API에 대한 보안 설정을 지정할 수 있습니다. 이 단계는 14분 30초에 시작되는 비디오에서 보여 줍니다.
 
-Click **APIs** in the left menu, and click  **Calculator** to view and configure its settings.
+왼쪽 메뉴에서 **API**를 클릭하고 **계산기**를 클릭하여 해당 설정을 보고 구성합니다.
 
-![Calculator API][api-management-calc-api]
+![계산기 API][api-management-calc-api]
 
-Navigate to the **Security** tab, check the **OAuth 2.0** checkbox, select the desired authorization server from the **Authorization server** drop-down, and click **Save**.
+**보안** 탭으로 이동하고 **OAuth 2.0** 확인란을 선택한 다음, 원하는 권한 부여 서버를 **권한 부여 서버** 드롭다운에서 선택하고 **저장**을 클릭합니다.
 
-![Calculator API][api-management-enable-aad-calculator]
+![계산기 API][api-management-enable-aad-calculator]
 
-## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Successfully call the Calculator API from the developer portal
+## 개발자 포털에서 계산기 API를 성공적으로 호출
 
-Now that the OAuth 2.0 authorization is configured on the API, its operations can be successfully called from the developer center. THis step is demonstrated in the video starting at 15:00.
+이제 OAuth 2.0 권한 부여가 API에서 구성되었으므로, 개발자 센터에서 해당 작업을 성공적으로 호출할 수 있습니다. 이 단계는 15분에 시작되는 비디오에서 보여 줍니다.
 
-Navigate back to the **Add two integers** operation of the calculator service in the developer portal and click **Try it**. Note the new item in the **Authorization** section corresponding to the authorization server you just added.
+개발자 포털에서 계산기 서비스의 **두 개의 정수 추가**로 다시 이동하여 **사용해 보세요**를 클릭합니다. 방금 추가한 권한 부여 서버에 해당하는 **권한 부여** 섹션의 새 항목을 참고합니다.
 
-![Calculator API][api-management-calc-authorization-server]
+![계산기 API][api-management-calc-authorization-server]
 
-Select **Authorization code** from the authorization drop-down list and enter the credentials of the account to use. If you are already signed in with the account you may not be prompted.
+권한 부여 드롭다운 목록에서 **권한 부여 코드**를 선택하고 사용할 계정 자격 증명을 입력합니다. 이미 이 계정으로 로그인한 경우 메시지가 나타나지 않을 수 있습니다.
 
-![Calculator API][api-management-devportal-authorization-code]
+![계산기 API][api-management-devportal-authorization-code]
 
-Click **Send** and note the **Response status** of **200 OK** and the results of the operation in the response content.
+**보내기**를 클릭하고 **200 확인**의 **응답 상태** 및 응답 내용에 대한 작업의 결과를 참고합니다.
 
-![Calculator API][api-management-devportal-response]
+![계산기 API][api-management-devportal-response]
 
-## <a name="configure-a-desktop-application-to-call-the-api"></a>Configure a desktop application to call the API
+## API를 호출하도록 데스크톱 응용 프로그램 구성
 
-The next procedure in the video starts at 16:30 and configures a simple desktop application to call the API. The first step is to register the desktop application in Azure AD and give it access to the directory and to the backend service. At 18:25 there is a demonstration of the desktop application calling an operation on the calculator API.
+비디오의 다음 절차는 16분 30초부터 시작하며 API를 호출하는 간단한 데스크톱 응용 프로그램을 구성합니다. Azure AD에서 데스크톱 응용 프로그램을 등록하고 디렉터리와 백 엔드 서비스에 액세스 권한을 부여하는 것이 첫 번째 단계입니다. 18분 25초에 계산기 API에 대한 작업을 호출하는 데스크톱 응용 프로그램의 데모가 시작됩니다.
 
-## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configure a JWT validation policy to pre-authorize requests
+## 미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성
 
-The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
+이 비디오에서 최종 절차는 20분 48초에 시작하며 [JWT의 유효성 검사](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰의 유효성을 검사하는 방법을 보여 줍니다. 요청의 유효성을 JWT 정책으로 검사하지 않은 경우, 요청은 API 관리로 차단되며 백 엔드를 따라 전달되지 않습니다.
 
     <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
         <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
@@ -362,11 +361,11 @@ The final procedure in the video starts at 20:48 and shows you how to use the [V
         </required-claims>
     </validate-jwt>
 
-For another demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
+이 정책 구성 및 사용에 대한 다른 데모는 [클라우드 표지 에피소드 177: 추가 API 관리 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)을 참고하여 13분 50초로 빨리 감기합니다. 15분으로 빨리 감기하여 정책 편집기에 구성된 정책을 본 다음 18분 50초로 빨리 감기하여 필수 권한 부여 토큰 포함 및 제외 모두의 경우로 개발자 포털에서 작업 호출의 데모를 볼 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
--   Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
--   For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md) and [Connect via VPN or ExpressRoute](api-management-howto-setup-vpn.md).
+## 다음 단계
+-	API 관리에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management)를 확인합니다.
+-	백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](api-management-howto-mutual-certificates.md) 및 [VPN 또는 Express 경로를 통해 연결](api-management-howto-setup-vpn.md)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -414,11 +413,7 @@ For another demonstration of configuring and using this policy, see [Cloud Cover
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Manage your first API]: api-management-get-started.md
+[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
+[첫 번째 API 관리]: api-management-get-started.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

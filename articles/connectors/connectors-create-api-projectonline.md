@@ -1,10 +1,10 @@
 <properties
 pageTitle="ProjectOnline | Microsoft Azure"
-description="Create Logic apps with Azure App service. Project Online is a flexible online solution for project portfolio management (PPM) and everyday work from Microsoft. Delivered through Office 365, Project Online enables organizations to get started quickly with powerful project management capabilities to plan, prioritize, and manage projects and project portfolio investments—from almost anywhere on almost any device."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Azure 앱 서비스로 논리 앱을 만듭니다. Project Online은 PPM(프로젝트 포트폴리오 관리) 및 Microsoft의 일상 업무를 위한 유연한 온라인 솔루션입니다. 조직에서는 Office 365를 통해 지원되는 Project Online을 통해 강력한 프로젝트 관리 기능을 신속하게 시작하여 어디서든지 모든 장치의 프로젝트와 프로젝트 포트폴리오 투자를 계획하고 우선 순위를 정하며 관리할 수 있습니다."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,509 +17,505 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# ProjectOnline 커넥터 시작
 
-# <a name="get-started-with-the-projectonline-connector"></a>Get started with the ProjectOnline connector
+Project Online은 PPM(프로젝트 포트폴리오 관리) 및 Microsoft의 일상 업무를 위한 유연한 온라인 솔루션입니다. 조직에서는 Office 365를 통해 지원되는 Project Online을 통해 강력한 프로젝트 관리 기능을 신속하게 시작하여 어디서든지 모든 장치의 프로젝트와 프로젝트 포트폴리오 투자를 계획하고 우선 순위를 정하며 관리할 수 있습니다.
 
-Project Online is a flexible online solution for project portfolio management (PPM) and everyday work from Microsoft. Delivered through Office 365, Project Online enables organizations to get started quickly with powerful project management capabilities to plan, prioritize, and manage projects and project portfolio investments—from almost anywhere on almost any device.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## 트리거 및 작업
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+ProjectOnline 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
-The ProjectOnline connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+ ProjectOnline 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
 
- The ProjectOnline connector has the following action(s) and/or trigger(s) available:
+### ProjectOnline 작업
+다음 작업을 수행할 수 있습니다.
 
-### <a name="projectonline-actions"></a>ProjectOnline actions
-You can take these action(s):
-
-|Action|Description|
+|작업|설명|
 |--- | ---|
-|[ListProjects](connectors-create-api-projectonline.md#listprojects)|Lists the projects in your project online site|
-|[CreateProject](connectors-create-api-projectonline.md#createproject)|Creates a new project in your project online site|
-|[CreateTask](connectors-create-api-projectonline.md#createtask)|Creates a new task in you project|
-|[CreateResource](connectors-create-api-projectonline.md#createresource)|Creates an Enterprise Resources in your project online site|
-|[ListTasks](connectors-create-api-projectonline.md#listtasks)|Lists the published tasks in a project|
-|[CheckoutProject](connectors-create-api-projectonline.md#checkoutproject)|Checks out a project in your site|
-|[PublishProject](connectors-create-api-projectonline.md#publishproject)|Check in and publish and existing project in your site|
-### <a name="projectonline-triggers"></a>ProjectOnline triggers
-You can listen for these event(s):
+|[ListProjects](connectors-create-api-projectonline.md#listprojects)|Project Online 사이트에 프로젝트 나열|
+|[CreateProject](connectors-create-api-projectonline.md#createproject)|Project Online 사이트에 새 프로젝트 만들기|
+|[CreateTask](connectors-create-api-projectonline.md#createtask)|프로젝트에 새 작업 만들기|
+|[CreateResource](connectors-create-api-projectonline.md#createresource)|Project Online 사이트에 엔터프라이즈 리소스 만들기|
+|[ListTasks](connectors-create-api-projectonline.md#listtasks)|프로젝트에 게시된 작업 나열|
+|[CheckoutProject](connectors-create-api-projectonline.md#checkoutproject)|사이트에서 프로젝트 확인|
+|[PublishProject](connectors-create-api-projectonline.md#publishproject)|사이트에서 기존 프로젝트 확인 및 게시|
+### ProjectOnline 트리거
+다음 이벤트를 수신할 수 있습니다.
 
-|Trigger | Description|
+|트리거 | 설명|
 |--- | ---|
-|When a new project is created|Triggers a flow whenever a new project is created|
-|When a new resource is created|Triggers a new flow when a new resource is created|
-|When a new task is created|Triggers a flow when a new task is created|
+|새 프로젝트를 만든 경우|새 프로젝트를 만들 때마다 흐름 트리거|
+|새 리소스를 만든 경우|새 리소스를 만든 경우 새 흐름 트리거|
+|새 작업을 만든 경우|새 작업을 만든 경우 흐름 트리거|
 
 
-## <a name="create-a-connection-to-projectonline"></a>Create a connection to ProjectOnline
-To create Logic apps with ProjectOnline, you must first create a **connection** then provide the details for the following properties: 
+## ProjectOnline에 대한 연결 만들기
+ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다.
 
-|Property| Required|Description|
+|속성| 필수|설명|
 | ---|---|---|
-|Token|Yes|Provide ProjectOnline Credentials|
+|위임|예|ProjectOnline 자격 증명 제공|
 
->[AZURE.INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
+>[AZURE.INCLUDE [ProjectOnline에 대한 연결을 만드는 단계](../../includes/connectors-create-api-projectonline.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
 
-## <a name="reference-for-projectonline"></a>Reference for ProjectOnline
-Applies to version: 1.0
+## ProjectOnline에 대한 참조
+적용 버전: 1.0
 
-## <a name="onnewproject"></a>OnNewProject
-When a new project is created: Triggers a flow whenever a new project is created 
+## OnNewProject
+새 프로젝트를 만든 경우: 새 프로젝트를 만들 때마다 흐름 트리거
 
-```GET: /trigger/_api/ProjectData/Projects``` 
+```GET: /trigger/_api/ProjectData/Projects```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="onnewresource"></a>OnNewResource
-When a new resource is created: Triggers a new flow when a new resource is created 
+## OnNewResource
+새 리소스를 만든 경우: 새 리소스를 만든 경우 새 흐름 트리거
 
-```GET: /trigger/_api/ProjectData/Resources``` 
+```GET: /trigger/_api/ProjectData/Resources```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|Name|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="onnewtask"></a>OnNewTask
-When a new task is created: Triggers a flow when a new task is created 
+## OnNewTask
+새 작업을 만든 경우: 새 작업을 만든 경우 흐름 트리거
 
-```GET: /trigger/_api/ProjectData/Tasks``` 
+```GET: /trigger/_api/ProjectData/Tasks```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="listprojects"></a>ListProjects
-List projects: Lists the projects in your project online site 
+## ListProjects
+프로젝트 나열: Project Online 사이트에 프로젝트 나열
 
-```GET: /_api/ProjectServer/Projects``` 
+```GET: /_api/ProjectServer/Projects```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="createproject"></a>CreateProject
-Creates new project: Creates a new project in your project online site 
+## CreateProject
+새 프로젝트 만들기: Project Online 사이트에 새 프로젝트 만들기
 
-```POST: /_api/ProjectServer/Projects``` 
+```POST: /_api/ProjectServer/Projects```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
-|proj| |yes|body|none|New project to create|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
+|proj| |yes|body|없음|만들 새 프로젝트|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
 |403|ForbIDden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="createtask"></a>CreateTask
-Creates new task: Creates a new task in you project 
+## CreateTask
+새 작업 만들기: 프로젝트에 새 작업 만들기
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add``` 
+```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
-|project_id|string|yes|path|none|Unique ID of the project to add the task to|
-|task| |yes|body|none|New task to add to the project|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
+|project\_id|string|yes|path|없음|작업을 추가할 프로젝트의 고유 ID|
+|task| |yes|body|없음|프로젝트에 추가할 새 작업|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|Name|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="createresource"></a>CreateResource
-Create new resource: Creates an Enterprise Resources in your project online site 
+## CreateResource
+새 리소스 만들기: Project Online 사이트에 엔터프라이즈 리소스 만들기
 
-```POST: /_api/ProjectServer/EnterpriseResources``` 
+```POST: /_api/ProjectServer/EnterpriseResources```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
-|resource| |yes|body|none|New enterprise resource to add to the project|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
+|resource| |yes|body|없음|프로젝트에 추가할 새 엔터프라이즈 리소스|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="listtasks"></a>ListTasks
-Lists tasks: Lists the published tasks in a project 
+## ListTasks
+작업 나열: 프로젝트에 게시된 작업 나열
 
-```GET: /_api/ProjectServer/Projects('{project_id}')/Tasks``` 
+```GET: /_api/ProjectServer/Projects('{project_id}')/Tasks```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
-|project_id|string|yes|path|none|Unique ID of the project to fetch tasks|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
+|project\_id|string|yes|path|없음|작업을 가져올 프로젝트의 고유 ID|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="checkoutproject"></a>CheckoutProject
-Checkout a project: Checks out a project in your site 
+## CheckoutProject
+프로젝트 확인: 사이트에서 프로젝트 확인
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/checkOut``` 
+```POST: /_api/ProjectServer/Projects('{project_id}')/checkOut```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
-|project_id|string|yes|path|none|Unique ID of the project to add the task to|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
+|project\_id|string|yes|path|없음|작업을 추가할 프로젝트의 고유 ID|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|Name|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="publishproject"></a>PublishProject
-Checkin and publish project: Check in and publish and existing project in your site 
+## PublishProject
+프로젝트 확인 및 게시: 사이트에서 기존 프로젝트 확인 및 게시
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Publish(true)``` 
+```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Publish(true)```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
-|project_id|string|yes|path|none|Unique ID of the project to checkin|
+|siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
+|project\_id|string|yes|path|없음|확인할 프로젝트의 고유 ID|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## 개체 정의 
 
-### <a name="triggerprojectswrapper"></a>TriggerProjectsWrapper
+### TriggerProjectsWrapper
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|value|array|No |
+|value|array|아니요 |
 
 
 
-### <a name="triggerproject"></a>TriggerProject
+### TriggerProject
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|ProjectStartDate|string|No |
-|ProjectFinishDate|string|No |
-|ProjectCreatedDate|string|No |
-|ProjectId|string|No |
-|ProjectModifiedDate|string|No |
-|ProjectType|integer|No |
-|ProjectName|string|No |
+|ProjectStartDate|string|아니요 |
+|ProjectFinishDate|string|아니요 |
+|ProjectCreatedDate|string|아니요 |
+|ProjectId|string|아니요 |
+|ProjectModifiedDate|string|아니요 |
+|ProjectType|정수|아니요 |
+|ProjectName|string|아니요 |
 
 
 
-### <a name="triggerresourceswrapper"></a>TriggerResourcesWrapper
+### TriggerResourcesWrapper
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|value|array|No |
+|value|array|아니요 |
 
 
 
-### <a name="triggerresource"></a>TriggerResource
+### TriggerResource
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|ResourceId|string|No |
-|ResourceBaseCalendar|string|No |
-|ResourceBookingType|integer|No |
-|ResourceCanLevel|boolean|No |
-|ResourceCostPerUse|number|No |
-|ResourceCreatedDate|string|No |
-|ResourceEarliestAvailableFrom|string|No |
-|ResourceEmail|string|No |
-|ResourceInitials|string|No |
-|ResourceIsActive|boolean|No |
-|ResourceIsGeneric|boolean|No |
-|ResourceLatestAvailableTo|string|No |
-|ResourceModifiedDate|string|No |
-|ResourceName|string|No |
-|ResourceStatsuName|string|No |
-|ResourceType|integer|No |
-|TypeDescription|string|No |
-|TypeName|string|No |
+|ResourceId|string|아니요 |
+|ResourceBaseCalendar|string|아니요 |
+|ResourceBookingType|정수|아니요 |
+|ResourceCanLevel|부울|아니요 |
+|ResourceCostPerUse|number|아니요 |
+|ResourceCreatedDate|string|아니요 |
+|ResourceEarliestAvailableFrom|string|아니요 |
+|ResourceEmail|string|아니요 |
+|ResourceInitials|string|아니요 |
+|ResourceIsActive|부울|아니요 |
+|ResourceIsGeneric|부울|아니요 |
+|ResourceLatestAvailableTo|string|아니요 |
+|ResourceModifiedDate|string|아니요 |
+|ResourceName|string|아니요 |
+|ResourceStatsuName|string|아니요 |
+|ResourceType|정수|아니요 |
+|TypeDescription|string|아니요 |
+|TypeName|string|아니요 |
 
 
 
-### <a name="triggertaskswrapper"></a>TriggerTasksWrapper
+### TriggerTasksWrapper
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|value|array|No |
+|value|array|아니요 |
 
 
 
-### <a name="triggertask"></a>TriggerTask
+### TriggerTask
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|ProjectId|string|No |
-|TaskId|string|No |
-|ProjectName|string|No |
-|TaskName|string|No |
-|TaskCreatedDate|string|No |
-|TaskModifieddate|string|No |
-|TaskStartDate|string|No |
-|TaskFinishDate|string|No |
-|TaskPriority|integer|No |
-|TaskIsActive|boolean|No |
+|ProjectId|string|아니요 |
+|TaskId|string|아니요 |
+|ProjectName|string|아니요 |
+|TaskName|string|아니요 |
+|TaskCreatedDate|string|아니요 |
+|TaskModifieddate|string|아니요 |
+|TaskStartDate|string|아니요 |
+|TaskFinishDate|string|아니요 |
+|TaskPriority|정수|아니요 |
+|TaskIsActive|부울|아니요 |
 
 
 
-### <a name="newproject"></a>NewProject
+### NewProject
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|Name|string|Yes |
-|Description|string|No |
-|Start|string|No |
+|이름|string|예 |
+|설명|string|아니요 |
+|시작|string|아니요 |
 
 
 
-### <a name="newreource"></a>NewReource
+### NewReource
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|Name|string|Yes |
-|IsBudget|boolean|No |
-|IsGeneric|boolean|No |
-|IsInactive|boolean|No |
+|Name|string|예 |
+|IsBudget|부울|아니요 |
+|IsGeneric|부울|아니요 |
+|IsInactive|부울|아니요 |
 
 
 
-### <a name="project"></a>Project
+### Project
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|ApprovedStart|string|No |
-|ApprovedEnd|string|No |
-|CheckedOutDate|string|No |
-|CheckOutDescription|string|No |
-|CheckOutId|string|No |
-|CreatedDate|string|No |
-|Id|string|No |
-|IsCheckedOut|boolean|No |
-|LastPublishedDate|string|No |
-|LastSavedDate|string|No |
-|OptimizerDecision|integer|No |
-|PlannerDecision|integer|No |
-|ProjectType|integer|No |
-|Name|string|No |
-|WinprojVersion|string|No |
+|ApprovedStart|string|아니요 |
+|ApprovedEnd|string|아니요 |
+|CheckedOutDate|string|아니요 |
+|CheckOutDescription|string|아니요 |
+|CheckOutId|string|아니요 |
+|CreatedDate|string|아니요 |
+|Id|string|아니요 |
+|IsCheckedOut|부울|아니요 |
+|LastPublishedDate|string|아니요 |
+|LastSavedDate|string|아니요 |
+|OptimizerDecision|정수|아니요 |
+|PlannerDecision|정수|아니요 |
+|ProjectType|정수|아니요 |
+|Name|string|아니요 |
+|WinprojVersion|string|아니요 |
 
 
 
-### <a name="projectswrapper"></a>ProjectsWrapper
+### ProjectsWrapper
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|value|array|No |
+|value|array|아니요 |
 
 
 
-### <a name="newtask"></a>NewTask
+### NewTask
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|parameters|not defined|Yes |
+|매개 변수|정의되지 않음|예 |
 
 
 
-### <a name="taskparameters"></a>TaskParameters
+### TaskParameters
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|Name|string|Yes |
-|Notes|string|No |
-|Start|string|No |
-|Duration|string|No |
+|Name|string|예 |
+|참고 사항|string|아니요 |
+|시작|string|아니요 |
+|기간|string|아니요 |
 
 
 
-### <a name="enterpriseresource"></a>EnterpriseResource
+### EnterpriseResource
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|CanLevel|boolean|No |
-|Code|string|No |
-|CostAccrual|integer|No |
-|CostCenter|string|No |
-|Created|string|No |
-|DefaultBookingType|integer|No |
-|Email|string|No |
-|ExternalId|string|No |
-|Group|string|No |
-|HireDate|string|No |
-|Id|string|No |
-|Initials|string|No |
-|IsActive|boolean|No |
-|IsBudget|boolean|No |
-|IsCheckedOut|boolean|No |
-|IsGeneric|boolean|No |
-|IsTeam|boolean|No |
-|MaterialLabel|string|No |
-|Modified|string|No |
-|Name|string|No |
-|Phonetics|string|No |
-|ResourceType|integer|No |
-|TerminationDate|string|No |
+|CanLevel|부울|아니요 |
+|코드|string|아니요 |
+|CostAccrual|정수|아니요 |
+|CostCenter|string|아니요 |
+|작성자|string|아니요 |
+|DefaultBookingType|정수|아니요 |
+|Email|string|아니요 |
+|ExternalId|string|아니요 |
+|그룹|string|아니요 |
+|HireDate|string|아니요 |
+|Id|string|아니요 |
+|Initials|string|아니요 |
+|IsActive|부울|아니요 |
+|IsBudget|부울|아니요 |
+|IsCheckedOut|부울|아니요 |
+|IsGeneric|부울|아니요 |
+|IsTeam|부울|아니요 |
+|MaterialLabel|string|아니요 |
+|수정자|string|아니요 |
+|Name|string|아니요 |
+|Phonetics|string|아니요 |
+|ResourceType|정수|아니요 |
+|TerminationDate|string|아니요 |
 
 
 
-### <a name="taskswrapper"></a>TasksWrapper
+### TasksWrapper
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|value|array|No |
+|value|array|아니요 |
 
 
 
-### <a name="task"></a>Task
+### 작업
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|Created|string|No |
-|Modified|string|No |
-|Start|string|No |
-|Finish|string|No |
-|Name|string|No |
-|Id|string|No |
-|Priority|integer|No |
-|PercentComplete|integer|No |
-|Notes|string|No |
-|Contact|string|No |
+|작성자|string|아니요 |
+|수정자|string|아니요 |
+|시작|string|아니요 |
+|마침|string|아니요 |
+|Name|string|아니요 |
+|Id|string|아니요 |
+|우선 순위|정수|아니요 |
+|PercentComplete|정수|아니요 |
+|참고 사항|string|아니요 |
+|연락처|string|아니요 |
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## 다음 단계
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

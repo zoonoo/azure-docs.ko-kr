@@ -1,36 +1,33 @@
-### <a name="prerequisites"></a>Prerequisites
-- An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-- An [Azure Blob Storage account](../articles/storage/storage-create-storage-account.md) including the storage account name, and its access key. This information is listed in the properties of the storage account in the Azure portal. Read more about [Azure Storage](../articles/storage/storage-introduction.md).
+### 필수 조건
+- Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+- [Azure Blob 저장소 계정](../articles/storage/storage-create-storage-account.md)은 저장소 계정 이름 및 해당 선택키를 포함합니다. 이 정보는 Azure 포털에서 저장소 계정의 속성에 나열됩니다. [Azure Storage](../articles/storage/storage-introduction.md)에 대해 자세히 읽어봅니다.
 
-Before using your Azure Blob Storage account in a logic app, connect to your Azure Blob Storage account. You can do this easily within your logic app on the Azure  portal.  
+논리 앱에서 Azure Blob 저장소 계정을 사용하기 전에 Azure Blob 저장소 계정에 연결합니다. Azure 포털의 논리 앱 내에서 이 작업을 쉽게 수행할 수 있습니다.
 
-Connect to your Azure Blob Storage account using the following steps:  
+다음 단계를 사용하여 Azure Blob 저장소 계정에 연결합니다.
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "blob" in the search box. Select one of the actions:  
+1. 논리 앱을 만듭니다. 논리 앱 디자이너에서 트리거를 추가하고 동작을 추가합니다. 드롭다운 목록에서 **Microsoft 관리되는 API 표시**를 선택한 다음 검색 상자에 "blob"을 입력합니다. 다음 동작 중 하나를 선택합니다.
 
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
+	![Azure Blob 저장소 연결 만들기 단계](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)
 
-2. If you haven't previously created any connections to Azure storage, you are prompted for the connection details:   
+2. 이전에 Azure Storage에 대한 연결을 만들지 않은 경우 연결 세부 정보를 지정하라는 메시지가 표시됩니다.
 
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/connection-details.png)  
+	![Azure Blob 저장소 연결 만들기 단계](./media/connectors-create-api-azureblobstorage/connection-details.png)
 
-3. Enter the storage account details. Properties with an asterisk are required.
+3. 저장소 계정 세부 정보를 입력합니다. 별표가 있는 속성은 필수 사항입니다.
 
-    | Property | Details |
+	| 속성 | 세부 정보 |
 |---|---|
-| Connection Name * | Enter any name for your connection. |
-| Azure Storage Account Name * | Enter the storage account name. The storage account name is displayed in the storage properties in the Azure portal. |
-| Azure Storage Account Access Key * | Enter the storage account key. The access keys are displayed in the storage properties in the Azure portal. |
+| 연결 이름 * | 연결의 이름을 입력합니다. |
+| Azure 저장소 계정 이름 * | 저장소 계정 이름을 입력하세요. 저장소 계정 이름은 Azure 포털의 저장소 속성에 표시됩니다. |
+| Azure 저장소 계정 액세스 키 * | 저장소 계정 키를 입력합니다. 액세스 키는 Azure 포털의 저장소 속성에 표시됩니다. |
 
-    These credentials are used to authorize your logic app to connect, and access your data. 
+	이러한 자격 증명을 사용하여 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다.
 
-4. Select **Create**.
+4. **만들기**를 선택합니다.
 
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
+5. 연결이 만들어졌는지 확인합니다. 이제 논리 앱의 다른 단계를 진행합니다.
 
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+	![Azure Blob 저장소 연결 만들기 단계](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,230 +1,225 @@
 
 <properties
-    pageTitle="Manage Resource Manager-deployed virtual machine backups | Microsoft Azure"
-    description="Learn how to manage and monitor Resource Manager-deployed virtual machine backups"
-    services="backup"
-    documentationCenter=""
-    authors="trinadhk"
-    manager="shreeshd"
-    editor=""/>
+	pageTitle="Resource Manager로 배포된 가상 컴퓨터 백업 관리 | Microsoft Azure"
+	description="Resource Manager로 배포된 가상 컴퓨터 백업을 관리하고 모니터링하는 방법을 알아봅니다."
+	services="backup"
+	documentationCenter=""
+	authors="trinadhk"
+	manager="shreeshd"
+	editor=""/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    ms.author="jimpark; markgal; trinadhk"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2016"
+	ms.author="jimpark; markgal; trinadhk"/>
 
-
-# <a name="manage-azure-virtual-machine-backups"></a>Manage Azure virtual machine backups
+# Azure 가상 컴퓨터 백업 관리
 
 > [AZURE.SELECTOR]
-- [Manage Azure VM backups](backup-azure-manage-vms.md)
-- [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
+- [Azure VM 백업 관리](backup-azure-manage-vms.md)
+- [클래식 VM 백업 관리](backup-azure-manage-vms-classic.md)
 
-This article provides guidance on managing VM backups, and explains the backup alerts information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of virtual machines, nor does it explain how to protect virtual machines. For a primer on protecting Azure Resource Manager-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
+이 문서는 VM 백업 관리 지침을 제공하며, 포털 대시보드에서 사용할 수 있는 백업 경고 정보를 설명합니다. 복구 서비스 자격 증명 모음이 있는 VM을 사용하는 경우 이 문서의 지침을 적용합니다. 이 문서에서는 가상 컴퓨터 만들기에 대해 다루거나 가상 컴퓨터를 보호하는 방법을 설명하지 않습니다. 복구 서비스 자격 증명을 사용하여 Azure의 Azure Resource Manager로 배포된 VM을 보호하기 위한 입문서는 [먼저 보기: 복구 서비스 자격 증명 모음에 VM 백업](backup-azure-vms-first-look-arm.md)을 참조하세요.
 
-## <a name="manage-vaults-and-protected-virtual-machines"></a>Manage vaults and protected virtual machines
+## 자격 증명 모음 및 보호된 가상 컴퓨터 관리
 
-In the Azure portal, the Recovery Services vault dashboard provides access to information about the vault including:
+Azure 포털에서 복구 서비스 자격 증명 모음 대시보드는 다음을 포함하는 자격 증명 모음에 대한 정보에 액세스를 제공합니다.
 
-- the most recent backup snapshot, which is also the latest restore point <br\>
-- the backup policy <br\>
-- total size of all backup snapshots <br\>
-- number of virtual machines that are protected with the vault <br\>
+- 가장 최근 복원 지점이기도 한 가장 최근 백업 스냅숏 <br>
+- 백업 정책 <br>
+- 백업 스냅숏의 전체 크기 <br>
+- 자격 증명 모음으로 보호되는 가상 컴퓨터의 수 <br>
 
-Many management tasks with a virtual machine backup begin with opening the vault in the dashboard. However, because vaults can be used to protect multiple items (or multiple VMs), to view details about a particular VM, open the vault item dashboard. The following procedure shows you how to open the *vault dashboard* and then continue to the *vault item dashboard*. There are "tips" in both procedures that point out how to add the vault and vault item to the Azure dashboard by using the Pin to dashboard command. Pin to dashboard is a way of creating a shortcut to the vault or item. You can also execute common commands from the shortcut.
+가상 컴퓨터 백업을 사용하는 다양한 관리 작업은 대시보드에서 자격 증명 모음 열기로 시작합니다. 그러나 자격 증명 모음을 사용하여 여러 항목(또는 여러 VM)을 보호할 수 있으므로 특정 VM에 대한 세부 정보를 보려면 자격 증명 모음 항목 대시보드를 열어야 합니다. 다음 절차는 *자격 증명 모음 대시보드*를 열고 *자격 증명 모음 항목 대시보드*를 진행하는 방법을 보여 줍니다. 절차 모두에는 대시보드 명령에 고정을 사용하여 Azure 대시보드에 자격 증명 모음 및 자격 증명 모음 항목을 추가하는 방법을 알려주는 "팁"이 있습니다. 대시보드에 고정은 자격 증명 모음 또는 항목에 바로 가기를 만드는 방법입니다. 바로 가기에서 일반적인 명령을 실행할 수도 있습니다.
 
->[AZURE.TIP] If you have multiple dashboards and blades open, use the dark-blue slider at the bottom of the window to slide the Azure dashboard back and forth.
+>[AZURE.TIP] 여러 대시보드와 블레이드를 연 경우 창의 아래쪽에 있는 진한 파란색 슬라이더를 사용하여 Azure 대시보드에서 앞뒤로 이동합니다.
 
-![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
+![슬라이더가 있는 전체 보기](./media/backup-azure-manage-vms/bottom-slider.png)
 
-### <a name="open-a-recovery-services-vault-in-the-dashboard:"></a>Open a Recovery Services vault in the dashboard:
+### 대시보드에서 복구 서비스 자격 증명 모음을 엽니다.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**.
+2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **복구 서비스**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **복구 서비스 자격 증명 모음**을 클릭합니다.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![복구 서비스 자격 증명 모음 만들기 1단계](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults are displayed.
+    복구 서비스 자격 증명 모음의 목록이 표시됩니다.
 
-    ![List of Recovery Services vaults ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![복구 서비스 자격 증명 모음 목록](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
 
-    >[AZURE.TIP] If you pin a vault to the Azure Dashboard, that vault is immediately accessible when you open the Azure portal. To pin a vault to the dashboard, in the vault list, right-click the vault, and select **Pin to dashboard**.
+    >[AZURE.TIP] Azure 대시보드에 자격 증명 모음을 고정하는 경우 Azure 포털을 열 경우 해당 자격 증명 모음에 즉시 액세스할 수 있습니다. 대시보드에 자격 증명 모음을 고정하려면 자격 증명 모음 목록에서 자격 증명 모음을 마우스 오른쪽 단추로 클릭하고 **대시보드에 고정**을 선택합니다.
 
-3. From the list of vaults, select the vault to open its dashboard. When you select the vault, the vault dashboard and the **Settings** blade open. In the following image, the **Contoso-vault** dashboard is highlighted.
+3. 자격 증명 모음 목록에서 자격 증명 모음을 선택하여 대시보드를 엽니다. 자격 증명 모음을 선택할 경우 자격 증명 모음 대시보드 및 **설정** 블레이드를 엽니다. 다음 이미지에서 **Contoso-vault** 대시보드가 강조 표시됩니다.
 
-    ![Open vault dashboard and Settings blade](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+    ![자격 증명 모음 대시보드 열기 및 설정 블레이드](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-### <a name="open-a-vault-item-dashboard"></a>Open a vault item dashboard
+### 자격 증명 모음 항목 대시보드 열기
 
-In the previous procedure you opened the vault dashboard. To open the vault item dashboard:
+이전 절차에서 자격 증명 모음 대시보드를 열었습니다. 자격 증명 모음 항목 대시보드를 열려면:
 
-1. In the vault dashboard, on the **Backup Items** tile, click **Azure Virtual Machines**.
+1. 자격 증명 모음 대시보드의 **백업 항목** 타일에서 **Azure 가상 컴퓨터**를 클릭합니다.
 
-    ![Open backup items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![백업 항목 열기 타일](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-    The **Backup Items** blade lists the last backup job for each item. In this example, there is one virtual machine, demovm-markgal, protected by this vault.  
+    **백업 항목** 블레이드에서 각 항목에 대한 마지막 백업 작업을 나열합니다. 이 예제에는 자격 증명이 모음에 의해 보호되는 하나의 가상 컴퓨터인 demovm-markgal이 있습니다.
 
-    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade.png)
+    ![백업 항목 타일](./media/backup-azure-manage-vms/backup-items-blade.png)
 
-    >[AZURE.TIP] For ease of access, you can pin a vault item to the Azure Dashboard. To pin a vault item, in the vault item list, right-click the item and select **Pin to dashboard**.
+    >[AZURE.TIP] 쉽게 액세스하기 위해 자격 증명 모음 항목을 Azure 대시보드에 고정할 수 있습니다. 자격 증명 모음을 고정하려면 자격 증명 모음 항목 목록에서 항목을 마우스 오른쪽 단추로 클릭하고 **대시보드에 고정**을 선택합니다.
 
-2. In the **Backup Items** blade, click the item to open the vault item dashboard.
+2. **백업 항목** 블레이드에서 항목을 클릭하여 자격 증명 모음 항목 대시보드를 엽니다.
 
-    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![백업 항목 타일](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-    The vault item dashboard and its **Settings** blade open.
+    자격 증명 모음 항목 대시보드 및 해당 **설정** 블레이드가 열립니다.
 
-    ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+    ![설정 블레이드에서 백업 항목 대시보드](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    From the vault item dashboard, you can accomplish many key management tasks, such as:
+    자격 증명 모음 항목 대시보드에서 다음과 같은 다양한 키 관리 작업을 완료할 수 있습니다.
 
-    - change policies or create a new backup policy<br\>
-    - view restore points, and see their consistency state <br\>
-    - on-demand backup of a virtual machine <br\>
-    - stop protecting virtual machines <br\>
-    - resume protection of a virtual machine <br\>
-    - delete a backup data (or recovery point) <br\>
-    - [restore a backup (or recovery point)](./backup-azure-arm-restore-vms.md#restore-a-recovery-point)  <br\>
+    - 정책 변경 또는 새 백업 정책 만들기 <br>
+	- 복원 지점 확인 및 해당 일관성 상태 확인 <br>
+	- 가상 컴퓨터의 주문형 백업<br>
+	- 가상 컴퓨터 보호 중지 <br>
+	- 가상 컴퓨터 보호 재개 <br>
+	- 백업 데이터(또는 복구 지점) 삭제 <br>
+	- [백업(또는 복구 지점) 복원](./backup-azure-arm-restore-vms.md#restore-a-recovery-point) <br>
 
-For the following procedures, the starting point is the vault item dashboard.
+다음 절차의 경우 시작점은 자격 증명 모음 항목 대시보드입니다.
 
-## <a name="manage-backup-policies"></a>Manage backup policies
+## 백업 정책 관리
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **All Settings** to open the **Settings** blade.
+1. [자격 증명 모음 항목 대시보드](backup-azure-manage-vms.md#open-a-vault-item-dashboard)에서 **모든 설정**을 클릭하여 **설정** 블레이드를 엽니다.
 
-    ![Backup policy blade](./media/backup-azure-manage-vms/all-settings-button.png)
+    ![백업 정책 블레이드](./media/backup-azure-manage-vms/all-settings-button.png)
 
-2. On the **Settings** blade, click **Backup policy** to open that blade.
+2. **설정** 블레이드에서 **백업 정책**을 클릭하여 해당 블레이드를 엽니다.
 
-    On the blade, the backup frequency and retention range details are shown.
+    블레이드에서 백업 빈도 및 보존 범위 세부 정보가 표시됩니다.
 
-    ![Backup policy blade](./media/backup-azure-manage-vms/backup-policy-blade.png)
+    ![백업 정책 블레이드](./media/backup-azure-manage-vms/backup-policy-blade.png)
 
-3. From the **Choose backup policy** menu:
-    - To change policies, select a different policy and click **Save**. The new policy is immediately applied to the vault. <br\>
-    - To create a policy, select **Create New**.
+3. **백업 정책 선택** 메뉴에서:
+    - 정책을 변경하려면 다른 정책을 선택하고 **저장**을 클릭합니다. 자격 증명 모음에 새 정책이 즉시 적용됩니다. <br>
+    - 정책을 만들려는 경우 **새로 만들기**를 선택합니다.
 
-    ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+    ![가상 컴퓨터 백업](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-    For instructions on creating a backup policy, see [Defining a backup policy](backup-azure-manage-vms.md#defining-a-backup-policy).
+    백업 정책을 만드는 지침은 [백업 정책 정의](backup-azure-manage-vms.md#defining-a-backup-policy)를 참조하세요.
 
 [AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 
-## <a name="on-demand-backup-of-a-virtual-machine"></a>On-demand backup of a virtual machine
-You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault. If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.
+## 가상 컴퓨터의 주문형 백업
+보호를 위해 구성한 후에는 가상 컴퓨터의 주문형 백업을 수행할 수 있습니다. 초기 백업이 보류 중인 경우 주문형 백업은 복구 서비스 자격 증명 모음에 가상 컴퓨터의 전체 복사본을 만듭니다. 초기 백업이 완료되면 주문형 백업은 이전 스냅숏에서 복구 서비스 자격 증명 모음에 변경 내용만 보냅니다. 즉, 이후의 백업은 항상 증분형입니다.
 
->[AZURE.NOTE] The retention range for an on-demand backup is the retention value specified for the Daily backup point in the policy. If no Daily backup point is selected, then the weekly backup point is used.
+>[AZURE.NOTE] 주문형 백업에 대한 보존 범위는 정책에서 매일 백업 지점에 대해 지정된 보존 값입니다. 매일 백업 시점을 선택하지 않은 경우 주간 백업 지점을 사용합니다.
 
-To trigger an on-demand backup of a virtual machine:
+가상 컴퓨터의 주문형 백업을 트리거하려면:
 
-- On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Backup now**.
+- [자격 증명 모음 항목 대시보드](backup-azure-manage-vms.md#open-a-vault-item-dashboard)에서 **지금 백업**을 클릭합니다.
 
-    ![Backup now button](./media/backup-azure-manage-vms/backup-now-button.png)
+    ![지금 백업 아이콘](./media/backup-azure-manage-vms/backup-now-button.png)
 
-    The portal makes sure that you want to start an on-demand backup job. Click **Yes** to start the backup job.
+    포털에서는 주문형 백업 작업을 시작하려는지 확인합니다. **예**를 클릭하여 백업 작업을 시작합니다.
 
-    ![Backup now button](./media/backup-azure-manage-vms/backup-now-check.png)
+    ![지금 백업 아이콘](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    The backup job creates a recovery point. The retention range of the recovery point is the same as retention range specified in the policy associated with the virtual machine. To track the progress for the job, in the vault dashboard, click the **Backup Jobs** tile.  
-
-
-## <a name="stop-protecting-virtual-machines"></a>Stop protecting virtual machines
-If you choose to stop protecting a virtual machine, you are asked if you want to retain the recovery points. There are two ways to stop protecting virtual machines:
-- stop all future backup jobs and delete all recovery points, or
-- stop all future backup jobs but leave the recovery points <br/>
-
-There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For information about the cost of leaving the recovery points, see the  [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, you cannot restore the virtual machine.
-
-To stop protection for a virtual machine:
-
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Stop backup**.
-
-    ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button.png)
-
-    The Stop Backup blade opens.
-
-    ![Stop backup blade](./media/backup-azure-manage-vms/stop-backup-blade.png)
-
-2. On the **Stop Backup** blade, choose whether to retain or delete the backup data. The information box provides details about your choice.
-
-    ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
-
-3. If you chose to retain the backup data, skip to step 4. If you chose to delete backup data, confirm that you want to stop the backup jobs and delete the recovery points - type the name of the item.
-
-    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
-
-    If you aren't sure of the item name, hover over the exclamation mark to view the name. Also, the name of the item is under **Stop Backup** at the top of the blade.
-
-4. Optionally provide a **Reason** or **Comment**.
-
-5. To stop the backup job for the current item, click  ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
-
-    A notification message lets you know the backup jobs have been stopped.
-
-    ![Confirm stop protection](./media/backup-azure-manage-vms/stop-message.png)
+    백업 작업에서 복구 지점이 생성됩니다. 복구 지점의 재방문 주기 범위는 가상 컴퓨터와 연결된 정책에 지정된 보존 범위와 같습니다. 작업에 대한 진행률을 추적하려면 자격 증명 모음 대시보드에서 **백업 작업** 타일을 클릭합니다.
 
 
-## <a name="resume-protection-of-a-virtual-machine"></a>Resume protection of a virtual machine
-If the **Retain Backup Data** option was chosen when protection for the virtual machine was stopped, then it is possible to resume protection. If the **Delete Backup Data** option was chosen, then protection for the virtual machine cannot resume.
+## 가상 컴퓨터 보호 중지
+가상 컴퓨터에 대한 보호를 중지하려는 경우 복구 지점을 보존할지를 묻는 메시지가 표시됩니다. 두 가지 방법으로 가상 컴퓨터 보호를 정지할 수 있습니다.
+- 모든 미래의 백업 작업을 정지하고 모든 복구 지점을 삭제, 또는
+- 모든 미래의 백업 작업을 정지하고 복구 지점을 유지 <br/>
 
-To resume protection for the virtual machine
+저장소에서 복구 지점을 유지하는 데 관련된 비용이 듭니다. 그러나 복구 지점을 유지하는 장점은 나중에 원하는 경우 가상 컴퓨터를 복원할 수 있다는 것입니다. 복구 지점을 유지하는 비용에 대한 자세한 내용은 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/backup/)를 참조하세요. 모든 복구 지점을 삭제하려는 경우 가상 컴퓨터를 복원할 수 없습니다.
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Resume backup**.
+가상 컴퓨터에 대한 보호를 중지하려면:
 
-    ![Resume protection](./media/backup-azure-manage-vms/resume-backup-button.png)
+1. [자격 증명 모음 항목 대시보드](backup-azure-manage-vms.md#open-a-vault-item-dashboard)에서 **백업 중지**를 클릭합니다.
 
-    The Backup Policy blade opens.
+    ![백업 중지 단추](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-    >[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
+    백업 중지 블레이드가 열립니다.
 
-2. Follow the steps in [Change policies or Create a new backup policy](backup-azure-manage-vms.md#change-policies-or-create-a-new-backup-policy), to assign the policy for the virtual machine.
+    ![백업 중지 블레이드](./media/backup-azure-manage-vms/stop-backup-blade.png)
 
-    Once the backup policy is applied to the virtual machine, you see the following message.
+2. **백업 중지** 블레이드에서 백업 데이터를 유지할지 혹은 삭제할지 여하를 선택합니다. 정보 상자에서는 선택한 항목에 대한 세부 정보를 제공합니다.
 
-    ![Successfully protected VM](./media/backup-azure-manage-vms/success-message.png)
+    ![보호 중지](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
-## <a name="delete-backup-data"></a>Delete Backup data
-You can delete the backup data associated with a virtual machine during the **Stop backup** job, or anytime after the backup job has completed. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you cannot choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
+3. 백업 데이터를 유지하기로 선택한 경우 4단계로 건너뜁니다. 백업 데이터 삭제를 삭제하기로 선택하고 백업 작업을 중지하고 복구 지점을 삭제하려는 경우 항목의 이름을 입력합니다.
 
-The following procedure assumes the Backup job for the virtual machine has been stopped or disabled. Once the Backup job is disabled, the **Resume backup** and **Delete backup** options are available in the vault item dashboard.
+    ![백업 확인](./media/backup-azure-manage-vms/item-verification-box.png)
 
-![Resume and delete buttons](./media/backup-azure-manage-vms/resume-delete-buttons.png)
+    항목 이름을 모르는 경우 이름을 보려면 느낌표 위로 마우스를 가져갑니다. 또한 항목의 이름은 블레이드 맨 위에 있는 **백업 중지** 아래에 있습니다.
 
-To delete backup data on a virtual machine with the *Backup disabled*:
+4. 필요에 따라 **이유** 또는 **주석**을 제공합니다.
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Delete backup**.
+5. 현재 항목에 대한 백업 작업을 중지하려면 ![백업 중지 단추](./media/backup-azure-manage-vms/stop-backup-button-blue.png)을 클릭
 
-    ![VM Type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+    알림 메시지를 통해 백업 작업이 중지되었음을 알 수 있습니다.
 
-    The **Delete Backup Data** blade opens.
-
-    ![VM Type](./media/backup-azure-manage-vms/delete-backup-blade.png)
-
-2. Type the name of the item to confirm you want to delete the recovery points.
-
-    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
-
-    If you aren't sure of the item name, hover over the exclamation mark to view the name. Also, the name of the item is under **Delete Backup Data** at the top of the blade.
-
-3. Optionally provide a **Reason** or **Comment**.
-
-4. To delete the backup data for the current item, click  ![Stop backup button](./media/backup-azure-manage-vms/delete-button.png)
-
-    A notification message lets you know the backup data has been deleted.
+    ![보호 중지 확인](./media/backup-azure-manage-vms/stop-message.png)
 
 
-## <a name="next-steps"></a>Next steps
+## 가상 컴퓨터 보호 재개
+가상 컴퓨터에 대한 보호가 중지되었을 때 **백업 데이터 보관** 옵션을 선택한 경우 보호를 다시 시작할 수 있습니다. **백업 데이터 삭제** 옵션을 선택한 경우 가상 컴퓨터에 대한 보호를 다시 시작할 수 없습니다.
 
-For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). For information on monitoring events, see [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md).
+가상 컴퓨터에 대한 보호를 다시 시작하려면
+
+1. [자격 증명 모음 항목 대시보드](backup-azure-manage-vms.md#open-a-vault-item-dashboard)에서 **백업 다시 시작**을 클릭합니다.
+
+    ![보호 다시 시작](./media/backup-azure-manage-vms/resume-backup-button.png)
+
+    백업 정책 블레이드가 열립니다.
+
+    >[AZURE.NOTE] 가상 컴퓨터를 다시 보호하는 경우 가상 컴퓨터가 처음에 보호된 정책과 다른 정책을 선택할 수 있습니다.
+
+2. [정책 변경 또는 새 백업 정책 만들기](backup-azure-manage-vms.md#change-policies-or-create-a-new-backup-policy)의 단계에 따라 가상 컴퓨터에 대한 정책을 할당합니다.
+
+    백업 정책이 가상 컴퓨터에 적용되면 다음과 같은 메시지가 표시됩니다.
+
+    ![성공적으로 보호된 VM](./media/backup-azure-manage-vms/success-message.png)
+
+## 백업 데이터 삭제
+**백업 중지** 작업 중에 또는 백업이 완료된 후 언제든지 가상 컴퓨터와 연결된 백업 데이터를 삭제할 수 있습니다. 복구 지점을 삭제하기 전에 며칠 또는 몇 주 기다리는 것이 도움이 될 수도 있습니다. 백업 데이터를 삭제하는 경우 복구 지점을 복원하는 작업과 달리 특정 복구 지점을 삭제하도록 선택할 수 없습니다. 백업 데이터를 삭제하려는 경우 항목에 연결된 모든 복구 지점을 삭제합니다.
+
+다음 절차에서는 가상 컴퓨터에 대한 백업 작업이 중지 또는 비활성화되었다고 가정합니다. 백업 작업을 사용하지 않는 경우 자격 증명 모음 항목 대시보드에서 **백업 다시 시작** 및 **백업 삭제** 옵션을 사용할 수 있습니다.
+
+![다시 시작 및 삭제 단추](./media/backup-azure-manage-vms/resume-delete-buttons.png)
+
+*백업을 사용하지 않는* 가상 컴퓨터의 백업 데이터를 삭제하려면:
+
+1. [자격 증명 모음 항목 대시보드](backup-azure-manage-vms.md#open-a-vault-item-dashboard)에서 **백업 삭제**를 클릭합니다.
+
+    ![VM 유형](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+    **백업 데이터 삭제** 블레이드가 열립니다.
+
+    ![VM 유형](./media/backup-azure-manage-vms/delete-backup-blade.png)
+
+2. 항목의 이름을 입력하여 복구 지점을 삭제한다고 확인합니다.
+
+    ![백업 확인](./media/backup-azure-manage-vms/item-verification-box.png)
+
+    항목 이름을 모르는 경우 이름을 보려면 느낌표 위로 마우스를 가져갑니다. 또한 항목의 이름은 블레이드 맨 위에 있는 **백업 데이터 삭제** 아래에 있습니다.
+
+3. 필요에 따라 **이유** 또는 **주석**을 제공합니다.
+
+4. 현재 항목에 대한 백업 데이터를 삭제하려면 ![백업 중지 단추](./media/backup-azure-manage-vms/delete-button.png)을 클릭
+
+    알림 메시지를 통해 백업 데이터가 삭제되었음을 알 수 있습니다.
 
 
+## 다음 단계
 
-<!--HONumber=Oct16_HO2-->
+복구 지점에서 가상 컴퓨터를 다시 만드는 방법에 대한 내용은 [Azure VM 복원](backup-azure-restore-vms.md)을 확인하세요. 가상 컴퓨터를 보호하는 방법에 대한 정보가 필요한 경우 [먼저 보기: 복구 서비스 자격 증명 모음에 VM 백업](backup-azure-vms-first-look-arm.md)을 참조하세요. 이벤트 모니터링에 대한 자세한 내용은 [Azure 가상 컴퓨터 백업에 대한 경고 모니터링](backup-azure-monitor-vms.md)을 참조하세요.
 
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="What is Azure Data Catalog? | Microsoft Azure"
-   description="This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
+   pageTitle="Azure Data Catalog란? | Microsoft Azure"
+   description="이 문서는 해당 기능 및 다룰 문제를 포함하여 Microsoft Azure Data Catalog의 개요를 제공합니다. Azure 데이터 카탈로그는 분석가부터 데이터 과학자, 개발자에 이르는 모든 사용자가 데이터 원본을 등록, 검색, 이해, 사용할 수 있는 기능을 제공합니다."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,67 +16,62 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
+# Azure 데이터 카탈로그란?
 
-# <a name="what-is-azure-data-catalog?"></a>What is Azure Data Catalog?
+Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 수 있게 해주면서 사용자가 필요한 데이터 원본을 검색하고 찾는 데이터 원본을 이해할 수 있도록 하는 완전히 관리되는 클라우드 서비스입니다. Azure 데이터 카탈로그는 분석가부터 데이터 과학자, 개발자에 이르는 모든 사용자가 데이터 원본을 검색, 이해, 사용할 수 있는 기능을 제공합니다. 데이터 카탈로그는 메타데이터 및 주석의 크라우드소싱 모델을 포함하며 모든 사용자가 데이터의 커뮤니티 및 culture를 만드는 지식에 영향을 줄 수 있도록 합니다.
 
-Azure Data Catalog is a fully managed cloud service that enables users to discover the data sources they need, and to understand the data sources they find, while helping organizations get more value from their existing investments. Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to discover, understand, and consume data sources. Data Catalog includes a crowdsourcing model of metadata and annotations, and allows all users to contribute their knowledge to build a community and culture of data.
+## 데이터 소비자에 대한 검색 과제
 
-## <a name="discovery-challenges-for-data-consumers"></a>Discovery challenges for data consumers
+일반적으로 엔터프라이즈 데이터 원본을 검색하는 일은 기초 지식에 기반한 유기적인 프로세스였습니다. 이것은 자사의 정보 자산에서 최고의 가치를 얻고자 하는 회사에게 수 많은 과제를 안겨 줍니다.
 
-Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. This presents numerous challenges for companies wanting to get the most value from their information assets.
+-	사용자는 데이터 원본이 다른 프로세스의 일부로 접촉되지 않는 한 데이터 원본이 있다는 사실을 알지 못합니다. 데이터 원본이 등록되는 중앙 위치가 없습니다.
+-	사용자가 데이터 원본의 위치를 알지 못하면 클라이언트 응용 프로그램을 사용하여 데이터에 연결할 수 없습니다. 데이터 소비 환경에서는 사용자가 연결 문자열이나 경로를 알고 있어야 합니다.
+-	사용자가 데이터 원본의 위치를 알지 못하면 데이터의 의도된 용도를 알 수 없습니다. 데이터 원본과 설명서가 다른 위치에 있으며 다른 환경을 통해 소비됩니다.
+-	사용자는 정보 자산에 대한 질문이 있으면 해당 데이터를 담당하는 전문가나 팀을 찾아 오프라인으로 참가하도록 해야 합니다. 이 때 용도에 대한 전문가의 관점을 가진 데이터와 데이터 간의 명시적 연결은 없습니다.
+-  사용자가 데이터 원본에 대한 액세스 권한을 요청하는 프로세스를 이해하지 않는 한, 데이터 원본 및 해당 설명서를 검색해도 필요한 데이터에 액세스할 수 없습니다.
 
--   Users are not aware that data sources exist unless they come into contact with it as part of another process; there is no central location where data sources are registered.
--   Unless a user knows the location of a data source, he cannot connect to the data using a client application; data consumption experiences require users to know the connection string or path.
--   Unless a user knows the location of a data source's documentation, he cannot understand the intended uses of the data; data sources and documentation live in different places and are consumed through different experiences.
--   If a user has questions about an information asset, he must locate the expert or team responsible for the data and engage those experts offline; there is no explicit connection between data and those with expert perspectives on its use.
--  Unless a user understands the process for requesting access to the data source, discovering the data source and its documentation still does not enable him to access the data he requires.
+## 데이터 생산자에 대한 검색 과제
 
-## <a name="discovery-challenges-for-data-producers"></a>Discovery challenges for data producers
+데이터 소비자가 이러한 과제에 직면하고 있는 반면에 정보 자산의 생성 및 유지 관리를 책임지는 사용자는 자신만의 과제에 직면하고 있습니다.
 
-While data consumers face these challenges, users responsible for producing and maintaining information assets face challenges of their own.
+-	데이터 원본에 설명이 포함된 메타데이터로 주석을 추가하는 것은 종종 시간 낭비입니다. 클라이언트 응용 프로그램은 일반적으로 데이터 원본에 저장된 설명을 무시합니다.
+-	데이터 원본에 대한 설명서 생성은 종종 시간 낭비입니다. 설명서를 데이터 원본과 동기화시키는 것은 지속적인 책임이며, 설명서는 대개 오래된 것으로 간주되기 때문에 사용자가 이를 신뢰하지 않습니다.
+- 데이터 원본에 대한 액세스를 제한하고 데이터 소비자에게 액세스를 요청하는 방법을 알고 있는지 확인하는 것이 지속적인 문제입니다.
 
--   Annotating data sources with descriptive metadata is often a lost effort; client applications typically ignore descriptions stored in the data source.
--   Creating documentation for data sources is often a lost effort; keeping documentation in sync with the data source is an ongoing responsibility, and users lack trust in documentation as it is often perceived as being out of date.
-- Restricting access to the data source, and ensuring that data consumers know how to request access is an ongoing challenge.
+데이터 원본에 대한 설명서 생성 및 유지 관리는 복잡하고 시간 소모적입니다. 이 설명서를 데이터 원본을 사용하는 모든 이가 사용할 수 있도록 만들어야 하는 과제는 이보다 더 복잡하고 시간 소모적입니다.
 
-Creating and maintaining documentation for a data source is complex and time-consuming. The challenge of making that documentation readily available to everyone who uses the data source is often even more so.
+이 모든 과제가 합쳐지면 엔터프라이즈 데이터의 사용과 이해를 독려 및 홍보하고자 하는 회사에게 큰 장애물이 됩니다.
 
-When combined, these challenges present a significant barrier for companies who want to encourage and promote the use and understanding of enterprise data.
+## Azure Data Catalog는 다음 과제에 도움이 될 수 있습니다.
 
-## <a name="azure-data-catalog-can-help"></a>Azure Data Catalog can help
+데이터 카탈로그는 이러한 문제를 해결하고 기업이 기존 정보 자산으로부터 최고의 가치를 얻어낼 수 있도록 설계되었습니다. 데이터 카탈로그는 관리하는 데이터가 필요한 사용자가 데이터 원본을 쉽게 검색하고 이해할 수 있게 하여 도움이 됩니다.
 
-Data Catalog is designed to address these problems and to enable enterprises to get the most value from their existing information assets. Data Catalog helps by making data sources easily discoverable, and understandable by the users who need the data they manage.
+데이터 카탈로그는 데이터 원본을 등록할 수 있는 클라우드 기반 서비스를 제공합니다. 데이터는 기존 위치에 그대로 있지만 메타데이터의 복사본과 데이터 원본 위치에 대한 참조가 데이터 카탈로그에 추가됩니다. 이 메타데이터는 또한 인덱싱되므로 각 데이터의 원본을 검색을 통해 쉽게 찾을 수 있으며 검색한 사용자가 이해할 수 있습니다.
 
-Data Catalog provides a cloud-based service into which data source can be registered. The data remains in in its existing location, but a copy of the metadata is added to Data Catalog, along with a reference to the data source location. This metadata is also indexed to make each data source easily discoverable via search, and understandable to users who discover it.
+일단 데이터 소스가 등록되면 등록을 실행하는 사용자나 엔터프라이즈 내 다른 사용자에 의해 메타데이터를 보강할 수 있습니다. 모든 사용자는 설명, 태그 또는 설명서와 데이터 원본 액세스 요청과 같은 기타 메타데이터를 제공하여 데이터 원본에 주석을 달 수 있습니다. 이 설명이 포함된 메타데이터는 데이터 원본으로부터 등록된 구조적 메타데이터(예: 열 이름과 데이터 형식)를 보완합니다.
 
-Once a data source has been registered, its metadata can then be enriched, either by the user who performed the registration, or by other users in the enterprise. Any user can annotate a data source by providing descriptions, tags, or other metadata, such as documentation and processes for requesting data source access. This descriptive metadata supplements the structural metadata (such as column names and data types) registered from the data source.
+데이터 원본과 데이터 원본의 용도를 찾고 이해하는 것이 원본을 등록하는 주요 목적입니다. 기업 사용자가 업무(비즈니스 인텔리전스, 응용 프로그램 개발, 데이터 과학 또는 적절한 데이터가 필요한 기타 모든 작업)를 위해 데이터가 필요할 경우 데이터 카탈로그 검색 환경을 사용하여 요구 사항과 일치하는 데이터를 빠르게 찾고 데이터를 파악하여 목적에 대한 적합성 여부를 평가하며 자신이 선택한 도구에서 데이터 원본을 열어 해당 데이터를 사용할 수 있습니다. 데이터 카탈로그에서는 사용자들이 이미 등록된 데이터 원본에 태그를 지정하고 관련 문서를 작성하며 주석을 추가하는 한편 카탈로그 사용자 커뮤니티에서 검색, 이해, 사용할 수 있는 새 데이터 원본을 등록하여 카탈로그에 기여할 수 있습니다.
 
-Discovering and understanding data sources and their use is the primary purpose of registering the sources. When enterprise users need data for their efforts (which could be business intelligence, application development, data science, or any other task where the right data is required) they can use the Data Catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for purpose, and consume that data by opening the data source in their tool of choice. At the same time, Data Catalog allows users to contribute to the catalog, by tagging, documenting, and annotating data sources that have already been registered, and by registering new data sources which can then be discovered, understood, and consumed by the community of catalog users.
+![데이터 카탈로그 기능](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-![Data Catalog Capabilities](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
+## 데이터 카탈로그 시작
 
-## <a name="get-started-with-data-catalog"></a>Get started with Data Catalog
+데이터 카탈로그를 오늘 시작하려면 [www.azuredatacatalog.com](https://www.azuredatacatalog.com)을 방문하세요.
 
-To get started with Data Catalog today, visit [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+시작 가이드는 [여기](data-catalog-get-started.md)에서 제공됩니다.
 
-A getting started guide is available [here](data-catalog-get-started.md).
+## 데이터 카탈로그에 대한 자세한 정보
 
-## <a name="learn-more-about-data-catalog"></a>Learn more about Data Catalog
+데이터 카탈로그의 기능에 대한 자세한 내용은 다음을 참조하세요.
 
-To learn more about the capabilities of Data Catalog, see:
+* [데이터 원본을 등록하는 방법](data-catalog-how-to-register.md)
+* [데이터 원본을 검색하는 방법](data-catalog-how-to-discover.md)
+* [데이터 원본에 주석을 추가하는 방법](data-catalog-how-to-annotate.md)
+* [데이터 원본을 문서화하는 방법](data-catalog-how-to-documentation.md)
+* [데이터 원본에 연결하는 방법](data-catalog-how-to-connect.md)
+* [빅 데이터로 작업하는 방법](data-catalog-how-to-big-data.md)
+* [데이터 자산을 관리하는 방법](data-catalog-how-to-manage.md)
+* [비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)
+* [질문과 대답](data-catalog-frequently-asked-questions.md)
 
-* [How to register data sources](data-catalog-how-to-register.md)
-* [How to discover data sources](data-catalog-how-to-discover.md)
-* [How to annotate data sources](data-catalog-how-to-annotate.md)
-* [How to document data sources](data-catalog-how-to-documentation.md)
-* [How to connect to data sources](data-catalog-how-to-connect.md)
-* [How to work with big data](data-catalog-how-to-big-data.md)
-* [How to manage data assets](data-catalog-how-to-manage.md)
-* [How to set up the Business Glossary](data-catalog-how-to-business-glossary.md)
-* [Frequently Asked Questions](data-catalog-frequently-asked-questions.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!-----HONumber=AcomDC_0921_2016-->

@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="Azure RemoteApp Troubleshooting - Application launch and connection failures  | Microsoft Azure" 
-    description="Learn how to troubleshoot issues with starting and connecting to applications in Azure RemoteApp." 
+    pageTitle="Azure RemoteApp 문제 해결 - 응용 프로그램 시작 및 연결 실패 | Microsoft Azure" 
+    description="Azure RemoteApp의 응용 프로그램 시작 및 연결 문제에 대한 해결 방법을 알아봅니다." 
     services="remoteapp" 
-    documentationCenter="" 
+	documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -17,45 +17,41 @@
 
 
 
-
-#<a name="troubleshoot-azure-remoteapp---application-launch-and-connection-failures"></a>Troubleshoot Azure RemoteApp - Application launch and connection failures 
+#Azure RemoteApp 문제 해결 - 응용 프로그램 시작 및 연결 실패 
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-Applications hosted in Azure RemoteApp can fail to launch for a few different reasons. This article describes various reasons and error messages users might receive when trying to launch applications. It also talks about connection failures. (But this article does not describe issues when signing into the Azure RemoteApp client.)  
+Azure RemoteApp에 호스트되는 응용 프로그램은 몇 가지 이유로 시작에 실패할 수 있습니다. 이 문서에서는 다양한 이유와 사용자가 응용 프로그램을 시작하려고 할 때 나타날 수 있는 오류 메시지에 대해 설명합니다. 또한 연결 실패에 대해서도 설명합니다. 그러나 Azure RemoteApp 클라이언트에 로그인할 때 발생하는 문제에 대해서는 이 문서에서 설명하지 않습니다.
 
-Read on for information about common error messages due to app launch and connection failures.
+앱 시작 및 연결 실패로 인한 일반 오류 메시지에 대한 정보를 읽어 보세요.
 
-##<a name="we're-getting-you-set-up...-try-again-in-10-minutes."></a>We're getting you set up... Try again in 10 minutes.
+##설정 중입니다... 10분 후에 다시 시도하세요.
 
-This error means Azure RemoteApp is scaling up to meet the capacity need of your users. In the background more Azure RemoteApp VM instances are being created to handle the capacity needs of your users. Typically this takes around five minutes but can take up to 10 minutes. Sometimes, this doesn't happen fast enough and resources are needed immediately. For example a 9 AM scenario where many users need to use your app in Azure RemoteAppn at the same time. If this happens to you we can enable **capacity mode** on the back end. To do this open an Azure Support ticket and or email us at [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com). Be certain to include your subscription ID in the request.  
+이 오류는 Azure RemoteApp이 사용자의 용량 요구에 맞게 확장되고 있음을 의미합니다. 백그라운드에서는 더 많은 Azure RemoteApp VM 인스턴스가 사용자의 용량 요구 사항을 처리하기 위해 만들어지고 있습니다. 일반적으로 5분 정도 걸리지만 최대 10분까지 소요될 수 있습니다. 경우에 따라 신속하게 진행되지 않아 즉시 리소스가 필요할 수 있습니다. 예를 들어 오전 9시에 많은 사용자가 동시에 Azure RemoteAppn에서 앱을 사용해야 할 수 있습니다. 이 경우 백 엔드에서 **용량 모드**를 사용할 수 있습니다. 이렇게 하려면 Azure 지원 티켓을 열거나 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com)으로 메일을 보내세요. 요청에는 반드시 구독 ID를 포함해야 합니다.
 
-![We are getting you set up](./media/remoteapp-apptrouble/ra-apptrouble1.png)
+![설정 중입니다.](./media/remoteapp-apptrouble/ra-apptrouble1.png)
 
-## <a name="could-not-auto-reconnect-to-your-applications,-please-re-launch-your-application"></a>Could not auto-reconnect to your applications, please re-launch your application  
+## 응용 프로그램에 자동으로 다시 연결할 수 없습니다. 응용 프로그램을 다시 시작하세요.  
 
-This error message is often seen if you were using Azure RemoteApp and then put your PC to sleep longer than 4 hours and then woke your PC up and the Azure RemoteApp client attempt to auto reconnect and timeout was exceeded.  Instruct users to navigate back to the application and attempt to open it from the Azure RemoteApp client.
+이 오류 메시지는 Azure RemoteApp 사용 중 4시간 이상 절전 모드 상태였던 PC의 절전 상태를 해제하고, Azure RemoteApp 클라이언트에서 자동으로 다시 연결을 시도하고, 시간 제한이 초과될 때 자주 표시됩니다. 사용자에게 응용 프로그램으로 다시 돌아와서 Azure RemoteApp 클라이언트에서 열도록 지시합니다.
 
-![Could not auto-reconnect to your applications](./media/remoteapp-apptrouble/ra-apptrouble2.png) 
+![응용 프로그램에 자동으로 다시 연결할 수 없습니다.](./media/remoteapp-apptrouble/ra-apptrouble2.png)
 
-## <a name="problems-with-the-temp-profile"></a>Problems with the temp profile 
+## 임시 프로필 문제 
 
-This error occurs when your user profile (User Profile Disk) failed to mount and the user received a temporary profile.  Administrators should navigate to the collection in the Azure portal and then go to the **Sessions** tab and attempt to **Log Off** the user. This will force a full log off of the user session - then have the user attempt to launch an app again. If that fails contact Azure support and or email us at [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com).
+이 오류는 사용자 프로필(사용자 프로필 디스크)을 탑재하지 못하여 사용자가 임시 프로필을 받을 때 발생합니다. 관리자는 Azure 포털에서 컬렉션으로 이동한 다음 **세션** 탭으로 이동하고 사용자를 **로그오프**해야 합니다. 이렇게 하면 사용자 세션이 완전히 로그오프되어 사용자가 앱을 다시 실행할 수 있게 됩니다. 실패한 경우 Azure 지원에 문의하거나 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com)으로 메일을 보내세요.
 
-## <a name="azure-remoteapp-has-stopped-working"></a>Azure RemoteApp has stopped working
+## Azure RemoteApp의 작동이 중지되었습니다.
 
-This error message means the Azure RemoteApp client is having an issue and needs to be restarted. Instruct users to close: select **Close program** and then launch the Azure RemoteApp client again.  If the issue continues open and Azure Support ticket and or email us at [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com).
+이 오류 메시지는 Azure RemoteApp 클라이언트에 문제가 있어 다시 시작해야 함을 의미합니다. 사용자에게 닫도록 지시합니다. **프로그램 닫기**를 선택하고 Azure RemoteApp 클라이언트를 다시 시작합니다. 문제가 계속 발생하면 Azure 지원 티켓을 열거나 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com)으로 메일을 보내세요.
 
-![Azure RemoteApp has stopped working](./media/remoteapp-apptrouble/ra-apptrouble3.png)  
+![Azure RemoteApp의 작동이 중지되었습니다.](./media/remoteapp-apptrouble/ra-apptrouble3.png)
 
-## <a name="an-error-occurred-while-remote-desktop-connection-was-accessing-this-resource.-retry-the-connection-or-contact-your-system-administrator"></a>An error occurred while Remote Desktop Connection was accessing this resource. Retry the connection or contact your system administrator
+## 원격 데스크톱 연결이 이 리소스에 액세스하는 동안 오류가 발생했습니다. 연결을 다시 시도하거나 시스템 관리자에게 문의하십시오.
 
-This is a generic error message - contact Azure support and or email us at [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) so we can investigate. 
+일반 오류 메시지입니다. Azure 지원에 문의하거나 조사할 수 있도록 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com)으로 메일을 보내세요.
 
-![Generic Azure RemoteApp message](./media/remoteapp-apptrouble/ra-apptrouble4.png) 
+![일반 Azure RemoteApp 메시지](./media/remoteapp-apptrouble/ra-apptrouble4.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

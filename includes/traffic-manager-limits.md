@@ -1,10 +1,8 @@
-Resource| Default limit
+리소스| 기본 제한
 ---|---
-Profiles per subscription | 100 <sup>1</sup>
-Endpoints per profile| 200
+구독당 프로필 | 100 <sup>1</sup>
+프로필당 끝점| 200
 
-<sup>1</sup>Contact support in case you need to increase these limits.
+<sup>1</sup>이러한 제한을 늘려야 하는 경우 지원에 문의하세요.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Nov15_HO1-->

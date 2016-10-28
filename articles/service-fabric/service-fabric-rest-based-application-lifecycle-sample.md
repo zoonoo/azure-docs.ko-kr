@@ -1,6 +1,6 @@
 <properties
-   pageTitle="REST-based application lifecycle sample | Microsoft Azure"
-   description="A Microsoft Azure Service Fabric sample that shows the application lifecycle by using the Service Fabric REST interface."
+   pageTitle="REST 기반 응용 프로그램 수명 주기 샘플 | Microsoft Azure"
+   description="서비스 패브릭 REST 인터페이스를 사용하여 응용 프로그램 수명 주기를 보여 주는 Microsoft Azure 서비스 패브릭 샘플입니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -16,46 +16,45 @@
    ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
+# REST 기반 응용 프로그램 수명 주기 샘플
 
-# <a name="rest-based-application-lifecycle-sample"></a>REST-based application lifecycle sample
+이 샘플에서는 REST API 호출을 통해 서비스 패브릭 응용 프로그램 수명 주기를 보여 줍니다. 서비스 패브릭 응용 프로그램 수명 주기에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요.
 
-This sample demonstrates the Service Fabric application lifecycle through REST API calls. For more information on the Service Fabric application lifecycle, see [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).
+이 샘플에서는 다음을 수행합니다.
 
-This sample performs the following:
-
-* Provisions the **WordCount 1.0.0** sample from the WordCount application package in the image store.
-* Displays the list of application types, which includes WordCount 1.0.0.
-* Creates the WordCount application as **fabric:/WordCount**.
-* Displays the list of applications, which includes fabric:/WordCount version 1.0.0.
-* Provisions the 1.1.0 version of the WordCount sample from the **WordCountUpgrade** application package in the image store.
-* Displays the list of application types, which includes both WordCount 1.0.0 and **WordCount 1.1.0**.
-* Upgrades the WordCount application to version 1.1.0.
-* Displays the list of applications, which includes WordCount version 1.1.0, but no longer includes WordCount version 1.0.0.
-* Deletes the WordCount application.
-* Displays the list of applications, which no longer includes fabric:/WordCount.
-* Unprovisions the 1.1.0 version of the WordCount sample.
-* Displays the list of application types, which includes WordCount 1.0.0, but no longer includes WordCount 1.1.0.
-* Unprovisions the 1.0.0 version of the WordCount sample.
-* Displays the list of application types, which no longer includes WordCount.
+* 이미지 저장소의 WordCount 응용 프로그램 패키지에 있는 **WordCount 1.0.0** 샘플을 프로비전합니다.
+* 응용 프로그램 유형 목록을 표시합니다. 응용 프로그램 유형 목록에 WordCount 1.0.0이 포함됩니다.
+* **fabric:/WordCount**로 WordCount 응용 프로그램을 만듭니다.
+* 응용 프로그램 목록을 표시합니다. 응용 프로그램 목록에 fabric:/WordCount 버전 1.0.0이 포함됩니다.
+* 이미지 저장소의 **WordCountUpgrade** 응용 프로그램 패키지에 있는 WordCount 샘플의 1.1.0 버전을 프로비전합니다.
+* WordCount 1.0.0 및 **WordCount 1.1.0** 버전이 모두 포함된 응용 프로그램 유형 목록을 표시합니다.
+* WordCount 응용 프로그램을 버전 1.1.0으로 업그레이드합니다.
+* 응용 프로그램 목록을 표시합니다. 응용 프로그램 목록에 WordCount 버전 1.1.0은 포함되지만 더 이상 WordCount 버전 1.0.0은 포함되지 않습니다.
+* WordCount 응용 프로그램을 삭제합니다.
+* 응용 프로그램 목록을 표시합니다. 응용 프로그램 목록에 더 이상 fabric:/WordCount가 포함되지 않습니다.
+* 1\.1.0 버전의 WordCount 샘플을 프로비전 해제합니다.
+* 응용 프로그램 유형 목록을 표시합니다. 응용 프로그램 유형 목록에 WordCount 1.0.0은 포함되지만 더 이상 WordCount 1.1.0은 포함되지 않습니다.
+* 1\.0.0 버전의 WordCount 샘플을 프로비전 해제합니다.
+* 응용 프로그램 유형 목록을 표시합니다. 응용 프로그램 유형 목록에 WordCount가 포함됩니다.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## 필수 조건
 
-This sample uses the [WordCount sample](http://aka.ms/servicefabricsamples) (found in the **Getting Started** samples). The WordCount sample must be built first, and then two application packages must be copied to the image store.
+이 샘플에서는 [WordCount 샘플](http://aka.ms/servicefabricsamples)(**시작** 샘플에 있음)을 사용합니다. 먼저 WordCount 샘플을 빌드한 후 두 응용 프로그램 패키지를 이미지 저장소에 복사해야 합니다.
 
-|Folder|Description|
+|폴더|설명|
 |------|-----------|
-|WordCount|The WordCount sample application. The **ApplicationManifest.xml** file contains **ApplicationTypeVersion="1.0.0"**.|
-|WordCountUpgrade|The WordCount sample application. The ApplicationManifest.xml file must be changed to **ApplicationTypeVersion="1.1.0"** to allow the application upgrade to occur.|
+|WordCount|WordCount 샘플 응용 프로그램. **ApplicationManifest.xml** 파일은 **ApplicationTypeVersion="1.0.0"**을 포함합니다.|
+|WordCountUpgrade|WordCount 샘플 응용 프로그램. 응용 프로그램 업그레이드가 발생하도록 허용하려면 ApplicationManifest.xml 파일을 **ApplicationTypeVersion="1.1.0"**으로 변경해야 합니다.|
 
-To create the application packages and copy them to the image store, take the following steps:
+응용 프로그램 패키지를 만들고 이미지 저장소에 복사하려면 다음 단계를 따릅니다.
 
-1. Copy **C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug** to **C:\Temp\WordCount**. This creates the WordCount application package.
-2. Copy C:\Temp\WordCount to **C:\Temp\WordCountUpgrade**. This creates the **WordCountUpgrade application** package.
-3. Open **C:\Temp\WordCountUpgrade\ApplicationManifest.xml** in a text editor.
-4. In the **ApplicationManifest** element, change the **ApplicationTypeVersion** attribute to **"1.1.0"**.  This updates the version number of the application.
-5. Save the changed ApplicationManifest.xml file.
-6. Run the following PowerShell script as an administrator to copy the applications to the image store:
+1. **C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug**를 **C:\\Temp\\WordCount**에 복사합니다. 그러면 WordCount 응용 프로그램이 생성됩니다.
+2. C:\\Temp\\WordCount를 **C:\\Temp\\WordCountUpgrade**에 복사합니다. 그러면 **WordCountUpgrade 응용 프로그램** 패키지가 만들어집니다.
+3. 텍스트 편집기에서 **C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml**을 엽니다.
+4. **ApplicationManifest** 요소에서 **ApplicationTypeVersion** 특성을 **"1.1.0"**으로 변경합니다. 그러면 응용 프로그램의 버전 번호가 업데이트됩니다.
+5. 변경된 ApplicationManifest.xml 파일을 저장합니다.
+6. 다음 PowerShell 스크립트를 관리자로 실행하여 응용 프로그램을 이미지 저장소에 복사합니다.
 
 ```powershell
 # Deploy the WordCount and upgrade applications
@@ -72,11 +71,11 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWor
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
 ```
 
-When the PowerShell script finishes, this application is ready to run.
+PowerShell 스크립트가 완료되면 이 응용 프로그램을 실행할 준비가 완료됩니다.
 
-## <a name="example"></a>Example
+## 예
 
-The following example demonstrates the Service Fabric application lifecycle.
+다음 예에서는 서비스 패브릭 응용 프로그램 수명 주기를 보여 줍니다.
 
 ```csharp
 using System;
@@ -315,7 +314,7 @@ namespace ServiceFabricRestCaller
             request.ContentType = "application/json; charset=utf-8";
 
             // Create the byte array that will become the request body.
-            string requestBody = "{\"ApplicationTypeBuildPath\":\"" + applicationTypeBuildPath + "\"}";
+            string requestBody = "{"ApplicationTypeBuildPath":"" + applicationTypeBuildPath + ""}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
@@ -380,7 +379,7 @@ namespace ServiceFabricRestCaller
             HttpStatusCode statusCode;
 
             // Create the byte array that will become the request body.
-            string requestBody = "{\"ApplicationTypeVersion\":\"" + versionToUnprovision + "\"}";
+            string requestBody = "{"ApplicationTypeVersion":"" + versionToUnprovision + ""}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
@@ -522,10 +521,10 @@ namespace ServiceFabricRestCaller
             request.Method = "POST";
 
             // Create the byte array that will become the request body.
-            string requestBody = "{\"Name\":\"fabric:/WordCount\"," +
-                                    "\"TypeName\":\"WordCount\"," +
-                                    "\"TypeVersion\":\"1.0.0\"," +
-                                    "\"ParameterList\":[]}";
+            string requestBody = "{"Name":"fabric:/WordCount"," +
+                                    ""TypeName":"WordCount"," +
+                                    ""TypeVersion":"1.0.0"," +
+                                    ""ParameterList":[]}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
@@ -645,20 +644,20 @@ namespace ServiceFabricRestCaller
 
 
             // Create the Health Policy.
-            string requestBody = "{\"Name\":\"fabric:/WordCount\"," +
-                                    "\"TargetApplicationTypeVersion\":\"1.1.0\"," +
-                                    "\"Parameters\":[]," +
-                                    "\"UpgradeKind\":1," +
-                                    "\"RollingUpgradeMode\":1," +
-                                    "\"UpgradeReplicaSetCheckTimeoutInSeconds\":5," +
-                                    "\"ForceRestart\":true," +
-                                    "\"MonitoringPolicy\":" +
-                                    "{\"FailureAction\":1," +
-                                    "\"HealthCheckWaitDurationInMilliseconds\":\"5000\"," +
-                                    "\"HealthCheckStableDurationInMilliseconds\":\"10000\"," +
-                                    "\"HealthCheckRetryTimeoutInMilliseconds\":\"20000\"," +
-                                    "\"UpgradeTimeoutInMilliseconds\":\"60000\"," +
-                                    "\"UpgradeDomainTimeoutInMilliseconds\":\"30000\"}}";
+            string requestBody = "{"Name":"fabric:/WordCount"," +
+                                    ""TargetApplicationTypeVersion":"1.1.0"," +
+                                    ""Parameters":[]," +
+                                    ""UpgradeKind":1," +
+                                    ""RollingUpgradeMode":1," +
+                                    ""UpgradeReplicaSetCheckTimeoutInSeconds":5," +
+                                    ""ForceRestart":true," +
+                                    ""MonitoringPolicy":" +
+                                    "{"FailureAction":1," +
+                                    ""HealthCheckWaitDurationInMilliseconds":"5000"," +
+                                    ""HealthCheckStableDurationInMilliseconds":"10000"," +
+                                    ""HealthCheckRetryTimeoutInMilliseconds":"20000"," +
+                                    ""UpgradeTimeoutInMilliseconds":"60000"," +
+                                    ""UpgradeDomainTimeoutInMilliseconds":"30000"}}";
 
             // Create the byte array that will become the request body.
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
@@ -706,12 +705,8 @@ namespace ServiceFabricRestCaller
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-[Service Fabric application lifecycle](service-fabric-application-lifecycle.md)
+[서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

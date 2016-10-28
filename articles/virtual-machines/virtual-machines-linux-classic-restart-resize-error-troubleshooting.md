@@ -1,6 +1,6 @@
 <properties
-   pageTitle="VM restarting or resizing issues | Microsoft Azure"
-   description="Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure"
+   pageTitle="VM 재시작 또는 크기 조정 문제 | Microsoft Azure"
+   description="Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="Deland-Han"
@@ -17,77 +17,72 @@
    ms.devlang="na"
    ms.author="delhan"/>
 
-
-# <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
+# Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결
 
 > [AZURE.SELECTOR]
-- [Classic](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [Resource Manager](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
+- [클래식](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
+- [리소스 관리자](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
-When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size.
+중지된 Azure 가상 컴퓨터(VM)를 시작하거나, 기존 Azure AM의 크기를 조정하려다 접하는 일반적인 오류는 할당 오류입니다. 이런 오류는 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없을 때 발생합니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Collect audit logs
+## 감사 로그 수집
 
-To start troubleshooting, collect the audit logs to identify the error associated with the issue.
+문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 감사 로그를 수집합니다.
 
-In the Azure portal, click **Browse** > **Virtual machines** > _your Linux virtual machine_ > **Settings** > **Audit logs**.
+Azure 포털에서 **찾아보기** > **가상 컴퓨터** > _Linux 가상 컴퓨터_ > **설정** > **감사 로그**를 클릭합니다.
 
-## <a name="issue:-error-when-starting-a-stopped-vm"></a>Issue: Error when starting a stopped VM
+## 문제: 중지된 VM 시작 시 오류
 
-You try to start a stopped VM but get an allocation failure.
+중지된 VM을 시작하려는데 할당 오류가 발생했습니다.
 
-### <a name="cause"></a>Cause
+### 원인
 
-The request to start the stopped VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not have free space available to fulfill the request.
+중지된 VM을 시작하기 위한 요청은 클라우드 서비스를 호스트하는 원본 클러스터에서 시도되어야 합니다. 하지만, 클러스터에 요청을 수행하는 데 사용할 여유 공간이 없습니다.
 
-### <a name="resolution"></a>Resolution
+### 해결 방법
 
-* Create a new cloud service and associate it with either a region or a region-based virtual network, but not an affinity group.
+* 새 클라우드 서비스를 만들어서 지역 또는 지역 기반 가상 네트워크와 연결하지만 선호도 그룹과는 연결하지 않습니다.
 
-* Delete the stopped VM.
+* 중지된 VM을 삭제합니다.
 
-* Recreate the VM in the new cloud service by using the disks.
+* 디스크를 사용하여 새 클라우드 서비스에 VM을 다시 만듭니다.
 
-* Start the re-created VM.
+* 다시 만든 VM을 시작합니다.
 
-If you get an error when trying to create a new cloud service, either retry at a later time or change the region for the cloud service.
+새 클라우드 서비스를 만들려다 오류가 발생하면, 나중에 다시 시도하거나 클라우드 서비스의 지역을 변경합니다.
 
-> [AZURE.IMPORTANT] The new cloud service will have a new name and VIP, so you will need to change that information for all the dependencies that use that information for the existing cloud service.
+> [AZURE.IMPORTANT] 새 클라우드 서비스는 새로운 이름과 VIP를 갖게 되므로, 기존 클라우드 서비스의 해당 정보를 사용하는 모든 종속성에 대해 해당 정보를 변경해야 합니다.
 
-## <a name="issue:-error-when-resizing-an-existing-vm"></a>Issue: Error when resizing an existing VM
+## 문제: 기존 VM 재시작 시 오류
 
-You try to resize an existing VM but get an allocation failure.
+기존 VM의 크기를 조정하려는데 할당 오류가 발생했습니다.
 
-### <a name="cause"></a>Cause
+### 원인
 
-The request to resize the VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not support the requested VM size.
+VM 크기를 조정하기 위한 요청은 클라우드 서비스를 호스트하는 원본 클러스터에서 시도되어야 합니다. 하지만, 클러스터가 요청한 VM 크기를 지원하지 않습니다.
 
-### <a name="resolution"></a>Resolution
+### 해결 방법
 
-Reduce the requested VM size, and retry the resize request.
+요청한 VM 크기를 줄이고 크기 조정 요청을 다시 시도합니다.
 
-* Click **Browse all** > **Virtual machines (classic)** > _your virtual machine_ > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+* **모두 찾아보기** > **가상 컴퓨터(클래식)** > _사용자의 가상 컴퓨터_ > **설정** > **크기**를 클릭합니다. 자세한 단계는 [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)을 참조하세요.
 
-If it is not possible to reduce the VM size, follow these steps:
+VM 크기를 줄이는 것이 가능하지 않으면, 다음 단계를 수행합니다.
 
-  * Create a new cloud service, ensuring it is not linked to an affinity group and not associated with a virtual network that is linked to an affinity group.
+  * 새 클라우드 서비스를 만들어서, 선호도 그룹에 연결되지 않도록 하고 선호도 그룹에 연결된 가상 네트워크와 연결되지 않도록 합니다.
 
-  * Create a new, larger-sized VM in it.
+  * 그 안에 큰 규모의 VM을 새로 만듭니다.
 
-You can consolidate all your VMs in the same cloud service. If your existing cloud service is associated with a region-based virtual network, you can connect the new cloud service to the existing virtual network.
+모든 VM을 동일한 클라우드 서비스로 통합할 수 있습니다. 기존 클라우드 서비스가 지역 기반 가상 네트워크와 연결된 경우, 새 클라우드 서비스를 기존 가상 네트워크에 연결할 수 있습니다.
 
-If the existing cloud service is not associated with a region-based virtual network, then you have to delete the VMs in the existing cloud service, and recreate them in the new cloud service from their disks. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
+기존 클라우드 서비스가 지역 기반 가상 네트워크에 연결되지 않은 경우에는, 기존 클라우드 서비스의 VM을 삭제하고 디스크에서 새 클라우드 서비스에 VM을 다시 만들어야 합니다. 하지만, 새 클라우드 서비스가 새 이름과 VIP를 갖게 되므로, 기존 클라우드 서비스에 이 정보를 사용하는 모든 종속성에 대해 해당 정보를 업데이트해야 합니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+Azure에서 새 Linux VM을 만들 때 문제가 발생하면 [Azure에서 새 Linux 가상 컴퓨터 생성 관련 배포 문제 해결](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md)을 참조하세요.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

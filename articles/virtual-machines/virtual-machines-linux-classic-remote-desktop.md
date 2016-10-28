@@ -1,124 +1,119 @@
 <properties
-    pageTitle="Remote Desktop to a Linux VM | Microsoft Azure"
-    description="Learn how to install and configure Remote Desktop to connect to a Microsoft Azure Linux VM"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="SuperScottz"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management"/>
+	pageTitle="Linux VM에 대한 원격 데스크톱 | Microsoft Azure"
+	description="원격 데스크톱을 설치 및 구성하여 Microsoft Azure Linux VM에 연결하는 방법을 알아봅니다."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="SuperScottz"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/01/2016"
-    ms.author="mingzhan"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/01/2016"
+	ms.author="mingzhan"/>
 
 
-
-#<a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Using Remote Desktop to connect to a Microsoft Azure Linux VM
+#원격 데스크톱을 사용하여 Microsoft Azure Linux VM에 연결
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-##<a name="overview"></a>Overview
+##개요
 
-RDP (Remote Desktop Protocol) is a proprietary protocol used for Windows. How can we use RDP to connect to a Linux VM (virtual machine) remotely?
+RDP(원격 데스크톱 프로토콜)는 Windows에 사용되는 독점 프로토콜입니다. 어떻게 RDP를 사용하여 Linux VM에 원격으로 연결할 수 있을까요?
 
-This guidance will give you the answer! It will help you to install and config xrdp on your Microsoft Azure Linux VM, and you are able to connect it with Remote Desktop from a Windows machine. We will use Linux VM running Ubuntu or OpenSUSE as the example in this guidance.
+이 설명서에서 답을 줍니다! Microsoft Azure Linux VM에 xrdp를 설치 및 구성하는 데 도움이 되며, Windows 컴퓨터에서 원격 데스크톱을 사용하여 연결할 수 있습니다. 이 지침에서는 Ubuntu 또는 OpenSUSE를 실행하는 Linux VM을 예로 사용합니다.
 
-Xrdp is an open source RDP server, which allows you to connect your Linux server with Remote Desktop from a Windows machine. It performs much nicer than VNC (Virtual Network Computing). VNC has this streak of “JPEG” quality and slow behavior, whereas RDP is fast and crystal clear.
-
-
-> [AZURE.NOTE] You must already have an Microsoft Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](virtual-machines-linux-classic-createportal.md).
+xrdp는 Windows 컴퓨터에서 원격 데스크톱으로 Linux 서버에 연결할 수 있도록 해주는 공개 소스 RDP 서버입니다. VNC(Virtual Network Computing)보다 더 강력한 성능을 구현합니다. VNC는 "JPEG" 품질이며 느린 동작인 반면 RDP는 신속하고 맑습니다.
 
 
-##<a name="create-endpoint-for-remote-desktop"></a>Create endpoint for Remote Desktop
-We will use the default endpoint 3389 for Remote Desktop in this doc. So set up 3389 endpoint as Remote Desktop to your Linux VM like below:
+> [AZURE.NOTE] Linux를 실행하는 Microsoft Azure VM이 있어야 합니다. Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-classic-createportal.md)를 참조하세요.
 
 
-![image](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
+##원격 데스크톱에 대한 끝점 만들기
+이 문서에서는 원격 데스크톱에 대해 기본 끝점 3389를 사용합니다. 따라서 아래와 같은 Linux VM에 원격 데스크톱으로 3389 끝점을 설정합니다.
 
 
-if you didn't know how to set up endpoint to your VM, see [guidance](virtual-machines-linux-classic-setup-endpoints.md).
+![이미지](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
 
 
-##<a name="install-gnome-desktop"></a>Install Gnome Desktop
-
-Connect to your Linux VM through putty, and install `Gnome Desktop`.
-
-For Ubuntu, use:
-
-    #sudo apt-get update
-    #sudo apt-get install ubuntu-desktop
+VM에 대한 끝점을 설정하는 방법을 모르는 경우 [지침](virtual-machines-linux-classic-setup-endpoints.md)을 참조하세요.
 
 
-For OpenSUSE, use:
+##Gnome 데스크톱 설치
 
-    #sudo zypper install gnome-session
+putty를 통해 Linux VM에 연결하고 `Gnome Desktop`을 설치합니다.
 
-##<a name="install-xrdp"></a>Install xrdp
+Ubuntu의 경우 다음을 사용합니다.
 
-For Ubuntu, use:
+	#sudo apt-get update
+	#sudo apt-get install ubuntu-desktop
 
-    #sudo apt-get install xrdp
 
-For OpenSUSE, use:
+OpenSUSE의 경우 다음을 사용합니다.
 
-> [AZURE.NOTE] Update the OpenSUSE version with the version you are using into below command, below is an example command for `OpenSUSE 13.2`.
+	#sudo zypper install gnome-session
 
-    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+##xrdp 설치
+
+Ubuntu의 경우 다음을 사용합니다.
+
+	#sudo apt-get install xrdp
+
+OpenSUSE의 경우 다음을 사용합니다.
+
+> [AZURE.NOTE] 아래 명령을 통해 OpenSUSE 버전을 사용 중인 버전으로 업데이트합니다. 아래는 `OpenSUSE 13.2`에 대한 예제 명령입니다.
+
+	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
 
 
-##<a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Start xrdp and set xdrp service at boot-up
+##xrdp를 시작하고 부팅에 xdrp 서비스를 설정합니다.
 
-For OpenSUSE, use:
+OpenSUSE의 경우 다음을 사용합니다.
 
-    #sudo systemctl start xrdp
-    #sudo systemctl enable xrdp
+	#sudo systemctl start xrdp
+	#sudo systemctl enable xrdp
 
-For Ubuntu, xrdp will be started and eanbled at boot-up automatically after installation.
+Ubuntu의 경우 설치 후 부팅 시 자동으로 xrdp가 시작되어 사용됩니다.
 
-##<a name="using-xfce-if-you-are-using-ubuntu-version-later-than-ubuntu-12.04lts"></a>Using xfce if you are using Ubuntu version later than Ubuntu 12.04LTS
+##Ubuntu 12.04LTS보다 최신 Ubuntu 버전을 사용하는 경우 xfce 사용
 
-Because current xrdp could not support the Gnome Desktop from Ubuntu version later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
+현재 xrdp는 Ubuntu 12.04LTS보다 최신 Ubuntu 버전에서 Gnome 데스크톱을 지원하지 않으므로 `xfce` 데스크톱을 대신 사용합니다.
 
-Install `xfce`, use:
+다음을 사용하여 `xfce`를 설치합니다.
 
     #sudo apt-get install xubuntu-desktop
 
-Then enable `xfce`, use:
+다음을 사용하여 `xfce`를 사용하도록 설정합니다.
 
     #echo xfce4-session >~/.xsession
 
-Edit the config file `/etc/xrdp/startwm.sh`, use:
+다음을 사용하여 구성 파일 `/etc/xrdp/startwm.sh`를 편집합니다.
 
     #sudo vi /etc/xrdp/startwm.sh   
 
-Add line `xfce4-session` before the line `/etc/X11/Xsession`.
+`/etc/X11/Xsession` 줄 앞에 `xfce4-session` 줄을 추가합니다.
 
-Restart xrdp service, use:
+xrdp 서비스를 다시 시작하고 다음을 사용합니다.
 
     #sudo service xrdp restart
 
 
-##<a name="connect-your-linux-vm-from-a-windows-machine"></a>Connect your Linux VM from a Windows machine
-In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure classic portal and click `Connect` to connect your Linux VM, you will see below login window:
+##Windows 컴퓨터에서 Linux VM 연결
+Windows 컴퓨터에서 원격 데스크톱 클라이언트를 시작하고 Linux VM DNS 이름을 입력하거나, Azure 클래식 포털에서 VM의 `Dashboard`로 이동하고 `Connect`를 클릭하여 Linux VM을 연결하면 아래 로그인 창이 표시됩니다.
 
-![image](./media/virtual-machines-linux-classic-remote-desktop/no2.png)
+![이미지](./media/virtual-machines-linux-classic-remote-desktop/no2.png)
 
-Login with the `user` & `password` of your Linux VM, and enjoy the Remote Desktop from your Microsoft Azure Linux VM right now!
-
-
-##<a name="next"></a>Next
-For more information to use xrdp, you could refer [here](http://www.xrdp.org/).
+Linux VM의 `user` 및 `password`를 사용하여 로그인한 다음 Microsoft Azure Linux VM에서 지금 바로 원격 데스크톱을 즐기세요!
 
 
+##다음
+xrdp를 사용하는 방법에 대한 자세한 내용은 [여기](http://www.xrdp.org/)를 참조할 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Azure Container Service container management with Docker Swarm | Microsoft Azure"
-   description="Deploy containers to a Docker Swarm in Azure Container Service"
+   pageTitle="Docker Swarm을 통해 Azure 컨테이너 서비스 컨테이너 관리 | Microsoft Azure"
+   description="Azure 컨테이너 서비스에서 Docker Swarm에 컨테이너 배포"
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, 컨테이너, 마이크로 서비스, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,22 +16,21 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/13/2016"
-   ms.author="timlt"/>
+   ms.author="nepeters"/>
 
+# Docker Swarm을 통한 컨테이너 관리
 
-# <a name="container-management-with-docker-swarm"></a>Container management with Docker Swarm
+Docker Swarm은 풀링된 Docker 호스트 집합에 컨테이너화된 워크로드를 배포하는 환경을 제공합니다. Docker Swarm은 네이티브 Docker API를 사용합니다. Docker Swarm에서 컨테이너를 관리하는 워크플로는 단일 컨테이너 호스트에서 컨테이너를 관리하는 워크플로와 거의 동일합니다. 이 문서는 Docker Swarm의 Azure 컨테이너 서비스 인스턴스에서 컨테이너화된 워크로드를 배포하는 간단한 예제를 제공합니다. Docker Swarm에 대한 보다 심층적인 설명서는 [Docker.com의 Docker Swarm](https://docs.docker.com/swarm/)을 참조하세요.
 
-Docker Swarm provides an environment for deploying containerized workloads across a pooled set of Docker hosts. Docker Swarm uses the native Docker API. The workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document provides simple examples of deploying containerized workloads in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
+이 문서의 연습을 위한 필수 구성 요소
 
-Prerequisites to the exercises in this document:
+[Azure 컨테이너 서비스에서 Swarm 클러스터 만들기](container-service-deployment.md)
 
-[Create a Swarm cluster in Azure Container Service](container-service-deployment.md)
+[Azure 컨테이너 서비스에서 Swarm 클러스터에 연결](container-service-connect.md)
 
-[Connect with the Swarm cluster in Azure Container Service](container-service-connect.md)
+## 새 컨테이너 배포
 
-## <a name="deploy-a-new-container"></a>Deploy a new container
-
-To create a new container in the Docker Swarm, use the `docker run` command (ensuring that you have opened an SSH tunnel to the masters as per the prerequisites above). This example creates a container from the `yeasy/simple-web` image:
+Docker Swarm에 새 컨테이너를 만들려면 `docker run` 명령을 사용합니다(위의 필수 구성 요소처럼 SSH 터널을 마스터에 열었는지 확인함). 이 예제는 `yeasy/simple-web` 이미지에서 컨테이너를 만듭니다.
 
 
 ```bash
@@ -40,7 +39,7 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 4298d397b9ab6f37e2d1978ef3c8c1537c938e98a8bf096ff00def2eab04bf72
 ```
 
-After the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent that is hosting the container is listed:
+컨테이너를 만든 후에는 `docker ps`를 사용하여 컨테이너에 대한 정보를 반환합니다. 컨테이너를 호스팅하는 Swarm 에이전트가 나열되었습니다.
 
 
 ```bash
@@ -50,16 +49,16 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   31 seconds ago      Up 9 seconds        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-You can now access the application that is running in this container through the public DNS name of the Swarm agent load balancer. You can find this information in the Azure portal:  
+이제 Swarm 에이전트 부하 분산 장치의 공개 DNS 이름을 통해 이 컨테이너에서 실행되고 있는 응용 프로그램에 액세스할 수 있습니다. 이 정보는 Azure 포털에서 찾을 수 있습니다.
 
 
-![Real visit results](media/real-visit.jpg)  
+![실제 방문 결과](media/real-visit.jpg)
 
-By default the Load Balancer has ports 80, 8080 and 443 open. If you want to connect on another port you will need to open that port on the Azure Load Balancer for the Agent Pool.
+기본적으로 부하 분산 장치에는 포트 80, 8080 및 443이 열려 있습니다. 다른 포트에 연결하려는 경우 에이전트 풀에 대한 Azure Load Balancer에서 해당 포트를 열어야 합니다.
 
-## <a name="deploy-multiple-containers"></a>Deploy multiple containers
+## 여러 컨테이너 배포
 
-As multiple containers are started, by executing 'docker run' multiple times, you can use the `docker ps` command to see which hosts the containers are running on. In the example below, three containers are spread evenly across the three Swarm agents:  
+여러 컨테이너가 시작되기 때문에 'docker 실행'을 여러 번 수행하여 컨테이너가 실행되고 있는 호스트를 확인하도록 `docker ps` 명령을 사용할 수 있습니다. 아래 예제에서는 세 개의 컨테이너가 세 개의 Swarm 에이전트 고르게 분포되어 있습니다.
 
 
 ```bash
@@ -71,11 +70,11 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   2 minutes ago       Up 2 minutes        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-## <a name="deploy-containers-by-using-docker-compose"></a>Deploy containers by using Docker Compose
+## Docker Compose를 사용하여 컨테이너 배포
 
-You can use Docker Compose to automate the deployment and configuration of multiple containers. To do so, ensure that a Secure Shell (SSH) tunnel has been created and that the DOCKER_HOST variable has been set (see the pre-requisites above).
+Docker Compose를 사용하여 여러 컨테이너의 배포 및 구성을 자동화할 수 있습니다. 그러려면 SSH(Secure Shell) 터널이 생성되어 있고 DOCKER\_HOST 변수가 설정되었는지 확인합니다(위의 필수 구성 요소를 참조).
 
-Create a docker-compose.yml file on your local system. To do this, use this [sample](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+로컬 시스템에 docker-compose.yml 파일을 만듭니다. 이렇게 하려면 이 [샘플](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml)을 사용합니다.
 
 ```bash
 web:
@@ -91,7 +90,7 @@ rest:
 
 ```
 
-Run `docker-compose up -d` to start the container deployments:
+`docker-compose up -d`를 실행하여 컨테이너 배포를 시작합니다.
 
 
 ```bash
@@ -108,7 +107,7 @@ swarm-agent-3B7093B8-2: Pulling adtd/web:0.1... : downloaded
 Creating compose_web_1
 ```
 
-Finally, the list of running containers will be returned. This list reflects the containers that were deployed by using Docker Compose:
+마지막으로 실행 중인 컨테이너의 목록이 반환됩니다. 이 목록에는 Docker Compose를 사용하여 배포된 컨테이너가 표시됩니다.
 
 
 ```bash
@@ -118,14 +117,10 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
-Naturally, you can use `docker-compose ps` to examine only the containers defined in your `compose.yml` file.
+물론 `docker-compose ps`을 사용하여 `compose.yml` 파일에 정의된 컨테이너를 검사할 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-[Learn more about Docker Swarm](https://docs.docker.com/swarm/)
+[Docker Swarm에 대해 자세히 알아보기](https://docs.docker.com/swarm/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

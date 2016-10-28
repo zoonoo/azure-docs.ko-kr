@@ -1,84 +1,83 @@
 <properties
-    pageTitle="Hyperlapse Media Files with Azure Media Hyperlapse  | Microsoft Azure"
-    description="Azure Media Hyperlapse creates smooth time-lapsed videos from first-person or action-camera content. This topic shows how to use Media Indexer."
-    services="media-services"
-    documentationCenter=""
-    authors="asolanki"
-    manager="johndeu"
-    editor=""/>
+	pageTitle="미디어 파일 및 Azure 미디어 Hyperlapse | Microsoft Azure"
+	description="Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만듭니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다."
+	services="media-services"
+	documentationCenter=""
+	authors="asolanki"
+	manager="johndeu"
+	editor=""/>
 
 <tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="09/19/2016"  
-    ms.author="adsolank"/>
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/19/2016"  
+	ms.author="adsolank"/>
 
 
+# Hyperlapse 미디어 파일 및 Azure 미디어 Hyperlapse
 
-# <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse Media Files with Azure Media Hyperlapse
+Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 미디어 프로세서(MP)입니다. [Microsoft Research의 데스크톱 Hyperlapse Pro 및 전화 기반 Hyperlapse 모바일](http://aka.ms/hyperlapse)에 대한 클라우드 기반 형제 제품인 Azure 미디어 서비스용 Microsoft Hyperlapse는 Azure 미디어 서비스 미디어 처리 플랫폼의 상당 부분을 활용하여 대량의 Hyperlapse 처리를 수평적으로 확장하고 병렬 처리합니다.
 
-Azure Media Hyperlapse is a Media Processor (MP) that creates smooth time-lapsed videos from first-person or action-camera content.  The cloud-based sibling to [Microsoft Research's desktop Hyperlapse Pro and phone-based Hyperlapse Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse for Azure Media Services utilizes the massive scale of the Azure Media Services Media Processing platform to horizontally scale and parallelize bulk Hyperlapse processing.
+>[AZURE.IMPORTANT]Microsoft Hyperlapse는 이동 카메라를 사용한 1인칭 콘텐츠에 최적으로 작동하도록 설계되었습니다. 스틸 카메라 영상에도 작동할 수 있지만 다른 형식의 콘텐츠에서는 Azure 미디어 Hyperlapse 미디어 프로세서의 성능 및 품질을 보장할 수 없습니다. Azure 미디어 서비스용 Microsoft Hyperlapse에 대해 자세히 알아보고 예제 비디오를 보려면 공개 미리 보기 상태인 [소개 블로그 게시물](http://aka.ms/azurehyperlapseblog)을 확인하세요.
 
->[AZURE.IMPORTANT]Microsoft Hyperlapse is designed to work best on first-person content with a moving camera.  Although still-camera footage can still work, the performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.  To learn more about Microsoft Hyperlapse for Azure Media Services and see some example videos, check out the [introductory blog post](http://aka.ms/azurehyperlapseblog) from the public preview.
+Azure 미디어 Hyperlapse 작업은 MP4, MOV 또는 WMV 자산 파일 및 어떤 비디오 프레임을 어떤 속도로 시간 경과시킬지 지정(예: 2배속으로 처음 10,000프레임)하는 구성 파일을 입력으로 사용합니다. 출력은 입력 비디오의 안정화되고 시간 경과된 표현입니다.
 
-An Azure Media Hyperlapse job takes as input an MP4, MOV, or WMV asset file along with a configuration file that specifies which frames of video should be time-lapsed and to what speed (e.g. first 10,000 frames at 2x).  The output is a stabilized and time-lapsed rendition of the input video.
+최신 Azure 미디어 Hyperlapse 업데이트는 [미디어 서비스 블로그](https://azure.microsoft.com/blog/topics/media-services/)(영문)를 참조하세요.
 
-For the latest Azure Media Hyperlapse updates, see [Media Services blogs](https://azure.microsoft.com/blog/topics/media-services/).
+## 자산 Hyperlapse
 
-## <a name="hyperlapse-an-asset"></a>Hyperlapse an asset
+먼저 원하는 입력 파일을 Azure 미디어 서비스로 업로드해야 합니다. 콘텐츠 업로드 및 관리와 관련된 개념에 대해 자세히 알아보려면 [콘텐츠 관리 문서](media-services-portal-vod-get-started.md)를 읽어보세요.
 
-First you will need to upload your desired input file to Azure Media Services.  To learn more about the concepts involved with uploading and managing content, read the [content management article](media-services-portal-vod-get-started.md).
+###  <a id="configuration"></a>Hyperlapse에 대한 구성 사전 설정
 
-###  <a name="<a-id="configuration"></a>configuration-preset-for-hyperlapse"></a><a id="configuration"></a>Configuration Preset for Hyperlapse
+콘텐츠가 미디어 서비스 계정에 있는 경우 구성 사전 설정을 생성해야 합니다. 다음 표에서는 사용자 지정 필드에 대해 설명합니다.
 
-Once your content is in your Media Services account, you will need to construct your configuration preset.  The following table explains the user-specified fields:
-
- Field | Description
+ 필드 | 설명
 -------|-------------
-StartFrame|The frame upon which the Microsoft Hyperlapse processing should begin.
-NumFrames|The number of frames to process
-Speed|The factor with which to speed up the input video.
+StartFrame|Microsoft Hyperlapse 처리를 시작할 프레임입니다.
+NumFrames|처리할 프레임 수
+속도|입력 비디오를 가속화하는 요소입니다.
 
-The following is an example of a conformant configuration file in XML and JSON:
+다음은 XML 및 JSON에서 규칙을 따르는 구성 파일의 예입니다.
 
-**XML preset:**
+**XML 사전 설정:**
 
-    <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
-        <Sources>
-            <Source StartFrame="0" NumFrames="10000" />
-        </Sources>
-        <Options>
-            <Speed>12</Speed>
-        </Options>
-    </Preset>
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+		<Sources>
+			<Source StartFrame="0" NumFrames="10000" />
+		</Sources>
+		<Options>
+			<Speed>12</Speed>
+		</Options>
+	</Preset>
 
-**JSON preset:**
+**JSON 사전 설정:**
 
-    {
-        "Version":1.0,
-        "Sources": [
-            {
-                "StartFrame":0,
-                "NumFrames":2147483647
-            }
-        ],
-        "Options": {
-            "Speed":1,
-            "Stabilize":false
-        }
-    }
+	{
+		"Version":1.0,
+		"Sources": [
+			{
+				"StartFrame":0,
+				"NumFrames":2147483647
+			}
+		],
+		"Options": {
+			"Speed":1,
+			"Stabilize":false
+		}
+	}
 
-###  <a name="<a-id="sample_code"></a>-microsoft-hyperlapse-with-the-ams-.net-sdk"></a><a id="sample_code"></a> Microsoft Hyperlapse with the AMS .NET SDK
+###  <a id="sample_code"></a> Microsoft Hyperlapse 및 AMS .NET SDK
 
-The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.
+다음 메서드는 미디어 파일을 자산으로 업로드하고 Azure 미디어 Hyperlapse 미디어 프로세서로 작업을 만듭니다.
 
-> [AZURE.NOTE] You should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-dotnet-get-started.md).
+> [AZURE.NOTE] 이 코드가 작동하도록 하려면 "context" 이름의 범위에 CloudMediaContext가 이미 있어야 합니다. 이에 대한 자세히 알아보려면 [콘텐츠 관리 문서](media-services-dotnet-get-started.md)를 읽어보세요.
 
-> [AZURE.NOTE] The string argument "hyperConfig" is expected to be a conformant configuration preset in either JSON or XML as described above.
+> [AZURE.NOTE] 문자열 인수 "hyperConfig"가 위에 설명된 대로 JSON 또는 XML에서 규칙을 따르는 구성 사전 설정이어야 합니다.
 
 static bool RunHyperlapseJob(string input, string output, string hyperConfig) { // create asset with input file IAsset asset = context .Assets .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
 
@@ -97,63 +96,63 @@ job.Submit();
 
 // Create progress printing and querying tasks Task progressPrintTask = new Task(() => {
 
-IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\t{1}\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
+IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\\t{1}\\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
 
-            Task progressJobTask = job.GetExecutionProgressTask(
-                                                 CancellationToken.None);
-            progressJobTask.Wait();
+			Task progressJobTask = job.GetExecutionProgressTask(
+												 CancellationToken.None);
+			progressJobTask.Wait();
 
-            // If job state is Error, the event handling
-            // method for job progress should log errors.  Here we check
-            // for error state and exit if needed.
-            if (job.State == JobState.Error)
-            {
-                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-                Console.WriteLine(string.Format("Error: {0}. {1}",
-                                                error.Code,
-                                                error.Message));  
-                return false;                  
-            }
+			// If job state is Error, the event handling
+			// method for job progress should log errors.  Here we check
+			// for error state and exit if needed.
+			if (job.State == JobState.Error)
+			{
+				ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+				Console.WriteLine(string.Format("Error: {0}. {1}",
+												error.Code,
+												error.Message));  
+				return false;                  
+			}
 
-        DownloadAsset(job.OutputMediaAssets.First(), output);
-        return true;
-    }
+		DownloadAsset(job.OutputMediaAssets.First(), output);
+		return true;
+	}
 
-    static void DownloadAsset(IAsset asset, string outputDirectory)
-    {
-        foreach (IAssetFile file in asset.AssetFiles)
-        {
-            file.Download(Path.Combine(outputDirectory, file.Name));
-        }
-    }
+	static void DownloadAsset(IAsset asset, string outputDirectory)
+	{
+		foreach (IAssetFile file in asset.AssetFiles)
+		{
+			file.Download(Path.Combine(outputDirectory, file.Name));
+		}
+	}
 
 
-    static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
-    {
-        IAsset asset = context.Assets.Create(assetName, options);
+	static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
+	{
+	    IAsset asset = context.Assets.Create(assetName, options);
 
-        var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-        assetFile.Upload(filePath);
+	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+	    assetFile.Upload(filePath);
 
-        return asset;
-    }
+	    return asset;
+	}
 
-    static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-    {
-        var processor = context.MediaProcessors
-        .Where(p => p.Name == mediaProcessorName)
-        .ToList()
-        .OrderBy(p => new Version(p.Version))
-        .LastOrDefault();
+	static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+	{
+	    var processor = context.MediaProcessors
+	    .Where(p => p.Name == mediaProcessorName)
+	    .ToList()
+	    .OrderBy(p => new Version(p.Version))
+	    .LastOrDefault();
 
-        if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                                       mediaProcessorName));
+	    if (processor == null)
+	        throw new ArgumentException(string.Format("Unknown media processor",
+	                                                   mediaProcessorName));
 
-        return processor;
-    }
+	    return processor;
+	}
 
-### <a name="<a-id="file_types"></a>supported-file-types"></a><a id="file_types"></a>Supported File types
+### <a id="file_types"></a>지원되는 파일 형식
 
 - MP4
 - MOV
@@ -161,23 +160,19 @@ IJob jobQuery = null; do { var progressContext = context; jobQuery = progressCon
 
 
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+##미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##피드백 제공
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##<a name="related-links"></a>Related links
+##관련 링크
 
-[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
+[Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

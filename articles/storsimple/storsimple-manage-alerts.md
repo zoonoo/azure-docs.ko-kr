@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="View and manage StorSimple alerts | Microsoft Azure"
-   description="Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts."
+   pageTitle="StorSimple 알림 보기 및 관리 | Microsoft Azure"
+   description="StorSimple 경고 조건 및 심각도, 경고 알림을 구성하는 방법 및 StorSimple 관리자 서비스를 사용하여 경고를 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,252 +12,246 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/18/2016"
+   ms.date="06/09/2016"
    ms.author="anbacker" />
 
+# StorSimple 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 
-# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Use the StorSimple Manager service to view and manage StorSimple alerts
+## 개요
 
-## <a name="overview"></a>Overview
+StorSimple 관리자 서비스에서 **경고** 탭은 StorSimple 장치와 관련된 경고를 실시간으로 검토하고 삭제할 방법을 제공합니다. 이 탭에서는 StorSimple 장치 및 전체 Microsoft Azure StorSimple 솔루션의 상태 문제를 중앙에서 모니터링할 수 있습니다.
 
-The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple device–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple devices and the overall Microsoft Azure StorSimple solution.
+이 자습서에서는 일반적인 경고 조건, 경고 심각도 수준 및 경고 알림을 구성 하는 방법을 설명합니다. 또한 경고 빠른 참조 테이블을 포함하여 신속하게 특정 경고를 찾아서 적절 하게 응답할 수 있습니다.
 
-This tutorial describes common alert conditions, alert severity levels, and how to configure alert notifications. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
+![경고 페이지](./media/storsimple-manage-alerts/HCS_AlertsPage.png)
 
-![Alerts page](./media/storsimple-manage-alerts/HCS_AlertsPage.png)
+## 일반 경고 조건
 
-## <a name="common-alert-conditions"></a>Common alert conditions
+StorSimple 장치는 다양한 조건에 대한 응답으로 경고를 생성합니다. 다음은 가장 일반적인 유형의 경고 조건입니다.
 
-Your StorSimple device generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
+- **하드웨어 문제** – 이러한 경고는 하드웨어의 상태를 설명합니다. 펌웨어 업그레이드가 필요하거나 네트워크 인터페이스에 문제가 있는 경우 또는 데이터 드라이브에 문제가 있으면 알 수 있습니다.
 
-- **Hardware issues** – These alerts tell you about the health of your hardware. They let you know if firmware upgrades are needed, if a network interface has issues, or if there is a problem with one of your data drives.
+- **연결 문제** – 이러한 경고는 데이터 전송이 어려울 때 발생합니다. Azure 저장소 계정에서 데이터를 전송하는 동안 또는 장치와 StorSimple 관리자 서비스 사이의 연결 부족으로 인해 통신 문제가 발생할 수 있습니다. 통신 문제는 너무 많은 실패 지점이 있기 때문에 해결하기 어렵습니다. 고급 문제를 해결하기 전에 항상 먼저 네트워크 연결 및 인터넷 액세스를 사용할 수 있는지 확인해야 합니다. 문제 해결에 대한 도움은 [Test-Connection cmdlet 문제 해결](storsimple-troubleshoot-deployment.md)로 이동합니다.
 
-- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
+- **성능 문제** – 이러한 경고는 부하가 높을 때처럼 시스템이 최적으로 작동하지 않는 경우에 발생합니다.
 
-- **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
+또한 보안, 업데이트 또는 작업 실패와 관련된 경고를 표시할 수 있습니다.
 
-In addition, you might see alerts related to security, updates, or job failures.
+## 경고 심각도 수준
 
-## <a name="alert-severity-levels"></a>Alert severity levels
+경고는 경고 상황에 있는 영향 및 경고에 대한 응답을 위한 필요성에 따라 심각도 수준이 다릅니다. 경고 심각도 수준은 다음과 같습니다.
 
-Alerts have different severity levels, depending on the impact that the alert situation will have and the need for a response to the alert. The severity levels are:
+- **중요** – 이 경고는 시스템의 성공적인 성능이 영향을 미치는 조건에 대한 응답입니다. 작업은 StorSimple 서비스가 중단되지 않았는지 확인해야 합니다.
 
-- **Critical** – This alert is in response to a condition that is affecting the successful performance of your system. Action is required to ensure that the StorSimple service is not interrupted.
+- **경고** – 이 상태는 확인되지 않은 경우 위험할 수 있습니다. 상황을 조사하고 문제를 삭제하는 데 필요한 모든 작업을 수행해야 합니다.
 
-- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to clear the issue.
+- **정보** – 이 경고는 시스템의 추적 및 관리에 유용할 수 있는 정보를 포함합니다.
 
-- **Information** – This alert contains information that can be useful in tracking and managing your system.
+## 경고 설정 구성
 
-## <a name="configure-alert-settings"></a>Configure alert settings
+각 StorSimple 장치에 대한 경고 조건을 메일로 알림을 받을 것인지 여부를 선택할 수 있습니다. 또한 **다른 메일 받는 사람** 상자에서 해당 메일 주소를 입력하여 다른 경고 알림 받는 사람을 식별할 수 있으며 세미콜론으로 구분합니다.
 
-You can choose whether you want to be notified by email of alert conditions for each of your StorSimple devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **Other email recipients** box, separated by semicolons.
+>[AZURE.NOTE] 장치 당 최대 20개의 메일 주소를 입력할 수 있습니다.
 
->[AZURE.NOTE] You can enter a maximum of 20 email addresses per device.
+장치에 메일 알림을 사용하도록 설정한 후에 알림 목록의 멤버는 중요한 경고가 발생할 때마다 메일 메시지를 받게 됩니다. 메시지는 **storsimple-alerts-noreply@mail.windowsazure.com*에서 전송되며 경고 조건을 설명합니다. 받는 사람은 **구독 취소**를 클릭하여 메일 알림 목록에서 제거할 수 있습니다.
 
-After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
+#### 장치에 경고하는 메일 알림을 사용하려면
 
-#### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>To enable email notification of alerts for a device
+1. 장치에 대해 **장치** > **구성**으로 이동합니다.
 
-1. Go to **Devices** > **Configure** for the device.
+2. **경고 설정**에서 다음을 설정합니다.
 
-2. Under **Alert Settings**, set the following:
+    1. **메일 알림 보내기** 필드에서 **예**를 선택합니다.
 
-    1. In the **Send email notification** field, select **YES**.
+    2. 서비스 관리자 및 모든 공동 관리자가 경고 알림을 받기를 원하는 경우 **메일 서비스 관리자** 필드에서 **예**를 선택합니다.
 
-    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
+    3. **다른 메일 받는 사람** 필드에 경고 알림을 받을 다른 모든 받는 사람의 메일 주소를 입력합니다. **someone@somewhere.com* 형식으로 이름을 입력합니다. 세미콜론을 사용하여 메일 주소를 구분합니다. 장치당 최대 20개의 메일 주소를 구성할 수 있습니다.
 
-    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
+        ![경고 알림 구성](./media/storsimple-manage-alerts/AlertNotify.png)
 
-        ![Alerts notification configuration](./media/storsimple-manage-alerts/AlertNotify.png)
+3. 테스트 전자 메일 알림을 보내려면 **테스트 전자 메일 보내기** 옆에 화살표 아이콘을 클릭합니다. 테스트 알림을 전달하여 StorSimple 관리자 서비스가 상태 메시지를 표시합니다.
 
-3. To send a test email notification, click the arrow icon next to **Send test email**. The StorSimple Manager service will display status messages as it forwards the test notification. 
+4. 다음과 같은 메시지가 나타나는 경우 **확인**을 클릭합니다.
 
-4. When the following message appears, click **OK**. 
+    ![전송된 경고 테스트 알림 메일](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-    ![Alerts test notification email sent](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
+    >[AZURE.NOTE] 테스트 알림 메시지를 보낼 수 없는 경우 StorSimple 관리자 서비스가 적절한 메시지를 표시합니다. **확인**을 클릭하고 몇 분 정도 기다렸다가 다시 테스트 알림 메시지를 보냅니다.
 
-    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
+## 경고 보기 및 추적
 
-## <a name="view-and-track-alerts"></a>View and track alerts
+StorSimple 관리자 서비스 대시보드는 장치에서 경고의 개수를 빠른 보기로 제공하여 심각도 수준에 따라 정렬합니다.
 
-The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your devices, arranged by severity level.
+![경고 대시보드](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
 
-![Alerts dashboard](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
+심각도 수준을 클릭하면 **경고**탭이 열립니다. 결과는 해당 심각도와 일치하는 경고만을 포함합니다.
 
-Clicking the severity level opens the **Alerts** tab. The results include only the alerts that match that severity level.
+![경고 유형으로 지정된 경고 보고서](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
 
-![Alerts report scoped to alert type](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
+목록에서 경고를 클릭하면 경고가 보고된 마지막 시간, 장치에서 경고의 발생 횟수 및 경고를 해결하기 위한 권장된 조치를 포함하여 경고에 대한 추가 세부 정보를 제공합니다. 이것이 하드웨어 경고이면 하드웨어 구성 요소를 식별합니다.
 
-Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert. If it is a hardware alert, it will also identify the hardware component.
+![하드웨어 경고 예](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-![Hardware alert example](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
+Microsoft 지원에 정보를 보내야 할 경우 텍스트 파일에 알림 세부 정보를 복사할 수 있습니다. 권장 사항을 따르고 경고 조건 온-프레미스를 해결한 후에 **경고** 탭에서 경고를 선택하고 **지우기**를 클릭하여 장치에서 경고를 지워야 합니다. 여러 경고를 지우려면 각 경고를 선택하고 **경고** 열을 제외한 모든 열을 클릭한 다음 삭제할 모든 경고를 선택한 후 **지우기**를 클릭합니다. 문제가 해결되거나 시스템이 경고를 새 정보로 업데이트하는 경우 일부 경고가 자동으로 삭제됩니다.
 
-You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
+**지우기**를 클릭하는 경우 경고에 대한 의견 및 문제를 해결하기 위해 수행할 단계에 대한 의견을 제공할 수 있습니다. 다른 이벤트가 새 정보로 트리거될 경우 일부 이벤트가 시스템에서 지워집니다. 이 경우 다음 메시지가 표시됩니다.
 
-When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
+![경고 메시지 지우기](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 
-![Clear alert message](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
+## 경고 정렬 및 검토
 
-## <a name="sort-and-review-alerts"></a>Sort and review alerts
+경고에 대한 보고서를 실행하는 것이 효율적이므로 그룹에서 이들을 검토하고 지울 수 있습니다. 또한 **경고** 탭은 최대 250개의 경고를 표시할 수 있습니다. 해당 경고 수를 초과한 경우 경고 전체가 기본 보기에 표시되지 않습니다. 어떤 경고를 표시할지 사용자 지정을 하려면 다음 필드를 결합할 수 있습니다.
 
-You may find it more efficient to run reports on alerts so that you can review and clear them in groups. Additionally, the **Alerts** tab can display up to 250 alerts. If you have exceeded that number of alerts, not all alerts will be displayed in the default view. You can combine the following fields to customize which alerts are displayed:
+- **상태** – **활성** 또는 **지워짐** 경고를 표시할 수 있습니다. 시스템이 새 정보로 경고 조건을 업데이트하기 때문에 삭제된 경고는 관리자가 수동으로 지웠거나 프로그래밍 방식으로 지운 반면 활성 경고는 시스템에서 여전히 트리거됩니다.
 
-- **Status** – You can display either **Active** or **Cleared** alerts. Active alerts are still being triggered on your system, while cleared alerts have been either manually cleared by an administrator or programmatically cleared because the system updated the alert condition with new information.
+- **심각도** – 모든 심각도 수준(중요, 경고, 정보) 또는 중요한 경고와 같은 특정 심각도의 경고를 표시할 수 있습니다.
 
-- **Severity** – You can display alerts of all severity levels (critical, warning, information), or just a certain severity, such as only critical alerts.
+- **원본** – 모든 원본에서 경고를 표시하거나 서비스 또는 하나 또는 모든 장치에서 발생하는 경고를 제한할 수 있습니다.
 
-- **Source** – You can display alerts from all sources, or limit the alerts to those that come from either the service or one or all of the devices.
+- **시간 범위** – **시작** 및 **종료** 날짜 및 시간 스탬프를 지정하여 관심이 있는 기간 동안 경고를 살펴볼 수 있습니다.
 
-- **Time range** – By specifying the **From** and **To** dates and time stamps, you can look at alerts during the time period that you are interested in.
+## 빠른 참조 경고
 
-## <a name="alerts-quick-reference"></a>Alerts quick reference
+다음 표에서는 사용 가능한 경우 추가 정보 및 권장 사항 뿐만 아니라 발생할 수 있는 Microsoft Azure StorSimple 경고의 일부를 나열합니다. StorSimple 장치 경고는 다음 범주 중 하나에 속합니다.
 
-The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available. StorSimple device alerts fall into one of the following categories:
+- [클라우드 연결 경고](#cloud-connectivity-alerts)
 
-- [Cloud connectivity alerts](#cloud-connectivity-alerts)
+- [클러스터 경고](#cluster-alerts)
 
-- [Cluster alerts](#cluster-alerts)
+- [재해 복구 경고](#disaster-recovery-alerts)
 
-- [Disaster recovery alerts](#disaster-recovery-alerts)
+- [하드웨어 경고](#hardware-alerts)
 
-- [Hardware alerts](#hardware-alerts)
+- [작업 실패 경고](#job-failure-alerts)
 
-- [Job failure alerts](#job-failure-alerts)
+- [로컬로 고정된 볼륨 경고](#locally-pinned-volume-alerts)
 
-- [Locally pinned volume alerts](#locally-pinned-volume-alerts)
+- [네트워킹 경고](#networking-alerts)
 
-- [Networking alerts](#networking-alerts)
+- [성능 경고](#performance-alerts)
 
-- [Performance alerts](#performance-alerts)
+- [보안 경고](#security-alerts)
 
-- [Security alerts](#security-alerts)
+- [지원 패키지 경고](#support-package-alerts)
 
-- [Support package alerts](#support-package-alerts)
+- [업데이트 경고](#update-alerts)
 
-- [Update alerts](#update-alerts)
+### 클라우드 연결 경고
 
-### <a name="cloud-connectivity-alerts"></a>Cloud connectivity alerts
-
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Connectivity to <*cloud credential name*> cannot be established.|Cannot connect to the storage account.|It looks like there might be a connectivity issue with your device. Please run the `Test-HcsmConnection` cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue. If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised. In this case, use the `Test-HcsStorageAccountCredential` cmdlet to determine if there are issues that you can resolve.<ul><li>Check your network settings.</li><li>Check your storage account credentials.</li></ul>|
-|We have not received a heartbeat from your device for the last <*number*> minutes.|Cannot connect to device.|It looks like there is a connectivity issue with your device. Please use the `Test-HcsmConnection` cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.|
+|<*클라우드 자격 증명 이름*>에 연결을 설정할 수 없습니다.|저장소 계정에 연결할 수 없습니다.|장치에 연결 문제가 있을 수 있습니다. 장치에서 StorSimple용 Windows PowerShell 인터페이스의 `Test-HcsmConnection` cmdlet을 실행하여 문제를 식별하고 해결합니다. 설정이 올바른 경우 경고가 발생한 저장소 계정의 자격 증명에 문제가 발생할 수 있습니다. 이 경우에 `Test-HcsStorageAccountCredential` cmdlet을 사용하여 해결할 수 있는 문제가 있는지 확인합니다.<ul><li>네트워크 설정을 확인합니다.</li><li>저장소 계정 자격 증명을 확인합니다.</li></ul>|
+|최근 <*숫자*>분 동안 장치로부터 하트비트를 받지 못했습니다.|장치에 연결할 수 없습니다.|장치에 연결 문제가 있을 수 있습니다. 장치에서 StorSimple용 Windows PowerShell 인터페이스의 `Test-HcsmConnection` cmdlet을 사용하여 문제를 확인하고 해결하거나 네트워크 관리자에 문의하세요.|
 
-### <a name="storsimple-behavior-when-cloud-connectivity-fails"></a>StorSimple behavior when cloud connectivity fails
+### 클라우드 연결에 실패할 경우의 StorSimple 동작
 
-What happens if cloud connectivity fails for my StorSimple device running in production?
+프로덕션 환경에서 실행 중인 내 StorSimple 장치에 대한 클라우드 연결에 실패하면 어떻게 되나요?
 
-If cloud connectivity fails on your StorSimple production device, then depending on the state of your device, the following can occur: 
+StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 상태에 따라 다음 상황이 발생할 수 있습니다.
 
-- **For the local data on your device**: For some time, there will be no disruption and reads will continue to be served. However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail. 
+- **장치에 있는 로컬 데이터**: 일정 시간 동안 중단 없이 계속 읽기 작업을 서비스할 수 있습니다. 그러나 해결되지 않은 IO의 수가 증가하여 한도를 초과하면 읽기가 실패하기 시작할 수 있습니다. 
 
-    Depending on the amount of data on your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. (There is temporary storage on the device for data that is to be pushed to the cloud. This area is flushed when the data is sent. If connectivity fails, data in this storage area will not be pushed to the cloud, and IO will fail.)   
+	장치의 데이터 양에 따라 클라우드 연결이 중단된 후 처음 몇 시간 동안 쓰기도 계속될 수 있습니다. 그 후에는 쓰기 속도가 저하되다가 클라우드 연결이 몇 시간 동안 중단되면 결국 실패하기 시작합니다. (클라우드로 푸시될 데이터에 대한 장치의 임시 저장소가 있습니다. 이 영역은 데이터를 보낼 때 플러시됩니다. 연결에 실패하면 이 저장소 영역의 데이터를 클라우드에 푸시하지 못하며 IO가 실패합니다.)
 
  
-- **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure classic portal. 
+- **클라우드에 있는 데이터**: 대부분의 클라우드 연결 오류에서 오류가 반환됩니다. 연결이 복원되면 사용자가 볼륨을 온라인 상태로 전환하지 않아도 IO가 다시 시작됩니다. 드물게 Azure 클래식 포털에서 볼륨을 온라인으로 되돌리기 위해 사용자 개입이 필요한 경우도 있습니다.
  
-- **For cloud snapshots in progress**: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
+- **진행 중인 클라우드 스냅숏**: 4-5 시간 내에 여러 번 작업을 다시 시도하고, 연결이 복원되지 않으면 클라우드 스냅숏이 실패합니다.
 
 
-### <a name="cluster-alerts"></a>Cluster alerts
+### 클러스터 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Device failed over to <*device name*>.|Device is in maintenance mode.|Device failed over due to entering or exiting maintenance mode. This is normal and no action is needed. After you have acknowledged this alert, clear it from the alerts page.|
-|Device failed over to <*device name*>.|Device firmware or software was just updated.|There was a cluster failover due to an update. This is normal and no action is needed. After you have acknowledged this alert, clear it from the alerts page.|
-|Device failed over to <*device name*>.|Controller was shut down or restarted.|Device failed over because the active controller was shut down or restarted by an administrator. No action is needed. After you have acknowledged this alert, clear it from the alerts page.|
-|Device failed over to <*device name*>.|Planned failover.|Verify that this was a planned failover. After you have taken appropriate action, clear this alert from the alerts page.|
-|Device failed over to <*device name*>.|Unplanned failover.|StorSimple is built to automatically recover from unplanned failovers. If you see a large number of these alerts, contact Microsoft Support.|
-|Device failed over to <*device name*>.|Other/unknown cause.|If you see a large number of these alerts, contact Microsoft Support. After the issue is resolved, clear this alert from the alerts page.|
-|A critical device service reports status as failed.|Datapath service failure. |Contact Microsoft Support for assistance.|
-|Virtual IP address for network interface <*DATA #*> reports status as failed. |Other/unknown cause. |Sometimes temporary conditions can cause these alerts. If this is the case, then this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support.|
-|Virtual IP address for network interface <*DATA #*> reports status as failed.|Interface name: <*DATA #*> IP address <IP address> cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address.|
+|장치가 <*장치 이름*>에 장애 조치(failover)되었습니다.|장치는 유지 관리 모드입니다.|장치가 유지 관리 모드의 입력 또는 종료로 인해 장애 조치했습니다. 정상이며 어떤 조치가 필요하지 않습니다. 이 경고를 승인한 후에 경고 페이지에서 지웁니다.|
+|장치가 <*장치 이름*>에 장애 조치(failover)되었습니다.|장치 펌웨어 또는 소프트웨어가 업데이트되었습니다.|업데이트로 인해 클러스터 장애 조치가 발생했습니다. 정상이며 어떤 조치가 필요하지 않습니다. 이 경고를 승인한 후에 경고 페이지에서 지웁니다.|
+|장치가 <*장치 이름*>에 장애 조치(failover)되었습니다.|컨트롤러를 종료하거나 다시 시작합니다.|관리자가 활성 컨트롤러를 종료하거나 다시 시작하기 때문에 장치는 장애 조치되었습니다. 어떤 조치가 필요하지 않습니다. 이 경고를 승인한 후에 경고 페이지에서 지웁니다.|
+|장치가 <*장치 이름*>에 장애 조치(failover)되었습니다.|계획된 장애 조치입니다.|계획된 장애 조치인지 확인합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다.|
+|장치가 <*장치 이름*>에 장애 조치(failover)되었습니다.|계획되지 않은 장애 조치입니다.|StorSimple는 계획되지 않은 장애 조치에서 자동으로 복구되도록 만들어졌습니다. 이러한 알림이 많이 표시되면 Microsoft 지원에 문의합니다.|
+|장치가 <*장치 이름*>에 장애 조치(failover)되었습니다.|기타 / 알 수 없는 원인입니다.|이러한 알림이 많이 표시되면 Microsoft 지원에 문의합니다. 문제가 해결되면 경고 페이지에서 이 경고를 지웁니다.|
+|중요한 장치 서비스는 상태를 실패한 것으로 보고합니다.|데이터 경로 서비스가 실패했습니다. |Microsoft 지원에 문의합니다.|
+|네트워크 인터페이스 <*데이터 #*>에 대한 가상 IP 주소는 상태를 실패한 것으로 보고합니다. |기타 / 알 수 없는 원인입니다. |때로 일시적인 조건으로 인해 이러한 경고가 발생할 수 있습니다. 이 경우 이 경고는 일정 시간 후에 자동으로 지워집니다. 문제가 지속되면 Microsoft 지원에 문의하세요.|
+|네트워크 인터페이스 <*데이터 #*>에 대한 가상 IP 주소는 상태를 실패한 것으로 보고합니다.|인터페이스 이름: <*데이터 #*> IP 주소 <IP address>은(는) 네트워크에서 중복 IP 주소가 발견되었으므로 온라인 상태로 가져올 수 없습니다. |중복 IP 주소가 네트워크에서 제거되었는지 확인하거나 다른 IP 주소를 사용하여 인터페이스를 다시 구성합니다.|
 
 
-### <a name="disaster-recovery-alerts"></a>Disaster recovery alerts
+### 재해 복구 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Recovery operations could not restore all of the settings for this service. Device configuration data is in an inconsistent state for some devices.|Data inconsistency detected after disaster recovery.|Encrypted data on the service is not synchronized with that on the device. Authorize the device <*device name*> from StorSimple Manager to start the synchronization process. Use the Windows PowerShell Interface for StorSimple to run the `Restore-HcsmEncryptedServiceData` on device <*device name*> cmdlet, providing the old password as an input to this cmdlet to restore the security profile. Then run the `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet to update the service data encryption key. After you have taken appropriate action, clear this alert from the alerts page.|
+|복구 작업은 이 서비스에 대한 설정을 모두 복원하지 못했습니다. 장치 구성 데이터는 일부 장치에 대해 일관성 없는 상태입니다.|재해 복구 후에 데이터 일치가 검색되었습니다.|서비스의 암호화된 데이터와 장치의 암호화된 데이터가 동기화되지 않습니다. StorSimple Manager에서 <*장치 이름*> 장치에 권한을 부여하여 동기화 프로세스를 시작합니다. StorSimple용 Windows PowerShell 인터페이스를 사용하여 <*장치 이름*> cmdlet에서 `Restore-HcsmEncryptedServiceData`를 실행하고 이 cmdlet에 대한 입력으로 이전 암호를 제공하여 보안 프로필을 복원합니다. 그런 다음 `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet을 실행하여 서비스 데이터 암호화 키를 업데이트합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다.|
 
 
-### <a name="hardware-alerts"></a>Hardware alerts
+### 하드웨어 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Hardware component <*component ID*> reports status as <*status*>.||Sometimes temporary conditions can cause these alerts. If so, this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support.|
-|Passive controller malfunctioning.|The passive (secondary) controller is not functioning.|Your device is operational, but one of your controllers is malfunctioning. Try restarting that controller. If the issue is not resolved, contact Microsoft Support.|
+|하드웨어 구성 요소 <*구성 요소 ID*>에서 상태를 <*상태*>로 보고합니다.||때로 일시적인 조건으로 인해 이러한 경고가 발생할 수 있습니다. 그렇다면 이 경고는 일정 시간 후에 자동으로 지워집니다. 문제가 지속되면 Microsoft 지원에 문의하세요.|
+|오작동하는 수동 컨트롤러입니다.|수동(보조) 컨트롤러는 작동하지 않습니다.|장치는 작동하지만 컨트롤러 중 하나가 작동하지 않습니다. 해당 컨트롤러를 다시 시작하세요. 문제가 해결되지 않으면 Microsoft 지원에 문의하세요.|
 
-### <a name="job-failure-alerts"></a>Job failure alerts
+### 작업 실패 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Backup of <*source volume group ID*> failed.|Backup job failed.|Connectivity issues could be preventing the backup operation from successfully completing. If there are no connectivity issues, you may have reached the maximum number of backups. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action, clear this alert from the alerts page.|
-|Clone of <*source backup element IDs*> to <*destination volume serial numbers*> failed.|Clone job failed.|Refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the clone operation from successfully completing. If there are no connectivity issues, you may have reached the storage limit. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action to resolve the issue, clear this alert from the alerts page.|
-|Restore of <*source backup element IDs*> failed.|Restore job failed.|Refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing. If there are no connectivity issues, you may have reached the storage limit. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action to resolve the issue, clear this alert from the alerts page.|
+|<*원본 볼륨 그룹 ID*>의 백업에 실패했습니다.|백업 작업이 실패했습니다.|연결 문제는 백업 작업이 성공적으로 완료되지 않도록 막을 수 있습니다. 연결 문제가 없으면 최대 백업 수에 도달할 수 있습니다. 더 이상 필요하지 않은 백업을 삭제하고 작업을 다시 시도합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다.|
+|<*원본 백업 요소 ID*>를 <*대상 볼륨 일련 번호*>에 복제하는 데 실패했습니다.|복제 작업이 실패했습니다.|백업을 여전히 유효한지 확인하려면 백업 목록을 새로 고칩니다. 백업이 유효하면 클라우드 연결 문제 때문에 복제 작업을 성공적으로 완료하지 못할 수 있습니다. 연결 문제가 없으면 저장소 제한에 도달할 수 있습니다. 더 이상 필요하지 않은 백업을 삭제하고 작업을 다시 시도합니다. 문제를 해결할 수 있는 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다.|
+|<*원본 백업 요소 ID*>의 복원에 실패했습니다.|복원 작업이 실패했습니다.|백업을 여전히 유효한지 확인하려면 백업 목록을 새로 고칩니다. 백업이 유효하면 클라우드 연결 문제 때문에 복원 작업을 성공적으로 완료하지 못할 수 있습니다. 연결 문제가 없으면 저장소 제한에 도달할 수 있습니다. 더 이상 필요하지 않은 백업을 삭제하고 작업을 다시 시도합니다. 문제를 해결할 수 있는 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다.|
 
-### <a name="locally-pinned-volume-alerts"></a>Locally pinned volume alerts
+### 로컬로 고정된 볼륨 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Creation of local volume <*volume name*> failed.| The volume creation job has failed. <*Error message corresponding to the failed error code*>.|Connectivity issues could be preventing the space creation operation from successfully completing. Locally pinned volumes are thickly provisioned and the process of creating space involves spilling tiered volumes to the cloud. If there are no connectivity issues, you may have exhausted the local space on the device. Determine if space exists on the device before retrying this operation.|
-|Expansion of local volume <*volume name*> failed.|The volume modification job has failed due to <*error message corresponding to the failed error code*>.|Connectivity issues could be preventing the volume expansion operation from successfully completing. Locally pinned volumes are thickly provisioned and the process of extending the existing space involves spilling tiered volumes to the cloud. If there are no connectivity issues, you may have exhausted the local space on the device. Determine if space exists on the device before retrying this operation.|
-|Conversion of volume <*volume name*> failed.|The volume conversion job to convert the volume type from locally pinned to tiered failed.|Conversion of the volume from type locally pinned to tiered could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original locally pinned volume has now been marked as a tiered volume since some of the data from the locally pinned volume has spilled to the cloud during the conversion. The resultant tiered volume is still occupying local space on the device that cannot be reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original locally pinned volume type to ensure all the data is made available locally again.|
-|Conversion of volume <*volume name*> failed.|The volume conversion job to convert the volume type from tiered to locally pinned failed.|Conversion of the volume from type tiered to locally pinned could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original tiered volume now marked as a locally pinned volume as part of the conversion process continues to have data residing in the cloud, while the thickly provisioned space on the device for this volume can no longer reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original tiered volume type to ensure local space thickly provisioned on the device can be reclaimed.|
-|Nearing local space consumption for local snapshots of <*volume group name*>|Local snapshots for the backup policy might soon run out of space and be invalidated to avoid host write failures.|Frequent local snapshots alongside a high data churn in the volumes associated with this backup policy group are causing local space on the device to be consumed quickly. Delete any local snapshots that are no longer needed. Also, update your local snapshot schedules for this backup policy to take less frequent local snapshots, and ensure that cloud snapshots are taken regularly. If these actions are not taken, local space for these snapshots might soon be exhausted and the system will automatically delete them to ensure that host writes continue to be processed successfully.|
-|Local snapshots for <*volume group name*> have been invalidated.|The local snapshots for <*volume group name*> have been invalidated and then deleted because they were exceeding the local space on the device.|To ensure this does not recur in the future, review the local snapshot schedules for this backup policy and delete any local snapshots that are no longer needed. Frequent local snapshots alongside a high data churn in the volumes associated with this backup policy group might cause local space on the device to be consumed quickly.|
-|Restore of <*source backup element IDs*> failed.|The restore job has failed.|If you have locally pinned or a mix of locally pinned and tiered volumes in this backup policy, refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing. The locally pinned volumes that were being restored as part of this snapshot group do not have all of their data downloaded to the device, and, if you have a mix of tiered and locally pinned volumes in this snapshot group, they will not be in sync with each other. To successfully complete the restore operation, take the volumes in this group offline on the host and retry the restore operation. Note that any modifications to the volume data that were performed during the restore process will be lost.|
+|로컬 볼륨 <*볼륨 이름*> 만들기에 실패했습니다.| 볼륨 만들기 작업에 실패했습니다. <*실패한 오류 코드에 해당하는 오류 메시지*>.|연결 문제는 공간 만들기 작업이 성공적으로 완료되지 않도록 막을 수 있습니다. 로컬로 고정된 볼륨은 씩 프로비전되고 공간을 만드는 과정은 클라우드에 계층화된 볼륨 분산이 포함됩니다. 연결 문제가 없는 경우 장치에서 로컬 공간을 사용했을 수 있습니다. 이 작업을 다시 시도하기 전에 장치에 공간이 있는지 확인합니다.|
+|로컬 볼륨 <*볼륨 이름*> 확장에 실패했습니다.|볼륨 수정 작업이 <*실패한 오류 코드에 해당하는 오류 메시지*>로 인해 실패했습니다.|연결 문제는 볼륨 확장 작업이 성공적으로 완료되지 않도록 막을 수 있습니다. 로컬로 고정된 볼륨은 씩 프로비전되고 기존 공간을 확장하는 과정은 클라우드에 계층화된 볼륨 분산이 포함됩니다. 연결 문제가 없는 경우 장치에서 로컬 공간을 사용했을 수 있습니다. 이 작업을 다시 시도하기 전에 장치에 공간이 있는지 확인합니다.|
+|볼륨 <*볼륨 이름*> 변환에 실패했습니다.|로컬로 고정된 볼륨 유형을 계층화로 변환하는 볼륨 변환 작업이 실패했습니다.|로컬로 고정된 유형에서 계층화로 볼륨 변환을 완료할 수 없습니다. 작업을 성공적으로 완료하지 못하게 하는 연결 문제가 없는지 확인합니다. 연결 문제 해결을 위해 [Test-HcsmConnection cmdlet 문제 해결](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet)로 이동합니다.<br>로컬로 고정된 볼륨의 일부 데이터가 변환하는 동안 클라우드로 분산되었으므로 원래의 로컬로 고정된 볼륨은 이제 계층화된 볼륨으로 표시되었습니다. 결과 계층화된 볼륨은 여전히 향후 로컬 볼륨에 대해 회수될 수 없는 장치의 로컬 공간을 차지하고 있습니다.<br>모든 연결 문제를 해결하고 경고를 지우고 이 볼륨을 원래의 로컬로 고정된 볼륨 유형으로 변환하여 모든 데이터가 로컬에서 다시 사용 가능한지 확인합니다.|
+|볼륨 <*볼륨 이름*> 변환에 실패했습니다.|볼륨 유형을 계층화에서 로컬로 고정으로 변환하는 볼륨 변환 작업이 실패했습니다.|볼륨을 계층화 유형에서 로컬로 고정으로 변환을 완료할 수 없습니다. 작업을 성공적으로 완료하지 못하게 하는 연결 문제가 없는지 확인합니다. 연결 문제 해결을 위해 [Test-HcsmConnection cmdlet 문제 해결](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet)로 이동합니다.<br>원래의 계층화된 볼륨은 클라우드에 있는 데이터를 갖도록 계속하는 변환 작업의 일부로 로컬로 고정된 볼륨으로 표시되는 반면 이 볼륨에 대한 장치의 씩 프로비전된 공간은 향후 로컬 볼륨을 위해 더 이상 회수될 수 없습니다.<br>모든 연결 문제를 해결하고 경고를 지우고 이 볼륨을 원래의 계층화된 볼륨 변환하여 장치의 씩 프로비전된 로컬 공간이 회수될 수 있는지 확인합니다.|
+|<*볼륨 그룹 이름*>의 로컬 스냅숏에 대한 로컬 공간 소비에 거의 도달|백업 정책에 대한 로컬 스냅숏은 곧 공간이 부족하게 되고 호스트 쓰기 실패를 피하도록 무효화될 수 있습니다.|이 백업 정책 그룹에 연결된 볼륨의 높은 데이터 이탈과 함께 빈번한 로컬 스냅숏으로 인해 장치의 로컬 공간은 신속하게 사용될 수 있습니다. 더 이상 필요 없는 로컬 스냅숏을 삭제합니다. 또한 이 백업 정책에 대한 로컬 스냅숏 일정을 낮은 빈도로 로컬 스냅숏을 수행하도록 업데이트하고 클라우드 스냅숏이 정기적으로 수행되는지 확인합니다. 이러한 작업이 수행되지 않는 경우 이러한 스냅숏에 대한 로컬 공간이 곧 부족하게 될 수 있고 시스템에서 자동으로 삭제하여 호스트 쓰기를 계속해서 정상적으로 처리할 수 있게 합니다.|
+|<*볼륨 그룹 이름*>에 대한 로컬 스냅숏이 무효화되었습니다.|장치의 로컬 공간을 초과했으므로 <*볼륨 그룹 이름*>에 대한 로컬 스냅숏이 무효화된 다음 삭제되었습니다.|나중에 이 문제가 다시 발생하지 않도록 하려면 이 백업 정책에 대한 로컬 스냅숏 일정을 검토하고 더 이상 필요 없는 로컬 스냅숏을 삭제합니다. 이 백업 정책 그룹에 연결된 볼륨의 높은 데이터 이탈과 함께 빈번한 로컬 스냅숏으로 인해 장치의 로컬 공간은 신속하게 사용될 수 있습니다.|
+|<*원본 백업 요소 ID*>의 복원에 실패했습니다.|복원 작업이 실패했습니다.|이 백업 정책에 로컬로 고정되거나 로컬로 고정된 볼륨과 계층화된 볼륨의 혼합이 있는 경우 백업이 여전히 유효한지 확인하도록 백업 목록을 새로 고칩니다. 백업이 유효하면 클라우드 연결 문제 때문에 복원 작업을 성공적으로 완료하지 못할 수 있습니다. 이 스냅숏 그룹의 일부로 복원되었던 로컬로 고정된 볼륨은 장치에 다운로드된 해당 데이터를 모두 갖지 않으며 이 스냅숏 그룹에 계층화된 볼륨과 로컬로 고정된 볼륨의 혼합이 있는 경우 서로 동기화하지 않습니다. 복원 작업을 성공적으로 완료하려면 호스트에서 오프라인으로 이 그룹의 볼륨을 가져오고 복원 작업을 다시 시도합니다. 복원 프로세스 중에 수행된 볼륨 데이터에 대한 수정은 손실됩니다.|
 
-### <a name="networking-alerts"></a>Networking alerts
+### 네트워킹 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Could not start StorSimple service(s).|Datapath error |If the problem persists, contact Microsoft Support.|
-|Duplicate IP address detected for 'Data0'.| |The system has detected a conflict for IP address '10.0.0.1'. The network resource 'Data0' on the device *<device1>* is offline. Ensure that this IP address is not used by any other entity in this network. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contact your network administrator for help resolving this issue. If the problem persists, contact Microsoft Support. |
-|IPv4 (or IPv6) address for 'Data0' is offline.| |The network resource 'Data0' with IP address '10.0.0.1.' and prefix length '22' on the device *<device1>* is offline. Ensure that the switch ports to which this interface is connected are operational. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+|StorSimple 서비스를 시작하지 못했습니다.|데이터 경로 오류 |문제가 지속되면 Microsoft 지원에 문의하세요.|
+|'Data0'에 대한 중복 IP 주소가 검색되었습니다.| |시스템에서 IP 주소 '10.0.0.1'에 대한 충돌을 발견했습니다. 장치 *<device1>*의 네트워크 리소스 'Data0'이 오프라인 상태입니다. 이 IP 주소가 이 네트워크의 다른 엔터티에서 사용되지 않음을 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. 이 문제 해결에 대한 도움은 네트워크 관리자에게 문의합니다. 문제가 지속되면 Microsoft 지원에 문의하세요. |
+|'Data0'에 대한 IPv4(또는 IPv6) 주소가 오프라인 상태입니다.| |장치 *<device1>*에서 IP 주소 '10.0.0.1.'과 접두사 길이 '22'를 사용한 네트워크 리소스 'Data0'이 오프라인 상태입니다. 이 인터페이스가 연결된 스위치 포트가 작동하는지 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. |
  
 
-### <a name="performance-alerts"></a>Performance alerts
+### 성능 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|The device load has exceeded <*threshold*>.|Slower than expected response times.|Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.<br>To understand the current status, go to [Use the StorSimple Manager service to monitor your device](storsimple-monitor-device.md)|
+|장치 부하가 <*임계값*>을 초과했습니다.|예상된 응답 시간보다 느립니다.|장치는 입/출력 부하가 높은 상태에서 사용률을 보고합니다. 이 때문에 장치가 예상대로 잘 작동하지 않을 수 있습니다. 장치에 연결한 워크로드를 검토하고 다른 장치로 이동하거나 더 이상 필요하지 않은지를 결정합니다.<br>현재 상태를 이해하려면 [StorSimple Manager 서비스를 사용하여 장치 모니터링](storsimple-monitor-device.md)으로 이동합니다.|
 
-### <a name="security-alerts"></a>Security alerts
+### 보안 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Microsoft Support session has begun.|Third-party accessed support session.|Please confirm this access is authorized. After you have taken appropriate action, clear this alert from the alerts page.|
-|Password for <*element*> will expire in <*length of time*>.|Password expiration is approaching.|Change your password before it expires.|
-|Security configuration information missing for <*element ID*>.||The volumes associated with this volume container cannot be used to replicate your StorSimple configuration. To ensure that your data is safely stored, we recommend that you delete the volume container and any volumes associated with the volume container. After you have taken appropriate action, clear this alert from the alerts page.|
-|<*number*> login attempts failed for <*element ID*>.|Multiple failed logon attempts.|Your device might be under attack or an authorized user is attempting to connect with an incorrect password.<ul><li>Contact your authorized users and verify that these attempts were from a legitimate source. If you continue to see large numbers of failed login attempts, consider disabling remote management and contacting your network administrator. After you have taken appropriate action, clear this alert from the alerts page.</li><li>Check that your Snapshot Manager instances are configured with the correct password. After you have taken appropriate action, clear this alert from the alerts page.</li></ul>For more information, go to [Change an expired device password](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password).|
-|One or more failures occurred while changing the service data encryption key.||There were errors encountered while changing the service data encryption key. After you have addressed the error conditions, run the `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet from the Windows PowerShell Interface for StorSimple on your device to update the service. If this issue persists, contact Microsoft support. After you resolve the issue, clear this alert from the alerts page.|
+|Microsoft Support 세션이 시작되었습니다.|타사가 지원 세션에 액세스했습니다.|이 액세스에 권한이 부여되었는지 확인하세요. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다.|
+|<*요소*>의 암호가 <*시간 길이*> 후에 만료됩니다.|암호 만료 날짜가 다가오고 있습니다.|만료되기 전에 암호를 변경합니다.|
+|<*요소 ID*>에 대한 보안 구성 정보가 없습니다.||이 볼륨 컨테이너와 연결된 볼륨을 StorSimple 구성을 복제하는 데 사용할 수 없습니다. 데이터를 안전하게 저장하려면 볼륨 컨테이너와 볼륨 컨테이너와 연결된 모든 볼륨을 삭제하는 것이 좋습니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다.|
+|<*요소 ID*>에 대한 로그인 시도가 <*숫자*>회 실패했습니다.|로그온 시도가 여러 번 실패했습니다.|장치가 공격을 받고 있거나 권한이 있는 사용자가 잘못된 암호로 연결하려고 합니다.<ul><li>권한이 있는 사용자에게 문의하고 합법적인 출처에서 이러한 시도가 있었는지 확인합니다. 실패한 로그인 시도 횟수가 많은 경우 원격 관리를 사용하지 않도록 설정하고 네트워크 관리자에 문의합니다. 적절한 조치를 수행한 후 경고 페이지에서 이 경고를 지웁니다.</li><li>스냅숏 관리자 인스턴스가 올바른 암호로 구성되어 있는지 확인합니다. 적절한 조치를 수행한 후 경고 페이지에서 이 경고를 지웁니다.</li></ul>자세한 내용은 [만료된 장치 암호 변경](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password)으로 이동합니다.|
+|서비스 데이터 암호화 키를 변경하는 동안 하나 이상의 오류가 발생했습니다.||서비스 데이터 암호화 키를 변경하는 동안 오류가 발생했습니다. 오류 조건을 해결한 후 장치에서 StorSimple용 Windows PowerShell 인터페이스의 `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet을 실행하여 서비스를 업데이트합니다. 문제가 지속되면 Microsoft 지원에 문의하세요. 문제가 해결되면 경고 페이지에서 이 경고를 지웁니다.|
 
-### <a name="support-package-alerts"></a>Support package alerts
+### 지원 패키지 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Creation of support package failed.|StorSimple couldn't generate the package.|Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page.|
+|지원 패키지를 만들지 못했습니다.|StorSimple가 패키지를 생성할 수 없습니다.|이 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. 문제가 해결되면 경고 페이지에서 이 경고를 지웁니다.|
 
-### <a name="update-alerts"></a>Update alerts
+### 업데이트 경고
 
-|Alert text|Event|More information / recommended actions|
+|경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|Hotfix installed.|Software/firmware update completed.|The hotfix has been successfully installed on your device.|
-|Manual updates available.|Notification of available updates.|Use the Windows PowerShell Interface for StorSimple on your device to install these updates. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
-|New updates available.|Notification of available updates.|You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
-|Failed to install updates.|Updates were not successfully installed.|Your system was not able to install the updates. You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. If the issue persists, contact Microsoft Support. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
-|Unable to automatically check for new updates.|Automatic check failed.|You can manually check for new updates from the **Maintenance** page.|
-|New WUA agent available.|Notification of available update.|Download the latest Windows Update Agent and install it from the Windows PowerShell interface.|
-|Version of firmware component <*component ID*> does not match with hardware.|Firmware update(s) were not successfully installed.|Contact Microsoft Support.|
+|핫픽스를 설치했습니다.|소프트웨어/펌웨어 업데이트를 완료했습니다.|핫픽스를 장치에 성공적으로 설치했습니다.|
+|수동 업데이트를 사용할 수 있습니다.|사용 가능한 업데이트를 알립니다.|장치에서 StorSimple용 Windows PowerShell 인터페이스를 사용하여 이러한 업데이트를 설치합니다. <br>자세한 내용은 [StorSimple 8000 시리즈 장치 업데이트](storsimple-update-device.md)로 이동합니다.|
+|새 업데이트를 사용할 수 있습니다.|사용 가능한 업데이트를 알립니다.|**유지 관리** 페이지에서 또는 장치의 StorSimple용 Windows PowerShell 인터페이스를 사용하여 이러한 업데이트를 설치할 수 있습니다. <br>자세한 내용은 [StorSimple 8000 시리즈 장치 업데이트](storsimple-update-device.md)로 이동합니다.|
+|업데이트를 설치하지 못했습니다.|업데이트가 성공적으로 설치되지 않았습니다.|시스템이 업데이트를 설치하지 못했습니다. **유지 관리** 페이지에서 또는 장치의 StorSimple용 Windows PowerShell 인터페이스를 사용하여 이러한 업데이트를 설치할 수 있습니다. 문제가 지속되면 Microsoft 지원에 문의하세요. <br>자세한 내용은 [StorSimple 8000 시리즈 장치 업데이트](storsimple-update-device.md)로 이동합니다.|
+|새 업데이트를 자동으로 확인할 수 없습니다.|자동 검사를 하지 못했습니다.|**유지 관리** 페이지에서 새 업데이트를 수동으로 확인할 수 있습니다.|
+|새 WUA 에이전트를 사용할 수 있습니다.|사용 가능한 업데이트를 알립니다.|최신 Windows 업데이트 에이전트를 다운로드하고 Windows PowerShell 인터페이스에서 설치합니다.|
+|펌웨어 구성 요소 <*구성 요소 ID*>의 버전이 하드웨어와 일치하지 않습니다.|펌웨어 업데이트가 성공적으로 설치되지 않았습니다.|Microsoft 지원에 문의하세요.|
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-Learn more about [StorSimple errors and troubleshooting an operational device](storsimple-troubleshoot-operational-device.md).
+[StorSimple 오류 및 운영 장치 문제 해결](storsimple-troubleshoot-operational-device.md)에 대해 알아봅니다.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

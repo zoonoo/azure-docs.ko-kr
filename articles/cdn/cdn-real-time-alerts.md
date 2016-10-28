@@ -1,124 +1,118 @@
 <properties
-    pageTitle="Azure CDN Real-Time Alerts | Microsoft Azure"
-    description="Real-time alerts in Microsoft Azure CDN. Real-time alerts provide notifications about the performance of the endpoints in your CDN profile."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Azure CDN 실시간 경고 | Microsoft Azure"
+	description="Microsoft Azure CDN의 실시간 경고입니다. 실시간 경고는 CDN 프로필에서 끝점의 성능에 대한 알림을 제공합니다."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="casoper"/>
 
-
-# <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Real-time alerts in Microsoft Azure CDN
+# Microsoft Azure CDN의 실시간 경고
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 
-## <a name="overview"></a>Overview
+## 개요
 
-This document explains real-time alerts in Microsoft Azure CDN. This functionality provides real-time notifications about the performance of the endpoints in your CDN profile.  You can set up email or HTTP alerts based on:
+이 문서에서는 Microsoft Azure CDN의 실시간 경고에 대해 설명합니다. 이 기능은 CDN 프로필에서 끝점의 성능에 대한 실시간 알림을 제공합니다. 다음을 기반으로 전자 메일 또는 HTTP 경고를 설정할 수 있습니다.
 
-* Bandwidth
-* Status Codes
-* Cache Statuses
-* Connections
+* 대역폭
+* 상태 코드
+* 캐시 상태
+* 연결
 
-## <a name="creating-a-real-time-alert"></a>Creating a real-time alert
+## 실시간 경고 만들기
 
-1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
+1. [Azure 포털](https://portal.azure.com)에서 CDN 프로필로 이동합니다.
 
-    ![CDN profile blade](./media/cdn-real-time-alerts/cdn-profile-blade.png)
+	![CDN 프로필 블레이드](./media/cdn-real-time-alerts/cdn-profile-blade.png)
 
-2. From the CDN profile blade, click the **Manage** button.
+2. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
 
-    ![CDN profile blade manage button](./media/cdn-real-time-alerts/cdn-manage-btn.png)
+	![CDN 프로필 블레이드 관리 단추](./media/cdn-real-time-alerts/cdn-manage-btn.png)
 
-    The CDN management portal opens.
+	CDN 관리 포털이 열립니다.
 
-3. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **Real-Time Alerts**.
+3. **분석** 탭을 마우스로 가리킨 후 **실시간 통계** 플라이아웃을 마우스로 가리킵니다. **실시간 경고**를 클릭합니다.
 
-    ![CDN management portal](./media/cdn-real-time-alerts/cdn-premium-portal.png)
+	![CDN 관리 포털](./media/cdn-real-time-alerts/cdn-premium-portal.png)
 
-    The list of existing alert configurations (if any) is displayed.
+	기존 경고 구성(있는 경우)의 목록이 표시됩니다.
 
-4. Click the **Add Alert** button.
+4. **경고 추가** 단추를 클릭합니다.
 
-    ![Add Alert button](./media/cdn-real-time-alerts/cdn-add-alert.png)
+	![경고 추가 단추](./media/cdn-real-time-alerts/cdn-add-alert.png)
 
-    A form for creating a new alert is displayed.
+	새 경고를 만드는 양식이 표시됩니다.
 
-    ![New Alert form](./media/cdn-real-time-alerts/cdn-new-alert.png)
+	![새 경고 양식](./media/cdn-real-time-alerts/cdn-new-alert.png)
 
-5. If you want this alert to be active when you click **Save**, check the **Alert Enabled** checkbox.
+5. **저장**을 클릭할 때 이 경고를 활성화하려면 **경고 사용** 확인란을 선택합니다.
 
-6. Enter a descriptive name for your alert in the **Name** field.
+6. **이름** 필드에 경고에 대한 설명이 포함된 이름을 입력합니다.
 
-7. In the **Media Type** dropdown, select **HTTP Large Object**.
+7. **미디어 유형** 드롭다운에서 **HTTP LOB(Large Object)**를 선택합니다.
 
-    ![Media Type with HTTP Large Object selected](./media/cdn-real-time-alerts/cdn-http-large.png)
+	![HTTP LOB(Large Object)를 선택한 미디어 유형](./media/cdn-real-time-alerts/cdn-http-large.png)
 
-    > [AZURE.IMPORTANT] You must select **HTTP Large Object** as the **Media Type**.  The other choices are not used by **Azure CDN from Verizon**.  Failure to select **HTTP Large Object** will cause your alert to never be triggered.
+	> [AZURE.IMPORTANT] **HTTP LOB(Large Object)**를 **미디어 형식**으로 선택해야 합니다. 다른 옵션은 **Verizon의 Azure CDN**에서 사용하지 않습니다. **HTTP LOB(Large Object)**를 선택하지 않으면 경고가 절대로 트리거되지 않게 됩니다.
 
-8. Create an **Expression** to monitor by selecting a **Metric**, **Operator**, and **Trigger value**.
+8. **메트릭**, **연산자** 및 **트리거 값**을 선택하여 모니터링하기 위해 **식**을 만듭니다.
 
-    - For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of concurrent HTTP connections to our edge servers.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) and [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)
-    - **Operator** is the mathematical operator that establishes the relationship between the metric and the trigger value.
-    - **Trigger Value** is the threshold value that must be met before a notification will be sent out.
+	- **메트릭**의 경우 모니터링하려는 조건의 유형을 선택합니다. **대역폭 Mbps**는 초당 메가비트인 대역폭 양입니다. **총 연결**은 에지 서버에 대한 동시 HTTP 연결의 수입니다. 다양한 캐시 상태 및 상태 코드의 정의는 [Azure CDN 캐시 상태 코드](https://msdn.microsoft.com/library/mt759237.aspx) 및 [Azure CDN HTTP 상태 코드](https://msdn.microsoft.com/library/mt759238.aspx)를 참조하세요.
+	- **연산자**는 메트릭과 트리거 값 간의 관계를 설정하는 수학 연산자입니다.
+	- **트리거 값**은 알림이 전송되기 전에 충족해야 하는 임계값입니다.
 
-    In the below example, the expression I have created indicates that I would like to be notified when the number of 404 status codes is greater than 25.
+	아래 예제에서 만들어 놓은 식은 404 상태 코드의 수가 25보다 클 때 알림을 받게 된다는 것을 나타냅니다.
 
-    ![Real-time alert sample expression](./media/cdn-real-time-alerts/cdn-expression.png)
+	![실시간 경고 샘플 식](./media/cdn-real-time-alerts/cdn-expression.png)
 
-9. For **Interval**, enter how frequently you would like the expression evaluated.
+9. **간격**에 식을 평가하려는 빈도를 입력합니다.
 
-10. In the **Notify on** dropdown, select when you would like to be notified when the expression is true.
-    
-    - **Condition Start** indicates that a notification will be sent when the specified condition is first detected.
-    - **Condition End** indicates that a notification will be sent when the specified condition is no longer detected. This notification can only be triggered after our network monitoring system detected that the specified condition occurred.
-    - **Continuous** indicates that a notification will be sent each time that the network monitoring system detects the specified condition. Keep in mind that the network monitoring system will only check once per interval for the specified condition.
-    - **Condition Start and End** indicates that a notification will be sent the first time that the specified condition is detected and once again when the condition is no longer detected.
+10. **알림 대상** 드롭다운에서 식이 true일 떼 알림을 받으려는 경우를 선택합니다.
+	
+	- **조건 시작**은 지정된 조건이 처음 감지될 때 알림이 전송되지 않는다는 것을 나타냅니다.
+	- **조건 종료**는 지정된 조건이 더 이상 감지되지 않을 때 알림이 전송되지 않는다는 것을 나타냅니다. 네트워크 모니터링 시스템이 지정된 조건이 발생했음을 감지한 후에만 이 알림이 트리거될 수 있습니다.
+	- **연속**은 네트워크 모니터링 시스템이 지정된 조건을 감지할 때마다 알림이 전송된다는 것을 나타냅니다. 네트워크 모니터링 시스템은 지정된 조건의 간격으로 검사를 수행합니다.
+	- **조건 시작 및 종료**는 처음으로 지정된 상태가 감지된 때와 조건이 더 이상 감지되지 않을 때 다시 한 번 알림을 전송한다는 것을 나타냅니다.
 
-11. If you want to receive notifications by email, check the **Notify by Email** checkbox.  
+11. 전자 메일로 알림을 수신하려는 경우 **전자 메일 알림** 확인란을 선택합니다.
 
-    ![Notify by Email form](./media/cdn-real-time-alerts/cdn-notify-email.png)
-    
-    In the **To** field, enter the email address you where you want notifications sent. For **Subject** and **Body**, you may leave the default, or you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.
+	![전자 메일로 알림 양식](./media/cdn-real-time-alerts/cdn-notify-email.png)
+	
+	**받는 사람** 필드에 알림을 전송하려는 전자 메일 주소를 입력합니다. **제목** 및 **본문**에 기본값을 그대로 두거나 메시지를 보낼 때 동적으로 경고 데이터를 삽입하려면 **사용할 수 있는 키워드** 목록을 사용하여 메시지를 사용자 지정할 수 있습니다.
 
-    > [AZURE.NOTE] You can test the email notification by clicking the **Test Notification** button, but only after the alert configuration has been saved.
+	> [AZURE.NOTE] **테스트 알림** 단추를 클릭하여 전자 메일 알림을 테스트할 수 있지만 경고 구성을 저장한 후에 가능합니다.
 
-12. If you want notifications to be posted to a web server, check the **Notify by HTTP Post** checkbox.
+12. 웹 서버에 알림을 게시하려면 **HTTP 게시로 알림** 확인란을 선택합니다.
 
-    ![Notify by HTTP Post form](./media/cdn-real-time-alerts/cdn-notify-http.png)
+	![HTTP 게시로 알림 양식](./media/cdn-real-time-alerts/cdn-notify-http.png)
 
-    In the **Url** field, enter the URL you where you want the HTTP message posted. In the **Headers** textbox, enter the HTTP headers to be sent in the request.  For **Body** you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.  **Headers** and **Body** default to an XML payload similar to the below example.
+	**URL** 필드에 HTTP 메시지를 게시할 URL을 입력합니다. **헤더** 텍스트 상자에 요청에서 보낼 HTTP 헤더를 입력합니다. **본문**에 메시지를 보낼 때 동적으로 경고 데이터를 삽입하려면 **사용할 수 있는 키워드** 목록을 사용하여 메시지를 사용자 지정할 수 있습니다. **헤더** 및 **본문**은 아래 예제와 유사한 XML 페이로드에 대한 기본값입니다.
 
-    ```
-    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-        <![CDATA[Expression=Status Code : 404 per second > 25&Metric=Status Code : 404 per second&CurrentValue=[CurrentValue]&NotificationCondition=Condition Start]]>
-    </string>
-    ```
+	```
+	<string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+		<![CDATA[Expression=Status Code : 404 per second > 25&Metric=Status Code : 404 per second&CurrentValue=[CurrentValue]&NotificationCondition=Condition Start]]>
+	</string>
+	```
 
-    > [AZURE.NOTE] You can test the HTTP Post notification by clicking the **Test Notification** button, but only after the alert configuration has been saved.
+	> [AZURE.NOTE] **테스트 알림** 단추를 클릭하여 HTTP 게시 알림을 테스트할 수 있지만 경고 구성을 저장한 후에 가능합니다.
 
-13. Click the **Save** button to save your alert configuration.  If you checked **Alert Enabled** in step 5, your alert is now active.
+13. **저장** 단추를 클릭하여 경고 구성을 저장합니다. 5단계에서 **경고 사용**을 선택한 경우 경고는 지금 활성화됩니다.
 
-## <a name="next-steps"></a>Next Steps
+## 다음 단계
 
-- Analyze [Real-time stats in Azure CDN](cdn-real-time-stats.md)
-- Dig deeper with [advanced HTTP reports](cdn-advanced-http-reports.md)
-- Analyze [usage patterns](cdn-analyze-usage-patterns.md)
+- [Azure CDN의 실시간 통계](cdn-real-time-stats.md) 분석
+- [고급 HTTP 보고서](cdn-advanced-http-reports.md)의 심층적 분석
+- [사용 패턴](cdn-analyze-usage-patterns.md) 분석
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

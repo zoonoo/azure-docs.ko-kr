@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach Content" 
-   description="Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement" 
+   pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 도달률 콘텐츠" 
+   description="Azure Mobile Engagement에서 다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법을 알아봅니다." 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,133 +16,127 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
-
-# <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>How to manage the unique content of the different types of push notification campaigns
+# 다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법
  
-You can use the Content section of a new reach campaign to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The content setting of Push campaigns is specific to the type of campaign. 
+새 도달률 캠페인의 콘텐츠 섹션을 사용하면 알림, 설문 조사, 데이터 푸시 및 타일(Windows Phone 전용)의 콘텐츠를 수정할 수 있습니다. 푸시 캠페인의 콘텐츠 설정은 캠페인의 유형에 따라 다릅니다.
  
-### <a name="content-types:"></a>Content types:
-- Announcements
-- Polls
-- Data pushes
-- Tiles (Windows Phone Only)
+### 콘텐츠 형식:
+- 알림
+- 설문 조사
+- 데이터 푸시
+- 파일(Windows Phone 전용)
  
-## <a name="content-of-announcements"></a>Content of Announcements
- ![Reach-Content1][30] 
+## 알림의 내용
+ ![도달률 콘텐츠1][30]
 
-### <a name="choose-the-type-of-your-announcement:"></a>Choose the type of your announcement:
--    Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
--    Text announcement: It is a notification that engages the user to have a look at a text view.
--    Web announcement: It is a notification that engages the user to have a look at a web view.
+### 알림의 유형을 선택합니다.
+-    알림 전용: 단순한 표준 알림입니다. 즉, 사용자가 알림을 클릭해도 추가 뷰는 표시되지 않으며 해당 알림과 연결된 작업만 수행됩니다.
+-    텍스트 알림: 사용자가 텍스트 뷰를 확인하도록 하는 알림입니다.
+-    웹 알림: 사용자가 웹 뷰를 확인하도록 하는 알림입니다.
 
-### <a name="see-also"></a>See also
-- [Reach - How Tos - Announcements][Link 3] 
+### 참고 항목
+- [도달률 - 방법 - 알림][Link 3]
 
-### <a name="about-web-view-announcements:"></a>About Web View Announcements:
-Occurrences of the pattern "{deviceid}" in the HTML code or JavaScript code you provide here will be automatically replaced by the identifier of the device displaying the announcement. This is an easy way to retrieve Azure Mobile Engagement device identifiers in an external web service hosted on your back office.
-If you want to create a full screen web view (without the default Action and Exit buttons we provide) you can use the following functions from your web view announcement's JavaScript code: 
+### 웹 뷰 알림 정보
+여기서 입력하는 JavaScript 코드 또는 HTML 코드에서 나타나는 "{deviceid}" 패턴은 자동으로 알림을 표시하는 장치의 식별자로 바뀝니다. 따라서 백오피스에서 호스트되는 외부 웹 서비스에서 Azure Mobile Engagement 장치 식별자를 쉽게 검색할 수 있습니다. 기본적으로 제공되는 작업 및 종료 단추를 포함하지 않고 전체 화면 웹 뷰를 만들려는 경우 웹 뷰 알림의 JavaScript 코드에서 다음 함수를 사용하면 됩니다.
 
--    perform the announcement action: ReachContent.actionContent()
--    exit from the announcement: ReachContent.exitContent()
+-    알림 작업 수행: ReachContent.actionContent()
+-    알림 종료: ReachContent.exitContent()
  
-### <a name="choose-your-action:"></a>Choose your Action:
+### 작업 선택
 
-### <a name="about-action-urls:"></a>About Action URLs:
-Any URL that can be interpreted by a targeted device's operating system can be used as an action URL.
-Any dedicated URL that your application might support (e.g. to make users jump to a particular screen) can also be used as an action URL.
-Each occurrence of the {deviceid} pattern is automatically replaced by the identifier of the device performing the action. This can be used to easily retrieve Azure Mobile Engagement device identifiers via an external web service hosted on your back office.
+### 작업 URL 정보
+대상으로 지정된 장치의 운영 체제에서 해석할 수 있는 모든 URL을 작업 URL로 사용할 수 있습니다. 사용자가 특정 화면으로 이동하도록 하는 데 사용되는 URL 등 응용 프로그램이 지원할 수 있는 모든 전용 URL도 작업 URL로 사용할 수 있습니다. URL에서 나타나는 각 {deviceid} 패턴은 자동으로 작업을 수행하는 장치의 식별자로 바뀝니다. 따라서 백오피스에서 호스트되는 외부 웹 서비스에서 Azure Mobile Engagement 장치 식별자를 쉽게 검색할 수 있습니다.
 
-- **Android + iOS actions**
-    - Open a web page
-    - http://\[web-site-domain\] 
-    - Example:http://www.azure.com
-    - Send an e-mail
-    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
-    - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Send a SMS
-    - sms:\[phone-number\] 
-    - Example:sms:2125551212
-    - Dial a phone number
-    - tel:\[phone-number\] 
-    - Example:tel:2125551212
-- **Android only actions**
-    - Download an application on the Play Store
-    - market://details?id=\[app package\] 
-    - Example:market://details?id=com.microsoft.office.word
-    - Start a geo-localized search
-    - geo:0,0?q=\[search query\] 
-    - Example:geo:0,0?q=starbucks,paris
-- **iOS only actions**
-    - Download an application on the App Store
-    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
-    - Example:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
-    - Windows Actions
-    - Open a web page
-    - http://\[web-site-domain\] 
-    - Example:http://www.azure.com
-    - Send an e-mail
-    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
-    - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Send a SMS (Skype Store App required)
-    - sms:\[phone-number\] 
-    - Example:sms:2125551212
-    - Dial a phone number (Skype Store App required)
-    - tel:\[phone-number\] 
-    - Example:tel:2125551212
-    - Download an application on the Play Store
-    - ms-windows-store:PDP?PFN=\[app package ID\] 
-    - Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
-    - Start a bingmaps search
-    - bingmaps:?q=\[search query\] 
-    - Example:bingmaps:?q=starbucks,paris
-    - Use a custom scheme
-    - \[custom scheme\]://\[custom scheme params\] 
-    - Example:myCustomProtocol://myCustomParams
-    - Use a package data (Store App for extension read required)
-    - \[folder\]\[data\].\[extension\] 
-    - Example:myfolderdata.txt
+- **Android + iOS 작업**
+    - 웹 페이지 열기
+    - http://[web-site-domain\]
+    - 예:http://www.azure.com
+    - 메일 보내기
+    - mailto:[메일 수신자]?subject=[제목]&body=[메시지]
+    - 예:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - 문자 메시지 보내기
+    - sms:[전화 번호]
+    - 예: sms:2125551212
+    - 특정 번호로 전화 걸기
+    - tel:[전화 번호]
+    - 예: tel:2125551212
+- **Android 전용 작업**
+    - PlayStore에서 응용 프로그램 다운로드
+    - market://details?id=[app 패키지]
+    - 예:market://details?id=com.microsoft.office.word
+    - 지리적 위치에 따른 검색 시작
+    - geo:0,0?q=[검색 쿼리]
+    - 예: geo:0,0?q=starbucks,paris
+- **iOS 전용 작업**
+    - 앱 스토어에서 응용 프로그램 다운로드
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8
+    - 예:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+    - Windows 작업
+    - 웹 페이지 열기
+    - http://[web-site-domain\]
+    - 예:http://www.azure.com
+    - 메일 보내기
+    - mailto:[메일 수신자]?subject=[제목]&body=[메시지]
+    - 예:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - 문자 메시지 보내기(Skype 스토어 앱 필요)
+    - sms:[전화 번호]
+    - 예: sms:2125551212
+    - 특정 번호로 전화 걸기(Skype 스토어 앱 필요)
+    - tel:[전화 번호]
+    - 예: tel:2125551212
+    - PlayStore에서 응용 프로그램 다운로드
+    - ms-windows-store:PDP?PFN=[앱 패키지 ID]
+    - 예: ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
+    - Bing 지도 검색 수행
+    - bingmaps:?q=[검색 쿼리]
+    - 예: bingmaps:?q=starbucks,paris
+    - 사용자 지정 체계 사용
+    - [사용자 지정 체계]://[사용자 지정 체계 매개 변수]
+    - 예:myCustomProtocol://myCustomParams
+    - 패키지 데이터 사용(확장명 읽기를 위한 스토어 앱 필요)
+    - [폴더] [데이터].[확장명]
+    - 예: myfolderdata.txt
  
-### <a name="build-a-tracking-url:"></a>Build a Tracking URL:
--    See the “Settings” section of the <UI Documentation> for instruction on building a tracking URL that will allow users to download one of your other applications.
+### 추적 URL 작성
+-    사용자가 다른 응용 프로그램 중 하나를 다운로드하는 데 사용할 수 있는 추적 URL을 작성하는 지침은 <UI Documentation>의 "설정" 섹션을 참조하세요.
  
-### <a name="define-the-texts-of-your-announcement"></a>Define the texts of your announcement
-Fill in the title, content, and button texts of your announcement. You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on the feedback of whether this campaign was just pushed, replied, actioned, or exited.
+### 알림 텍스트 정의
+알림의 제목, 내용 및 단추 텍스트를 입력합니다. 사용자가 이 캠페인에 응답한 방법과 관련한 도달률 피드백을 기반으로 하여 이후 캠페인의 대상을 지정할 수 있습니다. 이 캠페인에 대한 피드백(푸시만, 회신, 작업, 종료)에 따라 대상을 지정할 수 있습니다.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+### 참고 항목
+- [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
 
-## <a name="content-of-polls"></a>Content of Polls
-![Reach-Content2][31] Fill in the title, description, and button texts of your announcement. Then, add questions and choices for the answers to your questions.
-You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited. Audience targeting can also be based on Poll answer feedback, where the question and answer choice are used as criteria.
+## 설문 조사의 내용
+![도달률 콘텐츠2][31] 알림의 제목, 설명 및 단추 텍스트를 입력합니다. 그런 다음 질문 및 질문에 대한 대답의 선택 항목을 추가합니다. 사용자가 이 캠페인에 응답한 방법과 관련한 도달률 피드백을 기반으로 하여 이후 캠페인의 대상을 지정할 수 있습니다. 이 캠페인에 대한 응답 방법(푸시만, 회신, 작업, 종료)에 따라 대상을 지정할 수 있습니다. 설문 조사 대답 피드백을 기준으로 대상을 지정할 수도 있습니다. 이 경우 질문과 대답 선택 항목이 기준으로 사용됩니다.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+### 참고 항목
+- [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
  
-## <a name="content-of-data-pushes"></a>Content of Data Pushes
-![Reach-Content3][32] 
+## 데이터 푸시의 내용
+![도달률 콘텐츠3][32]
 
-### <a name="choose-the-type-of-your-data:"></a>Choose the type of your data:
-- Text
-- Binary data
-- Base64 data
+### 데이터 형식을 선택합니다.
+- 텍스트
+- 이진 데이터
+- Base64 데이터
 
-### <a name="define-the-content-of-your-data"></a>Define the content of your data
-- If you selected to push text data, copy and paste the text into the "content" box.
-- If you selected to push either binary or base64 data, use the "upload your file" button to upload your file.
-- You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited.
+### 데이터의 내용을 정의합니다.
+- 텍스트 데이터를 푸시하도록 선택한 경우 텍스트를 복사하여 "콘텐츠" 상자에 붙여 넣습니다.
+- 이진 또는 base64 데이터를 푸시하도록 선택한 경우에는 "파일 업로드" 단추를 사용하여 파일을 업로드합니다.
+- 사용자가 이 캠페인에 응답한 방법과 관련한 도달률 피드백을 기반으로 하여 이후 캠페인의 대상을 지정할 수 있습니다. 이 캠페인에 대한 응답 방법(푸시만, 회신, 작업, 종료)에 따라 대상을 지정할 수 있습니다.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+### 참고 항목
+- [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
 
-## <a name="content-of-tiles-(windows-phone-only)"></a>Content of Tiles (Windows Phone only)
-![Reach-Content4][33]
+## 타일의 내용(Windows Phone 전용)
+![도달률 콘텐츠4][33]
 
-### <a name="define-the-content-of-your-tile"></a>Define the content of your tile
-The tile payload is the text to be displayed in the tile of your app on Windows Phone devices.
-A tile push is the Microsoft Push Notification Service (MPNS) version of a native push for Windows Phone. The tile push type is the only push type that does not have a response and so the audience of future campaigns can't be built on the results of a tile push campaign. 
+### 타일의 내용을 정의합니다.
+타일 페이로드는 Windows Phone 장치에서 앱의 타일에 표시할 텍스트입니다. 타일 푸시는 Windows Phone용 네이티브 푸시의 MPNS(Microsoft 푸시 알림 서비스) 버전입니다. 타일 푸시 유형은 유일하게 응답이 없는 푸시 유형이므로 타일 푸시 캠페인의 결과를 기준으로 이후 캠페인의 대상을 지정할 수는 없습니다.
 
-### <a name="see-also"></a>See also
-- [API Documentation - Reach API - Native Push][Link 4]
+### 참고 항목
+- [API 설명서 - 도달률 API - 네이티브 푸시][Link 4]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -236,8 +230,4 @@ A tile push is the Microsoft Push Notification Service (MPNS) version of a nativ
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

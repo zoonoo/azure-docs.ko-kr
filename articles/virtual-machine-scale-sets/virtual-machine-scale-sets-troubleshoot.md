@@ -1,84 +1,78 @@
 <properties
-    pageTitle="Troubleshoot autoscale with Virtual Machine Scale Sets | Microsoft Azure"
-    description="Troubleshoot autoscale with Virtual Machine Scale Sets. Understand typical problems encountered and how to resolve them."
-    services="virtual-machine-scale-sets"
-    documentationCenter=""
-    authors="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="가상 컴퓨터 규모 집합을 이용하여 자동 크기 조정 문제 해결 | Microsoft Azure"
+	description="가상 컴퓨터 규모 집합을 사용하여 자동 크기 조정 문제 해결 일반적으로 발생하는 문제와 해결 방법에 대해 이해합니다."
+	services="virtual-machine-scale-sets"
+	documentationCenter=""
+	authors="gbowerman"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="na"
-    ms.tgt_pltfrm="windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="guybo"/>
+	ms.service="virtual-machine-scale-sets"
+	ms.workload="na"
+	ms.tgt_pltfrm="windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/28/2016"
+	ms.author="guybo"/>
     
+# 가상 컴퓨터 규모 집합을 사용하여 자동 크기 조정 문제 해결
 
-# <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Troubleshooting autoscale with Virtual Machine Scale Sets
+**문제** – VM 규모 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale과 같은 템플릿을 배포했습니다. 크기 조정 규칙을 정의했으며 VM에 적용되는 부하의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고 원활하게 작동합니다.
 
-**Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using VM Scale Sets –  for example by deploying a template like this: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale  – you have your scale rules defined and it works great, except that no matter how much load you put on the VMs, it won’t autoscale.
+## 문제 해결 단계
 
-## <a name="troubleshooting-steps"></a>Troubleshooting steps
+다음은 몇 가지 고려해야 할 사항입니다.
 
-Some things to consider include:
+- 각 VM에 얼마나 많은 코어가 있고 각 코어를 로드하고 있나요? 위의 Azure 빠른 시작 템플릿 예제에는 단일 코어를 로드하는 do\_work.php 스크립트가 있습니다. Standard\_A1보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다. [Azure에서 Windows 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 검토하여 VM에 얼마나 많은 코어가 있는지 확인합니다.
 
-- How many cores does each VM have, and are you loading each core?
- The example Azure Quickstart template above has a do_work.php script, which loads a single core. If you’re using a VM bigger than Standard_A1 then you’d need to run this load multiple times. Check how many cores your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md)
+- VM 규모 집합에 얼마나 많은 VM이 있고 각각에서 작업을 수행하고 있나요?
 
-- How many VMs in the VM Scale Set, are you doing work on each one?
+    크기 조정 이벤트는 자동 크기 조정 규칙에서 내부 정의된 시간 동안 규모 집합에 있는 **모든** VM에 대해서 평균 CPU가 임계값을 초과했을 경우에만 수행됩니다.
 
-    A scale out event will only take place when the average CPU across **all** the VMs in a scale set exceeds the threshold value, over the time internal defined in the autoscale rules.
+- 누락된 크기 조정 이벤트가 있나요?
 
-- Did you miss any scale events?
+    Azure 포털에서 크기 조정 이벤트에 대한 감사 로그를 확인합니다. 누락된 규모 확장 및 축소가 있을 수 있습니다. "크기 조정"으로 필터링할 수 있습니다.
 
-    Check the audit logs in the Azure portal for scale events. Maybe there was a scale up and a scale down which was missed. You can filter by “Scale”..
+	![감사 로그][audit]
 
-    ![Audit Logs][audit]
+- 규모 축소 및 확장 임계값 차이가 충분한가요?
 
-- Are your scale-in and scale-out thresholds sufficiently different?
+    평균 CPU가 5분 이상 50%보다 클 때 규모를 확장하고 50%보다 작을 때 규모를 축소하도록 설정했다고 가정합니다. 이 경우 CPU 사용량이 임계값에 가까워질 때 크기 조정 작업이 지속적으로 집합의 크기를 늘리고 줄이기를 반복하면서 “플래핑” 문제가 발생됩니다. 이 때문에 자동 크기 조정 서비스는 크기를 조정하지 않는 것으로 나타날 수 있는 “플래핑”을 방지하려고 합니다. 그러므로 크기 조정 사이에 일부 간격을 허용하도록 규모 확장 및 축소 임계값의 차이가 충분한지 확인합니다.
 
-    Suppose you set a rule to scale out when average CPU is greater than 50% over 5 minutes, and to scale in when average CPU is less than 50%. This would cause a “flapping” problem when CPU usage is close to this threshold, with scale actions constantly increasing and decreasing the size of the set. Because of this, the autoscale service tries to prevent “flapping”, which can manifest as not scaling. Therefore make sure your scale-out and scale-in thresholds are sufficiently different to allow some space in between scaling.
+- 사용자 고유의 JSON 템플릿을 작성했나요?
 
-- Did you write your own JSON template?
+    실수하기 쉬우므로 작업에 증명된 위와 같은 템플릿으로 시작하고 조금씩 증분합니다. 템플릿은 진단 확장 저장소 계정, 규모 집합 및 Microsoft.Insights 리소스를 상호 연결해야 하고 Windows 및 Linux에서 성능 데이터 메트릭 이름이 서로 다르므로 올바르게 참조해야 합니다.
 
-    It is easy to make mistakes, so start with a template like the one above which is proven to work, and make small incremental changes. The template needs to correlate a Diagnostics extension storage account, the scale set, and the Microsoft.Insights resource, and correctly reference the performance data metric name, which differs between Windows and Linux.
+- 수동으로 규모를 축소 또는 확장할 수 있나요?
 
-- Can you manually scale in or out?
+    VM 수를 수동으로 변경하려면 다른 "용량" 설정을 사용하여 VM 규모 집합 리소스를 다시 배포합니다. https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing 예제 템플릿에서 이를 수행합니다. 규모 집합에서 사용하는 크기와 동일한 컴퓨터 크기를 사용하도록 템플릿을 편집해야 할 수 있습니다. 성공적으로 VM 수를 수동으로 변경할 수 있으면 자동 크기 조정에 문제의 원인이 있는 것입니다.
 
-    Try redeploying the VM Scale Set resource with a different “capacity” setting to change the number of VMs manually. An example template to do this is here: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing – you may need to edit the template to make sure it has the same machine size as your Scale Set is using. If you can successfully change the number of VMs manually, then you know the problem is isolated to autoscale.
+- Microsoft.Compute/virtualMachineScaleSet 및 [Azure 리소스 탐색기](https://resources.azure.com/)의 Microsoft.Insights 리소스를 확인합니다.
 
-- Check your Microsoft.Compute/virtualMachineScaleSet, and Microsoft.Insights resources in the [Azure Resource Explorer](https://resources.azure.com/) 
+    이는 Azure Resource Manager 리소스의 상태를 보여 주는 필수적인 문제 해결 도구입니다. 구독을 클릭하고 문제를 해결하려는 리소스 그룹을 살펴봅니다. 계산 리소스 공급자 아래에서, 만든 VM 규모 집합을 살펴보고 배포 상태를 보여 주는 인스턴스 보기를 확인합니다. 또한 VM 규모 집합에서 VM 인스턴스 보기를 확인합니다. 그런 다음 Microsoft.Insights 리소스 공급자로 이동하여 자동 크기 조정 규칙이 올바른지 확인합니다.
 
-    This is an indispensable troubleshooting tool which shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the Compute resource provider look at the VM Scale Set you created and check the Instance View, which shows you the state of a deployment. Also check the instance view of VMs in the VM Scale Set. Then go into the Microsoft.Insights resource provider and check the autoscale rules look good.
-
-- Is the Diagnostic extension working and emitting performance data?
+- 진단 확장이 작동 중이고 성능 데이터를 내보내고 있나요?
  
-    Autoscale in Azure Resource Manager works by means of a VM extension called the Diagnostics Extension (divided into Linux Diagnostics extension and Windows). It emits performance data to a storage account you define in the template. This data is then aggregated by the Azure Insights service.
+    Azure Resource Manager에서 자동 크기 조정은 진단 확장(Linux 진단 확장 및 Windows으로 나뉨)이라고 하는 VM 확장을 통해 작동합니다. 이 방법은 템플릿에서 정의한 저장소 계정으로 성능 데이터를 내보냅니다. 그런 다음 Azure Insights 서비스에 의해 이 데이터가 집계됩니다.
 
-    If the Insights service can’t read data from the VMs, it is supposed to send you an email – for example if the VMs were down, so check your email (the one you specified when creating the Azure account).
+    Insights 서비스가 VM에서 데이터를 읽을 수 없는 경우 사용자에게 메일을 보낸다고 가정합니다. 예를 들어 VM이 다운된 경우 Azure 계정을 만들 때 지정한 메일을 확인합니다.
 
-    You can also go and look at the data yourself. Look at the Azure storage account using a cloud explorer. For example using the [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), log in and pick the Azure subscription you’re using, and the Diagnostics storage account name referenced in the Diagnostics extension definition in your deployment template..
+    직접 이동하여 데이터를 살펴볼 수도 있습니다. 클라우드 탐색기를 사용하여 Azure 저장소 계정을 찾습니다. 예를 들어 [Visual Studio 클라우드 탐색기](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)를 사용하여 로그인하고 사용 중인 Azure 구독과 배포 템플릿의 진단 확장 정의에서 참조된 진단 저장소 계정을 선택합니다.
 
-    ![Cloud Explorer][explorer]
+	![Cloud Explorer][explorer]
 
-    Here you will see a bunch of tables where the data from each VM is being stored. Taking Linux and the CPU metric as an example, look at the most recent rows. The Visual Studio cloud explorer supports a query language so you can run a query like “Timestamp gt datetime’2016-02-02T21:20:00Z’” to make sure you get the most recent events (assume time is in UTC). Does the data you see in there correspond to the scale rules you set up? In the example below, the CPU for machine 20 started increasing to 100% over the last 5 minutes..
+    각 VM의 데이터가 저장되는 여러 테이블이 표시됩니다. 예를 들어 Linux 및 CPU 메트릭에서 가장 최근 행을 살펴봅니다. Visual Studio 클라우드 탐색기는 쿼리 언어를 지원하므로 “Timestamp gt datetime’2016-02-02T21:20:00Z’”와 같은 쿼리를 실행하여 가장 최근의 이벤트를 가져옵니다(가정 시간은 UTC 기준). 확인한 데이터가 설정한 크기 조정 규칙과 일치하나요? 아래 예제에서는 컴퓨터 20에 대한 CPU가 지난 5분 동안 100%로 증가하기 시작했습니다.
 
-    ![Storage Tables][tables]
+	![저장소 테이블][tables]
 
-    If the data is not there, then it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://azure.microsoft.com/status/).
+    데이터가 없는 경우 VM에서 실행 중인 진단 확장에 문제가 있음을 의미합니다. 데이터가 있는 경우에는 크기 조정 규칙 또는 Insights 서비스에 문제가 있음을 의미합니다. [Azure 상태](https://azure.microsoft.com/status/)를 확인합니다.
 
-    Once you’ve been through these steps, you could try the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), or [Stack overflow](http://stackoverflow.com/questions/tagged/azure), or log a support call. Be prepared to share the template and a view of the performance data.
+    이러한 단계를 수행한 후 [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp)의 포럼 또는 [Stack overflow](http://stackoverflow.com/questions/tagged/azure)를 확인하거나 지원을 요청할 수 있습니다. 템플릿 및 성능 데이터 보기를 공유하도록 준비합니다.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

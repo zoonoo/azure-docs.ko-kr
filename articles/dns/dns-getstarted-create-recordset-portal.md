@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Create a record set and records for a DNS Zone using the Azure portal | Microsoft Azure"
-   description="How to create host records for Azure DNS and create record sets and records using the Azure portal"
+   pageTitle="Azure 포털을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드 만들기 | Microsoft Azure"
+   description="Azure DNS에 대한 호스트 레코드를 만들고 Azure 포털을 사용하여 레코드 집합 및 레코드를 만드는 방법"
    services="dns"
    documentationCenter="na"
-   authors="sdwheeler"
+   authors="cherylmc"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,58 +15,53 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="sewhee"/>
+   ms.author="cherylmc"/>
 
 
 
-
-# <a name="create-dns-record-sets-and-records-by-using-the-azure-portal"></a>Create DNS record sets and records by using the Azure portal
+# Azure 포털을 사용하여 DNS 레코드 집합 및 레코드 만들기
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](dns-getstarted-create-recordset-portal.md)
+- [Azure 포털](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 
-This article walks you through the process of creating records and records sets by using the Azure portal. After you create your DNS zone, you add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
+이 문서는 Azure 포털을 사용하여 레코드 및 레코드 집합을 만드는 과정을 안내합니다. DNS 영역을 만든 후 도메인에 대한 DNS 레코드를 추가합니다. 이 작업을 수행하려면 먼저 DNS 레코드 및 레코드 집합을 이해해야 합니다.
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 
-## <a name="create-a-record-set-and-record"></a>Create a record set and record
+## 레코드 집합 및 레코드 만들기
 
-The following example walks you through the process of creating a record set and record by using the Azure portal. We'll use the DNS "A" record type.
+다음 예제에서는 Azure 포털을 사용하여 레코드 집합 및 레코드를 만드는 과정을 안내합니다. 여기에서는 DNS “A” 레코드 유형을 사용합니다.
 
-1. Sign in to the portal.
+1. 포털에 로그인합니다.
 
-2. Go to the **DNS zone** blade in which you want to create a record set.
+2. 레코드 집합을 만들려는 **DNS 영역** 블레이드로 이동합니다.
 
-3. At the top of the **DNS zone** blade, select **Record set** to open the **Add record set** blade.
+3. **DNS 영역** 블레이드의 위쪽에서 **레코드 집합**을 클릭하여 **레코드 집합 추가** 블레이드를 엽니다.
 
-    ![New record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
+	![새 레코드 집합](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
-4. On the **Add record set** blade, name your record set. For example, you could name your record set "**www**".
+4. **레코드 집합 추가** 블레이드에서 레코드 집합의 이름을 지정합니다. 예를 들어 레코드 집합의 이름을 "**www**"로 지정할 수 있습니다.
 
-    ![Add record set](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
+	![레코드 집합 추가](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
 
-5. Select the type of record you want to create. For example, select **A**.
+5. 만들려는 레코드 유형을 선택합니다. 예를 들어 **A**를 선택합니다.
 
-6. Set the **TTL**. The default time to live in the portal is one hour.
+6. **TTL**을 설정합니다. 포털에서 라이브되는 기본 시간은 1시간입니다.
 
-7. Add the IP addresses, one IP address per line. When you use the suggested record set name and record type described earlier, you add the IPv4 IP addresses to the **A** record for the www record set.
+7. 한 줄당 하나씩 IP 주소를 추가합니다. 앞서 제안된 레코드 집합 이름 및 레코드 유형을 사용할 경우 www 레코드 집합에 대해 **A** 레코드에 IPv4 IP 주소가 추가됩니다.
 
-8. After you finish adding IP addresses, select **OK** at the bottom of the blade. The DNS record set will be created.
-
-
-## <a name="next-steps"></a>Next steps
-
-To manage your record set and records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
-
-For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
+8. IP 주소 추가가 끝나면 블레이드 맨 아래에서 **확인**을 선택합니다. DNS 레코드 집합이 생성됩니다.
 
 
+## 다음 단계
 
-<!--HONumber=Oct16_HO2-->
+레코드 집합과 레코드를 관리하려면 [Azure 포털을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-portal.md)를 참조하세요.
 
+Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요.
 
+<!---HONumber=AcomDC_0817_2016-->

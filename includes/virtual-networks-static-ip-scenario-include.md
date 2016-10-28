@@ -1,13 +1,11 @@
-## <a name="scenario"></a>Scenario
+## 시나리오
 
-To better illustrate how to configure a static IP address for a VM, this document will use the scenario below.
+VM에 대한 고정 IP 주소를 구성하는 방법을 보다 잘 설명하기 위해 이 문서에서는 아래의 시나리오를 사용합니다.
 
-![VNet scenario](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
+![VNet 시나리오](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
 
-In this scenario you will create a VM named **DNS01** in the **FrontEnd** subnet, and set it to use a static IP address of **192.168.1.101**.
+이 시나리오에서는 **FrontEnd** 서브넷에 **DNS01**이라는 VM을 만들고 고정 IP 주소 **192.168.1.101**을 사용하도록 설정합니다.
 
  
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

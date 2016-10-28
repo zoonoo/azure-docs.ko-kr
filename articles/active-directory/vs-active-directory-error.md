@@ -1,102 +1,99 @@
 <properties 
-    pageTitle="Error During Authentication Detection" 
-    description="The active directory connection wizard detected an incompatible authentication type" 
-    services="active-directory" 
-    documentationCenter="" 
-    authors="TomArcher" 
-    manager="douge" 
-    editor=""/>
+	pageTitle="인증 검색 중 오류 발생" 
+	description="Active Directory 연결 마법사에서 호환되지 않는 인증 유형 검색" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="TomArcher" 
+	manager="douge" 
+	editor=""/>
   
 <tags 
-    ms.service="active-directory" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="vs-getting-started" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="tarcher"/>
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="tarcher"/>
 
+# 인증 검색 중 오류 발생
 
-# <a name="error-during-authentication-detection"></a>Error During Authentication Detection
+이전 인증 코드를 검색하는 동안 마법사에서 호환되지 않는 인증 유형을 검색했습니다.
 
-While detecting previous authentication code, the wizard detected an incompatible authentication type.   
+##무엇을 확인합니까?
 
-##<a name="what-is-being-checked?"></a>What is being checked?
+**참고:** 프로젝트에서 이전 인증 코드를 제대로 감지 하기 위해 프로젝트를 빌드할 수 있어야 합니다. 이 오류가 발생했고 프로젝트에 이전 인증 코드가 없는 경우 다시 작성한 다음 다시 시도합니다.
 
-**Note:** In order to correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have a previous authentication code in your project, rebuild and try again.
+###프로젝트 형식
 
-###<a name="project-types"></a>Project Types
+이 마법사는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다. 프로젝트의 `ApiController`에서 파생되는 컨트롤러가 있으면 프로젝트가 WebAPI 프로젝트로 간주됩니다. 프로젝트의 `MVC.Controller`에서 파생되는 컨트롤러만 있으면 프로젝트가 MVC 프로젝트로 간주됩니다. 다른 항목은 이 마법사에서 지원되지 않습니다. 현재는 WebForms 프로젝트가 지원되지 않습니다.
 
-The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, the project will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, the project will be considered an MVC project.  Anything else is not supported by the wizard.  WebForms projects are not currently supported.
+###호환 가능한 인증 코드
 
-###<a name="compatible-authentication-code"></a>Compatible Authentication Code
+또한 이 마법사에서는 이전에 이 마법사로 구성되었거나 이 마법사와 호환되는 인증 설정이 있는지도 확인합니다. 모든 설정이 있는 경우 재진입 사례로 간주되고 마법사가 열릴 때 해당 설정이 표시됩니다. 설정이 일부만 있으면 오류 사례로 간주됩니다.
 
-The wizard also checks for authentication settings that have been previously configured with the wizard or are compatible with the wizard.  If all of the settings are present, it is considered a re-entrant case and the wizard will open and display the settings.  If only some of the settings are present, it is considered an error case.
+MVC 프로젝트에서 이 마법사는 이전에 마법사를 사용한 결과에 따라 다음과 같은 설정을 확인합니다.
 
-In an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:
+	<add key="ida:ClientId" value="" />
+	<add key="ida:Tenant" value="" />
+	<add key="ida:AADInstance" value="" />
+	<add key="ida:PostLogoutRedirectUri" value="" />
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:AADInstance" value="" />
-    <add key="ida:PostLogoutRedirectUri" value="" />
+또한 이 마법사는 이전에 마법사를 사용한 결과에 따라 다음과 같은 Web API 프로젝트 설정을 확인합니다.
 
-In addition, the wizard checks for any of the following settings in a Web API project, which result from previous use of the wizard:
+	<add key="ida:ClientId" value="" />
+	<add key="ida:Tenant" value="" />
+	<add key="ida:Audience" value="" />
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:Audience" value="" />
+###호환되지 않는 인증 코드
 
-###<a name="incompatible-authentication-code"></a>Incompatible Authentication Code
+마지막으로, 이 마법사에서는 이전 버전의 Visual Studio를 사용하여 구성된 인증 코드의 버전을 감지하려고 합니다. 이 오류가 발생한 경우에는 프로젝트에 호환되지 않는 인증 코드가 있음을 의미합니다. 마법사에서는 이전 버전의 Visual Studio에서 다음과 같은 인증 유형을 감지합니다.
 
-Finally, the wizard attempts to detect versions of authentication code that have been configured with previous versions of Visual Studio. If you received this error, it means your project contains an incompatible authentication type. The wizard detects the following types of authentication from previous versions of Visual Studio:
-
-* Windows Authentication 
-* Individual User Accounts 
-* Organizational Accounts 
+* Windows 인증
+* 개별 사용자 계정
+* 조직 계정
  
 
-To detect Windows Authentication in an MVC project, the wizard looks for the `authentication` element from your **web.config** file.
+MVC 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자의 **web.config** 파일에서 `authentication` 요소를 찾습니다.
 
 <pre>
-    &lt;configuration&gt;
-        &lt;system.web&gt;
-            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-        &lt;/system.web&gt;
-    &lt;/configuration&gt;
+	&lt;configuration>
+	    &lt;system.web>
+	        <span style="background-color: yellow">&lt;authentication mode="Windows" /></span>
+	    &lt;/system.web>
+	&lt;/configuration>
 </pre>
 
-To detect Windows Authentication in a Web API project, the wizard looks for the `IISExpressWindowsAuthentication` element from your project's **.csproj** file:
+Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자 프로젝트의 **.csproj** 파일에서 `IISExpressWindowsAuthentication` 요소를 찾습니다.
 
 <pre>
-    &lt;Project&gt;
-        &lt;PropertyGroup&gt;
-            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup> &lt;/Project&gt;
+	&lt;Project>
+	    &lt;PropertyGroup>
+	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication>enabled&lt;/IISExpressWindowsAuthentication></span>
+	    &lt;/PropertyGroup>
+	&lt;/Project>
 </pre>
 
-To detect Individual User Accounts authentication, the wizard looks for the package element from your **Packages.config** file.
+개별 사용자 계정 인증을 감지하기 위해 마법사는 사용자의 **Packages.config** 파일에서 패키지 요소를 찾습니다.
 
 <pre>
-    &lt;packages&gt;
-        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-    &lt;/packages&gt;
+	&lt;packages>
+	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+	&lt;/packages>
 </pre>
 
-To detect an old form of Organizational Account authentication, the wizard looks for the following element from **web.config**:
+조직 계정 인증의 이전 양식을 감지하기 위해 마법사는 **web.config**에서 다음 요소를 찾습니다.
 
 <pre>
-    &lt;configuration&gt;
-        &lt;appSettings&gt;
-            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-        &lt;/appSettings&gt;
-    &lt;/configuration&gt;
+	&lt;configuration>
+	    &lt;appSettings>
+	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /></span>
+	    &lt;/appSettings>
+	&lt;/configuration>
 </pre>
 
-To change the authentication type, remove the incompatible authentication type and run the wizard again.
+인증 유형을 변경하려면 호환되지 않는 인증 유형을 제거하고 마법사를 다시 실행하세요.
 
-For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+자세한 내용은 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

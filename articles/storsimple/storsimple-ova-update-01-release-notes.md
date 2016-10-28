@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Virtual Array Updates release notes| Microsoft Azure"
-   description="Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 0.2 and 0.1."
+   pageTitle="StorSimple 가상 배열 업데이트 릴리스 정보| Microsoft Azure"
+   description="업데이트 0.2 및 0.1을 실행하는 StorSimple 가상 배열에 대한 중대한 미해결 문제 및 해결책을 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,86 +15,81 @@
    ms.date="06/16/2016"
    ms.author="alkohli" />
 
+# StorSimple 가상 배열 업데이트 0.2 및 0.1 릴리스 정보
 
-# <a name="storsimple-virtual-array-update-0.2-and-0.1-release-notes"></a>StorSimple Virtual Array Update 0.2 and 0.1 release notes
+## 개요
 
-## <a name="overview"></a>Overview
+다음 릴리스 정보는 Microsoft Azure StorSimple 가상 배열 업데이트에 대한 중요한 미해결 문제 및 해결된 문제를 식별합니다. (Microsoft Azure StorSimple 가상 배열은 StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 합니다.)
 
-The following release notes identify the critical open issues and the resolved issues for Microsoft Azure StorSimple Virtual Array updates. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) 
+릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. StorSimple 가상 장치를 배포하기 전에 릴리스 정보에 포함된 정보를 주의 깊게 검토하세요.
 
-The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes.
+업데이트 0.2는 소프트웨어 버전 **10.0.10280.0**에 해당하고 업데이트 0.1은 버전 **10.0.10279.0**에 해당합니다. 아래 섹션에는 각 업데이트에 대한 변경 내용이 나와 있습니다.
 
-Update 0.2 corresponds to the software version **10.0.10280.0**; Update 0.1 is version **10.0.10279.0**. The sections below list the changes for each update. 
+> [AZURE.NOTE] 업데이트는 작업 중단 업데이트이며 장치를 다시 시작합니다. I/O가 진행 중인 경우 장치에 가동 중지 시간이 발생합니다.
 
-> [AZURE.NOTE] Updates are disruptive and will restart your device. If I/O are in progress, the device will incur downtime.
+## 업데이트 0.2에서 해결된 문제
+업데이트 0.2에는 다음 표에 설명된 수정 사항 외에도 업데이트 0.1에서에서 달라진 모든 변경 내용이 포함되어 있습니다.
 
-## <a name="issues-fixed-in-the-update-0.2"></a>Issues fixed in the Update 0.2
-Update 0.2 includes all changes from Update 0.1 in addition to the fix described in the following table:
-
-Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
+기능 | 문제 |
 --------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-Updates                                 | In the last release, updates weren't detected automatically in the Azure classic portal, so you had to use the local Web UI to install updates. This issue is fixed in this release. After installing Update 0.2, you can install future updates using the Azure classic portal.                       
+업데이트 | 마지막 릴리스에서는 Azure 클래식 포털에서 업데이트가 자동으로 검색되지 않았으므로 로컬 웹 UI를 사용하여 업데이트를 설치해야 했습니다. 이 문제는 이 릴리스에서 해결되었습니다. 업데이트 0.2를 설치한 후에는 Azure 클래식 포털을 사용하여 향후 업데이트를 설치할 수 있습니다.                       
 
-## <a name="what's-new-in-the-update-0.1"></a>What's new in the Update 0.1
+## 업데이트 0.1의 새로운 기능
 
-Update 0.1 contains the following bug fixes and improvements. 
+업데이트 0.1은 다음 버그 수정 및 향상된 기능을 포함합니다.
 
-- **Improved resiliency for cloud outages**: This release has several bug fixes around disaster recovery, backup, restore, and tiering in the event of a cloud connectivity disruption. 
+- **클라우드 중단에 대한 향상된 복원력**: 이 릴리스에는 재해 복구, 백업, 복원 및 클라우드 연결 중단 발생 시 계층화 등 몇 가지 버그 수정이 포함되어 있습니다. 
 
-- **Improved restore performance**: This release has bug fixes that have significantly cut down the completion time of the restore jobs.
+- **향상된 복원 성능**: 이 릴리스에는 복원 작업의 완료 시간을 대폭 줄인 버그 수정이 포함되어 있습니다.
 
-- **Automated space reclamation optimization**: When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
+- **자동화된 공간 재사용 최적화**: 씬 프로비전된 볼륨에서 데이터가 삭제된 경우 사용되지 않은 저장소 블록을 재사용해야 합니다. 이 릴리스에서는 클라우드에서 공간 재사용 프로세스가 개선되어 이전 버전보다 사용되지 않은 공간을 더 빨리 사용할 수 있게 되었습니다.
 
-- **New virtual disk images**: New VHD, VHDX, and VMDK are now available via the Azure classic portal. You can download these images to provision new Update 0.1 devices.
+- **새 가상 디스크 이미지**: 이제 새 VHD, VHDX 및 VMDK가 Azure 클래식 포털을 통해 제공됩니다. 이러한 이미지를 다운로드하여 새 업데이트 0.1 장치를 프로비전할 수 있습니다.
 
-- **Improving the accuracy of jobs status in the portal**: In the earlier version of software, job status reporting in the portal was not granular. This issue is resolved in this release.
+- **포털에서 작업 상태의 정확도 향상**: 소프트웨어의 이전 버전에서는 포털의 작업 상태 보고 기능이 세분화되지 않았습니다. 이 문제는 이 릴리스에서 해결되었습니다.
 
-- **Domain join experience**: Bug fixes related to domain-joining and renaming of the device.
+- **도메인 가입 환경**: 디바이스의 도메인 가입 및 이름 바꾸기와 관련된 버그 수정
 
 
-## <a name="issues-fixed-in-the-update-0.1"></a>Issues fixed in the Update 0.1
+## 업데이트 0.1에서 해결된 문제
 
-The following table provides a summary of issues fixed in this release.
+다음 표에서는 이 릴리스에서 수정된 문제를 간략하게 설명합니다.
 
-| No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
+| 번호 | 기능 | 문제 |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | VMDK                                 | In some VMware versions, the OS disk was seen as sparse causing alerts and disrupting normal operations. This was fixed in this release.                                                                                                                                                                                    |
-| 2    | iSCSI server                         | In the last release, the user was required to specify a gateway for each enabled network interface of your StorSimple virtual device. This behavior is changed in this release so that the user has to configure at least one gateway for all the enabled network interfaces.                                                                              |
-| 3    | Support package                      | In the earlier version of software, Support package collection failed when the package sizes were larger than 1 GB. This issue is fixed in this release.                                                                                                                                                                               |
-| 4    | Cloud access                         |  In the last release, if the StorSimple Virtual Array did not have network connectivity and was restarted, the local UI would have connectivity issues. This problem is fixed in this release.                                                                                                                            |
-| 5    | Monitoring charts                    | In the previous release, following a device failover, the cloud capacity utilization charts displayed incorrect values in the Azure classic portal. This is fixed in the current release.                                                                                                                          |
+| 1 | VMDK | 일부 VMware 버전에서 OS 디스크가 경고 및 정상 작업 중단을 일으키는 스파스로 보였습니다. 이 문제는 이 릴리스에서 해결되었습니다. |
+| 2 | iSCSI 서버 | 마지막 릴리스에서 사용자가 StorSimple 가상 장치의 각 활성화된 네트워크 인터페이스에 대한 게이트웨이를 지정해야 했습니다. 이 릴리스에서는 사용자가 모든 활성화된 네트워크 인터페이스에 대해 하나 이상의 게이트웨이를 구성해야 하도록 변경되었습니다. |
+| 3 | 지원 패키지 | 이전 버전의 소프트웨어에서 지원 패키지 크기가 1GB보다 클 때 해당 지원 패키지 컬렉션이 실패했습니다. 이 문제는 이 릴리스에서 해결되었습니다. |
+| 4 | 클라우드 액세스 | 마지막 릴리스에서 StorSimple 가상 배열이 네트워크에 연결되어 있지 않고 다시 시작된 경우 로컬 UI에 연결 문제가 발생했습니다. 이 문제는 이 릴리스에서 해결되었습니다. |
+| 5 | 모니터링 차트 | 이전 릴리스에서 장치 장애 조치(failover) 이후 클라우드 용량 사용률 차트에서 Azure 클래식 포털에 잘못된 값이 표시되었습니다. 이 문제는 현재 릴리스에서 해결되었습니다. |
 
 
 
-## <a name="known-issues-in-the-update-0.1"></a>Known issues in the Update 0.1
+## 업데이트 0.1의 알려진 문제
 
-The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases. **The issues release noted in this release are marked with an asterisk. Almost all the issues in this list have carried over from the GA release of StorSimple Virtual Array.**
+다음 표에서는 이전 릴리스에서 언급된 문제 릴리스를 포함하여 StorSimple 가상 배열에 대해 알려진 문제를 간략하게 제공합니다. **이 릴리스에 언급된 문제 릴리스는 별표로 표시되어 있습니다. 이 목록의 거의 모든 문제는 StorSimple 가상 배열의 GA 릴리스에서 전달되었습니다.**
 
 
-| No. | Feature | Issue | Workaround/comments |
+| 번호 | 기능 | 문제 | 해결 방법/설명 |
 |-----|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1.** | Updates | The virtual devices created in the preview release cannot be updated to a supported General Availability version. | These virtual devices must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
-| **2.** | Provisioned data disk | Once you have provisioned a data disk of a certain specified size and created the corresponding StorSimple virtual device, you must not expand or shrink the data disk. Attempting to do so will result in a  loss of all the data in the local tiers of the device. |   |
-| **3.** | Group policy | When a device is domain-joined, applying a group policy can adversely affect the device operation. | Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it.|
-| **4.** | Local web UI | If enhanced security features are enabled in Internet Explorer (IE ESC), some local web UI pages such as Troubleshooting or Maintenance may not work properly. Buttons on these pages may also not work. | Turn off enhanced security features in Internet Explorer.|
-| **5.** | Local web UI | In a Hyper-V virtual machine, the network interfaces in the web UI are displayed as 10 Gbps interfaces. | This behavior is a reflection of Hyper-V. Hyper-V always shows 10 Gbps for virtual network adapters. |
-| **6.** | Tiered volumes or shares | Byte range locking for applications that work with the StorSimple tiered volumes is not supported. If byte range locking is enabled, StorSimple tiering will not work. | Recommended measures include: <br></br>Turn off byte range locking in your application logic.<br></br>Choose to put data for this application in locally pinned volumes as opposed to tiered volumes.<br></br>*Caveat*: If using locally pinned volumes and byte range locking is enabled, be aware that the locally pinned volume can be online even before the restore is complete. In such instances, if a restore is in progress, then you must wait for the restore to complete. |
-| **7.** | Tiered shares | Working with large files could result in slow tier out. | When working with large files, we recommend that the largest file is smaller than 3% of the share size. |
-| **8.** | Used capacity for shares | You may see share consumption in the absence of any data on the share. This is because the used capacity for shares includes metadata. |   |
-| **9.** | Disaster recovery | You can only perform the disaster recovery of a file server to the same domain as that of the source device. Disaster recovery to a target device in another domain is not supported in this release. | This will be implemented in a later release. |
-| **10.** | Azure PowerShell | The StorSimple virtual devices cannot be managed through the Azure PowerShell in this release. | All the management of the virtual devices should be done through the Azure classic portal and the local web UI. |
-| **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
-| **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you will need to take the volumes offline and then bring them online for the change to take effect. | These will be addressed in a later release. |
-| **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
-| **14.** | File server*  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |
+| **1.** | 업데이트 | 미리 보기 릴리스에서 만든 가상 장치는 지원되는 일반 사용 가능 버전으로 업데이트될 수 없습니다. | 이러한 가상 장치는 재해 복구(DR) 워크플로를 사용하여 일반 사용 가능 릴리스로 장애 조치되어야 합니다. |
+| **2.** | 프로비전된 데이터 디스크 | 특정한 크기의 데이터 디스크를 프로비전하고 해당 StorSimple 가상 장치를 만들고 나면, 데이터 크기를 확장하거나 축소하지 말아야 합니다. 이를 시도하면 장치의 로컬 계층에서 모든 데이터가 손실됩니다. | |
+| **3.** | 그룹 정책 | 장치가 도메인에 가입될 때 그룹 정책을 적용하면 장치 작업에 부정적인 영향이 있을 수 있습니다. | 가상 배열이 Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.|
+| **4.** | 로컬 웹 UI | Internet Explorer (IE ESC)에서 향상된 보안 기능이 활성된 경우 문제 해결 또는 유지 관리와 같은 일부 로컬 웹 UI 페이지가 적절하게 작동하지 않을 수 있습니다. 해당 페이지의 단추도 작동하지 않을 수 있습니다. | Internet Explorer의 보안 강화 기능을 해제하십시오.|
+| **5.** | 로컬 웹 UI | Hyper-V 가상 컴퓨터에서 웹 UI의 네트워크 인터페이스는 10Gbps 인터페이스로 표시됩니다. | 이러한 동작은 Hyper-V를 반영합니다. Hyper-V는 가상 네트워크 어댑터에 10Gbps를 항상 표시합니다. |
+| **6.** | 계층화된 볼륨 또는 공유 | StorSimple 계층화된 볼륨에서 응용 프로그램에 대한 바이트 범위 잠금은 지원되지 않습니다. 바이트 범위 잠금을 사용하도록 설정하면 StorSimple 계층화가 실행되지 않습니다. | 권장되는 측정값은 다음과 같습니다. <br></br>응용 프로그램 논리에서 바이트 범위 잠금을 끕니다.<br></br>계층화된 볼륨과는 반대로 로컬 고정 볼륨에서 이 응용 프로그램에 대한 데이터를 입력하도록 선택합니다.<br></br>* 경고*: 로컬 고정 볼륨을 사용하고 바이트 범위 잠금이 활성화되어 있다면 복원이 완료되기 전에도 로컬 고정 볼륨이 온라인이 될 수도 있습니다. 이러한 경우, 복원이 진행 중이면, 복원이 완료될 때까지 반드시 기다려야 합니다. |
+| **7.** | 계층화된 공유 | 큰 파일로 작업하면 계층화가 매우 느려질 수 있습니다. | 큰 파일을 사용하는 경우 가장 큰 파일이 공유 크기의 3% 보다 작은 것이 좋습니다. |
+| **8.** | 공유에 사용된 용량 | 공유에 데이터가 전혀 없어도 공유 사용량이 표시될 수 있습니다. 이것은 공유에 사용된 용량에 메타데이터가 포함되기 때문입니다. | |
+| **9.** | 재해 복구 | 파일 서버에 대한 재해 복구는 원본 장치의 도메인과 같은 도메인에만 수행할 수 있습니다. 다른 도메인의 대상 장치로 재해 복구는 이번 릴리스에서 지원되지 않습니다. | 이후 릴리스에서 구현될 예정입니다. |
+| **10.** | Azure PowerShell | 이번 릴리스에서는 Azure PowerShell을 통해 StorSimple 가상 장치를 관리할 수 없습니다. | 가상 장치에 대한 모든 관리는 Azure 클래식 포털 및 로컬 웹 UI를 통해 수행됩니다. |
+| **11.** | 암호 변경 | 가상 배열 장치 콘솔은 ko-KR 키보드 형식으로 입력하는 것을 허용합니다. | |
+| **12.** | CHAP | CHAP 자격 증명은 일단 한 번 만들면 제거할 수 없습니다. 또한 CHAP 자격 증명을 수정하면 볼륨을 오프라인 상태로 만든 다음 온라인 상태로 변경해야 변경사항이 적용됩니다. | 이것은 이후 릴리스에서 해결될 예정입니다. |
+| **13.** | iSCSI 서버 | iSCSI 볼륨에 대해 표시된 '사용된 저장소'는 StorSimple Manager 서비스 및 iSCSI 호스트에서 다를 수 있습니다. | iSCSI 호스트에는 파일 시스템 보기가 있습니다.<br></br>볼륨이 최대 크기일 때 장치에서는 블록이 할당된 것을 봅니다.|
+| **14.** | 파일 서버* | 폴더의 파일에 연결된 ADS(대체 데이터 스트림)가 있는 경우 ADS는 재해 복구, 복제 및 항목 수준 복구를 통해 백업 또는 복원되지 않습니다.| |
 
 
-## <a name="next-step"></a>Next step
+## 다음 단계
 
-[Install Updates](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
+StorSimple 가상 배열에 [업데이트 0.1 설치](storsimple-ova-install-update-01.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

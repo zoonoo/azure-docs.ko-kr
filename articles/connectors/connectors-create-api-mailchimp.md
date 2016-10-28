@@ -1,10 +1,10 @@
 <properties
 pageTitle="MailChimp | Microsoft Azure"
-description="Create Logic apps with Azure App service. MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Azure 앱 서비스로 논리 앱을 만듭니다. MailChimp는 비즈니스에서 마케팅 전자 메일, 자동화된 메시지 및 대상 캠페인 전송을 비롯한 전자 메일 마케팅 작업을 관리하고 자동화할 수 있는 SaaS 서비스입니다."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,730 +17,726 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# MailChimp 커넥터 시작
 
-# <a name="get-started-with-the-mailchimp-connector"></a>Get started with the MailChimp connector
-
-MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns.
+MailChimp는 비즈니스에서 마케팅 전자 메일, 자동화된 메시지 및 대상 캠페인 전송을 비롯한 전자 메일 마케팅 작업을 관리하고 자동화할 수 있는 SaaS 서비스입니다.
 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+## 트리거 및 작업
 
-The MailChimp connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+MailChimp 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
- The MailChimp connector has the following action(s) and/or trigger(s) available:
+ MailChimp 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
 
-### <a name="mailchimp-actions"></a>MailChimp actions
-You can take these action(s):
+### MailChimp 작업
+다음 작업을 수행할 수 있습니다.
 
-|Action|Description|
+|작업|설명|
 |--- | ---|
-|[newcampaign](connectors-create-api-mailchimp.md#newcampaign)|Create a new campaign based on a Campaign Type, Recipients list and Campaign Settings (subject line, title, from_name and reply_to)|
-|[newlist](connectors-create-api-mailchimp.md#newlist)|Create a new list in your MailChimp account|
-|[addmember](connectors-create-api-mailchimp.md#addmember)|Add or update a list member|
-|[removemember](connectors-create-api-mailchimp.md#removemember)|Delete a member from a list.|
-|[updatemember](connectors-create-api-mailchimp.md#updatemember)|Update information for a specific list member|
-### <a name="mailchimp-triggers"></a>MailChimp triggers
-You can listen for these event(s):
+|[newcampaign](connectors-create-api-mailchimp.md#newcampaign)|캠페인 형식, 받는 사람 목록 및 캠페인 설정(예: 제목 줄, 제목, from\_name 및 reply\_to)을 기반으로 새 캠페인 만들기|
+|[newlist](connectors-create-api-mailchimp.md#newlist)|MailChimp 계정에서 새 목록 만들기|
+|[addmember](connectors-create-api-mailchimp.md#addmember)|목록 멤버 추가 또는 업데이트|
+|[removemember](connectors-create-api-mailchimp.md#removemember)|목록에서 멤버 삭제|
+|[updatemember](connectors-create-api-mailchimp.md#updatemember)|특정 목록 멤버에 대한 정보 업데이트|
+### MailChimp 트리거
+다음 이벤트를 수신할 수 있습니다.
 
-|Trigger | Description|
+|트리거 | 설명|
 |--- | ---|
-|When a Member has been added to a list|Triggers a workflow when a new member has been added to a list|
-|When a new list is created|Triggers a workflow when a new list is created|
+|목록에 멤버를 추가한 경우|목록에 새 멤버를 추가한 경우 워크플로 트리거|
+|새 목록을 만든 경우|새 목록을 만든 경우 워크플로 트리거|
 
 
-## <a name="create-a-connection-to-mailchimp"></a>Create a connection to MailChimp
-To create Logic apps with MailChimp, you must first create a **connection** then provide the details for the following properties: 
+## MailChimp에 대한 연결 만들기
+MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다.
 
-|Property| Required|Description|
+|속성| 필수|설명|
 | ---|---|---|
-|Token|Yes|Provide MailChimp Credentials|
+|위임|예|MailChimp 자격 증명 제공|
 
->[AZURE.INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
+>[AZURE.INCLUDE [MailChimp에 대한 연결을 만드는 단계](../../includes/connectors-create-api-mailchimp.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
 
-## <a name="reference-for-mailchimp"></a>Reference for MailChimp
-Applies to version: 1.0
+## MailChimp에 대한 참조
+적용 버전: 1.0
 
-## <a name="newcampaign"></a>newcampaign
-New Campaign: Create a new campaign based on a Campaign Type, Recipients list and Campaign Settings (subject line, title, from_name and reply_to) 
+## newcampaign
+새 캠페인: 캠페인 형식, 받는 사람 목록 및 캠페인 설정(예: 제목 줄, 제목, from\_name 및 reply\_to)을 기반으로 새 캠페인 만들기
 
-```POST: /campaigns``` 
+```POST: /campaigns```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|newCampaignRequest| |yes|body|none|Json object to send in the body with the new campaign request parameters|
+|newCampaignRequest| |yes|body|없음|새 캠페인 요청 매개 변수가 있는 본문에 보낼 Json 개체|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|Name|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="newlist"></a>newlist
-New List: Create a new list in your MailChimp account 
+## newlist
+새 목록: MailChimp 계정에서 새 목록 만들기
 
-```POST: /lists``` 
+```POST: /lists```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|newListRequest| |yes|body|none|Json object to send in the body with the new campaign request parameters|
+|newListRequest| |yes|body|없음|새 캠페인 요청 매개 변수가 있는 본문에 보낼 Json 개체|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="addmember"></a>addmember
-Add member to list: Add or update a list member 
+## addmember
+목록에 멤버 추가: 목록 멤버 추가 또는 업데이트
 
-```POST: /lists/{list_id}/members``` 
+```POST: /lists/{list_id}/members```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|list_id|string|yes|path|none|The unique id for the list|
-|newMemberInList| |yes|body|none|Json object to send in the body with the new member information|
+|list\_id|string|yes|path|없음|목록에 대한 고유 ID|
+|newMemberInList| |yes|body|없음|새 멤버 정보가 있는 본문에 보낼 Json 개체|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="removemember"></a>removemember
-Remove Member from list: Delete a member from a list. 
+## removemember
+목록에서 멤버 제거: 목록에서 멤버 삭제
 
-```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}``` 
+```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|list_id|string|yes|path|none|The unique id for the list|
-|member_email|string|yes|path|none|The email address of the member to delete|
+|list\_id|string|yes|path|없음|목록에 대한 고유 ID|
+|member\_email|string|yes|path|없음|삭제할 멤버의 전자 메일 주소|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="updatemember"></a>updatemember
-Update member information: Update information for a specific list member 
+## updatemember
+멤버 정보 업데이트: 특정 목록 멤버에 대한 정보 업데이트
 
-```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}``` 
+```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|list_id|string|yes|path|none|The unique id for the list|
-|member_email|string|yes|path|none|The unique email address of the member to update|
-|updateMemberInListRequest| |yes|body|none|Json object to send in the body with the updated member information|
+|list\_id|string|yes|path|없음|목록에 대한 고유 ID|
+|member\_email|string|yes|path|없음|업데이트할 멤버의 고유한 전자 메일 주소|
+|updateMemberInListRequest| |yes|body|없음|업데이트된 멤버 정보가 있는 본문에 보낼 Json 개체|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="onmembersubscribed"></a>OnMemberSubscribed
-When a Member has been added to a list: Triggers a workflow when a new member has been added to a list 
+## OnMemberSubscribed
+목록에 멤버를 추가한 경우: 목록에 새 멤버를 추가한 경우 워크플로 트리거
 
-```GET: /trigger/lists/{list_id}/members``` 
+```GET: /trigger/lists/{list_id}/members```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|list_id|string|yes|path|none|The unique id for the list|
+|list\_id|string|yes|path|없음|목록에 대한 고유 ID|
 
-#### <a name="response"></a>Response
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|202|수락됨|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="oncreatelist"></a>OnCreateList
-When a new list is created: Triggers a workflow when a new list is created 
+## OnCreateList
+새 목록을 만든 경우: 새 목록을 만든 경우 워크플로 트리거
 
-```GET: /trigger/lists``` 
+```GET: /trigger/lists```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+이 호출에 대한 매개 변수는 없습니다.
+#### 응답
 
-|Name|Description|
+|이름|설명|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|확인|
+|202|수락됨|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
+|기본값|작업이 실패했습니다.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## 개체 정의 
 
-### <a name="newcampaignrequest"></a>NewCampaignRequest
+### NewCampaignRequest
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|type|string|Yes |
-|recipients|not defined|Yes |
-|settings|not defined|Yes |
-|variate_settings|not defined|No |
-|tracking|not defined|No |
-|rss_opts|not defined|No |
-|social_card|not defined|No |
+|type|string|예 |
+|recipients|정의되지 않음|예 |
+|설정|정의되지 않음|예 |
+|variate\_settings|정의되지 않음|아니요 |
+|tracking|정의되지 않음|아니요 |
+|rss\_opts|정의되지 않음|아니요 |
+|social\_card|정의되지 않음|아니요 |
 
 
 
-### <a name="recipient"></a>Recipient
+### 받는 사람
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|list_id|string|Yes |
-|segment_opts|not defined|No |
+|list\_id|string|예 |
+|segment\_opts|정의되지 않음|아니요 |
 
 
 
-### <a name="settings"></a>Settings
+### 설정
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|subject_line|string|Yes |
-|title|string|No |
-|from_name|string|Yes |
-|reply_to|string|Yes |
-|use_conversation|boolean|No |
-|to_name|string|No |
-|folder_id|integer|No |
-|authenticate|boolean|No |
-|auto_footer|boolean|No |
-|inline_css|boolean|No |
-|auto_tweet|boolean|No |
-|auto_fb_post|array|No |
-|fb_comments|boolean|No |
+|subject\_line|string|예 |
+|title|string|아니요 |
+|from\_name|string|예 |
+|reply\_to|string|예 |
+|use\_conversation|부울|아니요 |
+|to\_name|string|아니요 |
+|folder\_id|정수|아니요 |
+|authenticate|부울|아니요 |
+|auto\_footer|부울|아니요 |
+|inline\_css|부울|아니요 |
+|auto\_tweet|부울|아니요 |
+|auto\_fb\_post|array|아니요 |
+|fb\_comments|부울|아니요 |
 
 
 
-### <a name="variate_settings"></a>Variate_Settings
+### Variate\_Settings
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|winner_criteria|string|No |
-|wait_time|integer|No |
-|test_size|integer|No |
-|subject_lines|array|No |
-|send_times|array|No |
-|from_names|array|No |
-|reply_to_addresses|array|No |
+|winner\_criteria|string|아니요 |
+|wait\_time|정수|아니요 |
+|test\_size|정수|아니요 |
+|subject\_lines|array|아니요 |
+|send\_times|array|아니요 |
+|from\_names|array|아니요 |
+|reply\_to\_addresses|array|아니요 |
 
 
 
-### <a name="tracking"></a>Tracking
+### 추적
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|opens|boolean|No |
-|html_clicks|boolean|No |
-|text_clicks|boolean|No |
-|goal_tracking|boolean|No |
-|ecomm360|boolean|No |
-|google_analytics|string|No |
-|clicktale|string|No |
-|salesforce|not defined|No |
-|highrise|not defined|No |
-|capsule|not defined|No |
+|opens|부울|아니요 |
+|html\_clicks|부울|아니요 |
+|text\_clicks|부울|아니요 |
+|goal\_tracking|부울|아니요 |
+|ecomm360|부울|아니요 |
+|google\_analytics|string|아니요 |
+|clicktale|string|아니요 |
+|salesforce|정의되지 않음|아니요 |
+|highrise|정의되지 않음|아니요 |
+|capsule|정의되지 않음|아니요 |
 
 
 
-### <a name="rss_opts"></a>RSS_Opts
+### RSS\_Opts
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|feed_url|string|No |
-|frequency|string|No |
-|constrain_rss_img|string|No |
-|schedule|not defined|No |
+|feed\_url|string|아니요 |
+|frequency|string|아니요 |
+|constrain\_rss\_img|string|아니요 |
+|schedule|정의되지 않음|아니요 |
 
 
 
-### <a name="social_card"></a>Social_Card
+### Social\_Card
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|image_url|string|No |
-|description|string|No |
-|title|string|No |
+|image\_url|string|아니요 |
+|description|string|아니요 |
+|title|string|아니요 |
 
 
 
-### <a name="segment_opts"></a>Segment_Opts
+### Segment\_Opts
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|saved_segment_id|integer|No |
-|match|string|No |
+|saved\_segment\_id|정수|아니요 |
+|match|string|아니요 |
 
 
 
-### <a name="salesforce"></a>Salesforce
+### Salesforce
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|campaign|boolean|No |
-|notes|boolean|No |
+|campaign|부울|아니요 |
+|정보|부울|아니요 |
 
 
 
-### <a name="highrise"></a>Highrise
+### Highrise
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|campaign|boolean|No |
-|notes|boolean|No |
+|campaign|부울|아니요 |
+|정보|부울|아니요 |
 
 
 
-### <a name="capsule"></a>Capsule
+### Capsule
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|notes|boolean|No |
+|정보|부울|아니요 |
 
 
 
-### <a name="schedule"></a>Schedule
+### 일정
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|hour|integer|No |
-|daily_send|not defined|No |
-|weekly_send_day|string|No |
-|monthly_send_date|number|No |
+|시간|정수|아니요 |
+|daily\_send|정의되지 않음|아니요 |
+|weekly\_send\_day|string|아니요 |
+|monthly\_send\_date|number|아니요 |
 
 
 
-### <a name="daily_send"></a>Daily_Send
+### Daily\_Send
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|sunday|boolean|No |
-|monday|boolean|No |
-|tuesday|boolean|No |
-|wednesday|boolean|No |
-|thursday|boolean|No |
-|friday|boolean|No |
-|saturday|boolean|No |
+|sunday|부울|아니요 |
+|monday|부울|아니요 |
+|tuesday|부울|아니요 |
+|wednesday|부울|아니요 |
+|thursday|부울|아니요 |
+|friday|부울|아니요 |
+|saturday|부울|아니요 |
 
 
 
-### <a name="campaignresponsemodel"></a>CampaignResponseModel
+### CampaignResponseModel
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|id|string|No |
-|type|string|No |
-|create_time|string|No |
-|archive_url|string|No |
-|status|string|No |
-|emails_sent|integer|No |
-|send_time|string|No |
-|content_type|string|No |
-|recipient|array|No |
-|settings|not defined|No |
-|variate_settings|not defined|No |
-|tracking|not defined|No |
-|rss_opts|not defined|No |
-|ab_split_opts|not defined|No |
-|social_card|not defined|No |
-|report_summary|not defined|No |
-|delivery_status|not defined|No |
-|_links|array|No |
+|id|string|아니요 |
+|type|string|아니요 |
+|create\_time|string|아니요 |
+|archive\_url|string|아니요 |
+|status|string|아니요 |
+|emails\_sent|정수|아니요 |
+|send\_time|string|아니요 |
+|content\_type|string|아니요 |
+|recipient|array|아니요 |
+|설정|정의되지 않음|아니요 |
+|variate\_settings|정의되지 않음|아니요 |
+|tracking|정의되지 않음|아니요 |
+|rss\_opts|정의되지 않음|아니요 |
+|ab\_split\_opts|정의되지 않음|아니요 |
+|social\_card|정의되지 않음|아니요 |
+|report\_summary|정의되지 않음|아니요 |
+|delivery\_status|정의되지 않음|아니요 |
+|\_links|array|아니요 |
 
 
 
-### <a name="ab_split_opts"></a>AB_Split_Opts
+### AB\_Split\_Opts
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|split_test|string|No |
-|pick_winner|string|No |
-|wait_units|string|No |
-|wait_time|integer|No |
-|split_size|integer|No |
-|from_name_a|string|No |
-|from_name_b|string|No |
-|reply_email_a|string|No |
-|reply_email_b|string|No |
-|subject_a|string|No |
-|subject_b|string|No |
-|send_time_a|string|No |
-|send_time_b|string|No |
-|send_time_winner|string|No |
+|split\_test|string|아니요 |
+|pick\_winner|string|아니요 |
+|wait\_units|string|아니요 |
+|wait\_time|정수|아니요 |
+|split\_size|정수|아니요 |
+|from\_name\_a|string|아니요 |
+|from\_name\_b|string|아니요 |
+|reply\_email\_a|string|아니요 |
+|reply\_email\_b|string|아니요 |
+|subject\_a|string|아니요 |
+|subject\_b|string|아니요 |
+|send\_time\_a|string|아니요 |
+|send\_time\_b|string|아니요 |
+|send\_time\_winner|string|아니요 |
 
 
 
-### <a name="report_summary"></a>Report_Summary
+### Report\_Summary
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|opens|integer|No |
-|unique_opens|integer|No |
-|open_rate|number|No |
-|clicks|integer|No |
-|subscriber_clicks|number|No |
-|click_rate|number|No |
+|opens|정수|아니요 |
+|unique\_opens|정수|아니요 |
+|open\_rate|number|아니요 |
+|clicks|정수|아니요 |
+|subscriber\_clicks|number|아니요 |
+|click\_rate|number|아니요 |
 
 
 
-### <a name="delivery_status"></a>Delivery_Status
+### Delivery\_Status
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|enabled|boolean|No |
-|can_cancel|boolean|No |
-|status|string|No |
-|emails_sent|integer|No |
-|emails_canceled|integer|No |
+|사용|부울|아니요 |
+|can\_cancel|부울|아니요 |
+|status|string|아니요 |
+|emails\_sent|정수|아니요 |
+|emails\_canceled|정수|아니요 |
 
 
 
-### <a name="link"></a>Link
+### 링크
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|rel|string|No |
-|href|string|No |
-|method|string|No |
-|targetSchema|string|No |
-|schema|string|No |
+|rel|string|아니요 |
+|href|string|아니요 |
+|메서드|string|아니요 |
+|targetSchema|string|아니요 |
+|schema|string|아니요 |
 
 
 
-### <a name="newlistrequest"></a>NewListRequest
+### NewListRequest
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|name|string|Yes |
-|contact|not defined|Yes |
-|permission_reminder|string|Yes |
-|use_archive_bar|boolean|No |
-|campaign_defaults|not defined|Yes |
-|notify_on_subscribe|string|No |
-|notify_on_unsubscribe|string|No |
-|email_type_option|boolean|Yes |
-|visibility|string|No |
+|name|string|예 |
+|contact|정의되지 않음|예 |
+|permission\_reminder|string|예 |
+|use\_archive\_bar|부울|아니요 |
+|campaign\_defaults|정의되지 않음|예 |
+|notify\_on\_subscribe|string|아니요 |
+|notify\_on\_unsubscribe|string|아니요 |
+|email\_type\_option|부울|예 |
+|visibility|string|아니요 |
 
 
 
-### <a name="contact"></a>Contact
+### 연락처
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|company|string|Yes |
-|address1|string|Yes |
-|address2|string|No |
-|city|string|Yes |
-|state|string|Yes |
-|zip|string|Yes |
-|country|string|Yes |
-|phone|string|Yes |
+|company|string|예 |
+|address1|string|예 |
+|address2|string|아니요 |
+|city|string|예 |
+|state|string|예 |
+|zip|string|예 |
+|country|string|예 |
+|phone|string|예 |
 
 
 
-### <a name="campaign_defaults"></a>Campaign_Defaults
+### Campaign\_Defaults
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|from_name|string|Yes |
-|from_email|string|Yes |
-|subject|string|No |
-|language|string|Yes |
+|from\_name|string|예 |
+|from\_email|string|예 |
+|subject|string|아니요 |
+|language|string|예 |
 
 
 
-### <a name="createnewlistresponsemodel"></a>CreateNewListResponseModel
+### CreateNewListResponseModel
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|id|string|Yes |
-|name|string|Yes |
-|contact|not defined|Yes |
-|permission_reminder|string|Yes |
-|use_archive_bar|boolean|No |
-|campaign_defaults|not defined|Yes |
-|notify_on_subscribe|string|No |
-|notify_on_unsubscribe|string|No |
-|date_created|string|No |
-|list_rating|integer|No |
-|email_type_option|boolean|Yes |
-|subscribe_url_short|string|No |
-|subscribe_url_long|string|No |
-|beamer_address|string|No |
-|visibility|string|No |
-|modules|array|No |
-|stats|not defined|No |
-|_links|array|No |
+|id|string|예 |
+|name|string|예 |
+|contact|정의되지 않음|예 |
+|permission\_reminder|string|예 |
+|use\_archive\_bar|부울|아니요 |
+|campaign\_defaults|정의되지 않음|예 |
+|notify\_on\_subscribe|string|아니요 |
+|notify\_on\_unsubscribe|string|아니요 |
+|date\_created|string|아니요 |
+|list\_rating|정수|아니요 |
+|email\_type\_option|부울|예 |
+|subscribe\_url\_short|string|아니요 |
+|subscribe\_url\_long|string|아니요 |
+|beamer\_address|string|아니요 |
+|visibility|string|아니요 |
+|modules|array|아니요 |
+|stats|정의되지 않음|아니요 |
+|\_links|array|아니요 |
 
 
 
-### <a name="stats"></a>Stats
+### 통계
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|member_count|integer|No |
-|unsubscribe_count|integer|No |
-|cleaned_count|integer|No |
-|member_count_since_send|integer|No |
-|unsubscribe_count_since_send|integer|No |
-|cleaned_count_since_send|integer|No |
-|campaign_count|integer|No |
-|campaign_last_sent|integer|No |
-|merge_field_count|integer|No |
-|avg_sub_rate|number|No |
-|avg_unsub_rate|number|No |
-|target_sub_rate|number|No |
-|open_rate|number|No |
-|click_rate|number|No |
-|last_sub_date|string|No |
-|last_unsub_date|string|No |
+|member\_count|정수|아니요 |
+|unsubscribe\_count|정수|아니요 |
+|cleaned\_count|정수|아니요 |
+|member\_count\_since\_send|정수|아니요 |
+|unsubscribe\_count\_since\_send|정수|아니요 |
+|cleaned\_count\_since\_send|정수|아니요 |
+|campaign\_count|정수|아니요 |
+|campaign\_last\_sent|정수|아니요 |
+|merge\_field\_count|정수|아니요 |
+|avg\_sub\_rate|number|아니요 |
+|avg\_unsub\_rate|number|아니요 |
+|target\_sub\_rate|number|아니요 |
+|open\_rate|number|아니요 |
+|click\_rate|number|아니요 |
+|last\_sub\_date|string|아니요 |
+|last\_unsub\_date|string|아니요 |
 
 
 
-### <a name="getlistsresponsemodel"></a>GetListsResponseModel
+### GetListsResponseModel
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|lists|array|No |
-|total_items|integer|No |
+|lists|array|아니요 |
+|total\_items|정수|아니요 |
 
 
 
-### <a name="newmemberinlistrequest"></a>NewMemberInListRequest
+### NewMemberInListRequest
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|email_type|string|No |
-|status|string|Yes |
-|merge_fields|not defined|No |
-|interests|string|No |
-|language|string|No |
-|vip|boolean|No |
-|location|not defined|No |
-|email_address|string|Yes |
+|email\_type|string|아니요 |
+|status|string|예 |
+|merge\_fields|정의되지 않음|아니요 |
+|interests|string|아니요 |
+|language|string|아니요 |
+|vip|부울|아니요 |
+|location|정의되지 않음|아니요 |
+|email\_address|string|예 |
 
 
 
-### <a name="firstandlastname"></a>FirstAndLastName
+### FirstAndLastName
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|FNAME|string|No |
-|LNAME|string|No |
+|FNAME|string|아니요 |
+|LNAME|string|아니요 |
 
 
 
-### <a name="location"></a>Location
+### 위치
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|latitude|number|No |
-|longitude|number|No |
+|latitude|number|아니요 |
+|longitude|number|아니요 |
 
 
 
-### <a name="memberresponsemodel"></a>MemberResponseModel
+### MemberResponseModel
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|id|string|No |
-|email_address|string|No |
-|unique_email_id|string|No |
-|email_type|string|No |
-|status|string|No |
-|merge_fields|not defined|No |
-|interests|string|No |
-|stats|not defined|No |
-|ip_signup|string|No |
-|timestamp_signup|string|No |
-|ip_opt|string|No |
-|timestamp_opt|string|No |
-|member_rating|integer|No |
-|last_changed|string|No |
-|language|string|No |
-|vip|boolean|No |
-|email_client|string|No |
-|location|not defined|No |
-|last_note|not defined|No |
-|list_id|string|No |
-|_links|array|No |
+|id|string|아니요 |
+|email\_address|string|아니요 |
+|unique\_email\_id|string|아니요 |
+|email\_type|string|아니요 |
+|status|string|아니요 |
+|merge\_fields|정의되지 않음|아니요 |
+|interests|string|아니요 |
+|stats|정의되지 않음|아니요 |
+|ip\_signup|string|아니요 |
+|timestamp\_signup|string|아니요 |
+|ip\_opt|string|아니요 |
+|timestamp\_opt|string|아니요 |
+|member\_rating|정수|아니요 |
+|last\_changed|string|아니요 |
+|language|string|아니요 |
+|vip|부울|아니요 |
+|email\_client|string|아니요 |
+|location|정의되지 않음|아니요 |
+|last\_note|정의되지 않음|아니요 |
+|list\_id|string|아니요 |
+|\_links|array|아니요 |
 
 
 
-### <a name="last_note"></a>Last_Note
+### Last\_Note
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|note_id|integer|No |
-|created_at|string|No |
-|created_by|string|No |
-|note|string|No |
+|note\_id|정수|아니요 |
+|created\_at|string|아니요 |
+|created\_by|string|아니요 |
+|note|string|아니요 |
 
 
 
-### <a name="getallmembersresponsemodel"></a>GetAllMembersResponseModel
+### GetAllMembersResponseModel
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|members|array|No |
-|list_id|string|No |
-|total_items|integer|No |
+|members|array|아니요 |
+|list\_id|string|아니요 |
+|total\_items|정수|아니요 |
 
 
 
-### <a name="object"></a>Object
+### Object
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
 
 
 
-### <a name="updatememberinlistrequest"></a>UpdateMemberInListRequest
+### UpdateMemberInListRequest
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|email_address|string|No |
-|email_type|string|No |
-|status|string|Yes |
-|merge_fields|not defined|No |
-|interests|string|No |
-|language|string|No |
-|vip|boolean|No |
-|location|not defined|No |
+|email\_address|string|아니요 |
+|email\_type|string|아니요 |
+|status|string|예 |
+|merge\_fields|정의되지 않음|아니요 |
+|interests|string|아니요 |
+|language|string|아니요 |
+|vip|부울|아니요 |
+|location|정의되지 않음|아니요 |
 
 
 
-### <a name="getmembersresponsemodel"></a>GetMembersResponseModel
+### GetMembersResponseModel
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|members|array|No |
-|list_id|string|No |
-|total_items|integer|No |
+|members|array|아니요 |
+|list\_id|string|아니요 |
+|total\_items|정수|아니요 |
 
 
 
-### <a name="adduserresponsemodel"></a>AddUserResponseModel
+### AddUserResponseModel
 
 
-| Property Name | Data Type | Required |
+| 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|id|string|Yes |
-|email_address|string|Yes |
-|unique_email_id|string|No |
-|email_type|string|No |
-|status|string|No |
-|merge_fields|not defined|Yes |
-|interests|string|No |
-|stats|not defined|No |
-|ip_signup|string|No |
-|timestamp_signup|string|No |
-|ip_opt|string|No |
-|timestamp_opt|string|No |
-|member_rating|integer|No |
-|last_changed|string|No |
-|language|string|No |
-|vip|boolean|No |
-|email_client|string|No |
-|location|not defined|No |
-|last_note|not defined|No |
-|list_id|string|No |
-|_links|array|No |
+|id|string|예 |
+|email\_address|string|예 |
+|unique\_email\_id|string|아니요 |
+|email\_type|string|아니요 |
+|status|string|아니요 |
+|merge\_fields|정의되지 않음|예 |
+|interests|string|아니요 |
+|stats|정의되지 않음|아니요 |
+|ip\_signup|string|아니요 |
+|timestamp\_signup|string|아니요 |
+|ip\_opt|string|아니요 |
+|timestamp\_opt|string|아니요 |
+|member\_rating|정수|아니요 |
+|last\_changed|string|아니요 |
+|language|string|아니요 |
+|vip|부울|아니요 |
+|email\_client|string|아니요 |
+|location|정의되지 않음|아니요 |
+|last\_note|정의되지 않음|아니요 |
+|list\_id|string|아니요 |
+|\_links|array|아니요 |
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## 다음 단계
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

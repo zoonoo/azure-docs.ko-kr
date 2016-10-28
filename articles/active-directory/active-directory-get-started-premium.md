@@ -1,153 +1,150 @@
 <properties
-    pageTitle="Getting started with Azure Active Directory Premium"
-    description="A topic that explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site."
-    services="active-directory"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila" 
-    editor=""/>
+	pageTitle="Azure Active Directory Premium 시작하기"
+	description="볼륨 라이선스 웹 사이트를 통해 Azure Active Directory Premium Edition을 등록하는 방법을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila" 
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/16/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/16/2016"
+	ms.author="markvi"/>
+
+# Azure Active Directory Premium 시작하기
 
 
-# <a name="getting-started-with-azure-active-directory-premium"></a>Getting started with Azure Active Directory Premium
+Active Directory Premium에 등록하는 데는 몇 가지 옵션이 있습니다.
+
+**Azure 또는 Office 365** - Azure 또는 Office 365 구독자는 Active Directory Premium을 온라인으로 구입할 수 있습니다. 자세한 단계는 [Azure Active Directory Premium을 구입하는 방법 - 기존 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) 또는 [Azure Active Directory Premium을 구입하는 방법 - 새로운 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)을 참조하세요.
+
+**Enterprise Mobility + Security** - Enterprise Mobility + Security(이전의 Enterprise Mobility Suite)는 조직이 Active Directory Premium, Azure Rights Management, Microsoft Intune 서비스를 하나의 라이선싱 계획으로 함께 사용할 수 있는 비용 효율적인 방법입니다. 자세한 내용은 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) 웹 사이트를 참조하세요. 무료 30일 평가판을 얻으려면 [여기](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0)를 클릭합니다.
 
 
-To sign up for Active Directory Premium, you have several options: 
-
-**Azure or Office 365** - As an Azure or Office 365 subscriber, you can buy Active Directory Premium online. For detailed steps, see [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) or [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
-
-**Enterprise Mobility + Security** - Enterprise Mobility + Security (formerly Enterprise Mobility Suite) is a cost effective way for organizations to use the following services together under one licensing plan: Active Directory Premium, Azure Rights Management, Microsoft Intune. For more information, see the [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web site. To get e free 30-day trial, click [here](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+**Microsoft 볼륨 라이선스** - Azure Active Directory Premium은 [Microsoft 기업 계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)(250개 이상의 라이선스) 또는 [오픈 볼륨 라이선스](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)(5–250개 라이선스) 프로그램을 통해 사용할 수 있습니다.
 
 
-**Microsoft Volume Licensing** - Azure Active Directory Premium is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 or more licenses) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenses) program.
-
-
-This topic shows you how to get started with an Azure Active Directory Premium you have purchased through the Volume Licensing program. If you are not yet familiar with the different editions of Azure Active Directory, see [Azure Active Directory editions](active-directory-editions.md).  
+이 항목에서는 볼륨 라이선스 프로그램을 통해 구입한 Azure Active Directory Premium을 시작하는 방법을 보여 줍니다. 아직 다른 버전의 Azure Active Directory에 익숙하지 않은 경우 [Azure Active Directory Edition](active-directory-editions.md)을 참조하세요.
 
 > [AZURE.NOTE]
-Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+중국 고객의 경우 전 세계의 Azure Active Directory 인스턴스를 사용하여 Azure Active Directory Premium 및 Basic 버전을 사용할 수 있습니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
 
 
 
 
-## <a name="step-1:-sign-up-for-active-directory-premium"></a>Step 1: Sign up for Active Directory Premium
+## 1단계: Active Directory Premium 등록
 
-To sign up, see [How to purchase through Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
-
-
-
-## <a name="step-2:-activate-your-license-plan"></a>Step 2: Activate your license plan
-
-Is this your first license plan purchase through the Enterprise Volume Licensing program from Microsoft?
-In this case, you get a confirmation email when your purchase has been completed.
-You need this email to activate your first license plan.
-
-On any subsequent purchase for this directory, the licenses are automatically activated in the same directory.
+등록하려면 [볼륨 라이선스를 통해 구입하는 방법](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx)을 참조하세요.
 
 
 
-**To activate your license plan, perform one of the following steps:**
+## 2단계: 라이선스 계획 활성화
+
+Microsoft의 엔터프라이즈 볼륨 라이선스 프로그램을 통해 라이선스 계획을 처음으로 구입하셨나요? 이 경우 구입을 완료하면 확인 전자 메일을 받습니다. 첫 번째 라이선스 계획을 활성화하려면 이 전자 메일이 필요합니다.
+
+향후 이 디렉터리를 구입하면, 라이선스가 동일한 디렉터리에서 자동으로 활성화됩니다.
 
 
-1. To start the activation, click either **Sign In** or **Sign Up**.
 
-    ![Sign in][1]
-
+**라이선스 계획을 활성화하려면 다음 단계 중 하나를 수행합니다.**
 
 
-    - If you have an existing tenant, click **Sign In** to sign in with your existing administrator account. You need to sign in with the global administrator credentials from the directory where the licenses must be activated.
+1. 활성화를 시작하려면 **로그인** 또는 **등록**을 클릭합니다.
 
-    - If you want to create a new Azure Active Directory tenant to use with your licensing plan, click **Sign Up** to open the **Create Account Profile** dialog.
+    ![로그인][1]
 
-        ![Create account profile][2]
 
-When you are done, the following dialog shows up as confirmation for the activation of the license plan for your tenant.
 
-![Confirmation][3]
+    - 기존 테넌트가 있으면 **로그인**을 클릭하여 기존 관리자 계정으로 로그인합니다. 반드시 라이선스가 활성화된 디렉터리에서 전역 관리자 자격 증명으로 로그인해야 합니다.
 
-## <a name="step-3:-activate-your-azure-active-directory-access"></a>Step 3: Activate your Azure Active Directory access
+    - 라이선싱 계획을 사용하기 위해 새 Azure Active Directory 테넌트를 만들려는 경우에는 **등록**을 클릭하고 **계정 프로필 만들기** 대화 상자를 엽니다.
 
-If you have used Microsoft Azure before, you can proceed to [Step 4](#step-4-assign-license-to-user-accounts). 
+        ![계정 프로필 만들기][2]
 
-When the licenses are provisioned to your directory, a **Welcome email** is sent to you. The email confirms that you can start managing your Azure Active Directory Premium or Enterprise Mobility Suite licenses and features. 
+완료한 후에는 테넌트에 대한 라이선스 계획의 활성화에 대한 확인으로 다음과 같은 대화 상자가 표시됩니다.
 
-If you make an attempt to activate your access to Azure Active Directory prior to receiving the Welcome email, you get the following error message. 
+![확인][3]
 
-![Access is not available][9]
+## 3단계: Azure Active Directory 액세스 활성화
 
-If you Please try again in a few minutes once you have received the email.
+이전에 Microsoft Azure를 사용한 적이 있는 경우 [4단계](#step-4-assign-license-to-user-accounts)를 진행하면 됩니다.
 
-New administrators in your subscription can also activate their access to the Azure classic portal through this link.
+라이선스가 사용자의 디렉터리로 프로비전되면 **환영 전자 메일**이 사용자에게 전송됩니다. 전자 메일은 Azure Active Directory Premium 또는 Enterprise Mobility Suite 라이선스 및 기능에 대한 관리를 시작할 수 있다는 것을 확인해 줍니다.
 
+환영 전자 메일을 받기 전에 Azure Active Directory에 액세스를 활성화하려고 하면 다음과 같은 오류 메시지가 나타납니다.
+
+![액세스를 사용할 수 없음][9]
+
+메일을 받으면 잠시 후에 다시 시도해 보세요.
+
+구독의 새 관리자도 이 링크를 통해 Azure 클래식 포털에 대한 자신의 액세스 권한을 활성화할 수 있습니다.
 
 
 
 
 
-**To activate your Azure Active Directory access, perform the following steps:**
 
-1. In your **Welcome email**, click **Sign In**. 
+**Azure Active Directory 액세스를 활성화하려면 다음 단계를 수행합니다.**
+
+1. **환영 전자 메일**에서 **로그인**을 클릭합니다.
     
-    ![Welcome email][4]
+    ![환영 전자 메일][4]
 
-2. When you have signed in successfully, you need to complete a second factor authentication in form of a mobile verification:
+2. 로그인한 후에는 모바일 확인 형태로 두 번째 단계 인증을 완료해야 합니다.
 
-    ![Mobile verification][5]
+    ![모바일 확인][5]
 
-The activation can take a few minutes. Once your access is active, the brown bar disappears and you are able to click **Portal**.
+활성화는 몇 분 정도 걸릴 수 있습니다. 액세스가 활성화되면, 밤색 표시줄이 사라지고 **포털**을 클릭할 수 있게 됩니다.
 
-![Please wait while we set up][6]
+![설정하는 동안 잠시 기다려 주십시오.][6]
 
-In this case, your Azure access is limited to Azure Active Directory.
+이 경우 Azure 액세스 권한은 Azure Active Directory로 제한됩니다.
 
-![Azure capabilities][7]
+![Azure 기능][7]
 
-You may already have had access to Azure from prior usage; in addition, you can upgrade your Access Azure Active Directory to full Azure access by activating additional Azure subscriptions. In these cases, the Azure classic portal has more capabilities.
+이미 이전에 사용할 때부터 Azure에 대한 액세스 권한이 있었을 수 있습니다. 또한 추가 Azure 구독을 활성화하여 액세스 권한을 Azure Active Directory에서 전체 Azure로 업그레이드할 수도 있습니다. 이 경우 Azure 클래식 포털에 더 많은 기능이 있습니다.
 
-![Azure capabilities][8]
+![Azure 기능][8]
 
 
 
-## <a name="step-4:-assign-license-to-user-accounts"></a>Step 4: Assign license to user accounts
+## 4단계: 사용자 계정에 라이선스 할당
 
-Before you can start using the plan you purchased, you need to manually assign licenses to user accounts within your organization so that they can use the rich features provided with Premium. Use the following steps to assign licenses to users so they can use Azure Active Directory Premium features.
+구입한 계획을 사용하려면 먼저 Premium에서 제공하는 다양한 기능을 사용할 수 있도록 조직 내에서 사용자 계정에 라이선스를 수동으로 할당해야 합니다. Azure Active Directory Premium 기능을 사용할 수 있도록 사용자에게 라이선스를 할당하려면 다음 단계를 따르세요.
 
-**To assign licenses to users, perform the following steps:**
+**사용자에게 라이선스를 할당하려면 다음 단계를 수행합니다.**
 
-1. Sign into the Azure classic portal as the global administrator of the directory you wish to customize.
-2. Click **Active Directory**, and then select the directory where you want to assign licenses.
-3. Select the **Licenses** tab, select **Active Directory Premium** or **Enterprise Mobility Suite**, and then click **Assign**.
+1. 사용자 지정할 디렉터리의 전역 관리자로 Azure 클래식 포털에 로그인합니다.
+2. **Active Directory**를 클릭한 후 라이선스를 할당하려는 디렉터리를 선택합니다.
+3. **라이선스** 탭을 선택하고 **Active Directory Premium**이나 **Enterprise Mobility Suite**를 선택한 후 **할당**을 클릭합니다.
 
-    ![License plans][10]
+    ![라이선스 계획][10]
 
-4. In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.
+4. 대화 상자에서 라이선스를 할당하려는 사용자를 선택 하고 확인 표시 아이콘을 클릭하여 변경 내용을 저장합니다.
 
-    ![Assign licenses][11]
+    ![라이선스 할당][11]
 
-### <a name="license-restrictions"></a>License restrictions
+### 라이선스 제한 사항
 
-Some license plans are subsets or supersets of other license plans. Typically, a user cannot be assigned a license plan that has already been assigned to them. If it is your intention to assign a license plan that is a superset, you need to first remove the subset license plan.
+일부 라이선스 계획은 다른 라이선스 계획의 하위 집합이거나 상위 집합입니다. 일반적으로, 사용자에게 이미 할당된 라이선스 계획은 사용자에게 할당할 수 없습니다. 상위 집합 라이선스 계획을 할당하려는 경우 먼저 하위 집합 라이선스 계획을 제거해야 합니다.
 
-### <a name="license-requirements"></a>License requirements
+### 라이선스 요구 사항
 
-When you assign a license to a user, you can specify a primary usage location in the properties of their account. If a usage location is not specified, the tenant’s location is automatically assigned to the user.
+사용자에게 라이선스를 할당할 때, 계정 속성에서 기본 사용 위치를 지정할 수 있습니다. 사용 위치를 지정하지 않으면 테넌트의 위치가 사용자에게 자동으로 할당됩니다.
 
-![User location][12]
+![사용자 위치][12]
 
-The availability of services and features for a Microsoft cloud service varies by country or region. A service, such as Voice over Internet Protocol (VoIP), may be available in one country or region, and not available in another. Features within a service can be restricted for legal reasons in certain countries or regions. To see if a service or feature is available with or without restrictions, look for your country or region on license restrictions site of a service.
+Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 국가 또는 지역에 따라 다릅니다. VoIP(Voice over Internet Protocol) 등의 서비스는 일부 국가나 지역에서만 사용할 수 있습니다. 서비스 내의 기능이 특정 국가 또는 지역에서는 법적인 이유로 제한될 수 있습니다. 서비스나 기능을 제한 없이 또는 제한적으로 사용할 수 있는지 알아보려면 서비스에 대한 라이선스 제한 사항 사이트에서 해당 국가나 지역을 확인하세요.
 
-## <a name="what's-next"></a>What's next
+## 다음 단계
 
-- [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
-- [View your access and usage reports](active-directory-view-access-usage-reports.md)
+- [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
+- [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png
@@ -163,8 +160,4 @@ The availability of services and features for a Microsoft cloud service varies b
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

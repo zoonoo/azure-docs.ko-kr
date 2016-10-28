@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Continuous integration for Service Fabric | Microsoft Azure"
-   description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Team Services (VSTS)."
+   pageTitle="서비스 패브릭에 대한 연속 통합 | Microsoft Azure"
+   description="VSTS(Visual Studio Team Services)를 사용한 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정 방법의 개요를 확인합니다."
    services="service-fabric"
    documentationCenter="na"
    authors="mthalman-msft"
@@ -15,127 +15,122 @@
    ms.date="08/01/2016"
    ms.author="mthalman" />
 
+# Visual Studio Team Services를 사용한 서비스 패브릭 응용 프로그램에 대한 연속 통합 설정
 
-# <a name="set-up-continuous-integration-for-a-service-fabric-application-by-using-visual-studio-team-services"></a>Set up continuous integration for a Service Fabric application by using Visual Studio Team Services
+이 문서에서는 자동화된 방식으로 응용 프로그램을 빌드, 패키지, 배포할 수 있도록 VSTS(Visual Studio Team Services)를 사용하여 Azure 서비스 패브릭 응용 프로그램에 대한 연속 통합을 설정하는 단계를 설명합니다.
 
-This article describes the steps to set up continuous integration for an Azure Service Fabric application by using Visual Studio Team Services (VSTS), to ensure that your application is built, packaged, and deployed in an automated fashion.
+이 문서는 최신 절차를 반영하며 시간이 지나면 변경될 수 있습니다.
 
-This document reflects the current procedure and is expected to change over time.
+## 필수 조건
 
-## <a name="prerequisites"></a>Prerequisites
+시작하려면 이 단계를 따르세요.
 
-To get started, follow these steps:
+1. Team Services 계정에 대한 액세스 권한이 있는지 확인하거나 직접 [계정을 만듭니다](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
-1. Ensure that you have access to a Team Services account or [create one](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) yourself.
+2. Team Services 팀 프로젝트에 대한 액세스 권한이 있는지 확인하거나 직접 [프로젝트를 만듭니다](https://www.visualstudio.com/docs/setup-admin/create-team-project).
 
-2. Ensure that you have access to a Team Services team project or [create one](https://www.visualstudio.com/docs/setup-admin/create-team-project) yourself.
+3. 응용 프로그램을 배포할 수 있는 서비스 패브릭 클러스터가 있는지 확인하거나 [Azure 포털](service-fabric-cluster-creation-via-portal.md), [Azure Resource Manager 템플릿](service-fabric-cluster-creation-via-arm.md) 또는 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)를 사용하여 만듭니다.
 
-3. Ensure that you have a Service Fabric cluster to which you can deploy your application or create one using the [Azure Portal](service-fabric-cluster-creation-via-portal.md), an [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md), or [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
+4. 서비스 패브릭 응용 프로그램(.sfproj) 프로젝트를 이미 만들었는지 확인합니다. 서비스 패브릭 SDK 2.1 이상으로 만들었거나 업그레이드한 프로젝트가 있어야 합니다(.sfproj 파일에는 1.1 이상의 ProjectVersion 속성 값이 포함되어야 함).
 
-4. Ensure that you have already created a Service Fabric Application (.sfproj) project. You must have a project that was created or upgraded with Service Fabric SDK 2.1 or higher (the .sfproj file should contain a ProjectVersion property value of 1.1 or higher).
+>[AZURE.NOTE] 사용자 지정 빌드 에이전트는 더 이상 필요하지 않습니다. Team Services 호스트 에이전트는 이제 서비스 패브릭 클러스터 관리 소프트웨어가 미리 설치된 상태로 제공되므로 해당 에이전트에서 직접 응용 프로그램을 배포할 수 있습니다.
 
->[AZURE.NOTE] Custom build agents are no longer required. Team Services hosted agents now come pre-installed with Service Fabric cluster management software, allowing for deployment of your applications directly from those agents.
+## 소스 파일 구성 및 공유
 
-## <a name="configure-and-share-your-source-files"></a>Configure and share your source files
+가장 먼저 할 일은 Team Services 내에서 실행할 배포 프로세스에 사용할 게시 프로필을 준비하는 것입니다. 게시 프로필은 이전에 준비한 클러스터를 대상으로 지정하도록 구성해야 합니다.
 
-The first thing you'll want to do is prepare a publish profile for use by the deployment process that will execute within Team Services.  The publish profile should be configured to target the cluster that you've previously prepared:
+1.	응용 프로그램 프로젝트 내에서 지속적인 통합 워크플로에 사용할 게시 프로필을 선택하고 원격 클러스터에 응용 프로그램을 게시하는 방법에 관한 [게시 지침](service-fabric-publish-app-remote-cluster.md)을 따릅니다. 그러나 실제로 응용 프로그램을 게시할 필요는 없습니다. 모든 정보를 올바르게 구성한 후 게시 대화 상자에서 **저장** 하이퍼링크를 클릭하면 됩니다.
+2.	Team Services 내에서 이루어질 각 배포에 대해 응용 프로그램을 업그레이드하려면 업그레이드를 사용하도록 게시 프로필을 구성하는 것이 좋습니다. 1단계에 사용한 것과 같은 게시 대화 상자에서 **응용 프로그램 업그레이드** 확인란을 선택했는지 확인합니다. [추가 업그레이드 설정 구성](service-fabric-visualstudio-configure-upgrade.md)에 대해 더 자세히 알아봅니다. **저장** 하이퍼링크를 클릭하여 설정을 게시 프로필에 저장합니다.
+3.	게시 프로필에 대한 변경 내용을 저장했는지 확인하고 게시 대화 상자를 취소합니다.
+4.	이제 [응용 프로그램 프로젝트 소스 파일을 Team Services와 공유](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#vs)할 수 있습니다. 소스 파일을 Team Services에서 액세스할 수 있으면 이제 빌드 생성의 다음 단계로 이동할 수 있습니다.
 
-1.  Choose a publish profile within your Application project that you want to use for your continuous integration workflow and follow the [publish instructions](service-fabric-publish-app-remote-cluster.md) on how to publish an application to a remote cluster. You don't actually need to publish your application though. You can simply click the **Save** hyperlink in the publish dialog once you've configured things appropriately.
-2.  If you want your application to be upgraded for each deployment that occurs within Team Services, you'll want to configure the publish profile to enable upgrade. In the same publish dialog used in step 1, ensure that the **Upgrade the Application** checkbox is checked.  Learn more about [configuring additional upgrade settings](service-fabric-visualstudio-configure-upgrade.md). Click the **Save** hyperlink to save the settings to the publish profile.
-3.  Ensure that you've saved your changes to the publish profile and cancel the publish dialog.
-4.  Now it's time to [share your Application project source files](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#vs) with Team Services. Once your source files are accessible in Team Services, you can now move on to the next step of generating builds. 
+## 빌드 정의 만들기
 
-## <a name="create-a-build-definition"></a>Create a build definition
+Team Services 빌드 정의는 순차적으로 실행되는 빌드 단계 집합으로 구성된 워크플로를 설명합니다. 만들려는 빌드 정의의 목표는 응용 프로그램을 최종적으로 클러스터에 배포하는 데 사용할 수 있는 서비스 패브릭 응용 프로그램 패키지를 몇몇 다른 보완 파일과 함께 생성하는 것입니다. Team Services [빌드 정의](https://www.visualstudio.com/docs/build/define/create)에 대해 자세히 알아봅니다.
 
-A Team Services build definition describes a workflow that is composed of a set of build steps that are executed sequentially. The goal of the build definition that you'll be creating is to produce a Service Fabric application package, as well as including some other supplemental files, that can be used to eventually deploy the application to a cluster. Learn more about Team Services [build definitions](https://www.visualstudio.com/docs/build/define/create).
+### 빌드 템플릿에서 정의 만들기
 
-### <a name="create-a-definition-from-the-build-template"></a>Create a definition from the build template
+1.	Visual Studio Team Services에서 팀 프로젝트를 엽니다.
+2.	**빌드** 탭을 선택합니다.
+3.	녹색 **+** 기호를 선택하여 새 빌드 정의를 만듭니다.
+4.	이때 열리는 대화 상자의 **빌드** 템플릿 범주 내에서 **Azure 서비스 패브릭 응용 프로그램**을 선택합니다.
+5.	**다음**을 선택합니다.
+6.	서비스 패브릭 응용 프로그램과 연결된 리포지토리 및 분기를 선택합니다.
+7.	사용하려는 에이전트 큐를 선택합니다. 호스트 에이전트가 지원됩니다.
+8.	**만들기**를 선택합니다.
+9. 빌드 정의를 저장하고 이름을 지정합니다.
+10. 다음은 템플릿에 의해 생성되는 빌드 단계에 대한 설명입니다.
 
-1.  Open your team project in Visual Studio Team Services.
-2.  Select the **Build** tab.
-3.  Select the green **+** sign to create a new build definition.
-4.  In the dialog that opens, select **Azure Service Fabric Application** within the **Build** template category.
-5.  Select **Next**.
-6.  Select the repository and branch associated with your Service Fabric application.
-7.  Select the agent queue you wish to use. Hosted agents are supported.
-8.  Select **Create**.
-9. Save the build definition and provide a name.
-10. The following is a description of the build steps generated by the template:
-
-| Build step | Description |
+| 빌드 단계 | 설명 |
 | --- | --- |
-| Nuget restore | Restores the NuGet packages for the solution. |
-| Build solution \*.sln | Builds the entire solution. |
-| Build solution \*.sfproj | Generates the Service Fabric application package that will be used to deploy the application. Note that the application package location is specified to be within the build's artifact directory. |
-| Update Service Fabric App Versions | Updates the version values contained in the application package's manifest files to allow for upgrade support. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820529) for more information. |
-| Copy Files | Copies the publish profile and application parameters files to the build's artifacts in order to be consumed for deployment. |
-| Publish Artifact | Publishes the build's artifacts. This allows a release definition to consume the build's artifacts. |
+| Nuget 복원 | 솔루션에 대한 NuGet 패키지를 복원합니다. |
+| 솔루션 *.sln 빌드 | 전체 솔루션을 빌드합니다. |
+| 솔루션 *.sfproj 빌드 | 응용 프로그램을 배포하는 데 사용할 서비스 패브릭 응용 프로그램 패키지를 생성합니다. 참고로 응용 프로그램 패키지 위치는 빌드의 아티팩트 디렉터리 내에 있도록 지정됩니다. |
+| 서비스 패브릭 앱 버전 업데이트 | 업그레이드 지원이 가능하도록 응용 프로그램 패키지의 매니페스트에 포함된 버전 값을 업데이트합니다. 자세한 내용은 [작업 설명서 페이지](https://go.microsoft.com/fwlink/?LinkId=820529)를 참조하세요. |
+| 파일 복사 | 게시 프로필 및 응용 프로그램 매개 변수 파일을 배포에 사용할 빌드의 아티팩트에 복사합니다. |
+| 아티팩트 게시 | 빌드의 아티팩트를 게시합니다. 이렇게 하면 릴리스 정의가 빌드의 아티팩트를 사용할 수 있습니다. |
 
-### <a name="verify-the-default-set-of-tasks"></a>Verify the default set of tasks
+### 기본 작업 집합 확인
 
-1.  Verify the **Solution** input field for the **NuGet restore** and **Build solution** build steps.  By default, these build steps will execute upon all solution files that are contained in the associated repository.  If you only want the build definition to operate on one of those solution files, you need to explicitly update the path to that file.
-2.  Verify the **Solution** input field for the **Package application** build step.  By default, this build step assumes only one Service Fabric Application project (.sfproj) exists in the repository.  If you have multiple such files in your repository and want to target only one of them for this build definition, you need to explicitly update the path to that file.  If you want to package multiple Application projects in your repository, you need to create additional **Visual Studio Build** steps in the build definition that each target an Application project.  You would then also need to update the **MSBuild Arguments** field for each of those build steps so that the package location is unique for each of them.
-3.  Verify the versioning behavior defined in the **Update Service Fabric App Versions** build step.  By default, this build step appends the build number to all version values in the application package's manifest files. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820529) for more information. This is useful for supporting upgrade of your application since each upgrade deployment requires different version values from the previous deployment. If you're not intending to use application upgrade in your workflow, you may consider disabling this build step. In fact, it must be disabled if your intention is to produce a build that can be used to overwrite an existing Service Fabric application because deployment will fail if the version of the application produced by the build does not match the version of the application in the cluster.
-4.  If your solution contains a .NET Core project, you must ensure that your build definition contains a build step that restores the dependencies defined by any project.json files.  To do this, follow these steps:
-   1. Select **Add build step...**.
-   2. Locate the **Command Line** task within the Utility tab and click its Add button.
-   3. For the task's input fields, use the following values:
-      1. Tool: dotnet
-      2. Arguments: restore
-   4. Drag the task so that it is immediately after the **NuGet restore** step.
-5.  Save any changes you've made to the build definition.
+1.	**NuGet 복원** 및 **빌드 솔루션** 빌드 단계에 대한 **솔루션** 입력 필드를 확인합니다. 기본적으로 이러한 빌드 단계는 연결된 리포지토리에 포함된 모든 솔루션 파일에 대해 실행됩니다. 빌드 정의가 이러한 솔루션 파일 중 하나에서만 작동하도록 하려면 해당 파일에 대한 경로를 명시적으로 업데이트해야 합니다.
+2.	**패키지 응용 프로그램** 빌드 단계에 대한 **솔루션** 입력 필드를 확인합니다. 기본적으로 이 빌드 단계는 리포지토리에 서비스 패브릭 응용 프로그램 프로젝트(.sfproj)가 한 개만 있다고 가정합니다. 리포지토리에 그러한 파일이 여러 개 있고 그 중 하나만을 이 빌드 정의에 대상으로 지정하려면 해당 파일에 대한 경로를 명시적으로 업데이트해야 합니다. 리포지토리 내에 응용 프로그램 프로젝트 여러 개를 패키징하려면 빌드 정의에 각각 응용 프로그램 프로젝트를 대상으로 지정하는 추가 **Visual Studio 빌드** 단계를 만들어야 합니다. 또한 패키지 위치가 각 단계에 대해 고유하도록 해당 빌드 단계 각각에 대해 **MSBuild 인수** 필드를 업데이트해야 할 수 있습니다.
+3.	**서비스 패브릭 앱 버전 업데이트** 빌드 단계에 정의된 버전 관리 동작을 확인합니다. 기본적으로 이 빌드 단계는 응용 프로그램 패키지의 매니페스트 파일에 있는 모든 버전 값에 빌드 번호를 추가합니다. 자세한 내용은 [작업 설명서 페이지](https://go.microsoft.com/fwlink/?LinkId=820529)를 참조하세요. 이는 각 업그레이드 배포에 이전 배포와 다른 버전 값이 필요하므로 응용 프로그램의 업그레이드를 지원하는 데 유용합니다. 워크플로에 응용 프로그램 업그레이드를 사용하지 않으려는 경우 이 빌드 단계를 사용하지 않도록 설정할 수 있습니다. 실제로 빌드 시 생성되는 응용 프로그램의 버전이 클러스터의 응용 프로그램 버전과 일치하지 않으면 배포가 실패하기 때문에 기존 서비스 패브릭 응용 프로그램을 덮어쓰는 데 사용할 수 있는 빌드를 생성하려는 경우에는 이 빌드 단계를 사용하지 않도록 설정해야 합니다.
+4.	솔루션에 .NET Core 프로젝트가 포함되는 경우 빌드 정의에 project.json 파일에 정의된 종속성을 복원하는 빌드 단계가 포함되어 있는지 확인해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
+   1. **빌드 단계 추가...**를 선택합니다.
+   2. 유틸리티 탭 내에서 **명령줄** 작업을 찾고 추가 버튼을 클릭합니다.
+   3. 작업의 입력 필드에 다음 값을 사용합니다.
+      1. 도구: dotnet
+      2. 인수: restore
+   4. 작업이 **NuGet 복원** 단계 바로 다음에 오도록 끕니다.
+5.	빌드 정의에 대해 실행한 변경 내용을 저장합니다.
 
-### <a name="try-it"></a>Try it
+### 시도
 
-Select **Queue Build** to manually start a build. Builds will also be triggered upon push or check-in. Once you've verified that the build is executing successfully, you can now move on to defining a release definition that will deploy your application to a cluster.
+**큐 빌드**를 선택하여 수동으로 빌드를 시작합니다. 또한 빌드는 푸시 또는 체크인할 때 트리거됩니다. 빌드가 성공적으로 실행되고 있는지 확인했으면 이제 응용 프로그램을 클러스터에 배포할 릴리스 정의를 정의하는 작업으로 이동할 수 있습니다.
 
-## <a name="create-a-release-definition"></a>Create a release definition
+## 릴리스 정의 만들기
 
-A Team Services release definition describes a workflow that is composed of a set of tasks that are executed sequentially. The goal of the release definition that you'll be creating is to take an application package and deploy it to a cluster. When used together, the build definition and release definition can execute the entire workflow from starting with source files to ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+Team Services 릴리스 정의는 순차적으로 실행되는 작업 집합으로 구성된 워크플로를 설명합니다. 만들려는 릴리스 정의의 목표는 응용 프로그램 패키지를 가져와서 클러스터에 배포하는 것입니다. 빌드 정의와 릴리스 정의를 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행할 수 있습니다. Team Services [릴리스 정의](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
 
-### <a name="create-a-definition-from-the-release-template"></a>Create a definition from the release template
+### 릴리스 템플릿에서 정의 만들기
 
-1.  Open your project in Visual Studio Team Services.
-2.  Select the **Release** tab.
-3.  Select the green **+** sign to create a new release definition and select **Create release definition** in the menu.
-4.  In the dialog that opens, select **Azure Service Fabric Deployment** within the **Deployment** template category.
-5.  Select **Next**.
-6.  Select the build definition you want to use as the source of this release definition.  The release definition will reference the artifacts that were produced by the selected build definition.
-7.  Check the **Continuous deployment** check box if you wish to have Team Services automatically create a new release and deploy the Service Fabric application whenever a build completes.
-8.  Select the agent queue you wish to use. Hosted agents are supported.
-9.  Select **Create**.
-10. Edit the definition name by clicking the pencil icon at the top of the page.
-11. Select the cluster to which your application should be deployed from the **Cluster Connection** input field of the task. The cluster connection provides the necessary information that allows the deployment task to connect to the cluster. If you do not yet have a cluster connection for your cluster, select the **Manage** hyperlink next to the field to add one. On the page that opens, perform the following steps:
-    1. Select **New Service Endpoint** and then select **Azure Service Fabric** from the menu.
-    2. Select the type of authentication being used by the cluster targeted by this endpoint.
-    2. Define a name for your connection in the **Connection Name** field.  Typically, you would use the name of your cluster.
-    3. Define the client connection endpoint URL in the **Cluster Endpoint** field.  Example: https://contoso.westus.cloudapp.azure.com:19000.
-    4. For Azure Active Directory credentials, define the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
-    5. For Certificate Based authentication, define the Base64 encoding of the client certificate file in the **Client Certificate** field.  See the help pop-up on that field for info on how to get that value.  If your certificate is password-protected, define the password in the **Password** field.
-    6. Confirm your changes by clicking **OK**. After navigating back to your release definition, click the refresh icon on the **Cluster Connection** field to see the endpoint you just added.
-12. Save the release definition.
+1.	Visual Studio Team Services에서 프로젝트를 엽니다.
+2.	**릴리스** 탭을 선택합니다.
+3.	녹색 **+** 기호를 선택하여 새 릴리스 정의를 만들고 메뉴에서 **릴리스 정의 만들기**를 선택합니다.
+4.	이때 열리는 대화 상자의 **배포** 템플릿 범주 내에서 **Azure 서비스 패브릭 배포**를 선택합니다.
+5.	**다음**을 선택합니다.
+6.	이 릴리스 정의의 원본으로 사용할 빌드 정의를 선택합니다. 릴리스 정의는 선택한 빌드 정의에 의해 생성된 아티팩트를 참조합니다.
+7.	Team Services가 자동으로 새 릴리스를 만들고 빌드가 완료될 때마다 서비스 패브릭 응용 프로그램을 배포하게 하려면 **연속 배포** 확인란을 선택합니다.
+8.	사용하려는 에이전트 큐를 선택합니다. 호스트 에이전트가 지원됩니다.
+9.	**만들기**를 선택합니다.
+10.	페이지 맨 위의 연필 아이콘을 클릭하여 정의 이름을 편집합니다.
+11.	작업의 **클러스터 연결** 입력 필드에서 응용 프로그램을 배포해야 하는 클러스터를 선택합니다. 클러스터 연결은 배포 작업이 클러스터에 연결할 수 있도록 하는 데 필요한 정보를 제공합니다. 클러스터에 대한 클러스터 연결이 아직 없는 경우 추가할 필드 옆의 **관리** 하이퍼링크를 선택합니다. 이때 열리는 페이지에서 다음 단계를 수행합니다.
+    1. **새 서비스 끝점**을 선택한 다음 메뉴에서 **Azure 서비스 패브릭**을 선택합니다.
+    2. 이 끝점에서 대상으로 지정한 클러스터가 사용 중인 인증 유형을 선택합니다.
+    2. **연결 이름** 필드에서 연결의 이름을 정의합니다. 일반적으로 클러스터의 이름을 사용합니다.
+    3. **클러스터 끝점** 필드에서 클라이언트 연결 끝점 URL을 정의합니다. 예: https://contoso.westus.cloudapp.azure.com:19000.
+    4. Azure Active Directory 자격 증명의 경우 **사용자 이름** 및 **암호** 필드에서 클러스터에 연결하는 데 사용할 자격 증명을 정의합니다.
+    5. 인증서 기반 인증의 경우 **클라이언트 인증서** 필드에서 클라이언트 인증서 파일의 Base64 인코딩을 정의합니다. 이 값을 가져오는 방법에 대한 자세한 내용은 해당 필드에 대한 도움말 팝업을 참조하세요. 인증서가 암호로 보호된 경우 **암호** 필드에서 암호를 정의합니다.
+    6. **확인**을 클릭하여 변경을 확인합니다. 릴리스 정의를 다시 탐색한 후 **클러스터 연결** 필드의 새로 고침 아이콘을 클릭하여 방금 추가한 끝점을 확인합니다.
+12.	릴리스 정의를 저장합니다.
 
-The definition that is created consists of one task of type **Service Fabric Application Deployment**. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820528) for more information about this task.
+만들어지는 정의는 **서비스 패브릭 응용 프로그램 배포** 형식의 단일 작업으로 구성됩니다. 이 작업에 대한 자세한 내용은 [작업 설명서 페이지](https://go.microsoft.com/fwlink/?LinkId=820528)를 참조하세요.
 
-### <a name="verify-the-template-defaults"></a>Verify the template defaults
+### 템플릿 기본값 확인
 
-1.  Verify the **Publish Profile** input field for the **Deploy Service Fabric Application** task. By default, this field references a publish profile named Cloud.xml contained in the build's artifacts. If you want to reference a different publish profile or if the build contains multiple application packages in its artifacts, you need to update the path appropriately.
-2.  Verify the **Application Package** input field for the **Deploy Service Fabric Application** task. By default, this references the default application package path used in the build definition template.  If you've modified the default application package path in the build definition, you need to update the path appropriately here as well.
+1.	**서비스 패브릭 응용 프로그램 배포** 작업에 대한 **게시 프로필** 입력 필드를 확인합니다. 기본적으로 이 필드는 빌드의 아티팩트에 포함된 Cloud.xml이라는 게시 프로필을 참조합니다. 다른 게시 프로필을 참조하려는 경우 또는 빌드의 아티팩트에 응용 프로그램 패키지 여러 개가 포함된 경우 해당 경로를 올바르게 업데이트해야 합니다.
+2.	**서비스 패브릭 응용 프로그램 배포** 작업에 대한 **응용 프로그램 패키지** 입력 필드를 확인합니다. 기본적으로 이 필드는 빌드 정의 템플릿에 사용되는 기본 응용 프로그램 패키지 경로를 참조합니다. 빌드 정의에서 기본 응용 프로그램 패키지 경로를 수정한 경우 여기서도 해당 경로를 올바르게 업데이트해야 합니다.
 
-### <a name="try-it"></a>Try it
+### 시도
 
-Select **Create Release** from the **Release** button menu to manually create a release. In the dialog that opens, select the build that you want to base the release on and then click **Create**. If you enabled continuous deployment, releases will also be created automatically when the associated build definition completes a build.
+**릴리스** 버튼 메뉴에서 **릴리스 만들기**를 선택하여 수동으로 릴리스를 만듭니다. 이때 열리는 대화 상자에서 릴리스의 기반으로 할 빌드를 선택하고 **만들기**를 클릭합니다. 연속 배포를 활성화한 경우 연결된 빌드 정의가 빌드를 완료할 때 릴리스도 자동으로 생성됩니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-To learn more about continuous integration with Service Fabric applications, read the following articles:
+서비스 패브릭 응용 프로그램으로 연속 통합에 대한 자세한 내용은 다음 문서를 참조하세요.
 
- - [Team Services documentation home](https://www.visualstudio.com/docs/overview)
- - [Build management in Team Services](https://www.visualstudio.com/docs/build/overview)
- - [Release management in Team Services](https://www.visualstudio.com/docs/release/overview)
+ - [Team Services 문서 홈](https://www.visualstudio.com/docs/overview)
+ - [Team Services에서 빌드 관리](https://www.visualstudio.com/docs/build/overview)
+ - [Team Services에서 릴리스 관리](https://www.visualstudio.com/docs/release/overview)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

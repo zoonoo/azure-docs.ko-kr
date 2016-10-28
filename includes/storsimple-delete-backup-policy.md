@@ -1,21 +1,15 @@
 
 <!--author=SharS last changed: 11/06/15-->
 
-#### <a name="to-delete-a-storsimple-backup-policy"></a>To delete a StorSimple backup policy
+#### StorSimple 백업 정책을 삭제하려면
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. 장치 **퀵스타트** 페이지에서 **백업 정책** 탭을 클릭합니다. 이렇게 하면 **백업 정책** 페이지로 이동됩니다.
 
-2. Select the policy by clicking anywhere in the corresponding row except for the first column, and then click **Delete** at the bottom of the page.
+2. 첫 번째 열을 제외하고 해당 행에서 아무 곳이나 클릭하여 정책을 선택한 다음 페이지의 맨 아래에서 **삭제**를 클릭합니다.
 
-3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **Yes** to delete.
+3. 확인하라는 메시지가 표시됩니다. 백업 정책을 삭제하면 연결된 모든 백업을 삭제하게 됩니다. **예**를 클릭하여 삭제합니다.
 
-The **Backup Policies** page will be updated to display the new list of policies.
+**백업 정책** 페이지는 정책의 새 목록을 표시하도록 업데이트됩니다.
  
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage Azure Data Lake Analytics using Azure SDK for Node.js | Azure"
-   description="Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure SDK for Node.js"
+   pageTitle="Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 분석 관리 | Azure"
+   description="Node.js용 Azure SDK를 사용하여 데이터 레이크 분석 계정, 데이터 원본, 작업 및 사용자를 관리하는 방법을 알아봅니다."
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
@@ -16,34 +16,33 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
-
-# <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-node.js"></a>Manage Azure Data Lake Analytics using Azure SDK for Node.js
+# Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 분석 관리
 
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-The Azure SDK for Node.js can be used for managing Azure Data Lake Analytics accounts, jobs and catalogs. To see management topic using other tools, click the tab select above.
+Node.js용 Azure SDK는 Azure Data Lake 분석 계정, 작업 및 카탈로그 관리에 사용할 수 있습니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
 
-Right now it supports:
+현재는 다음이 지원됩니다.
 
-  *  **Node.js version: 0.10.0 or higher**
-  *  **REST API version for Account: 2015-10-01-preview**
-  *  **REST API version for Catalog: 2015-10-01-preview**
-  *  **REST API version for Job: 2016-03-20-preview**
+  *  **Node.js 버전: 0.10.0 이상**
+  *  **계정에 대한 REST API 버전: 2015-10-01-preview**
+  *  **카탈로그에 대한 REST API 버전: 2015-10-01-preview**
+  *  **작업에 대한 REST API 버전: 2016-03-20-preview**
 
-## <a name="features"></a>Features
+## 기능
 
-- Account management: create, get, list, update, and delete.
-- Job management: submit, get, list, cancel.
-- Catalog management: get, list, create (secrets), update (secrets), delete (secrets).
+- 계정 관리: 만들기, 가져오기, 나열, 업데이트 및 삭제
+- 작업 관리: 제출, 가져오기, 나열, 취소
+- 카탈로그 관리: 가져오기, 나열, 만들기(암호), 업데이트(암호), 삭제(암호)
 
-## <a name="how-to-install"></a>How to Install
+## 설치 방법
 
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
-## <a name="authenticate-using-azure-active-directory"></a>Authenticate using Azure Active Directory
+## Azure Active Directory를 사용하여 인증
 
  ```javascript
  var msrestAzure = require('ms-rest-azure');
@@ -53,7 +52,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## <a name="create-the-data-lake-analytics-client"></a>Create the Data Lake Analytics client
+## Data Lake 분석 클라이언트 만들기
 
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
@@ -62,7 +61,7 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-## <a name="create-a-data-lake-analytics-account"></a>Create a Data Lake Analytics account
+## Data Lake 분석 계정 만들기
 
 ```javascript
 var util = require('util');
@@ -112,7 +111,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-## <a name="get-a-list-of-jobs"></a>Get a list of jobs
+## 작업 목록 가져오기
 
 ```javascript
 var util = require('util');
@@ -126,7 +125,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Get a list of databases in the Data Lake Analytics Catalog
+## Data Lake 분석 카탈로그에서 데이터베이스 목록 가져오기
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -139,13 +138,9 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## <a name="see-also"></a>See also
+## 참고 항목
 
-- [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
-- [Microsoft Azure SDK for Node.js - Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
+- [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
+- [Node.js용 Microsoft Azure SDK - Data Lake 저장소 관리](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->
