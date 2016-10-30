@@ -1,68 +1,73 @@
 <properties
-	pageTitle="클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보 | Microsoft Azure"
-	description="이 문서에서는 플랫폼 지원 방식으로 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정의 기술적 측면을 설명합니다."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="mahthi"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Technical deep dive on platform-supported migration from classic to Azure Resource Manager | Microsoft Azure"
+    description="This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager"
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="singhkays"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="mahthi"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/22/2016"
+    ms.author="kasing"/>
 
-# 클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보
-Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 자세하게 살펴보겠습니다. Azure 플랫폼에서 두 가지 배포 모델 간에 리소스를 마이그레이션하는 방법을 더욱 잘 이해할 수 있도록 리소스 및 기능 수준에서 리소스를 검토합니다. 자세한 내용은 서비스 발표 문서 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)을 읽어보세요.
 
-## 마이그레이션에 대한 자세한 지침
+# <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Technical deep dive on platform-supported migration from classic to Azure Resource Manager
+Let's take a deep-dive on migrating from the Azure classic deployment model to the Azure Resource Manager deployment model. We look at resources at a resource and feature level to help you understand how the Azure platform migrates resources between the two deployment models. For more information, please read the service announcement article: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
 
-다음 표에서 클래식 및 Resource Manager에서 리소스를 표현하는 방식을 확인할 수 있습니다. 다른 기능 및 리소스는 현재 지원되지 않습니다.
+## <a name="detailed-guidance-on-migration"></a>Detailed guidance on migration
 
-| 클래식 표현 | Resource Manager 표현 | 자세한 정보 | | |
-|--------------------------------------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
-| 클라우드 서비스 이름 | DNS 이름 | 마이그레이션하는 동안 명명 패턴 `<cloudservicename>-migrated`를 사용하여 모든 클라우드 서비스에 대한 새 리소스 그룹을 만듭니다. 이 리소스 그룹에는 모든 리소스가 포함됩니다. 클라우드 서비스 이름은 공용 IP 주소와 연결된 DNS 이름이 됩니다. | | |
-| 가상 컴퓨터 | 가상 컴퓨터 | VM 관련 속성은 변경되지 않고 마이그레이션됩니다. 클래식 배포 모델에서는 컴퓨터 이름 등의 특정 osProfile 정보가 저장되지 않으므로 마이그레이션 후 빈 상태로 유지됩니다. | | |
-| VM에 연결된 디스크 리소스 | VM에 연결된 암시적 디스크 | Resource Manager 배포 모델에서는 디스크가 최상위 리소스로 모델링되지 않습니다. VM에서 암시적 디스크로 마이그레이션됩니다. 현재 VM에 연결되어 있는 디스크만 지원됩니다. Resource Manager VM은 이제 클래식 저장소 계정을 사용할 수 있습니다. 이를 통해 업데이트하지 않고도 디스크를 쉽게 마이그레이션할 수 있습니다. | | |
-| VM 확장 | VM 확장 | 클래식 배포 모델에서는 XML 확장을 제외한 모든 리소스 확장이 마이그레이션됩니다. | | |
-| 가상 컴퓨터 인증서 | Azure 키 자격 증명 모음의 인증서 | 클라우드 서비스에 서비스 인증서가 포함된 경우 클라우드 서비스당 새 Azure 주요 자격 증명 모음이 생성되고 주요 자격 증명 모음으로 인증서가 이동됩니다. VM이 업데이트되면서 주요 자격 증명 모음의 인증서를 참조합니다. | | |
-| WinRM 구성 | osProfile 하의 WinRM 구성 | Windows 원격 관리 구성은 마이그레이션의 일부로 변경되지 않은 상태로 이동됩니다. | | |
-| 가용성 집합 속성 | 가용성 집합 리소스 | 클래식 배포 모델에서 가용성 집합 사양은 VM의 속성이었습니다. 마이그레이션에서는 가용성 집합이 최상위 리소스가 됩니다. 클라우드 서비스당 둘 이상의 가용성 집합 또는 클라우드 서비스의 가용성 집합에 없는 하나 이상의 가용성 집합 및 VM 구성은 지원되지 않습니다. | | |
-| VM의 네트워크 구성 | 기본 네트워크 인터페이스 | VM의 네트워크 구성은 마이그레이션 후 기본 네트워크 인터페이스 리소스로 표현됩니다. 가상 네트워크에 없는 VM의 경우 마이그레이션 중 내부 IP 주소가 변경됩니다. | | |
-| VM의 여러 네트워크 인터페이스 | 네트워크 인터페이스 | VM에 여러 네트워크 인터페이스가 연결된 경우 각 네트워크 인터페이스는 Resource Manager 배포 모델의 마이그레이션 중 모든 속성과 마찬가지로 최상위 리소스가 됩니다. | | |
-| 부하 분산된 끝점 집합 | 부하 분산 장치 | 클래식 배포 모델에서 플랫폼은 모든 클라우드 서비스에 대한 암시적 부하 분산 장치를 할당받습니다. 마이그레이션 중에는 새로운 부하 분산 장치 리소스를 만들며 부하 분산 끝점 집합이 부하 분산 장치 규칙이 됩니다. | | |
-| 인바운드 NAT 규칙 | 인바운드 NAT 규칙 | VM에 정의된 입력 끝점은 마이그레이션 중에 부하 분산 장치의 인바운드 NAT(Network Address Translation) 규칙으로 변환됩니다. | | |
-| VIP 주소 | DNS 이름이 포함된 공용 IP 주소 | 가상 IP 주소는 공용 IP 주소가 되며, 부하 분산 장치와 연결됩니다. | | |
-| 가상 네트워크 | 가상 네트워크 | 가상 네트워크는 모든 속성과 함께 Resource Manager 배포 모델로 마이그레이션됩니다. `-migrated` 이름을 사용하여 새 리소스 그룹이 생성됩니다. [지원되지 않는 구성](virtual-machines-windows-migration-classic-resource-manager.md)이 있습니다. | | |
-| 예약된 IP | 정적 할당 방법의 공용 IP 주소 | 부하 분산 장치와 연결되어 있고 예약된 IP는 클라우드 서비스 또는 가상 컴퓨터의 마이그레이션과 함께 마이그레이션됩니다. 연결되지 않고 예약된 IP 마이그레이션은 현재 지원되지 않습니다. | | |
-| VM당 공용 IP 주소 | 동적 할당 방법의 공용 IP 주소 | VM에 연결된 공용 IP 주소는 할당 방법이 정적으로 설정된 공용 IP 주소 리소스로 변환됩니다. | | |
-| NSG | NSG | 서브넷과 연결된 네트워크 보안 그룹은 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 NSG는 제거되지 않습니다. 하지만 마이그레이션이 진행 중인 동안에는 NSG의 관리 평면 작업이 차단됩니다. | | |
-| DNS 서버 | DNS 서버 | 가상 네트워크 또는 VM과 연결된 DNS 서버는 해당 리소스 마이그레이션 중 모든 속성과 함께 마이그레이션됩니다. | | |
-| UDR | UDR | 서브넷과 연결된 사용자 정의 경로는 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 UDR는 제거되지 않습니다. 마이그레이션이 진행 중인 동안에는 UDR의 관리 평면 작업이 차단됩니다. | | |
-| VM 네트워크 구성의 IP 전달 속성 | NIC의 IP 전달 속성 | 마이그레이션 중 VM의 IP 전달 속성이 네트워크 인터페이스의 속성으로 변환됩니다. | | |
-| 여러 IP가 포함된 부하 분산 장치 | 여러 공용 IP 리소스가 포함된 부하 분산 장치 | 부하 분산 장치와 연결된 모든 공용 IP는 공용 IP 리소스로 변환되며 마이그레이션 후 부하 분산 장치와 연결됩니다. | | |
-| VM의 내부 DNS 이름 | NIC의 내부 DNS 이름 | 마이그레이션하는 동안 VM의 내부 DNS 접미사는 NIC의 "InternalDomainNameSuffix"라는 읽기 전용 속성으로 마이그레이션됩니다. 마이그레이션 후 접미사는 그대로 유지되며 VM 확인은 이전처럼 계속 작동해야 합니다. | | |
+You can find the classic and Resource Manager representations of the resources in the following table. Other features and resources are not currently supported.
 
-## 간단한 마이그레이션 연습의 설명
+| Classic representation                                 | Resource Manager representation                 | Detailed notes                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+|--------------------------------------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cloud service name                                     | DNS name                                        | During migration, a new resource group is created for every cloud service with the naming pattern `<cloudservicename>-migrated`. This resource group contains all your resources. The cloud service name becomes a DNS name that is associated with the public IP address.                                                                                                                                                                                                    |   
+| Virtual machine                                        | Virtual machine                                 | VM-specific properties are migrated unchanged. Certain osProfile information, like computer name, is not stored in the classic deployment model and remains empty after migration.                                                                                                                                                                                                                                                                |   
+| Disk resources attached to VM                          | Implicit disks attached to VM                   | Disks are not modeled as top-level resources in the Resource Manager deployment model. They are migrated as implicit disks under the VM. Only disks that are attached to a VM are currently supported. Resource Manager VMs can now use classic storage accounts, which allows the disks to be easily migrated without any updates. |   
+| VM extensions                                          | VM extensions                                   | All the resource extensions, except XML extensions, are migrated from the classic deployment model.                                                                                                                                                                                                                                                                                                                                                                        |   
+| Virtual machine certificates                           | Certificates in Azure Key Vault                 | If a cloud service contains service certificates, a new Azure key vault per cloud service and moves the certificates into the key vault. The VMs are updated to reference the certificates from the key vault.                                                                                                                                                                                                                               |  
+| WinRM configuration                                    | WinRM configuration under osProfile             | Windows Remote Management configuration is moved unchanged, as part of the migration.                                                                                                                                                                                                                                                                                                                                                                                            |   
+| Availability-set property                              | Availability-set resource                       | Availability-set specification was a property on the VM in the classic deployment model. Availability sets become a top-level resource as part of the migration. The following configurations are not supported: multiple availability sets per cloud service, or one or more availability sets along with VMs that are not in any availability set in a cloud service.                                                                                |   
+| Network configuration on a VM                          | Primary network interface                       | Network configuration on a VM is represented as the primary network interface resource after migration. For VMs that are not in a virtual network, the internal IP address changes during migration.                                                                                                                                                                                                                                                            |   
+| Multiple network interfaces on a VM                    | Network interfaces                              | If a VM has multiple network interfaces associated with it, each network interface becomes a top-level resource as part of the migration in the Resource Manager deployment model, along with all the properties.                                                                                                                                                                                                                                                            |  
+| Load-balanced endpoint set                             | Load balancer                                   | In the classic deployment model, the platform assigned an implicit load balancer for every cloud service. During migration, a new load-balancer resource is created, and the load-balancing endpoint set becomes load-balancer rules.                                                                                                                                                                                                                                     |   
+| Inbound NAT rules                                      | Inbound NAT rules                               | Input endpoints defined on the VM are converted to inbound network address translation rules under the load balancer during the migration.                                                                                                                                                                                                                                                                                                                                           |  
+| VIP address                              | Public IP address with DNS name                 | The virtual IP address becomes a public IP address and is associated with the load balancer.                                                                                                                                                                                                                                                                                                                                                        |   
+| Virtual network                                        | Virtual network                                 | The virtual network is migrated, with all its properties, to the Resource Manager deployment model. A new resource group is created with the name `-migrated`. There are [unsupported configurations](virtual-machines-windows-migration-classic-resource-manager.md).                                                                                                                                                                                                  |   
+| Reserved IPs                                           | Public IP address with static allocation method  | Reserved IPs associated with the load balancer are migrated, along with the migration of the cloud service or the virtual machine. Unassociated reserved IP migration is not currently supported.                                                                                                                                                                                                                                                           |   
+| Public IP address per VM                               | Public IP address with dynamic allocation method | The public IP address associated with the VM is converted as a public IP address resource, with the allocation method set to static.                                                                                                                                                                                                                                                                                                                                   |   
+| NSGs                                | NSGs                         | Network security groups associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. The NSG in the classic deployment model is not removed during the migration. However, the management-plane operations for the NSG are blocked when the migration is in progress.                                                                                                                                                                             |  
+| DNS servers                                            | DNS servers                                     | DNS servers associated with a virtual network or the VM are migrated as part of the corresponding resource migration, along with all the properties.                                                                                                                                                                                                                                                                                                                    |   
+| UDRs                                    | UDRs                             | User-defined routes associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. The UDR in the classic deployment model is not removed during the migration. The management-plane operations for the UDR are blocked when the migration is in progress.                                                                                                                                                                             |   
+| IP forwarding property on a VM's network configuration | IP forwarding property on the NIC               | The IP forwarding property on a VM is converted to a property on the network interface during the migration.                                                                                                                                                                                                                                                                                                                                                           |   
+| Load balancer with multiple IPs                        | Load balancer with multiple public IP resources | Every public IP associated with the load balancer is converted to a public IP resource and associated with the load balancer after migration.                                                                                                                                                                                                                                                                                                       |   
+| Internal DNS names on the VM                           | Internal DNS names on the NIC                    | During migration, the internal DNS suffixes for the VMs are migrated to a read-only property named “InternalDomainNameSuffix” on the NIC. The suffix remains unchanged after migration and VM resolution should continue to work as previously.                                                                                                                                                                                                           |   
 
-다음 스크린샷에서 준비 단계 이후 VM(가상 네트워크에 없음)이 포함된 기존 클라우드 서비스를 확인할 수 있습니다.
+## <a name="illustration-of-a-simple-migration-walkthrough"></a>Illustration of a simple migration walkthrough
 
-![준비 후 클래식 표현](./media/virtual-machines-windows-migration-classic-resource-manager/classic-migration-prepare-portal.png)
+The following screenshot shows an existing cloud service with a VM (not in a virtual network) after the preparation phase:
 
-마이그레이션 프로세스가 완료되면 다음 스크린샷에 새 리소스 그룹에 새 리소스가 생성되었다고 표시됩니다. ![준비 후 Resource Manager 표현](./media/virtual-machines-windows-migration-classic-resource-manager/resourcemanager-migration-prepare-portal.png)
+![Classic representation after prepare](./media/virtual-machines-windows-migration-classic-resource-manager/classic-migration-prepare-portal.png)
 
-## 다음 단계
+After the migration process has completed, the following screenshots show that the new resources have been created in a new resource group: ![Resource Manager representation after prepare](./media/virtual-machines-windows-migration-classic-resource-manager/resourcemanager-migration-prepare-portal.png)
 
-클래식 IaaS 리소스를 Resource Manager로 마이그레이션하는 작업을 이해했으므로 리소스 마이그레이션을 시작할 수 있습니다.
+## <a name="next-steps"></a>Next steps
 
-- [PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-windows-ps-migration-classic-resource-manager.md)
-- [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-linux-cli-migration-classic-resource-manager.md)
-- [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)
-- [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
+Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
 
-<!---HONumber=AcomDC_0824_2016-->
+- [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
+- [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
+- [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
+- [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

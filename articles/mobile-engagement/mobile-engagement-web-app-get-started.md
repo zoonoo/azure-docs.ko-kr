@@ -1,127 +1,133 @@
 <properties
-	pageTitle="웹앱용 Azure Mobile Engagement 시작 | Microsoft Azure"
-	description="웹앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
-	services="mobile-engagement"
-	documentationCenter="Mobile"
-	authors="piyushjo"
-	manager=""
-	editor="" />
+    pageTitle="Get started with Azure Mobile Engagement for Web Apps | Microsoft Azure"
+    description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Web Apps."
+    services="mobile-engagement"
+    documentationCenter="Mobile"
+    authors="piyushjo"
+    manager="erikre"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="js"
-	ms.topic="hero-article"
-	ms.date="06/01/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="js"
+    ms.topic="hero-article"
+    ms.date="06/01/2016"
+    ms.author="piyushjo" />
 
-# 웹앱용 Azure Mobile Engagement 시작
 
-[AZURE.INCLUDE [Hero 자습서 전환기](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Get started with Azure Mobile Engagement for Web Apps
 
-이 항목에서는 Azure Mobile Engagement를 사용하여 웹앱 사용량을 파악하는 방법을 보여 줍니다.
+[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-이 자습서를 사용하려면 다음이 필요합니다.
+This topic shows you how to use Azure Mobile Engagement to understand your Web App usage.
 
-+ Visual Studio 2015 또는 원하는 다른 편집기
-+ [웹 SDK](http://aka.ms/P7b453) 
+This tutorial requires the following:
 
-이 웹 SDK는 미리 보기 상태이며 현재 분석을 지원하고 브라우저 또는 앱 내 푸시 알림을 보내도록 아직 지원하지 않습니다.
++ Visual Studio 2015 or any other editor of your choice
++ [Web SDK](http://aka.ms/P7b453) 
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started)을 참조하세요.
+This Web SDK is in Preview and only supports Analytics at the moment and doesn't support sending browser or in-app push notifications yet. 
 
-##웹앱용 Mobile Engagement 설정
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
 
-[AZURE.INCLUDE [포털에서 Mobile Engagement 앱 만들기](../../includes/mobile-engagement-create-app-in-portal-new.md)]
+##<a name="setup-mobile-engagement-for-your-web-app"></a>Setup Mobile Engagement for your Web app
 
-##<a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-이 자습서에서는 데이터를 수집하는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다.
+##<a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-Visual Studio로 기본 웹앱을 만들어 통합을 보여 주지만 Visual Studio 외부에서 만든 웹 응용 프로그램으로 모든 단계를 수행할 수도 있습니다.
+This tutorial presents a "basic integration," which is the minimal set required to collect data.
 
-###새 웹앱 만들기
+We will create a basic web app with Visual Studio to demonstrate the integration though you can follow the steps with any web application created outside of Visual Studio also. 
 
-다음 단계에서는 Visual Studio 2015를 사용한다고 가정하지만 이전 버전의 Visual Studio에서도 단계는 유사합니다.
+###<a name="create-a-new-web-app"></a>Create a new Web App
 
-1. Visual Studio를 시작하고 **홈** 화면에서 **새 프로젝트**를 선택합니다.
+The following steps assume the use of Visual Studio 2015 though the steps are similar in earlier versions of Visual Studio. 
 
-2. 팝업에서 **웹** -> **ASP.Net 웹 응용 프로그램**을 선택합니다. 앱 **이름**, **위치** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
+1. Start Visual Studio, and in the **Home** screen, select **New Project**.
 
-3. **템플릿 선택** 팝업의 **ASP.Net 4.5 템플릿**에서 **비어 있음**을 선택하고 **확인**을 클릭합니다.
+2. In the pop-up, select **Web** -> **ASP.Net Web Application**. Fill in the app **Name**, **Location** and  **Solution name**, and then click **OK**.
 
-이제 Azure Mobile Engagement 웹 SDK를 통합할 새 비어 있는 웹앱 프로젝트가 만들어졌습니다.
+3. In the **Select a template** popup, select **Empty** under **ASP.Net 4.5 Templates** and click **OK**. 
 
-###Mobile Engagement 백 엔드에 앱 연결
+You have now created a new blank Web App project into which we will integrate the Azure Mobile Engagement Web SDK.
 
-1. 솔루션에 **javascript**라는 새 폴더를 만들고 **azure-engagement.js**라는 웹 SDK JS 파일을 추가합니다. 
+###<a name="connect-your-app-to-mobile-engagement-backend"></a>Connect your app to Mobile Engagement backend
 
-2. 다음 코드를 사용하여 이 javascript 폴더에 **main.js**라는 새 파일을 추가합니다. 연결 문자열을 업데이트해야 합니다. `azureEngagement` 개체는 웹 SDK 메서드에 액세스하는 데 사용됩니다.
+1. Create a new folder called **javascript** in your solution and add the Web SDK JS file **azure-engagement.js** into it. 
 
-		var azureEngagement = {
-		    debug: true,
-		    connectionString: 'xxxxx'
-		};
+2. Add a new file called **main.js** in this javascript folder with the following code. Make sure to update the connection string. This `azureEngagement` object will be used to access Web SDK methods. 
 
-	![js 파일이 포함된 Visual Studio입니다.][1]
+        var azureEngagement = {
+            debug: true,
+            connectionString: 'xxxxx'
+        };
 
-##실시간 모니터링 사용
+    ![Visual Studio with js files][1]
 
-데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 작업을 하나 이상 보내야 합니다. 웹앱의 컨텍스트에 있는 작업은 웹 페이지입니다.
+##<a name="enable-real-time-monitoring"></a>Enable real-time monitoring
 
-1. 솔루션에서 **home.html**라는 새 페이지를 만들고 웹앱에 대한 페이지의 시작으로 설정합니다. 
-2. 본문 태그 안에 다음을 추가하여 이전에 이 페이지에 추가한 두 javascript를 포함합니다. 
+In order to start sending data and ensuring that the users are active, you must send at least one Activity to the Mobile Engagement backend. An activity in the context of a web app is a web page. 
 
-	    <script type="text/javascript" src="javascript/main.js"></script>
-	    <script type="text/javascript" src="javascript/azure-engagement.js"></script>
+1. Create a new page called **home.html** in your solution and set it as the starting page for your web app. 
+2. Include the two javascripts we added earlier in this page by adding the following within the body tag. 
 
-3. 본문 태그를 업데이트하여 EngagementAgent의 `startActivity` 메서드를 호출합니다.
-		
-		<body onload="engagement.agent.startActivity('Home')">
+        <script type="text/javascript" src="javascript/main.js"></script>
+        <script type="text/javascript" src="javascript/azure-engagement.js"></script>
 
-4. **home.html**은 다음과 같이 표시됩니다.
-		
-		<html>
-		<head>
-			...
-		</head>
-		<body onload="engagement.agent.startActivity('Home')">
-		    <script type="text/javascript" src="javascript/main.js"></script>
-		    <script type="text/javascript" src="javascript/azure-engagement.js"></script>
-		</body>
-		</html>
+3. Update the body tag to call EngagementAgent's `startActivity` method
+        
+        <body onload="engagement.agent.startActivity('Home')">
 
-##실시간 모니터링과 앱 연결
+4. Here is what your **home.html** will look like
+        
+        <html>
+        <head>
+            ...
+        </head>
+        <body onload="engagement.agent.startActivity('Home')">
+            <script type="text/javascript" src="javascript/main.js"></script>
+            <script type="text/javascript" src="javascript/azure-engagement.js"></script>
+        </body>
+        </html>
 
-[AZURE.INCLUDE [실시간 모니터링과 앱 연결](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+##<a name="connect-app-with-real-time-monitoring"></a>Connect app with real-time monitoring
+
+[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ![][2]
 
-##분석 확장
+##<a name="extend-analytics"></a>Extend analytics
 
-현재 분석에 사용할 수 있는 웹 SDK와 함께 사용할 수 있는 모든 메서드는 다음과 같습니다.
+Here are all the methods currently available with Web SDK that you can use for analytics:
 
-1. 작업/웹 페이지:
+1. Activities/Web pages:
 
-		engagement.agent.startActivity(name);
-		engagement.agent.endActivity();
+        engagement.agent.startActivity(name);
+        engagement.agent.endActivity();
 
-2. 이벤트
-		
-		engagement.agent.sendEvent(name, extras);
+2. Events
+        
+        engagement.agent.sendEvent(name, extras);
 
-3. 오류
+3. Errors
 
-		engagement.agent.sendError(name, extras);
+        engagement.agent.sendError(name, extras);
 
-4. 작업
+4. Jobs
 
-		engagement.agent.startJob(name);
-		engagement.agent.endJob(name);
+        engagement.agent.startJob(name);
+        engagement.agent.endJob(name);
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
 
-<!-----HONumber=AcomDC_0615_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

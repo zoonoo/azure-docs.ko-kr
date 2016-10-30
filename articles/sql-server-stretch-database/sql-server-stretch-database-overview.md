@@ -1,83 +1,88 @@
 <properties
-	pageTitle="스트레치 데이터베이스 개요 | Microsoft Azure"
-	description="스트레치 데이터베이스가 콜드 데이터를 투명하고 안전하게 Microsoft Azure 클라우드로 마이그레이션하는 방법에 대해 알아봅니다."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Stretch Database overview | Microsoft Azure"
+    description="Learn how Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/27/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="06/27/2016"
+    ms.author="douglasl"/>
 
-# 스트레치 데이터베이스 개요
 
-스트레치 데이터베이스는 콜드 데이터를 투명하고 안전하게 Microsoft Azure 클라우드로 마이그레이션합니다.
+# <a name="stretch-database-overview"></a>Stretch Database overview
 
-스트레치 데이터베이스를 지금 바로 시작하려면 [스트레치에 데이터베이스 사용 마법사를 실행하여 시작](sql-server-stretch-database-wizard.md)을 참조하세요.
+Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud.
 
-## 스트레치 데이터베이스의 장점은 무엇입니까?
-스트레치 데이터베이스는 다음과 같은 이점을 제공합니다.
+If you just want to get started with Stretch Database right away, see [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
 
-### 콜드 데이터에 비용 효율적인 가용성을 제공
-SQL Server 스트레치 데이터베이스를 통해 콜드 및 웜 트랜잭션 데이터를 SQL Server에서 Microsoft Azure로 동적으로 확장합니다. 일반적인 콜드 데이터 저장소와 달리 데이터가 항상 온라인 상태이며 쿼리할 수 있습니다. 고객 주문 내역과 같은 큰 테이블에 대한 뱅크를 차단하지 않고 긴 데이터 보존 일정을 제공할 수 있습니다. 값비싼 온-프레미스 저장소를 확장하는 대신 저렴한 비용의 Azure의 이점을 활용합니다. 가격 책정 계층을 선택하고 Azure 포털에서 설정을 구성하여 가격을 제어합니다. 필요한 만큼 규모를 확장하거나 축합니다. 자세한 내용은 [SQL Server 스트레치 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) 페이지를 방문합니다.
+## <a name="what-are-the-benefits-of-stretch-database?"></a>What are the benefits of Stretch Database?
+Stretch Database provides the following benefits:
 
-### 쿼리 또는 응용 프로그램을 변경하지 않아도 됩니다.
-온-프레미스인지, 클라우드로 확장되었는지에 관계없이 SQL Server 데이터에 원활하게 액세스합니다. 데이터를 저장하고 SQL Server가 백그라운드에서 데이터 이동을 처리하는 위치를 결정하는 정책을 설정합니다. 전체 테이블은 항상 온라인 상태이며 쿼리할 수 있습니다. 그리고 스트레치 데이터베이스는 기존 쿼리 또는 응용 프로그램에 변경할 필요가 없습니다. 데이터의 위치는 응용 프로그램에 대해 완전히 투명합니다.
+### <a name="provides-cost\-effective-availability-for-cold-data"></a>Provides cost\-effective availability for cold data
+Stretch warm and cold transactional data dynamically from SQL Server to Microsoft Azure with SQL Server Stretch Database. Unlike typical cold data storage, your data is always online and available to query. You can provide longer data retention timelines without breaking the bank for large tables like Customer Order History. Benefit from the low cost of Azure rather than scaling expensive, on\-premises storage. You choose the pricing tier and configure settings in the Azure Portal to maintain control over costs. Scale up or down as needed. Visit [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) page for details.
 
-### 온-프레미스 데이터 유지 관리 간소화
-온-프레미스 유지 관리와 데이터의 저장소를 줄입니다. 온-프레미스 데이터에 대한 백업을 더 빠르게 실행하고 유지 관리 기간 내에 완료합니다. 데이터의 클라우드 부분에 대한 백업이 자동으로 실행됩니다. 온-프레미스 저장소 요구량이 크게 감소합니다. Azure 저장소는 온-프레미스 SSD에 추가하는 비용의 80%까지 절약할 수 있습니다.
+### <a name="doesn’t-require-changes-to-queries-or-applications"></a>Doesn’t require changes to queries or applications
+Access your SQL Server data seamlessly regardless of whether it’s on\-premises or stretched to the cloud.  You set the policy that determines where data is stored, and SQL Server handles the data movement in the background. The entire table is always online and queryable. And, Stretch Database doesn’t require any changes to existing queries or applications – the location of the data is completely transparent to the application.
 
-### 마이그레이션 중에도 데이터 보호
-가장 중요한 응용 프로그램을 클라우드로 안전하게 확장하기 때문에 안심할 수 있습니다. SQL Server의 상시 암호화는 데이터 이동 시 암호화를 제공합니다. 행 수준 보안(RLS) 및 기타 고급 SQL Server 보안 기능 또한 스트레치 데이터베이스와 함께 데이터를 보호합니다.
+### <a name="streamlines-on\-premises-data-maintenance"></a>Streamlines on\-premises data maintenance
+Reduce on\-premises maintenance and storage for your data. Backups for your on\-premises data run faster and finish within the maintenance window. Backups for the cloud portion of your data run automatically. Your on\-premises storage needs are greatly reduced. Azure storage can be 80% less expensive than adding to on\-premises SSD.
 
-## 스트레치 데이터베이스의 기능은 무엇입니까?
-SQL Server 인스턴스, 데이터베이스 및 하나 이상의 테이블에 대해 스트레치 데이터베이스를 사용하고 나면 스트레치 데이터베이스는 콜드 데이터를 Azure로 자동으로 마이그레이션하기 시작합니다.
+### <a name="keeps-your-data-secure-even-during-migration"></a>Keeps your data secure even during migration
+Enjoy peace of mind as you stretch your most important applications securely to the cloud. SQL Server’s Always Encrypted provides encryption for your data in motion. Row Level Security (RLS) and other advanced SQL Server security features also work with Stretch Database to protect your data.
 
--   콜드 데이터를 별도 테이블에 저장하는 경우 전체 테이블을 마이그레이션할 수 있습니다.
+## <a name="what-does-stretch-database-do?"></a>What does Stretch Database do?
+After you enable Stretch Database for a SQL Server instance, a database, and at least one table, Stretch Database silently begins to migrate your cold data to Azure.
 
--   테이블에 핫 데이터 및 콜드 데이터가 모두 포함된 경우 필터 함수를 지정하여 마이그레이션할 행을 선택할 수 있습니다.
+-   If you store cold data in a separate table, you can migrate the entire table.
 
-**기존 쿼리 및 클라이언트 앱을 변경할 필요가 없습니다.** 데이터 마이그레이션 중에도 로컬 및 원격 데이터에 원활하게 계속 액세스할 수 있습니다. 원격 쿼리에 대한 대기 시간이 다소 있지만 콜드 데이터를 쿼리할 때만 이 대기 시간이 발생합니다.
+-   If your table contains both hot and cold data, you can specify a filter function to select the rows to migrate.
 
-**스트레치 데이터베이스는 마이그레이션 중에 오류가 발생할 경우 데이터가 손실되지 않도록 합니다**. 또한 마이그레이션하는 동안 발생할 수 있는 연결 문제를 처리하기 위한 재시도 논리도 있습니다. 동적 관리 뷰를 통해 마이그레이션 상태를 확인합니다.
+**You don't have to change existing queries and client apps.** You continue to have seamless access to both local and remote data, even during data migration. There is a small amount of latency for remote queries, but you only encounter this latency when you query the cold data.
 
-로컬 서버에서 문제를 해결하거나 사용 가능한 네트워크 대역폭을 최대화하기 위해 **데이터 마이그레이션을 일시 중지시킬 수 있습니다**.
+**Stretch Database ensures that no data is lost** if a failure occurs during migration. It also has retry logic to handle connection issues that may occur during migration. A dynamic management view provides the status of migration.
 
-![스트레치 데이터베이스 개요][StretchOverviewImage1]
+**You can pause data migration** to troubleshoot problems on the local server or to maximize the available network bandwidth.
 
-## 스트레치 데이터베이스는 어떤 도움을 줍니까?
-다음 문을 만들 수 있는 경우 스트레치 데이터베이스가 요구 사항을 충족하고 문제를 해결하는 데 도움이 될 수 있습니다.
+![Stretch database overview][StretchOverviewImage1]
 
-|의사 결정자인 경우|DBA인 경우|
+## <a name="is-stretch-database-for-you?"></a>Is Stretch Database for you?
+If you can make the following statements, Stretch Database may help to meet your requirements and solve your problems.
+
+|If you're a decision maker|If you're a DBA|
 |------------------------------|-------------------|
-|장시간 트랜잭션 데이터를 유지해야 합니다.|테이블 크기가 통제 수준을 벗어나고 있습니다.|
-|종종 콜드 데이터를 쿼리해야 합니다.|사용자들이 콜드 데이터에 액세스하지만 거의 사용하지는 않는다고 합니다.|
-|이전 앱을 비롯한 앱이 있지만, 업데이트하고 싶지 않습니다.|저장소를 계속 구입하고 추가해야 합니다.|
-|저장소에 대한 비용을 절약하고 싶습니다.|SLA 내의 대규모 테이블을 백업하거나 복원할 수 없습니다.|
+|I have to keep transactional data for a long time.|The size of my tables is getting out of control.|
+|Sometimes I have to query the cold data.|My users say that they want access to cold data, but they only rarely use it.|
+|I have apps, including older apps, that I don’t want to update.|I have to keep buying and adding more storage.|
+|I want to find a way to save money on storage.|I can’t backup or restore such large tables within the SLA.|
 
-## 어떤 종류의 데이터베이스 및 테이블이 스트레치 데이터베이스가 될 수 있습니까?
-스트레치 데이터베이스는 일반적으로 대용량의 콜드 데이터가 적은 수의 테이블에 저장되는 트랜잭션 데이터베이스를 위한 것입니다. 이들 테이블에는 수십억 개 이상의 행이 있을 수 있습니다.
+## <a name="what-kind-of-databases-and-tables-are-candidates-for-stretch-database?"></a>What kind of databases and tables are candidates for Stretch Database?
+Stretch Database targets transactional databases with large amounts of cold data, typically stored in a small number of tables. These tables may contain more than a billion rows.
 
-SQL Server 2016의 임시 테이블 기능을 사용하는 경우, 연결된 기록 테이블의 일부나 전부를 Azure의 비용 효율적인 저장소로 마이그레이션하기 위해 스트레치 데이터베이스를 사용합니다. 자세한 내용은 [시스템 버전 임시 테이블에서 기록 데이터 보존 관리](https://msdn.microsoft.com/library/mt637341.aspx)를 참조하세요.
+If you use the temporal table feature of SQL Server 2016, use Stretch Database to migrate all or part of the associated history table to cost\-effective storage in Azure. For more info, see [Manage Retention of Historical Data in System-Versioned Temporal Tables](https://msdn.microsoft.com/library/mt637341.aspx).
 
-SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베이스 관리자를 사용하여 스트레치 데이터베이스용 데이터베이스 및 테이블을 식별합니다. 자세한 내용은 [스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)을 참조하세요. 잠재적인 차단 문제에 대한 자세한 내용은 [스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)을 참조하세요.
+Use Stretch Database Advisor, a feature of SQL Server 2016 Upgrade Advisor, to identify databases and tables for Stretch Database. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md). To learn more about potential blocking issues, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 
-## 스트레치 데이터베이스 시험 사용
-**AdventureWorks 샘플 데이터베이스를 통해 스트레치 데이터베이스를 시험 사용합니다.** AdventureWorks 샘플 데이터베이스를 얻으려면 [여기](https://www.microsoft.com/download/details.aspx?id=49502)에서 최소한의 데이터베이스 파일과 샘플 및 스크립트 파일을 다운로드합니다. 샘플 데이터베이스를 SQL Server 2016의 인스턴스에 복원한 후, 샘플 파일의 압축을 풀고 스트레치 DB 폴더에서 스트레치 DB 샘플 파일을 엽니다. 이 파일에서 스크립트를 실행하여 스트레치 데이터베이스 사용 전후 데이터가 사용하는 공간을 확인하고, 데이터 마이그레이션의 진행 상황을 추적하며, 그리고 데이터 마이그레이션 도중 및 이후에도 계속 기존 데이터를 쿼리하고 새 데이터를 삽입할 수 있는지 확인합니다.
+## <a name="test-drive-stretch-database"></a>Test drive Stretch Database
+**Test drive Stretch Database with the AdventureWorks sample database.** To get the AdventureWorks sample database, download at least the database file and the samples and scripts file from [here](https://www.microsoft.com/download/details.aspx?id=49502). After you restore the sample database to an instance of SQL Server 2016, unzip the samples file and open the Stretch DB Samples file from the Stretch DB folder. Run the scripts in this file to check the space used by your data before and after you enable Stretch Database,  to track the progress of data migration, and to confirm that you can continue to query existing data and insert new data both during and after data migration.
 
-## 다음 단계
-**스트레치 데이터베이스의 후보인 데이터베이스 및 테이블을 식별합니다.** SQL Server 2016 업그레이드 관리자를 다운로드하고 스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스의 후보인 데이터베이스 및 테이블을 식별합니다. 스트레치 데이터베이스 관리자는 차단 문제도 식별합니다. 자세한 내용은 [스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)을 참조하세요.
+## <a name="next-step"></a>Next step
+**Identify databases and tables that are candidates for Stretch Database.** Download SQL Server 2016 Upgrade Advisor and run the Stretch Database Advisor to identify databases and tables that are candidates for Stretch Database. Stretch Database Advisor also identifies blocking issues. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md).
 
 <!--Image references-->
 [StretchOverviewImage1]: ./media/sql-server-stretch-database-overview/StretchDBOverview.png
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!-----HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

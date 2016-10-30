@@ -1,37 +1,38 @@
 <properties
-	pageTitle="데이터 마이그레이션 일시 중지 및 다시 시작(스트레치 데이터베이스) | Microsoft Azure"
-	description="Azure에 대한 데이터 마이그레이션을 일시 중지하거나 다시 시작하는 방법에 대해 알아봅니다."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Pause and resume data migration (Stretch Database) | Microsoft Azure"
+    description="Learn how to pause or resume data migration to Azure."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/14/2016"
+    ms.author="douglasl"/>
 
-# 데이터 마이그레이션 일시 중지 및 다시 시작(스트레치 데이터베이스)
 
-Azure에 대한 데이터 마이그레이션을 일시 중지하거나 다시 시작하려면 SQL Server Management Studio의 테이블에 대해 **스트레치**를 선택한 다음 **일시 중지**를 선택하여 데이터 마이그레이션을 일시 중지하거나 **다시 시작**을 선택하여 데이터 마이그레이션을 다시 시작합니다. 또한 TRANSACT-SQL을 사용하여 데이터 마이그레이션을 일시 중지하거나 다시 시작할 수 있습니다.
+# <a name="pause-and-resume-data-migration-(stretch-database)"></a>Pause and resume data migration (Stretch Database)
 
-로컬 서버에서 문제를 해결하거나 사용 가능한 네트워크 대역폭을 최대화하려는 경우 개별 테이블에서 데이터 마이그레이션을 일시 중지합니다.
+To pause or resume data migration to Azure, select **Stretch** for a table in SQL Server Management Studio, and then select **Pause** to pause data migration or **Resume** to resume data migration. You can also use Transact\-SQL to pause or resume data migration.
 
-## 데이터 마이그레이션 일시 중지
+Pause data migration on individual tables when you want to troubleshoot problems on the local server or to maximize the available network bandwidth.
 
-### SQL Server Management Studio를 사용하여 데이터 마이그레이션 일시 중지
+## <a name="pause-data-migration"></a>Pause data migration
 
-1.  SQL Server Management Studio의 개체 탐색기에서 데이터 마이그레이션을 일시 중지하려는 스트레치 사용 테이블을 선택합니다.
+### <a name="use-sql-server-management-studio-to-pause-data-migration"></a>Use SQL Server Management Studio to pause data migration
 
-2.  마우스 오른쪽 단추로 클릭하고 **스트레치**를 선택한 다음 **일시 중지**를 선택합니다.
+1.  In SQL Server Management Studio, in Object Explorer, select the Stretch\-enabled table for which you want to pause data migration.
 
-### TRANSACT-SQL을 사용하여 데이터 마이그레이션 일시 중지
-다음 명령을 실행합니다.
+2.  Right\-click and select **Stretch**, and then select **Pause**.
+
+### <a name="use-transact\-sql-to-pause-data-migration"></a>Use Transact\-SQL to pause data migration
+Run the following command.
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -41,16 +42,16 @@ ALTER TABLE <Stretch-enabled table name>
 GO
 ```
 
-## 데이터 마이그레이션 다시 시작
+## <a name="resume-data-migration"></a>Resume data migration
 
-### SQL Server Management Studio를 사용하여 데이터 마이그레이션 다시 시작
+### <a name="use-sql-server-management-studio-to-resume-data-migration"></a>Use SQL Server Management Studio to resume data migration
 
-1.  SQL Server Management Studio의 개체 탐색기에서 데이터 마이그레이션을 다시 시작하려는 스트레치 사용 테이블을 선택합니다.
+1.  In SQL Server Management Studio, in Object Explorer, select the Stretch\-enabled table for which you want to resume data migration.
 
-2.  마우스 오른쪽 단추로 클릭하고 **스트레치**를 선택한 다음 **다시 시작**을 선택합니다.
+2.  Right\-click and select **Stretch**, and then select **Resume**.
 
-### TRANSACT-SQL을 사용하여 데이터 마이그레이션 다시 시작
-다음 명령을 실행합니다.
+### <a name="use-transact\-sql-to-resume-data-migration"></a>Use Transact\-SQL to resume data migration
+Run the following command.
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -60,16 +61,21 @@ ALTER TABLE <Stretch-enabled table name>
  GO
 ```
 
-## 마이그레이션이 활성화되었는지 또는 일시 중지되었는지 확인
+## <a name="check-whether-migration-is-active-or-paused"></a>Check whether migration is active or paused
 
-### SQL Server Management Studio를 사용하여 마이그레이션이 활성화되었는지 또는 일시 중지되었는지 확인
-SQL Server Management Studio를 열고 **스트레치 데이터베이스 모니터**를 열고 **마이그레이션 상태** 열 값을 확인합니다. 자세한 내용은 [데이터 마이그레이션 모니터링 및 문제 해결](sql-server-stretch-database-monitor.md)을 참조하세요.
+### <a name="use-sql-server-management-studio-to-check-whether-migration-is-active-or-paused"></a>Use SQL Server Management Studio to check whether migration is active or paused
+In SQL Server Management Studio, open **Stretch Database Monitor** and check the value of the **Migration State** column. For more info, see [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md).
 
-### Transact-SQL을 사용하여 마이그레이션이 활성화되었는지 또는 일시 중지되었는지 확인
-카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 쿼리하고 **is\_migration\_paused** 열의 값을 확인합니다. 자세한 내용은 [sys.remote\_data\_archive\_tables](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
+### <a name="use-transact-sql-to-check-whether-migration-is-active-or-paused"></a>Use Transact-SQL to check whether migration is active or paused
+Query the catalog view **sys.remote_data_archive_tables** and check the value of the **is_migration_paused** column. For more info, see [sys.remote_data_archive_tables](https://msdn.microsoft.com/library/dn935003.aspx).
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-[ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx) [데이터 마이그레이션 모니터링 및 문제 해결](sql-server-stretch-database-monitor.md)
+[ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
+[Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

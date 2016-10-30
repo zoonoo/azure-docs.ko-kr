@@ -1,62 +1,67 @@
 <properties
-	pageTitle="데이터 마이그레이션 모니터링 및 문제 해결(스트레치 데이터베이스) | Microsoft Azure"
-	description="데이터 마이그레이션 상태를 모니터링하는 방법에 대해 알아봅니다."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Monitor and troubleshoot data migration (Stretch Database) | Microsoft Azure"
+    description="Learn how to monitor the status of data migration."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/14/2016"
+    ms.author="douglasl"/>
 
-# 데이터 마이그레이션 모니터링 및 문제 해결(스트레치 데이터베이스)
 
-스트레치 데이터베이스 모니터에서 데이터 마이그레이션을 모니터링하려면 SQL Server Management Studio에서 데이터베이스에 대한 **작업 | 스트레치 | 모니터**를 선택합니다.
+# <a name="monitor-and-troubleshoot-data-migration-(stretch-database)"></a>Monitor and troubleshoot data migration (Stretch Database)
 
-## 스트레치 데이터베이스 모니터에서 데이터 마이그레이션 상태를 확인합니다.
-SQL Server Management Studio의 데이터베이스에 대해 **작업 | 스트레치 | 모니터**를 선택하여 스트레치 데이터베이스 모니터를 열고 데이터 마이그레이션을 모니터링합니다.
+To monitor data migration in Stretch Database Monitor, select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio .
 
--   모니터의 맨 위에는 스트레치 사용 SQL Server 데이터베이스 및 원격 Azure 데이터베이스에 대한 일반 정보가 표시됩니다.
+## <a name="check-the-status-of-data-migration-in-the-stretch-database-monitor"></a>Check the status of data migration in the Stretch Database Monitor
+Select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio to open Stretch Database Monitor and monitor data migration.
 
--   모니터의 맨 아래에는 데이터베이스의 각 스트레치 사용 테이블에 대한 데이터 마이그레이션 상태가 표시됩니다.
+-   The top portion of the monitor displays general information about both the Stretch\-enabled SQL Server database and the remote Azure database.
 
-![스트레치 데이터베이스 모니터][StretchMonitorImage1]
+-   The bottom portion of the monitor displays the status of data migration for each Stretch\-enabled table in the database.
 
-## <a name="Migration"></a>동적 관리 뷰에서 데이터 마이그레이션 상태를 확인합니다.
-동적 관리 뷰 **sys.dm\_db\_rda\_migration\_status**를 열고 마이그레이션된 배치 수 및 데이터 행 수를 확인합니다. 자세한 내용은 [sys.dm\_db\_rda\_migration\_status(TRANSACT-SQL)](https://msdn.microsoft.com/library/dn935017.aspx)를 확인하세요.
+![Stretch Database Monitor][StretchMonitorImage1]
 
-## <a name="Firewall"></a>데이터 마이그레이션 문제 해결
+## <a name="<a-name="migration"></a>check-the-status-of-data-migration-in-a-dynamic-management-view"></a><a name="Migration"></a>Check the status of data migration in a dynamic management view
+Open the dynamic management view **sys.dm\_db\_rda\_migration\_status** to see how many batches and rows of data have been migrated. For more info, see [sys.dm_db_rda_migration_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
-**내 스트레치 사용 테이블의 행이 Azure로 마이그레이션되지 않습니다. 문제가 뭔가요?**
+## <a name="<a-name="firewall"></a>troubleshoot-data-migration"></a><a name="Firewall"></a>Troubleshoot data migration
 
-마이그레이션에 영향을 줄 수 있는 몇 가지 문제가 있습니다. 다음 항목을 확인합니다.
+**Rows from my Stretch-enabled table are not being migrated to Azure. What’s the problem?**
 
--   SQL Server 컴퓨터의 네트워크 연결을 확인합니다.
+There are several problems that can affect migration. Check the following things.
 
--   Azure 방화벽이 SQL Server와 원격 끝점에 대한 연결을 차단하고 있지 않는지 확인합니다.
+-   Check network connectivity for the SQL Server computer.
 
--   최신 배치 상태에 대해 동적 관리 뷰 **sys.dm\_db\_rda\_migration\_status**를 확인합니다. 오류가 발생한 경우 해당 배치에 대한 error\_number, error\_state 및 error\_severity 값을 확인합니다.
+-   Check that the Azure firewall is not blocking your SQL Server from connecting to the remote endpoint.
 
-    -   뷰에 대한 자세한 내용은 [sys.dm\_db\_rda\_migration\_status(Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx)를 참조하세요.
+-   Check the dynamic management view **sys.dm\_db\_rda\_migration\_status** for the status of the latest batch. If an error has occurred, check the error\_number, error\_state, and error\_severity values for the batch.
 
-    -   SQL Server 오류 메시지 내용에 대한 자세한 내용은 [sys.messages(TRANSACT-SQL)](https://msdn.microsoft.com/library/ms187382.aspx)를 참조하세요.
+    -   For more info about the view, see [sys.dm_db_rda_migration_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
-**Azure 방화벽이 내 로컬 서버에서 연결을 차단합니다.**
+    -   For more info about the content of a SQL Server error message, see [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
-SQL Server가 원격 Azure 서버와 통신할 수 있도록 Azure 서버의 Azure 방화벽 설정에서 규칙을 추가해야 합니다.
+**The Azure firewall is blocking connections from my local server.**
 
-## 참고 항목
+You may have to add a rule in the Azure firewall settings of the Azure server to let SQL Server communicate with the remote Azure server.
 
-[Manage and troubleshoot Stretch Database(스트레치 데이터베이스 관리 및 문제 해결)](sql-server-stretch-database-manage.md)
+## <a name="see-also"></a>See Also
+
+[Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

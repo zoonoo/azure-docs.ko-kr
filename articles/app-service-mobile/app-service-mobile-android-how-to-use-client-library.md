@@ -3,7 +3,7 @@
     description="Azure 모바일 앱에 Android 클라이언트 SDK를 사용하는 방법"
     services="app-service\mobile"
     documentationCenter="android"
-    authors="yuaxu"
+    authors="ysxu"
     manager="erikre"
     editor=""/>
 
