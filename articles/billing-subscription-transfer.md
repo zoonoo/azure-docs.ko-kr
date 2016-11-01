@@ -53,9 +53,9 @@
 
 6.  받는 사람은 링크를 클릭하고 지불 정보 입력 등의 지침을 따릅니다.
 
-    ![첫 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/image4.png)
+    ![첫 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/image4.PNG)
 
-    ![두 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/image5.png)
+    ![두 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/image5.PNG)
 
 7. 성공! 구독이 이제 양도됩니다.
 
