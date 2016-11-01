@@ -208,13 +208,13 @@ Runbook이 정상적으로 완료되지 않고 작업 요약이 **일시 중단*
 
 ## <a name="relationship-to-service-management-automation"></a>Service Management Automation과의 관계
 
-[SMA(Service Management Automation)](https://technet.microsoft.com/library/dn469260.aspx)는 Azure 자동화에서 지원하는 것과 동일한 Runbook을 로컬 데이터 센터에서 실행할 수 있도록 해줍니다. SMA는 Windows Azure 팩이 SMA 관리를 위한 그래픽 인터페이스를 포함하므로 일반적으로 Windows Azure 팩과 함께 배포됩니다. Azure Automation과 달리 SMA는 API를 호스팅하는 웹 서버, Runbook 및 SMA 구성을 포함하는 데이터베이스 및 Runbook 작업을 실행하는 Runbook Worker를 포함하는 로컬 설치가 필요합니다. Azure 자동화는 클라우드에서 이러한 서비스를 제공하기 때문에 로컬 환경에서 Hybrid Runbook Worker를 유지 관리하기만 하면 됩니다.
+[SMA(Service Management Automation)](https://technet.microsoft.com/library/dn469260.aspx)는 Azure 자동화에서 지원하는 것과 동일한 Runbook을 로컬 데이터 센터에서 실행할 수 있도록 해줍니다. SMA는 Microsoft Azure 팩이 SMA 관리를 위한 그래픽 인터페이스를 포함하므로 일반적으로 Microsoft Azure 팩과 함께 배포됩니다. Azure Automation과 달리 SMA는 API를 호스팅하는 웹 서버, Runbook 및 SMA 구성을 포함하는 데이터베이스 및 Runbook 작업을 실행하는 Runbook Worker를 포함하는 로컬 설치가 필요합니다. Azure 자동화는 클라우드에서 이러한 서비스를 제공하기 때문에 로컬 환경에서 Hybrid Runbook Worker를 유지 관리하기만 하면 됩니다.
 
 기존 SMA 사용자는 [Hybrid Runbook Worker용 Runbook 만들기](#creating-runbooks-for-hybrid-runbook-worker)에 설명된 대로 리소스에 대한 자체 인증을 수행할 경우 Runbook을 Azure 자동화로 이동하여 변경 없이 Hybrid Runbook Worker에서 사용할 수 있습니다.  SMA의 Runbook은 Runbook에 대한 인증을 제공할 수 있는 작업자 서버에서 서비스 계정의 컨텍스트로 실행됩니다.
 
 다음 조건을 사용하여 Azure 자동화 Hybrid Runbook Worker와 Service Management Automation 중 어떤 것이 요구 사항에 보다 적합한지 결정할 수 있습니다.
 
-- SMA는 그래픽 관리 인터페이스가 필요한 경우 Windows Azure 팩에 연결된 해당 기본 구성 요소의 로컬 설치가 필요합니다. 많은 로컬 리소스는 로컬 Runbook Worker에 에이전트를 설치하기만 하면 되는 Azure Automation보다 높은 유지 관리 비용이 필요합니다. 에이전트가 Operations Management Suite에 의해 관리되므로 유지 관리 비용이 절감됩니다.
+- SMA는 그래픽 관리 인터페이스가 필요한 경우 Microsoft Azure 팩에 연결된 해당 기본 구성 요소의 로컬 설치가 필요합니다. 많은 로컬 리소스는 로컬 Runbook Worker에 에이전트를 설치하기만 하면 되는 Azure Automation보다 높은 유지 관리 비용이 필요합니다. 에이전트가 Operations Management Suite에 의해 관리되므로 유지 관리 비용이 절감됩니다.
 - Azure Automation은 해당 Runbook을 클라우드에 저장하여 온-프레미스 Hybrid Runbook Worker에 전달합니다. 보안 정책에서 이 동작을 허용하지 않는 경우에는 SMA를 사용해야 합니다.
 - SMA는 System Center에 포함되므로 System Center 2012 R2 라이선스가 필요합니다. Azure Automation은 계층화된 구독 모델을 기반으로 합니다.
 - Azure Automation에는 SMA에서 사용할 수 없는 그래픽 Runbook 등의 고급 기능이 있습니다.
