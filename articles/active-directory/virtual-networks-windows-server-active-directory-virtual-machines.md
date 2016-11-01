@@ -3,7 +3,7 @@
     description="Azure 가상 컴퓨터에 Windows Server AD DS(Active Directory 도메인 서비스) 또는 AD FS(Active Directory Federation Services)를 실행할 수 있습니다."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     tags="azure-classic-portal"/>
 

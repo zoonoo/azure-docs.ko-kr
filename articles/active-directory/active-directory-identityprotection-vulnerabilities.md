@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -27,7 +27,7 @@
 
 다음 섹션에서는 ID 보호에서 보고하는 취약성에 대한 개요를 제공합니다.
 
-## <a name="multi-factor-authentication-registration-not-configured"></a>Multi-Factor Authentication 등록 구성되지 않음 
+## <a name="multifactor-authentication-registration-not-configured"></a>Multi-Factor Authentication 등록 구성되지 않음 
 
 이 취약점을 사용하면 조직에서 Azure Multi-Factor Authentication의 배포를 제어할 수 있습니다. 
 

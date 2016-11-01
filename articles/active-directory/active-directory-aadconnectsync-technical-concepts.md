@@ -3,7 +3,7 @@
     description="Azure AD Connect 동기화의 기술 개념에 대해 설명합니다."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -18,7 +18,7 @@
 
 
 
-# <a name="azure-ad-connect-sync:-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
 이 문서에서는 [아키텍처 이해](active-directory-aadconnectsync-technical-concepts.md)항목을 요약합니다.
 
 Azure AD Connect 동기화는 견고한 메타 디렉터리 동기화 플랫폼상에 빌드됩니다.

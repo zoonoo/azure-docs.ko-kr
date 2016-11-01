@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/07/2016" 
+    ms.date="10/31/2016" 
     ms.author="tamram"/>
 
 
@@ -130,7 +130,7 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
     Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
     Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-### <a name="addressing-the-account-secondary-with-ra-grs"></a>RA-GRS를 사용하여 보조 계정 주소 지정
+### <a name="addressing-the-account-secondary-with-ragrs"></a>RA-GRS를 사용하여 보조 계정 주소 지정
 
 버전 3.1부터는 저장소 에뮬레이터 계정에 대해 RA-GRS(읽기 권한 지역 중복 복제)를 사용할 수 있습니다. 클라우드와 로컬 에뮬레이터의 저장소 리소스에 대해 계정 이름에 -secondary를 추가하면 보조 위치에 액세스할 수 있습니다. 예를 들어 저장소 에뮬레이터에서 읽기 전용 보조 계정을 사용하여 Blob에 액세스하려는 경우 다음 주소를 사용할 수 있습니다.
 
@@ -138,7 +138,7 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 > [AZURE.NOTE] 저장소 에뮬레이터를 사용하여 프로그래밍 방식으로 보조 계정에 액세스하려는 경우 .NET용 저장소 클라이언트 라이브러리 버전 3.2 이상을 사용합니다. 자세한 내용은 [.NET용 Microsoft Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx) 를 참조하세요.
 
-## <a name="storage-emulator-command-line-tool-reference"></a>저장소 에뮬레이터 명령줄 도구 참조
+## <a name="storage-emulator-commandline-tool-reference"></a>저장소 에뮬레이터 명령줄 도구 참조
 
 버전 3.0부터 저장소 에뮬레이터를 시작하면 명령줄 창 팝업이 표시됩니다. 명령줄 창을 사용하여 에뮬레이터를 시작/중지할 수 있으며 상태를 쿼리하고 기타 작업을 수행할 수도 있습니다.
 
@@ -206,11 +206,11 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 ## <a name="storage-emulator-release-notes"></a>저장소 에뮬레이터 릴리스 정보
 
-### <a name="version-4.5"></a>버전 4.5
+### <a name="version-45"></a>버전 4.5
 
 - 백업 데이터베이스의 이름이 변경되었을 때 저장소 에뮬레이터의 초기화 및 설치가 실패하는 버그가 수정되었습니다.
 
-### <a name="version-4.4"></a>버전 4.4
+### <a name="version-44"></a>버전 4.4
 
 - 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2015-12-11 버전의 저장소 서비스를 지원합니다.
 
@@ -220,15 +220,15 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 - 때로 최대 및 최소 DateTime 값이 잘못된 표준 시간대에 보고되도록 하던 버그를 수정했습니다.
 
-### <a name="version-4.3"></a>버전 4.3
+### <a name="version-43"></a>버전 4.3
 
 - 저장소 에뮬레이터는 이제 Blob, 큐 및 테이블 서비스 끝점에서 2015-07-08 버전의 저장소 서비스를 지원합니다.
 
-### <a name="version-4.2"></a>버전 4.2
+### <a name="version-42"></a>버전 4.2
 
 - 저장소 에뮬레이터는 이제 Blob, 큐 및 테이블 서비스 끝점에서 2015-04-05 버전의 저장소 서비스를 지원합니다.
 
-### <a name="version-4.1"></a>버전 4.1
+### <a name="version-41"></a>버전 4.1
 
 - 저장소 에뮬레이터는 이제 새로운 추가 Blob 기능을 제외하고 Blob, 큐 및 테이블 서비스 끝점에서 2015-02-21 버전의 저장소 서비스를 지원합니다. 
 
@@ -236,19 +236,19 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 - 경합 조건으로 인해 동시 병합 작업 중 잘못된 테이블 엔터티 데이터가 발생하는 버그가 수정되었습니다.
 
-### <a name="version-4.0"></a>버전 4.0
+### <a name="version-40"></a>버전 4.0
 
 - 저장소 에뮬레이터 실행 파일의 이름이 *AzureStorageEmulator.exe*로 바뀌었습니다.
 
-### <a name="version-3.2"></a>버전 3.2
+### <a name="version-32"></a>버전 3.2
 
 - 저장소 에뮬레이터는 이제 Blob, 큐 및 테이블 서비스 끝점에서 2014-02-14 버전의 저장소 서비스를 지원합니다. 파일 서비스 끝점은 저장소 에뮬레이터에서 현재 지원되지 않습니다. 2014-02-14 버전에 대한 자세한 내용은 [Azure 저장소 서비스에 대한 버전 관리](https://msdn.microsoft.com/library/azure/dd894041.aspx) 를 참조하세요.
 
-### <a name="version-3.1"></a>버전 3.1
+### <a name="version-31"></a>버전 3.1
 
 - 읽기 액세스 지역 중복 저장소 (RA-GRS)는 이제 저장소 에뮬레이터에서 지원됩니다. Blob 서비스 통계 가져오기, 큐 서비스 통계 가져오기 및 테이블 서비스 통계 가져오기 API는 보조 계정에서 지원되며 기본 SQL 데이터베이스에 따라 현재 시간으로 LastSync 시간 응답 요소의 값을 항상 반환합니다. 저장소 에뮬레이터를 사용하여 프로그래밍 방식으로 보조 계정에 액세스하려는 경우 .NET용 저장소 클라이언트 라이브러리 버전 3.2 이상을 사용합니다. 자세한 내용은 .NET용 Microsoft Azure 저장소 클라이언트 라이브러리 참조를 참조하세요.
 
-### <a name="version-3.0"></a>버전 3.0
+### <a name="version-30"></a>버전 3.0
 
 - Azure 저장소 에뮬레이터는 계산 에뮬레이터와 같은 패키지에 더 이상 제공되지 않습니다.
 

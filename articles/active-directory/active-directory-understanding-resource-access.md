@@ -3,7 +3,7 @@
     description="이 항목에서는 구독 관리자를 사용하여 전체 Azure 포털에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

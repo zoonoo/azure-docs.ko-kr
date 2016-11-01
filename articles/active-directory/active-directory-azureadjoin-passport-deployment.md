@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     keywords="Microsoft Passport 구성, 비즈니스용 Microsoft Windows Hello 배포"
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""
     tags="azure-classic-portal"/>

@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -37,7 +37,7 @@
 안전한 방법으로 다른 위험 이벤트를 시뮬레이션할 수 없습니다.
 
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
+### <a name="signins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 
 이 위험 이벤트 유형은 익명 프록시 IP 주소로 식별된 IP 주소에서 시도하여 성공적으로 로그인한 사용자를 식별합니다. 이 프록시는 해당 장치의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다.
 
@@ -50,7 +50,7 @@
 로그인이 5분 이내에 ID 보호 대시보드에 나타납니다. 
 
 
-###<a name="sign-ins-from-unfamiliar-locations"></a>알 수 없는 위치에서 로그인
+###<a name="signins-from-unfamiliar-locations"></a>알 수 없는 위치에서 로그인
 
 알 수 없는 위치 위험은 새로운 위치/알 수 없는 위치를 확인하기 위해 과거 로그인 위치(IP, 위도/경도 및 ASN)를 고려하는 실시간 로그인 평가 메커니즘입니다. 시스템은 이전 IP, 위도/경도 및 사용자의 ASN을 저장하고 익숙한 위치인지 고려합니다. 로그인 위치가 기존의 익숙한 위치 중 하나와 일치하지 않는 경우 로그인 위치는 알 수 없는 위치로 간주됩니다.
 
@@ -138,7 +138,7 @@ Azure Active Directory ID 보호:
 <br>
 
  
-##<a name="sign-in-risk"></a>로그인 위험
+##<a name="signin-risk"></a>로그인 위험
 
  
 **로그인 위험을 테스트하려면 다음 단계를 수행합니다.**

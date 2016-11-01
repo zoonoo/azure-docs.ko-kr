@@ -4,7 +4,7 @@
     services="active-directory, virtual-network"
     keywords="active directory 가상 컴퓨터, active directory 포리스트 설치, azure active directory 비디오  "
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     tags=""/>
 
@@ -34,7 +34,7 @@
 이 시나리오에서는 외부 사용자가 도메인에 가입된 서버에서 실행되는 응용 프로그램에 액세스해야 합니다. 응용 프로그램 서버를 실행하는 VM과 도메인 컨트롤러를 실행하는 VM이 Azure 가상 네트워크에서 자신의 클라우드 서비스에 설치됩니다. 또한 내결함성 향상을 위해 가용성 집합 내에도 포함됩니다.
 
 ![Azure Virtual Network의 가상 컴퓨터에서 Active Directory 포리스트][1] 7
-## <a name="how-does-this-differ-from-on-premises?"></a>온-프레미스와의 차이점
+## <a name="how-does-this-differ-from-onpremises"></a>온-프레미스와의 차이점
 
 Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치할 때의 차이점은 크지 않습니다. 주요 차이점은 다음 표에 나와 있습니다.
 

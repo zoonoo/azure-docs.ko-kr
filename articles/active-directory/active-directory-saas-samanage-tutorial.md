@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="자습서: Samanage와 Azure Active Directory 통합 | Microsoft Azure" 
-    description="Azure Active Directory에서 Samanage를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Samanage | Microsoft Azure" 
+    description="Learn how to use Samanage with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,280 +11,284 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/15/2016" 
+    ms.date="10/31/2016" 
     ms.author="jeedes" />
 
-# 자습서: Samanage와 Azure Active Directory 통합
+
+# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Azure Active Directory integration with Samanage
   
-이 자습서에서는 Samanage와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
+The objective of this tutorial is to show you how to integrate Samanage with Azure Active Directory (Azure AD).
 
-Samanage를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+Integrating Samanage with Azure AD provides you with the following benefits:
 
-- Samanage에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-- 사용자가 해당 Azure AD 계정으로 Samanage(Single Sign-on)에 자동으로 로그인하도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
+- You can control in Azure AD who has access to Samanage
+- You can enable your users to automatically get signed-on to Samanage (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## 필수 조건
+## <a name="prerequisites"></a>Prerequisites
 
-Samanage와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+To configure Azure AD integration with Samanage, you need the following items:
 
-- 유효한 Azure 구독
-- Samanage의 테넌트
-
-
-> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+- A valid Azure subscription
+- A tenant in Samanage
 
 
-이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
-- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
-## 시나리오 설명
-이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
+To test the steps in this tutorial, you should follow these recommendations:
 
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-1. 갤러리에서 Samanage 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+## <a name="scenario-description"></a>Scenario description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
 
-## 갤러리에서 Samanage 추가
-Samanage의 Azure AD 통합을 구성하려면 갤러리의 Samanage를 관리되는 SaaS 앱 목록에 추가해야 합니다.
+The scenario outlined in this tutorial consists of two main building blocks:
 
-**갤러리에서 Samanage를 추가하려면 다음 단계를 수행합니다.**
+1. Adding Samanage from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+## <a name="adding-samanage-from-the-gallery"></a>Adding Samanage from the gallery
+To configure the integration of Samanage into Azure AD, you need to add Samanage from the gallery to your list of managed SaaS apps.
+
+**To add Samanage from the gallery, perform the following steps:**
+
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-samanage-tutorial/tutorial_general_01.png "Active Directory")
 
-2.  **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![응용 프로그램](./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png "응용 프로그램")
+    ![Applications](./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png "Applications")
 
-4.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4.  Click **Add** at the bottom of the page.
 
-    ![응용 프로그램 추가](./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png "응용 프로그램 추가")
+    ![Add application](./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png "Add application")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-samanage-tutorial/tutorial_general_04.png "갤러리에서 응용 프로그램 추가")
+    ![Add an application from gallerry](./media/active-directory-saas-samanage-tutorial/tutorial_general_04.png "Add an application from gallerry")
 
-6.  **검색 상자**에 **Samanage**를 입력합니다.
+6.  In the **search box**, type **Samanage**.
 
-    ![응용 프로그램 갤러리](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_01.png "응용 프로그램 갤러리")
+    ![Application gallery](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_01.png "Application gallery")
 
-7.  결과 창에서 **Samanage**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  In the results pane, select **Samanage**, and then click **Complete** to add the application.
 
     ![Samanage](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_02.png "Samanage")
 
-##  Azure AD Single Sign-on 구성 및 테스트
-이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Samanage에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
+##  <a name="configuring-and-testing-azure-ad-single-signon"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Samanage based on a test user called "Britta Simon".
 
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Samanage 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Samanage의 관련 사용자 간에 연결이 형성되어야 합니다.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Samanage to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Samanage needs to be established.
 
-이 연결 관계는 Azure AD의 **사용자 이름** 값을 Samanage의 **Username** 값으로 할당하여 설정합니다.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Samanage.
 
-Samanage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+To configure and test Azure AD single sign-on with Samanage, you need to complete the following building blocks:
 
-1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Samanage 테스트 사용자 만들기](#creating-a-Samanage-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Samanage에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a Samanage test user](#creating-a-Samanage-test-user)** - to have a counterpart of Britta Simon in Samanage that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Azure AD Single Sign-On 구성
+### <a name="configuring-azure-ad-single-signon"></a>Configuring Azure AD single sign-on
   
-이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Samanage 응용 프로그램에서 Single Sign-On을 구성합니다.
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Samanage application.
 
-**Samanage에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+**To configure Azure AD single sign-on with Samanage, perform the following steps:**
 
-1.  Azure 클래식 포털의 **Samanage** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  In the Azure classic portal, on the **Samanage** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Single Sign-On 구성")
+    ![Configure single sign-on](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Configure single sign-on")
 
-2.  **Samanage에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2.  On the **How would you like users to sign on to Samanage** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Microsoft Azure AD Single Sign-On")
 
-3.  앱 설정 구성 대화 상자 페이지에서 다음 단계를 수행합니다.
+3.  On the Configure App Settings dialog page, perform the following steps:
 
-    ![앱 URL 구성](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "앱 URL 구성")
+    ![Configure App URL](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "Configure App URL")
 
-    a. **로그인 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<Company Name>.samanage.com/saml_login/<Company Name>`
-	
-	b. **다음**을 클릭합니다.
-
-	> [AZURE.NOTE] 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL로 업데이트해야 합니다. 이러한 값을 가져오려면 8.c단계에서 자세한 내용을 참조하거나 Samanage에 문의하십시오.
-
-4.  **Samanage에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
-
-    ![Single Sign-On 구성](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_05.png "Single Sign-On 구성")
-
-5.  다른 웹 브라우저 창에서 Samanage 회사 사이트에 관리자로 로그인합니다.
-
-6.  **대시보드**를 클릭하고 왼쪽 창에서 **설정**을 선택합니다.
-
-    ![대시보드](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "대시보드")
-
-7.  **Single Sign-On**을 클릭합니다.
-
-    ![SSO(Single sign-on)](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "SSO(Single sign-on)")
-
-8.  **SAML을 사용하여 로그인** 섹션으로 이동하고 다음 단계를 수행합니다.
+    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<Company Name>.samanage.com/saml_login/<Company Name>`.
     
-    ![SAML을 사용하여 로그인](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "SAML을 사용하여 로그인")
+    b. click **Next**
 
-    a. **SAML로 Single Sign-On 사용**을 클릭합니다.
+    > [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL. To get these values, refer step 8.c for more details or contact Samanage.
 
-    b. **ID 공급자 URL** 텍스트 상자에 Azure AD 응용 프로그램 구성 마법사에서 나온 **ID 공급자 ID** 값을 저장합니다.
+4.  On the **Configure single sign-on at Samanage** page, click **Download certificate**, and then save the certificate file on your computer.
 
-    c. **로그인 URL**이 3단계의 **로그온 URL**과 일치하는지 확인합니다.
+    ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_05.png "Configure Single Sign-On")
 
-	d. **로그아웃 URL** 텍스트 상자에 Azure AD 응용 프로그램 구성 마법사에서 나온 **원격 로그아웃 URL** 값을 저장합니다.
+5.  In a different web browser window, log into your Samanage company site as an administrator.
 
-    e. **SAML 발급자** 텍스트 상자에 ID 공급자에서 설정한 앱 ID URI를 입력합니다.
+6.  Click **Dashboard** and select **Setup** in left navigation pane.
 
-	f. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **아래 ID 공급자 x.509 인증서 붙여 넣기** 텍스트 상자에 붙여 넣습니다.
+    ![Dashboard](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Dashboard")
+
+7.  Click **Single Sign-On**.
+
+    ![Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")
+
+8.  Navigate to **Login using SAML** section, perform the following steps:
     
-	g. **Samanage에 없는 경우 사용자 만들기**를 클릭합니다.
+    ![Login using SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
+
+    a.  Click **Enable Single Sign-On with SAML**.
+
+    b.  In the **Identity Provider URL** textbox put the value of **Identity Provider ID** from Azure AD application configuration wizard.    
+
+    c.  Confirm the **Login URL** matches the **Sign On URL** in step 3.
+
+    d.  In the **Logout URL** textbox put the value of **Remote Logout URL** from Azure AD application configuration wizard.
+
+    e. In the **SAML Issuer** textbox type the app id URI set in your identity provider.
+
+    f.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Paste your Identity Provider x.509 Certificate below** textbox.
     
-	h. **업데이트**를 클릭합니다.
-
-9.  클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
-
-    ![Single Sign-On 구성](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_06.png "Single Sign-On 구성")
-
-10. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
-
-	![Single Sign-On 구성](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_07.png "Single Sign-On 구성")
-
-
-### Azure AD 테스트 사용자 만들기
-
-이 섹션의 목적은 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
-
-![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-samanage-tutorial/create_aaduser_00.png)
-
-**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
-
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
-
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png)
-
-2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
-
-3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
+    g.  Click **Create users if they do not exist in Samanage**.
     
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png)
+    h.  Click **Update**.
 
-4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
+9.  In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-samanage-tutorial/create_aaduser_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_06.png "Configure Single Sign-On")
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
+10. On the **Single sign-on confirmation** page, click **Complete**.
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-samanage-tutorial/create_aaduser_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_07.png "Configure Single Sign-On")
 
-    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
 
-    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
 
-    c. **Next**를 클릭합니다.
+The objective of this section is to create a test user in the classic portal called Britta Simon.
 
-6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
+![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_00.png)
+
+**To create a test user in Azure AD, perform the following steps:**
+
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png)
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To display the list of users, in the menu on the top, click **Users**.
     
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-samanage-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png)
 
-    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_03.png)
 
-    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-    d. **역할** 목록에서 **사용자**를 선택합니다.
+    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_04.png)
 
-    e. **Next**를 클릭합니다.
+    a. As Type Of User, select New user in your organization.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
+    b. In the User Name **textbox**, type **BrittaSimon**.
+
+    c. Click **Next**.
+
+6.  On the **User Profile** dialog page, perform the following steps:
     
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-samanage-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_05.png)
 
-8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
+    a. In the **First Name** textbox, type **Britta**.  
+
+    b. In the **Last Name** textbox, type, **Simon**.
+
+    c. In the **Display Name** textbox, type **Britta Simon**.
+
+    d. In the **Role** list, select **User**.
+
+    e. Click **Next**.
+
+7. On the **Get temporary password** dialog page, click **create**.
     
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-samanage-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_06.png)
 
-    a. **새 암호** 값을 적어둡니다.
+8. On the **Get temporary password** dialog page, perform the following steps:
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_07.png)
 
-    b. **완료**를 클릭합니다.
+    a. Write down the value of the **New Password**.
 
-### Samanage 테스트 사용자 만들기
+    b. Click **Complete**.   
+
+### <a name="creating-a-samanage-test-user"></a>Creating a Samanage test user
   
-Azure AD 사용자가 Samanage에 로그인할 수 있도록 하려면 Samanage로 프로비전되어야 합니다. Samanage의 경우 프로비전은 수동 작업입니다.
+In order to enable Azure AD users to log into Samanage, they must be provisioned into Samanage.In the case of Samanage, provisioning is a manual task.
 
-####사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+####<a name="to-provision-a-user-account-perform-the-following-steps"></a>To provision a user account, perform the following steps:
 
-1.  Samanage 회사 사이트에 관리자 권한으로 로그인합니다.
+1.  Log into your Samanage company site as an administrator.
 
-2.  **대시보드**를 클릭하고 왼쪽 창에서 **설정**을 선택합니다.
+2.  Click **Dashboard** and select **Setup** in left navigation pan.
 
-    ![설정](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "설정")
+    ![Setup](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Setup")
 
-3.  **사용자** 탭을 클릭합니다.
+3.  Click the **Users** tab
 
-    ![사용자](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "사용자")
+    ![Users](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Users")
 
-4.  **새 사용자**를 클릭합니다.
+4.  Click **New User**.
 
-    ![새 사용자](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_007.png "새 사용자")
+    ![New User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_007.png "New User")
 
-5.  프로비전할 Azure AD 계정의 **이름** 및 **이메일 주소**를 입력하고 **사용자 만들기**를 클릭합니다.
+5.  Type the **Name** and the **Email Address** of an Azure AD account you want to provision and click **Create user**.
 
-    ![사용자 만들기](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "사용자 만들기")
+    ![Creat User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Creat User")
 
-	>[AZURE.NOTE]AAD 계정 보유자에게 이메일이 발송되며 여기에 포함된 링크를 클릭하여 계정을 확인하면 계정이 활성화됩니다. 다른 Samanage 사용자 계정 생성 도구 또는 Samanage가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+    >[AZURE.NOTE]The AAD account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Samanage user account creation tools or APIs provided by Samanage to provision AAD user accounts.
 
 
-###Azure AD 테스트 사용자 할당
+###<a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
   
-이 섹션의 목적은 Britta Simon에게 Samanage 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다.
-	
-![사용자 할당](./media/active-directory-saas-samanage-tutorial/assign_aaduser_00.png "사용자 할당")
-
-**Britta Simon을 Samanage에 할당하려면 다음 단계를 수행합니다.**
-
-1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Samanage.
     
-	![사용자 할당](./media/active-directory-saas-samanage-tutorial/assign_aaduser_01.png "사용자 할당")
+![Assign users](./media/active-directory-saas-samanage-tutorial/assign_aaduser_00.png "Assign users")
 
-2. 응용 프로그램 목록에서 **Samanage**를 선택합니다.
+**To assign Britta Simon to Samanage, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
     
-	![Single Sign-On 구성](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_08.png)
+    ![Assign users](./media/active-directory-saas-samanage-tutorial/assign_aaduser_01.png "Assign users")
 
-3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
+2. In the applications list, select **Samanage**.
     
-	![사용자 할당](./media/active-directory-saas-samanage-tutorial/assign_aaduser_02.png "사용자 할당")
+    ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_08.png)
 
-4. 사용자 목록에서 **Britta Simon**을 선택합니다.
-
-5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
+3. In the menu on the top, click **Users**.
     
-	![사용자 할당](./media/active-directory-saas-samanage-tutorial/assign_aaduser_03.png "사용자 할당")
+    ![Assign users](./media/active-directory-saas-samanage-tutorial/assign_aaduser_02.png "Assign users")
+
+4. In the Users list, select **Britta Simon**.
+
+5. In the toolbar on the bottom, click **Assign**.
+    
+    ![Assign users](./media/active-directory-saas-samanage-tutorial/assign_aaduser_03.png "Assign users")
 
 
-### Single Sign-On 테스트
+### <a name="testing-single-signon"></a>Testing single sign-on
 
-이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
  
-액세스 패널에서 Samanage 타일을 클릭하면 Samanage 응용 프로그램에 자동으로 로그온됩니다.
+When you click the Samanage tile in the Access Panel, you should get automatically signed-on to your Samanage application.
 
 
-## 추가 리소스
+## <a name="additional-resources"></a>Additional resources
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

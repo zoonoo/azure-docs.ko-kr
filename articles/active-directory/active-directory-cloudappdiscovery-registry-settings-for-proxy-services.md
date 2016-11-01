@@ -3,7 +3,7 @@
     description="이 항목의 목표는 클라우드 앱 검색 에이전트를 실행하는 컴퓨터에 필요한 포트를 설정하기 위해 수행해야 하는 단계를 제공하는 것입니다." 
     services="active-directory" 
     documentationCenter="" 
-    authors="markusvi" 
+    authors="MarkusVi" 
     manager="femila"/>
 
 <tags 

@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
 
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스 감사
@@ -31,7 +31,7 @@ SQL Data Warehouse 감사를 사용하면 Azure Storage 계정의 감사 로그�
 + [데이터베이스에 대한 감사 설정]
 + [감사 로그 및 보고서 분석]
 
-##<a name="<a-id="subheading-1"></a>azure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Azure SQL 데이터 웨어하우스 데이터베이스 감사 기본 사항
+##<a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Azure SQL 데이터 웨어하우스 데이터베이스 감사 기본 사항
 
 
 SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니다.
@@ -61,7 +61,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 감사를 설정하기 전에 ["하위 클라이언트"](sql-data-warehouse-auditing-downlevel-clients.md)를 사용 중인지 여부를 점검합니다.
 
 
-##<a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>데이터베이스에 대한 감사 설정
+##<a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>데이터베이스에 대한 감사 설정
 
 1. <a href="https://portal.azure.com" target="_blank">Azure 포털</a>을 시작합니다.
 
@@ -92,7 +92,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 9. **확인**을 클릭합니다.
 
 
-##<a name="<a-id="subheading-3">analyze-audit-logs-and-reports</a>"></a><a id="subheading-3">감사 로그 및 보고서 분석</a>
+##<a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">감사 로그 및 보고서 분석</a>
 
 감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure 저장소 탐색기</a>와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
 
@@ -105,11 +105,11 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 ![][5]
 
 
-##<a name="<a-id="subheading-4">practices-for-usage-in-production</a>"></a><a id="subheading-4">프로덕션에서 사용하기 위한 연습</a>
+##<a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">프로덕션에서 사용하기 위한 연습</a>
 이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. <a href="https://portal.azure.com" target="_blank">Azure 포털</a> 또는 <a href= "https://manage.windowsazure.com/" target="_bank">기존 Azure 클래식 포털</a>을 사용할 수 있습니다.
 
 
-##<a name="<a-id="subheading-5"></a>storage-key-regeneration"></a><a id="subheading-5"></a>저장소 키 다시 생성
+##<a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>저장소 키 다시 생성
 
 프로덕션에서는 저장소 키를 정기적으로 새로 고칩니다. 키를 새로 고칠 때 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
 
@@ -122,7 +122,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 
 4. 저장소 UI로 돌아와서 **보조 선택키** 를 *다시 생성* 합니다(다음 키 새로 고침 주기를 위한 준비).
 
-##<a name="<a-id="subheading-6"></a>automation"></a><a id="subheading-6"></a>자동화
+##<a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>자동화
 Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있는 여러 가지 PowerShell cmdlet이 있습니다. 감사 cmdlet에 액세스하려면 Azure 리소스 관리자 모드에서 PowerShell을 실행해야 합니다.
 
 > [AZURE.NOTE] [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) 모듈은 현재 사전 검토 단계에 있습니다. 이 모듈은 Azure 모듈과 동일한 관리 기능을 제공하지 않을 수도 있습니다.

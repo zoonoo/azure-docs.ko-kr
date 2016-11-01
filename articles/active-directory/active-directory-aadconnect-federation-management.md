@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/01/2016"
+    ms.date="10/31/2016"
     ms.author="anandy"/>
 
 
@@ -38,7 +38,7 @@
 
 Azure AD Connect는 Azure AD Connect 마법사를 사용하여 최소한의 사용자의 개입만으로 수행할 수 있는 다양한 AD FS 관련 작업을 제공합니다. 마법사를 실행하여 Azure AD Connect 설치를 완료한 후 다시 마법사를 실행하여 추가 작업을 수행할 수 있습니다.
 
-### <a name="repair-the-trust-<a-name=repairthetrust></a>"></a>트러스트 복구 <a name=repairthetrust></a>
+### <a name="repair-the-trust-a-namerepairthetrusta"></a>트러스트 복구 <a name=repairthetrust></a>
 
 Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상태를 확인하고 적절한 조치를 취하여 트러스트를 복구할 수 있습니다. 이러한 단계에 따라 Azure AD 및 AD FS 트러스트를 복구합니다.
 
@@ -63,7 +63,7 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
 
 >[AZURE.NOTE] Azure AD Connect는 자체 서명된 인증서에 대해서만 복구 또는 조치를 취할 수 있습니다. Azure AD Connect에서 타사 인증서를 복구할 수 없습니다.
 
-### <a name="add-an-ad-fs-server-<a-name=addadfsserver></a>"></a>AD FS 서버 추가 <a name=addadfsserver></a>
+### <a name="add-an-ad-fs-server-a-nameaddadfsservera"></a>AD FS 서버 추가 <a name=addadfsserver></a>
 
 > [AZURE.NOTE] Azure AD Connect는 AD FS 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
 
     ![설치 완료](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### <a name="add-an-ad-fs-web-application-proxy-server-<a-name=addwapserver></a>"></a>AD FS 웹 응용 프로그램 프록시 서버 추가 <a name=addwapserver></a>
+### <a name="add-an-ad-fs-web-application-proxy-server-a-nameaddwapservera"></a>AD FS 웹 응용 프로그램 프록시 서버 추가 <a name=addwapserver></a>
 
 > [AZURE.NOTE] Azure AD Connect는 웹 응용 프로그램 프록시 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 
@@ -116,7 +116,7 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
 7. **설치** 를 클릭하여 구성을 완료합니다. 구성이 완료되면 마법사에서 서버에 대한 연결을 확인하는 옵션을 제공합니다. **확인** 을 클릭하여 연결을 확인합니다.
 ![설치 완료](media\active-directory-aadconnect-federation-management\WapServer8.PNG)
 
-### <a name="add-a-federated-domain-<a-name=addfeddomain></a>"></a>페더레이션된 도메인을 추가합니다. <a name=addfeddomain></a>
+### <a name="add-a-federated-domain-a-nameaddfeddomaina"></a>페더레이션된 도메인을 추가합니다. <a name=addfeddomain></a>
 
 Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽게 추가할 수 있습니다. Azure AD Connect는 페더레이션에 대한 도메인을 추가하고 Azure AD와 페더레이션된 여러 도메인이 있는 경우 발급자를 올바르게 반영하기 위해 클레임 규칙을 수정합니다.
 
@@ -141,7 +141,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 
 다음 섹션에서는 AD FS 로그인 페이지를 사용자 지정하는 데 수행해야 할 수 있는 일반적인 작업 중 일부에 대해 자세히 설명합니다.
 
-### <a name="add-a-custom-company-logo-or-illustration-<a-name=customlogo></a>"></a>사용자 지정 회사 로고 또는 일러스트레이션 추가 <a name=customlogo></a>
+### <a name="add-a-custom-company-logo-or-illustration-a-namecustomlogoa"></a>사용자 지정 회사 로고 또는 일러스트레이션 추가 <a name=customlogo></a>
 
 **로그인** 페이지에 표시되는 회사의 로고를 변경하려면 다음 Windows PowerShell cmdlet 및 구문을 사용합니다.
 
@@ -152,13 +152,13 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 > [AZURE.NOTE] *TargetName* 매개 변수는 필수입니다. AD FS와 함께 제공되는 기본 테마의 이름은 Default입니다.
 
 
-### <a name="add-a-sign-in-description-<a-name=addsignindescription></a>"></a>로그인 설명 추가 <a name=addsignindescription></a>
+### <a name="add-a-signin-description-a-nameaddsignindescriptiona"></a>로그인 설명 추가 <a name=addsignindescription></a>
 
 **로그인 페이지**에 로그인 페이지 설명을 추가하려면 다음 Windows PowerShell cmdlet 및 구문을 사용합니다.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### <a name="modify-ad-fs-claim-rules-<a-name=modclaims></a>"></a>AD FS 클레임 규칙 수정 <a name=modclaims></a>
+### <a name="modify-ad-fs-claim-rules-a-namemodclaimsa"></a>AD FS 클레임 규칙 수정 <a name=modclaims></a>
 
 AD FS는 사용자 지정 클레임 규칙을 만드는 데 사용할 수 있는 다양한 클레임 언어를 지원합니다. 자세한 내용은 [클레임 규칙 언어의 역할](https://technet.microsoft.com/library/dd807118.aspx)을 참조하세요.
 

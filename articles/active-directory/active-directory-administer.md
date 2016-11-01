@@ -3,7 +3,7 @@
     description="Azure AD 테넌트의 정의 및 Azure Active Directory를 통해 Azure를 관리하는 방법을 설명합니다."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     writer="markvi"
     manager="femila"
     editor=""/>
@@ -20,7 +20,7 @@
 
 # <a name="administer-your-azure-ad-directory"></a>Azure AD 디렉터리 관리
 
-## <a name="what-is-an-azure-ad-tenant?"></a>Azure AD 테넌트란?
+## <a name="what-is-an-azure-ad-tenant"></a>Azure AD 테넌트란?
 
 실제 작업 공간에서 테넌트라는 단어는 특정 건물을 사용하는 그룹이나 회사로 정의할 수 있습니다. 예를 들어 조직은 특정 건물에 있는 사무실 공간을 소유할 수 있습니다. 이 건물은 다른 여러 조직과 같은 거리에 있을 수 있습니다. 이 경우 조직은 해당 건물의 테넌트로 간주됩니다. 이 건물은 조직의 자산이며 보안을 제공하여 안전하게 비즈니스를 수행할 수 있도록 합니다. 또한 같은 거리에 있는 다른 회사와 구분됩니다. 따라서 조직과 조직 내 자산이 다른 조직으로부터 격리됩니다.
 
@@ -30,7 +30,7 @@
 
 ![Azure Active Directory 관리][1]
 
-## <a name="how-can-i-get-an-azure-ad-directory?"></a>Azure AD 디렉터리를 받으려면 어떻게 하나요?
+## <a name="how-can-i-get-an-azure-ad-directory"></a>Azure AD 디렉터리를 받으려면 어떻게 하나요?
 
 Azure AD는 다음을 포함하여 대부분의 Microsoft 클라우드 서비스 뒤에 핵심 디렉터리 및 ID 관리 기능을 제공합니다.
 
@@ -66,7 +66,7 @@ Azure AD와 온-프레미스 디렉터리 통합에 대한 자세한 내용은 [
 - [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 - [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azure-provisioned-default-directory"></a>Azure 프로비전 기본 디렉터리 관리
+### <a name="manage-an-azureprovisioned-default-directory"></a>Azure 프로비전 기본 디렉터리 관리
 
 지금은 Azure에 등록하면 디렉터리가 자동으로 만들어지고 구독이 해당 디렉터리에 연결됩니다. 그러나 2013년 10월 이전에는 Azure에 처음 등록해도 디렉터리가 자동으로 만들어지지 않았습니다. 이 경우 Azure에서 기본 디렉터리를 프로비전하여 계정을 “백필"했을 수 있습니다. 그런 다음 해당 기본 디렉터리에 구독을 연결했습니다.
 
@@ -95,7 +95,7 @@ Azure 관리 포털, Office 365 관리 센터, Microsoft Intune 계정 포털 �
 이러한 서비스 중 하나의 컨텍스트에서 로그인한 동안 포털(또는 cmdlet)을 사용하여 조직 데이터를 변경할 경우 이 변경 내용은 다음에 해당 서비스 컨텍스트에서 로그인하면 다른 포털에도 표시되는데, 이 데이터는 구독하는 Microsoft 클라우드 서비스 전체에서 공유되기 때문입니다.
 예를 들어 Office 365 관리 센터를 사용하여 사용자의 로그인을 차단한 경우 조직에서 현재 구독하는 다른 모든 서비스에 대한 사용자의 로그인도 차단됩니다. Microsoft Intune 계정 포털 컨텍스트에서 동일한 사용자의 계정을 가져오려고 하면 사용자가 차단되었다고 표시됩니다.
 
-## <a name="how-can-i-add-and-manage-multiple-directories?"></a>여러 디렉터리를 추가하고 관리하려면 어떻게 하나요?
+## <a name="how-can-i-add-and-manage-multiple-directories"></a>여러 디렉터리를 추가하고 관리하려면 어떻게 하나요?
 
 Azure 관리 포털에서 Azure AD 디렉터리를 추가할 수 있습니다. 왼쪽에서 **Active Directory** 확장을 선택하고 **추가**를 클릭합니다.
 
@@ -115,7 +115,7 @@ Azure 관리 포털에서 Azure AD 디렉터리를 추가할 수 있습니다. �
 
 또한 다른 Azure 리소스와 달리 디렉터리는 Azure 구독의 자식 리소스가 아닙니다. 따라서 Azure 구독을 취소하거나 만료를 허용하는 경우에도 Azure AD PowerShell, Azure Graph API 또는 Office 365 관리 센터와 같은 다른 인터페이스를 사용하여 디렉터리 데이터에 계속 액세스할 수 있습니다. 다른 구독을 디렉터리와 연결할 수도 있습니다.
 
-## <a name="how-can-i-delete-an-azure-ad-directory?"></a>Azure AD 디렉터리를 삭제하려면 어떻게 하나요?
+## <a name="how-can-i-delete-an-azure-ad-directory"></a>Azure AD 디렉터리를 삭제하려면 어떻게 하나요?
 전역 관리자는 포털에서 Azure AD 디렉터리를 삭제할 수 있습니다. 디렉터리가 삭제되면 디렉터리에 포함된 모든 리소스도 삭제됩니다. 따라서 디렉터리를 삭제하기 전에 필요 없는 디렉터리인지 확인해야 합니다.
 
 > [AZURE.NOTE]

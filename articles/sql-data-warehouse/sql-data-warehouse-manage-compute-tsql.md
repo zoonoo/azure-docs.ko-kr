@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure SQL 데이터 웨어하우스의 계산 능력 관리(REST) | Microsoft Azure"
-   description="DWU를 조정하여 성능을 확장하는 Transact-SQL (T-SQL) 작업입니다. 사용량이 많지 않은 시간 동안 다시 조정하여 비용을 절감합니다."
+   pageTitle="Manage compute power in Azure SQL Data Warehouse (REST) | Microsoft Azure"
+   description="Transact-SQL (T-SQL) tasks to scale-out performance by adjusting DWUs. Save costs by scaling back during non-peak times."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,39 +13,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
-# Azure SQL 데이터 웨어하우스의 계산 능력 관리(T-SQL)
+
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-tsql"></a>Manage compute power in Azure SQL Data Warehouse (T-SQL)
 
 > [AZURE.SELECTOR]
-- [개요](sql-data-warehouse-manage-compute-overview.md)
-- [포털](sql-data-warehouse-manage-compute-portal.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
+- [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-- [REST (영문)](sql-data-warehouse-manage-compute-rest-api.md)
+- [REST](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 
-워크로드의 변화하는 요구를 충족시키도록 계산 리소스와 메모리를 확장하여 크기 조정을 실시합니다. 사용량이 많지 않은 시간 동안 리소스를 다시 조정하거나 계산 전체를 일시 중지하여 비용을 절감합니다.
+Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
 
-이 작업 컬렉션은 T-SQL을 사용하여 다음을 수행합니다.
+This collection of tasks uses T-SQL to:
 
-- 현재 DWU 설정 보기
-- Dwu를 조정하여 계산 리소스 변경
+- View current DWU settings
+- Change compute resources by adjusting DWUs
 
-데이터베이스를 일시 중지 또는 다시 시작하려면 이 문서의 맨 위에 있는 다른 플랫폼 옵션 중 하나를 선택합니다.
+To pause or resume a database, choose one of the other platform options at the top of this article.
 
-이에 대해 알아보려면 [계산 능력 관리 개요][]를 참조하세요.
+To learn about this, see [Manage compute power overview][].
 
 <a name="current-dwu-bk"></a>
 
-## 현재 DWU 설정 보기
+## <a name="view-current-dwu-settings"></a>View current DWU settings
 
-데이터베이스의 현재 DWU 설정을 보려면
+To view the current DWU settings for your databases:
 
-1. Visual Studio 2015에서 SQL Server 개체 탐색기를 엽니다.
-2. 논리적 SQL 데이터베이스 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. sys.database\_service\_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다.
+1. Open SQL Server Object Explorer in Visual Studio 2015.
+2. Connect to the master database associated with the logical SQL Database server.
+2. Select from the sys.database_service_objectives dynamic management view. Here is an example: 
 
 ```
 SELECT
@@ -57,17 +58,18 @@ FROM
  JOIN sys.databases db ON ds.database_id = db.database_id
 ```
 
-<a name="scale-dwu-bk"></a> <a name="scale-compute-bk"></a>
+<a name="scale-dwu-bk"></a>
+<a name="scale-compute-bk"></a>
 
-## 계산 조정
+## <a name="scale-compute"></a>Scale compute
 
-[AZURE.INCLUDE [SQL 데이터 웨어하우스 크기 조정 DWU 설명](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-DWU를 변경하려면
+To change the DWUs:
 
 
-1. 논리적 SQL 데이터베이스 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. [ALTER DATABASE][] TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
+1. Connect to the master database associated with your logical SQL Database server.
+2. Use the [ALTER DATABASE][] TSQL statement. The following example sets the service level objective to DW1000 for the database MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -77,16 +79,16 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 <a name="next-steps-bk"></a>
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-다른 관리 작업은 [관리 개요][]를 참조하세요.
+For other management tasks, see [Management overview][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-[관리 개요]: ./sql-data-warehouse-overview-manage.md
-[계산 능력 관리 개요]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -97,4 +99,8 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -2,7 +2,7 @@
     pageTitle="Android에서 인증서 기반 인증 시작 | Microsoft Azure" 
     description="Android 장치에서 솔루션의 인증서 기반 인증을 구성하는 방법 알아보기" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="MarkusVi"  
     documentationCenter="na" 
     manager="femila"/>
 <tags 
@@ -17,7 +17,7 @@
 
 
 
-# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Android에서 인증서 기반 인증 시작 - 공개 미리 보기  
+# <a name="get-started-with-certificate-based-authentication-on-android-public-preview"></a>Android에서 인증서 기반 인증 시작 - 공개 미리 보기  
 
 > [AZURE.SELECTOR]
 - [iOS](active-directory-certificate-based-authentication-ios.md)

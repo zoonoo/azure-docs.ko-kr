@@ -3,7 +3,7 @@
     description="계정 프로비전 알림 활성화를 통해 주의가 필요한 사용자 프로비전 관련 문제에 대한 알림을 받는 방법을 알아보세요."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

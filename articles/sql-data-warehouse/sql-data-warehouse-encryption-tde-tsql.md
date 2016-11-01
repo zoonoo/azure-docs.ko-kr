@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016"
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="rortloff;barbkess"/>
 
 
-# <a name="get-started-with-transparent-data-encryption-(tde)"></a>투명한 데이터 암호화(TDE) 시작
+# <a name="get-started-with-transparent-data-encryption-tde"></a>투명한 데이터 암호화(TDE) 시작
 
 
 > [AZURE.SELECTOR]

@@ -3,7 +3,7 @@
     description="이 문서는 온-프레미스, 클라우드 및 SaaS 응용 프로그램을 사용하여 Azure Active Directory를 통합하는 이점을 얻을 수 있습니다."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -116,7 +116,7 @@ Azure AD를 사용하여 응용 프로그램을 관리하고 SSO를 사용하도
 
 Azure AD를 사용하여 개별 또는 규칙 기반 할당을 사용하는 응용 프로그램에 대한 액세스를 관리할 수 있습니다. 또한 최상의 감독을 보장하고 Helpdesk의 부담을 줄이는 조직에서 적당한 사람에게 액세스 관리를 위임할 수 있습니다.
 
-## <a name="on-premises-applications"></a>온-프레미스 응용 프로그램
+## <a name="onpremises-applications"></a>온-프레미스 응용 프로그램
 
 기본 제공 응용 프로그램 프록시를 사용하면 결과적으로 사용자에게 최신 클라우드 응용 프로그램과 함께 일관된 액세스 환경 및 Azure AD 모니터링, 보고 및 보안 기능에서 혜택을 주어 온-프레미스 응용 프로그램을 게시할 수 있습니다.
 

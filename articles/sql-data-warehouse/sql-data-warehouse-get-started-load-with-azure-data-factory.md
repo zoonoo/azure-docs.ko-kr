@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags="azure-sql-data-warehouse"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -50,7 +50,7 @@ Azure Data Factory를 익히려면 [Azure Data Factory 소개][]를 참조하세
 
    + **AZCopy**: 로컬 클라이언트에서 Azure 저장소 BLOB으로 샘플 데이터를 복사할 AZCopy가 필요합니다. 설치 지침은 [AZCopy 설명서][]를 참조하세요.
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>1단계: 샘플 데이터를 Azure 저장소 Blob에 복사
+## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>1단계: 샘플 데이터를 Azure 저장소 Blob에 복사
 
 모든 부분이 준비되면 샘플 데이터를 Azure Storage Blob에 복사할 준비가 됩니다.
 
@@ -63,13 +63,13 @@ Azure Data Factory를 익히려면 [Azure Data Factory 소개][]를 참조하세
     ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>2단계: Azure Data Factory로 리소스를 연결합니다.
+## <a name="step-2-connect-resources-to-azure-data-factory"></a>2단계: Azure Data Factory로 리소스를 연결합니다.
 
 이제 데이터가 생성되었으므로 Azure 데이터 팩터리 파이프라인을 만들어 Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 이동할 수 있습니다.
 
 시작하려면 [Azure 포털][] 을 열고 왼쪽 메뉴에서 사용자의 data factory를 선택합니다.
 
-### <a name="step-2.1:-create-linked-service"></a>2.1단계: 연결된 서비스 만들기
+### <a name="step-21-create-linked-service"></a>2.1단계: 연결된 서비스 만들기
 
 Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리로 연결합니다.  
 
@@ -90,7 +90,7 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
     }
     ```
 
-### <a name="step-2.2:-define-the-dataset"></a>2.2단계: 데이터 집합 정의
+### <a name="step-22-define-the-dataset"></a>2.2단계: 데이터 집합 정의
 
 연결된 서비스를 만든 다음 데이터 집합을 정의해야 합니다.  여기서 저장소에서 데이터 웨어하우스로 이동하는 데이터의 구조를 정의하는 것을 의미합니다.  만들기에 대해 자세히 알아볼 수 있습니다.
 
@@ -148,7 +148,7 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
     }
     ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>3단계: 파이프라인 만들기 및 실행
+## <a name="step-3-create-and-run-your-pipeline"></a>3단계: 파이프라인 만들기 및 실행
 
 마지막으로 Azure Data Factory에서 파이프라인을 설정 및 실행합니다.  이 작업을 수행하면 실제 데이터 이동이 완료됩니다.  [여기]에서 SQL 데이터 웨어하우스와 Azure Data Factory를 사용하여 완료할 수 있는 전체 작업을 볼 수 있습니다.[Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동]
 

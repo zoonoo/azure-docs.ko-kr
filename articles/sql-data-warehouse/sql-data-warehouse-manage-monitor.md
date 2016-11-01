@@ -3,8 +3,8 @@
    description="DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
@@ -46,7 +46,7 @@ SQL Data Warehouse에 대해 실행되는 모든 쿼리는 [sys.dm_pdw_exec_requ
 
 특정 쿼리에 대한 쿼리 실행 계획 및 시간을 조사하기 위해 수행하는 단계는 다음과 같습니다.
 
-### <a name="step-1:-identify-the-query-you-wish-to-investigate"></a>1단계: 조사하려는 쿼리 식별
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>1단계: 조사하려는 쿼리 식별
 
 ```sql
 -- Monitor active queries
@@ -82,7 +82,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2:-investigate-the-query-plan"></a>2단계: 쿼리 계획 조사
+### <a name="step-2-investigate-the-query-plan"></a>2단계: 쿼리 계획 조사
 
 요청 ID를 사용하여 [sys.dm_pdw_request_steps][]에서 쿼리의 DSQL(분산된 SQL) 계획을 검색합니다.
 
@@ -102,7 +102,7 @@ DSQL 계획의 시간이 생각보다 오래 걸리는 경우 계획이 여러 D
 - OnOperation, RemoteOperation, ReturnOperation 등의 **SQL 작업**에 대해 3a단계를 진행합니다.
 - ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation 등의 **데이터 이동 작업**에 대해 3b단계를 진행합니다.
 
-### <a name="step-3a:-investigate-sql-on-the-distributed-databases"></a>3a단계: 분산 데이터베이스에서 SQL 조사
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>3a단계: 분산 데이터베이스에서 SQL 조사
 
 요청 ID와 단계 인덱스를 사용하여 [sys.dm_pdw_sql_requests][]에서 세부 정보를 검색합니다. 이 보기에는 모든 분산 데이터베이스에 대한 쿼리 단계의 실행 정보가 포함되어 있습니다.
 
@@ -123,7 +123,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b:-investigate-data-movement-on-the-distributed-databases"></a>3b단계: 분산 데이터베이스에서 데이터 이동 조사
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>3b단계: 분산 데이터베이스에서 데이터 이동 조사
 
 요청 ID 및 단계 인덱스를 사용하여 [sys.dm_pdw_dms_workers][]에서 각 분산에 대해 실행 중인 데이터 이동 단계에 대한 정보를 검색합니다.
 

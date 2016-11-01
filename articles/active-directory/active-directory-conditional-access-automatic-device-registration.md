@@ -3,7 +3,7 @@
     description="IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -17,7 +17,7 @@
     ms.author="markvi"/>
 
 
-# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록
+# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domainjoined-devices"></a>Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록
 
 IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다. 이 기능은 AD FS에서 온-프레미스로 관리하는 Office365 응용 프로그램에 대한 장치 기반 조건부 액세스 정책을 구성한 경우에 유용할 수 있습니다. [Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)를 읽으면 장치 등록 시나리오에 대해 자세히 알아볼 수 있습니다.
 
@@ -82,7 +82,7 @@ Windows 7 및 Windows 8.1 장치는 사용자 계정 이름을 잘 알려진 장
 | enterpriseregistration.contoso.com        | CNAME | enterpriseregistration.windows.net |
 | enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
-##<a name="configure-automatic-device-registration-for-windows-7-and-windows-8.1-domain-joined-devices"></a>Windows 7 및 Windows 8.1 도메인 가입 장치에 대해 자동 장치 등록 구성
+##<a name="configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices"></a>Windows 7 및 Windows 8.1 도메인 가입 장치에 대해 자동 장치 등록 구성
 
 아래 링크를 사용하여 Windows 7 및 Windows 8.1 도메인 가입 장치에 대해 자동 장치 등록을 구성합니다. 계속하기 전에 위의 필수 조건을 완료했는지 확인합니다.
 

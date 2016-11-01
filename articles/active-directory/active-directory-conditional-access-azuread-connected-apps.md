@@ -3,7 +3,7 @@
     description="Azure AD의 조건부 액세스를 사용하면 응용 프로그램별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. "
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -32,7 +32,7 @@
 
 * 페더레이션된 테넌트가 해당 다단계 인증의 사용 요구
 
-## <a name="configure-per-application-access-rules"></a>응용 프로그램별 액세스 규칙 구성
+## <a name="configure-perapplication-access-rules"></a>응용 프로그램별 액세스 규칙 구성
 
 이 섹션에서는 응용 프로그램별 액세스 규칙을 구성하는 방법을 설명합니다.
 
@@ -78,7 +78,7 @@
 
 사용자가 OAuth 2.0, OpenID Connect, SAML 또는 WS-Federation을 사용하는 페더레이션된 응용 프로그램에 액세스할 때 액세스 규칙이 평가됩니다. 또한 액세스 규칙은 OAuth 2.0 및 OpenID Connect가 새로 고침 토큰을 사용하여 액세스 토큰을 얻을 때 평가됩니다. 새로 고침 토큰을 사용할 때 정책 평가에 실패하면 **invalid_grant** 오류가 반환됩니다. 이 오류는 사용자가 클라이언트에 다시 인증해야 함을 나타냅니다.
 
-###<a name="configure-federation-services-to-provide-multi-factor-authentication"></a>다단계 인증을 제공하도록 페더레이션 서비스 구성
+###<a name="configure-federation-services-to-provide-multifactor-authentication"></a>다단계 인증을 제공하도록 페더레이션 서비스 구성
 
 페더레이션된 테넌트의 경우 MFA를 Azure Active Directory 또는 온-프레미스 AD FS 서버에서 수행할 수 있습니다.
 

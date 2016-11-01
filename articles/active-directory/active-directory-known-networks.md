@@ -3,7 +3,7 @@
     description="알려진 네트워크를 구성하여 조직 소유의 IP 주소가 여러 지역에서의 로그인 및 의심스러운 활동을 포함하는 IP 주소의 로그인 보고서에 포함되지 않도록 할 수 있습니다." 
     services="active-directory" 
     documentationCenter="" 
-    authors="markusvi" 
+    authors="MarkusVi" 
     manager="femila"  
     editor=""/>
 
@@ -33,7 +33,7 @@ Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 
 이러한 문제로 인해 잘못된 보안 보고서가 생성되지 않도록 하려면 조직의 공용 IP 주소 목록에 알려진 IP 주소 범위를 추가해야 합니다.    
 
 
-###<a name="to-add-your-organization’s-public-ip-address-ranges,-perform-the-following-steps:"></a>조직의 공용 IP 주소 범위를 추가하려면 다음 단계를 수행합니다. 
+###<a name="to-add-your-organizations-public-ip-address-ranges-perform-the-following-steps"></a>조직의 공용 IP 주소 범위를 추가하려면 다음 단계를 수행합니다. 
 
 1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그온합니다.
 

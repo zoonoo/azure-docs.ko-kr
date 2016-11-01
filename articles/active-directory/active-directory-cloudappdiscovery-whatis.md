@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="Cloud App Discovery, 응용 프로그램 관리"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

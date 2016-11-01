@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="byham"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/24/2016"
-   ms.author="rickbyh;barbkess;sonyama"/>
+   ms.author="rickbyh;barbkess"/>
 
 
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 대한 인증
@@ -46,7 +46,7 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 
 > [AZURE.NOTE] 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE MyDatabase;** 는 지원되지 않습니다. SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [Visual Studio로 쿼리][] 문서를 참조하세요.
 
-## <a name="azure-active-directory-(aad)-authentication"></a>AAD(Azure Active Directory) 인증
+## <a name="azure-active-directory-aad-authentication"></a>AAD(Azure Active Directory) 인증
 
 [Azure Active Directory][Azure Active Directory] 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL Data Warehouse에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터 웨어하우스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 
 

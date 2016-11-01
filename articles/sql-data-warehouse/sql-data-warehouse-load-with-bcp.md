@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="mausher;barbkess"/>
 
 
 
@@ -57,7 +57,7 @@ bcp를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 이 자습서에서는 Azure SQL 데이터 웨어하우스에서 테이블을 만들고 테이블로 데이터를 가져옵니다.
 
-### <a name="step-1:-create-a-table-in-azure-sql-data-warehouse"></a>1단계: Azure SQL 데이터 웨어하우스에서 테이블 만들기
+### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>1단계: Azure SQL 데이터 웨어하우스에서 테이블 만들기
 
 명령 프롬프트에서 sqlcmd를 사용하여 다음 쿼리를 실행하여 인스턴스에 테이블을 만듭니다.
 
@@ -79,7 +79,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 >[AZURE.NOTE] SQL Data Warehouse에서 테이블을 만드는 방법과 WITH 절에서 사용 가능한 옵션에 대한 자세한 내용은 [테이블 개요][] 또는 [CREATE TABLE 구문][]을 참조하세요.
 
-### <a name="step-2:-create-a-source-data-file"></a>2단계: 원본 데이터 파일 만들기
+### <a name="step-2-create-a-source-data-file"></a>2단계: 원본 데이터 파일 만들기
 
 메모장을 열고 다음 데이터 줄을 새 텍스트 파일에 복사한 다음 이 파일을 로컬 임시 디렉터리 C:\Temp\DimDate2.txt에 저장합니다.
 
@@ -100,7 +100,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 > [AZURE.NOTE] 해당 bcp.exe는 UTF-8 파일 인코딩을 지원하지 않습니다. bcp.exe 사용 시 파일에 ASCII 파일 또는 UTF-16 인코딩 파일을 사용하세요.
 
-### <a name="step-3:-connect-and-import-the-data"></a>3단계: 데이터 연결 및 가져오기
+### <a name="step-3-connect-and-import-the-data"></a>3단계: 데이터 연결 및 가져오기
 bcp를 사용하여, 연결하고 값을 적절하게 대체하는 다음 명령을 사용하여 데이터를 가져올 수 있습니다.
 
 ```sql
@@ -130,7 +130,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>4단계: 새로 로드한 데이터에 대한 통계 만들기
+### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4단계: 새로 로드한 데이터에 대한 통계 만들기
 
 Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요. 다음은 이 예제에 로드한 테이블에 대한 통계를 만드는 방법을 간략히 보여주는 예입니다.
 
@@ -147,7 +147,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ## <a name="export-data-from-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 데이터 내보내기
 이 자습서에서는 SQL 데이터 웨어하우스의 테이블에서 데이터 파일이 만들어집니다. 위에서 만든 데이터를 DimDate2_export.txt라는 새 데이터 파일로 내보냅니다.
 
-### <a name="step-1:-export-the-data"></a>1단계: 데이터 내보내기
+### <a name="step-1-export-the-data"></a>1단계: 데이터 내보내기
 
 bcp 유틸리티를 사용하여, 값을 적절하게 대체하는 다음 명령을 사용하여 연결하고 데이터를 내보낼 수 있습니다.
 

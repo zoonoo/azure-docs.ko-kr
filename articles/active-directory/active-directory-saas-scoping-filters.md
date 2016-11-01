@@ -3,7 +3,7 @@
     description="개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -18,7 +18,7 @@
 
 
 
-# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 앱 프로비전
+# <a name="attributebased-app-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 앱 프로비전
 
 이 섹션의 목적은 범위 지정 필터를 사용하여 어떤 사용자를 응용 프로그램에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
 

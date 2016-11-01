@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@
     ![Azure 저장소 도구](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>1단계: Azure Blob 저장소에 샘플 데이터 추가
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>1단계: Azure Blob 저장소에 샘플 데이터 추가
 
 데이터를 로드하려면, Azure Blob 저장소에 샘플 데이터를 넣어야 합니다. 이 단계에서는 Azure Blob 저장소를 샘플 데이터로 채웁니다. 나중에 PolyBase를 사용하여 SQL 데이터 웨어하우스 데이터베이스로 이 샘플 데이터를 로드하게 됩니다.
 
-### <a name="a.-prepare-a-sample-text-file"></a>A. 샘플 텍스트 파일 준비
+### <a name="a-prepare-a-sample-text-file"></a>A. 샘플 텍스트 파일 준비
 
 샘플 텍스트 파일을 준비하려면:
 
@@ -70,7 +70,7 @@
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Blob 서비스 끝점 찾기
+### <a name="b-find-your-blob-service-endpoint"></a>B. Blob 서비스 끝점 찾기
 
 Blob 서비스 끝점을 찾으려면:
 
@@ -84,7 +84,7 @@ Blob 서비스 끝점을 찾으려면:
 
     ![Blob 서비스 끝점](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Azure 저장소 키 찾기
+### <a name="c-find-your-azure-storage-key"></a>C. Azure 저장소 키 찾기
 
 Azure 저장소 키를 찾으려면:
 
@@ -95,7 +95,7 @@ Azure 저장소 키를 찾으려면:
 
     ![Azure 저장소 키 복사](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. 샘플 파일을 Azure Blob 저장소에 복사
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. 샘플 파일을 Azure Blob 저장소에 복사
 
 데이터를 Azure Blob 저장소에 복사하려면:
 
@@ -113,7 +113,7 @@ Azure 저장소 키를 찾으려면:
 
 [AzCopy 명령줄 유틸리티 시작][]을 참조하세요.
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. Blob 저장소 컨테이너 탐색
+### <a name="e-explore-your-blob-storage-container"></a>E. Blob 저장소 컨테이너 탐색
 
 Blob 저장소에 업로드한 파일을 보려면:
 
@@ -126,7 +126,7 @@ Blob 저장소에 업로드한 파일을 보려면:
     ![Azure 저장소 Blob 보기](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>2단계: 샘플 데이터에 대한 외부 테이블 만들기
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>2단계: 샘플 데이터에 대한 외부 테이블 만들기
 
 이 섹션에서는 샘플 데이터를 정의하는 외부 테이블을 만듭니다.
 
@@ -216,7 +216,7 @@ Visual Studio의 SQL Server 개체 탐색기에 외부 파일 형식, 외부 데
 
 ![외부 테이블 보기](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>3단계: SQL 데이터 웨어하우스에 데이터 로드
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>3단계: SQL 데이터 웨어하우스에 데이터 로드
 
 외부 테이블이 생성되면, 새 테이블에 데이터를 로드하거나 기존 테이블에 데이터를 삽입할 수 있습니다.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>4단계: 새로 로드한 데이터에 대한 통계 만들기
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4단계: 새로 로드한 데이터에 대한 통계 만들기
 
 SQL 데이터 웨어하우스는 통계 자동 만들기 또는 자동 업데이트를 수행하지 않습니다. 따라서 높은 쿼리 성능을 달성하려면, 처음 로드한 후에 각 테이블의 각 열에 대한 통계를 만드는 것이 중요합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다.
 

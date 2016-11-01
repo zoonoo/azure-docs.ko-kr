@@ -3,7 +3,7 @@
     description="이 항목에서는 클라우드 앱 검색과 관련된 보안 및 개인정보 취급 방침 고려 사항을 설명 합니다."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -147,7 +147,7 @@ Internet Explorer 또는 Chrome에서 컴퓨터로 웹 트래픽을 송수신하
 클라우드 앱 검색 끝점 에이전트는 위의 **에이전트에 의해 수집된 데이터** 섹션에 설명된 정보만 수집합니다.
 
 
-### <a name="intercepting-data-from-encrypted-connections-(deep-inspection)"></a>암호화된 연결에서 데이터 가로채기(자세히 검사)
+### <a name="intercepting-data-from-encrypted-connections-deep-inspection"></a>암호화된 연결에서 데이터 가로채기(자세히 검사)
 앞서 설명한 것처럼 관리자는 암호화된 연결('자세히 검사')에서 데이터를 모니터링하도록 에이전트를 구성할 수 있습니다. TLS([전송 계층 보안](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx))는 오늘날 인터넷에서 사용되는 가장 일반적인 프로토콜 중 하나입니다. 클라이언트는 TLS와의 통신을 암호화하여 웹 서버와의 안전하고 비공개적인 통신 채널을 설정할 수 있습니다. TLS는 인증 자격 증명을 전달하기 위한 필수 보호 기능을 제공하고 중요한 정보의 노출을 방지합니다.
 
 TLS가 제공하는 종단 간 보안 암호화 채널은 중요한 보안 및 개인 정보 보호를 가능하게 하지만 프로토콜이 악의적이거나 부정한 목적에 악용되기도 합니다. 따라서 실제로 TLS를 "범용 방화벽 통과 프로토콜"이라고도 합니다. 이러한 문제의 근본 원인은 응용 프로그램 계층 데이터가 SSL로 암호화되기 때문에 대부분의 방화벽이 TLS 통신을 검사할 수 없다는 데 있습니다. 이 사실을 아는 공격자는 TLS를 자주 활용하여 사용자에게 악의적인 페이로드를 전달함으로써 가장 지능적인 응용 프로그램 계층 방화벽이더라도 TLS를 완전히 가려 호스트 간에 TLS 통신을 릴레이해야 하도록 만듭니다. 최종 사용자는 빈번히 TLS를 활용하여 회사 방화벽 및 프록시 서버를 통해 적용되는 액세스 제어를 우회하며, 공용 프록시에 연결하고 정책에 의해 차단될 수 있는 방화벽을 통과해서 비 TLS 프로토콜을 터널링하는 데도 이용합니다.

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Internet Explorer용 액세스 패널 확장 문제 해결| Microsoft Azure"
-    description="그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
+    pageTitle="Troubleshooting the Access Panel Extension for Internet Explorer | Microsoft Azure"
+    description="How to use group policy to deploy the Internet Explorer add-on for the My Apps portal."
     services="active-directory"
     documentationCenter=""
     authors="MarkusVi"
@@ -13,100 +13,105 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="08/16/2016"
+    ms.date="10/31/2016"
     ms.author="markvi"/>
 
-#Internet Explorer용 액세스 패널 확장 문제 해결
 
-이 문서는 다음과 같은 문제를 해결하는 데 도움이 됩니다.
+#<a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Troubleshooting the Access Panel Extension for Internet Explorer
 
-- Internet Explorer를 사용하는 중에 My Apps 포털을 통해 응용 프로그램에 액세스할 수 없습니다.
-- 소프트웨어를 이미 설치했는데도 "소프트웨어 설치" 메시지가 나타납니다.
+This article will help you troubleshoot the following problems:
 
-관리자인 경우 [Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)도 참조하세요.
+- You're unable to access your apps through the My Apps portal while using Internet Explorer.
+- You see the "Install Software" message even though you've already installed the software.
 
-##진단 도구 실행
+If you are an admin, see also: [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
 
-액세스 패널 진단 도구를 다운로드 및 실행하여 액세스 패널 확장의 설치 문제를 진단할 수 있습니다.
+##<a name="run-the-diagnostic-tool"></a>Run the Diagnostic Tool
 
-1. [진단 도구를 다운로드하려면 여기를 클릭합니다.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+You can diagnose installation problems with the Access Panel Extension by downloading and running the Access Panel diagnostic tool:
 
-2. 파일을 열고**모두 추출** 단추를 누릅니다.
+1. [Click here to download the diagnostic tool.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 
-	![모두 추출 누르기](./media/active-directory-saas-ie-troubleshooting/extract1.png)
+2. Open the file, and press **Extract all** button.
 
-3. 그런 다음 **추출** 단추를 눌러 계속합니다.
+    ![Press Extract All](./media/active-directory-saas-ie-troubleshooting/extract1.png)
 
-	![추출 누르기](./media/active-directory-saas-ie-troubleshooting/extract2.png)
+3. Then press the **Extract** button to continue.
 
-4. 도구를 실행하려면 이름이 **AccessPanelExtensionDiagnosticTool**인 파일을 마우스 오른쪽 단추로 클릭한 다음 **열기 > Microsoft Windows 기반 스크립트 호스트**를 선택합니다.
+    ![Press Extract](./media/active-directory-saas-ie-troubleshooting/extract2.png)
 
-	![다음 프로그램으로 열기 > Microsoft Windows 호스트 스크립트 호스트](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
+4. To run the tool, right-click the file named **AccessPanelExtensionDiagnosticTool**, then select **Open with > Microsoft Windows Based Script Host**.
 
-5. 그러면 다음 진단 창이 표시되어 가능한 설치 문제를 설명합니다.
+    ![Open with > Microsoft Windows Based Script Host](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
 
-	![진단 창 샘플](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
+5. You will then see the following diagnostic window, which describes what might be wrong with your installation.
 
-6. "**예**"를 클릭하여 프로그램이 발견한 문제를 수정하게 합니다.
+    ![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
 
-7. 이러한 변경 내용을 저장하려면 모든 Internet Explorer 창을 닫은 다음 Internet Explorer를 다시 엽니다. <br />그래도 응용 프로그램에 액세스할 수 없으면 다음 단계를 수행합니다.
+6. Click "**YES**" to let the program fix the issues that have been found.
 
-##액세스 패널 확장을 사용할 수 있는지 확인
+7. To save these changes, close every Internet Explorer window, and then open Internet Explorer again.<br />If you still can't access your apps, try the steps below.
 
-액세스 패널 확장이 Internet Explorer에서 사용할 수 있는지 확인합니다.
+##<a name="check-that-the-access-panel-extension-is-enabled"></a>Check that the Access Panel Extension is enabled
 
-1. Internet Explorer에서 창 오른쪽 위 모퉁이에 있는 **기어 아이콘**을 클릭합니다. 그런 다음 **인터넷 옵션**을 선택합니다.<br />(Internet Explorer 구 버전에서는 **도구 > 인터넷 옵션**에 있음).
+To verify that the Access Panel Extension is enabled in Internet Explorer:
 
-	![도구 > 인터넷 옵션으로 이동](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
+1. In Internet Explorer, click on the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
 
-2. **프로그램** 탭을 클릭한 다음 **추가 기능 관리** 단추를 클릭합니다.
+    ![Go to Tools > Internet Options](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 
-	![추가 기능 관리 클릭](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
+2. Click on the **Programs** tab, then click on the **Manage add-ons** button.
 
-3. 이 대화 상자에서 **액세스 패널 확장**을 클릭하고 **사용** 단추를 클릭합니다.
+    ![Click Manage Add-Ons](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
 
-	![사용 클릭](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
+3. In this dialog, select **Access Panel Extension** and then click the **Enable** button.
 
-4. 이러한 변경 내용을 저장하려면 모든 Internet Explorer 창을 닫은 다음 Internet Explorer를 다시 엽니다.
+    ![Click Enable](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
 
-##InPrivate 브라우징에 확장 사용
+4. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
 
-InPrivate 브라우징 모드를 사용 중인 경우:
+##<a name="enable-extensions-for-inprivate-browsing"></a>Enable Extensions for InPrivate Browsing
 
-1. Internet Explorer에서 창 오른쪽 위 모퉁이에 있는 **기어 아이콘**을 클릭합니다. 그런 다음 **인터넷 옵션**을 선택합니다.<br />(Internet Explorer 구 버전에서는 **도구 > 인터넷 옵션**에 있음).
+If you are using the InPrivate Browsing mode:
 
-	![진단 창 샘플](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
+1. In Internet Explorer, click on the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
 
-2. **개인정보** 탭으로 이동한 다음 이름이 **InPrivate 브라우징 시작 시 도구 모음 및 확장 프로그램 사용 안 함**</p>인 확인란을 **선택 취소**합니다.
+    ![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 
-	![InPrivate 브라우징 시작 시 도구 모음 및 확장 프로그램 사용 안 함](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
+2. Go to the **Privacy** tab, then **uncheck** the checkbox labeled **Disable toolbars and extensions when InPrivate Browsing starts**</p>
 
-3. 이러한 변경 내용을 저장하려면 모든 Internet Explorer 창을 닫은 다음 Internet Explorer를 다시 엽니다.
+    ![Uncheck Disable toolbars and extensions when InPrivate Browsing starts](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
 
-##액세스 패널 확장 제거
+3. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
 
-컴퓨터에서 액세스 패널 확장을 제거합니다.
+##<a name="uninstall-the-access-panel-extension"></a>Uninstall the Access Panel Extension
 
-1. 키보드에서 **Windows 키**를 눌러 시작 메뉴를 엽니다. 메뉴를 열면 검색 작업에 아무 항목이나 입력할 수 있습니다. "제어판"을 입력한 다음 검색 결과에 표시되면 **제어판**을 엽니다.
+To uninstall the Access Panel extension from your computer:
 
-	![제어판 검색](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
+1. On your keyboard, press the **Windows key** to open the Start menu. When the menu is open, you can type anything to do a search. Type "Control Panel" and then open the **Control Panel** when it appears in the search results.
 
-2. 제어판의 오른쪽 위 모퉁이에서 **보기** 옵션을 **큰 아이콘**으로 변경합니다. 그런 다음 **프로그램 및 기능** 단추를 찾아 클릭합니다.
+    ![Search for Control Panel](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
 
-	![큰 아이콘을 표시하도록 보기 변경](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
+2. In the top right corner of the Control Panel, change the **View by** option to **Large icons**. Then find and click on the **Programs and Features** button.
 
-3. 목록에서 **액세스 패널 확장**을 선택하고 **제거** 단추를 클릭합니다.
+    ![Chang the view to show Large Icons](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
 
-	![제거 클릭](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
+3. From the list, select **Access Panel Extension**, and the click on the **Uninstall** button.
 
-4. 그런 다음 확장을 다시 설치하여 문제가 해결되었는지 확인합니다.
+    ![Click Uninstall](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
 
-확장을 제거하는 데 문제가 있으면 [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) 도구를 사용하여 제거할 수도 있습니다.
+4. You can then try to install the extension again to see if the problem has been resolved.
 
-## 관련 문서
+If you encounter issues uninstalling the extension, you can also remove it using the [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) tool.
 
-- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-- [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
-- [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)
+## <a name="related-articles"></a>Related Articles
 
-<!---HONumber=AcomDC_0817_2016-->
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -3,8 +3,8 @@
    description="SQL 데이터 웨어하우스용 드라이버 및 연결 문자열"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/24/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 
 
@@ -22,7 +22,7 @@
 
 [ADO.NET][], [ODBC][], [PHP][] 및 [JDBC][]와 같은 여러 가지 다양한 응용 프로그램 프로토콜을 사용하여 SQL Data Warehouse에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다.  또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
-## <a name="sample-ado.net-connection-string"></a>샘플 ADO.NET 연결 문자열
+## <a name="sample-adonet-connection-string"></a>샘플 ADO.NET 연결 문자열
 
 ```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
