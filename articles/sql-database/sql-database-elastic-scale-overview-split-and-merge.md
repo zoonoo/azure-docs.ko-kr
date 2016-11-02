@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="확장된 클라우드 데이터베이스 간 데이터 이동 | Microsoft Azure" 
-    description="탄력적 데이터베이스 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다." 
+    pageTitle="Moving data between scaled-out cloud databases | Microsoft Azure" 
+    description="Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs." 
     services="sql-database" 
     documentationCenter="" 
     manager="jhubbard" 
@@ -12,83 +12,84 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/27/2016" 
+    ms.date="10/24/2016" 
     ms.author="ddove" />
 
-# 확장된 클라우드 데이터베이스 간 데이터 이동
 
-갑자기 앱 수요가 엄청나게 증가한 상황에 처한 SaaS(Software as a Service) 개발자는 이러한 급증을 처리해야 합니다. 따라서 더 많은 데이터베이스(분할 된 데이터베이스)를 추가합니다. 데이터 무결성을 해치지 않고 어떻게 새 데이터베이스에 데이터를 재배포할 수 있을까요? **분할-병합 도구**를 사용하여 제약 조건이 지정된 데이터베이스의 데이터를 새 데이터베이스로 이동합니다.
+# <a name="moving-data-between-scaledout-cloud-databases"></a>Moving data between scaled-out cloud databases
 
-분할-병합 도구는 Azure 웹 서비스로 실행됩니다. 관리자 또는 개발자는 이 도구를 사용하여 서로 다른 데이터베이스(분할된 데이터베이스) 간에 Shardlet(분할된 데이터베이스의 데이터)을 이동합니다. 이 도구는 분할된 데이터베이스 맵 관리를 사용하여 서비스 메타데이터 데이터베이스를 유지하며 일관된 매핑을 보장합니다.
+If you are a Software as a Service developer, and suddenly your app undergoes tremendous demand, you need to accommodate the growth. So you add more databases (shards). How do you redistribute the data to the new databases without disrupting the data integrity? Use the **split-merge tool** to move data from constrained databases to the new databases.  
 
-![개요][1]
+The split-merge tool runs as an Azure web service. An administrator or developer uses the tool to move shardlets (data from a shard) between different databases (shards). The tool uses shard map management to maintain the service metadata database, and ensure consistent mappings.
 
-## 다운로드
+![Overview][1]
+
+## <a name="download"></a>Download
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 
-## 설명서
-1. [탄력적 데이터베이스 분할/병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-* [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
-* [분할-병합 보안 고려 사항](sql-database-elastic-scale-split-merge-security-configuration.md)
-* [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)
-* [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)
-* [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)
-* [탄력적 데이터베이스 도구 용어집](sql-database-elastic-scale-glossary.md)
+## <a name="documentation"></a>Documentation
+1. [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
+* [Split-merge security considerations](sql-database-elastic-scale-split-merge-security-configuration.md)
+* [Shard map management](sql-database-elastic-scale-shard-map-management.md)
+* [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
+* [Elastic database tools](sql-database-elastic-scale-introduction.md)
+* [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md)
 
-## 분할-병합 도구를 사용해야 하는 이유
+## <a name="why-use-the-splitmerge-tool"></a>Why use the split-merge tool?
 
-**유연성**
+**Flexibility**
 
-응용 프로그램은 단일 Azure SQL DB 데이터베이스의 제한을 초과하여 유연하게 확장되어야 합니다. 무결성을 유지하면서 필요에 따라 데이터를 새 데이터베이스로 이동하기 위해 이 도구를 사용합니다.
+Applications need to stretch flexibly beyond the limits of a single Azure SQL DB database. Use the tool to move data as needed to new databases while retaining integrity.
 
-**증가하는 분할**
+**Split to grow** 
 
-폭발적인 증가에 대처하기 위해 전체 용량을 증대해야 합니다. 이를 위해 데이터를 분할하고 용량 요구 사항이 충족될 때까지 늘어나는 데이터베이스에 걸쳐 배포하여 추가 용량을 제공합니다. 이것이 '분할' 기능의 가장 대표적인 예입니다.
+You need to increase overall capacity to handle explosive growth. To do so, create additional capacity by sharding the data and by distributing it across incrementally more databases until capacity needs are fulfilled. This is a prime example of the ‘split’ feature. 
 
-**축소하는 병합**
+**Merge to shrink**
 
-비즈니스의 계절별 특성으로 인해 용량을 축소해야 합니다. 비즈니스 활동이 줄어들면 이 도구를 사용하여 더 적은 규모로 축소할 수 있습니다. 탄력적인 확장 분할-합병 서비스의 '병합' 기능에서 이 요구 사항을 다룹니다.
+Capacity needs shrink due to the seasonal nature of a business. The tool lets you scale down to fewer scale units when business slows. The ‘merge’ feature in the Elastic Scale split-merge Service covers this requirement. 
 
-**shardlet 이동으로 핫스팟 관리**
+**Manage hotspots by moving shardlets**
 
-데이터베이스당 여러 테넌트가 있는 경우 분할된 데이터베이스에 shardlet을 할당하면 일부 분할된 데이터베이스에서 용량 병목 현상이 발생할 수 있습니다. 이렇게 하려면 shardlet을 다시 할당하거나 사용량이 적은 shardlet을 새로운 또는 활용도가 적은 분할된 데이터베이스로 이동합니다.
+With multiple tenants per database, the allocation of shardlets to shards can lead to capacity bottlenecks on some shards. This requires re-allocating shardlets or moving busy shardlets to new or less utilized shards. 
 
-## 개념 및 주요 기능
+## <a name="concepts-key-features"></a>Concepts & key features
 
-**고객 호스트 서비스**
+**Customer-hosted services**
 
-분할-병합은 고객 호스트 서비스로 제공됩니다. Microsoft Azure 구독에서 서비스를 배포하고 호스트해야 합니다. NuGet에서 다운로드하는 패키지에는 특정 배포에 대한 정보를 완료하기 위한 구성 템플릿이 있습니다. 자세한 내용은 [분할-병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요. 서비스가 Azure 구독에서 실행되므로 서비스의 대부분 보안 측면을 제어하고 구성할 수 있습니다. 기본 템플릿에는 SSL, 인증서 기반 클라이언트 인증, 저장된 자격 증명에 대한 암호화, DoS 보호 및 IP 제한 사항을 구성할 수 있는 옵션이 있습니다. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md) 문서에서 보안 측면에 대한 자세한 내용을 확인할 수 있습니다.
+The split-merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the [split-merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [split-merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-배포된 기본 서비스는 하나의 작업자 및 하나의 웹 역할로 실행됩니다. 각 서비스는 Azure 클라우드 서비스에서 A1 VM 크기를 사용합니다. 패키지를 배포할 때 이러한 설정을 수정할 수 없지만 Azure 포털을 통해 실행 중인 클라우드 서비스에 배포한 후에는 변경할 수 있습니다. 기술적인 이유로 두 개 이상의 인스턴스에 대해 작업자 역할을 구성하지 않아야 합니다.
+The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons. 
 
-**분할된 데이터베이스 맵 통합**
+**Shard map integration**
 
-분할-병합 서비스는 응용 프로그램의 분할된 데이터베이스 맵을 조작합니다. 분할/병합 서비스를 사용하여 범위를 분할 또는 병합하거나 분할된 데이터베이스 간에 shardlet을 이동하는 경우 서비스에서 자동으로 분할된 데이터베이스 맵을 최신 상태로 유지합니다. 이렇게 하기 위해 서비스가 응용 프로그램의 분할된 데이터베이스 맵 관리자 데이터베이스에 연결하고 분할/병합 이동 요청이 진행될 때 범위 및 매핑을 유지합니다. 따라서 분할/병합 작업이 진행될 때 분할된 데이터베이스 맵이 항상 최신 뷰를 표시합니다. 분할, 병합 및 shardlet 이동 작업은 원본 분할된 데이터베이스에서 대상 분할된 데이터베이스로 shardlet 배치를 이동하여 구현됩니다. shardlet 이동 작업 중 현재 일괄 처리에서 실행되는 shardlet은 분할된 데이터베이스 맵에서 오프라인으로 표시되며 **OpenConnectionForKey** API를 사용하는 데이터 종속 라우팅에 사용할 수 없습니다.
+The split-merge service interacts with the shard map of the application. When using the split-merge service to split or merge ranges or to move shardlets between shards, the service automatically keeps the shard map up to date. To do so, the service connects to the shard map manager database of the application and maintains ranges and mappings as split/merge/move requests progress. This ensures that the shard map always presents an up-to-date view when split-merge operations are going on. Split, merge and shardlet movement operations are implemented by moving a batch of shardlets from the source shard to the target shard. During the shardlet movement operation the shardlets subject to the current batch are marked as offline in the shard map and are unavailable for data-dependent routing connections using the **OpenConnectionForKey** API. 
 
-**일관된 Shardlet 연결 수**
+**Consistent shardlet connections**
 
-새로운 shardlet 배치에 대한 데이터 이동이 시작되면 shardlet을 저장하는 분할된 데이터베이스에 대한 분할된 데이터베이스 맵 제공 데이터 종속 라우팅 연결이 중지되고 데이터 이동이 진행되는 동안 불일치를 방지하기 위해 분할된 데이터베이스 맵 API에서 해당 shardlet로의 후속 연결이 차단됩니다. 동일한 분할된 데이터베이스의 다른 shardlet에 대한 연결도 중지되지만 다시 시도하면 즉시 다시 성공합니다. 배치가 이동되면 대상 분할된 데이터베이스에 대한 shardlet이 다시 온라인으로 표시되고, 원본 데이터는 원본 분할된 데이터베이스에서 제거됩니다. 서비스는 모든 shardlet이 이동될 때까지 모든 배치에 대한 단계를 거칩니다. 그렇게 하면 전체 분할/병합/이동 작업 과정 중 몇 가지 연결 중지 작업이 수행됩니다.
+When data movement starts for a new batch of shardlets, any shard-map provided data-dependent routing connections to the shard storing the shardlet are killed and subsequent connections from the shard map APIs to the these shardlets are blocked while the data movement is in progress in order to avoid inconsistencies. Connections to other shardlets on the same shard will also get killed, but will succeed again immediately on retry. Once the batch is moved, the shardlets are marked online again for the target shard and the source data is removed from the source shard. The service goes through these steps for every batch until all shardlets have been moved. This will lead to several connection kill operations during the course of the complete split/merge/move operation.  
 
-**Shardlet 가용성 관리**:
+**Managing shardlet availability**
 
-위에서 설명한 대로 연결 중지를 shardlet의 현재 배치로 제한하면 사용할 수 없는 범위가 한 번에 shardlet의 한 배치로 제한됩니다. 이 접근 방식이 분할 혹은 병합 작업 과정 중 모든 전체 분할된 데이터베이스가 오프라인으로 유지되는 방법보다 선호됩니다. 한 번에 이동할 고유한 shardlet 수로 정의되는 배치의 크기가 구성 매개 변수입니다. 이 매개 변수는 응용 프로그램의 가용성 및 성능 요구에 따라 각 분할/병합 작업에 대해 정의할 수 있습니다. 분할된 데이터베이스 맵에서 잠금 중인 범위가 지정된 배치 크기보다 클 수 있습니다. 데이터의 실제 분할 키 값 수가 대략 배치 크기와 같아지도록 서비스가 범위 크기를 선택하기 때문입니다. 특히 드물게 채워진 분할 키에 대해 이 기능을 기억하는 것이 중요합니다.
+Limiting the connection killing to the current batch of shardlets as discussed above restricts the scope of unavailability to one batch of shardlets at a time. This is preferred over an approach where the complete shard would remain offline for all its shardlets during the course of a split or merge operation. The size of a batch, defined as the number of distinct shardlets to move at a time, is a configuration parameter. It can be defined for each split and merge operation depending on the application’s availability and performance needs. Note that the range that is being locked in the shard map may be larger than the batch size specified. This is because the service picks the range size such that the actual number of sharding key values in the data approximately matches the batch size. This is important to remember in particular for sparsely populated sharding keys. 
 
-**메타데이터 저장소**:
+**Metadata storage**
 
-분할-병합 서비스는 데이터베이스를 사용하여 해당 상태를 유지 관리하고 요청을 처리하는 동안 로그를 유지합니다. 사용자가 해당 구독에서 이 데이터베이스를 만들고 서비스 배포용 구성 파일에서 이 데이터베이스에 대한 연결 문자열을 제공합니다. 사용자 조직의 관리자는 이 데이터베이스에 연결하여 요청 진행 상황을 검토하고 오류 발생 가능성에 대한 자세한 정보를 확인할 수 있습니다.
+The split-merge service uses a database to maintain its status and to keep logs during request processing. The user creates this database in their subscription and provides the connection string for it in the configuration file for the service deployment. Administrators from the user’s organization can also connect to this database to review request progress and to investigate detailed information regarding potential failures.
 
-**분할 인식**:
+**Sharding-awareness**
 
-분할/병합 서비스는 (1) 분할된 테이블, (2) 참조 테이블 및 (3) 일반 테이블을 구분할 수 있습니다. 분할/병합/이동 작업의 의미 체계는 사용되는 테이블 유형에 따라 달라지고 다음과 같이 정의됩니다.
+The split-merge service differentiates between (1) sharded tables, (2) reference tables, and (3) normal tables. The semantics of a split/merge/move operation depend on the type of the table used and are defined as follows: 
 
-* **Sharded tables**: 분할, 병합 및 이동 작업은 원본에서 대상 분할된 데이터베이스로 shardlet을 이동합니다. 전체 요청을 성공적으로 완료한 후에는 이러한 shardlet이 더 이상 원본에 존재하지 않습니다. 대상 테이블이 대상 분할된 데이터베이스에 있어야 할 필요는 없으며 작업을 처리하기 전에 대상 범위의 데이터를 포함해서는 안 됩니다. 
+* **Sharded tables**: Split, merge, and move operations move shardlets from source to target shard. After successful completion of the overall request, those shardlets are no longer present on the source. Note that the target tables need to exist on the target shard and must not contain data in the target range prior to processing of the operation. 
 
-* **Reference tables**: 참조 테이블의 경우 분할, 병합 및 이동 작업이 원본에서 대상 분할된 데이터베이스로 데이터를 복사합니다. 그러나 대상의 이 테이블에 하나 이상의 행이 있는 경우 지정된 테이블에 대한 대상 분할된 데이터베이스에서는 어떤 변경도 발생하지 않습니다. 참조 테이블 복사 작업을 처리하려면 테이블이 비어 있어야 합니다.
+* **Reference tables**: For reference tables, the split, merge and move operations copy the data from the source to the target shard. Note, however, that no changes occur on the target shard for a given table if any row is already present in this table on the target. The table has to be empty for any reference table copy operation to get processed.
 
-* **Other Tables**: 기타 테이블이 분할 및 병합 작업의 원본 또는 대상에 있을 수 있습니다. 분할/병합 서비스는 임의의 데이터 이동 또는 복사 작업에 대해 이러한 테이블을 무시합니다. 단, 제약 조건이 있는 경우에는 이와 같은 작업이 정상적으로 수행되지 않을 수 있습니다.
+* **Other Tables**: Other tables can be present on either the source or the target of a split and merge operation. The split-merge service disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
 
-참조 테이블과 분할된 테이블 비교 정보는 분할된 데이터베이스 맵의 **SchemaInfo** API에서 제공됩니다. 다음 예제에서는 지정된 분할된 데이터베이스 맵 관리자 개체 smm에서 이러한 API 사용을 보여 줍니다.
+The information on reference vs. sharded tables is provided by the **SchemaInfo** APIs on the shard map. The following example illustrates the use of these APIs on a given shard map manager object smm: 
 
     // Create the schema annotations 
     SchemaInfo schemaInfo = new SchemaInfo(); 
@@ -104,84 +105,84 @@
     // Publish 
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
-테이블의 'region' 및 'nation'은 참조 테이블로 정의되며, 및 분할/병합/이동 작업을 통해 복사됩니다.’customers' 및 ‘orders’는 분할된 테이블로 정의됩니다. C\_CUSTKEY 및 O\_CUSTKEY는 분할 키 역할을 합니다.
+The tables ‘region’ and ‘nation’ are defined as reference tables and will be copied with split/merge/move operations. ‘customer’ and ‘orders’ in turn are defined as sharded tables. C_CUSTKEY and O_CUSTKEY serve as the sharding key. 
 
-**참조 무결성**:
+**Referential Integrity**
 
-분할-병합 서비스는 테이블 간의 종속성을 분석하고 외래 키-기본 키 관계를 사용하여 참조 테이블 및 shardlet을 이동하는 작업을 준비합니다. 일반적으로 참조 테이블이 종속성 순서에 따라 먼저 복사된 다음 shardlet이 각 배치 내에서 해당 종속성의 순서에 따라 복사됩니다. 새 데이터가 도착하면 대상 분할된 데이터베이스에 대한 FK-PK 제약 조건이 적용되어야 하므로 이 과정이 필요합니다.
+The split-merge service analyzes dependencies between tables and uses foreign key-primary key relationships to stage the operations for moving reference tables and shardlets. In general, reference tables are copied first in dependency order, then shardlets are copied in order of their dependencies within each batch. This is necessary so that FK-PK constraints on the target shard are honored as the new data arrives. 
 
-**분할된 데이터베이스 맵 일관성 및 최종 완료**:
+**Shard Map Consistency and Eventual Completion**
 
-오류가 발생한 경우 분할/병합 서비스는 중단 후 작업을 다시 시작하고 진행 중인 모든 요청을 완료하는 것을 목표로 합니다. 그러나 복구할 수 없는 상황(예: 대상 분할된 데이터베이스가 손실되거나 복구할 수 없을 정도로 손상된 경우)도 있을 수 있습니다. 이러한 상황에서는 이동해야 할 shardlet 중 일부가 계속 원본 분할된 데이터베이스에 상주할 수 있습니다. 이 서비스는 필요한 데이터를 대상에 복사한 후에만 shardlet 매핑이 업데이트되도록 합니다. 모든 데이터가 대상에 복사되고 해당하는 매핑이 업데이트된 후에만 Shardlet이 원본에서 삭제됩니다. 범위가 대상 분할된 데이터베이스에서 이미 온라인 상태인 동안 삭제 작업이 백그라운드에서 수행됩니다. 분할/병합 서비스는 분할된 데이터베이스 맵에 저장되는 매핑의 정확성을 항상 보장합니다.
-
-
-## 분할/병합 사용자 인터페이스
-
-분할-병합 서비스 패키지에는 웹 역할 및 작업자 역할이 포함됩니다. 웹 역할은 대화식으로 분할-병합 요청을 제출하는 데 사용됩니다. 사용자 인터페이스의 주요 구성 요소는 다음과 같습니다.
-
--    Operation Type: 작업 유형은 이 요청에 대해 서비스에서 수행하는 작업의 종류를 제어하는 라디오 단추입니다. 분할, 병합 및 이동 시나리오 중에서 선택할 수 있습니다. 이전에 제출된 작업을 취소할 수도 있습니다. 범위 분할된 데이터베이스 맵에 분할, 병합 및 이동 요청을 사용할 수 있습니다. 목록 분할된 데이터베이스 맵은 이동 작업만 지원합니다.
-
--    Shard Map: 요청 매개 변수의 다음 섹션에서는 분할된 데이터베이스 맵과 분할된 데이터베이스 맵을 호스트하는 데이터베이스에 대한 정보를 다룹니다. 특히, Azure SQL 데이터베이스 서버의 이름과 shardmap을 호스트하는 데이터베이스의 이름, 분할된 데이터베이스 맵 데이터베이스에 연결하는 자격 증명, 마지막으로 분할된 데이터베이스 맵의 이름을 제공해야 합니다. 현재 작업은 단일 자격 증명 집합만 허용합니다. 이러한 자격 증명에는 분할된 데이터베이스 맵과 분할된 데이터베이스의 사용자 데이터를 변경할 수 있는 권한이 있어야 합니다.
-
--    Source Range (split and merge): 분할 및 병합 작업은 해당 하위 키 및 상위 키를 사용하여 범위를 처리합니다. 바인딩되지 않은 상위 키 값으로 작업을 지정하려면 “High key is max” 확인란을 선택하고 상위 키 필드를 비워 둡니다. 지정한 범위 키 값은 분할된 데이터베이스 맵의 매핑 및 해당 경계와 정확히 일치하지 않아도 됩니다. 범위 경계를 지정하지 않으면 서비스가 가장 가까운 범위를 자동으로 유추합니다. GetMappings.ps1 PowerShell 스크립트를 사용하여 지정한 분할된 데이터베이스 맵에서 현재 매핑을 검색할 수 있습니다.
-
--    Split Source Behavior(split): 분할 작업의 경우 원본 범위를 분할할 지점을 정의해야 합니다. 분할을 수행할 위치에 분할 키를 제공하여 이 작업을 수행합니다. 라디오 단추를 사용하여 범위의 하단 부분(분할 키 제외)을 이동할지 아니면 범위의 상단 부분(분할 키 포함)을 이동할지를 정의합니다.
-
--    Source Shardlet (move): 이동 작업은 원본을 기술하는 범위가 필요하지 않으므로 분할 또는 병합 작업과 다릅니다. 이동의 원본은 이동할 분할 키 값으로 식별될 뿐입니다.
-
--    Target Shard (split): 분할 작업의 원본에 대한 정보를 제공한 후에는 대상에 대해 Azure SQL DB 서버 및 데이터베이스 이름을 제공하여 데이터를 복사할 위치를 정의해야 합니다.
-
--    Target Range(merge): 병합 작업은 shardlet을 기존의 분할된 데이터베이스로 이동합니다. 병합할 기존 범위의 범위 경계를 제공하여 기존의 분할된 데이터베이스를 식별합니다.
-
--    Batch Size: 배치 크기는 데이터 이동 중 특정 시간에 오프라인으로 전환하는 shardlet의 수를 제어합니다. 이 값은 정수이며, shardlet의 장기 가동 중지 시간에 따른 영향을 받는 경우 더 적은 값을 사용할 수 있습니다. 값이 클수록 지정된 shardlet이 오프라인 상태인 시간이 길어지지만 성능은 향상될 수 있습니다.
-
--    작업 ID (취소): 더 이상 필요하지 않은 진행 중인 작업이 있는 경우 이 필드에서 해당 작업 ID를 제공하여 작업을 취소할 수 있습니다. 요청을 제출한 웹 브라우저의 출력이나 요청 상태 테이블(섹션 8.1 참조)에서 작업 ID를 검색할 수 있습니다.
+In the presence of failures, the split-merge service resumes operations after any outage and aims to complete any in progress requests. However, there may be unrecoverable situations, e.g., when the target shard is lost or compromised beyond repair. Under those circumstances, some shardlets that were supposed to be moved may continue to reside on the source shard. The service ensures that shardlet mappings are only updated after the necessary data has been successfully copied to the target. Shardlets are only deleted on the source once all their data has been copied to the target and the corresponding mappings have been updated successfully. The deletion operation happens in the background while the range is already online on the target shard. The split-merge service always ensures correctness of the mappings stored in the shard map.
 
 
-## 요구 사항 및 제한 사항 
+## <a name="the-splitmerge-user-interface"></a>The split-merge user interface
 
-분할/병합 서비스의 현재 구현에는 다음 요구 사항 및 제한 사항이 적용됩니다.
+The split-merge service package includes a worker role and a web role. The web role is used to submit split-merge requests in an interactive way. The main components of the user interface are as follows:
 
-* 분할된 데이터베이스가 있으며 분할된 데이터베이스 맵에 등록되어 있어야 해당 분할된 데이터베이스에 대한 분할/병합 작업을 수행할 수 있습니다. 
+-    Operation Type: The operation type is a radio button that controls the kind of operation performed by the service for this request. You can choose between the split, merge and move scenarios. You can also cancel a previously submitted operation. You can use split, merge and move requests for range shard maps. List shard maps only support move operations.
 
-* 현재는 이 서비스가 테이블 또는 기타 데이터베이스 개체를 자동으로 만들지 않습니다. 즉, 모든 분할된 테이블 및 참조 테이블에 대한 스키마가 대상 분할된 데이터베이스에 존재해야 분할/병합/이동 작업이 가능합니다. 특히 분할된 테이블에서 분할/병합/이동 작업을 통해 새 shardlet을 추가할 범위가 비어 있어야 합니다. 그렇지 않은 경우 작업이 대상 분할된 데이터베이스의 초기 일관성 검사에 실패합니다. 또한 참조 테이블이 비어 있고 참조 테이블에 대한 다른 동시 쓰기 작업과 관련된 일관성 보장이 없는 경우에만 참조 데이터가 복사됩니다. 분할/병합 작업을 실행할 때는 참조 테이블을 변경하는 다른 쓰기 작업을 수행하지 않는 것이 좋습니다.
+-    Shard Map: The next section of request parameters cover information about the shard map and the database hosting your shard map. In particular, you need to provide the name of the Azure SQL Database server and database hosting the shardmap, credentials to connect to the shard map database, and finally the name of the shard map. Currently, the operation only accepts a single set of credentials. These credentials need to have sufficient permissions to perform changes to the shard map as well as to the user data on the shards.
 
-* 이 서비스는 분할 키를 포함하는 고유 인덱스 또는 키로 설정된 행 ID를 사용하여 대형 shardlet의 성능과 신뢰성을 개선합니다. 따라서 서비스가 분할 키 값보다 훨씬 더 세밀하게 데이터를 이동할 수 있습니다. 이런 기능은 작업 중 필요한 잠금 및 로그 공간의 최대 양을 줄이는 데 도움이 됩니다. 분할/병합/이동 요청과 함께 테이블을 사용하려는 경우 지정된 테이블의 분할 키를 포함하는 기본 키 또는 고유 인덱스를 만드는 것이 좋습니다. 성능상의 이유로 분할 키는 키 또는 인덱스의 선행 열이어야 합니다.
+-    Source Range (split and merge): A split and merge operation processes a range using its low and high key. To specify an operation with an unbounded high key value, check the “High key is max” check box and leave the high key field empty. The range key values that you specify do not need to precisely match a mapping and its boundaries in your shard map. If you do not specify any range boundaries at all the service will infer the closest range for you automatically. You can use the GetMappings.ps1 PowerShell script to retrieve the current mappings in a given shard map.
 
-* 요청 처리 과정에서 일부 shardlet 데이터는 원본 및 대상 분할된 데이터베이스 모두에 있을 수 있습니다. shardlet 이동 중 오류가 발생하지 않도록 보호하기 위해 필요합니다. 분할된 데이터베이스 맵과 분할-병합을 통합하면 분할된 데이터베이스 맵에서 **OpenConnectionForKey** 메서드를 사용하여 데이터 종속 라우팅 API를 통해 설정한 연결에서는 불일치하는 중간 상태가 표시되지 않습니다. 그러나 **OpenConnectionForKey** 메서드를 사용하지 않고 원본 또는 대상 분할된 데이터베이스에 연결할 경우 분할/병합/이동 요청이 진행될 때 불일치하는 중간 상태가 표시될 수도 있습니다. 이러한 연결은 타이밍이나 분할된 데이터베이스 기본 연결에 따라 부분적인 결과나 중복된 결과를 표시할 수 있습니다. 현재 이러한 제한 상황에는 탄력적인 확장 다중 분할된 데이터베이스 쿼리를 통해 생성된 연결이 포함됩니다.
+-    Split Source Behavior (split): For split operations, define the point to split the source range. You do this by providing the sharding key where you want the split to occur. Use the radio button specify whether you want the lower part of the range (excluding the split key) to move, or whether you want the upper part to move (including the split key).
 
-* 분할/병합 서비스용 메타데이터 데이터베이스를 여러 역할 간에 공유하지 않아야 합니다. 예를 들어 스테이징 환경에서 실행되는 분할/병합 서비스의 역할이 프로덕션 역할과는 다른 메타데이터 데이터베이스를 가리켜야 합니다.
+-    Source Shardlet (move): Move operations are different from split or merge operations as they do not require a range to describe the source. A source for move is simply identified by the sharding key value that you plan to move.
+
+-    Target Shard (split): Once you have provided the information on the source of your split operation, you need to define where you want the data to be copied to by providing the Azure SQL Db server and database name for the target.
+
+-    Target Range (merge): Merge operations move shardlets to an existing shard. You identify the existing shard by providing the range boundaries of the existing range that you want to merge with.
+
+-    Batch Size: The batch size controls the number of shardlets that will go offline at a time during the data movement. This is an integer value where you can use smaller values when you are sensitive to long periods of downtime for shardlets. Larger values will increase the time that a given shardlet is offline but may improve performance.
+
+-    Operation Id (Cancel): If you have an ongoing operation that is no longer needed, you can cancel the operation by providing its operation ID in this field. You can retrieve the operation ID from the request status table (see Section 8.1) or from the output in the web browser where you submitted the request.
+
+
+## <a name="requirements-and-limitations"></a>Requirements and Limitations 
+
+The current implementation of the split-merge service is subject to the following requirements and limitations: 
+
+* The shards need to exist and be registered in the shard map before a split-merge operation on these shards can be performed. 
+
+* The service does not create tables or any other database objects automatically as part of its operations. This means that the schema for all sharded tables and reference tables need to exist on the target shard prior to any split/merge/move operation. Sharded tables in particular are required to be empty in the range where new shardlets are to be added by a split/merge/move operation. Otherwise, the operation will fail the initial consistency check on the target shard. Also note that reference data is only copied if the reference table is empty and that there are no consistency guarantees with regard to other concurrent write operations on the reference tables. We recommend this: when running split/merge operations, no other write operations make changes to the reference tables.
+
+* The service relies on row identity established by a unique index or key that includes the sharding key to improve performance and reliability for large shardlets. This allows the service to move data at an even finer granularity than just the sharding key value. This helps to reduce the maximum amount of log space and locks that are required during the operation. Consider creating a unique index or a primary key including the sharding key on a given table if you want to use that table with split/merge/move requests. For performance reasons, the sharding key should be the leading column in the key or the index.
+
+* During the course of request processing, some shardlet data may be present both on the source and the target shard. This is necessary to protect against failures during the shardlet movement. The integration of split-merge with the shard map ensures that connections through the data dependent routing APIs using the **OpenConnectionForKey** method on the shard map do not see any inconsistent intermediate states. However, when connecting to the source or the target shards without using the **OpenConnectionForKey** method, inconsistent intermediate states might be visible when split/merge/move requests are going on. These connections may show partial or duplicate results depending on the timing or the shard underlying the connection. This limitation currently includes the connections made by Elastic Scale Multi-Shard-Queries.
+
+* The metadata database for the split-merge service must not be shared between different roles. For example, a role of the split-merge service running in staging needs to point to a different metadata database than the production role.
  
 
-## 결제 
+## <a name="billing"></a>Billing 
 
-분할 병합 서비스는 Microsoft Azure 구독에서 클라우드 서비스로 실행 됩니다. 따라서 서비스 인스턴스의 클라우드 서비스에 대한 요금이 적용 됩니다. 분할/병합/이동 작업을 자주 수행하지 않는 한 분할/병합 클라우드 서비스를 삭제하는 것이 좋습니다. 그렇게 하면 실행 중이거나 배포된 클라우드 서비스 인스턴스의 비용이 절감됩니다. 분할/병합 작업을 수행해야 할 때마다 즉시 실행 가능한 구성을 다시 배포하고 시작할 수 있습니다.
+The split-merge service runs as a cloud service in your Microsoft Azure subscription. Therefore charges for cloud services apply to your instance of the service. Unless you frequently perform split/merge/move operations, we recommend you delete your split-merge cloud service. That saves costs for running or deployed cloud service instances. You can re-deploy and start your readily runnable configuration whenever you need to perform split or merge operations. 
  
-## 모니터링 
-### 상태 테이블 
+## <a name="monitoring"></a>Monitoring 
+### <a name="status-tables"></a>Status tables 
 
-분할-병합 서비스는 완료된 요청 및 진행 중인 요청의 모니터링을 위해 메타데이터 저장소 데이터베이스에서 **RequestStatus** 테이블을 제공합니다. 이 테이블은 분할/병합 서비스의 이 인스턴스에 제출된 각 분할/병합 요청에 대한 행을 나열하며, 각 요청에 대해 다음 정보를 제공합니다.
+The split-merge Service provides the **RequestStatus** table in the metadata store database for monitoring of completed and ongoing requests. The table lists a row for each split-merge request that has been submitted to this instance of the split-merge service. It gives the following information for each request:
 
-* **타임스탬프**: 요청이 시작된 날짜와 시간입니다.
+* **Timestamp**: The time and date when the request was started.
 
-* **작업 ID**: 요청을 고유하게 식별하는 GUID입니다. 이 요청을 사용하여 아직 진행 중인 작업을 취소할 수도 있습니다.
+* **OperationId**: A GUID that uniquely identifies the request. This request can also be used to cancel the operation while it is still ongoing.
 
-* **상태**: 요청의 현재 상태입니다. 진행 중인 요청의 경우 요청이 있는 현재 단계도 나열됩니다.
+* **Status**: The current state of the request. For ongoing requests, it also lists the current phase in which the request is.
 
-* **취소 요청**: 요청이 취소되었는지 여부를 나타내는 플래그입니다.
+* **CancelRequest**: A flag that indicates whether the request has been cancelled.
 
-* **진행률**: 작업의 예상 완료율입니다. 값이 50이면 작업이 약 50% 완료된 것입니다.
+* **Progress**: A percentage estimate of completion for the operation. A value of 50 indicates that the operation is approximately 50% complete.
 
-* **세부 정보**: 더 자세한 진행률 보고서를 제공하는 XML 값입니다. 진행률 보고서는 행 집합이 원본에서 대상으로 복사될 때 정기적으로 업데이트됩니다. 오류 또는 예외 발생 시 이 열에는 오류에 대한 자세한 내용이 포함됩니다.
+* **Details**: An XML value that provides a more detailed progress report. The progress report is periodically updated as sets of rows are copied from source to target. In case of failures or exceptions, this column also includes more detailed information about the failure.
 
 
-### Azure 진단
+### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure 진단을 사용합니다. [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 대로 진단 구성을 제어합니다. 두 진단 구성이 포함된 패키지를 다운로드합니다- 웹 역할, 작업자 역할 [Microsoft Azure에서 클라우드 서비스 기본 사항](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649) 지침을 따라 진단 구성이 서비스됩니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 응용 프로그램 이벤트 로그를 기록하는 정의가 포함됩니다.
+The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monitoring and diagnostics. You control the diagnostics configuration as explained here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). The download package includes two diagnostics configurations – one for the web role and one for the worker role. These diagnostics configurations for the service follow the guidance from [Cloud Service Fundamentals in Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and split-merge application event logs. 
 
-## 진단 배포 
+## <a name="deploy-diagnostics"></a>Deploy Diagnostics 
 
-모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
+To enable monitoring and diagnostics using the diagnostic configuration for the web and worker roles provided by the NuGet package, run the following commands using Azure PowerShell: 
 
     $storage_name = "<YourAzureStorageAccount>" 
     
@@ -203,43 +204,43 @@
     
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-[Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에서 진단 설정을 구성 및 배포하는 방법에 자세한 내용을 확인할 수 있습니다.
+You can find more information on how to configure and deploy diagnostics settings here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). 
 
-## 진단 검색 
+## <a name="retrieve-diagnostics"></a>Retrieve diagnostics 
 
-서버 탐색기 트리의 Azure 부분에 있는 Visual Studio 서버 탐색기에서 진단에 쉽게 액세스할 수 있습니다. Visual Studio 인스턴스를 열고 메뉴 모음에서 보기와 서버 탐색기를 차례로 클릭합니다. Azure 아이콘을 클릭하여 Azure 구독에 연결합니다. 그런 다음 Azure -> 저장소-> <your storage account>-> 테이블 -> WADLogsTable로 이동합니다. 자세한 내용은 [서버 탐색기로 저장소 리소스 찾아보기](http://msdn.microsoft.com/library/azure/ff683677.aspx)를 참조하세요.
+You can easily access your diagnostics from the Visual Studio Server Explorer in the Azure part of the Server Explorer tree. Open a Visual Studio instance, and in the menu bar click View, and Server Explorer. Click the Azure icon to connect to your Azure subscription. Then navigate to Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx). 
 
 ![WADLogsTable][2]
 
-위의 그림에서 강조 표시된 WADLogsTable에는 분할/병합 서비스의 응용 프로그램 로그에 있는 자세한 이벤트가 포함됩니다. 다운로드한 패키지의 기본 구성이 프로덕션 배포에 맞춰 조정됩니다. 그렇기 때문에, 서비스 인스턴스에서 로그 및 카운터를 가져오는 간격이 큽니다(5 분). 테스트 및 개발을 위해 필요에 따라 웹 또는 작업자 역할의 진단 설정을 조정하여 간격을 낮출 수 있습니다. Visual Studio 서버 탐색기(위 참조)의 역할을 마우스 오른쪽 단추로 클릭하여 이 작업을 수행한 다음 진단 구성 설정용 대화 상자에서 전송 기간을 조정합니다.
+The WADLogsTable highlighted in the figure above contains the detailed events from the split-merge service’s application log. Note that the default configuration of the downloaded package is geared towards a production deployment. Therefore the interval at which logs and counters are pulled from the service instances is large (5 minutes). For test and development, lower the interval by adjusting the diagnostics settings of the web or the worker role to your needs. Right-click on the role in the Visual Studio Server Explorer (see above) and then adjust the Transfer Period in the dialog for the Diagnostics configuration settings: 
 
-![구성][3]
+![Configuration][3]
 
 
-## 성능
+## <a name="performance"></a>Performance
 
-일반적으로 Azure SQL 데이터베이스에서 성능 서비스 계층이 높고 뛰어날수록 더 나은 성능을 기대할 수 있습니다. 서비스 계층이 높을수록 IO, CPU 및 메모리 할당을 높이면 분할/병합 서비스를 사용하는 대량 복사 및 삭제 작업의 효율이 높아집니다. 이런 이유로 정의되고 제한된 기간 해당 데이터베이스에 대해서만 서비스 계층을 증가시킵니다.
+In general, better performance is to be expected from the higher, more performant service tiers in Azure SQL Database. Higher IO, CPU and memory allocations for the higher service tiers benefit the bulk copy and delete operations that the split-merge service uses. For that reason, increase the service tier just for those databases for a defined, limited period of time.
 
-서비스는 정상적인 작업의 일부로 유효성 검사 쿼리를 수행합니다. 이러한 유효성 검사 쿼리는 대상 범위의 예기치 않은 데이터 존재를 확인하고 일관성 있는 상태에서 모든 분할/병합/이동 작업이 시작되는지 확인합니다. 이러한 쿼리는 모두 요청 정의의 일부로 제공된 배치 크기 작업의 범위로 정의된 분할 키 범위에 대해 작동합니다. 그리고 이러한 쿼리는 분할 키를 선행 열로 포함하는 인덱스가 있는 경우에 최상의 성능을 보입니다.
+The service also performs validation queries as part of its normal operations. These validation queries check for unexpected presence of data in the target range and ensure that any split/merge/move operation starts from a consistent state. These queries all work over sharding key ranges defined by the scope of the operation and the batch size provided as part of the request definition. These queries perform best when an index is present that has the sharding key as the leading column. 
 
-또한 분할 키를 선행 열로 포함하는 고유성 속성을 통해 서비스는 로그 공간 및 메모리와 관련하여 리소스 사용을 제한하는 최적화된 접근 방식을 사용할 수 있습니다. 이 고유성 속성은 대형 데이터 크기(일반적으로 1GB 이상)를 이동하는 데 필요합니다.
+In addition, a uniqueness property with the sharding key as the leading column will allow the service to use an optimized approach that limits resource consumption in terms of log space and memory. This uniqueness property is required to move large data sizes (typically above 1GB). 
 
-## 업그레이드하는 방법
+## <a name="how-to-upgrade"></a>How to upgrade
 
-1. [분할-병합 서비스 배포](sql-database-elastic-scale-configure-deploy-split-and-merge.md)의 단계를 따릅니다.
-2. 분할/병합 배포의 클라우드 서비스 구성 파일을 새 구성 매개 변수를 반영하도록 변경합니다. 새 필수 매개 변수는 암호화에 사용되는 인증서에 대한 정보입니다. 이 작업을 쉽게 수행하는 방법은 다운로드한 새 구성 템플릿 파일을 기존 구성과 비교하는 것입니다. 웹 역할과 작업자 역할 둘 다에 대해 “DataEncryptionPrimaryCertificateThumbprint” 및“DataEncryptionPrimary” 설정을 추가합니다.
-3. 업데이트를 Azure에 배포하기 전에 현재 실행 중인 모든 분할/병합 작업이 완료되었는지 확인합니다. 분할/병합 메타데이터 데이터베이스에의 RequestStatus 및 PendingWorkflows 테이블에서 진행 중인 요청을 쿼리하여 쉽게 확인할 수 있습니다.
-4. Azure 구독의 분할/병합에 대한 기존 클라우드 서비스 배포를 새 패키지 및 업데이트된 서비스 구성 파일로 업데이트합니다.
+1. Follow the steps in [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+2. Change your cloud service configuration file for your split-merge deployment to reflect the new configuration parameters. A new required parameter is the information about the certificate used for encryption. An easy way to do this is to compare the new configuration template file from the download against your existing configuration. Make sure you add the settings for “DataEncryptionPrimaryCertificateThumbprint” and “DataEncryptionPrimary” for both the web and the worker role.
+3. Before deploying the update to Azure, ensure that all currently running split-merge operations have finished. You can easily do this by querying the RequestStatus and PendingWorkflows tables in the split-merge metadata database for ongoing requests.
+4. Update your existing cloud service deployment for split-merge in your Azure subscription with the new package and your updated service configuration file.
 
-업그레이드하기 위해 분할-병합용 새 메타데이터 데이터베이스를 프로비전할 필요는 없습니다. 새 버전은 기존 메타데이터 데이터베이스를 새 버전으로 자동으로 업그레이드합니다.
+You do not need to provision a new metadata database for split-merge to upgrade. The new version will automatically upgrade your existing metadata database to the new version. 
 
-## 모범 사례, 문제 해결:
+## <a name="best-practices-troubleshooting"></a>Best practices & troubleshooting
  
--    테스트 테넌트를 정의하고 여러 분할된 데이터베이스에 분산되어 있는 테스트 테넌트에서 가장 중요한 분할/병합/이동 작업을 연습해 볼 수 있습니다. 이렇게 하면 모든 메타데이터가 분할된 데이터베이스 맵에서 올바르게 정의되어 있으며 작업이 제약 조건 또는 외래 키를 위반하지 않는지 확인할 수 있습니다.
--    데이터 크기 관련 문제가 발생하지 않도록 테스트 테넌트 데이터 크기를 가장 큰 테넌트의 최대 데이터 크기보다 크게 유지해야 합니다. 단일 테넌트를 이동하는 데 걸리는 시간에 대한 상한을 평가하는 데에도 도움이 됩니다. 
--    스키마 삭제를 허용 하는지 확인합니다. 분할/병합 서비스에는 데이터를 대상으로 복사한 후 원본 분할된 데이터베이스에서 데이터를 제거하는 기능이 필요합니다. 예를 들어 **삭제 트리거**로 인해 서비스가 원본의 데이터를 삭제하지 못하여 작업이 실패할 수 있습니다.
--    분할 키가 기본 키 또는 고유 인덱스 정의에서 선행 열인지 확인합니다. 그러면 항상 분할 키 범위에서 작동하는 실제 데이터 이동 및 삭제 작업과 분할/병합 유효성 검사 쿼리에 대한 최상의 성능이 보장됩니다.
--    분할 병합 서비스 데이터베이스가 상주 하는 지역 및 데이터 센터에 배치 합니다. 
+-    Define a test tenant and exercise your most important split/merge/move operations with the test tenant across several shards. Ensure that all metadata is defined correctly in your shard map and that the operations do not violate constraints or foreign keys.
+-    Keep the test tenant data size above the maximum data size of your largest tenant to ensure you are not encountering data size related issues. This helps you assess an upper bound on the time it takes to move a single tenant around. 
+-    Make sure that your schema allows deletions. The split-merge service requires the ability to remove data from the source shard once the data has been successfully copied to the target. For example, **delete triggers** can prevent the service from deleting the data on the source and may cause operations to fail.
+-    The sharding key should be the leading column in your primary key or unique index definition. That ensures the best performance for the split or merge validation queries, and for the actual data movement and deletion operations which always operate on sharding key ranges.
+-    Collocate your split-merge service in the region and data center where your databases reside. 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -247,9 +248,13 @@
 
 <!--Anchors-->
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
-[2]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
-[3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
+[1]:./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
+[2]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
+[3]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

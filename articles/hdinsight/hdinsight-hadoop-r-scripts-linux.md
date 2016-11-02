@@ -1,149 +1,154 @@
 <properties
-	pageTitle="Linux 기반 HDInsight에서 R 설치 | Microsoft Azure"
-	description="R을 설치하고 사용하여 Linux 기반 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Install R on Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to install and use R to customize Linux-based Hadoop clusters."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="larryfr"/>
-
-# HDInsight Hadoop 클러스터에 R 설치 및 사용
-
-**스크립트 작업** 클러스터 사용자 지정을 사용하여 HDInsight의 Hadoop에서 모든 유형의 클러스터에 R을 설치할 수 있습니다. 이렇게 하면 데이터 과학자 및 분석가가 R을 사용하여 HDInsight에 배포된 Hadoop 클러스터에서 많은 양의 데이터를 처리하기 위한 강력한 MapReduce/YARN 프로그래밍 프레임워크를 배포할 수 있습니다.
-
-> [AZURE.IMPORTANT] HDInsight용 [Premium 계층](https://azure.microsoft.com/pricing/details/hdinsight/) 제품에는 HDInsight 클러스터의 일부로 R 서버가 포함됩니다. 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 자세한 내용은 [HDInsight에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016"
+    ms.author="larryfr"/>
 
 
-## R이란?
+# <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Install and use R on HDInsight Hadoop clusters
 
-<a href="http://www.r-project.org/" target="_blank">R Project for Statistical Computing</a>은 통계 계산을 위한 오픈 소스 언어 및 환경입니다. R은 수백 개의 통계 함수와 기능 및 개체 지향 프로그래밍의 측면을 결합하는 자체 프로그래밍 언어를 제공합니다. 또한 광범위한 그래픽 기능도 제공합니다. R은 다양한 분야에서 전문 통계학자와 과학자 대부분의 기본 프로그래밍 환경입니다.
+You can install R on any type of cluster in Hadoop on HDInsight by using **Script Action** cluster customization. This enables data scientists and analysts to use R to deploy the powerful MapReduce/YARN programming framework to process large amounts of data on Hadoop clusters that are deployed in HDInsight.
 
-R 스크립트는 클러스터를 만들 때 스크립트 작업을 사용하여 사용자 지정하여 R 환경을 설치한 HDInsight의 Hadoop 클러스터에서 실행할 수 있습니다. R은 Azure Blob 저장소(WASB)와 호환되므로 HDInsight의 R을 사용하여 이 저장소에 저장된 데이터를 처리할 수 있습니다.
+> [AZURE.IMPORTANT] The [premium tier](https://azure.microsoft.com/pricing/details/hdinsight/) offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. For more information, see [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md). 
 
-## 스크립트가 수행하는 작업
 
-HDInsight 클러스터에 R를 설치하는 데 사용되는 스크립트는 기본 R 설치를 제공하는 다음 Ubuntu 패키지를 설치합니다.
+## <a name="what-is-r"></a>What is R?
 
-* [r-base](http://packages.ubuntu.com/precise/r-base): 기본 GNU R 패키지
-* [r-base-dev](http://packages.ubuntu.com/precise/r-base-dev): 보조 GNU R 패키지
+The <a href="http://www.r-project.org/" target="_blank">R Project for Statistical Computing</a> is an open source language and environment for statistical computing. R provides hundreds of build-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities. R is the preferred programming environment for most professional statisticians and scientists in a wide variety of fields.
 
-HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설치됩니다.
+R scripts can be run on Hadoop clusters in HDInsight that were customized using Script Action when created to install the R environment. R is compatible with Azure Blob Storage (WASB) so that data that is stored there can be processed using R on HDInsight.
 
-* [rmr2](https://github.com/RevolutionAnalytics/rmr2): R 개발자가 Hadoop MapReduce를 사용하도록 허용
-* [rhdfs](https://github.com/RevolutionAnalytics/rhdfs): R 개발자가 Hadoop HDFS(HDInsight의 경우 WASB)를 사용하도록 허용
+## <a name="what-the-script-does"></a>What the script does
 
-또한 다음 R 패키지가 설치됩니다.
+The script action used to install R on your HDInsight cluster installs the following Ubuntu packages, which provide a basic R installation:
 
-| R 패키지 | 제공하는 기능 |
+* [r-base](http://packages.ubuntu.com/precise/r-base): Base GNU R package
+* [r-base-dev](http://packages.ubuntu.com/precise/r-base-dev): Auxilliary GNU R packages
+
+The following RHadoop packages are also installed, which provide integration with MapReduce and HDFS:
+
+* [rmr2](https://github.com/RevolutionAnalytics/rmr2): Allows R developers to use Hadoop MapReduce
+* [rhdfs](https://github.com/RevolutionAnalytics/rhdfs): Allows R developers to use Hadoop HDFS (WASB for HDInsight)
+
+Additionally, the following R packages are installed:
+
+| R package | What it provides |
 | --------- | ---------------- |
-| [rJava](https://cran.r-project.org/web/packages/rJava/index.html) | 하위 수준 R-Java 인터페이스 |
-| [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | R 및 C++ 통합 |
-| [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | R 개체를 JSON으로 직렬화/역직렬화 |
-| [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | 정수 벡터에 대한 비트 연산 함수입니다. |
-| [digest](https://cran.r-project.org/web/packages/digest/index.html) | R 개체에 대해 암호화 해시 다이제스트를 만듭니다. |
-| [functional](https://cran.r-project.org/web/packages/functional/index.html) | Curry, Compose 및 기타 자주 사용되는 함수 |
-| [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | 데이터를 유연하게 재구성하고 집계합니다. |
-| [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | 일반적인 문자열 작업에 대한 단순하고 일관된 래퍼입니다. |
-| [plyr](https://cran.r-project.org/web/packages/plyr/index.html) | 데이터 분할, 적용 및 결합을 위한 도구입니다. |
-| [caTools](https://cran.r-project.org/web/packages/caTools/index.html) | 이동하는 창 통계를 위한 도구(GIF, Base64, ROC AUC 등)입니다. |
-| [stringdist](https://cran.r-project.org/web/packages/stringdist/index.html) | 문자열 일치 및 문자열 거리 함수의 값을 대략적으로 구합니다. |
+| [rJava](https://cran.r-project.org/web/packages/rJava/index.html) | A low level R to Java interface. |
+| [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | R and C++ integration. |
+| [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | Serialize/deserialize R objects to JSON |
+| [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | Functions for bitwise operations on integer vectors. |
+| [digest](https://cran.r-project.org/web/packages/digest/index.html) | Create Cryptographic Hash Digests of R Objects. |
+| [functional](https://cran.r-project.org/web/packages/functional/index.html) | Curry, Compose, and other higher-order functions |
+| [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | Flexibly restructure and aggregate data. |
+| [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | Simple, Consistent Wrappers for Common String Operations. |
+| [plyr](https://cran.r-project.org/web/packages/plyr/index.html) | Tools for Splitting, Applying and Combining Data. |
+| [caTools](https://cran.r-project.org/web/packages/caTools/index.html) | Tools for moving window statistics, GIF, Base64, ROC AUC, etc. |
+| [stringdist](https://cran.r-project.org/web/packages/stringdist/index.html) | Approximate String Matching and String Distance Functions. |
 
-## 스크립트 동작을 사용하여 R 설치
+## <a name="install-r-using-script-actions"></a>Install R using Script Actions
 
-다음 스크립트 작업은 HDInsight 클러스터에 R을 설치하는 데 사용합니다. https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+The following script action is used to install R on an HDInsight cluster. https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
     
-이 섹션에서는 Azure 포털을 사용하여 새 클러스터를 만들 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
+This section provides instructions about how to use the script when creating a new cluster using the Azure portal. 
 
-> [AZURE.NOTE] Azure PowerShell, Azure CLI, HDInsight .NET SDK 또는 Azure Resource Manager 템플릿을 스크립트 동작을 적용하는 데 사용할 수도 있습니다. 이미 실행 중인 클러스터에도 스크립트 동작을 적용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> [AZURE.NOTE] Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 프로비전하되, 완료하지는 않도록 합니다.
+1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 
-2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
+2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
-	* __이름__: 스크립트 동작의 이름을 입력합니다.
-	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-	* __HEAD__:이 옵션 선택
-	* __WORKER__:이 옵션 선택
-	* __ZOOKEEPER__: 이 옵션을 선택하여 Zookeeper 노드에 설치합니다.
-	* __PARAMETERS__: 이 필드는 공백으로 둡니다.
+    * __NAME__: Enter a friendly name for the script action.
+    * __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+    * __HEAD__: Check this option
+    * __WORKER__: Check this option
+    * __ZOOKEEPER__: Check this option to install on the Zookeeper node.
+    * __PARAMETERS__: Leave this field blank
 
-3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
+3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md#portal)에서 설명한 대로 클러스터를 계속 프로비전합니다.
+4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
-## R 스크립트 실행
+## <a name="run-r-scripts"></a>Run R scripts
 
-클러스터가 프로비전을 완료하면 다음 단계에 따라 R을 사용하여 클러스터에서 MapReduce 작업을 수행합니다.
+After the cluster has finished provisioning, use the following steps to use R to perform a MapReduce operation on the cluster.
 
-1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.
+1. Connect to the HDInsight cluster using SSH:
 
-		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+        ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+    For more information on using SSH with HDInsight, see the following:
 
-	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. `username@hn0-CLUSTERNAME:~$` 프롬프트가 표시되면 다음 명령을 입력하여 대화형 R 세션을 시작합니다.
+2. From the `username@hn0-CLUSTERNAME:~$` prompt, enter the following command to start an interactive R session:
 
-		R
+        R
 
-3. 다음 R 프로그램을 입력합니다. 이렇게 하면 1에서 100 사이의 숫자가 생성된 후 2로 곱해집니다.
+3. Enter the following R program. This generates the numbers 1 to 100 and then multiplies them by 2.
 
-		library(rmr2)
-		ints = to.dfs(1:100)
-		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
+        library(rmr2)
+        ints = to.dfs(1:100)
+        calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
-	첫 번째 줄은 MapReduce 작업에 사용되는 RHadoop 라이브러리 rmr2를 호출합니다.
+    The first line calls the RHadoop library rmr2, which is used for MapReduce operations.
 
-	두 번째 줄은 1-100의 값을 생성한 다음 `to.dfs`를 사용하여 Hadoop 파일 시스템에 저장합니다.
+    The second line generates values 1 - 100, then stores them to the Hadoop file system using `to.dfs`.
 
-	세 번째 줄은 rmr2에서 제공하는 기능을 사용하여 MapReduce 프로세스를 만들고 처리를 시작합니다. 처리가 시작되면 시작을 넘어가면 몇 개의 줄이 스크롤됩니다.
+    The third line creates a MapReduce process using functionality provided by rmr2, and begins processing. You should see several lines scroll past as the processing begins.
 
-4. 이제 다음을 사용하여 MapReduce 출력에 저장된 임시 경로를 확인합니다.
+4. Next, use the following to see the temporary path that the MapReduce output was stored to:
 
-		print(calc())
+        print(calc())
 
-	`/tmp/file5f615d870ad2`과 비슷합니다. 실제 출력을 보려면 다음을 사용합니다.
+    This should be something similar to `/tmp/file5f615d870ad2`. To view the actual output, use the following:
 
-		print(from.dfs(calc))
+        print(from.dfs(calc))
 
-	출력은 다음과 같습니다.
+    The output should look like this:
 
-		[1,]  1 2
-		[2,]  2 4
-		.
-		.
-		.
-		[98,]  98 196
-		[99,]  99 198
-		[100,] 100 200
+        [1,]  1 2
+        [2,]  2 4
+        .
+        .
+        .
+        [98,]  98 196
+        [99,]  99 198
+        [100,] 100 200
 
-5. R을 끝내려면 다음을 입력합니다.
+5. To exit R, enter the following:
 
-		q()
+        q()
 
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다. Hue는 기본 저장소에서 HDInsight 클러스터를 쉽게 찾을 뿐만 아니라 Pig 및 Hive 작업을 편리하게 만들고 실행하고 저장할 수 있도록 하는 웹 UI입니다.
+- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
 
-- [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install.md). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
 
-- [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install.md). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
 
-- [HDInsight 클러스터에서 Hue를 설치](hdinsight-hadoop-hue-linux.md)합니다. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Hue를 설치합니다. Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 프로그램 집합입니다.
+- [Install Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Use cluster customization to install Hue on HDInsight Hadoop clusters. Hue is a set of Web applications used to interact with a Hadoop cluster.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
