@@ -17,7 +17,8 @@
   ms.date="09/06/2016"
   ms.author="cjiang"/>
 
-# Azure에서 새 Windows 가상 컴퓨터 생성 관련 클래식 배포 문제 해결
+
+# <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Azure에서 새 Windows 가상 컴퓨터 생성 관련 클래식 배포 문제 해결
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
 
@@ -27,7 +28,7 @@
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## 감사 로그 수집
+## <a name="collect-audit-logs"></a>감사 로그 수집
 
 문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 감사 로그를 수집합니다.
 
@@ -47,7 +48,7 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 
 **해결 방법:**
 
-이 두 가지 오류를 모두 해결하려면, 온-프레미스에 있는 원본 VHD를, OS와 같은 설정(일반화/특수화)으로 업로드합니다. 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다. 자세한 내용은 [Windows Server VHD를 만들어서 Azure에 업로드](virtual-machines-windows-classic-createupload-vhd.md)로 이동하세요.
+이 두 가지 오류를 모두 해결하려면, 온-프레미스에 있는 원본 VHD를, OS와 같은 설정(일반화/특수화)으로 업로드합니다. 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다. 자세한 내용은 [Windows Server VHD를 만들어서 Azure에 업로드](virtual-machines-windows-classic-createupload-vhd.md) 로 이동하세요.
 
 **캡처 오류:**
 
@@ -57,9 +58,9 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 
 **해결 방법:**
 
-이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](virtual-machines-windows-classic-capture-image.md)합니다.
+이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](virtual-machines-windows-classic-capture-image.md) 합니다.
 
-## 문제: 사용자 지정/ 갤러리/ 마켓플레이스 이미지; 할당 오류
+## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>문제: 사용자 지정/ 갤러리/ 마켓플레이스 이미지; 할당 오류
 이 오류는 요청을 수용할 여유 공간이 없거나 요청되는 VM 크기를 지원할 수 없는 클러스터로 새 VM 요청이 전송된 상황에서 발생합니다. 동일한 클라우드 서비스에 일련의 다른 VM을 혼합하는 것은 불가능합니다. 따라서 클라우드 서비스에서 지원할 수 있는 것과 다른 크기의 VM을 새로 만들려고 하면, 계산 요청이 실패합니다.
 
 새 VM을 만드는 데 사용한 클라우드 서비스의 제약 조건에 따라서, 둘 중 한가지 상황에 의해 유발되는 오류를 접하게 됩니다.
@@ -69,7 +70,8 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 **해결 방법 1:**
 
 - 새 클라우드 서비스를 만들어서 지역 또는 지역 기반 가상 네트워크와 연결합니다.
-- 새 클라우드 서비스에 새 VM을 만듭니다. 새 클라우드 서비스를 만들려다 오류가 발생하면, 나중에 다시 시도하거나 클라우드 서비스의 지역을 변경합니다.
+- 새 클라우드 서비스에 새 VM을 만듭니다.
+  새 클라우드 서비스를 만들려다 오류가 발생하면, 나중에 다시 시도하거나 클라우드 서비스의 지역을 변경합니다.
 
 > [AZURE.IMPORTANT] 기존 클라우드 서비스에 새 VM을 만들려다 실패했고, 새 VM을 위해 새 클라우드 서비스를 만들어야 한다면, 모든 VM을 동일한 클라우드 서비스에 통합하도록 선택할 수 있습니다. 이렇게 하려면, 기존 클라우드 서비스의 VM을 삭제하고, 새 클라우드 서비스의 디스크에서 VM을 다시 캡처합니다. 하지만, 새 클라우드 서비스가 새 이름과 VIP를 갖게 되므로, 기존 클라우드 서비스에 이 정보를 사용하는 모든 종속성에 대해 해당 정보를 업데이트해야 합니다.
 
@@ -79,9 +81,13 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 
 - 새 지역 가상 네트워크를 만듭니다.
 - 새 가상 네트워크에 새 VM을 만듭니다.
-- 새 가상 네트워크에 [기존 가상 네트워크를 연결](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)합니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요. 또는 [선호도 그룹 기반 가상 네트워크를 지역 가상 네트워크로 마이그레이션](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)한 다음 새 VM을 만들 수 있습니다.
+- [기존 가상 네트워크를 연결](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) 합니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요. 또는 [선호도 그룹 기반 가상 네트워크를 지역 가상 네트워크로 마이그레이션](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)한 다음 새 VM을 만들 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 중지된 Windows VM을 시작하거나 Azure에서 기존 Windows VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

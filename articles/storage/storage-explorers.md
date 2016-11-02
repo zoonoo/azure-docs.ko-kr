@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Azure 저장소 클라이언트 도구 | Microsoft Azure"
-	description="Azure 저장소 데이터를 보고 상호 작용할 수 있는 도구 목록입니다."
-	services="storage"
-	documentationCenter=""
-	authors="micurd"
-	manager="jahogg"
-	editor="tysonn"/>
+    pageTitle="Azure 저장소 클라이언트 도구 | Microsoft Azure"
+    description="Azure 저장소 데이터를 보고 상호 작용할 수 있는 도구 목록입니다."
+    services="storage"
+    documentationCenter=""
+    authors="micurd"
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="micurd;tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="micurd"/>
 
-# Azure 저장소 클라이언트 도구
+
+# <a name="azure-storage-client-tools"></a>Azure 저장소 클라이언트 도구
 
 Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용하여 데이터를 보기/상호 작용하려는 경우가 많습니다. 아래 표에는 이 작업을 수행할 수 있게 해 주는 여러 도구가 나와 있습니다. 해당 도구가 데이터 추상화를 열거 및/또는 액세스할 수 있는 기능을 제공하는 경우 각 블록에 "X" 표시를 합니다. 또한 도구가 무료인지 여부도 나와 있습니다. “평가판”은 무료 평가판이 있음을 나타내지만 정품은 무료가 아님을 나타냅니다. "Y/N"는 특정 버전은 무료로 제공되지만 다른 버전은 구매할 수 있는지를 나타냅니다.
 
@@ -40,7 +41,7 @@ Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용
     <td>웹</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure 포털</a></td>
@@ -106,7 +107,7 @@ Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용
     <td>웹</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
@@ -250,4 +251,8 @@ Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

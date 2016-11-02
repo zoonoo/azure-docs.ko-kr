@@ -1,10 +1,10 @@
 <properties
-    pageTitle="논리 앱에서 로깅 및 오류 처리 | Microsoft Azure"
-    description="논리 앱과 함께 고급 오류 처리 및 로깅의 실제 사용 사례 보기"
+    pageTitle="Logging and error handling in Logic Apps | Microsoft Azure"
+    description="View a real-life use case of advanced error handling and logging with Logic Apps"
     keywords=""
     services="logic-apps"
     authors="hedidin"
-    manager=""
+    manager="anneta"
     editor=""
     documentationCenter=""/>
 
@@ -17,41 +17,44 @@
     ms.date="07/29/2016"
     ms.author="b-hoedid"/>
 
-# 논리 앱에서 로깅 및 오류 처리
 
-이 문서에서는 논리 앱을 확장하여 예외 처리를 더 잘 지원할 수 있는 방법에 대해 설명합니다. 실제 사용 사례 및 "논리 앱이 예외 및 오류 처리를 지원하나요?"라는 질문에 대한 대답입니다.
+# <a name="logging-and-error-handling-in-logic-apps"></a>Logging and error handling in Logic Apps
 
->[AZURE.NOTE] Microsoft Azure 앱 서비스의 논리 앱 기능에 대한 현재 버전은 작업 응답에 대한 표준 템플릿을 제공합니다. API 앱에서 반환된 내부 유효성 검사 및 오류 응답을 모두 포함합니다.
+This article describes how you can extend a logic app to better support exception handling. It is a real-life use case and our answer to the question of, "Does Logic Apps support exception and error handling?"
 
-## 사용 사례 및 시나리오의 개요
+>[AZURE.NOTE] The current version of the Logic Apps feature of Microsoft Azure App Service provides a standard template for action responses.
+>This includes both internal validation and error responses returned from an API app.
 
-다음 스토리는 이 문서에 대한 사용 사례입니다. 유명한 의료 조직이 Microsoft Dynamics CRM Online을 사용하여 환자 포털을 만드는 Azure 솔루션을 개발하는 데 참여했습니다. Dynamics CRM Online 환자 포털과 Salesforce 간에 예약 기록을 보내야 했습니다. 모든 환자 기록에 [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) 표준을 사용하도록 요청을 받았습니다.
+## <a name="overview-of-the-use-case-and-scenario"></a>Overview of the use case and scenario
 
-이 프로젝트에는 두 가지 주요 요구 사항이 있었습니다.
+The following story is the use case for this article.
+A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal by using Microsoft Dynamics CRM Online. They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
- -  Dynamics CRM Online 포털에서 전송된 기록을 기록하는 방법
- -  워크플로 내에서 발생한 오류를 보는 방법
+The project had two major requirements:  
+
+ -  A method to log records sent from the Dynamics CRM Online portal
+ -  A way to view any errors that occurred within the workflow
 
 
-## 문제를 해결한 방법
+## <a name="how-we-solved-the-problem"></a>How we solved the problem
 
->[AZURE.TIP] [통합 사용자 그룹](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "통합 사용자 그룹")에서 프로젝트의 높은 수준의 비디오를 볼 수 있습니다.
+>[AZURE.TIP] You can view a high-level video of the project at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
 
-[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB")를 로그 및 오류 기록에 대한 리포지토리로 선택했습니다(DocumentDB에서는 기록을 문서로 참조합니다). 논리 앱에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.
+We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") as a repository for the log and error records (DocumentDB refers to records as documents). Because Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API app to **Insert** and **Query** for both error and log records. We could also define a schema for each within the API app.  
 
-다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. DocumentDB에는 TTL([Time-To-Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "TTL(Time to Live)"))이라는 속성이 있으며 이를 사용하면 각 기록 또는 컬렉션에 **Time-to-Live** 값을 설정할 수 있습니다. DocumentDB에서 기록을 수동으로 삭제할 필요성이 없어집니다.
+Another requirement was to purge records after a certain date. DocumentDB has a property called  [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), which allowed us to set a **Time to Live** value for each record or collection. This eliminated the need to manually delete records in DocumentDB.
 
-### 논리 앱 만들기
+### <a name="creation-of-the-logic-app"></a>Creation of the logic app
 
-첫 번째 단계는 논리 앱을 너무 만들고 디자이너에 로드합니다. 이 예제에서는 부모-자식 논리 앱을 사용합니다. 부모를 이미 만들었고 하나의 자식 논리 앱을 만들려고 한다고 가정해 보겠습니다.
+The first step is to create the logic app and load it in the designer. In this example, we are using parent-child logic apps. Let's assume that we have already created the parent and are going to create one child logic app.
 
-Dynamics CRM Online에서 나오는 기록을 기록해야 하므로 위쪽에서 시작하겠습니다. 부모 논리 앱이 이 자식을 트리거하므로 요청 트리거를 사용해야 합니다.
+Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger because the parent logic app triggers this child.
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 DocumentDB 데이터베이스와 두 개의 컬렉션(로깅 및 오류)을 만들어야 합니다.
+> [AZURE.IMPORTANT] To complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
 
-### 논리 앱 트리거
+### <a name="logic-app-trigger"></a>Logic app trigger
 
-다음 예와 같이 요청 트리거를 사용하고 있습니다.
+We are using a Request trigger as shown in the following example.
 
 ```` json
 "triggers": {
@@ -89,35 +92,37 @@ Dynamics CRM Online에서 나오는 기록을 기록해야 하므로 위쪽에�
 ````
 
 
-### 단계
+### <a name="steps"></a>Steps
 
-Dynamics CRM Online 포털에서 환자 기록의 원본(요청)을 기록해야 합니다.
+We need to log the source (request) of the patient record from the Dynamics CRM Online portal.
 
-1. 먼저 Dynamics CRM Online에서 새 예약 기록을 가져와야 합니다. CRM에서 오는 트리거는 **CRM PatentId**, **기록 종류**, **신규 또는 업데이트된 기록**(새로운 또는 업데이트된 부울 값) 및 **SalesforceId**를 제공합니다. 업데이트를 위해서만 사용되기 때문에 **SalesforceId**는 null일 수 있습니다. CRM **PatientID** 및 **기록 종류**를 사용하여 CRM 기록을 얻게 됩니다.
-1. 다음으로 DocumentDB API 앱 **InsertLogEntry** 작업을 아래 그림에 나와 있는 것처럼 추가해야 합니다.
-
-
-#### 로그 항목 디자이너 보기 삽입
-
-![로그 항목 삽입](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
-
-#### 오류 항목 디자이너 보기 삽입
-![로그 항목 삽입](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
-
-#### 기록 만들기 실패에 대한 확인
-
-![조건](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
+1. We need to get a new appointment record from Dynamics CRM Online.
+    The trigger coming from CRM provides us with the **CRM PatentId**, **record type**, **New or Updated Record** (new or update Boolean value), and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
+    We will get the CRM record by using the CRM **PatientID** and the **Record Type**.
+1. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
 
 
-## 논리 앱 소스 코드
+#### <a name="insert-log-entry-designer-view"></a>Insert log entry designer view
 
->[AZURE.NOTE]  다음은 예제만 해당합니다. 이 자습서는 현재 프로덕션에서의 구현을 기반으로 하므로 **원본 노드**의 값은 예약 일정에 관련된 속성을 표시하지 않을 수 있습니다.
+![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
 
-### 로깅
-다음 논리 앱 코드 샘플은 로그를 처리하는 방법을 보여 줍니다.
+#### <a name="insert-error-entry-designer-view"></a>Insert error entry designer view
+![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
-#### 로그 항목
-로그 항목을 삽입하기 위한 논리 앱 소스 코드입니다.
+#### <a name="check-for-create-record-failure"></a>Check for create record failure
+
+![Condition](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
+
+
+## <a name="logic-app-source-code"></a>Logic app source code
+
+>[AZURE.NOTE]  The following are samples only. Because this tutorial is based on an implementation currently in production, the value of a **Source Node** might not display properties that are related to scheduling an appointment.
+
+### <a name="logging"></a>Logging
+The following logic app code sample shows how to handle logging.
+
+#### <a name="log-entry"></a>Log entry
+This is the logic app source code for inserting a log entry.
 
 ``` json
 "InsertLogEntry": {
@@ -143,72 +148,72 @@ Dynamics CRM Online 포털에서 환자 기록의 원본(요청)을 기록해야
 }
 ```
 
-#### 로그 요청
+#### <a name="log-request"></a>Log request
 
-API 앱에 게시된 로그 요청 메시지입니다.
+This is the log request message posted to the API app.
 
 ``` json
     {
     "uri": "https://.../api/Log",
     "method": "post",
     "body": {
-	    "date": "Fri, 10 Jun 2016 22:31:56 GMT",
-	    "operation": "New Patient",
-	    "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
-	    "providerId": "",
-	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}"
-    	}
+        "date": "Fri, 10 Jun 2016 22:31:56 GMT",
+        "operation": "New Patient",
+        "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
+        "providerId": "",
+        "source": "{\"Pragma\":\"no-cache\",\"x-ms-request-id\":\"e750c9a9-bd48-44c4-bbba-1688b6f8a132\",\"OData-Version\":\"4.0\",\"Cache-Control\":\"no-cache\",\"Date\":\"Fri, 10 Jun 2016 22:31:56 GMT\",\"Set-Cookie\":\"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1\",\"Server\":\"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0\",\"X-AspNet-Version\":\"4.0.30319\",\"X-Powered-By\":\"ASP.NET\",\"Content-Length\":\"1935\",\"Content-Type\":\"application/json; odata.metadata=minimal; odata.streaming=true\",\"Expires\":\"-1\"}"
+        }
     }
 
 ```
 
 
-#### 로그 응답
+#### <a name="log-response"></a>Log response
 
-API 앱에서 로그 응답 메시지입니다.
+This is the log response message from the API app.
 
 ``` json
 {
     "statusCode": 200,
     "headers": {
-	    "Pragma": "no-cache",
-	    "Cache-Control": "no-cache",
-	    "Date": "Fri, 10 Jun 2016 22:32:17 GMT",
-	    "Server": "Microsoft-IIS/8.0",
-	    "X-AspNet-Version": "4.0.30319",
-	    "X-Powered-By": "ASP.NET",
-	    "Content-Length": "964",
-	    "Content-Type": "application/json; charset=utf-8",
-	    "Expires": "-1"
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "Date": "Fri, 10 Jun 2016 22:32:17 GMT",
+        "Server": "Microsoft-IIS/8.0",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Content-Length": "964",
+        "Content-Type": "application/json; charset=utf-8",
+        "Expires": "-1"
     },
     "body": {
-	    "ttl": 2592000,
-	    "id": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0_1465597937",
-	    "_rid": "XngRAOT6IQEHAAAAAAAAAA==",
-	    "_self": "dbs/XngRAA==/colls/XngRAOT6IQE=/docs/XngRAOT6IQEHAAAAAAAAAA==/",
-	    "_ts": 1465597936,
-	    "_etag": ""0400fc2f-0000-0000-0000-575b3ff00000"",
-	    "patientID": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
-	    "timestamp": "2016-06-10T22:31:56Z",
-	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}",
-	    "operation": "New Patient",
-	    "salesforceId": "",
-	    "expired": false
+        "ttl": 2592000,
+        "id": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0_1465597937",
+        "_rid": "XngRAOT6IQEHAAAAAAAAAA==",
+        "_self": "dbs/XngRAA==/colls/XngRAOT6IQE=/docs/XngRAOT6IQEHAAAAAAAAAA==/",
+        "_ts": 1465597936,
+        "_etag": "\"0400fc2f-0000-0000-0000-575b3ff00000\"",
+        "patientID": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
+        "timestamp": "2016-06-10T22:31:56Z",
+        "source": "{\"Pragma\":\"no-cache\",\"x-ms-request-id\":\"e750c9a9-bd48-44c4-bbba-1688b6f8a132\",\"OData-Version\":\"4.0\",\"Cache-Control\":\"no-cache\",\"Date\":\"Fri, 10 Jun 2016 22:31:56 GMT\",\"Set-Cookie\":\"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1\",\"Server\":\"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0\",\"X-AspNet-Version\":\"4.0.30319\",\"X-Powered-By\":\"ASP.NET\",\"Content-Length\":\"1935\",\"Content-Type\":\"application/json; odata.metadata=minimal; odata.streaming=true\",\"Expires\":\"-1\"}",
+        "operation": "New Patient",
+        "salesforceId": "",
+        "expired": false
     }
 }
 
 ```
 
-이제 오류 처리 단계를 살펴보겠습니다.
+Now let's look at the error handling steps.
 
 
-### 오류 처리
+### <a name="error-handling"></a>Error handling
 
-다음 논리 앱 코드 샘플은 오류 처리를 구현할 수 있는 방법을 보여 줍니다.
+The following Logic Apps code sample shows how you can implement error handling.
 
-#### 오류 기록 만들기
+#### <a name="create-error-record"></a>Create error record
 
-오류 기록을 만들기 위한 논리 앱 소스 코드입니다.
+This is the Logic Apps source code for creating an error record.
 
 ``` json
 "actions": {
@@ -240,10 +245,10 @@ API 앱에서 로그 응답 메시지입니다.
             "Create_NewPatientRecord": ["Failed" ]
         }
     }
-}  	       
+}          
 ```
 
-#### DocumentDB의 삽입 오류 - 요청
+#### <a name="insert-error-into-documentdb--request"></a>Insert error into DocumentDB--request
 
 ``` json
 
@@ -260,13 +265,13 @@ API 앱에서 로그 응답 메시지입니다.
         "severity": 4,
         "salesforceId": "",
         "update": false,
-        "source": "{"Account_Class_vod__c":"PRAC","Account_Status_MED__c":"I","CRM_HUB_ID__c":"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0","Credentials_vod__c","DTC_ID_MED__c":"","Fax":"","FirstName":"A","Gender_vod__c":"","IMS_ID__c":"","LastName":"BAILEY","MasterID_mp__c":"","C_ID_MED__c":"851588","Middle_vod__c":"","NPI_vod__c":"","PDRP_MED__c":false,"PersonDoNotCall":false,"PersonEmail":"","PersonHasOptedOutOfEmail":false,"PersonHasOptedOutOfFax":false,"PersonMobilePhone":"","Phone":"","Practicing_Specialty__c":"FM - FAMILY MEDICINE","Primary_City__c":"","Primary_State__c":"","Primary_Street_Line2__c":"","Primary_Street__c":"","Primary_Zip__c":"","RecordTypeId":"012U0000000JaPWIA0","Request_Date__c":"2016-06-10T22:31:55.9647467Z","ONY_ID__c":"","Specialty_1_vod__c":"","Suffix_vod__c":"","Website":""}",
+        "source": "{\"Account_Class_vod__c\":\"PRAC\",\"Account_Status_MED__c\":\"I\",\"CRM_HUB_ID__c\":\"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0\",\"Credentials_vod__c\",\"DTC_ID_MED__c\":\"\",\"Fax\":\"\",\"FirstName\":\"A\",\"Gender_vod__c\":\"\",\"IMS_ID__c\":\"\",\"LastName\":\"BAILEY\",\"MasterID_mp__c\":\"\",\"C_ID_MED__c\":\"851588\",\"Middle_vod__c\":\"\",\"NPI_vod__c\":\"\",\"PDRP_MED__c\":false,\"PersonDoNotCall\":false,\"PersonEmail\":\"\",\"PersonHasOptedOutOfEmail\":false,\"PersonHasOptedOutOfFax\":false,\"PersonMobilePhone\":\"\",\"Phone\":\"\",\"Practicing_Specialty__c\":\"FM - FAMILY MEDICINE\",\"Primary_City__c\":\"\",\"Primary_State__c\":\"\",\"Primary_Street_Line2__c\":\"\",\"Primary_Street__c\":\"\",\"Primary_Zip__c\":\"\",\"RecordTypeId\":\"012U0000000JaPWIA0\",\"Request_Date__c\":\"2016-06-10T22:31:55.9647467Z\",\"ONY_ID__c\":\"\",\"Specialty_1_vod__c\":\"\",\"Suffix_vod__c\":\"\",\"Website\":\"\"}",
         "statusCode": "400"
     }
 }
 ```
 
-#### DocumentDB의 삽입 오류 - 응답
+#### <a name="insert-error-into-documentdb--response"></a>Insert error into DocumentDB--response
 
 
 ``` json
@@ -288,14 +293,14 @@ API 앱에서 로그 응답 메시지입니다.
         "_rid": "sQx2APhVzAA8AAAAAAAAAA==",
         "_self": "dbs/sQx2AA==/colls/sQx2APhVzAA=/docs/sQx2APhVzAA8AAAAAAAAAA==/",
         "_ts": 1465597912,
-        "_etag": ""0c00eaac-0000-0000-0000-575b3fdc0000"",
+        "_etag": "\"0c00eaac-0000-0000-0000-575b3fdc0000\"",
         "prescriberId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
         "timestamp": "2016-06-10T22:31:57.3651027Z",
         "action": "New_Patient",
         "salesforceId": "",
         "update": false,
         "body": "CRM failed to complete task: Message: duplicate value found: CRM_HUB_ID__c duplicates value on record with id: 001U000001c83gK",
-        "source": "{"Account_Class_vod__c":"PRAC","Account_Status_MED__c":"I","CRM_HUB_ID__c":"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0","Credentials_vod__c":"DO - Degree level is DO","DTC_ID_MED__c":"","Fax":"","FirstName":"A","Gender_vod__c":"","IMS_ID__c":"","LastName":"BAILEY","MterID_mp__c":"","Medicis_ID_MED__c":"851588","Middle_vod__c":"","NPI_vod__c":"","PDRP_MED__c":false,"PersonDoNotCall":false,"PersonEmail":"","PersonHasOptedOutOfEmail":false,"PersonHasOptedOutOfFax":false,"PersonMobilePhone":"","Phone":"","Practicing_Specialty__c":"FM - FAMILY MEDICINE","Primary_City__c":"","Primary_State__c":"","Primary_Street_Line2__c":"","Primary_Street__c":"","Primary_Zip__c":"","RecordTypeId":"012U0000000JaPWIA0","Request_Date__c":"2016-06-10T22:31:55.9647467Z","XXXXXXX":"","Specialty_1_vod__c":"","Suffix_vod__c":"","Website":""}",
+        "source": "{\"Account_Class_vod__c\":\"PRAC\",\"Account_Status_MED__c\":\"I\",\"CRM_HUB_ID__c\":\"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0\",\"Credentials_vod__c\":\"DO - Degree level is DO\",\"DTC_ID_MED__c\":\"\",\"Fax\":\"\",\"FirstName\":\"A\",\"Gender_vod__c\":\"\",\"IMS_ID__c\":\"\",\"LastName\":\"BAILEY\",\"MterID_mp__c\":\"\",\"Medicis_ID_MED__c\":\"851588\",\"Middle_vod__c\":\"\",\"NPI_vod__c\":\"\",\"PDRP_MED__c\":false,\"PersonDoNotCall\":false,\"PersonEmail\":\"\",\"PersonHasOptedOutOfEmail\":false,\"PersonHasOptedOutOfFax\":false,\"PersonMobilePhone\":\"\",\"Phone\":\"\",\"Practicing_Specialty__c\":\"FM - FAMILY MEDICINE\",\"Primary_City__c\":\"\",\"Primary_State__c\":\"\",\"Primary_Street_Line2__c\":\"\",\"Primary_Street__c\":\"\",\"Primary_Zip__c\":\"\",\"RecordTypeId\":\"012U0000000JaPWIA0\",\"Request_Date__c\":\"2016-06-10T22:31:55.9647467Z\",\"XXXXXXX\":\"\",\"Specialty_1_vod__c\":\"\",\"Suffix_vod__c\":\"\",\"Website\":\"\"}",
         "code": 400,
         "errors": null,
         "isError": true,
@@ -306,7 +311,7 @@ API 앱에서 로그 응답 메시지입니다.
 }
 ```
 
-#### Salesforce 오류 응답
+#### <a name="salesforce-error-response"></a>Salesforce error response
 
 ``` json
 {
@@ -335,11 +340,11 @@ API 앱에서 로그 응답 메시지입니다.
 
 ```
 
-### 부모 논리 앱에 응답 반환
+### <a name="returning-the-response-back-to-the-parent-logic-app"></a>Returning the response back to the parent logic app
 
-응답이 있으면 부모 논리 앱으로 다시 전달할 수 있습니다.
+After you have the response, you can pass it back to the parent logic app.
 
-#### 부모 논리 앱에 성공 응답 반환
+#### <a name="return-success-response-to-the-parent-logic-app"></a>Return success response to the parent logic app
 
 ``` json
 "SuccessResponse": {
@@ -352,7 +357,7 @@ API 앱에서 로그 응답 메시지입니다.
             "status": "Success"
     },
     "headers": {
-    "	Content-type": "application/json",
+    "   Content-type": "application/json",
         "x-ms-date": "@utcnow()"
     },
     "statusCode": 200
@@ -361,7 +366,7 @@ API 앱에서 로그 응답 메시지입니다.
 }
 ```
 
-#### 부모 논리 앱에 오류 응답 반환
+#### <a name="return-error-response-to-the-parent-logic-app"></a>Return error response to the parent logic app
 
 ``` json
 "ErrorResponse": {
@@ -385,52 +390,53 @@ API 앱에서 로그 응답 메시지입니다.
 ```
 
 
-## DocumentDB 리포지토리 및 포털
+## <a name="documentdb-repository-and-portal"></a>DocumentDB repository and portal
 
-[DocumentDB](https://azure.microsoft.com/services/documentdb)에 추가 기능을 추가한 솔루션.
+Our solution added additional capabilities with [DocumentDB](https://azure.microsoft.com/services/documentdb).
 
-### 오류 관리 포털
+### <a name="error-management-portal"></a>Error management portal
 
-오류를 보려면 DocumentDB에서 오류 기록을 표시하는 MVC 웹앱을 만들 수 있습니다. 현재 버전에는 **목록**, **세부 정보**, **편집** 및 **삭제** 작업이 포함됩니다.
+To view the errors, you can create an MVC web app to display the error records from DocumentDB. **List**, **Details**, **Edit**, and **Delete** operations are included in the current version.
 
-> [AZURE.NOTE] 편집 작업: DocumentDB는 전체 문서 바꾸기를 수행합니다. **목록** 및 **세부 정보** 보기에 표시된 기록은 예제만 해당됩니다. 실제 환자 예약 기록이 없습니다.
+> [AZURE.NOTE] Edit operation: DocumentDB does a replace of the entire document.
+> The records shown in the **List** and **Detail** views are samples only. They are not actual patient appointment records.
 
-다음은 앞에서 설명한 접근 방식을 사용하여 만든 MVC 앱 정보의 예입니다.
+Following are examples of our MVC app details created with the previously described approach.
 
-#### 오류 관리 목록
+#### <a name="error-management-list"></a>Error management list
 
-![오류 목록](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
+![Error List](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
 
-#### 오류 관리 세부 정보 보기
+#### <a name="error-management-detail-view"></a>Error management detail view
 
-![오류 세부 정보](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
+![Error Details](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
 
-### 로그 관리 포털
+### <a name="log-management-portal"></a>Log management portal
 
-로그를 보기 위해 MVC 웹앱도 만들었습니다. 다음은 앞에서 설명한 접근 방식을 사용하여 만든 MVC 앱 정보의 예입니다.
+To view the logs, we also created an MVC web app.  Following are examples of our MVC app details created with the previously described approach.
 
-#### 샘플 로그 세부 정보 보기
+#### <a name="sample-log-detail-view"></a>Sample log detail view
 
-![로그 세부 정보 보기](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
+![Log Detail View](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
 
-### API 앱 세부 정보
+### <a name="api-app-details"></a>API app details
 
-#### 논리 앱 예외 관리 API
+#### <a name="logic-apps-exception-management-api"></a>Logic Apps exception management API
 
-오픈 소스 논리 앱 예외 관리 API 앱은 다음 기능을 제공했습니다.
+Our open-source Logic Apps exception management API app provides the following functionality.
 
-두 개의 컨트롤러가 있습니다.
+There are two controllers:
 
-- **ErrorController**는 DocumentDB 컬렉션에 오류 기록(문서)을 삽입합니다.
-- **LogController**는 DocumentDB 컬렉션에 로그 기록(문서)을 삽입합니다.
+- **ErrorController** inserts an error record (document) in a DocumentDB collection.
+- **LogController** Inserts a log record (document) in a DocumentDB collection.
 
-> [AZURE.TIP] 두 컨트롤러를 모두 `async Task<dynamic>` 작업을 사용합니다. 이를 통해 작업의 본문에서 DocumentDB 스키마를 만들 수 있도록 작업이 런타임 시 해결되어야 합니다.
+> [AZURE.TIP] Both controllers use `async Task<dynamic>` operations. This allows operations to be resolved at runtime, so we can create the DocumentDB schema in the body of the operation.
 
-DocumentDB의 모든 문서에는 고유한 ID가 있어야 합니다. `PatientId`를 사용하고 Unix 타임스탬프 값(double)으로 변환되는 타임스탬프를 추가합니다. 잘라서 소수 자릿수 값을 제거합니다.
+Every document in DocumentDB must have a unique ID. We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). We truncate it to remove the fractional value.
 
-[GitHub에서](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic 앱 예외 관리 API/컨트롤러/ErrorController.cs) 오류 컨트롤러 API의 소스 코드를 볼 수 있습니다.
+You can view the source code of our error controller API [from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-다음 구문을 사용하여 논리 앱에서 API를 호출합니다.
+We call the API from a logic app by using the following syntax.
 
 ``` json
  "actions": {
@@ -463,21 +469,25 @@ DocumentDB의 모든 문서에는 고유한 ID가 있어야 합니다. `PatientI
  }
 ```
 
-위의 코드 예제에서 식은 **실패**한 *Create\_NewPatientRecord* 상태를 확인합니다.
+The expression in the preceding code sample is checking for the *Create_NewPatientRecord* status of **Failed**.
 
-## 요약
+## <a name="summary"></a>Summary
 
-- 논리 앱에서 로깅 및 오류 처리를 쉽게 구현할 수 있습니다.
-- DocumentDB를 로그 및 오류 기록(문서)에 대한 리포지토리로 활용할 수 있습니다.
-- 로그 및 오류 기록을 표시하려면 포털을 만들려면 MVC를 사용할 수 있습니다.
+- You can easily implement logging and error handling in a logic app.
+- You can use DocumentDB as the repository for log and error records (documents).
+- You can use MVC to create a portal to display log and error records.
 
-### 소스 코드
-논리 앱 예외 관리 API 응용 프로그램에 대한 소스 코드는 이 [GitHub 리포지토리](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")에서 사용할 수 있습니다.
+### <a name="source-code"></a>Source code
+The source code for the Logic Apps exception management API application is available in this [GitHub repository](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App Exception Management API").
 
 
-## 다음 단계
-- [논리 앱 예제 및 시나리오 더 보기](app-service-logic-examples-and-scenarios.md)
-- [논리 앱 모니터링 도구에 대해 알아보기](app-service-logic-monitor-your-logic-apps.md)
-- [논리 앱 자동화횐 배포 템플릿 만들기](app-service-logic-create-deploy-template.md)
+## <a name="next-steps"></a>Next steps
+- [View more Logic Apps examples and scenarios](app-service-logic-examples-and-scenarios.md)
+- [Learn about Logic Apps monitoring tools](app-service-logic-monitor-your-logic-apps.md)
+- [Create a Logic App automated deployment template](app-service-logic-create-deploy-template.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

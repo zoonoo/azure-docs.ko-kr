@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Azure CLI를 사용하여 Azure Resource Manager에서 IPv6으로 인터넷 연결 부하 분산 장치 만들기
+
+# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Resource Manager에서 IPv6으로 인터넷 연결 부하 분산 장치 만들기
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [Azure CLI](load-balancer-IPv6-internet-cli.md)
-- [템플릿](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Azure CLI](./load-balancer-ipv6-internet-cli.md)
+- [템플릿](./load-balancer-ipv6-internet-template.md)
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 컴퓨터의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
-## 예제 배포 시나리오
+## <a name="example-deployment-scenario"></a>예제 배포 시나리오
 
 다음 다이어그램은 이 문서에서 설명된 예제 템플릿을 사용하여 배포된 부하 분산 솔루션을 보여 줍니다.
 
@@ -41,7 +43,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 - 두 개의 VM이 들어 있는 가용성 집합
 - 공용 VIP를 개인 끝점으로 매핑하기 위한 두 개의 부하 분산 규칙
 
-## Azure CLI를 사용하여 솔루션 배포
+## <a name="deploying-the-solution-using-the-azure-cli"></a>Azure CLI를 사용하여 솔루션 배포
 
 다음 단계에서는 CLI와 함께 Azure Resource Manager를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 보여 줍니다. Azure Resource Manager를 사용하면 각 리소스가 개별적으로 생성되고 구성된 다음, 함께 사용되어 리소스를 만듭니다.
 
@@ -55,11 +57,11 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
 
-## Azure Resource Manager를 사용하도록 CLI 환경 설정
+## <a name="set-up-your-cli-environment-to-use-azure-resource-manager"></a>Azure Resource Manager를 사용하도록 CLI 환경 설정
 
 이 예제의 경우 PowerShell 명령 창에서 CLI 도구를 실행하고 있습니다. Azure PowerShell cmdlet는 사용하지 않지만 가독성 및 재사용을 개선하기 위해 PowerShell의 스크립팅 기능은 사용합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../../articles/xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../../articles/xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 
 2. **azure config mode** 명령을 실행하여 Resource Manager 모드로 전환합니다.
 
@@ -95,7 +97,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
         $lbName = "myIPv4IPv6Lb"
         ```
 
-## 리소스 그룹, 부하 분산 장치, 가상 네트워크 및 서브넷 만들기
+## <a name="create-a-resource-group,-a-load-balancer,-a-virtual-network,-and-subnets"></a>리소스 그룹, 부하 분산 장치, 가상 네트워크 및 서브넷 만들기
 
 1. 리소스 그룹 만들기
 
@@ -114,7 +116,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
         $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
         $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
 
-## 프런트 엔드 풀에 대한 공용 IP 주소 만들기
+## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>프런트 엔드 풀에 대한 공용 IP 주소 만들기
 
 1. PowerShell 변수를 설정합니다.
 
@@ -126,9 +128,10 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
         $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
         $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
 
-    >[AZURE.IMPORTANT] 부하 분산 장치는 공용 IP의 도메인 레이블을 FQDN으로 사용합니다. 이는 클래식 배포의 변경으로, 클라우드 서비스 이름을 부하 분산 장치 FQDN으로 사용합니다. 이 예제에서 FQDN은 *contoso09152016.southcentralus.cloudapp.azure.com*입니다.
+    >[AZURE.IMPORTANT] 부하 분산 장치는 공용 IP의 도메인 레이블을 FQDN으로 사용합니다. 이는 클래식 배포의 변경으로, 클라우드 서비스 이름을 부하 분산 장치 FQDN으로 사용합니다.
+    >이 예제에서 FQDN은 *contoso09152016.southcentralus.cloudapp.azure.com*입니다.
 
-## 프런트 엔드 및 백 엔드 풀 만들기
+## <a name="create-front-end-and-back-end-pools"></a>프런트 엔드 및 백 엔드 풀 만들기
 
 이 예제에서는 부하 분산 장치에 들어오는 네트워크 트래픽을 수신하는 프런트 엔드 IP 풀 및 프런트 엔드 풀이 부하 분산된 네트워크 트래픽을 보내는 백 엔드 IP 풀을 만듭니다.
 
@@ -146,7 +149,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
         $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
         $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
 
-## LB 규칙, NAT 규칙 및 프로브 만들기
+## <a name="create-the-probe,-nat-rules,-and-lb-rules"></a>LB 규칙, NAT 규칙 및 프로브 만들기
 
 이 예제에서는 다음 항목을 만듭니다.
 
@@ -226,7 +229,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
         info:    network lb show
 
 
-## NIC 만들기
+## <a name="create-nics"></a>NIC 만들기
 
 NIC를 만들어 NAT 규칙, 부하 분산 장치 규칙 및 프로브에 연결합니다.
 
@@ -249,9 +252,9 @@ NIC를 만들어 NAT 규칙, 부하 분산 장치 규칙 및 프로브에 연결
         $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
         $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
 
-## 백 엔드 VM 리소스를 만들고 각 NIC를 연결합니다.
+## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>백 엔드 VM 리소스를 만들고 각 NIC를 연결합니다.
 
-VM을 만들려면 저장소 계정이 있어야 합니다. 부하 분산을 하려면 VM이 가용성 집합의 구성원이어야 합니다. VM 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)를 참조하세요.
+VM을 만들려면 저장소 계정이 있어야 합니다. 부하 분산을 하려면 VM이 가용성 집합의 구성원이어야 합니다. VM 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
 
 1. PowerShell 변수를 설정합니다.
 
@@ -287,7 +290,7 @@ VM을 만들려면 저장소 계정이 있어야 합니다. 부하 분산을 하
 
         $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn  --storage-account-name $storageAccountName --disable-bginfo-extension
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 [내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-cli.md)
 
@@ -295,4 +298,8 @@ VM을 만들려면 저장소 계정이 있어야 합니다. 부하 분산을 하
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

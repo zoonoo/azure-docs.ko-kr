@@ -13,14 +13,15 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="08/15/2016"
+   ms.date="10/06/2016"
    ms.author="brjohnst"/>
 
-# .NET 응용 프로그램에서 Azure 검색을 사용하는 방법
+
+# <a name="how-to-use-azure-search-from-a-.net-application"></a>.NET 응용 프로그램에서 Azure 검색을 사용하는 방법
 
 이 문서는 [Azure 검색.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 준비하여 실행하기 위한 연습입니다. Azure 검색을 사용하여 응용 프로그램에서 풍부한 검색 환경을 구현하는 .NET SDK를 사용할 수 있습니다.
 
-## Azure 검색 SDK의 주요 기능
+## <a name="what's-in-the-azure-search-sdk"></a>Azure 검색 SDK의 주요 기능
 
 SDK는 클라이언트 라이브러리 `Microsoft.Azure.Search`로 구성되어 있습니다. 인덱스, 데이터 원본 및 인덱서를 관리할 뿐만 아니라 문서를 업로드 및 관리, 쿼리를 실행할 수 있으며, 이 모두를 HTTP와 JSON의 세부 정보를 처리하지 않고 수행할 수 있습니다.
 
@@ -31,27 +32,27 @@ SDK는 클라이언트 라이브러리 `Microsoft.Azure.Search`로 구성되어 
 
 Azure 검색 .NET SDK의 현재 버전이 이제 일반 공급됩니다. 다음 버전에 반영하기 위한 피드백을 제공하려는 경우 [피드백 페이지](https://feedback.azure.com/forums/263029-azure-search/)를 방문하세요.
 
-.NET SDK는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 문서화된 Azure 검색 REST API의 `2015-02-28` 버전을 지원합니다. 이 버전은 이제 Lucene 쿼리 구문 및 Microsoft 언어 분석기에 대한 지원을 포함하고 있습니다. `moreLikeThis` 매개 변수 검색 등 이 버전의 일부가 *아닌* 새로운 기능은 [미리 보기](search-api-2015-02-28-preview.md)에 있으나 SDK에서는 아직 사용할 수 없습니다. 기능에 대한 업데이트 여부는 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서 다시 확인할 수 있습니다.
+.NET SDK는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 문서화된 Azure Search REST API의 `2015-02-28` 버전을 지원합니다. 이 버전은 이제 Lucene 쿼리 구문 및 Microsoft 언어 분석기에 대한 지원을 포함하고 있습니다. `moreLikeThis` 매개 변수 검색 등 이 버전의 일부가 *아닌* 새로운 기능은 [미리 보기](search-api-2015-02-28-preview.md)에 있으나 SDK에서는 아직 사용할 수 없습니다. 기능에 대한 업데이트 여부는 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx) 에서 다시 확인할 수 있습니다.
 
-이 SDK에서 지원되지 않는 기타 기능에는
+이 SDK에서 지원되지 않는 기타 기능에는 
 
   - [관리 작업](https://msdn.microsoft.com/library/azure/dn832684.aspx)이 있습니다. 관리 작업에는 Azure 검색 서비스 프로비전과 API 키 관리가 있습니다. 이들 기능은 향후 별도의 Azure 검색.NET 관리 SDK에서 지원됩니다.
 
-## 최신 버전의 SDK로 업그레이드
+## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>최신 버전의 SDK로 업그레이드
 
-Azure 검색 .NET SDK 이전 버전을 사용하는 경우 새로운 일반 공급 버전으로 업그레이드하려면 [이 문서](search-dotnet-sdk-migration.md)에서 방법을 참조하세요.
+Azure 검색 .NET SDK 이전 버전을 사용하는 경우 새로운 일반 공급 버전으로 업그레이드하려면 [이 문서](search-dotnet-sdk-migration.md) 에서 방법을 참조하세요.
 
-## SDK의 요구 사항
+## <a name="requirements-for-the-sdk"></a>SDK의 요구 사항
 
 1. Visual Studio 2013 또는 Visual Studio 2015
 
 2. Azure 검색 서비스 SDK를 사용하려면 서비스 이름과 하나 이상의 API 키가 필요합니다. [포털에서 서비스 만들기](search-create-service-portal.md)는 이들 단계를 통해 도움을 받을 수 있습니다.
 
-3. Visual Studio에서 "NuGet 패키지 관리"를 사용하여 Azure 검색.NET SDK [NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.Search)를 다운로드하십시오. NuGet.org에서 패키지 이름 `Microsoft.Azure.Search`을(를) 검색하십시오.
+3. Visual Studio에서 "NuGet 패키지 관리"를 사용하여 Azure 검색.NET SDK [NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.Search) 를 다운로드하십시오. NuGet.org에서 패키지 이름 `Microsoft.Azure.Search` 을(를) 검색하십시오.
 
 Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그램과 Windows 8.1 및 Windows Phone 8.1을 대상으로 하는 Windows 스토어 앱을 지원합니다. Silverlight는 지원되지 않습니다.
 
-## 핵심 시나리오
+## <a name="core-scenarios"></a>핵심 시나리오
 
 검색 응용 프로그램에서 수행해야 할 몇 가지 작업이 있습니다. 이 자습서에서는 이러한 핵심 시나리오를 다룹니다.
 
@@ -61,7 +62,7 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
 
 이들 각각을 설명하는 샘플 코드 사용자 응용 프로그램에서 코드 조각을 자유롭게 사용하십시오.
 
-### 개요
+### <a name="overview"></a>개요
 
 "호텔"이라는 이름의 새로운 인덱스를 탐색하려는 샘플 응용 프로그램은 몇몇 문서로 채운 다음, 일부 검색 쿼리를 실행합니다. 전체 흐름을 보여주는 주 프로그램은 다음과 같습니다.
 
@@ -123,7 +124,7 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
 
         ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
-> [AZURE.NOTE] 일반적인 검색 응용 프로그램에서 인덱스 관리 및 채우기는 검색 쿼리와는 별도의 구성 요소에 의해 처리됩니다. `Indexes.GetClient`은(는) 다른 `SearchCredentials`을(를) 제공하는데 문제가 생기지 않도록 하기 때문에 인덱스 채우기에 편리합니다. 이는 새 `SearchIndexClient`에 `SearchServiceClient`을(를) 만드는 데 사용하는 관리 키를 눌러 수행됩니다. 그러나 쿼리를 실행하는 일부 응용 프로그램의 경우, `SearchIndexClient`을(를) 직접 만들어 관리 키 대신에 쿼리 키에서 전달하는 것이 더 낫습니다. 이는 최소 권한의 원칙와 일치하고 응용 프로그램을 더욱 안전하게 하는데 도움이 됩니다. 관리 키와 쿼리 키에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 확인할 수 있습니다.
+> [AZURE.NOTE] 일반적인 검색 응용 프로그램에서 인덱스 관리 및 채우기는 검색 쿼리와는 별도의 구성 요소에 의해 처리됩니다. `Indexes.GetClient`는 다른 `SearchCredentials`를 제공하는 문제를 피할 수 있으므로 인덱스를 생성하기에 편리한 방법입니다. 이는 새 `SearchIndexClient`에 `SearchServiceClient`을(를) 만드는 데 사용하는 관리 키를 눌러 수행됩니다. 그러나 쿼리를 실행하는 일부 응용 프로그램의 경우, `SearchIndexClient` 을(를) 직접 만들어 관리 키 대신에 쿼리 키에서 전달하는 것이 더 낫습니다. 이는 최소 권한의 원칙와 일치하고 응용 프로그램을 더욱 안전하게 하는데 도움이 됩니다. 관리 키와 쿼리 키에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 확인할 수 있습니다.
 
 이제 `SearchIndexClient`이 생겼고 인덱스를 채울 수 있습니다. 이것은 나중에 연습할 또 다른 메서드에 의해 수행됩니다.
 
@@ -157,14 +158,14 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
     Filter documents with category 'Luxury'...
 
     ID: 1058-441    Name: Fancy Stay        Category: Luxury        Tags: [pool, view, concierge]
-    ID: 566-518     Name: Surprisingly Expensive Suites     Category: Luxury	Tags: []
+    ID: 566-518     Name: Surprisingly Expensive Suites     Category: Luxury    Tags: []
     Complete.  Press any key to end application...
 
 응용 프로그램의 전체 소스 코드는이 문서의 마지막 부분에 제공됩니다.
 
 다음으로, `Main`에 의해 호출된 각 메서드를 좀더 자세히 살펴볼 것입니다.
 
-### 인덱스 만들기
+### <a name="creating-an-index"></a>인덱스 만들기
 
 `SearchServiceClient`을(를) 만든 후, `Main`이(가) 하는 다음 일은 이미 있는 "호텔" 인덱스를 삭제하는 것입니다. 작업은 다음과 같은 메서드로 수행 됩니다.
 
@@ -176,7 +177,7 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
         }
     }
 
-이 메서드는 주어진 `SearchServiceClient`을(를) 사용하여 인덱스가 존재하는지 확인하고 존재하면 이를 삭제합니다.
+이 메서드는 주어진 `SearchServiceClient` 을(를) 사용하여 인덱스가 존재하는지 확인하고 존재하면 이를 삭제합니다.
 
 > [AZURE.NOTE] 이 문서의 예제 코드는 간단히 하기 위해 Azure 검색.NET SDK의 동기 메서드를 사용합니다. 확장성과 응답성이 유지하기 위해 사용 중인 응용 프로그램에서 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, 위의 메서드의 경우 `Exists` 및 `Delete` 대신`ExistsAsync` 및 `DeleteAsync`을(를) 사용할 수 있습니다.
 
@@ -204,11 +205,11 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
         serviceClient.Indexes.Create(definition);
     }
 
-이 메서드는 새 인덱스의 스키마를 정의하는 `Field` 개체 목록과 함께 새 `Index` 개체를 만듭니다. 각 필드에는 이름, 데이터 유형, 그리고 검색 동작을 정의하는 몇 가지 특성이 있습니다. 필드 외에도, 점수 매기기 프로필, 서제스터 또는 CORS 옵션을 인덱스에 추가할 수도 있습니다(이들 필드는 간단하게 나타내기 위해 샘플에서 생략됩니다). [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx)의 SDK 참조뿐만 아니라 [Azure 검색 REST API 참조](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인덱스 개체와 그 구성 요소에 대한 자세한 정보를 찾을 수 있습니다.
+이 메서드는 새 인덱스의 스키마를 정의하는 `Field` 개체 목록과 함께 새 `Index` 개체를 만듭니다. 각 필드에는 이름, 데이터 유형, 그리고 검색 동작을 정의하는 몇 가지 특성이 있습니다. 필드 외에도, 점수 매기기 프로필, 서제스터 또는 CORS 옵션을 인덱스에 추가할 수도 있습니다(이들 필드는 간단하게 나타내기 위해 샘플에서 생략됩니다). [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx)의 SDK 참조뿐만 아니라 [Azure Search REST API 참조](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인덱스 개체와 그 구성 요소에 대한 자세한 정보를 찾을 수 있습니다.
 
-### 인덱스 채우기
+### <a name="populating-the-index"></a>인덱스 채우기
 
-`Main`의 다음 단계는 새로 만든 인덱스를 채우는 것입니다. 이것은 다음 메서드로 수행됩니다.
+`Main` 의 다음 단계는 새로 만든 인덱스를 채우는 것입니다. 이것은 다음 메서드로 수행됩니다.
 
     private static void UploadDocuments(ISearchIndexClient indexClient)
     {
@@ -298,13 +299,13 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
 
 > [AZURE.NOTE] 이 예에서는 문서를 업로드하는 것입니다. 변경 사항을 기존 문서에 병합하거나 문서를 삭제하려면 `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` 또는 `IndexBatch.Delete`를 호출하여 배치를 만듭니다. `IndexBatch.New`를 호출하여 단일 배치 내에 다른 작업들을 혼합할 수 있으며, 이것은 `IndexAction` 개체 컬렉션을 사용하고, 이들 각각은 Azure 검색이 문서의 특정 작업을 수행하도록 지시합니다. `IndexAction.Merge`, `IndexAction.Upload` 등을 비롯한 해당 메서드를 호출하여 각 `IndexAction`과 자체 작업을 만들 수 있습니다.
 
-이 메서드의 세 번째 부분은 인덱싱에 중요한 오류 사례를 처리하는 catch 블록입니다. Azure 검색 서비스가 일괄 처리에서 문서 일부를 인덱싱하는데 실패하는 경우 `Documents.Index`에 의해 `IndexBatchException`이(가) 발생합니다. 이는 부하가 높은 상태에서 서비스 되는 동안에 문서를 인덱싱는 경우 발생할 수 있습니다. **이 경우 코드에서 명시적으로 처리하는 것이 좋습니다.** 실패한 문서 인덱싱을 잠시 후 다시 시도하거나, 샘플에서 하던 것처럼 기록하여 계속하거나, 응용 프로그램의 데이터 일관성 요구 사항에 따라 다른 작업을 수행할 수 있습니다.
+이 메서드의 세 번째 부분은 인덱싱에 중요한 오류 사례를 처리하는 catch 블록입니다. Azure 검색 서비스가 일괄 처리에서 문서 일부를 인덱싱하는데 실패하는 경우 `Documents.Index`에 의해 `IndexBatchException`이(가) 발생합니다. 이는 부하가 높은 상태에서 서비스되는 동안에 문서를 인덱싱하는 경우 발생할 수 있습니다. **이 경우 코드에서 명시적으로 처리하는 것이 좋습니다.**  실패한 문서 인덱싱을 잠시 후 다시 시도하거나, 샘플에서 하던 것처럼 기록하여 계속하거나, 응용 프로그램의 데이터 일관성 요구 사항에 따라 다른 작업을 수행할 수 있습니다.
 
 마지막으로, 메서드가 2초 동안 지연됩니다. Azure 검색 서비스에서 인덱싱이 비동기적으로 발생하기 때문에, 샘플 응용 프로그램은 문서 검색을 위해 잠시 기다려야 합니다. 이와 같이 데모, 테스트, 샘플 응용 프로그램에서는 일반적으로 지연만 필요합니다.
 
-#### .NET SDK가 문서를 처리하는 방법
+#### <a name="how-the-.net-sdk-handles-documents"></a>.NET SDK가 문서를 처리하는 방법
 
-Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래스의 인스턴스를 업로드할 수 있는지 궁금할 수 있습니다. 이 질문에 대답하기 위해 `Hotel` 클래스를 살펴보겠습니다.
+Azure 검색.NET SDK가 어떻게 `Hotel` 와(과) 같은 사용자 정의 클래스의 인스턴스를 업로드할 수 있는지 궁금할 수 있습니다. 이 질문에 대답하기 위해 `Hotel` 클래스를 살펴보겠습니다.
 
     [SerializePropertyNamesAsCamelCase]
     public class Hotel
@@ -340,8 +341,8 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
 
 먼저 주목할 것은 `Hotel`의 각 공용 속성이 인덱스 정의의 필드와 일치하지만 한 가지 중요한 차이가 있습니다. 각 필드의 이름은 소문자("카멜식 대/소문자")로 시작하지만, `Hotel`의 각 공용 속성 이름은 대문자 문자("파스칼식 대/소문자")로 시작합니다. 이것은 대상 스키마가 응용 프로그램 개발자의 제어 범위를 벗어난 데이터 바인딩을 수행하는 .NET 응용 프로그램의 일반적인 시나리오입니다. 카멜식 대/소문자 속성으로 이름을 지정하면 .NET 이름 지정 지침을 위반하지 않고 속성 이름을 자동으로 `[SerializePropertyNamesAsCamelCase]` 특성을 지닌 카멜식 대/소문자에 매핑하도록 SDK에 명령할 수 있습니다.
 
-> [AZURE.NOTE] Azure 검색 .NET SDK는 [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) 라이브러리를 사용하여 사용자 지정 모델 개체를 JSON과 직렬화 및 deserialize합니다. 필요한 경우 직렬화를 사용자 지정할 수 있습니다. 자세한 내용은 [여기](search-dotnet-sdk-migration.md#WhatsNew)에서 볼 수 있습니다.
-
+> [AZURE.NOTE] Azure 검색 .NET SDK는 [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) 라이브러리를 사용하여 사용자 지정 모델 개체를 JSON과 직렬화 및 deserialize합니다. 필요한 경우 직렬화를 사용자 지정할 수 있습니다. 자세한 내용은 [JSON.NET으로 직렬화 사용자 지정](#JsonDotNet)를 참조하세요.
+ 
 `Hotel` 클래스에 대해 두 번째로 중요한 부분은 공용 속성의 데이터 유형입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `Edm.String` 유형인 `category` 필드에 매핑됩니다. `bool?` 및 `Edm.Boolean`, `DateTimeOffset?` 및 `Edm.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 유형 매핑에 대한 특정 규칙은 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)에 `Documents.Get` 메서드로 문서화됩니다.
 
 사용자의 클래스를 문서로서 사용하는 이 능력은 양방향으로 사용 가능합니다. 또한 다음 섹션에서 확인할 수 있듯이 검색 결과를 검색하고 이 검색 결과를 SDK가 자동으로 사용자가 선택한 유형으로 역직렬화하도록 할 수도 있습니다.
@@ -350,7 +351,7 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
 
 **데이터 유형에 대한 중요한 정보**
 
-고유의 모델 클래스를 Azure 검색 인덱스에 매핑하도록 설계하는 경우 `bool` 및 `int` 등과 같은 값 유형의 속성을 Null이 허용되도록 선언하는 것이 좋습니다(예: `bool` 대신 `bool?`). Null이 허용되지 않는 속성을 사용하는 경우 인덱스의 문서가 해당 필드에 대해 Null 값을 포함하지 않도록 **보장**해야 합니다. SDK와 Azure 검색 서비스 모두 이를 적용하는 데 활용할 수 없습니다.
+고유의 모델 클래스를 Azure 검색 인덱스에 매핑하도록 설계하는 경우 `bool` 및 `int` 등과 같은 값 유형의 속성을 Null이 허용되도록 선언하는 것이 좋습니다(예: `bool` 대신 `bool?`). Null이 허용되지 않는 속성을 사용하는 경우 인덱스의 문서가 해당 필드에 대해 Null 값을 포함하지 않도록 **보장** 해야 합니다. SDK와 Azure 검색 서비스 모두 이를 적용하는 데 활용할 수 없습니다.
 
 이것은 가상의 문제가 아닙니다. `Edm.Int32` 형식인 기존 인덱스에 새 필드를 추가하는 시나리오를 가정하겠습니다. 인덱스 정의를 업데이트한 후 모든 문서는 해당하는 새 필드에 대해 Null 값을 포함하게 됩니다(Azure 검색에서 모든 형식은 Null을 허용하기 때문). 그런 다음 해당 필드에 대해 Null이 허용되지 않는 `int` 속성으로 모델 클래스를 사용하는 경우 문서를 검색하려고 시도할 때 다음과 같은 `JsonSerializationException`이 발생합니다.
 
@@ -358,7 +359,18 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
 
 이러한 이유로 모델 클래스에는 Null을 허용하는 형식을 사용하는 것이 가장 좋습니다.
 
-### 인덱스에서 문서 검색
+<a name="JsonDotNet"></a>
+#### <a name="custom-serialization-with-json.net"></a>JSON.NET으로 직렬화 사용자 지정
+
+이 SDK는 문서를 직렬화 및 역직렬화하는 데 JSON.NET을 사용합니다. 사용자 고유의 `JsonConverter` 또는 `IContractResolver`를 정의하여 필요한 경우 직렬화 및 역직렬화를 사용자 지정할 수 있습니다(자세한 내용은 [JSON.NET 설명서](http://www.newtonsoft.com/json/help/html/Introduction.htm) 참조). 이 기능은 Azure 검색에 사용할 응용 프로그램에서 기존 모델 클래스를 적용하려는 경우와 기타 고급 시나리오에서 유용할 수 있습니다. 예를 들어 사용자 지정 serialization으로 다음을 수행할 수 있습니다.
+
+ - 모델 클래스의 특정 속성을 문서 필드로 저장하는 데 포함 또는 제외할 수 있습니다.
+ - 코드의 속성 이름과 인덱스의 필드 이름을 매핑할 수 있습니다.
+ - 속성을 문서 필드로 매핑하고 해당 인덱스 정의를 만드는 데 사용할 수 있는 사용자 지정 특성을 만들 수 있습니다.
+
+GitHub에서 Azure 검색 .NET SDK에 대한 단위 테스트에서 사용자 지정 serialization을 구현하는 예제를 찾을 수 있습니다. 적절한 시작 지점은 [이 폴더](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models)입니다. 여기에는 사용자 지정 serialization 테스트에 사용되는 클래스가 있습니다.
+
+### <a name="searching-for-documents-in-the-index"></a>인덱스에서 문서 검색
 
 샘플 응용 프로그램의 마지막 단계는 인덱스의 일부 문서를 검색하는 것입니다. 다음 메서드가 이를 수행합니다.
 
@@ -379,7 +391,7 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
         }
     }
 
-첫째, 이 메서드는 새로운 `SearchParameters` 개체를 만듭니다 이는 정렬, 필터링, 페이징, 패시팅 같은 쿼리에 대한 추가 옵션을 지정하는 데 사용됩니다. 이 예에서는 `Filter` 속성만 설정합니다.
+첫째, 이 메서드는 새로운 `SearchParameters` 개체를 만듭니다  이는 정렬, 필터링, 페이징, 패시팅 같은 쿼리에 대한 추가 옵션을 지정하는 데 사용됩니다. 이 예에서는 `Filter` 속성만 설정합니다.
 
 다음 단계를 실제로 검색 쿼리를 실행합니다. 이는 `Documents.Search` 메서드를 사용하여 실행됩니다. 이 경우, 문자열로 사용할 검색 텍스트와 앞서 만든 검색 매개 변수를 전달합니다. 또한 SDK에 검색 결과 내 문서를 `Hotel` 유형의 개체로 역직렬화하도록 명령하는 `Documents.Search`에 대한 유형 매개 변수로 `Hotel`을(를) 지정할 수도 있습니다.
 
@@ -405,22 +417,22 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
     Filter documents with category 'Luxury'...
 
     ID: 1058-441    Name: Fancy Stay        Category: Luxury        Tags: [pool, view, concierge]
-    ID: 566-518     Name: Surprisingly Expensive Suites     Category: Luxury	Tags: []
+    ID: 566-518     Name: Surprisingly Expensive Suites     Category: Luxury    Tags: []
 
-첫 번째 검색은 두 문서를 반환합니다. 첫 번째 문서에는 이름에 "멋진"이라는 문자열이 있고 두 번째 문서에 는`tags` 필드에 "wifi"가 있습니다. 두 번째 검색은 두 문서를 반환하고 "사치"로 설정된 `category` 필드가 있는 문서만 인덱스에 나타납니다.
+첫 번째 검색은 두 문서를 반환합니다. 첫 번째 문서에는 이름에 "멋진"이라는 문자열이 있고 두 번째 문서에 는 `tags` 필드에 "wifi"가 있습니다. 두 번째 검색은 두 문서를 반환하고 "사치"로 설정된 `category` 필드가 있는 문서만 인덱스에 나타납니다.
 
-이 단계에서 자습서를 완료하지만 여기서 멈추지 마십시오. **다음 단계**에서는 Azure 검색에 대해 자세히 학습하기 위한 추가 리소스가 제공됩니다.
+이 단계에서 자습서를 완료하지만 여기서 멈추지 마십시오. **다음 단계** 에서는 Azure 검색에 대해 자세히 학습하기 위한 추가 리소스가 제공됩니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - MSDN에서 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 및 [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에 대한 참고 자료를 찾아봅니다.
 - [비디오와 기타 샘플 및 자습서](search-video-demo-tutorial-list.md)를 통해 지식을 심화시키십시오.
-- 이 버전의 Azure 검색 SDK의 특징과 기능에 관한 내용인 [Azure 검색 개요](https://msdn.microsoft.com/library/azure/dn798933.aspx)를 읽어 보십시오.
-- [명명 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 검토하여 다양한 개체 명명에 대한 규칙에 알아보십시오.
-- Azure 검색에서 [지원되는 데이터 유형](https://msdn.microsoft.com/library/azure/dn798938.aspx)을 검토하십시오.
+- 이 버전의 Azure 검색 SDK의 특징과 기능에 관한 내용인 [Azure 검색 개요](https://msdn.microsoft.com/library/azure/dn798933.aspx)
+- [명명 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx) 을 검토하여 다양한 개체 명명에 대한 규칙에 알아보십시오.
+- Azure 검색에서 [지원되는 데이터 유형](https://msdn.microsoft.com/library/azure/dn798938.aspx) 을 검토하십시오.
 
 
-## 샘플 응용 프로그램 소스 코드
+## <a name="sample-application-source-code"></a>샘플 응용 프로그램 소스 코드
 
 여기에는 이 연습에서 사용된 샘플 응용 프로그램의 전체 소스 코드가 나와 있습니다. 샘플을 빌드하고 실행하려는 경우 Program.cs의 서비스 이름과 API 키 자리 표시자를 사용자의 값으로 대체해야 합니다.
 
@@ -647,4 +659,8 @@ namespace AzureSearch.SDKHowTo
 }
 ```
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

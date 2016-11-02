@@ -1,22 +1,23 @@
 <properties 
-	pageTitle="Azure Media Services REST API로 필터 생성 | Microsoft Azure" 
-	description="이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 미디어 서비스가 동적 매니페스트를 생성하여 이루어집니다."
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Azure Media Services REST API로 필터 생성 | Microsoft Azure" 
+    description="이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 미디어 서비스가 동적 매니페스트를 생성하여 이루어집니다."
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="09/26/2016"  
-	ms.author="juliako;cenkdin"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="09/26/2016"  
+    ms.author="juliako;cenkdin"/>
 
-#Azure 미디어 서비스 REST API로 필터 생성
+
+#<a name="creating-filters-with-azure-media-services-rest-api"></a>Azure 미디어 서비스 REST API로 필터 생성
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
@@ -27,11 +28,11 @@
 
 필터 및 동적 매니페스트에 대한 더 자세한 내용은 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)를 참조하십시오.
 
-이 토픽에서는 REST API를 사용하여 필터를 생성, 업데이트 및 삭제하는 방법을 설명합니다.
+이 토픽에서는 REST API를 사용하여 필터를 생성, 업데이트 및 삭제하는 방법을 설명합니다. 
 
-##필터 생성에 사용되는 형식
+##<a name="types-used-to-create-filters"></a>필터 생성에 사용되는 형식
 
-필터를 생성할 때는 다음 형식이 사용됩니다.
+필터를 생성할 때는 다음 형식이 사용됩니다.  
 
 - [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
 - [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
@@ -44,334 +45,338 @@
 >
 >미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
->https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다.
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
 
 
-##필터 생성
+##<a name="create-filters"></a>필터 생성
 
-###전역 Filter 생성
+###<a name="create-global-filters"></a>전역 Filter 생성
 
-전역 Filter를 만들려면 다음 HTTP 요청을 사용합니다.
+전역 Filter를 만들려면 다음 HTTP 요청을 사용합니다.  
 
-####HTTP 요청
-
-요청 헤더
-
-	POST https://media.windows.net/API/Filters HTTP/1.1 
-	DataServiceVersion:3.0 
-	MaxDataServiceVersion: 3.0 
-	Content-Type: application/json 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-	Host:media.windows.net 
-
-요청 본문
-
-	{  
-	   "Name":"GlobalFilter",
-	   "PresentationTimeRange":{  
-	      "StartTimestamp":"0",
-	      "EndTimestamp":"9223372036854775807",
-	      "PresentationWindowDuration":"12000000000",
-	      "LiveBackoffDuration":"0",
-	      "Timescale":"10000000"
-	   },
-	   "Tracks":[  
-	      {  
-	         "PropertyConditions":
-	              [  
-	            {  
-	               "Property":"Type",
-	               "Value":"audio",
-	               "Operator":"Equal"
-	            },
-	            {  
-	               "Property":"Bitrate",
-	               "Value":"0-2147483647",
-	               "Operator":"Equal"
-	            }
-	         ]
-	      }
-	   ]
-	}
-
-
-
-
-####HTTP 응답
-	
-	HTTP/1.1 201 Created 
-
-###로컬 AssetFilter 생성
-
-로컬 AssetFilter를 만들려면 다음 HTTP 요청을 사용합니다.
-
-####HTTP 요청
+####<a name="http-request"></a>HTTP 요청
 
 요청 헤더
 
-	POST https://media.windows.net/API/AssetFilters HTTP/1.1 
-	DataServiceVersion: 3.0 
-	MaxDataServiceVersion: 3.0 
-	Content-Type: application/json 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-	Host: media.windows.net  
+    POST https://media.windows.net/API/Filters HTTP/1.1 
+    DataServiceVersion:3.0 
+    MaxDataServiceVersion: 3.0 
+    Content-Type: application/json 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+    Host:media.windows.net 
 
-요청 본문
+요청 본문 
 
-	{   
-	   "Name":"AssetFilter", 
-	   "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592", 
-	   "PresentationTimeRange":{   
-	      "StartTimestamp":"0", 
-	      "EndTimestamp":"9223372036854775807", 
-	      "PresentationWindowDuration":"12000000000", 
-	      "LiveBackoffDuration":"0", 
-	      "Timescale":"10000000" 
-	   }, 
-	   "Tracks":[   
-	      {   
-	         "PropertyConditions": 
-	              [   
-	            {   
-	               "Property":"Type", 
-	               "Value":"audio", 
-	               "Operator":"Equal" 
-	            }, 
-	            {   
-	               "Property":"Bitrate", 
-	               "Value":"0-2147483647", 
-	               "Operator":"Equal" 
-	            } 
-	         ] 
-	      } 
-	   ] 
-	} 
-
-####HTTP 응답 
-
-	HTTP/1.1 201 Created 
-	. . . 
-
-##필터 나열
-
-###AMS 계정의 모든 전역 **Filter** 가져오기
-
-필터를 나열하려면 다음 HTTP 요청을 사용합니다.
-
-####HTTP 요청
-	 
-	GET https://media.windows.net/API/Filters HTTP/1.1 
-	DataServiceVersion:3.0 
-	MaxDataServiceVersion: 3.0 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	Host: media.windows.net 
-	
-### 자산에 연결된 **AssetFilter** 가져오기
-
-####HTTP 요청
-
-	GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
-	DataServiceVersion: 3.0 
-	MaxDataServiceVersion: 3.0 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-	Host: media.windows.net 
-
-###해당 ID에 따라 **AssetFilter** 가져오기
-
-####HTTP 요청
-
-	GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
-	DataServiceVersion: 3.0 
-	MaxDataServiceVersion: 3.0 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	x-ms-client-request-id: 00000000
+    {  
+       "Name":"GlobalFilter",
+       "PresentationTimeRange":{  
+          "StartTimestamp":"0",
+          "EndTimestamp":"9223372036854775807",
+          "PresentationWindowDuration":"12000000000",
+          "LiveBackoffDuration":"0",
+          "Timescale":"10000000"
+       },
+       "Tracks":[  
+          {  
+             "PropertyConditions":
+                  [  
+                {  
+                   "Property":"Type",
+                   "Value":"audio",
+                   "Operator":"Equal"
+                },
+                {  
+                   "Property":"Bitrate",
+                   "Value":"0-2147483647",
+                   "Operator":"Equal"
+                }
+             ]
+          }
+       ]
+    }
 
 
-##필터 업데이트
+
+
+####<a name="http-response"></a>HTTP 응답
+    
+    HTTP/1.1 201 Created 
+
+###<a name="create-local-assetfilters"></a>로컬 AssetFilter 생성
+
+로컬 AssetFilter를 만들려면 다음 HTTP 요청을 사용합니다.  
+
+####<a name="http-request"></a>HTTP 요청
+
+요청 헤더
+
+    POST https://media.windows.net/API/AssetFilters HTTP/1.1 
+    DataServiceVersion: 3.0 
+    MaxDataServiceVersion: 3.0 
+    Content-Type: application/json 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+    Host: media.windows.net  
+
+요청 본문 
+
+    {   
+       "Name":"AssetFilter", 
+       "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592", 
+       "PresentationTimeRange":{   
+          "StartTimestamp":"0", 
+          "EndTimestamp":"9223372036854775807", 
+          "PresentationWindowDuration":"12000000000", 
+          "LiveBackoffDuration":"0", 
+          "Timescale":"10000000" 
+       }, 
+       "Tracks":[   
+          {   
+             "PropertyConditions": 
+                  [   
+                {   
+                   "Property":"Type", 
+                   "Value":"audio", 
+                   "Operator":"Equal" 
+                }, 
+                {   
+                   "Property":"Bitrate", 
+                   "Value":"0-2147483647", 
+                   "Operator":"Equal" 
+                } 
+             ] 
+          } 
+       ] 
+    } 
+
+####<a name="http-response"></a>HTTP 응답 
+
+    HTTP/1.1 201 Created 
+    . . . 
+
+##<a name="list-filters"></a>필터 나열
+
+###<a name="get-all-global-**filter**s-in-the-ams-account"></a>AMS 계정의 모든 전역 **Filter**가져오기
+
+필터를 나열하려면 다음 HTTP 요청을 사용합니다. 
+
+####<a name="http-request"></a>HTTP 요청
+     
+    GET https://media.windows.net/API/Filters HTTP/1.1 
+    DataServiceVersion:3.0 
+    MaxDataServiceVersion: 3.0 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    Host: media.windows.net 
+    
+### <a name="get-**assetfilter**s-associated-with-an-asset"></a>자산에 연결된 **AssetFilter**가져오기
+
+####<a name="http-request"></a>HTTP 요청
+
+    GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
+    DataServiceVersion: 3.0 
+    MaxDataServiceVersion: 3.0 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+    Host: media.windows.net 
+
+###<a name="get-an-**assetfilter**-based-on-its-id"></a>해당 ID에 따라 **AssetFilter** 가져오기
+
+####<a name="http-request"></a>HTTP 요청
+
+    GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
+    DataServiceVersion: 3.0 
+    MaxDataServiceVersion: 3.0 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    x-ms-client-request-id: 00000000
+
+
+##<a name="update-filters"></a>필터 업데이트
  
-PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이트합니다. 이 작업에 대한 자세한 내용은 [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx)를 참조하십시오.
+PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이트합니다.  이 작업에 대한 자세한 내용은 [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx)를 참조하십시오.
  
-필터를 업데이트 하는 경우, 규칙을 새로고침하는 스트리밍 끝점에 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 바람직합니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.
+필터를 업데이트 하는 경우, 규칙을 새로고침하는 스트리밍 끝점에 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 바람직합니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.  
  
-###전역 Filter 업데이트
+###<a name="update-global-filters"></a>전역 Filter 업데이트
 
-전역 필터를 업데이트하려면 다음 HTTP 요청을 사용합니다.
+전역 필터를 업데이트하려면 다음 HTTP 요청을 사용합니다. 
 
-####HTTP 요청
+####<a name="http-request"></a>HTTP 요청
  
-헤더 요청:
+헤더 요청: 
 
-	MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1 
-	DataServiceVersion:3.0 
-	MaxDataServiceVersion: 3.0 
-	Content-Type: application/json 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-	Host: media.windows.net 
-	Content-Length: 384
-	
-본문 요청:
-	
-	{ 
-	   "Tracks":[   
-	      {   
-	         "PropertyConditions": 
-	         [   
-	            {   
-	               "Property":"Type", 
-	               "Value":"audio", 
-	               "Operator":"Equal" 
-	            }, 
-	            {   
-	               "Property":"Bitrate", 
-	               "Value":"0-2147483647", 
-	               "Operator":"Equal" 
-	            } 
-	         ] 
-	      } 
-	   ] 
-	} 
+    MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1 
+    DataServiceVersion:3.0 
+    MaxDataServiceVersion: 3.0 
+    Content-Type: application/json 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+    Host: media.windows.net 
+    Content-Length: 384
+    
+본문 요청: 
+    
+    { 
+       "Tracks":[   
+          {   
+             "PropertyConditions": 
+             [   
+                {   
+                   "Property":"Type", 
+                   "Value":"audio", 
+                   "Operator":"Equal" 
+                }, 
+                {   
+                   "Property":"Bitrate", 
+                   "Value":"0-2147483647", 
+                   "Operator":"Equal" 
+                } 
+             ] 
+          } 
+       ] 
+    } 
 
-###로컬 AssetFilter 업데이트
+###<a name="update-local-assetfilters"></a>로컬 AssetFilter 업데이트
 
-로컬 필터를 업데이트하려면 다음 HTTP 요청을 사용합니다.
+로컬 필터를 업데이트하려면 다음 HTTP 요청을 사용합니다. 
 
-####HTTP 요청
+####<a name="http-request"></a>HTTP 요청
 
-헤더 요청:
+헤더 요청: 
 
-	MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1 
-	DataServiceVersion: 3.0 
-	MaxDataServiceVersion: 3.0 
-	Content-Type: application/json 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-	Host: media.windows.net 
-	
-본문 요청:
-	
-	{ 
-	   "Tracks":[   
-	      {   
-	         "PropertyConditions": 
-	         [   
-	            {   
-	               "Property":"Type", 
-	               "Value":"audio", 
-	               "Operator":"Equal" 
-	            }, 
-	            {   
-	               "Property":"Bitrate", 
-	               "Value":"0-2147483647", 
-	               "Operator":"Equal" 
-	            } 
-	         ] 
-	      } 
-	   ] 
-	} 
-
-
-##필터 삭제
+    MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1 
+    DataServiceVersion: 3.0 
+    MaxDataServiceVersion: 3.0 
+    Content-Type: application/json 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+    Host: media.windows.net 
+    
+본문 요청: 
+    
+    { 
+       "Tracks":[   
+          {   
+             "PropertyConditions": 
+             [   
+                {   
+                   "Property":"Type", 
+                   "Value":"audio", 
+                   "Operator":"Equal" 
+                }, 
+                {   
+                   "Property":"Bitrate", 
+                   "Value":"0-2147483647", 
+                   "Operator":"Equal" 
+                } 
+             ] 
+          } 
+       ] 
+    } 
 
 
-###전역 Filter 삭제
+##<a name="delete-filters"></a>필터 삭제
+
+
+###<a name="delete-global-filters"></a>전역 Filter 삭제
 
 전역 Filter를 삭제하려면 다음 HTTP 요청을 사용합니다.
-	
-####HTTP 요청
+    
+####<a name="http-request"></a>HTTP 요청
 
-	DELETE https://media.windows.net/api/Filters('GlobalFilter') HTTP/1.1 
-	DataServiceVersion:3.0 
-	MaxDataServiceVersion: 3.0 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	Host: media.windows.net 
+    DELETE https://media.windows.net/api/Filters('GlobalFilter') HTTP/1.1 
+    DataServiceVersion:3.0 
+    MaxDataServiceVersion: 3.0 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    Host: media.windows.net 
 
 
-###로컬 AssetFilter 삭제
+###<a name="delete-local-assetfilters"></a>로컬 AssetFilter 삭제
 
 로컬 AssetFilter를 삭제하려면 다음 HTTP 요청을 사용합니다.
 
-####HTTP 요청
+####<a name="http-request"></a>HTTP 요청
 
-	DELETE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__LocalFilter') HTTP/1.1 
-	DataServiceVersion: 3.0 
-	MaxDataServiceVersion: 3.0 
-	Accept: application/json 
-	Accept-Charset: UTF-8 
-	Authorization: Bearer <token value> 
-	x-ms-version: 2.11 
-	Host: media.windows.net 
+    DELETE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__LocalFilter') HTTP/1.1 
+    DataServiceVersion: 3.0 
+    MaxDataServiceVersion: 3.0 
+    Accept: application/json 
+    Accept-Charset: UTF-8 
+    Authorization: Bearer <token value> 
+    x-ms-version: 2.11 
+    Host: media.windows.net 
 
-##필터를 사용하는 스트리밍 URL 작성
+##<a name="build-streaming-urls-that-use-filters"></a>필터를 사용하는 스트리밍 URL 작성
 
 자산을 게시하고 제공하는 방법에 대한 자세한 내용은 [고객에 콘텐츠 배달 개요](media-services-deliver-content-overview.md)를 참조하십시오.
 
 
 다음 예제에서는 스트리밍 URL에 필터를 추가하는 방법을 보여줍니다.
 
-**MPEG DASH**
+**MPEG DASH** 
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
 **Apple HLS(HTTP 라이브 스트리밍) V4**
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
 
 **Apple HLS(HTTP 라이브 스트리밍) V3**
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 
 **부드러운 스트리밍**
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
 
 **HDS**
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
 
 
-##미디어 서비스 학습 경로
+##<a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>피드백 제공
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##참고 항목 
+##<a name="see-also"></a>참고 항목 
 
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
  
 
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

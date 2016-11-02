@@ -12,14 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="10/12/2016"
    ms.author="cherylmc" />
 
-# Express 경로 파트너 및 피어링 위치
+
+# <a name="expressroute-partners-and-peering-locations"></a>Express 경로 파트너 및 피어링 위치
 
 이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI(시스템 통합업체)에 대한 정보를 제공합니다.
 
-## <a name="partners"></a>Express 경로 연결 공급자
+## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>Express 경로 연결 공급자
 
 Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵에 Azure 지역 및 Express 경로 위치 목록을 제공합니다. Express 경로 위치는 Microsoft가 여러 서비스 공급자와 피어링하는 위치를 말합니다.
 
@@ -45,22 +46,22 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |---|---|---|---|
 |**미국 정부 클라우드**|미국 정부 아이오와, 미국 정부 버지니아|시카고, 댈러스, 뉴욕, 워싱턴 DC|
 |**중국**|중국 북부, 중국 동부|베이징, 상하이|
-|**독일**|독일 중부, 독일 동부|베를린+, 프랑크푸르트|
+|**독일**|독일 중부, 독일 동부|베를린, 프랑크푸르트|
 
 
 지정학적 지역에 걸친 연결은 표준 Express 경로 SKU에서 지원되지 않습니다. 전역 연결을 지원하려면 Express 경로 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 국가별 클라우드 환경에 대한 연결은 지원되지 않습니다. 이러한 요구가 발생할 경우 연결 공급자와 함께 작업할 수 있습니다.
 
 
-## 연결 공급자 위치
+## <a name="connectivity-provider-locations"></a>연결 공급자 위치
 
 > [AZURE.SELECTOR]
-[Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
-[Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
+[공급자에 따른 위치](expressroute-locations.md#connectivity-provider-locations)
+[위치에 따른 공급자](expressroute-locations-providers.md#connectivity-provider-locations)
 
-### 프로덕션 Azure
-| **위치** | **서비스 공급자** |
+### <a name="production-azure"></a>프로덕션 Azure
+| **위치**  | **서비스 공급자** |
 |---------------|-----------------------|
-| **암스테르담** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT+, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **암스테르담** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **애틀랜타** | Equinix |
 | **첸나이** | Tata Communications |
 | **시카코** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
@@ -70,7 +71,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **런던** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **라스베이거스** | Level 3 Communications+, Megaport
 | **로스앤젤레스** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
-| **멜버른** | Equinix, Megaport, NEXTDC, Telstra Corporation |
+| **멜버른** | AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **뉴욕** | Equinix, Megaport, Zayo Group |
 | **Montreal** | Cologix + |
 | **뭄바이** | Tata Communications |
@@ -80,55 +81,55 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **시애틀** | Equinix, Level 3 Communications, Megaport |
 | **실리콘밸리** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **싱가포르** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **시드니** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
+| **시드니** | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **도쿄** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **토론토** | Cologix, Equinix, Zayo Group |
 | **워싱턴 DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 
- **+**는 서비스 예정을 나타냄
+ **+** 는 서비스 예정을 나타냄
 
-### 국가별 클라우드 환경
+### <a name="national-cloud-environments"></a>국가별 클라우드 환경
 
-#### 미국 정부 클라우드
+#### <a name="us-government-cloud"></a>미국 정부 클라우드
 
-| **위치** |**서비스 공급자** |
+| **위치**  |**서비스 공급자** |
 |---------------|--------------------|
 | **시카코** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **댈러스** | Equinix, Verizon+ |
+| **댈러스** |  Equinix, Verizon+ |
 | **뉴욕** | Equinix, Level 3 Communications+, Verizon |
 | **워싱턴 DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### 중국
+#### <a name="china"></a>중국
 
-| **위치** | **서비스 공급자** |
+| **위치**  | **서비스 공급자** |
 |---------------|-----------------------|
 | **베이징** | China Telecom |
-| **상하이** | China Telecom |
-자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)를 참조하세요.
+| **상하이** |  China Telecom |
+자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)
 
-#### 독일
+#### <a name="germany"></a>독일
 
-| **위치** | **서비스 공급자** |
+| **위치**  | **서비스 공급자** |
 |---------------|-----------------------|
-| **베를린** | Colt+, e-shelter+ |
-| **프랑크푸르트** | Colt, Equinix+, Interxion |
+| **베를린** | Colt, e-shelter |
+| **프랑크푸르트** | Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>나열되지 않은 서비스 공급자를 통한 연결
+## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>나열되지 않은 서비스 공급자를 통한 연결
 
 연결 공급자가 이전 섹션에 없는 경우에도 연결을 설정할 수 있습니다.
 
 - 연결 공급자에게 문의하여 위의 표에 있는 Exchange 중 하나에 연결되어 있는지 확인합니다. Exchange 공급자가 제공하는 서비스에 대한 자세한 정보를 수집하려면 다음 링크를 확인할 수 있습니다. 여러 연결 공급자는 이미 이더넷 Exchange에 연결되어 있습니다.
 
-	- [Equinix 클라우드 Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [InterXion](http://www.interxion.com/)
-	- [NextDC](http://www.nextdc.com/)
-	- [CoreSite](http://www.coresite.com/)
-	- [Cologix](http://www.cologix.com/)
+    - [Equinix 클라우드 Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
+    - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
+    - [InterXion](http://www.interxion.com/)
+    - [NextDC](http://www.nextdc.com/)
+    - [CoreSite](http://www.coresite.com/)
+    - [Cologix](http://www.cologix.com/)
 - 연결 공급자가 선택한 피어링 위치로 네트워크를 확장합니다.
-	- 연결 공급자는 단일 실패 지점이 없도록 항상 사용 가능한 방식으로 연결을 확장하는지 확인합니다.
+    - 연결 공급자는 단일 실패 지점이 없도록 항상 사용 가능한 방식으로 연결을 확장하는지 확인합니다.
 - Microsoft에 연결할 연결 공급자로 Exchange를 지정하여 Express 경로 회로를 정렬합니다.
-	- [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md)의 단계에 따라 연결을 설정합니다.
+    - [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md) 의 단계에 따라 연결을 설정합니다.
 
 |**위치**|**Exchange**|**연결 공급자**|
 |-------------|------------|-------------------------|
@@ -138,7 +139,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **싱가포르** | Equinix | 1CLOUDSTAR |
 | **워싱턴 DC** | Equinix | Lightower |
 
-## Express 경로 시스템 통합업체
+## <a name="expressroute-system-integrators"></a>Express 경로 시스템 통합업체
 
 사용자 요구에 맞도록 개인 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 Express 경로에 등록할 수 있습니다.
 
@@ -148,7 +149,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **유럽** | Avanade Inc., Dotnet Solutions|
 | **US** | Avanade Inc., Equinix Professional Services, Perficient, Project Leadership|
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
@@ -156,4 +157,8 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

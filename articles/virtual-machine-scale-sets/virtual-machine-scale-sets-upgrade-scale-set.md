@@ -1,24 +1,25 @@
 <properties
-	pageTitle="가상 컴퓨터 크기 집합에 앱 배포 | Microsoft Azure"
-	description="가상 컴퓨터 크기 집합에 앱 배포"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="가상 컴퓨터 크기 집합에 앱 배포 | Microsoft Azure"
+    description="가상 컴퓨터 크기 집합에 앱 배포"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="guybo"/>
 
 
-# 가상 컴퓨터 크기 집합 업그레이드
+
+# <a name="upgrade-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합 업그레이드
 
 이 문서에서는 가동 중단 시간 없이 OS 업데이트를 Azure 가상 컴퓨터 크기 집합에 롤아웃하는 방법을 설명합니다. 이 컨텍스트에서 OS 업데이트는 OS의 버전 또는 SKU를 변경하거나 사용자 지정 이미지의 URI를 변경합니다. 가동 중지 시간 없이 업데이트한다는 것은 가상 컴퓨터를 모두 한꺼번에 업데이트하지 않고 한 번에 하나씩 또는 그룹으로(예" 한 번에 하나의 장애 도메인) 업데이트하는 것을 의미합니다. 이렇게 하면 업그레이드되지 않는 모든 가상 컴퓨터를 계속 실행할 수 있습니다.
 
@@ -42,12 +43,12 @@
 
 3. 모델을 업데이트합니다.
 
-4. 크기 집합의 가상 컴퓨터에 대해 *manualUpgrade* 호출을 수행합니다. 이 단계는 크기 집합의 *upgradePolicy* 속성이 **수동**으로 설정된 경우만 적합합니다. **자동**으로 설정되면 모든 가상 컴퓨터가 한꺼번에 업그레이드되므로 가동 중지 시간이 발생합니다.
+4. 크기 집합의 가상 컴퓨터에 대해 *manualUpgrade* 호출을 수행합니다. 이 단계는 크기 집합의 *upgradePolicy* 속성이 **수동** 으로 설정된 경우만 적합합니다. **자동**으로 설정되면 모든 가상 컴퓨터가 한꺼번에 업그레이드되므로 가동 중지 시간이 발생합니다.
 
 
 이 배경 정보를 염두에 두고, PowerShell에서 및 REST API를 사용하여 크기 집합의 버전을 업데이트하는 방법을 알아 보겠습니다. 이러한 예제는 플랫폼 이미지의 경우를 포함하지만, 이 문서에서는 이 프로세스를 사용자 지정 이미지에 맞게 조정하기 위한 충분한 정보를 제공합니다.
 
-## PowerShell##
+## <a name="powershell##"></a>PowerShell##
 
 이 예제에서는 Windows 가상 컴퓨터 크기 집합을 새 버전인 4.0.20160229로 업데이트합니다. 모델을 업데이트한 후 한 번에 하나의 가상 컴퓨터 인스턴스를 업데이트합니다.
 
@@ -78,21 +79,21 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
 
-## REST API
+## <a name="the-rest-api"></a>REST API
 
 다음은 Azure REST API를 사용하여 OS 버전 업데이트를 롤아웃하는 Python의 몇 가지 예제입니다. 두 가지 모두 Azure REST API 래퍼 함수의 경량 [azurerm](https://pypi.python.org/pypi/azurerm) 라이브러리를 사용하여 크기 집합 모델에 대해 GET을 수행한 다음 업데이트된 모델에 대해 PUT을 수행합니다. 또한 업데이트 도메인으로 가상 컴퓨터를 식별하기 위해 가상 컴퓨터 인스턴스 보기도 확인합니다.
 
-### Vmssupgrade
+### <a name="vmssupgrade"></a>Vmssupgrade
 
- [Vmssupgrade](https://github.com/gbowerman/vmsstools)는 한 번에 한 업데이트 도메인씩, 실행 중인 가상 컴퓨터 크기 집합으로 OS 업그레이드를 롤아웃하는 데 사용되는 Python 스크립트입니다.
+ [Vmssupgrade](https://github.com/gbowerman/vmsstools) 는 한 번에 한 업데이트 도메인씩, 실행 중인 가상 컴퓨터 크기 집합으로 OS 업그레이드를 롤아웃하는 데 사용되는 Python 스크립트입니다.
 
 ![가상 컴퓨터 또는 업데이트 도메인을 선택하기 위한 Vmssupgrade 스크립트](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)
 
 이 스크립트를 통해 특정 가상 컴퓨터를 선택하여 업데이트 도메인을 업데이트하거나 지정할 수 있습니다. 이 스크립트는 플랫폼 이미지 버전 변경 또는 사용자 지정 이미지의 URI 변경을 지원합니다.
 
-### Vmsseditor
+### <a name="vmsseditor"></a>Vmsseditor
 
-[Vmsseditor](https://github.com/gbowerman/vmssdashboard)는 한 행이 하나의 업데이트 도메인을 나타내는 heatmap으로 가상 컴퓨터 상태를 표시하는 가상 컴퓨터 크기 집합에 대한 범용 편집기입니다. 무엇보다도 새 버전의 SKU 또는 사용자 지정 이미지 URI로 크기 집합에 대한 모델을 업데이트한 다음 업그레이드할 장애 도메인을 선택할 수 있습니다. 이렇게 하면 해당 업데이트 도메인에 있는 모든 가상 컴퓨터가 새 모델로 업그레이드됩니다. 또는 선택한 배치 크기에 따라 롤링 업그레이드를 수행할 수 있습니다.
+[Vmsseditor](https://github.com/gbowerman/vmssdashboard) 는 한 행이 하나의 업데이트 도메인을 나타내는 heatmap으로 가상 컴퓨터 상태를 표시하는 가상 컴퓨터 크기 집합에 대한 범용 편집기입니다. 무엇보다도 새 버전의 SKU 또는 사용자 지정 이미지 URI로 크기 집합에 대한 모델을 업데이트한 다음 업그레이드할 장애 도메인을 선택할 수 있습니다. 이렇게 하면 해당 업데이트 도메인에 있는 모든 가상 컴퓨터가 새 모델로 업그레이드됩니다. 또는 선택한 배치 크기에 따라 롤링 업그레이드를 수행할 수 있습니다.  
 
 다음 스크린샷에서는 Ubuntu 14.04 2LTS 버전 14.04.201507060에 대한 크기 집합 모델을 보여 줍니다. 이 스크린샷이 작성된 이후에 추가 옵션이 이 도구에 추가되었습니다.
 
@@ -102,4 +103,8 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 
 ![진행 중인 업데이트를 보여 주는 Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

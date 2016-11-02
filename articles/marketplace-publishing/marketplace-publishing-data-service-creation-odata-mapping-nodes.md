@@ -1,10 +1,10 @@
 <properties
-   pageTitle="마켓플레이스용 데이터 서비스 만들기 가이드 | Microsoft Azure"
-   description="Azure 마켓플레이스에서 구매하기 위한 데이터 서비스를 만들고 인증하고 배포하는 방법에 대한 자세한 지침입니다."
+   pageTitle="Guide to creating a Data Service for the  Marketplace | Microsoft Azure"
+   description="Detailed instructions of how to create, certify and deploy a Data Service for purchase on the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
    <tags
@@ -16,75 +16,78 @@
       ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
-# CSDL을 통해 기존 웹 서비스를 OData에 매핑하는 노드 스키마 이해
 
->[AZURE.IMPORTANT] **현재는 새 데이터 서비스 게시자 등록을 더 이상 받지 않고 있습니다. 따라서 새 데이터 서비스 등재 승인을 받을 수 없습니다.** SaaS 비즈니스 응용 프로그램을 AppSource에 게시하려는 경우 [여기서](https://appsource.microsoft.com/partners) 자세한 내용을 확인할 수 있습니다. IaaS 응용 프로그램 또는 개발자 서비스를 Azure Marketplace에 게시하려는 경우에는 [여기서](https://azure.microsoft.com/marketplace/programs/certified/) 자세한 내용을 확인할 수 있습니다.
+# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Understanding the nodes schema for mapping an existing web service to OData through CSDL
 
-이 문서는 OData 프로토콜을 CSDL에 매핑하는 노드 구조를 명확하게 이해하는 데 도움이 됩니다. 노드 구조는 올바르게 구성된 XML입니다. 따라서 OData 매핑을 설계할 때 루트, 부모 및 자식 스키마를 적용할 수 있습니다.
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
 
-## 무시되는 요소
-다음은 웹 서비스의 메타데이터를 가져오는 동안 Azure 마켓플레이스 백 엔드에서 사용하지 않는 상위 수준 CSDL 요소(XML 노드)입니다. 이러한 요소가 있더라도 무시됩니다.
+This document will help clarify the node structure for mapping an OData protocol to CSDL. It is important to note that the node structure is well formed XML. So root, parent, and child schema is applicable when designing your OData mapping.
 
-| 요소 | 범위 |
+## <a name="ignored-elements"></a>Ignored elements
+The following are the high level CSDL elements (XML nodes) that are not going to be used by the Azure Marketplace backend during the import of the web service’s metadata. They can be present but will be ignored.
+
+| Element | Scope |
 |----|----|
-| Using 요소 | 노드, 하위 노드 및 모든 특성 |
-| Documentation 요소 | 노드, 하위 노드 및 모든 특성 |
-| ComplexType | 노드, 하위 노드 및 모든 특성 |
-| Association 요소 | 노드, 하위 노드 및 모든 특성 |
-| 확장 속성 | 노드, 하위 노드 및 모든 특성 |
-| EntityContainer | *extends* 및 *AssociationSet* 특성만 무시됩니다. |
-| 스키마 | *네임스페이스* 특성만 무시됩니다. |
-| FunctionImport | *Mode*(ln의 기본값으로 가정) 특성만 무시됩니다. |
-| EntityType | *Key* 및 *PropertyRef* 하위 노드만 무시됩니다. |
+| Using Element | The node, sub nodes and all attributes |
+| Documentation Element | The node, sub nodes and all attributes |
+| ComplexType | The node, sub nodes and all attributes |
+| Association Element | The node, sub nodes and all attributes |
+| Extended Property | The node, sub nodes and all attributes |
+| EntityContainer | Only the following attributes are ignored: *extends* and *AssociationSet* |
+| Schema | Only the following attributes are ignored: *Namespace* |
+| FunctionImport | Only the following attributes are ignored: *Mode* (default value of ln is assumed) |
+| EntityType | Only the following sub nodes are ignored: *Key* and *PropertyRef* |
 
-다음은 다양한 CSDL XML 노드의 변경 내용(추가된 요소 및 무시된 요소)을 자세히 설명합니다.
+The following describes the changes (added and ignored elements) to the various CSDL XML nodes in detail.
 
-## FunctionImport 노드
-FunctionImport 노드는 최종 사용자에게 서비스를 노출하는 하나의 URL(진입점)을 나타냅니다. 노드를 사용하여 URL이 처리되는 방식, 최종 사용자에게 제공되는 매개 변수, 매개 변수가 제공되는 방식을 설명할 수 있습니다.
+## <a name="functionimport-node"></a>FunctionImport node
+A FunctionImport node represents one URL (entry point) that exposes a service to the end-user. The node allows describing how the URL is addressed, which parameters are available to the end-user and how these parameters are provided.
 
-이 노드에 대한 세부 정보는 [여기][MSDNFunctionImportLink]서 확인할 수 있습니다.
+Details about this node are found at [here][MSDNFunctionImportLink]
 
-[MSDNFunctionImportLink]: (https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
+[MSDNFunctionImportLink]:(https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
 
-다음은 FunctionImport 노드에 의해 노출되는 추가 특성(또는 특성에 추가되는 항목)입니다.
+The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
-**d:BaseUri** - 마켓플레이스에 노출되는 REST 리소스에 대한 URI 템플릿입니다. 마켓플레이스에서는 이 템플릿을 사용하여 REST 웹 서비스에 대한 쿼리를 생성합니다. URI 템플릿은 매개 변수의 자리 표시자를 {parameterName} 형태로 포함하고 있으며, 여기서 parameterName은 해당 매개 변수의 이름입니다. 예: apiVersion={apiVersion}. 매개 변수는 URI 매개 변수 또는 URI 경로의 일부로 표시될 수 있습니다. 경로에 표시되는 경우 매개 변수가 항상 필수입니다(nullable로 표시할 수 없음). *예:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
+**d:BaseUri** -
+The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}.
+Parameters are allowed to appear as URI parameters or as part of the URI path. In the case of the appearance in the path they are always mandatory (can’t be marked as nullable). *Example:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
-**Name** - 가져온 함수의 이름입니다. CSDL에서 정의된 다른 이름과 같으면 안 됩니다. 예: Name="GetModelUsageFile"
+**Name** - The name of the imported function.  Cannot be the same as other defined names in the CSDL.  Ex. Name="GetModelUsageFile"
 
-**EntitySet** *(선택 사항)* - 함수가 엔터티 유형 컬렉션을 반환하는 경우 **EntitySet**의 값은 컬렉션이 소속된 엔터티 집합이어야 합니다. 그렇지 않으면 **EntitySet** 특성을 사용할 수 없습니다. *예:* `EntitySet="GetUsageStatisticsEntitySet"`
+**EntitySet** *(optional)* - If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used. *Example:* `EntitySet="GetUsageStatisticsEntitySet"`
 
-**ReturnType** *(선택 사항)* - URI에서 반환하는 요소 유형을 지정합니다. 함수에서 값을 반환하지 않는 경우에는 이 특성을 사용하지 마십시오. 지원되는 유형은 다음과 같습니다.
+**ReturnType** *(Optional)* - Specifies the type of elements returned by the URI.  Do not use this attribute if the function does not return a value. The following are the supported types:
 
- - **Collection(<엔터티 형식 이름>)**: 정의된 엔터티 형식 컬렉션을 지정합니다. 이름은 EntityType 노드의 Name 특성에 있습니다. 예: Collection(WXC.HourlyResult)
- - **Raw(<mime type>)**: 사용자에게 반환되는 원시 문서/Blob을 지정합니다. 예: Raw(image/jpeg) 기타 예:
+ - **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
+ - **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg) Other examples:
 
   - ReturnType="Raw(text/plain)"
   - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
-**d:Paging** - REST 리소스에서 페이징을 처리하는 방식을 지정합니다. 매개 변수 값은 중괄호 안에 사용됩니다. 예: page={$page}&itemsperpage={$size} 제공되는 옵션:
+**d:Paging** - Specifies how paging is handled by the REST resource. The parameter values are used within curly braches, e.g. page={$page}&itemsperpage={$size} The options available are:
 
-- **None:** 페이징을 사용할 수 없습니다.
-- **Skip:** 논리적 “skip” 및 “take”(위)를 통해 페이징이 표현됩니다. skip이 M 요소를 건너뛰면 take가 그 다음 N 요소를 반환합니다. 매개 변수 값: $skip
-- **Take:** take는 그 다음 N 요소를 반환합니다. 매개 변수 값: $take
-- **PageSize:** 논리적 페이지 및 크기(페이지당 항목 수)를 통해 페이징이 표현됩니다. 페이지는 반환되는 현재 페이지를 나타냅니다. 매개 변수 값: $page
-- **Size:** size는 각 페이지에 반환되는 항목 수를 나타냅니다. 매개 변수 값: $size
+- **None:** no paging is available
+- **Skip:** paging is expressed through a logical “skip” and “take” (top). Skip jumps over M elements and take then returns the next N elements. Parameter value: $skip
+- **Take:** Take returns the next N elements. Parameter value: $take
+- **PageSize:** paging is expressed through a logical page and size (items per page). Page represents the current page that is returned. Parameter value: $page
+- **Size:** size represents the number of items returned for each page. Parameter value: $size
 
-**d:AllowedHttpMethods** *(선택 사항)* - REST 리소스에서 처리하는 동사를 지정합니다. 또한 지정된 값에 허용되는 동사를 제한합니다. 기본값은 POST입니다. *예:* `d:AllowedHttpMethods="GET"` 제공되는 옵션:
+**d:AllowedHttpMethods** *(Optional)* - Specifies which verb is handled by the REST resource. Also, restricts accepted verb to the specified value.  Default = POST.  *Example:* `d:AllowedHttpMethods="GET"` The options available are:
 
-- **GET:** 데이터 반환에 주로 사용
-- **POST:** 새 데이터 삽입에 주로 사용
-- **PUT:** 데이터 업데이트에 주로 사용
-- **DELETE:** 데이터 삭제에 사용
+- **GET:** usually used to return data
+- **POST:** usually used to insert new data
+- **PUT:** usually used to update data
+- **DELETE:** used to delete data
 
-FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않음)는 다음과 같습니다.
+Additional child nodes (not covered by the CSDL documentation) within the FunctionImport node are:
 
-**d:RequestBody** *(선택 사항)* - 요청 본문을 사용하여 본문을 보내야 한다는 것을 나타냅니다. 요청 본문에 매개 변수를 제공할 수 있습니다. 매개 변수는 중괄호 안에 표현됩니다(예: {parameterName}). 이러한 매개 변수는 사용자 입력에서 콘텐츠 공급자의 서비스로 전송되는 본문으로 매핑됩니다. requestBody 요소는 httpMethod라는 특성을 갖고 있습니다. 이 특성은 두 가지 값을 허용합니다.
+**d:RequestBody** *(Optional)* - The request body is used to indicate that the request expects a body to be sent. Parameters can be given within the request body. They are expressed within curly brackets, e.g. {parameterName}. These parameters are mapped from the user input into the body that is transferred to the content provider’s service. The requestBody element has an attribute with name httpMethod. The attribute allows two values:
 
-- **POST:** 요청이 HTTP POST인 경우에 사용
-- **GET:** 요청이 HTTP GET인 경우에 사용
+- **POST:** Used if the request is a HTTP POST
+- **GET:** Used if the request is a HTTP GET
 
-	예제:
+    Example:
 
         `<d:RequestBody d:httpMethod="POST">
         <![CDATA[
@@ -96,92 +99,92 @@ FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않
         ]]>
         </d:RequestBody>`
 
-**d:Namespaces** 및 **d:Namespace** - 이 노드는 함수 가져오기(URI 끝점)에 의해 반환되는 XML에 정의된 네임스페이스를 설명합니다. 백 엔드 서비스에서 반환하는 XML은 반환되는 콘텐츠를 구분하기 위해 필요한 만큼 네임스페이스를 포함할 수 있습니다. **이러한 네임스페이스가 d:Map 또는 d:Match XPath 쿼리에 사용될 경우 모든 네임스페이스를 나열해야 합니다.** d:Namespaces 노드는 d:Namespace 노드 집합/목록을 포함하고 있습니다. 각각은 백 엔드 서비스 응답에 사용되는 하나의 네임스페이스를 나열합니다. 다음은 d:Namespace 노드의 특성입니다.
+**d:Namespaces** and **d:Namespace** - This node describes the namespaces that are defined in the XML that is returned by the function import (URI endpoint). The XML that is returned by the backend service might contain any number of namespaces to differentiate the content that is returned. **All of these namespaces, if used in d:Map or d:Match XPath queries need to be listed.** The d:Namespaces node contains a set/list of d:Namespace nodes. Each of them lists one namespace used in the backend service response. The following are the attribute of the d:Namespace node:
 
--	**d:Prefix:** 서비스에서 반환하는 XML 결과에 표시된 것처럼 네임스페이스의 접두사입니다(예: f:FirstName, f:LastName, f는 접두사).
-- **d:Uri:** 결과 문서에 사용된 네임스페이스의 전체 URI입니다. 런타임에 접두사를 확인하는 값을 나타냅니다.
+-   **d:Prefix:** The prefix for the namespace, as seen in the XML results returned by the service, e.g. f:FirstName, f:LastName, where f is the prefix.
+- **d:Uri:** The full URI of the namespace used in the result document. It represents the value that the prefix is resolved to at runtime.
 
-**d:ErrorHandling** *(선택 사항)* - 이 노드는 오류 처리 조건을 포함합니다. 각 조건은 콘텐츠 공급자의 서비스에서 반환하는 결과에 대해 유효성이 검사됩니다. 조건이 제안된 HTTP 오류 코드와 일치하면 최종 사용자에게 오류 메시지가 반환됩니다.
+**d:ErrorHandling** *(Optional)* - This node contains conditions for error handling. Each of the conditions is validated against the result that is returned by the content provider’s service. If a condition matches the proposed HTTP error code an error message is returned to the end-user.
 
-**d:ErrorHandling** *(선택 사항)* 및 **d:Condition** *(선택 사항)* - 한 조건 노드는 콘텐츠 공급자의 서비스가 반환한 결과에서 검사되는 조건 하나를 포함합니다. 다음은 **필수** 특성입니다.
+**d:ErrorHandling** *(Optional)* and **d:Condition** *(Optional)* - A condition node holds one condition that is checked in the result returned by the content provider’s service. The following are the **required** attributes:
 
-- **d:Match:** 지정된 노드/값이 콘텐츠 공급자의 출력 XML에 있는지 확인하는 XPath 식입니다. XPath는 출력에 대해 실행되며 조건이 일치하면 true, 일치하지 않으면 false를 반환해야 합니다.
-- **d:HttpStatusCode:** 조건이 일치할 경우 마켓플레이스에서 반환해야 하는 HTTP 상태 코드입니다. 마켓플레이스는 HTTP 상태 코드를 통해 사용자에게 오류 신호를 보냅니다. HTTP 상태 코드 목록은 http://en.wikipedia.org/wiki/HTTP_status_code에 나와 있습니다.
-- **d:ErrorMessage:** HTTP 상태 코드와 함께 최종 사용자에게 반환되는 오류 메시지입니다. 기밀 정보가 포함되지 않은 친숙한 오류 메시지여야 합니다.
+- **d:Match:** An XPath expression that validates whether a given node/value is present in the content provider’s output XML. The XPath is run against the output and should return true if the condition is a match or false otherwise.
+- **d:HttpStatusCode:** The HTTP status code that should be returned by Marketplace in the case the condition matches. Marketplace signalizes errors to the user through HTTP status codes. A list of HTTP status codes are available at http://en.wikipedia.org/wiki/HTTP_status_code
+- **d:ErrorMessage:** The error message that is returned – with the HTTP status code – to the end-user. This should be a friendly error message that doesn’t contain any secrets.
 
-**d:Title** *(선택 사항)* - 함수 제목을 설명할 수 있습니다. 제목의 값은 다음에서 가져옵니다.
+**d:Title** *(Optional)* - Allows describing the title of the function. The value for the title is coming from
 
-- 서비스 요청에서 반환하는 응답에서 제목을 검색할 위치를 지정하는 선택적 맵 특성(xpath)
-- 또는 노드의 값으로 지정된 제목
+- The optional map attribute (an xpath) which specifies where to find the title in the response returned from the service request.
+- -Or - The title specified as value of the node.
 
-**d:Rights** *(선택 사항)* - 함수와 연결된 권한(예: 저작권)입니다. 권한의 값은 다음에서 가져옵니다.
+**d:Rights** *(Optional)* - The rights (e.g. copyright) associated with the function. The value for the rights is coming from:
 
-- 서비스 요청에서 반환하는 응답에서 권한을 검색할 위치를 지정하는 선택적 맵 특성(xpath)
--	또는 노드의 값으로 지정된 권한
+- The optional map attribute (an xpath) which specifies where to find the rights in the response returned from the service request.
+-   -Or - The rights specified as value of the node.
 
-**d:Description** *(선택 사항)* - 함수에 대한 간단한 설명입니다. 설명의 값은 다음에서 가져옵니다.
+**d:Description** *(Optional)* - A short description for the function. The value for the description is coming from
 
-- 서비스 요청에서 반환하는 응답에서 설명을 검색할 위치를 지정하는 선택적 맵 특성(xpath)
-- 또는 노드의 값으로 지정된 설명
+- The optional map attribute (an xpath) which specifies where to find the description in the response returned from the service request.
+- -Or – The description specified as value of the node.
 
-**d:EmitSelfLink** - *위의 "반환된 데이터를 통해 '페이징'에 대한 FunctionImport" 예를 참조하세요.*
+**d:EmitSelfLink** - *See above example "FunctionImport for 'Paging' through returned data"*
 
-**d:EncodeParameterValue** - OData로 선택적 확장
+**d:EncodeParameterValue** - Optional extension to OData
 
-**d:QueryResourceCost** - OData로 선택적 확장
+**d:QueryResourceCost** - Optional extension to OData
 
-**d:Map** - OData로 선택적 확장
+**d:Map** - Optional extension to OData
 
-**d:Headers** - OData로 선택적 확장
+**d:Headers** - Optional extension to OData
 
-**d:Headers** - OData로 선택적 확장
+**d:Headers** - Optional extension to OData
 
-**d:Value** - OData로 선택적 확장
+**d:Value** - Optional extension to OData
 
-**d:HttpStatusCode** - OData로 선택적 확장
+**d:HttpStatusCode** - Optional extension to OData
 
-**d:ErrorMessage** - OData로 선택적 확장
+**d:ErrorMessage** - Optional Extension to OData
 
-## 매개 변수 노드
+## <a name="parameter-node"></a>Parameter node
 
-이 노드는 FunctionImport 노드에서 지정된 URI 템플릿/요청 본문의 일부로 노출되는 하나의 매개 변수를 나타냅니다.
+This node represents one parameter that is exposed as part of the URI template / request body that has been specified in the FunctionImport node.
 
-[여기](http://msdn.microsoft.com/library/ee473431.aspx)서 "매개 변수 요소" 노드에 대해 자세하게 설명하는 매우 유용한 문서 페이지를 확인할 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다. *예:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+A very helpful details document page about the “Parameter Element” node is found at [here](http://msdn.microsoft.com/library/ee473431.aspx)  (Use the **Other Version** dropdown to select a different version if necessary to view the documentation). *Example:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
-| 매개 변수 특성 | 필수 여부 | 값 |
+| Parameter Attribute | Is Required | Value |
 |----|----|----|
-| 이름 | 예 | 매개 변수의 이름입니다. 대/소문자를 구분합니다. BaseUri 대/소문자가 일치해야 합니다. **예:** `<Property Name="IsDormant" Type="Byte" />` |
-| 형식 | 예 | 매개 변수 유형입니다. 값이 **EDMSimpleType** 또는 모델 범위에 포함되는 복합 형식이어야 합니다. 자세한 내용은 “지원되는 6가지 매개 변수/속성 유형”을 참조하세요. (대/소문자를 구분합니다. 첫 번째 문자는 대문자, 나머지는 소문자입니다.) 또한 [개념적 모델 형식(CSDL)][MSDNParameterLink]도 참조하세요. **예:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
-| Mode | 아니요 | 매개 변수가 입력인지, 출력인지 아니면 입력/출력 매개 변수인지에 따라 **In**, Out 또는 InOut입니다. (Azure 마켓플레이스에서는 "IN"만 사용할 수 있습니다.) **예:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
-| MaxLength | 아니요 | 매개 변수에 허용되는 최대 길이입니다. **예:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
-| 자릿수 | 아니요 | 매개 변수의 자릿수입니다. **예:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
-| 확장 | 아니요 | 매개 변수의 크기입니다. **예:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
+| Name | Yes | The name of the parameter. Case sensitive!  Match the BaseUri case. **Example:** `<Property Name="IsDormant" Type="Byte" />` |
+| Type | Yes | The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [Conceptual Model Types (CSDL)][MSDNParameterLink]. **Example:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Mode | No | **In**, Out, or InOut depending on whether the parameter is an input, output, or input/output parameter. (Only “IN” is available in Azure Marketplace.) **Example:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
+| MaxLength | No | The maximum allowed length of the parameter. **Example:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
+| Precision | No | The precision of the parameter. **Example:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
+| Scale | No | The scale of the parameter. **Example:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
-[MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
+[MSDNParameterLink]:(http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
-다음은 CSDL 사양에 추가된 특성입니다.
+The following are the attributes that have been added to the CSDL specification:
 
-| 매개 변수 특성 | 설명 |
+| Parameter Attribute | Description |
 |----|----|
-| **d:Regex** *(선택 사항)* | 매개 변수의 입력 값을 검사하는 데 사용되는 regex 문입니다. 입력 값이 문과 일치하지 않으면 해당 값이 거부됩니다. 이를 이용하여 가능한 값 집합을 지정할 수 있습니다. 예를 들어 ^[0-9]+?$는 숫자만 허용합니다. **예:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:Enum** *(선택 사항)* | 파이프로 구분된 매개 변수에 유효한 값 목록입니다. 값의 유형이 정의된 매개 변수 유형과 일치해야 합니다. 예: `english|metric|raw`. 열거형은 UI(서비스 탐색기)에 선택 가능한 매개 변수 드롭다운 목록으로 표시됩니다. **예:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
-| **d: Nullable** *(선택 사항)* | 매개 변수가 null일 수 있는지 여부를 정의할 수 있습니다. 기본값은 true입니다. 그러나 URI 템플릿에서 경로의 일부로 노출되는 매개 변수는 null일 수 없습니다. 이러한 매개 변수에 대한 특성이 false로 설정되면 사용자 입력이 무시됩니다. **예:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(선택 사항)* | UI에 클라이언트에 대한 메모로 표시되는 샘플 값입니다. 즉, 파이프로 구분된 목록을 사용하여 여러 값을 추가할 수 있습니다. `a|b|c` **예제:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
+| **d:Regex** *(Optional)* | A regex statement used to validate the input value for the parameter. If the input value doesn’t match the statement the value is rejected. This allows to specify also a set of possible values, e.g. ^[0-9]+?$ to only allow numbers. **Example:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
+| **d:Enum** *(Optional)* | A pipe separated list of values valid for the parameter. The type of the values needs to match the defined type of the parameter. Example: `english|metric|raw`. Enum will display as a selectable dropdown list of parameters in the UI (service explorer). **Example:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
+| **d:Nullable** *(Optional)* | Allows defining whether a parameter can be null. The default is: true. However, parameters that are exposed as part of the path in the URI template can’t be null. When the attribute is set to false for these parameters – the user input is overridden. **Example:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue** *(Optional)* | A sample value to display as a note to the Client in the UI.  It is possible to add several values by using a pipe separated list, i.e. `a|b|c` **Example:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
-## EntityType 노드
+## <a name="entitytype-node"></a>EntityType node
 
-이 노드는 마켓플레이스에서 최종 사용자에게 반환되는 유형 중 하나를 나타냅니다. 또한 콘텐츠 공급자의 서비스가 반환하는 출력에서 최종 사용자에게 반환되는 값으로의 매핑을 포함합니다.
+This node represents one of the types that are returned from Marketplace to the end user. It also contains the mapping from the output that is returned by the content provider’s service to the values that are returned to the end-user.
 
-이 노드에 대한 자세한 내용은 [여기서](http://msdn.microsoft.com/library/bb399206.aspx) 확인할 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다.
+Details about this node are found at [here](http://msdn.microsoft.com/library/bb399206.aspx) (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.)
 
-| 특성 이름 | 필수 여부 | 값 |
+| Attribute Name | Is Required | Value |
 |----|----|----|
-| Name | 예 | 엔터티 유형의 이름입니다. **예:** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
-| BaseType | 아니요 | 정의되는 엔터티 유형의 기본 유형인 또 다른 엔터티 유형의 이름입니다. **예:** `<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
+| Name | Yes | The name of the entity type. **Example:** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
+| BaseType | No | The name of another entity type that is the base type of the entity type that is being defined. **Example:** `<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
 
-다음은 CSDL 사양에 추가된 특성입니다.
+The following are the attributes that have been added to the CSDL specification:
 
-**d:Map** - 서비스 출력에 대해 실행되는 XPath 식입니다. 여기서 반복되는 항목 노드 집합이 있는 ATOM 피드처럼 반복되는 요소 집합이 서비스 출력에 포함되는 것으로 가정합니다. 이러한 반복 노드는 하나의 레코드를 포함합니다. 그런 다음 개별 레코드의 값을 포함하고 있는 콘텐츠 공급자 서비스 결과의 개별 반복 노드를 가리키도록 XPath가 지정됩니다. 서비스의 출력 예:
+**d:Map** - An XPath expression executed against the service output. The assumption here is that the service output contains a set of elements that repeat, like an ATOM feed where there is a set of entry nodes that repeat. Each of these repeating nodes contains one record. The XPath is then specified to point at the individual repeating node in the content provider’s service result that holds the values for an individual record. Example output from the service:
 
         `<foo>
           <bar> … content … </bar>
@@ -189,37 +192,38 @@ FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않
           <bar> … content … </bar>
         </foo>`
 
-XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이고 최종 사용자에 반환되는 실제 콘텐츠를 포함하기 때문입니다.
+The XPath expression would be /foo/bar because each of the bar node is the repeating node in the output and it contains the actual content that is returned to the end-user.
 
-**Key** - 이 특성은 마켓플레이스에서 무시됩니다. 일반적으로 REST 기반 웹 서비스는 기본 키를 노출하지 않습니다.
+**Key** - This attribute is ignored by Marketplace. REST based web services, in general don’t expose a primary key.
 
 
-## 속성 노드
+## <a name="property-node"></a>Property node
 
-이 노드는 레코드의 한 속성을 포함합니다.
+This node contains one property of the record.
 
-이 노드에 대한 자세한 내용은 [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx)에서 찾을 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다. *예:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
-        <Property Name="Name" 	Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
-		...
+Details about this node are found at [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.) *Example:*
+        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+        <Property Name="Name"   Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
+        ...
         </EntityType>`
 
-| 특성 이름 | 필수 | 값 |
+| AttributeName | Required | Value |
 |----|----|----|
-| Name | 예 | 속성의 이름입니다. |
-| 형식 | 예 | 속성 값의 유형입니다. 속성 값 유형은 **EDMSimpleType** 또는 모델 범위에 포함되는 복합 유형(정규화된 이름으로 표시)이어야 합니다. 자세한 내용은 개념적 모델 유형(CSDL)을 참조하세요. |
-| Nullable | 아니요 | 속성이 null 값을 가질 수 있는지 여부에 따라 **True**(기본값) 또는 **False**입니다. 참고: [http://schemas.microsoft.com/ado/2006/04/edm](http://schemas.microsoft.com/ado/2006/04/edm) 네임스페이스를 통해 표시되는 CSDL 버전에서는 복합 유형 속성의 값이 Nullable="False"여야 합니다. |
-| DefaultValue | 아니요 | 속성의 기본값입니다. |
-|MaxLength | 아니요 | 속성 값의 최대 길이입니다. |
-| FixedLength | 아니요 | 속성 값이 고정 길이 문자열로 저장되는지 여부에 따라 **True** 또는 **False**입니다. |
-| 자릿수 | 아니요 | 숫자 값에서 유지할 최대 자릿수를 나타냅니다. |
-| 확장 | 아니요 | 숫자 값에서 유지할 최대 소수 자릿수입니다. |
-| Unicode | 아니요 | 속성 값이 유니코드 문자열로 저장되는지 여부에 따라 **True** 또는 **False**입니다. |
-| Collation | 아니요 | 데이터 원본에 사용할 정렬 순서를 지정하는 문자열입니다. |
-| ConcurrencyMode | 아니요 | **없음**(기본값) 또는 **고정**입니다. 이 값을 **고정**으로 설정하면 속성 값이 낙관적 동시성 검사에 사용됩니다. |
+| Name | Yes | The name of the property. |
+| Type | Yes | The type of the property value. The property value type must be an **EDMSimpleType** or a complex type (indicated by a fully-qualified name) that is within scope of the model. For more information, see Conceptual Model Types (CSDL). |
+| Nullable | No | **True** (the default value) or **False** depending on whether the property can have a null value. Note: In the version of CSDL indicated by the [http://schemas.microsoft.com/ado/2006/04/edm](http://schemas.microsoft.com/ado/2006/04/edm) namespace, a complex type property must have Nullable="False". |
+| DefaultValue | No | The default value of the property. |
+|MaxLength | No | The maximum length of the property value. |
+| FixedLength | No | **True** or **False** depending on whether the property value will be stored as a fiexed length string. |
+| Precision | No | Refers to the maximum number of digits to retain in the numeric value. |
+| Scale | No | Maximum number of decimal places to retain in the numeric value. |
+| Unicode | No | **True** or **False** depending on whether the property value be stored as a Unicode string. |
+| Collation | No | A string that specifies the collating sequence to be used in the data source. |
+| ConcurrencyMode | No | **None** (the default value) or **Fixed**. If the value is set to **Fixed**, the property value will be used in optimistic concurrency checks. |
 
-다음은 CSDL 사양에 추가된 추가 특성입니다.
+The following are the additional attributes that have been added to the CSDL specification:
 
-**d:Map** - 서비스에 대해 실행되는 XPath 식으로 출력의 한 속성을 추출합니다. 지정된 XPath는 EntityType 노드의 XPath에서 선택한 반복 노드에 상대적입니다. 절대 XPath를 지정하여 각 출력 노드에 정적 리소스를 포함하는 것도 가능합니다. 예를 들어 저작권 정보는 원래 서비스 출력에서 한 번만 표시되지만 OData 출력의 각 행마다 있어야 합니다. 서비스의 예:
+**d:Map** - XPath expression executed against the service output and extracts one property of the output. The XPath specified is relative to the repeating node that has been selected in the EntityType node’s XPath. It is also possible to specify an absolute XPath to allow including a static resource in each of the output nodes, like for example a copyright statement that is only found once in the original service output but should be present in each of the rows in the OData output. Example from the service:
 
         `<foo>
           <bar>
@@ -229,50 +233,54 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
           </bar>
         </foo>`
 
-여기서 XPath 식은 콘텐츠 공급자의 서비스에서 baz0 노드를 가져오는 ./bar/baz0입니다.
+The XPath expression here would be ./bar/baz0 to get the baz0 node from the content provider’s service.
 
-**d:CharMaxLength** - 문자열 유형에 대한 최대 길이를 지정할 수 있습니다. DataService CSDL 예를 참조하세요.
+**d:CharMaxLength** - For string type, you can specify the max length. See DataService CSDL Example
 
-**d:IsPrimaryKey** - 열이 테이블/보기의 기본 키인지 여부를 나타냅니다. DataService CSDL 예를 참조하세요.
+**d:IsPrimaryKey** - Indicates if the column is the Primary key in the table/view. See DataService CSDL Example.
 
-**d:isExposed** - 테이블 스키마의 노출 여부(일반적으로 true)를 결정합니다. DataService CSDL 예를 참조하세요.
+**d:isExposed** - Determines if the table schema is exposed (generally true). See DataService CSDL Example
 
-**d:IsView** *(선택 사항)* - 테이블이 아닌 보기를 기반으로 할 경우 true입니다. DataService CSDL 예를 참조하세요.
+**d:IsView** *(Optional)* - true if this is based on a view rather than a table.  See DataService CSDL Example
 
-**d:Tableschema** - DataService CSDL 예를 참조하세요.
+**d:Tableschema** - See DataService CSDL Example
 
-**d:ColumnName** - 테이블/보기의 열 이름입니다. DataService CSDL 예를 참조하세요.
+**d:ColumnName** - Is the name of the column in the table/view.  See DataService CSDL Example
 
-**d:IsReturned** - 서비스에서 이 값을 클라이언트에 노출할지 여부를 결정하는 부울입니다. DataService CSDL 예를 참조하세요.
+**d:IsReturned** - Is the Boolean that determines if the Service exposes this value to the client.  See DataService CSDL Example
 
-**d:IsQueryable** - 데이터베이스 쿼리에 열을 사용할 수 있는지 여부를 결정하는 부울입니다. DataService CSDL 예를 참조하세요.
+**d:IsQueryable** - Is the Boolean that determines if the column can be used in a database query.   See DataService CSDL Example
 
-**d:OrdinalPosition** - 테이블 또는 보기에서 열이 표시되는 숫자 위치 x입니다. 여기서 x는 1부터 테이블의 열 수까지입니다. DataService CSDL 예를 참조하세요.
+**d:OrdinalPosition** - Is the column’s numerical position of appearance, x, in the table or the view, where x is from 1 to the number of columns in the table.  See DataService CSDL Example
 
-**d:DatabaseDataType** - 데이터베이스에 있는 열의 데이터 유형, 다시 말해서 SQL 데이터 유형입니다. DataService CSDL 예를 참조하세요.
+**d:DatabaseDataType** - Is the data type of the column in the database, i.e. SQL data type. See DataService CSDL Example
 
-## 지원되는 매개 변수/속성 유형
-다음은 매개 변수 및 속성에 대해 지원되는 유형입니다. (대/소문자 구분)
+## <a name="supported-parameters/property-types"></a>Supported Parameters/Property Types
+The following are the supported types for parameters and properties. (Case sensitive)
 
-| 기본 유형 | 설명 |
+| Primitive Types | Description |
 |----|----|
-| Null | 값이 없음을 나타냅니다. |
-| Boolean | 이진 값 논리의 수학적 개념을 나타냅니다.|
-| Byte | 부호 없는 8비트 정수 값|
-|DateTime| 1753년 1월 1일 자정 12:00:00부터 9999년 12월 오후 11:59:59 사이의 값을 사용하여 날짜 및 시간을 나타냅니다.|
-|10진수 | 고정 전체 자릿수와 소수 자릿수를 사용하여 숫자 값을 나타냅니다. 이 유형은 음수 10^255+1부터 양수 10^255-1 사이의 숫자 값을 설명할 수 있습니다.|
-| Double | 약 ±2.23e-308부터 ±1.79e+308 사이의 값을 표시할 수 있는 15자리의 부동 소수점 숫자를 나타냅니다. **Exel 내보내기 문제가 있으니 10진수를 사용하세요.**|
-| Single | 약 ±1.18e-38부터 ±3.40e+38 사이의 값을 표시할 수 있는 7자리의 부동 소수점 숫자를 나타냅니다.|
-|Guid |16바이트(128비트) 고유 식별자 값을 나타냅니다. |
-|Int16|부호 있는 16비트 정수 값을 나타냅니다. |
-|Int32|부호 있는 32비트 정수 값을 나타냅니다. |
-|Int64|부호 있는 64비트 정수 값을 나타냅니다. |
-|String | 고정 또는 가변 길이 문자 데이터를 나타냅니다. |
+| Null | Represents the absence of a value |
+| Boolean | Represents the mathematical concept of binary-valued logic|
+| Byte | Unsigned 8-bit integer value|
+|DateTime| Represents date and time with values ranging from 12:00:00 midnight, January 1, 1753 A.D. through 11:59:59 P.M, December 9999 A.D.|
+|Decimal | Represents numeric values with fixed precision and scale. This type can describe a numeric value ranging from negative 10^255 + 1 to positive 10^255 -1|
+| Double | Represents a floating point number with 15 digits precision that can represent values with approximate range of ± 2.23e -308 through ± 1.79e +308. **Use Decimal due to Exel export issue**|
+| Single | Represents a floating point number with 7 digits precision that can represent values with approximate range of ± 1.18e -38 through ± 3.40e +38|
+|Guid |Represents a 16-byte (128-bit) unique identifier value |
+|Int16|Represents a signed 16-bit integer value |
+|Int32|Represents a signed 32-bit integer value |
+|Int64|Represents a signed 64-bit integer value |
+|String | Represents fixed- or variable-length character data |
 
 
-## 참고 항목
-- 전체 OData 매핑 프로세스와 목적을 이해하려는 경우 문서 [데이터 서비스 OData 매핑](marketplace-publishing-data-service-creation-odata-mapping.md)을 읽고 정의, 구조 및 지침을 검토하세요.
-- 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
-- Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
+## <a name="see-also"></a>See Also
+- If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
+- If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
+- To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

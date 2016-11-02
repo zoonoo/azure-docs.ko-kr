@@ -17,9 +17,10 @@
  ms.date="08/02/2016"
  ms.author="yurid"/>
 
+
 [AZURE.INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 IoT 솔루션 보안 유지에 대한 자세한 내용은 [IoT 배포 보안 유지][lnk-security-deployment]를 참조하세요.
 
@@ -33,4 +34,7 @@ IoT 솔루션 보안 유지에 대한 자세한 내용은 [IoT 배포 보안 유
 
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

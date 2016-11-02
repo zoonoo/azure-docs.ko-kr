@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Azure AD Connect 및 페더레이션 | Microsoft Azure"
-	description="이 페이지는 Azure AD Connect를 사용하는 AD FS 작업에 관한 모든 설명서의 중심 위치입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect 및 페더레이션 | Microsoft Azure"
+    description="이 페이지는 Azure AD Connect를 사용하는 AD FS 작업에 관한 모든 설명서의 중심 위치입니다."
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="anandy"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="anandy"/>
 
 
-# Azure AD Connect 및 페더레이션
+
+# <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 및 페더레이션
 
 Azure AD Connect를 통해 온-프레미스 AD FS 및 Azure AD와 페더레이션을 구성할 수 있습니다. 페더레이션 로그온에서, 사용자가 자신의 온-프레미스 암호로 Azure AD 기반 서비스에 로그온 하고 자신의 암호를 다시 입력하지 않고도 회사 네트워크에 로그온하도록 설정할 수 있습니다. AD FS와 페더레이션 옵션을 사용하여 새로 배포하거나 Windows Server 2012 R2 팜에서 기존 AD FS를 지정할 수 있습니다.
 
 이 항목은 Azure AD Connect의 페더레이션 관련 기능에 대한 정보를 포함하며 그와 관련된 다른 모든 항목에 대한 링크를 나열합니다. Azure AD Connect에 대한 링크는 Azure Active Directory와 온-프레미스 ID 통합을 참조하세요.
 
-## Azure AD Connect - 페더레이션 항목
+## <a name="azure-ad-connect---federation-topics"></a>Azure AD Connect - 페더레이션 항목
 
 | 항목 | 포함된 내용 및 적용 시기 |
 |:------|:-----------|
@@ -43,9 +44,14 @@ Azure AD Connect를 통해 온-프레미스 AD FS 및 Azure AD와 페더레이�
 | [AD FS 클레임 규칙 수정](active-directory-aadconnect-federation-management.md#modifying-ad-fs-claim-rules) | Azure AD Connect 동기화 구성에 해당하는 AD FS의 클레임 규칙 수정/추가 |
 
 
-## 추가 리소스
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# 템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
+
+# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-ipv6-internet-ps.md)
-- [Azure CLI](load-balancer-ipv6-internet-cli.md)
-- [템플릿](load-balancer-ipv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Azure CLI](./load-balancer-ipv6-internet-cli.md)
+- [템플릿](./load-balancer-ipv6-internet-template.md)
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 컴퓨터의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
-## 예제 배포 시나리오
+## <a name="example-deployment-scenario"></a>예제 배포 시나리오
 
 다음 다이어그램은 이 문서에서 설명된 예제 템플릿을 사용하여 배포된 부하 분산 솔루션을 보여 줍니다.
 
@@ -41,9 +43,9 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 - 두 개의 VM이 들어 있는 가용성 집합
 - 2개의 가상 컴퓨터(VM)
 
-## Azure Portal을 사용하여 템플릿 배포
+## <a name="deploying-the-template-using-the-azure-portal"></a>Azure Portal을 사용하여 템플릿 배포
 
-이 문서에서는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 갤러리에 게시된 템플릿을 참조합니다. 갤러리에서 템플릿을 다운로드하거나 갤러리에서 직접 Azure에 배포를 시작할 수 있습니다. 이 문서에서는 템플릿을 로컬 컴퓨터에 다운로드했다고 가정합니다.
+이 문서에서는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) 갤러리에 게시된 템플릿을 참조합니다. 갤러리에서 템플릿을 다운로드하거나 갤러리에서 직접 Azure에 배포를 시작할 수 있습니다. 이 문서에서는 템플릿을 로컬 컴퓨터에 다운로드했다고 가정합니다.
 
 1. Azure Portal을 열고 Azure 구독 내에서 VM 및 네트워킹 리소스를 만들 권한이 있는 계정으로 로그인합니다. 또한 기존 리소스를 사용하고 있는 것이 아니라면 리소스 그룹 및 저장소 계정을 만들기 위해서는 계정에 권한이 필요합니다.
 
@@ -85,7 +87,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
     ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
-## 연결 유효성 검사
+## <a name="validate-connectivity"></a>연결 유효성 검사
 
 템플릿이 성공적으로 배포했다면 다음 작업을 완료하여 연결 유효성 검사를 할 수 있습니다.
 
@@ -97,7 +99,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 >[AZURE.NOTE]
 IPv4 및 IPv6 모두에 대한 ICMP은 Azure 네트워크에서 차단됩니다. 따라서 ping과 같은 ICMP 도구는 언제나 작동하지 않습니다. 연결을 테스트하려면 TCPing 또는 PowerShell Test-NetConnection cmdlet와 같은 대체 TCP를 사용합니다. 다이어그램에 표시된 IP 주소는 나타날 수도 있는 값의 예제임에 유의하세요. IPv6 주소는 동적으로 할당되므로 받게 될 주소는 다르며 지역에 따라 달라질 수 있습니다. 또한 부하 분산 장치에 있는 공용 IPv6 주소가 백 엔드 풀에 있는 개인 IPv6 주소와는 다른 접두사로 시작하는 것은 일반적입니다.
 
-## 템플릿 매개 변수 및 변수
+## <a name="template-parameters-and-variables"></a>템플릿 매개 변수 및 변수
 
 Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있는 여러 변수 및 매개 변수를 포함합니다. 변수는 사용자에게 변경하도록 하지 않을 고정된 값에 대해 사용됩니다. 매개 변수는 사용자에게 템플릿을 배포할 때 제공하도록 할 값에 대해 사용합니다. 이 문서에 설명된 시나리오에 대한 예제 템플릿이 구성됩니다. 환경 요건을 사용자에 맞게 설정할 수 있습니다.
 
@@ -128,4 +130,8 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 
 템플릿의 나머지 변수는 Azure가 리소스를 만들 때 할당되는 파생 값을 포함합니다. 이러한 변수를 변경하지 마십시오.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

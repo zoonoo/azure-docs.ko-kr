@@ -1,105 +1,115 @@
 <properties
-	pageTitle="Azure 마켓플레이스 요금의 이해 | Microsoft Azure"
-	description="마켓플레이스 주문과 관련된 요금을 이해하는 방법을 설명합니다."
-	services=""
-	documentationCenter=""
-	authors="JiangChen79"
-	manager="felixwu"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="Azure 외부 서비스 요금의 이해 | Microsoft Azure"
+    description="이전에는 마켓플레이스로 알려진 외부 서비스의 요금 청구, Azure의 요금에 대해 알아봅니다."
+    services=""
+    documentationCenter=""
+    authors="adpick"
+    manager="felixwu"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="cjiang"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2016"
+    ms.author="adpick"/>
 
-# Azure 마켓플레이스 요금의 이해
-이 문서에서는 마켓플레이스 주문과 관련된 요금을 이해하는 방법을 개략적으로 설명합니다. 청구서를 검토할 때 다양한 가격 책정 유형(기본만, 사용량만, 기본 + 사용량)이 있음을 염두에 두어야 합니다. 사용자가 발주하는 마켓플레이스 주문마다 고유한 월별 청구 주기가 적용됩니다. 이에 대한 토픽은 아래에서 자세히 다루겠습니다.
 
-> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+# <a name="understand-your-azure-external-service-charges"></a>Azure 외부 서비스 요금의 이해
 
-## 마켓플레이스 청구서 검토
-[Azure 계정 포털](https://account.windowsazure.com/subscriptions/)에 로그인하면 현재와 과거의 청구서를 검토 및 다운로드할 수 있습니다.
+이 문서에서는 Azure에서 외부 서비스의 요금 청구를 설명합니다. 외부 서비스는 마켓플레이스 주문으로 불렸습니다. 외부 서비스는 독립 서비스 공급 업체에 의해 제공되지만 Azure 에코시스템 내에서 완전히 통합됩니다. 방법 배우기:
 
-청구서를 보거나 다운로드하려면
+- 외부 서비스 식별
+- 요금 청구가 다른 Azure 리소스와 어떻게 다른지 이해
+- 외부 서비스의 사용에서 축적한 모든 비용 확인 및 추적
+- 외부 서비스 주문 및 지불 방법 관리
 
-1. 조직 ID를 사용하여 Azure 계정 포털에 로그인합니다.
-2. **마켓플레이스**를 클릭합니다. 표시되는 목록은 해당 Azure 계정을 통해 발주된 마켓플레이스 주문의 전체 목록입니다. 주문이 부모 Azure 구독 이름 및 ID별로 그룹화된 것을 볼 수 있습니다.
+## <a name="what-are-azure-external-services?"></a>Azure 외부 서비스는 무엇입니까?
 
-    ![마켓플레이스 주문](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+외부 서비스는 Azure Marketplace로 불렸습니다. 일반적으로 Azure에 대해 사용 가능한 제 3자에 의해 게시된 서비스입니다. 예를 들어 ClearDB 및 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.
 
-3. 표시된 주문 중 하나를 클릭하면 현재 청구 주기에 대한 해당 주문의 요약 개요로 이동됩니다. 다른 가격 책정 모델에 대한 설명은 [마켓플레이스 FAQ](https://azure.microsoft.com/marketplace/faq/)에서 찾을 수 있습니다.
+### <a name="identify-external-services"></a>외부 서비스 식별
 
-    ![주문 요약](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+새 외부 서비스 또는 리소스를 프로비전하면 다음 경고가 표시됩니다.
 
-요약 보기에는 각 주문에 대해 다음 정보가 있습니다.
-- 가격
-- 대금 청구 주기
-- 구매 날짜
-- 연결된 부모 구독
-- 청구 통화
+![마켓플레이스 구매 경고](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-이 정보가 표시되는 방식이 약간 바뀌었습니다. 이전에는 세금을 포함한 주문 가격이 표시되었지만 이제는 사용자가 소속된 국가에 따라 세금이 포함된 가격이 표시될 수도 있고 세금을 제외한 가격이 표시될 수도 있습니다. 그리고 가격의 위치가 오른쪽 탐색에서 가운데로 이동되었습니다. 또한 이러한 요금이 어떤 Azure 구독에 연결되는지 간편하게 추적할 수 있도록 오른쪽 탐색에 Azure 구독 이름 및 ID와 **지불 방법 변경** 옵션이 추가되었습니다.
+>[AZURE.NOTE] 외부 서비스는 Microsoft가 아닌 회사에 의해 게시되지만 때때로 Microsoft 제품도 외부 서비스로 분류됩니다.
 
-## 지불 방법 및 주문 관리 업데이트
-요약 페이지에는 사용자 작업이 있어서 사용자가 지불 모델 및 주문 관리 기능을 업데이트할 수 있습니다.
+### <a name="external-services-are-billed-separately"></a>외부 서비스는 별도로 청구됩니다.
 
-> [AZURE.NOTE] 조직 ID를 사용하여 개인 정보를 변경하려면 지원을 통해 티켓을 기록해야 합니다.
+외부 서비스는 Azure 구독 내에서 개별 주문으로 처리됩니다. 각 서비스에 대한 청구 기간은 서비스를 구입할 때 설정됩니다. 구매한 구독의 청구 기간과 혼동되지 않습니다. 또한 별도의 청구를 받으며 신용 카드는 별도로 청구됩니다.
 
-지불 방법을 업데이트하려면 페이지 오른쪽의 **지불 방법 변경** 링크를 클릭합니다.
+### <a name="each-external-service-has-a-different-billing-model"></a>각 외부 서비스에는 다른 청구 모델이 있습니다.
 
-![주문 요약](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+일부 서비스는 종량제 방식으로 청구되는 반면 다른 서비스는 월별 기반 지불 모델을 사용합니다. Azure 외부 서비스에 대한 신용 카드가 필요하며 청구서 지불로 외부 서비스를 구입할 수 없습니다.
 
-그러면 원하는 지불 방법으로 변경할 수 있는 다른 포털로 이동될 것입니다.
+### <a name="you-can't-use-monthly-free-credits-for-external-services"></a>외부 서비스에 대한 월별 무료 크레딧을 사용할 수 없습니다.
 
-지불 방법을 변경하려면 다음 단계를 수행합니다.
+[무료 크레딧](https://azure.microsoft.com/pricing/spending-limits/)을 포함하는 Azure 구독을 사용하는 경우 외부 서비스 청구에 적용될 수 없습니다. 신용 카드를 사용하여 외부 서비스를 구입합니다.
 
-1. **지불 방법 변경**을 클릭합니다.
+## <a name="view-external-service-spending-and-history"></a>외부 서비스 지출 및 기록 보기
 
-    ![구독](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+[Azure 포털](https://portal.azure.com/) 내에서 각 구독에 있는 외부 서비스의 목록을 볼 수 있습니다. 
 
-2. 원하는 지불 방법을 선택합니다. **지불 방법** 옵션을 사용하여 신용 카드를 선택할 수 있습니다. **새 지불 방법 추가** 옵션을 사용하여 새 신용 카드를 추가할 수 있습니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인하고 [**청구** 블레이드로 이동합니다](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade).
 
-    ![지불 방법 변경](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+    ![허브 메뉴에서 청구 선택](./media/billing-understand-your-azure-marketplace-charges/billing-button.png) 
+  
+2. **구독 비용** 섹션에서 확인하려는 구독을 선택합니다. 
+   
+    ![청구 블레이드에서 구독 선택](./media/billing-understand-your-azure-marketplace-charges/select-sub.png)
 
-## 주문 관리
-요약 개요 페이지에는 **주문 관리** 링크가 표시됩니다. 이 링크를 클릭하면 모든 마켓플레이스 주문을 보고, 서비스 상태를 보고, 지원을 요청할 수 있는 포털로 이동됩니다.
+3. **외부 서비스**를 클릭합니다.
 
-![포털](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
+    ![구독 블레이드에서 외부 서비스 클릭](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
 
-지원을 요청하려면 **도움말 + 지원** 타일을 클릭합니다. 그러면 다음을 수행할 수 있는 **도움말 + 지원** 페이지로 이동합니다.
-- 새 지원 요청을 엽니다.
-- 기존 지원 요청을 관리합니다.
-- 리소스 상태를 관리합니다.
+4. 각 외부 서비스 주문, 게시자 이름, 구입한 서비스 계층, 리소스를 지정한 이름 및 현재 주문 상태가 표시됩니다. 외부 서비스를 선택하여 과거 청구서를 봅니다.
 
-![지원 요청](./media/billing-understand-your-azure-marketplace-charges/request-support.jpg)
+    ![외부 서비스 선택](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
 
-## 청구 내역
-요약 페이지에는 가상 컴퓨터처럼 상품을 기반으로 사용량을 볼 수 있는 새 기능이 추가되었습니다. 이제는 청구 주기를 기반으로 현재 기간과 완료된 기간의 사용량을 다운로드할 수 있습니다. 사용량을 보려면 보고 싶은 기간의 **사용량 다운로드** 링크를 클릭합니다.
+5. 여기에서 세금 분석 결과를 포함한 과거 청구 금액을 볼 수 있습니다.
 
-실제 요금을 보고 싶으면 **요금 보기**를 클릭합니다. 그러면 세금이 포함된 모든 요금을 볼 수 있는 다른 포털로 리디렉션됩니다. 조직 ID를 사용하는 경우에는 **요금 보기** 단추를 사용할 수 없고 요금 요약 정보를 요청하는 지원 티켓을 제출해야 합니다.
+    ![외부 서비스 청구 내역 보기](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
-![청구 내역](./media/billing-understand-your-azure-marketplace-charges/billing-history.png)
+## <a name="manage-payment-methods-for-external-service-orders"></a>외부 서비스 주문에 대한 지불 방법 관리
 
-실제 요금을 보려면 다음 단계를 수행합니다.
+[계정 센터](https://account.windowsazure.com/)에서 외부 서비스 주문에 대한 결제 방법을 업데이트합니다.
 
-1. **청구 내역** 페이지에서 **요금 보기**를 클릭합니다.
+> [AZURE.NOTE] 회사 또는 학교 계정으로 구독을 구매한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 지불 방법을 변경해야 합니다.
 
-	[주문 내역](https://account.microsoft.com/billing/orders#/)을 보여 주는 새 탭이 열립니다.
+1. [계정 센터](https://account.windowsazure.com/)에 로그인하고 [**마켓플레이스** 탭으로 이동](https://account.windowsazure.com/Store)
 
-    청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다.
+    ![계정 센터에서 마켓플레이스 선택](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
 
-    ![주문 내역](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
+2. 관리하려는 외부 서비스 선택
 
-2. 검토하려는 주문을 찾아서 **세부 정보**를 클릭하면 소계, 세금 및 총 요금이 포함된 요금 명세서를 볼 수 있습니다.
+    ![관리하려는 외부 서비스 선택](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
 
-    ![주문 세부 정보](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+3. 페이지의 오른쪽에서 **지불 방법 변경**을 클릭합니다. 이 링크를 통해 지불 방법을 관리하는 다른 포털로 이동합니다.
+    
+    ![주문 요약](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
 
-> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+4. **정보 편집**을 클릭하고 지침을 따라 결제 정보를 업데이트합니다.
 
-<!---HONumber=AcomDC_0928_2016-->
+    ![정보 편집 선택](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
+    
+## <a name="cancel-an-external-service-order"></a>외부 서비스 주문 취소
+
+외부 서비스 주문을 취소하려는 경우 [Azure 포털](https://portal.azure.com)에서 리소스를 삭제해야 합니다.
+
+![리소스 삭제](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+
+## <a name="need-help?-contact-support."></a>도움이 필요하세요? 지원에 문의하세요.
+
+계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하여 문제를 신속하게 해결하세요.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

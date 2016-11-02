@@ -1,145 +1,146 @@
 <properties
-	pageTitle="Windows 유니버설 플랫폼 앱용 Azure 알림 허브 시작 | Microsoft Azure"
-	description="이 자습서에서는 Azure 알림 허브를 사용하여 Windows 유니버설 플랫폼 응용 프로그램으로 알림을 푸시하는 방법을 알아봅니다."
-	services="notification-hubs"
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="erikre"
-	editor="erikre"/>
+    pageTitle="Get started with Azure Notification Hubs for Windows Universal Platform Apps | Microsoft Azure"
+    description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Universal Platform application."
+    services="notification-hubs"
+    documentationCenter="windows"
+    authors="ysxu"
+    manager="erikre"
+    editor="erikre"/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="10/03/2016"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="10/03/2016"
+    ms.author="yuaxu"/>
 
-# Windows 유니버설 플랫폼 앱용 알림 허브 시작
+
+# <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Getting started with Notification Hubs for Windows Universal Platform Apps
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##개요
+##<a name="overview"></a>Overview
 
-이 자습서에서는 Azure 알림 허브를 사용하여 UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림을 보내는 방법을 보여 줍니다.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Universal Windows Platform (UWP) app.
 
-이 자습서에서는 WNS(Windows 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows 스토어 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
+In this tutorial, you create a blank Windows Store app that receives push notifications by using the Windows Push Notification Service (WNS). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
 
 
-## 시작하기 전에
+## <a name="before-you-begin"></a>Before you begin
 
 [AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)서 찾을 수 있습니다.
+The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
 
 
-##필수 조건
+##<a name="prerequisites"></a>Prerequisites
 
-이 자습서를 사용하려면 다음이 필요합니다.
+This tutorial requires the following:
 
-+ [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) 이상 버전
++ [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) or later
 
-+ [유니버설 Windows 앱 개발 도구 설치](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
++ [Universal Windows App Development Tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 
-+ 활성 Azure 계정 <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
++ An active Azure account <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 
-+ 활성 Windows 스토어 계정
-
-
-
-이 자습서를 완료해야 다른 모든 Windows 유니버설 플랫폼 앱용 알림 허브 자습서를 진행할 수 있습니다.
-
-##Windows 스토어에 앱 등록
-
-UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결해야 합니다. 그런 다음 WNS와 통합되도록 알림 허브를 구성해야 합니다.
-
-1. 앱을 아직 등록하지 않은 경우 [Windows 개발자 센터](https://dev.windows.com/overview)로 이동하여 Microsoft 계정으로 로그인한 다음 **새 앱 만들기**를 클릭합니다.
++ An active Windows Store account
 
 
-2. 앱의 이름을 입력하고 **앱 이름 예약**을 클릭합니다.
 
-   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
+Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Windows Universal Platform apps.
 
-   	이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
+##<a name="register-your-app-for-the-windows-store"></a>Register your app for the Windows Store
 
-3. Visual Studio에서 **비어 있는 앱** 템플릿을 사용하여 새 Visual C# 스토어 앱 프로젝트를 만들고 **확인**을 클릭합니다.
+To send push notifications to UWP apps, you must associate your app to the Windows Store. You must then configure your notification hub to integrate with WNS.
 
-   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
-
-4. 대상 및 최소 플랫폼 버전에 대한 기본값을 그대로 적용합니다.
+1. If you have not already registered your app, navigate to the [Windows Dev Center](https://dev.windows.com/overview), sign in with your Microsoft account, and then click **Create a new app**.
 
 
-5. 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어**를 클릭한 후 **응용 프로그램을 스토어에 연결...**을 클릭합니다.
+2. Type a name for your app and click **Reserve app name**.
 
-   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
 
+    This creates a new Windows Store registration for your app.
 
-   	**응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
+3. In Visual Studio, create a new Visual C# Store Apps project by using the **Blank App** template and click **OK**.
 
-6. 마법사에서 **로그인**을 클릭한 후 Microsoft 계정으로 로그인합니다.
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
 
-7. 2단계에서 등록한 앱을 클릭하고 **다음**을 클릭한 후 **연결**을 클릭합니다.
-
-   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
-
-   	이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
-
-8. 새 앱을 위한 [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?LinkID=266582) 페이지로 돌아가 **서비스**, **푸시 알림**을 클릭한 후 **WNS(Windows 푸시 알림 서비스) 및 Microsoft Azure 모바일 앱**에서 **Live 서비스 사이트**를 클릭합니다.
-
-   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
-
-9. 앱에 대한 등록 페이지에서 **Windows 스토어** 플랫폼 설정에 있는 **응용 프로그램 암호** 암호 및 **패키지 SID(보안 식별자)**를 메모해 둡니다.
-
-   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+4. Accept the defaults for the target and minimum platform versions.
 
 
- 	> [AZURE.WARNING]
-	응용 프로그램 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
+5. In Solution Explorer, right-click the Windows Store app project, click **Store**, and then click **Associate App with the Store...**.
 
-##알림 허브 구성
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
+
+
+    The **Associate Your App with the Windows Store** wizard appears.
+
+6. In the wizard, click **Sign in** and then sign in with your Microsoft account.
+
+7. Click the app that you registered in step 2, click **Next**, and then click **Associate**.
+
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
+
+    This adds the required Windows Store registration information to the application manifest.
+
+8. Back on the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?LinkID=266582) page for your new app, click **Services**, click **Push notifications**, and then click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Apps**.
+
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
+
+9. On the registration page for your app, make a note of the **Application Secret** password and the **Package security identifier (SID)** located in the **Windows Store** platform settings.
+
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+
+
+    > [AZURE.WARNING]
+    The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+
+##<a name="configure-your-notification-hub"></a>Configure your notification hub
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p><b>Notification Services</b> 옵션 및 <b>Windows(WNS)</b> 옵션을 선택합니다. 그런 다음 <b>보안 키</b> 필드에 <b>응용 프로그램 암호</b> 암호를 입력합니다. 이전 섹션의 WNS에서 얻은 <b>패키지 SID</b> 값을 입력한 다음 <b>저장</b>을 클릭합니다.</p>
+<li><p>Select the <b>Notification Services</b> option and the <b>Windows (WNS)</b> option. Then enter the <b>Application secret</b> password in the <b>Security Key</b> field. Enter your <b>Package SID</b> value that you obtained from WNS in the previous section, and then click <b>Save</b>.</p>
 </li>
 </ol>
 
 &emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
 
-이제 알림 허브가 WNS와 작동하도록 구성되었으며 앱을 등록하고 알림을 보내기 위한 연결 문자열이 있습니다.
+Your notification hub is now configured to work with WNS, and you have the connection strings to register your app and send notifications.
 
-##알림 허브에 앱 연결
+##<a name="connect-your-app-to-the-notification-hub"></a>Connect your app to the notification hub
 
-1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
+1. In Visual Studio, right-click the solution, and then click **Manage NuGet Packages**.
 
-	그러면 **NuGet 패키지 관리** 대화 상자가 표시됩니다.
+    This displays the **Manage NuGet Packages** dialog box.
 
-2. `WindowsAzure.Messaging.Managed`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
+2. Search for `WindowsAzure.Messaging.Managed` and click **Install**, and accept the terms of use.
 
-	![][20]
+    ![][20]
 
-	그러면 <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet 패키지</a>를 사용하여 Windows용 Azure 메시징 라이브러리에 대한 참조가 다운로드, 설치 및 추가됩니다.
+    This downloads, installs, and adds a reference to the Azure Messaging library for Windows by using the <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet package</a>.
 
-3. App.xaml.cs 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
+3. Open the App.xaml.cs project file and add the following `using` statements. 
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
-		using Windows.UI.Popups;
+        using Windows.UI.Popups;
 
 
 
-4. 또한 App.xaml.cs에서 다음과 같은 **InitNotificationsAsync** 메서드 정의를 **App** 클래스에 추가합니다.
+4. Also in App.xaml.cs, add the following **InitNotificationsAsync** method definition to the **App** class:
 
-	    private async void InitNotificationsAsync()
+        private async void InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
             var hub = new NotificationHub("< your hub name>", "<Your DefaultListenSharedAccessSignature connection string>");
-			var result = await hub.RegisterNativeAsync(channel.Uri);
+            var result = await hub.RegisterNativeAsync(channel.Uri);
 
             // Displays the registration ID so you know it was successful
             if (result.RegistrationId != null)
@@ -151,108 +152,108 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 
         }
 
-    이 코드는 WNS에서 앱의 채널 URI를 검색한 후 해당 채널 URI를 알림 허브에 등록합니다.
+    This code retrieves the channel URI for the app from WNS, and then registers that channel URI with your notification hub.
 
-    >[AZURE.NOTE] "허브 이름" 자리 표시자를 Azure 포털에 나타나는 알림 허브의 이름으로 바꿔야 합니다. 또한 연결 문자열 자리 표시자를 이전 섹션에 있는 알림 허브 **액세스 정책** 페이지에서 가져온 **DefaultListenSharedAccessSignature** 연결 문자열로 바꿉니다.
+    >[AZURE.NOTE] Make sure to replace the "your hub name" placeholder with the name of the notification hub that appears in the Azure Portal. Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained from the **Access Polices** page of your Notification Hub in a previous section.
 
-5. App.xaml.cs에서 **OnLaunched** 이벤트 처리기의 맨 위에 다음과 같은 새 **InitNotificationsAsync** 메서드 호출을 추가합니다.
+5. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
         InitNotificationsAsync();
 
-    이 코드는 응용 프로그램이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
+    This guarantees that the channel URI is registered in your notification hub each time the application is launched.
 
-6. **F5** 키를 눌러 앱을 실행합니다. 등록 키가 포함된 팝업 대화 상자가 표시됩니다.
+6. Press the **F5** key to run the app. A pop-up dialog that contains the registration key is displayed.
 
-   	![][19]
-
-
+    ![][19]
 
 
-이제 앱에서 알림을 받을 수 있습니다.
 
-##알림 보내기 
 
-아래 화면과 같이 알림 허브의 **테스트 보내기** 단추를 사용하여 [Azure 포털](https://portal.azure.com/)에서 알림을 보내 앱의 알림 수신을 신속하게 테스트할 수 있습니다.
+Your app is now ready to receive toast notifications.
+
+##<a name="send-notifications"></a>Send notifications 
+
+You can quickly test receiving notifications in your app by sending notifications in the [Azure Portal](https://portal.azure.com/) using the **Test Send** button on the notification hub, as shown in the screen below.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
-푸시 알림은 일반적으로 호환 라이브러리를 사용하는 모바일 서비스 또는 ASP.NET과 같은 백 엔드 서비스에서 전송됩니다. 백 엔드에 라이브러리를 사용할 수 없는 경우 직접 REST API를 사용하여 알림 메시지를 보낼 수도 있습니다.
+Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end. 
 
-이 자습서에서는 과정을 단순하게 유지하고 백엔드 서비스 대신 콘솔 응용 프로그램에서 알림 허브에 .NET SDK를 사용하여 알림을 보내서 클라이언트 앱의 테스트만 보여 줍니다. ASP.NET 백엔드에서 알림을 보내기 위한 다음 단계로 [알림 허브를 사용하여 사용자에게 알림을 푸시]하는 것이 좋습니다. 그러나 다음 접근 방식을 사용하여 알림을 보낼 수 있습니다.
+In this tutorial, we will keep it simple and just demonstrate testing your client app by sending notifications using the .NET SDK for notification hubs in a console application instead of a backend service. We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step for sending notifications from an ASP.NET backend. However, the following approaches can be used for sending notifications:
 
-* **REST 인터페이스**: [REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하여 백엔드 플랫폼에서 알림을 지원할 수 있습니다.
+* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-* **Microsoft Azure 알림 허브 .NET SDK**: Visual Studio용 Nuget 패키지 관리자에서 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 실행합니다.
+* **Microsoft Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-* **Node.js** : [Node.js에서 알림 허브 사용 방법](notification-hubs-nodejs-push-notification-tutorial.md).
+* **Node.js** : [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 
-* **Azure 모바일 앱**: 알림 허브와 통합된 Azure 모바일 앱에서 알림을 보내는 방법에 대한 예제는 [모바일 앱에 대한 푸시 알림 추가](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)를 참조하세요
+* **Azure Mobile Apps**: For an example of how to send notifications from an Azure Mobile App that's integrated with Notification Hubs, see [Add push notifications for Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 
-* **Java / PHP**: REST API를 사용하여 알림을 보내는 방법에 대한 예는 "Java/PHP에서 알림 허브를 사용하는 방법"([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md))을 참조하세요.
-
-
-## (선택 사항) 콘솔 응용 프로그램에서 알림 보내기
+* **Java / PHP**: For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 
-.NET 콘솔 응용 프로그램을 사용하여 알림을 보내려면 다음 단계를 수행합니다.
+## <a name="(optional)-send-notifications-from-a-console-app"></a>(Optional) Send notifications from a console app
 
-1. 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 및 **새 프로젝트...**를 선택한 후에 **Visual C#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.
 
-   	![][13]
+To send notifications by using a .NET console application follow these steps. 
 
-	새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다. 별도의 솔루션에서 이 작업을 수행할 수도 있습니다.
+1. Right-click the solution, select **Add** and **New Project...**, and then under **Visual C#**, click **Windows** and **Console Application**, and click **OK**.
 
-2. Visual Studio에서 **도구**를 클릭하고 **NuGet 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
+    ![][13]
 
-	그러면 Visual Studio에 패키지 관리자 콘솔이 표시됩니다.
+    This adds a new Visual C# console application to the solution. You can also do this in a separate solution.
 
-3. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 응용 프로그램 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
+2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
+
+    This displays the Package Manager Console in Visual Studio.
+
+3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	그러면 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 패키지</a>를 사용하는 Azure 알림 허브 SDK에 대한 참조가 추가됩니다.
+    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
 
-	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 
-4. Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
+4. Open the Program.cs file and add the following `using` statement:
 
         using Microsoft.Azure.NotificationHubs;
 
-5. **Program** 클래스에서 다음 메서드를 추가합니다.
+5. In the **Program** class, add the following method:
 
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient
-				.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
+                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
             var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello from a .NET App!</text></binding></visual></toast>";
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	"허브 이름" 자리 표시자를 Azure 포털에 나타나는 알림 허브의 이름으로 바꿔야 합니다. 또한 연결 문자열 자리 표시자를 "알림 허브 구성" 섹션에 있는 알림 허브 **액세스 정책** 페이지에서 가져온 **DefaultFullSharedAccessSignature** 연결 문자열로 바꿉니다.
+    Make sure to replace the "hub name" placeholder with the name of the notification hub that as it appears in the Azure Portal. Also, replace the connection string placeholder with the **DefaultFullSharedAccessSignature** connection string that you obtained from the **Access Policies** page of your Notification Hub in the section called "Configure your notification hub."
 
-	>[AZURE.NOTE]**수신 대기** 권한이 아니라 **모든** 권한을 가진 연결 문자열을 사용해야 합니다. 수신 대기 권한 문자열은 알림을 보낼 수 있는 권한이 없습니다.
+    >[AZURE.NOTE]Make sure that you use the connection string that has **Full** access, not **Listen** access. The listen-access string does not have permissions to send notifications.
 
-6. **Main** 메서드에 다음 코드를 추가합니다.
+6. Add the following lines in the **Main** method:
 
          SendNotificationAsync();
-		 Console.ReadLine();
+         Console.ReadLine();
 
-7. Visual Studio에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭하여 시작 프로젝트로 설정합니다. 그런 다음 **F5** 키를 눌러 응용 프로그램을 실행합니다.
+7. Right-click the console application project in Visual Studio, and click **Set as StartUp Project** to set it as the startup project. Then press the **F5** key to run the application.
 
-   	![][14]
+    ![][14]
 
-	그러면 등록된 모든 장치에 대한 알림 메시지를 수신하게 됩니다. 알림 배너를 클릭하거나 누르면 앱이 로드됩니다.
+    You will receive a toast notification on all registered devices. Clicking or tapping the toast banner loads the app.
 
-MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목에서 지원되는 모든 페이로드를 찾을 수 있습니다.
+You can find all the supported payloads in the [toast catalog], [tile catalog], and [badge overview] topics on MSDN.
 
-##다음 단계
+##<a name="next-steps"></a>Next steps
 
-이 간단한 예제에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 다음 단계로 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 특정 사용자를 대상으로 하는 태그를 사용하여 ASP.NET 백엔드에서 알림을 보내는 방법을 보여 줍니다.
+In this simple example, you sent broadcast notifications to all your Windows devices using the portal or a console app. We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step. It will show you how to send notifications from an ASP.NET backend using tags to target specific users.
 
-사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하십시오.
+If you want to segment your users by interest groups, see [Use Notification Hubs to send breaking news]. 
 
-알림 허브에 대한 더 일반적인 정보를 알아보려면 [알림 허브 지침](notification-hubs-push-notification-overview.md)을 참조하세요.
+To learn more general information about Notification Hubs, see [Notification Hubs Guidance](notification-hubs-push-notification-overview.md).
 
 
 
@@ -267,12 +268,15 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 
 <!-- URLs. -->
 
-[알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[알림 허브를 사용하여 사용자에게 알림을 푸시]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-[알림 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

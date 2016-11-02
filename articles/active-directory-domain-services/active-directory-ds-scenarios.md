@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services: 배포 시나리오 | Microsoft Azure"
-	description="Azure AD 도메인 서비스용 배포 시나리오"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory Domain Services: 배포 시나리오 | Microsoft Azure"
+    description="Azure AD 도메인 서비스용 배포 시나리오"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2016"
+    ms.author="maheshu"/>
 
 
-# 배포 시나리오 및 사용 사례
+
+# <a name="deployment-scenarios-and-use-cases"></a>배포 시나리오 및 사용 사례
 이 섹션에서는 Azure AD(Active Directory) 도메인 서비스에서 이익이 되는 몇 가지 시나리오 및 사용 사례를 살펴보겠습니다.
 
-## Azure 가상 컴퓨터의 안전하고 손쉬운 관리
+## <a name="secure,-easy-administration-of-azure-virtual-machines"></a>Azure 가상 컴퓨터의 안전하고 손쉬운 관리
 Azure Active Directory Domain Services를 사용하여 효율적인 방식으로 Azure 가상 컴퓨터를 관리할 수 있습니다. Azure 가상 컴퓨터를 관리되는 도메인에 가입할 수 있으므로 회사 AD 자격 증명을 사용하여 로그인 할 수 있습니다. 이 방법은 각 Azure 가상 컴퓨터에서 로컬 관리자 계정 유지 관리와 같은 복잡한 자격 증명 관리 과정을 방지하도록 돕습니다.
 
 그룹 정책을 사용하여 관리되는 도메인에 가입된 서버 가상 컴퓨터를 관리하고 보호할 수 있습니다. Azure 가상 컴퓨터에 필요한 보안 기준을 적용할 수 있으며 회사 보안 지침에 따라 잠글 수 있습니다. 예를 들어 그룹 정책 관리 기능을 사용하여 이러한 가상 컴퓨터에서 시작될 수 있는 응용 프로그램 종류를 제한할 수 있습니다.
@@ -40,7 +41,7 @@ Azure Active Directory Domain Services를 사용하여 효율적인 방식으로
 - Azure AD 도메인 서비스는 기본 AD 컴퓨터 개체 스키마를 지원합니다. 컴퓨터 개체의 스키마를 확장할 수 없습니다.
 
 
-## LDAP 바인딩 인증을 사용하는 온-프레미스 응용 프로그램을 Azure 인프라 서비스에 들어올려서 옮기기
+## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>LDAP 바인딩 인증을 사용하는 온-프레미스 응용 프로그램을 Azure 인프라 서비스에 들어올려서 옮기기
 
 ![LDAP 바인딩](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
@@ -55,7 +56,7 @@ Contoso에는 ISV에서 몇 년 전에 구입한 온-프레미스 응용 프로�
 - 사용자는 관리되는 도메인에 대해 직접 암호를 변경할 수 없습니다. 최종 사용자가 Azure AD의 셀프 서비스 암호 변경 메커니즘을 사용하거나 온-프레미스 디렉터리에 대해 암호를 바꿀 수 있습니다. 이러한 변경은 관리되는 도메인에서 자동으로 동기화되고 사용할 수 있습니다.
 
 
-## 디렉터리에 액세스하는 데 LDAP 읽기를 사용하는 온-프레미스 응용 프로그램을 Azure 인프라 서비스에 들어올려서 옮기기
+## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-read-to-access-the-directory-to-azure-infrastructure-services"></a>디렉터리에 액세스하는 데 LDAP 읽기를 사용하는 온-프레미스 응용 프로그램을 Azure 인프라 서비스에 들어올려서 옮기기
 Contoso에는 거의 10년 전에 개발된 온-프레미스 LOB(기간 업무) 응용 프로그램이 있습니다. 해당 응용 프로그램은 디렉터리를 인식하고 Windows Server AD로 작업하도록 설계되었습니다. 응용 프로그램은 LDAP(Lightweight Directory Access Protocol)를 사용하여 Active Directory에서 사용자에 대한 정보/특성을 읽습니다. 응용 프로그램은 특성을 수정하지 않거나 그렇지 않은 경우 디렉터리에 쓰지 않습니다. Contoso는 Azure 인프라 서비스에 해당 응용 프로그램을 마이그레이션하고 현재 해당 응용 프로그램을 호스팅하는 오래된 온-프레미스 하드웨어의 사용을 중지하려고 합니다. 응용 프로그램은 REST 기반 Azure AD Graph API와 같은 최신 디렉터리 API를 사용하기 위해 다시 작성할 수 없습니다. 따라서 코드를 수정하거나 응용 프로그램을 다시 작성하지 않고 클라우드에서 실행하기 위해 응용 프로그램을 마이그레이션할 수 있는 들어올려서 옮기기 옵션이 필요합니다.
 
 **배포 참고 사항**
@@ -67,7 +68,7 @@ Contoso에는 거의 10년 전에 개발된 온-프레미스 LOB(기간 업무) 
 - 응용 프로그램에 사용자 지정/확장 된 Active Directory 스키마가 필요하지 않습니다. 스키마 확장은 Azure AD 도메인 서비스에서 지원되지 않습니다.
 
 
-## Azure 인프라 서비스에 온-프레미스 서비스 또는 데몬 응용 프로그램 마이그레이션
+## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure-infrastructure-services"></a>Azure 인프라 서비스에 온-프레미스 서비스 또는 데몬 응용 프로그램 마이그레이션
 계층 중 하나가 데이터베이스 계층과 같은 백 엔드 계층에 대해 인증된 호출을 수행해야 하는 여러 계층으로 구성된 일부 응용 프로그램 Active Directory 서비스 계정은 이러한 사용 사례에 대해 자주 사용됩니다. 이러한 응용 프로그램을 Azure 인프라 서비스로 전환하고 이러한 응용 프로그램의 ID 필요에 대해 Azure AD 도메인 서비스를 사용할 수 있습니다. 온-프레미스 디렉터리에서 Azure AD로 동기화되는 동일한 서비스 계정을 사용하도록 선택할 수 있습니다. 또는 먼저 사용자 지정 OU를 만든 다음 이러한 응용 프로그램을 배포하도록 해당 OU에 별도 서비스 계정을 만들 수 있습니다.
 
 ![WIA를 사용하는 서비스 계정](./media/active-directory-domain-services-scenarios/wia-service-account.png)
@@ -83,11 +84,15 @@ Contoso에는 웹 프런트 엔드, SQL server 및 백 엔드 FTP 서버를 포�
 - 사용자는 관리되는 도메인에 대해 직접 암호를 변경할 수 없습니다. 최종 사용자가 Azure AD의 셀프 서비스 암호 변경 메커니즘을 사용하거나 온-프레미스 디렉터리에 대해 암호를 바꿀 수 있습니다. 이러한 변경은 관리되는 도메인에서 자동으로 동기화되고 사용할 수 있습니다.
 
 
-## Azure RemoteApp
+## <a name="azure-remoteapp"></a>Azure RemoteApp
 Azure RemoteApp을 통해 Contoso의 관리자는 도메인에 가입된 컬렉션을 만들 수 있습니다. 이 기능을 통해 Azure RemoteApp에서 제공되는 원격 응용 프로그램을 도메인에 가입된 컴퓨터에서 실행하고 Windows 통합 인증을 사용하여 다른 리소스에 액세스할 수 있습니다. Contoso는 Azure AD 도메인 서비스를 사용하여 Azure RemoteApp 도메인에 가입된 컬렉션에서 사용하는 관리되는 도메인을 제공할 수 있습니다.
 
 ![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
 이 배포 시나리오에 대한 자세한 내용은 원격 데스크톱 서비스 블로그 문서인 [Azure RemoteApp 및 Azure AD Domain Services로 워크로드 전환](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

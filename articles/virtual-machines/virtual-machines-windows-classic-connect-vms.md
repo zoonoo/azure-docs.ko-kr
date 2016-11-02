@@ -1,23 +1,24 @@
 <properties
-	pageTitle="클라우드 서비스에서 Windows VM 연결 | Microsoft Azure"
-	description="클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터를 Azure 클라우드 서비스 또는 가상 네트워크에 연결합니다."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="클라우드 서비스에서 Windows VM 연결 | Microsoft Azure"
+    description="클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터를 Azure 클라우드 서비스 또는 가상 네트워크에 연결합니다."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="cynthn"/>
 
-# 클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스에 연결
+
+# <a name="connect-windows-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스에 연결
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -29,8 +30,11 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-connect-vms](../../includes/virtual-machines-common-classic-connect-vms.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
-가상 컴퓨터를 만들고 나서 서비스 및 워크로드에 데이터를 저장할 위치가 포함되도록 [데이터 디스크를 추가](virtual-machines-windows-classic-attach-disk.md)하는 것이 좋습니다.
+가상 컴퓨터를 만들고 나서 서비스 및 워크로드에 데이터를 저장할 위치가 포함되도록 [데이터 디스크를 추가](virtual-machines-windows-classic-attach-disk.md) 하는 것이 좋습니다. 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,10 +1,10 @@
 <properties
-    pageTitle=".NET SDK를 사용하여 Azure 검색 인덱스 만들기 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
-    description="Azure 검색 .NET SDK를 사용하여 코드에 인덱스를 만듭니다."
+    pageTitle="Create an Azure Search index using the .NET SDK | Microsoft Azure | Hosted cloud search service"
+    description="Create an index in code using the Azure Search .NET SDK."
     services="search"
     documentationCenter=""
     authors="brjohnstmsft"
-    manager=""
+    manager="jhubbard"
     editor=""
     tags="azure-portal"/>
 
@@ -17,39 +17,40 @@
     ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
-# .NET SDK를 사용하여 Azure 검색 인덱스 만들기
+
+# <a name="create-an-azure-search-index-using-the-.net-sdk"></a>Create an Azure Search index using the .NET SDK
 > [AZURE.SELECTOR]
-- [개요](search-what-is-an-index.md)
-- [포털](search-create-index-portal.md)
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
-- [REST (영문)](search-create-index-rest-api.md)
+- [REST](search-create-index-rest-api.md)
 
 
-이 문서는 [Azure 검색 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 사용하여 Azure 검색 [인덱스](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 만드는 프로세스를 안내합니다.
+This article will walk you through the process of creating an Azure Search [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) using the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
-이 가이드를 수행하고 인덱스를 만들기 전에 이미 [Azure 검색 서비스를 만들어야](search-create-service-portal.md) 합니다.
+Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
 
-이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요.
+Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
 
-## I. Azure 검색 서비스의 관리 API 키 식별
-Azure 검색 서비스를 프로비전했다면 .NET SDK를 사용하여 서비스 끝점에 대한 요청을 실행할 준비가 거의 된 것입니다. 먼저 프로비전한 검색 서비스에 대해 생성된 관리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+## <a name="i.-identify-your-azure-search-service's-admin-api-key"></a>I. Identify your Azure Search service's admin api-key
+Now that you have provisioned an Azure Search service, you are almost ready to issue requests against your service endpoint using the .NET SDK. First, you will need to obtain one of the admin api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. 서비스의 API 키를 찾으려면 [Azure 포털](https://portal.azure.com/)에 로그인해야 합니다.
-2. Azure 검색 서비스의 블레이드로 이동합니다.
-3. "키" 아이콘을 클릭합니다.
+1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
+2. Go to your Azure Search service's blade
+3. Click on the "Keys" icon
 
-서비스에는 *관리 키* 및 *쿼리 키*가 있습니다.
+Your service will have *admin keys* and *query keys*.
 
-  - 기본 및 보조 *관리 키*는 서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다. 두 개의 키가 있으므로 기본 키를 다시 생성하려는 경우 보조 키를 사용하여 계속할 수 있고 반대도 가능합니다.
-  - *쿼리 키*는 인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 실행하는 클라이언트 응용 프로그램에 배포됩니다.
+  - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+  - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
-인덱스를 만들기 위해 기본 또는 보조 관리 키를 사용할 수 있습니다.
+For the purposes of creating an index, you can use either your primary or secondary admin key.
 
 <a name="CreateSearchServiceClient"></a>
-## II. SearchServiceClient 클래스의 인스턴스 만들기
-Azure 검색 .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만들어야 합니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials`는 API 키를 래핑합니다.
+## <a name="ii.-create-an-instance-of-the-searchserviceclient-class"></a>II. Create an instance of the SearchServiceClient class
+To start using the Azure Search .NET SDK, you will need to create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
-아래 코드에서는 응용 프로그램의 구성 파일(`app.config` 또는 `web.config`)에 저장된 API 키와 검색 서비스 이름을 사용하여 새 `SearchServiceClient`를 만듭니다.
+The code below creates a new `SearchServiceClient` using values for the search service name and api-key that are stored in the application's config file (`app.config` or `web.config`):
 
 ```csharp
 string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
@@ -58,20 +59,20 @@ string adminApiKey = ConfigurationManager.AppSettings["SearchServiceAdminApiKey"
 SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
 ```
 
-`SearchServiceClient`에는 `Indexes` 속성이 있습니다. 이 속성은 Azure 검색 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공합니다.
+`SearchServiceClient` has an `Indexes` property. This property provides all the methods you need to create, list, update, or delete Azure Search indexes.
 
-> [AZURE.NOTE] `SearchServiceClient` 클래스는 검색 서비스에 대한 연결을 관리합니다. 너무 많은 연결이 열리는 것을 방지하기 위해 되도록 응용 프로그램에서 단일 `SearchServiceClient` 인스턴스를 공유합니다. 해당 메서드는 스레드로부터 안전하므로 이러한 공유를 사용할 수 있습니다.
+> [AZURE.NOTE] The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, you should try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
 
 <a name="DefineIndex"></a>
-## III. `Index` 클래스를 사용하여 Azure 검색 인덱스 정의
-`Indexes.Create` 메서드에 대한 단일 호출이 인덱스를 만듭니다. 이 메서드는 Azure 검색 인덱스를 정의하는 `Index` 개체를 매개 변수로 사용합니다. 다음과 같이 `Index` 개체를 만들고 초기화해야 합니다.
+## <a name="iii.-define-your-azure-search-index-using-the-`index`-class"></a>III. Define your Azure Search index using the `Index` class
+A single call to the `Indexes.Create` method will create your index. This method takes as a parameter an `Index` object that defines your Azure Search index. You need to create an `Index` object and initialize it as follows:
 
-1. `Index` 개체의 `Name` 속성을 인덱스의 이름으로 설정합니다.
-2. `Index` 개체의 `Fields` 속성을 `Field` 개체의 배열로 설정합니다. 각각의 `Field` 개체는 인덱스 필드의 동작을 정의합니다. 필드 이름을 데이터 형식(또는 문자열 필드의 분석기)과 함께 생성자에 제공할 수 있습니다. `IsSearchable`, `IsFilterable` 등의 기타 속성을 설정할 수도 있습니다.
+1. Set the `Name` property of the `Index` object to the name of your index.
+2. Set the `Fields` property of the `Index` object to an array of `Field` objects. Each of the `Field` objects defines the behavior of a field in your index. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, etc.
 
-인덱스를 각 `Field`로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적합한 속성](https://msdn.microsoft.com/library/azure/dn798941.aspx)으로 할당해야 한다는 점을 염두하는 것이 중요합니다. 이러한 속성은 어떤 검색 기능(전체 텍스트 검색의 필터링, 패싯, 정렬 등)이 어떤 필드에 적용될지를 제어합니다. 명시적으로 설정하지 않은 속성의 경우 사용자가 특별히 사용하도록 설정하지 않는 한 `Field` 클래스가 기본적으로 해당 검색 기능을 사용 안 함으로 설정합니다.
+It is important that you keep your search user experience and business needs in mind when designing your index as each `Field` must be assigned the [appropriate properties](https://msdn.microsoft.com/library/azure/dn798941.aspx). These properties control which search features (filtering, faceting, sorting full-text search, etc.) apply to which fields. For any property you do not explicitly set, the `Field` class defaults to disabling the corresponding search feature unless you specifically enable it.
 
-예를 들어 인덱스 "호텔"의 이름을 지정하고 필드를 다음과 같이 정의했습니다.
+For our example, we've named our index "hotels" and defined our fields as follows:
 
 ```csharp
 var definition = new Index()
@@ -95,32 +96,36 @@ var definition = new Index()
 };
 ```
 
-응용 프로그램에서 사용되는 방법에 따라 각 `Field`에 대한 속성 값을 신중하게 선택했습니다. 예를 들어 호텔을 검색 중인 사용자에게는 `description` 필드에서 키워드 일치 항목이 유용할 수 있으므로 `IsSearchable`을 `true`로 설정하여 해당 필드에 대한 전체 텍스트 검색을 사용하도록 설정합니다.
+We have carefully chosen the property values for each `Field` based on how we think they will be used in an application. For example, it is likely that people searching for hotels will be interested in keyword matches on the `description` field, so we enable full-text search for that field by setting `IsSearchable` to `true`.
 
-`IsKey`를 `true`로 설정하여 형식 `DataType.String`의 인덱스에 정확히 하나의 필드가 키 필드로 지정되어야 합니다(위 예제의 `hotelId` 참조).
+Please note that exactly one field in your index of type `DataType.String` must be the designated as the _key_ field by setting `IsKey` to `true` (see `hotelId` in the above example).
 
-위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 사용자 지정 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [MSDN의 언어 지원 항목](https://msdn.microsoft.com/library/azure/dn879793.aspx)뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
+The index definition above uses a custom language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic on MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) as well as the corresponding [blog post](https://azure.microsoft.com/blog/language-support-in-azure-search/) for more information about language analyzers.
 
-> [AZURE.NOTE]  생성자에 `AnalyzerName.FrLucene`를 전달하면 `Field`가 자동으로 `DataType.String` 형식이 되고 `IsSearchable`이 `true`로 설정됩니다.
+> [AZURE.NOTE]  Note that by passing `AnalyzerName.FrLucene` in the constructor, the `Field` will automatically be of type `DataType.String` and will have `IsSearchable` set to `true`.
 
-## IV. 인덱스 만들기
-`Index` 개체를 초기화한 후에는 `SearchServiceClient` 개체에서 `Indexes.Create`를 호출하여 간단히 인덱스를 만들 수 있습니다.
+## <a name="iv.-create-the-index"></a>IV. Create the index
+Now that you have an initialized `Index` object, you can create the index simply by calling `Indexes.Create` on your `SearchServiceClient` object:
 
 ```csharp
 serviceClient.Indexes.Create(definition);
 ```
 
-요청이 성공하면 메서드가 정상적으로 반환됩니다. 잘못된 매개 변수 등 요청에 문제가 발생하면 메서드가 `CloudException`을 발생시킵니다.
+For a successful request, the method will return normally. If there is a problem with the request such as an invalid parameter, the method will throw `CloudException`.
 
-인덱스 관련 작업을 완료하고 삭제하려는 경우 `SearchServiceClient`에서 `Indexes.Delete` 메서드를 호출합니다. 예를 들어 "호텔" 인덱스를 삭제하는 방법입니다.
+When you're done with an index and want to delete it, just call the `Indexes.Delete` method on your `SearchServiceClient`. For example, this is how we would delete the "hotels" index:
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");
 ```
 
-> [AZURE.NOTE] 이 문서의 예제 코드는 간단히 하기 위해 Azure 검색.NET SDK의 동기 메서드를 사용합니다. 확장성과 응답성이 유지하기 위해 사용 중인 응용 프로그램에서 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어 위의 예제에서 `Create` 및 `Delete` 대신 `CreateAsync` 및 `DeleteAsync`를 사용할 수 있습니다.
+> [AZURE.NOTE] The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the examples above you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
 
-## 다음
-Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md)할 준비가 되었습니다.
+## <a name="next"></a>Next
+After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

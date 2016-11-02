@@ -17,7 +17,8 @@
    ms.date="09/13/2016"
    ms.author="kundanap"/>
 
-# Linux VM 확장 구성 샘플
+
+# <a name="linux-vm-extension-configuration-samples"></a>Linux VM 확장 구성 샘플
 
 > [AZURE.SELECTOR]
 - [PowerShell - 템플릿](virtual-machines-windows-extensions-configuration-samples.md)
@@ -27,13 +28,13 @@
 
 이 문서에서는 Linux VM에 대해 Azure VM 확장을 구성하기 위한 샘플 구성을 제공합니다.
 
-이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](virtual-machines-windows-extensions-features.md)를 클릭합니다.
+이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](virtual-machines-windows-extensions-features.md)
 
-확장 템플릿 작성에 대해 자세히 알아보려면 [확장 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md)을 클릭합니다.
+확장 템플릿 작성에 대해 자세히 알아보려면 [확장 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md)
 
 이 문서에서는 일부 Linux 확장에 대해 예상되는 구성 값을 나열합니다.
 
-## VM 확장에 대한 샘플 템플릿 코드 조각
+## <a name="sample-template-snippet-for-vm-extensions."></a>VM 확장에 대한 샘플 템플릿 코드 조각
 확장을 배포하기 위한 템플릿 코드 조각은 다음과 같습니다.
 
       {
@@ -54,7 +55,7 @@
       }
       }
 
-## VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
 
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
@@ -80,7 +81,7 @@
 
 문서의 나머지 부분에서는 Linux VM 확장에 대한 샘플 구성을 제공합니다.
 
-### CloudLink SecureVM Agent
+### <a name="cloudlink-securevm-agent"></a>CloudLink SecureVM Agent
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMLinuxAgent",
@@ -90,7 +91,7 @@
             }
           }
 
-### Linux용 CustomScript 확장
+### <a name="customscript-extension-for-linux."></a>Linux용 CustomScript 확장
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -105,7 +106,7 @@
     }
 
 
-### Datadog Agent
+### <a name="datadog-agent"></a>Datadog Agent
         {
           "publisher": "Datadog.Agent",
           "type": "DatadogLinuxAgent",
@@ -115,7 +116,7 @@
           }
         }
 
-### Chef Agent
+### <a name="chef-agent"></a>Chef Agent
         {
           "publisher": "Chef.Bootstrap.WindowsAzure",
           "type": "CentosChefClient|LinuxChefClient",
@@ -127,8 +128,8 @@
           }
         }
 
-### VM Access 확장(암호 재설정)
-업데이트된 스키마는 [VMAccessForLinux 설명서](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)를 참조하세요.
+### <a name="vm-access-extension-(password-reset)"></a>VM Access 확장(암호 재설정)
+업데이트된 스키마는 [VMAccessForLinux 설명서](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -143,8 +144,8 @@
           }
         }
 
-### OS 패치
-업데이트된 스키마는 [OSPatching 설명서](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)를 참조하세요.
+### <a name="os-patching"></a>OS 패치
+업데이트된 스키마는 [OSPatching 설명서](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -168,8 +169,8 @@
         }
         }
 
-### Docker 확장
-업데이트된 스키마는 [Docker 확장 설명서](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)를 참조하세요.
+### <a name="docker-extension"></a>Docker 확장
+업데이트된 스키마는 [Docker 확장 설명서](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -217,4 +218,8 @@
 
 [Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

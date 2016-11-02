@@ -1,56 +1,64 @@
 <properties
-	pageTitle="SQL 데이터 웨어하우스 서비스에 대한 모든 항목 | Microsoft Azure"
-	description="http://azure.microsoft.com/documentation/articles/에 있는 SQL 데이터 웨어하우스라는 Azure 서비스에 대한 모든 항목, 제목 및 설명에 대한 테이블입니다."
-	services="sql-data-warehouse"
-	documentationCenter=""
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="SQL 데이터 웨어하우스 서비스에 대한 모든 항목 | Microsoft Azure"
+    description="http://azure.microsoft.com/documentation/articles/에 있는 SQL 데이터 웨어하우스라는 Azure 서비스에 대한 모든 항목, 제목 및 설명에 대한 테이블입니다."
+    services="sql-data-warehouse"
+    documentationCenter=""
+    authors="barbkess"
+    manager="jhubbard"
+    editor="MightyPen"/>
 
 <tags
-	ms.service="sql-data-warehouse"
-	ms.workload="sql-data-warehouse"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2016"
-	ms.author="barbkess"/>
+    ms.service="sql-data-warehouse"
+    ms.workload="sql-data-warehouse"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/05/2016"
+    ms.author="barbkess"/>
 
 
-# Azure SQL 데이터 웨어하우스 서비스에 대한 모든 항목
+
+# <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Azure SQL 데이터 웨어하우스 서비스에 대한 모든 항목
 
 이 항목에서는 Azure의 **SQL 데이터 웨어하우스** 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.
 
 
 
-## 업데이트된 문서
 
-이 섹션에서는 최근에 대규모로 수행되거나 중요하게 업데이트된 문서가 목록으로 표시됩니다. 업데이트된 각 문서에 대해 추가된 markdown 텍스트의 대략적인 코드 조각이 표시됩니다. 날짜 범위 **2016-07-26**부터 **2016-08-21**까지 문서가 업데이트되었습니다.
-
-| &nbsp; | 문서 | 업데이트된 텍스트, 코드 조각 |
-| --: | :-- | :-- |
-| 1 | [SQL 데이터 웨어하우스의 동시성 및 워크로드 관리](sql-data-warehouse-develop-concurrency.md) | **동시성 한도를 적용하는 쿼리** 대부분의 쿼리는 리소스 클래스에 의해 제어됩니다. 이러한 쿼리는 동시 쿼리 및 동시성 슬롯 임계값 둘 다를 벗어나지 않아야 합니다. 최종 사용자는 동시성 슬롯 모델에서 쿼리를 제외하도록 선택할 수 없습니다. 다시 말해서 다음 문은 리소스 클래스를 **적용**합니다. / INSERT-SELECT / UPDATE / DELETE / SELECT (when querying user tables) / ALTER INDEX REBUILD / ALTER INDEX REORGANIZE / ALTER TABLE REBUILD / CREATE INDEX / CREATE CLUSTERED COLUMNSTORE INDEX / CREATE TABLE AS SELECT (CTAS) / DMS(데이터 이동 서비스)에서 수행하는 데이터 이동 작업 **동시성 제한에 대한 쿼리 예외** |
-| 2 | [프리미엄 저장소 세부 정보로 마이그레이션](sql-data-warehouse-migrate-to-premium-storage.md) | 프리미엄 저장소로 변경하여 데이터 웨어하우스의 기반 아키텍처에서 데이터베이스 blob 파일 수도 증가시켰습니다. 성능 문제가 발생하는 경우 아래 스크립트를 사용하여 클러스터형 Columnstore를 다시 빌드하는 것이 좋습니다. 그러면 일부 기존 데이터가 추가 blob에 적용됩니다. 아무 작업도 하지 않으면 자연스럽게 시간이 지나면서 데이터 웨어하우스 테이블에 더 많은 데이터를 로드함에 따라 데이터가 재배포됩니다. **필수 구성 요소:** 1. 데이터 웨어하우스를 1,000 DWU 이상으로 실행해야 합니다(계산 능력 크기 조정). 2. 스크립트를 실행하는 사용자가 mediumrc 역할 이상이어야 합니다. 1. 이 역할에 사용자를 추가하려면 다음을 실행합니다. 1. ````EXEC sp_addrolemember 'xlargerc', 'MyUser'```` ````sql /------------------------------------------------------------------------------ /- Step 1: Create Table to control Index Rebuild /- Run as user in mediumrc or higher /------------------------------------------------------------ |
-
-
-
-
-
-## 시작
+## <a name="new"></a>새로 만들기
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
-| 3 | [Azure SQL 데이터 웨어하우스에 대한 인증](sql-data-warehouse-authentication.md) | Azure SQL 데이터 웨어하우스에 대한 AAD(Azure Active Directory) 및 SQL Server 인증 |
-| 4 | [Azure SQL 데이터 웨어하우스에 대한 모범 사례](sql-data-warehouse-best-practices.md) | Azure SQL 데이터 웨어하우스에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다. 이 내용은 성공적인 개발에 도움이 됩니다. |
-| 5 | [Azure SQL 데이터 웨어하우스용 드라이버](sql-data-warehouse-connection-strings.md) | SQL 데이터 웨어하우스용 드라이버 및 연결 문자열 |
-| 6 | [Azure SQL 데이터 웨어하우스에 연결](sql-data-warehouse-connect-overview.md) | Azure SQL 데이터 웨어하우스에 연결에 대한 연결 개요 |
-| 7 | [Azure 기계 학습을 사용하여 데이터 분석](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) | Azure 기계 학습을 사용하여 Azure SQL 데이터 웨어하우스에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다. |
-| 8 | [Azure SQL 데이터 웨어하우스 쿼리(sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) | sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다. |
-| 9 | [TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기](sql-data-warehouse-get-started-create-database-tsql.md) | TSQL를 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다. |
-| 10 | [SQL 데이터 웨어하우스에 대한 지원 티켓을 만드는 방법](sql-data-warehouse-get-started-create-support-ticket.md) | Azure SQL 데이터 웨어하우스에서 지원 티켓을 만드는 방법 |
-| 11 | [Azure Data Factory를 사용하여 데이터 로드](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요. |
-| 12 | [SQL 데이터 웨어하우스에서 PolyBase를 사용하여 데이터 로드](sql-data-warehouse-get-started-load-with-polybase.md) | PolyBase 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다. |
-| 13 | [새로운 논리 서버 만들기](sql-data-warehouse-get-started-new-server.md) | Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다. |
+| 1 | [SQL Data Warehouse 백업](sql-data-warehouse-backup.md) | Azure SQL Data Warehouse를 복원 지점 또는 다른 지역에 복원할 수 있는 SQL Data Warehouse 기본 제공 데이터베이스 백업에 대해 알아봅니다. |
+
+
+## <a name="updated-articles,-sql-data-warehouse"></a>업데이트된 문서, SQL Data Warehouse
+
+이 섹션에서는 최근에 대규모로 수행되거나 중요하게 업데이트된 문서가 목록으로 표시됩니다. 업데이트된 각 문서에 대해 추가된 markdown 텍스트의 대략적인 코드 조각이 표시됩니다. 날짜 범위 **2016-08-22**부터 **2016-10-05**까지 문서가 업데이트되었습니다.
+
+| &nbsp; | 문서 | 업데이트된 텍스트, 코드 조각 | 업데이트 시기 |
+| --: | :-- | :-- | :-- |
+| 2 | [Azure blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 로드합니다(PolyBase).](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) | /- 바이트 및 파일을 추적하려면 SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = 'CTAS : Load  cso . DimProduct  '  OR r. label  = 'CTAS : Load  cso . FactOnlineSales  ' GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc;  | 2016-09-07 |
+| 3 | [SQL Data Warehouse 복원](sql-data-warehouse-restore-database-overview.md) | ** 일시 중지된 데이터 웨어하우스를 복원할 수 있습니까?** 일시 중지된 데이터 웨어하우스를 복원하려면 먼저 데이터 웨어하우스를 온라인으로 전환해야 합니다. 데이터 웨어하우스가 다시 온라인 상태가 되면 7일의 복원 지점 중에 선택할 수 있습니다. ** 지역 중복 지역에 복원** 지역 중복 저장소를 사용하는 경우 다른 지역에 쌍으로 구성된 데이터 센터에 데이터 웨어하우스를 복원할 수 있습니다. 데이터 웨어하우스는 마지막 일일 백업에서 복원됩니다. ** 타임라인 복원** 지난 7일 이내의 복원 지점으로 데이터베이스를 복원할 수 있습니다. 스냅숏은 4~8시간마다 시작되며 7일 동안 사용할 수 있습니다. 7일보다 오래된 스냅숏은 만료되고 해당 복원 지점을 더 이상 사용할 수 없게 됩니다. ** 복원 비용** 복원된 데이터 웨어하우스에 대한 저장소 비용은 Azure Premium Storage 요금으로 청구됩니다. 복원된 데이터 웨어하우스를 일시 중지하면 저장소에 Azure Premium Storage 요금이 부과됩니다. 일시 중지의 이점은 | 2016-09-29 |
+
+
+
+
+
+## <a name="get-started"></a>시작
+
+| &nbsp; | 제목 | 설명 |
+| --: | :-- | :-- |
+| 4 | [Azure SQL 데이터 웨어하우스에 대한 인증](sql-data-warehouse-authentication.md) | Azure SQL 데이터 웨어하우스에 대한 AAD(Azure Active Directory) 및 SQL Server 인증 |
+| 5 | [Azure SQL 데이터 웨어하우스에 대한 모범 사례](sql-data-warehouse-best-practices.md) | Azure SQL 데이터 웨어하우스에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다. 이 내용은 성공적인 개발에 도움이 됩니다. |
+| 6 | [Azure SQL 데이터 웨어하우스용 드라이버](sql-data-warehouse-connection-strings.md) | SQL 데이터 웨어하우스용 드라이버 및 연결 문자열 |
+| 7 | [Azure SQL 데이터 웨어하우스에 연결](sql-data-warehouse-connect-overview.md) | Azure SQL Data Warehouse의 서버 이름 및 연결 문자열을 찾는 방법 |
+| 8 | [Azure 기계 학습을 사용하여 데이터 분석](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) | Azure 기계 학습을 사용하여 Azure SQL 데이터 웨어하우스에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다. |
+| 9 | [Azure SQL 데이터 웨어하우스 쿼리(sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) | sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다. |
+| 10 | [TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기](sql-data-warehouse-get-started-create-database-tsql.md) | TSQL를 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다. |
+| 11 | [SQL 데이터 웨어하우스에 대한 지원 티켓을 만드는 방법](sql-data-warehouse-get-started-create-support-ticket.md) | Azure SQL 데이터 웨어하우스에서 지원 티켓을 만드는 방법 |
+| 12 | [Azure Data Factory를 사용하여 데이터 로드](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요. |
+| 13 | [SQL 데이터 웨어하우스에서 PolyBase를 사용하여 데이터 로드](sql-data-warehouse-get-started-load-with-polybase.md) | PolyBase 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다. |
 | 14 | [Azure SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision.md) | Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다. |
 | 15 | [PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision-powershell.md) | PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기 |
 | 16 | [Power BI를 사용하여 데이터 시각화](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Power BI로 SQL 데이터 웨어하우스 데이터 시각화 |
@@ -58,7 +66,7 @@
 
 
 
-## 개발
+## <a name="develop"></a>개발
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -78,7 +86,7 @@
 
 
 
-## 관리
+## <a name="manage"></a>관리
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -90,14 +98,14 @@
 | 36 | [DMV를 사용하여 작업 모니터링](sql-data-warehouse-manage-monitor.md) | DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다. |
 | 37 | [Azure SQL 데이터 웨어하우스의 데이터베이스 관리](sql-data-warehouse-overview-manage.md) | SQL 데이터 웨어하우스 데이터베이스 관리 개요. 관리 도구, DWU 및 성능 확장, 쿼리 성능 문제 해결, 보안 정책 설정, 데이터 손상 또는 지역적 중단으로부터 데이터베이스 복원 등이 포함되어 있습니다. |
 | 38 | [Azure SQL 데이터 웨어하우스의 사용자 쿼리 모니터링](sql-data-warehouse-overview-manage-user-queries.md) | 고려 사항, 모범 사례 및 Azure SQL 데이터 웨어하우스의 사용자 쿼리 모니터링 작업 개요입니다. |
-| 39 | [Azure SQL 데이터 웨어하우스 복원(개요)](sql-data-warehouse-restore-database-overview.md) | Azure SQL 데이터 웨어하우스의 데이터베이스를 복구하기 위한 데이터베이스 복원 옵션 개요입니다. |
+| 39 | [SQL Data Warehouse 복원](sql-data-warehouse-restore-database-overview.md) | Azure SQL 데이터 웨어하우스의 데이터베이스를 복구하기 위한 데이터베이스 복원 옵션 개요입니다. |
 | 40 | [Azure SQL 데이터 웨어하우스 복원(포털)](sql-data-warehouse-restore-database-portal.md) | Azure SQL 데이터 웨어하우스 복원을 위한 Azure 포털 작업. |
 | 41 | [Azure SQL 데이터 웨어하우스 복원(PowerShell)](sql-data-warehouse-restore-database-powershell.md) | Azure SQL 데이터 웨어하우스 복원을 위한 PowerShell 작업. |
 | 42 | [Azure SQL 데이터 웨어하우스 복원(REST API)](sql-data-warehouse-restore-database-rest-api.md) | Azure SQL 데이터 웨어하우스 복원을 위한 REST API 작업. |
 
 
 
-## 테이블 및 인덱스
+## <a name="tables-and-indexes"></a>테이블 및 인덱스
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -111,7 +119,7 @@
 
 
 
-## 통합
+## <a name="integrate"></a>통합
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -119,11 +127,11 @@
 | 51 | [SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용](sql-data-warehouse-integrate-azure-machine-learning.md) | 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용을 위한 팁 |
 | 52 | [SQL 데이터 웨어하우스와 함께 Azure 스트림 분석 사용](sql-data-warehouse-integrate-azure-stream-analytics.md) | 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 스트림 분석 사용을 위한 팁 |
 | 53 | [SQL 데이터 웨어하우스와 함께 Power BI 사용](sql-data-warehouse-integrate-power-bi.md) | 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Power BI 사용을 위한 팁 |
-| 54 | [SQL 데이터 웨어하우스와 함께 기타 서비스 활용](sql-data-warehouse-overview-integrate.md) | SQL 데이터 웨어하우스와 통합된 솔루션과 파트너 및 도구 |
+| 54 | [SQL 데이터 웨어하우스와 함께 기타 서비스 활용](sql-data-warehouse-overview-integrate.md) | SQL 데이터 웨어하우스와 통합된 솔루션과 파트너 및 도구  |
 
 
 
-## 로드
+## <a name="load"></a>로드
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -140,7 +148,7 @@
 
 
 
-## 마이그레이션
+## <a name="migrate"></a>마이그레이션
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -152,7 +160,7 @@
 
 
 
-## 파트너
+## <a name="partners"></a>파트너
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -162,7 +170,7 @@
 
 
 
-## 참조
+## <a name="reference"></a>참조
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -174,19 +182,19 @@
 
 
 
-## 보안
+## <a name="security"></a>보안
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
-| 78 | [SQL 데이터 웨어하우스 - 감사 및 동적 데이터 마스킹에 대한 하위 수준 클라이언트 지원](sql-data-warehouse-auditing-downlevel-clients.md) | 데이터 감사에 대한 SQL 데이터 웨어하우스 하위 수준 클라이언트 지원에 대해 알아보기 |
+| 78 | [SQL Data Warehouse - 감사 및 동적 데이터 마스킹에 대한 하위 수준 클라이언트 지원](sql-data-warehouse-auditing-downlevel-clients.md) | 데이터 감사에 대한 SQL 데이터 웨어하우스 하위 수준 클라이언트 지원에 대해 알아보기 |
 | 79 | [Azure SQL 데이터 웨어하우스 감사](sql-data-warehouse-auditing-overview.md) | Azure SQL 데이터 웨어하우스 감사 시작 |
-| 80 | [SQL 데이터 웨어하우스에서 투명한 데이터 암호화(TDE) 시작](sql-data-warehouse-encryption-tde.md) | SQL 데이터 웨어하우스에서 투명한 데이터 암호화(TDE) 시작 |
-| 81 | [투명한 데이터 암호화(TDE) 시작](sql-data-warehouse-encryption-tde-tsql.md) | SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작 |
+| 80 | [SQL 데이터 웨어하우스에서 투명한 데이터 암호화(TDE) 시작](sql-data-warehouse-encryption-tde.md) | SQL Data Warehouse의 TDE(투명한 데이터 암호화) |
+| 81 | [투명한 데이터 암호화(TDE) 시작](sql-data-warehouse-encryption-tde-tsql.md) | SQL Data Warehouse의 TDE(투명한 데이터 암호화)(T-SQL) |
 | 82 | [SQL 데이터 웨어하우스에서 데이터베이스 보호](sql-data-warehouse-overview-manage-security.md) | 솔루션 개발을 위해 Azure SQL 데이터 웨어하우스에서 데이터베이스를 보호하는 팁 |
 
 
 
-## 기타
+## <a name="miscellaneous"></a>기타
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
@@ -196,4 +204,9 @@
 | 86 | [SQL 데이터 웨어하우스 용량 제한](sql-data-warehouse-service-capacity-limits.md) | SQL 데이터 웨어하우스의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다. |
 | 87 | [Azure SQL 데이터 웨어하우스 문제 해결](sql-data-warehouse-troubleshoot.md) | Azure SQL 데이터 웨어하우스 문제 해결 |
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

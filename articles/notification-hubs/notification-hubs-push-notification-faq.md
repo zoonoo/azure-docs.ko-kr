@@ -1,203 +1,208 @@
 <properties
-	pageTitle="Azure 알림 허브 - FAQ(질문과 대답)"
-	description="알림 허브에서 솔루션을 디자인/구현하는 방법과 관련한 FAQ"
-	services="notification-hubs"
-	documentationCenter="mobile"
-	authors="wesmc7777"
-	manager="erikre"
-    keywords="푸시 알림, 푸시 알림, iOS 푸시 알림, Android 푸시 알림, iOS 푸시, Android 푸시"
-	editor="" />
+    pageTitle="Azure Notification Hubs - Frequently Asked Questions (FAQs)"
+    description="FAQs on designing/implementing solutions on Notification Hubs"
+    services="notification-hubs"
+    documentationCenter="mobile"
+    authors="ysxu"
+    manager="erikre"
+    keywords="push notification, push notifications, iOS push notifications, android push notifications, ios push, android push"
+    editor="" />
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="06/29/2016"
-	ms.author="wesmc" />
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="yuaxu" />
 
-#Azure 알림 허브로 푸시 알림 - 질문과 대답
 
-##일반
-###1\. 알림 허브의 가격 책정 모델은 무엇인가요?
-알림 허브는 다음 세 가지 계층으로 제공됩니다.
+#<a name="push-notifications-with-azure-notification-hubs---frequently-asked-questions"></a>Push Notifications with Azure Notification Hubs - Frequently Asked Questions
 
-* **무료** - 한 달 구독 당 최대 1백만 개의 푸시를 가져옵니다.
-* **기본** - 할당량 증가 옵션으로 한 달 구독 당 1천만 개의 푸시를 가져옵니다.
-* **표준** - 할당량 증가 옵션 및 다양한 원격 분석 기능으로 한 달 구독 당 천만 개의 푸시를 가져옵니다.
+##<a name="general"></a>General
+###<a name="1.-what-is-the-price-model-for-notification-hubs?"></a>1.   What is the price model for Notification Hubs?
+Notification Hubs is offered in three tiers:
 
-최신 세부 정보는 [알림 허브 가격 책정] 페이지에서 찾을 수 있습니다. 가격 책정은 구독 수준에서 설정되며 푸시 알림 시작의 수에 따르며 Azure 구독에서 만든 네임스페이스 및 알림 허브 횟수는 중요하지 않습니다.
+* **Free** - get up to 1 million pushes per subscription a month.
+* **Basic** - get 10 million pushes per subscription a month as a baseline, with quota growth options.
+* **Standard** - get 10 million pushes per subscription a month as a baseline, with quota increase options, plus rich telemetry capabilties.
 
-**무료** 계층은 개발용으로 제공되며 SLA가 보장되지 않습니다. 이 계층은 Azure 알림 허브를 통해 푸시 알림 기능을 탐색하려는 사용자에게 권장되는 출발점이지만 중간에서 대규모 응용 프로그램에 대한 최상의 선택은 아닐 수 있습니다.
+The latest details can be found on the [Notification Hubs Pricing] page. The pricing is established at the subscription level and is based on the number of push notification initiations so it doesn't matter how many namespaces or notification hubs you have created in your Azure subscription.
 
-**기본** 및 **표준** 계층은 프로덕션용으로 제공되며, 다음의 주요 기능은 *표준 계층에서만* 사용 가능합니다.
+**Free** tier is offered for development purpose with no SLA guarantee. While this tier might be a good starting point for those that want to explore the capabilities of push notifications through Azure Notification Hubs, it might not be the best choice for medium to large scale applications.
 
-- *다양한 원격 분석* - 알림 허브는 원격 분석 데이터 뿐만 아니라 오프라인 보기 및 분석에 대한 푸시 알림 등록 정보를 내보내는 많은 기능을 제공합니다.
-- *다중 테넌트* - 여러 테넌트를 지원하도록 알림 허브를 사용하여 모바일 앱을 만드는 경우에 적합합니다. 그러면 앱의 알림 허브 네임스페이스 수준에서 PNS(푸시 알림 서비스) 자격 증명을 설정한 다음 테넌트를 구분하여 이 공통 네임스페이스에서 개별 허브를 테넌트에 제공할 수 있습니다. 그러면 유지 관리를 쉽게 수행하는 동시에 SAS 키가 각 테넌트에 대해 구분된 알림 허브에서 푸시 알림을 보내고 받을 수 있으므로 테넌트 간에 알림이 겹치지 않습니다.
-- *예약된 푸시* - 푸시 알림을 예약할 수 있으며 이는 이후에 큐에 대기되고 전송됩니다.
-- *대량 가져오기* - 등록을 대량으로 가져올 수 있습니다.
+**Basic** & **Standard** tiers are offered for production usage with the following key features enabled *only for the Standard tier*:
 
-###2\. 알림 허브 SLA란?
-**기본** 및 **표준** 알림 허브 계층의 경우에 올바르게 구성된 응용 프로그램은 지원되는 계층 내에 배포된 알림 허브와 관련된 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있다고 99.9% 이상의 성공률로 보장합니다. SLA에 대해 자세히 알아보려면 [알림 허브 SLA] 페이지를 방문하세요.
+- *Rich telemetry* - Notification Hubs offer a number of capabilities to export your telemetry data as well as push notification registration information for offline viewing and analysis.
+- *Multi-tenancy* - Ideal if you are creating a mobile app using Notification Hubs to support multiple tenants. This allows you to set Push Notification Services (PNS) credentials at the Notification Hub namespace level for the app and then you can segregate the tenants providing them individual hubs under this common namespace. This enables ease of maintenance while keeping the SAS keys to send & receive push notifications from the notification hubs segregated for each tenant ensuring non cross-tenant overlap.
+- *Scheduled Push* - Allows you to schedule push notifications, that will be subsequently queued up and sent out.
+- *Bulk import* - Allows you to import registrations in bulk.
 
-> [AZURE.NOTE] 알림 허브는 외부 플랫폼 공급자를 사용하여 장치에 푸시 알림을 보내기 때문에 플랫폼 알림 서비스와 장치 간의 레그에 대해서는 SLA가 보장되지 않습니다.
+###<a name="2.-what-is-the-notification-hubs-sla?"></a>2.   What is the Notification Hubs SLA?
+For **Basic** and **Standard** Notification Hubs tiers, we guarantee that at least 99.9% of the time, properly configured applications will be able to send push notifications or perform registration management operations with respect to a Notification Hub deployed within a supported tier. To learn more about our SLA, please visit the [Notification Hubs SLA] page.
 
-###3\. 어떤 고객이 알림 허브를 사용하나요?
-많은 고객들이 알림 허브를 사용하고 있으며, 그 중 일부 주요 고객이 아래에 나와 있습니다.
+> [AZURE.NOTE] There are no SLA guarantees for the leg between the Platform Notification Service and the device since Notification Hubs depend on external platform providers to deliver the push notification to the device.
 
-* 2014년 소치 동계 올림픽 – 수 백 개의 관심 그룹에서 300만 대 이상의 장치를 사용하여 1억 5천만 개의 알림을 2주 동안 디스패치했습니다. [사례 연구 - 소치]
-* Skanska -[ 사례 연구 - Skanska]
-* Seattle Times - [사례 연구 - Seattle Times]
-* Mural.ly - [사례 연구 - Mural.ly]
-* 7Digital - [사례 연구 - 7Digital]
-* Bing Apps – 수 천만 대의 장치에서 매일 3백만 건의 알림을 전송했습니다.
+###<a name="3.-which-customers-are-using-notification-hubs?"></a>3.   Which customers are using Notification Hubs?
+We have a large number of customers using Notification Hubs with a few notable ones below:
 
-###4\. 알림 허브를 업그레이드 또는 다운그레이드하여 서비스 계층을 변경하려면 어떻게 해야 하나요?
-[Azure 클래식 포털]로 이동하여 서비스 버스를 클릭한 다음 해당 네임스페이스를 클릭하고 알림 허브를 클릭합니다. 크기 조정 탭에서 알림 허브 서비스 계층을 변경할 수 있습니다.
+* Sochi 2014 – 100s of interest groups, 3+ million devices, 150+ million notification dispatched in 2 weeks. [CaseStudy - Sochi]
+* Skanska - [CaseStudy - Skanska]
+* Seattle Times - [CaseStudy - Seattle Times]
+* Mural.ly - [CaseStudy - Mural.ly]
+* 7Digital - [CaseStudy - 7Digital]
+* Bing Apps – 10s of millions of devices, sending 3 million notifications/day.
+
+###<a name="4.-how-do-i-upgrade-or-downgrade-my-notification-hubs-to-change-my-service-tier?"></a>4. How do I upgrade or downgrade my Notification Hubs to change my service tier?
+Go to the [Azure Classic Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
 
 ![](./media/notification-hubs-faq/notification-hubs-classic-portal-scale.png)
 
-##디자인 및 개발
-###1\. 어떤 서버 쪽 플랫폼을 지원하나요?
-.NET, Java, PHP, Python, Node.js용 SDK와 [전체 샘플]이 제공되므로 이러한 모든 플랫폼을 사용하여 알림 허브와 통신하도록 앱 백 엔드를 설정할 수 있습니다. 알림 허브 API는 REST 인터페이스에 기반하므로 추가 종속성을 추가하지 않으려는 경우 대신 직접 통신하는 것을 선택할 수 있습니다. 자세한 내용은 [NH - REST API] 페이지에서 찾을 수 있습니다.
+##<a name="design-&-development"></a>Design & Development
+###<a name="1.-which-server-side-platforms-do-you-support?"></a>1.   Which server-side platforms do you support?
+We provide SDKs and [complete samples] for .NET, Java, PHP, Python, Node.js so that an app backend can be setup to communicate to Notification Hubs using any of these platforms. Notification Hubs APIs are based on REST interfaces so you can choose to directly talk to those instead if you don't want to add an extra dependency. More details can be found on the [NH - REST APIs] page.
 
-###2\. 어떤 클라이언트 플랫폼이 지원되나요?
-[Apple iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China(Baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin([iOS](xamarin-notification-hubs-ios-push notification-apns-get-started.md) 및 [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome 앱](notification-hubs-chrome-push-notifications-get-started.md), [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) 플랫폼 등으로 푸시 알림을 보낼 수 있습니다. 이러한 플랫폼에서 푸시 알림을 보내는것을 방지하기 위한 자습서를 시작하는 전체 목록은 [NH - 시작된 자습서] 페이지를 방문하세요.
+###<a name="2.-which-client-platforms-do-you-support?"></a>2.   Which client platforms do you support?
+We support sending push notifications to [Apple iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) & [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) platforms. For a complete list of getting started tutorials tackling sending push notifications on these platforms, visit our [NH - Getting Started Tutorials] page.
 
-###3\. 문자 메시지/전자 메일/웹 알림이 지원되나요?
-알림 허브는 기본적으로 위에 나열된 플랫폼을 사용하여 모바일 앱에 알림을 보내는 데 사용됩니다. 따라서 전자 메일이나 문자 메시지 알림를 보내는 기능은 제공되지 않습니다. 그러나 [Azure 모바일 앱]을 사용하여 네이티브 푸시 알림을 보내도록 이러한 기능을 제공하는 타사 플랫폼을 알림 허브와 통합할 수 있습니다.
+###<a name="3.-do-you-support-sms/email/web-notifications?"></a>3.   Do you support SMS/Email/web notifications?
+Notification Hubs is primarily designed to send notifications to mobile apps using the platforms listed above. We do not yet provide the capability to send email or SMS alerts; however third party platforms which provide these capabilities can be integrated along with Notification Hubs to send native push notifications by using [Azure Mobile Apps].
 
-또한 알림 허브는 브라우저 내 푸시 알림 배달 서비스를 기본적으로 제공하지 않습니다. 고객은 지원되는 서버 쪽 플랫폼에서 SignalR을 사용하여 이를 구현하도록 선택할 수 있습니다. Chrome 샌드박스에서 브라우저 앱에 알림을 보내는 방법을 찾으려는 경우 [Chrome 앱 자습서]를 확인합니다.
+Notification Hubs also do not provide an in-browser push notification delivery service out-of-the-box. Customers may choose to implement this using SignalR on top of the supported server-side platforms. If you are looking to send notifications to browser apps in the Chrome sandbox, check out the [Chrome Apps tutorial].
 
-###4\. Azure 모바일 앱과 Azure 알림 허브 간에는 어떤 관련성이 있으며 이 두 항목은 각각 어떤 경우에 사용해야 하나요?
-기존 모바일 앱 백 엔드가 있으며 푸시 알림을 보내는 기능만 추가하려는 경우 Azure 알림 허브를 사용할 수 있습니다니다. 모바일 앱 백 엔드를 처음부터 설정하려면 Azure 모바일 앱을 사용하는 것이 좋습니다. Azure 모바일 앱은 모바일 앱 백 엔드에서 푸시 알림을 쉽게 보낼 수 있도록 알림 허브를 자동으로 프로비전합니다. Azure 모바일 앱의 가격 책정에는 알림 허브의 기본 요금이 포함되며, 푸시 사용량이 기본으로 포함된 푸시를 초과하는 경우에만 요금을 지불하면 됩니다. 비용에 대한 자세한 정보는 [앱 서비스 가격 책정] 페이지에서 제공됩니다.
+###<a name="4.-what-is-the-relation-between-azure-mobile-apps-and-azure-notification-hubs-and-when-do-i-use-what?"></a>4.   What is the relation between Azure Mobile Apps and Azure Notification Hubs and when do I use what?
+If you have an existing mobile app backend and you only want to add the capability to send push notifications then you can use Azure Notification Hubs. If you want to setup your mobile app backend from scratch then you should consider using Azure Mobile Apps. An Azure Mobile App automatically provisions a Notification Hub for you to be able to send push notifications easily from the mobile app backend. Pricing for Azure Mobile Apps includes the base charges for a Notification Hub and you only pay when you go beyond the included pushes. More details on the costs are available on the [App Service Pricing] page.
 
-###5\. 알림 허브를 통해 푸시 알림을 보낼 경우 얼마나 많은 장치를 지원할 수 있나요?
-지원되는 장치 수에 대한 내용은 [알림 허브 가격 책정] 페이지를 참조합니다.
+###<a name="5.-how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs?"></a>5.   How many devices can I support if I send push notifications via Notification Hubs?
+Please refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
 
-특정 시나리오의 경우 천 만 개 이상의 등록된 장치에 대한 지원이 필요한 경우 [문의처](https://azure.microsoft.com/overview/contact-us/) 직접 수 문의하고 솔루션을 확장하도록 합니다.
+For certain scenarios, if you need support for more than 10,000,000 registered devices, please [contact us](https://azure.microsoft.com/overview/contact-us/) directly and we will help you scale your solution.
 
-###6\. 보낼 수 있는 푸시 알림 수는 몇 개인가요?
-선택한 계층에 따라 Azure는 시스템에서 전송되는 알림 수에 따라 알림 허브가 자동으로 확장합니다.
+###<a name="6.-how-many-push-notifications-can-i-send-out?"></a>6.   How many push notifications can I send out?
+Depending on the selected tier, Azure will automatically scale up based on the number of notifications flowing through the system.
 
->[AZURE.NOTE] 전체 사용 비용은 제공되는 푸시 알림 수에 따라 증가될 수 있습니다. [알림 허브 가격 책정] 페이지에 설명된 기존 계층 제한을 알고 있는지 확인합니다.
+>[AZURE.NOTE] The overall usage cost can go up based on the number of push notifications being served. Make sure that you are aware of existing tier limits outlined on the [Notification Hubs Pricing] page.
 
-기존 고객들은 알림 허브를 사용하여 매일 수백만 건의 푸시 알림을 보내고 있습니다. Azure 알림 허브를 사용하는 한 푸시 알림 도달률의 크기를 조정하기 위해 특별한 작업을 수행할 필요가 없습니다.
+Our existing customers are using Notification Hubs to send millions of push notifications daily. You do not have to do anything special to scale your push notifications reach as long as you are using Azure Notification Hubs.
 
-###7\. 푸시 알림이 장치에 도달하는 데 시간이 얼마나 걸리나요?
-수신 부하가 비교적 일정하며 기본적으로 수신량이 급증하지 않는 일반적인 사용 시나리오에서 Azure 알림 허브는 분당 **1백만 건 이상의 푸시 알림 전송**을 처리할 수 있습니다. 이 속도는 태그 수, 들어오는 보내기의 특성 및 기타 외부 요인에 따라 달라질 수 있습니다.
+###<a name="7.-how-long-does-it-take-for-sent-push-notifications-to-reach-my-device?"></a>7.   How long does it take for sent push notifications to reach my device?
+Azure Notification Hubs is able to process at least **1 million push notification sends a minute** in a normal use scenario where the incoming load is pretty consistent and isn't spikey in nature. This rate may vary depending on the number of tags, nature of incoming sends and other external factors.
 
-예상된 배달 시간 동안 서비스는 플랫폼당 대상 수를 계산한 다음 등록된 태그/태그 식을 기준으로 개별 푸시 알림 배달 서비스에 메시지를 라우팅할 수 있습니다. 그러면 PNS(푸시 알림 서비스)가 알림을 장치로 전송합니다.
+During the estimated delivery time, the service is able calculate the targets per platform and route messages to the respective push notification delivery services based on the registered tags/tag expressions. From here on, it is the responsibility of the Push Notifications services (PNS) to send the notification to the device.
 
-PNS는 알림 배달에 대한 SLA를 보장하지 않습니다. 그러나 일반적으로 대부분의 푸시 알림은 Azure 알림 허브 플랫폼으로 전송된 시점에서 몇 분 이내에(일반적으로 10분이라는 제한 내에) 대상 장치로 배달됩니다. 배달 시간이 더 오래 걸리는 일부 이상값이 있을 수도 있습니다.
+A PNS does not guarantee any SLA for delivering notifications; however, typically a vast majority of push notifications are delivered to target devices within a few minutes (usually within the limits of 10 minutes) from the time they are sent to our platform. There may be a few outliers which may take more time.
 
->[AZURE.NOTE] Azure 알림 허브에서는 30분 이내에 PNS로 배달할 수 없는 푸시 알림은 삭제하는 내부 정책을 사용합니다. 이러한 지연은 여러 가지 원인으로 인해 나타날 수 있는데, 그 중 가장 일반적인 이유는 PNS에서 응용 프로그램을 제한하는 경우입니다.
+>[AZURE.NOTE] Azure Notification Hubs has a policy in place to drop any push notifications which aren't able to be delivered to the PNS in 30 minutes. This delay can happen for a number of reasons, most commonly because the PNS is throttling your application.
 
-###8\. 대기 시간 보장이 있나요?
-푸시 알림은 외부 플랫폼별 푸시 알림 서비스를 통해 배달되는 특성이 있으므로 대기 시간이 보장되지 않습니다. 대부분의 푸시 알림은 보통 몇 분 이내에 배달됩니다.
+###<a name="8.-is-there-any-latency-guarantee?"></a>8.   Is there any latency guarantee?
+Because of the nature of push notifications (they are delivered by an external, platform-specific Push Notification Service), there is no latency guarantee. Typically, the majority of push notifications get delivered within a couple of minutes.
 
-###9\. 네임스페이스와 알림 허브를 사용하는 솔루션을 디자인할 때 고려해야 하는 사항은 무엇인가요?
+###<a name="9.-what-are-the-considerations-i-need-to-take-into-account-when-designing-a-solution-with-namespaces-and-notification-hubs?"></a>9.   What are the considerations I need to take into account when designing a solution with namespaces and Notification Hubs?
 
-####모바일 앱/환경
+####<a name="mobile-app/environment"></a>Mobile App/Environment
 
-* 환경당 모바일 앱마다 알림 허브가 하나씩 있어야 합니다.
-* 다중 테넌트 시나리오에서는 각 테넌트에 별도의 허브가 있어야 합니다.
-* 같은 알림 허브를 테스트 환경과 프로덕션 환경에서 공유해서는 안 됩니다. 이렇게 하면 알림을 보내는 중에 문제가 발생할 수 있기 때문입니다. 각기 별도의 자격 증명을 사용하는 샌드박스 및 프로덕션 푸시 끝점을 제공하는 Apple의 경우를 예로 들어 보겠습니다.
-* 기본적으로 Azure 포털 또는 Visual Studio의 Azure 통합 구성 요소를 통해 등록된 장치에 테스트 알림을 보낼 수 있습니다. 임계값은 등록 풀에서 임의로 선택된 10개의 장치에 설정됩니다.
+* There should be one Notification Hub per mobile app, per environment.
+* In a multi-tenant scenario, each tenant should have a separate hub.
+* You must never share the same Notification Hub between test and production environments as this may cause problems down the line while sending notifications. e.g. Apple offers Sandbox and Production Push endpoints with each having separate credentials.
+* By default, you can send test notifications to your registered devices through the Azure Portal or the Azure integrated component in Visual Studio. The threshold is set to 10 devices that are selected at random from the registration pool.
 
->[AZURE.NOTE] 원래 Apple 샌드박스 인증서를 사용하여 허브를 구성했다가 Apple 프로덕션 인증서를 사용하도록 허브를 다시 구성하면 이전 장치 토큰을 새 인증서에서 사용할 수 없게 되므로 푸시가 실패합니다. 따라서 프로덕션 환경과 테스트 환경을 분리하고 각 환경에 서로 다른 허브를 사용하는 것이 가장 좋습니다.
+>[AZURE.NOTE] If the hub was configured originally with an Apple sandbox certificate and then reconfigured to use an Apple production certificate, the old device tokens would become invalid with the new certificate and cause pushes to fail. It is best to separate your production and test environments and use different hubs for different environments.
 
-####PNS 자격 증명
+####<a name="pns-credentials"></a>PNS credentials
 
-Apple, Google 등의 플랫폼 개발자 포털에 모바일 앱을 등록하면 앱 식별자 및 보안 토큰이 제공됩니다. 장치에 푸시 알림을 보내려면 앱 백 엔드에서 플랫폼의 푸시 알림 서비스에 이 식별자와 토큰을 제공해야 합니다. 이러한 보안 토큰은 인증서(Apple iOS, Windows Phone) 또는 보안 키(Google Android, Windows) 형식일 수 있으며, 알림 허브에서 구성해야 합니다. 일반적으로는 알림 허브 수준에서 토큰을 구성하지만 다중 테넌트 시나리오에서는 네임스페이스 수준에서 구성할 수도 있습니다.
+When a mobile app is registered with a platform's developer portal (e.g. Apple or Google etc) then you get an app identifier and security tokens which an app backend needs to provide to the Platform's Push Notification services to be able to send push notifications to the devices. These security tokens which can be in the form of certificates (e.g. for Apple iOS or Windows Phone) or security keys (Google Android, Windows etc) need to be configured in Notification Hubs. This is done typically at the notification hub level but can also be done at the namespace level in a multi-tenant scenario.
 
-####네임스페이스
+####<a name="namespaces"></a>Namespaces
 
-네임스페이스를 배포 그룹화에 사용할 수 있습니다. 또한 다중 테넌트 시나리오에서 같은 앱의 모든 테넌트에 대해 모든 알림 허브를 표시하는 데 사용할 수도 있습니다.
+Namespaces can be used for deployment grouping.  It can also be used to represent all Notification Hubs for all tenants of the same app in the multi-tenant scenario.
 
-####지역 배포
+####<a name="geo-distribution"></a>Geo-distribution
 
-지역 배포가 푸시 알림 시나리오에서 반드시 중요한 것은 아닙니다. 푸시 알림을 장치로 최종 배달하는 APNS, GCM 등의 여러 푸시 알림 서비스도 균일하게 분산되어 있지 않습니다.
+Geo-distribution is not always critical in push notification scenarios. It is to be noted that various Push Notification Services (e.g. APNS, GCM etc), which ultimately deliver the push notifications to the devices, aren't evenly distributed either.
 
-응용 프로그램이 전 세계에서 사용되는 경우에는 각기 다른 네임스페이스로 여러 허브를 만들어 전 세계 여러 Azure 지역에서 알림 허브 서비스를 활용할 수 있습니다.
+If you have an application which is used across the world, you can create several hubs in different namespaces taking advantage of the availability of Notification Hubs service in different Azure regions around the globe.
 
->[AZURE.NOTE] 이 방식은 관리 비용, 특히 등록 관련 비용을 증가시키므로 권장하지 않으며 명시적으로 필요한 경우에만 사용해야 합니다.
+>[AZURE.NOTE] This will increase the management cost - particularly around registrations, so this isn't really recommended and must only be done if there is an explicit need.
 
-###10\. 등록은 앱 백 엔드에서 하나요? 아니면 클라이언트 장치를 통해 직접 하나요?
-등록 작성 전에 클라이언트 인증을 거쳐야 하거나 특정 앱 논리에 따라 앱 백 엔드에서 태그를 만들어야 하는 경우 앱 백 엔드에서 등록하는 것이 유용합니다. 자세한 내용은 [백 엔드 등록 지침] 및 [백 엔드 등록 지침 - 2] 페이지에서 자세히 알아볼 수 있습니다.
+###<a name="10.-should-i-do-registrations-from-the-app-backend-or-directly-through-client-devices?"></a>10.  Should I do registrations from the app backend or directly through client devices?
+Registrations from the app backend are useful when you have to do client authentication before creating the registration or when you have tags which must be created or modified by the app backend based on some app logic. For details, you can read more in the [Backend Registration guidance] and [Backend Registration guidance - 2] pages.
 
-###11\. 푸시 알림 배달 보안 모델이란?
-Azure 알림 허브에서는 [SAS(공유 액세스 서명)](../storage/storage-dotnet-shared-access-signature-part-1.md) 기반 보안 모델을 사용합니다. 루트 네임스페이스 수준 또는 상세한 알림 허브 수준에서 SAS 토큰을 사용할 수 있습니다. 메시지 보내기 권한, 알림 수신 대기 권한 등의 여러 권한 부여 규칙을 사용하여 이러한 SAS 토큰을 설정할 수 있습니다. 자세한 내용은 [NH 보안 모델] 문서에 있습니다.
+###<a name="11.-what-is-the-push-notification-delivery-security-model?"></a>11.  What is the push notification delivery security model?
+Azure Notification Hubs use a [Shared Access Signature (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the SAS tokens at the root namespace level or at the granular Notification Hubs level. These SAS tokens can be set with different authorization rules e.g. send message permissions, listen notification permissions etc. More details are available in the [NH Security model] document.
 
-###12\. 푸시 알림의 중요한 페이로드를 어떻게 처리해야 하나요?
-모든 알림은 플랫폼의 PNS(푸시 알림 서비스)를 통해 대상 장치로 배달됩니다. 보낸 사람이 Azure 알림 허브로 보내는 알림은 알림 허브에서 처리된 다음 개별 PNS로 전달됩니다.
+###<a name="12.-how-should-i-handle-sensitive-payload-in-the-push-notifications?"></a>12.  How should I handle sensitive payload in the push notifications?
+All notifications are delivered to target devices by the platform's Push Notification Services (PNS). When a sender sends a notification to Azure Notification Hubs then we process and pass the notification to the respective PNS.
 
-보낸 사람으로부터 Azure 알림 허브를 거쳐 PNS로 가는 모든 연결에서는 HTTPS를 사용합니다.
+All connections from the sender to the Azure Notifications Hubs and then to the PNS use HTTPS.
 
->[AZURE.NOTE] Azure 알림 허브는 어떤 방식으로도 메시지 페이로드를 기록하지 않습니다.
+>[AZURE.NOTE] Azure Notifications Hubs does not log the payload of the message in any way.
 
-그러나 기밀 페이로드를 보내는 경우 보안 푸시 패턴을 사용하는 것이 좋습니다. 이 패턴에서는 보낸 사람이 기밀 페이로드를 포함하지 않고 메시지 식별자가 들어 있는 'ping' 알림을 장치로 전송하며 장치의 앱이 해당 페이로드를 수신한 경우 안전한 API를 직접 호출하여 메시지 세부 정보를 가져올 수 있습니다. 위에서 설명한 패턴을 구현하는 방법에 대한 가이드는 [NH - 안전한 푸시 자습서] 페이지에서 제공됩니다.
+For sending sensitive payloads however we recommend a Secure Push pattern where the sender delivers a 'ping' notification with a message identifier to the device without the sensitive payload and when the app on the device receives this payload, it is able to call a secure API directly to fetch the message details. A guide on how to implement the pattern described above is available on the [NH - Secure Push tutorial] page.
 
-##작업
-###1\. DR(재해 복구)은 어떻게 진행되나요?
-끝에서 알림 허브 이름, 연결 문자열 및 기타 중요한 정보에 대한 메타데이터 재해 복구를 제공합니다. DR 시나리오가 트리거되면 등록 데이터는 손실될 알림 허브 인프라의 **유일한 세그먼트**입니다. 솔루션을 구현하여 이 데이터를 새 허브 사후 복구에 다시 채워야 합니다.
+##<a name="operations"></a>Operations
+###<a name="1.-what-is-the-disaster-recovery-(dr)-story?"></a>1.   What is the Disaster Recovery (DR) story?
+We provide metadata Disaster Recovery coverage on our end (Notification Hub name, connection string and other critical information). When a DR scenario is triggered, the registrations data is the **only segment** of the Notification Hubs infrastructure which will be lost. You will need to implement a solution to re-populate this data into your new hub post-recovery.
 
-- *1단계* - 다른 데이터 센터에서 보조 알림 허브를 만듭니다. DR 이벤트 발생 시에 보조 알림 허브를 즉시 만들 수도 있고 처음부터 만들어 둘 수도 있습니다. 알림 허브 프로비전은 몇 초 단위인 비교적 빠른 프로세스이므로 선택하는 옵션으로 큰 차이가 나지 않습니다. 그러나 보조 알림 허브를 처음에 만들면 DR 이벤트가 관리 기능에 영향을 주지 않으므로 미리 만들어 두는 옵션을 선택하는 것이 좋습니다.
+- *Step1* - Create a secondary Notification Hub in a different datacenter. You can create this on the fly at the time of the DR event or you can create one from the get go. It doesn't make much of a difference which option you choose because Notification Hub provisioning is a relatively fast process in the order of a few seconds. Having one from the beginning will shield you from the DR event impacting your management capabilities, so it is the highly-recommended option.
 
-- *2단계* - 주 알림 허브의 등록 정보를 보조 알림 허브에 입력합니다. 두 허브의 등록을 동시에 유지 관리하면서 등록이 수신되는 즉시 두 허브를 동기화 상태로 유지하는 방식은 사용하지 않는 것이 좋습니다. PNS에서 만료되는 등록의 기본적인 성향 때문에 이러한 방식은 원활히 작동하지 않습니다. 만료되거나 잘못된 등록에 대한 PNS 피드백이 수신되면 알림 허브에서는 해당 등록을 정리합니다.
+- *Step2* - Hydrate the secondary Notification Hub with the registrations from the primary Notification Hub. It is not recommended to try to maintain registrations on both hubs and try to keep them in sync on the fly as registrations are coming in - typically that hasn’t worked well because of inherent tendency of registrations to expire on the PNS side. Notification Hubs clean them up as we receive PNS feedback about expired or invalid registrations.  
 
-따라서 다음과 같은 앱 백 엔드를 사용하는 것이 좋습니다.
+Recommendation is to use an app backend which either:
 
-- DR 시 보조 알림 허브로의 대량 삽입을 수행할 수 있도록 끝에 지정된 등록 집합을 자체적으로 유지 관리
+- Maintains a given set of registrations at its end so that it can do a bulk insert into the secondary notification hub in case of DR
 
-**또는**
+**OR**
 
-- 주 허브의 일반 등록 덤프를 백업으로 가져온 다음 보조 NH로 대량 삽입하는 백 엔드
+- Gets a regular dump of registrations from the primary hub as a backup and then does a bulk insert into the secondary NH.
 
->[AZURE.NOTE] 표준 계층에서 제공되는 등록 내보내기/가져오기는 [등록 내보내기/가져오기] 문서에서 설명합니다.
+>[AZURE.NOTE] Registrations Export/Import functionality available in Standard Tier is described in the [Registrations Export/Import] document.
 
-백 엔드가 없는 경우 앱이 대상 장치에서 시작될 때 보조 알림 허브에 새 등록을 수행하고 보조 알림 허브에 등록된 활성 장치가 모두 있게 됩니다.
+If you don’t have a backend, then when the app starts up on any of the target devices, they will perform a new registration in the secondary Notification Hub, and eventually the secondary Notification Hub will have all the active devices registered.
 
-단점은 앱을 열어 두지 않은 장치가 알림을 받을 때 시간 간격이 있다는 점입니다.
+The downside is that there will be a time period when devices where apps haven't opened up will not receive notifications.
 
-###2\. 감사 로그 기능이 있나요?
-모든 알림 허브 관리 작업은 [Azure 클래식 포털]에 표시되는 작업 로그에 기록됩니다.
+###<a name="2.-is-there-any-audit-log-capability?"></a>2.   Is there any audit log capability?
+All Notification Hubs Management operations go to Operation Logs which are exposed in the [Azure Classic Portal].
 
-##모니터링 및 문제 해결
-###1\. 어떤 문제 해결 기능이 제공되나요?
-Azure 알림 허브에서는 일반적인 문제 해결을 수행할 수 있는 여러 기능을 제공하며, 특히 알림 삭제와 관련한 가장 일반적인 시나리오에서 사용 가능한 기능을 제공합니다. 자세한 내용은 [NH - 문제 해결] 백서를 참조하세요.
+##<a name="monitoring-&-troubleshooting"></a>Monitoring & Troubleshooting
+###<a name="1.-what-troubleshooting-capabilities-are-available?"></a>1.   What troubleshooting capabilities are available?
+Azure Notification Hubs provide several features to do common troubleshooting, particularly in the most common scenario around dropped notifications. See details in our [NH - troubleshooting] whitepaper.
 
-###2\. 어떤 원격 분석 기능이 제공되나요?
-Azure 알림 허브에서는 [Azure 클래식 포털]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [NH - 메트릭] 페이지에서 제공됩니다.
+###<a name="2.-what-telemetry-features-are-available?"></a>2.   What telemetry features are available?
+Azure Notification Hubs enables viewing telemetry data in the [Azure Classic Portal]. Details of the available metrics are available on the [NH - Metrics] page.
 
->[AZURE.NOTE] 정상적인 알림은 푸시 알림이 외부 푸시 알림 서비스(예: Apple의 APNS, Google의 GCM 등)에 배달되었음을 의미합니다. 대상 장치에 알림을 제공하는 PNS가 담당합니다. 일반적으로 PNS는 제 3자에게 배달 메트릭을 노출하지 않습니다.
+>[AZURE.NOTE] Successful notifications only mean that the push notifications have been delivered to the external Push Notification Service (e.g. APNS for Apple, GCM for Google etc). It is up to the PNS to deliver the notification to target devices. Typically, the PNS does not expose delivery metrics to third-parties.  
 
-**표준** 계층에서는 프로그래밍 방식으로 원격 분석 데이터를 내보내는 기능도 제공합니다. 자세한 내용은 [NH - 메트릭 샘플]을 참조하세요.
+We also provide the capability to export the telemetry data programmatically (in **Standard** tier). See the [NH - Metrics sample] for details.
 
-[Azure 클래식 포털]: https://manage.windowsazure.com
-[알림 허브 가격 책정]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[알림 허브 SLA]: http://azure.microsoft.com/support/legal/sla/
-[사례 연구 - 소치]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[ 사례 연구 - Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[사례 연구 - Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[사례 연구 - Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[사례 연구 - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
-[NH - REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[NH - 시작된 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome 앱 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Azure Classic Portal]: https://manage.windowsazure.com
+[Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[CaseStudy - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
+[CaseStudy - Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
+[CaseStudy - Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
+[CaseStudy - Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
+[CaseStudy - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
+[NH - REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[NH - Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Chrome Apps tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
-[백 엔드 등록 지침]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[백 엔드 등록 지침 - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[NH 보안 모델]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[NH - 안전한 푸시 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[NH - 문제 해결]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[NH - 메트릭]: https://msdn.microsoft.com/library/dn458822.aspx
-[NH - 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-[등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
+[Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx
+[Backend Registration guidance - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
+[NH Security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
+[NH - Secure Push tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[NH - troubleshooting]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[NH - Metrics]: https://msdn.microsoft.com/library/dn458822.aspx
+[NH - Metrics sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
-[전체 샘플]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure 모바일 앱]: https://azure.microsoft.com/services/app-service/mobile/
-[앱 서비스 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
+[complete samples]: https://github.com/Azure/azure-notificationhubs-samples
+[Azure Mobile Apps]: https://azure.microsoft.com/en-us/services/app-service/mobile/
+[App Service Pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

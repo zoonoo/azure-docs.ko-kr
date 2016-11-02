@@ -1,9 +1,10 @@
 <properties
-    pageTitle="Azure 포털을 사용하여 Azure 검색 인덱스 쿼리 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
-    description="Azure 포털의 검색 탐색기에서 검색 쿼리를 실행합니다."
+    pageTitle="Query your Azure Search Index using the Azure Portal | Microsoft Azure | Hosted cloud search service"
+    description="Issue a search query in the Azure Portal's Search Explorer."
     services="search"
+    manager="jhubbard"
     documentationCenter=""
-	authors="ashmaka"
+    authors="ashmaka"
 />
 
 <tags
@@ -15,36 +16,41 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"
 />
-# Azure 포털을 사용하여 Azure 검색 인덱스 쿼리
+
+# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Query your Azure Search index using the Azure Portal
 > [AZURE.SELECTOR]
-- [개요](search-query-overview.md)
-- [포털](search-explorer.md)
+- [Overview](search-query-overview.md)
+- [Portal](search-explorer.md)
 - [.NET](search-query-dotnet.md)
-- [REST (영문)](search-query-rest-api.md)
+- [REST](search-query-rest-api.md)
 
-이 가이드에서는 Azure 포털에서 Azure 검색 인덱스를 쿼리하는 방법을 보여 줍니다.
+This guide will show you how to query your Azure Search index in the Azure Portal.
 
-이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들고](search-what-is-an-index.md) [데이터로 채워야](search-what-is-data-import.md) 합니다.
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
-## I. Azure 검색 블레이드로 이동
-1. [Azure 포털](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 왼쪽에 있는 메뉴에서 "모든 리소스"를 클릭합니다.
-2. Azure 검색 서비스 선택
+## <a name="i.-go-to-your-azure-search-blade"></a>I. Go to your Azure Search blade
+1. Click on "All resources" in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+2. Select your Azure Search service
 
-## II. 검색하려는 인덱스 선택
-1. "인덱스" 타일에서 검색하려는 인덱스를 선택합니다.
+## <a name="ii.-select-the-index-you-would-like-to-search"></a>II. Select the index you would like to search
+1. Select the index you would like to search from the "Indexes" tile.
 
 ![](./media/search-explorer/pick-index.png)
 
-## III. "검색 탐색기" 타일 클릭
+## <a name="iii.-click-on-the-"search-explorer"-tile"></a>III. Click on the "Search Explorer" tile
 ![](./media/search-explorer/search-explorer-tile.png)
 
-## III. 검색 시작
-1. Azure 검색 인덱스를 검색하려면 "*쿼리 문자열*" 필드에 입력을 시작한 후 "**검색**"을 누릅니다.
- * 검색 탐색기를 사용하는 경우 [쿼리 매개 변수](https://msdn.microsoft.com/library/dn798927.aspx)를 지정할 수 있습니다.
+## <a name="iii.-start-searching"></a>III. Start searching
+1. To search your Azure Search index, start typing into the "*Query string*" field and then press "**Search**".
+ * When using the Search Explorer, you can specify any of the [query parameters](https://msdn.microsoft.com/library/dn798927.aspx)
 
-2. "*결과*" 섹션에서 쿼리 결과가 Azure 검색 REST API에 대해 검색 요청을 실행할 때 HTTP 응답 본문에 수신하는 원시 JSON에 표시됩니다.
-3. 쿼리 문자열은 적절한 요청 URL로 자동으로 구문 분석되어 Azure 검색 REST API에 대해 HTTP 요청을 제출합니다.
+2. In the "*Results*" section, the query's results will be presented in the raw JSON that you would receiving in an HTTP Response Body when issuing search requests against the Azure Search REST API.
+3. The query string is automatically parsed into the proper request URL to submit a HTTP request against the Azure Search REST API
 
 ![](./media/search-explorer/search-bar.png)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

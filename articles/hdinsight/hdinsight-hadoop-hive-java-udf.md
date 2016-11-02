@@ -16,11 +16,12 @@ ms.workload="big-data"
 ms.date="09/27/2016"
 ms.author="larryfr"/>
 
-#HDInsight에서 Hive와 함께 Java UDF 사용
+
+#<a name="use-a-java-udf-with-hive-in-hdinsight"></a>HDInsight에서 Hive와 함께 Java UDF 사용
 
 Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive를 통해 다양한 프로그래밍 언어를 사용하여 UDF(사용자 정의 함수)를 만들 수 있습니다. 이 문서에서는 Hive에서 Java UDF를 사용하는 방법을 알아봅니다.
 
-## 요구 사항
+## <a name="requirements"></a>요구 사항
 
 * Azure 구독
 
@@ -36,7 +37,7 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
 
     > [AZURE.IMPORTANT] Linux 기반 HDInsight 서버를 사용하지만 Windows 클라이언트에서 Python 파일을 만드는 경우 LF를 줄 끝으로 사용하는 편집기를 사용해야 합니다. 편집기에서 LF 또는 CRLF를 사용하는지 여부가 확실하지 않은 경우 HDInsight 클러스터에서 유틸리티를 사용하여 CR 문자를 제거하는 단계는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 
-## UDF 예제 만들기
+## <a name="create-an-example-udf"></a>UDF 예제 만들기
 
 1. 명령줄에서 새 Maven을 만들려면 다음을 참조하세요.
 
@@ -152,7 +153,7 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
 
     문자열 값을 허용하고 문자열의 소문자 버전을 반환하는 UDF를 구현합니다.
 
-## UDF 빌드 및 설치
+## <a name="build-and-install-the-udf"></a>UDF 빌드 및 설치
 
 1. 다음 명령을 실행하여 UDF를 컴파일하고 패키징합니다.
 
@@ -164,9 +165,9 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
 
         scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
 
-    __myuser__를 클러스터의 SSH 사용자 계정으로 바꿉니다. __mycluster__를 클러스터 이름으로 바꿉니다. 암호를 사용하여 SSH 계정을 보호한 경우 암호를 입력하라는 메시지가 나타납니다. 인증서를 사용하는 경우, `-i` 매개 변수를 사용하여 개인 키를 지정해야 합니다.
+    __myuser__ 를 클러스터의 SSH 사용자 계정으로 바꿉니다. __mycluster__ 를 클러스터 이름으로 바꿉니다. 암호를 사용하여 SSH 계정을 보호한 경우 암호를 입력하라는 메시지가 나타납니다. 인증서를 사용하는 경우, `-i` 매개 변수를 사용하여 개인 키를 지정해야 합니다.
 
-3. SSH를 사용하여 클러스터에 연결합니다.
+3. SSH를 사용하여 클러스터에 연결합니다. 
 
         ssh myuser@mycluster-ssh.azurehdinsight.net
 
@@ -180,13 +181,13 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
 
         hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
 
-## Hive에서 UDF 사용
+## <a name="use-the-udf-from-hive"></a>Hive에서 UDF 사용
 
 1. 다음을 사용하여 SSH 세션에서 Beeline 클라이언트를 시작합니다.
 
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
 
-    이 명령에서는 클러스터에 대한 로그인 계정에 __admin__의 기본값을 사용했다고 가정합니다.
+    이 명령에서는 클러스터에 대한 로그인 계정에 __admin__ 의 기본값을 사용했다고 가정합니다.
 
 2. `jdbc:hive2://localhost:10001/>` 프롬프트가 표시되면 다음을 입력하여 Hive에 UDF를 추가하고 함수로 노출합니다.
 
@@ -214,10 +215,14 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
         | android  |
         +----------+--+
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 Hive로 작업하는 다른 방법은 [HDInsight와 함께 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 Hive 사용자 정의 함수에 대한 자세한 내용은 apache.org의 Hive wiki에서 [Hive 연산자 및 사용자 정의 함수](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

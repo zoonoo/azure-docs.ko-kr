@@ -1,53 +1,54 @@
 <properties 
-	pageTitle="미디어 서비스 REST API 개요 | Microsoft Azure" 
-	description="미디어 서비스 REST API 개요" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="미디어 서비스 REST API 개요 | Microsoft Azure" 
+    description="미디어 서비스 REST API 개요" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/26/2016"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="10/12/2016"
+    ms.author="juliako"/>
 
 
-# 미디어 서비스 REST API 개요 
+
+# <a name="media-services-rest-api-overview"></a>미디어 서비스 REST API 개요 
 
 [AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하는 서비스이며 verbose JSON 또는 atom + pub 형식으로 다시 응답할 수 있습니다. 미디어 서비스는 Azure의 설계 지침을 따르기 때문에 미디어 서비스에 연결할 때 각 클라이언트가 사용해야 하는 필수 HTTP 헤더 집합뿐만 아니라 선택적 헤더로 사용할 수 있는 집합도 있습니다. 다음 섹션에서는 요청을 작성하고 미디어 서비스에서 응답을 수신할 때 사용할 수는 헤더 및 HTTP 동사를 설명합니다.
 
-##고려 사항 
+##<a name="considerations"></a>고려 사항 
 
 REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 
-- 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다.
+- 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
 
-- JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(아래 예제 참조)으로 설정해야 합니다. verbose로 설정하지 않으면 Odata에서 **__metadata** 속성을 인식하지 못합니다.
+- JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(아래 예제 참조)으로 설정해야 합니다. verbose로 설정하지 않으면 Odata에서 **__metadata** 속성을 인식하지 못합니다.  
 
-		POST https://media.windows.net/API/Jobs HTTP/1.1
-		Content-Type: application/json;odata=verbose
-		Accept: application/json;odata=verbose
-		DataServiceVersion: 3.0
-		MaxDataServiceVersion: 3.0
-		x-ms-version: 2.11
-		Authorization: Bearer <token> 
-		Host: media.windows.net
-		
-		{
-			"Name" : "NewTestJob", 
-			"InputMediaAssets" : 
-				[{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-		. . . 
-		
+        POST https://media.windows.net/API/Jobs HTTP/1.1
+        Content-Type: application/json;odata=verbose
+        Accept: application/json;odata=verbose
+        DataServiceVersion: 3.0
+        MaxDataServiceVersion: 3.0
+        x-ms-version: 2.11
+        Authorization: Bearer <token> 
+        Host: media.windows.net
+        
+        {
+            "Name" : "NewTestJob", 
+            "InputMediaAssets" : 
+                [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+        . . . 
+        
 
-## 미디어 서비스에서 지원하는 표준 HTTP 요청 헤더
+## <a name="standard-http-request-headers-supported-by-media-services"></a>미디어 서비스에서 지원하는 표준 HTTP 요청 헤더
 
 미디어 서비스에서 작성한 모든 호출에는 귀하의 요청에 포함해야 하는 필수 헤더 집합이 있으며 포함할 수도 있는 선택적 헤더 집합도 있습니다. 필수 헤더는 다음 표에 나와 있습니다.
 
@@ -55,9 +56,9 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 헤더|형식|값
 ---|---|---
 권한 부여|전달자|전달자는 승인된 유일한 권한 부여 메커니즘입니다. 이 값은 ACS에서 제공한 액세스 토큰도 포함해야 합니다.
-x-ms-version|10진수|2\.11
-DataServiceVersion|10진수|3\.0
-MaxDataServiceVersion|10진수|3\.0
+x-ms-version|10진수|2.11
+DataServiceVersion|10진수|3.0
+MaxDataServiceVersion|10진수|3.0
 
 
 
@@ -76,7 +77,7 @@ X-HTTP-Method|HTTP 메서드|PUT 또는 DELETE와 같이 HTTP 메서드를 지�
 콘텐츠 형식|콘텐츠 형식|PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다.
 client-request-id|String|지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다.
 
-## 미디어 서비스에서 지원되는 표준 HTTP 응답 헤더
+## <a name="standard-http-response-headers-supported-by-media-services"></a>미디어 서비스에서 지원되는 표준 HTTP 응답 헤더
 
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
@@ -90,7 +91,7 @@ Date|RFC 1123 날짜|요청이 처리된 날짜입니다.
 Content-Encoding|다름|Gzip 또는 deflate를 적절하게 합니다.
 
 
-## 미디어 서비스에서 지원되는 표준 HTTP 동사
+## <a name="standard-http-verbs-supported-by-media-services"></a>미디어 서비스에서 지원되는 표준 HTTP 동사
 
 다음은 HTTP 요청을 만들 때 사용할 수 있는 HTTP 동사의 전체 목록입니다.
 
@@ -104,32 +105,35 @@ PUT|개체를 바꾸거나 명명된 개체(있는 경우)를 만듭니다.
 MERGE|명명된 속성 변경 내용으로 기존 개체를 업데이트합니다.
 HEAD|GET 응답에 대한 개체의 메타데이터를 반환합니다.
 
-##제한 사항
+##<a name="limitation"></a>제한 사항
 
-엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다.
+엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
 
 
-## 미디어 서비스 모델 검색
+## <a name="discovering-media-services-model"></a>미디어 서비스 모델 검색
 
-미디어 서비스 엔터티를 더 쉽게 검색할 수 있게 되면 $metadata 작업을 사용할 수 있습니다. 유효한 모든 엔터티 형식, 엔터티 속성, 연결, 함수, 동작 등을 검색할 수 있습니다. 다음 예제에서는 https://media.windows.net/API/$metadata URI를 생성하는 방법을 보여 줍니다.
+미디어 서비스 엔터티를 더 쉽게 검색할 수 있게 되면 $metadata 작업을 사용할 수 있습니다. 유효한 모든 엔터티 형식, 엔터티 속성, 연결, 함수, 동작 등을 검색할 수 있습니다. 다음 예제는 URI https://media.windows.net/API/$metadata를 생성하는 방법을 보여 줍니다.
 
 브라우저에서 메타데이터를 보려면 "? api version=2.x"를 URI의 끝에 추가하거나 귀하의 요청에 x-ms-version 헤더를 포함하지 말아야 합니다.
 
 
 
-##미디어 서비스 학습 경로
+##<a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>피드백 제공
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-  
-  [Azure Classic Portal]: http://manage.windowsazure.com/
+
 
 
 
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

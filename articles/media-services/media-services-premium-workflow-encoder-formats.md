@@ -1,27 +1,28 @@
 <properties 
-	pageTitle="미디어 인코더 Premium 워크플로 형식 및 코덱 | Microsoft Azure" 
-	description="이 토픽에서는 미디어 인코더 Premium 워크플로 형식 및 코덱에 대한 개요를 제공합니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erik43" 
-	editor=""/>
+    pageTitle="미디어 인코더 Premium 워크플로 형식 및 코덱 | Microsoft Azure" 
+    description="이 토픽에서는 미디어 인코더 Premium 워크플로 형식 및 코덱에 대한 개요를 제공합니다." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erik43" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"    
-	ms.author="juliako;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016"    
+    ms.author="juliako;anilmur"/>
 
-#미디어 인코더 Premium 워크플로 형식 및 코덱
+
+#<a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
 
 
 >[AZURE.NOTE]프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 >
->중국에서는 이 토픽에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
+>중국에서는 이 토픽에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다. 
 
 이 문서에는 **미디어 인코더 Premium 워크플로** 인코더의 공개 미리 보기 버전에서 지원하는 입력 및 출력 파일 형식과 코덱 목록이 포함되어 있습니다.
 
@@ -29,14 +30,14 @@
 
 [미디어 인코더 Premium 워크플로 출력 형식 및 코덱](#output_formats)
 
-**미디어 인코더 Premium 워크플로**는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다.
+**미디어 인코더 Premium 워크플로** 는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다. 
 
 
-##<a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
+##<a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
 
 다음 섹션에는 이 미디어 프로세서에서 입력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
-###입력 컨테이너/파일 형식
+###<a name="input-container/file-formats"></a>입력 컨테이너/파일 형식
 
 - Adobe® Flash® F4V
 - MXF/SMPTE 377M
@@ -47,7 +48,7 @@
 - Windows Media/ASF
 - AVI(압축되지 않은 8비트/10비트)
 
-###입력 비디오 코덱
+###<a name="input-video-codecs"></a>입력 비디오 코덱
 
 - AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함
 - Avid DNxHD(MXF)
@@ -57,7 +58,7 @@
 - MPEG-1
 - Windows Media 비디오/VC-1
 
-###입력 오디오 코덱
+###<a name="input-audio-codecs"></a>입력 오디오 코덱
 
 - AES(SMPTE 331M 및 302M, AES3-2003)
 - Dolby® E
@@ -68,11 +69,11 @@
 - Windows Media 오디오
 - WAV/PCM
  
-##<a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
+##<a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
 
 다음 섹션에는 이 미디어 프로세서에서 출력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
-###출력 컨테이너/파일 형식
+###<a name="output-container/file-formats"></a>출력 컨테이너/파일 형식
 
 - Adobe® Flash® F4V
 - MXF(OP1a, XDCAM 및 AS02)
@@ -82,10 +83,10 @@
 - Windows Media/ASF
 - AVI(압축되지 않은 8비트/10비트)
 - 부드러운 스트리밍 파일 형식(PIFF 1.3)
-- MPEG-TS
+- MPEG-TS 
 
 
-###출력 비디오 코덱
+###<a name="output-video-codecs"></a>출력 비디오 코덱
 
 - AVC(H.264, 8비트, 최대 High Profile, 수준 5.2, 4K Ultra HD, AVC Intra)
 - Avid DNxHD(MXF)
@@ -95,7 +96,7 @@
 - Windows Media 비디오/VC-1
 - JPEG 축소판 그림 만들기
 
-###출력 오디오 코덱
+###<a name="output-audio-codecs"></a>출력 오디오 코덱
 
 - AES(SMPTE 331M 및 302M, AES3-2003)
 - Dolby® Digital(AC3)
@@ -105,9 +106,9 @@
 - MP3(MPEG-1 Audio Layer 3)
 - Windows Media 오디오
 
-##<a id="closed_captioning"></a>선택 캡션 지원
+##<a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>선택 캡션 지원
 
-수집 시 **미디어 인코더 Premium 워크플로**는 다음을 지원합니다.
+수집 시 **미디어 인코더 Premium 워크플로** 는 다음을 지원합니다.
 
 1. SCC 파일
 1. SMPTE-TT 파일
@@ -125,17 +126,21 @@
 
 참고: 위의 출력 형식 중 일부는 Azure 미디어 서비스에서 스트리밍을 통해 배달되지 않습니다.
 
-##알려진 문제
+##<a name="known-issues"></a>알려진 문제
 
-입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
+입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다. 
 
 
-##미디어 서비스 학습 경로
+##<a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##피드백 제공
+##<a name="provide-feedback"></a>피드백 제공
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

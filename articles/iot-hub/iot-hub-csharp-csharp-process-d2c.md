@@ -1,11 +1,11 @@
 <properties
-	pageTitle="IoT Hub 클라우드-장치 메시지 처리(.Net) | Microsoft Azure"
-	description="이 자습서를 수행하여 IoT Hub 장치-클라우드 메시지를 처리하는 데 유용한 패턴을 알아봅니다."
-	services="iot-hub"
-	documentationCenter=".net"
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="IoT Hub 클라우드-장치 메시지 처리(.Net) | Microsoft Azure"
+    description="이 자습서를 수행하여 IoT Hub 장치-클라우드 메시지를 처리하는 데 유용한 패턴을 알아봅니다."
+    services="iot-hub"
+    documentationCenter=".net"
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -13,39 +13,40 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="07/19/2016"
+     ms.date="10/05/2016"
      ms.author="dobett"/>
 
-# 자습서: .Net을 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법
+
+# <a name="tutorial:-how-to-process-iot-hub-device-to-cloud-messages-using-.net"></a>자습서: .Net을 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법
 
 [AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## 소개
+## <a name="introduction"></a>소개
 
-Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. 기타 자습서([IoT Hub로 시작] 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기][lnk-c2d])는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 사용하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. 기타 자습서([IoT Hub 시작] 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기][lnk-c2d])는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 사용하는 방법을 보여 줍니다.
 
 이 자습서는 [IoT Hub 시작] 자습서에 나와있는 코드에 기반하고 장치-클라우드 메시지를 처리하는 데 사용할 수 있는 확장성 있는 두 개의 패턴을 보여 줍니다.
 
-- [Azure Blob 저장소]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. 일반적인 시나리오는 분석 프로세스에 대한 입력으로 사용할 원격 분석 데이터를 blob에 저장하는 *콜드 경로* 분석입니다. 이러한 프로세스는 [Azure 데이터 팩터리] 또는 [HDInsight(Hadoop)] 스택과 같은 도구를 통해 진행됩니다.
+- [Azure Blob 저장소]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. 일반적인 시나리오는 분석 프로세스에 대한 입력으로 사용할 원격 분석 데이터를 blob에 저장하는 *콜드 경로* 분석입니다. 이러한 프로세스는 [Azure Data Factory] 또는 [HDInsight(Hadoop)] 스택과 같은 도구를 통해 진행됩니다.
 
 - *대화형* 장치-클라우드 메시지의 신뢰할 수 있는 처리입니다. 장치-클라우드 메시지는 응용 프로그램 백 엔드에서 일련의 작업에 대해 즉각적인 트리거인 경우 대화형입니다. 예를 들어 장치는 CRM 시스템으로의 티켓 삽입을 트리거하는 경보 메시지를 보낼 수 있습니다. 이와 반대로 *데이터 요소* 메시지는 단순히 분석 엔진에 공급됩니다. 예를 들어 나중에 분석을 위해 저장해야 하는 장치의 온도 원격 분석이 데이터 요소 메시지에 해당합니다.
 
-IoT Hub가 [이벤트 허브][lnk-event-hubs] 호환 끝점을 노출하여 장치-클라우드 메시지를 받기 때문에 이 자습서에서는 [EventProcessorHost] 인스턴스를 사용합니다. 이 인스턴스는 다음을 수행합니다.
+IoT Hub가 [Event Hubs][lnk-event-hubs] 호환 끝점을 노출하여 장치-클라우드 메시지를 받기 때문에 이 자습서에서는 [EventProcessorHost] 인스턴스를 사용합니다. 이 인스턴스는 다음을 수행합니다.
 
 * *데이터 요소* 메시지를 Azure Blob 저장소에 안정적으로 저장합니다.
-* 즉시 처리를 위해 *대화형* 장치-클라우드 메시지를 [Azure 서비스 버스 큐]에 전달합니다.
+* 즉시 처리를 위해 *대화형* 장치-클라우드 메시지를 [Azure 서비스 버스 큐] 에 전달합니다.
 
 서비스 버스는 메시지당 검사점 및 시간 기반 중복 제거 기능을 제공하므로 신뢰할 수 있게 대화형 메시지를 처리할 수 있도록 도와줍니다.
 
-> [AZURE.NOTE] **EventProcessorHost** 인스턴스는 대화형 메시지를 처리하는 유일한 방법입니다. 기타 옵션으로는 [Azure 서비스 패브릭][lnk-service-fabric] 및 [Azure 스트림 분석][lnk-stream-analytics]이 있습니다.
+> [AZURE.NOTE] **EventProcessorHost** 인스턴스는 대화형 메시지를 처리하는 유일한 방법입니다. 기타 옵션으로는 [Azure Service Fabric][lnk-service-fabric] 및 [Azure Stream Analytics][lnk-stream-analytics]이 있습니다.
 
 이 자습서의 끝 부분에서 다음의 세 가지 Windows 콘솔 앱을 실행합니다.
 
 * **SimulatedDevice**, [IoT Hub 시작] 자습서에서 만든 수정된 버전의 앱이며, 매초 데이터 요소 장치-클라우드 메시지를 보내고 10초마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 AMQPS 프로토콜을 사용합니다.
-* **ProcessDeviceToCloudMessages**에서는 [EventProcessorHost] 클래스를 사용하여 이벤트 허브 호환 끝점에서 메시지를 검색합니다. 그런 다음 Azure Blob 저장소에 데이터 요소 메시지를 안정적으로 저장하고 대화형 메시지를 서비스 버스 큐에 전달합니다.
-* **ProcessD2CInteractiveMessages**는 서비스 버스 큐에서 대화형 메시지를 제거합니다.
+* **ProcessDeviceToCloudMessages** 에서는 [EventProcessorHost] 클래스를 사용하여 이벤트 허브 호환 끝점에서 메시지를 검색합니다. 그런 다음 Azure Blob 저장소에 데이터 요소 메시지를 안정적으로 저장하고 대화형 메시지를 서비스 버스 큐에 전달합니다.
+* **ProcessD2CInteractiveMessages** 는 서비스 버스 큐에서 대화형 메시지를 제거합니다.
 
-> [AZURE.NOTE] IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 장치를 IoT Hub에 연결하는 방법에 대한 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+> [AZURE.NOTE] IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 장치를 IoT Hub에 연결하는 방법에 대해 알아보려면 [Azure IoT 개발자 센터]를 참조하세요.
 
 이 자습서는 [HDInsight(Hadoop)] 프로젝트와 같이 이벤트 허브와 호환되는 메시지를 사용하는 다른 방법에 직접 적용할 수 있습니다. 자세한 내용은 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]를 참조하세요.
 
@@ -53,14 +54,14 @@ IoT Hub가 [이벤트 허브][lnk-event-hubs] 호환 끝점을 노출하여 장�
 
 + Microsoft Visual Studio 2015.
 
-+ 활성 Azure 계정. <br/>Azure 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
++ 활성 Azure 계정. <br/>Azure 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
 
-[Azure 저장소] 및 [Azure 서비스 버스]의 기본 지식이 있어야 합니다.
+[Azure Storage] 및 [Azure Service Bus]에 대한 기본 지식이 있어야 합니다.
 
 
-## 시뮬레이트된 장치에서 대화형 메시지 보내기
+## <a name="send-interactive-messages-from-a-simulated-device"></a>시뮬레이트된 장치에서 대화형 메시지 보내기
 
-이 섹션에서는 [IoT Hub 시작]에서 만든 시뮬레이트된 장치 응용 프로그램을 수정하여 대화형 장치-클라우드 메시지를 IoT Hub로 보냅니다.
+이 섹션에서는 [IoT Hub 시작] 에서 만든 시뮬레이트된 장치 응용 프로그램을 수정하여 대화형 장치-클라우드 메시지를 IoT Hub로 보냅니다.
 
 1. Visual Studio에서 **SimulatedDevice** 프로젝트의 **Program** 클래스에 다음 메서드를 추가합니다.
 
@@ -82,9 +83,10 @@ IoT Hub가 [이벤트 허브][lnk-event-hubs] 호환 끝점을 노출하여 장�
     }
     ```
 
-    이 메서드는 **SimulatedDevice** 프로젝트의 **SendDeviceToCloudMessagesAsync** 메서드와 비슷합니다. 유일한 차이점은 이제 **MessageId** 시스템 속성 및 **messageType**라는 사용자 속성을 설정한 것합니다. 이 코드는 GUID(전역 고유 식별자)를 **MessageId** 속성에 할당합니다. 서비스 버스는 이 식별자를 사용하여 받은 메시지를 중복 제거할 수 있습니다. 샘플은 **messageType** 속성을 사용하여 데이터 요소 메시지에서 대화형 메시지를 구분합니다. 응용 프로그램은 정보를 메시지 본문 대신 메시지 속성에 전달하므로 이벤트 프로세서가 메시지 라우팅을 수행하기 위해 전체 메시지를 역직렬화할 필요가 없습니다.
+    이 메서드는 **SimulatedDevice** 프로젝트의 **SendDeviceToCloudMessagesAsync** 메서드와 비슷합니다. 유일한 차이점은 이제 **MessageId** 시스템 속성 및 **messageType**이라는 사용자 속성을 설정한다는 것입니다.
+    이 코드는 GUID(전역 고유 식별자)를 **MessageId** 속성에 할당합니다. 서비스 버스는 이 식별자를 사용하여 받은 메시지를 중복 제거할 수 있습니다. 샘플은 **messageType** 속성을 사용하여 데이터 요소 메시지에서 대화형 메시지를 구분합니다. 응용 프로그램은 정보를 메시지 본문 대신 메시지 속성에 전달하므로 이벤트 프로세서가 메시지 라우팅을 수행하기 위해 전체 메시지를 역직렬화할 필요가 없습니다.
 
-    > [AZURE.NOTE] 장치 코드의 대화형 메시지를 중복 제거하는 데 사용되는 **MessageId**를 만드는 것이 중요합니다. 간헐적인 네트워크 통신 또는 기타 오류로 인해 해당 장치에서 동일한 메시지가 여러 번 재전송될 수 있습니다. 또한 GUID 대신 의미 체계 메시지 ID(예: 관련 메시지 데이터 필드의 해시)를 사용할 수 있습니다.
+    > [AZURE.NOTE] 장치 코드의 대화형 메시지를 중복 제거하는 데 사용되는 **MessageId** 를 만드는 것이 중요합니다. 간헐적인 네트워크 통신 또는 기타 오류로 인해 해당 장치에서 동일한 메시지가 여러 번 재전송될 수 있습니다. 또한 GUID 대신 의미 체계 메시지 ID(예: 관련 메시지 데이터 필드의 해시)를 사용할 수 있습니다.
 
 2. **Main** 메서드에서 `Console.ReadLine()` 줄 바로 앞에 다음 메서드를 추가합니다.
 
@@ -94,54 +96,54 @@ IoT Hub가 [이벤트 허브][lnk-event-hubs] 호환 끝점을 노출하여 장�
 
     > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
-## 장치-클라우드 메시지 처리
+## <a name="process-device-to-cloud-messages"></a>장치-클라우드 메시지 처리
 
 이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 처리하는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브]와 호환되는 끝점을 노출하여 응용 프로그램이 장치-클라우드 메시지를 읽을 수 있습니다. 이 자습서에서는 [EventProcessorHost] 클래스를 사용하여 콘솔 응용 프로그램에서 이러한 메시지를 처리합니다. 이벤트 허브에서 메시지를 처리하는 방법에 대한 자세한 내용은 [이벤트 허브 시작] 자습서를 참조하세요.
 
 데이터 요소 메시지 또는 대화형 메시지 전달의 신뢰할 수 있는 저장소를 구현하는 경우 해결 과제는 이벤트 처리가 해당 진행 상태에 대한 검사점을 제공하기 위해 메시지 소비자에 의존한다는 점입니다. 또한 높은 처리량을 달성하기 위해 이벤트 허브에서 읽은 경우 큰 배치에서 검사점을 제공해야 합니다. 이러한 접근 방식을 사용할 경우, 오류가 발생하여 이전 검사점으로 되돌리려고 하면 많은 수의 메시지가 중복 처리될 가능성이 있습니다. 이 자습서에서는 **EventProcessorHost** 검사점을 사용하여 Azure Storage 쓰기와 서비스 버스 중복 제거 창을 동기화하는 방법이 표시됩니다.
 
-Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 Blob][Azure Block Blobs]의 개별 블록 커밋 기능을 사용합니다. 이벤트 프로세서는 검사점을 제공할 시간이 될 때까지 메모리에 메시지를 누적합니다. 예를 들어 메시지의 누적된 버퍼가 4MB의 최대 블록 크기에 도달하거나, 서비스 버스 중복 제거 기간이 결과한 이후가 여기에 해당합니다. 그런 다음 검사점을 설정하기 전에 코드는 새 블록은 Blob에 커밋합니다.
+Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 Blob][Azure 블록 Blob]의 개별 블록 커밋 기능을 사용합니다. 이벤트 프로세서는 검사점을 제공할 시간이 될 때까지 메모리에 메시지를 누적합니다. 예를 들어 메시지의 누적된 버퍼가 4MB의 최대 블록 크기에 도달하거나, 서비스 버스 중복 제거 기간이 결과한 이후가 여기에 해당합니다. 그런 다음 검사점을 설정하기 전에 코드는 새 블록은 Blob에 커밋합니다.
 
 이벤트 프로세서는 블록 ID로 이벤트 허브 메시지 오프셋을 사용합니다. 이 메커니즘을 따르면 이벤트 프로세서가 저장소에 새 블록을 커밋하기 전에 중복 제거 확인을 수행할 수 있으므로 블록 커밋과 검사점 간의 가능한 충돌이 방지됩니다.
 
 > [AZURE.NOTE] 이 자습서는 단일 저장소 계정을 사용하여 IoT Hub에서 검색된 모든 메시지를 작성합니다. 솔루션에 여러 Azure 저장소 계정을 사용해야 하는 경우 [Azure 저장소 확장성 지침]을 참조하여 결정하세요.
 
-응용 프로그램은 서비스 버스 중복 제거 기능을 사용하여 대화형 메시지를 처리할 때 중복을 방지합니다. 시뮬레이션된 장치는 고유한 **MessageId**를 사용하여 각 대화형 메시지를 스탬프 처리합니다. 이러한 ID를 통해 서비스 버스는 지정된 중복 제거 기간에 동일한 **MessageId**를 갖는 어느 두 개의 메시지도 수신자에게 전달되지 않도록 할 수 있습니다. 해당 중복 제거는 서비스 버스 큐에서 제공된 메시지당 완료 의미 체계와 함께 대화형 메시지를 안정적으로 처리하도록 구현할 수 있게 합니다.
+응용 프로그램은 서비스 버스 중복 제거 기능을 사용하여 대화형 메시지를 처리할 때 중복을 방지합니다. 시뮬레이션된 장치는 고유한 **MessageId**를 사용하여 각 대화형 메시지를 스탬프 처리합니다. 이러한 ID를 통해 서비스 버스는 지정된 중복 제거 기간에 동일한 **MessageId** 를 갖는 어느 두 개의 메시지도 수신자에게 전달되지 않도록 할 수 있습니다. 해당 중복 제거는 서비스 버스 큐에서 제공된 메시지당 완료 의미 체계와 함께 대화형 메시지를 안정적으로 처리하도록 구현할 수 있게 합니다.
 
 메시지가 중복 제거 창 외부에서 다시 전송되지 않도록 하려면 코드가 **EventProcessorHost** 검사점 메커니즘을 서비스 버스 큐 중복 제거 창과 동기화합니다. 중복 제거 창이 경과(이 자습서에서 1시간)될 때마다 검사점을 최소 한 번 강제 적용하여 이러한 동기화가 수행됩니다.
 
 > [AZURE.NOTE] 이 자습서에서는 단일 분할된 서비스 버스 큐를 사용하여 IoT Hub에서 검색된 모든 대화형 메시지를 처리합니다. 서비스 버스 큐를 사용하여 솔루션의 확장성 요구를 충족하는 방법에 대한 자세한 내용은 [Azure 서비스 버스] 설명서를 참조하세요.
 
-### Azure 저장소 계정 및 서비스 버스 큐 프로비전
-[EventProcessorHost] 클래스를 사용하기 위해서는 **EventProcessorHost** 검사점 정보를 기록하도록 하는 Azure Storage 계정이 있어야 합니다. 기존 저장소 계정을 사용하거나 [Azure 저장소 정보]의 지침에 따라 새 계정을 만들 수 있습니다. 저장소 계정 연결 문자열을 기록해 둡니다.
+### <a name="provision-an-azure-storage-account-and-a-service-bus-queue"></a>Azure 저장소 계정 및 서비스 버스 큐 프로비전
+[EventProcessorHost] 클래스를 사용하기 위해서는 **EventProcessorHost** 검사점 정보를 기록하도록 하는 Azure Storage 계정이 있어야 합니다. 기존 저장소 계정을 사용하거나 [Azure 저장소 정보] 의 지침에 따라 새 계정을 만들 수 있습니다. 저장소 계정 연결 문자열을 기록해 둡니다.
 
 > [AZURE.NOTE] 저장소 계정 연결 문자열을 복사하여 붙여 넣는 경우 공백이 없는지 확인합니다.
 
-대화형 메시지의 신뢰할 수 있는 처리를 활성화하려면 서비스 버스 큐가 필요합니다. [서비스 버스 큐를 사용하는 방법][Service Bus queue]에서 설명한 것처럼 한 시간 동안 중복 제거 창을 사용하여 프로그래밍 방식으로 큐를 만들거나, 또는 다음 단계에 따라 [Azure 클래식 포털][lnk-classic-portal]을 사용할 수 있습니다.
+대화형 메시지의 신뢰할 수 있는 처리를 활성화하려면 서비스 버스 큐가 필요합니다. [Service Bus 큐를 사용하는 방법][Service Bus 큐]에서 설명한 것처럼 한 시간 동안 중복 제거 창을 사용하여 프로그래밍 방식으로 큐를 만들거나, 또는 다음 단계에 따라 [Azure 클래식 포털][lnk-classic-portal]을 사용할 수 있습니다.
 
-1. 왼쪽 아래 구석에 있는 **새로 만들기**를 클릭합니다. **앱 서비스** > **서비스 버스** > **큐** > **사용자 지정 만들기**를 클릭합니다. 이름 **d2ctutorial**을 입력하고 영역을 선택한 후 기존 네임스페이스를 사용하거나 새로 만듭니다. 다음 페이지에서 **중복 검색 사용**을 선택하고 **중복 검색 기록 기간**을 1시간으로 설정합니다. 그런 후 오른쪽 아래 모서리에 있는 확인 표시를 클릭하여 큐 구성을 저장합니다.
+1. 왼쪽 아래 구석에 있는 **새로 만들기** 를 클릭합니다. 그런 다음 **App Services** > **Service Bus** > **큐** > **사용자 지정 만들기**를 클릭합니다. 이름 **d2ctutorial**을 입력하고 영역을 선택한 후 기존 네임스페이스를 사용하거나 새로 만듭니다. 다음 페이지에서 **중복 검색 사용**을 선택하고 **중복 검색 기록 기간**을 1시간으로 설정합니다. 그런 후 오른쪽 아래 모서리에 있는 확인 표시를 클릭하여 큐 구성을 저장합니다.
 
     ![Azure 포털에서 큐 만들기][30]
 
-2. 서비스 버스 큐의 목록에서 **d2ctutorial**을 클릭한 다음 **구성**을 클릭합니다. **보내기** 권한으로 **보내기**, **수신** 권한으로 **수신**이라는 두 개의 공유 액세스 정책을 만듭니다. 완료되면 아래쪽의 **저장**을 클릭합니다.
+2. Service Bus 큐의 목록에서 **d2ctutorial**을 클릭한 다음 **구성**을 클릭합니다. **보내기**를 포함하는 **보내기**, **수신 대기**를 포함하는 **수신 대기**라는 두 가지 공유 액세스 정책을 만듭니다. 완료되면 아래쪽의 **저장** 을 클릭합니다.
 
     ![Azure 포털에서 큐 구성][31]
 
-3. 맨 위에 있는 **대시보드**를 클릭한 후 아래쪽의 **연결 정보**를 클릭합니다. 두 연결 문자열을 기록해 둡니다.
+3. 상단의 **대시보드**를 클릭한 후 하단의 **연결 정보**를 클릭합니다. 두 연결 문자열을 기록해 둡니다.
 
     ![Azure 포털에서 큐 대시보드][32]
 
-### 이벤트 프로세서 만들기
+### <a name="create-the-event-processor"></a>이벤트 프로세서 만들기
 
 1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만들려면 **파일** > **추가** > **새 프로젝트**를 차례로 클릭합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 이름을 **ProcessDeviceToCloudMessages**로 지정하고 **확인**을 클릭합니다.
 
     ![Visual Studio의 새 프로젝트][10]
 
-2. 솔루션 탐색기에서 **ProcessDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Nuget 패키지 관리**를 클릭합니다. **Nuget 패키지 관리자** 대화 상자가 나타납니다.
+2. 솔루션 탐색기에서 **ProcessDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Nuget 패키지 관리**를 클릭합니다. **NuGet 패키지 관리자** 대화 상자가 나타납니다.
 
-3. **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 이 작업을 수행하면 [Azure 서비스 버스 Nuget 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)에 대한 참조 및 해당하는 모든 종속 항목이 다운로드, 설치 및 추가됩니다.
+3. **WindowsAzure.ServiceBus**를 검색하여 **설치**를 클릭하고 사용 약관에 동의합니다. 이 작업을 수행하면 [Azure Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 및 모든 종속 항목을 다운로드, 설치하고 그에 대한 참조를 추가합니다.
 
-4. **Microsoft Azure 서비스 버스 이벤트 허브 - EventProcessorHost**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 이 작업을 수행하면 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
+4. **Microsoft.Azure.ServiceBus.EventProcessorHost**를 검색하여 **설치**를 클릭하고 사용 약관에 동의합니다. 이 작업을 수행하면 [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
 
 5. **ProcessDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. 새 클래스의 이름을 **StoreEventProcessor**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다.
 
@@ -296,7 +298,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
 
     **OpenAsync** 메서드는 이 이벤트 처리기에서 읽은 첫 번째 메시지의 현재 오프셋을 추적하는 **currentBlockInitOffset** 변수를 초기화합니다. 각 프로세서가 단일 파티션에 대한 책임을 집니다.
 
-    **ProcessEventsAsync** 메서드는 IoT Hub에서 배치 메시지를 수신하고 다음과 같이 처리합니다. 서비스 버스 큐에 대화형 메시지를 전송하고 **toAppend**라는 메모리 버퍼에 데이터 지점 메시지를 추가합니다. 메모리 버퍼가 4Mb 제한에 도달하거나 중복 제거 기간이 경과하면(이 자습서의 검사점부터 1시간 이후) 이 응용 프로그램은 검사점을 트리거합니다.
+    **ProcessEventsAsync** 메서드는 IoT Hub에서 배치 메시지를 수신하고 다음과 같이 처리합니다. Service Bus 큐에 대화형 메시지를 전송하고 **toAppend**라는 메모리 버퍼에 데이터 지점 메시지를 추가합니다. 메모리 버퍼가 4Mb 제한에 도달하거나 중복 제거 기간이 경과하면(이 자습서의 검사점부터 1시간 이후) 이 응용 프로그램은 검사점을 트리거합니다.
 
     **AppendAndCheckpoint** 메서드는 먼저 추가될 블록에 대한 blockId를 생성합니다. Azure 저장소는 모든 블록 ID가 동일한 길이를 갖도록 하므로 메서드는 선행 0으로 오프셋을 채웁니다 - `currentBlockInitOffset.ToString("0000000000000000000000000")`. 그런 다음 해당 ID의 블록이 이미 Blob에 있는 경우 메서드는 현재 버퍼의 콘텐츠로 덮어씁니다.
 
@@ -308,7 +310,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
     using Microsoft.ServiceBus.Messaging;
     ```
 
-9. 다음과 같이 **Program** 클래스에서 **Main** 메서드를 수정합니다. **{iot hub connection string}**을(를) [IoT Hub 시작] 자습서의 **iothubowner** 연결 문자열로 바꿉니다. 저장소 연결 문자열을 이 섹션 시작 부분에서 적어둔 연결 문자열로 바꿉니다. 서비스 버스 연결 문자열을 이 섹션 시작 부분에서 적어둔 **d2ctutorial**이라는 큐에 대한 **Send** 권한으로 바꿉니다.
+9. 다음과 같이 **Program** 클래스에서 **Main** 메서드를 수정합니다. **{IoT Hub 연결 문자열}**을 [IoT Hub 시작] 자습서의 **iothubowner** 연결 문자열로 바꿉니다. 저장소 연결 문자열을 이 섹션 시작 부분에서 적어둔 연결 문자열로 바꿉니다. Service Bus 연결 문자열을 이 섹션 시작 부분에서 적어둔 **d2ctutorial**이라는 큐에 대한 **Send** 권한으로 바꿉니다.
 
     ```
     static void Main(string[] args)
@@ -331,14 +333,14 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
 
     > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 [EventProcessorHost] 클래스의 단일 인스턴스를 사용합니다. 자세한 내용은 [이벤트 허브 프로그래밍 가이드]를 참조하세요.
 
-## 대화형 메시지 수신
+## <a name="receive-interactive-messages"></a>대화형 메시지 수신
 이 섹션에서는 서비스 버스 큐에서 대화형 메시지를 수신하는 Windows 콘솔 응용 프로그램을 작성합니다. 서비스 버스를 사용하여 솔루션을 설계하는 방법에 대한 자세한 내용은 [서비스 버스를 통해 다중 계층 응용 프로그램 빌드][]를 참조하세요.
 
 1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만듭니다. 프로젝트의 이름을 **ProcessD2CInteractiveMessages**로 지정합니다.
 
-2. 솔루션 탐색기에서 **ProcessD2CInteractiveMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Nuget 패키지 관리**를 클릭합니다. 이 작업을 수행하면 **Nuget 패키지 관리자** 창이 표시됩니다.
+2. 솔루션 탐색기에서 **ProcessD2CInteractiveMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다. 이 작업을 수행하면 **Nuget 패키지 관리자** 창이 표시됩니다.
 
-3. **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 이 작업을 수행하면 [Azure 서비스 버스](https://www.nuget.org/packages/WindowsAzure.ServiceBus)가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
+3. **WindowsAzure.ServiceBus**를 검색하여 **설치**를 클릭하고 사용 약관에 동의합니다. 이 작업을 수행하면 [Azure 서비스 버스](https://www.nuget.org/packages/WindowsAzure.ServiceBus)가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
 
 4. **Program.cs** 파일의 맨 위에 다음 **using** 문을 추가합니다.
 
@@ -347,7 +349,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
     using Microsoft.ServiceBus.Messaging;
     ```
 
-5. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다. 연결 문자열을 **d2ctutorial** 큐에 대한 **수신** 권한으로 대체합니다.
+5. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다. 연결 문자열을 **d2ctutorial** 큐에 대한 **수신 대기** 권한으로 대체합니다.
 
     ```
     Console.WriteLine("Process D2C Interactive Messages app\n");
@@ -382,21 +384,21 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
     Console.ReadLine();
     ```
 
-## 응용 프로그램 실행
+## <a name="run-the-applications"></a>응용 프로그램 실행
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
-1.	솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ProcessDeviceToCloudMessages**, **SimulatedDevice** 및 **ProcessD2CInteractiveMessages** 프로젝트에 **시작**을 작업으로 선택합니다.
+1.  솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ProcessDeviceToCloudMessages**, **SimulatedDevice** 및 **ProcessD2CInteractiveMessages** 프로젝트에 **시작**을 작업으로 선택합니다.
 
-2.	**F5** 키를 눌러 세 가지 콘솔 응용 프로그램을 시작합니다. **ProcessD2CInteractiveMessages** 응용 프로그램은 **SimulatedDevice** 응용 프로그램에서 보낸 모든 대화형 메시지를 처리해야 합니다.
+2.  **F5** 키를 눌러 세 가지 콘솔 응용 프로그램을 시작합니다. **ProcessD2CInteractiveMessages** 응용 프로그램은 **SimulatedDevice** 응용 프로그램에서 보낸 모든 대화형 메시지를 처리해야 합니다.
 
   ![3개의 콘솔 응용 프로그램][50]
 
-> [AZURE.NOTE] Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX\_BLOCK\_SIZE** 상수를 **1024**와 같은 더 작은 값으로 줄여야 합니다. 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문에 이렇게 변경하는 것이 좋습니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
+> [AZURE.NOTE] Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX_BLOCK_SIZE** 상수를 **1024**와 같은 더 작은 값으로 줄여야 합니다. 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문에 이렇게 변경하는 것이 좋습니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 [EventProcessorHost]를 사용하여 안정적으로 데이터 요소 및 대화형 장치-클라우드 메시지를 처리하는 방법을 알아보았습니다.
+이 자습서에서 [EventProcessorHost] 를 사용하여 안정적으로 데이터 요소 및 대화형 장치-클라우드 메시지를 처리하는 방법을 알아보았습니다.
 
 [IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법][lnk-c2d]에서는 백 엔드에서 사용자 장치에 메시지를 전송하는 방법을 보여 줍니다.
 
@@ -415,38 +417,40 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 <!-- Links -->
 
 [Azure Blob 저장소]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure 데이터 팩터리]: https://azure.microsoft.com/documentation/services/data-factory/
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight(Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [Azure 서비스 버스 큐]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Azure IoT Hub 개발자 가이드 - 장치-클라우드]: iot-hub-devguide.md#d2c
+[Azure IoT Hub 개발자 가이드 - 장치-클라우드]: iot-hub-devguide-messaging.md
 
 [Azure 저장소]: https://azure.microsoft.com/documentation/services/storage/
 [Azure 서비스 버스]: https://azure.microsoft.com/documentation/services/service-bus/
 
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
-[IoT Hub로 시작]: iot-hub-csharp-csharp-getstarted.md
 [Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
+[일시적인 오류 처리]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
 [Azure 저장소 정보]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [이벤트 허브 시작]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [Azure 저장소 확장성 지침]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
+[Azure 블록 Blob]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [이벤트 허브]: ../event-hubs/event-hubs-overview.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [이벤트 허브 프로그래밍 가이드]: ../event-hubs/event-hubs-programming-guide.md
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[서비스 버스를 통해 다중 계층 응용 프로그램 빌드]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Service Bus를 통해 다중 계층 응용 프로그램 빌드]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

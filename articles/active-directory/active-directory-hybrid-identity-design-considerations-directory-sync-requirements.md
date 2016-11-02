@@ -1,25 +1,26 @@
 <properties
-	pageTitle="Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 디렉터리 동기화 요구 사항 확인 | Microsoft Azure"
-	description="기업에 대한 온-프레미스와 클라우드 사이의 모든 사용자를 동기화하는 데 필요한 요구 사항을 식별합니다."
-	documentationCenter=""
-	services="active-directory"
-	authors="billmath"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 디렉터리 동기화 요구 사항 확인 | Microsoft Azure"
+    description="기업에 대한 온-프레미스와 클라우드 사이의 모든 사용자를 동기화하는 데 필요한 요구 사항을 식별합니다."
+    documentationCenter=""
+    services="active-directory"
+    authors="billmath"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+    ms.date="08/08/2016"
+    ms.author="billmath"/>
 
-# 디렉터리 동기화 요구 사항 결정
-동기화는 해당 온-프레미스 ID에 기반하여 클라우드에서 사용자에게 ID를 제공하는 모든 작업입니다. 인증에 대해 동기화된 계정 또는 페더레이션된 인증을 사용하는지와 무관하게 사용자는 클라우드에서 ID가 필요합니다. 이 ID는 정기적으로 유지 관리하고 업데이트해야 합니다. 업데이트는 제목 변경에서 암호 변경까지 다양한 형태일 수 있습니다.
 
-조직 온-프레미스 ID 솔루션 및 사용자 요구 사항을 평가하여 시작합니다. 이 평가판은 사용자 ID가 클라우드에서 생성되고 유지 관리되는 방법에 대한 기술 요구 사항을 정의하는 데 중요합니다. 대부분의 조직의 경우 Active Directory는 온-프레미스이며 사용자가 동기화하는 온-프레미스 디렉터리이지만 경우에 따라 다를 수 있습니다.
+# <a name="determine-directory-synchronization-requirements"></a>디렉터리 동기화 요구 사항 결정
+동기화는 해당 온-프레미스 ID에 기반하여 클라우드에서 사용자에게 ID를 제공하는 모든 작업입니다. 인증에 대해 동기화된 계정 또는 페더레이션된 인증을 사용하는지와 무관하게 사용자는 클라우드에서 ID가 필요합니다.  이 ID는 정기적으로 유지 관리하고 업데이트해야 합니다.  업데이트는 제목 변경에서 암호 변경까지 다양한 형태일 수 있습니다.  
+
+조직 온-프레미스 ID 솔루션 및 사용자 요구 사항을 평가하여 시작합니다. 이 평가판은 사용자 ID가 클라우드에서 생성되고 유지 관리되는 방법에 대한 기술 요구 사항을 정의하는 데 중요합니다.  대부분의 조직의 경우 Active Directory는 온-프레미스이며 사용자가 동기화하는 온-프레미스 디렉터리이지만 경우에 따라 다를 수 있습니다.  
 
 다음 질문에 답변하세요.
 
@@ -34,12 +35,12 @@
   - 그렇다면 사용자에게 ID의 가상 디렉터리/통합이 있습니까?
 - 동기화하려는 다른 디렉터리 온-프레미스(예: LDAP 디렉터리, HR 데이터베이스 등)가 있습니까?
   - GALSync를 수행할 것입니까?
-  - 조직에서 UPN의 현재 상태는 무엇입니까?
+  - 조직에서 UPN의 현재 상태는 무엇입니까? 
   - 사용자가 인증하는 다른 디렉터리가 있습니까?
   - 회사는 Microsoft Exchange를 사용합니까?
     - 하이브리드 Exchange를 배포할 계획입니까?
 
-이제 동기화 요구 사항을 이해했으므로 이러한 요구 사항을 만족하기에 알맞은 도구를 결정해야 합니다. Microsoft는 디렉터리 통합 및 동기화를 수행하기 위한 여러 도구를 제공합니다. 자세한 내용은 [하이브리드 ID 디렉터리 통합 도구 비교표](active-directory-hybrid-identity-design-considerations-tools-comparison.md)를 참조하세요.
+이제 동기화 요구 사항을 이해했으므로 이러한 요구 사항을 만족하기에 알맞은 도구를 결정해야 합니다.  Microsoft는 디렉터리 통합 및 동기화를 수행하기 위한 여러 도구를 제공합니다.  자세한 내용은 [하이브리드 ID 디렉터리 통합 도구 비교표](active-directory-hybrid-identity-design-considerations-tools-comparison.md) 를 참조하세요. 
    
 이제 동기화 요구 사항을 확인하고 회사에 대해 이를 수행하는 도구를 가지고 있으므로 이러한 디렉터리 서비스를 사용하는 응용 프로그램을 평가해야 합니다. 이 평가판은 클라우드에 이러한 응용 프로그램을 통합하는 기술 요구 사항을 정의하는 데 중요합니다. 다음 질문에 답변하세요.
 
@@ -60,12 +61,16 @@
 - 다중 포리스트 동기화가 있는 경우 동기화 서버가 각 포리스트에 도달할 수 있습니까?
  
 >[AZURE.NOTE]
-각 답변을 주목하고 답변 이유를 이해해야 합니다. [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)은 사용할 수 있는 옵션을 검토합니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+각 답변을 주목하고 답변 이유를 이해해야 합니다. [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) 은 사용할 수 있는 옵션을 검토합니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [Multi-Factor Authentication 요구 사항 결정](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## 참고 항목
-[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
+## <a name="see-also"></a>참고 항목
+[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
