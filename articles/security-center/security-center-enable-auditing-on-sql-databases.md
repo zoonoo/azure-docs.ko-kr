@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable auditing on SQL databases in Azure Security Center | Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendation **Enable auditing on SQL databases**."
+   pageTitle="Azure 보안 센터에서 SQL 데이터베이스에 대한 감사 사용 | Microsoft Azure"
+   description="이 문서에서는 Azure 보안 센터 권장 사항 **SQL 데이터베이스에 감사 사용**을 구현하는 방법을 보여 줍니다."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,56 +13,48 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/01/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Azure 보안 센터에서 SQL 데이터베이스에 대한 감사 사용
 
-# <a name="enable-auditing-on-sql-databases-in-azure-security-center"></a>Enable auditing on SQL databases in Azure Security Center
+감사를 아직 사용하도록 설정하지 않은 경우 모든 SQL 데이터베이스에 대한 감사를 켜는 것이 좋습니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
 
-Azure Security Center will recommend that you turn on auditing for all SQL databases if auditing is not already enabled. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
+감사를 설정한 후에는 보안 경고를 받을 수 있도록 위협 검색 설정 및 전자 메일을 구성할 수 있습니다. 위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다. 이렇게 하면 잠재적인 위협 요소가 발생할 때 검색하고 대처할 수 있습니다.
 
-Once you’ve turned on auditing you can configure Threat Detection settings and emails to receive security alerts. Threat Detection detects anomalous database activities indicating potential security threats to the database. This enables you to detect and respond to potential threats as they occur.
+이러한 권장 지침은 Azure SQL 서비스에만 적용되며 가상 컴퓨터에서 실행되는 SQL은 포함하지 않습니다.
 
-This recommendation applies to the Azure SQL service only; doesn't include SQL running on your virtual machines.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+## 권장 사항 구현
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. **권장 사항** 블레이드에서 **SQL 데이터베이스에 감사 활성화**를 선택합니다. 이렇게 하면 **SQL 데이터베이스에 감사 활성화** 블레이드가 열립니다. ![SQL 데이터베이스에 감사 활성화][1]
 
-1. In the **Recommendations** blade, select **Enable Auditing on SQL databases**.  This opens the **Enable Auditing on SQL databases** blade.
-![Enable auditing on SQL databases][1]
-
-2. Select a SQL database to enable auditing on. This opens the **Auditing & Threat detection** blade.
-![Auditing and threat detection][2]
-3. On the **Auditing & Threat detection** blade, select **ON** under **Auditing**.
-![Turn on auditing and threat detection][3]
+2. 감사를 사용하도록 설정할 SQL 데이터베이스를 선택합니다. 그러면 **감사 및 위협 감지** 블레이드가 열립니다. ![감사 및 위협 감지][2]
+3. **감사 및 위협 감지** 블레이드의 **감사**에서 **켜기**를 선택합니다. ![감사 및 위협 감지 켜기][3]
 
 
-5. Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
+5. [SQL 데이터베이스 위협 감지 시작](../sql-database/sql-database-threat-detection-get-started.md)의 단계에 따라 위협 감지를 켜고 구성하며, 비정상적인 활동이 검색될 때 보안 경고가 수신되는 전자 메일 목록을 구성할 수 있습니다.
 
-## <a name="see-also"></a>See also
+## 참고 항목
 
-This article showed you how to implement the Security Center recommendation "Enable auditing on SQL databases." To learn more about securing your SQL database, see the following:
+이 문서에서는 보안 센터 권장 사항 "SQL 데이터베이스에 감사 활성화"를 구현하는 방법을 보여 주었습니다. SQL 데이터베이스 보안 유지에 대해 자세히 알아보려면 다음을 참조하세요.
 
-- [Securing your SQL Database](../sql-database/sql-database-security.md)
+- [SQL 데이터베이스 보안 설정](../sql-database/sql-database-security.md)
 
-To learn more about Security Center, see the following:
+보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
+- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) -- 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터 FAQ](security-center-faq.md) -- 서비스 사용에 관한 질문과 대답을 찾습니다.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
-[2]:./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
+[2]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

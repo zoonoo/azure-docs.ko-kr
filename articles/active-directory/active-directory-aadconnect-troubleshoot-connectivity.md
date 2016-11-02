@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/01/2016"
+    ms.date="06/27/2016"
     ms.author="billmath"/>
 
 
@@ -167,13 +167,13 @@ MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 ### <a name="retrievedomains"></a>RetrieveDomains
 인증이 성공했습니다. Azure AD에서 도메인 정보를 검색할 수 없습니다.
 
-## <a name="troubleshooting-steps-for-previous-releases"></a>이전 릴리스에 대한 문제 해결 단계입니다.
+## <a name="troubleshooting-steps-for-previous-releases."></a>이전 릴리스에 대한 문제 해결 단계입니다.
 빌드 번호 1.1.105.0(2016년 2월에 발표됨)으로 시작하는 릴리스에서 로그인 도우미 사용이 중지되었습니다. 이 섹션 및 구성은 더 이상 필요하지 않지만 참조로 유지됩니다.
 
 단일 로그인 도우미를 작동하려면 winhttp가 구성되어야 합니다.  [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity)에 나와 있습니다.  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-### <a name="the-signin-assistant-has-not-been-correctly-configured"></a>로그인 도우미가 올바르게 구성되지 않음
+### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>로그인 도우미가 올바르게 구성되지 않음
 이 오류는 로그인 도우미가 프록시를 연결할 수 없거나 프록시가 요청을 허용하지 않을 때 표시됩니다.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 

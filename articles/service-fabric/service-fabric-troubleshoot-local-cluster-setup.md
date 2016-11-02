@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshoot your local Service Fabric cluster setup | Microsoft Azure"
-   description="This article covers a set of suggestions for troubleshooting your local development cluster"
+   pageTitle="로컬 서비스 패브릭 클러스터 설정 문제 해결 | Microsoft Azure"
+   description="이 문서에서는 로컬 개발 클러스터 문제 해결을 위한 여러 제안 사항을 다룹니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -13,21 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/29/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
+# 로컬 개발 클러스터 설정 문제 해결
 
-# <a name="troubleshoot-your-local-development-cluster-setup"></a>Troubleshoot your local development cluster setup
+로컬 Azure 서비스 패브릭 개발 클러스터와 상호 작용하는 동안 문제가 발생할 경우 다음 제안 사항에서 잠재적인 해결 방법이 있는지 검토하세요.
 
-If you run into an issue while interacting with your local Azure Service Fabric development cluster, review the following suggestions for potential solutions.
+## 클러스터 설정 오류
 
-## <a name="cluster-setup-failures"></a>Cluster setup failures
+### 서비스 패브릭 로그를 정리할 수 없습니다.
 
-### <a name="cannot-clean-up-service-fabric-logs"></a>Cannot clean up Service Fabric logs
+#### 문제
 
-#### <a name="problem"></a>Problem
-
-While running the DevClusterSetup script, you see an error like this:
+DevClusterSetup 스크립트를 실행하는 동안 다음과 같은 오류가 나타날 수 있습니다.
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
     At line:1 char:1 + .\DevClusterSetup.ps1
@@ -36,39 +35,39 @@ While running the DevClusterSetup script, you see an error like this:
     + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
 
 
-#### <a name="solution"></a>Solution
+#### 해결 방법
 
-Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully run the script.
+현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 엽니다. 이제 성공적으로 스크립트를 실행할 수 있어야 합니다.
 
-## <a name="cluster-connection-failures"></a>Cluster connection failures
+## 클러스터 연결 오류
 
-### <a name="service-fabric-powershell-cmdlets-are-not-recognized-in-azure-powershell"></a>Service Fabric PowerShell cmdlets are not recognized in Azure PowerShell
+### 서비스 패브릭 PowerShell cmdlet이 Azure PowerShell에서 인식되지 않습니다.
 
-#### <a name="problem"></a>Problem
+#### 문제
 
-If you try to run any of the Service Fabric PowerShell cmdlets, such as `Connect-ServiceFabricCluster` in an Azure PowerShell window, it fails, saying that the cmdlet is not recognized. The reason for this is that Azure PowerShell uses the 32-bit version of Windows PowerShell (even on 64-bit OS versions), whereas the Service Fabric cmdlets only work in 64-bit environments.
+Azure PowerShell 창에서 `Connect-ServiceFabricCluster`와 같은 서비스 패브릭 PowerShell cmdlet을 실행하려고 하면 cmdlet이 인식되지 않는다는 메시지를 표시하면서 실행되지 않습니다. Azure PowerShell에서는 32비트 버전의 Windows PowerShell을 사용(64비트 OS 버전에서도 동일)하는 반면 서비스 패브릭 cmdlet은 64비트 환경에서만 작동하기 때문입니다.
 
-#### <a name="solution"></a>Solution
+#### 해결 방법
 
-Always run Service Fabric cmdlets directly from Windows PowerShell.
+항상 서비스 패브릭 cmdlet을 Windows PowerShell에서 직접 실행합니다.
 
->[AZURE.NOTE] The latest version of Azure PowerShell does not create a special shortcut, so this should no longer occur.
+>[AZURE.NOTE] 최신 버전의 Azure PowerShell에서 특수 바로 가기를 만들지 않으므로 더 이상 발생하지 않습니다.
 
-### <a name="type-initialization-exception"></a>Type Initialization exception
+### 형식 초기화 예외
 
-#### <a name="problem"></a>Problem
+#### 문제
 
-When you are connecting to the cluster in PowerShell, you see the error TypeInitializationException for System.Fabric.Common.AppTrace.
+PowerShell에서 클러스터에 연결할 때 System.Fabric.Common.AppTrace에 대해 TypeInitializationException 오류가 표시됩니다.
 
-#### <a name="solution"></a>Solution
+#### 해결 방법
 
-Your path variable was not correctly set during installation. Please sign out of Windows and sign back in. This will fully refresh your path.
+설치하는 동안 경로 변수가 올바르게 설정되지 않았습니다. Windows에서 로그아웃하고 다시 로그인하세요. 그러면 경로가 완전히 새고 고침됩니다.
 
-### <a name="cluster-connection-fails-with-object-is-closed"></a>Cluster connection fails with "Object is closed"
+### “개체 닫힘"으로 인해 클러스터 연결 실패
 
-#### <a name="problem"></a>Problem
+#### 문제
 
-A call to Connect-ServiceFabricCluster fails with an error like this:
+다음과 같은 오류와 함께 Connect-ServiceFabricCluster 호출에 실패합니다.
 
     Connect-ServiceFabricCluster : The object is closed.
     At line:1 char:1
@@ -77,31 +76,27 @@ A call to Connect-ServiceFabricCluster fails with an error like this:
     + CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
-#### <a name="solution"></a>Solution
+#### 해결 방법
 
-Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully connect.
+현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 엽니다. 이제 성공적으로 연결할 수 있어야 합니다.
 
-### <a name="fabric-connection-denied-exception"></a>Fabric Connection Denied exception
+### 패브릭 연결 거부 예외
 
-#### <a name="problem"></a>Problem
+#### 문제
 
-When debugging from Visual Studio, you get a FabricConnectionDeniedException error.
+Visual Studio에서 디버그 시 FabricConnectionDeniedException 오류가 나타납니다.
 
-#### <a name="solution"></a>Solution
+#### 해결 방법
 
-This error usually occurs when you try to try to start a service host process manually, rather than allowing the Service Fabric runtime to start it for you.
+이 오류는 일반적으로 서비스 패브릭 런타임이 자동으로 시작되게 하는 대신 서비스 호스트 프로세스를 수동으로 시작하려고 할 때 발생합니다.
 
-Ensure that you do not have any service projects set as startup projects in your solution. Only Service Fabric application projects should be set as startup projects.
+솔루션에서 시작 프로젝트로 설정된 서비스 프로젝트가 없어야 합니다. 서비스 패브릭 응용프로그램 프로젝트만 시작 프로젝트로 설정되어야 합니다.
 
->[AZURE.TIP] If, following setup, your local cluster begins to behave abnormally, you can reset it using the local cluster manager system tray application. This will remove the existing cluster and set up a new one. Please note that all deployed applications and associated data will be removed.
+>[AZURE.TIP] 설치를 수행할 때 로컬 클러스터가 비정상적으로 동작을 시작하는 경우 로컬 클러스터 관리자 시스템 트레이 응용 프로그램을 사용하여 다시 설정할 수 있습니다. 기존 클러스터를 제거하고 새로 설정합니다. 배포된 모든 응용 프로그램 및 연결된 데이터가 제거됩니다.
 
-## <a name="next-steps"></a>Next steps
+## 다음 단계
 
-- [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [시스템 상태 보고서와 함께 클러스터 이해 및 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [서비스 패브릭 탐색기로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->
