@@ -12,18 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/07/2016"
+   ms.date="10/05/2016"
    ms.author="alkohli" />
 
 
-# StorSimple 가상 배열 제한
 
-##개요
+# <a name="storsimple-virtual-array-limits"></a>StorSimple 가상 배열 제한
+
+##<a name="overview"></a>개요
 
 Microsoft Azure StorSimple 가상 배열을 계획, 배포 및 운영하면서 이러한 제한을 고려합니다. 다음 표에서는 가상 장치에 대한 제한을 설명합니다.
 
-## StorSimple 가상 배열 제한 
+## <a name="storsimple-virtual-array-limits"></a>StorSimple 가상 배열 제한 
 
 [AZURE.INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

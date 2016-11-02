@@ -16,7 +16,8 @@ ms.service="virtual-machines-windows"
  ms.date="07/15/2016"
  ms.author="danlep"/>
 
-# Azure의 HPC 팩 클러스터에 주문형 "버스트" 노드 추가
+
+# <a name="add-on-demand-"burst"-nodes-to-an-hpc-pack-cluster-in-azure"></a>Azure의 HPC 팩 클러스터에 주문형 "버스트" 노드 추가
 
 
 
@@ -30,24 +31,24 @@ ms.service="virtual-machines-windows"
 
 버스트 노드에 대해 계산 집약적 인스턴스 크기를 사용하려는 경우 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure VM에 배포된 HPC Pack 헤드 노드** - 독립 실행형 헤드 노드 VM 또는 더 큰 클러스터의 일부인 VM을 사용할 수 있습니다. 독립 실행형 헤드 노드를 만들려면 [Azure VM에서 HPC Pack 헤드 노드 배포](virtual-machines-windows-hpcpack-cluster-headnode.md)를 참조합니다. 자동화된 HPC Pack 클러스트 배포 옵션에 대한 자세한 내용은 [Microsoft HPC Pack을 사용하여 Azure에서 Windows HPC 클러스터를 만들고 관리하는 옵션](virtual-machines-windows-hpcpack-cluster-options.md)을 참조하세요.
 
-    >[AZURE.TIP] [HPC 팩 IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에 클러스터를 만들 경우 자동 배포에 Azure 버스트 노드를 포함할 수 있습니다. 해당 문서에서 예제를 참조하세요.
+    >[AZURE.TIP] [HPC 팩 IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) 를 사용하여 Azure에 클러스터를 만들 경우 자동 배포에 Azure 버스트 노드를 포함할 수 있습니다. 해당 문서에서 예제를 참조하세요.
 
 * **Azure 구독** - Azure 노드를 추가하려는 경우 헤드 노드 VM을 배포하는 데 사용하는 것과 동일한 구독 또는 다른 구독을 하나 이상 선택할 수 있습니다.
 
-* **코어 할당량** - 멀티 코어 크기를 사용하여 여러 Azure 노드를 배포하려는 경우 특히 코어 할당량을 늘려야 할 수 있습니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다.
+* **코어 할당량** - 멀티 코어 크기를 사용하여 여러 Azure 노드를 배포하려는 경우 특히 코어 할당량을 늘려야 할 수 있습니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) 합니다.
 
-## 1단계: Azure 노드에 대한 클라우드 서비스 및 저장소 계정 만들기
+## <a name="step-1:-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>1단계: Azure 노드에 대한 클라우드 서비스 및 저장소 계정 만들기
 
 Azure 클래식 포털 또는 동급의 도구를 사용하여 Azure 노드 배포에 필요한 다음 리소스를 구성합니다.
 
 * 새 Azure 클라우드 서비스
 * 새 Azure 저장소 계정
 
->[AZURE.NOTE] 구독에서 기존 클라우드 서비스를 다시 사용하지 마세요.
+>[AZURE.NOTE] 구독에서 기존 클라우드 서비스를 다시 사용하지 마세요. 
 
 **고려 사항**
 
@@ -58,15 +59,15 @@ Azure 클래식 포털 또는 동급의 도구를 사용하여 Azure 노드 배�
 
 
 
-## 2단계: Azure 관리 인증서 구성
+## <a name="step-2:-configure-an-azure-management-certificate"></a>2단계: Azure 관리 인증서 구성
 
 Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인증서를 추가하고 해당 인증서를 배포에 사용한 Azure 구독에 업로드해야 합니다.
 
-이 시나리오의 경우 HPC 팩에서 설치한 **기본 HPC Azure 관리 인증서**를 선택하고 헤드 노드에 자동으로 구성할 수 있습니다. 이 인증서는 테스트 목적 및 개념 증명 배포에 사용됩니다. 이 인증서를 사용하려면 헤드 노드 VM에서 구독으로 C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer 파일을 업로드합니다. [Azure 클래식 포털](https://manage.windowsazure.com)에서 인증서를 업로드하려면 **설정** > **관리 인증서**를 클릭합니다.
+이 시나리오의 경우 HPC 팩에서 설치한 **기본 HPC Azure 관리 인증서** 를 선택하고 헤드 노드에 자동으로 구성할 수 있습니다. 이 인증서는 테스트 목적 및 개념 증명 배포에 사용됩니다. 이 인증서를 사용하려면 헤드 노드 VM에서 구독으로 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 파일을 업로드합니다. [Azure 클래식 포털](https://manage.windowsazure.com)에서 인증서를 업로드하려면 **설정** > **관리 인증서**를 클릭합니다.
 
 관리 인증서 구성에 대한 추가 옵션을 보려면 [Azure 버스트 배포를 위한 Azure 관리 인증서 구성 시나리오](http://technet.microsoft.com/library/gg481759.aspx)를 참조하세요.
 
-## 단계 3: 클러스터에 Azure 노드 배포
+## <a name="step-3:-deploy-azure-nodes-to-the-cluster"></a>단계 3: 클러스터에 Azure 노드 배포
 
 
 
@@ -82,11 +83,15 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결](http://technet.microsoft.com/library/jj159097.aspx)을 참조하세요.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 * Azure 컴퓨팅 리소스를 클러스터 워크로드에 따라 자동으로 증가 또는 축소하려는 경우 [HPC Pack 클러스터에서 Azure 계산 리소스를 자동으로 증가 및 축소](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,62 +1,63 @@
 <properties
-	pageTitle="스트레치 데이터베이스에 대한 제한 사항 | Microsoft Azure"
-	description="스트레치 데이터베이스에 대한 제한 사항에 대해 알아봅니다."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Limitations for Stretch Database | Microsoft Azure"
+    description="Learn about limitations for Stretch Database."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/26/2016"
+    ms.author="anvang"/>
 
-# 스트레치 데이터베이스에 대한 제한
 
-스트레치 사용 테이블에 대한 제한 사항 및 현재 테이블에 대해 스트레치를 사용하지 못하도록 하는 제한 사항에 대해 알아봅니다.
+# <a name="limitations-for-stretch-database"></a>Limitations for Stretch Database
 
-##  <a name="Caveats"></a> 스트레치 사용 테이블에 대한 제한 사항
+Learn about limitations for Stretch\-enabled tables, and about limitations that currently prevent you from enabling Stretch for a table.
 
-스트레치 사용 테이블에는 다음 제한 사항이 있습니다.
+##  <a name="<a-name="caveats"></a>-limitations-for-stretch\-enabled-tables"></a><a name="Caveats"></a> Limitations for Stretch\-enabled tables
 
-### 제약 조건
+Stretch\-enabled tables have the following limitations.
 
--   마이그레이션된 데이터를 포함하는 Azure 테이블에서 UNIQUE 제약 조건 및 PRIMARY KEY 제약 조건에 대해 고유성이 적용되지 않습니다.
+### <a name="constraints"></a>Constraints
 
-### DML 작업
+-   Uniqueness is not enforced for UNIQUE constraints and PRIMARY KEY constraints in the Azure table that contains the migrated data.
 
--   스트레치 사용 테이블 또는 스트레치 사용 테이블을 포함하는 뷰에서 마이그레이션된 행 또는 마이그레이션에 적합한 행을 업데이트 또는 삭제할 수 없습니다.
+### <a name="dml-operations"></a>DML operations
 
--   연결된 서버의 스트레치 사용 테이블에 행을 삽입할 수 없습니다.
+-   You can't UPDATE or DELETE rows that have been migrated, or rows that are eligible for migration, in a Stretch\-enabled table or in a view that includes Stretch\-enabled tables.
 
-### 인덱스
+-   You can't INSERT rows into a Stretch\-enabled table on a linked server.
 
--   스트레치 사용 테이블을 포함하는 뷰의 인덱스를 만들 수 없습니다.
+### <a name="indexes"></a>Indexes
 
--   SQL Server 인덱스에 대한 필터는 원격 테이블에 전파되지 않습니다.
+-   You can't create an index for a view that includes Stretch\-enabled tables.
 
-##  <a name="Limitations"></a> 현재 테이블에 대해 스트레치를 사용하지 못하도록 하는 제한 사항
+-   Filters on SQL Server indexes are not propagated to the remote table.
 
-다음 항목이 현재 테이블에 대해 스트레치를 사용하지 못하도록 합니다.
+##  <a name="<a-name="limitations"></a>-limitations-that-currently-prevent-you-from-enabling-stretch-for-a-table"></a><a name="Limitations"></a> Limitations that currently prevent you from enabling Stretch for a table
 
-### 테이블 속성
+The following items currently prevent you from enabling Stretch for a table.
 
--   1,023개보다 많은 열 또는 998개보다 많은 인덱스가 있는 테이블
+### <a name="table-properties"></a>Table properties
 
--   FILESTREAM 데이터가 있는 테이블 또는 FileTables
+-   Tables that have more than 1,023 columns or more than 998 indexes
 
--   복제되거나 변경 내용 추적 또는 변경 데이터 캡처를 적극적으로 사용하는 테이블
+-   FileTables or tables that contain FILESTREAM data
 
--   메모리 최적화된 테이블
+-   Tables that are replicated, or that are actively using Change Tracking or Change Data Capture
 
-### 데이터 형식
+-   Memory\-optimized tables
 
--   text, ntext 및 image
+### <a name="data-types"></a>Data types
+
+-   text, ntext and image
 
 -   timestamp
 
@@ -64,36 +65,40 @@
 
 -   XML
 
--   geometry, geography, hierarchyid 및 CLR 사용자 정의 형식을 포함한 CLR 데이터 형식
+-   CLR data types including geometry, geography, hierarchyid, and CLR user\-defined types
 
-### 열 형식
+### <a name="column-types"></a>Column types
 
 -   COLUMN\_SET
 
--   계산된 열
+-   Computed columns
 
-### 제약 조건
+### <a name="constraints"></a>Constraints
 
--   기본 제약 조건 및 Check 제약 조건
+-   Default constraints and check constraints
 
--   테이블을 참조하는 외래 키 제약 조건. 부모-자식 관계(예: Order 및 Order\_Detail)에서 자식 테이블(Order\_Detail)에는 스트레치를 사용할 수 있지만 부모 테이블(Order)에는 사용할 수 없습니다.
+-   Foreign key constraints that reference the table. In a parent\-child relationship \(for example, Order and Order\_Detail\), you can enable Stretch for the child table \(Order\_Detail\) but not for the parent table \(Order\).
 
-### 인덱스
+### <a name="indexes"></a>Indexes
 
--   전체 텍스트 인덱스
+-   Full text indexes
 
--   XML 인덱스
+-   XML indexes
 
--   공간 인덱스
+-   Spatial indexes
 
--   테이블을 참조하는 인덱싱된 뷰
+-   Indexed views that reference the table
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-[스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)
+[Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md)
 
-[데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-database.md)
+[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 
-[테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md)
+[Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

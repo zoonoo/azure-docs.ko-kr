@@ -1,22 +1,23 @@
 <properties
-	pageTitle="솔루션 갤러리에서 Log Analytics 솔루션 추가 | Microsoft Azure"
-	description="Log Analytics 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 논리, 시각화 및 데이터 획득 규칙의 모음입니다."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="솔루션 갤러리에서 Log Analytics 솔루션 추가 | Microsoft Azure"
+    description="Log Analytics 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 논리, 시각화 및 데이터 획득 규칙의 모음입니다."
+    services="log-analytics"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="banders"/>
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="banders"/>
 
-# 솔루션 갤러리에서 Log Analytics 솔루션 추가
+
+# <a name="add-log-analytics-solutions-from-the-solutions-gallery"></a>솔루션 갤러리에서 Log Analytics 솔루션 추가
 
 Log Analytics 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 **논리**, **시각화** 및 **데이터 획득 규칙**의 모음입니다. 이 문서에서는 Log Analytics에서 지원되는 솔루션을 나열하고 솔루션 갤러리를 사용하여 솔루션을 추가 및 제거하는 방법을 보여 줍니다.
 
@@ -34,7 +35,7 @@ Log Analytics 솔루션은 특정 문제 영역을 중심으로 피벗된 메트
 더 이상 필요 없는 경우는 솔루션을 쉽게 제거할 수 있습니다. 솔루션을 제거하면 해당 데이터가 OMS로 전송되지 않으므로 일일 할당량(있는 경우)에 의해 사용되는 데이터의 양이 줄어듭니다.
 
 
-## Microsoft Monitoring Agent에서 지원하는 솔루션
+## <a name="solutions-supported-by-the-microsoft-monitoring-agent"></a>Microsoft Monitoring Agent에서 지원하는 솔루션
 
 현재 Microsoft Monitoring Agent를 사용하여 OMS에 연결된 서버는 다음을 포함하여 사용 가능한 솔루션의 대부분을 사용할 수 있습니다.
 
@@ -52,33 +53,44 @@ Log Analytics 솔루션은 특정 문제 영역을 중심으로 피벗된 메트
 - 용량 관리
 - 구성 평가
 
-SCOM 에이전트를 Log Analytics에 연결하는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
+SCOM 에이전트를 Log Analytics에 연결하는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md) 을 참조하세요.
 
-### 솔루션 갤러리를 사용하여 솔루션을 추가하려면
+### <a name="to-add-a-solution-using-the-solutions-gallery"></a>솔루션 갤러리를 사용하여 솔루션을 추가하려면
 
-1. OMS의 개요 페이지에서 **솔루션 갤러리** 타일을 클릭합니다. ![솔루션 갤러리](./media/log-analytics-add-solutions/sol-gallery.png)
+1. OMS의 개요 페이지에서 **솔루션 갤러리** 타일을 클릭합니다.    
+    ![솔루션 갤러리](./media/log-analytics-add-solutions/sol-gallery.png)
 2. OMS 솔루션 갤러리 페이지에서 사용 가능한 각 솔루션에 대해 알아봅니다. OMS에 추가할 솔루션의 이름을 클릭합니다.
 3. 선택한 솔루션에 대한 페이지에서 솔루션에 대한 자세한 정보가 표시됩니다. **추가**를 클릭합니다.
 4. 추가한 솔루션의 새 타일이 OMS의 개요 페이지에 표시되며 OMS 서비스가 데이터를 처리한 후 새 타일을 사용하여 시작할 수 있습니다.
 
-## 솔루션을 구성하려면
+## <a name="to-configure-solutions"></a>솔루션을 구성하려면
 1. 몇 가지 솔루션을 구성해야 합니다. 예를 들어 자동화, Azure Site Recovery 및 백업을 사용하려면 먼저 구성해야 합니다.
-2. 이러한 솔루션에 대해 개요 페이지에서 해당 타일을 클릭합니다. ![솔루션 구성](./media/log-analytics-add-solutions/configure-additional.png)
-3. 그런 다음 필요한 정보와 함께 솔루션을 구성하고 **저장**을 클릭합니다. ![솔루션 구성](./media/log-analytics-add-solutions/configure.png)
+2. 이러한 솔루션에 대해 개요 페이지에서 해당 타일을 클릭합니다.  
+    ![솔루션 구성](./media/log-analytics-add-solutions/configure-additional.png)
+3. 그런 다음 필요한 정보와 함께 솔루션을 구성하고 **저장**을 클릭합니다.  
+    ![솔루션 구성](./media/log-analytics-add-solutions/configure.png)
 
-### 솔루션 갤러리를 사용하여 솔루션을 제거하려면
+### <a name="to-remove-a-solution-using-the-solutions-gallery"></a>솔루션 갤러리를 사용하여 솔루션을 제거하려면
 
 1. OMS의 개요 페이지에서 **설정** 타일을 클릭합니다.
-2. 설정 페이지의 솔루션 탭에서 제거할 솔루션에 대해 **제거**를 클릭합니다.
-3. 확인 대화 상자에서 **예**를 클릭하여 솔루션을 제거합니다.
+2. 설정 페이지의 솔루션 탭에서 제거할 솔루션에 대해 **제거** 를 클릭합니다.
+3. 확인 대화 상자에서 **예** 를 클릭하여 솔루션을 제거합니다.
 
-## OMS 기능 및 솔루션에 대한 데이터 수집 정보
+## <a name="data-collection-details-for-oms-features-and-solutions"></a>OMS 기능 및 솔루션에 대한 데이터 수집 정보
 
-다음 표에서는 데이터 수집 방법 및 OMS 기능과 솔루션에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
+다음 표에서는 데이터 수집 방법 및 OMS 기능과 솔루션에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다. 직접 에이전트와 SCOM 에이전트는 근본적으로는 동일하지만, 직접 에이전트에는 OMS 작업 영역에 연결하고 프로기를 통해 전달할 수 있는 추가적인 기능이 포함됩니다. SCOM 에이전트를 사용하는 경우 OMS 에이전트와의 통신을 위해 OMS 에이전트로서 대상이 되어야 합니다. 이 표의 SCOM 에이전트는 SCOM에 연결된 OMS 에이전트입니다. 기존 SCOM 환경을 OMS에 연결하기 위한 자세한 내용은 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
+
+>[AZURE.NOTE] 사용하는 에이전트 유형에 따라 다음 조건을 통해 OMS에 데이터를 보내는 방식이 결정됩니다.
+
+- 직접 에이전트 또는 SCOM 연결 OMS 에이전트를 사용합니다.
+- SCOM이 필요한 경우 솔루션에 대한 SCOM 에이전트 데이터가 항상 SCOM 관리 그룹을 통해 OMS로 전송됩니다.  또한 SCOM이 필요한 경우 솔루션에서 SCOM 에이전트만 사용됩니다.
+- SCOM이 필요하지 않으며 표에서 SCOM 에이전트 데이터가 관리 그룹을 통해 OMS로 전송된다고 나타날 경우 SCOM 에이전트 데이터는 항상 관리 그룹을 통해 OMS로 보내집니다. 직접 에이전트는 관리 그룹을 건너뛰고 데이터를 직접 OMS로 보냅니다.
+- SCOM 에이전트 데이터가 관리 그룹을 사용하여 전송되지 않는 경우 데이터가 관리 그룹을 건너뛰고 직접 OMS로 보내집니다.
+
 
 |데이터 형식| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 |---|---|---|---|---|---|---|---|
-|AD 평가|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 일|
+|AD 평가|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|  7 일|
 |AD 복제 상태|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|5일|
 |경고(Nagios)|Linux|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|도착 시|
 |경고(Zabbix)|Linux|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|1분|
@@ -90,12 +102,14 @@ SCOM 에이전트를 Log Analytics에 연결하는 방법에 대한 자세한 �
 |구성 평가(레거시 관리자)|Windows|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)| 하루에 2회|
 |ETW|Windows|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|5분|
 |IIS 로그|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|5분|
+|Key Vault|Windows|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|10분|
+|네트워크 응용 프로그램 게이트웨이|Windows|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|10분|
 |네트워크 보안 그룹|Windows|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|10분|
 |Office 365|Windows|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|알림 시|
 |성능 카운터|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|예약된 대로, 최소 10초|
 |성능 카운터|Linux|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|예약된 대로, 최소 10초|
 |서비스 패브릭|Windows|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|5분|
-|SQL 평가|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 일|
+|SQL 평가|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)| 7 일|
 |SurfaceHub|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|도착 시|
 |Syslog|Linux|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|Azure 저장소: 10분, 에이전트: 도착 시|
 |시스템 업데이트|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)| 하루에 최소 2회 및 업데이트를 설치하고 15분 후|
@@ -104,7 +118,7 @@ SCOM 에이전트를 Log Analytics에 연결하는 방법에 대한 자세한 �
 |Windows 이벤트 로그|Windows|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)| Azure 저장소: 1분, 에이전트: 도착 시|
 |실시간 데이터|Windows(2012 R2/8.1 이상)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![예](./media/log-analytics-add-solutions/oms-bullet-green.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)|![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png)| 1분마다|
 
-## Log Analytics 미리 보기 솔루션 및 기능
+## <a name="log-analytics-preview-solutions-and-features"></a>Log Analytics 미리 보기 솔루션 및 기능
 
 서비스를 실행하고 DevOps 방식을 따라 고객과 연계하여 기능 및 솔루션을 개발할 수 있습니다.
 
@@ -117,7 +131,7 @@ SCOM 에이전트를 Log Analytics에 연결하는 방법에 대한 자세한 �
 - 미리 보기 기능은 설정 탭에 나타나고 모든 사용자가 사용할 수 있습니다.
 - 갤러리를 통해 또는 게시된 스크립트를 사용하여 미리 보기 솔루션을 추가할 수 있습니다.
 
-### 미리 보기 기능 및 솔루션에 대해 무엇을 알아야 하나요?
+### <a name="what-should-i-know-about-preview-features-and-solutions?"></a>미리 보기 기능 및 솔루션에 대해 무엇을 알아야 하나요?
 
 새로운 기능 및 솔루션을 소개하게 되어 흥분을 감추지 못하며 이를 개발하기 위해 고객과 함께 작업하고자 합니다.
 
@@ -125,11 +139,11 @@ SCOM 에이전트를 Log Analytics에 연결하는 방법에 대한 자세한 �
 
 포털을 통해 미리 보기 기능을 사용할 때 기능이 미리 보기 상태임을 알리는 경고가 표시됩니다.
 
-#### *비공개* 및 *공개* 미리 보기의 경우
+#### <a name="for-both-*private*-and-*public*-preview"></a>*비공개* 및 *공개* 미리 보기의 경우
 
 다음이 공개 및 비공개 미리 보기 모두에 적용됩니다.
 
-- 항상 올바르게 작동하지 않을 수 있습니다. 
+- 항상 올바르게 작동하지 않을 수 있습니다.
   - 사소한 불편에서 전혀 작동하지 않는 것에 이르는 문제 범위
 - 미리 보기의 경우 시스템/환경에 부정적인 영향을 줄 수 있습니다.
   - OMS를 사용하는 시스템에 부정적인 영향이 발생하는 것을 방지하려고 노력하지만 때때로 예기치 않은 상황이 발생합니다.
@@ -150,7 +164,7 @@ SCOM 에이전트를 Log Analytics에 연결하는 방법에 대한 자세한 �
 - 사용자 인터페이스(UI)는 불완전하고 매일 변경될 수 있습니다.
 - 공개 미리 보기는 프로덕션/중요 시스템에 적합하지 않을 수 있습니다.
 
-#### *비공개* 미리 보기의 경우
+#### <a name="for-*private*-preview"></a>*비공개* 미리 보기의 경우
 
 위의 항목 외에도 다음은 비공개 미리 보기에 해당되는 것입니다.
 
@@ -162,18 +176,22 @@ SCOM 에이전트를 Log Analytics에 연결하는 방법에 대한 자세한 �
 - 프로덕션/중요 시스템에서 실행하지 마십시오.
 
 
-### 비공개 미리 보기 기능 및 솔루션에 대한 액세스를 어떻게 받습니까?
+### <a name="how-do-i-get-access-to-private-preview-features-and-solutions?"></a>비공개 미리 보기 기능 및 솔루션에 대한 액세스를 어떻게 받습니까?
 
 미리 보기에 따라 여러 가지 방법을 통해 비공개 미리 보기에 고객을 초대합니다.
 
 - 월별 고객 설문 조사에 응답하고 연락할 권한을 제공하면 비공개 미리 보기에 초대될 가능성이 향상됩니다.
 - Microsoft 계정 팀은 사용자를 지정할 수 있습니다.
-- 트위터 [msopsmgmt](https://twitter.com/msopsmgmt)에 게시된 세부 정보에 따라 등록할 수 있습니다. 
-- 자세한 공유 커뮤니티 이벤트에 따라 등록할 수 있습니다. 밋업, 회의 및 온라인 커뮤니티에서 찾아보세요. 
+- 트위터 [msopsmgmt](https://twitter.com/msopsmgmt)
+- 자세한 공유 커뮤니티 이벤트에 따라 등록할 수 있습니다. 밋업, 회의 및 온라인 커뮤니티에서 찾아보세요.
 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
-- [로그를 검색](log-analytics-log-searches.md)하여 솔루션에서 수집한 자세한 정보를 확인합니다.
+- [로그를 검색](log-analytics-log-searches.md) 하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

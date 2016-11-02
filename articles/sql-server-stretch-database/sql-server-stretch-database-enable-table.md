@@ -1,82 +1,83 @@
 <properties
-	pageTitle="테이블에 대해 스트레치 데이터베이스를 사용하도록 설정 | Microsoft Azure"
-	description="스트레치 데이터베이스에 대해 테이블을 구성하는 방법을 알아봅니다."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Enable Stretch Database for a table | Microsoft Azure"
+    description="Learn how to configure a table for Stretch Database."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/05/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/05/2016"
+    ms.author="douglasl"/>
 
-# 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정
 
-스트레치 데이터베이스에 대해 테이블을 구성하려면 SQL Server Management Studio에서 테이블에 대해 **스트레치 | 사용**을 선택하여 **스트레치에 테이블 사용** 마법사를 엽니다. 또한 Transact-SQL을 사용하여 기존 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정하거나 스트레치 데이터베이스를 사용하여 새 테이블을 만들 수도 있습니다.
+# <a name="enable-stretch-database-for-a-table"></a>Enable Stretch Database for a table
 
--   콜드 데이터를 별도 테이블에 저장하는 경우 전체 테이블을 마이그레이션할 수 있습니다.
+To configure a table for Stretch Database, select **Stretch | Enable** for a table in SQL Server Management Studio to open the **Enable Table for Stretch** wizard. You can also use Transact\-SQL to enable Stretch Database on an existing table, or to create a new table with Stretch Database enabled.
 
--   테이블에 핫 데이터 및 콜드 데이터가 모두 포함된 경우 필터 함수를 지정하여 마이그레이션할 행을 선택할 수 있습니다.
+-   If you store cold data in a separate table, you can migrate the entire table.
 
-**필수 조건**. 데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정하지 않은 경우 테이블에 대해 **스트레치 | 사용**을 선택하면 마법사에서 먼저 스트레치 데이터베이스에 대해 데이터베이스를 구성합니다. 이 항목의 단계 대신 [스트레치에 데이터베이스 사용 마법사를 실행하여 시작](sql-server-stretch-database-wizard.md)의 단계를 따르세요.
+-   If your table contains both hot and cold data, you can specify a filter function to select the rows to migrate.
 
-**사용 권한**. 데이터베이스 또는 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정하려면 db\_owner 권한이 필요합니다. 테이블에서 스트레치 데이터베이스를 사용하도록 설정하려면 테이블에 대한 ALTER 권한이 있어야 합니다.
+**Prerequisites**. If you select **Stretch | Enable** for a table, and you have not yet enabled Stretch Database for the database, the wizard first configures the database for Stretch Database. Follow the steps in [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) instead of the steps in this topic.
 
- >   [AZURE.NOTE] 나중에 스트레치 데이터베이스를 비활성화하는 경우 테이블 또는 데이터베이스에 대해 확장 데이터베이스를 사용하지 않도록 설정하면 원격 개체를 삭제하지 않습니다. 원격 테이블 또는 원격 데이터베이스를 삭제하려면 Azure 관리 포털을 사용하여 삭제해야 합니다. 원격 개체를 수동으로 삭제할 때까지 계속해서 Azure 비용이 발생합니다.
+**Permissions**. Enabling Stretch Database on a database or a table requires db\_owner permissions. Enabling Stretch Database on  a table also requires ALTER permissions on the table.
+
+ >   [AZURE.NOTE] Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually.
  
-## <a name="EnableWizardTable"></a>마법사를 사용하여 테이블에서 스트레치 데이터베이스를 사용하도록 설정
-**마법사 시작**
+## <a name="<a-name="enablewizardtable"></a>use-the-wizard-to-enable-stretch-database-on-a-table"></a><a name="EnableWizardTable"></a>Use the wizard to enable Stretch Database on a table
+**Launch the wizard**
 
-1.  SQL Server Management Studio의 개체 탐색기에서 스트레치를 사용하도록 설정할 테이블을 선택합니다.
+1.  In SQL Server Management Studio, in Object Explorer, select the table on which you want to enable Stretch.
 
-2.  마우스 오른쪽 단추를 클릭하고 **스트레치**를 선택한 후 **사용**을 선택하여 마법사를 시작합니다.
+2.  Right\-click and select **Stretch**, and then select **Enable** to launch the wizard.
 
-**소개**
+**Introduction**
 
-마법사의 용도 및 필수 조건을 검토합니다.
+Review the purpose of the wizard and the prerequisites.
 
-**데이터베이스 테이블 선택**
+**Select database tables**
 
-사용하도록 설정하려는 테이블이 표시되고 선택되었는지 확인합니다.
+Confirm that the table you want to enable is displayed and selected.
 
-전체 테이블을 마이그레이션하거나 마법사에서 간단한 필터 함수를 지정할 수 있습니다. 다른 종류의 필터 함수를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
+You can migrate an entire table or you can specify a simple filter function in the wizard. If you want to use a different type of filter function to select rows to migrate, do one of the following things.
 
--   마법사를 종료하고 ALTER TABLE 문을 실행하여 테이블에 대한 스트레치를 사용하도록 설정하고 필터 함수를 지정합니다.
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a filter function.
 
--   마법사를 종료한 후 ALTER TABLE 문을 실행하여 필터 함수를 지정합니다. 필요한 단계는 [마법사를 실행한 후 필터 함수 추가](sql-server-stretch-database-predicate-function.md#addafterwiz)를 참조하세요.
+-   Run the ALTER TABLE statement to specify a filter function after you exit the wizard. For the required steps, see [Add a filter function after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
-ALTER TABLE 구문은 이 항목의 뒷부분에서 설명합니다.
+The ALTER TABLE syntax is described later in this topic.
 
-**요약**
+**Summary**
 
-입력한 값과 마법사에서 선택한 옵션을 검토합니다. 그런 다음 **마침**을 선택하여 스트레치를 사용하도록 설정합니다.
+Review the values that you entered and the options that you selected in the wizard. Then select **Finish** to enable Stretch.
 
-**결과**
+**Results**
 
-결과를 검토합니다.
+Review the results.
 
-## <a name="EnableTSQLTable"></a>Transact-SQL을 사용하여 테이블에서 스트레치 데이터베이스를 사용하도록 설정
-또한 Transact-SQL을 사용하여 기존 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정하거나 스트레치 데이터베이스를 사용하여 새 테이블을 만들 수도 있습니다.
+## <a name="<a-name="enabletsqltable"></a>use-transact\-sql-to-enable-stretch-database-on-a-table"></a><a name="EnableTSQLTable"></a>Use Transact\-SQL to enable Stretch Database on a table
+You can enable Stretch Database for an existing table or create a new table with Stretch Database enabled by using Transact-SQL.
 
-### 옵션
-CREATE TABLE 또는 ALTER TABLE을 실행하여 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정하려면 다음 옵션을 사용합니다.
+### <a name="options"></a>Options
+Use the following options when you run CREATE TABLE or ALTER TABLE to enable Stretch Database on a table.
 
--   필요에 따라 `FILTER_PREDICATE = <function>` 절을 사용하여 테이블에 핫 데이터와 콜드 데이터가 모두 포함된 경우 마이그레이션할 행을 선택하도록 함수를 지정합니다. 조건자는 인라인 테이블 값 함수를 호출해야 합니다. 자세한 내용은 [필터 함수를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요. 필터 함수를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
+-   Optionally, use the `FILTER_PREDICATE = <function>` clause to specify a function to select rows to migrate if the table contains both hot and cold data. The predicate must call an inline table\-valued function. For more info, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md). If you don't specify a filter function, the entire table is migrated.
 
-    >   [AZURE.NOTE] 제대로 수행되지 않는 필터 함수를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. 스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 함수를 적용합니다.
+    >   [AZURE.NOTE] If you provide a filter function that performs poorly, data migration also performs poorly. Stretch Database applies the filter function to the table by using the CROSS APPLY operator.
 
--   `MIGRATION_STATE = OUTBOUND`를 지정하여 데이터 마이그레이션을 즉시 시작하거나, `MIGRATION_STATE = PAUSED`를 지정하여 데이터 마이그레이션 시작을 연기합니다.
+-   Specify `MIGRATION_STATE = OUTBOUND` to start data migration immediately or  `MIGRATION_STATE = PAUSED` to postpone the start of data migration.
 
-### 기존 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정
-스트레치 데이터베이스에 대해 기존 테이블을 구성하려면 ALTER TABLE 명령을 실행합니다.
+### <a name="enable-stretch-database-for-an-existing-table"></a>Enable Stretch Database for an existing table
+To configure an existing table for Stretch Database, run the ALTER TABLE command.
 
-다음은 전체 테이블을 마이그레이션하고 데이터 마이그레이션을 즉시 시작하는 예제입니다.
+Here's an example that migrates the entire table and begins data migration immediately.
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -85,7 +86,7 @@ ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
 GO
 ```
-다음은 `dbo.fn_stretchpredicate` 인라인 테이블 반환 함수로 식별된 행만 마이그레이션하고 데이터 마이그레이션을 연기하는 예제입니다. 필터 함수에 대한 자세한 내용은 [필터 함수를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요.
+Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter function, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -97,12 +98,12 @@ ALTER TABLE <table name>
  GO
 ```
 
-자세한 내용은 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.
+For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
-### 스트레치 데이터베이스를 설정하여 새 테이블 만들기
-스트레치 데이터베이스를 설정하여 새 테이블을 만들려면 CREATE TABLE 명령을 실행합니다.
+### <a name="create-a-new-table-with-stretch-database-enabled"></a>Create a new table with Stretch Database enabled
+To create a new table with Stretch Database enabled, run the CREATE TABLE command.
 
-다음은 전체 테이블을 마이그레이션하고 데이터 마이그레이션을 즉시 시작하는 예제입니다.
+Here's an example that migrates the entire table and begins data migration immediately.
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -113,7 +114,7 @@ CREATE TABLE <table name>
 GO
 ```
 
-다음은 `dbo.fn_stretchpredicate` 인라인 테이블 반환 함수로 식별된 행만 마이그레이션하고 데이터 마이그레이션을 연기하는 예제입니다. 필터 함수에 대한 자세한 내용은 [필터 함수를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요.
+Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter function, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -126,13 +127,17 @@ CREATE TABLE <table name>
 GO  
 ```
 
-자세한 내용은 [CREATE TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)을 참조하세요.
+For more info, see [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
 
 
-## 참고 항목
+## <a name="see-also"></a>See also
 
-[ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
+[ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-[CREATE TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
+[CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

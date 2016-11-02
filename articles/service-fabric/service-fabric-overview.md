@@ -16,10 +16,11 @@
    ms.date="09/22/2016"
    ms.author="mfussell"/>
 
-# 서비스 패브릭의 개요
+
+# <a name="overview-of-service-fabric"></a>서비스 패브릭의 개요
 서비스 패브릭은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 해결하기 위한 작업에 시간을 소비하는 대신, 업무 수행에 필수적인 까다로운 작업을 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 서비스 패브릭은 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
 
-## 마이크로 서비스로 구성된 응용 프로그램
+## <a name="applications-composed-of-microservices"></a>마이크로 서비스로 구성된 응용 프로그램
 서비스 패브릭을 사용하면 컴퓨터의 공유 풀(클러스터라고 함)에서 매우 높은 밀도로 실행되는 마이크로 서비스로 구성된 확장성 있고 신뢰할 수 있는 응용 프로그램을 빌드하고 관리할 수 있습니다. 분산되고 확장 가능한 상태 비저장 및 상태 저장 마이크로 서비스를 구축할 수 있는 정교한 런타임을 제공합니다. 또한 배포된 응용 프로그램의 프로비전, 배포, 모니터링, 업그레이드/패치 및 삭제를 위한 포괄적인 응용 프로그램 관리 기능을 제공합니다.
 
 마이크로 서비스 접근 방식이 중요한 이유는 무엇일까요? 두 가지 주요 이유가 있습니다.
@@ -36,16 +37,16 @@
 
 서비스 패브릭은 이러한 마이크로 서비스로 구성된 응용 프로그램에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. VM에서 컨테이너로 이동하면 밀도에서 중요도의 순서가 증가됩니다. 마찬가지로, 컨테이너에서 마이크로 서비스로 이동하면 밀도에서 다른 중요도 순서를 사용할 수 있게 됩니다. 예를 들어, 단일 Azure SQL 데이터베이스 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 컴퓨터로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 앞서 언급한 다른 서비스에도 적용되며 서비스 패브릭 기능을 설명하는 데 "하이퍼스케일(hyperscale)"이라는 용어가 사용되는 이유입니다. 컨테이너에서 높은 밀도를 제공한다면 마이크로 서비스에서는 하이퍼스케일을 제공합니다.
 
-마이크로 서비스 접근 방식에 대한 자세한 내용은 [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)를 참조하세요.
+마이크로 서비스 접근 방식에 대한 자세한 내용은 [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 
-## 어디에서나 서비스 패브릭 클러스터 만들기
+## <a name="create-service-fabric-clusters-anywhere"></a>어디에서나 서비스 패브릭 클러스터 만들기
 Azure 또는 온-프레미스, Windows Server 또는 Linux 등 수많은 환경에서 서비스 패브릭 클러스터를 만들 수 있습니다. 또한 SDK의 개발 환경은 관련된 에뮬레이터가 없는 프로덕션 환경과 동일합니다. 즉, 로컬 개발 클러스터에서 실행되는 경우 다른 환경의 동일한 클러스터에 배포됩니다.
 
-온-프레미스에서 클러스터를 만드는 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure Portal을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 읽어보세요.
+온-프레미스에서 클러스터를 만드는 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure Portal을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 참조하세요.
 
 ![서비스 패브릭 플랫폼][Image1]
 
-## 상태 비저장 및 상태 저장 서비스 패브릭 마이크로 서비스
+## <a name="stateless-and-stateful-service-fabric-microservices"></a>상태 비저장 및 상태 저장 서비스 패브릭 마이크로 서비스
 
 서비스 패브릭을 사용하면 마이크로 서비스로 구성된 응용 프로그램을 빌드할 수 있습니다. 상태 비저장 마이크로 서비스(프로토콜 게이트웨이, 웹 프록시 등)는 지정된 요청 및 해당 서비스로부터의 응답 외에 변경할 수 있는 어떠한 상태도 유지 관리하지 않습니다. Azure 클라우드 서비스 작업자 역할이 상태 비저장 서비스의 예입니다. 상태 저장 마이크로 서비스(사용자 계정, 데이터베이스, 장치, 쇼핑 카트, 큐 등)는 요청 및 응답 이외에 변경 가능하고 신뢰할 수 있는 상태를 유지 관리합니다. 오늘날 인터넷 범위의 서비스는 상태 비저장 및 상태 저장 마이크로 서비스의 조합으로 구성됩니다.
 
@@ -55,9 +56,9 @@ Azure 또는 온-프레미스, Windows Server 또는 Linux 등 수많은 환경�
 
 2. 응용 프로그램 설계 단순화. 상태 저장 마이크로 서비스가 순수한 상태 비저장 응용 프로그램의 가용성 및 대기 시간 요구 사항을 해결하기 위해 일반적으로 필요로 했던 추가 큐 및 캐시에 대한 필요성을 제거해 줍니다. 상태 저장 서비스는 기본적으로 가용성이 높고 대기 시간이 낮아 전체적으로 응용 프로그램에서 관리하는 이동 부분 수가 줄어듭니다.
 
-서비스 패브릭을 사용하는 응용 프로그램 패턴에 대한 자세한 내용은 서비스에 대한 [응용 프로그램 시나리오](service-fabric-application-scenarios.md) 및 [프로그래밍 모델 프레임워크 선택](service-fabric-choose-framework.md)을 읽어보세요.
+Service Fabric을 사용하는 응용 프로그램 패턴에 대한 자세한 내용은 서비스에 대한 [응용 프로그램 시나리오](service-fabric-application-scenarios.md) 및 [프로그래밍 모델 프레임워크 선택](service-fabric-choose-framework.md)을 참조하세요.
 
-## 응용 프로그램 수명 주기 관리
+## <a name="application-lifecycle-management"></a>응용 프로그램 수명 주기 관리
 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 응용 프로그램의 전체 ALM(응용 프로그램 수명 주기 관리)에 대해 최고 수준의 지원을 제공합니다.
 
 서비스 패브릭 ALM 기능을 사용하면 응용 프로그램 관리자/IT 운영자가 간단하고 개입할 필요성이 적은 워크플로를 사용하여 응용 프로그램을 프로비전, 배포, 패치 및 모니터링할 수 있습니다. 이러한 기본 제공 워크플로는 응용 프로그램을 지속적으로 사용 가능하게 유지해야 하는 IT 운영자의 부담을 크게 줄여줍니다.
@@ -66,7 +67,7 @@ Azure 또는 온-프레미스, Windows Server 또는 Linux 등 수많은 환경�
 
 응용 프로그램 수명 주기 관리에 대한 자세한 내용은 [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md) 및 코드 배포에서 [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
 
-## 주요 기능
+## <a name="key-capabilities"></a>주요 기능
 서비스 패브릭을 사용하면 다음을 수행할 수 있습니다.
 
 - 자동 복구되며 대규모 확장 가능한 응용 프로그램 개발.
@@ -100,14 +101,18 @@ Azure 또는 온-프레미스, Windows Server 또는 Linux 등 수많은 환경�
 - 자동 복구되는 리소스 분산 장치를 감시하여 클러스터 간 응용 프로그램의 재배포를 조율합니다. 서비스 패브릭은 오류에서 복구하고 사용 가능한 리소스에 따라 부하의 분산을 최적화합니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 * 자세한 내용은 다음을 참조하세요.
     * [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
     * [용어 개요](service-fabric-technical-overview.md)
-* 서비스 패브릭 [개발 환경](service-fabric-get-started.md) 설정
-* 서비스를 위한 [프로그래밍 모델 프레임워크](service-fabric-choose-framework.md) 선택
+* 서비스 패브릭 [개발 환경](service-fabric-get-started.md)  
+* [프로그래밍 모델 프레임워크 선택](service-fabric-choose-framework.md) 을 읽어보세요.
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

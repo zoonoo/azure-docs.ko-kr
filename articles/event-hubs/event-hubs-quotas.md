@@ -15,10 +15,14 @@
     ms.date="09/27/2016"
     ms.author="sethm" />
 
-# 이벤트 허브 할당량
+
+# <a name="event-hubs-quotas"></a>이벤트 허브 할당량
 
 이 섹션에는 Microsoft Azure 이벤트 허브의 기본 할당량과 제한 목록이 있습니다.
 
-[AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
+[AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)] 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,51 +1,52 @@
 <properties
-	pageTitle="SQL Server 가상 컴퓨터에 연결(클래식) | Microsoft Azure"
-	description="Azure의 가상 컴퓨터에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
-	tags="azure-service-management"/>
+    pageTitle="SQL Server 가상 컴퓨터에 연결(클래식) | Microsoft Azure"
+    description="Azure의 가상 컴퓨터에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
+    tags="azure-service-management"/>
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/22/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/22/2016"
+    ms.author="jroth" />
 
-# Azure에서 SQL Server 가상 컴퓨터 연결(클래식 배포)
+
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-(classic-deployment)"></a>Azure에서 SQL Server 가상 컴퓨터 연결(클래식 배포)
 
 > [AZURE.SELECTOR]
 - [리소스 관리자](virtual-machines-windows-sql-connect.md)
 - [클래식](virtual-machines-windows-classic-sql-connect.md)
 
-## 개요
+## <a name="overview"></a>개요
 
 이 항목에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. 여기서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager VM을 사용하는 경우 [Azure에서 Resource Manager를 사용하여 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
 
-## 연결 시나리오
+## <a name="connection-scenarios"></a>연결 시나리오
 
 클라이언트가 가상 컴퓨터를 실행 중인 SQL Server에 연결하는 방법은 클라이언트의 위치 및 컴퓨터/네트워킹 구성에 따라 달라집니다. 이 시나리오에는 다음이 포함됩니다.
 
 - [동일한 클라우드 서비스의 SQL Server에 연결](#connect-to-sql-server-in-the-same-cloud-service)
-- [인터넷을 통해 SQL Server에 연결 ](#connect-to-sql-server-over-the-internet)
+- [인터넷을 통해 SQL Server에 연결](#connect-to-sql-server-over-the-internet)
 - [동일한 가상 네트워크의 SQL Server에 연결](#connect-to-sql-server-in-the-same-virtual-network)
 
 >[AZURE.NOTE] 이러한 방법으로 연결하기 전에 [이 문서의 단계에 따라 연결을 구성](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)해야 합니다.
 
-### 동일한 클라우드 서비스의 SQL Server에 연결
+### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>동일한 클라우드 서비스의 SQL Server에 연결
 
 한 클라우드 서비스에 여러 가상 컴퓨터를 만들 수 있습니다. 가상 컴퓨터 시나리오를 이해하려면 [가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스와 연결하는 방법](virtual-machines-windows-classic-connect-vms.md#connect-vms-in-a-standalone-cloud-service)을 참조하세요. 이 시나리오는 한 가상 컴퓨터의 클라이언트가 동일한 클라우드 서비스의 다른 가상 컴퓨터에서 실행 중인 SQL Server에 연결하려고 하는 경우입니다.
 
 이 시나리오에서는 VM **이름**(포털에 **컴퓨터 이름** 또는 **호스트 이름**으로도 표시됨)을 사용하여 연결할 수 있습니다. 이 이름은 VM을 만들 때 제공된 이름입니다. 예를 들어 SQL VM 이름을 **mysqlvm**으로 지정하면 동일한 클라우드 서비스의 클라이언트 VM은 다음 연결 문자열을 사용하여 연결할 수 있습니다.
 
-	"Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+    "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-### 인터넷을 통해 SQL Server에 연결
+### <a name="connect-to-sql-server-over-the-internet"></a>인터넷을 통해 SQL Server에 연결 
 
 인터넷을 통해 SQL Server 데이터베이스 엔진에 연결할 경우 들어오는 TCP 통신에 대해 가상 컴퓨터 끝점을 만들어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
 
@@ -53,23 +54,23 @@
 
 예를 들어 이름이 **mysqlvm**, DNS 이름이 **mysqlvm7777.cloudapp.net**이고 VM 끝점이 **57500**인 클래식 가상 컴퓨터를 고려해보세요. 올바르게 구성된 연결이라고 가정할 경우 다음 연결 문자열을 사용하여 인터넷의 어디에서든지 가상 컴퓨터에 액세스할 수 있습니다.
 
-	"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+    "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-이를 통해 인터넷을 통한 클라이언트의 연결이 활성화되지만 누구나 SQL Server에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호가 있어야 합니다. 보안을 높이기 위해 잘 알려진 포트 1433은 공용 가상 컴퓨터 끝점으로 사용하지 않는 것이 좋습니다. 또한 가능하다면 끝점에 ACL을 추가하여 트래픽을 허용한 클라이언트로 한정하는 것이 좋습니다. 끝점에서 ACL을 사용하는 방법에 대한 지침은 [끝점에 대한 ACL 관리](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
+이를 통해 인터넷을 통한 클라이언트의 연결이 활성화되지만 누구나 SQL Server에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호가 있어야 합니다. 보안을 높이기 위해 잘 알려진 포트 1433은 공용 가상 컴퓨터 끝점으로 사용하지 않는 것이 좋습니다. 또한 가능하다면 끝점에 ACL을 추가하여 트래픽을 허용한 클라이언트로  한정하는 것이 좋습니다. 끝점에서 ACL을 사용하는 방법에 대한 지침은 [끝점에 대한 ACL 관리](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
 
 >[AZURE.NOTE] 이 방법을 사용하여 SQL Server와 통신하는 경우 Azure 데이터 센터에서 보내는 모든 데이터에는 일반적으로 [아웃바운드 데이터 전송 가격](https://azure.microsoft.com/pricing/details/data-transfers/)이 적용됩니다.
 
-### 동일한 가상 네트워크의 SQL Server에 연결
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>동일한 가상 네트워크의 SQL Server에 연결
 
-[가상 네트워크](../virtual-network/virtual-networks-overview.md)에서는 추가적인 시나리오가 가능합니다. VM이 다른 클라우드 서비스에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
+[가상 네트워크](../virtual-network/virtual-networks-overview.md) 에서는 추가적인 시나리오가 가능합니다. VM이 다른 클라우드 서비스에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
 
 가상 네트워크를 사용하면 Azure VM을 도메인에 연결할 수 있습니다. 이것이 SQL Server에 Windows 인증을 사용하는 유일한 방법입니다. 다른 연결 시나리오의 경우 사용자 이름과 암호가 있는 SQL 인증이 필요합니다.
 
 도메인 환경과 Windows 인증을 구성하려는 경우 이 글의 단계를 사용하여 공용 끝점이나 SQL 인증 및 로그인을 구성할 필요가 없습니다. 이 시나리오에서는 연결 문자열에 SQL Server VM 이름을 지정하여 SQL Server에 연결할 수 있습니다. 다음 예에서는 Windows 인증도 구성되었고 사용자에게 SQL Server 인스턴스에 대한 액세스 권한이 있다고 가정합니다.
 
-	"Server=mysqlvm;Integrated Security=true"
+    "Server=mysqlvm;Integrated Security=true"
 
-## Azure VM에서 SQL Server 연결을 구성하기 위한 단계
+## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Azure VM에서 SQL Server 연결을 구성하기 위한 단계
 
 다음 단계는 SQL Server Management Studio (SSMS)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온-프레미스 및 Azure에서 실행중인 응용 프로그램에 대해 SQL Server 가상 컴퓨터를 액세스할 수 있게 만들도록 적용합니다.
 
@@ -87,20 +88,24 @@
 
 ![SQL Server 가상 컴퓨터에 연결](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
 
-[AZURE.INCLUDE [VM 클래식 TCP 끝점에서 SQL server에 연결](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM Classic TCP Endpoint](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
 
-[AZURE.INCLUDE [VM에서 SQL Server에 연결](../../includes/virtual-machines-sql-server-connection-steps.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM](../../includes/virtual-machines-sql-server-connection-steps.md)]
 
-[AZURE.INCLUDE [VM 클래식 단계에서 SQL server에 연결](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM Classic Steps](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 고가용성 및 재해 복구를 위해 AlwaysOn 가용성 그룹도 사용하려는 경우 수신기의 구현을 고려해야 합니다. 데이터베이스 클라이언트는 SQL Server 인스턴스 중 하나에 직접 연결하기 보다는 수신기에 연결합니다. 수신기는 가용성 그룹의 주 복제본에 클라이언트를 라우팅합니다. 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항](virtual-machines-windows-sql-security.md)을 참조하세요.
 
-Azure 가상 컴퓨터의 SQL Server에 대한 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)합니다.
+[학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) 합니다. 
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

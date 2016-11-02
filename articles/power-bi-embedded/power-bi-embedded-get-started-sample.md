@@ -3,8 +3,8 @@
    description="Power BI Embedded, SDK를 사용하여 대화형 Power BI 보고서를 비즈니스 인텔리전스 응용 프로그램에 추가"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,30 +13,31 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/14/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
-# Power BI Embedded 시작 샘플
+
+# <a name="get-started-with-power-bi-embedded-sample"></a>Power BI Embedded 시작 샘플
 
 **Microsoft Power BI Embedded**를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램에 통합할 수 있습니다. 이 문서에서 **Power BI Embedded** 시작 샘플을 소개합니다.
 
 진행하기 전에 다음 리소스를 저장하려고 할 것입니다. 이렇게 하면 Power BI 보고서를 샘플 앱 및 사용자 앱에 통합할 때도 도움이 됩니다.
 
- -	[샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Power BI Embedded API 참조](https://msdn.microsoft.com/library/mt711493.aspx)
- -	[Power BI Embedded .NET SDK](http://go.microsoft.com/fwlink/?LinkId=746472)(NuGet을 통해 사용 가능)
+ -  [샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
+ -  [Power BI Embedded API 참조](https://msdn.microsoft.com/library/mt711493.aspx)
+ -  [Power BI Embedded .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (NuGet을 통해 사용 가능)
 
 
 
-> [AZURE.NOTE] Power BI Embedded 시작 샘플을 구성하고 실행하려면 먼저 Azure 구독에 적어도 하나의 **작업 영역 컬렉션**을 만들어야 합니다. Azure 포털에 **작업 영역 컬렉션**을 만드는 방법을 알아보려면 [Power BI Embedded 시작](power-bi-embedded-get-started.md)을 참조하세요.
+> [AZURE.NOTE] Power BI Embedded 시작 샘플을 구성하고 실행하려면 먼저 Azure 구독에 적어도 하나의 **작업 영역 컬렉션** 을 만들어야 합니다. Azure 포털에 **작업 영역 컬렉션** 을 만드는 방법을 알아보려면 [Power BI Embedded 시작](power-bi-embedded-get-started.md)을 참조하세요.
 
-## 샘플 앱 구성
+## <a name="configure-the-sample-app"></a>샘플 앱 구성
 
 샘플 앱을 실행하는 데 필요한 구성 요소에 액세스할 Visual Studio 개발 환경을 설정하는 방법을 단계적으로 안내합니다.
 
 1. [Power BI Embedded - 보고서를 웹앱으로 통합](http://go.microsoft.com/fwlink/?LinkId=761493) 샘플을 GitHub에서 다운로드하여 압축을 해제합니다.
 
-2. Visual Studio에서 **PowerBI-embedded.sln**을 엽니다. 이 솔루션에서 사용되는 패키지를 업데이트하려면 NuGET 패키지 관리자 콘솔에서 **Update-Package** 명령을 실행해야 할 수 있습니다.
+2. Visual Studio에서 **PowerBI-embedded.sln** 을 엽니다. 이 솔루션에서 사용되는 패키지를 업데이트하려면 NuGET 패키지 관리자 콘솔에서 **Update-Package** 명령을 실행해야 할 수 있습니다.
 
 3. 솔루션을 빌드하십시오.
 
@@ -46,15 +47,15 @@
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. **작업 영역 컬렉션** 이름 및 **선택키**를 입력합니다. **Azure 포털**에서 이러한 정보를 가져올 수 있습니다. **선택키**를 가져오는 방법에 대해 알아보려면 Microsoft Power BI Embedded 시작의 [Power BI API 선택키 보기](power-bi-embedded-get-started-sample.md#view-access-keys)를 참조하세요.
+6. **작업 영역 컬렉션** 이름 및 **선택키**를 입력합니다. **Azure 포털**에서 이러한 정보를 가져올 수 있습니다. **선택키**를 가져오는 방법에 대해 알아보려면 Microsoft Power BI Embedded 시작의 [Power BI API 선택키 보기](power-bi-embedded-get-started-sample.md#view-access-keys) 를 참조하세요.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
-7. 이 문서의 뒷부분에서 사용할 수 있도록 새로 만든 **작업 영역 ID**를 복사하여 저장합니다. **작업 영역 ID**는 **Azure 포털**에서 확인할 수 있습니다.
+7. 이 문서의 뒷부분에서 사용할 수 있도록 새로 만든 **작업 영역 ID** 를 복사하여 저장합니다. **작업 영역 ID**는 **Azure Portal**에서 확인할 수 있습니다.
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. PBIX 파일을 **작업 영역**으로 가져오려면 옵션 **6, 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매점 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
+8. PBIX 파일을 **작업 영역**으로 가져오려면 옵션 **6, 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
 
 9. 메시지가 표시되면 **데이터 집합**의 식별 이름을 입력합니다.
 
@@ -65,16 +66,16 @@ Checking import state... Publishing
 Checking import state... Succeeded
 ```
 
-> [AZURE.NOTE] PBIX 파일에 직접 쿼리 연결이 포함되어 있는 경우 연결 문자열을 업데이트하도록 옵션 7을 실행합니다.
+> [AZURE.NOTE] If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
 
-이제 Power BI PBIX 보고서를 **작업 영역**에 가져왔습니다. 다음으로는 **Power BI Embedded** 시작 샘플 웹앱을 실행하는 방법을 살펴보겠습니다.
+At this point, you have a Power BI PBIX report imported into your **Workspace**. Now, let's look at how to run the **Power BI Embedded** get started sample web app.
 
-## 샘플 웹앱 실행
+## Run the sample web app
 
-웹앱 샘플은 **작업 영역**으로 가져온 보고서를 렌더링하는 샘플 대시보드입니다. 웹앱 샘플을 구성하는 방법은 다음과 같습니다.
+The web app sample is a sample dashboard that renders reports imported into your **Workspace**. Here's how to configure the web app sample.
 
-1. **PowerBI-embedded** Visual Studio 솔루션에서 **EmbedSample** 웹 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
-2. **web.config**의 **EmbedSample** 웹 응용 프로그램에서 **appSettings**, 즉 **AccessKey**, **WorkspaceCollection** 이름 및 **WorkspaceId**를 편집합니다.
+1. In the **PowerBI-embedded** Visual Studio solution, right click the **EmbedSample** web application, and choose **Set as StartUp project**.
+2. In **web.config**, in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
 
     ```
     <appSettings>
@@ -84,35 +85,35 @@ Checking import state... Succeeded
         <add key="powerbi:WorkspaceId" value="" />
     </appSettings>
     ```
-3. **EmbedSample** 웹 응용 프로그램을 실행합니다.
+3. Run the **EmbedSample** web application.
 
-**EmbedSample** 웹 응용 프로그램을 실행하면 왼쪽 탐색 패널에 **보고서** 메뉴가 포함되어야 합니다. 가져온 보고서를 보려면 **보고서**를 확장하고 보고서를 클릭합니다. [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
+Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), the sample web app would look like this:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
-보고서를 클릭하면 **EmbedSample** 웹 응용 프로그램이 다음과 같이 표시되어야 합니다.
+After you click a report, the **EmbedSample** web application should look something this:
 
 ![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
 
 
-## 샘플 코드 탐색
-**Microsoft Power BI Embedded** 샘플은 **Power BI** 보고서를 앱에 통합하는 방법을 보여 주는 대시보드 웹앱의 예입니다. MVC(Model-View-Controller) 디자인 패턴을 사용하여 모범 사례를 보여 줍니다. 이 섹션에서는 **PowerBI-embedded** 웹앱 솔루션 내에서 탐색할 수 있는 샘플 코드 부분을 중점적으로 살펴봅니다. MVC(Model-View-Controller) 패턴은 도메인의 모델링, 프레젠테이션 및 작업을 사용자 입력에 따라 모델, 보기 및 제어의 세 가지 별도 클래스로 구분합니다. MVC에 대한 알아보려면 [ASP.NET에 대해 알아보기](http://www.asp.net/mvc)를 참조하세요.
+## Explore the sample code
+The **Microsoft Power BI Embedded** sample is an example dashboard web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
 
-**Microsoft Power BI Embedded** 샘플 코드는 다음과 같이 구분됩니다. 각 섹션에는 샘플 코드를 쉽게 찾을 수 있도록 PowerBI-embedded.sln 솔루션에 파일 이름이 포함되어 있습니다.
+The **Microsoft Power BI Embedded** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
-> [AZURE.NOTE] 이 섹션에서는 코드가 작성된 방법을 보여 주는 샘플 코드에 대해 요약합니다. 전체 샘플을 보려면 Visual Studio에서 PowerBI-embedded.sln을 로드하세요.
+> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
 
-### 모델
-이 샘플에는 **ReportsViewModel** 및 **ReportViewModel**이 있습니다.
+### Model
+The sample has a **ReportsViewModel** and **ReportViewModel**.
 
-**ReportsViewModel.cs**: 여러 Power BI 보고서를 나타냅니다.
+**ReportsViewModel.cs**: Represents Power BI Reports.
 
     public class ReportsViewModel
     {
         public List<Report> Reports { get; set; }
     }
 
-**ReportViewModel.cs**: 하나의 Power BI 보고서를 나타냅니다.
+**ReportViewModel.cs**: Represents a Power BI Report.
 
     public classReportViewModel
     {
@@ -121,24 +122,24 @@ Checking import state... Succeeded
         public string AccessToken { get; set; }
     }
 
-### 연결 문자열
-연결 문자열은 다음 형식이어야 합니다.
+### Connection string
+The connection string must be in the following format:
 
 ```
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-일반적인 서버 및 데이터베이스 특성을 사용할 수 없습니다. 예: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+Using common server and database attributes will fail. For example: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
-### 보기
-**보기**를 통해 여러 Power BI **보고서** 및 하나의 Power BI **보고서** 표시를 관리합니다.
+### View
+The **View** manages the display of Power BI **Reports** and a Power BI **Report**.
 
-**Reports.cshtml**: **Model.Reports**를 반복하여 **ActionLink**를 만듭니다. **ActionLink**는 다음과 같이 구성됩니다.
+**Reports.cshtml**: Iterate over **Model.Reports** to create an **ActionLink**. The **ActionLink** is composed as follows:
 
-|부|설명
+|Part|Description
 |---|---
-|제목| 보고서의 이름입니다.
-|QueryString| 보고서 ID에 대한 링크입니다.
+|Title| Name of the Report.
+|QueryString| A link to the Report ID.
 
     <div id="reports-nav" class="panel-collapse collapse">
         <div class="panel-body">
@@ -154,7 +155,7 @@ Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
         </div>
     </div>
 
-Report.cshtml: **Model.AccessToken** 및 **PowerBIReportFor**에 대한 람다 식을 설정합니다.
+Report.cshtml: Set the **Model.AccessToken**, and the Lambda expression for **PowerBIReportFor**.
 
     @model ReportViewModel
 
@@ -167,7 +168,7 @@ Report.cshtml: **Model.AccessToken** 및 **PowerBIReportFor**에 대한 람다 �
 
 ### Controller
 
-**DashboardController.cs**: **앱 토큰**을 전달하는 PowerBIClient를 만듭니다. **자격 증명**을 가져오기 위해 **서명 키**에서 JWT(JSON Web Token)가 생성됩니다. **자격 증명**은 **PowerBIClient** 인스턴스를 만드는 데 사용됩니다. **PowerBIClient** 인스턴스가 작성되면 GetReports() 및 GetReportsAsync()를 호출할 수 있습니다.
+**DashboardController.cs**: Creates a PowerBIClient passing an **app token**. A JSON Web Token (JWT) is generated from the **Signing Key** to get the **Credentials**. The **Credentials** are used to create an instance of **PowerBIClient**. Once you have an instance of **PowerBIClient**, you can call GetReports() and GetReportsAsync().
 
 CreatePowerBIClient()
 
@@ -220,16 +221,16 @@ Task<ActionResult> Report(string reportId)
         }
     }
 
-### 앱에 보고서 통합
+### Integrate a report into your app
 
-**보고서**를 만든 후에는 **IFrame**을 사용하여 Power BI **보고서**를 포함합니다. 다음은 **Microsoft Power BI Embedded** 샘플 내 powerbi.js의 코드 조각입니다.
+Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from  powerbi.js in the **Microsoft Power BI Embedded** sample.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
-## 응용 프로그램에 포함된 보고서 필터링
+## Filter reports embedded in your application
 
-URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이렇게 하려면 지정된 필터를 사용하여 **eq** 연산자가 포함된 **$filter** 쿼리 문자열 매개 변수를 iFrame src url에 추가합니다. 필터 쿼리 구문은 다음과 같습니다.
+You can filter an embedded report using a URL syntax. To do this, you add a **$filter** query string parameter with an **eq** operator to your iFrame src url with the filter specified. Here is the filter query syntax:
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -237,12 +238,16 @@ https://app.powerbi.com/reportEmbed
 $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
-> [AZURE.NOTE] {tableName/fieldName}은(는) 공백이나 특수 문자를 포함할 수 없습니다. {fieldValue}은(는) 단일 범주 값을 허용합니다.
+> [AZURE.NOTE] {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
 
 
-## 참고 항목
+## See also
 
-- [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
-- [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
+- [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
+- [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

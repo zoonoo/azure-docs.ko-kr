@@ -7,22 +7,24 @@ authors="hermanndms"
 manager="timlt" 
 editor="" 
 tags="azure-resource-manager" 
-  keywords=""/>
-<tags  
+  keywords=""/> 
+<tags 
   ms.service="virtual-machines-linux" 
   ms.devlang="na" 
   ms.topic="article" 
   ms.tgt_pltfrm="vm-linux" 
   ms.workload="infrastructure-services" 
   ms.date="09/15/2016" 
-  ms.author="hermannd"/>
+  ms.author="hermannd"/> 
 
 
-# Microsoft Azure에서 S/4 HANA 또는 BW/4 HANA 배포 
 
-이 문서에서는 SAP 클라우드 어플라이언스 라이브러리 3.0을 통해 Microsoft Azure에서 S/4 HANA를 배포하는 방법을 설명합니다. 스크린샷은 프로세스를 단계별로 보여줍니다. 프로세스 관점에서 동일한 방식으로 작동하는 BW/4 HANA와 같은 다른 SAP HANA 기반 솔루션을 배포합니다. 서로 다른 솔루션을 선택하면 됩니다.
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Microsoft Azure에서 S/4 HANA 또는 BW/4 HANA 배포 
 
-SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 [여기](https://cal.sap.com/)로 이동합니다. 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 정보를 제공하는 SAP의 블로그가 있습니다.
+이 문서에서는 SAP 클라우드 어플라이언스 라이브러리 3.0을 통해 Microsoft Azure에서 S/4 HANA를 배포하는 방법을 설명합니다.
+스크린샷은 프로세스를 단계별로 보여줍니다. 프로세스 관점에서 동일한 방식으로 작동하는 BW/4 HANA와 같은 다른 SAP HANA 기반 솔루션을 배포합니다. 서로 다른 솔루션을 선택하면 됩니다.
+
+SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 [여기](https://cal.sap.com/)로 이동합니다. 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 정보를 제공하는 SAP의 블로그가 있습니다. 
 
 
 다음 스크린샷은 Microsoft Azure에 S/4 HANA를 배포하는 방법을 단계별로 보여줍니다. 이 과정은 BW/4 HANA와 같은 다른 솔루션과 동일한 방식으로 작동합니다.
@@ -30,7 +32,8 @@ SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
-첫 번째 그림에서는 Microsoft Azure에서 사용할 수 있는 모든 SAP CAL HANA 기반 솔루션을 보여줍니다. 대표적인 예로 과정을 안내하기 위해 "SAP S/4 HANA 온-프레미스 버전"(스크린샷에서 맨 아래 솔루션)을 선택했습니다.
+첫 번째 그림에서는 Microsoft Azure에서 사용할 수 있는 모든 SAP CAL HANA 기반 솔루션을 보여줍니다.
+대표적인 예로 과정을 안내하기 위해 "SAP S/4 HANA 온-프레미스 버전"(스크린샷에서 맨 아래 솔루션)을 선택했습니다.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-2.jpg)
 
@@ -46,7 +49,8 @@ SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
-구독 중 하나를 선택한 후 "관리 인증서"를 선택하면 새 Azure Resource Manager 모델에 대해 "서비스 보안 주체"를 사용하는 새로운 개념이 있다는 내용이 설명됩니다. 이 모델에 대해 SAP CAL이 아직 도입되지 않았으며 관리 인증서를 작동하려면 여전히 "클래식" 모델과 이전 Azure 포털이 필요합니다.
+구독 중 하나를 선택한 후 "관리 인증서"를 선택하면 새 Azure Resource Manager 모델에 대해 "서비스 보안 주체"를 사용하는 새로운 개념이 있다는 내용이 설명됩니다.
+이 모델에 대해 SAP CAL이 아직 도입되지 않았으며 관리 인증서를 작동하려면 여전히 "클래식" 모델과 이전 Azure 포털이 필요합니다.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4b.jpg)
 
@@ -66,7 +70,8 @@ SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic10.jpg)
 
-계정 설정 후 배포할 솔루션을 선택하고 인스턴스를 만들어야 합니다. "기본" 모드에서는 매우 간단합니다. 인스턴스 이름을 입력하고 Azure 지역을 선택하며 솔루션에 대한 마스터 암호를 정의합니다.
+계정 설정 후 배포할 솔루션을 선택하고 인스턴스를 만들어야 합니다.
+"기본" 모드에서는 매우 간단합니다. 인스턴스 이름을 입력하고 Azure 지역을 선택하며 솔루션에 대한 마스터 암호를 정의합니다.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic11.jpg)
 
@@ -88,4 +93,15 @@ Azure 포털에서 가상 컴퓨터가 SAP CAL에 지정된 것과 동일한 인
 
 다른 옵션은 클라이언트 Windows VM에 로그인하고 예를 들어 미리 구성된 SAP GUI를 시작하는 것입니다.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

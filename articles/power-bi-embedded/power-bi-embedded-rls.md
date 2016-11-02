@@ -3,8 +3,8 @@
    description="Power BI Embedded를 사용하는 행 수준 보안에 대한 자세한 내용"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
-# Power BI Embedded를 사용하는 행 수준 보안
+
+# <a name="row-level-security-with-power-bi-embedded"></a>Power BI Embedded를 사용하는 행 수준 보안
 
 보고서 또는 데이터 집합 내의 특정 데이터에 대한 사용자 액세스를 제한하는 데 RLS(행 수준 보안)를 사용하여 여러 다양한 사용자가 모두 서로 다른 데이터를 보면서 동일한 보고서를 사용할 수 있도록 합니다. 이제 Power BI Embedded에서 RLS로 구성된 데이터 집합을 지원합니다.
 
@@ -30,7 +31,7 @@ RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가�
 
 **규칙** – 역할에는 규칙이 있고 해당 규칙은 데이터에 적용할 실제 필터입니다. "Country = USA"처럼 간단하거나 훨씬 동적일 수 있습니다.
 
-### 예
+### <a name="example"></a>예
 
 이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 응용 프로그램 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
 
@@ -44,10 +45,10 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 
 이 스키마로 알 수 있는 몇 가지 사항은 다음과 같습니다.
 
--	**Total Sales**과 같은 모든 측정값은 **Sales** 팩트 테이블에 저장됩니다.
--	**Item**, **Time**, **Store** 및 **District**의 추가 관련 차원 테이블이 있습니다.
--	관계선의 화살표는 테이블 간에 필터가 흐를 수 있는 방향을 나타냅니다. 예를 들어, 필터가 **Time[Date]**에 배치되면 현재 스키마에서 **Sales** 테이블의 값만 필터링합니다. 관계선에서 모든 화살표가 sales 테이블만 가리키므로 이 필터에 다른 테이블은 영향을 받지 않습니다.
--	**District** 테이블은 각 지역에 대한 관리자가 누구인지를 나타냅니다.
+-   **Total Sales**와 같은 모든 측정값은 **Sales** 팩트 테이블에 저장됩니다.
+-   **Item**, **Time**, **Store** 및 **District**의 추가 관련 차원 테이블이 있습니다.
+-   관계선의 화살표는 테이블 간에 필터가 흐를 수 있는 방향을 나타냅니다. 예를 들어, 필터가 **Time[Date]**에 배치되면 현재 스키마에서 **Sales** 테이블의 값만 필터링합니다. 관계선에서 모든 화살표가 sales 테이블만 가리키므로 이 필터에 다른 테이블은 영향을 받지 않습니다.
+-   **District** 테이블은 각 지역에 대한 관리자가 누구인지를 나타냅니다.
 
     ![](media\power-bi-embedded-rls\pbi-embedded-rls-district-table-4.png)
 
@@ -55,13 +56,17 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 
 방법을 알아보겠습니다.
 
-1.	모델링 탭에서 **역할 관리**를 클릭합니다. ![](media\power-bi-embedded-rls\pbi-embedded-rls-modeling-tab-5.png)
+1.  모델링 탭에서 **역할 관리**를 클릭합니다.  
+![](media\power-bi-embedded-rls\pbi-embedded-rls-modeling-tab-5.png)
 
-2.	**관리자**라는 새 역할을 만듭니다. ![](media\power-bi-embedded-rls\pbi-embedded-rls-manager-role-6.png)
+2.  **관리자**라는 새 역할을 만듭니다.  
+![](media\power-bi-embedded-rls\pbi-embedded-rls-manager-role-6.png)
 
-3.	**District** 테이블에서 다음 DAX 식을 입력합니다. **[District Manager] = USERNAME()** ![](media\power-bi-embedded-rls\pbi-embedded-rls-manager-role-7.png)
+3.  **District** 테이블에서 다음 DAX 식을 입력합니다. **[District Manager] = USERNAME()**  
+![](media\power-bi-embedded-rls\pbi-embedded-rls-manager-role-7.png)
 
-4.	규칙이 작동하는지 확인하려면 **모델링** 탭에서 **역할로 보기**를 클릭한 후 다음을 입력합니다. ![](media\power-bi-embedded-rls\pbi-embedded-rls-view-as-roles-8.png)
+4.  규칙이 작동하는지 확인하려면 **모델링** 탭에서 **역할로 보기**를 클릭한 후 다음을 입력합니다.  
+![](media\power-bi-embedded-rls\pbi-embedded-rls-view-as-roles-8.png)
 
     이제 보고서는 **Andrew Ma**로 로그인한 것처럼 데이터를 보여 줍니다.
 
@@ -79,15 +84,15 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 
 **참고** 데이터에 대해 DirectQuery 모드를 사용 중인 경우 다음 두 옵션을 선택하여 양방향 교차 필터링을 활성화해야 합니다.
 
-1.	**파일** -> **옵션 및 설정** -> **미리 보기 기능** -> **DirectQuery에 대해 양방향 교차 필터링 활성화**.
-2.	**파일** -> **옵션 및 설정** -> **DirectQuery** -> **DirectQuery 모드에서 무제한 측정값 허용**.
+1.  **파일** -> **옵션 및 설정** -> **미리 보기 기능** -> **DirectQuery에 대해 양방향 교차 필터링 활성화**.
+2.  **파일** -> **옵션 및 설정** -> **DirectQuery** -> **DirectQuery 모드에서 무제한 측정값 허용**.
 
 
-양방향 교차 필터링에 대해 알아보려면 [SQL Server Analysis Services 2016 및 Power BI Desktop에서 양방향 교차 필터링](Analysis Services 2016 및 Power BI.docx에서 http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional 교차 필터링) 백서를 다운로드하세요.
+양방향 교차 필터링에 대해 알아보려면 [SQL Server Analysis Services 2016 및 Power BI Desktop에서 양방향 교차 필터링](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) 백서를 다운로드하세요.
 
 그러면 Power BI Desktop에서 수행해야 할 모든 작업이 마무리되지만 Power BI Embedded에서 작업을 정의한 RLS 규칙을 만들기 위해 몇 가지 작업을 수행해야 합니다. 응용 프로그램에서 사용자가 인증 및 권한 부여되고 특정 Power BI Embedded 보고서에 사용자 액세스를 부여하는 데 앱 토큰이 사용됩니다. Power BI Embedded는 사용자가 누구인지에 대한 어떠한 특정한 정보도 포함하지 않습니다. RLS가 작동하기 위해서는 앱 토큰의 일부로 추가 컨텍스트를 전달해야 합니다.
--	**username**(선택 사항) – RLS에 사용되며 RLS 규칙을 적용할 때 사용자를 식별하는 데 사용할 수 있는 문자열입니다. Power BI Embedded를 사용하는 행 수준 보안 사용을 참조하세요.
--	**역할** – 행 수준 보안 규칙을 적용할 때 선택할 역할이 들어 있는 문자열입니다. 둘 이상의 역할을 전달하는 경우 문자열 배열로 전달해야 합니다.
+-   **username** (선택 사항) – RLS에 사용되며 RLS 규칙을 적용할 때 사용자를 식별하는 데 사용할 수 있는 문자열입니다. Power BI Embedded를 사용하는 행 수준 보안 사용을 참조하세요.
+-   **역할** – 행 수준 보안 규칙을 적용할 때 선택할 역할이 들어 있는 문자열입니다. 둘 이상의 역할을 전달하는 경우 문자열 배열로 전달해야 합니다.
 
 사용자 이름 속성이 있으면 역할에 하나 이상의 값을 전달해야 합니다.
 
@@ -99,7 +104,11 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 
 ![](media\power-bi-embedded-rls\pbi-embedded-rls-dashboard-13.png)
 
-## 참고 항목
-[Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-admin-rls/)
+## <a name="see-also"></a>참고 항목
+[Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -14,13 +14,14 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="06/27/2016"
-   ms.author="andkjell;billmath"/>
+   ms.author="billmath"/>
 
-# 미리 보기 기능에 대한 자세한 내용
+
+# <a name="more-details-about-features-in-preview"></a>미리 보기 기능에 대한 자세한 내용
 이 항목에서는 현재 미리 보기 상태인 기능을 사용하는 방법에 대해 설명합니다.
 
-## 그룹 쓰기 저장
-선택적 기능의 그룹 쓰기 저장에 대한 옵션을 사용하면 Exchange가 설치된 포리스트로 **Office 365 그룹**을 쓰기 저장할 수 있습니다. 항상 클라우드에서 마스터되는 그룹입니다. Exchange 온-프레미스가 있는 경우 이러한 그룹을 온-프레미스에 쓰기 저장하여 온-프레미스 Exchange 사서함이 있는 사용자가 이 그룹에서 메일을 보내고 받을 수 있습니다.
+## <a name="group-writeback"></a>그룹 쓰기 저장
+선택적 기능의 그룹 쓰기 저장에 대한 옵션을 사용하면 Exchange가 설치된 포리스트로 **Office 365 그룹** 을 쓰기 저장할 수 있습니다. 항상 클라우드에서 마스터되는 그룹입니다. Exchange 온-프레미스가 있는 경우 이러한 그룹을 온-프레미스에 쓰기 저장하여 온-프레미스 Exchange 사서함이 있는 사용자가 이 그룹에서 메일을 보내고 받을 수 있습니다.
 
 Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http://aka.ms/O365g)를 참조하세요.
 
@@ -35,12 +36,16 @@ Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http:
 
 >[AZURE.NOTE] Azure AD Premium에 대한 구독은 그룹 쓰기 저장에 필요합니다.
 
-## 사용자 쓰기 저장
+## <a name="user-writeback"></a>사용자 쓰기 저장
 > [AZURE.IMPORTANT] 사용자 쓰기 저장 미리 보기 기능은 Azure AD Connect 2015년 8월 업데이트에서 제거되었습니다. 이 기능을 사용하도록 설정한 경우 사용하지 않도록 설정해야 합니다.
 
-## 다음 단계
-[Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 계속 진행합니다.
+## <a name="next-steps"></a>다음 단계
+[Azure AD Connect의 사용자 지정 설치](./aad-connect/active-directory-aadconnect-get-started-custom.md)를 계속 진행합니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

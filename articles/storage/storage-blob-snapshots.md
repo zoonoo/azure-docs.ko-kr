@@ -1,28 +1,29 @@
 <properties
-	pageTitle="Blob의 읽기 전용 스냅숏 만들기 | Microsoft Azure"
-	description="지정된 시점에서 Blob 데이터를 백업하는 Blob의 스냅숏을 만드는 방법을 알아봅니다. 용량 요금을 최소화하기 위해 스냅숏의 청구 방법 및 사용 방법을 파악합니다."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="Blob의 읽기 전용 스냅숏 만들기 | Microsoft Azure"
+    description="지정된 시점에서 Blob 데이터를 백업하는 Blob의 스냅숏을 만드는 방법을 알아봅니다. 용량 요금을 최소화하기 위해 스냅숏의 청구 방법 및 사용 방법을 파악합니다."
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="jwillis;tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="tamram"/>
 
-# Blob 스냅숏 만들기
 
-## 개요
+# <a name="create-a-blob-snapshot"></a>Blob 스냅숏 만들기
+
+## <a name="overview"></a>개요
 
 스냅숏은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 스냅숏은 blob를 백업하는데 유용 합니다. 스냅숏을 만든 후에 읽기, 복사 또는 삭제할 수 있지만 수정할 수 없습니다.
 
-Blob URI에 스냅숏이 만들어진 시점의 시간을 나타내는 Blob URI에 추가된 **DateTime** 값이 있다는 점을 제외하고 Blob의 스냅숏은 해당 Blob와 동일합니다. 예를 들어 페이지 Blob URI가 `http://storagesample.core.blob.windows.net/mydrives/myvhd`이면 스냅숏 URI는 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`과 유사합니다.
+Blob URI에 스냅숏이 만들어진 시점의 시간을 나타내는 Blob URI에 추가된 **DateTime** 값이 있다는 점을 제외하고 Blob의 스냅숏은 해당 Blob와 동일합니다. 예를 들어 페이지 Blob URI가 `http://storagesample.core.blob.windows.net/mydrives/myvhd`이면 스냅숏 URI는 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`과 유사합니다. 
 
 > [AZURE.NOTE] 모든 스냅숏은 기본 Blob의 URI를 공유합니다. 기본 Blob와 스냅숏의 유일한 차이는 추가된 **DateTime** 값입니다.
 
@@ -32,7 +33,7 @@ Blob의 스냅숏을 만들면 blob의 시스템 속성이 같은 값으로 스�
 
 기본 blob와 연결된 모든 임대는 스냅숏에 영향을 주지 않습니다. 스냅숏에 대해 임대를 가져올 수 없습니다.
 
-## 스냅숏 만들기
+## <a name="create-a-snapshot"></a>스냅숏 만들기
 
 다음 코드 예제에서는 .NET에서 스냅숏을 만드는 방법을 보여 줍니다. 이 예제에서는 만들 때 스냅숏에 대한 별도의 메타데이터를 지정합니다.
 
@@ -68,7 +69,7 @@ Blob의 스냅숏을 만들면 blob의 시스템 속성이 같은 값으로 스�
     }
  
 
-## 스냅숏 복사
+## <a name="copy-snapshots"></a>스냅숏 복사
 
 Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
 
@@ -80,19 +81,19 @@ Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
 
 - 블록 Blob의 스냅숏을 만들면 블록의 커밋된 블록 목록도 스냅숏에 복사됩니다. 커밋되지 않은 블록은 복사되지 않습니다.
 
-## 액세스 조건 지정
+## <a name="specify-an-access-condition"></a>액세스 조건 지정
 
 조건이 충족되어야 스냅숏이 작성되도록 액세스 조건을 지정할 수 있습니다. 액세스 조건을 지정하려면 **AccessCondition** 속성을 사용합니다. 지정한 조건이 충족되지 않으면 스냅숏은 작성되지 않으며 Blob 서비스는 상태 코드 HTTPStatusCode.PreconditionFailed를 반환합니다.
 
-## 스냅숏 삭제
+## <a name="delete-snapshots"></a>스냅숏 삭제
 
 스냅숏을 삭제하지 않으면 스냅숏이 포함된 Blob을 삭제할 수 없습니다. 스냅숏을 개별적으로 삭제하거나 원본 Blob를 삭제할 때 모든 스냅숏을 삭제되도록 지정할 수 있습니다. 스냅숏이 있는 Blob을 삭제하려고 하면 오류가 발생합니다.
 
 다음 코드 예제에서는 .NET에서 Blob 및 해당 스냅숏을 삭제하는 방법을 보여 줍니다. 여기서 `blockBlob`은 **CloudBlockBlob** 유형의 변수입니다.
 
-	await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+    await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 
-## Azure 프리미엄 저장소를 사용한 스냅숏
+## <a name="snapshots-with-azure-premium-storage"></a>Azure 프리미엄 저장소를 사용한 스냅숏
 
 프리미엄 저장소에서 스냅숏을 사용할 때는 다음 규칙이 적용됩니다.
 
@@ -104,7 +105,7 @@ Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
 
 - 스냅숏을 읽으려는 경우 Blob 복사 작업을 사용하여 계정의 다른 페이지 Blob에 스냅숏을 복사할 수 있습니다. 이때 복사 작업의 대상 Blob에는 기존 스냅숏이 없어야 합니다. 대상 Blob에 스냅숏이 있으면 Blob 복사 작업에서 오류 코드 409(**SnapshotsPresent**)가 반환됩니다.
 
-## 스냅숏에 대한 절대 URI 반환
+## <a name="return-the-absolute-uri-to-a-snapshot"></a>스냅숏에 대한 절대 URI 반환
 
 이 C# 코드 예제에서는 스냅숏을 만들고 기본 위치에 대한 절대 URI를 작성합니다.
 
@@ -126,11 +127,11 @@ Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
     CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
     Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
-## 스냅숏 요금 청구 방법 이해
+## <a name="understand-how-snapshots-accrue-charges"></a>스냅숏 요금 청구 방법 이해
 
 Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 저장소 요금이 추가로 부과될 수 있습니다. 응용 프로그램을 디자인할 때는 불필요한 비용을 최소화할 수 있도록 이러한 요금 발생 방식을 파악하는 것이 중요합니다.
 
-### 청구 관련 중요 고려 사항
+### <a name="important-billing-considerations"></a>청구 관련 중요 고려 사항
 
 아래 목록에는 스냅숏을 만들 때 고려할 주요 사항이 나와 있습니다.
 
@@ -149,7 +150,7 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 > - Blob의 스냅숏을 유지하는 경우에는 **UploadFile**, **UploadText**, **UploadStream** 또는 **UploadByteArray**를 호출하여 Blob을 업데이트하지 않습니다. 이러한 메서드는 Blob의 모든 블록을 바꾸어 기본 Blob 및 스냅숏이 심각하게 달라집니다. 대신 **PutBlock** 및 **PutBlockList** 메서드를 사용하여 가능한 최소 블록 수만 업데이트합니다.
 
 
-### 스냅숏 청구 시나리오
+### <a name="snapshot-billing-scenarios"></a>스냅숏 청구 시나리오
 
 
 다음 시나리오에서는 블록 Blob와 해당 스냅숏에 대해 비용이 청구되는 방법을 보여 줍니다.
@@ -170,8 +171,12 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 
 ![Azure 저장소 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
-Blob 저장소를 사용하는 추가 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
+Blob 저장소를 사용하는 추가 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다. 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

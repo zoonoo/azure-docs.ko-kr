@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="10/10/2016"
    ms.author="larryfr"/>
 
-#Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용
+
+#<a name="use-hive-with-hadoop-in-hdinsight-with-beeline"></a>Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -25,7 +26,7 @@
 
 > [AZURE.NOTE] Beeline은 JDBC를 사용하여 Hive에 연결합니다. Hive로 JDBC를 사용하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md)을 참조하세요.
 
-##<a id="prereq"></a>필수 조건
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -33,33 +34,33 @@
 
 * SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
-##<a id="ssh"></a>SSH를 사용하여 연결
+##<a name="<a-id="ssh"></a>connect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
 
 SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인 이름)에 연결합니다. FQDN은 지정한 클러스터 이름과 그 뒤에 오는 **.azurehdinsight.net**으로 구성됩니다. 예를 들어 다음 명령은 **myhdinsight**라는 클러스터에 연결합니다.
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net
+    ssh admin@myhdinsight-ssh.azurehdinsight.net
 
 **SSH 인증을 위해 인증서 키를 제공한 경우** HDInsight 클러스터를 만들 때 클라이언트 시스템에서 개인 키의 위치를 지정해야 할 수도 있습니다.
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+    ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
 
 **SSH 인증을 위해 암호를 제공한 경우** HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 제공해야 합니다.
 
 HDInsight에서 SSH 사용에 대한 자세한 내용은 [Linux, OS X 및 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-###PuTTY(Windows 기반 클라이언트)
+###<a name="putty-(windows-based-clients)"></a>PuTTY(Windows 기반 클라이언트)
 
-Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
+Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
 
-PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용 ](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
-##<a id="beeline"></a>Beeline 명령 사용
+##<a name="<a-id="beeline"></a>use-the-beeline-command"></a><a id="beeline"></a>Beeline 명령 사용
 
 1. 연결되면 다음을 사용하여 Beeline을 시작합니다.
 
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
 
-    Beeline 클라이언트를 시작하고 JDBC url에 연결합니다. 여기에서 HiveServer2가 클러스터의 두 헤드 노드에서 실행되기 때문에 `localhost`을 사용하고 기본 헤드 노드에서 직접 Beeline를 실행합니다.
+    Beeline 클라이언트를 시작하고 JDBC url에 연결합니다. 여기에서 HiveServer2가 클러스터의 두 헤드 노드에서 실행되기 때문에 `localhost` 을 사용하고 기본 헤드 노드에서 직접 Beeline를 실행합니다.
     
     명령이 완료되면 `jdbc:hive2://localhost:10001/>` 프롬프트가 표시됩니다.
 
@@ -96,7 +97,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
     테이블에 열을 표시합니다. 이 데이터에 대한 일부 쿼리를 수행하는 동안 대신 새 테이블을 만들어서 데이터를 Hive에 로드하고 스키마를 적용하는 방법을 보여줍니다.
     
-5. HDInsight 클러스터로 제공되는 샘플 데이터를 사용하여 **log4jLogs**라는 새 테이블을 만들기 위해 다음 문을 입력합니다.
+5. HDInsight 클러스터로 제공되는 샘플 데이터를 사용하여 **log4jLogs** 라는 새 테이블을 만들기 위해 다음 문을 입력합니다.
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -111,7 +112,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
     * **ROW FORMAT** - 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
     * **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
     * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
-    * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 일반적으로 hive를 쿼리할 때 동일한 폴더 내에서 동일한 스키마를 사용하는 데이터가 있지만 이 예제 로그 파일은 다른 데이터 형식과 저장됩니다.
+    * **INPUT__FILE__NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 일반적으로 hive를 쿼리할 때 동일한 폴더 내에서 동일한 스키마를 사용하는 데이터가 있지만 이 예제 로그 파일은 다른 데이터 형식과 저장됩니다.
 
     > [AZURE.NOTE] 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
     >
@@ -143,7 +144,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
 4. Beeline을 종료하려면 `!quit`을 사용합니다.
 
-##<a id="file"></a>HiveQL 파일 실행
+##<a name="<a-id="file"></a>run-a-hiveql-file"></a><a id="file"></a>HiveQL 파일 실행
 
 또한 Beeline은 HiveQL 문을 포함하는 파일을 실행하는 데 사용할 수 있습니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 
@@ -164,7 +165,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
     
     > [AZURE.NOTE] 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
     
-3. 파일을 저장하려면 __Ctrl__+___X_\_을 사용한 다음 __Y__ 및 마지막으로 __Enter\_\_를 입력합니다.
+3. 파일을 저장하려면 __Ctrl__+___X__을 사용한 다음 __Y__ 및 마지막으로 __Enter__를 입력합니다.
 
 4. Beeline을 사용하여 파일을 실행하려면 다음을 사용합니다. __HOSTNAME__을 헤드 노드에 가져온 이전 이름으로 바꾸고 __PASSWORD__를 관리자 계정의 암호로 바꿉니다.
 
@@ -176,7 +177,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
         SELECT * from errorLogs;
 
-    데이터 중 t4 열에 모두 **[ERROR]**가 포함된 3개 행이 반환되어야 합니다.
+    데이터 중 t4 열에 모두 **[ERROR]** 가 포함된 3개 행이 반환되어야 합니다.
     
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
@@ -187,11 +188,21 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-##<a id="summary"></a>요약
+## <a name="more-about-beeline-connectivity"></a>Beeline 연결에 대한 자세한 정보
+
+이 문서의 단계에서는 `localhost`를 사용하여 클러스터 헤드 노드에서 실행 중인 HiveServer2에 연결합니다. 헤드 노드의 FQDN(정규화된 도메인 이름)이나 호스트 이름을 사용할 수도 있지만 해당 프로세스에는 추가 단계가 필요합니다(호스트 이름 또는 FQDN을 찾는 단계). 헤드 노드의 Beeline을 사용하는 경우 `localhost`를 사용하면 충분합니다.
+
+Beeline이 설치되어 있는 클러스터에 에지 노드가 있는 경우 헤드 노드의 FQDN이나 호스트 이름을 사용하여 연결해야 합니다.
+
+클러스터의 클라이언트 외부에 Beeline이 설치되어 있으면 다음 명령을 사용하여 연결할 수 있습니다. __CLUSTERNAME__ 을 HDInsight 클러스터의 이름으로 바꿉니다. __PASSWORD__를 관리자(HTTP 로그인) 계정의 암호로 바꿉니다.
+
+    beeline -u 'jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=hive2' -n admin -p PASSWORD
+
+매개 변수/URI가 헤드 노드에서 직접 실행하거나 클러스터 내 에지 노드에서 실행하는 경우와 다르니 유의하세요. 이것은 인터넷에서 클러스터에 연결하는 경우 443 포트를 통해 트래픽을 라우팅하는 공용 게이트웨이를 사용하기 때문입니다. 또한, 몇 가지 다른 서비스가 443 포트에서 공용 게이트웨이를 통해 노출되기 때문에 URI가 직접 연결하는 경우와 다릅니다. 인터넷에서 연결하는 경우 암호를 제공하여 세션도 인증해야 합니다.
+
+##<a name="<a-id="summary"></a><a-id="nextsteps"></a>next-steps"></a><a id="summary"></a><a id="nextsteps"></a>다음 단계
 
 여기에서 볼 수 있듯이 Beeline 명령을 사용하면 쉽게 HDInsight 클러스터에서 대화형으로 Hive 쿼리를 실행할 수 있습니다.
-
-##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 Hive에 대한 일반적인 정보:
 
@@ -235,4 +246,9 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

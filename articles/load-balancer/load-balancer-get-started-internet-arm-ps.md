@@ -17,7 +17,8 @@
   ms.date="08/31/2016"
   ms.author="sewhee" />
 
-# <a name="get-started"></a>PowerShell을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치 만들기
+
+# <a name="<a-name="get-started"></a>creating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>PowerShell을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치 만들기
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -27,7 +28,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Azure PowerShell을 사용하여 솔루션 배포
+## <a name="deploying-the-solution-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 솔루션 배포
 
 다음 절차에서는 PowerShell과 함께 Azure Resource Manager를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 보여 줍니다. Azure Resource Manager를 사용하면 각 리소스가 개별적으로 생성되고 구성된 다음, 함께 사용되어 리소스를 만듭니다.
 
@@ -41,7 +42,7 @@
 
 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
 
-## Resource Manager를 사용하도록 PowerShell 설치
+## <a name="set-up-powershell-to-use-resource-manager"></a>Resource Manager를 사용하도록 PowerShell 설치
 
 PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전이 있는지 확인합니다.
 
@@ -63,7 +64,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
         New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
-## 프런트 엔드 IP 풀에 대한 공용 IP 주소 및 가상 네트워크 만들기
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>프런트 엔드 IP 풀에 대한 공용 IP 주소 및 가상 네트워크 만들기
 
 1. 서브넷 및 가상 네트워크를 만듭니다.
 
@@ -74,9 +75,10 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
         $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'West US' –AllocationMethod Static -DomainNameLabel loadbalancernrp
 
-    >[AZURE.IMPORTANT] 부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포 모델과 다릅니다. 이 예제에서는 FQDN이 **loadbalancernrp.westus.cloudapp.azure.com**입니다.
+    >[AZURE.IMPORTANT]부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포 모델과 다릅니다.
+    >이 예제에서는 FQDN이 **loadbalancernrp.westus.cloudapp.azure.com**입니다.
 
-## 프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
+## <a name="create-a-front-end-ip-pool-and-a-back-end-address-pool"></a>프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
 
 1. **PublicIp** 리소스를 사용하는 **LB-Frontend**라는 프런트 엔드 IP 풀을 만듭니다.
 
@@ -86,13 +88,13 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
         $beaddresspool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name LB-backend
 
-## NAT 규칙, 부하 분산 장치 규칙, 프로브 및 부하 분산 장치 만들기
+## <a name="create-nat-rules,-a-load-balancer-rule,-a-probe,-and-a-load-balancer"></a>NAT 규칙, 부하 분산 장치 규칙, 프로브 및 부하 분산 장치 만들기
 
 이 예제에서는 다음 항목을 만듭니다.
 
 - 포트 3441~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
 - 포트 3442~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
-- **HealthProbe.aspx**라는 페이지에 대한 상태를 확인할 프로브 규칙
+-  **HealthProbe.aspx**
 - 포트 80~포트 80에서 들어오는 모든 트래픽을 백 엔드 풀에 있는 주소로 분산하는 부하 분산 장치 규칙
 - 이러한 개체를 모두 사용하는 부하 분산 장치
 
@@ -122,7 +124,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
         $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name NRP-LB -Location 'West US' -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 
-## NIC 만들기
+## <a name="create-nics"></a>NIC 만들기
 
 네트워크 인터페이스를 만든(또는 기존 인터페이스 수정) 다음 NAT 규칙, 부하 분산 장치 규칙 및 프로브에 연결:
 
@@ -157,7 +159,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
         IpConfigurations     : [
                             {
                             "Name": "ipconfig1",
-                            "Etag": "W/"d448256a-e1df-413a-9103-a137e07276d1"",
+                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
                             "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1",
                             "PrivateIpAddress": "10.0.2.6",
                             "PrivateIpAllocationMethod": "Static",
@@ -190,15 +192,15 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
                         }
         EnableIPForwarding   : False
         NetworkSecurityGroup : null
-        Primary              : 
+        Primary              :
 
 5. `Add-AzureRmVMNetworkInterface` cmdlet을 사용하여 NIC를 다른 VM에 할당합니다.
 
-## 가상 컴퓨터를 만듭니다.
+## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
 
-가상 컴퓨터 만들기 및 NIC 할당에 대한 참고 자료는 [Resource Manager 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines/virtual-machines-windows-create-powershell.md#Example)의 5가지 옵션을 참조하세요.
+가상 컴퓨터 만들기 및 NIC 할당에 대한 지침은 [PowerShell을 사용하여Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)를 참조하세요.
 
-## 부하 분산 장치에 네트워크 인터페이스 추가
+## <a name="add-the-network-interface-to-the-load-balancer"></a>부하 분산 장치에 네트워크 인터페이스 추가
 
 1. Azure에서 부하 분산 장치를 검색합니다.
 
@@ -224,9 +226,9 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
     네트워크 인터페이스가 부하 분산 장치 백 엔드 풀에 추가된 후 해당 부하 분산 장치 리소스에 대한 부하 분산 규칙에 따라 네트워크 트래픽을 받기 시작합니다.
 
-## 기존 부하 분산 장치 업데이트
+## <a name="update-an-existing-load-balancer"></a>기존 부하 분산 장치 업데이트
 
-1. 이전 예제에서 부하 분산 장치를 사용하여, `Get-AzureLoadBalancer`를 통해 부하 준산 장치 개체를 변수 **$slb**로 할당합니다.
+1. 이전 예제에서 부하 분산 장치를 사용하여, `Get-AzureLoadBalancer`를 통해 부하 분산 장치 개체를 변수 **$slb**로 할당합니다.
 
         $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
@@ -238,15 +240,15 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
         $slb | Set-AzureRmLoadBalancer
 
-## 부하 분산 장치 제거하기
+## <a name="remove-a-load-balancer"></a>부하 분산 장치 제거하기
 
 `Remove-AzureLoadBalancer` 명령을 사용하여 **NRP-RG**라는 리소스 그룹에서 이전에 생성한 **NRP-LB**라는 부하 분산 장치를 삭제합니다.
 
     Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE] 선택적 스위치 **-Force**를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
+>[AZURE.NOTE] 선택적 스위치 **-Force** 를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 [내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
 
@@ -254,4 +256,8 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

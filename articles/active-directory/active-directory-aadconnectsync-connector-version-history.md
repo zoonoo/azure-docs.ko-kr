@@ -14,9 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/17/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# 커넥터 버전 릴리스 내역
+
+# <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
 
 >[AZURE.NOTE]
@@ -33,10 +34,11 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 - [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
 - [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
 
-## 1\.1.117.0
+## <a name="1.1.117.0"></a>1.1.117.0
 출시 날짜: 2016년 3월
 
-[일반 SQL 커넥터](active-directory-aadconnectsync-connector-genericsql.md)의 **새 커넥터** 초기 릴리스입니다.
+**일반 SQL 커넥터**  
+의 [일반 SQL 커넥터](active-directory-aadconnectsync-connector-genericsql.md)초기 릴리스입니다.
 
 **새로운 기능:**
 
@@ -61,7 +63,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
     - 그룹에서 멤버를 추가하고 제거한 내보내기에서 추가된 멤버만 내보냈습니다.
     - Notes Document가 잘못된 경우(isValid 특성이 false로 설정) 커넥터가 실패합니다.
 
-## 이전 릴리스
+## <a name="older-releases"></a>이전 릴리스
 2016년 3월 이전에 커넥터가 지원 항목으로 출시되었습니다.
 
 **일반 LDAP**
@@ -85,13 +87,17 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 - [KB3096533](https://support.microsoft.com/kb/3096533) - 1.0.0597, 2015년 9월
 - [KB3044895](https://support.microsoft.com/kb/3044895) - 1.0.0549, 2015년 3월
 - [KB2977286](https://support.microsoft.com/kb/2977286) - 5.3.0712, 2014년 8월
-- [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, 2014년 2월
+- [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, 2014년 2월  
 - [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, 2013년 10월
 - [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, 2013년 8월
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

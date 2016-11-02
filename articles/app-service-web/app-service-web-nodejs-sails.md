@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Azure 앱 서비스에 Sails.js 웹앱을 배포합니다."
-	description="Azure 앱 서비스에서 Node.js 응용 프로그램을 배포하는 방법을 알아봅니다. 이 자습서에서는 Sails.js 웹앱을 배포하는 방법을 보여 줍니다."
-	services="app-service\web"
-	documentationCenter="nodejs"
-	authors="cephalin"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Azure 앱 서비스에 Sails.js 웹앱을 배포합니다."
+    description="Azure 앱 서비스에서 Node.js 응용 프로그램을 배포하는 방법을 알아봅니다. 이 자습서에서는 Sails.js 웹앱을 배포하는 방법을 보여 줍니다."
+    services="app-service\web"
+    documentationCenter="nodejs"
+    authors="cephalin"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/23/2016"
-	ms.author="cephalin"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="nodejs"
+    ms.topic="article"
+    ms.date="09/23/2016"
+    ms.author="cephalin"/>
 
-# Azure 앱 서비스에 Sails.js 웹앱을 배포합니다.
 
-이 자습서에서는 Azure 앱 서비스에 Sails.js 앱을 배포하는 방법을 보여 줍니다. 프로세스를 통해 앱 서비스에서 실행할 Node.js 앱 구성 방법에 대한 일반적인 지식을 얻을 수 있습니다.
+# <a name="deploy-a-sails.js-web-app-to-azure-app-service"></a>Azure 앱 서비스에 Sails.js 웹앱을 배포합니다.
+
+이 자습서에서는 Azure 앱 서비스에 Sails.js 앱을 배포하는 방법을 보여 줍니다. 프로세스를 통해 앱 서비스에서 실행할 Node.js 앱 구성 방법에 대한 일반적인 지식을 얻을 수 있습니다. 
 
 Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반적으로 Sail.js의 실행과 관련된 문제를 해결하는 데 적합하지 않습니다.
 
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [Node.JS](https://nodejs.org/)
 - [Sails.js](http://sailsjs.org/get-started)
@@ -33,11 +34,11 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 동작 중인 Azure 앱 서비스를 확인하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 
-## 1단계: 로컬로 Sails.js 앱 만들기
+## <a name="step-1:-create-a-sails.js-app-locally"></a>1단계: 로컬로 Sails.js 앱 만들기
 
 먼저 다음 단계를 수행하여 개발 환경에서 기본 Sails.js 앱을 신속하게 만듭니다.
 
-1. 선택한 명령줄 터미널을 열고 작업 디렉터리로 `CD`합니다.
+1. 선택한 명령줄 터미널을 열고 작업 디렉터리로 `CD` 합니다.
 
 2. Sails.js 앱을 만들고 실행합니다.
 
@@ -47,7 +48,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
 
     기본 홈 페이지(http://localhost:1377)로 이동할 수 있는지 확인합니다.
 
-## 2단계: Azure 앱 리소스 만들기
+## <a name="step-2:-create-the-azure-app-resource"></a>2단계: Azure 앱 리소스 만들기
 
 다음으로 Azure에서 App Service 리소스를 만듭니다. 나중에 Sails.js 앱을 이 리소스에 배포합니다.
 
@@ -71,7 +72,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
     - 로컬 Git-initialized 리포지토리가 Git remote로 "azure"라는 새 앱 서비스 앱에 연결되고
     - 루트 디렉터리에 iisnode.yml 파일이 만들어집니다. 이 파일을 사용하여 App Service가 Node.js 앱을 실행하는 데 사용할 [iisnode](https://github.com/tjanczuk/iisnode)를 구성할 수 있습니다.
 
-## 3단계: Sails.js 앱 구성 및 배포
+## <a name="step-3:-configure-and-deploy-your-sails.js-app"></a>3단계: Sails.js 앱 구성 및 배포
 
  앱 서비스에서의 Sails.js 앱 작업은 세 가지 주요 단계로 구성됩니다.
 
@@ -86,7 +87,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
         loggingEnabled: true
         logDirectory: iisnode
 
-    이제 iisnode에 대해 로깅을 사용할 수 있습니다. 이 작업 방법에 대한 자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](app-service-web-nodejs-get-started.md#iisnodelog)를 참조하세요.
+    이제 iisnode에 대해 로깅을 사용할 수 있습니다. 이 작업 방법에 대한 자세한 내용은  [iisnode에서 stdout 및 stderr 로그 가져오기](app-service-web-nodejs-get-started.md#iisnodelog)를 참조하세요.
 
 2. 프로덕션 환경을 구성하기 위해 config/env/production.js를 열고 `port` 및 `hookTimeout`을 설정합니다.
 
@@ -101,9 +102,9 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
             ...
         };
 
-    이러한 구성 설정에 대한 설명은 [Sails.js 설명서](http://sailsjs.org/documentation/reference/configuration/sails-config)에서 확인할 수 있습니다.
+    이러한 구성 설정에 대한 설명은  [Sails.js 설명서](http://sailsjs.org/documentation/reference/configuration/sails-config)에서 확인할 수 있습니다.
 
-    그런 다음 [Grunt](https://www.npmjs.com/package/grunt)가 Azure의 네트워크 드라이브와 호환되는지 확인해야 합니다. 버전 1.0.0 미만의 Grunt 버전은 네트워크 드라이브를 지원하지 않는 오래된 [glob](https://www.npmjs.com/package/glob) 패키지(5.0.14 이전)를 사용합니다.
+    그런 다음 [Grunt](https://www.npmjs.com/package/grunt) 가 Azure의 네트워크 드라이브와 호환되는지 확인해야 합니다. 버전 1.0.0 미만의 Grunt 버전은 네트워크 드라이브를 지원하지 않는 오래된 [glob](https://www.npmjs.com/package/glob) 패키지(5.0.14 이전)를 사용합니다. 
 
 3. package.json을 열고 `grunt` 버전을 `1.0.0`으로 변경한 후 모든 `grunt-*` 패키지를 제거합니다. `dependencies` 속성은 다음과 같습니다.
 
@@ -142,9 +143,11 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
     
     ![](./media/app-service-web-nodejs-sails/sails-in-azure.png)
 
-## 배포 문제 해결
+## <a name="troubleshoot-your-deployment"></a>배포 문제 해결
 
-Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하면 문제 해결을 위해 stderr 로그를 찾습니다. 자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](app-service-web-nodejs-sails.md#iisnodelog)를 참조하세요. 성공적으로 시작된 경우 stdout 로그에 익숙한 메시지가 표시됩니다.
+Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하면 문제 해결을 위해 stderr 로그를 찾습니다.
+자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](app-service-web-nodejs-sails.md#iisnodelog)를 참조하세요.
+성공적으로 시작된 경우 stdout 로그에 익숙한 메시지가 표시됩니다.
 
                 .-..-.
 
@@ -162,11 +165,11 @@ Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하�
     To see your app, visit http://localhost:\\.\pipe\c775303c-0ebc-4854-8ddd-2e280aabccac
     To shut down Sails, press <CTRL> + C at any time.
 
-[config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) 파일에서 stdout 로그의 세분화 수준을 제어할 수 있습니다.
+[config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) 파일에서 stdout 로그의 세분화 수준을 제어할 수 있습니다. 
 
-## Azure의 데이터베이스에 연결
+## <a name="connect-to-a-database-in-azure"></a>Azure의 데이터베이스에 연결
 
-Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility)를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계는 Azure의 MySQL 데이터베이스에 연결하는 방법을 보여 줍니다.
+Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility) 를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계는 Azure의 MySQL 데이터베이스에 연결하는 방법을 보여 줍니다.
 
 1. Azure에서 MySQL 데이터베이스를 만들려면 [여기](../store-php-create-mysql-database.md) 자습서를 따라 하세요
 
@@ -174,7 +177,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 
         npm install sails-mysql --save
 
-3. config/connections.js를 열고 목록에 다음 연결 개체를 추가합니다.
+3. config/connections.js를 열고 목록에 다음 연결 개체를 추가합니다. 
 
         mySql: {
             adapter: 'sails-mysql',
@@ -187,7 +190,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
             }
         },
 
-4. 각 환경 변수(`process.env.*`)의 경우 App Service에서 설정해야 합니다. 이렇게 하려면 터미널에서 다음 명령을 실행합니다. 필요한 모든 연결 정보는 Azure Portal에 있습니다([MySQL 데이터베이스에 연결](../store-php-create-mysql-database.md#connect) 참조).
+4. 각 환경 변수(`process.env.*`)의 경우 App Service에서 설정해야 합니다. 이렇게 하려면 터미널에서 다음 명령을 실행합니다. 필요한 모든 연결 정보는 Azure Portal에 있습니다( [MySQL 데이터베이스에 연결](../store-php-create-mysql-database.md#connect)참조).
 
         azure site appsetting add dbuser="<database user>"
         azure site appsetting add dbpassword="<database password>"
@@ -223,14 +226,15 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
             migrate: 'alter'
         },
 
-    `migrate: 'alter'`를 사용하면 데이터베이스 마이그레이션 기능을 사용하여 MySQL에 손쉽게 데이터베이스 테이블을 만들고 업데이트할 수 있습니다. 그러나 Sails.js에서는 프로덕션 환경에서 `migrate: 'alter'` 사용을 허용하지 않으므로 Azure(프로덕션) 환경에 `migrate: 'safe'`가 사용됩니다([Sails.js 설명서](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings) 참조).
+    `migrate: 'alter'` 를 사용하면 데이터베이스 마이그레이션 기능을 사용하여 MySQL에 손쉽게 데이터베이스 테이블을 만들고 업데이트할 수 있습니다. 그러나 Sails.js에서는 프로덕션 환경에서 `migrate: 'alter'` 사용을 허용하지 않으므로 Azure(프로덕션) 환경에 `migrate: 'safe'`가 사용됩니다( [Sails.js 설명서](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings) 참조).
 
-4. 터미널에서 평소처럼 Sails.js [청사진 API](http://sailsjs.org/documentation/concepts/blueprints)를 [생성](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate)한 다음 `sails lift`를 실행하여 Sails.js 데이터베이스 마이그레이션을 통해 데이터베이스를 만듭니다. 예:
+4. 터미널에서 평소처럼 Sails.js [청사진 AP](http://sailsjs.org/documentation/concepts/blueprints)I를 [생성](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate)한 다음 `sails lift`을(를) 실행하여 Sails.js 데이터베이스 마이그레이션을 통해 데이터베이스를 만듭니다. 예:
 
          sails generate api mywidget
          sails lift
 
-    이 명령에 의해 생성된 `mywidget` 모델은 비어 있으나 이 모델을 사용하여 데이터베이스에 연결되어 있다는 사실을 나타낼 수 있습니다. `sails lift`를 실행하면 앱이 사용하는 모델에 대해 누락된 테이블이 만들어집니다.
+    이 명령에 의해 생성된 `mywidget` 모델은 비어 있으나 이 모델을 사용하여 데이터베이스에 연결되어 있다는 사실을 나타낼 수 있습니다.
+    `sails lift`를 실행하면 앱이 사용하는 모델에 대해 누락된 테이블이 만들어집니다.
 
 6. 브라우저에서 방금 만든 청사진 API에 액세스합니다. 예:
 
@@ -253,9 +257,13 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 
     API가 다른 새 항목을 반환하는 경우 Azure 웹앱은 MySQL 데이터베이스에 그 사실을 알립니다.
 
-## 추가 리소스
+## <a name="more-resources"></a>추가 리소스
 
 - [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-nodejs-get-started.md)
 - [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -16,24 +16,26 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# 서비스 패브릭 상태 모니터링 소개
+
+# <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
 
 Service Fabric 구성 요소는 이 풍부한 상태 모델을 사용하여 현재 상태를 보고합니다. 동일한 메커니즘을 사용하여 응용 프로그램의 상태를 보고할 수도 있습니다. 사용자 지정 조건을 캡처하는 고품질의 상태 보고에 투자하면 실행 중인 응용 프로그램에 대한 문제를 훨씬 더 쉽게 감지하고 수정할 수 있습니다.
 
 > [AZURE.NOTE] 이전에는 모니터링되는 업그레이드에 대한 요구를 해결하기 위해 상태 하위 시스템을 시작했습니다. Service Fabric은 모니터링되는 응용 프로그램 및 클러스터 업그레이드를 제공하여 가동 중지 시간 없는 최대 가용성을 보장하고 사용자 개입을 최소화하거나 필요 없도록 합니다. 이러한 목표를 달성하기 위해, 업그레이드는 구성된 업그레이드 정책을 바탕으로 상태를 검사하며 원하는 임계값을 벗어나지 않는 경우에만 업그레이드를 진행하도록 합니다. 그렇지 않으면 관리자가 문제를 해결할 수 있도록 업그레이드가 자동으로 롤백되거나 일시 중지됩니다. 응용 프로그램 업그레이드에 대한 자세한 내용은 [이 문서](service-fabric-application-upgrade.md)를 참조하세요.
 
-## Health 스토어
+## <a name="health-store"></a>Health 스토어
 Health 스토어는 클러스터의 엔터티에 대한 상태 관련 정보를 쉽게 검색하고 평가하기 위해 보관합니다. 또한 높은 가용성과 확장성을 제공할 수 있도록 서비스 패브릭 지속형 상태 저장 서비스로 구현됩니다. Health 스토어는 **fabric:/System** 응용 프로그램의 일부로, 클러스터가 가동되어 실행될 때 사용할 수 있습니다.
 
-## 상태 엔터티 및 계층 구조
+## <a name="health-entities-and-hierarchy"></a>상태 엔터티 및 계층 구조
 상태 엔터티는 여러 엔터티 간의 상호 작용 및 종속성을 캡처하는 논리적 계층 구조로 구성됩니다. 엔터티 및 계층 구조는 서비스 패브릭 구성 요소에서 수신된 보고서를 바탕으로 Health 스토어에 의해 자동으로 작성됩니다.
 
-상태 엔터티는 서비스 패브릭 엔터티를 미러링합니다. (예: **상태 응용 프로그램 엔터티**가 클러스터에 배포된 응용 프로그램 인스턴스와 일치하는 반면, **상태 노드 엔터티**는 서비스 패브릭 클러스터 노드와 일치하는지 등). 상태 계층 구조는 시스템 엔터티의 상호 작용을 캡처하며 고급 상태 평가를 위한 기준입니다. [서비스 패브릭 기술 개요](service-fabric-technical-overview.md)에서 주요 서비스 패브릭 개념에 대해 알아볼 수 있습니다. 응용 프로그램에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램 모델](service-fabric-application-model.md)을 참조하세요.
+상태 엔터티는 서비스 패브릭 엔터티를 미러링합니다. (예: **상태 응용 프로그램 엔터티**가 클러스터에 배포된 응용 프로그램 인스턴스와 일치하는 반면, **상태 노드 엔터티**는 Service Fabric 클러스터 노드와 일치하는지 등.) 상태 계층 구조는 시스템 엔터티의 상호 작용을 캡처하며 고급 상태 평가를 위한 기준입니다. [서비스 패브릭 기술 개요](service-fabric-technical-overview.md)에서 주요 서비스 패브릭 개념에 대해 알아볼 수 있습니다. 응용 프로그램에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램 모델](service-fabric-application-model.md)을 참조하세요.
 
-상태 엔터티 및 계층 구조를 사용하면 클러스터와 응용 프로그램에 대한 효과적인 보고, 디버깅 및 모니터링이 가능합니다. 상태 모델은 클러스터에서 많이 이동되는 항목의 상태를 정확하게 *세분화*하여 표현할 수 있습니다.
+상태 엔터티 및 계층 구조를 사용하면 클러스터와 응용 프로그램에 대한 효과적인 보고, 디버깅 및 모니터링이 가능합니다. 상태 모델은 클러스터에서 많이 이동되는 항목의 상태를 정확하게 *세분화* 하여 표현할 수 있습니다.
 
-![상태 엔터티.][1] 상태 엔터티는 부모-자식 관계에 따른 계층 구조로 구성됩니다.
+![상태 엔터티.][1]
+ 상태 엔터티는 부모-자식 관계에 따른 계층 구조로 구성됩니다.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -59,14 +61,15 @@ Health 스토어는 클러스터의 엔터티에 대한 상태 관련 정보를 
 
 상태 계층 구조는 부모-자식 관계로 이루어집니다. 클러스터는 노드 및 응용 프로그램으로 구성됩니다. 응용 프로그램에는 서비스 및 배포된 응용 프로그램이 포함됩니다. 배포된 응용 프로그램에는 배포된 서비스 패키지가 포함됩니다. 서비스에는 파티션이 있고 각 파티션에는 하나 이상의 복제본이 있습니다. 노드 및 배포된 엔터티 간에는 특수한 관계가 있습니다. 노드가 기관 시스템 구성 요소(장애 조치(Failover) 관리자 서비스)에서 보고한 대로 비정상인 경우, 배포된 응용 프로그램, 서비스 패키지 및 배포된 복제본에 영향을 줍니다.
 
-상태 계층 구조는 최신 상태 보고서에 기반한 시스템의 최신 상태를 나타내며, 이 정보는 거의 실시간 정보입니다. 내부 및 외부 Watchdog는 동일한 엔터티에 대해 응용 프로그램별 논리 또는 사용자 지정 모니터링 상태에 따라 보고할 수 있습니다. 사용자 보고서는 시스템 보고서와 함께 존재합니다.
+상태 계층 구조는 최신 상태 보고서에 기반한 시스템의 최신 상태를 나타내며, 이 정보는 거의 실시간 정보입니다.
+내부 및 외부 Watchdog는 동일한 엔터티에 대해 응용 프로그램별 논리 또는 사용자 지정 모니터링 상태에 따라 보고할 수 있습니다. 사용자 보고서는 시스템 보고서와 함께 존재합니다.
 
 대규모 클라우드 서비스를 설계할 때 서비스를 손쉽게 디버깅하고 모니터링하고 운영하게 만들 수 있도록 상태를 보고하고 이에 대응하는 방식에 대해 투자하도록 계획합니다.
 
-## 성능 상태
+## <a name="health-states"></a>성능 상태
 서비스 패브릭은 3가지 성능 상태(정상, 경고 및 오류)를 사용하여 엔터티가 정상인지 여부를 설명합니다. Health 스토어로 전송되는 모든 보고서에 이러한 상태 중 하나를 지정해야 합니다. 상태 평가 결과는 이러한 상태 중 하나입니다.
 
-사용 가능한 [성능 상태](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate)는 다음과 같습니다.
+사용 가능한 [성능 상태](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate) 는 다음과 같습니다.
 
 - **확인**. 엔터티가 정상입니다. 엔터티 또는 자식(해당하는 경우)에 대해 보고된 알려진 문제가 없습니다.
 
@@ -76,15 +79,16 @@ Health 스토어는 클러스터의 엔터티에 대한 상태 관련 정보를 
 
 - **알 수 없음**. 엔터티가 Health 스토어에 존재하지 않습니다. 이 결과는 여러 구성 요소에서 결과를 병합하는 분산 쿼리에서 얻을 수 있습니다. 예를 들어, 노드 목록 가져오기 쿼리는 **FailoverManager** 및 **HealthManager**로, 응용 프로그램 목록 가져오기 쿼리는 **ClusterManager** 및 **HealthManager**로 갑니다. 이들 쿼리는 여러 시스템 구성 요소의 결과를 병합합니다. 다른 시스템 구성 요소에서 Health 스토어에 도달하지 않았거나 정리되지 않은 엔터티를 반환하면, 병합된 결과에 알 수 없는 상태가 있습니다.
 
-## 상태 정책
+## <a name="health-policies"></a>상태 정책
 Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 따라 엔터티가 정상인지 결정합니다.
 
 > [AZURE.NOTE] 상태 정책은 클러스터 매니페스트(클러스터 및 노드 상태 평가용) 또는 응용 프로그램 매니페스트(응용 프로그램 및 해당 자식 평가용)에서 지정할 수 있습니다. 또한 해당 평가에만 사용되는 사용자 지정 상태 평가 정책에서 상태 평가 요청을 전달할 수도 있습니다.
 
 기본적으로 서비스 패브릭은 부모-자식 계층 구조 관계에 대한 엄격한 규칙(모든 것이 정상이어야 함)을 적용합니다. 자식 중 하나에 비정상 이벤트가 하나만 있어도 부모가 비정상으로 간주됩니다.
 
-### 클러스터 상태 정책
-[클러스터 상태 정책](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx)은 클러스터 성능 상태 및 노드 성능 상태를 평가하는 데 사용됩니다. 이 정책은 클러스터 매니페스트에서 정의할 수 있습니다. 없는 경우는 기본 정책(0 허용 실패)이 사용됩니다. 클러스터 상태 정책은 다음과 같습니다.
+### <a name="cluster-health-policy"></a>클러스터 상태 정책
+[클러스터 상태 정책](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) 은 클러스터 성능 상태 및 노드 성능 상태를 평가하는 데 사용됩니다. 이 정책은 클러스터 매니페스트에서 정의할 수 있습니다. 없는 경우는 기본 정책(0 허용 실패)이 사용됩니다.
+클러스터 상태 정책은 다음과 같습니다.
 
 - [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
 
@@ -92,7 +96,8 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 
 - [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). 클러스터에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 노드의 최대 허용 비율을 지정합니다. 대형 클러스터에는 항상 복구를 위해 다운되거나 중단되는 노드가 있으므로 이 비율은 이를 허용할 수 있도록 구성되어야 합니다.
 
-- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). 클러스터 상태를 평가하는 동안 응용 프로그램 유형 상태 정책 맵을 사용하여 특수 응용 프로그램 유형을 설명할 수 있습니다. 기본적으로 모든 응용 프로그램은 풀에 배치되고 MaxPercentUnhealthyApplications를 사용하여 평가됩니다. 일부 응용 프로그램 유형을 다르게 처리해야 하는 경우, 전역 풀에서 꺼낼 수 있습니다. 대신, 맵 내의 해당 응용 프로그램 유형 이름과 연결된 백분율에 대해 평가됩니다. 예를 들어 클러스터에는 다양한 유형의 응용 프로그램 수천 개와 특수 응용 프로그램 유형의 제어 응용 프로그램 인스턴스가 약간 있습니다. 제어 응용 프로그램은 절대 오류가 발생하면 안 됩니다. 일부 실패를 허용하도록 전체 MaxPercentUnhealthyApplications를 20%로 설정할 수 있지만, 응용 프로그램 유형 "ControlApplicationType"의 경우에는 MaxPercentUnhealthyApplications를 0으로 설정해야 합니다. 이러한 방식으로, 여러 응용 프로그램 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터가 경고로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 하지만 제어 응용 프로그램 중 하나라도 잘못되면 클러스터가 비정상 상태가 되고, 이로 인해 클러스터 업그레이드는 업그레이드 구성에 따라 롤백 또는 차단됩니다. 맵에 정의된 응용 프로그램 유형의 경우 모든 응용 프로그램 인스턴스를 응용 프로그램 전체 풀에서 가져옵니다. 이러한 응용 프로그램은 맵의 특정 MaxPercentUnhealthyApplications를 사용하여 총 응용 프로그램 수를 기반으로 평가됩니다. 나머지 응용 프로그램은 전체 풀에 남아 있으며 MaxPercentUnhealthyApplications를 사용하여 평가됩니다.
+- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). 클러스터 상태를 평가하는 동안 응용 프로그램 유형 상태 정책 맵을 사용하여 특수 응용 프로그램 유형을 설명할 수 있습니다. 기본적으로 모든 응용 프로그램은 풀에 배치되고 MaxPercentUnhealthyApplications를 사용하여 평가됩니다. 일부 응용 프로그램 유형을 다르게 처리해야 하는 경우, 전역 풀에서 꺼낼 수 있습니다. 대신, 맵 내의 해당 응용 프로그램 유형 이름과 연결된 백분율에 대해 평가됩니다. 예를 들어 클러스터에는 다양한 유형의 응용 프로그램 수천 개와 특수 응용 프로그램 유형의 제어 응용 프로그램 인스턴스가 약간 있습니다. 제어 응용 프로그램은 절대 오류가 발생하면 안 됩니다. 일부 실패를 허용하도록 전체 MaxPercentUnhealthyApplications를 20%로 설정할 수 있지만, 응용 프로그램 유형 "ControlApplicationType"의 경우에는 MaxPercentUnhealthyApplications를 0으로 설정해야 합니다. 이러한 방식으로, 여러 응용 프로그램 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터가 경고로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 하지만 제어 응용 프로그램 중 하나라도 잘못되면 클러스터가 비정상 상태가 되고, 이로 인해 클러스터 업그레이드는 업그레이드 구성에 따라 롤백 또는 차단됩니다.
+맵에 정의된 응용 프로그램 유형의 경우 모든 응용 프로그램 인스턴스를 응용 프로그램 전체 풀에서 가져옵니다. 이러한 응용 프로그램은 맵의 특정 MaxPercentUnhealthyApplications를 사용하여 총 응용 프로그램 수를 기반으로 평가됩니다. 나머지 응용 프로그램은 전체 풀에 남아 있으며 MaxPercentUnhealthyApplications를 사용하여 평가됩니다.
 
 다음 예제는 클러스터 매니페스트에서 발췌한 내용입니다. 응용 프로그램 유형 맵에 항목을 정의하려면 매개 변수 이름 앞에 "ApplicationTypeMaxPercentUnhealthyApplications-"를 붙이고 그 뒤에 응용 프로그램 유형 이름을 붙이면 됩니다.
 
@@ -107,8 +112,9 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 </FabricSettings>
 ```
 
-### 응용 프로그램 상태 정책
-[응용 프로그램 상태 정책](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx)은 응용 프로그램 및 해당 자식에 대해 이벤트 및 하위 상태 집계의 평가를 수행하는 방법을 설명합니다. 응용 프로그램 패키지의 응용 프로그램 매니페스트 **ApplicationManifest.xml**에서 정의할 수 있습니다. 정책을 지정하지 않으면 상태 보고가 있거나 자식이 경고 또는 오류 성능 상태인 경우 서비스 패브릭에서 해당 엔터티를 비정상으로 가정합니다. 구성 가능한 정책은 다음과 같습니다.
+### <a name="application-health-policy"></a>응용 프로그램 상태 정책
+[응용 프로그램 상태 정책](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) 은 응용 프로그램 및 해당 자식에 대해 이벤트 및 하위 상태 집계의 평가를 수행하는 방법을 설명합니다. 응용 프로그램 패키지의 응용 프로그램 매니페스트 **ApplicationManifest.xml**에서 정의할 수 있습니다. 정책을 지정하지 않으면 상태 보고가 있거나 자식이 경고 또는 오류 성능 상태인 경우 서비스 패브릭에서 해당 엔터티를 비정상으로 가정합니다.
+구성 가능한 정책은 다음과 같습니다.
 
 - [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
 
@@ -118,8 +124,8 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 
 - [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). 서비스 유형별 서비스 상태 정책의 맵을 제공합니다. 이러한 정책은 지정된 서비스 유형의 기본 서비스 유형 상태 정책을 대체합니다. 예를 들어 응용 프로그램에 상태 비저장 게이트웨이 서비스 유형과 상태 저장 엔진 서비스 유형이 있다면, 평가를 위한 상태 정책을 다르게 구성할 수 있습니다. 서비스 유형별로 정책을 지정할 때 서비스의 상태를 좀더 세분화하여 제어할 수 있습니다.
 
-### 서비스 유형 상태 정책
-[서비스 유형 상태 정책](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx)은 서비스 및 서비스의 자식을 평가 및 집계하는 방법을 지정합니다. 정책은 다음과 같습니다.
+### <a name="service-type-health-policy"></a>서비스 유형 상태 정책
+[서비스 유형 상태 정책](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx) 은 서비스 및 서비스의 자식을 평가 및 집계하는 방법을 지정합니다. 정책은 다음과 같습니다.
 
 - [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx). 서비스를 비정상으로 처리하기 전에 허용되는 최대 비정상 파티션 비율을 지정합니다. 기본 비율: 0.
 
@@ -149,13 +155,13 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
     </Policies>
 ```
 
-## 상태 평가
+## <a name="health-evaluation"></a>상태 평가
 사용자 및 자동화된 서비스가 언제든지 엔터티의 상태를 평가할 수 있습니다. 엔터티 상태를 평가하기 위해서는 Health 스토어에서 엔터티에 대한 모든 상태 보고서를 집계하고 모든 자식(해당하는 경우)을 평가합니다. 상태 집계 알고리즘은 상태 보고서를 평가하는 방법과 자식 성능 상태(해당하는 경우)를 집계하는 방법을 지정하는 상태 정책을 사용합니다.
 
-### 상태 보고서 집계
+### <a name="health-report-aggregation"></a>상태 보고서 집계
 하나의 엔터티에는 서로 다른 속성에 대해 서로 다른 보고자(시스템 구성 요소 또는 Watchdog)에서 보낸 여러 상태 보고서가 있을 수 있습니다. 집계에서는 연결된 상태 정책 특히, 응용 프로그램 또는 클러스터 상태 정책의 ConsiderWarningAsError 멤버를 사용합니다. ConsiderWarningAsError는 경고를 평가하는 방법을 지정합니다.
 
-집계된 성능 상태는 해당 엔터티에 대한 *최악*의 상태 보고서에 의해 트리거됩니다. 오류 상태 보고서가 하나 이상 있는 경우, 집계된 성능 상태는 오류입니다.
+집계된 성능 상태는 해당 엔터티에 대한 *최악* 의 상태 보고서에 의해 트리거됩니다. 오류 상태 보고서가 하나 이상 있는 경우, 집계된 성능 상태는 오류입니다.
 
 ![오류 보고서가 있는 상태 보고서 집계.][2]
 
@@ -171,7 +177,7 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 
 [3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
-### 자식 상태 집계
+### <a name="child-health-aggregation"></a>자식 상태 집계
 엔터티의 집계된 성능 상태는 자식 성능 상태(해당하는 경우)를 반영합니다. 자식 성능 상태를 집계하기 위한 알고리즘은 엔터티 유형에 따라 적용 가능한 상태 정책을 사용합니다.
 
 ![자식 엔터티 상태 집계.][4]
@@ -190,13 +196,13 @@ Health 스토어에서 모든 자식을 평가한 후 비정상 자식에 대해
 
 - 오류 상태의 자식이 허용된 최대 비정상 자식 비율 내에 있으면 집계된 성능 상태는 경고입니다.
 
-## 상태 보고
+## <a name="health-reporting"></a>상태 보고
 시스템 구성 요소, 시스템 패브릭 응용 프로그램 및 내부/외부 Watchdog에서 Service Fabric 엔터티에 대해 보고할 수 있습니다. 보고자는 모니터링하는 상태를 바탕으로 모니터링되는 엔터티의 상태를 *로컬* 결정으로 파악합니다. 따라서 전역 상태를 살펴보거나 데이터를 집계할 필요가 없습니다. 바람직한 동작은 간단한 보고자를 갖는 것이지 보낼 정보를 추정하기 위해 많은 것들을 살펴봐야 하는 복잡한 조직체를 갖는 것이 아닙니다.
 
 상태 데이터를 Health 스토어로 보내려면 보고자가 영향 받는 엔터티를 식별하여 상태 보고서를 작성해야 합니다. 그런 다음, PowerShell 또는 REST를 통해 [FabricClient.HealthClient.ReportHealth](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient_members.aspx)를 사용하여 API를 통해 보고서를 보낼 수 있습니다.
 
-### 상태 보고서
-클러스터의 각 엔터티에 대한 [상태 보고서](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx)에는 다음과 같은 정보가 포함됩니다.
+### <a name="health-reports"></a>상태 보고서
+클러스터의 각 엔터티에 대한 [상태 보고서](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx) 에는 다음과 같은 정보가 포함됩니다.
 
 - **SourceId**. 상태 이벤트의 보고자를 고유하게 식별하는 문자열입니다.
 
@@ -218,11 +224,11 @@ Health 스토어에서 모든 자식을 평가한 후 비정상 자식에 대해
 
   - DeployedServicePackage. 응용 프로그램 이름(URI), 노드 이름(문자열) 및 서비스 매니페스트 이름(문자열).
 
-- **속성**. 보고자가 엔터티의 특정 속성에 대한 상태 이벤트를 분류하도록 허용하는 *문자열*(고정된 열거형 아님). 예를 들어, 보고자 A는 Node01 "저장소" 속성의 상태를 보고할 수 있으며 보고자 B는 Node01 "연결" 속성의 상태를 보고할 수 있습니다. Health 스토어에서 이 보고서는 Node01 엔터티에 대한 별도의 상태 이벤트로 처리됩니다.
+- **속성**. 보고자가 엔터티의 특정 속성에 대한 상태 이벤트를 분류하도록 허용하는 *문자열* (고정된 열거형 아님). 예를 들어, 보고자 A는 Node01 "저장소" 속성의 상태를 보고할 수 있으며 보고자 B는 Node01 "연결" 속성의 상태를 보고할 수 있습니다. Health 스토어에서 이 보고서는 Node01 엔터티에 대한 별도의 상태 이벤트로 처리됩니다.
 
 - **설명**. 보고자가 상태 이벤트에 대한 세부 정보를 제공하도록 허용하는 문자열. **SourceId**, **속성** 및 **HealthState**는 보고서를 완벽하게 설명해야 합니다. 설명을 통해 보고서에 대한 알기 쉬운 정보를 추가하면 관리자와 사용자가 상태 보고서를 손쉽게 이해할 수 있습니다.
 
-- **HealthState**. 보고서의 성능 상태를 설명하는 [열거형](service-fabric-health-introduction.md#health-states). 허용되는 값은 정상, 경고 및 오류입니다.
+- **HealthState**. 보고서의 성능 상태를 설명하는 [열거형](service-fabric-health-introduction.md#health-states) . 허용되는 값은 정상, 경고 및 오류입니다.
 
 - **TimeToLive**. 상태 보고서가 유효 상태를 유지하는 기간. **RemoveWhenExpired**와 연결되어 있으므로 Health 스토어에서 만료된 이벤트를 평가하는 방법을 알 수 있습니다. 기본적으로 이 값은 무한대이고 보고서는 영원히 유효합니다.
 
@@ -232,7 +238,7 @@ Health 스토어에서 모든 자식을 평가한 후 비정상 자식에 대해
 
 SourceId, 엔터티 식별자, 속성 및 HealthState의 4가지 정보는 모든 상태 보고서에서 필요합니다. SourceId 문자열은 접두사 "**System.**"으로 시작할 수 없습니다. 이 접두사는 시스템 보고서용으로 예약되어 있습니다. 동일한 엔터티인 경우 동일한 소스 및 속성에 대해 하나의 보고서만 있습니다. 동일한 소스와 속성에 대한 여러 보고서는 상태 클라이언트(배치 처리된 경우) 또는 Health 스토어 중 한 군데에서 서로 재정의됩니다. 교체는 시퀀스 번호를 기준으로 수행됩니다. 최신 보고서(높은 시퀀스 번호)가 오래된 보고서를 대체합니다.
 
-### 상태 이벤트
+### <a name="health-events"></a>상태 이벤트
 내부적으로 Health 스토어에는 보고서와 추가 메타데이터의 모든 정보를 포함하는 [상태 이벤트](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx)가 유지됩니다. 메타데이터에는 보고서를 상태 클라이언트에 제공한 시간 및 서버에서 보고서가 수정된 시간 등이 포함됩니다. 상태 이벤트는 [상태 쿼리](service-fabric-view-entities-aggregated-health.md#health-queries)로 반환됩니다.
 
 추가된 메타데이터에는 다음이 포함됩니다.
@@ -253,7 +259,7 @@ SourceId, 엔터티 식별자, 속성 및 HealthState의 4가지 정보는 모�
 
 - 속성이 경고와 오류 사이에 전환되고 있는 경우, 얼마나 오래 비정상(즉, 정상이 아닌 상태)이었는지 결정합니다. 예를 들어, 5분 이상 정상이 아니었던 속성이 (HealthState != 정상 및 현재 - LastOkTransitionTime > 5분)으로 전환될 수 있는 경우 알림.
 
-## 예: 응용 프로그램 상태 보고 및 평가
+## <a name="example:-report-and-evaluate-application-health"></a>예: 응용 프로그램 상태 보고 및 평가
 다음 예에서는 소스 **MyWatchdog**의 **패브릭:/WordCount** 응용 프로그램에서 PowerShell을 통해 상태 보고서를 보냅니다. 상태 보고서에는 무한 TimeToLive와 함께 오류 성능 상태에서 상태 속성 Availability에 대한 정보가 포함됩니다. 그런 다음, 집계된 성능 상태 오류 및 보고된 상태 이벤트를 상태 이벤트 목록으로 반환되는 응용 프로그램 상태를 쿼리합니다.
 
 ```powershell
@@ -321,12 +327,13 @@ HealthEvents                    :
                                   Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## 상태 모델 사용
-상태 모델을 사용하면 클러스터 내의 여러 모니터에 모니터링 및 상태 결정이 분산되므로 클라우드 서비스 및 기본 서비스 패브릭 플랫폼을 확장할 수 있습니다. 다른 시스템에는 서비스에서 내보낸 모든 *잠재적으로* 유용한 정보를 구문 분석하는 단일 중앙 집중 서비스가 클러스터 수준에 있습니다. 이 방법으로 인해 확장성이 저하됩니다. 문제 및 잠재적 문제를 가능한 한 근본 원인에 가깝게 식별하는 데 도움이 되는 매우 구체적인 정보를 수집할 수 없습니다.
+## <a name="health-model-usage"></a>상태 모델 사용
+상태 모델을 사용하면 클러스터 내의 여러 모니터에 모니터링 및 상태 결정이 분산되므로 클라우드 서비스 및 기본 서비스 패브릭 플랫폼을 확장할 수 있습니다.
+다른 시스템에는 서비스에서 내보낸 모든 *잠재적으로* 유용한 정보를 구문 분석하는 단일 중앙 집중 서비스가 클러스터 수준에 있습니다. 이 방법으로 인해 확장성이 저하됩니다. 문제 및 잠재적 문제를 가능한 한 근본 원인에 가깝게 식별하는 데 도움이 되는 매우 구체적인 정보를 수집할 수 없습니다.
 
 상태 모델은 모니터링 및 진단, 클러스터 및 응용 프로그램 상태 평가, 모니터링되는 업그레이드에서 굉장히 많이 사용됩니다. 다른 서비스에서는 상태 데이터를 사용하여 자동 복구를 수행하고 클러스터 상태 기록을 작성하고 특정 상태에 대한 알림을 생성합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [서비스 패브릭 상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
 
 [시스템 상태 보고서를 문제 해결에 사용](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -339,4 +346,8 @@ HealthEvents                    :
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

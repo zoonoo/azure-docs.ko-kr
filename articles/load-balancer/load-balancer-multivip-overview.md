@@ -17,7 +17,8 @@
    ms.author="chkuhtz"
 />
 
-# Azure Load Balancer에 대한 다중 VIP
+
+# <a name="multiple-vips-for-azure-load-balancer"></a>Azure Load Balancer에 대한 다중 VIP
 
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 
@@ -29,9 +30,9 @@ Azure Load Balancer를 정의할 때 프런트 엔드 및 백 엔드 구성이 �
 
 | VIP | IP 주소 | protocol | 포트 |
 |-----|------------|----------|------|
-|1|65\.52.0.1|TCP|80|
-|2|65\.52.0.1|TCP|_8080_|
-|3|65\.52.0.1|_UDP_|80|
+|1|65.52.0.1|TCP|80|
+|2|65.52.0.1|TCP|_8080_|
+|3|65.52.0.1|_UDP_|80|
 |4|_65.52.0.2_|TCP|80|
 
 표에 다른 네 개의 프런트엔드가 나옵니다. 프런트 엔드 #1, # 2 및 #3는 여러 규칙을 가진 단일 VIP입니다. 같은 IP 주소가 사용되지만 포트 또는 프로토콜은 각 프런트 엔드마다 다릅니다. 프런트엔드 #1과 #4번은 다중 VIP의 한 예로 동일한 프런트 엔드 프로토콜 및 포트가 여러 VIP에 걸쳐 다시 사용됩니다.
@@ -45,7 +46,7 @@ Azure Load Balancer를 사용하면 동일한 부하 분산 장치 구성에서 
 
 기본 동작을 시작으로 이러한 시나리오를 더 자세히 알아봅니다.
 
-## 규칙 유형 #1: 백 엔드 포트 재사용하지 않음.
+## <a name="rule-type-#1:-no-backend-port-reuse"></a>규칙 유형 #1: 백 엔드 포트 재사용하지 않음.
 
 ![MultiVIP 그림](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -53,7 +54,7 @@ Azure Load Balancer를 사용하면 동일한 부하 분산 장치 구성에서 
 
 | VIP | IP 주소 | protocol | 포트 |
 |-----|------------|----------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|
+|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
 
 DIP는 인바운드 흐름의 대상입니다. 백 엔드 풀에서 각 VM은 DIP의 고유한 포트에 원하는 서비스를 노출합니다. 이 서비스는 규칙 정의 통해 프런트 엔드와 연결됩니다.
@@ -62,21 +63,21 @@ DIP는 인바운드 흐름의 대상입니다. 백 엔드 풀에서 각 VM은 DI
 
 | 규칙 | 맵 프론트 엔드 | 백 엔드 풀에 |
 |------|--------------|-----------------|
-| 1 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 | ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 | ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 
 | 규칙 | VIP IP 주소 | protocol | 포트 | 대상 | 포트 |
 |------|----------------|----------|------|-----|------|
-|![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|DIP IP 주소|80|
-|![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65\.52.0.2|TCP|80|DIP IP 주소|81|
+|![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|DIP IP 주소|80|
+|![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|DIP IP 주소|81|
 
 각 규칙은 대상 IP 주소 및 대상 포트의 고유한 조합으로 흐름을 생성해야 합니다. 흐름의 대상 포트를 변경함으로써 여러 규칙이 다른 포트의 동일한 DIP로 흐름을 전달할 수 있습니다.
 
 상태 프로브는 언제나 VM의 DIP에 전달됩니다. 프로브가 VM의 상태를 반영하도록 확인해야 합니다.
 
-## 규칙 유형 #2: 부동 IP를 사용하여 백엔드 포트 재사용
+## <a name="rule-type-#2:-backend-port-reuse-by-using-floating-ip"></a>규칙 유형 #2: 부동 IP를 사용하여 백엔드 포트 재사용
 
 Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반에 걸쳐 프런트 엔드 포트를 재사용할 수 있는 유연성을 제공합니다. 또한 일부 응용 프로그램 시나리오는 백 엔드 풀의 단일 VM에서 여러 응용 프로그램 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 재사용의 일반적인 예에는 고가용성을 위한 클러스터링, 네트워크 가상 어플라이언스 및 재암호화 없이 다중 TLS 끝점 노출이 포함됩니다.
 
@@ -102,22 +103,22 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 
 | VIP | IP 주소 | protocol | 포트 |
 |-----|------------|----------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|
+|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
 
 두 가지 규칙을 정의합니다.
 
 | 규칙 | 맵 프론트 엔드 | 백 엔드 풀에 |
 |------|--------------|-----------------|
-| 1 | ![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (VM1 및 VM2에서) |
-| 2 | ![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (VM1 및 VM2에서) |
+| 1 | ![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 | ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 (VM1 및 VM2에서) |
+| 2 | ![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 | ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 (VM1 및 VM2에서) |
 
 다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
 
 | 규칙 | VIP IP 주소 | protocol | 포트 | 대상 | 포트 |
 |------|----------------|----------|------|-------------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|VIP (65.52.0.1)과 동일함|VIP (80)과 동일함|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65\.52.0.2|TCP|80|VIP (65.52.0.2)과 동일함|VIP (80)과 동일함|
+|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|VIP (65.52.0.1)과 동일함|VIP (80)과 동일함|
+|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|VIP (65.52.0.2)과 동일함|VIP (80)과 동일함|
 
 인바운드 흐름의 대상은 VM에서 루프백 인터페이스의 VIP 주소입니다. 각 규칙은 대상 IP 주소 및 대상 포트의 고유한 조합으로 흐름을 생성해야 합니다. 흐름의 대상 IP 주소를 변경하면 동일한 VM에서 포트 재사용이 가능합니다. VIP의 IP 주소 및 해당 루프백 인터페이스의 포트에 바인딩하면 서비스가 부하 분산 장치에 노출됩니다.
 
@@ -125,11 +126,15 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 
 부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
 
-## 제한 사항
+## <a name="limitations"></a>제한 사항
 
 * 다중 VIP 구성은 IaaS VM을 사용할 때만 지원됩니다.
 * 부동 IP 규칙을 사용할 경우 응용 프로그램은 아웃바운드 흐름에 대해 DIP를 사용해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성된 VIP 주소에 바인딩하는 경우 아웃바운드 흐름을 재작성하기 위해 SNAT을 사용할 수 없어 흐름이 실패합니다.
-* 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)을 참조하세요.
-* 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits)을 참조하세요.
+* 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
+* 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

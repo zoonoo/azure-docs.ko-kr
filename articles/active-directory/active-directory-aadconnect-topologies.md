@@ -11,11 +11,12 @@
     ms.devlang="na"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.topic="article"
+    ms.topic="article"
     ms.date="06/27/2016"
-    ms.author="andkjell"/>
+    ms.author="billmath"/>
 
-# Azure AD Connect에 대한 토폴로지
+
+# <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 
 이 항목의 목적은 주요 통합 솔루션인 Azure AD Connect Sync와 함께 여러 온-프레미스 및 Azure AD 토폴로지에 대해 설명하는 것입니다. 지원되거나 지원되지 않는 구성에 대해 설명합니다.
 
@@ -33,26 +34,26 @@ Azure AD Directory |![AAD](./media/active-directory-aadconnect-topologies/Legend
 지원되지 않는 시나리오 | ![지원되지 않음](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
-## 단일 포리스트, 단일 Azure AD Directory
+## <a name="single-forest,-single-azure-ad-directory"></a>단일 포리스트, 단일 Azure AD Directory
 ![단일 포리스트 단일 디렉터리](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-가장 일반적인 토폴로지는 단일 포리스트 온-프레미스, 하나 또는 여러 도메인, 단일 Azure AD Directory(테넌트)입니다. Azure AD 인증을 위해 암호 동기화가 사용됩니다. Azure AD Connect의 빠른 설치는 이 토폴로지만 지원합니다.
+가장 일반적인 토폴로지는 단일 포리스트 온-프레미스, 하나 또는 여러 도메인, 단일 Azure AD Directory(테넌트)입니다. tenant). Azure AD 인증을 위해 암호 동기화가 사용됩니다. Azure AD Connect의 빠른 설치는 이 토폴로지만 지원합니다.
 
-### 단일 포리스트, 여러 동기화 서버를 하나의 Azure AD 디렉터리로
+### <a name="single-forest,-multiple-sync-servers-to-one-azure-ad-directory"></a>단일 포리스트, 여러 동기화 서버를 하나의 Azure AD 디렉터리로
 ![지원되지 않는 필터링된 단일 포리스트](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
 
-동일한 Azure AD 디렉터리에 여러 Azure AD Connect 동기화 서버를 연결하는 것은 지원되지 않습니다([준비 서버](#staging-server) 제외). 상호 배타적 개체 집합을 동기화하도록 구성된 경우에도 지원되지 않습니다. 단일 서버 포리스트의 모든 도메인에 연결할 수 없는 경우 이를 고려하거나 여러 서버에 부하를 분산해야 합니다.
+동일한 Azure AD 디렉터리에 여러 Azure AD Connect 동기화 서버를 연결하는 것은 지원되지 않습니다( [준비 서버](#staging-server)제외). 상호 배타적 개체 집합을 동기화하도록 구성된 경우에도 지원되지 않습니다. 단일 서버 포리스트의 모든 도메인에 연결할 수 없는 경우 이를 고려하거나 여러 서버에 부하를 분산해야 합니다.
 
-## 여러 포리스트, 단일 Azure AD Directory
+## <a name="multiple-forests,-single-azure-ad-directory"></a>여러 포리스트, 단일 Azure AD Directory
 ![다중 포리스트 단일 디렉터리](./media/active-directory-aadconnect-topologies/MultiForestSingleDirectory.png)
 
 많은 조직에는 다중 온-프레미스 Active Directory 포리스트가 있는 환경이 있습니다. 둘 이상의 온-프레미스 Active Directory 포리스트가 있는 이유는 여러 가지가 있습니다. 일반적인 예로 계정 리소스 포리스트로 디자인 및 합병 또는 인수 후의 결과로서의 디자인이 있습니다.
 
 여러 포리스트가 있을 경우에는 단일 Azure AD Connect Sync 서버에서 모든 포리스트에 연결할 수 있어야 합니다. 서버를 도메인에 가입시킬 필요가 없습니다. 필요한 경우 서버를 네트워크 DMZ에 배치하여 모든 포리스트에 연결할 수 있습니다.
 
-Azure AD Connect 설치 마법사는 여러 포리스트에 나타난 사용자를 통합하는 몇 가지 옵션을 제공합니다. 사용자가 Azure AD에서 한 번만 나타나도록 하기 위한 것입니다. 설치 마법사에서 사용자 지정 설치 경로에 구성할 수 있는 몇 가지 일반적인 토폴로지가 있습니다. **사용자를 고유하게 식별** 페이지에서 토폴로지를 나타내는 해당 옵션을 선택합니다. 통합은 사용자에 대해서만 구성됩니다. 중복된 그룹은 기본 구성과 통합되지 않습니다.
+Azure AD Connect 설치 마법사는 여러 포리스트에 나타난 사용자를 통합하는 몇 가지 옵션을 제공합니다. 사용자가 Azure AD에서 한 번만 나타나도록 하기 위한 것입니다. 설치 마법사에서 사용자 지정 설치 경로에 구성할 수 있는 몇 가지 일반적인 토폴로지가 있습니다. **사용자를 고유하게 식별**페이지에서 토폴로지를 나타내는 해당 옵션을 선택합니다. 통합은 사용자에 대해서만 구성됩니다. 중복된 그룹은 기본 구성과 통합되지 않습니다.
 
-일반적인 토폴로지는 다음 섹션에서 설명됩니다. [토폴로지 분리](#multiple-forests-separate-topologies), [전체 메시](#multiple-forests-full-mesh-with-optional-galsync) 및 [계정 리소스](#multiple-forests-account-resource-forest).
+일반적인 토폴로지는 [토폴로지 분리](#multiple-forests-separate-topologies), [전체 메시](#multiple-forests-full-mesh-with-optional-galsync) 및 [계정 리소스](#multiple-forests-account-resource-forest) 섹션에서 설명됩니다.
 
 Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니다.
 
@@ -68,28 +69,30 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 
 자세한 내용은 [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)에서 확인할 수 있습니다.
 
-### 여러 포리스트, 여러 동기화 서버를 하나의 Azure AD 디렉터리로
+### <a name="multiple-forests,-multiple-sync-servers-to-one-azure-ad-directory"></a>여러 포리스트, 여러 동기화 서버를 하나의 Azure AD 디렉터리로
 ![지원되지 않는 다중 포리스트 다중 동기화](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
 
-둘 이상의 Azure AD Connect Sync 서버를 단일 Azure AD 디렉터리에 연결하는 것을 지원하지 않습니다. [준비 서버](#staging-server) 사용은 예외입니다.
+둘 이상의 Azure AD Connect Sync 서버를 단일 Azure AD 디렉터리에 연결하는 것을 지원하지 않습니다. [준비 서버](#staging-server)사용은 예외입니다.
 
-### 다중 포리스트 – 별도 토폴로지
-**사용자는 모든 디렉터리에서 한 번만 표시됩니다**.
+### <a name="multiple-forests-–-separate-topologies"></a>다중 포리스트 – 별도 토폴로지
+**사용자는 모든 디렉터리에서 한 번만 표시됩니다**
 
 ![다중 포리스트 사용자 한 번](./media/active-directory-aadconnect-topologies/MultiForestUsersOnce.png)
 
 ![다중 포리스트 별도 토폴로지](./media/active-directory-aadconnect-topologies/MultiForestSeperateTopologies.png)
 
-이 환경에서는 모든 포리스트 온-프레미스가 별개의 엔터티로 취급되며 다른 포리스트에 사용자가 없습니다. 각 포리스트에는 자체 Exchange 조직이 있으며 포리스트 사이에는 GALSync가 없습니다. 이 토폴로지는 합병/인수 후 또는 각 사업부가 서로 격리되어 운영되는 조직 내의 상황일 수 있습니다. 이러한 포리스트가 Azure AD의 동일한 조직 내에 있으며 통합된 GAL과 함께 표시됩니다. 이 그림에서는 모든 포리스트에 있는 각 개체가 메타버스에 한 번 표시되며 대상 Azure AD 디렉터리에서 집계됩니다.
+이 환경에서는 모든 포리스트 온-프레미스가 별개의 엔터티로 취급되며 다른 포리스트에 사용자가 없습니다.
+각 포리스트에는 자체 Exchange 조직이 있으며 포리스트 사이에는 GALSync가 없습니다. 이 토폴로지는 합병/인수 후 또는 각 사업부가 서로 격리되어 운영되는 조직 내의 상황일 수 있습니다. 이러한 포리스트가 Azure AD의 동일한 조직 내에 있으며 통합된 GAL과 함께 표시됩니다.
+이 그림에서는 모든 포리스트에 있는 각 개체가 메타버스에 한 번 표시되며 대상 Azure AD 디렉터리에서 집계됩니다.
 
-### 다중 포리스트 – 사용자 일치
-**사용자 ID는 여러 디렉터리에 존재합니다**.
+### <a name="multiple-forests-–-match-users"></a>다중 포리스트 – 사용자 일치
+**사용자 ID는 여러 디렉터리에 존재합니다**
 
 일반적으로 이러한 모든 시나리오에서는 배포 및 보안 그룹이 다양한 사용자, 연락처 및 FSP(외부 보안 주체)를 포함할 수 있습니다.
 
 FSP는 ADDS에서 사용되어 보안 그룹 내 다른 포리스트에 있는 멤버를 나타냅니다. 모든 FSP는 Azure AD에서 실제 개체로 확인됩니다.
 
-### 다중 포리스트 – GALSync 선택 사항이 제공되는 전체 메시
+### <a name="multiple-forests-–-full-mesh-with-optional-galsync"></a>다중 포리스트 – GALSync 선택 사항이 제공되는 전체 메시
 **사용자 ID는 여러 디렉터리에 존재합니다. 다음을 사용하여 일치: Mail 특성**
 
 ![다중 포리스트 사용자 메일](./media/active-directory-aadconnect-topologies/MultiForestUsersMail.png)
@@ -102,7 +105,7 @@ Exchange가 둘 이상의 포리스트에 있다면 온-프레미스 GALSync 솔
 
 이 시나리오에서는 id 개체가 메일 특성을 사용하여 조인됩니다. 하나의 포리스트에 사서함이 있는 사용자는 다른 포리스트의 연락처와 조인됩니다.
 
-### 다중 포리스트 – 계정 리소스 포리스트
+### <a name="multiple-forests-–-account-resource-forest"></a>다중 포리스트 – 계정 리소스 포리스트
 **사용자 ID는 여러 디렉터리에 존재합니다. 다음을 사용하여 일치: ObjectSID 및 msExchMasterAccountSID 특성**
 
 ![다중 포리스트 사용자 ObjectSID](./media/active-directory-aadconnect-topologies/MultiForestUsersObjectSID.png)
@@ -113,15 +116,15 @@ Exchange가 둘 이상의 포리스트에 있다면 온-프레미스 GALSync 솔
 
 이 시나리오에는 하나 이상의 **리소스 포리스트**가 모든 **계정 포리스트**를 신뢰합니다. 리소스 포리스트에는 일반적으로 Exchange 및 Lync와 확장된 AD 스키마가 있습니다. 모든 Exchange 및 Lync 서비스는 물론 다른 공유 서비스도 이 포리스트에 있습니다. 사용자는 이 포리스트에 사용할 수 없는 사용자 계정을 가지며 사서함이 계정 포리스트에 연결됩니다.
 
-## Office 365 및 토폴로지 고려 사항
+## <a name="office-365-and-topology-considerations"></a>Office 365 및 토폴로지 고려 사항
 일부 Office 365 워크로드의 경우 지원되는 토폴로지에 특정 제한이 있습니다. 이 중 하나를 사용하려는 경우 워크로드의 지원되는 토폴로지 항목을 참조하세요.
 
 워크로드 |  
 --------- | ---------
-Exchange Online | 둘 이상의 Exchange 조직 온-프레미스의 경우(즉, Exchange가 둘 이상 포리스트에 배포된 경우) Exchange 2013 SP1 이상을 사용해야 합니다. 자세한 내용은 여기에서 찾을 수 있습니다. [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)
-비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 지원되는 토폴로지에 대한 세부 정보는 다음에 있습니다. [Business Server 2015용 Skype에 대한 환경 요구사항](https://technet.microsoft.com/library/dn933910.aspx)
+Exchange Online | 둘 이상의 Exchange 조직 온-프레미스의 경우(즉, Exchange가 둘 이상 포리스트에 배포된 경우) Exchange 2013 SP1 이상을 사용해야 합니다. 자세한 내용은 [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)에서 확인할 수 있습니다.
+비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 지원되는 토폴로지에 대한 자세한내용은 [Business Server 2015용 Skype에 대한 환경 요구사항](https://technet.microsoft.com/library/dn933910.aspx)에서 확인할 수 있습니다.
 
-## 스테이징 서버
+## <a name="staging-server"></a>스테이징 서버
 ![준비 서버](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
 Azure AD Connect는 **준비 모드**에서 두 번째 서버의 설치를 지원합니다. 이 모드에서 서버는 모든 연결된 디렉터리에서 데이터를 읽지만 아무 것도 쓰지 않습니다. 일반 동기화 주기를 사용하므로 ID 데이터의 업데이트된 복사본을 갖게 됩니다. 주 서버가 실패하면 준비 서버로 장애 조치(failover)할 수 있습니다. Azure AD Connect 마법사에서 이 작업을 수행합니다. 기본 서버와 공유되는 인프라가 없으므로 두 번째 서버를 다른 데이터 센터에 배치하는 것이 좋습니다. 주 서버에서 적용한 모든 구성 변경 사항은 두 번째 서버에 수동으로 복사해야 합니다.
@@ -132,18 +135,19 @@ Azure AD Connect는 **준비 모드**에서 두 번째 서버의 설치를 지�
 
 여러 데이터 센터에 여러 백업을 보유하려고 할 때 둘 이상의 준비 서버를 둘 수도 있습니다.
 
-## 여러 Azure AD 디렉터리
-Microsoft는 조직을 위해 Azure AD에 단일 디렉터리를 보유할 것을 권장합니다. 여러 Azure AD 디렉터리를 사용하도록 계획하기 전에 다음 항목에서는 단일 디렉터리의 사용을 허용하는 일반적인 시나리오를 다룹니다.
+## <a name="multiple-azure-ad-directories"></a>여러 Azure AD 디렉터리
+Microsoft는 조직을 위해 Azure AD에 단일 디렉터리를 보유할 것을 권장합니다.
+여러 Azure AD 디렉터리를 사용하도록 계획하기 전에 다음 항목에서는 단일 디렉터리의 사용을 허용하는 일반적인 시나리오를 다룹니다.
 
 항목 |  
 --------- | ---------
-관리 단위를 사용하여 위임 | [Azure AD 에서 관리 단위 관리](active-directory-administrative-units-management.md)
+관리 단위를 사용하여 위임 | [Azure AD 에서 관리 단위 관리 ](active-directory-administrative-units-management.md)
 
 ![다중 포리스트 다중 디렉터리](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
 Azure AD Connect Sync 서버와 Azure AD Directory 간에 1:1 관계가 있습니다. 각 Azure AD 디렉터리에 하나의 Azure AD Connect 동기화 서버 설치가 필요합니다. Azure AD 디렉터리 인스턴스는 격리되어 설계되어 있으며 한 디렉터리의 사용자는 다른 디렉터리에 있는 사용자를 볼 수 없습니다. 이 구분이 의도된 것이라면 지원되는 구성이지만 그렇지 않으면 단일 Azure AD 디렉터리 모델을 사용해야 합니다.
 
-### Azure AD 디렉터리에서 각 개체가 한 번만
+### <a name="each-object-only-once-in-an-azure-ad-directory"></a>Azure AD 디렉터리에서 각 개체가 한 번만
 ![필터링된 단일 포리스트](./media/active-directory-aadconnect-topologies/SingleForestFiltered.png)
 
 이 토폴로지에서는 하나의 Azure AD Connect 동기화 서버가 각 Azure AD 디렉터리에 연결됩니다. Azure AD Connect 동기화 서버가 필터링에 대해 구성되어야 하므로 각 서버에는 상호 배타적인 개체 집합이 계속 작동하고 있습니다. 예를 들어 특정 도메인 또는 OU에 각 서버의 범위를 지정할 수 있습니다. DNS 도메인은 단일 Azure AD 디렉터리에만 등록될 수 있습니다. 온-프레미스 AD 내의 사용자 UPN도 역시 별도의 네임스페이스를 사용해야 합니다. 예를 들어, 위 그림에서 3개의 별도 UPN 접미사가 contoso.com, fabrikam.com 및 wingtiptoys.com의 온-프레미스 AD에 등록됩니다. 각 온-프레미스 AD 도메인 내의 사용자들은 서로 다른 네임스페이스를 사용합니다.
@@ -157,17 +161,17 @@ Azure AD 디렉터리 인스턴스 사이에는 GALsync가 없습니다. Exchang
 
 상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 일부 쓰기 저장 기능은 이러한 특성이 온-프레미스의 단일 구성을 가정하므로 이 토폴로지에서 지원되지 않습니다.
 
--	기본 구성으로 쓰기 저장 그룹화
--	장치 쓰기 저장
+-   기본 구성으로 쓰기 저장 그룹화
+-   장치 쓰기 저장
 
-### Azure AD 디렉터리에서 각 개체가 여러 번
+### <a name="each-object-multiple-times-in-an-azure-ad-directory"></a>Azure AD 디렉터리에서 각 개체가 여러 번
 ![지원되지 않는 단일 포리스트 다중 디렉터리](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![지원되지 않는 단일 포리스트 다중 커넥터](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
 - 동일한 사용자를 여러 Azure AD 디렉터리에 동기화하는 것은 지원되지 않습니다.
 - 하나의 Azure AD에 있는 사용자가 다른 Azure AD Directory 내의 연락처로 표시되도록 구성을 변경하는 것이 지원되지 않습니다.
 - Azure AD Connect Sync를 여러 Azure AD 디렉터리에 연결되도록 수정하는 것이 지원되지 않습니다.
 
-### 쓰기 저장을 사용한 GALsync
+### <a name="galsync-by-using-writeback"></a>쓰기 저장을 사용한 GALsync
 ![MultiForestMultiDirectoryGALSync1Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![MultiForestMultiDirectoryGALSync2Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Azure AD 디렉터리는 설계상 격리되어 있습니다.
@@ -175,16 +179,20 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다.
 - 다른 Azure AD 디렉터리에서 데이터를 읽도록 Azure AD Connect 동기화의 구성을 변경하는 것은 지원되지 않습니다.
 - Azure AD Connect Sync를 사용하여 사용자를 온-프레미스 AD에 연락처로 내보내는 것이 지원되지 않습니다.
 
-### 온-프레미스 동기화 서버로 GALsync
+### <a name="galsync-with-on-premises-sync-server"></a>온-프레미스 동기화 서버로 GALsync
 ![MultiForestMultiDirectoryGALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 두 개의 Exchange 조직 사이에서 GALsync 사용자에게 FIM2010/MIM2016 온-프레미스를 사용하도록 지원합니다. 한 조직 내의 사용자가 다른 조직에서 외부 사용자/연락처로 표시됩니다. 이러한 여러 온-프레미스 AD를 각각 자체 Azure AD 디렉터리에 동기화할 수 있습니다.
 
-## 다음 단계
-이러한 시나리오에 대해 Azure AD Connect를 설치하는 방법을 알아보려면 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요.
+## <a name="next-steps"></a>다음 단계
+이러한 시나리오에 대해 Azure AD Connect를 설치하는 방법을 알아보려면 [Azure AD Connect의 사용자 지정 설치](./aad-connect/active-directory-aadconnect-get-started-custom.md)를 참조하세요.
 
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
