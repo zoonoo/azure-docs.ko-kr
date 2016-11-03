@@ -17,7 +17,7 @@
  ms.author="juanpere"/>
 
 
-# <a name="tutorial:-how-to-do-a-firmware-update-(preview)"></a>자습서: 펌웨어 업데이트를 수행하는 방법(미리 보기)
+# <a name="tutorial-how-to-do-a-firmware-update-preview"></a>자습서: 펌웨어 업데이트를 수행하는 방법(미리 보기)
 
 ## <a name="introduction"></a>소개
 [장치 관리 시작][lnk-dm-getstarted] 자습서에서 [장치 쌍][lnk-devtwin] 및 [클라우드-장치(C2D) 메서드][lnk-c2dmethod] 기본 형식을 사용하여 원격으로 장치를 리부팅하는 방법을 살펴봤습니다. 이 자습서는 동일한 IoT Hub 기본 형식을 사용하며 종단 간 시뮬레이션된 펌웨어 업데이트를 수행하는 방법을 보여주고 지침을 제공합니다.  이러한 패턴이 Intel Edison 장치 샘플에 대한 펌웨어 업데이트 구현에 사용됩니다.

@@ -17,13 +17,13 @@
     ms.author="marsma" />
 
 
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-(mpi)-applications-in-azure-batch"></a>다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행
+# <a name="use-multiinstance-tasks-to-run-message-passing-interface-mpi-applications-in-azure-batch"></a>다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행
 
 다중 인스턴스 작업을 통해 여러 계산 노드에서 동시에 Azure 배치 작업을 실행할 수 있습니다. 이러한 작업을 통해 MPI(메시지 전달 인터페이스) 응용 프로그램과 같은 고성능 컴퓨팅 시나리오를 배치로 수행할 수 있습니다. 이 문서에서 [배치 .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
 
 >[AZURE.NOTE] 이 문서의 예제에서는 배치 .NET, MS-MPI 및 Windows 계산 노드에 집중하는 반면 여기에서 설명한 다중 인스턴스 작업 개념은 다른 플랫폼 및 기술(예를 들어 Linux 노드의 Python 및 Intel MPI)에 적용됩니다.
 
-## <a name="multi-instance-task-overview"></a>다중 인스턴스 작업 개요
+## <a name="multiinstance-task-overview"></a>다중 인스턴스 작업 개요
 
 배치에서 각 태스크는 일반적으로 단일 계산 노드에서 실행됩니다. 작업에 여러 태스크를 제출하고 배치 서비스는 노드에서 실행을 위해 각 태스크를 예약합니다. 그러나 작업의 **다중 인스턴스 설정**을 구성하여 여러 노드에서 실행에 대해 작업을 하위 작업으로 분할하도록 배치에 지시할 수 있습니다.
 
@@ -39,7 +39,7 @@
 
 > [AZURE.NOTE] 기능적으로 고유하지만 “다중 인스턴스 작업"은 [StartTask][net_starttask] 또는 [JobPreparationTask][net_jobprep]와 같은 고유 작업 유형이 아닙니다. 다중 인스턴스 작업은 단순히 다중 인스턴스 설정이 구성된 표준 배치 작업(배치 .NET에서 [CloudTask][net_task])입니다. 이 문서에서는 이를 **다중 인스턴스 작업**이라고 합니다.
 
-## <a name="requirements-for-multi-instance-tasks"></a>다중 인스턴스 작업에 대한 요구 사항
+## <a name="requirements-for-multiinstance-tasks"></a>다중 인스턴스 작업에 대한 요구 사항
 
 다중 인스턴스 작업은 **노드 간 통신이 활성화**되고 **동시 작업 실행이 비활성화**된 풀이 필요합니다. 노드 간 통신이 비활성화되었거나 *maxTasksPerNode* 값이 1보다 큰 풀에서 다중 인스턴스 작업을 실행하려는 경우 작업은 예약되지 않습니다. 무기한으로 "활성" 상태로 유지됩니다. 이 코드 조각은 배치 .NET 라이브러리를 사용하여 이러한 풀의 생성을 보여 줍니다.
 
@@ -84,7 +84,7 @@ await myCloudPool.CommitAsync();
 
 > [AZURE.NOTE] 배치에서 다중 인스턴스 작업을 사용하여 MPI 솔루션을 구현하는 경우 MS-MPI 사용에 제한되지 않습니다. 풀의 계산 노드에 대해 지정한 운영 체제와 호환되는 MPI 표준의 구현을 사용할 수 있습니다.
 
-## <a name="create-a-multi-instance-task-with-batch-.net"></a>배치 .NET을 사용하여 다중 인스턴스 작업 만들기
+## <a name="create-a-multiinstance-task-with-batch-net"></a>배치 .NET을 사용하여 다중 인스턴스 작업 만들기
 
 이제 풀 요구 사항 및 MPI 패키지 설치를 다루었으며 다중 인스턴스 작업을 만들어 보겠습니다. 이 코드 조각에서 표준 [CloudTask][net_task]를 만든 다음 해당 [MultiInstanceSettings][net_multiinstance_prop] 속성을 구성합니다. 이전에 설명했듯이 다중 인스턴스 작업은 고유한 작업 유형이 아니지만 다중 인스턴스 설정으로 구성된 표준 배치 작업입니다.
 

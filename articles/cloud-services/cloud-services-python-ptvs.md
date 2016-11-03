@@ -31,7 +31,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="what-are-python-web-and-worker-roles?"></a>Python 웹 및 작업자 역할 정의
+## <a name="what-are-python-web-and-worker-roles"></a>Python 웹 및 작업자 역할 정의
 
 Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델인 [Azure App Service의 Web Apps 기능][execution model-web sites], [Azure Virtual Machines][execution model-vms] 및 [Azure Cloud Services][execution model-cloud services]를 제공합니다. 이 세 모델은 모두 Python을 지원합니다. 웹 및 작업자 역할을 포함하는 Cloud Services는 *PaaS(Platform as a Service)*를 제공합니다. 클라우드 서비스 내에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
 
@@ -113,7 +113,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 </Runtime>
 ```
 
-#### <a name="sample-servicedefinition.csdef"></a>샘플 ServiceDefinition.csdef
+#### <a name="sample-servicedefinitioncsdef"></a>샘플 ServiceDefinition.csdef
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +165,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 다음으로 역할의 **./bin** 폴더에 **PrepPython.ps1** 및 **PipInstaller.ps1** 파일을 만듭니다.
 
-#### <a name="preppython.ps1"></a>PrepPython.ps1
+#### <a name="preppythonps1"></a>PrepPython.ps1
 
 이 스크립트는 Python을 설치합니다. **PYTHON2** 환경 변수가 **켜기**로 설정된 경우 Python 2.7이 설치되고 그렇지 않으면 Python 3.5가 설치됩니다.
 
@@ -212,7 +212,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
+#### <a name="pipinstallerps1"></a>PipInstaller.ps1
 
 이 스크립트는 pip를 호출하고 **requirements.txt** 파일에 모든 종속성을 설치합니다. **PYTHON2** 환경 변수가 **켜기**로 설정된 경우 Python 2.7이 사용되고 그렇지 않으면 Python 3.5가 사용됩니다.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="modify-launchworker.ps1"></a>LaunchWorker.ps1 수정
+#### <a name="modify-launchworkerps1"></a>LaunchWorker.ps1 수정
 
 >[AZURE.NOTE] **작업자 역할** 프로젝트의 경우에 시작 파일을 실행하려면 **LauncherWorker.ps1** 파일이 필요합니다. 대신 **웹 역할** 프로젝트에서 시작 파일은 프로젝트 속성에 정의됩니다.
 
@@ -284,7 +284,7 @@ else
 }
 ```
 
-#### <a name="ps.cmd"></a>ps.cmd
+#### <a name="pscmd"></a>ps.cmd
 
 Visual Studio 템플릿은 **./bin** 폴더에 **ps.cmd** 파일을 만들었어야 합니다. 이 셸 스크립트는 위의 PowerShell 래퍼 스크립트를 호출하고 호출된 PowerShell 래퍼의 이름을 기반으로 하는 로깅을 제공합니다. 이 파일이 생성되지 않은 경우 포함되어야 하는 내용은 다음과 같습니다. 
 

@@ -32,7 +32,7 @@
 > 저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 
-## <a name="how-to:-configure-monitoring-for-a-storage-account"></a>방법: 저장소 계정에 대한 모니터링 구성
+## <a name="how-to-configure-monitoring-for-a-storage-account"></a>방법: 저장소 계정에 대한 모니터링 구성
 
 1. [Azure 포털](https://portal.azure.com)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
@@ -63,7 +63,7 @@
 메트릭은 저장소 계정에서 이름이 $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue 및 $MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 [저장소 분석 메트릭 정보](http://msdn.microsoft.com/library/azure/hh343258.aspx)(영문)를 참조하십시오.
 
 
-## <a name="how-to:-customize-the-dashboard-for-monitoring"></a>방법: 모니터링을 위한 대시보드 사용자 지정
+## <a name="how-to-customize-the-dashboard-for-monitoring"></a>방법: 모니터링을 위한 대시보드 사용자 지정
 
 대시보드에서 사용 가능한 9개의 메트릭 중 메트릭 차트에 넣을 메트릭을 6개까지 선택할 수 있습니다. 각 서비스(Blob, 테이블 및 큐)에 대해 가용성, 성공 비율 및 총 요청 메트릭을 사용할 수 있습니다. 대시보드에서 최소 또는 세부 정보 표시 모니터링에 대해 사용할 수 있는 메트릭은 동일합니다.
 
@@ -82,7 +82,7 @@
 4. 메트릭 차트가 표시되는 시간 범위를 변경하려면 차트 맨 위에서 6시간, 24시간 또는 7일을 선택합니다.
 
 
-## <a name="how-to:-customize-the-monitor-page"></a>방법: 모니터 페이지 사용자 지정
+## <a name="how-to-customize-the-monitor-page"></a>방법: 모니터 페이지 사용자 지정
 
 **모니터** 페이지에서 저장소 계정의 전체 메트릭 집합을 볼 수 있습니다.
 
@@ -92,7 +92,7 @@
 
 메트릭 차트에서 검토할 저장소 메트릭과 **모니터** 페이지에 표시할 테이블을 선택하려면 다음 절차를 사용하십시오. 이러한 설정은 저장소 계정에서 모니터링 데이터의 컬렉션, 집계 및 저장소에 영향을 주지 않습니다.
 
-## <a name="how-to:-add-metrics-to-the-metrics-table"></a>방법: 메트릭 테이블에 메트릭 추가
+## <a name="how-to-add-metrics-to-the-metrics-table"></a>방법: 메트릭 테이블에 메트릭 추가
 
 
 1. [Azure 포털](https://portal.azure.com)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
@@ -129,7 +129,7 @@
 
     ![메트릭 삭제](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
-## <a name="how-to:-customize-the-metrics-chart-on-the-monitor-page"></a>방법: 모니터 페이지의 메트릭 차트 사용자 지정
+## <a name="how-to-customize-the-metrics-chart-on-the-monitor-page"></a>방법: 모니터 페이지의 메트릭 차트 사용자 지정
 
 1. 저장소 계정의 **모니터** 페이지에 있는 메트릭 테이블에서 메트릭 차트에 넣을 메트릭을 6개까지 선택할 수 있습니다. 메트릭을 선택하려면 왼쪽에 있는 확인란을 클릭합니다. 차트에서 메트릭을 제거하려면 확인란의 선택을 취소합니다.
 
@@ -139,7 +139,7 @@
 
 
 
-## <a name="how-to:-configure-logging"></a>방법: 로깅 구성
+## <a name="how-to-configure-logging"></a>방법: 로깅 구성
 
 저장소 계정(Blob, 테이블 및 큐)에서 사용 가능한 각 저장소 서비스에 대해 읽기 요청, 쓰기 요청 및/또는 삭제 요청의 진단 로그를 저장할 수 있으며 각 서비스의 데이터 보존 정책을 설정할 수 있습니다.
 

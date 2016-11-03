@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Azure 저장소 계정 목록"
-    description="Eclipse용 Azure 도구 키트를 사용하여 저장소 계정 설정 관리"
+    pageTitle="Azure Storage Account List"
+    description="Manage your storage account settings using the Azure Toolkit for Eclipse"
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,86 +13,85 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
 
-# Azure 저장소 계정 목록 #
+# <a name="azure-storage-account-list"></a>Azure Storage Account List
 
-Azure 저장소 계정은 JDK, 응용 프로그램 서버, 임의 구성 요소뿐만 아니라 캐싱을 사용하는 경우 상태 저장을 위해 다운로드 위치를 사용할 수 있도록 합니다. Eclipse는 프로젝트에 사용할 수 있는 알려진 저장소 계정 목록을 사용자의 Eclipse 작업 공간에 유지 관리합니다. 목록을 관리하는 데 사용되는 **Storage Accounts** 대화 상자를 열려면, Eclipse에서 **Window**, **Preferences**를 차례로 클릭하고 **Azure**를 확장한 다음 **Storage Accounts**를 클릭합니다.
+Azure storage accounts enable download locations to be used for your JDK, application server, and arbitrary components, as well as for storing state when using caching. Eclipse maintains a list of known storage accounts that are available to your projects in your Eclipse workspace. To open the **Storage Accounts** dialog, which is used to manage that list, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Storage Accounts**.
 
-다음은 **Storage Accounts** 대화 상자입니다.
+The following shows the **Storage Accounts** dialog.
 
 ![][ic719496]
 
-이 대화 상자는 다음과 같이 저장소 계정을 사용하는 대화 상자의 **Accounts** 링크를 통해 열 수도 있습니다.
+This dialog can also be opened from an **Accounts** link on dialog boxes that use storage accounts, such as the following:
 
-* **Server Configuration** 대화 상자의 **JDK** 탭
-* **Server Configuration** 대화 상자의 **Server** 탭
-* **Add Component** 대화 상자
-* **Caching** 속성 대화 상자
+* The **JDK** tab of the **Server Configuration** dialog.
+* The **Server** tab of the **Server Configuration** dialog.
+* The **Add Component** dialog.
+* The **Caching** properties dialog.
 
-## 게시 설정 파일을 사용하여 저장소 계정 가져오기 ##
+## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>To import your storage accounts using a publish settings file
 
-1. **Storage Accounts** 대화 상자에서 **Import from PUBLISH-SETTINGS file**을 클릭합니다.
-2. (게시 설정 파일을 로컬 컴퓨터에 이미 저장한 경우에는 이 단계를 건너뜁니다.) **Import Subscription Information** 대화 상자에서 **Download PUBLISH-SETTINGS File**을 클릭합니다. Azure 계정에 로그인하지 않은 경우에는 로그인을 요청하는 메시지가 표시됩니다. 그 후 Azure 게시 설정 파일을 저장하도록 요청하는 메시지가 표시됩니다. (로그인 페이지에 이렇게 표시되는 지침은 무시할 수 있습니다. 이러한 지침은 Azure 포털에 의해 제공되며 Visual Studio 사용자를 위한 것입니다.) 로컬 컴퓨터에 저장합니다.
-3. **Import Subscription Information** 대화 상자에서 **Browse** 단추를 클릭하고 이전에 로컬에 저장해 놓은 게시 설정 파일을 선택한 다음 **Open**을 클릭합니다.
-4. **OK**를 클릭하여 **Import Subscription Information** 대화 상자를 닫습니다.
+1. Within the **Storage Accounts** dialog, click **Import from PUBLISH-SETTINGS file**.
+2. (Skip this step if you have already saved a publish settings file to your local machine.) In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you'll be prompted to save an Azure publish settings file. (You can ignore the resulting instructions shown on the logon pages - they are provided by the Azure portal and are intended for Visual Studio users.) Save it to your local machine.
+3. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally previously, and then click **Open**.
+4. Click **OK** to close the **Import Subscription Information** dialog.
 
-## 새 저장소 계정 만들기 ##
+## <a name="to-create-a-new-storage-account"></a>To create a new storage account
 
-1. **Storage Accounts** 대화 상자에서 **Add**를 클릭합니다.
-2. **Add Storage Account** 대화 상자에서 **New**를 클릭합니다.
-3. **New Storage Account** 대화 상자에서 다음 항목에 대한 값을 지정합니다.
-    * 저장소 계정 이름
-    * 저장소 계정의 위치
-    * 저장소 계정에 대한 설명
-    * 저장소 계정이 속해 있는 구독
-4. **OK**를 클릭하여 **New Storage Account** 대화 상자를 닫습니다.
+1. Within the **Storage Accounts** dialog, click **Add**.
+2. Within the **Add Storage Account** dialog, click **New**.
+3. Within the **New Storage Account** dialog, specify values for the following:
+    * Storage account name.
+    * Location of the storage account.
+    * Description of the storage account.
+    * The subscription to which the storage account belongs.
+4. Click **OK** to close the **New Storage Account** dialog.
 
-저장소 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 계정이 생성된 후에 **OK**를 클릭하여 **Add Storage Account** 대화 상자를 닫으면, 새 저장소 계정이 사용 가능한 저장소 계정 목록에 추가됩니다.
+It may take several minutes for your storage account to be created. After it is created, click **OK** to close the **Add Storage Account** dialog, and your new storage account will be added to the list of available storage accounts.
 
-## 기존 저장소 계정을 목록에 추가 ##
+## <a name="to-add-an-existing-storage-account-to-the-list"></a>To add an existing storage account to the list
 
-1. Azure 저장소 계정이 없는 경우에는 위의 **새 저장소 계정 만들기 섹션**에 나열된 단계에 따라서 계정을 만듭니다. (또는 [Azure 관리 포털][]에서 새 저장소 계정을 만들 수 있습니다.)
-2. **Storage Accounts** 대화 상자에서 **Add**를 클릭합니다.
-3. **Add Storage Account** 대화 상자에서 **Name** 및 **Access Key**의 값을 입력합니다. 계정 이름 및 액세스 키는 기존 Azure 저장소 계정에 대한 값이어야 합니다. 저장소 계정 이름 및 키를 보려면 [Azure 관리 포털][]의 **저장소** 섹션을 사용합니다. **Add Storage Account** 대화 상자는 다음과 유사한 모양입니다.
+1. If you do not already have a Azure storage account, create one by following the steps listed in the **To create a new storage account section** above. (Alternatively, you can create a new storage account at the [Azure Management Portal][].)
+2. Within the **Storage Accounts** dialog, click **Add**.
+3. Within the **Add Storage Account** dialog, enter values for **Name** and **Access Key**. The account name and access key must be for an existing Azure storage account. Use the **Storage** section of the [Azure Management Portal][] to view your storage account names and keys. Your **Add Storage Account** dialog will look similar to the following.
 
     ![][ic719497]
 
-4. **OK**를 클릭하여 **Add Storage Account** 대화 상자를 닫습니다.
+4. Click **OK** to close the **Add Storage Account** dialog.
 
-## 새 액세스 키를 사용하도록 저장소 계정 수정 ##
+## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>To modify a storage account to use a new access key
 
-1. **Storage Accounts** 대화 상자에서 편집할 저장소 계정을 클릭한 후 **Edit**을 클릭합니다.
-2. **Edit Storage Account Access Key** 대화 상자에서 **Access Key** 값을 수정합니다.
-3. **OK**를 클릭하고 **Edit Storage Account Access Key** 대화 상자를 닫습니다.
+1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Edit**.
+2. Within the **Edit Storage Account Access Key** dialog, modify the **Access Key** value.
+3. Click **OK** to close the **Edit Storage Account Access Key** dialog.
 
-## Eclipse에 유지 관리되는 목록에서 저장소 계정 제거 ##
+## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>To remove a storage account from the list maintained in Eclipse
 
-1. **Storage Accounts** 대화 상자에서 편집할 저장소 계정을 클릭한 후 **Remove**를 클릭합니다.
-2. 저장소 계정을 제거한다는 메시지가 표시되면 **OK**를 클릭합니다.
+1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Remove**.
+2. Click **OK** when prompted to remove the storage account.
 
->[AZURE.NOTE] **Storage Accounts** 대화 상자를 통해 저장소 계정을 제거하면, 계정은 Eclipse 내에서 볼 수 있는 저장소 계정 목록에서만 제거됩니다. Azure 구독에서 저장소 계정을 제거하는 것은 아닙니다. 아울러 Eclipse에서 구독 세부 정보를 다시 로드한 후에 저장소 계정이 다시 표시될 수 있습니다.
+>[AZURE.NOTE] Removing the storage account through the **Storage Accounts** dialog only removes it from the list of storage accounts viewable within Eclipse. It does not remove the storage account from your Azure subscription. Additionally, the storage account could appear again in your list after Eclipse reloads the details of your subscription.
 
-## 참고 항목 ##
+## <a name="see-also"></a>See Also
 
-[Eclipse용 Azure 도구 키트][]
+[Azure Toolkit for Eclipse][]
 
-[Eclipse용 Azure 도구 키트 설치][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][]를 참조하세요.
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure 관리 포털]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
@@ -100,4 +99,10 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -55,7 +55,7 @@ Microsoft Azure 기계 학습에는 강력한 기계 학습 및 데이터 조작
 
 * 마지막으로 우유 생산의 계절성 시계열 예측 모델을 만듭니다.
 
-##<a name="<a-id="mlstudio"></a>interact-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>기계 학습 스튜디오에서 R 언어와 상호 작용
+##<a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>기계 학습 스튜디오에서 R 언어와 상호 작용
 
 이 섹션에서는 기계 학습 스튜디오 환경에서 R 프로그래밍 언어와 상호 작용하는 방법에 대한 일부 기본적인 과정을 안내합니다. R 언어는 Azure 기계 학습 환경에서 사용자 지정된 분석 및 데이터 조작 모듈을 만드는 강력한 도구를 제공합니다.
 
@@ -147,7 +147,7 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 
 [부록 A][appendixa]에 RStudio 사용에 대한 추가 정보가 일부 제공됩니다.  
 
-##<a name="<a-id="scriptmodule"></a>get-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>R 스크립트 실행 모듈의 데이터 입출력 가져오기
+##<a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>R 스크립트 실행 모듈의 데이터 입출력 가져오기
 
 이 섹션에서는 [R 스크립트 실행][execute-r-script] 모듈의 데이터를 입력 및 출력하는 방법을 설명합니다. [R 스크립트 실행][execute-r-script] 모듈의 내부 및 외부로 읽은 다양한 데이터 형식을 처리하는 방법을 검토합니다.
 
@@ -155,7 +155,7 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 
 ###<a name="load-and-check-data-in-machine-learning-studio"></a>기계 학습 스튜디오에서 데이터 로드 및 확인
 
-####<a name="<a-id="loading"></a>load-the-dataset"></a><a id="loading"></a>데이터 집합 로드
+####<a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>데이터 집합 로드
 
 **csdairydata.csv** 파일을 Azure 기계 학습 스튜디오로 로드하여 시작합니다.
 
@@ -355,7 +355,7 @@ R 장치 출력을 보려면 해당 포트를 클릭한 다음 **시각화**를 
 
 *그림 8. R 장치 포트의 그래픽 출력*  
 
-##<a name="<a-id="filtering"></a>data-filtering-and-transformation"></a><a id="filtering"></a>데이터 필터링 및 변환
+##<a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>데이터 필터링 및 변환
 
 이 섹션에서는 캘리포니아 유제품 데이터에 몇 가지 기본 데이터 필터링 및 변환 작업을 수행합니다. 이 섹션의 끝 부분에서 분석 모델을 구축하기에 적합한 형식의 데이터를 얻게 됩니다.  
 
@@ -646,7 +646,7 @@ R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두
 
 이 시점에서 데이터가 정리되며 모델링할 준비가 됩니다. [R 스크립트 실행][execute-r-script] 모듈의 Result Dataset 출력에 대한 시각화된 요약을 보면 'Month' 열이 바로 우리가 원하는 12개의 고유값을 가진 'Categorical'이라는 것을 알 수 있습니다.
 
-##<a name="<a-id="timeseries"></a>time-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>시계열 개체 및 상관관계 분석
+##<a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>시계열 개체 및 상관관계 분석
 
 이 섹션에서는 몇 가지 기본 R 시계열 개체를 살펴보고 일부 변수 간의 상관관계를 분석합니다. 여기서는 여러 지연 상황에서 쌍별 상관관계 정보를 포함하는 데이터 프레임을 출력하는 것이 목표입니다.
 
@@ -937,7 +937,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 *그림 19. 상관관계 분석 결과 출력*
 
-##<a name="<a-id="seasonalforecasting"></a>time-series-example:-seasonal-forecasting"></a><a id="seasonalforecasting"></a>시계열 예: 계절별 예측
+##<a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>시계열 예: 계절별 예측
 
 이제 데이터가 분석에 적합한 형식이 되었으며 변수 간에는 중요한 상관관계가 없습니다. 이제 시계열 예측 모델을 만들어 보겠습니다. 이 모델을 사용하여 2013년 12개월 동안의 캘리포니아 우유 생산을 예측합니다.
 
@@ -1273,7 +1273,7 @@ RMS 오차를 측정하는 함수를 사용하여 RMS 오차가 포함된 데이
 
 이러한 결과를 통해 모델에 계절 요소를 추가하면 RMS 오차가 현저히 감소한다는 사실을 알 수 있습니다. 별로 놀랍지는 않지만 학습 데이터의 RMS 오차는 예측의 RMS 오차보다 약간 적습니다.
 
-##<a name="<a-id="appendixa"></a>appendix-a:-guide-to-rstudio"></a><a id="appendixa"></a>부록 A - RStudio 가이드
+##<a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>부록 A - RStudio 가이드
 
 RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작할 수 있도록 RStudio 설명서의 주요 섹션에 대한 일부 링크를 제공합니다.
 
@@ -1293,7 +1293,7 @@ RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작
 
     중단점 문제 해결 기능은 https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting(영문)에 문서화되어 있습니다.
 
-##<a name="<a-id="appendixb"></a>appendix-b:-further-reading"></a><a id="appendixb"></a>부록 B - 추가 정보
+##<a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>부록 B - 추가 정보
 
 이 R 프로그래밍 자습서는 Azure 기계 학습 스튜디오에서 R 언어를 사용해야 하는 기본 사항을 소개합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 

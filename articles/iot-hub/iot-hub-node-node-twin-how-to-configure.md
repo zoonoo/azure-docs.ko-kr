@@ -17,7 +17,7 @@
      ms.author="elioda"/>
 
 
-# <a name="tutorial:-use-desired-properties-to-configure-devices-(preview)"></a>자습서: desired 속성을 사용하여 장치를 구성한다 (미리 보기)
+# <a name="tutorial-use-desired-properties-to-configure-devices-preview"></a>자습서: desired 속성을 사용하여 장치를 구성한다 (미리 보기)
 
 [AZURE.INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 

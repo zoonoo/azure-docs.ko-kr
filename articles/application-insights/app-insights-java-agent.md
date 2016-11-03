@@ -16,7 +16,7 @@
     ms.author="awills"/>
  
 
-# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>종속성, 예외 및 Java 웹앱에서의 실행 시간을 모니터링합니다.
+# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>종속성, 예외 및 Java 웹앱에서의 실행 시간을 모니터링합니다.
 
 *Application Insights는 미리 보기 상태입니다.*
 
@@ -103,7 +103,7 @@ Application Insights 리소스에서 원격 종속성과 메서드 실행 시간
 
 
 
-## <a name="questions?-problems?"></a>질문이 있으십니까? 문제가 있습니까?
+## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
 
 * 데이터가 없나요? [방화벽 예외 설정](app-insights-ip-addresses.md)
 * [Java 문제 해결](app-insights-java-troubleshoot.md)

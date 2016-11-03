@@ -44,7 +44,7 @@ SQL Database는 5분마다 로컬 데이터베이스 백업을 만들고 Azure �
 
 <!--## What is <feature>?" -->
 
-## <a name="what-is-a-sql-database-backup?"></a>SQL Database 백업이란?  
+## <a name="what-is-a-sql-database-backup"></a>SQL Database 백업이란?  
 
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
@@ -68,15 +68,15 @@ SQL Database는 [Azure Storage 복제](../storage/storage-redundancy.md)를 사�
 >[AZURE.NOTE] Azure Storage에서 *복제* 라는 용어는 한 위치에서 다른 위치로 파일을 복사하는 것을 말합니다. SQL의 *데이터베이스 복제* 는 주 데이터베이스와 동기화된 다수의 보조 데이터베이스를 유지하는 것을 말합니다. 
 
 
-## <a name="how-much-backup-storage-is-included-at-no-cost?"></a>무료 백업 저장소가 얼마나 포함되어 있습니까?
+## <a name="how-much-backup-storage-is-included-at-no-cost"></a>무료 백업 저장소가 얼마나 포함되어 있습니까?
 
 SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%가 백업 저장소로 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소를 갖습니다. 제공된 백업 저장소를 데이터베이스가 초과하면, Azure 지원 팀에 문의하여 보존 기간을 줄이도록 선택할 수 있습니다. 또 다른 옵션은 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금이 청구되는 추가 백업 저장소에 대한 비용을 지불하는 것입니다. 
 
-## <a name="how-often-do-backups-happen?"></a>백업이 얼마나 자주 수행됩니까?
+## <a name="how-often-do-backups-happen"></a>백업이 얼마나 자주 수행됩니까?
 
 매주 전체 데이터베이스 백업을 수행하고, 매 시간 차등 데이터베이스 백업을 수행하고, 5분마다 트랜잭션 로그 백업을 수행합니다. 첫 번째 전체 백업은 데이터베이스를 만든 후에 즉시 예약됩니다. 일반적으로 30분 내에 완료되지만 데이터베이스의 크기가 상당히 큰 경우에는 더 오래 걸릴 수 있습니다. 예를 들어, 복원된 데이터베이스 또는 데이터베이스 사본에 대한 초기 백업은 더 오래 걸릴 수 있습니다. 첫 번째 전체 백업 후에 모든 향후 백업은 자동으로 예약되며 백그라운드에서 자동으로 관리됩니다. 전체 및 [차등](https://msdn.microsoft.com/library/ms175526.aspx) 데이터베이스 백업의 정확한 타이밍은 전반적인 시스템 워크로드를 감안하여 결정됩니다. 
 
-## <a name="how-long-do-you-keep-my-backups?"></a>백업 보존 기간
+## <a name="how-long-do-you-keep-my-backups"></a>백업 보존 기간
 
 각 SQL Database 백업의 보존 기간은 데이터베이스의 [서비스 계층](sql-database-service-tiers.md)에 따라 다릅니다. 데이터베이스의 보존 기간은 다음과 같습니다.
 

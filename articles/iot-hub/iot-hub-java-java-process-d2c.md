@@ -17,7 +17,7 @@
      ms.author="dobett"/>
 
 
-# <a name="tutorial:-how-to-process-iot-hub-device-to-cloud-messages-using-java"></a>자습서: Java를 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법
+# <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-java"></a>자습서: Java를 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법
 
 [AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -124,7 +124,7 @@ IoT Hub가 [Event Hubs][lnk-event-hubs] 호환 끝점을 노출하여 장치-클
     mvn clean package -DskipTests
     ```
 
-## <a name="process-device-to-cloud-messages"></a>장치-클라우드 메시지 처리
+## <a name="process-devicetocloud-messages"></a>장치-클라우드 메시지 처리
 
 이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 처리하는 Java 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브]와 호환되는 끝점을 노출하여 응용 프로그램이 장치-클라우드 메시지를 읽을 수 있습니다. 이 자습서에서는 [EventProcessorHost] 클래스를 사용하여 콘솔 응용 프로그램에서 이러한 메시지를 처리합니다. 이벤트 허브에서 메시지를 처리하는 방법에 대한 자세한 내용은 [이벤트 허브 시작] 자습서를 참조하세요.
 

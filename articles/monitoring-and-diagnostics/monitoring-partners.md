@@ -75,7 +75,7 @@ OpsGenie는 Azure가 생성한 경고의 디스패처 역할을 합니다. OpsGe
 
 [설명서로 이동합니다.][pagerduty-doc]
 
-## <a name="splunk-add-on-for-microsoft-azure"></a>Microsoft Azure를 위한 Splunk 추가 기능
+## <a name="splunk-addon-for-microsoft-azure"></a>Microsoft Azure를 위한 Splunk 추가 기능
 Microsoft Azure를 위한 Splunk 추가 기능은 Microsoft Azure에서 실행 중인 인프라와 웹 사이트에서 중요 진단, 성능, 감사 및 보안 데이터를 수집합니다. 
 
 성능 및 진단 정보는 Azure Storage 테이블 및 Azure Storage Blob에서 수집됩니다. 감사 데이터는 Azure Insights 이벤트 API에서 수집됩니다. 네트워크 보안 그룹 데이터는 Azure Storage Blob에서 수집됩니다. 미리 작성된 몇 가지 패널이 이 추가 기능에 포함됩니다. 

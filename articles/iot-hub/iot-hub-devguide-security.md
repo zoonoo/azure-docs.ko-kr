@@ -100,7 +100,7 @@ AMQP와 SASL PLAIN을 사용할 때 IoT Hub에 연결한 클라이언트는 각 
 *  게이트웨이가 일반적으로 많은 장치를 대신하여 연결됩니다. SASL PLAIN을 사용할 때 IoT Hub에 연결한 각 장치에 고유한 TCP 연결을 만들어야 합니다. 이 시나리오는 전원 및 네트워킹 리소스의 소비를 상당히 증가시키고 각 장치 연결의 대기 시간을 늘립니다.
 * 각 토큰이 만료 후에 다시 연결하기 위해 리소스의 사용이 증가하여 리소스가 제한된 장치에 부정적인 영향을 미칩니다.
 
-## <a name="scope-hub-level-credentials"></a>허브 수준 자격 증명의 범위 지정
+## <a name="scope-hublevel-credentials"></a>허브 수준 자격 증명의 범위 지정
 
 제한된 리소스 URI로 토큰을 만들어 허브 수준 보안 정책의 범위를 지정할 수 있습니다. 예를 들어 장치에서 장치-클라우드 메시지를 보낼 끝점은 **/devices/{deviceId}/messages/events**입니다. 또한 **DeviceConnect** 사용 권한으로 허브 수준 공유 액세스 정책을 사용하여 resourceURI가 **/devices/{deviceId}**인 토큰에 서명할 수도 있습니다. 이 방법은 장치 **deviceId**대신 메시지를 전송하는 데에만 사용할 수 있는 토큰을 생성합니다.
 
@@ -280,7 +280,7 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead
 
-## <a name="supported-x.509-certificates"></a>지원되는 X.509 인증서
+## <a name="supported-x509-certificates"></a>지원되는 X.509 인증서
 
 X.509 인증서를 사용하여 IoT Hub에서 장치를 인증할 수 있습니다. 다음 내용이 포함됩니다.
 
@@ -292,11 +292,11 @@ X.509 인증서를 사용하여 IoT Hub에서 장치를 인증할 수 있습니�
 
 장치는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다.
 
-### <a name="register-an-x.509-client-certificate-for-a-device"></a>장치에 대해 X.509 클라이언트 인증서 등록
+### <a name="register-an-x509-client-certificate-for-a-device"></a>장치에 대해 X.509 클라이언트 인증서 등록
 
 [C#용 Azure IoT 서비스 SDK][lnk-service-sdk](버전 1.0.8+)는 인증을 위해 X.509 클라이언트 인증서를 사용하는 장치의 등록을 지원합니다. 장치 가져오기/내보내기 같은 기타 API에서도 X.509 클라이언트 인증서를 지원합니다.
 
-### <a name="c\#-support"></a>C\# 지원
+### <a name="c-support"></a>C\# 지원
 
 **RegistryManager** 클래스는 장치를 등록하는 프로그래밍 방식을 제공합니다. 특히 **AddDeviceAsync** 및 **UpdateDeviceAsync** 메서드를 사용하면 IoT Hub 장치 ID 레지스트리에서 사용자를 등록하고 장치를 업데이트할 수 있습니다. 이러한 두 메서드는 입력으로 **Device** 인스턴스를 수락합니다. **Device** 클래스에는 사용자가 기본 및 보조 X.509 인증서 지문을 지정할 수 있도록 하는 **Authentication** 속성이 포함되어 있습니다. 지문은 X.509 인증서의 SHA-1 해시(이진 DER 인코딩 사용)를 나타냅니다. 기본 지문이나 보조 지문 또는 둘 다를 지정하는 옵션이 제공됩니다. 인증서 롤오버 시나리오를 처리하기 위해 기본 및 보조 지문이 지원됩니다.
 
@@ -319,11 +319,11 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString(dev
 await registryManager.AddDeviceAsync(device);
 ```
 
-### <a name="use-an-x.509-client-certificate-during-runtime-operations"></a>런타임 작업 중에 X.509 클라이언트 인증서 사용
+### <a name="use-an-x509-client-certificate-during-runtime-operations"></a>런타임 작업 중에 X.509 클라이언트 인증서 사용
 
 [.NET용 Azure IoT 장치 SDK][lnk-client-sdk](버전 1.0.11+)는 X.509 클라이언트 인증서의 사용을 지원합니다.
 
-### <a name="c\#-support"></a>C\# 지원
+### <a name="c-support"></a>C\# 지원
 
 클래스 **DeviceAuthenticationWithX509Certificate**는 X.509 클라이언트 인증서를 사용하여  **DeviceClient** 인스턴스를 만들도록 지원합니다.
 

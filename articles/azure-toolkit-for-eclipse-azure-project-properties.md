@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Azure 프로젝트 속성"
-    description="Eclipse용 Azure 도구 키트에서 Azure 프로젝트 속성 설정을 설명합니다."
+    pageTitle="Azure Project Properties"
+    description="Describes the Azure Project Properties settings in the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,52 +13,57 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
 
-# Azure 프로젝트 속성 #
+# <a name="azure-project-properties"></a>Azure Project Properties
 
-Azure 프로젝트에 대한 다양한 설정은 Eclipse용 Azure 도구 키트 내에서 설정할 수 있습니다.
+Various settings for your Azure project can be set within the Azure Toolkit for Eclipse.
 
-## Azure 프로젝트 속성 구성 ##
+## <a name="configuring-azure-project-properties"></a>Configuring Azure Project Properties
 
-Azure 프로젝트 속성을 구성하려면 Azure 프로젝트에 대한 속성 대화 상자를 통해 수행합니다. Eclipse의 프로젝트 탐색기 창에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭한 다음 **Azure** 하위 메뉴를 선택합니다.
+Configuring your Azure Project Properties is accomplished through the property dialogs for your Azure project. Right-click the project in Eclipse's Project Explorer pane, click **Properties**, and then select the **Azure** sub-menu.
 
 ![][ic719480]
 
-이 속성 페이지 내에서 다음 항목을 변경할 수 있습니다.
+Within this property page, you can change the following items: 
 
-* **서비스 이름:** Azure 프로젝트에 대한 이름.
-* **빌드:** 프로젝트가 계산 에뮬레이터에 빌드되거나 Azure에 배포되도록 설정되어 있는지 여부.
-* **대상 OS:** 프로젝트를 Azure에 배포 시 사용할 운영 체제.
+* **Service name:** The name for your Azure project.
+* **Build for:** Whether the project is set for building to the compute emulator or deployment to Azure.
+* **Target OS:** The operating system to use when your project is deployed to Azure.
 
-## 참고 항목 ##
+## <a name="see-also"></a>See Also
 
-[Eclipse용 Azure 도구 키트][]
+[Azure Toolkit for Eclipse][]
 
-[Eclipse용 Azure 도구 키트 설치][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-[Azure 역할 속성][]
+[Azure Role Properties][]
 
-[Azure 저장소 계정 목록][]
+[Azure Storage Account List][]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][]를 참조하세요.
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure 역할 속성]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Azure 저장소 계정 목록]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

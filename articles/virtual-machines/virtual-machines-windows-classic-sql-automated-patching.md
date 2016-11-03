@@ -17,7 +17,7 @@
     ms.author="jroth" />
 
 
-# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-(classic)"></a>Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(클래식)
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(클래식)
 
 > [AZURE.SELECTOR]
 - [리소스 관리자](virtual-machines-windows-sql-automated-patching.md)

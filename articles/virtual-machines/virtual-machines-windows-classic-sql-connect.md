@@ -16,7 +16,7 @@
     ms.author="jroth" />
 
 
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-(classic-deployment)"></a>Azure에서 SQL Server 가상 컴퓨터 연결(클래식 배포)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server 가상 컴퓨터 연결(클래식 배포)
 
 > [AZURE.SELECTOR]
 - [리소스 관리자](virtual-machines-windows-sql-connect.md)

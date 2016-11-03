@@ -17,7 +17,7 @@
     ms.author="cephalin"/>
 
 
-# <a name="get-started-with-node.js-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 Node.js 웹앱 시작
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 Node.js 웹앱 시작
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -35,7 +35,7 @@
 - [Azure CLI]
 - Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록]하거나 [Visual Studio 구독자 혜택을 활성화]할 수 있습니다.
 
-## <a name="create-and-deploy-a-simple-node.js-web-app"></a>간단한 Node.js 웹앱 만들기 및 배포
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>간단한 Node.js 웹앱 만들기 및 배포
 
 1. 원하는 명령줄 터미널을 열고 [Yeoman Express 생성기]를 설치합니다.
 
@@ -108,11 +108,11 @@
     
     ![배포된 응용 프로그램에 대한 검색의 예제][deployed-express-app]
 
-## <a name="update-your-node.js-web-app"></a>Node.js 웹앱 업데이트
+## <a name="update-your-nodejs-web-app"></a>Node.js 웹앱 업데이트
 
 앱 서비스에서 실행되는 Node.js 웹앱을 업데이트하려면 웹앱을 처음 배포할 때처럼 `git add`, `git commit` 및 `git push`을 실행합니다.
      
-## <a name="how-app-service-deploys-your-node.js-app"></a>앱 서비스에서 Node.js 앱을 배포하는 방법
+## <a name="how-app-service-deploys-your-nodejs-app"></a>앱 서비스에서 Node.js 앱을 배포하는 방법
 
 Azure 앱 서비스는 [iisnode] 를 사용하여 Node.js 앱을 실행합니다. Azure CLI 및 Kudu 엔진(Git 배포)은 함께 작동하여 명령줄에서 Node.js 앱을 개발 및 배포할 때 능률적인 환경을 제공합니다. 
 
@@ -123,7 +123,7 @@ Azure 앱 서비스는 [iisnode] 를 사용하여 Node.js 앱을 실행합니다
     - package.json의 시작 스크립트를 가리키는 iisnode에 대한 Web.config를 생성합니다(예: server.js 또는 app.js).
     - Node-inspector로 디버깅을 위해 앱을 준비하는 데 Web.config를 사용자 지정합니다.
     
-## <a name="use-a-node.js-framework"></a>Node.js 프레임워크 사용
+## <a name="use-a-nodejs-framework"></a>Node.js 프레임워크 사용
 
 앱을 개발하기 위해 [Sails.js][SAILSJS] 또는 [MEAN.js][MEANJS]와 같이 널리 사용되는 Node.js 프레임워크를 사용하는 경우 App Service에 배포할 수 있습니다. 널리 사용되는 Node.js 프레임워크에는 특정 쿼크가 있고 해당 패키지 종속성은 계속 업데이트됩니다. 그러나 App Service에서는 stdout 및 stderr 로그가 제공되므로 앱으로 수행하는 작업을 정확히 알고 적절히 변경할 수 있습니다. 자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](#iisnodelog)를 참조하세요.
 
@@ -134,7 +134,7 @@ Azure 앱 서비스는 [iisnode] 를 사용하여 Node.js 앱을 실행합니다
 - [Azure 앱 서비스 웹앱에서 io.js를 사용하는 방법]
 
 <a name="version"></a>
-## <a name="use-a-specific-node.js-engine"></a>특정 Node.js 엔진 사용
+## <a name="use-a-specific-nodejs-engine"></a>특정 Node.js 엔진 사용
 
 일반적인 워크플로에서는 package.json에서 일반적으로 하는 것처럼 특정 Node.js 엔진을 사용하도록 App Service에 지시합니다.
 예:
@@ -193,7 +193,7 @@ iisnode 로그를 읽으려면 다음 단계를 수행하세요.
     
     ![iisnode 로그 파일 검사][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-node-inspector"></a>Node-Inspector로 앱 디버그
+## <a name="debug-your-app-with-nodeinspector"></a>Node-Inspector로 앱 디버그
 
 Node-Inspector를 사용하여 Node.js 앱을 디버깅하는 경우 라이브 앱 서비스 앱에 이를 사용할 수 있습니다. Node-Inspector는 앱 서비스에 대한 iisnode 설치에 미리 설치되어 있습니다. Git을 통해 배포하는 경우 Kudu에서 자동 생성된 Web.config에는 Node-Inspector를 사용하는 데 필요한 모든 구성이 이미 들어 있습니다.
 
@@ -258,6 +258,6 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO1-->
 
 

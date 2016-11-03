@@ -17,7 +17,7 @@
  ms.author="elioda"/>
 
 
-# <a name="understand-device-twins---preview"></a>장치 쌍 이해 - 미리 보기
+# <a name="understand-device-twins-preview"></a>장치 쌍 이해 - 미리 보기
 
 ## <a name="overview"></a>개요
 
